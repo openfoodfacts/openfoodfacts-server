@@ -1,0 +1,3 @@
+var additivesTags = [
+
+"E120"];

@@ -1,0 +1,23 @@
+var packagingTags = [
+
+"Acier-recyclable",
+"Aluminium-recyclable",
+"Bocal-verre",
+"Boite-plastique",
+"Bouteille",
+"Box",
+"Brick",
+"Brik",
+"Carton",
+"Conserve",
+"Fer",
+"Papier-aluminium",
+"Plastic",
+"Plastique",
+"Pot-plastique",
+"Pots-plastique",
+"Sachet",
+"Sachet-cellophane",
+"Sachet-plastique",
+"Sous-vide",
+"Tube-plastique"];

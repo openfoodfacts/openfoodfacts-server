@@ -1,0 +1,21 @@
+var categoriesTags = [
+
+"Boissons",
+"Boissons alcoolisées",
+"Plats préparés",
+"Soupes",
+"Soupes-de-nouilles",
+"Soupes déshydratées",
+"Bières",
+"Petit-déjeuners",
+"Epicerie",
+"Alcools forts",
+"Infusions",
+"Boissons chaudes",
+"Confitures",
+"Epices",
+"Produits à tartiner",
+"Produits à tartiner sucrés",
+"Thés",
+"Eaux-de-vie",
+"Rhums"];

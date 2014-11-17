@@ -1,0 +1,22 @@
+var statusTags = [
+
+"A compléter",
+"A vérifier",
+"Caractéristiques à compléter",
+"Caractéristiques complétées",
+"Catégories à compléter",
+"Complet",
+"Date limite à compléter",
+"Date limite complétée",
+"Emballage à compléter",
+"Informations nutritionnelles à compléter",
+"Informations nutritionnelles complétées",
+"Ingrédients à compléter",
+"Ingrédients complétés",
+"Marques à compléter",
+"Nom du produit à compléter",
+"Photos à envoyer",
+"Photos à valider",
+"Photos envoyées",
+"Photos validées",
+"Quantité à compléter"];

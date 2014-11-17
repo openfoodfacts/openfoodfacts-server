@@ -1,0 +1,14 @@
+var emb_codesTags = [
+
+"BE B276 EG",
+"BE CO-021 EG",
+"BE CO-378-A EG",
+"BE CO437 EG",
+"DE BY-70025 EG",
+"FR 28.015.011 EG",
+"FR 35.164.001 EG",
+"FR 38.408.002 EG",
+"FR 43.040.002 EG",
+"FR 59.043.030 EG",
+"LETTRE-X",
+"LETTRE-Z"];

@@ -1,0 +1,4 @@
+var tracesTags = [
+
+"Glutenvrij",
+"Melkvrij"];

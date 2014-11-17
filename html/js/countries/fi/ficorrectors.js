@@ -1,0 +1,4 @@
+var correctorsTags = [
+
+"Cdmad",
+"Gatien"];

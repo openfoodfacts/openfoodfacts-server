@@ -1,0 +1,22 @@
+var brandsTags = [
+
+"Amira",
+"Biodelices",
+"Briiggen",
+"Clover-leaf",
+"Coca-cola",
+"Coin-repas",
+"Escuminac",
+"French-s",
+"Kirkland",
+"Leclerc",
+"Liberte",
+"Liberty",
+"Loney-s",
+"Meiji",
+"Natur-a",
+"Nesquik",
+"Pepsi",
+"Perrier",
+"Tipiak",
+"Vignoble-de-l-orpailleur"];

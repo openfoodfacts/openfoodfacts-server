@@ -1,0 +1,4 @@
+var storesTags = [
+
+"Asda",
+"Carrefour"];

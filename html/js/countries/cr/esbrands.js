@@ -1,0 +1,3 @@
+var brandsTags = [
+
+"Craft-foods"];

@@ -1,0 +1,4 @@
+var storesTags = [
+
+"Coles",
+"Woolworths"];

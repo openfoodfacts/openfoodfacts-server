@@ -1,0 +1,4 @@
+var labelsTags = [
+
+"Vegetariano",
+"Vegano"];

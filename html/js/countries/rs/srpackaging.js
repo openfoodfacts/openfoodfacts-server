@@ -1,0 +1,4 @@
+var packagingTags = [
+
+"Plastic",
+"Plastica"];

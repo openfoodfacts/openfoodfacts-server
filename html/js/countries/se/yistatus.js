@@ -1,0 +1,22 @@
+var statusTags = [
+
+"A-completer",
+"A-verifier",
+"Caracteristiques-completees",
+"Categories-to-be-completed",
+"Characteristics-to-be-completed",
+"Complet",
+"Date-limite-a-completer",
+"Expiration-date-to-be-completed",
+"Informations-nutritionnelles-a-completer",
+"Informations-nutritionnelles-completees",
+"Ingredients-completes",
+"Ingredients-to-be-completed",
+"Nutrition-facts-to-be-completed",
+"Packaging-to-be-completed",
+"Photos-a-valider",
+"Photos-envoyees",
+"Photos-to-be-validated",
+"Photos-uploaded",
+"Photos-validees",
+"To-be-completed"];

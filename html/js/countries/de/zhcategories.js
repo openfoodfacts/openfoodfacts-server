@@ -1,0 +1,22 @@
+var categoriesTags = [
+
+"Alcoholic drinks",
+"Beers",
+"Beverages",
+"Cheeses",
+"Cow Cheeses",
+"Dairies",
+"fr:Camemberts",
+"fr:Fromages à pâte molle à croûte fleurie",
+"fr:Fromages pasteurisés",
+"de:Limonade",
+"de:Mate",
+"de:Miel",
+"de:Pilsner",
+"Breads",
+"Condiments",
+"Groceries",
+"fr:Bières blondes",
+"fr:Purées d'amande",
+"fr:Purées d'oléagineux",
+"fr:Rehausseur-de-gout"];

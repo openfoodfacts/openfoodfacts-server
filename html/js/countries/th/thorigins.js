@@ -1,0 +1,4 @@
+var originsTags = [
+
+"Thailand",
+"Thailande"];

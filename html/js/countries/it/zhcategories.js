@@ -1,0 +1,21 @@
+var categoriesTags = [
+
+"Beverages",
+"Cheeses",
+"Dairies",
+"Wines",
+"it:Caffe",
+"Alcoholic drinks",
+"Groceries",
+"Pastas",
+"Red wines",
+"Spices",
+"fr:Apéritif",
+"fr:Fromages à pâte filée",
+"fr:Fromages au lait de bufflonne",
+"fr:Fromages pasteurisés",
+"fr:Gewurztraminer",
+"fr:Mozzarella",
+"fr:Viandes-bovines",
+"it:Biscotti",
+"it:Wafer-con-crema-al-cioccolato"];

@@ -1,0 +1,22 @@
+var originsTags = [
+
+"22600-loudeac",
+"56540-saint-tugdual",
+"69400-arnas",
+"Agadir",
+"Allemagne",
+"Bretagne",
+"Casablanca-maroc",
+"Cotes-d-armor",
+"Emb-22136h",
+"Emb-56238a",
+"Emb-69013c",
+"Fabrique-en-france",
+"Fabrique-par",
+"France",
+"Marruecos",
+"Nederland",
+"Par",
+"Patisseries-gourmandes-sa",
+"Rhone",
+"Rhone-alpes"];

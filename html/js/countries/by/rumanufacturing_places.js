@@ -1,0 +1,2 @@
+var manufacturing_placesTags = [
+];

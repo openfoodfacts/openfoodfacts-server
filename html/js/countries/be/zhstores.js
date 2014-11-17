@@ -1,0 +1,23 @@
+var storesTags = [
+
+"100",
+"Ad-delhaize",
+"Aldi",
+"Auchan",
+"Carrefour",
+"Carrefour-planet",
+"Carrefour-super-market",
+"Colruyt",
+"Cora",
+"Delhaize",
+"Houra",
+"Leader-price",
+"Lidl",
+"M-p-restaurants-at-cicg",
+"Okay-colruyt-group",
+"Okcon-2013",
+"Oxfam",
+"Ramaut",
+"Score",
+"Spar",
+"Thiriet-saint-gilles"];

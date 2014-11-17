@@ -1,0 +1,23 @@
+var additivesTags = [
+
+"E330 - Acide citrique",
+"E322 - Lécithines",
+"E500 - Carbonates de sodium",
+"E150a - Caramels",
+"E170 - Carbonate de calcium",
+"E202 - Sorbate de potassium",
+"E290 - Dioxyde de carbone",
+"E338 - Acide orthophosphorique",
+"E101 - Riboflavine",
+"E150d - Caramel au sulfite d'ammonium",
+"E160a - Bêta-carotène",
+"E211 - Benzoate de sodium",
+"E270 - Acide lactique",
+"E296 - Acide malique",
+"E375 - Acide nicotinique",
+"E415 - Gomme xanthane",
+"E440a - CAS 9000-69-5",
+"E501 - Carbonates de potassium",
+"E621 - Glutamate monosodique",
+"E627 - Guanylate disodique",
+"E631 - Inosinate disodique"];

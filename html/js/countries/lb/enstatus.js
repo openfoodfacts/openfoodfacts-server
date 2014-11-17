@@ -1,0 +1,22 @@
+var statusTags = [
+
+"A-completer",
+"Brands to be completed",
+"Caracteristiques-completees",
+"Categories to be completed",
+"Characteristics to be completed",
+"Date-limite-completee",
+"Expiration date completed",
+"Expiration date to be completed",
+"Informations-nutritionnelles-a-completer",
+"Ingredients-completes",
+"Ingredients to be completed",
+"Nutrition facts to be completed",
+"Packaging to be completed",
+"Photos-a-valider",
+"Photos-envoyees",
+"Photos to be validated",
+"Photos uploaded",
+"Product name to be completed",
+"Quantity to be completed",
+"To be completed"];

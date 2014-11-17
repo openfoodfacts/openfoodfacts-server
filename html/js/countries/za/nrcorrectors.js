@@ -1,0 +1,4 @@
+var correctorsTags = [
+
+"Adieyal",
+"Teolemon"];

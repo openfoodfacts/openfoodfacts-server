@@ -1,0 +1,4 @@
+var brandsTags = [
+
+"Akmar",
+"Sera"];

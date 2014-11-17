@@ -1,0 +1,4 @@
+var categoriesTags = [
+
+"Genoise",
+"Mouchoirs"];

@@ -1,0 +1,4 @@
+var brandsTags = [
+
+"Fructal",
+"Knusperone"];

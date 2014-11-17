@@ -1,0 +1,23 @@
+var unknown_nutrientsTags = [
+
+"Acesulfame-k",
+"Aspartame",
+"Bicarbonates",
+"Chlore",
+"Chlorures",
+"Curcumine",
+"Cyclamate",
+"D2",
+"Fluorures",
+"Hydrates-de-carbone",
+"Insatures-trans",
+"Nitrate",
+"Nitrates",
+"Ph",
+"Piperine",
+"Residu-sec",
+"Sodium-equivalent-sel",
+"Sulfate",
+"Sulfates",
+"Vitamine-b3",
+"Vitamine-d2"];

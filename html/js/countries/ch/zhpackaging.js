@@ -1,0 +1,21 @@
+var packagingTags = [
+
+"Alu",
+"Aluminium",
+"Aluminum",
+"Barquette",
+"Boite",
+"Bouteille",
+"Bouteille-plastique",
+"Box",
+"Brique",
+"Carton",
+"Getrankedose",
+"Paquet",
+"Pet",
+"Plastic",
+"Plastique",
+"Pot",
+"Sachet",
+"Surgele",
+"Verre"];

@@ -1,0 +1,4 @@
+var informersTags = [
+
+"Bella",
+"Teolemon"];

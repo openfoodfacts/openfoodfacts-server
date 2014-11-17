@@ -1,0 +1,3 @@
+var photographersTags = [
+
+"Thierryb"];

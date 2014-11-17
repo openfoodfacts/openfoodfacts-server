@@ -1,0 +1,4 @@
+var originsTags = [
+
+"France",
+"Marseille"];

@@ -1,0 +1,21 @@
+var originsTags = [
+
+"Brasil",
+"Bresil",
+"Carapicuiba-sp",
+"Embu-sp",
+"Franca",
+"Gurulhos-sp",
+"Jundiai-sp",
+"Limeira-sp",
+"Minas-gerais",
+"Neropolis-go",
+"Osasco-sp",
+"Parana",
+"Piracicaba-sp",
+"Porto-alegre-rs",
+"Pouso-alegre-mg",
+"Rio-de-janeiro",
+"Sao-bernardo-do-campo-sp",
+"Tres-coracoes",
+"Uberlandia"];

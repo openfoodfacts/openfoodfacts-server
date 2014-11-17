@@ -1,0 +1,8 @@
+var emb_codesTags = [
+
+"BRASSERIE-LORRAINE-SA",
+"FR 97.103.616 EC",
+"FR 97.209.002 EC",
+"FR 97.222.0011 EC",
+"FR 97.222.011 EC",
+"FR 97.309.002 EC"];

@@ -1,0 +1,23 @@
+var tracesTags = [
+
+"Amandes",
+"Arachide",
+"Arachides",
+"Barley-ingredients",
+"Eggs",
+"Fish",
+"Fruits-a-coque",
+"Gluten",
+"Graines-a-sesame",
+"Lait",
+"Lait-de-chevre",
+"Noisettes",
+"Nuts",
+"Oeuf",
+"Peanuts",
+"Si-le-numero-de-lot-contient-la-lettre-n-peut-contenir-de-l-oeuf",
+"Soya",
+"Soybeans",
+"Sulphites",
+"Tree-nuts",
+"Wheat"];

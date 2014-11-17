@@ -1,0 +1,21 @@
+var labelsTags = [
+
+"Gluten-free",
+"Organic",
+"en:Raw",
+"en:Dairy-free",
+"Vegan",
+"Vegetarian",
+"en:Cold-processed",
+"Fair trade",
+"en:High-fibre",
+"en:High-proteins",
+"en:Laid-in-britain",
+"en:Natural",
+"No sugar",
+"en:Nut-free",
+"en:Salt-free",
+"en:Suitable-for-diabetics",
+"en:Sustainable-sea-food-msc",
+"en:Wheat-free",
+"en:Wholegrains"];

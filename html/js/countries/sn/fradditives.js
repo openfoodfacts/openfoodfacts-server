@@ -1,0 +1,23 @@
+var additivesTags = [
+
+"E322 - Lécithines",
+"E450 - Sels métalliques de diphosphates",
+"E101 - Riboflavine",
+"E300 - Acide ascorbique",
+"E306 - Extrait riche en tocophérols",
+"E330 - Acide citrique",
+"E1400 - Dextrines",
+"E160a - Bêta-carotène",
+"E170 - Carbonate de calcium",
+"E202 - Sorbate de potassium",
+"E331 - Citrates de sodium",
+"E339 - Orthophosphates de sodium",
+"E14XX - Amidons modifiés",
+"E375 - Acide nicotinique",
+"E407 - Carraghénanes",
+"E410 - Farine de graines de caroube",
+"E415 - Gomme xanthane",
+"E452 - Polyphosphates",
+"E504 - Carbonates de magnésium",
+"E952 - Acide cyclamique et ses sels",
+"E954 - Saccharine et ses sels"];

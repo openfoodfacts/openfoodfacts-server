@@ -1,0 +1,22 @@
+var categoriesTags = [
+
+"en:Tejtermek",
+"Dairies",
+"en:Liszt",
+"Beverages",
+"en:Cukor",
+"en:Fagylalt",
+"Frozen foods",
+"en:Gyogytea",
+"Herbal teas",
+"Hot drinks",
+"Ice creams",
+"Ice creams and sorbets",
+"en:Joghurt",
+"Milks",
+"en:Nadcukor",
+"en:Ricotta",
+"Teas",
+"en:Tej",
+"en:Tejszin",
+"Yogurts"];

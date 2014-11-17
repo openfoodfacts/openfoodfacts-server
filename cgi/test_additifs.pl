@@ -1,0 +1,134 @@
+#!/usr/bin/perl
+
+use CGI::Carp qw(fatalsToBrowser);
+
+use strict;
+use utf8;
+
+use Blogs::Config qw/:all/;
+use Blogs::Store qw/:all/;
+use Blogs::Index qw/:all/;
+use Blogs::Display qw/:all/;
+use Blogs::Tags qw/:all/;
+use Blogs::Users qw/:all/;
+use Blogs::Images qw/:all/;
+use Blogs::Lang qw/:all/;
+use Blogs::Mail qw/:all/;
+use Blogs::Products qw/:all/;
+use Blogs::Food qw/:all/;
+use Blogs::Ingredients qw/:all/;
+use Blogs::Images qw/:all/;
+
+
+use CGI qw/:cgi :form escapeHTML/;
+use URI::Escape::XS;
+use Storable qw/dclone/;
+use Encode;
+use JSON;
+
+
+# Get a list of all products
+
+my $class = 'additives';
+
+open (OUT, ">$www_root/images/$class.html");
+
+my $cursor = $products_collection->query({})->fields({ code => 1 })->sort({code =>1});
+my $count = $cursor->count();
+
+		my %plus = ();
+		my %minus = ();
+	
+	print STDERR "$count products to update\n";
+	
+	while (my $product_ref = $cursor->next) {
+        
+		
+		my $code = $product_ref->{code};
+		my $path = product_path($code);
+		
+		#next if $code ne '3329770041684';
+		
+		#print "testing product $code\n";
+		
+		$product_ref = retrieve_product($code);
+		my $class = 'additives';
+		defined $product_ref->{$class . '_tags'} or	$product_ref->{$class . '_tags'} = [];		
+		
+		my @old_r = @{$product_ref->{$class . '_tags'}};
+		my @old = @old_r;
+
+		# Update
+		extract_ingredients_classes_from_text($product_ref);
+		
+		my @new = @{$product_ref->{$class . '_tags'}};
+		my %old = {};
+		my %new = {};
+		my %all = {};
+		foreach my $old (@old) {
+				$all{$old}--;
+				$old{$old} = 1;
+		}
+		foreach my $new (@new) {
+			$all{$new}++;
+			$new{$new}++;
+		}
+		
+		my $change = '';
+		my $change_html = '';
+		
+
+		
+		foreach my $id (@old) {
+			if (not $new{$id}) {
+				$change .= "($id) ";
+				$change_html .= "<span style=\"color:#a00\">($id)</span> ";
+				$minus{$id}++;
+			}
+		}
+		
+		foreach my $id (@new) {
+			if (not $old{$id}) {
+				$change .= "+$id ";
+				$change_html .= "<span style=\"color:#0a0\">+$id</span> ";
+				$plus{$id}++;
+			}
+		}		
+		
+		if ($change ne '') {
+			print "change for $code: $change\n";
+		}
+
+		# Store
+		
+		next if $path =~ /invalid/;
+
+		if (-e "$data_root/products/$path/product.sto") {
+			#store("$data_root/products/$path/product.sto", $product_ref);		
+			#$products_collection->save($product_ref);
+		
+			# print OUT "<a href=\"" . product_url($product_ref) . "\">$product_ref->{code} - $product_ref->{name}</a> : " . join (" ", sort @{$product_ref->{$class . '_tags'}}) . "<br />\n";
+			if ($change ne '') {
+				print OUT "<a href=\"" . product_url($product_ref) . "\">$product_ref->{code} - $product_ref->{product_name}</a> : " . $change_html . "<br />\n";
+			}
+		}
+	}
+	
+	
+print OUT "<br><br><br>Additifs les plus enlevés :</br>";
+
+foreach my $id (sort { $minus{$b} <=> $minus{$a} } keys %minus) {
+	print OUT "<span style=\"color:#a00\">($id)</span> : $minus{$id}<br/>\n";
+}	
+
+print OUT "<br><br><br>Additifs les plus ajoutés :</br>";
+
+foreach my $id (sort { $plus{$b} <=> $plus{$a} } keys %plus) {
+	print OUT "<span style=\"color:#0a0\">+$id</span> : $plus{$id}<br/>\n";
+}	
+	
+	
+close OUT;	
+
+exit(0);
+

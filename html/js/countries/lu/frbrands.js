@@ -1,0 +1,20 @@
+var brandsTags = [
+
+"365",
+"Aldi",
+"Barilla",
+"Bjorg",
+"Coca-cola-compagnie",
+"Cora",
+"Danette",
+"Danone",
+"Delhaize",
+"Hema",
+"M-m-s",
+"M-ms",
+"Peanut",
+"Tropico",
+"Valblanc",
+"Vitasia",
+"Winny",
+"Yogitea"];

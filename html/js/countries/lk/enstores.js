@@ -1,0 +1,3 @@
+var storesTags = [
+
+"Grand-frais"];

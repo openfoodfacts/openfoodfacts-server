@@ -1,0 +1,4 @@
+var photographersTags = [
+
+"Kamounia",
+"Tacinte"];

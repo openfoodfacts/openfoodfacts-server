@@ -1,0 +1,20 @@
+var categoriesTags = [
+
+"Bigos",
+"Boczek",
+"Delicatesy",
+"Golonka",
+"Karczek",
+"Konserwy-ribne",
+"Majonez",
+"Odwodnione-zupa",
+"Pasztet-drobiowy",
+"Produit-polonais",
+"Ryba",
+"Soupes-deshydratees",
+"Sprats",
+"Szprot",
+"Szynka",
+"Vodka",
+"Zeberta",
+"Zupa"];

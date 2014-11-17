@@ -1,0 +1,21 @@
+var packagingTags = [
+
+"4-6",
+"A-l-abri-de-la-lumiere",
+"A-l-abri-du-soleil-et-de-la-lumiere",
+"Boite",
+"Boite-carton",
+"Bouteille",
+"Bouteille-plastique",
+"Carton",
+"Conserve",
+"Dry",
+"Frais",
+"Fresh",
+"Froid",
+"Loin-des-rayons-de-soleil",
+"Metal",
+"Plastique",
+"Pot-en-plastique",
+"Propre",
+"Sec"];

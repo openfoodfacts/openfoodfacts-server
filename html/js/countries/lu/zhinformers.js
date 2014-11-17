@@ -1,0 +1,4 @@
+var informersTags = [
+
+"Coldcat",
+"Katcha"];

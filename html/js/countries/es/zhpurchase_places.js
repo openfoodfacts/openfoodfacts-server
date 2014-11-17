@@ -1,0 +1,21 @@
+var purchase_placesTags = [
+
+"Altea-espagne",
+"Andorra",
+"Barcelona",
+"Barcelone",
+"Carrefour",
+"Conil-de-la-frontera-espagne",
+"Cordoba",
+"Espagne",
+"Espana",
+"Madrid",
+"Madrid-comunidad-autonoma",
+"Malaga",
+"Pampelune",
+"Portbou",
+"Sitio-web",
+"Spagna",
+"Spanien",
+"Toledo",
+"Www-flamencochueca-com"];

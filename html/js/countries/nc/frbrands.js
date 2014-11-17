@@ -1,0 +1,20 @@
+var brandsTags = [
+
+"Alsa",
+"Amora",
+"Arnott-s",
+"Auchan",
+"Casino-bio",
+"Casino-delices",
+"Charles-alice",
+"Fmf",
+"Golden-circle",
+"Grillon-d-or",
+"Kraft",
+"La-vie-claire",
+"Maggi",
+"Nestle",
+"Primeal",
+"Snappy-crackers",
+"Unilever",
+"Yogi-tea"];

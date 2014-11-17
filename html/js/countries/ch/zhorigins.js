@@ -1,0 +1,20 @@
+var originsTags = [
+
+"Alaska",
+"Allemagne",
+"Belgique",
+"Danemark",
+"Espagne",
+"Estavayer-le-lac",
+"France",
+"Hongrie",
+"Italie",
+"Normandie",
+"Ocean-pacifique",
+"Parme",
+"Pays-bas",
+"Roumanie",
+"Schweiz",
+"Suisse",
+"Ue",
+"Villers-ecalles"];

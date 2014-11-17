@@ -1,0 +1,2 @@
+var purchase_placesTags = [
+];

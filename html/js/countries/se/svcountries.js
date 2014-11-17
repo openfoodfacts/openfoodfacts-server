@@ -1,0 +1,4 @@
+var countriesTags = [
+
+"Sverige",
+"Frankrike"];

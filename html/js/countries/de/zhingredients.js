@@ -1,0 +1,23 @@
+var ingredientsTags = [
+
+"Amande",
+"Eau",
+"Extraits-de-houblon",
+"Ferments-lactiques",
+"Gerstenmalz",
+"Gerstenrostmalz",
+"Hopfen",
+"Houblon",
+"Kohlensaure",
+"Lait-de-normandie",
+"Malte-d-orge",
+"Miel",
+"Naturliches-zitronen-und-limettenaroma",
+"Orge",
+"Sauerungsmittel-citronensaure",
+"Saureregulator-natriumcitrate",
+"Sel",
+"Sirop-de-maltose",
+"Tomates",
+"Wasser",
+"Zucker"];

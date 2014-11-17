@@ -1,0 +1,20 @@
+var additivesTags = [
+
+"E101 - Riboflavine",
+"E150a - Caramels",
+"E150d - Caramel au sulfite d'ammonium",
+"E160a - Bêta-carotène",
+"E170 - Carbonate de calcium",
+"E202 - Sorbate de potassium",
+"E211 - Benzoate de sodium",
+"E290 - Dioxyde de carbone",
+"E322 - Lécithines",
+"E330 - Acide citrique",
+"E338 - Acide orthophosphorique",
+"E375 - Acide nicotinique",
+"E412 - Gomme de guar",
+"E415 - Gomme xanthane",
+"E500 - Carbonates de sodium",
+"E621 - Glutamate monosodique",
+"E627 - Guanylate disodique",
+"E631 - Inosinate disodique"];

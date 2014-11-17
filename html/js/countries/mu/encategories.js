@@ -1,0 +1,21 @@
+var categoriesTags = [
+
+"Beverages",
+"Alcoholic drinks",
+"Meals",
+"Soups",
+"fr:Soupes-de-nouilles",
+"fr:Soupes déshydratées",
+"Beers",
+"Breakfasts",
+"Groceries",
+"Hard liquors",
+"Herbal teas",
+"Hot drinks",
+"Jams",
+"Spices",
+"Spreads",
+"Sweet spreads",
+"Teas",
+"fr:Eaux-de-vie",
+"Rums"];

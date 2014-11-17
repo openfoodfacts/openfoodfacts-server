@@ -1,0 +1,20 @@
+var countriesTags = [
+
+"Belgien",
+"Frankreich",
+"Schweiz",
+"Niederlande",
+"fr:Europe",
+"en:",
+"Luxemburg",
+"Vereinigtes Königreich",
+"Algerien",
+"en:Belgique",
+"Kanada",
+"Deutschland",
+"Irak",
+"Marokko",
+"Portugal",
+"Spanien",
+"Vereinigte Staaten von Amerika",
+"nl:"];

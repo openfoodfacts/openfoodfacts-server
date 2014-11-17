@@ -1,0 +1,4 @@
+var countriesTags = [
+
+"Maurice",
+"France"];
