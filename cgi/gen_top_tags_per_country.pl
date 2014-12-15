@@ -55,6 +55,8 @@ ingredients_from_palm_oil
 ingredients_that_may_be_from_palm_oil
 status
 unknown_nutrients
+pnns_groups_2
+pnns_groups_1
 );
 
 # also generate stats for categories
