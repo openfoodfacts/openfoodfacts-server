@@ -61,7 +61,7 @@ else {
 	}
 
 
-	my @app_fields = qw(product_name brands quantity);
+	my @app_fields = qw(product_name brands quantity expiration_date packaging);
 	
 	foreach my $field (@app_fields) {
 		if (defined param($field)) {
