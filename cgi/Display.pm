@@ -222,7 +222,7 @@ sub init()
 		$subdomain =~ s/\.openfoodfacts/.test.openfoodfacts/;
 	}
 	
-	print STDERR "Display::init - r->uri : " . $hostname  . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country\n";
+	print STDERR "Display::init - r->uri : " . $hostname  . " subdomain: $subdomain - lc: $lc - lang: $lang - cc: $cc - country: $country\n";
 
 	
 	my $error = Blogs::Users::init_user();
@@ -1228,10 +1228,15 @@ sub display_tag($) {
 		print STDERR "Display.pm - city_code: $city_code \n";
 		
 		if (defined $emb_codes_cities{$city_code}) {
-			#$description .= lang("cities_s") . lang("sep") . ": " . display_tag_link('cities', $emb_codes_cities{$city_code});
+			$description .= "<p>" . lang("cities_s") . lang("sep") . ": " . display_tag_link('cities', $emb_codes_cities{$city_code}) . "</p>";
 		}
 		
+		print STDERR "display_tag packager_codes - canon_tagid: $canon_tagid\n";
+		
 		if (exists $packager_codes{$canon_tagid}) {
+		
+			print STDERR "display_tag packager_codes - canon_tagid: $canon_tagid exists, cc : " . $packager_codes{$canon_tagid}{cc} . "\n";
+		
 			if ($packager_codes{$canon_tagid}{cc} eq 'fr') {
 				$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{raison_sociale_enseigne_commerciale}</br>
@@ -1241,6 +1246,16 @@ SIRET : $packager_codes{$canon_tagid}{siret} - <a href="$packager_codes{$canon_t
 HTML
 ;
 			}
+			if ($packager_codes{$canon_tagid}{cc} eq 'es') {
+				# Razón Social;Provincia/Localidad
+				$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{razon_social}</br>
+$packager_codes{$canon_tagid}{provincia_localidad}
+</p>
+HTML
+;
+			}			
+
 			if ($packager_codes{$canon_tagid}{cc} eq 'uk') {
 			
 				my $district = '';
@@ -1937,6 +1952,8 @@ ingredients_from_palm_oil_n
 ingredients_from_palm_oil
 ingredients_that_may_be_from_palm_oil_n
 ingredients_that_may_be_from_palm_oil
+pnns_groups_1
+pnns_groups_2
 );
 
 		foreach my $field (@fields) {
@@ -2287,7 +2304,7 @@ sub display_scatter_plot($$$) {
 			{
                 name: '$title : $series_n{$seriesid} $Lang{products_p}{$lc}',
                 color: 'rgba($r, $g, $b, .9)',
-				turboThreshold : 5000,
+				turboThreshold : 0,
                 data: [ $series{$seriesid} ]
             },
 JS
@@ -2611,7 +2628,7 @@ sub display_histogram($$$) {
 				total: $series_n{$seriesid},
 				shortname: '$title',
                 color: 'rgba($r, $g, $b, .9)',
-				turboThreshold : 5000,
+				turboThreshold : 0,
                 data: [
 JS
 ;
@@ -2966,10 +2983,21 @@ JS
 					
 				my $data_start = '{';
 				
+				
+				my $manufacturing_places =  escape_single_quote($product_ref->{"manufacturing_places"});
+				$manufacturing_places =~ s/,( )?/, /g;
+				if ($manufacturing_places ne '') {
+					$manufacturing_places = ucfirst(lang("manufacturing_places_p")) . lang("sep") . ": " . $manufacturing_places . "<br/>";
+				}	
+				
+				
 				my $origins =  escape_single_quote($product_ref->{origins});
+				$origins =~ s/,( )?/, /g;
 				if ($origins ne '') {
-					$origins = 'Provenance : ' . $origins;
+					$origins = ucfirst(lang("origins_p")) . lang("sep") . ": " . $origins . "<br/>";;
 				}				
+				
+				$origins = $manufacturing_places . $origins;
 					
 				$data_start .= ' product_name:"' . escape_single_quote($product_ref->{product_name}) . '", brands:"' . escape_single_quote($product_ref->{brands}) . '", url: "' . $url . '", img:\''
 					. escape_single_quote(display_image($product_ref, 'front', $thumb_size)) . "', origins:\'" . $origins . "'";	
@@ -2987,10 +3015,13 @@ JS
 					
 						my $geo = undef;
 						
-						if (exists $packager_codes{$emb_code}) {
-							if (exists $packager_codes{$emb_code}{fsa_rating_business_geo_lat}) {
-								$geo = $packager_codes{$emb_code}{fsa_rating_business_geo_lat} . ',' . $packager_codes{$emb_code}{fsa_rating_business_geo_lng};
+						if (exists $packager_codes{$emb_code}) {					
+							if (exists $packager_codes{$emb_code}{lat}) {
+								$geo = $packager_codes{$emb_code}{lat} . ',' . $packager_codes{$emb_code}{lng};
 							}
+							elsif (exists $packager_codes{$emb_code}{fsa_rating_business_geo_lat}) {
+								$geo = $packager_codes{$emb_code}{fsa_rating_business_geo_lat} . ',' . $packager_codes{$emb_code}{fsa_rating_business_geo_lng};
+							}								
 							elsif ($packager_codes{$emb_code}{cc} eq 'uk') {
 								#my $address = 'uk' . '.' . $packager_codes{$emb_code}{local_authority};
 								my $address = 'uk' . '.' . $packager_codes{$emb_code}{canon_local_authority};
