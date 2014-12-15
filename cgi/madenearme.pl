@@ -322,7 +322,7 @@ if ($action eq 'process') {
 	my $html = '';
 	
 	use Data::Dumper;
-	print STDERR "search.pl - query: \n" . Dumper($query_ref) . "\n";
+	print STDERR "madenearme.pl - lc: $lc - cc: $cc - query: \n" . Dumper($query_ref) . "\n";
 	
 	$query_ref->{lc} = $lc;
 	
