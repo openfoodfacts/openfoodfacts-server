@@ -70,10 +70,16 @@ my $notfound = 0;
 
 if (opendir (DH, "$data_root/packager-codes")) {
 	foreach my $file (readdir(DH)) {
-		if ($file =~ /(\w+)-merge.csv/) {
+		if ($file =~ /(\w+)-merge(-UTF-8)?.csv/i) {
 			my $country = lc($1);
+			my $encoding = "windows-1252";
+			if (defined $2) {
+				$encoding = $2;
+				$encoding =~ s/^-//;
+			}
 			my $key = $packager_code_key{$country};
-			open (IN, "<:encoding(windows-1252)", "$data_root/packager-codes/$file") or die("Could not open $data_root/packager-codes/$file: $!");
+			
+			open (IN, "<:encoding($encoding)", "$data_root/packager-codes/$file") or die("Could not open $data_root/packager-codes/$file: $!");
 			my @fields = split(/;|\t/, <IN>);
 			my @headers = ();
 			my %headers = ();
@@ -103,9 +109,18 @@ if (opendir (DH, "$data_root/packager-codes")) {
 					$code = normalize_packager_codes("UK $code EC");
 					
 				}
+				elsif ($country eq 'es') {
+					# Nº RGSEAA; Razón Social;Provincia/Localidad;lat;lon;Actividades;Especies;Otros Detalles
+					$code = $fields[$headers{n_rgseaa}];
+					$code = normalize_packager_codes("ES $code CE");
+				}
 				
 				$code = get_fileid($code);
-				$code =~ s/-(eg|ce)$/-ec/i;
+				$code =~ s/-(eg|ce|ew|we|eec)$/-ec/i;
+				
+				if ($country eq 'es') {
+					print STDERR "$code: $code\n";
+				}
 				
 				#print "country: $country - code: $code\n";
 				
@@ -123,24 +138,24 @@ if (opendir (DH, "$data_root/packager-codes")) {
 				
 				if ($country eq 'uk') {
 				
-				my $debug = "local_authority: " . $packager_codes{$code}{local_authority} . "\ndistrict: " . $packager_codes{$code}{district} . " \n";
-				
-				foreach my $local_authority (split (/,|\//, $packager_codes{$code}{local_authority} . ', ' . $packager_codes{$code}{district})) {
-					my $canon_local_authority = get_canon_local_authority($local_authority);
-					$debug .= "$local_authority --> $canon_local_authority\n";
-					if (defined $geocode_addresses{$country . '.' . $canon_local_authority}) {
-						$packager_codes{$code}{canon_local_authority} = $canon_local_authority;
-						last;
+					my $debug = "local_authority: " . $packager_codes{$code}{local_authority} . "\ndistrict: " . $packager_codes{$code}{district} . " \n";
+					
+					foreach my $local_authority (split (/,|\//, $packager_codes{$code}{local_authority} . ', ' . $packager_codes{$code}{district})) {
+						my $canon_local_authority = get_canon_local_authority($local_authority);
+						$debug .= "$local_authority --> $canon_local_authority\n";
+						if (defined $geocode_addresses{$country . '.' . $canon_local_authority}) {
+							$packager_codes{$code}{canon_local_authority} = $canon_local_authority;
+							last;
+						}
 					}
-				}
-				
-				if (not defined $packager_codes{$code}{canon_local_authority}) {
-					$notfound++;
-					# print "code: $code - could not find canon local authority for local authority: $packager_codes{$code}{local_authority} - district: $packager_codes{$code}{district}\ndebug: $debug\n";
-				}
-				else {
-					$found++;
-				}
+					
+					if (not defined $packager_codes{$code}{canon_local_authority}) {
+						$notfound++;
+						# print "code: $code - could not find canon local authority for local authority: $packager_codes{$code}{local_authority} - district: $packager_codes{$code}{district}\ndebug: $debug\n";
+					}
+					else {
+						$found++;
+					}
 				
 				}
 				
