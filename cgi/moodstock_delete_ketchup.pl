@@ -66,9 +66,10 @@ use MIME::Base64;
 		$id =~ s/\\n/\n/g;
 		
 		$j++;
+
+		print "id: $id\n";
 		
-		next;
-		next if $id !~ /^8715700033235/;
+		next if ($id !~ /^8715/);
 		
 		print "deleting id: $id\n";
 		my $response = $browser->request(HTTP::Request->new("DELETE","$ep/ref/$id"));

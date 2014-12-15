@@ -43,16 +43,16 @@ GetOptions ( 'agemin=s' => \$agemin, 'agemax=s' => \$agemax, 'pretend'=>\$preten
 my $query_ref = {  complete=>1} ;
 
 if (defined $agemin) {
-#	defined $query_ref->{ last_modified_t } or $query_ref->{ last_modified_t } = {};
-#	$query_ref->{ last_modified_t }{'$lt' => (time() - $agemin * 86400)};
+	defined $query_ref->{ last_modified_t } or $query_ref->{ last_modified_t } = {};
+	$query_ref->{ last_modified_t }{'$lt' => (time() - $agemin * 86400)};
 }
 
 if (defined $agemax) {
-	#defined $query_ref->{ last_modified_t } or $query_ref->{ last_modified_t } = {};
+#	defined $query_ref->{ last_modified_t } or $query_ref->{ last_modified_t } = {};
 #	$query_ref->{ last_modified_t }{'$gt' => (time() - $agemax * 86400)};
 }
 
-my $cursor = $products_collection->query($query_ref )->sort({unique_scans_n => -1})->limit(10000)->fields({ code => 1, images=>1, last_modified_t=>1 } );;
+my $cursor = $products_collection->query($query_ref )->sort({unique_scans_n => -1})->fields({ code => 1, images=>1, last_modified_t=>1 } );;
 
 
 
@@ -64,10 +64,18 @@ my $j = 0;
 	
 	
 	my @products;
+
+	my $i = 0;
 	
 	while (my $product_ref = $cursor->next) {
+		if (defined $agemax) {
+			next if ($product_ref->{last_modified_t} < (time() - $agemax * 86400));
+		}
 		push @products, $product_ref;
+		$i++;
 	}
+
+	print STDERR "$i products kept\n";
 	
 	foreach my $product_ref (@products) {
 	
@@ -92,7 +100,7 @@ if (defined $agemax) {
 		my $code = $product_ref->{code};
 		my $path = product_path($code);
 		
-		next if ($code !~ /3258561490069|8423348402350/);
+		#next if ($code !~ /871570/);
 		
 		print STDERR "updating product $code\n";
 		
@@ -112,7 +120,7 @@ if (defined $agemax) {
 			
 			$j++;
 			
-			$j > 5000 and last;
+			$j > 10000 and last;
 			
 			my $productid = "$code - $product_ref->{product_name} - $product_ref->{brands}";
 			
@@ -165,6 +173,8 @@ if (defined $agemax) {
 			my $key = "6boshzcjfsqyxmnl9znd";
 			my $secret = "ZunCQ56gcp53GhZb";
 			my $image_filename = $www_root . '/images/products/' . $path . '/' . $id . '.' . $product_ref->{images}{$id}{rev} . '.' . $size . '.jpg';
+			
+			(-e $image_filename) or next;
 
 			# Boilerplate
 			my $browser = LWP::UserAgent->new();
