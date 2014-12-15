@@ -22,11 +22,14 @@ BEGIN
 					&canonicalize_tag_link
 					
 					&has_tag
+					&add_tag
+					&remove_tag
 	
 					%canon_tags
 					%tags_images
 					%tags_texts
 					%tags_levels
+					%levels
 					
 					&get_taxonomyid
 					
@@ -161,6 +164,40 @@ sub has_tag($$$) {
 	}
 	return $return;
 }
+
+
+sub add_tag($$$) {
+
+	my $product_ref = shift;
+	my $tagtype = shift;
+	my $tagid = shift;
+	
+	push @{$product_ref->{$tagtype . "_tags"}}, $tagid; 
+}
+
+sub remove_tag($$$) {
+
+	my $product_ref = shift;
+	my $tagtype = shift;
+	my $tagid = shift;
+	
+	my $return = 0;
+	
+	if (defined $product_ref->{$tagtype . "_tags"}) {
+	
+		$product_ref->{$tagtype . "_tags_new"} = [];
+		foreach my $tag (@{$product_ref->{$tagtype . "_tags"}}) {
+			if ($tag ne $tagid) {
+				push @{$product_ref->{$tagtype . "_tags_new"}}, $tag;
+			}
+		}
+		$product_ref->{$tagtype . "_tags"} = $product_ref->{$tagtype . "_tags_new"};
+		delete $product_ref->{$tagtype . "_tags_new"};
+	}
+	return $return;
+}
+
+
 
 sub load_tags_images($$) {
 	my $lc = shift;
@@ -1255,7 +1292,7 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 		}
 	}
 	
-	return sort { $level{$tagtype}{$b} <=> $level{$lc}{$a} || ($a cmp $b) } keys %tags;
+	return sort { ($level{$tagtype}{$b} <=> $level{$tagtype}{$a}) || ($a cmp $b) } keys %tags;
 }
 
 
