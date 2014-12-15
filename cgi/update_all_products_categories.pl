@@ -70,6 +70,10 @@ my $count = $cursor->count();
 			}
 		# Store
 
+		if ($domain =~ /openfoodfacts/) {
+			Blogs::Food::special_process_product($product_ref);
+		}
+	
 		store("$data_root/products/$path/product.sto", $product_ref);		
 		$products_collection->save($product_ref);
 		
