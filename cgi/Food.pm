@@ -41,6 +41,8 @@ BEGIN
 					&normalize_packager_codes
 					&get_canon_local_authority
 					
+					&special_process_product
+					
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -225,6 +227,7 @@ caffeine-
 taurine-
 ph-
 fruits-vegetables-nuts-
+collagen-meat-protein-ratio-
 carbon-footprint
 nutrition-score-fr-
 nutrition-score-uk-
@@ -1670,6 +1673,11 @@ ph => {
 	fr => "Fruits, légumes et noix (minimum)",
 	unit => '%',
 },
+"collagen-meat-protein-ratio" => {
+	en => "Collagen/Meat protein ratio (maximum)",
+	fr => "Rapport collagène sur protéines de viande (maximum)",
+	unit => "%",
+},
 "nutrition-score-uk" => {
 	en => "Nutrition score - UK",
 	unit => '',
@@ -1852,6 +1860,185 @@ sub normalize_serving_size($) {
 }
 
 
+my %pnns = (
+
+"Fruits" => "Fruits and vegetables",
+"Dried fruits" => "Fruits and vegetables",
+"Vegetables" => "Fruits and vegetables",
+"Soups" => "Fruits and vegetables",
+
+"Cereals" => "Cereals and potatoes",
+"Bread" => "Cereals and potatoes",
+"Potatoes" => "Cereals and potatoes",
+"Legumes" => "Cereals and potatoes",
+"Breakfast cereals" => "Cereals and potatoes",
+
+"Dairy desserts" => "Milk and dairy products",
+"Cheese" => "Milk and dairy products",
+"Ice cream" => "Milk and dairy products",
+"Milk and yogurt" => "Milk and dairy products",
+
+"Offals" => "Fish Meat Eggs",
+"Processed meat" => "Fish Meat Eggs",
+"Eggs" => "Fish Meat Eggs",
+"Fish and seafood" => "Fish Meat Eggs",
+"Meat" => "Fish Meat Eggs",
+
+"Chocolate products" => "Sugary snacks",
+"Sweets" => "Sugary snacks",
+"Biscuits and cakes" => "Sugary snacks",
+"Pastries" => "Sugary snacks",
+
+"Nuts" => "Salty snacks",
+"Appetizers" => "Salty snacks",
+"Salty and fatty products" => "Salty snacks",
+
+"Fats" => "Fat and sauces",
+"Dressings and sauces" => "Fat and sauces",
+
+"Pizza pies and quiche" => "Composite foods",
+"One-dish meals" => "Composite foods",
+"Sandwich" => "Composite foods",
+
+"Artificially sweetened beverages" => "Beverages",
+"Non-sugared beverages" => "Beverages",
+"Sweetened beverages" => "Beverages",
+"Fruit juices" => "Beverages",
+"Fruit nectars" => "Beverages",
+
+);
+
+foreach my $group (keys %pnns) {
+	$pnns{get_fileid($group)} = get_fileid($pnns{$group});
+}
+
+
+sub special_process_product($) {
+
+	my $product_ref = shift;
+	
+	my $added_categories = '';
+	
+	if (has_tag($product_ref,"categories","en:beverages")) {
+	
+		if (defined $product_ref->{nutriments}{"alcohol_100g"}) {
+			if (($product_ref->{nutriments}{"alcohol_100g"} < 1) and has_tag($product_ref,"categories","en:alcoholic-beverages")) {
+				remove_tag($product_ref,"categories","en:alcoholic-beverages");	
+				add_tag($product_ref,"categories","en:non-alcoholic-beverages");	
+			}
+			if (($product_ref->{nutriments}{"alcohol_100g"} >= 1) and not has_tag($product_ref,"categories","en:alcoholic-beverages")) {
+				add_tag($product_ref,"categories","en:alcoholic-beverages");	
+			}
+		}
+		else {
+			if ((not has_tag($product_ref,"categories","en:non-alcoholic-beverages"))
+				and (not has_tag($product_ref,"categories","en:alcoholic-beverages")) ) {
+				add_tag($product_ref,"categories","en:non-alcoholic-beverages");	
+			}
+		}
+	
+		if (not (has_tag($product_ref,"categories","en:alcoholic-beverages")
+			or has_tag($product_ref,"categories","en:fruit-juices")
+			or has_tag($product_ref,"categories","en:fruit-nectars") ) ) {
+		
+			if (has_tag($product_ref,"categories","en:sodas") and not has_tag($product_ref,"categories","en:diet-sodas")) {
+				$added_categories .= ", en:sugared-beverages";
+			}
+			elsif ($product_ref->{with_sweeteners} 
+				and not has_tag($product_ref,"categories","en:artificially-sweetened-drinks")) {
+				$added_categories .= ", en:artificially-sweetened-drinks";
+			}
+			elsif (has_tag($product_ref, "ingredients", "sucre") or has_tag($product_ref, "ingredients", "sucre-de-canne")
+				or has_tag($product_ref, "ingredients", "sucre-de-canne-roux") or has_tag($product_ref, "ingredients", "sucre-caramelise")
+				or has_tag($product_ref, "ingredients", "sucre-de-canne-bio") or has_tag($product_ref, "ingredients", "sucres")
+				or has_tag($product_ref, "ingredients", "pur-sucre-de-canne") or has_tag($product_ref, "ingredients", "sirop-de-sucre-inverti")
+				or has_tag($product_ref, "ingredients", "sirop-de-sucre-de-canne") or has_tag($product_ref, "ingredients", "sucre-bio")
+				or has_tag($product_ref, "ingredients", "sucre-de-canne-liquide") or has_tag($product_ref, "ingredients", "sucre-de-betterave")
+				or has_tag($product_ref, "ingredients", "sucre-inverti") or has_tag($product_ref, "ingredients", "canne-sucre")
+				or has_tag($product_ref, "ingredients", "sucre-glucose-fructose") or has_tag($product_ref, "ingredients", "glucose-fructose-et-ou-sucre")
+				or has_tag($product_ref, "ingredients", "sirop-de-glucose") or has_tag($product_ref, "ingredients", "glucose")
+				or has_tag($product_ref, "ingredients", "sirop-de-fructose") or has_tag($product_ref, "ingredients", "saccharose")
+				or has_tag($product_ref, "ingredients", "sirop-de-fructose-glucose") or has_tag($product_ref, "ingredients", "sirop-de-glucose-fructose-de-ble-et-ou-de-mais")
+				or has_tag($product_ref, "ingredients", "sugar") or has_tag($product_ref, "ingredients", "sugars")
+				) {
+				$added_categories .= ", en:sugared-beverages";
+			}
+			else {
+				$added_categories .= ", en:non-sugared-beverages";
+			}
+		}
+	
+	}
+	
+	if ($added_categories ne '') {
+		my $field = 'categories';
+		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field} . $added_categories) ];
+		$product_ref->{$field . "_tags" } = [];
+		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
+			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
+		}	
+	}
+	
+	my $cat = <<CAT
+<en:Beverages
+en:Sugared beverages, Beverages with added sugar
+fr:Boissons sucrées, Boissons avec du sucre ajouté
+pnns_group_2:en:Sweetened beverages
+
+<en:Beverages
+en:Artificially sweetened beverages
+fr:Boissons édulcorées, boissons aux édulcorants
+pnns_group_2:en:Artificially sweetened beverages
+
+<en:Beverages
+en:Non-sugared beverages, beverages without added sugar
+fr:Boissons non sucrées, boissons sans sucre ajouté
+pnns_group_2:en:Non-sugared beverages
+
+<en:Beverages
+en:Alcoholic drinks, drinks with alcohol, alcohols
+es:Bebidas alcohólicas
+fr:Boissons alcoolisées, boisson alcoolisée, alcool, alcools	
+CAT
+;
+	
+	# compute PNNS groups 2 and 1
+	
+	delete $product_ref->{pnns_groups_1};
+	delete $product_ref->{pnns_groups_1_tags};
+	delete $product_ref->{pnns_groups_2};
+	delete $product_ref->{pnns_groups_2_tags};
+	
+	foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
+		if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{"pnns_group_2:en"})) {
+			$product_ref->{pnns_groups_2} = $properties{categories}{$categoryid}{"pnns_group_2:en"};
+			$product_ref->{pnns_groups_2_tags} = [get_fileid($product_ref->{pnns_groups_2})];
+			last;
+		}
+	}
+	
+	if (defined $product_ref->{pnns_groups_2}) {
+		if (defined $pnns{$product_ref->{pnns_groups_2}}) {
+			$product_ref->{pnns_groups_1} = $pnns{$product_ref->{pnns_groups_2}};
+			$product_ref->{pnns_groups_1_tags} = [get_fileid($product_ref->{pnns_groups_1})];
+		}
+		else {
+			print STDERR "warning, no pnns group 1 for pnns group 2 $product_ref->{pnns_groups_2}\n";
+		}
+	}
+	else {
+		if (defined $product_ref->{categories}) {
+			$product_ref->{pnns_groups_2} = "unknown";
+			$product_ref->{pnns_groups_2_tags} = ["unknown"];
+			$product_ref->{pnns_groups_1} = "unknown";
+			$product_ref->{pnns_groups_1_tags} = ["unknown"];		
+		}
+	}
+	
+}
+
+
+
 sub fix_salt_equivalent($) {
 
 	my $product_ref = shift;
@@ -1920,6 +2107,31 @@ sub compute_nutrition_score($) {
 	
 	my $a_points = $energy_points + $saturated_fat_points + $sugars_points + $sodium_points;
 	
+# Pour les boissons, les grilles d’attribution des points pour l’énergie et les sucres simples ont été modifiées.
+# ATTENTION, le lait, les laits végétaux ne sont pas compris dans le calcul des scores boissons. Ils relèvent du calcul général.
+
+	my $fr_beverages_energy_points = int(($product_ref->{nutriments}{"energy_100g"} - 0.00001 + 30) / 30);
+	$fr_beverages_energy_points > 10 and $fr_beverages_energy_points = 10;
+	
+	my $fr_beverages_sugars_points = int(($product_ref->{nutriments}{"sugars_100g"} - 0.00001 + 1.5) / 1.5);
+	$fr_beverages_sugars_points > 10 and $fr_beverages_sugars_points = 10;	
+	
+# L’attribution des points pour les sucres prend en compte la présence d’édulcorants, pour lesquels la grille maintient les scores sucres simples à 1 (au lieu de 0).		
+	
+	if ((defined $product_ref->{with_sweeteners}) and ($fr_beverages_sugars_points == 0)) {
+		$fr_beverages_sugars_points = 1;
+	}
+	
+#Pour les boissons chaudes non sucrées (thé, café), afin de maintenir leur score à 0 (identique à l’eau), le score KJ a été maintenu à 0 si les sucres simples sont à 0.
+
+	if (has_tag($product_ref, "categories", "en:hot-beverages") and (has_tag($product_ref, "categories", "en:coffees") or has_tag($product_ref, "categories", "en:teas"))) {
+		if ($product_ref->{nutriments}{"sugars_100g"} == 0) {
+			$fr_beverages_energy_points = 0;
+		}
+	}
+	
+	my $a_points_fr_beverages = $fr_beverages_energy_points + $saturated_fat_points + $fr_beverages_sugars_points + $sodium_points;
+	
 	# points for fruits, vegetables and nuts
 	
 	my $fruits = 0;
@@ -1933,19 +2145,28 @@ sub compute_nutrition_score($) {
 		$fruits = "100";
 	}
 	elsif (
-		has_tag($product_ref, "categories", "fr:compotes")
+		has_tag($product_ref, "categories", "en:fruit-sauces")
 		) {
 		$fruits = "90";
 	}		
 	elsif (
 		has_tag($product_ref, "categories", "en:vegetables")
+		or has_tag($product_ref, "categories", "en:fruits")
+		or has_tag($product_ref, "categories", "en:mushrooms")
+		or has_tag($product_ref, "categories", "en:canned-fruits")
+		or has_tag($product_ref, "categories", "en:frozen-fruits")
 		) {
-		$fruits = "85";
+		$fruits = "90";
 	}	
 	elsif (has_tag($product_ref, "categories", "en:jams")
 		) {
 		$fruits = "50";
 	}
+	elsif (has_tag($product_ref, "categories", "en:fruits-based-foods")
+		or has_tag($product_ref, "categories", "en:vegetables-based-foods")) {
+		$fruits = 85;
+	}
+	$product_ref->{"fruits-vegetables-nuts_100g_estimate"} = $fruits;
 	
 	my $fruits_points = 0;
 	
@@ -1996,23 +2217,43 @@ COMMENT
 	
 	my $a_points_fr_matieres_grasses = $energy_points + $saturated_fat_points_fr_matieres_grasses + $sugars_points + $sodium_points;
 
-	my $fsa_score = $a_points;
-	my $fr_score = $a_points;
+	my $a_points_fr = $a_points;
+	
 	if (has_tag($product_ref, "categories", "en:fats")) {
-		$fr_score = $a_points_fr_matieres_grasses;
+		$a_points_fr = $a_points_fr_matieres_grasses;
 		$product_ref->{nutrition_score_debug} .= " -- in fats category";		
 	}
+	elsif (has_tag($product_ref, "categories", "en:beverages")
+		and not (has_tag($product_ref, "categories", "en:plant-milks") or has_tag($product_ref, "categories", "en:milks"))) {
+		$product_ref->{nutrition_score_debug} .= " -- in beverages category";
+		
+		$a_points_fr = $a_points_fr_beverages;
+	}
+	
+	my $fsa_score = $a_points;
+	my $fr_score = $a_points_fr;	
+	
+	#FSA
 	
 	if ($a_points < 11) {
 		$fsa_score -= $c_points;
-		$fr_score -= $c_points;
 	}
 	elsif ($fruits_points == 5) {
 		$fsa_score -= $c_points;
-		$fr_score -= $c_points;
 	}
 	else {
 		$fsa_score -= ($fruits_points + $fiber_points);
+	}
+	
+	# FR
+	
+	if ($a_points_fr < 11) {
+		$fr_score -= $c_points;
+	}
+	elsif ($fruits_points == 5) {
+		$fr_score -= $c_points;
+	}
+	else {
 		if (has_tag($product_ref, "categories", "en:cheeses")) {
 			$fr_score -= $c_points;
 			$product_ref->{nutrition_score_debug} .= " -- in cheeses category";
@@ -2020,7 +2261,7 @@ COMMENT
 		else {
 			$fr_score -= ($fruits_points + $fiber_points);
 		}
-	}
+	}	
 	
 	$product_ref->{nutriments}{"nutrition-score-uk"} = $fsa_score;
 	$product_ref->{nutriments}{"nutrition-score-fr"} = $fr_score;
@@ -2057,7 +2298,26 @@ COMMENT
 
 	delete $product_ref->{"nutrition-grade-fr"};
 	delete $product_ref->{"nutrition_grade_fr"};
-	if (not has_tag($product_ref, "categories", "en:beverages")) {
+	
+	if (has_tag($product_ref, "categories", "en:beverages")
+		and not (has_tag($product_ref, "categories", "en:plant-milks") or has_tag($product_ref, "categories", "en:milks"))) {
+		if ($fr_score <= 0) {
+			$product_ref->{"nutrition_grade_fr"} = 'a';
+		}
+		elsif ($fr_score <= 4) {
+			$product_ref->{"nutrition_grade_fr"} = 'b';
+		}
+		elsif ($fr_score <= 8) {
+			$product_ref->{"nutrition_grade_fr"} = 'c';
+		}
+		elsif ($fr_score <= 11) {
+			$product_ref->{"nutrition_grade_fr"} = 'd';
+		}	
+		else {
+			$product_ref->{"nutrition_grade_fr"} = 'e';
+		}	
+	}
+	else {
 		if ($fr_score <= -2) {
 			$product_ref->{"nutrition_grade_fr"} = 'a';
 		}
@@ -2103,8 +2363,8 @@ sub compute_serving_size_data($) {
 			$product_ref->{nutriments}{$nid . "_serving"} += 0.0;
 			$product_ref->{nutriments}{$nid . "_100g"} = '';
 		
-			if (($nid eq 'alcohol') or ($nid eq 'nutrition-score') or ($nid eq 'ph') or ($nid eq 'fruits-vegetables-nuts')) {
-				$product_ref->{nutriments}{$nid . "_100g"} = $product_ref->{nutriments}{$nid};
+			if (($nid eq 'alcohol') or ($nid eq 'nutrition-score') or ($nid eq 'ph') or ($nid eq 'fruits-vegetables-nuts') or ($nid eq 'collagen-meat-protein-ratio')) {
+				$product_ref->{nutriments}{$nid . "_100g"} = $product_ref->{nutriments}{$nid} + 0.0;
 			}
 			elsif ($product_ref->{serving_quantity} > 0) {
 				
@@ -2122,8 +2382,8 @@ sub compute_serving_size_data($) {
 			$product_ref->{nutriments}{$nid . "_100g"} += 0.0;
 			$product_ref->{nutriments}{$nid . "_serving"} = '';
 			
-			if (($nid eq 'alcohol') or ($nid =~ /^nutrition-score/) or ($nid eq 'ph') or ($nid eq 'fruits-vegetables-nuts')) {
-				$product_ref->{nutriments}{$nid . "_serving"} = $product_ref->{nutriments}{$nid};
+			if (($nid eq 'alcohol') or ($nid =~ /^nutrition-score/) or ($nid eq 'ph') or ($nid eq 'fruits-vegetables-nuts') or ($nid eq 'collagen-meat-protein-ratio')) {
+				$product_ref->{nutriments}{$nid . "_serving"} = $product_ref->{nutriments}{$nid} + 0.0;
 			}			
 			elsif ($product_ref->{serving_quantity} > 0) {
 			
@@ -2268,6 +2528,9 @@ sub normalize_packager_codes($) {
 	my $codes = shift;
 
 	$codes = uc($codes);
+	
+	$codes =~ s/\/\///g;
+	
 	$codes =~ s/(^|,|, )(emb|e)(\s|-|_|\.)?(\d+)(\.|-|\s)?(\d+)(\.|_|\s|-)?([a-z]*)/$1EMB $4$6$8/ig;
 	
 	# FRANCE -> FR
@@ -2299,6 +2562,16 @@ sub normalize_packager_codes($) {
 		$code =~ s/\s|-|_|\.|\///g;
 		return "$countrycode $code EC";
 	}
+	
+	sub normalize_es_ce_code($$$$) {
+		my $countrycode = shift;
+		my $code1 = shift;
+		my $code2 = shift;
+		my $code3 = shift;
+		$countrycode = uc($countrycode);
+		$code3 = uc($code3);
+		return "$countrycode $code1.$code2/$code3 CE";
+	}	
 
 	sub normalize_ce_code($$) {
 		my $countrycode = shift;
@@ -2315,7 +2588,13 @@ sub normalize_packager_codes($) {
 	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.)?((\w|\.|_|\s|-)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . normalize_uk_ce_code($2,$4)/ieg;	
 	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . normalize_uk_ce_code($2,$4)/ieg;	
 	
-	$codes =~ s/(^|,|, )(\w\w)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . normalize_ce_code($2,$4)/ieg;	
+	# NO-RGSEAA-21-21552-SE -> ES 21.21552/SE
+	
+	
+	$codes =~ s/(^|,|, )n(o|°|º)?(\s|-|_|\.)?rgseaa(\s|-|_|\.|:|;)*(\d\d)(\s|-|_|\.)?(\d+)(\s|-|_|\.|\/|\\)?(\w+)\b/$1 . normalize_es_ce_code('es',$5,$7,$9)/ieg;
+	$codes =~ s/(^|,|, )(es)(\s|-|_|\.)?(\d\d)(\s|-|_|\.|:|;)*(\d+)(\s|-|_|\.|\/|\\)?(\w+)(\.|_|\s|-)?(ce|eec|ec|eg)?\b/$1 . normalize_es_ce_code('es',$4,$6,$8)/ieg;
+	
+	$codes =~ s/(^|,|, )(\w\w)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg|we)\b/$1 . normalize_ce_code($2,$4)/ieg;	
 	
 	return $codes;
 }

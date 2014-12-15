@@ -255,6 +255,14 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		}
 	}
 	
+	# Food category rules for sweeetened/sugared beverages
+	# French PNNS groups from categories
+	
+	if ($domain =~ /openfoodfacts/) {
+		Blogs::Food::special_process_product($product_ref);
+	}
+	
+	
 	if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')) {
 		push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
 		push @{$product_ref->{"labels_tags" }}, "en:carbon-footprint";
