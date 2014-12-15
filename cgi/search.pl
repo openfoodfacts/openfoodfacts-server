@@ -105,7 +105,10 @@ for (my $i = 0; $i < $nutriments_n ; $i++) {
 	my $nutriment = remove_tags_and_quote(decode utf8=>param("nutriment_$i"));
 	my $nutriment_compare = remove_tags_and_quote(decode utf8=>param("nutriment_compare_$i"));
 	my $nutriment_value = remove_tags_and_quote(decode utf8=>param("nutriment_value_$i"));
-		
+	
+	if ($lc eq 'fr') {
+		$nutriment_value =~ s/,/\./g;
+	}
 	push @search_nutriments, [
 		$nutriment, $nutriment_compare, $nutriment_value,
 	];
