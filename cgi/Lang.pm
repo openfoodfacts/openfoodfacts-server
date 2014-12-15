@@ -52,6 +52,7 @@ cs => 'cs',
 es => 'es',
 en => 'en',
 it => 'it',
+fi => 'fi',
 fr => 'fr',
 he => 'he',
 nl => 'nl',
@@ -69,6 +70,7 @@ zh => 'zh',
 'es'=>'Español',
 'en'=>'English',
 'it'=>'Italiano',
+'fi'=>'Suomi',
 'fr'=>'Français',
 'he'=>'עברית',
 'nl'=>'Nederlands',
@@ -117,6 +119,12 @@ categories => {
 	ar => 'atassnifate',
 	pt => 'categoria',
 	he => 'categoria',    
+},
+pnns_groups_1 => {
+	en => 'pnns-group-1',
+},
+pnns_groups_2 => {
+	en => 'pnns-group-2',
 },
 packaging => { 
 	fr => 'conditionnement',
@@ -404,6 +412,12 @@ categories => {
 #	ar =>  'atassnifate',
 	pt => 'categorias',
 #	he => 'categoria',    
+},
+pnns_groups_1 => {
+	en => 'pnns-groups-1',
+},
+pnns_groups_2 => {
+	en => 'pnns-groups-2',
 },
 packaging => { 
 	fr => 'conditionnements',
@@ -2360,6 +2374,13 @@ categories_note => {
 	he => "ציון הקטגוריה החשובה ביותר. קטגוריות „הורים“ יתווספו אוטומטית.",
 },
 
+pnns_groups_1 => {
+	en => "PNNS groups 1",
+},
+pnns_groups_2 => {
+	en => "PNNS groups 2",
+},
+
 labels => {
 	fr => "Labels, certifications, récompenses",
 	en => "Labels, certifications, awards",
@@ -3143,6 +3164,22 @@ categories_p => {
 	he => "קטגוריות",
 },
 
+pnns_groups_1_s => {
+	en => "PNNS group 1",
+},
+
+pnns_groups_1_p => {
+	en => "PNNS groups 1",
+},
+
+pnns_groups_2_s => {
+	en => "PNNS group 2",
+},
+
+pnns_groups_2_p => {
+	en => "PNNS groups 2",
+},
+
 emb_codes_s => {
 	fr => "code emballeur",
 	en => "packager code",
@@ -3252,16 +3289,16 @@ packaging_p => {
 },
 
 origins_s => {
-	fr => "origine",
-	en => "origin",
+	fr => "origine des ingrédients",
+	en => "origin of ingredients",
 	es => "origen",
 	pt => "origem",
 	he => "מקור",
 },
 
 origins_p => {
-	fr => "origines",
-	en => "origins",
+	fr => "origines des ingrédients",
+	en => "origins of ingredients",
 	es => "orígenes",
 	pt => "origens",
 	he => "מקורות",
