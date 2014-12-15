@@ -37,24 +37,33 @@ de:Vegetarisch
 en:Vegetarian, Suitable for vegetarians
 es:Vegetariano, Producto vegetariano, Apto para vegetarianos, Vegetarian
 fr:Végétarien, Convient aux végétariens
+it:Vegetariano
+pt:Vegetariano
 
 < de:Vegetarisch
 de:Vegan
 en:Vegan, Suitable for vegans
 es:Vegano, Producto vegano, Vegan
 fr:Végétalien, Végan, végétal
+it:Vegano, Vegan
+pt:Vegano, Producto vegano, Vegan
 
 < de:Vegan
 en:Vegan Action
 es:Vegan Action
+wikidata:en: Q7918275
 
 < de:Vegan
 en:Vegan Society
+de:Vegan Society
 es:Vegan Society
+fr:Vegan Society
+wikidata:en: Q1855049
 
 < de:Vegetarisch
 en:Vegetarian Society
 es:Vegetarian Society
+wikidata:en: Q2154954
 
 en:1% for the planet, 1 percent for the planet, one percent for the planet
 es:1% para el planeta
@@ -71,8 +80,11 @@ en:Assured Food Standards, assured food standard, Red Tractor
 
 en:Authentic Trappist Product
 es:Authentic Trappist Product, Producto trapense auténtico
+fr:Produit trappiste authentique
+wikidata:en: Q3406760
 
 en:British Lion Quality, Lion Quality, British Lion Eggs, Lion Eggs, The Lion Mark, Lion Mark
+wikidata:en: Q4969906
 
 en:Carbon compensated product, carbon neutral
 fr:Produit compensé carbone, Carbone neutre, neutre en carbone, carbone compensé
@@ -83,9 +95,16 @@ es:Huella de carbono, Emisiones de CO2
 fr:Empreinte carbone, émissions de carbone
 it:Emissioni di CO2, impronta climatica
 pt:Pegada de carbono, Emissões de CO2
+wikidata:en: Q310667
 
 en:Certified Belgian Abbey Beer
 es:Certified Belgian Abbey Beer, Cerveza belga de abadía, Cerveza belga de abadía certificada
+fr:Bière belge d'Abbaye reconnue
+wikidata:en: Q2794703
+
+en:Cooperative product
+es:Producto de cooperativa
+wikidata:en: Q4539
 
 en:Denominación de Origen
 es:DO, D.O., Denominación de Origen
@@ -100,6 +119,7 @@ fr:Agriculture UE, Agriculture Union Européeenne
 en:Fair trade
 es:Comercio justo, Fairtrade-Comercio Justo
 fr:Commerce équitable, équitable
+wikidata:en: Q188485
 
 < en:Fair trade
 en:Fairtrade International, Fairtrade, FLO international, FLO
@@ -108,6 +128,7 @@ fr:Fairtrade International, Fairtrade, FLO international, FLO
 
 < en:Fair trade
 en:Max Havelaar, Max Havelar
+wikidata:en: Q694008
 
 < en:Max Havelaar
 fr:Max Havelaar Belgique
@@ -125,12 +146,17 @@ fr:Nourri sans OGM
 en:Freedom Food, Freedom food rspca monitored
 
 en:FSC, Forest Stewardship Council
+de:FSC, Forest Stewardship Council
 es:FSC, Forest Stewardship Council, Consejo de Administración Forestal
+fr:FSC, Forest Stewardship Council
+wikidata:en: Q748367
 
 en:Gluten-free, Without gluten, No gluten
+de:Glutenfrei
 es:Sin gluten
 fr:Sans gluten
 it:Senza glutine
+wikidata:en: Q2632776
 
 < en:Gluten-free
 en:FACE
@@ -141,9 +167,23 @@ de:Grüne Punkt, Der Grüne Punkt
 es:Punto Verde, El Punto Verde
 fr:Point Vert, Le Point Vert
 it:Punto Verde, Il Punto Verde
+wikidata:en: Q975485
 
-en:High fibres, high fibers
+en:Halal
+es:Halal
+fr:Halal
+wikidata:en: Q177823
+
+< en:Halal
+fr:ARGML
+
+en:High fibres, high fibers, Rich in fiber
+es:Rico en fibra, Rico en fibras, Fuente de Fibra
 fr:Riche en fibres
+
+en:High in Omega 3
+es:Rico en Omega 3
+fr:Riche en Oméga-3
 
 en:High proteins
 fr:Riche en protéines
@@ -151,16 +191,52 @@ fr:Riche en protéines
 en:In braille
 es:En braille, Producto en braille
 fr:Produit en braille
+wikidata:en: Q79894
+
+en:Incorrect data on label, Incorrect data
+fr:Informations incorrectes sur l'emballage, Informations incorrectes
+
+< en:Incorrect data on label
+en:Incorrect nutrition facts on label, Incorrect nutrition facts, Informations nutritionnelles incorrectes
+fr:Informations nutritionnelles incorrectes sur l'emballage, Informations nutritionnelles incorrectes
 
 en:Integrated production
 es:Producción Integrada
+wikidata:en: Q1665511
 
 en:Kosher, kasher
 es:Kosher
 fr:Kascher, Kasher, Cacher, casher, kacher, cascher, kosher
+wikidata:en: Q1076110
 
 < en:Kosher
 en:Orthodox Union, OU
+wikidata:en: Q358284
+
+en:Label Rouge
+es:Label Rouge
+fr:Label Rouge
+wikidata:en: Q3214309
+
+en:Labels of distributors
+es:Etiquetas de distribuidores
+fr:Labels de distributeurs
+
+< en:Labels of distributors
+en:Carrefour Quality, Quality Carrefour
+es:Calidad Carrefour, Carrefour Calidad, Carrefour Quality
+fr:Qualité Carrefour, Carrefour Qualité
+
+< en:Labels of distributors
+en:Panel Test Carrefour
+es:Panel Test Carrefour
+fr:Testé par le panel test Carrefour, Panel test Carrefour
+
+< en:Labels of distributors
+fr:Label Carrefour
+
+< en:Labels of distributors
+fr:Sélection Intermarché
 
 en:LEAF, Linking Environment and Farming, LEAF Linking Environment and Farming
 
@@ -219,7 +295,7 @@ en:No caffeine, caffeine free
 es:Sin cafeína
 fr:Sans caféine, sans théine
 
-en:no cholesterol, cholesterol-free
+en:No cholesterol, cholesterol-free
 es:Sin colesterol
 fr:sans cholestérol
 
@@ -227,15 +303,15 @@ en:No colorings, no added colorings
 es:Sin colorantes, Sin colorantes añadidos
 fr:Sans colorants, sans colorant ajouté, sans ajout de colorant
 
-en:no eggs, egg free
+en:No eggs, egg free
 es:Sin huevo, Sin huevos
 fr:sans oeufs
 
-en:no flavors, no added flavors
+en:No flavors, no added flavors
 es:Sin aromas, Sin aromas añadidos
 fr:sans arômes, sans arômes ajoutés
 
-en:no flavour enhancer
+en:No flavour enhancer
 fr:sans exhausteur de goût, sans exhausteurs de goût
 
 < en:No flavour enhancer
@@ -248,7 +324,10 @@ de:Ohne Gentechnik
 es:Sin OMG, Sin transgénicos, Sin OMGs, Sin Organismos Modificados Genéticamente
 fr:Sans OGM
 
-en:no lactose, lactose-free
+en:No hydrogenated fats
+es:Sin grasas hidrogenadas
+
+en:No lactose, lactose-free
 es:Sin lactosa
 fr:sans lactose
 it:Senza lattosio
@@ -257,48 +336,65 @@ en:No lecithine, lecithine-free
 es:Sin lecitina
 fr:Sans lécithine
 
-en:no milk, milk-free, dairy-free, no dairy
+en:No milk, milk-free, dairy-free, no dairy
 es:Sin leche
 fr:sans lait
+it:Senza latte
 
 en:No preservatives, no added preservatives
 es:Sin conservantes, Sin conservantes añadidos
 fr:Sans conservateurs, sans conservateur ajouté, sans ajout de conservateur
 
-en:no soy, soy free
+en:No soy, soy free
 es:Sin soja
 fr:sans soja
 
-en:no sugar, sugar-free
+en:No sugar, sugar-free
 es:Sin azúcar
 fr:sans sucre
 
-en:not advised for pregnant women
+en:Not advised for pregnant women
 es:Desaconsejado para embarazadas, No aconsejado para embarazadas, No aconsejado para mujeres embarazadas, Desaconsejado para mujeres embarazadas
 fr:déconseillé aux femmes enceintes
 
+en:Not recommended for children under 3 years
+es:No recomendado a niños menores de 3 años, No recomendado consumo a menores de 3 años
+
 en:Organic
-de:Ökologische Produkt
+de:Ökologische, Ökologische Produkt
 es:Ecológico, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio
 fr:Bio, agriculture biologique, biologique, organic, organique,  issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique
+it:Biologico
+wikidata:en: Q380778
+
+< en:Organic
+en:AB Agriculture Biologique
+es:AB Agriculture Biologique
+fr:AB Agriculture Biologique, AB, Agence Bio, ab bio, bio ab, Ab-certifie-agriculture-biologique, ab certifié
+wikidata:en: Q396709
 
 < en:Organic
 en:Biodynamic agriculture
 es:Agricultura biodinámica
 fr:Bio-dynamie, biodynamie, agriculture biodynamique, agriculture bio-dynamique
+wikidata:en: Q847611
 
 < en:Biodynamic agriculture
 en:Demeter
 es:Demeter
 fr:Demeter, Association Demeter, Demeter France, Association Demeter France
+wikidata:en: Q939877
 
 < en:Organic
 en:BO-BIO-126
 
 < en:Organic
 en:EU Organic, European Organic
+de:EU Ökologische, EU Organic
 es:Ecológico UE, Ecológico U.E., Producto ecológico europeo
 fr:Bio européen, Label bio européen, bio ce, bio europe
+it:Biologico UE
+wikidata:en: Q380448
 
 < en:EU Organic
 en:AT-BIO-402
@@ -331,33 +427,45 @@ en:DE-ÖKO-007
 en:DE-ÖKO-013
 
 < en:EU Organic
+en:ES-ECO-001
+
+< en:ES-ECO-001
 en:ES-ECO-001-AN
 
-< en:EU Organic
+< en:ES-ECO-001
 en:ES-ECO-001-CM
 
 < en:EU Organic
+en:ES-ECO-002
+
+< en:ES-ECO-002
 en:ES-ECO-002-AN
 
-< en:EU Organic
+< en:ES-ECO-002
 en:ES-ECO-002-AR
 
-< en:EU Organic
+< en:ES-ECO-002
 en:ES-ECO-002-CM
 
 < en:EU Organic
 en:ES-ECO-003-AN
 
 < en:EU Organic
+en:ES-ECO-004
+
+< en:ES-ECO-004
 en:ES-ECO-004-AN
 
-< en:EU Organic
+< en:ES-ECO-004
 en:ES-ECO-004-AR
 
 < en:EU Organic
+en:ES-ECO-005
+
+< en:ES-ECO-005
 en:ES-ECO-005-AN
 
-< en:EU Organic
+< en:ES-ECO-005
 en:ES-ECO-005-AR
 
 < en:EU Organic
@@ -394,9 +502,12 @@ en:ES-ECO-015-CN
 en:ES-ECO-016-CL
 
 < en:EU Organic
+en:ES-ECO-017
+
+< en:ES-ECO-017
 en:ES-ECO-017-AN
 
-< en:EU Organic
+< en:ES-ECO-017
 en:ES-ECO-017-CM
 
 < en:EU Organic
@@ -431,6 +542,27 @@ en:ES-ECO-028-CM
 
 < en:EU Organic
 en:FR-BIO-01
+
+< en:EU Organic
+en:GB-ORG-01
+
+< en:EU Organic
+en:GB-ORG-02
+
+< en:EU Organic
+en:GB-ORG-03
+
+< en:EU Organic
+en:GB-ORG-04
+
+< en:EU Organic
+en:GB-ORG-05
+
+< en:EU Organic
+en:IE-ORG-01
+
+< en:EU Organic
+en:IE-ORG-02
 
 < en:EU Organic
 en:IT-BIO-003
@@ -472,6 +604,9 @@ en:IT-BIO-014
 en:NL-BIO-01
 
 < en:EU Organic
+en:PL-EKO-07
+
+< en:EU Organic
 en:PT-BIO-03
 
 < en:EU Organic
@@ -479,16 +614,19 @@ en:PT-BIO-04
 
 < en:Fair trade
 < en:Organic
+en:Bio-équitable
+es:Bio-équitable
 fr:Bio-équitable, bioéquitable
 
 < en:Organic
 en:Soil Association Organic, Soil Association
+wikidata:en: Q7554873
 
 < en:Organic
 en:USDA Organic
-
-< en:Organic
-fr:AB Agriculture Biologique, AB, Agence Bio, ab bio, bio ab, Ab-certifie-agriculture-biologique, ab certifié
+es:USDA Organic
+fr:USDA Organic
+wikidata:en: Q3336915
 
 < en:Organic
 fr:Bio-Cohérence
@@ -504,10 +642,12 @@ en:PDO, P.D.O, Protected Designation of Origin
 es:DOP, D.O.P, Denominación de Origen Protegida
 fr:AOP, A.O.P, Appellation d'origine protégée
 it:DOP, D.O.P, Denominazione di origine protetta
+wikidata:en: Q13439060
 
 en:PGI, P.G.I, Protected Geographical Indication
 es:IGP, I.G.P., Indicación Geográfica Protegida
 fr:IGP, I.G.P, Indication Géographique Protégée
+wikidata:en: Q13533432
 
 en:Pure beef
 fr:Pur boeuf
@@ -525,18 +665,21 @@ en:Pure pork
 fr:Pur porc
 
 en:Rainforest Alliance
+de:Rainforest Alliance
+es:Rainforest Alliance, Alianza para Bosques
+fr:Rainforest Alliance
+wikidata:en: Q2034373
 
 en:Reinheitsgebot
 de:Reinheitsgebot
 es:Ley de pureza de 1516, Reinheitsgebot
-
-en:Rich in fiber
-es:Rico en fibra
+wikidata:en: Q167255
 
 en:Rich in vitamin C
 es:Rico en vitamina C
 
 en:RSPO, Roundtable on Sustainable Palm Oil, Huile de palme RSPO, Huile de palme durable RSPO
+wikidata:en: Q686421
 
 en:Spanish protected product
 es:Producto protegido de España
@@ -545,81 +688,97 @@ es:Producto protegido de España
 < en:Spanish protected product
 en:DO Manzanilla-Sanlúcar de Barrameda, D.O. Manzanilla-Sanlúcar de Barrameda, Manzanilla-Sanlúcar de Barrameda, Manzanilla de Sanlúcar de Barrameda
 es:DO Manzanilla-Sanlúcar de Barrameda, D.O. Manzanilla-Sanlúcar de Barrameda, Manzanilla-Sanlúcar de Barrameda, Manzanilla de Sanlúcar de Barrameda
+wikidata:en: Q5802762
 
 < en:Denominación de Origen
 < en:Spanish protected product
 en:DO Montilla-Moriles, D.O. Montilla-Moriles, Montilla-Moriles
 es:DO Montilla-Moriles, D.O. Montilla-Moriles, Montilla-Moriles
+wikidata:en: Q13157
 
 < en:Denominación de Origen
 < en:Spanish protected product
 en:DO Navarra, D.O. Navarra, Vino de Navarra
 es:DO Navarra, D.O. Navarra, Vino de Navarra
+wikidata:en: Q976624
 
 < en:Denominación de Origen
 < en:Spanish protected product
 en:DO Toro, D.O. Toro, Toro, Vino de Toro
 es:DO Toro, D.O. Toro, Toro, Vino de Toro
+wikidata:en: Q765567
 
 < en:Denominación de Origen Calificada
 < en:Spanish protected product
 en:DOCa Rioja, D.O.Ca. Rioja, Vino de Rioja
 es:DOCa Rioja, D.O.Ca. Rioja, Vino de Rioja
+wikidata:en: Q1569384
 
 < en:PDO
 < en:Spanish protected product
 en:PDO Arroz de Calasparra, Arroz de Calasparra
 es:DOP Arroz de Calasparra, D.O.P Arroz de Calasparra, Arroz de Calasparra
+wikidata:en: Q5706327
 
 < en:PDO
 < en:Spanish protected product
 en:PDO Arroz de Valencia, PDO Arròs de València, Arròs de València
 es:DOP Arroz de Valencia, D.O.P. Arroz de Valencia, Arroz de Valencia, DOP Arròs de València, D.O.P. Arròs de València, Arròs de València
+wikidata:en: Q8205083
 
 < en:PDO
 < en:Spanish protected product
 en:PDO Azafrán de La Mancha, Azafrán de La Mancha
 es:DOP Azafrán de La Mancha, D.O.P. Azafrán de La Mancha, Azafrán de La Mancha
+wikidata:en: Q5714984
 
 < en:PDO
 < en:Spanish protected product
 en:PDO Chufa de Valencia, Chufa de Valencia
 es:DOP Chufa de Valencia, D.O.P. Chufa de Valencia, Chufa de Valencia
+wikipedia:en: :Q8345883
 
 < en:PDO
 < en:Spanish protected product
 en:PDO Estepa
 es:DOP Estepa, D.O.P. Estepa, Aceites de Estepa
+wikidata:en: Q5802756
 
 < en:PDO
 < en:Spanish protected product
 en:PDO Montes de Toledo, Montes de Toledo
 es:DOP Montes de Toledo, D.O.P. Montes de Toledo, Montes de Toledo
+wikidata:en: Q6022738
 
 < en:PDO
 < en:Spanish protected product
 en:PDO Pasas de Málaga, Pasas de Málaga
 es:DOP Pasas de Málaga, D.O.P. Pasas de Málaga, Pasas de Málaga
+wikidata:en: Q5491704
 
 < en:PDO
 < en:Spanish protected product
 en:PDO Pimentón de la Vera, Pimentón de la Vera
 es:DOP Pimentón de la Vera, D.O.P. Pimentón de la Vera, Pimentón de la Vera
+wikidata:en: Q250271
 
 < en:PDO
 < en:Spanish protected product
 en:PDO Pimentón de Murcia, Pimentón de Murcia
 es:DOP Pimentón de Murcia, D.O.P. Pimentón de Murcia, Pimentón de Murcia
+wikidata:en: Q2880604
 
 < en:PDO
 < en:Spanish protected product
 en:PDO Sierra de Segura, Sierra de Segura
 es:DOP Sierra de Segura, D.O.P. Sierra de Segura, Sierra de Segura
+wikidata:en: Q6127894
 
 < en:PDO
 < en:Spanish protected product
 en:PDO Vinagre de Jerez, Vinagre de Jerez
 es:DOP Vinagre de Jerez, D.O.P. Vinagre de Jerez, Vinagre de Jerez
+wikipedia:en: :Q2766624
 
 < en:PGI
 < en:Spanish protected product
@@ -630,11 +789,13 @@ es:IGP Alubia de La Bañeza-León, I.G.P. Alubia de La Bañeza-León, Alubia de 
 < en:Spanish protected product
 en:PGI Berenjena de Almagro, Berenjena de Almagro
 es:IGP Berenjena de Almagro, I.G.P. Berenjena de Almagro, Berenjena de Almagro
+wikidata:en: Q5726314
 
 < en:PGI
 < en:Spanish protected product
 en:PGI Garbanzo de Fuentesaúco, Garbanzo de Fuentesaúco
 es:IGP Garbanzo de Fuentesaúco, I.G.P. Garbanzo de Fuentesaúco, Garbanzo de Fuentesaúco
+wikidata:en: Q5875268
 
 < en:PGI
 < en:Spanish protected product
@@ -650,29 +811,50 @@ es:IGP Lenteja Pardina de Tierra de Campos, I.G.P. Lenteja Pardina de Tierra de 
 < en:Spanish protected product
 en:PGI Mazapán de Toledo, Mazapán de Toledo
 es:IGP Mazapán de Toledo, I.G.P. Mazapán de Toledo, Mazapán de Toledo
+wikidata:en: Q11691713
 
 < en:PGI
 < en:Spanish protected product
 en:PGI Pemento do Couto, Pemento do Couto
 es:IGP Pemento do Couto, I.G.P. Pemento do Couto, Pemento do Couto
+wikidata:en: Q16860936
 
 < en:PGI
 < en:Spanish protected product
 en:PGI Plátano de Canarias, Plátano de Canarias
 es:IGP Plátano de Canarias, I.G.P. Plátano de Canarias, Plátano de Canarias
+wikidata:en: Q6080945
+
+< en:PGI
+< en:Spanish protected product
+en:PGI Turrón de Alicante, Turrón de Alicante
+es:IGP Turrón de Alicante, I.G.P. Turrón de Alicante, Turrón de Alicante
+wikidata:en: Q3995784
+
+< en:PGI
+< en:Spanish protected product
+en:PGI Turrón de Jijona, Turrón de Jijona
+es:IGP Turrón de Jijona, I.G.P. Turrón de Jijona, Turrón de Jijona
+wikidata:en: Q3995785
 
 < en:Spanish protected product
 < en:Vino de la Tierra
 en:VT Castilla, V.T. Castilla, Vino de la Tierra de Castilla
 es:VT Castilla, V.T. Castilla, Vino de la Tierra de Castilla
+wikidata:en: Q5049885
 
 < en:Spanish protected product
 < en:Vino de Pago
 en:VP Campo de la Guardia, V.P. Campo de la Guardia, Campo de la Guardia
 es:VP Campo de la Guardia, V.P. Campo de la Guardia, Campo de la Guardia
+wikidata:en: Q5028475
 
 en:Spanish quality label
 es:Etiquetas de calidad de España
+
+< en:Spanish quality label
+en:Alimentos Artesanos de Navarra
+es:Alimentos Artesanos de Navarra
 
 < en:Spanish quality label
 en:Alimentos de Castilla-La Mancha
@@ -693,6 +875,7 @@ es:Etiqueta de Calidad Doñana 21
 < en:Spanish quality label
 en:Galicia Calidade
 es:Galicia Calidade
+wikidata:en: Q8963362
 
 < en:Spanish quality label
 en:Reyno Gourmet
@@ -713,19 +896,30 @@ fr:Pêche durable, pêches durables
 
 < en:Sustainable fishery
 en:Sustainable Seafood MSC, MSC, Marine Stewardship Council, sustainable food msc
+es:Certificado MSC de pesca sostenible, Pesca sostenible MSC, MSC, Marine Stewardship Council
 fr:Pêche durable MSC, MSC, Marine Stewardship Council
+wikidata:en: Q1891246
 
 en:Tesco Nurture, Nurture
 
 en:TSG, T.S.G, Traditional Speciality Guaranteed
 es:ETG, E.T.G., Especialidad tradicional garantizada
 fr:STG, S.T.G, Spécialité traditionnelle garantie
+wikidata:en: Q2751813
+
+en:UTZ Certified
+de:UTZ Certified
+es:UTZ Certified
+fr:UTZ Certified
+wikidata:en: Q2305872
 
 en:Vino de la Tierra
 es:VT, V.T., Vino de la Tierra
+wikidata:en: Q868979
 
 en:Vino de Pago
 es:VP, V.P., Vino de Pago
+wikidata:en: Q2527141
 
 en:With sulfites, Contains sulfites
 es:Con sulfitos, Contiene sulfitos
@@ -733,6 +927,9 @@ es:Con sulfitos, Contiene sulfitos
 en:With Sunflower oil
 es:Con aceite de girasol
 fr:A l'huile de tournesol, huile de tournesol
+
+en:With sweeteners
+es:Con edulcorantes, Con endulzantes artificiales
 
 fr:100% muscle
 
@@ -748,42 +945,16 @@ fr:Fumé au bois de hêtre
 
 fr:Garantie IPLC, Institut Professionnel du Lait de Consommation, IPLC
 
-fr:Halal
-es:Halal
-
-< fr:Halal
-fr:ARGML
-
-fr:Label Rouge
-
-fr:Labels de distributeurs
-es:Etiquetas de distribuidores
-
-< fr:Labels de distributeurs
-en:Carrefour Quality, Quality Carrefour
-fr:Qualité Carrefour, Carrefour Qualité
-
-< fr:Labels de distributeurs
-fr:Label Carrefour
-
-< fr:Labels de distributeurs
-fr:Sélection Intermarché
-
-< fr:Labels de distributeurs
-fr:Testé par le panel test Carrefour, Panel test Carrefour
-es:Panel Test Carrefour
-
 fr:Produit en Bretagne
 
 fr:Qualité France
-
-fr:Riche en Oméga-3
 
 fr:Salé au sel sec
 
 fr:Sans arachide
 
 fr:Saveurs de l'Année
+wikidata:en: Q3474529
 
 < fr:Saveurs de l'Année
 fr:Saveurs de l'Année 2011
@@ -811,4 +982,5 @@ fr:Viande Porcine Française, VPF, viande de porc française
 fr:Volaille française
 
 it:DOC, D.O.C, Denominazione di origine controllata
+wikidata:en: Q654824
 
