@@ -37,7 +37,9 @@ sub get_fileid($)
 	#print STDERR "get_fileid : $file - 2 \n";
 	
 	$file =~ s/œ|Œ/oe/g;
-	$file =~ s/æ|Æ/ae/g;	
+	$file =~ s/æ|Æ/ae/g;
+	
+	$file =~ s/ß/ss/g;
 	
 	$file = lc($file);
 	$file = unac_string('UTF-8',$file);
