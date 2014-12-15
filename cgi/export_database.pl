@@ -61,7 +61,10 @@ ingredients_from_palm_oil_n
 ingredients_from_palm_oil
 ingredients_that_may_be_from_palm_oil_n
 ingredients_that_may_be_from_palm_oil
+nutrition_grade_uk
 nutrition_grade_fr
+pnns_groups_1
+pnns_groups_2
 );
 
 
@@ -104,8 +107,8 @@ foreach my $l (values %lang_lc) {
 		
 	print STDERR "lc: $lc - $count products\n";
 	
-	open (OUT, ">:encoding(UTF-8)", "$www_root/data/$lang.openfoodfacts.org.products.$date.csv");
-	open (RDF, ">:encoding(UTF-8)", "$www_root/data/$lang.openfoodfacts.org.products.$date.rdf");
+	open (OUT, ">:encoding(UTF-8)", "$www_root/data/$lang.openfoodfacts.org.products.csv");
+	open (RDF, ">:encoding(UTF-8)", "$www_root/data/$lang.openfoodfacts.org.products.rdf");
 
 	# Headers
 	
@@ -295,14 +298,14 @@ XML
 				}
 			}
 			
-			print STDERR "main_cid_orig: $main_cid comparisons: $#comparisons\n";
+			# print STDERR "main_cid_orig: $main_cid comparisons: $#comparisons\n";
 			
 			
 			if ($#comparisons > -1) {
 				@comparisons = sort { $a->{count} <=> $b->{count}} @comparisons;
 				$comparisons[0]{show} = 1;
 				$main_cid = $comparisons[0]{id};
-				print STDERR "main_cid: $main_cid\n";
+				# print STDERR "main_cid: $main_cid\n";
 			}
 			
 		}		
