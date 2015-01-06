@@ -173,6 +173,7 @@ origins => {
 },
 manufacturing_places => { 
 	fr => 'lieu-de-fabrication',
+        de => 'herstellungsort',
 	en => 'manufacturing-place', 
 	es => 'lugar-de-fabricacion',
 	pt_pt => 'local-de-fabrico',
@@ -201,6 +202,7 @@ stores => {
 },
 countries => { 
 	fr => 'pays',
+        de => 'land',
 	en => 'country',
 	es => 'pais',
 	he => 'medina',
@@ -264,6 +266,7 @@ users => {
 },
 photographers => {
 	fr => 'photographe',
+        de => 'fotograf',
 	en => 'photographer',
 	ar => 'moussawir' ,
 	pt => 'fotografo',
@@ -272,6 +275,7 @@ photographers => {
 },
 informers => {
 	fr => 'informateur',
+        de => 'informant',
 	en => 'informer',
 	ar => 'moukhbir',
 	pt => 'informante',
@@ -281,6 +285,7 @@ informers => {
 },
 correctors => {
 	fr => 'correcteur',
+        de => 'korrekteur',
 	en => 'corrector',
 	ar => 'moussahih',
 	pt => 'corretor',
@@ -290,6 +295,7 @@ correctors => {
 },
 checkers => {
 	fr => 'verificateur',
+        de => 'pruefer',
 	en => 'checker',
 	ar => 'mourakib',
 	pt => 'verificador',
@@ -298,6 +304,7 @@ checkers => {
 },
 status => {
 	fr => 'etat',
+        de => 'status',
 	en => 'status',
 #	ar => 'الحاله',
 	pt => 'estado',
@@ -317,6 +324,7 @@ additives => {
 },
 ingredients_from_palm_oil => {
 	fr => "ingredients-issus-de-l-huile-de-palme",
+        de => "zutaten-aus-palmoel",
 	en => "ingredients-from-palm-oil",
 #	ru => "вещества-из-пальмового-масла",
 	ar => 'mawad-mousstakhraja-min-zayt-nakhil',
@@ -326,6 +334,7 @@ ingredients_from_palm_oil => {
 },
 ingredients_that_may_be_from_palm_oil => {
 	fr => "ingredients-pouvant-etre-issus-de-l-huile-de-palme",
+        de => "zutaten-die-möglicherweise-palmoel-beinhalten",
 	en => "ingredients-that-may-be-from-palm-oil",
 #	ru => "вещества-возможно-из-пальмового-масла",
 	ar => 'mawad-kad-takoun-mousstakhraja-mina-nakhil',
@@ -346,6 +355,7 @@ allergens => {
 },
 missions => { 
 	fr => 'mission',
+        de => 'Mission',
 	en => 'mission',
 	es => 'mision',
 	de => 'mission',
@@ -357,6 +367,7 @@ missions => {
 },
 nutrient_levels => {
 	en => 'nutrient-level',
+        de => 'naehrwert-stufe',
 	fr => 'repere-nutritionnel',
 	es => 'valor-nutricional',
 	he => 'ramat-khomrey-hamazon',
@@ -364,6 +375,7 @@ nutrient_levels => {
 },
 known_nutrients => {
 	en => 'known-nutrients',
+        de => 'bekannte-naehrwerte',
 	fr => 'nutriments-connus',
 	es => 'nutrientes-conocidos',
 	pt => 'nutrientes-conhecidos', 
@@ -371,6 +383,7 @@ known_nutrients => {
 },
 unknown_nutrients => {
 	en => 'unknown-nutrients',
+        de => 'unbekannte-naehrwerte',
 	fr => 'nutriments-inconnus',
 	es => 'nutrientes-desconocidos',
 	pt => 'nutriente-desconhecido', 
@@ -383,7 +396,7 @@ unknown_nutrients => {
 %tag_type_plural = (
 products => { 
 	fr => 'produits',
-	de => 'produkten',
+	de => 'produkte',
 	en => 'products',
 	es => 'productos',
 	it => 'prodotti',
@@ -421,7 +434,7 @@ pnns_groups_2 => {
 },
 packaging => { 
 	fr => 'conditionnements',
-#	de => 'verpackung',
+	de => 'verpackungen',
 	en => 'packaging',
 	es => 'envase',
 #	it => 'imballaggio',
@@ -432,7 +445,7 @@ packaging => {
 },
 emb_codes => {
 	fr => 'codes-emballeurs',
-#	de => 'produzenten-code',
+	de => 'produzenten-codes',
 	en => 'packager-codes',
 	es => 'codigos-de-envasadores',
 #	it => 'codice-imballaggio',
@@ -444,7 +457,7 @@ emb_codes => {
 },
 cities => {
 	fr => 'communes',
-#	de => 'Stadt',
+	de => 'staedte',
 	en => 'cities',
 #	it => 'citta',
 	es => 'ciudades',
@@ -455,7 +468,7 @@ cities => {
 },
 origins => { 
 	fr => 'origines',
-#	de => 'Herkunft',
+	de => 'herkuenfte',
 	en => 'origins',
 #	it => 'origine',
 	es => 'origenes',
@@ -466,13 +479,14 @@ origins => {
 },
 manufacturing_places => {
 	fr => 'lieux-de-fabrication',
+        de => 'herstellungsorte',
 	en => 'manufacturing-places', 
 	es => 'lugares-de-fabricacion',
 	pt_pt => 'locais-de-fabrico',
 },
 purchase_places => {
 	fr => 'lieux-de-vente',
-#	de => 'Verkaufsort',
+	de => 'verkaufsorte',
 	en => 'purchase-places',
 #	it => 'luogo-d-acquisto',
 	es => 'sitios-de-compra',
@@ -483,7 +497,7 @@ purchase_places => {
 },
 stores => { 
 	fr => 'magasins',
-#	de => 'Geschaeft',
+	de => 'geschaefte',
 	en => 'stores',
 #	it => 'negozio',
 	es => 'tiendas',
@@ -494,6 +508,7 @@ stores => {
 },
 countries => { 
 	fr => 'pays',
+        de => 'länder',
 	en => 'countries',
 	es => 'paises',
 	he => 'medina',
@@ -501,7 +516,7 @@ countries => {
 },
 ingredients => { 
 	fr => 'ingredients',
-#	de => 'Zutat',
+	de => 'zutaten',
 	en => 'ingredients',
 	es => 'ingredientes',
 	it => 'ingredientes',
@@ -512,7 +527,7 @@ ingredients => {
 },
 labels => { 
 	fr => 'labels',
-#	de => 'Label',
+	de => 'labels',
 	en => 'labels',
 	es => 'etiquetas',
 	it => 'etichettas',
@@ -523,7 +538,7 @@ labels => {
 },
 nutriments => {
 	fr => 'nutriments',
-#	de => 'Naehrstoff',
+	de => 'naehrstoffe',
 	en => 'nutrients',
 	es => 'nutrientes',
 	it => 'nutrientes',
@@ -534,7 +549,7 @@ nutriments => {
 },
 traces => { 
 	fr => 'traces',
-#	de => 'Spur',
+	de => 'spuren',
 	en => 'traces',
 	es => 'trazas',
 #	it => 'traccia',
@@ -546,7 +561,7 @@ traces => {
 },
 users => {
 	fr => 'contributeurs',
-#	de => 'Beitragszahler',
+	de => 'beitragszahler',
 	en => 'contributors',
 	es => 'contribuyentes',
 #	it => 'contributore',
@@ -557,6 +572,7 @@ users => {
 },
 photographers => {
 	fr => 'photographes',
+        de => 'fotografen',
 	en => 'photographers',
 #	ar => 'moussawir' ,
 	pt => 'fotografos',
@@ -565,6 +581,7 @@ photographers => {
 },
 informers => {
 	fr => 'informateurs',
+        de => 'informanten',
 	en => 'informers',
 #	ar => 'moukhbir',
 	pt => 'informantes',
@@ -574,6 +591,7 @@ informers => {
 },
 correctors => {
 	fr => 'correcteurs',
+        de => 'korrektoren',
 	en => 'correctors',
 #	ar => 'moussahih',
 	pt => 'corretores',
@@ -583,6 +601,7 @@ correctors => {
 },
 checkers => {
 	fr => 'verificateurs',
+        de => 'pruefer',
 	en => 'checkers',
 #	ar => 'mourakib',
 	pt => 'verificadores',
@@ -591,6 +610,7 @@ checkers => {
 },
 status => {
 	fr => 'etats',
+        de => 'status',
 	en => 'statuses',
 #	ar => 'الحاله',
 	pt => 'estados',
@@ -599,7 +619,7 @@ status => {
 },
 additives => { 
 	fr => 'additifs',
-#	de => 'Zusatzstoff',
+	de => 'zusatzstoffe',
 	en => 'additives',
 	es => 'aditivos',
 #	it => 'additivo',
@@ -610,6 +630,7 @@ additives => {
 },
 ingredients_from_palm_oil => {
 	fr => "ingredients-issus-de-l-huile-de-palme",
+        de => 'zutaten-aus-Palmoel',
 	en => "ingredients-from-palm-oil",
 #	ru => "вещества-из-пальмового-масла",
 	ar => 'mawad-mousstakhraja-min-zayt-nakhil',
@@ -619,6 +640,7 @@ ingredients_from_palm_oil => {
 },
 ingredients_that_may_be_from_palm_oil => {
 	fr => "ingredients-pouvant-etre-issus-de-l-huile-de-palme",
+        de => 'zutaten-die-möglicherweise-Palmoel-beinhalten',
 	en => "ingredients-that-may-be-from-palm-oil",
 #	ru => "вещества-возможно-из-пальмового-масла",
 	ar => 'mawad-kad-takoun-mousstakhraja-mina-nakhil',
@@ -628,7 +650,7 @@ ingredients_that_may_be_from_palm_oil => {
 },
 allergens => { 
 	fr => 'allergenes',
-#	de => 'Allergen',
+	de => 'allergene',
 	en => 'allergens',
 	es => 'alergenos',
 #	it => 'allergene',
@@ -639,9 +661,10 @@ allergens => {
 },
 missions => { 
 	fr => 'missions',
+        de => 'missionen',
 	en => 'missions',
 	es => 'misiones',
-#	de => 'Mission',
+	de => 'missionen',
 #	it => 'scopo',
 #	ru => 'назначение',
 #	ar => 'mouhima',
@@ -650,6 +673,7 @@ missions => {
 },
 nutrient_levels => {
 	en => 'nutrient-levels',
+        de => 'naehrwert-Stufen',
 	fr => 'reperes-nutritionnels',
 	es => 'valores-nutricionales',
 #	he => 'ramat-khomrey-hamazon', 
@@ -657,6 +681,7 @@ nutrient_levels => {
 },
 known_nutrients => {
 	en => 'known-nutrients',
+        de => 'bekannte-Naehrwerte',
 	fr => 'nutriments-connus',
 	es => 'nutrientes-conocidos',
 	pt => 'nutrientes-conhecidos',
@@ -664,6 +689,7 @@ known_nutrients => {
 },
 unknown_nutrients => {
 	en => 'unknown-nutrients',
+        de => 'unbekannte-Naerhwerte',
 	fr => 'nutriments-inconnus',
 	es => 'nutrientes-desconocidos',
 	pt => 'nutrientes-desconhecidos', 
@@ -786,6 +812,7 @@ lang_vi => {
 
 lang_zh => {
 	en => 'Chinese',
+        de => 'Chinesisch',
 	fr => 'Chinois',
 	zh => '中文',
 	es => 'Chino',
@@ -839,7 +866,7 @@ lang => {
 	en => 'Main language on the product',
 	it => 'Lingua principale sull\'imballaggio del prodotto',   
 	es => 'Idioma principal en el producto',
-	de => 'Hauptsprache auf dem Produktes',
+	de => 'Hauptsprache auf dem Produkt',
 	ru => 'Основной язык продукта',
 	ar => 'اللغه الرئيسية علي المنتج',
 	pt => 'Idioma principal no produto',
@@ -1070,8 +1097,8 @@ http://twitter.com/OpenFoodFactsEs
 	de => 
 'Hallo <NAME>,
 
-Vielen Dank, dass sie http://openfoodfacts.org beigetreten sind.
-Hier finden sie ihren Benutzernamen:
+Vielen Dank, dass Sie http://openfoodfacts.org beigetreten sind.
+Hier finden Sie Ihren Benutzernamen:
 
 Benutzername: <USERID>
 
@@ -1080,8 +1107,8 @@ Sie können sich jetzt auf der Seite anmelden und Produkte hinzufügen oder abä
 Sie können auch der Facebookgruppe für Unterstützer beitreten:
 https://www.facebook.com/groups/488163711199190/
 
-Open Food Facts ist ein gemeinschaftliches Projekt zu dem sie noch viel mehr als neue Produkte beitragen können: Ihre Energie, ihren Enthusiasmus und neue Ideen! 
-Auf dem Ideenforum können sie ihre Vorschläge mit uns teilen:
+Open Food Facts ist ein gemeinschaftliches Projekt zu dem Sie noch viel mehr als neue Produkte beitragen können: Ihre Energie, Ihren Enthusiasmus und neue Ideen! 
+Auf dem Ideenforum können Sie ihre Vorschläge mit uns teilen:
 http://openfoodfacts.uservoice.com/
 
 Und meine Mailbox ist selbstverständlich immer offen für Kommentare, Fragen und Ideen.
@@ -1174,6 +1201,7 @@ http://twitter.com/OpenFoodFacts
 
 reset_password_email_subject => {
 	fr => 'Réinitialisation de votre mot de passe sur Open Food Facts',
+        de => 'Setze dein Passwort auf Open Food Facts zurück',
 	en => 'Reset of your password on Open Food Facts',
 	es => 'Cambio de la contraseña de su cuenta en Open Food Facts',
 	pt => 'Modifique a sua senha do Open Food Facts',
@@ -1197,6 +1225,24 @@ Si vous n\'êtes pas à l\'origine de cette demande, vous pouvez ignorer ce mess
 A bientôt,
 
 Stéphane
+http://openfoodfacts.org
+',
+
+	de => 
+'Hallo <NAME>,
+
+du hast eine Passwort-Zurücksetzung auf http://openfoodfacts.org
+
+für folgenden Benutzer angefordert: <USERID>
+
+Um die Passwort-Zurücksetzung abzuschließen, klicke auf den Link unten.
+Falls du keine Zurücksetzung angefordert hast, ignoriere diese E-Mail einfach.
+
+<RESET_URL>
+
+Mit freundlichen Grüßen
+
+Stephane
 http://openfoodfacts.org
 ',
 
@@ -1310,6 +1356,7 @@ http://openfoodfacts.org
 
 edit_user_confirm => {
 	fr => '<p>Les paramètres de votre compte ont bien été modifiés.</p>',
+        de => '<p>Deine Benutzereinstellungen wurden geändert.</p>',
 	ar => '<p>لقد تم تعديل إعداداتكم بنجاح</p>',
 	en => '<p>Your account parameters have been changed.</p>',
 	es => '<p>Los datos de su cuenta han sido modificados correctamente.</p>',
@@ -1321,6 +1368,7 @@ edit_user_confirm => {
 
 edit_profile => {
 	fr => "Modifier votre profil public",
+        de => "Bearbeite dein öffentliches Profil",
 	en => "Edit your public profile",
 	es => "Edite su perfil público",
 	it => "Modificare il vostro profilo pubblico",
@@ -1331,6 +1379,7 @@ edit_profile => {
 	
 edit_profile_msg => {
 	fr => "Les informations ci-dessous figurent dans votre profil public.",
+        de => "Die Informationen unten sind in deinem öffentlichen Profil sichtbar.",
 	en => "Information below is visible in your public profile.",
 	es => "La información que se encuentra debajo estará disponible en su perfil público.",
 	it => "Le informazioni qui sotto appaiono nel vostro profilo pubblico.",
@@ -1341,6 +1390,7 @@ edit_profile_msg => {
 
 edit_profile_confirm => {
 	fr => "Les modifications de votre profil public ont été enregistrées.",
+        de => "Die Änderungen an deinem öffentlichen Profil wurden gespeichert.",
 	en => "Changes to your public profile have been saved.",
 	es => "Los cambios en su perfil público han sido guardados.",
 	it => "Le modifiche del suo profilo pubblico sono state registrate.",
@@ -1352,6 +1402,7 @@ edit_profile_confirm => {
 
 session_title => {
 	fr => 'Se connecter',
+        de => 'Anmelden',
 	en => 'Sign-in',
 	es => 'Iniciar sesión',
 	it => 'connettersi',
@@ -1362,6 +1413,7 @@ session_title => {
 	
 login_register_title => {
 	fr => 'Se connecter',
+        de => 'Anmelden',
 	en => 'Sign-in',
 	es => 'Iniciar sesión',
 	it => 'connettersi',
@@ -1372,6 +1424,7 @@ login_register_title => {
 
 login_username_email => {
 	fr => "Nom d'utilisateur ou adresse e-mail :",
+        de => 'Benutzername oder E-Mail-Adresse:',
 	en => "Username or e-mail address:",
 	es => "Nombre de usuario o dirección de correo electrónico:",
 	ar =>   "اسم الدخول او البريد الالكتروني :",
@@ -1385,6 +1438,12 @@ login_to_add_products => {
 <p>Vous devez vous connecter pour pouvoir ajouter ou modifier un produit.</p>
 
 <p>Si vous n'avez pas encore de compte sur Open Food Facts, vous pouvez <a href="http://fr.openfoodfacts.org/cgi/user.pl">vous inscrire en 30 secondes</a>.</p> 
+HTML
+,
+        de => <<HTML
+<p>Bitte melde dich an, um ein Produkt hinzuzufügen oder zu bearbeiten.</p>
+
+<p>Wenn du noch kein Benutzerkonto auf Open Food Facts hast, dann kannst du dich <a href="/cgi/user.pl">innerhalb von 30 Sekunden anmelden</a>.</p>
 HTML
 ,
 	en => <<HTML
@@ -1432,6 +1491,21 @@ Mot de passe<br />
 <input type="submit" tabindex="4" name=".submit" value="Se connecter" class="jbutton" />
 </form>
 <p>Pas encore inscrit(e) ? <a href="/cgi/user.pl">Créez votre compte</a>.</p>
+HTML
+,
+
+        de => <<HTML
+<p>Melde dich an, um ein Produkt hinzuzufügen oder zu bearbeiten.</p>
+
+<form method="post" action="/cgi/session.pl">
+Benutzername oder E-Mail-Adresse:<br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+Passwort<br />
+<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Angemeldet bleiben</label><br />
+<input type="submit" tabindex="4" name=".submit" value="Sign-in" class="jbutton" />
+</form>
+<p>Noch nicht registriert? <a href="/cgi/user.pl">Erstelle ein Benutzerkonto</a>.</p>
 HTML
 ,
 
@@ -1549,6 +1623,7 @@ HTML
 
 on_the_blog_title => {
 	fr => "Actualité",
+        de => "Neuigkeiten",
 	en => "News",
 	es => "Noticias",
 	it => "Attualità",
@@ -1560,6 +1635,11 @@ on_the_blog_content => {
 	en => <<HTML
 <p>To learn more about Open Food Facts, visit <a href="http://en.blog.openfoodfacts.org">our blog</a>!</p>
 <p>Recent news:</p>
+HTML
+,
+        de => <<HTML
+<p>Um mehr über Open Food Facts zu erfahren, besuche <a href="http://en.blog.openfoodfacts.org">unseren Blog</a>!</p>
+<p>Aktuelle Neuigkeiten:</p>
 HTML
 ,
 	fr => <<HTML
@@ -1650,6 +1730,7 @@ facebook_locale => {
 
 username_or_email => {
 	fr => 'Nom d\'utilisateur ou adresse e-mail',
+        de => 'Benutzername oder E-Mail-Adresse',
 	en => 'Username or email address',
 	es => 'Nombre de usuario o dirección de correo electrónico',
 	it => 'Username o indirizzo e-mail',
@@ -1660,6 +1741,7 @@ username_or_email => {
 
 password => {
 	fr => 'Mot de passe :',
+        de => 'Passwort:',
 	en => 'Password:',
 	es => 'Contraseña:',
 	it => 'Password:',
@@ -1670,6 +1752,7 @@ password => {
 
 remember_me => {
 	fr => 'Se souvenir de moi',
+        de => 'Angemeldet bleiben',
 	en => 'Remember me',
 	es => 'Mantenerme conectado',
 	it => 'Ricordami',
@@ -1680,6 +1763,7 @@ remember_me => {
 
 login_and_add_product => {
 	fr => 'Se connecter et ajouter le produit',
+        de => 'Einloggen und ein Produkt hinzufügen',
 	en => 'Sign-in and add the product',
 	es => 'Inicia la sesión y añade el producto',
 	it => 'Connettersi e aggiungere prodotto',
@@ -1691,6 +1775,7 @@ login_and_add_product => {
 
 login_and_edit_product => {
 	fr => 'Se connecter et modifier la fiche du produit',
+        de => 'Einloggen und das Produkt bearbeiten',
 	en => 'Sign-in and edit the product',
 	es => 'Inicia la sesión y modifica el producto',
 	it => 'Connettersi e modificare la scheda prodotto',
@@ -1701,6 +1786,7 @@ login_and_edit_product => {
 
 pages => {
 	fr => "Pages : ",
+        de => 'Seiten: ',
 	en => "Pages:",
 	es => "Páginas:",
 	it => "Pagine:",
@@ -1711,6 +1797,7 @@ pages => {
 
 previous => {
 	fr => "Précédente",
+        de => 'Vorherige',
 	en => "Previous",
 	es => "Anterior",
 	it => "Precedente",
@@ -1720,6 +1807,7 @@ previous => {
 
 next => {
 	fr => "Suivante",
+        de => 'Nächste',
 	en => "Next",
 	es => "Siguiente",
 	it => "Successiva",
@@ -1729,6 +1817,7 @@ next => {
 
 page_x_out_of_y => {
 	fr => "Page %d sur %d.",
+        de => 'Seite %d von %d',
 	en => "Page %d out of %d.",
 	es => "Página %d de %d.",
 	it => "Pagina %d di %d.",
@@ -1738,6 +1827,7 @@ page_x_out_of_y => {
 
 edit => {
 	fr => 'modifier',
+        de => 'bearbeiten',
 	en => 'edit',
 	es => 'modificar',
 	pt => 'editar',
@@ -1776,6 +1866,7 @@ sep => {
 
 connected_with_facebook => {
 	fr => "Vous êtes connecté via votre compte Facebook.",
+        de => 'Du bist verbunden zu deinem Facebook-Account.',
 	en => "You are connected with your Facebook account.",
 	es => "Estás conectado a través de tu cuenta en Facebook.",
 	it => "Siete connessi attraverso il vostro profilo Facebook",
@@ -1786,6 +1877,7 @@ connected_with_facebook => {
 
 you_are_connected_as_x => {
 	fr => "Vous êtes connecté en tant que %s.",
+        de => 'Du bist verbunden als %s',
 	en => "You are connected as %s.",
 	es => "Estás conectado como %s.",
 	it => "Siete connessi come %s.",
@@ -1796,6 +1888,7 @@ you_are_connected_as_x => {
 
 signout => {
 	fr => "Se déconnecter",
+        de => 'Ausloggen',
 	en => "Sign-out",
 	es => "Cerrar sesión",
 	it => "Disconnettersi",
@@ -1806,6 +1899,7 @@ signout => {
 
 error_invalid_address => {
 	fr => "Adresse invalide.",
+        de => 'Ungültige Adresse.',
 	en => "Invalid address.",
 	es => "Dirección inválida.",
 	pt => 'Endereço inválido',
@@ -1847,6 +1941,7 @@ username => {
 
 username_info => {
 	fr => "(lettres non accentuées, chiffres et/ou tirets)",
+        de => '(Buchstaben ohne Umlaute, Zahlen und/oder Bindestriche)',
 	en => "(non-accented letters, digits and/or dashes)",
 	es => "(letras no acentuadas, números y/o guiones)",
 	it => "(lettere non accentate, numeri e/o trattini)",
@@ -1856,6 +1951,7 @@ username_info => {
 
 twitter => {
 	fr => "Nom d'utilisateur Twitter (optionel)",
+        de => 'Twitter Benutzername (optional)',
 	en => "Twitter username (optional)",
 	es => "Nombre de usuario en Twitter (opcional)",
 	it => "Nome dâutilizzatore su Twitter (facoltativo)",
@@ -1877,6 +1973,7 @@ password => {
 
 password_confirm => {
 	fr => "Confirmation du mot de passe",
+        de => 'Passwort bestätigen',
 	en => "Confirm password",
 	es => "Confirmar la contraseña",
 	it => "Conferma la password",
@@ -1887,6 +1984,7 @@ password_confirm => {
 
 unsubscribe_info => {
 	fr => "Vous pouvez vous désabonner de la lettre d'information à tout moment et facilement.",
+        de => 'Du kannst die Liste jederzeit deabonnieren.',
 	en => "You can unsubscribe from the lists at any time.",
 	es => "Puedes darte de baja de las listas cuando lo desees.",
 	it => "In qualsiasi momento e facilmente potete cancellarvi dalla lettera d'informazioni",
@@ -1896,6 +1994,7 @@ unsubscribe_info => {
 
 website => {
 	fr => "Adresse de blog ou de site web",
+        de => 'Seiten- oder Blogadresse',
 	en => "Site or blog address",
 	es => "Dirección del blog o del sitio web",
 	it => "Indirizzo del blog o del sito web",
@@ -1906,6 +2005,7 @@ website => {
 
 about => {
 	fr => "Présentation",
+        de => 'Über uns',
 	en => "About me",
 	es => "Presentación",
 	it => "Mi presento",
@@ -1915,6 +2015,7 @@ about => {
 
 error_no_name => {
 	fr => "Vous devez entrer un nom, prénom ou pseudonyme.",
+        de => 'Sie müssen einen Namen oder Spitznamen angeben.',
 	en => "You need to enter a name or nickname.",
 	es => "Debes escribir un nombre o seudónimo.",
 	it => "Immetti nome, cognome o pseudonimo",
@@ -1925,6 +2026,7 @@ error_no_name => {
 
 error_invalid_email => {
 	fr => "L'adresse e-mail est invalide.",
+        de => 'Ungültige E-Mail-Adresse',
 	en => "Invalid e-mail address",
 	es => "La dirección de correo electrónico no es válida",
 	it => "Indirizzo e-mail non valido",
@@ -1935,6 +2037,7 @@ error_invalid_email => {
 
 error_email_already_in_use => {
 	fr => "L'adresse e-mail est déjà utilisée par un autre utilisateur. Peut-être avez-vous déjà un autre compte ? Vous pouvez <a href=\"/cgi/reset_password.pl\">réinitialiser le mot de passe</a> de votre autre compte.",
+        de => 'Die angegebene E-Mail-Adresse ist bereits in Verwendung. Möglicherweise habane Sie schon ein Konto? Sie können das Passwort ihres Kontos <a href=\"/cgi/reset_password.pl\">zurücksetzen</a>.',
 	en => "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account.",
 	es => "La dirección de correo electrónico ya está siendo utilizada por otro usuario. Tal vez, haya creado ya una cuenta. Aquí puede  <a href=\"/cgi/reset_password.pl\">restablecer la contraseña</a> de la otra cuenta.",
 	it => "L'inidirzzo e-mail è già in uso. Hai un altro account di posta? Puoi <a href=\"/cgi/reset_password.pl\">reinserire la password<a> dell'altro account.",
@@ -1956,6 +2059,7 @@ error_no_username => {
 
 error_username_not_available => {
 	fr => "Ce nom d'utilisateur existe déjà, choisissez en un autre.",
+        de => 'Dieser Benutzername wird bereits benutzt, bitte wählen Sie einen anderen.',
 	en => "This username already exists, please choose another.",
 	es => "El nombre de usuario que ha escogido ya existe, por favor escoja otro.",
 	it => "Questo username esiste già, per favore prova con un altro",   
@@ -1966,6 +2070,7 @@ error_username_not_available => {
 
 error_invalid_username => {
 	fr => "Le nom d'utilisateur doit être composé de lettres minuscules sans accents, de tirets et/ou de chiffres.",
+        de => 'Der Benutzername darf nur Buchstaben ohne Umlaute, Zahlen und Bindestriche enthalten.',
 	en => "The user name must contain only unaccented letters, digits and dashes.",
 	es => "El nombre de usuario debe contener sólo caracteres sin acentuar, dígitos y guiones.",
 	it => "Lo username può contenere solo caratteri senza accento, trattini e cifre",
@@ -1976,7 +2081,7 @@ error_invalid_username => {
 
 error_invalid_password => {
 	fr => "Le mot de passe doit comporter au moins 6 caractères.",
-	de => "Das Passwort muss eine mindestens 6 Zeichen lang sein.",
+	de => "Das Passwort muss mindestens 6 Zeichen lang sein.",
 	en => "The password needs to be a least 6 characters long.",
 	es => "La contraseña debe contener al menos 6 caracteres.",
 	it => "La password deve contenere almeno 6 caratteri",
@@ -1987,6 +2092,7 @@ error_invalid_password => {
 
 error_different_passwords => {
 	fr => "Le mot de passe et sa confirmation sont différents.",
+        de => 'Die Passwort und die Wiederholung müssen übereinstimmen.',
 	en => "The password and confirmation password are different.",
 	es => "La contraseña y su confirmación son diferentes.",
 	it => "La password non corrisponde",
@@ -1997,6 +2103,7 @@ error_different_passwords => {
 
 error_invalid_user => {
 	fr => "Impossible de lire l'utilisateur.",
+        de => 'Ungültiger Benutzer',
 	en => "Invalid user.",
 	es => "Usuario no válido.",
 	it => "Utilizzatore non valido",
@@ -2027,6 +2134,7 @@ correct_the_following_errors => {
 
 error_database => {
 	fr => "Une erreur est survenue en lisant la base de données, essayez de recharger la page.",
+        de => '',
 	en => "An error occured while reading the data, try to refresh the page.",
 	es => "Se produjo un error durante la lectura de la base de datos, intente recargar la página.",
 	it => "Un errore è occorso durante la lettura dei dati, prova a ricaricare la pagina",
@@ -2076,12 +2184,12 @@ signin_before_submit => {
 
 error_bad_login_password => {
 	fr => "Mauvais nom d'utilisateur ou mot de passe. <a href=\"/cgi/reset_password.pl\">Mot de passe oublié ?</a>", 
-	en => "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\"Forgotten password?</a>",
-	es => "Nombre de usuario o contraseña incorecto/a. <a href=\"/cgi/reset_password.pl\"¿Olvidaste tu contraseña?</a>",
+	en => "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>",
+	es => "Nombre de usuario o contraseña incorecto/a. <a href=\"/cgi/reset_password.pl\">¿Olvidaste tu contraseña?</a>",
 	it => "Username o password sbagliate.  <a href=\"/cgi/reset_password.pl\">Password dimenticata? </a>",
-	pt =>"Nome de usuário ou senha incorretos. <a href=\"/cgi/reset_password.pl\" Esqueceu sua senha?</a>",
-	pt_pt =>"Nome de utilizador ou palavra-passe incorretos. <a href=\"/cgi/reset_password.pl\" Esqueceu-se da sua palavra-passe?</a>",
-	he => "שם המשתמש או הססמה שגויים. <a href=\"/cgi/reset_password.pl\"שכחת את הססמה?</a>",
+	pt =>"Nome de usuário ou senha incorretos. <a href=\"/cgi/reset_password.pl\">Esqueceu sua senha?</a>",
+	pt_pt =>"Nome de utilizador ou palavra-passe incorretos. <a href=\"/cgi/reset_password.pl\">Esqueceu-se da sua palavra-passe?</a>",
+	he => "שם המשתמש או הססמה שגויים. <a href=\"/cgi/reset_password.pl\">שכחת את הססמה?</a>",
 },
 
 subscribe => {
@@ -2862,6 +2970,7 @@ example => {
 	es => "Ejemplo:",
 	pt => "Exemplo:",
 	he => "דוגמה:",
+	it => "Esempio:",
 },
 
 examples => {
@@ -2870,6 +2979,7 @@ examples => {
 	es => "Ejemplos:",
 	pt => "Exemplos:",
 	he => "דוגמאות:",
+	it => "Esempi:",
 },
 
 brands_tagsinput => {
@@ -3038,8 +3148,8 @@ packaging_products => {
 },
 
 origins_products => {
-	fr => "Les produits dont l'origine est %s",
-	en => "Products originating from %s",
+	fr => "Les produits dont l'origine des ingrédients est %s",
+	en => "Products with ingredients originating from %s",
 	es => "Productos originarios de %s",
 	pt => "Produtos originários de %s",
 	he => "מוצרים שמקורם %s",
@@ -3659,6 +3769,7 @@ add => {
 	pt => 'Adicionar',
 	de => 'Hinzufügen',
 	he => 'הוספה',
+	it => 'Aggiungi',
 },
 
 product_image_with_barcode => {
@@ -3677,6 +3788,7 @@ send_image => {
 	es => 'Enviar una imagen...',
 	pt => 'Enviar uma imagen...',
 	he => 'שליחת תמונה...',
+	it => 'Invia una photo...',
 },
 
 sending_image => {
@@ -3701,6 +3813,7 @@ edit_product => {
 	es => 'Modifica un producto',
 	pt => 'Editar un produto',
 	he => 'עריכת מוצר',
+	it => 'Modifica un prodotto',
 },
 
 edit_product_page => {
@@ -3709,6 +3822,7 @@ edit_product_page => {
 	es => 'Modifica la página',
 	pt => 'Editar a página',
 	he => 'עריכת העמוד',
+	it => 'Modifica la pagina',
 },
 
 delete_product_page => {
@@ -5108,7 +5222,6 @@ names => {
 	pt => "Nomes",
 },
 
-
 css => {
 	fr => <<CSS
 CSS
@@ -5676,8 +5789,8 @@ unknown => {
 	he => "לא ידוע",
 },
 
-
 );
+
 
 
 
@@ -5685,7 +5798,7 @@ foreach my $l (@Langs) {
 
 	my $short_l = undef;
 	if ($l =~ /_/) {
-		$short_l = $`,  # pt_pt
+		$short_l = $`;  # pt_pt
 	}
 			
 	foreach my $type (keys %tag_type_singular) {
