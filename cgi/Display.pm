@@ -4710,13 +4710,14 @@ sub display_nutrient_levels($) {
 	
 	#return '' if (not $admin);
 	
-	if (($cc eq 'fr') and (exists $product_ref->{"nutrition_grade_fr"})) {
+	if (($lc eq 'fr') and (exists $product_ref->{"nutrition_grade_fr"})) {
 		my $grade = $product_ref->{"nutrition_grade_fr"};
 		my $uc_grade = uc($grade);
 		$html .= <<HTML
 <div style="float:left;padding:30px;padding-left:0px;padding-right:40px;">
+<p><span class="field">Note nutritionnelle de couleur (Programme National Nutrition et Santé)</p>
 <img src="/images/misc/$grade.338x72.png" alt="Note nutritionnelle : $uc_grade" style="margin-bottom:10px;max-width:100%" /><br/>
-<a href="http://fr.openfoodfacts.org/score-nutritionnel-experimental-france">Note nutritionnelle expérimentale</a>
+&rarr; <a href="http://fr.openfoodfacts.org/score-nutritionnel-experimental-france">Mode de calcul de la note nutritionnelle de couleur</a>
 </div>
 HTML
 ;
