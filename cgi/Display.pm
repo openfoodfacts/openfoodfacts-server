@@ -34,6 +34,8 @@ BEGIN
 					&display_error
 					&gen_feeds
 										
+					&add_product_nutriment_to_stats
+					&compute_stats_for_products
 					&display_nutrition_table
 					&display_product
 					&display_api
@@ -1921,7 +1923,7 @@ sub search_and_export_products($$$$$) {
 		
 		# Output header
 		
-		my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1);
+		my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergens => 1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1);
 
 		my @fields = qw (
 code
@@ -1943,6 +1945,7 @@ purchase_places
 stores
 countries
 ingredients_text
+allergens
 traces
 serving_size
 no_nutriments
@@ -2190,6 +2193,8 @@ sub display_scatter_plot($$$) {
 			$y_unit2 = $Nutriments{$graph_ref->{axis_y}}{unit};			
 		}
 		
+		my %nutriments = ();
+			
 		my $i = 0;		
 		
 		my %series = ();
@@ -2251,7 +2256,9 @@ sub display_scatter_plot($$$) {
 					else {
 						$data .= g_to_unit($product_ref->{nutriments}{"${nid}_100g"}, $Nutriments{$nid}{unit});
 					}
-					$data .= ',';
+					$data .= ',';			
+									
+					add_product_nutriment_to_stats(\%nutriments, $nid, $product_ref->{nutriments}{"${nid}_100g"});
 				}
 				$data .= ' product_name:"' . escape_single_quote($product_ref->{product_name}) . '", url: "' . $url . '", img:\''
 					. escape_single_quote(display_image($product_ref, 'front', $thumb_size)) . "'";
@@ -2399,9 +2406,19 @@ JS
 <script src="/js/highcharts.4.0.4.js"></script>
 <p>$count_string</p>
 <div id="container" style="height: 400px"></div>​
-<p>&nbsp;</p>
+
 HTML
 ;	
+
+		# Display stats
+		
+		my $stats_ref = {};
+		
+		compute_stats_for_products($stats_ref, \%nutriments, $count, $i, 5, 'search');
+		
+		$html .= display_nutrition_table($stats_ref, undef);
+		
+		$html .= "<p>&nbsp;</p>";
 
 		return $html;
 		
@@ -4202,6 +4219,10 @@ JS
 	font-weight:bold;
 }
 
+.allergen {
+	font-weight:bold;
+}
+
 
 CSS
 ;
@@ -4311,13 +4332,21 @@ CSS
 	
 	$html_image = display_image_box($product_ref, 'ingredients', \$minheight);	
 	
+	my $ingredients_text = $product_ref->{ingredients_text};
+	
+	if (defined $product_ref->{ingredients_text_with_allergens}) {
+		$ingredients_text = $product_ref->{ingredients_text_with_allergens};
+	}
+	
 	$html .= "</div>
 	<h2>" . lang("ingredients") . "</h2>
 	<div style=\"min-height:${minheight}px\">"
 	. $html_image;
 		
 	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
-	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . " :</span> <span id=\"ingredients_list\" property=\"food:ingredientListAsText\">$product_ref->{ingredients_text}</span></div>";
+	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . " :</span> <span id=\"ingredients_list\" property=\"food:ingredientListAsText\">$ingredients_text</span></div>";
+	
+	$html .= display_field($product_ref, 'allergens');
 	
 	$html .= display_field($product_ref, 'traces');
 	
@@ -4551,7 +4580,14 @@ HTML
 		$html .= display_field($product_ref, $field);
 	}
 	
-	$html_image = display_image_box($product_ref, 'ingredients', \$minheight);	
+	$html_image = display_image_box($product_ref, 'ingredients', \$minheight);
+
+	my $ingredients_text = $product_ref->{ingredients_text};
+	
+	if (defined $product_ref->{ingredients_text_with_allergens}) {
+		$ingredients_text = $product_ref->{ingredients_text_with_allergens};
+		$ingredients_text =~ s/<span class="allergen">(.*?)<\/span>/<b>$1<\/b>/isg;
+	}	
 	
 	$html .= "</div>";
 	
@@ -4568,7 +4604,9 @@ HTML
 	. $html_image;
 		
 	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
-	$html .= "<div id=\"ingredients_list\" ><span class=\"field\">" . lang("ingredients_text") . " :</span> $product_ref->{ingredients_text}</div>";
+	$html .= "<div id=\"ingredients_list\" ><span class=\"field\">" . lang("ingredients_text") . " :</span> $ingredients_text</div>";
+	
+	$html .= display_field($product_ref, 'allergens');
 	
 	$html .= display_field($product_ref, 'traces');
 	
@@ -4748,6 +4786,90 @@ HTML
 }
 
 
+
+
+sub add_product_nutriment_to_stats($$$) {
+
+	my $nutriments_ref = shift;
+	my $nid = shift;
+	my $value = shift;
+					
+	if (not defined $nutriments_ref->{"${nid}_n"}) {
+		$nutriments_ref->{"${nid}_n"} = 0;
+		$nutriments_ref->{"${nid}_s"} = 0;
+		$nutriments_ref->{"${nid}_array"} = [];
+	}
+	
+	$nutriments_ref->{"${nid}_n"}++;
+	$nutriments_ref->{"${nid}_s"} += $value;
+	push @{$nutriments_ref->{"${nid}_array"}}, $value;
+}
+
+
+sub compute_stats_for_products($$$$$$) {
+
+	my $stats_ref = shift;	# where we will store the stats
+	my $nutriments_ref = shift;	# values for some nutriments
+	my $count = shift;	# total number of products (including products that have no values for the nutriments we are interested in)
+	my $n = shift;	# number of products with defined values for specified nutriments
+	my $min_products = shift; # min number of products needed to compute stats	
+	my $id = shift;	# id (e.g. category id)
+
+
+	$stats_ref->{stats} = 1;
+	$stats_ref->{nutriments} = {};
+	$stats_ref->{id} = $id;
+	$stats_ref->{count} = $count;
+	$stats_ref->{n} = $n;	
+	
+
+	foreach my $nid (keys %{$nutriments_ref}) {
+		next if $nid !~ /_n$/;
+		$nid = $`;
+		
+		next if ($nutriments_ref->{"${nid}_n"} < $min_products);
+		
+		$nutriments_ref->{"${nid}_mean"} = $nutriments_ref->{"${nid}_s"} / $nutriments_ref->{"${nid}_n"};
+		
+		my $std = 0;
+		foreach my $value (@{$nutriments_ref->{"${nid}_array"}}) {
+			$std += ($value - $nutriments_ref->{"${nid}_mean"}) * ($value - $nutriments_ref->{"${nid}_mean"});
+		}
+		$std = sqrt($std / $nutriments_ref->{"${nid}_n"});
+		
+		$nutriments_ref->{"${nid}_std"} = $std;
+		
+		my @values = sort { $a <=> $b } @{$nutriments_ref->{"${nid}_array"}};
+		
+		$stats_ref->{nutriments}{"${nid}_n"} = $nutriments_ref->{"${nid}_n"};
+		$stats_ref->{nutriments}{"$nid"} = $nutriments_ref->{"${nid}_mean"};
+		$stats_ref->{nutriments}{"${nid}_100g"} = sprintf("%.2e", $nutriments_ref->{"${nid}_mean"}) + 0.0;
+		$stats_ref->{nutriments}{"${nid}_mean"} = $nutriments_ref->{"${nid}_mean"};
+		$stats_ref->{nutriments}{"${nid}_std"} =  sprintf("%.2e", $nutriments_ref->{"${nid}_std"}) + 0.0;
+
+		if ($nid eq 'energy') {
+			$stats_ref->{nutriments}{"${nid}_100g"} = int ($stats_ref->{nutriments}{"${nid}_100g"} + 0.5);
+			$stats_ref->{nutriments}{"${nid}_std"} = int ($stats_ref->{nutriments}{"${nid}_std"} + 0.5);
+		}				
+		
+		$stats_ref->{nutriments}{"${nid}_min"} = $values[0];
+		$stats_ref->{nutriments}{"${nid}_max"} = $values[$nutriments_ref->{"${nid}_n"} - 1];
+		#$stats_ref->{nutriments}{"${nid}_5"} = $nutriments_ref->{"${nid}_array"}[int ( ($nutriments_ref->{"${nid}_n"} - 1) * 0.05) ];
+		#$stats_ref->{nutriments}{"${nid}_95"} = $nutriments_ref->{"${nid}_array"}[int ( ($nutriments_ref->{"${nid}_n"}) * 0.95) ];
+		$stats_ref->{nutriments}{"${nid}_10"} = $values[int ( ($nutriments_ref->{"${nid}_n"} - 1) * 0.10) ];
+		$stats_ref->{nutriments}{"${nid}_90"} = $values[int ( ($nutriments_ref->{"${nid}_n"}) * 0.90) ];
+		$stats_ref->{nutriments}{"${nid}_50"} = $values[int ( ($nutriments_ref->{"${nid}_n"}) * 0.50) ];
+		
+		#print STDERR "-> lc: lc -category $tagid - count: $count - n: nutriments: " . $nn . "$n \n";
+		#print "categories stats - cc: $cc - n: $n- values for category $id: " . join(", ", @values) . "\n";
+		#print "tagid: $id - nid: $nid - 100g: " .  $stats_ref->{nutriments}{"${nid}_100g"}  . " min: " . $stats_ref->{nutriments}{"${nid}_min"} . " - max: " . $stats_ref->{nutriments}{"${nid}_max"} . 
+		#	"mean: " . $stats_ref->{nutriments}{"${nid}_mean"} . " - median: " . $stats_ref->{nutriments}{"${nid}_50"} . "\n";
+		
+	}							
+
+}
+
+
 sub display_nutrition_table($$) {
 
 	my $product_ref = shift;
@@ -4885,10 +5007,12 @@ JS
 	
 		push @cols, 'std', 'min', '10', '50', '90', 'max';
 		
-		$html .= "<p><input id=\"show_stats\" type=\"checkbox\" /><label for=\"show_stats\">" . lang("show_category_stats") . "</label>"
-		. lang("sep") . ": " . lang("show_category_stats_details") . "</p>";
+		if ($product_ref->{id} ne 'search') {
 		
-		$initjs .= <<JS
+			$html .= "<p><input id=\"show_stats\" type=\"checkbox\" /><label for=\"show_stats\">" . lang("show_category_stats") . "</label>"
+			. lang("sep") . ": " . lang("show_category_stats_details") . "</p>";
+		
+			$initjs .= <<JS
 		
 if (\$.cookie('show_stats')) {
 	\$('#show_stats').attr('checked','checked');
@@ -4921,6 +5045,7 @@ else {
 JS
 ;
 	
+		}
 	}
 	
 	my $empty_cols = '';
@@ -4984,7 +5109,8 @@ HTML
 		}
 		
 		# Only show important nutriments if the value is not known
-		if (($nutriment !~ /^!/) and not ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))) {
+		# Only show known values for search graph results
+		if ((($nutriment !~ /^!/) or ($product_ref->{id} eq 'search')) and not ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))) {
 			$shown = 0;
 		}
 			

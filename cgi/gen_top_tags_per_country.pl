@@ -37,7 +37,8 @@ origins
 manufacturing_places 
 ingredients 
 labels 
-nutriments 
+nutriments
+allergens
 traces 
 users
 photographers
@@ -61,8 +62,7 @@ pnns_groups_1
 
 # also generate stats for categories
 
-my $min_products = 10;
-my %categories = ();
+
 
 
 my %countries = ();
@@ -254,7 +254,6 @@ foreach my $country (keys %{$properties{countries}}, 'en:world') {
 		
 		my $count = 0;
 		my $n = 0;
-		my $nn = 0;
 		my %nutriments = ();
 
 		foreach my $code (keys %{$countries_categories{$country}{$tagid}}) {
@@ -266,72 +265,18 @@ foreach my $country (keys %{$properties{countries}}, 'en:world') {
 			$n++;
 			
 			foreach my $nid (keys %{$products_nutriments{$code}}) {
-								
-				if (not defined $nutriments{"${nid}_n"}) {
-					$nutriments{"${nid}_n"} = 0;
-					$nutriments{"${nid}_s"} = 0;
-					$nutriments{"${nid}_array"} = [];
-					$nn++;
-				}
-				
-				$nutriments{"${nid}_n"}++;
-				$nutriments{"${nid}_s"} += $products_nutriments{$code}{$nid};
-				push @{$nutriments{"${nid}_array"}}, $products_nutriments{$code}{$nid};					
+													
+				add_product_nutriment_to_stats(\%nutriments, $nid, $products_nutriments{$code}{$nid});
 			}	
 		}
 		
 		if ($n >= $min_products) {
+			
+			($cc eq 'fr') and ($tagid =~ /taboul/) and print "compute_stats_for_products - fr - $tagid - n: $n - count: $count - min: $min_products\n";
+			$categories{$tagid} = {};
+			compute_stats_for_products($categories{$tagid}, \%nutriments, $count, $n, $min_products, $tagid);
 		
-			$categories{$tagid} = {stats => 1, nutriments => {},
-				count => $count,
-				n => $n, id=> $tagid};
-		
-			foreach my $nid (keys %nutriments) {
-				next if $nid !~ /_n$/;
-				$nid = $`;
-				
-				next if ($nutriments{"${nid}_n"} < $min_products);
-				
-				$nutriments{"${nid}_mean"} = $nutriments{"${nid}_s"} / $nutriments{"${nid}_n"};
-				
-				my $std = 0;
-				foreach my $value (@{$nutriments{"${nid}_array"}}) {
-					$std += ($value - $nutriments{"${nid}_mean"}) * ($value - $nutriments{"${nid}_mean"});
-				}
-				$std = sqrt($std / $nutriments{"${nid}_n"});
-				
-				$nutriments{"${nid}_std"} = $std;
-				
-				my @values = sort { $a <=> $b } @{$nutriments{"${nid}_array"}};
-				
-				$categories{$tagid}{nutriments}{"${nid}_n"} = $nutriments{"${nid}_n"};
-				$categories{$tagid}{nutriments}{"$nid"} = $nutriments{"${nid}_mean"};
-				$categories{$tagid}{nutriments}{"${nid}_100g"} = sprintf("%.2e", $nutriments{"${nid}_mean"}) + 0.0;
-				$categories{$tagid}{nutriments}{"${nid}_mean"} = $nutriments{"${nid}_mean"};
-				$categories{$tagid}{nutriments}{"${nid}_std"} =  sprintf("%.2e", $nutriments{"${nid}_std"}) + 0.0;
-
-				if ($nid eq 'energy') {
-					$categories{$tagid}{nutriments}{"${nid}_100g"} = int ($categories{$tagid}{nutriments}{"${nid}_100g"} + 0.5);
-					$categories{$tagid}{nutriments}{"${nid}_std"} = int ($categories{$tagid}{nutriments}{"${nid}_std"} + 0.5);
-				}				
-				
-				$categories{$tagid}{nutriments}{"${nid}_min"} = $values[0];
-				$categories{$tagid}{nutriments}{"${nid}_max"} = $values[$nutriments{"${nid}_n"} - 1];
-				#$categories{$tagid}{nutriments}{"${nid}_5"} = $nutriments{"${nid}_array"}[int ( ($nutriments{"${nid}_n"} - 1) * 0.05) ];
-				#$categories{$tagid}{nutriments}{"${nid}_95"} = $nutriments{"${nid}_array"}[int ( ($nutriments{"${nid}_n"}) * 0.95) ];
-				$categories{$tagid}{nutriments}{"${nid}_10"} = $values[int ( ($nutriments{"${nid}_n"} - 1) * 0.10) ];
-				$categories{$tagid}{nutriments}{"${nid}_90"} = $values[int ( ($nutriments{"${nid}_n"}) * 0.90) ];
-				$categories{$tagid}{nutriments}{"${nid}_50"} = $values[int ( ($nutriments{"${nid}_n"}) * 0.50) ];
-				
-				#print STDERR "-> lc: lc -category $tagid - count: $count - n: nutriments: " . $nn . "$n \n";
-				print "categories stats - cc: $cc - nn: $nn - n: $n- values for category $tagid: " . join(", ", @values) . "\n";
-				#print "tagid: $tagid - nid: $nid - 100g: " .  $categories{$tagid}{nutriments}{"${nid}_100g"}  . " min: " . $categories{$tagid}{nutriments}{"${nid}_min"} . " - max: " . $categories{$tagid}{nutriments}{"${nid}_max"} . 
-				#	"mean: " . $categories{$tagid}{nutriments}{"${nid}_mean"} . " - median: " . $categories{$tagid}{nutriments}{"${nid}_50"} . "\n";
-				
-			}							
-		
-		}
-		
+		}		
 	}
 
 	store("$data_root/index/categories_nutriments_per_country.$cc.sto", \%categories);
