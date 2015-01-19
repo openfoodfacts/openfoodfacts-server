@@ -21,6 +21,7 @@ BEGIN
 					
 					&extract_ingredients_classes_from_text
 					
+					&detect_allergens_from_text
 
 	
 					);	# symbols to export on request
@@ -483,5 +484,65 @@ sub extract_ingredients_classes_from_text($) {
 		}
 	}
 }
+
+
+
+sub replace_allergen($$) {
+	my $product_ref = shift;
+	my $allergen = shift;
+	$product_ref->{allergens} .= $allergen . ', ';
+	
+	return '<span class="allergen">' . $allergen . '</span>';
+}
+
+
+sub replace_caps($$) {
+	my $product_ref = shift;
+	my $allergen = shift;
+	
+	my $tagid = canonicalize_taxonomy_tag($product_ref->{lang},"allergens", $allergen);
+	if (exists_taxonomy_tag("allergens", $tagid)) {
+		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
+		$product_ref->{allergens} .= $allergen . ', ';
+		return '<span class="allergen">' . $allergen . '</span>';
+	}
+	else {
+		return $allergen;
+	}		
+}
+
+
+sub detect_allergens_from_text($) {
+
+	my $product_ref = shift;
+	my $path = product_path($product_ref->{code});
+	my $text = $product_ref->{ingredients_text};
+	
+	$product_ref->{allergens} = "";
+	
+	
+	$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($product_ref,$1)/iesg;
+	
+	if ($text =~ /[a-z]/) {
+		$text =~ s/\b([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß][A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]+))\b/replace_caps($product_ref,$1)/esg;
+	}
+	
+	$product_ref->{ingredients_text_with_allergens} = $text;
+	
+	$product_ref->{allergens} =~ s/, $//;
+
+	my $field = 'allergens';
+	$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($product_ref->{lang}, $field, $product_ref->{$field}) ];
+	$product_ref->{$field . "_tags" } = [];
+	foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
+		push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
+	}	
+	
+}
+
+
+
+
+
 
 1;
