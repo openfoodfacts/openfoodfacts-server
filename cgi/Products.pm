@@ -101,8 +101,9 @@ sub init_product($) {
 	# returns undef if country is unallocated, or not defined in our database
 	my $country = $gi->country_code_by_addr(remote_addr());
 	if (defined $country) {
-		$product_ref->{countries} = "en:" . $country;
-		my $field = 'countries';
+		if ($country !~ /a1|a2|o1/i) {
+			$product_ref->{countries} = "en:" . $country;
+			my $field = 'countries';
 			if (defined $taxonomy_fields{$field}) {
 				$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
 				$product_ref->{$field . "_tags" } = [];
@@ -110,6 +111,7 @@ sub init_product($) {
 					push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
 				}
 			}			
+		}
 	}	
 	return $product_ref;
 }
@@ -273,7 +275,8 @@ sub store_product($$) {
 	if (-l $link) {
 		unlink($link) or print STDERR "Products::store_product could not unlink $link : $! \n";
 	}
-	symlink("$data_root/products/$path/$rev.sto", $link) or print STDERR "Products::store_product could not symlink $data_root/products/$path/$rev.sto to $link : $! \n";
+	#symlink("$data_root/products/$path/$rev.sto", $link) or print STDERR "Products::store_product could not symlink $data_root/products/$path/$rev.sto to $link : $! \n";
+	symlink("$rev.sto", $link) or print STDERR "Products::store_product could not symlink $data_root/products/$path/$rev.sto to $link : $! \n";
 	
 	store("$data_root/products/$path/changes.sto", $changes_ref);
 }
