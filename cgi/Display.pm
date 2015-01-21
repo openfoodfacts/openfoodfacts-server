@@ -809,7 +809,9 @@ sub display_list_of_tags($$) {
 			
 
 			if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm}))  {
-				$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}\">" . lang("search_download_results") . "</a><br />";
+				$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
+				$request_ref->{current_link_query_download} .= "&download=on";
+				$html .= "&rarr; <a href=\"$request_ref->{current_link_query_download}\">" . lang("search_download_results") . "</a><br />";
 			}
 		}
 	
@@ -1599,7 +1601,9 @@ sub search_and_display_products($$$$$) {
 	if ($count > 0) {
 	
 		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm}))  {
-			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}\">" . lang("search_download_results") . "</a><br />";
+			$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
+			$request_ref->{current_link_query_download} .= "&download=on";
+			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_download}\">" . lang("search_download_results") . "</a><br />";
 		}
 		
 		print STDERR "search - count: $count - request_ref->{search}: " . $request_ref->{search}  . " tagid2 " . $request_ref->{tagid2} . "\n" ;
