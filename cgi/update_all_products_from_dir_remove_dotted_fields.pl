@@ -74,6 +74,7 @@ if (scalar $#products < 0) {
 
 my $count = $#products;
 my $i = 0;
+my $updated = 0;
 
 my %codes = ();
 	
@@ -91,10 +92,12 @@ my %codes = ();
 
 		if ((defined $product_ref)) {
 
+			my $update = 0;
 			foreach my $k (keys %{$product_ref}) {
-				$k =~ /\./ and print "$k\t";
+				$k =~ /\./ and $update = 1;
 			}
 
+			
 			if (exists $product_ref->{"countries.20131226"}) {
 				delete $product_ref->{"countries.20131226"};
 			}
@@ -124,30 +127,17 @@ my %codes = ();
                         }
 
 
-
-foreach my $k (keys %{$product_ref}) {
-                                $k =~ /\./ and print "$k\t";
-                        }
-
-
-		}
-		
-		if ((defined $product_ref) and ($code ne '')) {
-			next if ((defined $product_ref->{empty}) and ($product_ref->{empty} == 1));
-			next if ((defined $product_ref->{deleted}) and ($product_ref->{deleted} eq 'on'));
-			print STDERR "updating product $code -- " . $product_ref->{code} . " \n";
-			my $return = $products_collection->save($product_ref , { safe => 1 });		
-			print STDERR "return $return\n";
-			my $err = $database->last_error();
-			if (defined $err) {
-#				print STDERR Dump($err);
-			}
 			$i++;
 			$codes{$code} = 1;
+			
+			if ($update) {
+				store("$data_root/products/$path/product.sto", $product_ref);	
+				$updated++;
+			}
 		}
 	}
 
-print STDERR "$count products to update - $i products not empty or deleted\n";
+print STDERR "$count products to update - $i products not empty or deleted - $updated product with dotted fields\n";
 print STDERR "scalar keys codes : " . (scalar keys %codes) . "\n";
 
 exit(0);
