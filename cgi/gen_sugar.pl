@@ -52,7 +52,7 @@ purchase_places
 stores
 ingredients_from_palm_oil
 ingredients_that_may_be_from_palm_oil
-status
+states
 );
 
 
@@ -72,7 +72,7 @@ foreach my $l ('en') {
 
 	
 
-	my $query_ref = {lc=>$lc, status_tags=>'complete'};
+	my $query_ref = {lc=>$lc, states_tags=>'complete'};
 	#$query_ref->{"nutriments.sugars_100g"}{ '$gte'}  = 0.01;
 	# -> does not seem to work for sugars, maybe some string values?!
 		

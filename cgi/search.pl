@@ -41,8 +41,8 @@ if (defined param('jqm_loadmore')) {
 	$request_ref->{jqm_loadmore} = param('jqm_loadmore');
 }
 
-my @search_fields = qw(brands categories packaging labels origins emb_codes purchase_places stores additives traces status );
-my %search_tags_fields =  (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, emb_codes => 1, traces => 1, purchase_places => 1, stores => 1, additives => 1, status=>1);
+my @search_fields = qw(brands categories packaging labels origins emb_codes purchase_places stores additives allergens traces states );
+my %search_tags_fields =  (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, emb_codes => 1, allergens=> 1, traces => 1, purchase_places => 1, stores => 1, additives => 1, states=>1);
 
 my @search_ingredient_classes = ('additives', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil', 'ingredients_from_or_that_may_be_from_palm_oil');
 

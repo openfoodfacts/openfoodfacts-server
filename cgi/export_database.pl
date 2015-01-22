@@ -30,7 +30,7 @@ use DateTime qw/:all/;
 
 
 
-my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1, countries => 1);
+my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergen=>1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1, countries => 1, states=>1);
 
 my @fields = qw (
 code
@@ -52,6 +52,7 @@ purchase_places
 stores
 countries
 ingredients_text
+allergens
 traces
 serving_size
 no_nutriments
@@ -65,6 +66,7 @@ nutrition_grade_uk
 nutrition_grade_fr
 pnns_groups_1
 pnns_groups_2
+states
 );
 
 

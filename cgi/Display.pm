@@ -236,7 +236,7 @@ sub init()
 		$admin = 1;
 	}
 	
-	if ((defined %admins) and ($admins{$User_id})) {
+	if ((%admins) and (exists $admins{$User_id})) {
 		$admin = 1;
 	}
 	
@@ -3199,7 +3199,7 @@ sub display_my_block($)
 		my $links = '<p>';
 		$links .= "&rarr; <a href=\"/cgi/user.pl?userid=$User_id&type=edit\">" . lang("edit_settings") . "</a><br/>";
 		$links .= "&rarr; <a href=\"" . canonicalize_tag_link("users", get_fileid($User_id)) . "\">" . lang("products_you_edited") . "</a><br/>";
-		$links .= "&rarr; <a href=\"" . canonicalize_tag_link("users", get_fileid($User_id)) . canonicalize_tag_link("status", get_fileid(lang("to_be_completed"))) . "\">" . lang("incomplete_products_you_added") . "</a><br/>";  
+		$links .= "&rarr; <a href=\"" . canonicalize_tag_link("users", get_fileid($User_id)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed") . "\">" . lang("incomplete_products_you_added") . "</a><br/>";  
 		$links .= "</p>";
 		
 		my $content = '';
@@ -4491,7 +4491,7 @@ HTML
 ;
 
 	if (defined $User_id) {
-		$html .= display_field($product_ref, 'status');
+		$html .= display_field($product_ref, 'states');
 	}
 	
 	$html .= "<div class=\"edit_button\"><a href=\"/cgi/product.pl?type=edit&code=$code\" class=\"jbutton\">" . lang("edit_product_page") . "</a></div>";

@@ -229,7 +229,7 @@ sub store_product($$) {
 	$product_ref->{rev} = $rev;
 	$product_ref->{last_modified_by} = $User_id;
 	$product_ref->{last_modified_t} = time();
-	if (not defined $product_ref->{creator}) {
+	if (not exists $product_ref->{creator}) {
 		$product_ref->{creator} = $User_id;
 	}
 	
@@ -292,7 +292,7 @@ sub compute_completeness_and_missing_tags($$$) {
 
 	# Compute completeness and missing tags
 	
-	my @status_tags = ();
+	my @states_tags = ();
 	
 	# Images
 	
@@ -300,18 +300,18 @@ sub compute_completeness_and_missing_tags($$$) {
 	my $notempty = 0;
 	
 	if (scalar keys %{$current_ref->{uploaded_images}} < 1) {
-		push @status_tags, lang("photos_to_be_uploaded");
+		push @states_tags, "en:photos-to-be-uploaded";
 		$complete = 0;
 	}
 	else {
-		push @status_tags, lang("photos_uploaded");
+		push @states_tags, "en:photos-uploaded";
 	
 		if ((defined $current_ref->{selected_images}{front}) and (defined $current_ref->{selected_images}{ingredients})
 			and ((defined $current_ref->{selected_images}{nutrition}) or ($product_ref->{no_nutrition_data} eq 'on')) ) {
-			push @status_tags, lang("photos_validated");
+			push @states_tags, "en:photos-validated";
 		}
 		else {
-			push @status_tags, lang("photos_to_be_validated");
+			push @states_tags, "en:photos-to-be-validated";
 			$complete = 0;
 		}
 		$notempty++;
@@ -322,7 +322,7 @@ sub compute_completeness_and_missing_tags($$$) {
 	foreach my $field (@needed_fields) {
 		if ((not defined $product_ref->{$field}) or ($product_ref->{$field} eq '')) {
 			$all_fields = 0;
-			push @status_tags, lang( $field . "_to_be_completed");
+			push @states_tags, "en:" . get_fileid($field) . "-to-be-completed";
 		}
 		else {
 			$notempty++;
@@ -330,61 +330,57 @@ sub compute_completeness_and_missing_tags($$$) {
 	}
 	
 	if ($all_fields == 0) {
-		push @status_tags, lang("characteristics_to_be_completed");
+		push @states_tags, "en:characteristics-to-be-completed";
 		$complete = 0;
 	}
 	else {
-		push @status_tags, lang("characteristics_completed");		
+		push @states_tags, "en:characteristics-completed";		
 	}
 	
 	if ((defined $product_ref->{expiration_date}) and ($product_ref->{expiration_date} ne '')) {
-		push @status_tags, lang("expiration_date_completed");
+		push @states_tags, "en:expiration-date-completed";
 		$notempty++;
 	}
 	else {
-		push @status_tags, lang("expiration_date_to_be_completed");
+		push @states_tags, "en:expiration-date-to-be-completed";
 		# $complete = 0;		
 	}	
 	
 	if ((defined $product_ref->{ingredients_text}) and ($product_ref->{ingredients_text} ne '')) {
-		push @status_tags, lang("ingredients_completed");
+		push @states_tags, "en:ingredients-completed";
 		$notempty++;
 	}
 	else {
-		push @status_tags, lang("ingredients_to_be_completed");
+		push @states_tags, "en:ingredients-to-be-completed";
 		$complete = 0;		
 	}
 	
 	if ((scalar keys %{$current_ref->{nutriments}} > 0) or ($product_ref->{no_nutrition_data} eq 'on')) {
-		push @status_tags, lang("nutrition_completed");
+		push @states_tags, "en:nutrition-facts-completed";
 		$notempty++;
 	}
 	else {
-		push @status_tags, lang("nutrition_to_be_completed");
+		push @states_tags, "en:nutrition-facts-to-be-completed";
 		$complete = 0;		
 	}
 	
 	if ($complete) {
-		push @status_tags, lang("complete");	
+		push @states_tags, "en:complete";	
 		
 		if ($product_ref->{checked} eq 'on') {
-			push @status_tags, lang("checked");				
+			push @states_tags, "en:checked"
 		}
 		else {
-			push @status_tags, lang("to_be_checked");
+			push @states_tags, "en:to-be-checked";
 		}
 	}
 	else {
-		push @status_tags, lang("to_be_completed");		
-	}
-	
-	if ($product_ref->{code} eq "3596710313266") {
-		print "compute: code: $product_ref->{code} - empty: $product_ref->{empty} - not_empty: $notempty\n";
+		push @states_tags, "en:to-be-completed";		
 	}
 
 	if ($notempty == 0) {
 		$product_ref->{empty} = 1;
-		push @status_tags, lang("empty");	
+		push @states_tags, "en:empty";	
 	}
 	else {
 		delete $product_ref->{empty};
@@ -410,14 +406,21 @@ sub compute_completeness_and_missing_tags($$$) {
 	}
 	
 	
-	$product_ref->{status} = join(', ', reverse @status_tags);
-	$product_ref->{status_tags} = [];
+	$product_ref->{states} = join(', ', reverse @states_tags);
+	$product_ref->{"states_hierarchy" } = [reverse @states_tags];
+	$product_ref->{"states_tags" } = [reverse @states_tags];
 
-	foreach my $tag (split(',', $product_ref->{status} )) {
-		if (get_fileid($tag) ne '') {
-			push @{$product_ref->{"status_tags" }}, get_fileid($tag);
-		}
-	}	
+	#my $field = "states";
+	#
+	#$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
+	#$product_ref->{$field . "_tags" } = [];
+	#foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
+	#		push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
+	#}	
+	
+	# old name
+	delete $product_ref->{status};
+	delete $product_ref->{status_tags};
 }
 
 
