@@ -250,6 +250,12 @@ sub analyze_request($)
 {
 	my $request_ref = shift;
 	
+	#http://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
+	
+	if ($request_ref->{query_string} =~ /(\&|\?)utm_/) {
+		$request_ref->{query_string} = $`;
+	}	
+	
 	print STDERR "analyze_request : query_string 1 : $request_ref->{query_string} \n";
 	
 	if ($request_ref->{query_string} =~ /\&rev=(\d+)/) {
