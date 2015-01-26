@@ -44,6 +44,8 @@ use vars @EXPORT_OK ;
 use strict;
 use utf8;
 
+use Blogs::SiteLang qw/:all/;
+
 use Blogs::Store qw/:all/;
 %lang_lc = (
 ar => 'ar',
@@ -60,6 +62,7 @@ ru => 'ru',
 pl => 'pl',
 pt => 'pt',
 pt_pt => 'pt_pt',
+ro => 'ro',
 vi => 'vi',
 zh => 'zh',
 );
@@ -78,6 +81,7 @@ zh => 'zh',
 'pl'=>'Polski',
 'pt'=>'Português',
 'pt_pt'=>'Português',
+'ro' => 'Română',
 'vi'=>'Tiếng Việt',
 'zh'=>'中文',
 );
@@ -94,6 +98,7 @@ products => {
 	es => 'producto',
 	it => 'prodotto',
 #	ru => 'продукт',
+    ro => 'produs',
 	ar => 'mountaj',
 	pt => 'produto',
 	he => 'mozar',
@@ -104,6 +109,7 @@ brands => {
 	en => 'brand',
 	es => 'marca',
 	it => 'marca',
+	ro => 'marca',
 #	ru => 'марка',
 	ar => '3alama-tijariya', # need to be in ascii: letters A to Z
 	pt => 'marca', 
@@ -115,6 +121,7 @@ categories => {
 	en => 'category',
 	es => 'categoria',
 	it => 'categoria',
+	ro => 'categorie',
 #	ru => 'категория',
 	ar => 'atassnifate',
 	pt => 'categoria',
@@ -132,6 +139,7 @@ packaging => {
 	en => 'packaging',
 	es => 'envase',
 	it => 'imballaggio',
+	ro => 'ambalaj',
 #	ru => 'упаковка',
 	ar => 'ata3bia',
 	pt => 'embalagem',
@@ -143,6 +151,7 @@ emb_codes => {
 	en => 'packager-code',
 	es => 'codigo-de-envasador',
 	it => 'codice-imballaggio',
+	ro => 'cod-de-ambalare',
 #	ru => 'код',
 	ar => 'ramz-el-mou3abi',
 	pt => 'codigo-do-empacotador',
@@ -155,6 +164,7 @@ cities => {
 	en => 'city',
 	it => 'citta',
 	es => 'ciudad',
+	ro => 'oras',
 #	ru => 'город',
 	ar => 'almoudoun',
 	pt => 'cidade',
@@ -166,6 +176,7 @@ origins => {
 	en => 'origin',
 	it => 'origine',
 	es => 'origen',
+	ro => 'provenienta',
 #	ru => 'источник',
 	ar => 'almassdar',
 	pt => 'origem',
@@ -177,6 +188,7 @@ manufacturing_places => {
 	en => 'manufacturing-place', 
 	es => 'lugar-de-fabricacion',
 	pt_pt => 'local-de-fabrico',
+	ro => 'locatia-de-fabricatie',
 },
 purchase_places => {
 	fr => 'lieu-de-vente',
@@ -184,6 +196,7 @@ purchase_places => {
 	en => 'purchase-place',
 	it => 'luogo-d-acquisto',
 	es => 'sitio-de-compra',
+	ro => 'locatia-de-achizitie',
 #	ru => 'где-куплено',
 	ar => 'nikate-alBay3',
 	pt => 'local-de-compra',
@@ -195,6 +208,7 @@ stores => {
 	en => 'store',
 	it => 'negozio',
 	es => 'tienda',
+	ro => 'magazin',
 #	ru => 'магазин',
 	ar => 'almatajir',
 	pt => 'loja',
@@ -207,6 +221,7 @@ countries => {
 	es => 'pais',
 	he => 'medina',
 	pt => 'país',
+	ro => 'tara',
 },
 ingredients => { 
 	fr => 'ingredient',
@@ -214,6 +229,7 @@ ingredients => {
 	en => 'ingredient',
 	es => 'ingrediente',
 	it => 'ingrediente',
+	ro => 'ingredient',
 #	ru => 'состав',
 	ar => 'almoukawinate',
 	pt => 'ingrediente',
@@ -225,6 +241,7 @@ labels => {
 	en => 'label',
 	es => 'etiqueta',
 	it => 'etichetta',
+    ro => 'eticheta',
 #	ru => 'этикетка',
 	ar => 'al3alama',
 	pt => 'etiqueta',
@@ -236,6 +253,7 @@ nutriments => {
 	en => 'nutrient',
 	es => 'nutriente',
 	it => 'nutriente',
+	ro => 'nutriente',
 #	ru => 'пищевая-ценность',
 	ar => 'ghithae',
 	pt => 'nutriente',
@@ -247,6 +265,7 @@ traces => {
 	en => 'trace',
 	es => 'traza',
 	it => 'traccia',
+	ro => 'urma',
 #	ru => 'содержит',
 	ar => 'athar',
 	pt => 'traco',
@@ -259,6 +278,7 @@ users => {
 	en => 'contributor',
 	es => 'contribuyente',
 	it => 'contributore',
+	ro => 'contributor',
 #	ru => 'участник',
 	ar => 'almousstakhdimoun',
 	pt => 'colaborador',
@@ -270,6 +290,7 @@ photographers => {
 	en => 'photographer',
 	ar => 'moussawir' ,
 	pt => 'fotografo',
+	ro => 'fotograf',
 	es => 'fotografo',
 	he => 'tzalam',
 },
@@ -280,6 +301,7 @@ informers => {
 	ar => 'moukhbir',
 	pt => 'informante',
 	pt_pt => 'informador',
+	ro => 'informator',
 	es => 'informante',
 	he => 'meyadea', 
 },
@@ -290,6 +312,7 @@ correctors => {
 	ar => 'moussahih',
 	pt => 'corretor',
 	pt_pt => 'revisor',
+	ro => 'corector',
 	es => 'corrector',
 	he => 'metaken', 
 },
@@ -299,6 +322,7 @@ checkers => {
 	en => 'checker',
 	ar => 'mourakib',
 	pt => 'verificador',
+	ro => 'verificator',
 	es => 'verificador',
 	he => 'bodek', 
 },
@@ -308,6 +332,7 @@ states => {
 	en => 'state',
 #	ar => 'الحاله',
 	pt => 'estado',
+	ro => 'status',
 	es => 'estado',
 	he => 'matzav', 
 },
@@ -317,6 +342,7 @@ additives => {
 	en => 'additive',
 	es => 'aditivo',
 	it => 'additivo',
+	ro => 'aditiv',
 #	ru => 'добавка',
 	ar => 'mouthafat',
 	pt => 'aditivo',
@@ -326,6 +352,7 @@ ingredients_from_palm_oil => {
 	fr => "ingredients-issus-de-l-huile-de-palme",
         de => "zutaten-aus-palmoel",
 	en => "ingredients-from-palm-oil",
+	ro => 'ingrediente-din-ulei-de-palmier',
 #	ru => "вещества-из-пальмового-масла",
 	ar => 'mawad-mousstakhraja-min-zayt-nakhil',
 	pt => 'ingredientes-de-oleo-de-palma',
@@ -336,6 +363,7 @@ ingredients_that_may_be_from_palm_oil => {
 	fr => "ingredients-pouvant-etre-issus-de-l-huile-de-palme",
         de => "zutaten-die-möglicherweise-palmoel-beinhalten",
 	en => "ingredients-that-may-be-from-palm-oil",
+	ro => 'ingerdiente-care-ar-putea-fi-din-ulei-de-palmier',
 #	ru => "вещества-возможно-из-пальмового-масла",
 	ar => 'mawad-kad-takoun-mousstakhraja-mina-nakhil',
 	pt => 'ingredientes-que-podem-ser-de-oleo-de-palma',
@@ -348,6 +376,7 @@ allergens => {
 	en => 'allergen',
 	es => 'alergeno',
 	it => 'allergene',
+	ro => 'alergen',
 #	ru => 'аллергены',
 	ar => 'moussabib-hassassiya',
 	pt => 'alergenico',
@@ -360,6 +389,7 @@ missions => {
 	es => 'mision',
 	de => 'mission',
 	it => 'scopo',
+	ro => 'misiune',
 #	ru => 'назначение',
 	ar => 'mouhima',
 	pt => 'missao',
@@ -371,23 +401,26 @@ nutrient_levels => {
 	fr => 'repere-nutritionnel',
 	es => 'valor-nutricional',
 	he => 'ramat-khomrey-hamazon',
-	pt => 'nivel-nutricional', 
+	pt => 'nivel-nutricional',
+	ro => 'valoare-nutritionala',
 },
 known_nutrients => {
 	en => 'known-nutrients',
         de => 'bekannte-naehrwerte',
 	fr => 'nutriments-connus',
 	es => 'nutrientes-conocidos',
-	pt => 'nutrientes-conhecidos', 
+	pt => 'nutrientes-conhecidos',
 	he => 'khomrey-mazon-yeduim',
+	ro => 'nutrienti-cunoscuti',
 },
 unknown_nutrients => {
 	en => 'unknown-nutrients',
         de => 'unbekannte-naehrwerte',
 	fr => 'nutriments-inconnus',
 	es => 'nutrientes-desconocidos',
-	pt => 'nutriente-desconhecido', 
+	pt => 'nutriente-desconhecido',
 	he => 'khmorey-mazon-bilti-yeduim',
+	ro => 'nutrienti-necunoscuti',
 },
 );
 
@@ -402,6 +435,7 @@ products => {
 	it => 'prodotti',
 #	ar => 'mountaj',
 	pt => 'produtos',
+	ro => 'produse',
 #	he => 'mozar',
 },
 brands => { 
@@ -410,6 +444,7 @@ brands => {
 	en => 'brands',
 	es => 'marcas',
 	it => 'marcas',
+	ro => 'marci',
 #	ru => 'марка',
 #	ar =>'3alama-tijariya', # need to be in ascii: letters A to Z
 	pt => 'marcas', 
@@ -422,6 +457,7 @@ categories => {
 	es => 'categorias',
 	it => 'categorias',
 #	ru => 'категория',
+    ro => 'categorii',
 #	ar =>  'atassnifate',
 	pt => 'categorias',
 #	he => 'categoria',    
@@ -441,7 +477,8 @@ packaging => {
 #	ru => 'упаковка',
 #	ar => 'ata3bia',
 	pt => 'embalagens',
-#	he => 'ariza',    
+#	he => 'ariza',
+    ro => 'ambalaje',
 },
 emb_codes => {
 	fr => 'codes-emballeurs',
@@ -453,6 +490,7 @@ emb_codes => {
 #	ar => 'ramz-el-mou3abi',
 	pt => 'codigos-do-empacotador',
 	pt_pt => 'codigos-de-embalador',
+	ro => 'coduri-de-ambalare',
 #	he => 'cod-emb',    
 },
 cities => {
@@ -464,6 +502,7 @@ cities => {
 #	ru => 'город',
 #	ar => 'almoudoun',
 	pt => 'cidades',
+	ro => 'orase',
 #	he => 'ir',    
 },
 origins => { 
@@ -475,6 +514,7 @@ origins => {
 #	ru => 'источник',
 #	ar => 'almassdar',
 	pt => 'origens',
+	ro => 'origini',
 #	he => 'makor',    
 },
 manufacturing_places => {
@@ -483,6 +523,7 @@ manufacturing_places => {
 	en => 'manufacturing-places', 
 	es => 'lugares-de-fabricacion',
 	pt_pt => 'locais-de-fabrico',
+	ro => 'locatii-de-fabricare',
 },
 purchase_places => {
 	fr => 'lieux-de-vente',
@@ -493,7 +534,8 @@ purchase_places => {
 #	ru => 'где-куплено',
 #	ar => 'nikate-alBay3',
 	pt => 'locais-de-compra',
-#	he => 'mekom-harekhisha',  
+#	he => 'mekom-harekhisha',
+    ro => 'locatii-de-achizitie',
 },
 stores => { 
 	fr => 'magasins',
@@ -504,7 +546,8 @@ stores => {
 #	ru => 'магазин',
 #	ar => 'almatajir',
 	pt => 'lojas',
-#	he => 'khanut', 
+#	he => 'khanut',
+    ro => 'magazine',
 },
 countries => { 
 	fr => 'pays',
@@ -512,7 +555,8 @@ countries => {
 	en => 'countries',
 	es => 'paises',
 	he => 'medina',
-	pt => 'paises', 
+	pt => 'paises',
+	ro => 'tari',
 },
 ingredients => { 
 	fr => 'ingredients',
@@ -523,7 +567,8 @@ ingredients => {
 #	ru => 'состав',
 #	ar => 'almoukawinate',
 	pt => 'ingredientes',
-#	he => 'markivim', 
+#	he => 'markivim',
+    ro => 'ingrediente',
 },
 labels => { 
 	fr => 'labels',
@@ -534,7 +579,8 @@ labels => {
 #	ru => 'этикетка',
 #	ar => 'al3alama',
 	pt => 'etiquetas',
-#	he => 'tavit', 
+#	he => 'tavit',
+    ro => 'etichete',
 },
 nutriments => {
 	fr => 'nutriments',
@@ -545,7 +591,8 @@ nutriments => {
 #	ru => 'пищевая-ценность',
 #	ar => 'ghithae',
 	pt => 'nutrientes',
-#	he => 'arakhim-tzunatiyim', 
+#	he => 'arakhim-tzunatiyim',
+    ro => 'nutrienti',
 },
 traces => { 
 	fr => 'traces',
@@ -557,7 +604,8 @@ traces => {
 #	ar => 'athar',
 	pt => 'tracos',
 	pt_pt => 'vestigios',
-#	he => 'ikvot', 
+#	he => 'ikvot',
+    ro => 'urme',
 },
 users => {
 	fr => 'contributeurs',
@@ -568,7 +616,8 @@ users => {
 #	ru => 'участник',
 #	ar => 'almousstakhdimoun',
 	pt => 'colaboradores',
-#	he => 'torem', 
+#	he => 'torem',
+    ro => 'contributori',
 },
 photographers => {
 	fr => 'photographes',
@@ -577,7 +626,8 @@ photographers => {
 #	ar => 'moussawir' ,
 	pt => 'fotografos',
 	es => 'fotografos',
-#	he => 'tzalam', 
+#	he => 'tzalam',
+    ro => 'fotografi',
 },
 informers => {
 	fr => 'informateurs',
@@ -587,7 +637,8 @@ informers => {
 	pt => 'informantes',
 	pt_pt => 'informadores',
 	es => 'informantes',
-#	he => 'meyadea', 
+#	he => 'meyadea',
+    ro => 'informatori',
 },
 correctors => {
 	fr => 'correcteurs',
@@ -597,7 +648,8 @@ correctors => {
 	pt => 'corretores',
 	pt => 'revisores',
 	es => 'correctores',
-#	he => 'metaken', 
+#	he => 'metaken',
+    ro => 'corectori',
 },
 checkers => {
 	fr => 'verificateurs',
@@ -606,7 +658,8 @@ checkers => {
 #	ar => 'mourakib',
 	pt => 'verificadores',
 	es => 'verificadores',
-#	he => 'bodek', 
+#	he => 'bodek',
+    ro => 'verificatori',
 },
 states => {
 	fr => 'etats',
@@ -615,7 +668,8 @@ states => {
 #	ar => 'الحاله',
 	pt => 'estados',
 	es => 'estados',
-#	he => 'matzav', 
+#	he => 'matzav',
+    ro => 'statusuri',
 },
 additives => { 
 	fr => 'additifs',
@@ -626,7 +680,8 @@ additives => {
 #	ru => 'добавка',
 #	ar => 'mouthafat',
 	pt => 'aditivos',
-#	he => 'tosefet', 
+#	he => 'tosefet',
+    ro => 'aditivi',
 },
 ingredients_from_palm_oil => {
 	fr => "ingredients-issus-de-l-huile-de-palme",
@@ -636,7 +691,8 @@ ingredients_from_palm_oil => {
 	ar => 'mawad-mousstakhraja-min-zayt-nakhil',
 	pt => 'ingredientes-de-oleo-de-palma',
 	es => 'ingredientes-con-aceite-de-palma',
-	he => 'rekhivim-mishemen-dkalim', 
+	he => 'rekhivim-mishemen-dkalim',
+	ro => 'ingrediente-din-ulei-de-palmier',
 },
 ingredients_that_may_be_from_palm_oil => {
 	fr => "ingredients-pouvant-etre-issus-de-l-huile-de-palme",
@@ -646,7 +702,8 @@ ingredients_that_may_be_from_palm_oil => {
 	ar => 'mawad-kad-takoun-mousstakhraja-mina-nakhil',
 	pt => 'ingredientes-que-podem-ser-de-oleo-de-palma',
 	es => 'ingredientes-que-pueden-proceder-de-aceite-de-palma',
-	he => 'rekhivim-sheasuyim-lihiyot-mishemen-dkalim', 
+	he => 'rekhivim-sheasuyim-lihiyot-mishemen-dkalim',
+	ro => 'ingrediente-care-ar-putea-fi-din-ulei-de-palmier',
 },
 allergens => { 
 	fr => 'allergenes',
@@ -657,7 +714,8 @@ allergens => {
 #	ru => 'аллергены',
 #	ar => 'moussabib-hassassiya',
 	pt => 'alergenicos',
-#	he => 'khomer-alergeni', 
+#	he => 'khomer-alergeni',
+    ro => 'alergeni',
 },
 missions => { 
 	fr => 'missions',
@@ -669,7 +727,8 @@ missions => {
 #	ru => 'назначение',
 #	ar => 'mouhima',
 	pt => 'missoes',
-#	he => 'messima', 
+#	he => 'messima',
+    ro => 'misiuni',
 },
 nutrient_levels => {
 	en => 'nutrient-levels',
@@ -678,6 +737,7 @@ nutrient_levels => {
 	es => 'valores-nutricionales',
 #	he => 'ramat-khomrey-hamazon', 
 	pt => 'valores-nutricionais',
+	ro => 'valori-nutritionale',
 },
 known_nutrients => {
 	en => 'known-nutrients',
@@ -685,7 +745,8 @@ known_nutrients => {
 	fr => 'nutriments-connus',
 	es => 'nutrientes-conocidos',
 	pt => 'nutrientes-conhecidos',
-	he => 'khomrey-mazon-yeduim', 
+	he => 'khomrey-mazon-yeduim',
+	ro => 'nutrienti-cunoscuti',
 },
 unknown_nutrients => {
 	en => 'unknown-nutrients',
@@ -694,6 +755,7 @@ unknown_nutrients => {
 	es => 'nutrientes-desconocidos',
 	pt => 'nutrientes-desconhecidos', 
 	he => 'khmorey-mazon-bilti-yeduim',
+	ro => 'nutrienti-necunoscuti',
 },
 );
 
@@ -711,6 +773,7 @@ lang_de => {
 	ru => 'Russisch',
 	ar => 'الالمانية',
 	pt => 'Alemão',
+	ro => 'Germană',
 	he => 'גרמנית',
 },
 
@@ -723,6 +786,7 @@ lang_es => {
 	ru => 'Ruso',
 	ar => 'الاسبانية',
 	pt => 'Espanhol',
+	ro => 'Spaniolă',
 	he => 'ספרדית',
 },
 
@@ -735,6 +799,7 @@ lang_en => {
 	ru => 'Russian',
 	ar => 'الانجليزية',
 	pt => 'Inglês',
+	ro => 'Engleză',
 	he => 'אנגלית',
 },
 
@@ -747,6 +812,7 @@ lang_fr => {
 	ru => 'Russe',
 	ar => 'الفرنسية',
 	pt => 'Francês',
+	ro => 'Franceză',
 	he => 'צרפתית',
 },
 
@@ -759,6 +825,7 @@ lang_it => {
 	de => 'Italienisch',
 	ar => 'الايطالية',
 	pt => 'Italiano',
+	ro => 'Italiană',
 	he => 'איטלקית',
 },
 
@@ -771,6 +838,7 @@ lang_nl => {
 	it => 'Olandese',
 	ar => 'الهولندية',
 	pt => 'Holandês',
+	ro => 'Olandeză',
 	he => 'הולנדית',
 },
 
@@ -784,6 +852,7 @@ lang_pl => {
 	ar => 'البولندية',
 	pt => 'Polonês',
 	pt_pt => 'Polaco',
+	ro => 'Poloneză',
 	he => 'פולנית',
 },
 
@@ -796,6 +865,7 @@ lang_pt => {
 	it => 'Portoghese',
 	ar => 'البرتغالية',
 	he => 'פורטוגלית',
+	ro => 'Portugheză',
 },
 
 lang_vi => { 
@@ -807,6 +877,7 @@ lang_vi => {
 	it => 'Vietnamita',
 	ar => 'الفيتنامية',
 	pt => 'Vietnamita',
+	ro => 'Vietnameză',
 	he => 'וייטנאמית',
 },
 
@@ -818,6 +889,7 @@ lang_zh => {
 	es => 'Chino',
 	ar => 'الصينية',
 	pt => 'Chinês',
+	ro => 'Chineză',
 	he => 'סינית',
 },
 
@@ -828,7 +900,8 @@ lang_ru => {
 	es => 'Ruso',
 	it => 'Russo',
 	ar => 'الروسية',
-	pt => 'Russo', 
+	pt => 'Russo',
+	ro => 'Rusă',
 	he => 'רוסית',
 },
 
@@ -844,6 +917,7 @@ lang_he => {
 	pl => 'Hebrajski',
 	pt => 'Hebraica',
 	pt_pt => 'Hebraico',
+	ro => 'Ebraică',
 	ru => 'Иврит',
 	vi => 'Hebrew',
 	zh => '希伯来',
@@ -858,6 +932,7 @@ lang_other => {
 	it => 'altra lingua',
 	ar => 'لغات اخرى',
 	pt => 'outro idioma',
+	ro => 'altă limbă',
 	he => 'שפה אחרת',
 },
 
@@ -867,6 +942,7 @@ lang => {
 	it => 'Lingua principale sull\'imballaggio del prodotto',   
 	es => 'Idioma principal en el producto',
 	de => 'Hauptsprache auf dem Produkt',
+	ro => 'Limba principală de pe produs',
 	ru => 'Основной язык продукта',
 	ar => 'اللغه الرئيسية علي المنتج',
 	pt => 'Idioma principal no produto',
@@ -881,6 +957,7 @@ site_name => {
 	ru => 'Open Food Facts',
 	ar => 'Open Food Facts',
 	pt => 'Open Food Facts',
+	ro => 'Open Food Facts',
 	he => 'Open Food Facts',
 },
 
@@ -893,6 +970,7 @@ site_description => {
 	it => "Ingredienti, composizione nutrizionale e informazioni sui prodotti alimentari del mondo intero su una base di dati libera e aperta",
 	ar => "مكونات, قيمة غذائية و معلومات حول المنتجات الغذائية في العالم الكل في قاعدة بيانات حرة و مفتوحة",
 	pt => 'Uma base de dados aberta e colaborativa sobre ingredientes, informações nutricionais e alimentos de todo o mundo',
+	ro => 'O bază de date liberă, colaborativă și deschisă de ingrediente, valori nutriționale și informații despre produsele alimentare din toată lumea',
 	he => "מסד נתונים שיתופי, חופשי ופתוח של רכיבים, הרכבים תזונתיים ומידע על מוצרי מזון מכל רחבי העולם.",
 },
 
@@ -904,6 +982,7 @@ og_image_url => {
 	de => 'http://de.openfoodfacts.org/images/misc/openfoodfacts-logo-de-356.png',
 	ar => 'http://world.openfoodfacts.org/images/misc/openfoodfacts-logo-ar-356.png',
 	pt => 'http://world.openfoodfacts.org/images/misc/openfoodfacts-logo-pt-356.png',
+	ro => 'http://ro.openfoodfacts.org/images/misc/openfoodfacts-logo-356.png',
 	he => 'http://world.openfoodfacts.org/images/misc/openfoodfacts-logo-he-356.png',
 },
 
@@ -914,6 +993,7 @@ twitter_account => {
 	es => 'OpenFoodFactsEs',
 	it => 'OpenFoodFactsIt',
 	ar => 'OpenFoodFactsAr',
+	ro => 'OpenFoodFacts',
 	pt => 'OpenFoodFactsPt',
 },
 
@@ -925,6 +1005,7 @@ products => {
 	de => 'Produkte',
 	es => 'productos',
 	ru => 'продукты',
+	ro => 'produse',
 	ar => 'المنتوجات',
 	he => 'מוצרים',
 },
@@ -939,6 +1020,7 @@ add_user => {
 	ar => 'التسجيل',
 	pt => 'Registre-se',
 	pt_pt => 'Registe-se',
+	ro => 'Înregistrare',
 	he => 'הרשמה',
 },
 
@@ -950,6 +1032,7 @@ edit_user => {
 	de => "Benutzerangaben",
 	ar => 'إعدادات المستخدم',
 	pt => 'Parâmetros de conta',
+	ro => 'Parametrii contului',
 	he => 'משתני החשבון',
 },
 
@@ -962,6 +1045,7 @@ delete_user => {
 	ar => 'حذف المستخدم',
 	pt => 'apagar usuário',
 	pt_pt => 'Apagar utilizador',
+	ro => 'Ștergere utilizator',
 	he => 'מחיקת משתמש',
 },
 
@@ -973,6 +1057,7 @@ add_user_confirm => {
 	it => '<p>Grazie per la vostra iscrizione. Da adesso potete identificarvi sul sito per aggiungere e/o modificare dei prodotti.</p>',
 	ar => '<p>شكرا على انضمامك إلينا ، يمكتك الآن تسجيل دخولك و إضافة  أو تعديل المنتجات.</p>',
 	pt => '<p>Obrigado pela sua inscrição. Você pode aceder ao site para adicionar ou editar produtos.</p>',
+	ro => '<p>Vă mulțumim pentru înscriere. De acum vă puteți autentifica pe site pentru a adăuga și modifica produse.</p>',
 	he => '<p>תודה לך על הצטרפותך. מעכשיו תהיה לך אפשרות להיכנס לאתר כדי להוסיף ולערוך מוצרים.</p>',
 },
 
@@ -984,6 +1069,7 @@ add_user_email_subject => {
 	it => 'Grazie per la vostra iscrizione a Open Food Facts',
 	ar => 'شكرا على انضمامك لموقعنا Open Food Facts',
 	pt => 'Obrigado por se juntar ao Open Food Facts',
+	ro => 'Vă mulțumim pentru înscrierea la Open Food Facts',
 	he => 'תודה לך על הצטרפותך ל־Open Food Facts',
 },
 
@@ -1206,6 +1292,7 @@ reset_password_email_subject => {
 	es => 'Cambio de la contraseña de su cuenta en Open Food Facts',
 	pt => 'Modifique a sua senha do Open Food Facts',
 	pt_pt => 'Reposição da sua palavra-passe no Open Food Facts',
+	ro => 'Resetarea parolei dumneavoastră pe Open Food Facts',
 	he => 'איפוס הססמה שלך ב־Open Food Facts',
 },
 
@@ -1361,7 +1448,8 @@ edit_user_confirm => {
 	en => '<p>Your account parameters have been changed.</p>',
 	es => '<p>Los datos de su cuenta han sido modificados correctamente.</p>',
 	it => '<p>I parametri del suo account sono stati modificati.</p>',
-	pt => 'Os dados de sua conta foram modificados.',
+	pt => '<p>Os dados de sua conta foram modificados.</p>',
+	ro => '<p>Parametrii contului dumneavoastră au fost schimbați.</p>',
 	he => '<p>משתני החשבון שלך הוחלפו.</p>',
 
 },
@@ -1374,6 +1462,7 @@ edit_profile => {
 	it => "Modificare il vostro profilo pubblico",
 	ar => 'تعديل إعداداتك الشخصية',
 	pt => 'Edite seu perfil público',
+	ro => 'Modificați profilul public',
 	he => "עריכת הפרופיל הציבורי שלך",
 },  
 	
@@ -1385,51 +1474,56 @@ edit_profile_msg => {
 	it => "Le informazioni qui sotto appaiono nel vostro profilo pubblico.",
 	ar => 'هذه المعلومات تظهر في صفحتك و يطلع عليها كل المستخدمون',
 	pt => 'As informações abaixo estão visíveis no seu perfil público',
+	ro => 'Informația următoare este vizibilă în profilul dumneavoastră public',
 	he => "המידע שלהלן מופיע בפרופיל הציבורי שלך.",
 },
 
 edit_profile_confirm => {
 	fr => "Les modifications de votre profil public ont été enregistrées.",
-        de => "Die Änderungen an deinem öffentlichen Profil wurden gespeichert.",
+	de => "Die Änderungen an deinem öffentlichen Profil wurden gespeichert.",
 	en => "Changes to your public profile have been saved.",
 	es => "Los cambios en su perfil público han sido guardados.",
 	it => "Le modifiche del suo profilo pubblico sono state registrate.",
 	ar => 'لقد تم تعديل بياناتكم بنجاح',
 	pt => 'As modificações no seu perfil público foram salvas.',
 	pt_pt => 'As modificações no seu perfil público foram guardadas.',
+	ro => 'Modificările asupra profilului public au fost salvate.',
 	he => "השינויים לפרופיל הציבורי שלך נשמרו.",
 },
 
 session_title => {
 	fr => 'Se connecter',
-        de => 'Anmelden',
+	de => 'Anmelden',
 	en => 'Sign-in',
 	es => 'Iniciar sesión',
 	it => 'connettersi',
 	ar => 'تسجيل الدخول',
 	pt => 'Iniciar sessão',
+	ro => 'Autentificare',
 	he => 'כניסה',
 },
 	
 login_register_title => {
 	fr => 'Se connecter',
-        de => 'Anmelden',
+	de => 'Anmelden',
 	en => 'Sign-in',
 	es => 'Iniciar sesión',
 	it => 'connettersi',
 	ar => 'تسجيل الدخول',
 	pt => 'Iniciar sessão',
+	ro => 'Autentificare',
 	he => 'כניסה',
 },
 
 login_username_email => {
 	fr => "Nom d'utilisateur ou adresse e-mail :",
-        de => 'Benutzername oder E-Mail-Adresse:',
+	de => 'Benutzername oder E-Mail-Adresse:',
 	en => "Username or e-mail address:",
 	es => "Nombre de usuario o dirección de correo electrónico:",
 	ar =>   "اسم الدخول او البريد الالكتروني :",
 	pt => 'Nome de usuário e e-mail:',
 	pt_pt => 'Nome de utilizador ou e-mail:',
+	ro => 'Numele de utilizator sau adresa de e-mail:',
 	he => "שם משתמש או כתובת דוא״ל:",
 },
 
@@ -1440,7 +1534,7 @@ login_to_add_products => {
 <p>Si vous n'avez pas encore de compte sur Open Food Facts, vous pouvez <a href="http://fr.openfoodfacts.org/cgi/user.pl">vous inscrire en 30 secondes</a>.</p> 
 HTML
 ,
-        de => <<HTML
+	de => <<HTML
 <p>Bitte melde dich an, um ein Produkt hinzuzufügen oder zu bearbeiten.</p>
 
 <p>Wenn du noch kein Benutzerkonto auf Open Food Facts hast, dann kannst du dich <a href="/cgi/user.pl">innerhalb von 30 Sekunden anmelden</a>.</p>
@@ -1494,7 +1588,7 @@ Mot de passe<br />
 HTML
 ,
 
-        de => <<HTML
+	de => <<HTML
 <p>Melde dich an, um ein Produkt hinzuzufügen oder zu bearbeiten.</p>
 
 <form method="post" action="/cgi/session.pl">
@@ -1584,6 +1678,21 @@ Palavra-passe<br />
 HTML
 ,
 
+	ro => <<HTML
+<p>Autentificați-vă pentru a adăuga sau modifica produse.</p>
+
+<form method="post" action="/cgi/session.pl">
+Numele de utilizator sau adresa de e-mail:<br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+Parola<br />
+<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Ține-mă minte</label><br />
+<input type="submit" tabindex="4" name=".submit" value="Autentificare" class="jbutton" />
+</form>
+<p>Nu v-ați înregistrat încă? <a href="/cgi/user.pl">Creați-vă contul</a>.</p>
+HTML
+,
+
 	he => <<HTML
 <p>נא להיכנס כדי להוסיף או לערוך מוצרים.</p>
 
@@ -1623,12 +1732,13 @@ HTML
 
 on_the_blog_title => {
 	fr => "Actualité",
-        de => "Neuigkeiten",
+	de => "Neuigkeiten",
 	en => "News",
 	es => "Noticias",
 	it => "Attualità",
 	ar => "الاخبار",
 	pt => 'Notícias',
+	ro => 'Noutăți',
 	he => "חדשות",
 },  
 on_the_blog_content => {
@@ -1637,7 +1747,7 @@ on_the_blog_content => {
 <p>Recent news:</p>
 HTML
 ,
-        de => <<HTML
+	de => <<HTML
 <p>Um mehr über Open Food Facts zu erfahren, besuche <a href="http://en.blog.openfoodfacts.org">unseren Blog</a>!</p>
 <p>Aktuelle Neuigkeiten:</p>
 HTML
@@ -1674,6 +1784,7 @@ bottom_title => {
 	xes => "Participa en la misión",
 	xit => "Partite in missione",   
 	xpt => "Participe na missão",
+	ro => 'Participați la misiune',
 	he => "הרתמו למשימה",
 },
 
@@ -1711,6 +1822,7 @@ language => {
 	ar => 'ar-AR',
 	pt => 'pt-BR',
 	pt_pt => 'pt-PT',
+	ro => 'ro-RO',
 	he => 'he-IL',
 },
 
@@ -1722,6 +1834,7 @@ facebook_locale => {
 	de => 'de_DE',
 	pt => 'pt_BR',
 	pt_pt => 'pt_PT',
+	ro => 'ro_RO',
 	ar => 'ar_AR',
 	he => 'he_IL',
 	#ok what do i put here for brazil ?
@@ -1736,6 +1849,7 @@ username_or_email => {
 	it => 'Username o indirizzo e-mail',
 	pt => 'Nome de usuário ou endereço de email', 
 	pt_pt => 'Nome de utilizador ou endereço de e-mail',
+	ro => 'Numele de utilizator sau adresa de e-mail',
 	he => 'שם משתמש או כתובת דוא״ל',
 },
 
@@ -1747,6 +1861,7 @@ password => {
 	it => 'Password:',
 	pt => 'Senha',
 	pt_pt => 'Palavra-passe',
+	ro => 'Parola',
 	he => 'ססמה:',
 },
 
@@ -1758,6 +1873,7 @@ remember_me => {
 	it => 'Ricordami',
 	pt => 'Lembre-se de mim',
 	pt_pt => 'Manter sessão iniciada',
+	ro => 'Ține-mă minte',
 	he => 'שמירת הפרטים שלי',
 },
 
@@ -1770,6 +1886,7 @@ login_and_add_product => {
 	ar => 'تسجيل الدخول لاضافه منتج',
 	pt => 'Ligue-se e adicione o produto',
 	pt_pt => 'Inicie a sessão e adicione o produto',
+	ro => 'Autentificați-vă și adăugați produsul',
 	en => 'ניתן להיכנס ולהוסיף את המוצר',
 },
 
@@ -1781,6 +1898,7 @@ login_and_edit_product => {
 	it => 'Connettersi e modificare la scheda prodotto',
 	pt => 'Ligue-se e edite o produto',
 	pt_pt => 'Inicie a sessão e edite o produto',
+	ro => 'Autentificați-vă și modificați produsul',
 	he => 'כניסה ועריכת המוצר',
 },
 
@@ -1792,6 +1910,7 @@ pages => {
 	it => "Pagine:",
 	ar => "الصفحات:",
 	pt => 'Páginas:',
+	ro => 'Pagini',
 	he => "עמודים:",
 },
 
@@ -1802,6 +1921,7 @@ previous => {
 	es => "Anterior",
 	it => "Precedente",
 	pt => 'Anterior',
+	ro => 'Anterior',
 	he => "הקודם",
 },
 
@@ -1812,6 +1932,7 @@ next => {
 	es => "Siguiente",
 	it => "Successiva",
 	pt => 'Próxima',
+	ro => 'Următor',
 	he => "הבא",
 },
 
@@ -1822,6 +1943,7 @@ page_x_out_of_y => {
 	es => "Página %d de %d.",
 	it => "Pagina %d di %d.",
 	pt => 'Página %d de %d',
+	ro => 'Pagina %d din %d',
 	he => "עמוד %d מתוך %d.",
 },
 
@@ -1831,6 +1953,7 @@ edit => {
 	en => 'edit',
 	es => 'modificar',
 	pt => 'editar',
+	ro => 'modificare',
 	he => 'עריכה',
 },
 
@@ -1842,6 +1965,7 @@ hello => {
 	it => 'Ciao',
 	ar => 'مرحبا',
 	pt => 'Olá',
+	ro => 'Salut',
 	he => 'שלום',
 },
 
@@ -1853,6 +1977,7 @@ goodbye => {
 	it => 'A presto!',
 	ar => 'مع السلامه!',
 	pt => 'Até logo!',
+	ro => 'La revedere!',
 	he => 'להתראות!',
 },
 
@@ -1872,6 +1997,7 @@ connected_with_facebook => {
 	it => "Siete connessi attraverso il vostro profilo Facebook",
 	pt => 'Você está ligado através de sua conta do Facebook',
 	pt_pt => 'Você está conectado através da sua conta do Facebook',
+	ro => 'Sunteți conectat cu contul de Facebook.',
 	he => "נכנסת לחשבון הפייסבוק שלך.",
 },
 
@@ -1883,6 +2009,7 @@ you_are_connected_as_x => {
 	it => "Siete connessi come %s.",
 	pt => 'Você está ligado como %s',
 	pt_pt => 'Você está conectado como %s.',
+	ro => 'Sunteți conectat cu %s.',
 	he => "נכנסת בשם %s",
 },
 
@@ -1894,6 +2021,7 @@ signout => {
 	it => "Disconnettersi",
 	pt => 'Sair',
 	pt_pt => 'Terminar sessão',
+	ro => 'Deconectare',
 	he => "יציאה",
 },
 
@@ -1903,6 +2031,7 @@ error_invalid_address => {
 	en => "Invalid address.",
 	es => "Dirección inválida.",
 	pt => 'Endereço inválido',
+	ro => 'Adresă invalidă.',
 	he => "הכתובת שגויה.",
 },
 
@@ -1914,6 +2043,7 @@ name => {
 	es => "Nombre",
 	it => "Nome",
 	pt => 'Nome',
+	ro => 'Nume',
 	he => "שם",
 },
 
@@ -1925,6 +2055,7 @@ email => {
 	es => "Dirección de correo electrónico",
 	it => "Indirizzo e-mail",
 	pt => 'Endereço de e-mail',
+	ro => 'Adresa de e-mail',
 	he => "כתובת דוא״ל",
 },
 
@@ -1936,6 +2067,7 @@ username => {
 	it => "Nome dell'utilizzatore",
 	pt => 'Nome de usuário',
 	pt_pt => 'Nome de utilizador',
+	ro => 'Nume de utilizator',
 	he => "שם משתמש",
 },
 
@@ -1946,6 +2078,7 @@ username_info => {
 	es => "(letras no acentuadas, números y/o guiones)",
 	it => "(lettere non accentate, numeri e/o trattini)",
 	pt => '(letras não acentuadas, digitos e/ou traços)',
+	ro => '(litere neaccentuate, cifre și/sau liniuțe)',
 	he => "(אותיות לטיניות קטנות, ספרות ו/או מקפים)",
 },
 
@@ -1957,6 +2090,7 @@ twitter => {
 	it => "Nome dâutilizzatore su Twitter (facoltativo)",
 	pt => 'Nome de usuário no Twitter (opcional)',
 	pt_pt => 'Nome de utilizador no Twitter (opcional)',
+	ro => 'Numele de utilizator Twitter (opțional)',
 	he => "שם משתמש בטוויטר",
 },
 
@@ -1968,6 +2102,7 @@ password => {
 	it => "Password",
 	pt => 'Senha',
 	pt_pt => 'Palavra-passe',
+	ro => 'Parola',
 	he => "ססמה",
 },
 
@@ -1979,6 +2114,7 @@ password_confirm => {
 	it => "Conferma la password",
 	pt => 'Confirme sua senha',
 	pt_pt => 'Confirme a palavra-passe',
+	ro => 'Confirmare parolă',
 	he => "אימות הססמה",
 },
 
@@ -1989,6 +2125,7 @@ unsubscribe_info => {
 	es => "Puedes darte de baja de las listas cuando lo desees.",
 	it => "In qualsiasi momento e facilmente potete cancellarvi dalla lettera d'informazioni",
 	pt => 'Você pode anular as inscrições das listas a qualquer momento',
+	ro => 'Vă puteți dezabona de la liste în orice moment.',
 	he => "ניתן לבטל את המינוי מרשימות אלה בכל עת.",
 },
 
@@ -1999,6 +2136,7 @@ website => {
 	es => "Dirección del blog o del sitio web",
 	it => "Indirizzo del blog o del sito web",
 	pt => 'Endereço do seu site ou blog',
+	ro => 'Adresă site sau blog',
 	he => "כתובת אתר או בלוג",
 },
 
@@ -2010,6 +2148,7 @@ about => {
 	es => "Presentación",
 	it => "Mi presento",
 	pt => 'Sobre mim',
+	ro => 'Despre mine',
 	he => "פרטים עלי",
 },
 
@@ -2021,6 +2160,7 @@ error_no_name => {
 	it => "Immetti nome, cognome o pseudonimo",
 	pt => 'Você precisa incluir um nome ou apelido',
 	pt_pt => 'Você precisa de incluir um nome ou apelido',
+	ro => 'Trebuie să introduceți un nume sau un pseudonim.',
 	he => "עליך לרשום שם או כינוי.",
 },
 
@@ -2031,6 +2171,7 @@ error_invalid_email => {
 	es => "La dirección de correo electrónico no es válida",
 	it => "Indirizzo e-mail non valido",
 	pt => 'Endereço de e-mail inválido',
+	ro => 'Adresă de e-mail invalidă',
 	he => "כתובת הדוא״ל שגויה",
 },
 
@@ -2043,6 +2184,7 @@ error_email_already_in_use => {
 	it => "L'inidirzzo e-mail è già in uso. Hai un altro account di posta? Puoi <a href=\"/cgi/reset_password.pl\">reinserire la password<a> dell'altro account.",
 	pt => 'Esse endereço de email já está sendo utilizado por outro usuário. Talvez você já tenha uma conta? Você pode <a href=\"/cgi/reset_password.pl\">modificar a senha</a> da sua outra conta.',
 	pt_pt => 'Esse endereço de email já está a ser utilizado por outro utilizador. Talvez já tenha uma conta? Você pode <a href=\"/cgi/reset_password.pl\">repor a palavra-passe</a> da sua outra conta.',
+	ro => 'Adresa de email este deja folosită de către un alt utilizator. Poate că deja aveți un cont? Vă puteți <a href=\"/cgi/reset_password.pl\">reseta parola</a> celuilalt cont.',
 	he => "כתובת הדוא״ל כבר בשימוש על־ידי משתמש אחר. אולי כבר יש לך חשבון? ניתן <a href=\"/cgi/reset_password.pl\">לאפס את הססמה</a> לחשבון שלך.",
 },
 
@@ -2054,6 +2196,7 @@ error_no_username => {
 	it => "Inserisci il nome dell'utilizzatore/username",
 	pt => 'Você precisa incluir um nome de usuário',
 	pt_pt => 'Você precisa de incluir um nome de utilizador',
+	ro => 'Trebuie să introduceți un nume de utilizator',
 	he => "עליך לרשום שם משתמש",
 },
 
@@ -2065,6 +2208,7 @@ error_username_not_available => {
 	it => "Questo username esiste già, per favore prova con un altro",   
 	pt => 'Esse nome de usuário já existe, por favor escolha outro',  
 	pt_pt => 'Esse nome de utilizador já existe, escolha outro por favor',
+	ro => 'Acest nume de utilizator există deja, vă rog alegeți altul.',
 	he => "שם משתמש זה כבר קיים, נא לבחור באחד אחר.",
 },
 
@@ -2076,6 +2220,7 @@ error_invalid_username => {
 	it => "Lo username può contenere solo caratteri senza accento, trattini e cifre",
 	pt => "O nome de usuário deve conter somente letras não acentuadas, dígitos e traços.",
 	pt_pt => "O nome de utilizador deve conter apenas letras não acentuadas, dígitos e traços.",
+	ro => 'Numele de utilizator trebuie să conțină doar litere neaccentuate, cifre și liniuțe.',
 	he => "שם המשתמש יכול להכיל רק אותיות לטיניות קטנות, ספרות ומקפים.",
 },
 
@@ -2087,6 +2232,7 @@ error_invalid_password => {
 	it => "La password deve contenere almeno 6 caratteri",
 	pt => 'A senha deve conter pelo menos 6 caracteres',
 	pt_pt => 'A palavra-passe deve conter pelo menos 6 caracteres',
+	ro => 'Parola trebuie să fie lungă de cel puțin 6 caractere.',
 	he => "הססמה חייבת להיות באורך של 6 תווים לפחות.",
 },
 
@@ -2097,7 +2243,8 @@ error_different_passwords => {
 	es => "La contraseña y su confirmación son diferentes.",
 	it => "La password non corrisponde",
 	pt => 'A senha e a senha de confirmação são diferentes',
-	pt => 'As palavras-passe são diferentes.',
+	pt_pt => 'As palavras-passe são diferentes.',
+	ro => 'Parola și parola de confirmare sunt diferite.',
 	he => "הססמה ואימות הססמה אינם זהים.",
 },
 
@@ -2109,6 +2256,7 @@ error_invalid_user => {
 	it => "Utilizzatore non valido",
 	pt => 'Usuário inválido',
 	pt_pt => 'Utilizador inválido',
+	ro => 'Utilizator invalid.',
 	he => "משתמש שגוי.",
 },
 
@@ -2119,6 +2267,7 @@ error_no_permission => {
 	es => "Permiso denegado.",
 	it => "Permesso rifiutato",
 	pt => "Permissão negada",
+	ro => 'Acces refuzat.',
 	he => "ההרשאה נדחתה",
 },
 
@@ -2129,132 +2278,158 @@ correct_the_following_errors => {
 	es => "Por favor, corrija los siguientes errores:",
 	it => "Correggere gli errori seguenti, grazie",
 	pt => 'Por favor corrija os seguintes erros:',
+	ro => 'Vă rugăm corectați erorile următoare:',
 	he => "נא לתקן את השגיאות הבאות:",
 },
 
 error_database => {
 	fr => "Une erreur est survenue en lisant la base de données, essayez de recharger la page.",
-        de => '',
+	de => "Beim Lesen der Daten ist ein Fehler aufgetreten, bitte aktualisieren Sie die Seite.",
 	en => "An error occured while reading the data, try to refresh the page.",
 	es => "Se produjo un error durante la lectura de la base de datos, intente recargar la página.",
 	it => "Un errore è occorso durante la lettura dei dati, prova a ricaricare la pagina",
-	pt => 'Ocorreu um erro durante a leitura dos dados, tente atualizar a página.',
+	pt => "Ocorreu um erro durante a leitura dos dados, tente atualizar a página.",
+	ro => "A apărut o eroare în timp ce citeam datele, încercați să reîncărcați pagina.",
 	he => "אירעה שגיאה בעת קריאת הנתונים, נא לנסות לרענן את העמוד.",
 },
 
 no_products => {
 	fr => "Pas de produits.",
+	de => "Keine Produkte.",
 	en => "No products.",
 	es => "No hay productos.",
 	it => "Nessun prodotto",
-	pt => 'Não há produtos.',
+	pt => "Não há produtos.",
+	ro => "Nici un produs.",
 	he => "אין מוצרים.",
 },
 
 '1_product' => {
 	fr => "1 produit :",
+	de => "1 Produkt:",
 	en => "1 product:",
 	es => "1 producto:",
 	it => "1 prodotto:",
-	pt => '1 produto:',
-	de => '1 Produkt:',
+	pt => "1 produto:",
+	de => "1 Produkt:",
+	ro => "1 produs:",
 	he => "מוצר 1:",
 },
 
 n_products => {
 	fr => "%d produits :",
+	de => "%d Produkte:",
 	en => "%d products:",
 	es => "%d productos:",
 	it => "%d prodotti:",
-	pt => '%d produtos:',
-	de => '%d Produkte:',
+	pt => "%d produtos:",
+	de => "%d Produkte:",
+	ro => "%d produse:",
 	he => "%d מוצרים:",
 },
 
 signin_before_submit => {
 	fr => "Si vous êtes déjà inscrit sur <SITE>, identifiez-vous (\"Se connecter\" dans la colonne de droite) avant de remplir ce formulaire.",
+	de => "Wenn Sie bereits ein Benutzerkonto auf <SITE> haben, melden Sie sich bitte an, bevor sie das Formular ausfüllen.",
 	en => "If you already have an account on <SITE>, please sign-in before filling this form.",
 	es => "Si ya tiene una cuenta en <SITE>, por favor, inicie la sesión antes de rellenar este formulario.",
 	it => "Se siete già iscritti su <SITE>, per favore identificatevi prima di compilare questo formulario",
 	pt =>"Se você já possui uma conta no <SITE>, por favor entre antes de preencher este formulário.",
 	pt_pt =>"Se você já possui uma conta no <SITE>, inicie a sessão antes de preencher este formulário.",
+	ro => "Dacă deja aveți un cont pe <SITE>, vă rog autentificați-vă înainte de a completa acest formular.",
 	he => "אם כבר יש לך חשבון ב־<SITE>, נא להיכנס בטרם מילוי הטופס הזה.",
 },
 
 
 error_bad_login_password => {
 	fr => "Mauvais nom d'utilisateur ou mot de passe. <a href=\"/cgi/reset_password.pl\">Mot de passe oublié ?</a>", 
+	de=> "Ungültiger Benutzername oder Passwort. <a href=\"/cgi/reset_password.pl\">Passwort vergessen?</a>",
 	en => "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>",
 	es => "Nombre de usuario o contraseña incorecto/a. <a href=\"/cgi/reset_password.pl\">¿Olvidaste tu contraseña?</a>",
 	it => "Username o password sbagliate.  <a href=\"/cgi/reset_password.pl\">Password dimenticata? </a>",
 	pt =>"Nome de usuário ou senha incorretos. <a href=\"/cgi/reset_password.pl\">Esqueceu sua senha?</a>",
 	pt_pt =>"Nome de utilizador ou palavra-passe incorretos. <a href=\"/cgi/reset_password.pl\">Esqueceu-se da sua palavra-passe?</a>",
+	ro => 'Nume de utilizator sau parolă incorectă. <a href=\"/cgi/reset_password.pl\">Parolă uitată?</a>',
 	he => "שם המשתמש או הססמה שגויים. <a href=\"/cgi/reset_password.pl\">שכחת את הססמה?</a>",
 },
 
 subscribe => {
 	fr => 'S\'abonner',
+	de => 'Abonnieren',
 	en => 'Subscribe',
 	es => 'Suscribir',
 	it => 'Aderire',
 	pt => 'Subscrever',
+	ro => 'Abonare',
 	he => 'מינוי',
 },
 
 unsubscribe => {
 	fr => 'Se désabonner',
+	de => 'Deabonnieren',
 	en => 'Unsubscribe',
 	es => 'Darse de baja',
 	it => 'Cancellarsi',
 	pt => 'Desinscrever',
+	ro => 'Dezabonare',
 	he => 'ביטול המינוי',
 },
 
 _and_ => {
 	fr => ' et ',
+	de => ' und ',
 	en => ' and ',
 	es => ' y ',
 	cs => ' a ',
 	it => ' e ',
 	pt => ' e ',
+	ro => ' și ',
 	he => ' וגם ',
 },
 
 reset_password =>  {
 	fr => 'Réinitialiser le mot de passe',
+	de => 'Passwort zurücksetzen',
 	en => 'Reset password',
 	es => 'Restablecer la contraseña',
 	it => 'Modificare la password',
 	pt => 'Modificar a senha',
+	ro => 'Resetare parolă',
 	he => 'איפוס הססמה',
 },
 
 userid_or_email => {
 	fr => 'Nom d\'utilisateur ou adresse e-mail : ',
+	de => 'Benutzername oder E-Mail-Adresse: ',
 	en => 'Username or e-mail address: ',
 	es => 'Nombre de usuario o dirección de correo electrónico: ',
 	it => 'Nome d\'utilizzatore o indirizzo e-mail',
 	pt => 'Nome de usuário ou endereço de e-mail',
 	pt_pt => 'Nome de utilizador ou endereço de e-mail',
+	ro => 'Nume de utilizator sau adresa de e-mail',
 	he => 'שם משתמש או כתובת דוא״ל: ',
 },
 
 reset_password_reset =>  {
 	fr => 'Votre mot de passe a été changé. Vous pouvez maintenant vous identifier avec ce mot de passe.',
+	de => 'Ihr Passwort wurden geändert. Sie können sich nun mit dem neuen Passwort anmelden.',
 	en => 'Your password has been changed. You can now log-in with this password.',
 	es => 'La contraseña ha sido cambiada correctamente. Ahora puede iniciar la sesión con la nueva contraseña.',
 	it => 'La password è stata modificata. Potete ora identificarvi con la nuova password.',
 	pt => 'Sua senha foi modificada. Você pode iniciar sua sessão com a nova senha.',
 	pt_pt => 'A sua palavra-passe foi modificada. Pode iniciar a sua sessão com a nova palavra-passe.',
+	ro => 'Parola a fost schimbată. De acum vă puteți autentifica cu această parolă.',
 	he => 'הססמה שלך הוחלפה. מעתה ניתן להיכנס עם ססמה זו.',
 },
 
 reset_password_send_email =>  {
 	fr => 'Un e-mail avec un lien pour vous permettre de changer le mot de passe a été envoyé à l\'adresse e-mail associée à votre compte.',
+	de => 'Eine E-Mail mit einem Zurücksetzungslink für Ihr Passwort wurde zu der von Ihnen angegebenen E-Mail-Adresse verschickt.',
 	en => 'An email with a link to reset your password has been sent to the e-mail address associated with your account.',
 	es => 'Se ha enviado un correo electrónico con un enlace para que pueda cambiar la contraseña asociada a su cuenta.',
 	it => 'Una mail con un link per consentirvi di cambiare la password è stata inviata all\' indirizzo e-mail associato al vostro account.' ,
 	pt => 'Um e-mail com um link para repor a sua senha foi enviado para o endereço de e-mail associado com a sua conta',
+	ro => 'Un e-mail cu un link pentru resetarea parolei v-a fost trimis la adresa de e-mail asociată cu contul dumneavoastră.',
 	he => 'הודעה עם קישור לאיפוס הססמה שלך נשלחה לכתובת הדוא״ל המשויכת עם החשבון שלך.',
 },
 
@@ -2265,6 +2440,7 @@ reset_password_send_email_msg =>  {
 	it => 'Se avete scordato la password, indicate il vostro username o la vostra e-mail per ricevere le istruzioni per reimpostarla.',
 	pt => 'Caso você tenha esquecido sua senha, preencha seu nome de usuário ou endereço de e-mail para receber instruções de como modificar a sua senha.',
 	pt => 'Caso tenha esquecido a sua palavra-passe, preencha o seu nome de utilizador ou endereço de e-mail para receber instruções para repor a sua senha.',
+	ro => 'Dacă v-ați uitat parola, completați numele de utilizator sau adresa de e-mail pentru a primi instrucțiuni despre resetarea parolei.',
 	he => 'אם שכחת את הססמה שלך, נא למלא את שם המשתמש או את כתובת הדוא״ל שלך כדי לקבל הנחיות לאיפוס הססמה שלך.',
 },
 
@@ -2276,6 +2452,7 @@ reset_password_reset_msg =>  {
 	ar => 'ادخل كلمه مرور جديده',
 	pt => 'Insira a nova senha',
 	pt_pt => 'Insira a nova palavra-passe',
+	ro => 'Introduceți o parolă nouă.',
 	he => 'נא לרשום ססמה חדשה.',
 },
 
@@ -2285,6 +2462,7 @@ error_reset_unknown_email =>  {
 	es => 'No existe ninguna cuenta asociada a este correo electrónico',
 	it => 'Non esiste un account associato a questa e-mail',    
 	pt => 'Nâo há conta associada a esse e-mail',
+	ro => 'Nu există nici un cont cu această adresă de e-mail',
 	he => 'אין חשבון עם כתובת דוא״ל שכזו',
 },
 
@@ -2296,6 +2474,7 @@ error_reset_unknown_id =>  {
 	ar => 'اسم المستخدم غير موجود',
 	pt => 'Esse nome de usuário não existe.',
 	pt => 'Esse nome de utilizador não existe.',
+	ro => 'Acest nume de utilizator nu există.',
 	he => 'שם משתמש זה לא קיים.',
 	de => 'Dieser Benutzername ist nicht vorhanden.',
 },
@@ -2307,6 +2486,7 @@ error_reset_invalid_token =>  {
 	it => 'Il link per resettare la password non è valido oppure è scaduto' , 
 	pt => 'O link para modificar a senha é inválido ou expirou.',
 	pt => 'O link para modificar a palavra-passe é inválido ou expirou.',
+	ro => 'Link-ul pentru resetarea parolei este invalid sau a expirat.',
 	he => 'הקישור לאיפוס הססמה שגוי או שתוקפו פג.',
 },
 
@@ -2316,6 +2496,7 @@ error_reset_already_connected =>  {
 	es => 'Ya tiene una sesión abierta.',
 	it => 'Avete già una sessione aperta',
 	pt => 'Você já tem uma sessão aberta',
+	ro => 'Sunteți deja autentificați',
 	he => 'כבר נכנסת.',
 },
 
@@ -2326,6 +2507,7 @@ lang => {
 	it => 'Lingua principale',
 	ar => 'اللغه الرئيسيه',
 	pt => 'Idioma principal',
+	ro => 'Limba principală',
 	he => 'השפה העיקרית',
 },
 
@@ -2335,6 +2517,7 @@ lang_note => {
 	es => 'Idioma más utilizado en la mayor parte del producto',
 	it => 'La lingua maggiormente utilizzata sul prodotto',
 	pt => 'Idioma mais presente no produto',
+	ro => 'Limba cea mai prezentă și mai evidentă pe produs',
 	he => 'השפה המשמעותית והמודגשת ביותר על המוצר',
 },    
 
@@ -2344,6 +2527,7 @@ expiration_date => {
 	es => 'Fecha límite de consumo',
 	it => 'Da utilizzare entro',
 	pt => 'Data de validade',
+	ro => 'A se consuma de preferință înainte de',
 	he => 'תאריך אחרון לשימוש',
 },
 
@@ -2354,6 +2538,7 @@ expiration_date_note => {
 	it => "La data di scadenza permette di tracciare le modifiche dei prodotti nel tempo e riconoscere la versione più recente",
 	pt => 'A data de validade é uma forma de rastrear mudanças no produto ao longo do tempo e identificar sua versão mais recente',
 	pt_pt => 'A data de validade é uma forma de investigar mudanças no produto ao longo do tempo e identificar a sua versão mais recente.',
+	ro => 'Data de expirare este o modalitate de a urmări schimbările produsului de-a lungul timpului și pentru a identifica cea mai recentă versiune.',
 	he => "תאריך התפוגה היא דרך נוספת לעקוב אחר שינויים במוצרים במשך הזמן ולזהות את הגרסה העדכנית ביותר.",
 },
 
@@ -2363,6 +2548,7 @@ product_name => {
 	es => "Nombre del producto",
 	it => "Nome del prodotto",
 	pt => 'Nome do produto',
+	ro => 'Numele produsului',
 	he => "שם המוצר",
 
 },
@@ -2372,6 +2558,7 @@ product_name_example => {
 	es => "Kinder Bueno White",
 	it => "Kinder Bueno White",
 	pt => 'Kinder Bueno White',
+	ro => 'Kinder Bueno White',
 	de => 'Kinder Bueno White',
 	he => "קינדר בואנו לבן",
 },
@@ -2382,6 +2569,7 @@ generic_name => {
 	es => "Denominación general",
 	it => "Nome generico",
 	pt => 'Nome genérico',
+	ro => 'Numele general',
 	he => "שם נפוץ",
 },
 generic_name_example => {
@@ -2390,6 +2578,7 @@ generic_name_example => {
 	es => "Tableta de chocolate con leche y avellanas",
 	it => "Tavoletta di cioccolato al latte con nocciole",
 	pt => 'Barra de chocolate com leite e avelãs',
+	ro => 'Baton de ciocolată cu lapte și alune',
 	he => "חטיף שוקולד עם חלב ושקדים",
 },
 brands => {
@@ -2399,6 +2588,7 @@ brands => {
 	es => "Marcas",
 	it => "Marche",
 	pt => 'Marcas',
+	ro => 'Mărci',
 	he => 'מותגים', 
 },
 brands_example => {
@@ -2407,6 +2597,7 @@ brands_example => {
 	es => "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero",
 	it => "Kinder Bueno, Kinder, Ferrero",
 	pt => 'Kinder Bueno White, Kinder Bueno, Ferrero',
+	ro => 'Kinder Bueno White, Kinder Bueno, Kinder, Ferrero',
 	he => "קינדר בואנו לבן, קינדר בואנו, פררו",
 },
 
@@ -2416,6 +2607,7 @@ quantity => {
 	es => "Cantidad",
 	it => "Quantità",
 	pt => "Quantidade",
+	ro => 'Cantitate',
 	he => "כמות",
 },
 quantity_example => {
@@ -2424,6 +2616,7 @@ quantity_example => {
 	es => "2 l, 250 g, 1 kg, 25 cl",
 	it => "2 l, 250 g, 1 kg, 25 cl",
 	pt => '2 l, 250 g, 1 kg, 250 ml',
+	ro => '2 l, 250 g, 1 kg, 250 ml',
 	he => "2 1, 250 ג, 1 ק״ג, 250 מ״ל",
 },
 
@@ -2433,6 +2626,7 @@ packaging => {
 	es => "Envases",
 	it => "Confezionamento",
 	pt => "Embalagem",
+	ro => 'Ambalare',
 	he => "אריזה",
 },
 
@@ -2442,6 +2636,7 @@ packaging_note => {
 	es => "Tipo de envase, formato, material",
 	it => "Tipo di confezione, formato, materiale",
 	pt => "Tipo de embalagem, formato, material",
+	ro => 'Tipul de ambalaj, format, material',
 	he => "סוג האריזה, מבנה, חומר",
 },
 
@@ -2451,6 +2646,7 @@ packaging_example => {
 	es => "Fresco, En conserva, Al vacío, Congelado, Botella, Tarro, Caja, Vidrio, Plástico, Cartón...",
 	pt => "Fresco, Conserva, Vácuo, Congelado, Garrafa, Copo, Caixa, Vidro, Plástico, Cartão...", 
 	it => "Fresco, Conserva/Lattina, Sottovuoto, Surgelato, Bottiglia, Vasetto, Barattolo, Vetro, Plastica, Cartone",
+	ro => 'Proaspăt, Conservat, Înghețat, Îmbuteliat, Cutie, Sticlă, Plastic...',
 	he => "טרי, בקופסת שימורים, קפוא, בקבוק, קופסה, זכוכית, פלסטיק...",
 },
 
@@ -2461,6 +2657,7 @@ categories => {
 	es => "Categorías",
 	it => "Categorie",
 	pt => "Categorias",
+	ro => 'Categorii',
 	he => "קטגוריות",
 },
 
@@ -2470,6 +2667,7 @@ categories_example => {
 	es => "Sardinas en aceite de oliva, Mayonesa ligera, Zumo de naranja procedente de concentrado",
 	it => "Sardine in olio di oliva, Succo d'arancia a base di concentrato", 
 	pt => "Sardinha em óleo de oliva, Suco de laranja concentrado",
+	ro => 'Sardine în ulei de măsline, Suc de portocale pe bază de concentrat',
 	he => "סרדינים בשמן זית, מיץ תפוזים עשוי רכז",
 },
 
@@ -2479,6 +2677,7 @@ categories_note => {
 	es => "Indicar sólo la categoría más específica. Las categorías \"Padres\" serán añadidas automáticamente.",
 	pt => "Indicar apenas a categoria mais específica. As categorias \"Pai\" serão adicionadas automaticamente.",
 	it => "Indicare solo la categoria più specifica, le categorie \"Principali\" saranno aggiunte automaticamente",
+	ro => "Indicați doar categoria cea mai specifică. Categorile \"Părinte\" vor fi adăugate automat.",
 	he => "ציון הקטגוריה החשובה ביותר. קטגוריות „הורים“ יתווספו אוטומטית.",
 },
 
@@ -2495,6 +2694,7 @@ labels => {
 	es => "Etiquetas, certificaciones, premios",
 	pt => "Etiquetas, certificações, prêmios",
 	pt => "Etiquetas, certificações, prémios",
+	ro => 'Etichete, cerficări, premii',
 	it => "Etichette, certificazioni, premi",
 	he => "תוויות, אישורים, פרסים",
 },
@@ -2505,6 +2705,7 @@ labels_example => {
 	es => "Ecológico, Fairtrade-Max Havelaar, I.G.P., D.O.P., Sabor del año 2012...",
 	pt => "Ecológico, Comércio Justo, Sabor do Ano 2012...",
 	pt_pt => "Ecológico, Produto do Ano 2012, sem glúten, ...",
+	ro => 'Bio',
 	it => "IGP, IGT, DOP, Bio, Ecologico, Non OGM, gluten-free",
 	he => "אורגני", "סחר הוגן, מיוצר בישראל",
 },
@@ -2515,6 +2716,7 @@ labels_note => {
 	pt => "Indicar apenas a categoria mais específica. As categorias \"Pai\" serão adicionadas automaticamente.",
 	es => "Indicar sólo las etiquetas más específicas. Las categorías \"Padres\" como 'Eco' o 'Comercio Justo' serán añadidas automáticamente.",
 	it => "Indicare solo le etichette più specifiche. Le categorie maggiori come 'Eco' o 'Commercio equo-solidale' saranno aggiunte in automatico.",
+	ro => "Indicați doar eticheta cea mai specifică. Etichetele \"Părinte\" vor fi adăugate automat.",
 	he => "יש לציין את התוויות הייחודיות בלבד. תוויות „הורים“ יתווספו אוטומטית.",
 },
 
@@ -2524,6 +2726,7 @@ origins => {
 	es => "Origen de los ingredientes",
 	it => "Origine",
 	pt => "Origem do produto",
+	ro => "Originea ingredientelor",
 	he => "מקור",
 },
 
@@ -2540,6 +2743,7 @@ origins_note_xxx => {
 	en => "",
 	es => "Indicar el origen de los ingredientes",
 	pt => "Indicar nas duas entradas a origem indicada na etiqueta e possivelmente seu tipo",
+	ro => "Indicați originea ingredientelor",
 },
 
 manufacturing_places => {
@@ -2547,6 +2751,7 @@ manufacturing_places => {
 	en => "Manufacturing or processing places",
 	es => "Lugares de fabricación o de transformación",
 	pt_pt => "Locais de fabrico ou de transformação",
+	ro => "Locurile de fabricare sau procesare",
 },
 
 
@@ -2587,6 +2792,7 @@ link => {
 	en => "Link to the product page on the official site of the producer",
 	es => "Enlace a la página del producto en el sitio oficial del fabricante",
 	pt => "Link da página oficial do produto do fabricante",
+	ro => "Legătură către pagina produsului de pe site-ul oficial al producătorului",
 	he => "קישור לעמוד המוצר באתר הרשמי של היצרן",
 },
 
@@ -2595,6 +2801,7 @@ purchase_places => {
 	en => "City, state and country where purchased",
 	es => "Sitios de compra",
 	pt => "Cidade, estado e país onde foi comprado",
+	ro => "Oraș, județ și țara de achiziție",
 	he => "עיר/מושב/קיבוץ/כפר בהם נרכש המוצר",
 },
 
@@ -2603,6 +2810,7 @@ purchase_places_note => {
 	en => "Indicate where you bought or saw the product (at least the country)",
 	es => "Indica donde compraste o viste el producto (al menos el país)",
 	pt => "Indicar onde comprou ou viu o produto (pelo menos o país)",
+	ro => "Indicați unde ați achiziționat sau ați văzut produsul (cel puțin țara)",
 	he => "ציון היכן המוצר נרכש או נצפה (לפחות ברמת העיר)",
 },
 
@@ -2611,6 +2819,7 @@ stores => {
 	en => "Stores",
 	es => "Tiendas",
 	pt => "Lojas",
+	ro => "Magazine",
 	he => "חנויות",
 },
 
@@ -2619,6 +2828,7 @@ stores_note => {
 	en => "Name of the shop or supermarket chain",
 	es => "Nombre de la tienda o cadena de supermercados",
 	pt => "Nome da loja ou rede de supermercados",
+	ro => "Numele magazinului sau al lanțului de magazine",
 	he => "שם החנות או רשת חנויות המזון",
 },
 
@@ -2627,6 +2837,7 @@ countries => {
 	en => "Countries where sold",
 	es => "Países de venta",
 	pt => "Países onde é vendido",
+	ro => "Țările unde se vinde",
 	he => "ארצות בהן נמכר",
 },
 
@@ -2635,6 +2846,7 @@ countries_note => {
 	en => "Countries where the product is widely available (non including stores specialising in foreign products)",
 	es => "Países en los que el producto está ampliamente disponible (no se incluyen las tiendas especializadas en productos extranjeros)",
 	pt => "Países onde o produto é amplamente distribuído (não incluir lojas especializadas em produtos estrangeiros)",
+	ro => "Țările unde produsul este disponibil pe scară largă (ne-incluzând magazinele specializate în produse străine)",
 	he => "מדינות בהן המוצר זמין לרווחה (לא כולל חנויות המתמחות במוצרים מיובאים)",
 },
 
@@ -2643,6 +2855,7 @@ remember_purchase_places_and_stores => {
 	en => 'Remember the place of purchase and store for the next product adds',
 	es => 'Recordar el lugar de compra y la tienda para los nuevos productos que se van a añadir en el futuro',
 	pt => 'Lembrar o lugar de compra e loja dos próximos produtos a serem adicionados',
+	ro => "Ține minte locul de achiziție și magazinul pentru următoarele adăugări de produse",
 	he => 'שמירת מקור הרכישה ואת החנות להוספות המוצרים הבאות',
 },
 
@@ -2651,6 +2864,7 @@ product_characteristics => {
 	en => "Product characteristics",
 	es => "Características del producto",
 	pt => "Características do produto",
+	ro => "Caracteristicile produslui",
 	he => "מאפייני המוצר",
 },
 
@@ -2659,6 +2873,7 @@ product_image => {
 	en => "Product picture",
 	es => "Imagen del producto",
 	pt => "Imagem do produto",
+	ro => "Imaginea produsului",
 	he => "תמונת המוצר",
 },
 
@@ -2667,6 +2882,7 @@ image_front => {
 	en => "Front picture",
 	es => "Imagen frontal del producto",
 	pt => "Imagem frontal do produto",
+	ro => "Imaginea din față",
 	he => "תמונה קדמית",
 },
 
@@ -2675,6 +2891,7 @@ image_ingredients => {
 	en => "Ingredients picture",
 	es => "Imagen con los ingredientes del producto",
 	pt => "Imagem com os ingredientes do produto",
+	ro => "Imaginea cu ingredientele",
 	he => "תמונת הרכיבים",
 },
 
@@ -2683,6 +2900,7 @@ image_nutrition => {
 	en => "Nutrition facts picture",
 	es => "Imagen con la información nutricional del producto",
 	pt => "Imagem com a informação nutricional do produto",
+	ro => "Imaginea cu valori nutriționale",
 	he => "תמונת הרכיבים",
 },
 
@@ -2691,6 +2909,7 @@ ingredients => {
 	en => "Ingredients",
 	es => "Ingredientes",
 	pt => "Ingredientes",
+	ro => "Ingrediente",
 	de => "Zutaten",
 	he => "רכיבים",
 },
@@ -2700,6 +2919,7 @@ image_ingredients_note => {
 	en => "Ingredients",
 	es => "Si la imagen es buena y lo suficientemente nítida, los ingredientes se pueden extraer de forma automática.",
 	pt => "Se as imagens forem boas e nítidas, os ingredientes podem ser extraídos automaticamente.",
+	ro => "Dacă este suficient de clară și dreaptă, ingredientele ar putea fi extrase automat din fotografie.",
 	he => "אם התמונה ברורה ובהירה מספיק, ניתן לחלץ את הרכיבים מהתמונה אוטומטית. (לא עובד בעברית)",
 },
 
@@ -2708,6 +2928,7 @@ ingredients_text => {
 	en => "Ingredients list",
 	es => "Lista de ingredientes",
 	pt => "Lista de ingredientes",
+	ro => "Lista de ingrediente",
 	he => "רשימת רכיבים",
 },
 
@@ -2716,6 +2937,7 @@ ingredients_text_note => {
 	en => "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_",
 	es => "Conservar el orden, indicar el % cuando se especifique, separar por una coma y poner entre paréntesis ( ) los ingredientes que componen otro ingrediente",
 	pt => "Manter a ordem de listagem, indicar a % quando especificado, separar com uma vírgula (,) ou hífen (-) , usar parênteses ( ) para ingredientes compostos de outros ingredientes",
+	ro => "Mențineți ordinea, indicați % unde este precizat, separați cu o virgulă sau - , folosiți () pentru ingredientele unui ingredient",
 	he => "יש לשמור על הסדר, לציין את הסמין % כשזה צוין, להפריד עם פסיק או -, להשתמש ב־( ) לתת־רכיבים של רכיב",
 },
 
@@ -2724,6 +2946,7 @@ ingredients_text_display_note => {
 	en => "Ingredients are listed in order of importance (quantity).",
 	es => "Los ingredientes se enumeran por orden de importancia (cantidad).",
 	pt => "Os ingredientes são listados em ordem de importância (quantidade).",
+	ro => "Ingredientele sunt listate în ordinea importanței (cantitate).",
 	he => "רכיבים רשומים לפי סדר חשיבותם (כמות).",
 },
 
@@ -2758,7 +2981,7 @@ allergens => {
 	lt => 'Alergijas arba netoleravimą sukeliančios medžiagos arba produktai',
 	mt => 'Sustanzi jew prodotti li jikkawżaw allerġiji jew intolleranzi',
 	sk => 'Látky alebo výrobky spôsobujúce alergie alebo neznášanlivosť',
-	ro => 'Substanțe care cauzează alergii sau intoleranțe',
+	ro => 'Substanțe sau produse care cauzează alergii sau intoleranțe',
 	bg => 'вещества или продукти, причиняващи алергии или непоносимост',
 	ar => 'مستأرج',
 	jp => '食餌性アレルゲン',
@@ -2771,6 +2994,7 @@ traces => {
 	en => "Traces",
 	es => "Trazas",
 	pt => "Vestígios",
+	ro => "Urme",
 	he => "עקבות",
 },
 
@@ -2779,7 +3003,8 @@ traces_note => {
 	en => 'Indicate ingredients from mentions like "May contain traces of", "Made in a factory that also uses" etc.',
 	es => 'Son los ingredientes que aparecen mencionados como "Puede contener trazas de", "Elaborado en una factoría que también usa", etc.',
 	pt => 'Indicar os ingrendientes que sejam mencionados como "Pode conter traços de", "Fabricado em ambiente que também usa", etc', 
-	pt_pt => 'Indicar os ingrendientes que sejam mencionados como "Pode conter vestígios de", "Fabricado em ambiente que também usa", etc.', 
+	pt_pt => 'Indicar os ingrendientes que sejam mencionados como "Pode conter vestígios de", "Fabricado em ambiente que também usa", etc.',
+	ro => 'Indicați ingredientele din mențiuni ca de exemplu "Ar putea conține urme de", "Produse într-o fabrică care produce și" etc.',
 	he => 'ציון מרכיבים מאזכורים שונים כגון "עלול להכיל עקבות של", "נוצר במפעל המשתמש ב..." וכו׳',
 },
 
@@ -2788,6 +3013,7 @@ traces_example => {
 	en => "Milk, Gluten, Nuts",
 	es => "Leche, Gluten, Cacahuetes, Nueces",
 	pt => "Leite, Glúten, Amendoim, Nozes",
+	ro => "Lapte, Gluten, Alune, Nuci",
 	he => "חלב, גלוטן, אגוזים", 
 },
 
@@ -2796,6 +3022,7 @@ serving_size => {
 	en => "Serving size",
 	es => "Tamaño de la porción",
 	pt => "Tamanho da porção",
+	ro => "Cantitatea unei porții",
 	he => "גודל ההגשה",
 },
 
@@ -2804,6 +3031,7 @@ serving_size_example => {
 	en => "60 g, 12 oz, 20cl, 2 fl oz",
 	es => '30 g, 2 galletas 60 g, 5 cl, un vaso 20 cl',
 	pt => "30 g, 2 bolachas 60 g, 5 cl, um copo 200 ml",
+	ro => "30 g, 2 biscuiți 60 g, 5 cl, un pahar 200 ml",
 	he => "30 ג, 2 אונקיות, 20 סנטיליטר, 2 אונקיות נוזל",
 },
 
@@ -2812,6 +3040,7 @@ nutrition_data => {
 	en => "Nutrition facts",
 	es => "Información nutricional",
 	pt => "Informação nutricional",
+	ro => "Valori nutriționale",
 	he => "מפרט תזונתי",
 },
 
@@ -2820,6 +3049,7 @@ nutrition_data_note => {
 	en => "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture.",
 	es => "Si la imagen es lo suficientemente nítida, la información nutricional puede ser extraída automáticamente.",
 	pt => "Se a imagem for suficientemente nítida, a informação nutricional pode ser extraída automaticamente.",
+	ro => "Dacă fotografia este suficient de clară și dreaptă, informația nutrițională poate fi extrasă automat din imagine.",
 	he => "אם התמונה חדה מספיק ובכיוון נכון, ניתן לחלץ את הפרטים התזונתיים מהתמונה עצמה (עדיין לא זמין בעברית).",
 },
 
@@ -2828,6 +3058,7 @@ no_nutrition_data => {
 	en => "Nutrition facts are not specified on the product.",
 	es => "El producto no trae información nutricional.",
 	pt => "Informação nutricional não especificada no produto.",
+	ro => "Valorile nutriționale nu sunt specificate pe produs.",
 	he => "המפרט התזונתי אינו מצוין על המוצר.",
 },
 
@@ -2838,6 +3069,7 @@ nutrition_data_table_note => {
 by typing the first letters of their name in the last row of the table.",   
 	es => "La tabla muestra por defecto los nutrientes que aparecen con mayor frecuencia. Deja el campo en blanco si no está presente en el envase. <br />Se pueden agregar nutrientes adicionales (vitaminas, minerales, colesterol, ácidos grasos omega 3 y 6, etc.) al teclear las primeras letras del nombre en la última fila de la tabla.",   
 	pt => "A tabela mostra por defeito os nutrientes que aparecem com maior frequência. Deixar o campo em branco se não estiver especificado na embalagem. <br />É possível adicionar outros nutrientes (vitaminas, minerais, colesterol, ácidos gordos ómega 3 e 6, etc.) ao digitar as primeiras letras do nome na última linha da tabela.",
+	ro => "Tabelul listează implicit nutrienții care sunt specificați mai des. Lăsați câmpul liber dacă nu se regăsește pe etichetă.<br/>Puteți adăuga extra nutrienți (vitamine, minerale, colesterol etc.) tastând primele litere din numele lor în ultimul rând din tabel.",
 	he => "הטבלה מציגה כבררת מחדל את המפרט התזונתי כפי שמופיע בדרך כלל. ניתן להשאיר את השדה ריק אם אינו מופיע על התווית.<br/>ניתן להוסיף פריטי תזונה נוספים (ויטמינים, מינרלים, כולסטרול וכו׳)
 על־ידי הקלדת האותיות הראשונות של שמם בשורה האחרונה של הטבלה.",
 },
@@ -2847,6 +3079,7 @@ nutrition_data_average => {
 	en => "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products).",
 	es => "Valores nutricionales medios para los %d productos de la categoría %s para los que se especifican los valores nutricionales (de un total de %d productos).",
 	pt => "Valores nutricionais médios...",
+	ro => "Valorile nutriționale medii pentru %d produse din categoria %s pentru care valorile nutriționale sunt cunoscute (din %d produse).",
 	he => "מפרט תזונתי ממוצע עבור %d מוצרים מהקטגוריה %s שעבורם המפרט התזונתי ידוע (מתוך %d מוצרים).",
 },
 
@@ -2855,6 +3088,7 @@ nutrition_data_table => {
 	en => "Nutrition facts",
 	es => "Información nutricional",
 	pt => "Informação nutricional",
+	ro => "Valori nutriționale",
 	he => "מפרט תזונתי",
 },
 
@@ -2864,6 +3098,7 @@ nutrition_data_per_100g => {
 	en => "for 100 g / 100 ml",
 	es => "por 100 g / 100 ml",
 	pt => "por 100 g / 100 ml",
+	ro => "pentru 100 g / 100 ml",
 	he => "ל־100 גרם / 100 מ״ל",
 },
 
@@ -2872,6 +3107,7 @@ nutrition_data_per_serving => {
 	en => "per serving",
 	es => "por porción",
 	pt => "por porção",
+	ro => "per porție",
 	he => "לכל הגשה",
 },
 
@@ -2880,15 +3116,17 @@ nutrition_data_compare_percent => {
 	en => "% of difference",
 	es => "Diferencia en %",
 	pt => "% em comparação",
+	ro => "Diferența în %",
 	cs => "% se liší",
 	he => "% שינוי",
 },
 
 nutrition_data_comparison_with_categories => {
 	fr => "Comparaison avec les valeurs moyennes des produits de même catégorie :",
-	en => "Comparison to average values of products in the same category :",
+	en => "Comparison to average values of products in the same category:",
 	es => "Comparación con los valores medios de los productos pertenecientes a la misma categoría:",
 	pt => "Comparação com os valores médios dos produtos pertencentes à mesma categoria:",
+	ro => "Comparație cu valorile medii ale produselor din aceeași categorie:",
 	he => "השוואה לערכים הממוצעים של מוצרים באותה הקטגוריה:",
 },
 
@@ -2897,6 +3135,7 @@ nutrition_data_comparison_with_categories_note => {
 	en => "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category.",
 	es => "Nota: para cada nutriente, el promedio no es el de todos los productos de la categoría, sino el de todos los productos para los cuales se especifica la cantidad de nutrientes.",
 	pt => "Nota: para cada nutriente, a média tem em conta somente os produtos cuja quantidade dos nutrientes é conhecida, e não para todos os produtos da categoria.",
+	ro => "De notat: pentru fiecare nutrient, media este calculată pentru produsele pentru care cantitatea nutrientului este cunoscută, nu pentru toate produsele din categorie.",
 	he => "לתשומת לבך: עבור כל מרכיב תזונתי, הממוצע מחושב לפי מוצרים שההרכב התזונתי שלהם ידוע, לא לפי כלל המוצרים בקטגוריה.",
 },
 
@@ -2905,6 +3144,7 @@ nutrition_data_compare_value => {
 	en => "value for 100 g / 100 ml",
 	es => "valor para 100 g/ 100 ml",
 	pt => "valor para 100 g / 100 ml",
+	ro => "valoare pentru 100 g / 100 ml",
 	he => "ערך ל־100 גרם / 100 מ״ל",
 },
 
@@ -2913,6 +3153,7 @@ nutrition_data_per_std => {
 	en => "Standard deviation",
 	es => "Desviación estándar",
 	pt => "Desvio padrão",
+	ro => "Deviația standard",
 	he => "סטיית תקן",
 },
 
@@ -2921,6 +3162,7 @@ nutrition_data_per_min => {
 	en => "Minimum",
 	es => "Mínimo",
 	pt => "Mínimo",
+	ro => "Minimum",
 	he => "לכל הפחות",
 },
 
@@ -2929,6 +3171,7 @@ nutrition_data_per_5 => {
 	en => "5<sup>th</supe> centile",
 	es => "Percentil 5",
 	pt => "5<sup>o</sup> percentil",
+	ro => "Al 5-lea procent",
 	he => "עד 5 אחוז",
 },
 
@@ -2937,6 +3180,7 @@ nutrition_data_per_10 => {
 	en => "10th centile",
 	es => "Percentil 10",
 	pt => "10<sup>o</sup> percentil",
+	ro => "Al 10-lea procent",
 	he => "עד 10 אחוז",
 },
 nutrition_data_per_50 => {
@@ -2944,6 +3188,7 @@ nutrition_data_per_50 => {
 	en => "Median",
 	es => "Mediana",
 	pt => "Mediana",
+	ro => "Median",
 	he => "חצי",
 },
 
@@ -2952,6 +3197,7 @@ nutrition_data_per_90 => {
 	en => "90th centile",
 	es => "Percentil 90",
 	pt => "90<sup>o</sup> percentil",
+	ro => "Al 90-lea procent",
 	he => "עד 90 אחוז",
 },
 
@@ -2960,6 +3206,7 @@ nutrition_data_per_95 => {
 	en => "95<sup>th</supe> centile",
 	es => "Percentil 95",
 	pt => "95<sup>o</sup> percentil",
+	ro => "Al 95-lea procent",
 	he => "עד 95 אחוז",
 },
 
@@ -2968,6 +3215,7 @@ nutrition_data_per_max => {
 	en => "Maximum",
 	es => "Máximo",
 	pt => "Máximo",
+	ro => "Maximum",
 	he => "לכל היותר",
 },
 
@@ -2982,6 +3230,7 @@ ecological_data_table => {
 	en => 'Ecological footprint',
 	es => 'Huella ecológica',
 	pt => 'Pegada ecológica',
+	ro => "Impact ecologic",
 	he => 'טביעת רגל אקולוגית',
 	it => 'Impronta ecologica',
 },
@@ -2991,6 +3240,7 @@ ecological_data_table_note => {
 	en => "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition.",
 	es => "Si aparece en el envase la huella de carbono (muy raro en la actualidad), indicarla por la misma cantidad que la información nutricional.",
 	pt => "Se a pegada de carbono é especificada na embalagem (muito raro hoje em dia), indique-a para a mesma quantidade que para a composição nutricional.",
+	ro => "Dacă amprenta de carbon este specificată pe etichetă (rar acum), indicați-o pentru aceeași cantitate ca și compoziția nutrițională.",
 	he => "אם טביעת הרגל של הפחמן מצוינת על התווית (נדיר בימינו אנו), כדאי לציין אותה עבור כמות מסוימת מאשר את התרכובת התזונתית.",
 },
 
@@ -2999,6 +3249,7 @@ example => {
 	en => "Example:",
 	es => "Ejemplo:",
 	pt => "Exemplo:",
+	ro => "Exemplu",
 	he => "דוגמה:",
 	it => "Esempio:",
 },
@@ -3009,6 +3260,7 @@ examples => {
 	es => "Ejemplos:",
 	pt => "Exemplos:",
 	he => "דוגמאות:",
+	ro => "Exemple:",
 	it => "Esempi:",
 },
 
@@ -3017,6 +3269,7 @@ brands_tagsinput => {
 	en => "add a brand",
 	es => "añadir una marca",
 	pt => "adicionar uma marca",
+	ro => "adăugați o marcă",
 	he => "הוספת מותג",
 },
 
@@ -3026,6 +3279,7 @@ packaging_tagsinput => {
 	en => "add a type, shape or material",
 	es => "añadir un tipo, forma o material",
 	pt => "adicionar um tipo, forma ou material",
+	ro => "adăugați un tip, formă sau material",
 	he => "הוספת סוג, צורה או חומר",
 },
 
@@ -3034,6 +3288,7 @@ categories_tagsinput => {
 	en => "add a category",
 	es => "añadir una categoría",
 	pt => "adicionar uma categoria",
+	ro => "adugați o categorie",
 	he => "הוספת קטגוריה",
 },
 
@@ -3042,6 +3297,7 @@ labels_tagsinput => {
 	en => "add a label",
 	es => "añadir una etiqueta",
 	pt => "adicionar uma etiqueta",
+	ro => "adăugați o etichetă",
 	he => "הוספת תווית",
 },
 
@@ -3050,6 +3306,7 @@ origins_tagsinput => {
 	en => "add an origin",
 	es => "añadir un origen",
 	pt => "adicionar uma origem",
+	ro => "adăugați o origine",
 	he => "הוספת מקור",
 },
 
@@ -3058,6 +3315,7 @@ manufacturing_places_tagsinput => {
 	en => "add a place",
 	es => "añadir un lugar",
 	pt => "adicionar um local",
+	ro => "adăugați un loc",
 	he => "הוספת מיקום",
 },
 
@@ -3066,6 +3324,7 @@ purchase_places_tagsinput => {
 	en => "add a place",
 	es => "añadir un lugar",
 	pt => "adicionar um local",
+	ro => "adăugați un loc",
 	he => "הוספת מיקום",
 },
 
@@ -3074,6 +3333,7 @@ stores_tagsinput => {
 	en => "add a store",
 	es => "añadir una tienda",
 	pt => "adicionar uma loja",
+	ro => "adăugați un magazin",
 	he => "הוספת חנות",
 },
 	
@@ -3082,6 +3342,7 @@ fixme_product => {
 	en => "If the data is incomplete or incorrect, you can complete or correct it by editing this page.",
 	es => "Si la información está incompleta o es incorrecta, puedes completarla o corregirla editando esta página.",
 	pt => "Se a informação está incompleta ou incorrecta, podes completá-la ou corrigí-la editando esta página.",
+	ro => "Dacă datele sunt incomplete sau incorecte, le puteți completa sau corecta modificând această pagină.",
 	he => "אם המידע חלקי או שגוי, ניתן להשלים או לתקן אותו על־ידי עריכת עמוד זה.",
 },
 
@@ -3090,6 +3351,7 @@ alcohol_warning => {
 	en => "Excess drinking is harmful for health.",
 	es => "El exceso de alcohol es perjudicial para la salud. Consúmelo con moderación.",
 	pt => "Excesso de álcool é pregudicial para a saúde. Seja responsável. Beba com moderação.",
+	ro => "Consumul excesiv de alcool este dăunător sănătății",
 	he => "שתייה מוגזמת של אלכוהול עשויה לפגוע בבריאות.",
 },
 
@@ -3102,6 +3364,8 @@ warning_3rd_party_content => {
 → <a href=\"\">¿Por qué es importante?</a>",
 	pt_pt => "A informação deve ser proveniente da embalabem e do rótulo do produto (e não de outros locais ou da página web do fabricante), e as fotografias devem ser tirados por si mesmo.<br/>
 → <a href=\"\">Porque é que é importante?</a>",
+	ro => "Informația și datele trebuie să provină de pe pachetul și eticheta produsului (nu de pe alte site-uri sau de pe site-ul producătorului), iar fotografia trebuie să fie făcută de voi înșivă.<br/>
+→ <a href=\"\">De ce contează?</a>",
 	he => "יש להשתמש במידע ובנתונים המופיעים על אריזת המוצר לרבות התווית (ולא מאתרים אחרים או מאתר היצרן), נוסף על כך יש להשתמש בתמונות שצולמו על ידיך בלבד.<br/>",
 },
 
@@ -3110,6 +3374,7 @@ front_alt => {
 	en => "Product",
 	es => "Producto",
 	pt => "Produto",
+	ro => "Produs",
 	he => "מוצר",
 },
 
@@ -3118,6 +3383,7 @@ ingredients_alt => {
 	en => "Ingredients",
 	es => "Ingredientes",
 	pt => "Ingredientes",
+	ro => "Ingrediente",
 	he => "רכיבים",
 },
 
@@ -3126,6 +3392,7 @@ nutrition_alt => {
 	en => "Nutrition facts",
 	es => "Información nutricional",
 	pt => "Informação nutricional",
+	ro => "Valori nutriționale",
 	he => "מפרט תזונתי",
 },
 
@@ -3135,6 +3402,7 @@ for => {
 	en => 'for',
 	es => 'para',
 	pt => 'para',
+	ro => "pentru",
 	he => 'עבור',
 },
 	
@@ -3143,6 +3411,7 @@ brands_products => {
 	en => "Products from the %s brand",
 	es => "Productos de la marca %s",
 	pt => "Produtos da marca %s",
+	ro => "Produse de la marca %s",
 	he => "מוצרים מבית המותג %s",
 },
 
@@ -3151,6 +3420,7 @@ categories_products => {
 	en => "Products from the %s category",
 	es => "Productos de la categoría %s",
 	pt => "Produtos da categoria %s",
+	ro => "Produse din categoria %s",
 	he => "מוצרים מהקטגוריה %s",
 },
 
@@ -3166,6 +3436,7 @@ cities_products => {
 	en => "Products packaged in the city of %s",
 	es => "Productos envasados en el municipio de %s",
 	pt => "Produtos embalados na cidade de %s",
+	ro => "Produse împachetate în orașul %s",
 	he => "מוצרים שנארזו בעיר %s",
 },
 
@@ -3174,6 +3445,7 @@ packaging_products => {
 	en => "Products with a %s packaging",
 	es => "Productos con envase %s",
 	pt => "Produtos con embalagem em %s",
+	ro => "Produse cu ambalaj de %s",
 	he => "מוצרים באריזה מסוג %s",
 },
 
@@ -3182,6 +3454,7 @@ origins_products => {
 	en => "Products with ingredients originating from %s",
 	es => "Productos originarios de %s",
 	pt => "Produtos originários de %s",
+	ro => "Produse cu ingrediente originare din %s",
 	he => "מוצרים שמקורם %s",
 },
 
@@ -3196,6 +3469,7 @@ manufacturing_places_products => {
 	fr => "Les produits par lieu de fabrication ou transformation :  %s",
 	en => "Products manufactured or processed in %s",
 	es => "Productos fabricados o transformados en  %s",
+	ro => "Produse fabricate sau procesate în %s",
 	pt => "Produtos fabricados ou transformados em %s",
 },
 
@@ -3204,6 +3478,7 @@ purchase_places_products => {
 	en => "Products sold in %s",
 	es => "Productos vendidos en %s",
 	pt => "Produtos vendidos em %s",
+	ro => "Produse vândute în %s",
 	he => "מוצרים שנמכרים ב%s",
 },
 
@@ -3212,6 +3487,7 @@ stores_products => {
 	en => "Products sold at %s",
 	es => "Productos vendidos en el comercio %s",
 	pt => "Produtos vendidos na loja:  %s",
+	ro => "Produse vândute la %s",
 	he => "מוצרים שנמכרים אצל",
 },
 
@@ -3220,6 +3496,7 @@ countries_products => {
 	en => "Products sold in %s",
 	es => "Productos vendidos en %s",
 	pt => "Produtos vendidos no país : %s", # we have 3 prepositions (em, na, no) depending on the country; opting for the same logic as the French translation
+	ro => "Produse vândute în %s",
 	he => "מוצרים שנמכרים ב%s",
 },
 
@@ -3228,6 +3505,7 @@ ingredients_products => {
 	en => "Products that contain the ingredient %s",
 	es => "Productos que contienen el ingrediente %s",
 	pt => "Produtos que contêm o ingrediente %s",
+	ro => "Produse care conțin ingredientul %s",
 	he => "מוצרים המכילים את הרכיב %s",
 },
 
@@ -3236,6 +3514,7 @@ labels_products => {
 	en => "Products that have the label %s",
 	es => "Productos con la etiqueta %s",
 	pt => "Produtos com a etiqueta %s",
+	ro => "Produse care au eticheta %s",
 	he => "מוצרים הנושאים את התווית %s",
 },
 
@@ -3244,6 +3523,7 @@ nutriments_products => {
 	en => "Products that contain the nutriment %s",
 	es => "Productos que contienen el nutriente %s",
 	pt => "Produtos que contêm o nutriente %s",
+	ro => "Produse care conțin nutrientul %s",
 	he => "מוצרים המכילים את הרכיב התזונתי %s",
 },
 
@@ -3252,6 +3532,7 @@ users_products => {
 	en => "Products added by %s",
 	es => "Productos añadidos por %s",
 	pt => "Produtos adicionados por %s",
+	ro => "Produse adăugate de %s",
 	he => "מוצרים שנוספו על־ידי %s",
 },
 
@@ -3260,6 +3541,7 @@ users_add_products => {
 	en => "Products that were added by the user %s",
 	es => "Productos que fueron añadidos por el usuario %s",
 	pt_pt => "Produtos que foram adicionados pelo utilizador %s",
+	ro => "Produse care au fost adăugate de către utilizatorul %s",
 	he => "מוצרים שנוספו על־ידי המשתמש %s",
 },
 
@@ -3268,6 +3550,7 @@ users_edit_products => {
 	en => "Products that were edited by the user %s",
 	es => "Productos que fueron editados por el usuario %s",
 	pt_pt => "Produtos que foram editados pelo utilizador %s",
+	ro => "Produse care au fost modificate de către utilizatorul %s",
 	he => "מוצרים שנערכו על־ידי המשתמש %s",
 },
 
@@ -3276,6 +3559,7 @@ brands_s => {
 	en => "brand",
 	es => "marca",
 	pt => "marca",
+	ro => "marcă",
 	he => "מותג",
 },
 
@@ -3284,6 +3568,7 @@ brands_p => {
 	de => "Marken",
 	en => "brands",
 	es => "marcas",
+	ro => "mărci",
 	he => "מותגים",
 },
 
@@ -3292,6 +3577,7 @@ categories_s => {
 	en => "category",
 	es => "categoría",
 	pt => "categoria",
+	ro => "categorie",
 	he => "קטגוריה",
 },
 
@@ -3325,6 +3611,7 @@ emb_codes_s => {
 	en => "packager code",
 	es => "código de envasador",
 	pt => "código de embalador",
+	ro => "codul ambalatorului",
 },
 
 emb_codes_p => {
@@ -3332,6 +3619,7 @@ emb_codes_p => {
 	en => "packager codes",
 	es => "códigos de envasadores",
 	pt => "códigos de embalador",
+	ro => "codurile ambalatorului",
 },
 
 cities_s => {
@@ -3339,6 +3627,7 @@ cities_s => {
 	en => "packaging city",
 	es => "Municipio de envasado",
 	pt => "cidade de embalamento",
+	ro => "orașul de împachetare",
 	he => "עיר האריזה",
 },
 
@@ -3347,6 +3636,7 @@ cities_p => {
 	en => "packaging cities",
 	es => "Municipios de envasado",
 	pt => "cidades de embalamento",
+	ro => "orașele de împachetare",
 	he => "ערי האריזה",
 },
 
@@ -3355,6 +3645,7 @@ purchase_places_s => {
 	en => "purchase place",
 	es => "lugar de compra",
 	pt => "local de compra",
+	ro => "locația de cumpărare",
 	he => "מקום הרכישה",
 },
 
@@ -3363,6 +3654,7 @@ purchase_places_p => {
 	en => "purchase places",
 	es => "lugares de compra",
 	pt => "locais de compra",
+	ro => "locațiile de cumpărare",
 	he => "מקומות הרכישה",
 },
 
@@ -3370,6 +3662,7 @@ manufacturing_places_s => {
 	fr => "lieu de fabrication ou de transformation",
 	en => "manufacturing or processing place",
 	es => "lugar de fabricación o de transformación",
+	ro => "locul de fabricație sau de procesare",
 	pt => "local de fabrico",
 },
 
@@ -3377,6 +3670,7 @@ manufacturing_places_p => {
 	fr => "lieux de fabrication ou de transformation",
 	en => "manufacturing or processing places",
 	es => "lugares de fabricación o de transformación",
+	ro => "locul de fabricație sau de procesare",
 	pt => "locais de fabrico",
 },
 
@@ -3385,6 +3679,7 @@ stores_s => {
 	en => "store",
 	es => "tienda",
 	pt => "loja",
+	ro => "magazin",
 	he => "חנות",
 },
 
@@ -3393,6 +3688,7 @@ stores_p => {
 	en => "stores",
 	es => "tiendas",
 	pt => "lojas",
+	ro => "magazine",
 	he => "חנויות",
 },
 
@@ -3401,6 +3697,7 @@ countries_s => {
 	en => "country",
 	es => "país",
 	pt => "país",
+	ro => "țară",
 	he => "מדינה",
 },
 
@@ -3409,6 +3706,7 @@ countries_p => {
 	en => "countries",
 	es => "países",
 	pt => "países",
+	ro => "țări",
 	he => "מדינות",
 },
 
@@ -3417,6 +3715,7 @@ packaging_s => {
 	en => "packaging",
 	es => "envase",
 	pt => "embalagem",
+	ro => "ambalare",
 	he => "אריזה",
 },
 
@@ -3425,6 +3724,7 @@ packaging_p => {
 	en => "packaging",
 	es => "envases",
 	pt => "embalagens",
+	ro => "ambalaje",
 	he => "אריזה",
 },
 
@@ -3433,6 +3733,7 @@ origins_s => {
 	en => "origin of ingredients",
 	es => "origen",
 	pt => "origem",
+	ro => "originea ingredientelor",
 	he => "מקור",
 },
 
@@ -3441,6 +3742,7 @@ origins_p => {
 	en => "origins of ingredients",
 	es => "orígenes",
 	pt => "origens",
+	ro => "originile ingredientelor",
 	he => "מקורות",
 },
 
@@ -3463,6 +3765,7 @@ ingredients_s => {
 	en => "ingredient",
 	es => "ingrediente",
 	pt => "ingrediente",
+	ro => "ingredient",
 	he => "רכיב",
 },
 
@@ -3471,6 +3774,7 @@ ingredients_p => {
 	en => "ingredients",
 	es => "ingredientes",
 	pt => "ingredientes",
+	ro => "ingrediente",
 	he => "רכיבים",
 },
 
@@ -3480,6 +3784,7 @@ traces_s => {
 	es => "traza",
 	pt => "traço",
 	pt_pt => "vestígio",
+	ro => "urmă",
 	he => "עקבה",
 },
 
@@ -3489,6 +3794,7 @@ traces_p => {
 	es => "trazas",
 	pt => "traços",
 	pt_pt => "vestígios",
+	ro => "urme",
 	he => "עקבות",
 },
 
@@ -3497,6 +3803,7 @@ labels_s => {
 	en => "label",
 	es => "etiqueta",
 	pt => "etiqueta",
+	ro => "etichetă",
 	he => "תווית",
 },
 
@@ -3505,6 +3812,7 @@ labels_p => {
 	en => "labels",
 	es => "etiquetas",
 	pt => "etiquetas",
+	ro => "etichete",
 	he => "תוויות",
 },
 
@@ -3513,6 +3821,7 @@ nutriments_s => {
 	en => "nutriment",
 	es => "nutriente",
 	pt => "nutriente",
+	ro => "nutrient",
 	he => "רכיב תזונתי",
 },
 
@@ -3521,6 +3830,7 @@ nutriments_p => {
 	en => "nutriments",
 	es => "nutrientes",
 	pt => "nutrientes",
+	ro => "nutriente",
 	he => "רכיבים תזונתיים",
 },
 
@@ -3529,6 +3839,7 @@ known_nutrients_s => {
 	en => "known nutrient",
 	es => "nutriente conocido",
 	pt => "nutriente conhecido",
+	ro => "nutrient cunoscut",
 	he => "מרכיב תזונתי ידוע",
 },
 
@@ -3537,6 +3848,7 @@ known_nutrients_p => {
 	en => "known nutrients",
 	es => "nutrientes conocidos",
 	pt => "nutrientes conhecidos",
+	ro => "nutriente cunoscute",
 	he => "מרכיבים תזונתיים ידועים",
 },
 
@@ -3545,6 +3857,7 @@ unknown_nutrients_s => {
 	en => "unknown nutrient",
 	es => "nutriente desconocido",
 	pt => "nutriente desconhecido",
+	ro => "nutrint necunoscut",
 	he => "מרכיב תזונתי בלתי ידוע",
 },
 
@@ -3553,6 +3866,7 @@ unknown_nutrients_p => {
 	en => "unknown nutrients",
 	es => "nutrientes desconocidos",
 	pt => "nutrientes desconhecidos",
+	ro => "nutriente necunoscute",
 	he => "מרכיבים תזונתיים בלתי ידועים",
 },
 
@@ -3561,6 +3875,7 @@ nutrient_levels_s => {
 	en => "nutrient level",
 	es => "valor nutricional",
 	pt => "valor nutricional",
+	ro => "valoare nutrițională",
 	he => "רמת המרכיב התזונתי",
 },
 
@@ -3569,6 +3884,7 @@ nutrient_levels_p => {
 	en => "nutrient levels",
 	es => "valores nutricionales",
 	pt => "valores nutricionais",
+	ro => "valori nutriționale",
 	he => "רמות המרכיבים התזונתיים",
 },
 
@@ -3577,6 +3893,7 @@ nutrient_levels_info => {
 	en => "Nutrient levels for 100 g:",
 	es => "<a href=\"/valores-nutricionales\">Valores nutricionales</a> por 100 g :",
 	pt => "<a href=\"/valores-nutricionais\">Valores nutricionais</a> por 100 g:",
+	ro => "Valori nutriționale pentru 100g:",
 	he => "רמות המרכיבים התזונתיים ל־100 גרם:",
 },
 
@@ -3587,6 +3904,7 @@ users_s => {
 	es => 'contribuyente',
 	pt => 'colaborador',
 	it => 'contributore',
+	ro => "contributor",
 	he => 'תורם',   
 },
 
@@ -3597,6 +3915,7 @@ users_p => {
 	es => 'contribuyentes',
 	pt => 'colaboradores',
 	it => 'contributori',
+	ro => "contributori",
 	he => 'תורמים', 
 },
 photographers_s => {
@@ -3604,6 +3923,7 @@ photographers_s => {
 	en => 'photographer',
 	es => 'fotógrafo',
 	pt => 'fotógrafo',
+	ro => "fotograf",
 	he => 'צלם',
 },
 photographers_p => {
@@ -3611,6 +3931,7 @@ photographers_p => {
 	en => 'photographers',
 	es => 'fotógrafos',
 	pt => 'fotógrafos',
+	ro => "fotografi",
 	he => 'צלמים',
 },
 informers_s => {
@@ -3619,6 +3940,7 @@ informers_s => {
 	es => 'informante',
 	pt => 'informante',
 	pt_pt => 'informador',
+	ro => "informator",
 	he => 'מודיע',
 },
 informers_p => {
@@ -3627,6 +3949,7 @@ informers_p => {
 	es => 'informantes',
 	pt => 'informantes',
 	pt_pt => 'informadores',
+	ro => "informatori",
 	he => 'מודיעים',
 },
 correctors_s => {
@@ -3635,6 +3958,7 @@ correctors_s => {
 	es => 'corrector',
 	pt => 'corretor',
 	pt_pt => 'revisor',
+	ro => "corector",
 	he => 'מתקן',
 },
 correctors_p => {
@@ -3643,6 +3967,7 @@ correctors_p => {
 	es => 'correctores',
 	pt => 'corretores',
 	pt_pt => 'revisores',
+	ro => "corectori",
 	he => 'מתקנים',
 },
 checkers_s => {
@@ -3650,6 +3975,7 @@ checkers_s => {
 	en => 'checker',
 	es => 'verificador',
 	pt => 'verificador',
+	ro => "verificator",
 	he => 'בודק',
 },
 checkers_p => {
@@ -3657,6 +3983,7 @@ checkers_p => {
 	en => 'checkers',
 	es => 'verificadores',
 	pt => 'verificadores',
+	ro => "verificatori",
 	he => 'בודקים',
 },
 states_s => {
@@ -3664,6 +3991,7 @@ states_s => {
 	en => 'state',
 	es => 'estado',
 	pt => 'estado',
+	ro => "status",
 	he => 'מצב',
 },
 states_p => {
@@ -3671,6 +3999,7 @@ states_p => {
 	en => 'states',
 	es => 'estados',
 	pt => 'estados',
+	ro => "statusuri",
 	he => 'מצבים',
 },
 ingredients_p => { 
@@ -3679,6 +4008,7 @@ ingredients_p => {
 	en => 'ingredient',
 	es => 'ingrediente',
 	pt => 'ingrediente',
+	ro => "ingredient",
 	it => 'ingredient',
 	he => 'רכיב',
 },
@@ -3688,6 +4018,7 @@ ingredients_p => {
 	en => 'ingredients',
 	es => 'ingredientes',
 	pt => 'ingredientes',
+	ro => "ingrediente",
 	it => 'ingredientes',
 	he => 'רכיבים',
 },
@@ -3701,6 +4032,7 @@ allergens_s => {
 #	ru => 'аллергены',
 	ar => 'moussabib-hassassiya',
 	pt => 'alergenico',
+	ro => 'alergen',
 	he => 'khomer-alergeni', 
 },
 
@@ -3713,6 +4045,7 @@ allergens_p => {
 #	ru => 'аллергены',
 #	ar => 'moussabib-hassassiya',
 	pt => 'alergenicos',
+	ro => 'alergeni',
 #	he => 'khomer-alergeni', 
 },
 
@@ -3721,6 +4054,7 @@ additives_s => {
 	en => "additive",
 	es => "aditivo",
 	pt => "aditivo",
+	ro => "aditiv",
 	he => "תוסף",
 },
 
@@ -3729,6 +4063,7 @@ additives_p => {
 	en => "additives",
 	es => "aditivos",
 	pt => "aditivos",
+	ro => "aditivi",
 	he => "תוספים",
 },
 
@@ -3737,6 +4072,7 @@ ingredients_from_palm_oil_s => {
 	en => "ingredient from palm oil",
 	es => "ingrediente procedente de aceite de palma",
 	pt_pt => "ingrediente proveniente de óleo de palma",
+	ro => "ingredient din ulei de palmier",
 	he => "רכיב משמן דקלים",
 },
 
@@ -3745,6 +4081,7 @@ ingredients_from_palm_oil_p => {
 	en => "ingredients from palm oil",
 	es => "ingredientes procedentes de aceite de palma",
 	pt_pt => "ingredientes a partir de óleo de palma",
+	ro => "ingrediente din ulei de palmier",
 	he => "רכיבים משמן דקלים",
 },
 
@@ -3753,6 +4090,7 @@ ingredients_that_may_be_from_palm_oil_s => {
 	en => "ingredient that may be from palm oil",
 	es => "ingrediente que puede proceder de aceite de palma",
 	pt_pt => "ingrediente que pode partir de óleo de palma",
+	ro => "ingredient care ar putea proveni din ulei de palmier",
 	he => "רכיב שעשוי להיות משמן דקלים",
 },
 
@@ -3761,6 +4099,7 @@ ingredients_that_may_be_from_palm_oil_p => {
 	en => "ingredients that may be from palm oil",
 	es => "ingredientes que pueden proceder de aceite de palma",
 	pt_pt => "ingredientes que podem partir de óleo de palma",
+	ro => "ingrediente care ar putea proveni din ulei de palmier",
 	he => "רכיבים שעשויים להיות משמן דקלים",
 },
 
@@ -3769,6 +4108,7 @@ ingredients_from_or_that_may_be_from_palm_oil_p => {
 	en => "ingredients from or that may be from palm oil",
 	es => "ingredientes que proceden o pueden proceder de aceite de palma",
 	pt_pt => "ingredientes a partir ou que podem partir de óleo de palma",
+	ro => "ingrediente care ar putea fi din sau ar putea proveni din ulei de palmier",
 	he => "רכיבים שעשויים או מיוצרים משמן דקלים",
 },
 
@@ -3778,6 +4118,7 @@ add_product => {
 	es => 'Añadir un producto',
 	pt => 'Adicionar um produto',
 	de => 'Ein Produkt hinzufügen',
+	ro => "Adăugare produs",
 	he => 'הוספת מוצר',
 },
 
@@ -3786,6 +4127,7 @@ barcode_number => {
 	en => 'Barcode number:',
 	es => 'Cifras del código de barras :',
 	pt => 'Número do código de barras:',
+	ro => "Numărul din codul de bare:",
 	he => 'מספר ברקוד:',
 },
 
@@ -3795,6 +4137,7 @@ barcode => {
 	de => 'Barcode',
 	es => 'Código de barras',
 	pt => 'Código de barras',
+	ro => "Codul de bare",
 	he => 'ברקוד',
 },
 
@@ -3803,6 +4146,7 @@ or => {
 	en => 'or :',
 	es => 'o :',
 	pt => 'ou :',
+	ro => "sau:",
 	de => 'oder :',
 	he => 'או:',
 },
@@ -3813,6 +4157,7 @@ no_barcode => {
 	de => 'Produkt ohne Barcode',
 	es => 'Producto sin código de barras',
 	pt => 'Produto sem código de barras',
+	ro => "Produs fără cod de bare",
 	he => 'מוצר ללא ברקוד',
 },
 
@@ -3821,6 +4166,7 @@ add => {
 	en => 'Add',
 	es => 'Añadir',
 	pt => 'Adicionar',
+	ro => "Adaugă",
 	de => 'Hinzufügen',
 	he => 'הוספה',
 	it => 'Aggiungi',
@@ -3832,6 +4178,7 @@ product_image_with_barcode => {
 	de => 'Produktfoto mit Barcode:',
 	es => 'Imagen del producto con código de barras:',
 	pt => 'Imagem do produto com o código de barras:',
+	ro => "Imaginea produsului cu codul de bare:",
 	he => 'תמונת המוצר עם ברקוד:',
 
 },
@@ -3841,6 +4188,7 @@ send_image => {
 	en => 'Send a picture...',
 	es => 'Enviar una imagen...',
 	pt => 'Enviar uma imagen...',
+	ro => "Trimiteți o imagine...",
 	he => 'שליחת תמונה...',
 	it => 'Invia una photo...',
 },
@@ -3850,6 +4198,7 @@ sending_image => {
 	en => 'Sending image',
 	es => 'Enviando la imagen',
 	pt => 'A enviar a imagen',
+	ro => "Imagine în curs de trimitere",
 	he => 'התמונה נשלחת',
 },
 
@@ -3858,6 +4207,7 @@ send_image_error => {
 	en => 'Upload error',
 	es => 'Error al enviar',
 	pt => 'Erro ao enviar a imagem',
+	ro => "Eroare de transmisie",
 	he => 'ההעלאה נכשלה',
 },
 
@@ -3866,6 +4216,7 @@ edit_product => {
 	en => 'Edit a product',
 	es => 'Modifica un producto',
 	pt => 'Editar un produto',
+	ro => "Modificare produs",
 	he => 'עריכת מוצר',
 	it => 'Modifica un prodotto',
 },
@@ -3875,6 +4226,7 @@ edit_product_page => {
 	en => 'Edit the page',
 	es => 'Modifica la página',
 	pt => 'Editar a página',
+	ro => "Modificare pagină",
 	he => 'עריכת העמוד',
 	it => 'Modifica la pagina',
 },
@@ -3884,6 +4236,7 @@ delete_product_page => {
 	en => 'Delete the page',
 	es => 'Elimina la página',
 	pt => 'Eliminar a página',
+	ro => "Ștergere pagină",
 	he => 'מחיקת העמוד',
 },
 
@@ -3893,6 +4246,7 @@ delete_product => {
 	en => 'Delete a product',
 	es => 'Elimina un producto',
 	pt => 'Eliminar um produto',
+	ro => "Ștergere produs",
 	he => 'מחיקת מוצר',
 },
 
@@ -3901,6 +4255,7 @@ search => {
 	en => 'Search',
 	es => 'Buscar',
 	pt => 'Procurar',
+	ro => "Căutare",
 	he => 'חיפוש',
 },
 
@@ -3909,6 +4264,7 @@ search_title => {
 	en => 'Search a product, brand, ingredient, nutriment etc.',
 	es => 'Busca un producto, marca, ingrediente, nutriente, etc.',
 	pt => 'Procurar um produto, marca, ingrediente, nutriente, etc.',
+	ro => "Căutați un produs, marcă, ingredient, nutrient etc.",
 	he => 'חיפוש מוצר, מותג, רכיב, מרכיב תזונתי וכו׳',
 },
 
@@ -3917,6 +4273,7 @@ product_added => {
 	en => 'Product added on',
 	es => 'Producto añadido el',
 	pt => 'Produto adicionado a',
+	ro => "Produs adăugat în",
 	he => 'המוצר נוסף ב־',
 },
 
@@ -3925,6 +4282,7 @@ by => {
 	en => 'by',
 	es => 'por',
 	pt => 'por',
+	ro => "de către",
 	he => 'על־ידי',
 },
 
@@ -3933,6 +4291,7 @@ missions => {
 	en => 'Missions',
 	es => 'Misiones',
 	pt => 'Missões',
+	ro => "Misiuni",
 	he => 'משימות',
 },
 
@@ -3942,6 +4301,7 @@ mission_ => {
 	en => 'Mission: ',
 	es => 'Misión: ',
 	pt => 'Missão: ',
+	ro => "Misiune: ",
 	he => 'משימה: ',
 },
 
@@ -3950,6 +4310,7 @@ completed_n_missions => {
 	en => 'completed %d missions:',
 	es => 'completadas %d misiones:',
 	pt => 'completou %d missões:',
+	ro => "a terminat %d misiuni:",
 	he => 'הושלמו %d משימות:',
 },
 	
@@ -3958,6 +4319,7 @@ mission_goal => {
 	en => 'Goal:',
 	es => 'Objetivo:',
 	pt => 'Objetivo:',
+	ro => "Obiectiv:",
 	he => 'יעד:',
 },
 
@@ -3966,6 +4328,7 @@ mission_accomplished_by => {
 	en => 'This mission has been completed by:',
 	es => 'Esta misión ha sido completada por:',
 	pt => 'Esta missão foi completada por:',
+	ro => "Această misiune a fost terminată de către:",
 	he => 'משימה זאת הושלמה על־ידי:',
 },
 
@@ -3974,6 +4337,7 @@ mission_accomplished_by_n => {
 	en => 'Completed by %d persons.',
 	es => 'Completada por %d personas.',
 	pt => 'Completada por %d pessoas.',
+	ro => "Terminată de către %d persoane.",
 	he => 'הושלמה על־ידי %d משתמשים.',
 },
 
@@ -3982,6 +4346,7 @@ mission_accomplished_by_nobody => {
 	en => 'Be the first to complete this mission!',
 	es => '¡Sé el primero en cumplir esta misión!',
 	pt => 'Sê o primeiro a completar esta missão!',
+	ro => "Fii primul care termină această misiune!",
 	he => 'משימה זו טרם הושלמה, קדימה, קטן עליך!',
 },
 
@@ -3990,6 +4355,7 @@ all_missions => {
 	en => 'All missions',
 	es => 'Todas las misiones',
 	pt => 'Todas as missões',
+	ro => "Toate misiunile",
 	he => 'כל המשימות',
 },
 
@@ -3998,6 +4364,7 @@ salt_equivalent => {
 	en => 'salt equivalent',
 	es => 'equivalente en sal',
 	pt => 'equivalente em sal',
+	ro => "echivalentul de sare",
 	he => 'תחליף מלח',
 },
 
@@ -4005,17 +4372,20 @@ additives_3 => {
 	fr => 'Additif alimentaire interdit en Europe. A éviter absolument.',
 	es => 'Aditivo alimentario prohibido en Europa. Evítalo completamente.',
 	pt => 'Aditivo alimentar proibido na Europa. A evitar completamente.',
+	ro => "Aditiv alimentar interzis în Europa. De evitat complet.",
 },
 
 additives_2 => {
 	fr => 'Additif alimentaire à risque. A éviter.',
 	es => 'Aditivo alimentario con riesgo. A evitar.',
+	ro => "Aditiv alimentar riscant. De evitat.",
 	pt => 'Aditivo alimentar com riscos. A evitar.',
 },
 
 additives_1 => {
 	fr => 'Additif alimentaire à potentiellement à risque. A limiter.',
 	es => 'Aditivo alimentario con riesgo potencial. A limitar.',
+	ro => "Aditiv alimentar potențial riscant. De limitat.",
 	pt => 'Aditivo alimentar potencialmente com risco . A limitar.',
 },
 
@@ -4032,6 +4402,8 @@ También acepta recibir el reconocimiento por la reutilización de los datos med
 	pt_pt => 'Ao adicionar informações e/ou imagens, você aceita irrevocavelmente a sua contribuição sob a licença <a href="http://opendatacommons.org/licenses/dbcl/1.0/">Database Contents Licence 1.0</a>
 pelas informações, e sob a licença <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution - ShareAlike 3.0</a> para as imagens.
 Você aceita ser creditado por reutilizadores por um link para o produto que está a contribuir.',
+	ro => 'Adăugând informații, date și/sau imagini, acceptați să puneți contribuția dumneavoastră sub <a href="http://opendatacommons.org/licenses/dbcl/1.0/">Database Contents Licence 1.0</a> licența pentru informație și date, și sub <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution - ShareAlike 3.0</a> licența pentru imagini.
+Acceptați să fiți creditat pentru re-utilizări cu un link către prdusul la care contribuiți.',
 },
 
 tag_belongs_to => {
@@ -4039,6 +4411,7 @@ tag_belongs_to => {
 	en => 'Belongs to:',
 	es => 'Pertenece a:',
 	pt => 'Pertence a:',
+	ro => "Aparține de:",
 	he => 'שייך ל־:',
 },
 
@@ -4047,6 +4420,7 @@ tag_contains => {
 	en => 'Contains:',
 	es => 'Contiene:',
 	pt => 'Contém:',
+	ro => "Conține",
 	he => 'מכיל:',
 },
 
@@ -4055,6 +4429,7 @@ newsletter_description => {
 	en => "Subscribe to the newsletter (2 emails per month maximum)",
 	es => "Suscribirse al boletín informativo (2 correos electrónicos al mes como mucho)",
 	pt => "Subscreva ao boletim de notícias (2 e-mails no máximo por mês)",
+	ro => "Abonare la buletinul informativ (maxim 2 email-uri pe lună)",
 	he => "הרשמה לרשימת הדיוור (2 הודעות דוא״ל בחודש לכל היותר, באנגלית)",
 },
 
@@ -4063,6 +4438,7 @@ search_products => {
 	en => "Products search",
 	es => "Búsqueda de productos",
 	pt => "Procura de produtos",
+	ro => "Căutare produse",
 	he => "חיפוש מוצרים",
 },
 
@@ -4071,6 +4447,7 @@ search_terms => {
 	en => "Search terms",
 	es => "Palabras a buscar",
 	pt => "Termos de pesquisa",
+	ro => "Termeni de căutare",
 	he => "מילות חיפוש",
 },
 
@@ -4079,6 +4456,7 @@ search_terms_note => {
 	en => "Search for words present in the product name, generic name, brands, categories, origins and labels",
 	es => "Busca las palabras presentes en el nombre del producto, la denominación general, las marcas, las categorías, los orígenes y las etiquetas",
 	pt_pt => "Procurar os termos no nome do produto, nome genérico, marcas, categorias, origens e etiquetas",
+	ro => "Căutați după cuvinte prezente în numele produsului, numele generic, mărci, categorii, origini și etichete",
 	he=> "חיפוש אחר מילים מתוך שם המוצר, שמו הכללי, מותגים, קטגוריות, מקורות ותוויות",
 },
 
@@ -4087,6 +4465,7 @@ search_tag => {
 	en => "choose a criteria...",
 	es => "escoge un criterio...",
 	pt => "escolhe um critério...",
+	ro => "alegeți un criteriu...",
 	he => "בחירת קריטריון...",
 },
 
@@ -4095,6 +4474,7 @@ search_nutriment => {
 	en => "choose a nutriment...",
 	es => "escoge un nutriente...",
 	pt => "escolhe um nutriente...",
+	ro => "alegeți un nutrient...",
 	he => "בחירת  מרכיב תזונתי...",
 },
 
@@ -4103,6 +4483,7 @@ search_tags => {
 	en => "Criteria",
 	es => "Criterios",
 	pt => "Critérios",
+	ro => "Criteriu",
 	he => "קריטריונים",
 },
 
@@ -4111,6 +4492,7 @@ search_nutriments => {
 	en => "Nutriments",
 	es => "Nutrientes",
 	pt => "Nutrientes",
+	ro => "Nutrienți",
 	he => "מרכיבים תזונתיים",
 },
 
@@ -4119,6 +4501,7 @@ search_contains => {
 	en => "contains",
 	es => "contiene",
 	pt => "contém",
+	ro => "conține",
 	he => "מכיל",
 },
 search_does_not_contain => {
@@ -4126,6 +4509,7 @@ search_does_not_contain => {
 	en => "does not contain",
 	es => "no contiene",
 	pt => "não contém",
+	ro => "nu conține",
 	he => "אינו מכיל",
 },
 search_or => {
@@ -4133,6 +4517,7 @@ search_or => {
 	en => "or",
 	es => "o",
 	pt => "ou",
+	ro => "sau",
 	he => "או",
 },
 search_page_size => {
@@ -4140,6 +4525,7 @@ search_page_size => {
 	en => "Number of results by page",
 	es => "Número de resultados por página",
 	pt => "Número de resultados por página",
+	ro => "Numărul de rezultate per pagină",
 	he => "מספר התוצאות לפי עמוד",
 },
 sort_by => {
@@ -4147,6 +4533,7 @@ sort_by => {
 	en => "Sort by:",
 	es => "Ordenar por:",
 	pt => "Ordenar por:",
+	ro => "Ordonează după:",
 	he => "סידור לפי:",
 },
 sort_popularity => {
@@ -4154,12 +4541,14 @@ sort_popularity => {
 	en => "Popularity",
 	es => "Popularidad",
 	pt => "Popularidade",
+	ro => "Popularitate",
 },
 sort_product_name => {
 	fr => "Nom du produit",
-	en => "Product  name",
+	en => "Product name",
 	es => "Nombre del producto",
 	pt => "Nome do produto",
+	ro => "Numele produsului",
 	he => "שם המוצר",
 },
 sort_created_t => {
@@ -4167,6 +4556,7 @@ sort_created_t => {
 	en => "Add date",
 	es => "Fecha de creación",
 	pt => "Data de criação",
+	ro => "Data adăugării",
 	he => "הוספת תאריך",
 },
 sort_modified_t => {
@@ -4174,6 +4564,7 @@ sort_modified_t => {
 	en => "Edit date",
 	es => "Fecha de modificación",
 	pt => "Data de modificação",
+	ro => "Data modificării",
 	he => "עריכת התאריך",
 },
 
@@ -4183,6 +4574,7 @@ search_button => {
 	de => "Suchen",
 	es => "Buscar",
 	pt => "Procurar",
+	ro => "Căutare",
 	he => "חיפוש",
 },
 
@@ -4191,6 +4583,7 @@ search_edit => {
 	en => "Change search criteria",
 	es => "Cambiar los criterios de búsqueda",
 	pt => "Modificar os critérios da pesquisa",
+	ro => "Schimbă criteriile de căutare",
 	he => "החלפת קריטריוני החיפוש",
 },
 
@@ -4198,6 +4591,7 @@ search_link => {
 	fr => "Lien permanent vers ces résultats, partageable par e-mail et les réseaux sociaux",
 	en => "Permanent link to these results, shareable by e-mail and on social networks",
 	es => "Enlace permanente a estos resultados, para poderse compartir a través del correo electrónico y redes sociales",
+	ro => "Link permanent la aceste rezultate, transmisibil prin e-mail și pe rețele sociale",
 	he => "קישור ישיר לתוצאות אלו, ניתן להעברה בדוא״ל וברשתות חברתיות",
 },
 
@@ -4206,6 +4600,7 @@ search_graph_link => {
 	en => "Permanent link to this graph, shareable by e-mail and on social networks",
 	es => "Enlace permanente a este gráfico, para poderse compartir a través del correo electrónico y redes sociales",
 	pt => "Link permanente para este gráfico, para poder partilhar através do e-mail ou das redes sociais",
+	ro => "Link permanent la acest grafic, transmisibil prin e-mail și pe rețele sociale",
 	he => "קישור ישיר לתוצאות אלו, ניתן להעברה בדוא״ל וברשתות חברתיות",
 },
 
@@ -4214,6 +4609,7 @@ search_graph_title => {
 	en => "Display results on a graph",
 	es => "Ver los resultados de forma gráfica",
 	pt => "Ver os resultados sob a forma de um gráfico",
+	ro => "Afișarea rezultatelor pe un grafic",
 	he => "הצגת תוצאות בתרשים",
 },
 
@@ -4222,6 +4618,7 @@ search_graph_2_axis => {
 	en => "Scatter plot",
 	es => "Gráfico en 2 ejes",
 	pt => "Gráfico de dispersão",
+	ro => "Grafic pe 2 axe",
 	he => "פיזור התוואי",
 },
 
@@ -4230,6 +4627,7 @@ search_graph_note => {
 	en => "The graph will show only products for which displayed values are known.",
 	es => "El gráfico mostrará solamente los productos para los cuales los valores representados son conocidos.",
 	pt_pt => "O gráfico mostrará apenas os produtos cujos valores representados são conhecidos.",
+	ro => "Graficul va arăta numai produse pentru care valorile afișate sunt cunoscute.",
 	he => "התרשים יציג אך ורק מוצרים שהערכים שלהם ידועים.",
 },
 
@@ -4238,6 +4636,7 @@ graph_title => {
 	en => "Graph title",
 	es => "Título del gráfico",
 	pt => "Título de gráfico",
+	ro => "Titlul graficului",
 	he => "כותרת התרשים",
 },
 
@@ -4246,6 +4645,7 @@ graph_count => {
 	en => "%d products match the search criterias, of which %i products have defined values for the graph's axis.",
 	es => "%d productos coinciden con los criterios de búsqueda, de los cuales %i productos tienen valores definidos en los ejes del gráfico.",
 	pt => "%d produtos coincidem com os critérios de pesquisa, dos quais %i produtos têm valores definidos para os eixos do gráphico.",
+	ro => "%d produse se potrivesc criteriilor de căutare, din care %i produse au valori definite pentru axele graficului",
 	he => "%d מוצרים תואמים את קריטריוני החיפוש, מתוכם ל־%i מוצרים יש ערכים מוגדרים עבור צירי התרשים.",
 },
 
@@ -4254,6 +4654,7 @@ data_source => {
 	en => "Data source",
 	es => "Origen de los datos",
 	pt => "Origen dos dados",
+	ro => "Sursa de date",
 },
 
 search_map_link => {
@@ -4261,6 +4662,7 @@ search_map_link => {
 	en => "Permanent link to this map, shareable by e-mail and on social networks",
 	es => "Enlace permanente a esta mapa, para poderse compartir a través del correo electrónico y redes sociales",
 	pt => "Link permanente para este mapa, para poder partilhar através do e-mail ou das redes sociais",
+	ro => "Link permanent la această hartă, transmisibil prin e-mail și pe rețele sociale",
 	he => "קישור קבוע למפה זו, ניתן לשתף בדוא״ל וברשתות חברתיות",
 },
 
@@ -4269,6 +4671,7 @@ search_map_title => {
 	en => "Display results on a map",
 	es => "Ver los resultados sobre una mapa",
 	pt => "Ver os resultados num mapa",
+	ro => "Afișare rezultate pe o hartă",
 	he => "הצגת תוצאות על מפה",
 },
 
@@ -4277,6 +4680,7 @@ search_map_note => {
 	en => "The map will show only products for which the production place is known.",
 	es => "El mapa mostrará solamente los productos para los cuales se conoce el lugar de fabricación o de envasado.",
 	pt => "O mapa mostrará apenas os produtos cujos locais de produção ou embalamento são conhecidos.",
+	ro => "Harta va arăta numai produsele pentru care locul de producție este cunoscut.",
 	he => "המפה תציג אך ורק מוצרים שמיקום הייצור שלהם ידוע.",
 },
 
@@ -4285,6 +4689,7 @@ map_title => {
 	en => "Map title",
 	es => "Título del mapa",
 	pt => "Título do mapa",
+	ro => "Titlul hărții",
 	he => "כותרת המפה",
 },
 
@@ -4293,6 +4698,7 @@ map_count => {
 	en => "%d products match the search criterias, of which %i products have a known production place.",
 	es => "%d productos coinciden con los criterios de búsqueda, de los cuales %i productos tienen valores definidos.",
 	es => "%d produtos coincidem com os critérios de pesquisa, dos quais %i produtos têm um local de fabrico ou embalamento conhecido.",
+	ro => "%d produse corespund criteriilor de căutare, din care %i produse au un loc de producție cunoscut.",
 	he => "%d מוצרים תואמים לקריטריוני החיפוש, מתוכם ל־%i מהמוצרים מקום הייצור ידוע.",
 },
 
@@ -4302,6 +4708,7 @@ search_series_default => {
 	en => 'Other products',
 	es => 'Otros productos',
 	pt => 'Outros produtos',
+	ro => "Alte produse",
 	he => 'מוצרים אחרים',
 },
 
@@ -4310,6 +4717,7 @@ search_series => {
 	en => 'Use a different color for the following products:',
 	es => 'Utiliza un color diferente para los siguientes productos:',
 	pt => 'Utiliza uma cor diferente para os seguintes produtos:',
+	ro => "Folosește o culoare diferită pentru următoarele produse:",
 	he => 'שימוש בצבע שונה עבור המוצרים הבאים:',
 },
 
@@ -4318,6 +4726,7 @@ search_series_organic => {
 	en => 'Organic',
 	es => 'Ecológico',
 	pt => 'Orgânico',
+	ro => "Bio",
 	he => 'אורגני',
 },
 
@@ -4326,6 +4735,7 @@ search_series_organic_label => {
 	en => 'organic',
 	es => 'Ecológico',
 	pt => 'orgânico',
+	ro => "bio",
 },
 
 search_series_fairtrade => {
@@ -4333,6 +4743,7 @@ search_series_fairtrade => {
 	en => 'Fair trade',
 	es => 'Comercio justo',
 	pt => 'Comércio justo',
+	ro => "Comerț echitabil",
 	he => 'סחר הוגן',
 },
 
@@ -4341,6 +4752,7 @@ search_series_fairtrade_label => {
 	en => 'fair-trade',
 	es => 'comercio-justo',
 	pt => 'comércio-justo',
+	ro => "comerț-echitabil",
 	he => 'סחר-הוגן',
 },
 
@@ -4349,6 +4761,7 @@ search_series_with_sweeteners => {
 	en => 'With sweeteners',
 	es => 'Con edulcorantes',
 	pt => 'Com edulcorantes',
+	ro => "Cu îndulcitori",
 	he => 'עם ממתיקים',
 },
 
@@ -4357,6 +4770,7 @@ number_of_additives => {
 	en => "Number of additives",
 	es => "Número de aditivos",
 	pt => "Número de aditivos",
+	ro => "Numărul de aditivi",
 	he => "מספר התוספים",
 
 },
@@ -4366,6 +4780,7 @@ number_of_products => {
 	en => "Number of products",
 	es => "Número de productos",
 	pt => "Número de produtos",
+	ro => "Numărul produselor",
 },
 
 search_graph => {
@@ -4373,6 +4788,7 @@ search_graph => {
 	en => 'Graph',
 	es => 'Gráfico',
 	pt => 'Gráfico',
+	ro => "Grafic",
 	he => 'תרשים',
 },
 
@@ -4381,6 +4797,7 @@ search_map => {
 	en => 'Map',
 	es => 'Mapa',
 	pt => 'Mapa',
+	ro => "Hartă",
 	he => 'מפה',
 },
 
@@ -4389,6 +4806,7 @@ search_title_graph => {
 	en => 'Results graph',
 	es => 'Gráfico de los resultatdos',
 	pt => 'Gráfico dos resultados',
+	ro => "Graficul cu rezultate",
 	he => 'תרשים התוצאות',
 },
 
@@ -4397,6 +4815,7 @@ search_title_map => {
 	en => 'Results map',
 	es => 'Mapa de los resultatdos',
 	pt => 'Mapa dos resultados',
+	ro => "Harta cu rezultate",
 	he => 'מפת התוצאות',
 },
 
@@ -4405,6 +4824,7 @@ search_results => {
 	en => "Search results",
 	es => "Resultados de la búsqueda",
 	pt => "Resultados da pesquisa",
+	ro => "Rezultatele căutării",
 	he => "תוצאות החיפוש",
 },
 
@@ -4413,6 +4833,7 @@ search_download_results => {
 	en => "Download results in CSV format (Excel, OpenOffice)",
 	es => "Descargar los resultados en formato CSV (Excel, OpenOffice)",
 	pt => "Transferir os resultados em formato CSV (Excel, OpenOffice)",
+	ro => "Descărcați rezultatele în format CSV (Excel, OpenOffice)",
 	he => "הורדת התוצאות במבנה CSV (Excel, LibreOffice)",
 },
 
@@ -4421,6 +4842,7 @@ search_download_results_description => {
 	en => "Character set: Unicode (UTF-8)). Separator: tabulation (tab).",
 	es => "Juego de caractéres: Unicode (UTF-8)). Separador: tabulador (tab).",
 	pt => "Mapa de caracteres: Unicode (UTF-8). Separador: tabulação (TAB).",
+	ro => "Set de caractere: Unicode (UTF-8). Separator: tabulare (tab).",
 	he => "ערכת תווים: יוניקוד (UTF-8). הפרדה: טאב (tab)",
 },
 
@@ -4430,6 +4852,7 @@ search_flatten_tags => {
 	cs => "(Nepovinné) - Vytvořit sloupec pro každý:",
 	es => "(Opcional) - Crear una columna para cada:",
 	pt => "(Opcional) - Criar uma coluna para cada:",
+	ro => "(Opțional) - Crează o coloană pentru fiecare:",
 	he => "(רשות) - יצירת עמודה בכל:",
 },
 
@@ -4438,6 +4861,7 @@ search_download_button => {
 	en => "Download",
 	es => "Descargar",
 	pt => "Transferir",
+	ro => "Descarcă",
 	he => "הורדה",
 },
 
@@ -4446,6 +4870,7 @@ axis_x => {
 	en => "Horizontal axis",
 	es => "Eje horizontal",
 	pt => "Eixo horizontal",
+	ro => "Axa orizontală",
 	he => "ציר אופקי",
 },
 
@@ -4454,6 +4879,7 @@ axis_y => {
 	en => "Vertical axis",
 	es => "Eje vertical",
 	pt => "Eixo vertical",
+	ro => "Axa verticală",
 	he => "ציר אנכי",
 },
 
@@ -4462,6 +4888,7 @@ search_generate_graph => {
 	en => "Generate graph",
 	es => "Generar el gráfico",
 	pt => "Gerar o gráfico",
+	ro => "Generare grafic",
 	he => "יצירת תרשים",
 },
 
@@ -4470,6 +4897,7 @@ search_graph_warning => {
 	en => "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph.",
 	es => "Nota: Este gráfico fue generado por un usuario de Open Food Facts. El título, los productos representados y los ejes de la representación han sido escogidos por el autor del gráfico.",
 	pt_pt => "Nota: Este gráfico foi gerado por um utilizador do Open Food Facts. O título, os produtos representados e os eixos de visualização foram escolhidos pelo autor do gráfico.",
+	ro => "Notă: acesta este un grafic generat de un utilizator. Titlul, produsele reprezentate și axa de vizualizare au fost alese de către autorul graficului.",
 	he => "לתשומת לבך: תרשים זה נוצר על־ידי משתמש. הכותרת, המוצרים המיוצגים והציר נבחרו כולם על־ידי יוצר התרשים.",
 },
 
@@ -4478,6 +4906,7 @@ search_generate_map => {
 	en => "Generate the map",
 	es => "Generar la mapa",
 	pt => "Gerar o mapa",
+	ro => "Generează harta",
 	he => "יצירת מפה",
 },
 
@@ -4486,6 +4915,7 @@ search_graph_blog => {
 	en => "",
 	es => "<p>→ para saber más acerca de los gráficos de Open Food Facts: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Los gráficos en 3 clics (en francés)</a> (blog).</p>",
 	es => "<p>→ para saber mais acerca dos gráficos do Open Food Facts: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Gráficos en 3 cliques (en francês)</a> (blog).</p>",
+	ro => "<p>→ pentru a afla mai multe despre graficele de pe Open Food Facts : <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graficele în 3 click-uri (în franceză)</a> (blog).</p>",
 },
 
 advanced_search => {
@@ -4493,6 +4923,7 @@ advanced_search => {
 	en => "Advanced search and graphs",
 	es => "Búsqueda avanzada y gráficos",
 	pt => "Pesquisa avançada e gráficos",
+	ro => "Căutare și grafice avansate",
 	he => "חיפוש מתקדם ותרשימים",
 },
 
@@ -4501,6 +4932,7 @@ edit_comment => {
 	en => "Changes summary",
 	es => "Descripción de los cambios",
 	pt => "Resumo das suas edições",
+	ro => "Sumarul schimbărilor",
 	he => "תקציר השינויים",
 },
 
@@ -4509,6 +4941,7 @@ delete_comment => {
 	en => "Reason for removal",
 	es => "Motivo de la eliminación",
 	pt => "Motivo para a eliminacão",
+	ro => "Motivul ștergerii",
 	he => "הסיבה להסרה",
 },  
 
@@ -4517,6 +4950,7 @@ history => {
 	en => "Changes history",
 	es => "Historial de revisiones",
 	pt => "Historial das edições",
+	ro => "Istoricul schimbărilor",
 	he => "היסטוריית השינויים",
 },
 
@@ -4525,6 +4959,7 @@ new_code => {
 	en => "If the barcode is not correct, please correct it here:",
 	es => "Si el código de barras no es correcto, por favor corrígelo aquí:",
 	pt => "O código de barras está errado? Corrige-o aqui, por favor:",
+	ro => "Dacă codul de bare nu este corect, sunteți rugat să-l corectați aici:",
 	he => "אם הברקוד לא נכון, נא לתקן אותו כאן:",
 },
 
@@ -4533,6 +4968,7 @@ new_code_note => {
 	en => "For products without a barcode, an internal code is automatically set.",
 	es => "A los productos sin código de barras se les asignará automáticamente un código interno.",
 	pt => "Para os produtos sem código de barras, um código interno é atribuido automaticamente.",
+	ro => "Pentru produsele fără un cod de bare, un cod intern este înregistrat.",
 	he => "למוצרים ללא ברקוד, מוגדר קוד פנימי אוטומטית.",
 },
 
@@ -4541,6 +4977,7 @@ error_new_code_already_exists => {
 	en => "A product already exists with the new code",
 	es => "Ya existe un producto con el nuevo código",
 	pt => "Jáa existe un produto com o novo código",
+	ro => "Un produs cu noul cod deja există",
 	he => "כבר קיים מוצר עם הקוד החדש",
 },
 
@@ -4550,6 +4987,7 @@ product_js_uploading_image => {
 	es => "Cargando la imagen",
 	pt => "Enviando a imagem",
 	pt_pt => "A enviar a imagem",
+	ro => "Îmaginea se transmite",
 	he => "התמונה נשלחת",
 },
 
@@ -4558,6 +4996,7 @@ product_js_image_received => {
 	en => "Image received",
 	es => "La imagen ha sido recibida",
 	pt => "Imagem recebida",
+	ro => "Imagine recepționată",
 	he => "התמונה התקבלה",
 },
 
@@ -4566,6 +5005,7 @@ product_js_image_upload_error => {
 	en => "Error while uploading image",
 	es => "Se ha producido un error al enviar la imagen",
 	pt => "Houve um erro durante o envio da imagem",
+	ro => "Eroare în timpul transmiterii imaginii",
 	he => "העלאת התמונה נכשלה",
 },
 
@@ -4574,6 +5014,7 @@ product_js_image_rotate_and_crop => {
 	en => "Rotate the image if necessary, then click and drag to select the interesting zone:",
 	es => "Rota la imagen si es necesario, después haz clic y arrastra para seleccionar la zona de interés:",
 	pt => "Roda a imagem se necessário, depois clica e arrasta para seleccionar a zona pretendida:",
+	ro => "Rotiți imaginea dacă este necesar, apoi dați click și trageți pentru a selecta zona de interes:",
 	he => "הטיית התמונה אם יש צורך בכך ולאחר מכן ניתן ללחוץ ולגרור כדי לבחור את האזור המעניין:",
 },
 
@@ -4582,6 +5023,7 @@ product_js_image_rotate_left => {
 	en => "Rotate left",
 	es => "Girar a la izquierda",
 	pt => "Rodar para a esquerda",
+	ro => "Rotire la stânga",
 	he => "הטייה לשמאל",
 },
 
@@ -4590,6 +5032,7 @@ product_js_image_rotate_right => {
 	en => "Rotate right",
 	es => "Girar a la derecha",
 	pt => "Rodar para a direita",
+	ro => "Rotire la dreapta",
 	he => "הטייה לימין",
 },
 
@@ -4598,6 +5041,7 @@ product_js_image_normalize => {
 	en => "Normalize colors",
 	es => "Equilibra los colores",
 	pt => "Normalizar as cores",
+	ro => "Normalizare culori",
 	he => "איזון הצבעים",
 },
 
@@ -4606,6 +5050,7 @@ product_js_image_open_full_size_image => {
 	en => "Open the picture in original size in a new windows",
 	es => "Abrir la imagen en su tamaño original en una nueva ventana",
 	pt => "Abrir a imagem no tamanho original numa nova janela",
+	ro => "Deschide imaginea în dimensiunea originală într-o fereastră nouă",
 },
 
 product_js_image_white_magic => {
@@ -4613,6 +5058,7 @@ product_js_image_white_magic => {
 	en => "Photo on white background: try to remove the background",
 	es => "Foto sobre fondo blanco: prueba a eliminar el fondo",
 	pt => "Fotografia sobre fundo branco: tentar eliminar o fundo",
+	ro => "Fotografie pe fundal alb: încearcă să ștergi fundalul",
 	he => "תמונה עם רקע לבן: לנסות להסיר את הרקע",
 },
 
@@ -4621,6 +5067,7 @@ product_js_image_save => {
 	en => "Validate and/or resize image",
 	es => "Validar y/o recortar la imagen",
 	pt => "Validar e/ou redimensionar a imagem",
+	ro => "Validează și/sau redimensionează imaginea",
 	he => "אימות ו/או שינוי גודל התמונה",
 },
 
@@ -4629,6 +5076,7 @@ product_js_image_saving => {
 	en => "Saving image",
 	es => "La imagen está siendo guardada",
 	pt => "A guardar imagem",
+	ro => "Imaginea se salvează",
 	he => "התמונה נשמרת",
 },
 
@@ -4637,6 +5085,7 @@ product_js_image_saved => {
 	en => "Image saved",
 	es => "Imagen guardada",
 	pt => "Imagem guardada",
+	ro => "Imagine salvată",
 	he => "התמונה נשמרה",
 },
 
@@ -4645,6 +5094,7 @@ product_js_current_image => {
 	en => "Current image:",
 	es => "Imagen actual:",
 	pt => "Imagem atual:",
+	ro => "Imaginea curentă:",
 	he => "התמונה הנוכחית:",
 },
 
@@ -4653,6 +5103,7 @@ product_js_extract_ingredients => {
 	en => "Extract the ingredients from the picture",
 	es => "Extraer los ingredientes de la imagen",
 	pt => "Extrair os ingredientes da imagem",
+	ro => "Extrage ingredientele din imagine:",
 	he => "חילוץ הרכיבים מהתמונה",
 },
 
@@ -4662,6 +5113,7 @@ product_js_extracting_ingredients => {
 	es => "Extrayendo los ingredientes",
 	pt => "Extraindo os ingredientes",
 	pt_pt => "A extrair os ingredientes",
+	ro => "Extrag ingredientele",
 	he => "הרכיבים מחולצים",
 },
 
@@ -4670,6 +5122,7 @@ product_js_extracted_ingredients_ok => {
 	en => "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed.",
 	es => "Se ha extraído el texto de los ingredientes. El reconocimiento de texto no siempre es perfecto. Por favor revisa el texto extraído y corrige los errores si es necesario.",
 	es => "A lista de ingredientes foi extraída. O reconhecimento do texto não é sempre perfeito. Por favor verifica o texto extraído e corrige os erros se necessário.",
+	ro => "Textul cu ingrediente a fost extras. Recunoașterea de text nu este perfectă, deci sunteți rugați să verificați textul de mai jos și să corectați erorile dacă este necesar.",
 	he => "טקסט הרכיבים חולץ. מנגנון זיהוי הטקסט אינו מושלם ולכן מומלץ לבדוק אם הטקסט שלהלן נכון ולתקן את הטעויות במידת הצורך.",
 },
 
@@ -4678,6 +5131,7 @@ product_js_extracted_ingredients_nok => {
 	en => "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text.",
 	es => "No se puede extraer el texto de los ingredientes. Prueba con una imagen más nítida, con mayor resolución o con un mejor encuadre del texto.",
 	pt => "Não foi possível extrair a lista de ingredientes. Tenta de novo com uma imagem mais nítida, com maior resolução ou maior enquadramento do texto.",
+	ro => "Textul cu ingrediente nu a putut fi extras. Încercați cu o imagine mai clară, cu o rezoluție mai mare sau o mai bună încadrare a textului.",
 	he => "לא ניתן לחלץ את טקסט הרכיבים. כדאי לנסות עם תמונה חדה יותר ברזולוציה גבוהה יותר או במסגור טוב יותר של הטקסט.",
 },
 
@@ -4686,14 +5140,16 @@ product_js_upload_image => {
 	en => "Add a picture",
 	es => "Añadir una imagen",
 	pt => "Adicionar uma imagem",
+	ro => "Agaugă o imagine",
 	he => "הוספת תמונה",
 },
 
 product_js_upload_image_note => {
 	fr => "→ Avec Chrome, Firefox et Safari, vous pouvez sélectionner plusieurs images (produit, ingrédients, infos nutritionnelles etc.) en cliquant avec la touche Ctrl enfoncée, pour les envoyer toutes en même temps.",
-	en => "→ With Chrome, Firefox and Safari, you can select multipe pictures (product, ingredients, nutrition facts .) by clicking them while holding the Ctrl key pressed to add them all in one shot.",
+	en => "→ With Chrome, Firefox and Safari, you can select multipe pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot.",
 	es => "→ Con Chrome, Firefox y Safari, puedes seleccionar varias imágenes al mismo tiempo (producto, ingredientes, información nutricional, etc.) manteniendo pulsada la tecla Ctrl y haciendo clic sobre las imágenes que quieras seleccionar para enviarlas todas a la vez.",
 	pt => "→ Com o Chrome, Firefox e Safari, pode seleccionar várias imagens ao memsmo tempo (produto, ingredientes, informação nutricional, etc.) clicando nelas enquando a tecla Ctrl estiver premida, para as adicionar de uma só vez.",
+	ro => "→ Cu Chrome, Firefox și Safari, puteți selecta mai multe imagini (produs, ingrediente, valori nutriționale etc.). Dați click pe ele în timp ce țineți apăsați tasta Ctrl pentru a le adăuga pe toate în același timp.",
 	he => "← עם כרום, פיירפוקס וספארי, ניתן לבחור מספר תמונות (מוצר, רכיבים, מפרט תזונתי) על ידי לחיצה עליהן בעת החזקת המקש Ctrl כדי להוסיף את כולן באותה התמונה."
 },
 
@@ -4702,6 +5158,7 @@ product_add_nutrient => {
 	en => "Add a nutrient",
 	es => "Añade un nutriente",
 	pt => "Adicionar um nutriente",
+	ro => "Adăugați un nutrient", 
 },
 
 product_changes_saved => {
@@ -4709,6 +5166,7 @@ product_changes_saved => {
 	en => "Changes saved.",
 	es => "Los cambios han sido guardados.",
 	pt => "As modificações foram guardadas.",
+	ro => "Schimbările au fost salvate.",
 	he => "השינויים נשמרו.",
 },
 
@@ -4717,6 +5175,7 @@ see_product_page => {
 	en => "See the product page",
 	es => "Ver la página del producto",
 	pt => "Ver a página do produto",
+	ro => "Vedeți pagina produsului",
 	he => "הצגת עמוד המוצר",
 },
 
@@ -4725,6 +5184,7 @@ products_with_nutriments => {
 	en => "with nutrition facts",
 	es => "con información nutricional",
 	pt => "com informacão nutricional",
+	ro => "cu valori nutriționale",
 	he => "עם מפרט תזונתי",
 },
 
@@ -4733,6 +5193,7 @@ tagstable_search => {
 	en => "Search:",
 	es => "Buscar:",
 	pt => "Procurar:",
+	ro => "Căutare:",
 	he => "חיפוש:",
 },
 
@@ -4741,6 +5202,7 @@ tagstable_filtered => {
 	en => "out of _MAX_",
 	es => "fuera de _MAX_",
 	pt => "de_MAX_",
+	ro => "din _MAX_",
 	he => "מתוך _MAX_",
 },
 
@@ -4749,6 +5211,7 @@ search_ingredients => {
 	en => "Ingredients",
 	es => "Ingredientes",
 	pt => "Ingredientes",
+	ro => "Ingrediente",
 	he => "רכיבים",
 },
 
@@ -4758,6 +5221,7 @@ search_with => {
 	es => 'Con',
 	de => 'Mit',
 	pt => 'Com',
+	ro => "Cu",
 	he => 'עם',
 },
 
@@ -4767,6 +5231,7 @@ search_without => {
 	es => 'Sin',
 	de => 'Ohne',
 	pt => 'Sem',
+	ro => "Fără",
 	he => 'ללא',
 },
 
@@ -4775,6 +5240,7 @@ search_indifferent => {
 	en => 'Indifferent',
 	es => 'Indiferente',
 	pt => 'Indiferente',
+	ro => "Indiferent",
 	he => 'ללא שינוי',
 },
 
@@ -4783,6 +5249,7 @@ products_you_edited => {
 	en => "Products you added or edited",
 	es => "Productos que has añadido o modificado",
 	pt => "Produtos que adicionaste ou editaste",
+	ro => "Produse adăugate sau modificate de dumneavoastră",
 	he => "משתנים שהוספת או ערכת",
 },
 
@@ -4790,6 +5257,7 @@ incomplete_products_you_added => {
 	fr => "Les produits que vous avez ajoutés qui sont à compléter",
 	en => "Products you added that need to be completed",
 	es => "Productos añadidos por usted que necesitan ser completados",
+	ro => "Produse adăugate de dumneavoastră care trebuie completate",
 	pt => "Produtos adicionados por ti que precisam de ser completados" ,
 },
 
@@ -4798,6 +5266,7 @@ edit_settings => {
 	en => "Change your account parameters",
 	es => "Cambiar la configuración de la cuenta",
 	pt => "Mudar os parâmetros da conta",
+	ro => "Schimbați parametrii contului",
 	he => "החלפת משתני החשבון שלך",
 },
 
@@ -4806,6 +5275,7 @@ list_of_x => {
 	en => "List of %s",
 	es => "Lista de %s",
 	pt => "Lista de %s",
+	ro => "Listă de %s",
 	he => "רשימה של %s",
 },
 
@@ -4814,6 +5284,7 @@ change_uploaded_images => {
 	en => "Uploaded images",
 	es => "Imágenes subidas",
 	pt => "Imagens enviadas",
+	ro => "Imagini încărcate",
 	he => "תמונות שהועלו",
 },
 
@@ -4822,6 +5293,7 @@ change_selected_images => {
 	en => "Selected images",
 	es => "Imágenes seleccionadas",
 	pt => "Imagens selecionadas",
+	ro => "Imagini selectate",
 	he => "תמונות נבחרות",
 },
 
@@ -4830,6 +5302,7 @@ change_fields => {
 	en => "Data",
 	es => "Informaciones",
 	pt => "Informações",
+	ro => "Date",
 	he => "נתונים",
 },
 
@@ -4838,6 +5311,7 @@ change_nutriments => {
 	en => "Nutriments",
 	es => "Nutrientes",
 	pt => "Nutrientes",
+	ro => "Nutrienți",
 	he => "מפרט תזונתי",
 },
 
@@ -4846,6 +5320,7 @@ diff_add => {
 	en => 'Added:',
 	es => 'Añadido:',
 	pt => 'Adicionado:',
+	ro => "Adăugate:",
 	he => 'נוסף:',
 },
 
@@ -4854,6 +5329,7 @@ diff_change => {
 	en => 'Changed:',
 	es => 'Cambiado:',
 	pt => 'Alterado:',
+	ro => "Schimbate:",
 	he => 'השתנה:',
 },
 
@@ -4862,6 +5338,7 @@ diff_delete => {
 	en => 'Deleted:',
 	es => 'Eliminado:',
 	pt => 'Alterado:',
+	ro => "Șterse:",
 	he => 'נמחק:',
 },
 
@@ -4872,6 +5349,7 @@ state => {
 	en => 'State',
 	es => 'Estado',
 	pt => 'Estado',
+	ro => "Status",
 	he => 'מצב',
 },
 
@@ -4881,6 +5359,7 @@ save => {
 	es => "Guardar",
 	pt => "Salvar",
 	es => "Guardar",
+	ro => "Salvare",
 	he => "שמירה",
 },
 saving => {
@@ -4888,6 +5367,7 @@ saving => {
 	en => "Saving.",
 	es => "Los datos están siendo guardados",
 	pt => "Os dados estão a ser guardados",
+	ro => "Salvez.",
 	he => "בהליכי שמירה.",
 },
 saved => {
@@ -4895,6 +5375,7 @@ saved => {
 	en => "Saved.",
 	es => "Los datos han sido guardados.",
 	pt => "Os dados foram guardados.",
+	ro => "Salvat.",
 	he => "השמירה הצליחה.",
 },
 not_saved => {
@@ -4902,6 +5383,7 @@ not_saved => {
 	en => "Error while saving, please retry.",
 	es => "Se ha producido un error guardando los datos, por favor inténtelo de nuevo.",
 	pt => "Ocorreu um erro ao guardar os dados, por favor tenta de novo.",
+	ro => "Eroare de salvare, vă rog reîncercați.",
 	he => "אירעה שגיאה במהלך השמירה, נא לנסות שוב.",
 },
 
@@ -4910,6 +5392,7 @@ view => {
 	en => "view",
 	es => "ver",
 	pt => "ver",
+	ro => "vedere",
 	he => "צפייה",
 },
 
@@ -4918,6 +5401,7 @@ no_product_for_barcode => {
 	en => "No product listed for barcode %s.",
 	es => "No existe ningún producto con el código de barras %s.",
 	pt => "Não existe nenhum produto com o código de barras %s.",
+	ro => "Nici un produs listat pentru codul de bare %s",
 	he => "לא נרשמו מוצרים על הברקוד %s",
 },
 
@@ -4926,6 +5410,7 @@ products_stats => {
 	en => "Evolution of the number of products on Open Food Facts",
 	es => "Evolución del número de productos en Open Food Facts",
 	pt => "Evolução do número de produtos no Open Food Facts",
+	ro => "Evoluția numărului de produse pe Open Food Facts",
 	he => "התפתחות מספר המוצרים ב־Open Food Facts",
 },
 
@@ -4934,6 +5419,7 @@ products_stats_created_t => {
 	en => "Products",
 	es => "Productos",
 	pt => "Produtos",
+	ro => "Produse",
 	he => "מוצרים",
 },
 
@@ -4942,6 +5428,7 @@ products_stats_completed_t => {
 	en => "Products with complete information",
 	es => "Productos con los datos completados",
 	pt => "Produtos com informação completa",
+	ro => "Produse cu informații complete",
 	he => "מוצרים עם פרטים מלאים",
 },
 
@@ -4951,6 +5438,7 @@ months => {
 	en => "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']",
 	es => "['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']",
 	pt => "['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']",
+	ro => "['Ianuarie', 'Februarie', 'Martie', 'Aprilie', 'Mai', 'Iunie', 'Iulie', 'August', 'Septembrie', 'Octombrie', 'Noiembrie', 'Decembrie']",
 	de => "['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']",
 	cs => "['Leden','Únor','Březen','Duben','Květen','Červen','Červenec','Srpen','Září','Říjen','Listopad','Prosinec']",
 	zh => "['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']",
@@ -4963,6 +5451,7 @@ weekdays => {
 	en => "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']",
 	es => "['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']",
 	pt => "['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado']",
+	ro => "['Duminică', 'Luni', 'Marți', 'Miercuri', 'Joi', 'Vineri', 'Sâmbătă']",
 	de => "['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag']",
 	cs => "['Neděle','Pondělí','Úterý','Středa','Čtvrtek','Pátek','Sobota']",
 	zh => "['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']",
@@ -4976,6 +5465,7 @@ nutrient_in_quantity => {
 	fr => '%s en %s',
 	es => '%s en %s',
 	pt => '%s em %s',
+	ro => '%s în %s',
 	he => '%s ב־%s',
 },
 low => {
@@ -4983,6 +5473,7 @@ low => {
 	fr => "faible",
 	es => "bajo",
 	pt => "baixo",
+	ro => 'mic',
 	he => "נמוכה",
 },
 low_quantity => {
@@ -4990,6 +5481,7 @@ low_quantity => {
 	fr => "faible quantité",
 	es => "cantidad baja",
 	pt => "quantidade baixa",
+	ro => 'cantitate mică',
 	he => "כמות נמוכה",
 },
 moderate => {
@@ -4997,6 +5489,7 @@ moderate => {
 	fr => "modéré",
 	es => "moderado",
 	pt => "moderado",
+	ro => 'moderat',
 	he => "בינונית",
 },
 moderate_quantity => {
@@ -5004,6 +5497,7 @@ moderate_quantity => {
 	fr => "quantité modérée",
 	es => "cantidad moderada",
 	pt => "quantidade moderada",
+	ro => "cantitate moderată",
 	he => "כמות בינונית",
 },
 high => {
@@ -5011,6 +5505,7 @@ high => {
 	fr => "élevé",
 	es => "elevado",
 	pt => "elevado",
+	ro => "mare",
 	he => "גדולה",
 },
 high_quantity => {
@@ -5018,6 +5513,7 @@ high_quantity => {
 	fr => "quantité élevée",
 	es => "cantidad elevada",
 	pt => "quantidade elevada",
+	ro => "cantitate mare",
 	he => "כמות גדולה",
 },
 
@@ -5026,6 +5522,7 @@ risk_level => {
 	fr => 'Risques',
 	es => 'Riesgos',
 	pt => 'Riscos',
+	ro => 'Risc',
 	he => 'סיכון',
 },
 
@@ -5034,6 +5531,7 @@ risk_level_3 => {
 	fr => 'Risques élevés',
 	es => 'Riesgos elevados',
 	pt => 'Riscos elevados',
+	ro => 'Risc mare',
 	he => 'סיכונים גבוהים',
 },
 
@@ -5042,6 +5540,7 @@ risk_level_2  => {
 	fr => 'Risques modérés',
 	es => 'Riesgos moderados',
 	pt => 'Riscos moderados',
+	ro => 'Risc moderat',
 	he => 'סיכונים בינוניים',
 },
 
@@ -5050,6 +5549,7 @@ risk_level_1  => {
 	fr => 'Risques faibles',
 	es => 'Riesgos bajos',
 	pt => 'Riscos bajos',
+	ro => 'Risc scăzut',
 	he => 'סיכונים נמוכים',
 },
 
@@ -5058,6 +5558,7 @@ risk_level_0  => {
 	fr => 'A renseigner',
 	es => 'Para completar',
 	pt => 'Para completar',
+	ro => 'De completat',
 	he => 'להשלמה',
 },
 
@@ -5066,6 +5567,7 @@ select_country => {
 	es => 'País',
 	fr => 'Pays',
 	pt => 'País',
+	ro => 'Țara',
 	he => 'מדינה',
 },
 
@@ -5074,6 +5576,7 @@ view_products_from_the_entire_world => {
 	fr => "Voir les produits correspondants du monde entier",
 	es => "Ver los productos de todo el mundo",
 	pt => "Ver produtos de todo o mundo",
+	ro => 'Vedeți produse potrivite din toată lumea',
 	he => "צפייה במוצרים תואמים מכל העולם",
 },
 
@@ -5082,6 +5585,7 @@ view_list_for_products_from_the_entire_world => {
 	es => "Ver la lista de los productos especificados de todo el mundo",
 	fr => "Voir la liste pour les produits correspondants du monde entier",
 	pt => "Ver lista de produtos correspondentes do mundo inteiro",
+	ro => "Vedeți lista produselor potrivite din toată lumea",
 	he => "צפייה ברשימה של מוצרים תואמים מכל העולם",
 },
 
@@ -5090,6 +5594,7 @@ view_results_from_the_entire_world => {
 	fr => "Voir les résultats du monde entier",
 	es => "Ver los resultados de todo el mundo",
 	pt => "Ver resultados de todo o mundo",
+	ro => "Vedeți rezultate din toată lumea",
 	he => "צפייה בתוצאות מכל העולם",    
 },
 
@@ -5098,6 +5603,7 @@ explore_products_by => {
 	en => "Drilldown into products by:",
 	es => "Explorar los productos por:",
 	pt => "Explorar os productos por:",
+	ro => "Explorați produsele după:",
 },
 
 show_category_stats => {
@@ -5105,12 +5611,14 @@ show_category_stats => {
 	es => "Mostrar las informaciones estadísticas",
 	fr => "Afficher les informations statistiques",
 	pt => "Mostrar estatísticas detalhadas",
+	ro => "Arată statistici detaliate",
 },
 
 show_category_stats_details => {
 	en => "standard deviation, minimum, maximum, 10th and 90th percentiles",
 	es => "desviación estándar, mínimo, máximo, percentiles 10 y 90",
 	pt => "desvio padrão, mínimo, máximo, 10<sup>o</sup> percentil e 90<sup>o</sup>",
+	ro => "deviația standard, minimum, maximum, al 10-lea și al 90-lea procent",
 	fr => "écart type, minimum, maximum, 10ème et 90ème centiles",
 },
 
@@ -5120,6 +5628,7 @@ names => {
 	es => "Nombres",
 	de => "Namen",
 	pt => "Nomes",
+	ro => "Nume",
 },
 
 css => {
@@ -5194,6 +5703,22 @@ HEADER
 
 HEADER
 ,
+	ro => <<HEADER
+<meta property="fb:admins" content="706410516" />
+<meta property="og:site_name" content="Open Food Facts - baza de date liberă și deschisă cu informații despre produse alimentare"/>
+
+<script type="text/javascript">
+  var uvOptions = {};
+  (function() {
+	var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+	uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/jQrwafQ94nbEbRWsznm6Q.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+  })();
+</script>
+
+
+HEADER
+,
 },
 
 
@@ -5235,6 +5760,14 @@ HTML
 <li><a href="/about" title="Mais informação sobre Open Food Facts">Acerca de</a></li>
 <li><a href="/quickstart-guide" title="Como adicionar produtos em 2 minutos">Guia de início rápido</a></li>
 <li><a href="/contact" title="Perguntas, comentários ou sugestões?">Contacto</a></li>
+</ul>
+HTML
+,
+	ro => <<HTML
+<ul>
+<li><a href="/about" title="Mai multe informații despre Open Food Facts">About</a></li>
+<li><a href="/quickstart-guide" title="Cum să adăugați produse în 2 minute">Ghid de start rapid</a></li>
+<li><a href="/contact" title="Întrebări, comentarii sau sugestii?">Contact</a></li>
 </ul>
 HTML
 ,
@@ -5466,7 +5999,7 @@ HTML
 
 #PT-BR
 
-pt => <<HTML
+	pt => <<HTML
 <a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-pt.png" width="178" height="143" alt="Open Food Facts" /></a>
 
 <p>O Open Food Facts coleciona informação de produtos alimentares de todo o mundo.</p>
@@ -5504,6 +6037,48 @@ pt => <<HTML
 
 HTML
 ,
+
+	ro => <<HTML
+<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-en.png" width="178" height="144" alt="Open Food Facts" /></a>
+
+<p>Open Food Facts adună informații și date despre produse alimentare din întreaga lume.</p>
+
+<select_country>
+
+<p>
+→ <a href="/marci">Mărci</a><br />
+→ <a href="/categorii">Categorii</a><br/>
+</p>
+
+<p>Informațiile despre produsele alimentare (fotografii, ingrediente, valori nutriționale etc.) sunt adunate într-un mod
+colaborativ și este pusă la dispoziția tuturor și pentru toate utilizările într-o bază de date liberă și deschisă.</p>
+
+<p>Ne găsiți și pe:</p>
+
+<p>
+→ <a href="http://en.wiki.openfoodfacts.org">wiki-ul nostru</a><br />
+→ <a href="http://twitter.com/openfoodfacts">Twitter</a><br/>
+→ <a href="https://plus.google.com/u/0/110748322211084668559/">Google+</a><br />
+→ <a href="https://www.facebook.com/OpenFoodFacts">Facebook</a><br />
++ <a href="https://www.facebook.com/groups/374350705955208/">grupul contributorilor</a><br />
+</p>
+
+<p>Aplicația pentru iPhone și iPad din App Store:</p>
+
+<a href="https://itunes.apple.com/en/app/open-food-facts/id588797948"><img src="/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png" alt="Disponibilă în App Store" width="135" height="40" /></a><br/>
+
+<p>Aplicația pentru Android din Google Play:</p>
+
+<a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponibilă în Google Play" width="135" height="47" /></a><br/>
+
+<p>Aplicația pentru Windows Phone:</p>
+
+<a href="http://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"><img src="/images/misc/154x40_WP_Store_blk.png" alt="Windows Phone Store" width="154" height="40" /></a><br/>
+
+
+HTML
+,
+
 	he => <<HTML
 <a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-he.png" width="178" height="143" alt="Open Food Facts" /></a>
 
@@ -5630,6 +6205,11 @@ HTML
 <p>Desde já muito obrigado!</p>   
 HTML
 ,
+	ro => <<HTML
+<p>Acest produs încă nu se află în baza de date Open Food Facts. Puteți face câteva fotografii cu produsul, codul de bare, lista de ingrediente și valorile nutriționale pentru a-l adăuga la <a href="http://world.openfoodfacts.org" target="_blank">Open Food Facts</a>?</p>
+<p>Vă mulțumim în avans!</p>   
+HTML
+,
 	de => <<HTML
 <p>Dieses Produkt existiert noch nicht in der Open Food Facts Datenbank. Können Sie bitte Fotos des Produktes, des Strichcodes, der Zutatenliste und der Nährwertsangaben machen, damit es zu <a href="http://fr.openfoodfacts.org" target="_blank">Open Food Facts</a> hinzugefügt werden kann?</p>
 <p>Danke vielmals im Voraus!</p>    
@@ -5652,6 +6232,7 @@ app_you_can_add_pictures => {
 	en => "You can add pictures:",
 	es => "Puedes agregar imágenes:",
 	pt => "Podes adicionar imagens:",
+	ro => "Puteți adăuga imagini:",
 	ar => "يمكنك إضافة صور",
 	de => "Sie können Bilder hinzufügen:",
 	it => 'Puoi aggiungere una foto:',
@@ -5664,6 +6245,7 @@ app_take_a_picture => {
 	en => "Take a picture",
 	es => "Saca una foto",
 	pt => "Tira uma foto",
+	en => "Faceți o fotografie",
 	ar => "التقاط صورة",
 	de => "Machen Sie ein Foto",
 	it => "Scattare una foto",  
@@ -5675,6 +6257,7 @@ app_take_a_picture_note => {
 	en => "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike.",
 	es => "Nota: las imagenes que envías son publicadas bajo la licencia libre Creative Commons Attribution y ShareAlike.",
 	pt => "Nota: as fotos que envias são publicadas sob a licença livre Creative Commons Attribution e ShareAlike.",
+	ro => "Notă: fotografiile trimise sunt publicate sub o licență liberă Creative Commons Attribution and ShareAlike.",
 	ar => "ملاحظة: يتم نشر الصور التي ترسلها تحت رخصة حرة سمات الإبداعية العموم والمشاركة على قدم المساواة.",
 	de => "Anmerkung: Die Bilder, die Sie gesendet haben, werden mit der gebührenfreien Lizenz Creative Commons Attribution and ShareAlike veröffentlicht.",
 	it => "Nota: le foto che inviate sono pubblicate sotto libera licenza Creative Commons Attribution e ShareAlike.",
@@ -5686,6 +6269,7 @@ unknown => {
 	en => "Unknown",
 	es => "Desconocido",
 	pt => "Desconhecido",
+	ro => "Necunoscut",
 	he => "לא ידוע",
 },
 
@@ -5768,6 +6352,23 @@ sub lang($) {
 		return '';
 	}
 }
+
+
+# Load overrides from %SiteLang
+
+print "SiteLang - overrides \n";
+
+
+foreach my $key (keys %SiteLang) {
+	print "SiteLang{$key} \n";
+
+	$Lang{$key} = {};
+	foreach my $l (keys %{$SiteLang{$key}}) {
+		$Lang{$key}{$l} = $SiteLang{$key}{$l};
+		print "SiteLang{$key}{$l} \n";
+	}
+}
+
 
 foreach my $l (@Langs) {
 	$CanonicalLang{$l} = {};	 # To map 'a-completer' to 'A compléter'
