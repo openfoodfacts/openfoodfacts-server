@@ -23,17 +23,13 @@ use LWP::UserAgent ();
 use Image::Magick ();
 use File::Copy ();
 use XML::Encoding ();
-#use Encode::compat ();
 use Encode ();
-use IPC::Open3 ();
-use Digest::SHA1 ();
 use Text::Unaccent ();
-#use Cache::File ();
 use Cache::Memcached::Fast ();
 use URI::Escape::XS ();
 
 # Needs to be configured
-use lib "/home/off-fr/cgi/";
+use lib "/home/stephane/product-opener/cgi";
 
 use Blogs::Store qw/:all/;
 use Blogs::Config qw/:all/;
@@ -44,7 +40,6 @@ use Blogs::Images qw/:all/;
 use Blogs::Index qw/:all/;
 use Blogs::Version qw/:all/;
 
-#use Apache::Constants ();
 use Apache2::Const -compile => qw(OK);
 use Apache2::Connection ();
 use Apache2::RequestRec ();
@@ -58,16 +53,11 @@ sub My::ProxyRemoteAddr ($) {
 
   # we'll only look at the X-Forwarded-For header if the requests
   # comes from our proxy at localhost
+  
   return Apache2::Const::OK
-      unless (($r->connection->remote_ip eq "213.251.136.98") 
-	or ($r->connection->remote_ip eq "127.0.0.1") 
-	or ($r->connection->remote_ip eq "213.186.57.165")
-	or ($r->connection->remote_ip eq "91.121.44.28")
-	or ($r->connection->remote_ip eq "91.121.54.28")
-	or ($r->connection->remote_ip eq "91.121.94.28")
-	or ($r->connection->remote_ip eq "91.121.101.7")
-	or ($r->connection->remote_ip eq "87.98.181.7")
-	or ($r->connection->remote_ip eq "87.98.151.7")
+      unless (
+	($r->connection->remote_ip eq "213.251.136.98") 
+	or 1 # do it for all ips
 )
           and $r->headers_in->get('X-Forwarded-For');
 
