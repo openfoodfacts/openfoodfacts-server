@@ -203,8 +203,8 @@ sub init()
 	}
 	elsif ($ENV{QUERY_STRING} !~ /cgi/) {
 		# redirect
-		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to world.openfoodfacts.org\n";
-		$r->headers_out->set(Location => "http://world.openfoodfacts.org" . $ENV{QUERY_STRING});
+		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to world.${server_domain}\n";
+		$r->headers_out->set(Location => "http://world.${server_domain}" . $ENV{QUERY_STRING});
 		$r->status(301);  
 		return 301;
 	}
@@ -804,7 +804,7 @@ sub display_list_of_tags($$) {
 		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
 	
 			if ($country ne 'en:world') {
-				$html .= "<p>&rarr; <a href=\"http://world.openfoodfacts.org" . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
+				$html .= "<p>&rarr; <a href=\"http://world.${server_domain}" . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
 			}	
 		
 			$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
@@ -1011,7 +1011,7 @@ $countries_map_names
   },
   onRegionClick: function(e, code, region){
 	if (countries_map_links[code]) {
-		window.location.href = "http://$cc.openfoodfacts.org" + countries_map_links[code];
+		window.location.href = "http://$cc.${server_domain}" + countries_map_links[code];
 	}
   },
 });
@@ -1389,10 +1389,10 @@ HTML
 	
 	if ($country ne 'en:world') {
 		if (defined $request_ref->{groupby_tagtype}) {
-			$html .= "<p>&rarr; <a href=\"http://world.openfoodfacts.org" . $request_ref->{world_current_link} . "\">" . lang('view_list_for_products_from_the_entire_world') . "</a></p>";			
+			$html .= "<p>&rarr; <a href=\"http://world.${server_domain}" . $request_ref->{world_current_link} . "\">" . lang('view_list_for_products_from_the_entire_world') . "</a></p>";			
 		}
 		else {
-			$html .= "<p>&rarr; <a href=\"http://world.openfoodfacts.org" . $request_ref->{world_current_link} . "\">" . lang('view_products_from_the_entire_world') . "</a></p>";
+			$html .= "<p>&rarr; <a href=\"http://world.${server_domain}" . $request_ref->{world_current_link} . "\">" . lang('view_products_from_the_entire_world') . "</a></p>";
 		}
 	}
 	
@@ -1593,7 +1593,7 @@ sub search_and_display_products($$$$$) {
 	if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
 	
 		if ($country ne 'en:world') {
-			$html .= "<p>&rarr; <a href=\"http://world.openfoodfacts.org" . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
+			$html .= "<p>&rarr; <a href=\"http://world.${server_domain}" . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
 		}	
 	
 		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
@@ -2024,7 +2024,7 @@ pnns_groups_2
 
 				if ($field eq 'code') {
 				
-					$csv .= "http://$cc.openfoodfacts.org" . product_url($product_ref->{code}) . "\t";
+					$csv .= "http://$cc.${server_domain}" . product_url($product_ref->{code}) . "\t";
 				
 				}
 			
@@ -2096,8 +2096,8 @@ pnns_groups_2
 				my $path = product_path($product_ref->{code});
 
 				
-				$product_ref->{image_url} = "http://$cc.openfoodfacts.org/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-				$product_ref->{image_small_url} = "http://$cc.openfoodfacts.org/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+				$product_ref->{image_url} = "http://$cc.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+				$product_ref->{image_small_url} = "http://$cc.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
 			
 				
 			}
@@ -2219,7 +2219,7 @@ sub display_scatter_plot($$$) {
 				and ((($graph_ref->{axis_y} eq 'additives_n') and (defined $product_ref->{$graph_ref->{axis_y}})) or 
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"} ne ''))) {
 				
-				my $url = "http://$cc.openfoodfacts.org" . product_url($product_ref->{code});
+				my $url = "http://$cc.${server_domain}" . product_url($product_ref->{code});
 				
 				# Identify the series id
 				my $seriesid = 0;
@@ -2348,7 +2348,7 @@ JS
                 text: '$graph_ref->{graph_title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$Lang{sep}{$lc}: http://$subdomain.openfoodfacts.org'
+                text: '$Lang{data_source}{$lc}$Lang{sep}{$lc}: http://$subdomain.${server_domain}'
             },
             xAxis: {
 				$x_allowDecimals
@@ -2690,7 +2690,7 @@ JS
                 text: '$graph_ref->{graph_title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$Lang{sep}{$lc}: http://$subdomain.openfoodfacts.org'
+                text: '$Lang{data_source}{$lc}$Lang{sep}{$lc}: http://$subdomain.${server_domain}'
             },
             xAxis: {
                 title: {
@@ -3005,7 +3005,7 @@ JS
 			
 			if (1) {
 				
-				my $url = "http://$cc.openfoodfacts.org" . product_url($product_ref->{code});
+				my $url = "http://$cc.${server_domain}" . product_url($product_ref->{code});
 				
 					
 				my $data_start = '{';
@@ -3514,7 +3514,7 @@ $scripts
 	if (! subdomain) {
 		subdomain = 'world';
 	}
-	window.location.href = "http://" + subdomain + ".openfoodfacts.org";
+	window.location.href = "http://" + subdomain + ".${server_domain}";
 });
 $initjs
 });
@@ -5398,8 +5398,8 @@ HTML
 			my $path = product_path($product_ref->{code});
 
 			
-			$product_ref->{image_url} = "http://$cc.openfoodfacts.org/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-			$product_ref->{image_small_url} = "http://$cc.openfoodfacts.org/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+			$product_ref->{image_url} = "http://$cc.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+			$product_ref->{image_small_url} = "http://$cc.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
 		
 			
 		}			
@@ -5409,7 +5409,7 @@ HTML
 			
 			display_product_jqm($request_ref);
 			$response{jqm} = $request_ref->{jqm_content};
-			$response{jqm} =~ s/(href|src)=("\/)/$1="http:\/\/$cc.openfoodfacts.org\//g;
+			$response{jqm} =~ s/(href|src)=("\/)/$1="http:\/\/$cc.${server_domain}\//g;
 			$response{title} = $request_ref->{title};
 			
 		}		
