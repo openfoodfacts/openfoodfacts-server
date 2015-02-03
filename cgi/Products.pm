@@ -171,7 +171,7 @@ sub store_product($$) {
 		my $prefix_path = $path;
 		$prefix_path =~ s/\/[^\/]+$//;	# remove the last subdir: we'll move it
 		# Create the directories for the product
-		foreach my $current_dir  ($data_root . "/products", $data_root . "/html/images/products") {
+		foreach my $current_dir  ($data_root . "/products", $www_root . "/images/products") {
 			(-e "$current_dir") or mkdir($current_dir, 0755);
 			foreach my $component (split("/", $prefix_path)) {
 				$current_dir .= "/$component";
@@ -199,7 +199,7 @@ sub store_product($$) {
 	
 	if ($rev < 1) {
 		# Create the directories for the product
-		foreach my $current_dir  ($data_root . "/products", $data_root . "/html/images/products") {
+		foreach my $current_dir  ($data_root . "/products", $www_root . "/images/products") {
 			(-e "$current_dir") or mkdir($current_dir, 0755);
 			foreach my $component (split("/", $path)) {
 				$current_dir .= "/$component";

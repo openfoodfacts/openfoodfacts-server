@@ -392,11 +392,11 @@ sub process_image_upload($$) {
 			while (-e "$www_root/images/products/$path/$imgid.lock") {
 				$imgid++;
 			}
-			mkdir ("$www_root/images/products/$path/$imgid.lock", 0755);
+			mkdir ("$www_root/images/products/$path/$imgid.lock", 0755) or print STDERR "Images.pm - Error - Could not create lock $www_root/images/products/$path/$imgid.lock : $!\n";
 			
 
 
-			open (FILE, ">$www_root/images/products/$path/$imgid.$extension") ;
+			open (FILE, ">$www_root/images/products/$path/$imgid.$extension") or print STDERR "Images.pm - Error - Could not save $www_root/images/products/$path/$imgid.$extension : $!\n";
 			while (<$file>) {
 				print FILE;
 			}

@@ -28,9 +28,9 @@ if ((not defined $imgid) or (not defined $angle) or ($imgid !~ /^[0-9]+$/)) {
 }
 
 my $image = Image::Magick->new;			
-my $x = $image->Read("$data_root/html/images/products/$path/$imgid.${crop_size}.jpg");
+my $x = $image->Read("$www_root/images/products/$path/$imgid.${crop_size}.jpg");
 if ("$x") {
-	print STDERR "product_image_rotate.pl - could not read $data_root/html/images/products/$path/$imgid.${crop_size}.jpg: $x\n";
+	print STDERR "product_image_rotate.pl - could not read $www_root/images/products/$path/$imgid.${crop_size}.jpg: $x\n";
 }
 $image->Rotate($angle);
 
