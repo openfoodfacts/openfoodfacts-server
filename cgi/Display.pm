@@ -2744,7 +2744,7 @@ JS
     column: {
         //pointPadding: 0,
         //borderWidth: 0,
-        //groupPadding: 0,
+        groupPadding: 0,
         shadow: false,
                 stacking: 'normal',
                 dataLabels: {

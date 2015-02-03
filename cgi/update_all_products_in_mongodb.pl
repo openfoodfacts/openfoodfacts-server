@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -42,14 +42,17 @@ my $count = $cursor->count();
 		print STDERR "updating product $code\n";
 		
 		$product_ref = retrieve_product($code);
+
+		if ((defined $product_ref) and ($code ne '')) {
 		
 		# Update
-		extract_ingredients_classes_from_text($product_ref);
+		#extract_ingredients_classes_from_text($product_ref);
 
 		# Store
-		my $path = product_path($code);
-		store("$data_root/products/$path/product.sto", $product_ref);		
+		#my $path = product_path($code);
+		#store("$data_root/products/$path/product.sto", $product_ref);		
 		$products_collection->save($product_ref);
+		}
 	}
 
 exit(0);
