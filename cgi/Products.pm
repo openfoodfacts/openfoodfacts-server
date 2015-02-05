@@ -444,7 +444,7 @@ sub compute_product_history_and_completeness($$) {
 
 	# Read all previous versions to see which fields have been added or edited
 	
-	my @fields = qw(lang product_name generic_name quantity packaging brands categories origins manufacturing_places labels emb_codes expiration_date purchase_places stores countries ingredient_text traces no_nutrition_data serving_size nutrition_data_per );
+	my @fields = qw(lang product_name generic_name quantity packaging brands categories origins manufacturing_places labels emb_codes expiration_date purchase_places stores countries ingredients_text traces no_nutrition_data serving_size nutrition_data_per );
 	
 	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
 	my %last = %previous;
