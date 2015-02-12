@@ -1,4 +1,4 @@
-<h1>Score nutritionnel expérimental - France </h1>
+<h1>Score nutritionnel - Notes de couleurs - France </h1>
 
 <h2>Un système de notes de A à E pour simplifier l'étiquetage nutritionnel</h2>
 
@@ -8,7 +8,7 @@ pour permettre de comparer simplement la qualité nutritionnelle des produits.</
 
 <img src="/images/misc/a.338x72.png" />
 
-<p>Ces notes sont établies en calculant un score nutritionnel qui tient compte d'une part de l'énergie, des graisses saturées, des sucres,
+<p>Ces notes de couleur sont établies en calculant un score nutritionnel qui tient compte d'une part de l'énergie, des graisses saturées, des sucres,
 du sodium (les teneurs élevées sont considérées comme mauvaises pour la santé), et d'autre part de la proportion de fruits, légumes et noix,
 des fibres et des protéines (les teneurs élevées sont considérées comme bonnes pour la santé).</p>
 
@@ -129,22 +129,51 @@ de graisses saturées supérieurs au seuil maximal de 10 g, une autre grille leu
 
 <table class="points">
 <tr><td>Points</td><td>Graisses saturées (g)</td></tr>
-<tr><td>0</td><td>≤5</td></tr>
-<tr><td>1</td><td>>5</td></tr>
-<tr><td>2</td><td>>9</td></tr>
-<tr><td>3</td><td>>13</td></tr>
-<tr><td>4</td><td>>17</td></tr>
-<tr><td>5</td><td>>21</td></tr>
-<tr><td>6</td><td>>25</td></tr>
-<tr><td>7</td><td>>29</td></tr>
-<tr><td>8</td><td>>33</td></tr>
-<tr><td>9</td><td>>37</td></tr>
-<tr><td>10</td><td>>41</td></tr>
+<tr><td>0</td><td>≤6</td></tr>
+<tr><td>1</td><td>>6</td></tr>
+<tr><td>2</td><td>>10</td></tr>
+<tr><td>3</td><td>>14</td></tr>
+<tr><td>4</td><td>>18</td></tr>
+<tr><td>5</td><td>>22</td></tr>
+<tr><td>6</td><td>>26</td></tr>
+<tr><td>7</td><td>>30</td></tr>
+<tr><td>8</td><td>>34</td></tr>
+<tr><td>9</td><td>>38</td></tr>
+<tr><td>10</td><td>>42</td></tr>
 </table>
+
+<h4>Adaptations pour les fruits et légumes</h4>
+
+<p>Les noix et fruits à coque ne sont pas pris en compte pour la calcul de la teneur en fruits et légumes.</p>
 
 <h4>Adaptations pour les boissons</h4>
 
-<p>Les adaptations pour les boissons sont en cours de définition.</p>
+<p>Attention : le score nutritionnel pour le lait et les laits végétaux est calculé avec la formule générale
+et non la formule pour les boissons.</p>
+
+<p>Les seuils des points pour l'énergie et les sucres sont modifiés pour les boissons :</p>
+
+<table class="points">
+<tr><th>Points</th><th>Energie (kJ)</th><th>Sucres (g)</th></tr>
+<tr><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>1</td><td>≤30</td><td>≤1,5 ou édulcorants</td></tr>
+<tr><td>2</td><td>>30</td><td>>1,5</td></tr>
+<tr><td>3</td><td>>60</td><td>>3</td></tr>
+<tr><td>4</td><td>>90</td><td>>4,5</td></tr>
+<tr><td>5</td><td>>120</td><td>>6</td></tr>
+<tr><td>6</td><td>>150</td><td>>7,5</td></tr>
+<tr><td>7</td><td>>180</td><td>>9</td></tr>
+<tr><td>8</td><td>>210</td><td>>10,5</td></tr>
+<tr><td>9</td><td>>240</td><td>>12</td></tr>
+<tr><td>10</td><td>>270</td><td>>13,5</td></tr>
+</table>
+
+<p>L’attribution des points pour les sucres prend en compte la présence d’édulcorants, pour lesquels la grille maintient les scores sucres simples à 1 (au lieu de 0).</p>
+	
+<p>Pour les boissons chaudes non sucrées (thé, café), afin de maintenir leur score à 0 (identique à l’eau), le score KJ a été maintenu à 0 si les sucres simples sont à 0.</p>
+
+
+
 
 
 <h2>Avancement</h2>
@@ -154,9 +183,14 @@ sont connues et ont été renseignées dans la base.</p>
 
 <p>4/10/2014 : le score a été adapté pour les fromages et les matières grasses suivant les propositions de l'équipe du professeur Hercberg.</p>
 
-<p>6/10/2014 : la note nutritionnelle de couleur A/B/C/D/E est maintenant affichée sur les fiches produits sur Open Food Facts (hors boissons).</p>
+<p>6/10/2014 : la note nutritionnelle de couleur A/B/C/D/E est affichée sur les fiches produits sur Open Food Facts (hors boissons).</p>
+
+<p>1/12/2014 : calcul du score nutritionnel et affichage de la note de couleur pour les boissons.</p>
 
 <p>Les seuils utilisés pour attribuer les notes sont :<p>
+
+<p>Aliments solides :</p>
+
 <ul>
 <li>A - Vert : de -15 à -2</li>
 <li>B - Jaune : de -1 à 3</li>
@@ -165,14 +199,25 @@ sont connues et ont été renseignées dans la base.</p>
 <li>E - Rouge : 17 à 40</li>
 </ul>
 
+<p>Boissons :</p>
+
+<ul>
+<li>A - Vert : de -15 à 0</li>
+<li>B - Jaune : de 1 à 4</li>
+<li>C - Orange : de 5 à 8</li>
+<li>D - Rose : de 9 à 11</li>
+<li>E - Rouge : 12 à 40</li>
+</ul>
+
+
 <p><b>Avertissement : ce score peut encore ne pas correspondre au score préconisé :</b></p>
 <ul>
-<li>Les points correspondants aux teneurs en fruits, légumes et noix ne sont pas pris en compte pour tous les produits.</b> La teneur en fruits, légumes
-et noix n'est en effet pas indiquée sur l'emballage dans le tableau nutritionnel, et nous allons devoir la déterminer
+<li>Les points correspondants aux teneurs en fruits et légumes ne sont pas pris en compte pour tous les produits.</b> La teneur en fruits, légumes
+et n'est en effet pas indiquée sur l'emballage dans le tableau nutritionnel, et nous allons devoir la déterminer
 grâce à d'autres informations (comme les mentions "teneur minimum en fruits", la catégorie des produits (par exemple les confitures
 contiennent 50% de fruits), et/ou la liste des ingrédients.)
 <ul>
-<li>Un nouveau champ "Fruits, légumes et noix (minimum)" a été créé pour noter les valeurs des mentions "teneur minimum en fruits/légumes" etc.</li>
+<li>Un nouveau champ "Fruits, légumes (minimum)" a été créé pour noter les valeurs des mentions "teneur minimum en fruits/légumes" etc.</li>
 <li>Par défaut, les produits dans certaines catégories sont considérés comme ayant une teneur minimum de :
 
 <ul>
