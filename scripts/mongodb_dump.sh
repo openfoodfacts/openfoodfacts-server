@@ -3,5 +3,7 @@
 cd /data/off-fr/html
 mongodump --collection products --db off-fr
 tar cvfz data/openfoodfacts-mongodbdump.tar.gz dump
-sha256sum data/openfoodfacts-mongodbdump.tar.gz > data/sha256sum
-md5sum data/openfoodfacts-mongodbdump.tar.gz > data/md5sum
+pushd data/ > /dev/null
+sha256sum openfoodfacts-mongodbdump.tar.gz > sha256sum
+md5sum openfoodfacts-mongodbdump.tar.gz > md5sum
+popd > /dev/null
