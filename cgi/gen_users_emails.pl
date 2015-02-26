@@ -31,7 +31,7 @@ foreach my $userid (@userids)
 	
 	# print $user_ref->{email} . "\tnews_$user_ref->{newsletter}$first\tdiscussion_$user_ref->{discussion}\n";
 	
-	if (1 or $user_ref->{newsletter} or not exists $user_ref->{discussion}) {
+	if ($user_ref->{newsletter}) {
 		print lc($user_ref->{email}) . "\n";
 	}
 	
