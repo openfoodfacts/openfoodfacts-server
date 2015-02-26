@@ -153,7 +153,7 @@ if ($type eq 'send_email') {
 			
 			store("$data_root/users/$userid.sto", $user_ref);
 			
-			my $url = "http://$server_domain/cgi/reset_password.pl?type=reset&resetid=$userid&token=" . $user_ref->{token};
+			my $url = "http://$subdomain.$domain/cgi/reset_password.pl?type=reset&resetid=$userid&token=" . $user_ref->{token};
 	
 			my $email = lang("reset_password_email_body");
 			$email =~ s/<USERID>/$userid/g;
