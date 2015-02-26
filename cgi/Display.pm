@@ -5362,6 +5362,9 @@ HTML
 		my $nid = $nutriment;
 		$nid =~ s/^(-|!)+//g;
 		$nid =~ s/-$//g;
+		
+		next if $nid eq 'sodium';
+		
 		my $class = 'main';
 		my $prefix = '';
 		
@@ -5474,6 +5477,16 @@ HTML
 						. '<span class="compare_percent">' . $percent . '%</span>'
 						. '<span class="compare_value" style="display:none">' . (sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid} * 2.54, $unit)) + 0.0) . " " . $unit . '</span>' . "</td>";
 					}
+				}
+				if ($nid eq 'salt') {
+					if ((not defined $comparison_ref->{nutriments}{$nid . "_100g"}) or ($comparison_ref->{nutriments}{$nid . "_100g"} eq '')) {
+						$values2 .= "<td class=\"nutriment_value${col_class}\">?</td>";
+					}
+					else {
+						$values2 .= "<td class=\"nutriment_value${col_class}\">"
+						. '<span class="compare_percent">' . $percent . '%</span>'
+						. '<span class="compare_value" style="display:none">' . (sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid} / 2.54, $unit)) + 0.0) . " " . $unit . '</span>' . "</td>";
+					}
 				}				
 			}
 			else {
@@ -5496,6 +5509,10 @@ HTML
 					my $salt = (sprintf("%.2e", g_to_unit($product_ref->{nutriments}{$nid . "_$col"} * 2.54, $unit)) + 0.0);
 					$values2 .= "<td class=\"nutriment_value${col_class}\" property=\"food:saltEquivalentPer100g\" content=\"$salt\">" . $salt . " " . $unit . "</td>";
 				}
+				elsif ($nid eq 'salt') {
+					my $sodium = (sprintf("%.2e", g_to_unit($product_ref->{nutriments}{$nid . "_$col"} / 2.54, $unit)) + 0.0);
+					$values2 .= "<td class=\"nutriment_value${col_class}\" property=\"food:sodiumPer100g\" content=\"$sodium\">" . $sodium . " " . $unit . "</td>";
+				}				
 				elsif ($col eq $product_ref->{nutrition_data_per}) {
 					# % DV ?
 					if ((defined $product_ref->{nutriments}{$nid . "_value"}) and (defined $product_ref->{nutriments}{$nid . "_unit"}) and ($product_ref->{nutriments}{$nid . "_unit"} eq '% DV')) {
@@ -5536,6 +5553,19 @@ $values2
 HTML
 ;
 		}
+		
+		if (($nid eq 'salt') and ($values2 ne '')) {
+			$input .= <<HTML
+<tr id="nutriment_sodium_tr" class="nutriment_sub">
+<td class="nutriment_label">
+HTML
+. $Nutriments{sodium}{$lang} . <<HTML
+</td>
+$values2
+</tr>			
+HTML
+;
+		}		
 		
 		#print STDERR "nutrition_table - nid: $nid - shown: $shown \n";
 

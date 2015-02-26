@@ -170,6 +170,7 @@ sub store_product($$) {
 		
 		my $prefix_path = $path;
 		$prefix_path =~ s/\/[^\/]+$//;	# remove the last subdir: we'll move it
+		print STDERR "Products::store_product - path: $path - prefix_path: $prefix_path\n";
 		# Create the directories for the product
 		foreach my $current_dir  ($data_root . "/products", $www_root . "/images/products") {
 			(-e "$current_dir") or mkdir($current_dir, 0755);

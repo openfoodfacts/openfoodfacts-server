@@ -940,6 +940,30 @@ HTML
 	//change: add_line
 });
 
+\$("#nutriment_sodium").change( function () {
+	sodium = \$("#nutriment_sodium").val();
+	sodium = sodium.replace(",", ".");
+	\$("#nutriment_salt").val(sodium * 2.54);
+}
+);
+
+\$("#nutriment_salt").change( function () {
+	salt = \$("#nutriment_salt").val();
+	salt = salt.replace(",", ".");
+	\$("#nutriment_sodium").val(salt / 2.54);
+}
+);
+
+\$("#nutriment_sodium_unit").change( function () {
+	\$("#nutriment_salt_unit").val( \$("#nutriment_sodium_unit").val());
+}
+);
+
+\$("#nutriment_salt_unit").change( function () {
+	\$("#nutriment_sodium_unit").val( \$("#nutriment_salt_unit").val());
+}
+);
+
 \$("#nutriment_new_0_label").change(add_line);
 \$("#nutriment_new_1_label").change(add_line);
 

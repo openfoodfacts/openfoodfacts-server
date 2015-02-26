@@ -139,20 +139,6 @@ sub g_to_unit($$) {
 
 @nutriments_table = qw(
 !energy
-!proteins
--casein-
--serum-proteins-
--nucleotides-
-!carbohydrates
--sugars
---sucrose-
---glucose-
---fructose-
---lactose-
---maltose-
---maltodextrins-
--starch-
--polyols-
 !fat
 -saturated-fat
 --butyric-acid-
@@ -189,7 +175,22 @@ sub g_to_unit($$) {
 --nervonic-acid-
 -trans-fat-
 -cholesterol-
+!carbohydrates
+-sugars
+--sucrose-
+--glucose-
+--fructose-
+--lactose-
+--maltose-
+--maltodextrins-
+-starch-
+-polyols-
+!proteins
+-casein-
+-serum-proteins-
+-nucleotides-
 fiber
+salt
 sodium
 alcohol
 #vitamins
@@ -489,7 +490,7 @@ polyols => {
 	bg => "Полиоли",
 }, 
 fat => {
-	fr => "Lipides",
+	fr => "Matières grasses / Lipides",
 	en => "Fat",
 	es => "Grasas",
 	ar=> "الدهون",
@@ -2044,28 +2045,12 @@ sub fix_salt_equivalent($) {
 	my $product_ref = shift;
 	
 	# salt
-	
-	my @equivalents = ('salt','sel','equivalent-en-sel','soit-sel','equivalent-sel','sel-de-cuisine','teneur-en-sel');
-	foreach my $equivalent (@equivalents) {
-	
-		if (defined $product_ref->{nutriments}{$equivalent}) {
-		
-			if (not defined $product_ref->{nutriments}{'sodium'}) {
-				$product_ref->{nutriments}{'sodium'} = sprintf("%.2e", $product_ref->{nutriments}{$equivalent} / 2.54) + 0.0;
-				
-			}
-			
-			my $nid = $equivalent;
-			delete $product_ref->{nutriments}{$nid};
-			delete $product_ref->{nutriments}{$nid . "_unit"};
-			delete $product_ref->{nutriments}{$nid . "_value"};
-			delete $product_ref->{nutriments}{$nid . "_modifier"};
-			delete $product_ref->{nutriments}{$nid . "_label"};
-			delete $product_ref->{nutriments}{$nid . "_100g"};
-			delete $product_ref->{nutriments}{$nid . "_serving"};				
-		}
-	
+	if ((defined $product_ref->{nutriments}{'sodium'}) and ($product_ref->{nutriments}{'sodium'} ne '')) {
+		$product_ref->{nutriments}{'salt'} = $product_ref->{nutriments}{'sodium'} * 2.54;
 	}
+	elsif ((defined $product_ref->{nutriments}{'salt'}) and ($product_ref->{nutriments}{'salt'} ne '')) {
+		$product_ref->{nutriments}{'sodium'} = $product_ref->{nutriments}{'salt'} / 2.54;
+	}	
 
 }
 
@@ -2418,12 +2403,7 @@ sub compute_unknown_nutrients($) {
 sub compute_nutrient_levels($) {
 
 	my $product_ref = shift;
-	
-	# salt
-	if (defined $product_ref->{nutriments}{'sodium_100g'}) {
-		$product_ref->{nutriments}{'salt_100g'} = $product_ref->{nutriments}{'sodium_100g'} * 2.54;
-	}
-	
+		
 	#return if ($product_ref->{lc} ne 'fr');	# need categories hierarchy in order to identify drinks
 	
 	#$product_ref->{nutrient_levels_debug} .= " -- start ";
