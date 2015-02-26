@@ -1057,7 +1057,7 @@ site_description => {
 	pt => 'Uma base de dados aberta e colaborativa sobre ingredientes, informações nutricionais e alimentos de todo o mundo',
 	ro => 'O bază de date liberă, colaborativă și deschisă de ingrediente, valori nutriționale și informații despre produsele alimentare din toată lumea',
 	he => "מסד נתונים שיתופי, חופשי ופתוח של רכיבים, הרכבים תזונתיים ומידע על מוצרי מזון מכל רחבי העולם.",
-	nl => 'Ingrediënten, nutritionele samenstelling en informatie over voedingsmiddelen uit de hele wereld in een open en vrije database',
+	nl => 'Ingrediënten, nutritionele samenstelling en informatie over voedingsmiddelen uit de hele wereld in een open en vrije databank',
 },
 
 og_image_url => {
@@ -5343,6 +5343,7 @@ search_download_results_description => {
 	pt => "Mapa de caracteres: Unicode (UTF-8). Separador: tabulação (TAB).",
 	ro => "Set de caractere: Unicode (UTF-8). Separator: tabulare (tab).",
 	he => "ערכת תווים: יוניקוד (UTF-8). הפרדה: טאב (tab)",
+	nl => "Tekenset: Unicode (UTF-8). Separator: tab (tab)",
 },
 
 search_flatten_tags => {
@@ -5353,6 +5354,7 @@ search_flatten_tags => {
 	pt => "(Opcional) - Criar uma coluna para cada:",
 	ro => "(Opțional) - Crează o coloană pentru fiecare:",
 	he => "(רשות) - יצירת עמודה בכל:",
+	nl => "(Optioneel) - Een kolom creëren voor elke:",
 },
 
 search_download_button => {
@@ -5362,6 +5364,7 @@ search_download_button => {
 	pt => "Transferir",
 	ro => "Descarcă",
 	he => "הורדה",
+	nl => "Downloaden",
 },
 
 axis_x => {
@@ -5371,6 +5374,7 @@ axis_x => {
 	pt => "Eixo horizontal",
 	ro => "Axa orizontală",
 	he => "ציר אופקי",
+	nl => "Horizontale as",
 },
 
 axis_y => {
@@ -5380,6 +5384,7 @@ axis_y => {
 	pt => "Eixo vertical",
 	ro => "Axa verticală",
 	he => "ציר אנכי",
+	nl => "Verticale as",
 },
 
 search_generate_graph => {
@@ -5389,6 +5394,7 @@ search_generate_graph => {
 	pt => "Gerar o gráfico",
 	ro => "Generare grafic",
 	he => "יצירת תרשים",
+	nl => "De grafiek maken",
 },
 
 search_graph_warning => {
@@ -5398,6 +5404,7 @@ search_graph_warning => {
 	pt_pt => "Nota: Este gráfico foi gerado por um utilizador do Open Food Facts. O título, os produtos representados e os eixos de visualização foram escolhidos pelo autor do gráfico.",
 	ro => "Notă: acesta este un grafic generat de un utilizator. Titlul, produsele reprezentate și axa de vizualizare au fost alese de către autorul graficului.",
 	he => "לתשומת לבך: תרשים זה נוצר על־ידי משתמש. הכותרת, המוצרים המיוצגים והציר נבחרו כולם על־ידי יוצר התרשים.",
+	nl => "Opmerking: deze grafiek werd gemaakt door een gebruiker van Open Food Facts. De titel, de afgebeelde producten en de assen werden gekozen door de maker van de grafiek.",
 },
 
 search_generate_map => {
@@ -5407,6 +5414,7 @@ search_generate_map => {
 	pt => "Gerar o mapa",
 	ro => "Generează harta",
 	he => "יצירת מפה",
+	nl => "De kaart maken",
 },
 
 search_graph_blog => {
@@ -5415,6 +5423,7 @@ search_graph_blog => {
 	es => "<p>→ para saber más acerca de los gráficos de Open Food Facts: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Los gráficos en 3 clics (en francés)</a> (blog).</p>",
 	pt => "<p>→ para saber mais acerca dos gráficos do Open Food Facts: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Gráficos em 3 cliques (en francês)</a> (blog).</p>",
 	ro => "<p>→ pentru a afla mai multe despre graficele de pe Open Food Facts : <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graficele în 3 click-uri (în franceză)</a> (blog).</p>",
+	nl => "<p>→ meer weten over de grafieken van Open Food Facts: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Grafieken in drie muisklikken</a> (blog).</p>",
 },
 
 advanced_search => {
@@ -5424,6 +5433,7 @@ advanced_search => {
 	pt => "Pesquisa avançada e gráficos",
 	ro => "Căutare și grafice avansate",
 	he => "חיפוש מתקדם ותרשימים",
+	nl => "Geavanceerd zoeken, grafieken en kaart",
 },
 
 edit_comment => {
@@ -5433,6 +5443,7 @@ edit_comment => {
 	pt => "Resumo das suas edições",
 	ro => "Sumarul schimbărilor",
 	he => "תקציר השינויים",
+	nl => "Overzicht van de wijzigingen",
 },
 
 delete_comment => {
@@ -5442,6 +5453,7 @@ delete_comment => {
 	pt => "Motivo para a eliminacão",
 	ro => "Motivul ștergerii",
 	he => "הסיבה להסרה",
+	nl => "Reden voor verwijdering",
 },  
 
 history => {
@@ -5451,6 +5463,7 @@ history => {
 	pt => "Historial das edições",
 	ro => "Istoricul schimbărilor",
 	he => "היסטוריית השינויים",
+	nl => "Geschiedenis van de wijzigingen",
 },
 
 new_code => {
@@ -5460,6 +5473,7 @@ new_code => {
 	pt => "O código de barras está errado? Corrige-o aqui, por favor:",
 	ro => "Dacă codul de bare nu este corect, sunteți rugat să-l corectați aici:",
 	he => "אם הברקוד לא נכון, נא לתקן אותו כאן:",
+	nl => "Een foutieve barcode? Geef hier de correcte code in:",
 },
 
 new_code_note => {
@@ -5469,6 +5483,7 @@ new_code_note => {
 	pt => "Para os produtos sem código de barras, um código interno é atribuido automaticamente.",
 	ro => "Pentru produsele fără un cod de bare, un cod intern este înregistrat.",
 	he => "למוצרים ללא ברקוד, מוגדר קוד פנימי אוטומטית.",
+	nl => "Producten zonder barcode krijgen automatisch een interne code.",
 },
 
 error_new_code_already_exists => {
@@ -5478,6 +5493,7 @@ error_new_code_already_exists => {
 	pt => "Já existe um produto com este novo código",
 	ro => "Un produs cu noul cod deja există",
 	he => "כבר קיים מוצר עם הקוד החדש",
+	nl => "Er bestaat reeds een product met de nieuwe code",
 },
 
 product_js_uploading_image => {
@@ -5488,6 +5504,7 @@ product_js_uploading_image => {
 	pt_pt => "A enviar a imagem",
 	ro => "Îmaginea se transmite",
 	he => "התמונה נשלחת",
+	nl => "De foto wordt verzonden",
 },
 
 product_js_image_received => {
@@ -5497,6 +5514,7 @@ product_js_image_received => {
 	pt => "Imagem recebida",
 	ro => "Imagine recepționată",
 	he => "התמונה התקבלה",
+	nl => "Foto ontvangen",
 },
 
 product_js_image_upload_error => {
@@ -5506,6 +5524,7 @@ product_js_image_upload_error => {
 	pt => "Houve um erro durante o envio da imagem",
 	ro => "Eroare în timpul transmiterii imaginii",
 	he => "העלאת התמונה נכשלה",
+	nl => "Fout tijdens het uploaden van de foto",
 },
 
 product_js_image_rotate_and_crop => {
@@ -5515,6 +5534,7 @@ product_js_image_rotate_and_crop => {
 	pt => "Rode a imagem se necessário, depois clique e arraste para seleccionar a zona pretendida:",
 	ro => "Rotiți imaginea dacă este necesar, apoi dați click și trageți pentru a selecta zona de interes:",
 	he => "הטיית התמונה אם יש צורך בכך ולאחר מכן ניתן ללחוץ ולגרור כדי לבחור את האזור המעניין:",
+	nl => "Draai indien nodig de foto, klik en sleep om de beoogde zone te selecteren:",
 },
 
 product_js_image_rotate_left => {
@@ -5524,6 +5544,7 @@ product_js_image_rotate_left => {
 	pt => "Rodar para a esquerda",
 	ro => "Rotire la stânga",
 	he => "הטייה לשמאל",
+	nl => "Naar links draaien",
 },
 
 product_js_image_rotate_right => {
@@ -5533,6 +5554,7 @@ product_js_image_rotate_right => {
 	pt => "Rodar para a direita",
 	ro => "Rotire la dreapta",
 	he => "הטייה לימין",
+	nl => "Naar rechts draaien",
 },
 
 product_js_image_normalize => {
@@ -5542,6 +5564,7 @@ product_js_image_normalize => {
 	pt => "Normalizar as cores",
 	ro => "Normalizare culori",
 	he => "איזון הצבעים",
+	nl => "Kleurenbalans corrigeren",
 },
 
 product_js_image_open_full_size_image => {
@@ -5550,6 +5573,7 @@ product_js_image_open_full_size_image => {
 	es => "Abrir la imagen en su tamaño original en una nueva ventana",
 	pt => "Abrir a imagem no tamanho original numa nova janela",
 	ro => "Deschide imaginea în dimensiunea originală într-o fereastră nouă",
+	nl => "De foto in het groot of in een nieuw venster bekijken",
 },
 
 product_js_image_white_magic => {
@@ -5559,6 +5583,7 @@ product_js_image_white_magic => {
 	pt => "Fotografia sobre fundo branco: tentar eliminar o fundo",
 	ro => "Fotografie pe fundal alb: încearcă să ștergi fundalul",
 	he => "תמונה עם רקע לבן: לנסות להסיר את הרקע",
+	nl => "Foto op een witte achtergrond: probeer de achtergrond te verwijderen",
 },
 
 product_js_image_save => {
@@ -5568,6 +5593,7 @@ product_js_image_save => {
 	pt => "Validar e/ou redimensionar a imagem",
 	ro => "Validează și/sau redimensionează imaginea",
 	he => "אימות ו/או שינוי גודל התמונה",
+	nl => "De foto valideren en/of verkleinen",
 },
 
 product_js_image_saving => {
@@ -5577,6 +5603,7 @@ product_js_image_saving => {
 	pt => "A guardar imagem",
 	ro => "Imaginea se salvează",
 	he => "התמונה נשמרת",
+	nl => "De foto wordt opgeslagen",
 },
 
 product_js_image_saved => {
@@ -5586,6 +5613,7 @@ product_js_image_saved => {
 	pt => "Imagem guardada",
 	ro => "Imagine salvată",
 	he => "התמונה נשמרה",
+	nl => "Foto opgeslagen",
 },
 
 product_js_current_image => {
@@ -5595,6 +5623,7 @@ product_js_current_image => {
 	pt => "Imagem atual:",
 	ro => "Imaginea curentă:",
 	he => "התמונה הנוכחית:",
+	nl => "Huidige foto:",
 },
 
 product_js_extract_ingredients => {
@@ -5604,6 +5633,7 @@ product_js_extract_ingredients => {
 	pt => "Extrair os ingredientes da imagem",
 	ro => "Extrage ingredientele din imagine:",
 	he => "חילוץ הרכיבים מהתמונה",
+	nl => "Detecteer de ingrediënten op de foto",
 },
 
 product_js_extracting_ingredients => {
@@ -5614,6 +5644,7 @@ product_js_extracting_ingredients => {
 	pt_pt => "A extrair os ingredientes",
 	ro => "Extrag ingredientele",
 	he => "הרכיבים מחולצים",
+	nl => "Ingrediënten aan het detecteren",
 },
 
 product_js_extracted_ingredients_ok => {
@@ -5623,6 +5654,7 @@ product_js_extracted_ingredients_ok => {
 	pt => "A lista de ingredientes foi extraída. O reconhecimento do texto não é sempre perfeito. Por favor verifique o texto extraído e corrija os erros se necessário.",
 	ro => "Textul cu ingrediente a fost extras. Recunoașterea de text nu este perfectă, deci sunteți rugați să verificați textul de mai jos și să corectați erorile dacă este necesar.",
 	he => "טקסט הרכיבים חולץ. מנגנון זיהוי הטקסט אינו מושלם ולכן מומלץ לבדוק אם הטקסט שלהלן נכון ולתקן את הטעויות במידת הצורך.",
+	nl => "De tekst met de ingrediënten werd gedetecteerd. De tekstherkenning is niet altijd perfect, gelieve de tekst hieronder te controleren en eventuele fouten te verbeteren.",
 },
 
 product_js_extracted_ingredients_nok => {
@@ -5632,6 +5664,7 @@ product_js_extracted_ingredients_nok => {
 	pt => "Não foi possível extrair a lista de ingredientes. Tente de novo com uma imagem mais nítida, com maior resolução ou melhor enquadramento do texto.",
 	ro => "Textul cu ingrediente nu a putut fi extras. Încercați cu o imagine mai clară, cu o rezoluție mai mare sau o mai bună încadrare a textului.",
 	he => "לא ניתן לחלץ את טקסט הרכיבים. כדאי לנסות עם תמונה חדה יותר ברזולוציה גבוהה יותר או במסגור טוב יותר של הטקסט.",
+	nl => "De tekst met de ingrediënten kon niet gedetecteerd worden. Je kan het opnieuw proberen met een scherpere foto, of met een foto met een hogere resolutie of een betere kadrering van de tekst",
 },
 
 product_js_upload_image => {
@@ -5641,6 +5674,7 @@ product_js_upload_image => {
 	pt => "Adicionar uma imagem",
 	ro => "Agaugă o imagine",
 	he => "הוספת תמונה",
+	nl => "Een foto toevoegen",
 },
 
 product_js_upload_image_note => {
@@ -5649,7 +5683,18 @@ product_js_upload_image_note => {
 	es => "→ Con Chrome, Firefox y Safari, puedes seleccionar varias imágenes al mismo tiempo (producto, ingredientes, información nutricional, etc.) manteniendo pulsada la tecla Ctrl y haciendo clic sobre las imágenes que quieras seleccionar para enviarlas todas a la vez.",
 	pt => "→ Com o Chrome, Firefox e Safari, pode seleccionar várias imagens ao memsmo tempo (produto, ingredientes, informação nutricional, etc.) clicando nelas enquando a tecla Ctrl estiver premida, para as adicionar de uma só vez.",
 	ro => "→ Cu Chrome, Firefox și Safari, puteți selecta mai multe imagini (produs, ingrediente, valori nutriționale etc.). Dați click pe ele în timp ce țineți apăsați tasta Ctrl pentru a le adăuga pe toate în același timp.",
-	he => "← עם כרום, פיירפוקס וספארי, ניתן לבחור מספר תמונות (מוצר, רכיבים, מפרט תזונתי) על ידי לחיצה עליהן בעת החזקת המקש Ctrl כדי להוסיף את כולן באותה התמונה."
+	he => "← עם כרום, פיירפוקס וספארי, ניתן לבחור מספר תמונות (מוצר, רכיבים, מפרט תזונתי) על ידי לחיצה עליהן בעת החזקת המקש Ctrl כדי להוסיף את כולן באותה התמונה.",
+	nl => "→ Met Chrome, Firefox en Safari kan je verschillende foto's (product, ingrediënten, nutritionele informatie, etc.) selecteren door tijdens het klikken de Ctrl-toets ingedrukt te houden om ze in één keer verzenden.",
+},
+
+image_upload_error_image_already_exists => {
+	fr => "Cette photo a déjà été envoyée.",
+	en => "This picture has already been sent.",
+},
+
+image_upload_error_image_too_small => {
+	fr => "La photo est trop petite. Attention à ne pas envoyer de photos prises sur Internet. Merci de n'envoyer que vos propres photos.",
+	en => "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself.",
 },
 
 product_add_nutrient => {
@@ -5658,6 +5703,7 @@ product_add_nutrient => {
 	es => "Añade un nutriente",
 	pt => "Adicionar um nutriente",
 	ro => "Adăugați un nutrient", 
+	nl => "Een voedingsstof toevoegen",
 },
 
 product_changes_saved => {
@@ -5667,6 +5713,7 @@ product_changes_saved => {
 	pt => "As modificações foram guardadas.",
 	ro => "Schimbările au fost salvate.",
 	he => "השינויים נשמרו.",
+	nl => "De wijzigingen werden opgeslagen.",
 },
 
 see_product_page => {
@@ -5676,6 +5723,7 @@ see_product_page => {
 	pt => "Ver a página do produto",
 	ro => "Vedeți pagina produsului",
 	he => "הצגת עמוד המוצר",
+	nl => "De pagina van het product bekijken",
 },
 
 products_with_nutriments => {
@@ -5685,6 +5733,7 @@ products_with_nutriments => {
 	pt => "com informacão nutricional",
 	ro => "cu valori nutriționale",
 	he => "עם מפרט תזונתי",
+	nl => "met nutritionele informatie",
 },
 
 tagstable_search => {
@@ -5694,6 +5743,7 @@ tagstable_search => {
 	pt => "Procurar:",
 	ro => "Căutare:",
 	he => "חיפוש:",
+	nl => "Zoeken",
 },
 
 tagstable_filtered => {
@@ -5703,6 +5753,7 @@ tagstable_filtered => {
 	pt => "de_MAX_",
 	ro => "din _MAX_",
 	he => "מתוך _MAX_",
+	nl => "tussen _MAX_",
 },
 
 search_ingredients => {
@@ -5712,6 +5763,7 @@ search_ingredients => {
 	pt => "Ingredientes",
 	ro => "Ingrediente",
 	he => "רכיבים",
+	nl => "Ingrediënten",
 },
 
 search_with => {
@@ -5722,6 +5774,7 @@ search_with => {
 	pt => 'Com',
 	ro => "Cu",
 	he => 'עם',
+	nl => "Met",
 },
 
 search_without => {
@@ -5732,6 +5785,7 @@ search_without => {
 	pt => 'Sem',
 	ro => "Fără",
 	he => 'ללא',
+	nl => "Zonder",
 },
 
 search_indifferent => {
@@ -5741,6 +5795,7 @@ search_indifferent => {
 	pt => 'Indiferente',
 	ro => "Indiferent",
 	he => 'ללא שינוי',
+	nl => "Onbepaald",
 },
 
 products_you_edited => {
@@ -5750,6 +5805,7 @@ products_you_edited => {
 	pt => "Produtos que adicionou ou editou",
 	ro => "Produse adăugate sau modificate de dumneavoastră",
 	he => "משתנים שהוספת או ערכת",
+	nl => "De producten die u toegevoegd of aangepast hebt",
 },
 
 incomplete_products_you_added => {
@@ -5757,7 +5813,8 @@ incomplete_products_you_added => {
 	en => "Products you added that need to be completed",
 	es => "Productos añadidos por usted que necesitan ser completados",
 	ro => "Produse adăugate de dumneavoastră care trebuie completate",
-	pt => "Produtos adicionados por si que precisam de ser completados" ,
+	pt => "Produtos adicionados por si que precisam de ser completados",
+	nl => "Producten die u toegevoegd hebt die nog onvolledig zijn",
 },
 
 edit_settings => {
@@ -5767,6 +5824,7 @@ edit_settings => {
 	pt => "Mudar os parâmetros da conta",
 	ro => "Schimbați parametrii contului",
 	he => "החלפת משתני החשבון שלך",
+	nl => "Wijzig de parameters van uw account",
 },
 
 list_of_x => {
@@ -5776,6 +5834,7 @@ list_of_x => {
 	pt => "Lista de %s",
 	ro => "Listă de %s",
 	he => "רשימה של %s",
+	nl => "Lijst van %s",
 },
 
 change_uploaded_images => {
@@ -5785,6 +5844,7 @@ change_uploaded_images => {
 	pt => "Imagens enviadas",
 	ro => "Imagini încărcate",
 	he => "תמונות שהועלו",
+	nl => "Geüploade foto's",
 },
 
 change_selected_images => {
@@ -5794,6 +5854,7 @@ change_selected_images => {
 	pt => "Imagens selecionadas",
 	ro => "Imagini selectate",
 	he => "תמונות נבחרות",
+	nl => "Geselecteerde foto's",
 },
 
 change_fields => {
@@ -5803,6 +5864,7 @@ change_fields => {
 	pt => "Informações",
 	ro => "Date",
 	he => "נתונים",
+	nl => "Gegevens",
 },
 
 change_nutriments => {
@@ -5812,6 +5874,7 @@ change_nutriments => {
 	pt => "Nutrientes",
 	ro => "Nutrienți",
 	he => "מפרט תזונתי",
+	nl => "Voedingsstoffen",
 },
 
 diff_add => {
@@ -5821,6 +5884,7 @@ diff_add => {
 	pt => 'Adicionado:',
 	ro => "Adăugate:",
 	he => 'נוסף:',
+	nl => "Toevoeging:",
 },
 
 diff_change => {
@@ -5830,6 +5894,7 @@ diff_change => {
 	pt => 'Alterado:',
 	ro => "Schimbate:",
 	he => 'השתנה:',
+	nl => "Wijziging:",
 },
 
 diff_delete => {
@@ -5839,6 +5904,7 @@ diff_delete => {
 	pt => 'Alterado:',
 	ro => "Șterse:",
 	he => 'נמחק:',
+	nl => "Verwijdering:",
 },
 
 
@@ -5850,6 +5916,7 @@ state => {
 	pt => 'Estado',
 	ro => "Status",
 	he => 'מצב',
+	nl => "Status",
 },
 
 save => {
@@ -5859,6 +5926,7 @@ save => {
 	pt => "Salvar",
 	ro => "Salvare",
 	he => "שמירה",
+	nl => "Opslaan",
 },
 saving => {
 	fr => "Informations en cours d'enregistrement.",
@@ -5867,6 +5935,7 @@ saving => {
 	pt => "Os dados estão a ser guardados",
 	ro => "Salvez.",
 	he => "בהליכי שמירה.",
+	nl => "De gegevens worden opgeslagen.",
 },
 saved => {
 	fr => "Informations enregistrées.",
@@ -5875,6 +5944,7 @@ saved => {
 	pt => "Os dados foram guardados.",
 	ro => "Salvat.",
 	he => "השמירה הצליחה.",
+	nl => "De gegevens werden opgeslagen.",
 },
 not_saved => {
 	fr => "Erreur d'enregistrement, merci de réessayer.",
@@ -5883,6 +5953,7 @@ not_saved => {
 	pt => "Ocorreu um erro ao guardar os dados, por favor tente de novo.",
 	ro => "Eroare de salvare, vă rog reîncercați.",
 	he => "אירעה שגיאה במהלך השמירה, נא לנסות שוב.",
+	nl => "Fout tijdens het opslaan, gelieve opnieuw te proberen",
 },
 
 view => {
@@ -5892,6 +5963,7 @@ view => {
 	pt => "ver",
 	ro => "vedere",
 	he => "צפייה",
+	nl => "bekijken",
 },
 
 no_product_for_barcode => {
@@ -5901,6 +5973,7 @@ no_product_for_barcode => {
 	pt => "Não existe nenhum produto com o código de barras %s.",
 	ro => "Nici un produs listat pentru codul de bare %s",
 	he => "לא נרשמו מוצרים על הברקוד %s",
+	nl => "Er werd geen product gevonden voor de barcode %s.",
 },
 
 products_stats => {
@@ -5910,6 +5983,7 @@ products_stats => {
 	pt => "Evolução do número de produtos no Open Food Facts",
 	ro => "Evoluția numărului de produse pe Open Food Facts",
 	he => "התפתחות מספר המוצרים ב־Open Food Facts",
+	nl => "Evolutie van het aantal producten op Open Food Facts",
 },
 
 products_stats_created_t => {
@@ -5919,6 +5993,7 @@ products_stats_created_t => {
 	pt => "Produtos",
 	ro => "Produse",
 	he => "מוצרים",
+	nl => "Producten",
 },
 
 products_stats_completed_t => {
@@ -5928,6 +6003,7 @@ products_stats_completed_t => {
 	pt => "Produtos com informação completa",
 	ro => "Produse cu informații complete",
 	he => "מוצרים עם פרטים מלאים",
+	nl => "Producten met alle informatie",
 },
 
 
@@ -5942,6 +6018,7 @@ months => {
 	zh => "['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']",
 	ja => "['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']",
 	he => "['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוס','ספטמבר','אוקטובר','נובמבר','דצמבר']",
+	nl => "['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'Oktober', 'November', 'December']",
 },
 
 weekdays => {
@@ -5955,6 +6032,7 @@ weekdays => {
 	zh => "['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']",
 	ja => "['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日']",
 	he => "['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת']",
+	nl => "['Zondag', Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag']",
 },
 
 # traffic lights for fat, sugars, salt etc.
@@ -5965,6 +6043,7 @@ nutrient_in_quantity => {
 	pt => '%s em %s',
 	ro => '%s în %s',
 	he => '%s ב־%s',
+	nl => '%s in %s',
 },
 low => {
 	en => "low",
@@ -5973,6 +6052,7 @@ low => {
 	pt => "baixo",
 	ro => 'mic',
 	he => "נמוכה",
+	nl => "laag",
 },
 low_quantity => {
 	en => "low quantity",
@@ -5981,6 +6061,7 @@ low_quantity => {
 	pt => "quantidade baixa",
 	ro => 'cantitate mică',
 	he => "כמות נמוכה",
+	nl => "kleine hoeveelheid",
 },
 moderate => {
 	en => "moderate",
@@ -5989,6 +6070,7 @@ moderate => {
 	pt => "moderado",
 	ro => 'moderat',
 	he => "בינונית",
+	nl => "gemiddeld",
 },
 moderate_quantity => {
 	en => "moderate quantity",
@@ -5997,6 +6079,7 @@ moderate_quantity => {
 	pt => "quantidade moderada",
 	ro => "cantitate moderată",
 	he => "כמות בינונית",
+	nl => "gemiddelde hoeveelheid",
 },
 high => {
 	en => "high",
@@ -6005,6 +6088,7 @@ high => {
 	pt => "elevado",
 	ro => "mare",
 	he => "גדולה",
+	nl => "hoog",
 },
 high_quantity => {
 	en => "high quantity",
@@ -6013,6 +6097,7 @@ high_quantity => {
 	pt => "quantidade elevada",
 	ro => "cantitate mare",
 	he => "כמות גדולה",
+	nl => "grote hoeveelheid",
 },
 
 risk_level => {
@@ -6022,6 +6107,7 @@ risk_level => {
 	pt => 'Riscos',
 	ro => 'Risc',
 	he => 'סיכון',
+	nl => "Risico's",
 },
 
 risk_level_3 => {
@@ -6031,6 +6117,7 @@ risk_level_3 => {
 	pt => 'Riscos elevados',
 	ro => 'Risc mare',
 	he => 'סיכונים גבוהים',
+	nl => "Hoge risico's",
 },
 
 risk_level_2  => {
@@ -6040,6 +6127,7 @@ risk_level_2  => {
 	pt => 'Riscos moderados',
 	ro => 'Risc moderat',
 	he => 'סיכונים בינוניים',
+	nl => "Gemiddelde risico's",
 },
 
 risk_level_1  => {
@@ -6049,6 +6137,7 @@ risk_level_1  => {
 	pt => 'Riscos baixos',
 	ro => 'Risc scăzut',
 	he => 'סיכונים נמוכים',
+	nl => "Lage risico's",
 },
 
 risk_level_0  => {
@@ -6058,6 +6147,7 @@ risk_level_0  => {
 	pt => 'Para completar',
 	ro => 'De completat',
 	he => 'להשלמה',
+	nl => "Te vervolledigen",
 },
 
 select_country => {
@@ -6067,6 +6157,7 @@ select_country => {
 	pt => 'País',
 	ro => 'Țara',
 	he => 'מדינה',
+	nl => "Land",
 },
 
 view_products_from_the_entire_world => {
@@ -6076,6 +6167,7 @@ view_products_from_the_entire_world => {
 	pt => "Ver produtos de todo o mundo",
 	ro => 'Vedeți produsele corespunzătoare din toată lumea',
 	he => "צפייה במוצרים תואמים מכל העולם",
+	nl => "Overeenkomstige producten uit de hele wereld bekijken",
 },
 
 view_list_for_products_from_the_entire_world => {
@@ -6085,6 +6177,7 @@ view_list_for_products_from_the_entire_world => {
 	pt => "Ver lista de produtos correspondentes do mundo inteiro",
 	ro => "Vedeți lista produselor corespunzătoare din toată lumea",
 	he => "צפייה ברשימה של מוצרים תואמים מכל העולם",
+	nl => "De lijst met overeenkomstige producten uit de hele wereld bekijken",
 },
 
 view_results_from_the_entire_world => {
@@ -6094,6 +6187,7 @@ view_results_from_the_entire_world => {
 	pt => "Ver resultados de todo o mundo",
 	ro => "Vedeți rezultatele din toată lumea",
 	he => "צפייה בתוצאות מכל העולם",    
+	nl => "De resultaten van de hele wereld bekijken",
 },
 
 explore_products_by => {
@@ -6102,6 +6196,7 @@ explore_products_by => {
 	es => "Explorar los productos por:",
 	pt => "Explorar os produtos por:",
 	ro => "Explorați produsele după:",
+	nl => "Doorzoek de producten volgens:",
 },
 
 show_category_stats => {
@@ -6110,6 +6205,7 @@ show_category_stats => {
 	fr => "Afficher les informations statistiques",
 	pt => "Mostrar estatísticas detalhadas",
 	ro => "Arată statistici detaliate",
+	nl => "De gedetailleerde statistieken weergeven",
 },
 
 show_category_stats_details => {
@@ -6118,6 +6214,7 @@ show_category_stats_details => {
 	pt => "desvio padrão, mínimo, máximo, 10<sup>o</sup> percentil e 90<sup>o</sup>",
 	ro => "deviația standard, minimum, maximum, al 10-lea și al 90-lea procent",
 	fr => "écart type, minimum, maximum, 10ème et 90ème centiles",
+	nl => "standaardafwijking, minimum, maximum, 10e en 90e percentiel",
 },
 
 names => {
@@ -6127,6 +6224,7 @@ names => {
 	de => "Namen",
 	pt => "Nomes",
 	ro => "Nume",
+	nl => "Namen",
 },
 
 css => {
@@ -6134,6 +6232,9 @@ css => {
 CSS
 ,
 	es => <<CSS
+CSS
+,
+	nl => <<CSS
 CSS
 ,
 },
@@ -6217,6 +6318,20 @@ HEADER
 
 HEADER
 ,
+	nl => <<HEADER
+<meta property="fb:admins" content="706410516" />
+<meta property="og:site_name" content="Open Food Facts - de gratis databank voor voedingsmiddelen"/>
+
+<script type="text/javascript">
+  var uvOptions = {};
+  (function() {
+	var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+	uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/Mjjw72JUjigdFxd4qo6wQ.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+  })();
+</script>
+HEADER
+,
 },
 
 
@@ -6269,6 +6384,14 @@ HTML
 </ul>
 HTML
 ,
+	nl => <<HTML
+<ul>
+<li><a href="/a-propos" title="Meer weten over Open Food Facts">A propos</a></li>
+<li><a href="/mode-d-emploi" title="Hoe producten toevoegen in twee minuten">Mode d'emploi</a></li>
+<li><a href="/contact" title="Vragen, opmerkingen of suggesties?">Contact</a></li>
+</ul>
+HTML
+,
 },
 
 column => {
@@ -6298,6 +6421,7 @@ dans une base de données ouverte et gratuite.</p>
 <p>pour Android sur Google Play :</p>
 
 <a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponible sur Google Play" width="135" height="47" /></a><br/>
+<a href="http://world.openfoodfacts.org/files/off.apk">apk</a>
 
 <p>pour Windows Phone :</p>
 
@@ -6354,6 +6478,7 @@ and is made available to everyone and for all uses in a free and open database.<
 <p>Android app on Google Play:</p>
 
 <a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Available on Google Play" width="135" height="47" /></a><br/>
+<a href="http://world.openfoodfacts.org/files/off.apk">apk</a>
 
 <p>Windows Phone app:</p>
 
@@ -6398,6 +6523,7 @@ and is made available to everyone and for all uses in a free and open database.<
 <p>Android app on Google Play:</p>
 
 <a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Available on Google Play" width="135" height="47" /></a><br/>
+<a href="http://world.openfoodfacts.org/files/off.apk">apk</a>
 
 <p>Windows Phone app:</p>
 
@@ -6441,6 +6567,7 @@ Die Informationen über die Produkte (Fotos, Inhaltsstoffe, Zusammensetzung, etc
 <p>Android app on Google Play:</p>
 
 <a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Available on Google Play" width="135" height="47" /></a><br/>
+<a href="http://world.openfoodfacts.org/files/off.apk">apk</a>
 
 <p>Windows Phone app:</p>
 
@@ -6486,6 +6613,7 @@ para cualquier uso en una base de datos abierta, libre y gratuita.
 <p>para Android en Google Play:</p>
 
 <a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponible en Google Play" width="135" height="47" /></a><br/>
+<a href="http://world.openfoodfacts.org/files/off.apk">apk</a>
 
 <p>para Windows Phone:</p>
 
@@ -6528,6 +6656,7 @@ HTML
 <p>Aplicativo Android no Google Play:</p>
 
 <a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Available on Google Play" width="135" height="47" /></a><br/>
+<a href="http://world.openfoodfacts.org/files/off.apk">apk</a>
 
 <p>Aplicativo Windows Phone:</p>
 
@@ -6569,6 +6698,7 @@ HTML
 <p>Aplicação para Android no Google Play:</p>
 
 <a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Available on Google Play" width="135" height="47" /></a><br/>
+<a href="http://world.openfoodfacts.org/files/off.apk">apk</a>
 
 <p>Aplicação para Windows Phone:</p>
 
@@ -6609,6 +6739,7 @@ colaborativ și sunt puse la dispoziția tuturor și pentru toate utilizările �
 <p>Aplicația pentru Android din Google Play:</p>
 
 <a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponibilă în Google Play" width="135" height="47" /></a><br/>
+<a href="http://world.openfoodfacts.org/files/off.apk">apk</a>
 
 <p>Aplicația pentru Windows Phone:</p>
 
@@ -6651,10 +6782,52 @@ HTML
 <p>יישום לאנדרויד ב־Google Play:</p>
 
 <a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Available on Google Play" width="135" height="47" /></a><br/>
+<a href="http://world.openfoodfacts.org/files/off.apk">apk</a>
 
 <p>יישום ל־Windows Phone:</p>
 
 <a href="http://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"><img src="/images/misc/154x40_WP_Store_blk.png" alt="החנות של Windows Phone" width="154" height="40" /></a><br/>
+
+
+HTML
+,
+	nl => <<HTML
+<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-en.png" width="178" height="144" alt="Open Food Facts" /></a>
+
+<p>Open Food Facts inventariseert alle voedingsmiddelen uit de hele wereld.</p>
+
+<select_country>
+
+<p>
+→ <a href="/brands">Merken</a><br />
+→ <a href="/categories">Categorieën</a><br/>
+</p>
+
+<p>De informatie over de voedingsmiddelen (foto's, ingrediënten, nutritionele informatie, etc.) wordt via een opensourcesysteem verzameld en voor iedereen en alle toepassingen ter beschikking gesteld in een open en gratis databank.</p>
+
+
+<p>Vind ons ook terug op:</p>
+
+<p>
+→ <a href="http://en.wiki.openfoodfacts.org">onze wiki</a><br />
+→ <a href="http://twitter.com/openfoodfacts">Twitter</a><br/>
+→ <a href="https://plus.google.com/u/0/110748322211084668559/">Google+</a><br />
+→ <a href="https://www.facebook.com/OpenFoodFacts">Facebook</a><br />
++ <a href="https://www.facebook.com/groups/374350705955208/">gebruikersgroep</a><br />
+</p>
+
+<p>iPhone en iPad app in de App Store:</p>
+
+<a href="https://itunes.apple.com/en/app/open-food-facts/id588797948"><img src="/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png" alt="Beschikbaar in de App Store" width="135" height="40" /></a><br/>
+
+<p>Android app op Google Play:</p>
+
+<a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Beschikbaar op Google Play" width="135" height="47" /></a><br/>
+<a href="http://world.openfoodfacts.org/files/off.apk">apk</a>
+
+<p>Windows Phone app:</p>
+
+<a href="http://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"><img src="/images/misc/154x40_WP_Store_blk.png" alt="Windows Phone Store" width="154" height="40" /></a><br/>
 
 
 HTML
@@ -6715,6 +6888,17 @@ HTML
 <a href="https://openfoodfacts.uservoice.com/">פורום הרעיונות</a> -
 <a href="http://en.blog.openfoodfacts.org">בלוג</a> -
 <a href="http://world.openfoodfacts.org/press-and-blogs">עתונות ובלוגים</a>
+HTML
+,
+	nl => <<HTML
+
+<a href="http://world.openfoodfacts.org/legal">Wettelijke bepalingen</a> - 
+<a href="http://world.openfoodfacts.org/terms-of-use">Gebruiksvoorwaarden</a> -
+<a href="http://world.openfoodfacts.org/who-we-are">Wie zijn wij?</a> -
+<a href="http://world.openfoodfacts.org/faq">Veelgestelde vragen</a> -
+<a href="https://openfoodfacts.uservoice.com/">Ideeënforum</a> -
+<a href="http://en.blog.openfoodfacts.org">Blog</a> -
+<a href="http://world.openfoodfacts.org/press-and-blogs">Pers, Blogs en Presentaties</a>
 HTML
 ,
 
@@ -6815,6 +6999,44 @@ unknown => {
 	pt => "Desconhecido",
 	ro => "Necunoscut",
 	he => "לא ידוע",
+},
+
+points_ranking_users_and_countries => {
+	en => "Ranking of contributors and countries",
+	fr => "Classement des contributeurs et des pays",
+},
+
+points_ranking => {
+	en => "Ranking",
+	fr => "Classement",
+},
+
+openfoodhunt_points => {
+	en => "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on Open Food Facts from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded
+Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes.",
+	fr => "C'est l'<a href=\"/open-food-hunt-2015\">Open Food Hunt</a> sur Open Food Facts du samedi 21 février 2015 au dimanche 1er mars 2015 ! Les contributeurs reçoivent
+des points Explorateurs pour les produits qu'ils ajoutent, et des points Ambassadeurs pour les nouveaux contributeurs qu'ils recrutent. Les points sont mis à jour toutes
+les 30 minutes.",	
+},
+
+points_user => {
+	en => "%s is an Explorer for %d countries and an Ambassador for %d countries.",
+	fr => "%s est un Explorateur de %d pays et un Ambassadeur de %d countries.",
+},
+
+points_all_users => {
+	en => "There are Explorers for %d countries and Ambassadors for %d countries.",
+	fr => "Il y a des Explorateurs de %d pays et des Ambassadeurs de %d countries.",
+},
+
+points_country => {
+	en => "%s has %d Explorers and %d Ambassadors.",
+	fr => "%s a %d Explorateurs et %d Ambassadeurs.",
+},
+
+points_all_countries => {
+	en => "There are %d Explorers and %d Ambassadors.",
+	fr => "Il y a %d Explorateurs et %d Ambassadeurs.",
 },
 
 );
