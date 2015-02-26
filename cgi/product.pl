@@ -284,6 +284,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	extract_ingredients_from_text($product_ref);
 	extract_ingredients_classes_from_text($product_ref);
 
+	detect_allergens_from_text($product_ref);
 	
 	# Nutrition data
 	
@@ -431,7 +432,7 @@ var Lang = {
 JS
 ;
 
-	foreach my $key (keys %Lang) {
+	foreach my $key (sort keys %Lang) {
 		next if $key !~ /^product_js_/;
 		$scripts .= '"' . $' . '" : "' . lang($key) . '",' . "\n";
 	}
