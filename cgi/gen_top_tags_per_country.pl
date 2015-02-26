@@ -124,8 +124,8 @@ $fields_ref->{completed_t} = 1;
 
 $fields_ref->{nutriments} = 1;
 
-	
-my $cursor = $products_collection->query({'empty' => { "\$ne" => 1 }})->fields($fields_ref);
+# Sort by created_t so that we can see which product was the nth in each country -> necessary to compute points for Open Food Hunt
+my $cursor = $products_collection->query({'empty' => { "\$ne" => 1 }})->sort({created_t => 1})->fields($fields_ref);
 $total = $cursor->count();
 
 	
@@ -134,6 +134,15 @@ print STDERR "$total products\n";
 
 my %products_nutriments = ();
 my %countries_categories = ();
+
+my %countries_counts = ();
+my %countries_points = ();
+my %users_points = ();
+
+my $start_t = 1424476800 - 12 * 3600;
+
+# points by country?
+# points by user?
 
 while (my $product_ref = $cursor->next) {
 	
@@ -158,7 +167,88 @@ while (my $product_ref = $cursor->next) {
 			$products_nutriments{$code}{$nid} = $product_ref->{nutriments}{$nid . "_100g"};
 		}				
 	}
+	
+	# Compute points
+	
+	my $creator = $product_ref->{creator};
+	
+	if ((defined $creator) and ($creator ne '')  ) {
 
+		if (defined $product_ref->{countries_tags}) {
+		
+
+			
+			foreach my $country (@{$product_ref->{countries_tags}}) {
+			
+				next if not exists_taxonomy_tag("countries", $country);
+			
+				defined $countries_counts{$country} or $countries_counts{$country} = 0;
+				$countries_counts{$country}++;
+				
+				next if ((not exists $product_ref->{created_t}) or ($product_ref->{created_t} < $start_t));
+				next if ($creator eq 'date-limite-app');
+				next if ($creator eq 'tacite');
+				
+				my $points = 1;
+				if ($product_ref->{complete}) {
+					$points = 2;
+				}					
+				
+				# first products added to one country give more points
+				
+				my $n = $countries_counts{$country};
+				if ($n == 1) {
+					$points *= 100;
+				}			
+				elsif ($n <= 10) {
+					$points *= 20;
+				}				
+				elsif ($n <= 100) {
+					$points *= 10;
+				}
+				elsif ($n <= 1000) {
+					$points *= 5;
+				}
+				elsif ($n <= 10000) {
+					$points *= 2;
+				}
+				
+				# count points by country 
+
+				defined $countries_points{$country} or $countries_points{$country} = {};
+				defined $countries_points{$country}{$creator} or $countries_points{$country}{$creator} = 0;
+				
+				defined $countries_points{_all_} or $countries_points{_all_} = {};
+				defined $countries_points{_all_}{$creator} or $countries_points{_all_}{$creator} = 0;
+				
+				#defined $countries_points{$country}{_all_} or $countries_points{$country}{_all_} = 0;
+				
+				#$countries_points{$country}{_all_} += $points;
+				$countries_points{$country}{$creator} += $points;
+				$countries_points{_all_}{$creator} += $points;
+				
+				# count points by user 
+
+				defined $users_points{$creator} or $users_points{$creator} = {};
+				defined $users_points{$creator}{$country} or $users_points{$creator}{$country} = 0;
+
+				defined $users_points{_all_} or $users_points{$creator} = {};
+				defined $users_points{_all_}{$country} or $users_points{$creator}{$country} = 0;
+				
+				#defined $users_points{$creator}{_all_} or $users_points{$creator}{_all_} = 0;
+
+				
+				#$users_points{$creator}{_all_} += $points;
+				$users_points{$creator}{$country} += $points;				
+				$users_points{_all_}{$country} += $points;				
+				
+			}
+		}
+	
+	}
+	
+
+	
 	
 	foreach my $tagtype (@fields) {
 	
@@ -234,6 +324,58 @@ while (my $product_ref = $cursor->next) {
 
 	
 }
+
+
+# compute points
+	# Read ambassadors.txt
+	my %ambassadors = ();
+	if (open (IN, "<$data_root/ambassadors.txt")) {
+		while (<IN>) {
+			chomp();
+			if (/\s+/) {
+				my $user = get_fileid($`);
+				my $ambassador = get_fileid($');
+				$ambassadors{$user} = $ambassador;
+			}
+		}
+	}
+	else {
+		print STDERR "$data_root/ambassadors.txt does not exist\n";
+	}
+	
+	my %ambassadors_countries_points = (_all_ => {});
+	my %ambassadors_users_points = (_all_ => {});
+	
+	foreach my $country (keys %countries_points) {
+		defined $ambassadors_countries_points{$country} or $ambassadors_countries_points{$country} = {};
+		foreach my $user (keys %{$countries_points{$country}}) {
+			next if $user eq 'all_users';
+			if (exists $ambassadors{$user}) {
+				my $ambassador = $ambassadors{$user};
+				defined $ambassadors_countries_points{$country}{$ambassador} or $ambassadors_countries_points{$country}{$ambassador} = 0;
+				defined $ambassadors_countries_points{_all_}{$ambassador} or $ambassadors_countries_points{_all_}{$ambassador} = 0;
+				$ambassadors_countries_points{$country}{$ambassador} += $countries_points{$country}{$user};
+				$ambassadors_countries_points{_all_}{$ambassador} += $countries_points{$country}{$user};
+				
+				defined $ambassadors_users_points{$ambassador} or $ambassadors_users_points{$ambassador} = {};
+				defined $ambassadors_users_points{$ambassador}{$country} or $ambassadors_users_points{$ambassador}{$country} = 0;
+				defined $ambassadors_users_points{_all_}{$country} or $ambassadors_users_points{_all_}{$country} = 0;
+				#$ambassadors_users_points{$ambassador}{_all_} += $countries_points{$country}{$user};
+				$ambassadors_users_points{$ambassador}{$country} += $users_points{$user}{$country};
+				$ambassadors_users_points{_all_}{$country} += $users_points{$user}{$country};
+			}
+		}
+	}
+	
+	
+	store("$data_root/index/countries_points.sto", \%countries_points);
+	store("$data_root/index/users_points.sto", \%users_points);
+	
+	store("$data_root/index/ambassadors_countries_points.sto", \%ambassadors_countries_points);
+	store("$data_root/index/ambassadors_users_points.sto", \%ambassadors_users_points);	
+	
+	
+
 
 foreach my $country (keys %{$properties{countries}}, 'en:world') {
 

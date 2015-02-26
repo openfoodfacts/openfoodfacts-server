@@ -29,6 +29,7 @@ BEGIN
 					&display
 					&display_new
 					&display_text
+					&display_points
 					&display_mission
 					&display_tag
 					&display_error
@@ -230,9 +231,12 @@ sub init()
 	my $error = Blogs::Users::init_user();
 	if ($error) {
 		display_error($error);
+		#$User_id = undef;
+		#%User = undef;
 	}
 	
-	if (($User_id eq 'stephane') or ($User_id eq 'tacite') or ($User_id eq 'teolemon') or ($User_id eq 'bcatelin')) {
+	if (($User_id eq 'stephane') or ($User_id eq 'tacite') or ($User_id eq 'teolemon') or ($User_id eq 'bcatelin')
+		or ($User_id eq 'tacinte') or ($User_id eq 'kyzh')) {
 		$admin = 1;
 	}
 	
@@ -395,8 +399,17 @@ sub analyze_request($)
 				}
 				
 				$request_ref->{canon_rel_url} .= "/" . $tag_type_singular{$tagtype}{$lc} . "/" . $request_ref->{tagid2}; 
-			}			
+			}
+
+			if ((defined $components[0]) and ($components[0] eq 'points')) {
+				$request_ref->{points} = 1;
+				$request_ref->{canon_rel_url} .= "/points"
+			}
 		
+		}
+		elsif ((defined $components[0]) and ($components[0] eq 'points')) {
+				$request_ref->{points} = 1;
+				$request_ref->{canon_rel_url} .= "/points"
 		}
 		elsif (not defined $request_ref->{groupby_tagtype}) {
 			$debug and print STDERR "analyze_request: invalid address, confused by number of components left: $#components \n";
@@ -405,7 +418,7 @@ sub analyze_request($)
 		$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
 	}
 	
-	print STDERR "Display::analyze_request - lc: $lc lang: $lang text: $request_ref->{text} - product: $request_ref->{product} - tagtype/tagid: $request_ref->{tagtype}/$request_ref->{tagid} - tagtype2/tagid2: $request_ref->{tagtype2}/$request_ref->{tagid2} - groupby: $request_ref->{groupby_tagtype}\n";
+	print STDERR "Display::analyze_request - lc: $lc lang: $lang text: $request_ref->{text} - product: $request_ref->{product} - tagtype/tagid: $request_ref->{tagtype}/$request_ref->{tagid} - tagtype2/tagid2: $request_ref->{tagtype2}/$request_ref->{tagid2} - groupby: $request_ref->{groupby_tagtype} - points: $request_ref->{points} \n";
 		
 	return 1;
 }
@@ -1079,6 +1092,246 @@ HEADER
 
 
 
+sub display_points_ranking($$) {
+
+	my $tagtype = shift;	# users or countries
+	my $tagid = shift;
+	
+	print STDERR "display_points_ranking - tagtype: $tagtype - tagid: $tagid\n";
+	
+	my $ranktype = "users";
+	if ($tagtype eq "users") {
+		$ranktype = "countries";
+	}
+	
+	my $html = "";
+	
+	my $points_ref;
+	my $ambassadors_points_ref;
+	
+	if ($tagtype eq 'users') {
+		$points_ref = retrieve("$data_root/index/users_points.sto");
+		$ambassadors_points_ref = retrieve("$data_root/index/ambassadors_users_points.sto");
+	}
+	else {
+		$points_ref = retrieve("$data_root/index/countries_points.sto");
+		$ambassadors_points_ref = retrieve("$data_root/index/ambassadors_countries_points.sto");	
+	}
+
+	$html .= "\n\n<table id=\"${tagtype}table\">\n";
+	
+	$html .= "<tr><th>" . ucfirst(lang($ranktype . "_p")) . "</th><th>Explorer rank</th><th>Explorer points</th><th>Ambassador rank</th><th>Ambassador points</th></tr>\n";
+	
+	my %ambassadors_ranks = ();
+	
+	my $i = 1;
+	my $j = 1;
+	my $current = -1;
+	foreach my $key (sort { $ambassadors_points_ref->{$tagid}{$b} <=> $ambassadors_points_ref->{$tagid}{$a}} keys %{$ambassadors_points_ref->{$tagid}}) {
+		# ex-aequo: keep track of current high score
+		if ($ambassadors_points_ref->{$tagid}{$key} != $current) {
+			$j = $i;
+			$current = $ambassadors_points_ref->{$tagid}{$key};
+		}
+		$ambassadors_ranks{$key} = $j;
+		$i++;
+	}	
+	
+	my $n_ambassadors = --$i;
+	
+	$i = 1;
+	$j = 1;
+	$current = -1;
+	
+	foreach my $key (sort { $points_ref->{$tagid}{$b} <=> $points_ref->{$tagid}{$a}} keys %{$points_ref->{$tagid}}) {
+		# ex-aequo: keep track of current high score
+		if ($points_ref->{$tagid}{$key} != $current) {
+			$j = $i;
+			$current = $points_ref->{$tagid}{$key};
+		}
+		my $rank = $j;
+		$i++;	
+		
+		my $display_key = $key;
+		my $link = canonicalize_taxonomy_tag_link($lc,$ranktype,$key) . "/points";
+		
+		if ($ranktype eq "countries") {
+			$display_key = display_taxonomy_tag($lc,"countries",$key);
+			$link = "http://" . $country_codes_reverse{$key} . ".$domain/points";
+		}
+		
+		$html .= "<tr><td><a href=\"$link\">$display_key</a></td><td>$rank</td><td>" . $points_ref->{$tagid}{$key} . "</td><td>" . $ambassadors_ranks{$key} . "</td><td>" . $ambassadors_points_ref->{$tagid}{$key} . "</td></tr>\n";
+	
+	}
+	
+	my $n_explorers = --$i;
+	
+	$html .= "</table>\n";
+	
+	my $tagtype_p = $Lang{$ranktype . "_p"}{$lang};
+		
+		$initjs .= <<JS
+${tagtype}Table = \$('#${tagtype}table').dataTable({
+	"bJQueryUI": true,
+	"bPaginate": false,
+	"aaSorting": [],
+	"oLanguage": {
+		"sSearch": "$Lang{tagstable_search}{$lang}",
+		"sInfo": "_TOTAL_ $tagtype_p",
+		"sInfoFiltered": " - $Lang{tagstable_filtered}{$lang}"
+	}
+});
+JS
+;
+
+	my $title;
+	
+	if ($tagtype eq 'users') {
+		if ($tagid ne '_all_') {
+			$title = sprintf(lang("points_user"), $tagid, $n_explorers, $n_ambassadors);
+		}
+		else {
+			$title = sprintf(lang("points_all_users"), $n_explorers, $n_ambassadors);	
+		}
+		$title =~ s/ (0|1) countries/ $1 country/g;	
+	}
+	elsif ($tagtype eq 'countries') {
+		if ($tagid ne '_all_') {
+			$title = sprintf(lang("points_country"), display_taxonomy_tag($lc,$tagtype,$tagid), $n_explorers, $n_ambassadors);
+		}
+		else {
+			$title = sprintf(lang("points_all_countries"), $n_explorers, $n_ambassadors);
+		}
+		$title =~ s/ (0|1) (explorer|ambassador|explorateur|ambassadeur)s/ $1 $2/g;				
+	}	
+	
+	
+	return "<p>$title</p>\n" . $html;
+}	
+
+
+# explorers and ambassadors points
+# can be called without a tagtype or a tagid, or with a user or a country tag
+
+sub display_points($) {
+
+	my $request_ref = shift;
+	
+	my $html = "<p>" . lang("openfoodhunt_points") . "</p>\n";
+	
+	my $title;	
+	
+	my $tagtype = $request_ref->{tagtype};
+	my $tagid = $request_ref->{tagid};
+	my $display_tag;
+	my $newtagid;
+	my $newtagidpath;
+	my $canon_tagid = undef;
+	
+	print STDERR "display_points - tagtype: $tagtype - tagid: $tagid\n";
+
+	if (defined $tagid) {
+		if (defined $taxonomy_fields{$tagtype}) {
+			$canon_tagid = canonicalize_taxonomy_tag($lc,$tagtype, $tagid); 
+			$display_tag = display_taxonomy_tag($lc,$tagtype,$canon_tagid);
+			$title = $display_tag; 
+			$newtagid = get_taxonomyid($display_tag);
+			print STDERR "display_tag - taxonomy - $tagtype - tagid: $tagid - canon_tagid: $canon_tagid - newtagid: $newtagid - title: $title \n";
+			if ($newtagid !~ /^(\w\w):/) {
+				$newtagid = $lc . ':' . $newtagid;
+			}
+			$newtagidpath = canonicalize_taxonomy_tag_link($lc,$tagtype, $newtagid);
+			$request_ref->{current_link} = $newtagidpath;
+			$request_ref->{world_current_link} =  canonicalize_taxonomy_tag_link('en',$tagtype, $canon_tagid);
+		}
+		else {
+			$display_tag  = canonicalize_tag2($tagtype, $tagid);
+			$newtagid = get_fileid($display_tag);
+			if ($tagtype eq 'emb_codes') {
+				$canon_tagid = $newtagid;
+				$canon_tagid =~ s/-(eec|eg|ce)$/-ec/i;
+			}
+			$title = $display_tag; 
+			$newtagidpath = canonicalize_tag_link($tagtype, $newtagid);
+			$request_ref->{current_link} = $newtagidpath;
+			my $current_lang = $lang;
+			my $current_lc = $lc;
+			$lang = 'en';
+			$lc = 'en';
+			$request_ref->{world_current_link} = canonicalize_tag_link($tagtype, $newtagid);
+			$lang = $current_lang;
+			$lc = $current_lc;
+			print STDERR "display_tag - normal - $tagtype - tagid: $tagid - canon_tagid: $canon_tagid - newtagid: $newtagid - title: $title \n";
+			
+		}
+	}
+	
+	$request_ref->{current_link} .= "/points";
+	
+	if ((defined $tagid) and ($newtagid ne $tagid) ) {
+		$request_ref->{redirect} = $request_ref->{current_link};
+		print STDERR "Display.pm display_tag - redirect - tagid: $tagid - newtagid: $newtagid - url: $request_ref->{current_link} \n";
+		return 301;
+	}
+	
+	
+	my $description = '';
+	
+	my $products_title = $display_tag;
+
+
+	
+	if ($tagtype eq 'users') {
+		my $user_ref = retrieve("$data_root/users/$tagid.sto");
+		if (defined $user_ref) {
+			if ((defined $user_ref->{name}) and ($user_ref->{name} ne '')) {
+				$title = $user_ref->{name} . " ($tagid)";
+				$products_title = $user_ref->{name};
+			}
+		}
+	}	
+	
+
+	if ($cc ne 'world') {
+		$tagtype = 'countries';
+		$tagid = $country;
+		$title = display_taxonomy_tag($lc,$tagtype,$tagid);
+	}
+	
+	if (not defined $tagid) {
+		$tagid = '_all_';
+	}
+
+	if (defined $tagtype) {
+		$html .= display_points_ranking($tagtype, $tagid);
+		$request_ref->{title} = "Open Food Hunt - " . lang("points_ranking") . " - " . $title;
+	}
+	else {
+		$html .= display_points_ranking("users", "_all_");
+		$html .= display_points_ranking("countries", "_all_");
+		$request_ref->{title} = "Open Food Hunt - " . lang("points_ranking_users_and_countries");
+	}
+	
+	$request_ref->{content_ref} = \$html;
+	
+
+	$scripts .= <<SCRIPTS
+<script src="/js/jquery.dataTables.min.js"></script>
+SCRIPTS
+;
+
+	$header .= <<HEADER
+<link rel="stylesheet" href="/js/datatables.css" />
+<meta property="og:image" content="http://world.openfoodfacts.org/images/misc/open-food-hunt-2015.1304x893.png"/>
+HEADER
+;	
+			
+	display_new($request_ref);
+
+}
+
+
+
 
 sub display_tag($) {
 
@@ -1456,6 +1709,8 @@ HTML
 	display_new($request_ref);
 
 }
+
+
 
 
 sub search_and_display_products($$$$$) {
@@ -3489,9 +3744,9 @@ sub display_new($) {
 <meta name="language" content="$Lang{language}{$lang}" />
 $meta_description
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
+<script type="text/javascript" src="/js/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jqueryui/1.8.16/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="/js/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
 
 
 <script type="text/javascript" src="/js/jquery.cookie.min.js"></script>	
