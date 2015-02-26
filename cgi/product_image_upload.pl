@@ -9,6 +9,7 @@ use Blogs::Config qw/:all/;
 use Blogs::Store qw/:all/;
 use Blogs::Index qw/:all/;
 use Blogs::Display qw/:all/;
+use Blogs::Lang qw/:all/;
 use Blogs::Tags qw/:all/;
 use Blogs::Users qw/:all/;
 use Blogs::Images qw/:all/;
@@ -23,31 +24,40 @@ use JSON;
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
 my $code = param('code');
+my $imagefield = param('imagefield');
+my $delete = param('delete');
 
 print STDERR "product_image_upload.pl - ip: " . remote_addr() . " - type: $type - action: $action - code: $code\n";
 
 my $env = $ENV{QUERY_STRING};
 
-print STDERR "product_image_upload.pl - query string : $env \n";
+print STDERR "product_image_upload.pl - query string : $env - calling init()\n";
 
 
 Blogs::Display::init();
 
 $debug = 1;
 
-$debug and print STDERR "product_image_upload.pl - code: $code - cc: $cc - lc: $lc - ip: " . remote_addr() . "\n";
+print STDERR "product_image_upload.pl - user: $User_id - code: $code - cc: $cc - lc: $lc - ip: " . remote_addr() . "\n";
 
 if (not defined $code) {
 	
+	print STDERR "product_image_upload.pl - no code\n";
 	exit(0);
 }
 
 my $interface_version = '20120622';
 
+# Create image directory if needed
+if (! -e "$www_root/images") {
+	mkdir ("$www_root/images", 0755);
+}
+if (! -e "$www_root/images/products") {
+	mkdir ("$www_root/images/products", 0755);
+}
 
-if (defined param('imagefield')) {
-	my $imagefield = param('imagefield');
-	my $delete = param('delete');
+if ($imagefield) {
+
 	my $path = product_path($code);
 	
 	print STDERR "product_image_upload - imagefield: $imagefield - delete: $delete\n";
@@ -63,14 +73,20 @@ if (defined param('imagefield')) {
 			$product_ref->{lc} = $lc;
 			store_product($product_ref, "Création du produit (envoi d'une image)");
 		}
+		else {
+			print STDERR "product_image_upload.pl - product code $code already exists\n";
+		}
 	
 		my $imgid = process_image_upload($code, $imagefield);
 		
 		my $data;
 
 		if ($imgid < 0) {
-			$data =  encode_json({ status => 'status not ok', error => "Erreur de format d'image"
-			});		
+			my %response = ( status => 'status not ok', imgid => $imgid);
+			$response{error} = "error";
+			($imgid == -3) and $response{error} = lang("image_upload_error_image_already_exists");
+			($imgid == -4) and $response{error} = lang("image_upload_error_image_too_small");
+			$data =  encode_json(\%response);	
 		}
 		else {
 			$data =  encode_json({ status => 'status ok',
@@ -89,14 +105,18 @@ if (defined param('imagefield')) {
 			}
 		}
 		
-		print STDERR "product_image - JSON data output: $data\n";
-	
-		print header() . $data;
+		print STDERR "product_image_upload - JSON data output: $data\n";
+
+		print header ( -charset=>'UTF-8') . $data;
 
 	}
 	else {
 
-		
+			print STDERR "product_image_upload - no imagefield\n";
+			my %response = ( status => 'status not ok');
+			$response{error} = "error - imagefield not defined";
+			my $data =  encode_json(\%response);		
+			print header ( -charset=>'UTF-8') . $data;			
 
 	}
 
