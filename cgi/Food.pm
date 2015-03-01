@@ -1157,7 +1157,7 @@ salt => {
 },
 'vitamin-b9' => {
 	fr => "Vitamine B9 (Acide folique)",
-	en => "Vitamin B9 (Folic acid)",
+	en => "Vitamin B9 (Folic acid / Folates)",
 	es => "Vitamina B9 (Ácido fólico)",
 	unit => "µg",
 	dv => "400",
