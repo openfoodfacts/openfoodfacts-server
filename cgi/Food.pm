@@ -185,11 +185,11 @@ sub g_to_unit($$) {
 --maltodextrins-
 -starch-
 -polyols-
+fiber
 !proteins
 -casein-
 -serum-proteins-
 -nucleotides-
-fiber
 salt
 sodium
 alcohol
