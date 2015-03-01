@@ -269,7 +269,7 @@ alcohol	=> {
 	sk => "Alkohol",
 	ro => "Alcool",
 	bg => "Алкохол",
-  zh => "酒精度",
+	zh => "酒精度",
 },
 energy	=> {
 	fr => "Énergie",
@@ -298,7 +298,7 @@ energy	=> {
 	sk => "Energetická hodnota",
 	ro => "Valoarea energetică",
 	bg => "Енергийна стойност",
-  zh => "能量",
+	zh => "能量",
 },
 proteins => {
 	fr => "Protéines",
@@ -326,12 +326,12 @@ proteins => {
 	sk => "Bielkoviny",
 	ro => "Proteine",
 	bg => "Белтъци",
-  zh => "蛋白质",
+	zh => "蛋白质",
 },
 casein => {
 	fr => 'Caséine',
 	en => 'Casein',
-  zh => '酪蛋白',
+	zh => '酪蛋白',
 },
 nucleotides => {
 	fr => 'Nucléotides',
@@ -368,7 +368,7 @@ carbohydrates => {
 	sk => "Sacharidy",
 	ro => "gGlucide",
 	bg => "Въглехидрати",
-  zh => "碳水化合物",
+	zh => "碳水化合物",
 },
 sugars => {
 	fr => "Sucres",
@@ -396,7 +396,7 @@ sugars => {
 	sk => "Cukry",
 	ro => "Zaharuri",
 	bg => "Захари",
-  zh => "糖",
+	zh => "糖",
 },
 sucrose => {
 	fr => 'Saccharose',
@@ -528,7 +528,7 @@ fat => {
 	sk => "Tuky",
 	ro => "Grăsimi",
 	bg => "Мазнини",
-  zh => "脂肪",
+	zh => "脂肪",
 },
 'saturated-fat' => {
 	fr => "Acides gras saturés",
@@ -557,7 +557,7 @@ fat => {
 	sk => "Nasýtené mastné kyseliny",
 	ro => "Acizi grași saturați",
 	bg => "Наситени мастни киселини",
-  zh => "饱和脂肪",
+	zh => "饱和脂肪",
 },
 'butyric-acid' => {
 	en => 'Butyric acid (4:0)',
@@ -831,7 +831,7 @@ fat => {
 	pt_pt => "Ácidos gordos trans",
 	de => "Trans-Fettsäuren",
 	he => "שומן טראנס - שומן בלתי רווי",
-  zh => "反式脂肪",
+	zh => "反式脂肪",
 },
 cholesterol => {
 	fr => "Cholestérol",
@@ -843,7 +843,7 @@ cholesterol => {
 	pt => "Colesterol",
 	de => "Cholesterin",
 	he => "כולסטרול",
-  zh => "胆固醇",
+	zh => "胆固醇",
 },
 fiber => {
 	fr => "Fibres alimentaires",
@@ -869,7 +869,7 @@ fiber => {
 	mt => "Fibra alimentari",
 	sk => "Vláknina",
 	bg => "Влакнини",
-  zh => "膳食纤维",
+	zh => "膳食纤维",
 },
 sodium => {
 	fr => "Sodium",
@@ -880,7 +880,7 @@ sodium => {
 	pt => "Sódio",
 	de => "Natrium",
 	he => "נתרן",
-  zh => "钠",
+	zh => "钠",
 },
 salt => {
 	fr => "Sel",
@@ -905,7 +905,7 @@ salt => {
 	sk => "Soľ",
 	ro => "Sare",
 	bg => "Сол",
-  zh => "食盐",
+	zh => "食盐",
 },
 'salt-equivalent' => {
 	fr => "Equivalent en sel",
@@ -960,7 +960,7 @@ salt => {
 	sk => "Vitamín A",
 	ro => "Vitamina A",
 	bg => "Витамин A",
-  zh => "维生素A",
+	zh => "维生素A",
 },
 'vitamin-d' => {
 	fr => "Vitamine D / D3 (cholécalciférol)",
@@ -985,7 +985,7 @@ salt => {
 	sk => "Vitamín D",
 	ro => "Vitamina D",
 	bg => "Витамин D",
-  zh => "维生素D",
+	zh => "维生素D",
 },
 'vitamin-e' => {
 	fr => "Vitamine E (tocophérol)",
@@ -1010,7 +1010,7 @@ salt => {
 	sk => "Vitamín E",
 	ro => "Vitamina E",
 	bg => "Витамин E",
-  zh => "维生素E",
+	zh => "维生素E",
 },
 'vitamin-k' => {
 	fr => "Vitamine K",
@@ -1035,7 +1035,7 @@ salt => {
 	sk => "Vitamín K",
 	ro => "Vitamina K",
 	bg => "Витамин K",
-  zh => "维生素K",
+	zh => "维生素K",
 },
 'vitamin-c' => {
 	fr => "Vitamine C (acide ascorbique)",
@@ -1060,7 +1060,7 @@ salt => {
 	sk => "Vitamín C",
 	ro => "Vitamina C",
 	bg => "Витамин C",
-  zh => "维生素C(抗坏血酸)",
+	zh => "维生素C(抗坏血酸)",
 },
 'vitamin-b1' => {
 	fr => "Vitamine B1 (Thiamine)",
@@ -1086,7 +1086,7 @@ salt => {
 	sk => "Vitamín B1",
 	ro => "Vitamina B1 (Tiamină)",
 	bg => "Витамин B1 (Тиамин)",
-  zh => "维生素B1(硫胺)",
+	zh => "维生素B1(硫胺)",
 },
 'vitamin-b2' => {
 	fr => "Vitamine B2 (Riboflavine)",
@@ -1111,7 +1111,7 @@ salt => {
 	sk => "Vitamín B2",
 	ro => "Vitamina B2 (Riboflavină)",
 	bg => "Витамин B2 (Рибофлавин)",
-  zh => "维生素B2(核黄素)",
+	zh => "维生素B2(核黄素)",
 },
 'vitamin-pp' => {
 	fr => "Vitamine B3 / Vitamine PP (Niacine)",
@@ -1135,7 +1135,7 @@ salt => {
 	sk => "Niacín",
 	ro => "Niacină",
 	bg => "Ниацин",
-  zh => "维生素B3(烟酸)",
+	zh => "维生素B3(烟酸)",
 },	
 'vitamin-b6' => {
 	fr => "Vitamine B6 (Pyridoxine)",
@@ -1159,7 +1159,7 @@ salt => {
 	sk => "Vitamín B6",
 	ro => "Vitamina B6",
 	bg => "Витамин B6",
-  zh => "维生素B6",
+	zh => "维生素B6",
 },
 'vitamin-b9' => {
 	fr => "Vitamine B9 (Acide folique)",
@@ -1183,7 +1183,7 @@ salt => {
 	sk => "Vitamín B9 (Kyselina listová)",
 	ro => "Vitamina B9 (Acid folic)",
 	bg => "Витамин B9 (Фолиева киселина)",
-  zh => "维生素B9(叶酸)",
+	zh => "维生素B9(叶酸)",
 },
 'vitamin-b12' => {
 	fr => "Vitamine B12 (cobalamine)",
@@ -1207,7 +1207,7 @@ salt => {
 	sk => "Vitamín B12",
 	ro => "Vitamina B12",
 	bg => "Витамин В12",
-  zh => "维生素B12",
+	zh => "维生素B12",
 },
 'biotin' => {
 	fr => "Biotine (Vitamine B8 / B7 / H)",
@@ -1230,7 +1230,7 @@ salt => {
 	sk => "Biotín",
 	ro => "Biotină",
 	bg => "Биотин",
-  zh => "生物素",
+	zh => "生物素",
 },	
 'pantothenic-acid' => {
 	fr => "Acide pantothénique (Vitamine B5)",
@@ -1296,7 +1296,7 @@ potassium => {
 	sk => "Draslík",
 	ro => "Potasiu",
 	bg => "Калий",
-  zh => "钾",
+	zh => "钾",
 },
 bicarbonate => {
 	fr => "Bicarbonate",
@@ -1371,7 +1371,7 @@ calcium => {
 	sk => "Vápnik",
 	ro => "Calciu",
 	bg => "Калций",
-  zh => "鈣",
+	zh => "鈣",
 },
 phosphorus => {
 	fr => "Phosphore",
@@ -1401,7 +1401,7 @@ phosphorus => {
 	sk => "Fosfor",
 	ro => "Fosfor",
 	bg => "Фосфор",
-  zh => "磷",
+	zh => "磷",
 },
 iron => {
 	fr => "Fer",
@@ -1430,7 +1430,7 @@ iron => {
 	sk => "Železo",
 	ro => "Fier",
 	bg => "Желязо",
-  zh => "鐵",
+	zh => "鐵",
 },
 magnesium => {
 	fr => "Magnésium",
@@ -1455,7 +1455,7 @@ magnesium => {
 	sk => "Horčík",
 	ro => "Magneziu",
 	bg => "Магнезий",
-  zh => "鎂",
+	zh => "鎂",
 },
 zinc => {
 	fr => "Zinc",
@@ -1483,7 +1483,7 @@ zinc => {
 	mt => "Żingu",
 	sk => "Zinok",
 	bg => "Цинк",
-  zh => "鋅",
+	zh => "鋅",
 },
 copper => {
 	fr => "Cuivre",
@@ -1595,7 +1595,7 @@ selenium => {
 	sk => "Selén",
 	ro => "Seleniu",
 	bg => "Селен",
-  zh => "硒",
+	zh => "硒",
 },
 chromium => {
 	fr => "Chrome",
