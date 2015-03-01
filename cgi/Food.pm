@@ -71,6 +71,9 @@ sub unit_to_g($$) {
 	my $unit = shift;
 	$unit = lc($unit);
 	
+	$unit eq 'fl. oz' and $unit = 'fl oz';
+	$unit eq 'fl.oz' and $unit = 'fl oz';
+
 	$value =~ s/,/\./;
 	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
 	
@@ -94,7 +97,10 @@ sub g_to_unit($$) {
 	my $value = shift;
 	my $unit = shift;
 	$unit = lc($unit);
-	
+
+	$unit eq 'fl. oz' and $unit = 'fl oz';
+	$unit eq 'fl.oz' and $unit = 'fl oz';
+
 	$value =~ s/,/\./;
 	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
 	
