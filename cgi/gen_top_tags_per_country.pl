@@ -58,6 +58,7 @@ states
 unknown_nutrients
 pnns_groups_2
 pnns_groups_1
+entry_dates
 );
 
 # also generate stats for categories
@@ -140,6 +141,8 @@ my %countries_points = ();
 my %users_points = ();
 
 my $start_t = 1424476800 - 12 * 3600;
+my $end_t = 1424476800 - 12 * 3600 + 10 * 86400;
+
 
 # points by country?
 # points by user?
@@ -185,7 +188,7 @@ while (my $product_ref = $cursor->next) {
 				defined $countries_counts{$country} or $countries_counts{$country} = 0;
 				$countries_counts{$country}++;
 				
-				next if ((not exists $product_ref->{created_t}) or ($product_ref->{created_t} < $start_t));
+				next if ((not exists $product_ref->{created_t}) or ($product_ref->{created_t} < $start_t) or ($product_ref->{created_t} > $end_t));
 				next if ($creator eq 'date-limite-app');
 				next if ($creator eq 'tacite');
 				

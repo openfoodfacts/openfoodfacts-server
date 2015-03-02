@@ -436,24 +436,28 @@ nutrient_levels => {
 	nl => 'voedingswaarde',
 },
 known_nutrients => {
-	en => 'known-nutrients',
+	en => 'known-nutrient',
 	de => 'bekannte-naehrwerte',
-	fr => 'nutriments-connus',
-	es => 'nutrientes-conocidos',
-	pt => 'nutrientes-conhecidos',
+	fr => 'nutriment-connu',
+	es => 'nutriente-conocido',
+	pt => 'nutriente-conhecido',
 	he => 'khomrey-mazon-yeduim',
 	ro => 'nutrienti-cunoscuti',
 	nl => 'gekende-ingredienten',
 },
 unknown_nutrients => {
-	en => 'unknown-nutrients',
+	en => 'unknown-nutrient',
 	de => 'unbekannte-naehrwerte',
-	fr => 'nutriments-inconnus',
-	es => 'nutrientes-desconocidos',
+	fr => 'nutriment-inconnus',
+	es => 'nutriente-desconocido',
 	pt => 'nutriente-desconhecido',
 	he => 'khmorey-mazon-bilti-yeduim',
 	ro => 'nutrienti-necunoscuti',
 	nl => 'onbekende-ingredienten',
+},
+entry_dates => {
+	en => "entry-date",
+	fr => "date-d-ajout",
 },
 );
 
@@ -819,6 +823,10 @@ unknown_nutrients => {
 	he => 'khmorey-mazon-bilti-yeduim',
 	ro => 'nutrienti-necunoscuti',
 	nl => 'onbekende ingredienten',
+},
+entry_dates => {
+	en => "entry-dates",
+	fr => "dates-d-ajout",
 },
 );
 
@@ -4257,6 +4265,16 @@ unknown_nutrients_p => {
 	ro => "nutriente necunoscute",
 	he => "מרכיבים תזונתיים בלתי ידועים",
 	nl => "onbekende voedingsstoffen",
+},
+
+entry_dates_s => {
+	fr => "Date d'ajout",
+	en => "Entry date",
+},
+
+entry_dates_p => {
+	fr => "Dates d'ajout",
+	en => "Entry dates",
 },
 
 nutrient_levels_s => {
