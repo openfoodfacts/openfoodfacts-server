@@ -468,7 +468,12 @@ sub compute_product_history_and_completeness($$) {
 	if (($created_t > (1424476800 - 12 * 3600)) and ($created_t < (1424476800 - 12 * 3600 + 10 * 86400))) {
 		push @{$current_product_ref->{entry_dates_tags}}, "open-food-hunt-2015";
 	}
-	
+
+	my $last_modified_t = $current_product_ref->{last_modified_t};
+	my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($last_modified_t);
+	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
+	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d-%02d", $year + 1900, $mon + 1);
+	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d", $year + 1900);
 
 	# Read all previous versions to see which fields have been added or edited
 	
