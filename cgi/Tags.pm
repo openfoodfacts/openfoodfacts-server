@@ -1011,6 +1011,8 @@ sub build_tags_taxonomy($$) {
 		
 		open (OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.result.txt");
 		
+		my $errors = '';
+		
 		foreach my $lc (keys %{$stopwords{$tagtype}}) {
 			print OUT $stopwords{$tagtype}{$lc . ".orig"};
 		}
@@ -1030,6 +1032,9 @@ sub build_tags_taxonomy($$) {
 					$lc =~ s/^(\w\w):.*/$1/;
 					print OUT "< $lc:" . $translations_to{$tagtype}{$parentid}{$lc} . "\n";
 					print "taxonomy - parentid: $parentid > tagid: $tagid\n";
+					if (not exists $translations_to{$tagtype}{$parentid}{$lc}) {
+						$errors .= "ERROR - parent $parentid is not defined for tag $tagid\n";
+					}
 				}
 				
 			}
@@ -1069,6 +1074,8 @@ sub build_tags_taxonomy($$) {
 		}
 		
 		close OUT;
+		
+		print STDERR $errors;
 		
 		my $taxonomy_ref = {
 			stopwords => $stopwords{$tagtype},
