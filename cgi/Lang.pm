@@ -470,6 +470,15 @@ entry_dates => {
 	en => "entry-date",
 	fr => "date-d-ajout",
 },
+last_edit_dates => {
+	en => "last-edit-date",
+	fr => "date-de-derniere-modification",
+},
+nutrition_grades => {
+	en => "nutrition-grade",
+	fr => "note-nutritionnelle",
+},
+
 );
 
 # Note: a lot of plurals are currently missing below, commented-out are the singulars that need to be changed to plurals
@@ -838,6 +847,14 @@ unknown_nutrients => {
 entry_dates => {
 	en => "entry-dates",
 	fr => "dates-d-ajout",
+},
+last_edit_dates => {
+	en => "last-edit-dates",
+	fr => "dates-de-derniere-modification",
+},
+nutrition_grades => {
+	en => "nutrition-grades",
+	fr => "notes-nutritionnelles",
 },
 );
 
@@ -4286,6 +4303,26 @@ entry_dates_s => {
 entry_dates_p => {
 	fr => "Dates d'ajout",
 	en => "Entry dates",
+},
+
+last_edit_dates_s => {
+	en => "Last edit date",
+	fr => "Date de dernière modification",
+},
+
+last_edit_dates_p => {
+	en => "Last edit dates",
+	fr => "Dates de dernière modification",
+},
+
+nutrition_grades_s => {
+	en => "Nutrition grade",
+	fr => "Note nutritionnelle",
+},
+
+nutrition_grades_p => {
+	en => "Nutrition grades",
+	fr => "Notes nutritionnelles",
 },
 
 nutrient_levels_s => {

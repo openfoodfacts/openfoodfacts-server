@@ -2370,6 +2370,13 @@ COMMENT
 		}
 	}
 	
+	if (exists $product_ref->{"nutrition_grade_fr"}) {
+		$product_ref->{"nutrition_grades_tags"} = [$product_ref->{"nutrition_grade_fr"}];
+	}
+	else {
+		$product_ref->{"nutrition_grades_tags"} = [ "en:unknown" ];
+	}
+	
 	
 }
 

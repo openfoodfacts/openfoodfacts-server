@@ -769,6 +769,15 @@ sub display_list_of_tags($$) {
 			{ "\$sort" => { "count" => -1 }}
 			];
 	}
+
+	if ($groupby_tagtype eq 'nutrition_grades') {
+		$aggregate_parameters = [
+			{ "\$match" => $query_ref },
+			{ "\$unwind" => ("\$" . $groupby_tagtype . "_tags")},
+			{ "\$group" => { "_id" => ("\$" . $groupby_tagtype . "_tags"), "count" => { "\$sum" => 1 }}},
+			{ "\$sort" => { "_id" => 1 }}
+			];
+	}	
 	
 	if ($admin) {
 		use Data::Dumper;
@@ -953,17 +962,19 @@ sub display_list_of_tags($$) {
 			
 			my $display = '';
 			
-			if (defined $taxonomy_fields{$tagtype}) {
-			
-				$display = display_taxonomy_tag($lc,$tagtype,$tagid);
-				$html .= "<a href=\"$product_link\"$info$nofollow>" . $display . "</a></td>";
-				 			 
+			if (($tagtype eq 'nutrition_grades') and ($tagid =~ /^a|b|c|d|e$/)) {
+				my $grade = $tagid;
+				$display = "<img src=\"/images/misc/$grade.338x72.png\" alt=\"Note nutritionnelle : " . uc($grade) . "\" style=\"margin-bottom:10px;max-width:100%\" />" ;
+			}
+			elsif (defined $taxonomy_fields{$tagtype}) {
+				$display = display_taxonomy_tag($lc,$tagtype,$tagid);				 			 
 			}
 			else {
-				$html .= "<a href=\"$product_link\"$info$nofollow>" . canonicalize_tag2($tagtype, $tagid) . "</a></td>";
+				$display = canonicalize_tag2($tagtype, $tagid);
 			}
 			
-			$html .= "\n<td style=\"text-align:right\">$products</td>" . $td_nutriments . $extra_td . "</tr>\n";
+			$html .= "<a href=\"$product_link\"$info$nofollow>" . $display . "</a>";
+			$html .= "</td>\n<td style=\"text-align:right\">$products</td>" . $td_nutriments . $extra_td . "</tr>\n";
 			
 			# Maps for countries (and origins)
 			
