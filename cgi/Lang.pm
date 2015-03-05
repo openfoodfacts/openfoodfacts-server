@@ -89,6 +89,7 @@ zh => 'zh',
 'fi'=>'Suomi',
 'fr'=>'Français',
 'he'=>'עברית',
+'ja'=>'日本語',
 'nl'=>'Nederlands',
 'ru'=>'Русский',
 'pl'=>'Polski',
@@ -931,6 +932,10 @@ lang_it => {
 	ro => 'Italiană',
 	he => 'איטלקית',
 	nl => 'Italiaans',
+},
+
+lang_ja => {
+	ja => '日本語',
 },
 
 lang_nl => {
