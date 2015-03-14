@@ -62,8 +62,8 @@ if (defined param('jqm_loadmore')) {
 	$request_ref->{jqm_loadmore} = param('jqm_loadmore');
 }
 
-my @search_fields = qw(brands categories packaging labels origins emb_codes purchase_places stores additives allergens traces states );
-my %search_tags_fields =  (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, emb_codes => 1, allergens=> 1, traces => 1, purchase_places => 1, stores => 1, additives => 1, states=>1);
+my @search_fields = qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries additives allergens traces nutrition_grades states );
+my %search_tags_fields =  (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes => 1, allergens=> 1, traces => 1, nutrition_grades => 1, purchase_places => 1, stores => 1, countries => 1, additives => 1, states=>1);
 
 my @search_ingredient_classes = ('additives', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil', 'ingredients_from_or_that_may_be_from_palm_oil');
 
@@ -168,7 +168,7 @@ foreach my $field (@search_fields) {
 	}
 }
 
-foreach my $series (@search_series) {
+foreach my $series (@search_series, "nutrition_grades") {
 
 	$graph_ref->{"series_$series"} = remove_tags_and_quote(decode utf8=>param("series_$series"));
 	if ($graph_ref->{"series_$series"} ne 'on') {
@@ -310,7 +310,7 @@ HTML
 	
 	$html .= "<p>" . lang("search_series") . "</p>";
 	
-	foreach my $series (@search_series) {
+	foreach my $series (@search_series, "nutrition_grades") {
 
 		next if $series eq 'default';
 		my $checked = '';
@@ -325,6 +325,8 @@ HTML
 ;	
 	
 	}
+
+	
 	
 	$html .= submit(-name=>'graph', -label=>lang("search_generate_graph"), -class=>"jbutton");	
 	
@@ -557,7 +559,7 @@ elsif ($action eq 'process') {
 		$current_link .= "\&map_title=" . URI::Escape::XS::encodeURIComponent(decode utf8=>param("map_title"));
 	}
 		
-	foreach my $series (@search_series) {
+	foreach my $series (@search_series, "nutrition_grades") {
 
 		next if $series eq 'default';
 		if ($graph_ref->{"series_$series"}) {

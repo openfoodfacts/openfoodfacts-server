@@ -564,7 +564,8 @@ sub display_text($)
 		$short_l = $`,  # pt_pt
 	}
 	
-	if (($textid eq 'index') and (! -e "$data_root/lang/$lang/texts/$textid.html") and (! -e "$data_root/lang/$short_l/texts/$textid.html")) {
+	if (($textid eq 'index') and (! -e "$data_root/lang/$lang/texts/$textid.html") and (! -e "$data_root/lang/$lang/texts/$textid.$lang.html")
+		and (! -e "$data_root/lang/$short_l/texts/$textid.html")) {
 		$text_lang = 'en';
 	}
 	
@@ -572,6 +573,9 @@ sub display_text($)
 	if ((! -e $file) and (defined $short_l)) {
 		$file = "$data_root/lang/$short_l/texts/$textid.html";
 	}
+	if ((! -e $file) and (-e "$data_root/lang/$lang/texts/$textid.$lang.html")) {
+		$file = "$data_root/lang/$lang/texts/$textid.$lang.html";
+	}	
 	
 	#list?
 	if (-e "$data_root/lists/$textid.$cc.$lc.html") {
@@ -898,6 +902,7 @@ sub display_list_of_tags($$) {
 				print STDERR "main_link: $main_link - canonicalize_taxonomy_tag_link\n";
 			}
 			else {
+				print STDERR "canonicalie_tag_link - tagtype: " . $request_ref->{tagtype} . " - tagid: " . $request_ref->{tagid} . "\n";
 				$main_link = canonicalize_tag_link($request_ref->{tagtype}, $request_ref->{tagid});
 				print STDERR "main_link: $main_link - canonicalize_tag2\n";				
 			}
@@ -930,7 +935,13 @@ sub display_list_of_tags($$) {
 				}
 			}
 			
-			my $link = canonicalize_tag_link($tagtype, $tagid);
+			my $link;
+			if (defined $taxonomy_fields{$tagtype}) {
+				$link = canonicalize_taxonomy_tag_link($lc, $tagtype, $tagid);
+			}
+			else {
+				$link = canonicalize_tag_link($tagtype, $tagid);
+			}
 			
 			my $info = '';
 			my $extra_td = '';
@@ -962,9 +973,14 @@ sub display_list_of_tags($$) {
 			
 			my $display = '';
 			
-			if (($tagtype eq 'nutrition_grades') and ($tagid =~ /^a|b|c|d|e$/)) {
-				my $grade = $tagid;
-				$display = "<img src=\"/images/misc/$grade.338x72.png\" alt=\"Note nutritionnelle : " . uc($grade) . "\" style=\"margin-bottom:10px;max-width:100%\" />" ;
+			if ($tagtype eq 'nutrition_grades') {
+				if ($tagid =~ /^a|b|c|d|e$/) {
+					my $grade = $tagid;
+					$display = "<img src=\"/images/misc/$grade.338x72.png\" alt=\"Note nutritionnelle : " . uc($grade) . "\" style=\"margin-bottom:10px;max-width:100%\" />" ;
+				}
+				else {
+					$display = lang("unknown");
+				}
 			}
 			elsif (defined $taxonomy_fields{$tagtype}) {
 				$display = display_taxonomy_tag($lc,$tagtype,$tagid);				 			 
@@ -2440,6 +2456,15 @@ with_sweeteners => { r => 0, g => 204, b => 255},
 );
 
 
+my %nutrition_grades_colors  = (
+a => { r => 0, g => 255, b => 0},
+b => { r => 255, g => 255, b => 0},
+c => { r => 255, g => 102, b => 0},
+d => { r => 255, g => 1, b => 128},
+e => { r => 255, g => 0, b => 0},
+unknown => { r => 128, g=> 128, b=>128},
+);
+
 
 
 
@@ -2506,26 +2531,38 @@ sub display_scatter_plot($$$) {
 				# order: organic, organic+fairtrade, organic+fairtrade+sweeteners, organic+sweeteners, fairtrade, fairtrade + sweeteners
 				#
 				
-				foreach my $series (@search_series) {
-					# Label?
-					if ($graph_ref->{"series_$series"}) {
-						if (defined lang("search_series_${series}_label")) {
-							if (has_tag($product_ref, "labels", 'en:' . lc($Lang{"search_series_${series}_label"}{en}))) {
-								$seriesid += $s;
+				# Colors for nutrition grades
+				if ($graph_ref->{"series_nutrition_grades"}) {
+					if (defined $product_ref->{"nutrition_grade_fr"}) {
+						$seriesid = $product_ref->{"nutrition_grade_fr"};
+					}
+					else {
+						$seriesid = 'unknown',
+					}
+				}
+				else {
+				# Colors for labels and labels combinations
+					foreach my $series (@search_series) {
+						# Label?
+						if ($graph_ref->{"series_$series"}) {
+							if (defined lang("search_series_${series}_label")) {
+								if (has_tag($product_ref, "labels", 'en:' . lc($Lang{"search_series_${series}_label"}{en}))) {
+									$seriesid += $s;
+								}
+								else {
+								}
 							}
-							else {
+							
+							if ($product_ref->{$series}) {
+								$seriesid += $s;
 							}
 						}
 						
-						if ($product_ref->{$series}) {
+						if (($series eq 'default') and ($seriesid == 0)) {
 							$seriesid += $s;
 						}
+						$s = $s / 10;
 					}
-					
-					if (($series eq 'default') and ($seriesid == 0)) {
-						$seriesid += $s;
-					}
-					$s = $s / 10;
 				}
 				
 				defined $series{$seriesid} or $series{$seriesid} = '';
@@ -2562,47 +2599,84 @@ sub display_scatter_plot($$$) {
 		}	
 		
 		my $series_data = '';
+		my $legend_title = '';
 		
-		foreach my $seriesid (sort {$b <=> $a} keys %series) {
-			$series{$seriesid} =~ s/,\n$//;
-			
-			# Compute the name and color
-			
-			my $remainingseriesid = $seriesid;
-			my $matching_series = 0;
-			my ($r, $g, $b) = (0, 0, 0);
-			my $title = '';
-			my $s = 1000000;
-			foreach my $series (@search_series) {
-				
-				if ($remainingseriesid >= $s) {
-					$title ne '' and $title .= ', ';
-					$title .= lang("search_series_${series}");
-					$r += $search_series_colors{$series}{r};
-					$g += $search_series_colors{$series}{g};
-					$b += $search_series_colors{$series}{b};
-					$matching_series++;
-					$remainingseriesid -= $s;
-				}
-			
-				$s = $s / 10;
-			}		
-			
-			print STDERR "search_and_graph - seriesid: $seriesid - matching_series: $matching_series - s: $s - remainingseriesid: $remainingseriesid - title: $title \n";
-
-			$r = int ($r / $matching_series);
-			$g = int ($g / $matching_series);
-			$b = int ($b / $matching_series);
-			
-			$series_data .= <<JS
-			{
-                name: '$title : $series_n{$seriesid} $Lang{products_p}{$lc}',
-                color: 'rgba($r, $g, $b, .9)',
-				turboThreshold : 0,
-                data: [ $series{$seriesid} ]
-            },
+		# Colors for nutrition grades
+		if ($graph_ref->{"series_nutrition_grades"}) {
+		
+			my $title_text = lang("nutrition_grades_p");
+			$legend_title = <<JS
+title: {
+style: {"text-align" : "center"},
+text: "$title_text"
+},
 JS
 ;
+		
+			foreach my $nutrition_grade ('a','b','c','d','e','unknown') {
+				my $title = uc($nutrition_grade);
+				if ($nutrition_grade eq 'unknown') {
+					$title = ucfirst(lang("unknown"));
+				}
+				my $r = $nutrition_grades_colors{$nutrition_grade}{r};
+				my $g = $nutrition_grades_colors{$nutrition_grade}{g};
+				my $b = $nutrition_grades_colors{$nutrition_grade}{b};
+				my $seriesid = $nutrition_grade;
+				$series_data .= <<JS				
+{
+	name: '$title : $series_n{$seriesid} $Lang{products_p}{$lc}',
+	color: 'rgba($r, $g, $b, .9)',
+	turboThreshold : 0,
+	data: [ $series{$seriesid} ]
+},
+JS
+;				
+			}
+		
+		}
+		else {
+			# Colors for labels and labels combinations
+			foreach my $seriesid (sort {$b <=> $a} keys %series) {
+				$series{$seriesid} =~ s/,\n$//;
+				
+				# Compute the name and color
+				
+				my $remainingseriesid = $seriesid;
+				my $matching_series = 0;
+				my ($r, $g, $b) = (0, 0, 0);
+				my $title = '';
+				my $s = 1000000;
+				foreach my $series (@search_series) {
+					
+					if ($remainingseriesid >= $s) {
+						$title ne '' and $title .= ', ';
+						$title .= lang("search_series_${series}");
+						$r += $search_series_colors{$series}{r};
+						$g += $search_series_colors{$series}{g};
+						$b += $search_series_colors{$series}{b};
+						$matching_series++;
+						$remainingseriesid -= $s;
+					}
+				
+					$s = $s / 10;
+				}		
+				
+				print STDERR "search_and_graph - seriesid: $seriesid - matching_series: $matching_series - s: $s - remainingseriesid: $remainingseriesid - title: $title \n";
+
+				$r = int ($r / $matching_series);
+				$g = int ($g / $matching_series);
+				$b = int ($b / $matching_series);
+				
+				$series_data .= <<JS
+{
+	name: '$title : $series_n{$seriesid} $Lang{products_p}{$lc}',
+	color: 'rgba($r, $g, $b, .9)',
+	turboThreshold : 0,
+	data: [ $series{$seriesid} ]
+},
+JS
+;
+			}
 		}
 		$series_data =~ s/,\n$//;
 		
@@ -2619,6 +2693,7 @@ JS
                 zoomType: 'xy'
             },
 			legend: {
+				$legend_title
 				enabled: $legend_enabled
 			},
             title: {
@@ -4554,11 +4629,8 @@ CSS
 		$brandid =~ s/,.*//;	# take the first brand
 		$brandid = get_fileid($brandid);
 		if ($titleid !~ /$brandid/) {
-			if ($titleid ne '') {
+			if ($brandid ne '') {
 				$titleid .= '-' . $brandid;
-			}
-			else {
-				$titleid = $brandid;
 			}
 		}
 	}	
@@ -4665,7 +4737,7 @@ HTML
 				my $link;
 			
 				# taxonomy field?
-				if ($tagid =~ /:/) {
+				if (defined $taxonomy_fields{$class}) {
 					$tag = display_taxonomy_tag($lc, $class, $tagid);		
 					$link = canonicalize_taxonomy_tag_link($lc, $class, $tagid);				
 				}
