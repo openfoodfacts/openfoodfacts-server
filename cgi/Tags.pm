@@ -28,7 +28,6 @@ BEGIN
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 
-					&canonicalize_tag
 					&canonicalize_tag2
 					&canonicalize_tag_link
 					
@@ -43,6 +42,7 @@ BEGIN
 					%levels
 					
 					&get_taxonomyid
+					&get_taxonomyurl
 					
 					&gen_tags_hierarchy
 					&gen_tags_hierarchy_taxonomy
@@ -87,8 +87,6 @@ use vars @EXPORT_OK ;
 use strict;
 use utf8;
 
-use Text::Unaccent "unac_string";
-
 use Blogs::Store qw/:all/;
 use Blogs::Config qw/:all/;
 use Blogs::TagsEntries qw/:all/;
@@ -96,16 +94,12 @@ use Blogs::Food qw/:all/;
 use Blogs::Lang qw/:all/;
 use Clone qw(clone);
 
+use URI::Escape::XS;
+
 use GraphViz2;
 
+
 my $debug = 0;
-
-
-
-#use POSIX qw(locale_h);
-#use locale;
-#setlocale(LC_CTYPE, "fr_FR");   # May need to be changed depending on system
-# -> setting a locale makes unac_string fail to unaccent... :-(
 
 
 %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes => 1, allergens => 1, traces => 1, purchase_places => 1, stores => 1, countries => 1, states=>1);
@@ -123,8 +117,11 @@ ingredients
 additives
 allergens
 traces
+nutrition_grades
 users
 states
+entry_dates
+last_edit_dates
 );
 
 %canon_tags = ();
@@ -634,7 +631,7 @@ sub build_tags_taxonomy($$) {
 				$synonyms_for{$tagtype}{$lc}{$current_tagid} = [];
 				
 				foreach my $tag (@tags) {
-					my $tagid = get_fileid_punycode($tag);
+					my $tagid = get_fileid($tag);
 					next if $tagid eq '';		
 							
 					if (defined $synonyms{$tagtype}{$lc}{$tagid}) {
@@ -1215,8 +1212,8 @@ foreach my $language (keys %Langs) {
 	my $country_options = '';
 	my $first_option = '';
 	
-	foreach my $country (sort {($translations_to{countries}{$a}{$language} || $translations_to{countries}{$a}{'en'} )
-		cmp ($translations_to{countries}{$b}{$language} || $translations_to{countries}{$b}{'en'})}
+	foreach my $country (sort {(get_fileid($translations_to{countries}{$a}{$language}) || get_fileid($translations_to{countries}{$a}{'en'}) )
+		cmp (get_fileid($translations_to{countries}{$b}{$language}) || get_fileid($translations_to{countries}{$b}{'en'}))}
 			keys %{$properties{countries}}
 		) {
 		
@@ -1339,10 +1336,11 @@ sub display_tag_link($$) {
 	my $tag = shift;
 	$tag = canonicalize_tag2($tagtype, $tag);
 	my $tagid = get_fileid($tag);
+	my $tagurl = get_urlid($tagid);
 	
 	my $path = $tag_type_singular{$tagtype}{$lc};
 	
-	my $html = "<a href=\"/$path/$tagid\">$tag</a>";
+	my $html = "<a href=\"/$path/$tagurl\">$tag</a>";
 	
 	if ($tagtype eq 'emb_codes') {
 	
@@ -1362,12 +1360,14 @@ sub canonicalize_taxonomy_tag_link($$$) {
 	my $tagtype = shift;
 	my $tag = shift;
 	$tag = display_taxonomy_tag($target_lc,$tagtype, $tag);
-	my $tagid = get_taxonomyid($tag);
+	my $tagurl = get_taxonomyurl($tag);
 	
 	my $path = $tag_type_singular{$tagtype}{$target_lc};
 	
-	return "/$path/$tagid";
+	return "/$path/$tagurl";
 }
+
+
 
 sub canonicalize_taxonomy_2tag_link($$$$$) {
 	my $target_lc = shift; $target_lc =~ s/_.*//;
@@ -1377,14 +1377,14 @@ sub canonicalize_taxonomy_2tag_link($$$$$) {
 	my $tag2 = shift;	
 	
 	$tag = display_taxonomy_tag($target_lc,$tagtype, $tag);
-	my $tagid = get_taxonomyid($tag);
+	my $tagurl = get_taxonomyurl($tag);
 	my $path = $tag_type_singular{$tagtype}{$target_lc};
 	
 	$tag2 = display_taxonomy_tag($target_lc,$tagtype2, $tag2);
-	my $tagid2 = get_taxonomyid($tag2);
+	my $tagurl2 = get_taxonomyurl($tag2);
 	my $path2 = $tag_type_singular{$tagtype2}{$target_lc};	
 	
-	return "/$path/$tagid/$path2/$tagid2";
+	return "/$path/$tagurl/$path2/$tagurl2";
 }
 
 
@@ -1395,10 +1395,11 @@ sub display_taxonomy_tag_link($$$) {
 	my $tag = shift;
 	$tag = display_taxonomy_tag($target_lc,$tagtype, $tag);
 	my $tagid = get_taxonomyid($tag);
+	my $tagurl = get_taxonomyurl($tagid);
 	
 	my $path = $tag_type_singular{$tagtype}{$target_lc};
 	
-	my $html = "<a href=\"/$path/$tagid\">$tag</a>";
+	my $html = "<a href=\"/$path/$tagurl\">$tag</a>";
 	
 	if ($tagtype eq 'emb_codes') {
 	
@@ -1641,27 +1642,6 @@ sub capitalize_tag($)
 }
 
 
-sub canonicalize_tag($)
-{
-	my $tag = shift;
-	$tag = lc($tag);
-	my $canon_tag = $tag;
-	$canon_tag =~ s/([_\.\/\\'\%\!\?\"\#\@\*\$\:\;\+]|\s)+/ /g;	# - and ' might be added back
-	$canon_tag =~ s/^ //g;
-	$canon_tag =~ s/ $//g;
-	
-	if (defined $canon_tags{$canon_tag}) {
-		$tag = $canon_tags{$canon_tag};
-	}
-	else {
-		$tag = capitalize_tag($canon_tag);		
-		$tag =~ s/\b(saint|st) (\w)/&canonicalize_saint($2)/eig;
-	}
-	
-	# print STDERR "canonicalize_tag: $canon_tag - $tag - " . $canon_tags{$canon_tag} . "\n";
-	
-	return $tag;
-}
 
 
 sub canonicalize_tag2($$)
@@ -1743,6 +1723,17 @@ sub get_taxonomyid($) {
 	}
 	else {
 		return get_fileid($tagid);
+	}
+}
+
+sub get_taxonomyurl($) {
+
+	my $tagid = shift;
+	if ($tagid =~ /^(\w\w):/) {
+		return lc($1) . ':' . get_urlid($');
+	}
+	else {
+		return get_urlid($tagid);
 	}
 }
 
@@ -1891,29 +1882,10 @@ sub canonicalize_tag_link($$)
 	my $tagid = shift;
 	
 	if (defined $taxonomy_fields{$tagtype}) {
-		my $display = display_taxonomy_tag($lc, $tagtype, $tagid);
-		my $tag_lc = $lc;
-		if ($display =~ /^(\w\w):/) {
-			$tag_lc = $1;
-			$display = $';
-		}
-		$tagid = get_fileid($display);
-		if ($tag_lc ne $lc) {
-			$tagid = $tag_lc . ":" . $tagid;
-		}
+		die "ERROR: canonicalize_tag_link called for a taxonomy tagtype: $tagtype - tagid: $tagid - $!";
 	}
 	
 	my $tag_lc = $lc;
-	
-	if ($tagtype eq 'additives') {
-	
-		my $other_name = $ingredients_classes{$tagtype}{$tagid}{other_names};
-		$other_name =~ s/,.*//;
-		if ($other_name ne '') {
-			$other_name = " - " . $other_name;
-		}
-		$tagid = get_fileid($tagid . $other_name);
-	}
 	
 	if ($tagtype eq 'missions') {
 		if ($tagid =~ /\./) {
@@ -1935,7 +1907,8 @@ sub canonicalize_tag_link($$)
 		$path = $tag_type_singular{$tagtype}{en};
 	}
 	
-	my $link = "/$path/$tagid";
+	
+	my $link = "/$path/" . URI::Escape::XS::encodeURIComponent($tagid);
 	
 	#if ($tag_lc ne $lc) {
 	#	my $test = '';
