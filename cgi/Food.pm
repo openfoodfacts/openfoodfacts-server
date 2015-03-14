@@ -2122,6 +2122,7 @@ sub compute_nutrition_score($) {
 	# compute the score only if all values are known
 	foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "fiber", "proteins") {
 		if (not defined $product_ref->{nutriments}{$nid . "_100g"}) {
+			$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
 			$product_ref->{nutrition_score_debug} = "missing $nid";
 			return;
 		}
@@ -2370,14 +2371,8 @@ COMMENT
 		}
 	}
 	
-	if (exists $product_ref->{"nutrition_grade_fr"}) {
-		$product_ref->{"nutrition_grades_tags"} = [$product_ref->{"nutrition_grade_fr"}];
-	}
-	else {
-		$product_ref->{"nutrition_grades_tags"} = [ "en:unknown" ];
-	}
-	
-	
+	$product_ref->{"nutrition_grades_tags"} = [$product_ref->{"nutrition_grade_fr"}];
+
 }
 
 
