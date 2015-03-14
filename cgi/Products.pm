@@ -680,17 +680,14 @@ sub product_url($) {
 	
 	my $titleid = '';
 	if ((defined $ref) and (defined $ref->{product_name}) and ($ref->{product_name} ne '')) {
-		$titleid = get_fileid($ref->{product_name});
+		$titleid = get_urlid($ref->{product_name});
 		if (defined $ref->{brands}) {
 			my $brandid = $ref->{brands};
 			$brandid =~ s/,.*//;	# take the first brand
-			$brandid = get_fileid($brandid);
+			$brandid = get_urlid($brandid);
 			if ($titleid !~ /$brandid/) {
-				if ($titleid ne '') {
+				if ($brandid ne '') {
 					$titleid .= '-' . $brandid;
-				}
-				else {
-					$titleid = $brandid;
 				}
 			}
 		}
@@ -724,6 +721,9 @@ sub index_product($)
 	
 	foreach my $field (@string_fields, @tag_fields) {
 		foreach my $tag (split(/,|'|\s/, $product_ref->{$field} )) {
+			if (($field eq 'categories') or ($field eq 'labels') or ($field eq 'origins')) {
+				$tag =~ s/^\w\w://;
+			}
 			if (length(get_fileid($tag)) >= 2) {
 				$keywords{normalize_search_terms(get_fileid($tag))} = 1;
 			}

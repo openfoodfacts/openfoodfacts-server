@@ -27,6 +27,8 @@ BEGIN
 	@ISA = qw(Exporter);
 	@EXPORT = qw();
 	@EXPORT_OK = qw(
+		&get_tagid
+		&get_urlid
 		&get_fileid
 		&get_fileid_punycode
 		&store
@@ -42,77 +44,74 @@ use Storable qw(lock_store lock_nstore lock_retrieve);
 use Text::Unaccent "unac_string";
 use Encode;
 use Encode::Punycode;
+use URI::Escape::XS;
 
-sub get_fileid($)
-{
-	my $file = shift; # canon_blog or canon_tag
-	
-	#print STDERR "get_fileid : $file - 1 \n";
-	
-	# !!! commenting line below, because of possible double decoding
-	#$file = decode("utf8",$file);
-	
-	#utf8::upgrade($file);
-	
-	#print STDERR "get_fileid : $file - 2 \n";
+# Tags in European characters (iso-8859-1 / Latin-1 / Windows-1252) are canonicalized:
+# 1. deaccent: é -> è, + German umlauts: ä -> ae
+# 2. lowercase
+# 3. turn ascii characters that are not letters / numbers to -
+# 4. keep other UTF-8 characters (e.g. Chinese, Japanese, Korean, Arabic, Hebrew etc.) untouched
+# 5. remove leading and trailing -, turn multiple - to -
+
+sub get_fileid($) {
+
+	my $file = shift;
 	
 	$file =~ s/œ|Œ/oe/g;
 	$file =~ s/æ|Æ/ae/g;
 	
 	$file =~ s/ß/ss/g;
 	
-	$file = lc($file);
-	$file = unac_string('UTF-8',$file);
-	#$file = unac_string_stephane($file);
+	$file =~ s/ç/c/g;
+	$file =~ s/ñ/n/g;
 	
-	#print STDERR "get_fileid : $file - 3 \n";
-
-	$file =~ s/[^a-zA-Z0-9-]/-/g;
+	$file = lc($file);
+	
+	$file = decode("UTF-16", unac_string('UTF-16',encode("UTF-16", $file)));
+	
+	# turn characters that are not letters and numbers to -
+	# except extended UTF-8 characters
+	# $file =~ s/[^a-z0-9-]/-/g;
+	$file =~ s/[ !"#\$%&'()*+,.\/:;<=>?@\[\\\]^_`{\|}~¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿×ˆ˜–—‘’‚“”„†‡•…‰‹›€™\t]/-/g;
 	$file =~ s/-+/-/g;
 	$file =~ s/^-//;
 	$file =~ s/-$//;
 	
-	#print STDERR "get_fileid : $file \n";
-	
 	return $file;	
 }
 
-sub get_fileid_punycode($)
-{
-	my $file = shift; # canon_blog or canon_tag
+
+sub get_urlid($) {
+
+	my $file = shift;
 	
-	#print STDERR "get_fileid : $file - 1 \n";
+	$file = get_fileid($file);
 	
-	# !!! commenting line below, because of possible double decoding
-	#$file = decode("utf8",$file);
+	if ($file =~ /[^a-zA-Z0-9-]/) {
+		$file = URI::Escape::XS::encodeURIComponent($file);
+	}
+	print STDERR "get_urlid : $file \n";
 	
-	#utf8::upgrade($file);
+	return $file;
+}
+
+
+sub get_ascii_fileid($) {
+
+	my $file = shift;
 	
-	#print STDERR "get_fileid : $file - 2 \n";
-	
-	$file =~ s/œ|Œ/oe/g;
-	$file =~ s/æ|Æ/ae/g;	
-	
-	$file = lc($file);
-	$file = unac_string('UTF-8',$file);
-	#$file = unac_string_stephane($file);
-	
-	#print STDERR "get_fileid : $file - 3 \n";
-	
-	$file =~ s/([_\.\/\\'\%\!\?\"\#\@\*\$\:\;\+]|\s)+/-/g;
-	$file =~ s/-+/-/g;
-	$file =~ s/^-//;
-	$file =~ s/-$//;	
-	
-	if ($file =~/[^a-zA-Z0-9-]/) {
+	$file = get_fileid($file);
+
+	if ($file =~ /[^a-zA-Z0-9-]/) {
 		$file = "xn--" .  encode('Punycode',$file);
 	}
-
 	
-	#print STDERR "get_fileid : $file \n";
+	print STDERR "get_ascii_fileid : $file \n";
 	
 	return $file;	
 }
+
+
 
 sub store {
 	my $file = shift @_;
@@ -138,5 +137,24 @@ sub retrieve {
 
 	return $return;
 }
+
+
+my @tests = ("Bonjour !", "Café Olé! 3€ -10%", "No hablo Español, señor", "สำนักงานคณะกรรมการกลางอิสลามแห่งประเทศไทย, คณะกรรมการกลางอิสลามแห่งประเทศไทย", "예네버르", "ラム酒", "DLG Jährlich Prämiert", "fr:Bœuf");
+
+open (OUT, ">:encoding(UTF-8)", "Store.debug.txt");
+
+
+use Unicode::Normalize;
+
+foreach my $test (@tests) {
+	print OUT "0. test string: $test\n";
+	print OUT "1. get_fileid: " . get_fileid($test) . "\n";
+	print OUT "2. get_urlid: " . get_urlid($test) . "\n";
+	print OUT "3. get_ascii_fileid: " . get_ascii_fileid($test) . "\n\n";
+	my $str = Unicode::Normalize::NFKD($test);
+	print OUT "5. nfkd: $str\n";
+}
+
+close(OUT);
 
 1;

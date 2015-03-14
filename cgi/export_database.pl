@@ -292,7 +292,7 @@ XML
 					push @comparisons, {
 						id => $cid,
 						name => canonicalize_tag2('categories', $cid),
-						link => canonicalize_tag_link('categories', $cid),
+						link => canonicalize_taxonomy_tag_link($lc,'categories', $cid),
 						nutriments => compare_nutriments($product_ref, $categories_nutriments_ref->{$cid}),
 						count => $categories_nutriments_ref->{$cid}{count},
 						n => $categories_nutriments_ref->{$cid}{n},

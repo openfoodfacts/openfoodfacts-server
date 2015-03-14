@@ -540,7 +540,6 @@ JS
 		
 		foreach my $tagid (@tags) {
 			
-			my $link;
 			my $products = $countries_tags{$country}{$tagtype}{$tagid};
 			if ($products == 0) {
 				$products = "";
@@ -560,8 +559,6 @@ JS
 					$td_nutriments .= "<td style=\"text-align:center\">*</td>";
 				}
 			}
-			
-			my $link = canonicalize_tag_link($tagtype, $tagid);
 			
 			my $info = '';
 			my $extra_td = '';
@@ -588,7 +585,7 @@ JS
 				$js .= "\n\"" . display_taxonomy_tag($lc,$tagtype, $tagid) . "\",";
 			}
 			else {
-			
+				my $link = canonicalize_tag_link($tagtype, $tagid);
 				$html .= "<tr><td><a href=\"$link\"$info>" . canonicalize_tag2($tagtype, $tagid) . "</a></td><td style=\"text-align:right\">$products</td>" . $td_nutriments . $extra_td . "</tr>\n";
 			$js .= "\n\"" . canonicalize_tag2($tagtype, $tagid) . "\",";
 			}

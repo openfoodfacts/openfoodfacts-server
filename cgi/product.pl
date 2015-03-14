@@ -553,7 +553,11 @@ HTML
 	push @lang_values, "other";
 	my %lang_labels = ();
 	foreach my $l (@lang_values) {
+		next if (length($l) > 2);
 		$lang_labels{$l} = lang("lang_$l");
+		if ($lang_labels{$l} eq '') {
+			$lang_labels{$l} = $l;
+		}
 	}
 	my $lang_value = $lang;
 	if (defined $product_ref->{lang}) {
