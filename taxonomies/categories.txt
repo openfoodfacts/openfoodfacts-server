@@ -3,12 +3,14 @@ stopwords:fr:aux,au,de,le,du,la,a,et,avec,base
 synonyms:en:flavoured, flavored
 
 en:Artisan products
+es:Productos artesanales, Productos artesanos
 fr:Produits artisanaux
 
 <en:Artisan products
 fr:Gressins artisanaux
 
 en:Baby foods
+es:Alimentos infantiles, Alimentos para bebés, Alimentos para lactantes, Alimentos para niños de corta edad
 fr:Aliments pour bébé, aliment pour bébé, alimentation pour bébé, aliment bébé, alimentation bébé, aliments bébé
 wikidata:en:Q797971
 
@@ -16,13 +18,13 @@ wikidata:en:Q797971
 fr:Céréales pour bébé, céréales bébé
 
 <en:Baby foods
-fr:Dès 04 mois, Dès 4 mois
+fr:Dès 4 mois, Dès 04 mois
 
 <en:Baby foods
-fr:Dès 06 mois, Dès 6 mois
+fr:Dès 6 mois, Dès 06 mois
 
 <en:Baby foods
-fr:Dès 08 mois, Dès 8 mois
+fr:Dès 8 mois, Dès 08 mois
 
 <en:Baby foods
 fr:Dès 10 mois
@@ -91,6 +93,7 @@ fr:Petits pots pour bébé, petits pots bébé, petit pot bébé, petits pots po
 fr:Potages pour bébé
 
 en:Bee products, products from bees, Products of the hive, Hive products
+es:Productos apícolas, Productos de la abeja
 fr:Produits de la ruche
 wikidata_category:en:Q7189914
 
@@ -228,6 +231,7 @@ fr:Bourbons, whiskeys
 es:Bourbons
 
 <en:Whisky
+en:Belgian Whisky
 fr:Whisky belge
 
 <en:Whisky
@@ -249,12 +253,15 @@ fr:Whisky français
 wikipediacategory:en:Q15975338
 
 <fr:Whisky français
+en:Alsatian whiskey
 fr:Whisky alsacien
 
 <fr:Whisky français
+en:Breton whiskey
 fr:Whisky breton
 
 <fr:Whisky français
+en:Corsican whiskey
 fr:Whisky corse
 
 <fr:Whisky français
@@ -264,13 +271,16 @@ fr:Whisky lorrain
 fr:Whisky normand
 
 <en:Whisky
+en:Welsh Whisky
 fr:Whisky gallois
 
 <en:Whisky
+en:Irish whiskey
 fr:Whisky irlandais
 es:Whiskies irlandeses
 
 <en:Whisky
+en:Japanese whiskey
 fr:Whisky japonais
 wikidata:en:Q901367
 
@@ -313,6 +323,19 @@ fr:Thibarine
 
 <fr:Eaux-de-vie
 fr:Genièvre
+en:Jenever
+de:Genever
+eo:Juniperbrando
+fi:Geneveri
+hu:Jenever
+it:Jenever
+ko:예네버르
+lt:Jeneveras
+nl:Jenever
+no:Genever
+pl:Jenever
+ru:Женевер
+sv:Genever
 
 <fr:Eaux-de-vie
 fr:Gentiane
@@ -441,6 +464,7 @@ fr:Rhums agricoles AOC, rhum agricole AOC
 <en:Alcoholic drinks
 fr:Cidres, jus de pommes fermenté, Boisson fermentée à base de pommes
 es:Sidras
+wikidata:en:Q167296
 
 <fr:Cidres
 fr:Cidres bouchés, Cidre bouché
@@ -467,17 +491,21 @@ es:Licores, Licor
 
 <en:Beverages
 en:Carbonated drinks
+es:Bebidas carbonatadas
 fr:Boissons gazeuses, boissons à bulles, boissons effervescentes, boissons pétillantes, boisson gazeuse, boisson à bulles, boisson effervescente, boisson pétillante
 
-<en:Beverages
 <en:Carbonated drinks
 en:Sodas, soft drinks, carbonated soft drinks
+es:Sodas, Gaseosas
 fr:Sodas, soda, boissons sucrées gazeuses, boissons gazeuses sucrées
+wikidata:en:Q147538
 
 <en:Diet beverages
 <en:Sodas
 en:Diet sodas, diet soft drinks
+es:Sodas light
 fr:Sodas light, soda light, sodas édulcorés, sodas avec édulcorants, sodas sans sucres, soda sans sucre, soda allégé en sucre, sodas allégés en sucre
+wikidata:en:Q3246353
 
 <fr:Sodas à l'orange
 <fr:Sodas aux fruits light
@@ -497,51 +525,67 @@ fr:Sodas au cola light, colas light, cola light
 
 <en:Sodas
 en:Fruit sodas
+es:Sodas a base de frutas
 fr:Sodas aux fruits
 
 <en:Fruit sodas
-fr:Sodas à l'orange, soda orange, soda à l'orange
-
-<en:Fruit sodas
+en:Apple soft drinks, Apple sodas
+es:Sodas a base de manzana, Sodas de manzana
 fr:Sodas à la pomme, sodas aux pommes, soda à la pomme
 
 <en:Fruit sodas
+en:Lemon soft drinks, Lemon sodas
+es:Sodas a base de limón, Sodas de limón‎
 fr:Sodas au citron, soda citron, soda au citron
+
+<en:Fruit sodas
+en:Orange soft drinks, Orange sodas
+es:Sodas a base de naranja, Sodas de naranja
+fr:Sodas à l'orange, soda orange, soda à l'orange
+wikidata:en:Q17069317
 
 <en:Fruit sodas
 fr:Sodas aux fruits exotiques, soda aux fruits exotiques
 
 <en:Sodas
+en:Energy drinks
+es:Bebidas energéticas, Bebidas hipertónicas, Bebidas energizantes
 fr:Boissons énergisantes
 wikidata:en:Q215754
 wikidata_category:en:Q7214078
 
 <en:Sodas
+en:Lemonades
+es:Limonadas
 fr:Limonades
+wikidata:en:Q893
 
 <en:Sodas
+en:Colas
+es:Bebidas de cola
 fr:Sodas au cola, soda au cola, colas, sodas colas
+wikidata:en:Q134041
 
 <fr:Sodas au cola
 fr:Sodas au cola sans caféine
 
-<en:Carbonated drinks
-<en:Waters
-fr:Eaux gazeuses, eau gazeuse, eaux pétillantes, eau pétillante
-
-<fr:Eaux gazeuses
-<fr:Eaux minérales
-fr:Eaux minérales gazeuses, eau minérale gazeuse, eaux minérales pétillantes, eau minérale pétillante
-
 <en:Beverages
 en:Plant-based beverages
+es:Bebidas de origen vegetal
 fr:Boissons à base de végétaux
+
+< en:Plant-based beverages
+en:Juices and nectars
+es:Zumos y néctares
+fr:Jus et nectars
 
 <en:Plant-based beverages
 en:Fruit-based beverages
+es:Bebidas a base de frutas
 fr:Boissons aux fruits
 
 <en:Fruit-based beverages
+<en:Juices and nectars
 en:Fruit juices and nectars, juices and nectars
 es:Zumos y néctares de frutas
 fr:Jus et nectars de fruits, jus et nectars de fruit, jus et nectar de fruit, jus et nectar de fruits
@@ -556,7 +600,6 @@ pnns_group_2:en:Fruit juices
 en:Apple juices
 es:Zumos de manzana
 fr:Jus de pomme, jus de pommes
-
 
 <en:Apple juices
 <en:Concentrated fruit juices
@@ -613,17 +656,6 @@ es:Zumos de naranja procedente de concentrado
 fr:Jus d'orange à base de concentré
 
 <en:Fruit juices
-en:Carrot juices
-es:Zumos de zanahoria
-fr:Jus de carotte
-
-<en:Carrot juices
-<en:Concentrated fruit juices
-en:Concentrated carrot juices
-es:Zumos de zanahoria procedente de concentrado
-fr:Jus de carotte à base de concentré
-
-<en:Fruit juices
 en:Grape juices
 es:Zumos de uva, Zumos de uvas
 fr:Jus de raisin, jus de raisins
@@ -631,8 +663,8 @@ fr:Jus de raisin, jus de raisins
 <en:Grape juices
 <en:Concentrated fruit juices
 en:Concentrated grape juices
-es: Zumos de uva procedente de concentrado
-fr:Jus de raisin à base de concentré
+es:Zumos de uva procedente de concentrado
+fr:Jus de raisin à base de concentré, Jus de raisins à base de concentré
 
 <en:Grape juices
 <en:Squeezed juices
@@ -648,31 +680,32 @@ fr:Jus de pamplemousse, jus de pamplemousses
 <en:Concentrated fruit juices
 en:Concentrated grapefruit juices
 es:Zumos de pomelo procedente de concentrado
-fr:Jus de pamplemousse à base de concentré
+fr:Jus de pamplemousse à base de concentré, jus de pamplemousses à base de concentré
 
 <en:Grapefruit juices
 <en:Refrigerated squeezed juices
 en:Fresh grapefruit juice, Refrigerated squeezed grapefruit juices
 es:Zumos de pomelo exprimido refrigerados
-fr:Jus de pamplemousse frais
+fr:Jus de pamplemousse frais, Jus de pamplemousses frais
 
 <en:Grapefruit juices
-fr:Jus de pamplemousse rose
+fr:Jus de pamplemousse rose, Jus de pamplemousses roses
 
 <en:Fruit juices
 en:Mango juices
 es:Zumos de mango
-fr:Jus de mangue
+fr:Jus de mangue, Jus de mangues
 
 <en:Mango juices
 <en:Concentrated fruit juices
 en:Concentrated mango juices
 es:Zumos de mango procedente de concentrado
+fr:Jus de mangue à base de concentré, Jus de mangues à base de concentré
 
 <en:Fruit juices
 en:Multifruit juices
 es:Zumos multifruta, Zumos multifrutas
-fr:Jus multifruits
+fr:Jus multifruits, Jus multifruit
 
 <en:Multifruit juices
 <en:Concentrated fruit juices
@@ -684,6 +717,7 @@ fr:Jus multifruits à base de jus concentré
 <en:Refrigerated squeezed juices
 en:Refrigerated squeezed multifruit juices
 es:Zumos multifruta exprimidos refrigerados, Zumos multifruta exprimido refrigerados
+fr:Jus multifruits frais, jus multifruit frais
 
 <en:Multifruit juices
 <en:Squeezed juices
@@ -696,27 +730,29 @@ es:Zumos de naranja, zumos de naranjas, zumo de naranja
 fr:Jus d'orange, jus d'oranges
 
 <en:Orange juices
-fr:Jus d’orange sanguine
+fr:Jus d'orange sanguine, jus d'oranges sanguines
 
 <en:Fruit juices
 en:Peach juices
 es:Zumos de melocotón
-fr:Jus de pêche
+fr:Jus de pêche, jus de pêches
 
 <en:Peach juices
 <en:Concentrated fruit juices
 en:Concentrated peach juices
 es:Zumos de melocotón procedente de concentrado
+fr:Jus de pêche à base de concentré, jus de pêches à base de concentré
 
 <en:Fruit juices
 en:Pear juices
 es:Zumos de pera, Zumos de peras
-fr:Jus de poire
+fr:Jus de poire, jus de poires
 
 <en:Pear juices
 <en:Concentrated fruit juices
 en:Concentrated pear juices
 es:Zumos de pera procedente de concentrado
+fr:Jus de poire à base de concentré, jus de poires à base de concentré
 
 <en:Pear juices
 <en:Squeezed juices
@@ -743,12 +779,13 @@ fr:Jus d'ananas frais
 <en:Fruit juices
 en:Plum juices
 es:Zumos de ciruela
-fr:Jus de prune
+fr:Jus de prune, jus de prunes
 
 <en:Plum juices
 <en:Concentrated fruit juices
 en:Concentrated plum juices
 es:Zumos de ciruela procedente de concentrado
+fr:Jus de prune à base de concentré, jus de prunes à base de concentré
 
 <en:Plum juices
 <en:Squeezed juices
@@ -758,12 +795,13 @@ es:Zumos de ciruela exprimidos no refrigerados, Zumos de ciruela exprimidos, Zum
 <en:Fruit juices
 en:Pomegranate juices
 es:Zumos de granada
-fr:Jus de grenade
+fr:Jus de grenade, jus de grenades
 
 <en:Pomegranate juices
 <en:Concentrated fruit juices
 en:Concentrated pomegranate juices
 es:Zumos de granada procedente de concentrado
+fr:Jus de grenade à base de concentré, jus de grenades à base de concentré
 
 <en:Pomegranate juices
 <en:Squeezed juices
@@ -779,7 +817,7 @@ fr:Jus de fruits frais
 <en:Refrigerated squeezed juices
 en:Refrigerated squeezed orange juices
 es:Zumos de naranja exprimidos refrigerados
-fr:Jus d'orange frais
+fr:Jus d'orange frais, jus d'oranges frais
 
 <en:Fruit juices
 en:Squeezed juices, Non-refrigerated squeezed juices
@@ -790,13 +828,13 @@ fr:Jus de fruits 100% pur jus, jus de fruit 100% pur jus, jus de fruits pur jus,
 <en:Squeezed juices
 en:Squeezed grapefruit juices, Non-refrigerated squeezed grapefruit juices
 es:Zumos de pomelo exprimidos no refrigerados, Zumos de pomelo exprimido, Zumos de pomelo exprimido ambiente
-fr:Jus de pamplemousse 100% pur jus
+fr:Jus de pamplemousse 100% pur jus, Jus de pamplemousses 100% pur jus
 
 <en:Orange juices
 <en:Squeezed juices
 en:Squeezed orange juices, Non-refrigerated squeezed orange juices
 es:Zumos de naranja exprimidos no refrigerados, Zumos de naranja exprimidos, Zumos de naranja exprimidos ambiente
-fr:Jus d'orange 100% pur jus
+fr:Jus d'orange 100% pur jus, Jus d'oranges 100% pur jus
 
 <en:Pineapple juices
 <en:Squeezed juices
@@ -807,6 +845,7 @@ fr:Jus d'ananas pur jus
 <en:Fruit juices
 en:Tangerine juices
 es:Zumos de mandarina
+fr:Jus de mandarine, jus de mandarines
 
 <en:Tangerine juices
 <en:Concentrated fruit juices
@@ -823,16 +862,6 @@ es:Zumos de mandarina exprimidos refrigerados, Zumos de clementina exprimidos re
 en:Squeezed tangerine juices, Non-refrigerated squeezed tangerine juices
 es:Zumos de mandarina exprimidos no refrigerados, Zumos de mandarina exprimidos, Zumos de mandarina exprimidos ambiente, Zumos de clementina exprimidos no refrigerados, Zumos de clementina exprimidos, Zumos de clementina exprimidos ambiente
 
-<en:Fruit juices
-<en:Tomatoes and tomato products
-en:Tomato juices
-es:Zumos de tomate
-
-<en:Tomato juices
-<en:Concentrated fruit juices
-en:Concentrated tomato juices
-es:Zumos de tomate procedente de concentrado
-
 <en:Fruit juices and nectars
 en:Fruit nectars, Nectars
 es:Néctares de frutas, Néctares
@@ -842,6 +871,7 @@ pnns_group_2:en:Fruit nectars
 <en:Fruit nectars
 en:Apple nectars
 es:Néctares de manzana
+fr:Nectars de pomme, nectar de pommes, nectar de pomme, nectar pomme, nectars pomme
 
 <en:Fruit nectars
 en:Apricot nectars
@@ -861,7 +891,7 @@ fr:Nectars de myrtilles
 <en:Fruit nectars
 en:Grape nectars
 es:Néctares de uva
-fr:Nectars de raisin
+fr:Nectars de raisin, nectar de raisin, nectar de raisins, nectars de raisins, nectar raisin
 
 <en:Fruit nectars
 en:Grapefruit nectars
@@ -923,13 +953,75 @@ en:Tangerine nectars
 es:Néctares de mandarina, Néctares de clementina
 fr:Nectars de mandarine, nectars de clémentine
 
+<en:Plant-based beverages
+en:Vegetable-based beverages
+es:Bebidas a base de verduras y hortalizas
+fr:Boissons aux légumes
+
+<en:Vegetable-based beverages
+<en:Juices and nectars
+en:Vegetable juices
+es:Zumos de verduras y hortalizas
+fr:Jus de légumes
+
+<en:Vegetable juices
+en:Carrot juices
+es:Zumos de zanahoria
+fr:Jus de carotte, jus de carottes
+
+<en:Carrot juices
+en:Concentrated carrot juices
+es:Zumos de zanahoria procedente de concentrado
+fr:Jus de carotte à base de concentré, jus de carottes à base de concentré
+
+<en:Vegetable juices
+<en:Tomatoes and tomato products
+en:Tomato juices
+es:Zumos de tomate
+fr:Jus de tomates, jus de tomate
+
+<en:Tomato juices
+en:Concentrated tomato juices
+es:Zumos de tomate procedente de concentrado
+fr:Jus de tomates à base de concentré, jus de tomate à base de concentré
+
+<en:Plant-based beverages
+en:Fruit juice and soy drinks
+es:Bebidas a base de zumo de frutas y soja, Bebidas de zumo de frutas y soja
+fr:Boissons à base de jus de fruits et de soja
+
+<en:Fruit juice and soy drinks
+en:Apple juice and soy drinks
+es:Bebidas a base de zumo de manzana y soja, Bebidas de zumo de manzana y soja
+fr:Boissons à base de jus de pomme et de soja
+
+<en:Fruit juice and soy drinks
+en:Multifruit juice and soy drinks
+es:Bebidas a base de zumo multifruta y soja, Bebidas de zumo multifruta y soja
+fr:Boissons à base de jus multifruits et de soja
+
+<en:Fruit juice and soy drinks
+en:Orange juice and soy drinks
+es:Bebidas a base de zumo de naranja y soja, Bebidas de zumo de naranja y soja
+fr:Boissons à base de jus d'orange et de soja
+
+<en:Fruit juice and soy drinks
+en:Peach juice and soy drinks
+es:Bebidas a base de zumo de melocotón y soja, Bebidas de zumo de melocotón y soja 
+fr:Boissons à base de jus de pêche et de soja
+
+<en:Fruit juice and soy drinks
+en:Pineapple juice and soy drinks
+es:Bebidas a base de zumo de piña y soja, Bebidas de zumo de piña y soja
+fr:Boissons à base de jus d'ananas et de soja
+
 <en:Beverages
 en:Hot beverages, hot drinks
 fr:Boissons chaudes
 
 <en:Hot drinks
 en:Herbal teas, Herbal infusions, infusions
-fr:Infusions, Tisane
+fr:Infusions, Tisane, Infusion
 
 <en:Herbal teas
 <en:Hot drinks
@@ -938,11 +1030,11 @@ fr:Thés
 
 <en:Teas
 en:Green teas
-fr:Thés verts, Thé vert
+fr:Thés verts, Thé vert, Thés vert
 
 <en:Green teas
 en:Japanese green teas, Green teas from Japan
-fr:Thés verts japonais, Thés verts du Japon
+fr:Thés verts japonais, Thés verts du Japon, Thé vert du Japon
 
 <en:Japanese green teas
 fr:Thés bancha, bancha
@@ -958,10 +1050,10 @@ fr:Thés Sencha, Sencha
 fr:Thés Fukuju, Fukuju
 
 <en:Japanese green teas
-fr:Thés verts torréfiés
+fr:Thés verts torréfiés, Thé vert torréifié
 
 <en:Green teas
-fr:Thés verts chinois
+fr:Thés verts chinois, Thé vert chinois
 
 <fr:Thés verts chinois
 fr:Mao Jian
@@ -970,19 +1062,19 @@ fr:Mao Jian
 fr:Thés verts Long Jing, puits du dragon
 
 <en:Teas
-fr:Thés à la menthe
+fr:Thés à la menthe, Thé à la menthe
 
 <en:Teas
-fr:Thés aromatisés
+fr:Thés aromatisés, Thé aromatisé
 
 <en:Teas
-fr:Thés au beurre
+fr:Thés au beurre, Thé au beurre
 
 <en:Teas
-fr:Thés au citron
+fr:Thés au citron, Thé au citron
 
 <en:Teas
-fr:Thés blancs, báichá
+fr:Thés blancs, báichá, thé blanc
 
 <fr:Thés blancs
 fr:Bai Hao Yin Zhen
@@ -997,86 +1089,128 @@ fr:Shou Mei
 fr:Yin Zhen
 
 <en:Teas
-fr:Thés bleus
+fr:Thés bleus, Thé bleu
 
 <en:Teas
-fr:Thés jaunes
+fr:Thés jaunes, Thé jaune
 
 <en:Teas
 fr:Thés noirs, Thé noir
 
 <en:Teas
-fr:Thés sombres
+fr:Thés sombres, Thé sombre
 
 <en:Herbal teas
-fr:Infusions aux agrumes, Infusions agrumes, Infusion agrumes
+fr:Infusions aux agrumes, Infusions agrumes, Infusion agrumes, Infusion aux agrumes
 
 <en:Herbal teas
-fr:Infusions aux fruits rouges
+fr:Infusions aux fruits rouges, Infusion aux fruits rouges
 
 <en:Herbal teas
 fr:Infusions Bonne Nuit, Infusions douce nuit, Infusions nuit calme
 
 <en:Herbal teas
-fr:Infusions minceur, Tisanes minceur
+fr:Infusions minceur, Tisanes minceur, Infusion minceur, Tisane minceur
 
 <fr:Infusions minceur
 fr:Thés minceur, Thé minceur
 
 <en:Herbal teas
-fr:Rooibos, Infusions au rooibos
+fr:Rooibos, Infusions au rooibos, Infusion au rooibos
 
 <en:Herbal teas
-fr:Verveine
+fr:Verveine, Verveines
 
 <fr:Verveine
-fr:Verveine menthe
+fr:Verveine menthe, Verveines menthe
 
 <en:Hot drinks
-fr:Boissons chaudes instantanées, boisson chaude instantanées
+fr:Boissons chaudes instantanées, boisson chaude instantanée
 
 <en:Hot drinks
 en:Coffees
-fr:Cafés
+es:Cafés
+fr:Cafés, Café
+wikidata:en:Q8486
 
-<fr:Cafés
+<en:Coffees
+en:Decaffeinated coffees
+es:Cafés descafeinados
 fr:Cafés décaféinés, café décaféiné
 
-<fr:Cafés
-fr:Cafés en poudre, café en poudre, cafés instantanés, cafés solubles, café instantané, café soluble
-
-<fr:Cafés
+<en:Coffees
+en:Ground coffees
+es:Cafés molidos
 fr:Cafés moulus, café moulu
+
+<en:Coffees
+en:Instant coffees, Soluble coffees, Coffee powders
+es:Cafés solubles
+fr:Cafés en poudre, café en poudre, cafés instantanés, cafés solubles, café instantané, café soluble
+wikidata:en:Q858049
+
+<en:Instant coffees
+<en:Decaffeinated coffees
+en:Decaffeinated instant coffees, Decaffeinated soluble coffees, Decaffeinated coffee powders
+es:Cafés solubles descafeinados
+fr:Cafés en poudre décaféinés, Cafés instantanés décaféinés, Cafés solubles décaféinés
+
+<en:Coffees
+en:Torrefacto coffees
+es:Cafés torrefactos
+fr:Cafés torréfiés, Café torréifié
+wikidata:en:Q1357168
+
+<en:Beverages
+en:Waters
+es:Aguas
+fr:Eaux, eau
+wikidata:en:Q283
+
+<en:Carbonated drinks
+<en:Waters
+en:Carbonated waters, Soda waters, Sparkling waters, Seltzer waters
+es:Aguas carbonatadas, Agua carbonatada
+fr:Eaux gazeuses, eau gazeuse, eaux pétillantes, eau pétillante
+wikidata:en:Q264554
+
+<en:Waters
+en:Mineral waters
+es:Aguas minerales
+fr:Eaux minérales, eau minérale
+wikidata:en:Q178921
+
+<en:Carbonated waters
+<en:Mineral waters
+en:Carbonated mineral waters
+es:Aguas minerales carbonatadas
+fr:Eaux minérales gazeuses, eau minérale gazeuse, eaux minérales pétillantes, eau minérale pétillante
+
+<en:Mineral waters
+en:Natural mineral waters
+es:Aguas minerales naturales
+fr:Eaux minérales naturelles, eau minérale naturelle
+
+<en:Mineral waters
+en:Spring waters
+es:Aguas de manantial
+fr:Eaux de sources, Eau de source
+
+<en:Waters
+fr:Eaux aromatisées, eau aromatisée
 
 <en:Mountain products
 <en:Waters
 fr:Eaux de montagne, eau de montagne
 
-<en:Beverages
-en:Waters
-fr:Eaux, eau
-
-<en:Waters
-fr:Eaux arômatisées, eau arômatisée
-
-<en:Waters
-fr:Eaux minérales, eau minérale
-
-<fr:Eaux minérales
-fr:Eaux de sources, Eau de source
-
-<fr:Eaux minérales
-fr:Eaux minérales naturelles, eau minérale naturelle
-
-
 <en:Alcoholic beverages
 en:Wines
-es:Vinoses, Vinos
-fr:Vins
+es:Vinos
+fr:Vins, vin
 
 <en:Beverages
 en:Non-Alcoholic beverages
-fr:Boissons sans alcool
+fr:Boissons sans alcool, boisson sans alcool
 
 <en:Wines
 <en:Non-Alcoholic beverages
@@ -1089,10 +1223,10 @@ fr:Bordeaux
 
 <en:Wines
 en:French wines, Wines from France
-fr:Vins français
+fr:Vins français, vin français
 
 <en:French wines
-fr:Vins de pays
+fr:Vins de pays, vin de pays
 
 <en:Wines
 en:Red wines
@@ -1104,36 +1238,40 @@ fr:vins blancs, vin blanc
 
 <en:Wines
 en:Wines from Italy, Italian wines
-fr:Vins italiens
+fr:Vins italiens, vin italien, vins d'Italie, vin d'Italie
 
 <en:Wines
 en:Wines from Portugal, Portuguese wines
-fr:Vins du Portugal, Vins portugais
+fr:Vins portugais, Vins du Portugal, Vin portugais, Vin du Portugal
 
 <en:Wines
 en:Wines from Spain, Spanish wines
-fr:Vins espagnols
+fr:Vins espagnols, Vin espagnol, Vin d'Espagne, Vins d'Espagne
 
 <en:Wines
 fr:Vins américains
 
 <fr:Vins américains
 en:Wines from California, Californian Wines, California Wines
-fr:Vins californiens, vins de Californie
+fr:Vins californiens, vins de Californie, vin californien, vin de Californie
 wikidata:en:Q1134713
 
 <en:Wines
 fr:Vins effervescents
 en:Sparkling wines
+wikidata:en:Q321263
 
 <fr:Vins effervescents
 fr:Blanquette de Limoux
+wikidata:en:Q881685
 
 <fr:Vins effervescents
 fr:Champagne, champagnes, vins de Champagne
+en:Champagne, champagnes
 
 <fr:Vins effervescents
-fr:Clairette de Die
+fr:Clairette de Die, Clairettes de Die
+wikidata:en:Q1094848
 
 <fr:Vins effervescents
 fr:vins mousseux, vin mousseux, mousseux
@@ -1151,15 +1289,15 @@ wikidata:en:Q722338
 
 <en:Wines from Portugal
 <fr:Vins mutés de type vin doux naturel
-fr:Porto, vins de Porto
+fr:Porto, vins de Porto, vin de Porto
 
 <en:Red wines
 <fr:Porto
 en:red ports
-fr:porto rouges
+fr:porto rouges, porto rouge
 
 <en:Red ports
-fr:porto réductifs
+fr:porto réductifs, porto réductif
 
 <fr:Porto réductifs
 fr:Porto Crusted, Crusted
@@ -1177,7 +1315,7 @@ fr:Porto Single Quinta Vintage
 fr:Porto Vintage, porto millésimé
 
 <en:Red ports
-fr:portos oxydatifs
+fr:portos oxydatifs, porto oxydatif
 
 <fr:Portos oxydatifs
 fr:Porto Tawny, tawny
@@ -1185,7 +1323,11 @@ fr:Porto Tawny, tawny
 <en:White wines
 <fr:Porto
 en:White Ports
-fr:porto blancs
+fr:porto blancs, porto blanc
+
+en:Sweet wines, natural sweet wines
+es:Vinos dulces
+fr:Vins doux, Vin doux, Vins doux naturels, Vin doux naturel
 
 <en:Sweet wines
 <fr:Vins mutés
@@ -1201,25 +1343,25 @@ fr:Maury
 fr:Muscats, Muscat
 
 <fr:Muscats
-fr:Muscat de Beaumes-de-Venise
+fr:Muscat de Beaumes-de-Venise, Muscats de Beaumes-de-Venise
 
 <fr:Muscats
-fr:Muscat de Frontignan
+fr:Muscat de Frontignan, Muscats de Frontignan
 
 <fr:Muscats
-fr:Muscat de Lunel
+fr:Muscat de Lunel, Muscats de Lunel
 
 <fr:Muscats
-fr:Muscat de Mireval
+fr:Muscat de Mireval, Muscats de Mireval
 
 <fr:Muscats
-fr:Muscat de Rivesaltes
+fr:Muscat de Rivesaltes, Muscats de Rivesaltes
 
 <fr:Muscats
-fr:Muscat de Saint-Jean-de-Minervois
+fr:Muscat de Saint-Jean-de-Minervois, Muscats de Saint-Jean-de-Minervois
 
 <fr:Muscats
-fr:Muscat du Cap-Corse
+fr:Muscat du Cap-Corse, Muscats du Cap-Corse
 
 <fr:Vins mutés de type vin doux naturel
 fr:Rasteau
@@ -1234,64 +1376,10 @@ fr:mistelle, vins mutés de types mistelle, vins de liqueur, vin de liqueur
 fr:Pineau des Charentes, Floc de Gascogne, Macvin du Jura
 
 <fr:Vins mutés
-fr:vins vinés
+fr:vins vinés, vin viné
 
 <en:Wines
 fr:Vins rosés, vin rosé
-
-<en:Beverages
-es:Aguas envasadas y hielo
-
-<es:Aguas envasadas y hielo
-es:Aguas de manantial
-
-<es:Aguas de manantial
-es:Aguas de manantial desgasificadas
-
-<es:Aguas de manantial
-es:Aguas de manantial gasificadas
-
-<es:Aguas envasadas y hielo
-es:Aguas minerales naturales
-
-<es:Aguas minerales naturales
-es:Agua mineral natural con gas carbónico añadido
-
-<es:Aguas minerales naturales
-es:Agua mineral natural parcialmente desgasificada
-
-<es:Aguas minerales naturales
-es:Agua mineral natural reforzada con gas del mismo manantial
-
-<es:Aguas minerales naturales
-es:Agua mineral natural totalmente desgasificada
-
-<es:Aguas minerales naturales
-es:Agua mineral naturalmente gaseosa
-
-<es:Aguas envasadas y hielo
-es:Aguas preparadas
-
-<es:Aguas preparadas
-es:Aguas de abastecimiento público preparadas
-
-<es:Aguas de abastecimiento público preparadas
-es:Aguas de abastecimiento público preparadas desgasificadas
-
-<es:Aguas de abastecimiento público preparadas
-es:Aguas de abastecimiento público preparadas gasificadas
-
-<es:Aguas preparadas
-es:Aguas potables preparadas
-
-<es:Aguas potables preparadas
-es:Aguas potables preparadas desgasificadas
-
-<es:Aguas potables preparadas
-es:Aguas potables preparadas gasificadas
-
-<en:Beverages
-es:Bebidas refrescantes
 
 <en:Beverages
 fr:Boissons énergétiques
@@ -1303,40 +1391,51 @@ fr:Boissons lights, boisson light
 fr:Boissons lyophilisées, Boisson lyophilisée
 
 <en:Beverages
-fr:Citronnade
+fr:Citronnades, citronnade
 
 <en:Beverages
-fr:Sirops, sirop
+<en:Syrups
+en:Flavoured syrups
+es:Siropes aromatizados, Jarabes aromatizados
+fr:Sirops aromatisés
+wikidata:en:Q5458204
 
-<fr:Sirops
+<en:Flavoured syrups
 fr:Sirops aux fruits, sirop aux fruits
 
-<fr:Sirops
-fr:Sirops d’orgeat
+<en:Flavoured syrups
+en:Orgeat syrups
+fr:Sirops d’orgeat, sirop d'orgeat
+wikidata:en:Q1939771
 
-<fr:Sirops
-fr:Sirops de cassis
+<en:Flavoured syrups
+fr:Sirops de cassis, sirop de cassis
 
-<fr:Sirops
-fr:Sirops de citron
+<en:Flavoured syrups
+fr:Sirops de citron, sirop de citron
 
-<fr:Sirops
-fr:Sirops de fraise
+<en:Flavoured syrups
+fr:Sirops de fraise, sirop de fraise
+wikidata:en:Q3485292
 
-<fr:Sirops
-fr:Sirops de grenadine
+<en:Flavoured syrups
+en:Grenadine, Grenadine syrups
+es:Granadina, jarabe de granadina, Sirope de granadina
+fr:Sirops de grenadine, sirop de grenadine
+wikidata:en:Q1136498
 
-<fr:Sirops
-fr:Sirops de menthe
+<en:Flavoured syrups
+fr:Sirops de menthe, sirop de menthe
+wikidata:en:Q16676963
 
-<fr:Sirops
-fr:Sirops de violette
+<en:Flavoured syrups
+fr:Sirops de violette, sirop de violette
 
 <en:Beverages
-fr:Thés glacés, Ice-tea
+fr:Thés glacés, Ice-tea, thé glacé
 
 <fr:Thés glacés
-fr:Ice-tea light, thés glacés lights
+fr:Ice-tea light, thés glacés lights, thé glacé light
 
 <en:sugary snacks
 en:Biscuits and cakes
@@ -1345,10 +1444,12 @@ pnns_group_2:en:Biscuits and cakes
 
 <en:Biscuits and cakes
 en:Biscuits
+es:Galletas
 fr:Biscuits, biscuit
 
 <en:Biscuits
 en:Cookies
+es:Cookies
 fr:Cookies
 
 <en:Cookies
@@ -1386,25 +1487,25 @@ fr:Biscuits à la fraise, biscuit à la fraise
 fr:Biscuits au chocolat, biscuit au chocolat
 
 <en:Biscuits
-fr:Biscuits diététiques
+fr:Biscuits diététiques, biscuit diététique
 
 <en:Biscuits
-fr:Biscuits feuilletés
+fr:Biscuits feuilletés, biscuit feuilletés
 
 <fr:Biscuits feuilletés
 fr:Palmiers
 
 <en:Biscuits
-fr:Biscuits secs
+fr:Biscuits secs, biscuit sec
 
 <fr:Biscuits secs
-fr:Boudoirs
+fr:Boudoirs, boudoir
 
 <en:Biscuits
 fr:Petits beurres, petit beurre
 
 <en:Biscuits
-fr:Sablés
+fr:Sablés, sablé
 
 <fr:Sablés
 fr:Knusper
@@ -1420,91 +1521,159 @@ fr:Produits panés, Produit pané
 
 <en:Cereals and potatoes
 en:Breads
+es:Panes, Pan
 fr:Pains, pain
 pnns_group_2:en:Bread
 
 <en:Breads
+en:Baguettes
+es:Baguetes
+fr:Baguettes, baguette
+wikidata:en:Q208172
+
+<en:Breads
+en:Bread crumbs, Breadcrumbs
+es:Pan rallado
+fr:Chapelures, chapelure
+wikidata:en:Q658413
+
+<en:Bread crumbs
+en:Panko
+es:Panko
+fr:Panko
+wikidata:en:Q1820454
+
+<en:Breads
+en:Breadsticks, Grissini
+es:Colines
+fr:Gressins, gressin
+wikidata:en:Q514467
+
+<en:Breads
+en:Brown breads
+es:Panes integrales, Pan integral
+fr:Pains complets, pain complet
+wikidata:en:Q940999
+
+<en:Breads
+en:Crispbreads
+es:Tostadas ligeras crujientes
+fr:Tartines craquantes, tartine craquante
+wikidata:en:Q251981
+
+<en:Breads
 <en:Products without gluten
+en:Gluten-free breads
+es:Panes sin gluten
 fr:Pains sans gluten, Pain sans gluten
 
 <en:Breads
-fr:Baguettes, baguette
+en:Rye breads
+es:Panes de centeno, Pan de centeno
+fr:Pains de seigle, Pains au seigle, Pain au seigle
+wikidata:en:Q3893120
 
 <en:Breads
-fr:Biscottes
+en:Sliced breads
+es:Panes de molde
+fr:Pains de mie, pain de mie
+wikidata:en:Q134152
 
-<fr:Biscottes
-fr:Biscottes à la farine d'épeautre, Biscottes d’épeautre
+<en:Sliced breads
+fr:Pains de mie aux céréales, Pain de mie aux céréales
 
-<fr:Biscottes
-fr:Biscottes au froment
-
-<fr:Biscottes
-fr:Biscottes aux céréales
-
-<fr:Biscottes
-fr:Biscottes complètes
+<en:Sliced breads
+fr:Pains de mie complet, Pain de mie complet
 
 <en:Breads
+en:Toasts
+es:Pan tostado, Tostadas
+fr:Pains grillés, Pain grillé
+wikidata:en:Q6128
+
+<en:Toasts
+es:Panecillos tostados
+fr:Petits pains grillés
+
+<en:Breads
+en:Unleavened breads, Azymes, Matzah
+es:Panes ácimos, Pan ácimo
 fr:Pains azymes, pain azyme
+wikidata:en:Q13365777
 
-<fr:Pains azymes
+<en:Unleavened breads
 fr:Pains azymes à la farine complète, Pain azyme à la farine complète
 
-<fr:Pains azymes
+<en:Unleavened breads
 fr:Pains azymes à la farine d'épeautre, Pain azyme à la farine d'épeautre
 
-<fr:Pains azymes
+<en:Unleavened breads
 fr:Pains azymes à la farine de blé, Pain azyme à la farine de blé
 
 <fr:Pains azymes à la farine de blé
 fr:Pains azymes à la farine de blé T65, Pain azyme à la farine de blé T65
 
-<fr:Pains azymes
+<en:Unleavened breads
 fr:Pains azymes à la farine de châtaigne, Pain azyme à la farine de châtaigne
 
-<fr:Pains azymes
+<en:Unleavened breads
 fr:Pains azymes à la farine de froment, Pain azyme à la farine de froment
 
 <fr:Pains azymes à la farine complète
 <fr:Pains azymes à la farine de froment
 fr:Pains azymes à la farine de froment complète T150, Pain azyme à la farine de froment complète T150
 
-<fr:Pains azymes
+<en:Unleavened breads
 fr:Pains azymes à la farine de sarrasin, Pain azyme à la farine de sarrasin
 
-<fr:Pains azymes
+<en:Unleavened breads
 fr:Pains azymes au jus de betterave, Pain azyme au jus de betterave
 
-<fr:Pains azymes
+<en:Unleavened breads
 fr:Pains azymes au seigle, Pain azyme au seigle
 
-<fr:Pains azymes
+<en:Unleavened breads
 fr:Pains azymes extra fins, Pain azyme extra fin
 
-<fr:Pains azymes
+<en:Unleavened breads
 fr:Pains azymes pilés
 
-<fr:Pains azymes
+<en:Unleavened breads
 fr:Petits pains azymes, Petit pain azyme
+
+<en:Breads
+en:White breads
+es:Panes blancos, Pan blanco
+fr:Pains blancs, Pain blanc
+wikidata:en:Q1501889
+
+<en:Breads
+en:Zwieback
+es:Biscotes
+fr:Biscottes
+wikidata:en:Q4122049
+
+<en:Zwieback
+fr:Biscottes à la farine d'épeautre, Biscottes d’épeautre
+
+<en:Zwieback
+fr:Biscottes au froment
+
+<en:Zwieback
+fr:Biscottes aux céréales
+
+<en:Zwieback
+fr:Biscottes complètes
+
+<en:Products with reduced salt
+<en:Zwieback
+fr:Biscottes pauvres en sel
 
 <en:Breads
 fr:Pains croustillants, Pain croustillant
 
 <en:Breads
 fr:Pains de campagne, Pain de campagne
-
-<en:Breads
-fr:Pains de mie, pain de mie
-
-<fr:Pains de mie
-fr:Pains de mie aux céréales, Pain de mie aux céréales
-
-<fr:Pains de mie
-fr:Pains de mie complet, Pain de mie complet
-
-<en:Breads
-fr:Pains de seigle, Pains au seigle, Pain au seigle
 
 <en:Breads
 fr:Pains pour hamburgers, Pain pour hamburgers
@@ -1515,6 +1684,14 @@ fr:Pains spéciaux, Pain spéciaux
 <fr:Pains spéciaux
 fr:Pains Burger
 
+<en:Breads
+es:Picos de pan, Picos
+wikidata:en:Q6075158
+
+<en:Breads
+es:Regañás, Regañá
+wikidata:en:Q6103703
+
 en:Breakfasts
 es:Desayunos
 fr:Petit-déjeuners, petits déjeuner
@@ -1523,28 +1700,6 @@ fr:Petit-déjeuners, petits déjeuner
 <en:Chocolates
 fr:Chocolats en poudre, chocolat en poudre, cacao en poudre, cacaos en poudre
 
-<en:Breakfasts
-<en:Cereals and potatoes
-en:Breakfast cereals
-fr:Céréales pour petit-déjeuner, céréale pour petit-déjeuner, Céréales petit-déjeuner, Céréales type petit déjeuner, Céréales du petit déjeuner
-pnns_group_2:en:Breakfast cereals
-
-<fr:Céréales pour petit-déjeuner
-en:Corn-Flakes
-fr:Corn-flakes, pétales de maïs
-
-<fr:Céréales pour petit-déjeuner
-en:Mueslis
-fr:Mueslis, muesli
-
-<fr:Céréales pour petit-déjeuner
-en:Puffed cereals
-fr:Céréales soufflées
-
-<en:Puffed cereals
-en:Puffed rice
-fr:Riz soufflé
-
 <en:biscuits and cakes
 <en:Desserts
 en:Cakes
@@ -1552,11 +1707,11 @@ fr:Gâteaux, gâteau
 
 <en:Cakes
 en:Puddings
-fr:Puddings
+fr:Puddings, Pudding
 
 <en:Puddings
 en:Christmas Puddings
-fr:Puddings de Noël
+fr:Puddings de Noël, Pudding de Noël
 
 <en:Puddings
 en:Rice puddings
@@ -1597,16 +1752,16 @@ fr:Chocolats, chocolat, produits chocolatés, produits au chocolat
 pnns_group_2:en:Chocolate products
 
 <en:Chocolates
-fr:Assortiments de chocolats
+fr:Assortiments de chocolats, assortiment de chocolat
 
 <en:Chocolates
 fr:Chocolats au lait, chocolat au lait
 
 <fr:Chocolats au lait
-fr:Chocolats au lait extra fin
+fr:Chocolats au lait extra fin, chocolat au lait extra fin
 
 <en:Chocolates
-fr:Chocolats avec amandes
+fr:Chocolats avec amandes, chocolat avec amandes
 
 <en:Chocolates
 fr:Chocolats blancs, chocolat blanc
@@ -1624,22 +1779,22 @@ fr:Oeufs en chocolat, oeuf en chocolat, oeufs de pâques, oeuf de pâques
 fr:Chocolats dessert, chocolats desserts, chocolat dessert
 
 <en:Chocolates
-fr:Chocolats diététiques
+fr:Chocolats diététiques, chocolat diététique
 
 <en:Chocolates
-fr:Chocolats fourrés au praliné
+fr:Chocolats fourrés au praliné, chocolat fourré au praliné
 
 <en:Chocolates
 fr:Chocolats noirs, chocolat noir
 
 <fr:Chocolats noirs
-fr:Chocolats noirs extra fin
+fr:Chocolats noirs extra fin, chocolat noir extra fin
 
 <en:Chocolates
-fr:Chocolats pur beurre de cacao
+fr:Chocolats pur beurre de cacao, chocolat pur beurre de cacao
 
 <en:Chocolates
-fr:Chocolats Suisse
+fr:Chocolats suisses, chocolat suisse, chocolats de Suisse, chocolat de Suisse
 
 <en:Chocolates
 fr:Moulages en chocolat
@@ -1648,24 +1803,57 @@ fr:Moulages en chocolat
 fr:Tablettes de chocolat, tablette de chocolat
 
 <en:Chocolates
-fr:Truffes en chocolat
+fr:Truffes en chocolat, truffe en chocolat
 
 <en:Confectioneries
 <fr:Barres
-fr:Barres chocolatées, barre chocolatée
+fr:Barres chocolatées, barre chocolatée, barre au chocolat, barres au chocolat
 
 <en:Confectioneries
 en:Candies, candy, sweets
-fr:Bonbons
+es:Golosinas
+fr:Bonbons, Bonbon
+wikidata:en:Q185583
+
+<en:Candies
+en:Bonbons
+es:Bombones, Bombones de chocolate
+fr:Bonbons de chocolat
+wikidata:en:Q3272827
+
+<en:Bonbons
+<en:Fruits based foods
+en:Chocolate covered fruits
+es:Frutas recubiertas de chocolate
+fr:Fruits enrobées au chocolat
+wikidata:en:Q15985102
+
+<en:Chocolate covered fruits
+en:Chocolate covered cherries
+es:Cerezas recubiertas de chocolate
+fr:Cerises enrobées au chocolat
+wikidata:en:Q16242001
+
+<en:Chocolate covered cherries
+en:Liquor filled chocolate covered cherries
+es:Bombones de chocolate rellenos de cereza y licor, Cerezas al licor recubiertas de chocolate
+fr:Bonbons de chocolat fourrés cerise et liqueur
 
 <en:Confectioneries
 fr:Cacahuètes au chocolat
 
 <en:Confectioneries
 en:Caramels
+es:Caramelos
 fr:Caramels
+wikidata:en:Q183440
 
-<fr:Caramels
+<en:Caramels
+en:Liquid caramel
+es:Caramelo líquido 
+fr:caramel liquide, caramel liquides
+
+<en:Caramels
 fr:Caramels au beurre salé
 
 <en:Confectioneries
@@ -1678,43 +1866,230 @@ fr:Confiseries de France
 fr:Confiseries du Nord-Pas-de-Calais
 
 <fr:Confiseries de France
-fr:Nougats, türkischer Honig
+fr:Nougats, türkischer Honig, nougat
 
 <fr:Nougats
-fr:nougats à la noix de coco
+fr:nougats à la noix de coco, nougat à la noix de coco
 
 <fr:Nougats
-fr:nougats au chocolat
+fr:nougats au chocolat, nougat au chocolat
 
 <fr:Nougats
-fr:Nougats blancs
+fr:Nougats blancs, nougat blanc
 
 <fr:Nougats
-fr:Nougats bruns
+fr:Nougats bruns, nougat brun
 
 <fr:Nougats
-fr:Nougats chinois
+fr:Nougats chinois, nougat chinois
 
 <fr:Nougats
 fr:nougats de Montélimar, nougat de Montélimar
 
 <fr:Nougats
-fr:Nougats de Sault
+fr:Nougats de Sault, nougat de Sault
 
 <fr:Nougats
-fr:Nougats de Tours
+fr:Nougats de Tours, nougat de Tours
 
 <fr:Nougats
-fr:Nougats noirs
+fr:Nougats noirs, nougat noir
 
 <fr:Nougats
-fr:nougats tendre et dur
+fr:nougats tendre et dur, nougat tendre et dur
 
 <en:Confectioneries
-fr:Guimauves, pâtes de guimauves, Chamallows
+fr:Guimauves, pâtes de guimauves, Chamallows, Guimauve
 
+en:Christmas foods and drinks
+es:Gastronomía navideña, Gastronomía de Navidad
+fr:Aliments et boissons de Noël
+wikidata:en:Q5876127
+
+<en:Christmas foods and drinks
 <en:Confectioneries
-fr:Pâtes d’amande, massepain
+en:Christmas sweets, Christmas confectionery
+es:Dulces de Navidad, Dulces típicos de Navidad
+fr:Confiseries de Noël
+
+<en:Christmas sweets
+en:Alfajores, Alfajor
+es:Alfajores, Alfajor
+fr:Alfajores, Alfajor
+wikidata:en:Q938682
+
+<en:Alfajores
+en:Spanish alfajores
+es:Alfajores españoles
+wikidata:en:Q5666489
+
+<en:Christmas sweets
+en:Almond creme filled wafers
+es:Almendras rellenas de turrón, Almendras rellenas
+
+<en:Christmas sweets
+<en:Fruits based foods
+en:Candied fruit
+es:Frutas confitadas
+fr:Fruits confits
+wikidata:en:Q1163138
+
+<en:Christmas sweets
+en:Chocolate covered coconut balls, Chocolate coated coconut balls
+es:Bolitas de coco recubiertas de chocolate
+
+<en:Christmas sweets
+en:Christmas assorted sweets
+es:Surtidos de Navidad
+
+<en:Christmas sweets
+en:Dragées
+es:Peladillas
+fr:Dragées
+wikidata:en:Q1255306
+
+<en:Christmas sweets
+<en:Dried plant-based foods
+en:Dried fig cakes
+es:Panes de higos, Pan de higo, Pan de higos
+wikidata:en:Q3817399
+
+<en:Christmas sweets
+<en:Chocolate covered fruits
+en:Fruits of Aragon
+es:Frutas de Aragón
+wikidata:en:Q8962920
+
+<en:Fruits of Aragon
+<en:Chocolate covered cherries
+en:Chocolate coated maraschino cherries
+es:Guindas al marrasquino recubiertas de chocolate, Cerezas al marrasquino recubiertas de chocolate
+
+<en:Christmas sweets
+en:King cakes
+es:Roscón de Reyes
+fr:Gâteaux des rois
+wikidata:en:Q177166
+
+<en:Christmas sweets
+en:Mantecados and polvorones
+es:Mantecados y polvorones
+fr:Mantecados et polvorones
+wikidata:en:Q717435
+
+<en:Mantecados and polvorones
+en:Mantecados and polvorones with vegetal fat
+es:Mantecados y polvorones con grasa vegetal
+fr:Mantecados et polvorones avec de la graisse végétale
+
+<en:Mantecados and polvorones with vegetal fat
+en:Mantecados y polvorones with margarine
+es:Mantecados y polvorones con margarina, Mantecados y polvorones con margarina vegetal
+fr:Mantecados y polvorones margarine
+
+<en:Mantecados and polvorones with vegetal fat
+en:Mantecados y polvorones with olive oil
+es:Mantecados y polvorones de aceite de oliva
+fr:Mantecados et polvorones á l'huile d'olive
+
+<en:Christmas sweets
+en:Marzipan
+es:Mazapanes, Mazapán
+fr:Massepain
+wikidata:en:Q106252
+
+<en:Marzipan
+en:Almond paste
+es:Pasta de almendras
+fr:Pâtes d’amande
+wikidata:en:Q2631692
+
+<en:Marzipan
+en:Marzipan figures, Marzipan shapes
+es:Figuritas de mazapán, Figuras de mazapán
+fr:Figurines de massepain
+
+<en:Marzipan
+en:Marzipan of Soto, Mazapanes de Soto
+es:Mazapanes de Soto, Mazapán de Soto
+wikidata:en:Q6007813
+
+<en:Christmas sweets
+en:Pan de Cádiz
+es:Pan de Cádiz
+wikidata:en:Q6059380
+
+<en:Christmas sweets
+en:Pasteles de Gloria
+es:Pasteles de Gloria, Pastelitos de Gloria
+wikidata:en:Q6066059
+
+<en:Christmas sweets
+en:Egg yolk pastries, Pasteles de yema, Pastelitos de yema
+es:Pasteles de yema, Pastelitos de yema
+
+<en:Christmas sweets
+en:Roscos de vino
+es:Roscos de vino
+wikidata:en:Q6112467
+
+<en:Christmas sweets
+en:Turrón, Turron
+es:Turrones, Turrón
+fr:Touron
+wikidata:en:Q159304
+
+<en:Turrón
+en:Black chocolate turrón filled with fruit praline
+es:Turrones de chocolate negro rellenos de sirope de frutas, Turrones de chocolate rellenos
+
+<en:Turrón
+en:Black chocolate turrón with almonds
+es:Turrones de chocolate negro con almendras
+
+<en:Turrón
+en:Black chocolate turrón with puffed rice
+es:Turrones de chocolate negro con arroz inflado, Turrones de chocolate negro
+
+<en:Turrón
+en:Coconut turrón
+es:Turrones de coco
+
+<en:Turrón
+en:Creamy almond turrón, Soft almond turrón, Jijona turrón
+es:Turrones blandos, Turrones de tipo Jijona, Turrones de Jijona
+fr:Q3995785
+
+<en:Turrón
+en:Crunchy almond turrón, Hard almond turrón, Alicante turrón
+es:Turrones duros, Turrones de tipo Alicante, Turrones de Alicante
+wikidata:en:Q3995784
+
+<en:Turrón
+en:Fruit turrón
+es:Turrones de frutas
+
+<en:Turrón
+en:Guirlache turrón, Turrón de guirlache
+es:Turrones de guirlache
+
+<en:Turrón
+en:Peanuts turrón
+es:Turrones de cacahuete
+
+<en:Turrón
+en:Toasted egg Yolk turrón
+es:Turrones de yema tostada
+
+<en:Turrón
+es:Turrones a la piedra
+
+<en:Turrón
+es:Turrones de mazapán de cabello de ángel
+
+<en:Turrón
+en:Walnut creme turrón
+es:Turrones de nata y nueces
 
 en:Canned foods, Canned, Cans, Jarred foods
 es:Conservas, Alimentos en conserva
@@ -1738,10 +2113,6 @@ fr:Raviolis en conserve, raviolis en boite
 en:Canned meals, Canned prepared meals, Canned prepared dishes
 es:Comidas preparadas en conserva, Platos preparados en conserva
 fr:Plats préparés en conserve, plats cuisinés en conserve, plat préparé en conserve
-
-<en:Asparagus
-<en:Canned vegetables
-fr:Asperges en conserve
 
 <en:Canned foods
 fr:Viandes en conserve
@@ -1783,449 +2154,555 @@ fr:Caviar sevruga, Caviar de sevruga, Acipenser stellatus, Caviar d'esturgeon é
 fr:Caviar sterlet, Acipenser ruthenus
 
 <en:Plant-based foods
+en:Seeds, Grains
+es:Semillas, Granos, Simientes, Pepitas
+fr:Graines
+wikidata:en:Q2995529
+
+<en:Plant-based foods
 en:Cereals and potatoes
+es:Cereales y patatas
 fr:Céréales et pommes de terre
 pnns_group_1:en:Cereals and potatoes
 
 <en:Cereals and potatoes
-en:Cereals
-es:Cereales
-fr:Céréales
+en:Cereals and their products, Cereals
+es:Cereales y derivados, Cereales y sus productos, Cereales
+fr:Céréales et dérivés, Céréales
 pnns_group_2:en:Cereals
 
-<en:Cereals
+<en:Cereals and their products
+<en:Seeds
+en:Cereal grains
+es:Cereales en grano
+fr:Céréales en grains
+
+<en:Cereal grains
+en:Canary grass
+es:Alpiste
+fr:Alpiste
+la:Phalaris canariensis
+wikidata:en:Q2086586
+
+<en:Cereal grains
+en:Amaranth
+es:Amaranto
+fr:Amarante
+la:Amaranthus
+wikidata:en:Q156344
+
+<en:Cereal grains
+en:Avena
+es:Avena
+fr:Avena
+la:Avena
+wikidata:en:Q146760
+
+<en:Avena
+en:Oat
+es:Avena sativa
+fr:Avoines
+la:Avena sativa
+wikidata:en:Q12104
+
+<en:Cereal grains
+en:Barley
+es:Cebada
+fr:Orge
+la:Hordeum vulgare
+wikidata:en:Q11577
+
+<en:Barley
+en:Winter barley
+es:Cebada de invierno
+fr:Escourgeon
+la:Hordeum vulgare subsp. hexastichum
+wikidata:en:Q3057987
+
+<en:Cereal grains
+en:Buckwheat
+es:Trigo sarraceno, Alforfón
+fr:Sarrasin de Tartarie, blés noirs fourragers
+la:Fagopyrum esculentum
+wikidata:en:Q132734
+
+<en:Cereal grains
+en:Chia
+es:Chía
+fr:Chia
+la:Salvia hispanica
+wikidata:en:Q1071585
+
+<en:Cereal grains
+en:Coix
+es:Coix
+fr:Coix
+la:Coix
+wikidata:en:Q1186042
+
+<en:Coix
+en:Job's Tears
+es:Lágrimas de Job
+fr:Coix lacryma-jobi, Coix - lacryma-jobi
+la:Coix lacryma-jobi
+wikidata:en:Q827098
+
+<en:Cereal grains
+en:Corn, Maize
+es:Maíz
+fr:Maïs
+la:Zea mays subsp. mays
+wikidata:en:Q11575
+
+<en:Corn
+en:Sweet corn
+es:Maíz dulce
+fr:Maïs doux, Maïs sucré
+la:Zea mays subsp. mays var. rugosa
+wikidata:en:Q18966
+
+<en:Cereal grains
+en:Crabgrass, Finger-grass
+es:Digitarias
+fr:Digitaires, Digitaria
+la:Digitaria
+wikidata:en:Q163915
+
+<en:Crabgrass
+en:Digitaria cruciata
+es:Digitaria cruciata
+fr:Raishan
+la:Digitaria cruciata
+wikidata:en:Q3027824
+
+<en:Crabgrass
+en:Digitaria iburua
+es:Digitaria iburua
+fr:Fonio noir
+la:Digitaria iburua
+wikidata:en:Q1341123
+
+<en:Crabgrass
+en:Fonio
+es:Mijo fonio
+fr:Fonio blanc
+la:Digitaria exilis
+wikidata:en:Q1340738
+
+<en:Crabgrass
+en:Hairy crabgrass, Large crabgrass
+es:Guarda rocío
+fr:Digitaire sanguine, Millet sanguin, Manne rouge d'Europe
+la:Digitaria sanguinalis
+wikidata:en:Q158994
+
+<en:Cereal grains
+en:Flax seeds, Flax, Linseeds, Common flax
+es:Lino, Linaza, Semillas de lino
+fr:Lins, Lin cultivé, Graines de lin
+la:Linum usitatissimum
+wikidata:en:Q45108
+
+<en:Flax seeds
+en:Gold flax seeds, Gold flax, Gold linseeds
+es:Lino dorado, Linaza dorada, Semillas de lino dorado
+fr:Graines de lin dorées
+
+<en:Flax seeds
+en:Brown flax seeds, Brown flax, Brown linseeds
+es:Lino marrón, Linaza marrón, Semillas de lino marrón
+fr:Graines de lin brunes
+
+<en:Cereal grains
+en:Meslin
+es:Morcajo, Tranquillón, Mezclas de trigo y centeno
+fr:Méteil, Mélange de blé et seigle
+wikidata:en:Q3333504
+
+<en:Cereal grains
+en:Millet
+es:Mijo
+fr:Millet
+wikidata:en:Q259438
+
+<en:Millet
+en:Finger millet, African finger millet, Ragi
+es:Mijo de dedo, Mijo africano, Ragi
+fr:Éleusine
+la:Eleusine coracana
+wikidata:en:Q932258
+
+<en:Millet
+en:Pearl millet
+es:Mijo perla 
+fr:Mil, Mil à chandelle
+la:Pennisetum glaucum
+wikidata:en:Q654332
+
+<en:Millet
+en:Proso millet, Common millet, White millet
+es:Mijo común
+fr:Millet commun
+la:Panicum miliaceum
+wikidata:en:Q165196
+
+<en:Millet
+en:Foxtail millet
+es:Moha, Moha de Italia, Mijo menor
+fr:Millet des oiseaux, Sétaire d'Italie, Petit mil
+la:Setaria italica
+wikidata:en:Q161211
+
+<en:Cereal grains
+en:Quinoa
+es:Quinoa
+fr:Quinoa
+la:Chenopodium quinoa
+wikidata:en:Q139925
+
+<en:Cereal grains
 en:Rices
+es:Arroces, Arroz
 fr:Riz
+la:Oryza sativa
+wikidata:en:Q161426
 
 <en:Rices
-fr:Riz arborio
+en:Brown rices
+es:Arroces integrales, Arroces cargo
+fr:Riz cargo, riz complet, riz brun, riz semi-complet
+wikidata:en:Q1066624
 
 <en:Rices
-fr:Riz Basmati, Basmati
-
-<fr:Riz Basmati
-fr:Riz Basmati blancs
-
-<fr:Riz Basmati
-fr:Riz Basmati bruns
+en:Paddy rices
+es:Arroces en cáscara, Arroces con cáscara, Arroces cáscara, Arroces paddy
+fr:Riz paddy
 
 <en:Rices
-fr:riz blanc, riz usiné, riz blancho
+en:Parboiled rices
+es:Arroces vaporizados, Arroces sancochados, Arroces parboiled
+fr:Riz étuvé
+wikidata:en:Q732925
 
 <en:Rices
-fr:riz cargo, riz complet, riz brun, riz semi-complet
+en:Precooked rices, Instant rices, Rapid cooking rices
+es:Arroces precocidos, Arroces rápidos, Arroces de cocción rápida
+fr:Riz précuits natures, riz précuits, riz précuit, riz pré-cuit, riz pré-cuits
+wikidata:en:Q6038850
 
 <en:Rices
-fr:Riz de Camargue
+en:White rices
+es:Arroces blancos
+fr:Riz blanc, riz usiné, riz blancho
+wikidata:en:Q2674257
 
 <en:Rices
-fr:riz gluant, riz glutineux, riz collant, riz doux
-
-<en:Rices
-fr:Riz Koshihikari, Koshihikari
-
-<en:Rices
-fr:Riz long
-
-<en:Rices
-fr:Riz long grain, riz longs grains
-
-<en:Rices
-fr:riz paddy
-
-<en:Rices
+en:Aromatic rices
+es:Arroces aromáticos
 fr:Riz parfumés, Riz parfumé
+wikidata:en:Q4795514
 
 <en:Rices
+en:Glutinous rices, Sticky rices
+es:Arroces glutinosos
+fr:Riz gluant, riz glutineux, riz collant, riz doux
+wikidata:en:Q115443
+
+<en:Rices
+en:Indica rices
+es:Arroces de la variedad índica
+fr:Riz de variété indica
+
+<en:Rices
+en:Japonica rices
+es:Arroces de la variedad japónica
+fr:Riz de variété japonica
+
+<en:Rices
+en:Long grain rices
+es:Arroces de grano largo
+fr:Riz long grain, riz longs grains, Riz long
+
+<en:Rices
+en:Medium grain rices
+es:Arroces de grano medio, Arroces de grano semilargo
+fr:Riz à grain médium, Riz à grain moyen
+
+<en:Rices
+en:Short grain rices
+es:Arroces de grano corto, Arroces de grano redondo
+fr:Riz à grain court, Riz rond, Riz à grain ovale
+
+< en:Rices
+en:Rices for paella
+es:Arroces para paella
+fr:Riz pour paella
+
+<en:Rices
+en:Rices for risotto
+es:Arroces para risotto
 fr:Riz pour risotto
 
 <en:Rices
+en:Sushi rice, Rices for sushi
+es:Arroces para sushi
 fr:Riz pour sushi
-en:Sushi rice
 
-<en:Rices
-fr:Riz précuits natures, riz précuits, riz précuit, riz pré-cuit, riz pré-cuits
+< en:Short grain rices
+< en:Japonica rices
+< en:Rices for risotto
+en:Arborio rices
+es:Arroces Arborio
+fr:Riz arborio
+wikidata:en:Q2615884
 
-<en:Rices
-fr:Riz Surinam
+< en:Medium grain rices
+< en:Japonica rices
+< en:Rices for paella
+en:Bahía rices, Bahia rices
+es:Arroces Bahía
+fr:Riz Bahía
+wikidata:en:Q5706293
 
-<en:Rices
-fr:Riz thaï
+< en:Short grain rices
+< en:Japonica rices
+< en:Rices for paella
+en:Balilla x Sollana rices
+es:Arroces Balilla x Sollana
+fr:Riz Balilla x Sollana
 
-<fr:Riz thaï
-fr:Riz thaï blanc
+< en:Long grain rices
+< en:Indica rices
+< en:Aromatic rices
+en:Basmati rices
+es:Arroces Basmati
+fr:Riz Basmati, Basmati
+wikidata:en:Q1649635
 
-<fr:Riz thaï
+< en:Basmati rices
+< en:Brown rices
+en:Brown Basmati rices
+es:Arroces Basmati integrales
+fr:Riz Basmati bruns
+
+< en:Basmati rices
+< en:White rices
+en:White Basmati rices
+es:Arroces Basmati blancos
+fr:Riz Basmati blancs
+
+< en:Short grain rices
+< en:Japonica rices
+< en:Rices for paella
+en:Bomba rices
+es:Arroces Bomba
+fr:Riz Bomba
+wikidata:en:Q5706296
+
+< en:Rices
+en:Camargue rices
+es:Arroces de Camarga
+fr:Riz de Camargue
+wikidata:en:Q18745430
+
+< en:Medium grain rices
+< en:Japonica rices
+< en:Rices for risotto
+en:Carnaroli rices
+es:Arroces Carnaroli
+fr:Riz Carnaroli
+wikidata:en:Q1043890
+
+< en:Long grain rices
+< en:Indica rices
+< en:Aromatic rices
+en:Jasmine rice
+es:Arroces Jazmín
+fr:Riz thaï, Riz Jasmin
+wikidata:en:Q2733021
+
+< en:Jasmine rice
+< en:Brown rices
+en:Brown Jasmine rices
+es:Arroces Jazmín integrales
 fr:Riz thaï noir
 
-<en:Rices
+< en:Jasmine rice
+< en:White rices
+en:White Jasmine rices
+es:Arroces Jazmín blancos
+fr:Riz thaï blanc
+
+< en:Short grain rices
+< en:Japonica rices
+< en:Rices for sushi
+en:Koshihikari rices, Koshihikari
+es:Arroces Koshihikari, Koshihikari
+fr:Riz Koshihikari, Koshihikari
+wikidata:en:Q1204670
+
+< en:Medium grain rices
+< en:Japonica rices
+< en:Rices for paella
+en:Sénia rices, Senia rices
+es:Arroces Sénia
+fr:Riz Sénia
+wikidata:en:Q5706352
+
+< en:Rices
+en:Surinam rices
+es:Arroces de Surinam
+fr:Riz Surinam
+
+< en:Long grain rices
+< en:Indica rices
+en:Tahibonet rices
+es:Arroces Tahibonet
+fr:Riz Tahibonet
+
+< en:Medium grain rices
+< en:Japonica rices
+< en:Rices for risotto
+en:Vialone Nano rices
+es:Arroces Vialone Nano
 fr:Riz Vialone Nano
-
-<en:Cereals
-es:Cereales en grano
-
-<es:Cereales en grano
-es:Amaranto
-
-<es:Cereales en grano
-es:Arroz
-
-<es:Cereales en grano
-es:Arroz salvaje
-
-<es:Cereales en grano
-es:Avena
-
-<es:Cereales en grano
-es:Cáñamo
-
-<es:Cereales en grano
-es:Cebada
-
-<es:Cereales en grano
-es:Centeno
-
-<es:Cereales en grano
-es:Chía
-
-<es:Cereales en grano
-es:Lino
-
-<es:Cereales en grano
-es:Maíz
-
-<es:Cereales en grano
-es:Mijo
-
-<es:Cereales en grano
-es:Quinoa
-
-<es:Cereales en grano
-es:Sésamo
-
-<es:Cereales en grano
-es:Teff
-
-<es:Cereales en grano
-es:Trigo
-
-<es:Trigo
-es:Espelta, Escanda
-
-<es:Trigo
-es:Kamut, Trigo de Jorasán
-
-<es:Cereales en grano
-es:Trigo sarraceno
-
-<en:Cereals
-es:Cereales inflados, Cereales hinchados
-
-<es:Cereales inflados
-es:Arroz inflado, Arroz hinchado
-
-<es:Cereales inflados
-es:Avena inflada, Avena hinchada
-
-<es:Cereales inflados
-es:Cebada inflada, Cebada hinchada
-
-<es:Cereales inflados
-es:Centeno inflado, Centeno hinchado
-
-<es:Cereales inflados
-es:Mezclas de cereales inflados
-
-<es:Cereales inflados
-es:Mijo inflado, Mijo hinchado
-
-<es:Cereales inflados
-es:Quinoa inflada, Quinoa hinchada
-
-<es:Cereales inflados
-es:Trigo inflado, Trigo hinchado
-
-<es:Trigo inflado
-es:Espelta inflada, Espelta hinchada, Escanda inflada, Escanda hinchada
-
-<es:Trigo inflado
-es:Kamut inflado, Kamut hinchado, Trigo de Jorasán inflado, Trigo de Jorasán hinchado
-
-<es:Cereales inflados
-es:Trigo sarraceno inflado, Trigo sarraceno hinchado
-
-<en:Cereals
-es:Copos de cereales
-
-<es:Copos de cereales
-es:Copos de amaranto
-
-<es:Copos de cereales
-es:Copos de arroz
-
-<es:Copos de cereales
-es:Copos de arroz salvaje
-
-<es:Copos de cereales
-es:Copos de avena
-
-<es:Copos de cereales
-es:Copos de cebada
-
-<es:Copos de cereales
-es:Copos de centeno
-
-<es:Copos de cereales
-es:Copos de maíz tostado
-
-<es:Copos de cereales
-es:Copos de mijo
-
-<es:Copos de cereales
-es:Copos de quinoa
-
-<es:Copos de cereales
-es:Copos de teff
-
-<es:Copos de cereales
-es:Copos de trigo
-
-<es:Copos de trigo
-es:Copos de espelta, Copos de escanda
-
-<es:Copos de trigo
-es:Copos de Kamut, Copos de trigo de Jorasán
-
-<es:Copos de cereales
-es:Copos de trigo sarraceno
-
-<es:Copos de cereales
-es:Corn  flakes
-
-<es:Copos de cereales
-es:Mezclas de copos de cereales
-
-<es:Copos de cereales
-es:Mueslis
-
-<en:Cereals
-es:Galletas
-
-<en:Cereals
-es:Harinas de cereales
-
-<es:Harinas de cereales
-es:Harinas de arroz
-
-<es:Harinas de cereales
-es:Harinas de avena
-
-<es:Harinas de cereales
-es:Harinas de cáñamo
-
-<es:Harinas de cereales
-es:Harinas de cebada
-
-<es:Harinas de cereales
-es:Harinas de centeno
-
-<es:Harinas de cereales
-es:Harinas de maíz
-
-<es:Harinas de cereales
-es:Harinas de quinoa
-
-<es:Harinas de cereales
-es:Harinas de teff
-
-<es:Harinas de cereales
-es:Harinas de Trigo
-
-<es:Harinas de Trigo
-es:Harinas de espelta, Harinas de escanda
-
-<es:Harinas de Trigo
-es:Harinas de kamut, Harinas de trigo de Jorasán
-
-<es:Harinas de cereales
-es:Harinas de trigo sarraceno
-
-<en:Cereals
-es:Pan
-
-<es:Pan
-es:Pan común
-
-<es:Pan
-es:Panes especiales
-
-<es:Panes especiales
-es:Biscotes
-
-<es:Panes especiales
-es:Colines
-
-<es:Panes especiales
-es:Pan rallado
-
-<es:Panes especiales
-es:Panecillos tostados
-
-<es:Panes especiales
-es:Panes de molde
-
-<es:Panes especiales
-es:Panes integrales
-
-<es:Panes especiales
-es:Picos de pan
-
-<es:Panes especiales
-es:Regañás
-
-<en:Cereals
-es:Productos de pastelería, confitería, bollería y repostería
-
-<en:Cereals
-es:Salvado de cereales
-
-<es:Salvado de cereales
-es:Salvado de avena
-
-<es:Salvado de cereales
-es:Salvado de trigo
-
-<es:Salvado de trigo
-es:Salvado de espelta, Salvado de escanda
-
-<es:Salvado de trigo
-es:Salvado de Kamut, Salvado de trigo de Jorasán
-
-<en:Cereals
-es:Sémolas de cereales
-
-<es:Sémolas de cereales
-es:Bulgur
-
-<es:Sémolas de cereales
-es:Cuscús, Cus-cus, Cous-cous
-
-<es:Sémolas de cereales
-es:Gofio
-
-<es:Sémolas de cereales
-es:Sémolas de arroz
-
-<es:Sémolas de cereales
-es:Sémolas de avena
-
-<es:Sémolas de cereales
-es:Sémolas de cebada
-
-<es:Sémolas de cereales
-es:Sémolas de centeno
-
-<es:Sémolas de cereales
-es:Sémolas de maíz, Polentas
-
-<es:Sémolas de cereales
-es:Sémolas de Trigo
-
-<es:Sémolas de Trigo
-es:Sémolas de espelta, Sémolas de escanda
-
-<es:Sémolas de Trigo
-es:Sémolas de kamut, Sémolas de trigo de Jorasán
-
-<es:Sémolas de cereales
-es:Sémolas de trigo sarraceno
-
-<en:Cereals
-fr:Alpiste
-
-<en:Cereals
-fr:Avena
-
-<en:Cereals
-fr:Avoines
-
-<en:Cereals
-fr:Blés
-
-<en:Cereals
-fr:Coix
-
-<fr:Coix
-fr:Coix - lacryma-jobi
-
-<en:Cereals
-fr:Couscous
-
-<en:Cereals
-fr:Digitaria
-
-<fr:Digitaria
-fr:Digitaria cruciata
-
-<fr:Digitaria
-fr:Digitaria iburua
-
-<fr:Digitaria
-fr:Digitaria sanguinalis
-
-<en:Cereals
-fr:Éleusine
-
-<en:Cereals
-fr:Engrain
-
-<en:Cereals
-fr:Épeautre
-
-<en:Cereals
-fr:Escourgeon
-
-<en:Cereals
-fr:Fonio
-
-<en:Cereals
-fr:Méteil
-
-<en:Cereals
-fr:Mil
-
-<en:Cereals
-fr:Millet
-
-<en:Cereals
-fr:Orge
-
-<en:Cereals
-fr:Quinoa
-
-<en:Cereals
-fr:Sarrasin de Tartarie, blés noirs fourragers
-
-<en:Cereals
+wikidata:en:Q3937029
+
+< en:Rices
+en:Mixed rices
+es:Mezclas de arroces, Mezcla de arroces
+fr:Mélanges de riz
+
+<en:Cereal grains
+en:Secale
+es:Secale
 fr:Secale
+la:Secale
+wikidata:en:Q7215110
 
-<en:Cereals
+<en:Secale
+en:Rye
+es:Centeno
 fr:Seigle
+la:Secale cereale
+wikidata:en:Q12099
 
-<en:Cereals
-fr:Setaria
+<en:Cereal grains
+en:Sesame
+es:Sésamo, Ajonjolí, Semillas de sésamo
+fr:Sésame, Graines de sésame
+la:Sesamum indicum
+wikidata:en:Q2763698
 
-<en:Cereals
+< en:Sesame
+en:Raw sesame
+es:Sésamo crudo, Ajonjolí crudo, Semillas de sésamo crudas
+fr:Graines de sésame crues
+
+< en:Sesame
+en:Toasted sesame
+es:Sésamo crudo, Ajonjolí crudo, Semillas de sésamo tostadas
+fr:Sésame toasté, Graines de sésame toastées
+
+<en:Cereal grains
+en:Sorghum
+es:Sorgo
 fr:Sorgho
+la:Sorghum
+wikidata:en:Q12111
 
-<en:Cereals
+<en:Cereal grains
+en:Teff, Eragrostis tef
+es:Teff, Tef
 fr:Teff
+la:Eragrostis tef
+wikidata:en:Q843942
 
-<en:Cereals
+<en:Cereal grains
+en:Triticale
+es:Triticale
 fr:Triticale
+la:x Triticosecale
+wikidata:en:Q380329
 
-<en:Cereals
+<en:Cereal grains
+en:Wheats
+es:Trigos, Trigo
+fr:Blés, Blé
+la:Triticum
+wikidata:en:Q12106
+
+< en:Wheats
+en:Common wheats, Bread wheats
+es:Trigos blandos, Trigos comunes, Trigos harineros
+fr:Blés tendres, Froments, Blés ordinaires, Blés tendre
+la:Triticum aestivum, Triticum aestivum subsp. aestivum
+wikidata:en:Q161098
+
+< en:Common wheats
+en:Norin 10 wheats
+es:Trigos Norin 10
+fr:Blés Norin 10
+wikidata:en:Q2907437
+
+< en:Wheats
+en:Durum wheats, Macaroni wheats
+es:Trigos duros, Trigo duro
+fr:Blés durs
+la:Triticum durum, Triticum turgidum subsp. durum
+wikidata:en:Q618324
+
+< en:Wheats
+en:Einkorn wheats
+es:Trigos escaña cultivada, Escañas
+fr:Petits épeautres, Engrains, Engrain
+la:Triticum monococcum
+wikidata:en:Q161397
+
+< en:Wheats
+en:Emmer wheats
+es:Escandas, Povia
+fr:Amidonniers
+la:Triticum dicoccum, Triticum turgidum subsp. dicoccum, Triticum turgidum subsp. dicoccon
+wikidata:en:Q167339
+
+< en:Wheats
+en:Khorasan wheats, Kamut
+es:Trigos de Jorasán, Kamut
+fr:Blés de Khorasan, Kamut
+la:Triticum turanicum, Triticum turgidum subsp. turanicum
+wikidata:en:Q11163068
+
+< en:Wheats
+en:Spelts
+es:Espeltas, Escaña mayor, Escanda mayor
+fr:Épeautres, Épeautre, Grands épeautres
+la:Triticum spelta, Triticum aestivum subsp. spelta
+wikidata:en:Q158767
+
+<en:Cereal grains
+en:Wild rice
+es:Arroz salvaje, Arroz silvestre, Zizania
 fr:Zizanie
+la:Zizania
+wikidata:en:Q831681
+
+< en:Cereals and their products
+< en:Canned plant-based foods
+en:Canned cereals
+es:Cereales en conserva
+fr:Céréales en conserve
+
+<en:Canned cereals
+<en:Canned vegetables
+en:Canned corn
+es:Maíz en conserva
+fr:Maïs en conserve
+
+<en:Canned corn
+en:Canned sweet corn
+es:Maíz dulce en conserva
+fr:Maïs doux en conserve
 
 en:Chips and fries
 fr:Chips et frites
@@ -2606,11 +3083,78 @@ fr:Crèmes fraîches légères, Crème fraîche légère, crème légère
 <fr:Crèmes fraîches
 fr:Crèmes fraîches liquides, Crème fraîche liquide, Crème liquide
 
+<en:Plant-based foods
+en:Plant-based creams, Plant creams, Dairy-free creams, Dairy-free cream substitutes
+es:Natas vegetales
+fr:Crèmes végétales
+wikidata:en:Q4258412
+
+<en:Plant-based creams
+en:Plant-based creams for cooking, Dairy-free creams for cooking
+es:Natas vegetales para cocinar
+fr:Crèmes végétales pour cuisiner
+
+<en:Plant-based creams for cooking
+en:Almond-based creams for cooking
+es:Natas vegetales a base de almendra para cocinar
+fr:Crèmes végétales à base d'amande pour cuisiner, Amande cuisine
+
+<en:Plant-based creams for cooking
+en:Coconut-based creams for cooking
+es:Natas vegetales a base de coco para cocinar
+fr:Crèmes végétales à base de coco pour cuisiner, Coco cuisine
+
+<en:Plant-based creams for cooking
+en:Millet-based creams for cooking
+es:Natas vegetales a base de mijo para cocinar
+fr:Crèmes végétales à base de millet pour cuisiner, Millet cuisine
+
+<en:Plant-based creams for cooking
+en:Oat-based creams for cooking
+es:Natas vegetales a base de avena para cocinar
+fr:Crèmes végétales à base d'avoine pour cuisiner, Avoine cuisine
+
+<en:Plant-based creams for cooking
+en:Rice-based creams for cooking
+es:Natas vegetales a base de arroz para cocinar
+fr:Crèmes végétales à base de riz pour cuisiner, Riz cuisine
+
+<en:Plant-based creams for cooking
+en:Soy-based creams for cooking
+es:Natas vegetales a base de soja para cocinar
+fr:Crèmes végétales à base de soja pour cuisiner, Soja cuisine
+
+<en:Plant-based creams for cooking
+en:Spelt-based creams for cooking
+es:Natas vegetales a base de espelta para cocinar
+fr:Crèmes végétales à base d'épeautre pour cuisiner, Épeautre cuisine
+
+<en:Plant-based creams
+en:Plant-based whipped creams, Plant-based whipped topping, Dairy-free whipped topping
+es:Natas vegetales para montar
+fr:Crèmes chantilly végétales
+
+<en:Plant-based whipped creams
+en:Whipped coconut-based creams, Whipped coconut-based topping, Coconut-based topping creams
+es:Natas vegetales a base de coco para montar
+fr:Crèmes chantilly végétales à base de coco
+
+<en:Plant-based whipped creams
+en:Whipped rice-based creams, Whipped rice-based topping, Rice-based topping creams
+es:Natas vegetales a base de arroz para montar
+fr:Crèmes chantilly végétales à base de riz
+
+<en:Plant-based whipped creams
+en:Whipped soy-based creams, Whipped soy-based topping, Soy-based topping creams
+es:Natas vegetales a base de soja para montar
+fr:Crèmes chantilly végétales à base de soja
+
 <en:Animal fats
 <en:Dairies
 en:Butters
 es:Mantequillas
 fr:Beurres, beurre
+wikidata:en:Q34172
 
 <en:Butters
 fr:Beurres allégés, Beurre allegé
@@ -2683,6 +3227,7 @@ fr:Laits UHT, lait UHT
 en:Plant milks, Vegetable milks, Vegetable drinks
 es:Leches vegetales, Bebidas vegetales
 fr:Laits végétaux, lait végétal, laits végétaliens
+wikidata:en:Q2640574
 
 <en:Plant milks
 en:Cereal milks, Cereal drinks
@@ -2731,8 +3276,9 @@ fr:Laits de quinoa
 
 <en:Cereal milks
 en:Rice milks, Rice drinks
-es:Bebidas de arroz, Leches de arroz
+es:Leches de arroz, Bebidas de arroz
 fr:Laits de riz, lait de riz
+wikidata:en:Q715187
 
 <en:Rice milks
 en:Natural rice milks, Natural rice drinks, Plain rice milks, Plain rice drinks 
@@ -2753,7 +3299,7 @@ fr:Laits de riz au cacao, Laits de riz au chocolat
 en:Sesame milks, Sesame drinks
 es:Leches de sésamo, Bebidas de sésamo
 fr:Laits de sésame
- 
+
 <en:Cereal milks
 en:Teff milks, Teff drinks
 es:Leches de teff, Bebidas de teff
@@ -2768,7 +3314,7 @@ fr:Laits de blé
 en:Khorasan wheat milks, Kamut milks, Khorasan wheat drinks, Kamut drinks
 es:Leches de trigo de Jorasán, Leches de Kamut, Bebidas de trigo de Jorasán, Bebidas de Kamut
 fr:Laits de blé de Khorasan, Laits de Kamut
- 
+
 <en:Wheat milks
 en:Spelt milks, Spelt drinks
 es:Leches de espelta, Bebidas de espelta
@@ -2778,46 +3324,26 @@ fr:Laits d’épeautre, Laits d’Épeautre
 en:Coconut milks, Coconut drinks
 es:Leches de coco, Bebidas de coco
 fr:Laits de coco, lait de coco
+wikidata:en:Q841779
 
 <en:Plant milks
-en:Mixed plant milks, Mixed plant drinks
-es:Mezclas de leches vegetales, Mezclas de bebidas vegetales
+en:Hemp milks, Hemp seed milks
+es:Leches de cáñamo, Bebidas de cáñamo
+fr:Laits de chanvre
+wikidata:en:Q13099103
 
+<en:Legumes and their products
 <en:Plant milks
-en:Nut milks, Nut drinks, 
-es:Leches de frutos de cáscara, Bebidas de frutos de cáscara
-fr:Laits de fruits à coques
+en:Legume milks, Legume drinks
+es:Leches de leguminosas, Bebidas de leguminosas
+fr:Laits de légumineuses
 
-<en:Nut milks
-en:Almond milks, Almond drinks
-es:Bebidas de almendras, Leches de almendras
-fr:Laits d'amande, lait d’amande
-
-<en:Nut milks
-en:Chestnut milks, Chestnut drinks
-es:Leches de castañas, Bebidas de castañas
-fr:Laits de châtaignes
-
-<en:Nut milks
-en:Hazelnut milks, Hazelnut drinks
-es:Leches de avellanas, Bebidas de avellanas
-fr:Laits de noisettes
-
-<en:Nut milks
-en:Macadamia nut milks, Macadamia nut drinks
-es:Leches de nueces de macadamia, Bebidas de nueces de macadamia
-fr:Laits de noix de macadamia
-
-<en:Nut milks
-en:Walnut milks, Walnut drinks
-es:Leches de nueces, Bebidas de nueces
-fr:Laits de noix 
-
-<en:Plant milks
+<en:Legume milks
 en:Soy milks, Soya milks, Soya drinks, Soy drinks
-fr:Laits de soja, lait de soja
 de:Sojamilch
 es:Leches de soja, Bebidas de soja
+fr:Laits de soja, lait de soja
+wikidata:en:Q192199
 
 <en:Soy milks
 en:Unsweetened natural soy milks, Unsweetened natural soy drinks
@@ -2841,8 +3367,43 @@ fr:Laits de soja au cacao, Laits de soja au chocolat
 
 <en:Soy milks
 en:Coffee soy milks, Coffee soy drinks
-en:Leches de soja con café, Bebidas de soja con café
+es:Leches de soja con café, Bebidas de soja con café
 fr:Laits de soja avec du café
+
+<en:Plant milks
+en:Mixed plant milks, Mixed plant drinks
+es:Mezclas de leches vegetales, Mezclas de bebidas vegetales
+
+<en:Plant milks
+en:Nut milks, Nut drinks, 
+es:Leches de frutos de cáscara, Bebidas de frutos de cáscara
+fr:Laits de fruits à coques
+
+<en:Nut milks
+en:Almond milks, Almond drinks
+es:Bebidas de almendras, Leches de almendras
+fr:Laits d'amande, lait d’amande
+wikidata:en:Q975953
+
+<en:Nut milks
+en:Chestnut milks, Chestnut drinks
+es:Leches de castañas, Bebidas de castañas
+fr:Laits de châtaignes
+
+<en:Nut milks
+en:Hazelnut milks, Hazelnut drinks
+es:Leches de avellanas, Bebidas de avellanas
+fr:Laits de noisettes
+
+<en:Nut milks
+en:Macadamia nut milks, Macadamia nut drinks
+es:Leches de nueces de macadamia, Bebidas de nueces de macadamia
+fr:Laits de noix de macadamia
+
+<en:Nut milks
+en:Walnut milks, Walnut drinks
+es:Leches de nueces, Bebidas de nueces
+fr:Laits de noix 
 
 <en:Plant milks
 en:Tigernut milks, Tigernut drinks
@@ -2853,12 +3414,85 @@ fr:Laits de souchet
 en:Horchatas de chufa
 es:Horchatas de chufa
 fr:Horchatas de chufa
+wikidata:en:Q1587937
 
 <en:Horchatas de chufa
-<en:Frozen foods
+<en:Frozen plant-based foods
 en:Frozen horchatas de chufa
 es:Horchatas de chufa congeladas
 fr:Horchatas de chufa surgelés
+
+<en:Plant-based foods
+en:Powdered plant milks, Powdered vegetable drinks, Powdered vegetable milks
+es:Leches vegetales en polvo, Bebidas vegetales en polvo
+fr:Laits végétaux en poudre
+
+<en:Cereals and their products
+<en:Powdered plant milks
+en:Powdered cereal milks, Powdered cereal drinks
+es:Leches de cereales en polvo, Bebidas de cereales en polvo
+fr:Laits de céréales en poudre
+
+<en:Powdered cereal milks
+en:Powdered amaranth milks, Powdered amaranth drinks
+es:Leches de amaranto en polvo, Bebidas de amaranto en polvo
+fr:Laits d'amarante en poudre
+
+<en:Powdered cereal milks
+en:Powdered quinoa milks, Powdered quinoa drinks
+es:Leches de quinoa en polvo, Bebidas de quinoa en polvo
+fr:Laits de quinoa en poudre
+
+<en:Powdered cereal milks
+en:Powdered millet milks, Powdered millet drinks
+es:Leches de mijo en polvo, Bebidas de mijo en polvo
+fr:Laits de millet en poudre
+
+<en:Powdered cereal milks
+en:Powdered oat milks, Powdered oat drinks
+es:Leches de avena en polvo, Bebidas de avena en polvo
+fr:Laits d'avoine en poudre, lait d’avoine en poudre
+
+<en:Powdered cereal milks
+en:Powdered rice milks, Powdered rice drinks
+es:Leches de arroz en polvo, Bebidas de arroz en polvo
+fr:Laits de riz en poudre
+
+<en:Powdered cereal milks
+en:Powdered sesame milks, Powdered sesame drinks
+es:Leches de sésamo en polvo, Bebidas de sésamo en polvo
+fr:Laits de sésame en poudre
+ 
+<en:Powdered cereal milks
+en:Powdered teff milks, Powdered teff drinks
+es:Leches de teff en polvo, Bebidas de teff en polvo
+fr:Laits de teff en poudre
+
+<en:Powdered cereal milks
+en:Powdered wheat milks, Powdered wheat drinks
+es:Leches de trigo en polvo, Bebidas de trigo en polvo
+fr:Laits de blé en poudre
+ 
+<en:Powdered wheat milks
+en:Powdered Khorasan wheat milks, Powdered Kamut milks, Powdered Khorasan wheat drinks, Powdered Kamut drinks
+es:Leches de trigo de Jorasán en polvo, Leches de Kamut en polvo, Bebidas de trigo de Jorasán en polvo, Bebidas de Kamut en polvo
+fr:Laits de blé de Khorasan en poudre, Laits de Kamut en poudre
+
+<en:Powdered wheat milks
+en:Powdered spelt milks, Powdered spelt drinks
+es:Leches de espelta en polvo, Bebidas de espelta en polvo
+fr:Laits d’épeautre en poudre
+
+<en:Legumes and their products
+<en:Powdered plant milks
+en:Powdered legume milks, Powdered legume drinks
+es:Leches de leguminosas en polvo, Bebidas de leguminosas en polvo
+fr:Laits de légumineuses en poudre
+
+<en:Powdered legume milks
+en:Powdered soy milks, Powdered soya milks, Powdered soya drinks, Powdered soy drinks 
+es:Leches de soja en polvo, Bebidas de soja en polvo
+fr:Laits de soja en poudre
 
 <en:Milks
 <en:Mountain products
@@ -2923,7 +3557,7 @@ en:Mixed yogurts
 fr:Yaourts mixés
 
 <en:Yogurts
-en:Sheep's milk yogurts
+en:Sheep's milk yogurts, Yoghurt from sheep's milk, sheep's milk yogurt
 es:Yogures de leche de oveja
 fr:Yaourts au lait de brebis, Yaourt au lait de brebis, Yaourts de brebis, Yaourt de brebis
 
@@ -2954,7 +3588,7 @@ fr:Yaourts de soja à la fraise
 
 <en:Fruit soy yogurts
 <en:Lemon yogurts
-en:Lemon soy yogurts
+en:Lemon soy yogurts, Soy yogurt with lemon
 es:Yogures de soja con limón
 fr:Yaourts soja au citron
 
@@ -3008,7 +3642,7 @@ es:Yogures endulzados, Yogures azucarados
 fr:Yaourts sucrés
 
 <en:Yogurts
-en:Vanilla yogurts
+en:Vanilla yogurt, vanilla yogurts
 es:Yogures de vainilla
 fr:Yaourts vanille, Yaourts à la vanille
 
@@ -3110,7 +3744,7 @@ fr:Compotes mangues
 
 <en:Desserts
 en:Dessert creams
-fr:Crèmes dessert
+fr:Crèmes dessert, Crèmes desserts
 
 <en:Dessert creams
 <en:Dairy desserts
@@ -3132,6 +3766,9 @@ fr:Crèmes dessert chocolat
 
 <fr:Crèmes dessert chocolat
 fr:Crèmes dessert chocolat noir
+
+<fr:Crèmes dessert
+fr:Crèmes dessert caramel
 
 <en:Desserts
 en:Non-dairy desserts, vegetal desserts, vegan desserts
@@ -3156,6 +3793,7 @@ fr:Desserts lactés au chocolat, desserts au chocolat et au lait
 <en:Dairy desserts
 en:Tiramisu
 fr:Tiramisu
+wikidata:en:Q131582
 
 <en:Dairy desserts
 en:Dairy creams
@@ -3194,7 +3832,7 @@ fr:Desserts de soja à la vanille
 
 <en:Yogurts
 <en:Non-dairy desserts
-en:Non-dairy yogurts, vegan yogurts en:Non-dairy yogurts
+en:Non-dairy yogurts, vegan yogurts
 fr:Yaourts végétaux, yaourt végétal, yaourt végan, yaourts sans lait
 es:Yogures vegetales
 
@@ -3215,7 +3853,15 @@ fr:Fruits à coques, Fruit à coque, Fruits à coque, Fruits à éclacle
 pnns_group_2:en:Nuts
 
 <en:Nuts
-fr:Cacahuètes
+en:Cashew nuts
+fr:Noix de cajou, Anacardes
+
+<en:Nuts
+<en:Legumes
+en:Peanuts
+es:Cacahuetes, Cacahuates, Manís
+fr:Cacahuètes, Arachides
+la:Arachis hypogaea
 
 <fr:Cacahuètes
 fr:Cacahuètes grillées
@@ -3237,7 +3883,9 @@ fr:Produits d’élevages
 <en:Bee products
 <en:Farming products
 <en:Sweet spreads
+<en:Sweeteners
 en:Honeys
+es:Mieles
 fr:Miels
 
 <en:Honeys
@@ -3546,6 +4194,7 @@ fr:Matières grasses végétales, matière grasse végétale
 <en:Vegetable fats
 en:Cocoa butter
 es:Mantecas de cacao
+wikidata:en:Q251106
 
 <en:Vegetable fats
 <en:Plant-based spreads
@@ -3557,6 +4206,7 @@ fr:Margarines, Margarine végétale
 <en:Vegetable fats
 en:Shea butter
 es:Mantecas de karité
+wikidata:en:Q495857
 
 <en:Vegetable fats
 en:Vegetable oils
@@ -3566,29 +4216,63 @@ fr:Huiles, huiles végétales
 <en:Vegetable oils
 en:Almond oils
 es:Aceites de almendras
+wikidata:en:Q1164590
 
 <en:Vegetable oils
 en:Argan oils
 es:Aceites de argán
 fr:Huiles d'argan
+wikidata:en:Q45418
 
 <en:Vegetable oils
 en:Borage seed oils, Borage oils
 es:Aceites de borraja
+wikidata:en:Q4944279
 
 <en:Vegetable oils
 en:Canola oils
 es:Aceites de canola
 
+<en:Cereals and their products
+<en:Vegetable oils
+en:Cereal oils
+es:Aceites de cereales
+fr:Huiles de céréales
+
+<en:Cereal oils
+en:Corn oils
+es:Aceites de maíz, Aceites de germen de maíz
+fr:Huiles de maïs
+wikidata:en:Q856775
+
+<en:Cereal oils
+en:Linseed oils, Flaxseed oils, Flax oil
+es:Aceites de lino, Aceites de linaza
+fr:Huiles de lin
+wikidata:en:Q818405
+
+<en:Cereal oils
+en:Rice bran oil
+es:Aceites de arroz
+fr:Huiles de riz
+wikidata:en:Q175933
+
+<en:Cereal oils
+en:Sesame oils
+es:Aceites de sésamo
+fr:Huiles de sésame
+wikidata:en:Q212317
+
+<en:Cereal oils
+en:Wheat germ oils
+es:Aceites de germen de trigo
+fr:Huiles de germe de blé
+wikidata:en:Q720761
+
 <en:Vegetable oils
 en:Coconut oils
 es:Aceites de coco
 fr:Huiles de coco
-
-<en:Vegetable oils
-en:Corn oils
-es:Aceites de maíz, Aceites de germen de maíz
-fr:Huiles de maïs
 
 <en:Vegetable oils
 en:Cottonseed oils
@@ -3608,9 +4292,21 @@ fr:Huiles de noisette
 en:Hemp oils
 es:Aceites de cáñamo
 
+<en:Legumes and their products
 <en:Vegetable oils
-en:Linseed oils, Flaxseed oils, Flax oil
-es:Aceites de lino, Aceites de linaza
+en:Legume oils
+es:Aceites de leguminosas
+fr:Huiles de légumineuses
+
+<en:Legume oils
+en:Peanut oils
+es:Aceites de cacahuete
+fr:Huiles d'arachide
+
+<en:Legume oils
+en:Soybean oils
+es:Aceites de soja
+fr:Huiles de soja
 
 <en:Vegetable oils
 en:Macadamia oils
@@ -3651,11 +4347,6 @@ es:Aceites de palma
 fr:Huiles de palme, Huiles de palme alimentaire, Huiles de palm
 
 <en:Vegetable oils
-en:Peanut oils
-es:Aceites de cacahuete
-fr:Huiles d'arachide
-
-<en:Vegetable oils
 en:Pecan oils
 es:Aceites de nuez pecana
 
@@ -3682,15 +4373,6 @@ en:Safflower oils
 es:Aceites de cártamo
 
 <en:Vegetable oils
-en:Sesame oils
-es:Aceites de sésamo
-fr:Huiles de sésame
-
-<en:Vegetable oils
-en:Soybean oils
-es:Aceites de soja
-
-<en:Vegetable oils
 en:Sunflower oils
 es:Aceites de girasol
 fr:Huiles de tournesol
@@ -3705,11 +4387,13 @@ es:Aceites de nueces
 fr:Huiles de noix, huile de noix
 
 <en:Vegetable oils
-en:Wheat germ oils
-es:Aceites de germen de trigo
-
-<en:Vegetable oils
 es:Aceites de semillas
+
+<en:Plant-based foods
+<en:Fried foods
+en:Fried plant-based foods
+es:Fritos de origen vegetal, Alimentos de origen vegetal fritos, Vegetales fritos
+fr:Fritures végétales
 
 <en:Plant-based foods
 en:Flakes, Rolled grains
@@ -3720,127 +4404,660 @@ fr:Flocons
 en:Puffed grains, Popped grains
 es:Granos inflados
 fr:Grains soufflées
+wikidata:en:Q12961445
 
 <en:Plant-based foods
-<en:Cereals and potatoes
-en:Starchs
+en:Starches, Starch
 es:Almidones
 fr:Amidons
+wikidata:en:Q41534
 
 <en:Plant-based foods
-<en:Cereals
 en:Flours
 es:Harinas de origen vegetal, Harinas vegetales, Harinas
 fr:Farines, Farines végétales
+
+<en:Cereals and their products
+en:Cereal brans
+es:Salvados de cereales
+fr:Sons de céréales
+
+<en:Cereal brans
+en:Oat brans
+es:Salvados de avena
+fr:Sons d’avoine 
+
+<en:Cereal brans
+en:Rice brans
+es:Salvados de arroz
+fr:Sons de riz
+
+<en:Cereal brans
+en:Rye brans
+es:Salvados de centeno
+fr:Sons de seigle
+
+<en:Cereal brans
+en:Wheat brans
+es:Salvados de trigo
+fr:Sons de blé, Son des blé
+
+<en:Wheat brans
+en:Khorasan wheat brans, Kamut brans
+es:Salvados de trigo de Jorasán, Salvados de Kamut
+fr:Sons de blé Khorasan, Sons de Kamut
+
+<en:Wheat brans
+en:Spelt brans
+es:Salvados de espelta
+fr:Sons d'épeautre
+
+<en:Breakfasts
+<en:Cereals and their products
+en:Breakfast cereals
+es:Cereales para el desayuno, Cereales para desayunar
+fr:Céréales pour petit-déjeuner, céréale pour petit-déjeuner, Céréales petit-déjeuner, Céréales type petit déjeuner, Céréales du petit déjeuner
+pnns_group_2:en:Breakfast cereals
+
+<en:Cereals and their products
+<en:Flakes
+<en:Breakfast cereals
+en:Cereal flakes, Rolled cereals
+es:Copos de cereales
+fr:Flocons de céréales
+
+<en:Cereal flakes
+en:Amaranth flakes
+es:Copos de amaranto
+fr:Flocons d'amarante
+
+<en:Cereal flakes
+en:Barley flakes
+es:Copos de cebada
+fr:Flocons d’orge
+
+<en:Cereal flakes
+en:Buckwheat flakes
+es:Copos de trigo sarraceno
+fr:Flocons de sarrasin
+
+<en:Cereal flakes
+<fr:Céréales pour petit-déjeuner
+en:Corn flakes, Corn-Flakes
+es:Copos de maíz tostado
+fr:Corn-flakes, pétales de maïs, Corn  flakes
+
+<en:Cereal flakes
+en:Oat flakes
+es:Copos de avena
+fr:Flocons d’avoine
+
+<en:Cereal flakes
+en:Millet flakes
+es:Copos de mijo
+fr:Flocons de millet
+
+<en:Cereal flakes
+en:Mixed cereal flakes
+es:Mezclas de copos de cereales
+fr:Mélanges de flocons de céréales
+
+<en:Mixed cereal flakes
+en:Mueslis
+es:Mueslis
+fr:Mueslis, muesli
+
+<en:Cereal flakes
+en:Quinoa flakes
+es:Copos de quinoa
+fr:Flocons de quinoa
+
+<en:Cereal flakes
+en:Rice flakes
+es:Copos de arroz
+fr:Flocons de riz
+
+<en:Cereal flakes
+en:Rye flakes
+es:Copos de centeno
+fr:Flocons de seigle
+
+<en:Cereal flakes
+en:Teff flakes
+es:Copos de teff
+fr:Flocons de teff
+
+<en:Cereal flakes
+en:Wheat flakes
+es:Copos de trigo
+fr:Flocons de blé
+
+<en:Wheat flakes
+en:Spelt flakes
+es:Copos de espelta
+fr:Flocons d'épeautre 
+
+<en:Wheat flakes
+en:Khorasan wheat flakes, Kamut flakes
+es:Copos de trigo de Jorasán, Copos de Kamut
+fr:Flocons de blé de Khorasan, Flocons de Kamut 
+
+<en:Cereal flakes
+en:Wild rice flakes
+es:Copos de arroz salvaje
+fr:Flocons de zizanie
+
+<en:Cereals and their products
+<en:Puffed grains
+<en:Breakfast cereals
+en:Puffed cereals, Popped cereals
+es:Cereales inflados
+fr:Céréales soufflées
+
+<en:Puffed cereals
+en:Mixed puffed cereals
+es:Mezclas de cereales inflados
+fr:Mélanges de céréales soufflés
+
+<en:Puffed cereals
+<en:Appetizers
+en:Popcorn, pop-corn, Popped popcorn
+es:Palomitas de maíz, Maíz inflado
+fr:Popcorn, Pop-corn, maïs soufflé, maïs éclaté, tactac
+wikidata:en:Q165112
+
+<en:Popcorn
+en:Salted popcorn, Salted pop-corn
+es:Palomitas de maíz saladas
+fr:Popcorn salé, Pop-corn salé
+pnns_group_2:en:Salty and fatty products
+
+<en:Puffed cereals
+en:Puffed barley
+es:Cebada inflada, Cebada hinchada
+fr:Orge soufflé
+
+<en:Puffed cereals
+en:Puffed buckwheat
+es:Trigo sarraceno inflado, Trigo sarraceno hinchado
+fr:Sarrasin de Tartarie soufflé
+
+<en:Puffed cereals
+en:Puffed millet
+es:Mijo inflado, Mijo hinchado
+fr:Millet soufflé
+
+<en:Puffed cereals
+en:Puffed oat
+es:Avena inflada, Avena hinchada
+fr:Avoine soufflé
+
+<en:Puffed cereals
+en:Puffed quinoa
+es:Quinoa inflada, Quinoa hinchada
+fr:Quinoa soufflé
+
+<en:Puffed cereals
+en:Puffed rice
+es:Arroz inflado
+fr:Riz soufflé
+
+<en:Puffed cereals
+en:Puffed rye
+es:Centeno inflado, Centeno hinchado
+fr:Seigle soufflé
+
+<en:Puffed cereals
+en:Puffed wheat
+es:Trigo inflado, Trigo hinchado
+fr:Blé soufflé
+
+<en:Puffed wheat
+en:Puffed Khorasan wheat, Puffed Kamut
+es:Trigo de Jorasán inflado, Trigo de Jorasán hinchado, Kamut inflado, Kamut hinchado
+fr:Blé de Khorasan soufflé
+
+<en:Puffed wheat
+en:Puffed spelt
+es:Espelta inflada, Espelta hinchada
+fr:Épeautre soufflé
+
+<en:Cereals and their products
+<en:Flours
+en:Cereal flours
+es:Harinas de cereales
+fr:Farines de céréales
 pnns_group_2:en:Cereals
 
-<en:Flours
+<en:Cereal flours
+en:Barley flours
+es:Harinas de cebada
+fr:Farines d’orge
+
+<en:Barley flours
+<en:Malt flours
+en:Barley malt flours
+es:Harinas de cebada malteadas, Harinas de malta de cebada
+fr:Farines de malt d’orge
+
+<en:Cereal flours
+en:Buckwheat flours
+es:Harinas de trigo sarraceno, Harinas de alforfón
+fr:Farines de sarrasin, Farines de blé noir
+
+<en:Buckwheat flours
+fr:Farines de sarrasin T80, Farines de blé noir T80
+
+<en:Buckwheat flours
+fr:Farines de sarrasin T110, Farines de blé noir T110
+
+<en:Buckwheat flours
+fr:Farines de sarrasin T150, Farines de blé noir T150
+
+<en:Cereal flours
+en:Cornmeal, Corn flours, Maize flours
+es:Harinas de maíz
+fr:Farines de maïs, farine de maïs
+wikidata:en:Q837118
+
+<en:Corn flours
+fr:Farines de maïs bleue
+
+<en:Corn flours
+fr:Masa Harina
+
+< en:Cereal flours
+en:Flax seed flours, Flax flours, Linseed flours, Common flax flours
+es:Harinas de lino, Harinas de linaza
+fr:Farines de lin
+
+<en:Cereal flours
+en:Gluten flours
+es:Harinas de gluten
+fr:Farines de gluten
+
+<en:Cereal flours
+en:Gofio
+es:Gofio
+fr:Gofio
+wikidata:en:Q1412378
+
+<en:Cereal flours
+en:Malt flours
+es:Harinas malteadas, Harinas de malta
+fr:Farines de malt
+
+<en:Cereal flours
+en:Meslin flours
+es:Harinas de morcajo, Harinas de tranquillón, Harinas de mezclas de trigo y centeno
+fr:Farines de méteil, Farines de blé et seigle, Mélanges de farines
+
+<en:Cereal flours
+en:Millet flours
+es:Harinas de mijo
+fr:Farines de millet
+
+<en:Cereal flours
+en:Matza flours
+es:Harinas de matzá
+fr:Farines de matza
+
+<en:Cereal flours
+en:Oat flours
+es:Harinas de avena
+fr:Farines de avoines
+
+<en:Cereal flours
+en:Quinoa flours
+es:Harinas de quinoa
+fr:Farines de quinoa
+
+<en:Cereal flours
+en:Rice flours
+es:Harinas de arroz
+fr:Farines de riz, farine de riz
+wikidata:en:Q1269205
+
+<en:Cereal flours
+en:Rye flours
+es:Harinas de centeno
+fr:Farines de seigle
+
+<en:Rye flours
+fr:Farines de seigle T130, farines complètes de seigle
+
+<en:Rye flours
+fr:Farines de seigle T170, farines intégrales de seigle
+
+<en:Rye flours
+fr:Farines de seigle T70, farines blanche de seigle
+
+<en:Rye flours
+fr:Farines de seigle T85, farines bise de seigle, farines semi-complètes de seigle
+
+<en:Cereal flours
+en:Stone ground flours
+es:Harinas molidas a piedra
+fr:Farines de meule
+
+<en:Cereal flours
+en:Teff flours
+es:Harinas de teff, Harinas de tef
+fr:Farines de teff
+
+<en:Cereal flours
 en:Wheat flours
+es:Harinas de trigo
 fr:Farines de blé
-
-<en:Wheat flours
-fr:Farines bise
-
-<en:Flours
-<en:Wheat flours
-fr:Farines de blé dur
-
-<en:Wheat flours
-fr:Farines de blé Khorasan, Farines de kamut, Farines de Blé de Khorasan, Farines de Khorasan
-
-<fr:Farines de blé Khorasan
-fr:Farines de blé Khorasan T110, Farines de kamut T110
-
-<fr:Farines de blé Khorasan
-fr:Farines de blé Khorasan T130, Farines de kamut T130
-
-<fr:Farines de blé Khorasan
-fr:Farines de blé Khorasan T150, Farines de kamut T150
-
-<fr:Farines de blé Khorasan
-fr:Farines de blé Khorasan T70, Farines de kamut T70
-
-<en:Wheat flours
-fr:Farines de blé tendre
-
-<en:Wheat flours
-fr:Farines de blé type T110, Farines de blé T110, Farines de blé type 110, farines complètes de blé
-
-<en:Wheat flours
-fr:Farines de blé type T150, Farines de blé T150, Farines de blé type 150, farines intégrales de blé
+wikidata:en:Q2249305
 
 <en:Wheat flours
 fr:Farines de blé type T45, Farines de blé T45, Farines de blé type 45, farines à pâtisserie de blé, fleurs de farine de blé
 
 <en:Wheat flours
+en:White wheat flours 
+es:Harinas de trigo blancas
 fr:Farines de blé type T55, Farines de blé T55, Farines de blé type 55, farines blanches de blé
 
-<en:Wheat flours
+<en:Wheat flours 
 fr:Farines de blé type T65, Farines de blé T65, Farines de blé type 65, farines de tradition française de blé
 
 <en:Wheat flours
 fr:Farines de blé type T70, Farines de blé T70, Farines de blé type 70, farines de tradition québécoise de blé, farines Reblochonne de blé
 
 <en:Wheat flours
+en:Semi-polished wheat flours
+es:Harinas de trigo semi-integrales
 fr:Farines de blé type T80, Farines de blé T80, Farines de blé type 80, farines bises de blé, farines semi-complète de blé
 
 <en:Wheat flours
-fr:Farines de blé variété Camp Rémy, Farines issu de la variété de blé Camp Rémy
+fr:Farines de blé type T110, Farines de blé T110, Farines de blé type 110, farines complètes de blé
 
-<en:Flours
 <en:Wheat flours
-fr:Farines de froment
+en:Whole wheat flours
+es:Harinas de trigo integrales
+fr:Farines de blé type T150, Farines de blé T150, Farines de blé type 150, farines intégrales de blé
 
-<fr:Farines de froment
-fr:Farines de froment T110
+<en:Wheat flours
+en:Common wheat flours, Bread wheat flours
+es:Harinas de trigo blando, Harinas de trigo común, Harinas de trigo harinero
+fr:Farines de froment, Farines de blé tendre
 
-<fr:Farines de froment
-fr:Farines de froment T150
-
-<fr:Farines de froment
+<en:Common wheat flours
+<fr:Farines de blé type T45
 fr:Farines de froment T45
 
-<fr:Farines de froment
+<en:Common wheat flours
+<en:White wheat flours 
+en:White common wheat flours 
+es:Harinas de trigo común blancas, Harinas de trigo harinero blancas
 fr:Farines de froment T55
 
-<fr:Farines de froment
+<en:Common wheat flours
+<fr:Farines de blé type T65
 fr:Farines de froment T65
 
-<fr:Farines de froment
+<en:Common wheat flours
+<en:Semi-polished wheat flours
+en:Semi-polished common wheat flours
+es:Harinas de trigo común semi-integrales, Harinas de trigo común semi-integrales
 fr:Farines de froment T80
 
+<en:Common wheat flours
+<fr:Farines de blé type T110
+fr:Farines de froment T110
+
+<en:Common wheat flours
+<en:Whole wheat flours
+en:Whole common wheat flours
+es:Harinas de trigo común integrales, Harinas de trigo común integrales
+fr:Farines de froment T150
+
+<en:Common wheat flours
+fr:Farines de blé variété Camp Rémy, Farines issu de la variété de blé Camp Rémy
+
 <en:Wheat flours
-<fr:Farines de malt
-fr:Farines de malt de blé
-
-<en:Flours
-<en:Wheat flours
-fr:Farines de meule
+en:Durum wheat flours, Macaroni wheat flours
+es:Harinas de trigo duro
+fr:Farines de blé dur
 
 <en:Wheat flours
-fr:Semoules de blé, semoules
+en:Einkorn wheat flours
+es:Harinas de trigo escaña cultivada, Harinas de escaña
+fr:Farines de Petit Épeautre, Farines d'engrain
+
+<en:Einkorn wheat flours
+<fr:Farines de blé type T45
+fr:Farines de petit épeautre T45
+
+<en:Einkorn wheat flours
+<en:White wheat flours 
+en:White einkorn wheat flours
+es:Harinas de trigo escaña cultivada blancas
+
+<en:Einkorn wheat flours
+<fr:Farines de blé type T65
+fr:Farines de petit épeautre T65
+
+<en:Einkorn wheat flours
+<fr:Farines de blé type T70
+fr:Farines de petit épeautre T70
+
+<en:Einkorn wheat flours
+<en:Semi-polished wheat flours
+en:Semi-polished einkorn wheat flours
+es:Harinas de trigo escaña cultivada semi-integrales
+fr:Farines de petit épeautre T80
+
+<en:Einkorn wheat flours
+<fr:Farines de blé type T110
+fr:Farines de petit épeautre T110
+
+<en:Einkorn wheat flours
+<en:Whole wheat flours
+en:Whole einkorn wheat flours
+es:Harinas de trigo escaña cultivada integrales
+fr:Farines de petit épeautre T150
+
+<en:Einkorn wheat flours
+<fr:Céréales IGP
+<fr:IGP française
+fr:Farines de Petit Épeautre de Haute-Provence, Farine de Petit Épeautre de Haute-Provence
 
 <en:Wheat flours
-fr:Son des blé
+en:Emmer wheat flours
+es:Harinas de escandas, Harinas de povia
+fr:Farines d'amidonnier
 
-<en:Flours
-fr:Farines blanches
+<en:Wheat flours
+en:Khorasan wheat flours, Kamut flours
+es:Harinas de trigo de Jorasán, Harinas de Kamut
+fr:Farines de blé Khorasan, Farines de kamut, Farines de Blé de Khorasan, Farines de Khorasan
 
-<en:Flours
+<en:Khorasan wheat flours
+<en:White wheat flours 
+en:White Khorasan wheat flours, White Kamut flours
+es:Harinas de trigo de Jorasán blancas, Harinas de Kamut blancas
+
+<en:Khorasan wheat flours
+<fr:Farines de blé type T70
+fr:Farines de blé Khorasan T70, Farines de kamut T70
+
+<en:Khorasan wheat flours
+<fr:Farines de blé type T110
+fr:Farines de blé Khorasan T110, Farines de kamut T110
+ 
+<en:Khorasan wheat flours
+fr:Farines de blé Khorasan T130, Farines de kamut T130
+
+<en:Khorasan wheat flours
+<en:Whole wheat flours
+en:Whole Khorasan wheat flours, Whole Kamut flours
+es:Harinas de trigo de Jorasán integrales, Harinas de Kamut integrales
+fr:Farines de blé Khorasan T150, Farines de kamut T150
+
+<en:Wheat flours
+en:Spelt flours
+es:Harinas de espelta, Harinas de escaña mayor, Harinas de escanda mayor
 fr:Farines d'épeautre, farines de grand épeautre
 
-<fr:Farines d'épeautre
-fr:Farines d’épeautre T110
+<en:Spelt flours
+<en:White wheat flours 
+en:White spelt flours
+es:Harinas de espelta blancas
 
-<fr:Farines d'épeautre
+<en:Spelt flours
+<fr:Farines de blé type T65
 fr:Farines d'épeautre T65
 
-<en:Flours
-fr:Farines d’orge
+<en:Spelt flours
+<fr:Farines de blé type T110
+fr:Farines d’épeautre T110
 
-<fr:Farines d’orge
-<fr:Farines de malt
-fr:Farines de malt d’orge
+< en:Spelt flours
+< en:Whole wheat flours
+en:Whole spelt flours
+es:Harinas de espelta integrales
+
+<en:Wheat flours
+fr:Farines de gruau
+
+<fr:Farines de gruau
+<fr:Farines de blé type T45
+fr:Farines de gruau type 45, Farines de gruau T45, Farines de gruau type T45
+
+<fr:Farines de gruau
+<en:White wheat flours
+fr:Farines type Gruau 55, Farines de gruau T55, Farines de gruau type T55, Fine fleur de Froment
+
+<en:Wheat flours
+en:Fermenting flours
+fr:Farines fermentante
+
+<en:Wheat flours
+<en:Malt flours
+en:Wheat malt flours
+es:Harinas de trigo malteadas, Harinas de malta de trigo
+fr:Farines de malt de blé
+
+<en:Cereals and their products
+en:Cereal germs
+es:Gérmenes de cereales
+fr:Germes de céréales
+wikidata:en:Q1641345
+
+<en:Cereal germs
+en:Corn germ, Maize germ
+es:Germen de maíz
+fr:Germe de maïs
+
+<en:Cereal germs
+en:Wheat germ
+es:Germen de trigo
+fr:Germe de blé
+
+<en:Cereals and their products
+en:Cereal semolinas
+es:Sémolas y semolinas de cereales, Sémolas de cereales
+fr:Semoules de céréales
+wikidata:en:Q381350
+
+<en:Cereal semolinas
+en:Corn semolinas, Maize semolinas
+es:Sémolas de maíz, Sémola de maíz
+fr:Semoules de maïs
+
+<en:Corn semolinas
+en:Corn semolinas for polenta, Maize semolinas for polenta, Pre-cooked corn meal for polenta
+es:Sémolas de maíz para polenta, Sémola de maíz precocida para polenta
+fr:Semoules de maïs pour polenta, Semoule de maïs précuite pour polenta
+
+<en:Cereal semolinas
+en:Rice semolinas
+es:Sémolas de arroz, Sémola de arroz
+fr:Semoules de riz
+
+<en:Cereal semolinas
+en:Wheat semolinas
+es:Sémolas y semolinas de trigo, Sémolas de trigo, Sémola de trigo
+fr:Semoules de blé, semoules
+
+<en:Wheat semolinas
+en:Durum wheat semolinas
+es:Sémolas y semolinas de trigo duro, Sémolas de trigo duro, Sémola de trigo duro
+fr:Semoules de blé dur
+
+<en:Durum wheat semolinas
+en:Durum wheat semolinas for couscous
+es:Sémolas de trigo duro para couscous
+fr:Semoules de blé dur pour couscous
+
+<en:Cereals and their products
+<en:Starches
+en:Cereal starches
+es:Almidones de cereales, Almidón de cereales
+fr:Amidons de céréales
+
+<en:Cereal starches
+en:Corn starch, Cornstarch, Cornflour, Maize starch
+es:Almidón de maíz
+fr:Amidon de maïs
+wikidata:en:Q3393961
+
+<en:Cereal starches
+en:Rice starch
+es:Almidón de arroz
+fr:Amidon de riz
+
+<en:Cereal starches
+en:Wheat starch
+es:Almidón de trigo
+fr:Amidon de blé
+
+<en:Cereals and their products
+en:Groats
+es:Grañones
+fr:Gruau
+wikidata:en:Q1436715
+
+<en:Groats
+en:Buckwheat groats
+es:Grañones de trigo sarraceno
+fr:Gruau de sarrasin
+
+<en:Groats
+en:Oat groats
+es:Grañones de avena
+fr:Gruau d'avoine
+
+<en:Groats
+en:Millet groats
+es:Grañones de mijo
+fr:Gruau de millet
+
+<en:Groats
+en:Rye groats
+es:Grañones de centeno
+fr:Gruau de seigle
+
+<en:Groats
+en:Wheat groats
+es:Grañones de trigo
+fr:Gruau de blé
+
+<en:Wheat groats
+en:Bulgur
+es:Bulgur
+fr:Boulghours, Boulghour, Bulgur, Boulgours
+wikidata:en:Q250432
+
+<en:Wheat groats
+en:Durum wheat groats
+es:Grañones de trigo duro
+fr:Gruau de blé dur
+
+<en:Flours
+fr:Farines de pommes de terre
 
 <en:Flours
 fr:Farines d'urad
@@ -3855,132 +5072,10 @@ fr:Farines de châtaigne T110
 fr:Farines de cossettes d'igname
 
 <en:Flours
-fr:Farines de fèves
-
-<en:Flours
-fr:Farines de gluten
-
-<en:Flours
-fr:Farines de gruau
-
-<fr:Farines de gruau
-fr:Farines de gruau type 45, Farines de gruau T45, Farines de gruau type T45
-
-<fr:Farines de gruau
-fr:Farines type Gruau 55, Farines de gruau T55, Farines de gruau type T55, Fine fleur de Froment
-
-<en:Flours
-fr:Farines de haricots
-
-<en:Flours
-fr:Farines de lentilles
-
-<en:Flours
-fr:Farines de lin
-
-<en:Flours
-fr:Farines de lupin
-
-<en:Flours
-fr:Farines de maïs, farine de maïs
-
-<fr:Farines de maïs
-fr:Farines de maïs bleue
-
-<en:Flours
-fr:Farines de malt
-
-<en:Flours
 fr:Farines de manioc
 
 <en:Flours
 fr:Farines de Marque Déposée
-
-<en:Flours
-fr:Farines de matza
-
-<en:Flours
-fr:Farines de méteil, Farines de blé et seigle, Mélanges de farines
-
-<en:Flours
-fr:Farines de millet
-
-<en:Flours
-fr:Farines de Petit Épeautre, Farines d'engrain
-
-<fr:Farines de Petit Épeautre
-fr:Farines de petit épeautre T110
-
-<fr:Farines de Petit Épeautre
-fr:Farines de petit épeautre T150
-
-<fr:Farines de Petit Épeautre
-fr:Farines de petit épeautre T45
-
-<fr:Farines de Petit Épeautre
-fr:Farines de petit épeautre T65
-
-<fr:Farines de Petit Épeautre
-fr:Farines de petit épeautre T70
-
-<fr:Farines de Petit Épeautre
-fr:Farines de petit épeautre T80
-
-<en:Flours
-fr:Farines de pois chiche
-
-<en:Flours
-fr:Farines de pommes de terre
-
-<en:Flours
-fr:Farines de quinoa
-
-<en:Flours
-fr:Farines de riz, farine de riz
-
-<fr:Farines de riz
-fr:Sons de riz
-
-<en:Flours
-fr:Farines de sarrasin, Farines de blé noir
-
-<fr:Farines de sarrasin
-fr:Farines de sarrasin T110, Farines de blé noir T110
-
-<fr:Farines de sarrasin
-fr:Farines de sarrasin T150, Farines de blé noir T150
-
-<fr:Farines de sarrasin
-fr:Farines de sarrasin T80, Farines de blé noir T80
-
-<en:Flours
-fr:Farines de seigle
-
-<fr:Farines de seigle
-fr:Farines de seigle T130, farines complètes de seigle
-
-<fr:Farines de seigle
-fr:Farines de seigle T170, farines intégrales de seigle
-
-<fr:Farines de seigle
-fr:Farines de seigle T70, farines blanche de seigle
-
-<fr:Farines de seigle
-fr:Farines de seigle T85, farines bise de seigle, farines semi-complètes de seigle
-
-<en:Flours
-fr:Farines de soja
-
-<en:Flours
-fr:Farines fermentante
-
-<fr:Céréales IGP
-<fr:Farines de Petit Épeautre
-<fr:IGP française
-fr:Farines de Petit Épeautre de Haute-Provence, Farine de Petit Épeautre de Haute-Provence
-
-<en:Flours
-fr:Masa Harina
 
 en:Food additives
 es:Aditivos alimentarios
@@ -3995,9 +5090,10 @@ fr:Arômes, Arôme, Arômes alimentaires, Arôme alimentaire
 fr:Arômes pâtisserie, Arôme pâtisserie
 
 <en:Food additives
-en:Food colorings, Food dyes, Color additives
+en:Food colorings, Food dyes, Color additives, Food colourings, Food coloring, Food colouring
 es:Colorantes alimentarios, Colorantes
-fr:Colorants alimentaire, Colorant alimentaire, colorant
+fr:Colorants alimentaires, Colorant alimentaire, colorant, Colorants alimentaire
+pl:Barwnik spozywczy
 
 <fr:Colorants alimentaire
 fr:Colorants pour oeufs, colorant pour oeufs
@@ -4021,6 +5117,11 @@ fr:Gélifiants végétaux
 en:Fresh foods, Fresh
 es:Alimentos frescos, Frescos, Productos frescos
 fr:Frais
+
+en:Fried foods
+es:Fritos, Alimentos fritos, Productos fritos, Frituras
+fr:Fritures
+wikidata:en:Q300472
 
 en:Dried foods, Dehydrated foods
 es:Alimentos deshidratados, Alimentos secos, Alimentos desecados
@@ -5034,9 +6135,6 @@ fr:Herbes de Provence
 fr:Ciboulette
 
 <en:Culinary plants
-fr:Céleri
-
-<en:Culinary plants
 fr:Persil
 
 <fr:Herbes de Provence
@@ -5487,66 +6585,39 @@ fr:Poivres verts
 <en:Spices
 fr:Vanille
 
-<en:Canned vegetables
-<fr:Poivrons rouges
-fr:Poivrons rouges en conserve
-
-<en:Chili peppers
-<en:Vegetables
-fr:Poivrons, Poivron, Capsicum annuum, piment doux, Piment Poivron
-
-<fr:Poivrons
-fr:Doux California Wonder
-
-<fr:Poivrons
-fr:Doux de Valence
-
-<fr:Poivrons
-fr:Doux long des Landes
-
-<fr:Poivrons
-fr:Jalapeño, chipotle, morita
-
-<fr:Poivrons
-fr:Le Pepper Mont Jolien
-
-<fr:Poivrons
-fr:Paprika
-
-<fr:Poivrons
-fr:Petit carré de Nice
-
-<fr:Poivrons
-fr:Petit vert marseillais
-
-<fr:Poivrons
-fr:Piment doux de Gascogne, piment doux des Landes
-
-<fr:Poivrons
-fr:Piquant d'Algérie
-
-<fr:Poivrons
-fr:Poivrons de piquillo, pimiento del piquillo, pimiento de piquillo, Piquillo de Lodosa
-
-<fr:Poivrons
-fr:Poivrons farcis
-
-<fr:Poivrons
-fr:Poivrons grillés
-
-<fr:Poivrons
-fr:Poivrons rouges
+<en:Spices
+en:Spice Mix
+fr:Melange-d-epices
 
 <en:Groceries
 en:Sauces
 es:Salsas
 fr:Sauces
 pnns_group_2:en:Dressings and sauces
+wikidata:en:Q178359
 
 <en:Sauces
 en:Aiolis
 es:Aliolis, Salsas alioli, Alioli, Salsa alioli
 fr:Aïolis, Aiolis
+wikidata:en:Q283231
+
+<en:Sauces
+en:Béchamel sauces
+es:Salsas bechamel, bechameles
+fr:Sauces béchamel
+wikidata:en:Q209974
+
+<en:Béchamel sauces
+<en:Plant-based foods
+en:Plant-based béchamel sauces, Vegetable béchamel sauces
+es:Salsas bechamel vegetales, Bechameles vegetales
+fr:Sauces béchamel végétales
+
+<en:Plant-based béchamel sauces
+en:Rice-based béchamel sauces
+es:Salsas bechamel vegetales a base de arroz, Bechameles vegetales a base de arroz
+fr:Sauces béchamel végétales à base de riz, Sauces béchamel au riz
 
 <en:Sauces
 en:Cheese sauces
@@ -5562,21 +6633,25 @@ fr:Sauces au roquefort
 en:Guacamoles
 es:Guacamoles
 fr:Guacamoles
+wikidata:en:Q207968
 
 <en:Sauces
 en:Green sauces
 es:Salsas verdes
 fr:Sauces vertes
+wikidata:en:Q699382
 
 <en:Sauces
 en:Hot sauces, Chili sauces, Pepper sauces
 es:Salsas de chiles
 fr:Sauce chili
+wikidata:en:Q522171
 
 <en:Sauces
 en:Mayonnaises, Mayo
 es:Mayonesas, Mahonesas
 fr:Mayonnaises
+wikidata:en:Q167893
 
 <en:Mayonnaises
 en:Sunflower oil mayonnaises
@@ -5599,6 +6674,7 @@ fr:Mayonnaises allégées
 en:Mojo sauces, Mojos
 es:Mojos
 fr:Mojos, Sauce mojo
+wikidata:en:Q2227032
 
 <en:Sauces
 en:Pasta sauces
@@ -5606,14 +6682,17 @@ es:Salsas para pastas, Salsas para pasta
 fr:Sauces pour pâtes, Sauce pour pâtes
 
 <en:Pasta sauces
+<en:Tomato sauces
 en:Arrabbiata sauces
 es:Salsas Arrabbiata, Salsas arrabbiata, Arrabbiatas
 fr:Sauces Arrabiata, sauce arrabiata, Arrabiata
+wikidata:en:Q1891043
 
 <en:Pasta sauces
 en:Bolognese sauce
 es:Salsas boloñesas, Boloñesas
 fr:Sauces bolognaises, sauce bolognaise, Bolognese, Bolognaises, Bolognaise
+wikidata:en:Q1162965
 
 <en:Pasta sauces
 en:Meat-based sauces
@@ -5624,6 +6703,7 @@ fr:Sauces à la viande
 en:Pestos, Pesto sauces
 es:Pestos, Salsas Pesto, Salsas pesto
 fr:Sauces Pesto, Pesto, Pesto Genovese, Pesto alla Genovese
+wikidata:en:Q9896
 
 <en:Pestos
 en:Red pestos, Red pesto sauces, Pesto rosso
@@ -5645,10 +6725,17 @@ en:Salad dressings, dressings
 es:Salsas para ensaladas
 fr:Sauces salades, sauce salade, sauce pour salade
 
+<en:Salad dressings
+en:Vinaigrettes
+es:Vinagretas, Salsas vinagreta, Salsas vinagretas
+fr:Vinaigrettes, Sauces vinaigrettes, Sauces vinaigrette
+wikidata:en:Q847441
+
 <en:Sauces
 en:Soy sauces, Soya sauces, Shoyu
 es:Salsas de soja, Shoyu
 fr:Sauces au soja, Sauces soja, Shoyu
+wikidata:en:Q229385
 
 <en:Soy sauces
 en:Tamaris, Tamari sauces
@@ -5665,31 +6752,37 @@ fr:Sauces au soja sucrées, Sauces soja sucrées
 en:Sofritos
 es:Sofritos
 fr:Sofregits, Sofrits
+wikidata:en:Q1147677
 
 <en:Sauces
 en:Sweet and sour sauces
 es:Salsas agridulces
 fr:Sauces aigre-douces, Sauces à l'aigre-douce
+wikidata:en:Q2550606
 
 <en:Sauces
 en:Tomato sauces
 es:Salsas de tomate
 fr:Sauces tomate, sauce tomate
+wikidata:en:Q3596097
 
 <en:Tomato sauces
 en:Brava sauce, Salsas bravas, Salsa brava
 es:Salsas bravas, Salsa brava
 fr:Sauces bravas, Sauce brava, Salsas bravas, Salsa brava
+wikidata:en:Q2102385
 
 <en:Tomato sauces
 en:Ketchup
 es:Kétchups, Krtchups, Ketchup
 fr:Ketchup
+wikidata:en:Q178143
 
 <en:Tomato sauces
 en:Neapolitan sauces
 es:Salsas napolitanas
 fr:Sauces napolitaines
+wikidata:en:Q4886791
 
 <en:Tomato sauces
 en:Sicilian sauces
@@ -5699,6 +6792,7 @@ fr:Sauces siciliens
 <en:Tomato sauces
 en:Fried tomato sauces, Tomate frito
 es:Salsas de tomate frito, Tomate frito
+wikidata:en:Q7818540
 
 <en:Tomato sauces
 en:Tumacas
@@ -5714,6 +6808,9 @@ es:Tomate natural rallado
 en:Tomato purées, Tomato purees, Pureed tomato
 es:Tomate natural triturado
 
+<en:Tomatoes and tomato products
+en:Tomato pastes
+
 <en:Sauces
 en:Vegetable sauces
 es:Salsas con verduras, Salsas con vegetales
@@ -5723,11 +6820,6 @@ fr:Sauces aux légumes
 en:Olive sauces
 es:Salsas con aceitunas, Salsas con olivas
 fr:Sauces aux olives
-
-<en:dressings
-en:Vinaigrettes
-es:Vinagretas, Salsas vinagreta, Salsas vinagretas
-fr:Vinaigrettes, Sauces vinaigrettes, Sauces vinaigrette
 
 <en:Sauces
 en:Wasabi pastes
@@ -5870,7 +6962,7 @@ fr:Asparago di Badoere
 fr:Asparago verde di Altedo
 
 <fr:Légumes IGP
-<fr:Poireaux
+<en:Leeks
 fr:Poireaux des sables de Créances, Poireaux de Créances
 
 <en:Labeled products
@@ -5884,27 +6976,6 @@ fr:Produits AOP, AOP
 
 <en:Labeled products
 fr:Produits Label Rouge, Label Rouge
-
-en:Maple syrups
-fr:Sirops d'érable
-
-<en:Maple syrups
-fr:Sirops d'érable ambré, Sirop d'érable C
-
-<en:Maple syrups
-fr:Sirops d'érable clair, Sirop d'érable A
-
-<en:Maple syrups
-fr:Sirops d’érable du Québec
-
-<en:Maple syrups
-fr:Sirops d'érable extra clair, Sirop d'érable AA
-
-<en:Maple syrups
-fr:Sirops d'érable foncé, Sirop d'érable D
-
-<en:Maple syrups
-fr:Sirops d'érable moyen, Sirop d'érable B
 
 en:Meals, Prepared meals, Prepared dishes
 es:Comidas preparadas, Platos preparados
@@ -5975,6 +7046,9 @@ wikidata:en:Q2990689
 
 <en:Meals with meat
 fr:Plats à base de viande bovine
+
+<fr:Plats à base de viande bovine
+fr:Plats à base de viande de veau
 
 <fr:Plats à base de viande bovine
 fr:Hachis parmentier
@@ -6062,18 +7136,12 @@ fr:Tartes au saumon
 fr:Tartes aux poireaux
 
 <en:Meals
+fr:Couscous
+
+<en:Meals
 en:Soups
 es:Sopas
 fr:Soupes, soupe
-
-<en:Soups
-es:Caldos en cubitos
-
-<en:Soups
-es:Caldos en polvo
-
-<en:Soups
-es:Caldos líquidos
 
 <en:Soups
 es:Cremas
@@ -6142,6 +7210,76 @@ fr:Veloutés de potiron
 
 <fr:Veloutés
 fr:Veloutés de tomates
+
+<en:Groceries
+en:Broths, Stocks, Bouillons
+es:Caldos
+fr:Bouillons
+wikidata:en:Q275068
+
+<en:Broths
+<en:Dried foods
+en:Dehydrated broths, Dehydrated stocks, Dehydrated bouillons
+es:Caldos deshidratados
+fr:Bouillons déshydratés
+
+<en:Dehydrated broths
+en:Bouillon cubes, Stock cubes
+es:Caldos en cubitos, Cubos de caldo, Pastilla de caldo, Cubitos de caldo, Caldos en pastillas
+fr:Bouillon cube
+wikidata:en:Q937013
+
+<en:Dehydrated broths
+en:Bouillon powders, Stock powders, Bouillon granules, Stock granules
+es:Caldos en polvo, Caldos granulados, Caldos solubles instantáneos
+fr:Bouillons en poudre
+
+<en:Broths
+en:Liquid broths
+es:Caldos líquidos, Caldos en brik
+fr:Bouillons liquides
+
+<en:Broths
+en:Bouillon pots, Stock pots
+es:Caldos en cacitos, Cacitos de caldo
+fr:Marmites de bouillon
+
+<en:Broths
+<en:Plant-based foods
+en:Vegetable broths, Vegetable stocks, Vegetable bouillons
+es:Caldos de verduras, Caldos vegetales
+fr:Bouillons de légumes
+
+<en:Dehydrated broths
+<en:Vegetable broths
+<en:Dried plant-based foods
+en:Dehydrated vegetable bouillons, Dehydrated vegetable stocks
+es:Caldos de verduras deshidratados, Caldos vegetales deshidratados
+fr:Bouillons de légumes déshydratés
+
+<en:Bouillon cubes
+<en:Dehydrated vegetable bouillons
+en:Vegetable bouillon cubes, Vegetable stock cubes
+es:Caldos de verduras en cubitos, Caldos vegetales en cubitos
+fr:Bouillons cube de légumes
+
+<en:Bouillon powders
+<en:Dehydrated vegetable bouillons
+en:Vegetable bouillon powders, Vegetable stock powders, Vegetable bouillon granules, Vegetable stock granules
+es:Caldos de verduras en polvo, Caldos de verduras granulados
+fr:Bouillons de légumes en poudre
+
+<en:Liquid broths
+<en:Vegetable broths
+en:Liquid vegetable bouillons, Liquid vegetable stocks
+es:Caldos de verduras líquidos, Caldos de verduras en brik
+fr:Bouillons de légumes liquides
+
+<en:Bouillon pots
+<en:Vegetable broths
+en:Vegetable bouillon pots, Vegetable stock pots
+es:Caldos de verduras en cacitos, Cacitos de caldo de verduras, Cacitos de caldo vegetal
+fr:Marmites de bouillon de légumes
 
 <en:Meals
 fr:Cassoulets
@@ -6215,10 +7353,9 @@ fr:Carottes râpées
 
 <en:Meals
 <en:Lentils
-<en:Canned vegetables
-en:Prepared lentils, canned lentils
-es:Lentejas en conserva
-fr:Lentilles préparées, lentilles en conserve
+en:Prepared lentils
+es:Lentejas preparadas
+fr:Lentilles préparées
 
 <en:Meals
 fr:Petit salé, petit salé aux lentilles
@@ -6306,8 +7443,8 @@ fr:Tourtes, Tourte
 <fr:Tourtes
 fr:Tourtes aux champignons
 
-<en:Offals
-en:Tripes
+<en:Tripe dishes
+en:Tripe
 fr:Tripes
 
 en:Meats
@@ -6695,7 +7832,7 @@ fr:Rillettes spéciales
 
 <en:Prepared meats
 en:Sausages
-fr:Saucisses
+fr:Saucisses, Saucisse
 
 <en:Sausages
 en:Sausages from Spain, Spanish sausages
@@ -6792,7 +7929,7 @@ fr:Saucisses de Toulouse
 fr:Saucisses savoyardes, Saucisses de Savoie
 
 <fr:Saucisses savoyardes
-fr:Diots
+fr:Diots, Diot
 
 <en:Sausages
 fr:Saucisses fumées
@@ -6807,7 +7944,7 @@ fr:Boudins blancs
 fr:Boudins blanc à l'ancienne
 
 <fr:Boudins
-<en:Offals
+<en:Tripe dishes
 fr:Boudins noirs
 
 <fr:Boudins noirs
@@ -6841,7 +7978,7 @@ fr:Lardons
 fr:Lardons fumés
 
 <fr:Charcuteries diverses
-fr:Pâté de tête
+fr:Pâtés de tête, Pâté de tête
 
 <en:Prepared meats
 fr:Mousses, Mousse
@@ -6863,10 +8000,10 @@ fr:Rosettes, rosette, rosette de Lyon
 fr:Salamis, Salami
 
 <fr:Salamis
-fr:Salami de boeuf
+fr:Salami de boeuf, Salamis de boeuf
 
 <fr:Salamis
-fr:Salami de dinde
+fr:Salami de dinde, Salamis de dinde
 
 <fr:Saucissons
 fr:Saucisses sèches, Saucisse sèche
@@ -6911,10 +8048,6 @@ fr:Viandes de veau, veau
 en:Meta-category
 fr:Méta-catégorie
 
-<en:Products with reduced salt
-<fr:Biscottes
-fr:Biscottes pauvres en sel
-
 <en:Meta-category
 en:Products with reduced salt
 fr:Produits à teneur réduite en sel
@@ -6956,19 +8089,19 @@ fr:Fromages de montagne
 fr:Tommes, tomes, Tomme, tome
 
 <fr:Tommes
-fr:Tomme d’Italie
+fr:Tomme d’Italie, Tommes d'Italie
 
 <fr:Tommes
-fr:Tomme de Savoie
+fr:Tomme de Savoie, Tommes de Savoie
 
 <fr:Tommes
-fr:Tomme de Suisse
+fr:Tomme de Suisse, Tommes de Suisse
 
 <fr:Tommes
-fr:Tomme du Canada
+fr:Tomme du Canada, Tommes du Canada
 
 <fr:Tommes
-fr:Tomme du Massif central
+fr:Tomme du Massif central, Tommes du Massif central
 
 <en:Plant-based foods
 en:Mushrooms and their products, Fungi and their products
@@ -7016,11 +8149,23 @@ es:Rebozuelos, Chantarelas, Cantharellus cibarius
 fr:Girolles, Girolle, Jaunotte, Jauniré, Cantharellus cibarius, Chanterelle ciboire, chevrette, roussotte, gallinace
 la:Cantharellus cibarius
 
+< en:Mushrooms
+en:Horn of plenty mushrooms, Horn of plenty
+es:Setas trompeta de los muertos, Trompetas de los muertos, Trompetas de la muerte
+fr:Trompettes des morts, Craterelles en forme de corne d'abondance, Cornes d'abondance, Trompettes de la mort
+la:Craterellus cornucopioides
+
 <en:Mushrooms
 en:Hygrophorus latitabundus
 es:Setas babosa negra, Setas llanega, Setas llanega negra, Hygrophorus latitabundus
 fr:Hygrophorus latitabundus
 la:Hygrophorus latitabundus, Hygrophorus limacinus
+
+< en:Mushrooms
+en:Jew's ear mushrooms, Wood ear mushrooms, Jelly ear mushrooms
+es:Setas orejas de Judas, Orejas de Judas
+fr:Oreilles de Judas, Oreilles du diable
+la:Auricularia auricula-judae
 
 <en:Mushrooms
 en:King trumpet mushrooms, French horn mushrooms, King oyster mushrooms, King brown mushrooms, Boletus of the steppes, Trumpet royale, Pleurotus eryngii
@@ -7040,6 +8185,16 @@ es:Setas de ostra, Setas ostra, Champiñones ostra, Gírgolas, Pleurotus ostreat
 fr:Pleurotes en huître, Pleurotus ostreatus
 la:Pleurotus ostreatus
 
+<en:Oyster mushrooms
+en:Chopped oyster mushrooms
+es:Setas de ostra laminadas, Setas de ostra troceadas
+fr:Pleurotes en huître émincés
+
+<en:Oyster mushrooms
+en:Whole oyster mushrooms
+es:Setas de ostra enteras
+fr:Pleurotes en huître entiers
+
 <en:Mushrooms
 en:Paddy straw mushrooms, Straw mushrooms, Volvariella volvacea
 es:Champiñones de Straw, Setas de arroz, Paja seta, Setas volvarea, Seta volvarea, Volvariella volvacea
@@ -7057,6 +8212,12 @@ en:Red pine mushrooms, Saffron milk caps, Lactarius deliciosus
 es:Níscalos, Lactarius deliciosus
 fr:Lactaires délicieux, Rudes, Roussillous, Lactarius deliciosus
 la:Lactarius deliciosus
+
+< en:Mushrooms
+en:Scotch bonnet mushrooms, Scotch bonnets, Fairy ring mushrooms
+es:Setas senderilla, Senderuelas, Senderillas, Setas de carrerilla
+fr:Marasmes des Oréades, Faux mousseron, Cariolette
+la:Marasmius oreades
 
 <en:Mushrooms
 en:Shiitake mushrooms, Shiitake, Lentinula edodes
@@ -7215,16 +8376,45 @@ en:Frozen mushrooms
 es:Setas congeladas, Hongos congelados
 fr:Champignons surgelés
 
+< en:Frozen mushrooms
+en:Frozen chanterelle mushrooms, Frozen golden chanterelles, Frozen girolles
+es:Rebozuelos congelados, Chantarelas congeladas, Setas rebozuelo congeladas
+fr:Girolles surgelés, Girolle surgelé, Jaunotte surgelé, Jauniré surgelé, Cantharellus cibarius surgelés, Chanterelle ciboire surgelés, chevrette  surgelé, roussotte surgelé, gallinace surgelé
 
 <en:Frozen mushrooms
 en:Frozen champignon mushrooms, Frozen common mushrooms, Frozen white mushrooms, Frozen white button mushrooms, Frozen button mushrooms, Frozen Agaricus bisporus
 es:Champiñones congelados, Champiñones de París congelados, Champiñones comunes congelados, Champiñones blancos congelados, Agaricus bisporus congelados
 fr:Champignons de Paris surgelés, Agaricus bisporus surgelés
 
+<en:Frozen champignon mushrooms
+en:Frozen sliced champignon mushrooms, Frozen sliced common mushrooms, Frozen sliced white mushrooms, Frozen whole white button mushrooms, Frozen whole button mushrooms
+es:Champiñones laminados congelados, Champiñones de París laminados congelados 
+fr:Champignons de Paris émincés surgelés
+
+<en:Frozen champignon mushrooms
+en:Frozen whole champignon mushrooms, Frozen whole common mushrooms, Frozen whole white mushrooms, Frozen whole white button mushrooms, Frozen whole button mushrooms
+es:Champiñones enteros congelados, Champiñones de París enteros congelados
+fr:Champignons de Paris entiers surgelés
+
+<en:Frozen mushrooms
+en:Frozen oyster mushrooms, Frozen Pleurotus ostreatus
+es:Setas de ostra congeladas, Setas ostra congeladas, Champiñones ostra congelados, Gírgolas, Pleurotus ostreatus congelados
+fr:Pleurotes en huître surgelé, Pleurotus ostreatus surgelé
+
 <en:Frozen mushrooms
 en:Frozen porcini mushrooms, Frozen porcini, Frozen penny bun, Frozen porcino, Frozen Boletus edulis
 es:Boletos comestibles congelados, Boletus comestible congelado, Setas de calabaza congeladas, Boletus edulis congelados, Setas Boletus edulis congeladas, Boletus edulis congeladas
 fr:Cèpes de Bordeaux surgelés, Boletus edulis surgelés
+
+<en:Frozen porcini mushrooms
+en:Frozen chopped porcini mushrooms, Frozen chopped porcini, Frozen chopped penny bun, Frozen chopped porcino, Frozen chopped Boletus edulis
+es:Boletos comestibles troceados congelados, Boletus comestible troceado congelado, Setas de calabaza troceadas congeladas, Boletus edulis troceados congelados, Setas Boletus edulis troceadas congeladas, Boletus edulis troceados congeladas
+fr:Cèpes de Bordeaux hachés surgelés, Boletus edulis hachés surgelés
+
+<en:Frozen porcini mushrooms
+en:Frozen whole porcini mushrooms, Frozen whole porcini, Frozen whole penny bun, Frozen whole porcino, Frozen whole Boletus edulis
+es:Boletos comestibles enteros congelados, Boletus comestible entero congelado, Setas de calabaza enteras congeladas, Boletus edulis enteros congelados, Setas Boletus edulis enteras congeladas, Boletus edulis enteros congelados
+fr:Cèpes de Bordeaux entiers surgelés, Boletus edulis entiers surgelés
 
 <en:Frozen mushrooms
 en:Frozen mixed mushrooms
@@ -7236,6 +8426,36 @@ fr:Mélanges de champignons surgelés
 en:Dried mushrooms
 es:Setas deshidratadas, Hongos deshidratados, Setas desecadas, Hongos desecados
 fr:Champignons séchés, Champignons secs, Champignons déshydratés
+
+< en:Dried mushrooms
+en:Dried horn of plenty mushrooms, Dried horn of plenty
+es:Setas trompeta de los muertos deshidratadas, Trompetas de los muertos deshidratadas, Trompetas de la muerte deshidratadas
+fr:Trompettes des morts secs, Craterelles en forme de corne d'abondance secs, Cornes d'abondance secs, Trompettes de la mort secs
+
+< en:Dried mushrooms
+en:Dried jew's ear mushrooms, Dried wood ear mushrooms, Dried jelly ear mushrooms
+es:Setas orejas de Judas deshidratadas, Orejas de Judas deshidratadas
+fr:Oreilles de Judas secs, Oreilles du diable secs
+
+< en:Dried mushrooms
+en:Dried mixed mushrooms
+es:Mezclas de setas deshidratadas, Surtidos de setas deshidratadas, Setas surtidas deshidratadas
+fr:Mélanges de champignons secs
+
+< en:Dried mushrooms
+en:Dried oyster mushrooms
+es:Setas de ostra deshidratadas, Setas ostra deshidratadas, Champiñones ostra deshidratadas, Gírgolas  deshidratadas
+fr:Pleurotes en huître secs
+
+< en:Dried mushrooms
+en:Dried porcini mushrooms, Dried porcini, Dried penny bun, Dried porcino
+es:Boletos comestibles deshidratados, Boletus edulis deshidratados, Setas de calabaza deshidratadas, Boletus comestible deshidratados
+fr:Cèpes de Bordeaux secs
+
+< en:Dried mushrooms
+en:Dried scotch bonnet mushrooms, Dried scotch bonnets, Dried fairy ring mushrooms
+es:Setas senderilla deshidratadas
+fr:Marasmes des Oréades secs, Faux mousserons secs, Cariolettes secs
 
 <en:Dried mushrooms
 en:Dried shiitake mushrooms, Dried shiitake, Dried Lentinula edodes
@@ -7475,8 +8695,31 @@ fr:Tagliatelles
 <en:Pastas
 fr:Torsades
 
-<en:Pastas
+<en:Cereals
+en:Noodles
+fr:Nouilles
+de:Nudeln
+
+<en:Noodles
+en:Rice vermicelli
 fr:Vermicelle de riz, vermicelles de riz
+
+<en:Noodles
+en:Chinese noodles
+fr:Nouilles chinoises
+
+<en:Chinese noodles
+en:Chinese egg noodles
+fr:Nouilles chinoises aux oeufs
+
+<en:Noodles
+en:Instant noodles
+fr:Nouilles instantanées
+pt:Macarrão Instantâneo
+
+<en:Instant noodles
+en:Instant noodle soups, Instant noodle soups
+fr:Soupes de nouilles instantanées, Soupe de nouilles instantanée, Soupe de nouilles instantanées
 
 <en:biscuits and cakes
 en:Pastries, pastry
@@ -7637,7 +8880,7 @@ fr:croque tartiflette
 fr:Dagobert
 
 <en:Sandwiches
-fr:Hamburgers, Hamburger
+fr:Hamburgers, Hamburger, Burger, Hamburgers
 
 <en:Sandwiches
 fr:Hot-dog
@@ -7929,6 +9172,10 @@ fr:Coquille Saint-Jacques, Pecten maximus, noix de Saint-Jacques, Placopecten ma
 <fr:Mollusques
 fr:Moules
 
+<en:Seafood
+fr:Surimi, surimis, bâtonnets de surimi, bâtonnet de surimi, miette de surimi, miettes de surimi
+en:Surimi, crab stick, crab sticks, mock crab, seafood sticks, seafood stick, fish stick, fish sticks, imitation crab, seafood extender, seafood extenders
+
 en:Dips, Dipping sauces
 es:Salsas para mojar
 fr:Trempettes
@@ -8126,7 +9373,7 @@ fr:Marmelades de bigaradiers
 en:Lemon marmelades
 fr:Marmelades de citrons
 
-<en:Vegetables and their products
+<en:Vegetables based foods
 <en:Jams
 en:Vegetable jams
 es:Mermeladas y confituras de verduras y hortalizas, Mermeladas de verduras y hortalizas, Confituras de verduras y hortalizas
@@ -8248,105 +9495,328 @@ fr:Tapenades vertes, Tapenade verte, Tapenade aux olives vertes
 <en:Spreads
 fr:Condiments à tartiner, Condiment à tartiner
 
+en:Sweeteners
+es:Endulzantes, Edulcorantes
+fr:Édulcorants
+
+<en:Sweeteners
 en:Sugars
+es:Azúcar
 fr:Sucres, sucre
+wikidata:en:Q11002
 pnns_group_2:en:Sweets
 
 <en:Sugars
-fr:Sucres blancs, saccharose, saccarose, sucres de table, sucroses
-
-<en:Sugars
 en:Brown sugar
+es:Azúcar moreno
 fr:Sucres blonds
+wikidata:en:Q11190742
+
+<en:Brown sugar
+<en:Cane sugar
+en:Muscovado
+es:Azúcar mascabado
+fr:Sucre muscovado
+wikidata:en:Q9280616
+
+<en:Brown sugar
+<en:Cane sugar
+en:Panela
+es:Panela
+fr:Panela
+wikidata:en:Q10357458
+
+<en:Panela
+en:Panela blocks
+es:Panela en bloque
+
+<en:Panela
+en:Powdered panela
+es:Panela en polvo
 
 <en:Sugars
-fr:sucres candi
-
-<en:Sugars
-fr:sucres complets
-
-<en:Sugars
+en:Cane sugar
+es:Azúcar de caña
 fr:Sucres de canne
 
 <en:Sugars
-fr:sucres en morceaux
-
-<en:Sugars
-fr:sucres gélifiant
-
-<en:Sugars
-fr:Sucres glaces, Sucres impalpables, Sucres à glacer
-
-<en:Sugars
+en:Inverted sugar syrups
+es:Azúcar invertido
 fr:sucres invertis, sucres liquides invertis, sirops de sucre inverti
+wikidata:en:Q412082
 
 <en:Sugars
-fr:Sucres mi-blancs
+en:Powdered sugars, Confectioner's sugars, Icing sugars,
+es:Azúcar glas, Azúcar en polvo, Azúcar glacé
+fr:Sucres glaces, Sucres impalpables, Sucres à glacer, Sucre glace
+wikidata:en:Q151070
 
 <en:Sugars
-fr:sucres perlés
+en:White sugar, Refined sugar
+es:Azúcar blanco
+fr:Sucres blancs, saccharose, saccarose, sucres de table, sucroses, sucre blanc
 
 <en:Sugars
-fr:sucres roux
+fr:sucres candi, sucre candi
+
+<en:Sugars
+fr:sucres complets, sucre complet
+
+<en:Sugars
+fr:sucres en morceaux, sucre en morceaux
+
+<en:Sugars
+fr:sucres gélifiant, sucre gélifiant
+
+<en:Sugars
+fr:Sucres mi-blancs, sucre mi-blanc
+
+<en:Sugars
+fr:sucres perlés, sucre perlé
+
+<en:Sugars
+fr:sucres roux, sucre roux
 
 <fr:Sucres roux
-fr:cassonades
+fr:cassonades, cassonade
 
 <en:Sugars
-fr:vergeoises
+fr:vergeoises, vergeoise
 
-en:Sweet wines, natural sweet wines
-fr:Vins doux, Vin doux, Vins doux naturels, Vin doux naturel
+<en:Sweeteners
+<en:Food additives
+en:Sugar substitutes
+es:Sustitutos del azúcar
+fr:Succédanés du sucre
+wikidata:en:Q626292
 
-en:Tomatoes and tomato products
-es:Tomates y sus productos, Tomates y derivados
+<en:Sugar substitutes
+en:Artificial sugar substitutes, Artificial sweeteners
+es:Edulcorantes artificiales
+fr:Édulcorants artificiels
 
-<en:Tomatoes and tomato products
-<en:Vegetables
-en:Tomatoes
-es:Tomates
-fr:Tomates
+<en:Artificial sugar substitutes
+en:Acesulfame potassium, Acesulfame K
+es:Acesulfano potásico, Acesulfamo-k
+fr:Acésulfame potassium, Acésulfame K
+la:E-950
+wikidata:en:Q132037
 
-<en:Tomatoes
-fr:Tomate olivette, Tomates olivettes
+<en:Artificial sugar substitutes
+en:Aspartame
+es:Aspartamo
+fr:Aspartames
+la:E-951
+wikidata:en:Q182040
 
-<en:Tomatoes
-fr:Tomates cerise
+<en:Artificial sugar substitutes
+en:Neohesperidin DC, NHDC, Neohesperidin dihydrochalcone
+es:Neohesperidina dihidrocalcona, Neohesperidina DC
+fr:Néohespéridine dihydrochalcone, NHDC
+la:E-959
+wikidata:en:Q424595
 
-<en:Tomatoes
-fr:Tomates pelées
+<en:Artificial sugar substitutes
+en:Neotame
+es:Neotame
+fr:Néotame
+la:E-961
+wikidata:en:Q415698
 
-<en:Tomatoes and tomato products
-en:Dried tomatoes
-es:Tomates deshidratados, Tomates secos, Tomates desecados
-fr:Tomates séchées
+<en:Artificial sugar substitutes
+en:Saccharin
+es:Sacarina
+fr:Saccharine
+la:E-954
+wikidata:en:Q191381
+
+<en:Artificial sugar substitutes
+en:Sodium cyclamate
+es:Ciclamato, Ciclamato de sodio
+fr:Cyclamate, Cyclamate de sodium
+la:E-952
+wikidata:en:Q407786
+
+<en:Artificial sugar substitutes
+en:Sucralose
+es:Sucralosa
+fr:Sucralose
+la:E-955
+wikidata:en:Q410209
+
+<en:Sugar substitutes
+en:Natural sugar substitutes, Natural sweeteners
+es:Edulcorantes naturales
+fr:Édulcorants naturels
+
+<en:Natural sugar substitutes
+en:Fructose
+es:Fructosa
+fr:Fructose
+wikidata:en:Q122043
+
+<en:Natural sugar substitutes
+en:Glucose
+es:Glucosa, Dextrosa
+fr:Glucose
+wikidata:en:Q37525
+
+<en:Natural sugar substitutes
+en:Lactitol
+es:Lactitol
+fr:Lactitol
+la:E-966
+wikidata:en:Q415020
+
+<en:Natural sugar substitutes
+en:Maltitol
+es:Maltitol
+fr:Maltitol
+la:E-965i
+wikidata:en:Q423882
+
+<en:Natural sugar substitutes
+en:Sorbitol
+es:Sorbitol
+fr:Sorbitol
+la:E-420
+wikidata:en:Q245280
+
+<en:Natural sugar substitutes
+en:Steviol glycosides
+es:Glucósidos de esteviol
+pl:Glikozydy stewiolowe
+wikidata:en:Q2805600
+
+<en:Natural sugar substitutes
+en:Xylitol
+es:Xilitol
+fr:Xylitol
+la:E-967
+wikidata:en:Q212093
+
+<en:Sugar substitutes
+en:Tabletop sweeteners
+es:Edulcorantes de mesa
+fr:Édulcorants de table, Édulcorant de table
+
+en:Syrups
+es:Siropes, Jarabes
+fr:Sirops, sirop
+wikidata:en:Q6584340
+
+<en:Syrups
+<en:Sweeteners
+en:Simple syrups
+es:Siropes simples, Jarabes simples
+fr:Sirops traditionnels
+
+<en:Simple syrups
+en:Agave syrups, Agave nectars
+es:Siropes de agave
+fr:Sirops d'agave
+wikidata:en:Q392001
+
+<en:Simple syrups
+en:Birch syrups
+es:Siropes de abedul, Melazas de abedul, Jarabes de abedul
+fr:Sirops de bouleau
+wikidata:en:Q3181931
+
+<en:Simple syrups
+<en:Cereals and their products
+en:Cereal syrups
+es:Siropes de cereales, Jarabes de cereales, Melazas de cereales
+fr:Sirops de céréales, sirop de céréales
+
+<en:Cereal syrups
+en:Barley malt syrup
+es:Siropes de cebada malteada, Jarabes de cebada malteada
+fr:Sirops d'orge malté, sirop d'orge malté
+wikidata:en:Q3485291
+
+<en:Cereal syrups
+en:Brown rice syrups, Rice syrups
+es:Sirope de arroz, Jarabe de arroz, Jarabe de arroz marrón, Melazas de arroz
+fr:Sirops de riz brun, Sirops de riz, sirop de riz
+wikidata:en:Q3485298
+
+<en:Cereal syrups
+en:Corn syrups
+es:Siropes de maíz, Jarabes de maíz
+fr:Sirops de maïs, sirop de maïs
+wikidata:en:Q618739
+
+<en:Cereal syrups
+en:High fructose corn syrups
+es:Siropes de maíz de alta fructosa, Jarabes de maíz de alta fructosa, Almíbar de maíz de alta fructosa
+fr:Sirops de maïs à haute teneur en fructose
+wikidata:en:Q11422173
+
+<en:Cereal syrups
+en:Quinoa syrups
+es:Siropes de quinoa
+fr:Sirops de quinoa, sirop de quinoa
+
+<en:Cereal syrups
+en:Wheat syrups
+es:Siropes de trigo, Melazas de trigo
+fr:Sirops de blé, sirop de blé
+
+<en:Wheat syrups
+en:Spelt syrups
+es:Siropes de espelta, Melazas de espelta
+fr:Sirops d'épeautre, sirop d'épeautre
+
+<en:Simple syrups
+en:Fruit syrups, Fruit molasses
+es:Sirope de frutas
+fr:Sirops de fruits, sirop de fruits
+wikidata:en:Q5506416
+
+<en:Simple syrups
+en:Maple syrups
+es:Siropes de arce, Jarabes de arce
+fr:Sirops d'érable, sirop d'érable
+wikidata:en:Q402563
+
+<en:Maple syrups
+fr:Sirops d'érable ambré, Sirop d'érable C
+
+<en:Maple syrups
+fr:Sirops d'érable clair, Sirop d'érable A
+
+<en:Maple syrups
+fr:Sirops d’érable du Québec
+
+<en:Maple syrups
+fr:Sirops d'érable extra clair, Sirop d'érable AA
+
+<en:Maple syrups
+fr:Sirops d'érable foncé, Sirop d'érable D
+
+<en:Maple syrups
+fr:Sirops d'érable moyen, Sirop d'érable B
+
+<en:Simple syrups
+en:Molasses 
+es:Melazas de caña, Melazas, Melaza, Miel de caña, Melaza de caña
+fr:Mélasses
+wikidata:en:Q154389
 
 <en:Fruits and vegetables based foods
 en:Vegetables based foods, Vegetables
-es:Hortalizas
-fr:Légumes
+es:Verduras y hortalizas y sus productos, Verduras y hortalizas y derivados
+fr:Légumes et dérivés, Légumes
 pnns_group_2:en:Vegetables
 
+<en:Vegetables based foods
+en:Tomatoes and tomato products
+es:Tomates y sus productos, Tomates y derivados
+fr:Tomates et dérivés
 
-<en:Cereals
-<en:Canned vegetables
-fr:Maïs en conserve, Maïs
-
-<fr:Maïs en conserve
-fr:Maïs doux
-
-<en:Tomatoes and tomato products
-<en:Canned vegetables
-en:Canned tomatoes
-es:Tomates en conserva
-fr:Tomates en conserve, conserves de tomate
-
-<fr:Coeurs de palmier
-<en:Canned vegetables
-fr:Coeurs de palmier en conserve
-
-<en:Canned foods
-<en:Vegetables
+<en:Canned plant-based foods
+<en:Vegetables based foods
 en:Canned vegetables
 es:Verduras y hortalizas en conserva, Hortalizas en conserva, Verduras en conserva
 fr:Légumes en conserve
@@ -8357,9 +9827,39 @@ es:Alcachofas en conserva
 fr:Artichauts en conserve
 
 <en:Canned vegetables
+en:Canned asparagus
+es:Espárragos en conserva
+fr:Asperges en conserve
+
+<en:Canned asparagus
+en:Canned green asparagus
+es:Espárragos verdes en conserva
+fr:Asperges vertes en conserve
+
+<en:Canned asparagus
+en:Canned white asparagus
+es:Espárragos blancos en conserva
+fr:Asperges blanches en conserve
+
+<en:Canned vegetables
+en:Canned beet, Canned beetroots
+es:Remolacha en conserva
+fr:Betteraves en conserve
+
+<en:Canned vegetables
+en:Canned Brussels s
+es:Coles de Bruselas en conserva
+fr:Choux de Bruxelles en conserve
+
+<en:Canned vegetables
 en:Canned carrots
 es:Zanahorias en conserva
 fr:Carottes en conserve
+
+<en:Canned vegetables
+en:Canned cauliflower
+es:Coliflor en conserva
+fr:Choux-fleurs en conserve
 
 <en:Canned vegetables
 en:Canned celery
@@ -8372,347 +9872,93 @@ es:Repollo en conserva
 fr:Choux en conserve
 
 <en:Canned vegetables
-fr:Flageolets en conserve
+en:Canned chards
+es:Acelgas en conserva
+fr:Bettes en conserve
 
 <en:Canned vegetables
-en:Canned beans
-es:Judías en conserva
-fr:Haricots en conserve
+en:Canned leeks
+es:Puerros en conserva
+fr:Poireaux en conserve
 
 <en:Canned vegetables
-<en:Green beans
-en:Canned green beans
-es:Judías verdes en conserva 
-fr:Haricots verts en conserve
+en:Canned peppers
+es:Pimientos en conserva
+fr:Poivrons en conserve
+
+<en:Canned peppers
+en:Canned red peppers
+es:Pimientos rojos en conserva
+fr:Poivrons rouges en conserve
 
 <en:Canned vegetables
-en:Canned peas
-es:Guisantes en conserva
-fr:Petits pois en conserve
+en:Canned potatoes
+es:Patatas en conserva
+fr:Pommes de terre en conserve
 
 <en:Canned vegetables
-fr:Pois chiches en conserve
-
-<en:Canned vegetables
+en:Canned salsifis
+es:Salsifis en conserva
 fr:Salsifis en conserve
 
 <en:Canned vegetables
-es:Acelgas en conserva
-
-<en:Canned vegetables
-es:Coles de Bruselas en conserva
-
-<en:Canned vegetables
-es:Coliflores en conserva
-
-<en:Canned vegetables
-es:Espárragos blancos en conserva
-
-<en:Canned vegetables
-es:Espárragos verdes en conserva
-
-<en:Canned vegetables
+en:Canned spinachs
 es:Espinacas en conserva
+fr:Épinards en conserve
 
 <en:Canned vegetables
-es:Patatas en conserva
+<en:Tomatoes and tomato products
+en:Canned tomatoes
+es:Tomates en conserva
+fr:Tomates en conserve, conserves de tomate
 
 <en:Canned vegetables
-es:Pimientos en conserva
-
-<en:Canned vegetables
-es:Puerros en conserva
-
-<en:Canned vegetables
-es:Remolacha en conserva
-
-<en:Vegetables
-<en:Fresh foods
-en:Fresh vegetables
-es:Verduras y hortalizas frescas, Verduras frescas, Hortalizas frescas
-fr:Légumes frais
-
-<en:Fresh vegetables
-en:Potatoes
-es:Patatas
-fr:Pommes de terre, patates, Solanum tuberosum
-pnns_group_2:en:Potatoes
-
-<en:Fresh vegetables
-en:Sweet potatoes
-fr:Patates douces
-pnns_group_2:en:Potatoes
-
-<en:Potatoes
-fr:Pommes de terre Agata
-
-<en:Potatoes
-fr:Pommes de terre Béa
-
-<fr:Pommes de terre Béa
-fr:Béa du Roussillon, pomme de terre primeur du Roussillon
-
-<en:Potatoes
-fr:Pommes de terre catégorie 1, Pommes de terre Cat. 1
-
-<en:Potatoes
-fr:Pommes de terre Charlotte
-
-<en:Potatoes
-<fr:Pommes de terre de l'île de Ré
-fr:Pommes de terre primeurs, Pommes de terre de primeur
-
-<en:Potatoes
-fr:Pommes de terre labellisées
-
-<en:Fresh vegetables
-fr:Salades, Salade
-
-<en:Condiments
-<en:Fresh vegetables
-es:Ajos
-
-<en:Condiments
-<en:Fresh vegetables
-es:Cebollas
-
-<en:Fresh vegetables
-es:Alcachofas
-
-<en:Fresh vegetables
-es:Apios
-
-<en:Fresh vegetables
-es:Berenjenas
-
-<en:Fresh vegetables
-es:Brócolis
-
-<en:Fresh vegetables
-es:Calabacines
-
-<en:Fresh vegetables
-es:Coles Chinas
-
-<en:Fresh vegetables
-es:Coles de Bruselas
-
-<en:Fresh vegetables
-es:Coliflores
-
-<en:Fresh vegetables
-es:Endibias
-
-<en:Fresh vegetables
-es:Escarolas
-
-<en:Fresh vegetables
-es:Espinacas
-
-<en:Fresh vegetables
-es:Lechugas
-
-<en:Fresh vegetables
-es:Pepinos
-
-<en:Fresh vegetables
-es:Pimientos
-
-<en:Fresh vegetables
-es:Puerros
-
-<en:Fresh vegetables
-es:Repollos
-
-<en:Fresh vegetables
-es:Zanahorias
-
-<fr:Légumes AOC
-<fr:Pommes de terre de l'île de Ré
-<fr:Pommes de terre labellisées
-fr:Pommes de terre AOC
-
-<en:Pickles
-<en:Vegetables
-en:Pickled vegetables, Vegetable pickles
-es:Vegetales encurtidos, Encurtidos vegetales
+<en:Plant-based pickles
+en:Vegetable pickles
+es:Verduras y hortalizas encurtidas, Encurtidos de verduras y hortalizas
 fr:Pickles de légumes
 
-<en:Pickled vegetables
-en:Mixed pickles
-es:Mezcla de encurtidos, Mezclas de encurtidos
-
-<en:Mixed pickles
-en:Banderillas
-es:Banderillas, Banderillas en vinagre
-
-<en:Pickled vegetables
-en:Olives
-es:Aceitunas, Olivas
-fr:Olives
-
-<en:Olives
-en:Black olives
-es:Aceitunas negras
-fr:Olives noires, Olive noire
-
-<en:Black olives
-<en:Chopped olives
-en:Black chopped olives
-es:Aceitunas negras troceadas, Aceitunas negras en rodajas
-
-<en:Olives
-en:Chopped olives
-es:Aceitunas troceadas, Aceitunas en rodajas
-
-<en:Olives
-en:Cracked olives
-es:Aceitunas partidas, Aceitunas machacadas
-
-<en:Olives
-en:Green olives
-es:Aceitunas verdes
-fr:Olives vertes
-
-<en:Chopped olives
-<en:Green olives
-en:Green chopped olives
-es:Aceitunas verdes troceadas, Aceitunas verdes en rodajas
-
-<en:Cracked olives
-<en:Green olives
-en:Green cracked olives
-es:Aceitunas verdes partidas, Aceitunas verdes machacadas
-
-<en:Green cracked olives
-<en:Marinated olives
-en:Cracked marinated green olives
-es:Aceitunas verdes partidas aliñadas
-
-<en:Cracked marinated green olives
-en:Gazpacha marinated green olives
-es:Aceitunas verdes partidas aliñadas a la gazpacha
-
-<en:Green olives
-<en:Pitted olives
-en:Green pitted olives
-es:Aceitunas verdes deshuesadas, Aceitunas verdes sin hueso
-fr:Olives vertes dénoyautées
-
-<en:Green pitted olives
-<en:Marinated olives
-en:Pitted marinated green olives
-es:Aceitunas verdes deshuesadas aliñadas
-
-<en:Green olives
-<en:Stuffed olives
-en:Green stuffed olives
-es:Aceitunas verdes rellenas
-
-<en:Green stuffed olives
-en:Green olives stuffed of almond
-es:Aceitunas verdes rellenas de almendra
-
-<en:Green stuffed olives
-en:Green olives stuffed of anchovies
-es:Aceitunas verdes rellenas de anchoa
-
-<en:Green stuffed olives
-en:Green olives stuffed of lemon
-es:Aceitunas verdes rellenas de limón
-
-<en:Green stuffed olives
-en:Green olives stuffed of pepper
-es:Aceitunas verdes rellenas de pimiento
-
-<en:Green olives
-<en:Whole olives
-en:Green whole olives
-es:Aceitunas verdes enteras, Aceitunas verdes con hueso
-
-<en:Green whole olives
-<en:Marinated olives
-en:Whole marinated green olives
-es:Aceitunas verdes enteras aliñadas
-
-<en:Green olives
-fr:Olives vertes en saumure
-
-<en:Olives
-en:Marinated olives
-es:Aceitunas aliñadas
-fr:Olives marinées
-
-<en:Olives
-en:Pitted olives
-es:Aceitunas deshuesadas, Aceitunas sin hueso
-fr:Olives dénoyautées
-
-<en:Black olives
-<en:Pitted olives
-en:Black pitted olives
-es:Aceitunas negras deshuesadas, Aceitunas negras sin hueso
-
-<en:Olives
-en:Semi-ripe olives
-es:Aceitunas de color cambiante
-fr:Olives semi mures
-
-<en:Olives
-en:Stuffed olives
-es:Aceitunas rellenas
-
-<en:Olives
-en:Whole olives
-es:Aceitunas enteras, Aceitunas con hueso
-
-<en:Black olives
-<en:Whole olives
-en:Black whole olives
-es:Aceitunas negras enteras, Aceitunas negras con hueso
-
-<en:Semi-ripe olives
-<en:Whole olives
-en:Semi-ripe whole olives
-es:Aceitunas de color cambiante enteras
-
-<en:Pickled vegetables
+<en:Vegetable pickles
 en:Pickled beets
 es:Remolacha encurtida
 
-<en:Pickled vegetables
-en:Pickled caper berries
-es:Alcaparrones encurtidos
-
-<en:Pickled vegetables
-en:Pickled capers
-es:Alcaparras encurtidas
-
-<en:Pickled vegetables
+<en:Vegetable pickles
 en:Pickled carrots
 es:Zanahorias encurtidas
 
-<en:Pickled vegetables
+<en:Vegetable pickles
 en:Pickled cucumbers
-es:Pepinillos encurtidos
+es:Pepinos encurtidos
+wikidata:en:Q1211297
 
-<en:Pickled vegetables
+<en:Pickled cucumbers
+en:Gherkins, Pickled gherkins
+es:Pepinillos, Pepinillos encurtidos
+fr:Cornichons, Cornichon
+wikidata:en:Q1365891
+
+<en:Gherkins
+fr:Cornichons au vinaigre
+
+<en:Gherkins
+fr:Cornichons extra-fins
+
+<en:Gherkins
+fr:Cornichons malossol
+
+<en:Vegetable pickles
 en:Pickled eggplants
 es:Berenjenas encurtidas
 
-<en:Pickled vegetables
+<en:Vegetable pickles
 en:Pickled garlic
 es:Ajos encurtidos
 
-<en:Pickled vegetables
-en:Pickled ginger, Ginger pickles
-es:Jengibre encurtido
-
-<en:Pickled vegetables
+<en:Vegetable pickles
 en:Pickled onions
 es:Cebollas encurtidas, Cebollitas encurtidas
 
-<en:Pickled vegetables
+<en:Vegetable pickles
 en:Pickled peppers
 es:Pimientos encurtidos
 
@@ -8720,19 +9966,50 @@ es:Pimientos encurtidos
 en:Pickled guindilla peppers, Pickled guindilla chillis
 es:Guindillas encurtidas
 
-<en:Vegetables
+<en:Vegetables based foods
+<en:Fresh plant-based foods
+en:Fresh vegetables
+es:Verduras y hortalizas frescas, Verduras frescas, Hortalizas frescas
+fr:Légumes frais
+
+<en:Fresh vegetables
 en:Vegetable rods
 fr:Légumes tiges
 
+<en:Fresh vegetables
+fr:Légumes-feuilles, Légume-feuille
+
+<en:Fresh vegetables
+fr:Légumes bio, Légumes biologiques
+
+<en:Fresh vegetables
 <en:Vegetable rods
-<en:Vegetables
+en:Artichokes
+es:Alcachofas
+fr:Artichauts, artichaut
+la:Cynara scolymus
+
+<en:Fresh vegetables
+<en:Vegetable rods
 en:Asparagus
-fr:Asperges, asperge
+es:Espárragos, Espárragos frescos
+fr:Asperges, asperge, Asperges fraîches
+la:Asparagus officinalis
 
 <en:Asparagus
-<en:Fresh vegetables
-es:Espárragos frescos
-fr:Asperges fraîches
+en:Green asparagus
+es:Espárragos verdes
+fr:Asperges vertes
+
+<en:Asparagus
+en:White asparagus
+es:Espárragos blancos
+fr:Asperges blanches
+
+<en:Asparagus
+en:Purple asparagus
+es:Espárragos morados
+fr:Asperges violettes
 
 <en:Asparagus
 en:German Asparagus
@@ -8740,9 +10017,6 @@ fr:Asperges allemandes
 
 <en:Asparagus
 fr:Asperges autrichiennes
-
-<en:Asparagus
-fr:Asperges blanches
 
 <en:Asparagus
 en:Spanish Asparagus
@@ -8766,100 +10040,738 @@ fr:Asperges pelées à la main
 en:Wild asparagus
 fr:Asperges sauvages
 
-<en:Asparagus
-en:Green Asparagus
-fr:Asperges vertes
+<en:Fresh vegetables
+en:Aubergines
+es:Berenjenas
+fr:Aubergines
+la:Solanum melongena
 
-<en:Asparagus
-en:Purple Asparagus
-fr:Asperges violettes
+<en:Fresh vegetables
+en:Beet, Beetroots
+es:Remolachas
+fr:Betteraves
+la:Beta vulgaris
 
+<en:Fresh vegetables
+en:Belgian endives, Witloof
+es:Endivias, Endibias
+fr:Endives, Chicon
+la:Cichorium intybus var. foliosum
+
+<en:Fresh vegetables
+en:Broccoli
+es:Brócolis, Brócoli
+fr:Brocolis, Brocoli
+la:Brassica oleracea var. italica
+
+<en:Fresh vegetables
+en:Brussels s
+es:Coles de Bruselas
+fr:Choux de Bruxelles
+la:Brassica oleracea var. gemmifera
+
+<en:Fresh vegetables
+en:Cabbages
+es:Repollos, Col repollo
+fr:Chou cabus
+la:Brassica oleracea var. capitata
+
+<en:Fresh vegetables
 <en:Vegetable rods
-fr:Artichauts, artichaut
+en:Cardoons, Artichoke thistles
+es:Cardos
+fr:Cardons, Cardes
+la:Cynara cardunculus
 
+<en:Fresh vegetables
+en:Carrots
+es:Zanahorias
+fr:Carottes
+la:Daucus carota subsp. sativus
+
+<en:Fresh vegetables
+en:Cauliflowers
+es:Coliflores, Coliflor
+fr:Choux-fleurs
+la:Brassica oleracea var. botrytis
+
+<en:Fresh vegetables
 <en:Vegetable rods
-fr:Blettes, bettes
+<en:Culinary plants
+en:Celery
+es:Apios
+fr:Céleri, Céleris
+la:Apium graveolens
 
-<fr:Blettes
-fr:poirées
-
+<en:Fresh vegetables
 <en:Vegetable rods
-fr:Cardons
+en:Chards
+es:Acelgas
+fr:Blettes, Bettes
+la:Beta vulgaris var. cicla
 
-<en:Vegetable rods
-fr:céleris
+<en:Chards
+fr:Poirées
 
-<en:Vegetable rods
-fr:Coeurs de palmier, choux palmistes, chou palmiste
+<en:Fresh vegetables
+en:Cucumbers
+es:Pepinos
+fr:Concombres
+la:Cucumis sativus
 
-<en:Vegetable rods
-fr:fenouils
+<en:Fresh vegetables
+en:Endives
+es:Escarolas 
+fr:Chicorée endive
+la:Cichorium endivia
 
+<en:Fresh vegetables
 <en:Vegetable rods
+en:Fennel
+es:Hinojo
+fr:Fenouils, Fenouil commun, Fenouil
+la:Foeniculum vulgare
+
+<en:Fresh vegetables
+<en:Condiments
+en:Garlic
+es:Ajos
+fr:Ail, Ails
+la:Allium sativum
+
+<en:Fresh vegetables
+en:Green garlic
+es:Ajos tiernos, Brotes de ajo
+fr:Aillets
+
+<en:Fresh vegetables
+<en:Vegetable rods
+en:Leeks
+es:Puerros
 fr:Poireaux, Poireau
+la:Allium ampeloprasum var. porrum, Allium porrum
 
+<en:Fresh vegetables
+en:Lettuces
+es:Lechugas
+fr:Laitues, Laitue
+la:Lactuca sativa
+
+<en:Fresh vegetables
+en:Onions
+es:Cebollas
+fr:Oignons, Oignon
+la:Allium cepa
+
+<en:Fresh vegetables
+<en:Chili peppers
+en:Peppers
+es:Pimientos
+fr:Poivrons, Poivron, Capsicum annuum, piment doux, Piment Poivron
+la:Capsicum annuum
+
+<en:Peppers
+en:Green peppers
+es:Pimientos verdes
+fr:Poivrons verts
+
+<en:Peppers
+en:Mixed peppers
+es:Mezclas de pimientos multicolores
+fr:Mélanges de poivrons multicolores
+
+<en:Peppers
+en:Red peppers
+es:Pimientos rojos
+fr:Poivrons rouges
+
+<en:Peppers
+en:Yellow peppers
+es:Pimientos amarillos
+fr:Poivrons jaunes
+
+<en:Peppers
+fr:Doux California Wonder
+
+<en:Peppers
+fr:Doux de Valence
+
+<en:Peppers
+fr:Doux long des Landes
+
+<en:Peppers
+fr:Jalapeño, chipotle, morita
+
+<en:Peppers
+fr:Le Pepper Mont Jolien
+
+<en:Peppers
+fr:Paprika
+
+<en:Peppers
+fr:Petit carré de Nice
+
+<en:Peppers
+fr:Petit vert marseillais
+
+<en:Peppers
+fr:Piment doux de Gascogne, piment doux des Landes
+
+<en:Peppers
+fr:Piquant d'Algérie
+
+<en:Peppers
+fr:Poivrons de piquillo, pimiento del piquillo, pimiento de piquillo, Piquillo de Lodosa
+
+<en:Peppers
+fr:Poivrons farcis
+
+<en:Peppers
+fr:Poivrons grillés
+
+<en:Fresh vegetables
+en:Potatoes
+es:Patatas, Papas
+fr:Pommes de terre, patates, Solanum tuberosum
+la:Solanum tuberosum
+pnns_group_2:en:Potatoes
+
+<en:Potatoes
+fr:Pommes de terre Agata
+
+<en:Potatoes
+fr:Pommes de terre Béa
+
+<fr:Pommes de terre Béa
+fr:Béa du Roussillon, pomme de terre primeur du Roussillon
+
+<en:Potatoes
+fr:Pommes de terre catégorie 1, Pommes de terre Cat. 1
+
+<en:Potatoes
+fr:Pommes de terre Charlotte
+
+<en:Potatoes
+fr:Pommes de terre de l'île de Ré, Pomme de terre de l'île de Ré
+
+<en:Potatoes
+<fr:Pommes de terre de l'île de Ré
+fr:Pommes de terre primeurs, Pommes de terre de primeur
+
+<en:Potatoes
+fr:Pommes de terre labellisées
+
+<fr:Légumes AOC
+<fr:Pommes de terre de l'île de Ré
+<fr:Pommes de terre labellisées
+fr:Pommes de terre AOC
+
+<en:Fresh vegetables
+en:Pumpkins
+es:Calabazas
+fr:Citrouilles
+la:Cucurbita
+
+<en:Fresh vegetables
+en:Radishes
+es:Rábanos Rabanitos
+fr:Radis
+la:Raphanus sativus
+
+<en:Radishes
+en:Red radishes
+es:Rabanitos, Rábanos rojos, Rábanos picantes
+fr:Radis rouges, radis rouge
+la:Raphanus sativus var. sativus
+
+<en:Radishes
+en:Daikon radishes, Daikon, White radishes
+es:Rábanos blancos, Rábanos japoneses, Daikon
+fr:Radis blancs, radis blanc
+la:Raphanus sativus var. longipinnatus
+
+<en:Fresh vegetables
+en:Red cabbage
+es:Lombardas, Lombarda, Col lombarda
+fr:Chous rouges
+
+<en:Fresh vegetables
 <en:Vegetable rods
-<fr:Pousses
-fr:Pousses de bambou, Pousse de bambou
+en:Rhubarbs
+es:Ruibarbos
+fr:Rhubarbes, rhubarbe
+la:Rheum
 
-<en:Vegetable rods
-fr:rhubarbes
+<en:Fresh vegetables
+en:Romanesco, Romanesco broccoli, Romanesque cauliflower
+es:Romanesco, Romanescu
+fr:Chou romanesco
+la:Brassica oleracea
 
-<en:Vegetables
-fr:Cornichons
+< en:Fresh vegetables
+en:Scallions, Spring onions, Green onions
+es:Cebolletas tiernas, Cebolletas
 
-<fr:Cornichons
-fr:Cornichons au vinaigre
+< en:Fresh vegetables
+en:Spinachs
+es:Espinacas
+fr:Épinards
+la:Spinacia oleracea
 
-<fr:Cornichons
-fr:Cornichons extra-fins
+<en:Fresh vegetables
+en:Sweet potatoes
+es:Batatas, Boniatos
+fr:Patates douces
+la:Ipomoea batatas
+pnns_group_2:en:Potatoes
 
-<fr:Cornichons
-fr:Cornichons malossol
+<en:Fresh vegetables
+<en:Tomatoes and tomato products
+en:Tomatoes
+es:Tomates
+fr:Tomates
+la:Solanum lycopersicum
 
-<en:Vegetables
-fr:Légumes bio, Légumes biologiques
+<en:Tomatoes
+fr:Tomate olivette, Tomates olivettes
 
-<en:Vegetables
-fr:Légumes-feuilles, Légume-feuille
+<en:Tomatoes
+fr:Tomates cerise
 
-<en:Cereals and potatoes
-en:Legumes
-fr:Légumes secs, légumineuses
+<en:Tomatoes
+fr:Tomates pelées
+
+<en:Fresh vegetables
+en:Zucchini, Courgettes 
+es:Calabacines, Zucchini
+fr:Courgettes
+la:Cucurbita pepo var. Zucchini
+
+<en:Fresh vegetables
+en:Fresh vegetable mixes
+es:Mezclas de verduras y hortalizas frescas
+fr:Mélanges de légumes frais
+
+<en:Fresh vegetable mixes
+es:Mezclas de vegetales para puré
+
+<en:Fresh vegetable mixes
+es:Mezclas de vegetales para cocido
+
+<en:Fresh vegetable mixes
+es:Mezclas de vegetales para sopa
+
+<en:Fresh vegetable mixes
+en:Salads
+es:Ensaladas vegetales
+fr:Salades, Salade
+
+<en:Vegetables based foods
+<en:Fresh sprouts
+en:Fresh vegetables sprouts
+es:Germinados de verduras y hortalizas frescos, Brotes de verduras y hortalizas frescos
+fr:Pousses de légumes frais
+
+<en:Fresh vegetables sprouts
+en:Fresh onion sprouts
+es:Germinados de cebolla frescos, Brotes de cebolla frescos
+fr:Pousses de oignons frais
+
+< en:Vegetables based foods
+< en:Dried plant-based foods
+en:Dried vegetables
+es:Verduras y hortalizas deshidratadas, Verduras y hortalizas desecadas, Verduras deshidratadas, Verduras desecadas, Hortalizas deshidratadas, Hortalizas desecadas
+fr:Légumes séchées
+
+<en:Dried vegetables
+<en:Tomatoes and tomato products
+en:Dried tomatoes
+es:Tomates deshidratados, Tomates secos, Tomates desecados
+fr:Tomates séchées
+
+<en:Plant-based foods
+en:Legumes and their products
+es:Leguminosas y derivados, Legumbres y derivados, Legumbres y sus productos
+fr:Légumineuses et dérivés
 pnns_group_2:en:Legumes
 
+<en:Legumes and their products
+en:Legumes
+es:Leguminosas, Legumbres
+fr:Légumineuses
+la:Fabaceae, Leguminosae
+wikidata:en:Q145909
+
 <en:Legumes
+<en:Fresh plant-based foods
+en:Fresh legumes
+es:Legumbres frescas
+fr:Légumineuses frais
+
+<en:Fresh legumes
+<en:Fresh vegetables
+en:Fresh broad beans, Fresh fava beans, Fresh faba beans
+es:Habas, Habitas
+fr:Fèves frais, Fèves frais, Féverolles frais
+la:Vicia faba
+
+<en:Fresh legumes
+<en:Fresh vegetables
+en:Fresh green beans
+es:Judías verdes
+fr:Haricots verts
+
+<en:Fresh green beans
+en:Fresh broad green beans
+es:Judías verdes redondas 
+
+<en:Fresh green beans
+en:Fresh flat green beans
+es:Judías verdes planas 
+
+<en:Fresh legumes
+<en:Fresh vegetables
+en:Green peas
+es:Guisantes verdes
+fr:Petits pois frais
+
+<en:Legumes
+<en:Seeds
+en:Legume seeds
+es:Granos de leguminosas, Semillas de leguminosas
+fr:Graines de légumineuses
+
+<en:Legume seeds
+en:Alfalfa seeds
+es:Semillas de alfalfa
+fr:Graines de alfalfa, Graines de luzerne cultivée
+la:Medicago sativa
+wikidata:en:Q156106
+
+<en:Legume seeds
+en:Pulses
+es:Legumbres secas
+fr:Légumes secs
+wikidata:en:Q2727662
+
+<en:Pulses
+en:Azuki beans, Adzuki beans
+es:Azukis
+fr:Haricots azukis, Haricot adzukis
+la:Vigna angularis
+wikidata:en:Q380279
+
+<en:Pulses
+en:Bambara groundnuts, Bambara beans
+es:Bambara
+fr:Pois bambara, Pois de terre
+la:Vigna subterranea
+wikidata:en:Q338219
+
+<en:Pulses
+en:Black grams, Black lentils
+es:Lenteja negra, Lenteja mungo, Urd
+fr:Haricots urd, Urd
+la:Vigna mungo
+wikidata:en:Q369447
+
+<en:Pulses
+en:Butter beans, Lima beans
+es:Garrofones, Garrofón, Habones, Judías de Lima, Habas de Lima
+fr:Haricots de Lima
+la:Phaseolus lunatus
+wikidata:en:Q1166136
+
+<en:Pulses
+en:Chickpeas, Garbanzo beans
+es:Garbanzos
+fr:Pois chiches
+la:Cicer arietinum
+wikidata:en:Q81375
+
+<en:Pulses
+en:Common beans, String beans
+es:Alubias, Judías, Frijoles, Porotos, Fabas, Fabes 
+fr:Haricots, Haricots communes
+la:Phaseolus vulgaris
+wikidata:en:Q42339
+
+<en:Pulses
+en:Cowpeas
+es:Judías carilla
+la:Vigna unguiculata
+wikidata:en:Q498940
+
+<en:Pulses
+en:Black-eyed peas, Black-eyed beans
+fr:Cornilles
+la:Vigna unguiculata subsp. unguiculata
+wikidata:en:Q3246973
+
+<en:Pulses
+en:Hyacinth beans
+es:Judías de Egipto, Porotos de Egipto
+fr:Pois antaque, Dolique d'Égypte
+la:Lablab purpureus, Dolichos lablab
+wikidata:en:Q1077410
+
+<en:Pulses
 en:Lentils
 es:Lentejas
-fr:Lentilles
+fr:Lentilles, Lentilles cultivées, Lentilles sèches, Lentilles à cuire
+la:Lens culinaris
+wikidata:en:Q131226
 
-<fr:Légumes secs
 <en:Lentils
-fr:Lentilles sèches, Lentilles à cuire
-
-<fr:Lentilles sèches
 fr:lentilles blondes
 
-<fr:Lentilles sèches
+<en:Lentils
 fr:lentilles brunes
 
-<fr:Lentilles sèches
+<en:Lentils
 fr:lentilles corail, lentilles roses
 
-<fr:Lentilles sèches
+<en:Lentils
 fr:lentilles noires, lentilles beluga
 
-<fr:Lentilles sèches
+<en:Lentils
 fr:lentilles rosées de Champagne, lentillon de Champagne
 
-<fr:Lentilles sèches
+<en:Lentils
 fr:lentilles rouges
 
-<fr:Lentilles sèches
+<en:Lentils
 fr:Lentilles vertes
 
-<en:Vegetables
-fr:Oignons
+<en:Pulses
+en:Lupin beans, Lupins, Lupini beans
+es:Altramuces, Altramuz, Chochos, Lupínes, Lupinos
+fr:Lupins
+la:Lupinus
+wikidata:en:Q156811
+
+<en:Pulses
+en:Mat beans
+fr:Haricots mat
+la:Vigna aconitifolia
+wikidata:en:Q511249
+
+<en:Pulses
+en:Mung beans
+es:Judías mungo, Soja verde
+fr:Haricots mungo, Soja vert 
+la:Vigna radiata
+wikidata:en:Q484447
+
+<en:Pulses
+en:Peas
+es:Guisantes, Chícharos, Arvejas
+fr:Pois, Pois cultivé
+la:Pisum sativum
+wikidata:en:Q25237
+
+<en:Pulses
+en:Pigeon peas, Gandule beans
+es:Guandules, Gandules, Guandús, Chícharos
+fr:Pois d'Angole
+la:Cajanus cajan
+wikidata:en:Q632559
+
+<en:Pulses
+en:Rice beans, Ricebeans
+fr:Haricots riz
+la:Vigna umbellata
+wikidata:en:Q1368391
+
+<en:Pulses
+en:Scarlet runner beans, Runner beans, Multiflora beans
+es:Judiones, Ayocote, Ayecote, Judiones de la Granja
+fr:Haricots d'Espagne, Haricots écarlates 
+la:Phaseolus coccineus
+wikidata:en:Q159753
+
+<en:Pulses
+en:Sword beans
+es:Habas espada
+fr:Pois sabre, Haricots sabre
+la:Canavalia gladiata
+wikidata:en:Q1937714
+
+<en:Pulses
+en:Tepary beans
+es:Frijoles tépari, Frijol tépari
+fr:Haricots tépari
+la:Phaseolus acutifolius
+wikidata:en:Q1639734
+
+<en:Pulses
+en:Velvet beans
+es:Granos de terciopelo
+fr:Pois mascate
+la:Mucuna pruriens
+wikidata:en:Q953611
+
+<en:Pulses
+en:Winged beans, Goa beans, Asparagus peas
+fr:Haricots ailé, Pois carré
+la:Psophocarpus tetragonolobus
+wikidata:en:Q1468260
+
+<en:Legume seeds
+en:Soy, Soya
+es:Soja
+fr:Soja
+la:Glycine max
+wikidata:en:Q11006
+
+<en:Legumes and their products
+<en:Canned plant-based foods
+en:Canned legumes
+es:Legumbres en conserva
+fr:Légumineuses en conserve
+
+<en:Canned legumes
+en:Canned chickpeas
+es:Garbanzos cocidos en conserva, Garbanzos en conserva
+fr:Pois chiches en conserve
+
+<en:Canned legumes
+en:Canned common beans, Canned string beans, Canned beans
+es:Alubias en conserva, Judías en conserva
+fr:Haricots en conserve
+
+<en:Canned common beans
+en:Canned flageolet beans
+es:Flageolets en conserva 
+fr:Flageolets en conserve
+
+<en:Canned common beans
+en:Canned kidney common beans
+es:Alubias rojas cocidas en conserva
+fr:Haricots rouges en conserve
+
+<en:Canned common beans
+en:Canned white common beans
+es:Alubias blancas cocidas en conserva
+fr:Haricots blancs en conserve
+
+<en:Canned legumes
+en:Canned lentils
+es:Lentejas cocidas en conserva, Lentejas en conserva
+fr:Lentilles en conserve
+
+<en:Canned legumes
+<en:Canned vegetables
+en:Canned broad beans, Canned fava beans, Canned faba beans
+es:Habas en conserva, Habitas en conserva
+fr:Fèves en conserve, Féverolles en conserve
+
+<en:Canned legumes
+<en:Canned vegetables
+en:Canned green beans
+es:Judías verdes en conserva 
+fr:Haricots verts en conserve
+
+<en:Canned legumes
+<en:Canned vegetables
+en:Canned peas
+es:Guisantes en conserva
+fr:Petits pois en conserve
+
+<en:Legumes and their products
+<en:Fresh sprouts
+en:Fresh legume sprouts
+es:Germinados de leguminosas frescos
+fr:Pousses de légumineuses frais
+
+<en:Fresh legume sprouts
+en:Fresh alfalfa sprouts
+es:Germinados de alfalfa frescos, Brotes de alfalfa frescos
+fr:Pousses de alfalfa frais, Pousses de luzerne cultivée frais
+
+<en:Fresh legume sprouts
+en:Fresh lentil sprouts
+es:Germinados de lentejas frescos, Brotes de lentejas frescos
+fr:Pousses de lentilles frais
+
+<en:Fresh legume sprouts
+en:Fresh mung bean sprouts
+es:Germinados de judía mungo frescos, Brotes de judía mungo frescos, Brotes de soja verde frescos
+fr:Pousses de haricot mungo frais
+
+<en:Legumes and their products
+<en:Canned sprouts
+en:Canned legume sprouts
+es:Germinados de leguminosas en conserva
+fr:Pousses de légumineuses en conserve
+
+<en:Canned legume sprouts
+en:Canned mung bean sprouts
+es:Germinados de judía mungo en conserva, Brotes de judía mungo en conserva, Brotes de soja verde en conserva
+fr:Pousses de haricot mungo en conserve, Pousses de haricot mungo, Pousse de haricot mungo, jeunes pousses de haricot mungo, Pousses de soja vert, Pousse de ambérique vert, Pousses de soja
+
+<en:Canned legume sprouts
+en:Canned alfalfa sprouts
+es:Germinados de alfalfa en conserva, Brotes de alfalfa en conserva
+fr:Pousses de alfalfa en conserve, Pousses de luzerne cultivée en conserve
+
+<en:Legumes and their products
+<en:Flakes
+en:Legume flakes, Rolled legumes
+es:Copos de leguminosas
+fr:Flocons de légumineuses
+
+<en:Legume flakes
+en:Soy flakes, Soya flakes
+es:Copos de soja
+fr:Flocons de soja
+
+<en:Legumes and their products
+<en:Flours
+en:Legume flours
+es:Harinas de leguminosas
+fr:Farines de légumineuses
+
+<en:Legume flours
+en:Chickpeas flours, Garbanzo flours
+es:Harinas de garbanzos
+fr:Farines de pois chiche
+
+<en:Legume flours
+en:Fresh broad flours
+es:Harina de habas
+fr:Farines de fèves
+
+<en:Legume flours
+en:Green bean flours
+es:Harina de alubias, Harina de judías
+fr:Farines de haricots
+
+<en:Legume flours
+en:Lentil flours
+es:Harinas de lentejas
+fr:Farines de lentilles
+
+<en:Legume flours
+en:Lupin bean flours, Lupin flours
+es:Harina de altramuces
+fr:Farines de lupin
+
+<en:Legume flours
+en:Soybean flours
+es:Harinas de soja
+fr:Farines de soja
+
+<en:Legumes and their products
+<en:Puffed grains
+en:Puffed legumes, Popped legumes
+es:Leguminosas infladas
+fr:Graines de légumineuses soufflées
+
+<en:Puffed legumes
+en:Puffed soybeans
+es:Soja inflada
+fr:Soja soufflé
 
 en:Vinegars
 es:Vinagres
@@ -8962,225 +10874,6 @@ fr:Gaufrettes
 <fr:Gaufrettes
 fr:Gaufrettes aux légumes
 
-es:Alimentos especiales
-
-<es:Alimentos especiales
-es:Alimentos infantiles, Alimentos para bebés, Alimentos para lactantes, Alimentos para niños de corta edad
-
-<es:Alimentos especiales
-es:Alimentos para personas con intolerancia al gluten
-
-<es:Alimentos especiales
-es:Alimentos pobres en sodio
-
-es:Alimentos estimulantes
-
-<es:Alimentos estimulantes
-es:Cacaos y chocolates
-
-<es:Cacaos y chocolates
-es:Cacao en polvo
-
-<es:Cacaos y chocolates
-es:Chocolate
-
-<es:Cacaos y chocolates
-es:Chocolate a la taza
-
-<es:Cacaos y chocolates
-es:Chocolate blanco
-
-<es:Cacaos y chocolates
-es:Chocolate con leche
-
-<es:Cacaos y chocolates
-es:Chocolate en polvo
-
-<es:Cacaos y chocolates
-es:Chocolate familiar a la taza
-
-<es:Cacaos y chocolates
-es:Chocolate familiar con leche
-
-<es:Cacaos y chocolates
-es:Chocolate familiar en polvo
-
-<es:Cacaos y chocolates
-es:Sucedáneos del chocolate
-
-<es:Sucedáneos del chocolate
-es:Cacao azucarado en polvo con harina
-
-<es:Sucedáneos del chocolate
-es:Cacao familiar azucarado en polvo con harina
-
-<es:Sucedáneos del chocolate
-es:Cacao magro azucarado en polvo con harina
-
-<es:Sucedáneos del chocolate
-es:Cacao magro familiar azucarado en polvo con harina
-
-<es:Sucedáneos del chocolate
-es:Coberturas especiales con grasa vegetal
-
-<es:Alimentos estimulantes
-es:Cafés
-
-<es:Cafés
-es:Cafés de tueste natural
-
-<es:Cafés
-es:Cafés de tueste natural y torrefacto
-
-<es:Cafés
-es:Cafés descafeinados
-
-<es:Cafés
-es:Cafés molido de tueste natural
-
-<es:Cafés
-es:Cafés molido de tueste natural y torrefacto
-
-<es:Cafés
-es:Cafés molido torrefacto
-
-<es:Cafés
-es:Cafés solubles
-
-<es:Cafés
-es:Cafés solubles descafeinados
-
-<es:Cafés
-es:Cafés torrefacto
-
-<es:Cafés
-es:Cafés torrefacto soluble
-
-es:Complementos Alimenticios
-
-es:Endulzantes
-
-<es:Endulzantes
-es:Edulcorantes artificiales
-
-<es:Edulcorantes artificiales
-es:Acesulfano potásico, Acesulfamo-k
-la:E-950
-
-<es:Edulcorantes artificiales
-es:Aspartamo
-la:E-951
-
-<es:Edulcorantes artificiales
-es:Ciclamato
-la:E-952
-
-<es:Edulcorantes artificiales
-es:Glucósidos de esteviol
-
-<es:Glucósidos de esteviol
-es:Glucósidos de esteviol en polvo
-
-<es:Edulcorantes artificiales
-es:Lactitol
-la:E-966
-
-<es:Edulcorantes artificiales
-es:Maltitol
-la:E-965i
-
-<es:Edulcorantes artificiales
-es:Neohesperidina dihidrocalcona, Neohesperidina DC
-la:E-959
-
-<es:Edulcorantes artificiales
-es:Neotame
-la:E-961
-
-<es:Edulcorantes artificiales
-es:Sacarina
-la:E-954
-
-<es:Edulcorantes artificiales
-es:Sirope de sorbitol
-la:E-420ii
-
-<es:Edulcorantes artificiales
-es:Sorbitol
-la:E-420i
-
-<es:Edulcorantes artificiales
-es:Sucralosa
-la:E-955
-
-<es:Edulcorantes artificiales
-es:Xilitol
-la:E-967
-
-<es:Endulzantes
-es:Endulzantes de origen vegetal
-
-<es:Endulzantes de origen vegetal
-es:Azúcar blanco
-la:Sacarosa, independientemente de su procedencia: caña de azúcar, remolacha
-
-<es:Endulzantes de origen vegetal
-es:Azúcar moreno
-
-<es:Endulzantes de origen vegetal
-es:Caramelo líquido
-
-<es:Endulzantes de origen vegetal
-es:Endulzantes procedentes de la caña de azúcar
-
-<es:Endulzantes procedentes de la caña de azúcar
-es:Azúcar de caña
-
-<es:Endulzantes procedentes de la caña de azúcar
-es:Melaza de caña
-
-<es:Endulzantes procedentes de la caña de azúcar
-es:Panela
-
-<es:Panela
-es:Panela en bloque
-
-<es:Panela
-es:Panela en polvo
-
-<es:Endulzantes de origen vegetal
-es:Fructosa
-
-<es:Endulzantes de origen vegetal
-es:Glucosa
-
-<es:Endulzantes de origen vegetal
-es:Melazas de cereales
-
-<es:Melazas de cereales
-es:Melaza de espelta
-
-<es:Melazas de cereales
-es:Melaza de trigo
-
-<es:Endulzantes de origen vegetal
-es:Siropes
-
-<es:Siropes
-es:Sirope de agave
-
-<es:Siropes
-es:Sirope de arce
-
-<es:Siropes
-es:Sirope de arroz
-
-<es:Siropes
-es:Sirope de frutas
-
-<es:Endulzantes
-es:Miel
-
 es:Especies vegetales para infusiones y sus derivados
 
 <es:Especies vegetales para infusiones y sus derivados
@@ -9223,9 +10916,6 @@ es:Hibisco
 <es:Especies vegetales para infusiones y sus derivados
 es:Hierba luisa
 la:Aloysia triphylla
-
-<es:Especies vegetales para infusiones y sus derivados
-es:Hinojo
 
 <es:Especies vegetales para infusiones y sus derivados
 es:Hipérico
@@ -9323,12 +11013,167 @@ en:Plant-based foods
 es:Alimentos de origen vegetal, Alimentos vegetales, Vegetales y derivados
 fr:Aliments d'origine végétale, Aliments à base de plantes, Végétaux et dérivés
 
+<en:Pickles
 <en:Plant-based foods
-en:Vegetables and their products, Vegetables and derived products
-es:Verduras y hortalizas y sus productos, Verduras y hortalizas y derivados
-fr:Légumes et produits dérivés
+en:Plant-based pickles, Pickled vegetables
+es:Vegetales encurtidos, Encurtidos vegetales
+fr:Pickles d'origine végétale
 
+<en:Plant-based pickles
+en:Plant-based mixed pickles, Mixed pickles
+es:Mezcla de encurtidos vegetales, Mezcla de encurtidos, Mezclas de encurtidos
 
+<en:Plant-based mixed pickles
+en:Banderillas
+es:Banderillas, Banderillas en vinagre
+
+<en:Plant-based pickles
+en:Olives
+es:Aceitunas, Olivas
+fr:Olives
+
+<en:Olives
+en:Black olives
+es:Aceitunas negras
+fr:Olives noires, Olive noire
+
+<en:Black olives
+<en:Chopped olives
+en:Black chopped olives
+es:Aceitunas negras troceadas, Aceitunas negras en rodajas
+
+<en:Olives
+en:Chopped olives
+es:Aceitunas troceadas, Aceitunas en rodajas
+
+<en:Olives
+en:Cracked olives
+es:Aceitunas partidas, Aceitunas machacadas
+
+<en:Olives
+en:Green olives
+es:Aceitunas verdes
+fr:Olives vertes
+
+<en:Chopped olives
+<en:Green olives
+en:Green chopped olives
+es:Aceitunas verdes troceadas, Aceitunas verdes en rodajas
+
+<en:Cracked olives
+<en:Green olives
+en:Green cracked olives
+es:Aceitunas verdes partidas, Aceitunas verdes machacadas
+
+<en:Green cracked olives
+<en:Marinated olives
+en:Cracked marinated green olives
+es:Aceitunas verdes partidas aliñadas
+
+<en:Cracked marinated green olives
+en:Gazpacha marinated green olives
+es:Aceitunas verdes partidas aliñadas a la gazpacha
+
+<en:Green olives
+<en:Pitted olives
+en:Green pitted olives
+es:Aceitunas verdes deshuesadas, Aceitunas verdes sin hueso
+fr:Olives vertes dénoyautées
+
+<en:Green pitted olives
+<en:Marinated olives
+en:Pitted marinated green olives
+es:Aceitunas verdes deshuesadas aliñadas
+
+<en:Green olives
+<en:Stuffed olives
+en:Green stuffed olives
+es:Aceitunas verdes rellenas
+fr:Olives vertes farcies
+
+<en:Green stuffed olives
+en:Green olives stuffed of almond
+es:Aceitunas verdes rellenas de almendra
+fr:Olives vertes farcies aux amandes
+
+<en:Green stuffed olives
+en:Green olives stuffed of anchovies
+es:Aceitunas verdes rellenas de anchoa
+fr:Olives vertes farcies aux anchois
+
+<en:Green stuffed olives
+en:Green olives stuffed of lemon
+es:Aceitunas verdes rellenas de limón
+fr:Olives vertes farcies au citron
+
+<en:Green stuffed olives
+en:Green olives stuffed of pepper
+es:Aceitunas verdes rellenas de pimiento
+fr:Olives vertes farcies au poivron
+
+<en:Green olives
+<en:Whole olives
+en:Green whole olives
+es:Aceitunas verdes enteras, Aceitunas verdes con hueso
+
+<en:Green whole olives
+<en:Marinated olives
+en:Whole marinated green olives
+es:Aceitunas verdes enteras aliñadas
+
+<en:Green olives
+fr:Olives vertes en saumure
+
+<en:Olives
+en:Marinated olives
+es:Aceitunas aliñadas
+fr:Olives marinées
+
+<en:Olives
+en:Pitted olives
+es:Aceitunas deshuesadas, Aceitunas sin hueso
+fr:Olives dénoyautées
+
+<en:Black olives
+<en:Pitted olives
+en:Black pitted olives
+es:Aceitunas negras deshuesadas, Aceitunas negras sin hueso
+
+<en:Olives
+en:Semi-ripe olives
+es:Aceitunas de color cambiante
+fr:Olives semi mures
+
+<en:Olives
+en:Stuffed olives
+es:Aceitunas rellenas
+fr:Olives farcies
+
+<en:Olives
+en:Whole olives
+es:Aceitunas enteras, Aceitunas con hueso
+
+<en:Black olives
+<en:Whole olives
+en:Black whole olives
+es:Aceitunas negras enteras, Aceitunas negras con hueso
+
+<en:Semi-ripe olives
+<en:Whole olives
+en:Semi-ripe whole olives
+es:Aceitunas de color cambiante enteras
+
+<en:Plant-based pickles
+en:Pickled caper berries
+es:Alcaparrones encurtidos
+
+<en:Plant-based pickles
+en:Pickled capers
+es:Alcaparras encurtidas
+
+<en:Plant-based pickles
+en:Pickled ginger, Ginger pickles
+es:Jengibre encurtido
 
 <en:Plant-based foods
 es:Algas
@@ -9437,144 +11282,6 @@ es:Mezclas de algas en conserva
 
 <es:Algas
 es:Algas frescas
-
-<en:Plant-based foods
-es:Brotes, Germinados, Brotes vegetales, Vegetales germinados
-
-<es:Brotes
-es:Brotes en conserva, Vegetales germinados en conserva, Germinados en conserva
-
-<es:Brotes en conserva
-es:Brotes de ajo en conserva
-
-<es:Brotes en conserva
-es:Brotes de alfalfa en conserva
-
-<es:Brotes en conserva
-es:Brotes de judía mungo en conserva, Brotes de soja blanca en conserva
-
-<es:Brotes en conserva
-es:Mezclas de brotes y otros vegetales en conserva, Ensalada oriental
-
-<es:Brotes
-es:Brotes frescos, Vegetales germinados frescos, Germinados frescos
-
-<es:Brotes frescos
-es:Brotes de ajo frescos
-
-<es:Brotes frescos
-es:Brotes de alfalfa frescos
-
-<es:Brotes frescos
-es:Brotes de cebolla frescos
-
-<es:Brotes frescos
-es:Brotes de col china frescos
-
-<es:Brotes frescos
-es:Brotes de col lombarda frescos
-
-<es:Brotes frescos
-es:Brotes de espárrago frescos
-
-<es:Brotes frescos
-es:Brotes de fenogreco frescos
-
-<es:Brotes frescos
-es:Brotes de guisante frescos
-
-<es:Brotes frescos
-es:Brotes de hinojo frescos
-
-<es:Brotes frescos
-es:Brotes de judía mungo frescos, Brotes de soja blanca frescos
-
-<es:Brotes frescos
-es:Brotes de lentejas frescos
-
-<es:Brotes frescos
-es:Brotes de puerros frescos
-
-<es:Brotes frescos
-es:Brotes de rabanitos frescos
-
-<es:Brotes frescos
-es:Brotes de remolacha frescos
-
-<es:Brotes frescos
-es:Brotes de semillas de girasol frescos
-
-<es:Brotes frescos
-es:Brotes de trébol frescos
-
-<es:Brotes frescos
-es:Brotes de zanahoria frescos
-
-<es:Brotes
-es:Semillas para germinar
-
-<es:Semillas para germinar
-es:Semillas de albahaca
-
-<es:Semillas para germinar
-es:Semillas de alfalfa
-
-<es:Semillas para germinar
-es:Semillas de amapola
-
-<es:Semillas para germinar
-es:Semillas de berro
-
-<es:Semillas para germinar
-es:Semillas de brócoli
-
-<es:Semillas para germinar
-es:Semillas de col lombarda
-
-<es:Semillas para germinar
-es:Semillas de fenogreco, Semillas de alholva
-
-<es:Semillas para germinar
-es:Semillas de girasol
-
-<es:Semillas para germinar
-es:Semillas de guisantes ## Ya está en legumbres
-
-<es:Semillas para germinar
-es:Semillas de judía mungo, Semillas de soja blanca ## Ya está en legumbres
-
-<es:Semillas para germinar
-es:Semillas de lentejas ## Ya está en legumbres
-
-<es:Semillas para germinar
-es:Semillas de mostaza
-
-<es:Semillas para germinar
-es:Semillas de puerro
-
-<es:Semillas para germinar
-es:Semillas de rabanito
-
-<es:Semillas para germinar
-es:Semillas de soja
-
-<en:Plant-based foods
-es:Legumbres secas
-
-<es:Legumbres secas
-es:Alubias, Judías
-
-<es:Legumbres secas
-es:Azukis
-
-<es:Legumbres secas
-es:Garbanzos
-
-<es:Legumbres secas
-es:Judías mungo
-
-<es:Legumbres secas
-es:Soja
 
 <en:Plant-based foods
 <en:Spreads
@@ -9734,7 +11441,7 @@ es:Arroz precocido congelado, Arroz congelado
 fr:Riz précuits congelés
 
 <en:Frozen plant-based foods
-<en:Vegetables
+<en:Vegetables based foods
 en:Frozen vegetables
 es:Verduras y hortalizas congeladas, Hortalizas congeladas, Verduras congeladas
 fr:Légumes surgelés
@@ -9763,12 +11470,12 @@ fr:Artichauts hachés surgelés
 <en:Frozen vegetables
 en:Frozen asparagus
 es:Espárragos congelados
-fr:Asperges surgelés
+fr:Asperges surgelées
 
 <en:Frozen asparagus
 en:Frozen green asparagus
 es:Espárragos verdes congelados
-fr:Asperges vertes surgelés
+fr:Asperges vertes surgelées
 
 <en:Frozen green asparagus
 en:Frozen chopped green asparagus
@@ -9786,7 +11493,7 @@ fr:Asperges blanches surgelés
 <en:Frozen vegetables
 en:Frozen aubergines
 es:Berenjenas congeladas
-fr:Aubergines surgelés
+fr:Aubergines surgelées
 
 <en:Frozen vegetables
 en:Frozen broccoli florets
@@ -9801,12 +11508,12 @@ fr:Choux de Bruxelles surgelés
 <en:Frozen vegetables
 en:Frozen carrots
 es:Zanahorias congeladas
-fr:Carottes surgelés
+fr:Carottes surgelées
 
 <en:Frozen carrots
 en:Frozen baby carrots
 es:Zanahorias baby congeladas
-fr:Baby carottes surgelés
+fr:Baby carottes surgelées
 
 <en:Frozen carrots
 en:Frozen chopped carrots
@@ -9842,6 +11549,10 @@ es:Cardos troceados congelados
 fr:Cardes hachés surgelés, Cardons hachés surgelés
 
 <en:Frozen vegetables
+en:Frozen turnips, Frozen turnip
+fr:Navets surgelés, navet surgelé
+
+<en:Frozen vegetables
 en:Frozen chopped garlic
 es:Ajos troceados congelados, Ajos congelados troceados
 fr:Ail haché surgelé
@@ -9857,14 +11568,8 @@ en:Frozen fresh broad beans, Frozen fresh fava beans, Frozen immature broad bean
 es:Habas frescas congeladas, Habitas frescas congeladas, Habas inmaduras congeladas, Habitas inmaduras congeladas, Habas congeladas
 fr:Fèves frais surgelés, Féverolles frais surgelés
 
-<en:Vegetables
-en:Green beans
-fr:Haricots verts
-es:Judías verdes
-
 <en:Frozen vegetables
 <en:Frozen legumes
-<en:Green beans
 en:Frozen green beans, Frozen string beans
 es:Judías verdes congeladas
 fr:Haricots verts surgelés
@@ -9949,7 +11654,7 @@ fr:Pommes de terre surgelés
 <en:Frozen vegetables
 en:Frozen pumpkins
 es:Calabazas congeladas
-fr:Citrouilles surgelés
+fr:Citrouilles surgelées
 
 <en:Frozen vegetables
 en:Frozen red cabbage
@@ -9977,17 +11682,17 @@ es:Espinacas en hojas congeladas, Espinacas congeladas en hojas
 <en:Frozen vegetables
 en:Frozen zucchini, Frozen courgettes 
 es:Calabacines congelados
-fr:Courgettes surgelés
+fr:Courgettes surgelées
 
 <en:Frozen zucchini
 en:Frozen diced zucchinis, Frozen diced courgettes 
 es:Calabacines en dados congelados
-fr:Courgettes en cubes surgelés
+fr:Courgettes en cubes surgelées
 
 <en:Frozen zucchini
 en:Frozen sliced zucchini, Frozen sliced courgettes 
 es:Calabacines en rodajas congelados
-fr:Courgettes en rondelles surgelés
+fr:Courgettes en rondelles surgelées
 
 <en:Frozen vegetables
 <en:Frozen plant-based foods mixes
@@ -10042,19 +11747,9 @@ es:Alimentos de origen vegetal en conserva, Conservas de origen vegetal, Vegetal
 fr:Aliments à base de plantes en conserve
 
 <en:Canned plant-based foods
-es:Legumbres en conserva
-
-<es:Legumbres en conserva
-es:Alubias en conserva, Judías en conserva
-
-<es:Legumbres en conserva
-es:Garbanzos en conserva
-
-<es:Legumbres en conserva
-es:Habas en conserva
-
-<en:Canned plant-based foods
-es:Maíz en conserva
+en:Canned hearts of palm
+es:Palmitos en conserva, Palmito en conserva
+fr:Coeurs de palmier en conserve
 
 <en:Plant-based foods
 <en:Fresh foods
@@ -10063,13 +11758,9 @@ es:Alimentos de origen vegetal frescos, Vegetales frescos
 fr:Aliments à base de plantes frais
 
 <en:Fresh plant-based foods
-es:Legumbres frescas
-
-<es:Legumbres frescas
-es:Guisantes
-
-<es:Legumbres frescas
-es:Habas, Habitas
+en:Hearts of palm
+es:Palmitos
+fr:Coeurs de palmier, choux palmistes, chou palmiste
 
 <en:Salty snacks
 en:Appetizers
@@ -10079,18 +11770,9 @@ pnns_group_2:en:Appetizers
 <fr:Apéritif
 fr:Blinis
 
-<fr:Apéritif
-en:Popcorn, pop-corn
-fr:Popcorn, Pop-corn, maïs soufflé, maïs éclaté, tactac
-
 <en:Appetizers
 en:Sausage rolls
 fr:Roulés à la saucisse, roulés aux saucisses
-pnns_group_2:en:Salty and fatty products
-
-<en: appetizers
-en:Salted popcorn, Salted pop-corn
-fr:Popcorn salé, Pop-corn salé
 pnns_group_2:en:Salty and fatty products
 
 fr:Barres, Barre
@@ -10100,20 +11782,6 @@ fr:Barres de céréales, Barre de céréales, Barres céréalières, Barres aux 
 
 <fr:Barres
 fr:Barres glacées
-
-fr:Blé
-
-<fr:Blé
-fr:Blés de Khorasan
-
-<fr:Blé
-fr:Blés durs
-
-<fr:Blé
-fr:Blés Norin 10
-
-<fr:Blé
-fr:Blés tendre
 
 fr:Bourgogne, vins de Bourgogne
 
@@ -10163,11 +11831,6 @@ fr:Brioches vendéennes, Brioche vendéenne
 
 fr:Céréales IGP
 
-fr:Choux de conserve
-
-<fr:Choux de conserve
-fr:Choux de Bruxelles en conserve
-
 fr:Civet
 
 <fr:Civet
@@ -10208,22 +11871,34 @@ fr:Galettes
 <fr:Galettes
 fr:Galettes de blé noir, galette de blé noir, galette de sarazin, galettes de sarazin
 
-fr:Édulcorants
-
-<fr:Édulcorants
-fr:Aspartames
-
-<fr:Édulcorants
-fr:Édulcorants de table, Édulcorant de table
-
 en: Fish and meat and eggs, Fish meat eggs
 fr: Poissons et viandes et oeufs, Poissons viandes oeufs
 pnns_group_1:en:Fish Meat Eggs
 
 <en: Fish and meat and eggs
 en:Offals
+fr:Abats
+
+<en: Offals
+en:Gizzards
+fr:Gésiers
+
+<en: Gizzards
+en:Goose gizzards
+fr:Gésiers d'oie
+
+<en: Gizzards
+en:Duck gizzards
+fr:Gésiers de canard
+
+<en: Gizzards
+en:Chicken gizzards
+fr:Gésiers de poulet
+
+<en: Offals
+en:Tripe dishes
 fr:Produits tripiers
-pnns_group_2:en:Offals
+pnns_group_2:en:Tripe dishes
 
 <en: Fish and meat and eggs
 fr:Foies gras, Foie gras
@@ -10265,6 +11940,7 @@ fr:Fromage à pâte pressée cuite
 
 fr:Fromages de vache Prim'Holstein, Fromages de vache frisonne pie noir
 
+< en:Cereals and their products
 en:Puffed cereal cakes
 es:Tortitas de cereales
 fr:Galettes de céréales
@@ -10376,12 +12052,6 @@ fr:Croquettes pour chien
 <fr:Nourriture pour animaux
 fr:Nourriture pour oiseaux
 
-<fr:Pains
-fr:Pains grillés, Pain grillé
-
-<fr:Pain grillé
-fr:Petits pains grillés
-
 fr:Par origine de vente
 
 <fr:Par origine de vente
@@ -10402,15 +12072,29 @@ fr:Plats susceptibles de contenir de la viande de cheval
 
 fr:Plats susceptibles de contenir de la viande de cheval - lots retirés de la vente en février 2013, Plats-susceptibles-de-contenir-de-la-viande-de-cheval-retires-en-fevrier-2013
 
-fr:Pommes de terre de l'île de Ré, Pomme de terre de l'île de Ré
+<en:Plant-based foods
+en:Sprouts, Germinated seeds
+es:Germinados, Semillas germinadas, Brotes
+fr:Pousses, Graines germées
+wikidata:en:Q1057052
 
-fr:Pousses
+<en:Sprouts
+<en:Fresh plant-based foods
+en:Fresh sprouts, Fresh germinated seeds
+es:Germinados frescos, Semillas germinadas frescas, Brotes frescos
+fr:Pousses frais, Graines germées frais
 
-<fr:Pousses
-fr:Pousses de haricot mungo, Pousse de haricot mungo, jeunes pousses de haricot mungo, Pousses de soja vert, Pousse de ambérique vert
+<en:Sprouts
+<en:Canned plant-based foods
+en:Canned sprouts, Canned germinated seeds
+es:Germinados en conserva, Semillas germinadas en conserva, Brotes en conserva
+fr:Pousses en conserve, Graines germées en conserve
 
-<fr:Pousses
-fr:Pousses de soja
+<en:Sprouts
+en:Bamboo shoots, Bamboo sprouts
+es:Brotes de bambú
+fr:Pousses de bambou, Pousse de bambou
+wikidata:en:Q2157176
 
 fr:Purées
 
@@ -10442,7 +12126,7 @@ fr:Purées de cacahuète, Purée de cacahuète
 fr:Purées de noisette, Purée de noisette, Purées de noisettes
 
 <fr:Purées d'oléagineux
-fr:Purées de noix de cajou, Purée de noix de cajour
+fr:Purées de noix de cajou, Purée de noix de cajou
 
 <fr:Purées d'oléagineux
 fr:Purées de sésame
