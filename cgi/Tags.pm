@@ -1597,13 +1597,22 @@ sub display_tags_hierarchy_taxonomy($$$) {
 			
 			my $img_lc = $target_lc;
 			
-			if (defined $tags_images{$target_lc}{$tagtype}{get_fileid($target_title)}) {
-				$img = $tags_images{$target_lc}{$tagtype}{get_fileid($target_title)};
+			my $lc_imgid = get_fileid($target_title);
+			my $en_imgid = get_taxonomyid($canon_tagid);
+			$en_imgid =~ s/^\w\w://;
+			
+			if (defined $tags_images{$target_lc}{$tagtype}{$lc_imgid}) {
+				$img = $tags_images{$target_lc}{$tagtype}{$lc_imgid};
 			}
-			elsif (defined $tags_images{'en'}{$tagtype}{$canon_tagid}) {
-				$img = $tags_images{$target_lc}{$tagtype}{$canon_tagid};
+			elsif (defined $tags_images{'en'}{$tagtype}{$en_imgid}) {
+				$img = $tags_images{'en'}{$tagtype}{$en_imgid};
 				$img_lc = 'en';
 			}
+			
+			if ($tag =~ /certified|montagna/) {
+				print STDERR "labels_logo - lc_imgid: $lc_imgid - en_imgid: $en_imgid - canon_tagid: $canon_tagid - img: $img \n";
+			}
+
 			
 			if ($img) {
 				my $size = '';
