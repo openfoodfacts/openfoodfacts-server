@@ -3577,6 +3577,11 @@ nutrition_data_compare_value => {
 	nl => "waarde voor 100 g / 100 ml",
 },
 
+nutrition_data_per_mean => {
+	fr => "Moyenne",
+	en => "Mean",
+},
+
 nutrition_data_per_std => {
 	fr => "Ecart type",
 	en => "Standard deviation",
