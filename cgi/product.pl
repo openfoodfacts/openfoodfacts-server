@@ -341,6 +341,10 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${nid}_unit"));
 		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${nid}_label"));
 		
+		if ($value =~ /nan/i) {
+			$value = '';
+		}
+		
 		if ($nid eq 'alcohol') {
 			$unit = '% vol';
 		}
