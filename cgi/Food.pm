@@ -29,6 +29,7 @@ BEGIN
 	@EXPORT_OK = qw(
 					%allergens
 					%Nutriments
+					%nutriments_labels
 					@nutriments_table
 					@other_nutriments
 					@nutriments
@@ -1737,7 +1738,10 @@ ph => {
 	en => "Experimental nutrition score",
 	unit => '',
 },
-
+"nutrition-grade" => {
+	fr => "Note nutritionnelle",
+	en => "Nutrition grade",
+},
 );
 
 
@@ -1828,7 +1832,7 @@ foreach (@nutriments_table) {
 }
 
 
-my %nutriments_labels = ();
+%nutriments_labels = ();
 
 foreach my $lc (@Langs) {
 
@@ -2118,6 +2122,14 @@ sub compute_nutrition_score($) {
 	delete $product_ref->{nutriments}{"nutrition-score"};
 	delete $product_ref->{nutriments}{"nutrition-score_100g"};
 	delete $product_ref->{nutriments}{"nutrition-score_serving"};
+	delete $product_ref->{nutriments}{"nutrition-score-fr"};
+	delete $product_ref->{nutriments}{"nutrition-score-fr_100g"};
+	delete $product_ref->{nutriments}{"nutrition-score-fr_serving"};
+	delete $product_ref->{nutriments}{"nutrition-score-uk"};
+	delete $product_ref->{nutriments}{"nutrition-score-uk_100g"};
+	delete $product_ref->{nutriments}{"nutrition-score-uk_serving"};	
+	delete $product_ref->{"nutrition_grade_fr"};
+	delete $product_ref->{"nutrition_grades_tags"};
 	
 	# compute the score only if all values are known
 	foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "fiber", "proteins") {
@@ -2126,6 +2138,13 @@ sub compute_nutrition_score($) {
 			$product_ref->{nutrition_score_debug} = "missing $nid";
 			return;
 		}
+	}
+	
+	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
+	if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
+			$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
+			$product_ref->{nutrition_score_debug} = "no score for en:dried-products-to-be-rehydrated";
+			return;
 	}
 	
 	my $energy_points = int(($product_ref->{nutriments}{"energy_100g"} - 0.00001) / 335);
