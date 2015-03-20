@@ -247,7 +247,7 @@ sub init()
 	}
 	
 	if (($User_id eq 'stephane') or ($User_id eq 'tacite') or ($User_id eq 'teolemon') or ($User_id eq 'bcatelin')
-		or ($User_id eq 'tacinte') or ($User_id eq 'kyzh')) {
+		or ($User_id eq 'tacinte') or ($User_id eq 'kyzh') or ($User_id eq 'sebleouf')) {
 		$admin = 1;
 	}
 	
@@ -363,6 +363,20 @@ sub analyze_request($)
 		# list of tags? (plural of tagtype must be the last field)
 		
 		print STDERR "Display::analyze_request - last component - $components[$#components] - plural? " . $tag_type_from_plural{$lc}{$components[$#components]} . " \n";		
+		
+		
+		# list of (categories) tags with stats for a nutriment 
+		if (($#components == 1) and (defined $tag_type_from_plural{$lc}{$components[0]}) and ($tag_type_from_plural{$lc}{$components[0]} eq "categories")
+			and (defined $nutriments_labels{$lc}{$components[1]})) {
+			
+			$request_ref->{groupby_tagtype} = $tag_type_from_plural{$lc}{$components[0]};
+			$request_ref->{stats_nid} = $nutriments_labels{$lc}{$components[1]};
+			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
+			$canon_rel_url_suffix .= "/" . $components[1];
+			pop @components;
+			pop @components;
+			print STDERR "Display::analyze_request - list of tags - groupby: $request_ref->{groupby_tagtype} - stats nid: $request_ref->{stats_nid}\n";	
+		}
 		
 		if (defined $tag_type_from_plural{$lc}{$components[$#components]}) {
 		
@@ -877,8 +891,20 @@ sub display_list_of_tags($$) {
 		#	$th_nutriments = "<th>" . ucfirst($Lang{"products_with_nutriments"}{$lang}) . "</th>";
 		#}
 		
+		my $categories_nutriments_ref;
+		my @cols = ();
+		
 		if ($tagtype eq 'categories') {
-			$th_nutriments .= "<th>*</th>";
+			if (defined $request_ref->{stats_nid}) {
+				$categories_nutriments_ref = retrieve("$data_root/index/categories_nutriments_per_country.$cc.sto");
+				push @cols, '100g','std', 'min', '10', '50', '90', 'max';
+				foreach my $col (@cols) {
+					$th_nutriments .= "<th>" . lang("nutrition_data_per_$col") . "</th>";
+				}
+			}
+			else {
+				$th_nutriments .= "<th>*</th>";
+			}
 		}		
 		
 		if ($tagtype eq 'additives') {
@@ -909,10 +935,14 @@ sub display_list_of_tags($$) {
 			$nofollow = ' rel="nofollow"';
 		}
 		
+		my %products = ();	# number of products by tag, used for histogram of nutrition grades colors
+		
 		foreach my $tagcount_ref (@tags) {
 		
 			my $tagid = $tagcount_ref->{_id};
 			my $count = $tagcount_ref->{count};
+			
+			$products{$tagid} = $count;
 			
 			my $link;
 			my $products = $count;
@@ -927,11 +957,27 @@ sub display_list_of_tags($$) {
 			
 			# known tag?
 			if ($tagtype eq 'categories') {
-				if (exists_taxonomy_tag('categories', $tagid)) {
-					$td_nutriments .= "<td></td>";
+			
+				if (defined $request_ref->{stats_nid}) {
+				
+					foreach my $col (@cols) {
+						if ((defined $categories_nutriments_ref->{$tagid})) {
+							$td_nutriments .= "<td>" . $categories_nutriments_ref->{$tagid}{nutriments}{$request_ref->{stats_nid} . '_' . $col} . "</td>";
+						}
+						else {
+							$td_nutriments .= "<td></td>";
+							# next;	 # datatables sorting does not work with empty values
+						}
+					}				
 				}
 				else {
-					$td_nutriments .= "<td style=\"text-align:center\">*</td>";
+			
+					if (exists_taxonomy_tag('categories', $tagid)) {
+						$td_nutriments .= "<td></td>";
+					}
+					else {
+						$td_nutriments .= "<td style=\"text-align:center\">*</td>";
+					}
 				}
 			}
 			
@@ -1023,6 +1069,97 @@ sub display_list_of_tags($$) {
 		}
 		
 		$html .= "</tbody></table></div>";
+		
+		
+		# nutrition grades colors histogram
+		
+		if ($groupby_tagtype eq 'nutrition_grades') {
+		
+		my $categories = "'A','B','C','D','E','" . lang("unknown") . "'";
+		my $series_data = '';
+		foreach my $nutrition_grade ('a','b','c','d','e','unknown') {
+			$series_data .= ($products{$nutrition_grade} + 0) . ',';
+		}
+		$series_data =~ s/,$//;
+		
+		my $y_title = lang("number_of_products");
+		my $x_title = lang("nutrition_grades_p");
+
+		my $js = <<JS
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'column',
+            },
+			legend: {
+				enabled: false		
+			},
+            title: {
+                text: '$request_ref->{title}'
+            },
+            subtitle: {
+                text: '$Lang{data_source}{$lc}$Lang{sep}{$lc}: http://$subdomain.${server_domain}'
+            },
+            xAxis: {
+                title: {
+                    enabled: true,
+                    text: '${x_title}'
+                },
+				categories: [
+					$categories
+				]
+            },
+            colors: [
+                '#00ff00',
+                '#ffff00',
+                '#ff6600',
+				'#ff0180',
+				'#ff0000',
+				'#808080'
+            ],			
+            yAxis: {
+	
+				min:0,
+                title: {
+                    text: '${y_title}'
+                }
+            },				
+		
+            plotOptions: {
+    column: {
+       colorByPoint: true,
+        groupPadding: 0,
+        shadow: false,
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: false,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                    style: {
+                        textShadow: '0 0 3px black, 0 0 3px black'
+                    }
+                }		
+    } 
+            },
+			series: [ 
+				{
+					name: "${y_title}",
+					data: [$series_data]
+				}
+			]
+        });		
+JS
+;		
+		$initjs .= $js;
+		
+		
+		$html = <<HTML
+<script src="/js/highcharts.4.0.4.js"></script>
+<div id="container" style="height: 400px"></div>​
+<p>&nbsp;</p>
+HTML
+	. $html;
+		
+		}
 		
 		
 		# countries map?
@@ -1668,7 +1805,12 @@ HTML
 		}
 		else {
 			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_p')) . "</a>" . lang("sep"). ": $display_tag</p>";
-			$html .= display_tags_hierarchy_taxonomy($lc, $tagtype, [$canon_tagid]);
+			
+			my $tag_html .= display_tags_hierarchy_taxonomy($lc, $tagtype, [$canon_tagid]);
+			
+			$tag_html =~ s/.*<\/a>(<br \/>)?//;	# remove link, keep only tag logo
+			
+			$html .= $tag_html;
 
 			$html .= display_parents_and_children($lc, $tagtype, $canon_tagid) . $description;
 		}
@@ -3129,6 +3271,11 @@ HTML
 		return $html;
 		
 }
+
+
+
+
+
 
 
 
@@ -4718,8 +4865,8 @@ CSS
 
 			$html .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang($class . "_p") . lang("sep")) . ":</b><br />";
 			
-			if (defined $tags_images{$lc}{$tagtype}{get_fileid( $tagtype)}) {
-				my $img = $tags_images{$lc}{$tagtype}{get_fileid( $tagtype)};
+			if (defined $tags_images{$lc}{$tagtype}{get_fileid($tagtype)}) {
+				my $img = $tags_images{$lc}{$tagtype}{get_fileid($tagtype)};
 				my $size = '';
 				if ($img =~ /\.(\d+)x(\d+)/) {
 					$size = " width=\"$1\" height=\"$2\"";
@@ -5152,16 +5299,25 @@ sub add_product_nutriment_to_stats($$$) {
 	my $nutriments_ref = shift;
 	my $nid = shift;
 	my $value = shift;
-					
-	if (not defined $nutriments_ref->{"${nid}_n"}) {
-		$nutriments_ref->{"${nid}_n"} = 0;
-		$nutriments_ref->{"${nid}_s"} = 0;
-		$nutriments_ref->{"${nid}_array"} = [];
-	}
 	
-	$nutriments_ref->{"${nid}_n"}++;
-	$nutriments_ref->{"${nid}_s"} += $value;
-	push @{$nutriments_ref->{"${nid}_array"}}, $value;
+	if ($value =~ /nan/i) {
+	
+		return -1;
+	}
+	elsif ($value ne '') {
+					
+		if (not defined $nutriments_ref->{"${nid}_n"}) {
+			$nutriments_ref->{"${nid}_n"} = 0;
+			$nutriments_ref->{"${nid}_s"} = 0;
+			$nutriments_ref->{"${nid}_array"} = [];
+		}
+		
+		$nutriments_ref->{"${nid}_n"}++;
+		$nutriments_ref->{"${nid}_s"} += $value + 0.0;
+		push @{$nutriments_ref->{"${nid}_array"}}, $value + 0.0;
+	
+	}
+	return 1;
 }
 
 
@@ -5203,7 +5359,6 @@ sub compute_stats_for_products($$$$$$) {
 		$stats_ref->{nutriments}{"${nid}_n"} = $nutriments_ref->{"${nid}_n"};
 		$stats_ref->{nutriments}{"$nid"} = $nutriments_ref->{"${nid}_mean"};
 		$stats_ref->{nutriments}{"${nid}_100g"} = sprintf("%.2e", $nutriments_ref->{"${nid}_mean"}) + 0.0;
-		$stats_ref->{nutriments}{"${nid}_mean"} = $nutriments_ref->{"${nid}_mean"};
 		$stats_ref->{nutriments}{"${nid}_std"} =  sprintf("%.2e", $nutriments_ref->{"${nid}_std"}) + 0.0;
 
 		if ($nid eq 'energy') {
@@ -5211,13 +5366,13 @@ sub compute_stats_for_products($$$$$$) {
 			$stats_ref->{nutriments}{"${nid}_std"} = int ($stats_ref->{nutriments}{"${nid}_std"} + 0.5);
 		}				
 		
-		$stats_ref->{nutriments}{"${nid}_min"} = $values[0];
-		$stats_ref->{nutriments}{"${nid}_max"} = $values[$nutriments_ref->{"${nid}_n"} - 1];
+		$stats_ref->{nutriments}{"${nid}_min"} = sprintf("%.2e",$values[0]) + 0.0;
+		$stats_ref->{nutriments}{"${nid}_max"} = sprintf("%.2e",$values[$nutriments_ref->{"${nid}_n"} - 1]) + 0.0;
 		#$stats_ref->{nutriments}{"${nid}_5"} = $nutriments_ref->{"${nid}_array"}[int ( ($nutriments_ref->{"${nid}_n"} - 1) * 0.05) ];
 		#$stats_ref->{nutriments}{"${nid}_95"} = $nutriments_ref->{"${nid}_array"}[int ( ($nutriments_ref->{"${nid}_n"}) * 0.95) ];
-		$stats_ref->{nutriments}{"${nid}_10"} = $values[int ( ($nutriments_ref->{"${nid}_n"} - 1) * 0.10) ];
-		$stats_ref->{nutriments}{"${nid}_90"} = $values[int ( ($nutriments_ref->{"${nid}_n"}) * 0.90) ];
-		$stats_ref->{nutriments}{"${nid}_50"} = $values[int ( ($nutriments_ref->{"${nid}_n"}) * 0.50) ];
+		$stats_ref->{nutriments}{"${nid}_10"} = sprintf("%.2e", $values[int ( ($nutriments_ref->{"${nid}_n"} - 1) * 0.10) ]) + 0.0;
+		$stats_ref->{nutriments}{"${nid}_90"} = sprintf("%.2e", $values[int ( ($nutriments_ref->{"${nid}_n"}) * 0.90) ]) + 0.0;
+		$stats_ref->{nutriments}{"${nid}_50"} = sprintf("%.2e", $values[int ( ($nutriments_ref->{"${nid}_n"}) * 0.50) ]) + 0.0;
 		
 		#print STDERR "-> lc: lc -category $tagid - count: $count - n: nutriments: " . $nn . "$n \n";
 		#print "categories stats - cc: $cc - n: $n- values for category $id: " . join(", ", @values) . "\n";
