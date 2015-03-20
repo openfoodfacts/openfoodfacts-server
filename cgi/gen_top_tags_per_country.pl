@@ -144,6 +144,7 @@ $fields_ref->{complete} = 1;
 $fields_ref->{completed_t} = 1;
 
 $fields_ref->{nutriments} = 1;
+$fields_ref->{nutrition_grade_fr} = 1;
 
 # Sort by created_t so that we can see which product was the nth in each country -> necessary to compute points for Open Food Hunt
 my $cursor = $products_collection->query({'empty' => { "\$ne" => 1 }})->sort({created_t => 1})->fields($fields_ref);
@@ -167,6 +168,15 @@ my $end_t = 1424476800 - 12 * 3600 + 10 * 86400;
 # points by country?
 # points by user?
 
+
+my %nutrition_grades_to_n = (
+a => 1,
+b => 2,
+c => 3,
+d => 4,
+e => 5,
+);
+
 while (my $product_ref = $cursor->next) {
 	
 	my $code = $product_ref->{code};
@@ -189,6 +199,10 @@ while (my $product_ref = $cursor->next) {
 			
 			$products_nutriments{$code}{$nid} = $product_ref->{nutriments}{$nid . "_100g"};
 		}				
+		if (defined $product_ref->{"nutrition_grade_fr"}) {
+			$products_nutriments{$code}{"nutrition-grade"} = $nutrition_grades_to_n{$product_ref->{"nutrition_grade_fr"}};
+			print "NUT - nid: nutrition_grade_fr : $product_ref->{nutrition_grade_fr} \n";
+		}
 	}
 	
 	# Compute points
@@ -431,6 +445,12 @@ foreach my $country (keys %{$properties{countries}}, 'en:world') {
 			
 			foreach my $nid (keys %{$products_nutriments{$code}}) {
 													
+				if ($products_nutriments{$code}{$nid} =~ /nan/i) {
+					print "WARNING - product code $code - nid: $nid - value is nan: $products_nutriments{$code}{$nid} \n";
+				}
+				if ($nid eq 'nutrition-grade') {
+					print "NUT - code: $code - nid: nutrition-grade\n";
+				}
 				add_product_nutriment_to_stats(\%nutriments, $nid, $products_nutriments{$code}{$nid});
 			}	
 		}
