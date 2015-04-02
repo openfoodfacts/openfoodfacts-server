@@ -41,10 +41,16 @@ if ($normalize eq 'checked') {
 		print STDERR "product_image_rotate.pl - could not normalize: $x\n";
 	}		
 }
-print header("Content-Type" => "image/jpeg");
-binmode STDOUT;
-print $image->ImageToBlob(magick=>'jpeg');
+
+use Apache2::Const 'OK';
+
+my $r = shift;
+$r->content_type( 'image/jpeg' );
+$r->print( $image->ImageToBlob(magick=>'jpeg') );
 
 print STDERR "product_image_rotate.pl - ok\n";
+
+return OK;
+
 
 exit(0);
