@@ -1852,19 +1852,29 @@ HTML
 	}
 	
 	if (defined $tagid2) {
+	
+		my $field = $tagtype2 . "_tags";
+		my $value = $tagid2;
+		$sort_by = 'last_modified_t';
+	
 		if ($tagtype2 eq 'users') {
-			$query_ref->{editors} = $tagid2;
-			$sort_by = 'last_modified_t';
+			$field = "editors";			
 		}
-		elsif (defined $canon_tagid2) {
-			
-			$query_ref->{ ($tagtype2 . "_tags")} = $canon_tagid2;
-			$sort_by = 'last_modified_t';		
+		
+		if (defined $canon_tagid2) {			
+			$value = $canon_tagid2;
 		}
-		else {
-			$query_ref->{ ($tagtype2 . "_tags")} = $tagid2;
-			$sort_by = 'last_modified_t';
-		}
+		
+		# 2 criteria on the same field?
+		# we need to use the $and MongoDB syntax 
+		
+		if (defined $query_ref->{$field}) {
+			my $and = [{ $field => $query_ref->{$field} }];
+			push @$and, { $field => $value };
+			delete $query_ref->{$field};
+			$query_ref->{"\$and"} = $and;
+		}		
+		
 	}	
 	
 	
@@ -1903,7 +1913,26 @@ sub search_and_display_products($$$$$) {
 	
 	if (defined $country) {
 		if ($country ne 'en:world') {
-			$query_ref->{countries_tags} = $country;
+			# we may already have a condition on countries (e.g. from the URL /country/germany )
+			if (not defined $query_ref->{countries_tags}) {
+				$query_ref->{countries_tags} = $country;
+			}
+			else {
+				my $field = "countries_tags";
+				my $value = $country;
+				my $and;
+				# we may also have a $and list of conditions (on countries_tags or other fields)
+				if (defined $query_ref->{"\$and"}) {
+					$and = $query_ref->{"\$and"};
+				}
+				else {
+					$and = [];
+				}
+				push @$and, { $field => $query_ref->{$field} };
+				push @$and, { $field => $value };
+				delete $query_ref->{$field};
+				$query_ref->{"\$and"} = $and;
+			}
 		}
 		
 	}
