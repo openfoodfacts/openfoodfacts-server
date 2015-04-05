@@ -1873,7 +1873,10 @@ HTML
 			push @$and, { $field => $value };
 			delete $query_ref->{$field};
 			$query_ref->{"\$and"} = $and;
-		}		
+		}	
+		else {
+			$query_ref->{$field} = $value;
+		}
 		
 	}	
 	
