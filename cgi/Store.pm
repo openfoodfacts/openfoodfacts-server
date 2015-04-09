@@ -27,7 +27,6 @@ BEGIN
 	@ISA = qw(Exporter);
 	@EXPORT = qw();
 	@EXPORT_OK = qw(
-		&get_tagid
 		&get_urlid
 		&get_fileid
 		&get_fileid_punycode

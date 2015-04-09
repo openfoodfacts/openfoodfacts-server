@@ -33,6 +33,8 @@ BEGIN
 					&retrieve_product
 					&retrieve_product_rev
 					&store_product
+					&product_name_brand
+					&product_name_brand_quantity
 					&product_url
 					&normalize_search_terms
 					&index_product
@@ -654,6 +656,50 @@ sub normalize_search_terms($) {
 	return $term;
 }
 
+
+
+# product full name is a combination of product name, first brand and quantity
+
+sub product_name_brand_quantity($) {
+	my $ref = shift;
+	my $full_name = '';
+	if ((defined $ref->{product_name}) and ($ref->{product_name} ne '')) {
+		$full_name = $ref->{product_name};
+		if (defined $ref->{brands}) {
+			my $brand = $ref->{brands};
+			$brand =~ s/,.*//;	# take the first brand
+			if (($brand ne '') and ($full_name !~ /$brand/)) {
+				$full_name .= " - " . $brand;
+			}
+		}
+		if (defined $ref->{quantity}) {
+			my $quantity = $ref->{quantity};
+			if (($quantity ne '') and ($full_name !~ /$quantity/)) {
+				$full_name .= " - " . $quantity;
+			}
+		}		
+	}
+	return $full_name;
+}
+
+
+sub product_name_brand($) {
+	my $ref = shift;
+	my $full_name = '';
+	if ((defined $ref->{product_name}) and ($ref->{product_name} ne '')) {
+		$full_name = $ref->{product_name};
+		if (defined $ref->{brands}) {
+			my $brand = $ref->{brands};
+			$brand =~ s/,.*//;	# take the first brand
+			if (($brand ne '') and ($full_name !~ /$brand/)) {
+				$full_name .= " - " . $brand;
+			}
+		}	
+	}
+	return $full_name;
+}
+
+
 sub product_url($) {
 
 	my $code_or_ref = shift;
@@ -679,34 +725,15 @@ sub product_url($) {
 	}
 	
 	my $titleid = '';
-	if ((defined $ref) and (defined $ref->{product_name}) and ($ref->{product_name} ne '')) {
-		$titleid = get_urlid($ref->{product_name});
-		if (defined $ref->{brands}) {
-			my $brandid = $ref->{brands};
-			$brandid =~ s/,.*//;	# take the first brand
-			$brandid = get_urlid($brandid);
-			if ($titleid !~ /$brandid/) {
-				if ($brandid ne '') {
-					$titleid .= '-' . $brandid;
-				}
-			}
-		}
+	if (defined $ref) {
+		my $full_name = product_name_brand($ref);
+		$titleid = get_urlid($full_name);
 		if ($titleid ne '') {
 			$titleid = '/' . $titleid;
 		}
 	}
 	
-	
-	#if ($product_lc eq $lc) {
-		return "/$path/$code" . $titleid;
-	#}
-	#else {
-	#	my $test = '';
-	#	if ($data_root =~ /-test/) {
-	#		$test = "-test";
-	#	}
-	#	return "http://" . $product_lc . $test . "." . $domain . "/$path/$code" . $titleid;
-	#}
+	return "/$path/$code" . $titleid;
 }
 
 

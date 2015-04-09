@@ -2122,7 +2122,10 @@ sub search_and_display_products($$$$$) {
 			
 
 
-			my $product_name =  remove_tags_and_quote($product_ref->{product_name});
+			my $product_name =  remove_tags_and_quote(product_name_brand_quantity($product_ref));
+			
+			# Prevent the quantity "750 g" to be split on two lines
+			$product_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
 			
 			my $url = product_url($product_ref);
 			
@@ -4300,10 +4303,11 @@ ul.products {
 	text-align:center;
 	display:block;
 	width:120px;;
-	height:150px;
+	height:165px;
 	padding:10px;
 	overflow:hidden;
 	margin:10px;
+	margin-bottom:0px;	
 	float:left;
 }
 
@@ -4789,30 +4793,19 @@ CSS
 		display_error(sprintf(lang("no_product_for_barcode"), $code));
 	}
 	
-	$title = $product_ref->{product_name};	
+	$title = product_name_brand_quantity($product_ref);
+	my $titleid = get_fileid(product_name_brand($product_ref));
 	
 	if (defined $rev) {
 		$title .= " version $rev";
 	}
 	
-	$description = $title . ' - ' .  $product_ref->{brands} . ' - ' .  $product_ref->{generic_name};
+	$description = $title . ' - ' .  $product_ref->{generic_name};
 	$description =~ s/ - $//;
 	$request_ref->{canon_url} = product_url($product_ref);
 	
 	# Check that the titleid is the right one
-	my $titleid = get_fileid($product_ref->{product_name});
 	
-
-	if (defined $product_ref->{brands}) {
-		my $brandid = $product_ref->{brands};
-		$brandid =~ s/,.*//;	# take the first brand
-		$brandid = get_fileid($brandid);
-		if ($titleid !~ /$brandid/) {
-			if ($brandid ne '') {
-				$titleid .= '-' . $brandid;
-			}
-		}
-	}	
 	
 	# if (((defined $product_ref->{lc}) and ($lc ne $product_ref->{lc})) or ((defined $request_ref->{titleid}) and ($request_ref->{titleid} ne '') and ($request_ref->{titleid} ne $titleid) and (not defined $rev))) {
 	if (((defined $request_ref->{titleid}) and ($request_ref->{titleid} ne '') and ($request_ref->{titleid} ne $titleid) and (not defined $rev))) {
@@ -4847,7 +4840,7 @@ CSS
 
 	$html .= '<div itemscope itemtype="http://schema.org/Product">' . "\n";
 	
-	$html .= "<h1 property=\"food:name\" itemprop=\"name\">$product_ref->{product_name}</h1>";	
+	$html .= "<h1 property=\"food:name\" itemprop=\"name\">$title</h1>";	
 	
 	if ($code =~ /^2000/) { # internal code
 	}
