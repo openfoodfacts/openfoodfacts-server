@@ -668,13 +668,15 @@ sub product_name_brand_quantity($) {
 		if (defined $ref->{brands}) {
 			my $brand = $ref->{brands};
 			$brand =~ s/,.*//;	# take the first brand
-			if (($brand ne '') and ($full_name !~ /$brand/)) {
+			my $brandid = '-' . get_fileid($brand) . '-';
+			my $full_name_id = '-' . get_fileid($full_name) . '-';
+			if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {
 				$full_name .= " - " . $brand;
 			}
 		}
 		if (defined $ref->{quantity}) {
 			my $quantity = $ref->{quantity};
-			if (($quantity ne '') and ($full_name !~ /$quantity/)) {
+			if (($quantity ne '') and ($full_name !~ /$quantity/i)) {
 				$full_name .= " - " . $quantity;
 			}
 		}		
@@ -691,7 +693,9 @@ sub product_name_brand($) {
 		if (defined $ref->{brands}) {
 			my $brand = $ref->{brands};
 			$brand =~ s/,.*//;	# take the first brand
-			if (($brand ne '') and ($full_name !~ /$brand/)) {
+			my $brandid = '-' . get_fileid($brand) . '-';
+			my $full_name_id = '-' . get_fileid($full_name) . '-';
+			if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {
 				$full_name .= " - " . $brand;
 			}
 		}	
