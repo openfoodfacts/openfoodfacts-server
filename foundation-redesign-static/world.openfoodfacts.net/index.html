@@ -1,0 +1,1166 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="foundation/css/app.css" />
+    <link rel="stylesheet" href="foundation/foundation-icons/foundation-icons.css" />
+    <script src="foundation/js/vendor/modernizr.js"></script>
+	
+<title>Open Food Facts - World</title>
+<meta name="language" content="en-US" />
+
+	
+<script src="foundation/js/vendor/jquery.js"></script>
+<script type="text/javascript" src="js/jqueryui/1.8.16/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="js/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
+
+<link href="http://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" rel="stylesheet" />
+
+<script>
+$(function() {
+$("#select_country").select2({
+	placeholder: "Country",
+    allowClear: true
+	}
+	).on("change", function(e) {
+	var subdomain =  e.val;
+	if (! subdomain) {
+		subdomain = 'world';
+	}
+	window.location.href = "http://" + subdomain + ".openfoodfacts.net";
+});
+	
+	
+    $('#imgupload_search').fileupload({
+        dataType: 'json',
+        url: '/cgi/product.pl',
+		formData : [{name: 'jqueryfileupload', value: 1}],
+		resizeMaxWidth : 2000,
+		resizeMaxHeight : 2000,
+        done: function (e, data) {
+			if (data.result.location) {
+				$(location).attr('href',data.result.location);
+			}
+			if (data.result.error) {
+				$("#imgsearcherror").html(data.result.error);
+				$("#imgsearcherror").show();
+			}
+        },
+		fail : function (e, data) {
+			$("#imgsearcherror").show();
+        },
+		always : function (e, data) {
+			$("#progressbar").hide();
+			$("#imgsearchbutton").show();
+			$("#imgsearchmsg").hide();
+        },
+		start: function (e, data) {
+			$("#imgsearchbutton").hide();
+			$("#imgsearcherror").hide();
+			$("#imgsearchmsg").show();
+			$("#progressbar").show();
+			$("#progressmeter").css('width', "0%");
+                    
+		},
+            sent: function (e, data) {
+                if (data.dataType &&
+                        data.dataType.substr(0, 6) === 'iframe') {
+                    // Iframe Transport does not support progress events.
+                    // In lack of an indeterminate progress bar, we set
+                    // the progress to 100%, showing the full animated bar:
+                    $("#progressmeter").css('width', "100%");
+                }
+            },
+            progress: function (e, data) {
+
+                   $("#progressmeter").css('width', parseInt(data.loaded / data.total * 100, 10) + "%");
+					$("#imgsearchdebug").html(data.loaded + ' / ' + data.total);
+                
+            }
+		
+    });	
+
+});
+</script>
+
+
+
+<meta property="fb:app_id" content="219331381518041" />
+<meta property="og:type" content="food"/>
+<meta property="og:title" content="Open Food Facts - World"/>
+<meta property="og:url" content="http://world.openfoodfacts.net"/>
+<meta property="og:image" content="http://en.openfoodfacts.net/images/misc/yogurt-300x225.png"/>
+
+<meta property="og:image" content="http://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"/>
+<meta property="og:description" content="A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"/>
+
+<style type="text/css" media="all">
+
+
+a { text-decoration: none;}
+a, a:visited { color: blue;}
+a:hover { text-decoration: underline; }
+
+
+hr.floatclear {
+background: none;
+border: 0;
+clear: both;
+display: block;
+float: none;
+font-size: 0;
+margin: 0;
+padding: 0;
+overflow: hidden;
+visibility: hidden;
+width: 0;
+height: 0;
+}
+
+hr.floatleft {
+background: none;
+border: 0;
+clear: left;
+display: block;
+float: none;
+font-size: 0;
+margin: 0;
+padding: 0;
+overflow: hidden;
+visibility: hidden;
+width: 0;
+height: 0;
+}
+
+hr.floatright {
+background: none;
+border: 0;
+clear: right;
+display: block;
+float: none;
+font-size: 0;
+margin: 0;
+padding: 0;
+overflow: hidden;
+visibility: hidden;
+width: 0;
+height: 0;
+}
+
+
+
+.data_table label, .data_table input { display: inline}
+.data_table input, .data_table select { font-size: 1em }
+.nutriment_label  { text-align: left; width: 300px; }
+.nutriment_value { text-align: right }
+.nutriment_subx { font-size: 0.9em;}
+.data_table .nutriment_sub .nutriment_label { padding-left:20px;}
+input.nutriment_value { width:50px;}
+thead, tbody { margin:0px; padding:0px; }
+
+
+.data_table { margin-top:20px; padding:0px; vertical-align:middle; border-collapse:collapse}
+.data_table td, .data_table th { margin:0px; padding-left:3px;padding-right:3px;}
+.data_table .nutriment_head { background-color: #8888ff; color: white; }
+.data_table .nutriment_main { border-top:3px solid white; background-color: #ddddff;}
+.data_table .nutriment_sub, .data_table .nutriment_sub td { border-top: 1px solid #ddddff; background-color: #eeeeff; }
+.ui-autocomplete li { font-size: 1em;}
+#nutriment_carbon-footprint_tr { background-color:#ddffdd }
+
+ul.products {
+	list-style:none;
+	padding: 0;
+	margin: 0;	
+}
+
+.products li {
+	text-align:center;
+	display:block;
+	width:120px;;
+	height:150px;
+	padding:10px;
+	overflow:hidden;
+	margin:10px;
+	float:left;
+}
+
+.products div {
+	width:120px;
+	height:100px;
+	line-height:100px;
+	text-align:center;
+	padding:0px;
+	margin:0px;
+	display: table-cell;
+	vertical-align:middle;
+}
+
+.products img {
+	vertical-align:middle;
+}
+
+
+
+.level_3, a.level_3 {
+	color:red;
+}
+
+.level_2, a.level_2 {
+	color:darkorange;
+}
+
+.level_1, a.level_1 {
+	color:green;
+}
+
+
+<!-- foundation styles -->
+
+.row{
+  &.full-width{
+    max-width: 100% !important;
+    .row{
+      margin: 0 auto;
+      max-width: 62.5rem;
+      background: inherit;
+    }  
+  }
+}
+
+.select2-container--default .select2-selection--single {
+border-radius:0;
+font-size: 0.875rem;
+  position: relative;
+  height: 1.75rem;
+  top: 0.53125rem;
+  width:10rem;
+}
+
+.left-small {
+  border-right:0;
+}
+
+.tab-bar-section.middle {
+  right:0;
+}
+
+a, a:hover, a:visited {
+color:blue;
+}
+
+a:hover { text-decoration:underline}
+
+a.button {
+	color:white;
+}
+
+.products {
+line-height:1.2;
+}
+
+#sharebuttons li { text-align:center }
+
+
+
+
+
+
+</style>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31851927-1']);
+  _gaq.push(['_setDomainName', 'openfoodfacts.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+	
+</head>
+<body>
+
+
+<nav class="top-bar" data-topbar role="navigation" id="top-bar" style="background-color:#00d400">
+	<ul class="title-area">
+		<li class="name">
+			<h2><a href="index.html" style="font-size:1rem;background-color:#ff0000;">Open Food Facts</a></h2>
+		</li>
+		<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+		<li class="toggle-topbar menu-icon"><a href="index.html#"><span>Menu</span></a></li>
+	</ul>
+
+	<section class="top-bar-section">
+
+
+	<!-- Left Nav Section -->	
+
+
+
+	<ul class="left">
+		<li class="has-form has-dropdown" style="background-color:#ffcc00;">
+<select id="select_country" style="width:100%">
+<option></option>
+
+<option value="af">Afghanistan</option>
+<option value="ax">Åland Islands</option>
+<option value="al">Albania</option>
+<option value="">Alderney</option>
+<option value="dz">Algeria</option>
+<option value="as">American Samoa</option>
+<option value="ad">Andorra</option>
+<option value="ao">Angola</option>
+<option value="ai">Anguilla</option>
+<option value="aq">Antarctic</option>
+<option value="">Antarctica</option>
+<option value="ag">Antigua and Barbuda</option>
+<option value="ar">Argentina</option>
+<option value="am">Armenia</option>
+<option value="aw">Aruba</option>
+<option value="">Ascension Island</option>
+<option value="au">Australia</option>
+<option value="at">Austria</option>
+<option value="az">Azerbaijan</option>
+<option value="bh">Bahrain</option>
+<option value="bd">Bangladesh</option>
+<option value="bb">Barbados</option>
+<option value="by">Belarus</option>
+<option value="be">Belgium</option>
+<option value="bz">Belize</option>
+<option value="bj">Benin</option>
+<option value="bm">Bermuda</option>
+<option value="bt">Bhutan</option>
+<option value="bo">Bolivia</option>
+<option value="">Bonaire</option>
+<option value="ba">Bosnia and Herzegovina</option>
+<option value="bw">Botswana</option>
+<option value="bv">Bouvet Island</option>
+<option value="br">Brazil</option>
+<option value="io">British Indian Ocean Territory</option>
+<option value="vg">British Virgin Islands</option>
+<option value="bn">Brunei</option>
+<option value="bg">Bulgaria</option>
+<option value="bf">Burkina Faso</option>
+<option value="bi">Burundi</option>
+<option value="kh">Cambodia</option>
+<option value="cm">Cameroon</option>
+<option value="ca">Canada</option>
+<option value="cv">Cape Verde</option>
+<option value="bq">Caribbean Netherlands</option>
+<option value="ky">Cayman Islands</option>
+<option value="cf">Central African Republic</option>
+<option value="td">Chad</option>
+<option value="cl">Chile</option>
+<option value="cn">China</option>
+<option value="cx">Christmas Island</option>
+<option value="cc">Cocos   Islands</option>
+<option value="co">Colombia</option>
+<option value="km">Comoros</option>
+<option value="ck">Cook Islands</option>
+<option value="cr">Costa Rica</option>
+<option value="ci">Côte d'Ivoire</option>
+<option value="hr">Croatia</option>
+<option value="cu">Cuba</option>
+<option value="cw">Curaçao</option>
+<option value="cy">Cyprus</option>
+<option value="cz">Czech Republic</option>
+<option value="cd">Democratic Republic of the Congo</option>
+<option value="dk">Denmark</option>
+<option value="dj">Djibouti</option>
+<option value="dm">Dominica</option>
+<option value="do">Dominican Republic</option>
+<option value="">East Germany</option>
+<option value="ec">Ecuador</option>
+<option value="eg">Egypt</option>
+<option value="sv">El Salvador</option>
+<option value="gq">Equatorial Guinea</option>
+<option value="er">Eritrea</option>
+<option value="ee">Estonia</option>
+<option value="et">Ethiopia</option>
+<option value="">European Union</option>
+<option value="fk">Falkland Islands</option>
+<option value="fo">Faroe Islands</option>
+<option value="fm">Federated States of Micronesia</option>
+<option value="fj">Fiji</option>
+<option value="fi">Finland</option>
+<option value="fr">France</option>
+<option value="gf">French Guiana</option>
+<option value="pf">French Polynesia</option>
+<option value="tf">French Southern and Antarctic Lands</option>
+<option value="ga">Gabon</option>
+<option value="">Galmudug</option>
+<option value="gm">Gambia</option>
+<option value="ge">Georgia</option>
+<option value="de">Germany</option>
+<option value="gh">Ghana</option>
+<option value="gi">Gibraltar</option>
+<option value="gr">Greece</option>
+<option value="gl">Greenland</option>
+<option value="gd">Grenada</option>
+<option value="gp">Guadeloupe</option>
+<option value="gu">Guam</option>
+<option value="gt">Guatemala</option>
+<option value="gg">Guernsey</option>
+<option value="gn">Guinea</option>
+<option value="gw">Guinea-Bissau</option>
+<option value="gy">Guyana</option>
+<option value="ht">Haiti</option>
+<option value="hm">Heard Island and McDonald Islands</option>
+<option value="hn">Honduras</option>
+<option value="hk">Hong Kong</option>
+<option value="hu">Hungary</option>
+<option value="is">Iceland</option>
+<option value="in">India</option>
+<option value="id">Indonesia</option>
+<option value="ir">Iran</option>
+<option value="iq">Iraq</option>
+<option value="">Iraqi Kurdistan</option>
+<option value="ie">Ireland</option>
+<option value="im">Isle of Man</option>
+<option value="il">Israel</option>
+<option value="it">Italy</option>
+<option value="jm">Jamaica</option>
+<option value="">Jan Mayen</option>
+<option value="jp">Japan</option>
+<option value="je">Jersey</option>
+<option value="jo">Jordan</option>
+<option value="kz">Kazakhstan</option>
+<option value="ke">Kenya</option>
+<option value="ki">Kiribati</option>
+<option value="kw">Kuwait</option>
+<option value="kg">Kyrgyzstan</option>
+<option value="la">Laos</option>
+<option value="lv">Latvia</option>
+<option value="lb">Lebanon</option>
+<option value="ls">Lesotho</option>
+<option value="lr">Liberia</option>
+<option value="ly">Libya</option>
+<option value="li">Liechtenstein</option>
+<option value="lt">Lithuania</option>
+<option value="lu">Luxembourg</option>
+<option value="mo">Macau</option>
+<option value="mg">Madagascar</option>
+<option value="mw">Malawi</option>
+<option value="my">Malaysia</option>
+<option value="mv">Maldives</option>
+<option value="ml">Mali</option>
+<option value="mt">Malta</option>
+<option value="mh">Marshall Islands</option>
+<option value="mq">Martinique</option>
+<option value="mr">Mauritania</option>
+<option value="mu">Mauritius</option>
+<option value="yt">Mayotte</option>
+<option value="mx">Mexico</option>
+<option value="md">Moldova</option>
+<option value="mc">Monaco</option>
+<option value="mn">Mongolia</option>
+<option value="me">Montenegro</option>
+<option value="ms">Montserrat</option>
+<option value="ma">Morocco</option>
+<option value="mz">Mozambique</option>
+<option value="mm">Myanmar</option>
+<option value="">Nakhchivan Autonomous Republic</option>
+<option value="na">Namibia</option>
+<option value="nr">Nauru</option>
+<option value="np">Nepal</option>
+<option value="nl">Netherlands</option>
+<option value="nc">New Caledonia</option>
+<option value="nz">New Zealand</option>
+<option value="ni">Nicaragua</option>
+<option value="ne">Niger</option>
+<option value="ng">Nigeria</option>
+<option value="nu">Niue</option>
+<option value="nf">Norfolk Island</option>
+<option value="kp">North Korea</option>
+<option value="mp">Northern Mariana Islands</option>
+<option value="">Northland State</option>
+<option value="no">Norway</option>
+<option value="om">Oman</option>
+<option value="pk">Pakistan</option>
+<option value="pw">Palau</option>
+<option value="">Palestinian territories</option>
+<option value="pa">Panama</option>
+<option value="pg">Papua New Guinea</option>
+<option value="py">Paraguay</option>
+<option value="pe">Peru</option>
+<option value="ph">Philippines</option>
+<option value="pn">Pitcairn</option>
+<option value="pl">Poland</option>
+<option value="pt">Portugal</option>
+<option value="pr">Puerto Rico</option>
+<option value="qa">Qatar</option>
+<option value="tw">Republic of China</option>
+<option value="mk">Republic of Macedonia</option>
+<option value="cg">Republic of the Congo</option>
+<option value="">Republika Srpska</option>
+<option value="re">Réunion</option>
+<option value="ro">Romania</option>
+<option value="ru">Russia</option>
+<option value="rw">Rwanda</option>
+<option value="">Saba</option>
+<option value="bl">Saint-Barthélemy</option>
+<option value="sh">Saint Helena</option>
+<option value="kn">Saint Kitts and Nevis</option>
+<option value="lc">Saint Lucia</option>
+<option value="mf">Saint Martin</option>
+<option value="pm">Saint Pierre and Miquelon</option>
+<option value="vc">Saint Vincent and the Grenadines</option>
+<option value="ws">Samoa</option>
+<option value="sm">San Marino</option>
+<option value="st">Sao Tomé and Príncipe</option>
+<option value="sa">Saudi Arabia</option>
+<option value="">Scotland</option>
+<option value="sn">Senegal</option>
+<option value="rs">Serbia</option>
+<option value="sc">Seychelles</option>
+<option value="sl">Sierra Leone</option>
+<option value="sg">Singapore</option>
+<option value="">Sint Eustatius</option>
+<option value="sx">Sint Maarten</option>
+<option value="sk">Slovakia</option>
+<option value="si">Slovenia</option>
+<option value="sb">Solomon Islands</option>
+<option value="so">Somalia</option>
+<option value="za">South Africa</option>
+<option value="gs">South Georgia and the South Sandwich Islands</option>
+<option value="kr">South Korea</option>
+<option value="ss">South Sudan</option>
+<option value="">Soviet Union</option>
+<option value="es">Spain</option>
+<option value="lk">Sri Lanka</option>
+<option value="ps">State of Palestine</option>
+<option value="sd">Sudan</option>
+<option value="sr">Suriname</option>
+<option value="sj">Svalbard and Jan Mayen</option>
+<option value="sz">Swaziland</option>
+<option value="se">Sweden</option>
+<option value="ch">Switzerland</option>
+<option value="sy">Syria</option>
+<option value="tj">Tajikistan</option>
+<option value="tz">Tanzania</option>
+<option value="th">Thailand</option>
+<option value="bs">The Bahamas</option>
+<option value="tl">Timor-Leste</option>
+<option value="tg">Togo</option>
+<option value="tk">Tokelau</option>
+<option value="to">Tonga</option>
+<option value="tt">Trinidad and Tobago</option>
+<option value="tn">Tunisia</option>
+<option value="tr">Turkey</option>
+<option value="tm">Turkmenistan</option>
+<option value="tc">Turks and Caicos Islands</option>
+<option value="tv">Tuvalu</option>
+<option value="ug">Uganda</option>
+<option value="ua">Ukraine</option>
+<option value="ae">United Arab Emirates</option>
+<option value="uk">United Kingdom</option>
+<option value="us">United States</option>
+<option value="um">United States Minor Outlying Islands</option>
+<option value="uy">Uruguay</option>
+<option value="uz">Uzbekistan</option>
+<option value="vu">Vanuatu</option>
+<option value="va">Vatican City</option>
+<option value="ve">Venezuela</option>
+<option value="vn">Vietnam</option>
+<option value="vi">Virgin Islands of the United States</option>
+<option value="wf">Wallis and Futuna</option>
+<option value="eh">Western Sahara</option>
+<option value="ye">Yemen</option>
+<option value="yu">Yugoslavia</option>
+<option value="zm">Zambia</option>
+<option value="zw">Zimbabwe</option>
+</select>
+		</li>
+		
+	</ul>	
+
+
+	
+	<!-- Right Nav Section -->
+	<ul class="right">
+		<li class="show-for-xlarge-up" style="background-color:#00d400">
+			<form action="http://off:off@world.openfoodfacts.net/cgi/search.pl" id="search2">
+			<div class="row collapse ">
+
+					<div class="small-8 columns">
+						<input type="text" placeholder="Search a product" name="search_terms" id="q2">
+						<input name="search_simple" id="search_simple" value="1" type="hidden" />
+					</div>
+					<div class="small-4 columns">
+						 <button type="submit" title="Search"><i class="fi-magnifying-glass"></i></button>
+					</div>
+
+			</div>
+			</form>	
+		</li>
+		
+	
+		<li class="show-for-large-up"><a href="http://off:off@world.openfoodfacts.net/discover" style="background-color:#00ccff">Discover</a></li>
+		<li class="show-for-large-up"><a href="http://off:off@world.openfoodfacts.net/contribute" style="background-color:#00ccff">Contribute</a></li>
+		<li class="show-for-large-up"><a href="http://off:off@world.openfoodfacts.net/add-a-product" style="background-color:#0066ff">Add a product</a></li>
+		<li class="show-for-large-up"><a href="http://off:off@world.openfoodfacts.net/discover" style="background-color:#0066ff">S'identifier</a></li>
+		
+		<li class="hide-for-large-up"><a href="http://off:off@world.openfoodfacts.net/discover" style="background-color:#00ccff">Discover</a></li>
+		<li class="hide-for-large-up has-dropdown"><a href="http://off:off@world.openfoodfacts.net/contribute" style="background-color:#0066ff">Contribute</a>
+			<ul class="dropdown">			
+				<li><a href="http://off:off@world.openfoodfacts.net/add-a-product" style="background-color:#0051cc">Add a product</a></li>
+				<li><a href="index.html#" style="background-color:#0051cc">S'identifier</a></li>	
+			</ul>
+		</li>
+
+	</ul>	
+	
+	</section>
+	
+
+</nav>
+
+
+<nav class="tab-bar show-for-small-only" style="background-color:#ffcc00">
+
+  <div class="left-small" style="background-color:#00ccff;padding-top:4px;">
+    <a href="index.html#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix" style="background-color:#00ccff;">
+	<i class="fi-torso" style="color:white;font-size:1.8rem"></i></a>
+  </div>
+  <div class="middle tab-bar-section" style="background-color:#ffcc00; padding-top:4px;">
+			<form action="http://off:off@world.openfoodfacts.net/cgi/search.pl" id="search2">
+			<div class="row collapse ">
+
+					<div class="small-10 columns">
+						<input type="text" placeholder="Chercher un produit" name="q" id="q2">
+					</div>
+					<div class="small-2 columns">
+						 <a href="index.html#" class="button postfix"><i class="fi-magnifying-glass"></i></a>
+					</div>
+
+			</div>
+			</form>	  
+  </div>
+ </nav>
+
+ 
+ 
+ 
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+
+
+    <!-- Off Canvas Menu -->
+    <aside class="left-off-canvas-menu" style="color:white;background-color:#00ccff;">
+        <!-- whatever you want goes here -->
+
+
+	
+<div class="block">
+<h3 class="block_title">Add a product</h3>
+<div class="block_content">
+<form method="post" action="http://off:off@world.openfoodfacts.net/cgi/product.pl" enctype="multipart/form-data" id="product_search_or_add">
+<div id="imgsearchdiv">
+
+<a href="index.html#" class="button small expand" id="imgsearchbutton">Product picture with barcode
+<input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search" style="position: absolute;
+    right:0;
+    bottom:0;
+    top:0;
+    cursor:pointer;
+    opacity:0;
+    font-size:40px;"/>
+</a>
+</div>
+
+<div id="progressbar" class="progress" style="display:none">
+  <span id="progressmeter" class="meter" style="width:0%"></span>
+</div>
+
+<div id="imgsearchmsg" data-alert class="alert-box info" style="display:none">
+  Sending image
+  <a href="index.html#" class="close">&times;</a>
+</div>
+
+<div id="imgsearcherror" data-alert class="alert-box alert" style="display:none">
+  Upload error
+  <a href="index.html#" class="close">&times;</a>
+</div>
+
+
+      <div class="row collapse">	  
+        <div class="small-9 columns">
+          <input type="text" placeholder="or Barcode">
+        </div>
+        <div class="small-3 columns">
+          <a href="index.html#" class="button postfix">Add</a>
+        </div>
+      </div>
+	  
+	  <input type="submit" value="Product without barcode" class="button tiny" />
+</form>
+
+</div>
+</div>
+
+<div class="block">
+<h3 class="block_title">Sign-in</h3>
+<div class="block_content">
+<p>Sign-in to add or edit products.</p>
+
+<form method="post" action="http://off:off@world.openfoodfacts.net/cgi/session.pl">
+Username or e-mail address:<br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+Password<br />
+<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Remember me</label><br />
+<input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
+</form>
+<p>Not registered yet? <a href="http://off:off@world.openfoodfacts.net/cgi/user.pl">Create your account</a>.</p>
+
+</div>
+</div>
+
+<div class="block">
+<h3 class="block_title">News</h3>
+<div class="block_content">
+<p>To learn more about Open Food Facts, visit <a href="http://en.blog.openfoodfacts.org">our blog</a>!</p>
+<p>Recent news:</p>
+&rarr; <a href="http://en.blog.openfoodfacts.org/news/open-food-facts-wins-an-open-knowledge-award-in-madrid-and-it-means-a-lot-to-us">Open Food Facts wins an Open Knowledge Award in Madrid, and it means a lot to us!</a><br />&rarr; <a href="http://en.blog.openfoodfacts.org/news/open-your-beer-and-meet-open-food-facts-at-fosdem-15-in-brussels">Open your beer and meet Open Food Facts at Fosdem'15 in Brussels</a><br />&rarr; <a href="http://en.blog.openfoodfacts.org/news/our-food-open-data-challenge-bringing-open-food-facts-to-the-uk"> Our Food Open Data Challenge: Bringing Open Food Facts to the UK!</a><br />&rarr; <a href="http://en.blog.openfoodfacts.org/news/discover-what-food-products-are-made-near-you-with-made-near-me">Discover what food products are made near you with Made Near Me!</a><br />&rarr; <a href="http://en.blog.openfoodfacts.org/news/the-food-open-data-challenge-how-can-we-use-open-data-to-change-how-we-eat">The Food Open Data Challenge: How can we use open data to change how we eat?</a><br />
+</div>
+</div>
+
+		
+    </aside>
+
+
+  <!-- close the off-canvas menu -->
+  <a class="exit-off-canvas"></a>
+
+  
+  
+<div class="row full-width" style="max-width: 100% !important;">
+	<div class="xxlarge-1 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;">
+		<div class="sidebar">
+		
+			<form action="http://off:off@world.openfoodfacts.net/cgi/search.pl" id="search2" class="hide-for-xlarge-up">
+			<div class="row collapse">
+
+					<div class="small-10 columns">
+						<input type="text" placeholder="Chercher un produit" name="q" id="q2">
+					</div>
+					<div class="small-2 columns">
+						 <a href="index.html#" class="button postfix"><i class="fi-magnifying-glass"></i></a>
+					</div>
+
+			</div>
+			</form>		
+			
+
+<div style="text-align:center">
+<a href="index.html"><img id="logo" src="images/misc/openfoodfacts-logo-en.png" width="178" height="141" alt="Open Food Facts" style="margin-bottom:1rem"/></a>
+</div>
+
+<p>Open Food Facts répertorie les produits alimentaires du monde entier.</p>
+
+<ul class="small-block-grid-3" id="sharebuttons">
+	<li>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-via="OpenFoodFacts" data-url="world.openfoodfacts.net" data-count="vertical">Tweeter</a>
+	</li>
+	<li><fb:like href="world.openfoodfacts.net" layout="box_count"></fb:like></li>
+	<li><g:plusone size="tall" count="true" href="world.openfoodfacts.net"></g:plusone></li>
+</ul>
+
+
+
+<div class="block">
+<h3 class="block_title">Add a product</h3>
+<div class="block_content">
+<form method="post" action="http://off:off@world.openfoodfacts.net/cgi/product.pl" enctype="multipart/form-data" id="product_search_or_add">
+<div id="imgsearchdiv">
+
+<a href="index.html#" class="button small expand" id="imgsearchbutton">Product picture with barcode
+<input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search" style="position: absolute;
+    right:0;
+    bottom:0;
+    top:0;
+    cursor:pointer;
+    opacity:0;
+    font-size:40px;"/>
+</a>
+</div>
+
+<div id="progressbar" class="progress" style="display:none">
+  <span id="progressmeter" class="meter" style="width:0%"></span>
+</div>
+
+<div id="imgsearchmsg" data-alert class="alert-box info" style="display:none">
+  Sending image
+  <a href="index.html#" class="close">&times;</a>
+</div>
+
+<div id="imgsearcherror" data-alert class="alert-box alert" style="display:none">
+  Upload error
+  <a href="index.html#" class="close">&times;</a>
+</div>
+
+
+      <div class="row collapse">	  
+        <div class="small-9 columns">
+          <input type="text" placeholder="or Barcode">
+        </div>
+        <div class="small-3 columns">
+          <a href="index.html#" class="button postfix">Add</a>
+        </div>
+      </div>
+	  
+	  <input type="submit" value="Product without barcode" class="button tiny" />
+</form>
+
+</div>
+</div>
+
+<div class="block">
+<h3 class="block_title">Sign-in</h3>
+<div class="block_content">
+<p>Sign-in to add or edit products.</p>
+
+<form method="post" action="http://off:off@world.openfoodfacts.net/cgi/session.pl">
+Username or e-mail address:<br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+Password<br />
+<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Remember me</label><br />
+<input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
+</form>
+<p>Not registered yet? <a href="http://off:off@world.openfoodfacts.net/cgi/user.pl">Create your account</a>.</p>
+
+</div>
+</div>
+
+<div class="block">
+<h3 class="block_title">News</h3>
+<div class="block_content">
+<p>To learn more about Open Food Facts, visit <a href="http://en.blog.openfoodfacts.org">our blog</a>!</p>
+<p>Recent news:</p>
+&rarr; <a href="http://en.blog.openfoodfacts.org/news/open-food-facts-wins-an-open-knowledge-award-in-madrid-and-it-means-a-lot-to-us">Open Food Facts wins an Open Knowledge Award in Madrid, and it means a lot to us!</a><br />&rarr; <a href="http://en.blog.openfoodfacts.org/news/open-your-beer-and-meet-open-food-facts-at-fosdem-15-in-brussels">Open your beer and meet Open Food Facts at Fosdem'15 in Brussels</a><br />&rarr; <a href="http://en.blog.openfoodfacts.org/news/our-food-open-data-challenge-bringing-open-food-facts-to-the-uk"> Our Food Open Data Challenge: Bringing Open Food Facts to the UK!</a><br />&rarr; <a href="http://en.blog.openfoodfacts.org/news/discover-what-food-products-are-made-near-you-with-made-near-me">Discover what food products are made near you with Made Near Me!</a><br />&rarr; <a href="http://en.blog.openfoodfacts.org/news/the-food-open-data-challenge-how-can-we-use-open-data-to-change-how-we-eat">The Food Open Data Challenge: How can we use open data to change how we eat?</a><br />
+</div>
+</div>
+
+	
+		</div> <!-- sidebar -->
+	</div> <!-- left column -->
+		
+	<div class="xxlarge-11 xlarge-10 large-9 medium-8 columns" style="padding-top:1rem">
+
+
+
+
+
+<h1>Open Food Facts - World</h1>
+
+<div style="float:right;width:300px;margin-left:20px;margin-bottom:20px;padding:10px;border:1px solid #cbe7ff;background-color:#f0f8ff;">
+
+<a href="http://whatsinmyyogurt.com/">
+<img id="og_image" src="images/misc/yogurt-300x225.png" width="300" height="225" alt="What's in my yogurt?" />
+</a>
+
+
+<p>Let's open yogurts from all around the world!
+<a href="http://en.blog.openfoodfacts.org/news/open-food-facts-launches-the-what-s-in-my-yogurt-project-on-open-data-day">On Open Data Day 2014,</a>
+ Open Food Facts launches the <a href="http://whatsinmyyogurt.com/">What's in my yogurt?</a> project.</p>
+
+</div>
+
+
+<p>Help us to collect information and data (ingredients, nutrition facts etc.) on food products from all around the world.
+In a few minutes, you can easily add products and contribute to improve food for everyone.</p>
+
+<p>The collected data is then usable and reusable freely:</p>
+
+<h3>To help you to make better choices</h3>
+
+<ul>
+<li>to decipher labels: which food additives should you avoid?</li>
+<li>to compare products and to find better alternatives</li>
+<li>to find products that do not contain (or contain less) substances that you want to avoid: fat, salt, additives, allergens etc.</li>
+</ul>
+
+<h3>To motivate the industry to offer better products</h3>
+
+<ul>
+<li>by grading products and publishing nutritional comparisons.</li>
+<li>by checking allegations like "25% less sugar/salt/fat than other products from the same category".</li>
+</ul>
+
+<h3>To help research</h3>
+
+<ul>
+<li>by combining the data with other data, researchers can find correlations and try to establish the link between some ingredients and affections.</li>
+</ul>
+
+<p>... and for all the other uses we have not thought about! By making this data publicly available for free and for all uses, you are not limited by our imagination,
+and people from all around the world will find thousand of usage ideas that we would never have thought about.</p>
+
+<p>Got ideas? Share them on the <a href="https://openfoodfacts.uservoice.com/">Idea Forum</a>!</p>
+
+<h2>Last products added:</h2>
+
+<p>&rarr; <a href="http://off:off@world.openfoodfacts.net/state/to-be-completed">products being added</a> (in particular products added with the iPhone, Android and Windows Phone apps)</p>
+
+<p>30889 produits :</p><button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown small">Drilldown into products by:</button><br/>
+<ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
+<li><a href="http://off:off@world.openfoodfacts.net/countries">Countries</a></li>
+<li><a href="http://off:off@world.openfoodfacts.net/brands">Brands</a></li>
+<li><a href="http://off:off@world.openfoodfacts.net/categories">Categories</a></li>
+<li><a href="http://off:off@world.openfoodfacts.net/labels">Labels</a></li>
+<li><a href="http://off:off@world.openfoodfacts.net/packaging">Packaging</a></li>
+<li><a href="http://off:off@world.openfoodfacts.net/origins">Origins of ingredients</a></li>
+<li><a href="http://off:off@world.openfoodfacts.net/manufacturing-places">Manufacturing or processing places</a></li>
+<li><a href="http://off:off@world.openfoodfacts.net/packager-codes">Packager codes</a></li>
+<li><a href="http://off:off@world.openfoodfacts.net/ingredients">Ingredients</a></li>
+<li><a href="http://off:off@world.openfoodfacts.net/additives">Additives</a></li>
+<li><a href="http://off:off@world.openfoodfacts.net/allergens">Allergens</a></li>
+<li><a href="http://off:off@world.openfoodfacts.net/traces">Traces</a></li>
+<li><a href="http://off:off@world.openfoodfacts.net/nutrition-grades">Nutrition grades</a></li>
+<li><a href="http://off:off@world.openfoodfacts.net/contributors">Contributors</a></li>
+<li><a href="http://off:off@world.openfoodfacts.net/states">States</a></li>
+<li><a href="http://off:off@world.openfoodfacts.net/entry-dates">Entry dates</a></li>
+<li><a href="http://off:off@world.openfoodfacts.net/last-edit-dates">Last edit dates</a></li>
+</ul>
+
+<ul class="products">
+<li>
+<a href="http://off:off@world.openfoodfacts.net/product/3263853190527/tuiles-apero-gout-creme-oignon-leader-price" title="Tuiles apéro goût crème oignon - Leader Price - 170&nbsp;g">
+<div><img src="images/products/326/385/319/0527/front.41.100.jpg" width="60" height="100" alt="Tuiles apéro goût crème oignon - Product" /></div>
+<span>Tuiles apéro goût crème oignon - Leader Price - 170&nbsp;g</span>
+</a>
+</li>
+<li>
+<a href="http://off:off@world.openfoodfacts.net/product/20069346/galette-des-rois-pommes-delices-de-kerloch" title="Galette des rois pommes - Délices de Kerloch - 400&nbsp;g">
+<div><img src="images/products/20069346/front.14.100.jpg" width="100" height="90" alt="Galette des rois pommes - Product" /></div>
+<span>Galette des rois pommes - Délices de Kerloch - 400&nbsp;g</span>
+</a>
+</li>
+<li>
+<a href="http://off:off@world.openfoodfacts.net/product/20080686/barres-cereales-canneberge-crownfield" title="Barres céréales canneberge - Crownfield - 200&nbsp;g">
+<div><img src="images/products/20080686/front.8.100.jpg" width="96" height="100" alt="Barres céréales canneberge - Product" /></div>
+<span>Barres céréales canneberge - Crownfield - 200&nbsp;g</span>
+</a>
+</li>
+<li>
+<a href="http://off:off@world.openfoodfacts.net/product/4902443550707/mike-pop-corn-%E3%83%8F%E3%82%BF%E3%83%BC%E3%81%97%E3%82%87%E3%81%86%E3%82%86%E5%91%B3-frito-lay" title="Mike pop corn バターしょうゆ味 - Frito Lay -&nbsp;50g">
+<div><img src="images/products/490/244/355/0707/front.6.100.jpg" width="82" height="100" alt="Mike pop corn バターしょうゆ味 - Product" /></div>
+<span>Mike pop corn バターしょうゆ味 - Frito Lay -&nbsp;50g</span>
+</a>
+</li>
+<li>
+<a href="http://off:off@world.openfoodfacts.net/product/4987035089315/%E3%82%AA%E3%83%AD%E3%83%8A%E3%83%9F%E3%83%B3c%E3%83%88%E3%83%AA%E3%83%B3%E3%82%AF-oronamin-c-drink-%E3%82%AA%E3%83%AD%E3%83%8A%E3%83%9F%E3%83%B3" title="オロナミンCドリンク (Oronamin C Drink) - オロナミン -&nbsp;120ml">
+<div><img src="images/products/498/703/508/9315/front.8.100.jpg" width="33" height="100" alt="オロナミンCドリンク (Oronamin C Drink) - Product" /></div>
+<span>オロナミンCドリンク (Oronamin C Drink) - オロナミン -&nbsp;120ml</span>
+</a>
+</li>
+<li>
+<a href="http://off:off@world.openfoodfacts.net/product/3760070425109/aligot-saucisse-les-gastronautes" title="Aligot saucisse - Les Gastronautes - 350&nbsp;g">
+<div><img src="images/products/376/007/042/5109/front.3.100.jpg" width="75" height="100" alt="Aligot saucisse - Product" /></div>
+<span>Aligot saucisse - Les Gastronautes - 350&nbsp;g</span>
+</a>
+</li>
+<li>
+<a href="http://off:off@world.openfoodfacts.net/product/20460204/cereales-fourrees-au-lait-crownfield" title="Céréales fourrées au lait - Crownfield - 750&nbsp;g">
+<div><img src="images/products/20460204/front.9.100.jpg" width="71" height="100" alt="Céréales fourrées au lait - Product" /></div>
+<span>Céréales fourrées au lait - Crownfield - 750&nbsp;g</span>
+</a>
+</li>
+<li>
+<a href="http://off:off@world.openfoodfacts.net/product/3046920003759/lindola-lindt" title="Lindola - Lindt - 440&nbsp;g">
+<div><img src="images/products/304/692/000/3759/front.4.100.jpg" width="100" height="56" alt="Lindola - Product" /></div>
+<span>Lindola - Lindt - 440&nbsp;g</span>
+</a>
+</li>
+<li>
+<a href="http://off:off@world.openfoodfacts.net/product/3263859430917/oeufs-de-lompes-rouges-leader-price" title="Œufs de Lompes Rouges - Leader Price - 100&nbsp;g">
+<div><img src="images/products/326/385/943/0917/front.7.100.jpg" width="75" height="100" alt="Œufs de Lompes Rouges - Product" /></div>
+<span>Œufs de Lompes Rouges - Leader Price - 100&nbsp;g</span>
+</a>
+</li>
+<li>
+<a href="http://off:off@world.openfoodfacts.net/product/8480017070739/oeufs-de-lompe-noir-dia" title="Oeufs de Lompe Noir  - Dia - 100&nbsp;g">
+<div><img src="images/products/848/001/707/0739/front.7.100.jpg" width="100" height="100" alt="Oeufs de Lompe Noir  - Product" /></div>
+<span>Oeufs de Lompe Noir  - Dia - 100&nbsp;g</span>
+</a>
+</li>
+<li>
+<a href="http://off:off@world.openfoodfacts.net/product/8480017070746/oeufs-de-lompe-rouge-dia" title="Oeufs de Lompe Rouge - Dia - 100&nbsp;g">
+<div><img src="images/products/848/001/707/0746/front.8.100.jpg" width="100" height="84" alt="Oeufs de Lompe Rouge - Product" /></div>
+<span>Oeufs de Lompe Rouge - Dia - 100&nbsp;g</span>
+</a>
+</li>
+<li>
+<a href="http://off:off@world.openfoodfacts.net/product/3564700014820/oeufs-de-lump-noirs-ronde-des-mers" title="Œufs de Lump Noirs - Ronde des Mers - 100&nbsp;g">
+<div><img src="images/products/356/470/001/4820/front.9.100.jpg" width="100" height="82" alt="Œufs de Lump Noirs - Product" /></div>
+<span>Œufs de Lump Noirs - Ronde des Mers - 100&nbsp;g</span>
+</a>
+</li>
+<li>
+<a href="http://off:off@world.openfoodfacts.net/product/3222471248775/oeufs-de-lompe-rouges-casino" title="Œufs de lompe rouges - Casino - 100&nbsp;g">
+<div><img src="images/products/322/247/124/8775/front.7.100.jpg" width="100" height="93" alt="Œufs de lompe rouges - Product" /></div>
+<span>Œufs de lompe rouges - Casino - 100&nbsp;g</span>
+</a>
+</li>
+<li>
+<a href="http://off:off@world.openfoodfacts.net/product/20080662/barres-cereales-chocolat-banane-crownfield" title="Barres céréales Chocolat + Banane - Crownfield - 200&nbsp;g">
+<div><img src="images/products/20080662/front.6.100.jpg" width="96" height="100" alt="Barres céréales Chocolat + Banane - Product" /></div>
+<span>Barres céréales Chocolat + Banane - Crownfield - 200&nbsp;g</span>
+</a>
+</li>
+<li>
+<a href="http://off:off@world.openfoodfacts.net/product/3256220660891/tarama-au-crabe-u" title="Tarama Au Crabe - U - 100&nbsp;g">
+<div><img src="images/products/325/622/066/0891/front.6.100.jpg" width="100" height="87" alt="Tarama Au Crabe - Product" /></div>
+<span>Tarama Au Crabe - U - 100&nbsp;g</span>
+</a>
+</li>
+<li>
+<a href="http://off:off@world.openfoodfacts.net/product/20364502/choco-hoops-crownfield" title="Choco Hoops - Crownfield - 500&nbsp;g">
+<div><img src="images/products/20364502/front.9.100.jpg" width="71" height="100" alt="Choco Hoops - Product" /></div>
+<span>Choco Hoops - Crownfield - 500&nbsp;g</span>
+</a>
+</li>
+<li>
+<a href="http://off:off@world.openfoodfacts.net/product/20008574/riz-souffle-au-chocolat-crownfield" title="Riz soufflé au chocolat - Crownfield - 500&nbsp;g">
+<div><img src="images/products/20008574/front.8.100.jpg" width="67" height="100" alt="Riz soufflé au chocolat - Product" /></div>
+<span>Riz soufflé au chocolat - Crownfield - 500&nbsp;g</span>
+</a>
+</li>
+<li>
+<a href="http://off:off@world.openfoodfacts.net/product/3760101942278/tarama-aux-oeufs-de-cabillaud-25-comptoir-du-caviar" title="Tarama aux œufs de cabillaud (25 %) - Comptoir du caviar - 250&nbsp;g">
+<div><img src="images/products/376/010/194/2278/front.4.100.jpg" width="89" height="100" alt="Tarama aux œufs de cabillaud (25 %) - Product" /></div>
+<span>Tarama aux œufs de cabillaud (25 %) - Comptoir du caviar - 250&nbsp;g</span>
+</a>
+</li>
+<li>
+<a href="http://off:off@world.openfoodfacts.net/product/3760230862188/tarama-aux-oeufs-de-cabillaud-40-comptoir-du-caviar" title="Tarama aux oeufs de cabillaud 40 %  - Comptoir du caviar - 100&nbsp;g">
+<div><img src="images/products/376/023/086/2188/front.6.100.jpg" width="100" height="97" alt="Tarama aux oeufs de cabillaud 40 %  - Product" /></div>
+<span>Tarama aux oeufs de cabillaud 40 %  - Comptoir du caviar - 100&nbsp;g</span>
+</a>
+</li>
+<li>
+<a href="http://off:off@world.openfoodfacts.net/product/8429259111251/tomates-cherry-quot-vicasol-quot" title="Tomates cherry &quot;Vicasol&quot; - 500&nbsp;g">
+<div><img src="images/products/842/925/911/1251/front.5.100.jpg" width="54" height="100" alt="Tomates cherry &quot;Vicasol&quot; - Product" /></div>
+<span>Tomates cherry &quot;Vicasol&quot; - 500&nbsp;g</span>
+</a>
+</li>
+</ul>
+
+
+<p style="clear:left">&rarr; <a href="http://off:off@world.openfoodfacts.net/cgi/search.pl?action=process&amp;sort_by=last_modified_t_complete_first&amp;page=2">next products</a></p>
+
+
+
+	</div> <!-- main content column -->
+</div> <!-- row -->
+
+	</div> <!-- inner wrap -->
+</div> <!-- off-content wrap -->
+
+
+<!-- footer -->
+
+<div id="footer" class="row full-width" style="max-width: 100% !important;padding:1rem;">
+
+<ul class="small-block-grid-2 medium-block-grid-2 large-block-grid-4">
+	<li>
+		<h4>Open Food Facts</h4>
+		<p>Une base de données collaborative, libre et ouverte des produits alimentaires du monde entier.</p>
+		<ul>
+			<li><a href="http://off:off@world.openfoodfacts.net/mentions-legales">Mentions légales</a></li>
+			<li><a href="http://off:off@world.openfoodfacts.net/conditions-d-utilisations">Conditions d'utilisation</a></li>
+			<li><a href="http://off:off@world.openfoodfacts.net/data">Données</a></li>
+		</ul>
+	</li>
+	
+	<li>
+		<h4>Découvrez le projet</h4>
+		<ul>
+			<li><a href="http://off:off@world.openfoodfacts.net/qui-sommes-nous">Qui sommes nous</a></li>
+			<li><a href="http://off:off@world.openfoodfacts.net/faq">Questions fréquentes</a></li>
+			<li><a href="http://off:off@world.openfoodfacts.net/blog">Le blog d'Open Food Facts</a></li>
+			<li><a href="http://off:off@world.openfoodfacts.net/presse-et-blogs">Presse et blogs</a></li>
+		</ul>
+	</li>
+	
+	<li>
+		<h4>Installez l'app Open Food Facts</h4>
+
+<a href="https://itunes.apple.com/fr/app/open-food-facts/id588797948"><img src="images/misc/Available_on_the_App_Store_Badge_FR_135x40.png" alt="Disponible sur l'App Store" width="135" height="40" /></a><br/>
+
+<a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponible sur Google Play" width="135" height="47" /></a><br/>
+<a href="http://world.openfoodfacts.org/files/off.apk">apk</a>
+
+<a href="http://www.windowsphone.com/fr-fr/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"><img src="images/misc/154x40_WP_Store_blk.png" alt="Windows Phone Store" width="154" height="40" /></a><br/>
+	</li>
+	
+	<li>
+		<h4>Rejoignez la communauté</h4>
+→ <a href="http://fr.wiki.openfoodfacts.org">le wiki</a><br />
+→ <a href="http://twitter.com/openfoodfactsfr">Twitter</a><br/>
+→ <a href="https://plus.google.com/u/0/b/102622509148794386660/102622509148794386660/">Google+</a><br />
+→ <a href="https://www.facebook.com/OpenFoodFacts.fr">Facebook</a><br />
++ <a href="https://www.facebook.com/groups/356858984359591/">groupe des contributeurs</a><br />
+→ <a href="mailto:off-fr-subscribe@openfoodfacts.org">envoyez un e-mail vide</a> pour
+vous abonner à la liste de discussion<br/>
+	</li>
+	
+</ul>
+
+</div>
+
+
+
+<div id="fb-root"></div>
+
+    <script type="text/javascript">
+      window.fbAsyncInit = function() {
+        FB.init({appId: '219331381518041', status: true, cookie: true,
+                 xfbml: true});
+     };
+	 
+      (function() {
+        var e = document.createElement('script');
+        e.type = 'text/javascript';
+        e.src = document.location.protocol +
+          '//connect.facebook.net/en_US/all.js';
+        e.async = true;
+        document.getElementById('fb-root').appendChild(e);
+      }());
+	  
+
+    </script>	
+
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+  {lang: 'fr'}
+</script>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>	
+
+<script src="foundation/js/foundation.min.js"></script>
+<script src="foundation/js/vendor/jquery.cookie.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/js/select2.min.js"></script>
+
+<script src="js/jquery.iframe-transport.js"></script>
+<script src="js/jquery.fileupload.js"></script>	
+<script src="js/load-image.min.js"></script>
+<script src="js/canvas-to-blob.min.js"></script>
+<script src="js/jquery.fileupload-ip.js"></script>
+
+
+<script>
+	$(document).foundation();
+</script>
+
+
+</body>
+</html>
