@@ -467,11 +467,22 @@ JS
 </script>
 JS
 ;
-	
-	$scripts .= <<HTML
-<link rel="stylesheet" type="text/css" href="/js/jquery.imgareaselect-0.9.8/css/imgareaselect-default.css" />
-<script type="text/javascript" src="/js/jquery.imgareaselect-0.9.8/scripts/jquery.imgareaselect.pack.js"></script>
+
+	$header .= <<HTML
+<link rel="stylesheet" type="text/css" href="/js/jquery.imgareaselect-0.9.10/css/imgareaselect-default.css" />
 <link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.css" />
+
+HTML
+;
+
+# <script type="text/javascript" src="/js/jquery.imgareaselect-0.9.8/scripts/jquery.imgareaselect.pack.js"></script>
+# <script type="text/javascript" src="/js/jquery.imgareaselect-0.9.11/scripts/jquery.imgareaselect.touch-support.js"></script>
+# <script type="text/javascript" src="/js/imgareaselect-1.0.0/jquery.imgareaselect.min.js"></script> --> seems broken
+  
+
+
+	$scripts .= <<HTML
+<script type="text/javascript" src="/js/jquery.imgareaselect-0.9.11/scripts/jquery.imgareaselect.touch-support.js"></script>
 <script type="text/javascript" src="/js/jquery.tagsinput.js"></script>
 <script type="text/javascript" src="/js/jquery.form.js"></script>
 <script type="text/javascript" src="/js/jquery.autoresize.js"></script>

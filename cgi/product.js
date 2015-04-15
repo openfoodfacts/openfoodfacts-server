@@ -1,3 +1,23 @@
+// This file is part of Product Opener.
+// 
+// Product Opener
+// Copyright (C) 2011-2015 Association Open Food Facts
+// Contact: contact@openfoodfacts.org
+// Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+// 
+// Product Opener is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as
+// published by the Free Software Foundation, either version 3 of the
+// License, or (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+// 
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 var ias;
 var code;
 var current_cropbox;
@@ -132,11 +152,16 @@ function rotate_image(event) {
 	//var transform = "rotate(" + angles[imagefield] + "deg)";
 	//$('#cropimgdiv_' + imagefield).css("-moz-transform", transform);
 
+		console.log("rotate_image - angle: " + angle);
 
 		var selection = ias.getSelection();
 		
+		console.log("selection - x1: " + selection.x1 + ", y1: " + selection.y1 + ", x2: " + selection.x2 + ", y2: " + selection.y2);
+		
 		var w = $('#crop_' + imagefield).width();
 		var h = $('#crop_' + imagefield).height();
+		
+		console.log("w: " + w + ", h: " + h);
 		
 		if (angle == 90) {
 			x1 = h - selection.y2;
@@ -151,29 +176,57 @@ function rotate_image(event) {
 			y2 = w - selection.x1;
 		}
 
+		alert('rotating : removing imgareaselect');
 
+		
+	if (ias) {
+		ias.cancelSelection();
+		ias.setOptions({ show: false });
+		ias.setOptions({ imageHeight : w, imageWidth : h });
+		ias.remove();
+	}
 
+			alert('rotating : update_image');
+
+	
 	//$('#ias_' + imagefield).html('');
 	update_image(imagefield);
+	$('#crop_' + imagefield).attr("width",h);
+	$('#crop_' + imagefield).attr("height",w);	
+	
+	alert('rotating : removed imgareaselect, will instance new one');
+	
+	init_image_area_select(imagefield);
+	
+	alert("1 - setting new width and height");
 	
 	//init_image_area_select(imagefield);
 
-	ias.cancelSelection();
-	ias.setOptions({ show: false });
-	$('#crop_' + imagefield).attr("width",h);
-	$('#crop_' + imagefield).attr("height",w);
-	ias.update();
-	ias.setOptions({ imageHeight : w, imageWidth : h });
+	//ias.cancelSelection();
+	//ias.setOptions({ show: false });
+
+	//ias.update();
+	//ias.setOptions({ imageHeight : w, imageWidth : h });
+	
+	alert("2 : w - h" + w + ' ' + h + '  setting new selection');
+	
+	
 	if ((selection.width > 0) && (selection.height > 0)) {		
 		ias.setSelection(x1,y1,x2,y2);
 		ias.update();
 		ias.setOptions({ show: true });
 	}
+	
+	alert("3");
 
 	ias.update();	
 	
+	console.log("x1: " + x1 + ", y1: " + y1 + ", x2: " + x2 + ", y2: " + y2);
+
 	selection = ias.getSelection();
 	imagefield_selection[imagefield] = selection;
+	
+	console.log("new selection - x1: " + selection.x1 + ", y1: " + selection.y1 + ", x2: " + selection.x2 + ", y2: " + selection.y2);
 	
 	event.stopPropagation();
 	event.preventDefault();
@@ -195,7 +248,7 @@ function change_image(imagefield, imgid) {
 	html += '<a href="' + img_path + image.imgid + '.jpg" target="_blank">' + Lang.image_open_full_size_image + '</a><br/>';
 	html +=	'<input type="checkbox" id="white_magic_' + imagefield + '" style="display:inline" /><label for="white_magic_' + imagefield 
 		+ '" style="display:inline">' + Lang.image_white_magic + '</label>';
-	html += '<div id="ias_' + imagefield + '"></div>';
+	html += '<div id="ias_' + imagefield + '" style="position:relative;"></div>';
 	html += '<div id="cropbutton_' + imagefield + '" class="small_buttons"></div>';
 	html += '<div id="cropbuttonmsg_' + imagefield + '" class="ui-state-highlight ui-corner-all" style="padding:2px;margin-top:10px;margin-bottom:10px;display:none" ></div>';
 	
@@ -367,23 +420,30 @@ function update_display(imagefield) {
 			html += '</ul>';			
 			
 			html += '<div style="clear:both" class="command upload_image_div small_buttons">';
-			html += '<span class="btn btn-success fileinput-button" id="imgsearchbutton_' + id + '">'
-+ '<span>' + Lang.upload_image + '</span>'
-+ '<input type="file" accept="image/*" class="img_input" name="imgupload_' + id + '" id="imgupload_' + id + '" data-url="/cgi/product_image_upload.pl" multiple/>'
-+ '</span></div><br />'
+			html += '<a href="#" class="button small expand" id="imgsearchbutton_' + id + '">' + Lang.upload_image
++ '<input type="file" accept="image/*" class="img_input" name="imgupload_' + id + '" id="imgupload_' + id
++ '" data-url="/cgi/product_image_upload.pl" multiple '
++ 'style="position: absolute;right:0;bottom:0;top:0;cursor:pointer;opacity:0;font-size:40px;"/>' 
++ '</a>'
++ '</div>'
 + '<p class="note">' + Lang.upload_image_note + '</p>'
-+ '<div id="progressbar_' + id + '" class="progress" style="display:none;height:12px;"></div>'
-+ '<div id="imgsearchmsg_' + id + '" class="ui-state-highlight ui-corner-all" style="display:none;margin-top:5px;">' + Lang.uploading_image + '</div>'
-+ '<div id="imgsearcherror_' + id + '" class="ui-state-error ui-corner-all" style="display:none;margin-top:5px;">' + Lang.image_upload_error + '</div>';
++ '<div id="progressbar_' + id + '" class="progress" style="display:none">'
++  '<span id="progressmeter_' + id + '" class="meter" style="width:0%"></span>'
++ '</div>'
++ '<div id="imgsearchmsg_' + id + '" data-alert class="alert-box info" style="display:none">' + Lang.uploading_image
++ '<a href="#" class="close">&times;</a>'
++ '</div>'
++ '<div id="imgsearcherror_' + id + '" data-alert class="alert-box alert" style="display:none">' + Lang.image_upload_error
++ '<a href="#" class="close">&times;</a>'
++ '</div>';
 			
 
-		//	html += '<div id="uploadimagemsg_' + id + '" class="ui-state-highlight ui-corner-all" style="clear:both;padding:2px;margin-top:10px;margin-bottom:10px;display:none" ></div>';
 			html += '<div class="cropbox" id="cropbox_' + id +'"></div>';
 			html += '<div class="display" id="display_' + id +'"></div>';
 			$this.html(html);			
 			update_display(id);
 			
-			
+
 
 	var imagefield = id;
 		
@@ -399,7 +459,7 @@ function update_display(imagefield) {
 
 			if (data.result) {
 			if (data.result.image) {
-	$("#imgsearchmsg_" + imagefield).html('Image reÃ§ue');
+	$("#imgsearchmsg_" + imagefield).html(Lang.image_received);
 	$("input:hidden[name=\"" + data.imagefield + ".imgid\"]").val(data.result.image.imgid);
 	$([]).selectcrop('add_image',data.result.image);
 	$(".select_crop").selectcrop('show');
@@ -426,8 +486,9 @@ function update_display(imagefield) {
 		start: function (e, data) {
 			$("#imgsearchbutton_" + imagefield).hide();
 			$("#imgsearcherror_" + imagefield).hide();
-			$("#imgsearchmsg_" + imagefield).html('<img src="/images/misc/loading2.gif" /> Image en cours d\'envoi').show();
-			$("#progressbar_" + imagefield).progressbar({value : 0 }).show();
+			$("#imgsearchmsg_" + imagefield).html('<img src="/images/misc/loading2.gif" /> ' + Lang.uploading_image).show();			
+			$("#progressbar_" + imagefield).show();
+			$("#progressmeter_" + imagefield).css('width', "0%");
 			
 			$('.img_input[name!="imgupload_' + imagefield + '"]').prop("disabled", true);
                     
@@ -438,21 +499,11 @@ function update_display(imagefield) {
                     // Iframe Transport does not support progress events.
                     // In lack of an indeterminate progress bar, we set
                     // the progress to 100%, showing the full animated bar:
-                    $("#progressbar_" + imagefield).progressbar(
-                            'option',
-                            'value',
-                            100
-                        );
+                    $("#progressmeter_" + imagefield).css('width', "100%");
                 }
             },
             progress: function (e, data) {
-
-                    $("#progressbar_" + imagefield).progressbar(
-                        'option',
-                        'value',
-                        parseInt(data.loaded / data.total * 100, 10)
-                    );
-                
+				$("#progressmeter_" + imagefield).css('width', parseInt(data.loaded / data.total * 100, 10) + "%");
             }
 		
     });			

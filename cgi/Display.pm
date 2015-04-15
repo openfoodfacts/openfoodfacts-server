@@ -2088,18 +2088,21 @@ sub search_and_display_products($$$$$) {
 				if ($country eq 'en:world') {
 					unshift (@current_drilldown_fields, "countries");
 				}
-				$html .= "<p>" . lang("explore_products_by") . " ";
+				$html .= <<HTML
+<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown small">$Lang{explore_products_by}{$lc}</button><br/>
+<ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
+HTML
+;				
 				foreach my $newtagtype (@current_drilldown_fields) {
 				
-					$html .= "<a href=\"" . $request_ref->{current_link} . "/" . $tag_type_plural{$newtagtype}{$lc} . "\">"
-						. lang($newtagtype . "_p") . "</a>, ";
+					$html .= "<li><a href=\"" . $request_ref->{current_link} . "/" . $tag_type_plural{$newtagtype}{$lc} . "\">"
+						. ucfirst(lang($newtagtype . "_p")) . "</a></li>\n";
 				}
-				$html =~ s/, $//;
-				$html .= "</p>";
+				$html .= "</ul>\n\n";
 			}
 		
 		}
-
+		
 	
 		if (defined $request_ref->{jqm}) {
 			if (not defined $request_ref->{jqm_loadmore}) {
@@ -2147,9 +2150,9 @@ HTML
 				}
 				
 			# Display the brand if we don't have an image
-			if (($img eq '') and ($product_ref->{brands} ne '')) {
-				$product_name .= ' - ' . $product_ref->{brands};
-			}				
+			#if (($img eq '') and ($product_ref->{brands} ne '')) {
+			#	$product_name .= ' - ' . $product_ref->{brands};
+			#}				
 				
 				$html .= <<HTML
 <li>
@@ -3757,7 +3760,7 @@ HTML
 			$content = sprintf(lang("you_are_connected_as_x"), $User_id) . <<HTML
 <form method="post" action="/cgi/session.pl">
 <input type="hidden" name="length" value="logout" />
-<input type="submit" name=".submit" value="$signout" class="jbutton" />
+<input type="submit" name=".submit" value="$signout" class="button small" />
 </form>
 $links
 HTML
@@ -3766,7 +3769,7 @@ HTML
 	
 		push @$blocks_ref, {
 			'title'=> lang("hello") . ' ' . $User{name} . ' !',
-			'content'=>$content,
+			'content'=>"<!-- off canvas repeat start -->\n$content\n<!-- off canvas repeat end -->\n",
 		};	
 	}
 	
@@ -3830,7 +3833,7 @@ sub display_blocks($)
 	foreach my $block_ref (@$blocks_ref) {
 		$html .= "
 <div class=\"block\">
-<div class=\"block_title\">$block_ref->{title}</div>
+<h3 class=\"block_title\">$block_ref->{title}</h3>
 <div class=\"block_content\">
 $block_ref->{content}
 </div>
@@ -4014,31 +4017,27 @@ sub display_new($) {
 #<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-lightness/jquery-ui.css" />
 	
 	my $html = <<HTML
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:food="http://data.lirmm.fr/ontologies/food#" xmlns:gr="http://purl.org/goodrelations/v1#">
-<head>
+<!doctype html>
+<html class="no-js" lang="$lang">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/foundation/css/app.css" />
+    <link rel="stylesheet" href="/foundation/foundation-icons/foundation-icons.css" />
+    <script src="/foundation/js/vendor/modernizr.js"></script>
+	
 <title>$title</title>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="language" content="$Lang{language}{$lang}" />
 $meta_description
-
-<script type="text/javascript" src="/js/jquery/1.7.1/jquery.min.js"></script>
+	
+<script src="/foundation/js/vendor/jquery.js"></script>
 <script type="text/javascript" src="/js/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/js/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
 
-
-<script type="text/javascript" src="/js/jquery.cookie.min.js"></script>	
-<link href="/js/select2/select2.css" rel="stylesheet"/>
-<script src="/js/select2/select2.js"></script>
-	
-	
-$scripts
+<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" rel="stylesheet" />
 
 <script>
 \$(function() {
-\$( ".jbutton" ).button();
-\$( "#sbutton" ).button({ icons: {primary:'ui-icon-search'}, text: false}).click(function() { \$("#search_form").submit()});
 \$("#select_country").select2({
 	placeholder: "$Lang{select_country}{$lang}",
     allowClear: true
@@ -4056,12 +4055,6 @@ $initjs
 
 $header
 
-HTML
-;
-
-	$html .= lang("header");
-	
-	$html .= <<HTML
 <meta property="fb:app_id" content="219331381518041" />
 <meta property="og:type" content="$og_type"/>
 <meta property="og:title" content="$canon_title"/>
@@ -4072,149 +4065,8 @@ $og_images2
 
 <style type="text/css" media="all">
 
-body,html {
-	min-height:101%;
-	font-family: "Arial", "Helvetica", "Verdana", "sans-serif";
-	font-size: 100%;
-	background: #f8f8f8;	
-	padding:0px;
-	margin:0px;
-	width:100%;
-}
-
-img {
-	border:none;
-}
-
-input, select, textarea{
-    font-size: 100%;
-}  
-
-.small_buttons .ui-button {
-	font-size:1em;
-	font-weight:normal;
-}		
-.small_buttons .ui-button {
-	font-size:1em;
-	font-weight:normal;
-	line-height:1.2;
-	padding: 0.2em 0.5em;
-}	
-
-.small_buttons .ui-button .ui-button-text {
-	font-size:1em;
-	font-weight:normal;
-	line-height:1.2;
-	padding:0px;
-}	
-
-
-#logo {
-	margin-bottom:10px;
-}
-
-#header {
-	height:33px;
-	position:relative;
-}
-
-#search {
-	position: absolute;
-	right:2em;
-	top:8px;
-}
-
-#search_terms {
-	width:220px;
-}
-
-#sbutton {
-	font-size:12px;
-	width:20px;
-	height:19px;
-}
-
-#sharebuttons {
-	position:absolute;
-	right:300px;
-	top:8px;
-	margin-right:2em;
-}
-
-.sharebutton { float:left; padding-right:10px;padding-bottom:5px;}	
-
-#column {
-
-	position:absolute;
-	left:0px;
-	top:0px;
-	width:183px;
-	padding:21px;
-	padding-right:16px;
-	padding-top:11px;
-	font-size:0.9em;
-}
-
-#main {
-	width:auto;
-	margin-left:220px;
-}
-
-#content {
-	margin:0px;
-	width:auto;
-	border-left:1px solid #ddddee;
-	border-bottom:1px solid #ddddee;
-	background:white;
-	padding:2em;	
-}
-
-#content2 {
-}
-
-#side {
-	float:right;
-	width: 285px;
-	background:#f0f8ff;
-	border-left:2em solid white;
-}
-
-#side_content {
-	border:1px solid #e0f0f8;
-	padding:10px;
-}
-
-#side_content .block_title {
-	padding-bottom:5px;
-	background:transparent url(/images/misc/bar.265.png) bottom left no-repeat;
-	margin-bottom:15px;
-	font-size:1.1em;
-	font-weight:bold;
-}
-
-#side_content .block {
-	margin-bottom:40px;
-}
-
-#footer{
-	font-size:1em;
-	padding:0px;
-	margin-bottom:20px;
-}
-
-
-.footdiv {
-	width:300px; margin-right:20px;float:left;
-}
-
-#footerinside {
-	padding:10px;
-	padding-top:10px;
-	padding-bottom:10px;
-}
 
 a { text-decoration: none;}
-
 a, a:visited { color: blue;}
 a:hover { text-decoration: underline; }
 
@@ -4284,15 +4136,6 @@ thead, tbody { margin:0px; padding:0px; }
 .ui-autocomplete li { font-size: 1em;}
 #nutriment_carbon-footprint_tr { background-color:#ddffdd }
 
-#content h1, h2, h3, h4 {
-	margin-top:20px;
-	margin-bottom:10px;
-	width:auto;
-	border-bottom:1px solid #ccc;
-	display:block;
-	clear:left;
-}
-
 ul.products {
 	list-style:none;
 	padding: 0;
@@ -4303,11 +4146,10 @@ ul.products {
 	text-align:center;
 	display:block;
 	width:120px;;
-	height:165px;
+	height:150px;
 	padding:10px;
 	overflow:hidden;
 	margin:10px;
-	margin-bottom:0px;	
 	float:left;
 }
 
@@ -4326,31 +4168,7 @@ ul.products {
 	vertical-align:middle;
 }
 
-.fileinput-button {
-  position: relative;
-  overflow: hidden;
-}
-.fileinput-button input {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0;
-  border: solid transparent;
-  border-width: 0 0 100px 200px;
-  opacity: 0;
-  filter: alpha(opacity=0);
-  -moz-transform: translate(-300px, 0) scale(4);
-  direction: ltr;
-  cursor: pointer;
-}
 
-#pages {
-	clear:left;
-}
-#pages div {margin-left:5px; display:inline;}
-#current_page {font-weight:bold;}
-#breadcrumbs {clear:both;padding-top:20px}
-#breadcrumbs div {display:inline}
 
 .level_3, a.level_3 {
 	color:red;
@@ -4363,6 +4181,53 @@ ul.products {
 .level_1, a.level_1 {
 	color:green;
 }
+
+
+<!-- foundation styles -->
+
+.row{
+  &.full-width{
+    max-width: 100% !important;
+    .row{
+      margin: 0 auto;
+      max-width: 62.5rem;
+      background: inherit;
+    }  
+  }
+}
+
+.select2-container--default .select2-selection--single {
+border-radius:0;
+font-size: 0.875rem;
+  position: relative;
+  height: 1.75rem;
+  top: 0.53125rem;
+  width:10rem;
+}
+
+.left-small {
+  border-right:0;
+}
+
+.tab-bar-section.middle {
+  right:0;
+}
+
+a, a:hover, a:visited {
+color:blue;
+}
+
+a:hover { text-decoration:underline}
+
+a.button {
+	color:white;
+}
+
+.products {
+line-height:1.2;
+}
+
+#sharebuttons li { text-align:center }
 
 HTML
 ;
@@ -4382,12 +4247,26 @@ $google_analytics
 </head>
 <body$bodyabout>
 
-<div id="column">
+
+<nav class="top-bar" data-topbar role="navigation" id="top-bar" style="background-color:#00d400">
+	<ul class="title-area">
+		<li class="name">
+			<h2><a href="/" style="font-size:1rem;background-color:#ff0000;">Open Food Facts</a></h2>
+		</li>
+		<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+		<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+	</ul>
+
+	<section class="top-bar-section">
+
+
+	<!-- Left Nav Section -->	
+
+
 
 HTML
 ;
 
-	$html .= lang("column");
 
 # <label for="select_country">$Lang{select_country}{$lang}</label><br/>
 	
@@ -4397,7 +4276,9 @@ HTML
 		$select_country_options =~ s/<option value="world"(.*?)<\/option>//;
 	}
 	
-	my $select_country = <<HTML
+	$html .= <<HTML
+	<ul class="left">
+		<li class="has-form has-dropdown" style="background-color:#ffcc00;">
 <select id="select_country" style="width:100%">
 <option></option>
 HTML
@@ -4406,6 +4287,8 @@ $select_country_options
 .
 <<HTML
 </select>
+		</li>
+		
 HTML
 ;
 	
@@ -4426,115 +4309,234 @@ HTML
 				$osubdomain = $cc;
 			}
 			if (($olc eq $lc) or ($olc eq $lclc)) {
-				$langs .= " - $Langs{$olc}";
+				$langs .= "<li>$Langs{$olc}</li>\n";
 			}
 			else {
-				$langs .= " - <a href=\"http://$osubdomain.$domain/\">$Langs{$olc}</a>"
+				$langs .= "<li><a href=\"http://$osubdomain.$domain/\">$Langs{$olc}</a></li>"
 			}
 		}
 	}
-	$langs =~ s/- //;
+	
+
 	if ($langs =~ /<a/) {
-		$select_country .= "<div id=\"languages\" style=\"margin-left:10px;margin-top:5px;\">$langs</a></div>";
+		$html .= <<HTML
+
+      <li class="has-dropdown">
+        <a href="#" style="background-color:#00d400">Langue</a>
+        <ul class="dropdown">
+			$langs
+        </ul>
+      </li>
+		
+HTML
+;
 	}	
-
-
-	$html =~ s/<select_country>/$select_country/;
-	
-	my $Lc = ucfirst($lc);
-	if ($lc ne 'fr') {
-		$Lc = '';
-	}
 	
 	$html .= <<HTML
-
-</div>
-
-<div id="main">
-
-<div id="header">
-
-<div id="search">
-<form action="/cgi/search.pl" id="search_form">
-<input name="search_terms" id="search_terms" placeholder="$Lang{search}{$lang}" title="$Lang{search_title}{$lang}"></input>
-<input name="search_simple" id="search_simple" value="1" type="hidden" />
-<a id="sbutton" value="$Lang{search}{$lang}">&nbsp;</a><br />
-</form>
-<div style="float:right;font-size:0.9em;"><a href="/cgi/search.pl">$Lang{advanced_search}{$lang}</a></div>
-</div>
-
-<div id="sharebuttons">
-<div style="float:left;padding-right:15px;" class="sharebutton">
-<a href="https://twitter.com/share" class="twitter-share-button" data-lang="$lc" data-via="$Lang{twitter_account}{$lang}" data-url="$canon_url" data-count="vertical">Tweeter</a>
-</div>
-<div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="$canon_url" layout="box_count"></fb:like></div>
-<div style="float:left;padding-right:15px;padding-bottom:10px;" class="sharebutton"><g:plusone size="tall" count="true" href="$canon_url"></g:plusone></div>
-</div>
-
-
-</div>
-
-<div id="content">
-
-
-
-
+	</ul>	
 HTML
 ;
 
 
-if (not ($request_ref->{full_width} == 1)) {
 
+	
+	my $blocks = display_blocks($request_ref);
+	my $aside_blocks = $blocks;
+	
+	# keep only the login block for off canvas
+	$aside_blocks =~ s/(.*)<!-- off canvas repeat start -->//s;
+	$aside_blocks =~ s/<!-- off canvas repeat end -->(.*)//s;
+	
 	$html .= <<HTML
 
-<div id="side">
-<div id="side_content" class="small_buttons">
-HTML
 
-. display_blocks($request_ref)
+	
+	<!-- Right Nav Section -->
+	<ul class="right">
+		<li class="show-for-xlarge-up" style="background-color:#00d400">
+			<form action="/cgi/search.pl" id="search2">
+			<div class="row collapse ">
 
-. <<HTML
+					<div class="small-8 columns">
+						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lang}" name="search_terms" id="q2">
+						<input name="search_simple" id="search_simple" value="1" type="hidden" />
+					</div>
+					<div class="small-4 columns">
+						 <button type="submit" title="$Lang{search}{$lang}"><i class="fi-magnifying-glass"></i></button>
+					</div>
 
+			</div>
+			</form>	
+		</li>
+		
+	
+		<li class="show-for-large-up"><a href="$Lang{menu_discover_link}{$lang}" style="background-color:#00ccff">$Lang{menu_discover}{$lang}</a></li>
+		<li class="show-for-large-up"><a href="$Lang{menu_contribute_link}{$lang}" style="background-color:#00ccff">$Lang{menu_contribute}{$lang}</a></li>
+		<li class="show-for-large-up"><a href="$Lang{menu_add_a_product_link}{$lang}" style="background-color:#0066ff">$Lang{menu_add_a_product}{$lang}</a></li>
+		<li class="show-for-large-up"><a href="$Lang{menu_discover_link}{$lang}" style="background-color:#0066ff">S'identifier</a></li>
+		
+		<li class="hide-for-large-up"><a href="$Lang{menu_discover_link}{$lang}" style="background-color:#00ccff">$Lang{menu_discover}{$lang}</a></li>
+		<li class="hide-for-large-up has-dropdown"><a href="$Lang{menu_contribute_link}{$lang}" style="background-color:#0066ff">$Lang{menu_contribute}{$lang}</a>
+			<ul class="dropdown">			
+				<li><a href="$Lang{menu_add_a_product_link}{$lang}" style="background-color:#0051cc">$Lang{menu_add_a_product}{$lang}</a></li>
+				<li><a href="#" style="background-color:#0051cc">S'identifier</a></li>	
+			</ul>
+		</li>
+
+	</ul>	
+	
+	</section>
+	
+
+</nav>
+
+
+<nav class="tab-bar show-for-small-only" style="background-color:#ffcc00">
+
+  <div class="left-small" style="background-color:#00ccff;padding-top:4px;">
+    <a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix" style="background-color:#00ccff;">
+	<i class="fi-torso" style="color:white;font-size:1.8rem"></i></a>
+  </div>
+  <div class="middle tab-bar-section" style="background-color:#ffcc00; padding-top:4px;">
+			<form action="/cgi/search.pl" id="search2">
+			<div class="row collapse ">
+
+					<div class="small-10 columns">
+						<input type="text" placeholder="Chercher un produit" name="q" id="q2">
+					</div>
+					<div class="small-2 columns">
+						 <a href="#" class="button postfix"><i class="fi-magnifying-glass"></i></a>
+					</div>
+
+			</div>
+			</form>	  
+  </div>
+ </nav>
+
+ 
+ 
+ 
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+
+
+    <!-- Off Canvas Menu -->
+    <aside class="left-off-canvas-menu" style="color:white;background-color:#00ccff;">
+        <!-- whatever you want goes here -->
+
+
+	$aside_blocks
+		
+    </aside>
+
+
+  <!-- close the off-canvas menu -->
+  <a class="exit-off-canvas"></a>
+
+  
+  
+<div class="row full-width" style="max-width: 100% !important;">
+	<div class="xxlarge-1 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;">
+		<div class="sidebar">
+		
+			<form action="/cgi/search.pl" id="search2" class="hide-for-xlarge-up">
+			<div class="row collapse">
+
+					<div class="small-10 columns">
+						<input type="text" placeholder="Chercher un produit" name="q" id="q2">
+					</div>
+					<div class="small-2 columns">
+						 <a href="#" class="button postfix"><i class="fi-magnifying-glass"></i></a>
+					</div>
+
+			</div>
+			</form>		
+			
+
+<div style="text-align:center">
+<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" width="178" height="141" alt="Open Food Facts" style="margin-bottom:1rem"/></a>
 </div>
-</div>
+
+<p>Open Food Facts répertorie les produits alimentaires du monde entier.</p>
+
+<ul class="small-block-grid-3" id="sharebuttons">
+	<li>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-lang="$lc" data-via="$Lang{twitter_account}{$lang}" data-url="$subdomain.${server_domain}" data-count="vertical">Tweeter</a>
+	</li>
+	<li><fb:like href="$subdomain.${server_domain}" layout="box_count"></fb:like></li>
+	<li><g:plusone size="tall" count="true" href="$subdomain.${server_domain}"></g:plusone></li>
+</ul>
 
 
-HTML
-;
-}
+$blocks
+	
+		</div> <!-- sidebar -->
+	</div> <!-- left column -->
+		
+	<div class="xxlarge-11 xlarge-10 large-9 medium-8 columns" style="padding-top:1rem">
 
-	$html .= <<HTML
 
-<div id="content2">
+
+
 $h1_title
 $$content_ref
-</div>
-
-<hr class="floatclear" />
-
-</div>
-
-HTML
-;
 
 
+	</div> <!-- main content column -->
+</div> <!-- row -->
+
+	</div> <!-- inner wrap -->
+</div> <!-- off-content wrap -->
 
 
+<!-- footer -->
 
-$html .= <<HTML
+<div id="footer" class="row full-width" style="max-width: 100% !important;padding:1rem;">
 
-<div id="footer">
-<div id="footerinside">
-HTML
-;
-
-	$html .= lang("footer");
+<ul class="small-block-grid-2 medium-block-grid-2 large-block-grid-4">
+	<li>
+		<h4>Open Food Facts</h4>
+		<p>Une base de données collaborative, libre et ouverte des produits alimentaires du monde entier.</p>
+		<ul>
+			<li><a href="/mentions-legales">Mentions légales</a></li>
+			<li><a href="/conditions-d-utilisations">Conditions d'utilisation</a></li>
+			<li><a href="/data">Données</a></li>
+		</ul>
+	</li>
 	
-	$html .= <<HTML
-</div>
-</div>
+	<li>
+		<h4>Découvrez le projet</h4>
+		<ul>
+			<li><a href="/qui-sommes-nous">Qui sommes nous</a></li>
+			<li><a href="/faq">Questions fréquentes</a></li>
+			<li><a href="/blog">Le blog d'Open Food Facts</a></li>
+			<li><a href="/presse-et-blogs">Presse et blogs</a></li>
+		</ul>
+	</li>
+	
+	<li>
+		<h4>Installez l'app Open Food Facts</h4>
 
-</div>
+<a href="https://itunes.apple.com/fr/app/open-food-facts/id588797948"><img src="/images/misc/Available_on_the_App_Store_Badge_FR_135x40.png" alt="Disponible sur l'App Store" width="135" height="40" /></a><br/>
+
+<a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponible sur Google Play" width="135" height="47" /></a><br/>
+<a href="http://world.openfoodfacts.org/files/off.apk">apk</a>
+
+<a href="http://www.windowsphone.com/fr-fr/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"><img src="/images/misc/154x40_WP_Store_blk.png" alt="Windows Phone Store" width="154" height="40" /></a><br/>
+	</li>
+	
+	<li>
+		<h4>Rejoignez la communauté</h4>
+→ <a href="http://fr.wiki.openfoodfacts.org">le wiki</a><br />
+→ <a href="http://twitter.com/openfoodfactsfr">Twitter</a><br/>
+→ <a href="https://plus.google.com/u/0/b/102622509148794386660/102622509148794386660/">Google+</a><br />
+→ <a href="https://www.facebook.com/OpenFoodFacts.fr">Facebook</a><br />
++ <a href="https://www.facebook.com/groups/356858984359591/">groupe des contributeurs</a><br />
+→ <a href="mailto:off-fr-subscribe\@openfoodfacts.org">envoyez un e-mail vide</a> pour
+vous abonner à la liste de discussion<br/>
+	</li>
+	
+</ul>
 
 </div>
 
@@ -4565,6 +4567,17 @@ HTML
 </script>
 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>	
+
+<script src="/foundation/js/foundation.min.js"></script>
+<script src="/foundation/js/vendor/jquery.cookie.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/js/select2.min.js"></script>
+
+$scripts
+
+<script>
+	\$(document).foundation();
+</script>
 
 
 </body>
@@ -4602,21 +4615,32 @@ sub display_product_search_or_add($)
 	
 	my $title = lang("add_product");
 	
+	my $or = $Lang{or}{$lc};
+	$or =~ s/( |\&nbsp;)?://;
+	
 	my $html = '';
 	
 	$html .= start_multipart_form(-id=>"product_search_or_add",-action=>"/cgi/product.pl") ;
 
 	$html .= display_search_image_form();
 	
-	$html .= 
-"<b>" . lang("or") . "</b> " . lang("barcode_number") . "<input type=\"text\" name=\"code\" label=\"" . lang("barcode") . "\" value=\"\" size=\"13\" />
-<input type=\"hidden\" name=\"action\" value=\"search_or_add\" /><input type=\"submit\" value=\"" . lang("add") . "\" class=\"jbutton\" /><br /><br />
+	$html .= <<HTML
 
-<b>" . lang("or") . "</b> <input type=\"submit\" value=\"" . lang("no_barcode") . "\" class=\"jbutton\" />
-	
+      <div class="row collapse">	  
+        <div class="small-9 columns">
+          <input type="text" placeholder="$or $Lang{barcode}{$lc}">
+        </div>
+        <div class="small-3 columns">
+          <a href="#" class="button postfix">$Lang{add}{$lc}</a>
+        </div>
+      </div>
+	  
+	  <input type="submit" value="$Lang{no_barcode}{$lc}" class="button tiny" />
 </form>
-"
+HTML
 ;
+	
+
 	
 		
 	unshift @$blocks_ref, {
@@ -4731,19 +4755,14 @@ sub display_product($)
 	my $description = undef;
 	
 	$scripts .= <<HTML
-<link rel="stylesheet" href="/js/nivo-zoom-off.css" type="text/css" media="screen" />
-<script src="/js/jquery.nivo.zoom.pack.js" type="text/javascript"></script>	
 HTML
 ;
 	$initjs .= <<JS
-\$('body').nivoZoom();
 JS
 ;
 	
 	$styles .= <<CSS
 .image_box {
-	float:right;
-	border:1px solid grey;
 	background-color:#ffffff;
 	padding:10px;
 	text-align:center;
@@ -4815,10 +4834,10 @@ CSS
 	}
 
 	
-	$html .= "<div class=\"edit_button small_buttons\" style=\"float:right;margin-top:-10px;\"><a href=\"/cgi/product.pl?type=edit&code=$code\" class=\"jbutton\">" . lang("edit_product_page") . "</a></div>";
+	$html .= "<div class=\"edit_button right\" style=\"float:right;margin-top:-10px;\"><a href=\"/cgi/product.pl?type=edit&code=$code\" class=\"button small\">" . lang("edit_product_page") . "</a></div>";
 	
 	if ($admin) {
-		$html .= "<div class=\"delete_button small_buttons\" style=\"float:right;margin-top:-10px;margin-right:10px;\"><a href=\"/cgi/product.pl?type=delete&code=$code\" class=\"jbutton\">" . lang("delete_product_page") . "</a></div>";
+		$html .= "<div class=\"delete_button right\" style=\"float:right;margin-top:-10px;margin-right:10px;\"><a href=\"/cgi/product.pl?type=delete&code=$code\" class=\"button small\">" . lang("delete_product_page") . "</a></div>";
 	}	
 	
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
@@ -4852,14 +4871,22 @@ CSS
 	my $minheight = 0;
 	my $html_image = display_image_box($product_ref, 'front', \$minheight);
 	$html_image =~ s/ width="/ itemprop="image" width="/;
-	$html .= "<h2>" . lang("product_characteristics") . "</h2>
-	<div style=\"min-height:${minheight}px;\">"
-	. $html_image;
 	
+	my $html_fields = '';
 	foreach my $field (@fields) {
 		# print STDERR "display_product() - field: $field - value: $product_ref->{$field}\n";
-		$html .= display_field($product_ref, $field);
-	}
+		$html_fields .= display_field($product_ref, $field);
+	}	
+
+	$html .= <<HTML
+<h2>$Lang{product_characteristics}{$lc}</h2>
+<div style=\"min-height:${minheight}px\">
+<div class="right">$html_image</div>
+$html_fields
+</div>
+HTML
+;
+
 	
 	$html_image = display_image_box($product_ref, 'ingredients', \$minheight);	
 	
@@ -4869,10 +4896,14 @@ CSS
 		$ingredients_text = $product_ref->{ingredients_text_with_allergens};
 	}
 	
-	$html .= "</div>
-	<h2>" . lang("ingredients") . "</h2>
-	<div style=\"min-height:${minheight}px\">"
-	. $html_image;
+		$html .= <<HTML
+<h2>$Lang{ingredients}{$lc}</h2>
+<div style=\"min-height:${minheight}px\">
+<div class="right">$html_image</div>
+
+HTML
+;
+	
 		
 	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
 	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . " :</span> <span id=\"ingredients_list\" property=\"food:ingredientListAsText\">$ingredients_text</span></div>";
@@ -4942,11 +4973,17 @@ HTML
 	
 	$html_image = display_image_box($product_ref, 'nutrition', \$minheight);	
 	
-	$html .= "</div>
-	<h2>" . lang("nutrition_data") . "</h2>"
-	. "<div style=\"min-height:${minheight}px\">"
-	. $html_image
-	. display_nutrient_levels($product_ref);
+	$html .= "</div>";
+	
+	
+	$html .= <<HTML
+<h2>$Lang{nutrition_data}{$lc}</h2>
+<div style=\"min-height:${minheight}px\">
+<div class="right">$html_image</div>
+
+HTML
+;	
+	$html .= display_nutrient_levels($product_ref);
 
 	
 	$html .= display_field($product_ref, "serving_size") . display_field($product_ref, "br") ;
@@ -5021,7 +5058,7 @@ HTML
 		$html .= display_field($product_ref, 'states');
 	}
 	
-	$html .= "<div class=\"edit_button\"><a href=\"/cgi/product.pl?type=edit&code=$code\" class=\"jbutton\">" . lang("edit_product_page") . "</a></div>";
+	$html .= "<div class=\"edit_button\"><a href=\"/cgi/product.pl?type=edit&code=$code\" class=\"button small\">" . lang("edit_product_page") . "</a></div>";
 
 	
 	

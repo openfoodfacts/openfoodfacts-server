@@ -195,13 +195,13 @@ sub scan_code($) {
 }
 
 
-sub display_search_image_form_old() {
+sub display_search_image_form_older() {
 
 	my $html = '';
 	
 	$html .= <<HTML
 <label for="imgsearch">Image du produit avec code barre :</label>
-<input type="file" accept="image/*" class="img_input" size="10" name="imgsearch" id="imgsearch" onchange="javascript:this.form.submit();" />				
+<input type="file" accept="image/*" class="img_input button small" size="10" name="imgsearch" id="imgsearch" onchange="javascript:this.form.submit();" />				
 HTML
 ;
 	
@@ -210,6 +210,112 @@ HTML
 
 
 sub display_search_image_form() {
+
+	my $html = '';
+	
+	my $product_image_with_barcode = $Lang{product_image_with_barcode}{$lang};
+	$product_image_with_barcode =~ s/( |\&nbsp;)?:$//;
+	
+	$html .= <<HTML
+<div id="imgsearchdiv">
+
+<a href="#" class="button small expand" id="imgsearchbutton">$product_image_with_barcode
+<input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search" style="position: absolute;
+    right:0;
+    bottom:0;
+    top:0;
+    cursor:pointer;
+    opacity:0;
+    font-size:40px;"/>
+</a>
+</div>
+
+<div id="progressbar" class="progress" style="display:none">
+  <span id="progressmeter" class="meter" style="width:0%"></span>
+</div>
+
+<div id="imgsearchmsg" data-alert class="alert-box info" style="display:none">
+  $Lang{sending_image}{$lang}
+  <a href="#" class="close">&times;</a>
+</div>
+
+<div id="imgsearcherror" data-alert class="alert-box alert" style="display:none">
+  $Lang{send_image_error}{$lang}
+  <a href="#" class="close">&times;</a>
+</div>
+
+HTML
+;
+
+
+	$scripts .= <<JS
+<script src="/js/jquery.iframe-transport.js"></script>
+<script src="/js/jquery.fileupload.js"></script>	
+<script src="/js/load-image.min.js"></script>
+<script src="/js/canvas-to-blob.min.js"></script>
+<script src="/js/jquery.fileupload-ip.js"></script>
+JS
+;
+
+	$initjs .= <<JS
+	
+	
+    \$('#imgupload_search').fileupload({
+        dataType: 'json',
+        url: '/cgi/product.pl',
+		formData : [{name: 'jqueryfileupload', value: 1}],
+		resizeMaxWidth : 2000,
+		resizeMaxHeight : 2000,
+        done: function (e, data) {
+			if (data.result.location) {
+				\$(location).attr('href',data.result.location);
+			}
+			if (data.result.error) {
+				\$("#imgsearcherror").html(data.result.error);
+				\$("#imgsearcherror").show();
+			}
+        },
+		fail : function (e, data) {
+			\$("#imgsearcherror").show();
+        },
+		always : function (e, data) {
+			\$("#progressbar").hide();
+			\$("#imgsearchbutton").show();
+			\$("#imgsearchmsg").hide();
+        },
+		start: function (e, data) {
+			\$("#imgsearchbutton").hide();
+			\$("#imgsearcherror").hide();
+			\$("#imgsearchmsg").show();
+			\$("#progressbar").show();
+			\$("#progressmeter").css('width', "0%");
+                    
+		},
+            sent: function (e, data) {
+                if (data.dataType &&
+                        data.dataType.substr(0, 6) === 'iframe') {
+                    // Iframe Transport does not support progress events.
+                    // In lack of an indeterminate progress bar, we set
+                    // the progress to 100%, showing the full animated bar:
+                    \$("#progressmeter").css('width', "100%");
+                }
+            },
+            progress: function (e, data) {
+
+                   \$("#progressmeter").css('width', parseInt(data.loaded / data.total * 100, 10) + "%");
+					\$("#imgsearchdebug").html(data.loaded + ' / ' + data.total);
+                
+            }
+		
+    });	
+JS
+;
+	
+	return $html;
+}
+
+
+sub display_search_image_form_old() {
 
 	my $html = '';
 	
@@ -845,16 +951,38 @@ sub display_image($$$) {
 			. ' alt="' . remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$id . '_alt'}{$lang} . '" />';
 			
 		if ((not defined $product_ref->{jqm}) and ($size eq $small_size) and (defined $product_ref->{images}{$id}{sizes}{$display_size}))  {
-			$html = '<a href="/images/products/' . $path . '/' . $id . '.' . $product_ref->{images}{$id}{rev} . '.' . $display_size
-			. '.jpg" class="nivoZoom topRight">' . $html . '</a>';
+		
+			my $w = $product_ref->{images}{$id}{sizes}{$display_size}{w};
+			my $h = $product_ref->{images}{$id}{sizes}{$display_size}{h};
+		
+			$html = <<HTML
+<a data-dropdown="drop_$id" aria-controls="drop_$id" aria-expanded="false" data-options="align:left" class="th" >
+$html
+</a>
+<div id="drop_$id" data-dropdown-content class="f-dropdown medium" aria-hidden="true" tabindex="-1" style="min-width:$display_size px">
+<img src="/images/products/$path/$id.$product_ref->{images}{$id}{rev}.$display_size.jpg" width="$w" height="$h" alt="Zoom" />
+</div>
+
+HTML
+;
+
+			$html = <<HTML
+<ul class="clearing-thumbs" data-clearing>
+<li>
+<a href="/images/products/$path/$id.$product_ref->{images}{$id}{rev}.$display_size.jpg">$html</a>
+</li>
+</ul>
+
+HTML
+;
+
+
+
+
 		}
 	}
-
 	
 	return $html;
 }
-
-
-
 
 1;
