@@ -60,7 +60,6 @@ use Blogs::SiteLang qw/:all/;
 use Blogs::Store qw/:all/;
 
 
-
 %lang_lc = (
 ar => 'ar',
 de => 'de',
@@ -120,6 +119,7 @@ products => {
 	fr => 'produit',
 	de => 'produkt',
 	en => 'product',
+	el => 'προιον',
 	es => 'producto',
 	it => 'prodotto',
 #	ru => 'продукт',
@@ -134,7 +134,8 @@ brands => {
 	de => 'marke', # lowercase for URLs
 	en => 'brand',
 	es => 'marca',
-	it => 'marca',
+	el => 'μαρκα',
+        it => 'marca',
 	ro => 'marca',
 #	ru => 'марка',
 	ar => '3alama-tijariya', # need to be in ascii: letters A to Z
@@ -147,7 +148,8 @@ categories => {
 	de => 'kategorie',
 	en => 'category',
 	es => 'categoria',
-	it => 'categoria',
+	el => 'κατηγορια',
+        it => 'categoria',
 	ro => 'categorie',
 #	ru => 'категория',
 	ar => 'atassnifate',
@@ -166,7 +168,8 @@ packaging => {
 	de => 'verpackung',
 	en => 'packaging',
 	es => 'envase',
-	it => 'imballaggio',
+	el => 'συσκευασια',
+        it => 'imballaggio',
 	ro => 'ambalaj',
 #	ru => 'упаковка',
 	ar => 'ata3bia',
@@ -179,6 +182,7 @@ emb_codes => {
 	de => 'produzenten-Code',
 	en => 'packager-code',
 	es => 'codigo-de-envasador',
+	el => 'κωδικός συσκευαστη',
 	it => 'codice-imballaggio',
 	ro => 'cod-de-ambalare',
 #	ru => 'код',
@@ -194,6 +198,7 @@ cities => {
 	en => 'city',
 	it => 'citta',
 	es => 'ciudad',
+	el => 'πολη',
 	ro => 'oras',
 #	ru => 'город',
 	ar => 'almoudoun',
@@ -205,7 +210,8 @@ origins => {
 	fr => 'origine',
 	de => 'herkunft',
 	en => 'origin',
-	it => 'origine',
+	el => 'προελευση',
+        it => 'origine',
 	es => 'origen',
 	ro => 'provenienta',
 #	ru => 'источник',
@@ -219,7 +225,8 @@ manufacturing_places => {
 	de => 'herstellungsort',
 	en => 'manufacturing-place', 
 	es => 'lugar-de-fabricacion',
-	pt_pt => 'local-de-fabrico',
+	el => 'τοπος παρασκευης',
+        pt_pt => 'local-de-fabrico',
 	ro => 'locatia-de-fabricatie',
 	nl => 'productielocatie',
 },
@@ -227,6 +234,7 @@ purchase_places => {
 	fr => 'lieu-de-vente',
 	de => 'verkaufsort',
 	en => 'purchase-place',
+	el => 'τοπος αγορας',
 	it => 'luogo-d-acquisto',
 	es => 'sitio-de-compra',
 	ro => 'locatia-de-achizitie',
@@ -241,6 +249,7 @@ stores => {
 	de => 'geschaeft',
 	en => 'store',
 	it => 'negozio',
+	el => 'καταστημα',
 	es => 'tienda',
 	ro => 'magazin',
 #	ru => 'магазин',
@@ -253,6 +262,7 @@ countries => {
 	fr => 'pays',
 	de => 'land',
 	en => 'country',
+	el => 'χωρα',
 	es => 'pais',
 	he => 'medina',
 	pt => 'país',
@@ -264,6 +274,7 @@ ingredients => {
 	de => 'zutat',
 	en => 'ingredient',
 	es => 'ingrediente',
+	el => 'συστατικο',
 	it => 'ingrediente',
 	ro => 'ingredient',
 #	ru => 'состав',
@@ -276,6 +287,7 @@ labels => {
 	fr => 'label',
 	de => 'label',
 	en => 'label',
+	el => 'ετικετα',
 	es => 'etiqueta',
 	it => 'etichetta',
     ro => 'eticheta',
@@ -289,6 +301,7 @@ nutriments => {
 	fr => 'nutriment',
 	de => 'naehrstoff',
 	en => 'nutrient',
+	el => 'θρεπτικο συστατικο',
 	es => 'nutriente',
 	it => 'nutriente',
 	ro => 'nutriente',
@@ -303,6 +316,7 @@ traces => {
 	de => 'spur',
 	en => 'trace',
 	es => 'traza',
+	el => 'ιχνος',
 	it => 'traccia',
 	ro => 'urma',
 #	ru => 'содержит',
@@ -317,6 +331,7 @@ users => {
 	de => 'beitragszahler',
 	en => 'contributor',
 	es => 'contribuyente',
+	el => 'συντελεστης',
 	it => 'contributore',
 	ro => 'contributor',
 #	ru => 'участник',
@@ -329,6 +344,7 @@ photographers => {
 	fr => 'photographe',
 	de => 'fotograf',
 	en => 'photographer',
+	el => 'φωτογραφος',
 	ar => 'moussawir' ,
 	pt => 'fotografo',
 	ro => 'fotograf',
@@ -340,6 +356,7 @@ informers => {
 	fr => 'informateur',
 	de => 'informant',
 	en => 'informer',
+	el => 'πληροφοριοδοτης',
 	ar => 'moukhbir',
 	pt => 'informante',
 	pt_pt => 'informador',
@@ -353,6 +370,7 @@ correctors => {
 	de => 'korrekteur',
 	en => 'corrector',
 	ar => 'moussahih',
+	el => 'διορθωτης',
 	pt => 'corretor',
 	pt_pt => 'revisor',
 	ro => 'corector',
@@ -364,6 +382,7 @@ checkers => {
 	fr => 'verificateur',
 	de => 'pruefer',
 	en => 'checker',
+	el => 'ελεγκτης',
 	ar => 'mourakib',
 	pt => 'verificador',
 	ro => 'verificator',
@@ -375,6 +394,7 @@ states => {
 	fr => 'etat',
     de => 'status',
 	en => 'state',
+	el => 'κατασταση',
 #	ar => 'الحاله',
 	pt => 'estado',
 	ro => 'status',
@@ -387,6 +407,7 @@ additives => {
 	de => 'zusatzstoff',
 	en => 'additive',
 	es => 'aditivo',
+	el => 'προσθετο',
 	it => 'additivo',
 	ro => 'aditiv',
 #	ru => 'добавка',
@@ -399,6 +420,7 @@ ingredients_from_palm_oil => {
 	fr => "ingredients-issus-de-l-huile-de-palme",
 	de => "zutaten-aus-palmoel",
 	en => "ingredients-from-palm-oil",
+	el => 'συστατικα απο φοινικελαιο',
 	ro => 'ingrediente-din-ulei-de-palmier',
 #	ru => "вещества-из-пальмового-масла",
 	ar => 'mawad-mousstakhraja-min-zayt-nakhil',
@@ -411,6 +433,7 @@ ingredients_that_may_be_from_palm_oil => {
 	fr => "ingredients-pouvant-etre-issus-de-l-huile-de-palme",
 	de => "zutaten-die-möglicherweise-palmoel-beinhalten",
 	en => "ingredients-that-may-be-from-palm-oil",
+	el => 'συστατικα ισως προερχομενα απο φοινικελαιο',
 	ro => 'ingerdiente-care-ar-putea-fi-din-ulei-de-palmier',
 #	ru => "вещества-возможно-из-пальмового-масла",
 	ar => 'mawad-kad-takoun-mousstakhraja-mina-nakhil',
@@ -424,6 +447,7 @@ allergens => {
 	de => 'allergen',
 	en => 'allergen',
 	es => 'alergeno',
+	el => 'αλλεργιογονο',
 	it => 'allergene',
 	ro => 'alergen',
 #	ru => 'аллергены',
@@ -436,6 +460,7 @@ missions => {
 	fr => 'mission',
 	en => 'mission',
 	es => 'mision',
+	el => 'αποστολη',
 	de => 'mission',
 	it => 'scopo',
 	ro => 'misiune',
@@ -450,6 +475,7 @@ nutrient_levels => {
 	de => 'naehrwert-stufe',
 	fr => 'repere-nutritionnel',
 	es => 'valor-nutricional',
+	el => 'επιπεδο θρεπτικων ουσιων',
 	he => 'ramat-khomrey-hamazon',
 	pt => 'nivel-nutricional',
 	ro => 'valoare-nutritionala',
@@ -460,6 +486,7 @@ known_nutrients => {
 	de => 'bekannte-naehrwerte',
 	fr => 'nutriment-connu',
 	es => 'nutriente-conocido',
+	el => 'γνωστη θρεπτικη ουσια',
 	pt => 'nutriente-conhecido',
 	he => 'khomrey-mazon-yeduim',
 	ro => 'nutrienti-cunoscuti',
@@ -470,6 +497,7 @@ unknown_nutrients => {
 	de => 'unbekannte-naehrwerte',
 	fr => 'nutriment-inconnus',
 	es => 'nutriente-desconocido',
+	el => 'αγνωστη θρεπτικη ουσια',
 	pt => 'nutriente-desconhecido',
 	he => 'khmorey-mazon-bilti-yeduim',
 	ro => 'nutrienti-necunoscuti',
@@ -478,14 +506,20 @@ unknown_nutrients => {
 entry_dates => {
 	en => "entry-date",
 	fr => "date-d-ajout",
+	el => "ημερομηνια εισαγωγης",
+
 },
 last_edit_dates => {
 	en => "last-edit-date",
 	fr => "date-de-derniere-modification",
+	el => "ημερομηνια τελευταιας τροποποιησης",
+
 },
 nutrition_grades => {
 	en => "nutrition-grade",
 	fr => "note-nutritionnelle",
+	el => "επιπεδο/βαθμολογια θρεπτικοτητας",
+
 },
 
 );
@@ -498,6 +532,7 @@ nutrition_grades => {
 products => { 
 	fr => 'produits',
 	de => 'produkte',
+	el => 'προιοντα',
 	en => 'products',
 	es => 'productos',
 	it => 'prodotti',
@@ -512,6 +547,7 @@ brands => {
 	de => 'marken',
 	en => 'brands',
 	es => 'marcas',
+	el => 'μαρκες',
 	it => 'marcas',
 	ro => 'marci',
 #	ru => 'марка',
@@ -525,6 +561,7 @@ categories => {
 	de => 'kategorien',
 	en => 'categories',
 	es => 'categorias',
+	el => 'κατηγοριες',
 	it => 'categorias',
 #	ru => 'категория',
     ro => 'categorii',
@@ -543,6 +580,7 @@ packaging => {
 	fr => 'conditionnements',
 	de => 'verpackungen',
 	en => 'packaging',
+	el => 'συσκευασιες',
 	es => 'envase',
 #	it => 'imballaggio',
 #	ru => 'упаковка',
@@ -556,6 +594,7 @@ emb_codes => {
 	fr => 'codes-emballeurs',
 	de => 'produzenten-codes',
 	en => 'packager-codes',
+	el => 'κωδικοι συσκευαστη',
 	es => 'codigos-de-envasadores',
 #	it => 'codice-imballaggio',
 #	ru => 'код',
@@ -570,6 +609,7 @@ cities => {
 	fr => 'communes',
 	de => 'staedte',
 	en => 'cities',
+	el => 'πολεις',
 #	it => 'citta',
 	es => 'ciudades',
 #	ru => 'город',
@@ -583,6 +623,7 @@ origins => {
 	fr => 'origines',
 	de => 'herkuenfte',
 	en => 'origins',
+	el => 'προελευσεις',
 #	it => 'origine',
 	es => 'origenes',
 #	ru => 'источник',
@@ -596,6 +637,7 @@ manufacturing_places => {
 	fr => 'lieux-de-fabrication',
 	de => 'herstellungsorte',
 	en => 'manufacturing-places', 
+	el => 'τοποι παρασκευης',
 	es => 'lugares-de-fabricacion',
 	pt_pt => 'locais-de-fabrico',
 	ro => 'locatii-de-fabricare',
@@ -605,6 +647,7 @@ purchase_places => {
 	fr => 'lieux-de-vente',
 	de => 'verkaufsorte',
 	en => 'purchase-places',
+	el => 'τοποι αγορας',
 #	it => 'luogo-d-acquisto',
 	es => 'sitios-de-compra',
 #	ru => 'где-куплено',
@@ -618,6 +661,7 @@ stores => {
 	fr => 'magasins',
 	de => 'geschaefte',
 	en => 'stores',
+	el => 'καταστηματα',
 #	it => 'negozio',
 	es => 'tiendas',
 #	ru => 'магазин',
@@ -632,6 +676,7 @@ countries => {
 	de => 'länder',
 	en => 'countries',
 	es => 'paises',
+	el => 'χωρες',
 	he => 'medina',
 	pt => 'paises',
 	ro => 'tari',
@@ -641,6 +686,7 @@ ingredients => {
 	fr => 'ingredients',
 	de => 'zutaten',
 	en => 'ingredients',
+	el => 'συστατικα',
 	es => 'ingredientes',
 	it => 'ingredientes',
 #	ru => 'состав',
@@ -654,6 +700,7 @@ labels => {
 	fr => 'labels',
 	de => 'labels',
 	en => 'labels',
+	el => 'ετικετες',
 	es => 'etiquetas',
 	it => 'etichettas',
 #	ru => 'этикетка',
@@ -668,6 +715,7 @@ nutriments => {
 	de => 'naehrstoffe',
 	en => 'nutrients',
 	es => 'nutrientes',
+	el => 'θρεπτικα συστατικα',
 	it => 'nutrientes',
 #	ru => 'пищевая-ценность',
 #	ar => 'ghithae',
@@ -680,6 +728,7 @@ traces => {
 	fr => 'traces',
 	de => 'spuren',
 	en => 'traces',
+	el => 'ιχνη',
 	es => 'trazas',
 #	it => 'traccia',
 #	ru => 'содержит',
@@ -695,6 +744,7 @@ users => {
 	de => 'beitragszahler',
 	en => 'contributors',
 	es => 'contribuyentes',
+	el => 'χρηστες',
 #	it => 'contributore',
 #	ru => 'участник',
 #	ar => 'almousstakhdimoun',
@@ -707,6 +757,7 @@ photographers => {
 	fr => 'photographes',
 	de => 'fotografen',
 	en => 'photographers',
+	el => 'φωτογραφοι',
 #	ar => 'moussawir' ,
 	pt => 'fotografos',
 	es => 'fotografos',
@@ -718,6 +769,7 @@ informers => {
 	fr => 'informateurs',
 	de => 'informanten',
 	en => 'informers',
+	el => 'πληροφοριοδοτες',
 #	ar => 'moukhbir',
 	pt => 'informantes',
 	pt_pt => 'informadores',
@@ -730,6 +782,7 @@ correctors => {
 	fr => 'correcteurs',
 	de => 'korrektoren',
 	en => 'correctors',
+	el => 'διορθωτες',
 #	ar => 'moussahih',
 	pt => 'corretores',
 	pt_pt => 'revisores',
@@ -742,6 +795,7 @@ checkers => {
 	fr => 'verificateurs',
 	de => 'pruefer',
 	en => 'checkers',
+	el => 'ελεγκτες',
 #	ar => 'mourakib',
 	pt => 'verificadores',
 	es => 'verificadores',
@@ -753,6 +807,7 @@ states => {
 	fr => 'etats',
     de => 'status',
 	en => 'states',
+	el => 'καταστασεις',
 #	ar => 'الحاله',
 	pt => 'estados',
 	es => 'estados',
@@ -764,6 +819,7 @@ additives => {
 	fr => 'additifs',
 	de => 'zusatzstoffe',
 	en => 'additives',
+	el => 'προσθετα',
 	es => 'aditivos',
 #	it => 'additivo',
 #	ru => 'добавка',
@@ -776,6 +832,7 @@ additives => {
 ingredients_from_palm_oil => {
 	fr => "ingredients-issus-de-l-huile-de-palme",
 	de => 'zutaten-aus-Palmoel',
+	el => 'συστατικα από φοινικελαιο',
 	en => "ingredients-from-palm-oil",
 #	ru => "вещества-из-пальмового-масла",
 	ar => 'mawad-mousstakhraja-min-zayt-nakhil',
@@ -789,6 +846,7 @@ ingredients_that_may_be_from_palm_oil => {
 	fr => "ingredients-pouvant-etre-issus-de-l-huile-de-palme",
 	de => 'zutaten-die-möglicherweise-Palmoel-beinhalten',
 	en => "ingredients-that-may-be-from-palm-oil",
+	el => 'συστατικα πιθανως προερχομενα από φοινικελαιο',
 #	ru => "вещества-возможно-из-пальмового-масла",
 	ar => 'mawad-kad-takoun-mousstakhraja-mina-nakhil',
 	pt => 'ingredientes-que-podem-ser-de-oleo-de-palma',
@@ -802,6 +860,7 @@ allergens => {
 	de => 'allergene',
 	en => 'allergens',
 	es => 'alergenos',
+	el => 'αλλεργιογονα',
 #	it => 'allergene',
 #	ru => 'аллергены',
 #	ar => 'moussabib-hassassiya',
@@ -814,6 +873,7 @@ missions => {
 	fr => 'missions',
 	de => 'missionen',
 	en => 'missions',
+	el => 'αποστολες',
 	es => 'misiones',
 #	it => 'scopo',
 #	ru => 'назначение',
@@ -827,6 +887,7 @@ nutrient_levels => {
 	en => 'nutrient-levels',
 	de => 'naehrwert-Stufen',
 	fr => 'reperes-nutritionnels',
+	el => 'επιπεδα θρεπτικων ουσιων',
 	es => 'valores-nutricionales',
 #	he => 'ramat-khomrey-hamazon', 
 	pt => 'valores-nutricionais',
@@ -837,6 +898,7 @@ known_nutrients => {
 	en => 'known-nutrients',
 	de => 'bekannte-Naehrwerte',
 	fr => 'nutriments-connus',
+	el => 'γνωστες θρεπτικες ουσιες',
 	es => 'nutrientes-conocidos',
 	pt => 'nutrientes-conhecidos',
 	he => 'khomrey-mazon-yeduim',
@@ -847,6 +909,7 @@ unknown_nutrients => {
 	en => 'unknown-nutrients',
 	de => 'unbekannte-Naerhwerte',
 	fr => 'nutriments-inconnus',
+	el => 'αγνωστες θρεπτικες ουσιες',
 	es => 'nutrientes-desconocidos',
 	pt => 'nutrientes-desconhecidos', 
 	he => 'khmorey-mazon-bilti-yeduim',
@@ -856,14 +919,20 @@ unknown_nutrients => {
 entry_dates => {
 	en => "entry-dates",
 	fr => "dates-d-ajout",
+	el => "ημερομηνιες εισαγωγης",
+
 },
 last_edit_dates => {
 	en => "last-edit-dates",
 	fr => "dates-de-derniere-modification",
+	el => "ημερομηνιες τελευταιας τροποποιησης",
+
 },
 nutrition_grades => {
 	en => "nutrition-grades",
 	fr => "notes-nutritionnelles",
+	el => "επιπεδα/βαθμολογιες θρεπτικοτητας",
+
 },
 );
 
@@ -876,6 +945,7 @@ lang_de => {
 	de => 'Deutsch',
 	fr => 'Allemand',
 	en => 'German',
+	el => 'Γερμανικα',
 	es => 'Alemán',
 	it => 'Tedesco',
 	ru => 'Russisch',
@@ -890,6 +960,7 @@ lang_es => {
 	es => 'Español',
 	fr => 'Espagnol',
 	en => 'Spanish',
+	el => 'Ισπανικα',
 	de => 'Spanisch',
 	it => 'Spagnolo',
 	ru => 'Ruso',
@@ -901,15 +972,21 @@ lang_es => {
 },
 
 lang_el => {
-	en => 'Greek',
+	es => 'Griego',
 	fr => 'Grec',
+	en => 'Greek',
 	el => 'Ελληνικά',
+	de => 'Griechisch',
+	it => 'Greco',
+	ru => 'гре́ческий язы́к',
+	pt => 'Grego',
 },
 
 lang_en => { 
 	fr => 'Anglais',
 	en => 'English',
 	de => 'Englisch',
+	el => 'Αγγλικα',
 	es => 'Inglés',
 	it => 'Inglese',
 	ru => 'Russian',
@@ -925,6 +1002,7 @@ lang_fr => {
 	en => 'French',
 	de => 'Französisch',
 	es => 'Francés',
+	el => 'Γαλλικα',
 	it => 'Francese',
 	ru => 'Russe',
 	ar => 'الفرنسية',
@@ -938,6 +1016,7 @@ lang_it => {
 	it => 'Italiano',
 	fr => 'Italien',
 	en => 'Italian',
+	el => 'Ιταλικα',
 	es => 'Italiano',
 	ru => 'Russo',
 	de => 'Italienisch',
@@ -952,18 +1031,31 @@ lang_ja => {
 	en => 'Japanese',
 	fr => 'Japonais',
 	ja => '日本語',
+	es => 'Japonés',
+	el => 'Ιαπωνικα',
+	de => 'Japanisch',
+	it => 'Giapponese',
+	ru => 'япо́нский язы́к',
+	pt => 'Japonês',
 },
 
 lang_ko => {
 	en => 'Korean',
 	fr => 'Coréen',
 	ko => '한국어',
+	es => 'Coreano',
+	el => 'Κορεατικα',
+	de => 'Koreanisch',
+	it => 'Coreano',
+	ru => 'коре́йский язы́к',
+	pt => 'Coreano',
 },
 
 lang_nl => {
 	nl => 'Nederlands',
 	fr => 'Néerlandais',
 	en => 'Dutch',
+	el => 'Ολλανδικα',
 	de => 'Niederländisch',
 	es => 'Neerlandés',
 	it => 'Olandese',
@@ -977,6 +1069,7 @@ lang_pl => {
 	pl => 'Polski',
 	fr => 'Polonais',
 	en => 'Polish',
+	el => 'Πολωνικα',
 	de => 'Polnisch',
 	es => 'Polaco',
 	it => 'Polacco',
@@ -992,6 +1085,7 @@ lang_pt => {
 	pt => 'Português',
 	fr => 'Portugais',
 	en => 'Portuguese',
+	el => 'Πορτογαλικα',
 	de => 'Portugiesisch',
 	es => 'Portugués',
 	it => 'Portoghese',
@@ -1005,6 +1099,12 @@ lang_th => {
 	en => 'Thai',
 	fr => 'Thaï',
 	th => 'ไทย',
+	es => 'Tailandés',
+	el => 'Ταυλανδεζικα',
+	de => 'Thai',
+	it => 'Tailandese',
+	ru => 'та́йский',
+	pt => 'Tailandês',
 },
 
 lang_vi => { 
@@ -1012,6 +1112,7 @@ lang_vi => {
 	fr => 'Vietnamien',
 	en => 'Vietnamese',
 	es => 'Vietnamita',
+	el => 'Βιετναμεζικα',
 	de => 'Vietnamesisch',
 	it => 'Vietnamita',
 	ar => 'الفيتنامية',
@@ -1019,12 +1120,14 @@ lang_vi => {
 	ro => 'Vietnameză',
 	he => 'וייטנאמית',
 	nl => 'Vietnamees',
+	ru => 'вьетна́мский язы́к',
 },
 
 lang_zh => {
 	en => 'Chinese',
 	de => 'Chinesisch',
 	fr => 'Chinois',
+	el => 'Κινεζικα',
 	zh => '中文',
 	es => 'Chino',
 	ar => 'الصينية',
@@ -1032,11 +1135,13 @@ lang_zh => {
 	ro => 'Chineză',
 	he => 'סינית',
 	nl => 'Chinees',
+	ru => 'кита́йский язы́к',
 },
 
 lang_ru => {
 	fr => 'Russe',
 	en => 'Russian',
+	el => 'Ρωσικα',
 	de => 'Russisch',
 	es => 'Ruso',
 	it => 'Russo',
@@ -1045,6 +1150,7 @@ lang_ru => {
 	ro => 'Rusă',
 	he => 'רוסית',
 	nl => 'Russisch',
+	ru => 'ру́сский язы́к',
 },
 
 lang_he => {
@@ -1053,6 +1159,7 @@ lang_he => {
 	en => 'Hebrew',
 	es => 'Hebreo',
 	fr => 'Hébreu',
+	el => 'Εβραικα',
 	he => 'עברית',
 	it => 'Ebraico',
 	nl => 'Hebreeuws',
@@ -1070,8 +1177,12 @@ lang_ro => {
 	en => 'Romanian',
 	ro => 'Română',
 	es => 'Rumano',
+	el => 'Ρουμανικα',
 	it => 'Rumeno',
 	nl => 'Roemeens',
+	de => 'Rumänisch',
+	ru => 'румы́нский язы́к',
+	pt => 'Romeno',
 },
 
 lang_other => { 
@@ -1080,6 +1191,7 @@ lang_other => {
 	en => 'other language',
 	de => 'andere Sprache',
 	es => 'otro idioma',
+	el => 'αλλες γλωσσες',
 	it => 'altra lingua',
 	ar => 'لغات اخرى',
 	pt => 'outro idioma',
@@ -1093,6 +1205,7 @@ lang => {
 	en => 'Main language on the product',
 	it => 'Lingua principale sull\'imballaggio del prodotto',   
 	es => 'Idioma principal en el producto',
+	el => 'Κυρια γλωσσα του προιοντος',
 	de => 'Hauptsprache auf dem Produkt',
 	ro => 'Limba principală de pe produs',
 	ru => 'Основной язык продукта',
@@ -1108,6 +1221,7 @@ site_name => {
 	es => 'Open Food Facts',
 	de => 'Open Food Facts',
 	ru => 'Open Food Facts',
+	el => 'Open Food Facts',
 	ar => 'Open Food Facts',
 	pt => 'Open Food Facts',
 	ro => 'Open Food Facts',
@@ -1119,6 +1233,7 @@ site_description => {
 	ru => "Совместная, открытая и свободная база данных об ингридиентах, питательности и другой информации по пищевым продуктам мира", 
 	fr => "Ingrédients, composition nutritionnelle et information sur les produits alimentaires du monde entier dans une base de données libre et ouverte",
 	en => "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world",
+	el => " Μια συνεργατική, ελεύθερη και ανοιχτή βάση δεδομένων πάνω στα συστατικά, θρεπτικά δεδομένα και πληροφορίες για τρόφιμα σε όλο τον κόσμο",
 	de => "Zutaten, Nährwertangaben und weitere Informationen über Nahrungsmittel aus der ganzen Welt in einer offenen und freien Datenbank",
 	es => "Ingredientes, información nutricional e información sobre los alimentos del mundo entero en una base de datos libre y abierta",
 	it => "Ingredienti, composizione nutrizionale e informazioni sui prodotti alimentari del mondo intero su una base di dati libera e aperta",
@@ -1133,6 +1248,7 @@ og_image_url => {
 	fr => 'http://fr.openfoodfacts.org/images/misc/openfoodfacts-logo-fr-356.png',
 	en => 'http://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png',
 	es => 'http://es.openfoodfacts.org/images/misc/openfoodfacts-logo-es-356.png',
+	el => 'http://es.openfoodfacts.org/images/misc/openfoodfacts-logo-es-356.png',
 	it => 'http://it.openfoodfacts.org/images/misc/openfoodfacts-logo-it-356.png',
 	de => 'http://de.openfoodfacts.org/images/misc/openfoodfacts-logo-de-356.png',
 	ar => 'http://world.openfoodfacts.org/images/misc/openfoodfacts-logo-ar-356.png',
@@ -1147,6 +1263,7 @@ twitter_account => {
 	en => 'OpenFoodFacts',
 	de => 'OpenFoodFactsDe',
 	es => 'OpenFoodFactsEs',
+	el => 'OpenFoodFactsEs',
 	it => 'OpenFoodFactsIt',
 	ar => 'OpenFoodFactsAr',
 	ro => 'OpenFoodFacts',
@@ -1158,6 +1275,7 @@ products => {
 	fr => 'produits',
 	en => 'products',
 	it => 'prodotti',
+	el => 'προιοντα',
 	pt => 'produtos',
 	de => 'Produkte',
 	es => 'productos',
@@ -1173,6 +1291,7 @@ add_user => {
 	fr => "S'inscrire",
 	en => "Register",
 	it => "Registrarsi",
+	el => 'Εγγραφη χρηστη',
 	es => 'Registrarse',
 	de => 'Anmelden',
 	ar => 'التسجيل',
@@ -1187,6 +1306,7 @@ edit_user => {
 	fr => 'Paramètres du compte',
 	en => 'Account parameters',
 	es => 'Parámetros de la cuenta',
+	el => 'Ρυθμίσεις λογαριασμου',
 	it => 'Parametri account',
 	de => "Benutzerangaben",
 	ar => 'إعدادات المستخدم',
@@ -1199,6 +1319,7 @@ edit_user => {
 delete_user => { 
 	fr => 'Effacer un utilisateur',
 	en => 'Delete an user',
+	el => 'Διαγραφη χρηστη',
 	es => 'Eliminar un usuario',
 	it => 'Cancellazione account',
 	de => "Benutzer löschen",
@@ -1213,6 +1334,7 @@ delete_user => {
 add_user_confirm => { 
 	fr => '<p>Merci de votre inscription. Vous pouvez maintenant vous identifier sur le site pour ajouter et modifier des produits.</p>',
 	en => '<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>',
+	el => '<p> Ευχαριστούμε που επισκεφθήκατε τη σελίδα μας. Τώρα μπορείτε να εγγραφείτε για να προσθέσετε και να επεξεργαστείτε προϊόντα.</p>',
 	es => '<p>Gracias por registrarse. A partir de ahora puede identificarse en el sitio para añadir o modificar productos.<p>',
 	de => '<p>Vielen Dank für ihre Registrierung. Sie können sich jetzt auf der Seite anmelden um Produkte hinzuzufügen oder abzuändern.</p>',
 	it => '<p>Grazie per la vostra iscrizione. Da adesso potete identificarvi sul sito per aggiungere e/o modificare dei prodotti.</p>',
@@ -1226,6 +1348,7 @@ add_user_confirm => {
 add_user_email_subject => { 
 	fr => 'Merci de votre inscription sur Open Food Facts',
 	en => 'Thanks for joining Open Food Facts',
+	el => 'Ευχαριστούμε που επισκεφθήκατε το Open Food Facts',
 	de => 'Vielen Dank für ihre Anmeldung auf Open Food Facts',
 	es => 'Gracias por registrarse en Open Food Facts',
 	it => 'Grazie per la vostra iscrizione a Open Food Facts',
@@ -1317,6 +1440,31 @@ http://openfoodfacts.org
 http://twitter.com/OpenFoodFacts
 ',
 
+el => 
+'Καλωσόρισατε <NAME>,
+
+Ευχαριστούμε πολύ που επισκεφθήκατε το http://openfoodfacts.org
+Το user name σας είναι:
+
+User name: <USERID>
+
+Μπορείτε τώρα να εγγραφείτε στη σελίδα μας και εν συνεχεία να προσθέσετε και να επεξεργαστείτε προϊόντα. 
+
+Μπορείτε επίσης να εγγραφείτε στο Facebook group των συντελεστών μας:
+https://www.facebook.com/groups/374350705955208/
+
+Το Open Food Facts είναι ένα συνεργατικό εγχείρημα στο οποίο μπορείτε επίσης να συμβάλλετε με την ενέργεια, τον ενθουσιασμό και τις ιδέες σας!
+Μπορείτε επίσης να μοιραστείτε τις προτάσεις σας στο idea forum:
+http://openfoodfacts.uservoice.com/
+
+Και φυσικά το mailbox μου είναι πάντα ανοιχτό για τα σχόλια και παρατηρήσεις, τις ερωτήσεις και τις ιδέες σας.
+
+Σας ευχαριστώ πάρα πολύ!
+
+Stéphane
+http://openfoodfacts.org
+http://twitter.com/OpenFoodFacts
+',
 	es => 
 'Buenos días <NAME>,
 
@@ -1656,6 +1804,7 @@ edit_user_confirm => {
 	de => '<p>Deine Benutzereinstellungen wurden geändert.</p>',
 	ar => '<p>لقد تم تعديل إعداداتكم بنجاح</p>',
 	en => '<p>Your account parameters have been changed.</p>',
+	el => '<p>Οι ρυθμίσεις του λογαριασμού σας έχουν αλλάξει.</p>',
 	es => '<p>Los datos de su cuenta han sido modificados correctamente.</p>',
 	it => '<p>I parametri del suo account sono stati modificati.</p>',
 	pt => '<p>Os dados de sua conta foram modificados.</p>',
@@ -1671,6 +1820,7 @@ edit_profile => {
 	de => "Bearbeite dein öffentliches Profil",
 	en => "Edit your public profile",
 	es => "Edite su perfil público",
+	el => "Επεξεργαστείτε το προφίλ σας",
 	it => "Modificare il vostro profilo pubblico",
 	ar => 'تعديل إعداداتك الشخصية',
 	pt => 'Edite seu perfil público',
@@ -1684,6 +1834,7 @@ edit_profile_msg => {
 	fr => "Les informations ci-dessous figurent dans votre profil public.",
 	de => "Die Informationen unten sind in deinem öffentlichen Profil sichtbar.",
 	en => "Information below is visible in your public profile.",
+	el => "Η παρακάτω πληροφορία είναι ορατή στο δημόσιο προφιλ σας.",
 	es => "La información que se encuentra debajo estará disponible en su perfil público.",
 	it => "Le informazioni qui sotto appaiono nel vostro profilo pubblico.",
 	ar => 'هذه المعلومات تظهر في صفحتك و يطلع عليها كل المستخدمون',
@@ -1697,6 +1848,7 @@ edit_profile_confirm => {
 	fr => "Les modifications de votre profil public ont été enregistrées.",
 	de => "Die Änderungen an deinem öffentlichen Profil wurden gespeichert.",
 	en => "Changes to your public profile have been saved.",
+	el => "Οι αλλαγές στο δημόσιο προφιλ σας εχουν αποθηκευτει.",
 	es => "Los cambios en su perfil público han sido guardados.",
 	it => "Le modifiche del suo profilo pubblico sono state registrate.",
 	ar => 'لقد تم تعديل بياناتكم بنجاح',
@@ -1711,6 +1863,7 @@ session_title => {
 	fr => 'Se connecter',
 	de => 'Anmelden',
 	en => 'Sign-in',
+	el => 'Εγγραφη',
 	es => 'Iniciar sesión',
 	it => 'connettersi',
 	ar => 'تسجيل الدخول',
@@ -1723,7 +1876,8 @@ session_title => {
 login_register_title => {
 	fr => 'Se connecter',
 	de => 'Anmelden',
-	en => 'Sign-in',
+	el => 'Εγγραφη',
+        en => 'Sign-in',
 	es => 'Iniciar sesión',
 	it => 'connettersi',
 	ar => 'تسجيل الدخول',
@@ -1737,6 +1891,7 @@ login_username_email => {
 	fr => "Nom d'utilisateur ou adresse e-mail :",
 	de => 'Benutzername oder E-Mail-Adresse:',
 	en => "Username or e-mail address:",
+	el => "Username ή διεύθυνση e-mail:",
 	es => "Nombre de usuario o dirección de correo electrónico:",
 	ar =>   "اسم الدخول او البريد الالكتروني :",
 	pt => 'Nome de usuário e e-mail:',
@@ -1763,6 +1918,12 @@ HTML
 <p>Please sign-in to add or edit a product.</p>
 
 <p>If you do not yet have an account on Open Food Facts, you can <a href="/cgi/user.pl">register in 30 seconds</a>.</p>
+HTML
+,
+el => <<HTML
+<p>Παρακαλώ εγγραφείτε για να προσθέσετε ή να επεξεργαστείτε προϊόντα.</p>
+
+<p> Αν δεν έχετε ακόμα λογαριασμό στο Open Food Facts, μπορείτε να <a href="/cgi/user.pl">register in 30 seconds</a>.</p>
 HTML
 ,
 ar => <<HTML
@@ -1806,7 +1967,7 @@ Nom d'utilisateur ou adresse e-mail :<br />
 <input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
 Mot de passe<br />
 <input type="password" name="password" tabindex="2" style="width:220px;" /><br />
-<input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Se souvenir de moi</label><br />
+<input type="checkbox" name="remember_me" id="remember_me" value="on" tabindex="3" /><label for="remember_me">Se souvenir de moi</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Se connecter" class="jbutton" />
 </form>
 <p>Pas encore inscrit(e) ? <a href="/cgi/user.pl">Créez votre compte</a>.</p>
@@ -1827,8 +1988,23 @@ Passwort<br />
 <p>Noch nicht registriert? <a href="/cgi/user.pl">Erstelle ein Benutzerkonto</a>.</p>
 HTML
 ,
+el => <<HTML
+<p>Εγγραφείτε για να προσθέσετε ή να επεξεργαστείτε προϊόντα.</p>
 
-	en => <<HTML
+<form method="post" action="/cgi/session.pl">
+Username ή διεύθυνση e-mail:<br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+Password<br />
+<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Remember me</label><br />
+<input type="submit" tabindex="4" name=".submit" value="Sign-in" class="jbutton" />
+</form>
+<p>Δεν έχετε εγγραφεί ακόμα; <a href="/cgi/user.pl">Create your account</a>.</p>
+HTML
+,
+
+
+en => <<HTML
 <p>Sign-in to add or edit products.</p>
 
 <form method="post" action="/cgi/session.pl">
@@ -1842,7 +2018,7 @@ Password<br />
 <p>Not registered yet? <a href="/cgi/user.pl">Create your account</a>.</p>
 HTML
 ,
-
+	
 	es => <<HTML
 <p>Conéctate para añadir o modificar productos.</p>
 
@@ -1974,6 +2150,7 @@ on_the_blog_title => {
 	fr => "Actualité",
 	de => "Neuigkeiten",
 	en => "News",
+	el => "Νέα",
 	es => "Noticias",
 	it => "Attualità",
 	ar => "الاخبار",
@@ -1986,6 +2163,11 @@ on_the_blog_content => {
 	en => <<HTML
 <p>To learn more about Open Food Facts, visit <a href="http://en.blog.openfoodfacts.org">our blog</a>!</p>
 <p>Recent news:</p>
+HTML
+,
+el => <<HTML
+<p>Για να μάθετε περισσότερα για το Open Food Facts, επισκεφθείτε <a href="http://en.blog.openfoodfacts.org">our blog</a>!</p>
+<p>Πρόσφατα νέα:</p>
 HTML
 ,
 	de => <<HTML
@@ -2072,6 +2254,7 @@ language => {
 	de => 'de-DE',
 	en => 'en-US',
 	es => 'es-ES',
+	el => 'el-GR',
 	it => 'it-IT',
 	ar => 'ar-AR',
 	pt => 'pt-BR',
@@ -2085,6 +2268,7 @@ facebook_locale => {
 	fr => 'fr_FR',
 	en => 'en_US',
 	es => 'es_ES',
+	el => 'el-GR',
 	it => 'it_IT',
 	de => 'de_DE',
 	pt => 'pt_BR',
@@ -2102,6 +2286,7 @@ username_or_email => {
 	de => 'Benutzername oder E-Mail-Adresse',
 	en => 'Username or email address',
 	es => 'Nombre de usuario o dirección de correo electrónico',
+	el => 'Όνομα χρήστη ή διεύθυνση email',
 	it => 'Username o indirizzo e-mail',
 	pt => 'Nome de usuário ou endereço de email', 
 	pt_pt => 'Nome de utilizador ou endereço de e-mail',
@@ -2115,6 +2300,7 @@ password => {
 	de => 'Passwort:',
 	en => 'Password:',
 	es => 'Contraseña:',
+	el => 'Κωδικός χρήστη (password)',
 	it => 'Password:',
 	pt => 'Senha',
 	pt_pt => 'Palavra-passe',
@@ -2128,6 +2314,7 @@ remember_me => {
 	de => 'Angemeldet bleiben',
 	en => 'Remember me',
 	es => 'Mantenerme conectado',
+	el => 'Θυμήσου με',
 	it => 'Ricordami',
 	pt => 'Lembre-se de mim',
 	pt_pt => 'Manter sessão iniciada',
@@ -2141,6 +2328,7 @@ login_and_add_product => {
 	de => 'Einloggen und ein Produkt hinzufügen',
 	en => 'Sign-in and add the product',
 	es => 'Inicia la sesión y añade el producto',
+	el => 'Εγγραφείτε και προσθέστε προϊόντα',
 	it => 'Connettersi e aggiungere prodotto',
 	ar => 'تسجيل الدخول لاضافه منتج',
 	pt => 'Ligue-se e adicione o produto',
@@ -2155,6 +2343,7 @@ login_and_edit_product => {
 	de => 'Einloggen und das Produkt bearbeiten',
 	en => 'Sign-in and edit the product',
 	es => 'Inicia la sesión y modifica el producto',
+	el => 'Εγγραφείτε και επεξεργαστείτε προϊόντα',
 	it => 'Connettersi e modificare la scheda prodotto',
 	pt => 'Ligue-se e edite o produto',
 	pt_pt => 'Inicie sessão e edite o produto',
@@ -2167,6 +2356,7 @@ pages => {
 	fr => "Pages : ",
 	de => 'Seiten: ',
 	en => "Pages:",
+	el => 'Σελίδες',
 	es => "Páginas:",
 	it => "Pagine:",
 	ar => "الصفحات:",
@@ -2181,6 +2371,7 @@ previous => {
 	de => 'Vorherige',
 	en => "Previous",
 	es => "Anterior",
+	el => 'Προηγούμενο',
 	it => "Precedente",
 	pt => 'Anterior',
 	ro => 'Anterior',
@@ -2193,6 +2384,7 @@ next => {
 	de => 'Nächste',
 	en => "Next",
 	es => "Siguiente",
+	el => 'Επόμενο',
 	it => "Successiva",
 	pt => 'Próxima',
 	ro => 'Următor',
@@ -2204,6 +2396,7 @@ page_x_out_of_y => {
 	fr => "Page %d sur %d.",
 	de => 'Seite %d von %d',
 	en => "Page %d out of %d.",
+	el => "Σελίδα %d από %d.",
 	es => "Página %d de %d.",
 	it => "Pagina %d di %d.",
 	pt => 'Página %d de %d',
@@ -2216,6 +2409,7 @@ edit => {
 	fr => 'modifier',
 	de => 'bearbeiten',
 	en => 'edit',
+	el => 'επεξεργασία',
 	es => 'modificar',
 	pt => 'editar',
 	ro => 'modificare',
@@ -2228,6 +2422,7 @@ hello => {
 	en => 'Hello',
 	de => 'Hallo',
 	es => 'Buenos días',
+	el => 'Γειά σας',
 	it => 'Ciao',
 	ar => 'مرحبا',
 	pt => 'Olá',
@@ -2241,6 +2436,7 @@ goodbye => {
 	de => 'Auf Wiedersehen !',
 	en => 'See you soon!',
 	es => '¡Hasta pronto!',
+	el => 'Αντίο',
 	it => 'A presto!',
 	ar => 'مع السلامه!',
 	pt => 'Até logo!',
@@ -2253,9 +2449,11 @@ sep => {
 	fr => ' ',
 	en => '',
 	es => '',
+	el => '',
 	pt => '',
 	he => '',
 	nl => '',
+	de => '',
 },
 
 connected_with_facebook => {
@@ -2263,6 +2461,7 @@ connected_with_facebook => {
 	de => 'Du bist verbunden zu deinem Facebook-Account.',
 	en => "You are connected with your Facebook account.",
 	es => "Estás conectado a través de tu cuenta en Facebook.",
+	el => "Είστε συνδεδεμένοι με τον λογαριασμό σας στο Facebook .",
 	it => "Siete connessi attraverso il vostro profilo Facebook",
 	pt => 'Você está ligado através de sua conta do Facebook',
 	pt_pt => 'Você está autenticado através da sua conta do Facebook',
@@ -2276,6 +2475,7 @@ you_are_connected_as_x => {
 	de => 'Du bist verbunden als %s',
 	en => "You are connected as %s.",
 	es => "Estás conectado como %s.",
+	el => "Είστε συνδεδεμένοι ως %s .",
 	it => "Siete connessi come %s.",
 	pt => 'Você está ligado como %s',
 	pt_pt => 'Você está autenticado como %s.',
@@ -2289,6 +2489,7 @@ signout => {
 	de => 'Ausloggen',
 	en => "Sign-out",
 	es => "Cerrar sesión",
+	el => "Διαγραφή",
 	it => "Disconnettersi",
 	pt => 'Sair',
 	pt_pt => 'Terminar sessão',
@@ -2302,6 +2503,7 @@ error_invalid_address => {
 	de => 'Ungültige Adresse.',
 	en => "Invalid address.",
 	es => "Dirección inválida.",
+	el => "Λανθασμένη διεύθυνση .",
 	pt => 'Endereço inválido',
 	ro => 'Adresă invalidă.',
 	he => "הכתובת שגויה.",
@@ -2314,6 +2516,7 @@ name => {
 	en => "Name",
 	de => "Name",
 	es => "Nombre",
+	el => "Όνομα",
 	it => "Nome",
 	pt => 'Nome',
 	ro => 'Nume',
@@ -2327,6 +2530,7 @@ email => {
 	de => "E-Mail-Adresse",
 	en => "e-mail address",
 	es => "Dirección de correo electrónico",
+	el => "Διεύθυνση e-mail",
 	it => "Indirizzo e-mail",
 	pt => 'Endereço de e-mail',
 	ro => 'Adresa de e-mail',
@@ -2338,6 +2542,7 @@ username => {
 	fr => "Nom d'utilisateur",
 	de => "Benutzername",
 	en => "User name",
+	el => "Όνομα χρήστη",
 	es => "Nombre de usuario",
 	it => "Nome dell'utilizzatore",
 	pt => 'Nome de usuário',
@@ -2352,6 +2557,7 @@ username_info => {
 	de => '(Buchstaben ohne Umlaute, Zahlen und/oder Bindestriche)',
 	en => "(non-accented letters, digits and/or dashes)",
 	es => "(letras no acentuadas, números y/o guiones)",
+	el => "(μη τονισμένα γράμματα, αριθμοί και/ή παύλες)",
 	it => "(lettere non accentate, numeri e/o trattini)",
 	pt => '(letras não acentuadas, digitos e/ou traços)',
 	ro => '(litere neaccentuate, cifre și/sau liniuțe)',
@@ -2364,6 +2570,7 @@ twitter => {
 	de => 'Twitter Benutzername (optional)',
 	en => "Twitter username (optional)",
 	es => "Nombre de usuario en Twitter (opcional)",
+	el => "Twitter username",
 	it => "Nome dâutilizzatore su Twitter (facoltativo)",
 	pt => 'Nome de usuário no Twitter (opcional)',
 	pt_pt => 'Nome de utilizador no Twitter (opcional)',
@@ -2376,6 +2583,7 @@ password => {
 	fr => "Mot de passe",
 	de => "Passwort",
 	en => "Password",
+	el => "Κωδικός χρήστη",
 	es => "Contraseña",
 	it => "Password",
 	pt => 'Senha',
@@ -2389,6 +2597,7 @@ password_confirm => {
 	fr => "Confirmation du mot de passe",
 	de => 'Passwort bestätigen',
 	en => "Confirm password",
+	el => "Επιβεβαιωστε τον κωδικό χρήστη",
 	es => "Confirmar la contraseña",
 	it => "Conferma la password",
 	pt => 'Confirme sua senha',
@@ -2403,6 +2612,7 @@ unsubscribe_info => {
 	de => 'Du kannst die Liste jederzeit deabonnieren.',
 	en => "You can unsubscribe from the lists at any time.",
 	es => "Puedes darte de baja de las listas cuando lo desees.",
+	el => "Μπορείτε να διαγραφείτε από τις λίστες οποιαδήποτε στιγμή.",
 	it => "In qualsiasi momento e facilmente potete cancellarvi dalla lettera d'informazioni",
 	pt => 'Você pode anular as inscrições das listas a qualquer momento',
 	pt_pt => 'Pode anular as suas inscrições nas listas a qualquer momento',
@@ -2415,6 +2625,7 @@ website => {
 	fr => "Adresse de blog ou de site web",
 	de => 'Seiten- oder Blogadresse',
 	en => "Site or blog address",
+	el => "Ιστοσελίδα ή διεύθυνση ιστολογίου (blog)",
 	es => "Dirección del blog o del sitio web",
 	it => "Indirizzo del blog o del sito web",
 	pt => 'Endereço do seu site ou blog',
@@ -2428,6 +2639,7 @@ about => {
 	fr => "Présentation",
 	de => 'Über uns',
 	en => "About me",
+	el => "Για εμάς",
 	es => "Presentación",
 	it => "Mi presento",
 	pt => 'Sobre mim',
@@ -2440,6 +2652,7 @@ error_no_name => {
 	fr => "Vous devez entrer un nom, prénom ou pseudonyme.",
 	de => 'Sie müssen einen Namen oder Spitznamen angeben.',
 	en => "You need to enter a name or nickname.",
+	el => "Πρέπει να εισάγετε ένα όνομα ή ψευδώνυμο.",
 	es => "Debes escribir un nombre o seudónimo.",
 	it => "Immetti nome, cognome o pseudonimo",
 	pt => 'Você precisa incluir um nome ou apelido',
@@ -2453,6 +2666,7 @@ error_invalid_email => {
 	fr => "L'adresse e-mail est invalide.",
 	de => 'Ungültige E-Mail-Adresse',
 	en => "Invalid e-mail address",
+	el => "Άκυρη διεύθυνση e-mail",
 	es => "La dirección de correo electrónico no es válida",
 	it => "Indirizzo e-mail non valido",
 	pt => 'Endereço de e-mail inválido',
@@ -2466,6 +2680,7 @@ error_email_already_in_use => {
 	fr => "L'adresse e-mail est déjà utilisée par un autre utilisateur. Peut-être avez-vous déjà un autre compte ? Vous pouvez <a href=\"/cgi/reset_password.pl\">réinitialiser le mot de passe</a> de votre autre compte.",
 	de => 'Die angegebene E-Mail-Adresse ist bereits in Verwendung. Möglicherweise habane Sie schon ein Konto? Sie können das Passwort ihres Kontos <a href=\"/cgi/reset_password.pl\">zurücksetzen</a>.',
 	en => "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account.",
+        el => "Η διεύθυνση e-mail χρησιμοποιείται ήδη από άλλο χρήστη. Μήπως έχετε ήδη λογαριασμό; Μπορείτε  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account.",
 	es => "La dirección de correo electrónico ya está siendo utilizada por otro usuario. Tal vez, haya creado ya una cuenta. Aquí puede  <a href=\"/cgi/reset_password.pl\">restablecer la contraseña</a> de la otra cuenta.",
 	it => "L'inidirzzo e-mail è già in uso. Hai un altro account di posta? Puoi <a href=\"/cgi/reset_password.pl\">reinserire la password<a> dell'altro account.",
 	pt => 'Esse endereço de email já está sendo utilizado por outro usuário. Talvez você já tenha uma conta? Você pode <a href=\"/cgi/reset_password.pl\">modificar a senha</a> da sua outra conta.',
@@ -2478,6 +2693,7 @@ error_email_already_in_use => {
 error_no_username => {
 	fr => "Vous devez entrer un nom d'utilisateur.",
 	en => "You need to enter a user name",
+	el => "Πρέπει να εισάγετε ένα όνομα χρήστη",
 	de => "Sie müssen einen Benutzernamen eingeben",
 	es => "Necesitas introducir un nombre de usuario",
 	it => "Inserisci il nome dell'utilizzatore/username",
@@ -2492,6 +2708,7 @@ error_username_not_available => {
 	fr => "Ce nom d'utilisateur existe déjà, choisissez en un autre.",
 	de => 'Dieser Benutzername wird bereits benutzt, bitte wählen Sie einen anderen.',
 	en => "This username already exists, please choose another.",
+	el => "Αυτό το όνομα χρήστη χρησιμοποιείται ήδη, παρακαλώ επιλέξτε κάποιο άλλο",
 	es => "El nombre de usuario que ha escogido ya existe, por favor escoja otro.",
 	it => "Questo username esiste già, per favore prova con un altro",   
 	pt => 'Esse nome de usuário já existe, por favor escolha outro',  
@@ -2505,6 +2722,7 @@ error_invalid_username => {
 	fr => "Le nom d'utilisateur doit être composé de lettres minuscules sans accents, de tirets et/ou de chiffres.",
 	de => 'Der Benutzername darf nur Buchstaben ohne Umlaute, Zahlen und Bindestriche enthalten.',
 	en => "The user name must contain only unaccented letters, digits and dashes.",
+	el => "Το όνομα χρήστη πρέπει να περιέχει μόνο μη τονισμένες λέξεις, ψηφία και παύλες",
 	es => "El nombre de usuario debe contener sólo caracteres sin acentuar, dígitos y guiones.",
 	it => "Lo username può contenere solo caratteri senza accento, trattini e cifre",
 	pt => "O nome de usuário deve conter somente letras não acentuadas, dígitos e traços.",
@@ -2518,6 +2736,7 @@ error_invalid_password => {
 	fr => "Le mot de passe doit comporter au moins 6 caractères.",
 	de => "Das Passwort muss mindestens 6 Zeichen lang sein.",
 	en => "The password needs to be a least 6 characters long.",
+	el => "Ο κωδικός χρήστη (password) πρέπει να περιέχει τουλάχιστον 6 χαρακτήρες",
 	es => "La contraseña debe contener al menos 6 caracteres.",
 	it => "La password deve contenere almeno 6 caratteri",
 	pt => 'A senha deve conter pelo menos 6 caracteres',
@@ -2532,6 +2751,7 @@ error_different_passwords => {
 	de => 'Die Passwort und die Wiederholung müssen übereinstimmen.',
 	en => "The password and confirmation password are different.",
 	es => "La contraseña y su confirmación son diferentes.",
+	el => "To password και το confirmation password είναι διαφορετικά",
 	it => "La password non corrisponde",
 	pt => 'A senha e a senha de confirmação são diferentes',
 	pt_pt => 'As palavras-passe são diferentes.',
@@ -2544,6 +2764,7 @@ error_invalid_user => {
 	fr => "Impossible de lire l'utilisateur.",
 	de => 'Ungültiger Benutzer',
 	en => "Invalid user.",
+	el => "Μη έγκυρος χρήστης.",
 	es => "Usuario no válido.",
 	it => "Utilizzatore non valido",
 	pt => 'Usuário inválido',
@@ -2556,6 +2777,7 @@ error_invalid_user => {
 error_no_permission => {
 	fr => "Permission refusée.",
 	en => "Permission denied.",
+	el => "Άρνηση άδειας.",
 	de => "Zugriff verweigert.",
 	es => "Permiso denegado.",
 	it => "Permesso rifiutato",
@@ -2568,6 +2790,7 @@ error_no_permission => {
 correct_the_following_errors => {
 	fr => "Merci de corriger les erreurs suivantes :",
 	en => "Please correct the following errors:",
+	el => "Παρακαλώ διορθώστε τα παρακάτω σφάλματα:",
 	de => "Bitte korrigieren Sie die folgenden Fehler:",
 	es => "Por favor, corrija los siguientes errores:",
 	it => "Correggere gli errori seguenti, grazie",
@@ -2581,6 +2804,7 @@ error_database => {
 	fr => "Une erreur est survenue en lisant la base de données, essayez de recharger la page.",
 	de => "Beim Lesen der Daten ist ein Fehler aufgetreten, bitte aktualisieren Sie die Seite.",
 	en => "An error occured while reading the data, try to refresh the page.",
+	el => "Σφάλμα κατά την ανάγνωση των δεδομένων, προσπαθήστε να ξαναφορτώσετε τη σελίδα.",
 	es => "Se produjo un error durante la lectura de la base de datos, intente recargar la página.",
 	it => "Un errore è occorso durante la lettura dei dati, prova a ricaricare la pagina",
 	pt => "Ocorreu um erro durante a leitura dos dados, tente atualizar a página.",
@@ -2593,6 +2817,7 @@ no_products => {
 	fr => "Pas de produits.",
 	de => "Keine Produkte.",
 	en => "No products.",
+	el => "Κανένα προϊόν.",
 	es => "No hay productos.",
 	it => "Nessun prodotto",
 	pt => "Não há produtos.",
@@ -2605,6 +2830,7 @@ no_products => {
 	fr => "1 produit :",
 	de => "1 Produkt:",
 	en => "1 product:",
+	el => "1 προϊόν:",
 	es => "1 producto:",
 	it => "1 prodotto:",
 	pt => "1 produto:",
@@ -2616,7 +2842,7 @@ no_products => {
 n_products => {
 	fr => "%d produits :",
 	de => "%d Produkte:",
-	en => "%d products:",
+	el => "%d Προϊόντα:",
 	es => "%d productos:",
 	it => "%d prodotti:",
 	pt => "%d produtos:",
@@ -2629,6 +2855,7 @@ signin_before_submit => {
 	fr => "Si vous êtes déjà inscrit sur <SITE>, identifiez-vous (\"Se connecter\" dans la colonne de droite) avant de remplir ce formulaire.",
 	de => "Wenn Sie bereits ein Benutzerkonto auf <SITE> haben, melden Sie sich bitte an, bevor sie das Formular ausfüllen.",
 	en => "If you already have an account on <SITE>, please sign-in before filling this form.",
+	el => "Εαν έχετε ήδη ένα λογαριασμό στο <SITE>, παρακαλώ εγγραφείτε πριν συμπληρώσετε αυτή τη φόρμα.",
 	es => "Si ya tiene una cuenta en <SITE>, por favor, inicie la sesión antes de rellenar este formulario.",
 	it => "Se siete già iscritti su <SITE>, per favore identificatevi prima di compilare questo formulario",
 	pt =>"Se você já possui uma conta no <SITE>, por favor entre antes de preencher este formulário.",
@@ -2643,6 +2870,7 @@ error_bad_login_password => {
 	fr => "Mauvais nom d'utilisateur ou mot de passe. <a href=\"/cgi/reset_password.pl\">Mot de passe oublié ?</a>", 
 	de=> "Ungültiger Benutzername oder Passwort. <a href=\"/cgi/reset_password.pl\">Passwort vergessen?</a>",
 	en => "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>",
+	el => "Λάθος όνομα χρήστη ή κωδικός πρόσβασης. <a href=\"/cgi/reset_password.pl\">Ξεχάσατε το κωδικό χρήστη;</a>",
 	es => "Nombre de usuario o contraseña incorecto/a. <a href=\"/cgi/reset_password.pl\">¿Olvidaste tu contraseña?</a>",
 	it => "Username o password sbagliate.  <a href=\"/cgi/reset_password.pl\">Password dimenticata? </a>",
 	pt =>"Nome de usuário ou senha incorretos. <a href=\"/cgi/reset_password.pl\">Esqueceu sua senha?</a>",
@@ -2656,6 +2884,7 @@ subscribe => {
 	fr => 'S\'abonner',
 	de => 'Abonnieren',
 	en => 'Subscribe',
+	el => "Εγγραφείτε",
 	es => 'Suscribir',
 	it => 'Aderire',
 	pt => 'Subscrever',
@@ -2668,6 +2897,7 @@ unsubscribe => {
 	fr => 'Se désabonner',
 	de => 'Deabonnieren',
 	en => 'Unsubscribe',
+	el => "Διαγραφείτε",
 	es => 'Darse de baja',
 	it => 'Cancellarsi',
 	pt => 'Desinscrever',
@@ -2680,6 +2910,7 @@ _and_ => {
 	fr => ' et ',
 	de => ' und ',
 	en => ' and ',
+	el => ' και ',
 	es => ' y ',
 	cs => ' a ',
 	it => ' e ',
@@ -2693,6 +2924,7 @@ reset_password =>  {
 	fr => 'Réinitialiser le mot de passe',
 	de => 'Passwort zurücksetzen',
 	en => 'Reset password',
+	el => 'Ανάκληση κωδικού χρήστη ',
 	es => 'Restablecer la contraseña',
 	it => 'Modificare la password',
 	pt => 'Alterar a palavra-passe',
@@ -2705,6 +2937,7 @@ userid_or_email => {
 	fr => 'Nom d\'utilisateur ou adresse e-mail : ',
 	de => 'Benutzername oder E-Mail-Adresse: ',
 	en => 'Username or e-mail address: ',
+	el => ' Όνομα χρήστη ή διεύθυνση e-mail: ',
 	es => 'Nombre de usuario o dirección de correo electrónico: ',
 	it => 'Nome d\'utilizzatore o indirizzo e-mail',
 	pt => 'Nome de usuário ou endereço de e-mail',
@@ -2718,6 +2951,7 @@ reset_password_reset =>  {
 	fr => 'Votre mot de passe a été changé. Vous pouvez maintenant vous identifier avec ce mot de passe.',
 	de => 'Ihr Passwort wurden geändert. Sie können sich nun mit dem neuen Passwort anmelden.',
 	en => 'Your password has been changed. You can now log-in with this password.',
+	el => 'Ο κωδικός χρήστη έχει αλλάξει. Μπορείτε τώρα να συνδεθείτε με τον νέο κωδικό ',
 	es => 'La contraseña ha sido cambiada correctamente. Ahora puede iniciar la sesión con la nueva contraseña.',
 	it => 'La password è stata modificata. Potete ora identificarvi con la nuova password.',
 	pt => 'Sua senha foi modificada. Você pode iniciar sua sessão com a nova senha.',
@@ -2731,7 +2965,8 @@ reset_password_send_email =>  {
 	fr => 'Un e-mail avec un lien pour vous permettre de changer le mot de passe a été envoyé à l\'adresse e-mail associée à votre compte.',
 	de => 'Eine E-Mail mit einem Zurücksetzungslink für Ihr Passwort wurde zu der von Ihnen angegebenen E-Mail-Adresse verschickt.',
 	en => 'An email with a link to reset your password has been sent to the e-mail address associated with your account.',
-	es => 'Se ha enviado un correo electrónico con un enlace para que pueda cambiar la contraseña asociada a su cuenta.',
+	el => 'Ένα email με το link για την ανάκληση του κωδικού χρήστη σας έχει σταλεί στην διεύθυνση ηλεκτρονικού ταχυδρομείου που έχετε συνδέσει σε αυτό το λογαριασμό.  ',
+es => 'Se ha enviado un correo electrónico con un enlace para que pueda cambiar la contraseña asociada a su cuenta.',
 	it => 'Una mail con un link per consentirvi di cambiare la password è stata inviata all\' indirizzo e-mail associato al vostro account.' ,
 	pt => 'Um e-mail com um link para repor a sua senha foi enviado para o endereço de e-mail associado com a sua conta',
 	ro => 'Un e-mail cu un link pentru resetarea parolei v-a fost trimis la adresa de e-mail asociată cu contul dumneavoastră.',
@@ -2742,7 +2977,8 @@ reset_password_send_email =>  {
 reset_password_send_email_msg =>  {
 	fr => 'Si vous avez oublié votre mot de passe, indiquez votre nom d\'utilisateur ou votre e-mail pour recevoir les instructions pour le réinitialiser.',
 	en => 'If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password.',
-	es => 'Si ha olvidado su contraseña, introduzca su nombre de usuario o su dirección de correo electrónico donde recibirá las instrucciones necesarias para restablecerla.',
+	el => 'Αν έχετε ξεχάσει τον κωδικό χρήστη. συμπληρώστε το όνομα χρήστη ή τη διεύθυνση ηλεκτρονικού ταχυδρομείου προκειμένου να λάβετε οδηγίες ανάκλησης του κωδικού σας.',
+es => 'Si ha olvidado su contraseña, introduzca su nombre de usuario o su dirección de correo electrónico donde recibirá las instrucciones necesarias para restablecerla.',
 	it => 'Se avete scordato la password, indicate il vostro username o la vostra e-mail per ricevere le istruzioni per reimpostarla.',
 	pt => 'Caso você tenha esquecido sua senha, preencha seu nome de usuário ou endereço de e-mail para receber instruções de como modificar a sua senha.',
 	pt_pt => 'Caso se tenha esquecido da sua palavra-passe, preencha o seu nome de utilizador ou endereço de e-mail para receber instruções para repor mesma.',
@@ -2755,6 +2991,7 @@ reset_password_send_email_msg =>  {
 reset_password_reset_msg =>  {
 	fr => 'Entrez un nouveau mot de passe.',
 	en => 'Enter a new password.',
+	el => 'Εισάγετε νέο κωδικό χρήστη.',
 	es => 'Introduzca una nueva contraseña.',
 	it => 'Introdurre una nuova password' ,
 	ar => 'ادخل كلمه مرور جديده',
@@ -2769,6 +3006,7 @@ reset_password_reset_msg =>  {
 error_reset_unknown_email =>  {
 	fr => 'Il n\'existe pas de compte avec cette adresse e-mail',
 	en => 'There is no account with this email',
+	el => 'Δεν υπάρχει λογαριασμός με αυτό το email',
 	es => 'No existe ninguna cuenta asociada a este correo electrónico',
 	it => 'Non esiste un account associato a questa e-mail',    
 	pt => 'Nâo há conta associada a esse e-mail',
@@ -2782,6 +3020,7 @@ error_reset_unknown_email =>  {
 error_reset_unknown_id =>  {
 	fr => 'Ce nom d\'utilisateur n\'existe pas.',
 	en => 'This username does not exist.',
+	el => 'Αυτό το όνομα χρήστη δεν υπάρχει.',
 	es => 'El nombre de usuario no existe.',
 	it => 'Questo nome d\'utilizzatore/username non esiste',
 	ar => 'اسم المستخدم غير موجود',
@@ -2796,6 +3035,7 @@ error_reset_unknown_id =>  {
 error_reset_invalid_token =>  {
 	fr => 'Le lien de réinitialisation de mot de passe est invalide ou a expiré.',
 	en => 'The reset password link is invalid or has expired.',
+	el => 'Ο σύνδεσμος ανάκτησης κωδικού χρήστη δεν είναι έγκυρος ή έχει λήξει.',
 	es => 'El enlace para restablecer la contraseña no es válido o ha caducado.',
 	it => 'Il link per resettare la password non è valido oppure è scaduto' , 
 	pt => 'O link para modificar a senha é inválido ou expirou.',
@@ -2809,6 +3049,7 @@ error_reset_invalid_token =>  {
 error_reset_already_connected =>  {
 	fr => 'Vous avez déjà une session ouverte.',
 	en => 'You are already signed in.',
+	el => 'Είσαστε ήδη εγγεγραμμένος.',
 	es => 'Ya tiene una sesión abierta.',
 	it => 'Avete già una sessione aperta',
 	pt => 'Você já tem uma sessão aberta',
@@ -2822,6 +3063,7 @@ error_reset_already_connected =>  {
 lang => {
 	fr => 'Langue principale',
 	en => 'Main language',
+	el => 'Κύρια γλώσσα',
 	es => 'Idioma principal',
 	it => 'Lingua principale',
 	ar => 'اللغه الرئيسيه',
@@ -2835,6 +3077,7 @@ lang => {
 lang_note => {
 	fr => 'Langue la plus utilisée et la plus mise en avant sur le produit',
 	en => 'Language most present and most highlighted on the product',
+	el => 'Κύρια γλώσσα του προϊόντος',
 	es => 'Idioma más utilizado en la mayor parte del producto',
 	it => 'La lingua maggiormente utilizzata sul prodotto',
 	pt => 'Idioma mais presente no produto',
@@ -2847,6 +3090,7 @@ lang_note => {
 expiration_date => {
 	fr => 'Date limite de consommation',
 	en => 'Best before date',
+	el => 'Ανάλωση κατά προτίμηση',
 	es => 'Fecha límite de consumo',
 	it => 'Da utilizzare entro',
 	pt => 'Data de validade',
@@ -2859,6 +3103,7 @@ expiration_date => {
 expiration_date_note => {
 	fr => "La date limite permet de repérer les changements des produits dans le temps et d'identifier la plus récente version.",
 	en => "The expiration date is a way to track product changes over time and to identify the most recent version.",
+	el => "H ημερομηνία λήξης είναι ένας τρόπος παρακολούθησης των αλλαγών σε ένα προϊόν συναρτήσει του χρόνου και εξεύρεσης της πιο πρόσφατης παρτίδας.",
 	es => "La fecha límite de consumo permite seguir los cambios que se han ido produciendo en los productos a lo largo del tiempo y también identificar la versión más reciente.",
 	it => "La data di scadenza permette di tracciare le modifiche dei prodotti nel tempo e riconoscere la versione più recente.",
 	pt => 'A data de validade é uma forma de rastrear mudanças no produto ao longo do tempo e identificar sua versão mais recente.',
@@ -2866,11 +3111,13 @@ expiration_date_note => {
 	ro => 'Data de expirare este o modalitate de a urmări schimbările produsului de-a lungul timpului și pentru a identifica cea mai recentă versiune.',
 	he => "תאריך התפוגה היא דרך נוספת לעקוב אחר שינויים במוצרים במשך הזמן ולזהות את הגרסה העדכנית ביותר.",
 	nl => 'Dankzij de houdbaarheidsdatum is het mogelijk om veranderingen van het product over een bepaalde periode waar te nemen en om de meest recente versie te bepalen.',
+	de => 'Das Ablaufdatum ist eine Möglichkeit, um Produktänderungen im Verlauf der Zeit zu folgen, und nun die aktuellste Version zu identifizieren.',
 },
 
 product_name => {
 	fr => "Nom du produit",
 	en => "Product name",
+	el => "Όνομα προϊόντος",
 	es => "Nombre del producto",
 	it => "Nome del prodotto",
 	pt => 'Nome do produto',
@@ -2883,6 +3130,7 @@ product_name => {
 product_name_example => {
 	fr => "Kinder Bueno White",
 	en => "Kinder Bueno White",
+	el => "Kinder Bueno White",
 	es => "Kinder Bueno White",
 	it => "Kinder Bueno White",
 	pt => 'Kinder Bueno White',
@@ -2895,26 +3143,31 @@ product_name_example => {
 generic_name => {
 	fr => "Dénomination générique",
 	en => "Common name",
+	el => "Κοινό/Γενικό όνομα",
 	es => "Denominación general",
 	it => "Nome generico",
 	pt => 'Nome genérico',
 	ro => 'Numele general',
 	he => "שם נפוץ",
 	nl => 'Algemene benaming',
+	de => 'Allgemeiner Name',
 },
 generic_name_example => {
 	fr => "Barre chocolatée au lait et aux noisettes",
 	en => "Chocolate bar with milk and hazelnuts",
+	el => "Μπάρα σοκολάτας με γάλα και φουντούκια",
 	es => "Tableta de chocolate con leche y avellanas",
 	it => "Tavoletta di cioccolato al latte con nocciole",
 	pt => 'Barra de chocolate com leite e avelãs',
 	ro => 'Baton de ciocolată cu lapte și alune',
 	he => "חטיף שוקולד עם חלב ושקדים",
 	nl => 'Chocoladereep met melkchocolade en hazelnoten',
+	de => 'Schokoladenriegel mit Milch und Haselnuß',
 },
 brands => {
 	fr => "Marques",
 	en => "Brands",
+	el => "Μάρκες",
 	de => "Marken",
 	es => "Marcas",
 	it => "Marche",
@@ -2927,6 +3180,7 @@ brands_example => {
 	fr => "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero",
 	en => "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero",
 	es => "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero",
+	el => "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero",
 	it => "Kinder Bueno, Kinder, Ferrero",
 	pt => 'Kinder Bueno White, Kinder Bueno, Ferrero',
 	ro => 'Kinder Bueno White, Kinder Bueno, Kinder, Ferrero',
@@ -2939,6 +3193,7 @@ quantity => {
 	fr => "Quantité",
 	en => "Quantity",
 	es => "Cantidad",
+	el => "Ποσότητα",
 	it => "Quantità",
 	pt => "Quantidade",
 	ro => 'Cantitate',
@@ -2949,6 +3204,7 @@ quantity => {
 quantity_example => {
 	fr => "2 l, 250 g, 1 kg, 25 cl",
 	en => "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound",
+	el => "2 l, 250 g, 1 kg, 25 cl, 250 ml, 6 fl oz",
 	es => "2 l, 250 g, 1 kg, 25 cl",
 	it => "2 l, 250 g, 1 kg, 25 cl",
 	pt => '2 l, 250 g, 1 kg, 250 ml',
@@ -2961,6 +3217,7 @@ quantity_example => {
 packaging => {
 	fr => "Conditionnement",
 	en => "Packaging",
+	el => "Συσκευασία",
 	es => "Envases",
 	it => "Confezionamento",
 	pt => "Embalagem",
@@ -2973,28 +3230,33 @@ packaging => {
 packaging_note => {
 	fr => "Type de conditionnement, format, matière",
 	en => "Packaging type, format, material",
+	el => "Τύπος συσκευασίας, μορφή/σχήμα, υλικό",
 	es => "Tipo de envase, formato, material",
 	it => "Tipo di confezione, formato, materiale",
 	pt => "Tipo de embalagem, formato, material",
 	ro => 'Tipul de ambalaj, format, material',
 	he => "סוג האריזה, מבנה, חומר",
 	nl => "Soort verpakking, formaat, materiaal",
+	de => "Verpackungsart, Format, Material",
 },
 
 packaging_example => {
 	fr => "Frais, Conserve, Sous-vide, Surgelé, Bouteille, Bocal, Boîte, Verre, Plastique, Carton...",
 	en => "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic...",
+	el => "Φρέσκο, Κονσερβοποιημένο, Κατεψυγμένο, Φιάλη, Γυαλί, Πλαστικό...",
 	es => "Fresco, En conserva, Al vacío, Congelado, Botella, Tarro, Caja, Vidrio, Plástico, Cartón...",
 	pt => "Fresco, Conserva, Vácuo, Congelado, Garrafa, Copo, Caixa, Vidro, Plástico, Cartão...", 
 	it => "Fresco, Conserva/Lattina, Sottovuoto, Surgelato, Bottiglia, Vasetto, Barattolo, Vetro, Plastica, Cartone",
 	ro => 'Proaspăt, Conservat, Înghețat, Îmbuteliat, Cutie, Sticlă, Plastic...',
 	he => "טרי, בקופסת שימורים, קפוא, בקבוק, קופסה, זכוכית, פלסטיק...",
 	nl => "Vers, Conserve, Vacuüm, Diepgevroren, Fles, Bokaal, Doos, Glas, Plastiek, Karton, ...",
+	de => "Frisch, Konserve, Tiefkühlware, Flasche, Packung, Glas, Kunststoff, Karton, ...",
 },
 
 categories => {
 	fr => "Catégories",
 	en => "Categories",
+	el => "Κατηγορίες",
 	de => "Kategorien",
 	es => "Categorías",
 	it => "Categorie",
@@ -3007,6 +3269,7 @@ categories => {
 categories_example => {
 	fr => "Sardines à l'huile d'olive, Mayonnaises allégées, Jus d'orange à base de concentré",
 	en => "Sardines in olive oil, Orange juice from concentrate",
+	el => "Σαρδέλες σε ελαιόλαδο, Χυμός πορτοκάλι από συμπυκνωμένο",
 	es => "Sardinas en aceite de oliva, Mayonesa ligera, Zumo de naranja procedente de concentrado",
 	it => "Sardine in olio di oliva, Succo d'arancia a base di concentrato", 
 	pt => "Sardinha em óleo de oliva, Suco de laranja concentrado",
@@ -3020,12 +3283,14 @@ categories_example => {
 categories_note => {
 	fr => "Il suffit d'indiquer la catégorie la plus spécifique, les catégories \"parentes\" seront ajoutées automatiquement.",
 	en => "Indicate only the most specific category. \"Parents\" categories will be automatically added.",
+	el => "Αναφέρετε μόνο την πιο εξειδικευμένη κατηγορία. \"Parents\" κατηγορίες θα προστεθούν αυτόματα.",
 	es => "Indicar sólo la categoría más específica. Las categorías \"Padres\" serán añadidas automáticamente.",
 	pt => "Indicar apenas a categoria mais específica. As categorias \"Pai\" serão adicionadas automaticamente.",
 	it => "Indicare solo la categoria più specifica, le categorie \"Principali\" saranno aggiunte automaticamente",
 	ro => "Indicați doar categoria cea mai specifică. Categorile \"Părinte\" vor fi adăugate automat.",
 	he => "ציון הקטגוריה החשובה ביותר. קטגוריות „הורים“ יתווספו אוטומטית.",
 	nl => "Duidt enkel de meest specifieke categorie aan. De \"verwante\" categorieën worden automatisch toegevoegd.",
+	de => "Geben Sie nur die am zutreffende Kategorie an, die \"Vorfahr-\" Kategorien werden automatisch hinzugefügt.",
 },
 
 pnns_groups_1 => {
@@ -3038,6 +3303,7 @@ pnns_groups_2 => {
 labels => {
 	fr => "Labels, certifications, récompenses",
 	en => "Labels, certifications, awards",
+	el => "Ετικέτες, πιστοποιητικά, βραβεία",
 	es => "Etiquetas, certificaciones, premios",
 	pt => "Etiquetas, certificações, prêmios",
 	ro => 'Etichete, certificări, premii',
@@ -3050,6 +3316,7 @@ labels => {
 labels_example => {
 	fr => "AB, Bio européen, Max Havelaar, Label Rouge, IGP, AOP, Saveur de l'Année 2012...",
 	en => "Organic", # "Fairtrade USA, Fair trade, TransFair...",
+	el => "Βιολογικό/Οργανικό/Ολοκληρωμένης Διαχείρισης, Δικαίου Εμπορίου, Π.Ο.Π., Π.Γ.Ε, Χωρίς γλουτένη, Ελεύθερο Γενετικών Τροποποιημένων/Non GMO, Βραβείο γεύσης...",
 	es => "Ecológico, Fairtrade-Max Havelaar, I.G.P., D.O.P., Sabor del año 2012...",
 	pt => "Ecológico, Comércio Justo, Sabor do Ano 2012...",
 	pt_pt => "Ecológico, Produto do Ano 2012, sem glúten, ...",
@@ -3057,22 +3324,26 @@ labels_example => {
 	it => "IGP, IGT, DOP, Bio, Ecologico, Non OGM, gluten-free",
 	he => "אורגני", "סחר הוגן, מיוצר בישראל",
 	nl => "AB, Max Havelaar, Label Rouge, Organisch, Glutenvrij, Smaak van het jaar 2012, ...",
+	de => "Bio, Fairtrade-Max Havelaar, demeter, vegan, Glutenfrei, ...",
 },
 
 labels_note => {
 	fr => "Indiquez les labels les plus spécifiques. Les catégories \"parentes\" comme 'Bio' ou 'Commerce équitable' seront ajoutées automatiquement.",
 	en => "Indicate only the most specific labels. \"Parents\" labels will be added automatically.",
+	el => "Αναφέρετε μόνο την πιο εξειδικευμένη κατηγορία. \"Parents\" κατηγορίες θα προστεθούν αυτόματα.",
 	pt => "Indicar apenas a categoria mais específica. As categorias \"Pai\" serão adicionadas automaticamente.",
 	es => "Indicar sólo las etiquetas más específicas. Las categorías \"Padres\" como 'Eco' o 'Comercio Justo' serán añadidas automáticamente.",
 	it => "Indicare solo le etichette più specifiche. Le categorie maggiori come 'Eco' o 'Commercio equo-solidale' saranno aggiunte in automatico.",
 	ro => "Indicați doar eticheta cea mai specifică. Etichetele \"Părinte\" vor fi adăugate automat.",
 	he => "יש לציין את התוויות הייחודיות בלבד. תוויות „הורים“ יתווספו אוטומטית.",
 	nl => "Duidt enkel de meest specifieke labels aan. De \"verwante\" categorieën zoals 'Bio of ' Fair trade' worden automatisch toegevoegd",
+	de => "Geben Sie nur die am besten zutreffenden Labels an, die \"Vorfahr-\" Labels werden automatisch hinzugefügt.",
 },
 
 origins => {
 	fr => "Origine des ingrédients",
 	en => "Origin of ingredients",
+	el => "Προέλευση των συστατικών",
 	es => "Origen de los ingredientes",
 	it => "Origine",
 	pt => "Origem do produto",
@@ -3085,6 +3356,7 @@ origins => {
 origins_example => {
 	fr => "Vallée des Baux-de-Provence, Provence, France",
 	en => "California, USA",
+	el => "Μέτσοβο, Ήπειρος, Ελλάδα",
 	es => "Montilla, Córdoba (provincia), Andalucía, España",
 	pt => "Ribeira Grande, São Miguel, Açores, Portugal",
 	he => "נס ציונה, ישראל",
@@ -3095,6 +3367,7 @@ origins_example => {
 origins_note_xxx => {
 	fr => "Indiquer l'origine des ingrédients",
 	en => "",
+	el => "Αναφέρετε την προέλευση των συστατικών",
 	es => "Indicar el origen de los ingredientes",
 	pt => "Indicar nas duas entradas a origem indicada na etiqueta e possivelmente o seu tipo",
 	ro => "Indicați originea ingredientelor",
@@ -3105,6 +3378,7 @@ origins_note_xxx => {
 manufacturing_places => {
 	fr => "Lieux de fabrication ou de transformation",
 	en => "Manufacturing or processing places",
+	el => "Τόπος παραγωγής ή επεξεργασίας",
 	es => "Lugares de fabricación o de transformación",
 	pt_pt => "Locais de fabrico ou de transformação",
 	ro => "Locurile de fabricare sau procesare",
@@ -3116,6 +3390,7 @@ manufacturing_places => {
 manufacturing_places_example => {
 	fr => "Provence, France",
 	en => "Montana, USA",
+	el => "Θεσσαλονίκη, Ελλάδα",
 	es => "Andalucía, España",
 	pt => "Lisboa, Portugal",
 	nl => "Leuven, België",
@@ -3125,6 +3400,7 @@ manufacturing_places_example => {
 emb_codes => {
 	fr => "Code emballeur (EMB) ou embouteilleur",
 	en => "EMB code",
+	el => "Κωδικός παραγωγού ή εμφιαλωτή",
 	es => "Código de envasador",
 	pt => "Código do embalador",
 	de => "Produzenten Code",
@@ -3137,7 +3413,7 @@ emb_codes_example => {
 	es => "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522 ",
 	pt => "PT ILT 40 CE",
 	nl => "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
-	de => "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
+	de => "DE BY117 EG, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522",
 },
 
 emb_codes_note => {
@@ -3145,16 +3421,19 @@ emb_codes_note => {
 Dans d'autres pays d'Europe, code précédé de \"e\". Ou dans un ovale, 2 initiales du pays suivi d'un nombre et de CE.<br/>
 Pour le vin et l'alcool, code sur la capsule au dessus du bouchon.",
 	en => "In Europe, code in an ellipse with the 2 country initials followed by a number and CE.",
-	es => "En Francia, el código que empieza por EMB seguido de 5 cifras (código del INSEE de la comuna) y, en ocasiones, una letra que identifica la empresa envasadora del producto.<br/>
+	el => "Στην Ευρώπη, κωδικός μέσα σε οβάλ με τα 2 πρώτα αρχικά της χώρας συνοδευόμενο με έναν αριθμό και CE.",
+es => "En Francia, el código que empieza por EMB seguido de 5 cifras (código del INSEE de la comuna) y, en ocasiones, una letra que identifica la empresa envasadora del producto.<br/>
 En otros países europeos, el código precedido por \"e\". O en una elipse, dos letras correspondientes al país seguidas de un número y de las letras CE.<br/>",
 	pt => "Na Europa, o código vem normalmente numa oval, com 2 letras correspondentes ao país, seguido de um número e das letras CE.",
 	nl => "In Europa, de code in een ovaal met de 2 letters van het land gevolgd door een cijfer en de letters CE.",
+	de => "In Europa befindet sich der Code in einer Ellipse mit zwei stelligen Ländercode gefolgt mit einer Nummer und EG (EG-Herkunftskennzeichnung).",
 },
 
 link => {
 	fr => "Lien vers la page du produit sur le site officiel du fabricant",
 	en => "Link to the product page on the official site of the producer",
-	es => "Enlace a la página del producto en el sitio oficial del fabricante",
+	el => "Link στη σελίδα του προϊόντος στο επίσημο site του παραγωγού",
+es => "Enlace a la página del producto en el sitio oficial del fabricante",
 	pt => "Link da página oficial do produto do fabricante",
 	ro => "Legătură către pagina produsului de pe site-ul oficial al producătorului",
 	he => "קישור לעמוד המוצר באתר הרשמי של היצרן",
@@ -3165,7 +3444,8 @@ link => {
 purchase_places => {
 	fr => "Ville et pays d'achat",
 	en => "City, state and country where purchased",
-	es => "Sitios de compra",
+	el => "Πόλη και κράτος αγοράς",
+es => "Sitios de compra",
 	pt => "Cidade, estado e país onde foi comprado",
 	ro => "Oraș, județ și țara de achiziție",
 	he => "עיר/מושב/קיבוץ/כפר בהם נרכש המוצר",
@@ -3176,7 +3456,8 @@ purchase_places => {
 purchase_places_note => {
 	fr => "Indiquez le lieu où vous avez acheté ou vu le produit (au moins le pays)",
 	en => "Indicate where you bought or saw the product (at least the country)",
-	es => "Indica donde compraste o viste el producto (al menos el país)",
+	el => "Παρακαλώ υποδείξτε που αγοράσατε ή είδατε το προϊόν (τουλάχιστον τη χώρα)",
+es => "Indica donde compraste o viste el producto (al menos el país)",
 	pt => "Indicar onde comprou ou viu o produto (pelo menos o país)",
 	ro => "Indicați unde ați achiziționat sau ați văzut produsul (cel puțin țara)",
 	he => "ציון היכן המוצר נרכש או נצפה (לפחות ברמת העיר)",
@@ -3188,7 +3469,8 @@ stores => {
 	fr => "Magasins",
 	en => "Stores",
 	es => "Tiendas",
-	pt => "Lojas",
+	el => "Καταστήματα",
+pt => "Lojas",
 	ro => "Magazine",
 	he => "חנויות",
 	nl => "Winkels",
@@ -3198,7 +3480,8 @@ stores => {
 stores_note => {
 	fr => "Enseigne du magasin où vous avez acheté ou vu le produit",
 	en => "Name of the shop or supermarket chain",
-	es => "Nombre de la tienda o cadena de supermercados",
+	el => "Επωνυμία καταστήματος ή αλυσίδας supermarket",
+es => "Nombre de la tienda o cadena de supermercados",
 	pt => "Nome da loja ou rede de supermercados",
 	ro => "Numele magazinului sau al lanțului de magazine",
 	he => "שם החנות או רשת חנויות המזון",
@@ -3209,7 +3492,8 @@ stores_note => {
 countries => {
 	fr => "Pays de vente",
 	en => "Countries where sold",
-	es => "Países de venta",
+	el => "Χώρες όπου πωλείται",
+es => "Países de venta",
 	pt => "Países onde é vendido",
 	ro => "Țările unde se vinde",
 	he => "ארצות בהן נמכר",
@@ -3220,16 +3504,19 @@ countries => {
 countries_note => {
 	fr => "Pays dans lesquels le produit est largement distribué (hors magasins spécialisés dans l'import)",
 	en => "Countries where the product is widely available (non including stores specialising in foreign products)",
-	es => "Países en los que el producto está ampliamente disponible (no se incluyen las tiendas especializadas en productos extranjeros)",
+	el => "Χώρες όπου το προϊόν είναι ευρέως διαθέσιμο (εξαιρουμένων των καταστημάτων που εξειδικεύονται στην πώληση ξένων προϊόντων",
+es => "Países en los que el producto está ampliamente disponible (no se incluyen las tiendas especializadas en productos extranjeros)",
 	pt => "Países onde o produto é amplamente distribuído (não incluir lojas especializadas em produtos estrangeiros)",
 	ro => "Țările unde produsul este disponibil pe scară largă (ne-incluzând magazinele specializate în produse străine)",
 	he => "מדינות בהן המוצר זמין לרווחה (לא כולל חנויות המתמחות במוצרים מיובאים)",
 	nl => "Landen waar het product op grote schaal beschikbaar is (behalve winkels gespecialiseerd in import)",
+	de => "Länder, in denen das Produkt weit verbreitet ist (Spezialgeschäfte für ausländische Waren nicht eingeschlossen)",
 },
 
 remember_purchase_places_and_stores => {
 	fr => 'Se souvenir du lieu d\'achat et du magasin pour les prochains ajouts de produits',
-	en => 'Remember the place of purchase and store for the next product adds',
+	el => "Θυμήσου τον τόπο αγοράς και αποθήκευσε για τις επόμενες προσθήκες προϊόντων",
+en => 'Remember the place of purchase and store for the next product adds',
 	es => 'Recordar el lugar de compra y la tienda para los nuevos productos que se van a añadir en el futuro',
 	pt => 'Lembrar o lugar de compra e loja para os próximos produtos a serem adicionados',
 	ro => "Ține minte locul de achiziție și magazinul pentru următoarele adăugări de produse",
@@ -3241,7 +3528,8 @@ remember_purchase_places_and_stores => {
 product_characteristics => {
 	fr => "Caractéristiques du produit",
 	en => "Product characteristics",
-	es => "Características del producto",
+        el => 'Χαρακτηριστικά του προϊόντος',
+        es => "Características del producto",
 	pt => "Características do produto",
 	ro => "Caracteristicile produslui",
 	he => "מאפייני המוצר",
@@ -3252,7 +3540,8 @@ product_characteristics => {
 product_image => {
 	fr => "Photo du produit",
 	en => "Product picture",
-	es => "Imagen del producto",
+        el => 'Φωτογραφία του προϊόντος',
+        es => "Imagen del producto",
 	pt => "Imagem do produto",
 	ro => "Imaginea produsului",
 	he => "תמונת המוצר",
@@ -3263,6 +3552,7 @@ product_image => {
 image_front => {
 	fr => "Photo du produit (recto)",
 	en => "Front picture",
+	el => "Φωτογραφία εμπρόσθιας επιφάνειας",
 	es => "Imagen frontal del producto",
 	pt => "Imagem frontal do produto",
 	ro => "Imaginea din față",
@@ -3274,6 +3564,7 @@ image_front => {
 image_ingredients => {
 	fr => "Photo de la liste des ingrédients",
 	en => "Ingredients picture",
+	el => "Φωτογραφία συστατικών",
 	es => "Imagen con los ingredientes del producto",
 	pt => "Imagem com os ingredientes do produto",
 	ro => "Imaginea cu ingredientele",
@@ -3285,6 +3576,7 @@ image_ingredients => {
 image_nutrition => {
 	fr => "Photo des informations nutritionnelles",
 	en => "Nutrition facts picture",
+	el => "Φωτογραφία θρεπτικών συστατικών",
 	es => "Imagen con la información nutricional del producto",
 	pt => "Imagem com a informação nutricional do produto",
 	ro => "Imaginea cu valori nutriționale",
@@ -3296,6 +3588,7 @@ image_nutrition => {
 ingredients => {
 	fr => "Ingrédients",
 	en => "Ingredients",
+	el => "Συστατικά",
 	es => "Ingredientes",
 	pt => "Ingredientes",
 	ro => "Ingrediente",
@@ -3307,6 +3600,7 @@ ingredients => {
 image_ingredients_note => {
 	fr => "Si elle est suffisamment nette et droite, les ingrédients peuvent être extraits automatiquement de la photo.",
 	en => "If the picture is neat enough, the ingredients can be extracted automatically",
+	el => "Εάν η φωτογραφία είναι καθαρή, τα συστατικά μπορούν να εξαχθούν αυτόματα",
 	es => "Si la imagen es buena y lo suficientemente nítida, los ingredientes se pueden extraer de forma automática.",
 	pt => "Se as imagens forem boas e nítidas, os ingredientes podem ser extraídos automaticamente.",
 	ro => "Dacă este suficient de clară și dreaptă, ingredientele ar putea fi extrase automat din fotografie.",
@@ -3319,6 +3613,7 @@ ingredients_text => {
 	fr => "Liste des ingrédients",
 	en => "Ingredients list",
 	es => "Lista de ingredientes",
+	el => "Λίστα συστατικών",
 	pt => "Lista de ingredientes",
 	ro => "Lista de ingrediente",
 	he => "רשימת רכיבים",
@@ -3329,6 +3624,7 @@ ingredients_text => {
 ingredients_text_note => {
 	fr => "Conserver l'ordre, indiquer le % lorsqu'il est précisé, séparer par une virgule ou - , Utiliser les ( ) pour  les ingrédients d'un ingrédient, indiquer les allergènes entre _ : farine de _blé_",
 	en => "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_",
+        el => "Παρακαλούμε τηρήστε τη σωστή σειρά, υποδείξτε το ποσοστό % όταν αναφέρεται, διαχωρίστε με κόμμα ή με χρήση παύλας - , χρησιμοποιείστε ( ) για τα επιμέρους συστατικά ενός κύριου συστατικού, περιβάλλετε τα αλλεργιογόνα με _ π.χ. _γάλα_",
 	es => "Conservar el orden, indicar el % cuando se especifique, separar por una coma y poner entre paréntesis ( ) los ingredientes que componen otro ingrediente",
 	pt => "Manter a ordem de listagem, indicar a % quando especificado, separar com uma vírgula (,) ou hífen (-) , usar parênteses ( ) para ingredientes compostos de outros ingredientes",
 	ro => "Mențineți ordinea, indicați % unde este precizat, separați cu o virgulă sau - , folosiți () pentru ingredientele unui ingredient",
@@ -3340,6 +3636,7 @@ ingredients_text_note => {
 ingredients_text_display_note => {
 	fr => "Les ingrédients sont listés par ordre d'importance (quantité).",
 	en => "Ingredients are listed in order of importance (quantity).",
+        el => "Τα συστατικά αναγράφονται με σειρά σημασίας (ποσότητα)",
 	es => "Los ingredientes se enumeran por orden de importancia (cantidad).",
 	pt => "Os ingredientes estão listados pela ordem de importância (quantidade).",
 	ro => "Ingredientele sunt listate în ordinea importanței (cantitate).",
@@ -3351,6 +3648,7 @@ ingredients_text_display_note => {
 ingredients_text_example => {
 	fr => "Céréales 85,5% (farine de _blé_, farine de _blé_ complet 11%), extrait de malt (orge), cacao 4,8%, vitamine C",
 	en => "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid",
+	el => "Δημητριακά 85.5% (_σταρένιο_ αλεύρι, _σταρένιο_ αλεύρι ολικής άλεσης 11%),εκχύλισμα βύνης, κακάο 4,8%, ασκορβικό οξύ",
 	es => "Cereales 85.5% (harina de _trigo_, harina de _trigo_ integral 11%), extracto de malta (cebada), cacao 4,8%, ácido ascórbico",
 	pt => "Cereais 85.5% (farinha de _trigo_, farinha integral 11%), extrato de malta (cevada), cacau 4,8%, vitamina C",
 	pt_pt => "Cereais 85.5% (farinha de _trigo_, farinha integral 11%), extrato de malte (cevada), cacau 4,8%, vitamina C",
@@ -3364,7 +3662,7 @@ allergens => {
 	ga => 'Substaintí nó táirgí is cúis le hailléirgí nó le héadulaingtí',
 	de => 'Stoffe oder Erzeugnisse, die Allergien oder Unverträglichkeiten auslösen',
 	da => 'Stoffer eller produkter, der forårsager allergier eller intolerans',
-	el => 'ουσιεσ ή προϊοντα που προκαλουν αλλεργιεσ ή δυσανεξιεσ',
+	el => 'Oυσιες ή προϊοντα που προκαλούν αλλεργιες ή δυσανεξιες',
 	es => 'Sustancias o productos que causan alergias o intolerancias',
 	fi => 'Allergioita tai intoleransseja aiheuttavat aineet ja tuotteet',
 	fr => 'Substances ou produits provoquant des allergies ou intolérances',
@@ -3392,6 +3690,7 @@ allergens => {
 traces => {
 	fr => "Traces éventuelles",
 	en => "Traces",
+	el => "Ίχνη",
 	es => "Trazas",
 	pt => "Vestígios",
 	ro => "Urme",
@@ -3403,6 +3702,7 @@ traces => {
 traces_note => {
 	fr => 'Indiquer les ingrédients des mentions "Peut contenir des traces de", "Fabriqué dans un atelier qui utilise aussi" etc.',
 	en => 'Indicate ingredients from mentions like "May contain traces of", "Made in a factory that also uses" etc.',
+	el => 'Παρακαλούμε υποδείξτε συστατικά με ενδείξεις όπως "Μπορεί να περιέχει ίχνη από", "Παρασκευάζεται σε εργοστάσιο που επίσης γίνεται επεξεργασία" κλπ',
 	es => 'Son los ingredientes que aparecen mencionados como "Puede contener trazas de", "Elaborado en una factoría que también usa", etc.',
 	pt => 'Indicar os ingredientes que sejam mencionados como "Pode conter traços de", "Fabricado em ambiente que também usa", etc', 
 	pt_pt => 'Indicar os ingredientes que sejam mencionados como "Pode conter vestígios de", "Fabricado em ambiente que também usa", etc.',
@@ -3415,6 +3715,7 @@ traces_note => {
 traces_example => {
 	fr => 'Lait, Gluten, Arachide, Fruits à coque',
 	en => "Milk, Gluten, Nuts",
+	el => "Γάλα, Γλουτένη, Καρποί",
 	es => "Leche, Gluten, Cacahuetes, Nueces",
 	pt => "Leite, Glúten, Amendoim, Nozes",
 	ro => "Lapte, Gluten, Alune, Nuci",
@@ -3426,6 +3727,7 @@ traces_example => {
 serving_size => {
 	fr => "Taille d'une portion",
 	en => "Serving size",
+	el => "Μέγεθος μερίδας",
 	es => "Tamaño de la porción",
 	pt => "Tamanho da porção",
 	ro => "Cantitatea unei porții",
@@ -3437,6 +3739,7 @@ serving_size => {
 serving_size_example => {
 	fr => '30 g, 2 biscuits 60 g, 5 cl, un verre 20 cl',
 	en => "60 g, 12 oz, 20cl, 2 fl oz",
+	el => "30 g, 2 μπισκότα 60 gr, 12 oz, 20cl, 2 fl oz",
 	es => '30 g, 2 galletas 60 g, 5 cl, un vaso 20 cl',
 	pt => "30 g, 2 bolachas 60 g, 5 cl, um copo 200 ml",
 	ro => "30 g, 2 biscuiți 60 g, 5 cl, un pahar 200 ml",
@@ -3448,6 +3751,7 @@ serving_size_example => {
 nutrition_data => {
 	fr => "Informations nutritionnelles",
 	en => "Nutrition facts",
+	el => "Διατροφικά στοιχεία",
 	es => "Información nutricional",
 	pt => "Informação nutricional",
 	ro => "Valori nutriționale",
@@ -3459,6 +3763,7 @@ nutrition_data => {
 nutrition_data_note => {
 	fr => "Si elle est suffisamment nette et droite, les informations nutritionnelles peuvent être extraites automatiquement de la photo.",
 	en => "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture.",
+	el => "Εάν η φωτογραφία είναι καθαρή, τα διατροφικά στοιχεία μπορούν αυτόματα να εξαχθούν από αυτή",
 	es => "Si la imagen es lo suficientemente nítida, la información nutricional puede ser extraída automáticamente.",
 	pt => "Se a imagem for suficientemente nítida, a informação nutricional pode ser extraída automaticamente.",
 	ro => "Dacă fotografia este suficient de clară și dreaptă, informația nutrițională poate fi extrasă automat din imagine.",
@@ -3470,6 +3775,7 @@ nutrition_data_note => {
 no_nutrition_data => {
 	fr => "Les informations nutritionnelles ne sont pas mentionnées sur le produit.",
 	en => "Nutrition facts are not specified on the product.",
+	el => "Τα διατροφικά δεδομένα δεν αναγράφονται σε αυτό το προϊόν",
 	es => "El producto no trae información nutricional.",
 	pt => "Informação nutricional não especificada no produto.",
 	ro => "Valorile nutriționale nu sunt specificate pe produs.",
@@ -3482,28 +3788,34 @@ nutrition_data_table_note => {
 	fr => "Le tableau liste par défaut les nutriments les plus couramment indiqués. Laissez le champ vide s'il n'est pas présent sur l'emballage.<br />Vous pouvez ajouter d'autres nutriments
 (vitamines, minéraux, cholestérol, oméga 3 et 6 etc.) en tapant les premières lettres de leur nom dans la dernière ligne du tableau.",
 	en => "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)
-by typing the first letters of their name in the last row of the table.",   
+by typing the first letters of their name in the last row of the table.",  
+ el => "Ο παρών πίνακας αναγράφει προεπιλεγμένα θρεπτικά συστατικά που συχνά αναφέρονται. Αφήστε το πεδίο κενό αν δεν υπάρχουν στην ετικέτα .<br/>Μπορείτε να προσθέσετε επιπλέον θρεπτικά συστατικά (βιταμίνες, μέταλλα, χοληστερόλη, κλπ)
+συμπληρώνοντας τα πρώτα γράμματα του ονόματός τους στην τελευταία σειρά του πίνακα.", 
 	es => "La tabla muestra por defecto los nutrientes que aparecen con mayor frecuencia. Deja el campo en blanco si no está presente en el envase. <br />Se pueden agregar nutrientes adicionales (vitaminas, minerales, colesterol, ácidos grasos omega 3 y 6, etc.) al teclear las primeras letras del nombre en la última fila de la tabla.",   
 	pt => "A tabela mostra por defeito os nutrientes que aparecem com maior frequência. Deixar o campo em branco se não estiver especificado na embalagem. <br />É possível adicionar outros nutrientes (vitaminas, minerais, colesterol, ácidos gordos ómega 3 e 6, etc.) ao digitar as primeiras letras do nome na última linha da tabela.",
 	ro => "Tabelul listează implicit nutrienții care sunt specificați mai des. Lăsați câmpul liber dacă nu se regăsește pe etichetă.<br/>Puteți adăuga extra nutrienți (vitamine, minerale, colesterol etc.) tastând primele litere din numele lor în ultimul rând din tabel.",
 	he => "הטבלה מציגה כבררת מחדל את המפרט התזונתי כפי שמופיע בדרך כלל. ניתן להשאיר את השדה ריק אם אינו מופיע על התווית.<br/>ניתן להוסיף פריטי תזונה נוספים (ויטמינים, מינרלים, כולסטרול וכו׳)
 על־ידי הקלדת האותיות הראשונות של שמם בשורה האחרונה של הטבלה.",
 	nl => "De tabel lijst automatisch de voedingsstoffen op die het vaakst vermeld worden. Laat het veld leeg indien het niet vermeld staat op de verpakking.>br />U kan andere voedingsstoffen (vitamines, mineralen, cholesterol, omega 3 en 6 etc.) toevoegen door de eerste letters van hun naam in de laatste rij van de tabel in te voeren.",
+	de => "Die Tabelle listet häufige Nährstoffe. Das Feld einfach leer lassen, falls Nährstoffe auf der Verpackung nicht gelistet sind.<br />Weitere Nährstoffe (Vitaminen, Mineralstoffen, Cholesterin, Omega-3, Omega-6, usw.) können beim Eintippen ihrer ersten Zeichen in der letzten Zeile der Tabelle einfach hinzugefügt werden.",
 },
 
 nutrition_data_average => {
 	fr => "Composition nutritionnelle moyenne pour les %d produits de la catégorie %s dont les informations nutritionnelles sont connues (sur un total de  %d produits).",
 	en => "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products).",
+	el => "Μέσα διατροφικά στοιχεία για το %d των προϊόντων από το %s της κατηγορίας για την οποία τα διατροφικά δεδομένα είναι γνωστά (από το %d των προϊόντων).",
 	es => "Valores nutricionales medios para los %d productos de la categoría %s para los que se especifican los valores nutricionales (de un total de %d productos).",
 	pt => "Valores nutricionais médios...",
 	ro => "Valorile nutriționale medii pentru %d produse din categoria %s pentru care valorile nutriționale sunt cunoscute (din %d produse).",
 	he => "מפרט תזונתי ממוצע עבור %d מוצרים מהקטגוריה %s שעבורם המפרט התזונתי ידוע (מתוך %d מוצרים).",
 	nl => "Gemiddelde nutritionele samenstelling voor de %d producten van de categorie %s waarvan de nutritionele informatie bekend is (op een totaal van %d producten).",
+	de => "Durchschnittliche Nährwertzusammensetzung für die %d Produkte von der Kategorie %s, deren Nährwertinformationen bekannt sind (auf %d Produkte insgesamt).",
 },
 
 nutrition_data_table => {
 	fr => "Composition nutritionnelle",
 	en => "Nutrition facts",
+	el => "Διατροφικά δεδομένα",
 	es => "Información nutricional",
 	pt => "Informação nutricional",
 	ro => "Valori nutriționale",
@@ -3516,6 +3828,7 @@ nutrition_data_table => {
 nutrition_data_per_100g => {
 	fr => "pour 100 g / 100 ml",
 	en => "for 100 g / 100 ml",
+	el => "για 100 g / 100 ml",
 	es => "por 100 g / 100 ml",
 	pt => "por 100 g / 100 ml",
 	ro => "pentru 100 g / 100 ml",
@@ -3527,6 +3840,7 @@ nutrition_data_per_100g => {
 nutrition_data_per_serving => {
 	fr => "par portion",
 	en => "per serving",
+	el => "ανά μερίδα",
 	es => "por porción",
 	pt => "por porção",
 	ro => "per porție",
@@ -3538,6 +3852,7 @@ nutrition_data_per_serving => {
 nutrition_data_compare_percent => {
 	fr => "Différence en %",
 	en => "% of difference",
+	el => "Διαφορά στο %",
 	es => "Diferencia en %",
 	pt => "% em comparação",
 	ro => "Diferența în %",
@@ -3550,16 +3865,19 @@ nutrition_data_compare_percent => {
 nutrition_data_comparison_with_categories => {
 	fr => "Comparaison avec les valeurs moyennes des produits de même catégorie :",
 	en => "Comparison to average values of products in the same category:",
-	es => "Comparación con los valores medios de los productos pertenecientes a la misma categoría:",
+	el => "Σύγκριση με το μέσο όρο της αξίας των προϊόντων της ίδιας κατηγορίας",
+	es => "Comparación con los valοres medios de los productos pertenecientes a la misma categoría:",
 	pt => "Comparação com os valores médios dos produtos pertencentes à mesma categoria:",
 	ro => "Comparație cu valorile medii ale produselor din aceeași categorie:",
 	he => "השוואה לערכים הממוצעים של מוצרים באותה הקטגוריה:",
 	nl => "Vergelijking met de gemiddelde waarden van producten uit dezelfde categorie:",
+	de => "Vergleich mit den durchschnittlichen Werte von Produkten gleicher Kategorie:",
 },
 
 nutrition_data_comparison_with_categories_note => {
 	fr => "A noter : pour chaque nutriment, la moyenne n'est pas celle de tous les produits de la catégorie, mais des produits pour lesquels la quantité du nutriment est connue.",
 	en => "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category.",
+	el => "Παρακαλώ σημειώστε: για κάθε ένα θρεπτικό συστατικό, ο μέσος όρος είναι υπολογισμένος για προϊόντα των οποίων η ποσότητα των θρεπτικών συστατικών είναι γνωστή, όχι για όλα τα προϊόντα της κατηγορίας.",
 	es => "Nota: para cada nutriente, el promedio no es el de todos los productos de la categoría, sino el de todos los productos para los cuales se especifica la cantidad de nutrientes.",
 	pt => "Nota: para cada nutriente, a média tem em conta somente os produtos cuja quantidade dos nutrientes é conhecida, e não para todos os produtos da categoria.",
 	ro => "De notat: pentru fiecare nutrient, media este calculată pentru produsele pentru care cantitatea nutrientului este cunoscută, nu pentru toate produsele din categorie.",
@@ -3570,11 +3888,13 @@ nutrition_data_comparison_with_categories_note => {
 nutrition_data_compare_value => {
 	fr => "valeur pour 100 g/ 100 ml",
 	en => "value for 100 g / 100 ml",
+	el => "αξία για 100 g / 100 ml",
 	es => "valor para 100 g/ 100 ml",
 	pt => "valor para 100 g / 100 ml",
 	ro => "valoare pentru 100 g / 100 ml",
 	he => "ערך ל־100 גרם / 100 מ״ל",
 	nl => "waarde voor 100 g / 100 ml",
+	de => "Wert pro 100 g / 100 ml",
 },
 
 nutrition_data_per_mean => {
@@ -3585,21 +3905,25 @@ nutrition_data_per_mean => {
 nutrition_data_per_std => {
 	fr => "Ecart type",
 	en => "Standard deviation",
+	el => "Τυπική απόκλιση",
 	es => "Desviación estándar",
 	pt => "Desvio padrão",
 	ro => "Deviația standard",
 	he => "סטיית תקן",
 	nl => "Standaardafwijking",
+	de => "Standardabweichung",
 },
 
 nutrition_data_per_min => {
 	fr => "Minimum",
 	en => "Minimum",
+	el => "Ελάχιστο",
 	es => "Mínimo",
 	pt => "Mínimo",
 	ro => "Minimum",
 	he => "לכל הפחות",
 	nl => "Minimum",
+	de => "Minimum",
 },
 
 nutrition_data_per_5 => {
@@ -3624,11 +3948,13 @@ nutrition_data_per_10 => {
 nutrition_data_per_50 => {
 	fr => "Médiane",
 	en => "Median",
+	el => "Μέσος",
 	es => "Mediana",
 	pt => "Mediana",
 	ro => "Median",
 	he => "חצי",
 	nl => "Mediaan",
+	nl => "Medianwert",
 },
 
 nutrition_data_per_90 => {
@@ -3654,33 +3980,39 @@ nutrition_data_per_95 => {
 nutrition_data_per_max => {
 	fr => "Maximum",
 	en => "Maximum",
+	el => "Μέγιστο",
 	es => "Máximo",
 	pt => "Máximo",
 	ro => "Maximum",
 	he => "לכל היותר",
 	nl => "Maximum",
+	de => "Maximum",
 },
 
 nutrition_data_table_sub => {
 	fr => "dont",
 	en => "-",
 	es => "-",
+	de => "davon",
 },
 
 ecological_data_table => {
 	fr => 'Impact écologique',
 	en => 'Ecological footprint',
+	el => "Οικολογικό αποτύπωμα",
 	es => 'Huella ecológica',
 	pt => 'Pegada ecológica',
 	ro => "Impact ecologic",
 	he => 'טביעת רגל אקולוגית',
 	it => 'Impronta ecologica',
 	nl => "Ecologische impact",
+	de => "Ökologischer Fußabdruck",
 },
 
 ecological_data_table_note => {
 	fr => "Si l'empreinte carbone est présente sur l'emballage (rarement actuellement), elle est à indiquer pour la même quantité que pour la composition nutritionnelle.",
 	en => "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition.",
+	el => "Αν το αποτύπωμα άνθρακα είναι αποσαφηνισμένο στην ετικέτα (προς το παρόν όχι συχνά απαντώμενο), υποδείξτε το για την ίδια ποσότητα όπως και για τη διατροφική σύνθεση.",
 	es => "Si aparece en el envase la huella de carbono (muy raro en la actualidad), indicarla por la misma cantidad que la información nutricional.",
 	pt => "Se a pegada de carbono é especificada na embalagem (muito raro hoje em dia), indique-a para a mesma quantidade que para a composição nutricional.",
 	ro => "Dacă amprenta de carbon este specificată pe etichetă (rar acum), indicați-o pentru aceeași cantitate ca și compoziția nutrițională.",
@@ -3691,6 +4023,7 @@ ecological_data_table_note => {
 example => {
 	fr => "Exemple :",
 	en => "Example:",
+	el => "Παράδειγμα:",
 	es => "Ejemplo:",
 	pt => "Exemplo:",
 	ro => "Exemplu:",
@@ -3703,6 +4036,7 @@ example => {
 examples => {
 	fr => "Exemples :",
 	en => "Examples:",
+	el => "Παραδείγματα:",
 	es => "Ejemplos:",
 	pt => "Exemplos:",
 	he => "דוגמאות:",
@@ -3715,6 +4049,7 @@ examples => {
 brands_tagsinput => {
 	fr => "ajouter une marque",
 	en => "add a brand",
+	el => "προσθέστε μια μάρκα",
 	es => "añadir una marca",
 	pt => "adicionar uma marca",
 	ro => "adăugați o marcă",
@@ -3727,16 +4062,19 @@ brands_tagsinput => {
 packaging_tagsinput => {
 	fr => "ajouter",
 	en => "add a type, shape or material",
+	el => "προσθέστε έναν τύπο, σχήμα ή υλικό",
 	es => "añadir un tipo, forma o material",
 	pt => "adicionar um tipo, forma ou material",
 	ro => "adăugați un tip, formă sau material",
 	he => "הוספת סוג, צורה או חומר",
 	nl => "een soort, vorm of materiaal toevoegen",
+	de => "Art, Form oder Material hinzufügen",
 },
 
 categories_tagsinput => {
 	fr => "ajouter une catégorie",
 	en => "add a category",
+	el => "προσθέστε μια κατηγορία",
 	es => "añadir una categoría",
 	pt => "adicionar uma categoria",
 	ro => "adugați o categorie",
@@ -3748,6 +4086,7 @@ categories_tagsinput => {
 labels_tagsinput => {
 	fr => "ajouter un label",
 	en => "add a label",
+	el => "προσθέστε μια ετικέτα",
 	es => "añadir una etiqueta",
 	pt => "adicionar uma etiqueta",
 	ro => "adăugați o etichetă",
@@ -3759,6 +4098,7 @@ labels_tagsinput => {
 origins_tagsinput => {
 	fr => "ajouter une origine",
 	en => "add an origin",
+	el => "προσθέστε την καταγωγή",
 	es => "añadir un origen",
 	pt => "adicionar uma origem",
 	ro => "adăugați o origine",
@@ -3770,6 +4110,7 @@ origins_tagsinput => {
 manufacturing_places_tagsinput => {
 	fr => "ajouter un lieu",
 	en => "add a place",
+	el => "προσθέστε ένα τόπο",
 	es => "añadir un lugar",
 	pt => "adicionar um local",
 	ro => "adăugați un loc",
@@ -3781,7 +4122,8 @@ manufacturing_places_tagsinput => {
 purchase_places_tagsinput => {
 	fr => "ajouter un lieu",
 	en => "add a place",
-	es => "añadir un lugar",
+	el => "προσθέστε ένα τόπο",
+es => "añadir un lugar",
 	pt => "adicionar um local",
 	ro => "adăugați un loc",
 	he => "הוספת מיקום",
@@ -3792,6 +4134,7 @@ purchase_places_tagsinput => {
 stores_tagsinput => {
 	fr => "ajouter un magasin",
 	en => "add a store",
+	el => "προσθέστε ένα καταστημα",
 	es => "añadir una tienda",
 	pt => "adicionar uma loja",
 	ro => "adăugați un magazin",
@@ -3803,6 +4146,7 @@ stores_tagsinput => {
 fixme_product => {
 	fr => "Si les informations sont incomplètes ou incorrectes, vous pouvez les complèter ou les corriger en modifiant cette fiche.",
 	en => "If the data is incomplete or incorrect, you can complete or correct it by editing this page.",
+	el => "Αν τα δεδομένα είναι εσφαλμένα ή ελλειπή, μπορείτε να τα συμπληρώσετε ή να τα διορθώσετε επεξεργάζοντας αυτή τη σελίδα .",
 	es => "Si la información está incompleta o es incorrecta, puedes completarla o corregirla editando esta página.",
 	pt => "Se a informação está incompleta ou incorrecta, podes completá-la ou corrigí-la editando esta página.",
 	ro => "Dacă datele sunt incomplete sau incorecte, le puteți completa sau corecta modificând această pagină.",
@@ -3813,6 +4157,7 @@ fixme_product => {
 alcohol_warning => {
 	fr => "L'abus d'alcool est dangereux pour la santé. A consommer avec modération.",
 	en => "Excess drinking is harmful for health.",
+	el => "Η υπερβολική κατανάλωση αλκοόλ είναι επιβλαβής για την υγεία.",
 	es => "El exceso de alcohol es perjudicial para la salud. Consúmelo con moderación.",
 	pt => "Excesso de álcool é pregudicial para a saúde. Seja responsável. Beba com moderação.",
 	ro => "Consumul excesiv de alcool este dăunător sănătății",
@@ -3824,6 +4169,8 @@ warning_3rd_party_content => {
 	fr => "Les informations doivent provenir de l'emballage du produit (et non d'autres sites ou du site du fabricant), et vous devez avoir pris vous-même les photos.<br/>
 → <a href=\"https://openfoodfactsfr.uservoice.com/knowledgebase/articles/59183\" target=\"_blank\">Pourquoi est-ce important ?</a>",    
 	en => "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>
+→ <a href=\"\">Why it matters</a>",
+el => "Η πληροφορία και τα δεδομένα πρέπει να προέρχονται από την συσκευασία και ετικέτα του προϊόντος (και όχι από άλλες ιστοσελίδες συμπεριλαμβανομένης και της ιστοσελίδας του παραγωγού), και οι φωτογραφίες θα πρέπει να έχουν ληφθεί από εσάς.<br/>
 → <a href=\"\">Why it matters</a>",
 	es => "La información debe provenir del propio envase del producto (y no de otros sitios o del sitio web del fabricante), y las fotografías deben haber sido tomadas por usted mismo/a.<br/>
 → <a href=\"\">¿Por qué es importante?</a>",
@@ -3838,7 +4185,8 @@ warning_3rd_party_content => {
 front_alt => {
 	fr => "Produit",
 	en => "Product",
-	es => "Producto",
+	el => "Προϊόν",
+es => "Producto",
 	pt => "Produto",
 	ro => "Produs",
 	he => "מוצר",
@@ -3848,7 +4196,8 @@ front_alt => {
 ingredients_alt => {
 	fr => "Ingrédients",
 	en => "Ingredients",
-	es => "Ingredientes",
+	el => "Συστατικά",
+es => "Ingredientes",
 	pt => "Ingredientes",
 	ro => "Ingrediente",
 	he => "רכיבים",
@@ -3859,6 +4208,7 @@ ingredients_alt => {
 nutrition_alt => {
 	fr => "Informations nutritionnelles",
 	en => "Nutrition facts",
+	el => "Διατροφικά στοιχεία",
 	es => "Información nutricional",
 	pt => "Informação nutricional",
 	ro => "Valori nutriționale",
@@ -3871,6 +4221,7 @@ nutrition_alt => {
 for => {
 	fr => 'pour',
 	en => 'for',
+	el => "για",
 	es => 'para',
 	pt => 'para',
 	ro => "pentru",
@@ -3882,6 +4233,7 @@ for => {
 brands_products => {
 	fr => "Les produits de la marque %s",
 	en => "Products from the %s brand",
+	el => "Προϊόντα από την %s μάρκα",
 	es => "Productos de la marca %s",
 	pt => "Produtos da marca %s",
 	ro => "Produse de la marca %s",
@@ -3893,6 +4245,7 @@ brands_products => {
 categories_products => {
 	fr => "Les produits de la catégorie %s",
 	en => "Products from the %s category",
+	el => "Προϊόντα από την %s κατηγορία",
 	es => "Productos de la categoría %s",
 	pt => "Produtos da categoria %s",
 	ro => "Produse din categoria %s",
@@ -3904,6 +4257,7 @@ categories_products => {
 emb_codes_products => {
 	fr => "Les produits dont le code emballeur est %s",
 	en => "Products with the emb code %s",
+	el => "Προϊόντα με τον κωδικό συσκευασίας %s",
 	es => "Productos con código de envasador %s",
 	pt => "Produtos com o código de embalador %s",
 	nl => "Producten met verpakkerscode %s",
@@ -3913,6 +4267,7 @@ emb_codes_products => {
 cities_products => {
 	fr => "Les produits dont la commune d'emballage est %s",
 	en => "Products packaged in the city of %s",
+	el => "Προϊόντα συσκευασμένα στην πόλη %s",
 	es => "Productos envasados en el municipio de %s",
 	pt => "Produtos embalados na cidade de %s",
 	ro => "Produse împachetate în orașul %s",
@@ -3924,6 +4279,7 @@ cities_products => {
 packaging_products => {
 	fr => "Les produits avec le conditionnement %s",
 	en => "Products with a %s packaging",
+	el => "Προϊόντα με %s συσκευασία",
 	es => "Productos con envase %s",
 	pt => "Produtos com embalagem em %s",
 	ro => "Produse cu ambalaj de %s",
@@ -3935,6 +4291,7 @@ packaging_products => {
 origins_products => {
 	fr => "Les produits dont l'origine des ingrédients est %s",
 	en => "Products with ingredients originating from %s",
+	el => "Προϊόντα με συστατικά προερχόμενα από %s",
 	es => "Productos originarios de %s",
 	pt => "Produtos originários de %s",
 	ro => "Produse cu ingrediente originare din %s",
@@ -3946,123 +4303,148 @@ origins_products => {
 emb_code_products => {
 	fr => "Les produits emballés par l'entreprise dont le code emballeur est %s",
 	en => "Products packaged by the company with emb code %s",
+	el => "Προϊόντα συσκευασμένα από την εταιρεία με κωδικό συσκευασίας %s",
 	es => "Productos envasados por la empresa con código de envasado %s",
 	pt => "Produtos embalados pela empresa com o código de embalador %s",
 	nl => "Producten verpakt door het bedrijf met de verpakkerscode %s",
+	de => "Produkte verpackt vom UNternehmen dessen Produzenten-Code ist %s",
 },
 
 manufacturing_places_products => {
 	fr => "Les produits par lieu de fabrication ou transformation :  %s",
 	en => "Products manufactured or processed in %s",
+	el => "Προϊόντα παρασκευασμένα ή επεξεργασμένα σε %s",
 	es => "Productos fabricados o transformados en  %s",
 	ro => "Produse fabricate sau procesate în %s",
 	pt => "Produtos fabricados ou transformados em %s",
 	nl => "Producten geproduceerd of verwerkt in %s",
+	de => "Produkte nach Herstellungs- oder Verwandlungsort: %s",
 },
 
 purchase_places_products => {
 	fr => "Les produits par lieu de vente :  %s",
 	en => "Products sold in %s",
+	el => "Προϊόντα πωλούμενα ανά σημείο πώλησης: %s",
 	es => "Productos vendidos en %s",
 	pt => "Produtos vendidos em %s",
 	ro => "Produse vândute în %s",
 	he => "מוצרים שנמכרים ב%s",
 	nl => "Producten verkocht in %s",
+	de => "Produkte nach Verkaufsort: %s",
 },
 
 stores_products => {
 	fr => "Les produits par magasin : %s",
 	en => "Products sold at %s",
+	el => "Προϊόντα πωλούμενα ανά κατάστημα: %s",
 	es => "Productos vendidos en el comercio %s",
 	pt => "Produtos vendidos na loja:  %s",
 	ro => "Produse vândute la %s",
 	he => "מוצרים שנמכרים אצל",
 	nl => "Producten verkocht in %s",
+	de => "Produkte nach Laden: %s",
 },
 
 countries_products => {
 	fr => "Les produits vendus dans le pays : %s",
 	en => "Products sold in %s",
+	el => "Προϊόντα πωλούμενα στις χώρες: %s",
 	es => "Productos vendidos en %s",
 	pt => "Produtos vendidos no país : %s", # we have 3 prepositions (em, na, no) depending on the country; opting for the same logic as the French translation
 	ro => "Produse vândute în %s",
 	he => "מוצרים שנמכרים ב%s",
 	nl => "Producten verkocht in %s",
+	de => "Produkte verkauft im Land: %s",
 },
 
 ingredients_products => {
 	fr => "Les produits qui contiennent l'ingrédient %s",
 	en => "Products that contain the ingredient %s",
+	el => "Προϊόντα που περιέχουν τα συστατικά %s",
 	es => "Productos que contienen el ingrediente %s",
 	pt => "Produtos que contêm o ingrediente %s",
 	ro => "Produse care conțin ingredientul %s",
 	he => "מוצרים המכילים את הרכיב %s",
 	nl => "Producten met het ingrediënt %s",
+	de => "Produkte mit Zutaten %s",
 },
 
 labels_products => {
 	fr => "Les produits qui possèdent le label %s",
 	en => "Products that have the label %s",
+	el => "Προϊόντα που έχουν την ετικέτα %s",
 	es => "Productos con la etiqueta %s",
 	pt => "Produtos com a etiqueta %s",
 	ro => "Produse care au eticheta %s",
 	he => "מוצרים הנושאים את התווית %s",
 	nl => "Producten met het label %s",
+	de => "Produkte mit Label %s",
 },
 
 nutriments_products => {
 	fr => "Les produits qui contiennent le nutriment %s",
 	en => "Products that contain the nutriment %s",
+	el => "Προϊόντα που περιέχουν το θρεπτικό συστατικό %s",
 	es => "Productos que contienen el nutriente %s",
 	pt => "Produtos que contêm o nutriente %s",
 	ro => "Produse care conțin nutrientul %s",
 	he => "מוצרים המכילים את הרכיב התזונתי %s",
 	nl => "Producten met de voedingsstof %s",
+	de => "Produkte mit Nährstoff %s",
 },
 
 users_products => {
 	fr => "Les produits ajoutés par %s",
 	en => "Products added by %s",
+	el => "Προϊόντα που προστέθηκαν από %s",
 	es => "Productos añadidos por %s",
 	pt => "Produtos adicionados por %s",
 	ro => "Produse adăugate de %s",
 	he => "מוצרים שנוספו על־ידי %s",
 	nl => "Producten toegevoegd door %s",
+	de => "Produkte, die von %s hinzugefügt wurden",
 },
 
 users_add_products => {
 	fr => "Les produits qui ont été ajoutés par le contributeur %s",
 	en => "Products that were added by the user %s",
+	el => "Προϊόντα που προστέθηκαν από το χρήστη %s",
 	es => "Productos que fueron añadidos por el usuario %s",
 	pt_pt => "Produtos que foram adicionados pelo utilizador %s",
 	ro => "Produse care au fost adăugate de către utilizatorul %s",
 	he => "מוצרים שנוספו על־ידי המשתמש %s",
 	nl => "Producten die toegevoegd werden door gebruiker %s",
+	de => "Produkte, die von dem Mitwirkenden %s hinzugefügt wurden",
 },
 
 users_edit_products => {
 	fr => "Les produits qui ont été modifiés par le contributeur %s",
 	en => "Products that were edited by the user %s",
+	el => "Προϊόντα που επεξεργάστηκαν από το χρήστη %s",
 	es => "Productos que fueron editados por el usuario %s",
 	pt_pt => "Produtos que foram editados pelo utilizador %s",
 	ro => "Produse care au fost modificate de către utilizatorul %s",
 	he => "מוצרים שנערכו על־ידי המשתמש %s",
 	nl => "Producten die aangepast werden door gebruiker %s",
+	de => "Produkte, die von dem Mitwirkenden %s verändert wurden",
 },
 
 brands_s => {
 	fr => "marque",
 	en => "brand",
+	el => "μαρκα",
 	es => "marca",
 	pt => "marca",
 	ro => "marcă",
 	he => "מותג",
 	nl => "merk",
+	de => "Marke",
 },
 
 brands_p => {
 	fr => "marques",
 	de => "Marken",
+	el => "μαρκες",
 	en => "brands",
 	es => "marcas",
 	ro => "mărci",
@@ -4073,16 +4455,19 @@ brands_p => {
 categories_s => {
 	fr => "catégorie",
 	en => "category",
+	el => "κατηγορία",
 	es => "categoría",
 	pt => "categoria",
 	ro => "categorie",
 	he => "קטגוריה",
 	nl => "categorie",
+	de => "Kategorie",
 },
 
 categories_p => {
 	fr => "catégories",
 	de => "Kategorien",
+	el => "κατηγορίες",
 	en => "categories",
 	es => "categorías",
 	pt => "categorias",
@@ -4110,324 +4495,390 @@ pnns_groups_2_p => {
 emb_codes_s => {
 	fr => "code emballeur",
 	en => "packager code",
+	el => "κωδικός συσκευαστή",
 	es => "código de envasador",
 	pt => "código de embalador",
 	ro => "codul ambalatorului",
 	nl => "verpakkerscode",
+	de => "Produzenten-Code",
 },
 
 emb_codes_p => {
 	fr => "codes emballeurs",
 	en => "packager codes",
+	el => "κωδικοί συσκευαστή",
 	es => "códigos de envasadores",
 	pt => "códigos de embalador",
 	ro => "codurile ambalatorului",
 	nl => "verpakkerscodes",
+	de => "Produzenten-Codes",
 },
 
 cities_s => {
 	fr => "commune d'emballage",
 	en => "packaging city",
+	el => "τόπος συσκευασίας",
 	es => "Municipio de envasado",
 	pt => "cidade de embalamento",
 	ro => "orașul de împachetare",
 	he => "עיר האריזה",
 	nl => "stad van verpakking",
+	de => "Verpackungsort",
 },
 
 cities_p => {
 	fr => "communes d'emballage",
 	en => "packaging cities",
+	el => "τόποι συσκευασίας",
 	es => "Municipios de envasado",
 	pt => "cidades de embalamento",
 	ro => "orașele de împachetare",
 	he => "ערי האריזה",
 	nl => "steden van verpakking",
+	de => "Verpackungsorte",
 },
 
 purchase_places_s => {
 	fr => "lieu de vente",
 	en => "purchase place",
+	el => "τόπος αγοράς",
 	es => "lugar de compra",
 	pt => "local de compra",
 	ro => "locația de cumpărare",
 	he => "מקום הרכישה",
 	nl => "verkoopslocatie",
+	de => "Verkaufsort",
 },
 
 purchase_places_p => {
 	fr => "lieux de vente",
 	en => "purchase places",
+	el => "τόποι αγοράς",
 	es => "lugares de compra",
 	pt => "locais de compra",
 	ro => "locațiile de cumpărare",
 	he => "מקומות הרכישה",
 	nl => "verkoopslocaties",
+	de => "Verkaufsorte",
 },
 
 manufacturing_places_s => {
 	fr => "lieu de fabrication ou de transformation",
 	en => "manufacturing or processing place",
+	el => "τόπος παρασκευής ή επεξεργασίας",
 	es => "lugar de fabricación o de transformación",
 	ro => "locul de fabricație sau de procesare",
 	pt => "local de fabrico",
 	nl => "productie- of verwerkingslocatie",
+	de => "Herkunfts- oder Verwandlungsort",
 },
 
 manufacturing_places_p => {
 	fr => "lieux de fabrication ou de transformation",
 	en => "manufacturing or processing places",
+	el => "τόποι παρασκευής ή επεξεργασίας",
 	es => "lugares de fabricación o de transformación",
 	ro => "locul de fabricație sau de procesare",
 	pt => "locais de fabrico",
 	nl => "productie- of verwerkingslocaties",
+	de => "Herkunfts- oder Verwandlungsorte",
 },
 
 stores_s => {
 	fr => "magasin",
 	en => "store",
+	el => "καταστημα",
 	es => "tienda",
 	pt => "loja",
 	ro => "magazin",
 	he => "חנות",
 	nl => "winkel",
+	de => "Laden",
 },
 
 stores_p => {
 	fr => "magasins",
 	en => "stores",
+	el => "καταστηματα",
 	es => "tiendas",
 	pt => "lojas",
 	ro => "magazine",
 	he => "חנויות",
 	nl => "winkels",
+	de => "Läden",
 },
 
 countries_s => {
 	fr => "pays",
 	en => "country",
+	el => "χωρα",
 	es => "país",
 	pt => "país",
 	ro => "țară",
 	he => "מדינה",
 	nl => "land",
+	de => "Land",
 },
 
 countries_p => {
 	fr => "pays",
 	en => "countries",
+	el => "χωρες",
 	es => "países",
 	pt => "países",
 	ro => "țări",
 	he => "מדינות",
 	nl => "landen",
+	de => "Länder",
 },
 
 packaging_s => {
 	fr => "conditionnement",
 	en => "packaging",
+	el => "συσκευασία",
 	es => "envase",
 	pt => "embalagem",
 	ro => "ambalare",
 	he => "אריזה",
 	nl => "verpakking",
+	de => "Verpackung",
 },
 
 packaging_p => {
 	fr => "conditionnements",
 	en => "packaging",
+	el => "συσκευασίες",
 	es => "envases",
 	pt => "embalagens",
 	ro => "ambalaje",
 	he => "אריזה",
 	nl => "verpakking",
+	de => "Verpackungen",
 },
 
 origins_s => {
 	fr => "origine des ingrédients",
 	en => "origin of ingredients",
+	el => "προέλευση συστατικών",
 	es => "origen",
 	pt => "origem",
 	ro => "originea ingredientelor",
 	he => "מקור",
 	nl => "herkomst van de ingrediënten",
+	de => "Zutatenherkunft",
 },
 
 origins_p => {
 	fr => "origines des ingrédients",
 	en => "origins of ingredients",
+	el => "προελευσεις συστατικών",
 	es => "orígenes",
 	pt => "origens",
 	ro => "originile ingredientelor",
 	he => "מקורות",
 	nl => "herkomst",
+	de => "Zutatenherkünfte",
 },
 
 emb_code_s => {
 	fr => "code emballeur (EMB)",
 	en => "EMB code",
+	el => "Κωδικός συσκευαστή",
 	es => "código de envasador (EMB)",
 	pt => "código de embalador",
 	nl => "verpakkerscode",
+	de => "Produzenten-Code",
 },
 
 emb_code_p => {
 	fr => "codes emballeurs (EMB)",
 	en => "EMB codes",
+	el => "Κωδικοί συσκευαστών",
 	es => "códigos de envasador (EMB)",
 	pt => "códigos de embalador",
 	nl => "verpakkerscodes",
+	de => "Produzenten-Codes",
 },
 
 ingredients_s => {
 	fr => "ingrédient",
 	en => "ingredient",
+	el => "συστατικό",
 	es => "ingrediente",
 	pt => "ingrediente",
 	ro => "ingredient",
 	he => "רכיב",
 	nl => "ingrediënt",
+	de => "Zutat",
 },
 
 ingredients_p => {
 	fr => "ingrédients",
 	en => "ingredients",
+	el => "συστατικά",
 	es => "ingredientes",
 	pt => "ingredientes",
 	ro => "ingrediente",
 	he => "רכיבים",
 	nl => "ingrediënten",
+	de => "Zutaten",
 },
 
 traces_s => {
 	fr => "trace",
 	en => "trace",
 	es => "traza",
+	el => "ίχνος",
 	pt => "traço",
 	pt_pt => "vestígio",
 	ro => "urmă",
 	he => "עקבה",
 	nl => "spoor",
+	de => "Spur",
 },
 
 traces_p => {
 	fr => "traces",
 	en => "traces",
 	es => "trazas",
+	el => "ίχνη",
 	pt => "traços",
 	pt_pt => "vestígios",
 	ro => "urme",
 	he => "עקבות",
 	nl => "sporen",
+	de => "Spuren",
 },
 
 labels_s => {
 	fr => "label",
 	en => "label",
 	es => "etiqueta",
+	el => "ετικέτα",
 	pt => "etiqueta",
 	ro => "etichetă",
 	he => "תווית",
 	nl => "label",
+	de => "Label",
 },
 
 labels_p => {
 	fr => "labels",
 	en => "labels",
+	el => "ετικέτες",
 	es => "etiquetas",
 	pt => "etiquetas",
 	ro => "etichete",
 	he => "תוויות",
 	nl => "labels",
+	de => "Labels",
 },
 
 nutriments_s => {
 	fr => "nutriment",
 	en => "nutriment",
 	es => "nutriente",
+	el => "θρεπτικό συστατικό",
 	pt => "nutriente",
 	ro => "nutrient",
 	he => "רכיב תזונתי",
 	nl => "voedingsstof",
+	de => "Nährstoff",
 },
 
 nutriments_p => {
 	fr => "nutriments",
 	en => "nutriments",
+	el => "θρεπτικά συστατικά",
 	es => "nutrientes",
 	pt => "nutrientes",
 	ro => "nutriente",
 	he => "רכיבים תזונתיים",
 	nl => "voedingsstoffen",
+	de => "Nährstoffe",
 },
 
 known_nutrients_s => {
 	fr => "nutriment connu",
 	en => "known nutrient",
+	el => "γνωστό θρεπτικό συστατικό",
 	es => "nutriente conocido",
 	pt => "nutriente conhecido",
 	ro => "nutrient cunoscut",
 	he => "מרכיב תזונתי ידוע",
 	nl => "gekende voedingsstof",
+	de => "bekannter Nährstoff",
 },
 
 known_nutrients_p => {
 	fr => "nutriments connus",
 	en => "known nutrients",
+	el => "γνωστά θρεπτικά συστατικά",
 	es => "nutrientes conocidos",
 	pt => "nutrientes conhecidos",
 	ro => "nutriente cunoscute",
 	he => "מרכיבים תזונתיים ידועים",
 	nl => "gekende voedingsstoffen",
+	de => "bekannte Nährstoffe",
 },
 
 unknown_nutrients_s => {
 	fr => "nutriment inconnu",
 	en => "unknown nutrient",
+	el => "άγνωστο θρεπτικό συστατικό",
 	es => "nutriente desconocido",
 	pt => "nutriente desconhecido",
 	ro => "nutrint necunoscut",
 	he => "מרכיב תזונתי בלתי ידוע",
 	nl => "onbekende voedingsstof",
+	de => "unbekannter Nährstoff",
 },
 
 unknown_nutrients_p => {
 	fr => "nutriments inconnus",
 	en => "unknown nutrients",
+	el => "άγνωστα θρεπτικά συστατικά",
 	es => "nutrientes desconocidos",
 	pt => "nutrientes desconhecidos",
 	ro => "nutriente necunoscute",
 	he => "מרכיבים תזונתיים בלתי ידועים",
 	nl => "onbekende voedingsstoffen",
+	de => "unbekannte Nährstoffe",
 },
 
 entry_dates_s => {
 	fr => "Date d'ajout",
+	el => "Ημερομηνία εισόδου",
 	en => "Entry date",
 },
 
 entry_dates_p => {
 	fr => "Dates d'ajout",
+	el => "Ημερομηνίες εισόδου",
 	en => "Entry dates",
 },
 
 last_edit_dates_s => {
 	en => "Last edit date",
+	el => "Ημερομηνία τελευταίας τροποποίησης",
 	fr => "Date de dernière modification",
 },
 
 last_edit_dates_p => {
 	en => "Last edit dates",
+	el => "Ημερομηνίες τελευταίας τροποποίησης",
 	fr => "Dates de dernière modification",
 },
 
 nutrition_grades_s => {
 	en => "Nutrition grade",
+	el => "Διατροφική σημείωση",
 	fr => "Note nutritionnelle",
 },
 
 nutrition_grades_p => {
 	en => "Nutrition grades",
+	el => "Διατροφικές σημειώσεις",
 	fr => "Notes nutritionnelles",
 },
 
@@ -4435,35 +4886,42 @@ nutrient_levels_s => {
 	fr => "repère nutritionnel",
 	en => "nutrient level",
 	es => "valor nutricional",
+	el => "διατροφικός δείκτης",
 	pt => "valor nutricional",
 	ro => "valoare nutrițională",
 	he => "רמת המרכיב התזונתי",
 	nl => "voedingswaarde",
+	de => "Nahrungsbedarf",
 },
 
 nutrient_levels_p => {
 	fr => "repères nutritionnels",
 	en => "nutrient levels",
 	es => "valores nutricionales",
+	el => "διατροφικοί δείκτες",
 	pt => "valores nutricionais",
 	ro => "valori nutriționale",
 	he => "רמות המרכיבים התזונתיים",
 	nl => "voedingswaarden",
+	de => "Nahrungsbedarf",
 },
 
 nutrient_levels_info => {
 	fr => "<a href=\"/reperes-nutritionnels\">Repères nutritionnels</a> pour 100 g :",
 	en => "Nutrient levels for 100 g:",
+	el => "<a href=\"/διατροφικοί-δείκτες\">Διατροφικοί δείκτες</a> ανά 100 g :",
 	es => "<a href=\"/valores-nutricionales\">Valores nutricionales</a> por 100 g :",
 	pt => "<a href=\"/valores-nutricionais\">Valores nutricionais</a> por 100 g:",
 	ro => "Valori nutriționale pentru 100g:",
 	he => "רמות המרכיבים התזונתיים ל־100 גרם:",
 	nl => "<a href=\"/voedingswaarden\">Voedingswaarden</a> per 100 g :",
+	de => "<a href=\"/Nahrungsbedarf\">Nahrungsbedarf</a> pro 100 g :",
 },
 
 users_s => {
 	fr => "contributeur",
 	de => 'Mitwirkende',
+	el => "συντελεστής",
 	en => 'contributor',
 	es => 'contribuyente',
 	pt => 'colaborador',
@@ -4476,6 +4934,7 @@ users_s => {
 users_p => {
 	fr => "contributeurs",
 	de => 'Mitwirkende',
+	el => "συντελεστές",
 	en => 'contributors',
 	es => 'contribuyentes',
 	pt => 'colaboradores',
@@ -4487,100 +4946,121 @@ users_p => {
 photographers_s => {
 	fr => 'photographe',
 	en => 'photographer',
+	el => "φωτογράφος",
 	es => 'fotógrafo',
 	pt => 'fotógrafo',
 	ro => "fotograf",
 	he => 'צלם',
 	nl => "fotograaf",
+	de => "Fotograf",
 },
 photographers_p => {
 	fr => 'photographes',
 	en => 'photographers',
+	el => "φωτογράφοι",
 	es => 'fotógrafos',
 	pt => 'fotógrafos',
 	ro => "fotografi",
 	he => 'צלמים',
 	nl => "fotografen",
+	de => "Fotografen",
 },
 informers_s => {
 	fr => 'informateurs',
 	en => 'informers',
+	el => "πληροφοριοδότης",
 	es => 'informante',
 	pt => 'informante',
 	pt_pt => 'informador',
 	ro => "informator",
 	he => 'מודיע',
 	nl => "informant",
+	de => "Informant",
 },
 informers_p => {
 	fr => 'informateurs',
 	en => 'informers',
+	el => "πληροφοριοδότες",
 	es => 'informantes',
 	pt => 'informantes',
 	pt_pt => 'informadores',
 	ro => "informatori",
 	he => 'מודיעים',
 	nl => "informanten",
+	de => "Informanten",
 },
 correctors_s => {
 	fr => 'correcteur',
 	en => 'corrector',
+	el => "διορθωτής",
 	es => 'corrector',
 	pt => 'corretor',
 	pt_pt => 'revisor',
 	ro => "corector",
 	he => 'מתקן',
 	nl => "corrector",
+	de => "Korrektor",
 },
 correctors_p => {
 	fr => 'correcteurs',
 	en => 'correctors',
+	el => "διορθωτές",
 	es => 'correctores',
 	pt => 'corretores',
 	pt_pt => 'revisores',
 	ro => "corectori",
 	he => 'מתקנים',
 	nl => "correctoren",
+	de => "Korrektoren",
 },
 checkers_s => {
 	fr => 'vérificateur',
 	en => 'checker',
+	el => "ελεγκτής",
 	es => 'verificador',
 	pt => 'verificador',
 	ro => "verificator",
 	he => 'בודק',
 	nl => "verificateur",
+	de => "Prüfer",
 },
 checkers_p => {
 	fr => 'vérificateurs',
 	en => 'checkers',
+	el => "ελεγκτές",
 	es => 'verificadores',
 	pt => 'verificadores',
 	ro => "verificatori",
 	he => 'בודקים',
 	nl => "verificateurs",
+	de => "Prüfer",
 },
 states_s => {
 	fr => 'état',
 	en => 'state',
+	el => "κατασταση",
 	es => 'estado',
 	pt => 'estado',
 	ro => "status",
 	he => 'מצב',
 	nl => "staat",
+	de => "Stand",
 },
 states_p => {
 	fr => 'états',
 	en => 'states',
+	el => "καταστάσεις",
 	es => 'estados',
 	pt => 'estados',
 	ro => "statusuri",
 	he => 'מצבים',
 	nl => "statussen",
+	de => "Stände",
 },
 ingredients_p => { 
 	fr => 'ingrédient',
-	de => 'Zutat',
+	el => "συστατικό",
+de => 'Zutat',
 	en => 'ingredient',
 	es => 'ingrediente',
 	pt => 'ingrediente',
@@ -4592,6 +5072,7 @@ ingredients_p => {
 ingredients_p => { 
 	fr => 'ingrédients',
 	de => 'Zutaten',
+	el => "συστατικά",
 	en => 'ingredients',
 	es => 'ingredientes',
 	pt => 'ingredientes',
@@ -4604,6 +5085,7 @@ ingredients_p => {
 allergens_s => { 
 	fr => 'allergène',
 	de => 'allergen',
+	el => "αλλεργιονο",
 	en => 'allergen',
 	es => 'alergeno',
 	it => 'allergene',
@@ -4620,6 +5102,7 @@ allergens_p => {
 	fr => 'allergènes',
 	de => 'allergene',
 	en => 'allergens',
+	el => "αλλεργιογόνα",
 	es => 'alergenos',
 #	it => 'allergene',
 #	ru => 'аллергены',
@@ -4634,26 +5117,31 @@ allergens_p => {
 additives_s => {
 	fr => "additif",
 	en => "additive",
+	el => "πρόσθετο",
 	es => "aditivo",
 	pt => "aditivo",
 	ro => "aditiv",
 	he => "תוסף",
 	nl => "additief",
+	de => "Zusatzstoff",
 },
 
 additives_p => {
 	fr => "additifs",
 	en => "additives",
 	es => "aditivos",
+	el => "πρόσθετα",
 	pt => "aditivos",
 	ro => "aditivi",
 	he => "תוספים",
 	nl => "additieven",
+	de => "Zusatzstoffe",
 },
 
 ingredients_from_palm_oil_s => {
 	fr => "ingrédient issu de l'huile de palme",
 	en => "ingredient from palm oil",
+	el => "συστατικό προερχόμενο από φοινικέλαιο",
 	es => "ingrediente procedente de aceite de palma",
 	pt_pt => "ingrediente proveniente de óleo de palma",
 	ro => "ingredient din ulei de palmier",
@@ -4664,6 +5152,7 @@ ingredients_from_palm_oil_s => {
 ingredients_from_palm_oil_p => {
 	fr => "ingrédients issus de l'huile de palme",
 	en => "ingredients from palm oil",
+	el => "συστατικά προερχόμενα από φοινικέλαιο",
 	es => "ingredientes procedentes de aceite de palma",
 	pt_pt => "ingredientes a partir de óleo de palma",
 	ro => "ingrediente din ulei de palmier",
@@ -4674,6 +5163,7 @@ ingredients_from_palm_oil_p => {
 ingredients_that_may_be_from_palm_oil_s => {
 	fr => "ingrédient pouvant être issu de l'huile de palme",
 	en => "ingredient that may be from palm oil",
+	el => "συστατικό πιθανώς προερχόμενο από φοινικέλαιο",
 	es => "ingrediente que puede proceder de aceite de palma",
 	pt_pt => "ingrediente que pode partir de óleo de palma",
 	ro => "ingredient care ar putea proveni din ulei de palmier",
@@ -4684,6 +5174,7 @@ ingredients_that_may_be_from_palm_oil_s => {
 ingredients_that_may_be_from_palm_oil_p => {
 	fr => "ingrédients pouvant être issus de l'huile de palme",
 	en => "ingredients that may be from palm oil",
+	el => "συστατικά πιθανώς προερχόμενα από φοινικέλαιο",
 	es => "ingredientes que pueden proceder de aceite de palma",
 	pt_pt => "ingredientes que podem partir de óleo de palma",
 	ro => "ingrediente care ar putea proveni din ulei de palmier",
@@ -4691,9 +5182,21 @@ ingredients_that_may_be_from_palm_oil_p => {
 	nl => "ingrediënten die mogelijk palmolie bevatten",
 },
 
+ingredients_from_or_that_may_be_from_palm_oil_s => {
+	fr => "ingrédient issu ou pouvant être issu de l'huile de palme",
+	en => "ingredient from or that may be from palm oil",
+	el => "συστατικό προερχόμενο από/πιθανώς από φοινικέλαιο",
+	es => "ingrediente que procede o puede proceder de aceite de palma",
+	pt_pt => "ingrediente a partir ou que pode partir de óleo de palma",
+	ro => "ingredient care ar putea fi din sau ar putea proveni din ulei de palmier",
+	he => "רכיבים שעשויים או מיוצרים משמן דקלים",
+	nl => "ingrediënt dat (mogelijk) palmolie bevat",
+},
+
 ingredients_from_or_that_may_be_from_palm_oil_p => {
 	fr => "ingrédients issus ou pouvant être issus de l'huile de palme",
 	en => "ingredients from or that may be from palm oil",
+	el => "συστατικά προερχόμενα από/πιθανώς από φοινικέλαιο",
 	es => "ingredientes que proceden o pueden proceder de aceite de palma",
 	pt_pt => "ingredientes a partir ou que podem partir de óleo de palma",
 	ro => "ingrediente care ar putea fi din sau ar putea proveni din ulei de palmier",
@@ -4704,6 +5207,7 @@ ingredients_from_or_that_may_be_from_palm_oil_p => {
 add_product => {
 	fr => 'Ajouter un produit',
 	en => 'Add a product',
+	el => "Προσθέστε ένα προϊόν",
 	es => 'Añadir un producto',
 	pt => 'Adicionar um produto',
 	de => 'Ein Produkt hinzufügen',
@@ -4715,16 +5219,19 @@ add_product => {
 barcode_number => {
 	fr => 'Chiffres du code barre :',
 	en => 'Barcode number:',
+	el => "Κωδικός Barcode",
 	es => 'Cifras del código de barras :',
 	pt => 'Número do código de barras:',
 	ro => "Numărul din codul de bare:",
 	he => 'מספר ברקוד:',
-	nl => "Nummer van de barcode",
+	nl => "Nummer van de barcode:",
+	de => "Barcode-Nummer:",
 },
 
 barcode => {
 	fr => 'Code barre',
 	en => 'Barcode',
+	el => "Barcode",
 	de => 'Barcode',
 	es => 'Código de barras',
 	pt => 'Código de barras',
@@ -4736,6 +5243,7 @@ barcode => {
 or => {
 	fr => 'ou :',
 	en => 'or :',
+	el => "ή",
 	es => 'o :',
 	pt => 'ou :',
 	ro => "sau:",
@@ -4747,6 +5255,7 @@ or => {
 no_barcode => {
 	fr => 'Produit sans code barre',
 	en => 'Product without barcode',
+	el => "Προϊόν χωρίς barcode",
 	de => 'Produkt ohne Barcode',
 	es => 'Producto sin código de barras',
 	pt => 'Produto sem código de barras',
@@ -4758,6 +5267,7 @@ no_barcode => {
 add => {
 	fr => 'Ajouter',
 	en => 'Add',
+	el => "Προσθέστε",
 	es => 'Añadir',
 	pt => 'Adicionar',
 	ro => "Adaugă",
@@ -4770,6 +5280,7 @@ add => {
 product_image_with_barcode => {
 	fr => 'Image du produit avec code barre :',
 	en => 'Product picture with barcode:',
+	el => "Εικόνα προϊόντος με barcode",
 	de => 'Produktfoto mit Barcode:',
 	es => 'Imagen del producto con código de barras:',
 	pt => 'Imagem do produto com o código de barras:',
@@ -4783,190 +5294,227 @@ send_image => {
 	fr => 'Envoyer une image...',
 	en => 'Send a picture...',
 	es => 'Enviar una imagen...',
+	el => "Ανεβάστε μια εικόνα...",
 	pt => 'Enviar uma imagem...',
 	ro => "Trimiteți o imagine...",
 	he => 'שליחת תמונה...',
 	it => 'Invia una photo...',
 	nl => "Een foto versturen...",
+	de => "Foto hochladen...",
 },
 
 sending_image => {
 	fr => 'Image en cours d\'envoi',
 	en => 'Sending image',
+	el => "Τρέχουσα εικόνα σε αποστολή",
 	es => 'Enviando la imagen',
 	pt => 'A enviar a imagem',
 	ro => "Imagine în curs de trimitere",
 	he => 'התמונה נשלחת',
 	nl => "De foto wordt verzonden",
+	de => "Das Foto wird hochgeladen",
 },
 
 send_image_error => {
 	fr => 'Erreur lors de l\'envoi',
 	en => 'Upload error',
+	el => "Σφάλμα κατά την αποστολή",
 	es => 'Error al enviar',
 	pt => 'Erro ao enviar a imagem',
 	ro => "Eroare de transmisie",
 	he => 'ההעלאה נכשלה',
 	nl => "Fout bij het verzenden",
+	de => 'Beim Hochladen ist ein Fehler aufgetreten',
 },
 
 edit_product => {
 	fr => 'Modifier un produit',
 	en => 'Edit a product',
+	el => "Τροποποιήστε ένα προϊόν",
 	es => 'Modifica un producto',
 	pt => 'Editar um produto',
 	ro => "Modificare produs",
 	he => 'עריכת מוצר',
 	it => 'Modifica un prodotto',
 	nl => 'Een product aanpassen',
+	de => 'Produkt bearbeiten',
 },
 
 edit_product_page => {
 	fr => 'Modifier la fiche',
 	en => 'Edit the page',
+	el => "Τροποποιήστε το αρχείο",
 	es => 'Modifica la página',
 	pt => 'Editar a página',
 	ro => "Modificare pagină",
 	he => 'עריכת העמוד',
 	it => 'Modifica la pagina',
 	nl => 'De pagina aanpassen',
+	de => 'Formular bearbeiten',
 },
 
 delete_product_page => {
 	fr => 'Supprimer la fiche',
 	en => 'Delete the page',
+	el => "Διαγράψτε το αρχείο",
 	es => 'Elimina la página',
 	pt => 'Eliminar a página',
 	ro => "Ștergere pagină",
 	he => 'מחיקת העמוד',
 	nl => 'De pagina verwijderen',
+	de => 'Formular löschen',
 },
 
 
 delete_product => {
 	fr => 'Supprimer un produit',
 	en => 'Delete a product',
+	el => "Διαγράψτε το προϊόν",
 	es => 'Elimina un producto',
 	pt => 'Eliminar um produto',
 	ro => "Ștergere produs",
 	he => 'מחיקת מוצר',
 	nl => 'Een product verwijderen',
+	de => 'Produkt löschen',
 },
 
 search => {
 	fr => 'Rechercher',
 	en => 'Search',
+	el => "Αναζήτηση",
 	es => 'Buscar',
 	pt => 'Procurar',
 	ro => "Căutare",
 	he => 'חיפוש',
 	nl => 'Zoeken',
+	de => 'Suchen',
 },
 
 search_title => {
 	fr => 'Rechercher un produit, une marque, un ingrédient, un nutriment etc.',
 	en => 'Search a product, brand, ingredient, nutriment etc.',
+	el => "Αναζητήστε ένα προϊόν, συστατικό, θρεπτικό συστατικό κλπ",
 	es => 'Busca un producto, marca, ingrediente, nutriente, etc.',
 	pt => 'Procurar um produto, marca, ingrediente, nutriente, etc.',
 	ro => "Căutați un produs, marcă, ingredient, nutrient etc.",
 	he => 'חיפוש מוצר, מותג, רכיב, מרכיב תזונתי וכו׳',
 	nl => 'Een product, een merk, een ingrediënt, een voedingsstof, etc. zoeken.',
+	de => 'Produkt, Marke, Zutat, Nährstoff usw. suchen',
 },
 
 product_added => {
 	fr => 'Produit ajouté le',
 	en => 'Product added on',
+	el => "Προϊόν προστέθηκε το",
 	es => 'Producto añadido el',
 	pt => 'Produto adicionado a',
 	ro => "Produs adăugat în",
 	he => 'המוצר נוסף ב־',
 	nl => 'Product toegevoegd op',
+	de => 'Produkt hinzugefügt am',
 },
 
 by => {
 	fr => 'par',
 	en => 'by',
+	el => "από/για",
 	es => 'por',
 	pt => 'por',
 	ro => "de către",
 	he => 'על־ידי',
 	nl => "door",
+	de => 'von',
 },
 
 missions => {
 	fr => 'Missions',
+	el => "Αποστολές",
 	en => 'Missions',
 	es => 'Misiones',
 	pt => 'Missões',
 	ro => "Misiuni",
 	he => 'משימות',
 	nl => "Missies",
+	de => 'Missionen',
 },
 
 
 mission_ => {
 	fr => 'Mission : ',
 	en => 'Mission: ',
+	el => "Αποστολή:",
 	es => 'Misión: ',
 	pt => 'Missão: ',
 	ro => "Misiune: ",
 	he => 'משימה: ',
 	nl => "Missie: ",
+	de => 'Mission:',
 },
 
 completed_n_missions => {
 	fr => 'a accompli %d missions :',
 	en => 'completed %d missions:',
+	el => "ολοκληρώθηκαν %d αποστολές:",
 	es => 'completadas %d misiones:',
 	pt => 'completou %d missões:',
 	ro => "a terminat %d misiuni:",
 	he => 'הושלמו %d משימות:',
 	nl => "%s missies voltooid",
+	de => 'hat %d Missionen erfüllt:',
 },
 	
 mission_goal => {
 	fr => 'Objectif :',
 	en => 'Goal:',
+	el => "Στόχος:",
 	es => 'Objetivo:',
 	pt => 'Objetivo:',
 	ro => "Obiectiv:",
 	he => 'יעד:',
 	nl => "Doel:",
+	de => 'Ziel:',
 },
 
 mission_accomplished_by => {
 	fr => 'Cette mission a été accomplie par :',
 	en => 'This mission has been completed by:',
+	el => "Αυτή η αποστολή ολοκληρώθηκε από:",
 	es => 'Esta misión ha sido completada por:',
 	pt => 'Esta missão foi completa por:',
 	ro => "Această misiune a fost terminată de către:",
 	he => 'משימה זאת הושלמה על־ידי:',
 	nl => 'Deze missie werd voltooid door:',
+	de => 'Diese Mission wurde erfüllt von:',
 },
 
 mission_accomplished_by_n => {
 	fr => 'Accomplie par %d personnes.',
 	en => 'Completed by %d persons.',
+	el => "Ολοκληρώθηκαν από %d άτομα.",
 	es => 'Completada por %d personas.',
 	pt => 'Completa por %d pessoas.',
 	ro => "Terminată de către %d persoane.",
 	he => 'הושלמה על־ידי %d משתמשים.',
 	nl => 'Voltooid door %d personen',
+	de => 'wurde von %d Personen erfüllt.',
 },
 
 mission_accomplished_by_nobody => {
 	fr => 'Soyez le premier à accomplir cette mission!',
 	en => 'Be the first to complete this mission!',
+	el => "Γίνετε ο πρώτος που θα ολοκληρώσει αυτή την αποστολή!",
 	es => '¡Sé el primero en cumplir esta misión!',
 	pt => 'Seja o primeiro a completar esta missão!',
 	ro => "Fii primul care termină această misiune!",
 	he => 'משימה זו טרם הושלמה, קדימה, קטן עליך!',
 	nl => 'Wees de eerste om deze missie te voltooien!',
+	de => 'Sei der/die Erste, diese Mission zu erfüllen!',
 },
 
 all_missions => {
 	fr => 'Toutes les missions',
 	en => 'All missions',
+	el => "Όλες οι αποστολές",
 	es => 'Todas las misiones',
 	pt => 'Todas as missões',
 	ro => "Toate misiunile",
@@ -4978,6 +5526,7 @@ all_missions => {
 salt_equivalent => {
 	fr => 'équivalent sel',
 	en => 'salt equivalent',
+	el => "Ισοδύναμο σε αλάτι",
 	es => 'equivalente en sal',
 	pt => 'equivalente em sal',
 	ro => "echivalentul de sare",
@@ -4987,6 +5536,7 @@ salt_equivalent => {
 
 additives_3 => {
 	fr => 'Additif alimentaire interdit en Europe. A éviter absolument.',
+	el => "Πρόσθετο τροφίμων απαγορευμένο στην Ευρώπη. Να αποφευχθεί απολύτως. ",
 	es => 'Aditivo alimentario prohibido en Europa. Evítalo completamente.',
 	pt => 'Aditivo alimentar proibido na Europa. A evitar completamente.',
 	ro => "Aditiv alimentar interzis în Europa. De evitat complet.",
@@ -4995,6 +5545,7 @@ additives_3 => {
 
 additives_2 => {
 	fr => 'Additif alimentaire à risque. A éviter.',
+	el => "Πρόσθετο τροφίμων όχι απολύτως ασφαλές. Να αποφευχθεί. ",
 	es => 'Aditivo alimentario con riesgo. A evitar.',
 	ro => "Aditiv alimentar riscant. De evitat.",
 	pt => 'Aditivo alimentar com riscos. A evitar.',
@@ -5003,6 +5554,7 @@ additives_2 => {
 
 additives_1 => {
 	fr => 'Additif alimentaire potentiellement à risque. A limiter.',
+	el => "Πρόσθετο τροφίμων πιθανώς όχι απολύτως ασφαλές. Να περιοριστεί η χρήση του. ",
 	es => 'Aditivo alimentario con riesgo potencial. A limitar.',
 	ro => "Aditiv alimentar potențial riscant. De limitat.",
 	pt => 'Aditivo alimentar potencialmente com risco . A limitar.',
@@ -5016,6 +5568,8 @@ Vous acceptez d\'être crédité par les ré-utilisateurs par un lien vers le pr
 	en => 'By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href="http://opendatacommons.org/licenses/dbcl/1.0/">Database Contents Licence 1.0</a> licence
 for information and data, and under the <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.
 You accept to be credited by re-users by a link to the product your are contributing to.',
+el => 'Προσθέτοντας πληροφορία, δεδομενα ή/και φωτογραφίες, αποδέχεστε αμετάκλητα ότι αποδέχεστε τη <a href="http://opendatacommons.org/licenses/dbcl/1.0/">Database Contents Licence 1.0</a> άδεια για πληροφορία και δεδομένα, και υπό the <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution - ShareAlike 3.0</a> άδεια για τις εικόνες.
+Αποδέχεστε ότι το περιεχόμενο αποδίδεται σε εσάς σε περίπτωση επαναχρησιμοποίησης των δεδομένων μέσω σύνδεσης με το προϊόν με το οποίο έχετε συμβάλλει.',
 	es => 'Al adjuntar información, datos y/o imágenes, acepta que su contribución sea añadida de forma irrevocable bajo la licencia <a href="http://opendatacommons.org/licenses/dbcl/1.0/">Database Contents Licence 1.0</a>
 para la información y datos, y bajo la licencia<a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution - ShareAlike 3.0</a> para las imágenes.
 También acepta recibir el reconocimiento por la reutilización de los datos mediante un enlace al producto al que ha contribuído.',
@@ -5032,16 +5586,19 @@ U aanvaardt ook dat u gecrediteerd kan worden door hergebruikers via een link na
 tag_belongs_to => {
 	fr => 'Fait partie de :',
 	en => 'Belongs to:',
+	el => 'Ανήκει σε :',
 	es => 'Pertenece a:',
 	pt => 'Pertence a:',
 	ro => "Aparține de:",
 	he => 'שייך ל־:',
 	nl => 'Behoort tot:',
+	de => 'Gehört:',
 },
 
 tag_contains => {
 	fr => 'Contient :',
 	en => 'Contains:',
+	el => 'Περιέχει :',
 	es => 'Contiene:',
 	pt => 'Contém:',
 	ro => "Conține",
@@ -5053,6 +5610,7 @@ tag_contains => {
 newsletter_description => {
 	fr => "S'inscrire à la lettre d'information (2 e-mails par mois maximum)",
 	en => "Subscribe to the newsletter (2 emails per month maximum)",
+	el => 'Εγγραφείτε στο newsletter (2 emails το μήνα maximum) ',
 	es => "Suscribirse al boletín informativo (2 correos electrónicos al mes como mucho)",
 	pt => "Subscreva ao boletim de notícias (2 e-mails no máximo por mês)",
 	pt_pt => "Subscreva o boletim de notícias (2 e-mails no máximo por mês)",
@@ -5065,6 +5623,7 @@ newsletter_description => {
 search_products => {
 	fr => "Recherche de produits",
 	en => "Products search",
+	el => "Αναζήτηση προϊόντων",
 	es => "Búsqueda de productos",
 	pt => "Procura de produtos",
 	ro => "Căutare produse",
@@ -5076,6 +5635,7 @@ search_products => {
 search_terms => {
 	fr => "Termes de recherche",
 	en => "Search terms",
+	el => 'Αναζήτηση όρων',
 	es => "Palabras a buscar",
 	pt => "Termos de pesquisa",
 	ro => "Termeni de căutare",
@@ -5087,7 +5647,8 @@ search_terms => {
 search_terms_note => {
 	fr => "Recherche les mots présents dans le nom du produit, le nom générique, les marques, catégories, origines et labels",
 	en => "Search for words present in the product name, generic name, brands, categories, origins and labels",
-	es => "Busca las palabras presentes en el nombre del producto, la denominación general, las marcas, las categorías, los orígenes y las etiquetas",
+        el => 'Αναζητήστε λέξεις στο όνομα του προϊόντος, στη μάρκα, στις κατηγορίες, στις ετικέτες και στην προέλευση',
+	es => 	"Busca las palabras presentes en el nombre del producto, la denominación general, las marcas, las categorías, los orígenes y las etiquetas",
 	pt_pt => "Procurar os termos no nome do produto, nome genérico, marcas, categorias, origens e etiquetas",
 	ro => "Căutați după cuvinte prezente în numele produsului, numele generic, mărci, categorii, origini și etichete",
 	he=> "חיפוש אחר מילים מתוך שם המוצר, שמו הכללי, מותגים, קטגוריות, מקורות ותוויות",
@@ -5098,6 +5659,7 @@ search_terms_note => {
 search_tag => {
 	fr => "choisir un critère...",
 	en => "choose a criteria...",
+        el => 'επιλέξτε ένα κριτήριο...',
 	es => "escoge un criterio...",
 	pt => "escolhe um critério...",
 	ro => "alegeți un criteriu...",
@@ -5109,6 +5671,7 @@ search_tag => {
 search_nutriment => {
 	fr => "choisir un nutriment...",
 	en => "choose a nutriment...",
+        el => 'επιλέξτε ένα θρεπτικό συστατικό...',
 	es => "escoge un nutriente...",
 	pt => "escolhe um nutriente...",
 	ro => "alegeți un nutrient...",
@@ -5120,6 +5683,7 @@ search_nutriment => {
 search_tags => {
 	fr => "Critères",
 	en => "Criteria",
+        el => 'Κριτήρια',
 	es => "Criterios",
 	pt => "Critérios",
 	ro => "Criteriu",
@@ -5131,17 +5695,19 @@ search_tags => {
 search_nutriments => {
 	fr => "Nutriments",
 	en => "Nutriments",
+        el => 'Θρεπτικά συστατικά',
 	es => "Nutrientes",
 	pt => "Nutrientes",
 	ro => "Nutrienți",
 	he => "מרכיבים תזונתיים",
 	nl => "Voedingsstoffen",
-	de => "Nährstoff",
+	de => "Nährstoffe",
 },
 
 search_contains => {
 	fr => "contient",
 	en => "contains",
+        el => 'περιέχει',
 	es => "contiene",
 	pt => "contém",
 	ro => "conține",
@@ -5152,6 +5718,7 @@ search_contains => {
 search_does_not_contain => {
 	fr => "ne contient pas",
 	en => "does not contain",
+        el => 'δεν περιέχει',
 	es => "no contiene",
 	pt => "não contém",
 	ro => "nu conține",
@@ -5162,6 +5729,7 @@ search_does_not_contain => {
 search_or => {
 	fr => "ou",
 	en => "or",
+          el => 'ή',
 	es => "o",
 	pt => "ou",
 	ro => "sau",
@@ -5172,6 +5740,7 @@ search_or => {
 search_page_size => {
 	fr => "Nombre de résultats par page",
 	en => "Number of results by page",
+        el => 'Αριθμός αποτελεσμάτων ανά σελίδα',
 	es => "Número de resultados por página",
 	pt => "Número de resultados por página",
 	ro => "Numărul de rezultate per pagină",
@@ -5182,6 +5751,7 @@ search_page_size => {
 sort_by => {
 	fr => "Trier par :",
 	en => "Sort by:",
+        el => 'Ταξινομήστε ανά :',
 	es => "Ordenar por:",
 	pt => "Ordenar por:",
 	ro => "Ordonează după:",
@@ -5192,6 +5762,7 @@ sort_by => {
 sort_popularity => {
 	fr => "Popularité",
 	en => "Popularity",
+        el => 'Δημοφιλία',
 	es => "Popularidad",
 	pt => "Popularidade",
 	ro => "Popularitate",
@@ -5201,6 +5772,7 @@ sort_popularity => {
 sort_product_name => {
 	fr => "Nom du produit",
 	en => "Product name",
+        el => 'Όνομα προϊόντος',
 	es => "Nombre del producto",
 	pt => "Nome do produto",
 	ro => "Numele produsului",
@@ -5211,15 +5783,18 @@ sort_product_name => {
 sort_created_t => {
 	fr => "Date d'ajout",
 	en => "Add date",
+        el => 'Ημερομηνία προσθήκης',
 	es => "Fecha de creación",
 	pt => "Data de criação",
 	ro => "Data adăugării",
 	he => "הוספת תאריך",
 	nl => "Datum van toevoeging",
+	de => "Zusatzdatum",
 },
 sort_modified_t => {
 	fr => "Date de modification",
 	en => "Edit date",
+        el => 'Ημερομηνία τροποποίησης',
 	es => "Fecha de modificación",
 	pt => "Data de modificação",
 	ro => "Data modificării",
@@ -5231,6 +5806,7 @@ sort_modified_t => {
 search_button => {
 	fr => "Rechercher",
 	en => "Search",
+        el => 'Αναζήτηση',
 	de => "Suchen",
 	es => "Buscar",
 	pt => "Procurar",
@@ -5242,6 +5818,7 @@ search_button => {
 search_edit => {
 	fr => "Modifier les critères de recherche",
 	en => "Change search criteria",
+        el => 'Αλλάξτε κριτήρια αναζήτησης',
 	es => "Cambiar los criterios de búsqueda",
 	pt => "Modificar os critérios da pesquisa",
 	ro => "Schimbă criteriile de căutare",
@@ -5253,6 +5830,7 @@ search_edit => {
 search_link => {
 	fr => "Lien permanent vers ces résultats, partageable par e-mail et les réseaux sociaux",
 	en => "Permanent link to these results, shareable by e-mail and on social networks",
+        el => 'Μόνιμος σύνδεσμος σε αυτά τα αποτελέσματα, μπορείτε να τον μοιραστείτε μέσω e-mail και στα κοινωνικά δίκτυα',
 	es => "Enlace permanente a estos resultados, para poderse compartir a través del correo electrónico y redes sociales",
 	ro => "Link permanent la aceste rezultate, transmisibil prin e-mail și pe rețele sociale",
 	he => "קישור ישיר לתוצאות אלו, ניתן להעברה בדוא״ל וברשתות חברתיות",
@@ -5262,6 +5840,7 @@ search_link => {
 search_graph_link => {
 	fr => "Lien permanent vers ce graphique, partageable par e-mail et les réseaux sociaux",
 	en => "Permanent link to this graph, shareable by e-mail and on social networks",
+        el => 'Μόνιμος σύνδεσμος σε αυτo τo γράφημα, μπορείτε να τον μοιραστείτε μέσω e-mail και στα κοινωνικά δίκτυα',
 	es => "Enlace permanente a este gráfico, para poderse compartir a través del correo electrónico y redes sociales",
 	pt => "Link permanente para este gráfico, para poder partilhar através do e-mail ou das redes sociais",
 	ro => "Link permanent la acest grafic, transmisibil prin e-mail și pe rețele sociale",
@@ -5272,6 +5851,7 @@ search_graph_link => {
 search_graph_title => {
 	fr => "Visualiser les résultats sous forme de graphique",
 	en => "Display results on a graph",
+        el => 'Δείξε αποτελέσματα με γράφημα',
 	es => "Ver los resultados de forma gráfica",
 	pt => "Ver os resultados sob a forma de um gráfico",
 	ro => "Afișarea rezultatelor pe un grafic",
@@ -5283,6 +5863,7 @@ search_graph_title => {
 search_graph_2_axis => {
 	fr => "Graphique sur 2 axes",
 	en => "Scatter plot",
+        el => 'Γράφημα με 2 άξονες',
 	es => "Gráfico en 2 ejes",
 	pt => "Gráfico de dispersão",
 	ro => "Grafic pe 2 axe",
@@ -5294,16 +5875,19 @@ search_graph_2_axis => {
 search_graph_note => {
 	fr => "Le graphique ne montrera que les produits pour lesquels les valeurs representées sont connues.",
 	en => "The graph will show only products for which displayed values are known.",
+        el => 'Το γράφημα αυτό θα δείξει μόνο προϊόντα για τα οποία οι αντιπροσωπευόμενες τιμές είναι γνωστές ',
 	es => "El gráfico mostrará solamente los productos para los cuales los valores representados son conocidos.",
 	pt_pt => "O gráfico mostrará apenas os produtos cujos valores representados são conhecidos.",
 	ro => "Graficul va arăta numai produse pentru care valorile afișate sunt cunoscute.",
 	he => "התרשים יציג אך ורק מוצרים שהערכים שלהם ידועים.",
 	nl => "De grafiek geeft enkel producten weer waarvan de afgebeelde waarden gekend zijn.",
+	de => "Die Grafik zeigt nur die Produkte an, wofür gezeichnete Werte bekannt sind.",
 },
 
 graph_title => {
 	fr => "Titre du graphique",
 	en => "Graph title",
+        el => 'Τίτλος γραφήματος ',
 	es => "Título del gráfico",
 	pt => "Título de gráfico",
 	ro => "Titlul graficului",
@@ -5315,6 +5899,7 @@ graph_title => {
 graph_count => {
 	fr => "%d produits correspondent aux critères de recherche, dont %i produits avec des valeurs définies pour les axes du graphique.",
 	en => "%d products match the search criterias, of which %i products have defined values for the graph's axis.",
+	el => "%d των προϊόντων πληρούν τα κριτήρια αναζήτησης, από τα οποία %i των προϊόντων έχουν καθορισμένες τιμές για τους άξονες του γραφήματος.",
 	es => "%d productos coinciden con los criterios de búsqueda, de los cuales %i productos tienen valores definidos en los ejes del gráfico.",
 	pt => "%d produtos coincidem com os critérios de pesquisa, dos quais %i produtos têm valores definidos para os eixos do gráfico.",
 	ro => "%d produse se potrivesc criteriilor de căutare, din care %i produse au valori definite pentru axele graficului",
@@ -5325,6 +5910,7 @@ graph_count => {
 data_source => {
 	fr => "Source des données",
 	en => "Data source",
+        el => 'Πηγή δεδομένων ',
 	es => "Origen de los datos",
 	pt => "Origem dos dados",
 	ro => "Sursa de date",
@@ -5335,6 +5921,7 @@ data_source => {
 search_map_link => {
 	fr => "Lien permanent vers cette carte, partageable par e-mail et les réseaux sociaux",
 	en => "Permanent link to this map, shareable by e-mail and on social networks",
+        el => 'Μόνιμος σύνδεσμος σε αυτo το χάρτη, μπορείτε να τον μοιραστείτε μέσω e-mail και στα κοινωνικά δίκτυα',
 	es => "Enlace permanente a esta mapa, para poderse compartir a través del correo electrónico y redes sociales",
 	pt => "Link permanente para este mapa, para poder partilhar através do e-mail ou das redes sociais",
 	ro => "Link permanent la această hartă, transmisibil prin e-mail și pe rețele sociale",
@@ -5345,6 +5932,7 @@ search_map_link => {
 search_map_title => {
 	fr => "Visualiser les résultats sous forme de carte",
 	en => "Display results on a map",
+        el => 'Δείξε αποτελέσματα πάνω σε χάρτη',
 	es => "Ver los resultados sobre una mapa",
 	pt => "Ver os resultados num mapa",
 	ro => "Afișare rezultate pe o hartă",
@@ -5356,6 +5944,7 @@ search_map_title => {
 search_map_note => {
 	fr => "La carte ne montrera que les produits pour lesquels le lieu de fabrication ou d'emballage est connu.",
 	en => "The map will show only products for which the production place is known.",
+        el => 'Ο χάρτης θα δείξει μονο προϊόντα για τα οποία ο τόπος παραγωγής είναι γνωστός.',
 	es => "El mapa mostrará solamente los productos para los cuales se conoce el lugar de fabricación o de envasado.",
 	pt => "O mapa mostrará apenas os produtos cujos locais de produção ou embalamento são conhecidos.",
 	ro => "Harta va arăta numai produsele pentru care locul de producție este cunoscut.",
@@ -5367,6 +5956,7 @@ search_map_note => {
 map_title => {
 	fr => "Titre de la carte",
 	en => "Map title",
+        el => 'Τίτλος χάρτη',
 	es => "Título del mapa",
 	pt => "Título do mapa",
 	ro => "Titlul hărții",
@@ -5378,17 +5968,20 @@ map_title => {
 map_count => {
 	fr => "%d produits correspondent aux critères de recherche, dont %i produits pour lesquels le lieu de fabrication ou d'emballage est connu.",
 	en => "%d products match the search criterias, of which %i products have a known production place.",
+        el => "%d των προϊόντων πληρούν τα κριτήρια αναζήτησης, από τα οποία %i των προϊόντων έχουν γνωστό τόπο παραγωγής.",
 	es => "%d productos coinciden con los criterios de búsqueda, de los cuales %i productos tienen valores definidos.",
 	pt => "%d produtos coincidem com os critérios de pesquisa, dos quais %i produtos têm um local de fabrico ou embalamento conhecido.",
 	ro => "%d produse corespund criteriilor de căutare, din care %i produse au un loc de producție cunoscut.",
 	he => "%d מוצרים תואמים לקריטריוני החיפוש, מתוכם ל־%i מהמוצרים מקום הייצור ידוע.",
 	nl => "%d producten stemmen overeen met uw zoekcriteria, waaronder %i producten waarvan de productielocatie of de locatie van verpakking gekend is.",
+	de => "%d Produkte entsprechen Ihren Suchkriterien, davon %i Produkte, wofür der Herstellungs- oder Verpackungsort bekannt ist.",
 },
 
 
 search_series_default => {
 	fr => 'Autres produits',
 	en => 'Other products',
+	el => 'Άλλα προϊόντα',
 	es => 'Otros productos',
 	pt => 'Outros produtos',
 	ro => "Alte produse",
@@ -5400,6 +5993,7 @@ search_series_default => {
 search_series => {
 	fr => 'Utiliser une couleur différente pour les produits :',
 	en => 'Use a different color for the following products:',
+	el => 'Χρησιμοποίησε διαφορετικό χρώμα για τα ακόλουθα προϊόντα:',
 	es => 'Utiliza un color diferente para los siguientes productos:',
 	pt => 'Utilizar uma cor diferente para os seguintes produtos:',
 	ro => "Folosește o culoare diferită pentru următoarele produse:",
@@ -5416,6 +6010,7 @@ search_series_nutrition_grades => {
 search_series_organic => {
 	fr => 'Bio',
 	en => 'Organic',
+	el => 'Βιολογικό/Οργανικό',
 	es => 'Ecológico',
 	pt => 'Orgânico',
 	ro => "Bio",
@@ -5427,6 +6022,7 @@ search_series_organic => {
 search_series_organic_label => {
 	fr => 'bio',
 	en => 'organic',
+	el => 'Βιολογικό/Οργανικό',
 	es => 'Ecológico',
 	pt => 'orgânico',
 	ro => "bio",
@@ -5437,6 +6033,7 @@ search_series_organic_label => {
 search_series_fairtrade => {
 	fr => 'Commerce équitable',
 	en => 'Fair trade',
+	el => 'Δικαίου εμπορίου',
 	es => 'Comercio justo',
 	pt => 'Comércio justo',
 	ro => "Comerț echitabil",
@@ -5448,6 +6045,7 @@ search_series_fairtrade => {
 search_series_fairtrade_label => {
 	fr => 'commerce-equitable',
 	en => 'fair-trade',
+	el => 'Δικαίου-εμπορίου',
 	es => 'comercio-justo',
 	pt => 'comércio-justo',
 	ro => "comerț-echitabil",
@@ -5459,6 +6057,7 @@ search_series_fairtrade_label => {
 search_series_with_sweeteners => {
 	fr => 'Avec édulcorants',
 	en => 'With sweeteners',
+	el => 'Με προσθήκη γλυκαντικών',
 	es => 'Con edulcorantes',
 	pt => 'Com edulcorantes',
 	ro => "Cu îndulcitori",
@@ -5470,6 +6069,7 @@ search_series_with_sweeteners => {
 number_of_additives => {
 	fr => "Nombre d'additifs",
 	en => "Number of additives",
+	el => 'Αριθμός προσθέτων',
 	es => "Número de aditivos",
 	pt => "Número de aditivos",
 	ro => "Numărul de aditivi",
@@ -5481,6 +6081,7 @@ number_of_additives => {
 number_of_products => {
 	fr => "Nombre de produits",
 	en => "Number of products",
+	el => 'Αριθμός προϊόντων',
 	es => "Número de productos",
 	pt => "Número de produtos",
 	ro => "Numărul produselor",
@@ -5491,6 +6092,7 @@ number_of_products => {
 search_graph => {
 	fr => 'Graphique',
 	en => 'Graph',
+	el => 'Γράφημα',
 	es => 'Gráfico',
 	pt => 'Gráfico',
 	ro => "Grafic",
@@ -5502,6 +6104,7 @@ search_graph => {
 search_map => {
 	fr => 'Carte',
 	en => 'Map',
+	el => 'Χάρτης',
 	es => 'Mapa',
 	pt => 'Mapa',
 	ro => "Hartă",
@@ -5513,6 +6116,7 @@ search_map => {
 search_title_graph => {
 	fr => 'Graphique des résultats',
 	en => 'Results graph',
+	el => 'Γράφημα αποτελεσμάτων',
 	es => 'Gráfico de los resultatdos',
 	pt => 'Gráfico dos resultados',
 	ro => "Graficul cu rezultate",
@@ -5524,6 +6128,7 @@ search_title_graph => {
 search_title_map => {
 	fr => 'Carte des résultats',
 	en => 'Results map',
+	el => 'Χάρτης αποτελεσμάτων',
 	es => 'Mapa de los resultatdos',
 	pt => 'Mapa dos resultados',
 	ro => "Harta cu rezultate",
@@ -5535,6 +6140,7 @@ search_title_map => {
 search_results => {
 	fr => "Résultats de la recherche",
 	en => "Search results",
+	el => 'Αναζήτηση αποτελεσμάτων',
 	es => "Resultados de la búsqueda",
 	pt => "Resultados da pesquisa",
 	ro => "Rezultatele căutării",
@@ -5546,6 +6152,7 @@ search_results => {
 search_download_results => {
 	fr => "Télécharger les résultats au format CSV (Excel, OpenOffice)",
 	en => "Download results in CSV format (Excel, OpenOffice)",
+	el => "Κατεβάστε αποτελέσματα σε μορφή CSV (Excel, OpenOffice)",
 	es => "Descargar los resultados en formato CSV (Excel, OpenOffice)",
 	pt => "Transferir os resultados em formato CSV (Excel, OpenOffice)",
 	ro => "Descărcați rezultatele în format CSV (Excel, OpenOffice)",
@@ -5557,6 +6164,7 @@ search_download_results => {
 search_download_results_description => {
 	fr => "Jeu de caractère : Unicode (UTF-8). Séparateur : tabulation (tab).",
 	en => "Character set: Unicode (UTF-8)). Separator: tabulation (tab).",
+	el => "Πίνακες χαρακτηρων: Unicode (UTF-8)). Οριοθέτης: tabulation (tab).",
 	es => "Juego de caractéres: Unicode (UTF-8)). Separador: tabulador (tab).",
 	pt => "Mapa de caracteres: Unicode (UTF-8). Separador: tabulação (TAB).",
 	ro => "Set de caractere: Unicode (UTF-8). Separator: tabulare (tab).",
@@ -5568,6 +6176,7 @@ search_download_results_description => {
 search_flatten_tags => {
 	fr => "(Optionnel) - Créer une colonne pour chaque :",
 	en => "(Optional) - Create a column for every:",
+	el => "(Προαιρετικό) - Δημιούργησε μία στήλη για κάθε:",
 	cs => "(Nepovinné) - Vytvořit sloupec pro každý:",
 	es => "(Opcional) - Crear una columna para cada:",
 	pt => "(Opcional) - Criar uma coluna para cada:",
@@ -5580,6 +6189,7 @@ search_flatten_tags => {
 search_download_button => {
 	fr => "Télécharger",
 	en => "Download",
+	el => "Download",
 	es => "Descargar",
 	pt => "Transferir",
 	ro => "Descarcă",
@@ -5592,6 +6202,7 @@ axis_x => {
 	fr => "Axe horizontal",
 	en => "Horizontal axis",
 	es => "Eje horizontal",
+	el => "Οριζόντιος άξονας",
 	pt => "Eixo horizontal",
 	ro => "Axa orizontală",
 	he => "ציר אופקי",
@@ -5602,6 +6213,7 @@ axis_x => {
 axis_y => {
 	fr => "Axe vertical",
 	en => "Vertical axis",
+	el => "Κατακόρυφος άξονας",
 	es => "Eje vertical",
 	pt => "Eixo vertical",
 	ro => "Axa verticală",
@@ -5613,6 +6225,7 @@ axis_y => {
 search_generate_graph => {
 	fr => "Générer le graphique",
 	en => "Generate graph",
+	el => "Δημιουργησε γραφημα",
 	es => "Generar el gráfico",
 	pt => "Gerar o gráfico",
 	ro => "Generare grafic",
@@ -5624,6 +6237,7 @@ search_generate_graph => {
 search_graph_warning => {
 	fr => "Note : ce graphique a été généré par un utilisateur du site Open Food Facts. Le titre, les produits representés et les axes de représentation ont été choisis par l'auteur du graphique.",
 	en => "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph.",
+        el => "Σημείωση: αυτό είναι είναι ένα γράφημα φτιαγμένο από  χρήστη. Ο τίτλος, τα παρουσιαζόμενα προϊόντα και η παρουσίαση των αξόνων έχουν επιλεχθεί από το δημιουργό του γραφήματος.",
 	es => "Nota: Este gráfico fue generado por un usuario de Open Food Facts. El título, los productos representados y los ejes de la representación han sido escogidos por el autor del gráfico.",
 	pt_pt => "Nota: Este gráfico foi gerado por um utilizador do Open Food Facts. O título, os produtos representados e os eixos de visualização foram escolhidos pelo autor do gráfico.",
 	ro => "Notă: acesta este un grafic generat de un utilizator. Titlul, produsele reprezentate și axa de vizualizare au fost alese de către autorul graficului.",
@@ -5635,6 +6249,7 @@ search_graph_warning => {
 search_generate_map => {
 	fr => "Générer la carte",
 	en => "Generate the map",
+	el => "Δημιουργήστε το χάρτη",
 	es => "Generar la mapa",
 	pt => "Gerar o mapa",
 	ro => "Generează harta",
@@ -5646,6 +6261,7 @@ search_generate_map => {
 search_graph_blog => {
 	fr => "<p>→ en savoir plus sur les graphiques d'Open Food Facts : <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Des graphiques en 3 clics</a> (blog).</p>",
 	en => "",
+        el => "<p>Για να μάθετε περισσότερα για τα γραφήματα του Open Food Facts: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Τα γραφήματα σε 3 κλικς (στα γαλλικά)</a> (blog).</p>",
 	es => "<p>→ para saber más acerca de los gráficos de Open Food Facts: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Los gráficos en 3 clics (en francés)</a> (blog).</p>",
 	pt => "<p>→ para saber mais acerca dos gráficos do Open Food Facts: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Gráficos em 3 cliques (en francês)</a> (blog).</p>",
 	ro => "<p>→ pentru a afla mai multe despre graficele de pe Open Food Facts : <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graficele în 3 click-uri (în franceză)</a> (blog).</p>",
@@ -5656,6 +6272,7 @@ search_graph_blog => {
 advanced_search => {
 	fr => "Recherche avancée, graphiques et carte",
 	en => "Advanced search and graphs",
+	el => "Προηγμένη αναζήτηση, γραφήματα και χάρτες",
 	es => "Búsqueda avanzada y gráficos",
 	pt => "Pesquisa avançada e gráficos",
 	ro => "Căutare și grafice avansate",
@@ -5667,6 +6284,7 @@ advanced_search => {
 edit_comment => {
 	fr => "Description de vos changements",
 	en => "Changes summary",
+	el => "Περίληψη αλλαγών",
 	es => "Descripción de los cambios",
 	pt => "Resumo das suas edições",
 	ro => "Sumarul schimbărilor",
@@ -5678,6 +6296,7 @@ edit_comment => {
 delete_comment => {
 	fr => "Raison de la suppression",
 	en => "Reason for removal",
+	el => "Αιτία διαγραφής",
 	es => "Motivo de la eliminación",
 	pt => "Motivo para a eliminacão",
 	ro => "Motivul ștergerii",
@@ -5689,6 +6308,7 @@ delete_comment => {
 history => {
 	fr => "Historique des modifications",
 	en => "Changes history",
+	el => "Ιστορικό τροποποιήσεων",
 	es => "Historial de revisiones",
 	pt => "Historial das edições",
 	ro => "Istoricul schimbărilor",
@@ -5700,6 +6320,7 @@ history => {
 new_code => {
 	fr => "Une erreur de code barre ? Vous pouvez entrer le bon ici :",
 	en => "If the barcode is not correct, please correct it here:",
+	el => "Αν το barcode δεν είναι σωστό, παρακαλώ διορθώστε το εδώ:",
 	es => "Si el código de barras no es correcto, por favor corrígelo aquí:",
 	pt => "O código de barras está errado? Corrige-o aqui, por favor:",
 	ro => "Dacă codul de bare nu este corect, sunteți rugat să-l corectați aici:",
@@ -5711,6 +6332,7 @@ new_code => {
 new_code_note => {
 	fr => "Pour les produits sans code barre, un code interne est attribué automatiquement.",
 	en => "For products without a barcode, an internal code is automatically set.",
+	el => "Για προϊόντα χωρίς barcode, καθορίζεται αυτομάτως ένας εσωτερικός κώδικας ",
 	es => "A los productos sin código de barras se les asignará automáticamente un código interno.",
 	pt => "Para os produtos sem código de barras, um código interno é atribuido automaticamente.",
 	ro => "Pentru produsele fără un cod de bare, un cod intern este înregistrat.",
@@ -5722,16 +6344,19 @@ new_code_note => {
 error_new_code_already_exists => {
 	fr => "Un produit existe déjà avec le nouveau code",
 	en => "A product already exists with the new code",
+	el => "Υπάρχει ήδη προϊόν με το νέο κώδικα ",
 	es => "Ya existe un producto con el nuevo código",
 	pt => "Já existe um produto com este novo código",
 	ro => "Un produs cu noul cod deja există",
 	he => "כבר קיים מוצר עם הקוד החדש",
 	nl => "Er bestaat reeds een product met de nieuwe code",
+	de => "Ein Produkt mit diesem neuen Code ist schon vorhanden",
 },
 
 product_js_uploading_image => {
 	fr => "Image en cours d'envoi",
 	en => "Uploading image",
+	el => "Η εικόνα αποστέλλεται",
 	es => "Cargando la imagen",
 	pt => "Enviando a imagem",
 	pt_pt => "A enviar a imagem",
@@ -5744,6 +6369,7 @@ product_js_uploading_image => {
 product_js_image_received => {
 	fr => "Image reçue",
 	en => "Image received",
+	el => "Η εικόνα ελήφθη",
 	es => "La imagen ha sido recibida",
 	pt => "Imagem recebida",
 	ro => "Imagine recepționată",
@@ -5755,6 +6381,7 @@ product_js_image_received => {
 product_js_image_upload_error => {
 	fr => "Erreur lors de l'envoi de l'image",
 	en => "Error while uploading image",
+	el => "Σφάλμα κατά την αποστολή της εικόνας",
 	es => "Se ha producido un error al enviar la imagen",
 	pt => "Houve um erro durante o envio da imagem",
 	ro => "Eroare în timpul transmiterii imaginii",
@@ -5766,6 +6393,7 @@ product_js_image_upload_error => {
 product_js_image_rotate_and_crop => {
 	fr => "Redressez l'image si nécessaire, puis cliquez et glissez pour sélectionner la zone d'intérêt :",
 	en => "Rotate the image if necessary, then click and drag to select the interesting zone:",
+	el => "Περιστρέψτε την εικόνα αν είναι απαραίτητο, εν συνεχεία κλικαρετε και σύρετε για να επιλέξετε την περιοχή που σας ενδιαφέρει ",
 	es => "Rota la imagen si es necesario, después haz clic y arrastra para seleccionar la zona de interés:",
 	pt => "Rode a imagem se necessário, depois clique e arraste para seleccionar a zona pretendida:",
 	ro => "Rotiți imaginea dacă este necesar, apoi dați click și trageți pentru a selecta zona de interes:",
@@ -5776,6 +6404,7 @@ product_js_image_rotate_and_crop => {
 product_js_image_rotate_left => {
 	fr => "Pivoter à gauche",
 	en => "Rotate left",
+	el => "Περιστροφή αριστερά",
 	es => "Girar a la izquierda",
 	pt => "Rodar para a esquerda",
 	ro => "Rotire la stânga",
@@ -5787,6 +6416,7 @@ product_js_image_rotate_left => {
 product_js_image_rotate_right => {
 	fr => "Pivoter à droite",
 	en => "Rotate right",
+	el => "Περιστροφή δεξιά",
 	es => "Girar a la derecha",
 	pt => "Rodar para a direita",
 	ro => "Rotire la dreapta",
@@ -5798,6 +6428,7 @@ product_js_image_rotate_right => {
 product_js_image_normalize => {
 	fr => "Equilibrage des couleurs",
 	en => "Normalize colors",
+	el => "Εξισορρόπηση χρώματος",
 	es => "Equilibra los colores",
 	pt => "Normalizar as cores",
 	ro => "Normalizare culori",
@@ -5809,6 +6440,7 @@ product_js_image_normalize => {
 product_js_image_open_full_size_image => {
 	fr => "Voir la photo en grand dans une nouvelle fenêtre",
 	en => "Open the picture in original size in a new windows",
+	el => "Ανοίξτε την εικόνα σε μεγάλο μέγεθος σε νέο παράθυρο",
 	es => "Abrir la imagen en su tamaño original en una nueva ventana",
 	pt => "Abrir a imagem no tamanho original numa nova janela",
 	ro => "Deschide imaginea în dimensiunea originală într-o fereastră nouă",
@@ -5819,7 +6451,8 @@ product_js_image_open_full_size_image => {
 product_js_image_white_magic => {
 	fr => "Photo sur fond blanc : essayer d'enlever le fond",
 	en => "Photo on white background: try to remove the background",
-	es => "Foto sobre fondo blanco: prueba a eliminar el fondo",
+	el => "Φωτογραφία σε λευκό background:Προσπαθήστε να αφαιρέσετε το background",
+es => "Foto sobre fondo blanco: prueba a eliminar el fondo",
 	pt => "Fotografia sobre fundo branco: tentar eliminar o fundo",
 	ro => "Fotografie pe fundal alb: încearcă să ștergi fundalul",
 	he => "תמונה עם רקע לבן: לנסות להסיר את הרקע",
@@ -5830,6 +6463,7 @@ product_js_image_white_magic => {
 product_js_image_save => {
 	fr => "Valider et/ou recadrer l'image",
 	en => "Validate and/or resize image",
+	el => "Επιβεβαιώστε και/ή αναπροσαρμόστε το μέγεθος της εικόνας",
 	es => "Validar y/o recortar la imagen",
 	pt => "Validar e/ou redimensionar a imagem",
 	ro => "Validează și/sau redimensionează imaginea",
@@ -5841,6 +6475,7 @@ product_js_image_save => {
 product_js_image_saving => {
 	fr => "Image en cours d'enregistrement",
 	en => "Saving image",
+	el => "Η εικόνα αποθηκεύεται",
 	es => "La imagen está siendo guardada",
 	pt => "A guardar imagem",
 	ro => "Imaginea se salvează",
@@ -5852,16 +6487,19 @@ product_js_image_saving => {
 product_js_image_saved => {
 	fr => "Image enregistrée.",
 	en => "Image saved",
+	el => "Η εικόνα αποθηκεύτηκε",
 	es => "Imagen guardada",
 	pt => "Imagem guardada",
 	ro => "Imagine salvată",
 	he => "התמונה נשמרה",
 	nl => "Foto opgeslagen",
+	de => "Foto gespeichert",
 },
 
 product_js_current_image => {
 	fr => "Image actuelle :",
 	en => "Current image:",
+	el => "Παρούσα εικόνα:",
 	es => "Imagen actual:",
 	pt => "Imagem atual:",
 	ro => "Imaginea curentă:",
@@ -5873,6 +6511,7 @@ product_js_current_image => {
 product_js_extract_ingredients => {
 	fr => "Extraire les ingrédients de l'image",
 	en => "Extract the ingredients from the picture",
+	el => "Εξάγετε τα συστατικά από την εικόνα",
 	es => "Extraer los ingredientes de la imagen",
 	pt => "Extrair os ingredientes da imagem",
 	ro => "Extrage ingredientele din imagine:",
@@ -5883,6 +6522,7 @@ product_js_extract_ingredients => {
 
 product_js_extracting_ingredients => {
 	fr => "Extraction des ingrédients en cours",
+	el => "Εξαγωγή συστατικών σε εξέλιξη",
 	en => "Extracting ingredients",
 	es => "Extrayendo los ingredientes",
 	pt => "Extraindo os ingredientes",
@@ -5896,6 +6536,7 @@ product_js_extracting_ingredients => {
 product_js_extracted_ingredients_ok => {
 	fr => "Le texte des ingrédients a été extrait. La reconnaissance du texte n'est pas toujours parfaite, merci de vérifier le texte ci-dessous et de corriger les éventuelles erreurs.",
 	en => "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed.",
+el => "Το κείμενο των συστατικών έχει εξαχθει. Η αναγνωριση του κειμένου δεν είναι τέλεια, παρακαλούμε ελεγξτε το κείμενο και διορθώστε ενδεχόμενα σφάλματα αν αυτό είναι απαραίτητο.",
 	es => "Se ha extraído el texto de los ingredientes. El reconocimiento de texto no siempre es perfecto. Por favor revisa el texto extraído y corrige los errores si es necesario.",
 	pt => "A lista de ingredientes foi extraída. O reconhecimento do texto não é sempre perfeito. Por favor verifique o texto extraído e corrija os erros se necessário.",
 	ro => "Textul cu ingrediente a fost extras. Recunoașterea de text nu este perfectă, deci sunteți rugați să verificați textul de mai jos și să corectați erorile dacă este necesar.",
@@ -5906,6 +6547,7 @@ product_js_extracted_ingredients_ok => {
 product_js_extracted_ingredients_nok => {
 	fr => "Le texte des ingrédients n'a pas pu être extrait. Vous pouvez essayer avec une image plus nette, de meilleure résolution, ou un meilleur cadrage du texte.",
 	en => "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text.",
+	el => "Δεν ήταν δυνατόν να εξαχθεί το κείμενο των συστατικών. Παρακαλούμε ξαναπροσπαθήστε με μια πιο καθαρή εικόνα, καλύτερη ανάλυση ή καλύτερη διαμόρφωση κειμένου .",
 	es => "No se puede extraer el texto de los ingredientes. Prueba con una imagen más nítida, con mayor resolución o con un mejor encuadre del texto.",
 	pt => "Não foi possível extrair a lista de ingredientes. Tente de novo com uma imagem mais nítida, com maior resolução ou melhor enquadramento do texto.",
 	ro => "Textul cu ingrediente nu a putut fi extras. Încercați cu o imagine mai clară, cu o rezoluție mai mare sau o mai bună încadrare a textului.",
@@ -5916,6 +6558,7 @@ product_js_extracted_ingredients_nok => {
 product_js_upload_image => {
 	fr => "Envoyer une image",
 	en => "Add a picture",
+	el => "Προσθέστε μια εικόνα",
 	es => "Añadir una imagen",
 	pt => "Adicionar uma imagem",
 	ro => "Agaugă o imagine",
@@ -5927,6 +6570,7 @@ product_js_upload_image => {
 product_js_upload_image_note => {
 	fr => "→ Avec Chrome, Firefox et Safari, vous pouvez sélectionner plusieurs images (produit, ingrédients, infos nutritionnelles etc.) en cliquant avec la touche Ctrl enfoncée, pour les envoyer toutes en même temps.",
 	en => "→ With Chrome, Firefox and Safari, you can select multipe pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot.",
+el => "→ Με τους Chrome, Firefox and Safari, μπορείτε να επιλεξετε πολλαπλές εικόνες (προϊόν, συστατικά, θρεπτικά συστατικά κλπ.) κλικάροντάς τες ενώ ταυτόχρονα κρατάτε το πλήκτρο Ctrl πατημένο προκειμένου να τις προσθέσετε όλες μαζί ταυτόχρονα.",
 	es => "→ Con Chrome, Firefox y Safari, puedes seleccionar varias imágenes al mismo tiempo (producto, ingredientes, información nutricional, etc.) manteniendo pulsada la tecla Ctrl y haciendo clic sobre las imágenes que quieras seleccionar para enviarlas todas a la vez.",
 	pt => "→ Com o Chrome, Firefox e Safari, pode seleccionar várias imagens ao memsmo tempo (produto, ingredientes, informação nutricional, etc.) clicando nelas enquando a tecla Ctrl estiver premida, para as adicionar de uma só vez.",
 	ro => "→ Cu Chrome, Firefox și Safari, puteți selecta mai multe imagini (produs, ingrediente, valori nutriționale etc.). Dați click pe ele în timp ce țineți apăsați tasta Ctrl pentru a le adăuga pe toate în același timp.",
@@ -5937,6 +6581,7 @@ product_js_upload_image_note => {
 
 image_upload_error_image_already_exists => {
 	fr => "Cette photo a déjà été envoyée.",
+	el => "Αυτή ή εικόνα έχει ήδη σταλεί",
 	en => "This picture has already been sent.",
 	de => "Dieses Foto wurde schon hochgeladen.",
 },
@@ -5944,12 +6589,14 @@ image_upload_error_image_already_exists => {
 image_upload_error_image_too_small => {
 	fr => "La photo est trop petite. Attention à ne pas envoyer de photos prises sur Internet. Merci de n'envoyer que vos propres photos.",
 	en => "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself.",
+	el => "Αυτη η εικονα είναι πολύ μικρή. Παρακαλούμε μην ανεβάζετε φωτογραφίες που αντλήσατε από το διαδίκτυο και στείλτε αποκλειστικά φωτογραφίες που τραβήξατε εσείς",
 	de => "Das Foto ist zu klein. Bitte beachten sie, kein Foto von dem Internet sondern nur Ihre eigenen Fotos hochzuladen.",
 },
 
 product_add_nutrient => {
 	fr => "Ajouter un nutriment",
 	en => "Add a nutrient",
+	el => "Προσθέστε ένα θρεπτικό συστατικό",
 	es => "Añade un nutriente",
 	pt => "Adicionar um nutriente",
 	ro => "Adăugați un nutrient", 
@@ -5960,6 +6607,7 @@ product_add_nutrient => {
 product_changes_saved => {
 	fr => "Les modifications ont été enregistrées.",
 	en => "Changes saved.",
+	el => "Οι αλλαγές αποθηκεύτηκαν",
 	es => "Los cambios han sido guardados.",
 	pt => "As modificações foram guardadas.",
 	ro => "Schimbările au fost salvate.",
@@ -5971,6 +6619,7 @@ product_changes_saved => {
 see_product_page => {
 	fr => "Voir la fiche du produit",
 	en => "See the product page",
+	el => "Βλπ τη σελίδα του προϊόντος",
 	es => "Ver la página del producto",
 	pt => "Ver a página do produto",
 	ro => "Vedeți pagina produsului",
@@ -5982,6 +6631,7 @@ see_product_page => {
 products_with_nutriments => {
 	fr => "avec informations<br/>nutritionnelles",
 	en => "with nutrition facts",
+	el => "με διατροφικά δεδομένα",
 	es => "con información nutricional",
 	pt => "com informacão nutricional",
 	ro => "cu valori nutriționale",
@@ -5993,6 +6643,7 @@ products_with_nutriments => {
 tagstable_search => {
 	fr => "Recherche :",
 	en => "Search:",
+	el => "Αναζήτηση:",
 	es => "Buscar:",
 	pt => "Procurar:",
 	ro => "Căutare:",
@@ -6004,6 +6655,7 @@ tagstable_search => {
 tagstable_filtered => {
 	fr => "parmi _MAX_",
 	en => "out of _MAX_",
+	el => "από _MAX_",
 	es => "fuera de _MAX_",
 	pt => "de_MAX_",
 	ro => "din _MAX_",
@@ -6015,6 +6667,7 @@ tagstable_filtered => {
 search_ingredients => {
 	fr => "Ingrédients",
 	en => "Ingredients",
+	el => "Συστατικά",
 	es => "Ingredientes",
 	pt => "Ingredientes",
 	ro => "Ingrediente",
@@ -6028,6 +6681,7 @@ search_with => {
 	en => 'With',
 	es => 'Con',
 	de => 'Mit',
+	el => "Με",
 	pt => 'Com',
 	ro => "Cu",
 	he => 'עם',
@@ -6038,6 +6692,7 @@ search_without => {
 	fr => 'Sans',
 	en => 'Without',
 	es => 'Sin',
+	el => "Χωρίς",
 	de => 'Ohne',
 	pt => 'Sem',
 	ro => "Fără",
@@ -6048,6 +6703,7 @@ search_without => {
 search_indifferent => {
 	fr => 'Indifférent',
 	en => 'Indifferent',
+	el => "Αδιάφορο",
 	es => 'Indiferente',
 	pt => 'Indiferente',
 	ro => "Indiferent",
@@ -6059,6 +6715,7 @@ search_indifferent => {
 products_you_edited => {
 	fr => "Les produits que vous avez ajoutés ou modifiés",
 	en => "Products you added or edited",
+	el => "Προϊόντα που προσθέσατε ή επεξεργαστήκατε",
 	es => "Productos que has añadido o modificado",
 	pt => "Produtos que adicionou ou editou",
 	ro => "Produse adăugate sau modificate de dumneavoastră",
@@ -6070,15 +6727,18 @@ products_you_edited => {
 incomplete_products_you_added => {
 	fr => "Les produits que vous avez ajoutés qui sont à compléter",
 	en => "Products you added that need to be completed",
+	el => "Προϊόντα που προσθέσατε και απαιτούν συμπλήρωση",
 	es => "Productos añadidos por usted que necesitan ser completados",
 	ro => "Produse adăugate de dumneavoastră care trebuie completate",
 	pt => "Produtos adicionados por si que precisam de ser completados",
 	nl => "Producten die u toegevoegd hebt die nog onvolledig zijn",
+	de => "Von Ihnen hinzugefügte Produkte, die Weiterverarbeitung benötigen",
 },
 
 edit_settings => {
 	fr => "Modifier les paramètres de votre compte",
 	en => "Change your account parameters",
+	el => "Αλλάξτε τις παραμέτρους του λογαριασμού σας",
 	es => "Cambiar la configuración de la cuenta",
 	pt => "Mudar os parâmetros da conta",
 	ro => "Schimbați parametrii contului",
@@ -6090,6 +6750,7 @@ edit_settings => {
 list_of_x => {
 	fr => "Liste des %s",
 	en => "List of %s",
+	el => "Λίστα από %s",
 	es => "Lista de %s",
 	pt => "Lista de %s",
 	ro => "Listă de %s",
@@ -6101,6 +6762,7 @@ list_of_x => {
 change_uploaded_images => {
 	fr => "Images téléchargées",
 	en => "Uploaded images",
+	el => "Aνεβάστε εικόνες",
 	es => "Imágenes subidas",
 	pt => "Imagens enviadas",
 	ro => "Imagini încărcate",
@@ -6112,6 +6774,7 @@ change_uploaded_images => {
 change_selected_images => {
 	fr => "Images sélectionnées",
 	en => "Selected images",
+	el => "Επιλεγμενες εικονες",
 	es => "Imágenes seleccionadas",
 	pt => "Imagens selecionadas",
 	ro => "Imagini selectate",
@@ -6123,6 +6786,7 @@ change_selected_images => {
 change_fields => {
 	fr => "Informations",
 	en => "Data",
+	el => "Δεδομένα",
 	es => "Informaciones",
 	pt => "Informações",
 	ro => "Date",
@@ -6134,18 +6798,20 @@ change_fields => {
 change_nutriments => {
 	fr => "Nutriments",
 	en => "Nutriments",
+	el => "Θρεπτικά συστατικά",
 	es => "Nutrientes",
 	pt => "Nutrientes",
 	ro => "Nutrienți",
 	he => "מפרט תזונתי",
 	nl => "Voedingsstoffen",
-	de => "Nährstoff",
+	de => "Nährstoffe",
 },
 
 diff_add => {
 	fr => 'Ajout :',
 	en => 'Added:',
-	es => 'Añadido:',
+el => "Προστέθηκε:",
+es => 'Añadido:',
 	pt => 'Adicionado:',
 	ro => "Adăugate:",
 	he => 'נוסף:',
@@ -6156,6 +6822,7 @@ diff_add => {
 diff_change => {
 	fr => 'Changement :',
 	en => 'Changed:',
+        el => "Τροποποιήθηκε:",
 	es => 'Cambiado:',
 	pt => 'Alterado:',
 	ro => "Schimbate:",
@@ -6167,6 +6834,7 @@ diff_change => {
 diff_delete => {
 	fr => 'Suppression :',
 	en => 'Deleted:',
+        el => "Διαγράφηκε:",
 	es => 'Eliminado:',
 	pt => 'Alterado:',
 	ro => "Șterse:",
@@ -6180,6 +6848,7 @@ diff_delete => {
 state => {
 	fr => 'Etat',
 	en => 'State',
+        el => "Κατάσταση",
 	es => 'Estado',
 	pt => 'Estado',
 	ro => "Status",
@@ -6190,6 +6859,7 @@ state => {
 
 save => {
 	fr => "Enregistrer",
+        el => "Αποθήκευση",
 	en => "Save",
 	es => "Guardar",
 	pt => "Salvar",
@@ -6201,6 +6871,7 @@ save => {
 saving => {
 	fr => "Informations en cours d'enregistrement.",
 	en => "Saving.",
+        el => "Τα δεδομένα αποθηκεύονται.",
 	es => "Los datos están siendo guardados",
 	pt => "Os dados estão a ser guardados",
 	ro => "Salvez.",
@@ -6211,6 +6882,7 @@ saving => {
 saved => {
 	fr => "Informations enregistrées.",
 	en => "Saved.",
+        el => "Τα δεδομένα έχουν αποθηκευτεί.",
 	es => "Los datos han sido guardados.",
 	pt => "Os dados foram guardados.",
 	ro => "Salvat.",
@@ -6221,6 +6893,7 @@ saved => {
 not_saved => {
 	fr => "Erreur d'enregistrement, merci de réessayer.",
 	en => "Error while saving, please retry.",
+        el => "Σφάλμα κατά την αποθήκευση, παρακαλώ προσπαθήστε πάλι.",
 	es => "Se ha producido un error guardando los datos, por favor inténtelo de nuevo.",
 	pt => "Ocorreu um erro ao guardar os dados, por favor tente de novo.",
 	ro => "Eroare de salvare, vă rog reîncercați.",
@@ -6232,6 +6905,7 @@ not_saved => {
 view => {
 	fr => "voir",
 	en => "view",
+        el => "Βλέπε",
 	es => "ver",
 	pt => "ver",
 	ro => "vedere",
@@ -6243,6 +6917,7 @@ view => {
 no_product_for_barcode => {
 	fr => "Il n'y a pas de produit référencé pour le code barre %s.",
 	en => "No product listed for barcode %s.",
+        el => "Δεν υπάρχει προϊόν με barcode %s",
 	es => "No existe ningún producto con el código de barras %s.",
 	pt => "Não existe nenhum produto com o código de barras %s.",
 	ro => "Nici un produs listat pentru codul de bare %s",
@@ -6254,6 +6929,7 @@ no_product_for_barcode => {
 products_stats => {
 	fr => "Evolution du nombre de produits sur Open Food Facts",
 	en => "Evolution of the number of products on Open Food Facts",
+        el => "Εξέλιξη του αριθμού των προϊόντων στο Open Food Facts",
 	es => "Evolución del número de productos en Open Food Facts",
 	pt => "Evolução do número de produtos no Open Food Facts",
 	ro => "Evoluția numărului de produse pe Open Food Facts",
@@ -6265,6 +6941,7 @@ products_stats => {
 products_stats_created_t => {
 	fr => "Produits",
 	en => "Products",
+        el => "Προϊόντα",
 	es => "Productos",
 	pt => "Produtos",
 	ro => "Produse",
@@ -6276,6 +6953,7 @@ products_stats_created_t => {
 products_stats_completed_t => {
 	fr => "Produits avec fiche complète",
 	en => "Products with complete information",
+        el => "Προϊόντα με πλήρως συμπληρωμένη πληροφορία",
 	es => "Productos con los datos completados",
 	pt => "Produtos com informação completa",
 	ro => "Produse cu informații complete",
@@ -6288,6 +6966,7 @@ products_stats_completed_t => {
 months => {
 	fr => "['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']",
 	en => "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']",
+	el => "['Ιανουάριος', 'Φεβρουάριος', 'Μάρτιος', 'Απρίλιος', 'Μάιος', 'Ιούνιος', 'Ιούλιος', 'Αύγουστος', 'Σεπτέμβριος', 'Οκτώβριος', 'Νοέμβριος', 'Δεκέμβριος']",
 	es => "['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']",
 	pt => "['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']",
 	ro => "['Ianuarie', 'Februarie', 'Martie', 'Aprilie', 'Mai', 'Iunie', 'Iulie', 'August', 'Septembrie', 'Octombrie', 'Noiembrie', 'Decembrie']",
@@ -6301,6 +6980,7 @@ months => {
 
 weekdays => {
 	fr => "['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi']",
+        el => "['Κυριακή', 'Δευτέρα', 'Τρίτη', 'Τετάρτη', 'Πέμπτη', 'Παρασκευή', 'Σάββατο']",
 	en => "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']",
 	es => "['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']",
 	pt => "['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado']",
@@ -6317,6 +6997,7 @@ weekdays => {
 nutrient_in_quantity => {
 	en => '%s in %s',
 	fr => '%s en %s',
+	el => '%s σε %s',
 	es => '%s en %s',
 	pt => '%s em %s',
 	ro => '%s în %s',
@@ -6327,6 +7008,7 @@ nutrient_in_quantity => {
 low => {
 	en => "low",
 	fr => "faible",
+	el => 'χαμηλός',
 	es => "bajo",
 	pt => "baixo",
 	ro => 'mic',
@@ -6336,6 +7018,7 @@ low => {
 },
 low_quantity => {
 	en => "low quantity",
+	el => 'μικρή ποσότητα',
 	fr => "faible quantité",
 	es => "cantidad baja",
 	pt => "quantidade baixa",
@@ -6346,6 +7029,7 @@ low_quantity => {
 },
 moderate => {
 	en => "moderate",
+	el => 'μέτριος',
 	fr => "modéré",
 	es => "moderado",
 	pt => "moderado",
@@ -6356,6 +7040,7 @@ moderate => {
 },
 moderate_quantity => {
 	en => "moderate quantity",
+	el => 'μέτρια ποσότητα',
 	fr => "quantité modérée",
 	es => "cantidad moderada",
 	pt => "quantidade moderada",
@@ -6366,6 +7051,7 @@ moderate_quantity => {
 },
 high => {
 	en => "high",
+	el => 'υψηλός',
 	fr => "élevé",
 	es => "elevado",
 	pt => "elevado",
@@ -6376,6 +7062,7 @@ high => {
 },
 high_quantity => {
 	en => "high quantity",
+	el => 'υψηλή ποσότητα',
 	fr => "quantité élevée",
 	es => "cantidad elevada",
 	pt => "quantidade elevada",
@@ -6387,6 +7074,7 @@ high_quantity => {
 
 risk_level => {
 	en => 'Risk',
+	el => 'Κίνδυνος',
 	fr => 'Risques',
 	es => 'Riesgos',
 	pt => 'Riscos',
@@ -6398,6 +7086,7 @@ risk_level => {
 
 risk_level_3 => {
 	en => 'High risks',
+	el => 'Υψηλός κίνδυνος',
 	fr => 'Risques élevés',
 	es => 'Riesgos elevados',
 	pt => 'Riscos elevados',
@@ -6409,6 +7098,7 @@ risk_level_3 => {
 
 risk_level_2  => {
 	en => 'Moderate risks',
+	el => 'Μέτριος κίνδυνος',
 	fr => 'Risques modérés',
 	es => 'Riesgos moderados',
 	pt => 'Riscos moderados',
@@ -6420,6 +7110,7 @@ risk_level_2  => {
 
 risk_level_1  => {
 	en => 'Low risks',
+	el => 'Χαμηλός κίνδυνος',
 	fr => 'Risques faibles',
 	es => 'Riesgos bajos',
 	pt => 'Riscos baixos',
@@ -6431,6 +7122,7 @@ risk_level_1  => {
 
 risk_level_0  => {
 	en => 'To be completed',
+	el => 'Προς συμπλήρωση',
 	fr => 'A renseigner',
 	es => 'Para completar',
 	pt => 'Para completar',
@@ -6442,6 +7134,7 @@ risk_level_0  => {
 
 select_country => {
 	en => 'Country',
+	el => 'Χώρα',
 	es => 'País',
 	fr => 'Pays',
 	pt => 'País',
@@ -6453,6 +7146,7 @@ select_country => {
 
 view_products_from_the_entire_world => {
 	en => "View matching products from the entire world",
+	el => 'Δείτε αντίστοιχα προϊόντα από όλο τον κόσμο',
 	fr => "Voir les produits correspondants du monde entier",
 	es => "Ver los productos de todo el mundo",
 	pt => "Ver produtos de todo o mundo",
@@ -6464,6 +7158,7 @@ view_products_from_the_entire_world => {
 
 view_list_for_products_from_the_entire_world => {
 	en => "View the list for matching products from the entire world",
+	el => 'Δείτε τη λίστα αντίστοιχων προϊόντων από όλο τον κόσμο',
 	es => "Ver la lista de los productos especificados de todo el mundo",
 	fr => "Voir la liste pour les produits correspondants du monde entier",
 	pt => "Ver lista de produtos correspondentes do mundo inteiro",
@@ -6475,6 +7170,7 @@ view_list_for_products_from_the_entire_world => {
 
 view_results_from_the_entire_world => {
 	en => "View results from the entire world",
+	el => 'Δείτε αποτελέσματα από όλο τον κόσμο',
 	fr => "Voir les résultats du monde entier",
 	es => "Ver los resultados de todo el mundo",
 	pt => "Ver resultados de todo o mundo",
@@ -6486,6 +7182,7 @@ view_results_from_the_entire_world => {
 
 explore_products_by => {
 	fr => "Explorer les produits par :",
+	el => 'Δείτε προϊόντα ανά:',
 	en => "Drilldown into products by:",
 	es => "Explorar los productos por:",
 	pt => "Explorar os produtos por:",
@@ -6496,6 +7193,7 @@ explore_products_by => {
 
 show_category_stats => {
 	en => "Show detailed stats",
+	el => 'Δείξε λεπτομερή στατιστικά',
 	es => "Mostrar las informaciones estadísticas",
 	fr => "Afficher les informations statistiques",
 	pt => "Mostrar estatísticas detalhadas",
@@ -6506,6 +7204,7 @@ show_category_stats => {
 
 show_category_stats_details => {
 	en => "standard deviation, minimum, maximum, 10th and 90th percentiles",
+	el => 'τυπική απόκλιση, ελάχιστο, μέγιστο, 10ο και 90ο εκατοστημόριο',
 	es => "desviación estándar, mínimo, máximo, percentiles 10 y 90",
 	pt => "desvio padrão, mínimo, máximo, 10<sup>o</sup> percentil e 90<sup>o</sup>",
 	ro => "deviația standard, minimum, maximum, al 10-lea și al 90-lea procent",
@@ -6515,6 +7214,7 @@ show_category_stats_details => {
 
 names => {
 	en => "Names",
+	el => 'Ονόματα',
 	fr => "Noms",
 	es => "Nombres",
 	de => "Namen",
@@ -6529,7 +7229,12 @@ CSS
 ,
 	es => <<CSS
 CSS
+
 ,
+el => <<CSS
+CSS
+,
+
 	nl => <<CSS
 CSS
 ,
@@ -6594,7 +7299,8 @@ HEADER
 
 HEADER
 ,
-	pt => <<HEADER
+
+el => <<HEADER
 <meta property="fb:admins" content="706410516" />
 <meta property="og:site_name" content="Open Food Facts - informações abertas de alimentos"/>
 
@@ -6667,6 +7373,14 @@ menu => {
 HTML
 ,
 	en => <<HTML
+<ul>
+<li><a href="/about" title="More info about Open Food Facts">About</a></li>
+<li><a href="/quickstart-guide" title="How to add products in 2 minutes">Quickstart guide</a></li>
+<li><a href="/contact" title="Questions, comments or suggestions?">Contact</a></li>
+</ul>
+HTML
+,
+el => <<HTML
 <ul>
 <li><a href="/about" title="More info about Open Food Facts">About</a></li>
 <li><a href="/quickstart-guide" title="How to add products in 2 minutes">Quickstart guide</a></li>
@@ -6818,6 +7532,47 @@ and is made available to everyone and for all uses in a free and open database.<
 HTML
 ,
 
+el => <<HTML
+<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-en.png" width="178" height="144" alt="Open Food Facts" /></a>
+
+<p>Το Open Food Facts συγκεντρώνει πληροφορίες και δεδομένα για τρόφιμα από όλο τον κόσμο. </p>
+
+<select_country>
+
+<p>
+→ <a href="/brands">Brands</a><br />
+→ <a href="/categories">Categories</a><br/>
+</p>
+
+<p> Οι πληροφορίες για κάθε προϊόν (φωτογραφίες, σύσταση, θρεπτικά συστατικά κλπ.) συγκεντρώνονται συλλογικά και είναι διαθέσιμα ελεύθερα σε όλους για οποιαδήποτε χρήση με τη μορφή ελεύθερης και ανοιχτής βάσης δεδομένων. </p>
+
+
+<p>Βρείτε μας επίσης σε:</p>
+
+<p>
+→ <a href="http://en.wiki.openfoodfacts.org">our wiki</a><br />
+→ <a href="http://twitter.com/openfoodfacts">Twitter</a><br/>
+→ <a href="https://plus.google.com/u/0/110748322211084668559/">Google+</a><br />
+→ <a href="https://www.facebook.com/OpenFoodFacts">Facebook</a><br />
++ <a href="https://www.facebook.com/groups/374350705955208/">contributors group</a><br />
+</p>
+
+<p>iPhone and iPad app στο App Store:</p>
+
+<a href="https://itunes.apple.com/en/app/open-food-facts/id588797948"><img src="/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png" alt="Available on the App Store" width="135" height="40" /></a><br/>
+
+<p>Android app στο Google Play:</p>
+
+<a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Available on Google Play" width="135" height="47" /></a><br/>
+<a href="http://world.openfoodfacts.org/files/off.apk">apk</a>
+
+<p>Windows Phone app:</p>
+
+<a href="http://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"><img src="/images/misc/154x40_WP_Store_blk.png" alt="Windows Phone Store" width="154" height="40" /></a><br/>
+
+
+HTML
+,
 
 # Arabic
 
@@ -7189,6 +7944,17 @@ HTML
 HTML
 ,
 
+el => <<HTML
+<a href="http://world.openfoodfacts.org/legal">Legal</a> - 
+<a href="http://world.openfoodfacts.org/terms-of-use">Terms of Use</a> -
+<a href="http://world.openfoodfacts.org/who-we-are">Who we are</a> -
+<a href="http://world.openfoodfacts.org/faq">Frequently Asked Questions</a> -
+<a href="https://openfoodfacts.uservoice.com/">Ideas Forum</a> -
+<a href="http://en.blog.openfoodfacts.org">Blog</a> -
+<a href="http://world.openfoodfacts.org/press-and-blogs">Press and Blogs</a>
+HTML
+,
+
 	es => <<HTML
 <a href="http://world.openfoodfacts.org/legal">Aviso legal (inglés)</a> - 
 <a href="http://world.openfoodfacts.org/terms-of-use">Condiciones de uso (inglés)</a> -
@@ -7232,7 +7998,7 @@ HTML
 HTML
 ,
 	de => <<HTML
-<a href="http://fr.openfoodfacts.org/mentions-legales">Mentions légales</a> - 
+<a href="http://fr.openfoodfacts.org/mentions-legales">AGB</a> - 
 <a href="http://fr.openfoodfacts.org/conditions-d-utilisation">Nutzungsbedingungen</a> -
 <a href="http://fr.openfoodfacts.org/qui-sommes-nous">Wer sind wir?</a> -
 <a href="http://fr.openfoodfacts.org/questions-frequentes">Häufig gestellte Fragen</a> -
@@ -7255,6 +8021,11 @@ HTML
 	en => <<HTML
 <p>This product is not yet in the Open Food Facts database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href="http://world.openfoodfacts.org" target="_blank">Open Food Facts</a>?</p>
 <p>Thanks in advance!</p>   
+HTML
+,
+el => <<HTML
+<p>Αυτό το προϊόν δεν έχει καταχωρηθεί ακόμα στη βάση δεδομένων του Open Food Facts. Παρακαλώ αν θέλετε προσθέστε φωτογραφίες του προϊόντος, του barcode, των διατροφικών στοιχείων και των συστατικών του στο <a href="http://world.openfoodfacts.org" target="_blank">Open Food Facts</a>?</p>
+<p>Ευχαριστούμε εκ των προτέρων!</p>   
 HTML
 ,
 	es => <<HTML
@@ -7297,6 +8068,7 @@ HTML
 app_you_can_add_pictures => {
 	fr => "Vous pouvez ajouter des photos :",
 	en => "You can add pictures:",
+	el => "Μπορείτε να προσθέσετε φωτογραφίες:",
 	es => "Puedes agregar imágenes:",
 	pt => "Pode adicionar imagens:",
 	ro => "Puteți adăuga imagini:",
@@ -7310,6 +8082,7 @@ app_you_can_add_pictures => {
 app_take_a_picture => {
 	fr => "Prendre une photo",
 	en => "Take a picture",
+	el => "Τραβήξτε μια φωτογραφία",
 	es => "Saca una foto",
 	pt => "Tire uma foto",
 	ro => "Faceți o fotografie",
@@ -7322,6 +8095,7 @@ app_take_a_picture => {
 app_take_a_picture_note => {
 	fr => "Note : les photos que vous envoyez sont publiées sous la licence libre Creative Commons Attribution et Partage à l'identique.",
 	en => "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike.",
+	el => "Σημείωση: Οι φωτογραφίες που στέλνετε δημοσιεύονται υπό από την ελεύθερη άδεια Creative Commons Attribution and ShareAlike.",
 	es => "Nota: las imagenes que envías son publicadas bajo la licencia libre Creative Commons Attribution y ShareAlike.",
 	pt => "Nota: as fotos que envia são publicadas sob a licença livre Creative Commons Attribution e ShareAlike.",
 	ro => "Notă: fotografiile trimise sunt publicate sub o licență liberă Creative Commons Attribution and ShareAlike.",
@@ -7333,6 +8107,7 @@ app_take_a_picture_note => {
 
 unknown => {
 	fr => "Inconnu",
+	el => "Άγνωστος",
 	en => "Unknown",
 	es => "Desconocido",
 	pt => "Desconhecido",
@@ -7343,17 +8118,21 @@ unknown => {
 
 points_ranking_users_and_countries => {
 	en => "Ranking of contributors and countries",
+	el => "Κατάταξη συντελεστών και χωρών",
 	fr => "Classement des contributeurs et des pays",
 },
 
 points_ranking => {
 	en => "Ranking",
+	el => "Κατάταξη",
 	fr => "Classement",
 },
 
 openfoodhunt_points => {
 	en => "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on Open Food Facts from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded
 Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes.",
+el => "Είναι <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> στο Open Food Facts από το Σάββατο 21 Φεβρουαρίου 2015 μέχρι Κυριακή 1 Μαρτίου 2015! Οι συντελεστές κερδίζουν 
+Explorer points για προϊόντα που προσθέτουν και Ambassador points για καινούριους συντελεστές που στρατολογούν. Το σκορ την βαθμολογίας ενημερώνεται κάθε 30 λεπτά.",
 	fr => "C'est l'<a href=\"/open-food-hunt-2015\">Open Food Hunt</a> sur Open Food Facts du samedi 21 février 2015 au dimanche 1er mars 2015 ! Les contributeurs reçoivent
 des points Explorateurs pour les produits qu'ils ajoutent, et des points Ambassadeurs pour les nouveaux contributeurs qu'ils recrutent. Les points sont mis à jour toutes
 les 30 minutes.",	
@@ -7361,21 +8140,25 @@ les 30 minutes.",
 
 points_user => {
 	en => "%s is an Explorer for %d countries and an Ambassador for %d countries.",
+	el => "Ο %s είναι Explorer για %d χώρες και Ambassador για %d χώρες.",
 	fr => "%s est un Explorateur de %d pays et un Ambassadeur de %d countries.",
 },
 
 points_all_users => {
 	en => "There are Explorers for %d countries and Ambassadors for %d countries.",
+	el => "Υπάρχει Explorer για %d χώρες και Ambassador για %d χώρες.",
 	fr => "Il y a des Explorateurs de %d pays et des Ambassadeurs de %d countries.",
 },
 
 points_country => {
 	en => "%s has %d Explorers and %d Ambassadors.",
+	el => "%s έχει Explorers και %s Ambassadors.",
 	fr => "%s a %d Explorateurs et %d Ambassadeurs.",
 },
 
 points_all_countries => {
 	en => "There are %d Explorers and %d Ambassadors.",
+	el => "Υπάρχουν %d Explorers και %d Ambassadors.",
 	fr => "Il y a %d Explorateurs et %d Ambassadeurs.",
 },
 
