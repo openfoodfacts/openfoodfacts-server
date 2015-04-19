@@ -8419,7 +8419,7 @@ foreach my $l (@Langs) {
 
 	foreach my $type (keys %tag_type_plural) {
 			$tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;
-			print "tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;\n";
+			#print "tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;\n";
 	}
 
 }
