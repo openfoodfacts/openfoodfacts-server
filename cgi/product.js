@@ -112,8 +112,8 @@ function init_image_area_select(imagefield) {
 function update_image(imagefield) {
 
 	$('#crop_' + imagefield).attr("src","/cgi/product_image_rotate.pl?code=" + code + "&imgid=" + imagefield_imgid[imagefield]
-		+ "&angle=" + angles[imagefield] + "&normalize=" + $("#normalize_" + imagefield).attr('checked')
-		+ "&white_magic=" + $("#white_magic_" + imagefield).attr('checked')		);
+		+ "&angle=" + angles[imagefield] + "&normalize=" + $("#normalize_" + imagefield).prop('checked')
+		+ "&white_magic=" + $("#white_magic_" + imagefield).prop('checked')		);
 	$('div[id="cropbuttonmsg_' + imagefield +'"]').hide();
 }
 
@@ -181,8 +181,8 @@ function change_image(imagefield, imgid) {
 				$.post('/cgi/product_image_crop.pl',
 						{code: code, id: imagefield , imgid: imgid,
 						x1:selection.x, y1:selection.y, x2:selection.x + selection.width, y2:selection.y + selection.height,
-						angle:angles[imagefield], normalize:$("#normalize_" + imagefield).attr('checked'), 
-						white_magic:$("#white_magic_" + imagefield).attr('checked') }, function(data) {
+						angle:angles[imagefield], normalize:$("#normalize_" + imagefield).prop('checked'), 
+						white_magic:$("#white_magic_" + imagefield).prop('checked') }, function(data) {
 						
 					imagefield_url[imagefield] = data.image.display_url;
 					update_display(imagefield);

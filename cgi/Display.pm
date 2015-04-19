@@ -5709,29 +5709,29 @@ JS
 		
 		if ($product_ref->{id} ne 'search') {
 		
-			$html .= "<p><input id=\"show_stats\" type=\"checkbox\" /><label for=\"show_stats\">" . lang("show_category_stats") . "</label>"
-			. lang("sep") . ": " . lang("show_category_stats_details") . "</p>";
+			$html .= "<div><input id=\"show_stats\" type=\"checkbox\" /><label for=\"show_stats\">"
+			. lang("show_category_stats")
+			. '<span class="show-for-xlarge-up">'
+			. lang("sep") . ": " . lang("show_category_stats_details") . "</span></label>" . "</div>";
 		
 			$initjs .= <<JS
 		
-if (\$.cookie('show_stats')) {
-	\$('#show_stats').attr('checked','checked');
+if (\$.cookie('show_stats') == '1') {
+	\$('#show_stats').prop('checked',true);
 }		
 else {
-	\$('#show_stats').removeAttr('checked');
+	\$('#show_stats').prop('checked',false);
 }
 
-if (\$('#show_stats').attr('checked')) {
+if (\$('#show_stats').prop('checked')) {
 	\$(".stats").show();
 }
 else {
 	\$(".stats").hide();
 }
 
-\$( "#show_stats" ).button();
-
 \$("#show_stats").change(function () {
-	if (\$('#show_stats').attr('checked')) {
+	if (\$('#show_stats').prop('checked')) {
 		\$.cookie('show_stats', '1', { expires: 365 });
 		\$(".stats").show();		
 	}
@@ -5754,10 +5754,10 @@ JS
 	$html .= <<HTML
 <table id="nutrition_data_table" class="data_table">
 <thead class="nutriment_header">
-<tr><th class="nutriment_label"><label for="nutrition_data_table">
+<tr><th>
 HTML
 . lang("nutrition_data_table") . <<HTML
-</label></th>
+</th>
 HTML
 ;
 
