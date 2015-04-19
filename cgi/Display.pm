@@ -4292,13 +4292,6 @@ padding:0.5rem;
 }
 }
 
-\@media only screen and (max-width: 40em) {
-.column, .columns {
-	padding-right:0.625rem;
-	padding-left:0.625rem;
-}
-}
-
 .products {
 line-height:1.2;
 }
@@ -4841,6 +4834,10 @@ sub display_field($$) {
 				$value = "<span$itemprop>$value</span>";
 			}
 		}
+		my $lang_field = lang($field);
+		if ($lang_field eq '') {
+			$lang_field = ucfirst(lang($field . "_s"));
+		}
 		$html .= '<p><span class="field">' . lang($field) . " :</span> $value</p>";
 	}
 	return $html;
@@ -4996,11 +4993,11 @@ HTML
 	$html .= <<HTML
 <h2>$Lang{product_characteristics}{$lc}</h2>
 <div class="row">
-<div class="hide-for-large-up medium-12">$html_image</div>
-<div class="medium-12 large-8 xlarge-7 xxlarge-8 columns">
+<div class="hide-for-large-up medium-12 columns">$html_image</div>
+<div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
 $html_fields
 </div>
-<div class="show-for-large-up large-4 xlarge-5 xxlarge-4 columns">$html_image</div>
+<div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$html_image</div>
 </div>
 HTML
 ;
@@ -5017,8 +5014,8 @@ HTML
 		$html .= <<HTML
 <h2>$Lang{ingredients}{$lc}</h2>
 <div class="row">
-<div class="hide-for-large-up medium-12">$html_image</div>
-<div class="medium-12 large-8 xlarge-7 xxlarge-8 columns">
+<div class="hide-for-large-up medium-12 columns">$html_image</div>
+<div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
 HTML
 ;
 	
@@ -5092,7 +5089,7 @@ HTML
 	
 	$html .= <<HTML
 </div>
-<div class="show-for-large-up large-4 xlarge-5 xxlarge-4 columns">$html_image</div>
+<div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$html_image</div>
 </div>
 HTML
 ;
@@ -5103,8 +5100,8 @@ HTML
 	$html .= <<HTML
 <h2>$Lang{nutrition_data}{$lc}</h2>
 <div class="row">
-<div class="hide-for-large-up medium-12">$html_image</div>
-<div class="medium-12 large-8 xlarge-7 xxlarge-8 columns">
+<div class="hide-for-large-up medium-12 columns">$html_image</div>
+<div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
 HTML
 ;
 
@@ -5162,13 +5159,13 @@ HTML
 
 	$html .= <<HTML
 </div>
-<div class="show-for-large-up large-4 xlarge-5 xxlarge-4 columns">$html_image</div>
+<div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$html_image</div>
 </div>
 
 	
 <p>$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator</p>	
 	
-<div class="alert">
+<div class="alert-box info">
 $Lang{fixme_product}{$lc}
 </div>
 
@@ -5442,41 +5439,63 @@ sub display_nutrient_levels($) {
 	
 	my $html = '';
 	
+	# For some products we can have the nutrition grade (A to Z, French style) + nutrient levels (traffic lights, UK style)
+	# or one of them, or none
+	
+	my $html_nutrition_grade = '';
+	my $html_nutrient_levels = '';
+	
 	#return '' if (not $admin);
 	
 	if (($lc eq 'fr') and (exists $product_ref->{"nutrition_grade_fr"})) {
 		my $grade = $product_ref->{"nutrition_grade_fr"};
 		my $uc_grade = uc($grade);
-		$html .= <<HTML
-<div style="float:left;padding:30px;padding-left:0px;padding-right:40px;">
-<p><span class="field">Note nutritionnelle de couleur (Programme National Nutrition et Santé)</p>
-<img src="/images/misc/$grade.338x72.png" alt="Note nutritionnelle : $uc_grade" style="margin-bottom:10px;max-width:100%" /><br/>
-&rarr; <a href="http://fr.openfoodfacts.org/score-nutritionnel-experimental-france">Mode de calcul de la note nutritionnelle de couleur</a>
-</div>
+		$html_nutrition_grade .= <<HTML
+<h4>Note nutritionnelle de couleur <small>(Programme National Nutrition et Santé)</small>
+<a href="http://fr.openfoodfacts.org/score-nutritionnel-experimental-france" title="Mode de calcul de la note nutritionnelle de couleur">
+<i class=\"fi-info\"></i></a>
+</h4>
+<img src="/images/misc/$grade.338x72.png" alt="Note nutritionnelle : $uc_grade" style="margin-bottom:1rem;max-width:100%" /><br/>
 HTML
 ;
 	}
 	
-	my $nutrient_levels_html = '';
+	my $html_nutrient_levels = '';
 	
 	foreach my $nutrient_level_ref (@nutrient_levels) {
 		my ($nid, $low, $high) = @$nutrient_level_ref;
 		
 		if ((defined $product_ref->{nutrient_levels}) and (defined $product_ref->{nutrient_levels}{$nid})) {
 		
-			$nutrient_levels_html .= '<img src="/images/misc/' . $product_ref->{nutrient_levels}{$nid} . '_30.png" width="30" height="30" style="vertical-align:middle;margin-right:15px;margin-bottom:4px;" alt="'
+			$html_nutrient_levels .= '<img src="/images/misc/' . $product_ref->{nutrient_levels}{$nid} . '_30.png" width="30" height="30" style="vertical-align:middle;margin-right:15px;margin-bottom:4px;" alt="'
 				. lang($product_ref->{nutrient_levels}{$nid} . "_quantity") . '" />' . (sprintf("%.2e", $product_ref->{nutriments}{$nid . "_100g"}) + 0.0) . " g "
 				. sprintf(lang("nutrient_in_quantity"), "<b>" . $Nutriments{$nid}{$lc} . "</b>", lang($product_ref->{nutrient_levels}{$nid} . "_quantity")). "<br />";
 		
 		}
 	}
-	if ($nutrient_levels_html ne '') {
-		$html .= "<div style=\"float:left;\">" . lang("nutrient_levels_info") . "<br />" . $nutrient_levels_html . "</div>\n";
+	if ($html_nutrient_levels ne '') {
+		$html_nutrient_levels = "<h4>" . lang("nutrient_levels_info")
+		. " <a href=\"" . lang("nutrient_levels-link") . "\"><i class=\"fi-info\"></i></a></h4>" . $html_nutrient_levels;
 	}
 	
-	if ($html ne '') {
-		$html .= "<hr class=\"floatclear\" style=\"clear:left\"/>";
+	# 2 columns?
+	if (($html_nutrition_grade ne '') and ($html_nutrient_levels ne '')) {
+		$html = <<HTML
+<div class="row">
+	<div class="small-12 xlarge-6 columns">
+		$html_nutrition_grade
+	</div>
+	<div class="small-12 xlarge-6 columns">
+		$html_nutrient_levels
+	</div>
+</div>	
+HTML
+;
 	}
+	else {
+		$html = $html_nutrition_grade . $html_nutrient_levels;
+	}
+
 		
 	return $html;
 }

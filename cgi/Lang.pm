@@ -5008,15 +5008,20 @@ nutrient_levels_p => {
 },
 
 nutrient_levels_info => {
-	fr => "<a href=\"/reperes-nutritionnels\">Repères nutritionnels</a> pour 100 g :",
-	en => "Nutrient levels for 100 g:",
-	el => "<a href=\"/διατροφικοί-δείκτες\">Διατροφικοί δείκτες</a> ανά 100 g :",
-	es => "<a href=\"/valores-nutricionales\">Valores nutricionales</a> por 100 g :",
-	pt => "<a href=\"/valores-nutricionais\">Valores nutricionais</a> por 100 g:",
-	ro => "Valori nutriționale pentru 100g:",
-	he => "רמות המרכיבים התזונתיים ל־100 גרם:",
-	nl => "<a href=\"/voedingswaarden\">Voedingswaarden</a> per 100 g :",
-	de => "<a href=\"/Nahrungsbedarf\">Nahrungsbedarf</a> pro 100 g :",
+	fr => "Repères nutritionnels pour 100 g",
+	en => "Nutrient levels for 100 g",
+	el => "Διατροφικοί δείκτες ανά 100 g",
+	es => "Valores nutricionales por 100 g",
+	pt => "Valores nutricionais por 100 g",
+	ro => "Valori nutriționale pentru 100g",
+	he => "רמות המרכיבים התזונתיים ל־100 גרם",
+	nl => "Voedingswaarden per 100 g",
+	de => "Nahrungsbedarf pro 100 g",
+},
+
+nutrient_levels_link => {
+	fr => "/reperes-nutritionnels",
+	en => "/nutrient-levels",
 },
 
 users_s => {
