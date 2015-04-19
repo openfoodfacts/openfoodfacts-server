@@ -2039,6 +2039,7 @@ sub search_and_display_products($$$$$) {
 	
 	my $html = '';
 	my $html_pages = '';
+	my $html_count = '';
 	
 	if (not defined $request_ref->{jqm_loadmore}) {
 
@@ -2049,10 +2050,10 @@ sub search_and_display_products($$$$$) {
 			$html .= "<p>" . lang("no_products") . "</p>";
 		}
 		elsif ($count == 1) {
-			$html .= "<p>" . lang("1_product") . "</p>";
+			$html_count .= lang("1_product");
 		}
 		elsif ($count > 1) {
-			$html .= "<p>" . sprintf(lang("n_products"), $count) . "</p>";
+			$html_count .= sprintf(lang("n_products"), $count) ;
 		}
 	
 	}
@@ -2081,26 +2082,32 @@ sub search_and_display_products($$$$$) {
 		
 		print STDERR "search - count: $count - request_ref->{search}: " . $request_ref->{search}  . " tagid2 " . $request_ref->{tagid2} . "\n" ;
 		
-		if ((not defined $request_ref->{search}) and ($count >= 5)) {
-		
-			if (not defined $request_ref->{tagid2}) {
-				my @current_drilldown_fields = @drilldown_fields;
-				if ($country eq 'en:world') {
-					unshift (@current_drilldown_fields, "countries");
-				}
-				$html .= <<HTML
-<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown small">$Lang{explore_products_by}{$lc}</button><br/>
+		if ((not defined $request_ref->{search}) and ($count >= 5) 	
+			and (not defined $request_ref->{tagid2})) {
+			
+			my @current_drilldown_fields = @drilldown_fields;
+			if ($country eq 'en:world') {
+				unshift (@current_drilldown_fields, "countries");
+			}
+			$html .= <<HTML
+<ul class="button-group">
+<li><div style="font-size:1.2rem;background-color:#eeeeee;padding:0.3rem 1rem;height:2.75rem;margin:0">$html_count</div></li>
+<li>
+<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown small">$Lang{explore_products_by}{$lc}</button>
 <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
 HTML
 ;				
-				foreach my $newtagtype (@current_drilldown_fields) {
-				
-					$html .= "<li><a href=\"" . $request_ref->{current_link} . "/" . $tag_type_plural{$newtagtype}{$lc} . "\">"
-						. ucfirst(lang($newtagtype . "_p")) . "</a></li>\n";
-				}
-				$html .= "</ul>\n\n";
+			foreach my $newtagtype (@current_drilldown_fields) {
+			
+				$html .= "<li ><a href=\"" . $request_ref->{current_link} . "/" . $tag_type_plural{$newtagtype}{$lc} . "\">"
+					. ucfirst(lang($newtagtype . "_p")) . "</a></li>\n";
 			}
+			$html .= "</ul>\n</li>\n</ul>\n\n";
 		
+		
+		}
+		else {
+			$html .= "<p>$html_count " . lang("sep") . ":</p>";
 		}
 		
 	
@@ -4263,7 +4270,7 @@ font-size: 0.875rem;
 }
 
 a { text-decoration: none;}
-a, a:visited { color: blue;}
+a, a:visited, a:hover { color: blue;}
 
 a:hover { text-decoration: underline; }
 
@@ -4534,8 +4541,8 @@ HTML
 
   
   
-<div class="row full-width" style="max-width: 100% !important;">
-	<div class="xxlarge-1 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;">
+<div class="row full-width" style="max-width: 100% !important;" data-equalizer>
+	<div class="xxlarge-1 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
 		<div class="sidebar">
 		
 			<form action="/cgi/search.pl" id="search2" class="hide-for-xlarge-up">
@@ -4572,14 +4579,11 @@ $blocks
 		</div> <!-- sidebar -->
 	</div> <!-- left column -->
 		
-	<div class="xxlarge-11 xlarge-10 large-9 medium-8 columns" style="padding-top:1rem">
-
-
-
+	<div class="xxlarge-11 xlarge-10 large-9 medium-8 columns" style="padding-top:1rem" data-equalizer-watch>
 
 $h1_title
-$$content_ref
 
+$$content_ref
 
 	</div> <!-- main content column -->
 </div> <!-- row -->
