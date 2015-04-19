@@ -1881,7 +1881,7 @@ login_register_title => {
 	fr => 'Se connecter',
 	de => 'Anmelden',
 	el => 'Εγγραφη',
-        en => 'Sign-in',
+	en => 'Sign-in',
 	es => 'Iniciar sesión',
 	it => 'connettersi',
 	ar => 'تسجيل الدخول',
@@ -1962,6 +1962,46 @@ HTML
 ,
 
 },
+
+login_to_add_and_edit_products => {
+	en => "Sign-in to add or edit products.",
+	de => "Melde dich an, um ein Produkt hinzuzufügen oder zu bearbeiten.",
+	el => "Εγγραφείτε για να προσθέσετε ή να επεξεργαστείτε προϊόντα.",
+	es => "Conéctate para añadir o modificar productos.",
+	fr => "Connectez-vous pour ajouter des produits ou modifier leurs fiches.",
+	he => "נא להיכנס כדי להוסיף או לערוך מוצרים.",
+	it => "Connettersi per aggiungere o modificare delle schede.",
+	nl => "Meld u aan om producten toe te voegen of te bewerken.",
+	pt => "Inicie uma sessão para adicionar ou editar produtos.",
+	ro => "Autentificați-vă pentru a adăuga sau modifica produse.",
+},
+
+login_not_registered_yet => {
+	en => "Not registered yet?",
+	de => "Noch nicht registriert?",
+	el => "Δεν έχετε εγγραφεί ακόμα;",
+	es => "¿Todavía no te has registrado?",
+	fr => "Pas encore inscrit(e) ?",
+	he => "לא נרשמת עדיין?",
+	it => "Non ancora iscritta/o?",
+	nl => "Nog niet geregistreerd?",
+	pt => "Ainda não é registrado?",
+	ro => "Nu v-ați înregistrat încă?",
+},
+
+login_create_your_account => {
+	en => "Create your account.",
+	de => "Erstelle ein Benutzerkonto.",
+	el => "τη δημιουργία του λογαριασμού σας .",
+	es => "Crea tu cuenta.",
+	fr => "Créez votre compte.",
+	he => "ניתן ללחוץ כאן ליצירת חשבון חדש",
+	it => "Creare il proprio account.",
+	nl => "Creëer uw account",
+	pt => "Criar uma conta.",
+	ro => "Creați-vă contul.",
+},
+
 
 login_register_content => {
 	fr => <<HTML
@@ -7252,6 +7292,16 @@ select_country => {
 	de => "Land",
 },
 
+select_lang => {
+	fr => 'Langue',
+	en => 'Language',
+	es => 'Idioma',
+	it => 'Lingua',
+	pt => 'Idioma',
+	ro => 'Limba',
+},
+
+
 view_products_from_the_entire_world => {
 	en => "View matching products from the entire world",
 	el => 'Δείτε αντίστοιχα προϊόντα από όλο τον κόσμο',
@@ -7289,14 +7339,14 @@ view_results_from_the_entire_world => {
 },
 
 explore_products_by => {
-	fr => "Explorer les produits par :",
-	el => 'Δείτε προϊόντα ανά:',
-	en => "Drilldown into products by:",
-	es => "Explorar los productos por:",
-	pt => "Explorar os produtos por:",
-	ro => "Explorați produsele după:",
-	nl => "Doorzoek de producten volgens:",
-	de => "Produkte nach Kriterium anzeigen:",
+	fr => "Explorer les produits par...",
+	el => 'Δείτε προϊόντα ανά...',
+	en => "Drilldown into products by...",
+	es => "Explorar los productos por...",
+	pt => "Explorar os produtos por...",
+	ro => "Explorați produsele după...",
+	nl => "Doorzoek de producten volgens...",
+	de => "Produkte nach Kriterium anzeigen...",
 },
 
 show_category_stats => {

@@ -45,6 +45,7 @@ BEGIN
 					&display_select_crop_init
 					
 					&display_image
+					&display_image_thumb
 	
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -201,7 +202,7 @@ sub display_search_image_form_older() {
 	
 	$html .= <<HTML
 <label for="imgsearch">Image du produit avec code barre :</label>
-<input type="file" accept="image/*" class="img_input button small" size="10" name="imgsearch" id="imgsearch" onchange="javascript:this.form.submit();" />				
+<input type="file" accept="image/*" capture="camera" class="img_input button small" size="10" name="imgsearch" id="imgsearch" onchange="javascript:this.form.submit();" />				
 HTML
 ;
 	
@@ -219,8 +220,8 @@ sub display_search_image_form() {
 	$html .= <<HTML
 <div id="imgsearchdiv">
 
-<a href="#" class="button small expand" id="imgsearchbutton">$product_image_with_barcode
-<input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search" style="position: absolute;
+<a href="#" class="button small expand" id="imgsearchbutton"><i class="fi-camera"></i> $product_image_with_barcode
+<input type="file" accept="image/*" capture="camera" class="img_input" name="imgupload_search" id="imgupload_search" style="position: absolute;
     right:0;
     bottom:0;
     top:0;
@@ -314,7 +315,6 @@ JS
 	return $html;
 }
 
-
 sub display_search_image_form_old() {
 
 	my $html = '';
@@ -324,7 +324,7 @@ sub display_search_image_form_old() {
 <label for="imgupload_search">$Lang{product_image_with_barcode}{$lang}</label>
 <span class="btn btn-success fileinput-button" id="imgsearchbutton">
 <span>$Lang{send_image}{$lang}</span>
-<input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search" />
+<input type="file" accept="image/*" capture="camera" class="img_input" name="imgupload_search" id="imgupload_search" />
 </span>
 </div>
 <br />
@@ -924,59 +924,74 @@ sub process_image_crop($$$$$$$$$$) {
 
 
 
+sub display_image_thumb($$) {
+
+	my $product_ref = shift;
+	my $id = shift;
+	
+	my $html = '';
+	
+	
+	if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+		and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$thumb_size})) {
+	
+		my $path = product_path($product_ref->{code});
+		my $rev = $product_ref->{images}{$id}{rev};
+		my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$id . '_alt'}{$lang};
+
+			
+		$html .= <<HTML
+<img src="/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" 
+srcset="/images/products/$path/$id.$rev.$small_size.jpg 2x"
+alt="$alt" />
+HTML
+;		
+	
+	}
+	
+	return $html;
+}
+
+
 sub display_image($$$) {
 
 	my $product_ref = shift;
 	my $id = shift;
 	my $size = shift;
-	my $jqm = 0;
 	
 	my $html = '';
-	
-	if (0) {
-	print STDERR "display_image - ($id, $size) - ";
-	(defined $product_ref->{images}) and print STDERR "images ";
-	(defined $product_ref->{images}{$id}) and print STDERR "$id ";
-	(defined $product_ref->{images}{$id}{sizes}) and print STDERR "sizes ";
-	(defined $product_ref->{images}{$id}{sizes}{$size}) and print STDERR "$size";
-	print STDERR "\n";
-	}
 	
 	if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 		and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
 	
 		my $path = product_path($product_ref->{code});
-		$html .= '<img src="/images/products/' . $path . '/' . $id . '.' . $product_ref->{images}{$id}{rev} . '.' . $size . '.jpg"'
-			. ' width="' . $product_ref->{images}{$id}{sizes}{$size}{w} . '" height="' . $product_ref->{images}{$id}{sizes}{$size}{h} . '"'
-			. ' alt="' . remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$id . '_alt'}{$lang} . '" />';
+		my $rev = $product_ref->{images}{$id}{rev};
+		my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$id . '_alt'}{$lang};
+
+			
+		$html .= <<HTML
+<img class="hide-for-xlarge-up" src="/images/products/$path/$id.$rev.$size.jpg" width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" />
+
+<img class="show-for-xlarge-up" src="/images/products/$path/$id.$rev.$display_size.jpg" width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" />
+HTML
+;
 			
 		if ((not defined $product_ref->{jqm}) and ($size eq $small_size) and (defined $product_ref->{images}{$id}{sizes}{$display_size}))  {
 		
-			my $w = $product_ref->{images}{$id}{sizes}{$display_size}{w};
-			my $h = $product_ref->{images}{$id}{sizes}{$display_size}{h};
+			my $title = lang($id . '_alt');
 		
 			$html = <<HTML
-<a data-dropdown="drop_$id" aria-controls="drop_$id" aria-expanded="false" data-options="align:left" class="th" >
+<a data-reveal-id="drop_$id" class="th" >
 $html
 </a>
-<div id="drop_$id" data-dropdown-content class="f-dropdown medium" aria-hidden="true" tabindex="-1" style="min-width:$display_size px">
-<img src="/images/products/$path/$id.$product_ref->{images}{$id}{rev}.$display_size.jpg" width="$w" height="$h" alt="Zoom" />
+<div id="drop_$id" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" >
+<h2 id="modalTitle">$title</h2>
+<img src="/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg" alt="$alt" />
+<a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
 HTML
 ;
-
-			$html = <<HTML
-<ul class="clearing-thumbs" data-clearing>
-<li>
-<a href="/images/products/$path/$id.$product_ref->{images}{$id}{rev}.$display_size.jpg">$html</a>
-</li>
-</ul>
-
-HTML
-;
-
-
 
 
 		}
