@@ -188,6 +188,7 @@ function change_image(imagefield, imgid) {
 					update_display(imagefield);
 					$('div[id="cropbutton_' + imagefield +'"]').show();
 					$('div[id="cropbuttonmsg_' + imagefield +'"]').html(Lang.image_saved);
+					$(document).foundation('equalizer', 'reflow');
 				}, 'json');
 			});		
 	
@@ -196,6 +197,7 @@ function change_image(imagefield, imgid) {
 	
 	init_image_area_select(imagefield);
 	
+	$(document).foundation('equalizer', 'reflow');
 }  
 
 function update_display(imagefield) {
@@ -231,6 +233,7 @@ function update_display(imagefield) {
 			else {
 				$('div[id="ocrbuttondiv_' + imagefield +'"]').html(Lang.extracted_ingredients_nok);
 			}
+			$(document).foundation('equalizer', 'reflow');
 		}, 'json');
 		
 	});
