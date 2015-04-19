@@ -183,15 +183,28 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 		my $submit_label = "login_and_" .$type . "_product";
 	
 		$html = <<HTML
-$Lang{login_to_add_products}{$lang}
+<p>$Lang{login_to_add_products}{$lang}</p>
 
 <form method="post" action="/cgi/session.pl">
-$Lang{login_username_email}{$lang}<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
-$Lang{password}{$lang}<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
-<input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>$Lang{remember_me}{$lang}</label><br />
-<input type="submit" tabindex="4" name=".submit" value="$Lang{$submit_label}{$lang}" />
+<div class="row">
+<div class="small-12 columns">
+	<label>$Lang{login_username_email}{$lc}
+		<input type="text" name="user_id" />
+	</label>
+</div>
+<div class="small-12 columns">
+	<label>$Lang{password}{$lc}
+		<input type="password" name="password" />
+	</label>
+</div>
+<div class="small-12 columns">
+	<label>
+		<input type="checkbox" name="remember_me" value="on" />
+		$Lang{remember_me}{$lc}
+	</label>
+</div>
+</div>
+<input type="submit" name=".submit" value="$Lang{login_register_title}{$lc}" class="button small" />
 <input type="hidden" name="code" value="$code" />
 <input type="hidden" name="next_action" value="product_$type" />
 </form>
@@ -468,9 +481,12 @@ JS
 JS
 ;
 
+# <link rel="stylesheet" type="text/css" href="/js/jquery.imgareaselect-0.9.10/css/imgareaselect-default.css" />
+
+
 	$header .= <<HTML
-<link rel="stylesheet" type="text/css" href="/js/jquery.imgareaselect-0.9.10/css/imgareaselect-default.css" />
-<link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.css" />
+<link rel="stylesheet" type="text/css" href="/js/cropper-20150415/dist/cropper.min.css" />
+<link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.20150416/jquery.tagsinput.min.css" />
 
 HTML
 ;
@@ -482,8 +498,8 @@ HTML
 
 
 	$scripts .= <<HTML
-<script type="text/javascript" src="/js/jquery.imgareaselect-0.9.11/scripts/jquery.imgareaselect.touch-support.js"></script>
-<script type="text/javascript" src="/js/jquery.tagsinput.js"></script>
+<script type="text/javascript" src="/js/cropper-20150415/dist/cropper.min.js"></script>
+<script type="text/javascript" src="/js/jquery.tagsinput.20150416/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="/js/jquery.form.js"></script>
 <script type="text/javascript" src="/js/jquery.autoresize.js"></script>
 <script type="text/javascript" src="/js/jquery.rotate.js"></script>
@@ -509,6 +525,16 @@ HTML
 	
 	my $thumb_selectable_size = $thumb_size + 20;
 	
+	
+	my $old = <<CSS
+label, input { display: block;  }
+input[type="checkbox"] { padding-top:10px; display: inline; }
+
+.checkbox_label { display: inline; }
+input.text { width:98% }
+CSS
+;
+	
 	$styles .= <<CSS
 
 .ui-selectable { list-style-type: none; margin: 0; padding: 0; }
@@ -522,13 +548,8 @@ line-height: ${thumb_selectable_size}px; text-align: center; }
 
 .command { margin-bottom:5px; }
 		
-label, input { display: block;  }
-input[type="checkbox"] { padding-top:10px; display: inline; }
 label { margin-top: 20px; }
 
-.checkbox_label { display: inline; }
-
-input.text { width:98% }
 fieldset { margin-top: 15px; margin-bottom:15px;}
 
 legend { font-size: 1.2em; }
@@ -536,13 +557,16 @@ legend { font-size: 1.2em; }
 .note { font-size: 0.8em; }
 .example, .note { margin-top:4px;margin-bottom:0px;margin-left:4px; }
 
-textarea { display:block; width:98%; height:80px; }
+textarea {  height:6rem; }
 
-.cropbox, .display { float:left; margin-top:10px;margin-bottom:10px; width:420px; }
+.cropbox, .display { float:left; margin-top:10px;margin-bottom:10px; max-width:400px; }
 .cropbox { margin-right: 20px; }
-.ui-button { margin-top:5px;}
 
 #label_new_code, #new_code { display: inline; margin-top: 0px; width:200px; }
+
+th {
+	font-weight:bold;
+}
 CSS
 ;
 
@@ -550,13 +574,17 @@ CSS
 	
 	$html .= <<HTML
 <label for="new_code" id="label_new_code">${label_new_code}</label>
-<input type="text" name="new_code" id="new_code" class="text ui-widget-content ui-corner-all" value="" />			
+<input type="text" name="new_code" id="new_code" class="text" value="" />			
 
-<div class="ui-state-highlight ui-corner-all" style="padding:5px;margin-right:20px;display:table;margin-top:20px;margin-bottom:20px;">
-<span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
-<span>$Lang{warning_3rd_party_content}{$lang}</span>
+<div data-alert class="alert-box info">
+<span>$Lang{warning_3rd_party_content}{$lang}
+ <a href="#" class="close">&times;</a>
 </div>
-<p class="note">&rarr; $Lang{licence_accept}{$lang}</p>
+
+<div data-alert class="alert-box secondary">
+<span>$Lang{licence_accept}{$lang}</span>
+ <a href="#" class="close">&times;</a>
+</div>
 HTML
 ;
 
@@ -582,15 +610,15 @@ HTML
 	$html .= popup_menu(-name=>'lang', -default=>$lang_value, -values=>\@lang_values, -labels=>\%lang_labels);
 
 
-	$html .= "<fieldset><legend>$Lang{product_image}{$lang}</legend>";
+	$html .= "<div class=\"fieldset\"><legend>$Lang{product_image}{$lang}</legend>";
 	
 	$html .= display_select_crop($product_ref, "front");
 
-	$html .= "</fieldset>";	
+	$html .= "</div><!-- fieldset -->";	
 	
 	$html .= <<HTML
 
-<fieldset>
+<div class="fieldset">
 <legend>$Lang{product_characteristics}{$lang}</legend>
 HTML
 ;
@@ -614,13 +642,16 @@ HTML
 HTML
 ;
 			}
-			
+		
+# 	
+		
 			$initjs .= <<HTML
 \$('#$field').tagsInput({ $remember
-	'height':'35px',
-	'width':'98%',
+	'height':'3rem',
+	'width':'100%',
 	'interactive':true,
 	'minInputWidth':130,
+	'delimiter': [','],
 	'defaultText':"$Lang{$field . "_tagsinput"}{$lang}"
 });
 HTML
@@ -639,7 +670,7 @@ HTML
 
 		$$html_ref .= <<HTML
 <label for="$field">$Lang{$field}{$lang}</label>
-<input type="text" name="$field" id="$field" class="text ui-widget-content ui-corner-all${tagsinput}" value="$value" />		
+<input type="text" name="$field" id="$field" class="text${tagsinput}" value="$value" />		
 HTML
 ;
 		if (defined $Lang{$field . "_note"}{$lang}) {
@@ -703,10 +734,10 @@ HTML
 
 	}
 
-	$html .= "</fieldset>\n";
+	$html .= "</div><!-- fieldset -->\n";
 	
 
-	$html .= "<fieldset><legend>$Lang{ingredients}{$lang}</legend>\n";
+	$html .= "<div class=\"fieldset\"><legend>$Lang{ingredients}{$lang}</legend>\n";
 
 	$html .= display_select_crop($product_ref, "ingredients");
 	
@@ -724,8 +755,8 @@ HTML
 	
 	display_field($product_ref, \$html, "traces");
 
-$html .= "</fieldset>
-<fieldset><legend>$Lang{nutrition_data}{$lang}</legend>\n";
+$html .= "</div><!-- fieldset -->
+<div class=\"fieldset\"><legend>$Lang{nutrition_data}{$lang}</legend>\n";
 
 	my $checked = '';
 	if ($product_ref->{no_nutrition_data} eq 'on') {
@@ -761,17 +792,17 @@ HTML
 	
 	$html .= <<HTML
 <div style="position:relative">
+
+
 <table id="nutrition_data_table" class="data_table">
 <thead class="nutriment_header">
-<tr><th class="nutriment_label" colspan="2"><label for="nutrition_data_table">$Lang{nutrition_data_table}{$lang}</label>
-<br />
-<input type="radio" id="nutrition_data_per_100g" value="100g" name="nutrition_data_per" $checked_per_100g />
-<label for="nutrition_data_per_100g">$Lang{nutrition_data_per_100g}{$lang}</label>
-<input type="radio" id="nutrition_data_per_serving" value="serving" name="nutrition_data_per" $checked_per_serving />
-<label for="nutrition_data_per_serving">$Lang{nutrition_data_per_serving}{$lang}</label>
-
-<th></tr>
+<th colspan="2">
+$Lang{nutrition_data_table}{$lang}<br/>
+<input type="radio" id="nutrition_data_per_100g" value="100g" name="nutrition_data_per" $checked_per_100g /><label for="nutrition_data_per_100g">$Lang{nutrition_data_per_100g}{$lang}</label>
+<input type="radio" id="nutrition_data_per_serving" value="serving" name="nutrition_data_per" $checked_per_serving /><label for="nutrition_data_per_serving">$Lang{nutrition_data_per_serving}{$lang}</label>
+</th>
 </thead>
+
 <tbody>
 HTML
 ;
@@ -1019,8 +1050,8 @@ HTML
 	$html .= <<HTML
 <table id="ecological_data_table" class="data_table">
 <thead class="nutriment_header">
-<tr><th class="nutriment_label" colspan="2">$Lang{ecological_data_table}{$lang}</th>
-<th></th></tr>
+<tr><th colspan="2">$Lang{ecological_data_table}{$lang}</th>
+</tr>
 </thead>
 <tbody>
 $html2
@@ -1034,7 +1065,7 @@ HTML
 HTML
 ;	
 	
-	$html .= "</fieldset>";
+	$html .= "</div><!-- fieldset -->";
 	
 	
 	$html .= ''
@@ -1045,16 +1076,18 @@ HTML
 	if ($type eq 'edit') {
 		$html .= <<HTML
 <label for="comment" style="margin-left:10px">$Lang{edit_comment}{$lang}</label>
-<input id="comment" name="comment" value="" type="text" class="text ui-widget-content ui-corner-all" />
+<input id="comment" name="comment" value="" type="text" class="text" />
 HTML
 	}
 	
-	$html .= submit(-name=>'save', -label=>lang("save"), -class=>"jbutton")
-	. end_form();
+	$html .= <<HTML
+<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small" />
+</form>
+HTML
+;
 
-	
-	
 	# Display history
+	
 	if ($product_ref->{rev} > 0) {
 	
 		my $path = product_path($code);
@@ -1063,7 +1096,7 @@ HTML
 			$changes_ref = [];
 		}
 		
-		$html .= "<h3>" . lang("history") . "</h3>\n<ul>\n";
+		$html .= "<h2>" . lang("history") . "</h2>\n<ul>\n";
 		
 		my $current_rev = $product_ref->{rev};
 		
