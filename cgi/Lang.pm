@@ -6445,7 +6445,7 @@ search_graph_blog => {
 	de => "<p>→ mehr über Open Food Facts Grafiken erfahren: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Grafiken in 3-Click</a> (blog).</p>",
 },
 
-advanced_search => {
+advanced_search_old => {
 	fr => "Recherche avancée, graphiques et carte",
 	en => "Advanced search and graphs",
 	el => "Προηγμένη αναζήτηση, γραφήματα και χάρτες",
@@ -6455,6 +6455,24 @@ advanced_search => {
 	he => "חיפוש מתקדם ותרשימים",
 	nl => "Geavanceerd zoeken, grafieken en kaart",
 	de => "Erweiterte Suche, Grafiken und Karten",
+},
+
+advanced_search => {
+	fr => "Recherche avancée",
+	en => "Advanced search",
+	es => "Búsqueda avanzada",
+	pt => "Pesquisa avançada",
+	nl => "Geavanceerd zoeken",
+	de => "Erweiterte Suche",
+},
+
+graphs_and_maps => {
+	fr => "Graphiques et cartes",
+	en => "Graphs and maps",
+	es => "Gráficos",
+	pt => "Gráficos",
+	nl => "Grafieken en kaart",
+	de => "Grafiken und Karten",
 },
 
 edit_comment => {

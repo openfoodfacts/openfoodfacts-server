@@ -4221,7 +4221,6 @@ ul.products {
 
 .products a:hover {
 	background:#f4f4f4;
-	text-decoration:none;
 }
 
 .products img {
@@ -4504,6 +4503,7 @@ HTML
 					<div class="small-8 columns">
 						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lang}" name="search_terms" />
 						<input name="search_simple" value="1" type="hidden" />
+						<input name="action" value="process" type="hidden" />
 					</div>
 					<div class="small-4 columns">
 						 <button type="submit" title="$Lang{search}{$lang}"><i class="fi-magnifying-glass"></i></button>
@@ -4513,6 +4513,11 @@ HTML
 			</form>	
 		</li>
 		
+		<li class="show-for-xlarge-up"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-plus"></i></a></li>
+		
+		<li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1=1" title="$Lang{graphs_and_maps}{$lang}"><i class="fi-graph-bar"></i></a></li>
+		
+		<li class="show-for-xlarge-up divider"></li>
 	
 		<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
 		<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
@@ -4535,12 +4540,20 @@ HTML
 			<form action="/cgi/search.pl">
 			<div class="row collapse ">
 
-					<div class="small-10 columns">
+					<div class="small-8 columns">
 						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="q">
 						<input name="search_simple" value="1" type="hidden" />
+						<input name="action" value="process" type="hidden" />						
 					</div>
 					<div class="small-2 columns">
-						 <a href="#" class="button postfix"><i class="fi-magnifying-glass"></i></a>
+						 <button type="submit" class="button postfix"><i class="fi-magnifying-glass"></i></button>
+					</div>
+					
+					<div class="small-1 columns">
+							<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-plus"></i></a>
+					</div>
+					<div class="small-1 columns">
+							<a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}"><i class="fi-graph-bar"></i></a>
 					</div>
 
 			</div>
@@ -4578,13 +4591,25 @@ HTML
 			<form action="/cgi/search.pl" class="hide-for-xlarge-up">
 			<div class="row collapse">
 
-					<div class="small-10 columns">
+					<div class="small-8 columns">
 						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="q">
 						<input name="search_simple" value="1" type="hidden" />
+						<input name="action" value="process" type="hidden" />
 					</div>
 					<div class="small-2 columns">
-						 <a href="#" class="button postfix"><i class="fi-magnifying-glass"></i></a>
+						 <button type="submit" class="button postfix"><i class="fi-magnifying-glass"></i></button>
 					</div>
+					
+					<div class="small-1 columns">
+						<label class="right inline">
+							<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-plus"></i></a>
+						</label>
+					</div>
+					<div class="small-1 columns">
+						<label class="right inline">
+							<a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}"><i class="fi-graph-bar"></i></a>
+						</label>
+					</div>					
 
 			</div>
 			</form>		
