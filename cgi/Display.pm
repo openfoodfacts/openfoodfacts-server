@@ -4092,13 +4092,17 @@ $meta_description
 	placeholder: "$Lang{select_country}{$lang}",
     allowClear: true
 	}
-	).on("change", function(e) {
-	var subdomain =  e.val;
+	).on("select2:select", function(e) {
+	var subdomain =  e.params.data.id;
 	if (! subdomain) {
 		subdomain = 'world';
 	}
 	window.location.href = "http://" + subdomain + ".${server_domain}";
-});
+}).on("select2:unselect", function(e) {
+
+	window.location.href = "http://world.${server_domain}";
+})
+;
 <initjs>
 });
 </script>
@@ -4190,12 +4194,16 @@ ul.products {
 .products li {
 	text-align:center;
 	display:block;
-	width:120px;;
-	height:150px;
-	padding:10px;
-	overflow:hidden;
-	margin:10px;
 	float:left;
+}
+
+.products a {
+	display:block;
+	width:120px;;
+	height:167px;
+	padding:10px;
+	margin:10px;
+	overflow:hidden;	
 }
 
 .products div {
@@ -4207,6 +4215,13 @@ ul.products {
 	margin:0px;
 	display: table-cell;
 	vertical-align:middle;
+}
+
+
+
+.products a:hover {
+	background:#f4f4f4;
+	text-decoration:none;
 }
 
 .products img {
