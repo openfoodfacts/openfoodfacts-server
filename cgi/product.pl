@@ -553,9 +553,6 @@ label { margin-top: 20px; }
 fieldset { margin-top: 15px; margin-bottom:15px;}
 
 legend { font-size: 1.2em; }
-.example { font-size: 0.8em; color:green; }
-.note { font-size: 0.8em; }
-.example, .note { margin-top:4px;margin-bottom:0px;margin-left:4px; }
 
 textarea {  height:6rem; }
 
