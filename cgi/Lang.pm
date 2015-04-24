@@ -5399,12 +5399,12 @@ add => {
 },
 
 product_image_with_barcode => {
-	fr => 'Image du produit avec code barre :',
-	en => 'Product picture with barcode:',
+	fr => 'Image avec code barre :',
+	en => 'Picture with barcode:',
 	el => "Εικόνα προϊόντος με barcode",
 	de => 'Produktfoto mit Barcode:',
-	es => 'Imagen del producto con código de barras:',
-	pt => 'Imagem do produto com o código de barras:',
+	es => 'Imagen con código de barras:',
+	pt => 'Imagem com o código de barras:',
 	ro => "Imaginea produsului cu codul de bare:",
 	he => 'תמונת המוצר עם ברקוד:',
 	nl => "Foto van het product met barcode",
@@ -5788,7 +5788,7 @@ search_terms_note => {
 
 search_tag => {
 	fr => "choisir un critère...",
-	en => "choose a criteria...",
+	en => "choose a criterion...",
         el => 'επιλέξτε ένα κριτήριο...',
 	es => "escoge un criterio...",
 	pt => "escolhe um critério...",
@@ -5857,10 +5857,14 @@ search_does_not_contain => {
 	nl => "bevat geen",
 	de => "enthält nicht",
 },
+search_value => {
+	fr => "valeur",
+	en => "value",
+},
 search_or => {
 	fr => "ou",
 	en => "or",
-          el => 'ή',
+	el => 'ή',
 	es => "o",
 	pt => "ou",
 	ro => "sau",
@@ -5869,31 +5873,31 @@ search_or => {
 	de => "oder",
 },
 search_page_size => {
-	fr => "Nombre de résultats par page",
-	en => "Number of results by page",
-        el => 'Αριθμός αποτελεσμάτων ανά σελίδα',
-	es => "Número de resultados por página",
-	pt => "Número de resultados por página",
-	ro => "Numărul de rezultate per pagină",
+	fr => "Résultats par page",
+	en => "Results per page",
+	el => 'Αριθμός αποτελεσμάτων ανά σελίδα',
+	es => "Resultados por página",
+	pt => "Resultados por página",
+	ro => "Rezultate per pagină",
 	he => "מספר התוצאות לפי עמוד",
-	nl => "Aantal resultaten per pagina",
-	de => "Anzahl der Ergebnisse pro Seite",
+	nl => "Resultaten per pagina",
+	de => "Ergebnisse pro Seite",
 },
 sort_by => {
-	fr => "Trier par :",
-	en => "Sort by:",
-        el => 'Ταξινομήστε ανά :',
-	es => "Ordenar por:",
-	pt => "Ordenar por:",
-	ro => "Ordonează după:",
-	he => "סידור לפי:",
-	nl => "Ordenen volgens:",
-	de => "Sortieren nach:",
+	fr => "Trier par",
+	en => "Sort by",
+	el => 'Ταξινομήστε ανά ',
+	es => "Ordenar por",
+	pt => "Ordenar por",
+	ro => "Ordonează după",
+	he => "סידור לפי",
+	nl => "Ordenen volgens",
+	de => "Sortieren nach",
 },
 sort_popularity => {
 	fr => "Popularité",
 	en => "Popularity",
-        el => 'Δημοφιλία',
+	el => 'Δημοφιλία',
 	es => "Popularidad",
 	pt => "Popularidade",
 	ro => "Popularitate",
@@ -5903,7 +5907,7 @@ sort_popularity => {
 sort_product_name => {
 	fr => "Nom du produit",
 	en => "Product name",
-        el => 'Όνομα προϊόντος',
+	el => 'Όνομα προϊόντος',
 	es => "Nombre del producto",
 	pt => "Nome do produto",
 	ro => "Numele produsului",
@@ -6022,7 +6026,7 @@ search_graph_note => {
 graph_title => {
 	fr => "Titre du graphique",
 	en => "Graph title",
-        el => 'Τίτλος γραφήματος ',
+	el => 'Τίτλος γραφήματος ',
 	es => "Título del gráfico",
 	pt => "Título de gráfico",
 	ro => "Titlul graficului",
@@ -6249,6 +6253,40 @@ search_map => {
 	nl => "Kaart",
 	de => "Karte",
 },
+
+search_list_choice => {
+	fr => "Résultats sous forme de liste de produits",
+	en => "Results in a list of products",
+},
+
+search_graph_choice => {
+	fr => "Résultats sur un graphique",
+	en => "Results on a graph",
+},
+
+search_map_choice => {
+	fr => "Résultats sur une carte",
+	en => "Results on a map",
+},
+
+search_graph_instructions => {
+	en => "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to
+get a cloud of products (scatter plot).",
+	fr => "Choisissez ce que vous voulez représenter sur l'axe horizontale du graphique pour obtenir un histogramme, et
+sur les deux axes pour obtenir un nuage de produits.",
+},
+
+search_download_choice => {
+	fr => "Télécharger les résultats",
+	en => "Download results",
+	el => "Κατεβάστε αποτελέσματα",
+	es => "Descargar los resultados",
+	pt => "Transferir os resultados",
+	ro => "Descărcați rezultatele",
+	nl => "Download de resultaten",
+	de => "Ergebnisse herunterladen",	
+},
+
 
 search_title_graph => {
 	fr => 'Graphique des résultats',
@@ -8369,6 +8407,11 @@ menu_add_a_product_link => {
 search_a_product_placeholder => {
 	en => "Search a product",
 	fr => "Chercher un produit",
+},
+
+search_criteria => {
+	en => "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc.",
+	fr => "Sélectionner les produits suivant leur marque, catégories, labels, origines des ingrédients, lieux de fabrication etc.",
 },
 
 logo => {

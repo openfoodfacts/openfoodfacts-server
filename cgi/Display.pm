@@ -2631,6 +2631,7 @@ pnns_groups_2
 sub escape_single_quote($) {
 	my $s = shift;
 	$s =~ s/'/\\'/g;
+	$s =~ s/\n/ /g;
 	return $s;
 }
 
@@ -2710,7 +2711,7 @@ sub display_scatter_plot($$$) {
 				and ((($graph_ref->{axis_y} eq 'additives_n') and (defined $product_ref->{$graph_ref->{axis_y}})) or 
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"} ne ''))) {
 				
-				my $url = "http://$cc.${server_domain}" . product_url($product_ref->{code});
+				my $url = "http://$subdomain" . product_url($product_ref->{code});
 				
 				# Identify the series id
 				my $seriesid = 0;
@@ -2774,7 +2775,7 @@ sub display_scatter_plot($$$) {
 					add_product_nutriment_to_stats(\%nutriments, $nid, $product_ref->{nutriments}{"${nid}_100g"});
 				}
 				$data .= ' product_name:"' . escape_single_quote($product_ref->{product_name}) . '", url: "' . $url . '", img:\''
-					. escape_single_quote(display_image($product_ref, 'front', $thumb_size)) . "'";
+					. escape_single_quote(display_image_thumb($product_ref, 'front')) . "'";
 ;
 				
 				$data .= "},\n";
@@ -3779,7 +3780,7 @@ sub display_my_block($)
 		my $links = '<ul class="side-nav" style="padding-top:0">';
 		$links .= "<li><a href=\"" . canonicalize_tag_link("users", get_fileid($User_id)) . "\">" . lang("products_you_edited") . "</a></li>";
 		$links .= "<li><a href=\"" . canonicalize_tag_link("users", get_fileid($User_id)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed") . "\">" . lang("incomplete_products_you_added") . "</a></li>";  
-		$links .= "</p>";
+		$links .= "</ul>";
 		
 		my $content = '';
 		
@@ -3802,7 +3803,7 @@ HTML
 	</form>
 </li>
 <li>
-	<a href="/cgi/user.pl?userid=$User_id&type=edit" class="button small" title="$Lang{edit_settings}{$lc}"><i class="fi-widget"></i></a>
+	<a href="/cgi/user.pl?userid=$User_id&type=edit" class="button small" title="$Lang{edit_settings}{$lc}" style="padding-left:1rem;padding-right:1rem"><i class="fi-widget"></i></a>
 </li>
 </ul>
 $links
@@ -4098,7 +4099,7 @@ $meta_description
 	}
 	window.location.href = "http://" + subdomain + ".${server_domain}";
 });
-$initjs
+<initjs>
 });
 </script>
 
@@ -4335,6 +4336,14 @@ line-height:1.2;
 #select_country_li {padding-left:0;}
 }
 
+#main_column {
+	padding-bottom:2rem;
+}
+
+.example { font-size: 0.8em; color:green; }
+.note { font-size: 0.8em; }
+.example, .note { margin-top:4px;margin-bottom:0px;margin-left:4px; }
+
 HTML
 ;
 
@@ -4452,8 +4461,20 @@ HTML
 	my $blocks = display_blocks($request_ref);
 	my $aside_blocks = $blocks;
 	
+	my $aside_initjs = $initjs;
+	
 	# keep only the login block for off canvas
 	$aside_blocks =~ s/<!-- end off canvas blocks for small screens -->(.*)//s;
+	
+	$aside_initjs =~ s/(.*)\/\/ start off canvas blocks for small screens//s;
+	$aside_initjs =~ s/\/\/ end off canvas blocks for small screens(.*)//s;
+	
+	# change ids of the add product image upload form
+	$aside_blocks =~ s/block_side/block_aside/g;
+	
+	$aside_initjs =~ s/block_side/block_aside/g;
+	
+	$initjs .= $aside_initjs;
 	
 	$html .= <<HTML
 
@@ -4462,12 +4483,12 @@ HTML
 	<!-- Right Nav Section -->
 	<ul class="right">
 		<li class="show-for-xlarge-up">
-			<form action="/cgi/search.pl" id="search2">
+			<form action="/cgi/search.pl">
 			<div class="row collapse ">
 
 					<div class="small-8 columns">
-						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lang}" name="search_terms" id="q2">
-						<input name="search_simple" id="search_simple" value="1" type="hidden" />
+						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lang}" name="search_terms" />
+						<input name="search_simple" value="1" type="hidden" />
 					</div>
 					<div class="small-4 columns">
 						 <button type="submit" title="$Lang{search}{$lang}"><i class="fi-magnifying-glass"></i></button>
@@ -4496,11 +4517,12 @@ HTML
 	<i class="fi-torso" style="color:white;font-size:1.8rem"></i></a>
   </div>
   <div class="middle tab-bar-section" style="padding-top:4px;">
-			<form action="/cgi/search.pl" id="search2">
+			<form action="/cgi/search.pl">
 			<div class="row collapse ">
 
 					<div class="small-10 columns">
-						<input type="text" placeholder="Chercher un produit" name="q" id="q2">
+						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="q">
+						<input name="search_simple" value="1" type="hidden" />
 					</div>
 					<div class="small-2 columns">
 						 <a href="#" class="button postfix"><i class="fi-magnifying-glass"></i></a>
@@ -4533,16 +4555,17 @@ HTML
   <a class="exit-off-canvas"></a>
 
   
-  
+<!-- main row - comment used to remove left column and center content on some pages -->  
 <div class="row full-width" style="max-width: 100% !important;" data-equalizer>
 	<div class="xxlarge-1 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
 		<div class="sidebar">
 		
-			<form action="/cgi/search.pl" id="search2" class="hide-for-xlarge-up">
+			<form action="/cgi/search.pl" class="hide-for-xlarge-up">
 			<div class="row collapse">
 
 					<div class="small-10 columns">
-						<input type="text" placeholder="Chercher un produit" name="q" id="q2">
+						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="q">
+						<input name="search_simple" value="1" type="hidden" />
 					</div>
 					<div class="small-2 columns">
 						 <a href="#" class="button postfix"><i class="fi-magnifying-glass"></i></a>
@@ -4563,7 +4586,7 @@ HTML
 		<a href="https://twitter.com/share" class="twitter-share-button" data-lang="$lc" data-via="$Lang{twitter_account}{$lang}" data-url="$subdomain.${server_domain}" data-count="vertical">Tweeter</a>
 	</li>
 	<li><fb:like href="$subdomain.${server_domain}" layout="box_count"></fb:like></li>
-	<li><g:plusone size="tall" count="true" href="$subdomain.${server_domain}"></g:plusone></li>
+	<li><div class="g-plusone" data-size="tall" data-count="true" data-href="$subdomain.${server_domain}"></div></li>
 </ul>
 
 
@@ -4572,8 +4595,11 @@ $blocks
 		</div> <!-- sidebar -->
 	</div> <!-- left column -->
 		
-	<div class="xxlarge-11 xlarge-10 large-9 medium-8 columns" style="padding-top:1rem" data-equalizer-watch>
+	
+	<div id="main_column" class="xxlarge-11 xlarge-10 large-9 medium-8 columns" style="padding-top:1rem" data-equalizer-watch>
 
+<!-- main column content - comment used to remove left column and center content on some pages -->  
+	
 $h1_title
 
 $$content_ref
@@ -4604,10 +4630,11 @@ $$content_ref
 
 <div style="float:left;width:150px;margin-bottom:2rem;"><a href="https://itunes.apple.com/fr/app/open-food-facts/id588797948"><img src="/images/misc/Available_on_the_App_Store_Badge_FR_135x40.png" alt="Disponible sur l'App Store" width="135" height="40" /></a></div>
 
-<div style="float:left;width:150px;margin-bottom:2rem;"><a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponible sur Google Play" width="135" height="47" /></a>
-<br/><a href="http://world.openfoodfacts.org/files/off.apk">Android apk</a></div>
+<div style="float:left;width:150px;margin-bottom:2rem;"><a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponible sur Google Play" width="135" height="47" /></a></div>
 
 <div style="float:left;width:150px;margin-bottom:2rem;"><a href="http://www.windowsphone.com/fr-fr/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"><img src="/images/misc/154x40_WP_Store_blk.png" alt="Windows Phone Store" width="154" height="40" /></a></div>
+
+<div style="float:left;width:150px;margin-bottom:2rem;"><a href="http://world.openfoodfacts.org/files/off.apk">Android apk</a></div>
 		
 	</div>
 	
@@ -4627,13 +4654,13 @@ $$content_ref
 <li><a href="http://fr.wiki.openfoodfacts.org">le wiki</a></li>
 <li><a href="http://twitter.com/openfoodfactsfr">Twitter</a></li>
 <li><a href="https://plus.google.com/u/0/b/102622509148794386660/102622509148794386660/">Google+</a></li>
-<li><a href="https://www.facebook.com/OpenFoodFacts.fr">Facebook</a></li>
+<li><a href="https://www.facebook.com/OpenFoodFacts.fr">Facebook</a><br/>
 + <a href="https://www.facebook.com/groups/356858984359591/">groupe des contributeurs</a></li>
 <li><a href="mailto:off-fr-subscribe\@openfoodfacts.org">envoyez un e-mail vide</a> pour
 vous abonner à la liste de discussion</li>
-	</div
+</ul>
 	
-
+	</div>
 </div>
 
 
@@ -4658,8 +4685,15 @@ vous abonner à la liste de discussion</li>
 
     </script>	
 
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
-  {lang: 'fr'}
+<script type="text/javascript">
+  window.___gcfg = {
+    lang: '$Lang{facebook_locale}{$lang}'
+  };
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
 </script>
 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>	
@@ -4675,7 +4709,12 @@ $scripts
 	\$(document).foundation(  { equalizer : {
     // Specify if Equalizer should make elements equal height once they become stacked.
     equalize_on_stack: true
-	}
+	},
+    accordion: {
+      callback : function (accordion) {
+        \$(document).foundation('equalizer', 'reflow');
+      }
+    }	
   });
 </script>
 
@@ -4685,6 +4724,26 @@ $scripts
 HTML
 ;
 	
+	
+	# no side column?
+	# e.g. in Discover and Contribute page
+	
+	if ($html =~ /<!-- no side column -->/) {
+	
+		my $new_main_row_column = <<HTML
+<div class="row">
+	<div class="large-12 columns" style="padding-top:1rem">
+HTML
+;
+
+		$html =~ s/<!-- main row -(.*)<!-- main column content(.*?)-->/$new_main_row_column/s;
+	
+	}
+	
+
+	# init javascript code
+	
+	$html =~ s/<initjs>/$initjs/;
 
 	if ((defined param('length')) and (param('length') eq 'logout')) {
 		my $test = '';
@@ -4709,7 +4768,7 @@ HTML
 }
 
 
-sub display_product_search_or_add($)
+sub display_product_search_or_add($$)
 {
 	my $blocks_ref = shift;
 	
@@ -4720,9 +4779,9 @@ sub display_product_search_or_add($)
 	
 	my $html = '';
 	
-	$html .= start_multipart_form(-id=>"product_search_or_add",-action=>"/cgi/product.pl") ;
+	$html .= start_multipart_form(-action=>"/cgi/product.pl") ;
 
-	$html .= display_search_image_form();
+	$html .= display_search_image_form("block_side");
 	
 	$html .= <<HTML
 

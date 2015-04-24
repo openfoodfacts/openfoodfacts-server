@@ -70,8 +70,8 @@ my @search_ingredient_classes = ('additives', 'ingredients_from_palm_oil', 'ingr
 
 # Read all the parameters, watch for XSS
 
-my $tags_n = 3;
-my $nutriments_n = 3;
+my $tags_n = 2;
+my $nutriments_n = 2;
 
 my $search_terms = remove_tags_and_quote(decode utf8=>param('search_terms2'));	#advanced search takes precedence
 if ((not defined $search_terms) or ($search_terms eq '')) {
@@ -103,6 +103,7 @@ if ((not defined param('jqm')) and ($search_terms =~ /^(\d{8})\d*$/)) {
 my @search_tags = ();
 my @search_nutriments = ();
 my %search_ingredient_classes = {};
+my %search_ingredient_classes_checked = {};
 
 for (my $i = 0; $i < $tags_n ; $i++) {
 
@@ -119,6 +120,7 @@ foreach my $tagtype (@search_ingredient_classes) {
 	
 	$search_ingredient_classes{$tagtype} = param($tagtype);
 	not defined $search_ingredient_classes{$tagtype} and $search_ingredient_classes{$tagtype} = 'indifferent';
+	$search_ingredient_classes_checked{$tagtype} = { $search_ingredient_classes{$tagtype} => 'checked="checked"' };
 }
 
 for (my $i = 0; $i < $nutriments_n ; $i++) {
@@ -179,18 +181,33 @@ foreach my $series (@search_series, "nutrition_grades") {
 
 if ($action eq 'display') {
 
+	my $active_list = 'active';
+	my $active_map = '';
+	my $active_graph = '';
+	
+	if (param("generate_map")) {
+		$active_list = '';
+		$active_map = 'active';
+	}
+	elsif (param("graph")) {
+		$active_list = '';
+		$active_graph = 'active';	
+	}
+
 	# Display the search form
 
-	my $html = start_form(-id=>"search_form", -action=>"/cgi/search.pl") ;
-	
-	my $tagsinput = "";
+	my $html = start_form(-id=>"search_form", -action=>"/cgi/search.pl") ;	
 	
 	$html .= <<HTML
-<label for="search_terms2">$Lang{search_terms}{$lang}</label>
-<input name="search_terms2" id="search_terms2" class="text ui-widget-content ui-corner-all${tagsinput}" value="$search_terms" />
-<p class="note">&rarr; $Lang{search_terms_note}{$lang}</p>			
+<div class="row">
+	<div class="large-12 columns">
+<label for="search_terms2">$Lang{search_terms_note}{$lc}</label>
+<input type="text" name="search_terms2" id="search_terms2" value="$search_terms" />
+	</div>
+</div>	
 
-<h3>$Lang{search_tags}{$lang}</h3>	
+<h3>$Lang{search_tags}{$lang}</h3>
+<label>$Lang{search_criteria}{$lc}</label>	
 HTML
 ;
 
@@ -199,22 +216,48 @@ HTML
 		$search_fields_labels{$field} = lang($field . "_p");
 	}
 	$search_fields_labels{search_tag} = lang("search_tag");
+	
+	$html .= <<HTML
+<div class="row">
+HTML
+;
 
 	for (my $i = 0; $i < $tags_n ; $i++) {
 	
-		$html .= popup_menu(-name=>"tagtype_$i", -id=>"tagtype_$i", -value=> $search_tags[$i][0], -values=>['search_tag', @search_fields], -labels=>\%search_fields_labels)
-		. popup_menu(-name=>"tag_contains_$i", -id=>"tag_contains_$i", -value=> $search_tags[$i][1], -values=>["contains", "does_not_contain"],
-			-labels=>{"contains" => lang("search_contains"), "does_not_contain" => lang("search_does_not_contain")} )
-		.
-		<<HTML
-<input id="tag_$i" name="tag_$i" value="$search_tags[$i][2]" class="text ui-widget-content ui-corner-all" />
-<br /><br />
+		$html .= <<HTML
+	<div class="small-12 medium-12 large-6 columns" style="padding-top:1rem">
+		<div class="row">
+			<div class="small-12 medium-12 large-5 columns">
+HTML
+;
+	
+		$html .= popup_menu(-name=>"tagtype_$i", -id=>"tagtype_$i", -value=> $search_tags[$i][0], -values=>['search_tag', @search_fields], -labels=>\%search_fields_labels);
+		
+		$html .= <<HTML
+			</div>
+			<div class="small-12 medium-12 large-3 columns">
+HTML
+;
+		$html .=  popup_menu(-name=>"tag_contains_$i", -id=>"tag_contains_$i", -value=> $search_tags[$i][1], -values=>["contains", "does_not_contain"],
+                        -labels=>{"contains" => lang("search_contains"), "does_not_contain" => lang("search_does_not_contain")} );
+
+		$html .= <<HTML						
+			</div>
+			<div class="small-12 medium-12 large-4 columns">
+				<input type="text" id="tag_$i" name="tag_$i" value="$search_tags[$i][2]" placeholder="$Lang{search_value}{$lc}"/>
+			</div>
+		</div>
+	</div>
 HTML
 ;
 	}
 	
 	$html .= <<HTML	
+</div>
+
 <h3>$Lang{search_ingredients}{$lang}</h3>	
+
+<div class="row">
 HTML
 ;
 
@@ -222,21 +265,33 @@ HTML
 	
 		not defined $search_ingredient_classes{$tagtype} and $search_ingredient_classes{$tagtype} = 'indifferent';
 	
-		$html .= ucfirst(lang($tagtype . "_p")) . lang("sep") . ": " ;
-		$html .= radio_group(-name=>$tagtype,
-			     -values=>['without', 'with', 'indifferent'], -default=>$search_ingredient_classes{$tagtype},
-			     -labels=>{with=>lang("search_with"), without=>lang("search_without"), indifferent=>lang("search_indifferent")})
-			. "<br />";
+		my $label = ucfirst(lang($tagtype . "_p")) ;
 		
-		if ($tagtype eq 'additives') {
-			$html .= "<br />";
-		}
-	
+		$html .= <<HTML
+	<div class="small-12 medium-12 large-6 columns">
+		<label>$label</label>		
+HTML
+;		
+				
+		
+		$html .= <<HTML
+			<input type="radio" name="$tagtype" value="without" id="without_$tagtype" $search_ingredient_classes_checked{$tagtype}{without}/>
+				<label for="without_$tagtype">$Lang{search_without}{$lc}</label>
+			<input type="radio" name="$tagtype" value="with" id="with_$tagtype" $search_ingredient_classes_checked{$tagtype}{with}/>
+				<label for="with_$tagtype">$Lang{search_with}{$lc}</label>
+			<input type="radio" name="$tagtype" value="indifferent" id="indifferent_$tagtype" $search_ingredient_classes_checked{$tagtype}{indifferent}/>
+				<label for="indifferent_$tagtype">$Lang{search_indifferent}{$lc}</label>			
+	</div>
+HTML
+;		
 	}
 
 
 	$html .= <<HTML	
-<h3>$Lang{search_nutriments}{$lang}</h3>	
+</div>
+
+<h3>$Lang{search_nutriments}{$lang}</h3>
+<div class="row">	
 HTML
 ;
 
@@ -249,46 +304,86 @@ HTML
 
 	for (my $i = 0; $i < $nutriments_n ; $i++) {
 	
-		$html .= popup_menu(-name=>"nutriment_$i", -id=>"nutriment_$i", -value=> $search_nutriments[$i][0], -values=>['search_nutriment', @nutriments], -labels=>\%nutriments_labels)
-		. popup_menu(-name=>"nutriment_compare_$i", -id=>"nutriment_compare_$i", -value=> $search_nutriments[$i][1], -values=>['lt','lte','gt','gte','eq'],
-			-labels => {'lt' => '<', 'lte' => '<=', 'gt' => '>', 'gte' => '>=', 'eq' => '='} )
-		.
-		<<HTML
-<input id="nutriment_value_$i" name="nutriment_value_$i" value="$search_nutriments[$i][2]" class="text ui-widget-content ui-corner-all" />
-<br /><br />
+		$html .= <<HTML
+	<div class="small-12 medium-12 large-6 columns">
+		<div class="row">
+			<div class="small-8 columns">
+HTML
+;			
+	
+		$html .= popup_menu(-name=>"nutriment_$i", -id=>"nutriment_$i", -value=> $search_nutriments[$i][0], -values=>['search_nutriment', @nutriments], -labels=>\%nutriments_labels);
+		 
+		
+		$html .= <<HTML
+			</div>
+			<div class="small-2 columns">
+HTML
+;
+		$html .= popup_menu(-name=>"nutriment_compare_$i", -id=>"nutriment_compare_$i", -value=> $search_nutriments[$i][1], -values=>['lt','lte','gt','gte','eq'],
+			-labels => {'lt' => '<', 'lte' => '<=', 'gt' => '>', 'gte' => '>=', 'eq' => '='} );
+
+		$html .= <<HTML
+			</div>
+			<div class="small-2 columns">
+				<input type="text" id="nutriment_value_$i" name="nutriment_value_$i" value="$search_nutriments[$i][2]" />
+			</div>
+		</div>
+	</div>
 HTML
 ;
 	}
-
+	
+	# Different types to display results
+	
+	my $popup_sort = popup_menu(-name=>"sort_by", -id=>"sort_by", -value=> $sort_by,
+		-values=>['unique_scans_n','product_name','created_t','last_modified_t'],
+		-labels=>{unique_scans_n=>lang("sort_popularity"), product_name=>lang("sort_product_name"),
+			created_t=>lang("sort_created_t"), last_modified_t=>lang("sort_modified_t")});
+			
+	my $popup_size = popup_menu(-name=>"page_size", -id=>"page_size", -value=> $limit, -values=>[20, 50, 100, 250, 500, 1000]);
+	
 	$html .= <<HTML
-<label for="sort_by">$Lang{sort_by}{$lang}</label>
-HTML
-	. popup_menu(-name=>"sort_by", -id=>"sort_by", -value=> $sort_by, -values=>['unique_scans_n','product_name','created_t','last_modified_t'],
-		-labels=>{unique_scans_n=>lang("sort_popularity"), product_name=>lang("sort_product_name"), created_t=>lang("sort_created_t"), last_modified_t=>lang("sort_modified_t")}) 
+</div>
 
-	. <<HTML
-<br />
-<label for="page_size">$Lang{search_page_size}{$lang}</label>	
-HTML
-	. popup_menu(-name=>"page_size", -id=>"page_size", -value=> $limit, -values=>[20, 50, 100, 250, 500, 1000]) 
-	
-	. "<br /><br />"
+<input type="hidden" name="action" value="process" />
 
-	. submit(-name=>'search', -label=>lang("search_button"), -class=>"jbutton")
-	
-	. hidden(-name=>'action', -type=>"hidden", -value=>"process", -override=>1);
-	
+<ul class="accordion" style="margin-left:0" data-accordion>
+	<li class="accordion-navigation">
+		<a href="#results_list" style="border-top:1px solid #ccc"><h3>$Lang{search_list_choice}{$lc}</h3></a>
+		<div id="results_list" class="content $active_list">
+		
+			<div class="row">
+				<div class="small-6 columns">
+					<label for="sort_by">$Lang{sort_by}{$lang}</label>
+					$popup_sort
+				</div>
+				<div class="small-6 columns">
+					<label for="page_size">$Lang{search_page_size}{$lc}</label>	
+					$popup_size
+				</div>
+			</div>
+		
+		<input type="submit" name="search" class="button" value="$Lang{search_button}{$lc}" />
+		</div>
+	</li>
+HTML
+;	
+			
 	# Graphs and visualization
 	
 	$html .= <<HTML
-<h3>$Lang{search_graph_title}{$lang}</h3>
+	<li class="accordion-navigation">
+		<a href="#results_graph" style="border-top:1px solid #ccc"><h3>$Lang{search_graph_choice}{$lc}</h3></a>
+		<div id="results_graph" class="content $active_graph">
 
-<p class="note">&rarr; $Lang{search_graph_note}{$lang}</p>			
+			<div class="alert-box info">$Lang{search_graph_note}{$lang}</div>
 
-<label for="graph_title">$Lang{graph_title}{$lang}</label>
-<input name="graph_title" id="graph_title" class="text ui-widget-content ui-corner-all" style="width:400px" value="$graph_ref->{graph_title}" />
+			<label for="graph_title">$Lang{graph_title}{$lang}</label>
+			<input type="text" name="graph_title" id="graph_title" value="$graph_ref->{graph_title}" />
 
-<h4>$Lang{search_graph_2_axis}{$lang}</h4>
+			<p>$Lang{search_graph_instructions}{$lc}</p>
+
+			<div class="row">
 HTML
 ;
 
@@ -303,12 +398,27 @@ HTML
 		if ($axis eq 'y') {
 			unshift @axis_values, "products_n";
 		}
-		$html .= "<label for=\"\">" . lang("axis_$axis") . "</label>"
-			. popup_menu(-name=>"axis_$axis", -id=>"axis_$axis", -value=> $graph_ref->{"axis_" . $axis}, -values=>\@axis_values, -labels=>\%axis_labels)
-			. "<br />";
+		$html .= <<HTML
+				<div class="small-12 medium-6 columns">
+HTML
+;
+		$html .= "<label for=\"axis_$axis\">" . lang("axis_$axis") . "</label>"
+			. popup_menu(-name=>"axis_$axis", -id=>"axis_$axis", -value=> $graph_ref->{"axis_" . $axis}, -values=>\@axis_values, -labels=>\%axis_labels);
+			
+		$html .= <<HTML
+				</div>
+HTML
+;			
 	}
 	
-	$html .= "<p>" . lang("search_series") . "</p>";
+	$html .= <<HTML
+			</div>
+			
+			<div class="row">
+				<div class="small-12 medium-6 columns">
+					<p>$Lang{search_series}{$lc}</p>
+HTML
+;
 	
 	foreach my $series (@search_series, "nutrition_grades") {
 
@@ -317,69 +427,68 @@ HTML
 		if ($graph_ref->{"series_$series"} eq 'on') {
 			$checked = 'checked="checked"';
 		}
+		
+			if ($series eq 'nutrition_grades') {
+				$html .= <<HTML
+				</div>
+				<div class="small-12 medium-6 columns">
+					<p>$Lang{or}{$lc}</p>
+HTML
+;
+			}
 	
 		$html .= <<HTML
-<input type="checkbox" id="series_$series" name="series_$series" $checked />
-<label for="series_$series" class="checkbox_label">$Lang{"search_series_$series"}{$lang}</label><br /><br/>
+					<input type="checkbox" id="series_$series" name="series_$series" $checked />
+					<label for="series_$series" class="checkbox_label">$Lang{"search_series_$series"}{$lc}</label>
+
 HTML
 ;	
-	
+		
 	}
-
-	
-	
-	$html .= submit(-name=>'graph', -label=>lang("search_generate_graph"), -class=>"jbutton");	
-	
-	# Maps
-	$html .= <<HTML
-<h3>$Lang{search_map_title}{$lang}</h3>
-
-<p class="note">&rarr; $Lang{search_map_note}{$lang}</p>			
-
-<label for="map_title">$Lang{map_title}{$lang}</label>
-<input name="map_title" id="map_title" class="text ui-widget-content ui-corner-all" style="width:400px" value="$map_title" /><br /><br />
-HTML
-;	
-	
-	$html .= submit(-name=>'generate_map', -label=>lang("search_generate_map"), -class=>"jbutton");	
-	
-	
-	# Download results
 	
 	$html .= <<HTML
-<br/>
-<h3>$Lang{search_download_results}{$lang}</h3>
-
-<p>$Lang{search_download_results_description}{$lang}</p>
-<div style="margin-left:30px">
-HTML
-;
-	# <p>$Lang{search_flatten_tags}{$lang}</p>
-
-	if (0) {
-	foreach my $field (@search_fields) {
-		if (defined $search_tags_fields{$field}) {
+				</div>
+			</div>
 			
-			my $checked = '';
-			
-			if ($flatten{$field} eq 'on') {
-				$checked = 'checked="checked"';
-			}
-		
-			$html .= <<HTML
-<input type="checkbox" id="flatten_$field" name="flatten_$field" $checked />
-<label for="flatten_$field" class="checkbox_label">$Lang{"$field" . "_s"}{$lang}</label><br />
-HTML
-;
-		
-		}
-	}
-	}
+			<input type="submit" name="graph" value="$Lang{search_generate_graph}{$lc}" class="button" />
 
-	$html .= "</div>\n";
-	$html .= submit(-name=>'download', -label=>lang("search_download_button"), -class=>"jbutton");	
+		</div>
+	</li>
 	
+	<!-- Map results -->
+	
+	<li class="accordion-navigation">
+		<a href="#results_map" style="border-top:1px solid #ccc"><h3>$Lang{search_map_choice}{$lc}</h3></a>
+		<div id="results_map" class="content $active_map">
+	
+			<div class="alert-box info">$Lang{search_map_note}{$lc}</div>
+	
+			<label for="map_title">$Lang{map_title}{$lc}</label>
+			<input type="text" name="map_title" id="map_title" value="$map_title" />
+			
+			<input type="submit" name="generate_map" value="$Lang{search_generate_map}{$lc}" class="button" />
 
+		</div>
+	</li>
+	
+	<!-- Download results -->
+	
+	<li class="accordion-navigation">
+		<a href="#results_download" style="border-top:1px solid #ccc"><h3>$Lang{search_download_choice}{$lc}</h3></a>
+		<div id="results_download" class="content">
+
+			<p>$Lang{search_download_results}{$lc}</p>
+			<p>$Lang{search_download_results_description}{$lc}</p>
+			
+			<input type="submit" name="download" value="$Lang{search_download_button}{$lc}" class="button" />
+
+		</div>
+	</li>
+</ul>
+</form>
+HTML
+;
+	
 	${$request_ref->{content_ref}} .= $html;
 
 	$request_ref->{title} = lang("search_products");
