@@ -210,7 +210,9 @@ HTML
 }
 
 
-sub display_search_image_form() {
+sub display_search_image_form($) {
+
+	my $id = shift;
 
 	my $html = '';
 	
@@ -218,10 +220,10 @@ sub display_search_image_form() {
 	$product_image_with_barcode =~ s/( |\&nbsp;)?:$//;
 	
 	$html .= <<HTML
-<div id="imgsearchdiv">
+<div id="imgsearchdiv_$id">
 
-<a href="#" class="button small expand" id="imgsearchbutton"><i class="fi-camera"></i> $product_image_with_barcode
-<input type="file" accept="image/*" capture="camera" class="img_input" name="imgupload_search" id="imgupload_search" style="position: absolute;
+<a href="#" class="button small expand" id="imgsearchbutton_$id"><i class="fi-camera"></i> $product_image_with_barcode
+<input type="file" accept="image/*" capture="camera" class="img_input" name="imgupload_search" id="imgupload_search_$id" style="position: absolute;
     right:0;
     bottom:0;
     top:0;
@@ -231,16 +233,16 @@ sub display_search_image_form() {
 </a>
 </div>
 
-<div id="progressbar" class="progress" style="display:none">
-  <span id="progressmeter" class="meter" style="width:0%"></span>
+<div id="progressbar_$id" class="progress" style="display:none">
+  <span id="progressmeter_$id" class="meter" style="width:0%"></span>
 </div>
 
-<div id="imgsearchmsg" data-alert class="alert-box info" style="display:none">
+<div id="imgsearchmsg_$id" data-alert class="alert-box info" style="display:none">
   $Lang{sending_image}{$lang}
   <a href="#" class="close">&times;</a>
 </div>
 
-<div id="imgsearcherror" data-alert class="alert-box alert" style="display:none">
+<div id="imgsearcherror_$id" data-alert class="alert-box alert" style="display:none">
   $Lang{send_image_error}{$lang}
   <a href="#" class="close">&times;</a>
 </div>
@@ -260,8 +262,9 @@ JS
 
 	$initjs .= <<JS
 	
+\/\/ start off canvas blocks for small screens
 	
-    \$('#imgupload_search').fileupload({
+    \$('#imgupload_search_$id').fileupload({
         dataType: 'json',
         url: '/cgi/product.pl',
 		formData : [{name: 'jqueryfileupload', value: 1}],
@@ -272,24 +275,24 @@ JS
 				\$(location).attr('href',data.result.location);
 			}
 			if (data.result.error) {
-				\$("#imgsearcherror").html(data.result.error);
-				\$("#imgsearcherror").show();
+				\$("#imgsearcherror_$id").html(data.result.error);
+				\$("#imgsearcherror_$id").show();
 			}
         },
 		fail : function (e, data) {
-			\$("#imgsearcherror").show();
+			\$("#imgsearcherror_$id").show();
         },
 		always : function (e, data) {
-			\$("#progressbar").hide();
-			\$("#imgsearchbutton").show();
-			\$("#imgsearchmsg").hide();
+			\$("#progressbar_$id").hide();
+			\$("#imgsearchbutton_$id").show();
+			\$("#imgsearchmsg_$id").hide();
         },
 		start: function (e, data) {
-			\$("#imgsearchbutton").hide();
-			\$("#imgsearcherror").hide();
-			\$("#imgsearchmsg").show();
-			\$("#progressbar").show();
-			\$("#progressmeter").css('width', "0%");
+			\$("#imgsearchbutton_$id").hide();
+			\$("#imgsearcherror_$id").hide();
+			\$("#imgsearchmsg_$id").show();
+			\$("#progressbar_$id").show();
+			\$("#progressmeter_$id").css('width', "0%");
                     
 		},
             sent: function (e, data) {
@@ -298,17 +301,20 @@ JS
                     // Iframe Transport does not support progress events.
                     // In lack of an indeterminate progress bar, we set
                     // the progress to 100%, showing the full animated bar:
-                    \$("#progressmeter").css('width', "100%");
+                    \$("#progressmeter_$id").css('width', "100%");
                 }
             },
             progress: function (e, data) {
 
-                   \$("#progressmeter").css('width', parseInt(data.loaded / data.total * 100, 10) + "%");
-					\$("#imgsearchdebug").html(data.loaded + ' / ' + data.total);
+                   \$("#progressmeter_$id").css('width', parseInt(data.loaded / data.total * 100, 10) + "%");
+					\$("#imgsearchdebug_$id").html(data.loaded + ' / ' + data.total);
                 
             }
 		
     });	
+	
+\/\/ end off canvas blocks for small screens
+	
 JS
 ;
 	
@@ -699,11 +705,8 @@ sub process_image_crop($$$$$$$$$$) {
 	
 	my $filename = "$id.$imgid";
 	
-	if ($white_magic eq 'checked') {
+	if (($white_magic eq 'checked') or ($white_magic eq 'true')) {
 		$filename .= ".white";
-	}	
-	
-	if ($white_magic eq 'checked') {
 
 		my $image = $source;
 	
@@ -826,7 +829,7 @@ sub process_image_crop($$$$$$$$$$) {
 	}	
 	
 	
-	if ($normalize eq 'checked') {
+	if (($normalize eq 'checked') or ($normalize eq 'true')) {
 		$source->Normalize( channel=>'RGB' );
 		$filename .= ".normalize";
 	}
@@ -941,9 +944,7 @@ sub display_image_thumb($$) {
 
 			
 		$html .= <<HTML
-<img src="/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" 
-srcset="/images/products/$path/$id.$rev.$small_size.jpg 2x"
-alt="$alt" />
+<img src="/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="/images/products/$path/$id.$rev.$small_size.jpg 2x"alt="$alt" />
 HTML
 ;		
 	
@@ -971,7 +972,6 @@ sub display_image($$$) {
 			
 		$html .= <<HTML
 <img class="hide-for-xlarge-up" src="/images/products/$path/$id.$rev.$size.jpg" width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" />
-
 <img class="show-for-xlarge-up" src="/images/products/$path/$id.$rev.$display_size.jpg" width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" />
 HTML
 ;
