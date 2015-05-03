@@ -4496,7 +4496,7 @@ HTML
 	
 	<!-- Right Nav Section -->
 	<ul class="right">
-		<li class="show-for-xlarge-up">
+		<li class="show-for-large-up">
 			<form action="/cgi/search.pl">
 			<div class="row collapse ">
 
@@ -4513,11 +4513,11 @@ HTML
 			</form>	
 		</li>
 		
-		<li class="show-for-xlarge-up"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-plus"></i></a></li>
+		<li class="show-for-large-up"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-plus"></i></a></li>
 		
-		<li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1=1" title="$Lang{graphs_and_maps}{$lang}"><i class="fi-graph-bar"></i></a></li>
+		<li class="show-for-large-up"><a href="/cgi/search.pl?graph=1=1" title="$Lang{graphs_and_maps}{$lang}"><i class="fi-graph-bar"></i></a></li>
 		
-		<li class="show-for-xlarge-up divider"></li>
+		<li class="show-for-large-up divider"></li>
 	
 		<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
 		<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
@@ -4588,7 +4588,23 @@ HTML
 	<div class="xxlarge-1 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
 		<div class="sidebar">
 		
-			<form action="/cgi/search.pl" class="hide-for-xlarge-up">
+<div style="text-align:center">
+<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" width="178" height="141" alt="Open Food Facts" style="margin-bottom:1rem"/></a>
+</div>
+
+<p>$Lang{tagline}{$lc}</p>
+
+<ul class="small-block-grid-3" id="sharebuttons">
+	<li>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-lang="$lc" data-via="$Lang{twitter_account}{$lang}" data-url="$subdomain.${server_domain}" data-count="vertical">Tweeter</a>
+	</li>
+	<li><fb:like href="$subdomain.${server_domain}" layout="box_count"></fb:like></li>
+	<li><div class="g-plusone" data-size="tall" data-count="true" data-href="$subdomain.${server_domain}"></div></li>
+</ul>
+
+
+
+			<form action="/cgi/search.pl" class="hide-for-large-up">
 			<div class="row collapse">
 
 					<div class="small-8 columns">
@@ -4613,21 +4629,6 @@ HTML
 
 			</div>
 			</form>		
-			
-
-<div style="text-align:center">
-<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" width="178" height="141" alt="Open Food Facts" style="margin-bottom:1rem"/></a>
-</div>
-
-<p>Open Food Facts répertorie les produits alimentaires du monde entier.</p>
-
-<ul class="small-block-grid-3" id="sharebuttons">
-	<li>
-		<a href="https://twitter.com/share" class="twitter-share-button" data-lang="$lc" data-via="$Lang{twitter_account}{$lang}" data-url="$subdomain.${server_domain}" data-count="vertical">Tweeter</a>
-	</li>
-	<li><fb:like href="$subdomain.${server_domain}" layout="box_count"></fb:like></li>
-	<li><div class="g-plusone" data-size="tall" data-count="true" data-href="$subdomain.${server_domain}"></div></li>
-</ul>
 
 
 $blocks
@@ -4668,13 +4669,13 @@ $$content_ref
 	<div class="small-12 medium-6 large-3 columns" style="border-top:10px solid #ffcc00" data-equalizer-watch>
 		<h4>Installez l'app</h4>
 
-<div style="float:left;width:150px;margin-bottom:2rem;"><a href="https://itunes.apple.com/fr/app/open-food-facts/id588797948"><img src="/images/misc/Available_on_the_App_Store_Badge_FR_135x40.png" alt="Disponible sur l'App Store" width="135" height="40" /></a></div>
+<div style="float:left;width:160px;height:70px;"><a href="https://itunes.apple.com/fr/app/open-food-facts/id588797948"><img src="/images/misc/Available_on_the_App_Store_Badge_FR_135x40.png" alt="Disponible sur l'App Store" width="135" height="40" /></a></div>
 
-<div style="float:left;width:150px;margin-bottom:2rem;"><a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponible sur Google Play" width="135" height="47" /></a></div>
+<div style="float:left;width:160px;height:70px;"><a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponible sur Google Play" width="135" height="47" /></a></div>
 
-<div style="float:left;width:150px;margin-bottom:2rem;"><a href="http://www.windowsphone.com/fr-fr/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"><img src="/images/misc/154x40_WP_Store_blk.png" alt="Windows Phone Store" width="154" height="40" /></a></div>
+<div style="float:left;width:160px;height:70px;"><a href="http://www.windowsphone.com/fr-fr/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"><img src="/images/misc/154x40_WP_Store_blk.png" alt="Windows Phone Store" width="154" height="40" /></a></div>
 
-<div style="float:left;width:150px;margin-bottom:2rem;"><a href="http://world.openfoodfacts.org/files/off.apk">Android apk</a></div>
+<div style="float:left;width:160px;height:70px;"><a href="http://world.openfoodfacts.org/files/off.apk"><img src="/images/misc/android-apk.112x40.png" alt="Android APK" /></a></div>
 		
 	</div>
 	
@@ -4808,7 +4809,7 @@ HTML
 }
 
 
-sub display_product_search_or_add($$)
+sub display_product_search_or_add($)
 {
 	my $blocks_ref = shift;
 	
@@ -5768,7 +5769,15 @@ CSS
 ;
 			}
 			
-			$html .= checkbox(-class=>"show_comparison", -id=>$colid, -label=> " " . $comparison_ref->{name}, -checked=>$checked);
+			my $checked_html = "";
+			if ($checked) {
+				$checked_html = ' checked="checked"';
+			}
+			
+			$html .= <<HTML
+<label style="display:inline;font-size:1rem;"><input type="checkbox" name="$colid" value="on" $checked_html id="$colid" class="show_comparison" /> $comparison_ref->{name}</label>		
+HTML
+;
 			if (defined $comparison_ref->{count}) {
 				$html .= " <a href=\"$comparison_ref->{link}\">(" . $comparison_ref->{count} . " " . lang("products") . ")</a>";
 			}
@@ -5809,7 +5818,7 @@ HTML
 );
 
 \$(".show_comparison").change(function () {
-	if (\$(this).attr('checked')) {
+	if (\$(this).prop('checked')) {
 		\$("." + \$(this).attr("id")).show();		
 	}
 	else {
