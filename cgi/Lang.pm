@@ -2893,6 +2893,7 @@ no_products => {
 },
 
 n_products => {
+	en => "%d products",
 	fr => "%d produits",
 	de => "%d Produkte",
 	el => "%d Προϊόντα",
