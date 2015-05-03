@@ -508,7 +508,7 @@ HTML
 <script type="text/javascript" src="/js/load-image.min.js"></script>
 <script type="text/javascript" src="/js/canvas-to-blob.min.js"></script>
 <script type="text/javascript" src="/js/jquery.fileupload-ip.js"></script>
-<script type="text/javascript" src="/js/product.js"></script>
+<script type="text/javascript" src="/js/product-foundation.js"></script>
 
 HTML
 ;
