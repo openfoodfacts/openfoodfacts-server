@@ -1,4 +1,6 @@
 #!/usr/bin/perl
+# This is a bot to verify some things in products e.g. no nutrient > 100g
+# It then posts notifications to the Open Food Facts discussion system, Slack.
 
 use CGI::Carp qw(fatalsToBrowser);
 
