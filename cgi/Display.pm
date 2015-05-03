@@ -258,6 +258,19 @@ sub init()
 	if ($domain =~ /^test/) {
 	#	$admin = 1;
 	}
+	
+	if (defined $User_id) {
+		$styles .= <<CSS
+.hide-when-logged-in { display:none}
+CSS
+;
+	}
+	else {
+		$styles .= <<CSS
+.show-when-logged-in { display:none}
+CSS
+;
+	}
 }
 
 
@@ -294,6 +307,13 @@ sub analyze_request($)
 	
 	# Root
 	if ($#components < 0) {
+		$request_ref->{text} = 'index';
+		$request_ref->{current_link} = '';
+	}
+	# Root + page number
+	elsif (($#components == 0) and ($components[$#components] =~ /^\d+$/) and ($components[$#components] < 1000)) {
+		$request_ref->{page} = pop @components;
+		$request_ref->{current_link} = '';
 		$request_ref->{text} = 'index';
 	}
 	
@@ -584,6 +604,16 @@ sub display_text($)
 	}
 	
 	my $file = "$data_root/lang/$text_lang/texts/$textid.html";
+	
+	# foundation specific version
+	if (-e "$data_root/lang/$text_lang/texts/$textid.foundation.html") {
+		$file = "$data_root/lang/$text_lang/texts/$textid.foundation.html";
+	}
+	elsif (-e "$data_root/lang/$text_lang/texts/$textid.foundation.$lang.html") {
+		$file = "$data_root/lang/$text_lang/texts/$textid.foundation.$lang.html";
+	}
+	
+	
 	if ((! -e $file) and (defined $short_l)) {
 		$file = "$data_root/lang/$short_l/texts/$textid.html";
 	}
@@ -616,6 +646,12 @@ sub display_text($)
 
 	print STDERR "debug_text - cc: $cc - lc: $lc - lang: $lang - textid: $textid - textlang: $text_lang \n";
 	
+	# if page number is higher than 1, then keep only the h1 header
+	# e.g. index page
+	if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
+		$html =~ s/<\/h1>.*//is;
+	}
+	
 	
 	sub replace_file($) {
 		my $fileid = shift;
@@ -646,7 +682,13 @@ sub display_text($)
 	
 	}
 	
-	$html =~ s/\[\[query:(.*?)\]\]/replace_query($1)/eg;
+	
+	if ($file !~ /index.foundation/) {
+		$html =~ s/\[\[query:(.*?)\]\]/replace_query($1)/eg;
+	}
+	else {
+		$html .= search_and_display_products( $request_ref, {}, "last_modified_t_complete_first", undef, undef);
+	}
 	
 	$html =~ s/\[\[(.*?)\]\]/replace_file($1)/eg;
 	
@@ -4282,6 +4324,11 @@ font-size: 0.875rem;
 .side-nav li a:not(.button) {
   margin: 0 -1rem;
   padding: 0.4375rem 1rem;
+  color:blue;
+}
+
+.side-nav li a:not(.button):hover, .side-nav li a:not(.button):focus {
+	color:blue;
 }
 
 a { text-decoration: none;}
@@ -5553,7 +5600,7 @@ sub display_nutrient_levels($) {
 		$html_nutrition_grade .= <<HTML
 <h4>Note nutritionnelle de couleur <small>(Programme National Nutrition et Santé)</small>
 <a href="http://fr.openfoodfacts.org/score-nutritionnel-experimental-france" title="Mode de calcul de la note nutritionnelle de couleur">
-<i class=\"fi-info\"></i></a>
+<i class="fi-info"></i></a>
 </h4>
 <img src="/images/misc/$grade.338x72.png" alt="Note nutritionnelle : $uc_grade" style="margin-bottom:1rem;max-width:100%" /><br/>
 HTML
@@ -5574,8 +5621,13 @@ HTML
 		}
 	}
 	if ($html_nutrient_levels ne '') {
-		$html_nutrient_levels = "<h4>" . lang("nutrient_levels_info")
-		. " <a href=\"" . lang("nutrient_levels-link") . "\"><i class=\"fi-info\"></i></a></h4>" . $html_nutrient_levels;
+		$html_nutrient_levels = <<HTML
+<h4>$Lang{nutrient_levels_info}{$lc}
+<a href="$Lang{nutrient_levels_link}{$lc}" title="$Lang{nutrient_levels_info}{$lc}"><i class="fi-info"></i></a>
+</h4>
+$html_nutrient_levels
+HTML
+;
 	}
 	
 	# 2 columns?
