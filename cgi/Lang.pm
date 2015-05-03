@@ -7658,6 +7658,18 @@ HTML
 ,
 },
 
+tagline => {
+	fr => "Open Food Facts répertorie les produits alimentaires du monde entier.",
+	en => "Open Food Facts gathers information and data on food products from around the world.",
+	el => "Το Open Food Facts συγκεντρώνει πληροφορίες και δεδομένα για τρόφιμα από όλο τον κόσμο.",
+	de => "Open Food Facts erfasst Nahrungsmittel aus der ganzen Welt.",
+	es => "Open Food Facts recopila información sobre los productos alimenticios de todo el mundo.",
+	pt => "O Open Food Facts coleciona informação de produtos alimentares de todo o mundo.",
+	ro => "Open Food Facts adună informații și date despre produse alimentare din întreaga lume.",
+	he => "המיזם Open Food Facts אוסף מידע ונתונים על מוצרי מזון מכל רחבי העולם.",
+	nl => "Open Food Facts inventariseert alle voedingsmiddelen uit de hele wereld.",	
+},
+
 column => {
 
 	fr => <<HTML
