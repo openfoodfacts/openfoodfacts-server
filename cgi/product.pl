@@ -552,12 +552,20 @@ label { margin-top: 20px; }
 
 fieldset { margin-top: 15px; margin-bottom:15px;}
 
-legend { font-size: 1.2em; }
+legend { font-size: 1.375em; margin-top:2rem; }
 
-textarea {  height:6rem; }
+textarea {  height:8rem; }
 
 .cropbox, .display { float:left; margin-top:10px;margin-bottom:10px; max-width:400px; }
 .cropbox { margin-right: 20px; }
+
+.upload_image_div {
+	padding-top:0.5rem;
+}
+
+#ocrbutton_ingredients {
+	margin-top:1rem;
+}
 
 #label_new_code, #new_code { display: inline; margin-top: 0px; width:200px; }
 
