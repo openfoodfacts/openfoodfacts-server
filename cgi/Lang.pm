@@ -8513,7 +8513,7 @@ footer_faq => {
 },
 footer_faq_link => {
 	en => '/faq',
-	fr => '/faq',
+	fr => '/questions-frequentes',
 },
 footer_blog => {
 	en => 'Open Food Facts blog',
@@ -8547,14 +8547,15 @@ footer_and_the_facebook_group => {
 footer_follow_us => {
 	en => <<HTML
 Follow us on <a href="http://twitter.com/openfoodfacts">Twitter</a>,
-<a href="https://plus.google.com/u/0/110748322211084668559/">Google+</a> et 
-<a href="https://www.facebook.com/OpenFoodFacts">Facebook</a>
+<a href="https://www.facebook.com/OpenFoodFacts">Facebook</a> and
+<a href="https://plus.google.com/u/0/110748322211084668559/">Google+</a> 
 HTML
 ,
 	fr => <<HTML
 Suivez nous sur <a href="http://twitter.com/openfoodfactsfr">Twitter</a>,
-<a href="https://plus.google.com/u/0/b/102622509148794386660/">Google+</a> et 
-<a href="https://www.facebook.com/OpenFoodFacts.fr">Facebook</a>
+<a href="https://www.facebook.com/OpenFoodFacts.fr">Facebook</a> et
+<a href="https://plus.google.com/u/0/b/102622509148794386660/">Google+</a>
+
 HTML
 ,
 },
