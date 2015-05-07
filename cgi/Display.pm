@@ -4537,6 +4537,9 @@ HTML
 	
 	$initjs .= $aside_initjs;
 	
+	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>:
+	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="http://slack.openfoodfacts.org">Slack</a>');
+	
 	$html .= <<HTML
 
 
@@ -4705,47 +4708,61 @@ $$content_ref
 
 	<div class="small-12 medium-6 large-3 columns" style="border-top:10px solid #ff0000" data-equalizer-watch>
 		<h4>Open Food Facts</h4>
-		<p>Une base de données collaborative, libre et ouverte des produits alimentaires du monde entier.</p>
+		<p>$Lang{footer_tagline}{$lc}</p>
 		<ul>
-			<li><a href="/mentions-legales">Mentions légales</a></li>
-			<li><a href="/conditions-d-utilisations">Conditions d'utilisation</a></li>
-			<li><a href="/data">Données</a></li>
+			<li><a href="$Lang{footer_legal_link}{$lc}">$Lang{footer_legal}{$lc}</a></li>
+			<li><a href="$Lang{footer_terms_link}{$lc}">$Lang{footer_terms}{$lc}</a></li>
+			<li><a href="$Lang{footer_data_link}{$lc}">$Lang{footer_data}{$lc}</a></li>
 		</ul>
 	</div>
 	
 	<div class="small-12 medium-6 large-3 columns" style="border-top:10px solid #ffcc00" data-equalizer-watch>
-		<h4>Installez l'app</h4>
+		<h4>$Lang{footer_install_the_app}{$lc}</h4>
 
-<div style="float:left;width:160px;height:70px;"><a href="https://itunes.apple.com/fr/app/open-food-facts/id588797948"><img src="/images/misc/Available_on_the_App_Store_Badge_FR_135x40.png" alt="Disponible sur l'App Store" width="135" height="40" /></a></div>
+<div style="float:left;width:160px;height:70px;">
+<a href="$Lang{ios_app_link}{$lc}">
+$Lang{ios_app_badge}{$lc}</a>
+</div>
 
-<div style="float:left;width:160px;height:70px;"><a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponible sur Google Play" width="135" height="47" /></a></div>
+<div style="float:left;width:160px;height:70px;">
+<a href="$Lang{android_app_link}{$lc}">
+$Lang{android_app_badge}{$lc}
+</a></div>
 
-<div style="float:left;width:160px;height:70px;"><a href="http://www.windowsphone.com/fr-fr/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"><img src="/images/misc/154x40_WP_Store_blk.png" alt="Windows Phone Store" width="154" height="40" /></a></div>
+<div style="float:left;width:160px;height:70px;">
+<a href="$Lang{windows_phone_app_link}{$lc}">
+$Lang{windows_phone_app_badge}{$lc}
+</a></div>
 
-<div style="float:left;width:160px;height:70px;"><a href="http://world.openfoodfacts.org/files/off.apk"><img src="/images/misc/android-apk.112x40.png" alt="Android APK" /></a></div>
+<div style="float:left;width:160px;height:70px;">
+<a href="$Lang{android_apk_app_link}{$lc}">
+$Lang{android_apk_app_badge}{$lc}
+</a></div>
 		
 	</div>
 	
 	<div class="small-12 medium-6 large-3 columns" style="border-top:10px solid #00d400" data-equalizer-watch>
-		<h4>Découvrez le projet</h4>
+		<h4>$Lang{footer_discover_the_project}{$lc}</h4>
 		<ul>
-			<li><a href="/qui-sommes-nous">Qui sommes nous</a></li>
-			<li><a href="/faq">Questions fréquentes</a></li>
-			<li><a href="/blog">Le blog d'Open Food Facts</a></li>
-			<li><a href="/presse-et-blogs">Presse et blogs</a></li>
+			<li><a href="$Lang{footer_who_we_are_link}{$lc}">$Lang{footer_who_we_are}{$lc}</a></li>
+			<li><a href="$Lang{footer_faq_link}{$lc}">$Lang{footer_faq}{$lc}</a></li>
+			<li><a href="$Lang{footer_blog_link}{$lc}">$Lang{footer_blog}{$lc}</a></li>
+			<li><a href="$Lang{footer_press_link}{$lc}">$Lang{footer_press}{$lc}</a></li>
 		</ul>
 	</div>
 	
 	<div class="small-12 medium-6 large-3 columns" style="border-top:10px solid #0066ff" data-equalizer-watch>
-		<h4>Rejoignez la communauté</h4>
-<ul >
-<li><a href="http://fr.wiki.openfoodfacts.org">le wiki</a></li>
-<li><a href="http://twitter.com/openfoodfactsfr">Twitter</a></li>
-<li><a href="https://plus.google.com/u/0/b/102622509148794386660/102622509148794386660/">Google+</a></li>
-<li><a href="https://www.facebook.com/OpenFoodFacts.fr">Facebook</a><br/>
-+ <a href="https://www.facebook.com/groups/356858984359591/">groupe des contributeurs</a></li>
-<li><a href="mailto:off-fr-subscribe\@openfoodfacts.org">envoyez un e-mail vide</a> pour
-vous abonner à la liste de discussion</li>
+		<h4>$Lang{footer_join_the_community}{$lc}</h4>
+<ul>
+
+<li>$join_us_on_slack <script async defer src="http://slack.openfoodfacts.org/slackin.js"></script>
+<br/>
+$Lang{footer_and_the_facebook_group}{$lc}
+</li>
+
+<li>
+$Lang{footer_follow_us}{$lc}
+</li>
 </ul>
 	
 	</div>

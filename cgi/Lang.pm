@@ -8435,6 +8435,131 @@ menu_add_a_product_link => {
 	fr => "/ajouter-un-produit",
 },
 
+footer_tagline => {
+	en => 'A collaborative, free and open database of food products from around the world.',
+	fr => 'Une base de données collaborative, libre et ouverte des produits alimentaires du monde entier.',
+},
+
+footer_legal => {
+	en => 'Legal',
+	fr => 'Mentions légales',
+},
+footer_legal_link => {
+	en => '/legal',
+	fr => '/mentions-legales',
+},
+footer_terms => {
+	en => 'Terms of use',
+	fr => "Conditions d'utilisation",
+},
+footer_terms_link => {
+	en => '/terms-of-use',
+	fr => '/conditions-d-utilisation',
+},
+footer_data => {
+	en => 'Data',
+	fr => 'Données',
+},
+footer_data_link => {
+	en => '/data', # use /data for all languages
+},
+footer_install_the_app => {
+	en => 'Install the app',
+	fr => "Installez l'app",
+},
+android_app_link => {
+	en => 'https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner',
+},
+ios_app_link => {
+	en => 'https://itunes.apple.com/en/app/open-food-facts/id588797948',
+	fr => 'https://itunes.apple.com/fr/app/open-food-facts/id588797948',
+},
+windows_phone_app_link => {
+	en => 'http://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34',
+	fr => 'http://www.windowsphone.com/fr-fr/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34',
+},
+android_apk_app_link => {
+	en => 'http://world.openfoodfacts.org/files/off.apk',
+},
+android_app_badge => {
+	en => '<img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Available on Google Play" width="135" height="47" />',
+	fr => '<img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponible sur Google Play" width="135" height="47" />',
+},
+ios_app_badge => {
+	en => '<img src="/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png" alt="Available on the App Store" width="135" height="40" />',
+	fr => '<img src="/images/misc/Available_on_the_App_Store_Badge_FR_135x40.png" alt="Disponible sur l\'App Store" width="135" height="40" />',
+},
+windows_phone_app_badge => {
+	en => '<img src="/images/misc/154x40_WP_Store_blk.png" alt="Windows Phone Store" width="154" height="40" />',
+},
+android_apk_app_badge => {
+	en => '<img src="/images/misc/android-apk.112x40.png" alt="Android APK" />',
+},
+footer_discover_the_project => {
+	en => 'Discover the project',
+	fr => 'Découvrez le projet',
+},
+footer_who_we_are => {
+	en => 'Who we are',
+	fr => 'Qui sommes nous',
+},
+footer_who_we_are_link => {
+	en => '/who-we-are',
+	fr => '/qui-sommes-nous',
+},
+footer_faq => {
+	en => 'Frequently asked questions',
+	fr => 'Questions fréquentes',
+},
+footer_faq_link => {
+	en => '/faq',
+	fr => '/faq',
+},
+footer_blog => {
+	en => 'Open Food Facts blog',
+	fr => "Le blog d'Open Food Facts",
+},
+footer_blog_link => {
+	en => 'http://en.blog.openfoodfacts.org',
+	fr => 'http://fr.blog.openfoodfacts.org',
+},
+footer_press => {
+	en => 'Press',
+	fr => 'Presse',
+},
+footer_press_link => {
+	en => '/press',
+	fr => '/presse',
+},
+footer_join_the_community => {
+	en => 'Join the community',
+	fr => 'Rejoignez la communauté',
+},
+# Join us on Slack
+footer_join_us_on => {
+	en => 'Join us on %s:',
+	fr => 'Rejoignez-nous sur %s :',
+},
+footer_and_the_facebook_group => {
+	en => 'and the <a href="https://www.facebook.com/groups/374350705955208/">Facebook group for contributors</a>',
+	fr => 'et le <a href="https://www.facebook.com/groups/356858984359591/">groupe Facebook des contributeurs</a>',
+},
+footer_follow_us => {
+	en => <<HTML
+Follow us on <a href="http://twitter.com/openfoodfacts">Twitter</a>,
+<a href="https://plus.google.com/u/0/110748322211084668559/">Google+</a> et 
+<a href="https://www.facebook.com/OpenFoodFacts">Facebook</a>
+HTML
+,
+	fr => <<HTML
+Suivez nous sur <a href="http://twitter.com/openfoodfactsfr">Twitter</a>,
+<a href="https://plus.google.com/u/0/b/102622509148794386660/">Google+</a> et 
+<a href="https://www.facebook.com/OpenFoodFacts.fr">Facebook</a>
+HTML
+,
+},
+
+
 search_a_product_placeholder => {
 	en => "Search a product",
 	fr => "Chercher un produit",
