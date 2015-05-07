@@ -64,7 +64,7 @@ if (param('jqm')) {
 	}
 	my $data =  encode_json(\%response);
 	
-	print "Content-Type: application/json; charset=UTF-8\r\n\r\n" . $data;	
+	print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $data;	
 	
 }
 else {
