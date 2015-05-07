@@ -1,4 +1,4 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 # 
 # Product Opener
 # Copyright (C) 2011-2015 Association Open Food Facts
@@ -58,6 +58,7 @@ use utf8;
 use Blogs::SiteLang qw/:all/;
 
 use Blogs::Store qw/:all/;
+
 
 
 %lang_lc = (
@@ -2902,8 +2903,6 @@ n_products => {
 	pt => "%d produtos",
 	ro => "%d produse",
 	he => "%d מוצרים",
-	nl => "%d producten",
-	# zh => '',
 },
 
 signin_before_submit => {
@@ -8582,6 +8581,7 @@ search_tools => {
 },
 
 );
+
 
 
 foreach my $l (@Langs) {
