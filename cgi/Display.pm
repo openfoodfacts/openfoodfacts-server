@@ -4644,15 +4644,6 @@ HTML
 
 <p>$Lang{tagline}{$lc}</p>
 
-<ul class="small-block-grid-3" id="sharebuttons">
-	<li>
-		<a href="https://twitter.com/share" class="twitter-share-button" data-lang="$lc" data-via="$Lang{twitter_account}{$lang}" data-url="$subdomain.${server_domain}" data-count="vertical">Tweeter</a>
-	</li>
-	<li><fb:like href="$subdomain.${server_domain}" layout="box_count"></fb:like></li>
-	<li><div class="g-plusone" data-size="tall" data-count="true" data-href="$subdomain.${server_domain}"></div></li>
-</ul>
-
-
 
 			<form action="/cgi/search.pl" class="hide-for-large-up">
 			<div class="row collapse">
@@ -4753,17 +4744,25 @@ $Lang{android_apk_app_badge}{$lc}
 	
 	<div class="small-12 medium-6 large-3 columns" style="border-top:10px solid #0066ff" data-equalizer-watch>
 		<h4>$Lang{footer_join_the_community}{$lc}</h4>
-<ul>
 
-<li>$join_us_on_slack <script async defer src="http://slack.openfoodfacts.org/slackin.js"></script>
+<div>
+$join_us_on_slack <script async defer src="http://slack.openfoodfacts.org/slackin.js"></script>
 <br/>
 $Lang{footer_and_the_facebook_group}{$lc}
-</li>
+</div>
 
-<li>
+<div>
 $Lang{footer_follow_us}{$lc}
-</li>
+
+<ul class="small-block-grid-3" id="sharebuttons">
+	<li>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-lang="$lc" data-via="$Lang{twitter_account}{$lang}" data-url="$subdomain.${server_domain}" data-count="vertical">Tweeter</a>
+	</li>
+	<li><fb:like href="$subdomain.${server_domain}" layout="box_count"></fb:like></li>
+	<li><div class="g-plusone" data-size="tall" data-count="true" data-href="$subdomain.${server_domain}"></div></li>
 </ul>
+
+</div>
 	
 	</div>
 </div>
@@ -4844,7 +4843,12 @@ HTML
 		$html =~ s/<!-- main row -(.*)<!-- main column content(.*?)-->/$new_main_row_column/s;
 	
 	}
+
+	# Use static subdomain for images, js etc.
 	
+	$html =~ s/(?<![a-z0-9-])((http|https):\/\/([a-z0-9-]+)\.$domain)?\/(images|js|foundation)\//http:\/\/static.$domain\/$4\//g;
+	# (?<![a-z0-9-]) -> negative look behind to make sure we are not matching /images in another path.
+	# e.g. https://apis.google.com/js/plusone.js or //cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/images/select2.min.js
 
 	# init javascript code
 	
