@@ -1,4 +1,4 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 # 
 # Product Opener
 # Copyright (C) 2011-2015 Association Open Food Facts
@@ -58,6 +58,7 @@ use utf8;
 use Blogs::SiteLang qw/:all/;
 
 use Blogs::Store qw/:all/;
+
 
 
 %lang_lc = (
@@ -179,7 +180,7 @@ packaging => {
 },
 emb_codes => {
 	fr => 'code-emballeur',
-	de => 'produzenten-Code',
+	de => 'produzenten-code',
 	en => 'packager-code',
 	es => 'codigo-de-envasador',
 	el => 'κωδικός συσκευαστη',
@@ -450,7 +451,7 @@ allergens => {
 	el => 'αλλεργιογονο',
 	it => 'allergene',
 	ro => 'alergen',
-#	ru => 'аллергены',
+	ru => 'аллерген',
 	ar => 'moussabib-hassassiya',
 	pt => 'alergenico',
 	he => 'khomer-alergeni', 
@@ -862,7 +863,7 @@ allergens => {
 	es => 'alergenos',
 	el => 'αλλεργιογονα',
 #	it => 'allergene',
-#	ru => 'аллергены',
+	ru => 'аллергены',
 #	ar => 'moussabib-hassassiya',
 	pt => 'alergenicos',
 #	he => 'khomer-alergeni',
@@ -1314,6 +1315,8 @@ edit_user => {
 	ro => 'Parametrii contului',
 	he => 'משתני החשבון',
 	nl => 'Accountinstellingen',
+	zh => '账户选项',
+	ru => 'Параметры учётной записи',
 },
 
 delete_user => { 
@@ -1343,6 +1346,7 @@ add_user_confirm => {
 	ro => '<p>Vă mulțumim pentru înscriere. De acum vă puteți autentifica pe site pentru a adăuga și modifica produse.</p>',
 	he => '<p>תודה לך על הצטרפותך. מעכשיו תהיה לך אפשרות להיכנס לאתר כדי להוסיף ולערוך מוצרים.</p>',
 	nl => '<p>Bedankt voor uw inschrijving. U kan nu inloggen op de site om producten toe te voegen of te bewerken.</p>',
+	ru => '<p>Спасибо, что присоединились! Теперь вы можете войти на сайт, чтобы,добавить или изменить продукты.</p>',
 },
 
 add_user_email_subject => { 
@@ -1812,7 +1816,7 @@ edit_user_confirm => {
 	ro => '<p>Parametrii contului dumneavoastră au fost schimbați.</p>',
 	he => '<p>משתני החשבון שלך הוחלפו.</p>',
 	nl => '<p>Uw accountinstellingen werden succesvol gewijzigd</p>',
-
+	ru => '<p>Параметры вашей учётной записи были изменены.</p>',
 },
 
 edit_profile => {
@@ -1857,6 +1861,7 @@ edit_profile_confirm => {
 	ro => 'Modificările asupra profilului public au fost salvate.',
 	he => "השינויים לפרופיל הציבורי שלך נשמרו.",
 	nl => 'De aanpassingen van uw publiek profiel werden opgeslagen',
+	ru => 'Изменения в вашем публичном профиле сохранены.',
 },
 
 session_title => {
@@ -1899,6 +1904,7 @@ login_username_email => {
 	ro => 'Numele de utilizator sau adresa de e-mail:',
 	he => "שם משתמש או כתובת דוא״ל:",
 	nl => 'Gebruikersnaam of e-mailadres',
+	#ru => 'Имя пользователя или адрес эл. почты',
 },
 
 login_to_add_products => {
@@ -1967,7 +1973,7 @@ Nom d'utilisateur ou adresse e-mail :<br />
 <input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
 Mot de passe<br />
 <input type="password" name="password" tabindex="2" style="width:220px;" /><br />
-<input type="checkbox" name="remember_me" id="remember_me" value="on" tabindex="3" /><label for="remember_me">Se souvenir de moi</label><br />
+<input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Se souvenir de moi</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Se connecter" class="jbutton" />
 </form>
 <p>Pas encore inscrit(e) ? <a href="/cgi/user.pl">Créez votre compte</a>.</p>
@@ -2550,6 +2556,7 @@ username => {
 	ro => 'Nume de utilizator',
 	he => "שם משתמש",
 	nl => 'Gebruikersnaam',
+	ru => 'Имя пользователя',
 },
 
 username_info => {
@@ -2646,6 +2653,8 @@ about => {
 	ro => 'Despre mine',
 	he => "פרטים עלי",
 	nl => 'Over mij',
+	zh => '个人信息',
+	ru => 'Обо мне',
 },
 
 error_no_name => {
@@ -2716,6 +2725,7 @@ error_username_not_available => {
 	ro => 'Acest nume de utilizator există deja, vă rog alegeți altul.',
 	he => "שם משתמש זה כבר קיים, נא לבחור באחד אחר.",
 	nl => 'Deze gebruikersnaam bestaat reeds, gelieve een andere te kiezen',
+	ru => 'Это имя пользователя уже существует, выберите другое.',
 },
 
 error_invalid_username => {
@@ -2811,6 +2821,8 @@ error_database => {
 	ro => "A apărut o eroare în timp ce citeam datele, încercați să reîncărcați pagina.",
 	he => "אירעה שגיאה בעת קריאת הנתונים, נא לנסות לרענן את העמוד.",
 	nl => 'Er is een fout opgetreden tijdens het lezen van de gegevens, gelieve de pagina opnieuw te laden',
+	# zh => '',
+	ru => 'Произошла ошибка при чтении данных, попробуйте обновить страницу.',
 },
 
 no_products => {
@@ -2824,6 +2836,7 @@ no_products => {
 	ro => "Nici un produs.",
 	he => "אין מוצרים.",
 	nl => 'Geen producten',
+	# zh => '',
 },
 
 '1_product' => {
@@ -2837,6 +2850,7 @@ no_products => {
 	ro => "1 produs:",
 	he => "מוצר 1:",
 	nl => "1 product:",
+	ru => '1 продукт:',
 },
 
 n_products => {
@@ -2849,6 +2863,7 @@ n_products => {
 	ro => "%d produse:",
 	he => "%d מוצרים:",
 	nl => "%d producten:",
+	# zh => '',
 },
 
 signin_before_submit => {
@@ -2863,6 +2878,7 @@ signin_before_submit => {
 	ro => "Dacă deja aveți un cont pe <SITE>, vă rog autentificați-vă înainte de a completa acest formular.",
 	he => "אם כבר יש לך חשבון ב־<SITE>, נא להיכנס בטרם מילוי הטופס הזה.",
 	nl => "Indien u al een account heeft op <SITE>, gelieve u dan eerst aan te melden voordat u dit formulier invult",
+	# zh => '',
 },
 
 
@@ -2878,6 +2894,7 @@ error_bad_login_password => {
 	ro => 'Nume de utilizator sau parolă incorectă. <a href=\"/cgi/reset_password.pl\">Parolă uitată?</a>',
 	he => "שם המשתמש או הססמה שגויים. <a href=\"/cgi/reset_password.pl\">שכחת את הססמה?</a>",
 	nl => "Gebruikersnaam of paswoord ongeldig. <a href=\"/cgi/reset_password.pl\">Paswoord vergeten?</a>",
+	# zh => '',
 },
 
 subscribe => {
@@ -2891,6 +2908,7 @@ subscribe => {
 	ro => 'Abonare',
 	he => 'מינוי',
 	nl => 'Abonneren',
+	# zh => '',
 },
 
 unsubscribe => {
@@ -2904,6 +2922,7 @@ unsubscribe => {
 	ro => 'Dezabonare',
 	he => 'ביטול המינוי',
 	nl => 'Uitschrijven',
+	# zh => '',
 },
 
 _and_ => {
@@ -2918,6 +2937,8 @@ _and_ => {
 	ro => ' și ',
 	he => ' וגם ',
 	nl => ' en ',
+	zh => ' 以及 ',
+	ru => ' и ',
 },
 
 reset_password =>  {
@@ -2959,6 +2980,7 @@ reset_password_reset =>  {
 	ro => 'Parola a fost schimbată. De acum vă puteți autentifica cu această parolă.',
 	he => 'הססמה שלך הוחלפה. מעתה ניתן להיכנס עם ססמה זו.',
 	nl => 'Uw paswoord werd gewijzigd. U kan zich nu aanmelden met het nieuwe paswoord.',
+	ru => 'Ваш пароль изменён. Теперь можете войти с этим паролем.',
 },
 
 reset_password_send_email =>  {
@@ -2972,6 +2994,7 @@ es => 'Se ha enviado un correo electrónico con un enlace para que pueda cambiar
 	ro => 'Un e-mail cu un link pentru resetarea parolei v-a fost trimis la adresa de e-mail asociată cu contul dumneavoastră.',
 	he => 'הודעה עם קישור לאיפוס הססמה שלך נשלחה לכתובת הדוא״ל המשויכת עם החשבון שלך.',
 	nl => 'Er werd een e-mail verstuurd met een link om uw paswoord te resetten naar het e-mailadres dat verbonden is aan uw account.',
+	ru => 'Письмо со ссылкой для сброса пароля выслано на адрес эл. почты, связанный с,вашей учётной записью.',
 },
 
 reset_password_send_email_msg =>  {
@@ -3015,6 +3038,7 @@ error_reset_unknown_email =>  {
 	he => 'אין חשבון עם כתובת דוא״ל שכזו',
 	nl => 'Er is geen account aan dit e-mailadres verbonden',
 	de => 'Kein Benutzerkonto mit dieser E-Mail-Adresse ist vorhanden',
+	ru => 'Нет учётной записи с этим адресом эл. почты',
 },
 
 error_reset_unknown_id =>  {
@@ -3030,6 +3054,7 @@ error_reset_unknown_id =>  {
 	he => 'שם משתמש זה לא קיים.',
 	nl => 'Deze gebruikersnaam bestaat niet',
 	de => 'Dieser Benutzername ist nicht gültig',
+	ru => 'Такого имени пользователя не существует.',
 },
 
 error_reset_invalid_token =>  {
@@ -3058,6 +3083,7 @@ error_reset_already_connected =>  {
 	he => 'כבר נכנסת.',
 	nl => 'U bent reeds aangemeld',
 	de => 'Sie sind schon eingeloggt',
+	ru => 'Вы уже вошли.',
 },
 
 lang => {
@@ -3098,6 +3124,7 @@ expiration_date => {
 	he => 'תאריך אחרון לשימוש',
 	nl => 'Houdbaarheidsdatum',
 	de => 'Mindestens haltbar bis Datum',
+	ru => 'Срок годности',
 },
 
 expiration_date_note => {
@@ -3163,6 +3190,7 @@ generic_name_example => {
 	he => "חטיף שוקולד עם חלב ושקדים",
 	nl => 'Chocoladereep met melkchocolade en hazelnoten',
 	de => 'Schokoladenriegel mit Milch und Haselnuß',
+	ru => 'Шоколадная плитка с молоком и фундуком',
 },
 brands => {
 	fr => "Marques",
@@ -3535,6 +3563,7 @@ product_characteristics => {
 	he => "מאפייני המוצר",
 	nl => "Eigenschappen van het product",
 	de => "Produkteigenschaften",
+	ru => "Характеристики продукта",
 },
 
 product_image => {
@@ -3547,6 +3576,7 @@ product_image => {
 	he => "תמונת המוצר",
 	nl => "Foto van het product",
 	de => "Foto des Produkts",
+	ru => "изображение продукта",
 },
 
 image_front => {
@@ -3570,7 +3600,7 @@ image_ingredients => {
 	ro => "Imaginea cu ingredientele",
 	he => "תמונת הרכיבים",
 	nl => "Foto van de ingrediëntenlijst",
-	de => "Foto der Zutatensliste",
+	de => "Foto der Zutatenliste",
 },
 
 image_nutrition => {
@@ -3585,6 +3615,8 @@ image_nutrition => {
 	de => "Foto der Nährwertinformationen",
 },
 
+# MOBILESTRING
+
 ingredients => {
 	fr => "Ingrédients",
 	en => "Ingredients",
@@ -3595,6 +3627,7 @@ ingredients => {
 	de => "Zutaten",
 	he => "רכיבים",
 	nl => "Ingrediënten",
+	ru => "Ингредиенты",
 },
 
 image_ingredients_note => {
@@ -3609,6 +3642,8 @@ image_ingredients_note => {
 	de => "Ist das Foto klar und genau, dann können die Zutaten automatisch extrahiert werden.", 
 },
 
+# MOBILESTRING
+
 ingredients_text => {
 	fr => "Liste des ingrédients",
 	en => "Ingredients list",
@@ -3618,7 +3653,8 @@ ingredients_text => {
 	ro => "Lista de ingrediente",
 	he => "רשימת רכיבים",
 	nl => "Ingrediëntenlijst",
-	de => "Zutatensliste",
+	de => "Zutatenliste",
+	ru => "список ингредиентов",
 },
 
 ingredients_text_note => {
@@ -3748,6 +3784,8 @@ serving_size_example => {
 	de => "30 g, 2 Keks 60g, 5 cl, ein Glas 20 cl",
 },
 
+# MOBILESTRING
+
 nutrition_data => {
 	fr => "Informations nutritionnelles",
 	en => "Nutrition facts",
@@ -3872,6 +3910,7 @@ nutrition_data_comparison_with_categories => {
 	he => "השוואה לערכים הממוצעים של מוצרים באותה הקטגוריה:",
 	nl => "Vergelijking met de gemiddelde waarden van producten uit dezelfde categorie:",
 	de => "Vergleich mit den durchschnittlichen Werte von Produkten gleicher Kategorie:",
+	ru => 'Сравнение со средними значениями продуктов из той же категории:',
 },
 
 nutrition_data_comparison_with_categories_note => {
@@ -3883,6 +3922,7 @@ nutrition_data_comparison_with_categories_note => {
 	ro => "De notat: pentru fiecare nutrient, media este calculată pentru produsele pentru care cantitatea nutrientului este cunoscută, nu pentru toate produsele din categorie.",
 	he => "לתשומת לבך: עבור כל מרכיב תזונתי, הממוצע מחושב לפי מוצרים שההרכב התזונתי שלהם ידוע, לא לפי כלל המוצרים בקטגוריה.",
 	nl => "Noteer: voor elke voedingsstof is het gemiddelde niet dat van alle producten uit de categorie, maar dat van de producten waarvoor de hoeveelheid van de voedingsstof bekend is.",
+	de => "Hinweis: Der Durchschnitt für jeden Nährstoff wird anhand derjenigen Produkte berechnet, für diese der Wert bekannt ist, nicht als Durchschnitt über alle Produkte.",
 },
 
 nutrition_data_compare_value => {
@@ -3934,6 +3974,7 @@ nutrition_data_per_5 => {
 	ro => "Al 5-lea procent",
 	he => "עד 5 אחוז",
 	nl => "5<sup>e</sup> percentiel",
+	de => "5. Quantil",
 },
 
 nutrition_data_per_10 => {
@@ -3944,6 +3985,7 @@ nutrition_data_per_10 => {
 	ro => "Al 10-lea procent",
 	he => "עד 10 אחוז",
 	nl => "10<sup>e</sup> percentiel",
+	de => "10. Quantil",
 },
 nutrition_data_per_50 => {
 	fr => "Médiane",
@@ -3954,7 +3996,7 @@ nutrition_data_per_50 => {
 	ro => "Median",
 	he => "חצי",
 	nl => "Mediaan",
-	nl => "Medianwert",
+	de => "Medianwert",
 },
 
 nutrition_data_per_90 => {
@@ -3965,6 +4007,7 @@ nutrition_data_per_90 => {
 	ro => "Al 90-lea procent",
 	he => "עד 90 אחוז",
 	nl => "90<sup>e</e> percentiel",
+	de => "90. Quantil",
 },
 
 nutrition_data_per_95 => {
@@ -3975,6 +4018,7 @@ nutrition_data_per_95 => {
 	ro => "Al 95-lea procent",
 	he => "עד 95 אחוז",
 	nl => "95<sup>e</sup>e percentiel",
+	de => "95. Quantil",
 },
 
 nutrition_data_per_max => {
@@ -4018,6 +4062,7 @@ ecological_data_table_note => {
 	ro => "Dacă amprenta de carbon este specificată pe etichetă (rar acum), indicați-o pentru aceeași cantitate ca și compoziția nutrițională.",
 	he => "אם טביעת הרגל של הפחמן מצוינת על התווית (נדיר בימינו אנו), כדאי לציין אותה עבור כמות מסוימת מאשר את התרכובת התזונתית.",
 	nl => "Als de ecologische voetafdruk op het eticket vermeld wordt (momenteel is dat zelden), geef ze dan voor dezelfde hoeveelheid als voor de nutritionele samenstelling",
+	de => "Falls der CO₂-Fußabdruck auf der Verpackung angegeben ist (derzeit ist das selten der Fall), dann ist dieser für die selbe Menge der anderen Nährwertangaben einzutragen.",
 },
 
 example => {
@@ -4056,6 +4101,7 @@ brands_tagsinput => {
 	he => "הוספת מותג",
 	nl => "een merk toevoegen",
 	de => "Marke hinzufügen",
+	zh => '添加品牌',
 },
 
 
@@ -4069,6 +4115,8 @@ packaging_tagsinput => {
 	he => "הוספת סוג, צורה או חומר",
 	nl => "een soort, vorm of materiaal toevoegen",
 	de => "Art, Form oder Material hinzufügen",
+	zh => '添加类型，外形或材料',
+	ru => 'добавить тип, форму или материал',
 },
 
 categories_tagsinput => {
@@ -4081,6 +4129,8 @@ categories_tagsinput => {
 	he => "הוספת קטגוריה",
 	nl => "een categorie toevoegen",
 	de => "Kategorie hinzufügen",
+	zh => '添加类别',
+	ru => 'Добавить категорию',
 },
 
 labels_tagsinput => {
@@ -4093,6 +4143,7 @@ labels_tagsinput => {
 	he => "הוספת תווית",
 	nl => "een label toevoegen",
 	de => "Label hinzufügen",
+	zh => '添加标签',
 },
 
 origins_tagsinput => {
@@ -4105,6 +4156,7 @@ origins_tagsinput => {
 	he => "הוספת מקור",
 	nl => "herkomst toevoegen",
 	de => "Herkunft hinzufügen",
+	zh => "添加来源",
 },
 
 manufacturing_places_tagsinput => {
@@ -4117,6 +4169,8 @@ manufacturing_places_tagsinput => {
 	he => "הוספת מיקום",
 	nl => "een locatie toevoegen",
 	de => "Ort hinzufügen",
+	zh => '添加地点',
+	ru => 'добавить место',
 },
 
 purchase_places_tagsinput => {
@@ -4141,8 +4195,12 @@ stores_tagsinput => {
 	he => "הוספת חנות",
 	nl => "een winkel toevoegen",
 	de => "Laden hinzufügen",
+	zh => '添加商店',
+	ru => 'добавить магазин',
 },
-	
+
+# MOBILESTRING
+
 fixme_product => {
 	fr => "Si les informations sont incomplètes ou incorrectes, vous pouvez les complèter ou les corriger en modifiant cette fiche.",
 	en => "If the data is incomplete or incorrect, you can complete or correct it by editing this page.",
@@ -4152,6 +4210,7 @@ fixme_product => {
 	ro => "Dacă datele sunt incomplete sau incorecte, le puteți completa sau corecta modificând această pagină.",
 	he => "אם המידע חלקי או שגוי, ניתן להשלים או לתקן אותו על־ידי עריכת עמוד זה.",
 	nl => "Indien de informatie onvolledig of foutief is, kan u ze op deze pagina aanvullen of corrigeren.",
+	de => "Sollten die die Informationen auf diese Seite unvollständig oder falsch sein, dann können Sie diese vervollständigen oder korrigieren.",
 },
 
 alcohol_warning => {
@@ -4163,6 +4222,7 @@ alcohol_warning => {
 	ro => "Consumul excesiv de alcool este dăunător sănătății",
 	he => "שתייה מוגזמת של אלכוהול עשויה לפגוע בבריאות.",
 	nl => "Overmatig alcoholgebruik schaadt de gezondheid. Drink met mate.",
+	de => "Der Missbrauch von Alkohol gefährdet Ihre Gesundheit, mit Bedacht genießen.",
 },
 
 warning_3rd_party_content => {
@@ -4180,6 +4240,8 @@ el => "Η πληροφορία και τα δεδομένα πρέπει να π
 → <a href=\"\">De ce contează?</a>",
 	he => "יש להשתמש במידע ובנתונים המופיעים על אריזת המוצר לרבות התווית (ולא מאתרים אחרים או מאתר היצרן), נוסף על כך יש להשתמש בתמונות שצולמו על ידיך בלבד.<br/>",
 	nl => "De informatie moet afkomstig zijn van de verpakking van het product (en niet van een andere site of de site van de producent), en u moet de foto's zelf getrokken hebben.",
+	de => "Die Informationen müssen aus der Produktverpackung stammen (nicht von anderen Webseiten oder der Webseite des Herstellers) und die Fotos müssen von Ihnen selbst gemacht worden sein.<br/>
+→ <a href=\"https://openfoodfactsfr.uservoice.com/knowledgebase/articles/59183\" target=\"_blank\" hreflang=\"fr\">Warum ist das wichtig?</a>",
 },
 
 front_alt => {
@@ -5124,6 +5186,7 @@ additives_s => {
 	he => "תוסף",
 	nl => "additief",
 	de => "Zusatzstoff",
+	zh => "添加剂",
 },
 
 additives_p => {
@@ -5136,6 +5199,7 @@ additives_p => {
 	he => "תוספים",
 	nl => "additieven",
 	de => "Zusatzstoffe",
+	zh => "添加剂",
 },
 
 ingredients_from_palm_oil_s => {
@@ -5147,6 +5211,7 @@ ingredients_from_palm_oil_s => {
 	ro => "ingredient din ulei de palmier",
 	he => "רכיב משמן דקלים",
 	nl => "ingrediënt uit palmolie",
+	de => "Zutat aus Palmöl",
 },
 
 ingredients_from_palm_oil_p => {
@@ -5158,6 +5223,7 @@ ingredients_from_palm_oil_p => {
 	ro => "ingrediente din ulei de palmier",
 	he => "רכיבים משמן דקלים",
 	nl => "ingrediënten uit palmolie",
+	de => "Zutaten aus Palmöl",
 },
 
 ingredients_that_may_be_from_palm_oil_s => {
@@ -5169,6 +5235,7 @@ ingredients_that_may_be_from_palm_oil_s => {
 	ro => "ingredient care ar putea proveni din ulei de palmier",
 	he => "רכיב שעשוי להיות משמן דקלים",
 	nl => "ingrediënt dat mogelijk palmolie bevat",
+	de => "Zutat, die möglicherweise aus Palmöl stammt",
 },
 
 ingredients_that_may_be_from_palm_oil_p => {
@@ -5180,6 +5247,7 @@ ingredients_that_may_be_from_palm_oil_p => {
 	ro => "ingrediente care ar putea proveni din ulei de palmier",
 	he => "רכיבים שעשויים להיות משמן דקלים",
 	nl => "ingrediënten die mogelijk palmolie bevatten",
+	de => "Zutaten, die möglicherweise aus Palmöl stammen",
 },
 
 ingredients_from_or_that_may_be_from_palm_oil_s => {
@@ -5191,6 +5259,7 @@ ingredients_from_or_that_may_be_from_palm_oil_s => {
 	ro => "ingredient care ar putea fi din sau ar putea proveni din ulei de palmier",
 	he => "רכיבים שעשויים או מיוצרים משמן דקלים",
 	nl => "ingrediënt dat (mogelijk) palmolie bevat",
+	de => "Zutat, die (möglicherweise) aus Palmöl stammt",
 },
 
 ingredients_from_or_that_may_be_from_palm_oil_p => {
@@ -5202,6 +5271,7 @@ ingredients_from_or_that_may_be_from_palm_oil_p => {
 	ro => "ingrediente care ar putea fi din sau ar putea proveni din ulei de palmier",
 	he => "רכיבים שעשויים או מיוצרים משמן דקלים",
 	nl => "ingrediënten die (mogelijk) palmolie bevatten",
+	de => "Zutaten, die (möglicherweise) aus Palmöl stammen",
 },
 
 add_product => {
@@ -5214,6 +5284,8 @@ add_product => {
 	ro => "Adăugare produs",
 	he => 'הוספת מוצר',
 	nl => "Een product toevoegen",
+	zh => '添加商品',
+	ru => 'Добавить продукт',
 },
 
 barcode_number => {
@@ -5226,6 +5298,7 @@ barcode_number => {
 	he => 'מספר ברקוד:',
 	nl => "Nummer van de barcode:",
 	de => "Barcode-Nummer:",
+	zh => "条形码数字",
 },
 
 barcode => {
@@ -5238,6 +5311,8 @@ barcode => {
 	ro => "Codul de bare",
 	he => 'ברקוד',
 	nl => "Barcode",
+	zh => "条形码",
+	ru => 'Штрих-код',
 },
 
 or => {
@@ -5275,6 +5350,8 @@ add => {
 	he => 'הוספה',
 	it => 'Aggiungi',
 	nl => "Toevoegen",
+	zh => '添加',
+	ru => 'Добавить',
 },
 
 product_image_with_barcode => {
@@ -5301,6 +5378,7 @@ send_image => {
 	it => 'Invia una photo...',
 	nl => "Een foto versturen...",
 	de => "Foto hochladen...",
+	ru => 'Отправить изображение...',
 },
 
 sending_image => {
@@ -5325,6 +5403,7 @@ send_image_error => {
 	he => 'ההעלאה נכשלה',
 	nl => "Fout bij het verzenden",
 	de => 'Beim Hochladen ist ein Fehler aufgetreten',
+	ru => 'Ошибка загрузки',
 },
 
 edit_product => {
@@ -5350,7 +5429,7 @@ edit_product_page => {
 	he => 'עריכת העמוד',
 	it => 'Modifica la pagina',
 	nl => 'De pagina aanpassen',
-	de => 'Formular bearbeiten',
+	de => 'Produkt bearbeiten',
 },
 
 delete_product_page => {
@@ -5532,6 +5611,7 @@ salt_equivalent => {
 	ro => "echivalentul de sare",
 	he => 'תחליף מלח',
 	nl => 'equivalent zout',
+	de => 'Salz Äquivalent',
 },
 
 additives_3 => {
@@ -5541,6 +5621,7 @@ additives_3 => {
 	pt => 'Aditivo alimentar proibido na Europa. A evitar completamente.',
 	ro => "Aditiv alimentar interzis în Europa. De evitat complet.",
 	nl => 'Voedingsadditief verboden in Europa. Absoluut te vermijden.',
+	de => 'In Europa verbotener Lebensmittelzusatzstoff. Absolut vermeiden.',
 },
 
 additives_2 => {
@@ -5550,6 +5631,7 @@ additives_2 => {
 	ro => "Aditiv alimentar riscant. De evitat.",
 	pt => 'Aditivo alimentar com riscos. A evitar.',
 	nl => 'Risicovol voedingsadditief. Te vermijden.',
+	de => 'Lebensmittelzusatzstoff mit Risiko. Vermeiden.',
 },
 
 additives_1 => {
@@ -5559,6 +5641,7 @@ additives_1 => {
 	ro => "Aditiv alimentar potențial riscant. De limitat.",
 	pt => 'Aditivo alimentar potencialmente com risco . A limitar.',
 	nl => 'Mogelijk risicovol voedingsadditief. Beperken.',
+	de => 'Lebensmittelzusatzstoff möglicherweise mit Risiko. Vermeiden.',
 },
 
 licence_accept => {
@@ -5581,6 +5664,9 @@ Acceptați să fiți creditat pentru re-utilizări cu un link către produsul la
 	nl => 'Door informatie, data en/of beelden toe te voegen, aanvaardt u dat uw bijdrage onherroeplijk geplaatst wordt onder de <a href="http://opendatacommons.org/licenses/dbcl/1.0/">Database Contents Licence 1.0</a> licentie
 voor informatie en data, en onder de <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution - ShareAlike 3.0</a> licentie voor beelden.
 U aanvaardt ook dat u gecrediteerd kan worden door hergebruikers via een link naar het product waar u tot bijgedragen hebt.',
+	de => 'Durch das Eingeben von Daten und Hinzufügen von Fotos erklären Sie sich unwiderruflich damit einverstanden, Ihre Beteiligung für die Informationen unter der Lizenz <a href="http://opendatacommons.org/licenses/dbcl/1.0/" hreflang="en">Database Contents Licence 1.0</a>
+ beizutragen und für die Fotos unter den Lizenz <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.de">Creative Commons Attribution - ShareAlike 3.0</a> zu veröffentlichen.
+Sie stimmen damit zu, von anderen Projekten, dei diese Daten nutzen, mit einem Link zu den von Ihnen bearbeiteten Produkten kreditiert zu werden.',
 },
 
 tag_belongs_to => {
@@ -5666,6 +5752,7 @@ search_tag => {
 	he => "בחירת קריטריון...",
 	nl => "kies een criterium...",
 	de => "Kriterium auswählen...",
+	ru => 'выбор критерия...',
 },
 
 search_nutriment => {
@@ -5783,13 +5870,14 @@ sort_product_name => {
 sort_created_t => {
 	fr => "Date d'ajout",
 	en => "Add date",
-        el => 'Ημερομηνία προσθήκης',
+    el => 'Ημερομηνία προσθήκης',
 	es => "Fecha de creación",
 	pt => "Data de criação",
 	ro => "Data adăugării",
 	he => "הוספת תאריך",
 	nl => "Datum van toevoeging",
 	de => "Zusatzdatum",
+	#ru => 'Добавить дату',
 },
 sort_modified_t => {
 	fr => "Date de modification",
@@ -5825,6 +5913,7 @@ search_edit => {
 	he => "החלפת קריטריוני החיפוש",
 	nl => "Wijzig de zoekcriteria",
 	de => "Suchkriterien bearbeiten",
+	ru => 'Изменить критерии поиска',
 },
 
 search_link => {
@@ -5835,6 +5924,7 @@ search_link => {
 	ro => "Link permanent la aceste rezultate, transmisibil prin e-mail și pe rețele sociale",
 	he => "קישור ישיר לתוצאות אלו, ניתן להעברה בדוא״ל וברשתות חברתיות",
 	nl => "Permanente link naar deze resultaten, deelbaar via e-mail of de sociale media",
+	de => "Zitierfähiger Permanentlink zu diesen Suchergebnissen, kann über E-Mail und in sozialen Netzwerken geteilt werden",
 },
 
 search_graph_link => {
@@ -5846,6 +5936,7 @@ search_graph_link => {
 	ro => "Link permanent la acest grafic, transmisibil prin e-mail și pe rețele sociale",
 	he => "קישור ישיר לתוצאות אלו, ניתן להעברה בדוא״ל וברשתות חברתיות",
 	nl => "Permanente link naar deze grafiek, deelbaar via e-mail of de sociale media",
+	de => "Zitierfähiger Permanentlink zu dieser Grafik, kann über E-Mail und in sozialen Netzwerken geteilt werden",
 },
 
 search_graph_title => {
@@ -5905,6 +5996,7 @@ graph_count => {
 	ro => "%d produse se potrivesc criteriilor de căutare, din care %i produse au valori definite pentru axele graficului",
 	he => "%d מוצרים תואמים את קריטריוני החיפוש, מתוכם ל־%i מוצרים יש ערכים מוגדרים עבור צירי התרשים.",
 	nl => "%d producten stemmen overeen met uw zoekcriteria, waarvan %i producten gedefinieerde waarden hebben voor de assen van de grafiek.",
+	de => "%d Produkte entsprechen Ihren Suchkriterien, davon %i Produkte, für welche Werte für die Diagramm-Achsen definiert wurden.",
 },
 
 data_source => {
@@ -5927,6 +6019,7 @@ search_map_link => {
 	ro => "Link permanent la această hartă, transmisibil prin e-mail și pe rețele sociale",
 	he => "קישור קבוע למפה זו, ניתן לשתף בדוא״ל וברשתות חברתיות",
 	nl => "Permanente link naar deze kaar, deelbaar via e-mail of de sociale media",
+	de => "Zitierfähiger Permanentlink zu dieser Karte, kann über E-Mail und in sozialen Netzwerken geteilt werden",
 },
 
 search_map_title => {
@@ -6220,6 +6313,7 @@ axis_y => {
 	he => "ציר אנכי",
 	nl => "Verticale as",
 	de => "Y-Achse",
+	ru => 'Вертикальная ось',
 },
 
 search_generate_graph => {
@@ -6291,6 +6385,7 @@ edit_comment => {
 	he => "תקציר השינויים",
 	nl => "Overzicht van de wijzigingen",
 	de => "Bearbeitung begründen",
+	ru => 'Сводка изменений',
 },
 
 delete_comment => {
@@ -6315,6 +6410,7 @@ history => {
 	he => "היסטוריית השינויים",
 	nl => "Geschiedenis van de wijzigingen",
 	de => "Historie der Veränderungen",
+	ru => 'История изменений',
 },
 
 new_code => {
@@ -6399,6 +6495,7 @@ product_js_image_rotate_and_crop => {
 	ro => "Rotiți imaginea dacă este necesar, apoi dați click și trageți pentru a selecta zona de interes:",
 	he => "הטיית התמונה אם יש צורך בכך ולאחר מכן ניתן ללחוץ ולגרור כדי לבחור את האזור המעניין:",
 	nl => "Draai indien nodig de foto, klik en sleep om de beoogde zone te selecteren:",
+	de => "Drehen Sie das Bild, falls notwendig. Anschließend können Sie das Bild durch Klicken und Ziehen mit der Maus zuschneiden:",
 },
 
 product_js_image_rotate_left => {
@@ -6530,7 +6627,7 @@ product_js_extracting_ingredients => {
 	ro => "Extrag ingredientele",
 	he => "הרכיבים מחולצים",
 	nl => "Ingrediënten aan het detecteren",
-	de => "Die Extrahierung der Zutaten ist in Verarbeitung",
+	de => "Zutaten werden extrahiert",
 },
 
 product_js_extracted_ingredients_ok => {
@@ -6542,6 +6639,7 @@ el => "Το κείμενο των συστατικών έχει εξαχθει. 
 	ro => "Textul cu ingrediente a fost extras. Recunoașterea de text nu este perfectă, deci sunteți rugați să verificați textul de mai jos și să corectați erorile dacă este necesar.",
 	he => "טקסט הרכיבים חולץ. מנגנון זיהוי הטקסט אינו מושלם ולכן מומלץ לבדוק אם הטקסט שלהלן נכון ולתקן את הטעויות במידת הצורך.",
 	nl => "De tekst met de ingrediënten werd gedetecteerd. De tekstherkenning is niet altijd perfect, gelieve de tekst hieronder te controleren en eventuele fouten te verbeteren.",
+	de => "Die angegebenen Zutaten wurden extrahiert. Da die Texterkennung nicht immer richtig ist, bitten wir Sie, den untenstehenden Text zu überprüfen und möglicherweise vorhandene Fehler zu korrigieren.",
 },
 
 product_js_extracted_ingredients_nok => {
@@ -6553,6 +6651,7 @@ product_js_extracted_ingredients_nok => {
 	ro => "Textul cu ingrediente nu a putut fi extras. Încercați cu o imagine mai clară, cu o rezoluție mai mare sau o mai bună încadrare a textului.",
 	he => "לא ניתן לחלץ את טקסט הרכיבים. כדאי לנסות עם תמונה חדה יותר ברזולוציה גבוהה יותר או במסגור טוב יותר של הטקסט.",
 	nl => "De tekst met de ingrediënten kon niet gedetecteerd worden. Je kan het opnieuw proberen met een scherpere foto, of met een foto met een hogere resolutie of een betere kadrering van de tekst",
+	de => "Die Angaben der Zutaten konnten nicht extrahiert werden. Sie können es mit einem schärferen Bild, mit höherer Auflösung, oder durch eine bessere Bildeinstellung erneut probieren.",
 },
 
 product_js_upload_image => {
@@ -6565,6 +6664,8 @@ product_js_upload_image => {
 	he => "הוספת תמונה",
 	nl => "Een foto toevoegen",
 	de => "Foto hochladen",
+	zh => '添加图片',
+	ru => 'Добавить изображение',
 },
 
 product_js_upload_image_note => {
@@ -6576,7 +6677,7 @@ el => "→ Με τους Chrome, Firefox and Safari, μπορείτε να επ�
 	ro => "→ Cu Chrome, Firefox și Safari, puteți selecta mai multe imagini (produs, ingrediente, valori nutriționale etc.). Dați click pe ele în timp ce țineți apăsați tasta Ctrl pentru a le adăuga pe toate în același timp.",
 	he => "← עם כרום, פיירפוקס וספארי, ניתן לבחור מספר תמונות (מוצר, רכיבים, מפרט תזונתי) על ידי לחיצה עליהן בעת החזקת המקש Ctrl כדי להוסיף את כולן באותה התמונה.",
 	nl => "→ Met Chrome, Firefox en Safari kan je verschillende foto's (product, ingrediënten, nutritionele informatie, etc.) selecteren door tijdens het klikken de Ctrl-toets ingedrukt te houden om ze in één keer verzenden.",
-	de => "Mit Chrome, Firefox und Safari können Sie einfach durch die Benutzung der Strg-Taste mehrere Fotos auswählen (Produkt, Zutaten, Nährwertinformationen, usw.), um diese einmalig hochzuladen.",
+	de => "→ Mit Chrome, Firefox und Safari können Sie einfach durch die Benutzung der Strg-Taste mehrere Fotos auswählen (Produkt, Zutaten, Nährwertinformationen, usw.), um diese einmalig hochzuladen.",
 },
 
 image_upload_error_image_already_exists => {
@@ -6590,7 +6691,7 @@ image_upload_error_image_too_small => {
 	fr => "La photo est trop petite. Attention à ne pas envoyer de photos prises sur Internet. Merci de n'envoyer que vos propres photos.",
 	en => "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself.",
 	el => "Αυτη η εικονα είναι πολύ μικρή. Παρακαλούμε μην ανεβάζετε φωτογραφίες που αντλήσατε από το διαδίκτυο και στείλτε αποκλειστικά φωτογραφίες που τραβήξατε εσείς",
-	de => "Das Foto ist zu klein. Bitte beachten sie, kein Foto von dem Internet sondern nur Ihre eigenen Fotos hochzuladen.",
+	de => "Das Foto ist zu klein. Bitte beachten Sie, dass Sie kein Foto aus dem Internet, sondern nur Ihre eigenen Fotos hochladen dürfen.",
 },
 
 product_add_nutrient => {
@@ -6602,6 +6703,7 @@ product_add_nutrient => {
 	ro => "Adăugați un nutrient", 
 	nl => "Een voedingsstof toevoegen",
 	de => "Nährstoff hinzufügen",
+	zh => '添加营养成分',
 },
 
 product_changes_saved => {
@@ -6614,6 +6716,7 @@ product_changes_saved => {
 	he => "השינויים נשמרו.",
 	nl => "De wijzigingen werden opgeslagen.",
 	de => "Veränderungen wurden gespeichert.",
+	ru => 'Изменения сохранены.',
 },
 
 see_product_page => {
@@ -6745,6 +6848,7 @@ edit_settings => {
 	he => "החלפת משתני החשבון שלך",
 	nl => "Wijzig de parameters van uw account",
 	de => "Konteneinstellungen bearbeiten",
+	ru => 'Изменить параметры вашей учётной записи',
 },
 
 list_of_x => {
@@ -6769,6 +6873,7 @@ change_uploaded_images => {
 	he => "תמונות שהועלו",
 	nl => "Geüploade foto's",
 	de => "Hochgeladene Fotos",
+	ru => 'Загруженные изображения',
 },
 
 change_selected_images => {
@@ -6817,6 +6922,8 @@ es => 'Añadido:',
 	he => 'נוסף:',
 	nl => "Toevoeging:",
 	de => "Neu:",
+	zh => "已添加:",
+	ru => 'Добавлено:',
 },
 
 diff_change => {
@@ -6829,6 +6936,7 @@ diff_change => {
 	he => 'השתנה:',
 	nl => "Wijziging:",
 	de => "Verändert:",
+	ru => 'Изменено:',
 },
 
 diff_delete => {
@@ -7004,6 +7112,7 @@ nutrient_in_quantity => {
 	he => '%s ב־%s',
 	nl => '%s in %s',
 	de => '%s in %s',
+	ru => '%s в %s',
 },
 low => {
 	en => "low",
@@ -7210,6 +7319,7 @@ show_category_stats_details => {
 	ro => "deviația standard, minimum, maximum, al 10-lea și al 90-lea procent",
 	fr => "écart type, minimum, maximum, 10ème et 90ème centiles",
 	nl => "standaardafwijking, minimum, maximum, 10e en 90e percentiel",
+	de => "Standardabweichung, Minimum, Maximum, 10. und 90. Quantil",
 },
 
 names => {
@@ -8010,6 +8120,7 @@ HTML
 },
 
 
+# MOBILESTRING
 
 app_please_take_pictures => {
 	fr => <<HTML
@@ -8065,6 +8176,8 @@ HTML
 ,
 },
 
+# MOBILESTRING
+
 app_you_can_add_pictures => {
 	fr => "Vous pouvez ajouter des photos :",
 	en => "You can add pictures:",
@@ -8091,6 +8204,8 @@ app_take_a_picture => {
 	it => "Scattare una foto",  
 	he => "צילום תמונה",
 },
+
+# MOBILESTRING
 
 app_take_a_picture_note => {
 	fr => "Note : les photos que vous envoyez sont publiées sous la licence libre Creative Commons Attribution et Partage à l'identique.",
@@ -8166,6 +8281,7 @@ points_all_countries => {
 );
 
 
+
 foreach my $l (@Langs) {
 
 	my $short_l = undef;
@@ -8206,7 +8322,7 @@ foreach my $l (@Langs) {
 
 	foreach my $type (keys %tag_type_plural) {
 			$tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;
-			print "tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;\n";
+			#print "tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;\n";
 	}
 
 }
