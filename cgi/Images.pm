@@ -969,31 +969,42 @@ sub display_image($$$) {
 		my $rev = $product_ref->{images}{$id}{rev};
 		my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$id . '_alt'}{$lang};
 
-			
-		$html .= <<HTML
+		if (not defined $product_ref->{jqm}) {
+		
+			$html .= <<HTML
 <img class="hide-for-xlarge-up" src="/images/products/$path/$id.$rev.$size.jpg" width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" />
 <img class="show-for-xlarge-up" src="/images/products/$path/$id.$rev.$display_size.jpg" width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" />
 HTML
 ;
+				
+			if (($size eq $small_size) and (defined $product_ref->{images}{$id}{sizes}{$display_size}))  {
 			
-		if ((not defined $product_ref->{jqm}) and ($size eq $small_size) and (defined $product_ref->{images}{$id}{sizes}{$display_size}))  {
-		
-			my $title = lang($id . '_alt');
-		
-			$html = <<HTML
+				my $title = lang($id . '_alt');
+				
+				my $full_image_url = "/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg";
+			
+				$html = <<HTML
 <a data-reveal-id="drop_$id" class="th" >
 $html
 </a>
-<div id="drop_$id" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" >
+<div id="drop_$id" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" about="$full_image_url" >
 <h2 id="modalTitle">$title</h2>
-<img src="/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg" alt="$alt" />
-<a class="close-reveal-modal" aria-label="Close">&#215;</a>
+<img src="$full_image_url" alt="$alt" />
+<a class="close-reveal-modal" aria-label="Close" rel="licence" href="http://creativecommons.org/licenses/by-sa/3.0/">&#215;</a>
 </div>
-
 HTML
 ;
 
 
+			}
+		
+		}
+		else {
+			# jquery mobile for Cordova app
+			$html .= <<HTML
+<img src="/images/products/$path/$id.$rev.$size.jpg" width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" />			
+HTML
+;
 		}
 	}
 	
