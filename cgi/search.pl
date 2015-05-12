@@ -225,7 +225,7 @@ HTML
 	for (my $i = 0; ($i < $tags_n) or defined param("tagtype_$i") ; $i++) {
 	
 		$html .= <<HTML
-	<div class="small-12 medium-12 large-6 columns" style="padding-top:1rem">
+	<div class="small-12 medium-12 large-6 columns criterion-row" style="padding-top:1rem">
 		<div class="row">
 			<div class="small-12 medium-12 large-5 columns">
 HTML
@@ -243,7 +243,7 @@ HTML
 
 		$html .= <<HTML						
 			</div>
-			<div class="small-12 medium-12 large-4 columns">
+			<div class="small-12 medium-12 large-4 columns tag-search-criterion">
 				<input type="text" id="tag_$i" name="tag_$i" value="$search_tags[$i][2]" placeholder="$Lang{search_value}{$lc}"/>
 			</div>
 		</div>
@@ -486,6 +486,7 @@ HTML
 	</li>
 </ul>
 </form>
+<script type="text/javascript" src="/js/search.js"></script>
 HTML
 ;
 	
