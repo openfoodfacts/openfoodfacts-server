@@ -106,7 +106,10 @@ function upload_image (imagefield) {
 
 function init_image_area_select(imagefield) {
 	
-	$('img#crop_' + imagefield ).cropper({ "strict" : false, "guides" : false, "autoCrop" : false});
+	$('img#crop_' + imagefield ).cropper({ "strict" : false, "guides" : false, "autoCrop" : false, built: function () {
+		$('img#crop_' + imagefield ).cropper('setDragMode', "crop");
+	}});
+
 }
 
 function update_image(imagefield) {
@@ -144,6 +147,7 @@ function change_image(imagefield, imgid) {
 	html += '</div>';
 	html += '<div id="cropimgdiv_' + imagefield + '" style="width:100%;height:400px"><img src="' + img_path + image.crop_url +'" id="' + 'crop_' + imagefield + '"/></div>';
 	html += '<a href="' + img_path + image.imgid + '.jpg" target="_blank">' + Lang.image_open_full_size_image + '</a><br/>';
+	html += '<input type="checkbox" id="normalize_' + imagefield + '" onchange="update_image(\'' + imagefield + '\');blur();" /><label for="normalize_' + imagefield + '">' + Lang.image_normalize + '</label></div><br/>';	
 	html +=	'<input type="checkbox" id="white_magic_' + imagefield + '" style="display:inline" /><label for="white_magic_' + imagefield 
 		+ '" style="display:inline">' + Lang.image_white_magic + '</label>';
 	html += '<div id="cropbutton_' + imagefield + '"></div>';
