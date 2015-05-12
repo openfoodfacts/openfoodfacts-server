@@ -101,9 +101,13 @@ foreach my $langid (readdir(DH2)) {
 		foreach my $textid (readdir(DH)) {
 			next if $textid eq '.';
 			next if $textid eq '..';
-			$textid =~ s/\.html//;
+			my $file = $textid;
+			$textid =~ s/(\.foundation)?(\.$langid)?\.html//;
 			defined $texts{$textid} or $texts{$textid} = {};
-			$texts{$textid}{$langid} = 1;
+			# prefer the .foundation version
+			if ((not defined $texts{$textid}{$langid}) or (length($file) > length($texts{$textid}{$langid}))) {
+				$texts{$textid}{$langid} = $file;
+			}
 			# print STDERR "Display : loaded text $langid/$textid\n";
 		}
 		closedir(DH);
