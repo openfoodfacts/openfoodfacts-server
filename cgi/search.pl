@@ -105,7 +105,7 @@ my @search_nutriments = ();
 my %search_ingredient_classes = {};
 my %search_ingredient_classes_checked = {};
 
-for (my $i = 0; $i < $tags_n ; $i++) {
+for (my $i = 0; defined param("tagtype_$i") ; $i++) {
 
 	my $tagtype = remove_tags_and_quote(decode utf8=>param("tagtype_$i"));
 	my $tag_contains = remove_tags_and_quote(decode utf8=>param("tag_contains_$i"));
@@ -222,7 +222,7 @@ HTML
 HTML
 ;
 
-	for (my $i = 0; $i < $tags_n ; $i++) {
+	for (my $i = 0; ($i < $tags_n) or defined param("tagtype_$i") ; $i++) {
 	
 		$html .= <<HTML
 	<div class="small-12 medium-12 large-6 columns" style="padding-top:1rem">
@@ -543,7 +543,7 @@ elsif ($action eq 'process') {
 	
 	my $and;
 	
-	for (my $i = 0; $i < $tags_n ; $i++) {
+	for (my $i = 0;  ($i < $tags_n) or defined param("tagtype_$i") ; $i++) {
 	
 		my ($tagtype, $contains, $tag) = @{$search_tags[$i]};
 		
@@ -564,11 +564,14 @@ elsif ($action eq 'process') {
 			
 			if ($tagid ne '') {
 			
-				# 2 or 3 criterias on the same field?
+				# 2 or more criterias on the same field?
 				my $remove = 0;
 				if (defined $query_ref->{$tagtype . "_tags"}) {
 					$remove = 1;
-					$and = [{ $tagtype . "_tags" => $query_ref->{$tagtype . "_tags"} }];
+					if (not defined $and) {
+						$and = [];
+					}
+					push @$and, { $tagtype . "_tags" => $query_ref->{$tagtype . "_tags"} };
 				}
 			
 				if ($contains eq 'contains') {
