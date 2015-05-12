@@ -339,7 +339,7 @@ sub analyze_request($)
 		$request_ref->{canon_rel_url} = "/" . $components[0];
 	}
 	# First check if the request is for a text
-	elsif ((defined $texts{$components[0]}) and (defined $texts{$components[0]}{$lang}) and (not defined $components[1]))  {
+	elsif ((defined $texts{$components[0]}) and ((defined $texts{$components[0]}{$lang}) or (defined $texts{$components[0]}{en}))and (not defined $components[1]))  {
 		$request_ref->{text} = $components[0];
 		$request_ref->{canon_rel_url} = "/" . $components[0];
 	}	
@@ -593,41 +593,21 @@ sub display_text($)
 	my $textid = $request_ref->{text};
 		
 	my $text_lang = $lang;
-	my $short_l = undef;
-	if ($lang =~ /_/) {
-		$short_l = $`,  # pt_pt
-	}
-	
-	if (($textid eq 'index') and (! -e "$data_root/lang/$lang/texts/$textid.html") and (! -e "$data_root/lang/$lang/texts/$textid.$lang.html")
-		and (! -e "$data_root/lang/$short_l/texts/$textid.html")) {
+
+	# if a page does not exist in the local language, use the English version
+	# e.g. Index, Discover, Contribute pages.
+	if ((not defined $texts{$textid}{$text_lang}) and (defined $texts{$textid}{en})) {
 		$text_lang = 'en';
 	}
 	
-	my $file = "$data_root/lang/$text_lang/texts/$textid.html";
+	my $file = "$data_root/lang/$text_lang/texts/" . $texts{$textid}{$text_lang} ;
 	
-	# foundation specific version
-	if (-e "$data_root/lang/$text_lang/texts/$textid.foundation.html") {
-		$file = "$data_root/lang/$text_lang/texts/$textid.foundation.html";
-	}
-	elsif (-e "$data_root/lang/$text_lang/texts/$textid.foundation.$lang.html") {
-		$file = "$data_root/lang/$text_lang/texts/$textid.foundation.$lang.html";
-	}
-	
-	
-	if ((! -e $file) and (defined $short_l)) {
-		$file = "$data_root/lang/$short_l/texts/$textid.html";
-	}
-	if ((! -e $file) and (-e "$data_root/lang/$lang/texts/$textid.$lang.html")) {
-		$file = "$data_root/lang/$lang/texts/$textid.$lang.html";
-	}	
 	
 	#list?
 	if (-e "$data_root/lists/$textid.$cc.$lc.html") {
 		$file = "$data_root/lists/$textid.$cc.$lc.html";
 	}
-	elsif ((defined $short_l) and (-e "$data_root/lists/$textid.$cc.$short_l.html")) {
-		$file = "$data_root/lists/$textid.$cc.$short_l.html";
-	}
+
 	
 	open(IN, "<:encoding(UTF-8)", $file);
 	my $html = join('', (<IN>));
@@ -644,7 +624,7 @@ sub display_text($)
 		$html =~ s/<\/h1>/ - $country_name<\/h1>/;
 	}
 
-	print STDERR "debug_text - cc: $cc - lc: $lc - lang: $lang - textid: $textid - textlang: $text_lang \n";
+	print STDERR "debug_text - cc: $cc - lc: $lc - lang: $lang - textid: $textid - textlang: $text_lang - file: $file \n";
 	
 	# if page number is higher than 1, then keep only the h1 header
 	# e.g. index page
@@ -657,9 +637,6 @@ sub display_text($)
 		my $fileid = shift;
 		($fileid =~ /\.\./) and return '';
 		my $file = "$data_root/lang/$lc/$fileid";
-		if ((! -e $file) and (defined $short_l)) {
-			$file = "$data_root/lang/$short_l/$fileid";
-		}
 		my $html = '';
 		if (-e $file) {
 			open (IN, "<:encoding(UTF-8)", "$file");
@@ -4119,7 +4096,7 @@ sub display_new($) {
     <script src="/foundation/js/vendor/modernizr.js"></script>
 	
 <title>$title</title>
-<meta name="language" content="$Lang{language}{$lang}" />
+
 $meta_description
 	
 <script src="/foundation/js/vendor/jquery.js"></script>
@@ -4358,7 +4335,7 @@ padding:0.5rem;
 line-height:1.2;
 }
 
-#sharebuttons li { text-align:center }
+#sharebuttons li { text-align:center; max-width:100px; }
 
 #footer > div {
 	padding:1rem;
@@ -4540,8 +4517,20 @@ HTML
 	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>:
 	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="http://slack.openfoodfacts.org">Slack</a>');
 	
+	my $twitter_account = lang("twitter_account");
+	if (defined $Lang{twitter_account_by_country}{$cc}) {
+		$twitter_account = $Lang{twitter_account_by_country}{$cc};
+	}
+	
+	my $facebook_page = lang("facebook_page");
+	
+	my $torso_color = "white";
+	if (defined $User_id) {
+		$torso_color = "#ffe681";
+	}
+	
+	
 	$html .= <<HTML
-
 
 	
 	<!-- Right Nav Section -->
@@ -4565,7 +4554,7 @@ HTML
 		
 		<li class="show-for-large-up"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-plus"></i></a></li>
 		
-		<li class="show-for-large-up"><a href="/cgi/search.pl?graph=1=1" title="$Lang{graphs_and_maps}{$lang}"><i class="fi-graph-bar"></i></a></li>
+		<li class="show-for-large-up"><a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}"><i class="fi-graph-bar"></i></a></li>
 		
 		<li class="show-for-large-up divider"></li>
 	
@@ -4584,14 +4573,14 @@ HTML
 
   <div class="left-small" style="padding-top:4px;">
     <a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix">
-	<i class="fi-torso" style="color:white;font-size:1.8rem"></i></a>
+	<i class="fi-torso" style="color:$torso_color;font-size:1.8rem"></i></a>
   </div>
   <div class="middle tab-bar-section" style="padding-top:4px;">
 			<form action="/cgi/search.pl">
 			<div class="row collapse ">
 
 					<div class="small-8 columns">
-						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="q">
+						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="search_terms">
 						<input name="search_simple" value="1" type="hidden" />
 						<input name="action" value="process" type="hidden" />						
 					</div>
@@ -4599,12 +4588,10 @@ HTML
 						 <button type="submit" class="button postfix"><i class="fi-magnifying-glass"></i></button>
 					</div>
 					
-					<div class="small-1 columns">
-							<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-plus"></i></a>
+					<div class="small-2 columns">
+							<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-magnifying-glass"></i> <i class="fi-plus"></i></a>
 					</div>
-					<div class="small-1 columns">
-							<a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}"><i class="fi-graph-bar"></i></a>
-					</div>
+
 
 			</div>
 			</form>	  
@@ -4648,8 +4635,8 @@ HTML
 			<form action="/cgi/search.pl" class="hide-for-large-up">
 			<div class="row collapse">
 
-					<div class="small-8 columns">
-						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="q">
+					<div class="small-9 columns">
+						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="search_terms">
 						<input name="search_simple" value="1" type="hidden" />
 						<input name="action" value="process" type="hidden" />
 					</div>
@@ -4662,11 +4649,7 @@ HTML
 							<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-plus"></i></a>
 						</label>
 					</div>
-					<div class="small-1 columns">
-						<label class="right inline">
-							<a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}"><i class="fi-graph-bar"></i></a>
-						</label>
-					</div>					
+			
 
 			</div>
 			</form>		
@@ -4756,10 +4739,10 @@ $Lang{footer_follow_us}{$lc}
 
 <ul class="small-block-grid-3" id="sharebuttons">
 	<li>
-		<a href="https://twitter.com/share" class="twitter-share-button" data-lang="$lc" data-via="$Lang{twitter_account}{$lang}" data-url="$subdomain.${server_domain}" data-count="vertical">Tweeter</a>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-lang="$lc" data-via="$Lang{twitter_account}{$lang}" data-url="http://$subdomain.${server_domain}" data-count="vertical">Tweeter</a>
 	</li>
-	<li><fb:like href="$subdomain.${server_domain}" layout="box_count"></fb:like></li>
-	<li><div class="g-plusone" data-size="tall" data-count="true" data-href="$subdomain.${server_domain}"></div></li>
+	<li><fb:like href="http://$subdomain.${server_domain}" layout="box_count"></fb:like></li>
+	<li><div class="g-plusone" data-size="tall" data-count="true" data-href="http://$subdomain.${server_domain}"></div></li>
 </ul>
 
 </div>
@@ -4822,6 +4805,30 @@ $scripts
   });
 </script>
 
+<script type="application/ld+json">
+{
+	"\@context" : "http://schema.org",
+	"\@type" : "WebSite",
+	"name" : "$Lang{site_name}{$lc}",
+	"url" : "http://$subdomain.$domain",
+	"potentialAction": {
+		"\@type": "SearchAction",
+		"target": "http://$subdomain.$domain/cgi/search.pl?search_terms=?{search_term_string}",
+		"query-input": "required name=search_term_string"
+	}	
+}
+</script>
+
+<script type="application/ld+json">
+{
+	"\@context": "http://schema.org/",
+	"\@type": "Organization",
+	"url": "http://$subdomain.$domain",
+	"logo": "/images/misc/$Lang{logo}{$lang}",
+	"name": "$Lang{site_name}{$lc}",
+	"sameAs" : [ "$facebook_page", "http://twitter.com/$twitter_account"] 
+}
+</script>
 
 </body>
 </html>
@@ -4843,6 +4850,10 @@ HTML
 		$html =~ s/<!-- main row -(.*)<!-- main column content(.*?)-->/$new_main_row_column/s;
 	
 	}
+	
+	# Twitter account
+	$html =~ s/<twitter_account>/$twitter_account/g;
+	
 
 	# Use static subdomain for images, js etc.
 	
@@ -4899,7 +4910,7 @@ sub display_product_search_or_add($)
           <input type="text" placeholder="$or $Lang{barcode}{$lc}">
         </div>
         <div class="small-3 columns">
-          <a href="#" class="button postfix">$Lang{add}{$lc}</a>
+           <input type="submit" value="$Lang{add}{$lc}" class="button postfix" />
         </div>
       </div>
 	  
@@ -5007,6 +5018,22 @@ sub display_field($$) {
 			$lang_field = ucfirst(lang($field . "_s"));
 		}
 		$html .= '<p><span class="field">' . lang($field) . " :</span> $value</p>";
+		
+		if ($field eq 'brands') {
+			my $brand = $value;
+			# Keep the first one
+			$brand =~ s/,(.*)//;
+			$brand =~ s/<([^>]+)>//g;
+			$product_ref->{brand} = $brand;
+		}		
+		
+		if ($field eq 'categories') {
+			my $category = $value;
+			# Keep the last one
+			$category =~ s/.*,( )?//;
+			$category =~ s/<([^>]+)>//g;
+			$product_ref->{category} = $category;
+		}
 	}
 	return $html;
 }
@@ -5021,7 +5048,7 @@ sub display_product($)
 	my $html = '';
 	my $blocks_ref = [];
 	my $title = undef;
-	my $description = undef;
+	my $description = "";
 	
 	$scripts .= <<HTML
 HTML
@@ -5085,8 +5112,9 @@ CSS
 		$title .= " version $rev";
 	}
 	
-	$description = $title . ' - ' .  $product_ref->{generic_name};
-	$description =~ s/ - $//;
+	
+	$description = sprintf(lang("product_description"), $title);
+	
 	$request_ref->{canon_url} = product_url($product_ref);
 	
 	# Check that the titleid is the right one
@@ -5151,6 +5179,13 @@ HTML
 	my $minheight = 0;
 	my $html_image = display_image_box($product_ref, 'front', \$minheight);
 	$html_image =~ s/ width="/ itemprop="image" width="/;
+	
+	# Take the last (biggest) image
+	my $product_image_url;
+	if ($html_image =~ /.*src="([^"]+)"/is) {
+		$product_image_url = $1;
+	}
+	
 	
 	my $html_fields = '';
 	foreach my $field (@fields) {
@@ -5355,6 +5390,36 @@ HTML
 HTML
 ;
 	
+	# Twitter card
+
+	# example:
+	
+#<meta name="twitter:card" content="product">
+#<meta name="twitter:site" content="@iHeartRadio">
+#<meta name="twitter:creator" content="@iHeartRadio">
+#<meta name="twitter:title" content="24/7 Beatles — Celebrating 50 years of Beatlemania">
+#<meta name="twitter:image" content="http://radioedit.iheart.com/service/img/nop()/assets/images/05fbb21d-e5c6-4dfc-af2b-b1056e82a745.png">
+#<meta name="twitter:label1" content="Genre">
+#<meta name="twitter:data1" content="Classic Rock">
+#<meta name="twitter:label2" content="Location">
+#<meta name="twitter:data2" content="National">
+
+	
+	$header .= <<HTML
+<meta name="twitter:card" content="product">
+<meta name="twitter:site" content="@<twitter_account>">
+<meta name="twitter:creator" content="@<twitter_account>">
+<meta name="twitter:title" content="$title">
+<meta name="twitter:description" content="$description">
+<meta name="twitter:image" content="$product_image_url">
+<meta name="twitter:label1" content="$Lang{brands_s}{$lc}">
+<meta name="twitter:data1" content="$product_ref->{brand}">
+<meta name="twitter:label2" content="$Lang{categories_s}{$lc}">
+<meta name="twitter:data2" content="$product_ref->{category}">
+
+<meta property="og:image" content="$product_image_url">
+HTML
+;
 
 	$request_ref->{content_ref} = \$html;
 	$request_ref->{title} = $title;
