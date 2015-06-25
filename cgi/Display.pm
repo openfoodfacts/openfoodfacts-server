@@ -241,9 +241,9 @@ sub init()
 	
 	my $error = Blogs::Users::init_user();
 	if ($error) {
-		display_error($error);
-		#$User_id = undef;
-		#%User = undef;
+		if (not param('jqm')) { # API
+			display_error($error);
+		}
 	}
 	
 	if (($User_id eq 'stephane') or ($User_id eq 'tacite') or ($User_id eq 'teolemon') or ($User_id eq 'bcatelin')
@@ -257,6 +257,19 @@ sub init()
 	
 	if ($domain =~ /^test/) {
 	#	$admin = 1;
+	}
+	
+	if (defined $User_id) {
+		$styles .= <<CSS
+.hide-when-logged-in { display:none}
+CSS
+;
+	}
+	else {
+		$styles .= <<CSS
+.show-when-logged-in { display:none}
+CSS
+;
 	}
 }
 
@@ -295,6 +308,13 @@ sub analyze_request($)
 	# Root
 	if ($#components < 0) {
 		$request_ref->{text} = 'index';
+		$request_ref->{current_link} = '';
+	}
+	# Root + page number
+	elsif (($#components == 0) and ($components[$#components] =~ /^\d+$/) and ($components[$#components] < 1000)) {
+		$request_ref->{page} = pop @components;
+		$request_ref->{current_link} = '';
+		$request_ref->{text} = 'index';
 	}
 	
 	# api
@@ -319,7 +339,7 @@ sub analyze_request($)
 		$request_ref->{canon_rel_url} = "/" . $components[0];
 	}
 	# First check if the request is for a text
-	elsif ((defined $texts{$components[0]}) and (defined $texts{$components[0]}{$lang}) and (not defined $components[1]))  {
+	elsif ((defined $texts{$components[0]}) and ((defined $texts{$components[0]}{$lang}) or (defined $texts{$components[0]}{en}))and (not defined $components[1]))  {
 		$request_ref->{text} = $components[0];
 		$request_ref->{canon_rel_url} = "/" . $components[0];
 	}	
@@ -573,31 +593,21 @@ sub display_text($)
 	my $textid = $request_ref->{text};
 		
 	my $text_lang = $lang;
-	my $short_l = undef;
-	if ($lang =~ /_/) {
-		$short_l = $`,  # pt_pt
-	}
-	
-	if (($textid eq 'index') and (! -e "$data_root/lang/$lang/texts/$textid.html") and (! -e "$data_root/lang/$lang/texts/$textid.$lang.html")
-		and (! -e "$data_root/lang/$short_l/texts/$textid.html")) {
+
+	# if a page does not exist in the local language, use the English version
+	# e.g. Index, Discover, Contribute pages.
+	if ((not defined $texts{$textid}{$text_lang}) and (defined $texts{$textid}{en})) {
 		$text_lang = 'en';
 	}
 	
-	my $file = "$data_root/lang/$text_lang/texts/$textid.html";
-	if ((! -e $file) and (defined $short_l)) {
-		$file = "$data_root/lang/$short_l/texts/$textid.html";
-	}
-	if ((! -e $file) and (-e "$data_root/lang/$lang/texts/$textid.$lang.html")) {
-		$file = "$data_root/lang/$lang/texts/$textid.$lang.html";
-	}	
+	my $file = "$data_root/lang/$text_lang/texts/" . $texts{$textid}{$text_lang} ;
+	
 	
 	#list?
 	if (-e "$data_root/lists/$textid.$cc.$lc.html") {
 		$file = "$data_root/lists/$textid.$cc.$lc.html";
 	}
-	elsif ((defined $short_l) and (-e "$data_root/lists/$textid.$cc.$short_l.html")) {
-		$file = "$data_root/lists/$textid.$cc.$short_l.html";
-	}
+
 	
 	open(IN, "<:encoding(UTF-8)", $file);
 	my $html = join('', (<IN>));
@@ -614,16 +624,19 @@ sub display_text($)
 		$html =~ s/<\/h1>/ - $country_name<\/h1>/;
 	}
 
-	print STDERR "debug_text - cc: $cc - lc: $lc - lang: $lang - textid: $textid - textlang: $text_lang \n";
+	print STDERR "debug_text - cc: $cc - lc: $lc - lang: $lang - textid: $textid - textlang: $text_lang - file: $file \n";
+	
+	# if page number is higher than 1, then keep only the h1 header
+	# e.g. index page
+	if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
+		$html =~ s/<\/h1>.*//is;
+	}
 	
 	
 	sub replace_file($) {
 		my $fileid = shift;
 		($fileid =~ /\.\./) and return '';
 		my $file = "$data_root/lang/$lc/$fileid";
-		if ((! -e $file) and (defined $short_l)) {
-			$file = "$data_root/lang/$short_l/$fileid";
-		}
 		my $html = '';
 		if (-e $file) {
 			open (IN, "<:encoding(UTF-8)", "$file");
@@ -646,7 +659,13 @@ sub display_text($)
 	
 	}
 	
-	$html =~ s/\[\[query:(.*?)\]\]/replace_query($1)/eg;
+	
+	if ($file !~ /index.foundation/) {
+		$html =~ s/\[\[query:(.*?)\]\]/replace_query($1)/eg;
+	}
+	else {
+		$html .= search_and_display_products( $request_ref, {}, "last_modified_t_complete_first", undef, undef);
+	}
 	
 	$html =~ s/\[\[(.*?)\]\]/replace_file($1)/eg;
 	
@@ -2039,6 +2058,7 @@ sub search_and_display_products($$$$$) {
 	
 	my $html = '';
 	my $html_pages = '';
+	my $html_count = '';
 	
 	if (not defined $request_ref->{jqm_loadmore}) {
 
@@ -2049,10 +2069,10 @@ sub search_and_display_products($$$$$) {
 			$html .= "<p>" . lang("no_products") . "</p>";
 		}
 		elsif ($count == 1) {
-			$html .= "<p>" . lang("1_product") . "</p>";
+			$html_count .= lang("1_product");
 		}
 		elsif ($count > 1) {
-			$html .= "<p>" . sprintf(lang("n_products"), $count) . "</p>";
+			$html_count .= sprintf(lang("n_products"), $count) ;
 		}
 	
 	}
@@ -2081,25 +2101,34 @@ sub search_and_display_products($$$$$) {
 		
 		print STDERR "search - count: $count - request_ref->{search}: " . $request_ref->{search}  . " tagid2 " . $request_ref->{tagid2} . "\n" ;
 		
-		if ((not defined $request_ref->{search}) and ($count >= 5)) {
-		
-			if (not defined $request_ref->{tagid2}) {
-				my @current_drilldown_fields = @drilldown_fields;
-				if ($country eq 'en:world') {
-					unshift (@current_drilldown_fields, "countries");
-				}
-				$html .= "<p>" . lang("explore_products_by") . " ";
-				foreach my $newtagtype (@current_drilldown_fields) {
-				
-					$html .= "<a href=\"" . $request_ref->{current_link} . "/" . $tag_type_plural{$newtagtype}{$lc} . "\">"
-						. lang($newtagtype . "_p") . "</a>, ";
-				}
-				$html =~ s/, $//;
-				$html .= "</p>";
+		if ((not defined $request_ref->{search}) and ($count >= 5) 	
+			and (not defined $request_ref->{tagid2})) {
+			
+			my @current_drilldown_fields = @drilldown_fields;
+			if ($country eq 'en:world') {
+				unshift (@current_drilldown_fields, "countries");
 			}
+			$html .= <<HTML
+<ul class="button-group">
+<li><div style="font-size:1.2rem;background-color:#eeeeee;padding:0.3rem 1rem;height:2.75rem;margin:0">$html_count</div></li>
+<li>
+<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown small">$Lang{explore_products_by}{$lc}</button>
+<ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
+HTML
+;				
+			foreach my $newtagtype (@current_drilldown_fields) {
+			
+				$html .= "<li ><a href=\"" . $request_ref->{current_link} . "/" . $tag_type_plural{$newtagtype}{$lc} . "\">"
+					. ucfirst(lang($newtagtype . "_p")) . "</a></li>\n";
+			}
+			$html .= "</ul>\n</li>\n</ul>\n\n";
+		
 		
 		}
-
+		else {
+			$html .= "<p>$html_count " . lang("sep") . ":</p>";
+		}
+		
 	
 		if (defined $request_ref->{jqm}) {
 			if (not defined $request_ref->{jqm_loadmore}) {
@@ -2118,7 +2147,7 @@ sub search_and_display_products($$$$$) {
 			my $img_h;
 			
 			my $code = $product_ref->{code};
-			my $img = display_image($product_ref, 'front', $thumb_size);
+			my $img = display_image_thumb($product_ref, 'front');
 			
 
 
@@ -2147,9 +2176,9 @@ HTML
 				}
 				
 			# Display the brand if we don't have an image
-			if (($img eq '') and ($product_ref->{brands} ne '')) {
-				$product_name .= ' - ' . $product_ref->{brands};
-			}				
+			#if (($img eq '') and ($product_ref->{brands} ne '')) {
+			#	$product_name .= ' - ' . $product_ref->{brands};
+			#}				
 				
 				$html .= <<HTML
 <li>
@@ -2187,48 +2216,50 @@ HTML
 			
 			for (my $i = 1; $i <= $nb_pages; $i++) {
 				if ($i == $page) {
-					$html_pages .= '<div id="current_page">' . $i . '</div>';
+					$html_pages .= '<li class="current"><a href="">' . $i . '</li>';
 					$skip = 0;
 				}
 				else {
 				
 					# do not show 5425423 pages...
 					
-					if (not (($i == 1) or ($i == $nb_pages) or (($i - $page)*($i - $page) <= 9))) {
-						if (not $skip) {
-							$skip = 1;
-							$html_pages .= "<div>..</div>";
-						}
-						next;
+					if (($i > 3) and ($i <= $nb_pages - 3) and (($i > $page + 3) or ($i < $page - 3))) {
+						$html_pages .= "<unavailable>";
 					}
+					else {
 				
-					my $link;
+						my $link;
 
-					if (defined $current_link) {
-						
-						$link = $current_link;
-						if ($i > 1) {
-							$link .= "/$i";
+						if (defined $current_link) {
+							
+							$link = $current_link;
+							if ($i > 1) {
+								$link .= "/$i";
+							}
 						}
-					}
-					elsif (defined $current_link_query) {
+						elsif (defined $current_link_query) {
+							
+							$link = $current_link_query . "&page=$i";
+						}
+										
+						$html_pages .=  '<li><a href="' . $link . '">' . $i . '</a></li>';
 						
-						$link = $current_link_query . "&page=$i";
-					}
-									
-					$html_pages .=  '<div><a href="' . $link . '">' . $i . '</a></div>';
-					
-					if ($i == $page - 1) {
-						$prev = '<div><a href="' . $link . '">' . lang("previous") . '</a></div>';
-					}
-					elsif ($i == $page + 1) {
-						$next = '<div><a href="' . $link . '">' . lang("next") . '</a></div>';
-						$next_page_url = $link;
+						if ($i == $page - 1) {
+							$prev = '<li><a href="' . $link . '">' . lang("previous") . '</a></li>';
+						}
+						elsif ($i == $page + 1) {
+							$next = '<li><a href="' . $link . '">' . lang("next") . '</a></li>';
+							$next_page_url = $link;
+						}
 					}
 				}
 			}
 			
-			$html_pages = "\n" . '<div id="pages">' . lang("pages") . $prev . $html_pages . $next . '</div>';
+			$html_pages =~ s/(<unavailable>)+/<li class="unavailable">&hellip;<\/li>/g;
+			
+			$html_pages = "\n<hr/>" . '<ul id="pages" class="pagination">'
+			. "<li class=\"unavailable\">" . lang("pages") . "</li>" 
+			. $prev . $html_pages . $next . "</ul>\n";
 		}		
 		
 		# Close the list
@@ -2619,6 +2650,7 @@ pnns_groups_2
 sub escape_single_quote($) {
 	my $s = shift;
 	$s =~ s/'/\\'/g;
+	$s =~ s/\n/ /g;
 	return $s;
 }
 
@@ -2698,7 +2730,7 @@ sub display_scatter_plot($$$) {
 				and ((($graph_ref->{axis_y} eq 'additives_n') and (defined $product_ref->{$graph_ref->{axis_y}})) or 
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"} ne ''))) {
 				
-				my $url = "http://$cc.${server_domain}" . product_url($product_ref->{code});
+				my $url = "http://$subdomain" . product_url($product_ref->{code});
 				
 				# Identify the series id
 				my $seriesid = 0;
@@ -2762,7 +2794,7 @@ sub display_scatter_plot($$$) {
 					add_product_nutriment_to_stats(\%nutriments, $nid, $product_ref->{nutriments}{"${nid}_100g"});
 				}
 				$data .= ' product_name:"' . escape_single_quote($product_ref->{product_name}) . '", url: "' . $url . '", img:\''
-					. escape_single_quote(display_image($product_ref, 'front', $thumb_size)) . "'";
+					. escape_single_quote(display_image_thumb($product_ref, 'front')) . "'";
 ;
 				
 				$data .= "},\n";
@@ -3720,7 +3752,35 @@ sub display_login_register($)
 	
 	if (not defined $User_id) {
 	
-		my $content = lang("login_register_content");
+		my $content = <<HTML
+<p>$Lang{login_to_add_and_edit_products}{$lc}</p>
+
+<form method="post" action="/cgi/session.pl">
+<div class="row">
+<div class="small-12 columns">
+	<label>$Lang{login_username_email}{$lc}
+		<input type="text" name="user_id" />
+	</label>
+</div>
+<div class="small-12 columns">
+	<label>$Lang{password}{$lc}
+		<input type="password" name="password" />
+	</label>
+</div>
+<div class="small-12 columns">
+	<label>
+		<input type="checkbox" name="remember_me" value="on" />
+		$Lang{remember_me}{$lc}
+	</label>
+</div>
+</div>
+<input type="submit" name=".submit" value="$Lang{login_register_title}{$lc}" class="button small" />
+</form>
+<p>$Lang{login_not_registered_yet}{$lc}
+<a href="/cgi/user.pl">$Lang{login_create_your_account}{$lc}</a></p>
+
+HTML
+;
 	
 		push @$blocks_ref, {
 			'title'=>lang("login_register_title"),
@@ -3736,11 +3796,10 @@ sub display_my_block($)
 	
 	if (defined $User_id) {
 		
-		my $links = '<p>';
-		$links .= "&rarr; <a href=\"/cgi/user.pl?userid=$User_id&type=edit\">" . lang("edit_settings") . "</a><br/>";
-		$links .= "&rarr; <a href=\"" . canonicalize_tag_link("users", get_fileid($User_id)) . "\">" . lang("products_you_edited") . "</a><br/>";
-		$links .= "&rarr; <a href=\"" . canonicalize_tag_link("users", get_fileid($User_id)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed") . "\">" . lang("incomplete_products_you_added") . "</a><br/>";  
-		$links .= "</p>";
+		my $links = '<ul class="side-nav" style="padding-top:0">';
+		$links .= "<li><a href=\"" . canonicalize_tag_link("users", get_fileid($User_id)) . "\">" . lang("products_you_edited") . "</a></li>";
+		$links .= "<li><a href=\"" . canonicalize_tag_link("users", get_fileid($User_id)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed") . "\">" . lang("incomplete_products_you_added") . "</a></li>";  
+		$links .= "</ul>";
 		
 		my $content = '';
 		
@@ -3755,18 +3814,26 @@ HTML
 		else {
 			my $signout = lang("signout");
 			$content = sprintf(lang("you_are_connected_as_x"), $User_id) . <<HTML
-<form method="post" action="/cgi/session.pl">
-<input type="hidden" name="length" value="logout" />
-<input type="submit" name=".submit" value="$signout" class="jbutton" />
-</form>
+<ul class="button-group">
+<li>
+	<form method="post" action="/cgi/session.pl">
+	<input type="hidden" name="length" value="logout" />
+	<input type="submit" name=".submit" value="$signout" class="button small" />
+	</form>
+</li>
+<li>
+	<a href="/cgi/user.pl?userid=$User_id&type=edit" class="button small" title="$Lang{edit_settings}{$lc}" style="padding-left:1rem;padding-right:1rem"><i class="fi-widget"></i></a>
+</li>
+</ul>
 $links
 HTML
 ;		
 		}
 	
 		push @$blocks_ref, {
-			'title'=> lang("hello") . ' ' . $User{name} . ' !',
+			'title'=> lang("hello") . ' ' . $User{name},
 			'content'=>$content,
+			'id'=>'my_block',
 		};	
 	}
 	
@@ -3778,12 +3845,13 @@ HTML
 sub display_on_the_blog($)
 {
 	my $blocks_ref = shift;
-	if (open (IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/texts/blog.html")) {
+	if (open (IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/texts/blog-foundation.html")) {
 	
 		my $html = join('', (<IN>));
 		push @$blocks_ref, {
 				'title'=>lang("on_the_blog_title"),
-				'content'=>lang("on_the_blog_content") . $html,
+				'content'=>lang("on_the_blog_content") . '<ul class="side-nav">' . $html . '</ul>',
+				'id'=>'on_the_blog',
 		};	
 		close IN;
 	}
@@ -3830,12 +3898,16 @@ sub display_blocks($)
 	foreach my $block_ref (@$blocks_ref) {
 		$html .= "
 <div class=\"block\">
-<div class=\"block_title\">$block_ref->{title}</div>
+<h3 class=\"block_title\">$block_ref->{title}</h3>
 <div class=\"block_content\">
 $block_ref->{content}
 </div>
 </div>
 ";
+		if ((defined $block_ref->{id}) and ($block_ref->{id} eq 'my_block')) {
+			$html .= "<!-- end off canvas blocks for small screens -->\n";
+		}
+
 	}
 	
 	# Remove empty titles
@@ -4014,54 +4086,48 @@ sub display_new($) {
 #<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-lightness/jquery-ui.css" />
 	
 	my $html = <<HTML
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:food="http://data.lirmm.fr/ontologies/food#" xmlns:gr="http://purl.org/goodrelations/v1#">
-<head>
+<!doctype html>
+<html class="no-js" lang="$lang">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/foundation/css/app.css" />
+    <link rel="stylesheet" href="/foundation/foundation-icons/foundation-icons.css" />
+    <script src="/foundation/js/vendor/modernizr.js"></script>
+	
 <title>$title</title>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<meta name="language" content="$Lang{language}{$lang}" />
+
 $meta_description
-
-<script type="text/javascript" src="/js/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="/js/jqueryui/1.8.16/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="/js/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
-
-
-<script type="text/javascript" src="/js/jquery.cookie.min.js"></script>	
-<link href="/js/select2/select2.css" rel="stylesheet"/>
-<script src="/js/select2/select2.js"></script>
 	
-	
-$scripts
+<script src="/foundation/js/vendor/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="/js/jquery-ui-1.11.4/jquery-ui.css" />
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" rel="stylesheet" />
 
 <script>
 \$(function() {
-\$( ".jbutton" ).button();
-\$( "#sbutton" ).button({ icons: {primary:'ui-icon-search'}, text: false}).click(function() { \$("#search_form").submit()});
 \$("#select_country").select2({
 	placeholder: "$Lang{select_country}{$lang}",
     allowClear: true
 	}
-	).on("change", function(e) {
-	var subdomain =  e.val;
+	).on("select2:select", function(e) {
+	var subdomain =  e.params.data.id;
 	if (! subdomain) {
 		subdomain = 'world';
 	}
 	window.location.href = "http://" + subdomain + ".${server_domain}";
-});
-$initjs
+}).on("select2:unselect", function(e) {
+
+	window.location.href = "http://world.${server_domain}";
+})
+;
+<initjs>
 });
 </script>
 
 $header
 
-HTML
-;
-
-	$html .= lang("header");
-	
-	$html .= <<HTML
 <meta property="fb:app_id" content="219331381518041" />
 <meta property="og:type" content="$og_type"/>
 <meta property="og:title" content="$canon_title"/>
@@ -4071,153 +4137,6 @@ $og_images2
 <meta property="og:description" content="$canon_description"/>
 
 <style type="text/css" media="all">
-
-body,html {
-	min-height:101%;
-	font-family: "Arial", "Helvetica", "Verdana", "sans-serif";
-	font-size: 100%;
-	background: #f8f8f8;	
-	padding:0px;
-	margin:0px;
-	width:100%;
-}
-
-img {
-	border:none;
-}
-
-input, select, textarea{
-    font-size: 100%;
-}  
-
-.small_buttons .ui-button {
-	font-size:1em;
-	font-weight:normal;
-}		
-.small_buttons .ui-button {
-	font-size:1em;
-	font-weight:normal;
-	line-height:1.2;
-	padding: 0.2em 0.5em;
-}	
-
-.small_buttons .ui-button .ui-button-text {
-	font-size:1em;
-	font-weight:normal;
-	line-height:1.2;
-	padding:0px;
-}	
-
-
-#logo {
-	margin-bottom:10px;
-}
-
-#header {
-	height:33px;
-	position:relative;
-}
-
-#search {
-	position: absolute;
-	right:2em;
-	top:8px;
-}
-
-#search_terms {
-	width:220px;
-}
-
-#sbutton {
-	font-size:12px;
-	width:20px;
-	height:19px;
-}
-
-#sharebuttons {
-	position:absolute;
-	right:300px;
-	top:8px;
-	margin-right:2em;
-}
-
-.sharebutton { float:left; padding-right:10px;padding-bottom:5px;}	
-
-#column {
-
-	position:absolute;
-	left:0px;
-	top:0px;
-	width:183px;
-	padding:21px;
-	padding-right:16px;
-	padding-top:11px;
-	font-size:0.9em;
-}
-
-#main {
-	width:auto;
-	margin-left:220px;
-}
-
-#content {
-	margin:0px;
-	width:auto;
-	border-left:1px solid #ddddee;
-	border-bottom:1px solid #ddddee;
-	background:white;
-	padding:2em;	
-}
-
-#content2 {
-}
-
-#side {
-	float:right;
-	width: 285px;
-	background:#f0f8ff;
-	border-left:2em solid white;
-}
-
-#side_content {
-	border:1px solid #e0f0f8;
-	padding:10px;
-}
-
-#side_content .block_title {
-	padding-bottom:5px;
-	background:transparent url(/images/misc/bar.265.png) bottom left no-repeat;
-	margin-bottom:15px;
-	font-size:1.1em;
-	font-weight:bold;
-}
-
-#side_content .block {
-	margin-bottom:40px;
-}
-
-#footer{
-	font-size:1em;
-	padding:0px;
-	margin-bottom:20px;
-}
-
-
-.footdiv {
-	width:300px; margin-right:20px;float:left;
-}
-
-#footerinside {
-	padding:10px;
-	padding-top:10px;
-	padding-bottom:10px;
-}
-
-a { text-decoration: none;}
-
-a, a:visited { color: blue;}
-a:hover { text-decoration: underline; }
-
 
 hr.floatclear {
 background: none;
@@ -4272,26 +4191,18 @@ height: 0;
 .nutriment_value { text-align: right }
 .nutriment_subx { font-size: 0.9em;}
 .data_table .nutriment_sub .nutriment_label { padding-left:20px;}
-input.nutriment_value { width:50px;}
+input.nutriment_value { width:5rem; height:2.3125rem;}
+select.nutriment_unit { width:4rem; margin-bottom:0;}
 thead, tbody { margin:0px; padding:0px; }
 
 
 .data_table { margin-top:20px; padding:0px; vertical-align:middle; border-collapse:collapse}
-.data_table td, .data_table th { margin:0px; padding-left:3px;padding-right:3px;}
+.data_table td, .data_table th { margin:0px; padding:0.2rem; padding-left:0.5rem;}
 .data_table .nutriment_head { background-color: #8888ff; color: white; }
 .data_table .nutriment_main { border-top:3px solid white; background-color: #ddddff;}
 .data_table .nutriment_sub, .data_table .nutriment_sub td { border-top: 1px solid #ddddff; background-color: #eeeeff; }
 .ui-autocomplete li { font-size: 1em;}
 #nutriment_carbon-footprint_tr { background-color:#ddffdd }
-
-#content h1, h2, h3, h4 {
-	margin-top:20px;
-	margin-bottom:10px;
-	width:auto;
-	border-bottom:1px solid #ccc;
-	display:block;
-	clear:left;
-}
 
 ul.products {
 	list-style:none;
@@ -4302,13 +4213,16 @@ ul.products {
 .products li {
 	text-align:center;
 	display:block;
-	width:120px;;
-	height:165px;
-	padding:10px;
-	overflow:hidden;
-	margin:10px;
-	margin-bottom:0px;	
 	float:left;
+}
+
+.products a {
+	display:block;
+	width:120px;;
+	height:167px;
+	padding:10px;
+	margin:10px;
+	overflow:hidden;	
 }
 
 .products div {
@@ -4322,35 +4236,20 @@ ul.products {
 	vertical-align:middle;
 }
 
+
+
+.products a:hover {
+	background:#f4f4f4;
+}
+
 .products img {
 	vertical-align:middle;
 }
 
-.fileinput-button {
-  position: relative;
-  overflow: hidden;
-}
-.fileinput-button input {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0;
-  border: solid transparent;
-  border-width: 0 0 100px 200px;
-  opacity: 0;
-  filter: alpha(opacity=0);
-  -moz-transform: translate(-300px, 0) scale(4);
-  direction: ltr;
-  cursor: pointer;
+#pages {
+	margin-top:1.5rem;
 }
 
-#pages {
-	clear:left;
-}
-#pages div {margin-left:5px; display:inline;}
-#current_page {font-weight:bold;}
-#breadcrumbs {clear:both;padding-top:20px}
-#breadcrumbs div {display:inline}
 
 .level_3, a.level_3 {
 	color:red;
@@ -4363,6 +4262,125 @@ ul.products {
 .level_1, a.level_1 {
 	color:green;
 }
+
+
+<!-- foundation styles -->
+
+.row{
+  &.full-width{
+    max-width: 100% !important;
+    .row{
+      margin: 0 auto;
+      max-width: 62.5rem;
+      background: inherit;
+    }  
+  }
+}
+
+.select2-container--default .select2-selection--single {
+border-radius:0;
+font-size: 0.875rem;
+  position: relative;
+  height: 1.75rem;
+  top: 0.53125rem;
+  width:10rem;
+}
+
+.left-small {
+  border-right:0;
+}
+
+.tab-bar-section.middle {
+  right:0;
+}
+
+#aside_column {
+	padding:1rem;
+}
+
+.side-nav li a:not(.button) {
+  margin: 0 -1rem;
+  padding: 0.4375rem 1rem;
+  color:blue;
+}
+
+.side-nav li a:not(.button):hover, .side-nav li a:not(.button):focus {
+	color:blue;
+}
+
+a { text-decoration: none;}
+a, a:visited, a:hover { color: blue;}
+
+a:hover { text-decoration: underline; }
+
+a.button {
+	color:white;
+}
+
+a.button:hover {
+	text-decoration:none;
+}
+
+
+\@media only screen and (max-width: 64em) {
+a.button.icon {
+font-size:1rem;
+width:2rem;
+height:2rem;
+padding:0.5rem;
+}
+}
+
+.products {
+line-height:1.2;
+}
+
+#sharebuttons li { text-align:center; max-width:100px; }
+
+#footer > div {
+	padding:1rem;
+}
+
+.dark {
+	color:#f0f0f0;
+}
+
+.dark h4 {
+	color:white;
+}
+
+.dark a, .dark a:hover, .dark a:visited {
+	color:white;
+}
+
+\@media only screen and (max-width: 40em) {
+#footer h4 {
+	font-size:1.125rem;
+}
+}
+
+.top-bar-section .has-dropdown>a:after {
+  border-color: transparent transparent transparent rgba(0,0,0,0.4);
+}
+
+
+\@media only screen and (min-width: 40.063em) {
+.top-bar-section .has-dropdown>a:after {
+  border-color: rgba(0,0,0,0.4) transparent transparent transparent;
+}
+.top-bar-section ul li {
+  background: inherit;
+}
+#select_country_li {padding-left:0;}
+}
+
+#main_column {
+	padding-bottom:2rem;
+}
+
+.example { font-size: 0.8em; color:green; }
+.note { font-size: 0.8em; }
+.example, .note { margin-top:4px;margin-bottom:0px;margin-left:4px; }
 
 HTML
 ;
@@ -4382,12 +4400,26 @@ $google_analytics
 </head>
 <body$bodyabout>
 
-<div id="column">
+
+<nav class="top-bar" data-topbar role="navigation" id="top-bar">
+	<ul class="title-area">
+		<li class="name">
+			<h2><a href="/" style="font-size:1rem;">Open Food Facts</a></h2>
+		</li>
+		<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+		<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+	</ul>
+
+	<section class="top-bar-section">
+
+
+	<!-- Left Nav Section -->	
+
+
 
 HTML
 ;
 
-	$html .= lang("column");
 
 # <label for="select_country">$Lang{select_country}{$lang}</label><br/>
 	
@@ -4397,7 +4429,9 @@ HTML
 		$select_country_options =~ s/<option value="world"(.*?)<\/option>//;
 	}
 	
-	my $select_country = <<HTML
+	$html .= <<HTML
+	<ul class="left">
+		<li class="has-form has-dropdown" id="select_country_li">
 <select id="select_country" style="width:100%">
 <option></option>
 HTML
@@ -4406,11 +4440,16 @@ $select_country_options
 .
 <<HTML
 </select>
+		</li>
+		
 HTML
 ;
+
 	
 	my $en = 0;
 	my $langs = '';
+	my $selected_lang = '';
+	
 	foreach my $olc (@{$country_languages{$cc}}, 'en') {
 		if ($olc eq 'en') {
 			if ($en) {
@@ -4426,116 +4465,289 @@ HTML
 				$osubdomain = $cc;
 			}
 			if (($olc eq $lc) or ($olc eq $lclc)) {
-				$langs .= " - $Langs{$olc}";
+				$selected_lang = "<a href=\"http://$osubdomain.$domain/\">$Langs{$olc}</a>\n";
 			}
 			else {
-				$langs .= " - <a href=\"http://$osubdomain.$domain/\">$Langs{$olc}</a>"
+				$langs .= "<li><a href=\"http://$osubdomain.$domain/\">$Langs{$olc}</a></li>"
 			}
 		}
 	}
-	$langs =~ s/- //;
-	if ($langs =~ /<a/) {
-		$select_country .= "<div id=\"languages\" style=\"margin-left:10px;margin-top:5px;\">$langs</a></div>";
-	}	
-
-
-	$html =~ s/<select_country>/$select_country/;
 	
-	my $Lc = ucfirst($lc);
-	if ($lc ne 'fr') {
-		$Lc = '';
+
+	if ($langs =~ /<a/) {
+		$html .= <<HTML
+
+      <li class="has-dropdown">
+		$selected_lang
+        <ul class="dropdown">			
+			$langs
+        </ul>
+      </li>
+		
+HTML
+;
+	}	
+	
+	$html .= <<HTML
+	</ul>	
+HTML
+;
+
+
+
+	
+	my $blocks = display_blocks($request_ref);
+	my $aside_blocks = $blocks;
+	
+	my $aside_initjs = $initjs;
+	
+	# keep only the login block for off canvas
+	$aside_blocks =~ s/<!-- end off canvas blocks for small screens -->(.*)//s;
+	
+	$aside_initjs =~ s/(.*)\/\/ start off canvas blocks for small screens//s;
+	$aside_initjs =~ s/\/\/ end off canvas blocks for small screens(.*)//s;
+	
+	# change ids of the add product image upload form
+	$aside_blocks =~ s/block_side/block_aside/g;
+	
+	$aside_initjs =~ s/block_side/block_aside/g;
+	
+	$initjs .= $aside_initjs;
+	
+	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>:
+	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="http://slack.openfoodfacts.org">Slack</a>');
+	
+	my $twitter_account = lang("twitter_account");
+	if (defined $Lang{twitter_account_by_country}{$cc}) {
+		$twitter_account = $Lang{twitter_account_by_country}{$cc};
 	}
 	
-	$html .= <<HTML
-
-</div>
-
-<div id="main">
-
-<div id="header">
-
-<div id="search">
-<form action="/cgi/search.pl" id="search_form">
-<input name="search_terms" id="search_terms" placeholder="$Lang{search}{$lang}" title="$Lang{search_title}{$lang}"></input>
-<input name="search_simple" id="search_simple" value="1" type="hidden" />
-<a id="sbutton" value="$Lang{search}{$lang}">&nbsp;</a><br />
-</form>
-<div style="float:right;font-size:0.9em;"><a href="/cgi/search.pl">$Lang{advanced_search}{$lang}</a></div>
-</div>
-
-<div id="sharebuttons">
-<div style="float:left;padding-right:15px;" class="sharebutton">
-<a href="https://twitter.com/share" class="twitter-share-button" data-lang="$lc" data-via="$Lang{twitter_account}{$lang}" data-url="$canon_url" data-count="vertical">Tweeter</a>
-</div>
-<div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="$canon_url" layout="box_count"></fb:like></div>
-<div style="float:left;padding-right:15px;padding-bottom:10px;" class="sharebutton"><g:plusone size="tall" count="true" href="$canon_url"></g:plusone></div>
-</div>
-
-
-</div>
-
-<div id="content">
-
-
-
-
-HTML
-;
-
-
-if (not ($request_ref->{full_width} == 1)) {
-
-	$html .= <<HTML
-
-<div id="side">
-<div id="side_content" class="small_buttons">
-HTML
-
-. display_blocks($request_ref)
-
-. <<HTML
-
-</div>
-</div>
-
-
-HTML
-;
-}
-
-	$html .= <<HTML
-
-<div id="content2">
-$h1_title
-$$content_ref
-</div>
-
-<hr class="floatclear" />
-
-</div>
-
-HTML
-;
-
-
-
-
-
-$html .= <<HTML
-
-<div id="footer">
-<div id="footerinside">
-HTML
-;
-
-	$html .= lang("footer");
+	my $facebook_page = lang("facebook_page");
+	
+	my $torso_color = "white";
+	if (defined $User_id) {
+		$torso_color = "#ffe681";
+	}
+	
 	
 	$html .= <<HTML
-</div>
+
+	
+	<!-- Right Nav Section -->
+	<ul class="right">
+		<li class="show-for-large-up">
+			<form action="/cgi/search.pl">
+			<div class="row collapse ">
+
+					<div class="small-8 columns">
+						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lang}" name="search_terms" />
+						<input name="search_simple" value="1" type="hidden" />
+						<input name="action" value="process" type="hidden" />
+					</div>
+					<div class="small-4 columns">
+						 <button type="submit" title="$Lang{search}{$lang}"><i class="fi-magnifying-glass"></i></button>
+					</div>
+
+			</div>
+			</form>	
+		</li>
+		
+		<li class="show-for-large-up"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-plus"></i></a></li>
+		
+		<li class="show-for-large-up"><a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}"><i class="fi-graph-bar"></i></a></li>
+		
+		<li class="show-for-large-up divider"></li>
+	
+		<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
+		<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
+
+	</ul>	
+	
+	</section>
+	
+
+</nav>
+
+
+<nav class="tab-bar show-for-small-only">
+
+  <div class="left-small" style="padding-top:4px;">
+    <a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix">
+	<i class="fi-torso" style="color:$torso_color;font-size:1.8rem"></i></a>
+  </div>
+  <div class="middle tab-bar-section" style="padding-top:4px;">
+			<form action="/cgi/search.pl">
+			<div class="row collapse ">
+
+					<div class="small-8 columns">
+						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="search_terms">
+						<input name="search_simple" value="1" type="hidden" />
+						<input name="action" value="process" type="hidden" />						
+					</div>
+					<div class="small-2 columns">
+						 <button type="submit" class="button postfix"><i class="fi-magnifying-glass"></i></button>
+					</div>
+					
+					<div class="small-2 columns">
+							<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-magnifying-glass"></i> <i class="fi-plus"></i></a>
+					</div>
+
+
+			</div>
+			</form>	  
+  </div>
+ </nav>
+
+ 
+ 
+ 
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+
+
+    <!-- Off Canvas Menu -->
+    <aside class="left-off-canvas-menu">
+        <!-- whatever you want goes here -->
+		<div id="aside_column">
+
+	$aside_blocks
+		
+		</div>
+    </aside>
+
+
+  <!-- close the off-canvas menu -->
+  <a class="exit-off-canvas"></a>
+
+  
+<!-- main row - comment used to remove left column and center content on some pages -->  
+<div class="row full-width" style="max-width: 100% !important;" data-equalizer>
+	<div class="xxlarge-1 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
+		<div class="sidebar">
+		
+<div style="text-align:center">
+<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" width="178" height="141" alt="Open Food Facts" style="margin-bottom:1rem"/></a>
 </div>
 
+<p>$Lang{tagline}{$lc}</p>
+
+
+			<form action="/cgi/search.pl" class="hide-for-large-up">
+			<div class="row collapse">
+
+					<div class="small-9 columns">
+						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="search_terms">
+						<input name="search_simple" value="1" type="hidden" />
+						<input name="action" value="process" type="hidden" />
+					</div>
+					<div class="small-2 columns">
+						 <button type="submit" class="button postfix"><i class="fi-magnifying-glass"></i></button>
+					</div>
+					
+					<div class="small-1 columns">
+						<label class="right inline">
+							<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-plus"></i></a>
+						</label>
+					</div>
+			
+
+			</div>
+			</form>		
+
+
+$blocks
+	
+		</div> <!-- sidebar -->
+	</div> <!-- left column -->
+		
+	
+	<div id="main_column" class="xxlarge-11 xlarge-10 large-9 medium-8 columns" style="padding-top:1rem" data-equalizer-watch>
+
+<!-- main column content - comment used to remove left column and center content on some pages -->  
+	
+$h1_title
+
+$$content_ref
+
+	</div> <!-- main content column -->
+</div> <!-- row -->
+
+	</div> <!-- inner wrap -->
+</div> <!-- off-content wrap -->
+
+
+<!-- footer -->
+
+<div id="footer" class="row full-width collapse" style="max-width: 100% !important;" data-equalizer>
+
+	<div class="small-12 medium-6 large-3 columns" style="border-top:10px solid #ff0000" data-equalizer-watch>
+		<h4>Open Food Facts</h4>
+		<p>$Lang{footer_tagline}{$lc}</p>
+		<ul>
+			<li><a href="$Lang{footer_legal_link}{$lc}">$Lang{footer_legal}{$lc}</a></li>
+			<li><a href="$Lang{footer_terms_link}{$lc}">$Lang{footer_terms}{$lc}</a></li>
+			<li><a href="$Lang{footer_data_link}{$lc}">$Lang{footer_data}{$lc}</a></li>
+		</ul>
+	</div>
+	
+	<div class="small-12 medium-6 large-3 columns" style="border-top:10px solid #ffcc00" data-equalizer-watch>
+		<h4>$Lang{footer_install_the_app}{$lc}</h4>
+
+<div style="float:left;width:160px;height:70px;">
+<a href="$Lang{ios_app_link}{$lc}">
+$Lang{ios_app_badge}{$lc}</a>
 </div>
 
+<div style="float:left;width:160px;height:70px;">
+<a href="$Lang{android_app_link}{$lc}">
+$Lang{android_app_badge}{$lc}
+</a></div>
+
+<div style="float:left;width:160px;height:70px;">
+<a href="$Lang{windows_phone_app_link}{$lc}">
+$Lang{windows_phone_app_badge}{$lc}
+</a></div>
+
+<div style="float:left;width:160px;height:70px;">
+<a href="$Lang{android_apk_app_link}{$lc}">
+$Lang{android_apk_app_badge}{$lc}
+</a></div>
+		
+	</div>
+	
+	<div class="small-12 medium-6 large-3 columns" style="border-top:10px solid #00d400" data-equalizer-watch>
+		<h4>$Lang{footer_discover_the_project}{$lc}</h4>
+		<ul>
+			<li><a href="$Lang{footer_who_we_are_link}{$lc}">$Lang{footer_who_we_are}{$lc}</a></li>
+			<li><a href="$Lang{footer_faq_link}{$lc}">$Lang{footer_faq}{$lc}</a></li>
+			<li><a href="$Lang{footer_blog_link}{$lc}">$Lang{footer_blog}{$lc}</a></li>
+			<li><a href="$Lang{footer_press_link}{$lc}">$Lang{footer_press}{$lc}</a></li>
+		</ul>
+	</div>
+	
+	<div class="small-12 medium-6 large-3 columns" style="border-top:10px solid #0066ff" data-equalizer-watch>
+		<h4>$Lang{footer_join_the_community}{$lc}</h4>
+
+<div>
+$join_us_on_slack <script async defer src="http://slack.openfoodfacts.org/slackin.js"></script>
+<br/>
+$Lang{footer_and_the_facebook_group}{$lc}
+</div>
+
+<div>
+$Lang{footer_follow_us}{$lc}
+
+<ul class="small-block-grid-3" id="sharebuttons">
+	<li>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-lang="$lc" data-via="$Lang{twitter_account}{$lang}" data-url="http://$subdomain.${server_domain}" data-count="vertical">Tweeter</a>
+	</li>
+	<li><fb:like href="http://$subdomain.${server_domain}" layout="box_count"></fb:like></li>
+	<li><div class="g-plusone" data-size="tall" data-count="true" data-href="http://$subdomain.${server_domain}"></div></li>
+</ul>
+
+</div>
+	
+	</div>
 </div>
 
 
@@ -4560,18 +4772,98 @@ HTML
 
     </script>	
 
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
-  {lang: 'fr'}
+<script type="text/javascript">
+  window.___gcfg = {
+    lang: '$Lang{facebook_locale}{$lang}'
+  };
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
 </script>
 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>	
 
+<script src="/foundation/js/foundation.min.js"></script>
+<script src="/foundation/js/vendor/jquery.cookie.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/js/select2.min.js"></script>
+
+$scripts
+
+<script>
+	\$(document).foundation(  { equalizer : {
+    // Specify if Equalizer should make elements equal height once they become stacked.
+    equalize_on_stack: true
+	},
+    accordion: {
+      callback : function (accordion) {
+        \$(document).foundation('equalizer', 'reflow');
+      }
+    }	
+  });
+</script>
+
+<script type="application/ld+json">
+{
+	"\@context" : "http://schema.org",
+	"\@type" : "WebSite",
+	"name" : "$Lang{site_name}{$lc}",
+	"url" : "http://$subdomain.$domain",
+	"potentialAction": {
+		"\@type": "SearchAction",
+		"target": "http://$subdomain.$domain/cgi/search.pl?search_terms=?{search_term_string}",
+		"query-input": "required name=search_term_string"
+	}	
+}
+</script>
+
+<script type="application/ld+json">
+{
+	"\@context": "http://schema.org/",
+	"\@type": "Organization",
+	"url": "http://$subdomain.$domain",
+	"logo": "/images/misc/$Lang{logo}{$lang}",
+	"name": "$Lang{site_name}{$lc}",
+	"sameAs" : [ "$facebook_page", "http://twitter.com/$twitter_account"] 
+}
+</script>
 
 </body>
 </html>
 HTML
 ;
 	
+	
+	# no side column?
+	# e.g. in Discover and Contribute page
+	
+	if ($html =~ /<!-- no side column -->/) {
+	
+		my $new_main_row_column = <<HTML
+<div class="row">
+	<div class="large-12 columns" style="padding-top:1rem">
+HTML
+;
+
+		$html =~ s/<!-- main row -(.*)<!-- main column content(.*?)-->/$new_main_row_column/s;
+	
+	}
+	
+	# Twitter account
+	$html =~ s/<twitter_account>/$twitter_account/g;
+	
+
+	# Use static subdomain for images, js etc.
+	
+	$html =~ s/(?<![a-z0-9-])((http|https):\/\/([a-z0-9-]+)\.$domain)?\/(images|js|foundation)\//http:\/\/static.$domain\/$4\//g;
+	# (?<![a-z0-9-]) -> negative look behind to make sure we are not matching /images in another path.
+	# e.g. https://apis.google.com/js/plusone.js or //cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/images/select2.min.js
+
+	# init javascript code
+	
+	$html =~ s/<initjs>/$initjs/;
 
 	if ((defined param('length')) and (param('length') eq 'logout')) {
 		my $test = '';
@@ -4602,21 +4894,32 @@ sub display_product_search_or_add($)
 	
 	my $title = lang("add_product");
 	
+	my $or = $Lang{or}{$lc};
+	$or =~ s/( |\&nbsp;)?://;
+	
 	my $html = '';
 	
-	$html .= start_multipart_form(-id=>"product_search_or_add",-action=>"/cgi/product.pl") ;
+	$html .= start_multipart_form(-action=>"/cgi/product.pl") ;
 
-	$html .= display_search_image_form();
+	$html .= display_search_image_form("block_side");
 	
-	$html .= 
-"<b>" . lang("or") . "</b> " . lang("barcode_number") . "<input type=\"text\" name=\"code\" label=\"" . lang("barcode") . "\" value=\"\" size=\"13\" />
-<input type=\"hidden\" name=\"action\" value=\"search_or_add\" /><input type=\"submit\" value=\"" . lang("add") . "\" class=\"jbutton\" /><br /><br />
+	$html .= <<HTML
 
-<b>" . lang("or") . "</b> <input type=\"submit\" value=\"" . lang("no_barcode") . "\" class=\"jbutton\" />
-	
+      <div class="row collapse">	  
+        <div class="small-9 columns">
+          <input type="text" placeholder="$or $Lang{barcode}{$lc}">
+        </div>
+        <div class="small-3 columns">
+           <input type="submit" value="$Lang{add}{$lc}" class="button postfix" />
+        </div>
+      </div>
+	  
+	  <input type="submit" value="$Lang{no_barcode}{$lc}" class="button tiny" />
 </form>
-"
+HTML
 ;
+	
+
 	
 		
 	unshift @$blocks_ref, {
@@ -4646,11 +4949,8 @@ sub display_image_box($$$) {
 		}
 	
 		$img = <<HTML
-<div class="image_box" style="text-align:center">
-$img<br />
-HTML
-. lang($id . '_alt')
-. <<HTML
+<div class="image_box">
+$img
 </div>			
 HTML
 ;
@@ -4713,7 +5013,27 @@ sub display_field($$) {
 				$value = "<span$itemprop>$value</span>";
 			}
 		}
+		my $lang_field = lang($field);
+		if ($lang_field eq '') {
+			$lang_field = ucfirst(lang($field . "_s"));
+		}
 		$html .= '<p><span class="field">' . lang($field) . " :</span> $value</p>";
+		
+		if ($field eq 'brands') {
+			my $brand = $value;
+			# Keep the first one
+			$brand =~ s/,(.*)//;
+			$brand =~ s/<([^>]+)>//g;
+			$product_ref->{brand} = $brand;
+		}		
+		
+		if ($field eq 'categories') {
+			my $category = $value;
+			# Keep the last one
+			$category =~ s/.*,( )?//;
+			$category =~ s/<([^>]+)>//g;
+			$product_ref->{category} = $category;
+		}
 	}
 	return $html;
 }
@@ -4728,29 +5048,21 @@ sub display_product($)
 	my $html = '';
 	my $blocks_ref = [];
 	my $title = undef;
-	my $description = undef;
+	my $description = "";
 	
 	$scripts .= <<HTML
-<link rel="stylesheet" href="/js/nivo-zoom-off.css" type="text/css" media="screen" />
-<script src="/js/jquery.nivo.zoom.pack.js" type="text/javascript"></script>	
 HTML
 ;
 	$initjs .= <<JS
-\$('body').nivoZoom();
 JS
 ;
 	
-	$styles .= <<CSS
+	$styles .= <<CSS	
+
 .image_box {
-	float:right;
-	border:1px solid grey;
-	background-color:#ffffff;
-	padding:10px;
 	text-align:center;
-	font-style:italic;
-	margin-left:20px;
-	margin-bottom:5px;
-}	
+	margin-bottom:2rem;
+}
 
 .field_div {
 	display:inline;
@@ -4800,8 +5112,9 @@ CSS
 		$title .= " version $rev";
 	}
 	
-	$description = $title . ' - ' .  $product_ref->{generic_name};
-	$description =~ s/ - $//;
+	
+	$description = sprintf(lang("product_description"), $title);
+	
 	$request_ref->{canon_url} = product_url($product_ref);
 	
 	# Check that the titleid is the right one
@@ -4815,10 +5128,24 @@ CSS
 	}
 
 	
-	$html .= "<div class=\"edit_button small_buttons\" style=\"float:right;margin-top:-10px;\"><a href=\"/cgi/product.pl?type=edit&code=$code\" class=\"jbutton\">" . lang("edit_product_page") . "</a></div>";
+	$html .= <<HTML
+<div class="edit_button right" style="float:right;margin-top:-10px;">
+<a href="/cgi/product.pl?type=edit&code=$code" class="button small icon">
+	<i class="fi-pencil"></i>
+	<span class="show-for-large-up"> $Lang{edit_product_page}{$lc}</span>
+</a></div>
+HTML
+;
 	
 	if ($admin) {
-		$html .= "<div class=\"delete_button small_buttons\" style=\"float:right;margin-top:-10px;margin-right:10px;\"><a href=\"/cgi/product.pl?type=delete&code=$code\" class=\"jbutton\">" . lang("delete_product_page") . "</a></div>";
+		$html .= <<HTML
+<div class="delete_button right" style="float:right;margin-top:-10px;margin-right:10px;">
+<a href="/cgi/product.pl?type=delete&code=$code" class="button small icon">
+	<i class="fi-trash"></i>
+	<span class="show-for-large-up"> $Lang{delete_product_page}{$lc}</span>
+</a></div>
+HTML
+;
 	}	
 	
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
@@ -4852,14 +5179,32 @@ CSS
 	my $minheight = 0;
 	my $html_image = display_image_box($product_ref, 'front', \$minheight);
 	$html_image =~ s/ width="/ itemprop="image" width="/;
-	$html .= "<h2>" . lang("product_characteristics") . "</h2>
-	<div style=\"min-height:${minheight}px;\">"
-	. $html_image;
 	
+	# Take the last (biggest) image
+	my $product_image_url;
+	if ($html_image =~ /.*src="([^"]+)"/is) {
+		$product_image_url = $1;
+	}
+	
+	
+	my $html_fields = '';
 	foreach my $field (@fields) {
 		# print STDERR "display_product() - field: $field - value: $product_ref->{$field}\n";
-		$html .= display_field($product_ref, $field);
-	}
+		$html_fields .= display_field($product_ref, $field);
+	}	
+
+	$html .= <<HTML
+<h2>$Lang{product_characteristics}{$lc}</h2>
+<div class="row">
+<div class="hide-for-large-up medium-12 columns">$html_image</div>
+<div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
+$html_fields
+</div>
+<div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$html_image</div>
+</div>
+HTML
+;
+
 	
 	$html_image = display_image_box($product_ref, 'ingredients', \$minheight);	
 	
@@ -4869,10 +5214,14 @@ CSS
 		$ingredients_text = $product_ref->{ingredients_text_with_allergens};
 	}
 	
-	$html .= "</div>
-	<h2>" . lang("ingredients") . "</h2>
-	<div style=\"min-height:${minheight}px\">"
-	. $html_image;
+		$html .= <<HTML
+<h2>$Lang{ingredients}{$lc}</h2>
+<div class="row">
+<div class="hide-for-large-up medium-12 columns">$html_image</div>
+<div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
+HTML
+;
+	
 		
 	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
 	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . " :</span> <span id=\"ingredients_list\" property=\"food:ingredientListAsText\">$ingredients_text</span></div>";
@@ -4940,13 +5289,27 @@ HTML
 	
 	}
 	
-	$html_image = display_image_box($product_ref, 'nutrition', \$minheight);	
 	
-	$html .= "</div>
-	<h2>" . lang("nutrition_data") . "</h2>"
-	. "<div style=\"min-height:${minheight}px\">"
-	. $html_image
-	. display_nutrient_levels($product_ref);
+	$html .= <<HTML
+</div>
+<div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$html_image</div>
+</div>
+HTML
+;
+	
+	$html_image = display_image_box($product_ref, 'nutrition', \$minheight);	
+
+	
+	$html .= <<HTML
+<h2>$Lang{nutrition_data}{$lc}</h2>
+<div class="row">
+<div class="hide-for-large-up medium-12 columns">$html_image</div>
+<div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
+HTML
+;
+
+
+	$html .= display_nutrient_levels($product_ref);
 
 	
 	$html .= display_field($product_ref, "serving_size") . display_field($product_ref, "br") ;
@@ -4999,17 +5362,14 @@ HTML
 
 	$html .= <<HTML
 </div>
+<div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$html_image</div>
+</div>
+
 	
-<p>
-$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator
-</p>	
+<p>$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator</p>	
 	
-<div class="ui-state-highlight ui-corner-all" style="padding:5px;margin-right:20px;display:table;margin-top:20px;margin-bottom:20px;">
-<span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
-<span>
-HTML
-. lang("fixme_product") . <<HTML
-</span>
+<div class="alert-box info">
+$Lang{fixme_product}{$lc}
 </div>
 
 </div>
@@ -5021,10 +5381,45 @@ HTML
 		$html .= display_field($product_ref, 'states');
 	}
 	
-	$html .= "<div class=\"edit_button\"><a href=\"/cgi/product.pl?type=edit&code=$code\" class=\"jbutton\">" . lang("edit_product_page") . "</a></div>";
+	$html .= <<HTML
+<div class="edit_button right" style="float:right;margin-top:-10px;">
+<a href="/cgi/product.pl?type=edit&code=$code" class="button small">
+	<i class="fi-pencil"></i>
+	$Lang{edit_product_page}{$lc}
+</a></div>
+HTML
+;
+	
+	# Twitter card
+
+	# example:
+	
+#<meta name="twitter:card" content="product">
+#<meta name="twitter:site" content="@iHeartRadio">
+#<meta name="twitter:creator" content="@iHeartRadio">
+#<meta name="twitter:title" content="24/7 Beatles — Celebrating 50 years of Beatlemania">
+#<meta name="twitter:image" content="http://radioedit.iheart.com/service/img/nop()/assets/images/05fbb21d-e5c6-4dfc-af2b-b1056e82a745.png">
+#<meta name="twitter:label1" content="Genre">
+#<meta name="twitter:data1" content="Classic Rock">
+#<meta name="twitter:label2" content="Location">
+#<meta name="twitter:data2" content="National">
 
 	
-	
+	$header .= <<HTML
+<meta name="twitter:card" content="product">
+<meta name="twitter:site" content="@<twitter_account>">
+<meta name="twitter:creator" content="@<twitter_account>">
+<meta name="twitter:title" content="$title">
+<meta name="twitter:description" content="$description">
+<meta name="twitter:image" content="$product_image_url">
+<meta name="twitter:label1" content="$Lang{brands_s}{$lc}">
+<meta name="twitter:data1" content="$product_ref->{brand}">
+<meta name="twitter:label2" content="$Lang{categories_s}{$lc}">
+<meta name="twitter:data2" content="$product_ref->{category}">
+
+<meta property="og:image" content="$product_image_url">
+HTML
+;
 
 	$request_ref->{content_ref} = \$html;
 	$request_ref->{title} = $title;
@@ -5277,41 +5672,68 @@ sub display_nutrient_levels($) {
 	
 	my $html = '';
 	
+	# For some products we can have the nutrition grade (A to Z, French style) + nutrient levels (traffic lights, UK style)
+	# or one of them, or none
+	
+	my $html_nutrition_grade = '';
+	my $html_nutrient_levels = '';
+	
 	#return '' if (not $admin);
 	
 	if (($lc eq 'fr') and (exists $product_ref->{"nutrition_grade_fr"})) {
 		my $grade = $product_ref->{"nutrition_grade_fr"};
 		my $uc_grade = uc($grade);
-		$html .= <<HTML
-<div style="float:left;padding:30px;padding-left:0px;padding-right:40px;">
-<p><span class="field">Note nutritionnelle de couleur (Programme National Nutrition et Santé)</p>
-<img src="/images/misc/$grade.338x72.png" alt="Note nutritionnelle : $uc_grade" style="margin-bottom:10px;max-width:100%" /><br/>
-&rarr; <a href="http://fr.openfoodfacts.org/score-nutritionnel-experimental-france">Mode de calcul de la note nutritionnelle de couleur</a>
-</div>
+		$html_nutrition_grade .= <<HTML
+<h4>Note nutritionnelle de couleur <small>(Programme National Nutrition et Santé)</small>
+<a href="http://fr.openfoodfacts.org/score-nutritionnel-experimental-france" title="Mode de calcul de la note nutritionnelle de couleur">
+<i class="fi-info"></i></a>
+</h4>
+<img src="/images/misc/$grade.338x72.png" alt="Note nutritionnelle : $uc_grade" style="margin-bottom:1rem;max-width:100%" /><br/>
 HTML
 ;
 	}
 	
-	my $nutrient_levels_html = '';
+	my $html_nutrient_levels = '';
 	
 	foreach my $nutrient_level_ref (@nutrient_levels) {
 		my ($nid, $low, $high) = @$nutrient_level_ref;
 		
 		if ((defined $product_ref->{nutrient_levels}) and (defined $product_ref->{nutrient_levels}{$nid})) {
 		
-			$nutrient_levels_html .= '<img src="/images/misc/' . $product_ref->{nutrient_levels}{$nid} . '_30.png" width="30" height="30" style="vertical-align:middle;margin-right:15px;margin-bottom:4px;" alt="'
+			$html_nutrient_levels .= '<img src="/images/misc/' . $product_ref->{nutrient_levels}{$nid} . '_30.png" width="30" height="30" style="vertical-align:middle;margin-right:15px;margin-bottom:4px;" alt="'
 				. lang($product_ref->{nutrient_levels}{$nid} . "_quantity") . '" />' . (sprintf("%.2e", $product_ref->{nutriments}{$nid . "_100g"}) + 0.0) . " g "
 				. sprintf(lang("nutrient_in_quantity"), "<b>" . $Nutriments{$nid}{$lc} . "</b>", lang($product_ref->{nutrient_levels}{$nid} . "_quantity")). "<br />";
 		
 		}
 	}
-	if ($nutrient_levels_html ne '') {
-		$html .= "<div style=\"float:left;\">" . lang("nutrient_levels_info") . "<br />" . $nutrient_levels_html . "</div>\n";
+	if ($html_nutrient_levels ne '') {
+		$html_nutrient_levels = <<HTML
+<h4>$Lang{nutrient_levels_info}{$lc}
+<a href="$Lang{nutrient_levels_link}{$lc}" title="$Lang{nutrient_levels_info}{$lc}"><i class="fi-info"></i></a>
+</h4>
+$html_nutrient_levels
+HTML
+;
 	}
 	
-	if ($html ne '') {
-		$html .= "<hr class=\"floatclear\" style=\"clear:left\"/>";
+	# 2 columns?
+	if (($html_nutrition_grade ne '') and ($html_nutrient_levels ne '')) {
+		$html = <<HTML
+<div class="row">
+	<div class="small-12 xlarge-6 columns">
+		$html_nutrition_grade
+	</div>
+	<div class="small-12 xlarge-6 columns">
+		$html_nutrient_levels
+	</div>
+</div>	
+HTML
+;
 	}
+	else {
+		$html = $html_nutrition_grade . $html_nutrient_levels;
+	}
+
 		
 	return $html;
 }
@@ -5485,7 +5907,15 @@ CSS
 ;
 			}
 			
-			$html .= checkbox(-class=>"show_comparison", -id=>$colid, -label=> " " . $comparison_ref->{name}, -checked=>$checked);
+			my $checked_html = "";
+			if ($checked) {
+				$checked_html = ' checked="checked"';
+			}
+			
+			$html .= <<HTML
+<label style="display:inline;font-size:1rem;"><input type="checkbox" name="$colid" value="on" $checked_html id="$colid" class="show_comparison" /> $comparison_ref->{name}</label>		
+HTML
+;
 			if (defined $comparison_ref->{count}) {
 				$html .= " <a href=\"$comparison_ref->{link}\">(" . $comparison_ref->{count} . " " . lang("products") . ")</a>";
 			}
@@ -5526,7 +5956,7 @@ HTML
 );
 
 \$(".show_comparison").change(function () {
-	if (\$(this).attr('checked')) {
+	if (\$(this).prop('checked')) {
 		\$("." + \$(this).attr("id")).show();		
 	}
 	else {
@@ -5548,29 +5978,29 @@ JS
 		
 		if ($product_ref->{id} ne 'search') {
 		
-			$html .= "<p><input id=\"show_stats\" type=\"checkbox\" /><label for=\"show_stats\">" . lang("show_category_stats") . "</label>"
-			. lang("sep") . ": " . lang("show_category_stats_details") . "</p>";
+			$html .= "<div><input id=\"show_stats\" type=\"checkbox\" /><label for=\"show_stats\">"
+			. lang("show_category_stats")
+			. '<span class="show-for-xlarge-up">'
+			. lang("sep") . ": " . lang("show_category_stats_details") . "</span></label>" . "</div>";
 		
 			$initjs .= <<JS
 		
-if (\$.cookie('show_stats')) {
-	\$('#show_stats').attr('checked','checked');
+if (\$.cookie('show_stats') == '1') {
+	\$('#show_stats').prop('checked',true);
 }		
 else {
-	\$('#show_stats').removeAttr('checked');
+	\$('#show_stats').prop('checked',false);
 }
 
-if (\$('#show_stats').attr('checked')) {
+if (\$('#show_stats').prop('checked')) {
 	\$(".stats").show();
 }
 else {
 	\$(".stats").hide();
 }
 
-\$( "#show_stats" ).button();
-
 \$("#show_stats").change(function () {
-	if (\$('#show_stats').attr('checked')) {
+	if (\$('#show_stats').prop('checked')) {
 		\$.cookie('show_stats', '1', { expires: 365 });
 		\$(".stats").show();		
 	}
@@ -5593,10 +6023,10 @@ JS
 	$html .= <<HTML
 <table id="nutrition_data_table" class="data_table">
 <thead class="nutriment_header">
-<tr><th class="nutriment_label"><label for="nutrition_data_table">
+<tr><th>
 HTML
 . lang("nutrition_data_table") . <<HTML
-</label></th>
+</th>
 HTML
 ;
 

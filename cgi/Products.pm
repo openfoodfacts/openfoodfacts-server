@@ -665,18 +665,19 @@ sub product_name_brand_quantity($) {
 	my $full_name = '';
 	if ((defined $ref->{product_name}) and ($ref->{product_name} ne '')) {
 		$full_name = $ref->{product_name};
+		my $full_name_id = '-' . get_fileid($full_name) . '-';
 		if (defined $ref->{brands}) {
 			my $brand = $ref->{brands};
 			$brand =~ s/,.*//;	# take the first brand
-			my $brandid = '-' . get_fileid($brand) . '-';
-			my $full_name_id = '-' . get_fileid($full_name) . '-';
-			if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {
+			my $brandid = '-' . get_fileid($brand) . '-';		
+			if (($brand ne '') and ($full_name_id !~ /$brandid/i)) {
 				$full_name .= " - " . $brand;
 			}
 		}
 		if (defined $ref->{quantity}) {
 			my $quantity = $ref->{quantity};
-			if (($quantity ne '') and ($full_name !~ /$quantity/i)) {
+			my $quantityid = '-' . get_fileid($quantity) . '-';	
+			if (($quantity ne '') and ($full_name_id !~ /$quantityid/i)) {
 				$full_name .= " - " . $quantity;
 			}
 		}		
