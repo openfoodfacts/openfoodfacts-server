@@ -176,6 +176,12 @@ if (($type eq 'delete') and (not $admin)) {
 	display_error("Permission refusée");
 }
 
+if ($User_id eq 'unwanted-bot-id') {
+	my $r = Apache2::RequestUtil->request();
+	$r->status(500);  
+	return 500;
+}
+
 if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 
 	if (not defined $User_id) {
@@ -1193,11 +1199,11 @@ HTML
 	. hidden(-name=>'type', -value=>$type, -override=>1)
 	. hidden(-name=>'code', -value=>$code, -override=>1)
 	. hidden(-name=>'action', -value=>'process', -override=>1)
-	. submit(-name=>'save', -label=>"Supprimer la fiche", -class=>"jbutton")
 	. <<HTML
 <label for="comment" style="margin-left:10px">$Lang{delete_comment}{$lang}</label>
-<input id="comment" name="comment" value="" style="width:300px" />
+<input type="text" id="comment" name="comment" value="" />
 HTML
+	. submit(-name=>'save', -label=>"Supprimer la fiche", -class=>"button small")
 	. end_form();
 
 }
