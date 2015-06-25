@@ -40,9 +40,13 @@ $debug = 1;
 
 print STDERR "product_image_upload.pl - user: $User_id - code: $code - cc: $cc - lc: $lc - ip: " . remote_addr() . "\n";
 
-if (not defined $code) {
+if ((not defined $code) or ($code eq '')) {
 	
 	print STDERR "product_image_upload.pl - no code\n";
+	my %response = ( status => 'status not ok');
+	$response{error} = "error - missing product code";
+	my $data =  encode_json(\%response);		
+	print header ( -charset=>'UTF-8') . $data;		
 	exit(0);
 }
 
@@ -61,6 +65,16 @@ if ($imagefield) {
 	my $path = product_path($code);
 	
 	print STDERR "product_image_upload - imagefield: $imagefield - delete: $delete\n";
+	
+	if ($path eq 'invalid') {
+		# non numeric code was given
+		print STDERR "product_image_upload.pl - invalid code\n";
+		my %response = ( status => 'status not ok');
+		$response{error} = "error - invalid product code: $code";
+		my $data =  encode_json(\%response);		
+		print header ( -charset=>'UTF-8') . $data;		
+		exit(0);		
+	}
 	
 	if ($delete ne 'on') {
 	
@@ -84,8 +98,11 @@ if ($imagefield) {
 		if ($imgid < 0) {
 			my %response = ( status => 'status not ok', imgid => $imgid);
 			$response{error} = "error";
+			($imgid == -2) and $response{error} = "field imgupload_$imagefield not set";
 			($imgid == -3) and $response{error} = lang("image_upload_error_image_already_exists");
 			($imgid == -4) and $response{error} = lang("image_upload_error_image_too_small");
+			($imgid == -5) and $response{error} = "could not read image";
+			
 			$data =  encode_json(\%response);	
 		}
 		else {
@@ -98,10 +115,10 @@ if ($imagefield) {
 					imagefield=>$imagefield,
 			});
 			
-			# If we don't have a picture yet, assume it is the front view of the product
+			# If we don't have a picture for the imagefield yet, assign it
 			# (can be changed by the user later if necessary)
-			if (not defined $product_ref->{images}{front}) {
-				process_image_crop($code, 'front', $imgid, 0, undef, undef, -1, -1, -1, -1);
+			if ((($imagefield eq 'front') or ($imagefield eq 'ingredients') or ($imagefield eq 'nutrition')) and not defined $product_ref->{images}{$imagefield}) {
+				process_image_crop($code, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1);
 			}
 		}
 		
