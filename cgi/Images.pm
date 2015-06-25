@@ -548,11 +548,11 @@ sub process_image_upload($$) {
 			# Check that we don't already have the image
 
 			my $size = -s "$www_root/images/products/$path/$imgid.$extension";
-			#print STDERR "size of $www_root/images/products/$path/$imgid.$extension : $size \n" . (-s "$www_root/images/products/$path/$imgid.$extension") . "\n";
+			print STDERR "size of $www_root/images/products/$path/$imgid.$extension : $size \n" . (-s "$www_root/images/products/$path/$imgid.$extension") . "\n";
 			for (my $i = 0; $i < $imgid; $i++) {
-				#print STDERR "existing image $i - size: " . (-s "$www_root/images/products/$path/$i.$extension") . " -- $imgid size: $size\n";
+				print STDERR "existing image $i - size: " . (-s "$www_root/images/products/$path/$i.$extension") . " -- $imgid size: $size\n";
 				if ((-s "$www_root/images/products/$path/$i.$extension") == $size) {
-					#print STDERR "image $imgid has same size than $www_root/images/products/$path/$i.$extension : deleting $www_root/images/products/$path/$imgid.$extension\n";
+					print STDERR "image $imgid has same size than $www_root/images/products/$path/$i.$extension : deleting $www_root/images/products/$path/$imgid.$extension\n";
 					unlink "$www_root/images/products/$path/$imgid.$extension";
 					rmdir ("$www_root/images/products/$path/$imgid.lock");
 					return -3;
@@ -595,10 +595,10 @@ sub process_image_upload($$) {
 
 				my $x = $img->Write("jpeg:$www_root/images/products/$path/$imgid.$max.jpg");
 				if ("$x") {
-					print STDERR "Index::download_image - could not write jpeg:$www_root/images/products/$path/$imgid.$max.jpg: $x\n";
+					print STDERR "Images::process_image_upload - could not write jpeg:$www_root/images/products/$path/$imgid.$max.jpg: $x\n";
 				}
 				else {
-					print STDERR "Index::download_image - wrote jpeg:$www_root/images/products/$path/$imgid.$max.jpg\n";		
+					print STDERR "Images::process_image_upload - wrote jpeg:$www_root/images/products/$path/$imgid.$max.jpg\n";		
 				}
 				
 				$new_product_ref->{"images.$imgid.$max"} = "$imgid.$max";
@@ -631,13 +631,18 @@ sub process_image_upload($$) {
 			
 			}
 			else {
-				$imgid = -2;
+				# Could not read image
+				$imgid = -5;
 			}
 			
 			rmdir ("$www_root/images/products/$path/$imgid.lock");
 		}
 	}
-	print STDERR "Index::download_image - return imgid: $imgid - imagefield: $imagefield\n";
+	else {
+		print STDERR "Images::process_image_upload - field imgupload_$imagefield not set.\n";
+		$imgid = -2;
+	}
+	print STDERR "Images::process_image_upload - return imgid: $imgid - imagefield: $imagefield\n";
 	return $imgid;
 }
 
