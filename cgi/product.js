@@ -1,4 +1,23 @@
-var ias;
+// This file is part of Product Opener.
+// 
+// Product Opener
+// Copyright (C) 2011-2015 Association Open Food Facts
+// Contact: contact@openfoodfacts.org
+// Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+// 
+// Product Opener is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as
+// published by the Free Software Foundation, either version 3 of the
+// License, or (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+// 
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 var code;
 var current_cropbox;
 var images = [];
@@ -6,7 +25,6 @@ var imgids = {};
 var img_path;
 var angles = {};
 var imagefield_imgid = {};
-var imagefield_selection = {};
 var imagefield_url = {};
 
 function select_nutriment(event, ui) {
@@ -85,39 +103,17 @@ function upload_image (imagefield) {
  });
 }
 
-var x1,y1,x2,y2;
 
 function init_image_area_select(imagefield) {
-
-	if (ias) {
-		ias.remove();
-	}
 	
-	//$('div[id="cropbutton_' + imagefield +'"]').html('');
-	//$('#crop_' + imagefield).html('');
-	
-	ias = $('img#crop_' + imagefield ).imgAreaSelect({
-		parent: '#ias_' + imagefield,
-		instance: true,
-		handles: true,
-		onSelectEnd: function (img, selection) {
-			
-			imagefield_selection[imagefield] = selection;
-			
-		}
-	});
-
-
-			
-
-
+	$('img#crop_' + imagefield ).cropper({ "strict" : false, "guides" : false, "autoCrop" : false});
 }
 
 function update_image(imagefield) {
 
 	$('#crop_' + imagefield).attr("src","/cgi/product_image_rotate.pl?code=" + code + "&imgid=" + imagefield_imgid[imagefield]
-		+ "&angle=" + angles[imagefield] + "&normalize=" + $("#normalize_" + imagefield).attr('checked')
-		+ "&white_magic=" + $("#white_magic_" + imagefield).attr('checked')		);
+		+ "&angle=" + angles[imagefield] + "&normalize=" + $("#normalize_" + imagefield).prop('checked')
+		+ "&white_magic=" + $("#white_magic_" + imagefield).prop('checked')		);
 	$('div[id="cropbuttonmsg_' + imagefield +'"]').hide();
 }
 
@@ -127,53 +123,8 @@ function rotate_image(event) {
 	var angle = event.data.angle;
 	angles[imagefield] += angle;
 	angles[imagefield] = (360 + angles[imagefield]) % 360;
-	//$('#cropimgdiv_' + imagefield).rotate(angles[imagefield]);	
-	
-	//var transform = "rotate(" + angles[imagefield] + "deg)";
-	//$('#cropimgdiv_' + imagefield).css("-moz-transform", transform);
 
-
-		var selection = ias.getSelection();
-		
-		var w = $('#crop_' + imagefield).width();
-		var h = $('#crop_' + imagefield).height();
-		
-		if (angle == 90) {
-			x1 = h - selection.y2;
-			y1 = selection.x1;
-			x2 = h - selection.y1;
-			y2 = selection.x2;
-		}
-		else {
-			x1 = selection.y1;
-			y1 = w - selection.x2;
-			x2 = selection.y2;
-			y2 = w - selection.x1;
-		}
-
-
-
-	//$('#ias_' + imagefield).html('');
-	update_image(imagefield);
-	
-	//init_image_area_select(imagefield);
-
-	ias.cancelSelection();
-	ias.setOptions({ show: false });
-	$('#crop_' + imagefield).attr("width",h);
-	$('#crop_' + imagefield).attr("height",w);
-	ias.update();
-	ias.setOptions({ imageHeight : w, imageWidth : h });
-	if ((selection.width > 0) && (selection.height > 0)) {		
-		ias.setSelection(x1,y1,x2,y2);
-		ias.update();
-		ias.setOptions({ show: true });
-	}
-
-	ias.update();	
-	
-	selection = ias.getSelection();
-	imagefield_selection[imagefield] = selection;
+	$('img#crop_' + imagefield ).cropper('rotate',angle);
 	
 	event.stopPropagation();
 	event.preventDefault();
@@ -188,39 +139,37 @@ function change_image(imagefield, imgid) {
 	imagefield_imgid[imagefield] = imgid;
 	
 	var html = '<div class="command">' + Lang.image_rotate_and_crop + '</div>';
-	html += '<div class="small_buttons command"><a id="rotate_left_' + imagefield + '">' + Lang.image_rotate_left + '</a>';
-	html += '<a id="rotate_right_' + imagefield + '">' + Lang.image_rotate_right + '</a>';
-	html += '<input type="checkbox" id="normalize_' + imagefield + '" onchange="update_image(\'' + imagefield + '\');blur();" /><label for="normalize_' + imagefield + '">' + Lang.image_normalize + '</label></div>';
-	html += '<div id="cropimgdiv_' + imagefield + '"><img src="' + img_path + image.crop_url +'" id="' + 'crop_' + imagefield + '"/></div>';
+	html += '<div class="command"><a id="rotate_left_' + imagefield + '" class="small button">' + Lang.image_rotate_left + '</a> &nbsp;';
+	html += '<a id="rotate_right_' + imagefield + '" class="small button">' + Lang.image_rotate_right + '</a>';
+	html += '</div>';
+	html += '<div id="cropimgdiv_' + imagefield + '" style="width:100%;height:400px"><img src="' + img_path + image.crop_url +'" id="' + 'crop_' + imagefield + '"/></div>';
 	html += '<a href="' + img_path + image.imgid + '.jpg" target="_blank">' + Lang.image_open_full_size_image + '</a><br/>';
 	html +=	'<input type="checkbox" id="white_magic_' + imagefield + '" style="display:inline" /><label for="white_magic_' + imagefield 
 		+ '" style="display:inline">' + Lang.image_white_magic + '</label>';
-	html += '<div id="ias_' + imagefield + '"></div>';
-	html += '<div id="cropbutton_' + imagefield + '" class="small_buttons"></div>';
+	html += '<div id="cropbutton_' + imagefield + '"></div>';
 	html += '<div id="cropbuttonmsg_' + imagefield + '" class="ui-state-highlight ui-corner-all" style="padding:2px;margin-top:10px;margin-bottom:10px;display:none" ></div>';
 	
-	if (ias) {
-		ias.remove();
-	}
-	x1 = -1;
+
 	if (current_cropbox) {
 		$('div[id="' + current_cropbox + '"]').html('');
 	}
 	current_cropbox = 'cropbox_' + imagefield;
 	$('div[id="cropbox_' + imagefield +'"]').html(html);
+	$('div[id="cropimgdiv_' + imagefield +'"]').height($('div[id="cropimgdiv_' + imagefield +'"]').width());
 	
 	$("#white_magic_" + imagefield).change(function(event) {
 			$('div[id="cropbuttonmsg_' + imagefield +'"]').hide();
 	} );
 	
 			var id = 'crop_' + imagefield + '_button';
-			$('div[id="cropbutton_' + imagefield +'"]').html('<button id=' + id + '>' + Lang.image_save + '</button>');
-			$("#" + id).button();
+			$('div[id="cropbutton_' + imagefield +'"]').html('<button id="' + id + '" class="small button">' + Lang.image_save + '</button>');
 			$("#" + id).click({imagefield:imagefield,},function(event) {
 				event.stopPropagation();
 				event.preventDefault();
 				var imgid = imagefield_imgid[imagefield];
-				var selection = imagefield_selection[imagefield];
+				
+				var selection = $('img#crop_' + imagefield ).cropper('getData');
+
 				if (! selection) {
 					selection = {'x1':-1,'y1':-1,'x2':-1,'y2':-1};
 				}
@@ -231,23 +180,24 @@ function change_image(imagefield, imgid) {
 				$('div[id="cropbuttonmsg_' + imagefield +'"]').show();
 				$.post('/cgi/product_image_crop.pl',
 						{code: code, id: imagefield , imgid: imgid,
-						x1:selection.x1, y1:selection.y1, x2:selection.x2, y2:selection.y2,
-						angle:angles[imagefield], normalize:$("#normalize_" + imagefield).attr('checked'), 
-						white_magic:$("#white_magic_" + imagefield).attr('checked') }, function(data) {
+						x1:selection.x, y1:selection.y, x2:selection.x + selection.width, y2:selection.y + selection.height,
+						angle:angles[imagefield], normalize:$("#normalize_" + imagefield).prop('checked'), 
+						white_magic:$("#white_magic_" + imagefield).prop('checked') }, function(data) {
 						
 					imagefield_url[imagefield] = data.image.display_url;
 					update_display(imagefield);
 					$('div[id="cropbutton_' + imagefield +'"]').show();
 					$('div[id="cropbuttonmsg_' + imagefield +'"]').html(Lang.image_saved);
+					$(document).foundation('equalizer', 'reflow');
 				}, 'json');
 			});		
 	
-	$("#normalize_" + imagefield).button();
-	$("#rotate_left_" + imagefield).button().click({imagefield:imagefield, angle:-90}, rotate_image);
-	$("#rotate_right_" + imagefield).button().click({imagefield:imagefield, angle:90}, rotate_image);
+	$("#rotate_left_" + imagefield).click({imagefield:imagefield, angle:-90}, rotate_image);
+	$("#rotate_right_" + imagefield).click({imagefield:imagefield, angle:90}, rotate_image);
 	
 	init_image_area_select(imagefield);
 	
+	$(document).foundation('equalizer', 'reflow');
 }  
 
 function update_display(imagefield) {
@@ -258,7 +208,7 @@ function update_display(imagefield) {
 	
 	var html = Lang.current_image + '<br/><img src="' + img_path + display_url + '" />';
 	if (imagefield == 'ingredients') {
-		html += '<div id="ocrbuttondiv_' + imagefield + '" class="small_buttons"><button id="ocrbutton_' + imagefield + '">' + Lang.extract_ingredients + '</button>';
+		html += '<br/><div id="ocrbuttondiv_' + imagefield + '"><button id="ocrbutton_' + imagefield + '" class="small button">' + Lang.extract_ingredients + '</button>';
 	}
 	if (imagefield == 'nutrition') {
 		// width big enough to display a copy next to nutrition table?
@@ -268,7 +218,6 @@ function update_display(imagefield) {
 	}
 	
 	$('div[id="display_' + imagefield +'"]').html(html);
-	$("#ocrbutton_" + imagefield).button();
 	$("#ocrbutton_" + imagefield).click({imagefield:imagefield},function(event) {
 		event.stopPropagation();
 		event.preventDefault();
@@ -284,6 +233,7 @@ function update_display(imagefield) {
 			else {
 				$('div[id="ocrbuttondiv_' + imagefield +'"]').html(Lang.extracted_ingredients_nok);
 			}
+			$(document).foundation('equalizer', 'reflow');
 		}, 'json');
 		
 	});
@@ -366,24 +316,31 @@ function update_display(imagefield) {
 			});
 			html += '</ul>';			
 			
-			html += '<div style="clear:both" class="command upload_image_div small_buttons">';
-			html += '<span class="btn btn-success fileinput-button" id="imgsearchbutton_' + id + '">'
-+ '<span>' + Lang.upload_image + '</span>'
-+ '<input type="file" accept="image/*" class="img_input" name="imgupload_' + id + '" id="imgupload_' + id + '" data-url="/cgi/product_image_upload.pl" multiple/>'
-+ '</span></div><br />'
+			html += '<div style="clear:both" class="command upload_image_div">';
+			html += '<a href="#" class="button small expand" id="imgsearchbutton_' + id + '"><i class="fi-camera"></i> ' + Lang.upload_image
++ '<input type="file" accept="image/*" class="img_input" name="imgupload_' + id + '" id="imgupload_' + id
++ '" data-url="/cgi/product_image_upload.pl" multiple '
++ 'style="position: absolute;right:0;bottom:0;top:0;cursor:pointer;opacity:0;font-size:40px;"/>' 
++ '</a>'
++ '</div>'
 + '<p class="note">' + Lang.upload_image_note + '</p>'
-+ '<div id="progressbar_' + id + '" class="progress" style="display:none;height:12px;"></div>'
-+ '<div id="imgsearchmsg_' + id + '" class="ui-state-highlight ui-corner-all" style="display:none;margin-top:5px;">' + Lang.uploading_image + '</div>'
-+ '<div id="imgsearcherror_' + id + '" class="ui-state-error ui-corner-all" style="display:none;margin-top:5px;">' + Lang.image_upload_error + '</div>';
++ '<div id="progressbar_' + id + '" class="progress" style="display:none">'
++  '<span id="progressmeter_' + id + '" class="meter" style="width:0%"></span>'
++ '</div>'
++ '<div id="imgsearchmsg_' + id + '" data-alert class="alert-box info" style="display:none">' + Lang.uploading_image
++ '<a href="#" class="close">&times;</a>'
++ '</div>'
++ '<div id="imgsearcherror_' + id + '" data-alert class="alert-box alert" style="display:none">' + Lang.image_upload_error
++ '<a href="#" class="close">&times;</a>'
++ '</div>';
 			
 
-		//	html += '<div id="uploadimagemsg_' + id + '" class="ui-state-highlight ui-corner-all" style="clear:both;padding:2px;margin-top:10px;margin-bottom:10px;display:none" ></div>';
 			html += '<div class="cropbox" id="cropbox_' + id +'"></div>';
 			html += '<div class="display" id="display_' + id +'"></div>';
 			$this.html(html);			
 			update_display(id);
 			
-			
+
 
 	var imagefield = id;
 		
@@ -399,7 +356,7 @@ function update_display(imagefield) {
 
 			if (data.result) {
 			if (data.result.image) {
-	$("#imgsearchmsg_" + imagefield).html('Image reÃ§ue');
+	$("#imgsearchmsg_" + imagefield).html(Lang.image_received);
 	$("input:hidden[name=\"" + data.imagefield + ".imgid\"]").val(data.result.image.imgid);
 	$([]).selectcrop('add_image',data.result.image);
 	$(".select_crop").selectcrop('show');
@@ -426,8 +383,9 @@ function update_display(imagefield) {
 		start: function (e, data) {
 			$("#imgsearchbutton_" + imagefield).hide();
 			$("#imgsearcherror_" + imagefield).hide();
-			$("#imgsearchmsg_" + imagefield).html('<img src="/images/misc/loading2.gif" /> Image en cours d\'envoi').show();
-			$("#progressbar_" + imagefield).progressbar({value : 0 }).show();
+			$("#imgsearchmsg_" + imagefield).html('<img src="/images/misc/loading2.gif" /> ' + Lang.uploading_image).show();			
+			$("#progressbar_" + imagefield).show();
+			$("#progressmeter_" + imagefield).css('width', "0%");
 			
 			$('.img_input[name!="imgupload_' + imagefield + '"]').prop("disabled", true);
                     
@@ -438,36 +396,16 @@ function update_display(imagefield) {
                     // Iframe Transport does not support progress events.
                     // In lack of an indeterminate progress bar, we set
                     // the progress to 100%, showing the full animated bar:
-                    $("#progressbar_" + imagefield).progressbar(
-                            'option',
-                            'value',
-                            100
-                        );
+                    $("#progressmeter_" + imagefield).css('width', "100%");
                 }
             },
             progress: function (e, data) {
-
-                    $("#progressbar_" + imagefield).progressbar(
-                        'option',
-                        'value',
-                        parseInt(data.loaded / data.total * 100, 10)
-                    );
-                
+				$("#progressmeter_" + imagefield).css('width', parseInt(data.loaded / data.total * 100, 10) + "%");
             }
 		
     });			
 			
 		});
-		
-		$('.fileinput-button').each(function () {
-                    var input = $(this).find('input:file').detach();
-                    $(this)
-                        .button()
-                        .append(input);
-                });
-
-		
-		
 		
 		
 		$(".single-selectable li").click(function() {
@@ -481,10 +419,7 @@ function update_display(imagefield) {
 		});
 		
 		return this;
-    },
-    change_crop : function( x1, y1, x2, y2 ) { 
-      // !!! 
-    }	
+    },	
 
   };
 

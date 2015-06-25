@@ -1,4 +1,4 @@
-# This file is part of Product Opener.
+﻿# This file is part of Product Opener.
 # 
 # Product Opener
 # Copyright (C) 2011-2015 Association Open Food Facts
@@ -58,7 +58,6 @@ use utf8;
 use Blogs::SiteLang qw/:all/;
 
 use Blogs::Store qw/:all/;
-
 
 
 %lang_lc = (
@@ -1245,6 +1244,11 @@ site_description => {
 	nl => 'Ingrediënten, nutritionele samenstelling en informatie over voedingsmiddelen uit de hele wereld in een open en vrije databank',
 },
 
+product_description => {
+	en => "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s",
+	fr => "Ingrédients, allergènes, additifs, composition nutritionnelle, labels, origine des ingrédients et informations du produit %s",
+},
+
 og_image_url => {
 	fr => 'http://fr.openfoodfacts.org/images/misc/openfoodfacts-logo-fr-356.png',
 	en => 'http://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png',
@@ -1266,10 +1270,27 @@ twitter_account => {
 	es => 'OpenFoodFactsEs',
 	el => 'OpenFoodFactsEs',
 	it => 'OpenFoodFactsIt',
+	ja => 'OpenFoodFactsJp',
 	ar => 'OpenFoodFactsAr',
 	ro => 'OpenFoodFacts',
 	pt => 'OpenFoodFactsPt',
 	nl => 'OpenFoodFactsNl',
+},
+
+twitter_account_by_country => {
+	en => 'OpenFoodFacts',
+	es => 'OpenFoodFactsEs',
+	de => 'OpenFoodFactsDe',
+	fr => 'OpenFoodFactsFr',
+	it => 'OpenFoodFactsIt',
+	jp => 'OpenFoodFactsJp',
+	pt => 'OpenFoodFactsPt',
+	uk => 'OpenFoodFactsUk',
+},
+
+facebook_page => {
+	en => 'https://www.facebook.com/OpenFoodFacts',
+	fr => 'https://www.facebook.com/OpenFoodFacts.fr',
 },
 
 products => {
@@ -1306,6 +1327,7 @@ add_user => {
 edit_user => { 
 	fr => 'Paramètres du compte',
 	en => 'Account parameters',
+	dk => 'Konto parametre',
 	es => 'Parámetros de la cuenta',
 	el => 'Ρυθμίσεις λογαριασμου',
 	it => 'Parametri account',
@@ -1882,7 +1904,7 @@ login_register_title => {
 	fr => 'Se connecter',
 	de => 'Anmelden',
 	el => 'Εγγραφη',
-        en => 'Sign-in',
+	en => 'Sign-in',
 	es => 'Iniciar sesión',
 	it => 'connettersi',
 	ar => 'تسجيل الدخول',
@@ -1964,6 +1986,46 @@ HTML
 
 },
 
+login_to_add_and_edit_products => {
+	en => "Sign-in to add or edit products.",
+	de => "Melde dich an, um ein Produkt hinzuzufügen oder zu bearbeiten.",
+	el => "Εγγραφείτε για να προσθέσετε ή να επεξεργαστείτε προϊόντα.",
+	es => "Conéctate para añadir o modificar productos.",
+	fr => "Connectez-vous pour ajouter des produits ou modifier leurs fiches.",
+	he => "נא להיכנס כדי להוסיף או לערוך מוצרים.",
+	it => "Connettersi per aggiungere o modificare delle schede.",
+	nl => "Meld u aan om producten toe te voegen of te bewerken.",
+	pt => "Inicie uma sessão para adicionar ou editar produtos.",
+	ro => "Autentificați-vă pentru a adăuga sau modifica produse.",
+},
+
+login_not_registered_yet => {
+	en => "Not registered yet?",
+	de => "Noch nicht registriert?",
+	el => "Δεν έχετε εγγραφεί ακόμα;",
+	es => "¿Todavía no te has registrado?",
+	fr => "Pas encore inscrit(e) ?",
+	he => "לא נרשמת עדיין?",
+	it => "Non ancora iscritta/o?",
+	nl => "Nog niet geregistreerd?",
+	pt => "Ainda não é registrado?",
+	ro => "Nu v-ați înregistrat încă?",
+},
+
+login_create_your_account => {
+	en => "Create your account.",
+	de => "Erstelle ein Benutzerkonto.",
+	el => "τη δημιουργία του λογαριασμού σας .",
+	es => "Crea tu cuenta.",
+	fr => "Créez votre compte.",
+	he => "ניתן ללחוץ כאן ליצירת חשבון חדש",
+	it => "Creare il proprio account.",
+	nl => "Creëer uw account",
+	pt => "Criar uma conta.",
+	ro => "Creați-vă contul.",
+},
+
+
 login_register_content => {
 	fr => <<HTML
 <p>Connectez-vous pour ajouter des produits ou modifier leurs fiches.</p>
@@ -1974,7 +2036,7 @@ Nom d'utilisateur ou adresse e-mail :<br />
 Mot de passe<br />
 <input type="password" name="password" tabindex="2" style="width:220px;" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Se souvenir de moi</label><br />
-<input type="submit" tabindex="4" name=".submit" value="Se connecter" class="jbutton" />
+<input type="submit" tabindex="4" name=".submit" value="Se connecter" class="button small" />
 </form>
 <p>Pas encore inscrit(e) ? <a href="/cgi/user.pl">Créez votre compte</a>.</p>
 HTML
@@ -1989,7 +2051,7 @@ Benutzername oder E-Mail-Adresse:<br />
 Passwort<br />
 <input type="password" name="password" tabindex="2" style="width:220px;" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Angemeldet bleiben</label><br />
-<input type="submit" tabindex="4" name=".submit" value="Sign-in" class="jbutton" />
+<input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
 <p>Noch nicht registriert? <a href="/cgi/user.pl">Erstelle ein Benutzerkonto</a>.</p>
 HTML
@@ -2003,7 +2065,7 @@ Username ή διεύθυνση e-mail:<br />
 Password<br />
 <input type="password" name="password" tabindex="2" style="width:220px;" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Remember me</label><br />
-<input type="submit" tabindex="4" name=".submit" value="Sign-in" class="jbutton" />
+<input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
 <p>Δεν έχετε εγγραφεί ακόμα; <a href="/cgi/user.pl">Create your account</a>.</p>
 HTML
@@ -2019,7 +2081,7 @@ Username or e-mail address:<br />
 Password<br />
 <input type="password" name="password" tabindex="2" style="width:220px;" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Remember me</label><br />
-<input type="submit" tabindex="4" name=".submit" value="Sign-in" class="jbutton" />
+<input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
 <p>Not registered yet? <a href="/cgi/user.pl">Create your account</a>.</p>
 HTML
@@ -2034,7 +2096,7 @@ Nombre de usuario o dirección de correo electrónico:<br />
 Contraseña<br />
 <input type="password" name="password" tabindex="2" style="width:220px;" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Mantenerme conectado</label><br />
-<input type="submit" tabindex="4" name=".submit" value="Sign-in" class="jbutton" />
+<input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
 <p>¿Todavía no te has registrado? <a href="/cgi/user.pl">Crea tu cuenta</a>.</p>
 HTML
@@ -2049,7 +2111,7 @@ Nom d'utilisateur ou adresse e-mail :<br />
 Mot de passe<br />
 <input type="password" name="password" tabindex="2" style="width:220px;" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Mantenere la connessione</label><br />
-<input type="submit" tabindex="4" name=".submit" value="Connettersi" class="jbutton" />
+<input type="submit" tabindex="4" name=".submit" value="Connettersi" class="button small" />
 </form>
 <p>Non ancora iscritta/o? <a href="/cgi/user.pl">Creare il proprio account</a>.</p>
 HTML
@@ -2064,7 +2126,7 @@ Nome de usuário ou endereço de email:<br />
 Senha<br />
 <input type="password" name="password" tabindex="2" style="width:220px;" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Lembre-se de mim</label><br />
-<input type="submit" tabindex="4" name=".submit" value="Sign-in" class="jbutton" />
+<input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
 <p>Ainda não é registrado? <a href="/cgi/user.pl">Criar uma conta</a>.</p>
 HTML
@@ -2079,7 +2141,7 @@ Nome de utilizador ou endereço de e-mail:<br />
 Palavra-passe<br />
 <input type="password" name="password" tabindex="2" style="width:220px;" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Manter sessão iniciada</label><br />
-<input type="submit" tabindex="4" name=".submit" value="Sign-in" class="jbutton" />
+<input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
 <p>Ainda não está registado? <a href="/cgi/user.pl">Criar uma conta</a>.</p>
 HTML
@@ -2094,7 +2156,7 @@ Numele de utilizator sau adresa de e-mail:<br />
 Parola<br />
 <input type="password" name="password" tabindex="2" style="width:220px;" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Ține-mă minte</label><br />
-<input type="submit" tabindex="4" name=".submit" value="Autentificare" class="jbutton" />
+<input type="submit" tabindex="4" name=".submit" value="Autentificare" class="button small" />
 </form>
 <p>Nu v-ați înregistrat încă? <a href="/cgi/user.pl">Creați-vă contul</a>.</p>
 HTML
@@ -2109,7 +2171,7 @@ HTML
 ססמה<br />
 <input type="password" name="password" tabindex="2" style="width:220px;" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>שמירת הפרטים שלי</label><br />
-<input type="submit" tabindex="4" name=".submit" value="כניסה" class="jbutton" />
+<input type="submit" tabindex="4" name=".submit" value="כניסה" class="button small" />
 </form>
 <p>לא נרשמת עדיין? <a href="/cgi/user.pl">ניתן ללחוץ כאן ליצירת חשבון חדש</a>.</p>
 HTML
@@ -2124,7 +2186,7 @@ Gebruikersnaam of e-mailadres:<br />
 Paswoord<br />
 <input type="password" name="password" tabindex="2" style="width:220px;" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Aangemeld blijven</label><br />
-<input type="submit" tabindex="4" name=".submit" value="Sign-in" class="jbutton" />
+<input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
 <p>Nog niet geregistreerd?<a href="/cgi/user.pl">Creëer uw account</a>.</p>
 HTML
@@ -2393,7 +2455,7 @@ next => {
 	el => 'Επόμενο',
 	it => "Successiva",
 	pt => 'Próxima',
-	ro => 'Următor',
+	ro => 'Următoarea',
 	he => "הבא",
 	nl => 'Volgende',
 },
@@ -2562,7 +2624,8 @@ username => {
 username_info => {
 	fr => "(lettres non accentuées, chiffres et/ou tirets)",
 	de => '(Buchstaben ohne Umlaute, Zahlen und/oder Bindestriche)',
-	en => "(non-accented letters, digits and/or dashes)",
+	en => '(non-accented letters, digits and/or dashes)',
+	dk => '(almindelige bogstaver, tal og/eller bindestreger)',
 	es => "(letras no acentuadas, números y/o guiones)",
 	el => "(μη τονισμένα γράμματα, αριθμοί και/ή παύλες)",
 	it => "(lettere non accentate, numeri e/o trattini)",
@@ -2645,7 +2708,8 @@ website => {
 about => {
 	fr => "Présentation",
 	de => 'Über uns',
-	en => "About me",
+	en => 'About me',
+	dk => 'Om mig',
 	el => "Για εμάς",
 	es => "Presentación",
 	it => "Mi presento",
@@ -2840,29 +2904,30 @@ no_products => {
 },
 
 '1_product' => {
-	fr => "1 produit :",
-	de => "1 Produkt:",
-	en => "1 product:",
-	el => "1 προϊόν:",
-	es => "1 producto:",
-	it => "1 prodotto:",
-	pt => "1 produto:",
-	ro => "1 produs:",
-	he => "מוצר 1:",
-	nl => "1 product:",
-	ru => '1 продукт:',
+	fr => "1 produit",
+	de => "1 Produkt",
+	en => "1 product",
+	el => "1 προϊόν",
+	es => "1 producto",
+	it => "1 prodotto",
+	pt => "1 produto",
+	ro => "1 produs",
+	he => "מוצר 1",
+	nl => "1 product",
+	ru => '1 продукт',
 },
 
 n_products => {
-	fr => "%d produits :",
-	de => "%d Produkte:",
-	el => "%d Προϊόντα:",
-	es => "%d productos:",
-	it => "%d prodotti:",
-	pt => "%d produtos:",
-	ro => "%d produse:",
-	he => "%d מוצרים:",
-	nl => "%d producten:",
+	en => "%d products",
+	fr => "%d produits",
+	de => "%d Produkte",
+	el => "%d Προϊόντα",
+	es => "%d productos",
+	it => "%d prodotti",
+	pt => "%d produtos",
+	ro => "%d produse",
+	he => "%d מוצרים",
+	nl => "%d producten",
 	# zh => '',
 },
 
@@ -2929,6 +2994,7 @@ _and_ => {
 	fr => ' et ',
 	de => ' und ',
 	en => ' and ',
+	dk => ' og ',
 	el => ' και ',
 	es => ' y ',
 	cs => ' a ',
@@ -3369,16 +3435,28 @@ labels_note => {
 },
 
 origins => {
-	fr => "Origine des ingrédients",
-	en => "Origin of ingredients",
-	el => "Προέλευση των συστατικών",
-	es => "Origen de los ingredientes",
-	it => "Origine",
-	pt => "Origem do produto",
-	ro => "Originea ingredientelor",
-	he => "מקור",
-	nl => "Herkomst van de ingrediënten",
+    ar => 'أصل المكونات', #ar-CHECK - Please check and remove this comment
 	de => "Herkunft der Zutaten",
+    cs => 'Původ přísad', #cs-CHECK - Please check and remove this comment
+	es => "Origen de los ingredientes",
+	en => "Origin of ingredients",
+    it => 'Origine degli ingredienti', #it-CHECK - Please check and remove this comment
+    fi => 'Alkuperä ainesosien', #fi-CHECK - Please check and remove this comment
+	fr => "Origine des ingrédients",
+	el => "Προέλευση των συστατικών",
+	he => "מקור", # Manual translation
+    # he => 'מקור של חומרים', he-CHECK - Please check and remove this comment
+    ja => '成分の起源', #ja-CHECK - Please check and remove this comment
+    ko => '성분의 유래', #ko-CHECK - Please check and remove this comment
+	nl => "Herkomst van de ingrediënten",
+    ru => 'Происхождение ингредиентов', #ru-CHECK - Please check and remove this comment
+    pl => 'Pochodzenie składników', #pl-CHECK - Please check and remove this comment
+    # pt => "Origem do produto", Manual translation
+    pt => 'Origem dos ingredientes', #pt-CHECK - Please check and remove this comment
+	ro => "Originea ingredientelor",
+    th => 'แหล่งที่มาของวัตถุดิบ', #th-CHECK - Please check and remove this comment
+    vi => 'Nguồn gốc của các thành phần', #vi-CHECK - Please check and remove this comment
+    zh => '配料原产地', #zh-CHECK - Please check and remove this comment
 },
 
 origins_example => {
@@ -3569,8 +3647,8 @@ product_characteristics => {
 product_image => {
 	fr => "Photo du produit",
 	en => "Product picture",
-        el => 'Φωτογραφία του προϊόντος',
-        es => "Imagen del producto",
+    el => 'Φωτογραφία του προϊόντος',
+    es => "Imagen del producto",
 	pt => "Imagem do produto",
 	ro => "Imaginea produsului",
 	he => "תמונת המוצר",
@@ -3787,15 +3865,26 @@ serving_size_example => {
 # MOBILESTRING
 
 nutrition_data => {
-	fr => "Informations nutritionnelles",
-	en => "Nutrition facts",
-	el => "Διατροφικά στοιχεία",
+    ar => 'حقائق غذائية', #ar-CHECK - Please check and remove this comment
+	de => "Nährwertinformationen",
+    cs => 'Nutriční hodnoty', #cs-CHECK - Please check and remove this comment
 	es => "Información nutricional",
+	en => "Nutrition facts",
+    it => 'Informazioni nutrizionali', #it-CHECK - Please check and remove this comment
+    fi => 'Ravintosisältö', #fi-CHECK - Please check and remove this comment
+	fr => "Informations nutritionnelles",
+	el => "Διατροφικά στοιχεία",
+	he => "מפרט תזונתי",
+    ja => '栄養成分表', #ja-CHECK - Please check and remove this comment
+    ko => '영양 성분 표시', #ko-CHECK - Please check and remove this comment
+	nl => "Nutritionele informatie",
+    ru => 'Пищевая ценность', #ru-CHECK - Please check and remove this comment
+    pl => 'Wartości odżywcze', #pl-CHECK - Please check and remove this comment
 	pt => "Informação nutricional",
 	ro => "Valori nutriționale",
-	he => "מפרט תזונתי",
-	nl => "Nutritionele informatie",
-	de => "Nährwertinformationen",
+    th => 'ข้อมูลโภชนาการ', #th-CHECK - Please check and remove this comment
+    vi => 'Giá trị dinh dưỡng', #vi-CHECK - Please check and remove this comment
+    zh => '营养成分', #zh-CHECK - Please check and remove this comment
 },
 
 nutrition_data_note => {
@@ -3890,6 +3979,7 @@ nutrition_data_per_serving => {
 nutrition_data_compare_percent => {
 	fr => "Différence en %",
 	en => "% of difference",
+	dk => "% af forskel",
 	el => "Διαφορά στο %",
 	es => "Diferencia en %",
 	pt => "% em comparação",
@@ -4093,7 +4183,8 @@ examples => {
 
 brands_tagsinput => {
 	fr => "ajouter une marque",
-	en => "add a brand",
+	en => 'add a brand',
+	dk => 'tilføje et mærke',
 	el => "προσθέστε μια μάρκα",
 	es => "añadir una marca",
 	pt => "adicionar uma marca",
@@ -4121,7 +4212,8 @@ packaging_tagsinput => {
 
 categories_tagsinput => {
 	fr => "ajouter une catégorie",
-	en => "add a category",
+	en => 'add a category',
+	dk => 'tilføje en kategori',
 	el => "προσθέστε μια κατηγορία",
 	es => "añadir una categoría",
 	pt => "adicionar uma categoria",
@@ -4135,7 +4227,8 @@ categories_tagsinput => {
 
 labels_tagsinput => {
 	fr => "ajouter un label",
-	en => "add a label",
+	en => 'add a label',
+	dk => 'tilføje en etiket',
 	el => "προσθέστε μια ετικέτα",
 	es => "añadir una etiqueta",
 	pt => "adicionar uma etiqueta",
@@ -4148,7 +4241,8 @@ labels_tagsinput => {
 
 origins_tagsinput => {
 	fr => "ajouter une origine",
-	en => "add an origin",
+	en => 'add an origin',
+	dk => 'tilføje en oprindelse',
 	el => "προσθέστε την καταγωγή",
 	es => "añadir un origen",
 	pt => "adicionar uma origem",
@@ -4161,7 +4255,8 @@ origins_tagsinput => {
 
 manufacturing_places_tagsinput => {
 	fr => "ajouter un lieu",
-	en => "add a place",
+	en => 'add a place',
+	dk => 'tilføj et sted',
 	el => "προσθέστε ένα τόπο",
 	es => "añadir un lugar",
 	pt => "adicionar um local",
@@ -4969,15 +5064,20 @@ nutrient_levels_p => {
 },
 
 nutrient_levels_info => {
-	fr => "<a href=\"/reperes-nutritionnels\">Repères nutritionnels</a> pour 100 g :",
-	en => "Nutrient levels for 100 g:",
-	el => "<a href=\"/διατροφικοί-δείκτες\">Διατροφικοί δείκτες</a> ανά 100 g :",
-	es => "<a href=\"/valores-nutricionales\">Valores nutricionales</a> por 100 g :",
-	pt => "<a href=\"/valores-nutricionais\">Valores nutricionais</a> por 100 g:",
-	ro => "Valori nutriționale pentru 100g:",
-	he => "רמות המרכיבים התזונתיים ל־100 גרם:",
-	nl => "<a href=\"/voedingswaarden\">Voedingswaarden</a> per 100 g :",
-	de => "<a href=\"/Nahrungsbedarf\">Nahrungsbedarf</a> pro 100 g :",
+	fr => "Repères nutritionnels pour 100 g",
+	en => "Nutrient levels for 100 g",
+	el => "Διατροφικοί δείκτες ανά 100 g",
+	es => "Valores nutricionales por 100 g",
+	pt => "Valores nutricionais por 100 g",
+	ro => "Valori nutriționale pentru 100g",
+	he => "רמות המרכיבים התזונתיים ל־100 גרם",
+	nl => "Voedingswaarden per 100 g",
+	de => "Nahrungsbedarf pro 100 g",
+},
+
+nutrient_levels_link => {
+	fr => "/reperes-nutritionnels",
+	en => "/nutrient-levels",
 },
 
 users_s => {
@@ -5355,12 +5455,12 @@ add => {
 },
 
 product_image_with_barcode => {
-	fr => 'Image du produit avec code barre :',
-	en => 'Product picture with barcode:',
+	fr => 'Image avec code barre :',
+	en => 'Picture with barcode:',
 	el => "Εικόνα προϊόντος με barcode",
 	de => 'Produktfoto mit Barcode:',
-	es => 'Imagen del producto con código de barras:',
-	pt => 'Imagem do produto com o código de barras:',
+	es => 'Imagen con código de barras:',
+	pt => 'Imagem com o código de barras:',
 	ro => "Imaginea produsului cu codul de bare:",
 	he => 'תמונת המוצר עם ברקוד:',
 	nl => "Foto van het product met barcode",
@@ -5600,6 +5700,7 @@ all_missions => {
 	he => 'כל המשימות',
 	nl => 'Alle missies',
 	de => 'Alle Missionen',
+	dk => 'Alle missioner',
 },
 
 salt_equivalent => {
@@ -5744,7 +5845,7 @@ search_terms_note => {
 
 search_tag => {
 	fr => "choisir un critère...",
-	en => "choose a criteria...",
+	en => "choose a criterion...",
         el => 'επιλέξτε ένα κριτήριο...',
 	es => "escoge un criterio...",
 	pt => "escolhe um critério...",
@@ -5813,10 +5914,14 @@ search_does_not_contain => {
 	nl => "bevat geen",
 	de => "enthält nicht",
 },
+search_value => {
+	fr => "valeur",
+	en => "value",
+},
 search_or => {
 	fr => "ou",
 	en => "or",
-          el => 'ή',
+	el => 'ή',
 	es => "o",
 	pt => "ou",
 	ro => "sau",
@@ -5825,31 +5930,31 @@ search_or => {
 	de => "oder",
 },
 search_page_size => {
-	fr => "Nombre de résultats par page",
-	en => "Number of results by page",
-        el => 'Αριθμός αποτελεσμάτων ανά σελίδα',
-	es => "Número de resultados por página",
-	pt => "Número de resultados por página",
-	ro => "Numărul de rezultate per pagină",
+	fr => "Résultats par page",
+	en => "Results per page",
+	el => 'Αριθμός αποτελεσμάτων ανά σελίδα',
+	es => "Resultados por página",
+	pt => "Resultados por página",
+	ro => "Rezultate per pagină",
 	he => "מספר התוצאות לפי עמוד",
-	nl => "Aantal resultaten per pagina",
-	de => "Anzahl der Ergebnisse pro Seite",
+	nl => "Resultaten per pagina",
+	de => "Ergebnisse pro Seite",
 },
 sort_by => {
-	fr => "Trier par :",
-	en => "Sort by:",
-        el => 'Ταξινομήστε ανά :',
-	es => "Ordenar por:",
-	pt => "Ordenar por:",
-	ro => "Ordonează după:",
-	he => "סידור לפי:",
-	nl => "Ordenen volgens:",
-	de => "Sortieren nach:",
+	fr => "Trier par",
+	en => "Sort by",
+	el => 'Ταξινομήστε ανά ',
+	es => "Ordenar por",
+	pt => "Ordenar por",
+	ro => "Ordonează după",
+	he => "סידור לפי",
+	nl => "Ordenen volgens",
+	de => "Sortieren nach",
 },
 sort_popularity => {
 	fr => "Popularité",
 	en => "Popularity",
-        el => 'Δημοφιλία',
+	el => 'Δημοφιλία',
 	es => "Popularidad",
 	pt => "Popularidade",
 	ro => "Popularitate",
@@ -5859,7 +5964,7 @@ sort_popularity => {
 sort_product_name => {
 	fr => "Nom du produit",
 	en => "Product name",
-        el => 'Όνομα προϊόντος',
+	el => 'Όνομα προϊόντος',
 	es => "Nombre del producto",
 	pt => "Nome do produto",
 	ro => "Numele produsului",
@@ -5978,7 +6083,7 @@ search_graph_note => {
 graph_title => {
 	fr => "Titre du graphique",
 	en => "Graph title",
-        el => 'Τίτλος γραφήματος ',
+	el => 'Τίτλος γραφήματος ',
 	es => "Título del gráfico",
 	pt => "Título de gráfico",
 	ro => "Titlul graficului",
@@ -6206,6 +6311,52 @@ search_map => {
 	de => "Karte",
 },
 
+search_list_choice => {
+	fr => "Résultats sous forme de liste de produits",
+	en => "Results in a list of products",
+},
+
+search_graph_choice => {
+	fr => "Résultats sur un graphique",
+	en => "Results on a graph",
+},
+
+search_map_choice => {
+	fr => "Résultats sur une carte",
+	en => "Results on a map",
+},
+
+search_graph_instructions => {
+	en => "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to
+get a cloud of products (scatter plot).",
+	fr => "Choisissez ce que vous voulez représenter sur l'axe horizontale du graphique pour obtenir un histogramme, et
+sur les deux axes pour obtenir un nuage de produits.",
+},
+
+search_download_choice => {
+	fr => "Télécharger les résultats",
+	en => "Download results",
+	el => "Κατεβάστε αποτελέσματα",
+	es => "Descargar los resultados",
+	pt => "Transferir os resultados",
+	ro => "Descărcați rezultatele",
+	nl => "Download de resultaten",
+	de => "Ergebnisse herunterladen",
+	ar => 'تحميل النتائج', #ar-CHECK - Please check and remove this comment
+	cs => 'Výsledky ke stažení', #cs-CHECK - Please check and remove this comment
+	it => 'Scarica i risultati', #it-CHECK - Please check and remove this comment
+	fi => 'Lataa tulokset', #fi-CHECK - Please check and remove this comment
+	he => 'תוצאות הורדה', #he-CHECK - Please check and remove this comment
+	ja => 'ダウンロード結果', #ja-CHECK - Please check and remove this comment
+	ko => '다운로드 결과', #ko-CHECK - Please check and remove this comment
+	ru => 'Скачать результаты', #ru-CHECK - Please check and remove this comment
+	pl => 'Pobierz wyniki', #pl-CHECK - Please check and remove this comment
+	th => 'ผลการดาวน์โหลด', #th-CHECK - Please check and remove this comment
+	vi => 'Tải xuống kết quả', #vi-CHECK - Please check and remove this comment
+	zh => '下载结果', #zh-CHECK - Please check and remove this comment
+},
+
+
 search_title_graph => {
 	fr => 'Graphique des résultats',
 	en => 'Results graph',
@@ -6216,6 +6367,17 @@ search_title_graph => {
 	he => 'תרשים התוצאות',
 	nl => "Grafiek van de resultaten",
 	de => "Ergebnisgrafik",
+	ar => 'النتائج الرسم البياني', #ar-CHECK - Please check and remove this comment
+	cs => 'Výsledky graf', #cs-CHECK - Please check and remove this comment
+	it => 'Risultati grafico', #it-CHECK - Please check and remove this comment
+	fi => 'Tulokset kaavio', #fi-CHECK - Please check and remove this comment
+	ja => '結果グラフ', #ja-CHECK - Please check and remove this comment
+	ko => '결과 그래프', #ko-CHECK - Please check and remove this comment
+	ru => 'Результаты график', #ru-CHECK - Please check and remove this comment
+	pl => 'Wykres wyników', #pl-CHECK - Please check and remove this comment
+	th => 'กราฟผล', #th-CHECK - Please check and remove this comment
+	vi => 'Kết quả đồ thị', #vi-CHECK - Please check and remove this comment
+	zh => '结果图', #zh-CHECK - Please check and remove this comment
 },
 
 search_title_map => {
@@ -6228,6 +6390,17 @@ search_title_map => {
 	he => 'מפת התוצאות',
 	nl => "Kaart van de resultaten",
 	de => "Ergebniskarte",
+	ar => 'النتائج الخريطة', #ar-CHECK - Please check and remove this comment
+	cs => 'Mapa výsledky', #cs-CHECK - Please check and remove this comment
+	it => 'Risultati mappa', #it-CHECK - Please check and remove this comment
+	fi => 'Tulokset kartta', #fi-CHECK - Please check and remove this comment
+	ja => '結果マップ', #ja-CHECK - Please check and remove this comment
+	ko => '결과지도', #ko-CHECK - Please check and remove this comment
+	ru => 'Результаты на карте', #ru-CHECK - Please check and remove this comment
+	pl => 'Mapa wyniki', #pl-CHECK - Please check and remove this comment
+	th => 'แผนที่ผล', #th-CHECK - Please check and remove this comment
+	vi => 'Kết quả bản đồ', #vi-CHECK - Please check and remove this comment
+	zh => '效果图', #zh-CHECK - Please check and remove this comment
 },
 
 search_results => {
@@ -6268,7 +6441,8 @@ search_download_results_description => {
 
 search_flatten_tags => {
 	fr => "(Optionnel) - Créer une colonne pour chaque :",
-	en => "(Optional) - Create a column for every:",
+	en => '(Optional) - Create a column for every:',
+	dk => '(Valgfrit) - Opret en kolonne for hver:',
 	el => "(Προαιρετικό) - Δημιούργησε μία στήλη για κάθε:",
 	cs => "(Nepovinné) - Vytvořit sloupec pro každý:",
 	es => "(Opcional) - Crear una columna para cada:",
@@ -6363,7 +6537,7 @@ search_graph_blog => {
 	de => "<p>→ mehr über Open Food Facts Grafiken erfahren: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Grafiken in 3-Click</a> (blog).</p>",
 },
 
-advanced_search => {
+advanced_search_old => {
 	fr => "Recherche avancée, graphiques et carte",
 	en => "Advanced search and graphs",
 	el => "Προηγμένη αναζήτηση, γραφήματα και χάρτες",
@@ -6373,6 +6547,24 @@ advanced_search => {
 	he => "חיפוש מתקדם ותרשימים",
 	nl => "Geavanceerd zoeken, grafieken en kaart",
 	de => "Erweiterte Suche, Grafiken und Karten",
+},
+
+advanced_search => {
+	fr => "Recherche avancée",
+	en => "Advanced search",
+	es => "Búsqueda avanzada",
+	pt => "Pesquisa avançada",
+	nl => "Geavanceerd zoeken",
+	de => "Erweiterte Suche",
+},
+
+graphs_and_maps => {
+	fr => "Graphiques et cartes",
+	en => "Graphs and maps",
+	es => "Gráficos",
+	pt => "Gráficos",
+	nl => "Grafieken en kaart",
+	de => "Grafiken und Karten",
 },
 
 edit_comment => {
@@ -7088,8 +7280,9 @@ months => {
 
 weekdays => {
 	fr => "['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi']",
-        el => "['Κυριακή', 'Δευτέρα', 'Τρίτη', 'Τετάρτη', 'Πέμπτη', 'Παρασκευή', 'Σάββατο']",
+	el => "['Κυριακή', 'Δευτέρα', 'Τρίτη', 'Τετάρτη', 'Πέμπτη', 'Παρασκευή', 'Σάββατο']",
 	en => "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']",
+	dk => "['Søndag' 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag']",
 	es => "['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']",
 	pt => "['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado']",
 	ro => "['Duminică', 'Luni', 'Marți', 'Miercuri', 'Joi', 'Vineri', 'Sâmbătă']",
@@ -7253,6 +7446,16 @@ select_country => {
 	de => "Land",
 },
 
+select_lang => {
+	fr => 'Langue',
+	en => 'Language',
+	es => 'Idioma',
+	it => 'Lingua',
+	pt => 'Idioma',
+	ro => 'Limba',
+},
+
+
 view_products_from_the_entire_world => {
 	en => "View matching products from the entire world",
 	el => 'Δείτε αντίστοιχα προϊόντα από όλο τον κόσμο',
@@ -7290,14 +7493,14 @@ view_results_from_the_entire_world => {
 },
 
 explore_products_by => {
-	fr => "Explorer les produits par :",
-	el => 'Δείτε προϊόντα ανά:',
-	en => "Drilldown into products by:",
-	es => "Explorar los productos por:",
-	pt => "Explorar os produtos por:",
-	ro => "Explorați produsele după:",
-	nl => "Doorzoek de producten volgens:",
-	de => "Produkte nach Kriterium anzeigen:",
+	fr => "Explorer les produits par...",
+	el => 'Δείτε προϊόντα ανά...',
+	en => "Drilldown into products by...",
+	es => "Explorar los productos por...",
+	pt => "Explorar os produtos por...",
+	ro => "Explorați produsele după...",
+	nl => "Doorzoek de producten volgens...",
+	de => "Produkte nach Kriterium anzeigen...",
 },
 
 show_category_stats => {
@@ -7546,6 +7749,18 @@ HTML
 </ul>
 HTML
 ,
+},
+
+tagline => {
+	fr => "Open Food Facts répertorie les produits alimentaires du monde entier.",
+	en => "Open Food Facts gathers information and data on food products from around the world.",
+	el => "Το Open Food Facts συγκεντρώνει πληροφορίες και δεδομένα για τρόφιμα από όλο τον κόσμο.",
+	de => "Open Food Facts erfasst Nahrungsmittel aus der ganzen Welt.",
+	es => "Open Food Facts recopila información sobre los productos alimenticios de todo el mundo.",
+	pt => "O Open Food Facts coleciona informação de produtos alimentares de todo o mundo.",
+	ro => "Open Food Facts adună informații și date despre produse alimentare din întreaga lume.",
+	he => "המיזם Open Food Facts אוסף מידע ונתונים על מוצרי מזון מכל רחבי העולם.",
+	nl => "Open Food Facts inventariseert alle voedingsmiddelen uit de hele wereld.",	
 },
 
 column => {
@@ -8193,16 +8408,26 @@ app_you_can_add_pictures => {
 	
 
 app_take_a_picture => {
-	fr => "Prendre une photo",
-	en => "Take a picture",
-	el => "Τραβήξτε μια φωτογραφία",
-	es => "Saca una foto",
-	pt => "Tire uma foto",
-	ro => "Faceți o fotografie",
-	ar => "التقاط صورة",
-	de => "Machen Sie ein Foto",
-	it => "Scattare una foto",  
-	he => "צילום תמונה",
+    ar => "التقاط صورة",
+    de => "Machen Sie ein Foto",
+    cs => 'Vyfotit', #cs-CHECK - Please check and remove this comment
+    es => "Saca una foto",
+    en => "Take a picture",
+    it => "Scattare una foto",  
+    fi => 'Ota kuva', #fi-CHECK - Please check and remove this comment
+    fr => "Prendre une photo",
+    el => "Τραβήξτε μια φωτογραφία",
+    he => "צילום תמונה",
+    ja => '写真を撮ります', #ja-CHECK - Please check and remove this comment
+    ko => '사진을 촬영', #ko-CHECK - Please check and remove this comment
+    nl => 'Foto maken', #nl-CHECK - Please check and remove this comment
+    ru => 'Сфотографировать', #ru-CHECK - Please check and remove this comment
+    pl => 'Zrób zdjęcie', #pl-CHECK - Please check and remove this comment
+    pt => "Tire uma foto",
+    ro => "Faceți o fotografie",
+    th => 'การถ่ายภาพ', #th-CHECK - Please check and remove this comment
+    vi => 'Chụp ảnh', #vi-CHECK - Please check and remove this comment
+    zh => '拍照', #zh-CHECK - Please check and remove this comment
 },
 
 # MOBILESTRING
@@ -8277,6 +8502,519 @@ points_all_countries => {
 	fr => "Il y a %d Explorateurs et %d Ambassadeurs.",
 },
 
+menu => {
+    ar => 'قائمة الطعام', #ar-CHECK - Please check and remove this comment
+    de => 'Menü', #de-CHECK - Please check and remove this comment
+    cs => 'Menu', #cs-CHECK - Please check and remove this comment
+    es => 'Menú', #es-CHECK - Please check and remove this comment
+    en => 'Menu', #en-CHECK - Please check and remove this comment
+    it => 'Menu', #it-CHECK - Please check and remove this comment
+    fi => 'Valikko', #fi-CHECK - Please check and remove this comment
+    fr => 'Menu', #fr-CHECK - Please check and remove this comment
+    el => 'Μενού', #el-CHECK - Please check and remove this comment
+    he => 'תפריט', #he-CHECK - Please check and remove this comment
+    ja => 'メニュー', #ja-CHECK - Please check and remove this comment
+    ko => '메뉴', #ko-CHECK - Please check and remove this comment
+    nl => 'Menu', #nl-CHECK - Please check and remove this comment
+    ru => 'Меню', #ru-CHECK - Please check and remove this comment
+    pl => 'Menu', #pl-CHECK - Please check and remove this comment
+    pt => 'Menu', #pt-CHECK - Please check and remove this comment
+    ro => 'Meniu', #ro-CHECK - Please check and remove this comment
+    th => 'เมนู', #th-CHECK - Please check and remove this comment
+    vi => 'Thực đơn', #vi-CHECK - Please check and remove this comment
+    zh => '菜单', #zh-CHECK - Please check and remove this comment
+},
+
+#FRONTPAGE (it goes until ENDFRONTPAGE)
+menu_discover => {
+    ar => 'إكتشف', #ar-CHECK - Please check and remove this comment
+    de => 'Entdecken', #de-CHECK - Please check and remove this comment
+    cs => 'Objevte', #cs-CHECK - Please check and remove this comment
+    es => 'Descubrir', #es-CHECK - Please check and remove this comment
+    en => 'Discover', #en-CHECK - Please check and remove this comment
+    it => 'Scopri', #it-CHECK - Please check and remove this comment
+    fi => 'Löydä', #fi-CHECK - Please check and remove this comment
+    fr => 'Découvrir', #fr-CHECK - Please check and remove this comment
+    el => 'Ανακαλύψτε', #el-CHECK - Please check and remove this comment
+    he => 'גלה', #he-CHECK - Please check and remove this comment
+    ja => 'ディスカバー', #ja-CHECK - Please check and remove this comment
+    ko => '발견', #ko-CHECK - Please check and remove this comment
+    nl => 'Discover', #nl-CHECK - Please check and remove this comment
+    ru => 'Узнайте', #ru-CHECK - Please check and remove this comment
+    pl => 'Odkryj', #pl-CHECK - Please check and remove this comment
+    pt => 'Descubra', #pt-CHECK - Please check and remove this comment
+    ro => 'Descopera', #ro-CHECK - Please check and remove this comment
+    th => 'ค้นพบ', #th-CHECK - Please check and remove this comment
+    vi => 'Khám phá', #vi-CHECK - Please check and remove this comment
+    zh => '发现', #zh-CHECK - Please check and remove this comment
+},
+
+menu_discover_link => {
+	en => "/discover",
+	es => "/descubrir",
+	fr => "/decouvrir",
+},
+
+menu_contribute => {
+    ar => 'المساهمة', #ar-CHECK - Please check and remove this comment
+    de => 'Beitragen', #de-CHECK - Please check and remove this comment
+    cs => 'Přispět', #cs-CHECK - Please check and remove this comment
+    es => 'Contribuir', #es-CHECK - Please check and remove this comment
+    en => 'Contribute', #en-CHECK - Please check and remove this comment
+    it => 'Contribuire', #it-CHECK - Please check and remove this comment
+    fi => 'Avusta', #fi-CHECK - Please check and remove this comment
+    fr => 'Contribuer', #fr-CHECK - Please check and remove this comment
+    el => 'Συμβάλλετε', #el-CHECK - Please check and remove this comment
+    he => 'לתרום', #he-CHECK - Please check and remove this comment
+    ja => '貢献します', #ja-CHECK - Please check and remove this comment
+    ko => '기부', #ko-CHECK - Please check and remove this comment
+    nl => 'Bijdragen', #nl-CHECK - Please check and remove this comment
+    ru => 'Способствовать', #ru-CHECK - Please check and remove this comment
+    pl => 'Przyczynić się', #pl-CHECK - Please check and remove this comment
+    pt => 'Contribuir', #pt-CHECK - Please check and remove this comment
+    ro => 'Contribui', #ro-CHECK - Please check and remove this comment
+    th => 'สนับสนุน', #th-CHECK - Please check and remove this comment
+    vi => 'Góp phần', #vi-CHECK - Please check and remove this comment
+    zh => '贡献', #zh-CHECK - Please check and remove this comment
+},
+
+menu_contribute_link => {
+	en => "/contribute",
+	fr => "/contribuer",
+},
+
+menu_add_a_product => {
+    ar => 'إضافة منتج', #ar-CHECK - Please check and remove this comment
+    de => 'Fügen Sie ein Produkt', #de-CHECK - Please check and remove this comment
+    cs => 'Přidat produkt', #cs-CHECK - Please check and remove this comment
+    es => 'Añadir un producto', #es-CHECK - Please check and remove this comment
+    en => 'Add a product', #en-CHECK - Please check and remove this comment
+    it => 'Aggiungi un prodotto', #it-CHECK - Please check and remove this comment
+    fi => 'Lisää tuote', #fi-CHECK - Please check and remove this comment
+    fr => 'Ajouter un produit', #fr-CHECK - Please check and remove this comment
+    el => 'Προσθέστε το προϊόν', #el-CHECK - Please check and remove this comment
+    he => 'הוסף מוצר', #he-CHECK - Please check and remove this comment
+    ja => '製品を追加', #ja-CHECK - Please check and remove this comment
+    ko => '제품 추가', #ko-CHECK - Please check and remove this comment
+    nl => 'Voeg een product', #nl-CHECK - Please check and remove this comment
+    ru => 'Добавить продукт', #ru-CHECK - Please check and remove this comment
+    pl => 'Dodaj produkt', #pl-CHECK - Please check and remove this comment
+    pt => 'Adicionar um produto', #pt-CHECK - Please check and remove this comment
+    ro => 'Adaugă un produs', #ro-CHECK - Please check and remove this comment
+    th => 'เพิ่มสินค้า', #th-CHECK - Please check and remove this comment
+    vi => 'Thêm một sản phẩm', #vi-CHECK - Please check and remove this comment
+    zh => '添加产品', #zh-CHECK - Please check and remove this comment
+},
+
+menu_add_a_product_link => {
+	en => "/add-a-product",
+	fr => "/ajouter-un-produit",
+},
+
+footer_tagline => {
+	en => 'A collaborative, free and open database of food products from around the world.',
+    ar => 'قاعدة بيانات التعاونية وحرة ومفتوحة للمنتجات الغذائية من جميع أنحاء العالم.', #ar-CHECK - Please check and remove this comment
+    de => 'Eine gemeinsame, freie und offene Datenbank von Lebensmittelprodukten aus der ganzen Welt.', #de-CHECK - Please check and remove this comment
+    cs => 'Spolupracovní, svobodné a otevřené databáze potravinářských výrobků z celého světa.', #cs-CHECK - Please check and remove this comment
+    es => 'Una base de datos colaborativa, libre y abierto de los productos alimenticios de todo el mundo.', #es-CHECK - Please check and remove this comment
+    it => 'Un database collaborativo, libero e aperto di prodotti alimentari provenienti da tutto il mondo.', #it-CHECK - Please check and remove this comment
+    fi => 'Yhteistyöhön, vapaa ja avoin tietokanta elintarvikkeita ympäri maailmaa.', #fi-CHECK - Please check and remove this comment
+	fr => 'Une base de données collaborative, libre et ouverte des produits alimentaires du monde entier.', #fr-CHECK - Please check and remove this comment
+    el => 'Μια συλλογική, ελεύθερη και ανοιχτή βάση δεδομένων των προϊόντων τροφίμων από όλο τον κόσμο.', #el-CHECK - Please check and remove this comment
+    he => 'מסד הנתונים שיתופיים, חופשיים ופתוח של מוצרי מזון מכל רחבי העולם.', #he-CHECK - Please check and remove this comment
+    ja => '世界中から食品の、共同自由で開かれたデータベース。', #ja-CHECK - Please check and remove this comment
+    ko => '세계 각국에서 식품의 협업 무료 오픈 데이터베이스.', #ko-CHECK - Please check and remove this comment
+    nl => 'Een gezamenlijke, vrij en open database van voedingsmiddelen uit de hele wereld.', #nl-CHECK - Please check and remove this comment
+    ru => 'Совместной, бесплатно и открыть базу данных продуктов питания со всего мира.', #ru-CHECK - Please check and remove this comment
+    pl => 'Współpracy, wolna i otwarta baza produktów spożywczych z całego świata.', #pl-CHECK - Please check and remove this comment
+    pt => 'Um banco de dados colaborativo, livre e aberto de produtos alimentares de todo o mundo.', #pt-CHECK - Please check and remove this comment
+    ro => 'O bază de date de colaborare, liberă și deschisă a produselor alimentare din întreaga lume.', #ro-CHECK - Please check and remove this comment
+    th => 'การทำงานร่วมกันของฐานข้อมูลฟรีและเปิดของผลิตภัณฑ์อาหารจากทั่วโลก', #th-CHECK - Please check and remove this comment
+    vi => 'Một cơ sở dữ liệu hợp tác, tự do và cởi mở của các sản phẩm thực phẩm từ khắp nơi trên thế giới.', #vi-CHECK - Please check and remove this comment
+    zh => '食品来自世界各地的协作，自由和开放的数据库。', #zh-CHECK - Please check and remove this comment
+},
+
+footer_legal => {
+    ar => 'يذكر قانونية', #ar-CHECK - Please check and remove this comment
+    de => 'Gesetzliche Hinweise', #de-CHECK - Please check and remove this comment
+    cs => 'Právní zmínky', #cs-CHECK - Please check and remove this comment
+    es => 'Menciones legales', #es-CHECK - Please check and remove this comment
+    en => 'Legal', #en-CHECK - Please check and remove this comment
+    it => 'Menzioni legali', #it-CHECK - Please check and remove this comment
+    fi => 'Oikeudellinen mainitsee', #fi-CHECK - Please check and remove this comment
+    fr => 'Mentions légales', #fr-CHECK - Please check and remove this comment
+    el => 'Νομική αναφέρει', #el-CHECK - Please check and remove this comment
+    he => 'משפטי מזכיר', #he-CHECK - Please check and remove this comment
+    ja => '法的には言及します', #ja-CHECK - Please check and remove this comment
+    ko => '법적 언급', #ko-CHECK - Please check and remove this comment
+    nl => 'Wettelijke vermeldingen', #nl-CHECK - Please check and remove this comment
+    ru => 'Юридическая', #ru-CHECK - Please check and remove this comment
+    pl => 'Wspomina prawna', #pl-CHECK - Please check and remove this comment
+    pt => 'Menções legais', #pt-CHECK - Please check and remove this comment
+    ro => 'Mențiuni legale', #ro-CHECK - Please check and remove this comment
+    th => 'กฎหมายระบุว่า', #th-CHECK - Please check and remove this comment
+    vi => 'Pháp đề cập đến', #vi-CHECK - Please check and remove this comment
+    zh => '法律提及', #zh-CHECK - Please check and remove this comment
+},
+
+footer_legal_link => {
+	en => '/legal',
+	fr => '/mentions-legales',
+},
+
+footer_terms => {
+    ar => 'شروط الاستخدام', #ar-CHECK - Please check and remove this comment
+    de => 'Nutzungsbedingungen', #de-CHECK - Please check and remove this comment
+    cs => 'Podmínky použití', #cs-CHECK - Please check and remove this comment
+    es => 'Condiciones de uso', #es-CHECK - Please check and remove this comment
+    en => 'Terms of use', #en-CHECK - Please check and remove this comment
+    it => 'Condizioni d\'uso', #it-CHECK - Please check and remove this comment
+    fi => 'Käyttöehdot', #fi-CHECK - Please check and remove this comment
+    fr => 'Conditions d\'utilisation', #fr-CHECK - Please check and remove this comment
+    el => 'Όροι χρήσης', #el-CHECK - Please check and remove this comment
+    he => 'תנאי שימוש', #he-CHECK - Please check and remove this comment
+    ja => '利用規約', #ja-CHECK - Please check and remove this comment
+    ko => '이용 약관', #ko-CHECK - Please check and remove this comment
+    nl => 'Gebruiksvoorwaarden', #nl-CHECK - Please check and remove this comment
+    ru => 'Условия использования', #ru-CHECK - Please check and remove this comment
+    pl => 'Zasady korzystania', #pl-CHECK - Please check and remove this comment
+    pt => 'Termos de uso', #pt-CHECK - Please check and remove this comment
+    ro => 'Termeni de utilizare', #ro-CHECK - Please check and remove this comment
+    th => 'ข้อกำหนดการใช้งาน', #th-CHECK - Please check and remove this comment
+    vi => 'Điều khoản sử dụng', #vi-CHECK - Please check and remove this comment
+    zh => '使用条款', #zh-CHECK - Please check and remove this comment
+},
+footer_terms_link => {
+	en => '/terms-of-use',
+	fr => '/conditions-d-utilisation',
+},
+
+footer_data => {
+    ar => 'معطيات', #ar-CHECK - Please check and remove this comment
+    de => 'Daten', #de-CHECK - Please check and remove this comment
+    cs => 'Údaje', #cs-CHECK - Please check and remove this comment
+    es => 'Datos', #es-CHECK - Please check and remove this comment
+    en => 'Data', #en-CHECK - Please check and remove this comment
+    it => 'Dati', #it-CHECK - Please check and remove this comment
+    fi => 'Data', #fi-CHECK - Please check and remove this comment
+    fr => 'Données', #fr-CHECK - Please check and remove this comment
+    el => 'Δεδομένα', #el-CHECK - Please check and remove this comment
+    he => 'הנתונים', #he-CHECK - Please check and remove this comment
+    ja => 'データ', #ja-CHECK - Please check and remove this comment
+    ko => '데이터', #ko-CHECK - Please check and remove this comment
+    nl => 'Gegevens', #nl-CHECK - Please check and remove this comment
+    ru => 'Данные', #ru-CHECK - Please check and remove this comment
+    pl => 'Dane', #pl-CHECK - Please check and remove this comment
+    pt => 'Dados', #pt-CHECK - Please check and remove this comment
+    ro => 'Date', #ro-CHECK - Please check and remove this comment
+    th => 'ข้อมูล', #th-CHECK - Please check and remove this comment
+    vi => 'Dữ liệu', #vi-CHECK - Please check and remove this comment
+    zh => '数据', #zh-CHECK - Please check and remove this comment
+},
+footer_data_link => {
+	en => '/data', # use /data for all languages
+},
+
+footer_install_the_app => {
+    ar => 'تثبيت التطبيق', #ar-CHECK - Please check and remove this comment
+    de => 'Installieren Sie die App', #de-CHECK - Please check and remove this comment
+    cs => 'Nainstalujte aplikaci', #cs-CHECK - Please check and remove this comment
+    es => 'Instalar la aplicación', #es-CHECK - Please check and remove this comment
+    en => 'Install the app', #en-CHECK - Please check and remove this comment
+    it => 'Installare l\'app', #it-CHECK - Please check and remove this comment
+    fi => 'Asenna sovellus', #fi-CHECK - Please check and remove this comment
+    fr => 'Installez l\'app', #fr-CHECK - Please check and remove this comment
+    el => 'Εγκαταστήστε το app', #el-CHECK - Please check and remove this comment
+    he => 'התקן את היישום', #he-CHECK - Please check and remove this comment
+    ja => 'アプリをインストール', #ja-CHECK - Please check and remove this comment
+    ko => '응용 프로그램을 설치', #ko-CHECK - Please check and remove this comment
+    nl => 'Installeer de app', #nl-CHECK - Please check and remove this comment
+    ru => 'Установить приложение', #ru-CHECK - Please check and remove this comment
+    pl => 'Zainstaluj aplikację', #pl-CHECK - Please check and remove this comment
+    pt => 'Instale o aplicativo', #pt-CHECK - Please check and remove this comment
+    ro => 'Instala aplicația', #ro-CHECK - Please check and remove this comment
+    th => 'ติดตั้ง app', #th-CHECK - Please check and remove this comment
+    vi => 'Cài đặt ứng dụng', #vi-CHECK - Please check and remove this comment
+    zh => '安装应用程序', #zh-CHECK - Please check and remove this comment
+},
+android_app_link => {
+	en => 'https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner',
+},
+
+ios_app_link => {
+	en => 'https://itunes.apple.com/en/app/open-food-facts/id588797948',
+	fr => 'https://itunes.apple.com/fr/app/open-food-facts/id588797948',
+},
+windows_phone_app_link => {
+	en => 'http://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34',
+	fr => 'http://www.windowsphone.com/fr-fr/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34',
+},
+android_apk_app_link => {
+	en => 'http://world.openfoodfacts.org/files/off.apk',
+},
+android_app_badge => {
+	en => '<img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Available on Google Play" width="135" height="47" />',
+	fr => '<img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponible sur Google Play" width="135" height="47" />',
+},
+ios_app_badge => {
+	en => '<img src="/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png" alt="Available on the App Store" width="135" height="40" />',
+	fr => '<img src="/images/misc/Available_on_the_App_Store_Badge_FR_135x40.png" alt="Disponible sur l\'App Store" width="135" height="40" />',
+},
+windows_phone_app_badge => {
+	en => '<img src="/images/misc/154x40_WP_Store_blk.png" alt="Windows Phone Store" width="154" height="40" />',
+},
+android_apk_app_badge => {
+	en => '<img src="/images/misc/android-apk.112x40.png" alt="Android APK" />',
+},
+footer_discover_the_project => {
+	en => 'Discover the project',
+	fr => 'Découvrez le projet',
+},
+footer_who_we_are => {
+    ar => 'من نحن', #ar-CHECK - Please check and remove this comment
+    de => 'Wer wir sind', #de-CHECK - Please check and remove this comment
+    cs => 'Kdo jsme', #cs-CHECK - Please check and remove this comment
+    es => 'Quienes somos', #es-CHECK - Please check and remove this comment
+    en => 'Who we are', #en-CHECK - Please check and remove this comment
+    it => 'Chi siamo', #it-CHECK - Please check and remove this comment
+    fi => 'Keitä me olemme', #fi-CHECK - Please check and remove this comment
+    fr => 'Qui sommes nous ?', #fr-CHECK - Please check and remove this comment
+    el => 'Ποιοι είμαστε', #el-CHECK - Please check and remove this comment
+    he => 'מי אנחנו', #he-CHECK - Please check and remove this comment
+    ja => '私たちは誰ですか', #ja-CHECK - Please check and remove this comment
+    ko => '누가 우리가', #ko-CHECK - Please check and remove this comment
+    nl => 'Wie we zijn', #nl-CHECK - Please check and remove this comment
+    ru => 'Кто мы', #ru-CHECK - Please check and remove this comment
+    pl => 'Kim jesteśmy', #pl-CHECK - Please check and remove this comment
+    pt => 'Quem somos?', #pt-CHECK - Please check and remove this comment
+    ro => 'Cine suntem noi', #ro-CHECK - Please check and remove this comment
+    th => 'เราคือใคร', #th-CHECK - Please check and remove this comment
+    vi => 'Chúng ta là ai', #vi-CHECK - Please check and remove this comment
+    zh => '我们是谁', #zh-CHECK - Please check and remove this comment
+},
+footer_who_we_are_link => {
+	en => '/who-we-are',
+	fr => '/qui-sommes-nous',
+},
+footer_faq => {
+	en => 'Frequently asked questions',
+	fr => 'Questions fréquentes',
+},
+footer_faq_link => {
+	en => '/faq',
+	fr => '/questions-frequentes',
+},
+footer_blog => {
+	en => 'Open Food Facts blog',
+	fr => "Le blog d'Open Food Facts",
+},
+footer_blog_link => {
+	en => 'http://en.blog.openfoodfacts.org',
+	fr => 'http://fr.blog.openfoodfacts.org',
+},
+footer_press => {
+    ar => 'صحافة', #ar-CHECK - Please check and remove this comment
+    de => 'Presse', #de-CHECK - Please check and remove this comment
+    cs => 'Lis', #cs-CHECK - Please check and remove this comment
+    es => 'Prensa', #es-CHECK - Please check and remove this comment
+    en => 'Press', #en-CHECK - Please check and remove this comment
+    it => 'Stampa', #it-CHECK - Please check and remove this comment
+    fi => 'Lehdistö', #fi-CHECK - Please check and remove this comment
+    fr => 'Presse', #fr-CHECK - Please check and remove this comment
+    el => 'Πρέσα', #el-CHECK - Please check and remove this comment
+    he => 'לחץ', #he-CHECK - Please check and remove this comment
+    ja => 'プレス', #ja-CHECK - Please check and remove this comment
+    ko => '프레스', #ko-CHECK - Please check and remove this comment
+    nl => 'Pers', #nl-CHECK - Please check and remove this comment
+    ru => 'Пресс', #ru-CHECK - Please check and remove this comment
+    pl => 'Prasa', #pl-CHECK - Please check and remove this comment
+    pt => 'Imprensa', #pt-CHECK - Please check and remove this comment
+    ro => 'Presa', #ro-CHECK - Please check and remove this comment
+    th => 'กด', #th-CHECK - Please check and remove this comment
+    vi => 'Báo chí', #vi-CHECK - Please check and remove this comment
+    zh => '按', #zh-CHECK - Please check and remove this comment
+},
+footer_press_link => {
+	en => '/press',
+	fr => '/presse',
+},
+footer_join_the_community => {
+    ar => 'الانضمام إلى المجتمع', #ar-CHECK - Please check and remove this comment
+    de => 'Der Community beitreten', #de-CHECK - Please check and remove this comment
+    cs => 'Připojte se ke komunitě', #cs-CHECK - Please check and remove this comment
+    es => 'Únete a la comunidad', #es-CHECK - Please check and remove this comment
+    en => 'Join the community', #en-CHECK - Please check and remove this comment
+    it => 'Entra nella community', #it-CHECK - Please check and remove this comment
+    fi => 'Liity yhteisöön', #fi-CHECK - Please check and remove this comment
+    fr => 'Rejoignez la communauté', #fr-CHECK - Please check and remove this comment
+    el => 'Γίνετε μέλος της κοινότητας', #el-CHECK - Please check and remove this comment
+    he => 'הצטרף לקהילה', #he-CHECK - Please check and remove this comment
+    ja => 'コミュニティに参加', #ja-CHECK - Please check and remove this comment
+    ko => '커뮤니티에 참여', #ko-CHECK - Please check and remove this comment
+    nl => 'Word lid van de community', #nl-CHECK - Please check and remove this comment
+    ru => 'Присоединяйтесь к сообществу', #ru-CHECK - Please check and remove this comment
+    pl => 'Dołącz do społeczności', #pl-CHECK - Please check and remove this comment
+    pt => 'Junte-se à comunidade', #pt-CHECK - Please check and remove this comment
+    ro => 'Alăturați-vă comunității', #ro-CHECK - Please check and remove this comment
+    th => 'เข้าร่วมกับชุมชน', #th-CHECK - Please check and remove this comment
+    vi => 'Tham gia cộng đồng', #vi-CHECK - Please check and remove this comment
+    zh => '加入社区', #zh-CHECK - Please check and remove this comment
+},
+# Join us on Slack
+footer_join_us_on => {
+        ar => 'الانضمام إلينا على٪ الصورة %s:', #ar-CHECK - Please check and remove this comment
+        de => 'Begleiten Sie uns auf %s:', #de-CHECK - Please check and remove this comment
+        cs => 'Přidejte se k nám na %s:', #cs-CHECK - Please check and remove this comment
+        es => 'Únase a nosotros en %s:', #es-CHECK - Please check and remove this comment
+        en => 'Join us on %s:', #en-CHECK - Please check and remove this comment
+        it => 'Unisciti a noi su %s:', #it-CHECK - Please check and remove this comment
+        fi => 'Liity meihin %s:', #fi-CHECK - Please check and remove this comment
+        fr => 'Rejoignez-nous sur %s:', #fr-CHECK - Please check and remove this comment
+        el => 'Ελάτε μαζί μας στο %s:', #el-CHECK - Please check and remove this comment
+        he => 'הצטרף אלינו ב %s:', #he-CHECK - Please check and remove this comment
+        ja => 'の上ご参加ください。%s:', #ja-CHECK - Please check and remove this comment
+        ko => '의 고객 센터 %s:', #ko-CHECK - Please check and remove this comment
+        nl => 'Join ons op %s:', #nl-CHECK - Please check and remove this comment
+        ru => 'Присоединяйтесь к нам на %s:', #ru-CHECK - Please check and remove this comment
+        pl => 'Dołącz do nas na %s:', #pl-CHECK - Please check and remove this comment
+        pt => 'Junte-se a %s:', #pt-CHECK - Please check and remove this comment
+        ro => 'Alătură-te nouă pe %s:', #ro-CHECK - Please check and remove this comment
+        th => 'ร่วมกับเราใน %s:', #th-CHECK - Please check and remove this comment
+        vi => 'Tham gia với chúng tôi trên %s:', #vi-CHECK - Please check and remove this comment
+        zh => '加入我们的 ％s：', #zh-CHECK - Please check and remove this comment
+},
+footer_and_the_facebook_group => {
+        #ar => 'وجماعة الفيسبوك للمساهمين', ar-CHECK - Please check and remove this comment
+        #de => 'und die Facebook-Gruppe für Mitwirkende', de-CHECK - Please check and remove this comment
+        #cs => 'a skupina Facebook pro přispěvatele', cs-CHECK - Please check and remove this comment
+        #es => 'y el grupo de Facebook para los contribuyentes', es-CHECK - Please check and remove this comment
+	en => 'and the <a href="https://www.facebook.com/groups/374350705955208/">Facebook group for contributors</a>',
+        #it => 'e il gruppo di Facebook per i collaboratori', #t-CHECK - Please check and remove this comment
+        #fi => 'ja Facebook-ryhmä osallistujien', fi-CHECK - Please check and remove this comment
+	fr => 'et le <a href="https://www.facebook.com/groups/356858984359591/">groupe Facebook des contributeurs</a>',
+        #el => 'και η ομάδα στο Facebook για τους συνεισφέροντες', el-CHECK - Please check and remove this comment
+        #he => 'והקבוצה בפייסבוק לתורמים', he-CHECK - Please check and remove this comment
+        #ja => 'と貢献者のためのFacebookのグループ', ja-CHECK - Please check and remove this comment
+        #ko => '및 참여자에 대한 페이스 북 그룹', ko-CHECK - Please check and remove this comment
+        #nl => 'en de Facebook-groep voor medewerkers', nl-CHECK - Please check and remove this comment
+        #ru => 'и группа Facebook для авторов', ru-CHECK - Please check and remove this comment
+        #pl => 'i grupa Facebook dla autorów', pl-CHECK - Please check and remove this comment
+        #pt => 'e do grupo de Facebook para os contribuintes', pt-CHECK - Please check and remove this comment
+        #ro => 'și grupul de Facebook pentru contribuabili', ro-CHECK - Please check and remove this comment
+        #th => 'และกลุ่ม Facebook สำหรับผู้ร่วมสมทบ', th-CHECK - Please check and remove this comment
+        #vi => 'và các nhóm Facebook cho người đóng góp', vi-CHECK - Please check and remove this comment
+        #zh => '和Facebook群组贡献者', zh-CHECK - Please check and remove this comment
+},
+footer_follow_us => {
+	en => <<HTML
+Follow us on <a href="http://twitter.com/openfoodfacts">Twitter</a>,
+<a href="https://www.facebook.com/OpenFoodFacts">Facebook</a> and
+<a href="https://plus.google.com/u/0/110748322211084668559/">Google+</a> 
+HTML
+,
+	fr => <<HTML
+Suivez nous sur <a href="http://twitter.com/openfoodfactsfr">Twitter</a>,
+<a href="https://www.facebook.com/OpenFoodFacts.fr">Facebook</a> et
+<a href="https://plus.google.com/u/0/b/102622509148794386660/">Google+</a>
+
+HTML
+,
+},
+
+
+search_a_product_placeholder => {
+    ar => 'ابحث عن منتج', #ar-CHECK - Please check and remove this comment
+    de => 'Artikel suchen', #de-CHECK - Please check and remove this comment
+    cs => 'Vyhledat produkt', #cs-CHECK - Please check and remove this comment
+    es => 'Buscar artículo', #es-CHECK - Please check and remove this comment
+    en => 'Search a product', #en-CHECK - Please check and remove this comment
+    it => 'Ricercare un prodotto', #it-CHECK - Please check and remove this comment
+    fi => 'Etsi tuote', #fi-CHECK - Please check and remove this comment
+    fr => 'Chercher un produit', #fr-CHECK - Please check and remove this comment
+    el => 'Αναζήτηση προϊόντος', #el-CHECK - Please check and remove this comment
+    he => 'חפש מוצר', #he-CHECK - Please check and remove this comment
+    ja => '製品を検索します', #ja-CHECK - Please check and remove this comment
+    ko => '제품 검색', #ko-CHECK - Please check and remove this comment
+    nl => 'Zoek een product', #nl-CHECK - Please check and remove this comment
+    ru => 'Поиск продукта', #ru-CHECK - Please check and remove this comment
+    pl => 'Wyszukaj produkt', #pl-CHECK - Please check and remove this comment
+    pt => 'Procurar um produto', #pt-CHECK - Please check and remove this comment
+    ro => 'Cautati un produs', #ro-CHECK - Please check and remove this comment
+    th => 'ค้นหาสินค้า', #th-CHECK - Please check and remove this comment
+    vi => 'Tìm kiếm một sản phẩm', #vi-CHECK - Please check and remove this comment
+    zh => '搜索产品', #zh-CHECK - Please check and remove this comment
+},
+
+search_criteria => {
+    ar => 'اختر المنتجات ذات العلامات التجارية المحددة، والفئات، والعلامات، أصول المكونات، وأماكن تصنيع الخ', #ar-CHECK - Please check and remove this comment
+    de => 'Wählen Sie die Produkte mit spezifischen Marken, Kategorien, Etiketten, Herkunft der Zutaten, Herstellung Plätze usw.', #de-CHECK - Please check and remove this comment
+    cs => 'Vyberte produkty s konkrétními značkami, kategorií, štítky, původ surovin, výrobních míst atd', #cs-CHECK - Please check and remove this comment
+    es => 'Seleccione los productos con marcas específicas, categorías, etiquetas, orígenes de ingredientes, lugares de fabricación, etc.', #es-CHECK - Please check and remove this comment
+    en => 'Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc.',
+    it => 'Scegli prodotti con marche specifiche, categorie, etichette, le origini degli ingredienti, luoghi di produzione ecc', #it-CHECK - Please check and remove this comment
+    fi => 'Valitse tuotteet, joilla on erityisiä merkkejä, luokat, tarrat, alkuperä ainesosien, valmistuksen paikoissa jne', #fi-CHECK - Please check and remove this comment
+	fr => "Sélectionner les produits suivant leur marque, catégories, labels, origines des ingrédients, lieux de fabrication etc.",
+    el => 'Επιλέξτε προϊόντα με συγκεκριμένες μάρκες, κατηγορίες, ετικέτες, την προέλευση των συστατικών, χώρους παραγωγής κ.λπ.', #el-CHECK - Please check and remove this comment
+    he => 'מוצרים בחרו עם מותגים ספציפיים, קטגוריות, תוויות, מקורות של חומרים, מקומות ייצור וכו ', #he-CHECK - Please check and remove this comment
+    ja => '特定のブランド、カテゴリ、ラベル、成分の起源、製造所等を有する製品を選択', #ja-CHECK - Please check and remove this comment
+    ko => '등 특정 브랜드, 종류, 라벨, 재료의 기원, 제조 장소와 제품 선택', #ko-CHECK - Please check and remove this comment
+    nl => 'Kies producten met specifieke merken, categorieën, labels, de oorsprong van de ingrediënten, productie plaatsen etc.', #nl-CHECK - Please check and remove this comment
+    ru => 'Выберите продукты с конкретных марок, категорий, этикетки, происхождение ингредиентов, производственных местах и ​​т.д.', #ru-CHECK - Please check and remove this comment
+    pl => 'Wybierz produkty z konkretnych marek, kategorii, etykiety, pochodzenie składników, miejsc produkcyjnych itp', #pl-CHECK - Please check and remove this comment
+    pt => 'Selecione os produtos com marcas específicas, categorias, etiquetas, origens de ingredientes, locais de produção, etc.', #pt-CHECK - Please check and remove this comment
+    ro => 'Alege produse cu marci specifice, categorii, etichete, originea de ingrediente, locuri de producție etc.', #ro-CHECK - Please check and remove this comment
+    th => 'เลือกผลิตภัณฑ์ที่มีแบรนด์ที่เฉพาะเจาะจงประเภท, ป้าย, ต้นกำเนิดของส่วนผสมสถ​​านที่ผลิต ฯลฯ', #th-CHECK - Please check and remove this comment
+    vi => 'Chọn các sản phẩm có thương hiệu cụ thể, chủng loại, nhãn, nguồn gốc nguyên liệu, nơi sản xuất vv', #vi-CHECK - Please check and remove this comment
+    zh => '具体的品牌，类别，标签，成分来源，生产场所等选择产品', #zh-CHECK - Please check and remove this comment
+},
+
+logo => {
+        #ar => 'openfoodfacts-logo-ar.png', ar-CHECK - Please check and remove this comment
+        #de => 'openfoodfacts-logo-de.png', de-CHECK - Please check and remove this comment
+        #cs => 'openfoodfacts-logo-cs.png', cs-CHECK - Please check and remove this comment
+        #es => 'openfoodfacts-logo-es.png', es-CHECK - Please check and remove this comment
+	en => 'openfoodfacts-logo-en.png',
+        #it => 'openfoodfacts-logo-it.png', it-CHECK - Please check and remove this comment
+        #fi => 'openfoodfacts-logo-fi.png', fi-CHECK - Please check and remove this comment
+	fr => 'openfoodfacts-logo-fr.png',
+        #el => 'openfoodfacts-logo-el.png', el-CHECK - Please check and remove this comment
+        #he => 'openfoodfacts-logo-he.png', he-CHECK - Please check and remove this comment
+        #ja => 'openfoodfacts-logo-ja.png', ja-CHECK - Please check and remove this comment
+        #ko => 'openfoodfacts-logo-ko.png', ko-CHECK - Please check and remove this comment
+        #nl => 'openfoodfacts-logo-nl.png', nl-CHECK - Please check and remove this comment
+        #ru => 'openfoodfacts-logo-ru.png', ru-CHECK - Please check and remove this comment
+        #pl => 'openfoodfacts-logo-pl.png', pl-CHECK - Please check and remove this comment
+        #pt => 'openfoodfacts-logo-pt.png', pt-CHECK - Please check and remove this comment
+        #ro => 'openfoodfacts-logo-ro.png', ro-CHECK - Please check and remove this comment
+        #th => 'openfoodfacts-logo-th.png', th-CHECK - Please check and remove this comment
+        #vi => 'openfoodfacts-logo-vi.png', vi-CHECK - Please check and remove this comment
+        #zh => 'openfoodfacts-logo-zh.png', zh-CHECK - Please check and remove this comment
+},
+
+search_tools => {
+    ar => 'أدوات البحث', #ar-CHECK - Please check and remove this comment
+    de => 'Suchwerkzeuge', #de-CHECK - Please check and remove this comment
+    cs => 'Vyhledávací nástroje', #cs-CHECK - Please check and remove this comment
+    es => 'Herramientas de búsqueda', #es-CHECK - Please check and remove this comment
+    en => 'Search tools', #en-CHECK - Please check and remove this comment
+    it => 'Strumenti di ricerca', #it-CHECK - Please check and remove this comment
+    fi => 'Hakutyökalut', #fi-CHECK - Please check and remove this comment
+    fr => 'Outils de recherche', #fr-CHECK - Please check and remove this comment
+    el => 'Εργαλεία αναζήτησης', #el-CHECK - Please check and remove this comment
+    he => 'כלי חיפוש', #he-CHECK - Please check and remove this comment
+    ja => '検索ツール', #ja-CHECK - Please check and remove this comment
+    ko => '검색 도구', #ko-CHECK - Please check and remove this comment
+    nl => 'Zoekfuncties', #nl-CHECK - Please check and remove this comment
+    ru => 'Инструменты поиска', #ru-CHECK - Please check and remove this comment
+    pl => 'Narzędzia wyszukiwania', #pl-CHECK - Please check and remove this comment
+    pt => 'Ferramentas de pesquisa', #pt-CHECK - Please check and remove this comment
+    ro => 'Instrumente de căutare', #ro-CHECK - Please check and remove this comment
+    th => 'เครื่องมือค้นหา', #th-CHECK - Please check and remove this comment
+    vi => 'Công cụ tìm kiếm', #vi-CHECK - Please check and remove this comment
+    zh => '搜索工具', #zh-CHECK - Please check and remove this comment
+},
+
+#ENDFRONTPAGE
 
 );
 

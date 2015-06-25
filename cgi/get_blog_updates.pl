@@ -16,40 +16,39 @@ use locale;
 setlocale(LC_CTYPE, "fr_FR");	# May need to be changed depending on system
 
 my $rss;
-my $lang;
 
-GetOptions ('rss=s' => \$rss, 'lang=s' => \$lang);
+GetOptions ('rss=s' => \$rss);
 
 if (not defined $rss) {
 	print STDERR "Specify the RSS url via --rss\n";
 	exit;
 }
 
-if (not defined $lang) {
-        print STDERR "Specify the lang via --lang\n";
-        exit;
-}
+open(OUT, ">:encoding(UTF-8)", "$data_root/texts/blog.html");
+open(OUT2, ">:encoding(UTF-8)", "$data_root/texts/blog_foundation.html");
 
 
-
-open(OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/blog.html");
 
 my $feed = XML::FeedPP->new($rss);
 
-my $html;
+my $html = '';
+my $html2 = '';
 		
 my $i = 5;		
 		
 foreach my $entry ($feed->get_item()) {
 		
 	$html .= "&rarr; <a href=\"" . $entry->link . "\">" . decode_html_entities($entry->title) . "</a><br />";
+	$html2 .= "<li><a href=\"" . $entry->link . "\">" . decode_html_entities($entry->title) . "</a></li>\n";
 	$i--;
 	$i == 0 and last;
 }
 
 print OUT $html;
+print OUT $html2;
 
 close(OUT);
+close(OUT2);
 
 exit(0);
 

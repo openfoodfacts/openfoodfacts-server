@@ -45,6 +45,7 @@ BEGIN
 					&display_select_crop_init
 					
 					&display_image
+					&display_image_thumb
 	
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -195,13 +196,13 @@ sub scan_code($) {
 }
 
 
-sub display_search_image_form_old() {
+sub display_search_image_form_older() {
 
 	my $html = '';
 	
 	$html .= <<HTML
 <label for="imgsearch">Image du produit avec code barre :</label>
-<input type="file" accept="image/*" class="img_input" size="10" name="imgsearch" id="imgsearch" onchange="javascript:this.form.submit();" />				
+<input type="file" accept="image/*" capture="camera" class="img_input button small" size="10" name="imgsearch" id="imgsearch" onchange="javascript:this.form.submit();" />				
 HTML
 ;
 	
@@ -209,7 +210,118 @@ HTML
 }
 
 
-sub display_search_image_form() {
+sub display_search_image_form($) {
+
+	my $id = shift;
+
+	my $html = '';
+	
+	my $product_image_with_barcode = $Lang{product_image_with_barcode}{$lang};
+	$product_image_with_barcode =~ s/( |\&nbsp;)?:$//;
+	
+	$html .= <<HTML
+<div id="imgsearchdiv_$id">
+
+<a href="#" class="button small expand" id="imgsearchbutton_$id"><i class="fi-camera"></i> $product_image_with_barcode
+<input type="file" accept="image/*" capture="camera" class="img_input" name="imgupload_search" id="imgupload_search_$id" style="position: absolute;
+    right:0;
+    bottom:0;
+    top:0;
+    cursor:pointer;
+    opacity:0;
+    font-size:40px;"/>
+</a>
+</div>
+
+<div id="progressbar_$id" class="progress" style="display:none">
+  <span id="progressmeter_$id" class="meter" style="width:0%"></span>
+</div>
+
+<div id="imgsearchmsg_$id" data-alert class="alert-box info" style="display:none">
+  $Lang{sending_image}{$lang}
+  <a href="#" class="close">&times;</a>
+</div>
+
+<div id="imgsearcherror_$id" data-alert class="alert-box alert" style="display:none">
+  $Lang{send_image_error}{$lang}
+  <a href="#" class="close">&times;</a>
+</div>
+
+HTML
+;
+
+
+	$scripts .= <<JS
+<script src="/js/jquery.iframe-transport.js"></script>
+<script src="/js/jquery.fileupload.js"></script>	
+<script src="/js/load-image.min.js"></script>
+<script src="/js/canvas-to-blob.min.js"></script>
+<script src="/js/jquery.fileupload-ip.js"></script>
+JS
+;
+
+	$initjs .= <<JS
+	
+\/\/ start off canvas blocks for small screens
+	
+    \$('#imgupload_search_$id').fileupload({
+        dataType: 'json',
+        url: '/cgi/product.pl',
+		formData : [{name: 'jqueryfileupload', value: 1}],
+		resizeMaxWidth : 2000,
+		resizeMaxHeight : 2000,
+        done: function (e, data) {
+			if (data.result.location) {
+				\$(location).attr('href',data.result.location);
+			}
+			if (data.result.error) {
+				\$("#imgsearcherror_$id").html(data.result.error);
+				\$("#imgsearcherror_$id").show();
+			}
+        },
+		fail : function (e, data) {
+			\$("#imgsearcherror_$id").show();
+        },
+		always : function (e, data) {
+			\$("#progressbar_$id").hide();
+			\$("#imgsearchbutton_$id").show();
+			\$("#imgsearchmsg_$id").hide();
+        },
+		start: function (e, data) {
+			\$("#imgsearchbutton_$id").hide();
+			\$("#imgsearcherror_$id").hide();
+			\$("#imgsearchmsg_$id").show();
+			\$("#progressbar_$id").show();
+			\$("#progressmeter_$id").css('width', "0%");
+                    
+		},
+            sent: function (e, data) {
+                if (data.dataType &&
+                        data.dataType.substr(0, 6) === 'iframe') {
+                    // Iframe Transport does not support progress events.
+                    // In lack of an indeterminate progress bar, we set
+                    // the progress to 100%, showing the full animated bar:
+                    \$("#progressmeter_$id").css('width', "100%");
+                }
+            },
+            progress: function (e, data) {
+
+                   \$("#progressmeter_$id").css('width', parseInt(data.loaded / data.total * 100, 10) + "%");
+					\$("#imgsearchdebug_$id").html(data.loaded + ' / ' + data.total);
+                
+            }
+		
+    });	
+	
+\/\/ end off canvas blocks for small screens
+	
+JS
+;
+	
+	return $html;
+}
+
+sub display_search_image_form_old() {
 
 	my $html = '';
 	
@@ -218,7 +330,7 @@ sub display_search_image_form() {
 <label for="imgupload_search">$Lang{product_image_with_barcode}{$lang}</label>
 <span class="btn btn-success fileinput-button" id="imgsearchbutton">
 <span>$Lang{send_image}{$lang}</span>
-<input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search" />
+<input type="file" accept="image/*" capture="camera" class="img_input" name="imgupload_search" id="imgupload_search" />
 </span>
 </div>
 <br />
@@ -593,11 +705,8 @@ sub process_image_crop($$$$$$$$$$) {
 	
 	my $filename = "$id.$imgid";
 	
-	if ($white_magic eq 'checked') {
+	if (($white_magic eq 'checked') or ($white_magic eq 'true')) {
 		$filename .= ".white";
-	}	
-	
-	if ($white_magic eq 'checked') {
 
 		my $image = $source;
 	
@@ -720,7 +829,7 @@ sub process_image_crop($$$$$$$$$$) {
 	}	
 	
 	
-	if ($normalize eq 'checked') {
+	if (($normalize eq 'checked') or ($normalize eq 'true')) {
 		$source->Normalize( channel=>'RGB' );
 		$filename .= ".normalize";
 	}
@@ -818,43 +927,88 @@ sub process_image_crop($$$$$$$$$$) {
 
 
 
-sub display_image($$$) {
+sub display_image_thumb($$) {
 
 	my $product_ref = shift;
 	my $id = shift;
-	my $size = shift;
-	my $jqm = 0;
 	
 	my $html = '';
 	
-	if (0) {
-	print STDERR "display_image - ($id, $size) - ";
-	(defined $product_ref->{images}) and print STDERR "images ";
-	(defined $product_ref->{images}{$id}) and print STDERR "$id ";
-	(defined $product_ref->{images}{$id}{sizes}) and print STDERR "sizes ";
-	(defined $product_ref->{images}{$id}{sizes}{$size}) and print STDERR "$size";
-	print STDERR "\n";
-	}
 	
 	if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
-		and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
+		and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$thumb_size})) {
 	
 		my $path = product_path($product_ref->{code});
-		$html .= '<img src="/images/products/' . $path . '/' . $id . '.' . $product_ref->{images}{$id}{rev} . '.' . $size . '.jpg"'
-			. ' width="' . $product_ref->{images}{$id}{sizes}{$size}{w} . '" height="' . $product_ref->{images}{$id}{sizes}{$size}{h} . '"'
-			. ' alt="' . remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$id . '_alt'}{$lang} . '" />';
-			
-		if ((not defined $product_ref->{jqm}) and ($size eq $small_size) and (defined $product_ref->{images}{$id}{sizes}{$display_size}))  {
-			$html = '<a href="/images/products/' . $path . '/' . $id . '.' . $product_ref->{images}{$id}{rev} . '.' . $display_size
-			. '.jpg" class="nivoZoom topRight">' . $html . '</a>';
-		}
-	}
+		my $rev = $product_ref->{images}{$id}{rev};
+		my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$id . '_alt'}{$lang};
 
+			
+		$html .= <<HTML
+<img src="/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="/images/products/$path/$id.$rev.$small_size.jpg 2x"alt="$alt" />
+HTML
+;		
+	
+	}
 	
 	return $html;
 }
 
 
+sub display_image($$$) {
 
+	my $product_ref = shift;
+	my $id = shift;
+	my $size = shift;
+	
+	my $html = '';
+	
+	if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+		and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
+	
+		my $path = product_path($product_ref->{code});
+		my $rev = $product_ref->{images}{$id}{rev};
+		my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$id . '_alt'}{$lang};
+
+		if (not defined $product_ref->{jqm}) {
+		
+			$html .= <<HTML
+<img class="hide-for-xlarge-up" src="/images/products/$path/$id.$rev.$size.jpg" width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" />
+<img class="show-for-xlarge-up" src="/images/products/$path/$id.$rev.$display_size.jpg" width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" />
+HTML
+;
+				
+			if (($size eq $small_size) and (defined $product_ref->{images}{$id}{sizes}{$display_size}))  {
+			
+				my $title = lang($id . '_alt');
+				
+				my $full_image_url = "/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg";
+			
+				$html = <<HTML
+<a data-reveal-id="drop_$id" class="th" >
+$html
+</a>
+<div id="drop_$id" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" about="$full_image_url" >
+<h2 id="modalTitle">$title</h2>
+<img src="$full_image_url" alt="$alt" />
+<a class="close-reveal-modal" aria-label="Close" rel="licence" href="http://creativecommons.org/licenses/by-sa/3.0/">&#215;</a>
+</div>
+HTML
+;
+
+
+			}
+		
+		}
+		else {
+			# jquery mobile for Cordova app
+			$html .= <<HTML
+<img src="/images/products/$path/$id.$rev.$size.jpg" width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" />			
+HTML
+;
+		}
+	}
+	
+	return $html;
+}
 
 1;

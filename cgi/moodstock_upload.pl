@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+# This file is used to upload images to the Moodstocks API for offline image recognition
 
 use CGI::Carp qw(fatalsToBrowser);
 
