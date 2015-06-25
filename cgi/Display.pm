@@ -278,9 +278,10 @@ sub analyze_request($)
 {
 	my $request_ref = shift;
 	
-	#http://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
+	# http://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
+	# http://world.openfoodfacts.org/?ref=producthunt
 	
-	if ($request_ref->{query_string} =~ /(\&|\?)utm_/) {
+	if ($request_ref->{query_string} =~ /(\&|\?)(utm_|ref=)/) {
 		$request_ref->{query_string} = $`;
 	}	
 	
@@ -311,7 +312,7 @@ sub analyze_request($)
 		$request_ref->{current_link} = '';
 	}
 	# Root + page number
-	elsif (($#components == 0) and ($components[$#components] =~ /^\d+$/) and ($components[$#components] < 1000)) {
+	elsif (($#components == 0) and ($components[$#components] =~ /^\d+$/)) {
 		$request_ref->{page} = pop @components;
 		$request_ref->{current_link} = '';
 		$request_ref->{text} = 'index';
@@ -403,10 +404,6 @@ sub analyze_request($)
 			$request_ref->{groupby_tagtype} = $tag_type_from_plural{$lc}{pop @components};
 			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
 			print STDERR "Display::analyze_request - list of tags - groupby: $request_ref->{groupby_tagtype}\n";
-		}
-		
-		if (($components[$#components] =~ /^\d+$/) and ($components[$#components] < 1000)) {
-			$request_ref->{page} = pop @components;
 		}	
 	
 		if (defined $tag_type_from_singular{$lc}{$components[0]}) {
@@ -460,6 +457,11 @@ sub analyze_request($)
 			$debug and print STDERR "analyze_request: invalid address, confused by number of components left: $#components \n";
 			display_error(lang("error_invalid_address"));
 		}
+		
+		if ($components[$#components] =~ /^\d+$/) {
+			$request_ref->{page} = pop @components;
+		}
+		
 		$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
 	}
 	
@@ -2730,7 +2732,7 @@ sub display_scatter_plot($$$) {
 				and ((($graph_ref->{axis_y} eq 'additives_n') and (defined $product_ref->{$graph_ref->{axis_y}})) or 
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"} ne ''))) {
 				
-				my $url = "http://$subdomain" . product_url($product_ref->{code});
+				my $url = "http://$subdomain.$domain" . product_url($product_ref->{code});
 				
 				# Identify the series id
 				my $seriesid = 0;
@@ -4250,16 +4252,28 @@ ul.products {
 	margin-top:1.5rem;
 }
 
+a { text-decoration: none;}
+a, a:visited, a:hover { color: blue;}
 
-.level_3, a.level_3 {
+a:hover { text-decoration: underline; }
+
+a.button {
+	color:white;
+}
+
+a.button:hover {
+	text-decoration:none;
+}
+
+.level_3, a.level_3, a:visited.level_3, a:hover.level_3 {
 	color:red;
 }
 
-.level_2, a.level_2 {
+.level_2, a.level_2, a:visited.level_2, a:hover.level_2 {
 	color:darkorange;
 }
 
-.level_1, a.level_1 {
+.level_1, a.level_1, a:visited.level_1, a:hover.level_1 {
 	color:green;
 }
 
@@ -4306,19 +4320,6 @@ font-size: 0.875rem;
 
 .side-nav li a:not(.button):hover, .side-nav li a:not(.button):focus {
 	color:blue;
-}
-
-a { text-decoration: none;}
-a, a:visited, a:hover { color: blue;}
-
-a:hover { text-decoration: underline; }
-
-a.button {
-	color:white;
-}
-
-a.button:hover {
-	text-decoration:none;
 }
 
 
@@ -4907,7 +4908,7 @@ sub display_product_search_or_add($)
 
       <div class="row collapse">	  
         <div class="small-9 columns">
-          <input type="text" placeholder="$or $Lang{barcode}{$lc}">
+          <input type="text" name="code" placeholder="$or $Lang{barcode}{$lc}">
         </div>
         <div class="small-3 columns">
            <input type="submit" value="$Lang{add}{$lc}" class="button postfix" />
@@ -5015,9 +5016,9 @@ sub display_field($$) {
 		}
 		my $lang_field = lang($field);
 		if ($lang_field eq '') {
-			$lang_field = ucfirst(lang($field . "_s"));
+			$lang_field = ucfirst(lang($field . "_p"));
 		}
-		$html .= '<p><span class="field">' . lang($field) . " :</span> $value</p>";
+		$html .= '<p><span class="field">' . $lang_field . " :</span> $value</p>";
 		
 		if ($field eq 'brands') {
 			my $brand = $value;
