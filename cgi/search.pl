@@ -544,7 +544,7 @@ elsif ($action eq 'process') {
 	
 	my $and;
 	
-	for (my $i = 0;  ($i < $tags_n) or defined param("tagtype_$i") ; $i++) {
+	for (my $i = 0;  (defined $search_tags[$i]) ; $i++) {
 	
 		my ($tagtype, $contains, $tag) = @{$search_tags[$i]};
 		
