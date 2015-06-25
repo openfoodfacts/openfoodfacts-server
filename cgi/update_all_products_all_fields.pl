@@ -53,7 +53,7 @@ my $count = $cursor->count();
 		
 		# Update all fields
 	
-	my @fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
+	my @fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries allergens states  );
 
 	foreach my $field (@fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang') {
 		if (defined $product_ref->{$field}) {
