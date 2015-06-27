@@ -104,7 +104,7 @@ my $debug = 0;
 
 %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes => 1, allergens => 1, traces => 1, purchase_places => 1, stores => 1, countries => 1, states=>1);
 %hierarchy_fields = ();
-%taxonomy_fields = (countries => 1, labels => 1, categories => 1, additives => 1, allergens => 1, states => 1);
+%taxonomy_fields = (countries => 1, labels => 1, categories => 1, additives => 1, allergens => 1, traces => 1, states => 1);
 @drilldown_fields = qw(
 brands
 categories
@@ -1295,7 +1295,7 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 		$tag = canonicalize_taxonomy_tag($l,$tagtype, $tag);
 		my $tagid = get_taxonomyid($tag);
 		next if $tagid eq '';
-		if ($tagid eq 'fr:') {
+		if ($tagid =~ /:$/) {
 			#print STDERR "taxonomy - empty tag: $tag - l: $l - tagid: $tagid - tag_lc: >$tags_list< \n";
 			next;
 		}

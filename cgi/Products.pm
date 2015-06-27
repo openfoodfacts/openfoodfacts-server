@@ -242,7 +242,7 @@ sub store_product($$) {
 	
 	$product_ref->{rev} = $rev;
 	$product_ref->{last_modified_by} = $User_id;
-	$product_ref->{last_modified_t} = time();
+	$product_ref->{last_modified_t} = time() + 0;
 	if (not exists $product_ref->{creator}) {
 		$product_ref->{creator} = $User_id;
 	}
@@ -264,8 +264,8 @@ sub store_product($$) {
 	compute_product_history_and_completeness($product_ref, $changes_ref);
 
 	# sort_key
-	
-	$product_ref->{sortkey} = $product_ref->{last_modified_t} - ((1 - $product_ref->{complete}) * 1000000000);
+	# add 0 just to make sure we have a number...  last_modified_t at some point contained strings like  "1431125369"
+	$product_ref->{sortkey} = 0 + $product_ref->{last_modified_t} - ((1 - $product_ref->{complete}) * 1000000000);
 	
 	if (not defined $product_ref->{_id}) {
 		$product_ref->{_id} = $product_ref->{code} . ''; # treat id as string
@@ -407,11 +407,11 @@ sub compute_completeness_and_missing_tags($$$) {
 	if ($complete) {
 		if ((not defined $previous_ref->{complete}) or ($previous_ref->{complete} == 0)) {
 			$product_ref->{completed_t} = $product_ref->{last_modified_t} + 0;
-			$current_ref->{completed_t} = $product_ref->{last_modified_t};
+			$current_ref->{completed_t} = $product_ref->{last_modified_t} + 0;
 		}
 		else {
 			$product_ref->{completed_t} = $previous_ref->{completed_t} + 0;
-			$current_ref->{completed_t} = $previous_ref->{completed_t};
+			$current_ref->{completed_t} = $previous_ref->{completed_t} + 0;
 		}
 	}
 	else {
@@ -471,7 +471,7 @@ sub compute_product_history_and_completeness($$) {
 		push @{$current_product_ref->{entry_dates_tags}}, "open-food-hunt-2015";
 	}
 
-	my $last_modified_t = $current_product_ref->{last_modified_t};
+	my $last_modified_t = $current_product_ref->{last_modified_t} + 0;
 	my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($last_modified_t);
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d-%02d", $year + 1900, $mon + 1);

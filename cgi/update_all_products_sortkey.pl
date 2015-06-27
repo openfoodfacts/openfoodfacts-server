@@ -47,7 +47,7 @@ my $count = $cursor->count();
 		
 		if ((defined $product_ref) and ($code ne '')) {
 		
-		$product_ref->{sortkey} = $product_ref->{last_modified_t} - ((1 - $product_ref->{complete}) * 1000000000);
+		$product_ref->{sortkey} = 0 + $product_ref->{last_modified_t} - ((1 - $product_ref->{complete}) * 1000000000);
 			
 		# Store
 

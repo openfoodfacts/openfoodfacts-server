@@ -387,6 +387,7 @@ XML
 		
 			if ((defined $product_ref->{nutriments}{$nid . '_100g'}) and ($product_ref->{nutriments}{$nid . '_100g'} ne '')) {
 				my $property = $nid;
+				next if ($nid =~ /^#/); #   #vitamins and #minerals sometimes filled
 				$property =~ s/-([a-z])/ucfirst($1)/eg;
 				$property .= "Per100g";
 				

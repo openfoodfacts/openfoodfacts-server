@@ -65,6 +65,7 @@ function add_line(event, ui) {
 	// newline.find(".nutriment_label").bind("autocompletechange", add_line);
 	newline.find(".nutriment_label").change(add_line);
 	
+	$(document).foundation('equalizer', 'reflow');
 }
 
 function upload_image (imagefield) {
@@ -106,7 +107,7 @@ function upload_image (imagefield) {
 
 function init_image_area_select(imagefield) {
 	
-	$('img#crop_' + imagefield ).cropper({ "strict" : false, "guides" : false, "autoCrop" : false, built: function () {
+	$('img#crop_' + imagefield ).cropper({ "strict" : false, "guides" : false, "autoCrop" : false, "zoomable" : false, "mouseWheelZoom" : false, "touchDragZoom" : false, built: function () {
 		$('img#crop_' + imagefield ).cropper('setDragMode', "crop");
 	}});
 
@@ -128,6 +129,48 @@ function rotate_image(event) {
 	angles[imagefield] = (360 + angles[imagefield]) % 360;
 
 	$('img#crop_' + imagefield ).cropper('rotate',angle);
+	
+	//var selection = $('img#crop_' + imagefield ).cropper('getData'); 
+	var selection = $('img#crop_' + imagefield ).cropper('getCropBoxData'); 
+	
+	selection.x = selection.left;
+	selection.y = selection.top;
+	
+	console.log("selection - current - x:" + selection.x + " - y:" + selection.y + " - width:" + selection.width + " - height:" + selection.height);
+	
+	if (selection.width > 0) {
+		var x1 = selection.x;
+		var y1 = selection.y;
+		var x2 = selection.x + selection.width;
+		var y2 = selection.y + selection.height;
+
+		var container = $('img#crop_' + imagefield ).cropper('getContainerData');
+		var w = container.width;
+		var h = container.height;
+		console.log("selection - image - w:" + w + ' - h:' + h);
+		
+
+		if (angle == 90) {
+			selection.x = h - y2;
+			selection.y = x1;
+			selection.width = y2 - y1;
+			selection.height = x2 - x1;
+		}
+		else {
+			selection.x = y1;
+			selection.y = w - x2;
+			selection.width = y2 - y1;
+			selection.height = x2 - x1;
+		}
+		
+		selection.left = selection.x;
+		selection.top = selection.y;
+		
+		$('img#crop_' + imagefield ).cropper('setCropBoxData', selection);
+		
+		console.log("selection - new - x:" + selection.x + " - y:" + selection.y + " - width:" + selection.width + " - height:" + selection.height);	
+	}
+
 	
 	event.stopPropagation();
 	event.preventDefault();
@@ -240,9 +283,13 @@ function update_display(imagefield) {
 			$(document).foundation('equalizer', 'reflow');
 		}, 'json');
 		
+		$(document).foundation('equalizer', 'reflow');
+		
 	});
 	
 	}
+	
+	$(document).foundation('equalizer', 'reflow');
 }
 
 
@@ -421,6 +468,8 @@ function update_display(imagefield) {
 			$(this).addClass("ui-selected").siblings().removeClass("ui-selected");
 			change_image(imagefield, imgid);
 		});
+		
+		$(document).foundation('equalizer', 'reflow');
 		
 		return this;
     },	
