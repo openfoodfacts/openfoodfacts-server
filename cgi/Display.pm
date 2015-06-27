@@ -80,6 +80,8 @@ BEGIN
 					$cc
 					$country
 					
+					$nutriment_table
+					
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -231,6 +233,13 @@ sub init()
 	}
 	
 	$lang = $lc;
+	
+	
+	# select the nutriment table format according to the country
+	$nutriment_table = $cc_nutriment_table{default};
+	if (exists $cc_nutriment_table{$cc}) {
+		$nutriment_table = $cc_nutriment_table{$cc};
+	}	
 	
 	if ($test) {
 		$subdomain =~ s/\.openfoodfacts/.test.openfoodfacts/;
@@ -2491,9 +2500,12 @@ pnns_groups_2
 		
 		$csv .= "main_category\t";
 		
-		$csv .= "image_url\timage_small_url\t";		
+		$csv .= "image_url\timage_small_url\t";	
+
 		
-		foreach (@nutriments_table) {
+
+		
+		foreach (@{$nutriments_tables{$nutriment_table}}) {
 		
 			my $nid = $_;	# Copy instead of alias
 		
@@ -2610,7 +2622,7 @@ pnns_groups_2
 			
 			# Nutriments
 			
-			foreach (@nutriments_table) {
+			foreach (@{$nutriments_tables{$nutriment_table}}) {
 			
 				my $nid = $_;	# Copy instead of alias
 
@@ -5809,7 +5821,7 @@ sub compute_stats_for_products($$$$$$) {
 		$stats_ref->{nutriments}{"${nid}_100g"} = sprintf("%.2e", $nutriments_ref->{"${nid}_mean"}) + 0.0;
 		$stats_ref->{nutriments}{"${nid}_std"} =  sprintf("%.2e", $nutriments_ref->{"${nid}_std"}) + 0.0;
 
-		if ($nid eq 'energy') {
+		if ($nid =~ /^energy/) {
 			$stats_ref->{nutriments}{"${nid}_100g"} = int ($stats_ref->{nutriments}{"${nid}_100g"} + 0.5);
 			$stats_ref->{nutriments}{"${nid}_std"} = int ($stats_ref->{nutriments}{"${nid}_std"} + 0.5);
 		}				
@@ -6061,7 +6073,7 @@ HTML
 		}
 	}
 	
-	foreach my $nutriment (@nutriments_table, @unknown_nutriments) {
+	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments) {
 		
 		next if $nutriment =~ /^\#/;
 		my $nid = $nutriment;
@@ -6158,7 +6170,7 @@ HTML
 				if ((not defined $comparison_ref->{nutriments}{$nid . "_100g"}) or ($comparison_ref->{nutriments}{$nid . "_100g"} eq '')) {
 					$value_unit = '?';
 				}
-				elsif ($nid eq 'energy') {
+				elsif ($nid =~ /^energy/) {
 					$value_unit .= "<br/>(" . sprintf("%d", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, 'kcal')) . ' kcal)';
 				}
 				
@@ -6207,7 +6219,7 @@ HTML
 				if ((not defined $product_ref->{nutriments}{$nid . "_$col"}) or ($product_ref->{nutriments}{$nid . "_$col"} eq '')) {
 					$value_unit = '?';
 				}
-				elsif ($nid eq 'energy') {
+				elsif ($nid =~ /^energy/) {
 					$value_unit .= "<br/>(" . g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, 'kcal') . ' kcal)';
 				}
 				elsif ($nid eq 'sodium') {
@@ -6311,7 +6323,7 @@ sub display_api($)
 	
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 	
-	$debug and print STDERR "display_product - code: $code\n";
+	$debug and print STDERR "display_api - code: $code\n";
 
 	my %response = ();
 	

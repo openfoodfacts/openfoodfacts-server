@@ -27,12 +27,15 @@ BEGIN
 	@ISA = qw(Exporter);
 	@EXPORT = qw();	    # symbols to export by default
 	@EXPORT_OK = qw(
-					%allergens
 					%Nutriments
 					%nutriments_labels
-					@nutriments_table
-					@other_nutriments
-					@nutriments
+					
+					%cc_nutriment_table
+					%nutriments_tables
+					
+					%other_nutriments_lists
+					%nutriments_lists
+					
 					@nutrient_levels
 	
 					&unit_to_g
@@ -132,14 +135,6 @@ sub g_to_unit($$) {
 }
 
 
-# allergens
-
-%allergens = {
-	fr => ["Anhydride sulfureux","Arachides","Céleri","Crustacés","Fruits à coque",
-	"Gluten","Lait","Lupin","Mollusques",
-	"Moutarde","Oeufs","Poisson","Sésame","Soja","Sulfites"],
-	en => [],
-},
 
 # http://www.diw.de/sixcms/media.php/73/diw_wr_2010-19.pdf
 @nutrient_levels = (
@@ -155,8 +150,19 @@ sub g_to_unit($$) {
 # vitamin-a- : do not show by default in the form
 # !proteins : important, always show even if value has not been entered
 
-@nutriments_table = qw(
+%cc_nutriment_table = (
+	default => "europe",
+	ca => "ca",
+	us => "us",
+);
+
+# http://healthycanadians.gc.ca/eating-nutrition/label-etiquetage/tips-conseils/nutrition-fact-valeur-nutritive-eng.php
+
+%nutriments_tables = (
+
+europe => [qw(
 !energy
+-energy-from-fat-
 !fat
 -saturated-fat
 --butyric-acid-
@@ -250,7 +256,215 @@ collagen-meat-protein-ratio-
 carbon-footprint
 nutrition-score-fr-
 nutrition-score-uk-
+)
+],
+
+ca => [qw(
+!energy
+!fat
+-saturated-fat
+--butyric-acid-
+--caproic-acid-
+--caprylic-acid-
+--capric-acid-
+--lauric-acid-
+--myristic-acid-
+--palmitic-acid-
+--stearic-acid-
+--arachidic-acid-
+--behenic-acid-
+--lignoceric-acid-
+--cerotic-acid-
+--montanic-acid-
+--melissic-acid-
+-monounsaturated-fat-
+-polyunsaturated-fat-
+-omega-3-fat-
+--alpha-linolenic-acid-
+--eicosapentaenoic-acid-
+--docosahexaenoic-acid-
+-omega-6-fat-
+--linoleic-acid-
+--arachidonic-acid-
+--gamma-linolenic-acid-
+--dihomo-gamma-linolenic-acid-
+-omega-9-fat-
+--oleic-acid-
+--elaidic-acid-
+--gondoic-acid-
+--mead-acid-
+--erucic-acid-
+--nervonic-acid-
+-trans-fat
+cholesterol
+!carbohydrates
+-fiber
+--soluble-fiber-
+--insoluble-fiber-
+-sugars
+--sucrose-
+--glucose-
+--fructose-
+--lactose-
+--maltose-
+--maltodextrins-
+-starch-
+-polyols-
+!proteins
+-casein-
+-serum-proteins-
+-nucleotides-
+salt
+sodium
+alcohol
+#vitamins
+vitamin-a
+vitamin-d-
+vitamin-e-
+vitamin-k-
+vitamin-c
+vitamin-b1-
+vitamin-b2-
+vitamin-pp-
+vitamin-b6-
+vitamin-b9-
+vitamin-b12-
+biotin-
+pantothenic-acid-
+#minerals
+silica-
+bicarbonate-
+potassium-
+chloride-
+calcium
+phosphorus-
+iron
+magnesium-
+zinc-
+copper-
+manganese-
+fluoride-
+selenium-
+chromium-
+molybdenum-
+iodine-
+caffeine-
+taurine-
+ph-
+fruits-vegetables-nuts-
+collagen-meat-protein-ratio-
+carbon-footprint
+nutrition-score-fr-
+nutrition-score-uk-
+)
+],
+
+us => [qw(
+!energy
+-energy-from-fat
+!fat
+-saturated-fat
+--butyric-acid-
+--caproic-acid-
+--caprylic-acid-
+--capric-acid-
+--lauric-acid-
+--myristic-acid-
+--palmitic-acid-
+--stearic-acid-
+--arachidic-acid-
+--behenic-acid-
+--lignoceric-acid-
+--cerotic-acid-
+--montanic-acid-
+--melissic-acid-
+-monounsaturated-fat-
+-polyunsaturated-fat-
+-omega-3-fat-
+--alpha-linolenic-acid-
+--eicosapentaenoic-acid-
+--docosahexaenoic-acid-
+-omega-6-fat-
+--linoleic-acid-
+--arachidonic-acid-
+--gamma-linolenic-acid-
+--dihomo-gamma-linolenic-acid-
+-omega-9-fat-
+--oleic-acid-
+--elaidic-acid-
+--gondoic-acid-
+--mead-acid-
+--erucic-acid-
+--nervonic-acid-
+-trans-fat
+cholesterol
+salt-
+sodium
+!carbohydrates
+-fiber
+--soluble-fiber-
+--insoluble-fiber-
+-sugars
+--sucrose-
+--glucose-
+--fructose-
+--lactose-
+--maltose-
+--maltodextrins-
+-starch-
+-polyols-
+!proteins
+-casein-
+-serum-proteins-
+-nucleotides-
+alcohol
+#vitamins
+vitamin-a
+vitamin-d-
+vitamin-e-
+vitamin-k-
+vitamin-c
+vitamin-b1-
+vitamin-b2-
+vitamin-pp-
+vitamin-b6-
+vitamin-b9-
+vitamin-b12-
+biotin-
+pantothenic-acid-
+#minerals
+silica-
+bicarbonate-
+potassium-
+chloride-
+calcium
+phosphorus-
+iron
+magnesium-
+zinc-
+copper-
+manganese-
+fluoride-
+selenium-
+chromium-
+molybdenum-
+iodine-
+caffeine-
+taurine-
+ph-
+fruits-vegetables-nuts-
+collagen-meat-protein-ratio-
+carbon-footprint
+nutrition-score-fr-
+nutrition-score-uk-
+)
+],
+
 );
+
+
+
+
 
 %Nutriments = (
 
@@ -288,7 +502,6 @@ energy	=> {
 	en => "Energy",
 	es => "Energía",
 	ar => "الطاقه",
-	unit => 'kj',
 	it => "Energia",
 	pt => "Energia",
 	de => "Energie",
@@ -312,6 +525,18 @@ energy	=> {
 	bg => "Енергийна стойност",
 	zh => "能量",
 	ja => "エネルギー",
+	
+	unit => 'kj',
+	unit_us => 'kcal',
+	unit_ca => 'kcal',
+},
+"energy-from-fat"	=> {
+	fr => "Énergie provenant des graisses",
+	en => "Energy from fat",
+	
+	unit => 'kj',
+	unit_us => 'kcal',
+	unit_ca => 'kcal',	
 },
 proteins => {
 	fr => "Protéines",
@@ -972,12 +1197,20 @@ fiber => {
 	bg => "Влакнини",
 	zh => "膳食纤维",
 },
+"soluble-fiber" => {
+	fr => "Fibres solubles",
+	en => "Soluble fiber",
+},
+"insoluble-fiber" => {
+	fr => "Fibres insolubles",
+	en => "Insoluble fiber",
+},
 sodium => {
 	fr => "Sodium",
 	en => "Sodium",
 	el => "Νάτριο",
 	es => "Sodio",
-		ar => "الصوديوم",
+	ar => "الصوديوم",
 	it => "Sodio",
 	pt => "Sódio",
 	de => "Natrium",
@@ -985,6 +1218,7 @@ sodium => {
 	zh => "钠",
 	nl => "Sodium",
 	ja => "ナトリウム",
+	unit_us => 'mg',
 },
 salt => {
 	fr => "Sel",
@@ -1048,9 +1282,7 @@ salt => {
 	fr => "Vitamine A (rétinol)",
 	ja => "ビタミン A",
 	en => "Vitamin A",
-	es => "Vitamina A (Retinol)",
-	unit => "µg",
-	dv => "1500",
+	es => "Vitamina A (Retinol)",	
 	it => "Vitamina A (Retinolo)",
 	pt => "Vitamina A",
 	de => "Vitamin A (Retinol)",
@@ -1069,6 +1301,11 @@ salt => {
 	ro => "Vitamina A",
 	bg => "Витамин A",
 	zh => "维生素A",
+	
+	unit => "µg",
+	dv => "1500",
+	unit_us => '% DV',
+	unit_ca => '% DV',	
 },
 'vitamin-d' => {
 	fr => "Vitamine D / D3 (cholécalciférol)",
@@ -1153,8 +1390,6 @@ salt => {
 	en => "Vitamin C (ascorbic acid)",
 	es => "Vitamina C (Ácido ascórbico)",
 	ja => "ビタミン C",
-	unit => "mg",
-	dv => "60",
 	it => "Vitamina C (Acido ascorbico)",
 	pt => "Vitamina C",
 	de => "Vitamin C (Ascorbinsäure)",
@@ -1173,6 +1408,11 @@ salt => {
 	ro => "Vitamina C",
 	bg => "Витамин C",
 	zh => "维生素C(抗坏血酸)",
+	
+	unit => "mg",
+	dv => "60",
+	unit_us => '% DV',
+	unit_ca => '% DV',		
 },
 'vitamin-b1' => {
 	fr => "Vitamine B1 (Thiamine)",
@@ -1477,9 +1717,7 @@ calcium => {
 	en => "Calcium",
 	ja => "カルシウム",	     
 	es => "Calcio",
-		ar => "الكالسيوم",
-	unit => "mg",
-	dv => "1000",
+	ar => "الكالسيوم",
 	it => "Calcio",
 	pt => "Cálcio",
 	de => "Kalzium",
@@ -1501,12 +1739,17 @@ calcium => {
 	bg => "Калций",
 	zh => "鈣",
 	nl => "Calcium",
+	
+	unit => "mg",
+	dv => "1000",	
+	unit_us => '% DV',
+	unit_ca => '% DV',	
 },
 phosphorus => {
 	fr => "Phosphore",
 	en => "Phosphorus",
 	es => "Fósforo",
-		ar => "الفوسفور",
+	ar => "الفوسفور",
 	unit => "mg",
 	dv => "1000",
 	it => "Fosforo",
@@ -1537,8 +1780,6 @@ iron => {
 	en => "Iron",
 	ja => "鉄",
 	es => "Hierro",
-	unit => "mg",
-	dv => "18",
 	it => "Ferro",
 	pt => "Ferro",
 	de => "Eisen",
@@ -1561,6 +1802,11 @@ iron => {
 	ro => "Fier",
 	bg => "Желязо",
 	zh => "鐵",
+	
+	unit => "mg",
+	dv => "18",	
+	unit_us => '% DV',
+	unit_ca => '% DV',		
 },
 magnesium => {
 	fr => "Magnésium",
@@ -1587,7 +1833,7 @@ magnesium => {
 	bg => "Магнезий",
 	zh => "鎂",
 	nl => "Magnesium",
- ja => "マグネシウム",
+	ja => "マグネシウム",
 },
 zinc => {
 	fr => "Zinc",
@@ -1954,21 +2200,28 @@ XXX
 
 # Compute the list of nutriments that are not shown by default so that they can be suggested
 
-foreach (@nutriments_table) {
+foreach my $region (keys %nutriments_tables) {
 
-	my $nutriment = $_;	# copy instead of alias
-	
-	if ($nutriment =~ /-$/) {
-		$nutriment = $`;
+	$nutriments_lists{$region} = [];
+	$other_nutriments_lists{$region} = [];
+
+	foreach (@{$nutriments_tables{$region}}) {
+
+		my $nutriment = $_;	# copy instead of alias
+		
+		if ($nutriment =~ /-$/) {
+			$nutriment = $`;
+			$nutriment =~ s/^(-|!)+//g;
+			push @{$other_nutriments_lists{$region}}, $nutriment;
+		}
+		
+		next if $nutriment =~ /\#/;
+		
 		$nutriment =~ s/^(-|!)+//g;
-		push @other_nutriments, $nutriment;
+		$nutriment =~ s/-$//g;
+		push @{$nutriments_lists{$region}}, $nutriment;
 	}
-	
-	next if $nutriment =~ /\#/;
-	
-	$nutriment =~ s/^(-|!)+//g;
-	$nutriment =~ s/-$//g;
-	push @nutriments, $nutriment;
+
 }
 
 
