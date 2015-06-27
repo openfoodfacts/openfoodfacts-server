@@ -1,6 +1,6 @@
 # Product Opener #
 
-Documentation started on http://en.wiki.openfoodfacts.org/Project:ProductOpener
+Documentation started on <http://en.wiki.openfoodfacts.org/Project:ProductOpener>
 
 # Copyright and Licence #
 
