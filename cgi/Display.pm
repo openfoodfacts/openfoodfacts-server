@@ -117,6 +117,7 @@ use DateTime::Format::Mail;
 use MongoDB;
 use Tie::IxHash;
 use JSON;
+use XML::Simple;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -339,7 +340,10 @@ sub analyze_request($)
 		if ($request_ref->{code} =~ /\.jqm/) {
 			$request_ref->{jqm} = 1;
 		}
-		$request_ref->{code} =~ s/\..*//;
+		$request_ref->{code} =~ s/\.(.*)//;
+		if ($1 eq 'xml') {
+			$request_ref->{xml} = 1;
+		}
 	}	
 
 	# or a list
@@ -6419,24 +6423,31 @@ HTML
 		delete $response{product}{images};
 	}
 	
-	my $data =  encode_json(\%response);
-	
-	my $jsonp = undef;
-	
-	if (defined param('jsonp')) {
-		$jsonp = param('jsonp');
-	}
-	elsif (defined param('callback')) {
-		$jsonp = param('callback');
-	}
-	
-	$jsonp =~ s/[^a-zA-Z0-9_]//g;
-	
-	if (defined $jsonp) {
-		print "Content-Type: text/javascript; charset=UTF-8;\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $jsonp . "(" . $data . ");" ;	
+	if ($request_ref->{xml}) {
+		my $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
+		. XMLout(\%response);
+		print "Content-Type: text/xml; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $xml;	
 	}
 	else {
-		print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $data;	
+		my $data =  encode_json(\%response);
+		
+		my $jsonp = undef;
+		
+		if (defined param('jsonp')) {
+			$jsonp = param('jsonp');
+		}
+		elsif (defined param('callback')) {
+			$jsonp = param('callback');
+		}
+		
+		$jsonp =~ s/[^a-zA-Z0-9_]//g;
+		
+		if (defined $jsonp) {
+			print "Content-Type: text/javascript; charset=UTF-8;\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $jsonp . "(" . $data . ");" ;	
+		}
+		else {
+			print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $data;	
+		}
 	}
 	
 	exit();
