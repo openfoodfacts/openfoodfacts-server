@@ -178,7 +178,12 @@ sub scan_code($) {
 			foreach my $symbol ($image->get_symbols()) {
 
 				$code = $symbol->get_data();
-				print STDERR "Images::scan_code - found code: $code\n";
+				my $type = $symbol->get_type();
+				print STDERR "Images::scan_code - found code: $code - type: $type\n";
+				if (($code !~ /^[0-9]+$/) or ($type eq 'QR-Code')) {
+					$code = undef;
+					next;
+				}
 				last;
 			}
 			
