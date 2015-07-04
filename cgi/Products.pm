@@ -574,7 +574,7 @@ sub compute_product_history_and_completeness($$) {
 				@ids = @fields;
 			}
 			elsif ($group eq 'nutriments') {
-				@ids = @nutriments;
+				@ids = @{$nutriments_lists{europe}};
 			}
 			else {
 				sub uniq { my %seen; grep !$seen{$_}++, @_ };

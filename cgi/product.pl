@@ -346,7 +346,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		push @new_nutriments, "new_$i";
 	}
 	
-	foreach my $nutriment (@nutriments_table, @unknown_nutriments, @new_nutriments) {
+	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, @new_nutriments) {
 	
 		next if $nutriment =~ /^\#/;
 		
@@ -836,7 +836,7 @@ HTML
 	}
 	
 	
-	foreach my $nutriment (@nutriments_table, @unknown_nutriments, 'new_0', 'new_1') {
+	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, 'new_0', 'new_1') {
 		
 		next if $nutriment =~ /^\#/;
 		my $nid = $nutriment;
@@ -893,7 +893,10 @@ HTML
 		}
 		
 		my $unit = 'g';
-		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit})) {
+		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{"unit_$cc"})) {
+			$unit = $Nutriments{$nid}{"unit_$cc"};
+		}		
+		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit})) {
 			$unit = $Nutriments{$nid}{unit};
 		}
 		my $value = g_to_unit($product_ref->{nutriments}{$nid}, $unit);
@@ -931,7 +934,7 @@ HTML
 
 
 		my @units = ('g','mg','µg');
-		if ($nid eq 'energy') {
+		if ($nid =~ /^energy/) {
 			@units = ('kJ','kcal');
 		}
 		elsif ($nid eq 'alcohol') {
@@ -991,7 +994,7 @@ HTML
 
 	my $other_nutriments = '';
 	my $nutriments = '';
-	foreach my $nid (@other_nutriments) {
+	foreach my $nid (@{$other_nutriments_lists{$nutriment_table}}) {
 		if ($product_ref->{nutriments}{$nid} eq '') {
 			$other_nutriments .= '{ "value" : "' . $Nutriments{$nid}{$lang} . '", "unit" : "' . $Nutriments{$nid}{unit} . '" },' . "\n";
 		}
