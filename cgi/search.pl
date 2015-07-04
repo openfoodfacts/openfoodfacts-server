@@ -296,7 +296,7 @@ HTML
 ;
 
 	my %nutriments_labels = ();
-	foreach my $nid (@nutriments) {
+	foreach my $nid (@{$nutriments_lists{$nutriment_table}}) {
 		$nutriments_labels{$nid} = $Nutriments{$nid}{$lang};
 		print STDERR "search.pl - nutriments - $nid -- $nutriments_labels{$nid} \n";
 	}
@@ -311,7 +311,7 @@ HTML
 HTML
 ;			
 	
-		$html .= popup_menu(-name=>"nutriment_$i", -id=>"nutriment_$i", -value=> $search_nutriments[$i][0], -values=>['search_nutriment', @nutriments], -labels=>\%nutriments_labels);
+		$html .= popup_menu(-name=>"nutriment_$i", -id=>"nutriment_$i", -value=> $search_nutriments[$i][0], -values=>['search_nutriment', @{$nutriments_lists{$nutriment_table}}], -labels=>\%nutriments_labels);
 		 
 		
 		$html .= <<HTML
@@ -388,7 +388,7 @@ HTML
 ;
 
 	# Compute possible axis values
-	my @axis_values = @nutriments;
+	my @axis_values = @{$nutriments_lists{$nutriment_table}};
 	my %axis_labels = %nutriments_labels;
 	push @axis_values, "additives_n";
 	$axis_labels{additives_n} = lang("number_of_additives");

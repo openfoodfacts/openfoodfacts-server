@@ -187,7 +187,7 @@ XML
 		
 		
 		
-		foreach my $nid (@nutriments_table) {
+		foreach my $nid (@{$nutriments_tables{"europe"}}) {
 		
 			$nid =~ /^#/ and next;
 		

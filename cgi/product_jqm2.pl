@@ -126,7 +126,7 @@ else {
 		push @new_nutriments, "new_$i";
 	}
 	
-	foreach my $nutriment (@nutriments_table, @unknown_nutriments, @new_nutriments) {
+	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, @new_nutriments) {
 	
 		next if $nutriment =~ /^\#/;
 		my $nid = $nutriment;
