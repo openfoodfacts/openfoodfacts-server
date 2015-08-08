@@ -1778,6 +1778,11 @@ HTML
 	
 	if ($tagtype eq 'users') {
 		my $user_ref = retrieve("$data_root/users/$tagid.sto");
+		
+		if ($admin) {
+			$description .= "<p>" . $user_ref->{email} . "</p>";
+		}
+		
 		if (defined $user_ref) {
 			if ((defined $user_ref->{name}) and ($user_ref->{name} ne '')) {
 				$title = $user_ref->{name} . " ($tagid)";
@@ -3611,7 +3616,7 @@ JS
 				$origins = $manufacturing_places . $origins;
 					
 				$data_start .= ' product_name:"' . escape_single_quote($product_ref->{product_name}) . '", brands:"' . escape_single_quote($product_ref->{brands}) . '", url: "' . $url . '", img:\''
-					. escape_single_quote(display_image($product_ref, 'front', $thumb_size)) . "', origins:\'" . $origins . "'";	
+					. escape_single_quote(($product_ref, 'front', $thumb_size)) . "', origins:\'" . $origins . "'";	
 				
 
 				
@@ -4643,7 +4648,7 @@ HTML
 		<div class="sidebar">
 		
 <div style="text-align:center">
-<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" width="178" height="141" alt="Open Food Facts" style="margin-bottom:1rem"/></a>
+<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="Open Food Facts" style="margin-bottom:0.5rem"/></a>
 </div>
 
 <p>$Lang{tagline}{$lc}</p>
