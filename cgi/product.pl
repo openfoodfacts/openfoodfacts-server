@@ -124,7 +124,7 @@ if ($type eq 'search_or_add') {
 			$product_ref = init_product($code);
 			$product_ref->{interface_version_created} = $interface_version;
 			store_product($product_ref, "Création du produit");
-			process_image_upload($code,$filename);
+			process_image_upload($code,$filename,$User_id, time(),'image with barcode from web site Add product button');
 			$type = 'add';
 			$action = 'display';
 			$location = "/cgi/product.pl?type=add&code=$code";
@@ -471,6 +471,7 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 	
 	$scripts .=<<JS
 <script type="text/javascript">
+var admin = $admin;
 var Lang = {
 JS
 ;
@@ -622,6 +623,206 @@ HTML
 
 
 	$html .= "<div class=\"fieldset\"><legend>$Lang{product_image}{$lang}</legend>";
+	
+	$scripts .= <<JS
+<script type="text/javascript">
+
+function toggle_manage_images_buttons() {
+		\$("#delete_images").addClass("disabled");
+		\$("#move_images").addClass("disabled");
+		\$( "#front .ui-selected"  ).first().each(function() {
+			\$("#delete_images").removeClass("disabled");
+			\$("#move_images").removeClass("disabled");
+		});
+}
+
+</script>	
+JS
+;	
+	
+	if ($admin) {
+		$html .= <<HTML
+<ul id="manage_images_accordion" class="accordion" data-accordion>
+  <li class="accordion-navigation">
+<a href="#manage_images_drop"><i class="fi-page-multiple"></i> $Lang{manage_images}{$lc}</a>
+
+
+<div id="manage_images_drop" class="content" style="background:#eeeeee">
+	<p>$Lang{manage_images_info}{$lc}</p>
+	<a id="delete_images" class="button small disabled"><i class="fi-trash"></i> $Lang{delete_the_images}{$lc}</a><br/>
+	<div class="row">
+		<div class="small-12 medium-5 columns">
+			<button id="move_images" class="button small disabled"><i class="fi-arrow-right"></i> $Lang{move_images_to_another_product}{$lc}</a>
+		</div>
+		<div class="small-4 medium-2 columns">
+			<label for="move_to" class="right inline">$Lang{barcode}{$lc}</label>
+		</div>
+		<div class="small-8 medium-5 columns">
+			<input type="text" id="move_to" name="move_to" />
+		</div>
+	</div>
+	<input type="checkbox" id="copy_data" name="copy_data"><label for="copy_data">$Lang{copy_data}{$lc}</label>
+	<div id="moveimagesmsg"></div>
+</div>
+</li>
+</ul>
+
+HTML
+;
+
+	$styles .= <<CSS
+.show_for_manage_images {
+line-height:normal;
+font-weight:normal;
+font-size:0.8rem;
+display:none;
+}
+CSS
+;
+
+
+	$initjs .= <<JS
+	
+\$('#manage_images_accordion').on('toggled', function (event, accordion) {
+	if (\$("#manage_images_drop").hasClass("active")) {
+		\$(".show_for_manage_images").show();
+		\$("#front .ui-selectable li").css("height","160px");
+	}
+	else {
+		\$(".show_for_manage_images").hide();
+		\$("#front .ui-selectable li").css("height","120px");
+	}
+	toggle_manage_images_buttons();
+});
+
+
+
+\$("#delete_images").click({},function(event) {
+
+event.stopPropagation();
+event.preventDefault();
+
+if (! \$("#delete_images").hasClass("disabled")) {
+
+	\$("#delete_images").addClass("disabled");
+	\$("#move_images").addClass("disabled");
+	
+ \$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + Lang.deleting_images);
+ \$('div[id="moveimagesmsg"]').show();	
+	
+	var imgids = '';
+	var i = 0;
+	\$( "#front .ui-selected"  ).each(function() {
+		var imgid = \$( this ).attr('id');
+		imgid = imgid.replace("front_","");
+		imgids += imgid + ',';
+		i++;
+});
+	if (i) {
+		// remove trailing comma
+		imgids = imgids.substring(0, imgids.length - 1);
+	}
+	
+ \$("#product_form").ajaxSubmit({
+
+  url: "/cgi/product_image_move.pl",
+  data: { code: code, move_to_override: "trash", imgids : imgids },
+  dataType: 'json',
+  beforeSubmit: function(a,f,o) {
+  },
+  success: function(data) {
+
+	if (data.error) {
+		\$('div[id="moveimagesmsg"]').html(Lang.images_delete_error + ' - ' + data.error);
+	}
+	else {
+		\$('div[id="moveimagesmsg"]').html(Lang.images_deleted);
+	}
+	\$([]).selectcrop('init_images',data.images);
+	\$(".select_crop").selectcrop('show');
+	
+  },
+  error : function(jqXHR, textStatus, errorThrown) {
+	\$('div[id="moveimagesmsg"]').html(Lang.images_delete_error + ' - ' + textStatus);
+  },
+  complete: function(XMLHttpRequest, textStatus) {
+
+	}
+ });	
+
+}
+ 
+});
+
+
+
+\$("#move_images").click({},function(event) {
+
+event.stopPropagation();
+event.preventDefault();
+
+if (! \$("#move_images").hasClass("disabled")) {
+
+	\$("#delete_images").addClass("disabled");
+	\$("#move_images").addClass("disabled");
+	
+ \$('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + Lang.moving_images);
+ \$('div[id="moveimagesmsg"]').show();	
+	
+	var imgids = '';
+	var i = 0;
+	\$( "#front .ui-selected"  ).each(function() {
+		var imgid = \$( this ).attr('id');
+		imgid = imgid.replace("front_","");
+		imgids += imgid + ',';
+		i++;
+});
+	if (i) {
+		// remove trailing comma
+		imgids = imgids.substring(0, imgids.length - 1);
+	}
+	
+ \$("#product_form").ajaxSubmit({
+
+  url: "/cgi/product_image_move.pl",
+  data: { code: code, move_to_override: \$("#move_to").val(), copy_data_override: \$("#copy_data").prop( "checked" ), imgids : imgids },
+  dataType: 'json',
+  beforeSubmit: function(a,f,o) {
+  },
+  success: function(data) {
+
+	if (data.error) {
+		\$('div[id="moveimagesmsg"]').html(Lang.images_move_error + ' - ' + data.error);
+	}
+	else {
+		\$('div[id="moveimagesmsg"]').html(Lang.images_moved + ' &rarr; ' + data.link);
+	}
+	\$([]).selectcrop('init_images',data.images);
+	\$(".select_crop").selectcrop('show');
+	
+  },
+  error : function(jqXHR, textStatus, errorThrown) {
+	\$('div[id="moveimagesmsg"]').html(Lang.images_move_error + ' - ' + textStatus);
+  },
+  complete: function(XMLHttpRequest, textStatus) {
+		\$("#move_images").addClass("disabled");
+		\$("#move_images").addClass("disabled");
+		\$( "#front .ui-selected"  ).first().each(function() {
+			\$("#move_images").removeClass("disabled");
+			\$("#move_images").removeClass("disabled");
+		});
+	}
+ });	
+
+}
+ 
+});	
+
+
+JS
+;
+
+			}		
 	
 	$html .= display_select_crop($product_ref, "front");
 
@@ -1122,9 +1323,10 @@ HTML
 			
 			
 			$comment =~ s/^Modification :\s+//;
-			if (($comment =~ /^new image/) or ($comment eq 'Modification :')) {
+			if ($comment eq 'Modification :') {
 				$comment = '';
 			}
+			$comment =~ s/\new image \d+( -)?//;
 			
 			if ($comment ne '') {
 				$comment = "- $comment";
