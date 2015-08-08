@@ -39,6 +39,7 @@ BEGIN
 					&normalize_search_terms
 					&index_product
 					
+					&compute_codes
 					&compute_product_history_and_completeness
 					
 	
@@ -61,6 +62,9 @@ use Blogs::Tags qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use MongoDB;
+
+use Algorithm::CheckDigits;
+my $ean_check = CheckDigits('ean');
 
 sub product_path($) {
 
@@ -208,6 +212,8 @@ sub store_product($$) {
 		else {
 			print STDERR "Products::store_product - cannot move from $data_root/products/$old_path to $data_root/products/$path (already exists)\n";		
 		}
+		
+		$comment .= " - barcode changed from $old_code to $code by $User_id";
 	}
 	
 	
@@ -262,6 +268,8 @@ sub store_product($$) {
 	$product_ref->{editors} = [keys %changed_by];
 	
 	compute_product_history_and_completeness($product_ref, $changes_ref);
+	
+	compute_codes($product_ref);
 
 	# sort_key
 	# add 0 just to make sure we have a number...  last_modified_t at some point contained strings like  "1431125369"
@@ -603,9 +611,32 @@ sub compute_product_history_and_completeness($$) {
 				
 					# Attribution
 					
+					
+					if (($diff eq 'add') and ($group eq 'uploaded_images')) {
+						# images uploader and uploaded_t where not set before 2015/08/04, set them using the change history
+						# ! only update the values if the image still exists in the current version of the product (wasn't moved or deleted)
+						if (exists $current_product_ref->{images}{$id}) {
+							if (not defined $current_product_ref->{images}{$id}{uploaded_t}) {
+								$current_product_ref->{images}{$id}{uploaded_t} = $product_ref->{last_modified_t};
+							}
+							if (not defined $current_product_ref->{images}{$id}{uploader}) {
+								$current_product_ref->{images}{$id}{uploader} = $userid;
+							}
+						
+						
+							# when moving images, attribute the image to the user that uploaded the image
+							
+							$userid = $current_product_ref->{images}{$id}{uploader};
+							$change_ref->{userid} = $userid;
+							
+						}
+						
+					}
+					
 					if ((defined $userid) and ($userid ne '')) {
 					
 						if (($diff eq 'add') and ($group eq 'uploaded_images')) {
+														
 							if (not defined $photographers{$userid}) {
 								$photographers{$userid} = 1;
 								push @photographers, $userid;
@@ -763,6 +794,49 @@ sub index_product($)
 	}
 	
 	$product_ref->{_keywords} = [keys %keywords];	
+}
+
+
+sub compute_codes($) {
+
+
+	my $product_ref = shift;
+	my $code = $product_ref->{code};
+
+	my @codes = ();
+	
+	push @codes, "code-" . length($code);
+	
+	my $ean = undef;
+	
+	if (length($code) == 12) {
+		$ean = '0' . $code;
+		if (product_exists('0' . $code)) {
+			push @codes, "conflict-with-ean-13";
+		}
+	}
+	
+	if ((length($code) == 13) and ($code =~ /^0/)) {
+		$ean = $code;
+		my $upc = $code;
+		$upc =~ s/^.//;
+		if (product_exists( $upc)) {
+			push @codes, "conflict-with-upc-12";
+		}
+	}
+	
+	if ((defined $ean) and ($ean !~ /^0?2/)) {
+		if (not $ean_check->is_valid($ean)) {
+			push @codes, "invalid-ean";
+		}
+	}
+	
+	while ($code =~ /^\d/) {
+		push @codes, $code;
+		$code =~ s/\d(x*)$/x$1/;
+	}
+	
+	$product_ref->{codes_tags} = \@codes;
 }
 
 1;

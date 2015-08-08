@@ -522,6 +522,11 @@ nutrition_grades => {
 
 },
 
+# do not translate code
+codes => {
+	en => "code",
+},
+
 );
 
 # Note: a lot of plurals are currently missing below, commented-out are the singulars that need to be changed to plurals
@@ -933,6 +938,10 @@ nutrition_grades => {
 	fr => "notes-nutritionnelles",
 	el => "επιπεδα/βαθμολογιες θρεπτικοτητας",
 
+},
+# do not translate code
+codes => {
+	en => "codes",
 },
 );
 
@@ -5853,6 +5862,14 @@ ingredients_from_or_that_may_be_from_palm_oil_p => {
 	de => "Zutaten, die (möglicherweise) aus Palmöl stammen",
 },
 
+codes_s => {
+	en => "Code",
+},
+
+codes_p => {
+	en => "Codes",
+},
+
 add_product => {
 
     ar => 'إضافة منتج', #ar-CHECK - Please check and remove this comment
@@ -7424,6 +7441,39 @@ product_js_image_upload_error => {
 	nl => "Fout tijdens het uploaden van de foto",
 	de => "Ein Fehler ist während des Hochladens des Fotos aufgetreten",
 },
+
+product_js_deleting_images => {
+
+	en => "Deleting images",
+ 	fr => "Images en cours de suppression",
+},
+
+product_js_images_deleted => {
+	fr => "Images supprimées",
+	en => "Images deleted",
+},
+
+product_js_images_delete_error => {
+	fr => "Erreur lors de la suppresion des images",
+	en => "Errors while deleting images",
+},
+
+product_js_moving_images => {
+
+	en => "Moving images",
+ 	fr => "Images en cours de déplacement",
+},
+
+product_js_images_moved => {
+	fr => "Images déplacées",
+	en => "Images moved",
+},
+
+product_js_images_move_error => {
+	fr => "Erreur lors du déplacement des images",
+	en => "Errors while moving images",
+},
+
 
 product_js_image_rotate_and_crop => {
 	fr => "Redressez l'image si nécessaire, puis cliquez et glissez pour sélectionner la zone d'intérêt :",
@@ -9641,7 +9691,7 @@ menu_discover => {
     ru => 'Узнайте', #ru-CHECK - Please check and remove this comment
     pl => 'Odkryj', 
     pt => 'Descubra', #pt-CHECK - Please check and remove this comment
-    ro => 'Descopera', #ro-CHECK - Please check and remove this comment
+    ro => 'Descoperiți', #ro-CHECK - Please check and remove this comment
     th => 'ค้นพบ', #th-CHECK - Please check and remove this comment
     vi => 'Khám phá', #vi-CHECK - Please check and remove this comment
     zh => '发现', #zh-CHECK - Please check and remove this comment
@@ -9726,7 +9776,7 @@ footer_tagline => {
     ru => 'Совместной, бесплатно и открыть базу данных продуктов питания со всего мира.', #ru-CHECK - Please check and remove this comment
     pl => 'Wspólna, wolna i otwarta baza produktów spożywczych z całego świata.', 
     pt => 'Um banco de dados colaborativo, livre e aberto de produtos alimentares de todo o mundo.', #pt-CHECK - Please check and remove this comment
-    ro => 'O bază de date de colaborare, liberă și deschisă a produselor alimentare din întreaga lume.', #ro-CHECK - Please check and remove this comment
+    ro => 'O bază de date colaborativă, liberă și deschisă a produselor alimentare din întreaga lume.', #ro-CHECK - Please check and remove this comment
     th => 'การทำงานร่วมกันของฐานข้อมูลฟรีและเปิดของผลิตภัณฑ์อาหารจากทั่วโลก', #th-CHECK - Please check and remove this comment
     vi => 'Một cơ sở dữ liệu hợp tác, tự do và cởi mở của các sản phẩm thực phẩm từ khắp nơi trên thế giới.', #vi-CHECK - Please check and remove this comment
     zh => '食品来自世界各地的协作，自由和开放的数据库。', #zh-CHECK - Please check and remove this comment
@@ -9778,7 +9828,7 @@ footer_terms => {
     ru => 'Условия использования', #ru-CHECK - Please check and remove this comment
     pl => 'Zasady korzystania', 
     pt => 'Termos de uso', #pt-CHECK - Please check and remove this comment
-    ro => 'Termeni de utilizare', #ro-CHECK - Please check and remove this comment
+    ro => 'Condiții de utilizare', #ro-CHECK - Please check and remove this comment
     th => 'ข้อกำหนดการใช้งาน', #th-CHECK - Please check and remove this comment
     vi => 'Điều khoản sử dụng', #vi-CHECK - Please check and remove this comment
     zh => '使用条款', #zh-CHECK - Please check and remove this comment
@@ -9831,7 +9881,7 @@ footer_install_the_app => {
     ru => 'Установить приложение', #ru-CHECK - Please check and remove this comment
     pl => 'Zainstaluj aplikację', 
     pt => 'Instale o aplicativo', #pt-CHECK - Please check and remove this comment
-    ro => 'Instala aplicația', #ro-CHECK - Please check and remove this comment
+    ro => 'Instalați aplicația', #ro-CHECK - Please check and remove this comment
     th => 'ติดตั้ง app', #th-CHECK - Please check and remove this comment
     vi => 'Cài đặt ứng dụng', #vi-CHECK - Please check and remove this comment
     zh => '安装应用程序', #zh-CHECK - Please check and remove this comment
@@ -10055,7 +10105,7 @@ footer_and_the_facebook_group => {
         #ru => 'и группа Facebook для авторов', ru-CHECK - Please check and remove this comment
         #pl => 'i grupa Facebook dla kontrybutorow',
         #pt => 'e do grupo de Facebook para os contribuintes', pt-CHECK - Please check and remove this comment
-        #ro => 'și grupul de Facebook pentru contribuabili', ro-CHECK - Please check and remove this comment
+        ro => 'și <a href="https://www.facebook.com/groups/374350705955208/">grupul de Facebook pentru contribuitori</a>',
         #th => 'และกลุ่ม Facebook สำหรับผู้ร่วมสมทบ', th-CHECK - Please check and remove this comment
         #vi => 'và các nhóm Facebook cho người đóng góp', vi-CHECK - Please check and remove this comment
         #zh => '和Facebook群组贡献者', zh-CHECK - Please check and remove this comment
@@ -10072,6 +10122,12 @@ Suivez nous sur <a href="http://twitter.com/openfoodfactsfr">Twitter</a>,
 <a href="https://www.facebook.com/OpenFoodFacts.fr">Facebook</a> et
 <a href="https://plus.google.com/u/0/b/102622509148794386660/">Google+</a>
 
+HTML
+,
+	ro => <<HTML
+Urmăriți-ne pe <a href="http://twitter.com/openfoodfacts">Twitter</a>,
+<a href="https://www.facebook.com/OpenFoodFacts">Facebook</a> și
+<a href="https://plus.google.com/u/0/110748322211084668559/">Google+</a> 
 HTML
 ,
 },
@@ -10094,7 +10150,7 @@ search_a_product_placeholder => {
     ru => 'Поиск продукта', #ru-CHECK - Please check and remove this comment
     pl => 'Wyszukaj produkt',
     pt => 'Procurar um produto', #pt-CHECK - Please check and remove this comment
-    ro => 'Cautati un produs', #ro-CHECK - Please check and remove this comment
+    ro => 'Căutați un produs', #ro-CHECK - Please check and remove this comment
     th => 'ค้นหาสินค้า', #th-CHECK - Please check and remove this comment
     vi => 'Tìm kiếm một sản phẩm', #vi-CHECK - Please check and remove this comment
     zh => '搜索产品', #zh-CHECK - Please check and remove this comment
@@ -10124,27 +10180,27 @@ search_criteria => {
 },
 
 logo => {
-        #ar => 'openfoodfacts-logo-ar.png', ar-CHECK - Please check and remove this comment
-        #de => 'openfoodfacts-logo-de.png', de-CHECK - Please check and remove this comment
-        #cs => 'openfoodfacts-logo-cs.png', cs-CHECK - Please check and remove this comment
-        #es => 'openfoodfacts-logo-es.png', es-CHECK - Please check and remove this comment
-	en => 'openfoodfacts-logo-en.png',
-        #it => 'openfoodfacts-logo-it.png', it-CHECK - Please check and remove this comment
-        #fi => 'openfoodfacts-logo-fi.png', fi-CHECK - Please check and remove this comment
-	fr => 'openfoodfacts-logo-fr.png',
-        #el => 'openfoodfacts-logo-el.png', el-CHECK - Please check and remove this comment
-        #he => 'openfoodfacts-logo-he.png', he-CHECK - Please check and remove this comment
-        #ja => 'openfoodfacts-logo-ja.png', ja-CHECK - Please check and remove this comment
-        #ko => 'openfoodfacts-logo-ko.png', ko-CHECK - Please check and remove this comment
-        #nl => 'openfoodfacts-logo-nl.png', nl-CHECK - Please check and remove this comment
-        #ru => 'openfoodfacts-logo-ru.png', ru-CHECK - Please check and remove this comment
-        #pl => 'openfoodfacts-logo-pl.png', 
-        #pt => 'openfoodfacts-logo-pt.png', pt-CHECK - Please check and remove this comment
-        #ro => 'openfoodfacts-logo-ro.png', ro-CHECK - Please check and remove this comment
-        #th => 'openfoodfacts-logo-th.png', th-CHECK - Please check and remove this comment
-        #vi => 'openfoodfacts-logo-vi.png', vi-CHECK - Please check and remove this comment
-        #zh => 'openfoodfacts-logo-zh.png', zh-CHECK - Please check and remove this comment
+	en => 'openfoodfacts-logo-en-178x150.png',
+	ar => 'openfoodfacts-logo-ar-178x150.png',	
+	de => 'openfoodfacts-logo-de-178x150.png',
+	es => 'openfoodfacts-logo-es-178x150.png',
+	fr => 'openfoodfacts-logo-fr-178x150.png',
+	he => 'openfoodfacts-logo-he-178x150.png',
+	pt => 'openfoodfacts-logo-pt-178x150.png',
+	vi => 'openfoodfacts-logo-vi-178x150.png',
 },
+
+logo2x => {
+	en => 'openfoodfacts-logo-en-356x300.png',
+	ar => 'openfoodfacts-logo-ar-356x300.png',	
+	de => 'openfoodfacts-logo-de-356x300.png',
+	es => 'openfoodfacts-logo-es-356x300.png',
+	fr => 'openfoodfacts-logo-fr-356x300.png',
+	he => 'openfoodfacts-logo-he-356x300.png',
+	pt => 'openfoodfacts-logo-pt-356x300.png',
+	vi => 'openfoodfacts-logo-vi-356x300.png',
+},
+
 
 search_tools => {
     ar => 'أدوات البحث', #ar-CHECK - Please check and remove this comment
@@ -10168,6 +10224,32 @@ search_tools => {
     vi => 'Công cụ tìm kiếm', #vi-CHECK - Please check and remove this comment
     zh => '搜索工具', #zh-CHECK - Please check and remove this comment
 },
+
+manage_images => {
+	en => 'Manage images',
+	fr => 'Gérer les images',
+},
+
+manage_images_info => {
+	en => 'You can select one or more images and then:',
+	fr => 'Vous pouvez sélectionner une ou plusieurs images et ensuite:',
+},
+
+delete_the_images => {
+	en => 'Delete the images',
+	fr => 'Supprimer les images',
+},
+
+move_images_to_another_product => {
+	en => 'Move the images to another product',
+	fr => 'Déplacer les images sur un autre produit',
+},
+
+copy_data => {
+	en => "Copy data from current product to new product",
+	fr => "Copier les données du produit actuel sur le nouveau",
+},
+
 
 #ENDFRONTPAGE
 
