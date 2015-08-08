@@ -210,7 +210,7 @@ function change_image(imagefield, imgid) {
 	
 			var id = 'crop_' + imagefield + '_button';
 			$('div[id="cropbutton_' + imagefield +'"]').html('<button id="' + id + '" class="small button">' + Lang.image_save + '</button>');
-			$("#" + id).click({imagefield:imagefield,},function(event) {
+			$("#" + id).click({imagefield:imagefield},function(event) {
 				event.stopPropagation();
 				event.preventDefault();
 				var imgid = imagefield_imgid[imagefield];
@@ -363,9 +363,15 @@ function update_display(imagefield) {
 					imgid = image.imgid;
 				}
 				html += '<li id="' + id + '_' + image.imgid + '" class="ui-state-default ui-selectee' + selected + '">';
-				html += '<img src="' + settings.img_path + image.thumb_url +'" /></li>';
+				html += '<img src="' + settings.img_path + image.thumb_url +'" title="'  + image.uploaded + ' - ' + image.uploader + '"/>';
+				
+				if ((id == 'front') && (admin)) {
+					html += '<div class="show_for_manage_images">' + image.uploaded + '<br/>' + image.uploader + '</div>';
+				}
+				
+				html += '</li>';
 			});
-			html += '</ul>';			
+			html += '</ul>';					
 			
 			html += '<div style="clear:both" class="command upload_image_div">';
 			html += '<a href="#" class="button small expand" id="imgsearchbutton_' + id + '"><i class="fi-camera"></i> ' + Lang.upload_image
@@ -388,7 +394,15 @@ function update_display(imagefield) {
 
 			html += '<div class="cropbox" id="cropbox_' + id +'"></div>';
 			html += '<div class="display" id="display_' + id +'"></div>';
-			$this.html(html);			
+			$this.html(html);
+			if ($("#manage_images_drop").hasClass("active")) {
+				$(".show_for_manage_images").show();
+				$("#front .ui-selectable li").css("height","160px");
+			}
+			else {
+				$(".show_for_manage_images").hide();
+				$("#front .ui-selectable li").css("height","120px");
+			}
 			update_display(id);
 			
 
@@ -465,7 +479,13 @@ function update_display(imagefield) {
 			var imagefield = imagefield_imgid[0];
 			var imgid = imagefield_imgid[1];
 			$("input:hidden[name=\"" + imagefield + ".imgid\"]").val(imgid);
-			$(this).addClass("ui-selected").siblings().removeClass("ui-selected");
+			if ((imagefield == 'front') && ($("#manage_images_drop").hasClass("active"))) {
+				$(this).toggleClass("ui-selected");
+			}
+			else {
+				$(this).addClass("ui-selected").siblings().removeClass("ui-selected");
+			}
+			toggle_manage_images_buttons();
 			change_image(imagefield, imgid);
 		});
 		

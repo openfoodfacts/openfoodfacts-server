@@ -37,6 +37,8 @@ BEGIN
 					&process_search_image_form
 					
 					&process_image_upload 
+					&process_image_move
+					
 					&process_image_crop
 					
 					&scan_code
@@ -117,8 +119,12 @@ sub display_select_crop_init($) {
 	
 	for (my $imgid = 1; $imgid <= ($object_ref->{max_imgid} + 5); $imgid++) {
 		if (defined $object_ref->{images}{$imgid}) {
+			my $admin_fields = '';
+			if ($admin) {
+				$admin_fields = ", uploader: '" . $object_ref->{images}{$imgid}{uploader} . "', uploaded: '" . display_date($object_ref->{images}{$imgid}{uploaded_t}) . "'";
+			}
 			$images .= <<JS
-{imgid: "$imgid", thumb_url: "$imgid.$thumb_size.jpg", crop_url: "$imgid.$crop_size.jpg", display_url: "$imgid.$display_size.jpg"},
+{imgid: "$imgid", thumb_url: "$imgid.$thumb_size.jpg", crop_url: "$imgid.$crop_size.jpg", display_url: "$imgid.$display_size.jpg" $admin_fields},
 JS
 ;
 		}
@@ -201,18 +207,6 @@ sub scan_code($) {
 }
 
 
-sub display_search_image_form_older() {
-
-	my $html = '';
-	
-	$html .= <<HTML
-<label for="imgsearch">Image du produit avec code barre :</label>
-<input type="file" accept="image/*" capture="camera" class="img_input button small" size="10" name="imgsearch" id="imgsearch" onchange="javascript:this.form.submit();" />				
-HTML
-;
-	
-	return $html;
-}
 
 
 sub display_search_image_form($) {
@@ -326,116 +320,6 @@ JS
 	return $html;
 }
 
-sub display_search_image_form_old() {
-
-	my $html = '';
-	
-	$html .= <<HTML
-<div id="imgsearchdiv" class="small_buttons">
-<label for="imgupload_search">$Lang{product_image_with_barcode}{$lang}</label>
-<span class="btn btn-success fileinput-button" id="imgsearchbutton">
-<span>$Lang{send_image}{$lang}</span>
-<input type="file" accept="image/*" capture="camera" class="img_input" name="imgupload_search" id="imgupload_search" />
-</span>
-</div>
-<br />
-
-
-<div id="progressbar" class="progress" style="display:none;height:12px;"></div>
-<div id="imgsearchmsg" class="ui-state-highlight " style="display:none">$Lang{sending_image}{$lang}</div>
-<div id="imgsearcherror" class="ui-state-error " style="display:none">$Lang{send_image_error}{$lang}</div>
-
-HTML
-;
-
-	if ($domain eq 'test.openfoodfacts.org') {
-		$html .= <<HTML
-<div id="imgsearchdebug"></div>		
-HTML
-;
-	}
-
-	$scripts .= <<JS
-<script src="/js/jquery.iframe-transport.js"></script>
-<script src="/js/jquery.fileupload.js"></script>	
-<script src="/js/load-image.min.js"></script>
-<script src="/js/canvas-to-blob.min.js"></script>
-<script src="/js/jquery.fileupload-ip.js"></script>
-JS
-;
-
-	$initjs .= <<JS
-	
-	\$('.fileinput-button').each(function () {
-                    var input = \$(this).find('input:file').detach();
-                    \$(this)
-                        .button()
-                        .append(input);
-                });
-	
-	
-    \$('#imgupload_search').fileupload({
-        dataType: 'json',
-        url: '/cgi/product.pl',
-		formData : [{name: 'jqueryfileupload', value: 1}],
-		resizeMaxWidth : 2000,
-		resizeMaxHeight : 2000,
-        done: function (e, data) {
-			if (data.result.location) {
-				\$(location).attr('href',data.result.location);
-			}
-			if (data.result.error) {
-				\$("#imgsearcherror").html(data.result.error);
-				\$("#imgsearcherror").show();
-			}
-        },
-		fail : function (e, data) {
-			\$("#imgsearcherror").show();
-        },
-		always : function (e, data) {
-			\$("#progressbar").hide();
-			\$("#imgsearchbutton").show();
-			\$("#imgsearchmsg").hide();
-        },
-		start: function (e, data) {
-			\$("#imgsearchbutton").hide();
-			\$("#imgsearcherror").hide();
-			\$("#imgsearchmsg").show();
-			\$("#progressbar").progressbar({value : 0 }).show();
-                    
-		},
-            sent: function (e, data) {
-                if (data.dataType &&
-                        data.dataType.substr(0, 6) === 'iframe') {
-                    // Iframe Transport does not support progress events.
-                    // In lack of an indeterminate progress bar, we set
-                    // the progress to 100%, showing the full animated bar:
-                    \$("#progressbar").progressbar(
-                            'option',
-                            'value',
-                            100
-                        );
-                }
-            },
-            progress: function (e, data) {
-
-                    \$("#progressbar").progressbar(
-                        'option',
-                        'value',
-                        parseInt(data.loaded / data.total * 100, 10)
-                    );
-					\$("#imgsearchdebug").html(data.loaded + ' / ' + data.total);
-                
-            }
-		
-    });	
-JS
-;
-	
-	return $html;
-}
-
-
 
 
 
@@ -470,10 +354,14 @@ sub process_search_image_form($) {
 }
 
 
-sub process_image_upload($$) {
+sub process_image_upload($$$$$) {
 
 	my $code = shift;
 	my $imagefield = shift;
+	my $userid = shift; 
+	my $time = shift; # usually current time (images just uploaded), except for images moved from another product
+	my $comment = shift;
+	
 	my $path = product_path($code);
 	my $imgid = -1;
 	
@@ -499,7 +387,7 @@ sub process_image_upload($$) {
 
 	if ($file) {
 	
-		print STDERR "Images.pm - process_image_upload - imagefield: $imagefield - file: $file\n";
+		print STDERR "Images.pm - process_image_upload - imagefield: $imagefield - file: $file - uploader: $userid - time: $time\n";
 
 	
 		if ($file !~ /\.(gif|jpeg|jpg|png)$/i) {
@@ -566,12 +454,12 @@ sub process_image_upload($$) {
 			
 			("$x") and print STDERR "Images::generate_image - cannot read $www_root/images/products/$path/$imgid.$extension $x\n";
 
-			#Check the image is big enough so that we do not get thumbnails from other sites
-			#if (($source->Get('width') < 640) and ($source->Get('height') < 640)) {
-			#	unlink "$www_root/images/products/$path/$imgid.$extension";
-			#	rmdir ("$www_root/images/products/$path/$imgid.lock");
-			#	return -4;
-			#}
+			# Check the image is big enough so that we do not get thumbnails from other sites
+			if (($source->Get('width') < 640) and ($source->Get('height') < 160)) {
+				unlink "$www_root/images/products/$path/$imgid.$extension";
+				rmdir ("$www_root/images/products/$path/$imgid.lock");
+				return -4;
+			}
 			
 			$new_product_ref->{"images.$imgid.w"} = $source->Get('width');
 			$new_product_ref->{"images.$imgid.h"} = $source->Get('height');
@@ -614,11 +502,14 @@ sub process_image_upload($$) {
 
 			if (not "$x") {
 			
+			
 			# Update the product image data
 			my $product_ref = retrieve_product($code);
 			defined $product_ref->{images} or $product_ref->{images} = {};
 			$product_ref->{images}{$imgid} = {
-				sizes => {
+				uploader => $userid,
+				uploaded_t => $time,			
+				sizes => {				
 					full => {w => $new_product_ref->{"images.$imgid.w"}, h => $new_product_ref->{"images.$imgid.h"}},
 				},
 			};
@@ -632,7 +523,11 @@ sub process_image_upload($$) {
 			if ($imgid > $product_ref->{max_imgid}) {
 				$product_ref->{max_imgid} = $imgid;
 			}
-			store_product($product_ref, "new image $imgid");
+			my $store_comment = "new image $imgid";
+			if ((defined $comment) and ($comment ne '')) {
+				$store_comment .= ' - ' . $comment;
+			}
+			store_product($product_ref, $store_comment);
 			
 			}
 			else {
@@ -651,6 +546,68 @@ sub process_image_upload($$) {
 	return $imgid;
 }
 
+
+
+sub process_image_move($$$$) {
+
+	my $code = shift;
+	my $imgids = shift;
+	my $move_to = shift;
+	my $userid = shift;
+
+	my $path = product_path($code);
+	
+	my $product_ref = retrieve_product($code);
+	defined $product_ref->{images} or $product_ref->{images} = {};
+	
+	# move images only to trash or another valid barcode (number)
+	if (($move_to ne 'trash') and ($move_to !~ /^\d+$/)) {
+		return "invalid barcode number: $move_to";
+	}
+	
+	# iterate on each images
+	
+	
+	foreach my $imgid (split(/,/, $imgids)) {
+	
+		next if ($imgid !~ /^\d+$/);
+	
+		# check the imgid exists
+		if (defined $product_ref->{images}{$imgid}) {
+		
+			my $ok = 1;
+	
+			if ($move_to =~ /^\d+$/) {
+				$ok = process_image_upload($move_to, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code by $userid -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}");
+				print STDERR "Images.pm - products_image_move - moving $www_root/images/products/$path/$imgid.jpg to $code by $userid - result: $ok (negative: error)\n";
+			}
+			
+			# Don't delete images to be moved if they weren't moved correctly
+			if ($ok) {
+				# Delete images (move them to the deleted.images dir
+				
+				-e "$data_root/deleted.images" or mkdir("$data_root/deleted.images", 0755);
+				
+				use File::Copy;
+				
+				print STDERR "Images.pm - products_image_move - deleting  $www_root/images/products/$path/$imgid.jpg --> $data_root/deleted.images/product.$code.$imgid.jpg\n";
+				
+				move("$www_root/images/products/$path/$imgid.jpg", "$data_root/deleted.images/product.$code.$imgid.jpg");
+				move("$www_root/images/products/$path/$imgid.$thumb_size.jpg", "$data_root/deleted.images/product.$code.$imgid.$thumb_size.jpg");
+				move("$www_root/images/products/$path/$imgid.$crop_size.jpg", "$data_root/deleted.images/product.$code.$imgid.$crop_size.jpg");
+				
+				delete $product_ref->{images}{$imgid};				
+			
+			}
+		
+		}
+	
+	}
+	
+	store_product($product_ref, "Moved images $imgids to $move_to");
+	
+	return 0;
+}
 
 
 sub process_image_crop($$$$$$$$$$) {
@@ -904,6 +861,7 @@ sub process_image_crop($$$$$$$$$$) {
 			print STDERR "Index::download_image - wrote jpeg:$www_root/images/products/$path/$filename.$max.jpg\n";		
 		}
 		
+		# temporary fields
 		$new_product_ref->{"images.$id.$max"} = "$filename.$max";
 		$new_product_ref->{"images.$id.$max.w"} = $img->Get('width');
 		$new_product_ref->{"images.$id.$max.h"} = $img->Get('height');
@@ -954,7 +912,7 @@ sub display_image_thumb($$) {
 
 			
 		$html .= <<HTML
-<img src="/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="/images/products/$path/$id.$rev.$small_size.jpg 2x"alt="$alt" />
+<img src="/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" />
 HTML
 ;		
 	
@@ -968,7 +926,7 @@ sub display_image($$$) {
 
 	my $product_ref = shift;
 	my $id = shift;
-	my $size = shift;
+	my $size = shift;  # currently = $small_size , 200px
 	
 	my $html = '';
 	
@@ -981,9 +939,24 @@ sub display_image($$$) {
 
 		if (not defined $product_ref->{jqm}) {
 		
+			# add srcset with 2x image only if the 2x image exists
+			my $srcset = '';
+			if (defined $product_ref->{images}{$id}{sizes}{$display_size}) {
+				$srcset = "srcset=\"/images/products/$path/$id.$rev.$display_size.jpg 2x\"";
+			}
+			
 			$html .= <<HTML
-<img class="hide-for-xlarge-up" src="/images/products/$path/$id.$rev.$size.jpg" width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" />
-<img class="show-for-xlarge-up" src="/images/products/$path/$id.$rev.$display_size.jpg" width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" />
+<img class="hide-for-xlarge-up" src="/images/products/$path/$id.$rev.$size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" />
+HTML
+;
+
+			$srcset = '';
+			if (defined $product_ref->{images}{$id}{sizes}{$zoom_size}) {
+				$srcset = "srcset=\"/images/products/$path/$id.$rev.$zoom_size.jpg 2x\"";
+			}
+
+			$html .= <<HTML
+<img class="show-for-xlarge-up" src="/images/products/$path/$id.$rev.$display_size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" />
 HTML
 ;
 				

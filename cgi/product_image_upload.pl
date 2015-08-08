@@ -85,13 +85,13 @@ if ($imagefield) {
 			$product_ref = init_product($code);
 			$product_ref->{interface_version_created} = $interface_version;
 			$product_ref->{lc} = $lc;
-			store_product($product_ref, "Création du produit (envoi d'une image)");
+			store_product($product_ref, "Creating product (image upload)");
 		}
 		else {
 			print STDERR "product_image_upload.pl - product code $code already exists\n";
 		}
 	
-		my $imgid = process_image_upload($code, $imagefield);
+		my $imgid = process_image_upload($code, $imagefield, $User_id, time(), "image upload");
 		
 		my $data;
 
@@ -106,13 +106,23 @@ if ($imagefield) {
 			$data =  encode_json(\%response);	
 		}
 		else {
+		
+			my $image_data_ref = {
+				imgid=>$imgid,
+				thumb_url=>"$imgid.${thumb_size}.jpg",
+				crop_url=>"$imgid.${crop_size}.jpg",
+			};
+			
+			
+			if ($admin) {
+				$product_ref = retrieve_product($code);
+				$image_data_ref->{uploader} = $product_ref->{images}{$imgid}{uploader};
+				$image_data_ref->{uploaded} = $product_ref->{images}{$imgid}{uploaded_t};
+			}
+		
 			$data =  encode_json({ status => 'status ok',
-					image => {
-							imgid=>$imgid,
-							thumb_url=>"$imgid.${thumb_size}.jpg",
-							crop_url=>"$imgid.${crop_size}.jpg",
-					},
-					imagefield=>$imagefield,
+					image => $image_data_ref,
+					imagefield => $imagefield,
 			});
 			
 			# If we don't have a picture for the imagefield yet, assign it
