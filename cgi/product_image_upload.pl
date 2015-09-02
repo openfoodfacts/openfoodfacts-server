@@ -23,7 +23,7 @@ use JSON;
 
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
-my $code = param('code');
+my $code = normalize_code(param('code'));
 my $imagefield = param('imagefield');
 my $delete = param('delete');
 

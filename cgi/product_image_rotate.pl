@@ -14,7 +14,7 @@ use CGI qw/:cgi :form escapeHTML/;
 
 my $debug = 1;
 
-my $code = param('code');
+my $code = normalize_code(param('code'));
 my $path = product_path($code);
 my $imgid = param('imgid');
 my $angle = param('angle');

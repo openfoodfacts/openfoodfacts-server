@@ -39,11 +39,9 @@ my $interface_version = '20150316.jqm2';
 
 my %response = ();
 
-my $code = param('code');
+my $code = normalize_code(param('code'));
 
 $debug and print STDERR "product_jqm2.pl - code $code - lc $lc\n";
-
-$code =~ s/\D//g; # Keep only digits, remove spaces, dashes and everything else
 
 if ($code !~ /^\d+$/) {
 

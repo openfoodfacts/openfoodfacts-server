@@ -27,7 +27,7 @@ $debug = 1;
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
 
-my $code = param('code');
+my $code = normalize_code(param('code'));
 my $imgid = param('imgid');
 my $angle = param('angle');
 my $id = param('id');
