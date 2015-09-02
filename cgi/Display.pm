@@ -358,14 +358,20 @@ sub analyze_request($)
 		$request_ref->{canon_rel_url} = "/" . $components[0];
 	}	
 	# Product?
-	elsif ($components[0] eq $tag_type_singular{products}{$lc}) {
-		$request_ref->{product} = 1;
-		$request_ref->{code} = $components[1];
-		if (defined $components[2]) {
-			$request_ref->{titleid} = $components[2];
+	elsif (($components[0] eq $tag_type_singular{products}{$lc}) ) {
+		# check the product code looks like a number
+		if ($components[1] =~ /^\d/) {
+			$request_ref->{product} = 1;
+			$request_ref->{code} = $components[1];
+			if (defined $components[2]) {
+				$request_ref->{titleid} = $components[2];
+			}
+			else {
+				$request_ref->{titleid} = '';
+			}
 		}
 		else {
-			$request_ref->{titleid} = '';
+			display_error(lang("error_invalid_address"));
 		}
 	}
 	
@@ -409,7 +415,7 @@ sub analyze_request($)
 			$canon_rel_url_suffix .= "/" . $components[1];
 			pop @components;
 			pop @components;
-			print STDERR "Display::analyze_request - list of tags - groupby: $request_ref->{groupby_tagtype} - stats nid: $request_ref->{stats_nid}\n";	
+			print STDERR "Display::analyze_request - list of tags - categories with nutrients - groupby: $request_ref->{groupby_tagtype} - stats nid: $request_ref->{stats_nid}\n";	
 		}
 		
 		if (defined $tag_type_from_plural{$lc}{$components[$#components]}) {
@@ -419,7 +425,9 @@ sub analyze_request($)
 			print STDERR "Display::analyze_request - list of tags - groupby: $request_ref->{groupby_tagtype}\n";
 		}	
 	
-		if (defined $tag_type_from_singular{$lc}{$components[0]}) {
+		if ((defined $tag_type_from_singular{$lc}{$components[0]}) and ($#components >= 0)) {
+		
+			print STDERR "Display::analyze_request - tag_type_from_singular $lc : $components[0]\n";
 		
 			$request_ref->{tagtype} = $tag_type_from_singular{$lc}{shift @components};
 			my $tagtype = $request_ref->{tagtype};
@@ -681,6 +689,9 @@ sub display_text($)
 	else {
 		$html .= search_and_display_products( $request_ref, {}, "last_modified_t_complete_first", undef, undef);
 	}
+	
+	# wikipedia style links [url text] not supported, just display the text
+	$html =~ s/\[(\S*?) ([^\]]+)\]/$2/eg;
 	
 	$html =~ s/\[\[(.*?)\]\]/replace_file($1)/eg;
 	
@@ -1599,6 +1610,9 @@ sub display_tag($) {
 			
 		}
 	}
+	else {
+		print STDERR "display_tag - no tagid\n";
+	}
 	
 	# 2nd tag?
 	if (defined $tagid2) {
@@ -1879,7 +1893,7 @@ HTML
 		$query_ref->{ ($tagtype . "_tags")} = $canon_tagid;
 		$sort_by = 'last_modified_t';		
 	}
-	else {
+	elsif (defined $tagid) {
 		$query_ref->{ ($tagtype . "_tags")} = $tagid;
 		$sort_by = 'last_modified_t';
 	}
@@ -3616,7 +3630,7 @@ JS
 				$origins = $manufacturing_places . $origins;
 					
 				$data_start .= ' product_name:"' . escape_single_quote($product_ref->{product_name}) . '", brands:"' . escape_single_quote($product_ref->{brands}) . '", url: "' . $url . '", img:\''
-					. escape_single_quote(($product_ref, 'front', $thumb_size)) . "', origins:\'" . $origins . "'";	
+					. escape_single_quote(display_image_thumb($product_ref, 'front')) . "', origins:\'" . $origins . "'";	
 				
 
 				
@@ -5065,8 +5079,9 @@ sub display_product($)
 {
 	my $request_ref = shift;
 
-	my $code = $request_ref->{code};
-	
+	my $request_code = $request_ref->{code};
+	my $code = normalize_code($request_code);
+
 	my $html = '';
 	my $blocks_ref = [];
 	my $title = undef;
@@ -5108,7 +5123,7 @@ CSS
 	
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 	
-	$debug and print STDERR "display_product - code: $code\n";
+	$debug and print STDERR "display_product - request_code: $request_code - code: $code\n";
 	
 	$title = $code;
 	
@@ -5139,8 +5154,14 @@ CSS
 	
 	$request_ref->{canon_url} = product_url($product_ref);
 	
-	# Check that the titleid is the right one
+	# Old UPC-12 in url? Redirect to EAN-13 url
+	if ($request_code ne $code) {
+		$request_ref->{redirect} = $request_ref->{canon_url};
+		print STDERR "Display.pm display_product - redirect - lc: $lc - request_code: $request_code -> code: $code\n";
+		return 301;
+	}
 	
+	# Check that the titleid is the right one
 	
 	# if (((defined $product_ref->{lc}) and ($lc ne $product_ref->{lc})) or ((defined $request_ref->{titleid}) and ($request_ref->{titleid} ne '') and ($request_ref->{titleid} ne $titleid) and (not defined $rev))) {
 	if (((defined $request_ref->{titleid}) and ($request_ref->{titleid} ne '') and ($request_ref->{titleid} ne $titleid) and (not defined $rev))) {
@@ -5194,7 +5215,15 @@ HTML
 	if ($code =~ /^2000/) { # internal code
 	}
 	else {
-		$html .= "<p>" . lang("barcode") . " : <span property=\"food:code\" itemprop=\"gtin13\">$code</span></p>
+		# Also display UPC code if the EAN starts with 0
+		my $html_upc = "";
+		if (length($code) == 13) {
+			$html_upc .= "(EAN / EAN-13)";
+			if ($code =~ /^0/) {
+				$html_upc .= " " . $' . " (UPC / UPC-A)";
+			}
+		}
+		$html .= "<p>" . lang("barcode") . " : <span property=\"food:code\" itemprop=\"gtin13\">$code</span> $html_upc</p>
 <div property=\"gr:hasEAN_UCC-13\" content=\"$code\" datatype=\"xsd:string\"></div>\n";
 	}
 	
@@ -5458,7 +5487,8 @@ sub display_product_jqm ($) # jquerymobile
 {
 	my $request_ref = shift;
 
-	my $code = $request_ref->{code};
+	my $code = normalize_code($request_ref->{code});
+	
 	
 	my $html = '';
 	my $title = undef;
@@ -6174,6 +6204,11 @@ HTML
 				my $comparison_ref = $comparisons_ref->[$1];
 
 				my $value = sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit)) + 0.0;
+				# too small values are converted to e notation: 7.18e-05
+				if (($value . ' ') =~ /e/) {
+					# use %f (outputs extras 0 in the general case)
+					$value = sprintf("%f", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit));
+				}
 				
 				my $value_unit = "$value $unit";
 				if ((not defined $comparison_ref->{nutriments}{$nid . "_100g"}) or ($comparison_ref->{nutriments}{$nid . "_100g"} eq '')) {
@@ -6217,7 +6252,12 @@ HTML
 			}
 			else {
 
-				my $value = g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit);
+				my $value = sprintf("%.2e", g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit)) + 0.0;
+				# too small values are converted to e notation: 7.18e-05
+				if (($value . ' ') =~ /e/) {
+					# use %f (outputs extras 0 in the general case)
+					$value = sprintf("%f", g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit));
+				}
 				
 				my $value_unit = "$value $unit";
 				
@@ -6328,7 +6368,7 @@ sub display_api($)
 {
 	my $request_ref = shift;
 
-	my $code = $request_ref->{code};
+	my $code = normalize_code($request_ref->{code});
 	
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 	
