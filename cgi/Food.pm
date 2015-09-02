@@ -253,6 +253,8 @@ taurine-
 ph-
 fruits-vegetables-nuts-
 collagen-meat-protein-ratio-
+cocoa-
+chlorophyl-
 carbon-footprint
 nutrition-score-fr-
 nutrition-score-uk-
@@ -353,6 +355,8 @@ taurine-
 ph-
 fruits-vegetables-nuts-
 collagen-meat-protein-ratio-
+cocoa-
+chlorophyl-
 carbon-footprint
 nutrition-score-fr-
 nutrition-score-uk-
@@ -454,6 +458,8 @@ taurine-
 ph-
 fruits-vegetables-nuts-
 collagen-meat-protein-ratio-
+cocoa-
+chlorophyl-
 carbon-footprint
 nutrition-score-fr-
 nutrition-score-uk-
@@ -483,6 +489,7 @@ alcohol	=> {
 	el => "Αλκοόλη",
 	fi => "Alkoholi",
 	nl => "Alcohol",
+	nl_be => "Alcohol",
 	sv => "Alkohol",
 	lv => "spirts",
 	cs => "Alkohol",
@@ -511,6 +518,7 @@ energy	=> {
 	el => "Ενέργεια",
 	fi => "Energiav",
 	nl => "Energie",
+	nl_be => "Energie",
 	sv => "Energi",
 	lv => "Enerģētiskā vērtība",
 	cs => "Energetická hodnota",
@@ -528,7 +536,7 @@ energy	=> {
 	
 	unit => 'kj',
 	unit_us => 'kcal',
-	unit_ca => 'kcal',
+	unit_ca => 'kcal',	
 },
 "energy-from-fat"	=> {
 	fr => "Énergie provenant des graisses",
@@ -552,6 +560,7 @@ proteins => {
 	el => "Πρωτεΐνες",
 	fi => "Proteiini",
 	nl => "Eiwitten",
+	nl_be => "Eiwitten",
 	sv => "Protein",
 	lv => "Olbaltumvielas",
 	cs => "Bílkoviny",
@@ -568,16 +577,65 @@ proteins => {
 	ja => "たんぱく質",       
 },
 casein => {
-	fr => 'Caséine',
-	en => 'Casein',
-	zh => '酪蛋白',
-	nl => 'Caseïne',
-	el => "Καζεΐνη",
+pl => 'Kazeina',
+eu => 'Kaseina',
+he => 'קזאין',
+fr => 'Caséine',
+ko => '카세인',
+es => 'Caseína',
+it => 'Caseina',
+de => 'Casein',
+ja => 'カゼイン',
+nl => 'Caseïne',
+nl_be => 'Caseïne',
+sv => 'Kasein',
+ar => 'كازين',
+pt => 'Caseína',
+ru => 'Казеин',
+hy => 'Կազեին',
+sr_el => 'Kazein',
+sr_ec => 'Казеин',
+en => 'casein',
+tr => 'Kazein',
+ro => 'Cazeină',
+ca => 'Caseïna',
+fi => 'Kaseiini',
+uk => 'Казеїн',
+cy => 'Casein',
+sl => 'Kazein',
+nn => 'Kasein',
+cs => 'Kasein',
+io => 'Kazeino',
+fa => 'کازئین',
+da => 'Kasein',
+kk_arab => 'كازەىين',
+kk_cn => 'كازەىين',
+kk_tr => 'Kazeïn',
+kk_kz => 'Казеин',
+kk_cyrl => 'Казеин',
+kk_latn => 'Kazeïn',
+kk => 'Казеин',
+sr => 'казеин',
+eo => 'Kazeino',
+gl => 'Caseína',
+be => 'Казеін',
+nb => 'Kasein',
+hu => 'Kazein',
+sco => 'casein',
+zh => '酪蛋白',
+bg => 'Казеин',
+id => 'Kasein',
+ga => 'Cáiséin',
+sh => 'Kazein',
+scn => 'Caseina',
+gsw => 'Casein',
 },
+
 nucleotides => {
 	fr => 'Nucléotides',
 	en => 'Nucleotides',
 	nl => 'Nucleotiden',
+	nl_be => 'Nucleotiden',
 	el => "Νουκλεοτίδια",
 
 },
@@ -585,6 +643,7 @@ nucleotides => {
 	fr => "Protéines sériques",
 	en => "Serum proteins",
 	nl => 'Plasmaproteïnen',
+	nl_be => 'Plasmaproteïnen',
 	el => "Πρωτεΐνες ορού",
 },
 carbohydrates => {
@@ -602,6 +661,7 @@ carbohydrates => {
 	el => "Υδατάνθρακες",
 	fi => "Hiilihydraatti",
 	nl => "Koolhydraten",
+	nl_be => "Koolhydraten",
 	sv => "Kolhydrat",
 	lv => "Ogļhidrāti",
 	cs => "Sacharidy",
@@ -632,6 +692,7 @@ sugars => {
 	el => "Σάκχαρα",
 	fi => "Sokerit",
 	nl => "Suikers",
+	nl_be => "Suikers",
 	sv => "Sockerarter",
 	lv => "Cukuri",
 	cs => "Cukryv",
@@ -655,6 +716,7 @@ sucrose => {
 	he => 'סוכרוז',
 	de => 'Saccharose',
 	nl => 'Sucrose',
+	nl_be => 'Sucrose',
 },
 glucose => {
 	fr => 'Glucose',
@@ -665,6 +727,7 @@ glucose => {
 	he => 'גלוקוז',
 	de => 'Traubenzucker',
 	nl => 'Glucose',
+	nl_be => 'Glucose',
 },
 fructose => {
 	fr => 'Fructose',
@@ -675,6 +738,7 @@ fructose => {
 	he => 'פרוקטוז',
 	de => 'Fruchtzucker',
 	nl => 'Fructose',
+	nl_be => 'Fructose',
 
 },
 lactose => {
@@ -684,8 +748,9 @@ lactose => {
 	es => 'Lactosa',
 	el => "Λακτόζη",
 	he => 'לקטוז',
-	de => 'Milchzucker',
+	de => 'Laktose',
 	nl => 'Lactose',
+	nl_be => 'Lactose',
 
 },
 maltose => {
@@ -697,6 +762,7 @@ maltose => {
 	he => 'מלטוז',
 	de => 'Malzzucker',
 	nl => 'Maltose',
+	nl_be => 'Maltose',
 
 },
 maltodextrins => {
@@ -707,6 +773,7 @@ maltodextrins => {
 	el => "Μαλτοδεξτρίνες",
 	he => 'מלטודקסטרינים',
 	nl => 'Maltodextrine',
+	nl_be => 'Maltodextrine',
 },
 starch => {
 	fr => "Amidon",
@@ -721,6 +788,7 @@ starch => {
 	el => "Άμυλο",
 	fi => "Tärkkelys",
 	nl => "Zetmeel",
+	nl_be => "Zetmeel",
 	sv => "Stärkelse",
 	lv => "Ciete",
 	cs => "Škrob",
@@ -747,6 +815,7 @@ polyols => {
 	el => "Πολυόλες",
 	fi => "Polyolit",
 	nl => "Polyolen",
+	nl_be => "Polyolen",
 	sv => "Polyoler",
 	lv => "Polioli",
 	cs => "Polyalkoholy",
@@ -776,6 +845,7 @@ fat => {
 	el => "Λιπαρά",
 	fi => "Rasva",
 	nl => "Vetten",
+	nl_be => "Vetten",
 	sv => "Fett",
 	lv => "Tauki",
 	cs => "Tuky",
@@ -805,6 +875,7 @@ fat => {
 	es => "Ácidos grasos saturados",
 	fi => "Tyydyttyneet rasvat",
 	nl => "Verzadigde vetzuren",
+	nl_be => "Verzadigde vetzuren",
 	sv => "Mättat fett",
 	lv => "Piesātinātās taukskābes",
 	cs => "Nasycené mastné kyseliny",
@@ -827,6 +898,7 @@ fat => {
 	fr => 'Acide butyrique (4:0)',
 	he => 'חומצה בוטירית (4:0)',
 	nl => 'Boterzuur (4:0)',
+	nl_be => 'Boterzuur (4:0)',
 },
 'caproic-acid' => {
 	en => 'Caproic acid (6:0)',
@@ -836,6 +908,7 @@ fat => {
 	fr => 'Acide caproïque (6:0)',
 	he => 'חומצה קפרואית (6:0)',
 	nl => 'Capronzuur (6:0)',
+	nl_be => 'Capronzuur (6:0)',
 },
 'caprylic-acid' => {
 	en => 'Caprylic acid (8:0)',
@@ -845,6 +918,7 @@ fat => {
 	fr => 'Acide caproïque (8:0)',
 	he => 'חומצה קפרילית (8:0)',
 	nl => 'Octaanzuur (8:0)',
+	nl_be => 'Octaanzuur (8:0)',
 },
 'capric-acid' => {
 	en => 'Capric acid (10:0)',
@@ -854,6 +928,7 @@ fat => {
 	fr => 'Acide caprique (10:0)',
 	he => 'חומצה קפרית (10:0)',
 	nl => 'Decaanzuur (10:0)',
+	nl_be => 'Decaanzuur (10:0)',
 },
 'lauric-acid' => {
 	en => 'Lauric acid (12:0)',
@@ -863,6 +938,7 @@ fat => {
 	fr => 'Acide laurique (12:0)',
 	he => 'חומצה לאורית (12:0)',
 	nl => 'Laurinezuur (12:0)',
+	nl_be => 'Laurinezuur (12:0)',
 },
 'myristic-acid' => {
 	en => 'Myristic acid (14:0)',
@@ -881,6 +957,7 @@ fat => {
 	fr => 'Acide palmitique (16:0)',
 	he => 'חומצה פלמיטית (16:0)',
 	nl => 'Palmitinezuur (16:0)',
+	nl_be => 'Palmitinezuur (16:0)',
 },
 'stearic-acid' => {
 	en => 'Stearic acid (18:0)',
@@ -890,6 +967,7 @@ fat => {
 	fr => 'Acide stéarique (18:0)',
 	he => 'חומצה סטארית (18:0)',
 	nl => 'Stearinezuur (18:0)',
+	nl_be => 'Stearinezuur (18:0)',
 },
 'arachidic-acid' => {
 	en => 'Arachidic acid (20:0)',
@@ -898,6 +976,7 @@ fat => {
 	pt => 'Ácido araquídico (20:0)',
 	fr => 'Acide arachidique / acide eicosanoïque (20:0)',
 	nl => 'Arachidinezuur (20:0)',
+	nl_be => 'Arachidinezuur (20:0)',
 },
 'behenic-acid' => {
 	en => 'Behenic acid (22:0)',
@@ -907,6 +986,7 @@ fat => {
 	fr => 'Acide béhénique (22:0)',
 	he => 'חומצה בהנית (22:0)',
 	nl => 'Beheenzuur (22:0)',
+	nl_be => 'Beheenzuur (22:0)',
 },
 'lignoceric-acid' => {
 	en => 'Lignoceric acid (24:0)',
@@ -915,6 +995,7 @@ fat => {
 	pt => 'Ácido lignocérico (24:0)',
 	fr => 'Acide lignocérique (24:0)',
 	nl => 'Lignocerinezuur (24:0)',
+	nl_be => 'Lignocerinezuur (24:0)',
 },
 'cerotic-acid' => {
 	en => 'Cerotic acid (26:0)',
@@ -923,6 +1004,7 @@ fat => {
 	pt => 'Ácido cerótico (26:0)',
 	fr => 'Acide cérotique (26:0)',
 	nl => 'Cerotinezuur (26:0)',
+	nl_be => 'Cerotinezuur (26:0)',
 },
 'montanic-acid' => {
 	en => 'Montanic acid (28:0)',
@@ -931,6 +1013,7 @@ fat => {
 	pt => 'Ácido montânico (28:0)',
 	fr => 'Acide montanique (28:0)',
 	nl => 'Montaanzuur (28:0)',
+	nl_be => 'Montaanzuur (28:0)',
 },
 'melissic-acid' => {
 	en => 'Melissic acid (30:0)',
@@ -939,6 +1022,7 @@ fat => {
 	pt => 'Ácido melíssico (30:0)',
 	fr => 'Acide mélissique (30:0)',
 	nl => 'Melissinezuur (30:0)',
+	nl_be => 'Melissinezuur (30:0)',
 },
 'monounsaturated-fat' => {
 	fr => "Acides gras monoinsaturés",
@@ -954,6 +1038,7 @@ fat => {
 	el => "Μονοακόρεστα λιπαρά",
 	fi => "Kertatyydyttymättömät rasvat",
 	nl => "Enkelvoudig onverzadigde vetzuren",
+	nl_be => "Enkelvoudig onverzadigde vetzuren",
 	sv => "Enkelomättat fett",
 	lv => "Mononepiesātinātās taukskābes",
 	cs => "Mononenasycené mastné kyseliny",
@@ -978,6 +1063,7 @@ fat => {
 	de => "Omega-9-Fettsäuren",
 	he => "אומגה 9",
 	nl => "Omega 9 vetzuren",
+	nl_be => "Omega 9 vetzuren",
 },
 'oleic-acid' => {
 	en => 'Oleic acid (18:1 n-9)',
@@ -987,6 +1073,7 @@ fat => {
 	fr => 'Acide oléique (18:1 n-9)',
 	he => 'חומצה אולאית',
 	nl => 'Oliezuur (18:1 n-9)',
+	nl_be => 'Oliezuur (18:1 n-9)',
 },
 'elaidic-acid' => {
 	en => 'Elaidic acid (18:1 n-9)',
@@ -995,6 +1082,7 @@ fat => {
 	pt => 'Ácido elaídico (18:1 n-9)',
 	fr => 'Acide élaïdique (18:1 n-9)',
 	nl => 'Elaïdinezuur (18:1 n-9)',
+	nl_be => 'Elaïdinezuur (18:1 n-9)',
 },
 'gondoic-acid' => {
 	en => 'Gondoic acid (20:1 n-9)',
@@ -1003,6 +1091,7 @@ fat => {
 	pt => 'Ácido gondoico (20:1 n-9)',
 	fr => 'Acide gadoléique (20:1 n-9)',
 	nl => 'Eicoseenzuur (20:1 n-9)',
+	nl_be => 'Eicoseenzuur (20:1 n-9)',
 },
 'mead-acid' => {
 	en => 'Mead acid (20:3 n-9)',
@@ -1011,6 +1100,7 @@ fat => {
 	pt => 'Ácido de Mead (20:3 n-9)',
 	fr => 'Acide de Mead (20:3 n-9)',
 	nl => 'Meadzuur (20:3 n-9)',
+	nl_be => 'Meadzuur (20:3 n-9)',
 },
 'erucic-acid' => {
 	en => 'Erucic acid (22:1 n-9)',
@@ -1019,6 +1109,7 @@ fat => {
 	pt => 'Ácido erúcico (22:1 n-9)',
 	fr => 'Acide érucique (22:1 n-9)',
 	nl => 'Erucazuur (22:1 n-9)',
+	nl_be => 'Erucazuur (22:1 n-9)',
 },
 'nervonic-acid' => {
 	en => 'Nervonic acid (24:1 n-9)',
@@ -1028,6 +1119,7 @@ fat => {
 	pt_pt => 'Ácido nervónico (24:1 n-9)',
 	fr => 'Acide nervonique (24:1 n-9)',
 	nl => 'Nervonzuur (24:1 n-9)',
+	nl_be => 'Nervonzuur (24:1 n-9)',
 },
 'polyunsaturated-fat' => {
 	fr => "Acides gras polyinsaturés",
@@ -1043,6 +1135,7 @@ fat => {
 	el => "Πολυακόρεστα λιπαρά",
 	fi => "Monityydyttymättömät rasvat",
 	nl => "Meervoudig onverzadigde vetzuren",
+	nl_be => "Meervoudig onverzadigde vetzuren",
 	sv => "Fleromättat fett",
 	lv => "Polinepiesātinātās taukskābes",
 	cs => "Polynenasycené mastné kyseliny",
@@ -1067,6 +1160,7 @@ fat => {
 	de => "Omega-3-Fettsäuren",
 	he => "אומגה 3",
 	nl => "Omega 3-vetzuren",
+	nl_be => "Omega 3-vetzuren",
 },
 'alpha-linolenic-acid' => {
 	en => 'Alpha-linolenic acid / ALA (18:3 n-3)',
@@ -1076,6 +1170,7 @@ fat => {
 	pt_pt => 'Ácido alfa-linolénico / ALA (18:3 n-3)',
 	fr => 'Acide alpha-linolénique / ALA (18:3 n-3)',
 	nl => 'Alfa-linoleenzuur / ALA (18:3 n-3)',
+	nl_be => 'Alfa-linoleenzuur / ALA (18:3 n-3)',
 },
 'eicosapentaenoic-acid' => {
 	en => 'Eicosapentaenoic acid / EPA (20:5 n-3)',
@@ -1084,6 +1179,7 @@ fat => {
 	pt => 'Ácido eicosapentaenóico / EPA (20:5 n-3)',
 	fr => 'Acide eicosapentaénoïque / EPA (20:5 n-3)',
 	nl => 'Eicosapentaeenzuur / EPA (20:5 n-3)',
+	nl_be => 'Eicosapentaeenzuur / EPA (20:5 n-3)',
 },
 'docosahexaenoic-acid' => {
 	en => 'Docosahexaenoic acid / DHA (22:6 n-3)',
@@ -1092,6 +1188,7 @@ fat => {
 	pt => 'Ácido docosa-hexaenóico / DHA (22:6 n-3)',
 	fr => 'Acide docosahexaénoïque / DHA (22:6 n-3)',
 	nl => 'Docosahexaeenzuur / DHA (22:6 n-3)',
+	nl_be => 'Docosahexaeenzuur / DHA (22:6 n-3)',
 },
 'omega-6-fat' => {
 	fr => "Acides gras Oméga 6",
@@ -1104,6 +1201,7 @@ fat => {
 	de => "Omega-6-Fettsäuren",
 	he => "אומגה 6",
 	nl => 'Omega 6-vetzuren',
+	nl_be => 'Omega 6-vetzuren',
 },
 'linoleic-acid' => {
 	en => 'Linoleic acid / LA (18:2 n-6)',
@@ -1112,6 +1210,7 @@ fat => {
 	pt => 'Ácido linoleico / LA (18:2 n-6)',
 	fr => 'Acide linoléique / LA (18:2 n-6)',
 	nl => 'Linolzuur / LA (18:2 n-6)',
+	nl_be => 'Linolzuur / LA (18:2 n-6)',
 },
 'arachidonic-acid' => {
 	en => 'Arachidonic acid / AA / ARA (20:4 n-6)',
@@ -1122,6 +1221,7 @@ fat => {
 	fr => 'Acide arachidonique / AA / ARA (20:4 n-6)',
 	he => 'חומצה ארכידונית / AA / ARA (20:4 n-6)',
 	nl => 'Arachidonzuur / AA / ARA (20:4 n-6)',
+	nl_be => 'Arachidonzuur / AA / ARA (20:4 n-6)',
 },
 'gamma-linolenic-acid' => {
 	en => 'Gamma-linolenic acid / GLA (18:3 n-6)',
@@ -1131,6 +1231,7 @@ fat => {
 	pt_pt => 'Ácido gama-linolénico / GLA (18:3 n-6)',
 	fr => 'Acide gamma-linolénique / GLA (18:3 n-6)',
 	nl => 'Gamma-linoleenzuur / GLA (18:3 n-6)',
+	nl_be => 'Gamma-linoleenzuur / GLA (18:3 n-6)',
 },
 'dihomo-gamma-linolenic-acid' => {
 	en => 'Dihomo-gamma-linolenic acid / DGLA (20:3 n-6)',
@@ -1140,6 +1241,7 @@ fat => {
 	pt_pt => 'Ácido dihomo-gama-linolénico / DGLA (20:3 n-6)',
 	fr => 'Acide dihomo-gamma-linolénique / DGLA (20:3 n-6)',
 	nl => 'Dihomo-gammalinoleenzuur / DGLA (20:3 n-6)',
+	nl_be => 'Dihomo-gammalinoleenzuur / DGLA (20:3 n-6)',
 },
 
 'trans-fat' => {
@@ -1154,6 +1256,7 @@ fat => {
 	he => "שומן טראנס - שומן בלתי רווי",
 	zh => "反式脂肪",
 	nl => 'Transvetten',
+	nl_be => 'Transvetten',
 },
 cholesterol => {
 	fr => "Cholestérol",
@@ -1168,7 +1271,8 @@ cholesterol => {
 	he => "כולסטרול",
 	zh => "胆固醇",
 	nl => "Cholesterol",
- ja => "コレステロール",
+	nl_be => "Cholesterol",
+       ja => "コレステロール",
 },
 fiber => {
 	fr => "Fibres alimentaires",
@@ -1184,6 +1288,7 @@ fiber => {
 	el => "Εδώδιμες ίνες",
 	fi => "Ravintokuitu",
 	nl => "Vezels",
+	nl_be => "Vezels",
 	sv => "Fiber",
 	lv => "Šķiedrvielas",
 	cs => "Vláknina",
@@ -1216,9 +1321,10 @@ sodium => {
 	de => "Natrium",
 	he => "נתרן",
 	zh => "钠",
-	nl => "Sodium",
+	nl => "Natrium",
+	nl_be => "Sodium",
 	ja => "ナトリウム",
-	unit_us => 'mg',
+	unit_us => 'mg',	
 },
 salt => {
 	fr => "Sel",
@@ -1234,6 +1340,7 @@ salt => {
 	fi => "Suola",
 	it => "Sale",
 	nl => "Zout",
+	nl_be => "Zout",
 	lv => "Sāls",
 	cs => "Sůl",
 	et => "Sool",
@@ -1254,6 +1361,7 @@ salt => {
 	pt => "Equivalente em sal",
 	he => "תחליפי מלח",
 	nl => "Equivalent in zout",
+	nl_be => "Equivalent in zout",
 },
 '#vitamins' => {
 	fr => "Vitamines",
@@ -1267,7 +1375,8 @@ salt => {
 	ga => "Vitimín",
 	el => "Βιταμίνες",
 	fi => "vitamiini",
-	nl => "Vitamine",
+	nl => "Vitamines",
+	nl_be => "Vitamines",
 	lv => "vitamīns",
 	et => "Vitamiin",
 	hu => "vitamin",
@@ -1282,7 +1391,7 @@ salt => {
 	fr => "Vitamine A (rétinol)",
 	ja => "ビタミン A",
 	en => "Vitamin A",
-	es => "Vitamina A (Retinol)",	
+	es => "Vitamina A (Retinol)",
 	it => "Vitamina A (Retinolo)",
 	pt => "Vitamina A",
 	de => "Vitamin A (Retinol)",
@@ -1291,6 +1400,7 @@ salt => {
 	el => "Βιταμίνη A",
 	fi => "A-vitamiini",
 	nl => "Vitamine A",
+	nl_be => "Vitamine A",
 	lv => "A vitamīns",
 	et => "Vitamiin A",
 	hu => "A-vitamin",
@@ -1305,7 +1415,7 @@ salt => {
 	unit => "µg",
 	dv => "1500",
 	unit_us => '% DV',
-	unit_ca => '% DV',	
+	unit_ca => '% DV',		
 },
 'vitamin-d' => {
 	fr => "Vitamine D / D3 (cholécalciférol)",
@@ -1322,6 +1432,7 @@ salt => {
 	el => "Βιταμίνη D",
 	fi => "D-vitamiini",
 	nl => "Vitamine D",
+	nl_be => "Vitamine D",
 	lv => "D vitamīns",
 	et => "Vitamiin D",
 	hu => "D-vitamin",
@@ -1348,6 +1459,7 @@ salt => {
 	el => "Βιταμίνη E",
 	fi => "E-vitamiini",
 	nl => "Vitamine E",
+	nl_be => "Vitamine E",
 	lv => "E vitamīns",
 	et => "Vitamiin E",
 	hu => "E-vitamin",
@@ -1374,6 +1486,7 @@ salt => {
 	el => "Βιταμίνη K",
 	fi => "K-vitamiini",
 	nl => "Vitamine K",
+	nl_be => "Vitamine K",
 	lv => "K vitamīns",
 	et => "Vitamiin K",
 	hu => "K-vitamin",
@@ -1398,6 +1511,7 @@ salt => {
 	el => "Βιταμίνη C",
 	fi => "C-vitamiini",
 	nl => "Vitamine C",
+	nl_be => "Vitamine C",
 	lv => "C vitamīns",
 	et => "Vitamiin C",
 	hu => "C-vitamin",
@@ -1412,7 +1526,7 @@ salt => {
 	unit => "mg",
 	dv => "60",
 	unit_us => '% DV',
-	unit_ca => '% DV',		
+	unit_ca => '% DV',	
 },
 'vitamin-b1' => {
 	fr => "Vitamine B1 (Thiamine)",
@@ -1429,6 +1543,7 @@ salt => {
 	el => "Βιταμίνη B1 (Θειαμίνη)",
 	fi => "B1-vitamiini (Tiamiini)",
 	nl => "Vitamine B1 (Thiamine)",
+	nl_be => "Vitamine B1 (Thiamine)",
 	lv => "B1 vitamīns (Tiamīns)",
 	et => "Vitamiin B1 (Tiamiin)",
 	hu => "B1-vitamin (Tiamin)",
@@ -1456,6 +1571,7 @@ salt => {
 	el => "Βιταμίνη B2 (Ριβοφλαβίνη)",
 	fi => "B2-vitamiini (Riboflaviini)",
 	nl => "Vitamine B2 (Riboflavine)",
+	nl_be => "Vitamine B2 (Riboflavine)",
 	lv => "B2 vitamīns (Riboflavīns)",
 	et => "Vitamiin B2 (Riboflaviin)",
 	hu => "B2-vitamin (Riboflavin)",
@@ -1482,6 +1598,7 @@ salt => {
 	el => "Νιασίνη",
 	fi => "Niasiini",
 	nl => "Niacine",
+	nl_be => "Niacine",
 	lv => "Niacīns",
 	et => "Niatsiin",
 	pl => "Niacyna",
@@ -1507,6 +1624,7 @@ salt => {
 	el => "Βιταμίνη B6",
 	fi => "B6-vitamiini",
 	nl => "Vitamine B6",
+	nl_be => "Vitamine B6",
 	lv => "B6 vitamīns",
 	et => "Vitamiin B6",
 	hu => "B6-vitamin",
@@ -1532,6 +1650,7 @@ salt => {
 	el => "Βιταμίνη B9 (Φολικό οξύ)",
 	fi => "B9-vitamiini (Foolihappo)",
 	nl => "Vitamine B9 (Foliumzuur)",
+	nl_be => "Vitamine B9 (Foliumzuur)",
 	lv => "B9 vitamīns (Folijskābe)",
 	et => "Vitamiin B9 (Foolhape)",
 	hu => "B9-vitamin (Folsav)",
@@ -1557,6 +1676,7 @@ salt => {
 	el => "Βιταμίνη B12",
 	fi => "B12-vitamiini",
 	nl => "Vitamine B12",
+	nl_be => "Vitamine B12",
 	lv => "B12 vitamīns",
 	et => "Vitamiin B12",
 	hu => "B12-vitamin",
@@ -1582,6 +1702,7 @@ salt => {
 	el => "Βιοτίνη",
 	fi => "Biotiini",
 	nl => "Biotine",
+	nl_be => "Biotine",
 	lv => "Biotīns",
 	et => "Biotiin",
 	pl => "Biotyna",
@@ -1593,7 +1714,7 @@ salt => {
 },	
 'pantothenic-acid' => {
 	fr => "Acide pantothénique (Vitamine B5)",
-	en => "Panthotenic acid (Vitamin B5)",
+	en => "Pantothenic acid / Pantothenate (Vitamin B5)",
 	ja => "ビタミン B5",
 	es => "Vitamina B5 (Ácido pantoténico)",
 	unit => "mg",
@@ -1608,6 +1729,7 @@ salt => {
 	el => "Παντοθενικό οξύ",
 	fi => "Pantoteenihappo",
 	nl => "Pantotheenzuur",
+	nl_be => "Pantotheenzuur",
 	sv => "Pantotensyra",
 	lv => "Pantotēnskābe",
 	cs => "Kyselina pantothenová",
@@ -1631,6 +1753,7 @@ salt => {
 	de => "Minerals",
 	he => "מינרלים",
 	nl => "Mineralen",
+	nl_be => "Mineralen",
 },
 potassium => {
 	fr => "Potassium",
@@ -1646,6 +1769,7 @@ potassium => {
 	el => "Κάλιο",
 	fi => "Kalium",
 	nl => "Kalium",
+	nl_be => "Kalium",
 	sv => "Kalium",
 	lv => "Kālijs",
 	cs => "Draslík",
@@ -1671,6 +1795,7 @@ bicarbonate => {
 	de => "Bikarbonat",
 	he => "ביקרבונט (מימן פחמתי)",
 	nl => "Bicarbonaat",
+	nl_be => "Bicarbonaat",
 },
 chloride => {
 	fr => "Chlorure",
@@ -1698,7 +1823,8 @@ chloride => {
 	sk => "Chlorid",
 	ro => "Clorură",
 	bg => "Хлорид",
-	nl => "Chloride",
+	nl => "Chloor",
+	nl_be => "Chloor",
 },
 silica => {
 	fr => "Silice",
@@ -1711,6 +1837,7 @@ silica => {
 	de => "Kieselerde",
 	he => "צורן דו־חמצני",
 	nl => "Silicium",
+	nl_be => "Silicium",
 },
 calcium => {
 	fr => "Calcium",
@@ -1739,11 +1866,12 @@ calcium => {
 	bg => "Калций",
 	zh => "鈣",
 	nl => "Calcium",
+	nl_be => "Calcium",
 	
 	unit => "mg",
 	dv => "1000",	
 	unit_us => '% DV',
-	unit_ca => '% DV',	
+	unit_ca => '% DV',		
 },
 phosphorus => {
 	fr => "Phosphore",
@@ -1761,6 +1889,7 @@ phosphorus => {
 	el => "Φωσφόρος",
 	fi => "Fosfori",
 	nl => "Fosfor",
+	nl_be => "Fosfor",
 	sv => "Fosfor",
 	lv => "Fosfors",
 	cs => "Fosfor",
@@ -1789,6 +1918,7 @@ iron => {
 	el => "Σίδηρος",
 	fi => "Rauta",
 	nl => "IJzer",
+	nl_be => "IJzer",
 	sv => "Järn",
 	lv => "Dzelzs",
 	cs => "Železo",
@@ -1806,7 +1936,7 @@ iron => {
 	unit => "mg",
 	dv => "18",	
 	unit_us => '% DV',
-	unit_ca => '% DV',		
+	unit_ca => '% DV',	
 },
 magnesium => {
 	fr => "Magnésium",
@@ -1833,6 +1963,7 @@ magnesium => {
 	bg => "Магнезий",
 	zh => "鎂",
 	nl => "Magnesium",
+	nl_be => "Magnesium",
 	ja => "マグネシウム",
 },
 zinc => {
@@ -1850,6 +1981,7 @@ zinc => {
 	el => "Ψευδάργυρος",
 	fi => "Sinkki",
 	nl => "Zink",
+	nl_be => "Zink",
 	sv => "Zink",
 	lv => "Cinks",
 	cs => "Zinek",
@@ -1879,6 +2011,7 @@ copper => {
 	el => "Χαλκός",
 	fi => "Kupari",
 	nl => "Koper",
+	nl_be => "Koper",
 	sv => "Koppar",
 	lv => "Varš",
 	cs => "Měď",
@@ -1907,6 +2040,7 @@ manganese => {
 	el => "Μαγγάνιο",
 	fi => "Mangaani",
 	nl => "Mangaan",
+	nl_be => "Mangaan",
 	sv => "Mangan",
 	lv => "Mangāns",
 	cs => "Mangan",
@@ -1945,7 +2079,8 @@ fluoride => {
 	sk => "Fluorid",
 	ro => "Fluorură",
 	bg => "Флуорид",
-	nl => "Fluoride",
+	nl => "Fluor",
+	nl_be => "Fluor",
 },
 selenium => {
 	fr => "Sélénium",
@@ -1963,6 +2098,7 @@ selenium => {
 	el => "Σελήνιο",
 	fi => "Seleeni",
 	nl => "Seleen",
+	nl_be => "Seleen",
 	sv => "Selen",
 	lv => "Selēns",
 	cs => "Selen",
@@ -1993,6 +2129,7 @@ chromium => {
 	el => "Χρώμιο",
 	fi => "Kromi",
 	nl => "Chroom",
+	nl_be => "Chroom",
 	sv => "Krom",
 	lv => "Hroms",
 	cs => "Chrom",
@@ -2022,6 +2159,7 @@ molybdenum => {
 	el => "Μολυβδαίνιο",
 	fi => "Molybdeeni",
 	nl => "Molybdeen",
+	nl_be => "Molybdeen",
 	sv => "Molybden",
 	lv => "Molibdēns",
 	cs => "Molybden",
@@ -2049,7 +2187,8 @@ iodine => {
 	da => "Jod",
 	el => "Ιώδιο",
 	fi => "Jodi",
-	nl => "Jood",
+	nl => "Jodium",
+	nl_be => "Jodium",
 	sv => "Jod",
 	lv => "Jods",
 	cs => "Jód",
@@ -2068,19 +2207,71 @@ caffeine => {
 	en => 'Caffeine',
 	el => "Καφεΐνη",
 	nl => 'Cafeïne',
+	nl_be => 'Cafeïne',
+	pt => 'Cafeína',
 },
 taurine => {
-	fr => 'Taurine',
-	en => 'Taurine',
-	el => "Ταυρίνη",
-	nl => 'Taurine',
+zh_hans => '牛磺酸',
+zh_hant => '牛磺酸',
+zh_hk => '牛磺酸',
+zh_cn => '牛磺酸',
+zh_sg => '牛磺酸',
+zh_tw => '牛磺酸',
+pl => 'Tauryna',
+wa => 'Torene',
+ko => '타우린',
+fr => 'Taurine',
+he => 'טאורין',
+es => 'Taurina',
+hu => 'Taurin',
+it => 'Taurina',
+gl => 'Taurina',
+et => 'Tauriin',
+id => 'Taurina',
+de => 'Taurin',
+ja => 'タウリン',
+vi => 'Taurine',
+nl => 'Taurine',
+nl_be => 'Taurine',
+sv => 'Taurin',
+pt => 'Taurina',
+eo => 'Taŭrino',
+sk => 'Taurín',
+ru => 'таурин',
+en => 'Taurine',
+sr_el => 'Taurin',
+sr_ec => 'Таурин',
+tr => 'Taurin',
+ro => 'Taurină',
+ca => 'Taurina',
+fi => 'Tauriini',
+uk => 'Таурин',
+sl => 'Tavrin',
+cs => 'Taurin',
+fa => 'تائورین',
+bg => 'Таурин',
+hr => 'Taurin',
+da => 'Taurin',
+sr => 'таурин',
+zh => '牛磺酸',
+nb => 'Taurin',
+hy => 'Տաուրին',
+sh => 'Taurin',
+ar => 'التورين',
+sq => 'taurin',
+mk => 'Таурин',
+el => 'Ταυρίνη',
+en_ca => 'Taurine',
+en_gb => 'Taurine',
+pt_br => 'Taurina',
 },
 
 ph => {
 	en => "pH",
 	el => "pH",
+	nl => "pH",
+	nl_be => "pH",
 	unit => '',
-	nl => "Ph",
 },
 
 "carbon-footprint" => {
@@ -2088,41 +2279,71 @@ ph => {
 	en => "Carbon footprint / CO2 emissions",
 	es => "Huella de carbono / Emisiones de CO2",
 	el => "Αποτύπωμα άνθρακα/Εκπομπές CO2",
-
-	unit => 'g',
 	it=> "Emissioni di CO2 (impronta climatica)",
 	pt => "Pegada de carbono / Emissões de CO<sub>2</sub>",
 	de => "Carbon Footprint / CO2-Emissionen",
 	he => "טביעת רגל פחמנית / פליטת פחמן דו־חמצני",
 	nl => "Ecologische voetafdruk / CO2-uitstoot",
+	nl_be => "Ecologische voetafdruk / CO2-uitstoot",
+	unit => 'g',
 },
 "fruits-vegetables-nuts" => {
 	en => "Fruits, vegetables and nuts (minimum)",
 	fr => "Fruits, légumes et noix (minimum)",
+	es => "Frutas, verduras y nueces (mínimo)",
 	el => "Φρούτα, λαχανικά, καρποί (ελάχιστο)",
+	nl => "Fruit, groenten en noten (minimum)",
+	nl_be => "Fruit, groenten en noten (minimum)",
+	de => "Obst, Gemüse und Nüsse (Minimum)",
 	unit => '%',
-	nl => "fruit, groenten en noten (minimum)",
 },
 "collagen-meat-protein-ratio" => {
 	en => "Collagen/Meat protein ratio (maximum)",
 	fr => "Rapport collagène sur protéines de viande (maximum)",
 	el => "Αναλογία κολλαγόνου/πρωτεΐνης κρέατος (μέγιστο)",
-	unit => "%",
+	es => "Relación tejido conjuntivo/proteínas de carne (máximo)",
+	de => "Verhältnis Kollagen/Eiweiß",
 	nl => "Verhouding collageen/eiwitten uit vlees (maximum)",
+	nl_be => "Verhouding collageen/eiwitten uit vlees (maximum)",
+	unit => "%",
+},
+cocoa => {
+	en => "Cocoa (minimum)",
+	de => "Kakao (Minimum)",
+	es => "Cacao (mínimo)",
+	fr => "Cacao (minimum)",
+	nl => "Cacao (minimum)",
+	pt => "Cacau (minimum)",
+	unit => "%",
 },
 "nutrition-score-uk" => {
 	en => "Nutrition score - UK",
-	unit => '',
-	nl => "Voedingsscore",
+	nl => "Voedingsgraad",
+	nl_be => "Voedingsgraad",
 	el => "Bαθμολογία θρεπτικής αξίας-UK",
-
+	unit => '',
 },
 "nutrition-score-fr" => {
 	fr => "Score nutritionnel expérimental - France",
 	en => "Experimental nutrition score",
 	nl => "Experimentele voedingsscore",
+	nl_be => "Experimentele voedingsscore",
 	el => "Βαθμολογία θρεπτικής αξίας-FR",
 	unit => '',
+},
+"beta-carotene" => {
+	de => "Beta-Carotin",
+	en => "Beta carotene",
+	es => "Beta caroteno",
+	fr => "Bêta carotène",
+	nl => "Bêta-caroteen",
+	nl_be => "Bêta-caroteen",
+},
+"chlorophyl" => {
+	de => "Chlorophyll",
+	en => "Chlorophyl",
+	nl => "Chlorofyl",
+	nl_be => "Chlorofyl",
 },
 "nutrition-grade" => {
 	fr => "Note nutritionnelle",
@@ -2812,7 +3033,8 @@ sub compute_serving_size_data($) {
 			$product_ref->{nutriments}{$nid . "_serving"} += 0.0;
 			$product_ref->{nutriments}{$nid . "_100g"} = '';
 		
-			if (($nid eq 'alcohol') or ($nid eq 'nutrition-score') or ($nid eq 'ph') or ($nid eq 'fruits-vegetables-nuts') or ($nid eq 'collagen-meat-protein-ratio')) {
+			if (($nid eq 'alcohol') or ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit})
+				and (($Nutriments{$nid}{unit} eq '') or ($Nutriments{$nid}{unit} eq '%')))) {
 				$product_ref->{nutriments}{$nid . "_100g"} = $product_ref->{nutriments}{$nid} + 0.0;
 			}
 			elsif ($product_ref->{serving_quantity} > 0) {
@@ -2831,7 +3053,8 @@ sub compute_serving_size_data($) {
 			$product_ref->{nutriments}{$nid . "_100g"} += 0.0;
 			$product_ref->{nutriments}{$nid . "_serving"} = '';
 			
-			if (($nid eq 'alcohol') or ($nid =~ /^nutrition-score/) or ($nid eq 'ph') or ($nid eq 'fruits-vegetables-nuts') or ($nid eq 'collagen-meat-protein-ratio')) {
+			if (($nid eq 'alcohol') or ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit})
+				and (($Nutriments{$nid}{unit} eq '') or ($Nutriments{$nid}{unit} eq '%')))) {
 				$product_ref->{nutriments}{$nid . "_serving"} = $product_ref->{nutriments}{$nid} + 0.0;
 			}			
 			elsif ($product_ref->{serving_quantity} > 0) {
