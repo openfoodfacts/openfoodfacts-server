@@ -36,6 +36,18 @@ function select_nutriment(event, ui) {
 	id = id.replace("_label", "");
 	$('#' + id).focus();
 	$('#' + id + '_unit').val(ui.item.unit);
+	if (ui.item.unit == '') {
+		$('#' + id + '_unit').hide();
+		$('#' + id + '_unit_percent').hide();
+	}
+	else if (ui.item.unit == '%') {
+		$('#' + id + '_unit').hide();
+		$('#' + id + '_unit_percent').show();
+	}
+	else {
+		$('#' + id + '_unit').show();
+		$('#' + id + '_unit_percent').hide();	
+	}
 }
 
 function add_line(event, ui) {
@@ -375,7 +387,7 @@ function update_display(imagefield) {
 			
 			html += '<div style="clear:both" class="command upload_image_div">';
 			html += '<a href="#" class="button small expand" id="imgsearchbutton_' + id + '"><i class="fi-camera"></i> ' + Lang.upload_image
-+ '<input type="file" accept="image/*" class="img_input" name="imgupload_' + id + '" id="imgupload_' + id
++ '<input type="file" accept="image/*" capture="camera" class="img_input" name="imgupload_' + id + '" id="imgupload_' + id
 + '" data-url="/cgi/product_image_upload.pl" multiple '
 + 'style="position: absolute;right:0;bottom:0;top:0;cursor:pointer;opacity:0;font-size:40px;"/>' 
 + '</a>'

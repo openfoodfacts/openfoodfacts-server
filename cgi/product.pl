@@ -61,8 +61,7 @@ my $comment = 'Modification : ';
 my @errors = ();
 
 my $html = '';
-my $code = param('code');
-$code =~ s/\D//g; # Keep only digits, remove spaces, dashes and everything else
+my $code = normalize_code(param('code'));
 
 my $product_ref = undef;
 
@@ -230,17 +229,20 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$debug and print STDERR "product.pl action: process - phase 1 - type: $type code $code\n";
 	
-	if ((defined param('new_code')) and (param('new_code') =~ /^\d+$/)) {
+	if (defined param('new_code')) {
+		my $new_code = normalize_code(param('new_code'));
+		if ($new_code =~ /^\d+$/) {
 		# check that the new code is available
-		if (-e "$data_root/products/" . product_path(param('new_code'))) {
-			push @errors, lang("error_new_code_already_exists");
-			print STDERR "product.pl - cannot change code $code to " . param('new_code') . "\n";
-		}
-		else {
-			$product_ref->{old_code} = $code;
-			$code = param('new_code');
-			$product_ref->{code} = $code;
-			print STDERR "product.pl - changing code $product_ref->{old_code} to $code\n";
+			if (-e "$data_root/products/" . product_path($new_code)) {
+				push @errors, lang("error_new_code_already_exists");
+				print STDERR "product.pl - cannot change code $code to $new_code (already exists)\n";
+			}
+			else {
+				$product_ref->{old_code} = $code;
+				$code = $new_code;
+				$product_ref->{code} = $code;
+				print STDERR "product.pl - changing code $product_ref->{old_code} to $code\n";
+			}
 		}
 	}
 	
@@ -1128,11 +1130,6 @@ HTML
 
 		if ($nid ne 'alcohol') {
 		
-		$input .= <<HTML
-<select class="nutriment_unit" id="nutriment_${nid}_unit" name="nutriment_${nid}_unit">
-HTML
-;
-
 
 		my @units = ('g','mg','µg');
 		if ($nid =~ /^energy/) {
@@ -1145,6 +1142,27 @@ HTML
 			or ($nid =~ /^new_/)) {
 			push @units, '% DV';
 		}
+		
+		my $hide_percent = '';
+		my $hide_select = '';
+		
+		if ((exists $Nutriments{$nid}) and ($Nutriments{$nid}{unit} eq '')) {
+			$hide_percent = ' style="display:none"';
+			$hide_select = ' style="display:none"';
+			
+		}
+		elsif ((exists $Nutriments{$nid}) and ($Nutriments{$nid}{unit} eq '%')) {
+			$hide_select = ' style="display:none"';
+		}
+		else {
+			$hide_percent = ' style="display:none"';
+		}
+		
+		$input .= <<HTML
+<span id="nutriment_${nid}_unit_percent"$hide_percent>%</span>
+<select class="nutriment_unit" id="nutriment_${nid}_unit" name="nutriment_${nid}_unit"$hide_select>
+HTML
+;		
 		
 		foreach my $u (@units) {
 			my $selected = '';
