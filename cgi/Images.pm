@@ -59,6 +59,7 @@ use utf8;
 
 use Blogs::Store qw/:all/;
 use Blogs::Config qw/:all/;
+use Blogs::Products qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 
@@ -194,6 +195,7 @@ sub scan_code($) {
 			}
 			
 			if (defined $code) {
+				$code = normalize_code($code);
 				last;
 			}
 			else {
@@ -346,7 +348,10 @@ sub process_search_image_form($) {
 			}
 			close (FILE);
 			
-			$code = scan_code("$data_root/tmp/$filename.$extension");					
+			$code = scan_code("$data_root/tmp/$filename.$extension");
+			if (defined $code) {
+				$code = normalize_code($code);
+			}
 			$$filename_ref = "$data_root/tmp/$filename.$extension";
 		}
 	}	
@@ -912,7 +917,7 @@ sub display_image_thumb($$) {
 
 			
 		$html .= <<HTML
-<img src="/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" />
+<img src="http://static.$domain/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="http://static.$domain/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" />
 HTML
 ;		
 	
