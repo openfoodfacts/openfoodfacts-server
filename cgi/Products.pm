@@ -27,20 +27,21 @@ BEGIN
 	@ISA = qw(Exporter);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
-					&product_path
-					&product_exists
-					&init_product
-					&retrieve_product
-					&retrieve_product_rev
-					&store_product
-					&product_name_brand
-					&product_name_brand_quantity
-					&product_url
-					&normalize_search_terms
-					&index_product
-					
-					&compute_codes
-					&compute_product_history_and_completeness
+		&normalize_code
+		&product_path
+		&product_exists
+		&init_product
+		&retrieve_product
+		&retrieve_product_rev
+		&store_product
+		&product_name_brand
+		&product_name_brand_quantity
+		&product_url
+		&normalize_search_terms
+		&index_product
+		
+		&compute_codes
+		&compute_product_history_and_completeness
 					
 	
 					);	# symbols to export on request
@@ -66,6 +67,22 @@ use MongoDB;
 use Algorithm::CheckDigits;
 my $ean_check = CheckDigits('ean');
 
+
+sub normalize_code($) {
+
+	my $code = shift;
+	if (defined $code) {
+		$code =~ s/\D//g; # Keep only digits, remove spaces, dashes and everything else
+		# Add a leading 0 to valid UPC-12 codes
+		# invalid 12 digit codes may be EAN-13s with a missing number
+		if ((length($code) eq 12) and ($ean_check->is_valid('0' . $code))) {
+			$code = '0' . $code;
+		}
+	}
+	return $code;
+}
+
+
 sub product_path($) {
 
 	my $code = shift;
@@ -82,6 +99,7 @@ sub product_path($) {
 sub product_exists($) {
 
 	my $code = shift;
+	
 	my $path = product_path($code);
 	if (-e "$data_root/products/$path") {
 	
@@ -101,6 +119,7 @@ sub product_exists($) {
 sub init_product($) {
 
 	my $code = shift;
+	
 	my $product_ref = {
 		id=>$code . '',	# treat code as string
 		_id=>$code . '',
@@ -197,11 +216,12 @@ sub store_product($$) {
 			}
 		}
 		
-		if (! -e "$data_root/products/$path") {
+		if ((! -e "$data_root/products/$path")
+			and (! -e "$www_root/images/products/$path")) {
 			use File::Copy;
 			print STDERR "Products::store_product - move from $data_root/products/$old_path to $data_root/products/$path (new)\n";
-			move("$data_root/products/$old_path", "$data_root/products/$path");
-			move("$www_root/images/products/$old_path", "$www_root/images/products/$path");
+			move("$data_root/products/$old_path", "$data_root/products/$path") or print STDERR "error moving data from $data_root/products/$old_path to $data_root/products/$path : $!\n";
+			move("$www_root/images/products/$old_path", "$www_root/images/products/$path") or print STDERR "error moving html from $www_root/images/products/$old_path to $www_root/images/products/$path : $!\n";
 			
 			delete $product_ref->{old_code};
 			
@@ -813,6 +833,9 @@ sub compute_codes($) {
 		$ean = '0' . $code;
 		if (product_exists('0' . $code)) {
 			push @codes, "conflict-with-ean-13";
+		}
+		elsif (-e ("$data_root/products/" . product_path("0" . $code)) ) {
+			push @codes, "conflict-with-deleted-ean-13";		
 		}
 	}
 	

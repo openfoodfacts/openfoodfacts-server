@@ -26,10 +26,10 @@ Blogs::Display::init();
 $debug = 1;
 
 
-my $code = param('code');
+my $code = normalize_code(param('code'));
 my $id = param('id');
 
-$debug and print STDERR "product_image.pl - code: $code\n";
+$debug and print STDERR "ingredients.pl - code: $code\n";
 
 if (not defined $code) {
 	
