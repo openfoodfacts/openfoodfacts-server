@@ -340,7 +340,7 @@ XML
 		$csv .= $product_ref->{image_url} . "\t" . $product_ref->{image_small_url} . "\t";
 
 		
-		foreach my $nid (@nutriments_table) {
+		foreach my $nid (@{$nutriments_tables{"europe"}}) {
 		
 			$nid =~/^#/ and next;
 		
