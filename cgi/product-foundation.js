@@ -221,7 +221,7 @@ function change_image(imagefield, imgid) {
 	} );
 	
 			var id = 'crop_' + imagefield + '_button';
-			$('div[id="cropbutton_' + imagefield +'"]').html('<button id="' + id + '" class="small button">' + Lang.image_save + '</button>');
+			$('div[id="cropbutton_' + imagefield +'"]').html('<button id="' + id + '" class="small button" type="button">' + Lang.image_save + '</button>');
 			$("#" + id).click({imagefield:imagefield},function(event) {
 				event.stopPropagation();
 				event.preventDefault();
@@ -267,7 +267,7 @@ function update_display(imagefield) {
 	
 	var html = Lang.current_image + '<br/><img src="' + img_path + display_url + '" />';
 	if (imagefield == 'ingredients') {
-		html += '<br/><div id="ocrbuttondiv_' + imagefield + '"><button id="ocrbutton_' + imagefield + '" class="small button">' + Lang.extract_ingredients + '</button>';
+		html += '<br/><div id="ocrbuttondiv_' + imagefield + '"><button id="ocrbutton_' + imagefield + '" class="small button" type="button">' + Lang.extract_ingredients + '</button>';
 	}
 	if (imagefield == 'nutrition') {
 		// width big enough to display a copy next to nutrition table?
