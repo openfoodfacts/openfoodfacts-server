@@ -2744,15 +2744,27 @@ sub compute_nutrition_score($) {
 	delete $product_ref->{nutriments}{"nutrition-score-uk_serving"};	
 	delete $product_ref->{"nutrition_grade_fr"};
 	delete $product_ref->{"nutrition_grades_tags"};
+	delete $product_ref->{nutrition_score_warning_no_fiber};
+	
 	
 	# compute the score only if all values are known
-	foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "fiber", "proteins") {
+	# for fiber, compute score without fiber points if the value is not known
+	# foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "fiber", "proteins") {
+	foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "proteins") {
 		if (not defined $product_ref->{nutriments}{$nid . "_100g"}) {
 			$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
 			$product_ref->{nutrition_score_debug} = "missing $nid";
 			return;
 		}
 	}
+	
+	# some categories of products do not have fibers > 0.7g (e.g. sodas)
+	# for others, display a warning when the value is missing
+	if ((not defined $product_ref->{nutriments}{"fiber_100g"})
+		and not (has_tag($product_ref, "categories", "en:sodas"))) {
+		$product_ref->{nutrition_score_warning_no_fiber} = 1;
+	}
+	
 	
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
 	if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
@@ -2786,17 +2798,18 @@ sub compute_nutrition_score($) {
 	
 # L’attribution des points pour les sucres prend en compte la présence d’édulcorants, pour lesquels la grille maintient les scores sucres simples à 1 (au lieu de 0).		
 	
-	if ((defined $product_ref->{with_sweeteners}) and ($fr_beverages_sugars_points == 0)) {
-		$fr_beverages_sugars_points = 1;
-	}
+	# not in new HCSP from 20150625
+	#if ((defined $product_ref->{with_sweeteners}) and ($fr_beverages_sugars_points == 0)) {
+	#	$fr_beverages_sugars_points = 1;
+	#}
 	
 #Pour les boissons chaudes non sucrées (thé, café), afin de maintenir leur score à 0 (identique à l’eau), le score KJ a été maintenu à 0 si les sucres simples sont à 0.
 
-	if (has_tag($product_ref, "categories", "en:hot-beverages") and (has_tag($product_ref, "categories", "en:coffees") or has_tag($product_ref, "categories", "en:teas"))) {
-		if ($product_ref->{nutriments}{"sugars_100g"} == 0) {
-			$fr_beverages_energy_points = 0;
-		}
-	}
+	#if (has_tag($product_ref, "categories", "en:hot-beverages") and (has_tag($product_ref, "categories", "en:coffees") or has_tag($product_ref, "categories", "en:teas"))) {
+	#	if ($product_ref->{nutriments}{"sugars_100g"} == 0) {
+	#		$fr_beverages_energy_points = 0;
+	#	}
+	#}
 	
 	my $a_points_fr_beverages = $fr_beverages_energy_points + $saturated_fat_points + $fr_beverages_sugars_points + $sodium_points;
 	
@@ -2809,6 +2822,7 @@ sub compute_nutrition_score($) {
 	# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
 	elsif (
 		has_tag($product_ref, "categories", "en:fruit-juices")
+		or has_tag($product_ref, "categories", "en:vegetable-juices") 
 		) {
 		$fruits = "100";
 	}
@@ -2854,7 +2868,7 @@ sub compute_nutrition_score($) {
 	my $proteins_points = int(($product_ref->{nutriments}{"proteins_100g"} - 0.00001) / 1.6);
 	$proteins_points > 5 and $proteins_points = 5;		
 	
-	my $c_points = $fruits_points + $fiber_points + $proteins_points;
+	
 
 	my $fr_comment = <<COMMENT
 1. Les fromages. Comme vous avez dû le constater, dans le calcul du score, si les points A dépassent 11, et si la teneur en 'fruits, légumes et noix' est inférieure à 80%, alors, on ne retranche pas au score les points des protéines.
@@ -2877,10 +2891,39 @@ Soit la grille suivante :
 42 et plus : 10 points
 
 3. Les boissons. Le score tel qu'il est nécessite une modification plus importante, dans la mesure où actuellement, il donne de meilleurs scores aux jus de fruits, et ne différencie pas l'eau des boissons édulcorées. Nous proposons que toutes les boissons autres que l'eau (contenant des sucres ou des édulcorants) soient dans une catégorie supérieure à l'eau (qui est classée verte). Nous ne disposons pour l'instant pas d'adaptations plus précises du score. 	
+
+Nouveaux points: rapport AGS/lipides plutôt que AGS.
+
+Tableau 11 Grille d’attribution des points pour une composante AGS/lipides totaux dans le cas particulier des matières grasses ajoutées
+Points Ratio AGS/lipides totaux
+0 <10
+1 <16
+2 <22
+3 <28
+4 <34
+5 <40
+6 <46
+7 <52
+8 <58
+9 <64
+10 ≥64
+
 COMMENT
 ;
 
-	my $saturated_fat_points_fr_matieres_grasses = int(($product_ref->{nutriments}{"saturated-fat_100g"} - 2.00001) / 4);
+
+	my $saturated_fat = $product_ref->{nutriments}{"saturated-fat_100g"};
+	my $fat = $product_ref->{nutriments}{"fat_100g"};
+	my $saturated_fat_ratio = 0;
+	if ($saturated_fat > 0) {
+		if ($fat <= 0) {
+			$fat = $saturated_fat;
+		}
+		$saturated_fat_ratio = $saturated_fat / $fat;
+	}
+	
+	# my $saturated_fat_points_fr_matieres_grasses = int(($product_ref->{nutriments}{"saturated-fat_100g"} - 2.00001) / 4);
+	my $saturated_fat_points_fr_matieres_grasses = int(($product_ref->{nutriments}{"saturated-fat_100g"} - 4) / 6);
 	$saturated_fat_points_fr_matieres_grasses < 0 and $saturated_fat_points_fr_matieres_grasses = 0;
 	$saturated_fat_points_fr_matieres_grasses > 10 and $saturated_fat_points_fr_matieres_grasses = 10;
 	
@@ -2892,12 +2935,15 @@ COMMENT
 		$a_points_fr = $a_points_fr_matieres_grasses;
 		$product_ref->{nutrition_score_debug} .= " -- in fats category";		
 	}
-	elsif (has_tag($product_ref, "categories", "en:beverages")
+	
+	if (has_tag($product_ref, "categories", "en:beverages")
 		and not (has_tag($product_ref, "categories", "en:plant-milks") or has_tag($product_ref, "categories", "en:milks"))) {
-		$product_ref->{nutrition_score_debug} .= " -- in beverages category";
+		$product_ref->{nutrition_score_debug} .= " -- in beverages category - a_points_fr_beverage: $fr_beverages_energy_points (energy) + $saturated_fat_points (sat_fat) + $fr_beverages_sugars_points (sugars) + $sodium_points (sodium) = $a_points_fr_beverages - ";
 		
 		$a_points_fr = $a_points_fr_beverages;
 	}
+	
+	my $c_points = $fruits_points + $fiber_points + $proteins_points;
 	
 	my $fsa_score = $a_points;
 	my $fr_score = $a_points_fr;	
@@ -2916,19 +2962,26 @@ COMMENT
 	
 	# FR
 	
+	my $fruits_points_fr = $fruits_points;
+	if (has_tag($product_ref, "categories", "en:beverages")) {
+		$fruits_points_fr = 2 * $fruits_points;
+	}
+	
+	my $c_points_fr = $fruits_points_fr + $fiber_points + $proteins_points;
+	
 	if ($a_points_fr < 11) {
-		$fr_score -= $c_points;
+		$fr_score -= $c_points_fr;
 	}
 	elsif ($fruits_points == 5) {
-		$fr_score -= $c_points;
+		$fr_score -= $c_points_fr;
 	}
 	else {
 		if (has_tag($product_ref, "categories", "en:cheeses")) {
-			$fr_score -= $c_points;
+			$fr_score -= $c_points_fr;
 			$product_ref->{nutrition_score_debug} .= " -- in cheeses category";
 		}
 		else {
-			$fr_score -= ($fruits_points + $fiber_points);
+			$fr_score -= ($fruits_points_fr + $fiber_points);
 		}
 	}	
 	
@@ -2965,21 +3018,34 @@ COMMENT
 # Nous ne disposons pour l'instant pas d'adaptations plus précises du score.
 
 
+
+
+
 	delete $product_ref->{"nutrition-grade-fr"};
 	delete $product_ref->{"nutrition_grade_fr"};
 	
 	if (has_tag($product_ref, "categories", "en:beverages")
 		and not (has_tag($product_ref, "categories", "en:plant-milks") or has_tag($product_ref, "categories", "en:milks"))) {
-		if ($fr_score <= 0) {
+		
+# Tableau 6 : Seuils du score FSA retenus pour les boissons
+# Classe du 5-C
+# Bornes du score FSA
+# A/Vert - Eaux minérales
+# B/Jaune Min – 1
+# C/Orange 2 – 5
+# D/Rose 6 – 9
+# E/Rouge 10 – Max		
+		
+		if (has_tag($product_ref, "categories", "en:mineral-waters")) {  
 			$product_ref->{"nutrition_grade_fr"} = 'a';
 		}
-		elsif ($fr_score <= 4) {
+		elsif ($fr_score <= 1) {
 			$product_ref->{"nutrition_grade_fr"} = 'b';
 		}
-		elsif ($fr_score <= 8) {
+		elsif ($fr_score <= 5) {
 			$product_ref->{"nutrition_grade_fr"} = 'c';
 		}
-		elsif ($fr_score <= 11) {
+		elsif ($fr_score <= 9) {
 			$product_ref->{"nutrition_grade_fr"} = 'd';
 		}	
 		else {
@@ -2987,16 +3053,27 @@ COMMENT
 		}	
 	}
 	else {
-		if ($fr_score <= -2) {
+	
+# New grades from HCSP avis 20150602 hcspa20150625_infoqualnutprodalim.pdf
+# Tableau 1 : Seuils du score FSA retenus pour le cas général
+# Classe du 5-C
+# Bornes du score FSA
+# A/Vert Min - -1
+# B/Jaune 0 – 2
+# C/Orange 3 – 10
+# D/Rose 11 – 18
+# E/Rouge 19 – Max	
+	
+		if ($fr_score <= -1) {
 			$product_ref->{"nutrition_grade_fr"} = 'a';
 		}
-		elsif ($fr_score <= 3) {
+		elsif ($fr_score <= 2) {
 			$product_ref->{"nutrition_grade_fr"} = 'b';
 		}
-		elsif ($fr_score <= 11) {
+		elsif ($fr_score <= 10) {
 			$product_ref->{"nutrition_grade_fr"} = 'c';
 		}
-		elsif ($fr_score <= 16) {
+		elsif ($fr_score <= 18) {
 			$product_ref->{"nutrition_grade_fr"} = 'd';
 		}	
 		else {
@@ -3005,6 +3082,7 @@ COMMENT
 	}
 	
 	$product_ref->{"nutrition_grades_tags"} = [$product_ref->{"nutrition_grade_fr"}];
+	$product_ref->{"nutrition_grades"} = $product_ref->{"nutrition_grade_fr"};  # needed for the /nutrition-grade/unknown query
 
 }
 
@@ -3089,15 +3167,13 @@ sub compute_unknown_nutrients($) {
 sub compute_nutrient_levels($) {
 
 	my $product_ref = shift;
-		
-	#return if ($product_ref->{lc} ne 'fr');	# need categories hierarchy in order to identify drinks
-	
+			
 	#$product_ref->{nutrient_levels_debug} .= " -- start ";
-	
-	return if ($product_ref->{categories} eq '');	# need categories hierarchy in order to identify drinks
 	
 	$product_ref->{nutrient_levels_tags} = [];
 	$product_ref->{nutrient_levels} = {};
+	
+	return if ($product_ref->{categories} eq '');	# need categories hierarchy in order to identify drinks
 
 	foreach my $nutrient_level_ref (@nutrient_levels) {
 		my ($nid, $low, $high) = @$nutrient_level_ref;
@@ -3120,7 +3196,8 @@ sub compute_nutrient_levels($) {
 			else {
 				$product_ref->{nutrient_levels}{$nid} = 'moderate';
 			}
-			push @{$product_ref->{nutrient_levels_tags}}, get_fileid(sprintf(lang("nutrient_in_quantity"), $Nutriments{$nid}{$lc}, lang($product_ref->{nutrient_levels}{$nid} . "_quantity")));
+			# push @{$product_ref->{nutrient_levels_tags}}, get_fileid(sprintf(lang("nutrient_in_quantity"), $Nutriments{$nid}{$lc}, lang($product_ref->{nutrient_levels}{$nid} . "_quantity")));
+			push @{$product_ref->{nutrient_levels_tags}}, 'en:' . get_fileid(sprintf($Lang{nutrient_in_quantity}{en}, $Nutriments{$nid}{en}, $Lang{$product_ref->{nutrient_levels}{$nid} . "_quantity"}{en}));
 		
 		}
 		else {
@@ -3131,6 +3208,31 @@ sub compute_nutrient_levels($) {
 	}
 	
 }
+
+# Create food taxonomy
+# runs once at module initialization
+
+my $nutrient_levels_taxonomy = '';
+
+foreach my $nutrient_level_ref (@nutrient_levels) {
+	my ($nid, $low, $high) = @$nutrient_level_ref;
+	foreach my $level ('low', 'moderate', 'high') {
+		$nutrient_levels_taxonomy .= "\n" . 'en:' . sprintf($Lang{nutrient_in_quantity}{en}, $Nutriments{$nid}{en}, $Lang{$level . "_quantity"}{en}) . "\n";
+		foreach my $l (sort keys %Langs) {
+			next if $l eq 'en';
+			$nutrient_levels_taxonomy .= $l . ':' . sprintf($Lang{nutrient_in_quantity}{$l}, $Nutriments{$nid}{$l}, $Lang{$level . "_quantity"}{$l}) . "\n";
+		}
+	}
+}
+
+open (OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrient_levels.txt");
+print OUT <<TXT
+# nutrient levels taxonomy generated automatically by Food.pm
+
+TXT
+;
+print OUT $nutrient_levels_taxonomy;
+close OUT;
 
 
 sub compare_nutriments($$) {
