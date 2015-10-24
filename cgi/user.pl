@@ -120,14 +120,17 @@ SCRIPT
 }
 elsif ($action eq 'process') {
 
+    my $dialog = '_user_confirm';
 	if (($type eq 'add') or ($type eq 'edit')) {
-		Blogs::Users::process_user_form($user_ref);
+		if ( Blogs::Users::process_user_form($user_ref) ) {
+            $dialog = '_user_confirm_no_mail';
+        }
 	}
 	elsif ($type eq 'delete') {
 		Blogs::Users::delete_user($user_ref);		
 	}
 	
-	$html .= lang($type . "_user_confirm");
+	$html .= lang($type . $dialog);
 }
 
 if ($debug) {

@@ -292,6 +292,7 @@ sub process_user_form($) {
 
 	my $user_ref = shift;
 	my $userid = $user_ref->{userid};
+    my $error = 0;
 
 	store("$data_root/users/$userid.sto", $user_ref);
 	
@@ -309,7 +310,7 @@ sub process_user_form($) {
 		my $email = lang("add_user_email_body");
 		$email =~ s/<USERID>/$userid/g;
 		# $email =~ s/<PASSWORD>/$user_ref->{password}/g;
-		send_email($user_ref,lang("add_user_email_subject"), $email);
+		$error = send_email($user_ref,lang("add_user_email_subject"), $email);
 		
 		my $email = <<EMAIL
 		
@@ -327,8 +328,9 @@ cc: $user_ref->{initial_cc}
 
 EMAIL
 ;	
-		send_email_to_admin("Inscription de $userid", $email);		
+		$error += send_email_to_admin("Inscription de $userid", $email);
 	}
+    return $error;
 }
 
 sub display_login_form() {

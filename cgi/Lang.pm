@@ -1533,6 +1533,23 @@ add_user_confirm => {
 	ru => '<p>Спасибо, что присоединились! Теперь вы можете войти на сайт, чтобы,добавить или изменить продукты.</p>',
 },
 
+add_user_confirm_no_mail => {
+	fr => '<p>Merci de votre inscription. Vous pouvez maintenant vous identifier sur le site pour ajouter et modifier des produits.</p><p>Attention&nbsp;: le mail de confirmation n\'a pas pu être envoyé.</p>',
+	en => '<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p><p>Warning: no confirmation mail was sent.</p>',
+	da => '<p>Tak for tilmeldelsen. Du kan nu logge på på webstedet for at tilføje og redigere produkter.</p><p>Warning: no confirmation mail was sent.</p>',
+	el => '<p> Ευχαριστούμε που επισκεφθήκατε τη σελίδα μας. Τώρα μπορείτε να εγγραφείτε για να προσθέσετε και να επεξεργαστείτε προϊόντα.</p><p>Warning: no confirmation mail was sent.</p>',
+	es => '<p>Gracias por registrarse. A partir de ahora puede identificarse en el sitio para añadir o modificar productos.<p><p>Warning: no confirmation mail was sent.</p>',
+	de => '<p>Vielen Dank für ihre Registrierung. Sie können sich jetzt auf der Seite anmelden um Produkte hinzuzufügen oder abzuändern.</p><p>Warning: no confirmation mail was sent.</p>',
+	it => '<p>Grazie per la vostra iscrizione. Da adesso potete identificarvi sul sito per aggiungere e/o modificare dei prodotti.</p><p>Warning: no confirmation mail was sent.</p>',
+	ar => '<p>شكرا على انضمامك إلينا ، يمكتك الآن تسجيل دخولك و إضافة  أو تعديل المنتجات.</p><p>Warning: no confirmation mail was sent.</p>',
+	pt => '<p>Obrigado pela sua inscrição. Pode aceder ao site para adicionar ou editar produtos.</p><p>Warning: no confirmation mail was sent.</p>',
+	ro => '<p>Vă mulțumim pentru înscriere. De acum vă puteți autentifica pe site pentru a adăuga și modifica produse.</p><p>Warning: no confirmation mail was sent.</p>',
+	he => '<p>תודה לך על הצטרפותך. מעכשיו תהיה לך אפשרות להיכנס לאתר כדי להוסיף ולערוך מוצרים.</p><p>Warning: no confirmation mail was sent.</p>',
+	nl => '<p>Bedankt voor uw inschrijving. U kan nu inloggen op de site om producten toe te voegen of te bewerken.</p><p>Warning: no confirmation mail was sent.</p>',
+	nl_be => '<p>Bedankt voor uw inschrijving. U kan nu inloggen op de site om producten toe te voegen of te bewerken.</p><p>Warning: no confirmation mail was sent.</p>',
+	ru => '<p>Спасибо, что присоединились! Теперь вы можете войти на сайт, чтобы,добавить или изменить продукты.</p><p>Warning: no confirmation mail was sent.</p>',
+},
+
 add_user_email_subject => {
 	fr => 'Merci de votre inscription sur Open Food Facts',
 	en => 'Thanks for joining Open Food Facts',
