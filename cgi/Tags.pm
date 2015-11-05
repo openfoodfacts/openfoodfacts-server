@@ -62,6 +62,8 @@ BEGIN
 					&display_parents_and_children
 					&display_tags_hierarchy
 					&export_tags_hierarchy
+					
+					&compute_field_tags
 
 					&get_city_code
 					%emb_codes_cities
@@ -78,6 +80,8 @@ BEGIN
 					%country_codes
 					%country_codes_reverse
 					%country_languages
+					
+					%loaded_taxonomies
 					
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -102,9 +106,11 @@ use GraphViz2;
 my $debug = 0;
 
 
-%tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes => 1, allergens => 1, traces => 1, purchase_places => 1, stores => 1, countries => 1, states=>1, codes=>1);
+%tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes => 1, allergens => 1, traces => 1, purchase_places => 1, stores => 1, countries => 1, states=>1, codes=>1, debug => 1);
 %hierarchy_fields = ();
-%taxonomy_fields = (countries => 1, labels => 1, categories => 1, additives => 1, allergens => 1, traces => 1, states => 1);
+
+%taxonomy_fields = (); # populated by retrieve_tags_taxonomy
+
 @drilldown_fields = qw(
 brands
 categories
@@ -682,7 +688,7 @@ sub build_tags_taxonomy($$) {
 		}
 		
 		my $max_pass = 3;
-		if ($tagtype eq 'additives') {
+		if ($tagtype =~ /^additives/) {
 			$max_pass = 1;
 		}
 		
@@ -1100,9 +1106,22 @@ sub retrieve_tags_taxonomy($) {
 
 	my $tagtype = shift;
 	
+	$taxonomy_fields{$tagtype} = 1;
+	
+	# Check if we have a taxonomy for the previous or the next version
+	if ($tagtype !~ /_(next|prev)/) {
+		if (-e "$data_root/taxonomies/${tagtype}_prev.result.sto") {
+			retrieve_tags_taxonomy("${tagtype}_prev");
+		}
+		if (-e "$data_root/taxonomies/${tagtype}_next.result.sto") {
+			retrieve_tags_taxonomy("${tagtype}_next");
+		}		
+	}
+	
 	my $taxonomy_ref = retrieve("$data_root/taxonomies/$tagtype.result.sto");
 	if (defined $taxonomy_ref) {
-		
+	
+		$loaded_taxonomies{$tagtype} = 1;
 		$stopwords{$tagtype} = $taxonomy_ref->{stopwords};
 		$synonyms{$tagtype} = $taxonomy_ref->{synonyms};
 		$synonyms_for{$tagtype} = $taxonomy_ref->{synonyms_for};
@@ -1157,14 +1176,16 @@ foreach my $langid (readdir(DH2)) {
 closedir(DH2);
 
 
-retrieve_tags_taxonomy("test");
 retrieve_tags_taxonomy("countries");
 retrieve_tags_taxonomy("labels");
 retrieve_tags_taxonomy("categories");
 retrieve_tags_taxonomy("additives");
+retrieve_tags_taxonomy("additives_debug");
 retrieve_tags_taxonomy("allergens");
 retrieve_tags_taxonomy("traces");
 retrieve_tags_taxonomy("states");
+retrieve_tags_taxonomy("nutrient_levels");
+
 
 # Build map of local country names in official languages to (country, language)
 
@@ -1675,7 +1696,7 @@ sub canonicalize_tag2($$)
 
 	$tag = $canon_tag;
 	
-	if ($tagtype eq 'additives') {
+	if ($tagtype =~ /^additives/) {
 	
 		# e322-lecithines -> e322
 		my $tagid = get_fileid($tag);
@@ -1764,7 +1785,7 @@ sub canonicalize_taxonomy_tag($$$)
 	
 	my $tagid = get_fileid($tag);
 	
-	if ($tagtype eq 'additives') {
+	if ($tagtype =~ /^additives/) {
 		$tagid =~ s/^e(.*?)-(.*)$/e$1/i;
 	}	
 
@@ -1871,7 +1892,7 @@ sub display_taxonomy_tag($$$)
 	}
 	
 	# for additives, add the first synonym
-	if ($tagtype eq 'additives') {
+	if ($tagtype =~ /^additives/) {
 		$tagid =~ s/.*://;
 		if ((defined $synonyms_for{$tagtype}{$target_lc}) and (defined $synonyms_for{$tagtype}{$target_lc}{$tagid})
 			and (defined $synonyms_for{$tagtype}{$target_lc}{$tagid}[1])) {
@@ -2212,15 +2233,94 @@ foreach my $langid (readdir(DH2)) {
 closedir(DH2);
 	
 	
-print STDERR "additives\n\n";
-use Data::Dumper;
-print STDERR "en - e120 : " . Dumper($synonyms_for{additives}{en}{e120}) . "\n";
-print STDERR "fr - e440 : " . Dumper($synonyms_for{additives}{fr}{e440}) . "\n";
-print STDERR "fr - e333 : " . Dumper($synonyms_for{additives}{fr}{e333}) . "\n";
-print STDERR "fr - e440i : " . Dumper($synonyms_for{additives}{en}{e440i}) . "\n";
-print STDERR "fr - e440i : " . $synonyms_for{additives}{en}{e440i}[1] . "\n";
+sub compute_field_tags($$) {
 
-
+	my $product_ref = shift;
+	my $field = shift;
 	
+	# generate the hierarchy of tags from the field values
+		
+	if (defined $taxonomy_fields{$field}) {
+		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
+		$product_ref->{$field . "_tags" } = [];
+		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
+			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
+		}
+	}		
+	elsif (defined $hierarchy_fields{$field}) {
+		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy($field, $product_ref->{$field}) ];
+		$product_ref->{$field . "_tags" } = [];
+		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
+			if (get_fileid($tag) ne '') {
+				push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
+			}
+		}
+	}
+	
+	# check if we have a previous or a next version and compute differences
+	
+	$product_ref->{$field . "_debug_tags"} = [];
+	
+	# previous version
+	
+	if (exists $loaded_taxonomies{$field . "_prev"}) {
+		$product_ref->{$field . "_prev_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field . "_prev", $product_ref->{$field}) ];
+		$product_ref->{$field . "_prev_tags" } = [];
+		foreach my $tag (@{$product_ref->{$field . "_prev_hierarchy" }}) {
+			push @{$product_ref->{$field . "_prev_tags" }}, get_taxonomyid($tag);
+		}
+		
+		# compute differences
+		foreach my $tag (@{$product_ref->{$field . "_tags"}}) {
+			if (not has_tag($product_ref,$field . "_prev",$tag)) {
+				my $tagid = $tag;
+				$tagid =~ s/:/-/;
+				push @{$product_ref->{$field . "_debug_tags"}}, "added-$tagid";
+			}
+		}
+		foreach my $tag (@{$product_ref->{$field . "_prev_tags"}}) {
+			if (not has_tag($product_ref,$field,$tag)) {
+				my $tagid = $tag;
+				$tagid =~ s/:/-/;
+				push @{$product_ref->{$field . "_debug_tags"}}, "removed-$tagid";
+			}
+		}			
+	}
+	else {
+		delete $product_ref->{$field . "_prev_hierarchy" };
+		delete $product_ref->{$field . "_prev_tags" };
+	}	
+	
+	# next version
+	
+	if (exists $loaded_taxonomies{$field . "_next"}) {
+		$product_ref->{$field . "_next_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field . "_next", $product_ref->{$field}) ];
+		$product_ref->{$field . "_next_tags" } = [];
+		foreach my $tag (@{$product_ref->{$field . "_next_hierarchy" }}) {
+			push @{$product_ref->{$field . "_next_tags" }}, get_taxonomyid($tag);
+		}
+		
+		# compute differences
+		foreach my $tag (@{$product_ref->{$field . "_tags"}}) {
+			if (not has_tag($product_ref,$field . "_next",$tag)) {
+				my $tagid = $tag;
+				$tagid =~ s/:/-/;
+				push @{$product_ref->{$field . "_debug_tags"}}, "will-remove-$tagid";
+			}
+		}
+		foreach my $tag (@{$product_ref->{$field . "_next_tags"}}) {
+			if (not has_tag($product_ref,$field,$tag)) {
+				my $tagid = $tag;
+				$tagid =~ s/:/-/;
+				push @{$product_ref->{$field . "_debug_tags"}}, "will-add-$tagid";
+			}
+		}			
+	}
+	else {
+		delete $product_ref->{$field . "_next_hierarchy" };
+		delete $product_ref->{$field . "_next_tags" };
+	}
+	
+}
 	
 1;
