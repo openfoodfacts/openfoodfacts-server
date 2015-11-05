@@ -2270,6 +2270,9 @@ HTML
 							if ($i > 1) {
 								$link .= "/$i";
 							}
+							if ($link eq '') {
+								$link  = "/";
+							}
 						}
 						elsif (defined $current_link_query) {
 							
@@ -5735,12 +5738,20 @@ sub display_nutrient_levels($) {
 	if (($lc eq 'fr') and (exists $product_ref->{"nutrition_grade_fr"})) {
 		my $grade = $product_ref->{"nutrition_grade_fr"};
 		my $uc_grade = uc($grade);
+		
+		my $warning = '';
+		if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
+			$warning = "<p>Avertissement : Le taux de fibres n'étant pas renseigné, leur éventuelle contribution positive à la note n'a pas pu être prise en compte.</p>";
+		}
+
+		
 		$html_nutrition_grade .= <<HTML
 <h4>Note nutritionnelle de couleur <small>(Programme National Nutrition et Santé)</small>
-<a href="http://fr.openfoodfacts.org/score-nutritionnel-experimental-france" title="Mode de calcul de la note nutritionnelle de couleur">
+<a href="http://fr.openfoodfacts.org/score-nutritionnel-france" title="Mode de calcul de la note nutritionnelle de couleur">
 <i class="fi-info"></i></a>
 </h4>
 <img src="/images/misc/$grade.338x72.png" alt="Note nutritionnelle : $uc_grade" style="margin-bottom:1rem;max-width:100%" /><br/>
+$warning
 HTML
 ;
 	}
@@ -6210,6 +6221,8 @@ HTML
 					$value = sprintf("%f", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit));
 				}
 				
+				# 0.045 g	0.0449 g
+				
 				my $value_unit = "$value $unit";
 				if ((not defined $comparison_ref->{nutriments}{$nid . "_100g"}) or ($comparison_ref->{nutriments}{$nid . "_100g"} eq '')) {
 					$value_unit = '?';
@@ -6272,12 +6285,28 @@ HTML
 					$value_unit .= "<br/>(" . g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, 'kcal') . ' kcal)';
 				}
 				elsif ($nid eq 'sodium') {
-					my $salt = (sprintf("%.2e", g_to_unit($product_ref->{nutriments}{$nid . "_$col"} * 2.54, $unit)) + 0.0);
-					$values2 .= "<td class=\"nutriment_value${col_class}\" property=\"food:saltEquivalentPer100g\" content=\"$salt\">" . $salt . " " . $unit . "</td>";
+					my $salt = $product_ref->{nutriments}{$nid . "_$col"} * 2.54;
+					if (exists $product_ref->{nutriments}{"salt" . "_$col"}) {
+						$salt = $product_ref->{nutriments}{"salt" . "_$col"};
+					}
+					$salt = sprintf("%.2e", g_to_unit($salt, $unit)) + 0.0;
+					my $property = '';
+					if ($col eq '100g') {
+						$property = "property=\"food:saltEquivalentPer100g\" content=\"$salt\"";
+					}
+					$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $salt . " " . $unit . "</td>";
 				}
 				elsif ($nid eq 'salt') {
-					my $sodium = (sprintf("%.2e", g_to_unit($product_ref->{nutriments}{$nid . "_$col"} / 2.54, $unit)) + 0.0);
-					$values2 .= "<td class=\"nutriment_value${col_class}\" property=\"food:sodiumPer100g\" content=\"$sodium\">" . $sodium . " " . $unit . "</td>";
+					my $sodium = $product_ref->{nutriments}{$nid . "_$col"} / 2.54;
+					if (exists $product_ref->{nutriments}{"sodium". "_$col"}) {
+						$sodium = $product_ref->{nutriments}{"sodium". "_$col"};
+					}
+					my $sodium = sprintf("%.2e", g_to_unit($sodium, $unit)) + 0.0;
+					my $property = '';
+					if ($col eq '100g') {
+						$property = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";
+					}
+					$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $sodium . " " . $unit . "</td>";
 				}				
 				elsif ($col eq $product_ref->{nutrition_data_per}) {
 					# % DV ?
