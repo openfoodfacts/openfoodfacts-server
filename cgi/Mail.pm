@@ -73,7 +73,9 @@ sub send_email($$$)
 		
 	my $mime_email = MIME::Lite->new(%msg);
 	$mime_email->attr('content-type.charset' => 'UTF-8');
-	$mime_email->send;
+	eval { $mime_email->send; };
+    return $@ ? 1 : 0;
+    
 }
 
 sub send_email_to_admin($$)
@@ -91,9 +93,15 @@ sub send_email_to_admin($$)
 		
 	my $mime_email = MIME::Lite->new(%msg);
 	$mime_email->attr('content-type.charset' => 'UTF-8');
-	$mime_email->send;
+	eval { $mime_email->send; };
 	
-	print STDERR "sent email to admin: \n" . $mime_email->as_string . "\n";
+    if ( $@ ) {
+	    print STDERR "WARNING no email sent to admin: \n" . $mime_email->as_string . "\n";
+        return 1;
+    } else {
+	    print STDERR "sent email to admin: \n" . $mime_email->as_string . "\n";
+        return 0;
+    }
 }
 
 sub send_email_to_admin_from_user($$$) # useful so that the admin can do a reply to
@@ -118,7 +126,8 @@ sub send_email_to_admin_from_user($$$) # useful so that the admin can do a reply
 		
 	my $mime_email = MIME::Lite->new(%msg);
 	$mime_email->attr('content-type.charset' => 'UTF-8');
-	$mime_email->send;
+	eval { $mime_email->send; };
+    return $@ ? 1 : 0;
 }
 
 
