@@ -568,6 +568,8 @@ debug => {
 	en => "debug",
 },
 
+# end - do not translate
+
 );
 
 # Note: a lot of plurals are currently missing below, commented-out are the singulars that need to be changed to plurals
@@ -11142,7 +11144,21 @@ copy_data => {
 );
 
 
+my @debug_taxonomies = ("categories", "labels");
 
+foreach my $taxonomy (@debug_taxonomies) {
+
+	foreach my $suffix ("prev", "next", "debug") {
+	
+		foreach my $field ("", "_s", "_p") {
+			$Lang{$taxonomy . "_$suffix" . $field } = { en => get_fileid($taxonomy) . "-$suffix" };
+			print STDERR " Lang{ " . $taxonomy . "_$suffix" . $field  . "} = { en => " . get_fileid($taxonomy) . "-$suffix } \n";
+		}
+		
+		$tag_type_singular{$taxonomy . "_$suffix"} = { en => get_fileid($taxonomy) . "-$suffix" };
+		$tag_type_plural{$taxonomy . "_$suffix"} = { en => get_fileid($taxonomy) . "-$suffix" };
+	}
+}
 
 
 
