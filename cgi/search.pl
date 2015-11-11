@@ -771,7 +771,7 @@ elsif ($action eq 'process') {
 
 			my %response = ();
 			$response{jqm} = ${$request_ref->{content_ref}};
-			$response{jqm} =~ s/(href|src)=("\/)/$1="http:\/\/world.$domain\//g;
+			$response{jqm} =~ s/(href|src)=("\/)/$1="http:\/\/world.$server_domain\//g;
 
 			my $data =  encode_json(\%response);
 	

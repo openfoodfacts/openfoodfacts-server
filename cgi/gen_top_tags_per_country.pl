@@ -674,7 +674,7 @@ foreach my $country (sort { $countries{$b} <=> $countries{$a}} keys %countries) 
 				if ($country eq 'en:world') {
 					$cc = 'world';
 				}				
-                $html .= "<a href=\"http://$cc.$domain/\">" . display_taxonomy_tag_link('en','countries',$country) . "</a> : $countries{$country} " . lang("products") . "<br />";
+                $html .= "<a href=\"http://$cc.$server_domain/\">" . display_taxonomy_tag_link('en','countries',$country) . "</a> : $countries{$country} " . lang("products") . "<br />";
         }
 
 }
@@ -698,7 +698,7 @@ foreach my $country (sort { $countries{$b} <=> $countries{$a}} keys %countries) 
 				
 				my $n = $countries{$country};
 				$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
-				my $link = "<a href=\"http://$cc.$domain/\">" . display_taxonomy_tag('en','countries',$country) . "</a>";
+				my $link = "<a href=\"http://$cc.$server_domain/\">" . display_taxonomy_tag('en','countries',$country) . "</a>";
 				my $i = 0;
 				foreach my $lc (@{$country_languages{$cc}}) {
 					if ($lc ne 'en') {
@@ -706,7 +706,7 @@ foreach my $country (sort { $countries{$b} <=> $countries{$a}} keys %countries) 
 						if ($i != 0) {
 							$subdomain = "$cc-$lc";
 						}
-						$link .= " / " . "<a href=\"http://$subdomain.$domain/\">" . display_taxonomy_tag($lc,'countries',$country) . "</a>"
+						$link .= " / " . "<a href=\"http://$subdomain.$server_domain/\">" . display_taxonomy_tag($lc,'countries',$country) . "</a>"
 					}
 
 					$i++;
@@ -733,7 +733,7 @@ close OUT;
 
 # ! Open Beauty Facts
 
-if ($domain eq 'openfoodfacts.org') {
+if ($server_domain eq 'openfoodfacts.org') {
 
 open (DEBUG, ">:encoding(UTF-8)", "/home/yogurt/html/yogurts_debug");
 
@@ -761,7 +761,7 @@ foreach my $country (sort { $countries_tags{$b}{categories}{"en:yogurts"} <=> $c
 				
 				my $n = $countries_tags{$country}{categories}{"en:yogurts"};
 				$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
-				my $link = "<a href=\"http://$cc.$domain" . canonicalize_taxonomy_tag_link($lc,"categories", "en:yogurts") . "\">" . display_taxonomy_tag('en','countries',$country) . "</a>";
+				my $link = "<a href=\"http://$cc.$server_domain" . canonicalize_taxonomy_tag_link($lc,"categories", "en:yogurts") . "\">" . display_taxonomy_tag('en','countries',$country) . "</a>";
 
 		
                 $html .= "<li>$link - " . $countries_tags{$country}{categories}{"en:yogurts"} . " yogurts</li>\n";

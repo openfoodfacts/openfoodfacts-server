@@ -42,7 +42,6 @@ BEGIN
 		$by
 		$on
 		
-		$domain
 		$extension
 		$all_tag
 		$sandbox
@@ -130,7 +129,6 @@ $admin_email = 'biz@joueb.com';
 $by = 'par';
 $on = 'theme';
 
-$domain = 'fr.openfoodfacts';
 $extension = 'org';
 $all_tag = ''; # / is the main url.
 $sandbox = "reperages";

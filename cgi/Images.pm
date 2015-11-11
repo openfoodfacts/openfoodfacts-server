@@ -917,7 +917,7 @@ sub display_image_thumb($$) {
 
 			
 		$html .= <<HTML
-<img src="http://static.$domain/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="http://static.$domain/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" />
+<img src="http://static.$server_domain/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="http://static.$server_domain/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" />
 HTML
 ;		
 	

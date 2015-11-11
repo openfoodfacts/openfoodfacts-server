@@ -70,7 +70,7 @@ my $count = $cursor->count();
 			}
 		# Store
 
-		if ($domain =~ /openfoodfacts/) {
+		if ($server_domain =~ /openfoodfacts/) {
 			Blogs::Food::special_process_product($product_ref);
 		}
 	

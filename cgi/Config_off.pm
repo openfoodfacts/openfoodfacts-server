@@ -9,7 +9,6 @@ BEGIN
 	@EXPORT_OK = qw(
 		%admins
 		
-		$domain
 		$server_domain
 		$data_root
 		$www_root
@@ -50,7 +49,6 @@ use Blogs::Lang;
 
 
 # server constants
-$domain = 'openfoodfacts.org';
 $server_domain = $Blogs::Config2::server_domain;
 $mongodb = $Blogs::Config2::mongodb;
 

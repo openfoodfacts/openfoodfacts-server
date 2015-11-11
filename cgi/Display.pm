@@ -265,7 +265,7 @@ sub init()
 		$admin = 1;
 	}
 	
-	if ($domain =~ /^test/) {
+	if ($server_domain =~ /^test/) {
 	#	$admin = 1;
 	}
 	
@@ -1377,7 +1377,7 @@ sub display_points_ranking($$) {
 		
 		if ($ranktype eq "countries") {
 			$display_key = display_taxonomy_tag($lc,"countries",$key);
-			$link = "http://" . $country_codes_reverse{$key} . ".$domain/points";
+			$link = "http://" . $country_codes_reverse{$key} . ".$server_domain/points";
 		}
 		
 		$html .= "<tr><td><a href=\"$link\">$display_key</a></td><td>$rank</td><td>" . $points_ref->{$tagid}{$key} . "</td><td>" . $ambassadors_ranks{$key} . "</td><td>" . $ambassadors_points_ref->{$tagid}{$key} . "</td></tr>\n";
@@ -2770,7 +2770,7 @@ sub display_scatter_plot($$$) {
 				and ((($graph_ref->{axis_y} eq 'additives_n') and (defined $product_ref->{$graph_ref->{axis_y}})) or 
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"} ne ''))) {
 				
-				my $url = "http://$subdomain.$domain" . product_url($product_ref->{code});
+				my $url = "http://$subdomain.$server_domain" . product_url($product_ref->{code});
 				
 				# Identify the series id
 				my $seriesid = 0;
@@ -4065,7 +4065,7 @@ sub display_new($) {
 		$canon_description = lang("site_description");
 	}
 	my $canon_image_url = "";
-	my $canon_url = "http://" . $subdomain . "." . $domain;
+	my $canon_url = "http://" . $subdomain . "." . $server_domain;
 
 	if (defined $request_ref->{canon_url}) {
 		if ($request_ref->{canon_url} =~ /^http:/) {
@@ -4096,7 +4096,7 @@ sub display_new($) {
 		my $img_url = $1;
 		$img_url =~ s/\.200\.jpg/\.400\.jpg/;
 		if ($img_url !~ /^http:/) {
-			$img_url = "http://" . $lc . "." . $domain . $img_url;
+			$img_url = "http://" . $lc . "." . $server_domain . $img_url;
 		}
 		$og_images .= '<meta property="og:image" content="' . $img_url . '"/>' . "\n";
 		if ($img_url !~ /misc/) {
@@ -4504,10 +4504,10 @@ HTML
 				$osubdomain = $cc;
 			}
 			if (($olc eq $lc) or ($olc eq $lclc)) {
-				$selected_lang = "<a href=\"http://$osubdomain.$domain/\">$Langs{$olc}</a>\n";
+				$selected_lang = "<a href=\"http://$osubdomain.$server_domain/\">$Langs{$olc}</a>\n";
 			}
 			else {
-				$langs .= "<li><a href=\"http://$osubdomain.$domain/\">$Langs{$olc}</a></li>"
+				$langs .= "<li><a href=\"http://$osubdomain.$server_domain/\">$Langs{$olc}</a></li>"
 			}
 		}
 	}
@@ -4849,10 +4849,10 @@ $scripts
 	"\@context" : "http://schema.org",
 	"\@type" : "WebSite",
 	"name" : "$Lang{site_name}{$lc}",
-	"url" : "http://$subdomain.$domain",
+	"url" : "http://$subdomain.$server_domain",
 	"potentialAction": {
 		"\@type": "SearchAction",
-		"target": "http://$subdomain.$domain/cgi/search.pl?search_terms=?{search_term_string}",
+		"target": "http://$subdomain.$server_domain/cgi/search.pl?search_terms=?{search_term_string}",
 		"query-input": "required name=search_term_string"
 	}	
 }
@@ -4862,7 +4862,7 @@ $scripts
 {
 	"\@context": "http://schema.org/",
 	"\@type": "Organization",
-	"url": "http://$subdomain.$domain",
+	"url": "http://$subdomain.$server_domain",
 	"logo": "/images/misc/$Lang{logo}{$lang}",
 	"name": "$Lang{site_name}{$lc}",
 	"sameAs" : [ "$facebook_page", "http://twitter.com/$twitter_account"] 
@@ -4896,7 +4896,7 @@ HTML
 
 	# Use static subdomain for images, js etc.
 	
-	$html =~ s/(?<![a-z0-9-])((http|https):\/\/([a-z0-9-]+)\.$domain)?\/(images|js|foundation)\//http:\/\/static.$domain\/$4\//g;
+	$html =~ s/(?<![a-z0-9-])((http|https):\/\/([a-z0-9-]+)\.$server_domain)?\/(images|js|foundation)\//http:\/\/static.$server_domain\/$4\//g;
 	# (?<![a-z0-9-]) -> negative look behind to make sure we are not matching /images in another path.
 	# e.g. https://apis.google.com/js/plusone.js or //cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/images/select2.min.js
 
@@ -4910,7 +4910,7 @@ HTML
 			$test = "-test";
 		}
 		my $session = {} ;
-		my $cookie2 = cookie (-name=>'session', -expires=>'-1d',-value=>$session, domain=>".$lc$test.$domain", -path=>'/') ;
+		my $cookie2 = cookie (-name=>'session', -expires=>'-1d',-value=>$session, domain=>".$lc$test.$server_domain", -path=>'/') ;
 		print header (-cookie=>[$cookie, $cookie2], -expires=>'-1d', -charset=>'UTF-8');
 	}
 	elsif (defined $cookie) {

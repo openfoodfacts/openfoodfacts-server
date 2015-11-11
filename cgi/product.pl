@@ -299,7 +299,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	# Food category rules for sweeetened/sugared beverages
 	# French PNNS groups from categories
 	
-	if ($domain =~ /openfoodfacts/) {
+	if ($server_domain =~ /openfoodfacts/) {
 		Blogs::Food::special_process_product($product_ref);
 	}
 	

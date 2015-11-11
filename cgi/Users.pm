@@ -354,7 +354,7 @@ sub init_user()
 	if ((defined param('length')) and (param('length') eq 'logout')) {
 		$debug and print STDERR "Blogs::Users::init_user - logout\n" ;
 		my $session = {} ;
-		$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$domain") ;
+		$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$server_domain") ;
 	}
 
 	# Retrieve user_id and password from form parameters
@@ -460,7 +460,7 @@ sub init_user()
 			    {
 				# Set a persistent cookie
 				$debug and print STDERR "Blogs::Users::init_user -  persistent cookie\n" ;
-				$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>".$domain",
+				$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>".$server_domain",
 						   -expires=>'+' . $length . 's') ;
 
 			    }
@@ -469,7 +469,7 @@ sub init_user()
 				# Set a session cookie
 				$debug and print STDERR "Blogs::Users::init_user - session cookie\n" ;
 
-				$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>".$domain") ;
+				$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>".$server_domain") ;
 			    }
 			}
 		    }
@@ -532,7 +532,7 @@ sub init_user()
 			$user_id = undef;
 			# Remove the cookie
 			my $session = {} ;
-			$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$domain") ;
+			$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$server_domain") ;
 		    }
 		    else
 		    {
@@ -554,7 +554,7 @@ sub init_user()
 		{
 		    # Remove the cookie
 		    my $session = {} ;
-		    $cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$domain") ;
+		    $cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$server_domain") ;
 
 		    $user_id = undef ;
 		}
@@ -563,7 +563,7 @@ sub init_user()
 	    {
 		# Remove the cookie
 		my $session = {} ;
-		$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$domain") ;
+		$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$server_domain") ;
 
 		$user_id = undef ;
 	    }
