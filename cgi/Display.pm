@@ -1244,7 +1244,7 @@ $countries_map_names
   },
   onRegionClick: function(e, code, region){
 	if (countries_map_links[code]) {
-		window.location.href = "http://$cc.${server_domain}" + countries_map_links[code];
+		window.location.href = "http://$subdomain.${server_domain}" + countries_map_links[code];
 	}
   },
 });
