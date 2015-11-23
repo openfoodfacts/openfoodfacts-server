@@ -4988,7 +4988,7 @@ sub display_image_box($$$) {
 		}
 	
 		$img = <<HTML
-<div class="image_box">
+<div class="image_box" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
 $img
 </div>			
 HTML
