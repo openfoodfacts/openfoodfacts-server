@@ -494,7 +494,7 @@ JS
 
 
 	$header .= <<HTML
-<link rel="stylesheet" type="text/css" href="/js/cropper-20150415/dist/cropper.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/0.9.1/cropper.min.css" />
 <link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.20150416/jquery.tagsinput.min.css" />
 
 HTML
@@ -507,7 +507,7 @@ HTML
 
 
 	$scripts .= <<HTML
-<script type="text/javascript" src="/js/cropper-20150415/dist/cropper.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropper/0.9.1/cropper.min.js"></script>
 <script type="text/javascript" src="/js/jquery.tagsinput.20150416/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="/js/jquery.form.js"></script>
 <script type="text/javascript" src="/js/jquery.autoresize.js"></script>
