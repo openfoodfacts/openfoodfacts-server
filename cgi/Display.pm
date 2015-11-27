@@ -2282,10 +2282,10 @@ HTML
 						$html_pages .=  '<li><a href="' . $link . '">' . $i . '</a></li>';
 						
 						if ($i == $page - 1) {
-							$prev = '<li><a href="' . $link . '">' . lang("previous") . '</a></li>';
+							$prev = '<li><a href="' . $link . '" rel="prev">' . lang("previous") . '</a></li>';
 						}
 						elsif ($i == $page + 1) {
-							$next = '<li><a href="' . $link . '">' . lang("next") . '</a></li>';
+							$next = '<li><a href="' . $link . '" rel="next">' . lang("next") . '</a></li>';
 							$next_page_url = $link;
 						}
 					}
