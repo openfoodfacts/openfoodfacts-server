@@ -19,9 +19,15 @@ use URI::Escape::XS;
 use Encode;
 
 use Crypt::PasswdMD5 qw(unix_md5_crypt);
-
+use Math::Random::Secure qw(irand);
 
 Blogs::Display::init();
+
+sub generate_token {
+	my $name_length = shift;
+	my @chars=('a'..'z', 'A'..'Z', 0..9);
+	join '',map {$chars[irand @chars]} 1..$name_length;
+}
 
 my $type = param('type') || 'send_email';
 my $action = param('action') || 'display';
@@ -148,7 +154,7 @@ if ($type eq 'send_email') {
 		if (defined $user_ref) {
 		
 			$user_ref->{token_t} = time();
-			$user_ref->{token} = int(rand() * 100000000);
+			$user_ref->{token} = generate_token(64);
 			$user_ref->{token_ip} = remote_addr();
 			
 			store("$data_root/users/$userid.sto", $user_ref);
