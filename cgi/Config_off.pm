@@ -19,6 +19,8 @@ BEGIN
 		$facebook_app_id
 		$facebook_app_secret
 		
+		$csrf_secret
+		
 		$mongodb
 	
 		$google_analytics
@@ -66,6 +68,8 @@ $data_root = $Blogs::Config2::data_root;
 
 $facebook_app_id = $Blogs::Config2::facebook_app_id;
 $facebook_app_secret = $Blogs::Config2::facebook_app_secret;
+
+$csrf_secret = $Blogs::Config2::csrf_secret;
 
 $reference_timezone = 'Europe/Paris';
 
