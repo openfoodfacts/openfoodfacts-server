@@ -36,6 +36,7 @@ BEGIN
 					&xml_escape
 					&display_form
 					&display_date
+					&display_date_tag
 					
 					&display
 					&display_new
@@ -114,6 +115,8 @@ use CGI qw/:cgi :form escapeHTML/;
 use HTML::Entities;
 use DateTime;
 use DateTime::Format::Mail;
+use DateTime::Format::CLDR;
+use DateTime::Locale;
 use MongoDB;
 use Tie::IxHash;
 use JSON;
@@ -582,24 +585,32 @@ sub display_form($) {
 	return "<p>$s</p>";
 }
 
-
 sub display_date($) {
 
 	my $t = shift;
-	
-	my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($t);
-	my $date;
-	
-	if ($lang eq 'fr') {
-		$date = sprintf("%02d/%02d/%02d à %02dh%02d", $mday, $mon + 1, $year % 100, $hour, $min);
-	}
-	else {
-		$date = sprintf("%02d/%02d/%02d %02d:%02d", $mon + 1, $mday, $year % 100, $hour, $min);
-	}
-	
-	return $date;
+
+	my $locale = DateTime::Locale->load($lc);
+	my $dt = DateTime->from_epoch(
+		locale => $locale,
+		time_zone => $reference_timezone,
+		epoch => $t );
+	my $formatter = DateTime::Format::CLDR->new(
+	    pattern => $locale->datetime_format_long,
+	    locale => $locale
+	);
+	$dt->set_formatter($formatter);
+	return $dt;
+
 }
 
+sub display_date_tag($) {
+
+	my $t = shift;
+	my $dt = display_date($t);
+	my $iso = $dt->iso8601;;
+	return "<time datetime=\"$iso\">$dt</time>";
+
+}
 
 sub display_error($)
 {
@@ -5408,7 +5419,7 @@ HTML
 	$html .= display_nutrition_table($product_ref, \@comparisons);
 	
 
-	my $created_date = display_date($product_ref->{created_t});
+	my $created_date = display_date_tag($product_ref->{created_t});
 	
 	my $creator = "<a href=\"" . canonicalize_tag_link("users", get_fileid($product_ref->{creator})) . "\">" . $product_ref->{creator} . "</a>";
 	
@@ -5675,7 +5686,7 @@ HTML
 	
 	
 
-	my $created_date = display_date($product_ref->{created_t});
+	my $created_date = display_date_tag($product_ref->{created_t});
 	
 	my $creator =  $product_ref->{creator} ;
 	
