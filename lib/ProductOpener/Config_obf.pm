@@ -17,6 +17,7 @@ BEGIN
 		$admin_email
 		
 		$oidc
+		$csrf_secret
 		
 		$mongodb
 	
@@ -82,6 +83,7 @@ $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
 
 $oidc = $ProductOpener::Config2::oidc;
+$csrf_secret = $ProductOpener::Config2::csrf_secret;
 
 $reference_timezone = 'Europe/Paris';
 

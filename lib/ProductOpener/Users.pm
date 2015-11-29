@@ -51,6 +51,8 @@ BEGIN
 					
 					&check_session
 
+					&generate_po_csrf_token
+					&check_po_csrf_token
 					&generate_token
 
 					);	# symbols to export on request
@@ -76,6 +78,8 @@ use Encode;
 use Crypt::PasswdMD5 qw(unix_md5_crypt);
 use Math::Random::Secure qw(irand);
 use Crypt::ScryptKDF qw(scrypt_hash scrypt_hash_verify);
+
+use WWW::CSRF qw(generate_csrf_token check_csrf_token CSRF_OK);
 
 my @salt = ( '.', '/', 0 .. 9, 'A' .. 'Z', 'a' .. 'z' );
 
@@ -594,23 +598,23 @@ sub init_user()
 	{
 		# If we don't have a user id, check if there is a browser id cookie, or assign one
 
-        if (not ((defined cookie('b')) and (cookie('b') =~ /^(\d+)\.(\d+)\.(\d+)\.(\d+)_(\d+)$/)))
-        {
+	        if (not ((defined cookie('b')) and (cookie('b') =~ /^(\d+)\.(\d+)\.(\d+)\.(\d+)_(\d+)$/)))
+	        {
 			my $b = remote_addr() . '_' . time();
 			# $Visitor_id = $b;  # don't set $Visitor_id unless we get the cookie back
 			# Set a cookie
 			if (not defined $cookie)
 			{
-			 $cookie = cookie (-name=>'b', -value=>$b, -path=>'/', -expires=>'+86400000s') ;
-			 print STDERR "Users.pm - setting b cookie: $cookie\n";
+				$cookie = cookie (-name=>'b', -value=>$b, -path=>'/', -expires=>'+86400000s') ;
+				print STDERR "Users.pm - setting b cookie: $cookie\n";
 			} 
 		}
 		else
 		{
-            $Visitor_id = cookie('b');
+			$Visitor_id = cookie('b');
 			$user_ref = retrieve("$data_root/virtual_users/$Visitor_id.sto");
 			print STDERR "Users.pm - got b cookie: $Visitor_id\n";
-        }
+	        }
                 
 	}
 	
@@ -702,6 +706,16 @@ sub save_user() {
 	elsif (defined $Visitor_id) {
 		store("$data_root/virtual_users/$Visitor_id.sto", \%User);
 	}
+}
+
+sub generate_po_csrf_token($) {
+	my ( $user_id ) = @_;
+	generate_csrf_token($user_id, $csrf_secret);
+}
+
+sub check_po_csrf_token($$) {
+	my ( $user_id, $csrf_token) = @_;
+	check_csrf_token($user_id, $csrf_secret, $csrf_token);
 }
 
 1;

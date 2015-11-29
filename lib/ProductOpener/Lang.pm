@@ -3000,6 +3000,9 @@ error_invalid_address => {
 	nl_be => 'Ongeldig adres',
 },
 
+error_invalid_csrf_token => {
+	en => "Invalid CSRF token.",
+},
 
 name => {
 	fr => "Nom",

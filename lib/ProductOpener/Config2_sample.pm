@@ -14,6 +14,7 @@ BEGIN
 		$facebook_app_id
 	    $facebook_app_secret
 		$oidc
+		$csrf_secret
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -75,5 +76,7 @@ eH+MQwdClxQ8rTr2CxXZKffji8I2Vs9FUE+pep0s3gR072kix3EFdZc=
 -----END RSA PRIVATE KEY-----",
 	},
 };
+
+$csrf_secret = "SWMAqq4znqqaHN9q7UWM5xQ5aJqKqPsekcwSuvjkkTmTtTXvPpyZxXkY25kqgaXQbLFVEaqZ";
 
 1;

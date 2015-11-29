@@ -20,6 +20,7 @@ BEGIN
 		$facebook_app_secret
 		
 		$oidc
+		$csrf_secret
 		
 		$mongodb
 	
@@ -88,6 +89,7 @@ $facebook_app_id = $ProductOpener::Config2::facebook_app_id;
 $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
 $oidc = $ProductOpener::Config2::oidc;
+$csrf_secret = $ProductOpener::Config2::csrf_secret;
 
 $reference_timezone = 'Europe/Paris';
 
