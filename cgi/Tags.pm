@@ -1945,7 +1945,7 @@ sub canonicalize_tag_link($$)
 	#	if ($data_root =~ /-test/) {
 	#		$test = "-test";
 	#	}
-	#	$link = "http://" . $tag_lc . $test . "." . $domain . $link;
+	#	$link = "http://" . $tag_lc . $test . "." . $server_domain . $link;
 	#}	
 	
 	#print STDERR "tagtype: $tagtype - $lc: $lc - lang: $lang - link: $link\n";

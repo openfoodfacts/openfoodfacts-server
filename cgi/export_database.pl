@@ -458,7 +458,7 @@ foreach my $l (sort { $langs{$b} <=> $langs{$a}} keys %langs) {
 
 	if ($langs{$l} > 0) {
 		$lang = $l;
-		$html .= "<p><a href=\"http://$lang.$domain/\">" . $Langs{$l} . "</a> - $langs{$l} " . lang("products") . "</p>";
+		$html .= "<p><a href=\"http://$lang.$server_domain/\">" . $Langs{$l} . "</a> - $langs{$l} " . lang("products") . "</p>";
 	}
 
 }

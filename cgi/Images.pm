@@ -917,7 +917,7 @@ sub display_image_thumb($$) {
 
 			
 		$html .= <<HTML
-<img src="http://static.$domain/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="http://static.$domain/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" />
+<img src="http://static.$server_domain/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="http://static.$server_domain/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" />
 HTML
 ;		
 	
@@ -951,7 +951,7 @@ sub display_image($$$) {
 			}
 			
 			$html .= <<HTML
-<img class="hide-for-xlarge-up" src="/images/products/$path/$id.$rev.$size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" />
+<img class="hide-for-xlarge-up" src="/images/products/$path/$id.$rev.$size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" />
 HTML
 ;
 
@@ -961,7 +961,7 @@ HTML
 			}
 
 			$html .= <<HTML
-<img class="show-for-xlarge-up" src="/images/products/$path/$id.$rev.$display_size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" />
+<img class="show-for-xlarge-up" src="/images/products/$path/$id.$rev.$display_size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" />
 HTML
 ;
 				
@@ -970,15 +970,25 @@ HTML
 				my $title = lang($id . '_alt');
 				
 				my $full_image_url = "/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg";
-			
+				my $representative_of_page = '';
+				if ($id eq 'front') {
+					$representative_of_page = 'true';
+				}
+				else {
+					$representative_of_page = 'false';
+				}
+				
 				$html = <<HTML
-<a data-reveal-id="drop_$id" class="th" >
+<a data-reveal-id="drop_$id" class="th">
 $html
 </a>
-<div id="drop_$id" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" about="$full_image_url" >
-<h2 id="modalTitle">$title</h2>
-<img src="$full_image_url" alt="$alt" />
-<a class="close-reveal-modal" aria-label="Close" rel="licence" href="http://creativecommons.org/licenses/by-sa/3.0/">&#215;</a>
+<div id="drop_$id" class="reveal-modal" data-reveal aria-labelledby="modalTitle_$id" aria-hidden="true" role="dialog" about="$full_image_url" >
+<h2 id="modalTitle_$id">$title</h2>
+<img src="$full_image_url" alt="$alt" itemprop="contentUrl" />
+<a class="close-reveal-modal" aria-label="Close" href="#">&#215;</a>
+<meta itemprop="representativeOfPage" content="$representative_of_page"/>
+<meta itemprop="license" content="http://creativecommons.org/licenses/by-sa/3.0/"/>
+<meta itemprop="caption" content="$alt"/>
 </div>
 HTML
 ;
