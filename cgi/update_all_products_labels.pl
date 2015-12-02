@@ -52,27 +52,12 @@ my $count = $cursor->count();
 		# Update
 		my $field = 'labels';
 
-			if (defined $taxonomy_fields{$field}) {
-				$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
-				$product_ref->{$field . "_tags" } = [];
-				foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-					push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
-				}
-			}		
-			elsif (defined $hierarchy_fields{$field}) {		
-				$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy($field, $product_ref->{$field}) ];
-				$product_ref->{$field . "_tags" } = [];
-				foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-					if (get_fileid($tag) ne '') {
-						push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
-					}
-				}
-			}
-			
-			if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')) {
-				push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
-				push @{$product_ref->{"labels_tags" }}, "en:carbon-footprint";
-			}
+		compute_field_tags($product_ref, $field);
+		
+		if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')) {
+			push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
+			push @{$product_ref->{"labels_tags" }}, "en:carbon-footprint";
+		}
 			
 		# Store
 
