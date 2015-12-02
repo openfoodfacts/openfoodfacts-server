@@ -1865,7 +1865,7 @@ HTML
 		if (defined $tagid2) {
 			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_p')) . "</a>" . lang("sep")
 				. ": <a href=\"$newtagidpath\">$display_tag</a>"		
-				. "\n<br /><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype2 . '_p')) . "</a>" . lang("sep")
+				. "\n<br /><a href=\"/" . $tag_type_plural{$tagtype2}{$lc} . "\">" . ucfirst(lang($tagtype2 . '_p')) . "</a>" . lang("sep")
 				. ": <a href=\"$newtagid2path\">$display_tag2</a></p>";		
 		}
 		else {
