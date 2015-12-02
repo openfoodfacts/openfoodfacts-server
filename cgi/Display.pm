@@ -260,6 +260,7 @@ sub init()
 	}
 	
 	if (($User_id eq 'stephane') or ($User_id eq 'tacite') or ($User_id eq 'teolemon') or ($User_id eq 'bcatelin')
+		or ($User_id eq 'twoflower') or ($User_id eq 'hangy') or ($User_id eq 'javichu') or ($User_id eq 'segundo') 
 		or ($User_id eq 'tacinte') or ($User_id eq 'kyzh') or ($User_id eq 'sebleouf')) {
 		$admin = 1;
 	}
