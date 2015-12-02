@@ -6491,19 +6491,24 @@ HTML
 		$response{status_verbose} = 'product found';
 		$response{product} = $product_ref;
 		
-		my $id = 'front';
-		my $size = $display_size;
+		foreach my $id ('front','ingredients','nutrition') {
 		
-		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
-			and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
+			my $size = $display_size;
 		
-			my $path = product_path($product_ref->{code});
+			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+				and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
+			
+				my $path = product_path($product_ref->{code});
 
-			
-			$product_ref->{image_url} = "http://$cc.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-			$product_ref->{image_small_url} = "http://$cc.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-		
-			
+				
+				$product_ref->{"image_" . $id . "_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+				$product_ref->{"image_" . $id . "_small_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+				
+				if ($id eq 'front') {
+					$product_ref->{image_url} = $product_ref->{"image_" . $id . "_url"};
+					$product_ref->{image_small_url} = $product_ref->{"image_" . $id . "_small_url"};
+				}
+			}		
 		}			
 		
 		if ($request_ref->{jqm}) {
