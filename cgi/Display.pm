@@ -2539,6 +2539,9 @@ pnns_groups_2
 		$csv .= "main_category\t";
 		
 		$csv .= "image_url\timage_small_url\t";	
+		$csv .= "image_front_url\timage_front_small_url\t";	
+		$csv .= "image_ingredients_url\timage_ingredients_small_url\t";	
+		$csv .= "image_nutrition_url\timage_nutrition_small_url\t";	
 
 		
 
@@ -2640,22 +2643,29 @@ pnns_groups_2
 			
 			$product_ref->{main_category} = $main_cid;		
 			
-			my $id = 'front';
-			my $size = $display_size;
+			foreach my $id ('front','ingredients','nutrition') {
 			
-			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
-				and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
+				my $size = $display_size;
 			
-				my $path = product_path($product_ref->{code});
+				if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+					and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
+				
+					my $path = product_path($product_ref->{code});
 
+					
+					$product_ref->{"image_" . $id . "url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+					$product_ref->{"image_" . $id . "small_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+					
+				}
 				
-				$product_ref->{image_url} = "http://$cc.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-				$product_ref->{image_small_url} = "http://$cc.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-			
+				if ($id eq 'front') {
+					$product_ref->{image_url} = $product_ref->{"image_" . $id . "_url"};
+					$product_ref->{image_small_url} = $product_ref->{"image_" . $id . "_small_url"};
+					$csv .= $product_ref->{image_url} . "\t" . $product_ref->{image_small_url} . "\t";
+				}
 				
-			}
-			
-			$csv .= $product_ref->{image_url} . "\t" . $product_ref->{image_small_url} . "\t";			
+				$csv .= $product_ref->{"image_" . $id . "_url"} . "\t" . $product_ref->{"image_" . $id . "_small_url"} . "\t";
+			}		
 			
 			
 			# Nutriments
