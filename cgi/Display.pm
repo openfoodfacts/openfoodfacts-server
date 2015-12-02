@@ -4198,6 +4198,9 @@ $og_images
 $og_images2
 <meta property="og:description" content="$canon_description"/>
 
+$options{favicons}
+
+
 <style type="text/css" media="all">
 
 hr.floatclear {
