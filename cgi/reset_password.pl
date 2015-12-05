@@ -18,16 +18,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Encode;
 
-use Crypt::PasswdMD5 qw(unix_md5_crypt);
-use Math::Random::Secure qw(irand);
-
 Blogs::Display::init();
-
-sub generate_token {
-	my $name_length = shift;
-	my @chars=('a'..'z', 'A'..'Z', 0..9);
-	join '',map {$chars[irand @chars]} 1..$name_length;
-}
 
 my $type = param('type') || 'send_email';
 my $action = param('action') || 'display';
