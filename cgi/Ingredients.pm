@@ -150,6 +150,7 @@ sub extract_ingredients_from_text($) {
 	# $product_ref->{ingredients_tags} = ["first-ingredient", "second-ingredient"...]
 	# $product_ref->{ingredients}= [{id =>, text =>, percent => etc. }, ] # bio / équitable ? 
 	
+	$product_ref->{ingredients} = [];
 	$product_ref->{'ingredients_tags'} = [];
 
 	# farine (12%), chocolat (beurre de cacao (15%), sucre [10%], protéines de lait, oeuf 1%) - émulsifiants : E463, E432 et E472 - correcteurs d'acidité : E322/E333 E474-E475, acidifiant (acide citrique, acide phosphorique) - sel : 1% ...
@@ -315,13 +316,36 @@ sub extract_ingredients_classes_from_text($) {
 	my $product_ref = shift;
 	my $path = product_path($product_ref->{code});
 	my $text = $product_ref->{ingredients_text};
+	my $lc = $product_ref->{lc};
+
+	# vitamins...
+	# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E (lactose, protéines de lait)
+	
+	sub split_vitamins($$) {
+		my $vitamin = shift;
+		my $list = shift;
+		
+		my $return = '';
+		foreach my $vitamin_code (split (/(\W|\s|-|n|;|et|and)+/, $list)) {
+			 next if $vitamin_code =~ /^(\W|\s|-|n|;|et|and)*$/;
+			$return .= $vitamin . " " . $vitamin_code . " - ";
+		}
+		return $return;
+	}
+	
+	# vitamin code: 1 or 2 letters followed by 1 or 2 numbers (e.g. PP, B6, B12)
+	$text =~ s/(vitamin|vitamine)(s?)(((\W+)((and|et) )?(\w(\w)?(\d+)?)\b)+)/split_vitamins($1,$3)/eig;
+		
 	
 	# E 240, E.240, E-240..
 	# E250-E251-E260
 	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([a-z])??(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\b|-)/$1 - e$3$5 - $7/ig;
 	# add separations between all E340... "colorants naturels : rose E120, verte E161b, blanche : sans colorant"
 	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([a-z])??(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\b|-)/$1 - e$3$5 - $7/ig;
-	$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([a-z])?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\b|-)/$1 - e$3$5 - $7/ig;
+	#$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([a-z])?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\b|-)/$1 - e$3$5 - $7/ig;
+	# ! [a-z] matches i... replacing in line above -- 2015/08/12
+	$text =~ s/(\b|-)e( |-|\.)?(\d+)( )?([abcdefgh])?(\))?(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?(\))?(\b|-)/$1 - e$3$5$7 - $9/ig;
+	
 	# ! caramel E150d -> caramel - E150d -> e150a - e150d ...
 	$text =~ s/(caramel|caramels)(\W*)e150/e150/ig;
 	# e432 et lécithines -> e432 - et lécithines
@@ -341,8 +365,9 @@ sub extract_ingredients_classes_from_text($) {
 	# $text =~ s/(,|;|:|\)|\(|( - ))(.+?)( et )(.+?)(,|;|:|\)|\(|( - ))/$1$3_et_$5$6 , $1$3 et $5$6/ig;
 	
 	# print STDERR "additives: $text\n\n";
+	
+	# $product_ref->{ingredients_text_debug} = $text;
 
-		
 	my @ingredients = split(/,|;|:|\)|\(|( - )/i,$text);
 	
 	# huiles de palme et de
@@ -371,40 +396,73 @@ sub extract_ingredients_classes_from_text($) {
 	
 	# Additives using new global taxonomy
 	
-	$product_ref->{new_additives_debug} = "lc: " . $product_ref->{lc} . " - ";
+	# delete old additive fields
 	
-	foreach my $tagtype ('additives') {
+	foreach my $tagtype ('additives', 'additives_prev', 'additives_next', 'old_additives', 'new_additives') {
+	
+		delete $product_ref->{$tagtype};
+		delete $product_ref->{$tagtype . "_prev"};
+		delete $product_ref->{$tagtype ."_prev_n"};
+		delete $product_ref->{$tagtype . "_tags"};
+	}
+	
+	delete $product_ref->{new_additives_debug};
+	
+	foreach my $tagtype ('additives', 'additives_prev', 'additives_next') {
+	
+		next if (not exists $loaded_taxonomies{$tagtype});
 		
-		$product_ref->{'new_' . $tagtype . '_tags'} = [];		
+		$product_ref->{$tagtype . '_tags'} = [];		
 		my $class = $tagtype;		
 		
 			my %seen = ();
 
 			foreach my $ingredient_id (@ingredients_ids) {
 			
-				my $canon_ingredient = canonicalize_taxonomy_tag($product_ref->{lc}, $tagtype, $ingredient_id);
-				
-				$product_ref->{new_additives_debug} .= " [ $ingredient_id -> $canon_ingredient ";
-				
-				if ((not defined $seen{$canon_ingredient}) and (exists_taxonomy_tag($tagtype, $canon_ingredient))) {
-					push @{$product_ref->{"new_" . $tagtype . '_tags'}}, $canon_ingredient;
-					$seen{$canon_ingredient} = 1;
-					$product_ref->{new_additives_debug} .= " -> exists ";
-				}						
-				$product_ref->{new_additives_debug} .= " ] ";
+				my $match = 0;
+				while (not $match) {
+					my $canon_ingredient = canonicalize_taxonomy_tag($product_ref->{lc}, $tagtype, $ingredient_id);
+					
+					$product_ref->{$tagtype} .= " [ $ingredient_id -> $canon_ingredient ";
+					
+					if ((not defined $seen{$canon_ingredient})
+						and (exists_taxonomy_tag($tagtype, $canon_ingredient))
+						# do not match synonyms
+						and ($canon_ingredient !~ /^en:(fd|no)/)
+						) {
+						push @{$product_ref->{ $tagtype . '_tags'}}, $canon_ingredient;
+						$seen{$canon_ingredient} = 1;
+						$product_ref->{$tagtype} .= " -> exists ";
+						# success!
+						$match = 1;
+					}
+					elsif (($lc eq 'en') and ($ingredient_id =~ /^([^-]+)-/)) {
+						# soy lecithin -> lecithin
+						$ingredient_id = $';
+					}
+					elsif (($lc eq 'fr') and ($ingredient_id =~ /-([^-]+)$/)) {
+						# lécithine de soja -> lécithine de -> lécithine
+						$ingredient_id = $`;
+					}
+					else {
+						# give up
+						$match = 1;
+					}
+					$product_ref->{$tagtype} .= " ] ";
+				}
 			}
 		
 		
 		# No ingredients?
 		if ($product_ref->{ingredients_text} eq '') {
-			delete $product_ref->{"new_" .$class . '_n'};
+			delete $product_ref->{$tagtype . '_n'};
 		}
 		else {
-			if (defined $product_ref->{'new_' . $tagtype . '_tags'}) {
-				$product_ref->{"new_" .$class . '_n'} = scalar @{$product_ref->{'new_' . $tagtype . '_tags'}};
+			if (defined $product_ref->{$tagtype . '_tags'}) {
+				$product_ref->{$tagtype. '_n'} = scalar @{$product_ref->{ $tagtype . '_tags'}};
 			}
 			else {
-				delete $product_ref->{"new_" .$class . '_n'};
+				delete $product_ref->{$tagtype . '_n'};
 			}
 		}	
 	}
@@ -414,7 +472,13 @@ sub extract_ingredients_classes_from_text($) {
 	
 	foreach my $class (sort keys %ingredients_classes) {
 		
-		$product_ref->{$class . '_tags'} = [];		
+		my $tagtype = $class;
+		
+		if ($tagtype eq 'additives') {
+			$tagtype = 'additives_old';
+		}
+		
+		$product_ref->{$tagtype . '_tags'} = [];		
 				
 		# skip palm oil classes if there is a palm oil free label
 		if (($class =~ /palm/) and (get_fileid($product_ref->{labels}) =~ /sans-huile-de-palme/)) {
@@ -431,7 +495,7 @@ sub extract_ingredients_classes_from_text($) {
 				
 					next if (($ingredients_classes{$class}{$ingredient_id}{id} eq 'huile-vegetale') and (defined $all_seen{"huile-de-palme"}));
 				
-					push @{$product_ref->{$class . '_tags'}}, $ingredients_classes{$class}{$ingredient_id}{id};
+					push @{$product_ref->{$tagtype . '_tags'}}, $ingredients_classes{$class}{$ingredient_id}{id};
 					$seen{$ingredients_classes{$class}{$ingredient_id}{id}} = 1;
 					$all_seen{$ingredients_classes{$class}{$ingredient_id}{id}} = 1;
 					
@@ -443,7 +507,7 @@ sub extract_ingredients_classes_from_text($) {
 						
 							next if (($ingredients_classes{$class}{$id}{id} eq 'huile-vegetale') and (defined $all_seen{"huile-de-palme"}));
 						
-							push @{$product_ref->{$class . '_tags'}}, $ingredients_classes{$class}{$id}{id};
+							push @{$product_ref->{$tagtype . '_tags'}}, $ingredients_classes{$class}{$id}{id};
 							$seen{$ingredients_classes{$class}{$id}{id}} = 1;	
 							$all_seen{$ingredients_classes{$class}{$id}{id}} = 1;				
 
@@ -457,28 +521,124 @@ sub extract_ingredients_classes_from_text($) {
 				
 		# No ingredients?
 		if ($product_ref->{ingredients_text} eq '') {
-			delete $product_ref->{$class . '_n'};
+			delete $product_ref->{$tagtype . '_n'};
 		}
 		else {
-			$product_ref->{$class . '_n'} = scalar @{$product_ref->{$class . '_tags'}};
+			$product_ref->{$tagtype . '_n'} = scalar @{$product_ref->{$tagtype . '_tags'}};
 		}	
 	}
 	
-	for (my $i = 0; $i < (scalar @{$product_ref->{additives_tags}}); $i++) {
-		$product_ref->{additives_tags}[$i] = 'en:' . $product_ref->{additives_tags}[$i];
+	for (my $i = 0; $i < (scalar @{$product_ref->{additives_old_tags}}); $i++) {
+		$product_ref->{additives_old_tags}[$i] = 'en:' . $product_ref->{additives_old_tags}[$i];
 	}
 	
-	$product_ref->{old_additives_tags} = $product_ref->{additives_tags};
 	
 	# keep the old additives for France until we can fix the new taxonomy matching to support all special cases
 	# e.g. lecithine de soja
-	if ($product_ref->{lc} ne 'fr') {
-		$product_ref->{additives_tags} = $product_ref->{new_additives_tags};
-		$product_ref->{additives_tags_n} = $product_ref->{new_additives_tags_n};
+	#if ($product_ref->{lc} ne 'fr') {
+	#	$product_ref->{additives_tags} = $product_ref->{new_additives_tags};
+	#	$product_ref->{additives_tags_n} = $product_ref->{new_additives_tags_n};
+	#}
+	
+	# compute minus and debug values
+	
+	my $field = 'additives';
+	
+	# check if we have a previous or a next version and compute differences
+	
+	$product_ref->{$field . "_debug_tags"} = [];
+	
+	# old version (French ingredient class for additives)
+	
+	if ($product_ref->{lc} eq 'fr') {
+		
+		# compute differences
+		foreach my $tag (@{$product_ref->{$field . "_tags"}}) {
+			if (not has_tag($product_ref,$field . "_old",$tag)) {
+				my $tagid = $tag;
+				$tagid =~ s/:/-/;
+				push @{$product_ref->{$field . "_debug_tags"}}, "$tagid-fr-added";
+			}
+		}
+		foreach my $tag (@{$product_ref->{$field . "_old_tags"}}) {
+			if (not has_tag($product_ref,$field,$tag)) {
+				my $tagid = $tag;
+				$tagid =~ s/:/-/;
+				push @{$product_ref->{$field . "_debug_tags"}}, "$tagid-fr-removed";
+			}
+		}			
 	}
+	else {
+		# compute differences
+		foreach my $tag (@{$product_ref->{$field . "_tags"}}) {
+			if (not has_tag($product_ref,$field . "_old",$tag)) {
+				my $tagid = $tag;
+				$tagid =~ s/:/-/;
+				push @{$product_ref->{$field . "_debug_tags"}}, "$tagid-other-added";
+			}
+		}
+		foreach my $tag (@{$product_ref->{$field . "_old_tags"}}) {
+			if (not has_tag($product_ref,$field,$tag)) {
+				my $tagid = $tag;
+				$tagid =~ s/:/-/;
+				push @{$product_ref->{$field . "_debug_tags"}}, "$tagid-other-removed";
+			}
+		}		
+	}
+
 	
+	# previous version
 	
+	if (exists $loaded_taxonomies{$field . "_prev"}) {
+		
+		# compute differences
+		foreach my $tag (@{$product_ref->{$field . "_tags"}}) {
+			if (not has_tag($product_ref,$field . "_prev",$tag)) {
+				my $tagid = $tag;
+				$tagid =~ s/:/-/;
+				push @{$product_ref->{$field . "_debug_tags"}}, "$tagid-added";
+			}
+		}
+		foreach my $tag (@{$product_ref->{$field . "_prev_tags"}}) {
+			if (not has_tag($product_ref,$field,$tag)) {
+				my $tagid = $tag;
+				$tagid =~ s/:/-/;
+				push @{$product_ref->{$field . "_debug_tags"}}, "$tagid-removed";
+			}
+		}			
+	}
+	else {
+		delete $product_ref->{$field . "_prev_hierarchy" };
+		delete $product_ref->{$field . "_prev_tags" };
+	}	
 	
+	# next version
+	
+	if (exists $loaded_taxonomies{$field . "_next"}) {
+		
+		# compute differences
+		foreach my $tag (@{$product_ref->{$field . "_tags"}}) {
+			if (not has_tag($product_ref,$field . "_next",$tag)) {
+				my $tagid = $tag;
+				$tagid =~ s/:/-/;
+				push @{$product_ref->{$field . "_debug_tags"}}, "$tagid-will-remove";
+			}
+		}
+		foreach my $tag (@{$product_ref->{$field . "_next_tags"}}) {
+			if (not has_tag($product_ref,$field,$tag)) {
+				my $tagid = $tag;
+				$tagid =~ s/:/-/;
+				push @{$product_ref->{$field . "_debug_tags"}}, "$tagid-will-add";
+			}
+		}			
+	}
+	else {
+		delete $product_ref->{$field . "_next_hierarchy" };
+		delete $product_ref->{$field . "_next_tags" };
+	}	
+
+	
+
 	
 	if ((defined $product_ref->{ingredients_that_may_be_from_palm_oil_n}) or (defined $product_ref->{ingredients_from_palm_oil_n})) {
 		$product_ref->{ingredients_from_or_that_may_be_from_palm_oil_n} = $product_ref->{ingredients_that_may_be_from_palm_oil_n} + $product_ref->{ingredients_from_palm_oil_n};
