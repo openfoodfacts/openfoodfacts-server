@@ -52,7 +52,7 @@ use Blogs::Tags qw/:all/;
 
 use Image::OCR::Tesseract 'get_ocr';
 use Encode;
-
+use Clone qw(clone);
 
 # load ingredients classes
 
@@ -366,8 +366,9 @@ sub extract_ingredients_classes_from_text($) {
 	
 	# print STDERR "additives: $text\n\n";
 	
-	# $product_ref->{ingredients_text_debug} = $text;
-
+	$product_ref->{ingredients_text_debug} = $text;	
+	
+	
 	my @ingredients = split(/,|;|:|\)|\(|( - )/i,$text);
 	
 	# huiles de palme et de
@@ -388,6 +389,9 @@ sub extract_ingredients_classes_from_text($) {
 			push @ingredients_ids, $ingredientid;
 		}
 	}
+	
+	$product_ref->{ingredients_debug} = clone(\@ingredients);
+	$product_ref->{ingredients_ids_debug} = clone(\@ingredients_ids);
 	
 	my $with_sweeteners;
 	
@@ -419,11 +423,13 @@ sub extract_ingredients_classes_from_text($) {
 
 			foreach my $ingredient_id (@ingredients_ids) {
 			
+				my $ingredient_id_copy = $ingredient_id; # can be modified later: soy-lecithin -> lecithin, but we don't change values of @ingredients_ids
+			
 				my $match = 0;
 				while (not $match) {
-					my $canon_ingredient = canonicalize_taxonomy_tag($product_ref->{lc}, $tagtype, $ingredient_id);
+					my $canon_ingredient = canonicalize_taxonomy_tag($product_ref->{lc}, $tagtype, $ingredient_id_copy);
 					
-					$product_ref->{$tagtype} .= " [ $ingredient_id -> $canon_ingredient ";
+					$product_ref->{$tagtype} .= " [ $ingredient_id_copy -> $canon_ingredient ";
 					
 					if ((not defined $seen{$canon_ingredient})
 						and (exists_taxonomy_tag($tagtype, $canon_ingredient))
@@ -436,13 +442,13 @@ sub extract_ingredients_classes_from_text($) {
 						# success!
 						$match = 1;
 					}
-					elsif (($lc eq 'en') and ($ingredient_id =~ /^([^-]+)-/)) {
+					elsif (($lc eq 'en') and ($ingredient_id_copy =~ /^([^-]+)-/)) {
 						# soy lecithin -> lecithin
-						$ingredient_id = $';
+						$ingredient_id_copy = $';
 					}
-					elsif (($lc eq 'fr') and ($ingredient_id =~ /-([^-]+)$/)) {
+					elsif (($lc eq 'fr') and ($ingredient_id_copy =~ /-([^-]+)$/)) {
 						# lécithine de soja -> lécithine de -> lécithine
-						$ingredient_id = $`;
+						$ingredient_id_copy = $`;
 					}
 					else {
 						# give up
@@ -490,10 +496,13 @@ sub extract_ingredients_classes_from_text($) {
 
 			foreach my $ingredient_id (@ingredients_ids) {
 			
+				#$product_ref->{$tagtype . "_debug_ingredients_ids" } .=  " ; " . $ingredient_id . " ";
 			
 				if ((defined $ingredients_classes{$class}{$ingredient_id}) and (not defined $seen{$ingredients_classes{$class}{$ingredient_id}{id}})) {
 				
 					next if (($ingredients_classes{$class}{$ingredient_id}{id} eq 'huile-vegetale') and (defined $all_seen{"huile-de-palme"}));
+					
+					#$product_ref->{$tagtype . "_debug_ingredients_ids" } .= " -> exact match $ingredients_classes{$class}{$ingredient_id}{id} ";
 				
 					push @{$product_ref->{$tagtype . '_tags'}}, $ingredients_classes{$class}{$ingredient_id}{id};
 					$seen{$ingredients_classes{$class}{$ingredient_id}{id}} = 1;
@@ -502,10 +511,15 @@ sub extract_ingredients_classes_from_text($) {
 					($product_ref->{code} eq '3245414658769') and print STDERR "extract_ingredient_classes 1 : ingredient_id: $ingredient_id - id/id: $ingredients_classes{$class}{$ingredient_id}{id}\n";
 				}
 				else {
+				
+					#$product_ref->{$tagtype . "_debug_ingredients_ids" } .= " -> no exact match ";
+				
 					foreach my $id (@{$ingredients_classes_sorted{$class}}) {
 						if (($ingredient_id =~ /^$id\b/) and (not defined $seen{$ingredients_classes{$class}{$id}{id}})) {
 						
 							next if (($ingredients_classes{$class}{$id}{id} eq 'huile-vegetale') and (defined $all_seen{"huile-de-palme"}));
+							
+							#$product_ref->{$tagtype . "_debug_ingredients_ids" } .= " -> match $id - $ingredients_classes{$class}{$id}{id} ";
 						
 							push @{$product_ref->{$tagtype . '_tags'}}, $ingredients_classes{$class}{$id}{id};
 							$seen{$ingredients_classes{$class}{$id}{id}} = 1;	
