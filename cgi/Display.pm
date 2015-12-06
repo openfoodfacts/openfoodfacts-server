@@ -6290,7 +6290,9 @@ HTML
 			}
 			else {
 
-				my $value = sprintf("%.2e", g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit)) + 0.0;
+				# this is the actual value on the package, not a computed average. do not try to round to 2 decimals.
+				my $value = g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit);
+			
 				# too small values are converted to e notation: 7.18e-05
 				if (($value . ' ') =~ /e/) {
 					# use %f (outputs extras 0 in the general case)
