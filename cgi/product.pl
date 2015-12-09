@@ -49,6 +49,8 @@ use Storable qw/dclone/;
 use Encode;
 use JSON;
 
+use WWW::CSRF qw(CSRF_OK);
+
 Blogs::Display::init();
 
 $debug = 1;
@@ -1445,6 +1447,7 @@ HTML
 <label for="comment" style="margin-left:10px">$Lang{delete_comment}{$lang}</label>
 <input type="text" id="comment" name="comment" value="" />
 HTML
+	. hidden(-name=>'csrf', -value=>generate_po_csrf_token($User_id), -override=>1)
 	. submit(-name=>'save', -label=>"Supprimer la fiche", -class=>"button small")
 	. end_form();
 
@@ -1458,6 +1461,11 @@ elsif ($action eq 'process') {
 	$product_ref->{interface_version_modified} = $interface_version;
 	
 	if ($type eq 'delete') {
+		my $csrf_token_status = check_po_csrf_token($User_id, param('csrf'));
+		if (not ($csrf_token_status eq CSRF_OK)) {
+			display_error('Invalid CSRF token');
+		}
+
 		$product_ref->{deleted} = 'on';
 		$comment = "Suppression : ";
 	}
