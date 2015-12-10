@@ -1897,7 +1897,7 @@ HTML
 	my $query_ref = {};
 	my $sort_by;
 	if ($tagtype eq 'users') {
-		$query_ref->{editors} = $tagid;
+		$query_ref->{creator} = $tagid;
 		$sort_by = 'last_modified_t';
 	}
 	elsif (defined $canon_tagid) {
@@ -1923,7 +1923,7 @@ HTML
 		$sort_by = 'last_modified_t';
 	
 		if ($tagtype2 eq 'users') {
-			$field = "editors";			
+			$field = "creator";			
 		}
 		
 		if (defined $canon_tagid2) {			

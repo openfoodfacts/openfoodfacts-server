@@ -48,7 +48,18 @@ my $count = $cursor->count();
 		# Update
 		#extract_ingredients_classes_from_text($product_ref);
 		
-		compute_serving_size_data($product_ref);
+		my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+		
+		if (not defined $changes_ref) {
+			$changes_ref = [{}];
+		}		
+		
+		compute_product_history_and_completeness($product_ref, $changes_ref);		
+		
+		my $change_ref = $changes_ref->[0];
+		if ((not defined $change_ref->{userid}) or ($change_ref->{userid} eq '')) {
+			$product_ref->{creator} = "openfoodfacts-contributors";
+		}
 
 		# Store
 
