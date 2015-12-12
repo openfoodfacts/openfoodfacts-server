@@ -117,6 +117,7 @@ use DateTime;
 use DateTime::Format::Mail;
 use DateTime::Format::CLDR;
 use DateTime::Locale;
+use experimental 'smartmatch';
 use MongoDB;
 use Tie::IxHash;
 use JSON;
@@ -590,17 +591,30 @@ sub display_date($) {
 
 	my $t = shift;
 
-	my $locale = DateTime::Locale->load($lc);
-	my $dt = DateTime->from_epoch(
-		locale => $locale,
-		time_zone => $reference_timezone,
-		epoch => $t );
-	my $formatter = DateTime::Format::CLDR->new(
-	    pattern => $locale->datetime_format_long,
-	    locale => $locale
-	);
-	$dt->set_formatter($formatter);
-	return $dt;
+	if (defined $t) {
+		my @codes = DateTime::Locale->codes;
+		my $locale;
+		if ( $lc ~~ @codes ) {
+			$locale = DateTime::Locale->load($lc);
+		}
+		else {
+			$locale = DateTime::Locale->load('en');
+		}
+	
+		my $dt = DateTime->from_epoch(
+			locale => $locale,
+			time_zone => $reference_timezone,
+			epoch => $t );
+		my $formatter = DateTime::Format::CLDR->new(
+		    pattern => $locale->datetime_format_long,
+		    locale => $locale
+		);
+		$dt->set_formatter($formatter);
+		return $dt;
+	}
+	else {
+		return undef;
+	}
 
 }
 
@@ -608,8 +622,13 @@ sub display_date_tag($) {
 
 	my $t = shift;
 	my $dt = display_date($t);
-	my $iso = $dt->iso8601;;
-	return "<time datetime=\"$iso\">$dt</time>";
+	if (defined $dt) {
+		my $iso = $dt->iso8601;;
+		return "<time datetime=\"$iso\">$dt</time>";
+	}
+	else {
+		return undef;
+	}
 
 }
 
