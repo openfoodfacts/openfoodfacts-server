@@ -1916,7 +1916,7 @@ HTML
 	my $query_ref = {};
 	my $sort_by;
 	if ($tagtype eq 'users') {
-		$query_ref->{editors} = $tagid;
+		$query_ref->{creator} = $tagid;
 		$sort_by = 'last_modified_t';
 	}
 	elsif (defined $canon_tagid) {
@@ -1942,7 +1942,7 @@ HTML
 		$sort_by = 'last_modified_t';
 	
 		if ($tagtype2 eq 'users') {
-			$field = "editors";			
+			$field = "creator";			
 		}
 		
 		if (defined $canon_tagid2) {			
@@ -6309,7 +6309,9 @@ HTML
 			}
 			else {
 
-				my $value = sprintf("%.2e", g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit)) + 0.0;
+				# this is the actual value on the package, not a computed average. do not try to round to 2 decimals.
+				my $value = g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit);
+			
 				# too small values are converted to e notation: 7.18e-05
 				if (($value . ' ') =~ /e/) {
 					# use %f (outputs extras 0 in the general case)

@@ -1180,7 +1180,6 @@ retrieve_tags_taxonomy("countries");
 retrieve_tags_taxonomy("labels");
 retrieve_tags_taxonomy("categories");
 retrieve_tags_taxonomy("additives");
-retrieve_tags_taxonomy("additives_debug");
 retrieve_tags_taxonomy("allergens");
 retrieve_tags_taxonomy("traces");
 retrieve_tags_taxonomy("states");
@@ -1696,7 +1695,7 @@ sub canonicalize_tag2($$)
 
 	$tag = $canon_tag;
 	
-	if ($tagtype =~ /^additives/) {
+	if (($tagtype ne "additives_debug") and ($tagtype =~ /^additives/)) {
 	
 		# e322-lecithines -> e322
 		my $tagid = get_fileid($tag);

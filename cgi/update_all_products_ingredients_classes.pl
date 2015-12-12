@@ -52,15 +52,6 @@ my $count = $cursor->count();
 		
 		# Update
 		extract_ingredients_classes_from_text($product_ref);
-		if (not defined $product_ref->{creator}) {
-			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
-			foreach my $change_ref (@$changes_ref) {
-				if (defined $change_ref->{userid}) {
-					$product_ref->{creator} = $change_ref->{userid};
-					last;
-				}
-			}
-		}
 
 		# Store
 		

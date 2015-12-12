@@ -281,11 +281,7 @@ sub store_product($$) {
 		rev=>$rev,
 	};	
 	
-	my %changed_by = ();
-	foreach my $change_ref (@$changes_ref) {
-		$changed_by{$change_ref->{userid}} = 1;
-	}
-	$product_ref->{editors} = [keys %changed_by];
+
 	
 	compute_product_history_and_completeness($product_ref, $changes_ref);
 	
@@ -524,6 +520,8 @@ sub compute_product_history_and_completeness($$) {
 	
 	my $revs = 0;
 	
+	my %changed_by = ();
+	
 	foreach my $change_ref (@$changes_ref) {
 		$revs++;
 		my $rev = $change_ref->{rev};
@@ -584,6 +582,12 @@ sub compute_product_history_and_completeness($$) {
 		my %diffs = ();
 		
 		my $userid = $change_ref->{userid};
+		
+		if ((not defined $userid) or ($userid eq '')) {
+			$userid = "openfoodfacts-contributors";
+		}
+		
+		$changed_by{$userid} = 1;			
 		
 		if (($current{checked} eq 'on') and ($previous{checked} ne 'on')) {
 			if ((defined $userid) and ($userid ne '')) {
@@ -647,6 +651,10 @@ sub compute_product_history_and_completeness($$) {
 							# when moving images, attribute the image to the user that uploaded the image
 							
 							$userid = $current_product_ref->{images}{$id}{uploader};
+							if ($userid eq 'unknown') {	# old unknown user
+								$current_product_ref->{images}{$id}{uploader} = "openfoodfacts-contributors";
+								$userid = "openfoodfacts-contributors";
+							}
 							$change_ref->{userid} = $userid;
 							
 						}
@@ -686,7 +694,9 @@ sub compute_product_history_and_completeness($$) {
 		
 		%last = %previous;
 		%previous = %current;
-	}	
+	}
+	
+	$current_product_ref->{editors_tags} = [keys %changed_by];
 	
 	$current_product_ref->{photographers_tags} = [@photographers];
 	$current_product_ref->{informers_tags} = [@informers];
