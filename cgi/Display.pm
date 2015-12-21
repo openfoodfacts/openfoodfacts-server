@@ -1690,7 +1690,27 @@ sub display_tag($) {
 		return 301;
 	}
 	
-	
+	my $weblinks_html = '';
+	if (not defined $request_ref->{groupby_tagtype}) {
+		my @weblinks = ();
+		if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$tagid}) and (defined $properties{$tagtype}{$tagid}{"wikidata:en"})) {
+			my $weblink = {
+				text => "Wikidata",
+				href => "https://www.wikidata.org/wiki/" . $properties{$tagtype}{$tagid}{"wikidata:en"},
+			};
+			push @weblinks, $weblink;
+		}
+
+		if (($#weblinks >= 0)) {
+			$weblinks_html .= "<div style=\"float:right;width:300px;margin-left:20px;margin-bottom:20px;padding:10px;border:1px solid #cbe7ff;background-color:#f0f8ff;\"><h3>" . lang("tag_weblinks") . "</h3><ul>";
+			foreach my $weblink (@weblinks) {
+				$weblinks_html .= "<li><a href=\"$weblink->{href}\" itemprop=\"sameAs\">$weblink->{text}</a></li>";
+			}
+
+			$weblinks_html .= "</ul></div>";
+		}
+	}
+
 	my $description = '';
 	
 	my $products_title = $display_tag;
@@ -1896,7 +1916,7 @@ HTML
 			
 			$html .= $tag_html;
 
-			$html .= display_parents_and_children($lc, $tagtype, $canon_tagid) . $description;
+			$html .= $weblinks_html . display_parents_and_children($lc, $tagtype, $canon_tagid) . $description;
 		}
 		
 		
@@ -1912,7 +1932,7 @@ HTML
 			$html .= "<p>&rarr; <a href=\"http://world.${server_domain}" . $request_ref->{world_current_link} . "\">" . lang('view_products_from_the_entire_world') . "</a></p>";
 		}
 	}
-	
+
 	my $query_ref = {};
 	my $sort_by;
 	if ($tagtype eq 'users') {
@@ -1977,8 +1997,9 @@ HTML
 		$request_ref->{title} .= " - " . display_taxonomy_tag($lc,"countries",$country);
 	}
 	else {
-		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
 		$request_ref->{title} = $title;
+		$html = "<div itemscope itemtype=\"http://schema.org/Thing\"><h1>" . $title ."</h1>" . $html . "</div>";
+		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
 	}
 
 	
