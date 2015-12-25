@@ -1244,18 +1244,26 @@ HTML
 });
 
 \$("#nutriment_sodium").change( function () {
-	sodium = \$("#nutriment_sodium").val();
-	sodium = sodium.replace(",", ".");
-	\$("#nutriment_salt").val(sodium * 2.54);
+	swapSalt(\$("#nutriment_sodium"), \$("#nutriment_salt"), 2.54);
 }
 );
 
 \$("#nutriment_salt").change( function () {
-	salt = \$("#nutriment_salt").val();
-	salt = salt.replace(",", ".");
-	\$("#nutriment_sodium").val(salt / 2.54);
+	swapSalt(\$("#nutriment_salt"), \$("#nutriment_sodium"), 1/2.54);
 }
 );
+
+function swapSalt(from, to, multiplier) {
+	var source = from.val().replace(",", ".");
+	var regex = /^(.*?)([\\d]+(?:\\.[\\d]+)?)(.*?)\$/g;
+	var match = regex.exec(source);
+	if (match) {
+		var target = match[1] + (parseFloat(match[2]) * multiplier) + match[3];
+		to.val(target);
+	} else {
+		to.val(from.val());
+	}
+}
 
 \$("#nutriment_sodium_unit").change( function () {
 	\$("#nutriment_salt_unit").val( \$("#nutriment_sodium_unit").val());
