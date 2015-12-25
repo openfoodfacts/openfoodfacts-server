@@ -4465,6 +4465,8 @@ line-height:1.2;
 .note { font-size: 0.8em; }
 .example, .note { margin-top:4px;margin-bottom:0px;margin-left:4px; }
 
+.tag.user_defined { font-style: italic; }
+
 HTML
 ;
 

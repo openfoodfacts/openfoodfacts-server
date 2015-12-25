@@ -1419,7 +1419,15 @@ sub display_taxonomy_tag_link($$$) {
 	
 	my $path = $tag_type_singular{$tagtype}{$target_lc};
 	
-	my $html = "<a href=\"/$path/$tagurl\">$tag</a>";
+	my $cssclass = "tag ";
+	if (not exists_taxonomy_tag($tagtype, $tagid)) {
+		$cssclass .= "user_defined";
+	}
+	else {
+		$cssclass .= "well_known";
+	}
+
+	my $html = "<a href=\"/$path/$tagurl\" class=\"$cssclass\">$tag</a>";
 	
 	if ($tagtype eq 'emb_codes') {
 	
