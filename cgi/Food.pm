@@ -89,8 +89,6 @@ sub unit_to_g($$) {
 	if ($unit =~ /^(fl|fluid)(\.| )*(oz|once|ounce)/) {
 		$unit = "fl oz";
 	}
-	$unit eq 'fl. oz' and $unit = 'fl oz';
-	$unit eq 'fl.oz' and $unit = 'fl oz';
 
 	$value =~ s/,/\./;
 	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
