@@ -86,6 +86,9 @@ sub unit_to_g($$) {
 	my $unit = shift;
 	$unit = lc($unit);
 	
+	if ($unit =~ /^(fl|fluid)(\.| )*(oz|once|ounce)/) {
+		$unit = "fl oz";
+	}
 	$unit eq 'fl. oz' and $unit = 'fl oz';
 	$unit eq 'fl.oz' and $unit = 'fl oz';
 
@@ -219,6 +222,7 @@ sodium
 alcohol
 #vitamins
 vitamin-a-
+beta-carotene-
 vitamin-d-
 vitamin-e-
 vitamin-k-
@@ -321,6 +325,7 @@ sodium
 alcohol
 #vitamins
 vitamin-a
+beta-carotene-
 vitamin-d-
 vitamin-e-
 vitamin-k-
@@ -424,6 +429,7 @@ sodium
 alcohol
 #vitamins
 vitamin-a
+beta-carotene-
 vitamin-d-
 vitamin-e-
 vitamin-k-
