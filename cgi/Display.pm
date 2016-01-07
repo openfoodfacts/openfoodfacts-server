@@ -5792,7 +5792,7 @@ sub display_nutrient_levels($) {
 
 		
 		$html_nutrition_grade .= <<HTML
-<h4>Note nutritionnelle de couleur <small>(Programme National Nutrition et Santé)</small>
+<h4>Note nutritionnelle de couleur
 <a href="http://fr.openfoodfacts.org/score-nutritionnel-france" title="Mode de calcul de la note nutritionnelle de couleur">
 <i class="fi-info"></i></a>
 </h4>
