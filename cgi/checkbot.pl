@@ -1,11 +1,11 @@
 #!/usr/bin/perl
-# This is a bot to verify some things in products e.g. no nutrient > 100g
-# It then posts notifications to the Open Food Facts discussion system, Slack.
 
 use CGI::Carp qw(fatalsToBrowser);
 
 use strict;
 use utf8;
+
+use Encode;
 
 use Blogs::Config qw/:all/;
 use Blogs::Store qw/:all/;
@@ -43,7 +43,8 @@ sub send_msg($) {
 	 
 	# add POST data to HTTP request body
 	my $post_data = '{"channel": "#bots", "username": "checkbot", "text": "' . $msg . '", "icon_emoji": ":hamster:" }';
-	$req->content($post_data);
+	$req->content_type("text/plain; charset='utf8'");
+	$req->content(Encode::encode_utf8($post_data));
 	 
 	my $resp = $ua->request($req);
 	if ($resp->is_success) {
