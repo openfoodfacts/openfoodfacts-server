@@ -88,6 +88,11 @@ sub product_path($) {
 	my $code = shift;
 	$code !~ /^\d+$/ and return "invalid";
 	
+	if (length($code) > 100) {
+		print STDERR "invalid code, too long code: $code\n";
+		return "invalid";
+	}
+	
 	my $path = $code;
 	if ($code =~ /^(...)(...)(...)(.*)$/) {
 		$path = "$1/$2/$3/$4";
@@ -120,12 +125,18 @@ sub init_product($) {
 
 	my $code = shift;
 	
+	my $creator = $User_id;
+	
+	if ((not defined $User_id) or ($User_id eq '')) {
+		$creator = "openfoodfacts-contributors";
+	}
+	
 	my $product_ref = {
 		id=>$code . '',	# treat code as string
 		_id=>$code . '',
 		code=>$code . '',	# treat code as string
 		created_t=>time(),
-		creator=>$User_id,
+		creator=>$creator,
 		rev=>0,
 	};
 	if (defined $lc) {
@@ -270,7 +281,11 @@ sub store_product($$) {
 	$product_ref->{last_modified_by} = $User_id;
 	$product_ref->{last_modified_t} = time() + 0;
 	if (not exists $product_ref->{creator}) {
-		$product_ref->{creator} = $User_id;
+		my $creator = $User_id;	
+		if ((not defined $User_id) or ($User_id eq '')) {
+			$creator = "openfoodfacts-contributors";
+		}	
+		$product_ref->{creator} = $creator;
 	}
 	
 	push @$changes_ref, {

@@ -38,8 +38,8 @@ BEGIN
 					&display_date
 					&display_date_tag
 					
-					&display
-					&display_new
+					&display_structured_response
+					&display_new					
 					&display_text
 					&display_points
 					&display_mission
@@ -51,7 +51,7 @@ BEGIN
 					&compute_stats_for_products
 					&display_nutrition_table
 					&display_product
-					&display_api
+					&display_product_api
 					&search_and_display_products
 					&search_and_export_products
 					&search_and_graph_products
@@ -302,11 +302,28 @@ sub analyze_request($)
 	
 	print STDERR "analyze_request : query_string 1 : $request_ref->{query_string} \n";
 	
-	if ($request_ref->{query_string} =~ /\&rev=(\d+)/) {
-		$request_ref->{query_string} = $`;
-		$request_ref->{rev} = $1;
-		print STDERR "analyze_request : rev : $1 \n";
-	}	
+	# API calls may request JSON, JSONP or XML by appending .json, .jsonp or .xml at the end of the query string
+	# .jqm returns results in HTML specifically formated for the OFF mobile app (which uses jquerymobile)
+	# for calls to /cgi/ actions (e.g. search.pl), the format can also be indicated with a parameter &json=1 &jsonp=1 &xml=1 &jqm=1
+	# (or ?json=1 if it's the first parameter)
+	
+	# first check for the rev parameter (revision of a product)
+	
+	foreach my $parameter ('rev', 'json', 'jsonp', 'jqm','xml') {
+	
+		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=(\d+)/) {
+			$request_ref->{query_string} =~ s/(\&|\?)$parameter=(\d+)//;
+			$request_ref->{$parameter} = $2;
+			print STDERR "analyze_request : $parameter = $request_ref->{$parameter} \n";
+		}	
+		
+		if ($request_ref->{query_string} =~ /\.$parameter$/) {
+			$request_ref->{query_string} =~ s/\.$parameter$//;
+			$request_ref->{$parameter} = 1;
+			print STDERR "analyze_request : $parameter = 1 (.$parameter) \n";
+		}
+	
+	}
 	
 	print STDERR "analyze_request : query_string 2 : $request_ref->{query_string} \n";
 	
@@ -342,13 +359,13 @@ sub analyze_request($)
 		}
 		$request_ref->{api_method} = $components[2];
 		$request_ref->{code} = $components[3];
-		if ($request_ref->{code} =~ /\.jqm/) {
-			$request_ref->{jqm} = 1;
-		}
-		$request_ref->{code} =~ s/\.(.*)//;
-		if ($1 eq 'xml') {
-			$request_ref->{xml} = 1;
-		}
+		
+		 # if return format is not xml or jqm or jsonp, default to json
+		 if ((not exists $request_ref->{xml}) and (not exists $request_ref->{jqm}) and (not exists $request_ref->{jsonp})) {
+			$request_ref->{json} = 1;
+		 }
+		
+		print STDERR "analyze_request : api = $request_ref->{api} - api_version = $request_ref->{api_version} - api_method = $request_ref->{api_method} - code = $request_ref->{code} - jqm = $request_ref->{jqm} - json = $request_ref->{json} - xml = $request_ref->{xml} \n";
 	}	
 
 	# or a list
@@ -636,7 +653,10 @@ sub display_error($)
 {
 	my $error_message = shift;
 	my $html = "<p>$error_message</p>";
-	display(undef,undef,undef,\$html,undef,undef);
+	display_new( {
+		title => lang('error'),
+		content_ref => \$html
+	});	
 	exit();
 }
 
@@ -806,7 +826,11 @@ sub display_list_of_tags($$) {
 		delete $query_ref->{lc};
 	}
 	
-
+	# support for returning json / xml results
+	
+	$request_ref->{structured_response} = {
+		tags => [],
+	};	
 
 	
 	#if ($admin) 
@@ -924,6 +948,7 @@ sub display_list_of_tags($$) {
 	if ((not defined $results) or (not defined $results->[0])) {
 	
 		$html .= "<p>" . lang("no_products") . "</p>";
+		$request_ref->{structured_response}{count} = 0;
 	
 	}
 	else {
@@ -950,6 +975,8 @@ sub display_list_of_tags($$) {
 	
 		my @tags = @{$results};
 		my $tagtype = $groupby_tagtype;
+		
+		$request_ref->{structured_response}{count} = ($#tags + 1);
 		
 		$request_ref->{title} = sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang});
 		
@@ -1004,7 +1031,7 @@ sub display_list_of_tags($$) {
 				print STDERR "main_link: $main_link - canonicalize_taxonomy_tag_link\n";
 			}
 			else {
-				print STDERR "canonicalie_tag_link - tagtype: " . $request_ref->{tagtype} . " - tagid: " . $request_ref->{tagid} . "\n";
+				print STDERR "canonicalize_tag_link - tagtype: " . $request_ref->{tagtype} . " - tagid: " . $request_ref->{tagid} . "\n";
 				$main_link = canonicalize_tag_link($request_ref->{tagtype}, $request_ref->{tagid});
 				print STDERR "main_link: $main_link - canonicalize_tag2\n";				
 			}
@@ -1113,6 +1140,13 @@ sub display_list_of_tags($$) {
 			
 			$html .= "<a href=\"$product_link\"$info$nofollow>" . $display . "</a>";
 			$html .= "</td>\n<td style=\"text-align:right\">$products</td>" . $td_nutriments . $extra_td . "</tr>\n";
+			
+			push @{$request_ref->{structured_response}{tags}}, {
+				id => $tagid,
+				name => $display,
+				url => "http://$subdomain.$server_domain" . $product_link,
+				products => $products + 0, # + 0 to make the value numeric
+			};
 			
 			# Maps for countries (and origins)
 			
@@ -1985,9 +2019,6 @@ HTML
 	}	
 	
 	
-	# $query_ref->{lc} = $lc;
-	
-	
 	
 	if (defined $request_ref->{groupby_tagtype}) {
 		${$request_ref->{content_ref}} .= $html . display_list_of_tags($request_ref, $query_ref);
@@ -2018,6 +2049,8 @@ sub search_and_display_products($$$$$) {
 	my $sort_by = shift;
 	my $limit = shift;
 	my $page = shift;
+	
+
 	
 	if (defined $country) {
 		if ($country ne 'en:world') {
@@ -2067,6 +2100,17 @@ sub search_and_display_products($$$$$) {
 	else {
 		$page = 1;
 	}
+	
+	
+	# support for returning structured results in json / xml etc.
+	
+	$request_ref->{structured_response} = {
+		page => $page,
+		page_size => $limit,
+		skip => $skip,
+		products => [],
+	};	
+	
 
 	my $sort_ref = Tie::IxHash->new();
 	
@@ -2163,6 +2207,8 @@ sub search_and_display_products($$$$$) {
 	
 	}
 	
+	$request_ref->{structured_response}{count} = $count;
+	
 	if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
 	
 		if ($country ne 'en:world') {
@@ -2243,6 +2289,10 @@ HTML
 			$product_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
 			
 			my $url = product_url($product_ref);
+			$product_ref->{url} = "http://$subdomain.$server_domain" . $url;
+			
+			add_images_urls_to_product($product_ref);
+			
 			
 			if ($request_ref->{jqm}) {
 				# <li><a href="#page_product?code=3365622026164">Sardines à l'huile</a></li>
@@ -2276,6 +2326,8 @@ HTML
 HTML
 ;
 			}
+			
+			push @{$request_ref->{structured_response}{products}}, $product_ref;
 		}
 	
 
@@ -2681,28 +2733,11 @@ pnns_groups_2
 			
 			$csv .= $main_cid . "\t";
 			
-			$product_ref->{main_category} = $main_cid;		
+			$product_ref->{main_category} = $main_cid;
+			
+			add_images_urls_to_product($product_ref);
 			
 			foreach my $id ('front','ingredients','nutrition') {
-			
-				my $size = $display_size;
-			
-				if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
-					and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
-				
-					my $path = product_path($product_ref->{code});
-
-					
-					$product_ref->{"image_" . $id . "url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-					$product_ref->{"image_" . $id . "small_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-					
-				}
-				
-				if ($id eq 'front') {
-					$product_ref->{image_url} = $product_ref->{"image_" . $id . "_url"};
-					$product_ref->{image_small_url} = $product_ref->{"image_" . $id . "_small_url"};
-					$csv .= $product_ref->{image_url} . "\t" . $product_ref->{image_small_url} . "\t";
-				}
 				
 				$csv .= $product_ref->{"image_" . $id . "_url"} . "\t" . $product_ref->{"image_" . $id . "_small_url"} . "\t";
 			}		
@@ -4019,41 +4054,22 @@ $block_ref->{content}
 }
 
 
-sub display($$$$$$)
-{
-	my $blog_id_or_ref = shift;
-	my $tag_id_or_ref = shift;
-	my $title = shift;
-	my $content_ref = shift; # Main content in HTML
-	my $blocks_ref = shift; # Array of blocks (hashes -> title + content)
-	my $description = shift;
-	
-	my $blogid;
-	my $tagid;
-	my $blog_ref;
-	my $tag_ref;
-	
-	if (not defined $blocks_ref) {
-		$blocks_ref = [];
-	}
-	
-
-	
-	display_new( {
-		blogid => $blogid,
-		blog_ref => $blog_ref,
-		tagid => $tagid,
-		tag_ref => $tag_ref,
-		title => $title,
-		description => $description,
-		blocks_ref => $blocks_ref,
-		content_ref => $content_ref
-	});
-}
 
 sub display_new($) {
 
 	my $request_ref = shift;
+	
+	# If the client is requesting json, jsonp, xml or jqm, 
+	# and if we have a response in structure format,
+	# do not generate an HTML response and serve the structured data
+	
+	if (($request_ref->{json} or $request_ref->{jsonp} or $request_ref->{xml} or $request_ref->{jqm})
+		and (exists $request_ref->{structured_response})) {
+	
+		display_structured_response($request_ref);
+		return;
+	}
+	
 	
 	not $request_ref->{blocks_ref} and $request_ref->{blocks_ref} = [];
 	
@@ -4485,6 +4501,8 @@ line-height:1.2;
 .example { font-size: 0.8em; color:green; }
 .note { font-size: 0.8em; }
 .example, .note { margin-top:4px;margin-bottom:0px;margin-left:4px; }
+
+.tag.user_defined { font-style: italic; }
 
 HTML
 ;
@@ -5811,7 +5829,7 @@ sub display_nutrient_levels($) {
 
 		
 		$html_nutrition_grade .= <<HTML
-<h4>Note nutritionnelle de couleur <small>(Programme National Nutrition et Santé)</small>
+<h4>Note nutritionnelle de couleur
 <a href="http://fr.openfoodfacts.org/score-nutritionnel-france" title="Mode de calcul de la note nutritionnelle de couleur">
 <i class="fi-info"></i></a>
 </h4>
@@ -6460,7 +6478,7 @@ HTML
 
 
 
-sub display_api($)
+sub display_product_api($)
 {
 	my $request_ref = shift;
 
@@ -6468,7 +6486,7 @@ sub display_api($)
 	
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 	
-	$debug and print STDERR "display_api - code: $code\n";
+	$debug and print STDERR "display_product_api - code: $code\n";
 
 	my %response = ();
 	
@@ -6536,25 +6554,7 @@ HTML
 		$response{status_verbose} = 'product found';
 		$response{product} = $product_ref;
 		
-		foreach my $id ('front','ingredients','nutrition') {
-		
-			my $size = $display_size;
-		
-			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
-				and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
-			
-				my $path = product_path($product_ref->{code});
-
-				
-				$product_ref->{"image_" . $id . "_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-				$product_ref->{"image_" . $id . "_small_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-				
-				if ($id eq 'front') {
-					$product_ref->{image_url} = $product_ref->{"image_" . $id . "_url"};
-					$product_ref->{image_small_url} = $product_ref->{"image_" . $id . "_small_url"};
-				}
-			}		
-		}			
+		add_images_urls_to_product($product_ref);
 		
 		if ($request_ref->{jqm}) {
 			# return a jquerymobile page for the product
@@ -6569,13 +6569,58 @@ HTML
 		delete $response{product}{images};
 	}
 	
+	$request_ref->{structured_response} = \%response;
+	
+	display_structured_response($request_ref);
+}
+
+
+
+sub add_images_urls_to_product($) {
+
+	my $product_ref = shift;
+	
+	foreach my $id ('front','ingredients','nutrition') {
+	
+		my $size = $display_size;
+	
+		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+			and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
+		
+			my $path = product_path($product_ref->{code});
+
+			
+			$product_ref->{"image_" . $id . "_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+			$product_ref->{"image_" . $id . "_small_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+			$product_ref->{"image_" . $id . "_thumb_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
+			
+			if ($id eq 'front') {
+				$product_ref->{image_url} = $product_ref->{"image_" . $id . "_url"};
+				$product_ref->{image_small_url} = $product_ref->{"image_" . $id . "_small_url"};
+				$product_ref->{image_thumb_url} = $product_ref->{"image_" . $id . "_thumb_url"};
+			}
+		}		
+	}		
+
+}
+
+
+
+sub display_structured_response($)
+{
+	# directly serve structured data from $request_ref->{structured_response}
+
+	my $request_ref = shift;
+	
+	$debug and print STDERR "display_api - format: json = $request_ref->{json} - jsonp = $request_ref->{jsonp} - xml = $request_ref->{xml} - jqm = $request_ref->{jqm} \n";
+	
 	if ($request_ref->{xml}) {
 		my $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-		. XMLout(\%response);
+		. XMLout($request_ref->{structured_response});
 		print "Content-Type: text/xml; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $xml;	
 	}
 	else {
-		my $data =  encode_json(\%response);
+		my $data =  encode_json($request_ref->{structured_response});
 		
 		my $jsonp = undef;
 		

@@ -1416,10 +1416,20 @@ sub display_taxonomy_tag_link($$$) {
 	$tag = display_taxonomy_tag($target_lc,$tagtype, $tag);
 	my $tagid = get_taxonomyid($tag);
 	my $tagurl = get_taxonomyurl($tagid);
+
+	my $canon_tagid = canonicalize_taxonomy_tag($target_lc, $tagtype, $tag);
 	
 	my $path = $tag_type_singular{$tagtype}{$target_lc};
 	
-	my $html = "<a href=\"/$path/$tagurl\">$tag</a>";
+	my $cssclass = "tag ";
+	if (not exists_taxonomy_tag($tagtype, $canon_tagid)) {
+		$cssclass .= "user_defined";
+	}
+	else {
+		$cssclass .= "well_known";
+	}
+
+	my $html = "<a href=\"/$path/$tagurl\" class=\"$cssclass\">$tag</a>";
 	
 	if ($tagtype eq 'emb_codes') {
 	

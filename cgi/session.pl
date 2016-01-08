@@ -62,12 +62,18 @@ if (param('jqm')) {
 		$response{user_id} = $User_id;
 		$response{name} = $User{name};
 	}
+	else {
+		$response{error} = "undefined user";
+	}
 	my $data =  encode_json(\%response);
 	
 	print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $data;	
 	
 }
 else {
-	display(undef, undef, lang('session_title'), \$html, undef, undef);
+	display_new( {
+		title => lang('session_title'),
+		content_ref => \$html
+	});
 }
 

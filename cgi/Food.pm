@@ -86,8 +86,9 @@ sub unit_to_g($$) {
 	my $unit = shift;
 	$unit = lc($unit);
 	
-	$unit eq 'fl. oz' and $unit = 'fl oz';
-	$unit eq 'fl.oz' and $unit = 'fl oz';
+	if ($unit =~ /^(fl|fluid)(\.| )*(oz|once|ounce)/) {
+		$unit = "fl oz";
+	}
 
 	$value =~ s/,/\./;
 	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
@@ -219,6 +220,7 @@ sodium
 alcohol
 #vitamins
 vitamin-a-
+beta-carotene-
 vitamin-d-
 vitamin-e-
 vitamin-k-
@@ -321,6 +323,7 @@ sodium
 alcohol
 #vitamins
 vitamin-a
+beta-carotene-
 vitamin-d-
 vitamin-e-
 vitamin-k-
@@ -424,6 +427,7 @@ sodium
 alcohol
 #vitamins
 vitamin-a
+beta-carotene-
 vitamin-d-
 vitamin-e-
 vitamin-k-
@@ -2590,18 +2594,29 @@ sub special_process_product($) {
 	if (has_tag($product_ref,"categories","en:beverages")) {
 	
 		if (defined $product_ref->{nutriments}{"alcohol_100g"}) {
-			if (($product_ref->{nutriments}{"alcohol_100g"} < 1) and has_tag($product_ref,"categories","en:alcoholic-beverages")) {
-				remove_tag($product_ref,"categories","en:alcoholic-beverages");	
-				add_tag($product_ref,"categories","en:non-alcoholic-beverages");	
+			if ($product_ref->{nutriments}{"alcohol_100g"} < 1) {
+				if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
+					remove_tag($product_ref, "categories", "en:alcoholic-beverages");
+				}
+
+				if (not has_tag($product_ref, "categories", "en:non-alcoholic-beverages")) {
+					add_tag($product_ref, "categories", "en:non-alcoholic-beverages");
+				}
 			}
-			if (($product_ref->{nutriments}{"alcohol_100g"} >= 1) and not has_tag($product_ref,"categories","en:alcoholic-beverages")) {
-				add_tag($product_ref,"categories","en:alcoholic-beverages");	
+			else {
+				if (not has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
+					add_tag($product_ref, "categories", "en:alcoholic-beverages");
+				}
+
+				if (has_tag($product_ref, "categories", "en:non-alcoholic-beverages")) {
+					remove_tag($product_ref, "categories", "en:non-alcoholic-beverages");
+				}
 			}
 		}
 		else {
-			if ((not has_tag($product_ref,"categories","en:non-alcoholic-beverages"))
-				and (not has_tag($product_ref,"categories","en:alcoholic-beverages")) ) {
-				add_tag($product_ref,"categories","en:non-alcoholic-beverages");	
+			if ((not has_tag($product_ref, "categories", "en:non-alcoholic-beverages"))
+				and (not has_tag($product_ref, "categories", "en:alcoholic-beverages")) ) {
+				add_tag($product_ref, "categories", "en:non-alcoholic-beverages");	
 			}
 		}
 	
