@@ -826,7 +826,11 @@ sub display_list_of_tags($$) {
 		delete $query_ref->{lc};
 	}
 	
-
+	# support for returning json / xml results
+	
+	$request_ref->{structured_response} = {
+		tags => [],
+	};	
 
 	
 	#if ($admin) 
@@ -944,6 +948,7 @@ sub display_list_of_tags($$) {
 	if ((not defined $results) or (not defined $results->[0])) {
 	
 		$html .= "<p>" . lang("no_products") . "</p>";
+		$request_ref->{structured_response}{count} = 0;
 	
 	}
 	else {
@@ -970,6 +975,8 @@ sub display_list_of_tags($$) {
 	
 		my @tags = @{$results};
 		my $tagtype = $groupby_tagtype;
+		
+		$request_ref->{structured_response}{count} = ($#tags + 1);
 		
 		$request_ref->{title} = sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang});
 		
@@ -1024,7 +1031,7 @@ sub display_list_of_tags($$) {
 				print STDERR "main_link: $main_link - canonicalize_taxonomy_tag_link\n";
 			}
 			else {
-				print STDERR "canonicalie_tag_link - tagtype: " . $request_ref->{tagtype} . " - tagid: " . $request_ref->{tagid} . "\n";
+				print STDERR "canonicalize_tag_link - tagtype: " . $request_ref->{tagtype} . " - tagid: " . $request_ref->{tagid} . "\n";
 				$main_link = canonicalize_tag_link($request_ref->{tagtype}, $request_ref->{tagid});
 				print STDERR "main_link: $main_link - canonicalize_tag2\n";				
 			}
@@ -1133,6 +1140,13 @@ sub display_list_of_tags($$) {
 			
 			$html .= "<a href=\"$product_link\"$info$nofollow>" . $display . "</a>";
 			$html .= "</td>\n<td style=\"text-align:right\">$products</td>" . $td_nutriments . $extra_td . "</tr>\n";
+			
+			push @{$request_ref->{structured_response}{tags}}, {
+				id => $tagid,
+				name => $display,
+				url => "http://$subdomain.$server_domain" . $product_link,
+				products => $products + 0, # + 0 to make the value numeric
+			};
 			
 			# Maps for countries (and origins)
 			
