@@ -6989,6 +6989,11 @@ tag_contains => {
 	de => "Enthält:",
 },
 
+tag_weblinks => {
+	en => 'Weblinks',
+	de => 'Weblinks',
+},
+
 newsletter_description => {
 	fr => "S'inscrire à la lettre d'information (2 e-mails par mois maximum)",
 	en => "Subscribe to the newsletter (2 emails per month maximum)",

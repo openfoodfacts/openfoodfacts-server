@@ -1542,7 +1542,7 @@ sub display_parents_and_children($$$) {
 		}
 		
 		if ((defined $direct_children{$tagtype}) and (defined $direct_children{$tagtype}{$tagid})) {
-			$html .= "<p>" . lang("tag_contains") . "</p>\n";
+			$html .= "<p>" . lang("tag_contains") . "</p><ul>\n";
 			foreach my $childid (sort keys %{$direct_children{$tagtype}{$tagid}}) {
 				$html .= "<li>" . display_taxonomy_tag_link($target_lc,$tagtype, $childid) . "</li>\n";
 			}		
@@ -1557,7 +1557,7 @@ sub display_parents_and_children($$$) {
 		}
 		
 		if ((defined $tags_direct_children{$lc}) and (defined $tags_direct_children{$lc}{$tagtype}) and (defined $tags_direct_children{$lc}{$tagtype}{$tagid})) {
-			$html .= "<p>" . lang("tag_contains") . "</p>\n";
+			$html .= "<p>" . lang("tag_contains") . "</p><ul>\n";
 			foreach my $childid (sort keys %{$tags_direct_children{$lc}{$tagtype}{$tagid}}) {
 				$html .= "<li>" . display_tag_link($tagtype, $childid) . "</li>\n";
 			}		
