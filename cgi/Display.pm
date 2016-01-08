@@ -38,8 +38,8 @@ BEGIN
 					&display_date
 					&display_date_tag
 					
-					&display
-					&display_new
+					&display_structured_response
+					&display_new					
 					&display_text
 					&display_points
 					&display_mission
@@ -51,7 +51,7 @@ BEGIN
 					&compute_stats_for_products
 					&display_nutrition_table
 					&display_product
-					&display_api
+					&display_product_api
 					&search_and_display_products
 					&search_and_export_products
 					&search_and_graph_products
@@ -4020,6 +4020,18 @@ sub display_new($) {
 
 	my $request_ref = shift;
 	
+	# If the client is requesting json, jsonp, xml or jqm, 
+	# and if we have a response in structure format,
+	# do not generate an HTML response and serve the structured data
+	
+	if (($request_ref->{json} or $request_ref->{jsonp} or $request_ref->{xml} or $request_ref->{jqm})
+		and (exists $request_ref->{structured_response})) {
+	
+		display_structured_response($request_ref);
+		return;
+	}
+	
+	
 	not $request_ref->{blocks_ref} and $request_ref->{blocks_ref} = [];
 	
 
@@ -6427,7 +6439,7 @@ HTML
 
 
 
-sub display_api($)
+sub display_product_api($)
 {
 	my $request_ref = shift;
 
@@ -6435,7 +6447,7 @@ sub display_api($)
 	
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 	
-	$debug and print STDERR "display_api - code: $code\n";
+	$debug and print STDERR "display_product_api - code: $code\n";
 
 	my %response = ();
 	
@@ -6536,13 +6548,28 @@ HTML
 		delete $response{product}{images};
 	}
 	
+	$request_ref->{structured_response} = \%response;
+	
+	display_structured_response($request_ref);
+}
+
+
+
+sub display_structured_response($)
+{
+	# directly serve structured data from $request_ref->{structured_response}
+
+	my $request_ref = shift;
+	
+	$debug and print STDERR "display_api - format: json = $request_ref->{json} - jsonp = $request_ref->{jsonp} - xml = $request_ref->{xml} - jqm = $request_ref->{jqm} \n";
+	
 	if ($request_ref->{xml}) {
 		my $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-		. XMLout(\%response);
+		. XMLout($request_ref->{structured_response});
 		print "Content-Type: text/xml; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $xml;	
 	}
 	else {
-		my $data =  encode_json(\%response);
+		my $data =  encode_json($request_ref->{structured_response});
 		
 		my $jsonp = undef;
 		

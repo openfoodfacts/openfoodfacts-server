@@ -50,7 +50,7 @@ analyze_request(\%request);
 print STDERR "display.pl blogid: $request{blogid} tagid: $request{tagid} urlsdate: $request{urlsdate} urlid: $request{urlid} user: $request{user} query: $request{query} \n";
 
 if (defined $request{api}) {
-	display_api(\%request);
+	display_product_api(\%request);
 }
 elsif (defined $request{text}) {
 	display_text(\%request);
