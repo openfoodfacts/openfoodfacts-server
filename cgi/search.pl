@@ -54,12 +54,11 @@ if ((defined param('search_terms')) and (not defined param('action'))) {
 	$action = 'process';
 }
 
-if (defined param('jqm')) {
-	$request_ref->{jqm} = param('jqm');
-}
+foreach my $parameter ('json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml') {
 
-if (defined param('jqm_loadmore')) {
-	$request_ref->{jqm_loadmore} = param('jqm_loadmore');
+	if (defined param($parameter)) {
+		$request_ref->{$parameter} = param($parameter);
+	}
 }
 
 my @search_fields = qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries additives allergens traces nutrition_grades states );

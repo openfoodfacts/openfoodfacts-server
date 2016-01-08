@@ -2015,6 +2015,8 @@ sub search_and_display_products($$$$$) {
 	my $limit = shift;
 	my $page = shift;
 	
+
+	
 	if (defined $country) {
 		if ($country ne 'en:world') {
 			# we may already have a condition on countries (e.g. from the URL /country/germany )
@@ -2063,6 +2065,17 @@ sub search_and_display_products($$$$$) {
 	else {
 		$page = 1;
 	}
+	
+	
+	# support for returning structured results in json / xml etc.
+	
+	$request_ref->{structured_response} = {
+		page => $page,
+		page_size => $limit,
+		skip => $skip,
+		products => [],
+	};	
+	
 
 	my $sort_ref = Tie::IxHash->new();
 	
@@ -2159,6 +2172,8 @@ sub search_and_display_products($$$$$) {
 	
 	}
 	
+	$request_ref->{structured_response}{count} = $count;
+	
 	if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
 	
 		if ($country ne 'en:world') {
@@ -2239,6 +2254,10 @@ HTML
 			$product_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
 			
 			my $url = product_url($product_ref);
+			$product_ref->{url} = "http://$subdomain.$server_domain" . $url;
+			
+			add_images_urls_to_product($product_ref);
+			
 			
 			if ($request_ref->{jqm}) {
 				# <li><a href="#page_product?code=3365622026164">Sardines à l'huile</a></li>
@@ -2272,6 +2291,8 @@ HTML
 HTML
 ;
 			}
+			
+			push @{$request_ref->{structured_response}{products}}, $product_ref;
 		}
 	
 
@@ -2677,28 +2698,11 @@ pnns_groups_2
 			
 			$csv .= $main_cid . "\t";
 			
-			$product_ref->{main_category} = $main_cid;		
+			$product_ref->{main_category} = $main_cid;
+			
+			add_images_urls_to_product($product_ref);
 			
 			foreach my $id ('front','ingredients','nutrition') {
-			
-				my $size = $display_size;
-			
-				if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
-					and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
-				
-					my $path = product_path($product_ref->{code});
-
-					
-					$product_ref->{"image_" . $id . "url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-					$product_ref->{"image_" . $id . "small_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-					
-				}
-				
-				if ($id eq 'front') {
-					$product_ref->{image_url} = $product_ref->{"image_" . $id . "_url"};
-					$product_ref->{image_small_url} = $product_ref->{"image_" . $id . "_small_url"};
-					$csv .= $product_ref->{image_url} . "\t" . $product_ref->{image_small_url} . "\t";
-				}
 				
 				$csv .= $product_ref->{"image_" . $id . "_url"} . "\t" . $product_ref->{"image_" . $id . "_small_url"} . "\t";
 			}		
@@ -6515,25 +6519,7 @@ HTML
 		$response{status_verbose} = 'product found';
 		$response{product} = $product_ref;
 		
-		foreach my $id ('front','ingredients','nutrition') {
-		
-			my $size = $display_size;
-		
-			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
-				and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
-			
-				my $path = product_path($product_ref->{code});
-
-				
-				$product_ref->{"image_" . $id . "_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-				$product_ref->{"image_" . $id . "_small_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-				
-				if ($id eq 'front') {
-					$product_ref->{image_url} = $product_ref->{"image_" . $id . "_url"};
-					$product_ref->{image_small_url} = $product_ref->{"image_" . $id . "_small_url"};
-				}
-			}		
-		}			
+		add_images_urls_to_product($product_ref);
 		
 		if ($request_ref->{jqm}) {
 			# return a jquerymobile page for the product
@@ -6551,6 +6537,36 @@ HTML
 	$request_ref->{structured_response} = \%response;
 	
 	display_structured_response($request_ref);
+}
+
+
+
+sub add_images_urls_to_product($) {
+
+	my $product_ref = shift;
+	
+	foreach my $id ('front','ingredients','nutrition') {
+	
+		my $size = $display_size;
+	
+		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+			and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
+		
+			my $path = product_path($product_ref->{code});
+
+			
+			$product_ref->{"image_" . $id . "_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+			$product_ref->{"image_" . $id . "_small_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+			$product_ref->{"image_" . $id . "_thumb_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
+			
+			if ($id eq 'front') {
+				$product_ref->{image_url} = $product_ref->{"image_" . $id . "_url"};
+				$product_ref->{image_small_url} = $product_ref->{"image_" . $id . "_small_url"};
+				$product_ref->{image_thumb_url} = $product_ref->{"image_" . $id . "_thumb_url"};
+			}
+		}		
+	}		
+
 }
 
 
