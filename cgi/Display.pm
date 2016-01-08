@@ -302,11 +302,28 @@ sub analyze_request($)
 	
 	print STDERR "analyze_request : query_string 1 : $request_ref->{query_string} \n";
 	
-	if ($request_ref->{query_string} =~ /\&rev=(\d+)/) {
-		$request_ref->{query_string} = $`;
-		$request_ref->{rev} = $1;
-		print STDERR "analyze_request : rev : $1 \n";
-	}	
+	# API calls may request JSON, JSONP or XML by appending .json, .jsonp or .xml at the end of the query string
+	# .jqm returns results in HTML specifically formated for the OFF mobile app (which uses jquerymobile)
+	# for calls to /cgi/ actions (e.g. search.pl), the format can also be indicated with a parameter &json=1 &jsonp=1 &xml=1 &jqm=1
+	# (or ?json=1 if it's the first parameter)
+	
+	# first check for the rev parameter (revision of a product)
+	
+	foreach my $parameter ('rev', 'json', 'jsonp', 'jqm','xml') {
+	
+		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=(\d+)/) {
+			$request_ref->{query_string} =~ s/(\&|\?)$parameter=(\d+)//;
+			$request_ref->{$parameter} = $2;
+			print STDERR "analyze_request : $parameter = $request_ref->{$parameter} \n";
+		}	
+		
+		if ($request_ref->{query_string} =~ /\.$parameter$/) {
+			$request_ref->{query_string} =~ s/\.$parameter$//;
+			$request_ref->{$parameter} = 1;
+			print STDERR "analyze_request : $parameter = 1 (.$parameter) \n";
+		}
+	
+	}
 	
 	print STDERR "analyze_request : query_string 2 : $request_ref->{query_string} \n";
 	
@@ -342,13 +359,13 @@ sub analyze_request($)
 		}
 		$request_ref->{api_method} = $components[2];
 		$request_ref->{code} = $components[3];
-		if ($request_ref->{code} =~ /\.jqm/) {
-			$request_ref->{jqm} = 1;
-		}
-		$request_ref->{code} =~ s/\.(.*)//;
-		if ($1 eq 'xml') {
-			$request_ref->{xml} = 1;
-		}
+		
+		 # if return format is not xml or jqm or jsonp, default to json
+		 if ((not exists $request_ref->{xml}) and (not exists $request_ref->{jqm}) and (not exists $request_ref->{jsonp})) {
+			$request_ref->{json} = 1;
+		 }
+		
+		print STDERR "analyze_request : api = $request_ref->{api} - api_version = $request_ref->{api_version} - api_method = $request_ref->{api_method} - code = $request_ref->{code} - jqm = $request_ref->{jqm} - json = $request_ref->{json} - xml = $request_ref->{xml} \n";
 	}	
 
 	# or a list
@@ -636,7 +653,10 @@ sub display_error($)
 {
 	my $error_message = shift;
 	my $html = "<p>$error_message</p>";
-	display(undef,undef,undef,\$html,undef,undef);
+	display_new( {
+		title => lang('error'),
+		content_ref => \$html
+	});	
 	exit();
 }
 
@@ -1963,9 +1983,6 @@ HTML
 		}
 		
 	}	
-	
-	
-	# $query_ref->{lc} = $lc;
 	
 	
 	
@@ -3998,37 +4015,6 @@ $block_ref->{content}
 }
 
 
-sub display($$$$$$)
-{
-	my $blog_id_or_ref = shift;
-	my $tag_id_or_ref = shift;
-	my $title = shift;
-	my $content_ref = shift; # Main content in HTML
-	my $blocks_ref = shift; # Array of blocks (hashes -> title + content)
-	my $description = shift;
-	
-	my $blogid;
-	my $tagid;
-	my $blog_ref;
-	my $tag_ref;
-	
-	if (not defined $blocks_ref) {
-		$blocks_ref = [];
-	}
-	
-
-	
-	display_new( {
-		blogid => $blogid,
-		blog_ref => $blog_ref,
-		tagid => $tagid,
-		tag_ref => $tag_ref,
-		title => $title,
-		description => $description,
-		blocks_ref => $blocks_ref,
-		content_ref => $content_ref
-	});
-}
 
 sub display_new($) {
 

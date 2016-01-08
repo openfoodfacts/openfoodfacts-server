@@ -1449,6 +1449,11 @@ facebook_page => {
 	fr => 'https://www.facebook.com/OpenFoodFacts.fr',
 },
 
+error => {
+	en => 'Error',
+	fr => 'Erreur',
+},
+
 products => {
 
 	ar => 'المنتوجات',
