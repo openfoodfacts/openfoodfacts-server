@@ -40,10 +40,29 @@ use strict;
 use utf8;
 
 use Storable qw(lock_store lock_nstore lock_retrieve);
-use Text::Unaccent "unac_string";
+#use Text::Unaccent "unac_string";
 use Encode;
 use Encode::Punycode;
 use URI::Escape::XS;
+
+# Text::Unaccent unac_string causes Apache core dumps with Apache 2.4 and mod_perl 2.0.9 on jessie
+
+sub unac_string_perl($) {
+        my $s = shift;
+
+        $s =~ s/à|á|â|ã|ä|å/a/ig;
+        $s =~ s/ç/c/ig;
+        $s =~ s/è|é|ê|ë/e/ig;
+        $s =~ s/ì|í|î|ï/i/ig;
+        $s =~ s/ñ/n/ig;
+        $s =~ s/ò|ó|ô|õ|ö/o/ig;
+        $s =~ s/ù|ú|û|ü/u/ig;
+        $s =~ s/ý|ÿ/y/ig;
+        $s =~ s/œ|Œ/oe/g;
+        $s =~ s/æ|Æ/ae/g;
+
+        return $s;
+}
 
 # Tags in European characters (iso-8859-1 / Latin-1 / Windows-1252) are canonicalized:
 # 1. deaccent: é -> è, + German umlauts: ä -> ae
@@ -66,7 +85,8 @@ sub get_fileid($) {
 	
 	$file = lc($file);
 	
-	$file = decode("UTF-16", unac_string('UTF-16',encode("UTF-16", $file)));
+	#$file = decode("UTF-16", unac_string('UTF-16',encode("UTF-16", $file)));
+	$file = unac_string_perl($file);
 	
 	# turn characters that are not letters and numbers to -
 	# except extended UTF-8 characters
