@@ -2791,6 +2791,8 @@ pnns_groups_2
 
 sub escape_single_quote($) {
 	my $s = shift;
+	# some app escape single quotes already, so we have \' already
+	$s =~ s/\\'/'/g;	
 	$s =~ s/'/\\'/g;
 	$s =~ s/\n/ /g;
 	return $s;
