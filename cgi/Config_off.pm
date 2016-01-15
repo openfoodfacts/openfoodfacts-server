@@ -34,6 +34,8 @@ BEGIN
 		$adsense
 		
 		%options
+		
+		%wiki_texts
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -116,5 +118,15 @@ $options{favicons} = <<HTML
 HTML
 ;
 
+
+%wiki_texts = (
+
+"en/press" => "http://en.wiki.openfoodfacts.org/index.php?title=Translations_-_Press_-_English&action=raw",
+"fr/presse" => "http://en.wiki.openfoodfacts.org/index.php?title=Translations_-_Press_-_French&action=raw",
+
+"en/code-of-conduct" => "http://en.wiki.openfoodfacts.org/index.php?title=Translations_-_Code_of_conduct_-_English&action=raw",
+"fr/code-de-conduite" => "http://en.wiki.openfoodfacts.org/index.php?title=Translations_-_Code_of_conduct_-_French&action=raw",
+
+);
 
 1;
