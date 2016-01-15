@@ -2327,6 +2327,11 @@ HTML
 ;
 			}
 			
+			# remove some debug info
+			delete $product_ref->{additives};
+			delete $product_ref->{additives_prev};
+			delete $product_ref->{additives_next};			
+			
 			push @{$request_ref->{structured_response}{products}}, $product_ref;
 		}
 	
@@ -6612,12 +6617,21 @@ sub display_structured_response($)
 
 	my $request_ref = shift;
 	
-	$debug and print STDERR "display_api - format: json = $request_ref->{json} - jsonp = $request_ref->{jsonp} - xml = $request_ref->{xml} - jqm = $request_ref->{jqm} \n";
 	
+	$debug and print STDERR "display_api - format: json = $request_ref->{json} - jsonp = $request_ref->{jsonp} - xml = $request_ref->{xml} - jqm = $request_ref->{jqm} \n";
 	if ($request_ref->{xml}) {
+	
+		# my $xs = XML::Simple->new(NoAttr => 1, NumericEscape => 2);
+		my $xs = XML::Simple->new(NumericEscape => 2);
+		
+		# without NumericEscape => 2, the output should be UTF-8, but is in fact completely garbled
+		# e.g. <categories>Frais,Produits laitiers,Desserts,Yaourts,Yaourts aux fruits,Yaourts sucrurl>http://static.openfoodfacts.net/images/products/317/657/216/8015/front.15.400.jpg</image_url>
+	
 		my $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-		. XMLout($request_ref->{structured_response});
+		. $xs->XMLout($request_ref->{structured_response}); 	# noattr -> force nested elements instead of attributes
+        
 		print "Content-Type: text/xml; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $xml;	
+
 	}
 	else {
 		my $data =  encode_json($request_ref->{structured_response});
