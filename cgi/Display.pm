@@ -1727,10 +1727,10 @@ sub display_tag($) {
 	my $weblinks_html = '';
 	if (not defined $request_ref->{groupby_tagtype}) {
 		my @weblinks = ();
-		if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$tagid}) and (defined $properties{$tagtype}{$tagid}{"wikidata:en"})) {
+		if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid}) and (defined $properties{$tagtype}{$canon_tagid}{"wikidata:en"})) {
 			my $weblink = {
 				text => "Wikidata",
-				href => "https://www.wikidata.org/wiki/" . $properties{$tagtype}{$tagid}{"wikidata:en"},
+				href => "https://www.wikidata.org/wiki/" . $properties{$tagtype}{$canon_tagid}{"wikidata:en"},
 			};
 			push @weblinks, $weblink;
 		}
