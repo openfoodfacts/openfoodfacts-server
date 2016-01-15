@@ -10883,6 +10883,12 @@ footer_blog_link => {
 	#nl => 'http://nl.blog.openfoodfacts.org', #nl-CHECK - Add when necessary
 	#nl_be => 'http://nl.blog.openfoodfacts.org', #nl_be-CHECK - Add when necessary
 },
+footer_wiki => {
+	en => "Open Food Facts wiki (en)",
+},
+footer_wiki_link => {
+	en => "http://en.wiki.openfoodfacts.org",
+},
 footer_press => {
     ar => 'صحافة', #ar-CHECK - Please check and remove this comment
     de => 'Presse', #de-CHECK - Please check and remove this comment
