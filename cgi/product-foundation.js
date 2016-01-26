@@ -201,8 +201,8 @@ function change_image(imagefield, imgid) {
 	imagefield_imgid[imagefield] = imgid;
 	
 	var html = '<div class="command">' + Lang.image_rotate_and_crop + '</div>';
-	html += '<div class="command"><a id="rotate_left_' + imagefield + '" class="small button">' + Lang.image_rotate_left + '</a> &nbsp;';
-	html += '<a id="rotate_right_' + imagefield + '" class="small button">' + Lang.image_rotate_right + '</a>';
+	html += '<div class="command"><a id="rotate_left_' + imagefield + '" class="small button" type="button">' + Lang.image_rotate_left + '</a> &nbsp;';
+	html += '<a id="rotate_right_' + imagefield + '" class="small button" type="button">' + Lang.image_rotate_right + '</a>';
 	html += '</div>';
 	html += '<div id="cropimgdiv_' + imagefield + '" style="width:100%;height:400px"><img src="' + img_path + image.crop_url +'" id="' + 'crop_' + imagefield + '"/></div>';
 	html += '<a href="' + img_path + image.imgid + '.jpg" target="_blank">' + Lang.image_open_full_size_image + '</a><br/>';
@@ -225,7 +225,7 @@ function change_image(imagefield, imgid) {
 	} );
 	
 			var id = 'crop_' + imagefield + '_button';
-			$('div[id="cropbutton_' + imagefield +'"]').html('<button id="' + id + '" class="small button">' + Lang.image_save + '</button>');
+			$('div[id="cropbutton_' + imagefield +'"]').html('<button id="' + id + '" class="small button" type="button">' + Lang.image_save + '</button>');
 			$("#" + id).click({imagefield:imagefield},function(event) {
 				event.stopPropagation();
 				event.preventDefault();
@@ -272,7 +272,7 @@ function update_display(imagefield) {
 	
 	var html = Lang.current_image + '<br/><img src="' + img_path + display_url + '" />';
 	if (stringStartsWith(imagefield, 'ingredients')) {
-		html += '<br/><div id="ocrbuttondiv_' + imagefield + '"><button id="ocrbutton_' + imagefield + '" class="small button">' + Lang.extract_ingredients + '</button>';
+		html += '<br/><div id="ocrbuttondiv_' + imagefield + '"><button id="ocrbutton_' + imagefield + '" class="small button" type="button">' + Lang.extract_ingredients + '</button>';
 	}
 	if (stringStartsWith(imagefield, 'nutrition')) {
 		// width big enough to display a copy next to nutrition table?
