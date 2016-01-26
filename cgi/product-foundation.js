@@ -27,6 +27,10 @@ var angles = {};
 var imagefield_imgid = {};
 var imagefield_url = {};
 
+function stringStartsWith (string, prefix) {
+    return string.slice(0, prefix.length) == prefix;
+}
+
 function select_nutriment(event, ui) {
 
 
@@ -190,7 +194,7 @@ function rotate_image(event) {
 
 function change_image(imagefield, imgid) {
 
-	// alert("field: " + imagefield + " - imgid: " + imgid);
+	//alert("field: " + imagefield + " - imgid: " + imgid);
 	
 	var image = images[imgids[imgid]];
 	angles[imagefield] = 0;
@@ -221,7 +225,7 @@ function change_image(imagefield, imgid) {
 	} );
 	
 			var id = 'crop_' + imagefield + '_button';
-			$('div[id="cropbutton_' + imagefield +'"]').html('<button id="' + id + '" class="small button" type="button">' + Lang.image_save + '</button>');
+			$('div[id="cropbutton_' + imagefield +'"]').html('<button id="' + id + '" class="small button">' + Lang.image_save + '</button>');
 			$("#" + id).click({imagefield:imagefield},function(event) {
 				event.stopPropagation();
 				event.preventDefault();
@@ -259,6 +263,7 @@ function change_image(imagefield, imgid) {
 	$(document).foundation('equalizer', 'reflow');
 }  
 
+
 function update_display(imagefield) {
 
 	var display_url = imagefield_url[imagefield];
@@ -266,10 +271,10 @@ function update_display(imagefield) {
 	if (display_url) {
 	
 	var html = Lang.current_image + '<br/><img src="' + img_path + display_url + '" />';
-	if (imagefield == 'ingredients') {
-		html += '<br/><div id="ocrbuttondiv_' + imagefield + '"><button id="ocrbutton_' + imagefield + '" class="small button" type="button">' + Lang.extract_ingredients + '</button>';
+	if (stringStartsWith(imagefield, 'ingredients')) {
+		html += '<br/><div id="ocrbuttondiv_' + imagefield + '"><button id="ocrbutton_' + imagefield + '" class="small button">' + Lang.extract_ingredients + '</button>';
 	}
-	if (imagefield == 'nutrition') {
+	if (stringStartsWith(imagefield, 'nutrition')) {
 		// width big enough to display a copy next to nutrition table?
 		if ($('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
 			$('#nutrition_image_copy').html('<img src="' + img_path + display_url + '" />').css("left", $('#nutrition_data_table').width() + 10);
@@ -377,7 +382,7 @@ function update_display(imagefield) {
 				html += '<li id="' + id + '_' + image.imgid + '" class="ui-state-default ui-selectee' + selected + '">';
 				html += '<img src="' + settings.img_path + image.thumb_url +'" title="'  + image.uploaded + ' - ' + image.uploader + '"/>';
 				
-				if ((id == 'front') && (admin)) {
+				if ((stringStartsWith(id, 'front')) && (admin)) {
 					html += '<div class="show_for_manage_images">' + image.uploaded + '<br/>' + image.uploader + '</div>';
 				}
 				
@@ -488,10 +493,10 @@ function update_display(imagefield) {
 		$(".single-selectable li").click(function() {
 			var li_id = $(this).attr("id");
 			var imagefield_imgid = li_id.split("_");
-			var imagefield = imagefield_imgid[0];
-			var imgid = imagefield_imgid[1];
+			var imagefield = imagefield_imgid[0] + "_" + imagefield_imgid[1];
+			var imgid = imagefield_imgid[2];
 			$("input:hidden[name=\"" + imagefield + ".imgid\"]").val(imgid);
-			if ((imagefield == 'front') && ($("#manage_images_drop").hasClass("active"))) {
+			if ((stringStartsWith(imagefield, 'front')) && ($("#manage_images_drop").hasClass("active"))) {
 				$(this).toggleClass("ui-selected");
 			}
 			else {

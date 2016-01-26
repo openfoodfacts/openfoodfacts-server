@@ -74,6 +74,7 @@ BEGIN
 					%hierarchy_fields
 					%taxonomy_fields
 					@drilldown_fields
+					%language_fields
 					
 					%properties
 					%country_names
@@ -110,6 +111,16 @@ my $debug = 0;
 %hierarchy_fields = ();
 
 %taxonomy_fields = (); # populated by retrieve_tags_taxonomy
+
+# Fields that can have different values by language
+%language_fields = (
+front_image => 1,
+ingredients_image => 1,
+nutrition_image => 1,
+product_name => 1,
+generic_name => 1,
+ingredients_text => 1,
+);
 
 @drilldown_fields = qw(
 brands

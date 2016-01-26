@@ -741,15 +741,8 @@ sub display_text($)
 		$html .= search_and_display_products( $request_ref, {}, "last_modified_t_complete_first", undef, undef);
 	}
 	
-	# wikipedia style links [url text] not supported, just display the text
-	$html =~ s/\[(\S*?) ([^\]]+)\]/$2/eg;
-	
 	$html =~ s/\[\[(.*?)\]\]/replace_file($1)/eg;
 	
-	if ($html =~ /<h1>(.*)<\/h1>/) {
-		$title = $1;
-		#$html =~ s/<h1>(.*)<\/h1>//;
-	}
 	
 	if ($html =~ /<scripts>(.*)<\/scripts>/s) {
 		$html = $` . $';
@@ -759,7 +752,18 @@ sub display_text($)
 	if ($html =~ /<initjs>(.*)<\/initjs>/s) {
 		$html = $` . $';
 		$initjs .= $1;
-	}	
+	}		
+	
+	# wikipedia style links [url text] not supported, just display the text
+	$html =~ s/\[(\S*?) ([^\]]+)\]/$2/eg;
+	
+	
+	if ($html =~ /<h1>(.*)<\/h1>/) {
+		$title = $1;
+		#$html =~ s/<h1>(.*)<\/h1>//;
+	}
+	
+
 	
 	
 	if ($html =~ /<styles>(.*)<\/styles>/s) {
@@ -4859,6 +4863,8 @@ $Lang{android_apk_app_badge}{$lc}
 		<h4>$Lang{footer_join_the_community}{$lc}</h4>
 
 <div>
+<a href="$Lang{footer_code_of_conduct_link}{$lc}">$Lang{footer_code_of_conduct}{$lc}</a><br/><br/>
+
 $join_us_on_slack <script async defer src="http://slack.openfoodfacts.org/slackin.js"></script>
 <br/>
 $Lang{footer_and_the_facebook_group}{$lc}
@@ -4965,6 +4971,13 @@ $scripts
 HTML
 ;
 	
+	
+	# disable equalizer
+	# e.g. for product edit form, pages that load iframes (twitter embeds etc.)
+	if ($html =~ /<!-- disable_equalizer -->/) {
+
+		$html =~ s/data-equalizer(-watch)?//g;
+	}
 	
 	# no side column?
 	# e.g. in Discover and Contribute page
@@ -5113,6 +5126,14 @@ sub display_field($$) {
 	}
 
 	my $value = $product_ref->{$field};
+	
+	# fields in %language_fields can have different values by language
+	
+	if (defined $language_fields{$field}) {
+		if ((defined $product_ref->{$field . "_" . $lc}) and ($product_ref->{$field . "_" . $lc} ne '')) {
+			$value = $product_ref->{$field . "_" . $lc};
+		}
+	}
 
 	if (defined $taxonomy_fields{$field}) {
 		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
