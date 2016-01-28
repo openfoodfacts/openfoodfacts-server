@@ -508,10 +508,9 @@ my %remember_fields = ('purchase_places'=>1, 'stores'=>1);
 
 # Display each field
 
-sub display_field($$$) {
+sub display_field($$) {
 	
 	my $product_ref = shift;
-	my $html_ref = shift;
 	my $field = shift;	# can be in %language_fields and suffixed by _[lc]
 	
 	my $fieldtype = $field;
@@ -525,28 +524,7 @@ sub display_field($$$) {
 	my $tagsinput = '';
 	if (defined $tags_fields{$fieldtype}) {
 		$tagsinput = ' tagsinput';
-		
-		my $remember = '';
-		if (defined $remember_fields{$fieldtype}) {
-			$remember = <<HTML
-'onChange': function () { \$.cookie('remember_$field', \$("#$field").val(), { expires: 30 }); },
-HTML
-;
-		}
-	
-# 	
-	
-		$initjs .= <<HTML
-\$('#$field').tagsInput({ $remember
-'height':'3rem',
-'width':'100%',
-'interactive':true,
-'minInputWidth':130,
-'delimiter': [','],
-'defaultText':"$Lang{$fieldtype . "_tagsinput"}{$lang}"
-});
-HTML
-;			
+				
 	}
 	
 	my $value = $product_ref->{$field};
@@ -559,13 +537,13 @@ HTML
 		$value =~ s/<(([^>]|\n)*)>//g;
 	}			
 
-	$$html_ref .= <<HTML
+	my $html = <<HTML
 <label for="$field">$Lang{$fieldtype}{$lang}</label>
 <input type="text" name="$field" id="$field" class="text${tagsinput}" value="$value" />		
 HTML
 ;
 	if (defined $Lang{$fieldtype . "_note"}{$lang}) {
-		$$html_ref .= <<HTML
+		$html .= <<HTML
 <p class="note">&rarr; $Lang{$fieldtype . "_note"}{$lang}</p>			
 HTML
 ;
@@ -578,12 +556,13 @@ HTML
 			$examples = $Lang{examples}{$lang};
 		}
 	
-		$$html_ref .= <<HTML
+		$html .= <<HTML
 <p class="example">$examples $Lang{$fieldtype . "_example"}{$lang}</p>			
 HTML
 ;
 	}
 
+	return $html;
 }
 	
 
@@ -952,46 +931,28 @@ JS
 	
 	
 	
-	$html .= "<div class=\"fieldset\"><legend>$Lang{product_image}{$lang}</legend>";	
+	$html .= "<div class=\"fieldset\"><legend>$Lang{product_image}{$lang}</legend>";
+
 	
 	$product_ref->{langs_order} = { fr => 0, nl => 1, en => 1, new => 2 };
 	# TODO sort function to put main language first, other languages by alphabetical order, then add new language tab
 	# $product_ref->{sorted_langs} = sort ( { .. } keys %{$product_ref->{langs_order}};
-	$product_ref->{sorted_langs} = [ 'fr', 'en', 'nl' ];
+	$product_ref->{sorted_langs} = [ 'en', 'de', 'es', 'fr', 'nl' ];
 	
 	$html .= "\n<input type=\"hidden\" id=\"sorted_langs\" name=\"sorted_langs\" value=\"" . join(',', @{$product_ref->{sorted_langs}}) . "\" />\n";
 		
 	# TODO: create hash of language names for tab titles
 	$product_ref->{langs} = {
 		fr => "Français",
-		en => "Anglais",
-		nl => "Néerlandais",
+		de => "Deutsch",
+		en => "English",
+		es => "Español",
+		nl => "Nederlands",
+		new_lc => "new language",
 		new => "Ajouter une langue",
 	};
 	
-	my $tabs_example = <<HTML
-<ul class="tabs" data-tab>
-  <li class="tab-title active"><a href="#panel1">Tab 1</a></li>
-  <li class="tab-title"><a href="#panel2">Tab 2</a></li>
-  <li class="tab-title"><a href="#panel3">Tab 3</a></li>
-  <li class="tab-title"><a href="#panel4">Tab 4</a></li>
-</ul>
-<div class="tabs-content">
-  <div class="content active" id="panel1">
-    <p>This is the first panel of the basic tab example. You can place all sorts of content here including a grid.</p>
-  </div>
-  <div class="content" id="panel2">
-    <p>This is the second panel of the basic tab example. This is the second panel of the basic tab example.</p>
-  </div>
-  <div class="content" id="panel3">
-    <p>This is the third panel of the basic tab example. This is the third panel of the basic tab example.</p>
-  </div>
-  <div class="content" id="panel4">
-    <p>This is the fourth panel of the basic tab example. This is the fourth panel of the basic tab example.</p>
-  </div>
-</div>	
-HTML
-;
+
 
 sub display_tabs($$$$) {
 
@@ -1015,16 +976,22 @@ HTML
 
 
 	my $active = " active";
-	foreach my $tabid (@$tabsids_array_ref, 'new') {
+	foreach my $tabid (@$tabsids_array_ref, 'new_lc','new') {
 	
-
+		my $new_lc = '';
+		if ($tabid eq 'new_lc') {
+			$new_lc = ' new_lc hide';
+		}
+		elsif ($tabid eq 'new') {
+			$new_lc = ' new';
+		}
 	
-			$html_header .= <<HTML
-	<li class="tab-title$active"><a href="#tabs_${tabsid}_${tabid}">$tabsids_hash_ref->{$tabid}</a></li>
+		$html_header .= <<HTML
+	<li class="tabs tab-title$active$new_lc"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$tabsids_hash_ref->{$tabid}</a></li>
 HTML
 ;
-			my $html_content_tab = <<HTML
-<div class="content$active" id="tabs_${tabsid}_${tabid}">
+		my $html_content_tab = <<HTML
+<div class="tabs content$active$new_lc" id="tabs_${tabsid}_${tabid}">
 HTML
 ;
 
@@ -1055,20 +1022,25 @@ HTML
 				}
 				else {
 					print STDERR "product.pl - display_field $field - value $product_ref->{$field}\n";
-					display_field($product_ref, \$html_content_tab, $field . "_" . $display_lc);
+					$html_content_tab .= display_field($product_ref, $field . "_" . $display_lc);
 				}
 			}
 
 
 			# add (language name) in all field labels
 		
-			$html_content_tab =~ s/<\/label>/ ($tabsids_hash_ref->{$tabid})<\/label>/g;
+			$html_content_tab =~ s/<\/label>/ (<span class="tab_language">$tabsids_hash_ref->{$tabid}<\/span>)<\/label>/g;
 
 		
 		}
 		else {
 		
 			$html_content_tab .= "<p>TODO: generate a new tab dynamically in javascript</p>";
+			
+			$html_content_tab .= <<HTML
+			<button type="button" onclick="add_language_tab('it','Italian');return false;" value="Add language">
+HTML
+;
 		
 		}
 		
@@ -1112,27 +1084,6 @@ HTML
 	
 	
 	
-	if ($type eq 'add') {	# must be before creating the fields with tagsinput so that the value can be taken into account
-	
-		$initjs .= <<HTML
-
-if (\$.cookie('remember_purchase_places_and_stores') == 'true') {
-	\$("#remember_purchase_places_and_stores").attr('checked', true);
-	\$("#purchase_places").val(\$.cookie('remember_purchase_places'));
-	\$("#stores").val(\$.cookie('remember_stores'));
-}
-
-\$.cookie('remember_purchase_places_and_stores', \$("#remember_purchase_places_and_stores").is(':checked'), { expires: 30 });
-
-\$("#remember_purchase_places_and_stores").change(function () {
-	\$.cookie('remember_purchase_places_and_stores', \$("#remember_purchase_places_and_stores").is(':checked'), { expires: 30 });
-});
-
-
-HTML
-;	
-
-	}	
 	
 	# print STDERR "product.pl - fields : " . join(", ", @fields) . "\n";
 	
@@ -1140,15 +1091,7 @@ HTML
 	$html .= display_tabs("product", $product_ref->{sorted_langs}, $product_ref->{langs}, ["product_name", "generic_name"]);
 	
 	
-	if ($type eq 'add') {
-	
-		$html .= <<HTML
-<input type="checkbox" id="remember_purchase_places_and_stores" name="remember_purchase_places_and_stores" />
-<label for="remember_purchase_places_and_stores" class="checkbox_label">$Lang{remember_purchase_places_and_stores}{$lang}</label>
-HTML
-;
 
-	}
 
 	$html .= "</div><!-- fieldset -->\n";
 	
@@ -1163,7 +1106,7 @@ HTML
 	# ! with autoResize, extracting ingredients from image need to update the value of the real textarea
 	# maybe calling $('textarea.growfield').data('AutoResizer').check(); 
 	
-	display_field($product_ref, \$html, "traces");
+	$html .= display_field($product_ref, "traces");
 
 $html .= "</div><!-- fieldset -->
 <div class=\"fieldset\"><legend>$Lang{nutrition_data}{$lang}</legend>\n";
@@ -1188,7 +1131,7 @@ HTML
 	
 	#<p class="note">&rarr; $Lang{nutrition_data_table_note}{$lang}</p>
 	
-	display_field($product_ref, \$html, "serving_size");
+	$html .= display_field($product_ref, "serving_size");
 	
 	my $checked_per_serving = '';
 	my $checked_per_100g = 'checked="checked"';

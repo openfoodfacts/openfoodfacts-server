@@ -31,6 +31,55 @@ function stringStartsWith (string, prefix) {
     return string.slice(0, prefix.length) == prefix;
 }
 
+function add_language_tab (lc, language) {
+	
+$('.tabs').each(function(i, obj) {
+	$(this).removeClass('active');
+});
+	
+$('.new_lc').each(function(i, obj) {
+    	
+	var $clone = $(this).clone();
+	
+		
+	$clone.find('[id]').each(function() { 
+
+		var $th = $(this);
+		var newID = $th.attr('id').replace(/new_lc/, lc);
+		$th.attr('id', newID);
+		
+	});	
+	
+	$clone.find('[name]').each(function() { 
+
+		var $th = $(this);
+		var newID = $th.attr('name').replace(/new_lc/, lc);
+		$th.attr('name', newID);
+	});
+	
+	$clone.find('[href]').each(function() { 
+
+		var $th = $(this);
+		var newID = $th.attr('href').replace(/new_lc/, lc);
+		$th.attr('href', newID);
+	});	
+	
+	$clone.find('.tab_language').each(function() { 
+
+		$(this).html(language);
+	});	
+	
+	$clone.insertBefore($(this));
+	
+	$clone.addClass('active').removeClass('new_lc').removeClass('hide');
+	
+});
+
+
+
+$(document).foundation('tab', 'reflow');
+}
+
 function select_nutriment(event, ui) {
 
 
