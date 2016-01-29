@@ -247,7 +247,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	}
 	
 	my @param_fields = ();
-	
+
 	my @param_sorted_langs = ();
 	if (defined param("sorted_langs")) {
 		foreach my $display_lc (split(/,/, param("sorted_langs"))) {
@@ -516,7 +516,7 @@ sub display_field($$) {
 	my $fieldtype = $field;
 	my $display_lc = undef;
 	
-	if (($field =~ /^(.*)_(..)$/) and (defined $language_fields{$1})) {
+	if (($field =~ /^(.*?)_(..|new_lc)$/) and (defined $language_fields{$1})) {
 		$fieldtype = $1;
 		$display_lc = $2;
 	}
@@ -929,6 +929,64 @@ JS
 			}		
 	
 	
+
+
+$styles .= <<CSS
+
+// add borders to Foundation 5 tabs
+// \@media only screen and (min-width: 40.063em) {  /* min-width 641px, medium screens */
+  ul.tabs {
+     > li > a {
+       border-width: 1px;
+       border-style: solid;
+       border-color: #ccc #ccc #fff;
+       margin-right: -1px;
+     }
+     > li:not(.active) > a {
+       border-bottom: solid 1px #ccc;
+     }
+   }
+  .tabs-content {
+    border: 1px solid #ccc;
+    .content {
+      padding: .9375rem;
+      margin-top: 0;
+    }
+    margin: -1px 0 .9375rem 0;
+  }
+//}
+
+// if tabs container has a background color
+.tabs-content { background-color: #fff; }
+
+.contained {
+	border:1px solid #ccc;
+	padding:1rem;
+}
+
+
+
+CSS
+;
+	
+	$initjs .= <<JS
+\$(".select_add_language").select2({
+	placeholder: "$Lang{add_language}{$lang}",
+    allowClear: true
+	}
+	).on("select2:select", function(e) {
+	var lc =  e.params.data.id;
+	var language = e.params.data.text;
+	add_language_tab (lc, language);
+	\$(".select_add_language_" + lc).remove();
+	\$(this).val("").trigger("change");
+	var new_sorted_langs = \$("#sorted_langs").val() + "," + lc;
+	\$("#sorted_langs").val(new_sorted_langs);
+})
+;	
+JS
+;	
+	
 	
 	
 	$html .= "<div class=\"fieldset\"><legend>$Lang{product_image}{$lang}</legend>";
@@ -937,22 +995,46 @@ JS
 	$product_ref->{langs_order} = { fr => 0, nl => 1, en => 1, new => 2 };
 	# TODO sort function to put main language first, other languages by alphabetical order, then add new language tab
 	# $product_ref->{sorted_langs} = sort ( { .. } keys %{$product_ref->{langs_order}};
-	$product_ref->{sorted_langs} = [ 'en', 'de', 'es', 'fr', 'nl' ];
+	# $product_ref->{sorted_langs} = [ 'en', 'de', 'es', 'fr', 'nl' ];
+	
+	defined $product_ref->{lc} or $product_ref->{lc} = $lc;
+	defined $product_ref->{languages} or $product_ref->{languages} = {};
+	
+	$product_ref->{sorted_langs} = [ $product_ref->{lc} ];
+	
+	foreach my $olc (sort keys %{$product_ref->{languages}}) {
+		if ($olc ne $product_ref->{lc}) {
+			push @{$product_ref->{sorted_langs}}, $olc;
+		}
+	}
 	
 	$html .= "\n<input type=\"hidden\" id=\"sorted_langs\" name=\"sorted_langs\" value=\"" . join(',', @{$product_ref->{sorted_langs}}) . "\" />\n";
 		
-	# TODO: create hash of language names for tab titles
-	$product_ref->{langs} = {
-		fr => "Français",
-		de => "Deutsch",
-		en => "English",
-		es => "Español",
-		nl => "Nederlands",
-		new_lc => "new language",
-		new => "Ajouter une langue",
-	};
-	
+	my $select_add_language = <<HTML
 
+<select class="select_add_language" style="width:100%">
+<option></option>
+HTML
+;
+
+	foreach my $olc (sort keys %Langs) {
+		if (($olc ne $product_ref->{lc}) and (not defined $product_ref->{languages}{$olc})) {
+			$select_add_language .=<<HTML
+ <option value="$olc" class="select_add_language_$olc">$Langs{$olc}</option>
+HTML
+;
+		}
+	}
+
+	$select_add_language .= <<HTML
+</select>
+		</li>
+		
+HTML
+;
+
+	
+	
 
 sub display_tabs($$$$) {
 
@@ -965,12 +1047,12 @@ sub display_tabs($$$$) {
 	my $html_content = "";
 	
 	$html_header .= <<HTML
-<ul id="tabs_$tabsid" class="tabs" data-tab>
+<ul id="tabs_$tabsid" class="contained tabs" data-tab>
 HTML
 ;
 
 	$html_content .= <<HTML
-<div id="tabs_content_$tabsid" class="tabs-content">	
+<div id="tabs_content_$tabsid" class="contained tabs-content">	
 HTML
 ;
 
@@ -986,10 +1068,23 @@ HTML
 			$new_lc = ' new';
 		}
 	
+		if ($tabid eq 'new') {
+		
+		$html_header .= <<HTML
+	<li class="tabs tab-title$active$new_lc">$select_add_language</li>
+HTML
+;		
+		
+		}
+		else {
+	
 		$html_header .= <<HTML
 	<li class="tabs tab-title$active$new_lc"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$tabsids_hash_ref->{$tabid}</a></li>
 HTML
 ;
+
+		}
+
 		my $html_content_tab = <<HTML
 <div class="tabs content$active$new_lc" id="tabs_${tabsid}_${tabid}">
 HTML
@@ -1035,12 +1130,6 @@ HTML
 		}
 		else {
 		
-			$html_content_tab .= "<p>TODO: generate a new tab dynamically in javascript</p>";
-			
-			$html_content_tab .= <<HTML
-			<button type="button" onclick="add_language_tab('it','Italian');return false;" value="Add language">
-HTML
-;
 		
 		}
 		
@@ -1069,7 +1158,7 @@ HTML
 }
 
 
-	$html .= display_tabs("front_image", $product_ref->{sorted_langs}, $product_ref->{langs}, ["front_image"]);
+	$html .= display_tabs("front_image", $product_ref->{sorted_langs}, \%Langs, ["front_image"]);
 	
 	$html .= "</div><!-- fieldset -->";	
 	
@@ -1088,10 +1177,15 @@ HTML
 	# print STDERR "product.pl - fields : " . join(", ", @fields) . "\n";
 	
 	
-	$html .= display_tabs("product", $product_ref->{sorted_langs}, $product_ref->{langs}, ["product_name", "generic_name"]);
+	$html .= display_tabs("product", $product_ref->{sorted_langs}, \%Langs, ["product_name", "generic_name"]);
 	
 	
-
+	foreach my $field (@fields) {
+		print STDERR "product.pl - display_field $field - value $product_ref->{$field}\n";
+		$html .= display_field($product_ref, $field);
+	}
+	
+	
 
 	$html .= "</div><!-- fieldset -->\n";
 	
@@ -1099,7 +1193,7 @@ HTML
 	$html .= "<div class=\"fieldset\"><legend>$Lang{ingredients}{$lang}</legend>\n";
 
 	
-	$html .= display_tabs("ingredients_image", $product_ref->{sorted_langs}, $product_ref->{langs}, ["ingredients_image", "ingredients_text"]);
+	$html .= display_tabs("ingredients_image", $product_ref->{sorted_langs}, \%Langs, ["ingredients_image", "ingredients_text"]);
 
 
 	# $initjs .= "\$('textarea#ingredients_text').autoResize();";
@@ -1122,7 +1216,7 @@ $html .= "</div><!-- fieldset -->
 HTML
 ;
 
-	$html .= display_tabs("nutrition_image", $product_ref->{sorted_langs}, $product_ref->{langs}, ["nutrition_image"]);
+	$html .= display_tabs("nutrition_image", $product_ref->{sorted_langs}, \%Langs, ["nutrition_image"]);
 	
 	$initjs .= display_select_crop_init($product_ref);
 	

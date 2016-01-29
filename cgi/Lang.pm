@@ -10883,6 +10883,14 @@ footer_blog_link => {
 	#nl => 'http://nl.blog.openfoodfacts.org', #nl-CHECK - Add when necessary
 	#nl_be => 'http://nl.blog.openfoodfacts.org', #nl_be-CHECK - Add when necessary
 },
+footer_code_of_conduct => {
+	en => "Code of conduct",
+	fr => "Code de conduite",
+},
+footer_code_of_conduct_link => {
+	en => "/code-of-conduct",
+	fr => "/code-de-conduite",
+},
 footer_wiki => {
 	en => "Open Food Facts wiki (en)",
 },
@@ -11170,6 +11178,10 @@ copy_data => {
 	nl_be => "Kopieer de productendata naar het nieuwe product",
 },
 
+add_language => {
+	en => "Add language",
+	fr => "Ajouter une langue",
+},
 
 #ENDFRONTPAGE
 
