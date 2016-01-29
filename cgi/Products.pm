@@ -42,6 +42,7 @@ BEGIN
 		
 		&compute_codes
 		&compute_product_history_and_completeness
+		&compute_languages
 					
 	
 					);	# symbols to export on request
@@ -301,6 +302,8 @@ sub store_product($$) {
 	compute_product_history_and_completeness($product_ref, $changes_ref);
 	
 	compute_codes($product_ref);
+	
+	compute_languages($product_ref);
 
 	# sort_key
 	# add 0 just to make sure we have a number...  last_modified_t at some point contained strings like  "1431125369"
@@ -886,6 +889,56 @@ sub compute_codes($) {
 	
 	$product_ref->{codes_tags} = \@codes;
 }
+
+
+
+
+# set tags with info on languages shown on the package
+# [cc] -> language codes
+# [n] -> number of languages
+# multi -> indicates n > 1
+
+sub compute_languages($) {
+
+	my $product_ref = shift;
+
+	
+	my %languages = ();
+	
+	# check all the fields of the product
+	
+	foreach my $field (keys %$product_ref) {
+	
+		print STDERR "compute_languages - field: $field - "
+			. ($field =~ /_([a-z]{2})$/)
+			. " - " . $language_fields{$`}
+			. " - " . $product_ref->{$field} . "\n";
+	
+		if (($field =~ /_([a-z]{2})$/) and (defined $language_fields{$`}) and ($product_ref->{$field} ne '')) {
+			$languages{$1}++;
+		}
+	}
+	
+	if (defined $product_ref->{images}) {
+		foreach my $id (keys %{ $product_ref->{images}}) {
+	
+			if ($id =~ /_([a-z]{2})$/)  {
+				$languages{$1}++;
+			}
+		}
+	}
+
+	my @languages = keys %languages;
+	my $n = scalar(@languages);
+	push @languages, $n;
+	if ($n > 1) {
+		push @languages, "multi";
+	}
+	
+	$product_ref->{languages} = \%languages;
+	$product_ref->{languages_tags} = \@languages;
+}
+
 
 1;
 
