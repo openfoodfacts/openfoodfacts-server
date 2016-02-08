@@ -378,6 +378,7 @@ sub compute_completeness_and_missing_tags($$$) {
 			push @states_tags, "en:" . get_fileid($field) . "-to-be-completed";
 		}
 		else {
+			push @states_tags, "en:" . get_fileid($field) . "-completed";
 			$notempty++;
 		}
 	}
