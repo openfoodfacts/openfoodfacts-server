@@ -456,6 +456,16 @@ sub analyze_request($)
 		
 			if (($#components >= 0)) {
 				$request_ref->{tag} = shift @components;
+				
+				# if there is a leading dash - before the tag, it indicates we want products without it
+				if ($request_ref->{tag} =~ /^-/) {
+					$request_ref->{tag_prefix} = "-";
+					$request_ref->{tag} = $';
+				}
+				else {
+					$request_ref->{tag_prefix} = "";
+				}
+				
 				if (defined $taxonomy_fields{$tagtype}) {
 					if ($request_ref->{tag} !~ /^(\w\w):/) {
 						$request_ref->{tag} = $lc . ":" . $request_ref->{tag};
@@ -464,7 +474,7 @@ sub analyze_request($)
 				$request_ref->{tagid} = get_taxonomyid($request_ref->{tag});
 			}
 			
-			$request_ref->{canon_rel_url} .= "/" . $tag_type_singular{$tagtype}{$lc} . "/" . $request_ref->{tagid}; 
+			$request_ref->{canon_rel_url} .= "/" . $tag_type_singular{$tagtype}{$lc} . "/" . $request_ref->{tag_prefix} . $request_ref->{tagid}; 
 			
 			# 2nd tag?
 			
@@ -475,6 +485,16 @@ sub analyze_request($)
 			
 				if (($#components >= 0)) {
 					$request_ref->{tag2} = shift @components;
+					
+					# if there is a leading dash - before the tag, it indicates we want products without it
+					if ($request_ref->{tag2} =~ /^-/) {
+						$request_ref->{tag2_prefix} = "-";
+						$request_ref->{tag2} = $';
+					}
+					else {
+						$request_ref->{tag2_prefix} = "";
+					}
+				
 					if (defined $taxonomy_fields{$tagtype}) {
 						if ($request_ref->{tag2} !~ /^(\w\w):/) {
 							$request_ref->{tag2} = $lc . ":" . $request_ref->{tag2};
@@ -483,7 +503,7 @@ sub analyze_request($)
 					$request_ref->{tagid2} = get_taxonomyid($request_ref->{tag2});
 				}
 				
-				$request_ref->{canon_rel_url} .= "/" . $tag_type_singular{$tagtype}{$lc} . "/" . $request_ref->{tagid2}; 
+				$request_ref->{canon_rel_url} .= "/" . $tag_type_singular{$tagtype}{$lc} . "/" . $request_ref->{tag2_prefix} . $request_ref->{tagid2}; 
 			}
 
 			if ((defined $components[0]) and ($components[0] eq 'points')) {
@@ -1675,9 +1695,15 @@ sub display_tag($) {
 			$request_ref->{world_current_link} = canonicalize_tag_link($tagtype, $newtagid);
 			$lang = $current_lang;
 			$lc = $current_lc;
-			print STDERR "display_tag - normal - $tagtype - tagid: $tagid - canon_tagid: $canon_tagid - newtagid: $newtagid - title: $title \n";
-			
+			print STDERR "display_tag - normal - $tagtype - tagid: $tagid - canon_tagid: $canon_tagid - newtagid: $newtagid - title: $title \n";			
 		}
+		
+		# add back leading dash when a tag is excluded
+		if ((defined $request_ref->{tag_prefix}) and ($request_ref->{tag_prefix} ne '')) {
+			my $prefix = $request_ref->{tag_prefix};
+			$request_ref->{current_link} =~ s/^\/([^\/]+)$/\/$prefix$1/;
+			$request_ref->{world_current_link} =~ s/^\/([^\/]+)$/\/$prefix$1/;
+		}		
 	}
 	else {
 		print STDERR "display_tag - no tagid\n";
@@ -1715,7 +1741,15 @@ sub display_tag($) {
 			$request_ref->{world_current_link} .= canonicalize_tag_link($tagtype2, $newtagid2);
 			$lang = $current_lang;
 			$lc = $current_lc;
-		}	
+		}
+		
+		# add back leading dash when a tag is excluded
+		if ((defined $request_ref->{tag2_prefix}) and ($request_ref->{tag2_prefix} ne '')) {
+			my $prefix = $request_ref->{tag2_prefix};
+			$request_ref->{current_link} =~ s/^\/([^\/]+)$/\/$prefix$1/;
+			$request_ref->{world_current_link} =~ s/^\/([^\/]+)$/\/$prefix$1/;
+		}		
+		
 	}
 	
 	if (defined $request_ref->{groupby_tagtype}) {
@@ -1978,14 +2012,26 @@ HTML
 		$sort_by = 'last_modified_t';
 	}
 	elsif (defined $canon_tagid) {
-		
-		$query_ref->{ ($tagtype . "_tags")} = $canon_tagid;
+		if ((defined $request_ref->{tag_prefix}) and ($request_ref->{tag_prefix} ne '')) {
+			$query_ref->{ ($tagtype . "_tags")} = { "\$ne" => $canon_tagid };
+		}
+		else {
+			$query_ref->{ ($tagtype . "_tags")} = $canon_tagid;
+		}
 		$sort_by = 'last_modified_t';		
 	}
 	elsif (defined $tagid) {
-		$query_ref->{ ($tagtype . "_tags")} = $tagid;
+		if ((defined $request_ref->{tag_prefix}) and ($request_ref->{tag_prefix} ne '')) {
+			$query_ref->{ ($tagtype . "_tags")} = { "\$ne" => $tagid };
+		}
+		else {
+			$query_ref->{ ($tagtype . "_tags")} = $tagid;
+		}
 		$sort_by = 'last_modified_t';
 	}
+	
+	# db.myCol.find({ mylist: { $ne: 'orange' } })
+
 	
 	# unknown ?
 	if (($tagid eq get_fileid(lang("unknown"))) or ($tagid eq ($lc . ":" . get_fileid(lang("unknown"))))) {
@@ -4538,7 +4584,7 @@ $google_analytics
 <nav class="top-bar" data-topbar role="navigation" id="top-bar">
 	<ul class="title-area">
 		<li class="name">
-			<h2><a href="/" style="font-size:1rem;">Open Food Facts</a></h2>
+			<h2><a href="/" style="font-size:1rem;">$Lang{site_name}{$lang}</a></h2>
 		</li>
 		<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
 		<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
