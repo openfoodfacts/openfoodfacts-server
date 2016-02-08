@@ -308,6 +308,22 @@ sub extract_ingredients_from_text($) {
 		push @{$product_ref->{ingredients}}, $ingredient;
 		push @{$product_ref->{ingredients_tags}}, $ingredient->{id};
 	}
+	
+	
+	if ($product_ref->{ingredients_text} ne "") {
+	
+		$product_ref->{ingredients_n} = scalar @{$product_ref->{ingredients_tags}};
+	
+		my $d = int(($product_ref->{ingredients_n} - 1 ) / 10);
+		my $start = $d * 10 + 1;
+		my $end = $d * 10 + 10;
+	
+		$product_ref->{ingredients_n_tags} = [$product_ref->{ingredients_n} . "", "$start" . "-" . "$end"];
+	}
+	else {
+		delete $product_ref->{ingredients_n};
+		delete $product_ref->{ingredients_n_tags};
+	}
 }
 
 
