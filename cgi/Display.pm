@@ -1967,7 +1967,14 @@ HTML
 		}
 	}
 
-	$products_title = sprintf(lang($tagtype . '_products'), $products_title);
+	if ((defined $request_ref->{tag_prefix}) and ($request_ref->{tag_prefix} eq '-')) {
+		$products_title = sprintf(lang($tagtype . '_without_products'), $products_title);
+	}
+	else {
+		$products_title = sprintf(lang($tagtype . '_products'), $products_title);
+	}
+	
+	
 	if (defined $tagid2) {
 		$products_title .= " - " . lang($tagtype2 . '_s') . lang("sep") . ": " . $display_tag2;
 	}
