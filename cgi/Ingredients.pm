@@ -147,6 +147,12 @@ sub extract_ingredients_from_text($) {
 	
 	print STDERR "extract_ingredients_from_text - text: $text \n";
 	
+	# assume commas between numbers are part of the name
+	# e.g. en:2-Bromo-2-Nitropropane-1,3-Diol, Bronopol
+	# replace by a lower comma ‚
+
+	$text =~ s/(\d),(\d)/$1‚$2/g;	
+	
 	# $product_ref->{ingredients_tags} = ["first-ingredient", "second-ingredient"...]
 	# $product_ref->{ingredients}= [{id =>, text =>, percent => etc. }, ] # bio / équitable ? 
 	
@@ -307,6 +313,15 @@ sub extract_ingredients_from_text($) {
 	foreach my $ingredient (@ranked_ingredients, @unranked_ingredients) {
 		push @{$product_ref->{ingredients}}, $ingredient;
 		push @{$product_ref->{ingredients_tags}}, $ingredient->{id};
+	}
+	
+	my $field = "ingredients";
+	if (defined $taxonomy_fields{$field}) {
+		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($product_ref->{lc}, $field, join(", ", @{$product_ref->{ingredients_tags}} )) ];
+		$product_ref->{$field . "_tags" } = [];
+		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
+			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
+		}
 	}
 	
 	
