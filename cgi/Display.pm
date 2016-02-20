@@ -6595,7 +6595,9 @@ HTML
 			
 		}		
 		
-		delete $response{product}{images};
+		if (not $admin) {
+			delete $response{product}{images};
+		}
 	}
 	
 	$request_ref->{structured_response} = \%response;
