@@ -964,7 +964,59 @@ $styles .= <<CSS
 	padding:1rem;
 }
 
+ul.tabs {
+	border-top:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	background-color:#EFEFEF;
+}
 
+.tabs dd>a, .tabs .tab-title>a {
+padding:0.5rem 1rem;
+}
+
+.tabs-content {
+	background-color:white;
+	padding:1rem;
+	border-bottom:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;	
+}
+
+.select_add_language {
+	border:0;
+}
+
+
+.select2-container--default .select2-selection--single {
+	height:2.5rem;
+	top:0;
+	border:0;
+  background-color: #0099ff;
+  color: #FFFFFF;
+  transition: background-color 300ms ease-out;
+}
+
+.select2-container--default .select2-selection--single:hover, .select2-container--default .select2-selection--single:focus {
+background-color: #007acc;
+color:#FFFFFF;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: #fff transparent transparent transparent;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+	color:white;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+	line-height:2.5rem;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+	margin-top:4px;
+}
 
 CSS
 ;
@@ -1047,12 +1099,12 @@ sub display_tabs($$$$) {
 	my $html_content = "";
 	
 	$html_header .= <<HTML
-<ul id="tabs_$tabsid" class="contained tabs" data-tab>
+<ul id="tabs_$tabsid" class="tabs" data-tab>
 HTML
 ;
 
 	$html_content .= <<HTML
-<div id="tabs_content_$tabsid" class="contained tabs-content">	
+<div id="tabs_content_$tabsid" class="tabs-content">	
 HTML
 ;
 
@@ -1079,7 +1131,7 @@ HTML
 		else {
 	
 		$html_header .= <<HTML
-	<li class="tabs tab-title$active$new_lc"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$tabsids_hash_ref->{$tabid}</a></li>
+	<li class="tabs tab-title$active$new_lc"  id="tabs_${tabsid}_${tabid}_tab"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$tabsids_hash_ref->{$tabid}</a></li>
 HTML
 ;
 
