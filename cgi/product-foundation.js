@@ -41,6 +41,9 @@ $('.new_lc').each(function(i, obj) {
     	
 	var $clone = $(this).clone();
 	
+	var $th = $clone;
+	var newID = $th.attr('id').replace(/new_lc/, lc);
+	$th.attr('id', newID);
 		
 	$clone.find('[id]').each(function() { 
 
@@ -49,6 +52,14 @@ $('.new_lc').each(function(i, obj) {
 		$th.attr('id', newID);
 		
 	});	
+	
+	$clone.find('[for]').each(function() { 
+
+		var $th = $(this);
+		var newID = $th.attr('for').replace(/new_lc/, lc);
+		$th.attr('for', newID);
+		
+	});		
 	
 	$clone.find('[name]').each(function() { 
 
@@ -72,6 +83,9 @@ $('.new_lc').each(function(i, obj) {
 	$clone.insertBefore($(this));
 	
 	$clone.addClass('active').removeClass('new_lc').removeClass('hide');
+
+	$(".select_crop").filter(":visible").selectcrop('init');
+	$(".select_crop").filter(":visible").selectcrop('show');
 	
 });
 
