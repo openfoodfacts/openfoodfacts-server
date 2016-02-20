@@ -41,7 +41,7 @@ my $count = $cursor->count();
 		my $code = $product_ref->{code};
 		my $path = product_path($code);
 		
-		#next if $code ne "9555118659523";
+		next if $code ne "3560070326822";
 		
 		print STDERR "updating product $code\n";
 		
@@ -55,17 +55,29 @@ my $count = $cursor->count();
 	
 
 		foreach my $field (keys %language_fields) {
-			if (defined $product_ref->{$field}) {
-			
-				if (not (defined $product_ref->{$field . "_$lc"})) {
-					if ($field !~ /_image/) {
+
+			print STDERR "field: $field\n";
+				if ($field !~ /_image/) {
+					if ((defined $product_ref->{$field} and (not defined $product_ref->{$field . "_$lc"}))) {
+					
 						$product_ref->{$field . "_$lc"} = $product_ref->{$field};
 					}
-					else {
+				}
+				else {
+					$field =~ s/_image//;
+					print STDERR "image_field: $field\n";
+					if ((defined $product_ref->{images}{$field}) and (not defined $product_ref->{images}{$field . "_$lc" . "x"})) {
+						$product_ref->{images}{$field . "_$lc"} = $product_ref->{images}{$field};
+						print STDERR "updated image_field $field\n";
 						
+						foreach my $size ($thumb_size, $small_size, $display_size, 'full') {
+							# copy images to new name with language
+							my $rev = $product_ref->{images}{$field}{rev};
+							system("cp -a $www_root/images/products/$path/$field.$rev.$size.jpg $www_root/images/products/$path/${field}_$lc.$rev.$size.jpg");
+						}						
 					}
 				}
-			}
+			
 		}
 			
 		# Store
