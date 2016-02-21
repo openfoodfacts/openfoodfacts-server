@@ -41,7 +41,7 @@ my $count = $cursor->count();
 		my $code = $product_ref->{code};
 		my $path = product_path($code);
 		
-		next if $code ne "3560070326822";
+		#next if $code ne "2000000007886";
 		
 		print STDERR "updating product $code\n";
 		
@@ -66,7 +66,7 @@ my $count = $cursor->count();
 				else {
 					$field =~ s/_image//;
 					print STDERR "image_field: $field\n";
-					if ((defined $product_ref->{images}{$field}) and (not defined $product_ref->{images}{$field . "_$lc" . "x"})) {
+					if ((defined $product_ref->{images}{$field}) and (not defined $product_ref->{images}{$field . "_$lc"})) {
 						$product_ref->{images}{$field . "_$lc"} = $product_ref->{images}{$field};
 						print STDERR "updated image_field $field\n";
 						
