@@ -122,24 +122,6 @@ generic_name => 1,
 ingredients_text => 1,
 );
 
-@drilldown_fields = qw(
-brands
-categories
-labels
-packaging
-origins
-manufacturing_places
-emb_codes
-ingredients
-additives
-allergens
-traces
-nutrition_grades
-users
-states
-entry_dates
-last_edit_dates
-);
 
 %canon_tags = ();
 
