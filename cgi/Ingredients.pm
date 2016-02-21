@@ -105,15 +105,24 @@ closedir(DH);
 
 
 
-sub extract_ingredients_from_image($) {
+sub extract_ingredients_from_image($$) {
 
 	my $product_ref = shift;
+	my $id = shift;
 	my $path = product_path($product_ref->{code});
 	my $status = 0;
 	
 	my $filename = '';
 	
-	my $id = 'ingredients';
+	my $lc = $product_ref->{lc};
+	
+	if ($id =~ /^ingredients_(\w\w)$/) {
+		$lc = $1;
+	}
+	else {
+		$id = "ingredients";
+	}
+	
 	my $size = 'full';
 	if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 		and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
@@ -123,15 +132,32 @@ sub extract_ingredients_from_image($) {
 	my $image = "$www_root/images/products/$path/$filename.full.jpg";
 	my $text;
 	
-	print STDERR "extract_ingredients_from_image - image: $image\n";
+	my $lan;
 	
-	$text =  decode utf8=>get_ocr($image,undef,'fra');
+	if (defined $Blogs::Config::tesseract_ocr_available_languages{$lc}) {
+		$lan = $Blogs::Config::tesseract_ocr_available_languages{$lc};
+	}
+	elsif (defined $Blogs::Config::tesseract_ocr_available_languages{$product_ref->{lc}}) {
+		$lan = $Blogs::Config::tesseract_ocr_available_languages{$product_ref->{lc}};
+	}	
+	elsif (defined $Blogs::Config::tesseract_ocr_available_languages{en}) {
+		$lan = $Blogs::Config::tesseract_ocr_available_languages{en};
+	}
 	
-	if ((defined $text) and ($text ne '')) {
-		$product_ref->{ingredients_text_from_image} = $text;
+	print STDERR "extract_ingredients_from_image - lc: $lc - lan: $lan - id: $id - image: $image\n";
+	
+	if (defined $lan) {
+		$text =  decode utf8=>get_ocr($image,undef,'fra');
+		
+		if ((defined $text) and ($text ne '')) {
+			$product_ref->{ingredients_text_from_image} = $text;
+		}
+		else {
+			$status = 1;
+		}
 	}
 	else {
-		$status = 1;
+		print STDERR "extract_ingredients_from_image - lc: $lc - lan: $lan - id: $id - no available tesseract dictionary\n";	
 	}
 	
 	return $status;
