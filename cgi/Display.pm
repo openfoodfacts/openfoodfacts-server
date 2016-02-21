@@ -2240,7 +2240,7 @@ sub search_and_display_products($$$$$) {
 		if ((not defined $request_ref->{search}) and ($count >= 5) 	
 			and (not defined $request_ref->{tagid2})) {
 			
-			my @current_drilldown_fields = @drilldown_fields;
+			my @current_drilldown_fields = @Blogs::Config::drilldown_fields;
 			if ($country eq 'en:world') {
 				unshift (@current_drilldown_fields, "countries");
 			}
@@ -5307,11 +5307,8 @@ HTML
 	}	
 	
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
-	my @fields = qw(generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link purchase_places stores countries);
+	my @fields = @Blogs::Config::display_fields;
 	
-
-	
-
 	$bodyabout = " about=\"" . product_url($product_ref) . "\" typeof=\"food:foodProduct\"";
 	
 #<div itemscope itemtype="http://schema.org/Product">
@@ -5374,11 +5371,21 @@ HTML
 	
 	$html_image = display_image_box($product_ref, 'ingredients', \$minheight);	
 	
+	# try to display ingredients in the local language if available
+	
 	my $ingredients_text = $product_ref->{ingredients_text};
 	
 	if (defined $product_ref->{ingredients_text_with_allergens}) {
 		$ingredients_text = $product_ref->{ingredients_text_with_allergens};
+	}	
+	
+	if ((defined $product_ref->{"ingredients_text" . "_" . $lc}) and ($product_ref->{"ingredients_text" . "_" . $lc} ne '')) {
+		$ingredients_text = $product_ref->{"ingredients_text" . "_" . $lc};
 	}
+	
+	if ((defined $product_ref->{"ingredients_text_with_allergens" . "_" . $lc}) and ($product_ref->{"ingredients_text_with_allergens" . "_" . $lc} ne '')) {
+		$ingredients_text = $product_ref->{"ingredients_text_with_allergens" . "_" . $lc};
+	}	
 	
 		$html .= <<HTML
 <h2>$Lang{ingredients}{$lc}</h2>
@@ -5675,12 +5682,25 @@ HTML
 	
 	$html_image = display_image_box($product_ref, 'ingredients', \$minheight);
 
+	# try to display ingredients in the local language
+	
 	my $ingredients_text = $product_ref->{ingredients_text};
 	
 	if (defined $product_ref->{ingredients_text_with_allergens}) {
 		$ingredients_text = $product_ref->{ingredients_text_with_allergens};
-		$ingredients_text =~ s/<span class="allergen">(.*?)<\/span>/<b>$1<\/b>/isg;
 	}	
+	
+	if ((defined $product_ref->{"ingredients_text" . "_" . $lc}) and ($product_ref->{"ingredients_text" . "_" . $lc} ne '')) {
+		$ingredients_text = $product_ref->{"ingredients_text" . "_" . $lc};
+	}
+	
+	if ((defined $product_ref->{"ingredients_text_with_allergens" . "_" . $lc}) and ($product_ref->{"ingredients_text_with_allergens" . "_" . $lc} ne '')) {
+		$ingredients_text = $product_ref->{"ingredients_text_with_allergens" . "_" . $lc};
+	}		
+	
+	$ingredients_text =~ s/<span class="allergen">(.*?)<\/span>/<b>$1<\/b>/isg;
+	
+	
 	
 	$html .= "</div>";
 	
