@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
 
 # This file is part of Product Opener.
 # 
@@ -222,7 +222,7 @@ HTML
 }
 
 
-my @fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
+my @fields = @Blogs::Config::product_fields;
 
 
 if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
@@ -246,7 +246,34 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		}
 	}
 	
-	foreach my $field (@fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang') {
+	my @param_fields = ();
+
+	my @param_sorted_langs = ();
+	if (defined param("sorted_langs")) {
+		foreach my $display_lc (split(/,/, param("sorted_langs"))) {
+			if ($display_lc =~ /^\w\w$/) {
+				push @param_sorted_langs, $display_lc;
+			}
+		}
+	}
+	
+	$product_ref->{"debug_param_sorted_langs"} = \@param_sorted_langs;
+	
+	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang') {
+	
+		if (defined $language_fields{$field}) {
+			foreach my $display_lc (@param_sorted_langs) {
+				push @param_fields, $field . "_" . $display_lc;
+			}
+		}
+		else {
+			push @param_fields, $field;
+		}
+	}
+	
+	
+	foreach my $field (@param_fields) {
+	
 		if (defined param($field)) {
 			$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
 			if ($field eq 'emb_codes') {
@@ -320,6 +347,18 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	else {
 		$product_ref->{lc} = 'other';
 	}
+	
+	
+	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
+	
+	foreach my $field (keys %language_fields) {
+		if ($field !~ /_image/) {
+			if (defined $product_ref->{$field . "_$product_ref->{lc}"}) {
+				$product_ref->{$field} = $product_ref->{$field . "_$product_ref->{lc}"};
+			}
+		}
+	}
+					
 	
 	# Ingredients classes
 	extract_ingredients_from_text($product_ref);
@@ -465,6 +504,70 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 # Display the product edit form
 
+my %remember_fields = ('purchase_places'=>1, 'stores'=>1);
+
+# Display each field
+
+sub display_field($$) {
+	
+	my $product_ref = shift;
+	my $field = shift;	# can be in %language_fields and suffixed by _[lc]
+	
+	my $fieldtype = $field;
+	my $display_lc = undef;
+	
+	if (($field =~ /^(.*?)_(..|new_lc)$/) and (defined $language_fields{$1})) {
+		$fieldtype = $1;
+		$display_lc = $2;
+	}
+
+	my $tagsinput = '';
+	if (defined $tags_fields{$fieldtype}) {
+		$tagsinput = ' tagsinput';
+				
+	}
+	
+	my $value = $product_ref->{$field};
+	if (defined $product_ref->{$field . "_orig"}) {
+		$value = $product_ref->{$field . "_orig"};
+	}
+	if (defined $taxonomy_fields{$field}) {
+		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
+		# Remove tags
+		$value =~ s/<(([^>]|\n)*)>//g;
+	}			
+
+	my $html = <<HTML
+<label for="$field">$Lang{$fieldtype}{$lang}</label>
+<input type="text" name="$field" id="$field" class="text${tagsinput}" value="$value" />		
+HTML
+;
+	if (defined $Lang{$fieldtype . "_note"}{$lang}) {
+		$html .= <<HTML
+<p class="note">&rarr; $Lang{$fieldtype . "_note"}{$lang}</p>			
+HTML
+;
+	}
+	
+	if (defined $Lang{$fieldtype . "_example"}{$lang}) {
+	
+		my $examples = $Lang{example}{$lang};
+		if ($Lang{$fieldtype . "_example"}{$lang} =~ /,/) {
+			$examples = $Lang{examples}{$lang};
+		}
+	
+		$html .= <<HTML
+<p class="example">$examples $Lang{$fieldtype . "_example"}{$lang}</p>			
+HTML
+;
+	}
+
+	return $html;
+}
+	
+
+
+
 if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$debug and print STDERR "product.pl action: display type: $type code $code\n";
@@ -517,8 +620,8 @@ HTML
 <script type="text/javascript" src="/js/load-image.min.js"></script>
 <script type="text/javascript" src="/js/canvas-to-blob.min.js"></script>
 <script type="text/javascript" src="/js/jquery.fileupload-ip.js"></script>
-<script type="text/javascript" src="/js/product-foundation.js"></script>
-
+<script type="text/javascript" src="/foundation/js/foundation/foundation.tab.js"></script>
+<script type="text/javascript" src="/js/product-multilingual.js"></script>
 HTML
 ;
 
@@ -624,7 +727,6 @@ HTML
 	$html .= popup_menu(-name=>'lang', -default=>$lang_value, -values=>\@lang_values, -labels=>\%lang_labels);
 
 
-	$html .= "<div class=\"fieldset\"><legend>$Lang{product_image}{$lang}</legend>";
 	
 	$scripts .= <<JS
 <script type="text/javascript">
@@ -826,8 +928,293 @@ JS
 
 			}		
 	
-	$html .= display_select_crop($product_ref, "front");
+	
 
+
+$styles .= <<CSS
+
+// add borders to Foundation 5 tabs
+// \@media only screen and (min-width: 40.063em) {  /* min-width 641px, medium screens */
+  ul.tabs {
+     > li > a {
+       border-width: 1px;
+       border-style: solid;
+       border-color: #ccc #ccc #fff;
+       margin-right: -1px;
+     }
+     > li:not(.active) > a {
+       border-bottom: solid 1px #ccc;
+     }
+   }
+  .tabs-content {
+    border: 1px solid #ccc;
+    .content {
+      padding: .9375rem;
+      margin-top: 0;
+    }
+    margin: -1px 0 .9375rem 0;
+  }
+//}
+
+// if tabs container has a background color
+.tabs-content { background-color: #fff; }
+
+.contained {
+	border:1px solid #ccc;
+	padding:1rem;
+}
+
+ul.tabs {
+	border-top:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	background-color:#EFEFEF;
+}
+
+.tabs dd>a, .tabs .tab-title>a {
+padding:0.5rem 1rem;
+}
+
+.tabs-content {
+	background-color:white;
+	padding:1rem;
+	border-bottom:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;	
+}
+
+.select_add_language {
+	border:0;
+}
+
+
+.select2-container--default .select2-selection--single {
+	height:2.5rem;
+	top:0;
+	border:0;
+  background-color: #0099ff;
+  color: #FFFFFF;
+  transition: background-color 300ms ease-out;
+}
+
+.select2-container--default .select2-selection--single:hover, .select2-container--default .select2-selection--single:focus {
+background-color: #007acc;
+color:#FFFFFF;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: #fff transparent transparent transparent;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+	color:white;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+	line-height:2.5rem;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+	margin-top:4px;
+}
+
+CSS
+;
+	
+	$initjs .= <<JS
+\$(".select_add_language").select2({
+	placeholder: "$Lang{add_language}{$lang}",
+    allowClear: true
+	}
+	).on("select2:select", function(e) {
+	var lc =  e.params.data.id;
+	var language = e.params.data.text;
+	add_language_tab (lc, language);
+	\$(".select_add_language_" + lc).remove();
+	\$(this).val("").trigger("change");
+	var new_sorted_langs = \$("#sorted_langs").val() + "," + lc;
+	\$("#sorted_langs").val(new_sorted_langs);
+})
+;	
+JS
+;	
+	
+	
+	
+	$html .= "<div class=\"fieldset\"><legend>$Lang{product_image}{$lang}</legend>";
+
+	
+	$product_ref->{langs_order} = { fr => 0, nl => 1, en => 1, new => 2 };
+	# TODO sort function to put main language first, other languages by alphabetical order, then add new language tab
+	# $product_ref->{sorted_langs} = sort ( { .. } keys %{$product_ref->{langs_order}};
+	# $product_ref->{sorted_langs} = [ 'en', 'de', 'es', 'fr', 'nl' ];
+	
+	defined $product_ref->{lc} or $product_ref->{lc} = $lc;
+	defined $product_ref->{languages} or $product_ref->{languages} = {};
+	
+	$product_ref->{sorted_langs} = [ $product_ref->{lc} ];
+	
+	foreach my $olc (sort keys %{$product_ref->{languages}}) {
+		if ($olc ne $product_ref->{lc}) {
+			push @{$product_ref->{sorted_langs}}, $olc;
+		}
+	}
+	
+	$html .= "\n<input type=\"hidden\" id=\"sorted_langs\" name=\"sorted_langs\" value=\"" . join(',', @{$product_ref->{sorted_langs}}) . "\" />\n";
+		
+	my $select_add_language = <<HTML
+
+<select class="select_add_language" style="width:100%">
+<option></option>
+HTML
+;
+
+	foreach my $olc (sort keys %Langs) {
+		if (($olc ne $product_ref->{lc}) and (not defined $product_ref->{languages}{$olc})) {
+			$select_add_language .=<<HTML
+ <option value="$olc" class="select_add_language_$olc">$Langs{$olc}</option>
+HTML
+;
+		}
+	}
+
+	$select_add_language .= <<HTML
+</select>
+		</li>
+		
+HTML
+;
+
+	
+	
+
+sub display_tabs($$$$$$) {
+
+	my $product_ref = shift;
+	my $select_add_language = shift;
+	my $tabsid = shift;
+	my $tabsids_array_ref = shift;
+	my $tabsids_hash_ref = shift;
+	my $fields_array_ref = shift;
+	
+	my $html_header = "";
+	my $html_content = "";
+	
+	$html_header .= <<HTML
+<ul id="tabs_$tabsid" class="tabs" data-tab>
+HTML
+;
+
+	$html_content .= <<HTML
+<div id="tabs_content_$tabsid" class="tabs-content">	
+HTML
+;
+
+
+	my $active = " active";
+	foreach my $tabid (@$tabsids_array_ref, 'new_lc','new') {
+	
+		my $new_lc = '';
+		if ($tabid eq 'new_lc') {
+			$new_lc = ' new_lc hide';
+		}
+		elsif ($tabid eq 'new') {
+			$new_lc = ' new';
+		}
+	
+		if ($tabid eq 'new') {
+		
+		$html_header .= <<HTML
+	<li class="tabs tab-title$active$new_lc">$select_add_language</li>
+HTML
+;		
+		
+		}
+		else {
+	
+		$html_header .= <<HTML
+	<li class="tabs tab-title$active$new_lc"  id="tabs_${tabsid}_${tabid}_tab"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$tabsids_hash_ref->{$tabid}</a></li>
+HTML
+;
+
+		}
+
+		my $html_content_tab = <<HTML
+<div class="tabs content$active$new_lc" id="tabs_${tabsid}_${tabid}">
+HTML
+;
+
+		if ($tabid ne 'new') {
+		
+			my $display_lc = $tabid;
+
+			foreach my $field (@{$fields_array_ref}) {
+			
+				if ($field =~ /^(.*)_image/) {
+				
+					my $image_field = $1 . "_" . $display_lc;
+					$html_content_tab .= display_select_crop($product_ref, $image_field);
+				
+				}
+				elsif ($field eq 'ingredients_text') {
+				
+					my $value = $product_ref->{"ingredients_text_" . ${display_lc}};
+					my $id = "ingredients_text_" . ${display_lc};
+				
+					$html_content_tab .= <<HTML
+<label for="$id">$Lang{ingredients_text}{$lang}</label>
+<textarea id="$id" name="$id">$value</textarea>
+<p class="note">&rarr; $Lang{ingredients_text_note}{$lang}</p>			
+<p class="example">$Lang{example}{$lang} $Lang{ingredients_text_example}{$lang}</p>			
+HTML
+;
+				
+				}
+				else {
+					print STDERR "product.pl - display_field $field - value $product_ref->{$field}\n";
+					$html_content_tab .= display_field($product_ref, $field . "_" . $display_lc);
+				}
+			}
+
+
+			# add (language name) in all field labels
+		
+			$html_content_tab =~ s/<\/label>/ (<span class="tab_language">$tabsids_hash_ref->{$tabid}<\/span>)<\/label>/g;
+
+		
+		}
+		else {
+		
+		
+		}
+		
+		$html_content_tab .= <<HTML
+</div>
+HTML
+;
+		
+		$html_content .= $html_content_tab;
+
+		$active = "";
+
+	}
+	
+	$html_header .= <<HTML
+</ul>
+HTML
+;
+
+	$html_content .= <<HTML
+</div>
+HTML
+;
+
+	return $html_header . $html_content;
+}
+
+
+	$html .= display_tabs($product_ref, $select_add_language, "front_image", $product_ref->{sorted_langs}, \%Langs, ["front_image"]);
+	
 	$html .= "</div><!-- fieldset -->";	
 	
 	$html .= <<HTML
@@ -837,137 +1224,38 @@ JS
 HTML
 ;
 	
-	my %remember_fields = ('purchase_places'=>1, 'stores'=>1);
 	
-	sub display_field($$$) {
 	
-		my $product_ref = shift;
-		my $html_ref = shift;
-		my $field = shift;
 	
-		my $tagsinput = '';
-		if (defined $tags_fields{$field}) {
-			$tagsinput = ' tagsinput';
-			
-			my $remember = '';
-			if (defined $remember_fields{$field}) {
-				$remember = <<HTML
-	'onChange': function () { \$.cookie('remember_$field', \$("#$field").val(), { expires: 30 }); },
-HTML
-;
-			}
-		
-# 	
-		
-			$initjs .= <<HTML
-\$('#$field').tagsInput({ $remember
-	'height':'3rem',
-	'width':'100%',
-	'interactive':true,
-	'minInputWidth':130,
-	'delimiter': [','],
-	'defaultText':"$Lang{$field . "_tagsinput"}{$lang}"
-});
-HTML
-;			
-		}
-		
-		my $value = $product_ref->{$field};
-		if (defined $product_ref->{$field . "_orig"}) {
-			$value = $product_ref->{$field . "_orig"};
-		}
-		if (defined $taxonomy_fields{$field}) {
-			$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
-			# Remove tags
-			$value =~ s/<(([^>]|\n)*)>//g;
-		}			
-
-		$$html_ref .= <<HTML
-<label for="$field">$Lang{$field}{$lang}</label>
-<input type="text" name="$field" id="$field" class="text${tagsinput}" value="$value" />		
-HTML
-;
-		if (defined $Lang{$field . "_note"}{$lang}) {
-			$$html_ref .= <<HTML
-<p class="note">&rarr; $Lang{$field . "_note"}{$lang}</p>			
-HTML
-;
-		}
-		
-		if (defined $Lang{$field . "_example"}{$lang}) {
-		
-			my $examples = $Lang{example}{$lang};
-			if ($Lang{$field . "_example"}{$lang} =~ /,/) {
-				$examples = $Lang{examples}{$lang};
-			}
-		
-			$$html_ref .= <<HTML
-<p class="example">$examples $Lang{$field . "_example"}{$lang}</p>			
-HTML
-;
-		}
 	
-	}
-	
-	if ($type eq 'add') {	# must be before creating the fields with tagsinput so that the value can be taken into account
-	
-		$initjs .= <<HTML
-
-if (\$.cookie('remember_purchase_places_and_stores') == 'true') {
-	\$("#remember_purchase_places_and_stores").attr('checked', true);
-	\$("#purchase_places").val(\$.cookie('remember_purchase_places'));
-	\$("#stores").val(\$.cookie('remember_stores'));
-}
-
-\$.cookie('remember_purchase_places_and_stores', \$("#remember_purchase_places_and_stores").is(':checked'), { expires: 30 });
-
-\$("#remember_purchase_places_and_stores").change(function () {
-	\$.cookie('remember_purchase_places_and_stores', \$("#remember_purchase_places_and_stores").is(':checked'), { expires: 30 });
-});
-
-
-HTML
-;	
-
-	}	
 	
 	# print STDERR "product.pl - fields : " . join(", ", @fields) . "\n";
 	
+	
+	$html .= display_tabs($product_ref, $select_add_language, "product", $product_ref->{sorted_langs}, \%Langs, ["product_name", "generic_name"]);
+	
+	
 	foreach my $field (@fields) {
 		print STDERR "product.pl - display_field $field - value $product_ref->{$field}\n";
-		display_field($product_ref, \$html, $field);
+		$html .= display_field($product_ref, $field);
 	}
 	
-	if ($type eq 'add') {
 	
-		$html .= <<HTML
-<input type="checkbox" id="remember_purchase_places_and_stores" name="remember_purchase_places_and_stores" />
-<label for="remember_purchase_places_and_stores" class="checkbox_label">$Lang{remember_purchase_places_and_stores}{$lang}</label>
-HTML
-;
-
-	}
 
 	$html .= "</div><!-- fieldset -->\n";
 	
 
 	$html .= "<div class=\"fieldset\"><legend>$Lang{ingredients}{$lang}</legend>\n";
 
-	$html .= display_select_crop($product_ref, "ingredients");
 	
-	$html .= <<HTML
-<label for="ingredients_text">$Lang{ingredients_text}{$lang}</label>
-<textarea id="ingredients_text" name="ingredients_text">$product_ref->{ingredients_text}</textarea>
-<p class="note">&rarr; $Lang{ingredients_text_note}{$lang}</p>			
-<p class="example">$Lang{example}{$lang} $Lang{ingredients_text_example}{$lang}</p>			
-HTML
-;
+	$html .= display_tabs($product_ref, $select_add_language, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, ["ingredients_image", "ingredients_text"]);
+
 
 	# $initjs .= "\$('textarea#ingredients_text').autoResize();";
 	# ! with autoResize, extracting ingredients from image need to update the value of the real textarea
 	# maybe calling $('textarea.growfield').data('AutoResizer').check(); 
 	
-	display_field($product_ref, \$html, "traces");
+	$html .= display_field($product_ref, "traces");
 
 $html .= "</div><!-- fieldset -->
 <div class=\"fieldset\"><legend>$Lang{nutrition_data}{$lang}</legend>\n";
@@ -983,7 +1271,7 @@ $html .= "</div><!-- fieldset -->
 HTML
 ;
 
-	$html .= display_select_crop($product_ref, "nutrition");
+	$html .= display_tabs($product_ref, $select_add_language, "nutrition_image", $product_ref->{sorted_langs}, \%Langs, ["nutrition_image"]);
 	
 	$initjs .= display_select_crop_init($product_ref);
 	
@@ -992,7 +1280,7 @@ HTML
 	
 	#<p class="note">&rarr; $Lang{nutrition_data_table_note}{$lang}</p>
 	
-	display_field($product_ref, \$html, "serving_size");
+	$html .= display_field($product_ref, "serving_size");
 	
 	my $checked_per_serving = '';
 	my $checked_per_100g = 'checked="checked"';
