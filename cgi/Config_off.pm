@@ -36,6 +36,12 @@ BEGIN
 		%options
 		
 		%wiki_texts
+
+		@product_fields
+		@display_fields
+		@drilldown_fields
+		
+		%tesseract_ocr_available_languages
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -127,6 +133,57 @@ HTML
 "en/code-of-conduct" => "http://en.wiki.openfoodfacts.org/index.php?title=Translations_-_Code_of_conduct_-_English&action=raw",
 "fr/code-de-conduite" => "http://en.wiki.openfoodfacts.org/index.php?title=Translations_-_Code_of_conduct_-_French&action=raw",
 
+);
+
+
+# fields in product edit form
+
+@product_fields = qw(quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
+
+
+# fields shown on product page
+# do not show purchase_places
+
+@display_fields = qw(generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link stores countries);
+
+
+# fields for drilldown facet navigation
+
+@drilldown_fields = qw(
+brands
+categories
+labels
+packaging
+origins
+manufacturing_places
+emb_codes
+ingredients
+additives
+allergens
+traces
+nutrition_grades
+users
+states
+entry_dates
+last_edit_dates
+);
+
+
+# for ingredients OCR, we use tesseract-ocr
+# on debian, dictionaries are in /usr/share/tesseract-ocr/tessdata
+# %tesseract_ocr_available_languages provides mapping between OFF 2 letter language codes
+# and the available tesseract dictionaries
+# Tesseract uses 3-character ISO 639-2 language codes
+# all dictionaries: apt-get install tesseract-ocr-all
+
+%tesseract_ocr_available_languages = (
+	en => "eng",
+	de => "deu",
+	es => "spa",
+	fr => "fra",
+	it => "ita",
+#	ja => "jpn", # not available with tesseract 2
+	nl => "nld",
 );
 
 1;
