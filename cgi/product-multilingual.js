@@ -27,6 +27,73 @@ var angles = {};
 var imagefield_imgid = {};
 var imagefield_url = {};
 
+function stringStartsWith (string, prefix) {
+    return string.slice(0, prefix.length) == prefix;
+}
+
+function add_language_tab (lc, language) {
+	
+$('.tabs').each(function(i, obj) {
+	$(this).removeClass('active');
+});
+	
+$('.new_lc').each(function(i, obj) {
+    	
+	var $clone = $(this).clone();
+	
+	var $th = $clone;
+	var newID = $th.attr('id').replace(/new_lc/, lc);
+	$th.attr('id', newID);
+		
+	$clone.find('[id]').each(function() { 
+
+		var $th = $(this);
+		var newID = $th.attr('id').replace(/new_lc/, lc);
+		$th.attr('id', newID);
+		
+	});	
+	
+	$clone.find('[for]').each(function() { 
+
+		var $th = $(this);
+		var newID = $th.attr('for').replace(/new_lc/, lc);
+		$th.attr('for', newID);
+		
+	});		
+	
+	$clone.find('[name]').each(function() { 
+
+		var $th = $(this);
+		var newID = $th.attr('name').replace(/new_lc/, lc);
+		$th.attr('name', newID);
+	});
+	
+	$clone.find('[href]').each(function() { 
+
+		var $th = $(this);
+		var newID = $th.attr('href').replace(/new_lc/, lc);
+		$th.attr('href', newID);
+	});	
+	
+	$clone.find('.tab_language').each(function() { 
+
+		$(this).html(language);
+	});	
+	
+	$clone.insertBefore($(this));
+	
+	$clone.addClass('active').removeClass('new_lc').removeClass('hide');
+
+	$(".select_crop").filter(":visible").selectcrop('init');
+	$(".select_crop").filter(":visible").selectcrop('show');
+	
+});
+
+
+
+$(document).foundation('tab', 'reflow');
+}
+
 function select_nutriment(event, ui) {
 
 
@@ -190,15 +257,15 @@ function rotate_image(event) {
 
 function change_image(imagefield, imgid) {
 
-	// alert("field: " + imagefield + " - imgid: " + imgid);
+	//alert("field: " + imagefield + " - imgid: " + imgid);
 	
 	var image = images[imgids[imgid]];
 	angles[imagefield] = 0;
 	imagefield_imgid[imagefield] = imgid;
 	
 	var html = '<div class="command">' + Lang.image_rotate_and_crop + '</div>';
-	html += '<div class="command"><a id="rotate_left_' + imagefield + '" class="small button">' + Lang.image_rotate_left + '</a> &nbsp;';
-	html += '<a id="rotate_right_' + imagefield + '" class="small button">' + Lang.image_rotate_right + '</a>';
+	html += '<div class="command"><a id="rotate_left_' + imagefield + '" class="small button" type="button">' + Lang.image_rotate_left + '</a> &nbsp;';
+	html += '<a id="rotate_right_' + imagefield + '" class="small button" type="button">' + Lang.image_rotate_right + '</a>';
 	html += '</div>';
 	html += '<div id="cropimgdiv_' + imagefield + '" style="width:100%;height:400px"><img src="' + img_path + image.crop_url +'" id="' + 'crop_' + imagefield + '"/></div>';
 	html += '<a href="' + img_path + image.imgid + '.jpg" target="_blank">' + Lang.image_open_full_size_image + '</a><br/>';
@@ -259,6 +326,7 @@ function change_image(imagefield, imgid) {
 	$(document).foundation('equalizer', 'reflow');
 }  
 
+
 function update_display(imagefield) {
 
 	var display_url = imagefield_url[imagefield];
@@ -266,10 +334,10 @@ function update_display(imagefield) {
 	if (display_url) {
 	
 	var html = Lang.current_image + '<br/><img src="' + img_path + display_url + '" />';
-	if (imagefield == 'ingredients') {
+	if (stringStartsWith(imagefield, 'ingredients')) {
 		html += '<br/><div id="ocrbuttondiv_' + imagefield + '"><button id="ocrbutton_' + imagefield + '" class="small button" type="button">' + Lang.extract_ingredients + '</button>';
 	}
-	if (imagefield == 'nutrition') {
+	if (stringStartsWith(imagefield, 'nutrition')) {
 		// width big enough to display a copy next to nutrition table?
 		if ($('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
 			$('#nutrition_image_copy').html('<img src="' + img_path + display_url + '" />').css("left", $('#nutrition_data_table').width() + 10);
@@ -287,7 +355,8 @@ function update_display(imagefield) {
 				
 			if (data.status == 0) {
 				$('div[id="ocrbuttondiv_' + imagefield +'"]').html(Lang.extracted_ingredients_ok);
-				$("#ingredients_text").val(data.ingredients_text_from_image);
+				var ingredients_text_id = imagefield.replace("ingredients","ingredients_text");
+				$("#" + ingredients_text_id).val(data.ingredients_text_from_image);
 			}
 			else {
 				$('div[id="ocrbuttondiv_' + imagefield +'"]').html(Lang.extracted_ingredients_nok);
@@ -377,7 +446,7 @@ function update_display(imagefield) {
 				html += '<li id="' + id + '_' + image.imgid + '" class="ui-state-default ui-selectee' + selected + '">';
 				html += '<img src="' + settings.img_path + image.thumb_url +'" title="'  + image.uploaded + ' - ' + image.uploader + '"/>';
 				
-				if ((id == 'front') && (admin)) {
+				if ((stringStartsWith(id, 'front')) && (admin)) {
 					html += '<div class="show_for_manage_images">' + image.uploaded + '<br/>' + image.uploader + '</div>';
 				}
 				
@@ -488,10 +557,10 @@ function update_display(imagefield) {
 		$(".single-selectable li").click(function() {
 			var li_id = $(this).attr("id");
 			var imagefield_imgid = li_id.split("_");
-			var imagefield = imagefield_imgid[0];
-			var imgid = imagefield_imgid[1];
+			var imagefield = imagefield_imgid[0] + "_" + imagefield_imgid[1];
+			var imgid = imagefield_imgid[2];
 			$("input:hidden[name=\"" + imagefield + ".imgid\"]").val(imgid);
-			if ((imagefield == 'front') && ($("#manage_images_drop").hasClass("active"))) {
+			if ((stringStartsWith(imagefield, 'front')) && ($("#manage_images_drop").hasClass("active"))) {
 				$(this).toggleClass("ui-selected");
 			}
 			else {
