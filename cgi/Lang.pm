@@ -9793,31 +9793,7 @@ HTML
 ,
 },
 
-tagline => {
 
-    ar => 'Open Food Facts بجمع المعلومات والبيانات على المنتجات الغذائية من جميع أنحاء العالم.', #ar-CHECK - Please check and remove this comment
-	de => "Open Food Facts erfasst Nahrungsmittel aus der ganzen Welt.",
-    cs => 'Open Food Facts shromažďuje informace a údaje o potravinářské výrobky z celého světa.', #cs-CHECK - Please check and remove this comment
-	es => "Open Food Facts recopila información sobre los productos alimenticios de todo el mundo.",
-	en => "Open Food Facts gathers information and data on food products from around the world.",
-    it => 'Open Food Facts raccoglie informazioni e dati sui prodotti alimentari provenienti da tutto il mondo.', #it-CHECK - Please check and remove this comment
-    fi => 'Open Food Facts kerää tietoja elintarvikkeiden tuotteita ympäri maailmaa.', #fi-CHECK - Please check and remove this comment
-	fr => "Open Food Facts répertorie les produits alimentaires du monde entier.",
-	el => "Το Open Food Facts συγκεντρώνει πληροφορίες και δεδομένα για τρόφιμα από όλο τον κόσμο.",
-	he => "המיזם Open Food Facts אוסף מידע ונתונים על מוצרי מזון מכל רחבי העולם.",
-    ja => 'Open Food Facts は、世界中から食料品の情報やデータを収集します。', #ja-CHECK - Please check and remove this comment
-    ko => 'Open Food Facts 은 세계 각국에서 식품 제품에 대한 정보와 데이터를 수집합니다.', #ko-CHECK - Please check and remove this comment
-	nl => "Open Food Facts inventariseert alle voedingsmiddelen uit de hele wereld.",
-	nl_be => "Open Food Facts inventariseert alle voedingsmiddelen uit de hele wereld.",
-    ru => 'Open Food Facts собирает информацию и данные о пищевых продуктах по всему миру.', #ru-CHECK - Please check and remove this comment
-    pl => 'Open Food Facts gromadzi informacje i dane dotyczące produktów spożywczych z całego świata.', #pl-CHECK
-    pt => "O Open Food Facts coleciona informação de produtos alimentares de todo o mundo.",
-	ro => "Open Food Facts adună informații și date despre produse alimentare din întreaga lume.",
-    th => 'Open Food Facts รวบรวมข้อมูลและข้อมูลเกี่ยวกับผลิตภัณฑ์อาหารจากทั่วโลก', #th-CHECK - Please check and remove this comment
-    vi => 'Open Food Facts tập hợp thông tin và dữ liệu về các sản phẩm thực phẩm từ khắp nơi trên thế giới.', #vi-CHECK - Please check and remove this comment
-    zh => 'Open Food Facts 来自世界各地收集有关食品的信息和数据。', #zh-CHECK - Please check and remove this comment
-
-},
 
 column_obsolete_do_not_translate_for_reference_only => {
 
@@ -11358,6 +11334,16 @@ add_language => {
 	fr => "Ajouter une langue",
 },
 
+ingredients_analysis => {
+	en => "Ingredients analysis",
+	fr => "Analyse des ingrédients",
+},
+
+ingredients_analysis_note => {
+	en => "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect.",
+	fr => "Note : les ingrédients peuvent être indiqués sous beaucoup de noms différents, si vous pensez que l'analyse ci-dessus est incorrecte, merci de nous le signaler.",
+},
+
 #ENDFRONTPAGE
 
 );
@@ -11515,7 +11501,6 @@ foreach my $special_field (@special_fields) {
 	foreach my $l (@Langs) {
 		my $value = $Lang{$special_field}{$l};
 		foreach my $key (keys %Lang) {
-			next if $key =~ /^bottom_title|bottom_content$/;
 		
 			$Lang{$key}{$l} =~ s/\<\<$special_field\>\>/$value/g;
 		}
