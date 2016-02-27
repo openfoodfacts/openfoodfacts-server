@@ -519,6 +519,8 @@ sub build_tags_taxonomy($$) {
 	defined $tags_images{$lc} or $tags_images{$lc} = {};
 	defined $tags_images{$lc}{$tagtype} or $tags_images{$lc}{$tagtype} = {};	
 	
+	
+	
 
 	# Need to be initialized as a taxonomy is probably already loaded by Tags.pm
 	$stopwords{$tagtype} = {};
@@ -1122,6 +1124,7 @@ sub retrieve_tags_taxonomy($) {
 	my $tagtype = shift;
 	
 	$taxonomy_fields{$tagtype} = 1;
+	$tags_fields{$tagtype} = 1;
 	
 	# Check if we have a taxonomy for the previous or the next version
 	if ($tagtype !~ /_(next|prev)/) {
