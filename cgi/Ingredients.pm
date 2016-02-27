@@ -186,7 +186,7 @@ sub extract_ingredients_from_text($) {
 		my $percent = undef;
 		
 		# find the first separator or ( or [ or : 
-		if ($s =~ /(,|;|:|\[|\(|( - ))/i) {
+		if ($s =~ /(,|;|:|•|\[|\(|( - ))/i) {
 		
 			$before = $`;
 			my $sep = $1;
@@ -218,7 +218,7 @@ sub extract_ingredients_from_text($) {
 					
 					print STDERR "sub-ingredients - between: $between - after: $after\n";
 					
-					if ($between =~ /(,|;|:|\[|\(|( - ))/i) {
+					if ($between =~ /(,|;|:|•|\[|\(|( - ))/i) {
 						$between_level = $level + 1;
 					}
 					else {
@@ -245,7 +245,7 @@ sub extract_ingredients_from_text($) {
 				$last_separator = $sep;
 			}
 			
-			if ($after =~ /^\s*(\d+(\.\d+)?)\s*\%\s*(,|;|:|\[|\(|( - )|$)/) {
+			if ($after =~ /^\s*(\d+(\.\d+)?)\s*\%\s*(,|;|:|•|\[|\(|( - )|$)/) {
 				print STDERR "percent found: $after = $1 + $'\%\n";
 				$percent = $1;
 				$after = $';
@@ -400,7 +400,7 @@ sub extract_ingredients_classes_from_text($) {
 	$product_ref->{ingredients_text_debug} = $text;	
 	
 	
-	my @ingredients = split(/,|;|:|\)|\(|( - )/i,$text);
+	my @ingredients = split(/,|;|:|•|\)|\(|( - )/i,$text);
 	
 	# huiles de palme et de
 	
