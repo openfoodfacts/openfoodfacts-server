@@ -565,6 +565,10 @@ ingredients_n => {
 	en => "number-of-ingredients",
 	fr => "nombre-d-ingredients",
 },
+periods_after_opening => {
+	en => "period-after-opening",
+	fr => "duree-d-utilisation-apres-ouverture",
+},
 
 # do not translate code and debug
 codes => {
@@ -1026,6 +1030,10 @@ nutrition_grades => {
 ingredients_n => {
 	en => "numbers-of-ingredients",
 	fr => "nombres-d-ingredients",
+},
+periods_after_opening => {
+	en => "periods-after-opening",
+	fr => "durees-d-utilisation-apres-ouverture",
 },
 # do not translate code and debug
 codes => {
@@ -3651,6 +3659,16 @@ lang_note => {
 	nl => 'De taal die het meest gebruikt wordt op het product',
 	nl_be => 'De taal die het meest gebruikt wordt op het product',
 	de => 'Lieblingssprache für dieses Produkt',
+},
+
+periods_after_opening => {
+	en => "Period of time after opening",
+	fr => "Durée de conservation après ouverture",
+},
+
+periods_after_opening_note => {
+	en => "Found in an open container logo with a number of months: e.g. 12 M",
+	fr => "Indiquée dans un logo en forme de pot ouvert, avec un nombre de mois. Par exemple 12 M.",
 },
 
 expiration_date => {
@@ -6576,6 +6594,16 @@ ingredients_n_s => {
 ingredients_n_p => {
 	en => "Numbers of ingredients",
 	fr => "Nombres d'ingrédients",
+},
+
+periods_after_opening_s => {
+	en => "Period after opening",
+	fr => "Durée d'utilisation après ouverture",
+},
+
+periods_after_opening_p => {
+	en => "Periods after opening",
+	fr => "Durées d'utilisation après ouverture",
 },
 
 codes_s => {
