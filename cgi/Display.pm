@@ -1032,7 +1032,10 @@ sub display_list_of_tags($$) {
 			else {
 				$th_nutriments .= "<th>*</th>";
 			}
-		}		
+		}
+		elsif (defined $taxonomy_fields{$tagtype}) {
+			$th_nutriments .= "<th>*</th>";
+		}
 		
 		if ($tagtype eq 'additives') {
 			$th_nutriments .= "<th>" . lang("risk_level") . "</th>";
@@ -1106,6 +1109,15 @@ sub display_list_of_tags($$) {
 						$td_nutriments .= "<td style=\"text-align:center\">*</td>";
 					}
 				}
+			}
+			# show a * next to fields that do not exist in the taxonomy
+			elsif (defined $taxonomy_fields{$tagtype}) {
+					if (exists_taxonomy_tag($tagtype, $tagid)) {
+						$td_nutriments .= "<td></td>";
+					}
+					else {
+						$td_nutriments .= "<td style=\"text-align:center\">*</td>";
+					}			
 			}
 			
 			my $link;
@@ -2899,6 +2911,10 @@ sub display_scatter_plot($$$) {
 			$x_allowDecimals = "allowDecimals:false,\n";
 			$x_title = escape_single_quote(lang("number_of_additives"));
 		}
+		elsif ($graph_ref->{axis_x} eq 'ingredients_n') {
+			$x_allowDecimals = "allowDecimals:false,\n";
+			$x_title = escape_single_quote(lang("ingredients_n_s"));
+		}		
 		else {
 			$x_title = $Nutriments{$graph_ref->{axis_x}}{$lc};
 			$x_unit = " (" . $Nutriments{$graph_ref->{axis_x}}{unit} . " " . lang("nutrition_data_per_100g") . ")";
@@ -2909,6 +2925,10 @@ sub display_scatter_plot($$$) {
 			$y_allowDecimals = "allowDecimals:false,\n";
 			$y_title = escape_single_quote(lang("number_of_additives"));
 		}
+		elsif ($graph_ref->{axis_y} eq 'ingredients_n') {
+			$y_allowDecimals = "allowDecimals:false,\n";
+			$y_title = escape_single_quote(lang("ingredients_n_s"));
+		}		
 		else {
 			$y_title = $Nutriments{$graph_ref->{axis_y}}{$lc};
 			$y_unit = " (" . $Nutriments{$graph_ref->{axis_y}}{unit} . " " . lang("nutrition_data_per_100g") . ")";
@@ -2927,9 +2947,10 @@ sub display_scatter_plot($$$) {
 
 			# Keep only products that have known values for both x and y
 			
-			if (((($graph_ref->{axis_x} eq 'additives_n') and (defined $product_ref->{$graph_ref->{axis_x}})) or 
+			if ((((($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} eq 'ingredients_n')) and (defined $product_ref->{$graph_ref->{axis_x}})) 
+					or 
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"} ne ''))
-				and ((($graph_ref->{axis_y} eq 'additives_n') and (defined $product_ref->{$graph_ref->{axis_y}})) or 
+				and (((($graph_ref->{axis_y} eq 'additives_n') or ($graph_ref->{axis_y} eq 'ingredients_n')) and (defined $product_ref->{$graph_ref->{axis_y}})) or 
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"} ne ''))) {
 				
 				my $url = "http://$subdomain.$server_domain" . product_url($product_ref->{code});
@@ -2985,7 +3006,7 @@ sub display_scatter_plot($$$) {
 				foreach my $axis ('x', 'y') {
 					my $nid = $graph_ref->{"axis_" . $axis};
 					$data .= $axis . ':';
-					if ($nid eq 'additives_n') {
+					if (($nid eq 'additives_n') or ($nid eq 'ingredients_n')) {
 						$data .= $product_ref->{$nid};
 					}
 					else {
@@ -3220,6 +3241,10 @@ sub display_histogram($$$) {
 			$x_allowDecimals = "allowDecimals:false,\n";
 			$x_title = escape_single_quote(lang("number_of_additives"));
 		}
+		elsif ($graph_ref->{axis_x} eq 'ingredients_n') {
+			$x_allowDecimals = "allowDecimals:false,\n";
+			$x_title = escape_single_quote(lang("ingredients_n_s"));
+		}		
 		else {
 			$x_title = $Nutriments{$graph_ref->{axis_x}}{$lc};
 			$x_unit = " (" . $Nutriments{$graph_ref->{axis_x}}{unit} . " " . lang("nutrition_data_per_100g") . ")";
@@ -3245,7 +3270,7 @@ sub display_histogram($$$) {
 
 			# Keep only products that have known values for x
 			
-			if (((($graph_ref->{axis_x} eq 'additives_n') and (defined $product_ref->{$graph_ref->{axis_x}})) or 
+			if ((((($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} eq 'ingredients_n')) and (defined $product_ref->{$graph_ref->{axis_x}})) or 
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"} ne ''))
 					) {
 								
@@ -3286,7 +3311,7 @@ sub display_histogram($$$) {
 				my $value = 0;
 					
 
-					if ($nid eq 'additives_n') {
+					if (($nid eq 'additives_n') or ($nid eq 'ingredients_n')) {
 						$value = $product_ref->{$nid};
 					}
 					elsif ($nid =~ /^nutrition-score/) {
@@ -5497,6 +5522,35 @@ HTML
 				$html .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a></li>\n";
 			}
 			$html .= "</ul></div>";
+		}
+	
+	}
+	
+	
+	# special ingredients tags
+	
+	if ((defined $ingredients_text) and ($ingredients_text !~ /^\s*$/s) and (defined $special_tags{ingredients})) {
+	
+		my $special_html = "";
+	
+		foreach my $special_tag_ref (@{$special_tags{ingredients}}) {
+		
+			my $tagid = $special_tag_ref->{tagid};
+			my $type = $special_tag_ref->{type};
+			
+			if (  (($type eq 'without') and (not has_tag($product_ref, "ingredients", $tagid)))
+			or (($type eq 'with') and (has_tag($product_ref, "ingredients", $tagid)))) {
+				
+				$special_html .= "<li class=\"${type}_${tagid}_$lc\">" . lang("search_" . $type) . " " . display_taxonomy_tag_link($lc, "ingredients", $tagid) . "</li>\n";
+			}
+		
+		}
+		
+		if ($special_html ne "") {
+		
+			$html  .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang("ingredients_analysis") . lang("sep")) . ":</b><br />"
+			. "<ul id=\"special_ingredients\">\n" . $special_html . "</ul>\n"
+			. "<p>" . lang("ingredients_analysis_note") . "</p></div>\n";
 		}
 	
 	}
