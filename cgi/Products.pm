@@ -42,6 +42,7 @@ BEGIN
 		
 		&compute_codes
 		&compute_product_history_and_completeness
+		&compute_languages
 					
 	
 					);	# symbols to export on request
@@ -301,6 +302,8 @@ sub store_product($$) {
 	compute_product_history_and_completeness($product_ref, $changes_ref);
 	
 	compute_codes($product_ref);
+	
+	compute_languages($product_ref);
 
 	# sort_key
 	# add 0 just to make sure we have a number...  last_modified_t at some point contained strings like  "1431125369"
@@ -735,51 +738,51 @@ sub normalize_search_terms($) {
 
 
 
+sub product_name_brand($) {
+	my $ref = shift;
+	my $full_name = '';
+	if ((defined $ref->{"product_name_$lc"}) and ($ref->{"product_name_$lc"} ne '')) {
+		$full_name = $ref->{"product_name_$lc"};
+	}
+	elsif ((defined $ref->{product_name}) and ($ref->{product_name} ne '')) {
+		$full_name = $ref->{product_name};
+	}
+	
+	if (defined $ref->{brands}) {
+		my $brand = $ref->{brands};
+		$brand =~ s/,.*//;	# take the first brand
+		my $brandid = '-' . get_fileid($brand) . '-';
+		my $full_name_id = '-' . get_fileid($full_name) . '-';
+		if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {
+			$full_name .= " - " . $brand;
+		}
+	}	
+	
+	$full_name =~ s/^ - //;
+	return $full_name;
+}
+
 # product full name is a combination of product name, first brand and quantity
 
 sub product_name_brand_quantity($) {
 	my $ref = shift;
-	my $full_name = '';
-	if ((defined $ref->{product_name}) and ($ref->{product_name} ne '')) {
-		$full_name = $ref->{product_name};
-		my $full_name_id = '-' . get_fileid($full_name) . '-';
-		if (defined $ref->{brands}) {
-			my $brand = $ref->{brands};
-			$brand =~ s/,.*//;	# take the first brand
-			my $brandid = '-' . get_fileid($brand) . '-';		
-			if (($brand ne '') and ($full_name_id !~ /$brandid/i)) {
-				$full_name .= " - " . $brand;
-			}
+	my $full_name = product_name_brand($ref);
+	my $full_name_id = '-' . get_fileid($full_name) . '-';
+	
+	if (defined $ref->{quantity}) {
+		my $quantity = $ref->{quantity};
+		my $quantityid = '-' . get_fileid($quantity) . '-';	
+		if (($quantity ne '') and ($full_name_id !~ /$quantityid/i)) {
+			$full_name .= " - " . $quantity;
 		}
-		if (defined $ref->{quantity}) {
-			my $quantity = $ref->{quantity};
-			my $quantityid = '-' . get_fileid($quantity) . '-';	
-			if (($quantity ne '') and ($full_name_id !~ /$quantityid/i)) {
-				$full_name .= " - " . $quantity;
-			}
-		}		
-	}
+	}		
+	
+	$full_name =~ s/^ - //;
 	return $full_name;
 }
 
 
-sub product_name_brand($) {
-	my $ref = shift;
-	my $full_name = '';
-	if ((defined $ref->{product_name}) and ($ref->{product_name} ne '')) {
-		$full_name = $ref->{product_name};
-		if (defined $ref->{brands}) {
-			my $brand = $ref->{brands};
-			$brand =~ s/,.*//;	# take the first brand
-			my $brandid = '-' . get_fileid($brand) . '-';
-			my $full_name_id = '-' . get_fileid($full_name) . '-';
-			if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {
-				$full_name .= " - " . $brand;
-			}
-		}	
-	}
-	return $full_name;
-}
+
 
 
 sub product_url($) {
@@ -887,6 +890,56 @@ sub compute_codes($) {
 	
 	$product_ref->{codes_tags} = \@codes;
 }
+
+
+
+
+# set tags with info on languages shown on the package
+# [cc] -> language codes
+# [n] -> number of languages
+# multi -> indicates n > 1
+
+sub compute_languages($) {
+
+	my $product_ref = shift;
+
+	
+	my %languages = ();
+	
+	# check all the fields of the product
+	
+	foreach my $field (keys %$product_ref) {
+	
+		print STDERR "compute_languages - field: $field - "
+			. ($field =~ /_([a-z]{2})$/)
+			. " - " . $language_fields{$`}
+			. " - " . $product_ref->{$field} . "\n";
+	
+		if (($field =~ /_([a-z]{2})$/) and (defined $language_fields{$`}) and ($product_ref->{$field} ne '')) {
+			$languages{$1}++;
+		}
+	}
+	
+	if (defined $product_ref->{images}) {
+		foreach my $id (keys %{ $product_ref->{images}}) {
+	
+			if ($id =~ /_([a-z]{2})$/)  {
+				$languages{$1}++;
+			}
+		}
+	}
+
+	my @languages = keys %languages;
+	my $n = scalar(@languages);
+	push @languages, $n;
+	if ($n > 1) {
+		push @languages, "multi";
+	}
+	
+	$product_ref->{languages} = \%languages;
+	$product_ref->{languages_tags} = \@languages;
+}
+
 
 1;
 

@@ -75,6 +75,7 @@ BEGIN
 					%hierarchy_fields
 					%taxonomy_fields
 					@drilldown_fields
+					%language_fields
 					
 					%properties
 					%country_names
@@ -112,25 +113,18 @@ my $debug = 0;
 
 %taxonomy_fields = (); # populated by retrieve_tags_taxonomy
 
-@drilldown_fields = qw(
-brands
-categories
-labels
-packaging
-origins
-manufacturing_places
-emb_codes
-ingredients
-ingredients_n
-additives
-allergens
-traces
-nutrition_grades
-users
-states
-entry_dates
-last_edit_dates
+
+
+# Fields that can have different values by language
+%language_fields = (
+front_image => 1,
+ingredients_image => 1,
+nutrition_image => 1,
+product_name => 1,
+generic_name => 1,
+ingredients_text => 1,
 );
+
 
 %canon_tags = ();
 
