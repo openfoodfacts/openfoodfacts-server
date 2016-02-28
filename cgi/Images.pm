@@ -396,6 +396,12 @@ sub process_image_upload($$$$$) {
 	}
 	else {
 		$file = param('imgupload_' . $imagefield);
+		if (! $file) {
+			# mobile app may not set language code
+			my $old_imagefield = $imagefield;
+			$old_imagefield =~ s/_\w\w$//;
+			$file = param('imgupload_' . $old_imagefield);
+		}
 	}
 	
 

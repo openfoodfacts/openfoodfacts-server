@@ -27,6 +27,8 @@ my $code = normalize_code(param('code'));
 my $imagefield = param('imagefield');
 my $delete = param('delete');
 
+
+
 print STDERR "product_image_upload.pl - ip: " . remote_addr() . " - type: $type - action: $action - code: $code\n";
 
 my $env = $ENV{QUERY_STRING};
@@ -38,7 +40,12 @@ Blogs::Display::init();
 
 $debug = 1;
 
-print STDERR "product_image_upload.pl - user: $User_id - code: $code - cc: $cc - lc: $lc - ip: " . remote_addr() . "\n";
+if ($imagefield =~ /^(front|ingredients|nutrition)/) {
+	# use default language
+	$imagefield .= "_$lc";
+}
+
+print STDERR "product_image_upload.pl - user: $User_id - code: $code - cc: $cc - lc: $lc - imagefield: $imagefield - ip: " . remote_addr() . "\n";
 
 if ((not defined $code) or ($code eq '')) {
 	
@@ -127,7 +134,7 @@ if ($imagefield) {
 			
 			# If we don't have a picture for the imagefield yet, assign it
 			# (can be changed by the user later if necessary)
-			if ((($imagefield eq 'front') or ($imagefield eq 'ingredients') or ($imagefield eq 'nutrition')) and not defined $product_ref->{images}{$imagefield}) {
+			if ((($imagefield =~ /^front/) or ($imagefield =~ /^ingredients/) or ($imagefield =~ /^nutrition/)) and not defined $product_ref->{images}{$imagefield}) {
 				process_image_crop($code, $imagefield, $imgid, 0, undef, undef, -1, -1, -1, -1);
 			}
 		}
