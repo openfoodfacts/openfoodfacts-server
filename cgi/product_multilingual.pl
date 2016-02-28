@@ -256,6 +256,9 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 			}
 		}
 	}
+	else {
+		push @param_sorted_langs, $product_ref->{lc};
+	}
 	
 	$product_ref->{"debug_param_sorted_langs"} = \@param_sorted_langs;
 	
@@ -524,7 +527,18 @@ sub display_field($$) {
 	my $tagsinput = '';
 	if (defined $tags_fields{$fieldtype}) {
 		$tagsinput = ' tagsinput';
-				
+
+		$initjs .= <<HTML
+\$('#$field').tagsInput({
+	'height':'3rem',
+	'width':'100%',
+	'interactive':true,
+	'minInputWidth':130,
+	'delimiter': [','],
+	'defaultText':"$Lang{$field . "_tagsinput"}{$lang}"
+});
+HTML
+;					
 	}
 	
 	my $value = $product_ref->{$field};
