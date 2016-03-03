@@ -2162,7 +2162,7 @@ sub search_and_display_products($$$$$) {
 	
 	eval {
 		$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-		$count = $cursor->count();
+		$count = int($cursor->count());
 	};
 	if ($@) {
 		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
