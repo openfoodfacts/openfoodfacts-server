@@ -345,6 +345,7 @@ sub compute_completeness_and_missing_tags($$$) {
 	my $current_ref = shift;
 	my $previous_ref = shift;
 
+	my $lc = $product_ref->{lc};
 
 	# Compute completeness and missing tags
 	
@@ -362,8 +363,8 @@ sub compute_completeness_and_missing_tags($$$) {
 	else {
 		push @states_tags, "en:photos-uploaded";
 	
-		if ((defined $current_ref->{selected_images}{front}) and (defined $current_ref->{selected_images}{ingredients})
-			and ((defined $current_ref->{selected_images}{nutrition}) or ($product_ref->{no_nutrition_data} eq 'on')) ) {
+		if ((defined $current_ref->{selected_images}{"front_$lc"}) and (defined $current_ref->{selected_images}{"ingredients_$lc"})
+			and ((defined $current_ref->{selected_images}{"nutrition_$lc"}) or ($product_ref->{no_nutrition_data} eq 'on')) ) {
 			push @states_tags, "en:photos-validated";
 		}
 		else {
