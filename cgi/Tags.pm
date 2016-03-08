@@ -77,6 +77,10 @@ BEGIN
 					%language_fields
 					
 					%properties
+					
+					%language_codes
+					%language_codes_reverse
+					
 					%country_names
 					%country_codes
 					%country_codes_reverse
@@ -1169,6 +1173,7 @@ foreach my $langid (readdir(DH2)) {
 closedir(DH2);
 
 
+retrieve_tags_taxonomy("languages");
 retrieve_tags_taxonomy("countries");
 retrieve_tags_taxonomy("labels");
 retrieve_tags_taxonomy("categories");
@@ -1177,6 +1182,21 @@ retrieve_tags_taxonomy("allergens");
 retrieve_tags_taxonomy("traces");
 retrieve_tags_taxonomy("states");
 retrieve_tags_taxonomy("nutrient_levels");
+
+
+
+# Build map of language codes and names
+
+%language_codes = ();
+%language_codes_reverse = ();
+
+foreach my $language (keys %{$properties{languages}}) {
+
+	my $lc = lc($properties{languages}{$language}{"language_code_2:en"});
+
+	$language_codes{$lc} = $language;
+	$language_codes_reverse{$language} = $lc;
+}
 
 
 # Build map of local country names in official languages to (country, language)

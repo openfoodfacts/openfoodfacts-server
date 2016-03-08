@@ -893,10 +893,10 @@ sub compute_codes($) {
 
 
 
-# set tags with info on languages shown on the package
-# [cc] -> language codes
+# set tags with info on languages shown on the package, using the languages taxonomy
+# [en:french] -> language names
 # [n] -> number of languages
-# multi -> indicates n > 1
+# en:multi -> indicates n > 1
 
 sub compute_languages($) {
 
@@ -915,7 +915,11 @@ sub compute_languages($) {
 			. " - " . $product_ref->{$field} . "\n";
 	
 		if (($field =~ /_([a-z]{2})$/) and (defined $language_fields{$`}) and ($product_ref->{$field} ne '')) {
-			$languages{$1}++;
+			my $language = $1;
+			if (defined $language_codes{$language}) {
+				$language = $language_codes{$language};
+			}
+			$languages{$language}++;
 		}
 	}
 	
@@ -923,16 +927,20 @@ sub compute_languages($) {
 		foreach my $id (keys %{ $product_ref->{images}}) {
 	
 			if ($id =~ /_([a-z]{2})$/)  {
-				$languages{$1}++;
+				my $language = $1;
+				if (defined $language_codes{$language}) {
+					$language = $language_codes{$language};
+				}
+				$languages{$language}++;
 			}
 		}
 	}
 
 	my @languages = keys %languages;
 	my $n = scalar(@languages);
-	push @languages, $n;
+	push @languages, "en:$n";
 	if ($n > 1) {
-		push @languages, "multi";
+		push @languages, "en:multiple-languages";
 	}
 	
 	$product_ref->{languages} = \%languages;

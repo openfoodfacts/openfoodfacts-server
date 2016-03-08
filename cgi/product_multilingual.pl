@@ -716,7 +716,12 @@ HTML
 		next if (length($l) > 2);
 		$lang_labels{$l} = lang("lang_$l");
 		if ($lang_labels{$l} eq '') {
-			$lang_labels{$l} = $l;
+			if (defined $Langs{$l}) {
+				$lang_labels{$l} = $Langs{$l};
+			}
+			else {
+				$lang_labels{$l} = $l;
+			}
 		}
 	}
 	my $lang_value = $lang;

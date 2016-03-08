@@ -135,6 +135,10 @@ products => {
 	nl => 'product',
 	nl_be => 'product',
 },
+languages => {
+	en => 'language',
+	fr => 'langue',
+},
 brands => {
 	fr => 'marque',
 	de => 'marke', # lowercase for URLs
@@ -595,6 +599,10 @@ products => {
 #	he => 'mozar',
 	nl => 'producten',
 	nl_be => 'producten',
+},
+languages => {
+	en => 'languages',
+	fr => 'langues',
 },
 brands => {
 	fr => 'marques',
@@ -5491,6 +5499,16 @@ users_edit_products => {
 	nl => "Producten die aangepast werden door gebruiker %s",
 	nl_be => "Producten die aangepast werden door gebruiker %s",
 	de => "Produkte, die von dem Mitwirkenden %s verändert wurden",
+},
+
+languages_s => {
+	en => "language",
+	fr => "langue",	
+},
+
+languages_p => {
+	en => "languages",
+	fr => "langues",	
 },
 
 brands_s => {
