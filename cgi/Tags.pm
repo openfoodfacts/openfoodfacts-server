@@ -219,7 +219,7 @@ sub load_tags_images($$) {
 	
 	if (opendir (DH2, "$www_root/images/lang/$lc/$tagtype")) {
 		foreach my $file (readdir(DH2)) {
-			if ($file =~ /^((.*)\.(\d+)x${logo_height}.png)/) {
+			if ($file =~ /^((.*)\.(\d+)x${logo_height}.(png|svg))/) {
 				$tags_images{$lc}{$tagtype}{$2} = $1;
 				# print STDERR "load_tags_images - tags_images - lc: $lc - tagtype: $tagtype - tag: $2 - img: $1 \n";
 				# print "load_tags_images - tags_images - loading lc: $lc - tagtype: $tagtype - tag: $2 - img: $1 \n";
