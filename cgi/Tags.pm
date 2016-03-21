@@ -78,6 +78,10 @@ BEGIN
 					%language_fields
 					
 					%properties
+					
+					%language_codes
+					%language_codes_reverse
+					
 					%country_names
 					%country_codes
 					%country_codes_reverse
@@ -1224,6 +1228,21 @@ foreach my $taxonomyid (@Blogs::Config::taxonomy_fields) {
 	print "loading taxonomy $taxonomyid\n";
 	retrieve_tags_taxonomy($taxonomyid);
 	
+}
+
+
+
+# Build map of language codes and names
+
+%language_codes = ();
+%language_codes_reverse = ();
+
+foreach my $language (keys %{$properties{languages}}) {
+
+	my $lc = lc($properties{languages}{$language}{"language_code_2:en"});
+
+	$language_codes{$lc} = $language;
+	$language_codes_reverse{$language} = $lc;
 }
 
 

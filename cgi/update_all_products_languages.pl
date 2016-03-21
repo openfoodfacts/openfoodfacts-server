@@ -51,40 +51,7 @@ my $count = $cursor->count();
 		
 		$lc = $product_ref->{lc};
 		
-		# Update all fields
-	
-
-		foreach my $field (keys %language_fields) {
-
-			print STDERR "field: $field\n";
-				if ($field !~ /_image/) {
-					if ((defined $product_ref->{$field} and (not defined $product_ref->{$field . "_$lc"}))) {
-					
-						$product_ref->{$field . "_$lc"} = $product_ref->{$field};
-					}
-				}
-				else {
-					$field =~ s/_image//;
-					print STDERR "image_field: $field\n";
-					if ((defined $product_ref->{images}{$field}) ) {
-						if (not defined $product_ref->{images}{$field . "_$lc"}) {
-							$product_ref->{images}{$field . "_$lc"} = $product_ref->{images}{$field};
-							print STDERR "updated image_field $field\n";
-						}
-						
-						my $rev = $product_ref->{images}{$field}{rev};
-						
-						foreach my $size ($thumb_size, $small_size, $display_size, 'full') {
-							# copy images to new name with language
-							
-							(! -e "$www_root/images/products/$path/${field}_$lc.$rev.$size.jpg") and system("cp -a $www_root/images/products/$path/$field.$rev.$size.jpg $www_root/images/products/$path/${field}_$lc.$rev.$size.jpg");
-						}
-						(! -e "$www_root/images/products/$path/${field}_$lc.$rev.full.json") and system("cp -a $www_root/images/products/$path/$field.$rev.full.json $www_root/images/products/$path/${field}_$lc.$rev.full.json");
-						
-					}
-				}
-			
-		}
+	 	compute_languages($product_ref);		
 			
 		# Store
 
