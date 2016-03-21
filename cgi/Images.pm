@@ -43,6 +43,7 @@ BEGIN
 					
 					&scan_code
 					
+					&display_select_manage
 					&display_select_crop
 					&display_select_crop_init
 					
@@ -73,6 +74,24 @@ use Blogs::Display qw/:all/;
 
 
 my $debug = 1;
+
+
+
+sub display_select_manage($) {
+
+	my $object_ref = shift;
+	my $id = "manage";
+	
+	my $html = <<HTML
+<div class=\"select_crop select_manage\" id=\"$id\"></div>
+<hr class="floatclear" />
+HTML
+;
+	
+	return $html;
+}
+
+
 
 sub display_select_crop($$) {
 
