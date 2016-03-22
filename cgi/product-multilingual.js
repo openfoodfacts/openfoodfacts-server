@@ -446,13 +446,15 @@ function update_display(imagefield) {
 				html += '<li id="' + id + '_' + image.imgid + '" class="ui-state-default ui-selectee' + selected + '">';
 				html += '<img src="' + settings.img_path + image.thumb_url +'" title="'  + image.uploaded + ' - ' + image.uploader + '"/>';
 				
-				if ((stringStartsWith(id, 'front')) && (admin)) {
+				if ((stringStartsWith(id, 'manage')) && (admin)) {
 					html += '<div class="show_for_manage_images">' + image.uploaded + '<br/>' + image.uploader + '</div>';
 				}
 				
 				html += '</li>';
 			});
 			html += '</ul>';					
+						
+			if (! stringStartsWith(id, 'manage')) {
 			
 			html += '<div style="clear:both" class="command upload_image_div">';
 			html += '<a href="#" class="button small expand" id="imgsearchbutton_' + id + '"><i class="fi-camera"></i> ' + Lang.upload_image
@@ -475,15 +477,14 @@ function update_display(imagefield) {
 
 			html += '<div class="cropbox" id="cropbox_' + id +'"></div>';
 			html += '<div class="display" id="display_' + id +'"></div>';
+			
+			
+			}
+			
 			$this.html(html);
-			if ($("#manage_images_drop").hasClass("active")) {
-				$(".show_for_manage_images").show();
-				$("#front .ui-selectable li").css("height","160px");
-			}
-			else {
-				$(".show_for_manage_images").hide();
-				$("#front .ui-selectable li").css("height","120px");
-			}
+
+			if (! stringStartsWith(id, 'manage')) {
+			
 			update_display(id);
 			
 
@@ -551,7 +552,11 @@ function update_display(imagefield) {
 		
     });			
 			
+		}
+			
 		});
+		
+		
 		
 		
 		$(".single-selectable li").click(function() {
@@ -560,20 +565,24 @@ function update_display(imagefield) {
 			var imagefield = imagefield_imgid[0] + "_" + imagefield_imgid[1];
 			var imgid = imagefield_imgid[2];
 			$("input:hidden[name=\"" + imagefield + ".imgid\"]").val(imgid);
-			if ((stringStartsWith(imagefield, 'front')) && ($("#manage_images_drop").hasClass("active"))) {
+			if ((stringStartsWith(imagefield, 'manage')) && ($("#manage_images_drop").hasClass("active"))) {
 				$(this).toggleClass("ui-selected");
 			}
 			else {
 				$(this).addClass("ui-selected").siblings().removeClass("ui-selected");
 			}
-			toggle_manage_images_buttons();
-			change_image(imagefield, imgid);
+			if (stringStartsWith(imagefield, 'manage')) {
+				toggle_manage_images_buttons();
+			} 
+			else {
+				change_image(imagefield, imgid);
+			}
 		});
 		
 		$(document).foundation('equalizer', 'reflow');
 		
 		return this;
-    },	
+    },
 
   };
 

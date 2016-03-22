@@ -753,7 +753,7 @@ HTML
 function toggle_manage_images_buttons() {
 		\$("#delete_images").addClass("disabled");
 		\$("#move_images").addClass("disabled");
-		\$( "#front .ui-selected"  ).first().each(function() {
+		\$( "#manage .ui-selected"  ).first().each(function() {
 			\$("#delete_images").removeClass("disabled");
 			\$("#move_images").removeClass("disabled");
 		});
@@ -771,6 +771,11 @@ JS
 
 
 <div id="manage_images_drop" class="content" style="background:#eeeeee">
+
+HTML
+. display_select_manage($product_ref) .
+<<HTML
+
 	<p>$Lang{manage_images_info}{$lc}</p>
 	<a id="delete_images" class="button small disabled"><i class="fi-trash"></i> $Lang{delete_the_images}{$lc}</a><br/>
 	<div class="row">
@@ -798,8 +803,10 @@ HTML
 line-height:normal;
 font-weight:normal;
 font-size:0.8rem;
-display:none;
 }
+
+.select_manage .ui-selectable li { height: 180px }
+
 CSS
 ;
 
@@ -807,14 +814,7 @@ CSS
 	$initjs .= <<JS
 	
 \$('#manage_images_accordion').on('toggled', function (event, accordion) {
-	if (\$("#manage_images_drop").hasClass("active")) {
-		\$(".show_for_manage_images").show();
-		\$("#front .ui-selectable li").css("height","160px");
-	}
-	else {
-		\$(".show_for_manage_images").hide();
-		\$("#front .ui-selectable li").css("height","120px");
-	}
+
 	toggle_manage_images_buttons();
 });
 
@@ -824,6 +824,7 @@ CSS
 
 event.stopPropagation();
 event.preventDefault();
+
 
 if (! \$("#delete_images").hasClass("disabled")) {
 
@@ -835,9 +836,9 @@ if (! \$("#delete_images").hasClass("disabled")) {
 	
 	var imgids = '';
 	var i = 0;
-	\$( "#front .ui-selected"  ).each(function() {
+	\$( "#manage .ui-selected"  ).each(function() {
 		var imgid = \$( this ).attr('id');
-		imgid = imgid.replace("front_","");
+		imgid = imgid.replace("manage_","");
 		imgids += imgid + ',';
 		i++;
 });
@@ -884,6 +885,7 @@ if (! \$("#delete_images").hasClass("disabled")) {
 event.stopPropagation();
 event.preventDefault();
 
+
 if (! \$("#move_images").hasClass("disabled")) {
 
 	\$("#delete_images").addClass("disabled");
@@ -894,9 +896,9 @@ if (! \$("#move_images").hasClass("disabled")) {
 	
 	var imgids = '';
 	var i = 0;
-	\$( "#front .ui-selected"  ).each(function() {
+	\$( "#manage .ui-selected"  ).each(function() {
 		var imgid = \$( this ).attr('id');
-		imgid = imgid.replace("front_","");
+		imgid = imgid.replace("manage_","");
 		imgids += imgid + ',';
 		i++;
 });
@@ -930,7 +932,7 @@ if (! \$("#move_images").hasClass("disabled")) {
   complete: function(XMLHttpRequest, textStatus) {
 		\$("#move_images").addClass("disabled");
 		\$("#move_images").addClass("disabled");
-		\$( "#front .ui-selected"  ).first().each(function() {
+		\$( "#manage .ui-selected"  ).first().each(function() {
 			\$("#move_images").removeClass("disabled");
 			\$("#move_images").removeClass("disabled");
 		});
