@@ -453,9 +453,7 @@ function update_display(imagefield) {
 				html += '</li>';
 			});
 			html += '</ul>';					
-			
-			alert(id);
-			
+						
 			if (! stringStartsWith(id, 'manage')) {
 			
 			html += '<div style="clear:both" class="command upload_image_div">';

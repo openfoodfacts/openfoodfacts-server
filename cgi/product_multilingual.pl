@@ -885,8 +885,6 @@ if (! \$("#delete_images").hasClass("disabled")) {
 event.stopPropagation();
 event.preventDefault();
 
-alert("fboug");
-
 
 if (! \$("#move_images").hasClass("disabled")) {
 
