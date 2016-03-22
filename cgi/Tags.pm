@@ -78,12 +78,19 @@ BEGIN
 					%language_fields
 					
 					%properties
+					
+					%language_codes
+					%language_codes_reverse
+					
 					%country_names
 					%country_codes
 					%country_codes_reverse
 					%country_languages
 					
 					%loaded_taxonomies
+					
+					%translations_from
+					%translations_to
 					
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -138,8 +145,8 @@ my %just_synonyms = ();
 my %synonyms = ();
 my %synonyms_for = ();
 my %synonyms_for_extended = ();
-my %translations_from = ();
-my %translations_to = ();
+%translations_from = ();
+%translations_to = ();
 my %level = ();
 my %direct_parents = ();
 my %direct_children = ();
@@ -1224,6 +1231,21 @@ foreach my $taxonomyid (@Blogs::Config::taxonomy_fields) {
 	print "loading taxonomy $taxonomyid\n";
 	retrieve_tags_taxonomy($taxonomyid);
 	
+}
+
+
+
+# Build map of language codes and names
+
+%language_codes = ();
+%language_codes_reverse = ();
+
+foreach my $language (keys %{$properties{languages}}) {
+
+	my $lc = lc($properties{languages}{$language}{"language_code_2:en"});
+
+	$language_codes{$lc} = $language;
+	$language_codes_reverse{$language} = $lc;
 }
 
 

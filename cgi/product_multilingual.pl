@@ -730,7 +730,12 @@ HTML
 		next if (length($l) > 2);
 		$lang_labels{$l} = lang("lang_$l");
 		if ($lang_labels{$l} eq '') {
-			$lang_labels{$l} = $l;
+			if (defined $Langs{$l}) {
+				$lang_labels{$l} = $Langs{$l};
+			}
+			else {
+				$lang_labels{$l} = $l;
+			}
 		}
 	}
 	my $lang_value = $lang;
@@ -1059,16 +1064,15 @@ JS
 
 	
 	$product_ref->{langs_order} = { fr => 0, nl => 1, en => 1, new => 2 };
-	# TODO sort function to put main language first, other languages by alphabetical order, then add new language tab
-	# $product_ref->{sorted_langs} = sort ( { .. } keys %{$product_ref->{langs_order}};
-	# $product_ref->{sorted_langs} = [ 'en', 'de', 'es', 'fr', 'nl' ];
+	
+	# sort function to put main language first, other languages by alphabetical order, then add new language tab
 	
 	defined $product_ref->{lc} or $product_ref->{lc} = $lc;
-	defined $product_ref->{languages} or $product_ref->{languages} = {};
+	defined $product_ref->{languages_codes} or $product_ref->{languages_codes} = {};
 	
 	$product_ref->{sorted_langs} = [ $product_ref->{lc} ];
 	
-	foreach my $olc (sort keys %{$product_ref->{languages}}) {
+	foreach my $olc (sort keys %{$product_ref->{languages_codes}}) {
 		if ($olc ne $product_ref->{lc}) {
 			push @{$product_ref->{sorted_langs}}, $olc;
 		}

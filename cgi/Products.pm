@@ -298,12 +298,12 @@ sub store_product($$) {
 	};	
 	
 
+	compute_codes($product_ref);
+	
+	compute_languages($product_ref);	
 	
 	compute_product_history_and_completeness($product_ref, $changes_ref);
 	
-	compute_codes($product_ref);
-	
-	compute_languages($product_ref);
 
 	# sort_key
 	# add 0 just to make sure we have a number...  last_modified_t at some point contained strings like  "1431125369"
@@ -318,6 +318,13 @@ sub store_product($$) {
 
 	# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
 	$product_ref->{code} = $product_ref->{code} . '';
+	
+	# make sure we have numbers, perl can convert numbers to string depending on the last operation done...
+	$product_ref->{last_modified_t} += 0;
+	$product_ref->{created_t} += 0;
+	$product_ref->{complete} += 0;
+	$product_ref->{sortkey} += 0;
+	
 	if ($product_ref->{deleted}) {
 		$products_collection->remove({"_id" => $product_ref->{_id}});
 	}
@@ -504,8 +511,8 @@ sub compute_product_history_and_completeness($$) {
 	# Populate the entry_dates_tags field
 	
 	$current_product_ref->{entry_dates_tags} = [];
-	my $created_t = $current_product_ref->{created_t};
-	my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($created_t);
+	my $created_t = $current_product_ref->{created_t} + 0;
+	my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($created_t + 0);
 	push @{$current_product_ref->{entry_dates_tags}}, sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
 	push @{$current_product_ref->{entry_dates_tags}}, sprintf("%04d-%02d", $year + 1900, $mon + 1);
 	push @{$current_product_ref->{entry_dates_tags}}, sprintf("%04d", $year + 1900);
@@ -516,7 +523,7 @@ sub compute_product_history_and_completeness($$) {
 	}
 
 	my $last_modified_t = $current_product_ref->{last_modified_t} + 0;
-	my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($last_modified_t);
+	my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($last_modified_t + 0);
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d-%02d", $year + 1900, $mon + 1);
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d", $year + 1900);
@@ -661,7 +668,7 @@ sub compute_product_history_and_completeness($$) {
 						# ! only update the values if the image still exists in the current version of the product (wasn't moved or deleted)
 						if (exists $current_product_ref->{images}{$id}) {
 							if (not defined $current_product_ref->{images}{$id}{uploaded_t}) {
-								$current_product_ref->{images}{$id}{uploaded_t} = $product_ref->{last_modified_t};
+								$current_product_ref->{images}{$id}{uploaded_t} = $product_ref->{last_modified_t} + 0;
 							}
 							if (not defined $current_product_ref->{images}{$id}{uploader}) {
 								$current_product_ref->{images}{$id}{uploader} = $userid;
@@ -895,10 +902,10 @@ sub compute_codes($) {
 
 
 
-# set tags with info on languages shown on the package
-# [cc] -> language codes
+# set tags with info on languages shown on the package, using the languages taxonomy
+# [en:french] -> language names
 # [n] -> number of languages
-# multi -> indicates n > 1
+# en:multi -> indicates n > 1
 
 sub compute_languages($) {
 
@@ -906,18 +913,24 @@ sub compute_languages($) {
 
 	
 	my %languages = ();
+	my %languages_codes = ();
 	
 	# check all the fields of the product
 	
 	foreach my $field (keys %$product_ref) {
 	
-		print STDERR "compute_languages - field: $field - "
-			. ($field =~ /_([a-z]{2})$/)
-			. " - " . $language_fields{$`}
-			. " - " . $product_ref->{$field} . "\n";
 	
 		if (($field =~ /_([a-z]{2})$/) and (defined $language_fields{$`}) and ($product_ref->{$field} ne '')) {
-			$languages{$1}++;
+			my $language_code = $1;
+			my $language = undef;
+			if (defined $language_codes{$language_code}) {
+				$language = $language_codes{$language_code};
+			}
+			else {
+				$language = $language_code;
+			}
+			$languages{$language}++;
+			$languages_codes{$language_code}++;
 		}
 	}
 	
@@ -925,20 +938,34 @@ sub compute_languages($) {
 		foreach my $id (keys %{ $product_ref->{images}}) {
 	
 			if ($id =~ /_([a-z]{2})$/)  {
-				$languages{$1}++;
+				my $language_code = $1;
+				my $language = undef;			
+				if (defined $language_codes{$language_code}) {
+					$language = $language_codes{$language_code};
+				}
+				else {
+					$language = $language_code;
+				}
+				$languages{$language}++;
+				$languages_codes{$language_code}++;
 			}
 		}
 	}
 
 	my @languages = keys %languages;
 	my $n = scalar(@languages);
-	push @languages, $n;
+	
+	my @languages_hierarchy = @languages; # without multilingual and count
+	
+	push @languages, "en:$n";
 	if ($n > 1) {
-		push @languages, "multi";
+		push @languages, "en:multilingual";
 	}
 	
 	$product_ref->{languages} = \%languages;
+	$product_ref->{languages_codes} = \%languages_codes;
 	$product_ref->{languages_tags} = \@languages;
+	$product_ref->{languages_hierarchy} = \@languages_hierarchy;
 }
 
 
