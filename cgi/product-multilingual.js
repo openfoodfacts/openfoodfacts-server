@@ -44,6 +44,8 @@ $('.new_lc').each(function(i, obj) {
 	var $th = $clone;
 	var newID = $th.attr('id').replace(/new_lc/, lc);
 	$th.attr('id', newID);
+	
+	$clone.addClass('tabs_' + lc).removeClass('tabs_new_lc');
 		
 	$clone.find('[id]').each(function() { 
 
@@ -52,6 +54,7 @@ $('.new_lc').each(function(i, obj) {
 		$th.attr('id', newID);
 		
 	});	
+	
 	
 	$clone.find('[for]').each(function() { 
 

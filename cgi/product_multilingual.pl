@@ -1057,6 +1057,25 @@ CSS
 	\$("#sorted_langs").val(new_sorted_langs);
 })
 ;	
+
+\$(document).foundation({
+    tab: {
+      callback : function (tab) {
+	  
+\$('.tabs').each(function(i, obj) {
+	\$(this).removeClass('active');
+});	  
+	  
+        var id = tab[0].id;	 // e.g. tabs_front_image_en_tab
+		var lc = id.replace(/.*(..)_tab/, "\$1");
+		\$(".tabs_" + lc).addClass('active');
+		
+\$(document).foundation('tab', 'reflow');		
+		
+      }
+    }
+  });
+
 JS
 ;	
 	
@@ -1145,22 +1164,23 @@ HTML
 		if ($tabid eq 'new') {
 		
 		$html_header .= <<HTML
-	<li class="tabs tab-title$active$new_lc">$select_add_language</li>
+	<li class="tabs tab-title$active$new_lc tabs_new">$select_add_language</li>
 HTML
 ;		
 		
 		}
 		else {
 	
+	
 		$html_header .= <<HTML
-	<li class="tabs tab-title$active$new_lc"  id="tabs_${tabsid}_${tabid}_tab"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$tabsids_hash_ref->{$tabid}</a></li>
+	<li class="tabs tab-title$active$new_lc tabs_${tabid}"  id="tabs_${tabsid}_${tabid}_tab"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$tabsids_hash_ref->{$tabid}</a></li>
 HTML
 ;
 
 		}
 
 		my $html_content_tab = <<HTML
-<div class="tabs content$active$new_lc" id="tabs_${tabsid}_${tabid}">
+<div class="tabs content$active$new_lc tabs_${tabid}" id="tabs_${tabsid}_${tabid}">
 HTML
 ;
 
