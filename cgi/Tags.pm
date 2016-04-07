@@ -40,6 +40,7 @@ BEGIN
 					%tags_texts
 					%tags_levels
 					%levels
+					%special_tags
 					
 					&get_taxonomyid
 					&get_taxonomyurl
@@ -120,6 +121,7 @@ origins
 manufacturing_places
 emb_codes
 ingredients
+ingredients_n
 additives
 allergens
 traces
@@ -552,6 +554,12 @@ sub build_tags_taxonomy($$) {
 
 			$line =~ s/’/'/g;
 			
+			# assume commas between numbers are part of the name
+			# e.g. en:2-Bromo-2-Nitropropane-1,3-Diol, Bronopol
+			# replace by a lower comma ‚
+
+			$line =~ s/(\d),(\d)/$1‚$2/g;
+			
 			# replace escaped comma \, by a lower comma ‚
 			$line =~ s/\\,/‚/g;
 			
@@ -856,6 +864,13 @@ sub build_tags_taxonomy($$) {
 			
 			$line =~ s/’/'/g;
 			
+			# assume commas between numbers are part of the name
+			# e.g. en:2-Bromo-2-Nitropropane-1,3-Diol, Bronopol
+			# replace by a lower comma ‚
+
+			$line =~ s/(\d),(\d)/$1‚$2/g;
+						
+			
 			# replace escaped comma \, by a lower comma ‚
 			$line =~ s/\\,/‚/g;
 			
@@ -1134,6 +1149,37 @@ sub retrieve_tags_taxonomy($) {
 		$all_parents{$tagtype} = $taxonomy_ref->{all_parents};
 		$properties{$tagtype} = $taxonomy_ref->{properties};
 	}
+	
+	$special_tags{$tagtype} = [];
+	if (open (IN, "<:encoding(UTF-8)", "$data_root/taxonomies/special_$tagtype.txt")) {
+
+		while (<IN>) {
+		
+			my $line = $_;
+			chomp($line);
+			$line =~ s/\s+$//s;
+			
+			next if (($line =~ /^#/) or ($line eq ""));
+			my $type = "with";
+			if ($line =~ /^-/) {
+				$type = "without";
+				$line = $';
+			}
+			my $tag = canonicalize_taxonomy_tag("en", $tagtype, $line);
+			my $tagid = get_taxonomyid($tag);		
+
+			print "special_tag - line:<$line> - tag:<$tag> - tagid:<$tagid>\n";
+			
+			if ($tagid ne "") {
+				push @{$special_tags{$tagtype}}, {
+					tagid => $tagid,
+					type => $type,
+				};
+			}
+		}
+	
+		close (IN);
+	}
 }
 
 
@@ -1176,14 +1222,12 @@ foreach my $langid (readdir(DH2)) {
 closedir(DH2);
 
 
-retrieve_tags_taxonomy("countries");
-retrieve_tags_taxonomy("labels");
-retrieve_tags_taxonomy("categories");
-retrieve_tags_taxonomy("additives");
-retrieve_tags_taxonomy("allergens");
-retrieve_tags_taxonomy("traces");
-retrieve_tags_taxonomy("states");
-retrieve_tags_taxonomy("nutrient_levels");
+foreach my $taxonomyid (@Blogs::Config::taxonomy_fields) {
+
+	print "loading taxonomy $taxonomyid\n";
+	retrieve_tags_taxonomy($taxonomyid);
+	
+}
 
 
 # Build map of local country names in official languages to (country, language)
@@ -1818,6 +1862,13 @@ sub canonicalize_taxonomy_tag($$$)
 				$tagid = $synonyms{$tagtype}{'en'}{$tagid2};
 				$tag_lc = 'en';
 			}			
+			else {
+				# try Latin
+				if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{"la"}) and (defined $synonyms{$tagtype}{"la"}{$tagid})) {
+					$tagid = $synonyms{$tagtype}{"la"}{$tagid};
+					$tag_lc = 'la';
+				}
+			}		
 		}
 	}
 	
