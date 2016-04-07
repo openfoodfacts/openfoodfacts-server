@@ -389,8 +389,9 @@ HTML
 	# Compute possible axis values
 	my @axis_values = @{$nutriments_lists{$nutriment_table}};
 	my %axis_labels = %nutriments_labels;
-	push @axis_values, "additives_n";
+	push @axis_values, "additives_n", "ingredients_n";
 	$axis_labels{additives_n} = lang("number_of_additives");
+	$axis_labels{ingredients_n} = lang("ingredients_n_s");
 	$axis_labels{products_n} = lang("number_of_products");
 
 	foreach my $axis ('x','y') {
