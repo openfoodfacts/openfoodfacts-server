@@ -36,6 +36,8 @@ BEGIN
 		%options
 		
 		%wiki_texts
+		
+		@taxonomy_fields
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -121,12 +123,17 @@ HTML
 
 %wiki_texts = (
 
-"en/press" => "http://en.wiki.openfoodfacts.org/index.php?title=Translations_-_Press_-_English&action=raw",
-"fr/presse" => "http://en.wiki.openfoodfacts.org/index.php?title=Translations_-_Press_-_French&action=raw",
+"en/press" => "http://en.wiki.openfoodfacts.org/Translations_-_Press_-_English?action=raw",
+"fr/presse" => "http://en.wiki.openfoodfacts.org/Translations_-_Press_-_French?action=raw",
 
-"en/code-of-conduct" => "http://en.wiki.openfoodfacts.org/index.php?title=Translations_-_Code_of_conduct_-_English&action=raw",
-"fr/code-de-conduite" => "http://en.wiki.openfoodfacts.org/index.php?title=Translations_-_Code_of_conduct_-_French&action=raw",
+"en/code-of-conduct" => "http://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_English?action=raw",
+"fr/code-de-conduite" => "http://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_French?action=raw",
+
+"fr/notetondistrib" => "http://en.wiki.openfoodfacts.org/Translations_-_Vending_machines_-_French?action=raw",
 
 );
+
+@taxonomy_fields = qw(states countries labels categories additives allergens traces nutrient_levels );
+
 
 1;
