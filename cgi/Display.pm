@@ -456,6 +456,16 @@ sub analyze_request($)
 		
 			if (($#components >= 0)) {
 				$request_ref->{tag} = shift @components;
+				
+				# if there is a leading dash - before the tag, it indicates we want products without it
+				if ($request_ref->{tag} =~ /^-/) {
+					$request_ref->{tag_prefix} = "-";
+					$request_ref->{tag} = $';
+				}
+				else {
+					$request_ref->{tag_prefix} = "";
+				}
+				
 				if (defined $taxonomy_fields{$tagtype}) {
 					if ($request_ref->{tag} !~ /^(\w\w):/) {
 						$request_ref->{tag} = $lc . ":" . $request_ref->{tag};
@@ -464,7 +474,7 @@ sub analyze_request($)
 				$request_ref->{tagid} = get_taxonomyid($request_ref->{tag});
 			}
 			
-			$request_ref->{canon_rel_url} .= "/" . $tag_type_singular{$tagtype}{$lc} . "/" . $request_ref->{tagid}; 
+			$request_ref->{canon_rel_url} .= "/" . $tag_type_singular{$tagtype}{$lc} . "/" . $request_ref->{tag_prefix} . $request_ref->{tagid}; 
 			
 			# 2nd tag?
 			
@@ -475,6 +485,16 @@ sub analyze_request($)
 			
 				if (($#components >= 0)) {
 					$request_ref->{tag2} = shift @components;
+					
+					# if there is a leading dash - before the tag, it indicates we want products without it
+					if ($request_ref->{tag2} =~ /^-/) {
+						$request_ref->{tag2_prefix} = "-";
+						$request_ref->{tag2} = $';
+					}
+					else {
+						$request_ref->{tag2_prefix} = "";
+					}
+				
 					if (defined $taxonomy_fields{$tagtype}) {
 						if ($request_ref->{tag2} !~ /^(\w\w):/) {
 							$request_ref->{tag2} = $lc . ":" . $request_ref->{tag2};
@@ -483,7 +503,7 @@ sub analyze_request($)
 					$request_ref->{tagid2} = get_taxonomyid($request_ref->{tag2});
 				}
 				
-				$request_ref->{canon_rel_url} .= "/" . $tag_type_singular{$tagtype}{$lc} . "/" . $request_ref->{tagid2}; 
+				$request_ref->{canon_rel_url} .= "/" . $tag_type_singular{$tagtype}{$lc} . "/" . $request_ref->{tag2_prefix} . $request_ref->{tagid2}; 
 			}
 
 			if ((defined $components[0]) and ($components[0] eq 'points')) {
@@ -1675,9 +1695,15 @@ sub display_tag($) {
 			$request_ref->{world_current_link} = canonicalize_tag_link($tagtype, $newtagid);
 			$lang = $current_lang;
 			$lc = $current_lc;
-			print STDERR "display_tag - normal - $tagtype - tagid: $tagid - canon_tagid: $canon_tagid - newtagid: $newtagid - title: $title \n";
-			
+			print STDERR "display_tag - normal - $tagtype - tagid: $tagid - canon_tagid: $canon_tagid - newtagid: $newtagid - title: $title \n";			
 		}
+		
+		# add back leading dash when a tag is excluded
+		if ((defined $request_ref->{tag_prefix}) and ($request_ref->{tag_prefix} ne '')) {
+			my $prefix = $request_ref->{tag_prefix};
+			$request_ref->{current_link} =~ s/^\/([^\/]+)$/\/$prefix$1/;
+			$request_ref->{world_current_link} =~ s/^\/([^\/]+)$/\/$prefix$1/;
+		}		
 	}
 	else {
 		print STDERR "display_tag - no tagid\n";
@@ -1715,7 +1741,15 @@ sub display_tag($) {
 			$request_ref->{world_current_link} .= canonicalize_tag_link($tagtype2, $newtagid2);
 			$lang = $current_lang;
 			$lc = $current_lc;
-		}	
+		}
+		
+		# add back leading dash when a tag is excluded
+		if ((defined $request_ref->{tag2_prefix}) and ($request_ref->{tag2_prefix} ne '')) {
+			my $prefix = $request_ref->{tag2_prefix};
+			$request_ref->{current_link} =~ s/^\/([^\/]+)$/\/$prefix$1/;
+			$request_ref->{world_current_link} =~ s/^\/([^\/]+)$/\/$prefix$1/;
+		}		
+		
 	}
 	
 	if (defined $request_ref->{groupby_tagtype}) {
@@ -1933,7 +1967,14 @@ HTML
 		}
 	}
 
-	$products_title = sprintf(lang($tagtype . '_products'), $products_title);
+	if ((defined $request_ref->{tag_prefix}) and ($request_ref->{tag_prefix} eq '-')) {
+		$products_title = sprintf(lang($tagtype . '_without_products'), $products_title);
+	}
+	else {
+		$products_title = sprintf(lang($tagtype . '_products'), $products_title);
+	}
+	
+	
 	if (defined $tagid2) {
 		$products_title .= " - " . lang($tagtype2 . '_s') . lang("sep") . ": " . $display_tag2;
 	}
@@ -1978,14 +2019,26 @@ HTML
 		$sort_by = 'last_modified_t';
 	}
 	elsif (defined $canon_tagid) {
-		
-		$query_ref->{ ($tagtype . "_tags")} = $canon_tagid;
+		if ((defined $request_ref->{tag_prefix}) and ($request_ref->{tag_prefix} ne '')) {
+			$query_ref->{ ($tagtype . "_tags")} = { "\$ne" => $canon_tagid };
+		}
+		else {
+			$query_ref->{ ($tagtype . "_tags")} = $canon_tagid;
+		}
 		$sort_by = 'last_modified_t';		
 	}
 	elsif (defined $tagid) {
-		$query_ref->{ ($tagtype . "_tags")} = $tagid;
+		if ((defined $request_ref->{tag_prefix}) and ($request_ref->{tag_prefix} ne '')) {
+			$query_ref->{ ($tagtype . "_tags")} = { "\$ne" => $tagid };
+		}
+		else {
+			$query_ref->{ ($tagtype . "_tags")} = $tagid;
+		}
 		$sort_by = 'last_modified_t';
 	}
+	
+	# db.myCol.find({ mylist: { $ne: 'orange' } })
+
 	
 	# unknown ?
 	if (($tagid eq get_fileid(lang("unknown"))) or ($tagid eq ($lc . ":" . get_fileid(lang("unknown"))))) {
@@ -2162,7 +2215,7 @@ sub search_and_display_products($$$$$) {
 	
 	eval {
 		$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-		$count = int($cursor->count());
+		$count = $cursor->count();
 	};
 	if ($@) {
 		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
@@ -2846,6 +2899,10 @@ sub display_scatter_plot($$$) {
 			$x_allowDecimals = "allowDecimals:false,\n";
 			$x_title = escape_single_quote(lang("number_of_additives"));
 		}
+		elsif ($graph_ref->{axis_x} eq 'ingredients_n') {
+			$x_allowDecimals = "allowDecimals:false,\n";
+			$x_title = escape_single_quote(lang("ingredients_n_s"));
+		}		
 		else {
 			$x_title = $Nutriments{$graph_ref->{axis_x}}{$lc};
 			$x_unit = " (" . $Nutriments{$graph_ref->{axis_x}}{unit} . " " . lang("nutrition_data_per_100g") . ")";
@@ -2856,6 +2913,10 @@ sub display_scatter_plot($$$) {
 			$y_allowDecimals = "allowDecimals:false,\n";
 			$y_title = escape_single_quote(lang("number_of_additives"));
 		}
+		elsif ($graph_ref->{axis_y} eq 'ingredients_n') {
+			$y_allowDecimals = "allowDecimals:false,\n";
+			$y_title = escape_single_quote(lang("ingredients_n_s"));
+		}		
 		else {
 			$y_title = $Nutriments{$graph_ref->{axis_y}}{$lc};
 			$y_unit = " (" . $Nutriments{$graph_ref->{axis_y}}{unit} . " " . lang("nutrition_data_per_100g") . ")";
@@ -2874,9 +2935,10 @@ sub display_scatter_plot($$$) {
 
 			# Keep only products that have known values for both x and y
 			
-			if (((($graph_ref->{axis_x} eq 'additives_n') and (defined $product_ref->{$graph_ref->{axis_x}})) or 
+			if ((((($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} eq 'ingredients_n')) and (defined $product_ref->{$graph_ref->{axis_x}})) 
+					or 
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"} ne ''))
-				and ((($graph_ref->{axis_y} eq 'additives_n') and (defined $product_ref->{$graph_ref->{axis_y}})) or 
+				and (((($graph_ref->{axis_y} eq 'additives_n') or ($graph_ref->{axis_y} eq 'ingredients_n')) and (defined $product_ref->{$graph_ref->{axis_y}})) or 
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"} ne ''))) {
 				
 				my $url = "http://$subdomain.$server_domain" . product_url($product_ref->{code});
@@ -2932,7 +2994,7 @@ sub display_scatter_plot($$$) {
 				foreach my $axis ('x', 'y') {
 					my $nid = $graph_ref->{"axis_" . $axis};
 					$data .= $axis . ':';
-					if ($nid eq 'additives_n') {
+					if (($nid eq 'additives_n') or ($nid eq 'ingredients_n')) {
 						$data .= $product_ref->{$nid};
 					}
 					else {
@@ -3167,6 +3229,10 @@ sub display_histogram($$$) {
 			$x_allowDecimals = "allowDecimals:false,\n";
 			$x_title = escape_single_quote(lang("number_of_additives"));
 		}
+		elsif ($graph_ref->{axis_x} eq 'ingredients_n') {
+			$x_allowDecimals = "allowDecimals:false,\n";
+			$x_title = escape_single_quote(lang("ingredients_n_s"));
+		}		
 		else {
 			$x_title = $Nutriments{$graph_ref->{axis_x}}{$lc};
 			$x_unit = " (" . $Nutriments{$graph_ref->{axis_x}}{unit} . " " . lang("nutrition_data_per_100g") . ")";
@@ -3192,7 +3258,7 @@ sub display_histogram($$$) {
 
 			# Keep only products that have known values for x
 			
-			if (((($graph_ref->{axis_x} eq 'additives_n') and (defined $product_ref->{$graph_ref->{axis_x}})) or 
+			if ((((($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} eq 'ingredients_n')) and (defined $product_ref->{$graph_ref->{axis_x}})) or 
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"} ne ''))
 					) {
 								
@@ -3233,7 +3299,7 @@ sub display_histogram($$$) {
 				my $value = 0;
 					
 
-					if ($nid eq 'additives_n') {
+					if (($nid eq 'additives_n') or ($nid eq 'ingredients_n')) {
 						$value = $product_ref->{$nid};
 					}
 					elsif ($nid =~ /^nutrition-score/) {
@@ -4538,7 +4604,7 @@ $google_analytics
 <nav class="top-bar" data-topbar role="navigation" id="top-bar">
 	<ul class="title-area">
 		<li class="name">
-			<h2><a href="/" style="font-size:1rem;">Open Food Facts</a></h2>
+			<h2><a href="/" style="font-size:1rem;">$Lang{site_name}{$lang}</a></h2>
 		</li>
 		<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
 		<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -5444,6 +5510,35 @@ HTML
 				$html .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a></li>\n";
 			}
 			$html .= "</ul></div>";
+		}
+	
+	}
+	
+	
+	# special ingredients tags
+	
+	if ((defined $ingredients_text) and ($ingredients_text !~ /^\s*$/s) and (defined $special_tags{ingredients})) {
+	
+		my $special_html = "";
+	
+		foreach my $special_tag_ref (@{$special_tags{ingredients}}) {
+		
+			my $tagid = $special_tag_ref->{tagid};
+			my $type = $special_tag_ref->{type};
+			
+			if (  (($type eq 'without') and (not has_tag($product_ref, "ingredients", $tagid)))
+			or (($type eq 'with') and (has_tag($product_ref, "ingredients", $tagid)))) {
+				
+				$special_html .= "<li class=\"${type}_${tagid}_$lc\">" . lang("search_" . $type) . " " . display_taxonomy_tag_link($lc, "ingredients", $tagid) . "</li>\n";
+			}
+		
+		}
+		
+		if ($special_html ne "") {
+		
+			$html  .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang("ingredients_analysis") . lang("sep")) . ":</b><br />"
+			. "<ul id=\"special_ingredients\">\n" . $special_html . "</ul>\n"
+			. "<p>" . lang("ingredients_analysis_note") . "</p></div>\n";
 		}
 	
 	}
