@@ -2938,7 +2938,7 @@ COMMENT
 	}
 	
 	# my $saturated_fat_points_fr_matieres_grasses = int(($product_ref->{nutriments}{"saturated-fat_100g"} - 2.00001) / 4);
-	my $saturated_fat_points_fr_matieres_grasses = int(($product_ref->{nutriments}{"saturated-fat_100g"} - 4) / 6);
+	my $saturated_fat_points_fr_matieres_grasses = int(($saturated_fat_ratio * 100 - 4) / 6);
 	$saturated_fat_points_fr_matieres_grasses < 0 and $saturated_fat_points_fr_matieres_grasses = 0;
 	$saturated_fat_points_fr_matieres_grasses > 10 and $saturated_fat_points_fr_matieres_grasses = 10;
 	
