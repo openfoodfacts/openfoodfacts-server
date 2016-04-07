@@ -60,7 +60,6 @@ use Blogs::SiteLang qw/:all/;
 use Blogs::Store qw/:all/;
 
 
-
 %lang_lc = (
 ar => 'ar',
 de => 'de',
@@ -562,6 +561,10 @@ nutrition_grades => {
 	nl => "voedingsgraad",
 	nl_be => "voedingsgraad",
 },
+ingredients_n => {
+	en => "number-of-ingredients",
+	fr => "nombre-d-ingredients",
+},
 
 # do not translate code and debug
 codes => {
@@ -571,8 +574,6 @@ codes => {
 debug => {
 	en => "debug",
 },
-
-# end - do not translate
 
 );
 
@@ -1022,6 +1023,10 @@ nutrition_grades => {
 	nl => "voedingsgraden",
 	nl_be => "voedingsgraden",
 },
+ingredients_n => {
+	en => "numbers-of-ingredients",
+	fr => "nombres-d-ingredients",
+},
 # do not translate code and debug
 codes => {
 	en => "codes",
@@ -1352,27 +1357,7 @@ lang => {
 },
 
 site_name => {
-	de => 'Open Food Facts',
-	cs => 'Open Food Facts',
-	es => 'Open Food Facts',
 	en => 'Open Food Facts',
-	it => 'Open Food Facts',
-	fi => 'Open Food Facts',
-	fr => 'Open Food Facts',
-	el => 'Open Food Facts',
-	he => 'Open Food Facts',
-	ja => 'Open Food Facts',
-	ko => 'Open Food Facts',
-	nl => 'Open Food Facts',
-	nl_be => 'Open Food Facts',
-	ru => 'Open Food Facts',
-	pl => 'Open Food Facts',
-	pt => 'Open Food Facts',
-	ro => 'Open Food Facts',
-	th => 'Open Food Facts',
-	vi => 'Open Food Facts',
-	zh => 'Open Food Facts',
-
 },
 
 site_description => {
@@ -1549,18 +1534,18 @@ add_user_confirm => {
 },
 
 add_user_email_subject => {
-	fr => 'Merci de votre inscription sur Open Food Facts',
-	en => 'Thanks for joining Open Food Facts',
-	el => 'Ευχαριστούμε που επισκεφθήκατε το Open Food Facts',
-	de => 'Vielen Dank für ihre Anmeldung auf Open Food Facts',
-	es => 'Gracias por registrarse en Open Food Facts',
-	it => 'Grazie per la vostra iscrizione a Open Food Facts',
-	ar => 'شكرا على انضمامك لموقعنا Open Food Facts',
-	pt => 'Obrigado por se juntar ao Open Food Facts',
-	ro => 'Vă mulțumim pentru înscrierea la Open Food Facts',
-	he => 'תודה לך על הצטרפותך ל־Open Food Facts',
-	nl => 'Bedankt voor uw inschrijving op Open Food Facts',
-	nl_be => 'Bedankt voor uw inschrijving op Open Food Facts',
+	fr => 'Merci de votre inscription sur <<site_name>>',
+	en => 'Thanks for joining <<site_name>>',
+	el => 'Ευχαριστούμε που επισκεφθήκατε το <<site_name>>',
+	de => 'Vielen Dank für ihre Anmeldung auf <<site_name>>',
+	es => 'Gracias por registrarse en <<site_name>>',
+	it => 'Grazie per la vostra iscrizione a <<site_name>>',
+	ar => 'شكرا على انضمامك لموقعنا <<site_name>>',
+	pt => 'Obrigado por se juntar ao <<site_name>>',
+	ro => 'Vă mulțumim pentru înscrierea la <<site_name>>',
+	he => 'תודה לך על הצטרפותך ל־<<site_name>>',
+	nl => 'Bedankt voor uw inschrijving op <<site_name>>',
+	nl_be => 'Bedankt voor uw inschrijving op <<site_name>>',
 },
 
 add_user_email_body => {
@@ -1579,7 +1564,7 @@ https://www.facebook.com/groups/356858984359591/
 
 et/ou la liste de discussion en envoyant un e-mail vide à off-fr-subscribe\@openfoodfacts.org
 
-Open Food Facts est un projet collaboratif auquel vous pouvez apporter bien plus que des produits : votre enthousiasme et vos idées !
+<<site_name>> est un projet collaboratif auquel vous pouvez apporter bien plus que des produits : votre enthousiasme et vos idées !
 Vous pouvez en particulier partager vos suggestions sur le forum des idées :
 https://openfoodfactsfr.uservoice.com/
 
@@ -1606,7 +1591,7 @@ Adesso potete identificarvi sul sito per aggiungere e modificare dei prodotti.
 Potete ugualmente raggiungere il gruppo dei contribuenti su Facebook:
 https://www.facebook.com/groups/447693908583938/
 
-Open Food Facts è un progetto di collaborazione al quale potete aggiungere ben più che dei prodotti: il vostro entusiasmo e le vostre idee.
+<<site_name>> è un progetto di collaborazione al quale potete aggiungere ben più che dei prodotti: il vostro entusiasmo e le vostre idee.
 https://openfoodfacts.uservoice.com/
 
 La mia casella mail è abbastanza grande e aperta per tutti i vostri suggerimenti, commenti e domande. (in English / en français se possibile...)
@@ -1631,7 +1616,7 @@ You can now sign in on the site to add and edit products.
 You can also join the Facebook group for contributors:
 https://www.facebook.com/groups/374350705955208/
 
-Open Food Facts is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!
+<<site_name>> is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!
 You can also share your suggestions on the idea forum:
 http://openfoodfacts.uservoice.com/
 
@@ -1657,7 +1642,7 @@ User name: <USERID>
 Μπορείτε επίσης να εγγραφείτε στο Facebook group των συντελεστών μας:
 https://www.facebook.com/groups/374350705955208/
 
-Το Open Food Facts είναι ένα συνεργατικό εγχείρημα στο οποίο μπορείτε επίσης να συμβάλλετε με την ενέργεια, τον ενθουσιασμό και τις ιδέες σας!
+Το <<site_name>> είναι ένα συνεργατικό εγχείρημα στο οποίο μπορείτε επίσης να συμβάλλετε με την ενέργεια, τον ενθουσιασμό και τις ιδέες σας!
 Μπορείτε επίσης να μοιραστείτε τις προτάσεις σας στο idea forum:
 http://openfoodfacts.uservoice.com/
 
@@ -1682,7 +1667,7 @@ A partir de ahora podrá identificarse en el sitio para añadir y editar product
 Si lo desea, también podrá unirse al grupo de Facebook para usuarios en español:
 https://www.facebook.com/groups/470069256354172/
 
-Open Food Facts es un proyecto colaborativo al que puede aportar mucho más que información sobre los productos:  ¡Su energía, su entusiasmo y sus ideas!
+<<site_name>> es un proyecto colaborativo al que puede aportar mucho más que información sobre los productos:  ¡Su energía, su entusiasmo y sus ideas!
 También podrá  compartir sus sugerencias en el foro de nuevas ideas:
 http://openfoodfacts.uservoice.com/
 
@@ -1708,7 +1693,7 @@ Sie können sich jetzt auf der Seite anmelden und Produkte hinzufügen oder abä
 Sie können auch der Facebookgruppe für Unterstützer beitreten:
 https://www.facebook.com/groups/488163711199190/
 
-Open Food Facts ist ein gemeinschaftliches Projekt zu dem Sie noch viel mehr als neue Produkte beitragen können: Ihre Energie, Ihren Enthusiasmus und neue Ideen!
+<<site_name>> ist ein gemeinschaftliches Projekt zu dem Sie noch viel mehr als neue Produkte beitragen können: Ihre Energie, Ihren Enthusiasmus und neue Ideen!
 Auf dem Ideenforum können Sie ihre Vorschläge mit uns teilen:
 http://openfoodfacts.uservoice.com/
 
@@ -1734,7 +1719,7 @@ Você pode aceder ao site para adicionar ou editar produtos.
 Você também pode entrar no grupo de colaboradores no Facebook:
 https://www.facebook.com/groups/374350705955208/
 
-O Open Food Facts é um projeto colaborativo para o qual você pode trazer muito mais que novos produtos: sua energia, entusiasmo e ideias!
+O <<site_name>> é um projeto colaborativo para o qual você pode trazer muito mais que novos produtos: sua energia, entusiasmo e ideias!
 Você também pode compartilhar suas sugestões no fórum de ideias:
 http://openfoodfacts.uservoice.com/
 
@@ -1760,7 +1745,7 @@ Pode aceder ao site para adicionar ou editar produtos.
 Também pode entrar no grupo de colaboradores no Facebook:
 https://www.facebook.com/groups/374350705955208/
 
-O Open Food Facts é um projeto colaborativo para o qual você pode trazer muito mais que novos produtos: a sua energia, entusiasmo e ideias!
+O <<site_name>> é um projeto colaborativo para o qual você pode trazer muito mais que novos produtos: a sua energia, entusiasmo e ideias!
 Pode partilhar as suas sugestões no fórum de ideias:
 http://openfoodfacts.uservoice.com/
 
@@ -1786,7 +1771,7 @@ http://twitter.com/OpenFoodFactsPt
 ניתן להצטרף גם לקבוצת הפייסבוק למתנדבים:
 https://www.facebook.com/groups/374350705955208/
 
-מיזם Open Food Facts הנו שיתופי ומאפשר לך להוסיף הרבה יותר מאשר רק מוצרים חדשים: האנרגיה, ההתלהבות והרעיונות שלך!
+מיזם <<site_name>> הנו שיתופי ומאפשר לך להוסיף הרבה יותר מאשר רק מוצרים חדשים: האנרגיה, ההתלהבות והרעיונות שלך!
 ניתן גם לשתף את הצעותיך בפורום הרעיונות:
 http://openfoodfacts.uservoice.com/
 
@@ -1812,7 +1797,7 @@ Je kan nu inloggen op de site om producten toe te voegen of te bewerken.
 Je kan ook lid worden van onze facebookgroep voor gebruikers:
 https://www.facebook.com/groups/356858984359591/
 
-Open Food Facts is een open source-project waaraan je veel meer dan enkel producten kan toevoegen: je energie, enthousiasme en ideeën!
+<<site_name>> is een open source-project waaraan je veel meer dan enkel producten kan toevoegen: je energie, enthousiasme en ideeën!
 
 Je kan uw suggesties delen op het ideeënforum:
 https://openfoodfactsfr.uservoice.com/
@@ -1839,7 +1824,7 @@ U kunt nu inloggen op de site om producten toe te voegen of te bewerken.
 U kunt ook lid worden van onze facebookgroep voor gebruikers:
 https://www.facebook.com/groups/356858984359591/
 
-Open Food Facts is een open source-project waaraan u veel meer dan enkel producten kan toevoegen: uw energie, enthousiasme en ideeën!
+<<site_name>> is een open source-project waaraan u veel meer dan enkel producten kan toevoegen: uw energie, enthousiasme en ideeën!
 
 U kunt uw suggesties delen op het ideeënforum:
 https://openfoodfactsfr.uservoice.com/
@@ -1856,16 +1841,16 @@ http://twitter.com/OpenFoodFactsNl
 },
 
 reset_password_email_subject => {
-	fr => 'Réinitialisation de votre mot de passe sur Open Food Facts',
-	de => 'Setze dein Passwort auf Open Food Facts zurück',
-	en => 'Reset of your password on Open Food Facts',
-	es => 'Cambio de la contraseña de su cuenta en Open Food Facts',
-	pt => 'Modifique a sua senha do Open Food Facts',
-	pt_pt => 'Alteração da sua palavra-passe no Open Food Facts',
-	ro => 'Resetarea parolei dumneavoastră pe Open Food Facts',
-	he => 'איפוס הססמה שלך ב־Open Food Facts',
-	nl => 'Wijziging van je wachtwoord op Open Food Facts',
-	nl_be => 'Wijziging van uw paswoord op Open Food Facts',
+	fr => 'Réinitialisation de votre mot de passe sur <<site_name>>',
+	de => 'Setze dein Passwort auf <<site_name>> zurück',
+	en => 'Reset of your password on <<site_name>>',
+	es => 'Cambio de la contraseña de su cuenta en <<site_name>>',
+	pt => 'Modifique a sua senha do <<site_name>>',
+	pt_pt => 'Alteração da sua palavra-passe no <<site_name>>',
+	ro => 'Resetarea parolei dumneavoastră pe <<site_name>>',
+	he => 'איפוס הססמה שלך ב־<<site_name>>',
+	nl => 'Wijziging van je wachtwoord op <<site_name>>',
+	nl_be => 'Wijziging van uw paswoord op <<site_name>>',
 },
 
 reset_password_email_body => {
@@ -2198,60 +2183,60 @@ login_to_add_products => {
 	fr => <<HTML
 <p>Vous devez vous connecter pour pouvoir ajouter ou modifier un produit.</p>
 
-<p>Si vous n'avez pas encore de compte sur Open Food Facts, vous pouvez <a href="http://fr.openfoodfacts.org/cgi/user.pl">vous inscrire en 30 secondes</a>.</p>
+<p>Si vous n'avez pas encore de compte sur <<site_name>>, vous pouvez <a href="/cgi/user.pl">vous inscrire en 30 secondes</a>.</p>
 HTML
 ,
 	de => <<HTML
 <p>Bitte melde dich an, um ein Produkt hinzuzufügen oder zu bearbeiten.</p>
 
-<p>Wenn du noch kein Benutzerkonto auf Open Food Facts hast, dann kannst du dich <a href="/cgi/user.pl">innerhalb von 30 Sekunden anmelden</a>.</p>
+<p>Wenn du noch kein Benutzerkonto auf <<site_name>> hast, dann kannst du dich <a href="/cgi/user.pl">innerhalb von 30 Sekunden anmelden</a>.</p>
 HTML
 ,
 	en => <<HTML
 <p>Please sign-in to add or edit a product.</p>
 
-<p>If you do not yet have an account on Open Food Facts, you can <a href="/cgi/user.pl">register in 30 seconds</a>.</p>
+<p>If you do not yet have an account on <<site_name>>, you can <a href="/cgi/user.pl">register in 30 seconds</a>.</p>
 HTML
 ,
 el => <<HTML
 <p>Παρακαλώ εγγραφείτε για να προσθέσετε ή να επεξεργαστείτε προϊόντα.</p>
 
-<p> Αν δεν έχετε ακόμα λογαριασμό στο Open Food Facts, μπορείτε να <a href="/cgi/user.pl">register in 30 seconds</a>.</p>
+<p> Αν δεν έχετε ακόμα λογαριασμό στο <<site_name>>, μπορείτε να <a href="/cgi/user.pl">register in 30 seconds</a>.</p>
 HTML
 ,
 ar => <<HTML
 <p>الرجاء تسجيل الدخول لإضافة أو تعديل المنتج.</p>
-<p>إذا لم يكن لديك حساب حتى الآن على Open Food Facts، يمكنك <a href="/cgi/user.pl">التسجيل في 30 ثانية</a>.</p>
+<p>إذا لم يكن لديك حساب حتى الآن على <<site_name>>، يمكنك <a href="/cgi/user.pl">التسجيل في 30 ثانية</a>.</p>
 HTML
 ,
 	pt => <<HTML
 <p>Por favor autentique-se para adicionar ou editar um produto.</p>
 
-<p>Se você ainda não possui uma conta no Open Food Facts, você pode <a href="/cgi/user.pl">registrar-se em 30 segundos</a>.</p>
+<p>Se você ainda não possui uma conta no <<site_name>>, você pode <a href="/cgi/user.pl">registrar-se em 30 segundos</a>.</p>
 HTML
 ,
 	pt_pt => <<HTML
 <p>Por favor efectue login para adicionar ou editar um produto.</p>
 
-<p>Se ainda não possui uma conta no Open Food Facts, pode <a href="/cgi/user.pl">registar-se em 30 segundos</a>.</p>
+<p>Se ainda não possui uma conta no <<site_name>>, pode <a href="/cgi/user.pl">registar-se em 30 segundos</a>.</p>
 HTML
 ,
 	he => <<HTML
 <p>נא להיכנס כדי להוסיף או לערוך מוצר.</p>
 
-<p>אם עדיין אין לך חשבון ב־Open Food Facts, יש לך אפשרות <a href="/cgi/user.pl">להירשם תוך 30 שניות</a>.</p>
+<p>אם עדיין אין לך חשבון ב־<<site_name>>, יש לך אפשרות <a href="/cgi/user.pl">להירשם תוך 30 שניות</a>.</p>
 HTML
 ,
 	nl => <<HTML
 <p>Je moet je aanmelden om producten toe te voegen of te bewerken.</p>
 
-<p>Als je nog geen account hebt op Open Food Facts, kan je <a href="/cgi/user.pl">je registreren in 30 seconden</a>.</p>
+<p>Als je nog geen account hebt op <<site_name>>, kan je <a href="/cgi/user.pl">je registreren in 30 seconden</a>.</p>
 HTML
 ,
 	nl_be => <<HTML
 <p>U moet zich aanmelden om producten toe te voegen of te bewerken.</p>
 
-<p>Als u nog geen account hebt op Open Food Facts, kan u <a href="/cgi/user.pl">zich registreren in 30 seconden</a>.</p>
+<p>Als u nog geen account hebt op <<site_name>>, kan u <a href="/cgi/user.pl">zich registreren in 30 seconden</a>.</p>
 HTML
 ,
 
@@ -2561,22 +2546,22 @@ on_the_blog_title => {
 },
 on_the_blog_content => {
 	en => <<HTML
-<p>To learn more about Open Food Facts, visit <a href="http://en.blog.openfoodfacts.org">our blog</a>!</p>
+<p>To learn more about <<site_name>>, visit <a href="http://en.blog.openfoodfacts.org">our blog</a>!</p>
 <p>Recent news:</p>
 HTML
 ,
 el => <<HTML
-<p>Για να μάθετε περισσότερα για το Open Food Facts, επισκεφθείτε <a href="http://en.blog.openfoodfacts.org">our blog</a>!</p>
+<p>Για να μάθετε περισσότερα για το <<site_name>>, επισκεφθείτε <a href="http://en.blog.openfoodfacts.org">our blog</a>!</p>
 <p>Πρόσφατα νέα:</p>
 HTML
 ,
 	de => <<HTML
-<p>Um mehr über Open Food Facts zu erfahren, besuche <a href="http://en.blog.openfoodfacts.org">unseren Blog</a>!</p>
+<p>Um mehr über <<site_name>> zu erfahren, besuche <a href="http://en.blog.openfoodfacts.org">unseren Blog</a>!</p>
 <p>Aktuelle Neuigkeiten:</p>
 HTML
 ,
 	fr => <<HTML
-<p>Pour découvrir les nouveautés et les coulisses d'Open Food Facts, venez sur <a href="http://fr.blog.openfoodfacts.org">le blog</a> !</p>
+<p>Pour découvrir les nouveautés et les coulisses d'<<site_name>>, venez sur <a href="http://fr.blog.openfoodfacts.org">le blog</a> !</p>
 <p>C'est nouveau :</p>
 HTML
 ,
@@ -2586,28 +2571,28 @@ HTML
 HTML
 ,
 	it => <<HTML
-<p>Per scoprire le novità e il dietro le quinte di Open Food Facts, venite su su<a href="http://fr.blog.openfoodfacts.org">le blog</a> !</p>
+<p>Per scoprire le novità e il dietro le quinte di <<site_name>>, venite su su<a href="http://fr.blog.openfoodfacts.org">le blog</a> !</p>
 <p>Qui sono le novità:</p>
 HTML
 ,
 	pt =><<HTML
-<p>Para saber mais sobre o Open Food Facts, visite o <a href="http://en.blog.openfoodfacts.org">nosso blog</a>!</p>
+<p>Para saber mais sobre o <<site_name>>, visite o <a href="http://en.blog.openfoodfacts.org">nosso blog</a>!</p>
 <p>Notícias recentes:</p>
 HTML
 ,
 	he => <<HTML
-<p>למידע נוסף על Open Food Facts, ניתן לבקר ב<a href="http://en.blog.openfoodfacts.org">בלוג שלנו</a>(באנגלית)!</p>
+<p>למידע נוסף על <<site_name>>, ניתן לבקר ב<a href="http://en.blog.openfoodfacts.org">בלוג שלנו</a>(באנגלית)!</p>
 <p>חדשות עדכניות:</p>
 HTML
 ,
 	nl => <<HTML
-<p>Om meer te weten te komen over Open Food Facts, bezoek <a href="http://en.blog.openfoodfacts.org">onze blog</a>!</p>
+<p>Om meer te weten te komen over <<site_name>>, bezoek <a href="http://en.blog.openfoodfacts.org">onze blog</a>!</p>
 <p>Dit is nieuw:</p>
 HTML
 ,
 
 	nl_be => <<HTML
-<p>Om meer te weten te komen over Open Food Facts, bezoek <a href="http://en.blog.openfoodfacts.org">onze blog</a>!</p>
+<p>Om meer te weten te komen over <<site_name>>, bezoek <a href="http://en.blog.openfoodfacts.org">onze blog</a>!</p>
 <p>Dit is nieuw:</p>
 HTML
 ,
@@ -2630,7 +2615,7 @@ bottom_content => {
 <a href="http://fr.openfoodfacts.org/mission/releveur-d-empreintes">
 <img src="/images/misc/mission-releveur-d-empreintes.png" width="265" height="222" />
 </a>
-<p>Contribuez à Open Food Facts en ajoutant des produits et gagnez
+<p>Contribuez à <<site_name>> en ajoutant des produits et gagnez
 des étoiles en remplissant <a href="/missions">les missions</a> !</p>
 HTML
 ,
@@ -2638,21 +2623,21 @@ HTML
 <a href="http://es.openfoodfacts.org/mision/determinar-la-huella-de-carbono">
 <img src="/images/misc/mision-determinar-la-huella-de-carbono.png" width="265" height="222" />
 </a>
-<p>Contribuye a Open Food Facts añadiendo productos y gana estrellas participando en <a href="/missions">las misiones</a> !</p>
+<p>Contribuye a <<site_name>> añadiendo productos y gana estrellas participando en <a href="/missions">las misiones</a> !</p>
 HTML
 ,
 	xpt => <<HTML
 <a href="http://es.openfoodfacts.org/mision/determinar-la-huella-de-carbono">
 <img src="/images/misc/mision-determinar-la-huella-de-carbono.png" width="265" height="222" />
 </a>
-<p>Contribua para o Open Food Facts adicionando produtos e ganhe estrelas participando em <a href="/missions">missões</a> !</p>
+<p>Contribua para o <<site_name>> adicionando produtos e ganhe estrelas participando em <a href="/missions">missões</a> !</p>
 HTML
 ,
 	nl => <<HTML
 <a href="http://nl.openfoodfacts.org/missie/onthul-de-ecologische-voetafdruk">
 <img src="/images/misc/mission-releveur-d-empreintes.png" width="265" height="222" />
 </a>
-<p>Werk mee aan Open Food Facts door producten toe te voegen en win sterren door deel te nemen <a href="/missions">aan de missies</a> !</p>
+<p>Werk mee aan <<site_name>> door producten toe te voegen en win sterren door deel te nemen <a href="/missions">aan de missies</a> !</p>
 HTML
 ,
 
@@ -2660,7 +2645,7 @@ HTML
 <a href="http://nl.openfoodfacts.org/missie/onthul-de-ecologische-voetafdruk">
 <img src="/images/misc/mission-releveur-d-empreintes.png" width="265" height="222" />
 </a>
-<p>Werk mee aan Open Food Facts door producten toe te voegen en win sterren door deel te nemen <a href="/missions">aan de missies</a> !</p>
+<p>Werk mee aan <<site_name>> door producten toe te voegen en win sterren door deel te nemen <a href="/missions">aan de missies</a> !</p>
 HTML
 ,
 
@@ -3917,7 +3902,7 @@ packaging_example => {
 	it => "Fresco, Conserva/Lattina, Sottovuoto, Surgelato, Bottiglia, Vasetto, Barattolo, Vetro, Plastica, Cartone",
 	ro => 'Proaspăt, Conservat, Înghețat, Îmbuteliat, Cutie, Sticlă, Plastic...',
 	he => "טרי, בקופסת שימורים, קפוא, בקבוק, קופסה, זכוכית, פלסטיק...",
-	nl => "Vers, Blik, Vacuüm, Diepgevroren, Fles, Bokaal, Doos, Glas, Plastiek, Karton, ...",
+	nl => "Vers, Blik, Vacuüm, Diepgevroren, Fles, Bokaal, Doos, Glas, Plastic, Karton, ...",
 	nl_be => "Vers, Conserve, Vacuüm, Diepgevroren, Fles, Bokaal, Doos, Glas, Plastiek, Karton, ...",
 	de => "Frisch, Konserve, Tiefkühlware, Flasche, Packung, Glas, Kunststoff, Karton, ...",
 },
@@ -3972,7 +3957,7 @@ categories_note => {
 	it => "Indicare solo la categoria più specifica, le categorie \"Principali\" saranno aggiunte automaticamente",
 	ro => "Indicați doar categoria cea mai specifică. Categorile \"Părinte\" vor fi adăugate automat.",
 	he => "ציון הקטגוריה החשובה ביותר. קטגוריות „הורים“ יתווספו אוטומטית.",
-	nl => "Duidt enkel de meest specifieke categorie aan. De \"verwante\" categorieën worden automatisch toegevoegd.",
+	nl => "Duid enkel de meest specifieke categorie aan. De \"verwante\" categorieën worden automatisch toegevoegd.",
 	nl_be => "Duidt enkel de meest specifieke categorie aan. De \"verwante\" categorieën worden automatisch toegevoegd.",
 	de => "Geben Sie nur die am zutreffende Kategorie an, die \"Vorfahr-\" Kategorien werden automatisch hinzugefügt.",
 },
@@ -4666,8 +4651,8 @@ by typing the first letters of their name in the last row of the table.",
 	ro => "Tabelul listează implicit nutrienții care sunt specificați mai des. Lăsați câmpul liber dacă nu se regăsește pe etichetă.<br/>Puteți adăuga extra nutrienți (vitamine, minerale, colesterol etc.) tastând primele litere din numele lor în ultimul rând din tabel.",
 	he => "הטבלה מציגה כבררת מחדל את המפרט התזונתי כפי שמופיע בדרך כלל. ניתן להשאיר את השדה ריק אם אינו מופיע על התווית.<br/>ניתן להוסיף פריטי תזונה נוספים (ויטמינים, מינרלים, כולסטרול וכו׳)
 על־ידי הקלדת האותיות הראשונות של שמם בשורה האחרונה של הטבלה.",
-	nl => "De tabel bevat automatisch de voedingsstoffen die het meest vermeld worden. Laat het veld leeg indien het niet vermeld staat op de verpakking.>br />Je kan andere voedingsstoffen (vitamines, mineralen, cholesterol, omega 3 en 6 etc.) toevoegen door de eerste letters van hun naam in de laatste rij van de tabel in te voeren.",
-	nl_be => "De tabel lijst automatisch de voedingsstoffen op die het vaakst vermeld worden. Laat het veld leeg indien het niet vermeld staat op de verpakking.>br />U kunt andere voedingsstoffen (vitamines, mineralen, cholesterol, omega 3 en 6 etc.) toevoegen door de eerste letters van hun naam in de laatste rij van de tabel in te voeren.",
+	nl => "De tabel bevat automatisch de voedingsstoffen die het meest vermeld worden. Laat het veld leeg indien het niet vermeld staat op de verpakking.<br />Je kan andere voedingsstoffen (vitamines, mineralen, cholesterol, omega 3 en 6 etc.) toevoegen door de eerste letters van hun naam in de laatste rij van de tabel in te voeren.",
+	nl_be => "De tabel lijst automatisch de voedingsstoffen op die het vaakst vermeld worden. Laat het veld leeg indien het niet vermeld staat op de verpakking.<br />U kunt andere voedingsstoffen (vitamines, mineralen, cholesterol, omega 3 en 6 etc.) toevoegen door de eerste letters van hun naam in de laatste rij van de tabel in te voeren.",
 	de => "Die Tabelle listet häufige Nährstoffe. Das Feld einfach leer lassen, falls Nährstoffe auf der Verpackung nicht gelistet sind.<br />Weitere Nährstoffe (Vitaminen, Mineralstoffen, Cholesterin, Omega-3, Omega-6, usw.) können beim Eintippen ihrer ersten Zeichen in der letzten Zeile der Tabelle einfach hinzugefügt werden.",
 },
 
@@ -5008,8 +4993,8 @@ brands_tagsinput => {
 	pt => "adicionar uma marca",
 	ro => "adăugați o marcă",
 	he => "הוספת מותג",
-	nl => "een merk toevoegen",
-	nl_be => "een merk toevoegen",
+	nl => "voeg merk toe",
+	nl_be => "voeg merk toe",
 	de => "Marke hinzufügen",
 	zh => '添加品牌',
 },
@@ -5023,8 +5008,8 @@ packaging_tagsinput => {
 	pt => "adicionar um tipo, forma ou material",
 	ro => "adăugați un tip, formă sau material",
 	he => "הוספת סוג, צורה או חומר",
-	nl => "een soort, vorm of materiaal toevoegen",
-	nl_be => "een soort, vorm of materiaal toevoegen",
+	nl => "vorm, materiaal",
+	nl_be => "vorm, materiaal",
 	de => "Art, Form oder Material hinzufügen",
 	zh => '添加类型，外形或材料',
 	ru => 'добавить тип, форму или материал',
@@ -5039,8 +5024,8 @@ categories_tagsinput => {
 	pt => "adicionar uma categoria",
 	ro => "adugați o categorie",
 	he => "הוספת קטגוריה",
-	nl => "een categorie toevoegen",
-	nl_be => "een categorie toevoegen",
+	nl => "voeg categorie toe",
+	nl_be => "voeg categorie toe",
 	de => "Kategorie hinzufügen",
 	zh => '添加类别',
 	ru => 'Добавить категорию',
@@ -5055,8 +5040,8 @@ labels_tagsinput => {
 	pt => "adicionar uma etiqueta",
 	ro => "adăugați o etichetă",
 	he => "הוספת תווית",
-	nl => "een keurmerk toevoegen",
-	nl_be => "een label toevoegen",
+	nl => "voeg label toe",
+	nl_be => "voeg label toe",
 	de => "Label hinzufügen",
 	zh => '添加标签',
 },
@@ -5070,8 +5055,8 @@ origins_tagsinput => {
 	pt => "adicionar uma origem",
 	ro => "adăugați o origine",
 	he => "הוספת מקור",
-	nl => "herkomst toevoegen",
-	nl_be => "herkomst toevoegen",
+	nl => "voeg herkomst toe",
+	nl_be => "voeg herkomst toe",
 	de => "Herkunft hinzufügen",
 	zh => "添加来源",
 },
@@ -5085,8 +5070,8 @@ manufacturing_places_tagsinput => {
 	pt => "adicionar um local",
 	ro => "adăugați un loc",
 	he => "הוספת מיקום",
-	nl => "een locatie toevoegen",
-	nl_be => "een locatie toevoegen",
+	nl => "voeg locatie toe",
+	nl_be => "voeg locatie toe",
 	de => "Ort hinzufügen",
 	zh => '添加地点',
 	ru => 'добавить место',
@@ -5100,8 +5085,8 @@ es => "añadir un lugar",
 	pt => "adicionar um local",
 	ro => "adăugați un loc",
 	he => "הוספת מיקום",
-	nl => "een locatie toevoegen",
-	nl_be => "een locatie toevoegen",
+	nl => "voeg locatie toe",
+	nl_be => "voeg locatie toe",
 	de => "Ort hinzufügen",
 },
 
@@ -5114,8 +5099,8 @@ stores_tagsinput => {
 	pt => "adicionar uma loja",
 	ro => "adăugați un magazin",
 	he => "הוספת חנות",
-	nl => "een winkel toevoegen",
-	nl_be => "een winkel toevoegen",
+	nl => "voeg winkel toe",
+	nl_be => "voeg winkel toe",
 	de => "Laden hinzufügen",
 	zh => '添加商店',
 	ru => 'добавить магазин',
@@ -5491,6 +5476,216 @@ users_edit_products => {
 	nl_be => "Producten die aangepast werden door gebruiker %s",
 	de => "Produkte, die von dem Mitwirkenden %s verändert wurden",
 },
+
+# we can now list products that do not have a specific tag
+
+
+brands_without_products => {
+	fr => "Les produits qui ne sont pas de la marque %s",
+	en => "Products not from the %s brand",
+#	el => "Προϊόντα από την %s μάρκα",
+#	es => "Productos de la marca %s",
+#	pt => "Produtos da marca %s",
+#	ro => "Produse de la marca %s",
+#	he => "מוצרים מבית המותג %s",
+#	nl => "Producten van het merk %s",
+#	nl_be => "Producten van het merk %s",
+#	de => "Die Produkte von der Marke %s",
+},
+
+categories_without_products => {
+	fr => "Les produits qui ne sont pas dans la catégorie %s",
+	en => "Products not from the %s category",
+#	el => "Προϊόντα από την %s κατηγορία",
+#	es => "Productos de la categoría %s",
+#	pt => "Produtos da categoria %s",
+#	ro => "Produse din categoria %s",
+#	he => "מוצרים מהקטגוריה %s",
+#	nl => "Producten van de categorie %s",
+#	nl_be => "Producten van de categorie %s",
+#	de => "Die Produkte von der Kategorie %s",
+},
+
+emb_codes_without_products => {
+	fr => "Les produits dont le code emballeur n'est pas %s",
+	en => "Products without the emb code %s",
+#	el => "Προϊόντα με τον κωδικό συσκευασίας %s",
+#	es => "Productos con código de envasador %s",
+#	pt => "Produtos com o código de embalador %s",
+#	nl => "Producten met verpakkerscode %s",
+#	nl_be => "Producten met verpakkerscode %s",
+#	de => "Die Produkte mit Verpackungscode %s",
+},
+
+cities_without_products => {
+	fr => "Les produits dont la commune d'emballage n'est pas %s",
+	en => "Products not packaged in the city of %s",
+#	el => "Προϊόντα συσκευασμένα στην πόλη %s",
+#	es => "Productos envasados en el municipio de %s",
+#	pt => "Produtos embalados na cidade de %s",
+#	ro => "Produse împachetate în orașul %s",
+#	he => "מוצרים שנארזו בעיר %s",
+#	nl => "Producten verpakt in de stad %s",
+#	nl_be => "Producten verpakt in de stad %s",
+#	de => "Produkte verpackt in der Stadt %s",
+},
+
+packaging_without_products => {
+	fr => "Les produits sans le conditionnement %s",
+#	en => "Products without a %s packaging",
+#	el => "Προϊόντα με %s συσκευασία",
+#	es => "Productos con envase %s",
+#	pt => "Produtos com embalagem em %s",
+#	ro => "Produse cu ambalaj de %s",
+#	he => "מוצרים באריזה מסוג %s",
+#	nl => "Producten met een verpakking van %s",
+#	nl_be => "Producten met een verpakking van %s",
+#	de => "Produkte mit der Verpackung %s",
+},
+
+origins_without_products => {
+	fr => "Les produits dont l'origine des ingrédients n'est pas %s",
+	en => "Products without ingredients originating from %s",
+#	el => "Προϊόντα με συστατικά προερχόμενα από %s",
+#	es => "Productos originarios de %s",
+#	pt => "Produtos originários de %s",
+#	ro => "Produse cu ingrediente originare din %s",
+#	he => "מוצרים שמקורם %s",
+#	nl => "Producten waarvan de ingrediënten afkomstig zijn uit %s",
+#	nl_be => "Producten waarvan de ingrediënten afkomstig zijn uit %s",
+#	de => "Produkte, deren Herkunft der Zutaten %s ist, ",
+},
+
+manufacturing_places_without_products => {
+	fr => "Les produits qui ne sont pas fabriqués ou transformés à :  %s",
+	en => "Products not manufactured or processed in %s",
+#	el => "Προϊόντα παρασκευασμένα ή επεξεργασμένα σε %s",
+#	es => "Productos fabricados o transformados en  %s",
+#	ro => "Produse fabricate sau procesate în %s",
+#	pt => "Produtos fabricados ou transformados em %s",
+#	nl => "Producten geproduceerd of verwerkt in %s",
+#	nl_be => "Producten geproduceerd of verwerkt in %s",
+#	de => "Produkte nach Herstellungs- oder Verwandlungsort: %s",
+},
+
+purchase_places_without_products => {
+	fr => "Les produits qui ne sont pas vendus à : %s",
+	en => "Products not sold in %s",
+#	el => "Προϊόντα πωλούμενα ανά σημείο πώλησης: %s",
+#	es => "Productos vendidos en %s",
+#	pt => "Produtos vendidos em %s",
+#	ro => "Produse vândute în %s",
+#	he => "מוצרים שנמכרים ב%s",
+#	nl => "Producten verkocht in %s",
+#	nl_be => "Producten verkocht in %s",
+#	de => "Produkte nach Verkaufsort: %s",
+},
+
+stores_without_products => {
+	fr => "Les produits qui n'ont pas été achetés dans le magasin : %s",
+	en => "Products not bought at %s",
+#	el => "Προϊόντα πωλούμενα ανά κατάστημα: %s",
+#	es => "Productos vendidos en el comercio %s",
+#	pt => "Produtos vendidos na loja:  %s",
+#	ro => "Produse vândute la %s",
+#	he => "מוצרים שנמכרים אצל",
+#	nl => "Producten verkocht in %s",
+#	nl_be => "Producten verkocht in %s",
+#	de => "Produkte nach Laden: %s",
+},
+
+countries_without_products => {
+	fr => "Les produits qui ne sont pas vendus dans le pays : %s",
+	en => "Products not sold in %s",
+#	el => "Προϊόντα πωλούμενα στις χώρες: %s",
+#	es => "Productos vendidos en %s",
+#	pt => "Produtos vendidos no país : %s", # we have 3 prepositions (em, na, no) depending on the country; opting for the same logic as the French translation
+#	ro => "Produse vândute în %s",
+#	he => "מוצרים שנמכרים ב%s",
+#	nl => "Producten verkocht in %s",
+#	nl_be => "Producten verkocht in %s",
+#	de => "Produkte verkauft im Land: %s",
+},
+
+ingredients_without_products => {
+	fr => "Les produits qui ne contiennent pas l'ingrédient %s",
+	en => "Products that do not contain the ingredient %s",
+#	el => "Προϊόντα που περιέχουν τα συστατικά %s",
+#	es => "Productos que contienen el ingrediente %s",
+#	pt => "Produtos que contêm o ingrediente %s",
+#	ro => "Produse care conțin ingredientul %s",
+#	he => "מוצרים המכילים את הרכיב %s",
+#	nl => "Producten met het ingrediënt %s",
+#	nl_be => "Producten met het ingrediënt %s",
+#	de => "Produkte mit Zutaten %s",
+},
+
+labels_without_products => {
+	fr => "Les produits qui ne possèdent pas le label %s",
+	en => "Products that do not have the label %s",
+#	el => "Προϊόντα που έχουν την ετικέτα %s",
+#	es => "Productos con la etiqueta %s",
+#	pt => "Produtos com a etiqueta %s",
+#	ro => "Produse care au eticheta %s",
+#	he => "מוצרים הנושאים את התווית %s",
+#	nl => "Producten met het keurmerk %s",
+#	nl_be => "Producten met het label %s",
+#	de => "Produkte mit Label %s",
+},
+
+nutriments_without_products => {
+	fr => "Les produits qui ne contiennent pas le nutriment %s",
+	en => "Products that do not contain the nutriment %s",
+#	el => "Προϊόντα που περιέχουν το θρεπτικό συστατικό %s",
+#	es => "Productos que contienen el nutriente %s",
+#	pt => "Produtos que contêm o nutriente %s",
+#	ro => "Produse care conțin nutrientul %s",
+#	he => "מוצרים המכילים את הרכיב התזונתי %s",
+#	nl => "Producten met de voedingsstof %s",
+#	nl_be => "Producten met de voedingsstof %s",
+#	de => "Produkte mit Nährstoff %s",
+},
+
+users_without_products => {
+	fr => "Les produits qui n'ont pas été ajoutés par %s",
+	en => "Products not added by %s",
+#	el => "Προϊόντα που προστέθηκαν από %s",
+#	es => "Productos añadidos por %s",
+#	pt => "Produtos adicionados por %s",
+#	ro => "Produse adăugate de %s",
+#	he => "מוצרים שנוספו על־ידי %s",
+#	nl => "Producten toegevoegd door %s",
+#	nl_be => "Producten toegevoegd door %s",
+#	de => "Produkte, die von %s hinzugefügt wurden",
+#	fi => "Tuotteen lisäsi %s",
+},
+
+users_add_without_products => {
+	fr => "Les produits qui n'ont pas été ajoutés par le contributeur %s",
+	en => "Products that were not added by the user %s",
+#	el => "Προϊόντα που προστέθηκαν από το χρήστη %s",
+#	es => "Productos que fueron añadidos por el usuario %s",
+#	pt_pt => "Produtos que foram adicionados pelo utilizador %s",
+#	ro => "Produse care au fost adăugate de către utilizatorul %s",
+#	he => "מוצרים שנוספו על־ידי המשתמש %s",
+#	nl => "Producten die toegevoegd werden door gebruiker %s",
+#	nl_be => "Producten die toegevoegd werden door gebruiker %s",
+#	de => "Produkte, die von dem Mitwirkenden %s hinzugefügt wurden",
+},
+
+users_edit_without_products => {
+	fr => "Les produits qui n'ont pas été modifiés par le contributeur %s",
+	en => "Products that were not edited by the user %s",
+#	el => "Προϊόντα που επεξεργάστηκαν από το χρήστη %s",
+#	es => "Productos que fueron editados por el usuario %s",
+#	pt_pt => "Produtos que foram editados pelo utilizador %s",
+#	ro => "Produse care au fost modificate de către utilizatorul %s",
+#	he => "מוצרים שנערכו על־ידי המשתמש %s",
+#	nl => "Producten die aangepast werden door gebruiker %s",
+#	nl_be => "Producten die aangepast werden door gebruiker %s",
+#	de => "Produkte, die von dem Mitwirkenden %s verändert wurden",
+},
+
 
 brands_s => {
 	fr => "marque",
@@ -6373,6 +6568,16 @@ ingredients_from_or_that_may_be_from_palm_oil_p => {
 	de => "Zutaten, die (möglicherweise) aus Palmöl stammen",
 },
 
+ingredients_n_s => {
+	en => "Number of ingredients",
+	fr => "Nombre d'ingrédients",
+},
+
+ingredients_n_p => {
+	en => "Numbers of ingredients",
+	fr => "Nombres d'ingrédients",
+},
+
 codes_s => {
 	en => "Code",
 },
@@ -6952,15 +7157,15 @@ pelas informações, e sob a licença <a href="http://creativecommons.org/licens
 Você aceita ser creditado por reutilizadores por um link para o produto que está a contribuir.',
 	ro => 'Adăugând informații, date și/sau imagini, acceptați să vă faceți contribuția disponibilă sub licența pentru informație și date <a href="http://opendatacommons.org/licenses/dbcl/1.0/">Database Contents Licence 1.0</a>, și sub licența pentru imagini <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution - ShareAlike 3.0</a>.
 Acceptați să fiți creditat pentru re-utilizări cu un link către produsul la care contribuiți.',
-	nl => 'Door informatie, data en/of beelden toe te voegen, aanvaard je dat je bijdrage onherroeplijk geplaatst wordt onder de <a href="http://opendatacommons.org/licenses/dbcl/1.0/">Database Contents Licence 1.0</a> licentie
+	nl => 'Door informatie, data en/of beelden toe te voegen, aanvaard je dat je bijdrage onherroepelijk geplaatst wordt onder de <a href="http://opendatacommons.org/licenses/dbcl/1.0/">Database Contents Licence 1.0</a> licentie
 voor informatie en data, en onder de <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution - ShareAlike 3.0</a> licentie voor beelden.
-Je aanvaard ook dat je gecrediteerd kan worden door hergebruikers via een link naar het product waar je tot bijgedragen hebt.',
+Je aanvaard ook dat je gecrediteerd kan worden door hergebruikers via een link naar het product waar je aan bijgedragen hebt.',
 	nl_be => 'Door informatie, data en/of beelden toe te voegen, aanvaardt u dat uw bijdrage onherroeplijk geplaatst wordt onder de <a href="http://opendatacommons.org/licenses/dbcl/1.0/">Database Contents Licence 1.0</a> licentie
 voor informatie en data, en onder de <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution - ShareAlike 3.0</a> licentie voor beelden.
 U aanvaardt ook dat u gecrediteerd kan worden door hergebruikers via een link naar het product waar u tot bijgedragen hebt.',
 	de => 'Durch das Eingeben von Daten und Hinzufügen von Fotos erklären Sie sich unwiderruflich damit einverstanden, Ihre Beteiligung für die Informationen unter der Lizenz <a href="http://opendatacommons.org/licenses/dbcl/1.0/" hreflang="en">Database Contents Licence 1.0</a>
  beizutragen und für die Fotos unter den Lizenz <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.de">Creative Commons Attribution - ShareAlike 3.0</a> zu veröffentlichen.
-Sie stimmen damit zu, von anderen Projekten, dei diese Daten nutzen, mit einem Link zu den von Ihnen bearbeiteten Produkten kreditiert zu werden.',
+Sie stimmen damit zu, von anderen Projekten, die diese Daten nutzen, mit einem Link zu den von Ihnen bearbeiteten Produkten kreditiert zu werden.',
 },
 
 tag_belongs_to => {
@@ -7880,16 +8085,16 @@ search_generate_graph => {
 },
 
 search_graph_warning => {
-	fr => "Note : ce graphique a été généré par un utilisateur du site Open Food Facts. Le titre, les produits representés et les axes de représentation ont été choisis par l'auteur du graphique.",
+	fr => "Note : ce graphique a été généré par un utilisateur du site <<site_name>>. Le titre, les produits representés et les axes de représentation ont été choisis par l'auteur du graphique.",
 	en => "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph.",
 	el => "Σημείωση: αυτό είναι είναι ένα γράφημα φτιαγμένο από  χρήστη. Ο τίτλος, τα παρουσιαζόμενα προϊόντα και η παρουσίαση των αξόνων έχουν επιλεχθεί από το δημιουργό του γραφήματος.",
-	es => "Nota: Este gráfico fue generado por un usuario de Open Food Facts. El título, los productos representados y los ejes de la representación han sido escogidos por el autor del gráfico.",
-	pt_pt => "Nota: Este gráfico foi gerado por um utilizador do Open Food Facts. O título, os produtos representados e os eixos de visualização foram escolhidos pelo autor do gráfico.",
+	es => "Nota: Este gráfico fue generado por un usuario de <<site_name>>. El título, los productos representados y los ejes de la representación han sido escogidos por el autor del gráfico.",
+	pt_pt => "Nota: Este gráfico foi gerado por um utilizador do <<site_name>>. O título, os produtos representados e os eixos de visualização foram escolhidos pelo autor do gráfico.",
 	ro => "Notă: acesta este un grafic generat de un utilizator. Titlul, produsele reprezentate și axa de vizualizare au fost alese de către autorul graficului.",
 	he => "לתשומת לבך: תרשים זה נוצר על־ידי משתמש. הכותרת, המוצרים המיוצגים והציר נבחרו כולם על־ידי יוצר התרשים.",
-	nl => "Opmerking: deze grafiek werd gemaakt door een gebruiker van Open Food Facts. De titel, de afgebeelde producten en de assen werden gekozen door de maker van de grafiek.",
-	nl_be => "Opmerking: deze grafiek werd gemaakt door een gebruiker van Open Food Facts. De titel, de afgebeelde producten en de assen werden gekozen door de maker van de grafiek.",
-	de => "Bemerkung: diese Grafik wurde von einem Benutzer der Open Food Facts Gemeinschaft erzeugt. Der Titel, die ang ezeigten Produkte und die Achsen wurden von dem Benutzer selbst ausgewählt.",
+	nl => "Opmerking: deze grafiek werd gemaakt door een gebruiker van <<site_name>>. De titel, de afgebeelde producten en de assen werden gekozen door de maker van de grafiek.",
+	nl_be => "Opmerking: deze grafiek werd gemaakt door een gebruiker van <<site_name>>. De titel, de afgebeelde producten en de assen werden gekozen door de maker van de grafiek.",
+	de => "Bemerkung: diese Grafik wurde von einem Benutzer der <<site_name>> Gemeinschaft erzeugt. Der Titel, die ang ezeigten Produkte und die Achsen wurden von dem Benutzer selbst ausgewählt.",
 },
 
 search_generate_map => {
@@ -7906,15 +8111,15 @@ search_generate_map => {
 },
 
 search_graph_blog => {
-	fr => "<p>→ en savoir plus sur les graphiques d'Open Food Facts : <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Des graphiques en 3 clics</a> (blog).</p>",
+	fr => "<p>→ en savoir plus sur les graphiques d'<<site_name>> : <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Des graphiques en 3 clics</a> (blog).</p>",
 	en => "",
-	el => "<p>Για να μάθετε περισσότερα για τα γραφήματα του Open Food Facts: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Τα γραφήματα σε 3 κλικς (στα γαλλικά)</a> (blog).</p>",
-	es => "<p>→ para saber más acerca de los gráficos de Open Food Facts: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Los gráficos en 3 clics (en francés)</a> (blog).</p>",
-	pt => "<p>→ para saber mais acerca dos gráficos do Open Food Facts: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Gráficos em 3 cliques (en francês)</a> (blog).</p>",
-	ro => "<p>→ pentru a afla mai multe despre graficele de pe Open Food Facts : <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graficele în 3 click-uri (în franceză)</a> (blog).</p>",
-	nl => "<p>→ meer weten over de grafieken van Open Food Facts: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Grafieken in drie muisklikken</a> (blog).</p>",
-	nl_be => "<p>→ meer weten over de grafieken van Open Food Facts: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Grafieken in drie muisklikken</a> (blog).</p>",
-	de => "<p>→ mehr über Open Food Facts Grafiken erfahren: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Grafiken in 3-Click</a> (blog).</p>",
+	el => "<p>Για να μάθετε περισσότερα για τα γραφήματα του <<site_name>>: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Τα γραφήματα σε 3 κλικς (στα γαλλικά)</a> (blog).</p>",
+	es => "<p>→ para saber más acerca de los gráficos de <<site_name>>: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Los gráficos en 3 clics (en francés)</a> (blog).</p>",
+	pt => "<p>→ para saber mais acerca dos gráficos do <<site_name>>: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Gráficos em 3 cliques (en francês)</a> (blog).</p>",
+	ro => "<p>→ pentru a afla mai multe despre graficele de pe <<site_name>> : <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graficele în 3 click-uri (în franceză)</a> (blog).</p>",
+	nl => "<p>→ meer weten over de grafieken van <<site_name>>: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Grafieken in drie muisklikken</a> (blog).</p>",
+	nl_be => "<p>→ meer weten over de grafieken van <<site_name>>: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Grafieken in drie muisklikken</a> (blog).</p>",
+	de => "<p>→ mehr über <<site_name>> Grafiken erfahren: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Grafiken in 3-Click</a> (blog).</p>",
 },
 
 advanced_search_old => {
@@ -8434,8 +8639,8 @@ product_add_nutrient => {
 	es => "Añade un nutriente",
 	pt => "Adicionar um nutriente",
 	ro => "Adăugați un nutrient",
-	nl => "Een voedingsstof toevoegen",
-	nl_be => "Een voedingsstof toevoegen",
+	nl => "Voeg voedingsstof toe",
+	nl_be => "Voeg voedingsstof toe",
 	de => "Nährstoff hinzufügen",
 	zh => '添加营养成分',
 },
@@ -8861,16 +9066,16 @@ no_product_for_barcode => {
 },
 
 products_stats => {
-	fr => "Evolution du nombre de produits sur Open Food Facts",
-	en => "Evolution of the number of products on Open Food Facts",
-    el => "Εξέλιξη του αριθμού των προϊόντων στο Open Food Facts",
-	es => "Evolución del número de productos en Open Food Facts",
-	pt => "Evolução do número de produtos no Open Food Facts",
-	ro => "Evoluția numărului de produse pe Open Food Facts",
-	he => "התפתחות מספר המוצרים ב־Open Food Facts",
-	nl => "Evolutie van het aantal producten op Open Food Facts",
-	nl_be => "Evolutie van het aantal producten op Open Food Facts",
-	de => "Entwicklung der Zahl von Produkten auf Open Food Facts",
+	fr => "Evolution du nombre de produits sur <<site_name>>",
+	en => "Evolution of the number of products on <<site_name>>",
+    el => "Εξέλιξη του αριθμού των προϊόντων στο <<site_name>>",
+	es => "Evolución del número de productos en <<site_name>>",
+	pt => "Evolução do número de produtos no <<site_name>>",
+	ro => "Evoluția numărului de produse pe <<site_name>>",
+	he => "התפתחות מספר המוצרים ב־<<site_name>>",
+	nl => "Evolutie van het aantal producten op <<site_name>>",
+	nl_be => "Evolutie van het aantal producten op <<site_name>>",
+	de => "Entwicklung der Zahl von Produkten auf <<site_name>>",
 },
 
 products_stats_created_t => {
@@ -9382,7 +9587,7 @@ CSS
 header => {
 	fr => <<HEADER
 <meta property="fb:admins" content="706410516" />
-<meta property="og:site_name" content="Open Food Facts - l'information alimentaire ouverte"/>
+<meta property="og:site_name" content="<<site_name>> - l'information alimentaire ouverte"/>
 
 <script type="text/javascript">
   var uvOptions = {};
@@ -9396,7 +9601,7 @@ HEADER
 ,
 	en => <<HEADER
 <meta property="fb:admins" content="706410516" />
-<meta property="og:site_name" content="Open Food Facts - the free and open food products information database"/>
+<meta property="og:site_name" content="<<site_name>> - the free and open food products information database"/>
 
 <script type="text/javascript">
   var uvOptions = {};
@@ -9412,7 +9617,7 @@ HEADER
 ,
 	es => <<HEADER
 <meta property="fb:admins" content="706410516" />
-<meta property="og:site_name" content="Open Food Facts - la información alimentaria libre"/>
+<meta property="og:site_name" content="<<site_name>> - la información alimentaria libre"/>
 
 <script type="text/javascript">
   var uvOptions = {};
@@ -9429,7 +9634,7 @@ HEADER
 
 el => <<HEADER
 <meta property="fb:admins" content="706410516" />
-<meta property="og:site_name" content="Open Food Facts - informações abertas de alimentos"/>
+<meta property="og:site_name" content="<<site_name>> - informações abertas de alimentos"/>
 
 <script type="text/javascript">
   var uvOptions = {};
@@ -9445,7 +9650,7 @@ HEADER
 ,
 	ro => <<HEADER
 <meta property="fb:admins" content="706410516" />
-<meta property="og:site_name" content="Open Food Facts - baza de date liberă și deschisă cu informații despre produse alimentare"/>
+<meta property="og:site_name" content="<<site_name>> - baza de date liberă și deschisă cu informații despre produse alimentare"/>
 
 <script type="text/javascript">
   var uvOptions = {};
@@ -9461,7 +9666,7 @@ HEADER
 ,
 	nl => <<HEADER
 <meta property="fb:admins" content="706410516" />
-<meta property="og:site_name" content="Open Food Facts - de vrije databank voor voedingsmiddelen"/>
+<meta property="og:site_name" content="<<site_name>> - de vrije databank voor voedingsmiddelen"/>
 
 <script type="text/javascript">
   var uvOptions = {};
@@ -9475,7 +9680,7 @@ HEADER
 ,
 	nl_be => <<HEADER
 <meta property="fb:admins" content="706410516" />
-<meta property="og:site_name" content="Open Food Facts - de vrije databank voor voedingsmiddelen"/>
+<meta property="og:site_name" content="<<site_name>> - de vrije databank voor voedingsmiddelen"/>
 
 <script type="text/javascript">
   var uvOptions = {};
@@ -9489,7 +9694,7 @@ HEADER
 ,
 	de => <<HEADER
 <meta property="fb:admins" content="706410516" />
-<meta property="og:site_name" content="Open Food Facts - die offene und kostenlose Nahrungsinformationsdatenbank"/>
+<meta property="og:site_name" content="<<site_name>> - die offene und kostenlose Nahrungsinformationsdatenbank"/>
 
 <script type="text/javascript">
   var uvOptions = {};
@@ -9507,7 +9712,7 @@ HEADER
 menu => {
 	fr => <<HTML
 <ul>
-<li><a href="/a-propos" title="En savoir plus sur Open Food Facts">A propos</a></li>
+<li><a href="/a-propos" title="En savoir plus sur <<site_name>>">A propos</a></li>
 <li><a href="/mode-d-emploi" title="Pour bien démarrer en deux minutes">Mode d'emploi</a></li>
 <li><a href="/contact" title="Des questions, remarques ou suggestions ?">Contact</a></li>
 </ul>
@@ -9515,7 +9720,7 @@ HTML
 ,
 	en => <<HTML
 <ul>
-<li><a href="/about" title="More info about Open Food Facts">About</a></li>
+<li><a href="/about" title="More info about <<site_name>>">About</a></li>
 <li><a href="/quickstart-guide" title="How to add products in 2 minutes">Quickstart guide</a></li>
 <li><a href="/contact" title="Questions, comments or suggestions?">Contact</a></li>
 </ul>
@@ -9523,7 +9728,7 @@ HTML
 ,
 el => <<HTML
 <ul>
-<li><a href="/about" title="More info about Open Food Facts">About</a></li>
+<li><a href="/about" title="More info about <<site_name>>">About</a></li>
 <li><a href="/quickstart-guide" title="How to add products in 2 minutes">Quickstart guide</a></li>
 <li><a href="/contact" title="Questions, comments or suggestions?">Contact</a></li>
 </ul>
@@ -9531,7 +9736,7 @@ HTML
 ,
 	es => <<HTML
 <ul>
-<li><a href="/acerca-de" title="Más información acerca de Open Food Facts">Acerca de</a></li>
+<li><a href="/acerca-de" title="Más información acerca de <<site_name>>">Acerca de</a></li>
 <li><a href="/guia-de-inicio-rapido" title="Cómo añadir productos en 2 minutos">Guía de inicio rápido</a></li>
 <li><a href="/contacto" title="Preguntas, comentarios o sugerencias?">Contacto</a></li>
 </ul>
@@ -9539,7 +9744,7 @@ HTML
 ,
 	he => <<HTML
 <ul>
-<li><a href="/about" title="מידע נוסף על Open Food Facts">על אודות</a></li>
+<li><a href="/about" title="מידע נוסף על <<site_name>>">על אודות</a></li>
 <li><a href="/quickstart-guide" title="איך להוסיף מוצרים ב־2 דקות">מדריך זריז למתחילים</a></li>
 <li><a href="/contact" title="שאלותת הערות או הצעות??">יצירת קשר</a></li>
 </ul>
@@ -9547,7 +9752,7 @@ HTML
 ,
 	pt => <<HTML
 <ul>
-<li><a href="/about" title="Mais informação sobre o Open Food Facts">Acerca de</a></li>
+<li><a href="/about" title="Mais informação sobre o <<site_name>>">Acerca de</a></li>
 <li><a href="/quickstart-guide" title="Como adicionar produtos em 2 minutos">Guia de início rápido</a></li>
 <li><a href="/contact" title="Perguntas, comentários ou sugestões?">Contacto</a></li>
 </ul>
@@ -9555,7 +9760,7 @@ HTML
 ,
 	ro => <<HTML
 <ul>
-<li><a href="/about" title="Mai multe informații despre Open Food Facts">About</a></li>
+<li><a href="/about" title="Mai multe informații despre <<site_name>>">About</a></li>
 <li><a href="/quickstart-guide" title="Cum să adăugați produse în 2 minute">Ghid de start rapid</a></li>
 <li><a href="/contact" title="Întrebări, comentarii sau sugestii?">Contact</a></li>
 </ul>
@@ -9563,7 +9768,7 @@ HTML
 ,
 	nl => <<HTML
 <ul>
-<li><a href="/a-propos" title="Meer weten over Open Food Facts">A propos</a></li>
+<li><a href="/a-propos" title="Meer weten over <<site_name>>">A propos</a></li>
 <li><a href="/mode-d-emploi" title="Hoe producten toevoegen in twee minuten">Gebruiksaanwijzing</a></li>
 <li><a href="/contact" title="Vragen, opmerkingen of suggesties?">Contact</a></li>
 </ul>
@@ -9571,7 +9776,7 @@ HTML
 ,
 	nl_be => <<HTML
 <ul>
-<li><a href="/a-propos" title="Meer weten over Open Food Facts">A propos</a></li>
+<li><a href="/a-propos" title="Meer weten over <<site_name>>">A propos</a></li>
 <li><a href="/mode-d-emploi" title="Hoe producten toevoegen in twee minuten">Gebruiksaanwijzing</a></li>
 <li><a href="/contact" title="Vragen, opmerkingen of suggesties?">Contact</a></li>
 </ul>
@@ -9580,7 +9785,7 @@ HTML
 
 	de => <<HTML
 <ul>
-<li><a href="/a-propos" title="Mehr über Open Food Facts erfahren">A propos</a></li>
+<li><a href="/a-propos" title="Mehr über <<site_name>> erfahren">A propos</a></li>
 <li><a href="/mode-d-emploi" title="In knapp 2 Minuten einfach starten">Benutzung</a></li>
 <li><a href="/contact" title="Fragen, Bemerkungen oder Hinweise?">Kontakt</a></li>
 </ul>
@@ -9588,38 +9793,14 @@ HTML
 ,
 },
 
-tagline => {
 
-    ar => 'Open Food Facts بجمع المعلومات والبيانات على المنتجات الغذائية من جميع أنحاء العالم.', #ar-CHECK - Please check and remove this comment
-	de => "Open Food Facts erfasst Nahrungsmittel aus der ganzen Welt.",
-    cs => 'Open Food Facts shromažďuje informace a údaje o potravinářské výrobky z celého světa.', #cs-CHECK - Please check and remove this comment
-	es => "Open Food Facts recopila información sobre los productos alimenticios de todo el mundo.",
-	en => "Open Food Facts gathers information and data on food products from around the world.",
-    it => 'Open Food Facts raccoglie informazioni e dati sui prodotti alimentari provenienti da tutto il mondo.', #it-CHECK - Please check and remove this comment
-    fi => 'Open Food Facts kerää tietoja elintarvikkeiden tuotteita ympäri maailmaa.', #fi-CHECK - Please check and remove this comment
-	fr => "Open Food Facts répertorie les produits alimentaires du monde entier.",
-	el => "Το Open Food Facts συγκεντρώνει πληροφορίες και δεδομένα για τρόφιμα από όλο τον κόσμο.",
-	he => "המיזם Open Food Facts אוסף מידע ונתונים על מוצרי מזון מכל רחבי העולם.",
-    ja => 'Open Food Facts は、世界中から食料品の情報やデータを収集します。', #ja-CHECK - Please check and remove this comment
-    ko => 'Open Food Facts 은 세계 각국에서 식품 제품에 대한 정보와 데이터를 수집합니다.', #ko-CHECK - Please check and remove this comment
-	nl => "Open Food Facts inventariseert alle voedingsmiddelen uit de hele wereld.",
-	nl_be => "Open Food Facts inventariseert alle voedingsmiddelen uit de hele wereld.",
-    ru => 'Open Food Facts собирает информацию и данные о пищевых продуктах по всему миру.', #ru-CHECK - Please check and remove this comment
-    pl => 'Open Food Facts gromadzi informacje i dane dotyczące produktów spożywczych z całego świata.', #pl-CHECK
-    pt => "O Open Food Facts coleciona informação de produtos alimentares de todo o mundo.",
-	ro => "Open Food Facts adună informații și date despre produse alimentare din întreaga lume.",
-    th => 'Open Food Facts รวบรวมข้อมูลและข้อมูลเกี่ยวกับผลิตภัณฑ์อาหารจากทั่วโลก', #th-CHECK - Please check and remove this comment
-    vi => 'Open Food Facts tập hợp thông tin và dữ liệu về các sản phẩm thực phẩm từ khắp nơi trên thế giới.', #vi-CHECK - Please check and remove this comment
-    zh => 'Open Food Facts 来自世界各地收集有关食品的信息和数据。', #zh-CHECK - Please check and remove this comment
-
-},
 
 column_obsolete_do_not_translate_for_reference_only => {
 
 	fr => <<HTML
-<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-fr.png" width="178" height="141" alt="Open Food Facts" /></a>
+<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-fr.png" width="178" height="141" alt="<<site_name>>" /></a>
 
-<p>Open Food Facts répertorie les produits alimentaires du monde entier.</p>
+<p><<site_name>> répertorie les produits alimentaires du monde entier.</p>
 
 <select_country>
 
@@ -9666,9 +9847,9 @@ HTML
 ,
 
 	en => <<HTML
-<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-en.png" width="178" height="144" alt="Open Food Facts" /></a>
+<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-en.png" width="178" height="144" alt="<<site_name>>" /></a>
 
-<p>Open Food Facts gathers information and data on food products from around the world.</p>
+<p><<site_name>> gathers information and data on food products from around the world.</p>
 
 <select_country>
 
@@ -9709,9 +9890,9 @@ HTML
 ,
 
 el => <<HTML
-<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-en.png" width="178" height="144" alt="Open Food Facts" /></a>
+<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-en.png" width="178" height="144" alt="<<site_name>>" /></a>
 
-<p>Το Open Food Facts συγκεντρώνει πληροφορίες και δεδομένα για τρόφιμα από όλο τον κόσμο. </p>
+<p>Το <<site_name>> συγκεντρώνει πληροφορίες και δεδομένα για τρόφιμα από όλο τον κόσμο. </p>
 
 <select_country>
 
@@ -9753,9 +9934,9 @@ HTML
 # Arabic
 
 ar => <<HTML
-<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-ar.png" width="178" height="148" alt="Open Food Facts" /></a>
+<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-ar.png" width="178" height="148" alt="<<site_name>>" /></a>
 
-<p>Open Food Facts gathers information and data on food products from around the world.</p>
+<p><<site_name>> gathers information and data on food products from around the world.</p>
 
 <select_country>
 
@@ -9795,9 +9976,9 @@ HTML
 ,
 
 	de => <<HTML
-<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-de.png" width="178" height="142" alt="Open Food Facts" /></a>
+<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-de.png" width="178" height="142" alt="<<site_name>>" /></a>
 
-<p>Open Food Facts erfasst Nahrungsmittel aus der ganzen Welt.</p>
+<p><<site_name>> erfasst Nahrungsmittel aus der ganzen Welt.</p>
 
 <select_country>
 
@@ -9838,9 +10019,9 @@ HTML
 ,
 
 	es => <<HTML
-<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-es.png" width="178" height="141" alt="Open Food Facts" /></a>
+<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-es.png" width="178" height="141" alt="<<site_name>>" /></a>
 
-<p>Open Food Facts recopila información sobre los productos alimenticios de todo el mundo.</p>
+<p><<site_name>> recopila información sobre los productos alimenticios de todo el mundo.</p>
 
 <select_country>
 
@@ -9887,9 +10068,9 @@ HTML
 #PT-BR
 
 	pt => <<HTML
-<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-pt.png" width="178" height="143" alt="Open Food Facts" /></a>
+<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-pt.png" width="178" height="143" alt="<<site_name>>" /></a>
 
-<p>O Open Food Facts coleciona informação de produtos alimentares de todo o mundo.</p>
+<p>O <<site_name>> coleciona informação de produtos alimentares de todo o mundo.</p>
 
 <select_country>
 
@@ -9929,9 +10110,9 @@ HTML
 #PT-PT
 
 	pt_pt => <<HTML
-<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-pt.png" width="178" height="143" alt="Open Food Facts" /></a>
+<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-pt.png" width="178" height="143" alt="<<site_name>>" /></a>
 
-<p>O Open Food Facts agrega informação de produtos alimentares de todo o mundo.</p>
+<p>O <<site_name>> agrega informação de produtos alimentares de todo o mundo.</p>
 
 <select_country>
 
@@ -9969,9 +10150,9 @@ HTML
 ,
 
 	ro => <<HTML
-<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-en.png" width="178" height="144" alt="Open Food Facts" /></a>
+<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-en.png" width="178" height="144" alt="<<site_name>>" /></a>
 
-<p>Open Food Facts adună informații și date despre produse alimentare din întreaga lume.</p>
+<p><<site_name>> adună informații și date despre produse alimentare din întreaga lume.</p>
 
 <select_country>
 
@@ -10011,9 +10192,9 @@ HTML
 ,
 
 	he => <<HTML
-<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-he.png" width="178" height="143" alt="Open Food Facts" /></a>
+<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-he.png" width="178" height="143" alt="<<site_name>>" /></a>
 
-<p>המיזם Open Food Facts אוסף מידע ונתונים על מוצרי מזון מכל רחבי העולם.</p>
+<p>המיזם <<site_name>> אוסף מידע ונתונים על מוצרי מזון מכל רחבי העולם.</p>
 
 <select_country>
 
@@ -10053,9 +10234,9 @@ HTML
 HTML
 ,
 	nl => <<HTML
-<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-en.png" width="178" height="144" alt="Open Food Facts" /></a>
+<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-en.png" width="178" height="144" alt="<<site_name>>" /></a>
 
-<p>Open Food Facts inventariseert alle voedingsmiddelen uit de hele wereld.</p>
+<p><<site_name>> inventariseert alle voedingsmiddelen uit de hele wereld.</p>
 
 <select_country>
 
@@ -10094,9 +10275,9 @@ HTML
 HTML
 ,
 	nl_be => <<HTML
-<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-en.png" width="178" height="144" alt="Open Food Facts" /></a>
+<a href="/"><img id="logo" src="/images/misc/openfoodfacts-logo-en.png" width="178" height="144" alt="<<site_name>>" /></a>
 
-<p>Open Food Facts inventariseert alle voedingsmiddelen uit de hele wereld.</p>
+<p><<site_name>> inventariseert alle voedingsmiddelen uit de hele wereld.</p>
 
 <select_country>
 
@@ -10245,64 +10426,64 @@ HTML
 
 app_please_take_pictures => {
 	fr => <<HTML
-<p>Ce produit n'est pas encore dans la base d'Open Food Facts. Pourriez-vous s'il vous plait prendre des photos
-du produit, du code barre, de la liste des ingrédients et du tableau nutritionnel pour qu'il soit ajouté sur <a href="http://fr.openfoodfacts.org" target="_blank">Open Food Facts</a> ?</p>
+<p>Ce produit n'est pas encore dans la base d'<<site_name>>. Pourriez-vous s'il vous plait prendre des photos
+du produit, du code barre, de la liste des ingrédients et du tableau nutritionnel pour qu'il soit ajouté sur <a href="http://fr.openfoodfacts.org" target="_blank"><<site_name>></a> ?</p>
 <p>Merci d'avance !</p>
 HTML
 ,
 	en => <<HTML
-<p>This product is not yet in the Open Food Facts database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href="http://world.openfoodfacts.org" target="_blank">Open Food Facts</a>?</p>
+<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href="http://world.openfoodfacts.org" target="_blank"><<site_name>></a>?</p>
 <p>Thanks in advance!</p>
 HTML
 ,
 el => <<HTML
-<p>Αυτό το προϊόν δεν έχει καταχωρηθεί ακόμα στη βάση δεδομένων του Open Food Facts. Παρακαλώ αν θέλετε προσθέστε φωτογραφίες του προϊόντος, του barcode, των διατροφικών στοιχείων και των συστατικών του στο <a href="http://world.openfoodfacts.org" target="_blank">Open Food Facts</a>?</p>
+<p>Αυτό το προϊόν δεν έχει καταχωρηθεί ακόμα στη βάση δεδομένων του <<site_name>>. Παρακαλώ αν θέλετε προσθέστε φωτογραφίες του προϊόντος, του barcode, των διατροφικών στοιχείων και των συστατικών του στο <a href="http://world.openfoodfacts.org" target="_blank"><<site_name>></a>?</p>
 <p>Ευχαριστούμε εκ των προτέρων!</p>
 HTML
 ,
 	es => <<HTML
-<p>Este producto aún no está en la base de datos de Open Food Facts. ¿Podrías tomar algunas fotos del producto, su código de barras, ingredientes e información nutricional para agregarlo a <a href="http://es.openfoodfacts.org" target="_blank">Open Food Facts</a>?</p>
+<p>Este producto aún no está en la base de datos de <<site_name>>. ¿Podrías tomar algunas fotos del producto, su código de barras, ingredientes e información nutricional para agregarlo a <a href="http://es.openfoodfacts.org" target="_blank"><<site_name>></a>?</p>
 <p>¡Gracias desde ya!</p>
 HTML
 ,
 	pt => <<HTML
-<p>Este produto não se encontra ainda na base de dados do Open Food Facts. Será possível tirares fotografias do produtos, código de barras, ingredientes e informação nutricional para juntar ao <a href="http://pt.openfoodfacts.org" target="_blank">Open Food Facts</a>?</p>
+<p>Este produto não se encontra ainda na base de dados do <<site_name>>. Será possível tirares fotografias do produtos, código de barras, ingredientes e informação nutricional para juntar ao <a href="http://pt.openfoodfacts.org" target="_blank"><<site_name>></a>?</p>
 <p>Desde já muito obrigado!</p>
 HTML
 ,
 	pt_pt => <<HTML
-<p>Este produto não se encontra ainda na base de dados do Open Food Facts. Será possível tirar fotografias do produto, dos código de barras, dos ingredientes e da informação nutricional para juntar ao <a href="http://pt.openfoodfacts.org" target="_blank">Open Food Facts</a>?</p>
+<p>Este produto não se encontra ainda na base de dados do <<site_name>>. Será possível tirar fotografias do produto, dos código de barras, dos ingredientes e da informação nutricional para juntar ao <a href="http://pt.openfoodfacts.org" target="_blank"><<site_name>></a>?</p>
 <p>Desde já muito obrigado!</p>
 HTML
 ,
 	ro => <<HTML
-<p>Acest produs încă nu se află în baza de date Open Food Facts. Puteți face câteva fotografii cu produsul, codul de bare, lista de ingrediente și valorile nutriționale pentru a-l adăuga la <a href="http://world.openfoodfacts.org" target="_blank">Open Food Facts</a>?</p>
+<p>Acest produs încă nu se află în baza de date <<site_name>>. Puteți face câteva fotografii cu produsul, codul de bare, lista de ingrediente și valorile nutriționale pentru a-l adăuga la <a href="http://world.openfoodfacts.org" target="_blank"><<site_name>></a>?</p>
 <p>Vă mulțumim în avans!</p>
 HTML
 ,
 	de => <<HTML
-<p>Dieses Produkt existiert noch nicht in der Open Food Facts Datenbank. Können Sie bitte Fotos des Produktes, des Strichcodes, der Zutatenliste und der Nährwertsangaben machen, damit es zu <a href="http://fr.openfoodfacts.org" target="_blank">Open Food Facts</a> hinzugefügt werden kann?</p>
+<p>Dieses Produkt existiert noch nicht in der <<site_name>> Datenbank. Können Sie bitte Fotos des Produktes, des Strichcodes, der Zutatenliste und der Nährwertsangaben machen, damit es zu <a href="http://fr.openfoodfacts.org" target="_blank"><<site_name>></a> hinzugefügt werden kann?</p>
 <p>Danke vielmals im Voraus!</p>
 HTML
 ,
 	it => <<HTML
-<p>Questo prodotto non é ancora nel database di OFF. Puoi per favore fare una foto del prodotto, del codice a barre, della lista degli ingredienti e della tabella nutrizionale perché possa essere aggiunta su <a href="http://it.openfoodfacts.org" target="_blank">Open Food Facts</a>.</p>
+<p>Questo prodotto non é ancora nel database di OFF. Puoi per favore fare una foto del prodotto, del codice a barre, della lista degli ingredienti e della tabella nutrizionale perché possa essere aggiunta su <a href="http://it.openfoodfacts.org" target="_blank"><<site_name>></a>.</p>
 <p>Grazie anticipatamente.</p>
 HTML
 ,
 	he => <<HTML
-<p>מוצר זה לא נמצא עדיין במסד הנתונים של Open Food Facts. האם יתאפשר לך לצלם מספר תמונות של המוצר, הברקוד, רשימת הרכיבים והמפרט התזונתי כדי להוסיף אותם ל־<a href="http://il.openfoodfacts.org" target="_blank">Open Food Facts</a>?</p>
+<p>מוצר זה לא נמצא עדיין במסד הנתונים של <<site_name>>. האם יתאפשר לך לצלם מספר תמונות של המוצר, הברקוד, רשימת הרכיבים והמפרט התזונתי כדי להוסיף אותם ל־<a href="http://il.openfoodfacts.org" target="_blank"><<site_name>></a>?</p>
 <p>תודה מראש!</p>
 HTML
 ,
 
 	nl => <<HTML
-<p>Dit product bestaat nog niet in de Open Food Facts Database. Kan je alsjeblieft foto's maken van het product, de barcode, de ingredientenlijst en de voedingswaarden, zodat het aan <a href="http://fr.openfoodfacts.org" target="_blank">Open Food Facts</a> toegevoegd kan worden?</p>
+<p>Dit product bestaat nog niet in de <<site_name>> Database. Kan je alsjeblieft foto's maken van het product, de barcode, de ingredientenlijst en de voedingswaarden, zodat het aan <a href="http://fr.openfoodfacts.org" target="_blank"><<site_name>></a> toegevoegd kan worden?</p>
 <p>Alvast hartelijk bedankt!</p>
 HTML
 ,
 	nl_be => <<HTML
-<p>Dit product bestaat nog niet in de Open Food Facts Database. Kunt u alstublieft foto's maken van het product, de barcode, de ingredientenlijst en de voedingswaarden, zodat het aan <a href="http://fr.openfoodfacts.org" target="_blank">Open Food Facts</a> toegevoegd kan worden?</p>
+<p>Dit product bestaat nog niet in de <<site_name>> Database. Kunt u alstublieft foto's maken van het product, de barcode, de ingredientenlijst en de voedingswaarden, zodat het aan <a href="http://fr.openfoodfacts.org" target="_blank"><<site_name>></a> toegevoegd kan worden?</p>
 <p>Alvast hartelijk bedankt!</p>
 HTML
 ,
@@ -10454,15 +10635,15 @@ points_ranking => {
 },
 
 openfoodhunt_points => {
-	en => "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on Open Food Facts from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded
+	en => "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded
 Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes.",
-el => "Είναι <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> στο Open Food Facts από το Σάββατο 21 Φεβρουαρίου 2015 μέχρι Κυριακή 1 Μαρτίου 2015! Οι συντελεστές κερδίζουν
+el => "Είναι <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> στο <<site_name>> από το Σάββατο 21 Φεβρουαρίου 2015 μέχρι Κυριακή 1 Μαρτίου 2015! Οι συντελεστές κερδίζουν
 Explorer points για προϊόντα που προσθέτουν και Ambassador points για καινούριους συντελεστές που στρατολογούν. Το σκορ την βαθμολογίας ενημερώνεται κάθε 30 λεπτά.",
-	fr => "C'est l'<a href=\"/open-food-hunt-2015\">Open Food Hunt</a> sur Open Food Facts du samedi 21 février 2015 au dimanche 1er mars 2015 ! Les contributeurs reçoivent
+	fr => "C'est l'<a href=\"/open-food-hunt-2015\">Open Food Hunt</a> sur <<site_name>> du samedi 21 février 2015 au dimanche 1er mars 2015 ! Les contributeurs reçoivent
 des points Explorateurs pour les produits qu'ils ajoutent, et des points Ambassadeurs pour les nouveaux contributeurs qu'ils recrutent. Les points sont mis à jour toutes
 les 30 minutes.",
-	nl => "Het is <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> op Open Food Facts van zaterdag 21 februari 2015 tot zondag 1 maart 2015 ! De deelnemers ontvangen Onderkkerspunten voor de producten die ze toevoegen, en Ambassadeurspunten voor nieuwe deelnemers, die ze aanbrengen. De punten worden elke 30 minuten geupdate.",
-	nl_be => "Het is <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> op Open Food Facts van zaterdag 21 februari 2015 tot zondag 1 maart 2015 ! De deelnemers ontvangen Onderkkerspunten voor de producten die ze toevoegen, en Ambassadeurspunten voor nieuwe deelnemers, die ze aanbrengen. De punten worden elke 30 minuten geupdate.",
+	nl => "Het is <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> op <<site_name>> van zaterdag 21 februari 2015 tot zondag 1 maart 2015 ! De deelnemers ontvangen Onderkkerspunten voor de producten die ze toevoegen, en Ambassadeurspunten voor nieuwe deelnemers, die ze aanbrengen. De punten worden elke 30 minuten geupdate.",
+	nl_be => "Het is <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> op <<site_name>> van zaterdag 21 februari 2015 tot zondag 1 maart 2015 ! De deelnemers ontvangen Onderkkerspunten voor de producten die ze toevoegen, en Ambassadeurspunten voor nieuwe deelnemers, die ze aanbrengen. De punten worden elke 30 minuten geupdate.",
 
 },
 
@@ -10854,27 +11035,27 @@ footer_faq_link => {
 },
 footer_blog => {
 
-    ar => 'وOpen Food Facts بلوق', #ar-CHECK - Please check and remove this comment
-    de => 'Die Open Food Facts blog', #de-CHECK - Please check and remove this comment
-    cs => 'Open Food Facts blog', #cs-CHECK - Please check and remove this comment
-    es => 'El blog Open Food Facts', #es-CHECK - Please check and remove this comment
-	en => 'Open Food Facts blog',
-    it => 'Il blog Open Food Facts', #it-CHECK - Please check and remove this comment
-    fi => 'Open Food Facts blogi', #fi-CHECK - Please check and remove this comment
-	fr => "Le blog d'Open Food Facts",
-    el => 'Το Open Food Facts το blog', #el-CHECK - Please check and remove this comment
-    he => 'הבלוג של Open Food Facts',
-    ja => 'Open Food Facts のブログ', #ja-CHECK - Please check and remove this comment
-    ko => 'Open Food Facts 블로그', #ko-CHECK - Please check and remove this comment
-    nl => 'De Open Food Facts blog',
-    nl_be => 'De Open Food Facts blog',
-    ru => 'Open Food Facts в блоге', #ru-CHECK - Please check and remove this comment
-    pl => 'Open Food Facts blog', #pl-CHECK - Please check and remove this comment
-    pt => 'O blog Open Food Facts', #pt-CHECK - Please check and remove this comment
-    ro => 'Open Food Facts blog', #ro-CHECK - Please check and remove this comment
-    th => 'Open Food Facts บล็อก', #th-CHECK - Please check and remove this comment
-    vi => 'Các Open Food Facts blog', #vi-CHECK - Please check and remove this comment
-    zh => '在 Open Food Facts 博客', #zh-CHECK - Please check and remove this comment
+    ar => 'و<<site_name>> بلوق', #ar-CHECK - Please check and remove this comment
+    de => 'Die <<site_name>> blog', #de-CHECK - Please check and remove this comment
+    cs => '<<site_name>> blog', #cs-CHECK - Please check and remove this comment
+    es => 'El blog <<site_name>>', #es-CHECK - Please check and remove this comment
+	en => '<<site_name>> blog',
+    it => 'Il blog <<site_name>>', #it-CHECK - Please check and remove this comment
+    fi => '<<site_name>> blogi', #fi-CHECK - Please check and remove this comment
+	fr => "Le blog d'<<site_name>>",
+    el => 'Το <<site_name>> το blog', #el-CHECK - Please check and remove this comment
+    he => 'הבלוג של <<site_name>>',
+    ja => '<<site_name>> のブログ', #ja-CHECK - Please check and remove this comment
+    ko => '<<site_name>> 블로그', #ko-CHECK - Please check and remove this comment
+    nl => 'De <<site_name>> blog',
+    nl_be => 'De <<site_name>> blog',
+    ru => '<<site_name>> в блоге', #ru-CHECK - Please check and remove this comment
+    pl => '<<site_name>> blog', #pl-CHECK - Please check and remove this comment
+    pt => 'O blog <<site_name>>', #pt-CHECK - Please check and remove this comment
+    ro => '<<site_name>> blog', #ro-CHECK - Please check and remove this comment
+    th => '<<site_name>> บล็อก', #th-CHECK - Please check and remove this comment
+    vi => 'Các <<site_name>> blog', #vi-CHECK - Please check and remove this comment
+    zh => '在 <<site_name>> 博客', #zh-CHECK - Please check and remove this comment
 
 },
 footer_blog_link => {
@@ -10883,8 +11064,16 @@ footer_blog_link => {
 	#nl => 'http://nl.blog.openfoodfacts.org', #nl-CHECK - Add when necessary
 	#nl_be => 'http://nl.blog.openfoodfacts.org', #nl_be-CHECK - Add when necessary
 },
+footer_code_of_conduct => {
+	en => "Code of conduct",
+	fr => "Code de conduite",
+},
+footer_code_of_conduct_link => {
+	en => "/code-of-conduct",
+	fr => "/code-de-conduite",
+},
 footer_wiki => {
-	en => "Open Food Facts wiki (en)",
+	en => "<<site_name>> wiki (en)",
 },
 footer_wiki_link => {
 	en => "http://en.wiki.openfoodfacts.org",
@@ -11007,8 +11196,8 @@ Suivez nous sur <a href="http://twitter.com/openfoodfactsfr">Twitter</a>,
 HTML
 ,
 	nl => <<HTML
-Suivez nous sur <a href="http://twitter.com/openfoodfactsnl">Twitter</a>,
-<a href="https://www.facebook.com/OpenFoodFacts">Facebook</a> et
+Volg ons op <a href="http://twitter.com/openfoodfactsnl">Twitter</a>,
+<a href="https://www.facebook.com/OpenFoodFacts">Facebook</a> en
 <a href="https://plus.google.com/u/0/b/102622509148794386660/">Google+</a>
 
 HTML
@@ -11078,37 +11267,7 @@ search_criteria => {
     zh => '具体的品牌，类别，标签，成分来源，生产场所等选择产品', #zh-CHECK - Please check and remove this comment
 },
 
-logo => {
-	en => 'openfoodfacts-logo-en-178x150.png',
-	ar => 'openfoodfacts-logo-ar-178x150.png',
-	de => 'openfoodfacts-logo-de-178x150.png',
-	es => 'openfoodfacts-logo-es-178x150.png',
-	fr => 'openfoodfacts-logo-fr-178x150.png',
-	he => 'openfoodfacts-logo-he-178x150.png',
-	nl => 'openfoodfacts-logo-nl-178x150.png',
-	nl_be => 'openfoodfacts-logo-nl-178x150.png',
-	pl => 'openfoodfacts-logo-pl-178x150.png',
-	pt => 'openfoodfacts-logo-pt-178x150.png',
-	ru => 'openfoodfacts-logo-ru-178x150.png',
-	vi => 'openfoodfacts-logo-vi-178x150.png',
-	zh => 'openfoodfacts-logo-zh-178x150.png',
-},
 
-logo2x => {
-	en => 'openfoodfacts-logo-en-356x300.png',
-	ar => 'openfoodfacts-logo-ar-356x300.png',
-	de => 'openfoodfacts-logo-de-356x300.png',
-	es => 'openfoodfacts-logo-es-356x300.png',
-	fr => 'openfoodfacts-logo-fr-356x300.png',
-	he => 'openfoodfacts-logo-he-356x300.png',
-	nl => 'openfoodfacts-logo-nl-356x300.png',
-	nl_be => 'openfoodfacts-logo-nl-356x300.png',
-	pl => 'openfoodfacts-logo-pl-356x300.png',
-	pt => 'openfoodfacts-logo-pt-356x300.png',
-	ru => 'openfoodfacts-logo-ru-356x300.png',
-	vi => 'openfoodfacts-logo-vi-356x300.png',
-	zh => 'openfoodfacts-logo-zh-356x300.png',
-},
 
 
 search_tools => {
@@ -11170,10 +11329,25 @@ copy_data => {
 	nl_be => "Kopieer de productendata naar het nieuwe product",
 },
 
+add_language => {
+	en => "Add language",
+	fr => "Ajouter une langue",
+},
+
+ingredients_analysis => {
+	en => "Ingredients analysis",
+	fr => "Analyse des ingrédients",
+},
+
+ingredients_analysis_note => {
+	en => "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect.",
+	fr => "Note : les ingrédients peuvent être indiqués sous beaucoup de noms différents, si vous pensez que l'analyse ci-dessus est incorrecte, merci de nous le signaler.",
+},
 
 #ENDFRONTPAGE
 
 );
+
 
 
 my @debug_taxonomies = ("categories", "labels", "additives");
@@ -11319,6 +11493,21 @@ foreach my $key (keys %Lang) {
 		}
 	}
 }
+
+my @special_fields = ("site_name");
+
+foreach my $special_field (@special_fields) {
+
+	foreach my $l (@Langs) {
+		my $value = $Lang{$special_field}{$l};
+		foreach my $key (keys %Lang) {
+		
+			$Lang{$key}{$l} =~ s/\<\<$special_field\>\>/$value/g;
+		}
+	}
+
+}
+
 
 
 1;
