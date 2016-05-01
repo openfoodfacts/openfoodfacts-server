@@ -1122,13 +1122,16 @@ sub display_list_of_tags($$) {
 			my $icid = $tagid;
 			$icid =~ s/^(.*)://;	# additives
 			
+			my $risk_level;
 			if ($tagtype eq 'additives') {
-			
-				if ($tags_levels{$lc}{$tagtype}{$icid}) {
+				# Take additive level from more complete FR list.
+				$risk_level = $tags_levels{$lc}{$tagtype}{$icid} || $tags_levels{'fr'}{$tagtype}{$icid};
+
+				if ($risk_level) {
 					# $info = ' class="additives_' . $ingredients_classes{$tagtype}{$icid}{level} . '" title="' . $ingredients_classes{$tagtype}{$icid}{warning} . '" ';
-					my $risk_level = lang("risk_level_" . $tags_levels{$lc}{$tagtype}{$icid});
-					$risk_level =~ s/ /\&nbsp;/g;
-					$extra_td = '<td class="level_' . $tags_levels{$lc}{$tagtype}{$icid} . '">' . $risk_level . '</td>';
+					my $risk_level_label = lang("risk_level_" . $risk_level);
+					$risk_level_label =~ s/ /\&nbsp;/g;
+					$extra_td = '<td class="level_' . $risk_level . '">' . $risk_level_label . '</td>';
 				}
 				else {
 					#$extra_td = '<td class="additives_0">' . lang("risk_level_0") . '</td>';				
@@ -1136,9 +1139,9 @@ sub display_list_of_tags($$) {
 				}
 			}
 			
-			if ((defined $tags_levels{$lc}{$tagtype}) and (defined $tags_levels{$lc}{$tagtype}{$icid})) {
-				$info = ' class="level_' . $tags_levels{$lc}{$tagtype}{$icid} . '" ';
-			}			
+			if ($risk_level) {
+				$info = ' class="level_' . $risk_level . '" ';
+			}
 			
 			my $product_link = $main_link . $link;
 			
@@ -1156,7 +1159,7 @@ sub display_list_of_tags($$) {
 				}
 			}
 			elsif (defined $taxonomy_fields{$tagtype}) {
-				$display = display_taxonomy_tag($lc,$tagtype,$tagid);				 			 
+				$display = display_taxonomy_tag($lc, $tagtype, $tagid);				 			 
 			}
 			else {
 				$display = canonicalize_tag2($tagtype, $tagid);
