@@ -554,6 +554,10 @@ last_edit_dates => {
 	nl => "datum-laatste-wijziging",
 	nl_be => "datum-laatste-wijziging",
 },
+last_image_dates => {
+	en => "last-image-date",
+	fr => "date-de-derniere-photo",
+},
 nutrition_grades => {
 	en => "nutrition-grade",
 	fr => "note-nutritionnelle",
@@ -1015,6 +1019,10 @@ last_edit_dates => {
 	el => "ημερομηνιες τελευταιας τροποποιησης",
 	nl => "laatste-wijziging-datums",
 	nl_be => "laatste-wijziging-datums",
+},
+last_image_dates => {
+	en => "last-image-dates",
+	fr => "dates-de-derniere-photo",
 },
 nutrition_grades => {
 	en => "nutrition-grades",
@@ -1549,33 +1557,32 @@ add_user_email_subject => {
 },
 
 add_user_email_body => {
-	fr =>
-'Bonjour <NAME>,
+            fr =>
+"Bonjour <NAME>,
 
-Merci beaucoup de votre inscription sur http://openfoodfacts.org
+Merci de votre inscription sur http://openfoodfacts.org
 Voici un rappel de votre identifiant :
 
 Nom d\'utilisateur : <USERID>
 
 Vous pouvez maintenant vous identifier sur le site pour ajouter et modifier des produits.
 
+<<site_name>> est un projet collaboratif auquel vous pouvez apporter bien plus que des produits : votre enthousiasme et vos idées !
+Pour échanger entre participants et faire avancer le projet, nous utilisons un système de messagerie très pratique appelé Slack : http://slack.openfoodfacts.org
+
 Vous pouvez également rejoindre le groupe des contributeurs sur Facebook :
 https://www.facebook.com/groups/356858984359591/
 
-et/ou la liste de discussion en envoyant un e-mail vide à off-fr-subscribe\@openfoodfacts.org
-
-<<site_name>> est un projet collaboratif auquel vous pouvez apporter bien plus que des produits : votre enthousiasme et vos idées !
-Vous pouvez en particulier partager vos suggestions sur le forum des idées :
-https://openfoodfactsfr.uservoice.com/
-
-Et ma boîte mail est bien sûr grande ouverte pour toutes vos remarques, questions ou suggestions.
+A découvrir également : Open Beauty Facts pour décrypter les cosmétiques, savons, dentifrices, maquillage etc.
+http://openbeautyfacts.org
 
 Merci beaucoup et à bientôt !
 
-Stéphane
+Stéphane et toute l'équipe d'Open Food Facts
+
 http://openfoodfacts.org
 http://twitter.com/OpenFoodFactsFr
-',
+",
 
 	it =>
 'Buongiorno <NAME>,
@@ -1603,7 +1610,7 @@ http://openfoodfacts.org
 http://twitter.com/OpenFoodFactsIt
 ',
 
-	en =>
+        en =>
 'Hello <NAME>,
 
 Thanks a lot for joining http://openfoodfacts.org
@@ -1613,21 +1620,22 @@ User name: <USERID>
 
 You can now sign in on the site to add and edit products.
 
+<<site_name>> is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!
+To discuss between contributors and make the project go forward, we use a very convenient messaging system called Slack: http://slack.openfoodfacts.org
+
 You can also join the Facebook group for contributors:
 https://www.facebook.com/groups/374350705955208/
 
-<<site_name>> is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!
-You can also share your suggestions on the idea forum:
-http://openfoodfacts.uservoice.com/
-
-And my mailbox is of course wide open for your comments, questions and ideas.
+New: we are also starting Open Beauty Facts to create a database of cosmetics: soap, toothpaste, makeup etc.
+http://openbeautyfacts.org
 
 Thank you very much!
 
-Stéphane
+Stéphane and the Open Food Facts team
 http://openfoodfacts.org
 http://twitter.com/OpenFoodFacts
 ',
+
 
 el =>
 'Καλωσόρισατε <NAME>,
@@ -6168,7 +6176,14 @@ last_edit_dates_p => {
 	nl => "Laatste wijzigingsdatums",
 	nl_be => "Laatste wijzigingsdatums",
 },
-
+last_image_dates_s => {
+	en => "Last picture date",
+	fr => "Date de dernière photo",
+},
+last_image_dates_p => {
+	en => "Last picture dates",
+	fr => "Dates de dernière photo",
+},
 nutrition_grades_s => {
 	en => "Nutrition grade",
 	el => "Διατροφική σημείωση",
