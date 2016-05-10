@@ -31,8 +31,6 @@ BEGIN
 		
 		$page_size
 		
-		$adsense
-		
 		%options
 		
 		%wiki_texts
