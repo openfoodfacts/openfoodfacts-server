@@ -520,9 +520,6 @@ sub build_tags_taxonomy($$) {
 	defined $tags_images{$lc} or $tags_images{$lc} = {};
 	defined $tags_images{$lc}{$tagtype} or $tags_images{$lc}{$tagtype} = {};	
 	
-	
-	
-
 	# Need to be initialized as a taxonomy is probably already loaded by Tags.pm
 	$stopwords{$tagtype} = {};
 	$synonyms{$tagtype} = {};
@@ -1232,7 +1229,6 @@ foreach my $taxonomyid (@Blogs::Config::taxonomy_fields) {
 	retrieve_tags_taxonomy($taxonomyid);
 	
 }
-
 
 
 # Build map of language codes and names

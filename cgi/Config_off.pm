@@ -31,8 +31,6 @@ BEGIN
 		
 		$page_size
 		
-		$adsense
-		
 		%options
 		
 		%wiki_texts
@@ -40,8 +38,10 @@ BEGIN
 		@product_fields
 		@display_fields
 		@drilldown_fields
+		@taxonomy_fields
 		
 		%tesseract_ocr_available_languages
+		
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -127,13 +127,20 @@ HTML
 
 %wiki_texts = (
 
-"en/press" => "http://en.wiki.openfoodfacts.org/index.php?title=Translations_-_Press_-_English&action=raw",
-"fr/presse" => "http://en.wiki.openfoodfacts.org/index.php?title=Translations_-_Press_-_French&action=raw",
+"en/press" => "http://en.wiki.openfoodfacts.org/Translations_-_Press_-_English?action=raw",
+"fr/presse" => "http://en.wiki.openfoodfacts.org/Translations_-_Press_-_French?action=raw",
 
-"en/code-of-conduct" => "http://en.wiki.openfoodfacts.org/index.php?title=Translations_-_Code_of_conduct_-_English&action=raw",
-"fr/code-de-conduite" => "http://en.wiki.openfoodfacts.org/index.php?title=Translations_-_Code_of_conduct_-_French&action=raw",
+"en/code-of-conduct" => "http://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_English?action=raw",
+"fr/code-de-conduite" => "http://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_French?action=raw",
+
+"fr/notetondistrib" => "http://en.wiki.openfoodfacts.org/Translations_-_Vending_machines_-_French?action=raw",
 
 );
+
+
+# fields for which we will load taxonomies
+
+@taxonomy_fields = qw(states countries labels categories additives allergens traces nutrient_levels );
 
 
 # fields in product edit form
@@ -186,5 +193,8 @@ last_edit_dates
 #	ja => "jpn", # not available with tesseract 2
 	nl => "nld",
 );
+
+
+>>>>>>> remotes/origin/master
 
 1;

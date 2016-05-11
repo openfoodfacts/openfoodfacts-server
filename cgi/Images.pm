@@ -76,7 +76,6 @@ use Blogs::Display qw/:all/;
 my $debug = 1;
 
 
-
 sub display_select_manage($) {
 
 	my $object_ref = shift;
@@ -662,8 +661,6 @@ sub process_image_crop($$$$$$$$$$) {
 	my $x2 = shift;
 	my $y2 = shift;
 	
-
-	
 	my $path = product_path($code);
 	
 	my $new_product_ref = retrieve_product($code);
@@ -1015,7 +1012,6 @@ sub display_image($$$) {
 	push @display_ids, $imagetype;
 		
 	foreach my $id (@display_ids) {	
-	
 	
 	if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 		and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {

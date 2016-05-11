@@ -304,7 +304,6 @@ sub store_product($$) {
 	
 	compute_product_history_and_completeness($product_ref, $changes_ref);
 	
-
 	# sort_key
 	# add 0 just to make sure we have a number...  last_modified_t at some point contained strings like  "1431125369"
 	$product_ref->{sortkey} = 0 + $product_ref->{last_modified_t} - ((1 - $product_ref->{complete}) * 1000000000);
@@ -790,9 +789,6 @@ sub product_name_brand_quantity($) {
 }
 
 
-
-
-
 sub product_url($) {
 
 	my $code_or_ref = shift;
@@ -898,7 +894,6 @@ sub compute_codes($) {
 	
 	$product_ref->{codes_tags} = \@codes;
 }
-
 
 
 
