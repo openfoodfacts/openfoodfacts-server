@@ -109,8 +109,8 @@ foreach my $l (values %lang_lc) {
 		
 	print STDERR "lc: $lc - $count products\n";
 	
-	open (OUT, ">:encoding(UTF-8)", "$www_root/data/$lang.openfoodfacts.org.products.csv");
-	open (RDF, ">:encoding(UTF-8)", "$www_root/data/$lang.openfoodfacts.org.products.rdf");
+	open (OUT, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.csv");
+	open (RDF, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.rdf");
 
 	# Headers
 	
@@ -126,12 +126,12 @@ foreach my $l (values %lang_lc) {
 		xmlns:owl="http://www.w3.org/2002/07/owl#"
 		xmlns:foaf="http://xmlns.com/foaf/0.1/">
 
-<void:Dataset rdf:about="http://$lc.openfoodfacts.org">
-	<void:dataDump rdf:resource="http://$lc.openfoodfacts.org/data/$lc.openfoodfacts.org.products.rdf"/>
+<void:Dataset rdf:about="http://$lc.$server_domain">
+	<void:dataDump rdf:resource="http://$lc.$server_domain/data/$lc.$server_domain.products.rdf"/>
 	<void:vocabulary rdf:resource="http://data.lirmm.fr/ontologies/food"/>
 	<dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-05-21</dcterms:created>
 	<dcterms:creator>Open Food Facts</dcterms:creator>
-	<dcterms:description xml:lang="en">Data on food products from the world (includes ingredients, nutrition facts, brands, labels etc.) from http://$lc.openfoodfacts.org</dcterms:description>
+	<dcterms:description xml:lang="en">Data on food products from the world (includes ingredients, nutrition facts, brands, labels etc.) from http://$lc.$server_domain</dcterms:description>
 	<dcterms:description xml:lang="fr">Données sur les produits alimentaires du monde entier (ingrédients, composition nutritionnelle, marques, labels etc.)</dcterms:description>
 	<dcterms:license rdf:resource="http://opendatacommons.org/licenses/odbl/"/>
 	<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">$date</dcterms:modified>
@@ -140,11 +140,11 @@ foreach my $l (values %lang_lc) {
 	<dcterms:subject rdf:resource="http://dbpedia.org/resource/Nutrition_facts_label"/>
 	<dcterms:subject rdf:resource="http://dbpedia.org/resource/Food_energy"/>
 	<dcterms:title>Open Food Facts ($lc)</dcterms:title>
-	<foaf:homepage rdf:resource="http://$lc.openfoodfacts.org"/>
+	<foaf:homepage rdf:resource="http://$lc.$server_domain"/>
 </void:Dataset>	
 
 <!--
-This is a RDF export of the http://$lc.openfoodfacts.org food products database.
+This is a RDF export of the http://$lc.$server_domain food products database.
 The database is available under Open Database Licence 1.0 (ODbL) http://opendatacommons.org/licenses/odbl/1.0/
 -->
 
@@ -208,7 +208,7 @@ XML
 	while (my $product_ref = $cursor->next) {
 		
 		my $csv = '';
-		my $url = "http://world-$lc.openfoodfacts.org" . product_url($product_ref);
+		my $url = "http://world-$lc.$server_domain" . product_url($product_ref);
 		my $code = $product_ref->{code};
 		
 		$code eq '' and next;
@@ -331,8 +331,8 @@ XML
 			my $path = product_path($product_ref->{code});
 
 			
-			$product_ref->{image_url} = "http://$lc.openfoodfacts.org/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-			$product_ref->{image_small_url} = "http://$lc.openfoodfacts.org/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+			$product_ref->{image_url} = "http://$lc.$server_domain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+			$product_ref->{image_small_url} = "http://$lc.$server_domain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
 		
 			
 		}
@@ -368,7 +368,7 @@ XML
 
 			foreach my $i (@{$product_ref->{ingredients}}) {
 		
-				$rdf .= "\t<food:containsIngredient>\n\t\t<food:Ingredient>\n\t\t\t<food:food rdf:resource=\"http://fr.openfoodfacts.org/ingredient/" . $i->{id} . "\" />\n";
+				$rdf .= "\t<food:containsIngredient>\n\t\t<food:Ingredient>\n\t\t\t<food:food rdf:resource=\"http://fr.$server_domain/ingredient/" . $i->{id} . "\" />\n";
 				not defined $ingredients{$i->{id}} and $ingredients{$i->{id}} = {};
 				$ingredients{$i->{id}}{ucfirst($i->{text})}++;
 				if (defined $i->{rank}) {
@@ -408,7 +408,7 @@ XML
 	my %links = ();
 	if (-e "$data_root/rdf/${lc}_links")  {
 	
-		# <http://fr.openfoodfacts.org/ingredient/xylitol>  <http://www.w3.org/2002/07/owl#sameAs>  <http://fr.dbpedia.org/resource/Xylitol> 
+		# <http://fr.$server_domain/ingredient/xylitol>  <http://www.w3.org/2002/07/owl#sameAs>  <http://fr.dbpedia.org/resource/Xylitol> 
 	
 		open IN, "$data_root/rdf/${lc}_links";
 		while(<IN>) {
@@ -435,7 +435,7 @@ XML
 		}
 		
 		print RDF <<XML
-<rdf:Description rdf:about="http://$lc.openfoodfacts.org/ingredient/$i" rdf:type="http://data.lirmm.fr/ontologies/food#Food">
+<rdf:Description rdf:about="http://$lc.$server_domain/ingredient/$i" rdf:type="http://data.lirmm.fr/ontologies/food#Food">
 	<food:name>$name</food:name>$sameas
 </rdf:Description>
 

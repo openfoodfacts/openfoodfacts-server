@@ -849,7 +849,7 @@ foreach my $country (sort { $countries{$b} <=> $countries{$a}} keys %countries) 
 	my $meta = '';
 	if (-e "$www_root/images/misc/products_graph_country_$cc.png") {
 		$meta = <<HTML
-<meta property="og:image" content="http://$lc.openfoodfacts.org/images/misc/products_graph_country_$cc.png"/>
+<meta property="og:image" content="http://$lc.$server_domain/images/misc/products_graph_country_$cc.png"/>
 HTML
 ;
 		print "found meta products_graph_country_$cc.png image\n";
@@ -931,8 +931,8 @@ Highcharts.setOptions({
                 text: '$Lang{products_stats}{$lang} - $country_name'
             },
             subtitle: {
-                text: 'Source: <a href="http://$cc.openfoodfacts.org">'+
-                    '$cc.openfoodfacts.org</a>'
+                text: 'Source: <a href="http://$cc.$server_domain">'+
+                    '$cc.$server_domain</a>'
             },
             xAxis: {
 		        type: 'datetime',	
@@ -1070,8 +1070,8 @@ HTML
                 text: '$Lang{products_stats}{$lang}'
             },
             subtitle: {
-                text: 'Source: <a href="http://openfoodfacts.org">'+
-                    'openfoodfacts.org</a>'
+                text: 'Source: <a href="http://$server_domain">'+
+                    '$server_domain</a>'
             },
 			tooltip: {
                 shared: true
