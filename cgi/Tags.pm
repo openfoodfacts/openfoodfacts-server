@@ -520,6 +520,9 @@ sub build_tags_taxonomy($$) {
 	defined $tags_images{$lc} or $tags_images{$lc} = {};
 	defined $tags_images{$lc}{$tagtype} or $tags_images{$lc}{$tagtype} = {};	
 	
+	
+	
+
 	# Need to be initialized as a taxonomy is probably already loaded by Tags.pm
 	$stopwords{$tagtype} = {};
 	$synonyms{$tagtype} = {};
@@ -1231,10 +1234,12 @@ foreach my $taxonomyid (@Blogs::Config::taxonomy_fields) {
 }
 
 
+
 # Build map of language codes and names
 
 %language_codes = ();
 %language_codes_reverse = ();
+%lang_lc = ();
 
 foreach my $language (keys %{$properties{languages}}) {
 
@@ -1242,7 +1247,16 @@ foreach my $language (keys %{$properties{languages}}) {
 
 	$language_codes{$lc} = $language;
 	$language_codes_reverse{$language} = $lc;
+	
+	$lang_lc{$lc} = $lc;
+	
+	$Langs{$lc} = $translations_to{languages}{$language}{$lc};
 }
+
+@Langs = sort keys %Langs;
+
+
+init_languages();
 
 
 # Build map of local country names in official languages to (country, language)

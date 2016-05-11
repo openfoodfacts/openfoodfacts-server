@@ -46,6 +46,8 @@ BEGIN
 					&lang
 					%lang_lc
 
+					&init_languages
+
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -58,62 +60,6 @@ use utf8;
 use Blogs::SiteLang qw/:all/;
 
 use Blogs::Store qw/:all/;
-
-
-%lang_lc = (
-ar => 'ar',
-de => 'de',
-cs => 'cs',
-es => 'es',
-en => 'en',
-it => 'it',
-fi => 'fi',
-fr => 'fr',
-el => 'el',
-he => 'he',
-ja => 'ja',
-ko => 'ko',
-nl => 'nl',
-# currently no support for country specific language variants
-# nl_be => 'nl_be',
-ru => 'ru',
-pl => 'pl',
-pt => 'pt',
-# pt_pt => 'pt_pt',
-ro => 'ro',
-th => 'th',
-tr => 'tr',
-vi => 'vi',
-zh => 'zh',
-);
-
-%Langs = (
-'ar'=>'العربية',
-'da'=>'Dansk',
-'de'=>'Deutsch',
-'es'=>'Español',
-'en'=>'English',
-'it'=>'Italiano',
-'fi'=>'Suomi',
-'fr'=>'Français',
-'el'=>'Ελληνικά',
-'he'=>'עברית',
-'ja'=>'日本語',
-'ko'=>'한국어',
-'nl'=>'Nederlands',
-#'nl_be' => 'Nederlands',
-'ru'=>'Русский',
-'pl'=>'Polski',
-'pt'=>'Português',
-#'pt_pt'=>'Português',
-'ro' => 'Română',
-'th' => 'ไทย',
-'tr' => 'Türkçe',
-'vi'=>'Tiếng Việt',
-'zh'=>'中文',
-);
-
-@Langs = sort keys %Langs;
 
 
 # Tags types to path components in URLS: in ascii, lowercase, unaccented, transliterated (in Roman characters)
@@ -11413,6 +11359,47 @@ ingredients_analysis_note => {
 
 
 
+
+# same logic can be implemented by creating the missing values for all keys
+sub lang($) {
+
+	my $s = shift;
+
+	my $short_l = undef;
+	if ($lang =~ /_/) {
+		$short_l = $`,  # pt_pt
+	}
+
+	if ((defined $langlang) and (defined $Lang{$s}{$langlang})) {
+		return $Lang{$s}{$langlang};
+	}
+	elsif (defined $Lang{$s}{$lang}) {
+		return $Lang{$s}{$lang};
+	}
+	elsif ((defined $short_l) and (defined $Lang{$s}{$short_l}) and ($Lang{$s}{$short_l} ne '')) {
+		return $Lang{$s}{$short_l};
+	}
+	elsif ((defined $Lang{$s}{en}) and ($Lang{$s}{en} ne '')) {
+		return $Lang{$s}{en};
+	}
+	elsif (defined $Lang{$s}{fr}) {
+		return $Lang{$s}{fr};
+	}
+	else {
+		return '';
+	}
+}
+
+
+
+
+# initialize languages values:
+# - compute tag_type_singular and tag_type_plural
+# - compute missing values by assigning English values
+
+sub init_languages() {
+
+
 my @debug_taxonomies = ("categories", "labels", "additives");
 
 foreach my $taxonomy (@debug_taxonomies) {
@@ -11428,8 +11415,6 @@ foreach my $taxonomy (@debug_taxonomies) {
 		$tag_type_plural{$taxonomy . "_$suffix"} = { en => get_fileid($taxonomy) . "-$suffix" };
 	}
 }
-
-
 
 
 foreach my $l (@Langs) {
@@ -11475,36 +11460,6 @@ foreach my $l (@Langs) {
 			#print "tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;\n";
 	}
 
-}
-
-# same logic can be implemented by creating the missing values for all keys
-sub lang($) {
-
-	my $s = shift;
-
-	my $short_l = undef;
-	if ($lang =~ /_/) {
-		$short_l = $`,  # pt_pt
-	}
-
-	if ((defined $langlang) and (defined $Lang{$s}{$langlang})) {
-		return $Lang{$s}{$langlang};
-	}
-	elsif (defined $Lang{$s}{$lang}) {
-		return $Lang{$s}{$lang};
-	}
-	elsif ((defined $short_l) and (defined $Lang{$s}{$short_l}) and ($Lang{$s}{$short_l} ne '')) {
-		return $Lang{$s}{$short_l};
-	}
-	elsif ((defined $Lang{$s}{en}) and ($Lang{$s}{en} ne '')) {
-		return $Lang{$s}{en};
-	}
-	elsif (defined $Lang{$s}{fr}) {
-		return $Lang{$s}{fr};
-	}
-	else {
-		return '';
-	}
 }
 
 
@@ -11571,6 +11526,7 @@ foreach my $special_field (@special_fields) {
 
 }
 
+} # init_languages
 
 
 1;
