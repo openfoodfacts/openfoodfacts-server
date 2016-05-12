@@ -563,7 +563,7 @@ sub compute_product_history_and_completeness($$) {
 		
 		if (defined $product_ref) {
 
-			%current = (uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
+			%current = (lc => $product_ref->{lc}, uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
 			
 			# Uploaded images
 			
@@ -579,7 +579,11 @@ sub compute_product_history_and_completeness($$) {
 						$current{uploaded_images}{$imgid} = 1;
 					}
 					else {
-						$current{selected_images}{$imgid} = $product_ref->{images}{$imgid}{imgid} . ' ' . $product_ref->{images}{$imgid}{rev} . ' ' . $product_ref->{images}{$imgid}{geometry} ;
+						my $language_imgid = $imgid;
+						if ($imgid !~ /_\w\w$/) {
+							$language_imgid = $imgid . "_" . $product_ref->{lc};
+						}
+						$current{selected_images}{$language_imgid} = $product_ref->{images}{$imgid}{imgid} . ' ' . $product_ref->{images}{$imgid}{rev} . ' ' . $product_ref->{images}{$imgid}{geometry} ;
 					}
 				}
 			}
@@ -588,6 +592,17 @@ sub compute_product_history_and_completeness($$) {
 			
 			foreach my $field (@fields) {
 				$current{fields}{$field} = $product_ref->{$field};
+			}
+			
+			# Language specific fields
+			if (defined $product_ref->{languages_codes}) {
+				$current{languages_codes} = [keys %{$product_ref->{languages_codes}}];
+				foreach my $language_code (@{$current{languages_codes}}) {
+					foreach my $field (keys %language_fields) {
+						next if $field =~ /_image$/;
+						$current{fields}{$field . '_' . $language_code} = $product_ref->{$field . '_' . $language_code};
+					}
+				}
 			}
 			
 			# Nutriments
@@ -630,6 +645,27 @@ sub compute_product_history_and_completeness($$) {
 			
 			if ($group eq 'fields') {
 				@ids = @fields;
+				
+				# also check language specific fields for language codes of the current and previous product
+				my @languages_codes = ();
+				my %languages_codes = {};
+				foreach my $current_or_previous_ref (\%current, \%previous) {
+					if (defined $current_or_previous_ref->{languages_codes}) {
+						foreach my $language_code (@{$current_or_previous_ref->{languages_codes}}) {
+							next if $language_code eq $current_or_previous_ref->{lc};
+							next if defined $languages_codes{$language_code};
+							push @languages_codes, $language_code;
+							$languages_codes{$language_code} = 1;
+						}
+					}
+				}
+				
+				foreach my $language_code (sort @languages_codes) {
+					foreach my $field (sort keys %language_fields) {
+						next if $field =~ /_image$/;
+						push @ids, $field . "_" . $language_code;
+					}
+				}
 			}
 			elsif ($group eq 'nutriments') {
 				@ids = @{$nutriments_lists{europe}};

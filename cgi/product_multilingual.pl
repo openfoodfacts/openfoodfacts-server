@@ -1708,7 +1708,7 @@ HTML
 								$diffs .= "(" . lang("diff_$diff") . ' ' ;
 								my @diffs = @{$diffs{$group}{$diff}};
 								if ($group eq 'fields') {
-									@diffs = map( lang($_), @diffs);
+									# @diffs = map( lang($_), @diffs);
 								}
 								elsif ($group eq 'nutriments') {
 									# @diffs = map( $Nutriments{$_}{$lc}, @diffs);
