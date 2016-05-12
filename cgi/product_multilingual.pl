@@ -527,6 +527,12 @@ sub display_field($$) {
 	my $tagsinput = '';
 	if (defined $tags_fields{$fieldtype}) {
 		$tagsinput = ' tagsinput';
+		
+		my $autocomplete = "";
+		if (defined $taxonomy_fields{$fieldtype}) {
+			$autocomplete = ",
+	'autocomplete_url': 'http://world.openbeautyfacts.org/cgi/suggest.pl?lc=$lc&tagtype=$fieldtype&'";
+		}
 
 		$initjs .= <<HTML
 \$('#$field').tagsInput({
@@ -535,7 +541,7 @@ sub display_field($$) {
 	'interactive':true,
 	'minInputWidth':130,
 	'delimiter': [','],
-	'defaultText':"$Lang{$field . "_tagsinput"}{$lang}"
+	'defaultText':"$Lang{$field . "_tagsinput"}{$lang}"$autocomplete
 });
 HTML
 ;					
@@ -613,7 +619,9 @@ JS
 	$header .= <<HTML
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/0.9.1/cropper.min.css" />
 <link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.20150416/jquery.tagsinput.min.css" />
-
+<!-- Autocomplete -->
+<script type='text/javascript' src='http://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.min.js'></script>
+<link rel="stylesheet" type="text/css" href="http://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.css" ></link>
 HTML
 ;
 

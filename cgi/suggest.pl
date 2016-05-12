@@ -49,7 +49,8 @@ use Blogs::Lang qw/:all/;
 
 my $tagtype = param('tagtype');
 my $string = param('string');
-my $stringid = get_fileid($string);
+my $term = param('term');
+my $stringid = get_fileid($string) . get_fileid($term);
 
 if (defined param('lc')) {
 	$lc = param('lc');
