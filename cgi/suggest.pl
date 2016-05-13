@@ -48,8 +48,8 @@ use Blogs::Lang qw/:all/;
 
 
 my $tagtype = param('tagtype');
-my $string = param('string');
-my $term = param('term');
+my $string = decode utf8=>param('string');
+my $term = decode utf8=>param('term');
 my $stringid = get_fileid($string) . get_fileid($term);
 
 if (defined param('lc')) {
@@ -65,6 +65,7 @@ my $i = 0;
 foreach my $canon_tagid (@tags) {
 
 	next if not defined $translations_to{$tagtype}{$canon_tagid}{$lc};
+	next if defined $just_synonyms{$tagtype}{$canon_tagid};
 	my $tag = $translations_to{$tagtype}{$canon_tagid}{$lc};
 	my $tagid = get_fileid($tag);
 	next if $tagid !~ /^$stringid/;

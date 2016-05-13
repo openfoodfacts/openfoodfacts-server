@@ -89,6 +89,7 @@ BEGIN
 					
 					%loaded_taxonomies
 					
+					%just_synonyms
 					%translations_from
 					%translations_to
 					
@@ -141,7 +142,7 @@ my %tags_direct_children = ();
 my %tags_all_parents = ();
 
 my %stopwords = ();
-my %just_synonyms = ();
+%just_synonyms = ();
 my %synonyms = ();
 my %synonyms_for = ();
 my %synonyms_for_extended = ();
@@ -1101,6 +1102,7 @@ sub build_tags_taxonomy($$) {
 		my $taxonomy_ref = {
 			stopwords => $stopwords{$tagtype},
 			synonyms => $synonyms{$tagtype},
+			just_synonyms => $just_synonyms{$tagtype},
 			synonyms_for => $synonyms_for{$tagtype},
 			synonyms_for_extended => $synonyms_for_extended{$tagtype},
 			translations_from => $translations_from{$tagtype},
@@ -1145,6 +1147,11 @@ sub retrieve_tags_taxonomy($) {
 		$synonyms{$tagtype} = $taxonomy_ref->{synonyms};
 		$synonyms_for{$tagtype} = $taxonomy_ref->{synonyms_for};
 		$synonyms_for_extended{$tagtype} = $taxonomy_ref->{synonyms_for_extended};
+		$just_synonyms{$tagtype} = $taxonomy_ref->{just_synonyms};
+		# %just_synonyms was not included in taxonomies previously
+		if (not exists $just_synonyms{$tagtype}) {
+			$just_synonyms{$tagtype} = {};
+		}
 		$translations_from{$tagtype} = $taxonomy_ref->{translations_from};
 		$translations_to{$tagtype} = $taxonomy_ref->{translations_to};
 		$level{$tagtype} = $taxonomy_ref->{level};
