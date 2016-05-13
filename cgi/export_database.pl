@@ -92,8 +92,9 @@ $fields_ref->{images} = 1;
 my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
 my $date = sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);	
 
-
-foreach my $l (values %lang_lc) {
+# now that we have 200 languages, we can't run the export for every language. 
+# foreach my $l (values %lang_lc) {
+foreach my $l ("en", "fr") {
 
 	$lc = $l;
 	$lang = $l;
