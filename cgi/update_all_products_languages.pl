@@ -49,6 +49,10 @@ my $count = $cursor->count();
 		
 		if ((defined $product_ref) and ($code ne '')) {
 		
+		if ($product_ref->{lc} eq 'other') {
+			$product_ref->{lc} = 'xx';
+		}
+		
 		$lc = $product_ref->{lc};
 		
 	 	compute_languages($product_ref);		
