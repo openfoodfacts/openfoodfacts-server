@@ -140,7 +140,7 @@ HTML
 
 # fields for which we will load taxonomies
 
-@taxonomy_fields = qw(states countries labels categories additives allergens traces nutrient_levels );
+@taxonomy_fields = qw(states countries languages labels categories additives allergens traces nutrient_levels );
 
 
 # fields in product edit form
