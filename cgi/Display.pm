@@ -5456,6 +5456,7 @@ HTML
 	# try to display ingredients in the local language if available
 	
 	my $ingredients_text = $product_ref->{ingredients_text};
+	my $ingredients_text_lang = $product_ref->{lang};
 	
 	if (defined $product_ref->{ingredients_text_with_allergens}) {
 		$ingredients_text = $product_ref->{ingredients_text_with_allergens};
@@ -5463,10 +5464,12 @@ HTML
 	
 	if ((defined $product_ref->{"ingredients_text" . "_" . $lc}) and ($product_ref->{"ingredients_text" . "_" . $lc} ne '')) {
 		$ingredients_text = $product_ref->{"ingredients_text" . "_" . $lc};
+		$ingredients_text_lang = $lc;
 	}
 	
 	if ((defined $product_ref->{"ingredients_text_with_allergens" . "_" . $lc}) and ($product_ref->{"ingredients_text_with_allergens" . "_" . $lc} ne '')) {
 		$ingredients_text = $product_ref->{"ingredients_text_with_allergens" . "_" . $lc};
+		$ingredients_text_lang = $lc;
 	}	
 	
 	
@@ -5480,8 +5483,15 @@ HTML
 	
 		
 	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
-	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . " :</span> <span id=\"ingredients_list\" property=\"food:ingredientListAsText\">$ingredients_text</span></div>";
-	
+	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . " :</span>";
+	if ($lc ne $ingredients_text_lang) {
+		$html .= " <span id=\"ingredients_list\" property=\"food:ingredientListAsText\" lang="$ingredients_text_lang">$ingredients_text</span>";
+	}
+	else {
+		$html .= " <span id=\"ingredients_list\" property=\"food:ingredientListAsText\">$ingredients_text</span>";
+	}
+	$html .= "</div";
+
 	$html .= display_field($product_ref, 'allergens');
 	
 	$html .= display_field($product_ref, 'traces');
