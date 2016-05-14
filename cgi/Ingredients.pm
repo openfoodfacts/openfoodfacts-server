@@ -758,18 +758,27 @@ sub detect_allergens_from_text($) {
 
 	my $product_ref = shift;
 	my $path = product_path($product_ref->{code});
-	my $text = $product_ref->{ingredients_text};
+	
 	
 	$product_ref->{allergens} = "";
+
 	
+	if (defined $product_ref->{languages_codes}) {
 	
-	$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($product_ref,$1)/iesg;
+		foreach my $language (keys %{$product_ref->{languages_codes}}) {
+		
+			my $text = $product_ref->{"ingredients_text_" . $language };
 	
-	if ($text =~ /[a-z]/) {
-		$text =~ s/\b([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß][A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]+))\b/replace_caps($product_ref,$1)/esg;
+			$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($product_ref,$1)/iesg;
+	
+			if ($text =~ /[a-z]/) {
+				$text =~ s/\b([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß][A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]+))\b/replace_caps($product_ref,$1)/esg;
+			}
+			
+			$product_ref->{"ingredients_text_with_allergens_" . $language} = $text;
+		
+		}
 	}
-	
-	$product_ref->{ingredients_text_with_allergens} = $text;
 	
 	$product_ref->{allergens} =~ s/, $//;
 
