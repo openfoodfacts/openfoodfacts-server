@@ -2483,8 +2483,9 @@ foreach my $lc (@Langs) {
 
 }
 
-sub canonicalize_nutriment($) {
+sub canonicalize_nutriment($$) {
 
+	my $lc = shift;
 	my $label = shift;
 	my $nid = get_fileid($label);
 	if ($lc eq 'fr') {
