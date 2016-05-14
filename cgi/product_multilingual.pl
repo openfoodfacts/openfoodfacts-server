@@ -437,7 +437,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		# New label?
 		my $new_nid = undef;
 		if (defined $label) {
-			$new_nid = canonicalize_nutriment($label);
+			$new_nid = canonicalize_nutriment($lc,$label);
 			if ($new_nid ne $nid) {
 				delete $product_ref->{nutriments}{$nid};
 				delete $product_ref->{nutriments}{$nid . "_unit"};
@@ -531,7 +531,7 @@ sub display_field($$) {
 		my $autocomplete = "";
 		if (defined $taxonomy_fields{$fieldtype}) {
 			$autocomplete = ",
-	'autocomplete_url': 'http://world.openbeautyfacts.org/cgi/suggest.pl?lc=$lc&tagtype=$fieldtype&'";
+	'autocomplete_url': 'http://world.$server_domain/cgi/suggest.pl?lc=$lc&tagtype=$fieldtype&'";
 		}
 
 		$initjs .= <<HTML
@@ -619,11 +619,14 @@ JS
 	$header .= <<HTML
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/0.9.1/cropper.min.css" />
 <link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.20150416/jquery.tagsinput.min.css" />
-<!-- Autocomplete -->
-<script type='text/javascript' src='http://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.min.js'></script>
-<link rel="stylesheet" type="text/css" href="http://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.css" ></link>
+
 HTML
 ;
+
+
+#<!-- Autocomplete -->
+#<script type='text/javascript' src='http://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.min.js'></script>
+#<link rel="stylesheet" type="text/css" href="http://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.css" ></link>
 
 # <script type="text/javascript" src="/js/jquery.imgareaselect-0.9.8/scripts/jquery.imgareaselect.pack.js"></script>
 # <script type="text/javascript" src="/js/jquery.imgareaselect-0.9.11/scripts/jquery.imgareaselect.touch-support.js"></script>
@@ -1118,8 +1121,9 @@ HTML
 
 	foreach my $olc (sort keys %Langs) {
 		if (($olc ne $product_ref->{lc}) and (not defined $product_ref->{languages}{$olc})) {
+			my $olanguage = display_taxonomy_tag($lc,'languages',$language_codes{$olc}); # $Langs{$olc}
 			$select_add_language .=<<HTML
- <option value="$olc" class="select_add_language_$olc">$Langs{$olc}</option>
+ <option value="$olc" class="select_add_language_$olc">$olanguage</option>
 HTML
 ;
 		}
@@ -1180,8 +1184,10 @@ HTML
 		else {
 	
 	
+		my $language = display_taxonomy_tag($lc,'languages',$language_codes{$tabid});	 # instead of $tabsids_hash_ref->{$tabid}
+	
 		$html_header .= <<HTML
-	<li class="tabs tab-title$active$new_lc tabs_${tabid}"  id="tabs_${tabsid}_${tabid}_tab"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$tabsids_hash_ref->{$tabid}</a></li>
+	<li class="tabs tab-title$active$new_lc tabs_${tabid}"  id="tabs_${tabsid}_${tabid}_tab"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$language</a></li>
 HTML
 ;
 
