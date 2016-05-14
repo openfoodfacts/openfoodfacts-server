@@ -35,6 +35,8 @@ my $count = $cursor->count();
 	
 	print STDERR "$count products to update\n";
 	
+	my $i = 0;
+	
 	while (my $product_ref = $cursor->next) {
         
 		
@@ -43,7 +45,8 @@ my $count = $cursor->count();
 		
 	#	next if $code ne "3564700022153";
 		
-		print STDERR "updating product $code\n";
+		print STDERR "updating product $code - $i\n";
+		$i++;
 		
 		$product_ref = retrieve_product($code);
 		
@@ -56,10 +59,10 @@ my $count = $cursor->count();
 
 		foreach my $field (keys %language_fields) {
 
-			print STDERR "field: $field\n";
+			
 				if ($field !~ /_image/) {
 					if ((defined $product_ref->{$field} and (not defined $product_ref->{$field . "_$lc"}))) {
-					
+						print STDERR "field: $field\n";
 						$product_ref->{$field . "_$lc"} = $product_ref->{$field};
 					}
 				}
@@ -79,7 +82,7 @@ my $count = $cursor->count();
 							
 							(! -e "$www_root/images/products/$path/${field}_$lc.$rev.$size.jpg") and system("cp -a $www_root/images/products/$path/$field.$rev.$size.jpg $www_root/images/products/$path/${field}_$lc.$rev.$size.jpg");
 						}
-						(! -e "$www_root/images/products/$path/${field}_$lc.$rev.full.json") and system("cp -a $www_root/images/products/$path/$field.$rev.full.json $www_root/images/products/$path/${field}_$lc.$rev.full.json");
+						(-e "$www_root/images/products/$path/$field.$rev.full.json") and (! -e "$www_root/images/products/$path/${field}_$lc.$rev.full.json") and system("cp -a $www_root/images/products/$path/$field.$rev.full.json $www_root/images/products/$path/${field}_$lc.$rev.full.json");
 						
 					}
 				}
