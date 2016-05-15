@@ -729,23 +729,32 @@ sub extract_ingredients_classes_from_text($) {
 
 
 
-sub replace_allergen($$) {
+sub replace_allergen($$$) {
+	my $language = shift;
 	my $product_ref = shift;
 	my $allergen = shift;
-	$product_ref->{allergens} .= $allergen . ', ';
+	
+	# to build the product allergens list, just use the ingredients in the main language
+	if ($language eq $product_ref->{lc}) {
+		$product_ref->{allergens} .= $allergen . ', ';
+	}
 	
 	return '<span class="allergen">' . $allergen . '</span>';
 }
 
 
-sub replace_caps($$) {
+sub replace_caps($$$) {
+	my $language = shift;
 	my $product_ref = shift;
 	my $allergen = shift;
 	
-	my $tagid = canonicalize_taxonomy_tag($product_ref->{lang},"allergens", $allergen);
+	my $tagid = canonicalize_taxonomy_tag($language,"allergens", $allergen);
 	if (exists_taxonomy_tag("allergens", $tagid)) {
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
-		$product_ref->{allergens} .= $allergen . ', ';
+		# to build the product allergens list, just use the ingredients in the main language
+		if ($language eq $product_ref->{lc}) {
+			$product_ref->{allergens} .= $allergen . ', ';
+		}
 		return '<span class="allergen">' . $allergen . '</span>';
 	}
 	else {
@@ -769,10 +778,10 @@ sub detect_allergens_from_text($) {
 		
 			my $text = $product_ref->{"ingredients_text_" . $language };
 	
-			$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($product_ref,$1)/iesg;
+			$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($language,$product_ref,$1)/iesg;
 	
 			if ($text =~ /[a-z]/) {
-				$text =~ s/\b([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß][A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]+))\b/replace_caps($product_ref,$1)/esg;
+				$text =~ s/\b([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß][A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]+))\b/replace_caps($language,$product_ref,$1)/esg;
 			}
 			
 			$product_ref->{"ingredients_text_with_allergens_" . $language} = $text;
