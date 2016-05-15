@@ -367,6 +367,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	extract_ingredients_from_text($product_ref);
 	extract_ingredients_classes_from_text($product_ref);
 
+	compute_languages($product_ref); # need languages for allergens detection
 	detect_allergens_from_text($product_ref);
 	
 	# Nutrition data
@@ -1423,6 +1424,12 @@ HTML
 HTML
 ;
 		}
+		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{en})) {
+			$label = <<HTML
+<label class="nutriment_label" for="nutriment_$nid">${prefix}$Nutriments{$nid}{en}</label>
+HTML
+;
+		}		
 		elsif (defined $product_ref->{nutriments}{$nid . "_label"}) {
 			my $label_value = $product_ref->{nutriments}{$nid . "_label"};
 			$label = <<HTML
