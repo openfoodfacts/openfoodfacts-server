@@ -6753,26 +6753,44 @@ sub add_images_urls_to_product($) {
 
 	my $product_ref = shift;
 	
-	foreach my $id ('front','ingredients','nutrition') {
+	foreach my $imagetype ('front','ingredients','nutrition') {
 	
 		my $size = $display_size;
-	
-		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
-			and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
 		
-			my $path = product_path($product_ref->{code});
+		my $display_lc = $lc;
+		
+		# first try the requested language
+		my @display_ids = ($imagetype . "_" . $display_lc);
+		
+		# next try the main language of the product
+		if ($product_ref->{lc} ne $display_lc) {
+			push @display_ids, $imagetype . "_" . $product_ref->{lc};
+		}
+		
+		# last try the field without a language (for old products without updated images)
+		push @display_ids, $imagetype;
+			
+		foreach my $id (@display_ids) {
+	
+			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+				and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
+			
+				my $path = product_path($product_ref->{code});
 
-			
-			$product_ref->{"image_" . $id . "_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-			$product_ref->{"image_" . $id . "_small_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-			$product_ref->{"image_" . $id . "_thumb_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
-			
-			if ($id eq 'front') {
-				$product_ref->{image_url} = $product_ref->{"image_" . $id . "_url"};
-				$product_ref->{image_small_url} = $product_ref->{"image_" . $id . "_small_url"};
-				$product_ref->{image_thumb_url} = $product_ref->{"image_" . $id . "_thumb_url"};
+				
+				$product_ref->{"image_" . $imagetype . "_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+				$product_ref->{"image_" . $imagetype . "_small_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+				$product_ref->{"image_" . $imagetype . "_thumb_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
+				
+				if ($imagetype eq 'front') {
+					$product_ref->{image_url} = $product_ref->{"image_" . $imagetype . "_url"};
+					$product_ref->{image_small_url} = $product_ref->{"image_" . $imagetype . "_small_url"};
+					$product_ref->{image_thumb_url} = $product_ref->{"image_" . $imagetype . "_thumb_url"};
+				}
+				
+				last;
 			}
-		}		
+		}
 	}		
 
 }
