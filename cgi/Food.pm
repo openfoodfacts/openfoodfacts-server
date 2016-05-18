@@ -2449,23 +2449,55 @@ foreach my $region (keys %nutriments_tables) {
 
 }
 
+sub canonicalize_nutriment($$) {
 
-%nutriments_labels = ();
+	my $lc = shift;
+	my $label = shift;
+	my $nid = get_fileid($label);
+	if ($lc eq 'fr') {
+		$nid =~ s/^dont-//;
+	}
+	if (defined $nutriments_labels{$lc}) {
+		if (defined $nutriments_labels{$lc}{$nid}) {
+			$nid = $nutriments_labels{$lc}{$nid};
+		}
+		elsif ($nid =~ /linole/) {
+			my $nid2 = $nid;
+			$nid2 =~ s/linolei/linoleni/;
+			if (defined $nutriments_labels{$lc}{$nid2}) {
+				$nid = $nutriments_labels{$lc}{$nid2};
+			}
+			else {
+				$nid2 = $nid;
+				$nid2 =~ s/linoleni/linolei/;
+				if (defined $nutriments_labels{$lc}{$nid2}) {
+					$nid = $nutriments_labels{$lc}{$nid2};
+				}			
+			}
+		}
+	}
+	return $nid;
+	#print STDERR "canonicalize_nutriment : lc: $lc - label: $label - nid: $nid\n";
+}
 
-foreach my $lc (@Langs) {
 
-	$nutriments_labels{$lc} = ();
 
-	foreach my $nid (keys %Nutriments) {
+print STDERR "Food.pm - initialize \%nutriments_labels\n";
+
+foreach my $nid (keys %Nutriments) {
+	
+	foreach my $lc (sort keys %{$Nutriments{$nid}}) {
+
 		my $label = $Nutriments{$nid}{$lc};
 		next if not defined $label;
-		$nutriments_labels{$lc}{get_fileid($label)} = $nid;
-		#print STDERR "nutriments_labels : lc: $lc - label: $label - nid: $nid\n";
+		defined $nutriments_labels{$lc} or $nutriments_labels{$lc} = {};
+		$nutriments_labels{$lc}{canonicalize_nutriment($lc,$label)} = $nid;
+		print STDERR "nutriments_labels : lc: $lc - label: $label - nid: $nid\n";
 		
 		my @labels = split(/\(|\/|\)/, $label);
 
 		foreach my $sublabel ($label, @labels) {
-			$sublabel = get_fileid($sublabel);
+			$sublabel = canonicalize_nutriment($lc,$sublabel);
 			if (length($sublabel) >= 2) {
 				$nutriments_labels{$lc}{$sublabel} = $nid;
 				#print STDERR "nutriments_labels : lc: $lc - sublabel: $sublabel - nid: $nid\n";
@@ -2483,34 +2515,7 @@ foreach my $lc (@Langs) {
 
 }
 
-sub canonicalize_nutriment($$) {
 
-	my $lc = shift;
-	my $label = shift;
-	my $nid = get_fileid($label);
-	if ($lc eq 'fr') {
-		$nid =~ s/^dont-//;
-	}
-	if (defined $nutriments_labels{$lc}{$nid}) {
-		$nid = $nutriments_labels{$lc}{$nid};
-	}
-	elsif ($nid =~ /linole/) {
-		my $nid2 = $nid;
-		$nid2 =~ s/linolei/linoleni/;
-		if (defined $nutriments_labels{$lc}{$nid2}) {
-			$nid = $nutriments_labels{$lc}{$nid2};
-		}
-		else {
-			$nid2 = $nid;
-			$nid2 =~ s/linoleni/linolei/;
-			if (defined $nutriments_labels{$lc}{$nid2}) {
-				$nid = $nutriments_labels{$lc}{$nid2};
-			}			
-		}
-	}
-	return $nid;
-	#print STDERR "canonicalize_nutriment : lc: $lc - label: $label - nid: $nid\n";
-}
 
 
 sub normalize_serving_size($) {
