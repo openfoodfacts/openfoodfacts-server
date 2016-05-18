@@ -186,6 +186,8 @@ sub init()
 	}
 	
 	$subdomain =~ s/\..*//;
+	
+	print STDERR "Display::init - subdomain: $subdomain \n";
 
 	if ($subdomain eq 'world') {
 		($cc, $country, $lc) = ('world','en:world','en');
@@ -195,7 +197,7 @@ sub init()
 		$country = $country_codes{$cc};
 		$lc = $country_languages{$cc}[0]; # first official language
 		
-		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 1\n";
+		print STDERR "Display::init - country_codes($subdomain) - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 1\n";
 		
 		if (not exists $Langs{$lc}) {
 			print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc does not exist - cc: $cc - country: $country - lc does not exist\n";
@@ -204,21 +206,24 @@ sub init()
 		
 	}
 	elsif ($subdomain =~ /(.*?)-(.*)/) {
+	
+		print STDERR "Display::init - subdomain 1 cc-lc ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
+	
+	
 		if (defined $country_codes{$1}) {
 			$cc = $1;
 			$country = $country_codes{$cc};
 			$lc = $2;		
 			$lc =~ s/-/_/; # pt-pt -> pt_pt
+			print STDERR "Display::init - subdomain cc-lc ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
+			
 		}
 	}
 	elsif (defined $country_names{$subdomain}) {
 		($cc, $country, $lc) = @{$country_names{$subdomain}};
 		
-		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
+		print STDERR "Display::init - country_name($subdomain) -  ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
 		
-	}
-	elsif ($hostname =~ /^([a-z]{2})(-test)?\./i) {
-		$lc = lc($1);
 	}
 	elsif ($ENV{QUERY_STRING} !~ /cgi/) {
 		# redirect
@@ -5455,19 +5460,20 @@ HTML
 	
 	# try to display ingredients in the local language if available
 	
-	my $ingredients_text = $product_ref->{ingredients_text};
+	my $ingredients_text = $product_ref->{ingredients_text} . "<!-- 1 - lc $lc -->";
 	
 	if (defined $product_ref->{ingredients_text_with_allergens}) {
-		$ingredients_text = $product_ref->{ingredients_text_with_allergens};
+		$ingredients_text = $product_ref->{ingredients_text_with_allergens} . "<!-- 2 - lc $lc -->" ;
 	}	
 	
 	if ((defined $product_ref->{"ingredients_text" . "_" . $lc}) and ($product_ref->{"ingredients_text" . "_" . $lc} ne '')) {
-		$ingredients_text = $product_ref->{"ingredients_text" . "_" . $lc};
+		$ingredients_text = $product_ref->{"ingredients_text" . "_" . $lc} . "<!-- 3 - lc $lc -->";
 	}
 	
 	if ((defined $product_ref->{"ingredients_text_with_allergens" . "_" . $lc}) and ($product_ref->{"ingredients_text_with_allergens" . "_" . $lc} ne '')) {
-		$ingredients_text = $product_ref->{"ingredients_text_with_allergens" . "_" . $lc};
+		$ingredients_text = $product_ref->{"ingredients_text_with_allergens" . "_" . $lc} . "<!-- 4 - lc $lc -->" ;
 	}	
+		
 	
 	
 		$html .= <<HTML
@@ -6422,6 +6428,12 @@ HTML
 HTML
 ;
 		}
+		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{en})) {
+			$label = <<HTML
+<td class="nutriment_label">${prefix}$Nutriments{$nid}{en}</td>
+HTML
+;
+		}		
 		elsif (defined $product_ref->{nutriments}{$nid . "_label"}) {
 			my $label_value = $product_ref->{nutriments}{$nid . "_label"};
 			$label = <<HTML
