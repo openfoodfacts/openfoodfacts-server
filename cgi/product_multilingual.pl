@@ -341,14 +341,9 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	
 	# Language and language code / subsite
 	
-	if (not defined $product_ref->{lang}) {
-		$product_ref->{lang} = 'other';
-	}
-	if (defined $lang_lc{$product_ref->{lang}}) {
-		$product_ref->{lc} = $lang_lc{$product_ref->{lang}};
-	}
-	else {
-		$product_ref->{lc} = 'other';
+	$product_ref->{lc} = $product_ref->{lang};
+	if (not defined $lang_lc{$product_ref->{lc}}) {
+		$product_ref->{lc} = 'xx';
 	}
 	
 	
@@ -751,8 +746,8 @@ HTML
 		}
 	}
 	my $lang_value = $lang;
-	if (defined $product_ref->{lang}) {
-		$lang_value = $product_ref->{lang};
+	if (defined $product_ref->{lc}) {
+		$lang_value = $product_ref->{lc};
 	}
 	
 	$html .= popup_menu(-name=>'lang', -default=>$lang_value, -values=>\@lang_values, -labels=>\%lang_labels);
@@ -1174,6 +1169,8 @@ HTML
 			$new_lc = ' new';
 		}
 	
+		my $language;
+	
 		if ($tabid eq 'new') {
 		
 		$html_header .= <<HTML
@@ -1185,7 +1182,7 @@ HTML
 		else {
 	
 	
-		my $language = display_taxonomy_tag($lc,'languages',$language_codes{$tabid});	 # instead of $tabsids_hash_ref->{$tabid}
+			$language = display_taxonomy_tag($lc,'languages',$language_codes{$tabid});	 # instead of $tabsids_hash_ref->{$tabid}
 	
 		$html_header .= <<HTML
 	<li class="tabs tab-title$active$new_lc tabs_${tabid}"  id="tabs_${tabsid}_${tabid}_tab"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$language</a></li>
@@ -1234,7 +1231,7 @@ HTML
 
 			# add (language name) in all field labels
 		
-			$html_content_tab =~ s/<\/label>/ (<span class="tab_language">$tabsids_hash_ref->{$tabid}<\/span>)<\/label>/g;
+			$html_content_tab =~ s/<\/label>/ (<span class="tab_language">$language<\/span>)<\/label>/g;
 
 		
 		}
