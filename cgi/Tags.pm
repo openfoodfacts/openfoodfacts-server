@@ -1709,10 +1709,18 @@ sub display_tags_hierarchy_taxonomy($$$) {
 			
 			my $lc_imgid = get_fileid($target_title);
 			my $en_imgid = get_taxonomyid($canon_tagid);
-			$en_imgid =~ s/^\w\w://;
+			my $tag_lc = undef;
+			if ($en_imgid =~ /^(\w\w):/) {
+				$en_imgid = $';
+				$tag_lc = $1;
+			}
 			
 			if (defined $tags_images{$target_lc}{$tagtype}{$lc_imgid}) {
 				$img = $tags_images{$target_lc}{$tagtype}{$lc_imgid};
+			}
+			elsif ((defined $tag_lc) and (defined $tags_images{$tag_lc}) and (defined $tags_images{$tag_lc}{$tagtype}{$en_imgid})) {
+				$img = $tags_images{$tag_lc}{$tagtype}{$en_imgid};
+				$img_lc = $tag_lc;
 			}
 			elsif (defined $tags_images{'en'}{$tagtype}{$en_imgid}) {
 				$img = $tags_images{'en'}{$tagtype}{$en_imgid};
