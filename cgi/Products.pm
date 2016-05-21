@@ -158,7 +158,11 @@ sub init_product($) {
 				foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
 					push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
 				}
-			}			
+			}
+			# if lc is not defined or is set en, set lc to main language of country
+			if ($lc eq 'en') {
+				$lc = $country_languages{lc($country)}[0];
+			}
 		}
 	}	
 	return $product_ref;
@@ -523,6 +527,7 @@ sub compute_product_history_and_completeness($$) {
 
 	my $last_modified_t = $current_product_ref->{last_modified_t} + 0;
 	my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($last_modified_t + 0);
+	$current_product_ref->{last_edit_dates_tags} = [];
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d-%02d", $year + 1900, $mon + 1);
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d", $year + 1900);
@@ -563,6 +568,12 @@ sub compute_product_history_and_completeness($$) {
 		
 		if (defined $product_ref) {
 
+			# fix last_modified_t using the one from change_ref if it greater than the current_product_ref
+			
+			if ($change_ref->{t} > $current_product_ref->{last_modified_t}) {
+				$current_product_ref->{last_modified_t} = $change_ref->{t};
+			}		
+		
 			%current = (lc => $product_ref->{lc}, uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
 			
 			# Uploaded images
@@ -695,7 +706,7 @@ sub compute_product_history_and_completeness($$) {
 					push @{$diffs{$group}{$diff}}, $id;
 				
 				
-					# Attribution
+					# Attribution and last_image_t
 					
 					
 					if (($diff eq 'add') and ($group eq 'uploaded_images')) {
@@ -720,6 +731,12 @@ sub compute_product_history_and_completeness($$) {
 							$change_ref->{userid} = $userid;
 							
 						}
+						
+						# set last_image_t
+						
+						if ((not exists $current_product_ref->{last_image_t}) or ( $product_ref->{last_modified_t} > $current_product_ref->{last_image_t}) ) {
+							$current_product_ref->{last_image_t} = $product_ref->{last_modified_t};
+						}						
 						
 					}
 					
@@ -751,12 +768,27 @@ sub compute_product_history_and_completeness($$) {
 			}
 		}
 		
+		$current_product_ref->{last_editor} = $change_ref->{userid};
 
 		compute_completeness_and_missing_tags($product_ref, \%current, \%previous);
 		
 		%last = %previous;
 		%previous = %current;
 	}
+	
+	# Populate the last_image_date_tags field
+	
+	if ((exists $current_product_ref->{last_image_t}) and ($current_product_ref->{last_image_t} > 0)) {
+		$current_product_ref->{last_image_dates_tags} = [];
+		my $last_image_t = $current_product_ref->{last_image_t};
+		my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($last_image_t);
+		push @{$current_product_ref->{last_image_dates_tags}}, sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
+		push @{$current_product_ref->{last_image_dates_tags}}, sprintf("%04d-%02d", $year + 1900, $mon + 1);
+		push @{$current_product_ref->{last_image_dates_tags}}, sprintf("%04d", $year + 1900);	
+	}
+	else {
+		delete $current_product_ref->{last_image_dates_tags};
+	}	
 	
 	$current_product_ref->{editors_tags} = [keys %changed_by];
 	
