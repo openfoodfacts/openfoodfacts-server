@@ -5646,10 +5646,29 @@ HTML
 	
 
 	my $created_date = display_date_tag($product_ref->{created_t});
+	my $last_modified_date = display_date_tag($product_ref->{last_modified_t});
+	
+	my @other_editors = ();
+	
+	foreach my $editor (@{$product_ref->{editors_tags}}) {
+		next if $editor eq $product_ref->{creator};
+		next if $editor eq $product_ref->{last_editor};
+		push @other_editors, $editor;
+	}
+	
+	my $other_editors = "";
+	
+	foreach my $editor (sort @other_editors) {
+		$other_editors .= "<a href=\"" . canonicalize_tag_link("users", get_fileid($editor)) . "\">" . $editor . "</a>, ";
+	}
+	$other_editors =~ s/, $//;
 	
 	my $creator = "<a href=\"" . canonicalize_tag_link("users", get_fileid($product_ref->{creator})) . "\">" . $product_ref->{creator} . "</a>";
+	my $last_editor = "<a href=\"" . canonicalize_tag_link("users", get_fileid($product_ref->{last_editor})) . "\">" . $product_ref->{last_editor} . "</a>";
 	
-
+	if ($other_editors ne "") {
+		$other_editors = "<br>\n$Lang{also_edited_by}{$lang} ${other_editors}.";
+	}
 
 	$html .= <<HTML
 </div>
@@ -5657,7 +5676,10 @@ HTML
 </div>
 
 	
-<p>$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator</p>	
+<p>$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator.<br/>
+$Lang{product_last_edited}{$lang} $last_modified_date $Lang{by}{$lang} $last_editor.
+$other_editors
+</p>
 	
 <div class="alert-box info">
 $Lang{fixme_product}{$lc}
