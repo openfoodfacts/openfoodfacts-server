@@ -50,6 +50,8 @@ my $count = $cursor->count();
 			# Update
 			extract_ingredients_from_text($product_ref);
 
+			compute_languages($product_ref); # need languages for allergens detection
+			detect_allergens_from_text($product_ref);
 
 			# Store
 			

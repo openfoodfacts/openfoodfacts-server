@@ -32,6 +32,8 @@ use JSON;
 
 my $cursor = $products_collection->query({})->fields({ code => 1 });;
 my $count = $cursor->count();
+
+my $periods = 0;
 	
 	print STDERR "$count products to update\n";
 	
@@ -46,31 +48,34 @@ my $count = $cursor->count();
 		$product_ref = retrieve_product($code);
 		
 		if ((defined $product_ref) and ($code ne '')) {
-				
+		
 		$lc = $product_ref->{lc};
-		$lang = $lc;
 		
-		my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
-		if (not defined $changes_ref) {
-			$changes_ref = [];
-		}		
-	
-		#make sure we have numbers for dates
-		$product_ref->{last_modified_t} += 0;
-		$product_ref->{created_t} += 0;
+		# Update
 		
-		compute_product_history_and_completeness($product_ref, $changes_ref);
+		if ((defined $product_ref->{expiration_date}) and ($product_ref->{expiration_date} =~ /^\d+( )?m(ois|onth|onths)?$/i)
+			and ((not defined $product_ref->{periods_after_opening}) or ($product_ref->{periods_after_opening} eq ""))) {
+				$product_ref->{periods_after_opening} = $product_ref->{expiration_date};
+				delete $product_ref->{expiration_date};
+				print "updated period : code: $code -  " . $product_ref->{expiration_date}  . "\n";
+				$periods++;
+		}
 		
-		# sort_key
-		# add 0 just to make sure we have a number...  last_modified_t at some point contained strings like  "1431125369"
-		$product_ref->{sortkey} = 0 + $product_ref->{last_modified_t} - ((1 - $product_ref->{complete}) * 1000000000);
+		my $field = 'periods_after_opening';
 
+		compute_field_tags($product_ref, $field);
+		
+
+			
+		# Store
 
 		store("$data_root/products/$path/product.sto", $product_ref);		
 		$products_collection->save($product_ref);
-		store("$data_root/products/$path/changes.sto", $changes_ref);
+		
 		}
 	}
 
+print "\n\nperiods updated from expiration date: $periods\n";
+	
 exit(0);
 
