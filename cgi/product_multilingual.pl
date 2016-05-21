@@ -434,6 +434,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		my $new_nid = undef;
 		if (defined $label) {
 			$new_nid = canonicalize_nutriment($lc,$label);
+			print STDERR "product_multilingual.pl - unknown nutrient $nid (lc: $lc) -> canonicalize_nutriment: $new_nid\n";
+			
 			if ($new_nid ne $nid) {
 				delete $product_ref->{nutriments}{$nid};
 				delete $product_ref->{nutriments}{$nid . "_unit"};
@@ -441,7 +443,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				delete $product_ref->{nutriments}{$nid . "_modifier"};
 				delete $product_ref->{nutriments}{$nid . "_label"};
 				delete $product_ref->{nutriments}{$nid . "_100g"};
-				delete $product_ref->{nutriments}{$nid . "_serving"};				
+				delete $product_ref->{nutriments}{$nid . "_serving"};			
+				print STDERR "product_multilingual.pl - unknown nutrient $nid (lc: $lc) -> known $new_nid\n";
 				$nid = $new_nid;
 			}
 			$product_ref->{nutriments}{$nid . "_label"} = $label;
@@ -1310,7 +1313,7 @@ HTML
 	$html .= display_field($product_ref, "traces");
 
 $html .= "</div><!-- fieldset -->
-<div class=\"fieldset\"><legend>$Lang{nutrition_data}{$lang}</legend>\n";
+<div class=\"fieldset\" id=\"nutrition\"><legend>$Lang{nutrition_data}{$lang}</legend>\n";
 
 	my $checked = '';
 	if ($product_ref->{no_nutrition_data} eq 'on') {
