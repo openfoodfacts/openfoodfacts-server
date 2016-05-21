@@ -201,11 +201,13 @@ if ($error) {
 			
 			if ($admin) {
 				$image_data_ref->{uploader} = $product_ref->{images}{$imgid}{uploader};
-				$image_data_ref->{uploaded} = display_date($product_ref->{images}{$imgid}{uploaded_t});
+				$image_data_ref->{uploaded} = display_date($product_ref->{images}{$imgid}{uploaded_t}) . ""; # trying to convert the object to a scalar
 			}
 			push @{$response{images}}, $image_data_ref;
 		}
 	}
+
+# [Mon Mar 21 17:38:40 2016] [error] [Mon Mar 21 17:38:40 2016] -e: encountered object '24 ao\xc3\xbbt 2015 \xc3\xa0 20:32:45 CEST', but neither allow_blessed nor convert_blessed settings are enabled at /home/off/cgi/product_image_move.pl line 211.\n
 
 
 $data =  encode_json(\%response);	
