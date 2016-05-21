@@ -6971,6 +6971,16 @@ product_added => {
 
 },
 
+product_last_edited => {
+	en => "Last edit of product page on",
+	fr => "Dernière modification de la page produit le",
+},
+
+also_edited_by => {
+	en => "Product page also edited by",
+	fr => "Fiche produit également modifiée par",
+},
+
 by => {
 
     ar => 'بواسطة', #ar-CHECK - Please check and remove this comment
