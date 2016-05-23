@@ -5491,7 +5491,7 @@ HTML
 	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
 	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . " :</span>";
 	if ($lc ne $ingredients_text_lang) {
-		$html .= " <span id=\"ingredients_list\" property=\"food:ingredientListAsText\" lang="$ingredients_text_lang">$ingredients_text</span>";
+		$html .= " <span id=\"ingredients_list\" property=\"food:ingredientListAsText\" lang=\"$ingredients_text_lang\">$ingredients_text</span>";
 	}
 	else {
 		$html .= " <span id=\"ingredients_list\" property=\"food:ingredientListAsText\">$ingredients_text</span>";
