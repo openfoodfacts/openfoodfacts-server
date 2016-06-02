@@ -341,10 +341,13 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	
 	# Language and language code / subsite
 	
-	$product_ref->{lc} = $product_ref->{lang};
+	if (defined $product_ref->{lang}) {
+		$product_ref->{lc} = $product_ref->{lang};
+	}
+	
 	if (not defined $lang_lc{$product_ref->{lc}}) {
 		$product_ref->{lc} = 'xx';
-	}
+	}	
 	
 	
 	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
