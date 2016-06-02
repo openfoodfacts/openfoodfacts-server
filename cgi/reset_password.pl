@@ -18,9 +18,6 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Encode;
 
-use Crypt::PasswdMD5 qw(unix_md5_crypt);
-
-
 Blogs::Display::init();
 
 my $type = param('type') || 'send_email';
@@ -148,7 +145,7 @@ if ($type eq 'send_email') {
 		if (defined $user_ref) {
 		
 			$user_ref->{token_t} = time();
-			$user_ref->{token} = int(rand() * 100000000);
+			$user_ref->{token} = generate_token(64);
 			$user_ref->{token_ip} = remote_addr();
 			
 			store("$data_root/users/$userid.sto", $user_ref);
