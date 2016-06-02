@@ -6981,6 +6981,11 @@ also_edited_by => {
 	fr => "Fiche produit également modifiée par",
 },
 
+contributor_since => {
+	en => "Contributor since",
+	fr => "Contributeur depuis le",
+},
+
 by => {
 
     ar => 'بواسطة', #ar-CHECK - Please check and remove this comment
