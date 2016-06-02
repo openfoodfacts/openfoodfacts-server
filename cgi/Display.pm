@@ -267,7 +267,7 @@ sub init()
 	
 	if (($User_id eq 'stephane') or ($User_id eq 'tacite') or ($User_id eq 'teolemon') or ($User_id eq 'bcatelin')
 		or ($User_id eq 'twoflower') or ($User_id eq 'hangy') or ($User_id eq 'javichu') or ($User_id eq 'segundo') 
-		or ($User_id eq 'tacinte') or ($User_id eq 'kyzh') or ($User_id eq 'sebleouf')) {
+		or ($User_id eq 'tacinte') or ($User_id eq 'kyzh') or ($User_id eq 'sebleouf') or ($User_id eq 'scanparty-franprix-05-2016')) {
 		$admin = 1;
 	}
 	
@@ -1945,6 +1945,8 @@ HTML
 				$title = $user_ref->{name} . " ($tagid)";
 				$products_title = $user_ref->{name};
 			}
+			
+			$description .= "<p>" . lang("contributor_since") . " " . display_date($user_ref->{registered_t}) . "</p>";
 			
 			if ((defined $user_ref->{missions}) and ($request_ref->{page} <= 1 )) {
 				my $missions = '';
