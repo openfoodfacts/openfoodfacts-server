@@ -51,6 +51,8 @@ BEGIN
 					
 					&check_session
 
+					&generate_token
+
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -72,6 +74,8 @@ use Digest::MD5 qw(md5 md5_hex md5_base64);
 use Encode;
 
 use Crypt::PasswdMD5 qw(unix_md5_crypt);
+use Math::Random::Secure qw(irand);
+use Crypt::ScryptKDF qw(scrypt_hash scrypt_hash_verify);
 
 my @salt = ( '.', '/', 0 .. 9, 'A' .. 'Z', 'a' .. 'z' );
 
@@ -87,6 +91,11 @@ sub gensalt {
   return $salt;
 }
 
+sub generate_token {
+	my $name_length = shift;
+	my @chars=('a'..'z', 'A'..'Z', 0..9);
+	join '',map {$chars[irand @chars]} 1..$name_length;
+}
 
 sub userpath($) {
 
@@ -114,7 +123,7 @@ sub create_user($) {
 		
 		# TODO
 		# Assign a random password
-		# Send welcome e-mail + password
+		# Send welcome e-mail + password - Might not be ideal, as passwords should not be sent over insecure channels such as e-mail.
 	
 		print STDERR "Users.pm - create_user - creating user $name_id2\n";
 		store("$data_root/users/$name_id2.sto", $user_ref);
@@ -409,8 +418,8 @@ sub init_user()
 			    # Maximum of sessions for a given user
 			    my $max_session = 10 ;
 
-			    # Generate a session number, store the cookie
-			    my $user_session = int(rand() * 10000000000);
+			    # Generate a secure session key, store the cookie
+			    my $user_session = generate_token(64);
 
 			    # Check if we need to delete the oldest session
 			    # delete $user_ref->{'user_session'};
