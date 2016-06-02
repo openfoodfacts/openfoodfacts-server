@@ -142,6 +142,7 @@ sub init_product($) {
 	};
 	if (defined $lc) {
 		$product_ref->{lc} = $lc;
+		$product_ref->{lang} = $lc;
 	}
 	use Geo::IP;
 	my $gi = Geo::IP->new(GEOIP_MEMORY_CACHE);
