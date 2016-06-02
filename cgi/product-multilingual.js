@@ -314,7 +314,7 @@ function change_image(imagefield, imgid) {
 						white_magic:$("#white_magic_" + imagefield).prop('checked') }, function(data) {
 						
 					imagefield_url[imagefield] = data.image.display_url;
-					update_display(imagefield);
+					update_display(imagefield, false);
 					$('div[id="cropbutton_' + imagefield +'"]').show();
 					$('div[id="cropbuttonmsg_' + imagefield +'"]').html(Lang.image_saved);
 					$(document).foundation('equalizer', 'reflow');
@@ -330,7 +330,7 @@ function change_image(imagefield, imgid) {
 }  
 
 
-function update_display(imagefield) {
+function update_display(imagefield, first_display) {
 
 	var display_url = imagefield_url[imagefield];
 	
@@ -343,7 +343,10 @@ function update_display(imagefield) {
 	if (stringStartsWith(imagefield, 'nutrition')) {
 		// width big enough to display a copy next to nutrition table?
 		if ($('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
-			$('#nutrition_image_copy').html('<img src="' + img_path + display_url + '" />').css("left", $('#nutrition_data_table').width() + 10);
+		
+			if ((! first_display) || ($('#nutrition_image_copy').html() == "")) {		
+				$('#nutrition_image_copy').html('<img src="' + img_path + display_url + '" />').css("left", $('#nutrition_data_table').width() + 10);
+			}
 		}
 	}
 	
@@ -488,7 +491,7 @@ function update_display(imagefield) {
 
 			if (! stringStartsWith(id, 'manage')) {
 			
-			update_display(id);
+			update_display(id, true);
 			
 
 
