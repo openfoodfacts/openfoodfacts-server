@@ -122,7 +122,7 @@ HTML
 
 #fields that have a taxonomy
 
-@taxonomy_fields = qw(states countries labels categories additives allergens traces nutrient_levels ingredients periods_after_opening);
+@taxonomy_fields = qw(states countries languages labels categories additives allergens traces nutrient_levels ingredients periods_after_opening);
 
 # fields in product edit form
 
@@ -152,6 +152,7 @@ additives
 allergens
 traces
 nutrition_grades
+languages
 users
 states
 entry_dates
