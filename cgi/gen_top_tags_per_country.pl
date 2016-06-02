@@ -731,7 +731,7 @@ print OUT $html;
 close OUT;
 
 
-# ! Open Beauty Facts
+# Open Food Facts - What's in my yogurt?
 
 if ($server_domain eq 'openfoodfacts.org') {
 
@@ -783,6 +783,60 @@ close DEBUG;
 
 }
 
+# Open Beauty Facts - What's in my shampoo?
+
+
+if ($server_domain eq 'openbeautyfacts.org') {
+
+open (DEBUG, ">:encoding(UTF-8)", "/home/shampoo/html/shampoos_debug");
+
+my $html = "";
+my $c = 0;
+foreach my $country (sort { $countries_tags{$b}{categories}{"en:shampoos"} <=> $countries_tags{$a}{categories}{"en:shampoos"}} keys %countries) {
+
+		print DEBUG "shampoos - $country - " . $countries_tags{$country}{categories}{"en:shampoos"} . "\n";
+		print STDERR "shampoos - $country - " . $countries_tags{$country}{categories}{"en:shampoos"} . "\n";
+        if ($countries_tags{$country}{categories}{"en:shampoos"}  > 0) {
+				my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
+				if ($country eq 'en:world') {
+					$cc = 'world';
+				}
+				$lc = $country_languages{$cc}[0]; # first official language
+		
+				if (not exists $Langs{$lc}) {
+					$lc = 'en';
+				}
+				
+				print DEBUG "shampoos - cc: $cc - lc: $lc \n";
+				
+				$cc ne '' or next;
+				$c++;
+				
+				my $n = $countries_tags{$country}{categories}{"en:shampoos"};
+				$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
+				my $link = "<a href=\"http://$cc.$server_domain" . canonicalize_taxonomy_tag_link($lc,"categories", "en:shampoos") . "\">" . display_taxonomy_tag('en','countries',$country) . "</a>";
+
+		
+                $html .= "<li>$link - " . $countries_tags{$country}{categories}{"en:shampoos"} . " shampoos</li>\n";
+        }
+
+}
+$html =~ s/ 1 shampoos/ 1 shampoo/g;
+
+my $shampoos = $countries_tags{"en:world"}{categories}{"en:shampoos"};
+
+
+$html = "<h2 style=\"color:white\">$shampoos shampoos opened so far!</h2>\n<p>$shampoos shampoos sold in $c countries and territories:</p>\n<ul>\n$html</ul>\n";
+
+open (OUT, ">:encoding(UTF-8)", "/home/shampoo/html/shampoos_countries.html");
+print OUT $html;
+close OUT;
+
+close DEBUG;
+
+}
+
+
 # Number of products and complete products
 
 foreach my $country (sort { $countries{$b} <=> $countries{$a}} keys %countries) {
@@ -795,7 +849,7 @@ foreach my $country (sort { $countries{$b} <=> $countries{$a}} keys %countries) 
 	my $meta = '';
 	if (-e "$www_root/images/misc/products_graph_country_$cc.png") {
 		$meta = <<HTML
-<meta property="og:image" content="http://$lc.openfoodfacts.org/images/misc/products_graph_country_$cc.png"/>
+<meta property="og:image" content="http://$lc.$server_domain/images/misc/products_graph_country_$cc.png"/>
 HTML
 ;
 		print "found meta products_graph_country_$cc.png image\n";
@@ -877,8 +931,8 @@ Highcharts.setOptions({
                 text: '$Lang{products_stats}{$lang} - $country_name'
             },
             subtitle: {
-                text: 'Source: <a href="http://$cc.openfoodfacts.org">'+
-                    '$cc.openfoodfacts.org</a>'
+                text: 'Source: <a href="http://$cc.$server_domain">'+
+                    '$cc.$server_domain</a>'
             },
             xAxis: {
 		        type: 'datetime',	
@@ -1016,8 +1070,8 @@ HTML
                 text: '$Lang{products_stats}{$lang}'
             },
             subtitle: {
-                text: 'Source: <a href="http://openfoodfacts.org">'+
-                    'openfoodfacts.org</a>'
+                text: 'Source: <a href="http://$server_domain">'+
+                    '$server_domain</a>'
             },
 			tooltip: {
                 shared: true

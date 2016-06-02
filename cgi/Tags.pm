@@ -75,14 +75,23 @@ BEGIN
 					%hierarchy_fields
 					%taxonomy_fields
 					@drilldown_fields
+					%language_fields
 					
 					%properties
+					
+					%language_codes
+					%language_codes_reverse
+					
 					%country_names
 					%country_codes
 					%country_codes_reverse
 					%country_languages
 					
 					%loaded_taxonomies
+					
+					%just_synonyms
+					%translations_from
+					%translations_to
 					
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -112,25 +121,18 @@ my $debug = 0;
 
 %taxonomy_fields = (); # populated by retrieve_tags_taxonomy
 
-@drilldown_fields = qw(
-brands
-categories
-labels
-packaging
-origins
-manufacturing_places
-emb_codes
-ingredients
-ingredients_n
-additives
-allergens
-traces
-nutrition_grades
-users
-states
-entry_dates
-last_edit_dates
+
+
+# Fields that can have different values by language
+%language_fields = (
+front_image => 1,
+ingredients_image => 1,
+nutrition_image => 1,
+product_name => 1,
+generic_name => 1,
+ingredients_text => 1,
 );
+
 
 %canon_tags = ();
 
@@ -140,12 +142,12 @@ my %tags_direct_children = ();
 my %tags_all_parents = ();
 
 my %stopwords = ();
-my %just_synonyms = ();
+%just_synonyms = ();
 my %synonyms = ();
 my %synonyms_for = ();
 my %synonyms_for_extended = ();
-my %translations_from = ();
-my %translations_to = ();
+%translations_from = ();
+%translations_to = ();
 my %level = ();
 my %direct_parents = ();
 my %direct_children = ();
@@ -225,7 +227,7 @@ sub load_tags_images($$) {
 	
 	if (opendir (DH2, "$www_root/images/lang/$lc/$tagtype")) {
 		foreach my $file (readdir(DH2)) {
-			if ($file =~ /^((.*)\.(\d+)x${logo_height}.png)/) {
+			if ($file =~ /^((.*)\.(\d+)x${logo_height}.(png|svg))/) {
 				$tags_images{$lc}{$tagtype}{$2} = $1;
 				# print STDERR "load_tags_images - tags_images - lc: $lc - tagtype: $tagtype - tag: $2 - img: $1 \n";
 				# print "load_tags_images - tags_images - loading lc: $lc - tagtype: $tagtype - tag: $2 - img: $1 \n";
@@ -518,6 +520,8 @@ sub build_tags_taxonomy($$) {
 
 	defined $tags_images{$lc} or $tags_images{$lc} = {};
 	defined $tags_images{$lc}{$tagtype} or $tags_images{$lc}{$tagtype} = {};	
+	
+	
 	
 
 	# Need to be initialized as a taxonomy is probably already loaded by Tags.pm
@@ -1098,6 +1102,7 @@ sub build_tags_taxonomy($$) {
 		my $taxonomy_ref = {
 			stopwords => $stopwords{$tagtype},
 			synonyms => $synonyms{$tagtype},
+			just_synonyms => $just_synonyms{$tagtype},
 			synonyms_for => $synonyms_for{$tagtype},
 			synonyms_for_extended => $synonyms_for_extended{$tagtype},
 			translations_from => $translations_from{$tagtype},
@@ -1122,6 +1127,7 @@ sub retrieve_tags_taxonomy($) {
 	my $tagtype = shift;
 	
 	$taxonomy_fields{$tagtype} = 1;
+	$tags_fields{$tagtype} = 1;
 	
 	# Check if we have a taxonomy for the previous or the next version
 	if ($tagtype !~ /_(next|prev)/) {
@@ -1141,6 +1147,11 @@ sub retrieve_tags_taxonomy($) {
 		$synonyms{$tagtype} = $taxonomy_ref->{synonyms};
 		$synonyms_for{$tagtype} = $taxonomy_ref->{synonyms_for};
 		$synonyms_for_extended{$tagtype} = $taxonomy_ref->{synonyms_for_extended};
+		$just_synonyms{$tagtype} = $taxonomy_ref->{just_synonyms};
+		# %just_synonyms was not included in taxonomies previously
+		if (not exists $just_synonyms{$tagtype}) {
+			$just_synonyms{$tagtype} = {};
+		}
 		$translations_from{$tagtype} = $taxonomy_ref->{translations_from};
 		$translations_to{$tagtype} = $taxonomy_ref->{translations_to};
 		$level{$tagtype} = $taxonomy_ref->{level};
@@ -1228,6 +1239,31 @@ foreach my $taxonomyid (@Blogs::Config::taxonomy_fields) {
 	retrieve_tags_taxonomy($taxonomyid);
 	
 }
+
+
+
+# Build map of language codes and names
+
+%language_codes = ();
+%language_codes_reverse = ();
+%lang_lc = ();
+
+foreach my $language (keys %{$properties{languages}}) {
+
+	my $lc = lc($properties{languages}{$language}{"language_code_2:en"});
+
+	$language_codes{$lc} = $language;
+	$language_codes_reverse{$language} = $lc;
+	
+	$lang_lc{$lc} = $lc;
+	
+	$Langs{$lc} = $translations_to{languages}{$language}{$lc};
+}
+
+@Langs = sort keys %Langs;
+
+
+init_languages();
 
 
 # Build map of local country names in official languages to (country, language)
@@ -1673,10 +1709,18 @@ sub display_tags_hierarchy_taxonomy($$$) {
 			
 			my $lc_imgid = get_fileid($target_title);
 			my $en_imgid = get_taxonomyid($canon_tagid);
-			$en_imgid =~ s/^\w\w://;
+			my $tag_lc = undef;
+			if ($en_imgid =~ /^(\w\w):/) {
+				$en_imgid = $';
+				$tag_lc = $1;
+			}
 			
 			if (defined $tags_images{$target_lc}{$tagtype}{$lc_imgid}) {
 				$img = $tags_images{$target_lc}{$tagtype}{$lc_imgid};
+			}
+			elsif ((defined $tag_lc) and (defined $tags_images{$tag_lc}) and (defined $tags_images{$tag_lc}{$tagtype}{$en_imgid})) {
+				$img = $tags_images{$tag_lc}{$tagtype}{$en_imgid};
+				$img_lc = $tag_lc;
 			}
 			elsif (defined $tags_images{'en'}{$tagtype}{$en_imgid}) {
 				$img = $tags_images{'en'}{$tagtype}{$en_imgid};

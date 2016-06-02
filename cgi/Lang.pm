@@ -46,6 +46,8 @@ BEGIN
 					&lang
 					%lang_lc
 
+					&init_languages
+
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -58,59 +60,6 @@ use utf8;
 use Blogs::SiteLang qw/:all/;
 
 use Blogs::Store qw/:all/;
-
-
-%lang_lc = (
-ar => 'ar',
-de => 'de',
-cs => 'cs',
-es => 'es',
-en => 'en',
-it => 'it',
-fi => 'fi',
-fr => 'fr',
-el => 'el',
-he => 'he',
-ja => 'ja',
-ko => 'ko',
-nl => 'nl',
-nl_be => 'nl_be',
-ru => 'ru',
-pl => 'pl',
-pt => 'pt',
-pt_pt => 'pt_pt',
-ro => 'ro',
-th => 'th',
-vi => 'vi',
-zh => 'zh',
-);
-
-%Langs = (
-'ar'=>'العربية',
-'da'=>'Dansk',
-'de'=>'Deutsch',
-'es'=>'Español',
-'en'=>'English',
-'it'=>'Italiano',
-'fi'=>'Suomi',
-'fr'=>'Français',
-'el'=>'Ελληνικά',
-'he'=>'עברית',
-'ja'=>'日本語',
-'ko'=>'한국어',
-'nl'=>'Nederlands',
-'nl_be' => 'Nederlands',
-'ru'=>'Русский',
-'pl'=>'Polski',
-'pt'=>'Português',
-'pt_pt'=>'Português',
-'ro' => 'Română',
-'th' => 'ไทย',
-'vi'=>'Tiếng Việt',
-'zh'=>'中文',
-);
-
-@Langs = sort keys %Langs;
 
 
 # Tags types to path components in URLS: in ascii, lowercase, unaccented, transliterated (in Roman characters)
@@ -132,6 +81,10 @@ products => {
 	he => 'mozar',
 	nl => 'product',
 	nl_be => 'product',
+},
+languages => {
+	en => 'language',
+	fr => 'langue',
 },
 brands => {
 	fr => 'marque',
@@ -569,6 +522,10 @@ ingredients_n => {
 	en => "number-of-ingredients",
 	fr => "nombre-d-ingredients",
 },
+periods_after_opening => {
+	en => "period-after-opening",
+	fr => "duree-d-utilisation-apres-ouverture",
+},
 
 # do not translate code and debug
 codes => {
@@ -599,6 +556,10 @@ products => {
 #	he => 'mozar',
 	nl => 'producten',
 	nl_be => 'producten',
+},
+languages => {
+	en => 'languages',
+	fr => 'langues',
 },
 brands => {
 	fr => 'marques',
@@ -1034,6 +995,10 @@ nutrition_grades => {
 ingredients_n => {
 	en => "numbers-of-ingredients",
 	fr => "nombres-d-ingredients",
+},
+periods_after_opening => {
+	en => "periods-after-opening",
+	fr => "durees-d-utilisation-apres-ouverture",
 },
 # do not translate code and debug
 codes => {
@@ -3661,6 +3626,16 @@ lang_note => {
 	de => 'Lieblingssprache für dieses Produkt',
 },
 
+periods_after_opening => {
+	en => "Period of time after opening",
+	fr => "Durée de conservation après ouverture",
+},
+
+periods_after_opening_note => {
+	en => "Found in an open container logo with a number of months: e.g. 12 M",
+	fr => "Indiquée dans un logo en forme de pot ouvert, avec un nombre de mois. Par exemple 12 M.",
+},
+
 expiration_date => {
 
     ar => 'أفضل قبل التاريخ', #ar-CHECK - Please check and remove this comment
@@ -5487,7 +5462,6 @@ users_edit_products => {
 
 # we can now list products that do not have a specific tag
 
-
 brands_without_products => {
 	fr => "Les produits qui ne sont pas de la marque %s",
 	en => "Products not from the %s brand",
@@ -5694,6 +5668,16 @@ users_edit_without_products => {
 #	de => "Produkte, die von dem Mitwirkenden %s verändert wurden",
 },
 
+
+languages_s => {
+	en => "language",
+	fr => "langue",	
+},
+
+languages_p => {
+	en => "languages",
+	fr => "langues",	
+},
 
 brands_s => {
 	fr => "marque",
@@ -6593,6 +6577,16 @@ ingredients_n_p => {
 	fr => "Nombres d'ingrédients",
 },
 
+periods_after_opening_s => {
+	en => "Period after opening",
+	fr => "Durée d'utilisation après ouverture",
+},
+
+periods_after_opening_p => {
+	en => "Periods after opening",
+	fr => "Durées d'utilisation après ouverture",
+},
+
 codes_s => {
 	en => "Code",
 },
@@ -6975,6 +6969,21 @@ product_added => {
     vi => 'Sản phẩm thêm vào', #vi-CHECK - Please check and remove this comment
     zh => '产品附加值上', #zh-CHECK - Please check and remove this comment
 
+},
+
+product_last_edited => {
+	en => "Last edit of product page on",
+	fr => "Dernière modification de la page produit le",
+},
+
+also_edited_by => {
+	en => "Product page also edited by",
+	fr => "Fiche produit également modifiée par",
+},
+
+contributor_since => {
+	en => "Contributor since",
+	fr => "Contributeur depuis le",
 },
 
 by => {
@@ -11365,6 +11374,47 @@ ingredients_analysis_note => {
 
 
 
+
+# same logic can be implemented by creating the missing values for all keys
+sub lang($) {
+
+	my $s = shift;
+
+	my $short_l = undef;
+	if ($lang =~ /_/) {
+		$short_l = $`,  # pt_pt
+	}
+
+	if ((defined $langlang) and (defined $Lang{$s}{$langlang})) {
+		return $Lang{$s}{$langlang};
+	}
+	elsif (defined $Lang{$s}{$lang}) {
+		return $Lang{$s}{$lang};
+	}
+	elsif ((defined $short_l) and (defined $Lang{$s}{$short_l}) and ($Lang{$s}{$short_l} ne '')) {
+		return $Lang{$s}{$short_l};
+	}
+	elsif ((defined $Lang{$s}{en}) and ($Lang{$s}{en} ne '')) {
+		return $Lang{$s}{en};
+	}
+	elsif (defined $Lang{$s}{fr}) {
+		return $Lang{$s}{fr};
+	}
+	else {
+		return '';
+	}
+}
+
+
+
+
+# initialize languages values:
+# - compute tag_type_singular and tag_type_plural
+# - compute missing values by assigning English values
+
+sub init_languages() {
+
+
 my @debug_taxonomies = ("categories", "labels", "additives");
 
 foreach my $taxonomy (@debug_taxonomies) {
@@ -11380,8 +11430,6 @@ foreach my $taxonomy (@debug_taxonomies) {
 		$tag_type_plural{$taxonomy . "_$suffix"} = { en => get_fileid($taxonomy) . "-$suffix" };
 	}
 }
-
-
 
 
 foreach my $l (@Langs) {
@@ -11427,36 +11475,6 @@ foreach my $l (@Langs) {
 			#print "tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;\n";
 	}
 
-}
-
-# same logic can be implemented by creating the missing values for all keys
-sub lang($) {
-
-	my $s = shift;
-
-	my $short_l = undef;
-	if ($lang =~ /_/) {
-		$short_l = $`,  # pt_pt
-	}
-
-	if ((defined $langlang) and (defined $Lang{$s}{$langlang})) {
-		return $Lang{$s}{$langlang};
-	}
-	elsif (defined $Lang{$s}{$lang}) {
-		return $Lang{$s}{$lang};
-	}
-	elsif ((defined $short_l) and (defined $Lang{$s}{$short_l}) and ($Lang{$s}{$short_l} ne '')) {
-		return $Lang{$s}{$short_l};
-	}
-	elsif ((defined $Lang{$s}{en}) and ($Lang{$s}{en} ne '')) {
-		return $Lang{$s}{en};
-	}
-	elsif (defined $Lang{$s}{fr}) {
-		return $Lang{$s}{fr};
-	}
-	else {
-		return '';
-	}
 }
 
 
@@ -11523,6 +11541,7 @@ foreach my $special_field (@special_fields) {
 
 }
 
+} # init_languages
 
 
 1;

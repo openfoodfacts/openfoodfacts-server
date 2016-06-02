@@ -42,6 +42,7 @@ BEGIN
 		
 		&compute_codes
 		&compute_product_history_and_completeness
+		&compute_languages
 					
 	
 					);	# symbols to export on request
@@ -141,6 +142,7 @@ sub init_product($) {
 	};
 	if (defined $lc) {
 		$product_ref->{lc} = $lc;
+		$product_ref->{lang} = $lc;
 	}
 	use Geo::IP;
 	my $gi = Geo::IP->new(GEOIP_MEMORY_CACHE);
@@ -157,7 +159,11 @@ sub init_product($) {
 				foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
 					push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
 				}
-			}			
+			}
+			# if lc is not defined or is set en, set lc to main language of country
+			if ($lc eq 'en') {
+				$lc = $country_languages{lc($country)}[0];
+			}
 		}
 	}	
 	return $product_ref;
@@ -297,11 +303,12 @@ sub store_product($$) {
 	};	
 	
 
+	compute_codes($product_ref);
+	
+	compute_languages($product_ref);	
 	
 	compute_product_history_and_completeness($product_ref, $changes_ref);
 	
-	compute_codes($product_ref);
-
 	# sort_key
 	# add 0 just to make sure we have a number...  last_modified_t at some point contained strings like  "1431125369"
 	$product_ref->{sortkey} = 0 + $product_ref->{last_modified_t} - ((1 - $product_ref->{complete}) * 1000000000);
@@ -315,6 +322,13 @@ sub store_product($$) {
 
 	# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
 	$product_ref->{code} = $product_ref->{code} . '';
+	
+	# make sure we have numbers, perl can convert numbers to string depending on the last operation done...
+	$product_ref->{last_modified_t} += 0;
+	$product_ref->{created_t} += 0;
+	$product_ref->{complete} += 0;
+	$product_ref->{sortkey} += 0;
+	
 	if ($product_ref->{deleted}) {
 		$products_collection->remove({"_id" => $product_ref->{_id}});
 	}
@@ -342,6 +356,7 @@ sub compute_completeness_and_missing_tags($$$) {
 	my $current_ref = shift;
 	my $previous_ref = shift;
 
+	my $lc = $product_ref->{lc};
 
 	# Compute completeness and missing tags
 	
@@ -359,8 +374,8 @@ sub compute_completeness_and_missing_tags($$$) {
 	else {
 		push @states_tags, "en:photos-uploaded";
 	
-		if ((defined $current_ref->{selected_images}{front}) and (defined $current_ref->{selected_images}{ingredients})
-			and ((defined $current_ref->{selected_images}{nutrition}) or ($product_ref->{no_nutrition_data} eq 'on')) ) {
+		if ((defined $current_ref->{selected_images}{"front_$lc"}) and (defined $current_ref->{selected_images}{"ingredients_$lc"})
+			and ((defined $current_ref->{selected_images}{"nutrition_$lc"}) or ($product_ref->{no_nutrition_data} eq 'on')) ) {
 			push @states_tags, "en:photos-validated";
 		}
 		else {
@@ -500,8 +515,8 @@ sub compute_product_history_and_completeness($$) {
 	# Populate the entry_dates_tags field
 	
 	$current_product_ref->{entry_dates_tags} = [];
-	my $created_t = $current_product_ref->{created_t};
-	my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($created_t);
+	my $created_t = $current_product_ref->{created_t} + 0;
+	my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($created_t + 0);
 	push @{$current_product_ref->{entry_dates_tags}}, sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
 	push @{$current_product_ref->{entry_dates_tags}}, sprintf("%04d-%02d", $year + 1900, $mon + 1);
 	push @{$current_product_ref->{entry_dates_tags}}, sprintf("%04d", $year + 1900);
@@ -512,7 +527,8 @@ sub compute_product_history_and_completeness($$) {
 	}
 
 	my $last_modified_t = $current_product_ref->{last_modified_t} + 0;
-	my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($last_modified_t);
+	my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($last_modified_t + 0);
+	$current_product_ref->{last_edit_dates_tags} = [];
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d-%02d", $year + 1900, $mon + 1);
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d", $year + 1900);
@@ -553,7 +569,13 @@ sub compute_product_history_and_completeness($$) {
 		
 		if (defined $product_ref) {
 
-			%current = (uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
+			# fix last_modified_t using the one from change_ref if it greater than the current_product_ref
+			
+			if ($change_ref->{t} > $current_product_ref->{last_modified_t}) {
+				$current_product_ref->{last_modified_t} = $change_ref->{t};
+			}		
+		
+			%current = (lc => $product_ref->{lc}, uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
 			
 			# Uploaded images
 			
@@ -569,7 +591,11 @@ sub compute_product_history_and_completeness($$) {
 						$current{uploaded_images}{$imgid} = 1;
 					}
 					else {
-						$current{selected_images}{$imgid} = $product_ref->{images}{$imgid}{imgid} . ' ' . $product_ref->{images}{$imgid}{rev} . ' ' . $product_ref->{images}{$imgid}{geometry} ;
+						my $language_imgid = $imgid;
+						if ($imgid !~ /_\w\w$/) {
+							$language_imgid = $imgid . "_" . $product_ref->{lc};
+						}
+						$current{selected_images}{$language_imgid} = $product_ref->{images}{$imgid}{imgid} . ' ' . $product_ref->{images}{$imgid}{rev} . ' ' . $product_ref->{images}{$imgid}{geometry} ;
 					}
 				}
 			}
@@ -578,6 +604,17 @@ sub compute_product_history_and_completeness($$) {
 			
 			foreach my $field (@fields) {
 				$current{fields}{$field} = $product_ref->{$field};
+			}
+			
+			# Language specific fields
+			if (defined $product_ref->{languages_codes}) {
+				$current{languages_codes} = [keys %{$product_ref->{languages_codes}}];
+				foreach my $language_code (@{$current{languages_codes}}) {
+					foreach my $field (keys %language_fields) {
+						next if $field =~ /_image$/;
+						$current{fields}{$field . '_' . $language_code} = $product_ref->{$field . '_' . $language_code};
+					}
+				}
 			}
 			
 			# Nutriments
@@ -620,6 +657,27 @@ sub compute_product_history_and_completeness($$) {
 			
 			if ($group eq 'fields') {
 				@ids = @fields;
+				
+				# also check language specific fields for language codes of the current and previous product
+				my @languages_codes = ();
+				my %languages_codes = {};
+				foreach my $current_or_previous_ref (\%current, \%previous) {
+					if (defined $current_or_previous_ref->{languages_codes}) {
+						foreach my $language_code (@{$current_or_previous_ref->{languages_codes}}) {
+							next if $language_code eq $current_or_previous_ref->{lc};
+							next if defined $languages_codes{$language_code};
+							push @languages_codes, $language_code;
+							$languages_codes{$language_code} = 1;
+						}
+					}
+				}
+				
+				foreach my $language_code (sort @languages_codes) {
+					foreach my $field (sort keys %language_fields) {
+						next if $field =~ /_image$/;
+						push @ids, $field . "_" . $language_code;
+					}
+				}
 			}
 			elsif ($group eq 'nutriments') {
 				@ids = @{$nutriments_lists{europe}};
@@ -649,7 +707,7 @@ sub compute_product_history_and_completeness($$) {
 					push @{$diffs{$group}{$diff}}, $id;
 				
 				
-					# Attribution
+					# Attribution and last_image_t
 					
 					
 					if (($diff eq 'add') and ($group eq 'uploaded_images')) {
@@ -657,7 +715,7 @@ sub compute_product_history_and_completeness($$) {
 						# ! only update the values if the image still exists in the current version of the product (wasn't moved or deleted)
 						if (exists $current_product_ref->{images}{$id}) {
 							if (not defined $current_product_ref->{images}{$id}{uploaded_t}) {
-								$current_product_ref->{images}{$id}{uploaded_t} = $product_ref->{last_modified_t};
+								$current_product_ref->{images}{$id}{uploaded_t} = $product_ref->{last_modified_t} + 0;
 							}
 							if (not defined $current_product_ref->{images}{$id}{uploader}) {
 								$current_product_ref->{images}{$id}{uploader} = $userid;
@@ -674,6 +732,12 @@ sub compute_product_history_and_completeness($$) {
 							$change_ref->{userid} = $userid;
 							
 						}
+						
+						# set last_image_t
+						
+						if ((not exists $current_product_ref->{last_image_t}) or ( $product_ref->{last_modified_t} > $current_product_ref->{last_image_t}) ) {
+							$current_product_ref->{last_image_t} = $product_ref->{last_modified_t};
+						}						
 						
 					}
 					
@@ -705,12 +769,27 @@ sub compute_product_history_and_completeness($$) {
 			}
 		}
 		
+		$current_product_ref->{last_editor} = $change_ref->{userid};
 
 		compute_completeness_and_missing_tags($product_ref, \%current, \%previous);
 		
 		%last = %previous;
 		%previous = %current;
 	}
+	
+	# Populate the last_image_date_tags field
+	
+	if ((exists $current_product_ref->{last_image_t}) and ($current_product_ref->{last_image_t} > 0)) {
+		$current_product_ref->{last_image_dates_tags} = [];
+		my $last_image_t = $current_product_ref->{last_image_t};
+		my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($last_image_t);
+		push @{$current_product_ref->{last_image_dates_tags}}, sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
+		push @{$current_product_ref->{last_image_dates_tags}}, sprintf("%04d-%02d", $year + 1900, $mon + 1);
+		push @{$current_product_ref->{last_image_dates_tags}}, sprintf("%04d", $year + 1900);	
+	}
+	else {
+		delete $current_product_ref->{last_image_dates_tags};
+	}	
 	
 	$current_product_ref->{editors_tags} = [keys %changed_by];
 	
@@ -735,49 +814,46 @@ sub normalize_search_terms($) {
 
 
 
+sub product_name_brand($) {
+	my $ref = shift;
+	my $full_name = '';
+	if ((defined $ref->{"product_name_$lc"}) and ($ref->{"product_name_$lc"} ne '')) {
+		$full_name = $ref->{"product_name_$lc"};
+	}
+	elsif ((defined $ref->{product_name}) and ($ref->{product_name} ne '')) {
+		$full_name = $ref->{product_name};
+	}
+	
+	if (defined $ref->{brands}) {
+		my $brand = $ref->{brands};
+		$brand =~ s/,.*//;	# take the first brand
+		my $brandid = '-' . get_fileid($brand) . '-';
+		my $full_name_id = '-' . get_fileid($full_name) . '-';
+		if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {
+			$full_name .= " - " . $brand;
+		}
+	}	
+	
+	$full_name =~ s/^ - //;
+	return $full_name;
+}
+
 # product full name is a combination of product name, first brand and quantity
 
 sub product_name_brand_quantity($) {
 	my $ref = shift;
-	my $full_name = '';
-	if ((defined $ref->{product_name}) and ($ref->{product_name} ne '')) {
-		$full_name = $ref->{product_name};
-		my $full_name_id = '-' . get_fileid($full_name) . '-';
-		if (defined $ref->{brands}) {
-			my $brand = $ref->{brands};
-			$brand =~ s/,.*//;	# take the first brand
-			my $brandid = '-' . get_fileid($brand) . '-';		
-			if (($brand ne '') and ($full_name_id !~ /$brandid/i)) {
-				$full_name .= " - " . $brand;
-			}
+	my $full_name = product_name_brand($ref);
+	my $full_name_id = '-' . get_fileid($full_name) . '-';
+	
+	if (defined $ref->{quantity}) {
+		my $quantity = $ref->{quantity};
+		my $quantityid = '-' . get_fileid($quantity) . '-';	
+		if (($quantity ne '') and ($full_name_id !~ /$quantityid/i)) {
+			$full_name .= " - " . $quantity;
 		}
-		if (defined $ref->{quantity}) {
-			my $quantity = $ref->{quantity};
-			my $quantityid = '-' . get_fileid($quantity) . '-';	
-			if (($quantity ne '') and ($full_name_id !~ /$quantityid/i)) {
-				$full_name .= " - " . $quantity;
-			}
-		}		
-	}
-	return $full_name;
-}
-
-
-sub product_name_brand($) {
-	my $ref = shift;
-	my $full_name = '';
-	if ((defined $ref->{product_name}) and ($ref->{product_name} ne '')) {
-		$full_name = $ref->{product_name};
-		if (defined $ref->{brands}) {
-			my $brand = $ref->{brands};
-			$brand =~ s/,.*//;	# take the first brand
-			my $brandid = '-' . get_fileid($brand) . '-';
-			my $full_name_id = '-' . get_fileid($full_name) . '-';
-			if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {
-				$full_name .= " - " . $brand;
-			}
-		}	
-	}
+	}		
+	
+	$full_name =~ s/^ - //;
 	return $full_name;
 }
 
@@ -887,6 +963,75 @@ sub compute_codes($) {
 	
 	$product_ref->{codes_tags} = \@codes;
 }
+
+
+
+# set tags with info on languages shown on the package, using the languages taxonomy
+# [en:french] -> language names
+# [n] -> number of languages
+# en:multi -> indicates n > 1
+
+sub compute_languages($) {
+
+	my $product_ref = shift;
+
+	
+	my %languages = ();
+	my %languages_codes = ();
+	
+	# check all the fields of the product
+	
+	foreach my $field (keys %$product_ref) {
+	
+	
+		if (($field =~ /_([a-z]{2})$/) and (defined $language_fields{$`}) and ($product_ref->{$field} ne '')) {
+			my $language_code = $1;
+			my $language = undef;
+			if (defined $language_codes{$language_code}) {
+				$language = $language_codes{$language_code};
+			}
+			else {
+				$language = $language_code;
+			}
+			$languages{$language}++;
+			$languages_codes{$language_code}++;
+		}
+	}
+	
+	if (defined $product_ref->{images}) {
+		foreach my $id (keys %{ $product_ref->{images}}) {
+	
+			if ($id =~ /_([a-z]{2})$/)  {
+				my $language_code = $1;
+				my $language = undef;			
+				if (defined $language_codes{$language_code}) {
+					$language = $language_codes{$language_code};
+				}
+				else {
+					$language = $language_code;
+				}
+				$languages{$language}++;
+				$languages_codes{$language_code}++;
+			}
+		}
+	}
+
+	my @languages = keys %languages;
+	my $n = scalar(@languages);
+	
+	my @languages_hierarchy = @languages; # without multilingual and count
+	
+	push @languages, "en:$n";
+	if ($n > 1) {
+		push @languages, "en:multilingual";
+	}
+	
+	$product_ref->{languages} = \%languages;
+	$product_ref->{languages_codes} = \%languages_codes;
+	$product_ref->{languages_tags} = \@languages;
+	$product_ref->{languages_hierarchy} = \@languages_hierarchy;
+}
+
 
 1;
 

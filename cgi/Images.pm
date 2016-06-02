@@ -43,6 +43,7 @@ BEGIN
 					
 					&scan_code
 					
+					&display_select_manage
 					&display_select_crop
 					&display_select_crop_init
 					
@@ -74,18 +75,44 @@ use Blogs::Display qw/:all/;
 
 my $debug = 1;
 
+
+sub display_select_manage($) {
+
+	my $object_ref = shift;
+	my $id = "manage";
+	
+	my $html = <<HTML
+<div class=\"select_crop select_manage\" id=\"$id\"></div>
+<hr class="floatclear" />
+HTML
+;
+	
+	return $html;
+}
+
+
+
 sub display_select_crop($$) {
 
 	my $object_ref = shift;
-	my $id = shift;	
+	my $id_lc = shift;	#  id_lc = [front|ingredients|nutrition]_[lc] 
+	my $id = $id_lc;
+	
+	my $imagetype = $id_lc;
+	my $display_lc = $lc;
+	
+	if ($id_lc =~ /^(.*)_(.*)$/) {
+		$imagetype = $1;
+		$display_lc = $2;
+	}
 		
 	my $note = '';
-	if (defined $Lang{"image_" . $id . "_note"}{$lang}) {
-		$note = "<p class=\"note\">&rarr; " . $Lang{"image_" . $id . "_note"}{$lang} . "</label></p>";
+	if (defined $Lang{"image_" . $imagetype . "_note"}{$lang}) {
+		$note = "<p class=\"note\">&rarr; " . $Lang{"image_" . $imagetype . "_note"}{$lang} . "</p>";
 	}
 		
 	my $html = <<HTML
-<label for="$id">$Lang{"image_" . $id}{$lang}</label>
+<label for="$id">$Lang{"image_" . $imagetype}{$lang}</label>
 $note
 <div class=\"select_crop\" id=\"$id\"></div>
 <hr class="floatclear" />
@@ -387,6 +414,12 @@ sub process_image_upload($$$$$) {
 	}
 	else {
 		$file = param('imgupload_' . $imagefield);
+		if (! $file) {
+			# mobile app may not set language code
+			my $old_imagefield = $imagefield;
+			$old_imagefield =~ s/_\w\w$//;
+			$file = param('imgupload_' . $old_imagefield);
+		}
 	}
 	
 
@@ -903,24 +936,46 @@ sub process_image_crop($$$$$$$$$$) {
 sub display_image_thumb($$) {
 
 	my $product_ref = shift;
-	my $id = shift;
+	my $id_lc = shift;	#  id_lc = [front|ingredients|nutrition]_[lc] 
+	
+	my $imagetype = $id_lc;
+	my $display_lc = $lc;
+	
+	if ($id_lc =~ /^(.*)_(.*)$/) {
+		$imagetype = $1;
+		$display_lc = $2;
+	}
 	
 	my $html = '';
 	
+	# first try the requested language
+	my @display_ids = ($imagetype . "_" . $display_lc);
 	
-	if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
-		and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$thumb_size})) {
+	# next try the main language of the product
+	if ($product_ref->{lc} ne $display_lc) {
+		push @display_ids, $imagetype . "_" . $product_ref->{lc};
+	}
 	
-		my $path = product_path($product_ref->{code});
-		my $rev = $product_ref->{images}{$id}{rev};
-		my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$id . '_alt'}{$lang};
+	# last try the field without a language (for old products without updated images)
+	push @display_ids, $imagetype;
+		
+	foreach my $id (@display_ids) {
+	
+		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+			and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$thumb_size})) {
+		
+			my $path = product_path($product_ref->{code});
+			my $rev = $product_ref->{images}{$id}{rev};
+			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$id . '_alt'}{$lang};
 
-			
-		$html .= <<HTML
+				
+			$html .= <<HTML
 <img src="http://static.$server_domain/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="http://static.$server_domain/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" />
 HTML
 ;		
-	
+
+			last;
+		}
 	}
 	
 	return $html;
@@ -930,10 +985,33 @@ HTML
 sub display_image($$$) {
 
 	my $product_ref = shift;
-	my $id = shift;
+	my $id_lc = shift;	#  id_lc = [front|ingredients|nutrition]_[lc] 
 	my $size = shift;  # currently = $small_size , 200px
 	
 	my $html = '';
+	
+	my $imagetype = $id_lc;
+	my $display_lc = $lc;
+	
+	if ($id_lc =~ /^(.*)_(.*)$/) {
+		$imagetype = $1;
+		$display_lc = $2;
+	}
+	
+	my $html = '';
+	
+	# first try the requested language
+	my @display_ids = ($imagetype . "_" . $display_lc);
+	
+	# next try the main language of the product
+	if ($product_ref->{lc} ne $display_lc) {
+		push @display_ids, $imagetype . "_" . $product_ref->{lc};
+	}
+	
+	# last try the field without a language (for old products without updated images)
+	push @display_ids, $imagetype;
+		
+	foreach my $id (@display_ids) {	
 	
 	if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 		and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
@@ -1004,6 +1082,10 @@ HTML
 HTML
 ;
 		}
+		
+		last;
+	}
+	
 	}
 	
 	return $html;

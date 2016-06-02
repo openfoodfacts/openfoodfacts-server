@@ -105,15 +105,24 @@ closedir(DH);
 
 
 
-sub extract_ingredients_from_image($) {
+sub extract_ingredients_from_image($$) {
 
 	my $product_ref = shift;
+	my $id = shift;
 	my $path = product_path($product_ref->{code});
 	my $status = 0;
 	
 	my $filename = '';
 	
-	my $id = 'ingredients';
+	my $lc = $product_ref->{lc};
+	
+	if ($id =~ /^ingredients_(\w\w)$/) {
+		$lc = $1;
+	}
+	else {
+		$id = "ingredients";
+	}
+	
 	my $size = 'full';
 	if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 		and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
@@ -123,15 +132,32 @@ sub extract_ingredients_from_image($) {
 	my $image = "$www_root/images/products/$path/$filename.full.jpg";
 	my $text;
 	
-	print STDERR "extract_ingredients_from_image - image: $image\n";
+	my $lan;
 	
-	$text =  decode utf8=>get_ocr($image,undef,'fra');
+	if (defined $Blogs::Config::tesseract_ocr_available_languages{$lc}) {
+		$lan = $Blogs::Config::tesseract_ocr_available_languages{$lc};
+	}
+	elsif (defined $Blogs::Config::tesseract_ocr_available_languages{$product_ref->{lc}}) {
+		$lan = $Blogs::Config::tesseract_ocr_available_languages{$product_ref->{lc}};
+	}	
+	elsif (defined $Blogs::Config::tesseract_ocr_available_languages{en}) {
+		$lan = $Blogs::Config::tesseract_ocr_available_languages{en};
+	}
 	
-	if ((defined $text) and ($text ne '')) {
-		$product_ref->{ingredients_text_from_image} = $text;
+	print STDERR "extract_ingredients_from_image - lc: $lc - lan: $lan - id: $id - image: $image\n";
+	
+	if (defined $lan) {
+		$text =  decode utf8=>get_ocr($image,undef,'fra');
+		
+		if ((defined $text) and ($text ne '')) {
+			$product_ref->{ingredients_text_from_image} = $text;
+		}
+		else {
+			$status = 1;
+		}
 	}
 	else {
-		$status = 1;
+		print STDERR "extract_ingredients_from_image - lc: $lc - lan: $lan - id: $id - no available tesseract dictionary\n";	
 	}
 	
 	return $status;
@@ -703,23 +729,32 @@ sub extract_ingredients_classes_from_text($) {
 
 
 
-sub replace_allergen($$) {
+sub replace_allergen($$$) {
+	my $language = shift;
 	my $product_ref = shift;
 	my $allergen = shift;
-	$product_ref->{allergens} .= $allergen . ', ';
+	
+	# to build the product allergens list, just use the ingredients in the main language
+	if ($language eq $product_ref->{lc}) {
+		$product_ref->{allergens} .= $allergen . ', ';
+	}
 	
 	return '<span class="allergen">' . $allergen . '</span>';
 }
 
 
-sub replace_caps($$) {
+sub replace_caps($$$) {
+	my $language = shift;
 	my $product_ref = shift;
 	my $allergen = shift;
 	
-	my $tagid = canonicalize_taxonomy_tag($product_ref->{lang},"allergens", $allergen);
+	my $tagid = canonicalize_taxonomy_tag($language,"allergens", $allergen);
 	if (exists_taxonomy_tag("allergens", $tagid)) {
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
-		$product_ref->{allergens} .= $allergen . ', ';
+		# to build the product allergens list, just use the ingredients in the main language
+		if ($language eq $product_ref->{lc}) {
+			$product_ref->{allergens} .= $allergen . ', ';
+		}
 		return '<span class="allergen">' . $allergen . '</span>';
 	}
 	else {
@@ -732,18 +767,31 @@ sub detect_allergens_from_text($) {
 
 	my $product_ref = shift;
 	my $path = product_path($product_ref->{code});
-	my $text = $product_ref->{ingredients_text};
+	
 	
 	$product_ref->{allergens} = "";
+
 	
+	if (defined $product_ref->{languages_codes}) {
 	
-	$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($product_ref,$1)/iesg;
+		foreach my $language (keys %{$product_ref->{languages_codes}}) {
+		
+			my $text = $product_ref->{"ingredients_text_" . $language };
 	
-	if ($text =~ /[a-z]/) {
-		$text =~ s/\b([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß][A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]+))\b/replace_caps($product_ref,$1)/esg;
+			$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($language,$product_ref,$1)/iesg;
+	
+			if ($text =~ /[a-z]/) {
+				$text =~ s/\b([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß][A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]+))\b/replace_caps($language,$product_ref,$1)/esg;
+			}
+			
+			$product_ref->{"ingredients_text_with_allergens_" . $language} = $text;
+			
+			if ($language eq $product_ref->{lc}) {
+				$product_ref->{"ingredients_text_with_allergens"} = $text;
+			}
+		
+		}
 	}
-	
-	$product_ref->{ingredients_text_with_allergens} = $text;
 	
 	$product_ref->{allergens} =~ s/, $//;
 

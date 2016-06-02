@@ -186,6 +186,8 @@ sub init()
 	}
 	
 	$subdomain =~ s/\..*//;
+	
+	print STDERR "Display::init - subdomain: $subdomain \n";
 
 	if ($subdomain eq 'world') {
 		($cc, $country, $lc) = ('world','en:world','en');
@@ -195,7 +197,7 @@ sub init()
 		$country = $country_codes{$cc};
 		$lc = $country_languages{$cc}[0]; # first official language
 		
-		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 1\n";
+		print STDERR "Display::init - country_codes($subdomain) - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 1\n";
 		
 		if (not exists $Langs{$lc}) {
 			print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc does not exist - cc: $cc - country: $country - lc does not exist\n";
@@ -204,21 +206,24 @@ sub init()
 		
 	}
 	elsif ($subdomain =~ /(.*?)-(.*)/) {
+	
+		print STDERR "Display::init - subdomain 1 cc-lc ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
+	
+	
 		if (defined $country_codes{$1}) {
 			$cc = $1;
 			$country = $country_codes{$cc};
 			$lc = $2;		
 			$lc =~ s/-/_/; # pt-pt -> pt_pt
+			print STDERR "Display::init - subdomain cc-lc ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
+			
 		}
 	}
 	elsif (defined $country_names{$subdomain}) {
 		($cc, $country, $lc) = @{$country_names{$subdomain}};
 		
-		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
+		print STDERR "Display::init - country_name($subdomain) -  ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
 		
-	}
-	elsif ($hostname =~ /^([a-z]{2})(-test)?\./i) {
-		$lc = lc($1);
 	}
 	elsif ($ENV{QUERY_STRING} !~ /cgi/) {
 		# redirect
@@ -262,7 +267,7 @@ sub init()
 	
 	if (($User_id eq 'stephane') or ($User_id eq 'tacite') or ($User_id eq 'teolemon') or ($User_id eq 'bcatelin')
 		or ($User_id eq 'twoflower') or ($User_id eq 'hangy') or ($User_id eq 'javichu') or ($User_id eq 'segundo') 
-		or ($User_id eq 'tacinte') or ($User_id eq 'kyzh') or ($User_id eq 'sebleouf')) {
+		or ($User_id eq 'tacinte') or ($User_id eq 'kyzh') or ($User_id eq 'sebleouf') or ($User_id eq 'scanparty-franprix-05-2016')) {
 		$admin = 1;
 	}
 	
@@ -1032,7 +1037,10 @@ sub display_list_of_tags($$) {
 			else {
 				$th_nutriments .= "<th>*</th>";
 			}
-		}		
+		}
+		elsif (defined $taxonomy_fields{$tagtype}) {
+			$th_nutriments .= "<th>*</th>";
+		}
 		
 		if ($tagtype eq 'additives') {
 			$th_nutriments .= "<th>" . lang("risk_level") . "</th>";
@@ -1106,6 +1114,15 @@ sub display_list_of_tags($$) {
 						$td_nutriments .= "<td style=\"text-align:center\">*</td>";
 					}
 				}
+			}
+			# show a * next to fields that do not exist in the taxonomy
+			elsif (defined $taxonomy_fields{$tagtype}) {
+					if (exists_taxonomy_tag($tagtype, $tagid)) {
+						$td_nutriments .= "<td></td>";
+					}
+					else {
+						$td_nutriments .= "<td style=\"text-align:center\">*</td>";
+					}			
 			}
 			
 			my $link;
@@ -1929,6 +1946,8 @@ HTML
 				$products_title = $user_ref->{name};
 			}
 			
+			$description .= "<p>" . lang("contributor_since") . " " . display_date($user_ref->{registered_t}) . "</p>";
+			
 			if ((defined $user_ref->{missions}) and ($request_ref->{page} <= 1 )) {
 				my $missions = '';
 				my $i = 0;
@@ -2296,7 +2315,7 @@ sub search_and_display_products($$$$$) {
 		if ((not defined $request_ref->{search}) and ($count >= 5) 	
 			and (not defined $request_ref->{tagid2})) {
 			
-			my @current_drilldown_fields = @drilldown_fields;
+			my @current_drilldown_fields = @Blogs::Config::drilldown_fields;
 			if ($country eq 'en:world') {
 				unshift (@current_drilldown_fields, "countries");
 			}
@@ -5197,6 +5216,14 @@ sub display_field($$) {
 
 	my $value = $product_ref->{$field};
 	
+	# fields in %language_fields can have different values by language
+	
+	if (defined $language_fields{$field}) {
+		if ((defined $product_ref->{$field . "_" . $lc}) and ($product_ref->{$field . "_" . $lc} ne '')) {
+			$value = $product_ref->{$field . "_" . $lc};
+		}
+	}
+
 	if (defined $taxonomy_fields{$field}) {
 		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
 	}	
@@ -5369,11 +5396,8 @@ HTML
 	}	
 	
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
-	my @fields = qw(generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link purchase_places stores countries);
+	my @fields = @Blogs::Config::display_fields;
 	
-
-	
-
 	$bodyabout = " about=\"" . product_url($product_ref) . "\" typeof=\"food:foodProduct\"";
 	
 #<div itemscope itemtype="http://schema.org/Product">
@@ -5436,11 +5460,23 @@ HTML
 	
 	$html_image = display_image_box($product_ref, 'ingredients', \$minheight);	
 	
-	my $ingredients_text = $product_ref->{ingredients_text};
+	# try to display ingredients in the local language if available
+	
+	my $ingredients_text = $product_ref->{ingredients_text} . "<!-- 1 - lc $lc -->";
 	
 	if (defined $product_ref->{ingredients_text_with_allergens}) {
-		$ingredients_text = $product_ref->{ingredients_text_with_allergens};
+		$ingredients_text = $product_ref->{ingredients_text_with_allergens} . "<!-- 2 - lc $lc -->" ;
+	}	
+	
+	if ((defined $product_ref->{"ingredients_text" . "_" . $lc}) and ($product_ref->{"ingredients_text" . "_" . $lc} ne '')) {
+		$ingredients_text = $product_ref->{"ingredients_text" . "_" . $lc} . "<!-- 3 - lc $lc -->";
 	}
+	
+	if ((defined $product_ref->{"ingredients_text_with_allergens" . "_" . $lc}) and ($product_ref->{"ingredients_text_with_allergens" . "_" . $lc} ne '')) {
+		$ingredients_text = $product_ref->{"ingredients_text_with_allergens" . "_" . $lc} . "<!-- 4 - lc $lc -->" ;
+	}	
+		
+	
 	
 		$html .= <<HTML
 <h2>$Lang{ingredients}{$lc}</h2>
@@ -5612,10 +5648,29 @@ HTML
 	
 
 	my $created_date = display_date_tag($product_ref->{created_t});
+	my $last_modified_date = display_date_tag($product_ref->{last_modified_t});
+	
+	my @other_editors = ();
+	
+	foreach my $editor (@{$product_ref->{editors_tags}}) {
+		next if $editor eq $product_ref->{creator};
+		next if $editor eq $product_ref->{last_editor};
+		push @other_editors, $editor;
+	}
+	
+	my $other_editors = "";
+	
+	foreach my $editor (sort @other_editors) {
+		$other_editors .= "<a href=\"" . canonicalize_tag_link("users", get_fileid($editor)) . "\">" . $editor . "</a>, ";
+	}
+	$other_editors =~ s/, $//;
 	
 	my $creator = "<a href=\"" . canonicalize_tag_link("users", get_fileid($product_ref->{creator})) . "\">" . $product_ref->{creator} . "</a>";
+	my $last_editor = "<a href=\"" . canonicalize_tag_link("users", get_fileid($product_ref->{last_editor})) . "\">" . $product_ref->{last_editor} . "</a>";
 	
-
+	if ($other_editors ne "") {
+		$other_editors = "<br>\n$Lang{also_edited_by}{$lang} ${other_editors}.";
+	}
 
 	$html .= <<HTML
 </div>
@@ -5623,7 +5678,10 @@ HTML
 </div>
 
 	
-<p>$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator</p>	
+<p>$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator.<br/>
+$Lang{product_last_edited}{$lang} $last_modified_date $Lang{by}{$lang} $last_editor.
+$other_editors
+</p>
 	
 <div class="alert-box info">
 $Lang{fixme_product}{$lc}
@@ -5766,12 +5824,23 @@ HTML
 	
 	$html_image = display_image_box($product_ref, 'ingredients', \$minheight);
 
+	# try to display ingredients in the local language
+	
 	my $ingredients_text = $product_ref->{ingredients_text};
 	
 	if (defined $product_ref->{ingredients_text_with_allergens}) {
 		$ingredients_text = $product_ref->{ingredients_text_with_allergens};
-		$ingredients_text =~ s/<span class="allergen">(.*?)<\/span>/<b>$1<\/b>/isg;
 	}	
+	
+	if ((defined $product_ref->{"ingredients_text" . "_" . $lc}) and ($product_ref->{"ingredients_text" . "_" . $lc} ne '')) {
+		$ingredients_text = $product_ref->{"ingredients_text" . "_" . $lc};
+	}
+	
+	if ((defined $product_ref->{"ingredients_text_with_allergens" . "_" . $lc}) and ($product_ref->{"ingredients_text_with_allergens" . "_" . $lc} ne '')) {
+		$ingredients_text = $product_ref->{"ingredients_text_with_allergens" . "_" . $lc};
+	}		
+	
+	$ingredients_text =~ s/<span class="allergen">(.*?)<\/span>/<b>$1<\/b>/isg;
 	
 	$html .= "</div>";
 	
@@ -6383,6 +6452,12 @@ HTML
 HTML
 ;
 		}
+		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{en})) {
+			$label = <<HTML
+<td class="nutriment_label">${prefix}$Nutriments{$nid}{en}</td>
+HTML
+;
+		}		
 		elsif (defined $product_ref->{nutriments}{$nid . "_label"}) {
 			my $label_value = $product_ref->{nutriments}{$nid . "_label"};
 			$label = <<HTML
@@ -6686,7 +6761,9 @@ HTML
 			
 		}		
 		
-		delete $response{product}{images};
+		if (not $admin) {
+			delete $response{product}{images};
+		}
 	}
 	
 	$request_ref->{structured_response} = \%response;
@@ -6700,26 +6777,44 @@ sub add_images_urls_to_product($) {
 
 	my $product_ref = shift;
 	
-	foreach my $id ('front','ingredients','nutrition') {
+	foreach my $imagetype ('front','ingredients','nutrition') {
 	
 		my $size = $display_size;
-	
-		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
-			and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
 		
-			my $path = product_path($product_ref->{code});
+		my $display_lc = $lc;
+		
+		# first try the requested language
+		my @display_ids = ($imagetype . "_" . $display_lc);
+		
+		# next try the main language of the product
+		if ($product_ref->{lc} ne $display_lc) {
+			push @display_ids, $imagetype . "_" . $product_ref->{lc};
+		}
+		
+		# last try the field without a language (for old products without updated images)
+		push @display_ids, $imagetype;
+			
+		foreach my $id (@display_ids) {
+	
+			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+				and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
+			
+				my $path = product_path($product_ref->{code});
 
-			
-			$product_ref->{"image_" . $id . "_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-			$product_ref->{"image_" . $id . "_small_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-			$product_ref->{"image_" . $id . "_thumb_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
-			
-			if ($id eq 'front') {
-				$product_ref->{image_url} = $product_ref->{"image_" . $id . "_url"};
-				$product_ref->{image_small_url} = $product_ref->{"image_" . $id . "_small_url"};
-				$product_ref->{image_thumb_url} = $product_ref->{"image_" . $id . "_thumb_url"};
+				
+				$product_ref->{"image_" . $imagetype . "_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+				$product_ref->{"image_" . $imagetype . "_small_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+				$product_ref->{"image_" . $imagetype . "_thumb_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
+				
+				if ($imagetype eq 'front') {
+					$product_ref->{image_url} = $product_ref->{"image_" . $imagetype . "_url"};
+					$product_ref->{image_small_url} = $product_ref->{"image_" . $imagetype . "_small_url"};
+					$product_ref->{image_thumb_url} = $product_ref->{"image_" . $imagetype . "_thumb_url"};
+				}
+				
+				last;
 			}
-		}		
+		}
 	}		
 
 }

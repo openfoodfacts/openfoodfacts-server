@@ -29,7 +29,7 @@ $debug = 1;
 my $code = normalize_code(param('code'));
 my $id = param('id');
 
-$debug and print STDERR "ingredients.pl - code: $code\n";
+$debug and print STDERR "ingredients.pl - code: $code - id: $id\n";
 
 if (not defined $code) {
 	
@@ -39,8 +39,8 @@ my $product_ref = retrieve_product($code);
 
 my %results = ();
 
-if (($id eq 'ingredients') and (param('process_image'))) {
-	$results{status} = extract_ingredients_from_image($product_ref);
+if (($id =~ /^ingredients/) and (param('process_image'))) {
+	$results{status} = extract_ingredients_from_image($product_ref, $id);
 	if ($results{status} == 0) {
 		$results{ingredients_text_from_image} = $product_ref->{ingredients_text_from_image};
 		$results{ingredients_text_from_image} =~ s/\n/ /g;
