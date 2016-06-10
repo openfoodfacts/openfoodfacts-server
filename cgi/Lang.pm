@@ -6349,7 +6349,7 @@ correctors_s => {
 	ro => "corector",
 	he => 'מתקן',
 	nl => "verbeteraar",
-	nl_b => "corrector",
+	nl_be => "corrector",
 	de => "Korrektor",
 },
 correctors_p => {
