@@ -2825,6 +2825,18 @@ next => {
 
 },
 
+page_x => {
+	fr => "Page %d",
+	de => 'Seite %d',
+	en => "Page %d",
+	es => "Página %d",
+	it => "Pagina %d",
+	pt => 'Página %d',
+	ro => 'Pagina %d',
+	nl => 'Pagina %d',
+	nl_be => 'Pagina %d',
+},
+
 page_x_out_of_y => {
 	fr => "Page %d sur %d.",
 	de => 'Seite %d von %d',
