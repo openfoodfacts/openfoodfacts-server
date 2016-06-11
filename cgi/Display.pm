@@ -736,8 +736,8 @@ sub display_text($)
 	# e.g. index page
 	if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
 		$html =~ s/<\/h1>.*//is;
+		$html .= '</h1>';
 	}
-	
 	
 	sub replace_file($) {
 		my $fileid = shift;
