@@ -176,6 +176,13 @@ sub init()
 	$country = 'en:world';
 	
 	my $r = Apache2::RequestUtil->request();
+
+	$r->headers_out->set(Server => "Product Opener");
+	$r->headers_out->set("X-Frame-Options" => "DENY");
+	$r->headers_out->set("X-Content-Type-Options" => "nosniff");
+	$r->headers_out->set("X-Download-Options" => "noopen");
+	$r->headers_out->set("X-XSS-Protection" => "1; 'mode=block'");
+
 	my $hostname = $r->hostname;
 	$subdomain = lc($hostname);
 	
@@ -267,7 +274,7 @@ sub init()
 	
 	if (($User_id eq 'stephane') or ($User_id eq 'tacite') or ($User_id eq 'teolemon') or ($User_id eq 'bcatelin')
 		or ($User_id eq 'twoflower') or ($User_id eq 'hangy') or ($User_id eq 'javichu') or ($User_id eq 'segundo') 
-		or ($User_id eq 'tacinte') or ($User_id eq 'kyzh') or ($User_id eq 'sebleouf')) {
+		or ($User_id eq 'tacinte') or ($User_id eq 'kyzh') or ($User_id eq 'sebleouf') or ($User_id eq 'scanparty-franprix-05-2016')) {
 		$admin = 1;
 	}
 	
@@ -729,8 +736,8 @@ sub display_text($)
 	# e.g. index page
 	if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
 		$html =~ s/<\/h1>.*//is;
+		$html .= '</h1>';
 	}
-	
 	
 	sub replace_file($) {
 		my $fileid = shift;
@@ -1945,6 +1952,8 @@ HTML
 				$title = $user_ref->{name} . " ($tagid)";
 				$products_title = $user_ref->{name};
 			}
+			
+			$description .= "<p>" . lang("contributor_since") . " " . display_date($user_ref->{registered_t}) . "</p>";
 			
 			if ((defined $user_ref->{missions}) and ($request_ref->{page} <= 1 )) {
 				my $missions = '';
@@ -4317,7 +4326,7 @@ $meta_description
 	
 <script src="/foundation/js/vendor/jquery.js"></script>
 <script type="text/javascript" src="/js/jquery-ui-1.11.4/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="/js/jquery-ui-1.11.4/jquery-ui.css" />
+<link rel="stylesheet" href="/js/jquery-ui-1.11.4/jquery-ui.min.css" />
 
 <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" rel="stylesheet" />
 
@@ -5461,6 +5470,7 @@ HTML
 	# try to display ingredients in the local language if available
 	
 	my $ingredients_text = $product_ref->{ingredients_text} . "<!-- 1 - lc $lc -->";
+	my $ingredients_text_lang = $product_ref->{lang};
 	
 	if (defined $product_ref->{ingredients_text_with_allergens}) {
 		$ingredients_text = $product_ref->{ingredients_text_with_allergens} . "<!-- 2 - lc $lc -->" ;
@@ -5468,11 +5478,13 @@ HTML
 	
 	if ((defined $product_ref->{"ingredients_text" . "_" . $lc}) and ($product_ref->{"ingredients_text" . "_" . $lc} ne '')) {
 		$ingredients_text = $product_ref->{"ingredients_text" . "_" . $lc} . "<!-- 3 - lc $lc -->";
+		$ingredients_text_lang = $lc;
 	}
 	
 	if ((defined $product_ref->{"ingredients_text_with_allergens" . "_" . $lc}) and ($product_ref->{"ingredients_text_with_allergens" . "_" . $lc} ne '')) {
 		$ingredients_text = $product_ref->{"ingredients_text_with_allergens" . "_" . $lc} . "<!-- 4 - lc $lc -->" ;
-	}	
+		$ingredients_text_lang = $lc;
+	}
 		
 	
 	
@@ -5486,8 +5498,15 @@ HTML
 	
 		
 	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
-	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . " :</span> <span id=\"ingredients_list\" property=\"food:ingredientListAsText\">$ingredients_text</span></div>";
-	
+	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . " :</span>";
+	if ($lc ne $ingredients_text_lang) {
+		$html .= " <span id=\"ingredients_list\" property=\"food:ingredientListAsText\" lang=\"$ingredients_text_lang\">$ingredients_text</span>";
+	}
+	else {
+		$html .= " <span id=\"ingredients_list\" property=\"food:ingredientListAsText\">$ingredients_text</span>";
+	}
+	$html .= "</div";
+
 	$html .= display_field($product_ref, 'allergens');
 	
 	$html .= display_field($product_ref, 'traces');

@@ -2595,6 +2595,8 @@ sub special_process_product($) {
 
 	my $product_ref = shift;
 	
+	return if not defined $product_ref->{categories_tags};
+	
 	my $added_categories = '';
 	
 	if (has_tag($product_ref,"categories","en:beverages")) {

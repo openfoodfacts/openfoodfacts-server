@@ -115,6 +115,50 @@ else {
 	}
 	
 
+	# Food category rules for sweeetened/sugared beverages
+	# French PNNS groups from categories
+	
+	if ($server_domain =~ /openfoodfacts/) {
+		Blogs::Food::special_process_product($product_ref);
+	}
+	
+	
+	if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')) {
+		push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
+		push @{$product_ref->{"labels_tags" }}, "en:carbon-footprint";
+	}	
+	
+	# Language and language code / subsite
+	
+	if (defined $product_ref->{lang}) {
+		$product_ref->{lc} = $product_ref->{lang};
+	}
+	
+	if (not defined $lang_lc{$product_ref->{lc}}) {
+		$product_ref->{lc} = 'xx';
+	}	
+	
+	
+	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
+	
+	foreach my $field (keys %language_fields) {
+		if ($field !~ /_image/) {
+			if (defined $product_ref->{$field . "_$product_ref->{lc}"}) {
+				$product_ref->{$field} = $product_ref->{$field . "_$product_ref->{lc}"};
+			}
+		}
+	}	
+	
+	
+	# Ingredients classes
+	extract_ingredients_from_text($product_ref);
+	extract_ingredients_classes_from_text($product_ref);
+
+	compute_languages($product_ref); # need languages for allergens detection
+	detect_allergens_from_text($product_ref);
+	
+	# Nutrition data	
+
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
 
 	my @unknown_nutriments = ();

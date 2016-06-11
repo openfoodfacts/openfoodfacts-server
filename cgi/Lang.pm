@@ -1395,7 +1395,7 @@ twitter_account_by_country => {
 	de => 'OpenFoodFactsDe',
 	fr => 'OpenFoodFactsFr',
 	it => 'OpenFoodFactsIt',
-	jp => 'OpenFoodFactsJp',
+	ja => 'OpenFoodFactsJp',
 	nl => 'OpenFoodFactsNl',
 	nl_be => 'OpenFoodFactsNl',
 	pt => 'OpenFoodFactsPt',
@@ -2477,6 +2477,7 @@ HTML
 
 top_title => {
 	fr => "",
+	en => "",
 	es => "",
 	pt => '',
 	he => "",
@@ -2485,6 +2486,9 @@ top_title => {
 },
 top_content => {
 	fr => <<HTML
+HTML
+,
+	en => <<HTML
 HTML
 ,
 	es => <<HTML
@@ -2574,6 +2578,7 @@ HTML
 
 bottom_title => {
 	fr => "Partez en mission",
+	en => "Embrace the mission",
 	xes => "Participa en la misión",
 	xit => "Partite in missione",
 	xpt => "Participe na missão",
@@ -2590,6 +2595,14 @@ bottom_content => {
 </a>
 <p>Contribuez à <<site_name>> en ajoutant des produits et gagnez
 des étoiles en remplissant <a href="/missions">les missions</a> !</p>
+HTML
+,
+	en => <<HTML
+<a href="http://fr.openfoodfacts.org/mission/releveur-d-empreintes">
+<img src="/images/misc/mission-releveur-d-empreintes.png" width="265" height="222" />
+</a>
+<p>Contribute to <<site_name>> by adding product and win stars by
+fulfilling <a href="/missions">missions</a>!</p>
 HTML
 ,
 	xes => <<HTML
@@ -3975,7 +3988,7 @@ labels_example => {
 	pt_pt => "Ecológico, Produto do Ano 2012, sem glúten, ...",
 	ro => 'Bio',
 	it => "IGP, IGT, DOP, Bio, Ecologico, Non OGM, gluten-free",
-	he => "אורגני", "סחר הוגן, מיוצר בישראל",
+	he => "אורגני, סחר הוגן, מיוצר בישראל",
 	nl => "EKO, Max Havelaar, Label Rouge, Organisch, Glutenvrij, Smaak van het jaar 2012, ...",
 	nl_be => "AB, Max Havelaar, Label Rouge, Organisch, Glutenvrij, Smaak van het jaar 2012, ...",
 	de => "Bio, Fairtrade-Max Havelaar, demeter, vegan, Glutenfrei, ...",
@@ -4034,7 +4047,7 @@ origins_example => {
 
 origins_note_xxx => {
 	fr => "Indiquer l'origine des ingrédients",
-	en => "",
+	en => "Indicate the origin of ingredients",
 	el => "Αναφέρετε την προέλευση των συστατικών",
 	es => "Indicar el origen de los ingredientes",
 	pt => "Indicar nas duas entradas a origem indicada na etiqueta e possivelmente o seu tipo",
@@ -4486,7 +4499,7 @@ allergens => {
 	ro => 'Substanțe sau produse care cauzează alergii sau intoleranțe',
 	bg => 'вещества или продукти, причиняващи алергии или непоносимост',
 	ar => 'مستأرج',
-	jp => '食餌性アレルゲン',
+	ja => '食餌性アレルゲン',
 	th => 'สารก่อภูมิแพ้อาหาร',
 	zh => '食物过敏原',
 },
@@ -5514,7 +5527,7 @@ cities_without_products => {
 
 packaging_without_products => {
 	fr => "Les produits sans le conditionnement %s",
-#	en => "Products without a %s packaging",
+	en => "Products without a %s packaging",
 #	el => "Προϊόντα με %s συσκευασία",
 #	es => "Productos con envase %s",
 #	pt => "Produtos com embalagem em %s",
@@ -6336,7 +6349,7 @@ correctors_s => {
 	ro => "corector",
 	he => 'מתקן',
 	nl => "verbeteraar",
-	nl_b => "corrector",
+	nl_be => "corrector",
 	de => "Korrektor",
 },
 correctors_p => {
@@ -6981,6 +6994,11 @@ also_edited_by => {
 	fr => "Fiche produit également modifiée par",
 },
 
+contributor_since => {
+	en => "Contributor since",
+	fr => "Contributeur depuis le",
+},
+
 by => {
 
     ar => 'بواسطة', #ar-CHECK - Please check and remove this comment
@@ -7128,6 +7146,7 @@ salt_equivalent => {
 
 additives_3 => {
 	fr => 'Additif alimentaire interdit en Europe. A éviter absolument.',
+	en => "Food additive banned in Europe. Avoid at all cost.",
 	el => "Πρόσθετο τροφίμων απαγορευμένο στην Ευρώπη. Να αποφευχθεί απολύτως. ",
 	es => 'Aditivo alimentario prohibido en Europa. Evítalo completamente.',
 	pt => 'Aditivo alimentar proibido na Europa. A evitar completamente.',
@@ -7139,6 +7158,7 @@ additives_3 => {
 
 additives_2 => {
 	fr => 'Additif alimentaire à risque. A éviter.',
+	en => "Hazardous food additive. Avoid.",
 	el => "Πρόσθετο τροφίμων όχι απολύτως ασφαλές. Να αποφευχθεί. ",
 	es => 'Aditivo alimentario con riesgo. A evitar.',
 	ro => "Aditiv alimentar riscant. De evitat.",
@@ -7150,6 +7170,7 @@ additives_2 => {
 
 additives_1 => {
 	fr => 'Additif alimentaire potentiellement à risque. A limiter.',
+	en => "Potentialy hazardous food additive. Limit usage.",
 	el => "Πρόσθετο τροφίμων πιθανώς όχι απολύτως ασφαλές. Να περιοριστεί η χρήση του. ",
 	es => 'Aditivo alimentario con riesgo potencial. A limitar.',
 	ro => "Aditiv alimentar potențial riscant. De limitat.",
@@ -8131,7 +8152,7 @@ search_generate_map => {
 
 search_graph_blog => {
 	fr => "<p>→ en savoir plus sur les graphiques d'<<site_name>> : <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Des graphiques en 3 clics</a> (blog).</p>",
-	en => "",
+	en => "<p>→ learn more about <<site_name>> graphs: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>",
 	el => "<p>Για να μάθετε περισσότερα για τα γραφήματα του <<site_name>>: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Τα γραφήματα σε 3 κλικς (στα γαλλικά)</a> (blog).</p>",
 	es => "<p>→ para saber más acerca de los gráficos de <<site_name>>: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Los gráficos en 3 clics (en francés)</a> (blog).</p>",
 	pt => "<p>→ para saber mais acerca dos gráficos do <<site_name>>: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Gráficos em 3 cliques (en francês)</a> (blog).</p>",
@@ -9573,6 +9594,9 @@ names => {
 
 css => {
 	fr => <<CSS
+CSS
+,
+	en => <<CSS
 CSS
 ,
 	es => <<CSS
