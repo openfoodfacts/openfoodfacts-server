@@ -1439,8 +1439,20 @@ sub display_tag_link($$) {
 	my $tagurl = get_urlid($tagid);
 	
 	my $path = $tag_type_singular{$tagtype}{$lc};
+
+	my $tag_lc;
+	if ($tagid =~ /^(\w\w):/) {
+		$tag_lc = $1;
+		$tag = $';
+	}
 	
-	my $html = "<a href=\"/$path/$tagurl\">$tag</a>";
+	my $html;
+	if ((defined $tag_lc) and ($tag_lc ne $lc)) {
+		$html = "<a href=\"/$path/$tagurl\" lang=\"$tag_lc\">$tag</a>";
+	}
+	else {
+		$html = "<a href=\"/$path/$tagurl\">$tag</a>";
+	}
 	
 	if ($tagtype eq 'emb_codes') {
 	
@@ -1498,6 +1510,12 @@ sub display_taxonomy_tag_link($$$) {
 	my $tagurl = get_taxonomyurl($tagid);
 
 	my $canon_tagid = canonicalize_taxonomy_tag($target_lc, $tagtype, $tag);
+
+	my $tag_lc;
+	if ($tagid =~ /^(\w\w):/) {
+		$tag_lc = $1;
+		$tag = $';
+	}
 	
 	my $path = $tag_type_singular{$tagtype}{$target_lc};
 	
@@ -1509,7 +1527,13 @@ sub display_taxonomy_tag_link($$$) {
 		$cssclass .= "well_known";
 	}
 
-	my $html = "<a href=\"/$path/$tagurl\" class=\"$cssclass\">$tag</a>";
+	my $html;
+	if ((defined $tag_lc) and ($tag_lc ne $lc)) {
+		$html = "<a href=\"/$path/$tagurl\" class=\"$cssclass\" lang=\"$tag_lc\">$tag</a>";
+	}
+	else {
+		$html = "<a href=\"/$path/$tagurl\" class=\"$cssclass\">$tag</a>";
+	}
 	
 	if ($tagtype eq 'emb_codes') {
 	
