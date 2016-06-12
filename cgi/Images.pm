@@ -280,11 +280,11 @@ HTML
 
 
 	$scripts .= <<JS
-<script src="/js/jquery.iframe-transport.js"></script>
-<script src="/js/jquery.fileupload.js"></script>	
+<script src="/js/jquery.iframe-transport.min.js"></script>
+<script src="/js/jquery.fileupload.min.js"></script>	
 <script src="/js/load-image.min.js"></script>
 <script src="/js/canvas-to-blob.min.js"></script>
-<script src="/js/jquery.fileupload-ip.js"></script>
+<script src="/js/jquery.fileupload-ip.min.js"></script>
 JS
 ;
 
