@@ -808,7 +808,13 @@ sub display_text($)
 		$header .= $1;
 	}		
 	
-	$request_ref->{title} = $title;
+	if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
+		$request_ref->{title} = $title . " - " . sprintf(lang("page_x"), $request_ref->{page});
+	}
+	else {
+		$request_ref->{title} = $title;
+	}
+
 	$request_ref->{content_ref} = \$html;
 	if ($textid ne 'index') {
 		$request_ref->{canon_url} = "/$textid";
@@ -2114,7 +2120,13 @@ HTML
 		$request_ref->{title} .= " - " . display_taxonomy_tag($lc,"countries",$country);
 	}
 	else {
-		$request_ref->{title} = $title;
+		if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
+			$request_ref->{title} = $title . " - " . sprintf(lang("page_x"), $request_ref->{page});
+		}
+		else {
+			$request_ref->{title} = $title;
+		}
+
 		$html = "<div itemscope itemtype=\"http://schema.org/Thing\"><h1>" . $title ."</h1>" . $html . "</div>";
 		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
 	}
