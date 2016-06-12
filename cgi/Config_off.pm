@@ -127,11 +127,21 @@ HTML
 
 %wiki_texts = (
 
+"en/discover" => "http://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_English?action=raw",
+"es/descubrir" => "http://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Spanish?action=raw",
+"fr/decouvrir" => "http://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_French?action=raw",
+
+"en/contribute" => "http://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_English?action=raw",
+"es/contribuir" => "http://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Spanish?action=raw",
+"fr/contribuer" => "http://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_French?action=raw",
+"nl/contribute" => "http://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_Dutch?action=raw",
+
 "en/press" => "http://en.wiki.openfoodfacts.org/Translations_-_Press_-_English?action=raw",
 "fr/presse" => "http://en.wiki.openfoodfacts.org/Translations_-_Press_-_French?action=raw",
 
 "en/code-of-conduct" => "http://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_English?action=raw",
 "fr/code-de-conduite" => "http://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_French?action=raw",
+"ja/code-of-conduct" => "http://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_Japanese?action=raw",
 
 "fr/notetondistrib" => "http://en.wiki.openfoodfacts.org/Translations_-_Vending_machines_-_French?action=raw",
 
