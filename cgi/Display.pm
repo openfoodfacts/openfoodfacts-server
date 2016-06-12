@@ -736,8 +736,8 @@ sub display_text($)
 	# e.g. index page
 	if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
 		$html =~ s/<\/h1>.*//is;
+		$html .= '</h1>';
 	}
-	
 	
 	sub replace_file($) {
 		my $fileid = shift;
@@ -4326,7 +4326,7 @@ $meta_description
 	
 <script src="/foundation/js/vendor/jquery.js"></script>
 <script type="text/javascript" src="/js/jquery-ui-1.11.4/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="/js/jquery-ui-1.11.4/jquery-ui.css" />
+<link rel="stylesheet" href="/js/jquery-ui-1.11.4/jquery-ui.min.css" />
 
 <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" rel="stylesheet" />
 

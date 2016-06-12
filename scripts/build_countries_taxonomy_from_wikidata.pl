@@ -44,12 +44,13 @@ foreach my $qc (@countries) {
 		print "http error, could not get content from wikidata\n";
 	}
 	else {
+		my $qid = "Q$qc";
 		my $json = decode_json($content);
 		# {"entities":{"Q39":{"pageid":153,"ns":0,"title":"Q39","lastrevid":92159404,"modified":"2013-12-08T18:12:54Z","id":"Q39","type":"item","aliases":{"de":[{"language":"de","value":"Schweizerische Eidgenossenschaft"},
 		
-		$countries{$qc} = {labels=>{}, aliases=>{}, official_languages=>{}, properties=>{}};
+		$countries{$qc} = {id=>$qid, labels=>{}, aliases=>{}, official_languages=>{}, properties=>{}};
 		
-		my $country = $json->{entities}{"Q$qc"};
+		my $country = $json->{entities}{$qid};
 		foreach my $lc (keys %{$country->{labels}}) {
 			# "fr":{"language":"fr","value":"Suisse"}
 			print "$qc - label: $lc - $country->{labels}{$lc}{value}\n";
@@ -146,6 +147,7 @@ foreach my $qc (sort {$names{$a} cmp $names{$b}} keys %names) {
 		}
 	}	
 	print OUT "official_languages:en:" . join(',', map {$languages{$_}} (sort keys %{$countries{$qc}{official_languages}})) . "\n";
+	print OUT "wikidata:en:$countries{$qc}{qid}\n";
 
 	print OUT "\n";
 
