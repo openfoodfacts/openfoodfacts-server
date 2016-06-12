@@ -616,11 +616,13 @@ JS
 ;
 
 # <link rel="stylesheet" type="text/css" href="/js/jquery.imgareaselect-0.9.10/css/imgareaselect-default.css" />
+# <link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.20150416/jquery.tagsinput.min.css" />
 
 
 	$header .= <<HTML
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/0.9.1/cropper.min.css" />
-<link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.20150416/jquery.tagsinput.min.css" />
+<link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.css" />
+
 
 HTML
 ;
@@ -638,7 +640,7 @@ HTML
 
 	$scripts .= <<HTML
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropper/0.9.1/cropper.min.js"></script>
-<script type="text/javascript" src="/js/jquery.tagsinput.20150416/jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="/js/jquery.form.js"></script>
 <script type="text/javascript" src="/js/jquery.autoresize.js"></script>
 <script type="text/javascript" src="/js/jquery.rotate.js"></script>
