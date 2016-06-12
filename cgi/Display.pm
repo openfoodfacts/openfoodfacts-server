@@ -181,7 +181,7 @@ sub init()
 	$r->headers_out->set("X-Frame-Options" => "DENY");
 	$r->headers_out->set("X-Content-Type-Options" => "nosniff");
 	$r->headers_out->set("X-Download-Options" => "noopen");
-	$r->headers_out->set("X-XSS-Protection" => "1; 'mode=block'");
+	$r->headers_out->set("X-XSS-Protection" => "1; mode=block");
 
 	my $hostname = $r->hostname;
 	$subdomain = lc($hostname);
