@@ -5078,7 +5078,7 @@ $scripts
 	"url": "http://$subdomain.$server_domain",
 	"logo": "/images/misc/$Lang{logo}{$lang}",
 	"name": "$Lang{site_name}{$lc}",
-	"sameAs" : [ "$facebook_page", "http://twitter.com/$twitter_account"] 
+	"sameAs" : [ "$facebook_page", "https://twitter.com/$twitter_account"] 
 }
 </script>
 
