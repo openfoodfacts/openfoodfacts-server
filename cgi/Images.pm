@@ -468,7 +468,7 @@ sub process_image_upload($$$$$) {
 			my $source = Image::Magick->new;			
 			my $x = $source->Read("$www_root/images/products/$path/$imgid.$extension");
 			$source->AutoOrient();
-			$source->Strip(); #remove orientation data.
+			$source->Strip(); #remove orientation data and all other metadata (EXIF)
 			
 			# Save a .jpg if we were sent something else (always re-save as the image can be rotated)
 			#if ($extension ne 'jpg') {
@@ -522,7 +522,7 @@ sub process_image_upload($$$$$) {
 				$img->Resize(geometry=>"$geometry^");
 				$img->Extent(geometry=>"$geometry",
 					gravity=>"center");
-				$img->Set('quality',90);
+				_set_magickal_options($img, $w);
 
 				my $x = $img->Write("jpeg:$www_root/images/products/$path/$imgid.$max.jpg");
 				if ("$x") {
@@ -843,8 +843,7 @@ sub process_image_crop($$$$$$$$$$) {
 	# ! cached images... add a version number
 	$filename = $id . "." . $rev;
 	
-	
-	$source->Set('quality',95);
+	_set_magickal_options($source, null);
 	my $x = $source->Write("jpeg:$www_root/images/products/$path/$filename.full.jpg");
 	("$x") and print STDERR "Images::process_image_crop - could not write jpeg:$www_root/images/products/$path/$filename.full.jpg $x\n";
 	
@@ -889,7 +888,7 @@ sub process_image_crop($$$$$$$$$$) {
 		$img->Resize(geometry=>"$geometry2^");
 		$img->Extent(geometry=>"$geometry2",
 			gravity=>"center");
-		$img->Set('quality',95);
+		_set_magickal_options($img, $w);
 
 		my $x = $img->Write("jpeg:$www_root/images/products/$path/$filename.$max.jpg");
 		if ("$x") {
