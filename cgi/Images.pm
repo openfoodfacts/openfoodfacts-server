@@ -931,7 +931,36 @@ sub process_image_crop($$$$$$$$$$) {
 	return $product_ref;
 }
 
+sub _set_magickal_options($) {
 
+	# https://www.smashingmagazine.com/2015/06/efficient-image-resizing-with-imagemagick/
+	my $magick = shift;
+	$magick->Set(filter => 'Triangle');
+	$magick->Set(support => 2);
+	$magick->Set(unsharp => '0.25x0.25+8+0.065');
+	$magick->Set(dither => 'None');
+	$magick->Set(posterize => 136);
+	$magick->Set(quality => 82);
+	$magick->Set('jpeg:fancy-upsampling' => 'off');
+	$magick->Set('png:compression-filter' => 5);
+	$magick->Set('png:compression-level' => 9');
+	$magick->Set('png:compression-strategy' => 1);
+	$magick->Set('png:exclude-chunk' =>'all');
+	$magick->Set(interlace => 'none');
+	$magick->Set(colorspace => 'sRGB');
+	$magick->Strip();
+
+}
+
+sub _set_magickal_thumbnail($$) {
+
+	# https://www.smashingmagazine.com/2015/06/efficient-image-resizing-with-imagemagick/
+	my $magick = shift;
+	my $width = shift;
+	_set_magickal_options($magick);
+	$magick->Set(thumbnail => $width);
+
+}
 
 sub display_image_thumb($$) {
 
