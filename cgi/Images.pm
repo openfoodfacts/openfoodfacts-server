@@ -911,6 +911,11 @@ sub process_image_crop($$$$$$$$$$) {
 	$product_ref->{images}{$id} = {
 		imgid => $imgid,
 		rev => $rev,
+		angle => $angle,
+		x1 => $x1,
+		y1 => $y1,
+		x2 => $x2,
+		y2 => $y2,
 		geometry => $geometry,
 		normalize => $normalize,
 		white_magic => $white_magic,
