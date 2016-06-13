@@ -1,0 +1,1 @@
+/home/off-fr/cgi/product-multilingual.js
