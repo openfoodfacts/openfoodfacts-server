@@ -251,6 +251,14 @@ sub init()
 	
 	$lang = $lc;
 	
+	# If the language is equal to the first language of the country, but we are on a different subdomain, redirect to the main country subdomain. (fr-fr => fr)
+	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc)) {
+		# redirect
+		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $cc.${server_domain}\n";
+		$r->headers_out->set(Location => "http://$cc.${server_domain}" . $ENV{QUERY_STRING});
+		$r->status(301);
+		return 301;
+	}
 	
 	# select the nutriment table format according to the country
 	$nutriment_table = $cc_nutriment_table{default};
@@ -808,7 +816,13 @@ sub display_text($)
 		$header .= $1;
 	}		
 	
-	$request_ref->{title} = $title;
+	if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
+		$request_ref->{title} = $title . " - " . sprintf(lang("page_x"), $request_ref->{page});
+	}
+	else {
+		$request_ref->{title} = $title;
+	}
+
 	$request_ref->{content_ref} = \$html;
 	if ($textid ne 'index') {
 		$request_ref->{canon_url} = "/$textid";
@@ -2114,7 +2128,13 @@ HTML
 		$request_ref->{title} .= " - " . display_taxonomy_tag($lc,"countries",$country);
 	}
 	else {
-		$request_ref->{title} = $title;
+		if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
+			$request_ref->{title} = $title . " - " . sprintf(lang("page_x"), $request_ref->{page});
+		}
+		else {
+			$request_ref->{title} = $title;
+		}
+
 		$html = "<div itemscope itemtype=\"http://schema.org/Thing\"><h1>" . $title ."</h1>" . $html . "</div>";
 		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
 	}
@@ -5058,7 +5078,7 @@ $scripts
 	"url": "http://$subdomain.$server_domain",
 	"logo": "/images/misc/$Lang{logo}{$lang}",
 	"name": "$Lang{site_name}{$lc}",
-	"sameAs" : [ "$facebook_page", "http://twitter.com/$twitter_account"] 
+	"sameAs" : [ "$facebook_page", "https://twitter.com/$twitter_account"] 
 }
 </script>
 
