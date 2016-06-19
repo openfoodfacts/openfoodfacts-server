@@ -49,7 +49,8 @@ use Cache::Memcached::Fast ();
 use URI::Escape::XS ();
 
 # Needs to be configured
-use lib "/home/off-fr/cgi/";
+use FindBin;
+use lib "$FindBin::Bin";
 
 use Blogs::Store qw/:all/;
 use Blogs::Config qw/:all/;
