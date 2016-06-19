@@ -30,3 +30,5 @@ requires 'Image::OCR::Tesseract';
 requires 'DateTime::Format::Mail';
 requires 'DateTime::Format::CLDR';
 requires 'DateTime::Locale';
+requires 'Math::Random::Secure';
+requires 'Crypt::ScryptKDF';
