@@ -18,6 +18,7 @@ requires 'XML::FeedPP'; # libxml-feedpp-perl
 requires 'MongoDB'; # libmongodb-perl
 requires 'URI::Find'; # liburi-find-perl
 requires 'XML::Simple'; # libxml-simple-perl
+requires 'experimental'; # libexperimental-perl
 
 # Probably not available as Debian packages
 requires 'URI::Escape::XS';
