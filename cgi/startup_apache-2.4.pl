@@ -64,8 +64,7 @@ use List::Util ();
 use MongoDB ();
 
 # Needs to be configured
-use FindBin;
-use lib "$FindBin::Bin";
+use lib "/home/off/cgi/";
 
 use Blogs::Lang qw/:all/;
 
