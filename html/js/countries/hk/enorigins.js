@@ -1,4 +1,0 @@
-var originsTags = [
-
-"Australia",
-"Japan"];

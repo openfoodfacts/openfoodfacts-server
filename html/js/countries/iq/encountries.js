@@ -1,5 +1,0 @@
-var countriesTags = [
-
-"Iraq",
-"",
-"Belgium"];

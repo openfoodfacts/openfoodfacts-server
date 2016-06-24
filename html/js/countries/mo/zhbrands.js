@@ -1,3 +1,0 @@
-var brandsTags = [
-
-"Gold-blend"];

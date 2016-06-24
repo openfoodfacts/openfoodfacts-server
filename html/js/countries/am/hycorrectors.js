@@ -1,4 +1,0 @@
-var correctorsTags = [
-
-"Sebleouf",
-"Teolemon"];

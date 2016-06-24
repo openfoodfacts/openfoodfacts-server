@@ -1,3 +1,0 @@
-var brandsTags = [
-
-"Jelly-belly"];

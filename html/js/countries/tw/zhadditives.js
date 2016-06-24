@@ -1,3 +1,0 @@
-var additivesTags = [
-
-"E200"];

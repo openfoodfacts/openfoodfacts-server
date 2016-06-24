@@ -1,3 +1,0 @@
-var countriesTags = [
-
-"República Dominicana"];

@@ -1,4 +1,0 @@
-var informersTags = [
-
-"Amine",
-"Tacinte"];
