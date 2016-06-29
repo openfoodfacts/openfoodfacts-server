@@ -1,4 +1,0 @@
-var packagingTags = [
-
-"Bag",
-"Bottle"];

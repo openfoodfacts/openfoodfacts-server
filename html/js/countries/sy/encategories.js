@@ -1,4 +1,0 @@
-var categoriesTags = [
-
-"Biscuits",
-"Cookies"];

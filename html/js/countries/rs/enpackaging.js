@@ -1,4 +1,0 @@
-var packagingTags = [
-
-"Plastic",
-"Plastica"];

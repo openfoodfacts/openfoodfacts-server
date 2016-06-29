@@ -1,4 +1,0 @@
-var categoriesTags = [
-
-"Genoise",
-"Mouchoirs"];

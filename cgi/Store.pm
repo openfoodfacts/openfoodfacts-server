@@ -78,7 +78,10 @@ sub get_fileid($) {
 	$file =~ s/œ|Œ/oe/g;
 	$file =~ s/æ|Æ/ae/g;
 	
-	$file =~ s/ß/ss/g;
+	$file =~ s/ä|Ä/ae/g;
+	$file =~ s/ö|Ö/oe/g;
+	$file =~ s/ü|ü/ue/g;
+	$file =~ s/ß|ẞ/ss/g;
 	
 	$file =~ s/ç/c/g;
 	$file =~ s/ñ/n/g;

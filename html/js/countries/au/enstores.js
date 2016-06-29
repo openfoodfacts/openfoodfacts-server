@@ -1,4 +1,0 @@
-var storesTags = [
-
-"Coles",
-"Woolworths"];

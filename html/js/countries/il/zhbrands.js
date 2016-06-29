@@ -1,4 +1,0 @@
-var brandsTags = [
-
-"Akmar",
-"Sera"];

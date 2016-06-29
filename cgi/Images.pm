@@ -843,7 +843,7 @@ sub process_image_crop($$$$$$$$$$) {
 	# ! cached images... add a version number
 	$filename = $id . "." . $rev;
 	
-	_set_magickal_options($source, null);
+	_set_magickal_options($source, undef);
 	my $x = $source->Write("jpeg:$www_root/images/products/$path/$filename.full.jpg");
 	("$x") and print STDERR "Images::process_image_crop - could not write jpeg:$www_root/images/products/$path/$filename.full.jpg $x\n";
 	

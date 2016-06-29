@@ -1,3 +1,0 @@
-var usersTags = [
-
-"Malikele"];
