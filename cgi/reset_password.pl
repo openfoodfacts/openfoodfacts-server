@@ -35,7 +35,7 @@ my $userid = undef;
 my $html = '';
 
 if (defined $User_id) {
-	display_error($Lang{error_reset_already_connected}{$lang});
+	display_error($Lang{error_reset_already_connected}{$lang}, undef);
 }
 
 if ($action eq 'process') {
@@ -76,7 +76,7 @@ if ($action eq 'process') {
 	
 	}
 	else {
-		display_error("Adresse invalide");
+		display_error("Adresse invalide", 404);
 	}
 
 	
@@ -183,7 +183,7 @@ elsif ($type eq 'reset') {
 			$html .= $Lang{reset_password_reset}{$lang};
 		}
 		else {
-			display_error($Lang{error_reset_invalid_token}{$lang});
+			display_error($Lang{error_reset_invalid_token}{$lang}, undef);
 		}
 	}
 }

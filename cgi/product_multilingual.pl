@@ -161,18 +161,18 @@ Vous pouvez essayer avec une autre image, ou entrer directement le code barre.";
 else {
 	# We should have a code
 	if ((not defined $code) or ($code eq '')) {
-		display_error("Code manquant");
+		display_error("Code manquant", 404);
 	}
 	else {
 		$product_ref = retrieve_product($code);
 		if (not defined $product_ref) {
-			display_error("Pas de produit trouvé pour ce code");
+			display_error("Pas de produit trouvé pour ce code", 404);
 		}
 	}
 }
 
 if (($type eq 'delete') and (not $admin)) {
-	display_error("Permission refusée");
+	display_error("Permission refusée", 403);
 }
 
 if ($User_id eq 'unwanted-bot-id') {

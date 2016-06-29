@@ -276,7 +276,7 @@ sub init()
 	my $error = Blogs::Users::init_user();
 	if ($error) {
 		if (not param('jqm')) { # API
-			display_error($error);
+			display_error($error, undef);
 		}
 	}
 	
@@ -413,7 +413,7 @@ sub analyze_request($)
 			}
 		}
 		else {
-			display_error(lang("error_invalid_address"));
+			display_error(lang("error_invalid_address"), 404);
 		}
 	}
 	
@@ -538,7 +538,7 @@ sub analyze_request($)
 		}
 		elsif (not defined $request_ref->{groupby_tagtype}) {
 			$debug and print STDERR "analyze_request: invalid address, confused by number of components left: $#components \n";
-			display_error(lang("error_invalid_address"));
+			display_error(lang("error_invalid_address"), 404);
 		}
 		
 		if ($components[$#components] =~ /^\d+$/) {
@@ -689,14 +689,16 @@ sub display_date_tag($) {
 
 }
 
-sub display_error($)
+sub display_error($$)
 {
 	my $error_message = shift;
+	my $status = shift;
 	my $html = "<p>$error_message</p>";
 	display_new( {
 		title => lang('error'),
-		content_ref => \$html
-	});	
+		content_ref => \$html,
+		status => $status
+	});
 	exit();
 }
 
@@ -5139,6 +5141,11 @@ HTML
 	else {
 		print header ( -expires=>'-1d', -charset=>'UTF-8');
 	}
+
+	my $status = $request_ref->{status};
+	if (defined $status) {
+		print header ( -status => $status );
+	}
 	
 	binmode(STDOUT, ":utf8");
 	print $html;
@@ -5370,7 +5377,7 @@ CSS
 	}
 	
 	if (not defined $product_ref) {
-		display_error(sprintf(lang("no_product_for_barcode"), $code));
+		display_error(sprintf(lang("no_product_for_barcode"), $code), 404);
 	}
 	
 	$title = product_name_brand_quantity($product_ref);
