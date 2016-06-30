@@ -395,7 +395,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		# New label?
 		my $new_nid = undef;
 		if (defined $label) {
-			$new_nid = canonicalize_nutriment($label);
+			$new_nid = canonicalize_nutriment($lc, $label);
 			if ($new_nid ne $nid) {
 				delete $product_ref->{nutriments}{$nid};
 				delete $product_ref->{nutriments}{$nid . "_unit"};
