@@ -114,6 +114,10 @@ if (opendir (DH, "$data_root/packager-codes")) {
 					$code = $fields[$headers{n_rgseaa}];
 					$code = normalize_packager_codes("ES $code CE");
 				}
+				elsif ($country eq 'de') {
+					$code = $fields[$headers{code}];
+					$code = normalize_packager_codes("DE $code EC");
+				}
 				
 				$code = get_fileid($code);
 				$code =~ s/-(eg|ce|ew|we|eec)$/-ec/i;
