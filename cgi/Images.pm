@@ -995,7 +995,7 @@ sub display_image_thumb($$) {
 		
 			my $path = product_path($product_ref->{code});
 			my $rev = $product_ref->{images}{$id}{rev};
-			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$id . '_alt'}{$lang};
+			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
 
 				
 			$html .= <<HTML

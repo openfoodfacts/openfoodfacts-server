@@ -78,10 +78,7 @@ sub get_fileid($) {
 	$file =~ s/œ|Œ/oe/g;
 	$file =~ s/æ|Æ/ae/g;
 	
-	$file =~ s/ä|Ä/ae/g;
-	$file =~ s/ö|Ö/oe/g;
-	$file =~ s/ü|ü/ue/g;
-	$file =~ s/ß|ẞ/ss/g;
+	$file =~ s/ß/ss/g;
 	
 	$file =~ s/ç/c/g;
 	$file =~ s/ñ/n/g;
@@ -116,7 +113,7 @@ sub get_urlid($) {
 	if ($file =~ /[^a-zA-Z0-9-]/) {
 		$file = URI::Escape::XS::encodeURIComponent($file);
 	}
-	print STDERR "get_urlid : $file \n";
+	# print STDERR "get_urlid : $file \n";
 	
 	return $file;
 }

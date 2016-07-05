@@ -496,7 +496,7 @@ sub init_user()
 	elsif (defined cookie($cookie_name))
 	{
 	    my %session = cookie($cookie_name) ;
-	    $debug and print STDERR "Blogs::Users::init_user - cookie session : $session{'user_sessions'} ; user_id : $session{'user_id'}\n" ;
+	    # $debug and print STDERR "Blogs::Users::init_user - cookie session : $session{'user_sessions'} ; user_id : $session{'user_id'}\n" ;
 	    my $user_session = $session{'user_session'} ;
 	    $user_id = $session{'user_id'};
 	    $debug and print STDERR "Blogs::Users::init_user - cookie found ! user_id: $user_id \n" ;
@@ -512,8 +512,8 @@ sub init_user()
 		    $user_ref = retrieve($user_file) ;
 		    $debug and print STDERR "Blogs::Users::init_user - user : " . $user_id . "\n" ;
 		    $debug and print STDERR "Blogs::Users::init_user - cookie session : " . $user_session . "\n" ;
-		    $debug and print STDERR "Blogs::Users::init_user - stock session : " . $user_ref->{'user_sessions'} . "\n" ;
-		    $debug and print STDERR "Blogs::Users::init_user - stock ip : " . $user_ref->{'user_last_ip'} . "\n" ;
+			(defined $user_ref->{'user_sessions'}) and $debug and print STDERR "Blogs::Users::init_user - stock session : " . $user_ref->{'user_sessions'} . "\n" ;
+		    (defined $user_ref->{'user_last_ip'}) and $debug and print STDERR "Blogs::Users::init_user - stock ip : " . $user_ref->{'user_last_ip'} . "\n" ;
 		    $debug and print STDERR "Blogs::Users::init_user - current ip : " . remote_addr() . "\n" ;
 
                        # Try to keep sessions opened for users with dynamic IPs
@@ -582,8 +582,8 @@ sub init_user()
 	    $debug and print STDERR "Blogs::Users::init_user - nothing found!\n";
 	}
 
-	$debug and print STDERR "Blogs::Users::init_user - user_id: $user_id\n" ;
-	$debug and print STDERR "Blogs::Users::init_user - cookie: $cookie\n" ;
+	(defined $user_id) and $debug and print STDERR "Blogs::Users::init_user - user_id: $user_id\n" ;
+	(defined $cookie) and $debug and print STDERR "Blogs::Users::init_user - cookie: $cookie\n" ;
 
 	if (not defined $user_id)
 	{
@@ -609,7 +609,7 @@ sub init_user()
                 
 	}
 	
-	$debug and print STDERR "User_id: $User_id - Visitor_id: $Visitor_id - set-cookie: $cookie\n";
+	# $debug and print STDERR "User_id: $User_id - Visitor_id: $Visitor_id - set-cookie: $cookie\n";
 	
 	$User_id = $user_id;
 	if (defined $user_ref) {

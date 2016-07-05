@@ -548,7 +548,15 @@ sub analyze_request($)
 		$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
 	}
 	
-	print STDERR "Display::analyze_request - lc: $lc lang: $lang text: $request_ref->{text} - product: $request_ref->{product} - tagtype/tagid: $request_ref->{tagtype}/$request_ref->{tagid} - tagtype2/tagid2: $request_ref->{tagtype2}/$request_ref->{tagid2} - groupby: $request_ref->{groupby_tagtype} - points: $request_ref->{points} \n";
+	my $debug_log = "Display::analyze_request - lc: $lc lang: $lang";
+	foreach my $log_field (qw/text product tagtype tagid tagtype2 tagid2 groupby_tagtype points/) {
+		if (defined $request_ref->{$log_field}) {
+			$debug_log .= " - $log_field: $request_ref->{$log_field}";
+		}
+	}
+
+	
+	print STDERR $debug_log . "\n";
 		
 	return 1;
 }
@@ -1148,7 +1156,7 @@ sub display_list_of_tags($$) {
 					}			
 			}
 			
-			my $link;
+
 			if (defined $taxonomy_fields{$tagtype}) {
 				$link = canonicalize_taxonomy_tag_link($lc, $tagtype, $tagid);
 			}
@@ -2339,7 +2347,11 @@ sub search_and_display_products($$$$$) {
 			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_download}\">" . lang("search_download_results") . "</a><br />";
 		}
 		
-		print STDERR "search - count: $count - request_ref->{search}: " . $request_ref->{search}  . " tagid2 " . $request_ref->{tagid2} . "\n" ;
+		my $debug_log = "search - count: $count";
+		defined $request_ref->{search} and $debug_log .= " - request_ref->{search}: " . $request_ref->{search};
+		defined $request_ref->{tagid2}  and $debug_log .= " - tagid2 " . $request_ref->{tagid2};
+		
+		print STDERR $debug_log . "\n"; 
 		
 		if ((not defined $request_ref->{search}) and ($count >= 5) 	
 			and (not defined $request_ref->{tagid2})) {
@@ -4266,8 +4278,14 @@ sub display_new($) {
 	
 
 	
-	my $canon_title = remove_tags_and_quote($title);
-	my $canon_description = remove_tags_and_quote($description);
+	my $canon_title = '';
+	if (defined $title) {
+		$title = remove_tags_and_quote($title);
+	}
+	my $canon_description = '';
+	if (defined $description) {
+		$description = remove_tags_and_quote($description);
+	}
 	if ($canon_description eq '') {
 		$canon_description = lang("site_description");
 	}
@@ -4314,7 +4332,7 @@ sub display_new($) {
 
 	
 	my $main_margin_right = "margin-right:301px;";
-	if ($request_ref->{full_width} == 1) {
+	if ((defined $request_ref->{full_width}) and ($request_ref->{full_width} == 1)) {
 		$main_margin_right = '';
 	}
 	
@@ -6071,9 +6089,7 @@ $warning
 HTML
 ;
 	}
-	
-	my $html_nutrient_levels = '';
-	
+		
 	foreach my $nutrient_level_ref (@nutrient_levels) {
 		my ($nid, $low, $high) = @$nutrient_level_ref;
 		
@@ -6586,65 +6602,71 @@ HTML
 				}				
 			}
 			else {
-
-				# this is the actual value on the package, not a computed average. do not try to round to 2 decimals.
-				my $value = g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit);
 			
-				# too small values are converted to e notation: 7.18e-05
-				if (($value . ' ') =~ /e/) {
-					# use %f (outputs extras 0 in the general case)
-					$value = sprintf("%f", g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit));
-				}
-				
-				my $value_unit = "$value $unit";
-				
-				if (defined $product_ref->{nutriments}{$nid . "_modifier"}) {
-					$value_unit = $product_ref->{nutriments}{$nid . "_modifier"} . " " . $value_unit;
-				}
+				my $value_unit = "";
+				my $rdfa = '';
 				
 				if ((not defined $product_ref->{nutriments}{$nid . "_$col"}) or ($product_ref->{nutriments}{$nid . "_$col"} eq '')) {
 					$value_unit = '?';
 				}
-				elsif ($nid =~ /^energy/) {
-					$value_unit .= "<br/>(" . g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, 'kcal') . ' kcal)';
-				}
-				elsif ($nid eq 'sodium') {
-					my $salt = $product_ref->{nutriments}{$nid . "_$col"} * 2.54;
-					if (exists $product_ref->{nutriments}{"salt" . "_$col"}) {
-						$salt = $product_ref->{nutriments}{"salt" . "_$col"};
-					}
-					$salt = sprintf("%.2e", g_to_unit($salt, $unit)) + 0.0;
-					my $property = '';
-					if ($col eq '100g') {
-						$property = "property=\"food:saltEquivalentPer100g\" content=\"$salt\"";
-					}
-					$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $salt . " " . $unit . "</td>";
-				}
-				elsif ($nid eq 'salt') {
-					my $sodium = $product_ref->{nutriments}{$nid . "_$col"} / 2.54;
-					if (exists $product_ref->{nutriments}{"sodium". "_$col"}) {
-						$sodium = $product_ref->{nutriments}{"sodium". "_$col"};
-					}
-					my $sodium = sprintf("%.2e", g_to_unit($sodium, $unit)) + 0.0;
-					my $property = '';
-					if ($col eq '100g') {
-						$property = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";
-					}
-					$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $sodium . " " . $unit . "</td>";
-				}				
-				elsif ($col eq $product_ref->{nutrition_data_per}) {
-					# % DV ?
-					if ((defined $product_ref->{nutriments}{$nid . "_value"}) and (defined $product_ref->{nutriments}{$nid . "_unit"}) and ($product_ref->{nutriments}{$nid . "_unit"} eq '% DV')) {
-						$value_unit .= ' (' . $product_ref->{nutriments}{$nid . "_value"} . ' ' . $product_ref->{nutriments}{$nid . "_unit"} . ')';
-					}
-				}
+				else {
+
+					# this is the actual value on the package, not a computed average. do not try to round to 2 decimals.
+					my $value = g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit);
 				
-				my $rdfa = '';
-				if (($col eq '100g') and not ((not defined $product_ref->{nutriments}{$nid . "_$col"}) or ($product_ref->{nutriments}{$nid . "_$col"} eq ''))) {
-					my $property = $nid;
-					$property =~ s/-([a-z])/ucfirst($1)/eg;
-					$property .= "Per100g";
-					$rdfa = " property=\"food:$property\" content=\"" . $product_ref->{nutriments}{$nid . "_$col"} . "\"";
+					# too small values are converted to e notation: 7.18e-05
+					if (($value . ' ') =~ /e/) {
+						# use %f (outputs extras 0 in the general case)
+						$value = sprintf("%f", g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit));
+					}
+					
+					$value_unit = "$value $unit";
+					
+					if (defined $product_ref->{nutriments}{$nid . "_modifier"}) {
+						$value_unit = $product_ref->{nutriments}{$nid . "_modifier"} . " " . $value_unit;
+					}
+					
+					if ($nid =~ /^energy/) {
+						$value_unit .= "<br/>(" . g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, 'kcal') . ' kcal)';
+					}
+					elsif ($nid eq 'sodium') {
+						my $salt = $product_ref->{nutriments}{$nid . "_$col"} * 2.54;
+						if (exists $product_ref->{nutriments}{"salt" . "_$col"}) {
+							$salt = $product_ref->{nutriments}{"salt" . "_$col"};
+						}
+						$salt = sprintf("%.2e", g_to_unit($salt, $unit)) + 0.0;
+						my $property = '';
+						if ($col eq '100g') {
+							$property = "property=\"food:saltEquivalentPer100g\" content=\"$salt\"";
+						}
+						$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $salt . " " . $unit . "</td>";
+					}
+					elsif ($nid eq 'salt') {
+						my $sodium = $product_ref->{nutriments}{$nid . "_$col"} / 2.54;
+						if (exists $product_ref->{nutriments}{"sodium". "_$col"}) {
+							$sodium = $product_ref->{nutriments}{"sodium". "_$col"};
+						}
+						$sodium = sprintf("%.2e", g_to_unit($sodium, $unit)) + 0.0;
+						my $property = '';
+						if ($col eq '100g') {
+							$property = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";
+						}
+						$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $sodium . " " . $unit . "</td>";
+					}				
+					elsif ($col eq $product_ref->{nutrition_data_per}) {
+						# % DV ?
+						if ((defined $product_ref->{nutriments}{$nid . "_value"}) and (defined $product_ref->{nutriments}{$nid . "_unit"}) and ($product_ref->{nutriments}{$nid . "_unit"} eq '% DV')) {
+							$value_unit .= ' (' . $product_ref->{nutriments}{$nid . "_value"} . ' ' . $product_ref->{nutriments}{$nid . "_unit"} . ')';
+						}
+					}
+					
+					
+					if ($col eq '100g') {
+						my $property = $nid;
+						$property =~ s/-([a-z])/ucfirst($1)/eg;
+						$property .= "Per100g";
+						$rdfa = " property=\"food:$property\" content=\"" . $product_ref->{nutriments}{$nid . "_$col"} . "\"";
+					}
 				}
 				
 				$values .= "<td class=\"nutriment_value${col_class}\"$rdfa>$value_unit</td>";
