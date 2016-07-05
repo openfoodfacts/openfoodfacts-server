@@ -10438,7 +10438,6 @@ HTML
 
 footer => {
 	fr => <<HTML
-
 <a href="http://fr.openfoodfacts.org/mentions-legales">Mentions légales</a> -
 <a href="http://fr.openfoodfacts.org/conditions-d-utilisation">Conditions d'utilisation</a> -
 <a href="http://fr.openfoodfacts.org/qui-sommes-nous">Qui sommes nous ?</a> -
@@ -10503,7 +10502,6 @@ HTML
 HTML
 ,
 	nl => <<HTML
-
 <a href="http://world.openfoodfacts.org/legal">Wettelijke bepalingen</a> -
 <a href="http://world.openfoodfacts.org/terms-of-use">Gebruiksvoorwaarden</a> -
 <a href="http://world.openfoodfacts.org/who-we-are">Wie zijn wij?</a> -
@@ -10515,7 +10513,6 @@ HTML
 ,
 
 	nl_be => <<HTML
-
 <a href="http://world.openfoodfacts.org/legal">Wettelijke bepalingen</a> -
 <a href="http://world.openfoodfacts.org/terms-of-use">Gebruiksvoorwaarden</a> -
 <a href="http://world.openfoodfacts.org/who-we-are">Wie zijn wij?</a> -
