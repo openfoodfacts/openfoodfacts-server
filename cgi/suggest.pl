@@ -46,15 +46,24 @@ use JSON;
 Blogs::Display::init();
 use Blogs::Lang qw/:all/;
 
-
 my $tagtype = param('tagtype');
 my $string = decode utf8=>param('string');
 my $term = decode utf8=>param('term');
-my $stringid = get_fileid($string) . get_fileid($term);
+
+my $search_lc = $lc;
 
 if (defined param('lc')) {
-	$lc = param('lc');
+	$search_lc = param('lc');
 }
+
+my $original_lc = $search_lc;
+
+if ($term =~ /^(\w\w):/) {
+	$search_lc = $1;
+	$term = $';
+}
+
+my $stringid = get_fileid($string) . get_fileid($term);
 
 my @tags = sort keys %{$translations_to{$tagtype}} ;
 
@@ -64,11 +73,15 @@ my $i = 0;
 
 foreach my $canon_tagid (@tags) {
 
-	next if not defined $translations_to{$tagtype}{$canon_tagid}{$lc};
+	next if not defined $translations_to{$tagtype}{$canon_tagid}{$search_lc};
 	next if defined $just_synonyms{$tagtype}{$canon_tagid};
-	my $tag = $translations_to{$tagtype}{$canon_tagid}{$lc};
+	my $tag = $translations_to{$tagtype}{$canon_tagid}{$search_lc};
 	my $tagid = get_fileid($tag);
 	next if $tagid !~ /^$stringid/;
+
+	if (not ($search_lc eq $original_lc)) {
+		$tag = $search_lc . ":" . $tag;
+	}
 
 	push @suggestions, $tag;
 }
