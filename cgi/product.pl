@@ -132,13 +132,12 @@ if ($type eq 'search_or_add') {
 	else {
 		if (defined param("imgupload_search")) {
 			print STDERR "product.pl - search_or_add - no code found in image\n";
-			$data{error} = "Pas de code barre lisible dans l'image.";
-			$html .= "Le code barre de l'image n'a pas pu être lu, ou l'image ne contenait pas de code barre.
-Vous pouvez essayer avec une autre image, ou entrer directement le code barre.";
+			$data{error} = lang("image_upload_error_no_barcode_found_in_image_short");
+			$html .= lang("image_upload_error_no_barcode_found_in_image_long");
 		}
 		else {
 			print STDERR "product.pl - search_or_add - no code found in text\n";		
-			$html .= "Il faut entrer les chiffres du code barre, ou envoyer une image du produit où le code barre est visible.";
+			$html .= lang("image_upload_error_no_barcode_found_in_text");
 		}
 	}
 	
@@ -161,18 +160,18 @@ Vous pouvez essayer avec une autre image, ou entrer directement le code barre.";
 else {
 	# We should have a code
 	if ((not defined $code) or ($code eq '')) {
-		display_error("Code manquant", 404);
+		display_error($Lang{no_barcode}{$lang}, 403);
 	}
 	else {
 		$product_ref = retrieve_product($code);
 		if (not defined $product_ref) {
-			display_error("Pas de produit trouvé pour ce code", 404);
+			display_error(sprintf(lang("no_product_for_barcode"), $code), 404);
 		}
 	}
 }
 
 if (($type eq 'delete') and (not $admin)) {
-	display_error("Permission refusée", 403);
+	display_error($Lang{error_no_permission}{$lang}, 403);
 }
 
 if ($User_id eq 'unwanted-bot-id') {
