@@ -1154,7 +1154,7 @@ sub display_list_of_tags($$) {
 			}
 			
 			my $info = '';
-			my $cssclass = "tag ";
+			my $cssclass = get_tag_css_class($lc, $tagtype, $tagid);
 
 			my $extra_td = '';
 			
@@ -1203,16 +1203,6 @@ sub display_list_of_tags($$) {
 			}
 			else {
 				$display = canonicalize_tag2($tagtype, $tagid);
-			}
-
-			my $canon_tagid = canonicalize_taxonomy_tag($lc, $tagtype, $tagid);
-
-			if (not exists_taxonomy_tag($tagtype, $canon_tagid)) {
-				$cssclass .= " user_defined";
-        		
-			}
-			else {
-				$cssclass .= " well_known";
 			}
 
 			$cssclass =~ s/^\s+|\s+$//g;
