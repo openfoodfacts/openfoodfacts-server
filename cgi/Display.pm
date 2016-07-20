@@ -1137,23 +1137,12 @@ sub display_list_of_tags($$) {
 					}				
 				}
 				else {
-			
-					if (exists_taxonomy_tag('categories', $tagid)) {
-						$td_nutriments .= "<td></td>";
-					}
-					else {
-						$td_nutriments .= "<td style=\"text-align:center\">*</td>";
-					}
+					$td_nutriments .= "<td></td>";
 				}
 			}
 			# show a * next to fields that do not exist in the taxonomy
 			elsif (defined $taxonomy_fields{$tagtype}) {
-					if (exists_taxonomy_tag($tagtype, $tagid)) {
-						$td_nutriments .= "<td></td>";
-					}
-					else {
-						$td_nutriments .= "<td style=\"text-align:center\">*</td>";
-					}			
+				$td_nutriments .= "<td></td>";
 			}
 			
 
@@ -1165,6 +1154,8 @@ sub display_list_of_tags($$) {
 			}
 			
 			my $info = '';
+			my $cssclass = "tag ";
+
 			my $extra_td = '';
 			
 			my $icid = $tagid;
@@ -1176,7 +1167,8 @@ sub display_list_of_tags($$) {
 				$risk_level = $tags_levels{$lc}{$tagtype}{$icid} || $tags_levels{'fr'}{$tagtype}{$icid};
 
 				if ($risk_level) {
-					# $info = ' class="additives_' . $ingredients_classes{$tagtype}{$icid}{level} . '" title="' . $ingredients_classes{$tagtype}{$icid}{warning} . '" ';
+					# $cssclass .= ' additives_' . $ingredients_classes{$tagtype}{$icid}{level} . ';
+					# $info .= ' title="' . $ingredients_classes{$tagtype}{$icid}{warning} . '" ';
 					my $risk_level_label = lang("risk_level_" . $risk_level);
 					$risk_level_label =~ s/ /\&nbsp;/g;
 					$extra_td = '<td class="level_' . $risk_level . '">' . $risk_level_label . '</td>';
@@ -1188,7 +1180,7 @@ sub display_list_of_tags($$) {
 			}
 			
 			if ($risk_level) {
-				$info = ' class="level_' . $risk_level . '" ';
+				$cssclass .= ' level_' . $risk_level;
 			}
 			
 			my $product_link = $main_link . $link;
@@ -1212,7 +1204,19 @@ sub display_list_of_tags($$) {
 			else {
 				$display = canonicalize_tag2($tagtype, $tagid);
 			}
-			
+
+			my $canon_tagid = canonicalize_taxonomy_tag($lc, $tagtype, $tagid);
+
+			if (not exists_taxonomy_tag($tagtype, $canon_tagid)) {
+				$cssclass .= " user_defined";
+        		
+			}
+			else {
+				$cssclass .= " well_known";
+			}
+
+			$cssclass =~ s/^\s+|\s+$//g;
+			$info .= ' class="' . $cssclass . '"';
 			$html .= "<a href=\"$product_link\"$info$nofollow>" . $display . "</a>";
 			$html .= "</td>\n<td style=\"text-align:right\">$products</td>" . $td_nutriments . $extra_td . "</tr>\n";
 			
