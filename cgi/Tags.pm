@@ -1446,6 +1446,11 @@ sub get_tag_css_class($$$) {
 		$tag_lc = $1;
 		$tag = $';
 	}
+
+	# Don't treat users as tags.
+	if (($tagtype eq 'photographers') or ($tagtype eq 'editors') or ($tagtype eq 'informers') or ($tagtype eq 'correctors') or ($tagtype eq 'checkers')) {
+		return "";
+	}
 	
 	my $cssclass = "tag ";
 	if (not exists_taxonomy_tag($tagtype, $canon_tagid)) {
