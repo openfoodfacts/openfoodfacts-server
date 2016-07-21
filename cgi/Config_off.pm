@@ -124,6 +124,10 @@ $options{favicons} = <<HTML
 HTML
 ;
 
+$options{opensearch_image} = <<XML
+<Image width="16" height="16" type="image/x-icon">http://static.$server_domain/images/favicon/favicon.ico</Image>
+XML
+;
 
 %wiki_texts = (
 
