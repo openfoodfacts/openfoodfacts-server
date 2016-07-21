@@ -4347,7 +4347,7 @@ sub display_new($) {
 	my $html = <<HTML
 <!doctype html>
 <html class="no-js" lang="$lang">
-  <head>
+  <head profile="http://a9.com/-/spec/opensearch/1.1/">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/foundation/css/app.css" />
@@ -4363,6 +4363,7 @@ $meta_description
 <link rel="stylesheet" href="/js/jquery-ui-1.11.4/jquery-ui.min.css" />
 
 <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" rel="stylesheet" />
+<link rel="search" href="http://$subdomain.$server_domain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}" />
 
 <script>
 \$(function() {
