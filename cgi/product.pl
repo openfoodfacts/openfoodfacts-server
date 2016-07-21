@@ -76,7 +76,9 @@ if ($type eq 'search_or_add') {
 		$code = process_search_image_form(\$filename);
 	}
 	
-	if ((not defined $code) and ((not defined param("imgupload_search")) or ( param("imgupload_search") eq ''))) {
+	my $r = Apache2::RequestUtil->request();
+	my $method = $r->method();
+	if ((not defined $code) and ((not defined param("imgupload_search")) or ( param("imgupload_search") eq '')) and ($method eq 'POST')) {
 		$code = 2000000000001; # Codes beginning with 2 are for internal use
 		
 		my $internal_code_ref = retrieve("$data_root/products/internal_code.sto");
