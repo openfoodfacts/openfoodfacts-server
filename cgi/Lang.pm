@@ -7018,6 +7018,11 @@ search_title => {
 	de => 'Produkt, Marke, Zutat, Nährstoff usw. suchen',
 },
 
+search_description_opensearch => {
+	de => 'Open Food Facts-Produktsuche',
+	en => 'Open Food Facts product search',
+},
+
 product_added => {
 
     ar => 'وأضاف المنتج على', #ar-CHECK - Please check and remove this comment
