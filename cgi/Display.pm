@@ -1426,12 +1426,12 @@ JS
 ;
 
 	$scripts .= <<SCRIPTS
-<script src="/js/jquery.dataTables.min.js"></script>
+<script src="/js/datatables.min.js"></script>
 SCRIPTS
 ;
 
 	$header .= <<HEADER
-<link rel="stylesheet" href="/js/datatables.css" />
+<link rel="stylesheet" href="/js/datatables.min.css" />
 HEADER
 ;
 		
@@ -1670,12 +1670,12 @@ sub display_points($) {
 	
 
 	$scripts .= <<SCRIPTS
-<script src="/js/jquery.dataTables.min.js"></script>
+<script src="/js/datatables.min.js"></script>
 SCRIPTS
 ;
 
 	$header .= <<HEADER
-<link rel="stylesheet" href="/js/datatables.css" />
+<link rel="stylesheet" href="/js/datatables.min.css" />
 <meta property="og:image" content="http://world.openfoodfacts.org/images/misc/open-food-hunt-2015.1304x893.png"/>
 HEADER
 ;	
