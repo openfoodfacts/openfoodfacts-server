@@ -102,10 +102,10 @@ foreach my $l ('en') {
     });
 </initjs>
 <scripts>
-<script src="/js/jquery.dataTables.min.js"></script>
+<script src="/js/datatables.min.js"></script>
 </scripts>
 <header>
-<link rel="stylesheet" href="/js/datatables.css" />
+<link rel="stylesheet" href="/js/datatables.min.css" />
 </header>
 HTML
 ;
