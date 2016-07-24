@@ -7235,7 +7235,7 @@ additives_2 => {
 
 additives_1 => {
 	fr => 'Additif alimentaire potentiellement à risque. A limiter.',
-	en => "Potentialy hazardous food additive. Limit usage.",
+	en => "Potentially hazardous food additive. Limit usage.",
 	el => "Πρόσθετο τροφίμων πιθανώς όχι απολύτως ασφαλές. Να περιοριστεί η χρήση του. ",
 	es => 'Aditivo alimentario con riesgo potencial. A limitar.',
 	ro => "Aditiv alimentar potențial riscant. De limitat.",
