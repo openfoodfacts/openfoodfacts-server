@@ -1412,14 +1412,11 @@ HTML
 		my $tagtype_p = $Lang{$tagtype . "_p"}{$lang};
 		
 		$initjs .= <<JS
-oTable = \$('#tagstable').dataTable({
-	"bJQueryUI": true,
-	"bPaginate": false,
-	"aaSorting": [],
-	"oLanguage": {
-		"sSearch": "$Lang{tagstable_search}{$lang}",
-		"sInfo": "_TOTAL_ $tagtype_p",
-		"sInfoFiltered": " - $Lang{tagstable_filtered}{$lang}"
+oTable = \$('#tagstable').DataTable({
+	language: {
+		search: "$Lang{tagstable_search}{$lang}",
+		info: "_TOTAL_ $tagtype_p",
+		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
 	}
 });
 JS
@@ -1525,14 +1522,11 @@ sub display_points_ranking($$) {
 	my $tagtype_p = $Lang{$ranktype . "_p"}{$lang};
 		
 		$initjs .= <<JS
-${tagtype}Table = \$('#${tagtype}table').dataTable({
-	"bJQueryUI": true,
-	"bPaginate": false,
-	"aaSorting": [],
-	"oLanguage": {
-		"sSearch": "$Lang{tagstable_search}{$lang}",
-		"sInfo": "_TOTAL_ $tagtype_p",
-		"sInfoFiltered": " - $Lang{tagstable_filtered}{$lang}"
+${tagtype}Table = \$('#${tagtype}table').DataTable({
+	language: {
+		search: "$Lang{tagstable_search}{$lang}",
+		info: "_TOTAL_ $tagtype_p",
+		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
 	}
 });
 JS
