@@ -313,14 +313,11 @@ JS
 		$html .= <<HTML
 <initjs>
     oTable = \$('#tagstable').dataTable({
-        "bJQueryUI": true,
-        "bPaginate": false,
-		"aaSorting": [],
-		"oLanguage": {
-			"sSearch": "$Lang{tagstable_search}{$lang}",
-			"sInfo": "_TOTAL_ $tagtype_p",
-			"sInfoFiltered": " - $Lang{tagstable_filtered}{$lang}"
-		}
+	language: {
+		search: "$Lang{tagstable_search}{$lang}",
+		info: "_TOTAL_ $tagtype_p",
+		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
+	}
     });
 </initjs>
 <scripts>

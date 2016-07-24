@@ -90,15 +90,12 @@ foreach my $l ('en') {
 
 			$html .= <<HTML
 <initjs>
-    oTable = \$('#tagstable').dataTable({
-        "bJQueryUI": true,
-        "bPaginate": false,
-		"aaSorting": [],
-		"oLanguage": {
-			"sSearch": "$Lang{tagstable_search}{$lang}",
-			"sInfo": "_TOTAL_ ",
-			"sInfoFiltered": " - $Lang{tagstable_filtered}{$lang}"
-		}
+    oTable = \$('#tagstable').DataTable({
+	language: {
+		search: "$Lang{tagstable_search}{$lang}",
+		info: "_TOTAL_ ",
+		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
+	}
     });
 </initjs>
 <scripts>
