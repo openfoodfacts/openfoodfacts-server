@@ -3955,6 +3955,13 @@ HTML
 ;
 
 
+# 18/07/2016 -> mapquest removed free access to their tiles without registration
+#L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpeg', {
+#	attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+#	subdomains: '1234',
+#    maxZoom: 18
+#}).addTo(map);			
+
 		
 
 			my $js = <<JS
@@ -3962,11 +3969,11 @@ var pointers = [
 				$data
 			];
 
-var map = L.map('container', {maxZoom:12});			
-L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpeg', {
-	attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-	subdomains: '1234',
-    maxZoom: 18
+var map = L.map('container', {maxZoom:12});	
+		
+L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);			
 
 
