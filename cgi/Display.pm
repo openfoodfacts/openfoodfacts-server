@@ -5552,7 +5552,7 @@ HTML
 	else {
 		$html .= " <span id=\"ingredients_list\" property=\"food:ingredientListAsText\">$ingredients_text</span>";
 	}
-	$html .= "</div";
+	$html .= "</div>";
 
 	$html .= display_field($product_ref, 'allergens');
 	
