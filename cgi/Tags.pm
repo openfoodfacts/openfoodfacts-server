@@ -57,6 +57,8 @@ BEGIN
 					&display_taxonomy_tag
 					&display_taxonomy_tag_link
 					
+					&get_tag_css_class
+					
 					&display_tag_link
 					&display_tags_list
 					&display_tag_and_parents
@@ -1429,6 +1431,37 @@ sub get_city_code($) {
 	return $city_code;
 }
 
+sub get_tag_css_class($$$) {
+	my $target_lc = shift; $target_lc =~ s/_.*//;
+	my $tagtype = shift;
+	my $tag = shift;
+	$tag = display_taxonomy_tag($target_lc,$tagtype, $tag);
+	my $tagid = get_taxonomyid($tag);
+	my $tagurl = get_taxonomyurl($tagid);
+
+	my $canon_tagid = canonicalize_taxonomy_tag($target_lc, $tagtype, $tag);
+
+	my $tag_lc;
+	if ($tagid =~ /^(\w\w):/) {
+		$tag_lc = $1;
+		$tag = $';
+	}
+
+	# Don't treat users as tags.
+	if (($tagtype eq 'photographers') or ($tagtype eq 'editors') or ($tagtype eq 'informers') or ($tagtype eq 'correctors') or ($tagtype eq 'checkers')) {
+		return "";
+	}
+	
+	my $cssclass = "tag ";
+	if (not exists_taxonomy_tag($tagtype, $canon_tagid)) {
+		$cssclass .= "user_defined";
+	}
+	else {
+		$cssclass .= "well_known";
+	}
+
+	return $cssclass;
+}
 
 sub display_tag_link($$) {
 
@@ -1509,8 +1542,6 @@ sub display_taxonomy_tag_link($$$) {
 	my $tagid = get_taxonomyid($tag);
 	my $tagurl = get_taxonomyurl($tagid);
 
-	my $canon_tagid = canonicalize_taxonomy_tag($target_lc, $tagtype, $tag);
-
 	my $tag_lc;
 	if ($tagid =~ /^(\w\w):/) {
 		$tag_lc = $1;
@@ -1519,13 +1550,7 @@ sub display_taxonomy_tag_link($$$) {
 	
 	my $path = $tag_type_singular{$tagtype}{$target_lc};
 	
-	my $cssclass = "tag ";
-	if (not exists_taxonomy_tag($tagtype, $canon_tagid)) {
-		$cssclass .= "user_defined";
-	}
-	else {
-		$cssclass .= "well_known";
-	}
+	my $cssclass = get_tag_css_class($target_lc, $tagtype, $tag);
 
 	my $html;
 	if ((defined $tag_lc) and ($tag_lc ne $lc)) {

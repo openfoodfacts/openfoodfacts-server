@@ -20,7 +20,6 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 
@@ -36,7 +35,6 @@ use Blogs::Products qw/:all/;
 use Blogs::Food qw/:all/;
 use Blogs::Tags qw/:all/;
 
-
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -46,49 +44,40 @@ use JSON;
 Blogs::Display::init();
 use Blogs::Lang qw/:all/;
 
-my $tagtype = param('tagtype');
-my $string = decode utf8=>param('string');
-my $term = decode utf8=>param('term');
-
-my $search_lc = $lc;
-
-if (defined param('lc')) {
-	$search_lc = param('lc');
+# https://developer.mozilla.org/en-US/Add-ons/Creating_OpenSearch_plugins_for_Firefox
+# Maximum of 16 characters
+my $short_name = lang("site_name");
+# Maximum of 48 characters
+my $long_name = $short_name;
+if ($cc eq 'world') {
+	$long_name .= " " . uc($lc);
+}
+else {
+	$long_name .= " " . uc($cc) . "/" . uc($lc);
 }
 
-my $original_lc = $search_lc;
+my $description = lang("search_description_opensearch");
+my $image_tag = $options{opensearch_image};
 
-if ($term =~ /^(\w\w):/) {
-	$search_lc = $1;
-	$term = $';
-}
+my $xml = <<XML
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+<ShortName>$short_name</ShortName>
+<LongName>$long_name</LongName>
+<Description>$description</Description>
+<Contact>$contact_email</Contact>
+<SyndicationRight>open</SyndicationRight>
+<AdultContent>false</AdultContent>
+<Language>$lc</Language>
+<OutputEncoding>UTF-8</OutputEncoding>
+<InputEncoding>UTF-8</InputEncoding>
+$image_tag
+<Url type="text/html" method="GET" template="http://$subdomain.$server_domain/cgi/search.pl?search_terms={searchTerms}&amp;search_simple=1&amp;action=process" />
+<Url type="application/opensearchdescription+xml" rel="self" template="http://$subdomain.$server_domain/cgi/opensearch.pl" />
+</OpenSearchDescription>
+XML
+;
 
-my $stringid = get_fileid($string) . get_fileid($term);
-
-my @tags = sort keys %{$translations_to{$tagtype}} ;
-
-my @suggestions = ();
-
-my $i = 0;
-
-foreach my $canon_tagid (@tags) {
-
-	next if not defined $translations_to{$tagtype}{$canon_tagid}{$search_lc};
-	next if defined $just_synonyms{$tagtype}{$canon_tagid};
-	my $tag = $translations_to{$tagtype}{$canon_tagid}{$search_lc};
-	my $tagid = get_fileid($tag);
-	next if $tagid !~ /^$stringid/;
-
-	if (not ($search_lc eq $original_lc)) {
-		$tag = $search_lc . ":" . $tag;
-	}
-
-	push @suggestions, $tag;
-}
-
-
-my $data =  encode_json(\@suggestions);
-	
-print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $data;	
+print "Content-Type: application/opensearchdescription+xml; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\nCache-Control: public, max-age: 10080\r\n\r\n" . $xml;
 
 

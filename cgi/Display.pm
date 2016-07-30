@@ -1137,23 +1137,12 @@ sub display_list_of_tags($$) {
 					}				
 				}
 				else {
-			
-					if (exists_taxonomy_tag('categories', $tagid)) {
-						$td_nutriments .= "<td></td>";
-					}
-					else {
-						$td_nutriments .= "<td style=\"text-align:center\">*</td>";
-					}
+					$td_nutriments .= "<td></td>";
 				}
 			}
 			# show a * next to fields that do not exist in the taxonomy
 			elsif (defined $taxonomy_fields{$tagtype}) {
-					if (exists_taxonomy_tag($tagtype, $tagid)) {
-						$td_nutriments .= "<td></td>";
-					}
-					else {
-						$td_nutriments .= "<td style=\"text-align:center\">*</td>";
-					}			
+				$td_nutriments .= "<td></td>";
 			}
 			
 
@@ -1165,6 +1154,8 @@ sub display_list_of_tags($$) {
 			}
 			
 			my $info = '';
+			my $cssclass = get_tag_css_class($lc, $tagtype, $tagid);
+
 			my $extra_td = '';
 			
 			my $icid = $tagid;
@@ -1176,7 +1167,8 @@ sub display_list_of_tags($$) {
 				$risk_level = $tags_levels{$lc}{$tagtype}{$icid} || $tags_levels{'fr'}{$tagtype}{$icid};
 
 				if ($risk_level) {
-					# $info = ' class="additives_' . $ingredients_classes{$tagtype}{$icid}{level} . '" title="' . $ingredients_classes{$tagtype}{$icid}{warning} . '" ';
+					# $cssclass .= ' additives_' . $ingredients_classes{$tagtype}{$icid}{level} . ';
+					# $info .= ' title="' . $ingredients_classes{$tagtype}{$icid}{warning} . '" ';
 					my $risk_level_label = lang("risk_level_" . $risk_level);
 					$risk_level_label =~ s/ /\&nbsp;/g;
 					$extra_td = '<td class="level_' . $risk_level . '">' . $risk_level_label . '</td>';
@@ -1188,7 +1180,7 @@ sub display_list_of_tags($$) {
 			}
 			
 			if ($risk_level) {
-				$info = ' class="level_' . $risk_level . '" ';
+				$cssclass .= ' level_' . $risk_level;
 			}
 			
 			my $product_link = $main_link . $link;
@@ -1212,7 +1204,9 @@ sub display_list_of_tags($$) {
 			else {
 				$display = canonicalize_tag2($tagtype, $tagid);
 			}
-			
+
+			$cssclass =~ s/^\s+|\s+$//g;
+			$info .= ' class="' . $cssclass . '"';
 			$html .= "<a href=\"$product_link\"$info$nofollow>" . $display . "</a>";
 			$html .= "</td>\n<td style=\"text-align:right\">$products</td>" . $td_nutriments . $extra_td . "</tr>\n";
 			
@@ -4360,7 +4354,7 @@ sub display_new($) {
 	my $html = <<HTML
 <!doctype html>
 <html class="no-js" lang="$lang">
-  <head>
+  <head profile="http://a9.com/-/spec/opensearch/1.1/">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/foundation/css/app.css" />
@@ -4376,6 +4370,7 @@ $meta_description
 <link rel="stylesheet" href="/js/jquery-ui-1.11.4/jquery-ui.min.css" />
 
 <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" rel="stylesheet" />
+<link rel="search" href="http://$subdomain.$server_domain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}" />
 
 <script>
 \$(function() {

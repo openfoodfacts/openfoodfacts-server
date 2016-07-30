@@ -76,7 +76,9 @@ if ($type eq 'search_or_add') {
 		$code = process_search_image_form(\$filename);
 	}
 	
-	if ((not defined $code) and ((not defined param("imgupload_search")) or ( param("imgupload_search") eq ''))) {
+	my $r = Apache2::RequestUtil->request();
+	my $method = $r->method();
+	if ((not defined $code) and ((not defined param("imgupload_search")) or ( param("imgupload_search") eq '')) and ($method eq 'POST')) {
 		$code = 2000000000001; # Codes beginning with 2 are for internal use
 		
 		my $internal_code_ref = retrieve("$data_root/products/internal_code.sto");
@@ -132,13 +134,12 @@ if ($type eq 'search_or_add') {
 	else {
 		if (defined param("imgupload_search")) {
 			print STDERR "product.pl - search_or_add - no code found in image\n";
-			$data{error} = "Pas de code barre lisible dans l'image.";
-			$html .= "Le code barre de l'image n'a pas pu être lu, ou l'image ne contenait pas de code barre.
-Vous pouvez essayer avec une autre image, ou entrer directement le code barre.";
+			$data{error} = lang("image_upload_error_no_barcode_found_in_image_short");
+			$html .= lang("image_upload_error_no_barcode_found_in_image_long");
 		}
 		else {
 			print STDERR "product.pl - search_or_add - no code found in text\n";		
-			$html .= "Il faut entrer les chiffres du code barre, ou envoyer une image du produit où le code barre est visible.";
+			$html .= lang("image_upload_error_no_barcode_found_in_text");
 		}
 	}
 	
@@ -161,18 +162,18 @@ Vous pouvez essayer avec une autre image, ou entrer directement le code barre.";
 else {
 	# We should have a code
 	if ((not defined $code) or ($code eq '')) {
-		display_error("Code manquant", 404);
+		display_error($Lang{no_barcode}{$lang}, 403);
 	}
 	else {
 		$product_ref = retrieve_product($code);
 		if (not defined $product_ref) {
-			display_error("Pas de produit trouvé pour ce code", 404);
+			display_error(sprintf(lang("no_product_for_barcode"), $code), 404);
 		}
 	}
 }
 
 if (($type eq 'delete') and (not $admin)) {
-	display_error("Permission refusée", 403);
+	display_error($Lang{error_no_permission}{$lang}, 403);
 }
 
 if ($User_id eq 'unwanted-bot-id') {
@@ -372,9 +373,17 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		
 		my $modifier = undef;
 		
+		if ($value =~ /(\&lt;=|<=|\x{2264})( )?/) {
+			$value =~ s/(\&lt;=|<=|\x{2264})( )?//;
+			$modifier = "\x{2264}";
+		}
 		if ($value =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less)( )?/) {
 			$value =~ s/(\&lt;|<|min|minimum|max|maxi|maximum|environ)( )?//;
 			$modifier = '<';
+		}
+		if ($value =~ /(\&gt;=|>=|\x{2265})/) {
+			$value =~ s/(\&gt;=|>=|\x{2265})( )?//;
+			$modifier = "\x{2265}";
 		}
 		if ($value =~ /(\&gt;|>|min|mini|minimum|greater|more)/) {
 			$value =~ s/(\&gt;|>|min|mini|minimum|greater|more)( )?//;
@@ -1110,7 +1119,9 @@ HTML
 			$value = $product_ref->{nutriments}{$nid . "_value"};
 			if (defined $product_ref->{nutriments}{$nid . "_modifier"}) {
 				$product_ref->{nutriments}{$nid . "_modifier"} eq '<' and $value = "&lt; $value";
+				$product_ref->{nutriments}{$nid . "_modifier"} eq "\x{2264}" and $value = "&le; $value";
 				$product_ref->{nutriments}{$nid . "_modifier"} eq '>' and $value = "&gt; $value";
+				$product_ref->{nutriments}{$nid . "_modifier"} eq "\x{2265}" and $value = "&ge; $value";
 				$product_ref->{nutriments}{$nid . "_modifier"} eq '~' and $value = "~ $value";
 			}
 		}

@@ -144,9 +144,17 @@ else {
 		
 		my $modifier = undef;
 		
+		if ($value =~ /(\&lt;=|<=|\x{2264})( )?/) {
+			$value =~ s/(\&lt;=|<=|\x{2264})( )?//;
+			$modifier = "\x{2264}";
+		}
 		if ($value =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less)( )?/) {
 			$value =~ s/(\&lt;|<|min|minimum|max|maxi|maximum|environ)( )?//;
 			$modifier = '<';
+		}
+		if ($value =~ /(\&gt;=|>=|\x{2265})/) {
+			$value =~ s/(\&gt;=|>=|\x{2265})( )?//;
+			$modifier = "\x{2265}";
 		}
 		if ($value =~ /(\&gt;|>|min|mini|minimum|greater|more)/) {
 			$value =~ s/(\&gt;|>|min|mini|minimum|greater|more)( )?//;

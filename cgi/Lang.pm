@@ -7018,6 +7018,11 @@ search_title => {
 	de => 'Produkt, Marke, Zutat, Nährstoff usw. suchen',
 },
 
+search_description_opensearch => {
+	de => 'Open Food Facts-Produktsuche',
+	en => 'Open Food Facts product search',
+},
+
 product_added => {
 
     ar => 'وأضاف المنتج على', #ar-CHECK - Please check and remove this comment
@@ -7230,7 +7235,7 @@ additives_2 => {
 
 additives_1 => {
 	fr => 'Additif alimentaire potentiellement à risque. A limiter.',
-	en => "Potentialy hazardous food additive. Limit usage.",
+	en => "Potentially hazardous food additive. Limit usage.",
 	el => "Πρόσθετο τροφίμων πιθανώς όχι απολύτως ασφαλές. Να περιοριστεί η χρήση του. ",
 	es => 'Aditivo alimentario con riesgo potencial. A limitar.',
 	ro => "Aditiv alimentar potențial riscant. De limitat.",
@@ -8699,6 +8704,24 @@ product_js_upload_image_note => {
 	nl => "→ Met Chrome, Firefox en Safari kan je verschillende foto's (product, ingrediënten, voedingswaarden, etc.) selecteren door tijdens het klikken de Ctrl-toets ingedrukt te houden om ze in één keer verzenden.",
 	nl_be => "→ Met Chrome, Firefox en Safari kunt u verschillende foto's (product, ingrediënten, nutritionele informatie, etc.) selecteren door tijdens het klikken de Ctrl-toets ingedrukt te houden om ze in één keer verzenden.",
 	de => "→ Mit Chrome, Firefox und Safari können Sie einfach durch die Benutzung der Strg-Taste mehrere Fotos auswählen (Produkt, Zutaten, Nährwertinformationen, usw.), um diese einmalig hochzuladen.",
+},
+
+image_upload_error_no_barcode_found_in_image_short => {
+	de => "Im Bild wurde kein Barcode gefunden.",
+	en => "No barcode found in the image.",
+	fr => "Pas de code barre lisible dans l'image.",
+},
+
+image_upload_error_no_barcode_found_in_image_long => {
+	en => "The barcode in the image could not be read, or the image contained no barcode.
+You can try with another image, or directly enter the barcode.",
+	fr => "Le code barre de l'image n'a pas pu être lu, ou l'image ne contenait pas de code barre.
+Vous pouvez essayer avec une autre image, ou entrer directement le code barre.",
+},
+
+image_upload_error_no_barcode_found_in_text => {
+	en => "You must enter the characters of the barcode or send a product image when the barcode is visible.",
+	fr => "Il faut entrer les chiffres du code barre, ou envoyer une image du produit où le code barre est visible.",
 },
 
 image_upload_error_image_already_exists => {
