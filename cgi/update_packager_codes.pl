@@ -87,6 +87,8 @@ if (opendir (DH, "$data_root/packager-codes")) {
 				$field =~ s/\/.*//;
 				$field = get_fileid($field);
 				$field =~ s/-/_/g;
+				($field eq 'latitude') and $field = 'lat';
+				($field eq 'longitude') and $field = 'lng';
 				push @headers, $field;
 				$headers{$field} = $#headers;
 				# print STDERR "Tags.pm - packaging_codes - load - country: $country - header: $field\n";
@@ -126,7 +128,7 @@ if (opendir (DH, "$data_root/packager-codes")) {
 				$code = get_fileid($code);
 				$code =~ s/-(eg|ce|ew|we|eec)$/-ec/i;
 				
-				if ($country eq 'es') {
+				if ($country eq 'de') {
 					print STDERR "$code: $code\n";
 				}
 				
