@@ -154,6 +154,7 @@ sub g_to_unit($$) {
 %cc_nutriment_table = (
 	default => "europe",
 	ca => "ca",
+	ru => "ru",
 	us => "us",
 );
 
@@ -365,6 +366,109 @@ nutrition-score-fr-
 nutrition-score-uk-
 )
 ],
+
+ru => [qw(
+!proteins
+-casein-
+-serum-proteins-
+-nucleotides-
+!fat
+-saturated-fat
+--butyric-acid-
+--caproic-acid-
+--caprylic-acid-
+--capric-acid-
+--lauric-acid-
+--myristic-acid-
+--palmitic-acid-
+--stearic-acid-
+--arachidic-acid-
+--behenic-acid-
+--lignoceric-acid-
+--cerotic-acid-
+--montanic-acid-
+--melissic-acid-
+-monounsaturated-fat-
+-polyunsaturated-fat-
+-omega-3-fat-
+--alpha-linolenic-acid-
+--eicosapentaenoic-acid-
+--docosahexaenoic-acid-
+-omega-6-fat-
+--linoleic-acid-
+--arachidonic-acid-
+--gamma-linolenic-acid-
+--dihomo-gamma-linolenic-acid-
+-omega-9-fat-
+--oleic-acid-
+--elaidic-acid-
+--gondoic-acid-
+--mead-acid-
+--erucic-acid-
+--nervonic-acid-
+-trans-fat-
+-cholesterol-
+!carbohydrates
+-sugars
+--sucrose-
+--glucose-
+--fructose-
+--lactose-
+--maltose-
+--maltodextrins-
+-starch-
+-polyols-
+!energy
+-energy-from-fat-
+fiber
+salt
+sodium
+alcohol
+#vitamins
+vitamin-a-
+beta-carotene-
+vitamin-d-
+vitamin-e-
+vitamin-k-
+vitamin-c-
+vitamin-b1-
+vitamin-b2-
+vitamin-pp-
+vitamin-b6-
+vitamin-b9-
+vitamin-b12-
+biotin-
+pantothenic-acid-
+#minerals
+silica-
+bicarbonate-
+potassium-
+chloride-
+calcium-
+phosphorus-
+iron-
+magnesium-
+zinc-
+copper-
+manganese-
+fluoride-
+selenium-
+chromium-
+molybdenum-
+iodine-
+caffeine-
+taurine-
+ph-
+fruits-vegetables-nuts-
+collagen-meat-protein-ratio-
+cocoa-
+chlorophyl-
+carbon-footprint
+nutrition-score-fr-
+nutrition-score-uk-
+)
+],
+
 
 us => [qw(
 !energy
