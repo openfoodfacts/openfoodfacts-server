@@ -48,6 +48,7 @@ BEGIN
 					&compute_serving_size_data
 					&compute_unknown_nutrients
 					&compute_nutrient_levels
+					&compute_units_of_alcohol
 					
 					&compare_nutriments
 					
@@ -3361,6 +3362,19 @@ TXT
 print OUT $nutrient_levels_taxonomy;
 close OUT;
 
+sub compute_units_of_alcohol($$) {
+
+	my ( $product_ref, $serving_size_in_ml ) = @_;
+
+	if ( (defined $product_ref) and (defined $serving_size_in_ml)
+		and (defined $product_ref->{nutriments}{'alcohol'})
+		and (has_tag($product_ref, 'categories', 'en:alcoholic-beverages'))) {
+		return $serving_size_in_ml * ($product_ref->{nutriments}{'alcohol'} / 1000.0);
+	}
+	else {
+		return undef;
+	}
+}
 
 sub compare_nutriments($$) {
 
