@@ -1463,7 +1463,7 @@ elsif ($action eq 'process') {
 	if ($type eq 'delete') {
 		my $csrf_token_status = check_po_csrf_token($User_id, param('csrf'));
 		if (not ($csrf_token_status eq CSRF_OK)) {
-			display_error('Invalid CSRF token');
+			display_error(lang("error_invalid_csrf_token"), 403);
 		}
 
 		$product_ref->{deleted} = 'on';
