@@ -28,6 +28,8 @@ if (defined $User_id) {
 	$html = $Lang{hello}{$lang} . ' ' . $User{name} . $Lang{sep}{$lang} . "!";
 	
 	my $next_action = param('next_action');
+	my $r = shift;
+	my $referer = $r->headers_in->{Referer};
 	my $url;
 	
 	if (defined $next_action) {
@@ -38,13 +40,14 @@ if (defined $User_id) {
 			$url = "/cgi/product.pl?type=edit&code=" . param('code');
 		}
 	}
+	elsif ((defined $referer) and ($referer =~ /^http:\/\/$subdomain\.$server_domain/) and (not ($referer =~ /(?:session|user)\.pl/))) {
+		$url = $referer;
+	}
 	
 	if (defined $url) {
 		
 		print STDERR "session.pl - redirection to $url\n";
 	
-		my $r = shift;
-  
         $r->err_headers_out->add('Set-Cookie' => $cookie);
 		$r->headers_out->set(Location =>"$url");
 		$r->status(301);
