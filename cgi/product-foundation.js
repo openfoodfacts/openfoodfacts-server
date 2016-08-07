@@ -186,7 +186,7 @@ function upload_image (imagefield) {
 
 function init_image_area_select(imagefield) {
 	
-	$('img#crop_' + imagefield ).cropper({ "strict" : false, "guides" : false, "autoCrop" : false, "zoomable" : false, "mouseWheelZoom" : false, "touchDragZoom" : false, built: function () {
+	$('img#crop_' + imagefield ).cropper({ "strict" : false, "guides" : false, "autoCrop" : false, "zoomable" : false, "mouseWheelZoom" : false, "touchDragZoom" : false, "toggleDragModeOnDblclick" : false, built: function () {
 		$('img#crop_' + imagefield ).cropper('setDragMode', "crop");
 	}});
 

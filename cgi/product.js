@@ -106,7 +106,7 @@ function upload_image (imagefield) {
 
 function init_image_area_select(imagefield) {
 	
-	$('img#crop_' + imagefield ).cropper({ "strict" : false, "guides" : false, "autoCrop" : false});
+	$('img#crop_' + imagefield ).cropper({ "strict" : false, "guides" : false, "autoCrop" : false, "toggleDragModeOnDblclick" : false});
 }
 
 function update_image(imagefield) {
