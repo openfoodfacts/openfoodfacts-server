@@ -1810,21 +1810,29 @@ sub display_tag($) {
 	my $weblinks_html = '';
 	if (not defined $request_ref->{groupby_tagtype}) {
 		my @weblinks = ();
-		if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid}) and (defined $properties{$tagtype}{$canon_tagid}{"wikidata:en"})) {
-			my $weblink = {
-				text => "Wikidata",
-				href => "https://www.wikidata.org/wiki/" . $properties{$tagtype}{$canon_tagid}{"wikidata:en"},
-			};
-			push @weblinks, $weblink;
+		if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})) {
+			foreach my $key (keys %weblink_templates) {
+				next if not defined $properties{$tagtype}{$canon_tagid}{$key};
+				my $weblink = {
+					text => $weblink_templates{$key}{text},
+					href => sprintf($weblink_templates{$key}{href}, $properties{$tagtype}{$canon_tagid}{$key}),
+					hreflang => $weblink_templates{$key}{hreflang},
+				};
+				$weblink->{title} = sprintf($weblink_templates{$key}{title}, $properties{$tagtype}{$canon_tagid}{$key}) if defined $weblink_templates{$key}{title},
+				push @weblinks, $weblink;
+			}
 		}
 
 		if (($#weblinks >= 0)) {
-			$weblinks_html .= "<div style=\"float:right;width:300px;margin-left:20px;margin-bottom:20px;padding:10px;border:1px solid #cbe7ff;background-color:#f0f8ff;\"><h3>" . lang("tag_weblinks") . "</h3><ul>";
+			$weblinks_html .= '<div style="float:right;width:300px;margin-left:20px;margin-bottom:20px;padding:10px;border:1px solid #cbe7ff;background-color:#f0f8ff;"><h3>' . lang('tag_weblinks') . '</h3><ul>';
 			foreach my $weblink (@weblinks) {
-				$weblinks_html .= "<li><a href=\"$weblink->{href}\" itemprop=\"sameAs\">$weblink->{text}</a></li>";
+				$weblinks_html .= '<li><a href="' . encode_entities($weblink->{href}) . '" itemprop="sameAs"';
+				$weblinks_html .= ' hreflang="' . encode_entities($weblink->{hreflang}) . '"' if defined $weblink->{hreflang};
+				$weblinks_html .= ' title="' . encode_entities($weblink->{title}) . '"' if defined $weblink->{title};
+				$weblinks_html .= '>' . encode_entities($weblink->{text}) . '</a></li>';
 			}
 
-			$weblinks_html .= "</ul></div>";
+			$weblinks_html .= '</ul></div>';
 		}
 	}
 

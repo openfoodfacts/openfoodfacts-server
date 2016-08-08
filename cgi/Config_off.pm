@@ -42,6 +42,7 @@ BEGIN
 		
 		%tesseract_ocr_available_languages
 		
+		%weblink_templates
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -208,5 +209,12 @@ last_edit_dates
 	nl => "nld",
 );
 
+# weblink definitions for known tags, ie. wikidata:en:Q123 => https://www.wikidata.org/wiki/Q123
+
+%weblink_templates = (
+
+	'wikidata:en' => { href => 'https://www.wikidata.org/wiki/%s', text => 'Wikidata' },
+
+);
 
 1;
