@@ -1441,12 +1441,6 @@ sub get_tag_css_class($$$) {
 
 	my $canon_tagid = canonicalize_taxonomy_tag($target_lc, $tagtype, $tag);
 
-	my $tag_lc;
-	if ($tagid =~ /^(\w\w):/) {
-		$tag_lc = $1;
-		$tag = $';
-	}
-
 	# Don't treat users as tags.
 	if (($tagtype eq 'photographers') or ($tagtype eq 'editors') or ($tagtype eq 'informers') or ($tagtype eq 'correctors') or ($tagtype eq 'checkers')) {
 		return "";
@@ -1474,7 +1468,7 @@ sub display_tag_link($$) {
 	my $path = $tag_type_singular{$tagtype}{$lc};
 
 	my $tag_lc;
-	if ($tagid =~ /^(\w\w):/) {
+	if ($tag =~ /^(\w\w):/) {
 		$tag_lc = $1;
 		$tag = $';
 	}
@@ -1543,7 +1537,7 @@ sub display_taxonomy_tag_link($$$) {
 	my $tagurl = get_taxonomyurl($tagid);
 
 	my $tag_lc;
-	if ($tagid =~ /^(\w\w):/) {
+	if ($tag =~ /^(\w\w):/) {
 		$tag_lc = $1;
 		$tag = $';
 	}
