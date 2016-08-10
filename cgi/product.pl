@@ -358,10 +358,11 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		$nid =~ s/-$//g;		
 		
 		next if $nid =~ /^nutrition-score/;
-	
-		my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${nid}"));
-		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${nid}_unit"));
-		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${nid}_label"));
+		
+		my $enid = encodeURIComponent($nid);
+		my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}"));
+		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_unit"));
+		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_label"));
 		
 		if ($value =~ /nan/i) {
 			$value = '';
@@ -1083,23 +1084,24 @@ HTML
 			$display = ' style="display:none"';
 		}
 		
+		my $enid = encodeURIComponent($nid);
 		my $label = '';
 		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{$lang})) {
 			$label = <<HTML
-<label class="nutriment_label" for="nutriment_$nid">${prefix}$Nutriments{$nid}{$lang}</label>
+<label class="nutriment_label" for="nutriment_$enid">${prefix}$Nutriments{$nid}{$lang}</label>
 HTML
 ;
 		}
 		elsif (defined $product_ref->{nutriments}{$nid . "_label"}) {
 			my $label_value = $product_ref->{nutriments}{$nid . "_label"};
 			$label = <<HTML
-<input class="nutriment_label" id="nutriment_${nid}_label" name="nutriment_${nid}_label" value="$label_value" />
+<input class="nutriment_label" id="nutriment_${enid}_label" name="nutriment_${enid}_label" value="$label_value" />
 HTML
 ;
 		}
 		else {	# add a nutriment
 			$label = <<HTML
-<input class="nutriment_label" id="nutriment_${nid}_label" name="nutriment_${nid}_label" placeholder="$Lang{product_add_nutrient}{$lang}"/>
+<input class="nutriment_label" id="nutriment_${enid}_label" name="nutriment_${enid}_label" placeholder="$Lang{product_add_nutrient}{$lang}"/>
 HTML
 ;
 		}
@@ -1132,10 +1134,10 @@ HTML
 		
 		
 		$input .= <<HTML
-<tr id="nutriment_${nid}_tr" class="nutriment_$class"$display>
+<tr id="nutriment_${enid}_tr" class="nutriment_$class"$display>
 <td>$label</td>
 <td>
-<input class="nutriment_value" id="nutriment_$nid" name="nutriment_$nid" value="$value" />
+<input class="nutriment_value" id="nutriment_$enid" name="nutriment_$enid" value="$value" />
 HTML
 ;
 
@@ -1170,8 +1172,8 @@ HTML
 		}
 		
 		$input .= <<HTML
-<span id="nutriment_${nid}_unit_percent"$hide_percent>%</span>
-<select class="nutriment_unit" id="nutriment_${nid}_unit" name="nutriment_${nid}_unit"$hide_select>
+<span id="nutriment_${enid}_unit_percent"$hide_percent>%</span>
+<select class="nutriment_unit" id="nutriment_${enid}_unit" name="nutriment_${enid}_unit"$hide_select>
 HTML
 ;		
 		
