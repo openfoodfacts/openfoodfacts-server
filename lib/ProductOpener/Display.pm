@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-package Blogs::Display;
+package ProductOpener::Display;
 
 BEGIN
 {
@@ -91,20 +91,20 @@ use vars @EXPORT_OK ;
 use strict;
 use utf8;
 
-use Blogs::Store qw/:all/;
-use Blogs::Config qw/:all/;
-use Blogs::Tags qw/:all/;
-use Blogs::TagsEntries qw/:all/;
-use Blogs::Users qw/:all/;
-use Blogs::Index qw/:all/;
-use Blogs::Cache qw/:all/;
-use Blogs::Lang qw/:all/;
-use Blogs::Images qw/:all/;
-use Blogs::Food qw/:all/;
-use Blogs::Ingredients qw/:all/;
-use Blogs::Products qw/:all/;
-use Blogs::Missions qw/:all/;
-use Blogs::MissionsConfig qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::TagsEntries qw/:all/;
+use ProductOpener::Users qw/:all/;
+use ProductOpener::Index qw/:all/;
+use ProductOpener::Cache qw/:all/;
+use ProductOpener::Lang qw/:all/;
+use ProductOpener::Images qw/:all/;
+use ProductOpener::Food qw/:all/;
+use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Products qw/:all/;
+use ProductOpener::Missions qw/:all/;
+use ProductOpener::MissionsConfig qw/:all/;
 
 
 use Cache::Memcached::Fast;
@@ -273,7 +273,7 @@ sub init()
 	print STDERR "Display::init - r->uri : " . $hostname  . " subdomain: $subdomain - lc: $lc - lang: $lang - cc: $cc - country: $country\n";
 
 	
-	my $error = Blogs::Users::init_user();
+	my $error = ProductOpener::Users::init_user();
 	if ($error) {
 		if (not param('jqm')) { # API
 			display_error($error, undef);
@@ -2358,7 +2358,7 @@ sub search_and_display_products($$$$$) {
 		if ((not defined $request_ref->{search}) and ($count >= 5) 	
 			and (not defined $request_ref->{tagid2})) {
 			
-			my @current_drilldown_fields = @Blogs::Config::drilldown_fields;
+			my @current_drilldown_fields = @ProductOpener::Config::drilldown_fields;
 			if ($country eq 'en:world') {
 				unshift (@current_drilldown_fields, "countries");
 			}
@@ -5458,7 +5458,7 @@ HTML
 	}	
 	
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
-	my @fields = @Blogs::Config::display_fields;
+	my @fields = @ProductOpener::Config::display_fields;
 	
 	$bodyabout = " about=\"" . product_url($product_ref) . "\" typeof=\"food:foodProduct\"";
 	

@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-package Blogs::Ingredients;
+package ProductOpener::Ingredients;
 
 BEGIN
 {
@@ -43,12 +43,12 @@ use vars @EXPORT_OK ;
 use strict;
 use utf8;
 
-use Blogs::Store qw/:all/;
-use Blogs::Config qw/:all/;
-use Blogs::Users qw/:all/;
-use Blogs::Products qw/:all/;
-use Blogs::TagsEntries qw/:all/;
-use Blogs::Tags qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Users qw/:all/;
+use ProductOpener::Products qw/:all/;
+use ProductOpener::TagsEntries qw/:all/;
+use ProductOpener::Tags qw/:all/;
 
 use Image::OCR::Tesseract 'get_ocr';
 use Encode;
@@ -134,14 +134,14 @@ sub extract_ingredients_from_image($$) {
 	
 	my $lan;
 	
-	if (defined $Blogs::Config::tesseract_ocr_available_languages{$lc}) {
-		$lan = $Blogs::Config::tesseract_ocr_available_languages{$lc};
+	if (defined $ProductOpener::Config::tesseract_ocr_available_languages{$lc}) {
+		$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$lc};
 	}
-	elsif (defined $Blogs::Config::tesseract_ocr_available_languages{$product_ref->{lc}}) {
-		$lan = $Blogs::Config::tesseract_ocr_available_languages{$product_ref->{lc}};
+	elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}}) {
+		$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}};
 	}	
-	elsif (defined $Blogs::Config::tesseract_ocr_available_languages{en}) {
-		$lan = $Blogs::Config::tesseract_ocr_available_languages{en};
+	elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{en}) {
+		$lan = $ProductOpener::Config::tesseract_ocr_available_languages{en};
 	}
 	
 	print STDERR "extract_ingredients_from_image - lc: $lc - lan: $lan - id: $id - image: $image\n";

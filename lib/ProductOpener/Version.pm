@@ -1,4 +1,4 @@
-package Blogs::Version;
+package ProductOpener::Version;
 
 BEGIN
 {

@@ -1,4 +1,4 @@
-package Blogs::Config;
+package ProductOpener::Config;
 
 BEGIN
 {
@@ -50,23 +50,23 @@ use vars @EXPORT_OK ; # no 'my' keyword for these
 use strict;
 use utf8;
 
-use Blogs::Config2;
-use Blogs::Lang;
+use ProductOpener::Config2;
+use ProductOpener::Lang;
 
 
 %admins = ('stephane' => 1);
 
 
 # server constants
-$server_domain = $Blogs::Config2::server_domain;
-$mongodb = $Blogs::Config2::mongodb;
+$server_domain = $ProductOpener::Config2::server_domain;
+$mongodb = $ProductOpener::Config2::mongodb;
 
 # server paths
-$www_root = $Blogs::Config2::www_root;
-$data_root = $Blogs::Config2::data_root;
+$www_root = $ProductOpener::Config2::www_root;
+$data_root = $ProductOpener::Config2::data_root;
 
-$facebook_app_id = $Blogs::Config2::facebook_app_id;
-$facebook_app_secret = $Blogs::Config2::facebook_app_secret;
+$facebook_app_id = $ProductOpener::Config2::facebook_app_id;
+$facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
 $reference_timezone = 'Europe/Paris';
 

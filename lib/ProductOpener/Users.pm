@@ -19,7 +19,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-package Blogs::Users;
+package ProductOpener::Users;
 
 BEGIN
 {
@@ -61,12 +61,12 @@ use vars @EXPORT_OK ;
 use strict;
 use utf8;
 
-use Blogs::Store qw/:all/;
-use Blogs::Config qw/:all/;
-use Blogs::Mail qw/:all/;
-use Blogs::Lang qw/:all/;
-use Blogs::Cache qw/:all/;
-use Blogs::Display qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Mail qw/:all/;
+use ProductOpener::Lang qw/:all/;
+use ProductOpener::Cache qw/:all/;
+use ProductOpener::Display qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -361,7 +361,7 @@ sub init_user()
 
 	# Remove persistent cookie if user is logging out
 	if ((defined param('length')) and (param('length') eq 'logout')) {
-		$debug and print STDERR "Blogs::Users::init_user - logout\n" ;
+		$debug and print STDERR "ProductOpener::Users::init_user - logout\n" ;
 		my $session = {} ;
 		$cookie = cookie (-name=>$cookie_name, -expires=>'-1d',-value=>$session, -path=>'/', -domain=>".$server_domain") ;
 	}
@@ -386,7 +386,7 @@ sub init_user()
 			
 		}		
 
-		$debug and print STDERR "Blogs::Users::init_user - defined user_id \n" ;
+		$debug and print STDERR "ProductOpener::Users::init_user - defined user_id \n" ;
 		my $session = undef ;
 
 		# If the user exists
@@ -401,10 +401,10 @@ sub init_user()
 			if ($user_ref->{'encrypted_password'} ne unix_md5_crypt(encode_utf8(decode utf8=>param('password')), $user_ref->{'encrypted_password'} ))
 			{
 			    $user_id = undef ;
-			    $debug and print STDERR "Blogs::Users::init_user - bad password\n" ;
-				$debug and print STDERR "Blogs::Users::init_user - bad password - " . $user_ref->{'encrypted_password'} . ' != ' . unix_md5_crypt((decode utf8=>param('password')), $user_ref->{'encrypted_password'} ) . "\n" ;
-				$debug and print STDERR "Blogs::Users::init_user - bad password - " . $user_ref->{'encrypted_password'} . ' != ' . unix_md5_crypt((decode utf8=>param('password')), $user_ref->{'encrypted_password'} ) . "\n" ;
-				$debug and print STDERR "Blogs::Users::init_user - bad password - " . $user_ref->{'encrypted_password'} . ' != ' . unix_md5_crypt((decode utf8=>param('password')), $user_ref->{'encrypted_password'} ) . "\n" ;
+			    $debug and print STDERR "ProductOpener::Users::init_user - bad password\n" ;
+				$debug and print STDERR "ProductOpener::Users::init_user - bad password - " . $user_ref->{'encrypted_password'} . ' != ' . unix_md5_crypt((decode utf8=>param('password')), $user_ref->{'encrypted_password'} ) . "\n" ;
+				$debug and print STDERR "ProductOpener::Users::init_user - bad password - " . $user_ref->{'encrypted_password'} . ' != ' . unix_md5_crypt((decode utf8=>param('password')), $user_ref->{'encrypted_password'} ) . "\n" ;
+				$debug and print STDERR "ProductOpener::Users::init_user - bad password - " . $user_ref->{'encrypted_password'} . ' != ' . unix_md5_crypt((decode utf8=>param('password')), $user_ref->{'encrypted_password'} ) . "\n" ;
 
 
 			    # Trigger an error
@@ -413,7 +413,7 @@ sub init_user()
 			# We have the right login/password
 			elsif (not defined param('no_log'))    # no need to store sessions for internal requests
 			{
-				$debug and print STDERR "Blogs::Users::init_user - we have the right password for $user_id\n" ;
+				$debug and print STDERR "ProductOpener::Users::init_user - we have the right password for $user_id\n" ;
 			
 			    # Maximum of sessions for a given user
 			    my $max_session = 10 ;
@@ -451,7 +451,7 @@ sub init_user()
 			    store("$user_file", $user_ref);
 
 
-			    $debug and print STDERR "Blogs::Users::init_user - user_id : $session->{'user_id'} ; user_session : $session->{'user_sessions'}\n" ;
+			    $debug and print STDERR "ProductOpener::Users::init_user - user_id : $session->{'user_id'} ; user_session : $session->{'user_sessions'}\n" ;
 			    # Check if the user is logging in
 
 			    my $length = 0;
@@ -468,7 +468,7 @@ sub init_user()
 			    if ($length > 0)
 			    {
 				# Set a persistent cookie
-				$debug and print STDERR "Blogs::Users::init_user -  persistent cookie\n" ;
+				$debug and print STDERR "ProductOpener::Users::init_user -  persistent cookie\n" ;
 				$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>".$server_domain",
 						   -expires=>'+' . $length . 's') ;
 
@@ -476,7 +476,7 @@ sub init_user()
 			    else
 			    {
 				# Set a session cookie
-				$debug and print STDERR "Blogs::Users::init_user - session cookie\n" ;
+				$debug and print STDERR "ProductOpener::Users::init_user - session cookie\n" ;
 
 				$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>".$server_domain") ;
 			    }
@@ -485,7 +485,7 @@ sub init_user()
 		    else
 		    {
 			$user_id = undef ;
-			$debug and print STDERR "Blogs::Users::init_user - bad user\n" ;
+			$debug and print STDERR "ProductOpener::Users::init_user - bad user\n" ;
 			# Trigger an error
 			return ($Lang{error_bad_login_password}{$lang}) ;
 		    }
@@ -496,10 +496,10 @@ sub init_user()
 	elsif (defined cookie($cookie_name))
 	{
 	    my %session = cookie($cookie_name) ;
-	    # $debug and print STDERR "Blogs::Users::init_user - cookie session : $session{'user_sessions'} ; user_id : $session{'user_id'}\n" ;
+	    # $debug and print STDERR "ProductOpener::Users::init_user - cookie session : $session{'user_sessions'} ; user_id : $session{'user_id'}\n" ;
 	    my $user_session = $session{'user_session'} ;
 	    $user_id = $session{'user_id'};
-	    $debug and print STDERR "Blogs::Users::init_user - cookie found ! user_id: $user_id \n" ;
+	    $debug and print STDERR "ProductOpener::Users::init_user - cookie found ! user_id: $user_id \n" ;
 	    if (defined $user_id)
 	    {
 			my $user_file = "$data_root/users/" . get_fileid($user_id) . ".sto";
@@ -510,11 +510,11 @@ sub init_user()
 		if (-e $user_file)
 		{
 		    $user_ref = retrieve($user_file) ;
-		    $debug and print STDERR "Blogs::Users::init_user - user : " . $user_id . "\n" ;
-		    $debug and print STDERR "Blogs::Users::init_user - cookie session : " . $user_session . "\n" ;
-			(defined $user_ref->{'user_sessions'}) and $debug and print STDERR "Blogs::Users::init_user - stock session : " . $user_ref->{'user_sessions'} . "\n" ;
-		    (defined $user_ref->{'user_last_ip'}) and $debug and print STDERR "Blogs::Users::init_user - stock ip : " . $user_ref->{'user_last_ip'} . "\n" ;
-		    $debug and print STDERR "Blogs::Users::init_user - current ip : " . remote_addr() . "\n" ;
+		    $debug and print STDERR "ProductOpener::Users::init_user - user : " . $user_id . "\n" ;
+		    $debug and print STDERR "ProductOpener::Users::init_user - cookie session : " . $user_session . "\n" ;
+			(defined $user_ref->{'user_sessions'}) and $debug and print STDERR "ProductOpener::Users::init_user - stock session : " . $user_ref->{'user_sessions'} . "\n" ;
+		    (defined $user_ref->{'user_last_ip'}) and $debug and print STDERR "ProductOpener::Users::init_user - stock ip : " . $user_ref->{'user_last_ip'} . "\n" ;
+		    $debug and print STDERR "ProductOpener::Users::init_user - current ip : " . remote_addr() . "\n" ;
 
                        # Try to keep sessions opened for users with dynamic IPs
 
@@ -537,7 +537,7 @@ sub init_user()
                         or (not defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
                         or ((short_ip($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne (short_ip(remote_addr()))) ))
 		    {
-			$debug and print STDERR "Blogs::Users::init_user - no matching session\n";
+			$debug and print STDERR "ProductOpener::Users::init_user - no matching session\n";
 			$user_id = undef;
 			# Remove the cookie
 			my $session = {} ;
@@ -546,14 +546,14 @@ sub init_user()
 		    else
 		    {
 			# Get actual user_id (i.e. BIZ or biz -> Biz)
-			$debug and print STDERR "Blogs::Users::init_user - user identified: $user_id\n" ;
-			$debug and print STDERR "Blogs::Users::init_user - user stocked: $user_ref->{'userid'}\n" ;
+			$debug and print STDERR "ProductOpener::Users::init_user - user identified: $user_id\n" ;
+			$debug and print STDERR "ProductOpener::Users::init_user - user stocked: $user_ref->{'userid'}\n" ;
 
 			$user_id = $user_ref->{'userid'} ;
 			
 			# Facebook session?
 			if (defined $user_ref->{'user_sessions'}{$user_session}{'facebook'}) {
-				print STDERR "Blogs::Users::init_user - session opened through Facebook uid: " . $user_ref->{'user_sessions'}{$user_session}{'facebook'} . "\n";
+				print STDERR "ProductOpener::Users::init_user - session opened through Facebook uid: " . $user_ref->{'user_sessions'}{$user_session}{'facebook'} . "\n";
 				$Facebook_id = $user_ref->{'user_sessions'}{$user_session}{'facebook'};
 			}
 		    }
@@ -579,11 +579,11 @@ sub init_user()
 	}
 	else
 	{
-	    $debug and print STDERR "Blogs::Users::init_user - nothing found!\n";
+	    $debug and print STDERR "ProductOpener::Users::init_user - nothing found!\n";
 	}
 
-	(defined $user_id) and $debug and print STDERR "Blogs::Users::init_user - user_id: $user_id\n" ;
-	(defined $cookie) and $debug and print STDERR "Blogs::Users::init_user - cookie: $cookie\n" ;
+	(defined $user_id) and $debug and print STDERR "ProductOpener::Users::init_user - user_id: $user_id\n" ;
+	(defined $cookie) and $debug and print STDERR "ProductOpener::Users::init_user - cookie: $cookie\n" ;
 
 	if (not defined $user_id)
 	{
@@ -628,8 +628,8 @@ sub check_session($$) {
 	my $user_id = shift;
 	my $user_session = shift;
 
-	$debug and print STDERR "Blogs::Users::check_session - user_id : " . $user_id . "\n" ;
-	$debug and print STDERR "Blogs::Users::check_session - user_session : " . $user_session . "\n" ;
+	$debug and print STDERR "ProductOpener::Users::check_session - user_id : " . $user_id . "\n" ;
+	$debug and print STDERR "ProductOpener::Users::check_session - user_session : " . $user_session . "\n" ;
 	
 	
 	my $user_file = "$data_root/users/" . get_fileid($user_id) . ".sto";
@@ -641,9 +641,9 @@ sub check_session($$) {
 		
 		if (defined $user_ref) {
 		
-			$debug and print STDERR "Blogs::Users::check_session - stock session : " . $user_ref->{'user_sessions'} . "\n" ;
-			$debug and print STDERR "Blogs::Users::check_session - stock ip : " . $user_ref->{'user_last_ip'} . "\n" ;
-			$debug and print STDERR "Blogs::Users::check_session - current ip : " . remote_addr() . "\n" ;
+			$debug and print STDERR "ProductOpener::Users::check_session - stock session : " . $user_ref->{'user_sessions'} . "\n" ;
+			$debug and print STDERR "ProductOpener::Users::check_session - stock ip : " . $user_ref->{'user_last_ip'} . "\n" ;
+			$debug and print STDERR "ProductOpener::Users::check_session - current ip : " . remote_addr() . "\n" ;
 
 
 
@@ -654,14 +654,14 @@ sub check_session($$) {
 					# or ((short_ip($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne (short_ip(remote_addr()))) 
 					
 					) {
-			$debug and print STDERR "Blogs::Users::check_session - no matching session\n";
+			$debug and print STDERR "ProductOpener::Users::check_session - no matching session\n";
 			$user_id = undef;
 
 		}
 		else {
 			# Get actual user_id (i.e. BIZ or biz -> Biz)
-			$debug and print STDERR "Blogs::Users::check_session - user identified: $user_id\n" ;
-			$debug and print STDERR "Blogs::Users::check_session - user stocked: $user_ref->{'userid'}\n" ;
+			$debug and print STDERR "ProductOpener::Users::check_session - user identified: $user_id\n" ;
+			$debug and print STDERR "ProductOpener::Users::check_session - user stocked: $user_ref->{'userid'}\n" ;
 
 			$user_id = $user_ref->{'userid'} ;
 			$results_ref->{name} = $user_ref->{name};
@@ -669,13 +669,13 @@ sub check_session($$) {
 		}
 		}
 		else {
-			$debug and print STDERR "Blogs::Users::check_session - could not load user: $user_id\n" ;
+			$debug and print STDERR "ProductOpener::Users::check_session - could not load user: $user_id\n" ;
 		}
 
 	}
 	else
 	{
-		$debug and print STDERR "Blogs::Users::check_session - user does not exist: $user_id\n" ;
+		$debug and print STDERR "ProductOpener::Users::check_session - user does not exist: $user_id\n" ;
 		$user_id = undef ;
 	}
 	

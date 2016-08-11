@@ -1,4 +1,4 @@
-package Blogs::Config2;
+package ProductOpener::Config2;
 
 BEGIN
 {

@@ -19,7 +19,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-package Blogs::Mail;
+package ProductOpener::Mail;
 
 BEGIN
 {
@@ -40,9 +40,9 @@ use vars @EXPORT_OK ;
 use strict;
 use utf8;
 
-use Blogs::Store qw/:all/;
-use Blogs::Config qw/:all/;
-use Blogs::Lang qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Lang qw/:all/;
 use MIME::Lite;
 use Encode;
 

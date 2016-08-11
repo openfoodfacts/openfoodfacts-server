@@ -5,8 +5,8 @@ use CGI::Carp qw(fatalsToBrowser);
 use strict;
 use utf8;
 
-use Blogs::Config qw/:all/;
-use Blogs::Index qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Index qw/:all/;
 use Getopt::Long;
 
 use XML::FeedPP;

@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-package Blogs::Food;
+package ProductOpener::Food;
 
 BEGIN
 {
@@ -66,11 +66,11 @@ use vars @EXPORT_OK ;
 use strict;
 use utf8;
 
-use Blogs::Store qw/:all/;
-use Blogs::Config qw/:all/;
-use Blogs::Lang qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Lang qw/:all/;
 
-use Blogs::Tags qw/:all/;
+use ProductOpener::Tags qw/:all/;
 
 use Hash::Util;
 

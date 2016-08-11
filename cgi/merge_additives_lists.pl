@@ -2,8 +2,8 @@
 
 use strict;
 
-use Blogs::Store qw/:all/;
-use Blogs::Config qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Config qw/:all/;
 
 my %additives = ();
 

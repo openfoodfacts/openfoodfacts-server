@@ -5,8 +5,8 @@ use CGI::Carp qw(fatalsToBrowser);
 use strict;
 use utf8;
 
-use Blogs::Config qw/:all/;
-use Blogs::Store qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Store qw/:all/;
 
 
 my @userids;

@@ -19,7 +19,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-package Blogs::Index;
+package ProductOpener::Index;
 
 BEGIN
 {
@@ -52,10 +52,10 @@ use vars @EXPORT_OK ;
 use strict;
 use utf8;
 
-use Blogs::Store qw/:all/;
-use Blogs::Config qw/:all/;
-use Blogs::Tags qw/:all/;
-use Blogs::Users qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::Users qw/:all/;
 
 use CGI qw/:standard escape unescape/;
 use Time::Local;

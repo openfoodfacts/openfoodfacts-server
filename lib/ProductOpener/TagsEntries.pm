@@ -1,4 +1,4 @@
-﻿package Blogs::TagsEntries;
+﻿package ProductOpener::TagsEntries;
 
 ######################################################################
 #

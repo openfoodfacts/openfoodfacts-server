@@ -1,4 +1,4 @@
-﻿package Blogs::Cache;
+﻿package ProductOpener::Cache;
 
 ######################################################################
 #
@@ -28,8 +28,8 @@ use vars @EXPORT_OK ;
 use strict;
 use utf8;
 
-use Blogs::Store qw/:all/;
-use Blogs::Config qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Config qw/:all/;
 
 use Cache::Memcached::Fast;
 

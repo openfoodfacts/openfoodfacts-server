@@ -19,7 +19,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-package Blogs::Images;
+package ProductOpener::Images;
 
 BEGIN
 {
@@ -58,9 +58,9 @@ use vars @EXPORT_OK ;
 use strict;
 use utf8;
 
-use Blogs::Store qw/:all/;
-use Blogs::Config qw/:all/;
-use Blogs::Products qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Products qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 
@@ -68,9 +68,9 @@ use Image::Magick;
 use Graphics::Color::RGB;
 use Graphics::Color::HSL;
 use Barcode::ZBar;
-use Blogs::Products qw/:all/;
-use Blogs::Lang qw/:all/;
-use Blogs::Display qw/:all/;
+use ProductOpener::Products qw/:all/;
+use ProductOpener::Lang qw/:all/;
+use ProductOpener::Display qw/:all/;
 
 
 my $debug = 1;

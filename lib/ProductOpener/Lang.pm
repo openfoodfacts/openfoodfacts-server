@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-package Blogs::Lang;
+package ProductOpener::Lang;
 
 BEGIN
 {
@@ -57,9 +57,9 @@ use vars @EXPORT_OK ;
 use strict;
 use utf8;
 
-use Blogs::SiteLang qw/:all/;
+use ProductOpener::SiteLang qw/:all/;
 
-use Blogs::Store qw/:all/;
+use ProductOpener::Store qw/:all/;
 
 
 # Tags types to path components in URLS: in ascii, lowercase, unaccented, transliterated (in Roman characters)
