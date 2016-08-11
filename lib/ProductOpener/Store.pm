@@ -30,6 +30,7 @@ BEGIN
 		&get_urlid
 		&get_fileid
 		&get_fileid_punycode
+		&get_ascii_fileid
 		&store
 		&retrieve
 	);
@@ -160,24 +161,5 @@ sub retrieve {
 
 	return $return;
 }
-
-
-my @tests = ("Bonjour !", "Café Olé! 3€ -10%", "No hablo Español, señor", "สำนักงานคณะกรรมการกลางอิสลามแห่งประเทศไทย, คณะกรรมการกลางอิสลามแห่งประเทศไทย", "예네버르", "ラム酒", "DLG Jährlich Prämiert", "fr:Bœuf");
-
-open (OUT, ">:encoding(UTF-8)", "Store.debug.txt");
-
-
-use Unicode::Normalize;
-
-foreach my $test (@tests) {
-	print OUT "0. test string: $test\n";
-	print OUT "1. get_fileid: " . get_fileid($test) . "\n";
-	print OUT "2. get_urlid: " . get_urlid($test) . "\n";
-	print OUT "3. get_ascii_fileid: " . get_ascii_fileid($test) . "\n\n";
-	my $str = Unicode::Normalize::NFKD($test);
-	print OUT "5. nfkd: $str\n";
-}
-
-close(OUT);
 
 1;
