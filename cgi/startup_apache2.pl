@@ -47,9 +47,6 @@ use Encode ();
 use Cache::Memcached::Fast ();
 use URI::Escape::XS ();
 
-# Needs to be configured
-use lib "/home/obf/lib/";
-
 use ProductOpener::Lang qw/:all/;
 
 use ProductOpener::Store qw/:all/;

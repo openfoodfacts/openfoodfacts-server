@@ -63,9 +63,6 @@ use JSON ();
 use List::Util ();
 use MongoDB ();
 
-# Needs to be configured
-use lib "/home/off/lib/";
-
 use ProductOpener::Lang qw/:all/;
 
 use ProductOpener::Store qw/:all/;

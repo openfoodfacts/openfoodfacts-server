@@ -48,9 +48,6 @@ use Text::Unaccent ();
 use Cache::Memcached::Fast ();
 use URI::Escape::XS ();
 
-# Needs to be configured
-use lib "/home/off-fr/lib/";
-
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
