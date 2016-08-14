@@ -54,6 +54,12 @@ use Image::OCR::Tesseract 'get_ocr';
 use Encode;
 use Clone qw(clone);
 
+# MIDDLE DOT with common substitutes (BULLET variants, BULLET OPERATOR and DOT OPERATOR (multiplication))
+my $middle_dot = qr/(?:\N{U+00B7}|\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N{U+204C}|\N{U+204D}|\N{U+2219}|\N{U+22C5})/i;
+# Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
+my $dashes = qr/(?:\p{Pd}|\N{U+2053}|\N{U+2212})/i;
+my $separators = qr/(,|;|:|$middle_dot|\[|\(|( $dashes ))/i;
+
 # load ingredients classes
 
 opendir(DH, "$data_root/ingredients") or print STDERR "cannot open directory $data_root/ingredients: $!\n";
@@ -212,7 +218,7 @@ sub extract_ingredients_from_text($) {
 		my $percent = undef;
 		
 		# find the first separator or ( or [ or : 
-		if ($s =~ /(,|;|:|•|\[|\(|( - ))/i) {
+		if ($s =~ $separators) {
 		
 			$before = $`;
 			my $sep = $1;
@@ -244,7 +250,7 @@ sub extract_ingredients_from_text($) {
 					
 					print STDERR "sub-ingredients - between: $between - after: $after\n";
 					
-					if ($between =~ /(,|;|:|•|\[|\(|( - ))/i) {
+					if ($between =~ $separators) {
 						$between_level = $level + 1;
 					}
 					else {
@@ -271,7 +277,7 @@ sub extract_ingredients_from_text($) {
 				$last_separator = $sep;
 			}
 			
-			if ($after =~ /^\s*(\d+(\.\d+)?)\s*\%\s*(,|;|:|•|\[|\(|( - )|$)/) {
+			if ($after =~ /^\s*(\d+(\.\d+)?)\s*\%\s*($separators|$)/) {
 				print STDERR "percent found: $after = $1 + $'\%\n";
 				$percent = $1;
 				$after = $';
@@ -426,7 +432,7 @@ sub extract_ingredients_classes_from_text($) {
 	$product_ref->{ingredients_text_debug} = $text;	
 	
 	
-	my @ingredients = split(/,|;|:|•|\)|\(|( - )/i,$text);
+	my @ingredients = split($separators, $text);
 	
 	# huiles de palme et de
 	
