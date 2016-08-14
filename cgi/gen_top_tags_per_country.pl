@@ -626,7 +626,8 @@ oTable = \$('#tagstable').DataTable({
 		search: "$Lang{tagstable_search}{$lang}",
 		info: "_TOTAL_ $tagtype_p",
 		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
-	}
+	},
+	paging: false
 });
 </initjs>
 <scripts>

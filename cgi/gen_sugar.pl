@@ -95,7 +95,8 @@ foreach my $l ('en') {
 		search: "$Lang{tagstable_search}{$lang}",
 		info: "_TOTAL_ ",
 		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
-	}
+	},
+	paging: false
     });
 </initjs>
 <scripts>
