@@ -1420,7 +1420,12 @@ oTable = \$('#tagstable').DataTable({
 	},
 	processing: true,
 	serverSide: true,
-	ajax: '/cgi/datatables.pl'
+	ajax: {
+		url: '/cgi/datatables.pl',
+		data: {
+			aggregate: '@{[ encode_json($aggregate_parameters) ]}'
+		}
+	}
 });
 JS
 ;
