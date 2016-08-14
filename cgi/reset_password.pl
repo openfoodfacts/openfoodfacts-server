@@ -104,7 +104,7 @@ if ($action eq 'display') {
 	if ($type eq 'send_email') {
 	
 		$html .= "\n$Lang{userid_or_email}{$lang}"
-		. textfield(-name=>'userid_or_email', -value=>'', -size=>40, -override=>1) . "</br>";
+		. textfield(-name=>'userid_or_email', -value=>'', -size=>40, -override=>1) . "<br>";
 	}
 	elsif ($type eq 'reset') {
 		$html .= "<table>"

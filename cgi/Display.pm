@@ -1897,8 +1897,8 @@ sub display_tag($) {
 		
 			if ($packager_codes{$canon_tagid}{cc} eq 'fr') {
 				$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{raison_sociale_enseigne_commerciale}</br>
-$packager_codes{$canon_tagid}{adresse} $packager_codes{$canon_tagid}{code_postal} $packager_codes{$canon_tagid}{commune}</br>
+<p>$packager_codes{$canon_tagid}{raison_sociale_enseigne_commerciale}<br>
+$packager_codes{$canon_tagid}{adresse} $packager_codes{$canon_tagid}{code_postal} $packager_codes{$canon_tagid}{commune}<br>
 SIRET : $packager_codes{$canon_tagid}{siret} - <a href="$packager_codes{$canon_tagid}{section}">Source</a>
 </p>
 HTML
@@ -1907,7 +1907,7 @@ HTML
 			if ($packager_codes{$canon_tagid}{cc} eq 'es') {
 				# Razón Social;Provincia/Localidad
 				$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{razon_social}</br>
+<p>$packager_codes{$canon_tagid}{razon_social}<br>
 $packager_codes{$canon_tagid}{provincia_localidad}
 </p>
 HTML
@@ -1925,7 +1925,7 @@ HTML
 					$local_authority = "Local authority: $packager_codes{$canon_tagid}{local_authority}<br/>";
 				}
 				$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}</br>
+<p>$packager_codes{$canon_tagid}{name}<br>
 $district
 $local_authority
 </p>
@@ -4358,7 +4358,7 @@ sub display_new($) {
 	my $html = <<HTML
 <!doctype html>
 <html class="no-js" lang="$lang">
-  <head profile="http://a9.com/-/spec/opensearch/1.1/">
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/foundation/css/app.css" />
@@ -5407,10 +5407,13 @@ CSS
 	$title = product_name_brand_quantity($product_ref);
 	my $titleid = get_fileid(product_name_brand($product_ref));
 	
+	if (not $title) {
+		$title = $code;
+	}
+
 	if (defined $rev) {
 		$title .= " version $rev";
 	}
-	
 	
 	$description = sprintf(lang("product_description"), $title);
 	
@@ -5850,6 +5853,10 @@ sub display_product_jqm ($) # jquerymobile
 	}
 	
 	$title = $product_ref->{product_name};	
+	
+	if (not $title) {
+		$title = $code;
+	}
 	
 	if (defined $rev) {
 		$title .= " version $rev";
@@ -6320,7 +6327,7 @@ HTML
 			if (defined $comparison_ref->{count}) {
 				$html .= " <a href=\"$comparison_ref->{link}\">(" . $comparison_ref->{count} . " " . lang("products") . ")</a>";
 			}
-			$html .= "</br>";
+			$html .= "<br>";
 			
 			$i++;
 		}
