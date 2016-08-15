@@ -1246,7 +1246,7 @@ lang_ru => {
 	he => 'רוסית',
 	nl => 'Russisch',
 	nl_be => 'Russisch',
-	ru => 'ру́сский язы́к',
+	ru => 'Русский язык',
 },
 
 lang_he => {
@@ -1396,7 +1396,7 @@ twitter_account_by_country => {
 	de => 'OpenFoodFactsDe',
 	fr => 'OpenFoodFactsFr',
 	it => 'OpenFoodFactsIt',
-	ja => 'OpenFoodFactsJp',
+	jp => 'OpenFoodFactsJp',
 	nl => 'OpenFoodFactsNl',
 	nl_be => 'OpenFoodFactsNl',
 	pt => 'OpenFoodFactsPt',
@@ -2826,7 +2826,7 @@ next => {
     ko => '다음', #ko-CHECK - Please check and remove this comment
 	nl => 'Volgende',
 	nl_be => 'Volgende',
-    ru => 'Следующий', #ru-CHECK - Please check and remove this comment
+    ru => 'Следующий(-ие)', #ru-CHECK - Please check and remove this comment
     pl => 'Następny', #pl-CHECK - Please check and remove this comment
 	pt => 'Próxima',
 	ro => 'Următoarea',
@@ -2892,7 +2892,7 @@ hello => {
     ko => '안녕하세요.', #ko-CHECK - Please check and remove this comment
 	nl => 'Hallo',
 	nl_be => 'Hallo',
-    ru => 'Здравствуйте', #ru-CHECK - Please check and remove this comment
+    ru => 'Здравствуйте,', #ru-CHECK - Please check and remove this comment
     pl => 'Halo', #pl-CHECK - Please check and remove this comment
 	pt => 'Olá',
 	ro => 'Salut',
@@ -2957,7 +2957,7 @@ connected_with_facebook => {
 
 you_are_connected_as_x => {
 	fr => "Vous êtes connecté en tant que %s.",
-	de => 'Du bist verbunden als %s',
+	de => 'Du bist eingeloggt als %s',
 	en => "You are connected as %s.",
 	es => "Estás conectado como %s.",
 	el => "Είστε συνδεδεμένοι ως %s .",
@@ -3697,7 +3697,7 @@ expiration_date => {
     ko => '날짜 이전 최고', #ko-CHECK - Please check and remove this comment
 	nl => 'Houdbaarheidsdatum',
 	nl_be => 'Houdbaarheidsdatum',
-	ru => 'Срок годности',
+	ru => 'Дата окончания срока хранения или годности',
     pl => 'Najlepiej spożyć przed datą', #pl-CHECK - Please check and remove this comment
 	pt => 'Data de validade',
 	ro => 'A se consuma de preferință înainte de',
@@ -4034,7 +4034,7 @@ labels_example => {
 	pt_pt => "Ecológico, Produto do Ano 2012, sem glúten, ...",
 	ro => 'Bio',
 	it => "IGP, IGT, DOP, Bio, Ecologico, Non OGM, gluten-free",
-	he => "אורגני, סחר הוגן, מיוצר בישראל",
+	he => "אורגני", "סחר הוגן, מיוצר בישראל",
 	nl => "EKO, Max Havelaar, Label Rouge, Organisch, Glutenvrij, Smaak van het jaar 2012, ...",
 	nl_be => "AB, Max Havelaar, Label Rouge, Organisch, Glutenvrij, Smaak van het jaar 2012, ...",
 	de => "Bio, Fairtrade-Max Havelaar, demeter, vegan, Glutenfrei, ...",
@@ -4245,6 +4245,7 @@ pt => "Lojas",
 	nl => "Winkels",
 	nl_be => "Winkels",
 	de => "Läden",
+	ru => "Магазины",
 },
 
 stores_note => {
@@ -4258,6 +4259,7 @@ es => "Nombre de la tienda o cadena de supermercados",
 	nl => "Naam van de winkel of supermarktketen waar je het product gekocht of gezien hebt",
 	nl_be => "Naam van de winkel of supermarktketen waar u het product gekocht of gezien heeft",
 	de => "Name des Geschäfts, wo Sie das Produkt gekauft oder gesehen haben",
+	ru => "Название магазина или сети супермаркетов",
 },
 
 countries => {
@@ -4402,6 +4404,7 @@ image_nutrition => {
 	nl => "Foto van de voedingswaardetabel",
 	nl_be => "Foto van de nutritionële informatie",
 	de => "Foto der Nährwertinformationen",
+	ru => "Изображение с указанием пищевой ценности",
 },
 
 # MOBILESTRING
@@ -4422,7 +4425,7 @@ ingredients => {
     ko => '성분', #ko-CHECK - Please check and remove this comment
 	nl => "Ingrediënten",
 	nl_be => "Ingrediënten",
-	ru => "Ингредиенты",
+	ru => "Состав",
     pl => 'Składniki', #pl-CHECK - Please check and remove this comment
 	pt => "Ingredientes",
  	ro => "Ingrediente",
@@ -4555,7 +4558,7 @@ allergens => {
 	ro => 'Substanțe sau produse care cauzează alergii sau intoleranțe',
 	bg => 'вещества или продукти, причиняващи алергии или непоносимост',
 	ar => 'مستأرج',
-	ja => '食餌性アレルゲン',
+	jp => '食餌性アレルゲン',
 	th => 'สารก่อภูมิแพ้อาหาร',
 	zh => '食物过敏原',
 },
@@ -4581,6 +4584,7 @@ traces_note => {
 	pt => 'Indicar os ingredientes que sejam mencionados como "Pode conter traços de", "Fabricado em ambiente que também usa", etc',
 	pt_pt => 'Indicar os ingredientes que sejam mencionados como "Pode conter vestígios de", "Fabricado em ambiente que também usa", etc.',
 	ro => 'Indicați ingredientele din mențiuni ca de exemplu "Ar putea conține urme de", "Produse într-o fabrică care produce și" etc.',
+	ru => 'Укажите ингредиенты, упомянутые во фразах типа «Может содержать следы», "Made in a factory that also uses" и т. п.',
 	he => 'ציון מרכיבים מאזכורים שונים כגון "עלול להכיל עקבות של", "נוצר במפעל המשתמש ב..." וכו׳',
 	nl => 'Geef de ingrediënten met de vermelding "Kan sporen bevatten van", "Geproduceerd in een fabriek waar ook X verwerkt wordt',
 	nl_be => 'Geef de ingrediënten met de vermelding "Kan sporen bevatten van", "Geproduceerd in een fabriek waar ook X verwerkt wordt',
@@ -4658,7 +4662,7 @@ nutrition_data => {
 	he => "מפרט תזונתי",
     ja => '栄養成分表', #ja-CHECK - Please check and remove this comment
     ko => '영양 성분 표시', #ko-CHECK - Please check and remove this comment
-	nl => "Voedselwaarden",
+	nl => "Voedingswaarden",
 	nl_be => "Nutritionele informatie",
     ru => 'Пищевая ценность', #ru-CHECK - Please check and remove this comment
     pl => 'Wartości odżywcze',
@@ -4689,6 +4693,7 @@ no_nutrition_data => {
 	es => "El producto no trae información nutricional.",
 	pt => "Informação nutricional não especificada no produto.",
 	ro => "Valorile nutriționale nu sunt specificate pe produs.",
+	ru => "Пищевая ценность не указана на упаковке.",
 	he => "המפרט התזונתי אינו מצוין על המוצר.",
 	nl => "De voedingswaarden zijn niet op het product vermeld",
 	nl_be => "De nutritionele informatie wordt niet op het product vermeld",
@@ -4739,7 +4744,7 @@ nutrition_data_table => {
 	he => "מפרט תזונתי",
     ja => '栄養成分表', #ja-CHECK - Please check and remove this comment
     ko => '영양 성분 표시', #ko-CHECK - Please check and remove this comment
-	nl => "Voedigswaarden",
+	nl => "Voedingswaarden",
 	nl_be => "Nutritionele samenstelling",
     ru => 'Пищевая ценность', #ru-CHECK - Please check and remove this comment
     pl => 'Wartości odżywcze',
@@ -4768,7 +4773,7 @@ nutrition_data_per_100g => {
     ko => '100G / 100 ㎖ ', #ko-CHECK - Please check and remove this comment
 	nl => "voor 100 g / 100 ml",
 	nl_be => "voor 100 g / 100 ml",
-    ru => 'за 100 г / 100 мл', #ru-CHECK - Please check and remove this comment
+    ru => 'на 100 г / 100 мл', #ru-CHECK - Please check and remove this comment
     pl => 'do 100 g / 100 ml', #pl-CHECK - Please check and remove this comment
 	pt => "por 100 g / 100 ml",
 	ro => "pentru 100 g / 100 ml",
@@ -4781,7 +4786,7 @@ nutrition_data_per_100g => {
 nutrition_data_per_serving => {
 
     ar => 'لكل وجبة', #ar-CHECK - Please check and remove this comment
-	de => "pro Schnitte",
+	de => "pro Portion",
     cs => 'v jedné porci', #cs-CHECK - Please check and remove this comment
 	es => "por porción",
 	en => "per serving",
@@ -5029,6 +5034,7 @@ example => {
 examples => {
 	fr => "Exemples :",
 	en => "Examples:",
+	ru => "Примеры:",
 	el => "Παραδείγματα:",
 	es => "Ejemplos:",
 	pt => "Exemplos:",
@@ -5180,7 +5186,7 @@ fixme_product => {
     ko => '데이터가 불완전하거나 부정확 한 경우, 당신은 완료하거나 문서를 편집하여 수정할 수 있습니다.', #ko-CHECK - Please check and remove this comment
 	nl => "Indien de informatie onvolledig of foutief is, kan je ze op deze pagina aanvullen of corrigeren.",
 	nl_be => "Indien de informatie onvolledig of foutief is, kunt u ze op deze pagina aanvullen of corrigeren.",
-    ru => 'Если данные неполными или неверными, вы можете завершить или исправить его, отредактировав эту страницу.', #ru-CHECK - Please check and remove this comment
+    ru => 'Если данные неполны или неверны, вы можете дополнить или исправить их, отредактировав эту страницу.',
     pl => 'Jeśli dane są niepełne lub błędne, można uzupełnienie lub poprawienie go do tej wersji.', #pl-CHECK - Please check and remove this comment
 	pt => "Se a informação está incompleta ou incorrecta, podes completá-la ou corrigí-la editando esta página.",
 	ro => "Dacă datele sunt incomplete sau incorecte, le puteți completa sau corecta modificând această pagină.",
@@ -5266,7 +5272,7 @@ es => "Ingredientes",
 	ko => '성분', #ko-CHECK - Please check and remove this comment
 	nl => "Ingrediënten",
 	nl_be => "Ingrediënten",
-	ru => 'Ингредиенты', #ru-CHECK - Please check and remove this comment
+	ru => 'Состав', #ru-CHECK - Please check and remove this comment
 	pl => 'Składniki', #pl-CHECK - Please check and remove this comment
 	pt => "Ingredientes",
 	ro => "Ingrediente",
@@ -6096,6 +6102,7 @@ traces_p => {
 	nl => "sporen",
 	nl_be => "sporen",
 	de => "Spuren",
+	ru => "следы",
 },
 
 labels_s => {
@@ -6299,7 +6306,7 @@ nutrient_levels_info => {
     ko => '100g에 대한 영양 수준', #ko-CHECK - Please check and remove this comment
 	nl => "Voedingswaarden per 100 g",
 	nl_be => "Voedingswaarden per 100 g",
-    ru => 'Питательные уровни 100 г', #ru-CHECK - Please check and remove this comment
+    ru => 'Содержание питательных веществ в 100 г', #ru-CHECK - Please check and remove this comment
     pl => 'Żywnościowe poziomy 100 g', #pl-CHECK - Please check and remove this comment
 	pt => "Valores nutricionais por 100 g",
 	ro => "Valori nutriționale pentru 100g",
@@ -6559,6 +6566,7 @@ additives_p => {
 	nl => "additieven",
 	nl_be => "additieven",
 	de => "Zusatzstoffe",
+	ru => "добавки",
 	zh => "添加剂",
 },
 
@@ -6599,6 +6607,7 @@ ingredients_that_may_be_from_palm_oil_s => {
 	nl => "ingrediënt dat mogelijk palmolie bevat",
 	nl_be => "ingrediënt dat mogelijk palmolie bevat",
 	de => "Zutat, die möglicherweise aus Palmöl stammt",
+	ru => "вещество, могущее быть из пальмового масла",
 },
 
 ingredients_that_may_be_from_palm_oil_p => {
@@ -6612,6 +6621,7 @@ ingredients_that_may_be_from_palm_oil_p => {
 	nl => "ingrediënten die mogelijk palmolie bevatten",
 	nl_be => "ingrediënten die mogelijk palmolie bevatten",
 	de => "Zutaten, die möglicherweise aus Palmöl stammen",
+	ru => "вещества, могущие быть из пальмового масла",
 },
 
 ingredients_from_or_that_may_be_from_palm_oil_s => {
@@ -7039,7 +7049,7 @@ product_added => {
     # ko => '제품 2014년 12월 2일에 추가' - Please check and remove this comment
 	nl => 'Product toegevoegd op',
 	nl_be => 'Product toegevoegd op',
-    ru => 'Добавить новый продукт на', #ru-CHECK - Please check and remove this comment
+    ru => 'Продукт добавлен', #ru-CHECK - Please check and remove this comment
     pl => 'Produkt został dodany dnia', #pl-CHECK - Please check and remove this comment
 	pt => 'Produto adicionado a',
 	ro => "Produs adăugat în",
@@ -7052,11 +7062,13 @@ product_added => {
 product_last_edited => {
 	en => "Last edit of product page on",
 	fr => "Dernière modification de la page produit le",
+	ru => "Последняя правка страницы продукта",
 },
 
 also_edited_by => {
 	en => "Product page also edited by",
 	fr => "Fiche produit également modifiée par",
+	ru => "Страницу продукта также редактировали",
 },
 
 contributor_since => {
@@ -8596,6 +8608,7 @@ product_js_current_image => {
 	nl => "Huidige foto:",
 	nl_be => "Huidige foto:",
 	de => "Aktuelles Foto:",
+	ru => "Текущее изображение:",
 },
 
 product_js_extract_ingredients => {
@@ -8770,6 +8783,7 @@ product_add_nutrient => {
 	nl => "Voeg voedingsstof toe",
 	nl_be => "Voeg voedingsstof toe",
 	de => "Nährstoff hinzufügen",
+	ru => "Добавить питательное вещество",
 	zh => '添加营养成分',
 },
 
@@ -8927,7 +8941,8 @@ products_you_edited => {
 	he => "משתנים שהוספת או ערכת",
 	nl => "De producten die je toegevoegd of aangepast hebt",
 	nl_be => "De producten die u toegevoegd of aangepast heeft",
-	de => "Produkte, die sie hinzugefûgt oder bearbeitet haben",
+	de => "Produkte, die sie hinzugefügt oder bearbeitet haben",
+	ru => "Продукты, которые вы добавили или изменили",
 },
 
 incomplete_products_you_added => {
@@ -8940,6 +8955,7 @@ incomplete_products_you_added => {
 	nl => "Producten die je toegevoegd hebt en nog onvolledig zijn",
 	nl_be => "Producten die u toegevoegd heeft en nog onvolledig zijn",
 	de => "Von Ihnen hinzugefügte Produkte, die Weiterverarbeitung benötigen",
+	ru => "Продукты, которые вы добавили, которые требуют дополнения",
 },
 
 edit_settings => {
@@ -8993,7 +9009,7 @@ change_uploaded_images => {
 	nl => "Geüploade foto's",
 	nl_be => "Geüploade foto's",
 	de => "Hochgeladene Fotos",
-	ru => 'Загруженные изображения',
+	ru => 'Загрузил изображения',
 },
 
 change_selected_images => {
@@ -9007,6 +9023,7 @@ change_selected_images => {
 	nl => "Geselecteerde foto's",
 	nl_be => "Geselecteerde foto's",
 	de => "Ausgewählte Fotos",
+	ru => "Выбрал изображения",
 },
 
 change_fields => {
@@ -9643,7 +9660,7 @@ explore_products_by => {
     ko => '에 의해 제품에 드릴...', #ko-CHECK - Please check and remove this comment
 	nl => "Doorzoek de producten volgens...",
 	nl_be => "Doorzoek de producten volgens...",
-    ru => 'Развернутый в продукты с...', #ru-CHECK - Please check and remove this comment
+    ru => 'Списки продуктов по…', #ru-CHECK - Please check and remove this comment
     pl => 'Drążenia do produktów...', #pl-CHECK - Please check and remove this comment
 	pt => "Explorar os produtos por...",
 	ro => "Explorați produsele după...",
@@ -10461,6 +10478,7 @@ HTML
 
 footer => {
 	fr => <<HTML
+
 <a href="http://fr.openfoodfacts.org/mentions-legales">Mentions légales</a> -
 <a href="http://fr.openfoodfacts.org/conditions-d-utilisation">Conditions d'utilisation</a> -
 <a href="http://fr.openfoodfacts.org/qui-sommes-nous">Qui sommes nous ?</a> -
@@ -10525,6 +10543,7 @@ HTML
 HTML
 ,
 	nl => <<HTML
+
 <a href="http://world.openfoodfacts.org/legal">Wettelijke bepalingen</a> -
 <a href="http://world.openfoodfacts.org/terms-of-use">Gebruiksvoorwaarden</a> -
 <a href="http://world.openfoodfacts.org/who-we-are">Wie zijn wij?</a> -
@@ -10536,6 +10555,7 @@ HTML
 ,
 
 	nl_be => <<HTML
+
 <a href="http://world.openfoodfacts.org/legal">Wettelijke bepalingen</a> -
 <a href="http://world.openfoodfacts.org/terms-of-use">Gebruiksvoorwaarden</a> -
 <a href="http://world.openfoodfacts.org/who-we-are">Wie zijn wij?</a> -
@@ -10945,7 +10965,7 @@ footer_tagline => {
     ko => '세계 각국에서 식품의 협업 무료 오픈 데이터베이스.', #ko-CHECK - Please check and remove this comment
     nl => 'Een gezamenlijke, vrije en open database van voedingsmiddelen uit de hele wereld.',
     nl_be => 'Een gezamenlijke, vrije en open database van voedingsmiddelen uit de hele wereld.',
-    ru => 'Совместной, бесплатно и открыть базу данных продуктов питания со всего мира.', #ru-CHECK - Please check and remove this comment
+    ru => 'Совместно создаваемая, бесплатная и открытая база данных продуктов питания со всего мира.', #ru-CHECK - Please check and remove this comment
     pl => 'Wspólna, wolna i otwarta baza produktów spożywczych z całego świata.',
     pt => 'Um banco de dados colaborativo, livre e aberto de produtos alimentares de todo o mundo.', #pt-CHECK - Please check and remove this comment
     ro => 'O bază de date colaborativă, liberă și deschisă a produselor alimentare din întreaga lume.', #ro-CHECK - Please check and remove this comment
@@ -10970,7 +10990,7 @@ footer_legal => {
     ko => '법적 언급', #ko-CHECK - Please check and remove this comment
     nl => 'Wettelijke vermeldingen',
     nl_be => 'Wettelijke vermeldingen',
-    ru => 'Юридическая', #ru-CHECK - Please check and remove this comment
+    ru => 'Юридическая информация', #ru-CHECK - Please check and remove this comment
     pl => 'Nota prawna',
     pt => 'Menções legais', #pt-CHECK - Please check and remove this comment
     ro => 'Mențiuni legale', #ro-CHECK - Please check and remove this comment
@@ -11186,7 +11206,7 @@ footer_blog => {
     ko => '<<site_name>> 블로그', #ko-CHECK - Please check and remove this comment
     nl => 'De <<site_name>> blog',
     nl_be => 'De <<site_name>> blog',
-    ru => '<<site_name>> в блоге', #ru-CHECK - Please check and remove this comment
+    ru => 'Блог <<site_name>>', #ru-CHECK - Please check and remove this comment
     pl => '<<site_name>> blog', #pl-CHECK - Please check and remove this comment
     pt => 'O blog <<site_name>>', #pt-CHECK - Please check and remove this comment
     ro => '<<site_name>> blog', #ro-CHECK - Please check and remove this comment
@@ -11230,7 +11250,7 @@ footer_press => {
     ko => '프레스', #ko-CHECK - Please check and remove this comment
     nl => 'Pers',
     nl_be => 'Pers',
-    ru => 'Пресс', #ru-CHECK - Please check and remove this comment
+    ru => 'Пресса', #ru-CHECK - Please check and remove this comment
     pl => 'Prasa',
     pt => 'Imprensa', #pt-CHECK - Please check and remove this comment
     ro => 'Presa', #ro-CHECK - Please check and remove this comment
@@ -11469,11 +11489,13 @@ copy_data => {
 add_language => {
 	en => "Add language",
 	fr => "Ajouter une langue",
+	ru => "Добавить язык",
 },
 
 ingredients_analysis => {
 	en => "Ingredients analysis",
 	fr => "Analyse des ingrédients",
+	ru => "Анализ состава",
 },
 
 ingredients_analysis_note => {

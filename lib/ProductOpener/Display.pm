@@ -252,7 +252,7 @@ sub init()
 	$lang = $lc;
 	
 	# If the language is equal to the first language of the country, but we are on a different subdomain, redirect to the main country subdomain. (fr-fr => fr)
-	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($r->method() eq 'GET')) {
+	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain ne 'ssl-api') and ($r->method() eq 'GET')) {
 		# redirect
 		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $cc.${server_domain}\n";
 		$r->headers_out->set(Location => "http://$cc.${server_domain}/" . $ENV{QUERY_STRING});
@@ -308,6 +308,27 @@ CSS
 	}
 }
 
+# component was specified as en:product, fr:produit etc.
+sub _component_is_singular_tag_in_specific_lc($$) {
+	my ($component, $tag) = @_;
+
+	my $component_lc;
+	if ($component =~ /^(\w\w):/) {
+		$component_lc = $1;
+		$component = $';
+	}
+	else {
+		return 0;
+	}
+
+	my $match = $tag_type_singular{$tag}{$component_lc};
+	if ((defined $match) and ($match eq $component)) {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
 
 sub analyze_request($)
 {
@@ -398,7 +419,17 @@ sub analyze_request($)
 	elsif ((defined $texts{$components[0]}) and ((defined $texts{$components[0]}{$lang}) or (defined $texts{$components[0]}{en}))and (not defined $components[1]))  {
 		$request_ref->{text} = $components[0];
 		$request_ref->{canon_rel_url} = "/" . $components[0];
-	}	
+	}
+	# Product specified as en:product?
+	elsif (_component_is_singular_tag_in_specific_lc($components[0], 'products')) {
+		# check the product code looks like a number
+		if ($components[1] =~ /^\d/) {
+			$request_ref->{redirect} = "http://$subdomain.$server_domain/" . $tag_type_singular{products}{$lc} . '/' . $components[1];;
+		}
+		else {
+			display_error(lang("error_invalid_address"), 404);
+		}
+	}
 	# Product?
 	elsif (($components[0] eq $tag_type_singular{products}{$lc}) ) {
 		# check the product code looks like a number
@@ -1412,26 +1443,24 @@ HTML
 		my $tagtype_p = $Lang{$tagtype . "_p"}{$lang};
 		
 		$initjs .= <<JS
-oTable = \$('#tagstable').dataTable({
-	"bJQueryUI": true,
-	"bPaginate": false,
-	"aaSorting": [],
-	"oLanguage": {
-		"sSearch": "$Lang{tagstable_search}{$lang}",
-		"sInfo": "_TOTAL_ $tagtype_p",
-		"sInfoFiltered": " - $Lang{tagstable_filtered}{$lang}"
-	}
+oTable = \$('#tagstable').DataTable({
+	language: {
+		search: "$Lang{tagstable_search}{$lang}",
+		info: "_TOTAL_ $tagtype_p",
+		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
+	},
+	paging: false
 });
 JS
 ;
 
 	$scripts .= <<SCRIPTS
-<script src="/js/jquery.dataTables.min.js"></script>
+<script src="/js/datatables.min.js"></script>
 SCRIPTS
 ;
 
 	$header .= <<HEADER
-<link rel="stylesheet" href="/js/datatables.css" />
+<link rel="stylesheet" href="/js/datatables.min.css" />
 HEADER
 ;
 		
@@ -1525,15 +1554,13 @@ sub display_points_ranking($$) {
 	my $tagtype_p = $Lang{$ranktype . "_p"}{$lang};
 		
 		$initjs .= <<JS
-${tagtype}Table = \$('#${tagtype}table').dataTable({
-	"bJQueryUI": true,
-	"bPaginate": false,
-	"aaSorting": [],
-	"oLanguage": {
-		"sSearch": "$Lang{tagstable_search}{$lang}",
-		"sInfo": "_TOTAL_ $tagtype_p",
-		"sInfoFiltered": " - $Lang{tagstable_filtered}{$lang}"
-	}
+${tagtype}Table = \$('#${tagtype}table').DataTable({
+	language: {
+		search: "$Lang{tagstable_search}{$lang}",
+		info: "_TOTAL_ $tagtype_p",
+		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
+	},
+	paging: false
 });
 JS
 ;
@@ -1670,12 +1697,12 @@ sub display_points($) {
 	
 
 	$scripts .= <<SCRIPTS
-<script src="/js/jquery.dataTables.min.js"></script>
+<script src="/js/datatables.min.js"></script>
 SCRIPTS
 ;
 
 	$header .= <<HEADER
-<link rel="stylesheet" href="/js/datatables.css" />
+<link rel="stylesheet" href="/js/datatables.min.css" />
 <meta property="og:image" content="http://world.openfoodfacts.org/images/misc/open-food-hunt-2015.1304x893.png"/>
 HEADER
 ;	
@@ -1901,8 +1928,8 @@ sub display_tag($) {
 		
 			if ($packager_codes{$canon_tagid}{cc} eq 'fr') {
 				$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{raison_sociale_enseigne_commerciale}</br>
-$packager_codes{$canon_tagid}{adresse} $packager_codes{$canon_tagid}{code_postal} $packager_codes{$canon_tagid}{commune}</br>
+<p>$packager_codes{$canon_tagid}{raison_sociale_enseigne_commerciale}<br>
+$packager_codes{$canon_tagid}{adresse} $packager_codes{$canon_tagid}{code_postal} $packager_codes{$canon_tagid}{commune}<br>
 SIRET : $packager_codes{$canon_tagid}{siret} - <a href="$packager_codes{$canon_tagid}{section}">Source</a>
 </p>
 HTML
@@ -1911,7 +1938,7 @@ HTML
 			if ($packager_codes{$canon_tagid}{cc} eq 'es') {
 				# Razón Social;Provincia/Localidad
 				$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{razon_social}</br>
+<p>$packager_codes{$canon_tagid}{razon_social}<br>
 $packager_codes{$canon_tagid}{provincia_localidad}
 </p>
 HTML
@@ -1929,7 +1956,7 @@ HTML
 					$local_authority = "Local authority: $packager_codes{$canon_tagid}{local_authority}<br/>";
 				}
 				$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}</br>
+<p>$packager_codes{$canon_tagid}{name}<br>
 $district
 $local_authority
 </p>
@@ -4362,7 +4389,7 @@ sub display_new($) {
 	my $html = <<HTML
 <!doctype html>
 <html class="no-js" lang="$lang">
-  <head profile="http://a9.com/-/spec/opensearch/1.1/">
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/foundation/css/app.css" />
@@ -5411,10 +5438,13 @@ CSS
 	$title = product_name_brand_quantity($product_ref);
 	my $titleid = get_fileid(product_name_brand($product_ref));
 	
+	if (not $title) {
+		$title = $code;
+	}
+
 	if (defined $rev) {
 		$title .= " version $rev";
 	}
-	
 	
 	$description = sprintf(lang("product_description"), $title);
 	
@@ -5854,6 +5884,10 @@ sub display_product_jqm ($) # jquerymobile
 	}
 	
 	$title = $product_ref->{product_name};	
+	
+	if (not $title) {
+		$title = $code;
+	}
 	
 	if (defined $rev) {
 		$title .= " version $rev";
@@ -6324,7 +6358,7 @@ HTML
 			if (defined $comparison_ref->{count}) {
 				$html .= " <a href=\"$comparison_ref->{link}\">(" . $comparison_ref->{count} . " " . lang("products") . ")</a>";
 			}
-			$html .= "</br>";
+			$html .= "<br>";
 			
 			$i++;
 		}
