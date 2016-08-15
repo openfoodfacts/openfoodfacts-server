@@ -308,6 +308,27 @@ CSS
 	}
 }
 
+# component was specified as en:product, fr:produit etc.
+sub _component_is_singular_tag_in_specific_lc($$) {
+	my ($component, $tag) = @_;
+
+	my $component_lc;
+	if ($component =~ /^(\w\w):/) {
+		$component_lc = $1;
+		$component = $';
+	}
+	else {
+		return 0;
+	}
+
+	my $match = $tag_type_singular{$tag}{$component_lc};
+	if ((defined $match) and ($match eq $component)) {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
 
 sub analyze_request($)
 {
@@ -398,7 +419,17 @@ sub analyze_request($)
 	elsif ((defined $texts{$components[0]}) and ((defined $texts{$components[0]}{$lang}) or (defined $texts{$components[0]}{en}))and (not defined $components[1]))  {
 		$request_ref->{text} = $components[0];
 		$request_ref->{canon_rel_url} = "/" . $components[0];
-	}	
+	}
+	# Product specified as en:product?
+	elsif (_component_is_singular_tag_in_specific_lc($components[0], 'products')) {
+		# check the product code looks like a number
+		if ($components[1] =~ /^\d/) {
+			$request_ref->{redirect} = "http://$subdomain.$server_domain/" . $tag_type_singular{products}{$lc} . '/' . $components[1];;
+		}
+		else {
+			display_error(lang("error_invalid_address"), 404);
+		}
+	}
 	# Product?
 	elsif (($components[0] eq $tag_type_singular{products}{$lc}) ) {
 		# check the product code looks like a number
