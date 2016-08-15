@@ -42,6 +42,7 @@ BEGIN
 use vars @EXPORT_OK ;
 use strict;
 use utf8;
+use experimental 'smartmatch';
 
 use Blogs::Store qw/:all/;
 use Blogs::Config qw/:all/;
@@ -538,7 +539,6 @@ sub extract_ingredients_classes_from_text($) {
 	
 	
 	
-	
 	foreach my $class (sort keys %ingredients_classes) {
 		
 		my $tagtype = $class;
@@ -550,7 +550,7 @@ sub extract_ingredients_classes_from_text($) {
 		$product_ref->{$tagtype . '_tags'} = [];		
 				
 		# skip palm oil classes if there is a palm oil free label
-		if (($class =~ /palm/) and (get_fileid($product_ref->{labels}) =~ /sans-huile-de-palme/)) {
+		if (($class =~ /palm/) and ($product_ref->{labels_tags} ~~ 'en:palm-oil-free')) {
 			
 		}
 		else {
