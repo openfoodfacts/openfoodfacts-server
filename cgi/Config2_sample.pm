@@ -22,13 +22,13 @@ use strict;
 use utf8;
 
 # server constants
-$server_domain = "fr.openfoodfacts.org";
+$server_domain = "openfoodfacts.org";
 
 # server paths
-$www_root = "/home/off-fr/html";
-$data_root = "/home/off-fr";
+$www_root = "/home/off/html";
+$data_root = "/home/off";
 
-$mongodb = "off-fr";
+$mongodb = "off";
 
 $facebook_app_id = "";
 $facebook_app_secret = "";
