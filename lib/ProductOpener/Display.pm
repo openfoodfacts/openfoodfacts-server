@@ -1449,7 +1449,8 @@ oTable = \$('#tagstable').DataTable({
 		info: "_TOTAL_ $tagtype_p",
 		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
 	},
-	paging: false
+	paging: false,
+	order: [[ 1, "desc" ]]
 });
 JS
 ;
@@ -1560,7 +1561,8 @@ ${tagtype}Table = \$('#${tagtype}table').DataTable({
 		info: "_TOTAL_ $tagtype_p",
 		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
 	},
-	paging: false
+	paging: false,
+	order: [[ 1, "desc" ]]
 });
 JS
 ;
