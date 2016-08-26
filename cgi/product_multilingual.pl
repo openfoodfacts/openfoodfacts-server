@@ -285,41 +285,9 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});						
 			}
 			print STDERR "product.pl - code: $code - field: $field = $product_ref->{$field}\n";
-			if (defined $tags_fields{$field}) {
 
-				$product_ref->{$field . "_tags" } = [];
-				if ($field eq 'emb_codes') {
-					$product_ref->{"cities_tags" } = [];
-				}
-				foreach my $tag (split(',', $product_ref->{$field} )) {
-					if (get_fileid($tag) ne '') {
-						push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
-						if ($field eq 'emb_codes') {
-							my $city_code = get_city_code($tag);
-							if (defined $emb_codes_cities{$city_code}) {
-								push @{$product_ref->{"cities_tags" }}, get_fileid($emb_codes_cities{$city_code}) ;
-							}
-						}
-					}
-				}			
-			}
-		
-			if (defined $taxonomy_fields{$field}) {
-				$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
-				$product_ref->{$field . "_tags" } = [];
-				foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-					push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
-				}
-			}		
-			elsif (defined $hierarchy_fields{$field}) {
-				$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy($field, $product_ref->{$field}) ];
-				$product_ref->{$field . "_tags" } = [];
-				foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-					if (get_fileid($tag) ne '') {
-						push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
-					}
-				}
-			}			
+			compute_field_tags($product_ref, $field);
+			
 		}
 		else {
 			print STDERR "product.pl - could not find field $field\n";
@@ -503,11 +471,6 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	
 	
 	$admin and print STDERR "compute_serving_size_date -- done\n";	
-	
-	if (0) {
-		push @errors, "La description est trop courte";
-	}
-
 	
 	if ($#errors >= 0) {
 		$action = 'display';
