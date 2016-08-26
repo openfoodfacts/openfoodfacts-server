@@ -2387,6 +2387,27 @@ sub compute_field_tags($$) {
 	my $product_ref = shift;
 	my $field = shift;
 	
+	# tags fields without hierarchy or taxonomy
+	
+	if (defined $tags_fields{$field}) {
+
+		$product_ref->{$field . "_tags" } = [];
+		if ($field eq 'emb_codes') {
+			$product_ref->{"cities_tags" } = [];
+		}
+		foreach my $tag (split(',', $product_ref->{$field} )) {
+			if (get_fileid($tag) ne '') {
+				push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
+				if ($field eq 'emb_codes') {
+					my $city_code = get_city_code($tag);
+					if (defined $emb_codes_cities{$city_code}) {
+						push @{$product_ref->{"cities_tags" }}, get_fileid($emb_codes_cities{$city_code}) ;
+					}
+				}
+			}
+		}			
+	}	
+	
 	# generate the hierarchy of tags from the field values
 		
 	if (defined $taxonomy_fields{$field}) {
