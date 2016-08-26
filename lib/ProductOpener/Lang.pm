@@ -58,8 +58,8 @@ use strict;
 use utf8;
 
 use ProductOpener::SiteLang qw/:all/;
-
 use ProductOpener::Store qw/:all/;
+use ProductOpener::Config qw/:all/;
 
 
 # Tags types to path components in URLS: in ascii, lowercase, unaccented, transliterated (in Roman characters)
@@ -11547,8 +11547,9 @@ sub lang($) {
 # - compute tag_type_singular and tag_type_plural
 # - compute missing values by assigning English values
 
-sub init_languages() {
+sub init_languages($) {
 
+my $recompute = shift;
 
 my @debug_taxonomies = ("categories", "labels", "additives");
 
@@ -11567,113 +11568,132 @@ foreach my $taxonomy (@debug_taxonomies) {
 }
 
 
-foreach my $l (@Langs) {
 
-	my $short_l = undef;
-	if ($l =~ /_/) {
-		$short_l = $`;  # pt_pt
-	}
-
-	foreach my $type (keys %tag_type_singular) {
-
-		if (not defined $tag_type_singular{$type}{$l}) {
-			if ((defined $short_l) and (defined $tag_type_singular{$type}{$short_l})) {
-				$tag_type_singular{$type}{$l} = $tag_type_singular{$type}{$short_l};
-			}
-			else {
-				$tag_type_singular{$type}{$l} = $tag_type_singular{$type}{en};
-			}
-		}
-	}
-
-	foreach my $type (keys %tag_type_plural) {
-		if (not defined $tag_type_plural{$type}{$l}) {
-			if ((defined $short_l) and (defined $tag_type_plural{$type}{$short_l})) {
-				$tag_type_plural{$type}{$l} = $tag_type_plural{$type}{$short_l};
-			}
-			else {
-				$tag_type_plural{$type}{$l} = $tag_type_plural{$type}{en};
-			}
-		}
-	}
-
-	$tag_type_from_singular{$l} or $tag_type_from_singular{$l} = {};
-	$tag_type_from_plural{$l} or $tag_type_from_plural{$l} = {};
-
-
-	foreach my $type (keys %tag_type_singular) {
-			$tag_type_from_singular{$l}{$tag_type_singular{$type}{$l}} = $type;
-	}
-
-	foreach my $type (keys %tag_type_plural) {
-			$tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;
-			#print "tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;\n";
-	}
-
-}
-
-
-# Load overrides from %SiteLang
-
-print "SiteLang - overrides \n";
-
-
-foreach my $key (keys %SiteLang) {
-	print "SiteLang{$key} \n";
-
-	$Lang{$key} = {};
-	foreach my $l (keys %{$SiteLang{$key}}) {
-		$Lang{$key}{$l} = $SiteLang{$key}{$l};
-		print "SiteLang{$key}{$l} \n";
-	}
-}
-
-
-foreach my $l (@Langs) {
-	$CanonicalLang{$l} = {};	 # To map 'a-completer' to 'A compléter',
-}
-
-foreach my $key (keys %Lang) {
-	next if $key =~ /^bottom_title|bottom_content$/;
-	if ((defined $Lang{$key}{fr}) or (defined $Lang{$key}{en})) {
-		foreach my $l (@Langs) {
-
-			my $short_l = undef;
-			if ($l =~ /_/) {
-				$short_l = $`,  # pt_pt
-			}
-
-			if (not defined $Lang{$key}{$l}) {
-				if ((defined $short_l) and (defined $Lang{$key}{$short_l})) {
-					$Lang{$key}{$l} = $Lang{$key}{$short_l};
-				}
-				elsif (defined $Lang{$key}{en}) {
-					$Lang{$key}{$l} = $Lang{$key}{en};
-				}
-				else {
-					$Lang{$key}{$l} = $Lang{$key}{fr};
-				}
-			}
-
-			my $tagid = get_fileid($Lang{$key}{$l});
-
-			$CanonicalLang{$l}{$tagid} = $Lang{$key}{$l};
-		}
-	}
-}
-
-my @special_fields = ("site_name");
-
-foreach my $special_field (@special_fields) {
 
 	foreach my $l (@Langs) {
-		my $value = $Lang{$special_field}{$l};
-		foreach my $key (keys %Lang) {
-		
-			$Lang{$key}{$l} =~ s/\<\<$special_field\>\>/$value/g;
+
+		my $short_l = undef;
+		if ($l =~ /_/) {
+			$short_l = $`;  # pt_pt
+		}
+
+		foreach my $type (keys %tag_type_singular) {
+
+			if (not defined $tag_type_singular{$type}{$l}) {
+				if ((defined $short_l) and (defined $tag_type_singular{$type}{$short_l})) {
+					$tag_type_singular{$type}{$l} = $tag_type_singular{$type}{$short_l};
+				}
+				else {
+					$tag_type_singular{$type}{$l} = $tag_type_singular{$type}{en};
+				}
+			}
+		}
+
+		foreach my $type (keys %tag_type_plural) {
+			if (not defined $tag_type_plural{$type}{$l}) {
+				if ((defined $short_l) and (defined $tag_type_plural{$type}{$short_l})) {
+					$tag_type_plural{$type}{$l} = $tag_type_plural{$type}{$short_l};
+				}
+				else {
+					$tag_type_plural{$type}{$l} = $tag_type_plural{$type}{en};
+				}
+			}
+		}
+
+		$tag_type_from_singular{$l} or $tag_type_from_singular{$l} = {};
+		$tag_type_from_plural{$l} or $tag_type_from_plural{$l} = {};
+
+
+		foreach my $type (keys %tag_type_singular) {
+				$tag_type_from_singular{$l}{$tag_type_singular{$type}{$l}} = $type;
+		}
+
+		foreach my $type (keys %tag_type_plural) {
+				$tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;
+				#print "tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;\n";
+		}
+
+	}
+
+if ((-e "$data_root/Lang.sto") and (not $recompute)) {
+
+	print STDERR "Loading \%Lang from $data_root/Lang.sto\n";
+	my $lang_ref = retrieve("$data_root/Lang.sto");
+	%Lang = %{$lang_ref};
+	print STDERR "Loaded \%Lang from $data_root/Lang.sto\n";
+	
+}
+else {
+
+	print STDERR "Recomputing \%Lang\n";
+
+
+	# Load overrides from %SiteLang
+
+	print "SiteLang - overrides \n";
+
+
+	foreach my $key (keys %SiteLang) {
+		print "SiteLang{$key} \n";
+
+		$Lang{$key} = {};
+		foreach my $l (keys %{$SiteLang{$key}}) {
+			$Lang{$key}{$l} = $SiteLang{$key}{$l};
+			print "SiteLang{$key}{$l} \n";
 		}
 	}
 
+
+	foreach my $l (@Langs) {
+		$CanonicalLang{$l} = {};	 # To map 'a-completer' to 'A compléter',
+	}
+
+	foreach my $key (keys %Lang) {
+		next if $key =~ /^bottom_title|bottom_content$/;
+		if ((defined $Lang{$key}{fr}) or (defined $Lang{$key}{en})) {
+			foreach my $l (@Langs) {
+
+				my $short_l = undef;
+				if ($l =~ /_/) {
+					$short_l = $`,  # pt_pt
+				}
+
+				if (not defined $Lang{$key}{$l}) {
+					if ((defined $short_l) and (defined $Lang{$key}{$short_l})) {
+						$Lang{$key}{$l} = $Lang{$key}{$short_l};
+					}
+					elsif (defined $Lang{$key}{en}) {
+						$Lang{$key}{$l} = $Lang{$key}{en};
+					}
+					else {
+						$Lang{$key}{$l} = $Lang{$key}{fr};
+					}
+				}
+
+				my $tagid = get_fileid($Lang{$key}{$l});
+
+				$CanonicalLang{$l}{$tagid} = $Lang{$key}{$l};
+			}
+		}
+	}
+
+	my @special_fields = ("site_name");
+
+	foreach my $special_field (@special_fields) {
+
+		foreach my $l (@Langs) {
+			my $value = $Lang{$special_field}{$l};
+			foreach my $key (keys %Lang) {
+			
+				$Lang{$key}{$l} =~ s/\<\<$special_field\>\>/$value/g;
+			}
+		}
+
+	}
+	
+	
+	store("$data_root/Lang.sto",\%Lang);
+	
 }
 
 } # init_languages
