@@ -95,6 +95,8 @@ BEGIN
 					%translations_from
 					%translations_to
 					
+					&init_select_country_options
+					
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -1267,10 +1269,12 @@ foreach my $language (keys %{$properties{languages}}) {
 @Langs = sort keys %Langs;
 
 
-init_languages();
+init_languages(0);	# do not recompute %Lang (can take one minute or so)
 
 
 # Build map of local country names in official languages to (country, language)
+
+print STDERR "Build map of local country names in official languages to (country, language)\n";
 
 %country_names = ();
 %country_codes = ();
@@ -1305,40 +1309,72 @@ foreach my $country (keys %{$properties{countries}}) {
 
 
 
-# Build lists of countries and generate select button
-# <select data-placeholder="Choose a Country..." style="width:350px;" tabindex="1">
-#            <option value=""></option>
-#            <option value="United States">United States</option>
-#            <option value="United Kingdom">United Kingdom</option>
 
-foreach my $language (keys %Langs) {
 
-	my $country_options = '';
-	my $first_option = '';
+sub init_select_country_options($) {
+
+	# takes one minute to load
+
+	my $recompute = shift;
 	
-	foreach my $country (sort {(get_fileid($translations_to{countries}{$a}{$language}) || get_fileid($translations_to{countries}{$a}{'en'}) )
-		cmp (get_fileid($translations_to{countries}{$b}{$language}) || get_fileid($translations_to{countries}{$b}{'en'}))}
-			keys %{$properties{countries}}
-		) {
-		
-		my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
-		if ($country eq 'en:world') {
-			$cc = 'world';
-		}		
+	# Build lists of countries and generate select button
+	# <select data-placeholder="Choose a Country..." style="width:350px;" tabindex="1">
+	#            <option value=""></option>
+	#            <option value="United States">United States</option>
+	#            <option value="United Kingdom">United Kingdom</option>
 	
-		my $option = '<option value="' . $cc . '">' . display_taxonomy_tag($language,'countries',$country) . "</option>\n";
+	if ((-e "$data_root/Lang_select_country_options.sto") and (not $recompute)) {
+
+		print STDERR "Loading \%Lang{select_country_options} from $data_root/Lang_select_country_options.sto.sto\n";
+		my $lang_select_country_options_ref = retrieve("$data_root/Lang_select_country_options.sto");
+		$Lang{select_country_options} = $lang_select_country_options_ref;
+		print STDERR "Loaded \%Lang{select_country_options} from $data_root/Lang_select_country_options.sto.sto\n";
 		
-		if ($country ne 'en:world') {
-			$country_options .= $option;
-		}
-		else {
-			$first_option = $option;
-		}
 	}
-	
-	$Lang{select_country_options}{$language} = $first_option . $country_options;
+	else {	
+
+		print STDERR "Build lists of countries and generate select button\n";	
+
+		foreach my $language (keys %Langs) {
+
+			my $country_options = '';
+			my $first_option = '';
+				
+			foreach my $country (sort {(get_fileid($translations_to{countries}{$a}{$language}) || get_fileid($translations_to{countries}{$a}{'en'}) )
+				cmp (get_fileid($translations_to{countries}{$b}{$language}) || get_fileid($translations_to{countries}{$b}{'en'}))}
+					keys %{$properties{countries}}
+				) {
+				
+				my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
+				if ($country eq 'en:world') {
+					$cc = 'world';
+				}		
+			
+				my $option = '<option value="' . $cc . '">' . display_taxonomy_tag($language,'countries',$country) . "</option>\n";
+				
+				if ($country ne 'en:world') {
+					$country_options .= $option;
+				}
+				else {
+					$first_option = $option;
+				}
+			}
+			
+			$Lang{select_country_options}{$language} = $first_option . $country_options;
+			
+		}
+		
+		store("$data_root/Lang_select_country_options.sto",$Lang{select_country_options});
+
+	}
 }
 
+print STDERR "Tags.pm - init_select_country_options\n";
+
+init_select_country_options(0);
+
+
+print STDERR "Tags.pm - 1\n";
 
 sub gen_tags_hierarchy($$) {
 
@@ -2205,6 +2241,8 @@ GEXF
 
 # Load cities for emb codes
 
+print STDERR "Load cities for packaging codes\n";
+
 # French departements
 
 my %departements = ();
@@ -2492,5 +2530,8 @@ sub compute_field_tags($$) {
 	}
 	
 }
+
+
+print STDERR "Tags.pm - loaded\n";
 	
 1;
