@@ -5,19 +5,19 @@ use CGI::Carp qw(fatalsToBrowser);
 use strict;
 use utf8;
 
-use Blogs::Config qw/:all/;
-use Blogs::Store qw/:all/;
-use Blogs::Index qw/:all/;
-use Blogs::Display qw/:all/;
-use Blogs::Tags qw/:all/;
-use Blogs::Users qw/:all/;
-use Blogs::Images qw/:all/;
-use Blogs::Lang qw/:all/;
-use Blogs::Mail qw/:all/;
-use Blogs::Products qw/:all/;
-use Blogs::Food qw/:all/;
-use Blogs::Ingredients qw/:all/;
-use Blogs::Images qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Index qw/:all/;
+use ProductOpener::Display qw/:all/;
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::Users qw/:all/;
+use ProductOpener::Images qw/:all/;
+use ProductOpener::Lang qw/:all/;
+use ProductOpener::Mail qw/:all/;
+use ProductOpener::Products qw/:all/;
+use ProductOpener::Food qw/:all/;
+use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Images qw/:all/;
 
 
 use Apache2::RequestRec ();
@@ -29,7 +29,7 @@ use Storable qw/dclone/;
 use Encode;
 use JSON;
 
-Blogs::Display::init();
+ProductOpener::Display::init();
 
 $debug = 1;
 
@@ -85,7 +85,7 @@ else {
 	# French PNNS groups from categories
 	
 	if ($server_domain =~ /openfoodfacts/) {
-		Blogs::Food::special_process_product($product_ref);
+		ProductOpener::Food::special_process_product($product_ref);
 	}
 	
 	

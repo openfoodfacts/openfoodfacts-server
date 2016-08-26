@@ -1,4 +1,4 @@
-package Blogs::Missions;
+package ProductOpener::Missions;
 
 ######################################################################
 #
@@ -27,14 +27,14 @@ use vars @EXPORT_OK ;
 use strict;
 use utf8;
 
-use Blogs::Store qw/:all/;
-use Blogs::Config qw/:all/;
-use Blogs::Users qw/:all/;
-use Blogs::Products qw/:all/;
-use Blogs::Display qw/:all/;
-use Blogs::MissionsConfig qw/:all/;
-use Blogs::Lang qw/:all/;
-use Blogs::Tags qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Users qw/:all/;
+use ProductOpener::Products qw/:all/;
+use ProductOpener::Display qw/:all/;
+use ProductOpener::MissionsConfig qw/:all/;
+use ProductOpener::Lang qw/:all/;
+use ProductOpener::Tags qw/:all/;
 use MongoDB;
 use Tie::IxHash;
 use JSON;

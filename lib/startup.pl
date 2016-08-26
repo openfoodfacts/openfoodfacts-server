@@ -44,22 +44,21 @@ use Image::Magick ();
 use File::Copy ();
 use XML::Encoding ();
 use Encode ();
+use Text::Unaccent ();
 use Cache::Memcached::Fast ();
 use URI::Escape::XS ();
 
 # Needs to be configured
-use lib "/home/obf/cgi/";
+use lib "/home/off/lib";
 
-use Blogs::Lang qw/:all/;
-
-use Blogs::Store qw/:all/;
-use Blogs::Config qw/:all/;
-use Blogs::Display qw/:all/;
-use Blogs::Products qw/:all/;
-use Blogs::Food qw/:all/;
-use Blogs::Images qw/:all/;
-use Blogs::Index qw/:all/;
-use Blogs::Version qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Display qw/:all/;
+use ProductOpener::Products qw/:all/;
+use ProductOpener::Food qw/:all/;
+use ProductOpener::Images qw/:all/;
+use ProductOpener::Index qw/:all/;
+use ProductOpener::Version qw/:all/;
 
 use Apache2::Const -compile => qw(OK);
 use Apache2::Connection ();
@@ -75,22 +74,19 @@ sub My::ProxyRemoteAddr ($) {
   # we'll only look at the X-Forwarded-For header if the requests
   # comes from our proxy at localhost
   return Apache2::Const::OK
-      unless (($r->useragent_ip eq "127.0.0.1") 
+      unless (($r->connection->remote_ip eq "127.0.0.1") 
 	or 1	# all IPs
 )
           and $r->headers_in->get('X-Forwarded-For');
 
   # Select last value in the chain -- original client's ip
   if (my ($ip) = $r->headers_in->get('X-Forwarded-For') =~ /([^,\s]+)$/) {
-    $r->useragent_ip($ip);
+    $r->connection->remote_ip($ip);
   }
 
   return Apache2::Const::OK;
 }
 
-print STDERR "version: $Blogs::Version::version\n";
-
-open (*STDERR,'>',"/$data_root/logs/modperl_error_log") or die ($!);
-
+print STDERR "version: $ProductOpener::Version::version\n";
 
 1;

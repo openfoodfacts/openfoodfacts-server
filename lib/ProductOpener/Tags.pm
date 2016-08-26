@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-package Blogs::Tags;
+package ProductOpener::Tags;
 
 BEGIN
 {
@@ -105,11 +105,11 @@ use vars @EXPORT_OK ;
 use strict;
 use utf8;
 
-use Blogs::Store qw/:all/;
-use Blogs::Config qw/:all/;
-use Blogs::TagsEntries qw/:all/;
-use Blogs::Food qw/:all/;
-use Blogs::Lang qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::TagsEntries qw/:all/;
+use ProductOpener::Food qw/:all/;
+use ProductOpener::Lang qw/:all/;
 use Clone qw(clone);
 
 use URI::Escape::XS;
@@ -1239,7 +1239,7 @@ foreach my $langid (readdir(DH2)) {
 closedir(DH2);
 
 
-foreach my $taxonomyid (@Blogs::Config::taxonomy_fields) {
+foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
 
 	print "loading taxonomy $taxonomyid\n";
 	retrieve_tags_taxonomy($taxonomyid);

@@ -5,20 +5,20 @@ use CGI::Carp qw(fatalsToBrowser);
 use strict;
 use utf8;
 
-use Blogs::Config qw/:all/;
-use Blogs::Store qw/:all/;
-use Blogs::Index qw/:all/;
-use Blogs::Display qw/:all/;
-use Blogs::Tags qw/:all/;
-use Blogs::Users qw/:all/;
-use Blogs::Images qw/:all/;
-use Blogs::Lang qw/:all/;
-use Blogs::Mail qw/:all/;
-use Blogs::Products qw/:all/;
-use Blogs::Food qw/:all/;
-use Blogs::Ingredients qw/:all/;
-use Blogs::Images qw/:all/;
-use Blogs::Missions qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Index qw/:all/;
+use ProductOpener::Display qw/:all/;
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::Users qw/:all/;
+use ProductOpener::Images qw/:all/;
+use ProductOpener::Lang qw/:all/;
+use ProductOpener::Mail qw/:all/;
+use ProductOpener::Products qw/:all/;
+use ProductOpener::Food qw/:all/;
+use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Images qw/:all/;
+use ProductOpener::Missions qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -28,5 +28,5 @@ use Encode;
 use JSON;
 
 
-Blogs::Missions::compute_missions();
-Blogs::Missions::gen_missions_html();
+ProductOpener::Missions::compute_missions();
+ProductOpener::Missions::gen_missions_html();

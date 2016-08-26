@@ -1,4 +1,4 @@
-﻿package Blogs::SiteLang;
+﻿package ProductOpener::SiteLang;
 
 ######################################################################
 #

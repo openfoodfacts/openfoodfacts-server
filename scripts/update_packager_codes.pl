@@ -4,11 +4,11 @@
 use strict;
 use utf8;
 
-use Blogs::Config qw/:all/;
-use Blogs::Store qw/:all/;
-use Blogs::Food qw/:all/;
-use Blogs::Index qw/:all/;
-use Blogs::Tags qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Food qw/:all/;
+use ProductOpener::Index qw/:all/;
+use ProductOpener::Tags qw/:all/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;
