@@ -23,9 +23,6 @@ package ProductOpener::Lang;
 use utf8;
 use strict;
 use Exporter    qw< import >;
-use File::Find::Rule;
-use Locale::Maketext::Lexicon _auto => 0, _decode => 1, _style => "gettext";
-use Locale::Maketext::Lexicon::Getcontext;
 
 
 BEGIN
@@ -61,21 +58,11 @@ BEGIN
 
 use vars @EXPORT_OK ;
 
+use ProductOpener::I18N;
 use ProductOpener::SiteLang qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 
-
-my @metadata_fields = qw<
-    __Content-Transfer-Encoding
-    __Content-Type
-    __Language
-    __Language-Team
-    __Last-Translator
-    __MIME-Version
-    __PO-Revision-Date
-    __Project-Id-Version
->;
 
 # Tags types to path components in URLS: in ascii, lowercase, unaccented,
 # transliterated (in Roman characters)
@@ -83,12 +70,13 @@ my @metadata_fields = qw<
 # Note: a lot of plurals are currently missing below, commented-out are
 # the singulars that need to be changed to plurals
 my ($tag_type_singular_ref, $tag_type_plural_ref)
-    = split_tags(read_po_files("po/tags"));
+    = ProductOpener::I18N::split_tags(
+        ProductOpener::I18N::read_po_files("po/tags"));
 %tag_type_singular = %$tag_type_singular_ref;
 %tag_type_plural   = %$tag_type_plural_ref;
 
 # UI strings, non-Roman characters can be used
-%Lang = %{ read_po_files("po/common/") };
+%Lang = %{ ProductOpener::I18N::read_po_files("po/common/") };
 
 
 
@@ -280,64 +268,6 @@ else {
 }
 
 } # init_languages
-
-
-#
-# read_po_files()
-# -------------
-# args:
-# - directory to look for .po files
-#
-sub read_po_files {
-    my ($dir) = @_;
-
-    return unless $dir;
-
-    my %l10n;
-    my @files = File::Find::Rule->file->name("*.po")->in($dir);
-
-    for my $file (@files) {
-        # read the .po file
-        open my $fh, "<", $file or die $!;
-        my %Lexicon = %{ Locale::Maketext::Lexicon::Getcontext->parse(<$fh>) };
-        close $fh;
-
-        # clean up %Lexicon from gettext metadata
-        delete $Lexicon{""};
-        delete $Lexicon{$_} for @metadata_fields;
-
-        my $lc = $Lexicon{":langtag"};
-
-        # move the strings into %l10n
-        for my $key (keys %Lexicon) {
-            $l10n{$key}{$lc} = delete $Lexicon{$key};
-        }
-    }
-
-    return \%l10n
-}
-
-
-#
-# split_tags()
-# ----------
-sub split_tags {
-    my ($l10n) = @_;
-
-    my (%singular, %plural);
-    $singular{":langname"} = $plural{":langname"} = delete $l10n->{":langname"};
-    $singular{":langtag"}  = $plural{":langtag"}  = delete $l10n->{":langtag"};
-
-    for my $key (keys %$l10n) {
-        my ($tag, $kind) = split /:/, $key;
-
-        if    ($kind eq "plural"  ) { $plural{$tag}   = delete $l10n->{$key} }
-        elsif ($kind eq "singular") { $singular{$tag} = delete $l10n->{$key} }
-        else  { warn "warning: malformed tag from .po file: $key\n" }
-    }
-
-    return \%singular, \%plural
-}
 
 
 1;
