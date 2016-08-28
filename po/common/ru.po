@@ -21,14 +21,6 @@ msgctxt "1_product"
 msgid "1 product"
 msgstr "1 продукт"
 
-msgctxt ":langname"
-msgid "English"
-msgstr "Russian"
-
-msgctxt ":langtag"
-msgid "en"
-msgstr "ru"
-
 msgctxt "_and_"
 msgid " and "
 msgstr " и "
@@ -41,6 +33,10 @@ msgctxt "add"
 msgid "Add"
 msgstr "Добавить"
 
+msgctxt "add_language"
+msgid "Add language"
+msgstr "Добавить язык"
+
 msgctxt "add_product"
 msgid "Add a product"
 msgstr "Добавить продукт"
@@ -52,6 +48,14 @@ msgstr "Зарегистрироваться"
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
 msgstr "<p>Спасибо, что присоединились! Теперь вы можете войти на сайт, чтобы,добавить или изменить продукты.</p>"
+
+msgctxt "additives_p"
+msgid "additives"
+msgstr "добавки"
+
+msgctxt "also_edited_by"
+msgid "Product page also edited by"
+msgstr "Страницу продукта также редактировали"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -89,9 +93,13 @@ msgctxt "change_nutriments"
 msgid "Nutriments"
 msgstr "Питательные вещества"
 
+msgctxt "change_selected_images"
+msgid "Selected images"
+msgstr "Выбрал изображения"
+
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr "Загруженные изображения"
+msgstr "Загрузил изображения"
 
 msgctxt "countries"
 msgid "Countries where sold"
@@ -157,21 +165,25 @@ msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
 msgstr "Это имя пользователя уже существует, выберите другое."
 
+msgctxt "examples"
+msgid "Examples:"
+msgstr "Примеры:"
+
 msgctxt "expiration_date"
 msgid "Best before date"
-msgstr "Срок годности"
+msgstr "Дата окончания срока хранения или годности"
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
-msgstr "Развернутый в продукты с..."
+msgstr "Списки продуктов по…"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr "Если данные неполными или неверными, вы можете завершить или исправить его, отредактировав эту страницу."
+msgstr "Если данные неполны или неверны, вы можете дополнить или исправить их, отредактировав эту страницу."
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr "<<site_name>> в блоге"
+msgstr "Блог <<site_name>>"
 
 msgctxt "footer_data"
 msgid "Data"
@@ -199,15 +211,15 @@ msgstr "Присоединяйтесь к нам на %s:"
 
 msgctxt "footer_legal"
 msgid "Legal"
-msgstr "Юридическая"
+msgstr "Юридическая информация"
 
 msgctxt "footer_press"
 msgid "Press"
-msgstr "Пресс"
+msgstr "Пресса"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
-msgstr "Совместной, бесплатно и открыть базу данных продуктов питания со всего мира."
+msgstr "Совместно создаваемая, бесплатная и открытая база данных продуктов питания со всего мира."
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -235,7 +247,7 @@ msgstr "Увидимся!"
 
 msgctxt "hello"
 msgid "Hello"
-msgstr "Здравствуйте"
+msgstr "Здравствуйте,"
 
 msgctxt "high_quantity"
 msgid "high quantity"
@@ -249,17 +261,29 @@ msgctxt "image_ingredients"
 msgid "Ingredients picture"
 msgstr "Изображение списке ингредиентов"
 
+msgctxt "image_nutrition"
+msgid "Nutrition facts picture"
+msgstr "Изображение с указанием пищевой ценности"
+
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
 msgstr "Эта картина уже было отправлено."
 
+msgctxt "incomplete_products_you_added"
+msgid "Products you added that need to be completed"
+msgstr "Продукты, которые вы добавили, которые требуют дополнения"
+
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr "Ингредиенты"
+msgstr "Состав"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr "Ингредиенты"
+msgstr "Состав"
+
+msgctxt "ingredients_analysis"
+msgid "Ingredients analysis"
+msgstr "Анализ состава"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
@@ -268,6 +292,14 @@ msgstr "список ингредиентов"
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
 msgstr "Ингредиенты перечислены в порядке важности (количество)."
+
+msgctxt "ingredients_that_may_be_from_palm_oil_p"
+msgid "ingredients that may be from palm oil"
+msgstr "вещества, могущие быть из пальмового масла"
+
+msgctxt "ingredients_that_may_be_from_palm_oil_s"
+msgid "ingredient that may be from palm oil"
+msgstr "вещество, могущее быть из пальмового масла"
 
 msgctxt "lang_de"
 msgid "German"
@@ -315,7 +347,7 @@ msgstr "румы́нский язы́к"
 
 msgctxt "lang_ru"
 msgid "Russian"
-msgstr "ру́сский язы́к"
+msgstr "Русский язык"
 
 msgctxt "lang_th"
 msgid "Thai"
@@ -382,8 +414,8 @@ msgid "moderate quantity"
 msgstr "умеренное количество"
 
 msgctxt "months"
-msgid "~['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'~]"
-msgstr "~['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'~]"
+msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
+msgstr "['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']"
 
 msgctxt "n_products"
 msgid "%d products"
@@ -391,11 +423,15 @@ msgstr "%d продуктов"
 
 msgctxt "next"
 msgid "Next"
-msgstr "Следующий"
+msgstr "Следующий(-ие)"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
 msgstr "Продукт без штрих-кода"
+
+msgctxt "no_nutrition_data"
+msgid "Nutrition facts are not specified on the product."
+msgstr "Пищевая ценность не указана на упаковке."
 
 msgctxt "number_of_products"
 msgid "Number of products"
@@ -407,7 +443,7 @@ msgstr "%s в %s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
-msgstr "Питательные уровни 100 г"
+msgstr "Содержание питательных веществ в 100 г"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
@@ -423,7 +459,7 @@ msgstr "Сравнение со средними значениями проду
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
-msgstr "за 100 г / 100 мл"
+msgstr "на 100 г / 100 мл"
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
@@ -469,9 +505,13 @@ msgctxt "points_ranking_users_and_countries"
 msgid "Ranking of contributors and countries"
 msgstr "Рейтинг вкладчиков и стран"
 
+msgctxt "product_add_nutrient"
+msgid "Add a nutrient"
+msgstr "Добавить питательное вещество"
+
 msgctxt "product_added"
 msgid "Product added on"
-msgstr "Добавить новый продукт на"
+msgstr "Продукт добавлен"
 
 msgctxt "product_changes_saved"
 msgid "Changes saved."
@@ -488,6 +528,10 @@ msgstr "изображение продукта"
 msgctxt "product_image_with_barcode"
 msgid "Picture with barcode:"
 msgstr "Фото со штрих-кодом:"
+
+msgctxt "product_js_current_image"
+msgid "Current image:"
+msgstr "Текущее изображение:"
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
@@ -509,6 +553,10 @@ msgctxt "product_js_uploading_image"
 msgid "Uploading image"
 msgstr "Загрузка изображений"
 
+msgctxt "product_last_edited"
+msgid "Last edit of product page on"
+msgstr "Последняя правка страницы продукта"
+
 msgctxt "product_name"
 msgid "Product name"
 msgstr "Наименование товара"
@@ -520,6 +568,10 @@ msgstr "продукты"
 msgctxt "products_stats_created_t"
 msgid "Products"
 msgstr "Продукты"
+
+msgctxt "products_you_edited"
+msgid "Products you added or edited"
+msgstr "Продукты, которые вы добавили или изменили"
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
@@ -661,9 +713,25 @@ msgctxt "state"
 msgid "State"
 msgstr "статус"
 
+msgctxt "stores"
+msgid "Stores"
+msgstr "Магазины"
+
+msgctxt "stores_note"
+msgid "Name of the shop or supermarket chain"
+msgstr "Название магазина или сети супермаркетов"
+
 msgctxt "stores_tagsinput"
 msgid "add a store"
 msgstr "добавить магазин"
+
+msgctxt "traces_note"
+msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
+msgstr "Укажите ингредиенты, упомянутые во фразах типа «Может содержать следы», \"Made in a factory that also uses\" и т. п."
+
+msgctxt "traces_p"
+msgid "traces"
+msgstr "следы"
 
 msgctxt "unknown"
 msgid "Unknown"

@@ -23,14 +23,6 @@ msgctxt "1_product"
 msgid   "1 product"
 msgstr  ""
 
-msgctxt ":langname"
-msgid   "English"
-msgstr  ""
-
-msgctxt ":langtag"
-msgid   "en"
-msgstr  ""
-
 msgctxt "_and_"
 msgid   " and "
 msgstr  ""
@@ -59,29 +51,7 @@ msgctxt "add_user_confirm"
 msgid   "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
 msgstr  ""
 
-msgctxt "add_user_email_body
-Thanks a lot for joining http://openfoodfacts.org
-Here is your user name:
-
-User name: <USERID>
-
-You can now sign in on the site to add and edit products.
-
-<<site_name>> is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!
-To discuss between contributors and make the project go forward, we use a very convenient messaging system called Slack: http://slack.openfoodfacts.org
-
-You can also join the Facebook group for contributors:
-https://www.facebook.com/groups/374350705955208/
-
-New: we are also starting Open Beauty Facts to create a database of cosmetics: soap, toothpaste, makeup etc.
-http://openbeautyfacts.org
-
-Thank you very much!
-
-Stéphane and the Open Food Facts team
-http://openfoodfacts.org
-http://twitter.com/OpenFoodFacts
-"
+msgctxt "add_user_email_body"
 msgid   "Hello <NAME>,\n"
 "\n"
 "Thanks a lot for joining http://openfoodfacts.org\n"
@@ -113,7 +83,7 @@ msgid   "Thanks for joining <<site_name>>"
 msgstr  ""
 
 msgctxt "additives_1"
-msgid   "Potentialy hazardous food additive. Limit usage."
+msgid   "Potentially hazardous food additive. Limit usage."
 msgstr  ""
 
 msgctxt "additives_2"
@@ -180,8 +150,7 @@ msgctxt "android_app_link"
 msgid   "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
 msgstr  ""
 
-msgctxt "app_please_take_pictures<p>Thanks in advance!</p>
-"
+msgctxt "app_please_take_pictures"
 msgid   "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"http://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
 ""
@@ -215,11 +184,7 @@ msgctxt "barcode_number"
 msgid   "Barcode number:"
 msgstr  ""
 
-msgctxt "bottom_content<img src="/images/misc/mission-releveur-d-empreintes.png" width="265" height="222" />
-</a>
-<p>Contribute to <<site_name>> by adding product and win stars by
-fulfilling <a href="/missions">missions</a>!</p>
-"
+msgctxt "bottom_content"
 msgid   "<a href=\"http://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
 "<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
 "</a>\n"
@@ -344,45 +309,7 @@ msgctxt "codes_s"
 msgid   "Code"
 msgstr  ""
 
-msgctxt "column_obsolete_do_not_translate_for_reference_only
-<p><<site_name>> gathers information and data on food products from around the world.</p>
-
-<select_country>
-
-<p>
-→ <a href="/brands">Brands</a><br />
-→ <a href="/categories">Categories</a><br/>
-</p>
-
-<p>Food product information (photos, ingredients, nutrition facts etc.) is collected in a collaborative way
-and is made available to everyone and for all uses in a free and open database.</p>
-
-
-<p>Find us also on:</p>
-
-<p>
-→ <a href="http://en.wiki.openfoodfacts.org">our wiki</a><br />
-→ <a href="http://twitter.com/openfoodfacts">Twitter</a><br/>
-→ <a href="https://plus.google.com/u/0/110748322211084668559/">Google+</a><br />
-→ <a href="https://www.facebook.com/OpenFoodFacts">Facebook</a><br />
-+ <a href="https://www.facebook.com/groups/374350705955208/">contributors group</a><br />
-</p>
-
-<p>iPhone and iPad app on the App Store:</p>
-
-<a href="https://itunes.apple.com/en/app/open-food-facts/id588797948"><img src="/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png" alt="Available on the App Store" width="135" height="40" /></a><br/>
-
-<p>Android app on Google Play:</p>
-
-<a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Available on Google Play" width="135" height="47" /></a><br/>
-<a href="http://world.openfoodfacts.org/files/off.apk">apk</a>
-
-<p>Windows Phone app:</p>
-
-<a href="http://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"><img src="/images/misc/154x40_WP_Store_blk.png" alt="Windows Phone Store" width="154" height="40" /></a><br/>
-
-
-"
+msgctxt "column_obsolete_do_not_translate_for_reference_only"
 msgid   "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.png\" width=\"178\" height=\"144\" alt=\"<<site_name>>\" /></a>\n"
 "\n"
 "<p><<site_name>> gathers information and data on food products from around the world.</p>\n"
@@ -737,13 +664,7 @@ msgctxt "fixme_product"
 msgid   "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
 msgstr  ""
 
-msgctxt "footer<a href="http://world.openfoodfacts.org/terms-of-use">Terms of Use</a> -
-<a href="http://world.openfoodfacts.org/who-we-are">Who we are</a> -
-<a href="http://world.openfoodfacts.org/faq">Frequently Asked Questions</a> -
-<a href="https://openfoodfacts.uservoice.com/">Ideas Forum</a> -
-<a href="http://en.blog.openfoodfacts.org">Blog</a> -
-<a href="http://world.openfoodfacts.org/press-and-blogs">Press and Blogs</a>
-"
+msgctxt "footer"
 msgid   "<a href=\"http://world.openfoodfacts.org/legal\">Legal</a> -\n"
 "<a href=\"http://world.openfoodfacts.org/terms-of-use\">Terms of Use</a> -\n"
 "<a href=\"http://world.openfoodfacts.org/who-we-are\">Who we are</a> -\n"
@@ -794,9 +715,7 @@ msgctxt "footer_faq_link"
 msgid   "/faq"
 msgstr  ""
 
-msgctxt "footer_follow_us<a href="https://www.facebook.com/OpenFoodFacts">Facebook</a> and
-<a href="https://plus.google.com/u/0/110748322211084668559/">Google+</a>
-"
+msgctxt "footer_follow_us"
 msgid   "Follow us on <a href=\"http://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
@@ -891,19 +810,7 @@ msgctxt "graphs_and_maps"
 msgid   "Graphs and maps"
 msgstr  ""
 
-msgctxt "header<meta property="og:site_name" content="<<site_name>> - the free and open food products information database"/>
-
-<script type="text/javascript">
-  var uvOptions = {};
-  (function() {
-	var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
-	uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/jQrwafQ94nbEbRWsznm6Q.js';
-	var s = document.getElementsByTagName('script')~[0~]; s.parentNode.insertBefore(uv, s);
-  })();
-</script>
-
-
-"
+msgctxt "header"
 msgid   "<meta property=\"fb:admins\" content=\"706410516\" />\n"
 "<meta property=\"og:site_name\" content=\"<<site_name>> - the free and open food products information database\"/>\n"
 "\n"
@@ -912,7 +819,7 @@ msgid   "<meta property=\"fb:admins\" content=\"706410516\" />\n"
 "  (function() {\n"
 "	var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;\n"
 "	uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/jQrwafQ94nbEbRWsznm6Q.js';\n"
-"	var s = document.getElementsByTagName('script')~[0~]; s.parentNode.insertBefore(uv, s);\n"
+"	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);\n"
 "  })();\n"
 "</script>\n"
 "\n"
@@ -958,6 +865,19 @@ msgstr  ""
 
 msgctxt "image_upload_error_image_too_small"
 msgid   "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
+msgstr  ""
+
+msgctxt "image_upload_error_no_barcode_found_in_image_long"
+msgid   "The barcode in the image could not be read, or the image contained no barcode.\n"
+"You can try with another image, or directly enter the barcode."
+msgstr  ""
+
+msgctxt "image_upload_error_no_barcode_found_in_image_short"
+msgid   "No barcode found in the image."
+msgstr  ""
+
+msgctxt "image_upload_error_no_barcode_found_in_text"
+msgid   "You must enter the characters of the barcode or send a product image when the barcode is visible."
 msgstr  ""
 
 msgctxt "incomplete_products_you_added"
@@ -1212,8 +1132,7 @@ msgctxt "last_image_dates_s"
 msgid   "Last picture date"
 msgstr  ""
 
-msgctxt "licence_acceptfor information and data, and under the <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.
-You accept to be credited by re-users by a link to the product your are contributing to."
+msgctxt "licence_accept"
 msgid   "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"http://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"http://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
@@ -1243,17 +1162,7 @@ msgctxt "login_not_registered_yet"
 msgid   "Not registered yet?"
 msgstr  ""
 
-msgctxt "login_register_content
-<form method="post" action="/cgi/session.pl">
-Username or e-mail address:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
-Password<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
-<input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Remember me</label><br />
-<input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
-</form>
-<p>Not registered yet? <a href="/cgi/user.pl">Create your account</a>.</p>
-"
+msgctxt "login_register_content"
 msgid   "<p>Sign-in to add or edit products.</p>\n"
 "\n"
 "<form method=\"post\" action=\"/cgi/session.pl\">\n"
@@ -1276,9 +1185,7 @@ msgctxt "login_to_add_and_edit_products"
 msgid   "Sign-in to add or edit products."
 msgstr  ""
 
-msgctxt "login_to_add_products
-<p>If you do not yet have an account on <<site_name>>, you can <a href="/cgi/user.pl">register in 30 seconds</a>.</p>
-"
+msgctxt "login_to_add_products"
 msgid   "<p>Please sign-in to add or edit a product.</p>\n"
 "\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
@@ -1402,7 +1309,7 @@ msgid   "moderate quantity"
 msgstr  ""
 
 msgctxt "months"
-msgid   "~['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'~]"
+msgid   "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
 msgstr  ""
 
 msgctxt "move_images_to_another_product"
@@ -1581,7 +1488,7 @@ msgctxt "nutrition_data_table"
 msgid   "Nutrition facts"
 msgstr  ""
 
-msgctxt "nutrition_data_table_noteby typing the first letters of their name in the last row of the table."
+msgctxt "nutrition_data_table_note"
 msgid   "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
 msgstr  ""
@@ -1602,8 +1509,7 @@ msgctxt "og_image_url"
 msgid   "http://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 msgstr  ""
 
-msgctxt "on_the_blog_content<p>Recent news:</p>
-"
+msgctxt "on_the_blog_content"
 msgid   "<p>To learn more about <<site_name>>, visit <a href=\"http://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
 ""
@@ -1613,7 +1519,7 @@ msgctxt "on_the_blog_title"
 msgid   "News"
 msgstr  ""
 
-msgctxt "openfoodhunt_pointsExplorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
+msgctxt "openfoodhunt_points"
 msgid   "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
 msgstr  ""
@@ -1994,21 +1900,7 @@ msgctxt "reset_password"
 msgid   "Reset password"
 msgstr  ""
 
-msgctxt "reset_password_email_body
-You asked for your password to be reset on http://openfoodfacts.org
-
-for the username: <USERID>
-
-To continue the password reset, click on the link below.
-If you did not ask for the password reset, you can ignore this message.
-
-<RESET_URL>
-
-See you soon,
-
-Stephane
-http://openfoodfacts.org
-"
+msgctxt "reset_password_email_body"
 msgid   "Hello <NAME>,\n"
 "\n"
 "You asked for your password to be reset on http://openfoodfacts.org\n"
@@ -2103,6 +1995,10 @@ msgctxt "search_criteria"
 msgid   "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
 msgstr  ""
 
+msgctxt "search_description_opensearch"
+msgid   "Open Food Facts product search"
+msgstr  ""
+
 msgctxt "search_does_not_contain"
 msgid   "does not contain"
 msgstr  ""
@@ -2155,7 +2051,7 @@ msgctxt "search_graph_choice"
 msgid   "Results on a graph"
 msgstr  ""
 
-msgctxt "search_graph_instructionsget a cloud of products (scatter plot)."
+msgctxt "search_graph_instructions"
 msgid   "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
 "get a cloud of products (scatter plot)."
 msgstr  ""
@@ -2568,7 +2464,7 @@ msgctxt "view_results_from_the_entire_world"
 msgid   "View results from the entire world"
 msgstr  ""
 
-msgctxt "warning_3rd_party_content→ <a href="">Why it matters</a>"
+msgctxt "warning_3rd_party_content"
 msgid   "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"\">Why it matters</a>"
 msgstr  ""
@@ -2578,7 +2474,7 @@ msgid   "Site or blog address"
 msgstr  ""
 
 msgctxt "weekdays"
-msgid   "~['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'~]"
+msgid   "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
 msgstr  ""
 
 msgctxt "windows_phone_app_badge"
