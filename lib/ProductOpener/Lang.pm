@@ -71,12 +71,12 @@ use ProductOpener::Config qw/:all/;
 # the singulars that need to be changed to plurals
 my ($tag_type_singular_ref, $tag_type_plural_ref)
     = ProductOpener::I18N::split_tags(
-        ProductOpener::I18N::read_po_files("po/tags"));
+        ProductOpener::I18N::read_po_files("$data_root/po/tags"));
 %tag_type_singular = %$tag_type_singular_ref;
 %tag_type_plural   = %$tag_type_plural_ref;
 
 # UI strings, non-Roman characters can be used
-%Lang = %{ ProductOpener::I18N::read_po_files("po/common/") };
+%Lang = %{ ProductOpener::I18N::read_po_files("$data_root/po/common/") };
 
 
 

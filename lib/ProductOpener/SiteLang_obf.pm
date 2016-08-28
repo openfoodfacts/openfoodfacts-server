@@ -31,7 +31,7 @@ use ProductOpener::I18N;
 
 # %SiteLang overrides the general %Lang in Lang.pm
 
-%SiteLang = %{ ProductOpener::I18N::read_po_files("po/openbeautyfacts/") };
+%SiteLang = %{ ProductOpener::I18N::read_po_files("$data_root/po/openbeautyfacts/") };
 
 
 1;
