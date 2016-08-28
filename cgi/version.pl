@@ -5,7 +5,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use strict;
 use utf8;
 
-use Blogs::Version qw/:all/;
+use ProductOpener::Version qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 
