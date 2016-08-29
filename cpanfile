@@ -33,6 +33,7 @@ requires 'DateTime::Format::CLDR';
 requires 'DateTime::Locale';
 requires 'Math::Random::Secure';
 requires 'Crypt::ScryptKDF';
+requires ' Locale::Maketext::Lexicon::Getcontext', '>= 0.03';
 
 on 'test' => sub {
   requires 'Test::More', '>= 1.302049, < 2.0';

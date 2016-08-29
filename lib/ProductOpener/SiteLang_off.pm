@@ -27,6 +27,7 @@ use vars @EXPORT_OK ;
 use strict;
 use utf8;
 
+use ProductOpener::Config qw/:all/;
 use ProductOpener::I18N;
 
 # %SiteLang overrides the general %Lang in Lang.pm
