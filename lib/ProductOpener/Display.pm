@@ -4406,7 +4406,7 @@ $meta_description
 <script type="text/javascript" src="/js/jquery-ui-1.11.4/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/js/jquery-ui-1.11.4/jquery-ui.min.css" />
 
-<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
 <link rel="search" href="http://$subdomain.$server_domain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}" />
 
 <script>
@@ -5099,7 +5099,7 @@ $Lang{footer_follow_us}{$lc}
 <script src="/foundation/js/foundation.min.js"></script>
 <script src="/foundation/js/vendor/jquery.cookie.js"></script>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" integrity="sha384-222hzbb8Z8ZKe6pzP18nTSltQM3PdcAwxWKzGOKOIF+Y3bROr5n9zdQ8yTRHgQkQ" crossorigin="anonymous"></script>
 
 $scripts
 
