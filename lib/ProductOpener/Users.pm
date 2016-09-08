@@ -616,7 +616,7 @@ sub init_user()
 		%User = %$user_ref;
 	}
 	else {
-		%User = undef;
+		%User = ();
 	}
 	
 	return 0;
