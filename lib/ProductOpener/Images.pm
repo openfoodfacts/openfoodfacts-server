@@ -121,7 +121,11 @@ HTML
 
 	my @fields = qw(imgid x1 y1 x2 y2);
 	foreach my $field (@fields) {
-		$html .= '<input type="hidden" name="' . "${id}_$field" . '" id="' . "${id}_$field" . '" value="' . $object_ref->{"$id.$field"} . '" />' . "\n";
+		my $value = "";
+		if (defined $object_ref->{"$id.$field"}) {
+			$value = $object_ref->{"$id.$field"};
+		}
+		$html .= '<input type="hidden" name="' . "${id}_$field" . '" id="' . "${id}_$field" . '" value="' . $value . '" />' . "\n";
 	}
 	my $size = $display_size;
 	my $product_ref = $object_ref;
