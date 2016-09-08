@@ -5733,7 +5733,7 @@ HTML
 	}
 	
 	
-	if ($product_ref->{no_nutrition_data} eq 'on') {
+	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
 		$html .= "<p>$Lang{no_nutrition_data}{$lang}</p>";
 	}
 	
@@ -6588,7 +6588,10 @@ HTML
 			
 				my $comparison_ref = $comparisons_ref->[$1];
 
-				my $value = sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit)) + 0.0;
+				my $value = "";
+				if (defined $comparison_ref->{nutriments}{$nid . "_100g"}) {
+					$value = sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit)) + 0.0;
+				}
 				# too small values are converted to e notation: 7.18e-05
 				if (($value . ' ') =~ /e/) {
 					# use %f (outputs extras 0 in the general case)
@@ -6623,7 +6626,7 @@ HTML
 					else {
 						$values2 .= "<td class=\"nutriment_value${col_class}\">"
 						. '<span class="compare_percent">' . $percent . '%</span>'
-						. '<span class="compare_value" style="display:none">' . (sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid} * 2.54, $unit)) + 0.0) . " " . $unit . '</span>' . "</td>";
+						. '<span class="compare_value" style="display:none">' . (sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} * 2.54, $unit)) + 0.0) . " " . $unit . '</span>' . "</td>";
 					}
 				}
 				if ($nid eq 'salt') {
@@ -6633,7 +6636,7 @@ HTML
 					else {
 						$values2 .= "<td class=\"nutriment_value${col_class}\">"
 						. '<span class="compare_percent">' . $percent . '%</span>'
-						. '<span class="compare_value" style="display:none">' . (sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid} / 2.54, $unit)) + 0.0) . " " . $unit . '</span>' . "</td>";
+						. '<span class="compare_value" style="display:none">' . (sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} / 2.54, $unit)) + 0.0) . " " . $unit . '</span>' . "</td>";
 					}
 				}				
 			}
