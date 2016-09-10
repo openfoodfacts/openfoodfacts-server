@@ -33,6 +33,8 @@ requires 'DateTime::Format::CLDR';
 requires 'DateTime::Locale';
 requires 'Math::Random::Secure';
 requires 'Crypt::ScryptKDF';
+requires 'CLDR::Number::Format::Percent';
+requires 'CLDR::Number';
 
 on 'test' => sub {
   requires 'Test::More', '>= 1.302049, < 2.0';
