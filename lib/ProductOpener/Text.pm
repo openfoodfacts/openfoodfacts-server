@@ -47,8 +47,8 @@ sub normalize_percentages($$) {
 	my ($text, $locale) = @_;
 
 	my $cldr = CLDR::Number->new(locale => $locale);
-	my $regex = _get_locale_percent_regex($cldr);
 	my $perf = $cldr->percent_formatter( maximum_fraction_digits => 2 );
+	my $regex = _get_locale_percent_regex($cldr, $perf);
 
 	$text =~ s/$regex/''._format_percentage($1, $cldr, $perf).''/eg;
 	return $text;
@@ -56,12 +56,13 @@ sub normalize_percentages($$) {
 }
 
 %ProductOpener::Text::regexes = ();
-sub _get_locale_percent_regex($) {
+sub _get_locale_percent_regex($$) {
 
-	my ($cldr) = @_;
+	my ($cldr, $perf) = @_;
 
-	if (defined $ProductOpener::Text::regexes{$cldr}) {
-		return $ProductOpener::Text::regexes{$cldr};
+	my $locale = $cldr->locale;
+	if (defined $ProductOpener::Text::regexes{$locale}) {
+		return $ProductOpener::Text::regexes{$locale};
 	}
 
 	# this should escape '.' to '\.' to be used in the regex ...
@@ -70,9 +71,16 @@ sub _get_locale_percent_regex($) {
 	my $g = quotemeta($cldr->group_sign);
 	my $d = quotemeta($cldr->decimal_sign);
 
-	# [+-]?(?:\d{3}\.)*\d+(?:,\d+)*\h*% where . is the group sign from the locale, and , is the decimal point
-	my $regex = qr/([$p$m]?(?:\d{3}$g)*\d+(?:$d\d+)*\h*%)/;
-	$ProductOpener::Text::regexes{$cldr} = $regex;
+	# [+-]?(?:\d{3}\.)*\d+(?:,\d+)*\h*% where . is the group sign from the locale, and , is the decimal point - or other way around for tr etc.
+	my $regex;
+	if (index($perf->pattern, $perf->percent_sign) == 0) {
+		$regex = qr/(%\h*[$p$m]?(?:\d{3}$g)*\d+(?:$d\d+)*)/;
+	}
+	else {
+		$regex = qr/([$p$m]?(?:\d{3}$g)*\d+(?:$d\d+)*\h*%)/;
+	}
+
+	$ProductOpener::Text::regexes{$locale} = $regex;
 	return $regex;
 
 }

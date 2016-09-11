@@ -22,9 +22,33 @@ use ProductOpener::Text qw/:all/;
 # - The group sign (between groups of three) could be nothing, a ',' (ie. en_US), a '.' (de) or a non-breaking space (fr), even though for one locale it will most likely not be the same as the decimal sign.
 
 # ur      #,##,##0%
-ok( normalize_percentages('test 1234 % hi there', 'ur'), 'test 1234% hi there' );
-ok( normalize_percentages('test 1234% hi there', 'ur'), 'test 1234% hi there' );
-ok( normalize_percentages('test 123,456.78 % hi there', 'ur'), 'test 123,456.78% hi there' );
-ok( normalize_percentages('test 123,456.78% hi there', 'ur'), 'test 123,456.78% hi there' );
+is( normalize_percentages('test 1234 % hi there', 'ur'), 'test 1,234% hi there' );
+is( normalize_percentages('test 1234% hi there', 'ur'), 'test 1,234% hi there' );
+is( normalize_percentages('test 123,456.78 % hi there', 'ur'), 'test 1,23,456.78% hi there' );
+is( normalize_percentages('test 123,456.78% hi there', 'ur'), 'test 1,23,456.78% hi there' );
+
+# de	#,##0\N{U+00A0}%
+is( normalize_percentages('test 1234 % hi there', 'de'), "test 1.234\N{U+00A0}% hi there" );
+is( normalize_percentages('test 1234% hi there', 'de'), "test 1.234\N{U+00A0}% hi there" );
+is( normalize_percentages('test 123.456,78 % hi there', 'de'), "test 123.456,78\N{U+00A0}% hi there" );
+is( normalize_percentages('test 123.456,78% hi there', 'de'), "test 123.456,78\N{U+00A0}% hi there" );
+
+# fr	#,##0 %
+is( normalize_percentages('test 1234 % hi there', 'fr'), "test 1\N{U+00A0}234 % hi there" );
+is( normalize_percentages('test 1234% hi there', 'fr'), "test 1\N{U+00A0}234 % hi there" );
+is( normalize_percentages("test 123 456.78 % hi there", 'fr'), "test 123\N{U+00A0}456.78 % hi there" );
+is( normalize_percentages("test 123 456.78% hi there", 'fr'), "test 123\N{U+00A0}456.78 % hi there" );
+
+# eu	% #,##0
+is( normalize_percentages('test % 1234 hi there', 'eu'), "test %\N{U+00A0}1.234 hi there" );
+is( normalize_percentages('test %1234 hi there', 'eu'), "test %\N{U+00A0}1.234 hi there" );
+is( normalize_percentages('test % 123.456,78 hi there', 'eu'), "test %\N{U+00A0}123.456,78 hi there" );
+is( normalize_percentages('test %123.456,78 hi there', 'eu'), "test %\N{U+00A0}123.456,78 hi there" );
+
+# tr	%#,##0
+is( normalize_percentages('test % 1234 hi there', 'tr'), 'test %1.234 hi there' );
+is( normalize_percentages('test %1234 hi there', 'tr'), 'test %1.234 hi there' );
+is( normalize_percentages('test % 123.456,78 hi there', 'tr'), 'test %123.456,78 hi there' );
+is( normalize_percentages('test %123.456,78 hi there', 'tr'), 'test %123.456,78 hi there' );
 
 done_testing();
