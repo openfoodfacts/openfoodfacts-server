@@ -50,8 +50,9 @@ sub normalize_percentages($$) {
 	my $regex = _get_locale_percent_regex($cldr);
 	my $perf = $cldr->percent_formatter( maximum_fraction_digits => 2 );
 
-	my $output = $text =~ s/$rex/''._format_percentage($1, $cldr, $perf).''/eg;
-	return $output;
+	$text =~ s/$regex/''._format_percentage($1, $cldr, $perf).''/eg;
+	return $text;
+
 }
 
 %ProductOpener::Text::regexes = ();
@@ -81,16 +82,20 @@ sub _format_percentage($$$) {
 	my ($value, $cldr, $perf) = @_;
 
 	# this should escape '.' to '\.' to be used in the regex ...
-	my $p = quotemeta($cldr->plus_sign);
-	my $m = quotemeta($cldr->minus_sign);
 	my $g = quotemeta($cldr->group_sign);
 	my $d = quotemeta($cldr->decimal_sign);
 
 	# 1 make the string float parseable by Perl
 	# 1.1 remove % and group sign
-	$value =~ s/[%$g]/g;
+	$value =~ tr/%//d;
+	$value =~ s/$g//g;
 	# 1.2 replace decimal sign with a decimal dot
-	$value =~ s/$d/./g;
+	$value =~ s/$d/\./g;
+	# 2 make percent
+	$value = $value / 100.0;
+	# 3 format with given locale and return
+	return $perf->format($value);
+
 }
 
 1;

@@ -24,7 +24,7 @@ use ProductOpener::Text qw/:all/;
 # ur      #,##,##0%
 ok( normalize_percentages('test 1234 % hi there', 'ur'), 'test 1234% hi there' );
 ok( normalize_percentages('test 1234% hi there', 'ur'), 'test 1234% hi there' );
-ok( normalize_percentages('test 123,456.78 % hi there', 'dz'), 'test 123,456.78% hi there' );
-ok( normalize_percentages('test 123,456.78% hi there', 'dz'), 'test 123,456.78% hi there' );
+ok( normalize_percentages('test 123,456.78 % hi there', 'ur'), 'test 123,456.78% hi there' );
+ok( normalize_percentages('test 123,456.78% hi there', 'ur'), 'test 123,456.78% hi there' );
 
 done_testing();
