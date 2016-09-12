@@ -488,7 +488,7 @@ sub analyze_request($)
 			print STDERR "Display::analyze_request - list of tags - groupby: $request_ref->{groupby_tagtype}\n";
 		}	
 	
-		if ((defined $tag_type_from_singular{$lc}{$components[0]}) and ($#components >= 0)) {
+		if (($#components >= 0) and (defined $tag_type_from_singular{$lc}{$components[0]})) {
 		
 			print STDERR "Display::analyze_request - tag_type_from_singular $lc : $components[0]\n";
 		
@@ -519,7 +519,7 @@ sub analyze_request($)
 			
 			# 2nd tag?
 			
-			if (defined $tag_type_from_singular{$lc}{$components[0]}) {
+			if (($#components >= 0) and (defined $tag_type_from_singular{$lc}{$components[0]})) {
 			
 				$request_ref->{tagtype2} = $tag_type_from_singular{$lc}{shift @components};
 				my $tagtype = $request_ref->{tagtype2};
@@ -562,7 +562,7 @@ sub analyze_request($)
 			display_error(lang("error_invalid_address"), 404);
 		}
 		
-		if ($components[$#components] =~ /^\d+$/) {
+		if (($#components >=0) and ($components[$#components] =~ /^\d+$/)) {
 			$request_ref->{page} = pop @components;
 		}
 		
@@ -1820,7 +1820,7 @@ sub display_tag($) {
 		$request_ref->{world_current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{en};
 	}
 	
-	if (($newtagid ne $tagid) or ($newtagid2 ne $tagid2)) {
+	if (((defined $newtagid) and ($newtagid ne $tagid)) or ((defined $newtagid2) and ($newtagid2 ne $tagid2))) {
 		$request_ref->{redirect} = $request_ref->{current_link};
 		print STDERR "Display.pm display_tag - redirect - tagid: $tagid - newtagid: $newtagid - tagid2: $tagid2 - newtagid2: $newtagid2 - url: $request_ref->{current_link} \n";
 		return 301;
@@ -1860,7 +1860,9 @@ sub display_tag($) {
 	my $products_title = $display_tag;
 
 	my $icid = $tagid;
-	$icid =~ s/^.*://;
+	(defined $icid) and $icid =~ s/^.*://;
+	
+	if (defined $tagtype) {
 		
 	if (defined $ingredients_classes{$tagtype}) {
 		my $class = $tagtype;
@@ -2076,6 +2078,8 @@ HTML
 	
 		$html .= "<h2>" . $products_title . " - " . display_taxonomy_tag($lc,"countries",$country) . "</h2>\n";
 	}
+	
+	} # end of if (defined $tagtype)
 	
 	if ($country ne 'en:world') {
 		if (defined $request_ref->{groupby_tagtype}) {
@@ -6274,7 +6278,7 @@ sub display_nutrition_table($$) {
 	
 	if ($product_ref->{nutrition_data_per} eq 'serving') {
 	
-		if ($product_ref->{serving_quantity} > 0) {
+		if ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
 			@cols = ('100g','serving');
 		}
 		else {
@@ -6282,7 +6286,7 @@ sub display_nutrition_table($$) {
 		}
 	}
 	else {
-		if ($product_ref->{serving_quantity} > 0) {
+		if ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
 			@cols = ('100g','serving');
 		}
 		else {
