@@ -3959,19 +3959,15 @@ JS
 		
 		
 		# Points to display?
-		
+
 		if ($emb_codes > 0) {
 
 			$header .= <<HTML		
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
-<!--[if lte IE 8]>
-     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css" />
-<![endif]-->
-<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
-	<link rel="stylesheet" href="/js/leaflet/MarkerCluster.css" />
-	<link rel="stylesheet" href="/js/leaflet/MarkerCluster.Default.css" />
-	<!--[if lte IE 8]><link rel="stylesheet" href="/js/leaflet/MarkerCluster.Default.ie.css" /><![endif]-->
-	<script src="/js/leaflet/leaflet.markercluster-src.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@0.7.7/dist/leaflet.css" integrity="sha384-99ZJFcuBCh9c/V/+8YwDX/TUGG8JWMG+gKFJWzk0BZP3IoDMN+pLGd3/H0yjg4oa" crossorigin="anonymous">
+<script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js" integrity="sha384-Lh7SNUss9JoImCvc96eCUnLX3HvY4kb0UZCWZbYWvceJ+o5CJeOJqqNoheaGkNHT" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/js/leaflet/Leaflet.markercluster/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="/js/leaflet/Leaflet.markercluster/dist/MarkerCluster.Default.css" />
+<script src="/js/leaflet/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
 HTML
 ;
 
@@ -5418,6 +5414,7 @@ CSS
 	if (defined $rev) {
 		print STDERR "display_product : rev $rev\n";
 		$product_ref = retrieve_product_rev($code, $rev);
+		$header .= '<meta name="robots" content="noindex,follow">';
 	}
 	else {
 		$product_ref = retrieve_product($code);
@@ -5452,7 +5449,7 @@ CSS
 	# Check that the titleid is the right one
 	
 	# if (((defined $product_ref->{lc}) and ($lc ne $product_ref->{lc})) or ((defined $request_ref->{titleid}) and ($request_ref->{titleid} ne '') and ($request_ref->{titleid} ne $titleid) and (not defined $rev))) {
-	if (((defined $request_ref->{titleid}) and ($request_ref->{titleid} ne '') and ($request_ref->{titleid} ne $titleid) and (not defined $rev))) {
+	if ((not defined $rev) and ((not defined $request_ref->{titleid}) or ($request_ref->{titleid} eq '') or ($request_ref->{titleid} ne $titleid))) {
 		$request_ref->{redirect} = $request_ref->{canon_url};
 		print STDERR "Display.pm display_product - redirect - lc: $lc product_lc: product_ref->{lc} - titleid: $titleid - request_ref->{titleid} : $request_ref->{titleid}\n";
 		return 301;
