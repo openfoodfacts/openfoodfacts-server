@@ -5414,6 +5414,7 @@ CSS
 	if (defined $rev) {
 		print STDERR "display_product : rev $rev\n";
 		$product_ref = retrieve_product_rev($code, $rev);
+		$header .= '<meta name="robots" content="noindex,follow">';
 	}
 	else {
 		$product_ref = retrieve_product($code);
