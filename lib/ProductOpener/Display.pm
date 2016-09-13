@@ -252,7 +252,7 @@ sub init()
 	$lang = $lc;
 	
 	# If the language is equal to the first language of the country, but we are on a different subdomain, redirect to the main country subdomain. (fr-fr => fr)
-	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain ne 'ssl-api') and ($r->method() eq 'GET')) {
+	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^ssl-api/) and ($r->method() eq 'GET')) {
 		# redirect
 		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $cc.${server_domain}\n";
 		$r->headers_out->set(Location => "http://$cc.${server_domain}/" . $ENV{QUERY_STRING});
@@ -3967,11 +3967,11 @@ JS
 		if ($emb_codes > 0) {
 
 			$header .= <<HTML		
-<link rel="stylesheet" href="https://unpkg.com/leaflet@0.7.7/dist/leaflet.css" integrity="sha384-99ZJFcuBCh9c/V/+8YwDX/TUGG8JWMG+gKFJWzk0BZP3IoDMN+pLGd3/H0yjg4oa" crossorigin="anonymous">
-<script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js" integrity="sha384-Lh7SNUss9JoImCvc96eCUnLX3HvY4kb0UZCWZbYWvceJ+o5CJeOJqqNoheaGkNHT" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="/js/leaflet/Leaflet.markercluster/dist/MarkerCluster.css" />
-<link rel="stylesheet" href="/js/leaflet/Leaflet.markercluster/dist/MarkerCluster.Default.css" />
-<script src="/js/leaflet/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet\@0.7.7/dist/leaflet.css" integrity="sha384-99ZJFcuBCh9c/V/+8YwDX/TUGG8JWMG+gKFJWzk0BZP3IoDMN+pLGd3/H0yjg4oa" crossorigin="anonymous">
+<script src="https://unpkg.com/leaflet\@0.7.7/dist/leaflet.js" integrity="sha384-Lh7SNUss9JoImCvc96eCUnLX3HvY4kb0UZCWZbYWvceJ+o5CJeOJqqNoheaGkNHT" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.Default.css" />
+<script src="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/leaflet.markercluster-src.js"></script>
 HTML
 ;
 
@@ -5452,8 +5452,9 @@ CSS
 	
 	# Check that the titleid is the right one
 	
-	# if (((defined $product_ref->{lc}) and ($lc ne $product_ref->{lc})) or ((defined $request_ref->{titleid}) and ($request_ref->{titleid} ne '') and ($request_ref->{titleid} ne $titleid) and (not defined $rev))) {
-	if ((not defined $rev) and ((not defined $request_ref->{titleid}) or ($request_ref->{titleid} eq '') or ($request_ref->{titleid} ne $titleid))) {
+	if ((not defined $rev) and	(
+			(($titleid ne '') and ((not defined $request_ref->{titleid}) or ($request_ref->{titleid} ne $titleid))) or
+			(($titleid eq '') and ((defined $request_ref->{titleid}) and ($request_ref->{titleid} ne ''))) )) {
 		$request_ref->{redirect} = $request_ref->{canon_url};
 		print STDERR "Display.pm display_product - redirect - lc: $lc product_lc: product_ref->{lc} - titleid: $titleid - request_ref->{titleid} : $request_ref->{titleid}\n";
 		return 301;
