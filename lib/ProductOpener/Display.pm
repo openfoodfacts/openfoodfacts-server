@@ -5452,8 +5452,9 @@ CSS
 	
 	# Check that the titleid is the right one
 	
-	# if (((defined $product_ref->{lc}) and ($lc ne $product_ref->{lc})) or ((defined $request_ref->{titleid}) and ($request_ref->{titleid} ne '') and ($request_ref->{titleid} ne $titleid) and (not defined $rev))) {
-	if ((not defined $rev) and ((not defined $request_ref->{titleid}) or ($request_ref->{titleid} eq '') or ($request_ref->{titleid} ne $titleid))) {
+	if ((not defined $rev) and	(
+			(($titleid ne '') and ((not defined $request_ref->{titleid}) or ($request_ref->{titleid} ne $titleid))) or
+			(($titleid eq '') and ((defined $request_ref->{titleid}) and ($request_ref->{titleid} ne ''))) )) {
 		$request_ref->{redirect} = $request_ref->{canon_url};
 		print STDERR "Display.pm display_product - redirect - lc: $lc product_lc: product_ref->{lc} - titleid: $titleid - request_ref->{titleid} : $request_ref->{titleid}\n";
 		return 301;
