@@ -134,7 +134,7 @@ $memd = new Cache::Memcached::Fast {
 	'utf8' => 1,
 };
 
-$connection = MongoDB::Connection->new("host" => "localhost:27017");
+$connection = MongoDB::Connection->new("host" => "localhost:27017", "auto_reconnect"=>1);
 $database =  $database = $connection->get_database($mongodb);
 $products_collection = $database->get_collection('products');
 
@@ -235,7 +235,7 @@ sub init()
 	elsif ($ENV{QUERY_STRING} !~ /cgi/) {
 		# redirect
 		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to world.${server_domain}\n";
-		$r->headers_out->set(Location => "http://world.${server_domain}" . $ENV{QUERY_STRING});
+		$r->headers_out->set(Location => "http://world.${server_domain}/" . $ENV{QUERY_STRING});
 		$r->status(301);  
 		return 301;
 	}
@@ -993,7 +993,7 @@ sub display_list_of_tags($$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB::Connection->new("host" => "localhost:27017");
+			$connection = MongoDB::Connection->new("host" => "localhost:27017", "auto_reconnect"=>1);
 			$database =  $database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
@@ -2307,7 +2307,7 @@ sub search_and_display_products($$$$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB::Connection->new("host" => "localhost:27017");
+			$connection = MongoDB::Connection->new("host" => "localhost:27017", "auto_reconnect"=>1);
 			$database =  $database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
@@ -2651,7 +2651,7 @@ sub search_and_export_products($$$$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB::Connection->new("host" => "localhost:27017");
+			$connection = MongoDB::Connection->new("host" => "localhost:27017", "auto_reconnect"=>1);
 			$database =  $database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
@@ -3686,7 +3686,7 @@ sub search_and_graph_products($$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB::Connection->new("host" => "localhost:27017");
+			$connection = MongoDB::Connection->new("host" => "localhost:27017", "auto_reconnect"=>1);
 			$database =  $database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
@@ -3793,7 +3793,7 @@ sub search_and_map_products($$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB::Connection->new("host" => "localhost:27017");
+			$connection = MongoDB::Connection->new("host" => "localhost:27017", "auto_reconnect"=>1);
 			$database =  $database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
