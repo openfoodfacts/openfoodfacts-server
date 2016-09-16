@@ -134,8 +134,8 @@ $memd = new Cache::Memcached::Fast {
 	'utf8' => 1,
 };
 
-$connection = MongoDB::Connection->new("host" => "localhost:27017");
-$database =  $database = $connection->get_database($mongodb);
+$connection = MongoDB->connect();
+$database = $connection->get_database($mongodb);
 $products_collection = $database->get_collection('products');
 
 
@@ -235,7 +235,7 @@ sub init()
 	elsif ($ENV{QUERY_STRING} !~ /cgi/) {
 		# redirect
 		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to world.${server_domain}\n";
-		$r->headers_out->set(Location => "http://world.${server_domain}" . $ENV{QUERY_STRING});
+		$r->headers_out->set(Location => "http://world.${server_domain}/" . $ENV{QUERY_STRING});
 		$r->status(301);  
 		return 301;
 	}
@@ -587,6 +587,10 @@ sub analyze_request($)
 sub remove_tags_and_quote($) {
 
 	my $s = shift;
+
+	if (not defined $s) {
+		$s = "";
+	}
 
 	# Remove tags
 	$s =~ s/<(([^>]|\n)*)>//g;
@@ -993,8 +997,8 @@ sub display_list_of_tags($$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB::Connection->new("host" => "localhost:27017");
-			$database =  $database = $connection->get_database($mongodb);
+			$connection = MongoDB->connect();
+			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
 		if ($@) {
@@ -1025,6 +1029,12 @@ sub display_list_of_tags($$) {
 	my $countries_map_links = '';
 	my $countries_map_names = '';
 	my $countries_map_data = '';
+
+	# the return value of aggregate has changed from version 0.702
+	# and v1.4.5 of the perl MongoDB module
+	if (defined $results) {
+		$results = [$results->all];
+	}
 	
 	if ((not defined $results) or (not defined $results->[0])) {
 	
@@ -2307,8 +2317,8 @@ sub search_and_display_products($$$$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB::Connection->new("host" => "localhost:27017");
-			$database =  $database = $connection->get_database($mongodb);
+			$connection = MongoDB->connect();
+			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
 		if ($@) {
@@ -2651,8 +2661,8 @@ sub search_and_export_products($$$$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB::Connection->new("host" => "localhost:27017");
-			$database =  $database = $connection->get_database($mongodb);
+			$connection = MongoDB->connect();
+			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
 		if ($@) {
@@ -2938,6 +2948,9 @@ pnns_groups_2
 sub escape_single_quote($) {
 	my $s = shift;
 	# some app escape single quotes already, so we have \' already
+	if (not defined $s) {
+		$s = '';
+	}
 	$s =~ s/\\'/'/g;	
 	$s =~ s/'/\\'/g;
 	$s =~ s/\n/ /g;
@@ -3686,8 +3699,8 @@ sub search_and_graph_products($$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB::Connection->new("host" => "localhost:27017");
-			$database =  $database = $connection->get_database($mongodb);
+			$connection = MongoDB->connect();
+			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
 		if ($@) {
@@ -3793,8 +3806,8 @@ sub search_and_map_products($$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB::Connection->new("host" => "localhost:27017");
-			$database =  $database = $connection->get_database($mongodb);
+			$connection = MongoDB->connect();
+			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
 		if ($@) {
