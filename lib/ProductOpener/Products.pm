@@ -424,7 +424,8 @@ sub compute_completeness_and_missing_tags($$$) {
 		$complete = 0;		
 	}
 	
-	if ((scalar keys %{$current_ref->{nutriments}} > 0) or ($product_ref->{no_nutrition_data} eq 'on')) {
+	if (((defined $current_ref->{nutriments}) and (scalar keys %{$current_ref->{nutriments}} > 0))
+		or ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) ) {
 		push @states_tags, "en:nutrition-facts-completed";
 		$notempty++;
 	}
@@ -642,7 +643,7 @@ sub compute_product_history_and_completeness($$) {
 		
 		$changed_by{$userid} = 1;			
 		
-		if (($current{checked} eq 'on') and ($previous{checked} ne 'on')) {
+		if (((defined $current{checked}) and ($current{checked} eq 'on')) and ((not defined $previous{checked}) or ($previous{checked} ne 'on'))) {
 			if ((defined $userid) and ($userid ne '')) {
 				if (not defined $checkers{$userid}) {
 					$checkers{$userid} = 1;
@@ -660,7 +661,7 @@ sub compute_product_history_and_completeness($$) {
 				
 				# also check language specific fields for language codes of the current and previous product
 				my @languages_codes = ();
-				my %languages_codes = {};
+				my %languages_codes = ();
 				foreach my $current_or_previous_ref (\%current, \%previous) {
 					if (defined $current_or_previous_ref->{languages_codes}) {
 						foreach my $language_code (@{$current_or_previous_ref->{languages_codes}}) {
@@ -691,13 +692,15 @@ sub compute_product_history_and_completeness($$) {
 			
 				my $diff = undef;
 				
-				if (($previous{$group}{$id} eq '') and ($current{$group}{$id} ne '')) {
+				if (((not defined $previous{$group}{$id}) or ($previous{$group}{$id} eq ''))
+					and ((defined $current{$group}{$id}) and ($current{$group}{$id} ne '')) ) {
 					$diff = 'add';
 				}
-				elsif (($previous{$group}{$id} ne '') and ($current{$group}{$id} eq '')) {
+				elsif (((defined $previous{$group}{$id}) and ($previous{$group}{$id} ne ''))
+					and ((not defined $current{$group}{$id}) or ($current{$group}{$id} eq '')) ) {
 					$diff = 'delete';
 				}
-				elsif ($previous{$group}{$id} ne $current{$group}{$id}) {
+				elsif ((defined $previous{$group}{$id}) and (defined $current{$group}{$id}) and ($previous{$group}{$id} ne $current{$group}{$id}) ) {
 					$diff = 'change';
 				}
 				
