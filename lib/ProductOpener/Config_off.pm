@@ -54,7 +54,24 @@ use ProductOpener::Config2;
 use ProductOpener::Lang;
 
 
-%admins = ('stephane' => 1);
+%admins = map { $_ => 1 } qw(
+agamitsudo
+bcatelin
+beniben
+hangy
+javichu
+kyzh
+scanparty-franprix-05-2016
+sebleouf
+segundo
+stephane
+tacinte
+tacite
+teolemon
+twoflower
+scanparty-franprix-05-2016
+);
+
 
 
 # server constants
@@ -71,7 +88,7 @@ $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 $reference_timezone = 'Europe/Paris';
 
 $contact_email = 'contact@openfoodfacts.org';
-$admin_email = 'biz@joueb.com';
+$admin_email = 'stephane@openfoodfacts.org';
 
 
 $thumb_size = 100;

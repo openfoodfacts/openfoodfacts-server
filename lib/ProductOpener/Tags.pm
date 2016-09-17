@@ -2025,6 +2025,12 @@ sub display_taxonomy_tag($$$)
 	my $target_lc = shift; $target_lc =~ s/_.*//;
 	my $tagtype = shift;
 	my $tag = shift;
+	
+	if (not defined $tag) {
+		print STDERR "Tags.pm - Warning - display_taxonomy_tag() called for undefined \$tag\n";
+		return "";
+	}
+	
 	$tag =~ s/^ //g;
 	$tag =~ s/ $//g;		
 	

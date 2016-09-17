@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd /home/off-fr/cgi
+cd /home/off/scripts
 ./get_blog_updates.pl --lang fr --rss "http://fr.blog.openfoodfacts.org/index.xml"
 ./get_blog_updates.pl --lang en --rss "http://en.blog.openfoodfacts.org/index.xml"
 ./get_blog_updates.pl --lang de --rss "http://en.blog.openfoodfacts.org/german.xml"

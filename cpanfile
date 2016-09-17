@@ -15,12 +15,12 @@ requires 'Graphics::Color::RGB'; # libgraphics-color-perl
 requires 'Graphics::Color::HSL'; # libgraphics-color-perl
 requires 'Barcode::ZBar'; # libbarcode-zbar-perl
 requires 'XML::FeedPP'; # libxml-feedpp-perl
-requires 'MongoDB'; # libmongodb-perl
 requires 'URI::Find'; # liburi-find-perl
 requires 'XML::Simple'; # libxml-simple-perl
 requires 'experimental'; # libexperimental-perl
 
 # Probably not available as Debian packages
+requires 'MongoDB', '>= 1.4.5'; # libmongodb-perl has an older version
 requires 'URI::Escape::XS';
 requires 'Encode::Punycode';
 requires 'GraphViz2';

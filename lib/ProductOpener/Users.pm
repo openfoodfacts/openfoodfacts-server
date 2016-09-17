@@ -370,7 +370,12 @@ sub init_user()
 	elsif ( (defined param('user_id')) and (param('user_id') ne '') and
                        ( ( (defined param('password')) and (param('password') ne ''))
                          ) ) {
-		$user_id = remove_tags_and_quote(param('user_id')) ;
+						 
+		# CGI::param called in list context from package ProductOpener::Users line 373, this can lead to vulnerabilities.
+		# See the warning in "Fetching the value or values of a single named parameter"
+		# -> use a scalar to avoid calling param() in the list of arguments to remove_tags_and_quote
+		my $param_user_id = param('user_id');
+		$user_id = remove_tags_and_quote($param_user_id) ;
 		
 		if ($user_id =~ /\@/) {
 			my $emails_ref = retrieve("$data_root/users_emails.sto");
@@ -451,7 +456,7 @@ sub init_user()
 			    store("$user_file", $user_ref);
 
 
-			    $debug and print STDERR "ProductOpener::Users::init_user - user_id : $session->{'user_id'} ; user_session : $session->{'user_sessions'}\n" ;
+			    $debug and print STDERR "ProductOpener::Users::init_user - user_id : $session->{'user_id'} ; user_session : $session->{'user_session'}\n" ;
 			    # Check if the user is logging in
 
 			    my $length = 0;
@@ -616,7 +621,7 @@ sub init_user()
 		%User = %$user_ref;
 	}
 	else {
-		%User = undef;
+		%User = ();
 	}
 	
 	return 0;

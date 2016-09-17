@@ -76,6 +76,10 @@ sub get_fileid($) {
 
 	my $file = shift;
 	
+	if (not defined $file) {
+		return "";
+	}
+	
 	$file =~ s/œ|Œ/oe/g;
 	$file =~ s/æ|Æ/ae/g;
 	
