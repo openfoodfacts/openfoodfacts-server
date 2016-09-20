@@ -46,7 +46,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 ProductOpener::Display::init();
 
@@ -411,7 +411,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		
 		# New label?
 		my $new_nid = undef;
-		if (defined $label) {
+		if ((defined $label) and ($label ne '')) {
 			$new_nid = canonicalize_nutriment($lc,$label);
 			print STDERR "product_multilingual.pl - unknown nutrient $nid (lc: $lc) -> canonicalize_nutriment: $new_nid\n";
 			
@@ -439,7 +439,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				delete $product_ref->{nutriments}{$nid . "_serving"};
 		}
 		else {
-			if (defined $modifier) {
+			if ((defined $modifier) and ($modifier ne '')) {
 				$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
 			}
 			else {

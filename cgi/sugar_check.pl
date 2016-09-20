@@ -3,7 +3,7 @@
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 use strict;
 use utf8;

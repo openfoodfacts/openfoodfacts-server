@@ -120,7 +120,7 @@ use DateTime::Locale;
 use experimental 'smartmatch';
 use MongoDB;
 use Tie::IxHash;
-use JSON;
+use JSON::PP;
 use XML::Simple;
 
 use Apache2::RequestRec ();
