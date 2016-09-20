@@ -319,7 +319,7 @@ HTML
 HTML
 ;
 		$html .= popup_menu(-name=>"nutriment_compare_$i", -id=>"nutriment_compare_$i", -value=> $search_nutriments[$i][1], -values=>['lt','lte','gt','gte','eq'],
-			-labels => {'lt' => '<', 'lte' => '<=', 'gt' => '>', 'gte' => '>=', 'eq' => '='} );
+			-labels => {'lt' => '<', 'lte' => "\N{U+2264}", 'gt' => '>', 'gte' => "\N{U+2265}", 'eq' => '='} );
 
 		$html .= <<HTML
 			</div>
