@@ -37,7 +37,6 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use MongoDB;
 use Tie::IxHash;
-use JSON;
 
 
 sub gen_missions_html() {

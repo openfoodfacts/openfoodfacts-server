@@ -74,9 +74,6 @@ use ProductOpener::Tags qw/:all/;
 
 use Hash::Util;
 
-use JSON;
-use Encode;
-
 use CGI qw/:cgi :form escapeHTML/;
 
 
