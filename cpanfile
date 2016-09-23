@@ -1,4 +1,6 @@
 # Should also be available as Debian packages
+requires 'CGI';
+requires 'Tie::IxHash';
 requires 'LWP::Authen::Digest'; # libwww-perl
 requires 'LWP::Simple'; # libwww-perl
 requires 'LWP::UserAgent'; # libwww-perl
