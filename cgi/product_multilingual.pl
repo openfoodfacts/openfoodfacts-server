@@ -46,7 +46,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 ProductOpener::Display::init();
 
@@ -411,7 +411,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		
 		# New label?
 		my $new_nid = undef;
-		if (defined $label) {
+		if ((defined $label) and ($label ne '')) {
 			$new_nid = canonicalize_nutriment($lc,$label);
 			print STDERR "product_multilingual.pl - unknown nutrient $nid (lc: $lc) -> canonicalize_nutriment: $new_nid\n";
 			
@@ -439,7 +439,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				delete $product_ref->{nutriments}{$nid . "_serving"};
 		}
 		else {
-			if (defined $modifier) {
+			if ((defined $modifier) and ($modifier ne '')) {
 				$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
 			}
 			else {
@@ -506,6 +506,11 @@ sub display_field($$) {
 			$autocomplete = ",
 	'autocomplete_url': 'http://world.$server_domain/cgi/suggest.pl?lc=$lc&tagtype=$fieldtype&'";
 		}
+		
+		my $default_text = "";
+		if (defined $Lang{$field . "_tagsinput"}) {
+			$default_text = $Lang{$field . "_tagsinput"}{$lang};
+		}
 
 		$initjs .= <<HTML
 \$('#$field').tagsInput({
@@ -514,7 +519,7 @@ sub display_field($$) {
 	'interactive':true,
 	'minInputWidth':130,
 	'delimiter': [','],
-	'defaultText':"$Lang{$field . "_tagsinput"}{$lang}"$autocomplete
+	'defaultText':"$default_text"$autocomplete
 });
 HTML
 ;					
@@ -524,11 +529,14 @@ HTML
 	if (defined $product_ref->{$field . "_orig"}) {
 		$value = $product_ref->{$field . "_orig"};
 	}
-	if (defined $taxonomy_fields{$field}) {
+	if ((defined $value) and (defined $taxonomy_fields{$field})) {
 		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
 		# Remove tags
 		$value =~ s/<(([^>]|\n)*)>//g;
 	}			
+	if (not defined $value) {
+		$value = "";
+	}
 
 	my $html = <<HTML
 <label for="$field">$Lang{$fieldtype}{$lang}</label>
@@ -1148,7 +1156,7 @@ HTML
 			$new_lc = ' new';
 		}
 	
-		my $language;
+		my $language = "";
 	
 		if ($tabid eq 'new') {
 		
@@ -1160,10 +1168,11 @@ HTML
 		}
 		else {
 	
+			if ($tabid ne "new_lc") {
+				$language = display_taxonomy_tag($lc,'languages',$language_codes{$tabid});	 # instead of $tabsids_hash_ref->{$tabid}
+			}
 	
-			$language = display_taxonomy_tag($lc,'languages',$language_codes{$tabid});	 # instead of $tabsids_hash_ref->{$tabid}
-	
-		$html_header .= <<HTML
+			$html_header .= <<HTML
 	<li class="tabs tab-title$active$new_lc tabs_${tabid}"  id="tabs_${tabsid}_${tabid}_tab"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$language</a></li>
 HTML
 ;
@@ -1292,7 +1301,7 @@ $html .= "</div><!-- fieldset -->
 <div class=\"fieldset\" id=\"nutrition\"><legend>$Lang{nutrition_data}{$lang}</legend>\n";
 
 	my $checked = '';
-	if ($product_ref->{no_nutrition_data} eq 'on') {
+	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
 		$checked = 'checked="checked"';
 	}
 
@@ -1386,7 +1395,6 @@ HTML
 			}
 		}
 		
-		# print STDERR "product.pl - shown: $shown - nid: $nid - nutriment: $nutriment \n";
 		
 		my $display = '';
 		if ($nid eq 'new_0') {
@@ -1443,7 +1451,7 @@ HTML
 			}
 		}
 		
-		print STDERR "nutriment: $nutriment - nid: $nid - shown: $shown - class: $class - prefix: $prefix \n";
+		# print STDERR "nutriment: $nutriment - nid: $nid - shown: $shown - class: $class - prefix: $prefix \n";
 		
 		my $input = '';
 		
@@ -1466,7 +1474,7 @@ HTML
 		elsif ($nid eq 'alcohol') {
 			@units = ('% vol');
 		}
-		if (((exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0))
+		if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
 			or ($nid =~ /^new_/)) {
 			push @units, '% DV';
 		}
@@ -1474,12 +1482,12 @@ HTML
 		my $hide_percent = '';
 		my $hide_select = '';
 		
-		if ((exists $Nutriments{$nid}) and ($Nutriments{$nid}{unit} eq '')) {
+		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '')) {
 			$hide_percent = ' style="display:none"';
 			$hide_select = ' style="display:none"';
 			
 		}
-		elsif ((exists $Nutriments{$nid}) and ($Nutriments{$nid}{unit} eq '%')) {
+		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '%')) {
 			$hide_select = ' style="display:none"';
 		}
 		else {
@@ -1542,7 +1550,7 @@ HTML
 	my $other_nutriments = '';
 	my $nutriments = '';
 	foreach my $nid (@{$other_nutriments_lists{$nutriment_table}}) {
-		if ($product_ref->{nutriments}{$nid} eq '') {
+		if ((not defined $product_ref->{nutriments}{$nid}) or ($product_ref->{nutriments}{$nid} eq '')) {
 			$other_nutriments .= '{ "value" : "' . $Nutriments{$nid}{$lang} . '", "unit" : "' . $Nutriments{$nid}{unit} . '" },' . "\n";
 		}
 		$nutriments .= '"' . $Nutriments{$nid}{$lang} . '" : "' . $nid . '",' . "\n";
@@ -1672,7 +1680,10 @@ HTML
 		foreach my $change_ref (reverse @{$changes_ref}) {
 		
 			my $date = display_date($change_ref->{t});	
-			my $user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
+			my $user = "";
+			if (defined $change_ref->{userid}) {
+				$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
+			}
 			my $comment = $change_ref->{comment};
 			
 			

@@ -120,7 +120,7 @@ use DateTime::Locale;
 use experimental 'smartmatch';
 use MongoDB;
 use Tie::IxHash;
-use JSON;
+use JSON::PP;
 use XML::Simple;
 
 use Apache2::RequestRec ();
@@ -134,8 +134,8 @@ $memd = new Cache::Memcached::Fast {
 	'utf8' => 1,
 };
 
-$connection = MongoDB::Connection->new("host" => "localhost:27017");
-$database =  $database = $connection->get_database($mongodb);
+$connection = MongoDB->connect();
+$database = $connection->get_database($mongodb);
 $products_collection = $database->get_collection('products');
 
 
@@ -235,7 +235,7 @@ sub init()
 	elsif ($ENV{QUERY_STRING} !~ /cgi/) {
 		# redirect
 		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to world.${server_domain}\n";
-		$r->headers_out->set(Location => "http://world.${server_domain}" . $ENV{QUERY_STRING});
+		$r->headers_out->set(Location => "http://world.${server_domain}/" . $ENV{QUERY_STRING});
 		$r->status(301);  
 		return 301;
 	}
@@ -252,7 +252,7 @@ sub init()
 	$lang = $lc;
 	
 	# If the language is equal to the first language of the country, but we are on a different subdomain, redirect to the main country subdomain. (fr-fr => fr)
-	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain ne 'ssl-api') and ($r->method() eq 'GET')) {
+	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^ssl-api/) and ($r->method() eq 'GET')) {
 		# redirect
 		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $cc.${server_domain}\n";
 		$r->headers_out->set(Location => "http://$cc.${server_domain}/" . $ENV{QUERY_STRING});
@@ -280,18 +280,8 @@ sub init()
 		}
 	}
 	
-	if (($User_id eq 'stephane') or ($User_id eq 'tacite') or ($User_id eq 'teolemon') or ($User_id eq 'bcatelin')
-		or ($User_id eq 'twoflower') or ($User_id eq 'hangy') or ($User_id eq 'javichu') or ($User_id eq 'segundo') 
-		or ($User_id eq 'tacinte') or ($User_id eq 'kyzh') or ($User_id eq 'sebleouf') or ($User_id eq 'scanparty-franprix-05-2016')) {
+	if ((%admins) and (defined $User_id) and (exists $admins{$User_id})) {
 		$admin = 1;
-	}
-	
-	if ((%admins) and (exists $admins{$User_id})) {
-		$admin = 1;
-	}
-	
-	if ($server_domain =~ /^test/) {
-	#	$admin = 1;
 	}
 	
 	if (defined $User_id) {
@@ -498,7 +488,7 @@ sub analyze_request($)
 			print STDERR "Display::analyze_request - list of tags - groupby: $request_ref->{groupby_tagtype}\n";
 		}	
 	
-		if ((defined $tag_type_from_singular{$lc}{$components[0]}) and ($#components >= 0)) {
+		if (($#components >= 0) and (defined $tag_type_from_singular{$lc}{$components[0]})) {
 		
 			print STDERR "Display::analyze_request - tag_type_from_singular $lc : $components[0]\n";
 		
@@ -529,7 +519,7 @@ sub analyze_request($)
 			
 			# 2nd tag?
 			
-			if (defined $tag_type_from_singular{$lc}{$components[0]}) {
+			if (($#components >= 0) and (defined $tag_type_from_singular{$lc}{$components[0]})) {
 			
 				$request_ref->{tagtype2} = $tag_type_from_singular{$lc}{shift @components};
 				my $tagtype = $request_ref->{tagtype2};
@@ -572,7 +562,7 @@ sub analyze_request($)
 			display_error(lang("error_invalid_address"), 404);
 		}
 		
-		if ($components[$#components] =~ /^\d+$/) {
+		if (($#components >=0) and ($components[$#components] =~ /^\d+$/)) {
 			$request_ref->{page} = pop @components;
 		}
 		
@@ -597,6 +587,10 @@ sub analyze_request($)
 sub remove_tags_and_quote($) {
 
 	my $s = shift;
+
+	if (not defined $s) {
+		$s = "";
+	}
 
 	# Remove tags
 	$s =~ s/<(([^>]|\n)*)>//g;
@@ -1003,8 +997,8 @@ sub display_list_of_tags($$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB::Connection->new("host" => "localhost:27017");
-			$database =  $database = $connection->get_database($mongodb);
+			$connection = MongoDB->connect();
+			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
 		if ($@) {
@@ -1035,6 +1029,12 @@ sub display_list_of_tags($$) {
 	my $countries_map_links = '';
 	my $countries_map_names = '';
 	my $countries_map_data = '';
+
+	# the return value of aggregate has changed from version 0.702
+	# and v1.4.5 of the perl MongoDB module
+	if (defined $results) {
+		$results = [$results->all];
+	}
 	
 	if ((not defined $results) or (not defined $results->[0])) {
 	
@@ -1830,7 +1830,7 @@ sub display_tag($) {
 		$request_ref->{world_current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{en};
 	}
 	
-	if (($newtagid ne $tagid) or ($newtagid2 ne $tagid2)) {
+	if (((defined $newtagid) and ($newtagid ne $tagid)) or ((defined $newtagid2) and ($newtagid2 ne $tagid2))) {
 		$request_ref->{redirect} = $request_ref->{current_link};
 		print STDERR "Display.pm display_tag - redirect - tagid: $tagid - newtagid: $newtagid - tagid2: $tagid2 - newtagid2: $newtagid2 - url: $request_ref->{current_link} \n";
 		return 301;
@@ -1870,7 +1870,9 @@ sub display_tag($) {
 	my $products_title = $display_tag;
 
 	my $icid = $tagid;
-	$icid =~ s/^.*://;
+	(defined $icid) and $icid =~ s/^.*://;
+	
+	if (defined $tagtype) {
 		
 	if (defined $ingredients_classes{$tagtype}) {
 		my $class = $tagtype;
@@ -2086,6 +2088,8 @@ HTML
 	
 		$html .= "<h2>" . $products_title . " - " . display_taxonomy_tag($lc,"countries",$country) . "</h2>\n";
 	}
+	
+	} # end of if (defined $tagtype)
 	
 	if ($country ne 'en:world') {
 		if (defined $request_ref->{groupby_tagtype}) {
@@ -2313,8 +2317,8 @@ sub search_and_display_products($$$$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB::Connection->new("host" => "localhost:27017");
-			$database =  $database = $connection->get_database($mongodb);
+			$connection = MongoDB->connect();
+			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
 		if ($@) {
@@ -2657,8 +2661,8 @@ sub search_and_export_products($$$$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB::Connection->new("host" => "localhost:27017");
-			$database =  $database = $connection->get_database($mongodb);
+			$connection = MongoDB->connect();
+			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
 		if ($@) {
@@ -2944,6 +2948,9 @@ pnns_groups_2
 sub escape_single_quote($) {
 	my $s = shift;
 	# some app escape single quotes already, so we have \' already
+	if (not defined $s) {
+		$s = '';
+	}
 	$s =~ s/\\'/'/g;	
 	$s =~ s/'/\\'/g;
 	$s =~ s/\n/ /g;
@@ -3692,8 +3699,8 @@ sub search_and_graph_products($$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB::Connection->new("host" => "localhost:27017");
-			$database =  $database = $connection->get_database($mongodb);
+			$connection = MongoDB->connect();
+			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
 		if ($@) {
@@ -3799,8 +3806,8 @@ sub search_and_map_products($$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB::Connection->new("host" => "localhost:27017");
-			$database =  $database = $connection->get_database($mongodb);
+			$connection = MongoDB->connect();
+			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
 		if ($@) {
@@ -3969,19 +3976,15 @@ JS
 		
 		
 		# Points to display?
-		
+
 		if ($emb_codes > 0) {
 
 			$header .= <<HTML		
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
-<!--[if lte IE 8]>
-     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css" />
-<![endif]-->
-<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
-	<link rel="stylesheet" href="/js/leaflet/MarkerCluster.css" />
-	<link rel="stylesheet" href="/js/leaflet/MarkerCluster.Default.css" />
-	<!--[if lte IE 8]><link rel="stylesheet" href="/js/leaflet/MarkerCluster.Default.ie.css" /><![endif]-->
-	<script src="/js/leaflet/leaflet.markercluster-src.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet\@0.7.7/dist/leaflet.css" integrity="sha384-99ZJFcuBCh9c/V/+8YwDX/TUGG8JWMG+gKFJWzk0BZP3IoDMN+pLGd3/H0yjg4oa" crossorigin="anonymous">
+<script src="https://unpkg.com/leaflet\@0.7.7/dist/leaflet.js" integrity="sha384-Lh7SNUss9JoImCvc96eCUnLX3HvY4kb0UZCWZbYWvceJ+o5CJeOJqqNoheaGkNHT" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.Default.css" />
+<script src="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/leaflet.markercluster-src.js"></script>
 HTML
 ;
 
@@ -4406,7 +4409,7 @@ $meta_description
 <script type="text/javascript" src="/js/jquery-ui-1.11.4/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/js/jquery-ui-1.11.4/jquery-ui.min.css" />
 
-<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
 <link rel="search" href="http://$subdomain.$server_domain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}" />
 
 <script>
@@ -5099,7 +5102,7 @@ $Lang{footer_follow_us}{$lc}
 <script src="/foundation/js/foundation.min.js"></script>
 <script src="/foundation/js/vendor/jquery.cookie.js"></script>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" integrity="sha384-222hzbb8Z8ZKe6pzP18nTSltQM3PdcAwxWKzGOKOIF+Y3bROr5n9zdQ8yTRHgQkQ" crossorigin="anonymous"></script>
 
 $scripts
 
@@ -5428,6 +5431,7 @@ CSS
 	if (defined $rev) {
 		print STDERR "display_product : rev $rev\n";
 		$product_ref = retrieve_product_rev($code, $rev);
+		$header .= '<meta name="robots" content="noindex,follow">';
 	}
 	else {
 		$product_ref = retrieve_product($code);
@@ -5461,8 +5465,9 @@ CSS
 	
 	# Check that the titleid is the right one
 	
-	# if (((defined $product_ref->{lc}) and ($lc ne $product_ref->{lc})) or ((defined $request_ref->{titleid}) and ($request_ref->{titleid} ne '') and ($request_ref->{titleid} ne $titleid) and (not defined $rev))) {
-	if (((defined $request_ref->{titleid}) and ($request_ref->{titleid} ne '') and ($request_ref->{titleid} ne $titleid) and (not defined $rev))) {
+	if ((not defined $rev) and	(
+			(($titleid ne '') and ((not defined $request_ref->{titleid}) or ($request_ref->{titleid} ne $titleid))) or
+			(($titleid eq '') and ((defined $request_ref->{titleid}) and ($request_ref->{titleid} ne ''))) )) {
 		$request_ref->{redirect} = $request_ref->{canon_url};
 		print STDERR "Display.pm display_product - redirect - lc: $lc product_lc: product_ref->{lc} - titleid: $titleid - request_ref->{titleid} : $request_ref->{titleid}\n";
 		return 301;
@@ -5743,7 +5748,7 @@ HTML
 	}
 	
 	
-	if ($product_ref->{no_nutrition_data} eq 'on') {
+	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
 		$html .= "<p>$Lang{no_nutrition_data}{$lang}</p>";
 	}
 	
@@ -6287,7 +6292,7 @@ sub display_nutrition_table($$) {
 	
 	if ($product_ref->{nutrition_data_per} eq 'serving') {
 	
-		if ($product_ref->{serving_quantity} > 0) {
+		if ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
 			@cols = ('100g','serving');
 		}
 		else {
@@ -6295,7 +6300,7 @@ sub display_nutrition_table($$) {
 		}
 	}
 	else {
-		if ($product_ref->{serving_quantity} > 0) {
+		if ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
 			@cols = ('100g','serving');
 		}
 		else {
@@ -6598,7 +6603,10 @@ HTML
 			
 				my $comparison_ref = $comparisons_ref->[$1];
 
-				my $value = sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit)) + 0.0;
+				my $value = "";
+				if (defined $comparison_ref->{nutriments}{$nid . "_100g"}) {
+					$value = sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit)) + 0.0;
+				}
 				# too small values are converted to e notation: 7.18e-05
 				if (($value . ' ') =~ /e/) {
 					# use %f (outputs extras 0 in the general case)
@@ -6633,7 +6641,7 @@ HTML
 					else {
 						$values2 .= "<td class=\"nutriment_value${col_class}\">"
 						. '<span class="compare_percent">' . $percent . '%</span>'
-						. '<span class="compare_value" style="display:none">' . (sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid} * 2.54, $unit)) + 0.0) . " " . $unit . '</span>' . "</td>";
+						. '<span class="compare_value" style="display:none">' . (sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} * 2.54, $unit)) + 0.0) . " " . $unit . '</span>' . "</td>";
 					}
 				}
 				if ($nid eq 'salt') {
@@ -6643,7 +6651,7 @@ HTML
 					else {
 						$values2 .= "<td class=\"nutriment_value${col_class}\">"
 						. '<span class="compare_percent">' . $percent . '%</span>'
-						. '<span class="compare_value" style="display:none">' . (sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid} / 2.54, $unit)) + 0.0) . " " . $unit . '</span>' . "</td>";
+						. '<span class="compare_value" style="display:none">' . (sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} / 2.54, $unit)) + 0.0) . " " . $unit . '</span>' . "</td>";
 					}
 				}				
 			}

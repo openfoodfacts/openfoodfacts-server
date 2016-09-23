@@ -74,9 +74,6 @@ use ProductOpener::Tags qw/:all/;
 
 use Hash::Util;
 
-use JSON;
-use Encode;
-
 use CGI qw/:cgi :form escapeHTML/;
 
 
@@ -113,6 +110,10 @@ sub g_to_unit($$) {
 	my $value = shift;
 	my $unit = shift;
 	$unit = lc($unit);
+	
+	if ((not defined $value) or ($value eq '')) {
+		return "";
+	}
 
 	$unit eq 'fl. oz' and $unit = 'fl oz';
 	$unit eq 'fl.oz' and $unit = 'fl oz';

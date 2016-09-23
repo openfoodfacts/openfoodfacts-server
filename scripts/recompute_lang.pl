@@ -5,10 +5,10 @@ use CGI::Carp qw(fatalsToBrowser);
 use strict;
 use utf8;
 
-use Blogs::Config qw/:all/;
-use Blogs::Store qw/:all/;
-use Blogs::Tags qw/:all/;
-use Blogs::Lang qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::Lang qw/:all/;
 
 print STDERR "Recompute \%Lang\n";
 

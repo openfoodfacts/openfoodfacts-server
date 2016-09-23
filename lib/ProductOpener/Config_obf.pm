@@ -53,7 +53,23 @@ use ProductOpener::Config2;
 use ProductOpener::Lang;
 
 
-%admins = ('stephane' => 1);
+%admins = map { $_ => 1 } qw(
+agamitsudo
+bcatelin
+beniben
+hangy
+javichu
+kyzh
+scanparty-franprix-05-2016
+sebleouf
+segundo
+stephane
+tacinte
+tacite
+teolemon
+twoflower
+scanparty-franprix-05-2016
+);
 
 
 # server constants
