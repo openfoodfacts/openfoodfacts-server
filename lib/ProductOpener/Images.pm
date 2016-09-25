@@ -448,6 +448,20 @@ sub process_image_upload($$$$$) {
 			
 			my $current_product_ref = retrieve_product($code);
 			$imgid = $current_product_ref->{max_imgid} + 1;
+			
+			# if for some reason the images directories were not created at product creation (it can happen if the images directory's permission / ownership are incorrect at some point)
+			# create them
+			
+			# Create the directories for the product
+			foreach my $current_dir  ($www_root . "/images/products") {
+				(-e "$current_dir") or mkdir($current_dir, 0755);
+				foreach my $component (split("/", $path)) {
+					$current_dir .= "/$component";
+					(-e "$current_dir") or mkdir($current_dir, 0755);
+				}
+			}
+			
+			
 			while (-e "$www_root/images/products/$path/$imgid.lock") {
 				$imgid++;
 			}
