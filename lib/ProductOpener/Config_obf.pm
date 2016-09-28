@@ -16,6 +16,7 @@ BEGIN
 		$contact_email
 		$admin_email
 		
+		$oidc
 		
 		$mongodb
 	
@@ -79,6 +80,8 @@ $mongodb = $ProductOpener::Config2::mongodb;
 # server paths
 $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
+
+$oidc = $ProductOpener::Config2::oidc;
 
 $reference_timezone = 'Europe/Paris';
 

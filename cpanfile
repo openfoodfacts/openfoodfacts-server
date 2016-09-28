@@ -36,6 +36,12 @@ requires 'DateTime::Locale';
 requires 'Math::Random::Secure';
 requires 'Crypt::ScryptKDF';
 
+# OIDC
+requires 'OAuth::Lite2', '0.11';
+requires 'OIDC::Lite', '0.10';
+requires 'Crypt::OpenSSL::Random';
+requires 'Digest::SHA';
+
 on 'test' => sub {
   requires 'Test::More', '>= 1.302049, < 2.0';
 };
