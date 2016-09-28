@@ -164,7 +164,7 @@ sub _show_authorize() {
 
 	# create array ref of returned user claims for display
 	my $resource_owner_id = $dh->get_user_id_for_authorization;
-	my @scopes = split(/\s/, $request->param('scope'));
+	my @scopes = split(/\s/, param('scope'));
 #	my $claims = $class->_get_resource_owner_claims($resource_owner_id, @scopes);
 
 	# confirm screen
