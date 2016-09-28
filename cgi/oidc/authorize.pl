@@ -137,7 +137,6 @@ HTML
 sub _show_authorize() {
 
 	my $request_uri = $request->uri;
-#	my $params = $request->query_parameters->as_hashref;
 	my $dh = ProductOpener::OIDC::Server::DataHandler->new(
 		request => $request,
 	);
@@ -152,32 +151,31 @@ sub _show_authorize() {
 	my $error;
 	my $client_info = $dh->get_client_info();
 	if ($error = $@) {
-#		return $c->render(
-#			"authorize/confirm.tt" => {
-#				status => $error,
-#				request_uri => $request_uri,
-#				params => $params,
-#				client_info => $client_info,
-#			}
-#		);
+		my $html =_render_authorize({
+				status => $error,
+				request_uri => $request_uri,
+				params => param(),
+				client_info => $client_info,
+		});
+		return ($html, undef);
 	}
 
 	# create array ref of returned user claims for display
 	my $resource_owner_id = $dh->get_user_id_for_authorization;
 	my @scopes = split(/\s/, param('scope'));
-#	my $claims = $class->_get_resource_owner_claims($resource_owner_id, @scopes);
+	my $claims = _get_resource_owner_claims($resource_owner_id, @scopes);
 
 	# confirm screen
-#	return $c->render(
-#		"authorize/confirm.tt" => {
-#			status => q{valid},
-#			scopes => \@scopes,
-#			request_uri => $request_uri,
-#			params => $params,
-#			client_info => $client_info,
-#			claims => $claims,
-#		}
-#	);
+	my $html = _render_authorize({
+			status => q{valid},
+			scopes => \@scopes,
+			request_uri => $request_uri,
+			params => param(),
+			client_info => $client_info,
+			claims => $claims,
+	});
+
+	return ($html, undef);
 
 }
 
@@ -204,4 +202,32 @@ sub _get_resource_owner_claims {
 		}
 	}
 	return \@claims;
+}
+
+sub _render_authorize($) {
+
+	my (%data) = @_;
+
+	my $html = '<h2>Authorization Endpoint (Confirm)</h2>';
+	if ($data{status} and $data{status} ne q{valid}) {
+		$html .= '<div data-alert class="alert-box warning radius">' . $data{status} . '</div>';
+	}
+	
+	if ($data{scopes}) {
+		$html .= 'This client would to access your claims by following scopes.<ul>';
+		for my $scope ($data{scopes}) {
+			$html .= '<li>' . $scope . '</li>';
+		}
+
+		$html .= '</ul>';
+	}
+
+	$html .= start_form()
+	. '<input class="btn" type="submit" name="user_action" value="cancel">'
+	. '<input class="btn btn-primary" type="submit" name="user_action" value="accept">'
+	. submit()
+	. end_form();
+
+	return $html;
+
 }
