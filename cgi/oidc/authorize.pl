@@ -48,10 +48,12 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+use WWW::CSRF qw(CSRF_OK);
 
 use OAuth::Lite2::Util qw/build_content/;
+use ProductOpener::OIDC::Server::Request;
 use ProductOpener::OIDC::Server::DataHandler;
-#use ProductOpener::OIDC::Server::Web::M::ResourceOwner;
+use ProductOpener::OIDC::Server::Web::M::ResourceOwner;
 use OIDC::Lite::Server::AuthorizationHandler;
 use OIDC::Lite::Server::Scope;
 use OIDC::Lite::Model::IDToken;
@@ -138,7 +140,7 @@ sub _show_authorize() {
 
 	my $request_uri = $request->uri;
 	my $dh = ProductOpener::OIDC::Server::DataHandler->new(
-		request => $request,
+		request => ProductOpener::OIDC::Server::Request->new(),
 	);
 	my $ah = OIDC::Lite::Server::AuthorizationHandler->new(
 		data_handler => $dh,
@@ -154,7 +156,7 @@ sub _show_authorize() {
 		my $html =_render_authorize({
 				status => $error,
 				request_uri => $request_uri,
-				params => param(),
+				params => url_param(),
 				client_info => $client_info,
 		});
 		return ($html, undef);
@@ -181,9 +183,9 @@ sub _show_authorize() {
 
 sub _redirect() {
 
-	my $request_uri = $request->request_uri;
-	my $dh = OIDC::Lite::Demo::Server::DataHandler->new(
-		request => $request,
+	my $request_uri = $request->uri;
+	my $dh = ProductOpener::OIDC::Server::DataHandler->new(
+		request => ProductOpener::OIDC::Server::Request->new(),
 	);
 	my $ah = OIDC::Lite::Server::AuthorizationHandler->new(
 		data_handler => $dh,
@@ -193,20 +195,21 @@ sub _redirect() {
 	my $res;
 	eval {
 		$ah->handle_request();
-		if( $c->validate_csrf() && 
-			param('user_action') ){
-			if( $param('user_action') eq q{accept} ){
+		my $csrf_token_status = CSRF_OK; #check_po_csrf_token(cookie('b'), param('csrf'));
+		if (($csrf_token_status eq CSRF_OK) and param('user_action')) {
+			if( param('user_action') eq q{accept} ){
 				$res = $ah->allow();		
 			}else{
 				$res = $ah->deny();
 			}
 		}else{
-			$class->confirm($c);
+			return _show_authorize();
 		}
 	};
 	my $error;
 	my $client_info = $dh->get_client_info();
 	if ($error = $@) {
+		return ($error, undef);
  #	   return $c->render(
  #		   "authorize/accept.tt" => {
  #			   status => $error,
@@ -220,7 +223,7 @@ sub _redirect() {
 	# create array ref of returned user claims for display
 	my $resource_owner_id = $dh->get_user_id_for_authorization;
 	my @scopes = split(/\s/, param('scope'));
-	my $claims = get_resource_owner_claims($resource_owner_id, @scopes);
+	my $claims = _get_resource_owner_claims($resource_owner_id, @scopes);
 
 	$res->{query_string} = build_content($res->{query});
 	$res->{fragment_string} = build_content($res->{fragment});
@@ -234,6 +237,7 @@ sub _redirect() {
 	}
 
 	# confirm screen
+	return ('valid', undef);
 #	return $c->render(
 #		"authorize/accept.tt" => {
 #			status => q{valid},
@@ -276,7 +280,7 @@ sub _render_authorize($) {
 	
 	if ($data{scopes}) {
 		$html .= 'This client would to access your claims by following scopes.<ul>';
-		for my $scope ($data{scopes}) {
+		for my $scope (%data{scopes}) {
 			$html .= '<li>' . $scope . '</li>';
 		}
 
@@ -286,6 +290,7 @@ sub _render_authorize($) {
 	$html .= start_form()
 	. '<input class="btn" type="submit" name="user_action" value="cancel">'
 	. '<input class="btn btn-primary" type="submit" name="user_action" value="accept">'
+	#. hidden(-name=>'csrf', -value=>generate_po_csrf_token(cookie('b')), -override=>1)
 	. submit()
 	. end_form();
 
