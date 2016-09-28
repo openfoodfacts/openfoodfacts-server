@@ -181,9 +181,70 @@ sub _show_authorize() {
 
 sub _redirect() {
 
-	my $html = 'Feel redirected. ^_^';
+	my $request_uri = $request->request_uri;
+	my $dh = OIDC::Lite::Demo::Server::DataHandler->new(
+		request => $request,
+	);
+	my $ah = OIDC::Lite::Server::AuthorizationHandler->new(
+		data_handler => $dh,
+		response_types => $RESPONSE_TYPES,
+	);
 
-	return ($html, undef);
+	my $res;
+	eval {
+		$ah->handle_request();
+		if( $c->validate_csrf() && 
+			param('user_action') ){
+			if( $param('user_action') eq q{accept} ){
+				$res = $ah->allow();		
+			}else{
+				$res = $ah->deny();
+			}
+		}else{
+			$class->confirm($c);
+		}
+	};
+	my $error;
+	my $client_info = $dh->get_client_info();
+	if ($error = $@) {
+ #	   return $c->render(
+ #		   "authorize/accept.tt" => {
+ #			   status => $error,
+ #			   request_uri => $request_uri,
+ #			   params => param(),
+ #			   client_info => $client_info,
+ #		   }
+ #	   );
+	}
+
+	# create array ref of returned user claims for display
+	my $resource_owner_id = $dh->get_user_id_for_authorization;
+	my @scopes = split(/\s/, param('scope'));
+	my $claims = get_resource_owner_claims($resource_owner_id, @scopes);
+
+	$res->{query_string} = build_content($res->{query});
+	$res->{fragment_string} = build_content($res->{fragment});
+	$res->{uri} = $res->{redirect_uri};
+	if ($res->{query_string}) {
+		$res->{uri} .= ($res->{uri} =~ /\?/) ? q{&} : q{?};
+		$res->{uri} .= $res->{query_string};
+	}
+	if ($res->{fragment_string}) {
+		$res->{uri} .= q{#}.$res->{fragment_string};
+	}
+
+	# confirm screen
+#	return $c->render(
+#		"authorize/accept.tt" => {
+#			status => q{valid},
+#			scopes => \@scopes,
+#			request_uri => $request_uri,
+#			params => $params,
+#			client_info => $client_info,
+#			claims => $claims,
+#			response_info => $res,
+#		}
+#	);
 
 }
 
