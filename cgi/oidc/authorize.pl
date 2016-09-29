@@ -262,10 +262,9 @@ sub _render_authorize($) {
 	}
 
 	$html .= start_form()
-	. '<input class="btn" type="submit" name="user_action" value="cancel">'
-	. '<input class="btn btn-primary" type="submit" name="user_action" value="accept">'
+	. '<input class="alter button" type="submit" name="user_action" value="cancel">'
+	. '<input class="success button" type="submit" name="user_action" value="accept">'
 # TODO: CSRF
-	. submit()
 	. end_form();
 
 	return $html;
