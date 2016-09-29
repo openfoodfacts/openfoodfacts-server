@@ -16,29 +16,29 @@ use ProductOpener::OIDC::Server;
 my $c = ProductOpener::OIDC::Server->new;
 
 # sample client data
-our $SAMPLE_CLIENTS = {
-	'sample_client_id' => {
-		'id' => 0,
-		'name' => q{Sample Client},
-		'client_id' => q{sample_client_id},
-		'client_secret' => q{sample_client_secret},
-		'redirect_uris' => [
-			'https://www.hangy.de/'
+#our $SAMPLE_CLIENTS = {
+#	'sample_client_id' => {
+#		'id' => 0,
+#		'name' => q{Sample Client},
+#		'client_id' => q{sample_client_id},
+#		'client_secret' => q{sample_client_secret},
+#		'redirect_uris' => [
+#			'https://www.hangy.de/'
 #			$c->config->{SampleClient}->{redirect_uri},
-		],
-		'allowed_response_types' => [
-			q{code}, q{id_token}, q{token},
-			q{code id_token}, q{id_token token}, q{code token},
-			q{code id_token token},
-		],
-		'allowed_grant_types' => [
-			q{authorization_code},
-			q{refresh_token},
-		],
-		'client_type' => 4,
-		'is_disabled' => 0,
-	},
-};
+#		],
+#		'allowed_response_types' => [
+#			q{code}, q{id_token}, q{token},
+##			q{code id_token}, q{id_token token}, q{code token},
+#			q{code id_token token},
+#		],
+#		'allowed_grant_types' => [
+#			q{authorization_code},
+#			q{refresh_token},
+#		],
+#		'client_type' => 4,
+#		'is_disabled' => 0,
+#	},
+#};
 
 my $CLIENT_TYPES = {
 	'1' => {
@@ -151,9 +151,6 @@ sub find_by_client_id {
 	my ($class, $db, $client_id) = @_;
 	return unless $client_id;
 
-	# find from sample Clients
-	return $SAMPLE_CLIENTS->{$client_id} if $SAMPLE_CLIENTS->{$client_id};
-
 	# find from DB
 	my $row;
 	eval {
@@ -168,8 +165,6 @@ sub find_by_client_id {
 sub find_by_id {
 	my ($class, $db, $id) = @_;
 	return unless ($db && $id);
-
-	return $SAMPLE_CLIENTS->{sample_client_id} if $id == 0;
 
 	# find from DB
 	my $row;
@@ -189,9 +184,10 @@ sub find_all {
 	# find from DB
 	my @rows;
 	eval {
-		@rows = $db->find({ is_disabled => 0 })->sort( { _id => 1 });
+		@rows = $db->find({ is_disabled => 0 })->sort( { _id => 1 })->all;;
 	};
 	if ($@) {
+print STDERR "ERROR: " . $@;
 		return;
 	}
 
