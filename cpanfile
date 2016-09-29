@@ -35,7 +35,6 @@ requires 'DateTime::Format::CLDR';
 requires 'DateTime::Locale';
 requires 'Math::Random::Secure';
 requires 'Crypt::ScryptKDF';
-requires 'CGI::Plus', '>= 0.15';
 
 # OIDC
 requires 'OAuth::Lite2', '0.11';

@@ -35,7 +35,6 @@ use Apache2::RequestRec ();
 use Apache2::Const ();
 
 use CGI qw/:cgi :form escapeHTML/;
-use CGI::Plus;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
@@ -56,9 +55,6 @@ my $RESPONSE_TYPES = [
 	q{code id_token}, q{code token}, q{id_token token},
 	q{code id_token token}
 ];
-
-my $cgi = CGI::Plus->new();
-$cgi->csrf(1);
 
 my $request = Apache2::RequestUtil->request();
 my $method = $request->method();
@@ -187,7 +183,7 @@ sub _redirect() {
 	my $res;
 	eval {
 		$ah->handle_request();
-		if (($cgi->csrf_check) and param('user_action')) {
+		if (param('user_action')) { # TODO: CSRF
 			if( param('user_action') eq q{accept} ){
 				$res = $ah->allow();		
 			}else{
@@ -281,7 +277,7 @@ sub _render_authorize($) {
 	$html .= start_form()
 	. '<input class="btn" type="submit" name="user_action" value="cancel">'
 	. '<input class="btn btn-primary" type="submit" name="user_action" value="accept">'
-	. $cgi->csrf_field
+# TODO: CSRF
 	. submit()
 	. end_form();
 
