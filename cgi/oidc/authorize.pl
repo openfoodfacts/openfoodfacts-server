@@ -27,18 +27,9 @@ use warnings;
 use utf8;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Images qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -159,7 +150,6 @@ sub _show_authorize() {
 		my $html =_render_authorize({
 				status => $error,
 				request_uri => $request_uri,
-				params => url_param(),
 				client_info => $client_info,
 		});
 		return ($html, undef);
@@ -167,7 +157,7 @@ sub _show_authorize() {
 
 	# create array ref of returned user claims for display
 	my $resource_owner_id = $dh->get_user_id_for_authorization;
-	my @scopes = split(/\s/, param('scope'));
+	my @scopes = split(/\s/, url_param('scope'));
 	my $claims = _get_resource_owner_claims($resource_owner_id, @scopes);
 
 	# confirm screen
@@ -175,7 +165,6 @@ sub _show_authorize() {
 			status => q{valid},
 			scopes => \@scopes,
 			request_uri => $request_uri,
-			params => param(),
 			client_info => $client_info,
 			claims => $claims,
 	});
@@ -224,7 +213,7 @@ sub _redirect() {
 
 	# create array ref of returned user claims for display
 	my $resource_owner_id = $dh->get_user_id_for_authorization;
-	my @scopes = split(/\s/, param('scope'));
+	my @scopes = split(/\s/, url_param('scope'));
 	my $claims = _get_resource_owner_claims($resource_owner_id, @scopes);
 
 	$res->{query_string} = build_content($res->{query});
