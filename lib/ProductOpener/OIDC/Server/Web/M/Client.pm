@@ -23,7 +23,8 @@ our $SAMPLE_CLIENTS = {
         'client_id' => q{sample_client_id},
         'client_secret' => q{sample_client_secret},
         'redirect_uris' => [
-            $c->config->{SampleClient}->{redirect_uri},
+            'www.hangy.de'
+#            $c->config->{SampleClient}->{redirect_uri},
         ],
         'allowed_response_types' => [
             q{code}, q{id_token}, q{token},

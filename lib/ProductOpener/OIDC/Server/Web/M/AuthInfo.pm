@@ -79,7 +79,7 @@ sub save {
 	$self->userinfo_claims(OIDC::Lite::Server::Scope->to_normal_claims(\@scopes));
 
 	my $row;
-	if (undef $self{id}) {
+	if (undef $self->id) {
 		my $res = $db->insert_one(
 			{
 				client_id => $self->client_id,
@@ -94,7 +94,7 @@ sub save {
 				refresh_token_expired_on => $self->refresh_token_expired_on,
 			}
 		);
-		$self{id} = $res->inserted_id;
+		$self->id = $res->inserted_id;
 	} else {
 		$row = $db->find_one_and_update(
 			{

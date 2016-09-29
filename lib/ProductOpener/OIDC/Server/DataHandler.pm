@@ -6,7 +6,7 @@ use parent 'OIDC::Lite::Server::DataHandler';
 
 use OIDC::Lite::Server::Scope;
 use OIDC::Lite::Model::IDToken;
-#use ProductOpener::OIDC::Server;
+use ProductOpener::OIDC::Server;
 use ProductOpener::OIDC::Server::Web::M::AccessToken;
 use ProductOpener::OIDC::Server::Web::M::AuthInfo;
 use ProductOpener::OIDC::Server::Web::M::Client;

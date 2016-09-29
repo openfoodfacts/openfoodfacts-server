@@ -20,7 +20,6 @@ requires 'XML::FeedPP'; # libxml-feedpp-perl
 requires 'URI::Find'; # liburi-find-perl
 requires 'XML::Simple'; # libxml-simple-perl
 requires 'experimental'; # libexperimental-perl
-requires 'WWW::CSRF'; # libwww-csrf-perl
 
 # Probably not available as Debian packages
 requires 'MongoDB', '>= 1.4.5'; # libmongodb-perl has an older version
@@ -36,6 +35,7 @@ requires 'DateTime::Format::CLDR';
 requires 'DateTime::Locale';
 requires 'Math::Random::Secure';
 requires 'Crypt::ScryptKDF';
+requires 'CGI::Plus', '>= 0.15';
 
 # OIDC
 requires 'OAuth::Lite2', '0.11';
