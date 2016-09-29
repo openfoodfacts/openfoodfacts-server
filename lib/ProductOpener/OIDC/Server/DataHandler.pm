@@ -30,7 +30,7 @@ sub validate_client_by_id {
     # obtain Client info
     unless ( $client && $client->{client_id} eq $client_id ) {
         $client = undef;
-        $client = ProductOpener::OIDC::Server::Web::M::Client->find_by_client_id($c->db, $client_id)
+        $client = ProductOpener::OIDC::Server::Web::M::Client->find_by_client_id($c->clients, $client_id)
             or return;
     }
 
@@ -166,7 +166,7 @@ sub create_or_update_auth_info {
     # create AuthInfo Object
     my $info = ProductOpener::OIDC::Server::Web::M::AuthInfo->create(%args);
     $info->set_code;
-    $info->save($c->db);
+    $info->save($c->auth);
     return $info;
 }
 
@@ -178,9 +178,9 @@ sub create_or_update_access_token {
     # If the request is for token endpoint, the code in AuthInfo is deleted
     if ($self->{request}->param('grant_type') && 
         $self->{request}->param('grant_type') eq q{authorization_code}) {
-        $auth_info->set_refresh_token($c->db);
-        $auth_info->unset_code($c->db);
-        $auth_info->save($c->db);
+        $auth_info->set_refresh_token($c->auth);
+        $auth_info->unset_code($c->auth);
+        $auth_info->save($c->auth);
     }
     return ProductOpener::OIDC::Server::Web::M::AccessToken->create($args{auth_info});
 }
@@ -202,12 +202,12 @@ sub validate_client {
 
 sub get_auth_info_by_code {
     my ($self, $code) = @_;
-    return ProductOpener::OIDC::Server::Web::M::AuthInfo->find_by_code($c->db, $code);
+    return ProductOpener::OIDC::Server::Web::M::AuthInfo->find_by_code($c->auth, $code);
 }
 
 sub get_auth_info_by_refresh_token {
     my ($self, $refresh_token) = @_;
-    return ProductOpener::OIDC::Server::Web::M::AuthInfo->find_by_refresh_token($c->db, $refresh_token);
+    return ProductOpener::OIDC::Server::Web::M::AuthInfo->find_by_refresh_token($c->auth, $refresh_token);
 }
 
 sub get_access_token {
@@ -217,7 +217,7 @@ sub get_access_token {
 
 sub get_auth_info_by_id {
     my ($self, $id) = @_;
-    return ProductOpener::OIDC::Server::Web::M::AuthInfo->find_by_id($c->db, $id);
+    return ProductOpener::OIDC::Server::Web::M::AuthInfo->find_by_id($c->auth, $id);
 }
 
 1;

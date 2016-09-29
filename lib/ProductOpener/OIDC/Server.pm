@@ -12,15 +12,27 @@ sub new {
 
 }
 
-sub db {
+sub auth {
 
 	my $self = shift;
-	if ( !defined $self->{db} ) {
-		my $oidc_collection = $database->get_collection('oidc');
-		$self->{db} = $oidc_collection;
+	if ( !defined $self->{auth} ) {
+		my $oidc_collection = $database->get_collection('oidc_auth');
+		$self->{auth} = $oidc_collection;
 	}
 
-	return $self->{db};
+	return $self->{auth};
+
+}
+
+sub clients {
+
+	my $self = shift;
+	if ( !defined $self->{clients} ) {
+		my $oidc_collection = $database->get_collection('oidc_clients');
+		$self->{clients} = $oidc_collection;
+	}
+
+	return $self->{clients};
 
 }
 
