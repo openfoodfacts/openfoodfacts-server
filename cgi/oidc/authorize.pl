@@ -196,15 +196,12 @@ sub _redirect() {
 	my $error;
 	my $client_info = $dh->get_client_info();
 	if ($error = $@) {
-		return ($error, undef);
- #	   return $c->render(
- #		   "authorize/accept.tt" => {
- #			   status => $error,
- #			   request_uri => $request_uri,
- #			   params => param(),
- #			   client_info => $client_info,
- #		   }
- #	   );
+		my $html =_render_authorize({
+				status => $error,
+				request_uri => $request_uri,
+				client_info => $client_info,
+		});
+		return ($html, undef);
 	}
 
 	# create array ref of returned user claims for display
@@ -224,18 +221,8 @@ sub _redirect() {
 	}
 
 	# confirm screen
-	return ('valid', undef);
-#	return $c->render(
-#		"authorize/accept.tt" => {
-#			status => q{valid},
-#			scopes => \@scopes,
-#			request_uri => $request_uri,
-#			params => $params,
-#			client_info => $client_info,
-#			claims => $claims,
-#			response_info => $res,
-#		}
-#	);
+	print header ( -location => $res->{uri} );
+	return ('valid', 302);
 
 }
 
