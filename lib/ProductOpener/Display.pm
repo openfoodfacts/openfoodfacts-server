@@ -5918,6 +5918,8 @@ sub display_product_jqm ($) # jquerymobile
 		$html .= "<p>" . lang("barcode") . " : $code</p>\n";
 	}
 	
+	$html .= display_nutrient_levels($product_ref);
+	
 	my $minheight = 0;
 	$product_ref->{jqm} = 1;
 	my $html_image = display_image_box($product_ref, 'front', \$minheight);
@@ -6131,11 +6133,11 @@ sub display_nutrient_levels($) {
 
 		
 		$html_nutrition_grade .= <<HTML
-<h4>Note nutritionnelle de couleur
+<h4>Note nutritionnelle de couleur NutriScore
 <a href="http://fr.openfoodfacts.org/score-nutritionnel-france" title="Mode de calcul de la note nutritionnelle de couleur">
 <i class="fi-info"></i></a>
 </h4>
-<img src="/images/misc/$grade.338x72.png" alt="Note nutritionnelle : $uc_grade" style="margin-bottom:1rem;max-width:100%" /><br/>
+<img src="/images/misc/nutriscore-$grade.svg" alt="Note nutritionnelle NutriScore : $uc_grade" style="margin-bottom:1rem;max-width:100%" /><br/>
 $warning
 HTML
 ;
