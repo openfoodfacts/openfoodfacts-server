@@ -17,6 +17,7 @@ use ProductOpener::Lang qw/:all/;
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Encode;
+use Crypt::PasswdMD5 qw(unix_md5_crypt);
 
 ProductOpener::Display::init();
 
