@@ -49,14 +49,61 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 
+use OAuth::Lite2::Util qw(encode_param decode_param build_content);
+
 ProductOpener::Display::init();
+
+try {
+my $r = shift;
+my $header = $r->headers_in->get('Authentication');
+if (!$header) {
+	# 401?
+}
+
+# https://github.com/lyokato/p5-oauth-lite2/blob/master/lib/OAuth/Lite2/ParamMethod/AuthHeader.pm
+$header =~ s/^\s*(Bearer)\s+([^\s\,]*)//;
+my $token = $2;
+my $params = Hash::MultiValue->new;
+$header =~ s/^\s*(Bearer)\s*([^\s\,]*)//;
+
+if ($header) {
+	$header =~ s/^\s*\,\s*//;
+	for my $attr (split /,\s*/, $header) {
+		my ($key, $val) = split /=/, $attr, 2;
+		$val =~ s/^"//;
+		$val =~ s/"$//;
+		$params->add($key, decode_param($val));
+	}
+}
+
+# https://github.com/ritou/p5-oidc-lite/blob/master/lib/Plack/Middleware/Auth/OIDC/ProtectedResource.pm
+OAuth::Lite2::Server::Error::InvalidRequest->throw unless $token;
+
+my $dh = ProductOpener::OIDC::Server::DataHandler->new();
+my $access_token = $dh->get_access_token($token);
+
+OAuth::Lite2::Server::Error::InvalidToken->throw unless $access_token;
+
+Carp::croak "OIDC::Lite::Server::DataHandler::get_access_token doesn't return OAuth::Lite2::Model::AccessToken" unless $access_token->isa("OAuth::Lite2::Model::AccessToken");
+
+unless ($access_token->created_on + $access_token->expires_in > time()) {
+	OAuth::Lite2::Server::Error::ExpiredToken->throw;
+}
+
+my $auth_info = $dh->get_auth_info_by_id($access_token->auth_id);
+OAuth::Lite2::Server::Error::InvalidToken->throw unless $auth_info;
+Carp::croak "OIDC::Lite::Server::DataHandler::get_auth_info_by_id doesn't return OIDC::Lite::Model::AuthInfo" unless $auth_info->isa("OIDC::Lite::Model::AuthInfo");
+
+$dh->validate_client_by_id($auth_info->client_id) or OAuth::Lite2::Server::Error::InvalidToken->throw;
+
+$dh->validate_user_by_id($auth_info->user_id) or OAuth::Lite2::Server::Error::InvalidToken->throw;
 
 my $domain = 'accounts.' . $server_domain;
 my $uri = 'https://' . $domain;
 
 my %result = (
 
-	issuer => $uri,
+	iss => $uri,
 	authorization_endpoint => $uri . '/cgi/oidc/authorize.pl',
 	token_endpoint => $uri . '/cgi/oidc/token.pl',
 	userinfo_endpoint => $uri . '/cgi/oidc/userinfo.pl',
@@ -71,3 +118,17 @@ my %result = (
 my $data =  encode_json(\%result);
 	
 print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $data;
+return;
+}
+catch {
+if ($_->isa("OAuth::Lite2::Server::Error")) {
+	my @params;
+	push(@params, sprintf(q{error="%s"}, $_->type));
+	push(@params, sprintf(q{error_description="%s"}, $_->description)) if $_->description;
+	return [ $_->code, [ "WWW-Authenticate" => "Bearer " . join(', ', @params) ], [  ] ];
+
+} else {
+	# rethrow
+	die $_;
+}
+}
