@@ -12,3 +12,6 @@ Please see http://en.wiki.openfoodfacts.org/Project:ProductOpener
 
 
 For the API, look at http://en.wiki.openfoodfacts.org/API
+
+Feel free to join us on Slack at http://slack.openfoodfacts.org in the channels: #api #productopener #dev
+
