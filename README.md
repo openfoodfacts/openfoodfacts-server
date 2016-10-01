@@ -9,3 +9,6 @@ Efforts are under way to clean and open the code which is currently in a private
 The project name is Product Opener.
 
 Please see http://en.wiki.openfoodfacts.org/Project:ProductOpener
+
+
+For the API, look at http://en.wiki.openfoodfacts.org/API
