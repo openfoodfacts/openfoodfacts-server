@@ -63,6 +63,8 @@ server {
                 proxy_pass http://127.0.0.1:8001;
 	}
 
+	rewrite ^/\.well-known/openid-configuration$ /cgi/oidc/openid-configuration.pl last;
+
 	# deny access to .htaccess files, if Apache's document root
 	# concurs with nginx's one
 	#
