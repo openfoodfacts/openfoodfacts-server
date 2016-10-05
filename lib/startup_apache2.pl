@@ -56,6 +56,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Index qw/:all/;
+use ProductOpener::URL qw/:all/;
 use ProductOpener::Version qw/:all/;
 
 use Apache2::Const -compile => qw(OK);

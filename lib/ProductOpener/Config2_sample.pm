@@ -8,6 +8,7 @@ BEGIN
 	@EXPORT = qw();
 	@EXPORT_OK = qw(
 		$server_domain
+		@ssl_subdomains
 		$data_root
 		$www_root
 		$mongodb
@@ -23,6 +24,10 @@ use utf8;
 
 # server constants
 $server_domain = "openfoodfacts.org";
+
+@ssl_subdomains = qw(
+ssl-api
+);
 
 # server paths
 $www_root = "/home/off/html";
