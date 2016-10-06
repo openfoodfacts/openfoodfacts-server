@@ -50,6 +50,7 @@ use Encode;
 use JSON::PP;
 
 use OAuth::Lite2::Util qw(encode_param decode_param build_content);
+use OAuth::Lite2::Server::Error;
 
 ProductOpener::Display::init();
 

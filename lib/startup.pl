@@ -51,6 +51,7 @@ use URI::Escape::XS ();
 # Needs to be configured
 use lib "/home/off/lib";
 
+# Preload ProductOpener
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -59,6 +60,15 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Version qw/:all/;
+
+# Preload OIDC
+use ProductOpener::OIDC::Server qw/:all/;
+use ProductOpener::OIDC::Server::DataHandler qw/:all/;
+use ProductOpener::OIDC::Server::Request qw/:all/;
+use ProductOpener::OIDC::Server::Web::M::AccessToken qw/:all/;
+use ProductOpener::OIDC::Server::Web::M::AuthInfo qw/:all/;
+use ProductOpener::OIDC::Server::Web::M::Client qw/:all/;
+use ProductOpener::OIDC::Server::Web::M::ResourceOwner qw/:all/;
 
 use Apache2::Const -compile => qw(OK);
 use Apache2::Connection ();
