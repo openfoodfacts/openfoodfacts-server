@@ -21,36 +21,30 @@ Open Food Facts is a non-profit association of volunteers.
 Data about food is of public interest and has to be open. The complete database is published as open data and can be reused by anyone and for any use. Check-out the cool reuses or make your own!
 - <http://world.openfoodfacts.org>
 
-**Status**
-===
-
+##Status##
 [![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/openfoodfacts/openfoodfacts-server.svg)](http://isitmaintained.com/project/openfoodfacts/openfoodfacts-server.svg "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/openfoodfacts/openfoodfacts-server.svg)](http://isitmaintained.com/project/openfoodfacts/openfoodfacts-server.svg "Percentage of issues still open")
 
-**Open Food Facts**, **Open Beauty Facts** and **Product Opener** need you:
-===
+## Come scan with us ! ##
 
 **Open Food Facts** needs contributors for documentation, bug triaging, code, feedbacks…
-
 We need Perl volunteers for new features, test writing, debugging, refactoring.
 
-**Discovering Open Food Facts & contributing products**
-===
+### Discovering Open Food Facts & contributing products###
 - Install the Open Food Facts app (http://android.openfoodfacts.org or http://ios.openfoodfacts.org)
 - Visit the web version for your country (http://world.openfoodfacts.org)
 
-**Translations**
-===
+### Translate and adapt Open Food Facts in your language ###
+
 - http://en.wiki.openfoodfacts.org/Translations
 - http://translations.launchpad.net/openfoodfacts
 
-**Delving into the code**
-===
-- Please see the product opener documentation at http://en.wiki.openfoodfacts.org/Project:ProductOpener
+### Delving into the code ###
+- Please see the Product Opener documentation at http://en.wiki.openfoodfacts.org/Project:ProductOpener
 
-**How to start contributing**
-===
+### How to start contributing ###
+
 - Feel free to join us on Slack at http://slack.openfoodfacts.org in the channels: #api #productopener #dev
 - If you're looking for the API, look at http://en.wiki.openfoodfacts.org/API
 
