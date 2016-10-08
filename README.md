@@ -1,14 +1,25 @@
-Product Opener Server (Open Food Facts, Open Beauty Facts)
-====================
-![Open Food Facts] (http://static.openfoodfacts.org/images/misc/openfoodfacts-logo-en-178x150.png)
-![Open Beauty Facts] (http://static.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en-178x150.png)
-**Description**
-===
-Open Food Facts / Open Beauty Facts database and web interface.
 
+##  Product Opener (a.k.a the Open Food Facts server) ##
 This is the placeholder for the code of the Open Food Facts and Open Beauty Facts backends (database, web interface, API etc.).
 Efforts are under way to clean and open the code which is currently in a private repository. Product Opener is coded in Perl.
 
+![Open Food Facts] (http://static.openfoodfacts.org/images/misc/openfoodfacts-logo-en-178x150.png)
+
+## What is Open Food Facts ##
+
+### A food products database
+
+Open Food Facts is a database of food products with ingredients, allergens, nutrition facts and all the tidbits of information we can find on product labels. 
+
+### Made by everyone
+
+Open Food Facts is a non-profit association of volunteers.
+1800+ contributors like you have added 43 000+ products from 150 countries using our Android, iPhone or Windows Phone app or their camera to scan barcodes and upload pictures of products and their labels.
+
+### For everyone
+
+Data about food is of public interest and has to be open. The complete database is published as open data and can be reused by anyone and for any use. Check-out the cool reuses or make your own!
+- <http://world.openfoodfacts.org>
 
 **Status**
 ===
