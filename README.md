@@ -1,6 +1,7 @@
 Product Opener Server (Open Food Facts, Open Beauty Facts)
 ====================
-
+![Open Food Facts] (http://static.openfoodfacts.org/images/misc/openfoodfacts-logo-en-178x150.png)
+![Open Beauty Facts] (http://static.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en-178x150.png)
 **Description**
 ===
 Open Food Facts / Open Beauty Facts database and web interface.
