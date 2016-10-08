@@ -23,13 +23,17 @@ Efforts are under way to clean and open the code which is currently in a private
 
 We need Perl volunteers for new features, test writing, debugging, refactoring.
 
+**Discovering Open Food Facts & contributing products**
+===
+- Install the Open Food Facts app (http://android.openfoodfacts.org or http://ios.openfoodfacts.org)
+- Visit the web version for your country (http://world.openfoodfacts.org)
 
 **Translations**
 ===
 - http://en.wiki.openfoodfacts.org/Translations
 - http://translations.launchpad.net/openfoodfacts
 
-**Installation**
+**Delving into the code**
 ===
 - Please see the product opener documentation at http://en.wiki.openfoodfacts.org/Project:ProductOpener
 
