@@ -1,3 +1,7 @@
+##Status##
+[![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/openfoodfacts/openfoodfacts-server.svg)](http://isitmaintained.com/project/openfoodfacts/openfoodfacts-server.svg "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/openfoodfacts/openfoodfacts-server.svg)](http://isitmaintained.com/project/openfoodfacts/openfoodfacts-server.svg "Percentage of issues still open")
 
 ##  Product Opener (a.k.a the Open Food Facts server) ##
 This is the placeholder for the code of the Open Food Facts and Open Beauty Facts backends (database, web interface, API etc.).
@@ -20,11 +24,6 @@ Open Food Facts is a non-profit association of volunteers.
 
 Data about food is of public interest and has to be open. The complete database is published as open data and can be reused by anyone and for any use. Check-out the cool reuses or make your own!
 - <http://world.openfoodfacts.org>
-
-##Status##
-[![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/openfoodfacts/openfoodfacts-server.svg)](http://isitmaintained.com/project/openfoodfacts/openfoodfacts-server.svg "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/openfoodfacts/openfoodfacts-server.svg)](http://isitmaintained.com/project/openfoodfacts/openfoodfacts-server.svg "Percentage of issues still open")
 
 ## Come scan with us ! ##
 
