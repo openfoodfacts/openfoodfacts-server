@@ -23,10 +23,11 @@ Efforts are under way to clean and open the code which is currently in a private
 
 We need Perl volunteers for new features, test writing, debugging, refactoring.
 
+**Installation**
+- Please see the product opener documentation at http://en.wiki.openfoodfacts.org/Project:ProductOpener
+
 **How to start contributing**
 ===
-
 - Feel free to join us on Slack at http://slack.openfoodfacts.org in the channels: #api #productopener #dev
-- Please see the product opener documentation at http://en.wiki.openfoodfacts.org/Project:ProductOpener
 - If you're looking for the API, look at http://en.wiki.openfoodfacts.org/API
 
