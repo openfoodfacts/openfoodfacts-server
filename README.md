@@ -23,6 +23,12 @@ Efforts are under way to clean and open the code which is currently in a private
 
 We need Perl volunteers for new features, test writing, debugging, refactoring.
 
+
+**Translations**
+===
+- http://en.wiki.openfoodfacts.org/Translations
+- http://translations.launchpad.net/openfoodfacts
+
 **Installation**
 ===
 - Please see the product opener documentation at http://en.wiki.openfoodfacts.org/Project:ProductOpener
