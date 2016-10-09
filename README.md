@@ -1,7 +1,7 @@
 ##Status##
 [![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/openfoodfacts/openfoodfacts-server.svg)](http://isitmaintained.com/project/openfoodfacts/openfoodfacts-server.svg "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/openfoodfacts/openfoodfacts-server.svg)](http://isitmaintained.com/project/openfoodfacts/openfoodfacts-server.svg "Percentage of issues still open")
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/openfoodfacts/openfoodfacts-server.svg)](http://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/openfoodfacts/openfoodfacts-server.svg)](http://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Percentage of issues still open")
 
 ##  Product Opener (a.k.a the Open Food Facts server) ##
 This is the placeholder for the code of the Open Food Facts and Open Beauty Facts backends (database, web interface, API etc.).
