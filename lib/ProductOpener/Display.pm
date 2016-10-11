@@ -6959,6 +6959,13 @@ sub display_structured_response($)
 		# without NumericEscape => 2, the output should be UTF-8, but is in fact completely garbled
 		# e.g. <categories>Frais,Produits laitiers,Desserts,Yaourts,Yaourts aux fruits,Yaourts sucrurl>http://static.openfoodfacts.net/images/products/317/657/216/8015/front.15.400.jpg</image_url>
 	
+	
+		# https://github.com/openfoodfacts/openfoodfacts-server/issues/463
+		# remove the languages field which has keys like "en:english"
+		
+		delete $request_ref->{structured_response}{product}{languages};
+		
+	
 		my $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
 		. $xs->XMLout($request_ref->{structured_response}); 	# noattr -> force nested elements instead of attributes
         
