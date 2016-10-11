@@ -150,10 +150,14 @@ else {
 		my $nid = $nutriment;
 		$nid =~ s/^(-|!)+//g;
 		$nid =~ s/-$//g;		
-
+		
 		next if $nid =~ /^nutrition-score/;
 
 		my $enid = encodeURIComponent($nid);
+		
+		# do not delete values if the nutriment is not provided
+		next if not defined param("nutriment_${enid}");
+		
 		my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}"));
 		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_unit"));
 		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_label"));
