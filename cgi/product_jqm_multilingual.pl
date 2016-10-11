@@ -123,8 +123,10 @@ else {
 	compute_languages($product_ref); # need languages for allergens detection
 	detect_allergens_from_text($product_ref);
 	
-	# Nutrition data	
-
+	# Nutrition data
+	
+	$product_ref->{no_nutrition_data} = remove_tags_and_quote(decode utf8=>param("no_nutrition_data"));	
+	
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
 
 	my @unknown_nutriments = ();
@@ -143,18 +145,22 @@ else {
 	}
 	
 	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, @new_nutriments) {
-	
 		next if $nutriment =~ /^\#/;
+		
 		my $nid = $nutriment;
 		$nid =~ s/^(-|!)+//g;
 		$nid =~ s/-$//g;		
-		
-		next if not defined param("nutriment_${nid}");
-		
 
-		my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${nid}"));
-		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${nid}_unit"));
-		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${nid}_label"));
+		next if $nid =~ /^nutrition-score/;
+
+		my $enid = encodeURIComponent($nid);
+		my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}"));
+		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_unit"));
+		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_label"));
+		
+		if ($value =~ /nan/i) {
+			$value = '';
+		}
 		
 		if ($nid eq 'alcohol') {
 			$unit = '% vol';
@@ -178,8 +184,8 @@ else {
 			$value =~ s/(\&gt;|>|min|mini|minimum|greater|more)( )?//;
 			$modifier = '>';
 		}
-		if ($value =~ /(env|environ|about|~|˜)/) {
-			$value =~ s/(env|environ|about|~|˜)( )?//;
+		if ($value =~ /(env|environ|about|~|≈)/) {
+			$value =~ s/(env|environ|about|~|≈)( )?//;
 			$modifier = '~';
 		}			
 		if ($value =~ /trace|traces/) {
@@ -192,8 +198,10 @@ else {
 		
 		# New label?
 		my $new_nid = undef;
-		if (defined $label) {
+		if ((defined $label) and ($label ne '')) {
 			$new_nid = canonicalize_nutriment($lc,$label);
+			print STDERR "product_multilingual.pl - unknown nutrient $nid (lc: $lc) -> canonicalize_nutriment: $new_nid\n";
+			
 			if ($new_nid ne $nid) {
 				delete $product_ref->{nutriments}{$nid};
 				delete $product_ref->{nutriments}{$nid . "_unit"};
@@ -201,7 +209,8 @@ else {
 				delete $product_ref->{nutriments}{$nid . "_modifier"};
 				delete $product_ref->{nutriments}{$nid . "_label"};
 				delete $product_ref->{nutriments}{$nid . "_100g"};
-				delete $product_ref->{nutriments}{$nid . "_serving"};				
+				delete $product_ref->{nutriments}{$nid . "_serving"};			
+				print STDERR "product_multilingual.pl - unknown nutrient $nid (lc: $lc) -> known $new_nid\n";
 				$nid = $new_nid;
 			}
 			$product_ref->{nutriments}{$nid . "_label"} = $label;
@@ -217,7 +226,7 @@ else {
 				delete $product_ref->{nutriments}{$nid . "_serving"};
 		}
 		else {
-			if (defined $modifier) {
+			if ((defined $modifier) and ($modifier ne '')) {
 				$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
 			}
 			else {
