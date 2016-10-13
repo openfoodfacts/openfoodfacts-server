@@ -2309,7 +2309,7 @@ sub search_and_display_products($$$$$) {
 	
 	eval {
 		$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-		$count = $cursor->count();
+		$count = $cursor->count() + 0;
 	};
 	if ($@) {
 		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
@@ -2328,12 +2328,12 @@ sub search_and_display_products($$$$$) {
 		else {		
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
 			$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-			$count = $cursor->count();
+			$count = $cursor->count() + 0;
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
 		}
 	}
 		
-	$request_ref->{count} = $count;
+	$request_ref->{count} = $count + 0;
 	print STDERR "Display.pm - search_and_display_products - count: $count\n";
 	
 	
@@ -2358,7 +2358,7 @@ sub search_and_display_products($$$$$) {
 	
 	}
 	
-	$request_ref->{structured_response}{count} = $count;
+	$request_ref->{structured_response}{count} = $count + 0;
 	
 	if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
 	
@@ -2653,7 +2653,7 @@ sub search_and_export_products($$$$$) {
 	
 	eval {
 		$cursor = $products_collection->query($query_ref)->sort($sort_ref);
-		$count = $cursor->count();
+		$count = $cursor->count() + 0;
 	};
 	if ($@) {
 		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
@@ -2672,12 +2672,12 @@ sub search_and_export_products($$$$$) {
 		else {		
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
 			$cursor = $products_collection->query($query_ref)->sort($sort_ref);
-			$count = $cursor->count();
+			$count = $cursor->count() + 0;
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
 		}
 	}
 		
-	$request_ref->{count} = $count;
+	$request_ref->{count} = $count + 0;
 	
 	my $html = '';
 	
@@ -3691,7 +3691,7 @@ sub search_and_graph_products($$$) {
 	
 	eval {
 		$cursor = $products_collection->query($query_ref);
-		$count = $cursor->count();
+		$count = $cursor->count() + 0;
 	};
 	if ($@) {
 		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
@@ -3710,14 +3710,14 @@ sub search_and_graph_products($$$) {
 		else {		
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
 			$cursor = $products_collection->query($query_ref);
-			$count = $cursor->count();
+			$count = $cursor->count() + 0;
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
 		}
 	}
 		
 	print STDERR "Display.pm - search_and_graph_products - count: $count\n";				
 		
-	$request_ref->{count} = $count;
+	$request_ref->{count} = $count + 0;
 	
 	my $html = '';
 	
@@ -3798,7 +3798,7 @@ sub search_and_map_products($$$) {
 	
 	eval {
 		$cursor = $products_collection->query($query_ref);
-		$count = $cursor->count();
+		$count = $cursor->count() + 0;
 	};
 	if ($@) {
 		print STDERR "Display.pm - search_and_map_products - MongoDB error: $@ - retrying once\n";
@@ -3817,14 +3817,14 @@ sub search_and_map_products($$$) {
 		else {		
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
 			$cursor = $products_collection->query($query_ref);
-			$count = $cursor->count();
+			$count = $cursor->count() + 0;
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
 		}
 	}
 		
 	print STDERR "Display.pm - search_and_map_products - count: $count\n";				
 		
-	$request_ref->{count} = $count;
+	$request_ref->{count} = $count + 0;
 	
 	my $html = '';
 	
