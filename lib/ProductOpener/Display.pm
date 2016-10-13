@@ -2413,7 +2413,7 @@ HTML
 		
 		}
 		else {
-			$html .= "<p>$html_count " . lang("sep") . ":</p>";
+			$html .= "<p>$html_count" . lang("sep") . ":</p>";
 		}
 		
 	
@@ -3248,8 +3248,8 @@ JS
                     return '<a href="' + this.point.url + '">' + this.point.product_name + '<br/>'
 						+ this.point.img + '</a><br/>'
 						+ '$Lang{nutrition_data_per_100g}{$lc} :'
-						+ '<br />$x_title : '+ this.x + ' $x_unit2'
-						+ '<br />$y_title : ' + this.y + ' $y_unit2';
+						+ '<br />$x_title$Lang{sep}{$lc}: '+ this.x + ' $x_unit2'
+						+ '<br />$y_title$Lang{sep}{$lc}: ' + this.y + ' $y_unit2';
                 }
 			},
 		
@@ -5351,7 +5351,7 @@ sub display_field($$) {
 		if ($lang_field eq '') {
 			$lang_field = ucfirst(lang($field . "_p"));
 		}
-		$html .= '<p><span class="field">' . $lang_field . " :</span> $value</p>";
+		$html .= '<p><span class="field">' . $lang_field . $Lang{sep}{$lc} . ":</span> $value</p>";
 		
 		if ($field eq 'brands') {
 			my $brand = $value;
@@ -5523,7 +5523,7 @@ HTML
 				$html_upc .= " " . $' . " (UPC / UPC-A)";
 			}
 		}
-		$html .= "<p>" . lang("barcode") . " : <span property=\"food:code\" itemprop=\"gtin13\">$code</span> $html_upc</p>
+		$html .= "<p>" . lang("barcode") . "$Lang{sep}{$lc}: <span property=\"food:code\" itemprop=\"gtin13\">$code</span> $html_upc</p>
 <div property=\"gr:hasEAN_UCC-13\" content=\"$code\" datatype=\"xsd:string\"></div>\n";
 	}
 	
@@ -5590,7 +5590,7 @@ HTML
 	
 		
 	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
-	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . " :</span>";
+	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . $Lang{sep}{$lc} . ":</span>";
 	if ($lc ne $ingredients_text_lang) {
 		$html .= " <span id=\"ingredients_list\" property=\"food:ingredientListAsText\" lang=\"$ingredients_text_lang\">$ingredients_text</span>";
 	}
@@ -5915,7 +5915,7 @@ sub display_product_jqm ($) # jquerymobile
 	if ($code =~ /^2000/) { # internal code
 	}
 	else {
-		$html .= "<p>" . lang("barcode") . " : $code</p>\n";
+		$html .= "<p>" . lang("barcode") . "$Lang{sep}{$lc}: $code</p>\n";
 	}
 	
 	$html .= display_nutrient_levels($product_ref);
@@ -5972,7 +5972,7 @@ HTML
 	. $html_image;
 		
 	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
-	$html .= "<div id=\"ingredients_list\" ><span class=\"field\">" . lang("ingredients_text") . " :</span> $ingredients_text</div>";
+	$html .= "<div id=\"ingredients_list\" ><span class=\"field\">" . lang("ingredients_text") . $Lang{sep}{$lc} . ":</span> $ingredients_text</div>";
 	
 	$html .= display_field($product_ref, 'allergens');
 	
