@@ -2333,7 +2333,7 @@ sub search_and_display_products($$$$$) {
 		}
 	}
 		
-	$request_ref->{count} = $count;
+	$request_ref->{count} = $count + 0;
 	print STDERR "Display.pm - search_and_display_products - count: $count\n";
 	
 	
@@ -2358,7 +2358,7 @@ sub search_and_display_products($$$$$) {
 	
 	}
 	
-	$request_ref->{structured_response}{count} = $count;
+	$request_ref->{structured_response}{count} = $count + 0;
 	
 	if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
 	
@@ -2677,7 +2677,7 @@ sub search_and_export_products($$$$$) {
 		}
 	}
 		
-	$request_ref->{count} = $count;
+	$request_ref->{count} = $count + 0;
 	
 	my $html = '';
 	
@@ -3717,7 +3717,7 @@ sub search_and_graph_products($$$) {
 		
 	print STDERR "Display.pm - search_and_graph_products - count: $count\n";				
 		
-	$request_ref->{count} = $count;
+	$request_ref->{count} = $count + 0;
 	
 	my $html = '';
 	
@@ -3824,7 +3824,7 @@ sub search_and_map_products($$$) {
 		
 	print STDERR "Display.pm - search_and_map_products - count: $count\n";				
 		
-	$request_ref->{count} = $count;
+	$request_ref->{count} = $count + 0;
 	
 	my $html = '';
 	
