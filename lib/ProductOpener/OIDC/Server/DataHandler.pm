@@ -2,6 +2,7 @@ package ProductOpener::OIDC::Server::DataHandler;
 use strict;
 use warnings;
 use utf8;
+use experimental 'smartmatch';
 use parent 'OIDC::Lite::Server::DataHandler';
 
 use OIDC::Lite::Server::Scope;
@@ -54,11 +55,7 @@ sub validate_redirect_uri {
     return unless ( $client_id && $redirect_uri );
     return unless $self->validate_client_by_id($client_id);
 
-    ## TODO: return $client->is_valid_redirect_uri($redirect_uri)
-    my %redirect_uri_hash;
-    $redirect_uri_hash{$_}++ foreach @{$client->{redirect_uris}};
-
-    return (exists $redirect_uri_hash{$redirect_uri});
+    return $redirect_uri ~~ $client->{redirect_uris};
 }
 
 sub validate_scope {

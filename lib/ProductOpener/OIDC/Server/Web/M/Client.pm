@@ -209,15 +209,15 @@ sub _gen_credentials {
 sub _row_to_hash_ref {
 	my ($class, $row) = @_;
 	return {
-		'id' => $row->_id,
-		'name' => $row->name,
-		'client_id' => $row->client_id,
-		'client_secret' => $row->client_secret,
-		'redirect_uris' => decode_json($row->redirect_uris),
-		'allowed_response_types' => $CLIENT_TYPES->{$row->client_type}->{allowed_response_types},
-		'allowed_grant_types' => $CLIENT_TYPES->{$row->client_type}->{allowed_grant_types},
-		'client_type' => $row->client_type,
-		'is_disabled' => $row->is_disabled,
+		'id' => $row->{_id},
+		'name' => $row->{name},
+		'client_id' => $row->{client_id},
+		'client_secret' => $row->{client_secret},
+		'redirect_uris' => $row->{redirect_uris},
+		'allowed_response_types' => $CLIENT_TYPES->{$row->{client_type}}->{allowed_response_types},
+		'allowed_grant_types' => $CLIENT_TYPES->{$row->{client_type}}->{allowed_grant_types},
+		'client_type' => $row->{client_type},
+		'is_disabled' => $row->{is_disabled},
 	};
 }
 
