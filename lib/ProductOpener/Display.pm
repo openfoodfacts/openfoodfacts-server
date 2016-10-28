@@ -6963,7 +6963,15 @@ sub display_structured_response($)
 		# https://github.com/openfoodfacts/openfoodfacts-server/issues/463
 		# remove the languages field which has keys like "en:english"
 		
-		delete $request_ref->{structured_response}{product}{languages};
+		if (defined $request_ref->{structured_response}{product}) {
+			delete $request_ref->{structured_response}{product}{languages};
+		}
+		
+		if (defined $request_ref->{structured_response}{products}) {
+			foreach my $product_ref (@{$request_ref->{structured_response}{products}}) {
+				delete $product_ref->{languages};
+			}
+		}
 		
 	
 		my $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
