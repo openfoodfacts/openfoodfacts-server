@@ -6962,10 +6962,9 @@ sub display_structured_response($)
 	
 		# https://github.com/openfoodfacts/openfoodfacts-server/issues/463
 		# remove the languages field which has keys like "en:english"
-		
+
 		delete $request_ref->{structured_response}{product}{languages};
-		
-	
+
 		my $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
 		. $xs->XMLout($request_ref->{structured_response}); 	# noattr -> force nested elements instead of attributes
         
