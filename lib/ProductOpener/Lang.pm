@@ -6755,7 +6755,7 @@ barcode => {
 
 or => {
 	fr => 'ou :',
-	en => 'or :',
+	en => 'or:',
 	el => "ή",
 	es => 'o :',
 	pt => 'ou :',

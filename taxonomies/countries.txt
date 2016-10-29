@@ -1,7 +1,136 @@
+# This taxonomy was built from Wikidata to get synonyms and translations for country names, 2-letter and 3-letter country codes, and official languages
+# Some changes were then made manually, in particular to add missing languages, change the order of languages (which was not retrieved from wikidata)
+# and in some special cases to change the country code (in particular GB to UK) and the main country name (United States of America to United States)
+#
+# Changes:
+#
+#1. Algeria, add French as 2nd language.
+#< languages:en:ar
+#---
+#> languages:en:ar,fr
+#
+#
+#2. Andorra: add Spanish, French and Portuguese
+#< languages:en:ca
+#---
+#> languages:en:ca,es,fr,pt
+#
+#3. Belgium: change order of languages, put Dutch first
+#< languages:en:fr,de,nl
+#---
+#> languages:en:nl,fr,de
+#
+#4. Bermuda: add English (no languages listed)
+#
+#5. British Virgin Islands: add English (no languages listed)
+#
+#6. Remove Brittany from country list
+#
+#7. Canada, put English first
+#< languages:en:fr,en
+#---
+#> languages:en:en,fr
+#
+#8. Cyprus, add Greek and put it first:
+#< languages:en:tr,Q9129
+#---
+#> languages:en:el,tr
+#
+#9. European Union: put English first
+#< languages:en:es,fi,fr,en,de,pt,it,hr,nl,ro,bg,pl,sv,da,cs,sk,sl,hu,et,lv,lt,Q9129,ga,mt
+#---
+#> languages:en:en,es,fi,fr,de,pt,it,hr,nl,ro,bg,pl,sv,da,cs,sk,sl,hu,et,lv,lt,el,ga,mt
+#
+#10.  French Polynesia, add French (no language listed)
+#
+#11. Hong Kong, put Chinese first.
+#< languages:en:en,zh
+#---
+#> languages:en:zh,en
+#
+#12. Israel, put Hebrew first, add Russian and English
+#< languages:en:ar,he
+#---
+#> languages:en:he,ar,ru,en
+#
+#13. Jersey, put English first
+#< languages:en:fr,en
+#---
+#> languages:en:en,fr
+#
+#14. Luxemburg, add English
+#< languages:en:fr,de,lb
+#---
+#> languages:en:fr,de,lb,en
+#
+#15. Madagascar, add French and Malgache
+#languages:en:fr,mg (edited)
+#
+#16. Mauritius, add French and English
+#languages:en:fr,en
+#
+#17. Moldova - remove mo, add ro
+#< languages:en:mo
+#---
+#> languages:en:ro
+#
+#18. Morroco, put Arabic first
+#< languages:en:es,ar,fr,Q25448
+#---
+#> languages:en:ar,fr,es
+#
+#19. removed "NATO" as a country 
+#
+#20. New  Caledonia, add French
+#
+#21. Palestinian territories : add "ps" as synonym, Arabic as language
+#
+#22. Rwanda, put English first
+#< languages:en:fr,en,rw
+#---
+#> languages:en:en,fr,rw
+#
+#23. remove Scotland as a country
+#
+#24. Singapore, add Chinese
+#< languages:en:en,ta,Q727694,ms
+#---
+#> languages:en:en,ta,zh,ms
+#
+#25. South Africa: put English first
+#< languages:en:zu,xh,af,en,ve,Q33890,ss,tn,ts,st,nr
+#---
+#> languages:en:en,zu,xh,af,ve,ss,tn,ts,st,nr
+#
+#26. State of Palestine, Palestine, PS, PSE with country code PS
+#
+#27. Switzerland: put German first
+#< languages:en:fr,de,it
+#---
+#> languages:en:de,fr,it
+#
+#28. United Kingdom, make the country code UK instead of GB.
+#< country_code_2:en:GB
+#---
+#> country_code_2:en:UK
+#> official_country_code_2:en:GB
+#
+#29. US : make "United States" the main name instead of "United States of America" 
+#< en:United States of America, USA, America, the States, U.S., U.S.A., United St
+#ates, US, :flag-us:, US, USA
+#---
+#> en:United States, United States of America, USA, America, the States, U.S., U.
+#S.A., United States, US, :flag-us:, US, USA
+#
+#30. Vatican: put Italian first
+#< languages:en:la,it
+#---
+#> languages:en:it,la
+
+
+
 en:world
 country_code_2:en:world
-
-
 
 en:Afghanistan, Islamic Republic of Afghanistan, AF, AFG
 ace:Afghanistan
@@ -8787,7 +8916,7 @@ fa:جمهوری خلق چین
 fi:Kiina, Kiinan kansantasavalta
 fiu-vro:Hiina Rahvavabariik
 fo:Fólkalýðveldið Kina
-fr:République populaire de Chine, Zhōnghuá Rénmín Gònghéguó, La République populaire de Chine, Chine communiste, ZhōngGuó, 中华人民共和国, 中華人民共和國, Chine populaire, Republique populaire de Chine, ZhongGuo, Zhong Guo
+fr:Chine, République populaire de Chine, Zhōnghuá Rénmín Gònghéguó, La République populaire de Chine, Chine communiste, ZhōngGuó, 中华人民共和国, 中華人民共和國, Chine populaire, Republique populaire de Chine, ZhongGuo, Zhong Guo
 frp:Rèpublica populèra de Ch·ina
 frr:China
 fy:Sina
@@ -33118,7 +33247,7 @@ zh-yue:葡萄牙
 zu:IPhothugali
 country_code_2:en:PT
 country_code_3:en:PRT
-languages:en:pt_pt
+languages:en:pt
 
 en:Puerto Rico, Commonwealth of Puerto Rico, PR, PRI
 af:Puerto Rico
@@ -33452,7 +33581,7 @@ country_code_2:en:QA
 country_code_3:en:QAT
 languages:en:ar
 
-en:Republic of China, ROC, Chinese Taipei, Taiwan, TW, TWN
+en:Taiwan, Republic of China, ROC, Chinese Taipei, Taiwan, TW, TWN
 ace:Taywan
 af:Republiek van Sjina
 als:Republik China
@@ -33505,7 +33634,7 @@ fa:تایوان
 fi:Kiinan tasavalta
 fiu-vro:Hiina Vabariik
 fo:Teivan
-fr:République de Chine, Chine nationaliste, 中華民國, République de Chine-Taiwan, République nationaliste de Chine, Republique de Chine, Taïwan, État de Taïwan, République de Chine à Taiwan, République de Chine Taiwan, Taiwan
+fr:Taiwan, République de Chine, Chine nationaliste, 中華民國, République de Chine-Taiwan, République nationaliste de Chine, Republique de Chine, Taïwan, État de Taïwan, République de Chine à Taiwan, République de Chine Taiwan, Taiwan
 frp:Rèpublica de Ch·ina
 fy:Taiwan
 ga:An Téaváin
@@ -35043,7 +35172,7 @@ zh-yue:盧旺達
 zu:IRuwanda
 country_code_2:en:RW
 country_code_3:en:RWA
-languages:en:en,fr,en
+languages:en:en,fr,rw
 
 en:Réunion, RE, REU
 af:Réunion
@@ -36729,186 +36858,6 @@ zh-yue:沙地阿拉伯
 country_code_2:en:SA
 country_code_3:en:SAU
 languages:en:ar
-
-en:Scotland, Alba, Scotland, SCT
-af:Skotland
-als:Schottland
-am:ስኮትላንድ
-an:Escocia
-ang:Scotland
-ar:إسكتلندا
-arz:سكوتلاند
-ast:Escocia
-az:Şotlandiya
-ba:Шотландия
-bar:Schottland
-bat-smg:Škuotėjė
-be:Шатландыя
-be-tarask:Шатляндыя, Шкоцыя
-be-x-old:Шатляндыя
-bg:Шотландия
-bn:স্কটল্যান্ড
-bo:སི་ཁོ་ཁྲི་ལན་ཌི།
-br:Bro-Skos
-bs:Škotska
-ca:Escòcia, Scotland
-cdo:Sŭ-gáik-làng
-ckb:سکۆتلاند
-cs:Skotsko
-csb:Szkòckô
-cv:Шотланди
-cy:Yr Alban
-da:Skotland
-de:Schottland
-de-ch:Schottland
-diq:İskoçya
-dsb:Šotiska
-el:Σκωτία
-en-ca:Scotland
-en-gb:Scotland, Caledonia
-eo:Skotlando
-es:Escocia
-et:Šotimaa
-eu:Eskozia
-ext:Escócia
-fa:اسکاتلند
-fi:Skotlanti
-fiu-vro:Sotimaa
-fo:Skotland
-fr:Écosse
-fy:Skotlân
-ga:Albain
-gd:Alba
-gl:Escocia - Scotland
-gv:Nalbin
-hak:Sû-kak-làn
-he:סקוטלנד
-hi:स्कॉटलैण्ड
-hif:Scotland
-hr:Škotska
-hsb:Šotiska
-ht:Ekòs
-hu:Skócia
-hy:Շոտլանդիա
-ia:Scotia
-id:Skotlandia
-ie:Scotia
-ilo:Eskósia
-io:Skotia
-is:Skotland
-it:Scozia
-ja:スコットランド
-jbo:sunko'ogu'e
-jv:Skotlandia
-ka:შოტლანდია
-kaa:Shotlandiya
-kk:Шотландия
-km:ស្កុតឡែន
-kn:ಸ್ಕಾಟ್ ಲೆಂಡ್
-ko:스코틀랜드
-krc:Шотландия
-ksh:Schottland
-ku:Skotland
-kv:Шотландия
-kw:Alban
-la:Scotia
-lad:Eskosia
-lb:Schottland
-li:Sjotland
-lij:Scòçia
-lmo:Scozia
-ln:Ekósi
-lo:ປະເທດເອກົດ
-lt:Škotija
-lv:Skotija
-mi:Koterana
-mk:Шкотска
-ml:സ്കോട്ട് ലൻഡ്
-mn:Шотланд
-mr:स्कॉटलंड
-ms:Scotland
-mt:Skozja
-my:စကော့တလန်နိုင်ငံ
-mzn:اسکاتلند
-nah:Escotlālpan
-nb:Skottland
-nds:Schottland
-nds-nl:Schotlaand
-nl:Schotland
-nn:Skottland
-nov:Skotia
-nrm:Êcosse
-oc:Escòcia
-os:Шотланди
-pa:ਸਕਾਟਲੈਂਡ
-pam:Scotland
-pap:Eskosia
-pih:Skotlund
-pl:Szkocja
-pms:Scòssia
-pnb:سکاٹلینڈ
-pt:Escócia
-pt-br:Escócia
-qu:Iskusya
-rm:Scozia
-ro:Scoția
-roa-rup:Scotlandia
-ru:Шотландия
-scn:Scozzia
-sco:Scotland
-sh:Škotska
-simple:Scotland
-sk:Škótsko
-sl:Škotska
-so:Skotland
-sq:Skocia
-sr:Шкотска
-ss:Sikoshilandi
-su:Skotlandia
-sv:Skottland
-sw:Uskoti
-szl:Szkocyjo
-ta:இசுக்கொட்லாந்து, ஆல்பா
-te:స్కాట్లాండ్
-tet:Eskósia
-tg:Шотландия
-th:ประเทศสกอตแลนด์, แคว้นสก็อตแลนด์, สก็อตแลนด์, ประเทศสกอตแลนด์, สก๊อตแลนด์, Scotland, แคว้นสกอตแลนด์, สก็อต, ประเทศสก็อตแลนด์, ประเทศสก๊อตแลนด์
-tl:Eskosya
-tokipona:ma Sukosi
-tpi:Skotlan
-tr:İskoçya
-tt:Шотландия
-ug:Shotlandiye
-uk:Шотландія
-ur:سکاٹ لینڈ
-vec:Scozia
-vep:Šotlandii
-vi:Scotland
-vls:Schotland
-vo:Skotän
-wa:Escôsse
-war:Escocia
-wuu:苏格兰
-xal:Скотишин Таңһч
-xmf:შოტლანდია
-yi:סקאטלאנד
-yo:Skọ́tlándì
-yue:蘇格蘭
-zea:Schotland
-zh:蘇格蘭
-zh-classical:蘇格蘭
-zh-cn:苏格兰
-zh-hans:苏格兰
-zh-hant:蘇格蘭
-zh-hk:蘇格蘭
-zh-min-nan:Scot-tē
-zh-mo:蘇格蘭
-zh-my:苏格兰
-zh-sg:苏格兰
-zh-tw:蘇格蘭
-zh-yue:蘇格蘭
-zu:IsiKotilandi
-languages:en:en
 
 en:Senegal, Republic of Senegal, SN, SEN
 ace:Senegal
