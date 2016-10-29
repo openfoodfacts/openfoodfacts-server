@@ -6946,13 +6946,12 @@ sub add_images_urls_to_product($) {
 		
 		foreach my $key (keys $product_ref->{languages_codes}) {
 			my $id = $imagetype . '_' . $key;
-print STDERR "$id\n";
 			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 				and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
 			
-				$product_ref->{selected_images}{$key}{$imagetype}{display} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-				$product_ref->{selected_images}{$key}{$imagetype}{small} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-				$product_ref->{selected_images}{$key}{$imagetype}{thumb} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
+				$product_ref->{selected_images}{$imagetype}{display}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+				$product_ref->{selected_images}{$imagetype}{small}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+				$product_ref->{selected_images}{$imagetype}{thumb}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
 			}
 		}
 	}
