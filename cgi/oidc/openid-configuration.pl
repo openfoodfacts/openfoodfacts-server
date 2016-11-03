@@ -65,6 +65,7 @@ my %result = (
 	subject_types_supported => [ 'public' ],
 	token_endpoint_auth_methods_supported => [ 'client_secret_basic' ],
 	response_modes_supported => [ 'query', 'fragment', 'form_post' ],
+	ui_locales_supported => \@Langs
 
 );
 

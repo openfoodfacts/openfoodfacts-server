@@ -248,6 +248,29 @@ sub init()
 		if ($headerLang and not ($headerLang eq $lc)) {
 			$lc = $headerLang;
 		}
+
+		my $ui_locales = url_param('ui_locales');
+		if ($ui_locales) {
+			my @locales = split(/ /, $ui_locales);
+			$ui_locales = '';
+			my $coherence = 1.0;
+			foreach my $l (@locales) {
+				if ($coherence >= 1.0) {
+					$ui_locales .= $l;
+				}
+				else {
+					$ui_locales .= ',' . $l . ';q=' . $coherence;
+				}
+
+				$coherence = $coherence * 0.99;
+			}
+
+			my $paramLang = HTTP::AcceptLanguage->new($ui_locales)->match(@Langs);
+			print STDERR "Display::init - OIDC lc for $ui_locales => $paramLang\n";
+			if ($paramLang and not ($paramLang eq $lc)) {
+				$lc = $paramLang;
+			}
+		}
 	}
 
 	$lclc = $lc;
