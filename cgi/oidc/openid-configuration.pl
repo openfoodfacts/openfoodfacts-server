@@ -64,7 +64,7 @@ my %result = (
 	scopes_supported => [ 'openid', 'profile', 'email', 'api' ],
 	subject_types_supported => [ 'public' ],
 	token_endpoint_auth_methods_supported => [ 'client_secret_basic' ],
-	response_modes_supported => [ 'query', 'fragment' ],
+	response_modes_supported => [ 'query', 'fragment', 'form_post' ],
 
 );
 

@@ -216,13 +216,21 @@ sub _redirect() {
 		$res->{uri} .= ($res->{uri} =~ /\?/) ? q{&} : q{?};
 		$res->{uri} .= $res->{query_string};
 	}
+
 	if ($res->{fragment_string}) {
 		$res->{uri} .= q{#}.$res->{fragment_string};
 	}
 
-	# confirm screen
-	print header ( -location => $res->{uri} );
-	return ('valid', 302);
+	if (url_param('response_mode') && url_param('response_mode') eq 'form_post') {
+		print header( -cache-control => 'no-cache, no-store' );
+		print header( -pragma => 'no-cache');
+		my $html = _render_post_form($res);
+		return ($html, undef);
+	} else {
+		# confirm screen
+		print header ( -location => $res->{uri} );
+		return ('valid', 302);
+	}
 
 }
 
@@ -267,6 +275,28 @@ sub _render_authorize($) {
 # TODO: CSRF
 	. end_form();
 
+	return $html;
+
+}
+
+sub _render_post_form($) {
+
+	my ($res) = @_;
+
+	my $html = '<h2>Authorization Success</h2>';
+	$html .= "<form id='oidc' method='post' action='" . escapeHTML($res->{redirect_uri}) . "'>";
+	my $data;
+	if ($res->{query}) {
+		$data = $res->{query};
+	}
+	else {
+		$data = $res->{fragment};
+	}
+
+	$html .= "<input type='hidden' name='state' value='" . escapeHTML($data->{state}) . "'/>";
+	$html .= "<input type='hidden' name='id_token' value='" . escapeHTML($data->{id_token}) . "'/>";
+	$html .= "</form>";
+	$html .= '<script>document.addEventListener("DOMContentLoaded", function(event) { document.getElementById("oidc").submit(); });</script>';
 	return $html;
 
 }
