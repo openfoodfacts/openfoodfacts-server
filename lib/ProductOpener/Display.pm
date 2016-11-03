@@ -113,6 +113,7 @@ use Encode;
 use URI::Escape::XS;
 use CGI qw/:cgi :form escapeHTML/;
 use HTML::Entities;
+use HTTP::AcceptLanguage;
 use DateTime;
 use DateTime::Format::Mail;
 use DateTime::Format::CLDR;
@@ -239,7 +240,16 @@ sub init()
 		$r->status(301);  
 		return 301;
 	}
-	
+
+	if ($subdomain eq 'accounts') {
+		# For the accounts subdomain, try to use the user's browser locale to display texts.
+		my $headerLang = HTTP::AcceptLanguage->new($ENV{HTTP_ACCEPT_LANGUAGE})->match(@Langs);
+		print STDERR "Display::init - Accept-Language for " . $ENV{HTTP_ACCEPT_LANGUAGE} . " => $headerLang\n";
+		if ($headerLang and not ($headerLang eq $lc)) {
+			$lc = $headerLang;
+		}
+	}
+
 	$lclc = $lc;
 	$langlang = $lc;
 	$lc =~ s/_.*//;     # PT_PT doest not work yet: categories
