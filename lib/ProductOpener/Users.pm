@@ -47,7 +47,8 @@ BEGIN
 					
 					&userpath
 					&create_user
-					&gensalt
+					&create_password_hash
+					&check_password_hash
 					
 					&check_session
 
@@ -70,31 +71,41 @@ use ProductOpener::Display qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
-use Digest::MD5 qw(md5 md5_hex md5_base64);
 use Encode;
 
 use Crypt::PasswdMD5 qw(unix_md5_crypt);
 use Math::Random::Secure qw(irand);
 use Crypt::ScryptKDF qw(scrypt_hash scrypt_hash_verify);
 
-my @salt = ( '.', '/', 0 .. 9, 'A' .. 'Z', 'a' .. 'z' );
-
-# uses global @salt to construct salt string of requested length
-sub gensalt {
-  my $count = shift;
-
-  my $salt;
-  for (1..$count) {
-    $salt .= (@salt)[rand @salt];
-  }
-
-  return $salt;
-}
-
 sub generate_token {
 	my $name_length = shift;
 	my @chars=('a'..'z', 'A'..'Z', 0..9);
 	join '',map {$chars[irand @chars]} 1..$name_length;
+}
+
+sub create_password_hash($) {
+
+	my $password = shift;
+	scrypt_hash($password);
+
+}
+
+sub check_password_hash($$) {
+
+	my $password = shift;
+	my $hash = shift;
+
+	if ($hash =~ /^\$1\$(?:.*)/) {
+		if ($hash eq unix_md5_crypt($password, $hash)) {
+			return 1;
+		}
+		else {
+			return 0;
+		}
+	}
+	else {
+		scrypt_hash_verify($password, $hash);
+	}
 }
 
 sub userpath($) {
@@ -289,7 +300,7 @@ sub check_user_form($$) {
 		push @$errors_ref, $Lang{error_different_passwords}{$lang};
 	}
 	elsif (param('password') ne '') {
-		$user_ref->{encrypted_password} = unix_md5_crypt( encode_utf8(decode utf8=>param('password')), gensalt(8) );
+		$user_ref->{encrypted_password} = create_password_hash( encode_utf8(decode utf8=>param('password')) );
 	}
  
 }
@@ -370,7 +381,12 @@ sub init_user()
 	elsif ( (defined param('user_id')) and (param('user_id') ne '') and
                        ( ( (defined param('password')) and (param('password') ne ''))
                          ) ) {
-		$user_id = remove_tags_and_quote(param('user_id')) ;
+						 
+		# CGI::param called in list context from package ProductOpener::Users line 373, this can lead to vulnerabilities.
+		# See the warning in "Fetching the value or values of a single named parameter"
+		# -> use a scalar to avoid calling param() in the list of arguments to remove_tags_and_quote
+		my $param_user_id = param('user_id');
+		$user_id = remove_tags_and_quote($param_user_id) ;
 		
 		if ($user_id =~ /\@/) {
 			my $emails_ref = retrieve("$data_root/users_emails.sto");
@@ -397,15 +413,14 @@ sub init_user()
 			$user_ref = retrieve($user_file) ;
 			$user_id = $user_ref->{'userid'} ;
 
+			my $hash_is_correct = check_password_hash(encode_utf8(decode utf8=>param('password')), $user_ref->{'encrypted_password'} );
 			# We don't have the right password
-			if ($user_ref->{'encrypted_password'} ne unix_md5_crypt(encode_utf8(decode utf8=>param('password')), $user_ref->{'encrypted_password'} ))
-			{
+			if (not $hash_is_correct) {
 			    $user_id = undef ;
 			    $debug and print STDERR "ProductOpener::Users::init_user - bad password\n" ;
 				$debug and print STDERR "ProductOpener::Users::init_user - bad password - " . $user_ref->{'encrypted_password'} . ' != ' . unix_md5_crypt((decode utf8=>param('password')), $user_ref->{'encrypted_password'} ) . "\n" ;
 				$debug and print STDERR "ProductOpener::Users::init_user - bad password - " . $user_ref->{'encrypted_password'} . ' != ' . unix_md5_crypt((decode utf8=>param('password')), $user_ref->{'encrypted_password'} ) . "\n" ;
 				$debug and print STDERR "ProductOpener::Users::init_user - bad password - " . $user_ref->{'encrypted_password'} . ' != ' . unix_md5_crypt((decode utf8=>param('password')), $user_ref->{'encrypted_password'} ) . "\n" ;
-
 
 			    # Trigger an error
 			    return ($Lang{error_bad_login_password}{$lang}) ;
@@ -448,10 +463,15 @@ sub init_user()
 			    $user_ref->{'user_sessions'}{$user_session}{'time'} = time();
 			    $session = { 'user_id'=>$user_id, 'user_session'=>$user_session };
 
+			    # Upgrade hashed password to scrypt, if it is still in crypt format
+			    if ($user_ref->{'encrypted_password'} =~ /^\$1\$(?:.*)/) {
+			    	$user_ref->{'encrypted_password'} = create_password_hash(encode_utf8(decode utf8=>param('password')) );
+			    }
+
 			    store("$user_file", $user_ref);
 
 
-			    $debug and print STDERR "ProductOpener::Users::init_user - user_id : $session->{'user_id'} ; user_session : $session->{'user_sessions'}\n" ;
+			    $debug and print STDERR "ProductOpener::Users::init_user - user_id : $session->{'user_id'} ; user_session : $session->{'user_session'}\n" ;
 			    # Check if the user is logging in
 
 			    my $length = 0;
