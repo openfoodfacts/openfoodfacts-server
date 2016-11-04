@@ -174,7 +174,7 @@ elsif ($type eq 'reset') {
 	
 		if ((param('token') eq $user_ref->{token}) and (time() < ($user_ref->{token_t} + 86400*3))) {
 	
-			$user_ref->{encrypted_password} = unix_md5_crypt( encode_utf8 (decode utf8=>param('password')), gensalt(8) );
+			$user_ref->{encrypted_password} = create_password_hash( encode_utf8 (decode utf8=>param('password')) );
 			
 			delete $user_ref->{token};
 			

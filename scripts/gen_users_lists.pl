@@ -9,10 +9,6 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Users qw/:all/;
 
-use Crypt::PasswdMD5 qw(unix_md5_crypt);
-
-
-
 my @userids;
 
 my %emails = ();
