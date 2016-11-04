@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2016 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -110,6 +110,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::Text qw/:all/;
 use Clone qw(clone);
 
 use URI::Escape::XS;
@@ -913,6 +914,7 @@ sub build_tags_taxonomy($$) {
 				my $lc = $2;
 				my $parent = $';
 				$parent =~ s/^\s+//;
+				$parent = normalize_percentages($parent, $lc);
 				my $parentid = get_fileid($parent);
 				my $canon_parentid = $synonyms{$tagtype}{$lc}{$parentid};
 				if (not defined $canon_parentid) {
@@ -932,7 +934,7 @@ sub build_tags_taxonomy($$) {
 				$line = $';
 				$line =~ s/^\s+//;
 				my @tags = split(/( )?,( )?/, $line);
-				$current_tag = $tags[0];
+				$current_tag = normalize_percentages($tags[0], $lc);
 				$current_tagid = get_fileid($current_tag);
 				
 				if (not defined $canon_tagid) {
@@ -1960,7 +1962,8 @@ sub canonicalize_taxonomy_tag($$$)
 		$tag_lc = $1;
 		$tag = $';
 	}
-	
+
+	$tag = normalize_percentages($tag, $tag_lc);
 	my $tagid = get_fileid($tag);
 	
 	if ($tagtype =~ /^additives/) {
