@@ -2342,7 +2342,7 @@ sub search_and_display_products($$$$$) {
 	
 	eval {
 		$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-		$count = $cursor->count();
+		$count = $cursor->count() + 0;
 	};
 	if ($@) {
 		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
@@ -2361,12 +2361,12 @@ sub search_and_display_products($$$$$) {
 		else {		
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
 			$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-			$count = $cursor->count();
+			$count = $cursor->count() + 0;
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
 		}
 	}
 		
-	$request_ref->{count} = $count;
+	$request_ref->{count} = $count + 0;
 	print STDERR "Display.pm - search_and_display_products - count: $count\n";
 	
 	
@@ -2391,7 +2391,7 @@ sub search_and_display_products($$$$$) {
 	
 	}
 	
-	$request_ref->{structured_response}{count} = $count;
+	$request_ref->{structured_response}{count} = $count + 0;
 	
 	if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
 	
@@ -2686,7 +2686,7 @@ sub search_and_export_products($$$$$) {
 	
 	eval {
 		$cursor = $products_collection->query($query_ref)->sort($sort_ref);
-		$count = $cursor->count();
+		$count = $cursor->count() + 0;
 	};
 	if ($@) {
 		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
@@ -2705,12 +2705,12 @@ sub search_and_export_products($$$$$) {
 		else {		
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
 			$cursor = $products_collection->query($query_ref)->sort($sort_ref);
-			$count = $cursor->count();
+			$count = $cursor->count() + 0;
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
 		}
 	}
 		
-	$request_ref->{count} = $count;
+	$request_ref->{count} = $count + 0;
 	
 	my $html = '';
 	
@@ -3281,8 +3281,8 @@ JS
                     return '<a href="' + this.point.url + '">' + this.point.product_name + '<br/>'
 						+ this.point.img + '</a><br/>'
 						+ '$Lang{nutrition_data_per_100g}{$lc} :'
-						+ '<br />$x_title : '+ this.x + ' $x_unit2'
-						+ '<br />$y_title : ' + this.y + ' $y_unit2';
+						+ '<br />$x_title$Lang{sep}{$lc}: '+ this.x + ' $x_unit2'
+						+ '<br />$y_title$Lang{sep}{$lc}: ' + this.y + ' $y_unit2';
                 }
 			},
 		
@@ -3724,7 +3724,7 @@ sub search_and_graph_products($$$) {
 	
 	eval {
 		$cursor = $products_collection->query($query_ref);
-		$count = $cursor->count();
+		$count = $cursor->count() + 0;
 	};
 	if ($@) {
 		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
@@ -3743,14 +3743,14 @@ sub search_and_graph_products($$$) {
 		else {		
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
 			$cursor = $products_collection->query($query_ref);
-			$count = $cursor->count();
+			$count = $cursor->count() + 0;
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
 		}
 	}
 		
 	print STDERR "Display.pm - search_and_graph_products - count: $count\n";				
 		
-	$request_ref->{count} = $count;
+	$request_ref->{count} = $count + 0;
 	
 	my $html = '';
 	
@@ -3831,7 +3831,7 @@ sub search_and_map_products($$$) {
 	
 	eval {
 		$cursor = $products_collection->query($query_ref);
-		$count = $cursor->count();
+		$count = $cursor->count() + 0;
 	};
 	if ($@) {
 		print STDERR "Display.pm - search_and_map_products - MongoDB error: $@ - retrying once\n";
@@ -3850,14 +3850,14 @@ sub search_and_map_products($$$) {
 		else {		
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
 			$cursor = $products_collection->query($query_ref);
-			$count = $cursor->count();
+			$count = $cursor->count() + 0;
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
 		}
 	}
 		
 	print STDERR "Display.pm - search_and_map_products - count: $count\n";				
 		
-	$request_ref->{count} = $count;
+	$request_ref->{count} = $count + 0;
 	
 	my $html = '';
 	
@@ -5384,7 +5384,7 @@ sub display_field($$) {
 		if ($lang_field eq '') {
 			$lang_field = ucfirst(lang($field . "_p"));
 		}
-		$html .= '<p><span class="field">' . $lang_field . " :</span> $value</p>";
+		$html .= '<p><span class="field">' . $lang_field . $Lang{sep}{$lc} . ":</span> $value</p>";
 		
 		if ($field eq 'brands') {
 			my $brand = $value;
@@ -5556,7 +5556,7 @@ HTML
 				$html_upc .= " " . $' . " (UPC / UPC-A)";
 			}
 		}
-		$html .= "<p>" . lang("barcode") . " : <span property=\"food:code\" itemprop=\"gtin13\">$code</span> $html_upc</p>
+		$html .= "<p>" . lang("barcode") . "$Lang{sep}{$lc}: <span property=\"food:code\" itemprop=\"gtin13\">$code</span> $html_upc</p>
 <div property=\"gr:hasEAN_UCC-13\" content=\"$code\" datatype=\"xsd:string\"></div>\n";
 	}
 	
@@ -5623,7 +5623,7 @@ HTML
 	
 		
 	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
-	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . " :</span>";
+	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . $Lang{sep}{$lc} . ":</span>";
 	if ($lc ne $ingredients_text_lang) {
 		$html .= " <span id=\"ingredients_list\" property=\"food:ingredientListAsText\" lang=\"$ingredients_text_lang\">$ingredients_text</span>";
 	}
@@ -5948,8 +5948,10 @@ sub display_product_jqm ($) # jquerymobile
 	if ($code =~ /^2000/) { # internal code
 	}
 	else {
-		$html .= "<p>" . lang("barcode") . " : $code</p>\n";
+		$html .= "<p>" . lang("barcode") . "$Lang{sep}{$lc}: $code</p>\n";
 	}
+	
+	$html .= display_nutrient_levels($product_ref);
 	
 	my $minheight = 0;
 	$product_ref->{jqm} = 1;
@@ -6003,7 +6005,7 @@ HTML
 	. $html_image;
 		
 	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
-	$html .= "<div id=\"ingredients_list\" ><span class=\"field\">" . lang("ingredients_text") . " :</span> $ingredients_text</div>";
+	$html .= "<div id=\"ingredients_list\" ><span class=\"field\">" . lang("ingredients_text") . $Lang{sep}{$lc} . ":</span> $ingredients_text</div>";
 	
 	$html .= display_field($product_ref, 'allergens');
 	
@@ -6164,11 +6166,11 @@ sub display_nutrient_levels($) {
 
 		
 		$html_nutrition_grade .= <<HTML
-<h4>Note nutritionnelle de couleur
+<h4>Note nutritionnelle de couleur NutriScore
 <a href="http://fr.openfoodfacts.org/score-nutritionnel-france" title="Mode de calcul de la note nutritionnelle de couleur">
 <i class="fi-info"></i></a>
 </h4>
-<img src="/images/misc/$grade.338x72.png" alt="Note nutritionnelle : $uc_grade" style="margin-bottom:1rem;max-width:100%" /><br/>
+<img src="/images/misc/nutriscore-$grade.svg" alt="Note nutritionnelle NutriScore : $uc_grade" style="margin-bottom:1rem;max-width:100%" /><br/>
 $warning
 HTML
 ;
@@ -6989,6 +6991,21 @@ sub display_structured_response($)
 		
 		# without NumericEscape => 2, the output should be UTF-8, but is in fact completely garbled
 		# e.g. <categories>Frais,Produits laitiers,Desserts,Yaourts,Yaourts aux fruits,Yaourts sucrurl>http://static.openfoodfacts.net/images/products/317/657/216/8015/front.15.400.jpg</image_url>
+	
+	
+		# https://github.com/openfoodfacts/openfoodfacts-server/issues/463
+		# remove the languages field which has keys like "en:english"
+		
+		if (defined $request_ref->{structured_response}{product}) {
+			delete $request_ref->{structured_response}{product}{languages};
+		}
+		
+		if (defined $request_ref->{structured_response}{products}) {
+			foreach my $product_ref (@{$request_ref->{structured_response}{products}}) {
+				delete $product_ref->{languages};
+			}
+		}
+		
 	
 		my $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
 		. $xs->XMLout($request_ref->{structured_response}); 	# noattr -> force nested elements instead of attributes
