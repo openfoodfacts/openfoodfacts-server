@@ -129,7 +129,7 @@ elsif ($action eq 'process') {
 
 	my $csrf_token_status = check_po_csrf_token($csrf_user_id, param('csrf'));
 	if (not ($csrf_token_status eq CSRF_OK)) {
-		display_error('Invalid CSRF token');
+		display_error('Invalid CSRF token', 403);
 	}
 
     my $dialog = '_user_confirm';
