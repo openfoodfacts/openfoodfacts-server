@@ -40,6 +40,8 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 
+use WWW::CSRF qw(CSRF_OK);
+
 use OAuth::Lite2::Util qw/build_content/;
 use ProductOpener::OIDC::Server::Request;
 use ProductOpener::OIDC::Server::DataHandler;
@@ -183,7 +185,12 @@ sub _redirect() {
 	my $res;
 	eval {
 		$ah->handle_request();
-		if (param('user_action')) { # TODO: CSRF
+		my $csrf_token_status = check_po_csrf_token($User_id, param('csrf'));
+		if (not ($csrf_token_status eq CSRF_OK)) {
+			display_error(lang("error_invalid_csrf_token"), 403);
+		}
+
+		if (param('user_action')) {
 			if( param('user_action') eq q{accept} ){
 				$res = $ah->allow();		
 			}else{
@@ -272,7 +279,7 @@ sub _render_authorize($) {
 	$html .= start_form()
 	. '<input class="alter button" type="submit" name="user_action" value="cancel">'
 	. '<input class="success button" type="submit" name="user_action" value="accept">'
-# TODO: CSRF
+	. hidden(-name=>'csrf', -value=>generate_po_csrf_token($User_id), -override=>1)
 	. end_form();
 
 	return $html;
