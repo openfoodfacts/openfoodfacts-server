@@ -5,19 +5,19 @@ use CGI::Carp qw(fatalsToBrowser);
 use strict;
 use utf8;
 
-use Blogs::Config qw/:all/;
-use Blogs::Store qw/:all/;
-use Blogs::Index qw/:all/;
-use Blogs::Display qw/:all/;
-use Blogs::Tags qw/:all/;
-use Blogs::Users qw/:all/;
-use Blogs::Images qw/:all/;
-use Blogs::Lang qw/:all/;
-use Blogs::Mail qw/:all/;
-use Blogs::Products qw/:all/;
-use Blogs::Food qw/:all/;
-use Blogs::Ingredients qw/:all/;
-use Blogs::Images qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Index qw/:all/;
+use ProductOpener::Display qw/:all/;
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::Users qw/:all/;
+use ProductOpener::Images qw/:all/;
+use ProductOpener::Lang qw/:all/;
+use ProductOpener::Mail qw/:all/;
+use ProductOpener::Products qw/:all/;
+use ProductOpener::Food qw/:all/;
+use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Images qw/:all/;
 
 
 use Apache2::RequestRec ();
@@ -27,9 +27,9 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
-Blogs::Display::init();
+ProductOpener::Display::init();
 
 $debug = 1;
 
@@ -75,41 +75,7 @@ else {
 				$product_ref->{$field_lc} = $product_ref->{$field};
 			}			
 			
-			if (defined $tags_fields{$field}) {
-
-				$product_ref->{$field . "_tags" } = [];
-				if ($field eq 'emb_codes') {
-					$product_ref->{"cities_tags" } = [];
-				}
-				foreach my $tag (split(',', $product_ref->{$field} )) {
-					if (get_fileid($tag) ne '') {
-						push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
-						if ($field eq 'emb_codes') {
-							my $city_code = get_city_code($tag);
-							if (defined $emb_codes_cities{$city_code}) {
-								push @{$product_ref->{"cities_tags" }}, get_fileid($emb_codes_cities{$city_code}) ;
-							}
-						}
-					}
-				}			
-			}
-			
-			if (defined $taxonomy_fields{$field}) {
-				$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
-				$product_ref->{$field . "_tags" } = [];
-				foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-					push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
-				}
-			}		
-			elsif (defined $hierarchy_fields{$field}) {
-				$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy($field, $product_ref->{$field}) ];
-				$product_ref->{$field . "_tags" } = [];
-				foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-					if (get_fileid($tag) ne '') {
-						push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
-					}
-				}
-			}			
+			compute_field_tags($product_ref, $field);			
 			
 		}
 	}
@@ -119,7 +85,7 @@ else {
 	# French PNNS groups from categories
 	
 	if ($server_domain =~ /openfoodfacts/) {
-		Blogs::Food::special_process_product($product_ref);
+		ProductOpener::Food::special_process_product($product_ref);
 	}
 	
 	
@@ -157,8 +123,10 @@ else {
 	compute_languages($product_ref); # need languages for allergens detection
 	detect_allergens_from_text($product_ref);
 	
-	# Nutrition data	
-
+	# Nutrition data
+	
+	$product_ref->{no_nutrition_data} = remove_tags_and_quote(decode utf8=>param("no_nutrition_data"));	
+	
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
 
 	my @unknown_nutriments = ();
@@ -177,18 +145,26 @@ else {
 	}
 	
 	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, @new_nutriments) {
-	
 		next if $nutriment =~ /^\#/;
+		
 		my $nid = $nutriment;
 		$nid =~ s/^(-|!)+//g;
 		$nid =~ s/-$//g;		
 		
-		next if not defined param("nutriment_${nid}");
-		
+		next if $nid =~ /^nutrition-score/;
 
-		my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${nid}"));
-		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${nid}_unit"));
-		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${nid}_label"));
+		my $enid = encodeURIComponent($nid);
+		
+		# do not delete values if the nutriment is not provided
+		next if not defined param("nutriment_${enid}");
+		
+		my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}"));
+		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_unit"));
+		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_label"));
+		
+		if ($value =~ /nan/i) {
+			$value = '';
+		}
 		
 		if ($nid eq 'alcohol') {
 			$unit = '% vol';
@@ -212,8 +188,8 @@ else {
 			$value =~ s/(\&gt;|>|min|mini|minimum|greater|more)( )?//;
 			$modifier = '>';
 		}
-		if ($value =~ /(env|environ|about|~|˜)/) {
-			$value =~ s/(env|environ|about|~|˜)( )?//;
+		if ($value =~ /(env|environ|about|~|≈)/) {
+			$value =~ s/(env|environ|about|~|≈)( )?//;
 			$modifier = '~';
 		}			
 		if ($value =~ /trace|traces/) {
@@ -226,8 +202,10 @@ else {
 		
 		# New label?
 		my $new_nid = undef;
-		if (defined $label) {
+		if ((defined $label) and ($label ne '')) {
 			$new_nid = canonicalize_nutriment($lc,$label);
+			print STDERR "product_multilingual.pl - unknown nutrient $nid (lc: $lc) -> canonicalize_nutriment: $new_nid\n";
+			
 			if ($new_nid ne $nid) {
 				delete $product_ref->{nutriments}{$nid};
 				delete $product_ref->{nutriments}{$nid . "_unit"};
@@ -235,7 +213,8 @@ else {
 				delete $product_ref->{nutriments}{$nid . "_modifier"};
 				delete $product_ref->{nutriments}{$nid . "_label"};
 				delete $product_ref->{nutriments}{$nid . "_100g"};
-				delete $product_ref->{nutriments}{$nid . "_serving"};				
+				delete $product_ref->{nutriments}{$nid . "_serving"};			
+				print STDERR "product_multilingual.pl - unknown nutrient $nid (lc: $lc) -> known $new_nid\n";
 				$nid = $new_nid;
 			}
 			$product_ref->{nutriments}{$nid . "_label"} = $label;
@@ -251,7 +230,7 @@ else {
 				delete $product_ref->{nutriments}{$nid . "_serving"};
 		}
 		else {
-			if (defined $modifier) {
+			if ((defined $modifier) and ($modifier ne '')) {
 				$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
 			}
 			else {

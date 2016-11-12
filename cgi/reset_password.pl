@@ -5,14 +5,14 @@ use CGI::Carp qw(fatalsToBrowser);
 use strict;
 use utf8;
 
-use Blogs::Config qw/:all/;
-use Blogs::Store qw/:all/;
-use Blogs::Index qw/:all/;
-use Blogs::Display qw/:all/;
-use Blogs::Images qw/:all/;
-use Blogs::Users qw/:all/;
-use Blogs::Mail qw/:all/;
-use Blogs::Lang qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Index qw/:all/;
+use ProductOpener::Display qw/:all/;
+use ProductOpener::Images qw/:all/;
+use ProductOpener::Users qw/:all/;
+use ProductOpener::Mail qw/:all/;
+use ProductOpener::Lang qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -20,7 +20,7 @@ use Encode;
 
 use WWW::CSRF qw(CSRF_OK);
 
-Blogs::Display::init();
+ProductOpener::Display::init();
 
 my $type = param('type') || 'send_email';
 my $action = param('action') || 'display';
@@ -106,7 +106,7 @@ if ($action eq 'display') {
 	if ($type eq 'send_email') {
 	
 		$html .= "\n$Lang{userid_or_email}{$lang}"
-		. textfield(-name=>'userid_or_email', -value=>'', -size=>40, -override=>1) . "</br>"
+		. textfield(-name=>'userid_or_email', -value=>'', -size=>40, -override=>1) . "<br>"
 		. hidden(-name=>'csrf', -value=>generate_po_csrf_token(cookie('b')), -override=>1);
 	}
 	elsif ($type eq 'reset') {
@@ -187,7 +187,7 @@ elsif ($type eq 'reset') {
 	
 		if ((param('token') eq $user_ref->{token}) and (time() < ($user_ref->{token_t} + 86400*3))) {
 	
-			$user_ref->{encrypted_password} = unix_md5_crypt( encode_utf8 (decode utf8=>param('password')), gensalt(8) );
+			$user_ref->{encrypted_password} = create_password_hash( encode_utf8 (decode utf8=>param('password')) );
 			
 			delete $user_ref->{token};
 			

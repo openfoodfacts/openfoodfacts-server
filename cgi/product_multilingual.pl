@@ -25,20 +25,19 @@ use CGI::Carp qw(fatalsToBrowser);
 use strict;
 use utf8;
 
-use Blogs::Config qw/:all/;
-use Blogs::Store qw/:all/;
-use Blogs::Index qw/:all/;
-use Blogs::Display qw/:all/;
-use Blogs::Tags qw/:all/;
-use Blogs::Users qw/:all/;
-use Blogs::Images qw/:all/;
-use Blogs::Lang qw/:all/;
-use Blogs::Mail qw/:all/;
-use Blogs::Products qw/:all/;
-use Blogs::Food qw/:all/;
-use Blogs::Ingredients qw/:all/;
-use Blogs::Images qw/:all/;
-
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Index qw/:all/;
+use ProductOpener::Display qw/:all/;
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::Users qw/:all/;
+use ProductOpener::Images qw/:all/;
+use ProductOpener::Lang qw/:all/;
+use ProductOpener::Mail qw/:all/;
+use ProductOpener::Products qw/:all/;
+use ProductOpener::Food qw/:all/;
+use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Images qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -47,11 +46,11 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 use WWW::CSRF qw(CSRF_OK);
 
-Blogs::Display::init();
+ProductOpener::Display::init();
 
 $debug = 1;
 
@@ -225,7 +224,7 @@ HTML
 }
 
 
-my @fields = @Blogs::Config::product_fields;
+my @fields = @ProductOpener::Config::product_fields;
 
 
 if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
@@ -288,41 +287,9 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});						
 			}
 			print STDERR "product.pl - code: $code - field: $field = $product_ref->{$field}\n";
-			if (defined $tags_fields{$field}) {
 
-				$product_ref->{$field . "_tags" } = [];
-				if ($field eq 'emb_codes') {
-					$product_ref->{"cities_tags" } = [];
-				}
-				foreach my $tag (split(',', $product_ref->{$field} )) {
-					if (get_fileid($tag) ne '') {
-						push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
-						if ($field eq 'emb_codes') {
-							my $city_code = get_city_code($tag);
-							if (defined $emb_codes_cities{$city_code}) {
-								push @{$product_ref->{"cities_tags" }}, get_fileid($emb_codes_cities{$city_code}) ;
-							}
-						}
-					}
-				}			
-			}
+			compute_field_tags($product_ref, $field);
 		
-			if (defined $taxonomy_fields{$field}) {
-				$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
-				$product_ref->{$field . "_tags" } = [];
-				foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-					push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
-				}
-			}		
-			elsif (defined $hierarchy_fields{$field}) {
-				$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy($field, $product_ref->{$field}) ];
-				$product_ref->{$field . "_tags" } = [];
-				foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-					if (get_fileid($tag) ne '') {
-						push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
-					}
-				}
-			}			
 		}
 		else {
 			print STDERR "product.pl - could not find field $field\n";
@@ -333,7 +300,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	# French PNNS groups from categories
 	
 	if ($server_domain =~ /openfoodfacts/) {
-		Blogs::Food::special_process_product($product_ref);
+		ProductOpener::Food::special_process_product($product_ref);
 	}
 	
 	
@@ -393,7 +360,6 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	}
 	
 	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, @new_nutriments) {
-	
 		next if $nutriment =~ /^\#/;
 		
 		my $nid = $nutriment;
@@ -402,9 +368,10 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		
 		next if $nid =~ /^nutrition-score/;
 	
-		my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${nid}"));
-		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${nid}_unit"));
-		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${nid}_label"));
+		my $enid = encodeURIComponent($nid);
+		my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}"));
+		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_unit"));
+		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_label"));
 		
 		if ($value =~ /nan/i) {
 			$value = '';
@@ -446,7 +413,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		
 		# New label?
 		my $new_nid = undef;
-		if (defined $label) {
+		if ((defined $label) and ($label ne '')) {
 			$new_nid = canonicalize_nutriment($lc,$label);
 			print STDERR "product_multilingual.pl - unknown nutrient $nid (lc: $lc) -> canonicalize_nutriment: $new_nid\n";
 			
@@ -474,7 +441,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				delete $product_ref->{nutriments}{$nid . "_serving"};
 		}
 		else {
-			if (defined $modifier) {
+			if ((defined $modifier) and ($modifier ne '')) {
 				$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
 			}
 			else {
@@ -506,11 +473,6 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	
 	
 	$admin and print STDERR "compute_serving_size_date -- done\n";	
-	
-	if (0) {
-		push @errors, "La description est trop courte";
-	}
-
 	
 	if ($#errors >= 0) {
 		$action = 'display';
@@ -547,6 +509,11 @@ sub display_field($$) {
 	'autocomplete_url': 'http://world.$server_domain/cgi/suggest.pl?lc=$lc&tagtype=$fieldtype&'";
 		}
 
+		my $default_text = "";
+		if (defined $Lang{$field . "_tagsinput"}) {
+			$default_text = $Lang{$field . "_tagsinput"}{$lang};
+		}
+
 		$initjs .= <<HTML
 \$('#$field').tagsInput({
 	'height':'3rem',
@@ -554,7 +521,7 @@ sub display_field($$) {
 	'interactive':true,
 	'minInputWidth':130,
 	'delimiter': [','],
-	'defaultText':"$Lang{$field . "_tagsinput"}{$lang}"$autocomplete
+	'defaultText':"$default_text"$autocomplete
 });
 HTML
 ;					
@@ -564,11 +531,14 @@ HTML
 	if (defined $product_ref->{$field . "_orig"}) {
 		$value = $product_ref->{$field . "_orig"};
 	}
-	if (defined $taxonomy_fields{$field}) {
+	if ((defined $value) and (defined $taxonomy_fields{$field})) {
 		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
 		# Remove tags
 		$value =~ s/<(([^>]|\n)*)>//g;
 	}			
+	if (not defined $value) {
+		$value = "";
+	}
 
 	my $html = <<HTML
 <label for="$field">$Lang{$fieldtype}{$lang}</label>
@@ -631,7 +601,7 @@ JS
 
 
 	$header .= <<HTML
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/0.9.1/cropper.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.2/cropper.min.css" />
 <link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.css" />
 
 
@@ -650,7 +620,7 @@ HTML
 
 
 	$scripts .= <<HTML
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropper/0.9.1/cropper.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.2/cropper.min.js"></script>
 <script type="text/javascript" src="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="/js/jquery.form.js"></script>
 <script type="text/javascript" src="/js/jquery.autoresize.js"></script>
@@ -1188,7 +1158,7 @@ HTML
 			$new_lc = ' new';
 		}
 	
-		my $language;
+		my $language = "";
 	
 		if ($tabid eq 'new') {
 		
@@ -1200,8 +1170,9 @@ HTML
 		}
 		else {
 	
-	
+			if ($tabid ne "new_lc") {
 			$language = display_taxonomy_tag($lc,'languages',$language_codes{$tabid});	 # instead of $tabsids_hash_ref->{$tabid}
+			}
 	
 		$html_header .= <<HTML
 	<li class="tabs tab-title$active$new_lc tabs_${tabid}"  id="tabs_${tabsid}_${tabid}_tab"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$language</a></li>
@@ -1332,7 +1303,7 @@ $html .= "</div><!-- fieldset -->
 <div class=\"fieldset\" id=\"nutrition\"><legend>$Lang{nutrition_data}{$lang}</legend>\n";
 
 	my $checked = '';
-	if ($product_ref->{no_nutrition_data} eq 'on') {
+	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
 		$checked = 'checked="checked"';
 	}
 
@@ -1426,36 +1397,36 @@ HTML
 			}
 		}
 		
-		# print STDERR "product.pl - shown: $shown - nid: $nid - nutriment: $nutriment \n";
 		
 		my $display = '';
 		if ($nid eq 'new_0') {
 			$display = ' style="display:none"';
 		}
 		
+		my $enid = encodeURIComponent($nid);
 		my $label = '';
 		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{$lang})) {
 			$label = <<HTML
-<label class="nutriment_label" for="nutriment_$nid">${prefix}$Nutriments{$nid}{$lang}</label>
+<label class="nutriment_label" for="nutriment_$enid">${prefix}$Nutriments{$nid}{$lang}</label>
 HTML
 ;
 		}
 		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{en})) {
 			$label = <<HTML
-<label class="nutriment_label" for="nutriment_$nid">${prefix}$Nutriments{$nid}{en}</label>
+<label class="nutriment_label" for="nutriment_$enid">${prefix}$Nutriments{$nid}{en}</label>
 HTML
 ;
 		}		
 		elsif (defined $product_ref->{nutriments}{$nid . "_label"}) {
 			my $label_value = $product_ref->{nutriments}{$nid . "_label"};
 			$label = <<HTML
-<input class="nutriment_label" id="nutriment_${nid}_label" name="nutriment_${nid}_label" value="$label_value" />
+<input class="nutriment_label" id="nutriment_${enid}_label" name="nutriment_${enid}_label" value="$label_value" />
 HTML
 ;
 		}
 		else {	# add a nutriment
 			$label = <<HTML
-<input class="nutriment_label" id="nutriment_${nid}_label" name="nutriment_${nid}_label" placeholder="$Lang{product_add_nutrient}{$lang}"/>
+<input class="nutriment_label" id="nutriment_${enid}_label" name="nutriment_${enid}_label" placeholder="$Lang{product_add_nutrient}{$lang}"/>
 HTML
 ;
 		}
@@ -1482,16 +1453,16 @@ HTML
 			}
 		}
 		
-		print STDERR "nutriment: $nutriment - nid: $nid - shown: $shown - class: $class - prefix: $prefix \n";
+		# print STDERR "nutriment: $nutriment - nid: $nid - shown: $shown - class: $class - prefix: $prefix \n";
 		
 		my $input = '';
 		
 		
 		$input .= <<HTML
-<tr id="nutriment_${nid}_tr" class="nutriment_$class"$display>
+<tr id="nutriment_${enid}_tr" class="nutriment_$class"$display>
 <td>$label</td>
 <td>
-<input class="nutriment_value" id="nutriment_$nid" name="nutriment_$nid" value="$value" />
+<input class="nutriment_value" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" />
 HTML
 ;
 
@@ -1505,7 +1476,7 @@ HTML
 		elsif ($nid eq 'alcohol') {
 			@units = ('% vol');
 		}
-		if (((exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0))
+		if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
 			or ($nid =~ /^new_/)) {
 			push @units, '% DV';
 		}
@@ -1513,12 +1484,12 @@ HTML
 		my $hide_percent = '';
 		my $hide_select = '';
 		
-		if ((exists $Nutriments{$nid}) and ($Nutriments{$nid}{unit} eq '')) {
+		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '')) {
 			$hide_percent = ' style="display:none"';
 			$hide_select = ' style="display:none"';
 			
 		}
-		elsif ((exists $Nutriments{$nid}) and ($Nutriments{$nid}{unit} eq '%')) {
+		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit}) and ($Nutriments{$nid}{unit} eq '%')) {
 			$hide_select = ' style="display:none"';
 		}
 		else {
@@ -1526,8 +1497,8 @@ HTML
 		}
 		
 		$input .= <<HTML
-<span id="nutriment_${nid}_unit_percent"$hide_percent>%</span>
-<select class="nutriment_unit" id="nutriment_${nid}_unit" name="nutriment_${nid}_unit"$hide_select>
+<span id="nutriment_${enid}_unit_percent"$hide_percent>%</span>
+<select class="nutriment_unit" id="nutriment_${enid}_unit" name="nutriment_${enid}_unit"$hide_select>
 HTML
 ;		
 		
@@ -1581,7 +1552,7 @@ HTML
 	my $other_nutriments = '';
 	my $nutriments = '';
 	foreach my $nid (@{$other_nutriments_lists{$nutriment_table}}) {
-		if ($product_ref->{nutriments}{$nid} eq '') {
+		if ((not defined $product_ref->{nutriments}{$nid}) or ($product_ref->{nutriments}{$nid} eq '')) {
 			$other_nutriments .= '{ "value" : "' . $Nutriments{$nid}{$lang} . '", "unit" : "' . $Nutriments{$nid}{unit} . '" },' . "\n";
 		}
 		$nutriments .= '"' . $Nutriments{$nid}{$lang} . '" : "' . $nid . '",' . "\n";
@@ -1711,7 +1682,10 @@ HTML
 		foreach my $change_ref (reverse @{$changes_ref}) {
 		
 			my $date = display_date($change_ref->{t});	
-			my $user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
+			my $user = "";
+			if (defined $change_ref->{userid}) {
+				$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
+			}
 			my $comment = $change_ref->{comment};
 			
 			

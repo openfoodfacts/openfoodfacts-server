@@ -25,12 +25,12 @@ use CGI::Carp qw(fatalsToBrowser);
 use strict;
 use utf8;
 
-use Blogs::Config qw/:all/;
-use Blogs::Store qw/:all/;
-use Blogs::Index qw/:all/;
-use Blogs::Display qw/:all/;
-use Blogs::Users qw/:all/;
-use Blogs::Lang qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Index qw/:all/;
+use ProductOpener::Display qw/:all/;
+use ProductOpener::Users qw/:all/;
+use ProductOpener::Lang qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -38,7 +38,7 @@ use Storable qw/dclone/;
 
 use WWW::CSRF qw(CSRF_OK);
 
-Blogs::Display::init();
+ProductOpener::Display::init();
 
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
@@ -84,7 +84,7 @@ if ($action eq 'process') {
 		}
 	}
 	
-	Blogs::Users::check_user_form($user_ref, \@errors);
+	ProductOpener::Users::check_user_form($user_ref, \@errors);
 	
 	if ($#errors >= 0) {
 		$action = 'display';
@@ -108,8 +108,8 @@ SCRIPT
 	$html .= start_form()
 	. "<table>";
 	
-	$html .= Blogs::Users::display_user_form($user_ref,\$scripts);
-	$html .= Blogs::Users::display_user_form_optional($user_ref);
+	$html .= ProductOpener::Users::display_user_form($user_ref,\$scripts);
+	$html .= ProductOpener::Users::display_user_form_optional($user_ref);
 	
 	if ($admin) {
 		$html .= "\n<tr><td colspan=\"2\">" . checkbox(-name=>'delete', -label=>'Effacer l\'utilisateur') . "</td></tr>";
@@ -134,12 +134,12 @@ elsif ($action eq 'process') {
 
     my $dialog = '_user_confirm';
 	if (($type eq 'add') or ($type eq 'edit')) {
-		if ( Blogs::Users::process_user_form($user_ref) ) {
+		if ( ProductOpener::Users::process_user_form($user_ref) ) {
             $dialog = '_user_confirm_no_mail';
         }
 	}
 	elsif ($type eq 'delete') {
-		Blogs::Users::delete_user($user_ref);		
+		ProductOpener::Users::delete_user($user_ref);		
 	}
 	
 	$html .= lang($type . $dialog);
