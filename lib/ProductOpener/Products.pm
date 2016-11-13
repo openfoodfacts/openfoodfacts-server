@@ -415,7 +415,7 @@ sub compute_completeness_and_missing_tags($$$) {
 		# $complete = 0;		
 	}	
 	
-	if ((defined $product_ref->{ingredients_text}) and ($product_ref->{ingredients_text} ne '')) {
+	if ((defined $product_ref->{ingredients_text}) and ($product_ref->{ingredients_text} ne '') and (not ($product_ref->{ingredients_text} =~ /\?/))) {
 		push @states_tags, "en:ingredients-completed";
 		$notempty++;
 	}
