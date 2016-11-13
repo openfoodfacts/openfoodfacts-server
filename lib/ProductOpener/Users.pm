@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2016 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -69,10 +69,10 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Cache qw/:all/;
 use ProductOpener::Display qw/:all/;
 
-
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 
+use Email::IsEmail qw/IsEmail/;
 use Crypt::PasswdMD5 qw(unix_md5_crypt);
 use Math::Random::Secure qw(irand);
 use Crypt::ScryptKDF qw(scrypt_hash scrypt_hash_verify);
@@ -273,7 +273,7 @@ sub check_user_form($$) {
 		push @$errors_ref, $Lang{error_no_name}{$lang};
 	}
 	
-	if ($user_ref->{email} !~ /^[\w.-]+\@([\w.-]+\.)+\w+$/) {
+	if (Email::IsEmail($user_ref->{email}, 1, Email::IsEmail::THRESHOLD) != Email::IsEmail::VALID) {
 		push @$errors_ref, $Lang{error_invalid_email}{$lang};
 	}
 	

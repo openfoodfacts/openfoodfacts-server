@@ -35,6 +35,7 @@ requires 'DateTime::Format::CLDR';
 requires 'DateTime::Locale';
 requires 'Math::Random::Secure';
 requires 'Crypt::ScryptKDF';
+requires 'Email::IsEmail', '>= 3.04.8';
 
 on 'test' => sub {
   requires 'Test::More', '>= 1.302049, < 2.0';
