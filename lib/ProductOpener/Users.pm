@@ -155,19 +155,19 @@ sub display_user_form($$) {
 	my $html = '';
 	
 	$html .= "\n<tr><td>$Lang{name}{$lang}</td><td>"	
-	. textfield(-id=>'name', -name=>'name', -value=>$user_ref->{name}, -size=>80, -override=>1) . "</td></tr>"
+	. textfield(-id=>'name', -name=>'name', -value=>$user_ref->{name}, -size=>80, -autocomplete=>'name', -override=>1) . "</td></tr>"
 #	. "\n<tr><td>$Lang{sex}{$lang}</td><td>" 
 #	. radio_group(-name=>'sex', -values=>['f','m'], -labels=>{'f'=>$Lang{female}{$lang},'m'=>$Lang{male}{$lang}}, -default=>$user_ref->{sex}, -override=>1) . "</td></tr>"
 	. "\n<tr><td>$Lang{email}{$lang}</td><td>" 
-	. textfield(-name=>'email', -value=>$user_ref->{email}, -size=>80, -override=>1) . "</td></tr>"
+	. textfield(-name=>'email', -value=>$user_ref->{email}, -size=>80, -autocomplete=>'email', -type=>'email', -override=>1) . "</td></tr>"
 	. "\n<tr><td>$Lang{username}{$lang}<br/><span class=\"info\">" . (($type eq 'edit') ? '': $Lang{username_info}{$lang}) . "</span></td><td>"	
 	. (($type eq 'edit') ? $user_ref->{userid} : 
-		( textfield(-id=>'userid', -name=>'userid', -value=>$user_ref->{userid}, -size=>40, -onkeyup=>"update_userid(this.value)")
+		( textfield(-id=>'userid', -name=>'userid', -value=>$user_ref->{userid}, -size=>40, -onkeyup=>"update_userid(this.value)", -autocomplete=>'username')
 			. "<br /><span id=\"useridok\" style=\"font-size:10px;\">&nbsp;</span>")) . "</td></tr>"
 	. "\n<tr><td>$Lang{password}{$lang}</td><td>"
-	. password_field(-name=>'password', -value=>'', -override=>1) . "</td></tr>"
+	. password_field(-name=>'password', -value=>'', -autocomplete=>'new-password', -override=>1) . "</td></tr>"
 	. "\n<tr><td>$Lang{password_confirm}{$lang}</td><td>"
-	. password_field(-name=>'confirm_password', -value=>'', -override=>1) . "</td></tr>"
+	. password_field(-name=>'confirm_password', -value=>'', -autocomplete=>'new-password', -override=>1) . "</td></tr>"
 	
 
 	;
