@@ -1,4 +1,6 @@
 # Should also be available as Debian packages
+requires 'CGI';
+requires 'Tie::IxHash';
 requires 'LWP::Authen::Digest'; # libwww-perl
 requires 'LWP::Simple'; # libwww-perl
 requires 'LWP::UserAgent'; # libwww-perl
@@ -7,7 +9,7 @@ requires 'XML::Encoding'; # libxml-encoding-perl
 requires 'Text::Unaccent'; # libtext-unaccent-perl
 requires 'MIME::Lite'; # libmime-lite-perl
 requires 'Cache::Memcached::Fast'; #libcache-memcached-fast-perl
-requires 'JSON'; # libjson-perl
+requires 'JSON::PP'; # libjson-pp-perl
 requires 'Clone'; # libclone-perl
 requires 'Crypt::PasswdMD5'; # libcrypt-passwdmd5-perl
 requires 'Encode::Detect'; # libencode-detect-perl
@@ -18,6 +20,7 @@ requires 'XML::FeedPP'; # libxml-feedpp-perl
 requires 'URI::Find'; # liburi-find-perl
 requires 'XML::Simple'; # libxml-simple-perl
 requires 'experimental'; # libexperimental-perl
+requires 'WWW::CSRF'; # libwww-csrf-perl
 
 # Probably not available as Debian packages
 requires 'MongoDB', '>= 1.4.5'; # libmongodb-perl has an older version
@@ -33,6 +36,8 @@ requires 'DateTime::Format::CLDR';
 requires 'DateTime::Locale';
 requires 'Math::Random::Secure';
 requires 'Crypt::ScryptKDF';
+requires 'CLDR::Number::Format::Percent';
+requires 'CLDR::Number';
 
 on 'test' => sub {
   requires 'Test::More', '>= 1.302049, < 2.0';

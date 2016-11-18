@@ -46,7 +46,9 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
+
+use WWW::CSRF qw(CSRF_OK);
 
 ProductOpener::Display::init();
 
@@ -287,7 +289,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 			print STDERR "product.pl - code: $code - field: $field = $product_ref->{$field}\n";
 
 			compute_field_tags($product_ref, $field);
-			
+		
 		}
 		else {
 			print STDERR "product.pl - could not find field $field\n";
@@ -363,9 +365,9 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		my $nid = $nutriment;
 		$nid =~ s/^(-|!)+//g;
 		$nid =~ s/-$//g;		
-
+		
 		next if $nid =~ /^nutrition-score/;
-
+	
 		my $enid = encodeURIComponent($nid);
 		my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}"));
 		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_unit"));
@@ -411,7 +413,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		
 		# New label?
 		my $new_nid = undef;
-		if (defined $label) {
+		if ((defined $label) and ($label ne '')) {
 			$new_nid = canonicalize_nutriment($lc,$label);
 			print STDERR "product_multilingual.pl - unknown nutrient $nid (lc: $lc) -> canonicalize_nutriment: $new_nid\n";
 			
@@ -439,7 +441,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				delete $product_ref->{nutriments}{$nid . "_serving"};
 		}
 		else {
-			if (defined $modifier) {
+			if ((defined $modifier) and ($modifier ne '')) {
 				$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
 			}
 			else {
@@ -506,7 +508,7 @@ sub display_field($$) {
 			$autocomplete = ",
 	'autocomplete_url': 'http://world.$server_domain/cgi/suggest.pl?lc=$lc&tagtype=$fieldtype&'";
 		}
-		
+
 		my $default_text = "";
 		if (defined $Lang{$field . "_tagsinput"}) {
 			$default_text = $Lang{$field . "_tagsinput"}{$lang};
@@ -1169,10 +1171,10 @@ HTML
 		else {
 	
 			if ($tabid ne "new_lc") {
-				$language = display_taxonomy_tag($lc,'languages',$language_codes{$tabid});	 # instead of $tabsids_hash_ref->{$tabid}
+			$language = display_taxonomy_tag($lc,'languages',$language_codes{$tabid});	 # instead of $tabsids_hash_ref->{$tabid}
 			}
 	
-			$html_header .= <<HTML
+		$html_header .= <<HTML
 	<li class="tabs tab-title$active$new_lc tabs_${tabid}"  id="tabs_${tabsid}_${tabid}_tab"><a href="#tabs_${tabsid}_${tabid}" class="tab_language">$language</a></li>
 HTML
 ;
@@ -1773,6 +1775,7 @@ HTML
 <label for="comment" style="margin-left:10px">$Lang{delete_comment}{$lang}</label>
 <input type="text" id="comment" name="comment" value="" />
 HTML
+	. hidden(-name=>'csrf', -value=>generate_po_csrf_token($User_id), -override=>1)
 	. submit(-name=>'save', -label=>"Supprimer la fiche", -class=>"button small")
 	. end_form();
 
@@ -1786,6 +1789,11 @@ elsif ($action eq 'process') {
 	$product_ref->{interface_version_modified} = $interface_version;
 	
 	if ($type eq 'delete') {
+		my $csrf_token_status = check_po_csrf_token($User_id, param('csrf'));
+		if (not ($csrf_token_status eq CSRF_OK)) {
+			display_error(lang("error_invalid_csrf_token"), 403);
+		}
+
 		$product_ref->{deleted} = 'on';
 		$comment = "Suppression : ";
 	}

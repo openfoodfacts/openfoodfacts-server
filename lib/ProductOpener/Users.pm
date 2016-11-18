@@ -47,10 +47,13 @@ BEGIN
 					
 					&userpath
 					&create_user
-					&gensalt
+					&create_password_hash
+					&check_password_hash
 					
 					&check_session
 
+					&generate_po_csrf_token
+					&check_po_csrf_token
 					&generate_token
 
 					);	# symbols to export on request
@@ -70,31 +73,42 @@ use ProductOpener::Display qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
-use Digest::MD5 qw(md5 md5_hex md5_base64);
 use Encode;
 
 use Crypt::PasswdMD5 qw(unix_md5_crypt);
 use Math::Random::Secure qw(irand);
 use Crypt::ScryptKDF qw(scrypt_hash scrypt_hash_verify);
-
-my @salt = ( '.', '/', 0 .. 9, 'A' .. 'Z', 'a' .. 'z' );
-
-# uses global @salt to construct salt string of requested length
-sub gensalt {
-  my $count = shift;
-
-  my $salt;
-  for (1..$count) {
-    $salt .= (@salt)[rand @salt];
-  }
-
-  return $salt;
-}
+use WWW::CSRF qw(generate_csrf_token check_csrf_token CSRF_OK);
 
 sub generate_token {
 	my $name_length = shift;
 	my @chars=('a'..'z', 'A'..'Z', 0..9);
 	join '',map {$chars[irand @chars]} 1..$name_length;
+}
+
+sub create_password_hash($) {
+
+	my $password = shift;
+	scrypt_hash($password);
+
+}
+
+sub check_password_hash($$) {
+
+	my $password = shift;
+	my $hash = shift;
+
+	if ($hash =~ /^\$1\$(?:.*)/) {
+		if ($hash eq unix_md5_crypt($password, $hash)) {
+			return 1;
+		}
+		else {
+			return 0;
+		}
+	}
+	else {
+		scrypt_hash_verify($password, $hash);
+	}
 }
 
 sub userpath($) {
@@ -289,7 +303,7 @@ sub check_user_form($$) {
 		push @$errors_ref, $Lang{error_different_passwords}{$lang};
 	}
 	elsif (param('password') ne '') {
-		$user_ref->{encrypted_password} = unix_md5_crypt( encode_utf8(decode utf8=>param('password')), gensalt(8) );
+		$user_ref->{encrypted_password} = create_password_hash( encode_utf8(decode utf8=>param('password')) );
 	}
  
 }
@@ -402,15 +416,14 @@ sub init_user()
 			$user_ref = retrieve($user_file) ;
 			$user_id = $user_ref->{'userid'} ;
 
+			my $hash_is_correct = check_password_hash(encode_utf8(decode utf8=>param('password')), $user_ref->{'encrypted_password'} );
 			# We don't have the right password
-			if ($user_ref->{'encrypted_password'} ne unix_md5_crypt(encode_utf8(decode utf8=>param('password')), $user_ref->{'encrypted_password'} ))
-			{
+			if (not $hash_is_correct) {
 			    $user_id = undef ;
 			    $debug and print STDERR "ProductOpener::Users::init_user - bad password\n" ;
 				$debug and print STDERR "ProductOpener::Users::init_user - bad password - " . $user_ref->{'encrypted_password'} . ' != ' . unix_md5_crypt((decode utf8=>param('password')), $user_ref->{'encrypted_password'} ) . "\n" ;
 				$debug and print STDERR "ProductOpener::Users::init_user - bad password - " . $user_ref->{'encrypted_password'} . ' != ' . unix_md5_crypt((decode utf8=>param('password')), $user_ref->{'encrypted_password'} ) . "\n" ;
 				$debug and print STDERR "ProductOpener::Users::init_user - bad password - " . $user_ref->{'encrypted_password'} . ' != ' . unix_md5_crypt((decode utf8=>param('password')), $user_ref->{'encrypted_password'} ) . "\n" ;
-
 
 			    # Trigger an error
 			    return ($Lang{error_bad_login_password}{$lang}) ;
@@ -452,6 +465,11 @@ sub init_user()
 			    $user_ref->{'user_sessions'}{$user_session}{'ip'} = remote_addr();
 			    $user_ref->{'user_sessions'}{$user_session}{'time'} = time();
 			    $session = { 'user_id'=>$user_id, 'user_session'=>$user_session };
+
+			    # Upgrade hashed password to scrypt, if it is still in crypt format
+			    if ($user_ref->{'encrypted_password'} =~ /^\$1\$(?:.*)/) {
+			    	$user_ref->{'encrypted_password'} = create_password_hash(encode_utf8(decode utf8=>param('password')) );
+			    }
 
 			    store("$user_file", $user_ref);
 
@@ -594,23 +612,23 @@ sub init_user()
 	{
 		# If we don't have a user id, check if there is a browser id cookie, or assign one
 
-        if (not ((defined cookie('b')) and (cookie('b') =~ /^(\d+)\.(\d+)\.(\d+)\.(\d+)_(\d+)$/)))
-        {
+	        if (not ((defined cookie('b')) and (cookie('b') =~ /^(\d+)\.(\d+)\.(\d+)\.(\d+)_(\d+)$/)))
+	        {
 			my $b = remote_addr() . '_' . time();
 			# $Visitor_id = $b;  # don't set $Visitor_id unless we get the cookie back
 			# Set a cookie
 			if (not defined $cookie)
 			{
-			 $cookie = cookie (-name=>'b', -value=>$b, -path=>'/', -expires=>'+86400000s') ;
-			 print STDERR "Users.pm - setting b cookie: $cookie\n";
+				$cookie = cookie (-name=>'b', -value=>$b, -path=>'/', -expires=>'+86400000s') ;
+				print STDERR "Users.pm - setting b cookie: $cookie\n";
 			} 
 		}
 		else
 		{
-            $Visitor_id = cookie('b');
+			$Visitor_id = cookie('b');
 			$user_ref = retrieve("$data_root/virtual_users/$Visitor_id.sto");
 			print STDERR "Users.pm - got b cookie: $Visitor_id\n";
-        }
+	        }
                 
 	}
 	
@@ -702,6 +720,16 @@ sub save_user() {
 	elsif (defined $Visitor_id) {
 		store("$data_root/virtual_users/$Visitor_id.sto", \%User);
 	}
+}
+
+sub generate_po_csrf_token($) {
+	my ( $user_id ) = @_;
+	generate_csrf_token($user_id, $csrf_secret);
+}
+
+sub check_po_csrf_token($$) {
+	my ( $user_id, $csrf_token) = @_;
+	check_csrf_token($user_id, $csrf_secret, $csrf_token);
 }
 
 1;
