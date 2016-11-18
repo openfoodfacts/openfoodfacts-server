@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2016 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -71,10 +71,10 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Cache qw/:all/;
 use ProductOpener::Display qw/:all/;
 
-
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 
+use Email::IsEmail qw/IsEmail/;
 use Crypt::PasswdMD5 qw(unix_md5_crypt);
 use Math::Random::Secure qw(irand);
 use Crypt::ScryptKDF qw(scrypt_hash scrypt_hash_verify);
@@ -276,7 +276,7 @@ sub check_user_form($$) {
 		push @$errors_ref, $Lang{error_no_name}{$lang};
 	}
 	
-	if ($user_ref->{email} !~ /^[\w.-]+\@([\w.-]+\.)+\w+$/) {
+	if (Email::IsEmail($user_ref->{email}, 1, Email::IsEmail::THRESHOLD) != Email::IsEmail::VALID) {
 		push @$errors_ref, $Lang{error_invalid_email}{$lang};
 	}
 	
@@ -612,23 +612,23 @@ sub init_user()
 	{
 		# If we don't have a user id, check if there is a browser id cookie, or assign one
 
-	        if (not ((defined cookie('b')) and (cookie('b') =~ /^(\d+)\.(\d+)\.(\d+)\.(\d+)_(\d+)$/)))
-	        {
+        if (not ((defined cookie('b')) and (cookie('b') =~ /^(\d+)\.(\d+)\.(\d+)\.(\d+)_(\d+)$/)))
+        {
 			my $b = remote_addr() . '_' . time();
 			# $Visitor_id = $b;  # don't set $Visitor_id unless we get the cookie back
 			# Set a cookie
 			if (not defined $cookie)
 			{
-				$cookie = cookie (-name=>'b', -value=>$b, -path=>'/', -expires=>'+86400000s') ;
-				print STDERR "Users.pm - setting b cookie: $cookie\n";
+			 $cookie = cookie (-name=>'b', -value=>$b, -path=>'/', -expires=>'+86400000s') ;
+			 print STDERR "Users.pm - setting b cookie: $cookie\n";
 			} 
 		}
 		else
 		{
-			$Visitor_id = cookie('b');
+            $Visitor_id = cookie('b');
 			$user_ref = retrieve("$data_root/virtual_users/$Visitor_id.sto");
 			print STDERR "Users.pm - got b cookie: $Visitor_id\n";
-	        }
+        }
                 
 	}
 	
