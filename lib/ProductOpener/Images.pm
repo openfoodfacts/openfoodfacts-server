@@ -593,6 +593,14 @@ sub process_image_upload($$$$$) {
 			
 			rmdir ("$www_root/images/products/$path/$imgid.lock");
 		}
+		
+		# make sure to close the file so that it does not stay in /tmp forever
+		#close ($file);
+		#unlink($file);
+		my $tmpfilename = tmpFileName($file);
+		print STDERR "product_image_upload.pl -- unlinking $file - $tmpfilename\n";
+		unlink ($tmpfilename);
+		
 	}
 	else {
 		print STDERR "Images::process_image_upload - field imgupload_$imagefield not set.\n";
