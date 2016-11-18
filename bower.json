@@ -1,0 +1,21 @@
+{
+  "name": "product-opener",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "authors": [
+    "Open Food Facts Association"
+  ],
+  "license": "GNU Affero General Public License",
+  "homepage": "http://www.openfoodfacts.org/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}

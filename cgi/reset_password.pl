@@ -19,6 +19,8 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Encode;
 
+use WWW::CSRF qw(CSRF_OK);
+
 ProductOpener::Display::init();
 
 my $type = param('type') || 'send_email';
@@ -77,7 +79,7 @@ if ($action eq 'process') {
 	
 	}
 	else {
-		display_error("Adresse invalide", 404);
+		display_error(lang("error_invalid_address"), 404);
 	}
 
 	
@@ -100,12 +102,13 @@ if ($action eq 'display') {
 		$html .= "</ul>\n";
 	}
 	
-	$html .= start_form();
+	$html .= start_form('POST', '/cgi/reset_password.pl');
 	
 	if ($type eq 'send_email') {
 	
 		$html .= "\n$Lang{userid_or_email}{$lang}"
-		. textfield(-name=>'userid_or_email', -value=>'', -size=>40, -override=>1) . "<br>";
+		. textfield(-name=>'userid_or_email', -value=>'', -size=>40, -override=>1) . "<br>"
+		. hidden(-name=>'csrf', -value=>generate_po_csrf_token(cookie('b')), -override=>1);
 	}
 	elsif ($type eq 'reset') {
 		$html .= "<table>"
@@ -116,6 +119,7 @@ if ($action eq 'display') {
 		. "</table>"
 		. hidden(-name=>'resetid', -value=>param('resetid'), -override=>1)
 		. hidden(-name=>'token', -value=>param('token'), -override=>1)
+		. hidden(-name=>'csrf', -value=>generate_po_csrf_token(param('resetid')), -override=>1)
 	}
 	
 
@@ -129,6 +133,11 @@ if ($action eq 'display') {
 elsif ($action eq 'process') {
 
 if ($type eq 'send_email') {
+
+	my $csrf_token_status = check_po_csrf_token(cookie('b'), param('csrf'));
+	if (not ($csrf_token_status eq CSRF_OK)) {
+		display_error(lang("error_invalid_csrf_token"), 403);
+	}
 
 	my @userids = ();
 	if (defined $email_ref) {
@@ -168,6 +177,10 @@ if ($type eq 'send_email') {
 
 }
 elsif ($type eq 'reset') {
+	my $csrf_token_status = check_po_csrf_token(param('resetid'), param('csrf'));
+	if (not ($csrf_token_status eq CSRF_OK)) {
+		display_error(lang("error_invalid_csrf_token"), 403);
+	}
 	
 	my $userid = get_fileid(param('resetid'));
 	my $user_ref = retrieve("$data_root/users/$userid.sto");
