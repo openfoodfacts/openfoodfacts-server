@@ -516,13 +516,22 @@ sub init_user()
 	    }
 
 	# Retrieve user_id and password from cookie
-	elsif (defined cookie($cookie_name))
-	{
-	    my %session = cookie($cookie_name) ;
-	    # $debug and print STDERR "ProductOpener::Users::init_user - cookie session : $session{'user_sessions'} ; user_id : $session{'user_id'}\n" ;
-	    my $user_session = $session{'user_session'} ;
-	    $user_id = $session{'user_id'};
-	    $debug and print STDERR "ProductOpener::Users::init_user - cookie found ! user_id: $user_id \n" ;
+	elsif ((defined cookie($cookie_name)) or ((defined param('user_session')) and (defined param('user_id')))) {
+		my $user_session;
+		if (defined param('user_session')) {
+			$user_session = param('user_session');
+			$user_id = param('user_id');
+			$debug and print STDERR "ProductOpener::Users::init_user - user_session parameter found ! user_id: $user_id user_session: $user_session \n" ;					
+		}
+		else {
+			my %session = cookie($cookie_name);
+			# $debug and print STDERR "ProductOpener::Users::init_user - cookie session : $session{'user_sessions'} ; user_id : $session{'user_id'}\n" ;
+			$user_session = $session{'user_session'} ;
+			$user_id = $session{'user_id'};
+			$debug and print STDERR "ProductOpener::Users::init_user - cookie found ! user_id: $user_id \n" ;			
+		}
+	    
+
 	    if (defined $user_id)
 	    {
 			my $user_file = "$data_root/users/" . get_fileid($user_id) . ".sto";
