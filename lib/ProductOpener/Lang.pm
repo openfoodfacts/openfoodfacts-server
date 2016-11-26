@@ -2302,9 +2302,9 @@ login_register_content => {
 
 <form method="post" action="/cgi/session.pl">
 Nom d'utilisateur ou adresse e-mail :<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Mot de passe<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Se souvenir de moi</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Se connecter" class="button small" />
 </form>
@@ -2317,9 +2317,9 @@ HTML
 
 <form method="post" action="/cgi/session.pl">
 Benutzername oder E-Mail-Adresse:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Passwort<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Angemeldet bleiben</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
@@ -2331,9 +2331,9 @@ el => <<HTML
 
 <form method="post" action="/cgi/session.pl">
 Username ή διεύθυνση e-mail:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Password<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Remember me</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
@@ -2347,9 +2347,9 @@ en => <<HTML
 
 <form method="post" action="/cgi/session.pl">
 Username or e-mail address:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Password<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Remember me</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
@@ -2362,9 +2362,9 @@ HTML
 
 <form method="post" action="/cgi/session.pl">
 Nombre de usuario o dirección de correo electrónico:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Contraseña<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Mantenerme conectado</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
@@ -2377,9 +2377,9 @@ HTML
 
 <form method="post" action="/cgi/session.pl">
 Nom d'utilisateur ou adresse e-mail :<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Mot de passe<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Mantenere la connessione</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Connettersi" class="button small" />
 </form>
@@ -2392,9 +2392,9 @@ HTML
 
 <form method="post" action="/cgi/session.pl">
 Nome de usuário ou endereço de email:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Senha<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Lembre-se de mim</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
@@ -2407,9 +2407,9 @@ HTML
 
 <form method="post" action="/cgi/session.pl">
 Nome de utilizador ou endereço de e-mail:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Palavra-passe<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Manter sessão iniciada</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
@@ -2422,9 +2422,9 @@ HTML
 
 <form method="post" action="/cgi/session.pl">
 Numele de utilizator sau adresa de e-mail:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Parola<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Ține-mă minte</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Autentificare" class="button small" />
 </form>
@@ -2437,9 +2437,9 @@ HTML
 
 <form method="post" action="/cgi/session.pl">
 שם משתמש או כתובת דוא״ל:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 ססמה<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>שמירת הפרטים שלי</label><br />
 <input type="submit" tabindex="4" name=".submit" value="כניסה" class="button small" />
 </form>
@@ -2452,9 +2452,9 @@ HTML
 
 <form method="post" action="/cgi/session.pl">
 Gebruikersnaam of e-mailadres:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Wachtwoord<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Aangemeld blijven</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
@@ -2467,9 +2467,9 @@ HTML
 
 <form method="post" action="/cgi/session.pl">
 Gebruikersnaam of e-mailadres:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Paswoord<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Aangemeld blijven</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
@@ -6758,7 +6758,7 @@ barcode => {
 
 or => {
 	fr => 'ou :',
-	en => 'or :',
+	en => 'or:',
 	el => "ή",
 	es => 'o :',
 	pt => 'ou :',

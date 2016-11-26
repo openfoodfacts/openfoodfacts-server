@@ -37,6 +37,9 @@ requires 'DateTime::Locale';
 requires 'Math::Random::Secure';
 requires 'Crypt::ScryptKDF';
 requires 'HTTP::AcceptLanguage', '>=0.02';
+requires 'Email::IsEmail', '>= 3.04.8';
+requires 'CLDR::Number::Format::Percent';
+requires 'CLDR::Number';
 
 # OIDC
 requires 'OAuth::Lite2', '0.11';
