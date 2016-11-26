@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2016 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -406,6 +406,14 @@ sub compute_completeness_and_missing_tags($$$) {
 		push @states_tags, "en:characteristics-completed";		
 	}
 	
+	if ((defined $product_ref->{emb_codes}) and ($product_ref->{emb_codes} ne '')) {
+		push @states_tags, "en:packaging-code-completed";
+		$notempty++;
+	}
+	else {
+		push @states_tags, "en:packaging-code-to-be-completed";
+	}
+	
 	if ((defined $product_ref->{expiration_date}) and ($product_ref->{expiration_date} ne '')) {
 		push @states_tags, "en:expiration-date-completed";
 		$notempty++;
@@ -415,7 +423,7 @@ sub compute_completeness_and_missing_tags($$$) {
 		# $complete = 0;		
 	}	
 	
-	if ((defined $product_ref->{ingredients_text}) and ($product_ref->{ingredients_text} ne '')) {
+	if ((defined $product_ref->{ingredients_text}) and ($product_ref->{ingredients_text} ne '') and (not ($product_ref->{ingredients_text} =~ /\?/))) {
 		push @states_tags, "en:ingredients-completed";
 		$notempty++;
 	}
