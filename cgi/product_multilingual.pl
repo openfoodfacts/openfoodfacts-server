@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2016 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -504,7 +504,7 @@ sub display_field($$) {
 		$tagsinput = ' tagsinput';
 		
 		my $autocomplete = "";
-		if (defined $taxonomy_fields{$fieldtype}) {
+		if ((defined $taxonomy_fields{$fieldtype}) or ($fieldtype eq 'emb_codes')) {
 			$autocomplete = ",
 	'autocomplete_url': 'http://world.$server_domain/cgi/suggest.pl?lc=$lc&tagtype=$fieldtype&'";
 		}
