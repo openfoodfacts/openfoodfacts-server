@@ -33,7 +33,7 @@ Data about food is of public interest and has to be open. The complete database 
 Product Opener
 Copyright (C) 2011-2015 Association Open Food Facts
 Contact: contact@openfoodfacts.org
-Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+Address: 21 rue des Iles, 94100 Saint-Maur des Fossï¿½s, France
 
 Product Opener is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
@@ -67,6 +67,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * Writing tests
 * Code review
 * Other guidelines
+* Please add new features to the CHANGELOG.md file before or after merge to make testing easier.
 
 ### Reporting bugs ###
 Have a bug or a feature request? Please search for existing and closed issues. If your problem or idea is not addressed yet, please open a new issue.<br>
