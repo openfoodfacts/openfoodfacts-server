@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2016 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -71,10 +71,10 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Cache qw/:all/;
 use ProductOpener::Display qw/:all/;
 
-
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 
+use Email::IsEmail qw/IsEmail/;
 use Crypt::PasswdMD5 qw(unix_md5_crypt);
 use Math::Random::Secure qw(irand);
 use Crypt::ScryptKDF qw(scrypt_hash scrypt_hash_verify);
@@ -155,19 +155,19 @@ sub display_user_form($$) {
 	my $html = '';
 	
 	$html .= "\n<tr><td>$Lang{name}{$lang}</td><td>"	
-	. textfield(-id=>'name', -name=>'name', -value=>$user_ref->{name}, -size=>80, -override=>1) . "</td></tr>"
+	. textfield(-id=>'name', -name=>'name', -value=>$user_ref->{name}, -size=>80, -autocomplete=>'name', -override=>1) . "</td></tr>"
 #	. "\n<tr><td>$Lang{sex}{$lang}</td><td>" 
 #	. radio_group(-name=>'sex', -values=>['f','m'], -labels=>{'f'=>$Lang{female}{$lang},'m'=>$Lang{male}{$lang}}, -default=>$user_ref->{sex}, -override=>1) . "</td></tr>"
 	. "\n<tr><td>$Lang{email}{$lang}</td><td>" 
-	. textfield(-name=>'email', -value=>$user_ref->{email}, -size=>80, -override=>1) . "</td></tr>"
+	. textfield(-name=>'email', -value=>$user_ref->{email}, -size=>80, -autocomplete=>'email', -type=>'email', -override=>1) . "</td></tr>"
 	. "\n<tr><td>$Lang{username}{$lang}<br/><span class=\"info\">" . (($type eq 'edit') ? '': $Lang{username_info}{$lang}) . "</span></td><td>"	
 	. (($type eq 'edit') ? $user_ref->{userid} : 
-		( textfield(-id=>'userid', -name=>'userid', -value=>$user_ref->{userid}, -size=>40, -onkeyup=>"update_userid(this.value)")
+		( textfield(-id=>'userid', -name=>'userid', -value=>$user_ref->{userid}, -size=>40, -onkeyup=>"update_userid(this.value)", -autocomplete=>'username')
 			. "<br /><span id=\"useridok\" style=\"font-size:10px;\">&nbsp;</span>")) . "</td></tr>"
 	. "\n<tr><td>$Lang{password}{$lang}</td><td>"
-	. password_field(-name=>'password', -value=>'', -override=>1) . "</td></tr>"
+	. password_field(-name=>'password', -value=>'', -autocomplete=>'new-password', -override=>1) . "</td></tr>"
 	. "\n<tr><td>$Lang{password_confirm}{$lang}</td><td>"
-	. password_field(-name=>'confirm_password', -value=>'', -override=>1) . "</td></tr>"
+	. password_field(-name=>'confirm_password', -value=>'', -autocomplete=>'new-password', -override=>1) . "</td></tr>"
 	
 
 	;
@@ -276,7 +276,7 @@ sub check_user_form($$) {
 		push @$errors_ref, $Lang{error_no_name}{$lang};
 	}
 	
-	if ($user_ref->{email} !~ /^[\w.-]+\@([\w.-]+\.)+\w+$/) {
+	if (Email::IsEmail($user_ref->{email}, 1, Email::IsEmail::THRESHOLD) != Email::IsEmail::VALID) {
 		push @$errors_ref, $Lang{error_invalid_email}{$lang};
 	}
 	
@@ -516,13 +516,22 @@ sub init_user()
 	    }
 
 	# Retrieve user_id and password from cookie
-	elsif (defined cookie($cookie_name))
-	{
-	    my %session = cookie($cookie_name) ;
-	    # $debug and print STDERR "ProductOpener::Users::init_user - cookie session : $session{'user_sessions'} ; user_id : $session{'user_id'}\n" ;
-	    my $user_session = $session{'user_session'} ;
-	    $user_id = $session{'user_id'};
-	    $debug and print STDERR "ProductOpener::Users::init_user - cookie found ! user_id: $user_id \n" ;
+	elsif ((defined cookie($cookie_name)) or ((defined param('user_session')) and (defined param('user_id')))) {
+		my $user_session;
+		if (defined param('user_session')) {
+			$user_session = param('user_session');
+			$user_id = param('user_id');
+			$debug and print STDERR "ProductOpener::Users::init_user - user_session parameter found ! user_id: $user_id user_session: $user_session \n" ;					
+		}
+		else {
+			my %session = cookie($cookie_name);
+			# $debug and print STDERR "ProductOpener::Users::init_user - cookie session : $session{'user_sessions'} ; user_id : $session{'user_id'}\n" ;
+			$user_session = $session{'user_session'} ;
+			$user_id = $session{'user_id'};
+			$debug and print STDERR "ProductOpener::Users::init_user - cookie found ! user_id: $user_id \n" ;			
+		}
+	    
+
 	    if (defined $user_id)
 	    {
 			my $user_file = "$data_root/users/" . get_fileid($user_id) . ".sto";
@@ -612,23 +621,23 @@ sub init_user()
 	{
 		# If we don't have a user id, check if there is a browser id cookie, or assign one
 
-	        if (not ((defined cookie('b')) and (cookie('b') =~ /^(\d+)\.(\d+)\.(\d+)\.(\d+)_(\d+)$/)))
-	        {
+        if (not ((defined cookie('b')) and (cookie('b') =~ /^(\d+)\.(\d+)\.(\d+)\.(\d+)_(\d+)$/)))
+        {
 			my $b = remote_addr() . '_' . time();
 			# $Visitor_id = $b;  # don't set $Visitor_id unless we get the cookie back
 			# Set a cookie
 			if (not defined $cookie)
 			{
-				$cookie = cookie (-name=>'b', -value=>$b, -path=>'/', -expires=>'+86400000s') ;
-				print STDERR "Users.pm - setting b cookie: $cookie\n";
+			 $cookie = cookie (-name=>'b', -value=>$b, -path=>'/', -expires=>'+86400000s') ;
+			 print STDERR "Users.pm - setting b cookie: $cookie\n";
 			} 
 		}
 		else
 		{
-			$Visitor_id = cookie('b');
+            $Visitor_id = cookie('b');
 			$user_ref = retrieve("$data_root/virtual_users/$Visitor_id.sto");
 			print STDERR "Users.pm - got b cookie: $Visitor_id\n";
-	        }
+        }
                 
 	}
 	
