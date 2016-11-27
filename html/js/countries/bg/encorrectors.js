@@ -1,4 +1,0 @@
-var correctorsTags = [
-
-"Acidious",
-"Pavel"];

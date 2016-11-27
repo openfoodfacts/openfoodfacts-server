@@ -25,18 +25,20 @@ use CGI::Carp qw(fatalsToBrowser);
 use strict;
 use utf8;
 
-use Blogs::Config qw/:all/;
-use Blogs::Store qw/:all/;
-use Blogs::Index qw/:all/;
-use Blogs::Display qw/:all/;
-use Blogs::Users qw/:all/;
-use Blogs::Lang qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Index qw/:all/;
+use ProductOpener::Display qw/:all/;
+use ProductOpener::Users qw/:all/;
+use ProductOpener::Lang qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 
-Blogs::Display::init();
+use WWW::CSRF qw(CSRF_OK);
+
+ProductOpener::Display::init();
 
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
@@ -46,19 +48,23 @@ my $userid = get_fileid(param('userid'));
 my $html = '';
 
 my $user_ref = {};
+my $csrf_user_id = '';
 
 if ($type eq 'edit') {
 	$user_ref = retrieve("$data_root/users/$userid.sto");
 	if (not defined $user_ref) {
-		display_error($Lang{error_invalid_user}{$lang});
+		display_error($Lang{error_invalid_user}{$lang}, 404);
 	}
+
+	$csrf_user_id = $User_id;
 }
 else {
 	$type = 'add';
+	$csrf_user_id = cookie('b');
 }
 
 if (($type eq 'edit') and ($User_id ne $userid) and not $admin) {
-	display_error($Lang{error_no_permission}{$lang});
+	display_error($Lang{error_no_permission}{$lang}, 403);
 }
 
 my $debug = 0;
@@ -73,12 +79,12 @@ if ($action eq 'process') {
 				$type = 'delete';
 			}
 			else {
-				display_error($Lang{error_no_permission}{$lang});
+				display_error($Lang{error_no_permission}{$lang}, 403);
 			}
 		}
 	}
 	
-	Blogs::Users::check_user_form($user_ref, \@errors);
+	ProductOpener::Users::check_user_form($user_ref, \@errors);
 	
 	if ($#errors >= 0) {
 		$action = 'display';
@@ -102,8 +108,8 @@ SCRIPT
 	$html .= start_form()
 	. "<table>";
 	
-	$html .= Blogs::Users::display_user_form($user_ref,\$scripts);
-	$html .= Blogs::Users::display_user_form_optional($user_ref);
+	$html .= ProductOpener::Users::display_user_form($user_ref,\$scripts);
+	$html .= ProductOpener::Users::display_user_form_optional($user_ref);
 	
 	if ($admin) {
 		$html .= "\n<tr><td colspan=\"2\">" . checkbox(-name=>'delete', -label=>'Effacer l\'utilisateur') . "</td></tr>";
@@ -113,6 +119,7 @@ SCRIPT
 	. hidden(-name=>'action', -value=>'process', -override=>1)
 	. hidden(-name=>'type', -value=>$type, -override=>1)
 	. hidden(-name=>'userid', -value=>$userid, -override=>1)
+	. hidden(-name=>'csrf', -value=>generate_po_csrf_token($csrf_user_id), -override=>1)
 	. submit()
 	. "</td></tr>\n</table>"
 	. end_form();
@@ -120,14 +127,19 @@ SCRIPT
 }
 elsif ($action eq 'process') {
 
+	my $csrf_token_status = check_po_csrf_token($csrf_user_id, param('csrf'));
+	if (not ($csrf_token_status eq CSRF_OK)) {
+		display_error('Invalid CSRF token', 403);
+	}
+
     my $dialog = '_user_confirm';
 	if (($type eq 'add') or ($type eq 'edit')) {
-		if ( Blogs::Users::process_user_form($user_ref) ) {
+		if ( ProductOpener::Users::process_user_form($user_ref) ) {
             $dialog = '_user_confirm_no_mail';
         }
 	}
 	elsif ($type eq 'delete') {
-		Blogs::Users::delete_user($user_ref);		
+		ProductOpener::Users::delete_user($user_ref);		
 	}
 	
 	$html .= lang($type . $dialog);

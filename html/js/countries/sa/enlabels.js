@@ -1,3 +1,0 @@
-var labelsTags = [
-
-"ar:Ecocert"];

@@ -5,21 +5,21 @@ use CGI::Carp qw(fatalsToBrowser);
 use strict;
 use utf8;
 
-use Blogs::Config qw/:all/;
-use Blogs::Store qw/:all/;
-use Blogs::Index qw/:all/;
-use Blogs::Display qw/:all/;
-use Blogs::Lang qw/:all/;
-use Blogs::Tags qw/:all/;
-use Blogs::Users qw/:all/;
-use Blogs::Images qw/:all/;
-use Blogs::Products qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Index qw/:all/;
+use ProductOpener::Display qw/:all/;
+use ProductOpener::Lang qw/:all/;
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::Users qw/:all/;
+use ProductOpener::Images qw/:all/;
+use ProductOpener::Products qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
@@ -38,7 +38,7 @@ my $env = $ENV{QUERY_STRING};
 print STDERR "product_image_move.pl - query string : $env - calling init()\n";
 
 
-Blogs::Display::init();
+ProductOpener::Display::init();
 
 $debug = 1;
 

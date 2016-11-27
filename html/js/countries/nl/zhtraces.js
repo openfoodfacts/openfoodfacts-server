@@ -1,4 +1,0 @@
-var tracesTags = [
-
-"Glutenvrij",
-"Melkvrij"];

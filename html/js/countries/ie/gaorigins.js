@@ -1,4 +1,0 @@
-var originsTags = [
-
-"Ireland",
-"Uk"];

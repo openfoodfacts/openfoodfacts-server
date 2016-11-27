@@ -5,20 +5,20 @@ use CGI::Carp qw(fatalsToBrowser);
 use strict;
 use utf8;
 
-use Blogs::Config qw/:all/;
-use Blogs::Store qw/:all/;
-use Blogs::Index qw/:all/;
-use Blogs::Display qw/:all/;
-use Blogs::Images qw/:all/;
-use Blogs::Users qw/:all/;
-use Blogs::Mail qw/:all/;
-use Blogs::Lang qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Index qw/:all/;
+use ProductOpener::Display qw/:all/;
+use ProductOpener::Images qw/:all/;
+use ProductOpener::Users qw/:all/;
+use ProductOpener::Mail qw/:all/;
+use ProductOpener::Lang qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Encode;
 
-Blogs::Display::init();
+ProductOpener::Display::init();
 
 my $type = param('type') || 'edit';
 my $action = param('action') || 'display';
@@ -41,7 +41,7 @@ my $blogs_dir = 'blogs';
 
 $blog_ref = retrieve("$data_root/index/$blogs_dir/$blogid/blog.sto");
 if ((not defined $blog_ref) and (defined param('blogid'))) {
-	display_error($Lang{error_invalid_blog}{$lang});
+	display_error($Lang{error_invalid_blog}{$lang}, 404);
 }
 
 if ((not defined $blog_ref) and not (defined param('blogid'))) {
@@ -50,7 +50,7 @@ if ((not defined $blog_ref) and not (defined param('blogid'))) {
 not defined $blog_ref->{userid} and $blog_ref->{userid} = $User_id;
 
 if (($type eq 'delete')  and not $admin) {
-	display_error($Lang{error_no_permission}{$lang});
+	display_error($Lang{error_no_permission}{$lang}, 403);
 }
 
 my $oldblogid = $blogid;
@@ -64,7 +64,7 @@ if ($type eq 'edit') {
 	# Check that only the owner is editing the blog
 	if (not ($admin or ($User_id eq $blog_ref->{userid}))) {
 		print STDERR "blog.pl - disallowed edit for user: $User_id, blog: $blogid, owner: $blog_ref->{userid}\n";
-		display_error($Lang{error_signin_to_edit_your_blog}{$lang});
+		display_error($Lang{error_signin_to_edit_your_blog}{$lang}, 403);
 	}
 }
 
@@ -80,7 +80,7 @@ if ($action eq 'process') {
 				$type = 'delete';
 			}
 			else {
-				display_error($Lang{error_no_permission}{$lang});
+				display_error($Lang{error_no_permission}{$lang}, 403);
 			}
 		}
 	}
@@ -156,7 +156,7 @@ SCRIPT
 	
 	if (not defined $User_id) {
 		$html .= "<tr><td colspan=\"2\">$Lang{signin_before_submit}{$lang}</td></tr>\n";
-		$html .= Blogs::Users::display_user_form($user_ref,\$scripts);
+		$html .= ProductOpener::Users::display_user_form($user_ref,\$scripts);
 	}
 	
 	if (not defined $blog_ref->{title}) {
@@ -188,7 +188,7 @@ SCRIPT
 	;
 	
 	if ((not defined $User_id) ) {
-		$html .= Blogs::Users::display_user_form_optional($user_ref);
+		$html .= ProductOpener::Users::display_user_form_optional($user_ref);
 	}
 	
 	if ($admin) {

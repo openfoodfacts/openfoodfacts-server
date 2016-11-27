@@ -1,4 +1,0 @@
-var labelsTags = [
-
-"Vegetariano",
-"Vegano"];

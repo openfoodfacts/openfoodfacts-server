@@ -1,4 +1,0 @@
-var photographersTags = [
-
-"Johnwalk",
-"Minouche"];

@@ -1,3 +1,0 @@
-var countriesTags = [
-
-"South Korea"];

@@ -2,7 +2,6 @@ stopwords:en:ingredients, from, with, of, by, the, verified, certified, approved
 stopwords:fr:ingrédients, issus, de, l', convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit, sas
 stopwords:es:por, la, las, los, el, apto, para, certificado, controlado, registrado, 100%
 
-
 synonyms:en:coloring, colouring, color, colour
 
 synonyms:en:flavor, flavour, flavoring, flavouring
@@ -48,10 +47,10 @@ en:Assured Food Standards, assured food standard, Red Tractor
 en:Authentic Trappist Product
 es:Authentic Trappist Product, Producto trapense auténtico
 fr:Produit trappiste authentique
-wikidata:en: Q3406760
+wikidata:en:Q3406760
 
 en:British Lion Quality, Lion Quality, British Lion Eggs, Lion Eggs, The Lion Mark, Lion Mark
-wikidata:en: Q4969906
+wikidata:en:Q4969906
 
 en:Carbon compensated product, carbon neutral
 fr:Produit compensé carbone, Carbone neutre, neutre en carbone, carbone compensé
@@ -62,17 +61,30 @@ es:Huella de carbono, Emisiones de CO2
 fr:Empreinte carbone, émissions de carbone
 it:Emissioni di CO2, impronta climatica
 pt:Pegada de carbono, Emissões de CO2
-wikidata:en: Q310667
+wikidata:en:Q310667
 
 en:Certified Belgian Abbey Beer
 es:Certified Belgian Abbey Beer, Cerveza belga de abadía, Cerveza belga de abadía certificada
 fr:Bière belge d'Abbaye reconnue
-wikidata:en: Q2794703
+nl:Erkend belgisch abdijbier
+wikidata:en:Q2794703
+
+en:Belgian hops
+nl:Belgische hop
 
 en:Cooperative product
 es:Producto de cooperativa
 fr:Produit en coopérative, produit de coopérative
-wikidata:en: Q4539
+wikidata:en:Q4539
+
+en:ISO 9001
+it:Iso 9001, Uni en iso 9001, Sistema di qualita certificato iso 9001
+fr:Iso 9001, Certifie iso 9001, La certification qualite iso 9001
+
+<en:ISO 9001
+en:ISO-9001-2008, ISO 9001 2008 certified qms
+it:Iso-9001-2008
+fr:Iso-9001-2008
 
 en:Denominación de Origen
 es:DO, D.O., Denominación de Origen
@@ -83,29 +95,31 @@ es:DOCa, D.O.Ca., Denominación de Origen Calificada
 en:EU Agriculture, European Union agriculture
 es:Agricultura UE, Agricultura Unión Europea
 fr:Agriculture UE, Agriculture Union Européeenne
+de:EU-Landwirtschaft
 
 en:Fair trade
 es:Comercio justo, Fairtrade-Comercio Justo
 fr:Commerce équitable, équitable
-wikidata:en: Q188485
+wikidata:en:Q188485
 
-< en:Fair trade
+<en:Fair trade
 en:Fairtrade International, Fairtrade, FLO international, FLO
 es:Fairtrade International, Fairtrade, FLO international, FLO
 fr:Fairtrade International, Fairtrade, FLO international, FLO
 
-< en:Fair trade
-en:Max Havelaar, Max Havelar
-wikidata:en: Q694008
+<en:Fair trade
+en:Max Havelaar, Max Havelar, Fairtrade/Max Havelaar
+wikidata:en:Q694008
 
-< en:Max Havelaar
+<en:Max Havelaar
 fr:Max Havelaar Belgique
-nl:Max Havelaar Belgie
+nl_be:Max Havelaar Belgie
+nl:Max Havelaar Nederland
 
-< en:Max Havelaar
+<en:Max Havelaar
 fr:Max Havelaar France
 
-< en:Fair trade
+<en:Fair trade
 en:TransFer, TransFer Canada
 
 en:Fed without GMOs
@@ -115,348 +129,505 @@ en:Freedom Food, Freedom food rspca monitored
 
 en:FSC, Forest Stewardship Council
 es:FSC, Forest Stewardship Council, Consejo de Administración Forestal
-wikidata:en: Q748367
+wikidata:en:Q748367
 
-en:Gluten-free, Without gluten, No gluten
+<en:FSC
+en:FSC Mix
+fr:FSC Mix, FSC Mixte
+
+<en:FSC
+en:FSC Recycling
+
+<en:FSC
+en:FSC-C002324
+
+<en:FSC
+en:FSC-C014047
+
+<en:FSC
+en:FSC-C014207
+
+<en:FSC
+en:FSC-C016627
+
+<en:FSC
+en:FSC-C020428
+
+<en:FSC
+en:FSC-C022488
+
+<en:FSC
+en:FSC-C074707
+
+<en:FSC
+en:FSC-C081801
+
+<en:FSC
+en:FSC-C100482
+
+<en:FSC
+en:FSC-C104258
+
+<en:FSC
+en:FSC-C104752
+
+<en:FSC
+en:FSC-C107894
+
+<en:FSC
+en:FSC-C109331
+
+<en:FSC
+en:FSC-C115560
+
+<en:FSC
+en:FSC-C117156
+
+en:Gluten-free, Without gluten, No gluten, Gluten-free-food, free of gluten
 de:Glutenfrei
 es:Sin gluten
 fr:Sans gluten
 it:Senza glutine
-wikidata:en: Q2632776
+pt:Sem gluten
+wikidata:en:Q2632776
 
-< en:Gluten-free
+<en:Gluten-free
 en:FACE
 
+en:No thickening agent, No thickeners
+fr:Sans épaississant, Sans épaississants, Sans épaissisant, Sans épaissisants
+
+en:No added thickener
+fr:Sans épaississant ajouté, Sans epaissisant ajoute
+
 en:Green Dot, The Green Dot
-de:Grüne Punkt, Der Grüne Punkt
+de:Grüner Punkt, Grüne Punkt, Der Grüne Punkt
 es:Punto Verde, El Punto Verde
 fr:Point Vert, Le Point Vert
 it:Punto Verde, Il Punto Verde
-wikidata:en: Q975485
+wikidata:en:Q975485
 
 en:Halal
 es:Halal
 fr:Halal
 th:ฮาลาล
-wikidata:en: Q177823
+de:Halal
+wikidata:en:Q177823
 
-< en:Halal
-en: Muslim Consumer Group, H-MCG
+<en:Halal
+en:Halal Food Authority, HFA, HFA Approved, Hallal Food Authority
 
-< en:Halal
-en: The Central Islamic Committee of Thailand, CICOT, The Islamic Committee Office of Thailand, The Halal Standard Institute of thailand
-th: สำนักงานคณะกรรมการกลางอิสลามแห่งประเทศไทย, คณะกรรมการกลางอิสลามแห่งประเทศไทย
+<en:Halal
+en:Muslim Consumer Group, H-MCG
 
-< fr:Halal
-fr: Association Rituelle de la Grande Mosquée de Lyon, ARGML
+<en:Halal
+en:The Central Islamic Committee of Thailand, CICOT, The Islamic Committee Office of Thailand, The Halal Standard Institute of thailand
+th:สำนักงานคณะกรรมการกลางอิสลามแห่งประเทศไทย, คณะกรรมการกลางอิสลามแห่งประเทศไทย
 
-< fr:Halal
-fr: A Votre Service, AVS
+<en:Halal
+en:Muslim Council International
 
-< fr:Halal
-fr: HALAL REUNION, Commission de Surveillance du Halal de la Réunion
+<en:Halal
+fr:Centre Islamique Aachen, Sous contrôle du Centre Islamique Aachen, sous control du centre islamique aachen
 
-< fr:Halal
-fr: Association Culturelle Musulmane d’Ile de France, ACMIF
+<en:Halal
+fr:Association Rituelle de la Grande Mosquée de Lyon, ARGML
 
-< fr:Halal
-fr: Muslim Conseil International, MCI
+<en:Halal
+fr:A Votre Service, AVS
 
-< fr:Halal
-en: HALAL MONITORING COMMITTEE, HMC
+<en:Halal
+fr:Contrôle de la mosquée d'Évry-Courcouronnes
 
-< fr:Halal
-en: JUNTA ISLAMICA
+<en:Halal
+fr:Halal Reunion, Commission de Surveillance du Halal de la Réunion
 
-< fr:Halal
-fr: Société Française de Contrôle de Viande Halal, SFCVH, S-f-c-v-h
+<en:Halal
+fr:Association Culturelle Musulmane d’Ile de France, ACMIF
 
-< fr:Halal
-fr: Société Contrôle Viande Halal, SCVH
+<en:Halal
+fr:Muslim Conseil International, MCI
 
-en: Label Rouge
-es: Label Rouge
-fr: Label Rouge
+<en:Halal
+en:Halal Monitoring Committee, HMC
+
+<en:Halal
+en:Junta Islamica
+
+<en:Halal
+fr:Société Française de Contrôle de Viande Halal, SFCVH, S-f-c-v-h
+
+en:Label Rouge
+es:Label Rouge
+fr:Label Rouge
 wikidata:en:Q3214309
 
-en: Thai quality label
+en:Thai quality label
 
-< en: Thai quality label
-en: Thailand Diversity & Refinement
+<en:Thai quality label
+en:Thailand Diversity & Refinement
 
-< en: Thai quality label
-en: Thai fish sauce quality label
+<en:Thai quality label
+en:Thai fish sauce quality label
 
-< en: Thai fish sauce quality label
-en: First grade TIS 3-1983, Thai Industrial Standard Institute
-
+<en:Thai fish sauce quality label
+en:First grade TIS 3-1983, Thai Industrial Standard Institute
 
 en:High fibres, high fibers, Rich in fiber
 es:Rico en fibra, Rico en fibras, Fuente de Fibra
 fr:Riche en fibres
 
+en:Omega-3
+fr:Omega-3
+
+<en:Omega-3
 en:High in Omega 3
 es:Rico en Omega 3
-fr:Riche en Oméga-3
+fr:Riche en Oméga-3, Riche en omega 3, Riche en acide gras omega 3
+de:Hoher Omega-3-Gehalt
 
 en:High proteins
 fr:Riche en protéines
+de:Proteinreich
 
 en:In braille
 es:En braille, Producto en braille
 fr:Produit en braille
-wikidata:en: Q79894
+wikidata:en:Q79894
 
 en:Incorrect data on label, Incorrect data
 fr:Informations incorrectes sur l'emballage, Informations incorrectes
+de:Falsche Angaben auf der Verpackung
 
-< en:Incorrect data on label
+<en:Incorrect data on label
 en:Incorrect nutrition facts on label, Incorrect nutrition facts, Informations nutritionnelles incorrectes
 fr:Informations nutritionnelles incorrectes sur l'emballage, Informations nutritionnelles incorrectes
 
 en:Integrated production
 es:Producción Integrada
-wikidata:en: Q1665511
+wikidata:en:Q1665511
 
 en:Kosher, kasher
 es:Kosher
 fr:Kascher, Kasher, Cacher, casher, kacher, cascher, kosher
-wikidata:en: Q1076110
+wikidata:en:Q1076110
 
-< en:Kosher
+<en:Kosher
+en:cRc Pareve, Chicago Rabbinical Council Pareve, Chicago Rabbinical Council, cRc
+fr:cRc Pareve, cRc
+
+<en:Kosher
+en:Kof-K
+
+<en:Kosher
+en:Kosher Supervision of America, KSA, KSA Kosher
+
+<en:Kosher
 en:Orthodox Union Kosher, Orthodox Union, OU Kosher, OU, U, Ⓤ
-wikidata:en: Q358284
+wikidata:en:Q358284
 
-< en:Kosher
+<en:Kosher
+en:Manchester Beth Din, Manchester Kosher
+fr:Beth Din de Manchester, Manchester Kosher
+
+<en:Kosher
+en:Kashrut division of the London Beth Din, London Beth Din, KLBD
+fr:Beth Din de Londres, KLBD
+
+<en:Kosher
 en:Organized Kashrut Kosher, Organized Kashrut, OK Kosher, OK, Ⓚ
 
-< en:Kosher
-en: Kosher-parve, Kosher parve
-fr: Kascher pareve, Kasher pareve, Cacher pareve, casher pareve, kacher pareve, cascher pareve, Kosher pareve, Kascher parve, Kasher parve, Cacher parve, casher parve, kacher parve, cascher parve, Kosher parve
+<en:Kosher
+en:Kosher-parve, Kosher parve
+fr:Kascher pareve, Kasher pareve, Cacher pareve, casher pareve, kacher pareve, cascher pareve, Kosher pareve, Kascher parve, Kasher parve, Cacher parve, casher parve, kacher parve, cascher parve, Kosher parve
 
-< en:Kosher
-en: Kosher Check,  BC Kosher
+<en:Kosher
+en:Kosher Check, BC Kosher
 
-< en:Kosher
-en: Star-K Kosher, Vaad Hakashrus of Baltimore
+<en:Kosher
+en:Star-K Kosher, Vaad Hakashrus of Baltimore
 
-< en:Kosher
-en: Star-D Kosher
+<en:Kosher
+en:Star-D Kosher
 
-< en:Kosher
-en: Tablet-K Kosher
+<en:Kosher
+en:Tablet-K Kosher
 
-< en:Kosher
-en: Magen Tzedek, Hekhsher Tzedek
-he: מגן צדק
+<en:Kosher
+en:Magen Tzedek, Hekhsher Tzedek
+he:מגן צדק
+wikidata:en:Q6730103
 
-< en:Kosher
+<en:Kosher
 en:Tav HaYosher
+wikidata:en:Q7688982
 
-< en:Kosher
+<en:Kosher
 en:COR Kosher
 
-< en:Kosher
-en: Kosher under supervision of Rabbi Weitman Tnuva
-fr: Kosher under supervision of Rabbi Weitman Tnuva
+<en:Kosher
+en:Kosher under supervision of Rabbi Weitman Tnuva
+fr:Kosher under supervision of Rabbi Weitman Tnuva
+
+<en:Kosher
+en:Sephardi Kashrut Autority, sKa, Sephardi Beth Din
 
 en:Labels of distributors
 es:Etiquetas de distribuidores
 fr:Labels de distributeurs
 
-< en:Labels of distributors
+<en:Labels of distributors
 en:Carrefour Quality, Quality Carrefour
 es:Calidad Carrefour, Carrefour Calidad, Carrefour Quality
-fr:Qualité Carrefour, Carrefour Qualité
+fr:Qualité Carrefour, Carrefour Qualité, Engagement Qualité Carrefour
 
-< en:Labels of distributors
+<en:Labels of distributors
 fr:Label Carrefour
 
-< en:Labels of distributors
+<en:Labels of distributors
 fr:Sélection Intermarché
 
-< en:Labels of distributors
-fr:Testé par le panel test Carrefour, Panel test Carrefour
+<en:Labels of distributors
+fr:Testé par le panel test Carrefour, Panel test Carrefour, Inspiré testé et approuvé par le panel Test Carrefour, approuvé par le panel Test Carrefour, testé et approuvé par le panel Test Carrefour, panel Carrefour
+
+en:Charte LU Harmony, Charte Harmony, LU Harmony, Charte LU
 
 en:LEAF, Linking Environment and Farming, LEAF Linking Environment and Farming
 
 en:Low or no fat
 fr:Peu ou pas de matière grasse, peu ou pas gras
 
-< en:Low or no fat
+<en:Low or no fat
 en:Low fat
 fr:Peu de matière grasse, Peu gras, faible teneur en matière grasse, pauvre en matière grasse
 
-< en:Low fat
+<en:Low fat
 en:Reduced fat, Less fat
-fr:Allégé en matière grasse, Teneur en matière grasse réduite, teneur réduite en matière grasse, Moins de matière grasse, Moins gras, matière grasse réduit
+fr:Allégé en matière grasse, Allégée en matière grasse, Teneur en matière grasse réduite, teneur réduite en matière grasse, Moins de matière grasse, Moins gras, matière grasse réduit
 
-< en:Reduced fat
+<en:Reduced fat
 en:10% less fat
 fr:Moins 10% de matière grasse, -10% de matière grasse, 10% de matière grasse en moins
+de:10% weniger Fett
 
-< en:Reduced fat
+<en:Reduced fat
 en:15% less fat
 fr:Moins 15% de matière grasse, -15% de matière grasse, 15% de matière grasse en moins
+de:15% weniger Fett
 
-< en:Reduced fat
+<en:Reduced fat
 en:20% less fat
 fr:Moins 20% de matière grasse, -20% de matière grasse, 20% de matière grasse en moins
+de:20% weniger Fett
 
-< en:Reduced fat
+<en:Reduced fat
 en:25% less fat
 fr:Moins 25% de matière grasse, -25% de matière grasse, 25% de matière grasse en moins
+de:25% weniger Fett
 
-< en:Reduced fat
+<en:Reduced fat
 en:30% less fat
 fr:Moins 30% de matière grasse, -30% de matière grasse, 30% de matière grasse en moins
+de:30% weniger Fett
 
-< en:Reduced fat
+<en:Reduced fat
 en:35% less fat
 fr:Moins 35% de matière grasse, -35% de matière grasse, 35% de matière grasse en moins
+de:35% weniger Fett
 
-< en:Reduced fat
+<en:Reduced fat
 en:40% less fat
 fr:Moins 40% de matière grasse, -40% de matière grasse, 40% de matière grasse en moins
+de:40% weniger Fett
 
-< en:Reduced fat
+<en:Reduced fat
 en:45% less fat
 fr:Moins 45% de matière grasse, -45% de matière grasse, 45% de matière grasse en moins
+de:45% weniger Fett
 
-< en:Reduced fat
+<en:Reduced fat
 en:50% less fat
 fr:Moins 50% de matière grasse, -50% de matière grasse, 50% de matière grasse en moins
+de:50% weniger Fet
 
-< en:Low or no fat
+<en:Reduced fat
+en:55% less fat
+fr:Moins 55% de matière grasse, -55% de matière grasse, 55% de matière grasse en moins
+de:55% weniger Fet
+
+<en:Reduced fat
+en:60% less fat
+fr:Moins 60% de matière grasse, -60% de matière grasse, 60% de matière grasse en moins
+de:60% weniger Fett
+
+<en:Reduced fat
+en:65% less fat
+fr:Moins 65% de matière grasse, -65% de matière grasse, 65% de matière grasse en moins
+de:65% weniger Fet
+
+<en:Low or no fat
 en:No added fat
 es:Sin grasas añadidas, 0% grasas añadidas
-fr:Sans matière grasse ajouté, sans matière grasses ajoutés, sans ajout de matière grasse
+fr:Sans matière grasse ajoutée, sans matières grasses ajoutées, sans ajout de matière grasse, sans matière grasse ajouté, sans matières grasses ajoutés
 
-< en:Low or no fat
+<en:Low or no fat
 en:No fat, fat-free, 0% fat
 es:Sin grasas
-fr:Sans matière grasse, 0% de matière grasse
+fr:Sans matière grasse, 0% de matière grasse, sans matières grasses, 0% de matières grasses
+de:ohne Fett, fettfrei, 0% Fett
 
 en:Low or no salt
 fr:Peu ou pas de sel, peu ou pas salé
 
-< en:Low or no salt
+<en:Low or no salt
 en:Low salt
-fr:Peu de sel, peu salé, faible teneur en sel, pauvre en sel
+fr:Peu de sel, peu salé, faible teneur en sel, pauvre en sel, très pauvre en sel
 
-< en:Low salt
+<en:Low salt
 en:Reduced salt, Less salt
 fr:Allégé en sel, Teneur en sel réduite, teneur réduite en sel, Moins de sel, Moins salé, sel réduit
 
-< en:Reduced salt
+<en:Reduced salt
 en:10% less salt
-fr:Moins 10% de sel, -10% de sel, 10% de sel en moins
+fr:Moins 10% de sel, -10% de sel, 10% de sel en moins, Sel réduit de 10%
+de:10% weniger Salz
 
-< en:Reduced salt
+<en:Reduced salt
 en:15% less salt
-fr:Moins 15% de sel, -15% de sel, 15% de sel en moins
+fr:Moins 15% de sel, -15% de sel, 15% de sel en moins, Sel réduit de 15%
+de:15 weniger Salz
 
-< en:Reduced salt
+<en:Reduced salt
 en:20% less salt
-fr:Moins 20% de sel, -20% de sel, 20% de sel en moins
+fr:Moins 20% de sel, -20% de sel, 20% de sel en moins, Sel réduit de 20%
+de:20% weniger Salz
 
-< en:Reduced salt
+<en:Reduced salt
 en:25% less salt
-fr:Moins 25% de sel, -25% de sel, 25% de sel en moins
+fr:Moins 25% de sel, -25% de sel, 25% de sel en moins, Sel réduit de 25%
+de:25% weniger Salz
 
-< en:Reduced salt
+<en:Reduced salt
 en:30% less salt
-fr:Moins 30% de sel, -30% de sel, 30% de sel en moins
+fr:Moins 30% de sel, -30% de sel, 30% de sel en moins, Sel réduit de 30%
+de:30% weniger Salz
 
-< en:Reduced salt
+<en:Reduced salt
 en:35% less salt
-fr:Moins 35% de sel, -35% de sel, 35% de sel en moins
+fr:Moins 35% de sel, -35% de sel, 35% de sel en moins, Sel réduit de 35%
+de:35% weniger Salz
 
-< en:Reduced salt
+<en:Reduced salt
 en:40% less salt
-fr:Moins 40% de sel, -40% de sel, 40% de sel en moins
+fr:Moins 40% de sel, -40% de sel, 40% de sel en moins, Sel réduit de 40%
+de:40% weniger Salz
 
-< en:Reduced salt
+<en:Reduced salt
 en:45% less salt
-fr:Moins 45% de sel, -45% de sel, 45% de sel en moins
+fr:Moins 45% de sel, -45% de sel, 45% de sel en moins, Sel réduit de 45%
+de:45% weniger Salz
 
-< en:Reduced salt
+<en:Reduced salt
 en:50% less salt
-fr:Moins 50% de sel, -50% de sel, 50% de sel en moins
+fr:Moins 50% de sel, -50% de sel, 50% de sel en moins, Sel réduit de 50%
+de:50% weniger Salz
 
-< en:Low or no salt
+<en:Low or no salt
 en:No added salt
 es:Sin sal añadida, 0% sal añadida
 fr:Sans sel ajouté, sans sel ajoutés, sans ajout de sel
+de:Ohne Salzzusatz
 
-< en:Low or no salt
+<en:Low or no salt
 en:No salt, salt-free
 es:Sin sal
 fr:Sans sel
+de:ohne Salz, salzfrei, 0% Salz
 
 en:Low or no sugar
 fr:Peu ou pas de sucre, peu ou pas sucré
 
-< en:Low or no sugar
+<en:Low or no sugar
 en:Low sugar
 fr:Peu de sucre, peu sucré, faible teneur en sucre
 
-< en:Low sugar
+<en:Low sugar
 en:Reduced sugar, Less sugar
-fr:Allégé en sucre, Teneur en sucre réduite, teneur réduite en sucre, Moins de sucre, Moins sucré, Sucre réduit
+fr:Allégé en sucre, Allégé en sucres, Allégés en sucre, Allégés en suces, Allégées en sucre, Allégées en sucres, Allégée en sucre, Allégée en sucres, Teneur en sucre réduite, teneur réduite en sucre, Moins de sucre, Moins sucré, Sucre réduit
 
-< en:Reduced sugar
+<en:Reduced sugar
 en:10% less sugar
 fr:Moins 10% de sucre, -10% de sucre, 10% de sucre en moins
+de:10% weniger Zucker
 
-< en:Reduced sugar
+<en:Reduced sugar
 en:15% less sugar
 fr:Moins 15% de sucre, -15% de sucre, 15% de sucre en moins
+de:15% weniger Zucker
 
-< en:Reduced sugar
+<en:Reduced sugar
 en:20% less sugar
 fr:Moins 20% de sucre, -20% de sucre, 20% de sucre en moins
+de:20% weniger Zucker
 
-< en:Reduced sugar
+<en:Reduced sugar
 en:25% less sugar
 fr:Moins 25% de sucre, -25% de sucre, 25% de sucre en moins
+de:25% weniger Zucker
 
-< en:Reduced sugar
+<en:Reduced sugar
 en:30% less sugar
 fr:Moins 30% de sucre, -30% de sucre, 30% de sucre en moins
+de:30% weniger Zucker
 
-< en:Reduced sugar
+<en:Reduced sugar
 en:35% less sugar
 fr:Moins 35% de sucre, -35% de sucre, 35% de sucre en moins
+de:35% weniger Zucker
 
-< en:Reduced sugar
+<en:Reduced sugar
 en:40% less sugar
 fr:Moins 40% de sucre, -40% de sucre, 40% de sucre en moins
+de:40% weniger Zucker
 
-< en:Reduced sugar
+<en:Reduced sugar
 en:45% less sugar
 fr:Moins 45% de sucre, -45% de sucre, 45% de sucre en moins
+de:45% weniger Zucker
 
-< en:Reduced sugar
+<en:Reduced sugar
 en:50% less sugar
 fr:Moins 50% de sucre, -50% de sucre, 50% de sucre en moins
+de:50% weniger Zucker
 
-< en:Low or no sugar
+<en:Low or no sugar
 en:No added sugar
 es:Sin azúcares añadidos, 0% Azúcares añadidos
 fr:Sans sucre ajouté, sans sucres ajoutés, sans ajout de sucre
+pt:Sem açúcares adicionados, Sem adição de açúcares
+de:Ohne Zuckerzusatz
 
-< en:Low or no sugar
+<en:Low or no sugar
 en:No sugar, sugar-free
 es:Sin azúcar
 fr:Sans sucre
+de:Ohne Zucker
 
 en:Lowers cholesterol
 es:Reduce el colesterol
+fr:Réduit le cholesterol
+pt:Reduzem o Colesterol
 
 en:made in France
 es:Fabricado en Francia
-fr:fabriqué en France, production française
+fr:Fabriqué en France, production française, produit de France
+
+fr:Origine France, Origine France Garantie, 100% origine France
+
+fr:Saveurs en Or, Saveurs en'Or
+wikidata:en:Q3474531
+
+fr:Savourez l'Alsace
 
 en:natural colorings
 es:Colorantes naturales
@@ -478,17 +649,20 @@ en:No alcohol, alcohol-free
 es:Sin alcohol
 fr:Sans alcool
 
-en:No artificial colors
+en:No artificial colors, free of artificial color
 es:Sin colorantes artificiales
 fr:Sans colorants artificiels
+de:Ohne künstliche Farbstoffe
 
-en:No artificial flavors
+en:No artificial flavors, free of artificial flavor
 es:Sin aromas artificiales
-fr:Sans arômes artificiels, sans arôme artificiel
+fr:Sans arômes artificiels, sans arôme artificiel, sans aromatisants artificiels
+de:Ohne künstliche Aromen
 
 en:No aspartame, aspartame free
 es:Sin aspartamo, Sin aspartame
 fr:Sans aspartame
+de:ohne Aspartam, aspartamfrei
 
 en:No Bisphenol-A, No BPA, BPA free, Bisphenol-A free
 es:Sin bisfenol A, Sin BPA
@@ -501,10 +675,12 @@ fr:Sans caféine, sans théine
 en:No cholesterol, cholesterol-free
 es:Sin colesterol
 fr:sans cholestérol
+de:ohne Cholesterin, cholesterinfrei
 
 en:No colorings, no added colorings
 es:Sin colorantes, Sin colorantes añadidos
 fr:Sans colorants, sans colorant ajouté, sans ajout de colorant
+de:Ohne Farbstoffzusatz
 
 en:No eggs, egg free
 es:Sin huevo, Sin huevos
@@ -513,49 +689,93 @@ fr:sans oeufs
 en:No flavors, no added flavors
 es:Sin aromas, Sin aromas añadidos
 fr:sans arômes, sans arômes ajoutés
+de:Ohne Zusatz von Aromen, Ohne Zusatz von Aromastoffen
 
 en:No flavour enhancer
 fr:sans exhausteur de goût, sans exhausteurs de goût
+de:Ohne Geschmacksverstärker, Ohne Zusatzstoff Geschmacksverstärker
 
-< en:No flavour enhancer
+en:No Trans Fat, 0% Trans Fat
+fr:Sans acides gras trans, sans graisses trans
+
+en:No hydrogenated fats
+es:Sin grasas hidrogenadas
+fr:Sans matière grasse hydrogénée, Sans matières grasses hydrogénées, Sans graisses hydrogénées, Sans utilisation de matières grasses hydrogénées, Sans huiles hydrogénées, Sans huile hydrogénée, Pas de graisses hydrogénées, Aucune graisse hydrogénée
+de:Keine gehärtete Fette, Ohne gehärtete Fette
+
+<en:No flavour enhancer
 en:No MSG, MSG free
 es:Sin glutamato, Sin glutamato monosódico, Sin glutamato de sodio, Sin GMS
 fr:Sans glutamate, sans GMS
 
-en:No GMOs
+en:No GMOs, Non GMO, GMO-free, GMOs-free, Without GMO, Without GMOs, No Genetically Modified Organisms, Without Genetically Modified Organisms, No GMO
 de:Ohne Gentechnik
 es:Sin OMG, Sin transgénicos, Sin OMGs, Sin Organismos Modificados Genéticamente
-fr:Sans OGM
-
-en:No hydrogenated fats
-es:Sin grasas hidrogenadas
+fr:Sans OGM, Sans utilisation d'OGM
 
 en:No lactose, lactose-free
 es:Sin lactosa
 fr:sans lactose
 it:Senza lattosio
+de:Lactosefrei, Laktosefrei
 
 en:No lecithine, lecithine-free
 es:Sin lecitina
 fr:Sans lécithine
+de:ohne Lecithin
 
 en:No milk, milk-free, dairy-free, no dairy
 es:Sin leche
 fr:sans lait
 it:Senza latte
+de:Ohne Zusatz von Milchprodukten
 
-en:No preservatives, no added preservatives
+en:No preservatives, no added preservatives, free of artificial preservative
 es:Sin conservantes, Sin conservantes añadidos
 fr:Sans conservateurs, sans conservateur ajouté, sans ajout de conservateur
+it:Senza conservanti
+de:Ohne Konservierungsstoffe
 
 en:No soy, soy free
 es:Sin soja
 fr:sans soja
+de:Sojafrei
+
+en:Ecocert
+fr:Ecocert, Distribution certifiée par Ecocert
+ar:Ecocert
+
+<en:Ecocert
+fr:Ecocert-sas-f-32600
+
+<en:Ecocert
+fr:Ecocert-fr-bio-01
+
+<en:Ecocert
+fr:Equitable-ecocert
+
+<en:Ecocert
+fr:Ecocert-f-32600
+
+<en:Ecocert
+fr:Ab-ecocert
+
+<en:Ecocert
+fr:Cacao-controle-par-ecocert-sa
+
+<en:Ecocert
+fr:Ecocert-canada
+
+<en:Ecocert
+fr:Ecocert-sas-f32-600
+
+<en:Ecocert
+fr:Ecocert-s-a-s-f-32600
 
 en:Non-vegetarian, not suitable for vegetarians
 fr:Non végétarien, ne convient pas aux végétariens
 
-< en:Non-vegetarian
+<en:Non-vegetarian
 en:Brown Dot India, India Brown dot, indian brown dot, non-vegetarian mark india, brown dot
 
 en:Not advised for pregnant women
@@ -566,280 +786,844 @@ en:Not recommended for children under 3 years
 es:No recomendado a niños menores de 3 años, No recomendado consumo a menores de 3 años
 
 en:Organic
-de:Ökologische, Ökologische Produkt
+de:Bio, Öko, Biologisch, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau
 es:Ecológico, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio
-fr:Bio, agriculture biologique, biologique, organic, organique,  issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique
+fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique
 it:Biologico
-wikidata:en: Q380778
+wikidata:en:Q380778
 
-< en:Organic
+<en:Organic
 en:Biodynamic agriculture
 es:Agricultura biodinámica
-fr:Bio-dynamie, biodynamie, agriculture biodynamique, agriculture bio-dynamique
-wikidata:en: Q847611
+fr:Bio-dynamie, biodynamie, agriculture biodynamique, agriculture bio-dynamique, bio-dynamique
+de:Biodynamische Landwirtschaft, Biodynamisch
+wikidata:en:Q847611
 
-< en:Biodynamic agriculture
+<en:Biodynamic agriculture
 en:Demeter
 fr:Demeter, Association Demeter, Demeter France, Association Demeter France
-wikidata:en: Q939877
+de:Demeter
+wikidata:en:Q939877
 
-< en:Organic
+<en:Organic
 en:BO-BIO-126
 
-< en:Organic
-en: India Organic
+<en:Organic
+en:India Organic
 
-< en:Organic
+<en:Organic
 en:EU Organic, European Organic
-de:EU Ökologische, EU Organic
+de:EG-Öko-Verordnung, EU-Öko-Verordnung, Europäische Öko-Verordnung, EU Ökologische
 es:Ecológico UE, Ecológico U.E., Producto ecológico europeo
 fr:Bio européen, Label bio européen, bio ce, bio europe
 it:Biologico UE
-wikidata:en: Q380448
+wikidata:en:Q380448
 
-< en:EU Organic
+<en:EU Organic
+en:AT-BIO-004
+
+<en:EU Organic
+en:AT-BIO-301
+
+<en:EU Organic
+en:AT-BIO-401
+
+<en:EU Organic
 en:AT-BIO-402
 
-< en:EU Organic
-en:BE-BIO-01
+<en:EU Organic
+en:AT-BIO-501
 
-< en:EU Organic
+<en:EU Organic
+en:AT-BIO-701
+
+<en:EU Organic
+en:AT-BIO-901
+
+<en:EU Organic
+en:AT-BIO-902
+
+<en:EU Organic
+en:BE-BIO-01, Certisys BE-BIO-01
+
+<en:EU Organic
 en:BE-BIO-02
 
-< en:EU Organic
+<en:EU Organic
+en:BE-BIO-03
+
+<en:EU Organic
+en:BE-BIO-04
+
+<en:EU Organic
+en:BG-BIO-02
+
+<en:EU Organic
+en:BG-BIO-03
+
+<en:EU Organic
+en:BG-BIO-04
+
+<en:EU Organic
+en:BG-BIO-05
+
+<en:EU Organic
+en:BG-BIO-06
+
+<en:EU Organic
+en:BG-BIO-07
+
+<en:EU Organic
+en:BG-BIO-08
+
+<en:EU Organic
+en:BG-BIO-10
+
+<en:EU Organic
+en:BG-BIO-12
+
+<en:EU Organic
+en:BG-BIO-13
+
+<en:EU Organic
+en:BG-BIO-14
+
+<en:EU Organic
+en:BG-BIO-15
+
+<en:EU Organic
+en:BG-BIO-16
+
+<en:EU Organic
 en:CH-BIO-004
 
-< en:EU Organic
+<en:EU Organic
 en:CH-BIO-006, ch-bio-scesp-006
 
-< en:EU Organic
+<en:EU Organic
+en:CH-Bio-038
+
+<en:EU Organic
+en:CH-Bio-086
+
+<en:EU Organic
+en:CY-BIO-001
+
+<en:EU Organic
+en:CY-BIO-002
+
+<en:EU Organic
 en:CZ-BIO-001
 
-< en:EU Organic
+<en:EU Organic
+en:CZ-BIO-002
+
+<en:EU Organic
+en:CZ-BIO-003
+
+<en:EU Organic
+en:CZ-BIO-004
+
+<en:EU Organic
 en:DE-ÖKO-001
 
-< en:EU Organic
+<en:EU Organic
 en:DE-ÖKO-003
 
-< en:EU Organic
+<en:EU Organic
+en:DE-ÖKO-005
+
+<en:EU Organic
 en:DE-ÖKO-006
 
-< en:EU Organic
+<en:EU Organic
 en:DE-ÖKO-007
 
-< en:EU Organic
+<en:EU Organic
+en:DE-ÖKO-009
+
+<en:EU Organic
+en:DE-ÖKO-012
+
+<en:EU Organic
 en:DE-ÖKO-013
 
-< en:EU Organic
+<en:EU Organic
+en:DE-ÖKO-021
+
+<en:EU Organic
+en:DE-ÖKO-022
+
+<en:EU Organic
+en:DE-ÖKO-024
+
+<en:EU Organic
+en:DE-ÖKO-034
+
+<en:EU Organic
+en:DE-ÖKO-037
+
+<en:EU Organic
+en:DE-ÖKO-039
+
+<en:EU Organic
+en:DE-ÖKO-044
+
+<en:EU Organic
+en:DE-ÖKO-060
+
+<en:EU Organic
+en:DE-ÖKO-064
+
+<en:EU Organic
+en:DE-ÖKO-070
+
+<en:EU Organic
+en:DK-ØKO-050
+
+<en:EU Organic
+en:DK-ØKO-100
+
+<en:EU Organic
+en:DK-ØKO-200
+
+<en:EU Organic
+en:DK-ØKO-300
+
+<en:EU Organic
+en:EE-ÖKO-01
+
+<en:EU Organic
+en:EE-ÖKO-02
+
+<en:EU Organic
+en:ES-EC0-017-AN
+
+<en:EU Organic
 en:ES-ECO-001
 
-< en:ES-ECO-001
+<en:EU Organic
 en:ES-ECO-001-AN
 
-< en:ES-ECO-001
+<en:EU Organic
+en:ES-ECO-001-CL
+
+<en:EU Organic
 en:ES-ECO-001-CM
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-002
 
-< en:ES-ECO-002
+<en:EU Organic
 en:ES-ECO-002-AN
 
-< en:ES-ECO-002
+<en:EU Organic
 en:ES-ECO-002-AR
 
-< en:ES-ECO-002
+<en:EU Organic
+en:ES-ECO-002-CL
+
+<en:EU Organic
 en:ES-ECO-002-CM
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-003-AN
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-004
 
-< en:ES-ECO-004
+<en:EU Organic
 en:ES-ECO-004-AN
 
-< en:ES-ECO-004
+<en:EU Organic
 en:ES-ECO-004-AR
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-005
 
-< en:ES-ECO-005
+<en:EU Organic
 en:ES-ECO-005-AN
 
-< en:ES-ECO-005
+<en:EU Organic
 en:ES-ECO-005-AR
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-006-AR
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-007-AR
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-008-AR
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-009-AR
 
-< en:EU Organic
+<en:EU Organic
+en:ES-ECO-010-AN
+
+<en:EU Organic
 en:ES-ECO-010-AR
 
-< en:EU Organic
+<en:EU Organic
+en:ES-ECO-011-AN
+
+<en:EU Organic
 en:ES-ECO-011-AR
 
-< en:EU Organic
+<en:EU Organic
+en:ES-ECO-011-CM
+
+<en:EU Organic
 en:ES-ECO-012-AS
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-013-IB
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-014-IC
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-015-CN
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-016-CL
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-017
 
-< en:ES-ECO-017
-en:ES-ECO-017-AN
+<en:EU Organic
+en:ES-ECO-017-CL
 
-< en:ES-ECO-017
+<en:EU Organic
 en:ES-ECO-017-CM
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-019-CT
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-020-CV
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-021-EX
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-022-GA
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-023-MA
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-024-MU
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-025-NA
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-026-VAS
 
-< en:EU Organic
+<en:EU Organic
 en:ES-ECO-027-RI
 
-< en:EU Organic
+<en:EU Organic
+en:ES-ECO-028-AN
+
+<en:EU Organic
+en:ES-ECO-028-AR
+
+<en:EU Organic
+en:ES-ECO-028-CL
+
+<en:EU Organic
 en:ES-ECO-028-CM
 
-< en:EU Organic
+<en:EU Organic
+en:ES-ECO-029-AN
+
+<en:EU Organic
+en:ES-ECO-029-AR
+
+<en:EU Organic
+en:ES-ECO-029-CL
+
+<en:EU Organic
+en:ES-ECO-030-AN
+
+<en:EU Organic
+en:ES-ECO-031-CL
+
+<en:EU Organic
+en:FI-EKO-101
+
+<en:EU Organic
+en:FI-EKO-102
+
+<en:EU Organic
+en:FI-EKO-103
+
+<en:EU Organic
+en:FI-EKO-104
+
+<en:EU Organic
+en:FI-EKO-105
+
+<en:EU Organic
+en:FI-EKO-106
+
+<en:EU Organic
+en:FI-EKO-107
+
+<en:EU Organic
+en:FI-EKO-108
+
+<en:EU Organic
+en:FI-EKO-109
+
+<en:EU Organic
+en:FI-EKO-110
+
+<en:EU Organic
+en:FI-EKO-111
+
+<en:EU Organic
+en:FI-EKO-112
+
+<en:EU Organic
+en:FI-EKO-113
+
+<en:EU Organic
+en:FI-EKO-114
+
+<en:EU Organic
+en:FI-EKO-115
+
+<en:EU Organic
+en:FI-EKO-201
+
+<en:EU Organic
+en:FI-EKO-301
+
+<en:EU Organic
+en:FI-EKO-401
+
+<en:EU Organic
 en:FR-BIO-01
 
-< en:EU Organic
+<en:EU Organic
+en:FR-BIO-07
+
+<en:EU Organic
+en:FR-BIO-09
+
+<en:EU Organic
+en:FR-BIO-10
+
+<en:EU Organic
+en:FR-BIO-12
+
+<en:EU Organic
+en:FR-BIO-13
+
+<en:EU Organic
+en:FR-BIO-15
+
+<en:EU Organic
+en:FR-BIO-16
+
+<en:EU Organic
 en:GB-ORG-01
 
-< en:EU Organic
+<en:EU Organic
 en:GB-ORG-02
 
-< en:EU Organic
+<en:EU Organic
 en:GB-ORG-03
 
-< en:EU Organic
+<en:EU Organic
 en:GB-ORG-04
 
-< en:EU Organic
+<en:EU Organic
 en:GB-ORG-05
 
-< en:EU Organic
+<en:EU Organic
+en:GB-ORG-06
+
+<en:EU Organic
+en:GB-ORG-07
+
+<en:EU Organic
+en:GB-ORG-09
+
+<en:EU Organic
+en:GB-ORG-13
+
+<en:EU Organic
+en:GB-ORG-16
+
+<en:EU Organic
+en:GB-ORG-17
+
+<en:EU Organic
+en:GR-BIO-01
+
+<en:EU Organic
+en:GR-BIO-02
+
+<en:EU Organic
+en:GR-BIO-03
+
+<en:EU Organic
+en:GR-BIO-04
+
+<en:EU Organic
+en:GR-BIO-05
+
+<en:EU Organic
+en:GR-BIO-06
+
+<en:EU Organic
+en:GR-BIO-07
+
+<en:EU Organic
+en:GR-BIO-08
+
+<en:EU Organic
+en:GR-BIO-10
+
+<en:EU Organic
+en:GR-BIO-12
+
+<en:EU Organic
+en:GR-BIO-13
+
+<en:EU Organic
+en:GR-BIO-14
+
+<en:EU Organic
+en:GR-BIO-15
+
+<en:EU Organic
+en:GR-BIO-16
+
+<en:EU Organic
+en:GR-BIO-17
+
+<en:EU Organic
+en:GR-BIO-18
+
+<en:EU Organic
+en:HR-EKO-01
+
+<en:EU Organic
+en:HR-EKO-02
+
+<en:EU Organic
+en:HR-EKO-03
+
+<en:EU Organic
+en:HR-EKO-04
+
+<en:EU Organic
+en:HR-EKO-05
+
+<en:EU Organic
+en:HR-EKO-06
+
+<en:EU Organic
+en:HR-EKO-07
+
+<en:EU Organic
+en:HR-EKO-08
+
+<en:EU Organic
+en:HU-ÖKO-01
+
+<en:EU Organic
+en:HU-ÖKO-02
+
+<en:EU Organic
 en:IE-ORG-01
 
-< en:EU Organic
+<en:EU Organic
 en:IE-ORG-02
 
-< en:EU Organic
+<en:EU Organic
+en:IE-ORG-03
+
+<en:EU Organic
+en:IE-ORG-04
+
+<en:EU Organic
+en:IE-ORG-05
+
+<en:EU Organic
+en:IT-BIO-001-BZ
+
+<en:EU Organic
+en:IT-BIO-002
+
+<en:EU Organic
+en:IT-BIO-002-BZ
+
+<en:EU Organic
 en:IT-BIO-003
 
-< en:EU Organic
+<en:EU Organic
+en:IT-BIO-003-BZ
+
+<en:EU Organic
 en:IT-BIO-004
 
-< en:EU Organic
+<en:EU Organic
 en:IT-BIO-005
 
-< en:EU Organic
+<en:EU Organic
 en:IT-BIO-006
 
-< en:EU Organic
+<en:EU Organic
 en:IT-BIO-007
 
-< en:EU Organic
+<en:EU Organic
 en:IT-BIO-008
 
-< en:EU Organic
+<en:EU Organic
 en:IT-BIO-009
 
-< en:EU Organic
+<en:EU Organic
 en:IT-BIO-010
 
-< en:EU Organic
+<en:EU Organic
 en:IT-BIO-011
 
-< en:EU Organic
+<en:EU Organic
 en:IT-BIO-012
 
-< en:EU Organic
+<en:EU Organic
 en:IT-BIO-013
 
-< en:EU Organic
+<en:EU Organic
 en:IT-BIO-014
 
-< en:EU Organic
+<en:EU Organic
+en:IT-BIO-015
+
+<en:EU Organic
+en:li-bio-969
+
+<en:EU Organic
+en:LT-EKO-001
+
+<en:EU Organic
+en:LU-BIO-01
+
+<en:EU Organic
+en:LU-BIO-04
+
+<en:EU Organic
+en:LU-BIO-05
+
+<en:EU Organic
+en:LU-BIO-06
+
+<en:EU Organic
+en:LU-BIO-07
+
+<en:EU Organic
+en:LV-BIO-01
+
+<en:EU Organic
+en:LV-BIO-02
+
+<en:EU Organic
+en:MT-ORG-01
+
+<en:EU Organic
 en:NL-BIO-01
 
-< en:EU Organic
+<en:EU Organic
+en:NO-ØKO-01
+
+<en:EU Organic
+en:PL-EKO-01
+
+<en:EU Organic
+en:PL-EKO-02
+
+<en:EU Organic
+en:PL-EKO-03
+
+<en:EU Organic
+en:PL-EKO-04
+
+<en:EU Organic
+en:PL-EKO-05
+
+<en:EU Organic
+en:PL-EKO-06
+
+<en:EU Organic
 en:PL-EKO-07
 
-< en:EU Organic
+<en:EU Organic
+en:PL-EKO-08
+
+<en:EU Organic
+en:PL-EKO-09
+
+<en:EU Organic
+en:PL-EKO-10
+
+<en:EU Organic
+en:PT-BIO 01
+
+<en:EU Organic
+en:PT-BIO-02
+
+<en:EU Organic
 en:PT-BIO-03
 
-< en:EU Organic
+<en:EU Organic
 en:PT-BIO-04
 
-< en:Fair trade
-< en:Organic
+<en:EU Organic
+en:PT-BIO-05
+
+<en:EU Organic
+en:PT-BIO-06
+
+<en:EU Organic
+en:PT-BIO-07
+
+<en:EU Organic
+en:PT-BIO-08
+
+<en:EU Organic
+en:PT-BIO-09
+
+<en:EU Organic
+en:PT-BIO-10
+
+<en:EU Organic
+en:PT-BIO-11
+
+<en:EU Organic
+en:RO-ECO-001
+
+<en:EU Organic
+en:RO-ECO-005
+
+<en:EU Organic
+en:RO-ECO-007
+
+<en:EU Organic
+en:RO-ECO-008
+
+<en:EU Organic
+en:RO-ECO-009
+
+<en:EU Organic
+en:RO-ECO-010
+
+<en:EU Organic
+en:RO-ECO-014
+
+<en:EU Organic
+en:RO-ECO-015
+
+<en:EU Organic
+en:RO-ECO-016
+
+<en:EU Organic
+en:RO-ECO-018
+
+<en:EU Organic
+en:RO-ECO-021
+
+<en:EU Organic
+en:RO-ECO-022
+
+<en:EU Organic
+en:RO-ECO-023
+
+<en:EU Organic
+en:SE-EKO-01
+
+<en:EU Organic
+en:SE-EKO-03
+
+<en:EU Organic
+en:SE-EKO-04
+
+<en:EU Organic
+en:SE-EKO-05
+
+<en:EU Organic
+en:SE-EKO-07
+
+<en:EU Organic
+en:SE-EKO-08
+
+<en:EU Organic
+en:SI-EKO-001
+
+<en:EU Organic
+en:SI-EKO-002
+
+<en:EU Organic
+en:SI-EKO-003
+
+<en:EU Organic
+en:SK-BIO-002
+
+<en:EU Organic
+en:SK-BIO-003
+
+<en:Fair trade
+<en:Organic
 fr:Bio-équitable, bioéquitable
 
-< en:Organic
+<en:Organic
 en:Soil Association Organic, Soil Association
-wikidata:en: Q7554873
+wikidata:en:Q7554873
 
-< en:Organic
+<en:Organic
 en:USDA Organic
-wikidata:en: Q3336915
+wikidata:en:Q3336915
 
-< en:USDA Organic
-en: CCOF certified organic, certified CCOF organic
+<en:USDA Organic
+en:CCOF certified organic, certified CCOF organic, California Certified Organic Farmers
 
-< en:Organic
+<en:Organic
 en:Canada Organic, Biologique Canada Organic, Biologique Canada Canada Organic, Canada Organic Biologique Canada
-fr:Biologique Canada, Biologique Canada Organic, Biologique Canada Canada Organic, Canada Organic Biologique Canada 
+fr:Biologique Canada, Biologique Canada Organic, Biologique Canada Canada Organic, Canada Organic Biologique Canada
 
-< en:Organic
+<en:Organic
 fr:Bio-Cohérence
 
-< en:Organic
+<en:Organic
 fr:Bio-Solidaire, biosolidaire
+
+<en:Organic
+en:Bioland
+de:Bioland
+
+<en:Organic
+de:Bio 7 Initiative, BIO7 Initiative, Bio7, BIO 7
+
+en:“Extra” Class, extra class
+fr:Catégorie “Extra”, catégorie supérieure, catégorie extra
+es:Categoría “Extra”
+de:Klasse “Extra”, Klasse Extra
+
+en:Class I, class 1
+fr:Catégorie I, bonne qualité, catégorie 1
+es:Categoría I
+de:Klasse I
+
+en:Class II, class 2
+fr:Catégorie II, qualité marchande, catégorie 2
+es:Categoría II
+de:Klasse II
 
 en:Palm oil free, Without palm oil, No palm oil
 es:Sin aceite de palma
@@ -850,13 +1634,17 @@ es:DOP, D.O.P, Denominación de Origen Protegida
 fr:AOP, A.O.P, Appellation d'origine protégée
 de:g.U., gU, Geschützte Ursprungsbezeichnung
 it:DOP, D.O.P, Denominazione di origine protetta
-wikidata:en: Q13439060
+wikidata:en:Q13439060
 
 en:PGI, P.G.I, Protected Geographical Indication
 es:IGP, I.G.P., Indicación Geográfica Protegida
 fr:IGP, I.G.P, Indication Géographique Protégée
-de:g.g.A., ggA, Geschützte geografische Angabe
-wikidata:en: Q13533432
+de:g.g.A., ggA, Geschützte geografische Angabe, Geschützte geographische Angabe
+wikidata:en:Q13533432
+
+en:GOST
+ru:ГОСТ, GOST
+fr:GOST
 
 en:Real California Milk
 
@@ -878,233 +1666,245 @@ en:Pure pork
 fr:Pur porc
 
 en:Rainforest Alliance
+fr:Rainforest Alliance, Vérifié Rainforest Alliance, Rainforest minimum 30% cacao, Certifié Rainforest Alliance
 es:Rainforest Alliance, Alianza para Bosques
-wikidata:en: Q2034373
+wikidata:en:Q2034373
 
 en:Reinheitsgebot
 de:Reinheitsgebot
 es:Ley de pureza de 1516, Reinheitsgebot
-wikidata:en: Q167255
+wikidata:en:Q167255
 
 en:Rich in vitamin C
 es:Rico en vitamina C
 fr:Riche en vitamine C
 
-en:RSPO, Roundtable on Sustainable Palm Oil
-fr:RSPO, Huile de palme RSPO, Huile de palme durable RSPO, Huile de palme certifiée durable
-wikidata:en: Q686421
+en:Sustainable Palm Oil, RSPO, Roundtable on Sustainable Palm Oil
+de:Nachhaltiges Palmöl, Runden Tisch für nachhaltiges Palmöl
+es:Aceite de Palma Sostenible
+fr:Huile de palme durable, RSPO, Huile de palme RSPO, Huile de palme durable RSPO, Huile de palme certifiée durable, Huile de palme durable certifiée RSPO, Huile de palme issue de forêts gérées durablement
+wikidata:en:Q686421
 
 en:Spanish protected product
 es:Producto protegido de España
 
-< en:Denominación de Origen
-< en:Spanish protected product
+<en:Denominación de Origen
+<en:Spanish protected product
 en:DO Manzanilla-Sanlúcar de Barrameda, D.O. Manzanilla-Sanlúcar de Barrameda, Manzanilla-Sanlúcar de Barrameda, Manzanilla de Sanlúcar de Barrameda
 es:DO Manzanilla-Sanlúcar de Barrameda, D.O. Manzanilla-Sanlúcar de Barrameda, Manzanilla-Sanlúcar de Barrameda, Manzanilla de Sanlúcar de Barrameda
-wikidata:en: Q5802762
+wikidata:en:Q5802762
 
-< en:Denominación de Origen
-< en:Spanish protected product
+<en:Denominación de Origen
+<en:Spanish protected product
 en:DO Montilla-Moriles, D.O. Montilla-Moriles, Montilla-Moriles
 es:DO Montilla-Moriles, D.O. Montilla-Moriles, Montilla-Moriles
-wikidata:en: Q13157
+wikidata:en:Q13157
 
-< en:Denominación de Origen
-< en:Spanish protected product
+<en:Denominación de Origen
+<en:Spanish protected product
 en:DO Navarra, D.O. Navarra, Vino de Navarra
 es:DO Navarra, D.O. Navarra, Vino de Navarra
-wikidata:en: Q976624
+wikidata:en:Q976624
 
-< en:Denominación de Origen
-< en:Spanish protected product
+<en:Denominación de Origen
+<en:Spanish protected product
 en:DO Toro, D.O. Toro, Toro, Vino de Toro
 es:DO Toro, D.O. Toro, Toro, Vino de Toro
-wikidata:en: Q765567
+wikidata:en:Q765567
 
-< en:Denominación de Origen Calificada
-< en:Spanish protected product
+<en:Denominación de Origen Calificada
+<en:Spanish protected product
 en:DOCa Rioja, D.O.Ca. Rioja, Vino de Rioja
 es:DOCa Rioja, D.O.Ca. Rioja, Vino de Rioja
-wikidata:en: Q1569384
+wikidata:en:Q1569384
 
-< en:PDO
-< en:Spanish protected product
+<en:PDO
+<en:Spanish protected product
 en:PDO Arroz de Calasparra, Arroz de Calasparra
 es:DOP Arroz de Calasparra, D.O.P Arroz de Calasparra, Arroz de Calasparra
-wikidata:en: Q5706327
+wikidata:en:Q5706327
 
-< en:PDO
-< en:Spanish protected product
+<en:PDO
+<en:Spanish protected product
 en:PDO Arroz de Valencia, PDO Arròs de València, Arròs de València
 es:DOP Arroz de Valencia, D.O.P. Arroz de Valencia, Arroz de Valencia, DOP Arròs de València, D.O.P. Arròs de València, Arròs de València
-wikidata:en: Q8205083
+wikidata:en:Q8205083
 
-< en:PDO
-< en:Spanish protected product
+<en:PDO
+<en:Spanish protected product
 en:PDO Azafrán de La Mancha, Azafrán de La Mancha
 es:DOP Azafrán de La Mancha, D.O.P. Azafrán de La Mancha, Azafrán de La Mancha
-wikidata:en: Q5714984
+wikidata:en:Q5714984
 
-< en:PDO
-< en:Spanish protected product
+<en:PDO
+<en:Spanish protected product
 en:PDO Chufa de Valencia, Chufa de Valencia
 es:DOP Chufa de Valencia, D.O.P. Chufa de Valencia, Chufa de Valencia
-wikipedia:en: :Q8345883
 
-< en:PDO
-< en:Spanish protected product
+<en:PDO
+<en:Spanish protected product
 en:PDO Estepa
 es:DOP Estepa, D.O.P. Estepa, Aceites de Estepa
-wikidata:en: Q5802756
+wikidata:en:Q5802756
 
-< en:PDO
-< en:Spanish protected product
+<en:PDO
+<en:Spanish protected product
+en:PDO Montes de Granada, Montes de Granada
+es:DOP Montes de Granada, D.O.P. Montes de Granada, Montes de Granada
+wikidata:en:Q6022723
+
+<en:PDO
+<en:Spanish protected product
 en:PDO Montes de Toledo, Montes de Toledo
 es:DOP Montes de Toledo, D.O.P. Montes de Toledo, Montes de Toledo
-wikidata:en: Q6022738
+wikidata:en:Q6022738
 
-< en:PDO
-< en:Spanish protected product
+<en:PDO
+<en:Spanish protected product
 en:PDO Pasas de Málaga, Pasas de Málaga
 es:DOP Pasas de Málaga, D.O.P. Pasas de Málaga, Pasas de Málaga
-wikidata:en: Q5491704
+wikidata:en:Q5491704
 
-< en:PDO
-< en:Spanish protected product
+<en:PDO
+<en:Spanish protected product
 en:PDO Pera de Lleida, Pera de Lleida, PDO Pera de Lérida, Pera de Lérida
 es:DOP Pera de Lleida, D.O.P. Pera de Lleida, Pera de Lleida, DOP Pera de Lérida, D.O.P. Pera de Lérida, Pera de Lérida
 
-< en:PDO
-< en:Spanish protected product
+<en:PDO
+<en:Spanish protected product
 en:PDO Peras de Rincón de Soto, Peras de Rincón de Soto
 es:DOP Peras de Rincón de Soto, D.O.P. Peras de Rincón de Soto, Peras de Rincón de Soto
 
-< en:PDO
-< en:Spanish protected product
+<en:PDO
+<en:Spanish protected product
 en:PDO Pimentón de la Vera, Pimentón de la Vera
 es:DOP Pimentón de la Vera, D.O.P. Pimentón de la Vera, Pimentón de la Vera
-wikidata:en: Q250271
+wikidata:en:Q250271
 
-< en:PDO
-< en:Spanish protected product
+<en:PDO
+<en:Spanish protected product
 en:PDO Pimentón de Murcia, Pimentón de Murcia
 es:DOP Pimentón de Murcia, D.O.P. Pimentón de Murcia, Pimentón de Murcia
-wikidata:en: Q2880604
+wikidata:en:Q2880604
 
-< en:PDO
-< en:Spanish protected product
+<en:PDO
+<en:Spanish protected product
 en:PDO Sierra de Segura, Sierra de Segura
 es:DOP Sierra de Segura, D.O.P. Sierra de Segura, Sierra de Segura
-wikidata:en: Q6127894
+wikidata:en:Q6127894
 
-< en:PDO
-< en:Spanish protected product
+<en:PDO
+<en:Spanish protected product
 en:PDO Vinagre de Jerez, Vinagre de Jerez
 es:DOP Vinagre de Jerez, D.O.P. Vinagre de Jerez, Vinagre de Jerez
-wikipedia:en: :Q2766624
 
-< en:PGI
-< en:Spanish protected product
+<en:PGI
+<en:Spanish protected product
 en:PGI Alubia de La Bañeza-León, Alubia de La Bañeza-León
 es:IGP Alubia de La Bañeza-León, I.G.P. Alubia de La Bañeza-León, Alubia de La Bañeza-León
 
-< en:PGI
-< en:Spanish protected product
+<en:PGI
+<en:Spanish protected product
 en:PGI Berenjena de Almagro, Berenjena de Almagro
 es:IGP Berenjena de Almagro, I.G.P. Berenjena de Almagro, Berenjena de Almagro
-wikidata:en: Q5726314
+wikidata:en:Q5726314
 
-< en:PGI
-< en:Spanish protected product
+<en:PGI
+<en:Spanish protected product
+en:PGI Espárrago de Navarra, Espárrago de Navarra
+es:IGP Espárrago de Navarra, I.G.P. Espárrago de Navarra, Espárrago de Navarran
+
+<en:PGI
+<en:Spanish protected product
 en:PGI Garbanzo de Fuentesaúco, Garbanzo de Fuentesaúco
 es:IGP Garbanzo de Fuentesaúco, I.G.P. Garbanzo de Fuentesaúco, Garbanzo de Fuentesaúco
-wikidata:en: Q5875268
+wikidata:en:Q5875268
 
-< en:PGI
-< en:Spanish protected product
+<en:PGI
+<en:Spanish protected product
 en:PGI Lenteja de La Armuña, Lenteja de La Armuña
 es:IGP Lenteja de La Armuña, I.G.P. Lenteja de La Armuña, Lenteja de La Armuña
 
-< en:PGI
-< en:Spanish protected product
+<en:PGI
+<en:Spanish protected product
 en:PGI Lenteja Pardina de Tierra de Campos, Lenteja Pardina de Tierra de Campos
 es:IGP Lenteja Pardina de Tierra de Campos, I.G.P. Lenteja Pardina de Tierra de Campos, Lenteja Pardina de Tierra de Campos
 
-< en:PGI
-< en:Spanish protected product
+<en:PGI
+<en:Spanish protected product
 en:PGI Mazapán de Toledo, Mazapán de Toledo
 es:IGP Mazapán de Toledo, I.G.P. Mazapán de Toledo, Mazapán de Toledo
-wikidata:en: Q11691713
+wikidata:en:Q11691713
 
-< en:PGI
-< en:Spanish protected product
+<en:PGI
+<en:Spanish protected product
 en:PGI Pemento do Couto, Pemento do Couto
 es:IGP Pemento do Couto, I.G.P. Pemento do Couto, Pemento do Couto
-wikidata:en: Q16860936
+wikidata:en:Q16860936
 
-< en:PGI
-< en:Spanish protected product
+<en:PGI
+<en:Spanish protected product
 en:PGI Plátano de Canarias, Plátano de Canarias
 es:IGP Plátano de Canarias, I.G.P. Plátano de Canarias, Plátano de Canarias
-wikidata:en: Q6080945
+wikidata:en:Q6080945
 
-< en:PGI
-< en:Spanish protected product
+<en:PGI
+<en:Spanish protected product
 en:PGI Turrón de Alicante, Turrón de Alicante
 es:IGP Turrón de Alicante, I.G.P. Turrón de Alicante, Turrón de Alicante
-wikidata:en: Q3995784
+wikidata:en:Q3995784
 
-< en:PGI
-< en:Spanish protected product
+<en:PGI
+<en:Spanish protected product
 en:PGI Turrón de Jijona, Turrón de Jijona
 es:IGP Turrón de Jijona, I.G.P. Turrón de Jijona, Turrón de Jijona
-wikidata:en: Q3995785
+wikidata:en:Q3995785
 
-< en:Spanish protected product
-< en:Vino de la Tierra
+<en:Spanish protected product
+<en:Vino de la Tierra
 en:VT Castilla, V.T. Castilla, Vino de la Tierra de Castilla
 es:VT Castilla, V.T. Castilla, Vino de la Tierra de Castilla
-wikidata:en: Q5049885
+wikidata:en:Q5049885
 
-< en:Spanish protected product
-< en:Vino de Pago
+<en:Spanish protected product
+<en:Vino de Pago
 en:VP Campo de la Guardia, V.P. Campo de la Guardia, Campo de la Guardia
 es:VP Campo de la Guardia, V.P. Campo de la Guardia, Campo de la Guardia
-wikidata:en: Q5028475
+wikidata:en:Q5028475
 
 en:Spanish quality label
 es:Etiquetas de calidad de España
 
-< en:Spanish quality label
+<en:Spanish quality label
 en:Alimentos Artesanos de Navarra
 es:Alimentos Artesanos de Navarra
 
-< en:Spanish quality label
+<en:Spanish quality label
 en:Alimentos de Castilla-La Mancha
 es:Alimentos de Castilla-La Mancha
 
-< en:Spanish quality label
+<en:Spanish quality label
 en:Alimentos de Extremadura
 es:Alimentos de Extremadura
 
-< en:Spanish quality label
+<en:Spanish quality label
 en:Calidad Certificada
 es:Calidad Certificada
 
-< en:Spanish quality label
+<en:Spanish quality label
 en:Etiqueta de Calidad Doñana 21
 es:Etiqueta de Calidad Doñana 21
 
-< en:Spanish quality label
+<en:Spanish quality label
 en:Galicia Calidade
 es:Galicia Calidade
-wikidata:en: Q8963362
+wikidata:en:Q8963362
 
-< en:Spanish quality label
+<en:Spanish quality label
 en:Reyno Gourmet
 es:Reyno Gourmet
 
-< en:Spanish quality label
+<en:Spanish quality label
 en:Tierra de Sabor
 es:Tierra de Sabor
 
@@ -1116,64 +1916,84 @@ fr:qualité supérieure
 
 en:Sustainable fishery, Sustainable fishing, Sustainable Seafood
 fr:Pêche durable, pêches durables
+de:Nachhaltige Fischerei
 
-< en:Sustainable fishery
+<en:Sustainable fishery
 en:Sustainable Seafood MSC, MSC, Marine Stewardship Council, sustainable food msc
 es:Certificado MSC de pesca sostenible, Pesca sostenible MSC, MSC, Marine Stewardship Council
 fr:Pêche durable MSC, MSC, Marine Stewardship Council
-wikidata:en: Q1891246
+de:Zertifizierte nachhaltige Fischerei MSC, MSC zertifiziert, MSC
+wikidata:en:Q1891246
 
 en:Tesco Nurture, Nurture
 
 en:TSG, T.S.G, Traditional Speciality Guaranteed
 es:ETG, E.T.G., Especialidad tradicional garantizada
 fr:STG, S.T.G, Spécialité traditionnelle garantie
-wikidata:en: Q2751813
+wikidata:en:Q2751813
 
-en:UTZ Certified
-wikidata:en: Q2305872
+en:Sustainable farming
+fr:Agriculture durable
+
+<en:Sustainable farming
+en:UTZ Certified, UTZ
+wikidata:en:Q2305872
+
+<en:UTZ Certified
+en:UTZ Certified Cacao, UTZ Certified Cocoa
+de:UTZ Certified Kakao
+
+<en:UTZ Certified
+en:UTZ Certified Coffee
+de:UTZ Certified Kaffee
 
 en:Vegetarian, Suitable for vegetarians
 de:Vegetarisch
 es:Vegetariano, Producto vegetariano, Apto para vegetarianos, Vegetarian
-fr:Végétarien, Convient aux végétariens
+fr:Végétarien, Convient aux végétariens, Adapté au régime végétarien
 it:Vegetariano
+nl:Vegetarisch
 pt:Vegetariano
 
-< en:Vegetarian
+<en:Vegetarian
 en:Green Dot India, India Green Dot, Indian Green Dot, vegetarian mark India
 
-< en:Vegetarian
+<en:Vegetarian
 en:Vegan, Suitable for vegans
 de:Vegan
 es:Vegano, Producto vegano, Vegan
 fr:Végétalien, Végan, végétal
 it:Vegano, Vegan
+nl:Veganistisch
 pt:Vegano, Producto vegano, Vegan
 th:สูตรเจ
 
-< en:Vegan
+<en:Vegan
 en:Vegan Action
-wikidata:en: Q7918275
+wikidata:en:Q7918275
 
-< en:Vegan
+<en:Vegan
 en:Vegan Society
-wikidata:en: Q1855049
+wikidata:en:Q1855049
 
-< en:Vegetarian
+<en:Vegan
+es:UVE Vegano, Unión Vegetariana Española Vegano, Certificado UVE Vegano
+
+<en:Vegetarian
 en:Vegetarian Society
-wikidata:en: Q2154954
+wikidata:en:Q2154954
 
 en:Vino de la Tierra
 es:VT, V.T., Vino de la Tierra
-wikidata:en: Q868979
+wikidata:en:Q868979
 
 en:Vino de Pago
 es:VP, V.P., Vino de Pago
-wikidata:en: Q2527141
+wikidata:en:Q2527141
 
 en:With sulfites, Contains sulfites
 es:Con sulfitos, Contiene sulfitos
+fr:Contient des sulfites, Présence de sulfites
 
 en:With Sunflower oil
 es:Con aceite de girasol
@@ -1182,18 +2002,18 @@ fr:A l'huile de tournesol, huile de tournesol
 en:With sweeteners
 es:Con edulcorantes, Con endulzantes artificiales
 
-fr:100% muscle
+fr:100% muscle, v 100% muscle, viande 100% muscle
 
 fr:AB Agriculture Biologique, AB, Agence Bio, ab bio, bio ab, Ab-certifie-agriculture-biologique, ab certifié
-wikidata:en: Q396709
+wikidata:en:Q396709
 
-fr:AOC, A.O.C, Appelation d'Origine Contrôlée
+fr:AOC, A.O.C, Appellation d'Origine Contrôlée, Appelation d'Origine Contrôlée, aoc
 
 fr:au sel de Guérande
 
-fr:Blé français
+fr:Blé français, Blé exclusivement cultivé en France, Blé Français sélectionné, Blé cultivé en France
 
-fr:Bleu Blanc Coeur
+fr:Bleu Blanc Coeur, Filière Qualité Bleu Blanc Coeur, Filière nutrition oméga 3 naturels Association Bleu-Blanc-Coeur, Bleu Blanc Cœur Oméga 3 Naturels, Filière nutrition
 
 fr:Fumé au bois de hêtre
 
@@ -1208,124 +2028,316 @@ fr:Salé au sel sec
 fr:Sans arachide
 
 fr:Saveurs de l'Année
-wikidata:en: Q3474529
+wikidata:en:Q3474529
 
-< fr:Saveurs de l'Année
+<fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2006, Saveur de l'Année 2006
+
+<fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2007, Saveur de l'Année 2007
+
+<fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2008, Saveur de l'Année 2008
+
+<fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2009, Saveur de l'Année 2009
+
+<fr:Saveurs de l'Année
+fr:Saveurs de l'Année 2010, Saveur de l'Année 2010
+
+<fr:Saveurs de l'Année
 fr:Saveurs de l'Année 2011, Saveur de l'Année 2011
 
-< fr:Saveurs de l'Année
+<fr:Saveurs de l'Année
 fr:Saveurs de l'Année 2012, Saveur de l'Année 2012
 
-< fr:Saveurs de l'Année
+<fr:Saveurs de l'Année
 fr:Saveurs de l'Année 2013, Saveur de l'Année 2013
 
-< fr:Saveurs de l'Année
+<fr:Saveurs de l'Année
 fr:Saveurs de l'Année 2014, Saveur de l'Année 2014
 
-< fr:Saveurs de l'Année
+<fr:Saveurs de l'Année
 fr:Saveurs de l'Année 2015, Saveur de l'Année 2015
 
 fr:Viande Française, VF
 
-< fr:Viande Française
-fr:Porc Français, porc origine France
+<fr:Viande Française
+fr:Porc Français, porc origine France, porc 100% France
 
-< fr:Viande Française
-fr:Viande Bovine Française, VBF
+<fr:Viande Française
+fr:Viande Bovine Française, VBF, Viande bovine Origine France, Boeuf 100% Français, Viande de boeuf Française, Boeuf 100% France
 
-< fr:Viande Française
-fr:Viande Porcine Française, VPF, viande de porc française
+<fr:Viande Française
+fr:Viande Porcine Française, VPF, viande de porc française, Le Porc Français
 
-fr:Volaille française
+<fr:Viande Française
+fr:Volaille Française, volaille Origine France
 
 it:DOC, D.O.C, Denominazione di origine controllata
-wikidata:en: Q654824
+wikidata:en:Q654824
 
-de:DLG
+fr:Concours Mondial de Bruxelles
 
-<de:DLG
+<fr:Concours Mondial de Bruxelles
+fr:Médaille d'Argent du Concours Mondial de Bruxelles
+
+<fr:Médaille d'Argent du Concours Mondial de Bruxelles
+fr:Médaille d'Argent du Concours Mondial de Bruxelles 2012, Médaille argent concours mondial Bruxelles 2012, Médaille argent Bruxelles 2012
+
+<fr:Médaille d'Argent du Concours Mondial de Bruxelles
+fr:Médaille d'Argent du Concours Mondial de Bruxelles 2011, Médaille argent concours mondial Bruxelles 2011, Médaille argent Bruxelles 2011
+
+fr:Concours général agricole
+
+<fr:Concours général agricole
+fr:médaille d'or du Concours général agricole
+
+<fr:médaille d'or du Concours général agricole
+fr:Médaille d'or du concours general agricole 2015, Concours général agricole médaille d'or 2015, Médaille d'Or Paris 2015 Concours Général Agricole, Médaille d'or Paris 2015
+
+<fr:médaille d'or du Concours général agricole
+fr:Médaille d'or du concours general agricole 2014, Concours général agricole médaille d'or 2014, Médaille d'Or Paris 2014 Concours Général Agricole, Médaille d'or Paris 2014
+
+<fr:médaille d'or du Concours général agricole
+fr:Médaille d'or du concours general agricole 2013, Concours général agricole médaille d'or 2013, Médaille d'Or Paris 2013 Concours Général Agricole, Médaille d'or Paris 2013
+
+<fr:médaille d'or du Concours général agricole
+fr:Médaille d'or du concours general agricole 2012, Concours général agricole médaille d'or 2012, Médaille d'Or Paris 2012 Concours Général Agricole, Médaille d'or Paris 2012
+
+<fr:médaille d'or du Concours général agricole
+fr:Médaille d'or du concours general agricole 2011, Concours général agricole médaille d'or 2011, Médaille d'Or Paris 2011 Concours Général Agricole, Médaille d'or Paris 2011
+
+<fr:Concours général agricole
+fr:médaille d'argent du Concours général agricole
+
+<fr:médaille d'argent du Concours général agricole
+fr:Médaille d'argent du concours general agricole 2015, Concours général agricole médaille d'argent 2015, Médaille d'Argent Paris 2015 Concours Général Agricole, Médaille d'Argent Paris 2015
+
+<fr:médaille d'argent du Concours général agricole
+fr:Médaille d'argent du concours general agricole 2014, Concours général agricole médaille d'argent 2014, Médaille d'Argent Paris 2014 Concours Général Agricole, Médaille d'Argent Paris 2014
+
+<fr:médaille d'argent du Concours général agricole
+fr:Médaille d'argent du concours general agricole 2013, Concours général agricole médaille d'argent 2013, Médaille d'Argent Paris 2013 Concours Général Agricole, Médaille d'Argent Paris 2013
+
+<fr:médaille d'argent du Concours général agricole
+fr:Médaille d'argent du concours general agricole 2012, Concours général agricole médaille d'argent 2012, Médaille d'Argent Paris 2012 Concours Général Agricole, Médaille d'Argent Paris 2012
+
+<fr:médaille d'argent du Concours général agricole
+fr:Médaille d'argent du concours general agricole 2011, Concours général agricole médaille d'argent 2011, Médaille d'Argent Paris 2011 Concours Général Agricole, Médaille d'Argent Paris 2011
+
+<fr:Concours général agricole
+fr:médaille de bronze du Concours général agricole
+
+<fr:médaille de bronze du Concours général agricole
+fr:Médaille de bronze du concours general agricole 2015, Concours général agricole médaille de bronze 2015, Médaille de Bronze Paris 2015 Concours Général Agricole, Médaille de Bronze Paris 2015
+
+<fr:médaille de bronze du Concours général agricole
+fr:Médaille de bronze du concours general agricole 2014, Concours général agricole médaille de bronze 2014, Médaille de Bronze Paris 2014 Concours Général Agricole, Médaille de Bronze Paris 2014
+
+<fr:médaille de bronze du Concours général agricole
+fr:Médaille de bronze du concours general agricole 2013, Concours général agricole médaille de bronze 2013, Médaille de Bronze Paris 2013 Concours Général Agricole, Médaille de Bronze Paris 2013
+
+<fr:médaille de bronze du Concours général agricole
+fr:Médaille de bronze du concours general agricole 2012, Concours général agricole médaille de bronze 2012, Médaille de Bronze Paris 2012 Concours Général Agricole, Médaille de Bronze Paris 2012
+
+<fr:médaille de bronze du Concours général agricole
+fr:Médaille de bronze du concours general agricole 2011, Concours général agricole médaille de bronze 2011, Médaille de Bronze Paris 2011 Concours Général Agricole, Médaille de Bronze Paris 2011
+
+<fr:Concours général agricole
+fr:prix d'excellence du Concours général agricole
+
+<fr:prix d'excellence du Concours général agricole
+fr:prix d'excellence du concours general agricole 2015, Concours général agricole prix d'excellence 2015
+
+<fr:prix d'excellence du Concours général agricole
+fr:prix d'excellence du concours general agricole 2014, Concours général agricole prix d'excellence 2014
+
+<fr:prix d'excellence du Concours général agricole
+fr:prix d'excellence du concours general agricole 2013, Concours général agricole prix d'excellence 2013
+
+<fr:prix d'excellence du Concours général agricole
+fr:prix d'excellence du concours general agricole 2012, Concours général agricole prix d'excellence 2012
+
+<fr:prix d'excellence du Concours général agricole
+fr:prix d'excellence du concours general agricole 2011, Concours général agricole prix d'excellence 2011
+
+en:German Agricultural Society
+de:DLG, Deutsche Landwirtschafts-Gesellschaft
+wikidata:en:Q316331
+
+<en:German Agricultural Society
+en:Bronze medal of the German Agricultural Society
+de:DLG Bronzener Preis
+
+<en:German Agricultural Society
+en:Silver medal of the German Agricultural Society
+de:DLG Silberner Preis
+
+<en:German Agricultural Society
+en:Gold medal of the German Agricultural Society
+de:DLG Goldener Preis
+
+<en:Bronze medal of the German Agricultural Society
+en:2009 Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis 2009
 
-<de:DLG
+<en:Bronze medal of the German Agricultural Society
+en:2010 Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis 2010
 
-<de:DLG
+<en:Bronze medal of the German Agricultural Society
+en:2011 Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis 2011
 
-<de:DLG
+<en:Bronze medal of the German Agricultural Society
+en:2012 Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis 2012
 
-<de:DLG
+<en:Bronze medal of the German Agricultural Society
+en:2013 Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis 2013
 
-<de:DLG
+<en:Bronze medal of the German Agricultural Society
+en:2014 Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis 2014
 
-<de:DLG
+<en:Bronze medal of the German Agricultural Society
+en:2015 Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis 2015
 
-<de:DLG
+<en:Bronze medal of the German Agricultural Society
+en:2016 Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis 2016
 
-<de:DLG
+<en:Bronze medal of the German Agricultural Society
+en:2017 Bronze medal of the German Agricultural Society
 de:DLG Bronzener Preis 2017
 
-<de:DLG
+<en:Silver medal of the German Agricultural Society
+en:2009 Silver medal of the German Agricultural Society
 de:DLG Silberner Preis 2009
 
-<de:DLG
+<en:Silver medal of the German Agricultural Society
+en:2010 Silver medal of the German Agricultural Society
 de:DLG Silberner Preis 2010
 
-<de:DLG
+<en:Silver medal of the German Agricultural Society
+en:2011 Silver medal of the German Agricultural Society
 de:DLG Silberner Preis 2011
 
-<de:DLG
+<en:Silver medal of the German Agricultural Society
+en:2012 Silver medal of the German Agricultural Society
 de:DLG Silberner Preis 2012
 
-<de:DLG
+<en:Silver medal of the German Agricultural Society
+en:2013 Silver medal of the German Agricultural Society
 de:DLG Silberner Preis 2013
 
-<de:DLG
+<en:Silver medal of the German Agricultural Society
+en:2014 Silver medal of the German Agricultural Society
 de:DLG Silberner Preis 2014
 
-<de:DLG
+<en:Silver medal of the German Agricultural Society
+en:2015 Silver medal of the German Agricultural Society
 de:DLG Silberner Preis 2015
 
-<de:DLG
+<en:Silver medal of the German Agricultural Society
+en:2016 Silver medal of the German Agricultural Society
 de:DLG Silberner Preis 2016
 
-<de:DLG
+<en:Silver medal of the German Agricultural Society
+en:2017 Silver medal of the German Agricultural Society
 de:DLG Silberner Preis 2017
 
-
-<de:DLG
+<en:Gold medal of the German Agricultural Society
+en:2009 Gold medal of the German Agricultural Society
 de:DLG Goldener Preis 2009
 
-<de:DLG
+<en:Gold medal of the German Agricultural Society
+en:2010 Gold medal of the German Agricultural Society
 de:DLG Goldener Preis 2010
 
-<de:DLG
+<en:Gold medal of the German Agricultural Society
+en:2011 Gold medal of the German Agricultural Society
 de:DLG Goldener Preis 2011
 
-<de:DLG
+<en:Gold medal of the German Agricultural Society
+en:2012 Gold medal of the German Agricultural Society
 de:DLG Goldener Preis 2012
 
-<de:DLG
+<en:Gold medal of the German Agricultural Society
+en:2013 Gold medal of the German Agricultural Society
 de:DLG Goldener Preis 2013
 
-<de:DLG
+<en:Gold medal of the German Agricultural Society
+en:2014 Gold medal of the German Agricultural Society
 de:DLG Goldener Preis 2014
 
-<de:DLG
+<en:Gold medal of the German Agricultural Society
+en:2015 Gold medal of the German Agricultural Society
 de:DLG Goldener Preis 2015
 
-<de:DLG
+<en:Gold medal of the German Agricultural Society
+en:2016 Gold medal of the German Agricultural Society
 de:DLG Goldener Preis 2016
 
-<de:DLG
+<en:Gold medal of the German Agricultural Society
+en:2017 Gold medal of the German Agricultural Society
 de:DLG Goldener Preis 2017
 
-<de:DLG
+<en:German Agricultural Society
 de:DLG Jährlich Prämiert
 
 de:Typisch Harz
+
+en:Swiss AOC, CH AOC, AOC CH
+fr:AOC Suisse, AOC CH, CH AOC
+
+en:Swiss PGI, CH PGI, PGI CH
+fr:IGP Suisse, IGP CH, CH IGP
+
+en:Suisse Garantie, SuisseGarantie
+
+en:Pro Montagna, ProMontagna, Coop Pro Montagna
+
+de:Migros "Aus der Region", "Aus der Region"
+fr:Migros "De la région", "De la région"
+
+en:IP-Suisse
+
+en:TerraSuisse
+
+en:Natura-Beef, NaturaBeef
+
+en:Natura-Veal, NaturaVeal
+
+en:Naturafarm, Natura-farm
+
+en:Agri Natura, AgriNatura
+
+en:NatureSuisse, Nature Suisse
+
+<en:Organic
+en:Bio Suisse, BioSuisse
+
+<en:Organic
+en:Migros Bio
+
+<en:Organic
+en:Naturaplan, Natura-plan
+
+en:Irradiated, Irradiated food
+fr:Traité par rayonnement ionisant, Traité par rayonnements ionisants, traité par ionisation, ionisé, irradié
+
+en:Tooth-health related labels
+nl:Gebitsgezondheidslabels
+de:Labels zur Zahngesundheit
+
+<en:Tooth-health related labels
+fr:Union française pour la santé bucco-dentaire, Ufsbd
+
+en:European Fruit Juice Control System, EQCS, European Quality Control System for Juice, European Quality Control System for Juice and Nectars from Fruits and Vegetables
+
+en:NAPSI certified, NAPSI
+fr:Certifiée NAPSI, Certifié NAPSI
