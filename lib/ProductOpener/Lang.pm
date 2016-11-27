@@ -2302,9 +2302,9 @@ login_register_content => {
 
 <form method="post" action="/cgi/session.pl">
 Nom d'utilisateur ou adresse e-mail :<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Mot de passe<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Se souvenir de moi</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Se connecter" class="button small" />
 </form>
@@ -2317,9 +2317,9 @@ HTML
 
 <form method="post" action="/cgi/session.pl">
 Benutzername oder E-Mail-Adresse:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Passwort<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Angemeldet bleiben</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
@@ -2331,9 +2331,9 @@ el => <<HTML
 
 <form method="post" action="/cgi/session.pl">
 Username ή διεύθυνση e-mail:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Password<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Remember me</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
@@ -2347,9 +2347,9 @@ en => <<HTML
 
 <form method="post" action="/cgi/session.pl">
 Username or e-mail address:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Password<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Remember me</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
@@ -2362,9 +2362,9 @@ HTML
 
 <form method="post" action="/cgi/session.pl">
 Nombre de usuario o dirección de correo electrónico:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Contraseña<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Mantenerme conectado</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
@@ -2377,9 +2377,9 @@ HTML
 
 <form method="post" action="/cgi/session.pl">
 Nom d'utilisateur ou adresse e-mail :<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Mot de passe<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Mantenere la connessione</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Connettersi" class="button small" />
 </form>
@@ -2392,9 +2392,9 @@ HTML
 
 <form method="post" action="/cgi/session.pl">
 Nome de usuário ou endereço de email:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Senha<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Lembre-se de mim</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
@@ -2407,9 +2407,9 @@ HTML
 
 <form method="post" action="/cgi/session.pl">
 Nome de utilizador ou endereço de e-mail:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Palavra-passe<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Manter sessão iniciada</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
@@ -2422,9 +2422,9 @@ HTML
 
 <form method="post" action="/cgi/session.pl">
 Numele de utilizator sau adresa de e-mail:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Parola<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Ține-mă minte</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Autentificare" class="button small" />
 </form>
@@ -2437,9 +2437,9 @@ HTML
 
 <form method="post" action="/cgi/session.pl">
 שם משתמש או כתובת דוא״ל:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 ססמה<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>שמירת הפרטים שלי</label><br />
 <input type="submit" tabindex="4" name=".submit" value="כניסה" class="button small" />
 </form>
@@ -2452,9 +2452,9 @@ HTML
 
 <form method="post" action="/cgi/session.pl">
 Gebruikersnaam of e-mailadres:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Wachtwoord<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Aangemeld blijven</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
@@ -2467,9 +2467,9 @@ HTML
 
 <form method="post" action="/cgi/session.pl">
 Gebruikersnaam of e-mailadres:<br />
-<input type="text" name="user_id" tabindex="1" style="width:220px;" /><br />
+<input type="text" name="user_id" tabindex="1" style="width:220px;" autocomplete="username" /><br />
 Paswoord<br />
-<input type="password" name="password" tabindex="2" style="width:220px;" /><br />
+<input type="password" name="password" tabindex="2" style="width:220px;" autocomplete="current-password" /><br />
 <input type="checkbox" name="remember_me" value="on" tabindex="3" /><label>Aangemeld blijven</label><br />
 <input type="submit" tabindex="4" name=".submit" value="Sign-in" class="button small" />
 </form>
@@ -6758,7 +6758,7 @@ barcode => {
 
 or => {
 	fr => 'ou :',
-	en => 'or :',
+	en => 'or:',
 	el => "ή",
 	es => 'o :',
 	pt => 'ou :',
@@ -11573,50 +11573,50 @@ foreach my $taxonomy (@debug_taxonomies) {
 
 
 
-foreach my $l (@Langs) {
+	foreach my $l (@Langs) {
 
-	my $short_l = undef;
-	if ($l =~ /_/) {
-		$short_l = $`;  # pt_pt
-	}
+		my $short_l = undef;
+		if ($l =~ /_/) {
+			$short_l = $`;  # pt_pt
+		}
 
-	foreach my $type (keys %tag_type_singular) {
+		foreach my $type (keys %tag_type_singular) {
 
-		if (not defined $tag_type_singular{$type}{$l}) {
-			if ((defined $short_l) and (defined $tag_type_singular{$type}{$short_l})) {
-				$tag_type_singular{$type}{$l} = $tag_type_singular{$type}{$short_l};
-			}
-			else {
-				$tag_type_singular{$type}{$l} = $tag_type_singular{$type}{en};
+			if (not defined $tag_type_singular{$type}{$l}) {
+				if ((defined $short_l) and (defined $tag_type_singular{$type}{$short_l})) {
+					$tag_type_singular{$type}{$l} = $tag_type_singular{$type}{$short_l};
+				}
+				else {
+					$tag_type_singular{$type}{$l} = $tag_type_singular{$type}{en};
+				}
 			}
 		}
-	}
 
-	foreach my $type (keys %tag_type_plural) {
-		if (not defined $tag_type_plural{$type}{$l}) {
-			if ((defined $short_l) and (defined $tag_type_plural{$type}{$short_l})) {
-				$tag_type_plural{$type}{$l} = $tag_type_plural{$type}{$short_l};
-			}
-			else {
-				$tag_type_plural{$type}{$l} = $tag_type_plural{$type}{en};
+		foreach my $type (keys %tag_type_plural) {
+			if (not defined $tag_type_plural{$type}{$l}) {
+				if ((defined $short_l) and (defined $tag_type_plural{$type}{$short_l})) {
+					$tag_type_plural{$type}{$l} = $tag_type_plural{$type}{$short_l};
+				}
+				else {
+					$tag_type_plural{$type}{$l} = $tag_type_plural{$type}{en};
+				}
 			}
 		}
+
+		$tag_type_from_singular{$l} or $tag_type_from_singular{$l} = {};
+		$tag_type_from_plural{$l} or $tag_type_from_plural{$l} = {};
+
+
+		foreach my $type (keys %tag_type_singular) {
+				$tag_type_from_singular{$l}{$tag_type_singular{$type}{$l}} = $type;
+		}
+
+		foreach my $type (keys %tag_type_plural) {
+				$tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;
+				#print "tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;\n";
+		}
+
 	}
-
-	$tag_type_from_singular{$l} or $tag_type_from_singular{$l} = {};
-	$tag_type_from_plural{$l} or $tag_type_from_plural{$l} = {};
-
-
-	foreach my $type (keys %tag_type_singular) {
-			$tag_type_from_singular{$l}{$tag_type_singular{$type}{$l}} = $type;
-	}
-
-	foreach my $type (keys %tag_type_plural) {
-			$tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;
-			#print "tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;\n";
-	}
-
-}
 
 if ((-e "$data_root/Lang.sto") and (not $recompute)) {
 
@@ -11631,69 +11631,69 @@ else {
 	print STDERR "Recomputing \%Lang\n";
 
 
-# Load overrides from %SiteLang
+	# Load overrides from %SiteLang
 
-print "SiteLang - overrides \n";
-
-
-foreach my $key (keys %SiteLang) {
-	print "SiteLang{$key} \n";
-
-	$Lang{$key} = {};
-	foreach my $l (keys %{$SiteLang{$key}}) {
-		$Lang{$key}{$l} = $SiteLang{$key}{$l};
-		print "SiteLang{$key}{$l} \n";
-	}
-}
+	print "SiteLang - overrides \n";
 
 
-foreach my $l (@Langs) {
-	$CanonicalLang{$l} = {};	 # To map 'a-completer' to 'A compléter',
-}
+	foreach my $key (keys %SiteLang) {
+		print "SiteLang{$key} \n";
 
-foreach my $key (keys %Lang) {
-	next if $key =~ /^bottom_title|bottom_content$/;
-	if ((defined $Lang{$key}{fr}) or (defined $Lang{$key}{en})) {
-		foreach my $l (@Langs) {
-
-			my $short_l = undef;
-			if ($l =~ /_/) {
-				$short_l = $`,  # pt_pt
-			}
-
-			if (not defined $Lang{$key}{$l}) {
-				if ((defined $short_l) and (defined $Lang{$key}{$short_l})) {
-					$Lang{$key}{$l} = $Lang{$key}{$short_l};
-				}
-				elsif (defined $Lang{$key}{en}) {
-					$Lang{$key}{$l} = $Lang{$key}{en};
-				}
-				else {
-					$Lang{$key}{$l} = $Lang{$key}{fr};
-				}
-			}
-
-			my $tagid = get_fileid($Lang{$key}{$l});
-
-			$CanonicalLang{$l}{$tagid} = $Lang{$key}{$l};
+		$Lang{$key} = {};
+		foreach my $l (keys %{$SiteLang{$key}}) {
+			$Lang{$key}{$l} = $SiteLang{$key}{$l};
+			print "SiteLang{$key}{$l} \n";
 		}
 	}
-}
 
-my @special_fields = ("site_name");
-
-foreach my $special_field (@special_fields) {
 
 	foreach my $l (@Langs) {
-		my $value = $Lang{$special_field}{$l};
-		foreach my $key (keys %Lang) {
-		
-			$Lang{$key}{$l} =~ s/\<\<$special_field\>\>/$value/g;
+		$CanonicalLang{$l} = {};	 # To map 'a-completer' to 'A compléter',
+	}
+
+	foreach my $key (keys %Lang) {
+		next if $key =~ /^bottom_title|bottom_content$/;
+		if ((defined $Lang{$key}{fr}) or (defined $Lang{$key}{en})) {
+			foreach my $l (@Langs) {
+
+				my $short_l = undef;
+				if ($l =~ /_/) {
+					$short_l = $`,  # pt_pt
+				}
+
+				if (not defined $Lang{$key}{$l}) {
+					if ((defined $short_l) and (defined $Lang{$key}{$short_l})) {
+						$Lang{$key}{$l} = $Lang{$key}{$short_l};
+					}
+					elsif (defined $Lang{$key}{en}) {
+						$Lang{$key}{$l} = $Lang{$key}{en};
+					}
+					else {
+						$Lang{$key}{$l} = $Lang{$key}{fr};
+					}
+				}
+
+				my $tagid = get_fileid($Lang{$key}{$l});
+
+				$CanonicalLang{$l}{$tagid} = $Lang{$key}{$l};
+			}
 		}
 	}
 
-}
+	my @special_fields = ("site_name");
 
+	foreach my $special_field (@special_fields) {
+
+		foreach my $l (@Langs) {
+			my $value = $Lang{$special_field}{$l};
+			foreach my $key (keys %Lang) {
+			
+				$Lang{$key}{$l} =~ s/\<\<$special_field\>\>/$value/g;
+			}
+		}
+
+	}
+	
 	
 	store("$data_root/Lang.sto",\%Lang);
 	
