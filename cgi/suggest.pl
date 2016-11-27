@@ -27,34 +27,43 @@ use CGI qw/:cgi :form escapeHTML/;
 use strict;
 use utf8;
 
-use Blogs::Config qw/:all/;
-use Blogs::Store qw/:all/;
-use Blogs::Index qw/:all/;
-use Blogs::Display qw/:all/;
-use Blogs::Users qw/:all/;
-use Blogs::Products qw/:all/;
-use Blogs::Food qw/:all/;
-use Blogs::Tags qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Index qw/:all/;
+use ProductOpener::Display qw/:all/;
+use ProductOpener::Users qw/:all/;
+use ProductOpener::Products qw/:all/;
+use ProductOpener::Food qw/:all/;
+use ProductOpener::Tags qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
-Blogs::Display::init();
-use Blogs::Lang qw/:all/;
-
+ProductOpener::Display::init();
+use ProductOpener::Lang qw/:all/;
 
 my $tagtype = param('tagtype');
 my $string = decode utf8=>param('string');
 my $term = decode utf8=>param('term');
-my $stringid = get_fileid($string) . get_fileid($term);
+
+my $search_lc = $lc;
 
 if (defined param('lc')) {
-	$lc = param('lc');
+	$search_lc = param('lc');
 }
+
+my $original_lc = $search_lc;
+
+if ($term =~ /^(\w\w):/) {
+	$search_lc = $1;
+	$term = $';
+}
+
+my $stringid = get_fileid($string) . get_fileid($term);
 
 my @tags = sort keys %{$translations_to{$tagtype}} ;
 
@@ -64,11 +73,15 @@ my $i = 0;
 
 foreach my $canon_tagid (@tags) {
 
-	next if not defined $translations_to{$tagtype}{$canon_tagid}{$lc};
+	next if not defined $translations_to{$tagtype}{$canon_tagid}{$search_lc};
 	next if defined $just_synonyms{$tagtype}{$canon_tagid};
-	my $tag = $translations_to{$tagtype}{$canon_tagid}{$lc};
+	my $tag = $translations_to{$tagtype}{$canon_tagid}{$search_lc};
 	my $tagid = get_fileid($tag);
 	next if $tagid !~ /^$stringid/;
+
+	if (not ($search_lc eq $original_lc)) {
+		$tag = $search_lc . ":" . $tag;
+	}
 
 	push @suggestions, $tag;
 }

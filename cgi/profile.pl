@@ -5,20 +5,20 @@ use CGI::Carp qw(fatalsToBrowser);
 use strict;
 use utf8;
 
-use Blogs::Config qw/:all/;
-use Blogs::Store qw/:all/;
-use Blogs::Index qw/:all/;
-use Blogs::Display qw/:all/;
-use Blogs::Images qw/:all/;
-use Blogs::Users qw/:all/;
-use Blogs::Mail qw/:all/;
-use Blogs::Lang qw/:all/;
+use ProductOpener::Config qw/:all/;
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Index qw/:all/;
+use ProductOpener::Display qw/:all/;
+use ProductOpener::Images qw/:all/;
+use ProductOpener::Users qw/:all/;
+use ProductOpener::Mail qw/:all/;
+use ProductOpener::Lang qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Encode;
 
-Blogs::Display::init();
+ProductOpener::Display::init();
 
 my $type = param('type') || 'edit';
 my $action = param('action') || 'display';
@@ -156,7 +156,7 @@ SCRIPT
 	
 	if (not defined $User_id) {
 		$html .= "<tr><td colspan=\"2\">$Lang{signin_before_submit}{$lang}</td></tr>\n";
-		$html .= Blogs::Users::display_user_form($user_ref,\$scripts);
+		$html .= ProductOpener::Users::display_user_form($user_ref,\$scripts);
 	}
 	
 	if (not defined $blog_ref->{title}) {
@@ -188,7 +188,7 @@ SCRIPT
 	;
 	
 	if ((not defined $User_id) ) {
-		$html .= Blogs::Users::display_user_form_optional($user_ref);
+		$html .= ProductOpener::Users::display_user_form_optional($user_ref);
 	}
 	
 	if ($admin) {
