@@ -4078,12 +4078,12 @@ sub display_login_register($)
 <div class="row">
 <div class="small-12 columns">
 	<label>$Lang{login_username_email}{$lc}
-		<input type="text" name="user_id" />
+		<input type="text" name="user_id" autocomplete="username" />
 	</label>
 </div>
 <div class="small-12 columns">
 	<label>$Lang{password}{$lc}
-		<input type="password" name="password" />
+		<input type="password" name="password" autocomplete="current-password" />
 	</label>
 </div>
 <div class="small-12 columns">

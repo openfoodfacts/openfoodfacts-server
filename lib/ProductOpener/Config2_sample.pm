@@ -12,7 +12,8 @@ BEGIN
 		$www_root
 		$mongodb
 		$facebook_app_id
-	    $facebook_app_secret
+		$facebook_app_secret
+		$csrf_secret
 		
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -32,5 +33,7 @@ $mongodb = "off";
 
 $facebook_app_id = "";
 $facebook_app_secret = "";
+
+$csrf_secret = "SWMAqq4znqqaHN9q7UWM5xQ5aJqKqPsekcwSuvjkkTmTtTXvPpyZxXkY25kqgaXQbLFVEaqZ";
 
 1;
