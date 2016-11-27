@@ -48,6 +48,8 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 
+use WWW::CSRF qw(CSRF_OK);
+
 ProductOpener::Display::init();
 
 $debug = 1;
@@ -194,12 +196,12 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 <div class="row">
 <div class="small-12 columns">
 	<label>$Lang{login_username_email}{$lc}
-		<input type="text" name="user_id" />
+		<input type="text" name="user_id" autocomplete="username" />
 	</label>
 </div>
 <div class="small-12 columns">
 	<label>$Lang{password}{$lc}
-		<input type="password" name="password" />
+		<input type="password" name="password" autocomplete="current-password" />
 	</label>
 </div>
 <div class="small-12 columns">
@@ -1773,6 +1775,7 @@ HTML
 <label for="comment" style="margin-left:10px">$Lang{delete_comment}{$lang}</label>
 <input type="text" id="comment" name="comment" value="" />
 HTML
+	. hidden(-name=>'csrf', -value=>generate_po_csrf_token($User_id), -override=>1)
 	. submit(-name=>'save', -label=>"Supprimer la fiche", -class=>"button small")
 	. end_form();
 
@@ -1786,6 +1789,11 @@ elsif ($action eq 'process') {
 	$product_ref->{interface_version_modified} = $interface_version;
 	
 	if ($type eq 'delete') {
+		my $csrf_token_status = check_po_csrf_token($User_id, param('csrf'));
+		if (not ($csrf_token_status eq CSRF_OK)) {
+			display_error(lang("error_invalid_csrf_token"), 403);
+		}
+
 		$product_ref->{deleted} = 'on';
 		$comment = "Suppression : ";
 	}
