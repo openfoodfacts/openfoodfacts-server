@@ -4078,12 +4078,12 @@ sub display_login_register($)
 <div class="row">
 <div class="small-12 columns">
 	<label>$Lang{login_username_email}{$lc}
-		<input type="text" name="user_id" />
+		<input type="text" name="user_id" autocomplete="username" />
 	</label>
 </div>
 <div class="small-12 columns">
 	<label>$Lang{password}{$lc}
-		<input type="password" name="password" />
+		<input type="password" name="password" autocomplete="current-password" />
 	</label>
 </div>
 <div class="small-12 columns">
@@ -5178,7 +5178,7 @@ HTML
 
 	# Use static subdomain for images, js etc.
 	
-	$html =~ s/(?<![a-z0-9-])((http|https):\/\/([a-z0-9-]+)\.$server_domain)?\/(images|js|foundation)\//http:\/\/static.$server_domain\/$4\//g;
+	$html =~ s/(?<![a-z0-9-])((http|https):\/\/([a-z0-9-]+)\.$server_domain)?\/(images|js|foundation|bower_components)\//http:\/\/static.$server_domain\/$4\//g;
 	# (?<![a-z0-9-]) -> negative look behind to make sure we are not matching /images in another path.
 	# e.g. https://apis.google.com/js/plusone.js or //cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/images/select2.min.js
 
