@@ -31,7 +31,7 @@ Data about food is of public interest and has to be open. The complete database 
 # Copyright and Licence #
 
 Product Opener
-Copyright (C) 2011-2015 Association Open Food Facts
+Copyright (C) 2011-2016 Association Open Food Facts
 Contact: contact@openfoodfacts.org
 Address: 21 rue des Iles, 94100 Saint-Maur des Foss�s, France
 
