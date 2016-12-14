@@ -13,8 +13,6 @@ before_install:
   - "cpanm Dist::Zilla::Plugin::MakeMaker::Awesome"
   - "cpanm Pod::Weaver::Plugin::StopWords"
   - "cpanm Pod::Weaver::Section::Support"
-  # needed for DZP::GitHub
-  - "git config --global github.user mjgardner"
   # install packages for Alien::SVN
   - "sudo apt-get update"
   - "sudo apt-get install libapr1 libapr1-dev libaprutil1 libaprutil1-dev libaprutil1-dbd-sqlite3 libneon27-gnutls libneon27-gnutls-dev"
