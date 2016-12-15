@@ -1,15 +1,12 @@
 language: perl
 perl:
-  - "5.8"
-  - "5.8.4"
-  - "5.8.4-thr"
-  - "5.12.2"
   - "5.20"
+  - "5.22"
   - "dev"
   - "blead"
 matrix:
   include:
-    - perl: 5.18
+    - perl: 5.20
       env: COVERAGE=1
   allow_failures:
     - perl: "blead"
@@ -19,8 +16,6 @@ before_install:
   - source ~/travis-perl-helpers/init
   - build-perl
   - perl -V
-  - build-dist
-  - cd $BUILD_DIR             # $BUILD_DIR is set by the build-dist command
 install:
   - cpan-install --deps       # installs prereqs, including recommends
   - cpan-install --coverage   # installs converage prereqs, if enabled
