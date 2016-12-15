@@ -17,6 +17,7 @@ before_install:
   - build-perl
   - perl -V
 install:
+  - cpanm --quiet --installdeps --notest .
   - cpan-install --deps       # installs prereqs, including recommends
   - cpan-install --coverage   # installs converage prereqs, if enabled
 before_script:
