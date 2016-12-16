@@ -30,3 +30,5 @@ after_success:
   - coverage-report
 after_failure:
   - cat /home/travis/.cpanm/build.log
+notifications:
+  slack: openfoodfacts:Pre9ZXKFH1CYtix8DeJAaFi2
