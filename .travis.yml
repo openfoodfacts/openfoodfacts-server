@@ -8,8 +8,10 @@ matrix:
 addons:
   apt:
     packages:
-    - libgraphicsmagick1-dev
-    - libzbar-dev
+    - libimage-magick-perl
+    - libbarcode-zbar-perl
+    - tesseract-ocr
+    - graphviz
 sudo: false
 before_install:
   - git clone git://github.com/travis-perl/helpers ~/travis-perl-helpers
@@ -17,7 +19,7 @@ before_install:
   - build-perl
   - perl -V
 install:
-  - cpanm --quiet --self-contained --installdeps --notest .
+  - cpanm --quiet --installdeps --notest .
   - cpan-install --deps       # installs prereqs, including recommends
   - cpan-install --coverage   # installs converage prereqs, if enabled
 before_script:
