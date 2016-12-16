@@ -28,3 +28,5 @@ script:
   - bower install
 after_success:
   - coverage-report
+after_failure:
+  - cat /home/travis/.cpanm/build.log
