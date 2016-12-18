@@ -1,10 +1,7 @@
 language: perl
 perl:
-  - "5.20"
-matrix:
-  include:
-    - perl: 5.20
-      env: COVERAGE=1
+  - 5.2
+env: COVERAGE=1
 addons:
   apt:
     packages:
