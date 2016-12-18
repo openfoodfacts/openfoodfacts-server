@@ -11,23 +11,12 @@ addons:
     - graphviz
 sudo: false
 before_install:
-  - git clone git://github.com/travis-perl/helpers ~/travis-perl-helpers
-  - source ~/travis-perl-helpers/init
-  - build-perl
-  - perl -V
+  - npm install -g bower
 install:
   - cpanm --quiet --installdeps --notest --skip-satisfied .
-  - cpan-install --deps       # installs prereqs, including recommends
-  - cpan-install --coverage   # installs converage prereqs, if enabled
-before_script:
-  - coverage-setup
-script:
-  - prove -l -j$(test-jobs) $(test-files)   # parallel testing
-  - npm install -g bower
   - bower install
-after_success:
-  - coverage-report
-after_failure:
-  - cat /home/travis/.cpanm/build.log
+script:
+  - prove -l
+  - perl -c -CS -Ilib lib/startup_apache2.pl
 notifications:
   slack: openfoodfacts:Pre9ZXKFH1CYtix8DeJAaFi2
