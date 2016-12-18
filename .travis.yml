@@ -1,6 +1,6 @@
 language: perl
 perl:
-  - 5.2
+  - "system"
 env: COVERAGE=1
 addons:
   apt:
