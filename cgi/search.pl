@@ -743,7 +743,7 @@ elsif ($action eq 'process') {
 			my $r = Apache2::RequestUtil->request();
 			$r->headers_out->set("Content-type" => "text/csv; charset=UTF-8");
 			$r->headers_out->set("Content-disposition" => "attachment;filename=openfoodfacts_search.csv");
-			binmode(STDOUT, ":utf8");
+			binmode(STDOUT, ":encoding(UTF-8)");
 			print "Content-Type: text/csv; charset=UTF-8\r\n\r\n" . $csv ;
 		}
 		else {

@@ -266,7 +266,7 @@ HTML
 	print header ( -expires=>'-1d', -charset=>'UTF-8');
 	
 	
-	binmode(STDOUT, ":utf8");
+	binmode(STDOUT, ":encoding(UTF-8)");
 	print $html;
 
 }

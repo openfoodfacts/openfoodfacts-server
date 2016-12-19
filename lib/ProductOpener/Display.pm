@@ -5207,7 +5207,7 @@ HTML
 		print header ( -status => $status );
 	}
 	
-	binmode(STDOUT, ":utf8");
+	binmode(STDOUT, ":encoding(UTF-8)");
 	print $html;
 	
 	$debug and print STDERR "Display::display done (lc: $lc - lang: $lang - mongodb: $mongodb - data_root: $data_root)\n";
