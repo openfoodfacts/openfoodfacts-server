@@ -176,7 +176,7 @@ sub retrieve_product($) {
 	my $product_ref = retrieve("$data_root/products/$path/product.sto");
 	
 	if ((defined $product_ref) and ($product_ref->{deleted})) {
-		return undef;
+		return;
 	}
 	
 	return $product_ref;
@@ -188,14 +188,14 @@ sub retrieve_product_rev($$) {
 	my $rev = shift;
 	
 	if ($rev !~ /^\d+$/) {
-		return undef;
+		return;
 	}
 	
 	my $path = product_path($code);
 	my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
 	
 	if ((defined $product_ref) and ($product_ref->{deleted})) {
-		return undef;
+		return;
 	}
 	
 	return $product_ref;

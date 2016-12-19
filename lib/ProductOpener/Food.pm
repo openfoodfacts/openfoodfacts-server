@@ -3373,7 +3373,7 @@ sub compute_units_of_alcohol($$) {
 		return $serving_size_in_ml * ($product_ref->{nutriments}{'alcohol'} / 1000.0);
 	}
 	else {
-		return undef;
+		return;
 	}
 }
 

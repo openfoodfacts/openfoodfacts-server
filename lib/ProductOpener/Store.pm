@@ -152,7 +152,7 @@ sub retrieve {
 	my $file = shift @_;
 	# If the file does not exist, return undef.
 	if (! -e $file) {
-		return undef;
+		return;
 	}
 	my $return = undef;
 	eval {$return = lock_retrieve($file);};

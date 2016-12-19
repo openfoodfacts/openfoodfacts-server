@@ -703,7 +703,7 @@ sub display_date($) {
 		return $dt;
 	}
 	else {
-		return undef;
+		return;
 	}
 
 }
@@ -717,7 +717,7 @@ sub display_date_tag($) {
 		return "<time datetime=\"$iso\">$dt</time>";
 	}
 	else {
-		return undef;
+		return;
 	}
 
 }
