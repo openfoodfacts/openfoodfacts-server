@@ -1410,7 +1410,8 @@ sub gen_tags_hierarchy($$) {
 	
 	}
 	
-	return sort { $tags_level{$lc}{$tagtype}{get_fileid($b)} <=> $tags_level{$lc}{$tagtype}{get_fileid($a)} } keys %tags;
+	my @sorted_list = sort { $tags_level{$lc}{$tagtype}{get_fileid($b)} <=> $tags_level{$lc}{$tagtype}{get_fileid($a)} } keys %tags;
+	return @sorted_list;
 }
 
 
@@ -1453,7 +1454,8 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 		}
 	}
 	
-	return sort { ($level{$tagtype}{$b} <=> $level{$tagtype}{$a}) || ($a cmp $b) } keys %tags;
+	my @sorted_list = sort { ($level{$tagtype}{$b} <=> $level{$tagtype}{$a}) || ($a cmp $b) } keys %tags;
+	return @sorted_list;
 }
 
 
