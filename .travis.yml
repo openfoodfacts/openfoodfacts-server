@@ -5,6 +5,7 @@ env: COVERAGE=1
 addons:
   apt:
     packages:
+    - libapache2-request-perl
     - libimage-magick-perl
     - libbarcode-zbar-perl
     - tesseract-ocr
