@@ -411,7 +411,7 @@ XML
 	
 		# <http://fr.$server_domain/ingredient/xylitol>  <http://www.w3.org/2002/07/owl#sameAs>  <http://fr.dbpedia.org/resource/Xylitol> 
 	
-		open IN, "$data_root/rdf/${lc}_links";
+		open IN, q{<}, "$data_root/rdf/${lc}_links";
 		while(<IN>) {
 			my $l = $_;
 			if ($l =~ /<.*ingredient\/(.*)>\s*<.*>\s*<(.*)>/) {

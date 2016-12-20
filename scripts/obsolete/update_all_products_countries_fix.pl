@@ -30,7 +30,7 @@ use Geo::IP;
 my $gi = Geo::IP->new(GEOIP_MEMORY_CACHE);
 
 my %places = ();
-open (IN, "<places.txt");
+open (IN, q{<}, "places.txt");
 while(<IN>) {
 	chomp;
 	my ($place, $n, $cc) = split(/\t/, $_);

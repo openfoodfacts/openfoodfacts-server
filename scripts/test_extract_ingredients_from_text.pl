@@ -50,7 +50,7 @@ foreach my $f (@files) {
 		next if ($f =~  /\./);
 		print STDERR "$f\t";
 		
-		open (IN, "<$dir/tests/$f") ;
+		open (IN, q{<}, "$dir/tests/$f") ;
 		my $text = join("", (<IN>));
 		close IN;
 		
@@ -60,7 +60,7 @@ foreach my $f (@files) {
 		
 		print STDERR "saving\n";
 		
-		open (OUT, ">$dir/current/$f.out") or die("cannot write $dir/current/$f.out: $!\n");
+		open (OUT, q{>}, "$dir/current/$f.out") or die("cannot write $dir/current/$f.out: $!\n");
 		
 		print OUT "ingredients_text:\n$product_ref->{ingredients_text}\n\n";
 		

@@ -24,7 +24,7 @@ if (not defined $packager_codes_ref) {
 }
 
 
-open (IN, "<$data_root/packager-codes/uk_packager_codes_fsa_rating_ids.csv") or die("could not open $data_root/packager-codes/uk_packager_codes_fsa_rating_ids.csv : $!\n");
+open (IN, q{<}, "$data_root/packager-codes/uk_packager_codes_fsa_rating_ids.csv") or die("could not open $data_root/packager-codes/uk_packager_codes_fsa_rating_ids.csv : $!\n");
 my %fsa_rating_ids = ();
 while (<IN>) {
 	chomp;
@@ -46,7 +46,7 @@ if ($ARGV[0]) {
 }
 else {
 
-	open (IN, "<$data_root/lists/packager-codes.uk.en.html") or print "Could not open $data_root/lists/packager-codes.uk.en.html : $!\n";
+	open (IN, q{<}, "$data_root/lists/packager-codes.uk.en.html") or print "Could not open $data_root/lists/packager-codes.uk.en.html : $!\n";
 	while (<IN>) {
 		if (/packager-code\/(uk-([^"]+)-ec)/) {
 			push @codes, $1;

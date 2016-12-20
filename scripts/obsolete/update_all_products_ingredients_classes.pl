@@ -31,8 +31,8 @@ use JSON;
 
 my $class = 'additives';
 
-open (OLD, ">$www_root/images/$class.old.html");
-open (NEW, ">$www_root/images/$class.new.html");
+open (OLD, q{>}, "$www_root/images/$class.old.html");
+open (NEW, q{>}, "$www_root/images/$class.new.html");
 
 
 my $cursor = $products_collection->query({})->fields({ code => 1 })->sort({code =>1});

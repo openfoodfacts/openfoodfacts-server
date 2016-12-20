@@ -331,7 +331,7 @@ elsif ($action eq 'process') {
 				my $extension = lc($1) ;
 				my $filename = "banner_source";
 
-				open (FILE, ">$data_root/index/$blogs_dir/$blogid/$filename.$extension") ;
+				open (FILE, q{>}, "$data_root/index/$blogs_dir/$blogid/$filename.$extension") ;
 				while (<$file>) {
 					print FILE;
 				}

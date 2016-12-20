@@ -31,7 +31,7 @@ use JSON;
 
 my $class = 'additives';
 
-open (OUT, ">$www_root/images/$class.html");
+open (OUT, q{>}, "$www_root/images/$class.html");
 
 my $cursor = $products_collection->query({})->fields({ code => 1 })->sort({code =>1});
 my $count = $cursor->count();

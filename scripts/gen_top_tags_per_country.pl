@@ -366,7 +366,7 @@ while (my $product_ref = $cursor->next) {
 # compute points
 	# Read ambassadors.txt
 	my %ambassadors = ();
-	if (open (IN, "<$data_root/ambassadors.txt")) {
+	if (open (IN, q{<}, "$data_root/ambassadors.txt")) {
 		while (<IN>) {
 			chomp();
 			if (/\s+/) {
@@ -523,7 +523,7 @@ foreach my $country (keys %{$properties{countries}}, 'en:world') {
 		my $html = "<h1>" . sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang}) . "</h1>";
 		
 		if (-e "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html") {
-			open (IN, "< $data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html");
+			open (IN, q{<}, "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html");
 			$html .= join("\n", (<IN>));
 			close IN;
 		}
