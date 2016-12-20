@@ -692,8 +692,8 @@ sub compute_product_history_and_completeness($$) {
 				@ids = @{$nutriments_lists{europe}};
 			}
 			else {
-				sub uniq { my %seen; grep !$seen{$_}++, @_ };
-				@ids = uniq ( keys %{$current{$group}}, keys %{$previous{$group}}) ;
+				my $uniq = sub { my %seen; grep !$seen{$_}++, @_ };
+				@ids = $uniq->( keys %{$current{$group}}, keys %{$previous{$group}});
 			}
 			
 			foreach my $id (@ids) {

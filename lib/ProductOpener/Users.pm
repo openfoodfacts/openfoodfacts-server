@@ -550,13 +550,13 @@ sub init_user()
 
                        # Try to keep sessions opened for users with dynamic IPs
 
-                       sub short_ip ($)
+                       my $short_ip = sub ($)
                        {
                                my $ip = shift;
                                # Remove the last two bytes
                                $ip =~ s/(\.\d+){2}$//;
                                return $ip;
-                       }
+                       };
 
 			if ($debug) {
 				#use Data::Dumper;
@@ -567,7 +567,7 @@ sub init_user()
                         or (not defined $user_session)
                         or (not defined $user_ref->{'user_sessions'}{$user_session})
                         or (not defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
-                        or ((short_ip($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne (short_ip(remote_addr()))) ))
+                        or (($short_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne ($short_ip->(remote_addr()))) ))
 		    {
 			$debug and print STDERR "ProductOpener::Users::init_user - no matching session\n";
 			$user_id = undef;
@@ -683,7 +683,7 @@ sub check_session($$) {
 					or (not defined $user_session)
 					or (not defined $user_ref->{'user_sessions'}{$user_session})
 					# or (not defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
-					# or ((short_ip($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne (short_ip(remote_addr()))) 
+					# or (($short_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne ($short_ip->(remote_addr()))) 
 					
 					) {
 			$debug and print STDERR "ProductOpener::Users::check_session - no matching session\n";

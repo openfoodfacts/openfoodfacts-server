@@ -202,7 +202,8 @@ sub extract_ingredients_from_text($) {
 	$text =~ s/(\d),(\d+)( )?\%/$1.$2\%/g;
 	$text =~ s/—/-/g;
 	
-	sub analyze_ingredients($$$$) {
+	my $analyze_ingredients = sub($$$$$) {
+		my $analyze_ingredients_self = shift;
 		my $ranked_ingredients_ref = shift;
 		my $unranked_ingredients_ref = shift;
 		my $level = shift;
@@ -328,16 +329,16 @@ sub extract_ingredients_from_text($) {
 		}
 		
 		if ($between ne '') {
-			analyze_ingredients($ranked_ingredients_ref, $unranked_ingredients_ref , $between_level, $between);
+			$analyze_ingredients_self->(\$analyze_ingredients_self, $ranked_ingredients_ref, $unranked_ingredients_ref , $between_level, $between);
 		}
 		
 		if ($after ne '') {
-			analyze_ingredients($ranked_ingredients_ref, $unranked_ingredients_ref , $level, $after);
+			$analyze_ingredients_self->(\$analyze_ingredients_self, $ranked_ingredients_ref, $unranked_ingredients_ref , $level, $after);
 		}		
 		
-	}
+	};
 	
-	analyze_ingredients(\@ranked_ingredients, \@unranked_ingredients , 0, $text);
+	$analyze_ingredients->(\$analyze_ingredients, \@ranked_ingredients, \@unranked_ingredients , 0, $text);
 	
 	for (my $i = 0; $i <= $#ranked_ingredients; $i++) {
 		$ranked_ingredients[$i]{rank} = $i + 1;
@@ -385,7 +386,7 @@ sub extract_ingredients_classes_from_text($) {
 	# vitamins...
 	# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E (lactose, protéines de lait)
 	
-	sub split_vitamins($$) {
+	my $split_vitamins = sub ($$) {
 		my $vitamin = shift;
 		my $list = shift;
 		
@@ -395,10 +396,10 @@ sub extract_ingredients_classes_from_text($) {
 			$return .= $vitamin . " " . $vitamin_code . " - ";
 		}
 		return $return;
-	}
+	};
 	
 	# vitamin code: 1 or 2 letters followed by 1 or 2 numbers (e.g. PP, B6, B12)
-	$text =~ s/(vitamin|vitamine)(s?)(((\W+)((and|et) )?(\w(\w)?(\d+)?)\b)+)/split_vitamins($1,$3)/eig;
+	$text =~ s/(vitamin|vitamine)(s?)(((\W+)((and|et) )?(\w(\w)?(\d+)?)\b)+)/$split_vitamins->($1,$3)/eig;
 		
 	
 	# E 240, E.240, E-240..

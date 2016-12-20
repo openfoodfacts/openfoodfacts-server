@@ -793,13 +793,13 @@ sub process_image_crop($$$$$$$$$$) {
 		my $original = $image->Clone();
 		my @white = (1,1,1);
  
-		sub distance($$) {
+		my $distance = sub ($$) {
 			my $a = shift;
 			my $b = shift;
 			
 			my $d = ($a->[0] - $b->[0]) * ($a->[0] - $b->[0]) + ($a->[1] - $b->[1]) * ($a->[1] - $b->[1]) + ($a->[2] - $b->[2]) * ($a->[2] - $b->[2]);
 			return $d;
-		}
+		};
  
 		my @q = ([0,0],[0,$h-1],[0,int($h/2)],[int($w/2),0],[int($w/2),$h-1],[$w-1,0],[$w-1,$h-1],[$w-1,int($h/2)]);
 		my $max_distance = 0.015*0.015;
@@ -816,15 +816,15 @@ sub process_image_crop($$$$$$$$$$) {
 			#	next;
 			#}
 			$image->SetPixel(x=>$x,y=>$y, color=>\@white);
-			(distance(\@rgb, [$original->GetPixel(x=>$x+1,y=>$y)]) <= $max_distance) and push @q, [$x+1, $y];
-			(distance(\@rgb, [$original->GetPixel(x=>$x-1,y=>$y)]) <= $max_distance) and push @q, [$x-1, $y];
-			(distance(\@rgb, [$original->GetPixel(x=>$x,y=>$y+1)]) <= $max_distance) and push @q, [$x, $y+1];
-			(distance(\@rgb, [$original->GetPixel(x=>$x,y=>$y-1)]) <= $max_distance) and push @q, [$x, $y-1];
+			($distance->(\@rgb, [$original->GetPixel(x=>$x+1,y=>$y)]) <= $max_distance) and push @q, [$x+1, $y];
+			($distance->(\@rgb, [$original->GetPixel(x=>$x-1,y=>$y)]) <= $max_distance) and push @q, [$x-1, $y];
+			($distance->(\@rgb, [$original->GetPixel(x=>$x,y=>$y+1)]) <= $max_distance) and push @q, [$x, $y+1];
+			($distance->(\@rgb, [$original->GetPixel(x=>$x,y=>$y-1)]) <= $max_distance) and push @q, [$x, $y-1];
 			
-			(distance(\@rgb, [$original->GetPixel(x=>$x+1,y=>$y+1)]) <= $max_distance) and push @q, [$x+1, $y+1];
-			(distance(\@rgb, [$original->GetPixel(x=>$x-1,y=>$y-1)]) <= $max_distance) and push @q, [$x-1, $y-1];
-			(distance(\@rgb, [$original->GetPixel(x=>$x-1,y=>$y+1)]) <= $max_distance) and push @q, [$x-1, $y+1];
-			(distance(\@rgb, [$original->GetPixel(x=>$x+1,y=>$y-1)]) <= $max_distance) and push @q, [$x+1, $y-1];			
+			($distance->(\@rgb, [$original->GetPixel(x=>$x+1,y=>$y+1)]) <= $max_distance) and push @q, [$x+1, $y+1];
+			($distance->(\@rgb, [$original->GetPixel(x=>$x-1,y=>$y-1)]) <= $max_distance) and push @q, [$x-1, $y-1];
+			($distance->(\@rgb, [$original->GetPixel(x=>$x-1,y=>$y+1)]) <= $max_distance) and push @q, [$x-1, $y+1];
+			($distance->(\@rgb, [$original->GetPixel(x=>$x+1,y=>$y-1)]) <= $max_distance) and push @q, [$x+1, $y-1];			
 			$i++;
 			($i % 10000) == 0 and print STDERR "$i - x,y: $x,$y - rgb: $rgb[0],$rgb[1],$rgb[2] - width,height: $w,$h\n";
 		}

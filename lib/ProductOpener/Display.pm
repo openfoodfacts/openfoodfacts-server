@@ -782,7 +782,7 @@ sub display_text($)
 		$html .= '</h1>';
 	}
 	
-	sub replace_file($) {
+	my $replace_file = sub ($) {
 		my $fileid = shift;
 		($fileid =~ /\.\./) and return '';
 		my $file = "$data_root/lang/$lc/$fileid";
@@ -793,9 +793,9 @@ sub display_text($)
 			close (IN);
 		}
 		return $html;
-	}
+	};
 	
-	sub replace_query($) {
+	my $replace_query = sub ($) {
 	
 		my $query = shift;
 		my $query_ref = decode_json($query);
@@ -806,17 +806,17 @@ sub display_text($)
 		}
 		return search_and_display_products( {}, $query_ref, $sort_by, undef, undef );
 	
-	}
+	};
 	
 	
 	if ($file !~ /index.foundation/) {
-		$html =~ s/\[\[query:(.*?)\]\]/replace_query($1)/eg;
+		$html =~ s/\[\[query:(.*?)\]\]/$replace_query->($1)/eg;
 	}
 	else {
 		$html .= search_and_display_products( $request_ref, {}, "last_modified_t_complete_first", undef, undef);
 	}
 	
-	$html =~ s/\[\[(.*?)\]\]/replace_file($1)/eg;
+	$html =~ s/\[\[(.*?)\]\]/$replace_file->($1)/eg;
 	
 	
 	if ($html =~ /<scripts>(.*)<\/scripts>/s) {
