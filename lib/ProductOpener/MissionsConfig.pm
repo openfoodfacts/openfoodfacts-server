@@ -1,4 +1,4 @@
-package ProductOpener::Missions;
+package ProductOpener::MissionsConfig;
 
 ######################################################################
 #
