@@ -279,37 +279,37 @@ foreach my $qc (@languages) {
 
 
 
-	open (OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/languages.txt");
+	open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/languages.txt");
 
 
 foreach my $qc (sort {$names{$a} cmp $names{$b}} keys %names) {
 
-	print OUT "en:" . $languages{$qc}{labels}{en} . $languages{$qc}{aliases}{en};
+	print $OUT "en:" . $languages{$qc}{labels}{en} . $languages{$qc}{aliases}{en};
 
 	if (defined $languages{$qc}{properties}{language_code_2}) {
-		print OUT ", $languages{$qc}{properties}{language_code_2}";
+		print $OUT ", $languages{$qc}{properties}{language_code_2}";
 	}
 	
 	if (defined $languages{$qc}{properties}{language_code_3}) {
-		print OUT ", $languages{$qc}{properties}{language_code_3}";
+		print $OUT ", $languages{$qc}{properties}{language_code_3}";
 	}	
 	
-	print OUT "\n";
+	print $OUT "\n";
 	foreach my $lc (sort keys %{$languages{$qc}{labels}}) {
 		#next if length($lc) > 2;
 		next if ($lc eq 'en');
-		print OUT "$lc:" . $languages{$qc}{labels}{$lc} . $languages{$qc}{aliases}{$lc} . "\n";
+		print $OUT "$lc:" . $languages{$qc}{labels}{$lc} . $languages{$qc}{aliases}{$lc} . "\n";
 	}
 	foreach my $p (sort keys %properties) {
 		if (defined $languages{$qc}{properties}{$p}) {
-			print OUT "$p:en:$languages{$qc}{properties}{$p}\n";
+			print $OUT "$p:en:$languages{$qc}{properties}{$p}\n";
 		}
 	}	
 	
-	print OUT "wikidata:en:Q$qc\n";
+	print $OUT "wikidata:en:Q$qc\n";
 
-	print OUT "\n";
+	print $OUT "\n";
 
 }
 
-	close OUT;
+	close $OUT;

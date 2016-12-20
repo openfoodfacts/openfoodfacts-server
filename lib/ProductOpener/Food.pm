@@ -3354,14 +3354,14 @@ foreach my $nutrient_level_ref (@nutrient_levels) {
 	}
 }
 
-open (OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrient_levels.txt");
-print OUT <<TXT
+open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrient_levels.txt");
+print $OUT <<TXT
 # nutrient levels taxonomy generated automatically by Food.pm
 
 TXT
 ;
-print OUT $nutrient_levels_taxonomy;
-close OUT;
+print $OUT $nutrient_levels_taxonomy;
+close $OUT;
 
 sub compute_units_of_alcohol($$) {
 

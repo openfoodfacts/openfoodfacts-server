@@ -30,8 +30,8 @@ use Geo::IP;
 my $gi = Geo::IP->new(GEOIP_MEMORY_CACHE);
 
 my %places = ();
-open (IN, q{<}, "places.txt");
-while(<IN>) {
+open (my $IN, q{<}, "places.txt");
+while(<$IN>) {
 	chomp;
 	my ($place, $n, $cc) = split(/\t/, $_);
 	my $placeid = get_fileid($place);

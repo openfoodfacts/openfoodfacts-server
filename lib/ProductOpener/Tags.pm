@@ -265,7 +265,7 @@ sub load_tags_hierarchy($$) {
 	defined $synonyms_for{$tagtype}{$lc} or $synonyms_for{$tagtype}{$lc} = {};
 
 	
-	if (open (IN, "<:encoding(UTF-8)", "$data_root/lang/$lc/tags/$tagtype.txt")) {
+	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lc/tags/$tagtype.txt")) {
 	
 		my $current_tagid;
 		my $current_tag;
@@ -274,7 +274,7 @@ sub load_tags_hierarchy($$) {
 	
 
 	
-		while (<IN>) {
+		while (<$IN>) {
 		
 			my $line = $_;
 			chomp($line);
@@ -344,7 +344,7 @@ sub load_tags_hierarchy($$) {
 			}				
 		}
 	
-		close IN;
+		close $IN;
 		
 		
 		# Deal with simple singular and plurals, and other forms
@@ -442,7 +442,7 @@ sub load_tags_hierarchy($$) {
 		
 		# Compute all children, breadth first
 		
-		open (OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.$lc.txt");
+		open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.$lc.txt");
 		
 		foreach my $tagid (
 			sort { ($tags_level{$lc}{$tagtype}{$b} <=> $tags_level{$lc}{$tagtype}{$a})
@@ -451,23 +451,23 @@ sub load_tags_hierarchy($$) {
 				}
 				keys %{$tags_level{$lc}{$tagtype}} ) {
 			
-			#print OUT "$tagid - $tags_level{$lc}{$tagtype}{$tagid} - $longest_parent{$lc}{$tagid} \n";
+			#print $OUT "$tagid - $tags_level{$lc}{$tagtype}{$tagid} - $longest_parent{$lc}{$tagid} \n";
 			if (defined $tags_direct_parents{$lc}{$tagtype}{$tagid}) {
 				#print "direct_parents\n";
 				foreach my $parentid (sort keys %{$tags_direct_parents{$lc}{$tagtype}{$tagid}}) {
-					print OUT "< $lc:" . $canon_tags{$lc}{$tagtype}{$parentid} . "\n";
+					print $OUT "< $lc:" . $canon_tags{$lc}{$tagtype}{$parentid} . "\n";
 				}
 				
 			}
-			print OUT "$lc: " . $canon_tags{$lc}{$tagtype}{$tagid};
+			print $OUT "$lc: " . $canon_tags{$lc}{$tagtype}{$tagid};
 			if (defined $synonyms_for{$lc}{$tagid}) {
-				print OUT ", " . join(", ", @{$synonyms_for{$lc}{$tagid}});
+				print $OUT ", " . join(", ", @{$synonyms_for{$lc}{$tagid}});
 			}
-			print OUT "\n\n" ;
+			print $OUT "\n\n" ;
 		
 		}
 		
-		close OUT;
+		close $OUT;
 		
 		
 	}
@@ -547,7 +547,7 @@ sub build_tags_taxonomy($$) {
 	$properties{$tagtype} = {};
 	
 		
-	if (open (IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.txt")) {
+	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.txt")) {
 	
 		my $current_tagid;
 		my $current_tag;
@@ -558,7 +558,7 @@ sub build_tags_taxonomy($$) {
 
 		# 1st phase: read translations and synonyms
 		
-		while (<IN>) {
+		while (<$IN>) {
 		
 			my $line = $_;
 			chomp($line);
@@ -676,7 +676,7 @@ sub build_tags_taxonomy($$) {
 		
 		}
 		
-		close (IN);
+		close ($IN);
 		
 		# 2nd phase: compute synonyms
 		# e.g.
@@ -856,7 +856,7 @@ sub build_tags_taxonomy($$) {
 # > Nectars d'abricot, nectar d'abricot, nectars d'abricots, nectar 
 
 
-		open (IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.txt");
+		open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.txt");
 	
 		my $current_tagid;
 		my $current_tag;
@@ -867,7 +867,7 @@ sub build_tags_taxonomy($$) {
 
 		my %parents = ();
 		
-		while (<IN>) {
+		while (<$IN>) {
 		
 			my $line = $_;
 			chomp($line);
@@ -963,7 +963,7 @@ sub build_tags_taxonomy($$) {
 		}
 		
 	
-		close IN;
+		close $IN;
 		
 	
 		
@@ -1039,14 +1039,14 @@ sub build_tags_taxonomy($$) {
 		}
 				
 		
-		open (OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.result.txt");
+		open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.result.txt");
 		
 		my $errors = '';
 		
 		foreach my $lc (keys %{$stopwords{$tagtype}}) {
-			print OUT $stopwords{$tagtype}{$lc . ".orig"};
+			print $OUT $stopwords{$tagtype}{$lc . ".orig"};
 		}
-		print OUT "\n\n";
+		print $OUT "\n\n";
 		
 		foreach my $tagid (
 			sort { ($sort_key_parents{$a} cmp $sort_key_parents{$b})
@@ -1060,7 +1060,7 @@ sub build_tags_taxonomy($$) {
 				foreach my $parentid (sort keys %{$direct_parents{$tagtype}{$tagid}}) {
 					my $lc = $parentid;
 					$lc =~ s/^(\w\w):.*/$1/;
-					print OUT "< $lc:" . $translations_to{$tagtype}{$parentid}{$lc} . "\n";
+					print $OUT "< $lc:" . $translations_to{$tagtype}{$parentid}{$lc} . "\n";
 					print "taxonomy - parentid: $parentid > tagid: $tagid\n";
 					if (not exists $translations_to{$tagtype}{$parentid}{$lc}) {
 						$errors .= "ERROR - parent $parentid is not defined for tag $tagid\n";
@@ -1089,21 +1089,21 @@ sub build_tags_taxonomy($$) {
 				
 				# print "taxonomy - lc: $lc - tagid: $tagid - lc_tagid: $lc_tagid\n";
 				if (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid}) {
-					print OUT "$synonyms$lc:" . join(", ", @{$synonyms_for{$tagtype}{$lc}{$lc_tagid}}) . "\n";
+					print $OUT "$synonyms$lc:" . join(", ", @{$synonyms_for{$tagtype}{$lc}{$lc_tagid}}) . "\n";
 				}
 			}
 			
 			if (defined $properties{$tagtype}{$tagid}) {
 				foreach my $prop_lc (keys %{$properties{$tagtype}{$tagid}}) {
-					print OUT "$prop_lc: " . $properties{$tagtype}{$tagid}{$prop_lc} . "\n";
+					print $OUT "$prop_lc: " . $properties{$tagtype}{$tagid}{$prop_lc} . "\n";
 				}
 			}
 			
-			print OUT "\n" ;
+			print $OUT "\n" ;
 		
 		}
 		
-		close OUT;
+		close $OUT;
 		
 		print STDERR $errors;
 		
@@ -1170,9 +1170,9 @@ sub retrieve_tags_taxonomy($) {
 	}
 	
 	$special_tags{$tagtype} = [];
-	if (open (IN, "<:encoding(UTF-8)", "$data_root/taxonomies/special_$tagtype.txt")) {
+	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/special_$tagtype.txt")) {
 
-		while (<IN>) {
+		while (<$IN>) {
 		
 			my $line = $_;
 			chomp($line);
@@ -2233,9 +2233,9 @@ GEXF
 ;
 
 	 # print STDERR "saving $www_root/data/$lc." . get_fileid(lang($tagtype . "_p")) . ".gexf" . "\n";
-	 open (OUT, ">:encoding(UTF-8)", "$www_root/data/$lc." . get_fileid(lang($tagtype . "_p")) . ".gexf") or die("write error: $!\n");
-	 print OUT $gexf;
-	 close OUT;
+	 open (my $OUT, ">:encoding(UTF-8)", "$www_root/data/$lc." . get_fileid(lang($tagtype . "_p")) . ".gexf") or die("write error: $!\n");
+	 print $OUT $gexf;
+	 close $OUT;
 	 
 	 eval {
 	 $graph-> run (format => 'svg', output_file => "$www_root/data/$lc." . get_fileid(lang($tagtype . "_p")) . ".svg");
@@ -2258,21 +2258,21 @@ print STDERR "Load cities for packaging codes\n";
 
 my %departements = ();
 
-open (IN, "<:encoding(windows-1252)", "$data_root/emb_codes/france_departements.txt");
-while (<IN>) {
+open (my $IN, "<:encoding(windows-1252)", "$data_root/emb_codes/france_departements.txt");
+while (<$IN>) {
 	chomp();
 	my ($code, $dep) = split(/\t/);
 	$departements{$code} = $dep;
 }
-close (IN);
+close ($IN);
 
 
 # France
 # http://www.insee.fr/fr/methodes/nomenclatures/cog/telechargement/2012/txt/france2012.zip
 
-	open (IN, "<:encoding(windows-1252)", "$data_root/emb_codes/france2012.txt");
+	open (my $IN, "<:encoding(windows-1252)", "$data_root/emb_codes/france2012.txt");
 
-	my @th = split(/\t/, <IN>);
+	my @th = split(/\t/, <$IN>);
 	my %th = ();
 	my $i = 0;
 	foreach my $h (@th) {
@@ -2280,7 +2280,7 @@ close (IN);
 		$i++;
 	}
 	
-	while (<IN>) {
+	while (<$IN>) {
 		chomp();
 		my @td = split(/\t/);
 		
@@ -2301,10 +2301,10 @@ close (IN);
 		
 		$cities{get_fileid($td[$th{NCCENR}] . " ($departements{$dep}, France)")} = $td[$th{NCCENR}] . " ($departements{$dep}, France)";
 	}
-	close(IN);
+	close($IN);
 
-	open(IN, "<:encoding(windows-1252)", "$data_root/emb_codes/insee.csv");
-	while (<IN>) {
+	open(my $IN, "<:encoding(windows-1252)", "$data_root/emb_codes/insee.csv");
+	while (<$IN>) {
 		chomp();
 		my @td = split(/;/);
 		my $postal_code = $td[1];
@@ -2317,7 +2317,7 @@ close (IN);
 			$emb_codes_cities{'FR' . $postal_code} = $emb_codes_cities{'FREMB' . $insee};  # not used...
 		}
 	}
-	close(IN);
+	close($IN);
 	
 	# geo coordinates
 	
@@ -2327,9 +2327,9 @@ close (IN);
 	foreach my $geofile (@geofiles) {
 	
 	print "Tags.pm - loading geofile $geofile\n";
-		open (IN, "<:encoding(UTF-8)", "$data_root/emb_codes/$geofile");
+		open (my $IN, "<:encoding(UTF-8)", "$data_root/emb_codes/$geofile");
 
-		my @th = split(/\t/, <IN>);
+		my @th = split(/\t/, <$IN>);
 		my %th = ();
 		
 		my $i = 0;
@@ -2342,7 +2342,7 @@ close (IN);
 		}
 		
 		my $j = 0;
-		while (<IN>) {
+		while (<$IN>) {
 			chomp();
 			my @td = split(/\t/);
 			
@@ -2359,7 +2359,7 @@ close (IN);
 			# ($j < 10) and print STDERR "Tags.pm - geo - map - emb_codes_geo: FREMB$insee =  " . $td[$th{"Latitude"}] . " , " . $td[$th{"Longitude"}]. " \n";						
 
 		}
-		close(IN);
+		close($IN);
 	}
 	
 	# print STDERR "Tags.pm - map - emb_codes_geo total: " . (scalar keys %emb_codes_geo) . "\n";				
@@ -2412,10 +2412,10 @@ foreach my $langid (readdir(DH2)) {
 					next if $file !~ /(.*)\.html/;
 					my $tagid = $1;
 					# print STDERR "Tags: loading text for $lang/$tagtype/$tagid\n";		
-					open(IN, "<:encoding(UTF-8)", "$data_root/lang/$langid/$tagtype/$file") or print STDERR "cannot open $data_root/lang/$langid/$tagtype/$file : $!\n";
+					open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$langid/$tagtype/$file") or print STDERR "cannot open $data_root/lang/$langid/$tagtype/$file : $!\n";
 
-					my $text = join("",(<IN>));
-					close IN;
+					my $text = join("",(<$IN>));
+					close $IN;
 					if ($text =~ /class="level_(\d+)"/) {
 						$tags_levels{$lc}{$tagtype}{$tagid} = $1;
 					}

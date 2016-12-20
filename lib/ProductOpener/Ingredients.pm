@@ -75,8 +75,8 @@ foreach my $f (readdir(DH)) {
 	
 	$ingredients_classes{$class} = {};
 	
-	open(IN, "<:encoding(UTF-8)", "$data_root/ingredients/$f");
-	while (<IN>) {
+	open(my $IN, "<:encoding(UTF-8)", "$data_root/ingredients/$f");
+	while (<$IN>) {
 		chomp;
 		next if /^\#/;
 		my ($canon_name, $other_names, $misc, $desc, $level, $warning) = split("\t");
@@ -104,7 +104,7 @@ foreach my $f (readdir(DH)) {
 			}
 		}
 	}
-	close IN;
+	close $IN;
 	
 	$ingredients_classes_sorted{$class} = [sort keys %{$ingredients_classes{$class}}];
 }

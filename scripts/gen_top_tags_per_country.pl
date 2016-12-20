@@ -366,8 +366,8 @@ while (my $product_ref = $cursor->next) {
 # compute points
 	# Read ambassadors.txt
 	my %ambassadors = ();
-	if (open (IN, q{<}, "$data_root/ambassadors.txt")) {
-		while (<IN>) {
+	if (open (my $IN, q{<}, "$data_root/ambassadors.txt")) {
+		while (<$IN>) {
 			chomp();
 			if (/\s+/) {
 				my $user = get_fileid($`);
@@ -523,9 +523,9 @@ foreach my $country (keys %{$properties{countries}}, 'en:world') {
 		my $html = "<h1>" . sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang}) . "</h1>";
 		
 		if (-e "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html") {
-			open (IN, q{<}, "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html");
-			$html .= join("\n", (<IN>));
-			close IN;
+			open (my $IN, q{<}, "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html");
+			$html .= join("\n", (<$IN>));
+			close $IN;
 		}
 		
 		$html .= "<p>" . ($#tags + 1) . " ". $Lang{$tagtype . "_p"}{$lang} . ":</p>";
@@ -639,9 +639,9 @@ oTable = \$('#tagstable').DataTable({
 HTML
 ;
 		
-		 open (OUT, ">:encoding(UTF-8)", "$data_root/lists/" . get_fileid(lang($tagtype . "_p")) . ".$cc.$lang.html");
-		 print OUT $html;
-		 close OUT;
+		 open (my $OUT, ">:encoding(UTF-8)", "$data_root/lists/" . get_fileid(lang($tagtype . "_p")) . ".$cc.$lang.html");
+		 print $OUT $html;
+		 close $OUT;
 		 
 		$js =~ s/,$//;
 		$js .= <<JS
@@ -651,9 +651,9 @@ JS
 
 		(-e "$www_root/js/countries/$cc") or mkdir ("$www_root/js/countries/$cc", 0755);
 		(-e "$www_root/js/countries/$cc/$lang") or mkdir ("$www_root/js/countries/$cc/$lang", 0755);
-		 open (OUT, ">:encoding(UTF-8)", "$www_root/js/countries/$cc/$lang$tagtype.js");
-		 print OUT $js;
-		 close OUT;
+		 open (my $OUT, ">:encoding(UTF-8)", "$www_root/js/countries/$cc/$lang$tagtype.js");
+		 print $OUT $js;
+		 close $OUT;
 		 
 		 
 	}
@@ -677,9 +677,9 @@ foreach my $country (sort { $countries{$b} <=> $countries{$a}} keys %countries) 
 
 }
 
-open (OUT, ">:encoding(UTF-8)", "$www_root/countries.html");
-print OUT $html;
-close OUT;
+open (my $OUT, ">:encoding(UTF-8)", "$www_root/countries.html");
+print $OUT $html;
+close $OUT;
 
 
 my $html = "";
@@ -724,22 +724,22 @@ $html =~ s/ 1 products/ 1 product/g;
 
 $html = "<p>$total products sold in $c countries and territories:</p>\n<ul>\n$html</ul>\n";
 
-open (OUT, ">:encoding(UTF-8)", "$www_root/products_countries.html");
-print OUT $html;
-close OUT;
+open (my $OUT, ">:encoding(UTF-8)", "$www_root/products_countries.html");
+print $OUT $html;
+close $OUT;
 
 
 # Open Food Facts - What's in my yogurt?
 
 if ($server_domain eq 'openfoodfacts.org') {
 
-open (DEBUG, ">:encoding(UTF-8)", "/home/yogurt/html/yogurts_debug");
+open (my $DEBUG, ">:encoding(UTF-8)", "/home/yogurt/html/yogurts_debug");
 
 my $html = "";
 my $c = 0;
 foreach my $country (sort { $countries_tags{$b}{categories}{"en:yogurts"} <=> $countries_tags{$a}{categories}{"en:yogurts"}} keys %countries) {
 
-		print DEBUG "yogurts - $country - " . $countries_tags{$country}{categories}{"en:yogurts"} . "\n";
+		print $DEBUG "yogurts - $country - " . $countries_tags{$country}{categories}{"en:yogurts"} . "\n";
 		print STDERR "yogurts - $country - " . $countries_tags{$country}{categories}{"en:yogurts"} . "\n";
         if ($countries_tags{$country}{categories}{"en:yogurts"}  > 0) {
 				my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
@@ -752,7 +752,7 @@ foreach my $country (sort { $countries_tags{$b}{categories}{"en:yogurts"} <=> $c
 					$lc = 'en';
 				}
 				
-				print DEBUG "yogurts - cc: $cc - lc: $lc \n";
+				print $DEBUG "yogurts - cc: $cc - lc: $lc \n";
 				
 				$cc ne '' or next;
 				$c++;
@@ -773,11 +773,11 @@ my $yogurts = $countries_tags{"en:world"}{categories}{"en:yogurts"};
 
 $html = "<h2 style=\"color:white\">$yogurts yogurts opened so far!</h2>\n<p>$yogurts yogurts sold in $c countries and territories:</p>\n<ul>\n$html</ul>\n";
 
-open (OUT, ">:encoding(UTF-8)", "/home/yogurt/html/yogurts_countries.html");
-print OUT $html;
-close OUT;
+open (my $OUT, ">:encoding(UTF-8)", "/home/yogurt/html/yogurts_countries.html");
+print $OUT $html;
+close $OUT;
 
-close DEBUG;
+close $DEBUG;
 
 }
 
@@ -786,13 +786,13 @@ close DEBUG;
 
 if ($server_domain eq 'openbeautyfacts.org') {
 
-open (DEBUG, ">:encoding(UTF-8)", "/home/shampoo/html/shampoos_debug");
+open (my $DEBUG, ">:encoding(UTF-8)", "/home/shampoo/html/shampoos_debug");
 
 my $html = "";
 my $c = 0;
 foreach my $country (sort { $countries_tags{$b}{categories}{"en:shampoos"} <=> $countries_tags{$a}{categories}{"en:shampoos"}} keys %countries) {
 
-		print DEBUG "shampoos - $country - " . $countries_tags{$country}{categories}{"en:shampoos"} . "\n";
+		print $DEBUG "shampoos - $country - " . $countries_tags{$country}{categories}{"en:shampoos"} . "\n";
 		print STDERR "shampoos - $country - " . $countries_tags{$country}{categories}{"en:shampoos"} . "\n";
         if ($countries_tags{$country}{categories}{"en:shampoos"}  > 0) {
 				my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
@@ -805,7 +805,7 @@ foreach my $country (sort { $countries_tags{$b}{categories}{"en:shampoos"} <=> $
 					$lc = 'en';
 				}
 				
-				print DEBUG "shampoos - cc: $cc - lc: $lc \n";
+				print $DEBUG "shampoos - cc: $cc - lc: $lc \n";
 				
 				$cc ne '' or next;
 				$c++;
@@ -826,11 +826,11 @@ my $shampoos = $countries_tags{"en:world"}{categories}{"en:shampoos"};
 
 $html = "<h2 style=\"color:white\">$shampoos shampoos opened so far!</h2>\n<p>$shampoos shampoos sold in $c countries and territories:</p>\n<ul>\n$html</ul>\n";
 
-open (OUT, ">:encoding(UTF-8)", "/home/shampoo/html/shampoos_countries.html");
-print OUT $html;
-close OUT;
+open (my $OUT, ">:encoding(UTF-8)", "/home/shampoo/html/shampoos_countries.html");
+print $OUT $html;
+close $OUT;
 
-close DEBUG;
+close $DEBUG;
 
 }
 
@@ -982,9 +982,9 @@ HTML
 ;	
 
 	print "products_stats - saving $data_root/lang/$lang/texts/products_stats_$cc.html\n";
-	open (OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/products_stats_$cc.html");
-	print OUT $html;
-	close OUT;
+	open (my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/products_stats_$cc.html");
+	print $OUT $html;
+	close $OUT;
 
 }
 }
@@ -1111,9 +1111,9 @@ $series
 HTML
 ;	
 
-	open (OUT, ">:encoding(UTF-8)", "$www_root/products_countries.js");
-	print OUT $html;
-	close OUT;
+	open (my $OUT, ">:encoding(UTF-8)", "$www_root/products_countries.js");
+	print $OUT $html;
+	close $OUT;
 
 
 

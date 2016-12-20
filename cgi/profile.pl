@@ -331,11 +331,11 @@ elsif ($action eq 'process') {
 				my $extension = lc($1) ;
 				my $filename = "banner_source";
 
-				open (FILE, q{>}, "$data_root/index/$blogs_dir/$blogid/$filename.$extension") ;
+				open (my $FILE, q{>}, "$data_root/index/$blogs_dir/$blogid/$filename.$extension") ;
 				while (<$file>) {
-					print FILE;
+					print $FILE;
 				}
-				close (FILE);
+				close ($FILE);
 				
 				$blog_ref->{'banner_source'} = "index/$blogs_dir/$blogid/$filename.$extension";
 			}

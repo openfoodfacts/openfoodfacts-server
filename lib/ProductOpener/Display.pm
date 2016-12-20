@@ -758,9 +758,9 @@ sub display_text($)
 	}
 
 	
-	open(IN, "<:encoding(UTF-8)", $file);
-	my $html = join('', (<IN>));
-	close (IN);
+	open(my $IN, "<:encoding(UTF-8)", $file);
+	my $html = join('', (<$IN>));
+	close ($IN);
 	
 	my $country_name = display_taxonomy_tag($lc,"countries",$country);
 	
@@ -788,9 +788,9 @@ sub display_text($)
 		my $file = "$data_root/lang/$lc/$fileid";
 		my $html = '';
 		if (-e $file) {
-			open (IN, "<:encoding(UTF-8)", "$file");
-			$html .= join('', (<IN>));
-			close (IN);
+			open (my $IN, "<:encoding(UTF-8)", "$file");
+			$html .= join('', (<$IN>));
+			close ($IN);
 		}
 		return $html;
 	};
@@ -878,8 +878,8 @@ sub display_mission($)
 	my $request_ref = shift;
 	my $missionid = $request_ref->{missionid};
 
-	open(IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/missions/$missionid.html");
-	my $html = join('', (<IN>));
+	open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/missions/$missionid.html");
+	my $html = join('', (<$IN>));
 	my $title = undef;
 	if ($html =~ /<h1>(.*)<\/h1>/) {
 		$title = $1;
@@ -1072,9 +1072,9 @@ sub display_list_of_tags($$) {
 		$request_ref->{title} = sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang});
 		
 		if (-e "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html") {
-			open (IN, q{<}, "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html");
-			$html .= join("\n", (<IN>));
-			close IN;
+			open (my $IN, q{<}, "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html");
+			$html .= join("\n", (<$IN>));
+			close $IN;
 		}
 		
 		$html .= "<p>" . ($#tags + 1) . " ". $Lang{$tagtype . "_p"}{$lang} . ":</p>";
@@ -4164,15 +4164,15 @@ HTML
 sub display_on_the_blog($)
 {
 	my $blocks_ref = shift;
-	if (open (IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/texts/blog-foundation.html")) {
+	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/texts/blog-foundation.html")) {
 	
-		my $html = join('', (<IN>));
+		my $html = join('', (<$IN>));
 		push @$blocks_ref, {
 				'title'=>lang("on_the_blog_title"),
 				'content'=>lang("on_the_blog_content") . '<ul class="side-nav">' . $html . '</ul>',
 				'id'=>'on_the_blog',
 		};	
-		close IN;
+		close $IN;
 	}
 }
 

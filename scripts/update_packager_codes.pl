@@ -25,9 +25,9 @@ if (opendir (DH, "$data_root/packager-codes")) {
 		if ($file =~ /geocode-(\w+).json/) {
 			my $country = lc($1);
 			print "loading geocode for country $country\n";
-			open (IN, "<:encoding(windows-1252)", "$data_root/packager-codes/$file") or die("Could not open $data_root/packager-codes/$file: $!");
-			my $json = join("", (<IN>));
-			close (IN);
+			open (my $IN, "<:encoding(windows-1252)", "$data_root/packager-codes/$file") or die("Could not open $data_root/packager-codes/$file: $!");
+			my $json = join("", (<$IN>));
+			close ($IN);
 			my $json_ref =  decode_json($json) or print "could not decode json: $!\n";
 			
 			my $addresses_ref = $json_ref->{data};
@@ -39,9 +39,9 @@ if (opendir (DH, "$data_root/packager-codes")) {
 		elsif ($file =~ /openlylocal/) {
 			my $country = 'uk';
 			print "loading geocode for country $country - $file\n";
-			open (IN, "<:encoding(windows-1252)", "$data_root/packager-codes/$file") or die("Could not open $data_root/packager-codes/$file: $!");
-			my $json = join("", (<IN>));
-			close (IN);
+			open (my $IN, "<:encoding(windows-1252)", "$data_root/packager-codes/$file") or die("Could not open $data_root/packager-codes/$file: $!");
+			my $json = join("", (<$IN>));
+			close ($IN);
 			my $json_ref =  decode_json($json) or print "could not decode json: $!\n";
 			
 			my $addresses_ref = $json_ref->{councils};
@@ -79,8 +79,8 @@ if (opendir (DH, "$data_root/packager-codes")) {
 			}
 			my $key = $packager_code_key{$country};
 			
-			open (IN, "<:encoding($encoding)", "$data_root/packager-codes/$file") or die("Could not open $data_root/packager-codes/$file: $!");
-			my @fields = split(/;|\t/, <IN>);
+			open (my $IN, "<:encoding($encoding)", "$data_root/packager-codes/$file") or die("Could not open $data_root/packager-codes/$file: $!");
+			my @fields = split(/;|\t/, <$IN>);
 			my @headers = ();
 			my %headers = ();
 			foreach my $field (@fields) {
@@ -94,7 +94,7 @@ if (opendir (DH, "$data_root/packager-codes")) {
 				# print STDERR "Tags.pm - packaging_codes - load - country: $country - header: $field\n";
 			}	
 			
-			while (<IN>) {
+			while (<$IN>) {
 				chomp;
 				my @fields = split(/;|\t/);
 				
@@ -170,7 +170,7 @@ if (opendir (DH, "$data_root/packager-codes")) {
 				}
 				
 			}
-			close (IN);
+			close ($IN);
 			
 			print "UK - found $found local authorities, not found: $notfound\n";
 		}

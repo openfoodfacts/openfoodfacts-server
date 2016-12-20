@@ -373,11 +373,11 @@ sub process_search_image_form($) {
 			my $extension = lc($1) ;
 			my $filename = get_fileid(remote_addr(). '_' . $`);
 			
-			open (FILE, q{>}, "$data_root/tmp/$filename.$extension") ;
+			open (my $FILE, q{>}, "$data_root/tmp/$filename.$extension") ;
 			while (<$file>) {
-				print FILE;
+				print $FILE;
 			}
-			close (FILE);
+			close ($FILE);
 			
 			$code = scan_code("$data_root/tmp/$filename.$extension");
 			if (defined $code) {
@@ -469,11 +469,11 @@ sub process_image_upload($$$$$) {
 			
 
 
-			open (FILE, q{>}, "$www_root/images/products/$path/$imgid.$extension") or print STDERR "Images.pm - Error - Could not save $www_root/images/products/$path/$imgid.$extension : $!\n";
+			open (my $FILE, q{>}, "$www_root/images/products/$path/$imgid.$extension") or print STDERR "Images.pm - Error - Could not save $www_root/images/products/$path/$imgid.$extension : $!\n";
 			while (<$file>) {
-				print FILE;
+				print $FILE;
 			}
-			close (FILE);
+			close ($FILE);
 
 
 			

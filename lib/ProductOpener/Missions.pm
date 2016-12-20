@@ -97,16 +97,16 @@ sub gen_missions_html() {
 			
 			$missionid =~ s/(.*)\.//;
 			(-e "$data_root/lang/$lang/missions") or mkdir("$data_root/lang/$lang/missions", 0755);
-			open (OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/missions/$missionid.html");
-			print OUT $html2;
-			close OUT;			
+			open (my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/missions/$missionid.html");
+			print $OUT $html2;
+			close $OUT;			
 		}
 		
 		$html .= "</ul>";
 		
-		 open (OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/missions_list.html");
-		 print OUT $html;
-		 close OUT;	
+		 open (my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/missions_list.html");
+		 print $OUT $html;
+		 close $OUT;	
 	}
 }
 

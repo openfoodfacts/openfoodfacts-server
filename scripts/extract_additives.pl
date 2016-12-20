@@ -23,8 +23,8 @@ origine => 'origin',
 );
 
 my %not_names = ();
-open(IN, "<:encoding(UTF-8)", "not_names.txt");
-while (<IN>) {
+open(my $IN, "<:encoding(UTF-8)", "not_names.txt");
+while (<$IN>) {
 	my $l = $_;
 	chomp($l);
 	$l =~s/\t.*//;

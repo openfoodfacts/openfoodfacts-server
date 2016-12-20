@@ -33,9 +33,9 @@ my $code_field = get_fileid("EAN");
 
 my %products = ();
 
-open (IN, "<:encoding(UTF-8)", "Offre_cible_ecommerce_25032016.csv") or die;
+open (my $IN, "<:encoding(UTF-8)", "Offre_cible_ecommerce_25032016.csv") or die;
 
-my $titles = <IN>;
+my $titles = <$IN>;
 my @titles;
 @titles = split(/\t/, $titles);
 
@@ -66,26 +66,26 @@ my $age_n = 0;
 my $age_total = 0;
 
 
-open (OUT,  ">:encoding(UTF-8)", "franprix_produits.csv");
+open (my $OUT,  ">:encoding(UTF-8)", "franprix_produits.csv");
 
 
-print OUT "Univers\tSous-groupe\tEAN\tLibellé\tMarque\tOFF\t\Complet\n";
+print $OUT "Univers\tSous-groupe\tEAN\tLibellé\tMarque\tOFF\t\Complet\n";
 
 
-open (OUT2,  ">:encoding(UTF-8)", "franprix_marques.csv");
+open (my $OUT2,  ">:encoding(UTF-8)", "franprix_marques.csv");
 
 
-print OUT2 "Univers\tSous-groupe\tEAN\tLibellé\tMarque\tMarque OFF\t\URL\n";
+print $OUT2 "Univers\tSous-groupe\tEAN\tLibellé\tMarque\tMarque OFF\t\URL\n";
 
 
-open (OUT3,  ">:encoding(UTF-8)", "franprix_descriptions.csv");
-print OUT3 "EAN\tLibellé\tDescription produit\tPrésentation du produit\n";
+open (my $OUT3,  ">:encoding(UTF-8)", "franprix_descriptions.csv");
+print $OUT3 "EAN\tLibellé\tDescription produit\tPrésentation du produit\n";
 
 my $lang = 'fr';
 my $lc = 'fr';
 
 
-while (<IN>) {
+while (<$IN>) {
 	my $row = $_;
 	$row =~ s/(\r|\n)*$//g;
 	chomp($row);
@@ -143,7 +143,7 @@ while (<IN>) {
 			my $off_brands_id = get_fileid($off_brands);
 			
 			if (($off_brands_id ne "") and ($off_brands_id !~ /$franprix_marque_id/)) {
-				print OUT2 $row . "\t" . $off_brands . "\t" . "http://world-fr.openfoodfacts.org/produit/$code\n";
+				print $OUT2 $row . "\t" . $off_brands . "\t" . "http://world-fr.openfoodfacts.org/produit/$code\n";
 			}
 			
 			my $description = product_name_brand_quantity($product_ref);
@@ -258,22 +258,22 @@ HTML
 		$presentation =~ s/\n(\n+)/\n\n/isg;
 		$presentation =~ s/\n/<br\/>/g;
 			
-			print OUT3 "$code\t$libelle\t$description\t$presentation\n";
+			print $OUT3 "$code\t$libelle\t$description\t$presentation\n";
 		}	
 		
-		print OUT $p;
+		print $OUT $p;
 }			
 
 		
 
 
-close(OUT);
+close($OUT);
 
-close(OUT2);
+close($OUT2);
 
-open (OUT,  ">:encoding(UTF-8)", "franprix.csv");
+open ($OUT,  ">:encoding(UTF-8)", "franprix.csv");
 
-print OUT "Univers - Sous-groupe\tProduits\tProduits dans OFF\tProduits dans OFF %\tProduits manquants dans OFF\tProduits complets dans OFF\tProduits complets dans OFF %\n";
+print $OUT "Univers - Sous-groupe\tProduits\tProduits dans OFF\tProduits dans OFF %\tProduits manquants dans OFF\tProduits complets dans OFF\tProduits complets dans OFF %\n";
 
 foreach my $group (sort keys %groups) {
 
@@ -296,12 +296,12 @@ foreach my $group (sort keys %groups) {
 
 	# print $group . "\t" . $products . " produits, $off dans OFF (" . sprintf("%d", 100 * $off / $products) . "%), $complete complets dans OFF (" . sprintf("%d", 100 * $complete / $products) . "%) \n";
 	
-	print OUT $group . "\t" . $products . "\t$off\t" . sprintf("%d", 100 * $off / $products) . "" . "\t" . ($products - $off) . "\t" . $complete . "\t" . sprintf("%d", 100 * $complete / $products) . "\n";
+	print $OUT $group . "\t" . $products . "\t$off\t" . sprintf("%d", 100 * $off / $products) . "" . "\t" . ($products - $off) . "\t" . $complete . "\t" . sprintf("%d", 100 * $complete / $products) . "\n";
 	
 	
 }
 
-close (OUT);
+close ($OUT);
 
 
 print "age_n : $age_n  age_average : " . ($age_total / $age_n) . "\n";

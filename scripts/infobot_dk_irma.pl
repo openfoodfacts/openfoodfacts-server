@@ -39,9 +39,9 @@ my %countries;
 
 $countries{dk} = 1;
 
-open (IN, q{<}, "dk-irma-products-list-20150602.csv") or die;
+open (my $IN, q{<}, "dk-irma-products-list-20150602.csv") or die;
 
-my $fields = <IN>;
+my $fields = <$IN>;
 chomp($fields);
 
 my @fields = split(/;/, $fields);
@@ -55,7 +55,7 @@ my $added_countries = 0;
 
 my $i = 0;
 
-while(<IN>) {
+while(<$IN>) {
 	chomp;
 	@fields = split(/;/, $_);
 	my $code = $fields[$fields{Stregkode}];
@@ -241,7 +241,7 @@ while(<IN>) {
 }
 
 
-close(IN);
+close($IN);
 
 if (($changed_products > 0) and ($added_countries > 0)) {
 

@@ -778,10 +778,10 @@ elsif ($action eq 'process') {
 		}
 	
 		if (param('search_terms')) {
-			open (OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log");
-			print OUT remote_addr() . "\t" . time() . "\t" . decode utf8=>param('search_terms')
+			open (my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log");
+			print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8=>param('search_terms')
 				. "\tpage: $page\tcount:" . $request_ref->{count} . "\n";
-			close (OUT);
+			close ($OUT);
 		}
 	}
 }

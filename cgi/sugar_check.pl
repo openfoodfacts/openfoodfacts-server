@@ -17,9 +17,9 @@ my $answer = decode utf8=>param('answer');
 my $actual = decode utf8=>param('actual');
 my $points = decode utf8=>param('points');
 
-open (OUT, ">>" , "/home/sugar/logs/sugar_log");
-print OUT remote_addr() . "\t" . time() . "\t" . $product . "\t" . $code . "\t" . $actual . "\t" . $answer . "\t" . $points . "\n";
-close OUT;
+open (my $OUT, ">>" , "/home/sugar/logs/sugar_log");
+print $OUT remote_addr() . "\t" . time() . "\t" . $product . "\t" . $code . "\t" . $actual . "\t" . $answer . "\t" . $points . "\n";
+close $OUT;
 
 
 print "Content-Type: text/html; charset=UTF-8\r\n\r\n";

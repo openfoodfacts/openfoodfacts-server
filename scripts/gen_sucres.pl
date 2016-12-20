@@ -591,9 +591,9 @@ Si vous constatez une erreur, <a href="mailto:stephane\@combiendesucres.fr">merc
 HTML
 ;
 
-		open (OUT, ">:encoding(UTF-8)", "/home/sucres/html/$id.html");
-		print OUT $page;
-		close OUT;
+		open (my $OUT, ">:encoding(UTF-8)", "/home/sucres/html/$id.html");
+		print $OUT $page;
+		close $OUT;
 			
 		push @ids, $id;
 			
@@ -604,9 +604,9 @@ HTML
 
 	$html .= "</tbody></table>";
 		
-	open (OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/sugar.html");
-	print OUT $html;
-	close OUT;
+	open (my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/sugar.html");
+	print $OUT $html;
+	close $OUT;
 	
 	store("/home/sucres/data/products_ids.sto", \@ids);
 	

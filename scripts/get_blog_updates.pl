@@ -24,8 +24,8 @@ if (not defined $rss) {
 	exit;
 }
 
-open(OUT, ">:encoding(UTF-8)", "$data_root/texts/blog.html");
-open(OUT2, ">:encoding(UTF-8)", "$data_root/texts/blog_foundation.html");
+open(my $OUT, ">:encoding(UTF-8)", "$data_root/texts/blog.html");
+open(my $OUT2, ">:encoding(UTF-8)", "$data_root/texts/blog_foundation.html");
 
 
 
@@ -44,11 +44,11 @@ foreach my $entry ($feed->get_item()) {
 	$i == 0 and last;
 }
 
-print OUT $html;
-print OUT $html2;
+print $OUT $html;
+print $OUT $html2;
 
-close(OUT);
-close(OUT2);
+close($OUT);
+close($OUT2);
 
 exit(0);
 
