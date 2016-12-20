@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
+use Modern::Perl '2015';
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;

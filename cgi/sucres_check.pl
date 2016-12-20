@@ -1,12 +1,12 @@
 #!/usr/bin/perl
 
+use Modern::Perl '2015';
+use utf8;
+
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use JSON::PP;
-
-use strict;
-use utf8;
 
 my $debug = 0;
 

@@ -2,7 +2,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use strict;
+use Modern::Perl '2015';
 use warnings;
 use utf8;
 

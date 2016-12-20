@@ -1,5 +1,8 @@
 #!/usr/bin/perl
 
+use Modern::Perl '2015';
+use utf8;
+
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -8,8 +11,6 @@ use Storable qw(lock_store lock_nstore lock_retrieve);
 use Apache2::RequestRec ();
 use Apache2::Const ();
 
-use strict;
-use utf8;
 use List::Util qw(shuffle);
 
 my $ids_ref = lock_retrieve("/home/sucres/data/products_ids.sto");

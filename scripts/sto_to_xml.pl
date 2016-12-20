@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-use strict;
+use Modern::Perl '2015';
 
 use Data::Dumper;
 

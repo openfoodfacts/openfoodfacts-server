@@ -21,7 +21,7 @@
 package ProductOpener::Lang;
 
 use utf8;
-use strict;
+use Modern::Perl '2015';
 use Exporter    qw< import >;
 
 BEGIN

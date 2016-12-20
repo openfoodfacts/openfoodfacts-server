@@ -40,6 +40,7 @@ requires 'Crypt::ScryptKDF';
 requires 'Email::IsEmail', '>= 3.04.8';
 requires 'CLDR::Number::Format::Percent';
 requires 'CLDR::Number';
+requires 'Modern::Perl', '>= 1.20161005';
 
 on 'test' => sub {
   requires 'Test::More', '>= 1.302049, < 2.0';

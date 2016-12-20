@@ -20,11 +20,13 @@
 
 package ProductOpener::Ingredients;
 
+use utf8;
+use Modern::Perl '2015';
+use Exporter    qw< import >;
+
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_Images);
-	require Exporter;
-	@ISA = qw(Exporter);
+	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 					&extract_ingredients_from_image
@@ -40,8 +42,6 @@ BEGIN
 }
 
 use vars @EXPORT_OK ;
-use strict;
-use utf8;
 use experimental 'smartmatch';
 
 use ProductOpener::Store qw/:all/;

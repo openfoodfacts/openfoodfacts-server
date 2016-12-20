@@ -1,10 +1,12 @@
 package ProductOpener::Version;
 
+use utf8;
+use Modern::Perl '2015';
+use Exporter    qw< import >;
+
 BEGIN
 {
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	require Exporter;
-	@ISA = qw(Exporter);
 	@EXPORT = qw();
 	@EXPORT_OK = qw(
 		$version
@@ -13,8 +15,6 @@ BEGIN
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 use vars @EXPORT_OK ; # no 'my' keyword for these
-use strict;
-use utf8;
 
 $version = "production";
 

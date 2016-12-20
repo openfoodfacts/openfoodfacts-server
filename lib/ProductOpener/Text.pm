@@ -18,14 +18,15 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
 package ProductOpener::Text;
+
+use utf8;
+use Modern::Perl '2015';
+use Exporter    qw< import >;
 
 BEGIN
 {
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	require Exporter;
-	@ISA = qw(Exporter);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 					&normalize_percentages
@@ -35,9 +36,6 @@ BEGIN
 }
 
  use vars @EXPORT_OK ;
- use strict;
- use warnings;
- use utf8;
 
  use CLDR::Number;
  use CLDR::Number::Format::Percent;
