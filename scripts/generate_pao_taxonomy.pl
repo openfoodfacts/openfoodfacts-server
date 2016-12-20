@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2015';
+use Modern::Perl '2012';
 
 open (IN, q{<}, "periods_after_opening_logo.svg") or die ;
 my $svg = join ("",(<IN>));

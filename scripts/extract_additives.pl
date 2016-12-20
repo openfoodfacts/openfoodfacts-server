@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 
 use utf8;
-use Modern::Perl '2015';
+use Modern::Perl '2012';
 
 binmode STDIN, ':encoding(UTF-8)';
 binmode STDOUT, ':encoding(UTF-8)';

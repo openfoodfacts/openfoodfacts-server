@@ -10,7 +10,7 @@ package ProductOpener::Missions;
 ######################################################################
 
 use utf8;
-use Modern::Perl '2015';
+use Modern::Perl '2012';
 use Exporter    qw< import >;
 
 BEGIN

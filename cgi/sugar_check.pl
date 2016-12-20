@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-use Modern::Perl '2015';
+use Modern::Perl '2012';
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);

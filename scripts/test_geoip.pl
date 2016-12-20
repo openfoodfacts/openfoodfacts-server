@@ -2,7 +2,7 @@
 
 use CGI qw/:all/;
 
-use Modern::Perl '2015';
+use Modern::Perl '2012';
 
 my $ip = remote_addr();
 

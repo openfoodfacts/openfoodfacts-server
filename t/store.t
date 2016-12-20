@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2015';
+use Modern::Perl '2012';
 
 use Test::More;
 
