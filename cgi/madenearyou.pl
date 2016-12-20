@@ -75,7 +75,7 @@ $initjs
 <link rel="stylesheet" href="https://unpkg.com/leaflet\@0.7.7/dist/leaflet.css" integrity="sha384-99ZJFcuBCh9c/V/+8YwDX/TUGG8JWMG+gKFJWzk0BZP3IoDMN+pLGd3/H0yjg4oa" crossorigin="anonymous">
 <script src="https://unpkg.com/leaflet\@0.7.7/dist/leaflet.js" integrity="sha384-Lh7SNUss9JoImCvc96eCUnLX3HvY4kb0UZCWZbYWvceJ+o5CJeOJqqNoheaGkNHT" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.css" />
-<link rel="stylesheet" href="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.Default.css" />
+<link rel="stylesheet" href="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.Default.css" />
 <script src="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/leaflet.markercluster-src.js"></script>
 
 <meta property="fb:admins" content="706410516" />
@@ -90,6 +90,14 @@ $initjs
 <meta property="og:description" content="Carte interactive des lieux de production des produits alimentaires"/>
 <meta name="description" content="Carte interactive des lieux de production des produits alimentaires" />
 
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-madenearme/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/images/favicon-madenearme/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-madenearme/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/images/favicon-madenearme/manifest.json">
+<link rel="mask-icon" href="/images/favicon-madenearme/safari-pinned-tab.svg" color="#003380">
+<link rel="shortcut icon" href="/images/favicon-madenearme/favicon.ico">
+<meta name="msapplication-config" content="/images/favicon-madenearme/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
 
 <style type="text/css" media="all">
 
