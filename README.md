@@ -76,7 +76,9 @@ https://github.com/openfoodfacts/openfoodfacts-server/issues
 ### Translate Open Food Facts in your language
 
 You can help translate Open Food Facts and the app at (no technical knowledge required, takes a minute to signup): <br>
-https://translations.launchpad.net/openfoodfacts/
+https://translations.launchpad.net/openfoodfacts/trunk/+pots/openfoodfacts-web
+https://translations.launchpad.net/openfoodfacts/trunk/+pots/openbeautyfacts-web
+https://translations.launchpad.net/openfoodfacts/trunk/+pots/common-web
 
 
 ### Who do I talk to? ###
