@@ -72,7 +72,7 @@ my $xml = <<XML
 <OutputEncoding>UTF-8</OutputEncoding>
 <InputEncoding>UTF-8</InputEncoding>
 $image_tag
-<Url type="text/html" method="GET" template="http://$subdomain.$server_domain/cgi/search.pl?search_terms={searchTerms}&amp;search_simple=1&amp;action=process" />
+<Url type="text/html" method="GET" template="http://$subdomain.$server_domain/cgi/search.pl?search_terms={searchTerms}&amp;search_simple=1&amp;action=process&amp;page={startPage?}&amp;page_size={count?}" />
 <Url type="application/opensearchdescription+xml" rel="self" template="http://$subdomain.$server_domain/cgi/opensearch.pl" />
 </OpenSearchDescription>
 XML
