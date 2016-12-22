@@ -416,7 +416,7 @@ sub extract_ingredients_classes_from_text($) {
 	$text =~ s/ - et / - /ig;
 	
 	# stabilisant e420 (sans : )
-	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement)(s)?(\s)?(:)?/ : /ig;
+	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement)(s)?(\s)?(:)?/$1$2 : /ig;
 	
 	# mono-glycéride -> monoglycérides
 	$text =~ s/(mono|di)-([a-z])/$1$2/ig;
@@ -484,6 +484,9 @@ sub extract_ingredients_classes_from_text($) {
 		my $class = $tagtype;		
 		
 			my %seen = ();
+			
+			# Keep track of mentions of the additive class (e.g. "coloring: X, Y, Z") so that we can correctly identify additives after
+			my $current_additive_class = "ingredient";
 
 			foreach my $ingredient_id (@ingredients_ids) {
 			
@@ -491,6 +494,15 @@ sub extract_ingredients_classes_from_text($) {
 			
 				my $match = 0;
 				while (not $match) {
+				
+					# additive class?
+					my $canon_ingredient_additive_class = canonicalize_taxonomy_tag($product_ref->{lc}, "additives_classes", $ingredient_id_copy);
+					
+					if (exists_taxonomy_tag("additives_classes", $canon_ingredient_additive_class )) {
+						$current_additive_class = $canon_ingredient_additive_class;
+					}
+				
+					# additive?
 					my $canon_ingredient = canonicalize_taxonomy_tag($product_ref->{lc}, $tagtype, $ingredient_id_copy);
 					
 					$product_ref->{$tagtype} .= " [ $ingredient_id_copy -> $canon_ingredient ";
@@ -500,11 +512,28 @@ sub extract_ingredients_classes_from_text($) {
 						# do not match synonyms
 						and ($canon_ingredient !~ /^en:(fd|no)/)
 						) {
-						push @{$product_ref->{ $tagtype . '_tags'}}, $canon_ingredient;
+						
 						$seen{$canon_ingredient} = 1;
 						$product_ref->{$tagtype} .= " -> exists ";
-						# success!
-						$match = 1;
+						
+						if ((defined $properties{$tagtype}{$canon_ingredient})
+							and (defined $properties{$tagtype}{$canon_ingredient}{"mandatory_additive_class:en"})) {
+							
+							my $mandatory_additive_class = $properties{$tagtype}{$canon_ingredient}{"mandatory_additive_class:en"};
+							$product_ref->{$tagtype} .= " -- mandatory_additive_class: $mandatory_additive_class (current: $current_additive_class) ";
+							if ($current_additive_class eq ("en:" . $mandatory_additive_class)) {
+								push @{$product_ref->{ $tagtype . '_tags'}}, $canon_ingredient;
+								# success!
+								$match = 1;		
+								$product_ref->{$tagtype} .= " -- ok ";								
+							}
+						}
+						else {
+							push @{$product_ref->{ $tagtype . '_tags'}}, $canon_ingredient;
+							# success!
+							$match = 1;
+							$product_ref->{$tagtype} .= " -- ok ";	
+						}
 					}
 					elsif (($lc eq 'en') and ($ingredient_id_copy =~ /^([^-]+)-/)) {
 						# soy lecithin -> lecithin
@@ -624,44 +653,7 @@ sub extract_ingredients_classes_from_text($) {
 	# check if we have a previous or a next version and compute differences
 	
 	$product_ref->{$field . "_debug_tags"} = [];
-	
-	# old version (French ingredient class for additives)
-	
-	if ($product_ref->{lc} eq 'fr') {
-		
-		# compute differences
-		foreach my $tag (@{$product_ref->{$field . "_tags"}}) {
-			if (not has_tag($product_ref,$field . "_old",$tag)) {
-				my $tagid = $tag;
-				$tagid =~ s/:/-/;
-				push @{$product_ref->{$field . "_debug_tags"}}, "$tagid-fr-added";
-			}
-		}
-		foreach my $tag (@{$product_ref->{$field . "_old_tags"}}) {
-			if (not has_tag($product_ref,$field,$tag)) {
-				my $tagid = $tag;
-				$tagid =~ s/:/-/;
-				push @{$product_ref->{$field . "_debug_tags"}}, "$tagid-fr-removed";
-			}
-		}			
-	}
-	else {
-		# compute differences
-		foreach my $tag (@{$product_ref->{$field . "_tags"}}) {
-			if (not has_tag($product_ref,$field . "_old",$tag)) {
-				my $tagid = $tag;
-				$tagid =~ s/:/-/;
-				push @{$product_ref->{$field . "_debug_tags"}}, "$tagid-other-added";
-			}
-		}
-		foreach my $tag (@{$product_ref->{$field . "_old_tags"}}) {
-			if (not has_tag($product_ref,$field,$tag)) {
-				my $tagid = $tag;
-				$tagid =~ s/:/-/;
-				push @{$product_ref->{$field . "_debug_tags"}}, "$tagid-other-removed";
-			}
-		}		
-	}
+
 
 	
 	# previous version

@@ -31,9 +31,9 @@ Data about food is of public interest and has to be open. The complete database 
 # Copyright and Licence #
 
 Product Opener
-Copyright (C) 2011-2015 Association Open Food Facts
+Copyright (C) 2011-2016 Association Open Food Facts
 Contact: contact@openfoodfacts.org
-Address: 21 rue des Iles, 94100 Saint-Maur des Foss�s, France
+Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 
 Product Opener is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
@@ -76,7 +76,9 @@ https://github.com/openfoodfacts/openfoodfacts-server/issues
 ### Translate Open Food Facts in your language
 
 You can help translate Open Food Facts and the app at (no technical knowledge required, takes a minute to signup): <br>
-https://translations.launchpad.net/openfoodfacts/
+https://translations.launchpad.net/openfoodfacts/trunk/+pots/openfoodfacts-web
+https://translations.launchpad.net/openfoodfacts/trunk/+pots/openbeautyfacts-web
+https://translations.launchpad.net/openfoodfacts/trunk/+pots/common-web
 
 
 ### Who do I talk to? ###
