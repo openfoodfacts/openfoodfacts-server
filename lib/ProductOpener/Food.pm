@@ -41,6 +41,9 @@ BEGIN
 					&unit_to_g
 					&g_to_unit
 					
+					&unit_to_mmoll
+					&mmoll_to_unit
+
 					&canonicalize_nutriment
 					
 					&fix_salt_equivalent
@@ -137,7 +140,51 @@ sub g_to_unit($$) {
 	return $value + 0;
 }
 
+sub unit_to_mmoll {
+	my ($value, $unit) = @_;
+	$unit = lc($unit);
+	
+	if ((not defined $value) or ($value eq '')) {
+		return '';
+	}
+	
+	$value =~ s/,/\./;
+	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
+	
+	return $value * 1000 if $unit eq 'mol/l';
+	return $value + 0 if $unit eq 'mmol/l';
+	return $value / 2 if $unit eq 'mval/l';
+	return $value / 100 if $unit eq 'ppm';
+	return $value / 40.080 if $unit eq "\N{U+00B0}rh";
+	return $value / 10.00 if $unit eq "\N{U+00B0}fh";
+	return $value / 7.02 if $unit eq "\N{U+00B0}e";
+	return $value / 5.6 if $unit eq "\N{U+00B0}dh";
+	return $value / 5.847 if $unit eq 'gpg';
+	return $value + 0;
+}
 
+sub mmoll_to_unit {
+	my ($value, $unit) = @_;
+	$unit = lc($unit);
+	
+	if ((not defined $value) or ($value eq '')) {
+		return '';
+	}
+	
+	$value =~ s/,/\./;
+	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
+	
+	return $value / 1000 if $unit eq 'mol/l';
+	return $value + 0 if $unit eq 'mmol/l';
+	return $value * 2 if $unit eq 'mval/l';
+	return $value * 100 if $unit eq 'ppm';
+	return $value * 40.080 if $unit eq "\N{U+00B0}rh";
+	return $value * 10.00 if $unit eq "\N{U+00B0}fh";
+	return $value * 7.02 if $unit eq "\N{U+00B0}e";
+	return $value * 5.6 if $unit eq "\N{U+00B0}dh";
+	return $value * 5.847 if $unit eq 'gpg';
+	return $value + 0;
+}
 
 # http://www.diw.de/sixcms/media.php/73/diw_wr_2010-19.pdf
 @nutrient_levels = (
@@ -263,6 +310,7 @@ chlorophyl-
 carbon-footprint
 nutrition-score-fr-
 nutrition-score-uk-
+water-hardness-
 )
 ],
 
@@ -366,6 +414,7 @@ chlorophyl-
 carbon-footprint
 nutrition-score-fr-
 nutrition-score-uk-
+water-hardness-
 )
 ],
 
@@ -468,6 +517,7 @@ chlorophyl-
 carbon-footprint
 nutrition-score-fr-
 nutrition-score-uk-
+water-hardness-
 )
 ],
 
@@ -573,6 +623,7 @@ chlorophyl-
 carbon-footprint
 nutrition-score-fr-
 nutrition-score-uk-
+water-hardness-
 )
 ],
 
@@ -2396,6 +2447,13 @@ ph => {
 	nl => "Ecologische voetafdruk / CO2-uitstoot",
 	nl_be => "Ecologische voetafdruk / CO2-uitstoot",
 	unit => 'g',
+},
+"water-hardness" => {
+	en => 'Water hardness',
+	fr => "Dureté de l'eau",
+	ru => 'Жёсткость воды',
+	de => 'Wasserhärte',
+	unit => 'mmol/l',
 },
 "fruits-vegetables-nuts" => {
 	en => "Fruits, vegetables and nuts (minimum)",
