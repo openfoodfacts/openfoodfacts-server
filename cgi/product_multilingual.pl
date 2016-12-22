@@ -309,6 +309,11 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		push @{$product_ref->{"labels_tags" }}, "en:carbon-footprint";
 	}	
 	
+	if ((defined $product_ref->{nutriments}{"glycemic-index"}) and ($product_ref->{nutriments}{"glycemic-index"} ne '')) {
+		push @{$product_ref->{"labels_hierarchy" }}, "en:glycemic-index";
+		push @{$product_ref->{"labels_tags" }}, "en:glycemic-index";
+	}
+	
 	# Language and language code / subsite
 	
 	if (defined $product_ref->{lang}) {
@@ -1643,7 +1648,7 @@ HTML
 <p class="note">&rarr; $Lang{ecological_data_table_note}{$lang}</p>			
 HTML
 ;	
-	
+
 	$html .= "</div><!-- fieldset -->";
 	
 	
