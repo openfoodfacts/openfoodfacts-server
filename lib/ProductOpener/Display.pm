@@ -4245,7 +4245,7 @@ sub display_new($) {
 	# and if we have a response in structure format,
 	# do not generate an HTML response and serve the structured data
 	
-	if (($request_ref->{json} or $request_ref->{jsonp} or $request_ref->{xml} or $request_ref->{jqm})
+	if (($request_ref->{json} or $request_ref->{jsonp} or $request_ref->{xml} or $request_ref->{jqm} or $request_ref->{rss})
 		and (exists $request_ref->{structured_response})) {
 	
 		display_structured_response($request_ref);
@@ -6950,7 +6950,7 @@ sub display_structured_response($)
 	my $request_ref = shift;
 	
 	
-	$debug and print STDERR "display_api - format: json = $request_ref->{json} - jsonp = $request_ref->{jsonp} - xml = $request_ref->{xml} - jqm = $request_ref->{jqm} \n";
+	$debug and print STDERR "display_api - format: json = $request_ref->{json} - jsonp = $request_ref->{jsonp} - xml = $request_ref->{xml} - jqm = $request_ref->{jqm} - rss = $request_ref->{rss}\n";
 	if ($request_ref->{xml}) {
 	
 		# my $xs = XML::Simple->new(NoAttr => 1, NumericEscape => 2);
@@ -6980,6 +6980,9 @@ sub display_structured_response($)
 		print "Content-Type: text/xml; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $xml;	
 
 	}
+	elsif ($request_ref->{rss}) {
+		display_structured_response_opensearch_rss($request_ref);
+	}
 	else {
 		my $data =  encode_json($request_ref->{structured_response});
 		
@@ -7005,5 +7008,68 @@ sub display_structured_response($)
 	exit();
 }
 
+sub display_structured_response_opensearch_rss {
+	my ($request_ref) = @_;
+	
+	my $xs = XML::Simple->new(NumericEscape => 2);
+	
+	my $short_name = lang("site_name");
+	my $long_name = $short_name;
+	if ($cc eq 'world') {
+		$long_name .= " " . uc($lc);
+	}
+	else {
+		$long_name .= " " . uc($cc) . "/" . uc($lc);
+	}
+
+	$long_name = $xs->escape_value($long_name);
+	$short_name = $xs->escape_value($short_name);
+	my $query_link = $xs->escape_value("http://$subdomain.$server_domain" . $request_ref->{current_link_query} . "&rss=1");
+	my $description = $xs->escape_value(lang("search_description_opensearch"));
+	
+	my $xml = <<XML
+<?xml version="1.0" encoding="UTF-8"?>
+ <rss version="2.0" 
+      xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"
+      xmlns:atom="http://www.w3.org/2005/Atom">
+   <channel>
+     <title>$long_name</title>
+     <link>$query_link</link>
+     <description>$description</description>
+     <opensearch:totalResults>4230000</opensearch:totalResults>
+     <opensearch:startIndex>21</opensearch:startIndex>
+     <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+     <atom:link rel="search" type="application/opensearchdescription+xml" href="http://$subdomain.$server_domain/cgi/opensearch.pl"/>
+     <opensearch:Query role="request" searchTerms="New York History" startPage="1" />
+XML
+;
+
+	if (defined $request_ref->{structured_response}{products}) {
+		foreach my $product_ref (@{$request_ref->{structured_response}{products}}) {
+			my $item_title = product_name_brand_quantity($product_ref);
+			my $item_description = $xs->escape_value(sprintf(lang("product_description"), $item_title));
+			$item_title = $xs->escape_value($item_title);
+			my $item_link = $xs->escape_value("http://$subdomain.$server_domain" . product_url($product_ref));
+			
+			$xml .= <<XML
+     <item>
+       <title>$item_title</title>
+       <link>$item_link</link>
+       <description>$item_description</description>
+     </item>
+XML
+;
+		}
+	}
+
+	$xml .= <<XML
+   </channel>
+ </rss>
+XML
+;
+	
+	print "Content-Type: application/rss+xml; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $xml;	
+
+}
 
 1;
