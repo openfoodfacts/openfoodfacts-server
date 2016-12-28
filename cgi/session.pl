@@ -40,7 +40,7 @@ if (defined $User_id) {
 			$url = "/cgi/product.pl?type=edit&code=" . param('code');
 		}
 	}
-	elsif ((defined $referer) and ($referer =~ /^http:\/\/$subdomain\.$server_domain/) and (not ($referer =~ /(?:session|user)\.pl/))) {
+	elsif ((defined $referer) and ($referer =~ /^https?:\/\/$subdomain\.$server_domain/) and (not ($referer =~ /(?:session|user)\.pl/))) {
 		$url = $referer;
 	}
 	

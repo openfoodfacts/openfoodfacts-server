@@ -13,6 +13,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::URL qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -159,7 +160,7 @@ if ($type eq 'send_email') {
 			
 			store("$data_root/users/$userid.sto", $user_ref);
 			
-			my $url = "http://$subdomain.$server_domain/cgi/reset_password.pl?type=reset&resetid=$userid&token=" . $user_ref->{token};
+			my $url = format_subdomain($subdomain) . "/cgi/reset_password.pl?type=reset&resetid=$userid&token=" . $user_ref->{token};
 	
 			my $email = lang("reset_password_email_body");
 			$email =~ s/<USERID>/$userid/g;

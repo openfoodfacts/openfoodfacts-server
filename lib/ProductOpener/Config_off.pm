@@ -12,6 +12,7 @@ BEGIN
 		%admins
 		
 		$server_domain
+		@ssl_subdomains
 		$data_root
 		$www_root
 		$reference_timezone
@@ -79,6 +80,7 @@ scanparty-franprix-05-2016
 
 # server constants
 $server_domain = $ProductOpener::Config2::server_domain;
+@ssl_subdomains = @ProductOpener::Config2::ssl_subdomains;
 $mongodb = $ProductOpener::Config2::mongodb;
 
 # server paths

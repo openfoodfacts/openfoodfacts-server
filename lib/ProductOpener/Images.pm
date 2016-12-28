@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2016 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -71,7 +71,7 @@ use Barcode::ZBar;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
-
+use ProductOpener::URL qw/:all/;
 
 my $debug = 1;
 
@@ -1013,7 +1013,8 @@ sub display_image_thumb($$) {
 	
 	# last try the field without a language (for old products without updated images)
 	push @display_ids, $imagetype;
-		
+	
+	my $static = format_subdomain('static');
 	foreach my $id (@display_ids) {
 	
 		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
@@ -1025,7 +1026,7 @@ sub display_image_thumb($$) {
 
 				
 			$html .= <<HTML
-<img src="http://static.$server_domain/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="http://static.$server_domain/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" />
+<img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" />
 HTML
 ;		
 
