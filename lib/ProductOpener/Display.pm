@@ -1168,12 +1168,22 @@ sub display_list_of_tags($$) {
 					}				
 				}
 				else {
-					$td_nutriments .= "<td></td>";
+					if (exists_taxonomy_tag('categories', $tagid)) {
+						$td_nutriments .= "<td></td>";
+					}
+					else {
+						$td_nutriments .= "<td style=\"text-align:center\">*</td>";
+					}
 				}
 			}
 			# show a * next to fields that do not exist in the taxonomy
 			elsif (defined $taxonomy_fields{$tagtype}) {
-				$td_nutriments .= "<td></td>";
+				if (exists_taxonomy_tag($tagtype, $tagid)) {
+					$td_nutriments .= "<td></td>";
+				}
+				else {
+					$td_nutriments .= "<td style=\"text-align:center\">*</td>";
+				}
 			}
 			
 
