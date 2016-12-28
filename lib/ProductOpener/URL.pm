@@ -66,6 +66,7 @@ sub subdomain_supports_https {
 	my ($sd) = @_;
 	
 	return $sd unless $sd;
+	return 1 if '*' ~~ @ssl_subdomains;
 	return $sd ~~ @ssl_subdomains;
 
 }
