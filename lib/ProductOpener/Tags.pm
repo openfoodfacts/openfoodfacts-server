@@ -858,10 +858,6 @@ sub build_tags_taxonomy($$) {
 
 		open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.txt");
 	
-		my $current_tagid;
-		my $current_tag;
-		my $canon_tagid;
-		
 		# print STDERR "Tags.pm - load_tags_taxonomy - tagtype: $tagtype - phase 3, computing hierarchy\n";
 	
 
@@ -1130,7 +1126,7 @@ sub build_tags_taxonomy($$) {
 }
 
 
-sub retrieve_tags_taxonomy($) {
+sub retrieve_tags_taxonomy {
 
 	my $tagtype = shift;
 	
@@ -1201,6 +1197,18 @@ sub retrieve_tags_taxonomy($) {
 	}
 }
 
+sub country_to_cc {
+	my ($country) = @_;
+	
+	if ($country eq 'en:world') {
+		return 'world';
+	}
+	elsif (defined $properties{countries}{$country}{"country_code_2:en"}) {
+		return lc($properties{countries}{$country}{"country_code_2:en"});
+	}
+	
+	return;
+}
 
 # load all tags hierarchies
 
@@ -1284,11 +1292,12 @@ print STDERR "Build map of local country names in official languages to (country
 %country_languages = ();
 
 foreach my $country (keys %{$properties{countries}}) {
-
-	my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
-	if ($country eq 'en:world') {
-		$cc = 'world';
+	
+	my $cc = country_to_cc($country);
+	if (not (defined $cc)) {
+		next;
 	}
+	
 	$country_codes{$cc} = $country;
 	$country_codes_reverse{$country} = $cc;
 
@@ -1347,11 +1356,11 @@ sub init_select_country_options($) {
 					keys %{$properties{countries}}
 				) {
 				
-				my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
-				if ($country eq 'en:world') {
-					$cc = 'world';
-				}		
-			
+				my $cc = country_to_cc($country);
+				if (not (defined $cc)) {
+					next;
+				}
+				
 				my $option = '<option value="' . $cc . '">' . display_taxonomy_tag($language,'countries',$country) . "</option>\n";
 				
 				if ($country ne 'en:world') {
@@ -2002,7 +2011,7 @@ sub canonicalize_taxonomy_tag($$$)
 		}
 	}
 	
-	my $tagid = $tag_lc . ':' . $tagid;
+	$tagid = $tag_lc . ':' . $tagid;
 	
 	if ((defined $translations_from{$tagtype}) and (defined $translations_from{$tagtype}{$tagid})) {
 		$tagid = $translations_from{$tagtype}{$tagid};
@@ -2124,7 +2133,7 @@ sub canonicalize_tag_link($$)
 	if (($tagtype eq 'photographers') or ($tagtype eq 'informers')
 		or ($tagtype eq 'correctors') or ($tagtype eq 'checkers')) {
 		
-		$tagtype eq 'users';		
+		$tagtype = 'users';
 	}
 		
 		
@@ -2376,7 +2385,14 @@ foreach my $l (@Langs) {
 		my ($nid, $low, $high) = @$nutrient_level_ref;
 
 		foreach my $level ('low', 'moderate', 'high') {
-			my $tag = sprintf(lang("nutrient_in_quantity"), $Nutriments{$nid}{$lc}, lang($level . "_quantity"));
+			my $fmt = lang("nutrient_in_quantity");
+			my $nutrient_name = $Nutriments{$nid}{$lc};
+			my $level_quantity = lang($level . "_quantity");
+			if ((not defined $fmt) or (not defined $nutrient_name) or (not defined $level_quantity)) {
+				next;
+			}
+			
+			my $tag = sprintf($fmt, $nutrient_name, $level_quantity);
 			my $tagid = get_fileid($tag);
 			$canon_tags{$lc}{nutrient_levels}{$tagid} = $tag;
 			# print "nutrient_levels : lc: $lc - tagid: $tagid - tag: $tag\n";

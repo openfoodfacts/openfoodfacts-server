@@ -175,9 +175,11 @@ sub init()
 	$cc = 'world';
 	$lc = 'en';
 	$country = 'en:world';
-	
-	my $r = Apache2::RequestUtil->request();
 
+	if (not defined $r) {
+		$r = Apache2::RequestUtil->request();
+	}
+	
 	$r->headers_out->set(Server => "Product Opener");
 	$r->headers_out->set("X-Frame-Options" => "DENY");
 	$r->headers_out->set("X-Content-Type-Options" => "nosniff");

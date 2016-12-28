@@ -334,7 +334,7 @@ sub process_user_form($) {
 		# $email =~ s/<PASSWORD>/$user_ref->{password}/g;
 		$error = send_email($user_ref,lang("add_user_email_subject"), $email);
 		
-		my $email = <<EMAIL
+		my $admin_mail_body = <<EMAIL
 		
 Bonjour,
 
@@ -350,7 +350,7 @@ cc: $user_ref->{initial_cc}
 
 EMAIL
 ;	
-		$error += send_email_to_admin("Inscription de $userid", $email);
+		$error += send_email_to_admin("Inscription de $userid", $admin_mail_body);
 	}
     return $error;
 }
