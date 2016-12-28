@@ -4832,7 +4832,7 @@ HTML
 	$initjs .= $aside_initjs;
 	
 	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>:
-	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="http://slack.openfoodfacts.org">Slack</a>');
+	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack-ssl-openfoodfacts.herokuapp.com/">Slack</a>');
 	
 	my $twitter_account = lang("twitter_account");
 	if (defined $Lang{twitter_account_by_country}{$cc}) {
@@ -5049,7 +5049,7 @@ $Lang{android_apk_app_badge}{$lc}
 <div>
 <a href="$Lang{footer_code_of_conduct_link}{$lc}">$Lang{footer_code_of_conduct}{$lc}</a><br/><br/>
 
-$join_us_on_slack <script async defer src="http://slack.openfoodfacts.org/slackin.js"></script>
+$join_us_on_slack <script async defer src="https://slack-ssl-openfoodfacts.herokuapp.com/slackin.js"></script>
 <br/>
 $Lang{footer_and_the_facebook_group}{$lc}
 </div>
