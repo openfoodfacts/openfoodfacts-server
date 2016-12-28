@@ -41,6 +41,7 @@ requires 'HTTP::AcceptLanguage', '>=0.02';
 requires 'Email::IsEmail', '>= 3.04.8';
 requires 'CLDR::Number::Format::Percent';
 requires 'CLDR::Number';
+requires 'Modern::Perl', '>= 1.20150127';
 
 # OIDC
 requires 'OAuth::Lite2', '0.11';

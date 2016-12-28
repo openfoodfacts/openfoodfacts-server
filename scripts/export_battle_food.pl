@@ -2,7 +2,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use strict;
+use Modern::Perl '2012';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -109,11 +109,11 @@ foreach my $l (values %lang_lc) {
 	}
 
 
-	open (OUT, ">:encoding(UTF-8)", "$www_root/data/$lang.openfoodfacts.org.products.battlefood.10.json");
+	open (my $OUT, ">:encoding(UTF-8)", "$www_root/data/$lang.openfoodfacts.org.products.battlefood.10.json");
 	my $data =  encode_json(\@products);
 	$data =~ s/\.100g/_100g/g;
-	print OUT  $data;		
-	close OUT;
+	print $OUT  $data;		
+	close $OUT;
 	
 }
 

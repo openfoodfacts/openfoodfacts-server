@@ -1,10 +1,10 @@
 #!/usr/bin/perl
 
+use Modern::Perl '2012';
+use utf8;
+
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
-
-use strict;
-use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -274,7 +274,7 @@ HTML
 	print header ( -expires=>'-1d', -charset=>'UTF-8');
 	
 	
-	binmode(STDOUT, ":utf8");
+	binmode(STDOUT, ":encoding(UTF-8)");
 	print $html;
 
 }

@@ -2,7 +2,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use strict;
+use Modern::Perl '2012';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -31,7 +31,7 @@ use JSON;
 
 my $class = 'additives';
 
-open (OUT, ">$www_root/images/$class.html");
+open (my $OUT, q{>}, "$www_root/images/$class.html");
 
 my $cursor = $products_collection->query({})->fields({ code => 1 })->sort({code =>1});
 my $count = $cursor->count();
@@ -107,28 +107,28 @@ my $count = $cursor->count();
 			#store("$data_root/products/$path/product.sto", $product_ref);		
 			#$products_collection->save($product_ref);
 		
-			# print OUT "<a href=\"" . product_url($product_ref) . "\">$product_ref->{code} - $product_ref->{name}</a> : " . join (" ", sort @{$product_ref->{$class . '_tags'}}) . "<br />\n";
+			# print $OUT "<a href=\"" . product_url($product_ref) . "\">$product_ref->{code} - $product_ref->{name}</a> : " . join (" ", sort @{$product_ref->{$class . '_tags'}}) . "<br />\n";
 			if ($change ne '') {
-				print OUT "<a href=\"" . product_url($product_ref) . "\">$product_ref->{code} - $product_ref->{product_name}</a> : " . $change_html . "<br />\n";
+				print $OUT "<a href=\"" . product_url($product_ref) . "\">$product_ref->{code} - $product_ref->{product_name}</a> : " . $change_html . "<br />\n";
 			}
 		}
 	}
 	
 	
-print OUT "<br><br><br>Additifs les plus enlevés :</br>";
+print $OUT "<br><br><br>Additifs les plus enlevés :</br>";
 
 foreach my $id (sort { $minus{$b} <=> $minus{$a} } keys %minus) {
-	print OUT "<span style=\"color:#a00\">($id)</span> : $minus{$id}<br/>\n";
+	print $OUT "<span style=\"color:#a00\">($id)</span> : $minus{$id}<br/>\n";
 }	
 
-print OUT "<br><br><br>Additifs les plus ajoutés :</br>";
+print $OUT "<br><br><br>Additifs les plus ajoutés :</br>";
 
 foreach my $id (sort { $plus{$b} <=> $plus{$a} } keys %plus) {
-	print OUT "<span style=\"color:#0a0\">+$id</span> : $plus{$id}<br/>\n";
+	print $OUT "<span style=\"color:#0a0\">+$id</span> : $plus{$id}<br/>\n";
 }	
 	
 	
-close OUT;	
+close $OUT;	
 
 exit(0);
 
