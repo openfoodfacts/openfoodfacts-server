@@ -2091,6 +2091,16 @@ HTML
 			
 			$html .= $tag_html;
 
+			my $share = lang('share');
+			$html .= <<HTML
+<div class="share_button right" style="float:right;margin-top:-10px;display:none;">
+<a href="$request_ref->{canon_url}" class="button small icon" title="$title">
+	<i class="fi-share"></i>
+	<span class="show-for-large-up"> $share</span>
+</a></div>
+HTML
+;
+
 			$html .= $weblinks_html . display_parents_and_children($lc, $tagtype, $canon_tagid) . $description;
 		}
 		
@@ -5129,6 +5139,41 @@ $scripts
   });
 </script>
 
+<script>
+  'use strict';
+
+  function doWebShare(e) {
+    e.preventDefault();
+    if (!window.isSecureContext || navigator.share === undefined) {
+      console.error('Error: Unsupported feature: navigator.share');
+        return;
+      }
+
+      var title = this.title;
+      var url = this.url;
+      navigator.share({title: title, url: url})
+        .then(() => console.info('Successfully sent share'),
+              error => console.error('Error sharing: ' + error));
+  }
+
+  function onLoad() {
+    var buttons = document.getElementsByClassName('share_button');
+    var shareAvailable = window.isSecureContext && navigator.share !== undefined;
+    [].forEach.call(buttons, function(button) {
+      if (shareAvailable) {
+          button.style.display = 'block';
+          [].forEach.call(button.getElementsByTagName('a'), function(a) {
+            a.addEventListener('click', doWebShare);
+          });
+        } else {
+          button.style.display = 'none';
+        }
+    });
+  }
+
+  window.addEventListener('load', onLoad);
+</script>
+
 <script type="application/ld+json">
 {
 	"\@context" : "http://schema.org",
@@ -5483,8 +5528,13 @@ CSS
 		return 301;
 	}
 
-	
+	my $share = lang('share');
 	$html .= <<HTML
+<div class="share_button right" style="float:right;margin-top:-10px;display:none;">
+<a href="$request_ref->{canon_url}" class="button small icon" title="$title">
+	<i class="fi-share"></i>
+	<span class="show-for-large-up"> $share</span>
+</a></div>
 <div class="edit_button right" style="float:right;margin-top:-10px;">
 <a href="/cgi/product.pl?type=edit&code=$code" class="button small icon">
 	<i class="fi-pencil"></i>
