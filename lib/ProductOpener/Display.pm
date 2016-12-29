@@ -5150,7 +5150,7 @@ $scripts
       }
 
       var title = this.title;
-      var url = this.url;
+      var url = this.href;
       navigator.share({title: title, url: url})
         .then(() => console.info('Successfully sent share'),
               error => console.error('Error sharing: ' + error));
