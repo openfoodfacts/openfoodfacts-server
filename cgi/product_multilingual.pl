@@ -38,6 +38,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
+use ProductOpener::URL qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -505,8 +506,9 @@ sub display_field($$) {
 		
 		my $autocomplete = "";
 		if ((defined $taxonomy_fields{$fieldtype}) or ($fieldtype eq 'emb_codes')) {
+			my $world = format_subdomain('world');
 			$autocomplete = ",
-	'autocomplete_url': 'http://world.$server_domain/cgi/suggest.pl?lc=$lc&tagtype=$fieldtype&'";
+	'autocomplete_url': '$world/cgi/suggest.pl?lc=$lc&tagtype=$fieldtype&'";
 		}
 		
 		my $default_text = "";

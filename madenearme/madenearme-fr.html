@@ -5,6 +5,7 @@
 <title>C'est emballé près de chez vous</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="language" content="fr-FR" />
+<meta name="viewport" content="width=device-width, user-scalable=no" />
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
@@ -29,10 +30,9 @@ $(function() {
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@0.7.7/dist/leaflet.css" integrity="sha384-99ZJFcuBCh9c/V/+8YwDX/TUGG8JWMG+gKFJWzk0BZP3IoDMN+pLGd3/H0yjg4oa" crossorigin="anonymous">
 <script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js" integrity="sha384-Lh7SNUss9JoImCvc96eCUnLX3HvY4kb0UZCWZbYWvceJ+o5CJeOJqqNoheaGkNHT" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="/js/leaflet/Leaflet.markercluster/dist/MarkerCluster.css" />
-<link rel="stylesheet" href="/js/leaflet/Leaflet.markercluster/dist/MarkerCluster.Default.css" />
-<script src="/js/leaflet/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
-
+<link rel="stylesheet" href="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.Default.css" />
+<script src="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/leaflet.markercluster-src.js"></script>
 
 <meta property="fb:admins" content="706410516" />
 <meta property="og:site_name" content="C'est emballé près de chez vous"/>
@@ -46,47 +46,17 @@ $(function() {
 <meta property="og:description" content="Carte interactive des lieux de production des produits alimentaires"/>
 <meta name="description" content="Carte interactive des lieux de production des produits alimentaires" />
 
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-madenearme/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/images/favicon-madenearme/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-madenearme/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/images/favicon-madenearme/manifest.json">
+<link rel="mask-icon" href="/images/favicon-madenearme/safari-pinned-tab.svg" color="#003380">
+<link rel="shortcut icon" href="/images/favicon-madenearme/favicon.ico">
+<meta name="msapplication-config" content="/images/favicon-madenearme/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
 
-<style type="text/css" media="all">
-
-body,html {
-	min-height:101%;
-	font-family: "Arial", "Helvetica", "Verdana", "sans-serif";
-	font-size: 100%;
-	padding:0px;
-	margin:0px;
-	width:100%;
-	background:#ffe;
-}
-
-#page {
-width:1000px;
-padding:20px;
-padding-top:10px;
-margin:auto;
-position:relative;
-background: #ffffff;
-}
-
-#sharebuttons {
-	position:absolute;
-	right:10px;
-	top:30px;
-	margin-right:2em;
-}
-
-.sharebutton { float:left; padding-right:10px;padding-bottom:5px;}	
-
-a, a:visited {
-	color:blue;
-}
-
-h1 {
-font-family: 'Fredericka the Great', cursive;
-font-size:48px;
-}
-
-</style>
+<link rel="stylesheet" href="/css/normalize.css" />
+<link rel="stylesheet" href="/css/madenearme.css" />
 
 <script type="text/javascript">
 
@@ -109,11 +79,10 @@ font-size:48px;
 <body>
 
 <div id="page">
-
-<img src="/images/misc/cestemballepresdechezvous.png" alt="C'est emballé près de chez vous" width="551" height="200" />
-
-<div id="description" style="position:absolute;width:400px;top:130px;right:0px;">C'est emballé près de chez vous, et peut être même fabriqué, transformé et conditionné près de chez vous.<br/>
-Avec parfois des ingrédients qui viennent du bout du monde... </div>
+<div id="header">
+  <img src="/images/misc/cestemballepresdechezvous.png" alt="C'est emballé près de chez vous" width="551" height="200" />
+  <div id="description">C'est emballé près de chez vous, et peut être même fabriqué, transformé et conditionné près de chez vous.<br/>Avec parfois des ingrédients qui viennent du bout du monde…</div>
+</div>
 
 <h2>Consommer local ?</h2>
 
@@ -143,7 +112,7 @@ ou de route. Vous nous rejoignez ?</p>
 
 <h2>On en discute ?</h2>
 
-<div style="width:460px;margin-right:20px;float:left;">
+<div id="contact">
 
 <p>Auteur : <a href="mailto:stephane\@openfoodfacts.org">Stéphane Gigandet</a> - 
 <a href="http://fr.openfoodfacts.org/mentions-legales">Mentions légales</a></p>
@@ -155,26 +124,23 @@ ou de route. Vous nous rejoignez ?</p>
 &rarr; <a href="https://plus.google.com/u/0/b/102622509148794386660/">Google+</a><br />
 &rarr; <a href="https://www.facebook.com/OpenFoodFacts.fr">Facebook</a> + <a href="https://www.facebook.com/groups/356858984359591/">groupe des contributeurs</a><br />
 </p>
-</div>
 
-<div style="width:480px;float:left;">
 <p>Vous pouvez ajouter des produits avec l'app iPhone ou Android :</p>
 
-<a href="https://itunes.apple.com/fr/app/open-food-facts/id588797948"><img src="/images/misc/Available_on_the_App_Store_Badge_FR_135x40.png" alt="Disponible sur l'App Store" width="135" height="40" style="margin-right:30px" /></a>
+<a href="https://itunes.apple.com/fr/app/open-food-facts/id588797948"><img src="/images/misc/Available_on_the_App_Store_Badge_FR_135x40.png" alt="Disponible sur l'App Store" width="135" height="40" /></a>
 
-<a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponible sur Google Play" width="135" height="47" /></a><br/>
+<a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponible sur Google Play"  width="115" height="40" /></a><br/>
 
 <p>C'est fabriqué (et pas seulement emballé !) <s>près de</s> chez vous : le plus court des circuits-courts passe par votre cuisine !
 Pour trouver l'inspiration, découvrez chaque jour des dizaines de <a href="http://recettes.de/cuisine">recettes de cuisine</a> proposées par les blogueuses et blogueurs culinaires.</p>
 </div>
-
-<h2 style="clear:left;padding-top:20px;">Données ouvertes - <i>open data</i></h2>
-
+<h2>Données ouvertes - <i>open data</i></h2>
 <p>Les données d'Open Food Facts et d'OpenStreetMap sont disponibles gratuitement et pour tout usage sous la licence ouverte <a href="http://opendatacommons.org/licenses/odbl/1.0/">Open Database Licence (ODBL)</a>.</p>
 
-<a href="http://fr.openfoodfacts.org/"><img id="logo" src="http://fr.openfoodfacts.org/images/misc/openfoodfacts-logo-fr.png" width="178" height="141" alt="Open Food Facts" /></a> &nbsp; 
-<a href="http://openstreetmap.fr/"><img src="http://fr.openfoodfacts.org/images/misc/OSM-FR-logo-web-avec-texte.png" alt="OpenStreetMap" style="margin-left:30px;" /></a>
-
+<div id="credits">
+  <a href="http://fr.openfoodfacts.org/"><img id="logo" src="http://fr.openfoodfacts.org/images/misc/openfoodfacts-logo-fr.png" width="178" height="141" alt="Open Food Facts" /></a>
+  <a href="http://openstreetmap.fr/" style="width: 60%;"><img src="http://fr.openfoodfacts.org/images/misc/OSM-FR-logo-web-avec-texte.png" alt="OpenStreetMap"/></a>
+</div>
 
 
 <div id="sharebuttons">

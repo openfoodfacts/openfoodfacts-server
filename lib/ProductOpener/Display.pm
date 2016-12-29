@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2016 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -46,7 +46,7 @@ BEGIN
 					&display_tag
 					&display_error
 					&gen_feeds
-										
+					
 					&add_product_nutriment_to_stats
 					&compute_stats_for_products
 					&display_nutrition_table
@@ -105,7 +105,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Missions qw/:all/;
 use ProductOpener::MissionsConfig qw/:all/;
-
+use ProductOpener::URL qw/:all/;
 
 use Cache::Memcached::Fast;
 use Text::Unaccent;
@@ -177,11 +177,11 @@ sub init()
 	
 	my $r = Apache2::RequestUtil->request();
 
-	$r->headers_out->set(Server => "Product Opener");
-	$r->headers_out->set("X-Frame-Options" => "DENY");
-	$r->headers_out->set("X-Content-Type-Options" => "nosniff");
-	$r->headers_out->set("X-Download-Options" => "noopen");
-	$r->headers_out->set("X-XSS-Protection" => "1; mode=block");
+	$r->err_headers_out->set(Server => "Product Opener");
+	$r->err_headers_out->set("X-Frame-Options" => "DENY");
+	$r->err_headers_out->set("X-Content-Type-Options" => "nosniff");
+	$r->err_headers_out->set("X-Download-Options" => "noopen");
+	$r->err_headers_out->set("X-XSS-Protection" => "1; mode=block");
 
 	my $hostname = $r->hostname;
 	$subdomain = lc($hostname);
@@ -234,8 +234,9 @@ sub init()
 	}
 	elsif ($ENV{QUERY_STRING} !~ /cgi/) {
 		# redirect
-		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to world.${server_domain}\n";
-		$r->headers_out->set(Location => "http://world.${server_domain}/" . $ENV{QUERY_STRING});
+		my $worlddom = format_subdomain('world');
+		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $worlddom\n";
+		$r->headers_out->set(Location => "$worlddom/" . $ENV{QUERY_STRING});
 		$r->status(301);  
 		return 301;
 	}
@@ -254,8 +255,9 @@ sub init()
 	# If the language is equal to the first language of the country, but we are on a different subdomain, redirect to the main country subdomain. (fr-fr => fr)
 	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^ssl-api/) and ($r->method() eq 'GET')) {
 		# redirect
-		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $cc.${server_domain}\n";
-		$r->headers_out->set(Location => "http://$cc.${server_domain}/" . $ENV{QUERY_STRING});
+		my $ccdom = format_subdomain($cc);
+		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $ccdom\n";
+		$r->headers_out->set(Location => "$ccdom/" . $ENV{QUERY_STRING});
 		$r->status(301);
 		return 301;
 	}
@@ -414,7 +416,7 @@ sub analyze_request($)
 	elsif (_component_is_singular_tag_in_specific_lc($components[0], 'products')) {
 		# check the product code looks like a number
 		if ($components[1] =~ /^\d/) {
-			$request_ref->{redirect} = "http://$subdomain.$server_domain/" . $tag_type_singular{products}{$lc} . '/' . $components[1];;
+			$request_ref->{redirect} = format_subdomain($subdomain) . '/' . $tag_type_singular{products}{$lc} . '/' . $components[1];;
 		}
 		else {
 			display_error(lang("error_invalid_address"), 404);
@@ -925,6 +927,9 @@ sub display_list_of_tags($$) {
 		print STDERR "Display.pm - display_list_of_tags - query:\n" . Dumper($query_ref) . "\n";
 	
 	}
+
+	my $worlddom = format_subdomain('world');
+
 	
 #  db.products.aggregate( {$match : {"categories_tags" : "en:fruit-yogurts"}}, 
 #		{ $unwind : "$countries_tags"}, { $group : { _id : "$countries_tags", "total" : {"$sum" : 1}}}, {$sort : { total : -1 }} );
@@ -1047,7 +1052,7 @@ sub display_list_of_tags($$) {
 		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
 	
 			if ($country ne 'en:world') {
-				$html .= "<p>&rarr; <a href=\"http://world.${server_domain}" . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
+				$html .= "<p>&rarr; <a href=\"${worlddom}" . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
 			}	
 		
 			$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
@@ -1168,12 +1173,22 @@ sub display_list_of_tags($$) {
 					}				
 				}
 				else {
-					$td_nutriments .= "<td></td>";
+					if (exists_taxonomy_tag('categories', $tagid)) {
+						$td_nutriments .= "<td></td>";
+					}
+					else {
+						$td_nutriments .= "<td style=\"text-align:center\">*</td>";
+					}
 				}
 			}
 			# show a * next to fields that do not exist in the taxonomy
 			elsif (defined $taxonomy_fields{$tagtype}) {
-				$td_nutriments .= "<td></td>";
+				if (exists_taxonomy_tag($tagtype, $tagid)) {
+					$td_nutriments .= "<td></td>";
+				}
+				else {
+					$td_nutriments .= "<td style=\"text-align:center\">*</td>";
+				}
 			}
 			
 
@@ -1244,7 +1259,7 @@ sub display_list_of_tags($$) {
 			push @{$request_ref->{structured_response}{tags}}, {
 				id => $tagid,
 				name => $display,
-				url => "http://$subdomain.$server_domain" . $product_link,
+				url => format_subdomain($subdomain) . $product_link,
 				products => $products + 0, # + 0 to make the value numeric
 			};
 			
@@ -1308,7 +1323,7 @@ sub display_list_of_tags($$) {
                 text: '$request_ref->{title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$Lang{sep}{$lc}: http://$subdomain.${server_domain}'
+                text: '$Lang{data_source}{$lc}$Lang{sep}{$lc}: @{[ format_subdomain($subdomain) ]}'
             },
             xAxis: {
                 title: {
@@ -1409,7 +1424,7 @@ $countries_map_names
   },
   onRegionClick: function(e, code, region){
 	if (countries_map_links[code]) {
-		window.location.href = "http://$subdomain.${server_domain}" + countries_map_links[code];
+		window.location.href = "@{[ format_subdomain($subdomain) ]}" + countries_map_links[code];
 	}
   },
 });
@@ -1541,7 +1556,7 @@ sub display_points_ranking($$) {
 		
 		if ($ranktype eq "countries") {
 			$display_key = display_taxonomy_tag($lc,"countries",$key);
-			$link = "http://" . $country_codes_reverse{$key} . ".$server_domain/points";
+			$link = format_subdomain($country_codes_reverse{$key}) . "/points";
 		}
 		
 		$html .= "<tr><td><a href=\"$link\">$display_key</a></td><td>$rank</td><td>" . $points_ref->{$tagid}{$key} . "</td><td>" . $ambassadors_ranks{$key} . "</td><td>" . $ambassadors_points_ref->{$tagid}{$key} . "</td></tr>\n";
@@ -2092,11 +2107,12 @@ HTML
 	} # end of if (defined $tagtype)
 	
 	if ($country ne 'en:world') {
+		my $worlddom = format_subdomain('world');
 		if (defined $request_ref->{groupby_tagtype}) {
-			$html .= "<p>&rarr; <a href=\"http://world.${server_domain}" . $request_ref->{world_current_link} . "\">" . lang('view_list_for_products_from_the_entire_world') . "</a></p>";			
+			$html .= "<p>&rarr; <a href=\"" . $worlddom . $request_ref->{world_current_link} . "\">" . lang('view_list_for_products_from_the_entire_world') . "</a></p>";			
 		}
 		else {
-			$html .= "<p>&rarr; <a href=\"http://world.${server_domain}" . $request_ref->{world_current_link} . "\">" . lang('view_products_from_the_entire_world') . "</a></p>";
+			$html .= "<p>&rarr; <a href=\"" . $worlddom . $request_ref->{world_current_link} . "\">" . lang('view_products_from_the_entire_world') . "</a></p>";
 		}
 	}
 
@@ -2363,7 +2379,7 @@ sub search_and_display_products($$$$$) {
 	if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
 	
 		if ($country ne 'en:world') {
-			$html .= "<p>&rarr; <a href=\"http://world.${server_domain}" . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
+			$html .= "<p>&rarr; <a href=\"" . format_subdomain('world') . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
 		}	
 	
 		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
@@ -2413,7 +2429,7 @@ HTML
 		
 		}
 		else {
-			$html .= "<p>$html_count" . lang("sep") . ":</p>";
+			$html .= "<p>$html_count " . lang("sep") . ":</p>";
 		}
 		
 	
@@ -2444,7 +2460,7 @@ HTML
 			$product_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
 			
 			my $url = product_url($product_ref);
-			$product_ref->{url} = "http://$subdomain.$server_domain" . $url;
+			$product_ref->{url} = format_subdomain($subdomain) . $url;
 			
 			add_images_urls_to_product($product_ref);
 			
@@ -2832,7 +2848,7 @@ pnns_groups_2
 
 				if ($field eq 'code') {
 				
-					$csv .= "http://$cc.${server_domain}" . product_url($product_ref->{code}) . "\t";
+					$csv .= format_subdomain($cc) . product_url($product_ref->{code}) . "\t";
 				
 				}
 			
@@ -3042,7 +3058,7 @@ sub display_scatter_plot($$$) {
 				and (((($graph_ref->{axis_y} eq 'additives_n') or ($graph_ref->{axis_y} eq 'ingredients_n')) and (defined $product_ref->{$graph_ref->{axis_y}})) or 
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"} ne ''))) {
 				
-				my $url = "http://$subdomain.$server_domain" . product_url($product_ref->{code});
+				my $url = format_subdomain($subdomain) . product_url($product_ref->{code});
 				
 				# Identify the series id
 				my $seriesid = 0;
@@ -3221,7 +3237,7 @@ JS
                 text: '$graph_ref->{graph_title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$Lang{sep}{$lc}: http://$subdomain.${server_domain}'
+                text: '$Lang{data_source}{$lc}$Lang{sep}{$lc}: @{[ format_subdomain($subdomain) ]}'
             },
             xAxis: {
 				$x_allowDecimals
@@ -3567,7 +3583,7 @@ JS
                 text: '$graph_ref->{graph_title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$Lang{sep}{$lc}: http://$subdomain.${server_domain}'
+                text: '$Lang{data_source}{$lc}$Lang{sep}{$lc}: @{[ format_subdomain($subdomain) ]}'
             },
             xAxis: {
                 title: {
@@ -3887,7 +3903,7 @@ JS
 			
 			if (1) {
 				
-				my $url = "http://$cc.${server_domain}" . product_url($product_ref->{code});
+				my $url = format_subdomain($cc) . product_url($product_ref->{code});
 				
 					
 				my $data_start = '{';
@@ -4331,7 +4347,7 @@ sub display_new($) {
 		$canon_description = lang("site_description");
 	}
 	my $canon_image_url = "";
-	my $canon_url = "http://" . $subdomain . "." . $server_domain;
+	my $canon_url = format_subdomain($subdomain);
 
 	if (defined $request_ref->{canon_url}) {
 		if ($request_ref->{canon_url} =~ /^http:/) {
@@ -4362,7 +4378,7 @@ sub display_new($) {
 		my $img_url = $1;
 		$img_url =~ s/\.200\.jpg/\.400\.jpg/;
 		if ($img_url !~ /^http:/) {
-			$img_url = "http://" . $lc . "." . $server_domain . $img_url;
+			$img_url = format_subdomain($lc) . $img_url;
 		}
 		$og_images .= '<meta property="og:image" content="' . $img_url . '"/>' . "\n";
 		if ($img_url !~ /misc/) {
@@ -4410,7 +4426,7 @@ $meta_description
 <link rel="stylesheet" href="/js/jquery-ui-1.11.4/jquery-ui.min.css" />
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
-<link rel="search" href="http://$subdomain.$server_domain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}" />
+<link rel="search" href="@{[ format_subdomain($subdomain) ]}/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}" />
 
 <script>
 \$(function() {
@@ -4776,10 +4792,10 @@ HTML
 				$osubdomain = $cc;
 			}
 			if (($olc eq $lc) or ($olc eq $lclc)) {
-				$selected_lang = "<a href=\"http://$osubdomain.$server_domain/\">$Langs{$olc}</a>\n";
+				$selected_lang = "<a href=\"" . format_subdomain($osubdomain) . "/\">$Langs{$olc}</a>\n";
 			}
 			else {
-				$langs .= "<li><a href=\"http://$osubdomain.$server_domain/\">$Langs{$olc}</a></li>"
+				$langs .= "<li><a href=\"" . format_subdomain($osubdomain) . "/\">$Langs{$olc}</a></li>"
 			}
 		}
 	}
@@ -4826,7 +4842,7 @@ HTML
 	$initjs .= $aside_initjs;
 	
 	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>:
-	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="http://slack.openfoodfacts.org">Slack</a>');
+	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack-ssl-openfoodfacts.herokuapp.com/">Slack</a>');
 	
 	my $twitter_account = lang("twitter_account");
 	if (defined $Lang{twitter_account_by_country}{$cc}) {
@@ -5043,7 +5059,7 @@ $Lang{android_apk_app_badge}{$lc}
 <div>
 <a href="$Lang{footer_code_of_conduct_link}{$lc}">$Lang{footer_code_of_conduct}{$lc}</a><br/><br/>
 
-$join_us_on_slack <script async defer src="http://slack.openfoodfacts.org/slackin.js"></script>
+$join_us_on_slack <script async defer src="https://slack-ssl-openfoodfacts.herokuapp.com/slackin.js"></script>
 <br/>
 $Lang{footer_and_the_facebook_group}{$lc}
 </div>
@@ -5053,10 +5069,10 @@ $Lang{footer_follow_us}{$lc}
 
 <ul class="small-block-grid-3" id="sharebuttons">
 	<li>
-		<a href="https://twitter.com/share" class="twitter-share-button" data-lang="$lc" data-via="$Lang{twitter_account}{$lang}" data-url="http://$subdomain.${server_domain}" data-count="vertical">Tweeter</a>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-lang="$lc" data-via="$Lang{twitter_account}{$lang}" data-url="@{[ format_subdomain($subdomain) ]}" data-count="vertical">Tweeter</a>
 	</li>
-	<li><fb:like href="http://$subdomain.${server_domain}" layout="box_count"></fb:like></li>
-	<li><div class="g-plusone" data-size="tall" data-count="true" data-href="http://$subdomain.${server_domain}"></div></li>
+	<li><fb:like href="@{[ format_subdomain($subdomain) ]}" layout="box_count"></fb:like></li>
+	<li><div class="g-plusone" data-size="tall" data-count="true" data-href="@{[ format_subdomain($subdomain) ]}"></div></li>
 </ul>
 
 </div>
@@ -5124,10 +5140,10 @@ $scripts
 	"\@context" : "http://schema.org",
 	"\@type" : "WebSite",
 	"name" : "$Lang{site_name}{$lc}",
-	"url" : "http://$subdomain.$server_domain",
+	"url" : "@{[ format_subdomain($subdomain) ]}",
 	"potentialAction": {
 		"\@type": "SearchAction",
-		"target": "http://$subdomain.$server_domain/cgi/search.pl?search_terms=?{search_term_string}",
+		"target": "@{[ format_subdomain($subdomain) ]}/cgi/search.pl?search_terms=?{search_term_string}",
 		"query-input": "required name=search_term_string"
 	}	
 }
@@ -5137,7 +5153,7 @@ $scripts
 {
 	"\@context": "http://schema.org/",
 	"\@type": "Organization",
-	"url": "http://$subdomain.$server_domain",
+	"url": "@{[ format_subdomain($subdomain) ]}",
 	"logo": "/images/misc/$Lang{logo}{$lang}",
 	"name": "$Lang{site_name}{$lc}",
 	"sameAs" : [ "$facebook_page", "https://twitter.com/$twitter_account"] 
@@ -5177,8 +5193,8 @@ HTML
 	
 
 	# Use static subdomain for images, js etc.
-	
-	$html =~ s/(?<![a-z0-9-])((http|https):\/\/([a-z0-9-]+)\.$server_domain)?\/(images|js|foundation|bower_components)\//http:\/\/static.$server_domain\/$4\//g;
+	my $static = format_subdomain('static');
+	$html =~ s/(?<![a-z0-9-])(?:https?:\/\/[a-z0-9-]+\.$server_domain)?\/(images|js|foundation|bower_components)\//$static\/$1\//g;
 	# (?<![a-z0-9-]) -> negative look behind to make sure we are not matching /images in another path.
 	# e.g. https://apis.google.com/js/plusone.js or //cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/images/select2.min.js
 
@@ -6923,10 +6939,10 @@ sub add_images_urls_to_product($) {
 			
 				my $path = product_path($product_ref->{code});
 
-				
-				$product_ref->{"image_" . $imagetype . "_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-				$product_ref->{"image_" . $imagetype . "_small_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-				$product_ref->{"image_" . $imagetype . "_thumb_url"} = "http://static.${server_domain}/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
+				my $staticdom = format_subdomain('static');
+				$product_ref->{"image_" . $imagetype . "_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+				$product_ref->{"image_" . $imagetype . "_small_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+				$product_ref->{"image_" . $imagetype . "_thumb_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
 				
 				if ($imagetype eq 'front') {
 					$product_ref->{image_url} = $product_ref->{"image_" . $imagetype . "_url"};
@@ -6964,7 +6980,7 @@ sub display_structured_response($)
 		# remove the languages field which has keys like "en:english"
 		
 		if (defined $request_ref->{structured_response}{product}) {
-			delete $request_ref->{structured_response}{product}{languages};
+		delete $request_ref->{structured_response}{product}{languages};
 		}
 		
 		if (defined $request_ref->{structured_response}{products}) {
@@ -7004,6 +7020,5 @@ sub display_structured_response($)
 	
 	exit();
 }
-
 
 1;

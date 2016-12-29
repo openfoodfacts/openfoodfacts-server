@@ -10,6 +10,7 @@ BEGIN
 		%admins
 		
 		$server_domain
+		@ssl_subdomains
 		$data_root
 		$www_root
 		$reference_timezone
@@ -78,6 +79,7 @@ scanparty-franprix-05-2016
 
 # server constants
 $server_domain = $ProductOpener::Config2::server_domain;
+@ssl_subdomains = @ProductOpener::Config2::ssl_subdomains;
 $mongodb = $ProductOpener::Config2::mongodb;
 
 # server paths
@@ -176,7 +178,7 @@ XML
 
 # fields for which we will load taxonomies
 
-@taxonomy_fields = qw(states countries languages labels categories additives allergens traces nutrient_levels );
+@taxonomy_fields = qw(states countries languages labels categories additives additives_classes allergens traces nutrient_levels );
 
 
 # fields in product edit form
