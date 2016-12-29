@@ -8,20 +8,18 @@
 
 ## What is Product Opener?
 
-Product Opener is the server software for Open Food Facts and Open Beauty Facts. 
-Efforts are under way to clean and open the code which is currently in a private repository. 
-Product Opener is coded in Perl.
+Product Opener is the server software for Open Food Facts and Open Beauty Facts. It is [free and open-source software](https://en.wikipedia.org/wiki/Free_and_open-source_software) created in Perl, HTML and JavaScript.
 
 ## What is Open Food Facts ##
 
 ### A food products database
 
-Open Food Facts is a database of food products with ingredients, allergens, nutrition facts and all the tidbits of information we can find on product labels. 
+Open Food Facts is a database of food products with ingredients, allergens, nutrition facts and all the tidbits of information we can find on product labels.
 
 ### Made by everyone
 
 Open Food Facts is a non-profit association of volunteers.
-4000+ contributors like you have added 100 000+ products from 150 countries using our Android, iPhone or Windows Phone app or their camera to scan barcodes and upload pictures of products and their labels.
+4.000+ contributors like you have added 110.000+ products from 150 countries using our Android, iPhone or Windows Phone app or their camera to scan barcodes and upload pictures of products and their labels.
 
 ### For everyone
 
@@ -55,7 +53,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 - Feel free to join us on Slack at http://slack.openfoodfacts.org in the channels: #api #productopener #dev
 - If you're looking for the API, look at http://en.wiki.openfoodfacts.org/API
 
-* Summary of set up : http://en.wiki.openfoodfacts.org/Project:ProductOpener
+* Summary of set up: http://en.wiki.openfoodfacts.org/Project:ProductOpener
 * Configuration 
 * Dependencies
 * Database configuration
