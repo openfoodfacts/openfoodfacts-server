@@ -1,6 +1,6 @@
 # Product Opener #
 
-* Documentation started on <http://en.wiki.openfoodfacts.org/Project:ProductOpener>
+* Documentation started on <https://en.wiki.openfoodfacts.org/Project:ProductOpener>
 * Version: 
 [![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/openfoodfacts/openfoodfacts-server.svg)](http://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Average time to resolve an issue")
@@ -24,7 +24,7 @@ Open Food Facts is a non-profit association of volunteers.
 ### For everyone
 
 Data about food is of public interest and has to be open. The complete database is published as open data and can be reused by anyone and for any use. Check-out the cool reuses or make your own!
-- <http://world.openfoodfacts.org>
+- <https://world.openfoodfacts.org>
 
 # Copyright and Licence #
 
@@ -51,9 +51,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ### How do I get set up? ###
 - Feel free to join us on Slack at http://slack.openfoodfacts.org in the channels: #api #productopener #dev
-- If you're looking for the API, look at http://en.wiki.openfoodfacts.org/API
+- If you're looking for the API, look at https://en.wiki.openfoodfacts.org/API
 
-* Summary of set up: http://en.wiki.openfoodfacts.org/Project:ProductOpener
+* Summary of set up: https://en.wiki.openfoodfacts.org/Project:ProductOpener
 * Configuration 
 * Dependencies
 * Database configuration
