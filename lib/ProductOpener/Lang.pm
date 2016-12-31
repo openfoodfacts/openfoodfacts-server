@@ -2862,6 +2862,12 @@ page_x_out_of_y => {
 	nl_be => 'Pagina %d van %d.',
 },
 
+loadmore => {
+	en => 'Load more results',
+	fr => 'Charger plus de résultats',
+	de => 'Mehr Ergebnisse laden',
+},
+
 edit => {
 	fr => 'modifier',
 	de => 'bearbeiten',

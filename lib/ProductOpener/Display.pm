@@ -2584,8 +2584,9 @@ HTML
 		
 		if (defined $request_ref->{jqm}) {
 			if (defined $next_page_url) {
+				my $loadmore = lang("loadmore");
 				$html .= <<HTML
-<li id="loadmore" style="text-align:center"><a href="${next_page_url}&jqm_loadmore=1" id="loadmorelink">Charger plus de résultats</a></li>
+<li id="loadmore" style="text-align:center"><a href="${next_page_url}&jqm_loadmore=1" id="loadmorelink">$loadmore</a></li>
 HTML
 ;
 			}
