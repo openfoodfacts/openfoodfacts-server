@@ -126,7 +126,7 @@ if ($type eq 'search_or_add') {
 			print STDERR "product.pl - product code $code does not exist yet, creating product\n";
 			$product_ref = init_product($code);
 			$product_ref->{interface_version_created} = $interface_version;
-			store_product($product_ref, "Création du produit");
+			store_product($product_ref, 'product_created');
 			process_image_upload($code,$filename,$User_id, time(),'image with barcode from web site Add product button');
 			$type = 'add';
 			$action = 'display';
@@ -1688,8 +1688,9 @@ HTML
 			if (defined $change_ref->{userid}) {
 				$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
 			}
-			my $comment = $change_ref->{comment};
 			
+			my $comment = $change_ref->{comment};
+			$comment = lang($comment) if $comment;
 			
 			$comment =~ s/^Modification :\s+//;
 			if ($comment eq 'Modification :') {
