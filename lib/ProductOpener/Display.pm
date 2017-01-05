@@ -77,7 +77,6 @@ BEGIN
 					$subdomain
 					$test
 					$lc
-					$lclc
 					$cc
 					$country
 					
@@ -182,6 +181,14 @@ sub init()
 	$r->err_headers_out->set("X-Content-Type-Options" => "nosniff");
 	$r->err_headers_out->set("X-Download-Options" => "noopen");
 	$r->err_headers_out->set("X-XSS-Protection" => "1; mode=block");
+	
+	# sub-domain format:
+	#
+	# [2 letters country code or "world"] -> set cc + default language for the country
+	# [2 letters country code or "world"]-[2 letters language code] -> set cc + lc
+	#
+	# Note: cc and lc can be overriden by query parameters
+	# (especially for the API so that we can use only one subdomain : api.openfoodfacts.org)
 
 	my $hostname = $r->hostname;
 	$subdomain = lc($hostname);
@@ -220,10 +227,13 @@ sub init()
 		if (defined $country_codes{$1}) {
 			$cc = $1;
 			$country = $country_codes{$cc};
-			$lc = $2;		
-			$lc =~ s/-/_/; # pt-pt -> pt_pt
-			print STDERR "Display::init - subdomain cc-lc ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
+			$lc = $country_languages{$cc}[0]; # first official language
+			if (defined $language_codes{$2}) {
+				$lc = $2;		
+				$lc =~ s/-/_/; # pt-pt -> pt_pt
+			}
 			
+			print STDERR "Display::init - subdomain cc-lc ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
 		}
 	}
 	elsif (defined $country_names{$subdomain}) {
@@ -241,8 +251,7 @@ sub init()
 		return 301;
 	}
 	
-	$lclc = $lc;
-	$langlang = $lc;
+
 	$lc =~ s/_.*//;     # PT_PT doest not work yet: categories
 	
 	if ((not defined $lc) or (($lc !~ /^\w\w(_|-)\w\w$/) and (length($lc) != 2) )) {
@@ -261,6 +270,21 @@ sub init()
 		$r->status(301);
 		return 301;
 	}
+	
+	
+	# Allow cc and lc overrides as query parameters
+	# do not redirect to the corresponding subdomain
+	if ((defined param('cc')) and ((defined $country_codes{param('cc')}) or (param('cc') eq 'world')) ) {
+		$cc = param('cc');
+		$country = $country_codes{$cc};
+		print STDERR "Display::init - cc override from request parameter: $cc\n";
+	}
+	if ((defined param('lc')) and (defined $language_codes{param('lc')})) {
+		$lc = param('lc');
+		$lang = $lc;
+		print STDERR "Display::init - lc override from request parameter: $lc\n";
+	}	
+	
 	
 	# select the nutriment table format according to the country
 	$nutriment_table = $cc_nutriment_table{default};
@@ -326,13 +350,22 @@ sub analyze_request($)
 {
 	my $request_ref = shift;
 	
+	print STDERR "analyze_request : query_string 0 : $request_ref->{query_string} \n";
+	
+	
 	# http://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
 	# http://world.openfoodfacts.org/?ref=producthunt
 	
 	if ($request_ref->{query_string} =~ /(\&|\?)(utm_|ref=)/) {
 		$request_ref->{query_string} = $`;
-	}	
+	}
 	
+	# cc and lc query overrides have already been consumed by init()
+	# FIXME / TODO: just remove those 2 parameters, leave others.
+	if ($request_ref->{query_string} =~ /(\&|\?)(cc|lc)/) {
+		$request_ref->{query_string} = $`;
+	}	
+		
 	print STDERR "analyze_request : query_string 1 : $request_ref->{query_string} \n";
 	
 	# API calls may request JSON, JSONP or XML by appending .json, .jsonp or .xml at the end of the query string
@@ -4792,7 +4825,7 @@ HTML
 			if ($olc eq $country_languages{$cc}[0]) {
 				$osubdomain = $cc;
 			}
-			if (($olc eq $lc) or ($olc eq $lclc)) {
+			if (($olc eq $lc)) {
 				$selected_lang = "<a href=\"" . format_subdomain($osubdomain) . "/\">$Langs{$olc}</a>\n";
 			}
 			else {
