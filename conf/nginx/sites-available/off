@@ -13,12 +13,26 @@
 
 # Default server configuration
 #
+
 server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
+	listen 80;
+	listen [::]:80;
+	# Disabled as we don't want to redirect POST API queries
+	# as they would not be resent with their body.
+	server_name disabled-openfoodfacts.org *.disabled-openfoodfacts.org;
+	# Redirect all HTTP links to the matching HTTPS page
+	return 301 https://$host$request_uri;
+}
+
+
+server {
+	#listen 80 default_server;
+	listen 80;
+	#listen [::]:80 default_server;
+	listen [::]:80;
 
 	# Product Opener needs a root domain + a wildcard for all subdomains
-	server_name openfoodfacts.ovh *.openfoodfacts.ovh;
+	server_name openfoodfacts.org *.openfoodfacts.org openfoodfacts.eu *.openfoodfacts.eu;
 
 	# SSL configuration
 	#
@@ -30,14 +44,50 @@ server {
 	#
 	# include snippets/snakeoil.conf;
 
+	# 13/09/2016: got error "nginx: [emerg] invalid parameter "http2" "
+	#listen 443 ssl http2 default_server;
+	listen 443 ssl default_server;
+	#listen [::]:443 ssl http2 default_server;
+	listen [::]:443 ssl default_server;
+
+	include snippets/ssl.openfoodfacts.org;
+	include snippets/ssl-params.conf;
+
 	root /home/off/html;
 
+	access_log /home/off/logs/nginx.access2.log;
+	error_log /home/off/logs/nginx.error2.log;
+
+	if ($host = android.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
+        if ($host = androidtest.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
+        if ($host = ios.openfoodfacts.org) { return 302 https://itunes.apple.com/app/open-food-facts/id588797948 ; }
+        if ($host = iostest.openfoodfacts.org) { return 302 https://itunes.apple.com/app/open-food-facts/id588797948 ; }
+
+
+	gzip on;
+	gzip_min_length 1000;
+
+
 	# Add index.php to the list if you are using PHP
-	# index index.html index.htm index.nginx-debian.html;
+	index index.html index.htm index.nginx-debian.html;
+
+	location ~* \.(eot|ttf|woff|woff2)$ {
+		add_header Access-Control-Allow-Origin *;
+	}
+
+	location ~ ^/images/products/ {
+		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
+	}
+
+	location ~ ^/(favicon.ico) {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ =404;
+	}
 
 	# Static files are served directly by NGINX
 
-	location ~ ^/(images|css|js|rss|data|files|resources|foundation|bower_components)/ {
+	location ~ ^/(.well-known|images|js|rss|data|files|resources|foundation|bower_components)/ {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
@@ -50,24 +100,28 @@ server {
 	# Dynamically generated files and CGI scripts are passed
 	# to the Apache + mod_perl server running on a different
 	# port than port 80 (e.g. 8001)
-	
+
 	location / {
 		proxy_set_header Host $host;
 		proxy_set_header X-Real-IP $remote_addr;
+        	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
 		proxy_pass http://127.0.0.1:8001/cgi/display.pl?;
 	}
 
 	location /cgi/ {
 		proxy_set_header Host $host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_pass http://127.0.0.1:8001;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_pass http://127.0.0.1:8001;
 	}
 
 	# deny access to .htaccess files, if Apache's document root
 	# concurs with nginx's one
 	#
 	#location ~ /\.ht {
-	#	deny all;
+	#       deny all;
 	#}
-}
 
+	include /etc/nginx/expires-no-json-xml.conf;
+}
