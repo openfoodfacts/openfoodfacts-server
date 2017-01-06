@@ -263,6 +263,7 @@ chlorophyl-
 carbon-footprint
 nutrition-score-fr-
 nutrition-score-uk-
+glycemic-index-
 )
 ],
 
@@ -366,6 +367,7 @@ chlorophyl-
 carbon-footprint
 nutrition-score-fr-
 nutrition-score-uk-
+glycemic-index-
 )
 ],
 
@@ -468,6 +470,7 @@ chlorophyl-
 carbon-footprint
 nutrition-score-fr-
 nutrition-score-uk-
+glycemic-index-
 )
 ],
 
@@ -573,6 +576,7 @@ chlorophyl-
 carbon-footprint
 nutrition-score-fr-
 nutrition-score-uk-
+glycemic-index-
 )
 ],
 
@@ -2396,6 +2400,11 @@ ph => {
 	nl => "Ecologische voetafdruk / CO2-uitstoot",
 	nl_be => "Ecologische voetafdruk / CO2-uitstoot",
 	unit => 'g',
+},
+'glycemic-index' => {
+	en => 'Glycemic Index',
+	de => 'Glykämischer Index',
+	unit => ''
 },
 "fruits-vegetables-nuts" => {
 	en => "Fruits, vegetables and nuts (minimum)",
