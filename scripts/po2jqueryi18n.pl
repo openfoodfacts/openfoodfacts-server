@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
+use Modern::Perl '2012';
 
 use Locale::PO;
 use Encode;
@@ -25,7 +25,7 @@ foreach my $file (@ARGV) {
 	
 	print "converting $file to $json_file - lang: $lang lc: $lc\n";
 	
-	open (OUT, ">:encoding(UTF-8)", $json_file);
+	open (my $OUT, ">:encoding(UTF-8)", $json_file);
 
 	my $json = "{\n";
 	
@@ -51,7 +51,7 @@ foreach my $file (@ARGV) {
 	# change old en.openfoodfacts.org urls
 	$json =~ s/en.openfoodfacts.org/world-$lc.openfoodfacts.org/g;
 
-	print OUT $json;
+	print $OUT $json;
 
-	close(OUT);
+	close($OUT);
 }

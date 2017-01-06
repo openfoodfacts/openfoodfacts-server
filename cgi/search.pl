@@ -20,12 +20,11 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+use Modern::Perl '2012';
+use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
-
-use strict;
-use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -743,7 +742,7 @@ elsif ($action eq 'process') {
 			my $r = Apache2::RequestUtil->request();
 			$r->headers_out->set("Content-type" => "text/csv; charset=UTF-8");
 			$r->headers_out->set("Content-disposition" => "attachment;filename=openfoodfacts_search.csv");
-			binmode(STDOUT, ":utf8");
+			binmode(STDOUT, ":encoding(UTF-8)");
 			print "Content-Type: text/csv; charset=UTF-8\r\n\r\n" . $csv ;
 		}
 		else {
@@ -779,10 +778,10 @@ elsif ($action eq 'process') {
 		}
 	
 		if (param('search_terms')) {
-			open (OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log");
-			print OUT remote_addr() . "\t" . time() . "\t" . decode utf8=>param('search_terms')
+			open (my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log");
+			print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8=>param('search_terms')
 				. "\tpage: $page\tcount:" . $request_ref->{count} . "\n";
-			close (OUT);
+			close ($OUT);
 		}
 	}
 }

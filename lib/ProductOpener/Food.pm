@@ -20,11 +20,13 @@
 
 package ProductOpener::Food;
 
+use utf8;
+use Modern::Perl '2012';
+use Exporter    qw< import >;
+
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_Images);
-	require Exporter;
-	@ISA = qw(Exporter);
+	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();	    # symbols to export by default
 	@EXPORT_OK = qw(
 					%Nutriments
@@ -64,8 +66,6 @@ BEGIN
 }
 
 use vars @EXPORT_OK ;
-use strict;
-use utf8;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -3354,14 +3354,14 @@ foreach my $nutrient_level_ref (@nutrient_levels) {
 	}
 }
 
-open (OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrient_levels.txt");
-print OUT <<TXT
+open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrient_levels.txt");
+print $OUT <<TXT
 # nutrient levels taxonomy generated automatically by Food.pm
 
 TXT
 ;
-print OUT $nutrient_levels_taxonomy;
-close OUT;
+print $OUT $nutrient_levels_taxonomy;
+close $OUT;
 
 sub compute_units_of_alcohol($$) {
 
@@ -3373,7 +3373,7 @@ sub compute_units_of_alcohol($$) {
 		return $serving_size_in_ml * ($product_ref->{nutriments}{'alcohol'} / 1000.0);
 	}
 	else {
-		return undef;
+		return;
 	}
 }
 
@@ -3452,7 +3452,7 @@ sub normalize_packager_codes($) {
 	# ES 26.00128/SS CE
 	# UK DZ7131 EC (with sometime spaces but not always, can be a mix of letters and numbers)
 	
-	sub normalize_fr_ce_code($$) {
+	my $normalize_fr_ce_code = sub ($$) {
 		my $countrycode = shift;
 		my $number = shift;
 		$countrycode = uc($countrycode);
@@ -3463,18 +3463,18 @@ sub normalize_packager_codes($) {
 		$number =~ s/\.(\d)$/\.00$1/;
 		$number =~ s/\.(\d\d)$/\.0$1/;					
 		return "$countrycode $number EC";
-	}
+	};
 	
-	sub normalize_uk_ce_code($$) {
+	my $normalize_uk_ce_code = sub ($$) {
 		my $countrycode = shift;
 		my $code = shift;
 		$countrycode = uc($countrycode);
 		$code = uc($code);
 		$code =~ s/\s|-|_|\.|\///g;
 		return "$countrycode $code EC";
-	}
+	};
 	
-	sub normalize_es_ce_code($$$$) {
+	my $normalize_es_ce_code = sub ($$$$) {
 		my $countrycode = shift;
 		my $code1 = shift;
 		my $code2 = shift;
@@ -3482,30 +3482,30 @@ sub normalize_packager_codes($) {
 		$countrycode = uc($countrycode);
 		$code3 = uc($code3);
 		return "$countrycode $code1.$code2/$code3 CE";
-	}	
+	};	
 
-	sub normalize_ce_code($$) {
+	my $normalize_ce_code = sub ($$) {
 		my $countrycode = shift;
 		my $code = shift;
 		$countrycode = uc($countrycode);
 		$code = uc($code);
 		return "$countrycode $code EC";
-	}		
+	};		
 	
 	# CE codes -- FR 67.145.01 CE
-	#$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+)(\.|_|\s|-)?(ce)?\b/$1 . normalize_fr_ce_code($2,$4)/ieg;	 # without CE, only for FR
-	$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . normalize_fr_ce_code($2,$4)/ieg;	
+	#$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+)(\.|_|\s|-)?(ce)?\b/$1 . $normalize_fr_ce_code->($2,$4)/ieg;	 # without CE, only for FR
+	$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . $normalize_fr_ce_code->($2,$4)/ieg;	
 	
-	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.)?((\w|\.|_|\s|-)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . normalize_uk_ce_code($2,$4)/ieg;	
-	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . normalize_uk_ce_code($2,$4)/ieg;	
+	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.)?((\w|\.|_|\s|-)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;	
+	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;	
 	
 	# NO-RGSEAA-21-21552-SE -> ES 21.21552/SE
 	
 	
-	$codes =~ s/(^|,|, )n(o|°|º)?(\s|-|_|\.)?rgseaa(\s|-|_|\.|:|;)*(\d\d)(\s|-|_|\.)?(\d+)(\s|-|_|\.|\/|\\)?(\w+)\b/$1 . normalize_es_ce_code('es',$5,$7,$9)/ieg;
-	$codes =~ s/(^|,|, )(es)(\s|-|_|\.)?(\d\d)(\s|-|_|\.|:|;)*(\d+)(\s|-|_|\.|\/|\\)?(\w+)(\.|_|\s|-)?(ce|eec|ec|eg)?\b/$1 . normalize_es_ce_code('es',$4,$6,$8)/ieg;
+	$codes =~ s/(^|,|, )n(o|°|º)?(\s|-|_|\.)?rgseaa(\s|-|_|\.|:|;)*(\d\d)(\s|-|_|\.)?(\d+)(\s|-|_|\.|\/|\\)?(\w+)\b/$1 . $normalize_es_ce_code->('es',$5,$7,$9)/ieg;
+	$codes =~ s/(^|,|, )(es)(\s|-|_|\.)?(\d\d)(\s|-|_|\.|:|;)*(\d+)(\s|-|_|\.|\/|\\)?(\w+)(\.|_|\s|-)?(ce|eec|ec|eg)?\b/$1 . $normalize_es_ce_code->('es',$4,$6,$8)/ieg;
 	
-	$codes =~ s/(^|,|, )(\w\w)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg|we)\b/$1 . normalize_ce_code($2,$4)/ieg;	
+	$codes =~ s/(^|,|, )(\w\w)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg|we)\b/$1 . $normalize_ce_code->($2,$4)/ieg;	
 	
 	return $codes;
 }

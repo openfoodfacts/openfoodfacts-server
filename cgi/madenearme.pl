@@ -1,10 +1,10 @@
 #!/usr/bin/perl
 
+use Modern::Perl '2012';
+use utf8;
+
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
-
-use strict;
-use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -48,10 +48,10 @@ sub display_madenearyou($) {
 	
 	my $html;
 	
-	if (open(IN, "<:encoding(UTF-8)", "$data_root/madenearme/madenearme-$cc.html")) {
+	if (open(my $IN, "<:encoding(UTF-8)", "$data_root/madenearme/madenearme-$cc.html")) {
 	
-		$html = join("", (<IN>));
-		close IN;
+		$html = join("", (<$IN>));
+		close $IN;
 	}
 	else {
 		$html = "$cc not found";
@@ -67,7 +67,7 @@ sub display_madenearyou($) {
 	
 	
 	
-	binmode(STDOUT, ":utf8");
+	binmode(STDOUT, ":encoding(UTF-8)");
 	print $html;
 
 }

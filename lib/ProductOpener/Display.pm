@@ -20,11 +20,13 @@
 
 package ProductOpener::Display;
 
+use utf8;
+use Modern::Perl '2012';
+use Exporter    qw< import >;
+
 BEGIN
 {
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	require Exporter;
-	@ISA = qw(Exporter);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 					&init
@@ -88,8 +90,6 @@ BEGIN
 }
 
 use vars @EXPORT_OK ;
-use strict;
-use utf8;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -705,7 +705,7 @@ sub display_date($) {
 		return $dt;
 	}
 	else {
-		return undef;
+		return;
 	}
 
 }
@@ -719,7 +719,7 @@ sub display_date_tag($) {
 		return "<time datetime=\"$iso\">$dt</time>";
 	}
 	else {
-		return undef;
+		return;
 	}
 
 }
@@ -760,9 +760,9 @@ sub display_text($)
 	}
 
 	
-	open(IN, "<:encoding(UTF-8)", $file);
-	my $html = join('', (<IN>));
-	close (IN);
+	open(my $IN, "<:encoding(UTF-8)", $file);
+	my $html = join('', (<$IN>));
+	close ($IN);
 	
 	my $country_name = display_taxonomy_tag($lc,"countries",$country);
 	
@@ -784,20 +784,20 @@ sub display_text($)
 		$html .= '</h1>';
 	}
 	
-	sub replace_file($) {
+	my $replace_file = sub ($) {
 		my $fileid = shift;
 		($fileid =~ /\.\./) and return '';
 		my $file = "$data_root/lang/$lc/$fileid";
 		my $html = '';
 		if (-e $file) {
-			open (IN, "<:encoding(UTF-8)", "$file");
-			$html .= join('', (<IN>));
-			close (IN);
+			open (my $IN, "<:encoding(UTF-8)", "$file");
+			$html .= join('', (<$IN>));
+			close ($IN);
 		}
 		return $html;
-	}
+	};
 	
-	sub replace_query($) {
+	my $replace_query = sub ($) {
 	
 		my $query = shift;
 		my $query_ref = decode_json($query);
@@ -808,17 +808,17 @@ sub display_text($)
 		}
 		return search_and_display_products( {}, $query_ref, $sort_by, undef, undef );
 	
-	}
+	};
 	
 	
 	if ($file !~ /index.foundation/) {
-		$html =~ s/\[\[query:(.*?)\]\]/replace_query($1)/eg;
+		$html =~ s/\[\[query:(.*?)\]\]/$replace_query->($1)/eg;
 	}
 	else {
 		$html .= search_and_display_products( $request_ref, {}, "last_modified_t_complete_first", undef, undef);
 	}
 	
-	$html =~ s/\[\[(.*?)\]\]/replace_file($1)/eg;
+	$html =~ s/\[\[(.*?)\]\]/$replace_file->($1)/eg;
 	
 	
 	if ($html =~ /<scripts>(.*)<\/scripts>/s) {
@@ -880,8 +880,8 @@ sub display_mission($)
 	my $request_ref = shift;
 	my $missionid = $request_ref->{missionid};
 
-	open(IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/missions/$missionid.html");
-	my $html = join('', (<IN>));
+	open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/missions/$missionid.html");
+	my $html = join('', (<$IN>));
 	my $title = undef;
 	if ($html =~ /<h1>(.*)<\/h1>/) {
 		$title = $1;
@@ -1077,9 +1077,9 @@ sub display_list_of_tags($$) {
 		$request_ref->{title} = sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang});
 		
 		if (-e "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html") {
-			open (IN, "< $data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html");
-			$html .= join("\n", (<IN>));
-			close IN;
+			open (my $IN, q{<}, "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html");
+			$html .= join("\n", (<$IN>));
+			close $IN;
 		}
 		
 		$html .= "<p>" . ($#tags + 1) . " ". $Lang{$tagtype . "_p"}{$lang} . ":</p>";
@@ -4181,15 +4181,15 @@ HTML
 sub display_on_the_blog($)
 {
 	my $blocks_ref = shift;
-	if (open (IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/texts/blog-foundation.html")) {
+	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/texts/blog-foundation.html")) {
 	
-		my $html = join('', (<IN>));
+		my $html = join('', (<$IN>));
 		push @$blocks_ref, {
 				'title'=>lang("on_the_blog_title"),
 				'content'=>lang("on_the_blog_content") . '<ul class="side-nav">' . $html . '</ul>',
 				'id'=>'on_the_blog',
 		};	
-		close IN;
+		close $IN;
 	}
 }
 
@@ -5224,7 +5224,7 @@ HTML
 		print header ( -status => $status );
 	}
 	
-	binmode(STDOUT, ":utf8");
+	binmode(STDOUT, ":encoding(UTF-8)");
 	print $html;
 	
 	$debug and print STDERR "Display::display done (lc: $lc - lang: $lang - mongodb: $mongodb - data_root: $data_root)\n";

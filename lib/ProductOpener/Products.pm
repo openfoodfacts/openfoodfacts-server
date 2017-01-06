@@ -20,11 +20,13 @@
 
 package ProductOpener::Products;
 
+use utf8;
+use Modern::Perl '2012';
+use Exporter    qw< import >;
+
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_Images);
-	require Exporter;
-	@ISA = qw(Exporter);
+	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 		&normalize_code
@@ -50,8 +52,6 @@ BEGIN
 }
 
 use vars @EXPORT_OK ;
-use strict;
-use utf8;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -176,7 +176,7 @@ sub retrieve_product($) {
 	my $product_ref = retrieve("$data_root/products/$path/product.sto");
 	
 	if ((defined $product_ref) and ($product_ref->{deleted})) {
-		return undef;
+		return;
 	}
 	
 	return $product_ref;
@@ -188,14 +188,14 @@ sub retrieve_product_rev($$) {
 	my $rev = shift;
 	
 	if ($rev !~ /^\d+$/) {
-		return undef;
+		return;
 	}
 	
 	my $path = product_path($code);
 	my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
 	
 	if ((defined $product_ref) and ($product_ref->{deleted})) {
-		return undef;
+		return;
 	}
 	
 	return $product_ref;
@@ -692,8 +692,8 @@ sub compute_product_history_and_completeness($$) {
 				@ids = @{$nutriments_lists{europe}};
 			}
 			else {
-				sub uniq { my %seen; grep !$seen{$_}++, @_ };
-				@ids = uniq ( keys %{$current{$group}}, keys %{$previous{$group}}) ;
+				my $uniq = sub { my %seen; grep !$seen{$_}++, @_ };
+				@ids = $uniq->( keys %{$current{$group}}, keys %{$previous{$group}});
 			}
 			
 			foreach my $id (@ids) {

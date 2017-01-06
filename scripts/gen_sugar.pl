@@ -2,7 +2,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use strict;
+use Modern::Perl '2012';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -593,9 +593,9 @@ You can also correct it yourself on Open Food Facts.</p>
 HTML
 ;
 
-		open (OUT, ">:encoding(UTF-8)", "/home/sugar/html/$id.html");
-		print OUT $page;
-		close OUT;
+		open (my $OUT, ">:encoding(UTF-8)", "/home/sugar/html/$id.html");
+		print $OUT $page;
+		close $OUT;
 			
 		push @ids, $id;
 			
@@ -606,9 +606,9 @@ HTML
 
 	$html .= "</tbody></table>";
 		
-	open (OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/sugar.html");
-	print OUT $html;
-	close OUT;
+	open (my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/sugar.html");
+	print $OUT $html;
+	close $OUT;
 	
 	store("/home/sugar/data/products_ids.sto", \@ids);
 	

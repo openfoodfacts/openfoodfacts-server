@@ -21,11 +21,13 @@
 
 package ProductOpener::Images;
 
+use utf8;
+use Modern::Perl '2012';
+use Exporter    qw< import >;
+
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_Images);
-	require Exporter;
-	@ISA = qw(Exporter);
+	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 					&generate_banner
@@ -55,8 +57,6 @@ BEGIN
 }
 
 use vars @EXPORT_OK ;
-use strict;
-use utf8;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -373,11 +373,11 @@ sub process_search_image_form($) {
 			my $extension = lc($1) ;
 			my $filename = get_fileid(remote_addr(). '_' . $`);
 			
-			open (FILE, ">$data_root/tmp/$filename.$extension") ;
+			open (my $FILE, q{>}, "$data_root/tmp/$filename.$extension") ;
 			while (<$file>) {
-				print FILE;
+				print $FILE;
 			}
-			close (FILE);
+			close ($FILE);
 			
 			$code = scan_code("$data_root/tmp/$filename.$extension");
 			if (defined $code) {
@@ -413,7 +413,7 @@ sub process_image_upload($$$$$) {
 		$imagefield = 'search';
 		
 			if ($tmp_filename) {
-				open ($file, "<$tmp_filename");
+				open ($file, q{<}, "$tmp_filename");
 			}		
 	}
 	else {
@@ -469,11 +469,11 @@ sub process_image_upload($$$$$) {
 			
 
 
-			open (FILE, ">$www_root/images/products/$path/$imgid.$extension") or print STDERR "Images.pm - Error - Could not save $www_root/images/products/$path/$imgid.$extension : $!\n";
+			open (my $FILE, q{>}, "$www_root/images/products/$path/$imgid.$extension") or print STDERR "Images.pm - Error - Could not save $www_root/images/products/$path/$imgid.$extension : $!\n";
 			while (<$file>) {
-				print FILE;
+				print $FILE;
 			}
-			close (FILE);
+			close ($FILE);
 
 
 			
@@ -793,13 +793,13 @@ sub process_image_crop($$$$$$$$$$) {
 		my $original = $image->Clone();
 		my @white = (1,1,1);
  
-		sub distance($$) {
+		my $distance = sub ($$) {
 			my $a = shift;
 			my $b = shift;
 			
 			my $d = ($a->[0] - $b->[0]) * ($a->[0] - $b->[0]) + ($a->[1] - $b->[1]) * ($a->[1] - $b->[1]) + ($a->[2] - $b->[2]) * ($a->[2] - $b->[2]);
 			return $d;
-		}
+		};
  
 		my @q = ([0,0],[0,$h-1],[0,int($h/2)],[int($w/2),0],[int($w/2),$h-1],[$w-1,0],[$w-1,$h-1],[$w-1,int($h/2)]);
 		my $max_distance = 0.015*0.015;
@@ -816,15 +816,15 @@ sub process_image_crop($$$$$$$$$$) {
 			#	next;
 			#}
 			$image->SetPixel(x=>$x,y=>$y, color=>\@white);
-			(distance(\@rgb, [$original->GetPixel(x=>$x+1,y=>$y)]) <= $max_distance) and push @q, [$x+1, $y];
-			(distance(\@rgb, [$original->GetPixel(x=>$x-1,y=>$y)]) <= $max_distance) and push @q, [$x-1, $y];
-			(distance(\@rgb, [$original->GetPixel(x=>$x,y=>$y+1)]) <= $max_distance) and push @q, [$x, $y+1];
-			(distance(\@rgb, [$original->GetPixel(x=>$x,y=>$y-1)]) <= $max_distance) and push @q, [$x, $y-1];
+			($distance->(\@rgb, [$original->GetPixel(x=>$x+1,y=>$y)]) <= $max_distance) and push @q, [$x+1, $y];
+			($distance->(\@rgb, [$original->GetPixel(x=>$x-1,y=>$y)]) <= $max_distance) and push @q, [$x-1, $y];
+			($distance->(\@rgb, [$original->GetPixel(x=>$x,y=>$y+1)]) <= $max_distance) and push @q, [$x, $y+1];
+			($distance->(\@rgb, [$original->GetPixel(x=>$x,y=>$y-1)]) <= $max_distance) and push @q, [$x, $y-1];
 			
-			(distance(\@rgb, [$original->GetPixel(x=>$x+1,y=>$y+1)]) <= $max_distance) and push @q, [$x+1, $y+1];
-			(distance(\@rgb, [$original->GetPixel(x=>$x-1,y=>$y-1)]) <= $max_distance) and push @q, [$x-1, $y-1];
-			(distance(\@rgb, [$original->GetPixel(x=>$x-1,y=>$y+1)]) <= $max_distance) and push @q, [$x-1, $y+1];
-			(distance(\@rgb, [$original->GetPixel(x=>$x+1,y=>$y-1)]) <= $max_distance) and push @q, [$x+1, $y-1];			
+			($distance->(\@rgb, [$original->GetPixel(x=>$x+1,y=>$y+1)]) <= $max_distance) and push @q, [$x+1, $y+1];
+			($distance->(\@rgb, [$original->GetPixel(x=>$x-1,y=>$y-1)]) <= $max_distance) and push @q, [$x-1, $y-1];
+			($distance->(\@rgb, [$original->GetPixel(x=>$x-1,y=>$y+1)]) <= $max_distance) and push @q, [$x-1, $y+1];
+			($distance->(\@rgb, [$original->GetPixel(x=>$x+1,y=>$y-1)]) <= $max_distance) and push @q, [$x+1, $y-1];			
 			$i++;
 			($i % 10000) == 0 and print STDERR "$i - x,y: $x,$y - rgb: $rgb[0],$rgb[1],$rgb[2] - width,height: $w,$h\n";
 		}

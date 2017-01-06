@@ -1,10 +1,10 @@
 #!/usr/bin/perl -w
 
 use utf8;
-use strict;
+use Modern::Perl '2012';
 
-binmode STDIN, ':utf8';
-binmode STDOUT, ':utf8';
+binmode STDIN, ':encoding(UTF-8)';
+binmode STDOUT, ':encoding(UTF-8)';
 
 my %a = ();
 
@@ -23,8 +23,8 @@ origine => 'origin',
 );
 
 my %not_names = ();
-open(IN, "<:encoding(UTF-8)", "not_names.txt");
-while (<IN>) {
+open(my $IN, "<:encoding(UTF-8)", "not_names.txt");
+while (<$IN>) {
 	my $l = $_;
 	chomp($l);
 	$l =~s/\t.*//;

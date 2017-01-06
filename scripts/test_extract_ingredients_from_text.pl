@@ -2,7 +2,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use strict;
+use Modern::Perl '2012';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -50,9 +50,9 @@ foreach my $f (@files) {
 		next if ($f =~  /\./);
 		print STDERR "$f\t";
 		
-		open (IN, "<$dir/tests/$f") ;
-		my $text = join("", (<IN>));
-		close IN;
+		open (my $IN, q{<}, "$dir/tests/$f") ;
+		my $text = join("", (<$IN>));
+		close $IN;
 		
 		my $product_ref = { code => 0, ingredients_text => $text };
 		print $product_ref->{ingredients_text} . "\t";
@@ -60,21 +60,21 @@ foreach my $f (@files) {
 		
 		print STDERR "saving\n";
 		
-		open (OUT, ">$dir/current/$f.out") or die("cannot write $dir/current/$f.out: $!\n");
+		open (my $OUT, q{>}, "$dir/current/$f.out") or die("cannot write $dir/current/$f.out: $!\n");
 		
-		print OUT "ingredients_text:\n$product_ref->{ingredients_text}\n\n";
+		print $OUT "ingredients_text:\n$product_ref->{ingredients_text}\n\n";
 		
 		if (not defined $product_ref->{ingredients}) {
-			print OUT "no ingredients field\n";
+			print $OUT "no ingredients field\n";
 			next;
 		}
 	
 		foreach my $i (@{$product_ref->{ingredients}}) {
 	
-			print OUT $i->{rank} . "\t" . $i->{id} . "\t" . '"' . $i->{text} . '"' . "\t" . $i->{percent} . "\n";
+			print $OUT $i->{rank} . "\t" . $i->{id} . "\t" . '"' . $i->{text} . '"' . "\t" . $i->{percent} . "\n";
 	
 		}		
-		close OUT;
+		close $OUT;
 		
 		if (-e "$dir/golden/$f") {
 		}
