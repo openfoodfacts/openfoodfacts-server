@@ -175,14 +175,16 @@ sub init()
 	$lc = 'en';
 	$country = 'en:world';
 	
-	my $r = Apache2::RequestUtil->request();
-
-	$r->err_headers_out->set(Server => "Product Opener");
-	$r->err_headers_out->set("X-Frame-Options" => "DENY");
-	$r->err_headers_out->set("X-Content-Type-Options" => "nosniff");
-	$r->err_headers_out->set("X-Download-Options" => "noopen");
-	$r->err_headers_out->set("X-XSS-Protection" => "1; mode=block");
-
+	if (not defined $r) {
+		$r = Apache2::RequestUtil->request();
+	}
+	
+	$r->headers_out->set(Server => "Product Opener");
+	$r->headers_out->set("X-Frame-Options" => "DENY");
+	$r->headers_out->set("X-Content-Type-Options" => "nosniff");
+	$r->headers_out->set("X-Download-Options" => "noopen");
+	$r->headers_out->set("X-XSS-Protection" => "1; mode=block");
+	
 	my $hostname = $r->hostname;
 	$subdomain = lc($hostname);
 	

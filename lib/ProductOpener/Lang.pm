@@ -11692,8 +11692,15 @@ else {
 
 		foreach my $l (@Langs) {
 			my $value = $Lang{$special_field}{$l};
-			foreach my $key (keys %Lang) {
+			if (not (defined $value)) {
+				next;
+			}
 			
+			foreach my $key (keys %Lang) {
+				if (not defined ($Lang{$key}{$l})) {
+					next;
+				}
+				
 				$Lang{$key}{$l} =~ s/\<\<$special_field\>\>/$value/g;
 			}
 		}

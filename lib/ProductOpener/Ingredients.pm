@@ -92,15 +92,17 @@ foreach my $f (readdir(DH)) {
 			$ingredients_classes{$class}{$id} = {name=>$canon_name, id=>$id, other_names=>$other_names, level=>$level, description=>$desc, warning=>$warning};
 		}
 		#print STDERR "name: $canon_name\nother_names: $other_names\n";
-		foreach my $other_name (split(/,/, $other_names)) {
-			$other_name =~ s/^\s+//;
-			$other_name =~ s/\s+$//;
-			my $other_id = get_fileid($other_name);
-			next if $other_id eq '';
-			next if $other_name eq '';
-			if (not defined $ingredients_classes{$class}{$other_id}) { # Take the first one
-				$ingredients_classes{$class}{$other_id} = {name=>$other_name, id=>$id};
-				#print STDERR "$id\t$other_id\n";
+		if (defined $other_names) {
+			foreach my $other_name (split(/,/, $other_names)) {
+				$other_name =~ s/^\s+//;
+				$other_name =~ s/\s+$//;
+				my $other_id = get_fileid($other_name);
+				next if $other_id eq '';
+				next if $other_name eq '';
+				if (not defined $ingredients_classes{$class}{$other_id}) { # Take the first one
+					$ingredients_classes{$class}{$other_id} = {name=>$other_name, id=>$id};
+					#print STDERR "$id\t$other_id\n";
+				}
 			}
 		}
 	}

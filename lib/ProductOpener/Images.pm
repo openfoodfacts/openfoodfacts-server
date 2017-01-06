@@ -491,7 +491,7 @@ sub process_image_upload($$$$$) {
 			# Save a .jpg if we were sent something else (always re-save as the image can be rotated)
 			#if ($extension ne 'jpg') {
 				$source->Set('quality',95);
-				my $x = $source->Write("jpeg:$www_root/images/products/$path/$imgid.jpg");
+				$x = $source->Write("jpeg:$www_root/images/products/$path/$imgid.jpg");
 			#}
 			
 			# Check that we don't already have the image
@@ -767,7 +767,7 @@ sub process_image_crop($$$$$$$$$$) {
 		$background->Resize(geometry=>"${w}x${h}!");
 		print STDERR "width " . $background->Get('width') . "\n";
 		print STDERR "Writing: $www_root/images/products/$path/$imgid.${crop_size}.background.jpg\n";
-		my $x = $background->Write("jpeg:$www_root/images/products/$path/$imgid.${crop_size}.background.jpg");
+		$x = $background->Write("jpeg:$www_root/images/products/$path/$imgid.${crop_size}.background.jpg");
 		$x and print SDTERR "product_image_rotate.pl - could not write image : $x\n";
 		
 
@@ -870,13 +870,13 @@ sub process_image_crop($$$$$$$$$$) {
 	$filename = $id . "." . $rev;
 	
 	_set_magickal_options($source, undef);
-	my $x = $source->Write("jpeg:$www_root/images/products/$path/$filename.full.jpg");
+	$x = $source->Write("jpeg:$www_root/images/products/$path/$filename.full.jpg");
 	("$x") and print STDERR "Images::process_image_crop - could not write jpeg:$www_root/images/products/$path/$filename.full.jpg $x\n";
 	
 	# Re-read cropped image
 	my $cropped_source = Image::Magick->new;
 	$cropped_source->Read("$www_root/images/products/$path/$filename.full.jpg");
-	("$x") and print STDERR "Images::process_image_crop - cannot read $www_root/images/products/$path/$filename.full.jpg $x\n";
+	("$cropped_source") and print STDERR "Images::process_image_crop - cannot read $www_root/images/products/$path/$filename.full.jpg $cropped_source-\n";
 
 	my $img2 = $cropped_source->Clone();
 	my $window = $nw;
@@ -1053,8 +1053,6 @@ sub display_image($$$) {
 		$imagetype = $1;
 		$display_lc = $2;
 	}
-	
-	my $html = '';
 	
 	# first try the requested language
 	my @display_ids = ($imagetype . "_" . $display_lc);
