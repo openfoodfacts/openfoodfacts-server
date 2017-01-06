@@ -11514,6 +11514,11 @@ ingredients_analysis_note => {
 
 #ENDFRONTPAGE
 
+share => {
+	en => 'Share',
+	de => 'Teilen',
+},
+
 );
 
 
