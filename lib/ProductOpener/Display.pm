@@ -1258,12 +1258,19 @@ sub display_list_of_tags($$) {
 			$html .= "<a href=\"$product_link\"$info$nofollow>" . $display . "</a>";
 			$html .= "</td>\n<td style=\"text-align:right\">$products</td>" . $td_nutriments . $extra_td . "</tr>\n";
 			
-			push @{$request_ref->{structured_response}{tags}}, {
+			my $tagentry = {
 				id => $tagid,
 				name => $display,
 				url => format_subdomain($subdomain) . $product_link,
 				products => $products + 0, # + 0 to make the value numeric
 			};
+
+			if (defined $tags_images{$lc}{$tagtype}{get_fileid($icid)}) {
+				my $img = $tags_images{$lc}{$tagtype}{get_fileid($icid)};
+				$tagentry->{image} = "http://static.$server_domain/images/lang/$lc/$tagtype/$img";
+			}
+			
+			push @{$request_ref->{structured_response}{tags}}, $tagentry;
 			
 			# Maps for countries (and origins)
 			
