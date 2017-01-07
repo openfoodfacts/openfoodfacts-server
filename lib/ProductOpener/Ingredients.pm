@@ -20,11 +20,13 @@
 
 package ProductOpener::Ingredients;
 
+use utf8;
+use Modern::Perl '2012';
+use Exporter    qw< import >;
+
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_Images);
-	require Exporter;
-	@ISA = qw(Exporter);
+	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 					&extract_ingredients_from_image
@@ -40,8 +42,6 @@ BEGIN
 }
 
 use vars @EXPORT_OK ;
-use strict;
-use utf8;
 use experimental 'smartmatch';
 
 use ProductOpener::Store qw/:all/;
@@ -75,8 +75,8 @@ foreach my $f (readdir(DH)) {
 	
 	$ingredients_classes{$class} = {};
 	
-	open(IN, "<:encoding(UTF-8)", "$data_root/ingredients/$f");
-	while (<IN>) {
+	open(my $IN, "<:encoding(UTF-8)", "$data_root/ingredients/$f");
+	while (<$IN>) {
 		chomp;
 		next if /^\#/;
 		my ($canon_name, $other_names, $misc, $desc, $level, $warning) = split("\t");
@@ -92,19 +92,21 @@ foreach my $f (readdir(DH)) {
 			$ingredients_classes{$class}{$id} = {name=>$canon_name, id=>$id, other_names=>$other_names, level=>$level, description=>$desc, warning=>$warning};
 		}
 		#print STDERR "name: $canon_name\nother_names: $other_names\n";
-		foreach my $other_name (split(/,/, $other_names)) {
-			$other_name =~ s/^\s+//;
-			$other_name =~ s/\s+$//;
-			my $other_id = get_fileid($other_name);
-			next if $other_id eq '';
-			next if $other_name eq '';
-			if (not defined $ingredients_classes{$class}{$other_id}) { # Take the first one
-				$ingredients_classes{$class}{$other_id} = {name=>$other_name, id=>$id};
-				#print STDERR "$id\t$other_id\n";
+		if (defined $other_names) {
+			foreach my $other_name (split(/,/, $other_names)) {
+				$other_name =~ s/^\s+//;
+				$other_name =~ s/\s+$//;
+				my $other_id = get_fileid($other_name);
+				next if $other_id eq '';
+				next if $other_name eq '';
+				if (not defined $ingredients_classes{$class}{$other_id}) { # Take the first one
+					$ingredients_classes{$class}{$other_id} = {name=>$other_name, id=>$id};
+					#print STDERR "$id\t$other_id\n";
+				}
 			}
 		}
 	}
-	close IN;
+	close $IN;
 	
 	$ingredients_classes_sorted{$class} = [sort keys %{$ingredients_classes{$class}}];
 }
@@ -202,7 +204,8 @@ sub extract_ingredients_from_text($) {
 	$text =~ s/(\d),(\d+)( )?\%/$1.$2\%/g;
 	$text =~ s/—/-/g;
 	
-	sub analyze_ingredients($$$$) {
+	my $analyze_ingredients = sub($$$$$) {
+		my $analyze_ingredients_self = shift;
 		my $ranked_ingredients_ref = shift;
 		my $unranked_ingredients_ref = shift;
 		my $level = shift;
@@ -328,16 +331,16 @@ sub extract_ingredients_from_text($) {
 		}
 		
 		if ($between ne '') {
-			analyze_ingredients($ranked_ingredients_ref, $unranked_ingredients_ref , $between_level, $between);
+			$analyze_ingredients_self->(\$analyze_ingredients_self, $ranked_ingredients_ref, $unranked_ingredients_ref , $between_level, $between);
 		}
 		
 		if ($after ne '') {
-			analyze_ingredients($ranked_ingredients_ref, $unranked_ingredients_ref , $level, $after);
+			$analyze_ingredients_self->(\$analyze_ingredients_self, $ranked_ingredients_ref, $unranked_ingredients_ref , $level, $after);
 		}		
 		
-	}
+	};
 	
-	analyze_ingredients(\@ranked_ingredients, \@unranked_ingredients , 0, $text);
+	$analyze_ingredients->(\$analyze_ingredients, \@ranked_ingredients, \@unranked_ingredients , 0, $text);
 	
 	for (my $i = 0; $i <= $#ranked_ingredients; $i++) {
 		$ranked_ingredients[$i]{rank} = $i + 1;
@@ -385,7 +388,7 @@ sub extract_ingredients_classes_from_text($) {
 	# vitamins...
 	# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E (lactose, protéines de lait)
 	
-	sub split_vitamins($$) {
+	my $split_vitamins = sub ($$) {
 		my $vitamin = shift;
 		my $list = shift;
 		
@@ -395,10 +398,10 @@ sub extract_ingredients_classes_from_text($) {
 			$return .= $vitamin . " " . $vitamin_code . " - ";
 		}
 		return $return;
-	}
+	};
 	
 	# vitamin code: 1 or 2 letters followed by 1 or 2 numbers (e.g. PP, B6, B12)
-	$text =~ s/(vitamin|vitamine)(s?)(((\W+)((and|et) )?(\w(\w)?(\d+)?)\b)+)/split_vitamins($1,$3)/eig;
+	$text =~ s/(vitamin|vitamine)(s?)(((\W+)((and|et) )?(\w(\w)?(\d+)?)\b)+)/$split_vitamins->($1,$3)/eig;
 		
 	
 	# E 240, E.240, E-240..

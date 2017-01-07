@@ -1,9 +1,9 @@
 #!/usr/bin/perl
 
-use CGI::Carp qw(fatalsToBrowser);
-
-use strict;
+use Modern::Perl '2012';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -331,11 +331,11 @@ elsif ($action eq 'process') {
 				my $extension = lc($1) ;
 				my $filename = "banner_source";
 
-				open (FILE, ">$data_root/index/$blogs_dir/$blogid/$filename.$extension") ;
+				open (my $FILE, q{>}, "$data_root/index/$blogs_dir/$blogid/$filename.$extension") ;
 				while (<$file>) {
-					print FILE;
+					print $FILE;
 				}
-				close (FILE);
+				close ($FILE);
 				
 				$blog_ref->{'banner_source'} = "index/$blogs_dir/$blogid/$filename.$extension";
 			}

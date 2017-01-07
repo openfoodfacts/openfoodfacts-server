@@ -14,11 +14,10 @@
 # Default server configuration
 #
 server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
+	# listen 80 default_server;
+	# listen [::]:80 default_server;
 
-	# Product Opener needs a root domain + a wildcard for all subdomains
-	server_name openfoodfacts.ovh *.openfoodfacts.ovh;
+	server_name openbeautyfacts.org *.openbeautyfacts.org ;
 
 	# SSL configuration
 	#
@@ -30,14 +29,33 @@ server {
 	#
 	# include snippets/snakeoil.conf;
 
-	root /home/off/html;
+	root /home/obf/html;
+
+	access_log /home/obf/logs/nginx.access.log;
+	error_log /home/obf/logs/nginx.error.log;
+
+	gzip on;
+	gzip_min_length 1000;
 
 	# Add index.php to the list if you are using PHP
-	# index index.html index.htm index.nginx-debian.html;
+	index index.html index.htm index.nginx-debian.html;
 
-	# Static files are served directly by NGINX
+	location ~* \.(eot|ttf|woff|woff2)$ {
+    		add_header Access-Control-Allow-Origin *;
+	}
 
-	location ~ ^/(images|css|js|rss|data|files|resources|foundation|bower_components)/ {
+	location ~ ^/images/products/ {
+		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
+	}
+
+
+	location ~ ^/(favicon.ico) {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ =404;
+	}
+
+	location ~ ^/(images|js|rss|data|files|resources|foundation)/ {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
@@ -47,27 +65,26 @@ server {
 		try_files $uri $uri/ =404;
 	}
 
-	# Dynamically generated files and CGI scripts are passed
-	# to the Apache + mod_perl server running on a different
-	# port than port 80 (e.g. 8001)
-	
 	location / {
 		proxy_set_header Host $host;
 		proxy_set_header X-Real-IP $remote_addr;
-		proxy_pass http://127.0.0.1:8001/cgi/display.pl?;
+		proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_pass http://127.0.0.1:8002/cgi/display.pl?;
 	}
 
 	location /cgi/ {
 		proxy_set_header Host $host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_pass http://127.0.0.1:8001;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_pass http://127.0.0.1:8002;
 	}
 
 	# deny access to .htaccess files, if Apache's document root
 	# concurs with nginx's one
 	#
 	#location ~ /\.ht {
-	#	deny all;
+	#       deny all;
 	#}
-}
 
+	include /etc/nginx/expires-no-json-xml.conf;
+}
