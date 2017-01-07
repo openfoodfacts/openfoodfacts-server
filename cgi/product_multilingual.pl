@@ -459,7 +459,12 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				$value = $value / 100 * $Nutriments{$nid}{dv} ;
 				$unit = $Nutriments{$nid}{unit};
 			}
-			$product_ref->{nutriments}{$nid} = unit_to_mmoll(unit_to_g($value, $unit), $unit);
+			if ($nid eq 'water-hardness') {
+				$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit);
+			}
+			else {
+				$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
+			}
 		}
 	}
 	
