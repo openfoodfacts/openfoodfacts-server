@@ -1695,7 +1695,7 @@ HTML
 			}
 			
 			my $comment = $change_ref->{comment};
-			$comment = lang($comment) if $comment;
+			$comment = lang($comment) if $comment eq 'product_created';
 			
 			$comment =~ s/^Modification :\s+//;
 			if ($comment eq 'Modification :') {
