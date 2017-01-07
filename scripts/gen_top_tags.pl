@@ -2,7 +2,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use strict;
+use Modern::Perl '2012';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -211,9 +211,9 @@ foreach my $l (values %lang_lc) {
 		my $html = "<h1>" . sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang}) . "</h1>";
 		
 		if (-e "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html") {
-			open (IN, "< $data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html");
-			$html .= join("\n", (<IN>));
-			close IN;
+			open (my $IN, q{<}, "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html");
+			$html .= join("\n", (<$IN>));
+			close $IN;
 		}
 		
 		$html .= "<p>" . ($#tags + 1) . " ". $Lang{$tagtype . "_p"}{$lang} . ":</p>";
@@ -341,9 +341,9 @@ JS
 ;
 
 		(-e "$www_root/js/lang/$lang") or mkdir ("$www_root/js/lang/$lang", 0755);
-		 open (OUT, ">:encoding(UTF-8)", "$www_root/js/lang/$lang/$tagtype.js");
-		 print OUT $js;
-		 close OUT;
+		 open (my $OUT, ">:encoding(UTF-8)", "$www_root/js/lang/$lang/$tagtype.js");
+		 print $OUT $js;
+		 close $OUT;
 		 
 		 
 	}
@@ -359,9 +359,9 @@ foreach my $l (sort { $langs{$b} <=> $langs{$a}} keys %langs) {
 
 }
 
-open (OUT, ">:encoding(UTF-8)", "$www_root/langs.html");
-print OUT $html;
-close OUT;
+open (my $OUT, ">:encoding(UTF-8)", "$www_root/langs.html");
+print $OUT $html;
+close $OUT;
 
 
 my $html = "$total products: ";
@@ -374,9 +374,9 @@ foreach my $l (sort { $langs{$b} <=> $langs{$a}} keys %langs) {
 
 }
 $html =~ s/ - $//;
-open (OUT, ">:encoding(UTF-8)", "$www_root/products_langs.html");
-print OUT $html;
-close OUT;
+open (my $OUT, ">:encoding(UTF-8)", "$www_root/products_langs.html");
+print $OUT $html;
+close $OUT;
 
 
 # Number of products and complete products
@@ -516,9 +516,9 @@ $meta
 HTML
 ;	
 
-	open (OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/products_stats.html");
-	print OUT $html;
-	close OUT;
+	open (my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/products_stats.html");
+	print $OUT $html;
+	close $OUT;
 
 }
 
@@ -643,9 +643,9 @@ $series
 HTML
 ;	
 
-	open (OUT, ">:encoding(UTF-8)", "$www_root/products.js");
-	print OUT $html;
-	close OUT;
+	open (my $OUT, ">:encoding(UTF-8)", "$www_root/products.js");
+	print $OUT $html;
+	close $OUT;
 
 
 

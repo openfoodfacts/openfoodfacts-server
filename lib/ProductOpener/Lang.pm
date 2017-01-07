@@ -21,7 +21,7 @@
 package ProductOpener::Lang;
 
 use utf8;
-use strict;
+use Modern::Perl '2012';
 use Exporter    qw< import >;
 
 BEGIN
@@ -11520,6 +11520,11 @@ ingredients_analysis_note => {
 
 #ENDFRONTPAGE
 
+share => {
+	en => 'Share',
+	de => 'Teilen',
+},
+
 );
 
 
@@ -11698,8 +11703,15 @@ else {
 
 		foreach my $l (@Langs) {
 			my $value = $Lang{$special_field}{$l};
-			foreach my $key (keys %Lang) {
+			if (not (defined $value)) {
+				next;
+			}
 			
+			foreach my $key (keys %Lang) {
+				if (not defined ($Lang{$key}{$l})) {
+					next;
+				}
+				
 				$Lang{$key}{$l} =~ s/\<\<$special_field\>\>/$value/g;
 			}
 		}

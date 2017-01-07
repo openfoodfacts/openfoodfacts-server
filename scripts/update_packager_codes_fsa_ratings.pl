@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 
-use strict;
+use Modern::Perl '2012';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -24,9 +24,9 @@ if (not defined $packager_codes_ref) {
 }
 
 
-open (IN, "<$data_root/packager-codes/uk_packager_codes_fsa_rating_ids.csv") or die("could not open $data_root/packager-codes/uk_packager_codes_fsa_rating_ids.csv : $!\n");
+open (my $IN, q{<}, "$data_root/packager-codes/uk_packager_codes_fsa_rating_ids.csv") or die("could not open $data_root/packager-codes/uk_packager_codes_fsa_rating_ids.csv : $!\n");
 my %fsa_rating_ids = ();
-while (<IN>) {
+while (<$IN>) {
 	chomp;
 	if (/\t/) {
 		my $code = $`;
@@ -36,7 +36,7 @@ while (<IN>) {
 		print "code $code --> rating id $id\n";
 	}
 }
-close IN;
+close $IN;
 
 
 my @codes = ();
@@ -46,13 +46,13 @@ if ($ARGV[0]) {
 }
 else {
 
-	open (IN, "<$data_root/lists/packager-codes.uk.en.html") or print "Could not open $data_root/lists/packager-codes.uk.en.html : $!\n";
-	while (<IN>) {
+	open (my $IN, q{<}, "$data_root/lists/packager-codes.uk.en.html") or print "Could not open $data_root/lists/packager-codes.uk.en.html : $!\n";
+	while (<$IN>) {
 		if (/packager-code\/(uk-([^"]+)-ec)/) {
 			push @codes, $1;
 		}
 	}
-	close IN;
+	close $IN;
 
 }
 

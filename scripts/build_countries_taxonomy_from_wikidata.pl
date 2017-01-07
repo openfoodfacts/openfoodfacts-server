@@ -2,7 +2,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use strict;
+use Modern::Perl '2012';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -119,36 +119,36 @@ foreach my $language (keys %languages) {
 }
 
 
-	open (OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/countries.txt");
+	open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/countries.txt");
 
 
 foreach my $qc (sort {$names{$a} cmp $names{$b}} keys %names) {
 
-	print OUT "en:" . $countries{$qc}{labels}{en} . $countries{$qc}{aliases}{en};
+	print $OUT "en:" . $countries{$qc}{labels}{en} . $countries{$qc}{aliases}{en};
 
 	if (defined $countries{$qc}{properties}{country_code_2}) {
-		print OUT ", $countries{$qc}{properties}{country_code_2}";
+		print $OUT ", $countries{$qc}{properties}{country_code_2}";
 	}
 	
 	if (defined $countries{$qc}{properties}{country_code_3}) {
-		print OUT ", $countries{$qc}{properties}{country_code_3}";
+		print $OUT ", $countries{$qc}{properties}{country_code_3}";
 	}	
 	
-	print OUT "\n";
+	print $OUT "\n";
 	foreach my $lc (sort keys %{$countries{$qc}{labels}}) {
 		#next if length($lc) > 2;
 		next if ($lc eq 'en');
-		print OUT "$lc:" . $countries{$qc}{labels}{$lc} . $countries{$qc}{aliases}{$lc} . "\n";
+		print $OUT "$lc:" . $countries{$qc}{labels}{$lc} . $countries{$qc}{aliases}{$lc} . "\n";
 	}
 	foreach my $p (sort keys %properties) {
 		if (defined $countries{$qc}{properties}{$p}) {
-			print OUT "$p:en:$countries{$qc}{properties}{$p}\n";
+			print $OUT "$p:en:$countries{$qc}{properties}{$p}\n";
 		}
 	}	
-	print OUT "official_languages:en:" . join(',', map {$languages{$_}} (sort keys %{$countries{$qc}{official_languages}})) . "\n";
+	print $OUT "official_languages:en:" . join(',', map {$languages{$_}} (sort keys %{$countries{$qc}{official_languages}})) . "\n";
 
-	print OUT "\n";
+	print $OUT "\n";
 
 }
 
-	close OUT;
+	close $OUT;
