@@ -1193,7 +1193,7 @@ sub retrieve_tags_taxonomy {
 			}
 		}
 	
-		close (IN);
+		close ($IN);
 	}
 }
 
