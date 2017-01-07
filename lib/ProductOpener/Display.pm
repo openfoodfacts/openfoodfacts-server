@@ -6975,6 +6975,9 @@ sub add_images_urls_to_product($) {
 
 	my $product_ref = shift;
 	
+	my $staticdom = format_subdomain('static');
+	my $path = product_path($product_ref->{code});
+	
 	foreach my $imagetype ('front','ingredients','nutrition') {
 	
 		my $size = $display_size;
@@ -6996,10 +6999,7 @@ sub add_images_urls_to_product($) {
 	
 			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 				and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
-			
-				my $path = product_path($product_ref->{code});
 
-				my $staticdom = format_subdomain('static');
 				$product_ref->{"image_" . $imagetype . "_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
 				$product_ref->{"image_" . $imagetype . "_small_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
 				$product_ref->{"image_" . $imagetype . "_thumb_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
@@ -7013,8 +7013,18 @@ sub add_images_urls_to_product($) {
 				last;
 			}
 		}
-	}		
-
+		
+		foreach my $key (keys $product_ref->{languages_codes}) {
+			my $id = $imagetype . '_' . $key;
+			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+				and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
+			
+				$product_ref->{selected_images}{$imagetype}{display}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+				$product_ref->{selected_images}{$imagetype}{small}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+				$product_ref->{selected_images}{$imagetype}{thumb}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
+			}
+		}
+	}
 }
 
 
