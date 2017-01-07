@@ -510,7 +510,7 @@ sub display_field($$) {
 		$tagsinput = ' tagsinput';
 		
 		my $autocomplete = "";
-		if (defined $taxonomy_fields{$fieldtype}) {
+		if ((defined $taxonomy_fields{$fieldtype}) or ($fieldtype eq 'emb_codes')) {
 			my $world = format_subdomain('world');
 			$autocomplete = ",
 	'autocomplete_url': '$world/cgi/suggest.pl?lc=$lc&tagtype=$fieldtype&'";
