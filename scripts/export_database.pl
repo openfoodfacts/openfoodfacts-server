@@ -2,7 +2,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use strict;
+use Modern::Perl '2012';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -110,14 +110,14 @@ foreach my $l ("en", "fr") {
 		
 	print STDERR "lc: $lc - $count products\n";
 	
-	open (OUT, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.csv");
-	open (RDF, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.rdf");
+	open (my $OUT, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.csv");
+	open (my $RDF, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.rdf");
 
 	# Headers
 	
 	my $csv = '';
 	
-	print RDF <<XML
+	print $RDF <<XML
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 		xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 		xmlns:food="http://data.lirmm.fr/ontologies/food#"
@@ -200,7 +200,7 @@ XML
 		}	
 	
 	$csv =~ s/\t$/\n/;
-	print OUT $csv;
+	print $OUT $csv;
 	
 	# Products
 	
@@ -399,20 +399,20 @@ XML
 		
 		$rdf .= "</rdf:Description>\n\n";
 				 
-		print OUT $csv;
-		print RDF $rdf;
+		print $OUT $csv;
+		print $RDF $rdf;
 
 	}
 	
-	close OUT;
+	close $OUT;
 	
 	my %links = ();
 	if (-e "$data_root/rdf/${lc}_links")  {
 	
 		# <http://fr.$server_domain/ingredient/xylitol>  <http://www.w3.org/2002/07/owl#sameAs>  <http://fr.dbpedia.org/resource/Xylitol> 
 	
-		open IN, "$data_root/rdf/${lc}_links";
-		while(<IN>) {
+		open my $IN, q{<}, "$data_root/rdf/${lc}_links";
+		while(<$IN>) {
 			my $l = $_;
 			if ($l =~ /<.*ingredient\/(.*)>\s*<.*>\s*<(.*)>/) {
 				my $ingredient = $1;
@@ -435,7 +435,7 @@ XML
 			$sameas = "\n\t<owl:sameAs rdf:resource=\"$links{$i}\"/>";
 		}
 		
-		print RDF <<XML
+		print $RDF <<XML
 <rdf:Description rdf:about="http://$lc.$server_domain/ingredient/$i" rdf:type="http://data.lirmm.fr/ontologies/food#Food">
 	<food:name>$name</food:name>$sameas
 </rdf:Description>
@@ -444,12 +444,12 @@ XML
 ;	
 	}
 	
-	print RDF <<XML
+	print $RDF <<XML
 </rdf:RDF>
 XML
 ;
 	
-	close RDF;
+	close $RDF;
 	
 }
 
@@ -463,9 +463,9 @@ foreach my $l (sort { $langs{$b} <=> $langs{$a}} keys %langs) {
 	}
 
 }
-open (OUT, ">:encoding(UTF-8)", "$www_root/langs.html");
-print OUT $html;
-close OUT;
+open (my $OUT, ">:encoding(UTF-8)", "$www_root/langs.html");
+print $OUT $html;
+close $OUT;
 
 exit(0);
 

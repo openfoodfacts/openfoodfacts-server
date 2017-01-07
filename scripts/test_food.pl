@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
+use Modern::Perl '2012';
 
 my %Nutriments = (
 

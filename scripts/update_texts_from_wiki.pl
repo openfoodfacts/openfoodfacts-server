@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 
-use strict;
+use Modern::Perl '2012';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -34,9 +34,9 @@ foreach my $text (sort keys %wiki_texts) {
 			$content = $1;
 			$textid = get_fileid($textid);
 			$textid =~ s/-foundation/\.foundation/;
-			open (OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/" . $textid . ".html") or die("could not write $data_root/lang/$lang/texts/ : $!\n");
-			print OUT $content . "\n\n" . "<!-- retrieved from $wiki_texts{$text} on " . display_date(time()) . " -->\n\n";
-			close OUT;			
+			open (my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/" . $textid . ".html") or die("could not write $data_root/lang/$lang/texts/ : $!\n");
+			print $OUT $content . "\n\n" . "<!-- retrieved from $wiki_texts{$text} on " . display_date(time()) . " -->\n\n";
+			close $OUT;			
 			print " OK<br/>";
 		}
 		else {
