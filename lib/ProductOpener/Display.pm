@@ -20,11 +20,13 @@
 
 package ProductOpener::Display;
 
+use utf8;
+use Modern::Perl '2012';
+use Exporter    qw< import >;
+
 BEGIN
 {
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	require Exporter;
-	@ISA = qw(Exporter);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 					&init
@@ -88,8 +90,6 @@ BEGIN
 }
 
 use vars @EXPORT_OK ;
-use strict;
-use utf8;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -175,14 +175,16 @@ sub init()
 	$lc = 'en';
 	$country = 'en:world';
 	
-	my $r = Apache2::RequestUtil->request();
-
-	$r->err_headers_out->set(Server => "Product Opener");
-	$r->err_headers_out->set("X-Frame-Options" => "DENY");
-	$r->err_headers_out->set("X-Content-Type-Options" => "nosniff");
-	$r->err_headers_out->set("X-Download-Options" => "noopen");
-	$r->err_headers_out->set("X-XSS-Protection" => "1; mode=block");
-
+	if (not defined $r) {
+		$r = Apache2::RequestUtil->request();
+	}
+	
+	$r->headers_out->set(Server => "Product Opener");
+	$r->headers_out->set("X-Frame-Options" => "DENY");
+	$r->headers_out->set("X-Content-Type-Options" => "nosniff");
+	$r->headers_out->set("X-Download-Options" => "noopen");
+	$r->headers_out->set("X-XSS-Protection" => "1; mode=block");
+	
 	my $hostname = $r->hostname;
 	$subdomain = lc($hostname);
 	
@@ -705,7 +707,7 @@ sub display_date($) {
 		return $dt;
 	}
 	else {
-		return undef;
+		return;
 	}
 
 }
@@ -719,7 +721,7 @@ sub display_date_tag($) {
 		return "<time datetime=\"$iso\">$dt</time>";
 	}
 	else {
-		return undef;
+		return;
 	}
 
 }
@@ -760,9 +762,9 @@ sub display_text($)
 	}
 
 	
-	open(IN, "<:encoding(UTF-8)", $file);
-	my $html = join('', (<IN>));
-	close (IN);
+	open(my $IN, "<:encoding(UTF-8)", $file);
+	my $html = join('', (<$IN>));
+	close ($IN);
 	
 	my $country_name = display_taxonomy_tag($lc,"countries",$country);
 	
@@ -784,20 +786,20 @@ sub display_text($)
 		$html .= '</h1>';
 	}
 	
-	sub replace_file($) {
+	my $replace_file = sub ($) {
 		my $fileid = shift;
 		($fileid =~ /\.\./) and return '';
 		my $file = "$data_root/lang/$lc/$fileid";
 		my $html = '';
 		if (-e $file) {
-			open (IN, "<:encoding(UTF-8)", "$file");
-			$html .= join('', (<IN>));
-			close (IN);
+			open (my $IN, "<:encoding(UTF-8)", "$file");
+			$html .= join('', (<$IN>));
+			close ($IN);
 		}
 		return $html;
-	}
+	};
 	
-	sub replace_query($) {
+	my $replace_query = sub ($) {
 	
 		my $query = shift;
 		my $query_ref = decode_json($query);
@@ -808,17 +810,17 @@ sub display_text($)
 		}
 		return search_and_display_products( {}, $query_ref, $sort_by, undef, undef );
 	
-	}
+	};
 	
 	
 	if ($file !~ /index.foundation/) {
-		$html =~ s/\[\[query:(.*?)\]\]/replace_query($1)/eg;
+		$html =~ s/\[\[query:(.*?)\]\]/$replace_query->($1)/eg;
 	}
 	else {
 		$html .= search_and_display_products( $request_ref, {}, "last_modified_t_complete_first", undef, undef);
 	}
 	
-	$html =~ s/\[\[(.*?)\]\]/replace_file($1)/eg;
+	$html =~ s/\[\[(.*?)\]\]/$replace_file->($1)/eg;
 	
 	
 	if ($html =~ /<scripts>(.*)<\/scripts>/s) {
@@ -880,8 +882,8 @@ sub display_mission($)
 	my $request_ref = shift;
 	my $missionid = $request_ref->{missionid};
 
-	open(IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/missions/$missionid.html");
-	my $html = join('', (<IN>));
+	open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/missions/$missionid.html");
+	my $html = join('', (<$IN>));
 	my $title = undef;
 	if ($html =~ /<h1>(.*)<\/h1>/) {
 		$title = $1;
@@ -1077,9 +1079,9 @@ sub display_list_of_tags($$) {
 		$request_ref->{title} = sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang});
 		
 		if (-e "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html") {
-			open (IN, "< $data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html");
-			$html .= join("\n", (<IN>));
-			close IN;
+			open (my $IN, q{<}, "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html");
+			$html .= join("\n", (<$IN>));
+			close $IN;
 		}
 		
 		$html .= "<p>" . ($#tags + 1) . " ". $Lang{$tagtype . "_p"}{$lang} . ":</p>";
@@ -1256,12 +1258,19 @@ sub display_list_of_tags($$) {
 			$html .= "<a href=\"$product_link\"$info$nofollow>" . $display . "</a>";
 			$html .= "</td>\n<td style=\"text-align:right\">$products</td>" . $td_nutriments . $extra_td . "</tr>\n";
 			
-			push @{$request_ref->{structured_response}{tags}}, {
+			my $tagentry = {
 				id => $tagid,
 				name => $display,
 				url => format_subdomain($subdomain) . $product_link,
 				products => $products + 0, # + 0 to make the value numeric
 			};
+
+			if (defined $tags_images{$lc}{$tagtype}{get_fileid($icid)}) {
+				my $img = $tags_images{$lc}{$tagtype}{get_fileid($icid)};
+				$tagentry->{image} = "http://static.$server_domain/images/lang/$lc/$tagtype/$img";
+			}
+			
+			push @{$request_ref->{structured_response}{tags}}, $tagentry;
 			
 			# Maps for countries (and origins)
 			
@@ -2095,6 +2104,16 @@ HTML
 			$tag_html =~ s/.*<\/a>(<br \/>)?//;	# remove link, keep only tag logo
 			
 			$html .= $tag_html;
+
+			my $share = lang('share');
+			$html .= <<HTML
+<div class="share_button right" style="float:right;margin-top:-10px;display:none;">
+<a href="$request_ref->{canon_url}" class="button small icon" title="$title">
+	<i class="fi-share"></i>
+	<span class="show-for-large-up"> $share</span>
+</a></div>
+HTML
+;
 
 			$html .= $weblinks_html . display_parents_and_children($lc, $tagtype, $canon_tagid) . $description;
 		}
@@ -3997,11 +4016,11 @@ JS
 		if ($emb_codes > 0) {
 
 			$header .= <<HTML		
-<link rel="stylesheet" href="https://unpkg.com/leaflet\@0.7.7/dist/leaflet.css" integrity="sha384-99ZJFcuBCh9c/V/+8YwDX/TUGG8JWMG+gKFJWzk0BZP3IoDMN+pLGd3/H0yjg4oa" crossorigin="anonymous">
-<script src="https://unpkg.com/leaflet\@0.7.7/dist/leaflet.js" integrity="sha384-Lh7SNUss9JoImCvc96eCUnLX3HvY4kb0UZCWZbYWvceJ+o5CJeOJqqNoheaGkNHT" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.css" />
-<link rel="stylesheet" href="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.Default.css" />
-<script src="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/leaflet.markercluster-src.js"></script>
+<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
+<script src="/bower_components/leaflet/dist/leaflet.js"></script>
+<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+<script src="/bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
 HTML
 ;
 
@@ -4181,15 +4200,15 @@ HTML
 sub display_on_the_blog($)
 {
 	my $blocks_ref = shift;
-	if (open (IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/texts/blog-foundation.html")) {
+	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/texts/blog-foundation.html")) {
 	
-		my $html = join('', (<IN>));
+		my $html = join('', (<$IN>));
 		push @$blocks_ref, {
 				'title'=>lang("on_the_blog_title"),
 				'content'=>lang("on_the_blog_content") . '<ul class="side-nav">' . $html . '</ul>',
 				'id'=>'on_the_blog',
 		};	
-		close IN;
+		close $IN;
 	}
 }
 
@@ -5136,6 +5155,41 @@ $scripts
   });
 </script>
 
+<script>
+  'use strict';
+
+  function doWebShare(e) {
+    e.preventDefault();
+    if (!window.isSecureContext || navigator.share === undefined) {
+      console.error('Error: Unsupported feature: navigator.share');
+        return;
+      }
+
+      var title = this.title;
+      var url = this.href;
+      navigator.share({title: title, url: url})
+        .then(() => console.info('Successfully sent share'),
+              error => console.error('Error sharing: ' + error));
+  }
+
+  function onLoad() {
+    var buttons = document.getElementsByClassName('share_button');
+    var shareAvailable = window.isSecureContext && navigator.share !== undefined;
+    [].forEach.call(buttons, function(button) {
+      if (shareAvailable) {
+          button.style.display = 'block';
+          [].forEach.call(button.getElementsByTagName('a'), function(a) {
+            a.addEventListener('click', doWebShare);
+          });
+        } else {
+          button.style.display = 'none';
+        }
+    });
+  }
+
+  window.addEventListener('load', onLoad);
+</script>
+
 <script type="application/ld+json">
 {
 	"\@context" : "http://schema.org",
@@ -5224,7 +5278,7 @@ HTML
 		print header ( -status => $status );
 	}
 	
-	binmode(STDOUT, ":utf8");
+	binmode(STDOUT, ":encoding(UTF-8)");
 	print $html;
 	
 	$debug and print STDERR "Display::display done (lc: $lc - lang: $lang - mongodb: $mongodb - data_root: $data_root)\n";
@@ -5490,8 +5544,13 @@ CSS
 		return 301;
 	}
 
-	
+	my $share = lang('share');
 	$html .= <<HTML
+<div class="share_button right" style="float:right;margin-top:-10px;display:none;">
+<a href="$request_ref->{canon_url}" class="button small icon" title="$title">
+	<i class="fi-share"></i>
+	<span class="show-for-large-up"> $share</span>
+</a></div>
 <div class="edit_button right" style="float:right;margin-top:-10px;">
 <a href="/cgi/product.pl?type=edit&code=$code" class="button small icon">
 	<i class="fi-pencil"></i>
@@ -6916,6 +6975,9 @@ sub add_images_urls_to_product($) {
 
 	my $product_ref = shift;
 	
+	my $staticdom = format_subdomain('static');
+	my $path = product_path($product_ref->{code});
+	
 	foreach my $imagetype ('front','ingredients','nutrition') {
 	
 		my $size = $display_size;
@@ -6937,10 +6999,7 @@ sub add_images_urls_to_product($) {
 	
 			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 				and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
-			
-				my $path = product_path($product_ref->{code});
 
-				my $staticdom = format_subdomain('static');
 				$product_ref->{"image_" . $imagetype . "_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
 				$product_ref->{"image_" . $imagetype . "_small_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
 				$product_ref->{"image_" . $imagetype . "_thumb_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
@@ -6954,8 +7013,18 @@ sub add_images_urls_to_product($) {
 				last;
 			}
 		}
-	}		
-
+		
+		foreach my $key (keys $product_ref->{languages_codes}) {
+			my $id = $imagetype . '_' . $key;
+			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+				and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
+			
+				$product_ref->{selected_images}{$imagetype}{display}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+				$product_ref->{selected_images}{$imagetype}{small}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+				$product_ref->{selected_images}{$imagetype}{thumb}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
+			}
+		}
+	}
 }
 
 

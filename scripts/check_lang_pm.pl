@@ -2,14 +2,14 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use strict;
+use Modern::Perl '2012';
 use utf8;
 
 my $file = $ARGV[0];
 
 print "Checking $file\n";
 
-open(IN, "<:encoding(UTF-8)", $file) or die "Could not open $file: $!\n";
+open(my $IN, "<:encoding(UTF-8)", $file) or die "Could not open $file: $!\n";
 
 my %langs = ();
 
@@ -27,7 +27,7 @@ app_take_a_picture => {
 
 my $key = "";
 
-while (<IN>) {
+while (<$IN>) {
 
 	chomp;
 	my $l = $_;

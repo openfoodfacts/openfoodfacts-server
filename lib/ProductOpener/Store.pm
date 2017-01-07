@@ -20,11 +20,13 @@
 
 package ProductOpener::Store;
 
+use utf8;
+use Modern::Perl '2012';
+use Exporter    qw< import >;
+
 BEGIN
 {
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	require Exporter;
-	@ISA = qw(Exporter);
 	@EXPORT = qw();
 	@EXPORT_OK = qw(
 		&get_urlid
@@ -37,8 +39,6 @@ BEGIN
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);  
 }
 use vars @EXPORT_OK ; # no 'my' keyword for these
-use strict;
-use utf8;
 
 use Storable qw(lock_store lock_nstore lock_retrieve);
 #use Text::Unaccent "unac_string";
@@ -152,7 +152,7 @@ sub retrieve {
 	my $file = shift @_;
 	# If the file does not exist, return undef.
 	if (! -e $file) {
-		return undef;
+		return;
 	}
 	my $return = undef;
 	eval {$return = lock_retrieve($file);};

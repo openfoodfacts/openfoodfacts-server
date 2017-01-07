@@ -1,10 +1,10 @@
 #!/usr/bin/perl -w
 
 use utf8;
-use strict;
+use Modern::Perl '2012';
 
-binmode STDIN, ':utf8';
-binmode STDOUT, ':utf8';
+binmode STDIN, ':encoding(UTF-8)';
+binmode STDOUT, ':encoding(UTF-8)';
 
 my %europe = ();
 
@@ -38,18 +38,18 @@ Interdit en Australie, au Canada, aux Etats-Unis et en Norvège.",
 
 );
 
-open(IN, "<:encoding(UTF-8)", "europe_2011.txt");
-while (<IN>) {
+open(my $IN, "<:encoding(UTF-8)", "europe_2011.txt");
+while (<$IN>) {
 	chomp;
 	if ($_ =~ /E (\w+)/) {
 		my $id = 'E' . $1;
 		$europe{lc($id)} = 1;
 	}
 }
-close (IN);
+close ($IN);
 
-open(IN, "<:encoding(UTF-8)", "additives_source.txt");
-while (<IN>) {
+open($IN, "<:encoding(UTF-8)", "additives_source.txt");
+while (<$IN>) {
 	chomp;
 	my ($canon_name, $other_names, $misc, $desc, $level, $warning) = split("\t");
 	$level = -1;
@@ -76,5 +76,5 @@ while (<IN>) {
 	print $canon_name . "\t" . $other_names . "\t" . $misc . "\t" . $desc . "\t" . $level . "\t" . $warning . "\n";
 		
 }
-close (IN);
+close ($IN);
 	
