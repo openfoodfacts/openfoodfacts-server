@@ -7114,6 +7114,12 @@ sub display_structured_response_opensearch_rss {
 	my $dom = format_subdomain($subdomain);
 	my $query_link = $xs->escape_value($dom . $request_ref->{current_link_query} . "&rss=1");
 	my $description = $xs->escape_value(lang("search_description_opensearch"));
+
+	my $search_terms = $xs->escape_value(decode utf8=>param('search_terms'));
+	my $count = $xs->escape_value($request_ref->{structured_response}{count});
+	my $skip = $xs->escape_value($request_ref->{structured_response}{skip});
+	my $page_size = $xs->escape_value($request_ref->{structured_response}{page_size});
+	my $page = $xs->escape_value($request_ref->{structured_response}{page});
 	
 	my $xml = <<XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -7124,17 +7130,18 @@ sub display_structured_response_opensearch_rss {
      <title>$long_name</title>
      <link>$query_link</link>
      <description>$description</description>
-     <opensearch:totalResults>4230000</opensearch:totalResults>
-     <opensearch:startIndex>21</opensearch:startIndex>
-     <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
-     <atom:link rel="search" type="application/opensearchdescription+xml" href="http://$subdomain.$server_domain/cgi/opensearch.pl"/>
-     <opensearch:Query role="request" searchTerms="New York History" startPage="1" />
+     <opensearch:totalResults>$count</opensearch:totalResults>
+     <opensearch:startIndex>$skip</opensearch:startIndex>
+     <opensearch:itemsPerPage>${page_size}</opensearch:itemsPerPage>
+     <atom:link rel="search" type="application/opensearchdescription+xml" href="$dom/cgi/opensearch.pl"/>
+     <opensearch:Query role="request" searchTerms="${search_terms}" startPage="$page" />
 XML
 ;
 
 	if (defined $request_ref->{structured_response}{products}) {
 		foreach my $product_ref (@{$request_ref->{structured_response}{products}}) {
 			my $item_title = product_name_brand_quantity($product_ref);
+			$item_title = $product_ref->{code} unless $item_title;
 			my $item_description = $xs->escape_value(sprintf(lang("product_description"), $item_title));
 			$item_title = $xs->escape_value($item_title);
 			my $item_link = $xs->escape_value($dom . product_url($product_ref));
