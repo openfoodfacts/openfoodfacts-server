@@ -931,6 +931,7 @@ sub display_list_of_tags($$) {
 	}
 
 	my $worlddom = format_subdomain('world');
+	my $staticdom = format_subdomain('static');
 
 	
 #  db.products.aggregate( {$match : {"categories_tags" : "en:fruit-yogurts"}}, 
@@ -1267,7 +1268,7 @@ sub display_list_of_tags($$) {
 
 			if (defined $tags_images{$lc}{$tagtype}{get_fileid($icid)}) {
 				my $img = $tags_images{$lc}{$tagtype}{get_fileid($icid)};
-				$tagentry->{image} = "http://static.$server_domain/images/lang/$lc/$tagtype/$img";
+				$tagentry->{image} = "$staticdom/images/lang/$lc/$tagtype/$img";
 			}
 			
 			push @{$request_ref->{structured_response}{tags}}, $tagentry;
