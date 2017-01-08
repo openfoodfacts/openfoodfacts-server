@@ -7024,7 +7024,8 @@ sub display_structured_response_opensearch_rss {
 
 	$long_name = $xs->escape_value($long_name);
 	$short_name = $xs->escape_value($short_name);
-	my $query_link = $xs->escape_value("http://$subdomain.$server_domain" . $request_ref->{current_link_query} . "&rss=1");
+	my $dom = format_subdomain($subdomain);
+	my $query_link = $xs->escape_value($dom . $request_ref->{current_link_query} . "&rss=1");
 	my $description = $xs->escape_value(lang("search_description_opensearch"));
 	
 	my $xml = <<XML
@@ -7049,7 +7050,7 @@ XML
 			my $item_title = product_name_brand_quantity($product_ref);
 			my $item_description = $xs->escape_value(sprintf(lang("product_description"), $item_title));
 			$item_title = $xs->escape_value($item_title);
-			my $item_link = $xs->escape_value("http://$subdomain.$server_domain" . product_url($product_ref));
+			my $item_link = $xs->escape_value($dom . product_url($product_ref));
 			
 			$xml .= <<XML
      <item>
