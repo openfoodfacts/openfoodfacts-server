@@ -1,9 +1,9 @@
 #!/usr/bin/perl
 
-use CGI::Carp qw(fatalsToBrowser);
-
-use strict;
+use Modern::Perl '2012';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -40,7 +40,7 @@ if (defined $User_id) {
 			$url = "/cgi/product.pl?type=edit&code=" . param('code');
 		}
 	}
-	elsif ((defined $referer) and ($referer =~ /^http:\/\/$subdomain\.$server_domain/) and (not ($referer =~ /(?:session|user)\.pl/))) {
+	elsif ((defined $referer) and ($referer =~ /^https?:\/\/$subdomain\.$server_domain/) and (not ($referer =~ /(?:session|user)\.pl/))) {
 		$url = $referer;
 	}
 	

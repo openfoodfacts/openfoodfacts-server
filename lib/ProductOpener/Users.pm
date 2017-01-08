@@ -18,14 +18,15 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
 package ProductOpener::Users;
+
+use utf8;
+use Modern::Perl '2012';
+use Exporter    qw< import >;
 
 BEGIN
 {
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	require Exporter;
-	@ISA = qw(Exporter);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 					%User
@@ -61,8 +62,6 @@ BEGIN
 }
 
 use vars @EXPORT_OK ;
-use strict;
-use utf8;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -335,7 +334,7 @@ sub process_user_form($) {
 		# $email =~ s/<PASSWORD>/$user_ref->{password}/g;
 		$error = send_email($user_ref,lang("add_user_email_subject"), $email);
 		
-		my $email = <<EMAIL
+		my $admin_mail_body = <<EMAIL
 		
 Bonjour,
 
@@ -351,7 +350,7 @@ cc: $user_ref->{initial_cc}
 
 EMAIL
 ;	
-		$error += send_email_to_admin("Inscription de $userid", $email);
+		$error += send_email_to_admin("Inscription de $userid", $admin_mail_body);
 	}
     return $error;
 }
@@ -550,13 +549,13 @@ sub init_user()
 
                        # Try to keep sessions opened for users with dynamic IPs
 
-                       sub short_ip ($)
+                       my $short_ip = sub ($)
                        {
                                my $ip = shift;
                                # Remove the last two bytes
                                $ip =~ s/(\.\d+){2}$//;
                                return $ip;
-                       }
+                       };
 
 			if ($debug) {
 				#use Data::Dumper;
@@ -567,7 +566,7 @@ sub init_user()
                         or (not defined $user_session)
                         or (not defined $user_ref->{'user_sessions'}{$user_session})
                         or (not defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
-                        or ((short_ip($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne (short_ip(remote_addr()))) ))
+                        or (($short_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne ($short_ip->(remote_addr()))) ))
 		    {
 			$debug and print STDERR "ProductOpener::Users::init_user - no matching session\n";
 			$user_id = undef;
@@ -683,7 +682,7 @@ sub check_session($$) {
 					or (not defined $user_session)
 					or (not defined $user_ref->{'user_sessions'}{$user_session})
 					# or (not defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
-					# or ((short_ip($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne (short_ip(remote_addr()))) 
+					# or (($short_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) ne ($short_ip->(remote_addr()))) 
 					
 					) {
 			$debug and print STDERR "ProductOpener::Users::check_session - no matching session\n";

@@ -22,7 +22,8 @@
 # (instead of when each httpd child starts)
 # see http://apache.perl.org/docs/1.0/guide/performance.html#Code_Profiling_Techniques
 #
-use strict;
+use utf8;
+use Modern::Perl '2012';
 
 use Carp ();
 
@@ -58,6 +59,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Index qw/:all/;
+use ProductOpener::URL qw/:all/;
 use ProductOpener::Version qw/:all/;
 
 use Apache2::Const -compile => qw(OK);

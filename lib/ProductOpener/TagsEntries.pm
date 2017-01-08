@@ -9,11 +9,13 @@
 #
 ######################################################################
 
+use utf8;
+use Modern::Perl '2012';
+use Exporter    qw< import >;
+
 BEGIN
 {
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	require Exporter;
-	@ISA = qw(Exporter);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 					%ingredients_classes
@@ -24,8 +26,6 @@ BEGIN
 }
 
 use vars @EXPORT_OK ;
-use strict;
-use utf8;
 
 
 

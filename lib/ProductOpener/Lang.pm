@@ -21,7 +21,7 @@
 package ProductOpener::Lang;
 
 use utf8;
-use strict;
+use Modern::Perl '2012';
 use Exporter    qw< import >;
 
 BEGIN
@@ -2860,6 +2860,12 @@ page_x_out_of_y => {
 	he => "עמוד %d מתוך %d.",
 	nl => 'Pagina %d van %d.',
 	nl_be => 'Pagina %d van %d.',
+},
+
+loadmore => {
+	en => 'Load more results',
+	fr => 'Charger plus de résultats',
+	de => 'Mehr Ergebnisse laden',
 },
 
 edit => {
@@ -11508,6 +11514,11 @@ ingredients_analysis_note => {
 
 #ENDFRONTPAGE
 
+share => {
+	en => 'Share',
+	de => 'Teilen',
+},
+
 );
 
 
@@ -11686,8 +11697,15 @@ else {
 
 		foreach my $l (@Langs) {
 			my $value = $Lang{$special_field}{$l};
-			foreach my $key (keys %Lang) {
+			if (not (defined $value)) {
+				next;
+			}
 			
+			foreach my $key (keys %Lang) {
+				if (not defined ($Lang{$key}{$l})) {
+					next;
+				}
+				
 				$Lang{$key}{$l} =~ s/\<\<$special_field\>\>/$value/g;
 			}
 		}

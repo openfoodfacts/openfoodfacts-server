@@ -1,15 +1,18 @@
 package ProductOpener::Config;
 
+use utf8;
+use Modern::Perl '2012';
+use Exporter    qw< import >;
+
 BEGIN
 {
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	require Exporter;
-	@ISA = qw(Exporter);
 	@EXPORT = qw();
 	@EXPORT_OK = qw(
 		%admins
 		
 		$server_domain
+		@ssl_subdomains
 		$data_root
 		$www_root
 		$reference_timezone
@@ -49,8 +52,6 @@ BEGIN
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 use vars @EXPORT_OK ; # no 'my' keyword for these
-use strict;
-use utf8;
 
 use ProductOpener::Config2;
 use ProductOpener::Lang;
@@ -78,6 +79,7 @@ scanparty-franprix-05-2016
 
 # server constants
 $server_domain = $ProductOpener::Config2::server_domain;
+@ssl_subdomains = @ProductOpener::Config2::ssl_subdomains;
 $mongodb = $ProductOpener::Config2::mongodb;
 
 # server paths

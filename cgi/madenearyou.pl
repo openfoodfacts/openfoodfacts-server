@@ -1,10 +1,10 @@
 #!/usr/bin/perl
 
+use Modern::Perl '2012';
+use utf8;
+
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
-
-use strict;
-use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -72,11 +72,11 @@ $initjs
 });
 </script>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet\@0.7.7/dist/leaflet.css" integrity="sha384-99ZJFcuBCh9c/V/+8YwDX/TUGG8JWMG+gKFJWzk0BZP3IoDMN+pLGd3/H0yjg4oa" crossorigin="anonymous">
-<script src="https://unpkg.com/leaflet\@0.7.7/dist/leaflet.js" integrity="sha384-Lh7SNUss9JoImCvc96eCUnLX3HvY4kb0UZCWZbYWvceJ+o5CJeOJqqNoheaGkNHT" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.css" />
-<link rel="stylesheet" href="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.Default.css" />
-<script src="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/leaflet.markercluster-src.js"></script>
+<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
+<script src="/bower_components/leaflet/dist/leaflet.js"></script>
+<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+<script src="/bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
 
 <meta property="fb:admins" content="706410516" />
 <meta property="og:site_name" content="C'est emballé près de chez vous"/>
@@ -274,7 +274,7 @@ HTML
 	print header ( -expires=>'-1d', -charset=>'UTF-8');
 	
 	
-	binmode(STDOUT, ":utf8");
+	binmode(STDOUT, ":encoding(UTF-8)");
 	print $html;
 
 }

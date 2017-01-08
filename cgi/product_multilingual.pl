@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2016 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -20,10 +20,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
-use strict;
+use Modern::Perl '2012';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -38,6 +38,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
+use ProductOpener::URL qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -309,6 +310,11 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		push @{$product_ref->{"labels_tags" }}, "en:carbon-footprint";
 	}	
 	
+	if ((defined $product_ref->{nutriments}{"glycemic-index"}) and ($product_ref->{nutriments}{"glycemic-index"} ne '')) {
+		push @{$product_ref->{"labels_hierarchy" }}, "en:glycemic-index";
+		push @{$product_ref->{"labels_tags" }}, "en:glycemic-index";
+	}
+	
 	# Language and language code / subsite
 	
 	if (defined $product_ref->{lang}) {
@@ -504,9 +510,10 @@ sub display_field($$) {
 		$tagsinput = ' tagsinput';
 		
 		my $autocomplete = "";
-		if (defined $taxonomy_fields{$fieldtype}) {
+		if ((defined $taxonomy_fields{$fieldtype}) or ($fieldtype eq 'emb_codes')) {
+			my $world = format_subdomain('world');
 			$autocomplete = ",
-	'autocomplete_url': 'http://world.$server_domain/cgi/suggest.pl?lc=$lc&tagtype=$fieldtype&'";
+	'autocomplete_url': '$world/cgi/suggest.pl?lc=$lc&tagtype=$fieldtype&'";
 		}
 		
 		my $default_text = "";
@@ -1643,7 +1650,7 @@ HTML
 <p class="note">&rarr; $Lang{ecological_data_table_note}{$lang}</p>			
 HTML
 ;	
-	
+
 	$html .= "</div><!-- fieldset -->";
 	
 	
