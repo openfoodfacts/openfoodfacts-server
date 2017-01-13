@@ -31,9 +31,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::URL qw/:all/;
 use ProductOpener::Lang qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -59,16 +57,21 @@ else {
 	$short_name .= " " . uc($cc) . "/" . uc($lc);
 }
 
-my %manifest = (
-	'lang' => $lc,
-	'name' => $long_name,
-	'short_name' => $short_name,
-	'description' => lang('site_description'),
-	'start_url' => '/',
-	'scope' => '/',
-	'display' => 'standalone',
-);
+my %manifest;
+$manifest{lang} = $lc;
+$manifest{name} = $long_name;
+$manifest{short_name} = $short_name;
+$manifest{description} = lang('site_description');
+$manifest{start_url} = format_subdomain($subdomain);
+$manifest{scope} = '/';
+$manifest{display} = 'standalone';
 
-my $data =  encode_json(\%manifest);
+my @keys = qw(theme_color icons related_applications background_color);
+foreach my $key (@keys) {
+	$manifest{$key} = $options{manifest}{$key} if $options{manifest}{$key};
+}
+
+my $data = encode_json(\%manifest);
 	
-print "Content-Type: application/manifest+json; charset=UTF-8\r\nCache-Control: max-age=86400\r\n\r\n" . $data;	
+print "Content-Type: application/manifest+json; charset=UTF-8\r\nCache-Control: max-age=86400\r\n\r\n" . $data;
+
