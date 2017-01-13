@@ -142,7 +142,7 @@ my @icons = (
 
 my @related_applications = (
 	{ 'platform' => 'play', 'id' => 'org.openfoodfacts.scanner', 'url' => 'https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner' },
-	{ 'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://itunes.apple.com/de/app/open-food-facts/id588797948' },
+	{ 'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://itunes.apple.com/app/id588797948' },
 );
 
 my $manifest;
