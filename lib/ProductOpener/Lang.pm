@@ -11320,7 +11320,7 @@ footer_join_us_on => {
 	ro => 'Alătură-te nouă pe %s:', #ro-CHECK - Please check and remove this comment
 	th => 'ร่วมกับเราใน %s:', #th-CHECK - Please check and remove this comment
 	vi => 'Tham gia với chúng tôi trên %s:', #vi-CHECK - Please check and remove this comment
-	zh => '加入我们的 ％s：', #zh-CHECK - Please check and remove this comment
+	zh => '加入我们的 %s：', #zh-CHECK - Please check and remove this comment
 },
 
 footer_and_the_facebook_group => {
