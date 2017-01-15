@@ -182,6 +182,10 @@ sub extract_ingredients_from_text($) {
 	
 	print STDERR "extract_ingredients_from_text - text: $text \n";
 	
+	# unify newline feeds to \n
+	$text =~ s/\r\n/\n/g;
+	$text =~ s/\R/\n/g;
+	
 	# assume commas between numbers are part of the name
 	# e.g. en:2-Bromo-2-Nitropropane-1,3-Diol, Bronopol
 	# replace by a lower comma ‚
