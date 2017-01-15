@@ -1688,7 +1688,7 @@ HTML
 		
 		foreach my $change_ref (reverse @{$changes_ref}) {
 		
-			my $date = display_date($change_ref->{t});	
+			my $date = display_date_tag($change_ref->{t});	
 			my $user = "";
 			if (defined $change_ref->{userid}) {
 				$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";

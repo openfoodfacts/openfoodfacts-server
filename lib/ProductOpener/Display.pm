@@ -2035,7 +2035,7 @@ HTML
 				$products_title = $user_ref->{name};
 			}
 			
-			$description .= "<p>" . lang("contributor_since") . " " . display_date($user_ref->{registered_t}) . "</p>";
+			$description .= "<p>" . lang("contributor_since") . " " . display_date_tag($user_ref->{registered_t}) . "</p>";
 			
 			if ((defined $user_ref->{missions}) and ($request_ref->{page} <= 1 )) {
 				my $missions = '';
