@@ -51,13 +51,21 @@ my @metadata_fields = qw<
 sub read_po_files {
     my ($dir) = @_;
 
+	print STDERR "Reading po files from dir $dir\n";
+	
     return unless $dir;
+	
+	# remove trailing slash if present
+	$dir =~ s/\/$//;
 
     my %l10n;
     my @files = File::Find::Rule->file->name("*.po")->in($dir);
 
     for my $file (@files) {
         # read the .po file
+		
+		print STDERR "Reading $file\n";
+		
         open my $fh, "<", $file or die $!;
         my %Lexicon = %{ Locale::Maketext::Lexicon::Getcontext->parse(<$fh>) };
         close $fh;
@@ -73,6 +81,14 @@ sub read_po_files {
             $l10n{$key}{$lc} = delete $Lexicon{$key};
         }
     }
+	
+	# for debugging purposes, export the structure
+	
+	use Data::Dumper;
+	$Data::Dumper::Sortkeys = 1;
+	open my $fh, ">", "${dir}/l10n.debug" or die "can not create ${dir}/l10n.debug : $!";
+	print $fh "I18N.pm - read_po_file - dir: $dir\n\n" . Dumper(\%l10n) . "\n";
+	close $fh;
 
     return \%l10n
 }
