@@ -64,6 +64,8 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 
 
+print STDERR "data_root: $data_root\n";
+
 # Tags types to path components in URLS: in ascii, lowercase, unaccented,
 # transliterated (in Roman characters)
 #
@@ -71,14 +73,9 @@ use ProductOpener::Config qw/:all/;
 # the singulars that need to be changed to plurals
 my ($tag_type_singular_ref, $tag_type_plural_ref)
     = ProductOpener::I18N::split_tags(
-        ProductOpener::I18N::read_po_files("$data_root/po/tags"));
+        ProductOpener::I18N::read_po_files("$data_root/po/tags/"));
 %tag_type_singular = %$tag_type_singular_ref;
 %tag_type_plural   = %$tag_type_plural_ref;
-
-# UI strings, non-Roman characters can be used
-%Lang = %{ ProductOpener::I18N::read_po_files("$data_root/po/common/") };
-
-
 
 
 
@@ -121,25 +118,32 @@ sub lang($) {
 
 sub init_languages($) {
 
-my $recompute = shift;
-
-my @debug_taxonomies = ("categories", "labels", "additives");
-
-foreach my $taxonomy (@debug_taxonomies) {
-
-	foreach my $suffix ("prev", "next", "debug") {
+	my $recompute = shift;
 	
-		foreach my $field ("", "_s", "_p") {
-			$Lang{$taxonomy . "_$suffix" . $field } = { en => get_fileid($taxonomy) . "-$suffix" };
-			print STDERR " Lang{ " . $taxonomy . "_$suffix" . $field  . "} = { en => " . get_fileid($taxonomy) . "-$suffix } \n";
-		}
+	# At this point, @Langs contains all the language codes (initialized from countries taxonomy by Tags.pm)
+	# init_languages may already have been called once with $recompute == 0 from Tags.pm,
+	# and it can called a 2nd time with $recompute == 1 by recompute_lang.pm
+	
+	# Load the strings from the .po files
+	# UI strings, non-Roman characters can be used
+	print STDERR "Load %Lang from $data_root/po/common/\n";
+	%Lang = %{ ProductOpener::I18N::read_po_files("$data_root/po/common/") };	
+
+	my @debug_taxonomies = ("categories", "labels", "additives");
+
+	foreach my $taxonomy (@debug_taxonomies) {
+
+		foreach my $suffix ("prev", "next", "debug") {
 		
-		$tag_type_singular{$taxonomy . "_$suffix"} = { en => get_fileid($taxonomy) . "-$suffix" };
-		$tag_type_plural{$taxonomy . "_$suffix"} = { en => get_fileid($taxonomy) . "-$suffix" };
+			foreach my $field ("", "_s", "_p") {
+				$Lang{$taxonomy . "_$suffix" . $field } = { en => get_fileid($taxonomy) . "-$suffix" };
+				print STDERR " Lang{ " . $taxonomy . "_$suffix" . $field  . "} = { en => " . get_fileid($taxonomy) . "-$suffix } \n";
+			}
+			
+			$tag_type_singular{$taxonomy . "_$suffix"} = { en => get_fileid($taxonomy) . "-$suffix" };
+			$tag_type_plural{$taxonomy . "_$suffix"} = { en => get_fileid($taxonomy) . "-$suffix" };
+		}
 	}
-}
-
-
 
 
 	foreach my $l (@Langs) {
@@ -182,97 +186,108 @@ foreach my $taxonomy (@debug_taxonomies) {
 
 		foreach my $type (keys %tag_type_plural) {
 				$tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;
-				#print "tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;\n";
+				# print "tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;\n";
 		}
 
 	}
 
-if ((-e "$data_root/Lang.sto") and (not $recompute)) {
+	if ((-e "$data_root/Lang.${server_domain}.sto") and (not $recompute)) {
 
-	print STDERR "Loading \%Lang from $data_root/Lang.sto\n";
-	my $lang_ref = retrieve("$data_root/Lang.sto");
-	%Lang = %{$lang_ref};
-	print STDERR "Loaded \%Lang from $data_root/Lang.sto\n";
-	
-}
-else {
-
-	print STDERR "Recomputing \%Lang\n";
-
-
-	# Load overrides from %SiteLang
-
-	print "SiteLang - overrides \n";
-
-
-	foreach my $key (keys %SiteLang) {
-		print "SiteLang{$key} \n";
-
-		$Lang{$key} = {};
-		foreach my $l (keys %{$SiteLang{$key}}) {
-			$Lang{$key}{$l} = $SiteLang{$key}{$l};
-			print "SiteLang{$key}{$l} \n";
-		}
+		print STDERR "Loading \%Lang from $data_root/Lang.${server_domain}.sto\n";
+		my $lang_ref = retrieve("$data_root/Lang.${server_domain}.sto");
+		%Lang = %{$lang_ref};
+		print STDERR "Loaded \%Lang from $data_root/Lang.${server_domain}.sto\n";
+		
 	}
+	else {
+
+		print STDERR "Recomputing \%Lang\n";
 
 
-	foreach my $l (@Langs) {
-		$CanonicalLang{$l} = {};	 # To map 'a-completer' to 'A compléter',
-	}
+		# Load overrides from %SiteLang
 
-	foreach my $key (keys %Lang) {
-		next if $key =~ /^bottom_title|bottom_content$/;
-		if ((defined $Lang{$key}{fr}) or (defined $Lang{$key}{en})) {
-			foreach my $l (@Langs) {
+		print "SiteLang - overrides \n";
 
-				my $short_l = undef;
-				if ($l =~ /_/) {
-					$short_l = $`,  # pt_pt
-				}
 
-				if (not defined $Lang{$key}{$l}) {
-					if ((defined $short_l) and (defined $Lang{$key}{$short_l})) {
-						$Lang{$key}{$l} = $Lang{$key}{$short_l};
-					}
-					elsif (defined $Lang{$key}{en}) {
-						$Lang{$key}{$l} = $Lang{$key}{en};
-					}
-					else {
-						$Lang{$key}{$l} = $Lang{$key}{fr};
-					}
-				}
+		foreach my $key (keys %SiteLang) {
+			print "SiteLang{$key} \n";
 
-				my $tagid = get_fileid($Lang{$key}{$l});
-
-				$CanonicalLang{$l}{$tagid} = $Lang{$key}{$l};
+			$Lang{$key} = {};
+			foreach my $l (keys %{$SiteLang{$key}}) {
+				$Lang{$key}{$l} = $SiteLang{$key}{$l};
+				print "SiteLang{$key}{$l} \n";
 			}
 		}
-	}
+		
+		
+		# Save to file, for debugging and comparing purposes
+	
+		use Data::Dumper::AutoEncode;
+		use Data::Dumper;
+		$Data::Dumper::Sortkeys = 1;
+		open my $fh, ">", "$data_root/po/translations.debug.${server_domain}" or die "can not create $data_root/po/translations.debug.${server_domain} : $!";
+		print $fh "Lang.pm - %Lang\n\n" . eDumper(\%Lang) . "\n";
+		close $fh;		
 
-	my @special_fields = ("site_name");
-
-	foreach my $special_field (@special_fields) {
 
 		foreach my $l (@Langs) {
-			my $value = $Lang{$special_field}{$l};
-			if (not (defined $value)) {
-				next;
+			$CanonicalLang{$l} = {};	 # To map 'a-completer' to 'A compléter',
+		}
+
+		foreach my $key (keys %Lang) {
+			if ((defined $Lang{$key}{fr}) or (defined $Lang{$key}{en})) {
+				foreach my $l (@Langs) {
+
+					my $short_l = undef;
+					if ($l =~ /_/) {
+						$short_l = $`,  # pt_pt
+					}
+
+					if (not defined $Lang{$key}{$l}) {
+						if ((defined $short_l) and (defined $Lang{$key}{$short_l})) {
+							$Lang{$key}{$l} = $Lang{$key}{$short_l};
+						}
+						elsif (defined $Lang{$key}{en}) {
+							$Lang{$key}{$l} = $Lang{$key}{en};
+						}
+						else {
+							$Lang{$key}{$l} = $Lang{$key}{fr};
+						}
+					}
+
+					my $tagid = get_fileid($Lang{$key}{$l});
+
+					$CanonicalLang{$l}{$tagid} = $Lang{$key}{$l};
+				}
 			}
-			
-			foreach my $key (keys %Lang) {
-				if (not defined ($Lang{$key}{$l})) {
+		}
+
+		my @special_fields = ("site_name");
+
+		foreach my $special_field (@special_fields) {
+
+			foreach my $l (@Langs) {
+				my $value = $Lang{$special_field}{$l};
+				if (not (defined $value)) {
 					next;
 				}
 				
-				$Lang{$key}{$l} =~ s/\<\<$special_field\>\>/$value/g;
+				foreach my $key (keys %Lang) {
+					if (not defined ($Lang{$key}{$l})) {
+						next;
+					}
+					
+					$Lang{$key}{$l} =~ s/\<\<$special_field\>\>/$value/g;
+				}
 			}
-		}
 
-	}
-	
-	
-	store("$data_root/Lang.sto",\%Lang);
-	
+		}
+		
+		# use $server_domain in part of the name so that we have different files
+		# when 2 instances of Product Opener share the same $data_root
+		# as is the case with world.openfoodfacts.org and world.preprod.openfoodfacts.org
+		store("$data_root/Lang.${server_domain}.sto",\%Lang);
+		
 }
 
 } # init_languages

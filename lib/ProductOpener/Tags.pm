@@ -1278,8 +1278,20 @@ foreach my $language (keys %{$properties{languages}}) {
 
 @Langs = sort keys %Langs;
 
+# We need the @Langs array to be populated with all the languages before calling init_languages
+# as init_languages will read all strings and generate missing values in some languages
+# by using the English values.
 
 init_languages(0);	# do not recompute %Lang (can take one minute or so)
+
+# after %Lang is initialized by init_languages, add the translations of all language names
+
+foreach my $language (keys %{$properties{languages}}) {
+
+	my $lc = lc($properties{languages}{$language}{"language_code_2:en"});
+	
+	$Langs{$lc} = $translations_to{languages}{$language}{$lc};
+}
 
 
 # Build map of local country names in official languages to (country, language)
