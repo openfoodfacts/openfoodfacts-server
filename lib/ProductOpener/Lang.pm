@@ -1355,6 +1355,7 @@ product_description => {
 	fr => "Ingrédients, allergènes, additifs, composition nutritionnelle, labels, origine des ingrédients et informations du produit %s",
 	nl => "Ingrediënten, allergenen, additieven, voedingswaarden, keurmerken, herkomst ingrediënten en informatie van product %s",
 	nl_be => "Ingrediënten, allergenen, additieven, nutritionele waarden, keurmerken, herkomst ingrediënten en informatie van product %s",
+	ru => "Состав, аллергены, пищевые добавки, пищевая ценность, энергетическая ценность, знаки качества и соответствия, происхождение ингредиентов и информация о продукте %s",
 },
 
 og_image_url => {
@@ -1491,6 +1492,7 @@ delete_user => {
 	ja => 'ユーザーを削除',
 	nl => 'Verwijder gebruiker',
 	nl_be => 'Verwijder gebruiker',
+	ru => 'Удалить пользователя',
 },
 
 add_user_confirm => {
@@ -1507,7 +1509,7 @@ add_user_confirm => {
 	he => '<p>תודה לך על הצטרפותך. מעכשיו תהיה לך אפשרות להיכנס לאתר כדי להוסיף ולערוך מוצרים.</p>',
 	nl => '<p>Bedankt voor uw inschrijving. U kan nu inloggen op de site om producten toe te voegen of te bewerken.</p>',
 	nl_be => '<p>Bedankt voor uw inschrijving. U kan nu inloggen op de site om producten toe te voegen of te bewerken.</p>',
-	ru => '<p>Спасибо, что присоединились! Теперь вы можете войти на сайт, чтобы,добавить или изменить продукты.</p>',
+	ru => '<p>Спасибо, что присоединились! Теперь вы можете войти на сайт, чтобы добавлять и изменять продукты.</p>',
 },
 
 add_user_email_subject => {
@@ -1523,6 +1525,7 @@ add_user_email_subject => {
 	he => 'תודה לך על הצטרפותך ל־<<site_name>>',
 	nl => 'Bedankt voor uw inschrijving op <<site_name>>',
 	nl_be => 'Bedankt voor uw inschrijving op <<site_name>>',
+	ru => 'Спасибо, что зарегистрировались на <<site_name>>',
 },
 
 add_user_email_body => {
@@ -2479,38 +2482,6 @@ HTML
 
 },
 
-top_title => {
-	fr => "",
-	en => "",
-	es => "",
-	pt => '',
-	he => "",
-	nl => "",
-	nl_be => "",
-},
-top_content => {
-	fr => <<HTML
-HTML
-,
-	en => <<HTML
-HTML
-,
-	es => <<HTML
-HTML
-,
-	pt => <<HTML
-,
-	he => <<HTML
-HTML
-,
-	nl => <<HTML
-HTML
-,
-	nl_be => <<HTML
-HTML
-,
-},
-
 on_the_blog_title => {
 	fr => "Actualité",
 	de => "Neuigkeiten",
@@ -2959,6 +2930,7 @@ connected_with_facebook => {
 	he => "נכנסת לחשבון הפייסבוק שלך.",
 	nl => 'Je bent verbonden via je Facebookaccount',
 	nl_be => 'U bent verbonden via uw Facebookaccount',
+	ru => "Вы подключены используя ваш аккаунт Facebook",
 },
 
 you_are_connected_as_x => {
@@ -2974,6 +2946,7 @@ you_are_connected_as_x => {
 	he => "נכנסת בשם %s",
 	nl => 'Je bent verbonden als %s',
 	nl_be => 'U bent verbonden als %s',
+	ru => "Вы подключены под именем %s.",
 },
 
 signout => {
@@ -2990,6 +2963,7 @@ signout => {
 	ja => 'サインアウト',
 	nl => 'Afmelden',
 	nl_be => 'Afmelden',
+	ru => "Выйти",
 },
 
 error_invalid_address => {
@@ -3023,6 +2997,7 @@ name => {
 	ja => '名前',
 	nl => 'Naam',
 	nl_be => 'Naam',
+	ru => "Имя",
 },
 
 
@@ -3039,6 +3014,7 @@ email => {
 	ja => 'メールアドレス',
 	nl => 'E-mailadres',
 	nl_be => 'E-mailadres',
+	ru => "Адрес e-mail",
 },
 
 username => {
@@ -3086,6 +3062,7 @@ twitter => {
 	he => "שם משתמש בטוויטר",
 	nl => 'Gebruikersnaam Twitter (optioneel)',
 	nl_be => 'Gebruikersnaam Twitter (optioneel)',
+	ru => "Имя пользователя Twitter",
 },
 
 password => {
@@ -3155,6 +3132,7 @@ website => {
 	he => "כתובת אתר או בלוג",
 	nl => 'Adres van website of blog',
 	nl_be => 'Adres van website of blog',
+	ru => "Адрес сайта или блога",
 },
 
 
@@ -3188,6 +3166,7 @@ error_no_name => {
 	he => "עליך לרשום שם או כינוי.",
 	nl => 'Vul een naam of pseudoniem in',
 	nl_be => 'Vul een naam of bijnaam in',
+	ru => "Вам необходимо ввести имя или псевдоним.",
 },
 
 error_invalid_email => {
@@ -3233,6 +3212,7 @@ error_no_username => {
 	he => "עליך לרשום שם משתמש",
 	nl => 'Je moet een gebruikersnaam invoeren',
 	nl_be => 'U moet een gebruikersnaam ingeven',
+	ru => "Вам необходимо ввести имя пользователя",
 },
 
 error_username_not_available => {
@@ -3367,6 +3347,7 @@ no_products => {
 	he => "אין מוצרים.",
 	nl => 'Geen producten',
 	nl_be => 'Geen producten',
+	ru => "Нет продуктов",
 	# zh => '',
 },
 
@@ -3729,6 +3710,7 @@ expiration_date_note => {
 	nl => 'Dankzij de houdbaarheidsdatum is het mogelijk om veranderingen van het product over een bepaalde periode waar te nemen en om de meest recente versie te bepalen.',
 	nl_be => 'Dankzij de houdbaarheidsdatum is het mogelijk om veranderingen van het product over een bepaalde periode waar te nemen en om de meest recente versie te bepalen.',
 	de => 'Das Ablaufdatum ist eine Möglichkeit, um Produktänderungen im Verlauf der Zeit zu folgen, und nun die aktuellste Version zu identifizieren.',
+	ru => "Дата окончания срока годности — для отслеживания новизны данных.",
 },
 
 product_name => {
@@ -3936,6 +3918,7 @@ packaging_note => {
 	nl => "Soort verpakking, formaat, materiaal",
 	nl_be => "Soort verpakking, formaat, materiaal",
 	de => "Verpackungsart, Format, Material",
+	ru => "Тип, формат, материал упаковки",
 },
 
 # NEEDSTOBEAVARIABLE
@@ -4009,6 +3992,7 @@ categories_note => {
 	nl => "Duid enkel de meest specifieke categorie aan. De \"verwante\" categorieën worden automatisch toegevoegd.",
 	nl_be => "Duidt enkel de meest specifieke categorie aan. De \"verwante\" categorieën worden automatisch toegevoegd.",
 	de => "Geben Sie nur die am zutreffende Kategorie an, die \"Vorfahr-\" Kategorien werden automatisch hinzugefügt.",
+	ru => "Можно указать только самую точную категорию. «Родительские» категории будут добавлены автоматически (если/когда они будут в таксономии; если их нет, то полезно также добавить и самые точные из существующих категорий).",
 },
 
 pnns_groups_1 => {
@@ -4030,23 +4014,25 @@ labels => {
 	nl => "Keurmerken, certificaten, prijzen",
 	nl_be => "Labels, certificaten, prijzen",
 	de => "Labels, Zertifizierungen, Preise",
+	ru => "Знаки качества, награды, пометки",
 },
 
 # NEEDSTOBEAVARIABLE
 
 labels_example => {
 	fr => "AB, Bio européen, Max Havelaar, Label Rouge, IGP, AOP, Saveur de l'Année 2012...",
-	en => "Organic", # "Fairtrade USA, Fair trade, TransFair...",
+	en => "Organic", 
 	el => "Βιολογικό/Οργανικό/Ολοκληρωμένης Διαχείρισης, Δικαίου Εμπορίου, Π.Ο.Π., Π.Γ.Ε, Χωρίς γλουτένη, Ελεύθερο Γενετικών Τροποποιημένων/Non GMO, Βραβείο γεύσης...",
 	es => "Ecológico, Fairtrade-Max Havelaar, I.G.P., D.O.P., Sabor del año 2012...",
 	pt => "Ecológico, Comércio Justo, Sabor do Ano 2012...",
 	pt_pt => "Ecológico, Produto do Ano 2012, sem glúten, ...",
 	ro => 'Bio',
 	it => "IGP, IGT, DOP, Bio, Ecologico, Non OGM, gluten-free",
-	he => "אורגני", "סחר הוגן, מיוצר בישראל",
+	he => "אורגני, סחר הוגן, מיוצר בישראל",
 	nl => "EKO, Max Havelaar, Label Rouge, Organisch, Glutenvrij, Smaak van het jaar 2012, ...",
 	nl_be => "AB, Max Havelaar, Label Rouge, Organisch, Glutenvrij, Smaak van het jaar 2012, ...",
 	de => "Bio, Fairtrade-Max Havelaar, demeter, vegan, Glutenfrei, ...",
+	ru => "Без консервантов, ГОСТ 31450-2013, ТУ 9114-016-56255261, Высший молочный стандарт, 100 % натуральное, Сто лучших товаров России 2013",
 },
 
 # NEEDSTOBEAVARIABLE
@@ -4126,6 +4112,7 @@ manufacturing_places => {
 	nl => "Locaties van productie of verwerking",
 	nl_be => "Locaties van productie of verwerking",
 	de => "Herstellungs- oder Umwandlungsorte",
+	ru => "Места производства или переработки",
 },
 
 
@@ -4241,6 +4228,7 @@ es => "Indica donde compraste o viste el producto (al menos el país)",
 	nl => "Geef de plaats aan waar je het product gekocht of gezien heeft (ten minste het land)",
 	nl_be => "Geef de plaats aan waar u het product gekocht of gezien heeft (ten minste het land)",
 	de => "Bitte geben Sie den Ort ein, wobei Sie das Produkt gekauft oder gesehen haben (das Land zumindest)",
+	ru => "Укажите, где вы купили или увидели продукт (хотя бы страну)",
 },
 
 stores => {
@@ -4498,6 +4486,7 @@ ingredients_text_note => {
 	nl => "Behoudt de volgorde, geef het % indien vermeld, scheiden door middel van een komma of '-' , gebruik de ( ) voor de ingrediënten van een ingrediënt, vermeldt de allergenen tussen '_' zoals bijvoorbeeld _melk_",
 	nl_be => "Behoudt de volgorde, geef het % indien vermeld, scheiden door middel van een komma of '-' , gebruik de ( ) voor de ingrediënten van een ingrediënt, vermeldt de allergenen tussen '_' zoals bijvoorbeeld _melk_",
 	de => "Sortierung behalten, % anzeigen falls vorhanden, mit Komma oder - trennen, für die Zutaten eines Zutats () verwenden, Allergen zwischen _ anzeigen: zum Beispiel _Milch_",
+	ru => "Сохраняйте порядок, указывайте % (где указано), разделяйте запятыми или - , отмечайте составляющие ингредиента скобками ( ); окружайте то, что помечено как аллергены «_», например _молоко_",
 },
 
 ingredients_text_display_note => {
@@ -4635,6 +4624,7 @@ serving_size => {
     pl => 'Porcja', #pl-CHECK - Please check and remove this comment
 	pt => "Tamanho da porção",
 	ro => "Cantitatea unei porții",
+	ru => "Размер порции",
     th => 'ที่ให้บริการขนาด', #th-CHECK - Please check and remove this comment
     vi => 'Kích thước phục vụ', #vi-CHECK - Please check and remove this comment
     zh => '份量', #zh-CHECK - Please check and remove this comment
@@ -4673,7 +4663,7 @@ nutrition_data => {
     ko => '영양 성분 표시', #ko-CHECK - Please check and remove this comment
 	nl => "Voedingswaarden",
 	nl_be => "Nutritionele informatie",
-    ru => 'Пищевая ценность', #ru-CHECK - Please check and remove this comment
+    ru => 'Пищевая и энергетическая ценность',
     pl => 'Wartości odżywcze',
 	pt => "Informação nutricional",
 	ro => "Valori nutriționale",
@@ -4693,6 +4683,7 @@ nutrition_data_note => {
 	nl => "Als de foto voldoende scherp en recht is, dan kunnen de voedingswaarden automatisch uit de foto afgeleid worden",
 	nl_be => "Als de foto voldoende scherp en recht is, kan de nutritionele informatie automatisch uit de foto afgeleid worden",
 	de => "Ist das Foto klar und genau, dann können die Nährwertinformationen automatisch extrahiert werden.",
+	ru => "Если картинка достаточно резкая и ровная, то текст о пищевой ценности может быть распознан автоматически (не для всех алфавитов).",
 },
 
 no_nutrition_data => {
@@ -4706,7 +4697,7 @@ no_nutrition_data => {
 	he => "המפרט התזונתי אינו מצוין על המוצר.",
 	nl => "De voedingswaarden zijn niet op het product vermeld",
 	nl_be => "De nutritionele informatie wordt niet op het product vermeld",
-	de => "Die Nährwertinformationen sind auf dem produkt nicht erwähnt",
+	de => "Die Nährwertinformationen sind auf dem Produkt nicht erwähnt",
 },
 
 nutrition_data_table_note => {
@@ -4737,6 +4728,7 @@ nutrition_data_average => {
 	nl => "Gemiddelde voedingswaarden voor de %d producten van de categorie %s waarvan de voedingswaarden bekend zijn (op een totaal van %d producten).",
 	nl_be => "Gemiddelde nutritionele samenstelling voor de %d producten van de categorie %s waarvan de nutritionele informatie bekend is (op een totaal van %d producten).",
 	de => "Durchschnittliche Nährwertzusammensetzung für die %d Produkte von der Kategorie %s, deren Nährwertinformationen bekannt sind (auf %d Produkte insgesamt).",
+	ru => "Средняя пищевая ценность для %d продуктов из категории %s, для которых указана пищевая ценность (из %d продуктов всего).",
 },
 
 nutrition_data_table => {
@@ -4808,7 +4800,7 @@ nutrition_data_per_serving => {
     ko => '인분', #ko-CHECK - Please check and remove this comment
 	nl => "per portie",
 	nl_be => "per portie",
-    ru => 'на порцию', #ru-CHECK - Please check and remove this comment
+    ru => 'на порцию',
     pl => 'porcji', #pl-CHECK - Please check and remove this comment
 	pt => "por porção",
 	ro => "per porție",
@@ -6590,6 +6582,7 @@ ingredients_from_palm_oil_s => {
 	nl => "ingrediënt uit palmolie",
 	nl_be => "ingrediënt uit palmolie",
 	de => "Zutat aus Palmöl",
+	ru => "компонент из пальмового масла",
 },
 
 ingredients_from_palm_oil_p => {
@@ -6603,6 +6596,7 @@ ingredients_from_palm_oil_p => {
 	nl => "ingrediënten uit palmolie",
 	nl_be => "ingrediënten uit palmolie",
 	de => "Zutaten aus Palmöl",
+	ru => "компоненты из пальмового масла",
 },
 
 ingredients_that_may_be_from_palm_oil_s => {
@@ -6616,7 +6610,7 @@ ingredients_that_may_be_from_palm_oil_s => {
 	nl => "ingrediënt dat mogelijk palmolie bevat",
 	nl_be => "ingrediënt dat mogelijk palmolie bevat",
 	de => "Zutat, die möglicherweise aus Palmöl stammt",
-	ru => "вещество, могущее быть из пальмового масла",
+	ru => "компонент, могущий быть из пальмового масла",
 },
 
 ingredients_that_may_be_from_palm_oil_p => {
@@ -6630,7 +6624,7 @@ ingredients_that_may_be_from_palm_oil_p => {
 	nl => "ingrediënten die mogelijk palmolie bevatten",
 	nl_be => "ingrediënten die mogelijk palmolie bevatten",
 	de => "Zutaten, die möglicherweise aus Palmöl stammen",
-	ru => "вещества, могущие быть из пальмового масла",
+	ru => "компоненты, могущие быть из пальмового масла",
 },
 
 ingredients_from_or_that_may_be_from_palm_oil_s => {
@@ -7323,6 +7317,7 @@ tag_contains => {
 tag_weblinks => {
 	en => 'Weblinks',
 	de => 'Weblinks',
+	ru => 'Внешние ссылки',
 },
 
 newsletter_description => {
@@ -8060,7 +8055,7 @@ search_title_graph => {
 	fi => 'Tulokset kaavio', #fi-CHECK - Please check and remove this comment
 	ja => '結果グラフ', #ja-CHECK - Please check and remove this comment
 	ko => '결과 그래프', #ko-CHECK - Please check and remove this comment
-	ru => 'Результаты график', #ru-CHECK - Please check and remove this comment
+	ru => 'График результатов', #ru-CHECK - Please check and remove this comment
 	pl => 'Wykres wyników',
 	th => 'กราฟผล', #th-CHECK - Please check and remove this comment
 	vi => 'Kết quả đồ thị', #vi-CHECK - Please check and remove this comment
@@ -8102,6 +8097,8 @@ search_results => {
 	nl => "Zoekresultaten",
 	nl_be => "Zoekresultaten",
 	de => "Suchergebnisse",
+	ru => "Результаты поиска",
+
 },
 
 search_download_results => {
@@ -8115,6 +8112,7 @@ search_download_results => {
 	nl => "Download de resultaten in CSV-formaat (Excel, OpenOffice)",
 	nl_be => "Download de resultaten in CSV-formaat (Excel, OpenOffice)",
 	de => "Ergebnisse in CSV-Format herunterladen (Excel, OpenOffice)",
+	ru => "Скачать результаты в CSV-формате TSV (Excel, OpenOffice)",
 },
 
 search_download_results_description => {
@@ -8128,6 +8126,7 @@ search_download_results_description => {
 	nl => "Tekenset: Unicode (UTF-8). Separator: tab (tab)",
 	nl_be => "Tekenset: Unicode (UTF-8). Separator: tab (tab)",
 	de => "Zeichenset: Unicode (UTF-8). Trenner: Tabulator (tab-Taste).",
+	ru => "Кодировка: Unicode (UTF-8). Разделитель: табуляция (tab).",
 },
 
 search_flatten_tags => {
@@ -8162,7 +8161,7 @@ search_download_button => {
     ko => '다운로드', #ko-CHECK - Please check and remove this comment
 	nl => "Downloaden",
 	nl_be => "Downloaden",
-    ru => 'Скачать', #ru-CHECK - Please check and remove this comment
+    ru => 'Скачать',
     pl => 'Pobierz', #pl-CHECK - Please check and remove this comment
 	pt => "Transferir",
 	ro => "Descarcă",
@@ -8183,6 +8182,7 @@ axis_x => {
 	nl => "Horizontale as",
 	nl_be => "Horizontale as",
 	de => "X-Achse",
+	ru => "Горизонтальная ось", #ru-CHECK - Please check and remove this comment
 },
 
 axis_y => {
@@ -8211,6 +8211,7 @@ search_generate_graph => {
 	nl => "De grafiek maken",
 	nl_be => "De grafiek maken",
 	de => "Grafik erzeugen",
+	ru => "Сгенерировать график", #ru-CHECK - Please check and remove this comment
 },
 
 search_graph_warning => {
@@ -8636,7 +8637,7 @@ product_js_extract_ingredients => {
     ko => '사진에서 성분을 추출', #ko-CHECK - Please check and remove this comment
 	nl => "Detecteer de ingrediënten op de foto",
 	nl_be => "Detecteer de ingrediënten op de foto",
-    ru => 'Выписка ингредиенты, указанные на картинке', #ru-CHECK - Please check and remove this comment
+    ru => 'Выписать ингредиенты, указанные на картинке (с кириллицей не работает)', # the warning about Cyrillic text is not in other languages.
     pl => 'Wyodrębnić składniki z obrazka', #pl-CHECK - Please check and remove this comment
 	pt => "Extrair os ingredientes da imagem",
 	ro => "Extrage ingredientele din imagine:",
@@ -8716,7 +8717,7 @@ product_js_upload_image => {
 
 product_js_upload_image_note => {
 	fr => "→ Avec Chrome, Firefox et Safari, vous pouvez sélectionner plusieurs images (produit, ingrédients, infos nutritionnelles etc.) en cliquant avec la touche Ctrl enfoncée, pour les envoyer toutes en même temps.",
-	en => "→ With Chrome, Firefox and Safari, you can select multipe pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot.",
+	en => "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot.",
 	da => '→ Med Chrome, Firefox og Safari, kan du vælge flere billeder (produkt, ingredienser, ernæringsindhold) ved at klikke på dem, mens du holder Ctrl-tasten nede for at tilføje dem alle i en omgang.',
 	el => "→ Με τους Chrome, Firefox and Safari, μπορείτε να επιλεξετε πολλαπλές εικόνες (προϊόν, συστατικά, θρεπτικά συστατικά κλπ.) κλικάροντάς τες ενώ ταυτόχρονα κρατάτε το πλήκτρο Ctrl πατημένο προκειμένου να τις προσθέσετε όλες μαζί ταυτόχρονα.",
 	es => "→ Con Chrome, Firefox y Safari, puedes seleccionar varias imágenes al mismo tiempo (producto, ingredientes, información nutricional, etc.) manteniendo pulsada la tecla Ctrl y haciendo clic sobre las imágenes que quieras seleccionar para enviarlas todas a la vez.",
@@ -8726,12 +8727,14 @@ product_js_upload_image_note => {
 	nl => "→ Met Chrome, Firefox en Safari kan je verschillende foto's (product, ingrediënten, voedingswaarden, etc.) selecteren door tijdens het klikken de Ctrl-toets ingedrukt te houden om ze in één keer verzenden.",
 	nl_be => "→ Met Chrome, Firefox en Safari kunt u verschillende foto's (product, ingrediënten, nutritionele informatie, etc.) selecteren door tijdens het klikken de Ctrl-toets ingedrukt te houden om ze in één keer verzenden.",
 	de => "→ Mit Chrome, Firefox und Safari können Sie einfach durch die Benutzung der Strg-Taste mehrere Fotos auswählen (Produkt, Zutaten, Nährwertinformationen, usw.), um diese einmalig hochzuladen.",
+	ru => "→ В Chrome, Firefox и Safari можно выбрать несколько файлов изображений (продукта, состава, пищевой ценности и т. п.), кликая по ним удерживая кнопку Ctrl, и загрузить их все одновременно.",
 },
 
 image_upload_error_no_barcode_found_in_image_short => {
 	de => "Im Bild wurde kein Barcode gefunden.",
 	en => "No barcode found in the image.",
 	fr => "Pas de code barre lisible dans l'image.",
+	ru => "Читаемый штрих-код на картинке не обнаружен.",
 },
 
 image_upload_error_no_barcode_found_in_image_long => {
@@ -8739,6 +8742,8 @@ image_upload_error_no_barcode_found_in_image_long => {
 You can try with another image, or directly enter the barcode.",
 	fr => "Le code barre de l'image n'a pas pu être lu, ou l'image ne contenait pas de code barre.
 Vous pouvez essayer avec une autre image, ou entrer directement le code barre.",
+	ru => "Штрих-код на изображении не удалось прочитать, или на нём вообще не было кода.
+Можете попробовать с другим изображением или ввести код вручную.",
 },
 
 image_upload_error_no_barcode_found_in_text => {
@@ -8762,7 +8767,7 @@ image_upload_error_image_already_exists => {
     ko => '이 사진은 이미 보냈습니다.', #ko-CHECK - Please check and remove this comment
     nl => 'Deze foto werd reeds geupload.',
     nl_be => 'Deze foto werd reeds geupload.',
-    ru => 'Эта картина уже было отправлено.', #ru-CHECK - Please check and remove this comment
+    ru => 'Эта картинка уже была загружена',
     pl => 'To zdjęcie zostało już wysłane.', #pl-CHECK - Please check and remove this comment
     pt => 'A imagem já foi enviada.', #pt-CHECK - Please check and remove this comment
     ro => 'Această imagine a fost deja trimis.', #ro-CHECK - Please check and remove this comment
@@ -8779,6 +8784,7 @@ image_upload_error_image_too_small => {
 	de => "Das Foto ist zu klein. Bitte beachten Sie, dass Sie kein Foto aus dem Internet, sondern nur Ihre eigenen Fotos hochladen dürfen.",
 	nl => "De foto is te klein. Stuur alsjeblieft geen foto's op, die je op Internet hebt gevonden. Upload alleen foto's, die je zelf hebt gemaakt.",
 	nl_be => "De foto is te klein. Stuur alstublieft geen foto's op, die u op Internet heeft gevonden. Upload alleen foto's, die u zelf heeft gemaakt.",
+	ru => "Эта картинка слишком маленькая. Пожалуйста, не загружайте картинки, найденные в интернете, а загружайте только сделанные вами фотографии.",
 },
 
 product_add_nutrient => {
@@ -9711,6 +9717,7 @@ names => {
 	de => "Namen",
 	pt => "Nomes",
 	ro => "Nume",
+	ru => "Названия",
 	nl => "Namen",
 	nl_be => "Namen",
 },
@@ -11512,12 +11519,14 @@ ingredients_analysis_note => {
 	fr => "Note : les ingrédients peuvent être indiqués sous beaucoup de noms différents, si vous pensez que l'analyse ci-dessus est incorrecte, merci de nous le signaler.",
 },
 
-#ENDFRONTPAGE
-
 share => {
 	en => 'Share',
 	de => 'Teilen',
+	fr => 'Partager',
 },
+
+
+#ENDFRONTPAGE
 
 );
 
@@ -11657,6 +11666,14 @@ else {
 		}
 	}
 
+		# Save to file, for debugging and comparing purposes
+	
+		use Data::Dumper::AutoEncode;
+		use Data::Dumper;
+		$Data::Dumper::Sortkeys = 1;
+		open my $fh, ">", "$data_root/po/translations.debug.${server_domain}" or die "can not create $data_root/po/translations.debug.${server_domain} : $!";
+		print $fh "Lang.pm - %Lang\n\n" . eDumper(\%Lang) . "\n";
+		close $fh;			
 
 	foreach my $l (@Langs) {
 		$CanonicalLang{$l} = {};	 # To map 'a-completer' to 'A compléter',
@@ -11700,12 +11717,11 @@ else {
 			if (not (defined $value)) {
 				next;
 			}
-			
+
 			foreach my $key (keys %Lang) {
-				if (not defined ($Lang{$key}{$l})) {
+				if (not defined $Lang{$key}{$l}) {
 					next;
-				}
-				
+				}	
 				$Lang{$key}{$l} =~ s/\<\<$special_field\>\>/$value/g;
 			}
 		}
