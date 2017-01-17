@@ -459,7 +459,12 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				$value = $value / 100 * $Nutriments{$nid}{dv} ;
 				$unit = $Nutriments{$nid}{unit};
 			}
-			$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
+			if ($nid eq 'water-hardness') {
+				$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit);
+			}
+			else {
+				$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
+			}
 		}
 	}
 	
@@ -1445,7 +1450,13 @@ HTML
 		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit})) {
 			$unit = $Nutriments{$nid}{unit};
 		}
-		my $value = g_to_unit($product_ref->{nutriments}{$nid}, $unit);
+		my $value;
+		if ($nid eq 'water-hardness') {
+			$value = mmoll_to_unit($product_ref->{nutriments}{$nid}, $unit);
+		}
+		else {
+			$value = g_to_unit($product_ref->{nutriments}{$nid}, $unit);
+		}
 		
 		# user unit and value ? (e.g. DV for vitamins in US)
 		if ((defined $product_ref->{nutriments}{$nid . "_value"}) and (defined $product_ref->{nutriments}{$nid . "_unit"})) {
@@ -1483,6 +1494,10 @@ HTML
 		elsif ($nid eq 'alcohol') {
 			@units = ('% vol');
 		}
+		elsif ($nid eq 'water-hardness') {
+			@units = ('mol/l', 'mmol/l', 'mval/l', 'ppm', "\N{U+00B0}rH", "\N{U+00B0}fH", "\N{U+00B0}e", "\N{U+00B0}dH", 'gpg');
+		}
+		
 		if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
 			or ($nid =~ /^new_/)) {
 			push @units, '% DV';
