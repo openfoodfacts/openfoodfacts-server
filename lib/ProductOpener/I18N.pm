@@ -59,7 +59,7 @@ sub read_po_files {
 	$dir =~ s/\/$//;
 
     my %l10n;
-    my @files = File::Find::Rule->file->name("*.po")->in($dir);
+    my @files = File::Find::Rule->file->name("*.po")->in($dir . "/"); # Need trailing slash if $dir is a symlink
 
     for my $file (@files) {
         # read the .po file
