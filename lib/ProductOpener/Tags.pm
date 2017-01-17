@@ -97,6 +97,8 @@ BEGIN
 					%translations_from
 					%translations_to
 					
+					%Languages
+					
 					&init_select_country_options
 					
 					);	# symbols to export on request
@@ -1262,7 +1264,8 @@ foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
 
 %language_codes = ();
 %language_codes_reverse = ();
-%lang_lc = ();
+
+%Languages = (); # Hash of language codes, will be used to initialize %Lang::Langs
 
 foreach my $language (keys %{$properties{languages}}) {
 
@@ -1271,26 +1274,11 @@ foreach my $language (keys %{$properties{languages}}) {
 	$language_codes{$lc} = $language;
 	$language_codes_reverse{$language} = $lc;
 	
-	$lang_lc{$lc} = $lc;
 	
-	$Langs{$lc} = $translations_to{languages}{$language}{$lc};
-}
-
-@Langs = sort keys %Langs;
-
-# We need the @Langs array to be populated with all the languages before calling init_languages
-# as init_languages will read all strings and generate missing values in some languages
-# by using the English values.
-
-init_languages(0);	# do not recompute %Lang (can take one minute or so)
-
-# after %Lang is initialized by init_languages, add the translations of all language names
-
-foreach my $language (keys %{$properties{languages}}) {
-
-	my $lc = lc($properties{languages}{$language}{"language_code_2:en"});
 	
-	$Langs{$lc} = $translations_to{languages}{$language}{$lc};
+	# %Languages will be passed to Lang::build_lang() to populate language names and 
+	# to initialize to the English value all missing values for all the languages
+	$Languages{$lc} = $translations_to{languages}{$language};
 }
 
 
@@ -1338,7 +1326,7 @@ sub init_select_country_options($) {
 
 	# takes one minute to load
 
-	my $recompute = shift;
+	my $Lang_ref = shift;
 	
 	# Build lists of countries and generate select button
 	# <select data-placeholder="Choose a Country..." style="width:350px;" tabindex="1">
@@ -1346,55 +1334,41 @@ sub init_select_country_options($) {
 	#            <option value="United States">United States</option>
 	#            <option value="United Kingdom">United Kingdom</option>
 	
-	if ((-e "$data_root/Lang_select_country_options.sto") and (not $recompute)) {
 
-		print STDERR "Loading \%Lang{select_country_options} from $data_root/Lang_select_country_options.sto.sto\n";
-		my $lang_select_country_options_ref = retrieve("$data_root/Lang_select_country_options.sto");
-		$Lang{select_country_options} = $lang_select_country_options_ref;
-		print STDERR "Loaded \%Lang{select_country_options} from $data_root/Lang_select_country_options.sto.sto\n";
-		
-	}
-	else {	
 
-		print STDERR "Build lists of countries and generate select button\n";	
+	print STDERR "Build lists of countries and generate select button\n";	
 
-		foreach my $language (keys %Langs) {
+	foreach my $language (keys %Langs) {
 
-			my $country_options = '';
-			my $first_option = '';
-				
-			foreach my $country (sort {(get_fileid($translations_to{countries}{$a}{$language}) || get_fileid($translations_to{countries}{$a}{'en'}) )
-				cmp (get_fileid($translations_to{countries}{$b}{$language}) || get_fileid($translations_to{countries}{$b}{'en'}))}
-					keys %{$properties{countries}}
-				) {
-				
-				my $cc = country_to_cc($country);
-				if (not (defined $cc)) {
-					next;
-				}
-				
-				my $option = '<option value="' . $cc . '">' . display_taxonomy_tag($language,'countries',$country) . "</option>\n";
-				
-				if ($country ne 'en:world') {
-					$country_options .= $option;
-				}
-				else {
-					$first_option = $option;
-				}
+		my $country_options = '';
+		my $first_option = '';
+			
+		foreach my $country (sort {(get_fileid($translations_to{countries}{$a}{$language}) || get_fileid($translations_to{countries}{$a}{'en'}) )
+			cmp (get_fileid($translations_to{countries}{$b}{$language}) || get_fileid($translations_to{countries}{$b}{'en'}))}
+				keys %{$properties{countries}}
+			) {
+			
+			my $cc = country_to_cc($country);
+			if (not (defined $cc)) {
+				next;
 			}
 			
-			$Lang{select_country_options}{$language} = $first_option . $country_options;
+			my $option = '<option value="' . $cc . '">' . display_taxonomy_tag($language,'countries',$country) . "</option>\n";
 			
+			if ($country ne 'en:world') {
+				$country_options .= $option;
+			}
+			else {
+				$first_option = $option;
+			}
 		}
 		
-		store("$data_root/Lang_select_country_options.sto",$Lang{select_country_options});
-
+		$Lang_ref->{select_country_options}{$language} = $first_option . $country_options;
+		
 	}
 }
 
-print STDERR "Tags.pm - init_select_country_options\n";
 
-init_select_country_options(0);
 
 
 print STDERR "Tags.pm - 1\n";
@@ -2291,7 +2265,7 @@ close ($IN);
 # France
 # http://www.insee.fr/fr/methodes/nomenclatures/cog/telechargement/2012/txt/france2012.zip
 
-	open (my $IN, "<:encoding(windows-1252)", "$data_root/emb_codes/france2012.txt");
+	open ($IN, "<:encoding(windows-1252)", "$data_root/emb_codes/france2012.txt");
 
 	my @th = split(/\t/, <$IN>);
 	my %th = ();
@@ -2324,7 +2298,7 @@ close ($IN);
 	}
 	close($IN);
 
-	open(my $IN, "<:encoding(windows-1252)", "$data_root/emb_codes/insee.csv");
+	open($IN, "<:encoding(windows-1252)", "$data_root/emb_codes/insee.csv");
 	while (<$IN>) {
 		chomp();
 		my @td = split(/;/);
