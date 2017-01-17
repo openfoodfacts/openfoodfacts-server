@@ -8327,6 +8327,12 @@ history => {
 	ru => 'История изменений',
 },
 
+product_created => {
+	en => 'Product created',
+	fr => 'Création du produit',
+	de => 'Produkt wurde erstellt',
+},
+
 new_code => {
 	fr => "Une erreur de code barre ? Vous pouvez entrer le bon ici :",
 	en => "If the barcode is not correct, please correct it here:",
