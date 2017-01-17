@@ -1450,7 +1450,13 @@ HTML
 		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit})) {
 			$unit = $Nutriments{$nid}{unit};
 		}
-		my $value = mmoll_to_unit(g_to_unit($product_ref->{nutriments}{$nid}, $unit), $unit);
+		my $value;
+		if ($nid eq 'water-hardness') {
+			$value = mmoll_to_unit($product_ref->{nutriments}{$nid}, $unit);
+		}
+		else {
+			$value = g_to_unit($product_ref->{nutriments}{$nid}, $unit);
+		}
 		
 		# user unit and value ? (e.g. DV for vitamins in US)
 		if ((defined $product_ref->{nutriments}{$nid . "_value"}) and (defined $product_ref->{nutriments}{$nid . "_unit"})) {
