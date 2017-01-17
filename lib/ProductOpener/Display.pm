@@ -1241,7 +1241,7 @@ sub display_list_of_tags($$) {
 			if ($tagtype eq 'nutrition_grades') {
 				if ($tagid =~ /^a|b|c|d|e$/) {
 					my $grade = $tagid;
-					$display = "<img src=\"/images/misc/$grade.338x72.png\" alt=\"Note nutritionnelle : " . uc($grade) . "\" style=\"margin-bottom:10px;max-width:100%\" />" ;
+					$display = "<img src=\"/images/misc/nutriscore-$grade.svg\" alt=\"Note nutritionnelle : " . uc($grade) . "\" style=\"margin-bottom:1rem;max-width:100%\" />" ;
 				}
 				else {
 					$display = lang("unknown");
