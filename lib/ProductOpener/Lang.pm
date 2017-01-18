@@ -1030,6 +1030,27 @@ debug => {
 
 %Lang = (
 
+lang_ar => { en => 'Arabic'},
+lang_bg => { en => 'Bulgarian'},
+lang_cs => { en => 'Czech'},
+lang_da => { en => 'Danish'},
+lang_et => { en => 'Estonian'},
+lang_fi => { en => 'Finnish'},
+lang_ga => { en => 'Irish'},
+lang_hu => { en => 'Hungarian'},
+lang_id => { en => 'Indonesian'},
+lang_lt => { en => 'Lithuanian'},
+lang_lv => { en => 'Latvian'},
+lang_mt => { en => 'Maltese'},
+lang_nl_be => { en => 'Belgian Dutch'},
+lang_pt_pt => { en => 'Portugal Portuguese'},
+lang_sk => { en => 'Slovak'},
+lang_sl => { en => 'Slovenian'},
+lang_sv => { en => 'Swedish'},
+
+
+
+
 lang_de => {
 	de => 'Deutsch',
 	fr => 'Allemand',
@@ -1403,19 +1424,6 @@ twitter_account => {
 	pt => 'OpenFoodFactsPt',
 	nl => 'OpenFoodFactsNl',
 	nl_be => 'OpenFoodFactsNl',
-},
-
-twitter_account_by_country => {
-	en => 'OpenFoodFacts',
-	es => 'OpenFoodFactsEs',
-	de => 'OpenFoodFactsDe',
-	fr => 'OpenFoodFactsFr',
-	it => 'OpenFoodFactsIt',
-	jp => 'OpenFoodFactsJp',
-	nl => 'OpenFoodFactsNl',
-	nl_be => 'OpenFoodFactsNl',
-	pt => 'OpenFoodFactsPt',
-	uk => 'OpenFoodFactsUk',
 },
 
 facebook_page => {
@@ -4570,7 +4578,7 @@ allergens => {
 	ro => 'Substanțe sau produse care cauzează alergii sau intoleranțe',
 	bg => 'вещества или продукти, причиняващи алергии или непоносимост',
 	ar => 'مستأرج',
-	jp => '食餌性アレルゲン',
+	ja => '食餌性アレルゲン',
 	th => 'สารก่อภูมิแพ้อาหาร',
 	zh => '食物过敏原',
 },
@@ -9742,41 +9750,6 @@ names => {
 	nl_be => "Namen",
 },
 
-css => {
-	fr => <<CSS
-CSS
-,
-	en => <<CSS
-CSS
-,
-	es => <<CSS
-CSS
-
-,
-el => <<CSS
-CSS
-,
-
-	nl => <<CSS
-CSS
-,
-	nl_be => <<CSS
-CSS
-,
-	en => <<CSS
-CSS
-,
-	pt => <<CSS
-CSS
-,
-	ro => <<CSS
-CSS
-,
-	de => <<CSS
-CSS
-,
-},
-
 header => {
 	fr => <<HEADER
 <meta property="fb:admins" content="706410516" />
@@ -11585,6 +11558,121 @@ sub lang($) {
 
 
 
+# generate po files from %Lang or %Site_lang
+# 18/01/2017: this function is used to generate .po files
+# from the translations that are currently in Lang.pm and SiteLang.pm
+# going forward, all translations will be in .po files
+# can be run like this: perl ProductOpener/Lang.pm
+
+sub generate_po_files($$) {
+
+
+	my $dir = shift;
+	my $lang_ref = shift;
+	
+	if (! -e "$data_root/po_from_lang") {
+		 mkdir("$data_root/po_from_lang", 0755) or die ("cannot create $data_root/po_from_lang");
+	}
+	if (! -e "$data_root/po_from_lang/$dir") {
+		 mkdir("$data_root/po_from_lang/$dir", 0755);
+	}	
+
+	my %po = ();
+	
+	# the English values will be used as the msgid
+	# store them so that we can use them for .po files for other languages
+	my %en_values = ();
+	
+	foreach my $key (sort keys %{$lang_ref}) {
+	
+		my $en = 0;
+	
+		foreach my $l ("en", keys %{$lang_ref->{$key}}, "pot") {
+		
+			my $value;
+
+			if ($l eq "pot") {
+				$value = "";
+			}
+			else {
+				$value = $lang_ref->{$key}{$l};
+			}
+			
+			# escape \ and "
+			$value =~ s/\\/\\\\/g;
+			$value =~ s/"/\\"/g;
+			# multiline values
+			$value =~ s/\n/\\n"\n"/g;
+			$value = '"' . $value . '"';
+			
+			# store the English value
+			if (($l eq 'en') and ($en == 0)) {
+				$en_values{$key} = $value;
+				$en = 1;
+				next;
+			}
+			
+			next if $en_values{$key} eq '""'; # only for "sep", will need to get it out of .po and hardcode it somewhere else
+			
+			$po{$l} .= <<PO
+msgctxt "$key"
+msgid $en_values{$key}
+msgstr $value
+
+PO
+;		
+		}
+	
+	}
+	
+	# Generate .po files for all languages found
+	foreach my $l (keys %po) {
+	
+		open (my $fh, ">:encoding(UTF-8)", "$data_root/po_from_lang/$dir/$l.po");
+		
+		my $langname = $Lang{"lang_$l"}{en};
+		
+		not defined $langname and print STDERR "lang_$l not defined\n";
+
+		$po{$l} =~ s/\n$//;
+		
+		print $fh <<PO
+msgid  ""
+msgstr ""
+"MIME-Version: 1.0\\n"
+"Content-Type: text/plain; charset=UTF-8\\n"
+"Content-Transfer-Encoding: 8bit\\n"
+"Language: $l\\n"
+"Project-Id-Version: \\n"
+"PO-Revision-Date: \\n"
+"Language-Team: \\n"
+"Last-Translator: \\n"
+
+msgctxt ":langtag"
+msgid   ":langtag"
+msgstr  "$l"
+
+msgctxt ":langname"
+msgid   ":langname"
+msgstr  "$langname"
+
+$po{$l}
+PO
+;
+
+		
+		close ($fh);
+	
+	}
+	
+
+}
+
+generate_po_files("common", \%Lang);
+
+
+
+
 
 # initialize languages values:
 # - compute tag_type_singular and tag_type_plural
@@ -11593,6 +11681,8 @@ sub lang($) {
 sub init_languages($) {
 
 my $recompute = shift;
+
+
 
 my @debug_taxonomies = ("categories", "labels", "additives");
 
