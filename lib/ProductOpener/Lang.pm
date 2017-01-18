@@ -50,6 +50,7 @@ BEGIN
 
 					&init_languages
 
+					&separator_before_colon
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -60,6 +61,19 @@ use vars @EXPORT_OK ;
 use ProductOpener::SiteLang qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
+
+
+sub separator_before_colon($) {
+
+	my $l = shift;
+
+	if ($l eq 'fr') {
+		return ' ';
+	}
+	else {
+		return '';
+	}
+}
 
 
 # Tags types to path components in URLS: in ascii, lowercase, unaccented, transliterated (in Roman characters)
