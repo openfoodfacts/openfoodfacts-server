@@ -76,6 +76,7 @@ my $xml = <<XML
 <InputEncoding>UTF-8</InputEncoding>
 $image_tag
 <Url type="text/html" method="GET" template="$uri/cgi/search.pl?search_terms={searchTerms}&amp;search_simple=1&amp;action=process" />
+<Url type="application/rss+xml" method="GET" template="$uri/cgi/search.pl?search_terms={searchTerms}&amp;search_simple=1&amp;action=process&amp;page={startPage?}&amp;page_size={count?}&amp;rss=1" />
 <Url type="application/opensearchdescription+xml" rel="self" template="$uri/cgi/opensearch.pl" />
 </OpenSearchDescription>
 XML

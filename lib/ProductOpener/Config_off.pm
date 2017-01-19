@@ -55,7 +55,6 @@ use vars @EXPORT_OK ; # no 'my' keyword for these
 
 use ProductOpener::Config2;
 
-
 %admins = map { $_ => 1 } qw(
 agamitsudo
 bcatelin

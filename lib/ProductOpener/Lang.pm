@@ -24,13 +24,11 @@ use utf8;
 use Modern::Perl '2012';
 use Exporter    qw< import >;
 
-
 BEGIN
 {
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();	# symbols to export by default
 	@EXPORT_OK = qw(
-
 					$lang
 					$langlang
 
@@ -51,13 +49,11 @@ BEGIN
 
 					&build_lang
 
-
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use vars @EXPORT_OK ;
-
 use ProductOpener::I18N;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -248,9 +244,19 @@ sub build_lang($) {
 		}
 	}
 
-	
 
-	print STDERR "Recomputing \%Lang\n";
+		# Save to file, for debugging and comparing purposes
+	
+		use Data::Dumper::AutoEncode;
+		use Data::Dumper;
+		$Data::Dumper::Sortkeys = 1;
+		if (! -e "$data_root/po") {
+			mkdir ("$data_root/po", 0755); 
+		}
+		open my $fh, ">", "$data_root/po/translations.debug.${server_domain}" or die "can not create $data_root/po/translations.debug.${server_domain} : $!";
+		print $fh "Lang.pm - %Lang\n\n" . eDumper(\%Lang) . "\n";
+		close $fh;			
+    
 
 	# Load site specific overrides
 	# the site-specific directory can be a symlink to openfoodfacts or openbeautyfacts
@@ -273,16 +279,6 @@ sub build_lang($) {
 			}
 		}
 	}
-		
-	# Save to file, for debugging and comparing purposes
-
-	use Data::Dumper::AutoEncode;
-	use Data::Dumper;
-	$Data::Dumper::Sortkeys = 1;
-	open my $fh, ">", "$data_root/po/translations.debug.${server_domain}" or die "can not create $data_root/po/translations.debug.${server_domain} : $!";
-	print $fh "Lang.pm - %Lang\n\n" . eDumper(\%Lang) . "\n";
-	close $fh;		
-
 
 	foreach my $key (keys %Lang) {
 		if ((defined $Lang{$key}{fr}) or (defined $Lang{$key}{en})) {
@@ -319,12 +315,11 @@ sub build_lang($) {
 			if (not (defined $value)) {
 				next;
 			}
-			
+
 			foreach my $key (keys %Lang) {
-				if (not defined ($Lang{$key}{$l})) {
+				if (not defined $Lang{$key}{$l}) {
 					next;
-				}
-				
+				}	
 				$Lang{$key}{$l} =~ s/\<\<$special_field\>\>/$value/g;
 			}
 		}
