@@ -61,10 +61,20 @@ sub read_po_files {
     my %l10n;
     my @files = File::Find::Rule->file->name("*.po")->in($dir . "/"); # Need trailing slash if $dir is a symlink
 
-    for my $file (@files) {
+    for my $file (sort @files) {
         # read the .po file
 		
 		print STDERR "Reading $file\n";
+		
+		my $lc;
+		
+		if ($file =~ /\/(\w\w).po/) {
+			$lc = $1;
+		}
+		else {
+			print STDERR "Skipping $file (not in [2-letter code].po format)\n";
+			next;
+		}
 		
         open my $fh, "<", $file or die $!;
         my %Lexicon = %{ Locale::Maketext::Lexicon::Getcontext->parse(<$fh>) };
@@ -73,8 +83,6 @@ sub read_po_files {
         # clean up %Lexicon from gettext metadata
         delete $Lexicon{""};
         delete $Lexicon{$_} for @metadata_fields;
-
-        my $lc = $Lexicon{":langtag"};
 
         # move the strings into %l10n
         for my $key (keys %Lexicon) {
