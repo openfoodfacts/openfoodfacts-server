@@ -24,13 +24,11 @@ use utf8;
 use Modern::Perl '2012';
 use Exporter    qw< import >;
 
-
 BEGIN
 {
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();	# symbols to export by default
 	@EXPORT_OK = qw(
-
 					$lang
 					$langlang
 
@@ -49,36 +47,16 @@ BEGIN
 					&lang
 					%lang_lc
 
-					&init_languages
-
+					&build_lang
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use vars @EXPORT_OK ;
-
 use ProductOpener::I18N;
-use ProductOpener::SiteLang qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
-
-
-# Tags types to path components in URLS: in ascii, lowercase, unaccented,
-# transliterated (in Roman characters)
-#
-# Note: a lot of plurals are currently missing below, commented-out are
-# the singulars that need to be changed to plurals
-my ($tag_type_singular_ref, $tag_type_plural_ref)
-    = ProductOpener::I18N::split_tags(
-        ProductOpener::I18N::read_po_files("$data_root/po/tags"));
-%tag_type_singular = %$tag_type_singular_ref;
-%tag_type_plural   = %$tag_type_plural_ref;
-
-# UI strings, non-Roman characters can be used
-%Lang = %{ ProductOpener::I18N::read_po_files("$data_root/po/common/") };
-
-
 
 
 
@@ -114,34 +92,65 @@ sub lang($) {
 
 
 
+print STDERR "Lang.pm - data_root: $data_root\n";
 
-# initialize languages values:
-# - compute tag_type_singular and tag_type_plural
-# - compute missing values by assigning English values
 
-sub init_languages($) {
+# Load stored %Lang from Lang.sto
 
-my $recompute = shift;
+if (-e "$data_root/Lang.${server_domain}.sto") {
 
-my @debug_taxonomies = ("categories", "labels", "additives");
-
-foreach my $taxonomy (@debug_taxonomies) {
-
-	foreach my $suffix ("prev", "next", "debug") {
+	print STDERR "Loading \%Lang from $data_root/Lang.${server_domain}.sto\n";
+	my $lang_ref = retrieve("$data_root/Lang.${server_domain}.sto");
+	%Lang = %{$lang_ref};
+	print STDERR "Loaded \%Lang from $data_root/Lang.${server_domain}.sto\n";
 	
-		foreach my $field ("", "_s", "_p") {
-			$Lang{$taxonomy . "_$suffix" . $field } = { en => get_fileid($taxonomy) . "-$suffix" };
-			print STDERR " Lang{ " . $taxonomy . "_$suffix" . $field  . "} = { en => " . get_fileid($taxonomy) . "-$suffix } \n";
-		}
-		
-		$tag_type_singular{$taxonomy . "_$suffix"} = { en => get_fileid($taxonomy) . "-$suffix" };
-		$tag_type_plural{$taxonomy . "_$suffix"} = { en => get_fileid($taxonomy) . "-$suffix" };
+	# Initialize @Langs and $lang_lc
+	@Langs = sort keys %{$Lang{site_name}};	# any existing key can be used, as %Lang should contain values for all languages for all keys
+	%Langs = ();
+	%lang_lc = ();
+	foreach my $lc (@Langs) {
+		$lang_lc{$lc} = $lc;
+		$Langs{$lc} = $Lang{"language_" . $lc}{$lc};	# Name of the language in the language itself
 	}
+	print STDERR "Loaded " . (scalar @Langs) . " languages.\n";
+	sleep(1);
+}
+else {
+	print STDERR "Warning - Lang.pm - $data_root/Lang.${server_domain}.sto does not exist, and %Lang will be empty.\nRun scripts/build_lang.pm\n";
+	print STDERR "Sleeping for 5 seconds so that this message is seen.\n\n";
+	sleep(5);
 }
 
 
+# Tags types to path components in URLS: in ascii, lowercase, unaccented,
+# transliterated (in Roman characters)
+#
+# Note: a lot of plurals are currently missing below, commented-out are
+# the singulars that need to be changed to plurals
+my ($tag_type_singular_ref, $tag_type_plural_ref)
+    = ProductOpener::I18N::split_tags(
+        ProductOpener::I18N::read_po_files("$data_root/po/tags/"));
+%tag_type_singular = %$tag_type_singular_ref;
+%tag_type_plural   = %$tag_type_plural_ref;
 
 
+my @debug_taxonomies = ("categories", "labels", "additives");
+
+{
+
+	foreach my $taxonomy (@debug_taxonomies) {
+
+		foreach my $suffix ("prev", "next", "debug") {
+		
+			foreach my $field ("", "_s", "_p") {
+				$Lang{$taxonomy . "_$suffix" . $field } = { en => get_fileid($taxonomy) . "-$suffix" };
+			}
+			
+			$tag_type_singular{$taxonomy . "_$suffix"} = { en => get_fileid($taxonomy) . "-$suffix" };
+			$tag_type_plural{$taxonomy . "_$suffix"} = { en => get_fileid($taxonomy) . "-$suffix" };
+		}
+	}
+	
 	foreach my $l (@Langs) {
 
 		my $short_l = undef;
@@ -182,46 +191,96 @@ foreach my $taxonomy (@debug_taxonomies) {
 
 		foreach my $type (keys %tag_type_plural) {
 				$tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;
-				#print "tag_type_from_plural{$l}{$tag_type_plural{$type}{$l}} = $type;\n";
 		}
 
-	}
-
-if ((-e "$data_root/Lang.sto") and (not $recompute)) {
-
-	print STDERR "Loading \%Lang from $data_root/Lang.sto\n";
-	my $lang_ref = retrieve("$data_root/Lang.sto");
-	%Lang = %{$lang_ref};
-	print STDERR "Loaded \%Lang from $data_root/Lang.sto\n";
+	}	
 	
-}
-else {
-
-	print STDERR "Recomputing \%Lang\n";
+}	
+	
 
 
-	# Load overrides from %SiteLang
-
-	print "SiteLang - overrides \n";
 
 
-	foreach my $key (keys %SiteLang) {
-		print "SiteLang{$key} \n";
+# initialize languages values:
+# - load .po files
+# - compute missing values by assigning English values
 
-		$Lang{$key} = {};
-		foreach my $l (keys %{$SiteLang{$key}}) {
-			$Lang{$key}{$l} = $SiteLang{$key}{$l};
-			print "SiteLang{$key}{$l} \n";
+sub build_lang($) {
+
+	# Hash of languages with translations initialized from the languages taxonomy by Tags.pm
+	my $Languages_ref = shift;	
+		
+	# Load the strings from the .po files
+	# UI strings, non-Roman characters can be used
+	print STDERR "Load %Lang from $data_root/po/common/\n";
+	%Lang = %{ ProductOpener::I18N::read_po_files("$data_root/po/common/") };	
+	
+	# Initialize %Langs and @Langs and add language names to %Lang
+	
+	%Langs = %$Languages_ref;
+	@Langs = sort keys %{$Languages_ref};
+	foreach my $l (@Langs) {
+		$Lang{"language_" . $l} = $Languages_ref->{$l};
+		$Langs{$l} = $Languages_ref->{$l}{$l}; # Name of the language in the language itself
+	}	
+	
+	
+	use Data::Dumper::AutoEncode;
+	use Data::Dumper;
+	$Data::Dumper::Sortkeys = 1;
+	open my $fh, ">", "$data_root/po/languages.debug.${server_domain}" or die "can not create $data_root/po/languages.debug.${server_domain} : $!";
+	print $fh "Lang.pm - %Lang\n\n" . eDumper(\%Lang) . "\n";
+	close $fh;		
+
+	# copy strings for debug taxonomies
+
+	foreach my $taxonomy (@debug_taxonomies) {
+
+		foreach my $suffix ("prev", "next", "debug") {
+		
+			foreach my $field ("", "_s", "_p") {
+				$Lang{$taxonomy . "_$suffix" . $field } = { en => get_fileid($taxonomy) . "-$suffix" };
+			}
 		}
 	}
 
 
-	foreach my $l (@Langs) {
-		$CanonicalLang{$l} = {};	 # To map 'a-completer' to 'A compléter',
+		# Save to file, for debugging and comparing purposes
+	
+		use Data::Dumper::AutoEncode;
+		use Data::Dumper;
+		$Data::Dumper::Sortkeys = 1;
+		if (! -e "$data_root/po") {
+			mkdir ("$data_root/po", 0755); 
+		}
+		open my $fh, ">", "$data_root/po/translations.debug.${server_domain}" or die "can not create $data_root/po/translations.debug.${server_domain} : $!";
+		print $fh "Lang.pm - %Lang\n\n" . eDumper(\%Lang) . "\n";
+		close $fh;			
+    
+
+	# Load site specific overrides
+	# the site-specific directory can be a symlink to openfoodfacts or openbeautyfacts
+	if (-e "$data_root/po/site-specific/") {
+	
+		# Load overrides from %SiteLang
+		# %SiteLang overrides the general %Lang in Lang.pm
+
+		print STDERR "build_lang() - Load override strings from $data_root/po/site-specific/ \n";
+				
+		my %SiteLang = %{ ProductOpener::I18N::read_po_files("$data_root/po/site-specific/") };
+
+		foreach my $key (keys %SiteLang) {
+			next if $key =~ /^:/;  # :langname, :langtag
+			print STDERR "Site specific string: $key\n";
+
+			$Lang{$key} = {};
+			foreach my $l (keys %{$SiteLang{$key}}) {
+				$Lang{$key}{$l} = $SiteLang{$key}{$l};
+			}
+		}
 	}
 
 	foreach my $key (keys %Lang) {
-		next if $key =~ /^bottom_title|bottom_content$/;
 		if ((defined $Lang{$key}{fr}) or (defined $Lang{$key}{en})) {
 			foreach my $l (@Langs) {
 
@@ -243,8 +302,6 @@ else {
 				}
 
 				my $tagid = get_fileid($Lang{$key}{$l});
-
-				$CanonicalLang{$l}{$tagid} = $Lang{$key}{$l};
 			}
 		}
 	}
@@ -258,24 +315,16 @@ else {
 			if (not (defined $value)) {
 				next;
 			}
-			
+
 			foreach my $key (keys %Lang) {
-				if (not defined ($Lang{$key}{$l})) {
+				if (not defined $Lang{$key}{$l}) {
 					next;
-				}
-				
+				}	
 				$Lang{$key}{$l} =~ s/\<\<$special_field\>\>/$value/g;
 			}
 		}
-
 	}
-	
-	
-	store("$data_root/Lang.sto",\%Lang);
-	
-}
-
-} # init_languages
+} # build_lang
 
 
 1;
