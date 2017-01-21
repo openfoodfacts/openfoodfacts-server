@@ -12,12 +12,13 @@ addons:
     - graphviz
 sudo: false
 before_install:
-  - npm install -g bower
-  - npm install -g jshint
+  - npm install -g gulp bower jshint
   - cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
 install:
   - cpanm --quiet --installdeps --notest --skip-satisfied .
+  - npm install
   - bower install
+  - gulp
   - ln -s /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/Config_off.pm /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/Config.pm
   - cp /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/Config2_sample.pm /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/Config2.pm
   - ln -s /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/SiteLang_off.pm /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/SiteLang.pm
