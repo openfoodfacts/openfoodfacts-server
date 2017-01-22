@@ -715,18 +715,39 @@ CSS
 <label for="new_code" id="label_new_code">${label_new_code}</label>
 <input type="text" name="new_code" id="new_code" class="text" value="" />			
 
-<div data-alert class="alert-box info">
+<div data-alert class="alert-box info store-state" id="warning_3rd_party_content" style="display:none;">
 <span>$Lang{warning_3rd_party_content}{$lang}
  <a href="#" class="close">&times;</a>
 </div>
 
-<div data-alert class="alert-box secondary">
+<div data-alert class="alert-box secondary store-state" id="licence_accept" style="display:none;">
 <span>$Lang{licence_accept}{$lang}</span>
  <a href="#" class="close">&times;</a>
 </div>
 HTML
 ;
-
+	
+	$scripts .= <<JS
+<script type="text/javascript">
+'use strict';
+\$(function() {
+  var alerts = \$('.alert-box.store-state');
+  \$.each(alerts, function( index, value ) {
+    var display = \$.cookie('state_' + value.id);
+    if (display !== undefined) {
+      value.style.display = display;
+    } else {
+      value.style.display = 'block';
+    }
+  });
+  alerts.on('close.fndtn.alert', function(event) {
+    \$.cookie('state_' + \$(this)[0].id, 'none', { path: '/', expires: 365, domain: '$server_domain' });
+  });
+});
+</script>
+JS
+;
+	
 	# Main language
 
 	$html .= "<label for=\"lang\">" . $Lang{lang}{$lang} . "</label>";
