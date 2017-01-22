@@ -2,6 +2,9 @@ language: perl
 perl:
   - "system"
 env: COVERAGE=1
+cache:
+  directories:
+  - $HOME/.npm
 addons:
   apt:
     packages:
