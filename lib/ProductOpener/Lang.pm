@@ -9750,8 +9750,6 @@ names => {
 	nl_be => "Namen",
 },
 
-
-
 # MOBILESTRING
 
 app_please_take_pictures => {

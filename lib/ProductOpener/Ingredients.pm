@@ -335,16 +335,16 @@ sub extract_ingredients_from_text($) {
 		}
 		
 		if ($between ne '') {
-			$analyze_ingredients_self->(\$analyze_ingredients_self, $ranked_ingredients_ref, $unranked_ingredients_ref , $between_level, $between);
+			$analyze_ingredients_self->($analyze_ingredients_self, $ranked_ingredients_ref, $unranked_ingredients_ref , $between_level, $between);
 		}
 		
 		if ($after ne '') {
-			$analyze_ingredients_self->(\$analyze_ingredients_self, $ranked_ingredients_ref, $unranked_ingredients_ref , $level, $after);
+			$analyze_ingredients_self->($analyze_ingredients_self, $ranked_ingredients_ref, $unranked_ingredients_ref , $level, $after);
 		}		
 		
 	};
 	
-	$analyze_ingredients->(\$analyze_ingredients, \@ranked_ingredients, \@unranked_ingredients , 0, $text);
+	$analyze_ingredients->($analyze_ingredients, \@ranked_ingredients, \@unranked_ingredients , 0, $text);
 	
 	for (my $i = 0; $i <= $#ranked_ingredients; $i++) {
 		$ranked_ingredients[$i]{rank} = $i + 1;
