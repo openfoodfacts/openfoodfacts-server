@@ -5545,6 +5545,17 @@ CSS
 		return 301;
 	}
 
+	if ($request_ref->{product_changes_saved}) {
+		my $text = lang('product_changes_saved');
+		$html .= <<HTML
+<div data-alert class="alert-box info">
+<span>$text</span>
+ <a href="#" class="close">&times;</a>
+</div>
+HTML
+;
+	}
+	
 	my $share = lang('share');
 	$html .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">

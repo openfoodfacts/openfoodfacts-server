@@ -1825,9 +1825,6 @@ elsif ($action eq 'process') {
 	$comment = $comment . remove_tags_and_quote(decode utf8=>param('comment'));
 	store_product($product_ref, $comment);
 	
-	$html .= "<p>" . lang("product_changes_saved") . "</p><p>&rarr; <a href=\"" . product_url($product_ref) . "\">"
-		. lang("see_product_page") . "</a></p>";
-		
 	if ($type eq 'delete') {
 		my $email = <<MAIL
 $User_id supprime :
@@ -1838,6 +1835,16 @@ MAIL
 ;
 		send_email_to_admin("Suppression produit", $email);
 	
+	} else {
+		my %request = (
+			'titleid'=>get_fileid(product_name_brand($product_ref)),
+			'query_string'=>$ENV{QUERY_STRING},
+			'referer'=>referer(),
+			'code'=>$code,
+			'product_changes_saved'=>1
+		);
+		
+		display_product(\%request);
 	}
 	
 }
