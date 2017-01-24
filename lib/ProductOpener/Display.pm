@@ -2425,7 +2425,7 @@ sub search_and_display_products($$$$$) {
 		print STDERR $debug_log . "\n"; 
 		
 		if ((not defined $request_ref->{search}) and ($count >= 5) 	
-			and (not defined $request_ref->{tagid2})) {
+			and (not defined $request_ref->{tagid2}) and (not defined $request_ref->{product_changes_saved})) {
 			
 			my @current_drilldown_fields = @ProductOpener::Config::drilldown_fields;
 			if ($country eq 'en:world') {
@@ -2542,7 +2542,7 @@ HTML
 		
 		my $next_page_url;
 		
-		if (($nb_pages > 1) and ((defined $current_link) or (defined $current_link_query))) {
+		if ((($nb_pages > 1) and ((defined $current_link) or (defined $current_link_query))) and (not defined $request_ref->{product_changes_saved})) {
 		
 			my $prev = '';
 			my $next = '';
@@ -5554,6 +5554,13 @@ CSS
 </div>
 HTML
 ;
+		my $query_ref = {};
+		$query_ref->{ ("state_tags") } = "en:to-be-completed";
+		
+		my $search_result = search_and_display_products($request_ref, {}, undef, undef, undef);
+		if ($request_ref->{structured_response}{count} > 0) {
+			$html .= $search_result . '<hr/>';
+		}
 	}
 	
 	my $share = lang('share');

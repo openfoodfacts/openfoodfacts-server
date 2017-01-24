@@ -1841,7 +1841,8 @@ MAIL
 			'query_string'=>$ENV{QUERY_STRING},
 			'referer'=>referer(),
 			'code'=>$code,
-			'product_changes_saved'=>1
+			'product_changes_saved'=>1,
+			'sample_size'=>10
 		);
 		
 		display_product(\%request);
