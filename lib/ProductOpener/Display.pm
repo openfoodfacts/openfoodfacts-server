@@ -2344,8 +2344,16 @@ sub search_and_display_products($$$$$) {
 	}
 	
 	eval {
-		$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-		$count = $cursor->count() + 0;
+		if (defined $request_ref->{sample_size}) {
+			my $aggregate_parameters = [
+				{ "\$match" => $query_ref }
+			];
+			my $options = { "\$sample" => { "size" => $request_ref->{sample_size} } };
+			$cursor = $products_collection->aggregate($aggregate_parameters, $options);
+		}
+		else {
+			$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+		}
 	};
 	if ($@) {
 		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
@@ -2363,22 +2371,33 @@ sub search_and_display_products($$$$$) {
 		}
 		else {		
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
-			$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-			$count = $cursor->count() + 0;
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
+			if (defined $request_ref->{sample_size}) {
+				my $aggregate_parameters = [
+					{ "\$match" => $query_ref }
+				];
+				my $options = { "\$sample" => { "size" => $request_ref->{sample_size} } };
+				$cursor = $products_collection->aggregate($aggregate_parameters, $options);
+			}
+			else {
+				$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+			}
+			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok\n";
 		}
 	}
-		
-	$request_ref->{count} = $count + 0;
-	print STDERR "Display.pm - search_and_display_products - count: $count\n";
 	
+	$count = 0;
+	while (my $product_ref = $cursor->next) {
+		push @{$request_ref->{structured_response}{products}}, $product_ref;
+		$count++;
+	}
+	
+	$request_ref->{structured_response}{count} = $count + 0;
 	
 	my $html = '';
 	my $html_pages = '';
 	my $html_count = '';
 	
 	if (not defined $request_ref->{jqm_loadmore}) {
-
 		if ($count < 0) {
 			$html .= "<p>" . lang("error_database") . "</p>";	
 		}
@@ -2391,10 +2410,7 @@ sub search_and_display_products($$$$$) {
 		elsif ($count > 1) {
 			$html_count .= sprintf(lang("n_products"), $count) ;
 		}
-	
 	}
-	
-	$request_ref->{structured_response}{count} = $count + 0;
 	
 	if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
 	
@@ -2409,7 +2425,7 @@ sub search_and_display_products($$$$$) {
 			
 		
 	}
-	
+		
 	if ($count > 0) {
 	
 		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm}))  {
@@ -2462,9 +2478,7 @@ HTML
 			$html .= "<ul class=\"products\">\n";
 		}
 	
-		
-		while (my $product_ref = $cursor->next) {
-			
+		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 			my $img_url;
 			my $img_w;
 			my $img_h;
@@ -2522,8 +2536,6 @@ HTML
 			delete $product_ref->{additives};
 			delete $product_ref->{additives_prev};
 			delete $product_ref->{additives_next};			
-			
-			push @{$request_ref->{structured_response}{products}}, $product_ref;
 		}
 	
 
