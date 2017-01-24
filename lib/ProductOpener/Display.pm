@@ -5555,9 +5555,9 @@ CSS
 HTML
 ;
 		my $query_ref = {};
-		$query_ref->{ ("state_tags") } = "en:to-be-completed";
+		$query_ref->{ ("states_tags") } = "en:to-be-completed";
 		
-		my $search_result = search_and_display_products($request_ref, {}, undef, undef, undef);
+		my $search_result = search_and_display_products($request_ref, $query_ref, undef, undef, undef);
 		if ($request_ref->{structured_response}{count} > 0) {
 			$html .= $search_result . '<hr/>';
 		}
