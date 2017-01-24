@@ -2529,7 +2529,7 @@ cocoa => {
 );
 
 
-my $daily_values_us == <<XXX
+my $daily_values_us = <<XXX
 
 Percent Daily Values
 
@@ -2665,7 +2665,7 @@ foreach my $nid (keys %Nutriments) {
 		next if not defined $label;
 		defined $nutriments_labels{$lc} or $nutriments_labels{$lc} = {};
 		$nutriments_labels{$lc}{canonicalize_nutriment($lc,$label)} = $nid;
-		print STDERR "nutriments_labels : lc: $lc - label: $label - nid: $nid\n";
+		#print STDERR "nutriments_labels : lc: $lc - label: $label - nid: $nid\n";
 		
 		my @labels = split(/\(|\/|\)/, $label);
 

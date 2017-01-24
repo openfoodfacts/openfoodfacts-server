@@ -47,7 +47,9 @@ BEGIN
 					&lang
 					%lang_lc
 
-					&build_lang
+					&init_languages
+
+					&separator_before_colon
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -58,6 +60,18 @@ use ProductOpener::I18N;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 
+
+sub separator_before_colon($) {
+
+	my $l = shift;
+
+	if ($l eq 'fr') {
+		return ' ';
+	}
+	else {
+		return '';
+	}
+}
 
 
 # same logic can be implemented by creating the missing values for all keys
@@ -90,12 +104,122 @@ sub lang($) {
 	}
 }
 
-
-
 print STDERR "Lang.pm - data_root: $data_root\n";
+
+# generate po files from %Lang or %Site_lang
+# 18/01/2017: this function is used to generate .po files
+# from the translations that are currently in Lang.pm and SiteLang.pm
+# going forward, all translations will be in .po files
+# can be run like this: perl ProductOpener/Lang.pm
+
+sub generate_po_files($$) {
+
+	my $dir = shift;
+	my $lang_ref = shift;
+	
+	if (! -e "$data_root/po_from_lang") {
+		 mkdir("$data_root/po_from_lang", 0755) or die ("cannot create $data_root/po_from_lang");
+	}
+	if (! -e "$data_root/po_from_lang/$dir") {
+		 mkdir("$data_root/po_from_lang/$dir", 0755);
+	}	
+
+	my %po = ();
+	
+	# the English values will be used as the msgid
+	# store them so that we can use them for .po files for other languages
+	my %en_values = ();
+	
+	foreach my $key (sort keys %{$lang_ref}) {
+	
+		my $en = 0;
+	
+		foreach my $l ("en", keys %{$lang_ref->{$key}}, "pot") {
+		
+			my $value;
+
+			if ($l eq "pot") {
+				$value = "";
+			}
+			else {
+				$value = $lang_ref->{$key}{$l};
+			}
+			
+			# escape \ and "
+			$value =~ s/\\/\\\\/g;
+			$value =~ s/"/\\"/g;
+			# multiline values
+			$value =~ s/\n/\\n"\n"/g;
+			$value = '"' . $value . '"';
+			
+			# store the English value
+			if (($l eq 'en') and ($en == 0)) {
+				$en_values{$key} = $value;
+				$en = 1;
+				next;
+			}
+			
+			next if $en_values{$key} eq '""'; # only for "sep", will need to get it out of .po and hardcode it somewhere else
+			
+			$po{$l} .= <<PO
+msgctxt "$key"
+msgid $en_values{$key}
+msgstr $value
+
+PO
+;		
+		}
+	
+	}
+	
+	# Generate .po files for all languages found
+	foreach my $l (keys %po) {
+	
+		open (my $fh, ">:encoding(UTF-8)", "$data_root/po_from_lang/$dir/$l.po");
+		
+		my $langname = $Lang{"lang_$l"}{en};
+		
+		not defined $langname and print STDERR "lang_$l not defined\n";
+
+		$po{$l} =~ s/\n$//;
+		
+		print $fh <<PO
+msgid  ""
+msgstr ""
+"MIME-Version: 1.0\\n"
+"Content-Type: text/plain; charset=UTF-8\\n"
+"Content-Transfer-Encoding: 8bit\\n"
+"Language: $l\\n"
+"Project-Id-Version: \\n"
+"PO-Revision-Date: \\n"
+"Language-Team: \\n"
+"Last-Translator: \\n"
+
+msgctxt ":langtag"
+msgid   ":langtag"
+msgstr  "$l"
+
+msgctxt ":langname"
+msgid   ":langname"
+msgstr  "$langname"
+
+$po{$l}
+PO
+;
+
+		
+		close ($fh);
+	
+	}
+	
+
+}
+
+#generate_po_files("common", \%Lang);
 
 
 # Load stored %Lang from Lang.sto
+
 
 if (-e "$data_root/Lang.${server_domain}.sto") {
 
