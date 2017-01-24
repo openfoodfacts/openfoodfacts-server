@@ -1842,7 +1842,7 @@ MAIL
 	
 }
 
-$html = "<p>" . lang("barcode") . lang("sep") . ": $code</p>\n" . $html;
+$html = "<p>" . lang("barcode") . separator_before_colon($lc) . ": $code</p>\n" . $html;
 
 display_new( {
 	blog_ref=>undef,

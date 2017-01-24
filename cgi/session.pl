@@ -25,7 +25,7 @@ use ProductOpener::Lang qw/:all/;
 my $html = '';
 
 if (defined $User_id) {
-	$html = $Lang{hello}{$lang} . ' ' . $User{name} . $Lang{sep}{$lang} . "!";
+	$html = $Lang{hello}{$lang} . ' ' . $User{name} . separator_before_colon($lc) . "!";
 	
 	my $next_action = param('next_action');
 	my $r = shift;
