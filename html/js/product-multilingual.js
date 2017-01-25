@@ -18,8 +18,6 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-'use strict';
-
 var code;
 var current_cropbox;
 var images = [];
