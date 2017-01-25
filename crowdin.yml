@@ -1,3 +1,9 @@
 files:
-  - source: /po/common/en.po
+  - source: /po/common/
+    translation: '%original_path%'
+  - source: /po/openbeautyfacts/
+    translation: '%original_path%'
+  - source: /po/openfoodfacts/
+    translation: '%original_path%'
+  - source: /po/tags/
     translation: '%original_path%'
