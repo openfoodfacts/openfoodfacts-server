@@ -1,9 +1,9 @@
 files:
   - source: /po/openfoodfacts/en.po
-    translation: /po/openfoodfacts/%two_letters_code%.po
+    translation: /po/openfoodfacts/%locale%.po
   - source: /po/openbeautyfacts/en.po
-    translation: /po/openbeautyfacts/%two_letters_code%.po
+    translation: /po/openbeautyfacts/%locale%.po
   - source: /po/tags/en.po
-    translation: /po/tags/%two_letters_code%.po
+    translation: /po/tags/%locale%.po
   - source: /po/common/en.po
-    translation: /po/common/%two_letters_code%.po
+    translation: /po/common/%locale%.po
