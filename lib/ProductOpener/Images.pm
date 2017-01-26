@@ -468,12 +468,19 @@ sub process_image_upload($$$$$) {
 			mkdir ("$www_root/images/products/$path/$imgid.lock", 0755) or print STDERR "Images.pm - Error - Could not create lock $www_root/images/products/$path/$imgid.lock : $!\n";
 			
 
-
-			open (my $FILE, q{>}, "$www_root/images/products/$path/$imgid.$extension") or print STDERR "Images.pm - Error - Could not save $www_root/images/products/$path/$imgid.$extension : $!\n";
+			# ! the following does not work, the file is not created - bug #678
+			
+			#open (my $FILE, q{>}, "$www_root/images/products/$path/$imgid.$extension") or print STDERR "Images.pm - Error - Could not save $www_root/images/products/$path/$imgid.$extension : $!\n";
+			#while (<$file>) {
+			#	print $FILE;
+			#}
+			#close ($FILE);
+			
+			open (FILE, ">$www_root/images/products/$path/$imgid.$extension") or print STDERR "Images.pm - Error - Could not save $www_root/images/products/$path/$imgid.$extension : $!\n";
 			while (<$file>) {
-				print $FILE;
+				print FILE;
 			}
-			close ($FILE);
+			close (FILE);
 
 
 			
