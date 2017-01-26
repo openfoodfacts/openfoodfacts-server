@@ -3,7 +3,7 @@
 // Product Opener
 // Copyright (C) 2011-2015 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
-// Address: 21 rue des Iles, 94100 Saint-Maur des FossÃ©s, France
+// Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 // 
 // Product Opener is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -53,7 +53,7 @@ function addSearchCriterion(target, criteria_number) {
 	$(document).on("change", ".tag-search-criterion > input", function(e){
 		var criterionNumber = parseInt(e.target.name.substr(e.target.name.length - 1));
 		//If it's the last criterion, add two more
-		if(!isNaN(criterionNumber) && $("#tag_" + (criterionNumber + 1).toString()).length === 0){
+		if(!isNaN(criterionNumber) && $("#tag_" + (criterionNumber + 1).toString()).length == 0){
 			addSearchCriterion(e.target, criterionNumber + 1);
 		}
 	});
