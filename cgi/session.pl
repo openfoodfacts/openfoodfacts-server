@@ -25,19 +25,20 @@ use ProductOpener::Lang qw/:all/;
 my $html = '';
 
 if (defined $User_id) {
-	$html = $Lang{hello}{$lang} . ' ' . $User{name} . $Lang{sep}{$lang} . "!";
+	$html = $Lang{hello}{$lang} . ' ' . $User{name} . separator_before_colon($lc) . "!";
 	
 	my $next_action = param('next_action');
+	my $code = param('code');
 	my $r = shift;
 	my $referer = $r->headers_in->{Referer};
 	my $url;
 	
-	if (defined $next_action) {
+	if ((defined $next_action) and ($code =~ /^(\d+)$/)) {
 		if ($next_action eq 'product_add') {
-			$url = "/cgi/product.pl?type=add&code=" . param('code');
+			$url = "/cgi/product.pl?type=add&code=$code";
 		}
 		elsif ($next_action eq 'product_edit') {
-			$url = "/cgi/product.pl?type=edit&code=" . param('code');
+			$url = "/cgi/product.pl?type=edit&code=$code";
 		}
 	}
 	elsif ((defined $referer) and ($referer =~ /^https?:\/\/$subdomain\.$server_domain/) and (not ($referer =~ /(?:session|user)\.pl/))) {

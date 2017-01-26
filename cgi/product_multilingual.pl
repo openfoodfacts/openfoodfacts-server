@@ -126,7 +126,7 @@ if ($type eq 'search_or_add') {
 			print STDERR "product.pl - product code $code does not exist yet, creating product\n";
 			$product_ref = init_product($code);
 			$product_ref->{interface_version_created} = $interface_version;
-			store_product($product_ref, "Création du produit");
+			store_product($product_ref, 'product_created');
 			process_image_upload($code,$filename,$User_id, time(),'image with barcode from web site Add product button');
 			$type = 'add';
 			$action = 'display';
@@ -459,7 +459,12 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				$value = $value / 100 * $Nutriments{$nid}{dv} ;
 				$unit = $Nutriments{$nid}{unit};
 			}
-			$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
+			if ($nid eq 'water-hardness') {
+				$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit);
+			}
+			else {
+				$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
+			}
 		}
 	}
 	
@@ -710,18 +715,39 @@ CSS
 <label for="new_code" id="label_new_code">${label_new_code}</label>
 <input type="text" name="new_code" id="new_code" class="text" value="" />			
 
-<div data-alert class="alert-box info">
+<div data-alert class="alert-box info store-state" id="warning_3rd_party_content" style="display:none;">
 <span>$Lang{warning_3rd_party_content}{$lang}
  <a href="#" class="close">&times;</a>
 </div>
 
-<div data-alert class="alert-box secondary">
+<div data-alert class="alert-box secondary store-state" id="licence_accept" style="display:none;">
 <span>$Lang{licence_accept}{$lang}</span>
  <a href="#" class="close">&times;</a>
 </div>
 HTML
 ;
-
+	
+	$scripts .= <<JS
+<script type="text/javascript">
+'use strict';
+\$(function() {
+  var alerts = \$('.alert-box.store-state');
+  \$.each(alerts, function( index, value ) {
+    var display = \$.cookie('state_' + value.id);
+    if (display !== undefined) {
+      value.style.display = display;
+    } else {
+      value.style.display = 'block';
+    }
+  });
+  alerts.on('close.fndtn.alert', function(event) {
+    \$.cookie('state_' + \$(this)[0].id, 'none', { path: '/', expires: 365, domain: '$server_domain' });
+  });
+});
+</script>
+JS
+;
+	
 	# Main language
 
 	$html .= "<label for=\"lang\">" . $Lang{lang}{$lang} . "</label>";
@@ -1445,7 +1471,13 @@ HTML
 		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit})) {
 			$unit = $Nutriments{$nid}{unit};
 		}
-		my $value = g_to_unit($product_ref->{nutriments}{$nid}, $unit);
+		my $value;
+		if ($nid eq 'water-hardness') {
+			$value = mmoll_to_unit($product_ref->{nutriments}{$nid}, $unit);
+		}
+		else {
+			$value = g_to_unit($product_ref->{nutriments}{$nid}, $unit);
+		}
 		
 		# user unit and value ? (e.g. DV for vitamins in US)
 		if ((defined $product_ref->{nutriments}{$nid . "_value"}) and (defined $product_ref->{nutriments}{$nid . "_unit"})) {
@@ -1483,6 +1515,10 @@ HTML
 		elsif ($nid eq 'alcohol') {
 			@units = ('% vol');
 		}
+		elsif ($nid eq 'water-hardness') {
+			@units = ('mol/l', 'mmol/l', 'mval/l', 'ppm', "\N{U+00B0}rH", "\N{U+00B0}fH", "\N{U+00B0}e", "\N{U+00B0}dH", 'gpg');
+		}
+		
 		if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
 			or ($nid =~ /^new_/)) {
 			push @units, '% DV';
@@ -1688,13 +1724,14 @@ HTML
 		
 		foreach my $change_ref (reverse @{$changes_ref}) {
 		
-			my $date = display_date($change_ref->{t});	
+			my $date = display_date_tag($change_ref->{t});	
 			my $user = "";
 			if (defined $change_ref->{userid}) {
 				$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
 			}
-			my $comment = $change_ref->{comment};
 			
+			my $comment = $change_ref->{comment};
+			$comment = lang($comment) if $comment eq 'product_created';
 			
 			$comment =~ s/^Modification :\s+//;
 			if ($comment eq 'Modification :') {
@@ -1826,7 +1863,7 @@ MAIL
 	
 }
 
-$html = "<p>" . lang("barcode") . lang("sep") . ": $code</p>\n" . $html;
+$html = "<p>" . lang("barcode") . separator_before_colon($lc) . ": $code</p>\n" . $html;
 
 display_new( {
 	blog_ref=>undef,

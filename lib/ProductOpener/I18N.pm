@@ -51,13 +51,31 @@ my @metadata_fields = qw<
 sub read_po_files {
     my ($dir) = @_;
 
+	print STDERR "Reading po files from dir $dir\n";
+	
     return unless $dir;
+	
+	# remove trailing slash if present
+	$dir =~ s/\/$//;
 
     my %l10n;
-    my @files = File::Find::Rule->file->name("*.po")->in($dir);
+    my @files = File::Find::Rule->file->name("*.po")->in($dir . "/"); # Need trailing slash if $dir is a symlink
 
-    for my $file (@files) {
+    for my $file (sort @files) {
         # read the .po file
+		
+		print STDERR "Reading $file\n";
+		
+		my $lc;
+		
+		if ($file =~ /\/(\w\w).po/) {
+			$lc = $1;
+		}
+		else {
+			print STDERR "Skipping $file (not in [2-letter code].po format)\n";
+			next;
+		}
+		
         open my $fh, "<", $file or die $!;
         my %Lexicon = %{ Locale::Maketext::Lexicon::Getcontext->parse(<$fh>) };
         close $fh;
@@ -66,13 +84,19 @@ sub read_po_files {
         delete $Lexicon{""};
         delete $Lexicon{$_} for @metadata_fields;
 
-        my $lc = $Lexicon{":langtag"};
-
         # move the strings into %l10n
         for my $key (keys %Lexicon) {
             $l10n{$key}{$lc} = delete $Lexicon{$key};
         }
     }
+	
+	# for debugging purposes, export the structure
+	
+	use Data::Dumper;
+	$Data::Dumper::Sortkeys = 1;
+	open my $fh, ">", "${dir}/l10n.debug" or die "can not create ${dir}/l10n.debug : $!";
+	print $fh "I18N.pm - read_po_file - dir: $dir\n\n" . Dumper(\%l10n) . "\n";
+	close $fh;
 
     return \%l10n
 }
