@@ -18,7 +18,11 @@ BEGIN
 		$reference_timezone
 		$contact_email
 		$admin_email
-		
+
+		$facebook_app_id
+                $facebook_app_secret
+
+                $csrf_secret
 		
 		$mongodb
 	
@@ -79,6 +83,11 @@ $mongodb = $ProductOpener::Config2::mongodb;
 # server paths
 $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
+
+$facebook_app_id = $ProductOpener::Config2::facebook_app_id;
+$facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
+
+$csrf_secret = $Blogs::Config2::csrf_secret;
 
 $reference_timezone = 'Europe/Paris';
 
