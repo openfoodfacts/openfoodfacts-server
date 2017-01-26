@@ -232,7 +232,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$debug and print STDERR "product.pl action: process - phase 1 - type: $type code $code\n";
 	
-	if (defined param('new_code')) {
+	# 26/01/2017 - disallow barcode changes until we fix bug #677
+	if (0 and (defined param('new_code'))) {
 		my $new_code = normalize_code(param('new_code'));
 		if ($new_code =~ /^\d+$/) {
 		# check that the new code is available
