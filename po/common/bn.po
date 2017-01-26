@@ -1,27 +1,31 @@
+# Bengali translation for openfoodfacts
+# Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
+# This file is distributed under the same license as the openfoodfacts package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: openfoodfacts\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-01-18 10:51+0000\n"
-"PO-Revision-Date: 2016-07-04 10:04+0000\n"
+"PO-Revision-Date: 2016-09-24 14:21+0000\n"
 "Last-Translator: Pierre Slamich <pierre.slamich@gmail.com>\n"
-"Language-Team: \n"
+"Language-Team: Bengali <bn@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2017-01-18 10:56+0000\n"
 "X-Generator: Launchpad (build 18302)\n"
-"Language: pl\n"
 
 #. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
 msgid ":langtag"
-msgstr "pl"
+msgstr "bn"
 
 #. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
 msgid ":langname"
-msgstr "Polish"
+msgstr ""
 
 msgctxt "1_product"
 msgid "1 product"
@@ -29,27 +33,27 @@ msgstr ""
 
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr " এবং "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "আমার সম্পর্কে"
 
 msgctxt "add"
 msgid "Add"
-msgstr "Dodać"
+msgstr ""
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "ভাষা যুক্ত করুন"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr "Dodaj produkt"
+msgstr ""
 
 msgctxt "add_user"
 msgid "Register"
-msgstr ""
+msgstr "নিবন্ধন করুন"
 
 msgctxt "add_user_confirm"
 msgid ""
@@ -110,31 +114,31 @@ msgstr ""
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "সংযোজন দ্রব্য"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr ""
+msgstr "উন্নত অনুসন্ধান"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "উন্নত অনুসন্ধান এবং লেখচিত্র"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "অতিরিক্ত মদ্যপান স্বাস্থ্যের জন্য ক্ষতিকর"
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "সকল মিশন"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "Substancje lub produkty powodujące alergie lub reakcje nietolerancji"
+msgstr "পদার্থ বা পণ্য যা বিরূপ বা অসহনীয় প্রতিক্রিয়ার সৃষ্টি করে"
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr ""
+msgstr "অতিপ্রতিক্রিয়া সৃষ্টিকারী বস্তু"
 
 msgctxt "allergens_s"
 msgid "allergen"
@@ -142,16 +146,17 @@ msgstr ""
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr ""
+msgstr "পণ্য পাতাটি যারা সম্পাদনা করেছেন"
 
 msgctxt "android_apk_app_badge"
 msgid ""
 "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
 msgstr ""
+"<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "http://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "http://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid ""
@@ -159,11 +164,15 @@ msgid ""
 "en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" "
 "height=\"47\" />"
 msgstr ""
+"<img src=\"/images/misc/android-app-on-google-play-"
+"en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" "
+"height=\"47\" />"
 
 msgctxt "android_app_link"
 msgid ""
 "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
 msgstr ""
+"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
 
 msgctxt "app_please_take_pictures"
 msgid ""
@@ -176,7 +185,7 @@ msgstr ""
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr "Zrób zdjęcie"
+msgstr "একটি ছবি নিন"
 
 msgctxt "app_take_a_picture_note"
 msgid ""
@@ -186,23 +195,23 @@ msgstr ""
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr "Możesz dodać zdjęcia:"
+msgstr "আপনি ছবি জুড়তে পারেন"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "অনুভূমিক অক্ষ"
 
 msgctxt "axis_y"
 msgid "Vertical axis"
-msgstr ""
+msgstr "উল্লম্ব অক্ষ"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr "Barcode"
+msgstr "বারকোড"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr ""
+msgstr "বারকোড সংখ্যা"
 
 msgctxt "bottom_content"
 msgid ""
@@ -213,6 +222,13 @@ msgid ""
 "<p>Contribute to <<site_name>> by adding product and win stars by\n"
 "fulfilling <a href=\"/missions\">missions</a>!</p>\n"
 msgstr ""
+"Copy text \t\n"
+"<a href=\"http://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
+"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" "
+"height=\"222\" />\n"
+"</a>\n"
+"<p>Contribute to <<site_name>> by adding product and win stars by\n"
+"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
@@ -220,7 +236,7 @@ msgstr ""
 
 msgctxt "brands"
 msgid "Brands"
-msgstr "Marki"
+msgstr "মার্কা"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
@@ -228,7 +244,7 @@ msgstr ""
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr ""
+msgstr "মার্কা গুলো"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
@@ -240,7 +256,7 @@ msgstr ""
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "একটি মার্কা যুক্ত করুন"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
@@ -248,11 +264,11 @@ msgstr ""
 
 msgctxt "by"
 msgid "by"
-msgstr "przez"
+msgstr "দ্বারা"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr "Kategorie"
+msgstr "শ্রেণীসমূহ"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -290,7 +306,7 @@ msgstr ""
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr "Odżywcze"
+msgstr ""
 
 msgctxt "change_selected_images"
 msgid "Selected images"
@@ -421,7 +437,7 @@ msgstr ""
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "Kraje sprzedaż"
+msgstr ""
 
 msgctxt "countries_note"
 msgid ""
@@ -467,7 +483,7 @@ msgstr ""
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr "Usuń strony"
+msgstr ""
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
@@ -509,11 +525,11 @@ msgstr ""
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr "Edycja produkt"
+msgstr ""
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr "Edytuj stronę"
+msgstr ""
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -697,7 +713,7 @@ msgstr ""
 
 msgctxt "expiration_date"
 msgid "Best before date"
-msgstr "Najlepiej spożyć przed datą"
+msgstr ""
 
 msgctxt "expiration_date_note"
 msgid ""
@@ -707,7 +723,7 @@ msgstr ""
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
-msgstr "Drążenia do produktów..."
+msgstr ""
 
 msgctxt "facebook_locale"
 msgid "en_US"
@@ -722,8 +738,6 @@ msgid ""
 "If the data is incomplete or incorrect, you can complete or correct it by "
 "editing this page."
 msgstr ""
-"Jeśli dane są niepełne lub błędne, można uzupełnienie lub poprawienie go do "
-"tej wersji."
 
 msgctxt "footer"
 msgid ""
@@ -747,7 +761,7 @@ msgstr ""
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr "<<site_name>> blog"
+msgstr ""
 
 msgctxt "footer_blog_link"
 msgid "http://en.blog.openfoodfacts.org"
@@ -763,7 +777,7 @@ msgstr ""
 
 msgctxt "footer_data"
 msgid "Data"
-msgstr "Dane"
+msgstr ""
 
 msgctxt "footer_data_link"
 msgid "/data"
@@ -771,11 +785,11 @@ msgstr ""
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr "Odkryj projekt"
+msgstr ""
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
-msgstr "Często Zadawane Pytania"
+msgstr ""
 
 msgctxt "footer_faq_link"
 msgid "/faq"
@@ -790,19 +804,19 @@ msgstr ""
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
-msgstr "Zainstaluj aplikację"
+msgstr ""
 
 msgctxt "footer_join_the_community"
 msgid "Join the community"
-msgstr "Dołącz do społeczności"
+msgstr ""
 
 msgctxt "footer_join_us_on"
 msgid "Join us on %s:"
-msgstr "Dołącz do nas na %s:"
+msgstr ""
 
 msgctxt "footer_legal"
 msgid "Legal"
-msgstr "Nota prawna"
+msgstr ""
 
 msgctxt "footer_legal_link"
 msgid "/legal"
@@ -810,7 +824,7 @@ msgstr ""
 
 msgctxt "footer_press"
 msgid "Press"
-msgstr "Prasa"
+msgstr ""
 
 msgctxt "footer_press_link"
 msgid "/press"
@@ -820,11 +834,11 @@ msgctxt "footer_tagline"
 msgid ""
 "A collaborative, free and open database of food products from around the "
 "world."
-msgstr "Wspólna, wolna i otwarta baza produktów spożywczych z całego świata."
+msgstr ""
 
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr "Zasady korzystania"
+msgstr ""
 
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
@@ -832,7 +846,7 @@ msgstr ""
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
-msgstr "Kim jesteśmy"
+msgstr ""
 
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
@@ -852,11 +866,11 @@ msgstr ""
 
 msgctxt "front_alt"
 msgid "Product"
-msgstr "Produkt"
+msgstr ""
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr "Nazwa zwyczajowa"
+msgstr ""
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
@@ -864,7 +878,7 @@ msgstr ""
 
 msgctxt "goodbye"
 msgid "See you soon!"
-msgstr "Do zobaczenia wkrótce!"
+msgstr ""
 
 msgctxt "graph_count"
 msgid ""
@@ -903,7 +917,7 @@ msgstr ""
 
 msgctxt "hello"
 msgid "Hello"
-msgstr "Halo"
+msgstr ""
 
 msgctxt "high"
 msgid "high"
@@ -911,7 +925,7 @@ msgstr ""
 
 msgctxt "high_quantity"
 msgid "high quantity"
-msgstr "wysoka ilość"
+msgstr ""
 
 msgctxt "history"
 msgid "Changes history"
@@ -923,7 +937,7 @@ msgstr ""
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
-msgstr "Zdjęcie wykazie składników"
+msgstr ""
 
 msgctxt "image_ingredients_note"
 msgid ""
@@ -936,7 +950,7 @@ msgstr ""
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
-msgstr "To zdjęcie zostało już wysłane."
+msgstr ""
 
 msgctxt "image_upload_error_image_too_small"
 msgid ""
@@ -975,11 +989,11 @@ msgstr ""
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr "Składniki"
+msgstr ""
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr "Składniki"
+msgstr ""
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -1029,11 +1043,11 @@ msgstr ""
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
-msgstr "Lista składników"
+msgstr ""
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
-msgstr "Składniki wymienione są w kolejności ważności (ilość)."
+msgstr ""
 
 msgctxt "ingredients_text_example"
 msgid ""
@@ -1138,7 +1152,7 @@ msgstr ""
 
 msgctxt "lang_he"
 msgid "Hebrew"
-msgstr "Hebrajski"
+msgstr ""
 
 msgctxt "lang_it"
 msgid "Italian"
@@ -1170,7 +1184,7 @@ msgstr ""
 
 msgctxt "lang_pl"
 msgid "Polish"
-msgstr "Polski"
+msgstr ""
 
 msgctxt "lang_pt"
 msgid "Portuguese"
@@ -1239,11 +1253,11 @@ msgstr ""
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
-msgstr "Link do strony produktu na oficjalnej stronie producenta"
+msgstr ""
 
 msgctxt "list_of_x"
 msgid "List of %s"
-msgstr "Lista %s"
+msgstr ""
 
 msgctxt "loadmore"
 msgid "Load more results"
@@ -1259,11 +1273,11 @@ msgstr ""
 
 msgctxt "login_create_your_account"
 msgid "Create your account."
-msgstr "Utwórz swoje konto."
+msgstr ""
 
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
-msgstr "Nie jesteś jeszcze zarejestrowany?"
+msgstr ""
 
 msgctxt "login_register_content"
 msgid ""
@@ -1287,11 +1301,11 @@ msgstr ""
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr "Zaloguj"
+msgstr ""
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
-msgstr "Zaloguj się, aby dodać lub edytować produkty."
+msgstr ""
 
 msgctxt "login_to_add_products"
 msgid ""
@@ -1303,7 +1317,7 @@ msgstr ""
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr "Nazwa użytkownika lub adres e-mail:"
+msgstr ""
 
 msgctxt "low"
 msgid "low"
@@ -1361,11 +1375,11 @@ msgstr ""
 
 msgctxt "menu"
 msgid "Menu"
-msgstr "Menu"
+msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr "Dodaj produkt"
+msgstr ""
 
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
@@ -1373,7 +1387,7 @@ msgstr ""
 
 msgctxt "menu_contribute"
 msgid "Contribute"
-msgstr "Wnieś wkład"
+msgstr ""
 
 msgctxt "menu_contribute_link"
 msgid "/contribute"
@@ -1381,7 +1395,7 @@ msgstr ""
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr "Odkryj"
+msgstr ""
 
 msgctxt "menu_discover_link"
 msgid "/discover"
@@ -1417,7 +1431,7 @@ msgstr ""
 
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
-msgstr "umiarkowana ilość"
+msgstr ""
 
 msgctxt "months"
 msgid ""
@@ -1431,7 +1445,7 @@ msgstr ""
 
 msgctxt "n_products"
 msgid "%d products"
-msgstr "%d produkty"
+msgstr ""
 
 msgctxt "name"
 msgid "Name"
@@ -1456,11 +1470,11 @@ msgstr ""
 
 msgctxt "next"
 msgid "Next"
-msgstr "Następny"
+msgstr ""
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
-msgstr "Towar bez kodów kreskowych"
+msgstr ""
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
@@ -1484,7 +1498,7 @@ msgstr ""
 
 msgctxt "number_of_products"
 msgid "Number of products"
-msgstr "Liczba produktów"
+msgstr ""
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
@@ -1492,7 +1506,7 @@ msgstr ""
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
-msgstr "Żywnościowe poziomy 100 g"
+msgstr ""
 
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
@@ -1524,11 +1538,11 @@ msgstr ""
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "Wartości odżywcze"
+msgstr ""
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "Wartości odżywcze"
+msgstr ""
 
 msgctxt "nutrition_data_average"
 msgid ""
@@ -1566,7 +1580,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
-msgstr "do 100 g / 100 ml"
+msgstr ""
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</supe> centile"
@@ -1598,15 +1612,15 @@ msgstr ""
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr "porcji"
+msgstr ""
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
-msgstr "Odchylenie standardowe"
+msgstr ""
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "Wartości odżywcze"
+msgstr ""
 
 msgctxt "nutrition_data_table_note"
 msgid ""
@@ -1632,7 +1646,6 @@ msgctxt "og_image_url"
 msgid ""
 "http://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 msgstr ""
-"http://world.openfoodfacts.org/images/misc/openfoodfacts-logo-ru-356.png"
 
 msgctxt "on_the_blog_content"
 msgid ""
@@ -1660,7 +1673,7 @@ msgstr ""
 
 msgctxt "origins"
 msgid "Origin of ingredients"
-msgstr "Pochodzenie składników"
+msgstr ""
 
 msgctxt "origins_example"
 msgid "California, USA"
@@ -1692,7 +1705,7 @@ msgstr ""
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr "Opakowania"
+msgstr ""
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -1732,11 +1745,11 @@ msgstr ""
 
 msgctxt "pages"
 msgid "Pages:"
-msgstr "Strony:"
+msgstr ""
 
 msgctxt "password"
 msgid "Password"
-msgstr "Hasło"
+msgstr ""
 
 msgctxt "password_confirm"
 msgid "Confirm password"
@@ -1805,11 +1818,11 @@ msgstr ""
 
 msgctxt "points_ranking"
 msgid "Ranking"
-msgstr "Ranking"
+msgstr ""
 
 msgctxt "points_ranking_users_and_countries"
 msgid "Ranking of contributors and countries"
-msgstr "Ranking autorów i krajów"
+msgstr ""
 
 msgctxt "points_user"
 msgid ""
@@ -1826,7 +1839,7 @@ msgstr ""
 
 msgctxt "product_added"
 msgid "Product added on"
-msgstr "Produkt został dodany dnia"
+msgstr ""
 
 msgctxt "product_changes_saved"
 msgid "Changes saved."
@@ -1834,7 +1847,7 @@ msgstr ""
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
-msgstr "Charakterystyka produktu"
+msgstr ""
 
 msgctxt "product_created"
 msgid "Product created"
@@ -1852,7 +1865,7 @@ msgstr ""
 
 msgctxt "product_image_with_barcode"
 msgid "Picture with barcode:"
-msgstr "Zdjęcie z kodem kreskowym:"
+msgstr ""
 
 msgctxt "product_js_current_image"
 msgid "Current image:"
@@ -1864,7 +1877,7 @@ msgstr ""
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
-msgstr "Wyodrębnić składniki z obrazka"
+msgstr ""
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid ""
@@ -1902,11 +1915,11 @@ msgstr ""
 
 msgctxt "product_js_image_rotate_left"
 msgid "Rotate left"
-msgstr "Obróć w lewo"
+msgstr ""
 
 msgctxt "product_js_image_rotate_right"
 msgid "Rotate right"
-msgstr "Obróć w prawo"
+msgstr ""
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
@@ -1950,7 +1963,7 @@ msgstr ""
 
 msgctxt "product_js_upload_image"
 msgid "Add a picture"
-msgstr "Dodaj obrazek"
+msgstr ""
 
 msgctxt "product_js_upload_image_note"
 msgid ""
@@ -1961,7 +1974,7 @@ msgstr ""
 
 msgctxt "product_js_uploading_image"
 msgid "Uploading image"
-msgstr "Przesyłanie obrazu"
+msgstr ""
 
 msgctxt "product_last_edited"
 msgid "Last edit of product page on"
@@ -1969,7 +1982,7 @@ msgstr ""
 
 msgctxt "product_name"
 msgid "Product name"
-msgstr "Nazwa produktu"
+msgstr ""
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
@@ -1977,7 +1990,7 @@ msgstr ""
 
 msgctxt "products"
 msgid "products"
-msgstr "produkty"
+msgstr ""
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
@@ -1989,7 +2002,7 @@ msgstr ""
 
 msgctxt "products_stats_created_t"
 msgid "Products"
-msgstr "Produkty"
+msgstr ""
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
@@ -2001,7 +2014,7 @@ msgstr ""
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr "Miasto, województwo i kraj zakupu"
+msgstr ""
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
@@ -2029,7 +2042,7 @@ msgstr ""
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr "Ilość"
+msgstr ""
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
@@ -2037,7 +2050,7 @@ msgstr ""
 
 msgctxt "remember_me"
 msgid "Remember me"
-msgstr "Zapamiętaj mnie"
+msgstr ""
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
@@ -2101,15 +2114,15 @@ msgstr ""
 
 msgctxt "risk_level_1"
 msgid "Low risks"
-msgstr "Niskie ryzyko"
+msgstr ""
 
 msgctxt "risk_level_2"
 msgid "Moderate risks"
-msgstr "Umiarkowane ryzyko"
+msgstr ""
 
 msgctxt "risk_level_3"
 msgid "High risks"
-msgstr "Wysokie ryzyko"
+msgstr ""
 
 msgctxt "salt_equivalent"
 msgid "salt equivalent"
@@ -2117,7 +2130,7 @@ msgstr ""
 
 msgctxt "save"
 msgid "Save"
-msgstr "Zapisz"
+msgstr ""
 
 msgctxt "saved"
 msgid "Saved."
@@ -2129,11 +2142,11 @@ msgstr ""
 
 msgctxt "search"
 msgid "Search"
-msgstr "Poszukiwanie"
+msgstr ""
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
-msgstr "Wyszukaj produkt"
+msgstr ""
 
 msgctxt "search_button"
 msgid "Search"
@@ -2148,8 +2161,6 @@ msgid ""
 "Select products with specific brands, categories, labels, origins of "
 "ingredients, manufacturing places etc."
 msgstr ""
-"Wybierz produkty ze wzgledu na marki, kategorie, etykiety, pochodzenie "
-"składników, miejsca produkcyjne itp"
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
@@ -2161,11 +2172,11 @@ msgstr ""
 
 msgctxt "search_download_button"
 msgid "Download"
-msgstr "Pobierz"
+msgstr ""
 
 msgctxt "search_download_choice"
 msgid "Download results"
-msgstr "Pobierz wyniki"
+msgstr ""
 
 msgctxt "search_download_results"
 msgid "Download results in CSV format (Excel, OpenOffice)"
@@ -2208,7 +2219,7 @@ msgstr ""
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
-msgstr "Wyniki na wykresie"
+msgstr ""
 
 msgctxt "search_graph_instructions"
 msgid ""
@@ -2243,7 +2254,7 @@ msgstr ""
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
-msgstr "Składniki"
+msgstr ""
 
 msgctxt "search_link"
 msgid ""
@@ -2252,7 +2263,7 @@ msgstr ""
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
-msgstr "Wyniki w liście produktów"
+msgstr ""
 
 msgctxt "search_map"
 msgid "Map"
@@ -2260,7 +2271,7 @@ msgstr ""
 
 msgctxt "search_map_choice"
 msgid "Results on a map"
-msgstr "Wyniki na mapie"
+msgstr ""
 
 msgctxt "search_map_link"
 msgid ""
@@ -2306,11 +2317,11 @@ msgstr ""
 
 msgctxt "search_series_default"
 msgid "Other products"
-msgstr "Inne produkty"
+msgstr ""
 
 msgctxt "search_series_fairtrade"
 msgid "Fair trade"
-msgstr "Targi"
+msgstr ""
 
 msgctxt "search_series_fairtrade_label"
 msgid "fair-trade"
@@ -2356,15 +2367,15 @@ msgstr ""
 
 msgctxt "search_title_graph"
 msgid "Results graph"
-msgstr "Wykres wyników"
+msgstr ""
 
 msgctxt "search_title_map"
 msgid "Results map"
-msgstr "Mapa wyników"
+msgstr ""
 
 msgctxt "search_tools"
 msgid "Search tools"
-msgstr "Narzędzia wyszukiwania"
+msgstr ""
 
 msgctxt "search_value"
 msgid "value"
@@ -2380,19 +2391,19 @@ msgstr ""
 
 msgctxt "see_product_page"
 msgid "See the product page"
-msgstr "Zobacz stronę produktu"
+msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Kraj"
+msgstr ""
 
 msgctxt "select_lang"
 msgid "Language"
-msgstr "Język"
+msgstr ""
 
 msgctxt "send_image"
 msgid "Send a picture..."
-msgstr "Wyślij zdjęcie..."
+msgstr ""
 
 msgctxt "send_image_error"
 msgid "Upload error"
@@ -2404,7 +2415,7 @@ msgstr ""
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr "Porcja"
+msgstr ""
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2412,7 +2423,7 @@ msgstr ""
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr "Zaloguj"
+msgstr ""
 
 msgctxt "share"
 msgid "Share"
@@ -2562,7 +2573,7 @@ msgstr ""
 
 msgctxt "unknown"
 msgid "Unknown"
-msgstr "Nieznany"
+msgstr ""
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
@@ -2638,11 +2649,11 @@ msgstr ""
 
 msgctxt "view_products_from_the_entire_world"
 msgid "View matching products from the entire world"
-msgstr "Zobacz wszystkie pasujące produkty z całego świata"
+msgstr ""
 
 msgctxt "view_results_from_the_entire_world"
 msgid "View results from the entire world"
-msgstr "Zobacz wyniki z całego świata"
+msgstr ""
 
 msgctxt "warning_3rd_party_content"
 msgid ""
