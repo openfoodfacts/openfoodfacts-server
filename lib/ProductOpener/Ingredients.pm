@@ -182,10 +182,6 @@ sub extract_ingredients_from_text($) {
 	
 	print STDERR "extract_ingredients_from_text - text: $text \n";
 	
-	# unify newline feeds to \n
-	$text =~ s/\r\n/\n/g;
-	$text =~ s/\R/\n/g;
-	
 	# assume commas between numbers are part of the name
 	# e.g. en:2-Bromo-2-Nitropropane-1,3-Diol, Bronopol
 	# replace by a lower comma ‚
@@ -335,16 +331,16 @@ sub extract_ingredients_from_text($) {
 		}
 		
 		if ($between ne '') {
-			$analyze_ingredients_self->($analyze_ingredients_self, $ranked_ingredients_ref, $unranked_ingredients_ref , $between_level, $between);
+			$analyze_ingredients_self->(\$analyze_ingredients_self, $ranked_ingredients_ref, $unranked_ingredients_ref , $between_level, $between);
 		}
 		
 		if ($after ne '') {
-			$analyze_ingredients_self->($analyze_ingredients_self, $ranked_ingredients_ref, $unranked_ingredients_ref , $level, $after);
+			$analyze_ingredients_self->(\$analyze_ingredients_self, $ranked_ingredients_ref, $unranked_ingredients_ref , $level, $after);
 		}		
 		
 	};
 	
-	$analyze_ingredients->($analyze_ingredients, \@ranked_ingredients, \@unranked_ingredients , 0, $text);
+	$analyze_ingredients->(\$analyze_ingredients, \@ranked_ingredients, \@unranked_ingredients , 0, $text);
 	
 	for (my $i = 0; $i <= $#ranked_ingredients; $i++) {
 		$ranked_ingredients[$i]{rank} = $i + 1;

@@ -51,6 +51,8 @@ BEGIN
 use vars @EXPORT_OK ; # no 'my' keyword for these
 
 use ProductOpener::Config2;
+use ProductOpener::Lang;
+
 
 %admins = map { $_ => 1 } qw(
 agamitsudo
