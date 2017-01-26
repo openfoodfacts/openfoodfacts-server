@@ -174,6 +174,7 @@ XML
 "ja/code-of-conduct" => "http://en.wiki.openfoodfacts.org/Translations_-_Code_of_conduct_-_Japanese?action=raw",
 
 "fr/notetondistrib" => "http://en.wiki.openfoodfacts.org/Translations_-_Vending_machines_-_French?action=raw",
+"en/rateyourvendingmachine" => "https://en.wiki.openfoodfacts.org/Translations_-_Vending_machines_-_English?action=raw",
 
 );
 
