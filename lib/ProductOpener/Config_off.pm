@@ -156,6 +156,10 @@ XML
 "en/discover" => "http://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_English?action=raw",
 "es/descubrir" => "http://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Spanish?action=raw",
 "fr/decouvrir" => "http://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_French?action=raw",
+"he/discover" => "http://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Hebrew?action=raw",
+"ar/discover" => "http://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Arabic?action=raw",
+"pt/discover" => "http://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Portuguese?action=raw",
+"jp/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Japanese?action=raw",
 
 "en/contribute" => "http://en.wiki.openfoodfacts.org/Translations_-_Contribute_page_-_English?action=raw",
 "es/contribuir" => "http://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_Spanish?action=raw",
