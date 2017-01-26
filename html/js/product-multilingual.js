@@ -27,6 +27,12 @@ var angles = {};
 var imagefield_imgid = {};
 var imagefield_url = {};
 
+var units = [
+	[ 'g', 'mg', "\u00B5g", '% DV' ],
+	[ 'mol/l', 'moll/l', 'mmol/l', 'mval/l', 'ppm', "\u00B0rH", "\u00B0fH", "\u00B0e", "\u00B0dH", 'gpg' ],
+	[ 'kJ', 'kcal' ],
+];
+
 function stringStartsWith (string, prefix) {
     return string.slice(0, prefix.length) == prefix;
 }
@@ -106,17 +112,37 @@ function select_nutriment(event, ui) {
 	id = id.replace("_label", "");
 	$('#' + id).focus();
 	$('#' + id + '_unit').val(ui.item.unit);
-	if (ui.item.unit === '') {
-		$('#' + id + '_unit').hide();
-		$('#' + id + '_unit_percent').hide();
+	var unit = (ui.item.unit == '%' ? 'g' : ui.item.unit).toLowerCase();
+	var unitElement = $('#' + id + '_unit');
+	var percentElement = $('#' + id + '_unit_percent');
+	if (unit === '') {
+		unitElement.hide();
+		percentElement.hide();
 	}
-	else if (ui.item.unit == '%') {
-		$('#' + id + '_unit').hide();
-		$('#' + id + '_unit_percent').show();
+	else if (unit == '%') {
+		unitElement.hide();
+		percentElement.show();
 	}
 	else {
-		$('#' + id + '_unit').show();
-		$('#' + id + '_unit_percent').hide();	
+		unitElement.show();
+		percentElement.hide();
+
+		for (var entryIndex = 0; entryIndex < units.length; ++entryIndex) {
+			var entry = units[entryIndex];
+			for (var unitIndex = 0; unitIndex < entry.length; ++unitIndex) {
+				var unitEntry = entry[unitIndex].toLowerCase();
+				if (unitEntry == unit) {
+					var domElement = unitElement[0];
+					domElement.options.length = 0; // Remove current entries.
+					for (var itemIndex = 0; itemIndex < entry.length; ++itemIndex) {
+						var unitValue = entry[itemIndex];
+						domElement.options[domElement.options.length] = new Option(unitValue, unitValue, unitValue.toLowerCase() == unit);
+					}
+
+					return;
+				}
+			}
+		}
 	}
 }
 
