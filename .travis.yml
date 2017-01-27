@@ -5,6 +5,7 @@ env: COVERAGE=1
 cache:
   directories:
   - $HOME/.npm
+  - $HOME/perl5
 addons:
   apt:
     packages:
