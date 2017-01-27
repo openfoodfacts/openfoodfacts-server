@@ -1320,6 +1320,8 @@ sub display_list_of_tags($$) {
 		my $y_title = lang("number_of_products");
 		my $x_title = lang("nutrition_grades_p");
 
+		my $sep = separator_before_colon($lc);
+		
 		my $js = <<JS
         chart = new Highcharts.Chart({
             chart: {
@@ -1333,7 +1335,7 @@ sub display_list_of_tags($$) {
                 text: '$request_ref->{title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$Lang{sep}{$lc}: @{[ format_subdomain($subdomain) ]}'
+                text: '$Lang{data_source}{$lc}$sep: @{[ format_subdomain($subdomain) ]}'
             },
             xAxis: {
                 title: {
@@ -1906,7 +1908,7 @@ sub display_tag($) {
 			$icid =~ s/-.*//;
 		}		
 		if ($ingredients_classes{$class}{$icid}{other_names} =~ /,/) {
-			$description .= "<p>" . lang("names") . lang("sep") . ": " . $ingredients_classes{$class}{$icid}{other_names} . "</p>";
+			$description .= "<p>" . lang("names") . separator_before_colon($lc) . ": " . $ingredients_classes{$class}{$icid}{other_names} . "</p>";
 		}
 		
 		if ($ingredients_classes{$class}{$icid}{description} ne '') {
@@ -1946,7 +1948,7 @@ sub display_tag($) {
 		print STDERR "Display.pm - city_code: $city_code \n";
 		
 		if (defined $emb_codes_cities{$city_code}) {
-			$description .= "<p>" . lang("cities_s") . lang("sep") . ": " . display_tag_link('cities', $emb_codes_cities{$city_code}) . "</p>";
+			$description .= "<p>" . lang("cities_s") . separator_before_colon($lc) . ": " . display_tag_link('cities', $emb_codes_cities{$city_code}) . "</p>";
 		}
 		
 		print STDERR "display_tag packager_codes - canon_tagid: $canon_tagid\n";
@@ -2087,18 +2089,18 @@ HTML
 	
 	
 	if (defined $tagid2) {
-		$products_title .= " - " . lang($tagtype2 . '_s') . lang("sep") . ": " . $display_tag2;
+		$products_title .= " - " . lang($tagtype2 . '_s') . separator_before_colon($lc) . ": " . $display_tag2;
 	}
 	
 	if (not defined $request_ref->{groupby_tagtype}) {
 		if (defined $tagid2) {
-			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_p')) . "</a>" . lang("sep")
+			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_p')) . "</a>" . separator_before_colon($lc)
 				. ": <a href=\"$newtagidpath\">$display_tag</a>"		
-				. "\n<br /><a href=\"/" . $tag_type_plural{$tagtype2}{$lc} . "\">" . ucfirst(lang($tagtype2 . '_p')) . "</a>" . lang("sep")
+				. "\n<br /><a href=\"/" . $tag_type_plural{$tagtype2}{$lc} . "\">" . ucfirst(lang($tagtype2 . '_p')) . "</a>" . separator_before_colon($lc)
 				. ": <a href=\"$newtagid2path\">$display_tag2</a></p>";		
 		}
 		else {
-			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_p')) . "</a>" . lang("sep"). ": $display_tag</p>";
+			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_p')) . "</a>" . separator_before_colon($lc). ": $display_tag</p>";
 			
 			my $tag_html .= display_tags_hierarchy_taxonomy($lc, $tagtype, [$canon_tagid]);
 			
@@ -2449,7 +2451,7 @@ HTML
 		
 		}
 		else {
-			$html .= "<p>$html_count " . lang("sep") . ":</p>";
+			$html .= "<p>$html_count " . separator_before_colon($lc) . ":</p>";
 		}
 		
 	
@@ -3243,6 +3245,8 @@ JS
 			$legend_enabled = 'true';
 		}
 
+		my $sep = separator_before_colon($lc);
+		
 		my $js = <<JS
         chart = new Highcharts.Chart({
             chart: {
@@ -3258,7 +3262,7 @@ JS
                 text: '$graph_ref->{graph_title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$Lang{sep}{$lc}: @{[ format_subdomain($subdomain) ]}'
+                text: '$Lang{data_source}{$lc}$sep: @{[ format_subdomain($subdomain) ]}'
             },
             xAxis: {
 				$x_allowDecimals
@@ -3285,8 +3289,8 @@ JS
                     return '<a href="' + this.point.url + '">' + this.point.product_name + '<br/>'
 						+ this.point.img + '</a><br/>'
 						+ '$Lang{nutrition_data_per_100g}{$lc} :'
-						+ '<br />$x_title$Lang{sep}{$lc}: '+ this.x + ' $x_unit2'
-						+ '<br />$y_title$Lang{sep}{$lc}: ' + this.y + ' $y_unit2';
+						+ '<br />$x_title$sep: '+ this.x + ' $x_unit2'
+						+ '<br />$y_title$sep: ' + this.y + ' $y_unit2';
                 }
 			},
 		
@@ -3587,6 +3591,8 @@ JS
 		if (scalar keys %series > 1) {
 			$legend_enabled = 'true';
 		}
+		
+		my $sep = separator_before_colon($lc);
 
 		my $js = <<JS
         chart = new Highcharts.Chart({
@@ -3604,7 +3610,7 @@ JS
                 text: '$graph_ref->{graph_title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$Lang{sep}{$lc}: @{[ format_subdomain($subdomain) ]}'
+                text: '$Lang{data_source}{$lc}$sep: @{[ format_subdomain($subdomain) ]}'
             },
             xAxis: {
                 title: {
@@ -3933,14 +3939,14 @@ JS
 				my $manufacturing_places =  escape_single_quote($product_ref->{"manufacturing_places"});
 				$manufacturing_places =~ s/,( )?/, /g;
 				if ($manufacturing_places ne '') {
-					$manufacturing_places = ucfirst(lang("manufacturing_places_p")) . lang("sep") . ": " . $manufacturing_places . "<br/>";
+					$manufacturing_places = ucfirst(lang("manufacturing_places_p")) . separator_before_colon($lc) . ": " . $manufacturing_places . "<br/>";
 				}	
 				
 				
 				my $origins =  escape_single_quote($product_ref->{origins});
 				$origins =~ s/,( )?/, /g;
 				if ($origins ne '') {
-					$origins = ucfirst(lang("origins_p")) . lang("sep") . ": " . $origins . "<br/>";;
+					$origins = ucfirst(lang("origins_p")) . separator_before_colon($lc) . ": " . $origins . "<br/>";;
 				}				
 				
 				$origins = $manufacturing_places . $origins;
@@ -5423,7 +5429,7 @@ sub display_field($$) {
 		if ($lang_field eq '') {
 			$lang_field = ucfirst(lang($field . "_p"));
 		}
-		$html .= '<p><span class="field">' . $lang_field . $Lang{sep}{$lc} . ":</span> $value</p>";
+		$html .= '<p><span class="field">' . $lang_field . separator_before_colon($lc) . ":</span> $value</p>";
 		
 		if ($field eq 'brands') {
 			my $brand = $value;
@@ -5600,7 +5606,7 @@ HTML
 				$html_upc .= " " . $' . " (UPC / UPC-A)";
 			}
 		}
-		$html .= "<p>" . lang("barcode") . "$Lang{sep}{$lc}: <span property=\"food:code\" itemprop=\"gtin13\">$code</span> $html_upc</p>
+		$html .= "<p>" . lang("barcode") . separator_before_colon($lc) . ": <span property=\"food:code\" itemprop=\"gtin13\">$code</span> $html_upc</p>
 <div property=\"gr:hasEAN_UCC-13\" content=\"$code\" datatype=\"xsd:string\"></div>\n";
 	}
 	
@@ -5667,7 +5673,7 @@ HTML
 	
 		
 	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
-	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . $Lang{sep}{$lc} . ":</span>";
+	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . separator_before_colon($lc) . ":</span>";
 	if ($lc ne $ingredients_text_lang) {
 		$html .= " <span id=\"ingredients_list\" property=\"food:ingredientListAsText\" lang=\"$ingredients_text_lang\">$ingredients_text</span>";
 	}
@@ -5687,7 +5693,7 @@ HTML
 	
 		if ((defined $product_ref->{$class . '_tags'}) and (scalar @{$product_ref->{$class . '_tags'}} > 0)) {
 
-			$html .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang($class . "_p") . lang("sep")) . ":</b><br />";
+			$html .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang($class . "_p") . separator_before_colon($lc)) . ":</b><br />";
 			
 			if (defined $tags_images{$lc}{$tagtype}{get_fileid($tagtype)}) {
 				my $img = $tags_images{$lc}{$tagtype}{get_fileid($tagtype)};
@@ -5761,7 +5767,7 @@ HTML
 		
 		if ($special_html ne "") {
 		
-			$html  .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang("ingredients_analysis") . lang("sep")) . ":</b><br />"
+			$html  .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang("ingredients_analysis") . separator_before_colon($lc)) . ":</b><br />"
 			. "<ul id=\"special_ingredients\">\n" . $special_html . "</ul>\n"
 			. "<p>" . lang("ingredients_analysis_note") . "</p></div>\n";
 		}
@@ -5992,7 +5998,7 @@ sub display_product_jqm ($) # jquerymobile
 	if ($code =~ /^2000/) { # internal code
 	}
 	else {
-		$html .= "<p>" . lang("barcode") . "$Lang{sep}{$lc}: $code</p>\n";
+		$html .= "<p>" . lang("barcode") . separator_before_colon($lc) . ": $code</p>\n";
 	}
 	
 	$html .= display_nutrient_levels($product_ref);
@@ -6049,7 +6055,7 @@ HTML
 	. $html_image;
 		
 	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
-	$html .= "<div id=\"ingredients_list\" ><span class=\"field\">" . lang("ingredients_text") . $Lang{sep}{$lc} . ":</span> $ingredients_text</div>";
+	$html .= "<div id=\"ingredients_list\" ><span class=\"field\">" . lang("ingredients_text") . separator_before_colon($lc) . ":</span> $ingredients_text</div>";
 	
 	$html .= display_field($product_ref, 'allergens');
 	
@@ -6060,7 +6066,7 @@ HTML
 	
 	if ((defined $product_ref->{$class . '_tags'}) and (scalar @{$product_ref->{$class . '_tags'}} > 0)) {
 
-		$html .= "<br/><hr class=\"floatleft\"><div><b>" . lang("additives_p") . lang("sep") . ":</b><br />";		
+		$html .= "<br/><hr class=\"floatleft\"><div><b>" . lang("additives_p") . separator_before_colon($lc) . ":</b><br />";		
 		
 		$html .= "<ul>";
 		foreach my $tagid (@{$product_ref->{$class . '_tags'}}) {
@@ -6506,7 +6512,7 @@ JS
 			$html .= "<div><input id=\"show_stats\" type=\"checkbox\" /><label for=\"show_stats\">"
 			. lang("show_category_stats")
 			. '<span class="show-for-xlarge-up">'
-			. lang("sep") . ": " . lang("show_category_stats_details") . "</span></label>" . "</div>";
+			. separator_before_colon($lc) . ": " . lang("show_category_stats_details") . "</span></label>" . "</div>";
 		
 			$initjs .= <<JS
 		

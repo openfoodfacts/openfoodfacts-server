@@ -165,7 +165,7 @@ Please populate this changelog with meaningful changes and release versions - re
 - d115e27 hangy   Mon Aug 15 12:37:52 2016 +0200  Merge branch 'master' into update-package-name
 - 832ef2b hangy   Mon Aug 15 12:35:54 2016 +0200  Merge branch 'issue/107'
 - f57483d hangy   Mon Aug 15 12:27:32 2016 +0200  Redirect /fr:produit/123 to /product/123.
-- e472b38 hangy   Mon Aug 15 11:21:45 2016 +0200  Updated translations from http://en.wiki.openfoodfacts.org/index.php?title=Translations_-_Web_site_interface&oldid=5121
+- e472b38 hangy   Mon Aug 15 11:21:45 2016 +0200  Updated translations from https://en.wiki.openfoodfacts.org/index.php?title=Translations_-_Web_site_interface&oldid=5121
 - e9b8d77 hangy   Sun Aug 14 23:15:24 2016 +0200  Some minor HTML validation problems.
 - 22b88cf Alex    Sun Aug 14 21:54:15 2016 +0200  added terrasuisse svg logo
 - 797b70e Alex    Sun Aug 14 21:46:12 2016 +0200  added usda logo
@@ -180,15 +180,15 @@ Please populate this changelog with meaningful changes and release versions - re
 - eff0574 hangy   Sun Aug 14 12:12:13 2016 +0200  Support more different punctuation characters.
 - 90a6bd3 hangy   Sun Aug 14 11:26:42 2016 +0200  Don't redirect to 'world' from ssl-api.$server_domain.
 - 9273d46 Alex    Sun Aug 14 11:03:07 2016 +0200  added international fairtrade logo as svg
-- c575ad6 Alex    Fri Aug 12 17:49:00 2016 +0200  added logo for http://uk.openfoodfacts.org/label/not-advised-for-pregnant-women
+- c575ad6 Alex    Fri Aug 12 17:49:00 2016 +0200  added logo for https://uk.openfoodfacts.org/label/not-advised-for-pregnant-women
 - 71b74d8 Alex    Thu Aug 11 18:23:58 2016 +0200  reduced filesize
 - b2afc12 hangy   Thu Aug 11 16:47:02 2016 +0200  Need to use smartmatch to get the tag in that hash/array(?).
 - 23ac034 hangy   Thu Aug 11 15:58:04 2016 +0200  Removed Store.debug.txt to a unit test to avoid that annoying file everywhere. :)
 - 4200a4c hangy   Thu Aug 11 15:45:26 2016 +0200  Added a first unit test for fun.
 - 58be2ca Alex    Thu Aug 11 13:35:42 2016 +0200  added dlg jährlich prämiert logo
 - 695eaaf hangy   Thu Aug 11 13:07:01 2016 +0200  Removed "use lib" from startup*.pl
-- 6427a27 Alex    Thu Aug 11 12:59:24 2016 +0200  added the green dot logo for: http://world.openfoodfacts.org/label/green-dot
-- 037b999 Alex    Thu Aug 11 12:51:37 2016 +0200  renamed according to http://de.openfoodfacts.org/label/eg-oko-verordnung
+- 6427a27 Alex    Thu Aug 11 12:59:24 2016 +0200  added the green dot logo for: https://world.openfoodfacts.org/label/green-dot
+- 037b999 Alex    Thu Aug 11 12:51:37 2016 +0200  renamed according to https://de.openfoodfacts.org/label/eg-oko-verordnung
 - 9268431 hangy   Thu Aug 11 11:55:59 2016 +0200  Renamed the package from Blogs to ProductOpener and moved it to it's own lib directory.
 - 5a4622d Alex    Wed Aug 10 20:17:07 2016 +0200  added logo of DE-ÖKO-Verordnung. see https://de.wikipedia.org/wiki/Bio-Siegel#Deutsches_staatliches_Bio-Siege l
 - 7484f07 Alex    Wed Aug 10 19:04:48 2016 +0200  optimised eu organic logo
