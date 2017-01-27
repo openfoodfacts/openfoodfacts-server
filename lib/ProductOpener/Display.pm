@@ -2333,11 +2333,9 @@ sub search_and_display_products($$$$$) {
 	my $cursor;
 	my $count;
 	
+	use Data::Dumper;
 	#if ($admin) 
 	{
-	
-		use Data::Dumper;
-		print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
 		print STDERR "Display.pm - search_and_display_products - sort:\n" . Dumper($sort_ref) . "\n";
 		print STDERR "Display.pm - search_and_display_products - limit:\n" . Dumper($limit) . "\n";
 	
@@ -2349,9 +2347,11 @@ sub search_and_display_products($$$$$) {
 				{ "\$match" => $query_ref }
 			];
 			my $options = { "\$sample" => { "size" => $request_ref->{sample_size} } };
+			print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\noptions:\n" . Dumper($options) . "\n";
 			$cursor = $products_collection->aggregate($aggregate_parameters, $options);
 		}
 		else {
+			print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
 			$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 		}
 	};
@@ -2376,9 +2376,11 @@ sub search_and_display_products($$$$$) {
 					{ "\$match" => $query_ref }
 				];
 				my $options = { "\$sample" => { "size" => $request_ref->{sample_size} } };
+				print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\noptions:\n" . Dumper($options) . "\n";
 				$cursor = $products_collection->aggregate($aggregate_parameters, $options);
 			}
 			else {
+				print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
 				$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 			}
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok\n";
