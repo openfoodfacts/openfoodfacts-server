@@ -373,9 +373,9 @@ sub process_search_image_form($) {
 			my $extension = lc($1) ;
 			my $filename = get_fileid(remote_addr(). '_' . $`);
 			
-			open (my $FILE, q{>}, "$data_root/tmp/$filename.$extension") ;
-			while (<$file>) {
-				print $FILE;
+			open (my $FILE, q{>}, "$data_root/tmp/$filename.$extension") or die "could not open $filename.$extension";
+			while (my $chunk = <$file>) {
+				print $FILE $chunk;
 			}
 			close ($FILE);
 			
@@ -470,8 +470,8 @@ sub process_image_upload($$$$$) {
 
 
 			open (my $FILE, q{>}, "$www_root/images/products/$path/$imgid.$extension") or print STDERR "Images.pm - Error - Could not save $www_root/images/products/$path/$imgid.$extension : $!\n";
-			while (<$file>) {
-				print $FILE;
+			while (my $chunk = <$file>) {
+				print $FILE $chunk;
 			}
 			close ($FILE);
 
