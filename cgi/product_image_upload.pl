@@ -53,7 +53,7 @@ if ((not defined $code) or ($code eq '')) {
 	my %response = ( status => 'status not ok');
 	$response{error} = "error - missing product code";
 	my $data =  encode_json(\%response);		
-	print header ( -charset=>'UTF-8') . $data;		
+	print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 	exit(0);
 }
 
@@ -79,7 +79,7 @@ if ($imagefield) {
 		my %response = ( status => 'status not ok');
 		$response{error} = "error - invalid product code: $code";
 		my $data =  encode_json(\%response);		
-		print header ( -charset=>'UTF-8') . $data;		
+		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 		exit(0);		
 	}
 	
@@ -144,7 +144,7 @@ if ($imagefield) {
 		
 		print STDERR "product_image_upload - upload_session: $upload_session - JSON data output: $data\n";
 
-		print header ( -charset=>'UTF-8') . $data;
+		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 
 	}
 	else {
@@ -153,7 +153,7 @@ if ($imagefield) {
 			my %response = ( status => 'status not ok');
 			$response{error} = "error - imagefield not defined";
 			my $data =  encode_json(\%response);		
-			print header ( -charset=>'UTF-8') . $data;			
+			print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 
 	}
 

@@ -53,7 +53,7 @@ my $data =  encode_json({ status => 'status ok',
 
 print STDERR "product_image_crop - JSON data output: $data\n";
 
-print header() . $data;
+print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 
 
 exit(0);

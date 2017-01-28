@@ -24,7 +24,4 @@ my $response_ref = check_session($user_id, $user_session);
 
 my $data =  encode_json($response_ref);
 	
-print "Content-Type: application/json; charset=UTF-8\r\n\r\n" . $data;	
-	
-
-
+print header( -type => 'application/json', -charset => 'utf-8' ) . $data;

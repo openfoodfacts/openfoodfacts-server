@@ -151,11 +151,11 @@ if ($type eq 'search_or_add') {
 	# jquery.fileupload ?
 	if (param('jqueryfileupload')) {
 	
-		my $data =  encode_json(\%data);
+		my $data = encode_json(\%data);
 
 		print STDERR "product.pl - jqueryfileupload - JSON data output: $data\n";
-		
-		print header() . $data;
+
+		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 		exit();	
 	}
 	

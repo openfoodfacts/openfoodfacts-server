@@ -82,6 +82,4 @@ $image_tag
 XML
 ;
 
-print "Content-Type: application/opensearchdescription+xml; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\nCache-Control: public, max-age: 10080\r\n\r\n" . $xml;
-
-
+print header( -type => 'application/opensearchdescription+xml', -charset => 'utf-8', -access_control_allow_origin => '*', -cache_control => 'public, max-age: 10080' ) . $xml;
