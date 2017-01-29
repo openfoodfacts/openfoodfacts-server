@@ -372,19 +372,12 @@ sub process_search_image_form($) {
 		
 			my $extension = lc($1) ;
 			my $filename = get_fileid(remote_addr(). '_' . $`);
-
-			# ! the following does not work, the file is not created - bug #678			
-			#open (my $FILE, q{>}, "$data_root/tmp/$filename.$extension") ;
-			#while (<$file>) {
-			#	print $FILE;
-			#}
-			#close ($FILE);
 			
-			open (FILE, ">$data_root/tmp/$filename.$extension") ;
-			while (<$file>) {
-				print FILE;
+			open (my $out, ">", "$data_root/tmp/$filename.$extension") ;
+			while (my $chunk = <$file>) {
+				print $out $chunk;
 			}
-			close (FILE);			
+			close ($out);
 			
 			$code = scan_code("$data_root/tmp/$filename.$extension");
 			if (defined $code) {
@@ -475,19 +468,12 @@ sub process_image_upload($$$$$) {
 			mkdir ("$www_root/images/products/$path/$imgid.lock", 0755) or print STDERR "Images.pm - Error - Could not create lock $www_root/images/products/$path/$imgid.lock : $!\n";
 			
 
-			# ! the following does not work, the file is not created - bug #678
-			
-			#open (my $FILE, q{>}, "$www_root/images/products/$path/$imgid.$extension") or print STDERR "Images.pm - Error - Could not save $www_root/images/products/$path/$imgid.$extension : $!\n";
-			#while (<$file>) {
-			#	print $FILE;
-			#}
-			#close ($FILE);
-			
-			open (FILE, ">$www_root/images/products/$path/$imgid.$extension") or print STDERR "Images.pm - Error - Could not save $www_root/images/products/$path/$imgid.$extension : $!\n";
-			while (<$file>) {
-				print FILE;
+
+			open (my $out, ">", "$www_root/images/products/$path/$imgid.$extension") or print STDERR "Images.pm - Error - Could not save $www_root/images/products/$path/$imgid.$extension : $!\n";
+			while (my $chunk = <$file>) {
+				print $out $chunk;
 			}
-			close (FILE);
+			close ($out);
 
 
 			
