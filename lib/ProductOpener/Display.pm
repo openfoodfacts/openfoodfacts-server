@@ -2110,7 +2110,7 @@ HTML
 
 			my $share = lang('share');
 			$html .= <<HTML
-<div class="share_button right" style="float:right;margin-top:-10px;display:none;">
+<div class="share_button right" style="float:right;margin-top:-10px;margin-left:10px;display:none;">
 <a href="$request_ref->{canon_url}" class="button small icon" title="$title">
 	<i class="fi-share"></i>
 	<span class="show-for-large-up"> $share</span>
