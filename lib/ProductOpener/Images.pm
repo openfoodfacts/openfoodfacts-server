@@ -42,6 +42,7 @@ BEGIN
 					&process_image_move
 					
 					&process_image_crop
+					&process_image_unselect
 					
 					&scan_code
 					
@@ -958,6 +959,28 @@ sub process_image_crop($$$$$$$$$$) {
 	store_product($product_ref, "new image $id : $imgid.$rev");
 
 	print STDERR "Index::process_image_crop done\n";
+	return $product_ref;
+}
+
+sub process_image_unselect($$) {
+
+	my $code = shift;
+	my $id = shift;
+	
+	my $path = product_path($code);
+		
+	print STDERR "Images.pm - process_image_unselect - id: $id\n";
+			
+	# Update the product image data
+	my $product_ref = retrieve_product($code);
+	defined $product_ref->{images} or $product_ref->{images} = {};
+	if (defined $product_ref->{images}{$id}) {
+		delete $product_ref->{images}{$id};
+	}
+
+	store_product($product_ref, "unselected image $id");
+
+	print STDERR "Index::process_image_unselect done\n";
 	return $product_ref;
 }
 

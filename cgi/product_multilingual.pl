@@ -573,7 +573,7 @@ HTML
 		}
 	
 		$html .= <<HTML
-<p class="example">$examples $Lang{$fieldtype . "_example"}{$lang}</p>			
+<p class="example">$examples $Lang{$fieldtype . "_example"}{$lang}</p>
 HTML
 ;
 	}
@@ -698,8 +698,8 @@ textarea {  height:8rem; }
 	padding-top:0.5rem;
 }
 
-#ocrbutton_ingredients {
-	margin-top:1rem;
+.button_div {
+	margin-top:0.5rem;
 }
 
 #label_new_code, #new_code { display: inline; margin-top: 0px; width:200px; }
