@@ -1,14 +1,14 @@
 #!/usr/bin/perl -w
 
-use strict;
+use Modern::Perl '2012';
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 
 my %additives = ();
 
-	open(IN, "<:encoding(UTF-8)", "$data_root/ingredients/additives.txt");
-	while (<IN>) {
+	open(my $IN, "<:encoding(UTF-8)", "$data_root/ingredients/additives.txt");
+	while (<$IN>) {
 		chomp;
 		next if /^\#/;
 		
@@ -20,12 +20,12 @@ my %additives = ();
 		$additives{$canon_name} = {langs => {fr => $other_names}};
 		
 	}
-	close IN;
+	close $IN;
 	
 my %langs = ();
 
-open (IN, "<:encoding(UTF-8)", "eu_additives_teolemon.txt");
-while (<IN>) {
+open (my $IN, "<:encoding(UTF-8)", "eu_additives_teolemon.txt");
+while (<$IN>) {
 		chomp;
 		next if /^\#/;
 		
@@ -64,7 +64,7 @@ while (<IN>) {
 			$langs{$lang} ++;
 		}		
 }
-close IN;
+close $IN;
 
 foreach my $e (keys %additives) {
 
@@ -82,28 +82,28 @@ foreach my $e (keys %additives) {
 
 my @langs = sort(keys %langs);
 
-open (OUT, ">:encoding(UTF-8)", "merged_additives.txt");
+open (my $OUT, ">:encoding(UTF-8)", "merged_additives.txt");
 
 
 foreach my $e ( sort { ($additives{$a}{number} <=> $additives{$b}{number}) || ($a cmp $b) } keys %additives ) {
 
-	print OUT "\n";
+	print $OUT "\n";
 	
-	print OUT "en:$e, " . $additives{$e}{langs}{en} . "\n";
+	print $OUT "en:$e, " . $additives{$e}{langs}{en} . "\n";
 	
 	foreach my $lang (@langs) {
 		next if $lang eq 'en';
 		if (not defined $additives{$e}{langs}{$lang}) {
-			print OUT "$lang:$e, " . $additives{$e}{langs}{en} . "\n";
+			print $OUT "$lang:$e, " . $additives{$e}{langs}{en} . "\n";
 		}
 		else {
-			print OUT "$lang:$e, " . $additives{$e}{langs}{$lang} . "\n";
+			print $OUT "$lang:$e, " . $additives{$e}{langs}{$lang} . "\n";
 		}
 	}
-	print OUT "e_number:en:" . $additives{$e}{number} . "\n";
+	print $OUT "e_number:en:" . $additives{$e}{number} . "\n";
 }
 
-close (OUT);
+close ($OUT);
 
 
 

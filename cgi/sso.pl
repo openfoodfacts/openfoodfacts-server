@@ -1,9 +1,9 @@
 #!/usr/bin/perl
 
-use CGI::Carp qw(fatalsToBrowser);
-
-use strict;
+use Modern::Perl '2012';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -24,7 +24,4 @@ my $response_ref = check_session($user_id, $user_session);
 
 my $data =  encode_json($response_ref);
 	
-print "Content-Type: application/json; charset=UTF-8\r\n\r\n" . $data;	
-	
-
-
+print header( -type => 'application/json', -charset => 'utf-8' ) . $data;

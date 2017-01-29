@@ -1,10 +1,12 @@
 package ProductOpener::Config;
 
+use utf8;
+use Modern::Perl '2012';
+use Exporter    qw< import >;
+
 BEGIN
 {
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	require Exporter;
-	@ISA = qw(Exporter);
 	@EXPORT = qw();
 	@EXPORT_OK = qw(
 		%admins
@@ -16,7 +18,11 @@ BEGIN
 		$reference_timezone
 		$contact_email
 		$admin_email
-		
+
+		$facebook_app_id
+                $facebook_app_secret
+
+                $csrf_secret
 		
 		$mongodb
 	
@@ -47,12 +53,8 @@ BEGIN
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 use vars @EXPORT_OK ; # no 'my' keyword for these
-use strict;
-use utf8;
 
 use ProductOpener::Config2;
-use ProductOpener::Lang;
-
 
 %admins = map { $_ => 1 } qw(
 agamitsudo
@@ -81,6 +83,11 @@ $mongodb = $ProductOpener::Config2::mongodb;
 # server paths
 $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
+
+$facebook_app_id = $ProductOpener::Config2::facebook_app_id;
+$facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
+
+$csrf_secret = $Blogs::Config2::csrf_secret;
 
 $reference_timezone = 'Europe/Paris';
 

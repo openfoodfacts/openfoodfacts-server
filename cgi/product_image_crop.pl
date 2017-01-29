@@ -1,9 +1,9 @@
 #!/usr/bin/perl
 
-use CGI::Carp qw(fatalsToBrowser);
-
-use strict;
+use Modern::Perl '2012';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -53,7 +53,7 @@ my $data =  encode_json({ status => 'status ok',
 
 print STDERR "product_image_crop - JSON data output: $data\n";
 
-print header() . $data;
+print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 
 
 exit(0);

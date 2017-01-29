@@ -20,11 +20,13 @@
 
 package ProductOpener::Products;
 
+use utf8;
+use Modern::Perl '2012';
+use Exporter    qw< import >;
+
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_Images);
-	require Exporter;
-	@ISA = qw(Exporter);
+	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 		&normalize_code
@@ -50,8 +52,6 @@ BEGIN
 }
 
 use vars @EXPORT_OK ;
-use strict;
-use utf8;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -84,6 +84,7 @@ sub normalize_code($) {
 }
 
 
+# FIXME: bug #677
 sub product_path($) {
 
 	my $code = shift;
@@ -176,7 +177,7 @@ sub retrieve_product($) {
 	my $product_ref = retrieve("$data_root/products/$path/product.sto");
 	
 	if ((defined $product_ref) and ($product_ref->{deleted})) {
-		return undef;
+		return;
 	}
 	
 	return $product_ref;
@@ -188,14 +189,14 @@ sub retrieve_product_rev($$) {
 	my $rev = shift;
 	
 	if ($rev !~ /^\d+$/) {
-		return undef;
+		return;
 	}
 	
 	my $path = product_path($code);
 	my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
 	
 	if ((defined $product_ref) and ($product_ref->{deleted})) {
-		return undef;
+		return;
 	}
 	
 	return $product_ref;
@@ -212,7 +213,8 @@ sub store_product($$) {
 	my $rev = $product_ref->{rev};
 	
 	# Changing the code?
-	if (defined $product_ref->{old_code}) {
+	# 26/01/2017 - disallow code changes until we fix #677
+	if (0 and (defined $product_ref->{old_code})) {
 	
 		my $old_code = $product_ref->{old_code};
 		my $old_path =  product_path($old_code);
@@ -536,7 +538,7 @@ sub compute_product_history_and_completeness($$) {
 	}
 
 	my $last_modified_t = $current_product_ref->{last_modified_t} + 0;
-	my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($last_modified_t + 0);
+	($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($last_modified_t + 0);
 	$current_product_ref->{last_edit_dates_tags} = [];
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d-%02d", $year + 1900, $mon + 1);
@@ -692,8 +694,8 @@ sub compute_product_history_and_completeness($$) {
 				@ids = @{$nutriments_lists{europe}};
 			}
 			else {
-				sub uniq { my %seen; grep !$seen{$_}++, @_ };
-				@ids = uniq ( keys %{$current{$group}}, keys %{$previous{$group}}) ;
+				my $uniq = sub { my %seen; grep !$seen{$_}++, @_ };
+				@ids = $uniq->( keys %{$current{$group}}, keys %{$previous{$group}});
 			}
 			
 			foreach my $id (@ids) {

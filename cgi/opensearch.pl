@@ -20,11 +20,11 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+use Modern::Perl '2012';
+use utf8;
+
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
-
-use strict;
-use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -76,11 +76,10 @@ my $xml = <<XML
 <InputEncoding>UTF-8</InputEncoding>
 $image_tag
 <Url type="text/html" method="GET" template="$uri/cgi/search.pl?search_terms={searchTerms}&amp;search_simple=1&amp;action=process" />
+<Url type="application/rss+xml" method="GET" template="$uri/cgi/search.pl?search_terms={searchTerms}&amp;search_simple=1&amp;action=process&amp;page={startPage?}&amp;page_size={count?}&amp;rss=1" />
 <Url type="application/opensearchdescription+xml" rel="self" template="$uri/cgi/opensearch.pl" />
 </OpenSearchDescription>
 XML
 ;
 
-print "Content-Type: application/opensearchdescription+xml; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\nCache-Control: public, max-age: 10080\r\n\r\n" . $xml;
-
-
+print header( -type => 'application/opensearchdescription+xml', -charset => 'utf-8', -access_control_allow_origin => '*', -cache_control => 'public, max-age: 10080' ) . $xml;

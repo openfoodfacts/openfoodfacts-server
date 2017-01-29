@@ -20,11 +20,13 @@
 
 package ProductOpener::Tags;
 
+use utf8;
+use Modern::Perl '2012';
+use Exporter    qw< import >;
+
 BEGIN
 {
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	require Exporter;
-	@ISA = qw(Exporter);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 
@@ -95,6 +97,8 @@ BEGIN
 					%translations_from
 					%translations_to
 					
+					%Languages
+					
 					&init_select_country_options
 					
 					);	# symbols to export on request
@@ -102,8 +106,6 @@ BEGIN
 }
 
 use vars @EXPORT_OK ;
-use strict;
-use utf8;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -235,8 +237,8 @@ sub load_tags_images($$) {
 			if ($file =~ /^((.*)\.\d+x${logo_height}.(png|svg))$/) {
 				if ((not defined $tags_images{$lc}{$tagtype}{$2}) or ($3 eq 'svg')) {
 					$tags_images{$lc}{$tagtype}{$2} = $1;
-					print STDERR "load_tags_images - tags_images - lc: $lc - tagtype: $tagtype - tag: $2 - img: $1 - ext: $3 \n";
-					print "load_tags_images - tags_images - loading lc: $lc - tagtype: $tagtype - tag: $2 - img: $1 - ext: $3 \n";
+					# print STDERR "load_tags_images - tags_images - lc: $lc - tagtype: $tagtype - tag: $2 - img: $1 - ext: $3 \n";
+					# print "load_tags_images - tags_images - loading lc: $lc - tagtype: $tagtype - tag: $2 - img: $1 - ext: $3 \n";
 				}
 			}
 		}
@@ -265,7 +267,7 @@ sub load_tags_hierarchy($$) {
 	defined $synonyms_for{$tagtype}{$lc} or $synonyms_for{$tagtype}{$lc} = {};
 
 	
-	if (open (IN, "<:encoding(UTF-8)", "$data_root/lang/$lc/tags/$tagtype.txt")) {
+	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lc/tags/$tagtype.txt")) {
 	
 		my $current_tagid;
 		my $current_tag;
@@ -274,7 +276,7 @@ sub load_tags_hierarchy($$) {
 	
 
 	
-		while (<IN>) {
+		while (<$IN>) {
 		
 			my $line = $_;
 			chomp($line);
@@ -344,7 +346,7 @@ sub load_tags_hierarchy($$) {
 			}				
 		}
 	
-		close IN;
+		close $IN;
 		
 		
 		# Deal with simple singular and plurals, and other forms
@@ -442,7 +444,7 @@ sub load_tags_hierarchy($$) {
 		
 		# Compute all children, breadth first
 		
-		open (OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.$lc.txt");
+		open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.$lc.txt");
 		
 		foreach my $tagid (
 			sort { ($tags_level{$lc}{$tagtype}{$b} <=> $tags_level{$lc}{$tagtype}{$a})
@@ -451,23 +453,23 @@ sub load_tags_hierarchy($$) {
 				}
 				keys %{$tags_level{$lc}{$tagtype}} ) {
 			
-			#print OUT "$tagid - $tags_level{$lc}{$tagtype}{$tagid} - $longest_parent{$lc}{$tagid} \n";
+			#print $OUT "$tagid - $tags_level{$lc}{$tagtype}{$tagid} - $longest_parent{$lc}{$tagid} \n";
 			if (defined $tags_direct_parents{$lc}{$tagtype}{$tagid}) {
 				#print "direct_parents\n";
 				foreach my $parentid (sort keys %{$tags_direct_parents{$lc}{$tagtype}{$tagid}}) {
-					print OUT "< $lc:" . $canon_tags{$lc}{$tagtype}{$parentid} . "\n";
+					print $OUT "< $lc:" . $canon_tags{$lc}{$tagtype}{$parentid} . "\n";
 				}
 				
 			}
-			print OUT "$lc: " . $canon_tags{$lc}{$tagtype}{$tagid};
+			print $OUT "$lc: " . $canon_tags{$lc}{$tagtype}{$tagid};
 			if (defined $synonyms_for{$lc}{$tagid}) {
-				print OUT ", " . join(", ", @{$synonyms_for{$lc}{$tagid}});
+				print $OUT ", " . join(", ", @{$synonyms_for{$lc}{$tagid}});
 			}
-			print OUT "\n\n" ;
+			print $OUT "\n\n" ;
 		
 		}
 		
-		close OUT;
+		close $OUT;
 		
 		
 	}
@@ -547,7 +549,7 @@ sub build_tags_taxonomy($$) {
 	$properties{$tagtype} = {};
 	
 		
-	if (open (IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.txt")) {
+	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.txt")) {
 	
 		my $current_tagid;
 		my $current_tag;
@@ -558,7 +560,7 @@ sub build_tags_taxonomy($$) {
 
 		# 1st phase: read translations and synonyms
 		
-		while (<IN>) {
+		while (<$IN>) {
 		
 			my $line = $_;
 			chomp($line);
@@ -676,7 +678,7 @@ sub build_tags_taxonomy($$) {
 		
 		}
 		
-		close (IN);
+		close ($IN);
 		
 		# 2nd phase: compute synonyms
 		# e.g.
@@ -856,18 +858,14 @@ sub build_tags_taxonomy($$) {
 # > Nectars d'abricot, nectar d'abricot, nectars d'abricots, nectar 
 
 
-		open (IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.txt");
+		open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.txt");
 	
-		my $current_tagid;
-		my $current_tag;
-		my $canon_tagid;
-		
 		# print STDERR "Tags.pm - load_tags_taxonomy - tagtype: $tagtype - phase 3, computing hierarchy\n";
 	
 
 		my %parents = ();
 		
-		while (<IN>) {
+		while (<$IN>) {
 		
 			my $line = $_;
 			chomp($line);
@@ -963,7 +961,7 @@ sub build_tags_taxonomy($$) {
 		}
 		
 	
-		close IN;
+		close $IN;
 		
 	
 		
@@ -1039,14 +1037,14 @@ sub build_tags_taxonomy($$) {
 		}
 				
 		
-		open (OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.result.txt");
+		open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.result.txt");
 		
 		my $errors = '';
 		
 		foreach my $lc (keys %{$stopwords{$tagtype}}) {
-			print OUT $stopwords{$tagtype}{$lc . ".orig"};
+			print $OUT $stopwords{$tagtype}{$lc . ".orig"};
 		}
-		print OUT "\n\n";
+		print $OUT "\n\n";
 		
 		foreach my $tagid (
 			sort { ($sort_key_parents{$a} cmp $sort_key_parents{$b})
@@ -1060,7 +1058,7 @@ sub build_tags_taxonomy($$) {
 				foreach my $parentid (sort keys %{$direct_parents{$tagtype}{$tagid}}) {
 					my $lc = $parentid;
 					$lc =~ s/^(\w\w):.*/$1/;
-					print OUT "< $lc:" . $translations_to{$tagtype}{$parentid}{$lc} . "\n";
+					print $OUT "< $lc:" . $translations_to{$tagtype}{$parentid}{$lc} . "\n";
 					print "taxonomy - parentid: $parentid > tagid: $tagid\n";
 					if (not exists $translations_to{$tagtype}{$parentid}{$lc}) {
 						$errors .= "ERROR - parent $parentid is not defined for tag $tagid\n";
@@ -1089,21 +1087,21 @@ sub build_tags_taxonomy($$) {
 				
 				# print "taxonomy - lc: $lc - tagid: $tagid - lc_tagid: $lc_tagid\n";
 				if (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid}) {
-					print OUT "$synonyms$lc:" . join(", ", @{$synonyms_for{$tagtype}{$lc}{$lc_tagid}}) . "\n";
+					print $OUT "$synonyms$lc:" . join(", ", @{$synonyms_for{$tagtype}{$lc}{$lc_tagid}}) . "\n";
 				}
 			}
 			
 			if (defined $properties{$tagtype}{$tagid}) {
 				foreach my $prop_lc (keys %{$properties{$tagtype}{$tagid}}) {
-					print OUT "$prop_lc: " . $properties{$tagtype}{$tagid}{$prop_lc} . "\n";
+					print $OUT "$prop_lc: " . $properties{$tagtype}{$tagid}{$prop_lc} . "\n";
 				}
 			}
 			
-			print OUT "\n" ;
+			print $OUT "\n" ;
 		
 		}
 		
-		close OUT;
+		close $OUT;
 		
 		print STDERR $errors;
 		
@@ -1130,7 +1128,7 @@ sub build_tags_taxonomy($$) {
 }
 
 
-sub retrieve_tags_taxonomy($) {
+sub retrieve_tags_taxonomy {
 
 	my $tagtype = shift;
 	
@@ -1170,9 +1168,9 @@ sub retrieve_tags_taxonomy($) {
 	}
 	
 	$special_tags{$tagtype} = [];
-	if (open (IN, "<:encoding(UTF-8)", "$data_root/taxonomies/special_$tagtype.txt")) {
+	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/special_$tagtype.txt")) {
 
-		while (<IN>) {
+		while (<$IN>) {
 		
 			my $line = $_;
 			chomp($line);
@@ -1197,10 +1195,22 @@ sub retrieve_tags_taxonomy($) {
 			}
 		}
 	
-		close (IN);
+		close ($IN);
 	}
 }
 
+sub country_to_cc {
+	my ($country) = @_;
+	
+	if ($country eq 'en:world') {
+		return 'world';
+	}
+	elsif (defined $properties{countries}{$country}{"country_code_2:en"}) {
+		return lc($properties{countries}{$country}{"country_code_2:en"});
+	}
+	
+	return;
+}
 
 # load all tags hierarchies
 
@@ -1254,7 +1264,8 @@ foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
 
 %language_codes = ();
 %language_codes_reverse = ();
-%lang_lc = ();
+
+%Languages = (); # Hash of language codes, will be used to initialize %Lang::Langs
 
 foreach my $language (keys %{$properties{languages}}) {
 
@@ -1263,15 +1274,12 @@ foreach my $language (keys %{$properties{languages}}) {
 	$language_codes{$lc} = $language;
 	$language_codes_reverse{$language} = $lc;
 	
-	$lang_lc{$lc} = $lc;
 	
-	$Langs{$lc} = $translations_to{languages}{$language}{$lc};
+	
+	# %Languages will be passed to Lang::build_lang() to populate language names and 
+	# to initialize to the English value all missing values for all the languages
+	$Languages{$lc} = $translations_to{languages}{$language};
 }
-
-@Langs = sort keys %Langs;
-
-
-init_languages(0);	# do not recompute %Lang (can take one minute or so)
 
 
 # Build map of local country names in official languages to (country, language)
@@ -1284,11 +1292,12 @@ print STDERR "Build map of local country names in official languages to (country
 %country_languages = ();
 
 foreach my $country (keys %{$properties{countries}}) {
-
-	my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
-	if ($country eq 'en:world') {
-		$cc = 'world';
+	
+	my $cc = country_to_cc($country);
+	if (not (defined $cc)) {
+		next;
 	}
+	
 	$country_codes{$cc} = $country;
 	$country_codes_reverse{$country} = $cc;
 
@@ -1317,7 +1326,7 @@ sub init_select_country_options($) {
 
 	# takes one minute to load
 
-	my $recompute = shift;
+	my $Lang_ref = shift;
 	
 	# Build lists of countries and generate select button
 	# <select data-placeholder="Choose a Country..." style="width:350px;" tabindex="1">
@@ -1325,55 +1334,41 @@ sub init_select_country_options($) {
 	#            <option value="United States">United States</option>
 	#            <option value="United Kingdom">United Kingdom</option>
 	
-	if ((-e "$data_root/Lang_select_country_options.sto") and (not $recompute)) {
 
-		print STDERR "Loading \%Lang{select_country_options} from $data_root/Lang_select_country_options.sto.sto\n";
-		my $lang_select_country_options_ref = retrieve("$data_root/Lang_select_country_options.sto");
-		$Lang{select_country_options} = $lang_select_country_options_ref;
-		print STDERR "Loaded \%Lang{select_country_options} from $data_root/Lang_select_country_options.sto.sto\n";
-		
-	}
-	else {	
 
-		print STDERR "Build lists of countries and generate select button\n";	
+	print STDERR "Build lists of countries and generate select button\n";	
 
-		foreach my $language (keys %Langs) {
+	foreach my $language (keys %Langs) {
 
-			my $country_options = '';
-			my $first_option = '';
-				
-			foreach my $country (sort {(get_fileid($translations_to{countries}{$a}{$language}) || get_fileid($translations_to{countries}{$a}{'en'}) )
-				cmp (get_fileid($translations_to{countries}{$b}{$language}) || get_fileid($translations_to{countries}{$b}{'en'}))}
-					keys %{$properties{countries}}
-				) {
-				
-				my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
-				if ($country eq 'en:world') {
-					$cc = 'world';
-				}		
+		my $country_options = '';
+		my $first_option = '';
 			
-				my $option = '<option value="' . $cc . '">' . display_taxonomy_tag($language,'countries',$country) . "</option>\n";
-				
-				if ($country ne 'en:world') {
-					$country_options .= $option;
-				}
-				else {
-					$first_option = $option;
-				}
+		foreach my $country (sort {(get_fileid($translations_to{countries}{$a}{$language}) || get_fileid($translations_to{countries}{$a}{'en'}) )
+			cmp (get_fileid($translations_to{countries}{$b}{$language}) || get_fileid($translations_to{countries}{$b}{'en'}))}
+				keys %{$properties{countries}}
+			) {
+			
+			my $cc = country_to_cc($country);
+			if (not (defined $cc)) {
+				next;
 			}
 			
-			$Lang{select_country_options}{$language} = $first_option . $country_options;
+			my $option = '<option value="' . $cc . '">' . display_taxonomy_tag($language,'countries',$country) . "</option>\n";
 			
+			if ($country ne 'en:world') {
+				$country_options .= $option;
+			}
+			else {
+				$first_option = $option;
+			}
 		}
 		
-		store("$data_root/Lang_select_country_options.sto",$Lang{select_country_options});
-
+		$Lang_ref->{select_country_options}{$language} = $first_option . $country_options;
+		
 	}
 }
 
-print STDERR "Tags.pm - init_select_country_options\n";
 
-init_select_country_options(0);
 
 
 print STDERR "Tags.pm - 1\n";
@@ -1410,7 +1405,8 @@ sub gen_tags_hierarchy($$) {
 	
 	}
 	
-	return sort { $tags_level{$lc}{$tagtype}{get_fileid($b)} <=> $tags_level{$lc}{$tagtype}{get_fileid($a)} } keys %tags;
+	my @sorted_list = sort { $tags_level{$lc}{$tagtype}{get_fileid($b)} <=> $tags_level{$lc}{$tagtype}{get_fileid($a)} } keys %tags;
+	return @sorted_list;
 }
 
 
@@ -1453,7 +1449,8 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 		}
 	}
 	
-	return sort { ($level{$tagtype}{$b} <=> $level{$tagtype}{$a}) || ($a cmp $b) } keys %tags;
+	my @sorted_list = sort { ($level{$tagtype}{$b} <=> $level{$tagtype}{$a}) || ($a cmp $b) } keys %tags;
+	return @sorted_list;
 }
 
 
@@ -2000,7 +1997,7 @@ sub canonicalize_taxonomy_tag($$$)
 		}
 	}
 	
-	my $tagid = $tag_lc . ':' . $tagid;
+	$tagid = $tag_lc . ':' . $tagid;
 	
 	if ((defined $translations_from{$tagtype}) and (defined $translations_from{$tagtype}{$tagid})) {
 		$tagid = $translations_from{$tagtype}{$tagid};
@@ -2122,7 +2119,7 @@ sub canonicalize_tag_link($$)
 	if (($tagtype eq 'photographers') or ($tagtype eq 'informers')
 		or ($tagtype eq 'correctors') or ($tagtype eq 'checkers')) {
 		
-		$tagtype eq 'users';		
+		$tagtype = 'users';
 	}
 		
 		
@@ -2231,9 +2228,9 @@ GEXF
 ;
 
 	 # print STDERR "saving $www_root/data/$lc." . get_fileid(lang($tagtype . "_p")) . ".gexf" . "\n";
-	 open (OUT, ">:encoding(UTF-8)", "$www_root/data/$lc." . get_fileid(lang($tagtype . "_p")) . ".gexf") or die("write error: $!\n");
-	 print OUT $gexf;
-	 close OUT;
+	 open (my $OUT, ">:encoding(UTF-8)", "$www_root/data/$lc." . get_fileid(lang($tagtype . "_p")) . ".gexf") or die("write error: $!\n");
+	 print $OUT $gexf;
+	 close $OUT;
 	 
 	 eval {
 	 $graph-> run (format => 'svg', output_file => "$www_root/data/$lc." . get_fileid(lang($tagtype . "_p")) . ".svg");
@@ -2256,21 +2253,21 @@ print STDERR "Load cities for packaging codes\n";
 
 my %departements = ();
 
-open (IN, "<:encoding(windows-1252)", "$data_root/emb_codes/france_departements.txt");
-while (<IN>) {
+open (my $IN, "<:encoding(windows-1252)", "$data_root/emb_codes/france_departements.txt");
+while (<$IN>) {
 	chomp();
 	my ($code, $dep) = split(/\t/);
 	$departements{$code} = $dep;
 }
-close (IN);
+close ($IN);
 
 
 # France
 # http://www.insee.fr/fr/methodes/nomenclatures/cog/telechargement/2012/txt/france2012.zip
 
-	open (IN, "<:encoding(windows-1252)", "$data_root/emb_codes/france2012.txt");
+	open ($IN, "<:encoding(windows-1252)", "$data_root/emb_codes/france2012.txt");
 
-	my @th = split(/\t/, <IN>);
+	my @th = split(/\t/, <$IN>);
 	my %th = ();
 	my $i = 0;
 	foreach my $h (@th) {
@@ -2278,7 +2275,7 @@ close (IN);
 		$i++;
 	}
 	
-	while (<IN>) {
+	while (<$IN>) {
 		chomp();
 		my @td = split(/\t/);
 		
@@ -2299,10 +2296,10 @@ close (IN);
 		
 		$cities{get_fileid($td[$th{NCCENR}] . " ($departements{$dep}, France)")} = $td[$th{NCCENR}] . " ($departements{$dep}, France)";
 	}
-	close(IN);
+	close($IN);
 
-	open(IN, "<:encoding(windows-1252)", "$data_root/emb_codes/insee.csv");
-	while (<IN>) {
+	open($IN, "<:encoding(windows-1252)", "$data_root/emb_codes/insee.csv");
+	while (<$IN>) {
 		chomp();
 		my @td = split(/;/);
 		my $postal_code = $td[1];
@@ -2315,7 +2312,7 @@ close (IN);
 			$emb_codes_cities{'FR' . $postal_code} = $emb_codes_cities{'FREMB' . $insee};  # not used...
 		}
 	}
-	close(IN);
+	close($IN);
 	
 	# geo coordinates
 	
@@ -2325,9 +2322,9 @@ close (IN);
 	foreach my $geofile (@geofiles) {
 	
 	print "Tags.pm - loading geofile $geofile\n";
-		open (IN, "<:encoding(UTF-8)", "$data_root/emb_codes/$geofile");
+		open (my $IN, "<:encoding(UTF-8)", "$data_root/emb_codes/$geofile");
 
-		my @th = split(/\t/, <IN>);
+		my @th = split(/\t/, <$IN>);
 		my %th = ();
 		
 		my $i = 0;
@@ -2340,7 +2337,7 @@ close (IN);
 		}
 		
 		my $j = 0;
-		while (<IN>) {
+		while (<$IN>) {
 			chomp();
 			my @td = split(/\t/);
 			
@@ -2357,7 +2354,7 @@ close (IN);
 			# ($j < 10) and print STDERR "Tags.pm - geo - map - emb_codes_geo: FREMB$insee =  " . $td[$th{"Latitude"}] . " , " . $td[$th{"Longitude"}]. " \n";						
 
 		}
-		close(IN);
+		close($IN);
 	}
 	
 	# print STDERR "Tags.pm - map - emb_codes_geo total: " . (scalar keys %emb_codes_geo) . "\n";				
@@ -2374,7 +2371,14 @@ foreach my $l (@Langs) {
 		my ($nid, $low, $high) = @$nutrient_level_ref;
 
 		foreach my $level ('low', 'moderate', 'high') {
-			my $tag = sprintf(lang("nutrient_in_quantity"), $Nutriments{$nid}{$lc}, lang($level . "_quantity"));
+			my $fmt = lang("nutrient_in_quantity");
+			my $nutrient_name = $Nutriments{$nid}{$lc};
+			my $level_quantity = lang($level . "_quantity");
+			if ((not defined $fmt) or (not defined $nutrient_name) or (not defined $level_quantity)) {
+				next;
+			}
+			
+			my $tag = sprintf($fmt, $nutrient_name, $level_quantity);
 			my $tagid = get_fileid($tag);
 			$canon_tags{$lc}{nutrient_levels}{$tagid} = $tag;
 			# print "nutrient_levels : lc: $lc - tagid: $tagid - tag: $tag\n";
@@ -2410,10 +2414,10 @@ foreach my $langid (readdir(DH2)) {
 					next if $file !~ /(.*)\.html/;
 					my $tagid = $1;
 					# print STDERR "Tags: loading text for $lang/$tagtype/$tagid\n";		
-					open(IN, "<:encoding(UTF-8)", "$data_root/lang/$langid/$tagtype/$file") or print STDERR "cannot open $data_root/lang/$langid/$tagtype/$file : $!\n";
+					open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$langid/$tagtype/$file") or print STDERR "cannot open $data_root/lang/$langid/$tagtype/$file : $!\n";
 
-					my $text = join("",(<IN>));
-					close IN;
+					my $text = join("",(<$IN>));
+					close $IN;
 					if ($text =~ /class="level_(\d+)"/) {
 						$tags_levels{$lc}{$tagtype}{$tagid} = $1;
 					}

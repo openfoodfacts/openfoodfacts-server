@@ -20,10 +20,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
-use strict;
+use Modern::Perl '2012';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -126,7 +126,7 @@ if ($type eq 'search_or_add') {
 			print STDERR "product.pl - product code $code does not exist yet, creating product\n";
 			$product_ref = init_product($code);
 			$product_ref->{interface_version_created} = $interface_version;
-			store_product($product_ref, "Création du produit");
+			store_product($product_ref, 'product_created');
 			process_image_upload($code,$filename,$User_id, time(),'image with barcode from web site Add product button');
 			$type = 'add';
 			$action = 'display';
@@ -151,11 +151,11 @@ if ($type eq 'search_or_add') {
 	# jquery.fileupload ?
 	if (param('jqueryfileupload')) {
 	
-		my $data =  encode_json(\%data);
+		my $data = encode_json(\%data);
 
 		print STDERR "product.pl - jqueryfileupload - JSON data output: $data\n";
-		
-		print header() . $data;
+
+		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 		exit();	
 	}
 	
@@ -232,7 +232,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$debug and print STDERR "product.pl action: process - phase 1 - type: $type code $code\n";
 	
-	if (defined param('new_code')) {
+	# 26/01/2017 - disallow barcode changes until we fix bug #677
+	if (0 and (defined param('new_code'))) {
 		my $new_code = normalize_code(param('new_code'));
 		if ($new_code =~ /^\d+$/) {
 		# check that the new code is available
@@ -309,6 +310,11 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
 		push @{$product_ref->{"labels_tags" }}, "en:carbon-footprint";
 	}	
+	
+	if ((defined $product_ref->{nutriments}{"glycemic-index"}) and ($product_ref->{nutriments}{"glycemic-index"} ne '')) {
+		push @{$product_ref->{"labels_hierarchy" }}, "en:glycemic-index";
+		push @{$product_ref->{"labels_tags" }}, "en:glycemic-index";
+	}
 	
 	# Language and language code / subsite
 	
@@ -454,7 +460,12 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				$value = $value / 100 * $Nutriments{$nid}{dv} ;
 				$unit = $Nutriments{$nid}{unit};
 			}
-			$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
+			if ($nid eq 'water-hardness') {
+				$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit);
+			}
+			else {
+				$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
+			}
 		}
 	}
 	
@@ -505,7 +516,7 @@ sub display_field($$) {
 		$tagsinput = ' tagsinput';
 		
 		my $autocomplete = "";
-		if (defined $taxonomy_fields{$fieldtype}) {
+		if ((defined $taxonomy_fields{$fieldtype}) or ($fieldtype eq 'emb_codes')) {
 			my $world = format_subdomain('world');
 			$autocomplete = ",
 	'autocomplete_url': '$world/cgi/suggest.pl?lc=$lc&tagtype=$fieldtype&'";
@@ -705,18 +716,39 @@ CSS
 <label for="new_code" id="label_new_code">${label_new_code}</label>
 <input type="text" name="new_code" id="new_code" class="text" value="" />			
 
-<div data-alert class="alert-box info">
+<div data-alert class="alert-box info store-state" id="warning_3rd_party_content" style="display:none;">
 <span>$Lang{warning_3rd_party_content}{$lang}
  <a href="#" class="close">&times;</a>
 </div>
 
-<div data-alert class="alert-box secondary">
+<div data-alert class="alert-box secondary store-state" id="licence_accept" style="display:none;">
 <span>$Lang{licence_accept}{$lang}</span>
  <a href="#" class="close">&times;</a>
 </div>
 HTML
 ;
-
+	
+	$scripts .= <<JS
+<script type="text/javascript">
+'use strict';
+\$(function() {
+  var alerts = \$('.alert-box.store-state');
+  \$.each(alerts, function( index, value ) {
+    var display = \$.cookie('state_' + value.id);
+    if (display !== undefined) {
+      value.style.display = display;
+    } else {
+      value.style.display = 'block';
+    }
+  });
+  alerts.on('close.fndtn.alert', function(event) {
+    \$.cookie('state_' + \$(this)[0].id, 'none', { path: '/', expires: 365, domain: '$server_domain' });
+  });
+});
+</script>
+JS
+;
+	
 	# Main language
 
 	$html .= "<label for=\"lang\">" . $Lang{lang}{$lang} . "</label>";
@@ -1440,7 +1472,13 @@ HTML
 		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit})) {
 			$unit = $Nutriments{$nid}{unit};
 		}
-		my $value = g_to_unit($product_ref->{nutriments}{$nid}, $unit);
+		my $value;
+		if ($nid eq 'water-hardness') {
+			$value = mmoll_to_unit($product_ref->{nutriments}{$nid}, $unit);
+		}
+		else {
+			$value = g_to_unit($product_ref->{nutriments}{$nid}, $unit);
+		}
 		
 		# user unit and value ? (e.g. DV for vitamins in US)
 		if ((defined $product_ref->{nutriments}{$nid . "_value"}) and (defined $product_ref->{nutriments}{$nid . "_unit"})) {
@@ -1478,6 +1516,10 @@ HTML
 		elsif ($nid eq 'alcohol') {
 			@units = ('% vol');
 		}
+		elsif ($nid eq 'water-hardness') {
+			@units = ('mol/l', 'mmol/l', 'mval/l', 'ppm', "\N{U+00B0}rH", "\N{U+00B0}fH", "\N{U+00B0}e", "\N{U+00B0}dH", 'gpg');
+		}
+		
 		if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
 			or ($nid =~ /^new_/)) {
 			push @units, '% DV';
@@ -1645,7 +1687,7 @@ HTML
 <p class="note">&rarr; $Lang{ecological_data_table_note}{$lang}</p>			
 HTML
 ;	
-	
+
 	$html .= "</div><!-- fieldset -->";
 	
 	
@@ -1683,13 +1725,14 @@ HTML
 		
 		foreach my $change_ref (reverse @{$changes_ref}) {
 		
-			my $date = display_date($change_ref->{t});	
+			my $date = display_date_tag($change_ref->{t});	
 			my $user = "";
 			if (defined $change_ref->{userid}) {
 				$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
 			}
-			my $comment = $change_ref->{comment};
 			
+			my $comment = $change_ref->{comment};
+			$comment = lang($comment) if $comment eq 'product_created';
 			
 			$comment =~ s/^Modification :\s+//;
 			if ($comment eq 'Modification :') {
@@ -1821,7 +1864,7 @@ MAIL
 	
 }
 
-$html = "<p>" . lang("barcode") . lang("sep") . ": $code</p>\n" . $html;
+$html = "<p>" . lang("barcode") . separator_before_colon($lc) . ": $code</p>\n" . $html;
 
 display_new( {
 	blog_ref=>undef,

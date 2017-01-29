@@ -1,7 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
-use warnings;
+use Modern::Perl '2012';
 
 use Test::More;
 

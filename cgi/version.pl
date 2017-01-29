@@ -1,15 +1,15 @@
 #!/usr/bin/perl
 
-use CGI::Carp qw(fatalsToBrowser);
-
-use strict;
+use Modern::Perl '2012';
 use utf8;
+
+use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Version qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 
-print "Content-Type: text/html; charset=UTF-8\r\n\r\nVersion: $version";
+print header( -type => 'text/html', -charset => 'utf-8' ) . "Version: $version";
 
 exit(0);
 

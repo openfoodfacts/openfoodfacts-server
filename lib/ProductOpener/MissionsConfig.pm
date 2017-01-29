@@ -1,4 +1,4 @@
-package ProductOpener::Missions;
+package ProductOpener::MissionsConfig;
 
 ######################################################################
 #
@@ -9,11 +9,13 @@ package ProductOpener::Missions;
 #
 ######################################################################
 
+use utf8;
+use Modern::Perl '2012';
+use Exporter    qw< import >;
+
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_Images);
-	require Exporter;
-	@ISA = qw(Exporter);
+	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 			%Missions_by_lang
@@ -23,8 +25,6 @@ BEGIN
 }
 
 use vars @EXPORT_OK ;
-use strict;
-use utf8;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -129,7 +129,7 @@ conditions=>[[3,{"nutriments.carbon-footprint"=>{ '$gt' => 0 }}]]},
 {name=>'Armoire à glaces', goal=>'Ajouter 3 produits de la catégorie glaces et sorbets', thanks=>'Merci pour les glaces !',
 description=>"L'été s'annonce chaud, le réchauffement climatique est là, la banquise fond, et les pingouins ont absolument besoin de vous pour remplir leur armoire à glaces !",
 image=>"mission-armoire-a-glaces.png",
-image_legend=>"Photo de congélateur rempli de glaces dans un magasin à la Nouvelles Orléans par <a href=\"http://www.flickr.com/photos/pnoeric/2953131289/in/photostream/\">pnoeric - Eric Mueller</a>, licence Creative Commons cc-by-sa.",
+image_legend=>"Photo de congélateur rempli de glaces dans un magasin à la Nouvelles Orléans par <a href=\"https://www.flickr.com/photos/pnoeric/2953131289/in/photostream/\">pnoeric - Eric Mueller</a>, licence Creative Commons cc-by-sa.",
 conditions=>[[3,{categories_tags=>'glaces-et-sorbets'}]]},
 
 {name=>'J\'ai la Pêche !', goal=>'Ajouter 5 produits de la catégorie Produits de la mer', thanks=>'A bientôt et merci pour tous les poissons !',
@@ -138,7 +138,7 @@ image=>"mission-j-ai-la-peche.png",
 conditions=>[[5,{categories_tags=>'produits-de-la-mer'}]]},
 
 {name=>'Les 2 végétaux', goal=>'Ajouter 2 laits végétaux', thanks=>'Merci pour les 2 végétaux !',
-description=>"Vous savez qu'il existe des <a href=\"http://fr.openfoodfacts.org/categorie/laits-vegetaux\">laits végétaux</a> ? Le lait de soja et le lait de coco bien sûr, mais il existe aussi des laits d'avoine, de riz, d'amandes etc.
+description=>"Vous savez qu'il existe des <a href=\"https://fr.openfoodfacts.org/categorie/laits-vegetaux\">laits végétaux</a> ? Le lait de soja et le lait de coco bien sûr, mais il existe aussi des laits d'avoine, de riz, d'amandes etc.
 Le logo de cette mission est bien sûr une parodie du logo de la marque \"Les 2 vaches\" de Stonyfield, filiale de Danone.",
 image=>"mission-les-2-vegetaux.png",
 conditions=>[[2,{categories_tags=>'laits-vegetaux'}]]},
@@ -146,13 +146,13 @@ conditions=>[[2,{categories_tags=>'laits-vegetaux'}]]},
 {name=>'Goûteur de goûters', goal=>'Ajouter 5 biscuits, gâteaux ou compotes', thanks=>'Merci pour les biscuits !',
 description=>"Qui n'a jamais rêvé de devenir goûteur de goûters ? En ajoutant des biscuits, gâteaux, compotes et yaourts à boire,
 vous contribuerez à la création de graphiques pour répertorier les goûters contenant le moins de sucre, de gras, d'additifs etc.
-(comme le <a href=\"http://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=categories&tag_contains_0=contains&tag_0=sodas&sort_by=product_name&page_size=20&axis_x=sugars&axis_y=additives_n&graph_title=Sucres%20et%20additifs%20dans%20les%20sodas&series_organic=on&series_fairtrade=on&series_with_sweeteners=on&generate_graph_scatter_plot=1\">graphique du sucre et des additifs dans les sodas</a> créé après l'Opération Sodas)",
+(comme le <a href=\"https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=categories&tag_contains_0=contains&tag_0=sodas&sort_by=product_name&page_size=20&axis_x=sugars&axis_y=additives_n&graph_title=Sucres%20et%20additifs%20dans%20les%20sodas&series_organic=on&series_fairtrade=on&series_with_sweeteners=on&generate_graph_scatter_plot=1\">graphique du sucre et des additifs dans les sodas</a> créé après l'Opération Sodas)",
 image=>"mission-gouteur-de-gouters.png",
 conditions=>[[5,{categories_tags=>'gouters'}]]},
 
 {name=>'Am-Stram-Gram Où se cache l\'Aspartame ?', goal=>'Ajouter 10 produits contenant de l\'Aspartame', thanks=>'Merci pour l\'Aspartame !',
-description=>"Pour <a href=\"http://fr.blog.openfoodfacts.org/news/evaluation-de-l-exposition-a-l-aspartame\">évaluer l'exposition de la population à l'aspartame</a>, il nous faut trouver le maximum de produits contenant de l'aspartame. En ajoutant des produits
-contenant de l'aspartame, vous participez à la première expérience de <a href=\"http://fr.blog.openfoodfacts.org/news/science-citoyenne-et-collaborative\">science citoyenne et collaborative</a> sur Open Food Facts !",
+description=>"Pour <a href=\"https://fr.blog.openfoodfacts.org/news/evaluation-de-l-exposition-a-l-aspartame\">évaluer l'exposition de la population à l'aspartame</a>, il nous faut trouver le maximum de produits contenant de l'aspartame. En ajoutant des produits
+contenant de l'aspartame, vous participez à la première expérience de <a href=\"https://fr.blog.openfoodfacts.org/news/science-citoyenne-et-collaborative\">science citoyenne et collaborative</a> sur Open Food Facts !",
 image=>"mission-aspartame.png",
 conditions=>[[10,{additives_tags=>'e951'}]]},
 
@@ -165,7 +165,7 @@ conditions=>[[3,{categories_tags=>'legumes-secs'}]]},
 description=>"Certaines personnes sont allegiques au gluten ou présentent une intolérance au gluten (maladie cœliaque). Le gluten est présent dans de nombreuses céréales comme le blé, le seigle et l'orge. Ajoutez 5 produits labellisés sans gluten
 préparés avec d'autres céréales comme le riz, le millet, le sarrasin, le maïs ou le quinoa qui ne contiennent pas de gluten.",
 image=>"mission-sans-gluten.png",
-image_legend=>'Photo de champ de millet à Oman par <a href="http://commons.wikimedia.org/wiki/File:Bilad_Sayt_(13).jpg">Ji-Elle</a>, licence <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons cc-by</a>',
+image_legend=>'Photo de champ de millet à Oman par <a href="https://commons.wikimedia.org/wiki/File:Bilad_Sayt_(13).jpg">Ji-Elle</a>, licence <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons cc-by</a>',
 conditions=>[[5,{labels_tags=>'sans-gluten'}]]},
 
 {name=>'Palmipède', goal=>'Ajouter 10 produits avec de l\'huile de palme', thanks=>'Merci pour les produits avec de l\'huile de palme !',

@@ -20,11 +20,13 @@
 
 package ProductOpener::Display;
 
+use utf8;
+use Modern::Perl '2012';
+use Exporter    qw< import >;
+
 BEGIN
 {
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	require Exporter;
-	@ISA = qw(Exporter);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 					&init
@@ -87,8 +89,6 @@ BEGIN
 }
 
 use vars @EXPORT_OK ;
-use strict;
-use utf8;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -174,13 +174,15 @@ sub init()
 	$lc = 'en';
 	$country = 'en:world';
 	
-	my $r = Apache2::RequestUtil->request();
-
-	$r->err_headers_out->set(Server => "Product Opener");
-	$r->err_headers_out->set("X-Frame-Options" => "DENY");
-	$r->err_headers_out->set("X-Content-Type-Options" => "nosniff");
-	$r->err_headers_out->set("X-Download-Options" => "noopen");
-	$r->err_headers_out->set("X-XSS-Protection" => "1; mode=block");
+	if (not defined $r) {
+		$r = Apache2::RequestUtil->request();
+	}
+	
+	$r->headers_out->set(Server => "Product Opener");
+	$r->headers_out->set("X-Frame-Options" => "DENY");
+	$r->headers_out->set("X-Content-Type-Options" => "nosniff");
+	$r->headers_out->set("X-Download-Options" => "noopen");
+	$r->headers_out->set("X-XSS-Protection" => "1; mode=block");
 	
 	# sub-domain format:
 	#
@@ -738,7 +740,7 @@ sub display_date($) {
 		return $dt;
 	}
 	else {
-		return undef;
+		return;
 	}
 
 }
@@ -752,7 +754,7 @@ sub display_date_tag($) {
 		return "<time datetime=\"$iso\">$dt</time>";
 	}
 	else {
-		return undef;
+		return;
 	}
 
 }
@@ -793,9 +795,9 @@ sub display_text($)
 	}
 
 	
-	open(IN, "<:encoding(UTF-8)", $file);
-	my $html = join('', (<IN>));
-	close (IN);
+	open(my $IN, "<:encoding(UTF-8)", $file);
+	my $html = join('', (<$IN>));
+	close ($IN);
 	
 	my $country_name = display_taxonomy_tag($lc,"countries",$country);
 	
@@ -817,20 +819,20 @@ sub display_text($)
 		$html .= '</h1>';
 	}
 	
-	sub replace_file($) {
+	my $replace_file = sub ($) {
 		my $fileid = shift;
 		($fileid =~ /\.\./) and return '';
 		my $file = "$data_root/lang/$lc/$fileid";
 		my $html = '';
 		if (-e $file) {
-			open (IN, "<:encoding(UTF-8)", "$file");
-			$html .= join('', (<IN>));
-			close (IN);
+			open (my $IN, "<:encoding(UTF-8)", "$file");
+			$html .= join('', (<$IN>));
+			close ($IN);
 		}
 		return $html;
-	}
+	};
 	
-	sub replace_query($) {
+	my $replace_query = sub ($) {
 	
 		my $query = shift;
 		my $query_ref = decode_json($query);
@@ -841,17 +843,17 @@ sub display_text($)
 		}
 		return search_and_display_products( {}, $query_ref, $sort_by, undef, undef );
 	
-	}
+	};
 	
 	
 	if ($file !~ /index.foundation/) {
-		$html =~ s/\[\[query:(.*?)\]\]/replace_query($1)/eg;
+		$html =~ s/\[\[query:(.*?)\]\]/$replace_query->($1)/eg;
 	}
 	else {
 		$html .= search_and_display_products( $request_ref, {}, "last_modified_t_complete_first", undef, undef);
 	}
 	
-	$html =~ s/\[\[(.*?)\]\]/replace_file($1)/eg;
+	$html =~ s/\[\[(.*?)\]\]/$replace_file->($1)/eg;
 	
 	
 	if ($html =~ /<scripts>(.*)<\/scripts>/s) {
@@ -913,8 +915,8 @@ sub display_mission($)
 	my $request_ref = shift;
 	my $missionid = $request_ref->{missionid};
 
-	open(IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/missions/$missionid.html");
-	my $html = join('', (<IN>));
+	open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/missions/$missionid.html");
+	my $html = join('', (<$IN>));
 	my $title = undef;
 	if ($html =~ /<h1>(.*)<\/h1>/) {
 		$title = $1;
@@ -962,6 +964,7 @@ sub display_list_of_tags($$) {
 	}
 
 	my $worlddom = format_subdomain('world');
+	my $staticdom = format_subdomain('static');
 
 	
 #  db.products.aggregate( {$match : {"categories_tags" : "en:fruit-yogurts"}}, 
@@ -1110,9 +1113,9 @@ sub display_list_of_tags($$) {
 		$request_ref->{title} = sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang});
 		
 		if (-e "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html") {
-			open (IN, "< $data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html");
-			$html .= join("\n", (<IN>));
-			close IN;
+			open (my $IN, q{<}, "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html");
+			$html .= join("\n", (<$IN>));
+			close $IN;
 		}
 		
 		$html .= "<p>" . ($#tags + 1) . " ". $Lang{$tagtype . "_p"}{$lang} . ":</p>";
@@ -1271,7 +1274,7 @@ sub display_list_of_tags($$) {
 			if ($tagtype eq 'nutrition_grades') {
 				if ($tagid =~ /^a|b|c|d|e$/) {
 					my $grade = $tagid;
-					$display = "<img src=\"/images/misc/$grade.338x72.png\" alt=\"Note nutritionnelle : " . uc($grade) . "\" style=\"margin-bottom:10px;max-width:100%\" />" ;
+					$display = "<img src=\"/images/misc/nutriscore-$grade.svg\" alt=\"Note nutritionnelle : " . uc($grade) . "\" style=\"margin-bottom:1rem;max-width:100%\" />" ;
 				}
 				else {
 					$display = lang("unknown");
@@ -1289,12 +1292,19 @@ sub display_list_of_tags($$) {
 			$html .= "<a href=\"$product_link\"$info$nofollow>" . $display . "</a>";
 			$html .= "</td>\n<td style=\"text-align:right\">$products</td>" . $td_nutriments . $extra_td . "</tr>\n";
 			
-			push @{$request_ref->{structured_response}{tags}}, {
+			my $tagentry = {
 				id => $tagid,
 				name => $display,
 				url => format_subdomain($subdomain) . $product_link,
 				products => $products + 0, # + 0 to make the value numeric
 			};
+
+			if (defined $tags_images{$lc}{$tagtype}{get_fileid($icid)}) {
+				my $img = $tags_images{$lc}{$tagtype}{get_fileid($icid)};
+				$tagentry->{image} = "$staticdom/images/lang/$lc/$tagtype/$img";
+			}
+			
+			push @{$request_ref->{structured_response}{tags}}, $tagentry;
 			
 			# Maps for countries (and origins)
 			
@@ -1343,6 +1353,8 @@ sub display_list_of_tags($$) {
 		my $y_title = lang("number_of_products");
 		my $x_title = lang("nutrition_grades_p");
 
+		my $sep = separator_before_colon($lc);
+		
 		my $js = <<JS
         chart = new Highcharts.Chart({
             chart: {
@@ -1356,7 +1368,7 @@ sub display_list_of_tags($$) {
                 text: '$request_ref->{title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$Lang{sep}{$lc}: @{[ format_subdomain($subdomain) ]}'
+                text: '$Lang{data_source}{$lc}$sep: @{[ format_subdomain($subdomain) ]}'
             },
             xAxis: {
                 title: {
@@ -1929,7 +1941,7 @@ sub display_tag($) {
 			$icid =~ s/-.*//;
 		}		
 		if ($ingredients_classes{$class}{$icid}{other_names} =~ /,/) {
-			$description .= "<p>" . lang("names") . lang("sep") . ": " . $ingredients_classes{$class}{$icid}{other_names} . "</p>";
+			$description .= "<p>" . lang("names") . separator_before_colon($lc) . ": " . $ingredients_classes{$class}{$icid}{other_names} . "</p>";
 		}
 		
 		if ($ingredients_classes{$class}{$icid}{description} ne '') {
@@ -1969,7 +1981,7 @@ sub display_tag($) {
 		print STDERR "Display.pm - city_code: $city_code \n";
 		
 		if (defined $emb_codes_cities{$city_code}) {
-			$description .= "<p>" . lang("cities_s") . lang("sep") . ": " . display_tag_link('cities', $emb_codes_cities{$city_code}) . "</p>";
+			$description .= "<p>" . lang("cities_s") . separator_before_colon($lc) . ": " . display_tag_link('cities', $emb_codes_cities{$city_code}) . "</p>";
 		}
 		
 		print STDERR "display_tag packager_codes - canon_tagid: $canon_tagid\n";
@@ -2058,7 +2070,7 @@ HTML
 				$products_title = $user_ref->{name};
 			}
 			
-			$description .= "<p>" . lang("contributor_since") . " " . display_date($user_ref->{registered_t}) . "</p>";
+			$description .= "<p>" . lang("contributor_since") . " " . display_date_tag($user_ref->{registered_t}) . "</p>";
 			
 			if ((defined $user_ref->{missions}) and ($request_ref->{page} <= 1 )) {
 				my $missions = '';
@@ -2110,24 +2122,34 @@ HTML
 	
 	
 	if (defined $tagid2) {
-		$products_title .= " - " . lang($tagtype2 . '_s') . lang("sep") . ": " . $display_tag2;
+		$products_title .= " - " . lang($tagtype2 . '_s') . separator_before_colon($lc) . ": " . $display_tag2;
 	}
 	
 	if (not defined $request_ref->{groupby_tagtype}) {
 		if (defined $tagid2) {
-			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_p')) . "</a>" . lang("sep")
+			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_p')) . "</a>" . separator_before_colon($lc)
 				. ": <a href=\"$newtagidpath\">$display_tag</a>"		
-				. "\n<br /><a href=\"/" . $tag_type_plural{$tagtype2}{$lc} . "\">" . ucfirst(lang($tagtype2 . '_p')) . "</a>" . lang("sep")
+				. "\n<br /><a href=\"/" . $tag_type_plural{$tagtype2}{$lc} . "\">" . ucfirst(lang($tagtype2 . '_p')) . "</a>" . separator_before_colon($lc)
 				. ": <a href=\"$newtagid2path\">$display_tag2</a></p>";		
 		}
 		else {
-			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_p')) . "</a>" . lang("sep"). ": $display_tag</p>";
+			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_p')) . "</a>" . separator_before_colon($lc). ": $display_tag</p>";
 			
 			my $tag_html .= display_tags_hierarchy_taxonomy($lc, $tagtype, [$canon_tagid]);
 			
 			$tag_html =~ s/.*<\/a>(<br \/>)?//;	# remove link, keep only tag logo
 			
 			$html .= $tag_html;
+
+			my $share = lang('share');
+			$html .= <<HTML
+<div class="share_button right" style="float:right;margin-top:-10px;margin-left:10px;display:none;">
+<a href="$request_ref->{canon_url}" class="button small icon" title="$title">
+	<i class="fi-share"></i>
+	<span class="show-for-large-up"> $share</span>
+</a></div>
+HTML
+;
 
 			$html .= $weblinks_html . display_parents_and_children($lc, $tagtype, $canon_tagid) . $description;
 		}
@@ -2462,7 +2484,7 @@ HTML
 		
 		}
 		else {
-			$html .= "<p>$html_count " . lang("sep") . ":</p>";
+			$html .= "<p>$html_count " . separator_before_colon($lc) . ":</p>";
 		}
 		
 	
@@ -3256,6 +3278,8 @@ JS
 			$legend_enabled = 'true';
 		}
 
+		my $sep = separator_before_colon($lc);
+		
 		my $js = <<JS
         chart = new Highcharts.Chart({
             chart: {
@@ -3271,7 +3295,7 @@ JS
                 text: '$graph_ref->{graph_title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$Lang{sep}{$lc}: @{[ format_subdomain($subdomain) ]}'
+                text: '$Lang{data_source}{$lc}$sep: @{[ format_subdomain($subdomain) ]}'
             },
             xAxis: {
 				$x_allowDecimals
@@ -3298,8 +3322,8 @@ JS
                     return '<a href="' + this.point.url + '">' + this.point.product_name + '<br/>'
 						+ this.point.img + '</a><br/>'
 						+ '$Lang{nutrition_data_per_100g}{$lc} :'
-						+ '<br />$x_title$Lang{sep}{$lc}: '+ this.x + ' $x_unit2'
-						+ '<br />$y_title$Lang{sep}{$lc}: ' + this.y + ' $y_unit2';
+						+ '<br />$x_title$sep: '+ this.x + ' $x_unit2'
+						+ '<br />$y_title$sep: ' + this.y + ' $y_unit2';
                 }
 			},
 		
@@ -3600,6 +3624,8 @@ JS
 		if (scalar keys %series > 1) {
 			$legend_enabled = 'true';
 		}
+		
+		my $sep = separator_before_colon($lc);
 
 		my $js = <<JS
         chart = new Highcharts.Chart({
@@ -3617,7 +3643,7 @@ JS
                 text: '$graph_ref->{graph_title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$Lang{sep}{$lc}: @{[ format_subdomain($subdomain) ]}'
+                text: '$Lang{data_source}{$lc}$sep: @{[ format_subdomain($subdomain) ]}'
             },
             xAxis: {
                 title: {
@@ -3946,14 +3972,14 @@ JS
 				my $manufacturing_places =  escape_single_quote($product_ref->{"manufacturing_places"});
 				$manufacturing_places =~ s/,( )?/, /g;
 				if ($manufacturing_places ne '') {
-					$manufacturing_places = ucfirst(lang("manufacturing_places_p")) . lang("sep") . ": " . $manufacturing_places . "<br/>";
+					$manufacturing_places = ucfirst(lang("manufacturing_places_p")) . separator_before_colon($lc) . ": " . $manufacturing_places . "<br/>";
 				}	
 				
 				
 				my $origins =  escape_single_quote($product_ref->{origins});
 				$origins =~ s/,( )?/, /g;
 				if ($origins ne '') {
-					$origins = ucfirst(lang("origins_p")) . lang("sep") . ": " . $origins . "<br/>";;
+					$origins = ucfirst(lang("origins_p")) . separator_before_colon($lc) . ": " . $origins . "<br/>";;
 				}				
 				
 				$origins = $manufacturing_places . $origins;
@@ -4030,11 +4056,11 @@ JS
 		if ($emb_codes > 0) {
 
 			$header .= <<HTML		
-<link rel="stylesheet" href="https://unpkg.com/leaflet\@0.7.7/dist/leaflet.css" integrity="sha384-99ZJFcuBCh9c/V/+8YwDX/TUGG8JWMG+gKFJWzk0BZP3IoDMN+pLGd3/H0yjg4oa" crossorigin="anonymous">
-<script src="https://unpkg.com/leaflet\@0.7.7/dist/leaflet.js" integrity="sha384-Lh7SNUss9JoImCvc96eCUnLX3HvY4kb0UZCWZbYWvceJ+o5CJeOJqqNoheaGkNHT" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.css" />
-<link rel="stylesheet" href="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.Default.css" />
-<script src="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/leaflet.markercluster-src.js"></script>
+<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
+<script src="/bower_components/leaflet/dist/leaflet.js"></script>
+<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+<script src="/bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
 HTML
 ;
 
@@ -4214,15 +4240,15 @@ HTML
 sub display_on_the_blog($)
 {
 	my $blocks_ref = shift;
-	if (open (IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/texts/blog-foundation.html")) {
+	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/texts/blog-foundation.html")) {
 	
-		my $html = join('', (<IN>));
+		my $html = join('', (<$IN>));
 		push @$blocks_ref, {
 				'title'=>lang("on_the_blog_title"),
 				'content'=>lang("on_the_blog_content") . '<ul class="side-nav">' . $html . '</ul>',
 				'id'=>'on_the_blog',
 		};	
-		close IN;
+		close $IN;
 	}
 }
 
@@ -4295,7 +4321,7 @@ sub display_new($) {
 	# and if we have a response in structure format,
 	# do not generate an HTML response and serve the structured data
 	
-	if (($request_ref->{json} or $request_ref->{jsonp} or $request_ref->{xml} or $request_ref->{jqm})
+	if (($request_ref->{json} or $request_ref->{jsonp} or $request_ref->{xml} or $request_ref->{jqm} or $request_ref->{rss})
 		and (exists $request_ref->{structured_response})) {
 	
 		display_structured_response($request_ref);
@@ -5169,6 +5195,41 @@ $scripts
   });
 </script>
 
+<script>
+  'use strict';
+
+  function doWebShare(e) {
+    e.preventDefault();
+    if (!window.isSecureContext || navigator.share === undefined) {
+      console.error('Error: Unsupported feature: navigator.share');
+        return;
+      }
+
+      var title = this.title;
+      var url = this.href;
+      navigator.share({title: title, url: url})
+        .then(() => console.info('Successfully sent share'),
+              error => console.error('Error sharing: ' + error));
+  }
+
+  function onLoad() {
+    var buttons = document.getElementsByClassName('share_button');
+    var shareAvailable = window.isSecureContext && navigator.share !== undefined;
+    [].forEach.call(buttons, function(button) {
+      if (shareAvailable) {
+          button.style.display = 'block';
+          [].forEach.call(button.getElementsByTagName('a'), function(a) {
+            a.addEventListener('click', doWebShare);
+          });
+        } else {
+          button.style.display = 'none';
+        }
+    });
+  }
+
+  window.addEventListener('load', onLoad);
+</script>
+
 <script type="application/ld+json">
 {
 	"\@context" : "http://schema.org",
@@ -5257,7 +5318,7 @@ HTML
 		print header ( -status => $status );
 	}
 	
-	binmode(STDOUT, ":utf8");
+	binmode(STDOUT, ":encoding(UTF-8)");
 	print $html;
 	
 	$debug and print STDERR "Display::display done (lc: $lc - lang: $lang - mongodb: $mongodb - data_root: $data_root)\n";
@@ -5401,7 +5462,7 @@ sub display_field($$) {
 		if ($lang_field eq '') {
 			$lang_field = ucfirst(lang($field . "_p"));
 		}
-		$html .= '<p><span class="field">' . $lang_field . $Lang{sep}{$lc} . ":</span> $value</p>";
+		$html .= '<p><span class="field">' . $lang_field . separator_before_colon($lc) . ":</span> $value</p>";
 		
 		if ($field eq 'brands') {
 			my $brand = $value;
@@ -5523,8 +5584,13 @@ CSS
 		return 301;
 	}
 
-	
+	my $share = lang('share');
 	$html .= <<HTML
+<div class="share_button right" style="float:right;margin-top:-10px;display:none;">
+<a href="$request_ref->{canon_url}" class="button small icon" title="$title">
+	<i class="fi-share"></i>
+	<span class="show-for-large-up"> $share</span>
+</a></div>
 <div class="edit_button right" style="float:right;margin-top:-10px;">
 <a href="/cgi/product.pl?type=edit&code=$code" class="button small icon">
 	<i class="fi-pencil"></i>
@@ -5573,7 +5639,7 @@ HTML
 				$html_upc .= " " . $' . " (UPC / UPC-A)";
 			}
 		}
-		$html .= "<p>" . lang("barcode") . "$Lang{sep}{$lc}: <span property=\"food:code\" itemprop=\"gtin13\">$code</span> $html_upc</p>
+		$html .= "<p>" . lang("barcode") . separator_before_colon($lc) . ": <span property=\"food:code\" itemprop=\"gtin13\">$code</span> $html_upc</p>
 <div property=\"gr:hasEAN_UCC-13\" content=\"$code\" datatype=\"xsd:string\"></div>\n";
 	}
 	
@@ -5640,7 +5706,7 @@ HTML
 	
 		
 	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
-	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . $Lang{sep}{$lc} . ":</span>";
+	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . separator_before_colon($lc) . ":</span>";
 	if ($lc ne $ingredients_text_lang) {
 		$html .= " <span id=\"ingredients_list\" property=\"food:ingredientListAsText\" lang=\"$ingredients_text_lang\">$ingredients_text</span>";
 	}
@@ -5660,7 +5726,7 @@ HTML
 	
 		if ((defined $product_ref->{$class . '_tags'}) and (scalar @{$product_ref->{$class . '_tags'}} > 0)) {
 
-			$html .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang($class . "_p") . lang("sep")) . ":</b><br />";
+			$html .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang($class . "_p") . separator_before_colon($lc)) . ":</b><br />";
 			
 			if (defined $tags_images{$lc}{$tagtype}{get_fileid($tagtype)}) {
 				my $img = $tags_images{$lc}{$tagtype}{get_fileid($tagtype)};
@@ -5734,7 +5800,7 @@ HTML
 		
 		if ($special_html ne "") {
 		
-			$html  .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang("ingredients_analysis") . lang("sep")) . ":</b><br />"
+			$html  .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang("ingredients_analysis") . separator_before_colon($lc)) . ":</b><br />"
 			. "<ul id=\"special_ingredients\">\n" . $special_html . "</ul>\n"
 			. "<p>" . lang("ingredients_analysis_note") . "</p></div>\n";
 		}
@@ -5965,7 +6031,7 @@ sub display_product_jqm ($) # jquerymobile
 	if ($code =~ /^2000/) { # internal code
 	}
 	else {
-		$html .= "<p>" . lang("barcode") . "$Lang{sep}{$lc}: $code</p>\n";
+		$html .= "<p>" . lang("barcode") . separator_before_colon($lc) . ": $code</p>\n";
 	}
 	
 	$html .= display_nutrient_levels($product_ref);
@@ -6022,7 +6088,7 @@ HTML
 	. $html_image;
 		
 	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
-	$html .= "<div id=\"ingredients_list\" ><span class=\"field\">" . lang("ingredients_text") . $Lang{sep}{$lc} . ":</span> $ingredients_text</div>";
+	$html .= "<div id=\"ingredients_list\" ><span class=\"field\">" . lang("ingredients_text") . separator_before_colon($lc) . ":</span> $ingredients_text</div>";
 	
 	$html .= display_field($product_ref, 'allergens');
 	
@@ -6033,7 +6099,7 @@ HTML
 	
 	if ((defined $product_ref->{$class . '_tags'}) and (scalar @{$product_ref->{$class . '_tags'}} > 0)) {
 
-		$html .= "<br/><hr class=\"floatleft\"><div><b>" . lang("additives_p") . lang("sep") . ":</b><br />";		
+		$html .= "<br/><hr class=\"floatleft\"><div><b>" . lang("additives_p") . separator_before_colon($lc) . ":</b><br />";		
 		
 		$html .= "<ul>";
 		foreach my $tagid (@{$product_ref->{$class . '_tags'}}) {
@@ -6479,7 +6545,7 @@ JS
 			$html .= "<div><input id=\"show_stats\" type=\"checkbox\" /><label for=\"show_stats\">"
 			. lang("show_category_stats")
 			. '<span class="show-for-xlarge-up">'
-			. lang("sep") . ": " . lang("show_category_stats_details") . "</span></label>" . "</div>";
+			. separator_before_colon($lc) . ": " . lang("show_category_stats_details") . "</span></label>" . "</div>";
 		
 			$initjs .= <<JS
 		
@@ -6949,6 +7015,9 @@ sub add_images_urls_to_product($) {
 
 	my $product_ref = shift;
 	
+	my $staticdom = format_subdomain('static');
+	my $path = product_path($product_ref->{code});
+	
 	foreach my $imagetype ('front','ingredients','nutrition') {
 	
 		my $size = $display_size;
@@ -6970,10 +7039,7 @@ sub add_images_urls_to_product($) {
 	
 			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 				and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
-			
-				my $path = product_path($product_ref->{code});
 
-				my $staticdom = format_subdomain('static');
 				$product_ref->{"image_" . $imagetype . "_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
 				$product_ref->{"image_" . $imagetype . "_small_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
 				$product_ref->{"image_" . $imagetype . "_thumb_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
@@ -6987,8 +7053,18 @@ sub add_images_urls_to_product($) {
 				last;
 			}
 		}
-	}		
-
+		
+		foreach my $key (keys $product_ref->{languages_codes}) {
+			my $id = $imagetype . '_' . $key;
+			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+				and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
+			
+				$product_ref->{selected_images}{$imagetype}{display}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+				$product_ref->{selected_images}{$imagetype}{small}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+				$product_ref->{selected_images}{$imagetype}{thumb}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
+			}
+		}
+	}
 }
 
 
@@ -7000,7 +7076,7 @@ sub display_structured_response($)
 	my $request_ref = shift;
 	
 	
-	$debug and print STDERR "display_api - format: json = $request_ref->{json} - jsonp = $request_ref->{jsonp} - xml = $request_ref->{xml} - jqm = $request_ref->{jqm} \n";
+	$debug and print STDERR "display_api - format: json = $request_ref->{json} - jsonp = $request_ref->{jsonp} - xml = $request_ref->{xml} - jqm = $request_ref->{jqm} - rss = $request_ref->{rss}\n";
 	if ($request_ref->{xml}) {
 	
 		# my $xs = XML::Simple->new(NoAttr => 1, NumericEscape => 2);
@@ -7030,6 +7106,9 @@ sub display_structured_response($)
 		print "Content-Type: text/xml; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $xml;	
 
 	}
+	elsif ($request_ref->{rss}) {
+		display_structured_response_opensearch_rss($request_ref);
+	}
 	else {
 		my $data =  encode_json($request_ref->{structured_response});
 		
@@ -7053,6 +7132,78 @@ sub display_structured_response($)
 	}
 	
 	exit();
+}
+
+sub display_structured_response_opensearch_rss {
+	my ($request_ref) = @_;
+	
+	my $xs = XML::Simple->new(NumericEscape => 2);
+	
+	my $short_name = lang("site_name");
+	my $long_name = $short_name;
+	if ($cc eq 'world') {
+		$long_name .= " " . uc($lc);
+	}
+	else {
+		$long_name .= " " . uc($cc) . "/" . uc($lc);
+	}
+
+	$long_name = $xs->escape_value($long_name);
+	$short_name = $xs->escape_value($short_name);
+	my $dom = format_subdomain($subdomain);
+	my $query_link = $xs->escape_value($dom . $request_ref->{current_link_query} . "&rss=1");
+	my $description = $xs->escape_value(lang("search_description_opensearch"));
+
+	my $search_terms = $xs->escape_value(decode utf8=>param('search_terms'));
+	my $count = $xs->escape_value($request_ref->{structured_response}{count});
+	my $skip = $xs->escape_value($request_ref->{structured_response}{skip});
+	my $page_size = $xs->escape_value($request_ref->{structured_response}{page_size});
+	my $page = $xs->escape_value($request_ref->{structured_response}{page});
+	
+	my $xml = <<XML
+<?xml version="1.0" encoding="UTF-8"?>
+ <rss version="2.0" 
+      xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"
+      xmlns:atom="http://www.w3.org/2005/Atom">
+   <channel>
+     <title>$long_name</title>
+     <link>$query_link</link>
+     <description>$description</description>
+     <opensearch:totalResults>$count</opensearch:totalResults>
+     <opensearch:startIndex>$skip</opensearch:startIndex>
+     <opensearch:itemsPerPage>${page_size}</opensearch:itemsPerPage>
+     <atom:link rel="search" type="application/opensearchdescription+xml" href="$dom/cgi/opensearch.pl"/>
+     <opensearch:Query role="request" searchTerms="${search_terms}" startPage="$page" />
+XML
+;
+
+	if (defined $request_ref->{structured_response}{products}) {
+		foreach my $product_ref (@{$request_ref->{structured_response}{products}}) {
+			my $item_title = product_name_brand_quantity($product_ref);
+			$item_title = $product_ref->{code} unless $item_title;
+			my $item_description = $xs->escape_value(sprintf(lang("product_description"), $item_title));
+			$item_title = $xs->escape_value($item_title);
+			my $item_link = $xs->escape_value($dom . product_url($product_ref));
+			
+			$xml .= <<XML
+     <item>
+       <title>$item_title</title>
+       <link>$item_link</link>
+       <description>$item_description</description>
+     </item>
+XML
+;
+		}
+	}
+
+	$xml .= <<XML
+   </channel>
+ </rss>
+XML
+;
+	
+	print "Content-Type: application/rss+xml; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $xml;	
+
 }
 
 1;

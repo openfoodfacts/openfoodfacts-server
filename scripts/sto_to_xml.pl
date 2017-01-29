@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-use strict;
+use Modern::Perl '2012';
 
 use Data::Dumper;
 
@@ -10,7 +10,7 @@ sub retrieve {
 	my $file = shift @_;
 	# If the file does not exist, return undef.
 	if (! -e $file) {
-		return undef;
+		return;
 	}
 	return lock_retrieve($file);
 }

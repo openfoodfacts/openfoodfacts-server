@@ -1,5 +1,8 @@
 #!/usr/bin/perl
 
+use Modern::Perl '2012';
+use utf8;
+
 my $usage = <<TXT
 update_all_products.pl is a script that updates the latest version of products in the file system and on MongoDB.
 It is used in particular to re-run tags generation when taxonomies have been updated.
@@ -20,9 +23,6 @@ TXT
 ;
 
 use CGI::Carp qw(fatalsToBrowser);
-
-use strict;
-use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;

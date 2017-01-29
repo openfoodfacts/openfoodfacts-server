@@ -20,11 +20,13 @@
 
 package ProductOpener::Food;
 
+use utf8;
+use Modern::Perl '2012';
+use Exporter    qw< import >;
+
 BEGIN
 {
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_Images);
-	require Exporter;
-	@ISA = qw(Exporter);
+	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();	    # symbols to export by default
 	@EXPORT_OK = qw(
 					%Nutriments
@@ -41,6 +43,9 @@ BEGIN
 					&unit_to_g
 					&g_to_unit
 					
+					&unit_to_mmoll
+					&mmoll_to_unit
+
 					&canonicalize_nutriment
 					
 					&fix_salt_equivalent
@@ -64,8 +69,6 @@ BEGIN
 }
 
 use vars @EXPORT_OK ;
-use strict;
-use utf8;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -137,7 +140,51 @@ sub g_to_unit($$) {
 	return $value + 0;
 }
 
+sub unit_to_mmoll {
+	my ($value, $unit) = @_;
+	$unit = lc($unit);
+	
+	if ((not defined $value) or ($value eq '')) {
+		return '';
+	}
+	
+	$value =~ s/,/\./;
+	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
+	
+	return $value * 1000 if $unit eq 'mol/l';
+	return $value + 0 if $unit eq 'mmol/l';
+	return $value / 2 if $unit eq 'mval/l';
+	return $value / 100 if $unit eq 'ppm';
+	return $value / 40.080 if $unit eq "\N{U+00B0}rh";
+	return $value / 10.00 if $unit eq "\N{U+00B0}fh";
+	return $value / 7.02 if $unit eq "\N{U+00B0}e";
+	return $value / 5.6 if $unit eq "\N{U+00B0}dh";
+	return $value / 5.847 if $unit eq 'gpg';
+	return $value + 0;
+}
 
+sub mmoll_to_unit {
+	my ($value, $unit) = @_;
+	$unit = lc($unit);
+	
+	if ((not defined $value) or ($value eq '')) {
+		return '';
+	}
+	
+	$value =~ s/,/\./;
+	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
+	
+	return $value / 1000 if $unit eq 'mol/l';
+	return $value + 0 if $unit eq 'mmol/l';
+	return $value * 2 if $unit eq 'mval/l';
+	return $value * 100 if $unit eq 'ppm';
+	return $value * 40.080 if $unit eq "\N{U+00B0}rh";
+	return $value * 10.00 if $unit eq "\N{U+00B0}fh";
+	return $value * 7.02 if $unit eq "\N{U+00B0}e";
+	return $value * 5.6 if $unit eq "\N{U+00B0}dh";
+	return $value * 5.847 if $unit eq 'gpg';
+	return $value + 0;
+}
 
 # http://www.diw.de/sixcms/media.php/73/diw_wr_2010-19.pdf
 @nutrient_levels = (
@@ -263,6 +310,8 @@ chlorophyl-
 carbon-footprint
 nutrition-score-fr-
 nutrition-score-uk-
+glycemic-index-
+water-hardness-
 )
 ],
 
@@ -366,6 +415,8 @@ chlorophyl-
 carbon-footprint
 nutrition-score-fr-
 nutrition-score-uk-
+glycemic-index-
+water-hardness-
 )
 ],
 
@@ -468,6 +519,8 @@ chlorophyl-
 carbon-footprint
 nutrition-score-fr-
 nutrition-score-uk-
+glycemic-index-
+water-hardness-
 )
 ],
 
@@ -573,6 +626,8 @@ chlorophyl-
 carbon-footprint
 nutrition-score-fr-
 nutrition-score-uk-
+glycemic-index-
+water-hardness-
 )
 ],
 
@@ -2397,6 +2452,18 @@ ph => {
 	nl_be => "Ecologische voetafdruk / CO2-uitstoot",
 	unit => 'g',
 },
+'glycemic-index' => {
+	en => 'Glycemic Index',
+	de => 'Glykämischer Index',
+	unit => '',
+},
+"water-hardness" => {
+	en => 'Water hardness',
+	fr => "Dureté de l'eau",
+	ru => 'Жёсткость воды',
+	de => 'Wasserhärte',
+	unit => 'mmol/l',
+},
 "fruits-vegetables-nuts" => {
 	en => "Fruits, vegetables and nuts (minimum)",
 	fr => "Fruits, légumes et noix (minimum)",
@@ -2462,7 +2529,7 @@ cocoa => {
 );
 
 
-my $daily_values_us == <<XXX
+my $daily_values_us = <<XXX
 
 Percent Daily Values
 
@@ -2598,7 +2665,7 @@ foreach my $nid (keys %Nutriments) {
 		next if not defined $label;
 		defined $nutriments_labels{$lc} or $nutriments_labels{$lc} = {};
 		$nutriments_labels{$lc}{canonicalize_nutriment($lc,$label)} = $nid;
-		print STDERR "nutriments_labels : lc: $lc - label: $label - nid: $nid\n";
+		#print STDERR "nutriments_labels : lc: $lc - label: $label - nid: $nid\n";
 		
 		my @labels = split(/\(|\/|\)/, $label);
 
@@ -3354,14 +3421,14 @@ foreach my $nutrient_level_ref (@nutrient_levels) {
 	}
 }
 
-open (OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrient_levels.txt");
-print OUT <<TXT
+open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/nutrient_levels.txt");
+print $OUT <<TXT
 # nutrient levels taxonomy generated automatically by Food.pm
 
 TXT
 ;
-print OUT $nutrient_levels_taxonomy;
-close OUT;
+print $OUT $nutrient_levels_taxonomy;
+close $OUT;
 
 sub compute_units_of_alcohol($$) {
 
@@ -3373,7 +3440,7 @@ sub compute_units_of_alcohol($$) {
 		return $serving_size_in_ml * ($product_ref->{nutriments}{'alcohol'} / 1000.0);
 	}
 	else {
-		return undef;
+		return;
 	}
 }
 
@@ -3452,7 +3519,7 @@ sub normalize_packager_codes($) {
 	# ES 26.00128/SS CE
 	# UK DZ7131 EC (with sometime spaces but not always, can be a mix of letters and numbers)
 	
-	sub normalize_fr_ce_code($$) {
+	my $normalize_fr_ce_code = sub ($$) {
 		my $countrycode = shift;
 		my $number = shift;
 		$countrycode = uc($countrycode);
@@ -3463,18 +3530,18 @@ sub normalize_packager_codes($) {
 		$number =~ s/\.(\d)$/\.00$1/;
 		$number =~ s/\.(\d\d)$/\.0$1/;					
 		return "$countrycode $number EC";
-	}
+	};
 	
-	sub normalize_uk_ce_code($$) {
+	my $normalize_uk_ce_code = sub ($$) {
 		my $countrycode = shift;
 		my $code = shift;
 		$countrycode = uc($countrycode);
 		$code = uc($code);
 		$code =~ s/\s|-|_|\.|\///g;
 		return "$countrycode $code EC";
-	}
+	};
 	
-	sub normalize_es_ce_code($$$$) {
+	my $normalize_es_ce_code = sub ($$$$) {
 		my $countrycode = shift;
 		my $code1 = shift;
 		my $code2 = shift;
@@ -3482,30 +3549,30 @@ sub normalize_packager_codes($) {
 		$countrycode = uc($countrycode);
 		$code3 = uc($code3);
 		return "$countrycode $code1.$code2/$code3 CE";
-	}	
+	};	
 
-	sub normalize_ce_code($$) {
+	my $normalize_ce_code = sub ($$) {
 		my $countrycode = shift;
 		my $code = shift;
 		$countrycode = uc($countrycode);
 		$code = uc($code);
 		return "$countrycode $code EC";
-	}		
+	};		
 	
 	# CE codes -- FR 67.145.01 CE
-	#$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+)(\.|_|\s|-)?(ce)?\b/$1 . normalize_fr_ce_code($2,$4)/ieg;	 # without CE, only for FR
-	$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . normalize_fr_ce_code($2,$4)/ieg;	
+	#$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+)(\.|_|\s|-)?(ce)?\b/$1 . $normalize_fr_ce_code->($2,$4)/ieg;	 # without CE, only for FR
+	$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . $normalize_fr_ce_code->($2,$4)/ieg;	
 	
-	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.)?((\w|\.|_|\s|-)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . normalize_uk_ce_code($2,$4)/ieg;	
-	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . normalize_uk_ce_code($2,$4)/ieg;	
+	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.)?((\w|\.|_|\s|-)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;	
+	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;	
 	
 	# NO-RGSEAA-21-21552-SE -> ES 21.21552/SE
 	
 	
-	$codes =~ s/(^|,|, )n(o|°|º)?(\s|-|_|\.)?rgseaa(\s|-|_|\.|:|;)*(\d\d)(\s|-|_|\.)?(\d+)(\s|-|_|\.|\/|\\)?(\w+)\b/$1 . normalize_es_ce_code('es',$5,$7,$9)/ieg;
-	$codes =~ s/(^|,|, )(es)(\s|-|_|\.)?(\d\d)(\s|-|_|\.|:|;)*(\d+)(\s|-|_|\.|\/|\\)?(\w+)(\.|_|\s|-)?(ce|eec|ec|eg)?\b/$1 . normalize_es_ce_code('es',$4,$6,$8)/ieg;
+	$codes =~ s/(^|,|, )n(o|°|º)?(\s|-|_|\.)?rgseaa(\s|-|_|\.|:|;)*(\d\d)(\s|-|_|\.)?(\d+)(\s|-|_|\.|\/|\\)?(\w+)\b/$1 . $normalize_es_ce_code->('es',$5,$7,$9)/ieg;
+	$codes =~ s/(^|,|, )(es)(\s|-|_|\.)?(\d\d)(\s|-|_|\.|:|;)*(\d+)(\s|-|_|\.|\/|\\)?(\w+)(\.|_|\s|-)?(ce|eec|ec|eg)?\b/$1 . $normalize_es_ce_code->('es',$4,$6,$8)/ieg;
 	
-	$codes =~ s/(^|,|, )(\w\w)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg|we)\b/$1 . normalize_ce_code($2,$4)/ieg;	
+	$codes =~ s/(^|,|, )(\w\w)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg|we)\b/$1 . $normalize_ce_code->($2,$4)/ieg;	
 	
 	return $codes;
 }
