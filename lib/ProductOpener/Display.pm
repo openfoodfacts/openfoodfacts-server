@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2016 Association Open Food Facts
+# Copyright (C) 2011-2017 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -7070,7 +7070,7 @@ sub display_structured_response($)
 		my $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
 		. $xs->XMLout($request_ref->{structured_response}); 	# noattr -> force nested elements instead of attributes
         
-		print "Content-Type: text/xml; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $xml;	
+		print header( -type => 'text/xml', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $xml;
 
 	}
 	elsif ($request_ref->{rss}) {
@@ -7091,10 +7091,10 @@ sub display_structured_response($)
 		$jsonp =~ s/[^a-zA-Z0-9_]//g;
 		
 		if (defined $jsonp) {
-			print "Content-Type: text/javascript; charset=UTF-8;\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $jsonp . "(" . $data . ");" ;	
+			print header( -type => 'text/javascript', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $jsonp . "(" . $data . ");" ;
 		}
 		else {
-			print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $data;	
+			print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
 		}
 	}
 	
@@ -7169,7 +7169,7 @@ XML
 XML
 ;
 	
-	print "Content-Type: application/rss+xml; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $xml;	
+	print header( -type => 'application/rss+xml', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $xml;
 
 }
 
