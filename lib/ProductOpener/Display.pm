@@ -7115,13 +7115,13 @@ sub display_structured_response_opensearch_rss {
 		$long_name .= " " . uc($cc) . "/" . uc($lc);
 	}
 
-	$long_name = $xs->escape_value($long_name);
-	$short_name = $xs->escape_value($short_name);
+	$long_name = $xs->escape_value(encode_utf8($long_name));
+	$short_name = $xs->escape_value(encode_utf8($short_name));
 	my $dom = format_subdomain($subdomain);
-	my $query_link = $xs->escape_value($dom . $request_ref->{current_link_query} . "&rss=1");
-	my $description = $xs->escape_value(lang("search_description_opensearch"));
+	my $query_link = $xs->escape_value(encode_utf8($dom . $request_ref->{current_link_query} . "&rss=1"));
+	my $description = $xs->escape_value(encode_utf8(lang("search_description_opensearch")));
 
-	my $search_terms = $xs->escape_value(decode utf8=>param('search_terms'));
+	my $search_terms = $xs->escape_value(encode_utf8(decode utf8=>param('search_terms')));
 	my $count = $xs->escape_value($request_ref->{structured_response}{count});
 	my $skip = $xs->escape_value($request_ref->{structured_response}{skip});
 	my $page_size = $xs->escape_value($request_ref->{structured_response}{page_size});
@@ -7148,9 +7148,9 @@ XML
 		foreach my $product_ref (@{$request_ref->{structured_response}{products}}) {
 			my $item_title = product_name_brand_quantity($product_ref);
 			$item_title = $product_ref->{code} unless $item_title;
-			my $item_description = $xs->escape_value(sprintf(lang("product_description"), $item_title));
-			$item_title = $xs->escape_value($item_title);
-			my $item_link = $xs->escape_value($dom . product_url($product_ref));
+			my $item_description = $xs->escape_value(encode_utf8(sprintf(lang("product_description"), $item_title)));
+			$item_title = $xs->escape_value(encode_utf8($item_title));
+			my $item_link = $xs->escape_value(encode_utf8($dom . product_url($product_ref)));
 			
 			$xml .= <<XML
      <item>
