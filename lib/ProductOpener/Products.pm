@@ -84,6 +84,7 @@ sub normalize_code($) {
 }
 
 
+# FIXME: bug #677
 sub product_path($) {
 
 	my $code = shift;
@@ -212,7 +213,8 @@ sub store_product($$) {
 	my $rev = $product_ref->{rev};
 	
 	# Changing the code?
-	if (defined $product_ref->{old_code}) {
+	# 26/01/2017 - disallow code changes until we fix #677
+	if (0 and (defined $product_ref->{old_code})) {
 	
 		my $old_code = $product_ref->{old_code};
 		my $old_path =  product_path($old_code);

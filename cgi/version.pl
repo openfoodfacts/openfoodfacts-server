@@ -9,7 +9,7 @@ use ProductOpener::Version qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 
-print "Content-Type: text/html; charset=UTF-8\r\n\r\nVersion: $version";
+print header( -type => 'text/html', -charset => 'utf-8' ) . "Version: $version";
 
 exit(0);
 
