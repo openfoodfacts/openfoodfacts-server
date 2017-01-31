@@ -415,7 +415,7 @@ sub analyze_request($)
 	print STDERR "analyze_request : query_string 3 : $request_ref->{query_string} \n";
 	
 	
-	$request_ref->{page} = 1;
+$request_ref->{page} = 1;
 	
 	my @components = split(/\//, $request_ref->{query_string});
 	
@@ -471,7 +471,8 @@ sub analyze_request($)
 		}
 	}
 	# Product?
-	elsif (($components[0] eq $tag_type_singular{products}{$lc}) ) {
+	# try language from $lc, and English, so that /product/ always work
+	elsif (($components[0] eq $tag_type_singular{products}{$lc}) or ($components[0] eq $tag_type_singular{products}{en})) {
 		# check the product code looks like a number
 		if ($components[1] =~ /^\d/) {
 			$request_ref->{product} = 1;
@@ -536,13 +537,28 @@ sub analyze_request($)
 			$request_ref->{groupby_tagtype} = $tag_type_from_plural{$lc}{pop @components};
 			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
 			print STDERR "Display::analyze_request - list of tags - groupby: $request_ref->{groupby_tagtype}\n";
-		}	
+		}
+		# also try English tagtype
+		elsif (defined $tag_type_from_plural{"en"}{$components[$#components]}) {
+		
+			$request_ref->{groupby_tagtype} = $tag_type_from_plural{"en"}{pop @components};
+			# use $lc for canon url
+			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
+			print STDERR "Display::analyze_request - list of tags - groupby: $request_ref->{groupby_tagtype}\n";
+		}
 	
-		if (($#components >= 0) and (defined $tag_type_from_singular{$lc}{$components[0]})) {
+		if (($#components >= 0) and ((defined $tag_type_from_singular{$lc}{$components[0]})
+			or (defined $tag_type_from_singular{"en"}{$components[0]}))) {
 		
 			print STDERR "Display::analyze_request - tag_type_from_singular $lc : $components[0]\n";
-		
-			$request_ref->{tagtype} = $tag_type_from_singular{$lc}{shift @components};
+			
+			if (defined $tag_type_from_singular{$lc}{$components[0]}) {
+				$request_ref->{tagtype} = $tag_type_from_singular{$lc}{shift @components};
+			}
+			else {
+				$request_ref->{tagtype} = $tag_type_from_singular{"en"}{shift @components};
+			}
+			
 			my $tagtype = $request_ref->{tagtype};
 		
 			if (($#components >= 0)) {
@@ -569,9 +585,15 @@ sub analyze_request($)
 			
 			# 2nd tag?
 			
-			if (($#components >= 0) and (defined $tag_type_from_singular{$lc}{$components[0]})) {
+			if (($#components >= 0) and ((defined $tag_type_from_singular{$lc}{$components[0]})
+				or (defined $tag_type_from_singular{"en"}{$components[0]}))) {
 			
-				$request_ref->{tagtype2} = $tag_type_from_singular{$lc}{shift @components};
+				if (defined $tag_type_from_singular{$lc}{$components[0]}) {
+					$request_ref->{tagtype2} = $tag_type_from_singular{$lc}{shift @components};
+				}
+				else {
+					$request_ref->{tagtype2} = $tag_type_from_singular{"en"}{shift @components};
+				}
 				my $tagtype = $request_ref->{tagtype2};
 			
 				if (($#components >= 0)) {
