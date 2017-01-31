@@ -1964,7 +1964,9 @@ sub canonicalize_taxonomy_tag($$$)
 	my $tagid = get_fileid($tag);
 	
 	if ($tagtype =~ /^additives/) {
-		$tagid =~ s/^e(.*?)-(.*)$/e$1/i;
+		# convert the E-number + name into just E-number (we get those in urls like /additives/e330-citric-acid)
+		# check E + 1 digit in order to not convert Erythorbate-de-sodium to Erythorbate
+		$tagid =~ s/^e(\d.*?)-(.*)$/e$1/i;
 	}	
 
 	
