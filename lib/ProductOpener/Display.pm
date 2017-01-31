@@ -378,7 +378,7 @@ sub analyze_request($)
 	
 	# cc and lc query overrides have already been consumed by init(), remove them
 	# so that they do not interfere with the query string analysis after
-	$request_ref->{query_string} =~ s/(\&|\?)(cc|lc)=([^\?]*)//;
+	$request_ref->{query_string} =~ s/(\&|\?)(cc|lc)=([^&]*)//g;
 
 		
 	print STDERR "analyze_request : query_string 1 : $request_ref->{query_string} \n";
