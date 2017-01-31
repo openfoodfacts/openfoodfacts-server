@@ -363,8 +363,9 @@ function update_display(imagefield, first_display) {
 	if (display_url) {
 	
 	var html = Lang.current_image + '<br/><img src="' + img_path + display_url + '" />';
+	html += '<div class="button_div" id="unselectbuttondiv_' + imagefield + '"><button id="unselectbutton_' + imagefield + '" class="small button" type="button">' + Lang.unselect_image + '</button></div>';
 	if (stringStartsWith(imagefield, 'ingredients')) {
-		html += '<br/><div id="ocrbuttondiv_' + imagefield + '"><button id="ocrbutton_' + imagefield + '" class="small button" type="button">' + Lang.extract_ingredients + '</button>';
+		html += '<div class="button_div" id="ocrbuttondiv_' + imagefield + '"><button id="ocrbutton_' + imagefield + '" class="small button" type="button">' + Lang.extract_ingredients + '</button></div>';
 	}
 	if (stringStartsWith(imagefield, 'nutrition')) {
 		// width big enough to display a copy next to nutrition table?
@@ -399,6 +400,30 @@ function update_display(imagefield, first_display) {
 		$(document).foundation('equalizer', 'reflow');
 		
 	});
+	
+	$("#unselectbutton_" + imagefield).click({imagefield:imagefield},function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		// alert(event.data.imagefield);
+		$('div[id="unselectbuttondiv_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + Lang.unselecting_image);
+		$.post('/cgi/product_image_unselect.pl',
+				{code: code, id: imagefield }, function(data) {
+				
+			if (data.status_code === 0) {
+				$('div[id="unselectbuttondiv_' + imagefield +'"]').html(Lang.unselected_image_ok);
+				delete imagefield_url[imagefield];
+			}
+			else {
+				$('div[id="unselectbuttondiv_' + imagefield +'"]').html(Lang.unselected_image_nok);
+			}
+			update_display(imagefield, false);
+			$('div[id="display_' + imagefield +'"]').html('');
+			$(document).foundation('equalizer', 'reflow');
+		}, 'json');
+		
+		$(document).foundation('equalizer', 'reflow');
+		
+	});	
 	
 	}
 	
