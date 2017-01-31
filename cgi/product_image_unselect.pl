@@ -46,4 +46,6 @@ print STDERR "product_image_unselect - JSON data output: $data\n";
 
 print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 
+
 exit(0);
+
