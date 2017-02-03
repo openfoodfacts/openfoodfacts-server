@@ -4441,7 +4441,6 @@ sub display_new($) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/dist/app.css" />
-    <link rel="stylesheet" href="/foundation/foundation-icons/foundation-icons.css" />
     <script src="/bower_components/foundation/js/vendor/modernizr.js"></script>
 	
 <title>$title</title>
