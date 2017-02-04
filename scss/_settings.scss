@@ -76,12 +76,12 @@ $include-html-global-classes: $include-html-classes;
 // b. Grid
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// $include-html-grid-classes: $include-html-classes;
-// $include-xl-html-grid-classes: false;
+$include-html-grid-classes: $include-html-classes;
+$include-xl-html-grid-classes: true;
 
-// $row-width: rem-calc(1000);
-// $total-columns: 12;
-// $column-gutter: rem-calc(30);
+$row-width: rem-calc(1000);
+$total-columns: 12;
+$column-gutter: rem-calc(30);
 
 // c. Global
 // - - - - - - - - - - - - - - - - - - - - - - - - -
