@@ -1142,7 +1142,7 @@ $html
 <img src="$full_image_url" alt="$alt" itemprop="contentUrl" />
 <a class="close-reveal-modal" aria-label="Close" href="#">&#215;</a>
 <meta itemprop="representativeOfPage" content="$representative_of_page"/>
-<meta itemprop="license" content="http://creativecommons.org/licenses/by-sa/3.0/"/>
+<meta itemprop="license" content="https://creativecommons.org/licenses/by-sa/3.0/"/>
 <meta itemprop="caption" content="$alt"/>
 </div>
 HTML
