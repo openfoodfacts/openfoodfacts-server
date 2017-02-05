@@ -184,7 +184,7 @@ foreach my $code (sort { $codes{$a}{n} <=> $codes{$b}{n}} keys %codes)
 			
 			# my $data =  encode_json(\%response);
 			
-			$bot .= " -- <http://world.openfoodfacts.org/product/$code>";
+			$bot .= " -- <https://world.openfoodfacts.org/product/$code>";
 			
 			print "notifying slack: $bot\n";
 			

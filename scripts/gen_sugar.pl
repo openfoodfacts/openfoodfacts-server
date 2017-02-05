@@ -543,12 +543,12 @@ Then press the <b>✓</b> button to check your answer.</div>
 
 <h2>Data source</h2>
 
-<div style="float:right;margin-left:20px;margin-bottom:20px;"><a href="http://openfoodfacts.org"><img src="openfoodfacts-logo-en.png" alt="Open Food Facts" style="background-color:white;padding:5px;display:block"/></a></div>
+<div style="float:right;margin-left:20px;margin-bottom:20px;"><a href="https://openfoodfacts.org"><img src="openfoodfacts-logo-en.png" alt="Open Food Facts" style="background-color:white;padding:5px;display:block"/></a></div>
 
-<p>The food products data and pictures come from the collaborative, free and open <a href="http://openfoodfacts.org">Open Food Facts</a> database.
-The data is available under the licence <a href="http://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a>
+<p>The food products data and pictures come from the collaborative, free and open <a href="https://openfoodfacts.org">Open Food Facts</a> database.
+The data is available under the licence <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a>
 and the photos are licensed under the licence
-<a href="http://creativecommons.org/licenses/by-sa/3.0/deed">Creative Commons Attribution Share-Alike</a>.
+<a href="https://creativecommons.org/licenses/by-sa/3.0/deed">Creative Commons Attribution Share-Alike</a>.
 The brands quoted are the property of their respective owners.</p>
 <p>The database is built in a collaborative way through crowdsourcing (like Wikipedia), it is not possible to guarantee that it
 does not contain any error. The composition and nutrition facts of food products may also have changed.

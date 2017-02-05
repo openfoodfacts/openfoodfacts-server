@@ -91,7 +91,7 @@ my $count = $cursor->count();
 					
 					if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid . "_100g"} > 105)) {
 					
-						my $msg = "Product <http://world.openfoodfacts.org/product/$code> ($name / $brands) : $nid = "
+						my $msg = "Product <https://world.openfoodfacts.org/product/$code> ($name / $brands) : $nid = "
 						. $product_ref->{nutriments}{$nid . "_100g"} . "g / 100g";
 						
 						print "$code : " . $msg . "\n";
@@ -104,7 +104,7 @@ my $count = $cursor->count();
 				
 				if ((defined $product_ref->{nutriments}{"carbohydrates_100g"}) and (($product_ref->{nutriments}{"sugars_100g"} + $product_ref->{nutriments}{"starch_100g"}) > ($product_ref->{nutriments}{"carbohydrates_100g"}) + 0.001)) {
 				
-						my $msg = "Product <http://world.openfoodfacts.org/product/$code> ($name / $brands) : sugars (" . $product_ref->{nutriments}{"sugars_100g"}  . ") + starch (" .  $product_ref->{nutriments}{"starch_100g"}. ") > carbohydrates (" . $product_ref->{nutriments}{"carbohydrates_100g"}  . ")";
+						my $msg = "Product <https://world.openfoodfacts.org/product/$code> ($name / $brands) : sugars (" . $product_ref->{nutriments}{"sugars_100g"}  . ") + starch (" .  $product_ref->{nutriments}{"starch_100g"}. ") > carbohydrates (" . $product_ref->{nutriments}{"carbohydrates_100g"}  . ")";
 						
 						print "$code : " . $msg . "\n";
 						
