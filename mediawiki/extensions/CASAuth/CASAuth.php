@@ -83,7 +83,7 @@ function casLogin($user, &$result) {
 						
 						$website_cookie = ".openfoodfacts.org";
 						$name_cookie = "session";
-						$cookie = $_COOKIE; // tu peux récupérer le cookie en PHP
+						$cookie = $_COOKIE; // tu peux rÃ©cupÃ©rer le cookie en PHP
 
 						/* 		user_session
 							&	[session_id]
@@ -91,10 +91,12 @@ function casLogin($user, &$result) {
 							&	stephane 			*/
 						$valeur_cookie = $cookie[$name_cookie];
 						
-						//Parser user_session&4414725571&user_id&manu1400
-						$tab_valeurs = split("&", $valeur_cookie); //Pas de limite
-						$numero_session = $tab_valeurs[1]; //numéro de la session
-						$username = $tab_valeurs[3]; //nom de l'utilisateur
+						//Parser user_session&4414725571&user_id&manu1400 using http://stackoverflow.com/a/32768029/11963
+						$chunks = array_chunk(preg_split('/&/', $valeur_cookie), 2);
+						$tab_valeurs = array_combine(array_column($chunks, 0), array_column($chunks, 1));
+						
+						$numero_session = $tab_valeurs['user_session'];
+						$username = $tab_valeurs['user_id'];
 						/* POST */
 						$r = new HttpRequest('http://fr.openfoodfacts.org/cgi/sso.pl', HttpRequest::METH_POST);
 						$r->addPostFields(array('user_id' => $username, 'user_session' => $numero_session));
