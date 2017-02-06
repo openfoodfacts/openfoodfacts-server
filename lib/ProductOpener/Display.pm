@@ -75,11 +75,11 @@ BEGIN
 					$styles
 					$header
 					$bodyabout
-					
+
+					$original_subdomain
 					$subdomain
 					$test
 					$lc
-					$lclc
 					$cc
 					$country
 					
@@ -185,6 +185,14 @@ sub init()
 	$r->headers_out->set("X-Download-Options" => "noopen");
 	$r->headers_out->set("X-XSS-Protection" => "1; mode=block");
 	
+	# sub-domain format:
+	#
+	# [2 letters country code or "world"] -> set cc + default language for the country
+	# [2 letters country code or "world"]-[2 letters language code] -> set cc + lc
+	#
+	# Note: cc and lc can be overriden by query parameters
+	# (especially for the API so that we can use only one subdomain : api.openfoodfacts.org)
+
 	my $hostname = $r->hostname;
 	$subdomain = lc($hostname);
 	
@@ -195,6 +203,9 @@ sub init()
 	}
 	
 	$subdomain =~ s/\..*//;
+	
+	$original_subdomain = $subdomain;	# $subdomain can be changed if there are cc and/or lc overrides
+	
 	
 	print STDERR "Display::init - subdomain: $subdomain \n";
 
@@ -222,10 +233,13 @@ sub init()
 		if (defined $country_codes{$1}) {
 			$cc = $1;
 			$country = $country_codes{$cc};
-			$lc = $2;		
-			$lc =~ s/-/_/; # pt-pt -> pt_pt
-			print STDERR "Display::init - subdomain cc-lc ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
+			$lc = $country_languages{$cc}[0]; # first official language
+			if (defined $language_codes{$2}) {
+				$lc = $2;		
+				$lc =~ s/-/_/; # pt-pt -> pt_pt
+			}
 			
+			print STDERR "Display::init - subdomain cc-lc ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
 		}
 	}
 	elsif (defined $country_names{$subdomain}) {
@@ -243,8 +257,7 @@ sub init()
 		return 301;
 	}
 	
-	$lclc = $lc;
-	$langlang = $lc;
+
 	$lc =~ s/_.*//;     # PT_PT doest not work yet: categories
 	
 	if ((not defined $lc) or (($lc !~ /^\w\w(_|-)\w\w$/) and (length($lc) != 2) )) {
@@ -255,7 +268,7 @@ sub init()
 	$lang = $lc;
 	
 	# If the language is equal to the first language of the country, but we are on a different subdomain, redirect to the main country subdomain. (fr-fr => fr)
-	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^ssl-api/) and ($r->method() eq 'GET')) {
+	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^(ssl-)?api/) and ($r->method() eq 'GET')) {
 		# redirect
 		my $ccdom = format_subdomain($cc);
 		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $ccdom\n";
@@ -263,6 +276,31 @@ sub init()
 		$r->status(301);
 		return 301;
 	}
+	
+	
+	# Allow cc and lc overrides as query parameters
+	# do not redirect to the corresponding subdomain
+	my $cc_lc_overrides = 0;
+	if ((defined param('cc')) and ((defined $country_codes{param('cc')}) or (param('cc') eq 'world')) ) {
+		$cc = param('cc');
+		$country = $country_codes{$cc};
+		$cc_lc_overrides = 1;
+		print STDERR "Display::init - cc override from request parameter: $cc\n";
+	}
+	if ((defined param('lc')) and (defined $language_codes{param('lc')})) {
+		$lc = param('lc');
+		$lang = $lc;
+		$cc_lc_overrides = 1;
+		print STDERR "Display::init - lc override from request parameter: $lc\n";
+	}	
+	# change the subdomain if we have overrides so that links to product pages are properly constructed
+	if ($cc_lc_overrides) {
+		$subdomain = $cc;
+		if (not ((defined $country_languages{$cc}[0]) and ($lc eq $country_languages{$cc}[0]))) {
+			$subdomain .= "-" . $lc;
+		}
+	}
+	
 	
 	# select the nutriment table format according to the country
 	$nutriment_table = $cc_nutriment_table{default};
@@ -328,13 +366,21 @@ sub analyze_request($)
 {
 	my $request_ref = shift;
 	
+	print STDERR "analyze_request : query_string 0 : $request_ref->{query_string} \n";
+	
+	
 	# http://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
 	# http://world.openfoodfacts.org/?ref=producthunt
 	
 	if ($request_ref->{query_string} =~ /(\&|\?)(utm_|ref=)/) {
 		$request_ref->{query_string} = $`;
-	}	
+	}
 	
+	# cc and lc query overrides have already been consumed by init(), remove them
+	# so that they do not interfere with the query string analysis after
+	$request_ref->{query_string} =~ s/(\&|\?)(cc|lc)=([^&]*)//g;
+
+		
 	print STDERR "analyze_request : query_string 1 : $request_ref->{query_string} \n";
 	
 	# API calls may request JSON, JSONP or XML by appending .json, .jsonp or .xml at the end of the query string
@@ -2607,8 +2653,9 @@ HTML
 		if (defined $request_ref->{jqm}) {
 			if (defined $next_page_url) {
 				my $loadmore = lang("loadmore");
+				my $loadmore_domain = format_subdomain($subdomain);
 				$html .= <<HTML
-<li id="loadmore" style="text-align:center"><a href="${next_page_url}&jqm_loadmore=1" id="loadmorelink">$loadmore</a></li>
+<li id="loadmore" style="text-align:center"><a href="${loadmore_domain}/${next_page_url}&jqm_loadmore=1" id="loadmorelink">$loadmore</a></li>
 HTML
 ;
 			}
@@ -2627,6 +2674,14 @@ HTML
 		
 		
 	}	
+	
+	# if cc and/or lc have been overriden, change the relative paths to absolute paths using the new subdomain
+	
+	if ($subdomain ne $original_subdomain) {
+		print STDERR "Display - search_and_display_product - subdomain $subdomain not equal to original_subdomain $original_subdomain, converting relative paths to absolute paths\n";
+		my $formated_subdomain = format_subdomain($subdomain);
+		$html =~ s/(href|src)=("\/)/$1="$formated_subdomain\//g;
+	}
 
 	return $html;
 }
@@ -4818,7 +4873,7 @@ HTML
 			if ($olc eq $country_languages{$cc}[0]) {
 				$osubdomain = $cc;
 			}
-			if (($olc eq $lc) or ($olc eq $lclc)) {
+			if (($olc eq $lc)) {
 				$selected_lang = "<a href=\"" . format_subdomain($osubdomain) . "/\">$Langs{$olc}</a>\n";
 			}
 			else {
