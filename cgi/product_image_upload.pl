@@ -40,10 +40,7 @@ ProductOpener::Display::init();
 
 $debug = 1;
 
-if ($imagefield =~ /^(front|ingredients|nutrition)$/) {
-	# use default language
-	$imagefield .= "_$lc";
-}
+
 
 print STDERR "product_image_upload.pl - upload_session: $upload_session - user: $User_id - code: $code - cc: $cc - lc: $lc - imagefield: $imagefield - ip: " . remote_addr() . "\n";
 
@@ -53,7 +50,7 @@ if ((not defined $code) or ($code eq '')) {
 	my %response = ( status => 'status not ok');
 	$response{error} = "error - missing product code";
 	my $data =  encode_json(\%response);		
-	print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+	print header( -type => 'application/json', -charset => 'utf-8' ) . $data;	
 	exit(0);
 }
 
@@ -97,6 +94,13 @@ if ($imagefield) {
 		else {
 			print STDERR "product_image_upload.pl - upload_session: $upload_session - product code $code already exists\n";
 		}
+		
+		# For apps that do not specify the language associated with the image, try to assign one
+		if ($imagefield =~ /^(front|ingredients|nutrition)$/) {
+			# If the product exists, use the main language of the product
+			# otherwise if the product was just created above, we will get the current $lc
+			$imagefield .= "_" . $product_ref->{lc};
+		}		
 	
 		my $imgid = process_image_upload($code, $imagefield, $User_id, time(), "image upload");
 		
@@ -153,7 +157,7 @@ if ($imagefield) {
 			my %response = ( status => 'status not ok');
 			$response{error} = "error - imagefield not defined";
 			my $data =  encode_json(\%response);		
-			print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+			print header( -type => 'application/json', -charset => 'utf-8' ) . $data;	
 
 	}
 
