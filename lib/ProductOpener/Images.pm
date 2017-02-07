@@ -442,9 +442,11 @@ sub process_image_upload($$$$$) {
 		if (1 or ($file =~ /\.(gif|jpeg|jpg|png)$/i)) {
 			print STDERR "Images.pm - process_image_upload - imagefield: $imagefield - file: $file - format ok\n";
 			
-			my $extension = lc($1) ;
+			my $extension = 'jpg';
+			if (defined $1) {
+				$extension = lc($1) ;
+			}
 			$extension eq 'jpeg' and $extension = 'jpg';
-			$extension eq '' and $extension = 'jpg';
 			my $filename = get_fileid(remote_addr(). '_' . $`);
 			
 			my $current_product_ref = retrieve_product($code);

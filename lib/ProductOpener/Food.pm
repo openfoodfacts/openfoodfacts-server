@@ -91,6 +91,8 @@ sub unit_to_g($$) {
 		$unit = "fl oz";
 	}
 
+	(not defined $value) and return $value;
+
 	$value =~ s/,/\./;
 	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
 	
