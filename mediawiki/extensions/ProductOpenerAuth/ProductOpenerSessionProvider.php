@@ -28,7 +28,7 @@ class ProductOpenerSessionProvider extends MediaWiki\Session\SessionProvider {
 	 * @return SessionInfo|null
 	 */
 	public function provideSessionInfo( WebRequest $request ) {
-		$cookie = $request->getCookie( 'session' );
+		$cookie = $_COOKIE['session'];
 		if ( $cookie === null || $cookie === '' || $cookie === 'deleted') {
 			$this->logger->notice('No session cookie found for request.');
 			return null;
@@ -58,7 +58,7 @@ class ProductOpenerSessionProvider extends MediaWiki\Session\SessionProvider {
 				'cookie' => $cookie,
 				'response' => $response,
 			]);
-			$obj = json_decode($respone);
+			$obj = json_decode($response);
 
 			$user = User::newFromName( $obj->{'user_id'} );
 			if ( $user === false ) {
@@ -87,6 +87,7 @@ class ProductOpenerSessionProvider extends MediaWiki\Session\SessionProvider {
 			}
 
 			$info['userInfo'] = UserInfo::newFromUser( $user, true );
+			$info['provider'] = $this;
 			return new SessionInfo( $this->priority, $info );
 		} catch (HttpException $ex) {
 			$this->logger->error(
