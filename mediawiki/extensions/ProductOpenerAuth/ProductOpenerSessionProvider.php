@@ -28,10 +28,16 @@ class ProductOpenerSessionProvider extends MediaWiki\Session\SessionProvider {
 	 * @return SessionInfo|null
 	 */
 	public function provideSessionInfo( WebRequest $request ) {
-		$cookie = $request->getCookie( 'session', $prefix, $default );
+		$cookie = $request->getCookie( 'session' );
 		if ( $cookie === null || $cookie === '' || $cookie === 'deleted') {
+			$this->logger->notice('No session cookie found for request.');
 			return null;
 		}
+
+		$this->logger->debug('Session cookie found for request: {cookie}.',
+		[
+			'cookie' => $cookie
+		]);
 
 		$chunks = array_chunk(preg_split('/&/', $cookie), 2);
 		$data = array_combine(array_column($chunks, 0), array_column($chunks, 1));
@@ -39,21 +45,45 @@ class ProductOpenerSessionProvider extends MediaWiki\Session\SessionProvider {
 		try {
 			$response = Http::post( 'https://world.openfoodfacts.org/cgi/sso.pl',  [ "postData" => $data ] );
 			if ($response === false) {
+				$this->logger->notice('SSO response for cookie {cookie} was {response}.',
+				[
+					'cookie' => $cookie,
+					'response' => $response,
+				]);
 				return null;
 			}
 
+			$this->logger->debug('SSO response for cookie {cookie} was {response}.',
+			[
+				'cookie' => $cookie,
+				'response' => $response,
+			]);
 			$obj = json_decode($respone);
 
 			$user = User::newFromName( $obj->{'user_id'} );
 			if ( $user === false ) {
+				$this->logger->info('User::newFromName for {userId} returned false.',
+				[
+					'cookie' => $cookie,
+					'response' => $response,
+					'userId' => $obj->{'user_id'},
+					'user' => $user,
+				]);
 				return null;
 			}
 
-			if ( $u->getID() == 0 ) {
+			if ( $user->getID() == 0 ) {
+				$this->logger->notice('User not found (id == 0), trying to create new user.',
+				[
+					'cookie' => $cookie,
+					'response' => $response,
+					'userId' => $obj->{'user_id'},
+					'user' => $user,
+				]);
 				$am = AuthManager::singleton();
-				$u->setRealName($obj->{'name'});
-				$u->setEmail($obj->{'email'});
-				AuthManager::singleton()->autoCreateUser($u, self::AUTOCREATE_SOURCE_SESSION, false);
+				$user->setRealName($obj->{'name'});
+				$user->setEmail($obj->{'email'});
+				AuthManager::singleton()->autoCreateUser($user, self::AUTOCREATE_SOURCE_SESSION, false);
 			}
 
 			$info['userInfo'] = UserInfo::newFromUser( $user, true );
