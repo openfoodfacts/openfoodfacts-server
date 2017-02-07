@@ -918,12 +918,14 @@ sub index_product($)
 	my %keywords;
 	
 	foreach my $field (@string_fields, @tag_fields) {
-		foreach my $tag (split(/,|'|\s/, $product_ref->{$field} )) {
-			if (($field eq 'categories') or ($field eq 'labels') or ($field eq 'origins')) {
-				$tag =~ s/^\w\w://;
-			}
-			if (length(get_fileid($tag)) >= 2) {
-				$keywords{normalize_search_terms(get_fileid($tag))} = 1;
+		if (defined $product_ref->{$field}) {
+			foreach my $tag (split(/,|'|\s/, $product_ref->{$field} )) {
+				if (($field eq 'categories') or ($field eq 'labels') or ($field eq 'origins')) {
+					$tag =~ s/^\w\w://;
+				}
+				if (length(get_fileid($tag)) >= 2) {
+					$keywords{normalize_search_terms(get_fileid($tag))} = 1;
+				}
 			}
 		}
 	}
