@@ -112,7 +112,7 @@ function select_nutriment(event, ui) {
 	id = id.replace("_label", "");
 	$('#' + id).focus();
 	$('#' + id + '_unit').val(ui.item.unit);
-	var unit = (ui.item.unit == '%' ? 'g' : ui.item.unit).toLowerCase();
+	var unit = (ui.item.unit == '%' ? '%' : ui.item.unit).toLowerCase();
 	var unitElement = $('#' + id + '_unit');
 	var percentElement = $('#' + id + '_unit_percent');
 	if (unit === '') {
