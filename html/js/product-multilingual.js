@@ -136,7 +136,7 @@ function select_nutriment(event, ui) {
 					domElement.options.length = 0; // Remove current entries.
 					for (var itemIndex = 0; itemIndex < entry.length; ++itemIndex) {
 						var unitValue = entry[itemIndex];
-						domElement.options[domElement.options.length] = new Option(unitValue, unitValue, unitValue.toLowerCase() == unit);
+						domElement.options[domElement.options.length] = new Option(unitValue, unitValue, false, unitValue.toLowerCase() == unit);
 					}
 
 					return;
