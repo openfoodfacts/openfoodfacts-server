@@ -1,13 +1,18 @@
 {
   "name": "product-opener",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "",
+  "main": "",
+  "private": true,
+  "scripts": {
+    "test": "jshint --show-non-errors html/js/product-multilingual.js html/js/search.js"
+  },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/openfoodfacts/openfoodfacts-server.git"
+    "url": "https://github.com/openfoodfacts/openfoodfacts-server.git"
   },
-  "author": "Association Open Food Facts",
-  "license": "AGPL-3.0",
+  "author": "Open Food Facts Association",
+  "license": "GNU Affero General Public License",
   "bugs": {
     "url": "https://github.com/openfoodfacts/openfoodfacts-server/issues"
   },
@@ -16,13 +21,14 @@
     "darwin",
     "linux"
   ],
-  "private": true,
-  "devDependencies": {
+  "dependencies": {
     "bower": "^1.8.0",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.3.2",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.4.0",
+    "gulp-sourcemaps": "^2.4.0"
+  },
+  "devDependencies": {
     "jshint": "^2.9.4"
   }
 }

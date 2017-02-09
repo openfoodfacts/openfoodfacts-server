@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2016 Association Open Food Facts
+# Copyright (C) 2011-2017 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -2110,7 +2110,7 @@ HTML
 
 			my $share = lang('share');
 			$html .= <<HTML
-<div class="share_button right" style="float:right;margin-top:-10px;display:none;">
+<div class="share_button right" style="float:right;margin-top:-10px;margin-left:10px;display:none;">
 <a href="$request_ref->{canon_url}" class="button small icon" title="$title">
 	<i class="fi-share"></i>
 	<span class="show-for-large-up"> $share</span>
@@ -7069,7 +7069,7 @@ sub display_structured_response($)
 		my $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
 		. $xs->XMLout($request_ref->{structured_response}); 	# noattr -> force nested elements instead of attributes
         
-		print "Content-Type: text/xml; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $xml;	
+		print header( -type => 'text/xml', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $xml;
 
 	}
 	elsif ($request_ref->{rss}) {
@@ -7090,10 +7090,10 @@ sub display_structured_response($)
 		$jsonp =~ s/[^a-zA-Z0-9_]//g;
 		
 		if (defined $jsonp) {
-			print "Content-Type: text/javascript; charset=UTF-8;\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $jsonp . "(" . $data . ");" ;	
+			print header( -type => 'text/javascript', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $jsonp . "(" . $data . ");" ;
 		}
 		else {
-			print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $data;	
+			print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
 		}
 	}
 	
@@ -7114,13 +7114,13 @@ sub display_structured_response_opensearch_rss {
 		$long_name .= " " . uc($cc) . "/" . uc($lc);
 	}
 
-	$long_name = $xs->escape_value($long_name);
-	$short_name = $xs->escape_value($short_name);
+	$long_name = $xs->escape_value(encode_utf8($long_name));
+	$short_name = $xs->escape_value(encode_utf8($short_name));
 	my $dom = format_subdomain($subdomain);
-	my $query_link = $xs->escape_value($dom . $request_ref->{current_link_query} . "&rss=1");
-	my $description = $xs->escape_value(lang("search_description_opensearch"));
+	my $query_link = $xs->escape_value(encode_utf8($dom . $request_ref->{current_link_query} . "&rss=1"));
+	my $description = $xs->escape_value(encode_utf8(lang("search_description_opensearch")));
 
-	my $search_terms = $xs->escape_value(decode utf8=>param('search_terms'));
+	my $search_terms = $xs->escape_value(encode_utf8(decode utf8=>param('search_terms')));
 	my $count = $xs->escape_value($request_ref->{structured_response}{count});
 	my $skip = $xs->escape_value($request_ref->{structured_response}{skip});
 	my $page_size = $xs->escape_value($request_ref->{structured_response}{page_size});
@@ -7147,9 +7147,9 @@ XML
 		foreach my $product_ref (@{$request_ref->{structured_response}{products}}) {
 			my $item_title = product_name_brand_quantity($product_ref);
 			$item_title = $product_ref->{code} unless $item_title;
-			my $item_description = $xs->escape_value(sprintf(lang("product_description"), $item_title));
-			$item_title = $xs->escape_value($item_title);
-			my $item_link = $xs->escape_value($dom . product_url($product_ref));
+			my $item_description = $xs->escape_value(encode_utf8(sprintf(lang("product_description"), $item_title)));
+			$item_title = $xs->escape_value(encode_utf8($item_title));
+			my $item_link = $xs->escape_value(encode_utf8($dom . product_url($product_ref)));
 			
 			$xml .= <<XML
      <item>
@@ -7168,7 +7168,7 @@ XML
 XML
 ;
 	
-	print "Content-Type: application/rss+xml; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $xml;	
+	print header( -type => 'application/rss+xml', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $xml;
 
 }
 

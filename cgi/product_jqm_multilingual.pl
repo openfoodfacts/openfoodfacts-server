@@ -277,7 +277,7 @@ else {
 
 my $data =  encode_json(\%response);
 	
-print "Content-Type: application/json; charset=UTF-8\r\n\r\n" . $data;	
+print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 
 
 exit(0);
