@@ -7,8 +7,10 @@
   "scripts": {
     "test": "concurrently 'npm run prove' 'npm run jshint' 'npm run perlc'",
     "prove": "prove -l",
-    "jshint": "jshint --show-non-errors html/js/product-multilingual.js html/js/search.js",
-    "perlc": "perl -c -CS -I/home/travis/build/openfoodfacts/openfoodfacts-server/lib lib/startup_apache2.pl"
+    "jshint": "./node_modules/.bin/jshint --show-non-errors html/js/product-multilingual.js html/js/search.js",
+    "perlc": "perl -c -CS -I/home/travis/build/openfoodfacts/openfoodfacts-server/lib lib/startup_apache2.pl",
+    "postinstall": "npm run bower",
+    "bower": "./node_modules/.bin/bower install"
   },
   "repository": {
     "type": "git",
