@@ -5,7 +5,10 @@
   "main": "",
   "private": true,
   "scripts": {
-    "test": "jshint --show-non-errors html/js/product-multilingual.js html/js/search.js"
+    "test": "concurrently 'npm run prove' 'npm run jshint' 'npm run perlc'",
+    "prove": "prove -l",
+    "jshint": "jshint --show-non-errors html/js/product-multilingual.js html/js/search.js",
+    "perlc": "perl -c -CS -I/home/travis/build/openfoodfacts/openfoodfacts-server/lib lib/startup_apache2.pl"
   },
   "repository": {
     "type": "git",
@@ -29,6 +32,7 @@
     "gulp-sourcemaps": "^2.4.0"
   },
   "devDependencies": {
+    "concurrently": "^3.2.0",
     "jshint": "^2.9.4"
   }
 }

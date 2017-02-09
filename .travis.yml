@@ -31,8 +31,6 @@ install:
   - sed -i -e 's/\$www_root = "\/home\/off\/html";/\$www_root = "\/home\/travis\/build\/openfoodfacts\/openfoodfacts-server\/html";/g' /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/Config2.pm
   - sed -i -e 's/\$data_root = "\/home\/off";/\$data_root = "\/home\/travis\/build\/openfoodfacts\/openfoodfacts-server";/g' /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/Config2.pm
 script:
-  - prove -l
-  - perl -c -CS -I/home/travis/build/openfoodfacts/openfoodfacts-server/lib lib/startup_apache2.pl
-  - jshint --show-non-errors html/js/product-multilingual.js html/js/search.js
+  - npm test
 notifications:
   slack: openfoodfacts:Pre9ZXKFH1CYtix8DeJAaFi2
