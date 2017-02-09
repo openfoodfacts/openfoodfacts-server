@@ -5,7 +5,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use strict;
 use utf8;
 
-binmode(STDOUT, ":utf8");
+binmode(STDOUT, ":encoding(UTF-8)");
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
