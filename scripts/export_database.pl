@@ -134,7 +134,7 @@ foreach my $l ("en", "fr") {
 	<dcterms:creator>Open Food Facts</dcterms:creator>
 	<dcterms:description xml:lang="en">Data on food products from the world (includes ingredients, nutrition facts, brands, labels etc.) from http://$lc.$server_domain</dcterms:description>
 	<dcterms:description xml:lang="fr">Données sur les produits alimentaires du monde entier (ingrédients, composition nutritionnelle, marques, labels etc.)</dcterms:description>
-	<dcterms:license rdf:resource="http://opendatacommons.org/licenses/odbl/"/>
+	<dcterms:license rdf:resource="https://opendatacommons.org/licenses/odbl/"/>
 	<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">$date</dcterms:modified>
 	<dcterms:subject rdf:resource="http://dbpedia.org/resource/Food"/>
 	<dcterms:subject rdf:resource="http://dbpedia.org/resource/Nutrition"/>
@@ -146,7 +146,7 @@ foreach my $l ("en", "fr") {
 
 <!--
 This is a RDF export of the http://$lc.$server_domain food products database.
-The database is available under Open Database Licence 1.0 (ODbL) http://opendatacommons.org/licenses/odbl/1.0/
+The database is available under Open Database Licence 1.0 (ODbL) https://opendatacommons.org/licenses/odbl/1.0/
 -->
 
 XML

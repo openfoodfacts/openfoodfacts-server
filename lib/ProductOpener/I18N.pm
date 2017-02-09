@@ -92,11 +92,11 @@ sub read_po_files {
 	
 	# for debugging purposes, export the structure
 	
-	use Data::Dumper;
-	$Data::Dumper::Sortkeys = 1;
-	open my $fh, ">", "${dir}/l10n.debug" or die "can not create ${dir}/l10n.debug : $!";
-	print $fh "I18N.pm - read_po_file - dir: $dir\n\n" . Dumper(\%l10n) . "\n";
-	close $fh;
+	#use Data::Dumper;
+	#$Data::Dumper::Sortkeys = 1;
+	#open my $fh, ">", "${dir}/l10n.debug" or die "can not create ${dir}/l10n.debug : $!";
+	#print $fh "I18N.pm - read_po_file - dir: $dir\n\n" . Dumper(\%l10n) . "\n";
+	#close $fh;
 
     return \%l10n
 }

@@ -548,8 +548,8 @@ Appuyez ensuite sur le bouton <b>✓</b> pour valider et vérifier votre répons
 <div style="float:right;margin-left:20px;margin-bottom:20px;"><a href="http://fr.openfoodfacts.org"><img src="openfoodfacts-logo-fr.png" alt="Open Food Facts" style="background-color:white;padding:5px;display:block"/></a></div>
 
 <p>Les données sur les produits et les photos proviennent de la base collaborative <a href="http://fr.openfoodfacts.org">Open Food Facts</a>.
-Les données sont disponibles sous la licence ouverte <a href="http://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a> et les photos sous la licence
-<a href="http://creativecommons.org/licenses/by-sa/3.0/deed.fr">Creative Commons Attribution Partage à l'identique</a>. Les marques citées sont la propriété de leurs propriétaires respectifs.</p>
+Les données sont disponibles sous la licence ouverte <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a> et les photos sous la licence
+<a href="https://creativecommons.org/licenses/by-sa/3.0/deed.fr">Creative Commons Attribution Partage à l'identique</a>. Les marques citées sont la propriété de leurs propriétaires respectifs.</p>
 <p>La base de données est constituée de manière collaborative, il n'est pas possible de garantir qu'elle soit exempte d'erreurs. La composition des produits peut également avoir changé.
 Si vous constatez une erreur, <a href="mailto:stephane\@combiendesucres.fr">merci de nous la signaler</a> afin qu'elle soit corrigée.</p>
 

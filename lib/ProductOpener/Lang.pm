@@ -349,12 +349,12 @@ sub build_lang($) {
 	}	
 	
 	
-	use Data::Dumper::AutoEncode;
-	use Data::Dumper;
-	$Data::Dumper::Sortkeys = 1;
-	open my $fh, ">", "$data_root/po/languages.debug.${server_domain}" or die "can not create $data_root/po/languages.debug.${server_domain} : $!";
-	print $fh "Lang.pm - %Lang\n\n" . eDumper(\%Lang) . "\n";
-	close $fh;		
+	# use Data::Dumper::AutoEncode;
+	# use Data::Dumper;
+	# $Data::Dumper::Sortkeys = 1;
+	# open my $fh, ">", "$data_root/po/languages.debug.${server_domain}" or die "can not create $data_root/po/languages.debug.${server_domain} : $!";
+	# print $fh "Lang.pm - %Lang\n\n" . eDumper(\%Lang) . "\n";
+	# close $fh;		
 
 	# copy strings for debug taxonomies
 
@@ -371,15 +371,15 @@ sub build_lang($) {
 
 		# Save to file, for debugging and comparing purposes
 	
-		use Data::Dumper::AutoEncode;
-		use Data::Dumper;
-		$Data::Dumper::Sortkeys = 1;
-		if (! -e "$data_root/po") {
-			mkdir ("$data_root/po", 0755); 
-		}
-		open my $fh, ">", "$data_root/po/translations.debug.${server_domain}" or die "can not create $data_root/po/translations.debug.${server_domain} : $!";
-		print $fh "Lang.pm - %Lang\n\n" . eDumper(\%Lang) . "\n";
-		close $fh;			
+		# use Data::Dumper::AutoEncode;
+		# use Data::Dumper;
+		# $Data::Dumper::Sortkeys = 1;
+		# if (! -e "$data_root/po") {
+		#	mkdir ("$data_root/po", 0755); 
+		# }
+		# open my $fh, ">", "$data_root/po/translations.debug.${server_domain}" or die "can not create $data_root/po/translations.debug.${server_domain} : $!";
+		# print $fh "Lang.pm - %Lang\n\n" . eDumper(\%Lang) . "\n";
+		# close $fh;			
     
 
 	# Load site specific overrides
