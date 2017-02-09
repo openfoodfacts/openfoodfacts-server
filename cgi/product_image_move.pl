@@ -50,7 +50,7 @@ if ((not defined $code) or ($code eq '')) {
 	my %response = ( status => 'status not ok');
 	$response{error} = "error - missing product code";
 	my $data =  encode_json(\%response);		
-	print header ( -charset=>'UTF-8') . $data;		
+	print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 	exit(0);
 }
 
@@ -60,7 +60,7 @@ if ((not defined $move_to) or ($move_to eq '')) {
 	my %response = ( status => 'status not ok');
 	$response{error} = "error - missing move_to product code";
 	my $data =  encode_json(\%response);		
-	print header ( -charset=>'UTF-8') . $data;		
+	print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 	exit(0);
 }
 
@@ -70,7 +70,7 @@ if ($code eq $move_to) {
 	my %response = ( status => 'status not ok');
 	$response{error} = "error - cannot move images to same product";
 	my $data =  encode_json(\%response);		
-	print header ( -charset=>'UTF-8') . $data;		
+	print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 	exit(0);
 }
 
@@ -82,7 +82,7 @@ if ((not defined $imgids) or ($imgids eq '')) {
 	my %response = ( status => 'status not ok');
 	$response{error} = "error - missing imgids";
 	my $data =  encode_json(\%response);		
-	print header ( -charset=>'UTF-8') . $data;		
+	print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 	exit(0);
 }
 
@@ -101,7 +101,7 @@ if ($path eq 'invalid') {
 	my %response = ( status => 'status not ok');
 	$response{error} = "error - invalid product code: $code";
 	my $data =  encode_json(\%response);		
-	print header ( -charset=>'UTF-8') . $data;		
+	print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 	exit(0);		
 }
 
@@ -112,7 +112,7 @@ if (not $product_ref) {
 	my %response = ( status => 'status not ok');
 	$response{error} = "error - product does not exist: $code";
 	my $data =  encode_json(\%response);		
-	print header ( -charset=>'UTF-8') . $data;		
+	print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 	exit(0);
 }
 
@@ -128,7 +128,7 @@ if ($move_to ne 'trash') {
 		my %response = ( status => 'status not ok');
 		$response{error} = "error - invalid product move_to code: $move_to";
 		my $data =  encode_json(\%response);		
-		print header ( -charset=>'UTF-8') . $data;		
+		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 		exit(0);		
 	}
 
@@ -214,7 +214,7 @@ $data =  encode_json(\%response);
 
 print STDERR "product_image_move - JSON data output: $data\n";
 
-print header ( -charset=>'UTF-8') . $data;
+print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 
 
 exit(0);

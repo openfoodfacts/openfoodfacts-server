@@ -21,5 +21,4 @@ open (my $OUT, ">>" , "/home/sucres/logs/sugar_log");
 print $OUT remote_addr() . "\t" . time() . "\t" . $product . "\t" . $code . "\t" . $actual . "\t" . $answer . "\t" . $points . "\n";
 close $OUT;
 
-
-print "Content-Type: text/html; charset=UTF-8\r\n\r\n";
+print header( -type => 'text/html', -charset => 'utf-8' );

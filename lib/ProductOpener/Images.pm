@@ -42,6 +42,7 @@ BEGIN
 					&process_image_move
 					
 					&process_image_crop
+					&process_image_unselect
 					
 					&scan_code
 					
@@ -373,11 +374,11 @@ sub process_search_image_form($) {
 			my $extension = lc($1) ;
 			my $filename = get_fileid(remote_addr(). '_' . $`);
 			
-			open (my $FILE, q{>}, "$data_root/tmp/$filename.$extension") ;
-			while (<$file>) {
-				print $FILE;
+			open (my $out, ">", "$data_root/tmp/$filename.$extension") ;
+			while (my $chunk = <$file>) {
+				print $out $chunk;
 			}
-			close ($FILE);
+			close ($out);
 			
 			$code = scan_code("$data_root/tmp/$filename.$extension");
 			if (defined $code) {
@@ -469,11 +470,11 @@ sub process_image_upload($$$$$) {
 			
 
 
-			open (my $FILE, q{>}, "$www_root/images/products/$path/$imgid.$extension") or print STDERR "Images.pm - Error - Could not save $www_root/images/products/$path/$imgid.$extension : $!\n";
-			while (<$file>) {
-				print $FILE;
+			open (my $out, ">", "$www_root/images/products/$path/$imgid.$extension") or print STDERR "Images.pm - Error - Could not save $www_root/images/products/$path/$imgid.$extension : $!\n";
+			while (my $chunk = <$file>) {
+				print $out $chunk;
 			}
-			close ($FILE);
+			close ($out);
 
 
 			
@@ -958,6 +959,28 @@ sub process_image_crop($$$$$$$$$$) {
 	store_product($product_ref, "new image $id : $imgid.$rev");
 
 	print STDERR "Index::process_image_crop done\n";
+	return $product_ref;
+}
+
+sub process_image_unselect($$) {
+
+	my $code = shift;
+	my $id = shift;
+	
+	my $path = product_path($code);
+		
+	print STDERR "Images.pm - process_image_unselect - id: $id\n";
+			
+	# Update the product image data
+	my $product_ref = retrieve_product($code);
+	defined $product_ref->{images} or $product_ref->{images} = {};
+	if (defined $product_ref->{images}{$id}) {
+		delete $product_ref->{images}{$id};
+	}
+
+	store_product($product_ref, "unselected image $id");
+
+	print STDERR "Index::process_image_unselect done\n";
 	return $product_ref;
 }
 

@@ -2,9 +2,11 @@
 
 * Documentation started on <https://en.wiki.openfoodfacts.org/Project:ProductOpener>
 * Version: 
+
 [![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/openfoodfacts/openfoodfacts-server.svg)](http://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/openfoodfacts/openfoodfacts-server.svg)](http://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Percentage of issues still open")
+[![Build Status](https://travis-ci.org/openfoodfacts/openfoodfacts-server.svg?branch=master)](https://travis-ci.org/openfoodfacts/openfoodfacts-server)
+[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/openfoodfacts/openfoodfacts-server.svg)](https://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Average time to resolve an issue")
+[![Percentage of issues still open](https://isitmaintained.com/badge/open/openfoodfacts/openfoodfacts-server.svg)](https://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Percentage of issues still open")
 
 ## What is Product Opener?
 
@@ -29,7 +31,7 @@ Data about food is of public interest and has to be open. The complete database 
 # Copyright and Licence #
 
 Product Opener
-Copyright (C) 2011-2016 Association Open Food Facts
+Copyright (C) 2011-2017 Association Open Food Facts
 Contact: contact@openfoodfacts.org
 Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 
@@ -48,9 +50,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # Libraries used #
 
-
 ### How do I get set up? ###
-- Feel free to join us on Slack at http://slack.openfoodfacts.org in the channels: #api #productopener #dev
+
+- Feel free to join us on Slack at https://slack.openfoodfacts.org in the channels: #api #productopener #dev
 - If you're looking for the API, look at https://en.wiki.openfoodfacts.org/API
 
 * Summary of set up: https://en.wiki.openfoodfacts.org/Project:ProductOpener
@@ -68,6 +70,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * Please add new features to the CHANGELOG.md file before or after merge to make testing easier.
 
 ### Reporting bugs ###
+
 Have a bug or a feature request? Please search for existing and closed issues. If your problem or idea is not addressed yet, please open a new issue.<br>
 https://github.com/openfoodfacts/openfoodfacts-server/issues
 
@@ -83,4 +86,4 @@ https://translations.launchpad.net/openfoodfacts/trunk/+pots/common-web
 
 * Repo owner or admin
 * contact@openfoodfacts.org
-* http://slack.openfoodfacts.org
+* https://slack.openfoodfacts.org

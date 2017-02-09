@@ -18,13 +18,11 @@ addons:
 sudo: false
 before_install:
   - nvm install 4
-  - npm install -g gulp bower jshint
   - cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
 install:
   - cpanm --quiet --installdeps --notest --skip-satisfied .
   - npm install
-  - bower install
-  - gulp
+  - ./node_modules/.bin/gulp
   - ln -s /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/Config_off.pm /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/Config.pm
   - cp /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/Config2_sample.pm /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/Config2.pm
   - ln -s /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/SiteLang_off.pm /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/SiteLang.pm
@@ -32,8 +30,6 @@ install:
   - sed -i -e 's/\$www_root = "\/home\/off\/html";/\$www_root = "\/home\/travis\/build\/openfoodfacts\/openfoodfacts-server\/html";/g' /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/Config2.pm
   - sed -i -e 's/\$data_root = "\/home\/off";/\$data_root = "\/home\/travis\/build\/openfoodfacts\/openfoodfacts-server";/g' /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/Config2.pm
 script:
-  - prove -l
-  - perl -c -CS -I/home/travis/build/openfoodfacts/openfoodfacts-server/lib lib/startup_apache2.pl
-  - jshint --show-non-errors html/js/product-multilingual.js html/js/search.js
+  - npm test
 notifications:
   slack: openfoodfacts:Pre9ZXKFH1CYtix8DeJAaFi2
