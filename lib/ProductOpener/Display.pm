@@ -5916,6 +5916,28 @@ HTML
 	$html .= display_nutrition_table($product_ref, \@comparisons);
 	
 
+	if (defined $product_ref->{sources}) {
+		# FIXME : currently just a quick workaround to display openfood attribution
+
+#			push @{$product_ref->{sources}}, {
+#				id => "openfood-ch",
+#				url => "https://www.openfood.ch/en/products/$openfood_id",
+#				import_t => time(),
+#				fields => \@modified_fields,
+#				images => \@images_ids,	
+#			};
+		
+		if (defined $product_ref->{sources}[0]) {
+			my $lang_source = $product_ref->{sources}[0]{id};
+			$lang_source =~ s/-/_/g;
+			$html .= "<p>" . lang("sources_" . $lang_source ) . "</p>";
+			if (defined $product_ref->{sources}[0]{url}) {
+				$html .= "<p><a href=\"" . $product_ref->{sources}[0]{url} . "\">" . lang("sources_" . $lang_source . "_product_page" ) . "</a></p>";
+			}
+		}
+	}
+	
+	
 	my $created_date = display_date_tag($product_ref->{created_t});
 	my $last_modified_date = display_date_tag($product_ref->{last_modified_t});
 	
