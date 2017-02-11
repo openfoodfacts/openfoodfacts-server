@@ -1,37 +1,37 @@
 # Product Opener #
 
-* Documentation started on <http://en.wiki.openfoodfacts.org/Project:ProductOpener>
+* Documentation started on <https://en.wiki.openfoodfacts.org/Project:ProductOpener>
 * Version: 
+
 [![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/openfoodfacts/openfoodfacts-server.svg)](http://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/openfoodfacts/openfoodfacts-server.svg)](http://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Percentage of issues still open")
+[![Build Status](https://travis-ci.org/openfoodfacts/openfoodfacts-server.svg?branch=master)](https://travis-ci.org/openfoodfacts/openfoodfacts-server)
+[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/openfoodfacts/openfoodfacts-server.svg)](https://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Average time to resolve an issue")
+[![Percentage of issues still open](https://isitmaintained.com/badge/open/openfoodfacts/openfoodfacts-server.svg)](https://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Percentage of issues still open")
 
 ## What is Product Opener?
 
-Product Opener is the server software for Open Food Facts and Open Beauty Facts. 
-Efforts are under way to clean and open the code which is currently in a private repository. 
-Product Opener is coded in Perl.
+Product Opener is the server software for Open Food Facts and Open Beauty Facts. It is [free and open-source software](https://en.wikipedia.org/wiki/Free_and_open-source_software) created in Perl, HTML and JavaScript.
 
 ## What is Open Food Facts ##
 
 ### A food products database
 
-Open Food Facts is a database of food products with ingredients, allergens, nutrition facts and all the tidbits of information we can find on product labels. 
+Open Food Facts is a database of food products with ingredients, allergens, nutrition facts and all the tidbits of information we can find on product labels.
 
 ### Made by everyone
 
 Open Food Facts is a non-profit association of volunteers.
-4000+ contributors like you have added 100 000+ products from 150 countries using our Android, iPhone or Windows Phone app or their camera to scan barcodes and upload pictures of products and their labels.
+4.000+ contributors like you have added 110.000+ products from 150 countries using our Android, iPhone or Windows Phone app or their camera to scan barcodes and upload pictures of products and their labels.
 
 ### For everyone
 
 Data about food is of public interest and has to be open. The complete database is published as open data and can be reused by anyone and for any use. Check-out the cool reuses or make your own!
-- <http://world.openfoodfacts.org>
+- <https://world.openfoodfacts.org>
 
 # Copyright and Licence #
 
 Product Opener
-Copyright (C) 2011-2016 Association Open Food Facts
+Copyright (C) 2011-2017 Association Open Food Facts
 Contact: contact@openfoodfacts.org
 Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 
@@ -50,12 +50,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # Libraries used #
 
-
 ### How do I get set up? ###
-- Feel free to join us on Slack at http://slack.openfoodfacts.org in the channels: #api #productopener #dev
-- If you're looking for the API, look at http://en.wiki.openfoodfacts.org/API
 
-* Summary of set up : http://en.wiki.openfoodfacts.org/Project:ProductOpener
+- Feel free to join us on Slack at https://slack.openfoodfacts.org in the channels: #api #productopener #dev
+- If you're looking for the API, look at https://en.wiki.openfoodfacts.org/API
+
+* Summary of set up: https://en.wiki.openfoodfacts.org/Project:ProductOpener
 * Configuration 
 * Dependencies
 * Database configuration
@@ -70,6 +70,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * Please add new features to the CHANGELOG.md file before or after merge to make testing easier.
 
 ### Reporting bugs ###
+
 Have a bug or a feature request? Please search for existing and closed issues. If your problem or idea is not addressed yet, please open a new issue.<br>
 https://github.com/openfoodfacts/openfoodfacts-server/issues
 
@@ -85,4 +86,4 @@ https://translations.launchpad.net/openfoodfacts/trunk/+pots/common-web
 
 * Repo owner or admin
 * contact@openfoodfacts.org
-* http://slack.openfoodfacts.org
+* https://slack.openfoodfacts.org

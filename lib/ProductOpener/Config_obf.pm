@@ -20,7 +20,12 @@ BEGIN
 		$admin_email
 		
 		$oidc
+		
+		$facebook_app_id
+                $facebook_app_secret
 
+                $csrf_secret
+		
 		$mongodb
 	
 		$google_analytics
@@ -52,8 +57,6 @@ BEGIN
 use vars @EXPORT_OK ; # no 'my' keyword for these
 
 use ProductOpener::Config2;
-use ProductOpener::Lang;
-
 
 %admins = map { $_ => 1 } qw(
 agamitsudo
@@ -84,6 +87,11 @@ $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
 
 $oidc = $ProductOpener::Config2::oidc;
+
+$facebook_app_id = $ProductOpener::Config2::facebook_app_id;
+$facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
+
+$csrf_secret = $Blogs::Config2::csrf_secret;
 
 $reference_timezone = 'Europe/Paris';
 

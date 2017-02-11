@@ -76,11 +76,10 @@ my $xml = <<XML
 <InputEncoding>UTF-8</InputEncoding>
 $image_tag
 <Url type="text/html" method="GET" template="$uri/cgi/search.pl?search_terms={searchTerms}&amp;search_simple=1&amp;action=process" />
+<Url type="application/rss+xml" method="GET" template="$uri/cgi/search.pl?search_terms={searchTerms}&amp;search_simple=1&amp;action=process&amp;page={startPage?}&amp;page_size={count?}&amp;rss=1" />
 <Url type="application/opensearchdescription+xml" rel="self" template="$uri/cgi/opensearch.pl" />
 </OpenSearchDescription>
 XML
 ;
 
-print "Content-Type: application/opensearchdescription+xml; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\nCache-Control: public, max-age: 10080\r\n\r\n" . $xml;
-
-
+print header( -type => 'application/opensearchdescription+xml', -charset => 'utf-8', -access_control_allow_origin => '*', -cache_control => 'public, max-age: 10080' ) . $xml;

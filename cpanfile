@@ -38,10 +38,12 @@ requires 'DateTime::Locale';
 requires 'Math::Random::Secure';
 requires 'Crypt::ScryptKDF';
 requires 'HTTP::AcceptLanguage', '>=0.02';
+requires 'Locale::Maketext::Lexicon::Getcontext', '>= 0.03';
 requires 'Email::IsEmail', '>= 3.04.8';
 requires 'CLDR::Number::Format::Percent';
 requires 'CLDR::Number';
 requires 'Modern::Perl', '>= 1.20150127';
+requires 'Data::Dumper::AutoEncode';
 
 # OIDC
 requires 'OAuth::Lite2', '0.11';
@@ -53,4 +55,5 @@ requires 'CryptX', '>= 0.022';
 on 'test' => sub {
   requires 'Test::More', '>= 1.302049, < 2.0';
   requires 'Test::Perl::Critic';
+  requires 'Test::Number::Delta';
 };

@@ -1,11 +1,11 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
 
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2016 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
-# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# Address: 21 rue des Iles, 94100 Saint-Maur des FossÃ©s, France
 # 
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -34,6 +34,7 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Lang qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -42,7 +43,6 @@ use Encode;
 use JSON::PP;
 
 ProductOpener::Display::init();
-use ProductOpener::Lang qw/:all/;
 
 my $tagtype = param('tagtype');
 my $string = decode utf8=>param('string');
@@ -61,32 +61,38 @@ if ($term =~ /^(\w\w):/) {
 	$term = $';
 }
 
-my $stringid = get_fileid($string) . get_fileid($term);
-
-my @tags = sort keys %{$translations_to{$tagtype}} ;
-
 my @suggestions = ();
 
+my $limit = 25;
 my $i = 0;
-
-foreach my $canon_tagid (@tags) {
-
-	next if not defined $translations_to{$tagtype}{$canon_tagid}{$search_lc};
-	next if defined $just_synonyms{$tagtype}{$canon_tagid};
-	my $tag = $translations_to{$tagtype}{$canon_tagid}{$search_lc};
-	my $tagid = get_fileid($tag);
-	next if $tagid !~ /^$stringid/;
-
-	if (not ($search_lc eq $original_lc)) {
-		$tag = $search_lc . ":" . $tag;
+if ($tagtype eq 'emb_codes') {
+	my $stringid = get_fileid(normalize_packager_codes($term));
+	my @tags = sort keys %packager_codes;
+	foreach my $canon_tagid (@tags) {
+		next if $canon_tagid !~ /^$stringid/;
+		push @suggestions, normalize_packager_codes($canon_tagid);
+		last if ++$i >= $limit;
 	}
+}
+else {
+	my $stringid = get_fileid($string) . get_fileid($term);
+	my @tags = sort keys %{$translations_to{$tagtype}} ;
+	foreach my $canon_tagid (@tags) {
+		next if not defined $translations_to{$tagtype}{$canon_tagid}{$search_lc};
+		next if defined $just_synonyms{$tagtype}{$canon_tagid};
+		my $tag = $translations_to{$tagtype}{$canon_tagid}{$search_lc};
+		my $tagid = get_fileid($tag);
+		next if $tagid !~ /^$stringid/;
 
-	push @suggestions, $tag;
+		if (not ($search_lc eq $original_lc)) {
+			$tag = $search_lc . ":" . $tag;
+		}
+
+		push @suggestions, $tag;
+		last if ++$i >= $limit;
+	}
 }
 
-
 my $data =  encode_json(\@suggestions);
-	
-print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $data;	
 
-
+print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;

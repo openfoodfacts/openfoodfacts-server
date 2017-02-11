@@ -72,11 +72,11 @@ $initjs
 });
 </script>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet\@0.7.7/dist/leaflet.css" integrity="sha384-99ZJFcuBCh9c/V/+8YwDX/TUGG8JWMG+gKFJWzk0BZP3IoDMN+pLGd3/H0yjg4oa" crossorigin="anonymous">
-<script src="https://unpkg.com/leaflet\@0.7.7/dist/leaflet.js" integrity="sha384-Lh7SNUss9JoImCvc96eCUnLX3HvY4kb0UZCWZbYWvceJ+o5CJeOJqqNoheaGkNHT" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.css" />
-<link rel="stylesheet" href="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.Default.css" />
-<script src="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/leaflet.markercluster-src.js"></script>
+<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
+<script src="/bower_components/leaflet/dist/leaflet.js"></script>
+<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+<script src="/bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
 
 <meta property="fb:admins" content="706410516" />
 <meta property="og:site_name" content="C'est emballé près de chez vous"/>
@@ -176,8 +176,8 @@ $$content_ref
 
 <h2>C'est vous qui fabriquez cette carte !</h2>
 
-<p>Les données des produits alimentaires proviennent de la base collaborative, libre et ouverte <a href="http://fr.openfoodfacts.org">Open Food Facts</a>.
-Le lieu de production est identifié grâce aux <a href="http://fr.blog.openfoodfacts.org/news/les-codes-emballeurs-vont-vous-emballer">codes emballeurs</a> qui figurent sur les emballages et étiquettes des produits.</p>
+<p>Les données des produits alimentaires proviennent de la base collaborative, libre et ouverte <a href="https://fr.openfoodfacts.org">Open Food Facts</a>.
+Le lieu de production est identifié grâce aux <a href="https://fr.blog.openfoodfacts.org/news/les-codes-emballeurs-vont-vous-emballer">codes emballeurs</a> qui figurent sur les emballages et étiquettes des produits.</p>
 
 <p>A noter que le code emballeur identifie l'entreprise qui a emballé le produit. C'est dans beaucoup de cas également l'entreprise qui a fabriqué le produit, mais les différents ingrédients peuvent bien sûr provenir d'autres régions ou pays. Il
 est également possible que l'emballeur importe des aliments préparés dans d'autres pays. Lorsque la provenance des ingrédients est connue, elle est indiquée sous la photo du produit.</p>
@@ -185,10 +185,10 @@ est également possible que l'emballeur importe des aliments préparés dans d'a
 <p>C'est très intéressant de voir que beaucoup de produits sont fabriqués ou conditionnés en France mais dont les ingrédients viennent parfois de l'autre bout de la planète !</p>
 
 <p>Si vous ne trouvez pas de produits vraiment locaux à côté de chez vous sur cette carte (les Noix de Saint-Jacques conditionnés à Fécamp qui viennent du Pérou ? Les fameux coeurs de palmiers et les crevettes géantes tigrées d'Ivry-sur-Seine ?),
-vous pouvez partir à leur recherche dans votre frigo, vos placards ou le magasin du coin et les ajouter sur le site d'<a href="http://fr.openfoodfacts.org">Open Food Facts</a> 
+vous pouvez partir à leur recherche dans votre frigo, vos placards ou le magasin du coin et les ajouter sur le site d'<a href="https://fr.openfoodfacts.org">Open Food Facts</a>
 ou avec l'app <a href="https://itunes.apple.com/fr/app/open-food-facts/id588797948">iPhone</a> ou <a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner">Android</a>. Merci d'avance !</p>
 
-<p>Les données qui permettent de générer la carte sont issues du projet collaboratif <a href="http://openstreetmap.fr/">OpenStreetMap</a> qui créé une carte libre du monde.</p>
+<p>Les données qui permettent de générer la carte sont issues du projet collaboratif <a href="https://openstreetmap.fr/">OpenStreetMap</a> qui créé une carte libre du monde.</p>
 
 <p>Ces deux projets fonctionnent grâce à la collecte citoyenne de données (le <i>crowdsourcing</i> en anglais). Ce sont des personnes comme vous et moi qui scannent les codes barres des produits et les prennent en photo, ou qui ajoutent un bout de chemin
 ou de route. Vous nous rejoignez ?</p>
@@ -197,13 +197,13 @@ ou de route. Vous nous rejoignez ?</p>
 
 <div style="width:460px;margin-right:20px;float:left;">
 
-<p>Auteur : <a href="mailto:stephane\@openfoodfacts.org">Stéphane Gigandet</a> - 
-<a href="http://fr.openfoodfacts.org/mentions-legales">Mentions légales</a></p>
+<p>Auteur : <a href="mailto:stephane\@openfoodfacts.org">Stéphane Gigandet</a> -
+<a href="https://fr.openfoodfacts.org/mentions-legales">Mentions légales</a></p>
 
 <p>Retrouvez-nous aussi sur :</p>
 
 <p>
-&rarr; <a href="http://twitter.com/openfoodfactsfr">Twitter</a><br/>
+&rarr; <a href="https://twitter.com/openfoodfactsfr">Twitter</a><br/>
 &rarr; <a href="https://plus.google.com/u/0/b/102622509148794386660/">Google+</a><br />
 &rarr; <a href="https://www.facebook.com/OpenFoodFacts.fr">Facebook</a> + <a href="https://www.facebook.com/groups/356858984359591/">groupe des contributeurs</a><br />
 </p>
@@ -222,16 +222,16 @@ Pour trouver l'inspiration, découvrez chaque jour des dizaines de <a href="http
 
 <h2 style="clear:left;padding-top:20px;">Données ouvertes - <i>open data</i></h2>
 
-<p>Les données d'Open Food Facts et d'OpenStreetMap sont disponibles gratuitement et pour tout usage sous la licence ouverte <a href="http://opendatacommons.org/licenses/odbl/1.0/">Open Database Licence (ODBL)</a>.</p>
+<p>Les données d'Open Food Facts et d'OpenStreetMap sont disponibles gratuitement et pour tout usage sous la licence ouverte <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database Licence (ODBL)</a>.</p>
 
-<a href="http://fr.openfoodfacts.org/"><img id="logo" src="http://fr.openfoodfacts.org/images/misc/openfoodfacts-logo-fr.png" width="178" height="141" alt="Open Food Facts" /></a> &nbsp; 
-<a href="http://openstreetmap.fr/"><img src="http://fr.openfoodfacts.org/images/misc/OSM-FR-logo-web-avec-texte.png" alt="OpenStreetMap" style="margin-left:30px;" /></a>
+<a href="https://fr.openfoodfacts.org/"><img id="logo" src="https://fr.openfoodfacts.org/images/misc/openfoodfacts-logo-fr.png" width="178" height="141" alt="Open Food Facts" /></a> &nbsp;
+<a href="https://openstreetmap.fr/"><img src="https://fr.openfoodfacts.org/images/misc/OSM-FR-logo-web-avec-texte.png" alt="OpenStreetMap" style="margin-left:30px;" /></a>
 
 
 
 <div id="sharebuttons">
-<div style="float:left;padding-right:15px;" class="sharebutton"><iframe allowtransparency="true" frameborder="0" scrolling="no" role="presentation" 
-src="http://platform.twitter.com/widgets/tweet_button.html?via=OpenFoodFacts&amp;count=vertical&amp;lang=$lc"
+<div style="float:left;padding-right:15px;" class="sharebutton"><iframe allowtransparency="true" frameborder="0" scrolling="no" role="presentation"
+src="https://platform.twitter.com/widgets/tweet_button.html?via=OpenFoodFacts&amp;count=vertical&amp;lang=$lc"
 style="width:65px; height:63px;"></iframe></div>
 <div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="http://cestemballepresdechezvous.fr" layout="box_count"></fb:like></div>
 <div style="float:left;padding-right:15px;padding-bottom:10px;" class="sharebutton"><g:plusone size="tall" count="true" href="http://cestemballepresdechezvous.fr"></g:plusone></div>

@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2016 Association Open Food Facts
+# Copyright (C) 2011-2017 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -75,11 +75,11 @@ BEGIN
 					$styles
 					$header
 					$bodyabout
-					
+
+					$original_subdomain
 					$subdomain
 					$test
 					$lc
-					$lclc
 					$cc
 					$country
 					
@@ -175,7 +175,7 @@ sub init()
 	$cc = 'world';
 	$lc = 'en';
 	$country = 'en:world';
-
+	
 	if (not defined $r) {
 		$r = Apache2::RequestUtil->request();
 	}
@@ -185,6 +185,14 @@ sub init()
 	$r->headers_out->set("X-Content-Type-Options" => "nosniff");
 	$r->headers_out->set("X-Download-Options" => "noopen");
 	$r->headers_out->set("X-XSS-Protection" => "1; mode=block");
+	
+	# sub-domain format:
+	#
+	# [2 letters country code or "world"] -> set cc + default language for the country
+	# [2 letters country code or "world"]-[2 letters language code] -> set cc + lc
+	#
+	# Note: cc and lc can be overriden by query parameters
+	# (especially for the API so that we can use only one subdomain : api.openfoodfacts.org)
 
 	my $hostname = $r->hostname;
 	$subdomain = lc($hostname);
@@ -196,6 +204,9 @@ sub init()
 	}
 	
 	$subdomain =~ s/\..*//;
+	
+	$original_subdomain = $subdomain;	# $subdomain can be changed if there are cc and/or lc overrides
+	
 	
 	print STDERR "Display::init - subdomain: $subdomain \n";
 
@@ -223,10 +234,13 @@ sub init()
 		if (defined $country_codes{$1}) {
 			$cc = $1;
 			$country = $country_codes{$cc};
-			$lc = $2;		
-			$lc =~ s/-/_/; # pt-pt -> pt_pt
-			print STDERR "Display::init - subdomain cc-lc ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
+			$lc = $country_languages{$cc}[0]; # first official language
+			if (defined $language_codes{$2}) {
+				$lc = $2;		
+				$lc =~ s/-/_/; # pt-pt -> pt_pt
+			}
 			
+			print STDERR "Display::init - subdomain cc-lc ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
 		}
 	}
 	elsif (defined $country_names{$subdomain}) {
@@ -243,7 +257,7 @@ sub init()
 		$r->status(301);  
 		return 301;
 	}
-
+	
 	if ($subdomain eq 'accounts') {
 		# For the accounts subdomain, try to use the user's browser locale to display texts.
 		my $headerLang = HTTP::AcceptLanguage->new($ENV{HTTP_ACCEPT_LANGUAGE})->match(@Langs);
@@ -275,9 +289,7 @@ sub init()
 			}
 		}
 	}
-
-	$lclc = $lc;
-	$langlang = $lc;
+	
 	$lc =~ s/_.*//;     # PT_PT doest not work yet: categories
 	
 	if ((not defined $lc) or (($lc !~ /^\w\w(_|-)\w\w$/) and (length($lc) != 2) )) {
@@ -296,6 +308,31 @@ sub init()
 		$r->status(301);
 		return 301;
 	}
+	
+	
+	# Allow cc and lc overrides as query parameters
+	# do not redirect to the corresponding subdomain
+	my $cc_lc_overrides = 0;
+	if ((defined param('cc')) and ((defined $country_codes{param('cc')}) or (param('cc') eq 'world')) ) {
+		$cc = param('cc');
+		$country = $country_codes{$cc};
+		$cc_lc_overrides = 1;
+		print STDERR "Display::init - cc override from request parameter: $cc\n";
+	}
+	if ((defined param('lc')) and (defined $language_codes{param('lc')})) {
+		$lc = param('lc');
+		$lang = $lc;
+		$cc_lc_overrides = 1;
+		print STDERR "Display::init - lc override from request parameter: $lc\n";
+	}	
+	# change the subdomain if we have overrides so that links to product pages are properly constructed
+	if ($cc_lc_overrides) {
+		$subdomain = $cc;
+		if (not ((defined $country_languages{$cc}[0]) and ($lc eq $country_languages{$cc}[0]))) {
+			$subdomain .= "-" . $lc;
+		}
+	}
+	
 	
 	# select the nutriment table format according to the country
 	$nutriment_table = $cc_nutriment_table{default};
@@ -361,13 +398,21 @@ sub analyze_request($)
 {
 	my $request_ref = shift;
 	
+	print STDERR "analyze_request : query_string 0 : $request_ref->{query_string} \n";
+	
+	
 	# http://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
 	# http://world.openfoodfacts.org/?ref=producthunt
 	
 	if ($request_ref->{query_string} =~ /(\&|\?)(utm_|ref=)/) {
 		$request_ref->{query_string} = $`;
-	}	
+	}
 	
+	# cc and lc query overrides have already been consumed by init(), remove them
+	# so that they do not interfere with the query string analysis after
+	$request_ref->{query_string} =~ s/(\&|\?)(cc|lc)=([^&]*)//g;
+
+		
 	print STDERR "analyze_request : query_string 1 : $request_ref->{query_string} \n";
 	
 	# API calls may request JSON, JSONP or XML by appending .json, .jsonp or .xml at the end of the query string
@@ -402,7 +447,7 @@ sub analyze_request($)
 	print STDERR "analyze_request : query_string 3 : $request_ref->{query_string} \n";
 	
 	
-	$request_ref->{page} = 1;
+$request_ref->{page} = 1;
 	
 	my @components = split(/\//, $request_ref->{query_string});
 	
@@ -458,7 +503,8 @@ sub analyze_request($)
 		}
 	}
 	# Product?
-	elsif (($components[0] eq $tag_type_singular{products}{$lc}) ) {
+	# try language from $lc, and English, so that /product/ always work
+	elsif (($components[0] eq $tag_type_singular{products}{$lc}) or ($components[0] eq $tag_type_singular{products}{en})) {
 		# check the product code looks like a number
 		if ($components[1] =~ /^\d/) {
 			$request_ref->{product} = 1;
@@ -523,13 +569,28 @@ sub analyze_request($)
 			$request_ref->{groupby_tagtype} = $tag_type_from_plural{$lc}{pop @components};
 			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
 			print STDERR "Display::analyze_request - list of tags - groupby: $request_ref->{groupby_tagtype}\n";
-		}	
+		}
+		# also try English tagtype
+		elsif (defined $tag_type_from_plural{"en"}{$components[$#components]}) {
+		
+			$request_ref->{groupby_tagtype} = $tag_type_from_plural{"en"}{pop @components};
+			# use $lc for canon url
+			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
+			print STDERR "Display::analyze_request - list of tags - groupby: $request_ref->{groupby_tagtype}\n";
+		}
 	
-		if (($#components >= 0) and (defined $tag_type_from_singular{$lc}{$components[0]})) {
+		if (($#components >= 0) and ((defined $tag_type_from_singular{$lc}{$components[0]})
+			or (defined $tag_type_from_singular{"en"}{$components[0]}))) {
 		
 			print STDERR "Display::analyze_request - tag_type_from_singular $lc : $components[0]\n";
-		
-			$request_ref->{tagtype} = $tag_type_from_singular{$lc}{shift @components};
+			
+			if (defined $tag_type_from_singular{$lc}{$components[0]}) {
+				$request_ref->{tagtype} = $tag_type_from_singular{$lc}{shift @components};
+			}
+			else {
+				$request_ref->{tagtype} = $tag_type_from_singular{"en"}{shift @components};
+			}
+			
 			my $tagtype = $request_ref->{tagtype};
 		
 			if (($#components >= 0)) {
@@ -556,9 +617,15 @@ sub analyze_request($)
 			
 			# 2nd tag?
 			
-			if (($#components >= 0) and (defined $tag_type_from_singular{$lc}{$components[0]})) {
+			if (($#components >= 0) and ((defined $tag_type_from_singular{$lc}{$components[0]})
+				or (defined $tag_type_from_singular{"en"}{$components[0]}))) {
 			
-				$request_ref->{tagtype2} = $tag_type_from_singular{$lc}{shift @components};
+				if (defined $tag_type_from_singular{$lc}{$components[0]}) {
+					$request_ref->{tagtype2} = $tag_type_from_singular{$lc}{shift @components};
+				}
+				else {
+					$request_ref->{tagtype2} = $tag_type_from_singular{"en"}{shift @components};
+				}
 				my $tagtype = $request_ref->{tagtype2};
 			
 				if (($#components >= 0)) {
@@ -964,6 +1031,7 @@ sub display_list_of_tags($$) {
 	}
 
 	my $worlddom = format_subdomain('world');
+	my $staticdom = format_subdomain('static');
 
 	
 #  db.products.aggregate( {$match : {"categories_tags" : "en:fruit-yogurts"}}, 
@@ -1273,7 +1341,7 @@ sub display_list_of_tags($$) {
 			if ($tagtype eq 'nutrition_grades') {
 				if ($tagid =~ /^a|b|c|d|e$/) {
 					my $grade = $tagid;
-					$display = "<img src=\"/images/misc/$grade.338x72.png\" alt=\"Note nutritionnelle : " . uc($grade) . "\" style=\"margin-bottom:10px;max-width:100%\" />" ;
+					$display = "<img src=\"/images/misc/nutriscore-$grade.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} " . uc($grade) . "\" style=\"margin-bottom:1rem;max-width:100%\" />" ;
 				}
 				else {
 					$display = lang("unknown");
@@ -1291,12 +1359,19 @@ sub display_list_of_tags($$) {
 			$html .= "<a href=\"$product_link\"$info$nofollow>" . $display . "</a>";
 			$html .= "</td>\n<td style=\"text-align:right\">$products</td>" . $td_nutriments . $extra_td . "</tr>\n";
 			
-			push @{$request_ref->{structured_response}{tags}}, {
+			my $tagentry = {
 				id => $tagid,
 				name => $display,
 				url => format_subdomain($subdomain) . $product_link,
 				products => $products + 0, # + 0 to make the value numeric
 			};
+
+			if (defined $tags_images{$lc}{$tagtype}{get_fileid($icid)}) {
+				my $img = $tags_images{$lc}{$tagtype}{get_fileid($icid)};
+				$tagentry->{image} = "$staticdom/images/lang/$lc/$tagtype/$img";
+			}
+			
+			push @{$request_ref->{structured_response}{tags}}, $tagentry;
 			
 			# Maps for countries (and origins)
 			
@@ -1345,6 +1420,8 @@ sub display_list_of_tags($$) {
 		my $y_title = lang("number_of_products");
 		my $x_title = lang("nutrition_grades_p");
 
+		my $sep = separator_before_colon($lc);
+		
 		my $js = <<JS
         chart = new Highcharts.Chart({
             chart: {
@@ -1358,7 +1435,7 @@ sub display_list_of_tags($$) {
                 text: '$request_ref->{title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$Lang{sep}{$lc}: @{[ format_subdomain($subdomain) ]}'
+                text: '$Lang{data_source}{$lc}$sep: @{[ format_subdomain($subdomain) ]}'
             },
             xAxis: {
                 title: {
@@ -1931,7 +2008,7 @@ sub display_tag($) {
 			$icid =~ s/-.*//;
 		}		
 		if ($ingredients_classes{$class}{$icid}{other_names} =~ /,/) {
-			$description .= "<p>" . lang("names") . lang("sep") . ": " . $ingredients_classes{$class}{$icid}{other_names} . "</p>";
+			$description .= "<p>" . lang("names") . separator_before_colon($lc) . ": " . $ingredients_classes{$class}{$icid}{other_names} . "</p>";
 		}
 		
 		if ($ingredients_classes{$class}{$icid}{description} ne '') {
@@ -1971,7 +2048,7 @@ sub display_tag($) {
 		print STDERR "Display.pm - city_code: $city_code \n";
 		
 		if (defined $emb_codes_cities{$city_code}) {
-			$description .= "<p>" . lang("cities_s") . lang("sep") . ": " . display_tag_link('cities', $emb_codes_cities{$city_code}) . "</p>";
+			$description .= "<p>" . lang("cities_s") . separator_before_colon($lc) . ": " . display_tag_link('cities', $emb_codes_cities{$city_code}) . "</p>";
 		}
 		
 		print STDERR "display_tag packager_codes - canon_tagid: $canon_tagid\n";
@@ -1989,6 +2066,14 @@ SIRET : $packager_codes{$canon_tagid}{siret} - <a href="$packager_codes{$canon_t
 HTML
 ;
 			}
+			
+			if ($packager_codes{$canon_tagid}{cc} eq 'ch') {
+				$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{full_address}</p>
+HTML
+;
+			}			
+			
 			if ($packager_codes{$canon_tagid}{cc} eq 'es') {
 				# Razón Social;Provincia/Localidad
 				$description .= <<HTML
@@ -2060,7 +2145,7 @@ HTML
 				$products_title = $user_ref->{name};
 			}
 			
-			$description .= "<p>" . lang("contributor_since") . " " . display_date($user_ref->{registered_t}) . "</p>";
+			$description .= "<p>" . lang("contributor_since") . " " . display_date_tag($user_ref->{registered_t}) . "</p>";
 			
 			if ((defined $user_ref->{missions}) and ($request_ref->{page} <= 1 )) {
 				my $missions = '';
@@ -2112,24 +2197,34 @@ HTML
 	
 	
 	if (defined $tagid2) {
-		$products_title .= " - " . lang($tagtype2 . '_s') . lang("sep") . ": " . $display_tag2;
+		$products_title .= " - " . lang($tagtype2 . '_s') . separator_before_colon($lc) . ": " . $display_tag2;
 	}
 	
 	if (not defined $request_ref->{groupby_tagtype}) {
 		if (defined $tagid2) {
-			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_p')) . "</a>" . lang("sep")
+			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_p')) . "</a>" . separator_before_colon($lc)
 				. ": <a href=\"$newtagidpath\">$display_tag</a>"		
-				. "\n<br /><a href=\"/" . $tag_type_plural{$tagtype2}{$lc} . "\">" . ucfirst(lang($tagtype2 . '_p')) . "</a>" . lang("sep")
+				. "\n<br /><a href=\"/" . $tag_type_plural{$tagtype2}{$lc} . "\">" . ucfirst(lang($tagtype2 . '_p')) . "</a>" . separator_before_colon($lc)
 				. ": <a href=\"$newtagid2path\">$display_tag2</a></p>";		
 		}
 		else {
-			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_p')) . "</a>" . lang("sep"). ": $display_tag</p>";
+			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_p')) . "</a>" . separator_before_colon($lc). ": $display_tag</p>";
 			
 			my $tag_html .= display_tags_hierarchy_taxonomy($lc, $tagtype, [$canon_tagid]);
 			
 			$tag_html =~ s/.*<\/a>(<br \/>)?//;	# remove link, keep only tag logo
 			
 			$html .= $tag_html;
+
+			my $share = lang('share');
+			$html .= <<HTML
+<div class="share_button right" style="float:right;margin-top:-10px;margin-left:10px;display:none;">
+<a href="$request_ref->{canon_url}" class="button small icon" title="$title">
+	<i class="fi-share"></i>
+	<span class="show-for-large-up"> $share</span>
+</a></div>
+HTML
+;
 
 			$html .= $weblinks_html . display_parents_and_children($lc, $tagtype, $canon_tagid) . $description;
 		}
@@ -2464,7 +2559,7 @@ HTML
 		
 		}
 		else {
-			$html .= "<p>$html_count " . lang("sep") . ":</p>";
+			$html .= "<p>$html_count " . separator_before_colon($lc) . ":</p>";
 		}
 		
 	
@@ -2565,7 +2660,7 @@ HTML
 			
 			for (my $i = 1; $i <= $nb_pages; $i++) {
 				if ($i == $page) {
-					$html_pages .= '<li class="current"><a href="">' . $i . '</li>';
+					$html_pages .= '<li class="current"><a href="">' . $i . '</a></li>';
 					$skip = 0;
 				}
 				else {
@@ -2619,8 +2714,10 @@ HTML
 		
 		if (defined $request_ref->{jqm}) {
 			if (defined $next_page_url) {
+				my $loadmore = lang("loadmore");
+				my $loadmore_domain = format_subdomain($subdomain);
 				$html .= <<HTML
-<li id="loadmore" style="text-align:center"><a href="${next_page_url}&jqm_loadmore=1" id="loadmorelink">Charger plus de résultats</a></li>
+<li id="loadmore" style="text-align:center"><a href="${loadmore_domain}/${next_page_url}&jqm_loadmore=1" id="loadmorelink">$loadmore</a></li>
 HTML
 ;
 			}
@@ -2639,6 +2736,14 @@ HTML
 		
 		
 	}	
+	
+	# if cc and/or lc have been overriden, change the relative paths to absolute paths using the new subdomain
+	
+	if ($subdomain ne $original_subdomain) {
+		print STDERR "Display - search_and_display_product - subdomain $subdomain not equal to original_subdomain $original_subdomain, converting relative paths to absolute paths\n";
+		my $formated_subdomain = format_subdomain($subdomain);
+		$html =~ s/(href|src)=("\/)/$1="$formated_subdomain\//g;
+	}
 
 	return $html;
 }
@@ -3257,6 +3362,8 @@ JS
 			$legend_enabled = 'true';
 		}
 
+		my $sep = separator_before_colon($lc);
+		
 		my $js = <<JS
         chart = new Highcharts.Chart({
             chart: {
@@ -3272,7 +3379,7 @@ JS
                 text: '$graph_ref->{graph_title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$Lang{sep}{$lc}: @{[ format_subdomain($subdomain) ]}'
+                text: '$Lang{data_source}{$lc}$sep: @{[ format_subdomain($subdomain) ]}'
             },
             xAxis: {
 				$x_allowDecimals
@@ -3299,8 +3406,8 @@ JS
                     return '<a href="' + this.point.url + '">' + this.point.product_name + '<br/>'
 						+ this.point.img + '</a><br/>'
 						+ '$Lang{nutrition_data_per_100g}{$lc} :'
-						+ '<br />$x_title$Lang{sep}{$lc}: '+ this.x + ' $x_unit2'
-						+ '<br />$y_title$Lang{sep}{$lc}: ' + this.y + ' $y_unit2';
+						+ '<br />$x_title$sep: '+ this.x + ' $x_unit2'
+						+ '<br />$y_title$sep: ' + this.y + ' $y_unit2';
                 }
 			},
 		
@@ -3601,6 +3708,8 @@ JS
 		if (scalar keys %series > 1) {
 			$legend_enabled = 'true';
 		}
+		
+		my $sep = separator_before_colon($lc);
 
 		my $js = <<JS
         chart = new Highcharts.Chart({
@@ -3618,7 +3727,7 @@ JS
                 text: '$graph_ref->{graph_title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$Lang{sep}{$lc}: @{[ format_subdomain($subdomain) ]}'
+                text: '$Lang{data_source}{$lc}$sep: @{[ format_subdomain($subdomain) ]}'
             },
             xAxis: {
                 title: {
@@ -3947,14 +4056,14 @@ JS
 				my $manufacturing_places =  escape_single_quote($product_ref->{"manufacturing_places"});
 				$manufacturing_places =~ s/,( )?/, /g;
 				if ($manufacturing_places ne '') {
-					$manufacturing_places = ucfirst(lang("manufacturing_places_p")) . lang("sep") . ": " . $manufacturing_places . "<br/>";
+					$manufacturing_places = ucfirst(lang("manufacturing_places_p")) . separator_before_colon($lc) . ": " . $manufacturing_places . "<br/>";
 				}	
 				
 				
 				my $origins =  escape_single_quote($product_ref->{origins});
 				$origins =~ s/,( )?/, /g;
 				if ($origins ne '') {
-					$origins = ucfirst(lang("origins_p")) . lang("sep") . ": " . $origins . "<br/>";;
+					$origins = ucfirst(lang("origins_p")) . separator_before_colon($lc) . ": " . $origins . "<br/>";;
 				}				
 				
 				$origins = $manufacturing_places . $origins;
@@ -3977,7 +4086,14 @@ JS
 						
 						if (exists $packager_codes{$emb_code}) {					
 							if (exists $packager_codes{$emb_code}{lat}) {
-								$geo = $packager_codes{$emb_code}{lat} . ',' . $packager_codes{$emb_code}{lng};
+								# some lat/lng have , for floating point numbers
+								my $lat = $packager_codes{$emb_code}{lat};
+								my $lng = $packager_codes{$emb_code}{lng};
+								$lat =~ s/,/\./g;
+								$lng =~ s/,/\./g;
+								
+								$lat =~ s/,/\./g;
+								$geo = $lat . ',' . $lng;
 							}
 							elsif (exists $packager_codes{$emb_code}{fsa_rating_business_geo_lat}) {
 								$geo = $packager_codes{$emb_code}{fsa_rating_business_geo_lat} . ',' . $packager_codes{$emb_code}{fsa_rating_business_geo_lng};
@@ -3995,11 +4111,16 @@ JS
 							
 						if ((not defined $geo) and (defined $emb_codes_geo{$city_code})) {
 						
-							$geo = $emb_codes_geo{$city_code}[0] . ',' . $emb_codes_geo{$city_code}[1];
+							# some lat/lng have , for floating point numbers
+							my $lat = $emb_codes_geo{$city_code}[0];
+							my $lng = $emb_codes_geo{$city_code}[1];
+							$lat =~ s/,/\./g;
+							$lng =~ s/,/\./g;
+							$geo = $lat . ',' . $lng;
 							
 						}
 						
-						if (defined $geo) {
+						if ((defined $geo) and ($geo !~ /^,/) and ($geo !~ /,$/)) {
 							if (not defined $current_seen{$geo}) {
 						
 								$current_seen{$geo} = 1;
@@ -4031,11 +4152,11 @@ JS
 		if ($emb_codes > 0) {
 
 			$header .= <<HTML		
-<link rel="stylesheet" href="https://unpkg.com/leaflet\@0.7.7/dist/leaflet.css" integrity="sha384-99ZJFcuBCh9c/V/+8YwDX/TUGG8JWMG+gKFJWzk0BZP3IoDMN+pLGd3/H0yjg4oa" crossorigin="anonymous">
-<script src="https://unpkg.com/leaflet\@0.7.7/dist/leaflet.js" integrity="sha384-Lh7SNUss9JoImCvc96eCUnLX3HvY4kb0UZCWZbYWvceJ+o5CJeOJqqNoheaGkNHT" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.css" />
-<link rel="stylesheet" href="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.Default.css" />
-<script src="/js/leaflet-0.7/Leaflet.markercluster-leaflet-0.7/dist/leaflet.markercluster-src.js"></script>
+<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
+<script src="/bower_components/leaflet/dist/leaflet.js"></script>
+<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+<script src="/bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
 HTML
 ;
 
@@ -4296,7 +4417,7 @@ sub display_new($) {
 	# and if we have a response in structure format,
 	# do not generate an HTML response and serve the structured data
 	
-	if (($request_ref->{json} or $request_ref->{jsonp} or $request_ref->{xml} or $request_ref->{jqm})
+	if (($request_ref->{json} or $request_ref->{jsonp} or $request_ref->{xml} or $request_ref->{jqm} or $request_ref->{rss})
 		and (exists $request_ref->{structured_response})) {
 	
 		display_structured_response($request_ref);
@@ -4826,7 +4947,7 @@ HTML
 			if ($olc eq $country_languages{$cc}[0]) {
 				$osubdomain = $cc;
 			}
-			if (($olc eq $lc) or ($olc eq $lclc)) {
+			if (($olc eq $lc)) {
 				$selected_lang = "<a href=\"" . format_subdomain($osubdomain) . "/\">$Langs{$olc}</a>\n";
 			}
 			else {
@@ -4877,7 +4998,7 @@ HTML
 	$initjs .= $aside_initjs;
 	
 	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>:
-	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="http://slack.openfoodfacts.org">Slack</a>');
+	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack-ssl-openfoodfacts.herokuapp.com/">Slack</a>');
 	
 	my $twitter_account = lang("twitter_account");
 	if (defined $Lang{twitter_account_by_country}{$cc}) {
@@ -5094,7 +5215,7 @@ $Lang{android_apk_app_badge}{$lc}
 <div>
 <a href="$Lang{footer_code_of_conduct_link}{$lc}">$Lang{footer_code_of_conduct}{$lc}</a><br/><br/>
 
-$join_us_on_slack <script async defer src="http://slack.openfoodfacts.org/slackin.js"></script>
+$join_us_on_slack <script async defer src="https://slack-ssl-openfoodfacts.herokuapp.com/slackin.js"></script>
 <br/>
 $Lang{footer_and_the_facebook_group}{$lc}
 </div>
@@ -5168,6 +5289,41 @@ $scripts
       }
     }	
   });
+</script>
+
+<script>
+  'use strict';
+
+  function doWebShare(e) {
+    e.preventDefault();
+    if (!window.isSecureContext || navigator.share === undefined) {
+      console.error('Error: Unsupported feature: navigator.share');
+        return;
+      }
+
+      var title = this.title;
+      var url = this.href;
+      navigator.share({title: title, url: url})
+        .then(() => console.info('Successfully sent share'),
+              error => console.error('Error sharing: ' + error));
+  }
+
+  function onLoad() {
+    var buttons = document.getElementsByClassName('share_button');
+    var shareAvailable = window.isSecureContext && navigator.share !== undefined;
+    [].forEach.call(buttons, function(button) {
+      if (shareAvailable) {
+          button.style.display = 'block';
+          [].forEach.call(button.getElementsByTagName('a'), function(a) {
+            a.addEventListener('click', doWebShare);
+          });
+        } else {
+          button.style.display = 'none';
+        }
+    });
+  }
+
+  window.addEventListener('load', onLoad);
 </script>
 
 <script type="application/ld+json">
@@ -5402,7 +5558,7 @@ sub display_field($$) {
 		if ($lang_field eq '') {
 			$lang_field = ucfirst(lang($field . "_p"));
 		}
-		$html .= '<p><span class="field">' . $lang_field . $Lang{sep}{$lc} . ":</span> $value</p>";
+		$html .= '<p><span class="field">' . $lang_field . separator_before_colon($lc) . ":</span> $value</p>";
 		
 		if ($field eq 'brands') {
 			my $brand = $value;
@@ -5524,8 +5680,13 @@ CSS
 		return 301;
 	}
 
-	
+	my $share = lang('share');
 	$html .= <<HTML
+<div class="share_button right" style="float:right;margin-top:-10px;display:none;">
+<a href="$request_ref->{canon_url}" class="button small icon" title="$title">
+	<i class="fi-share"></i>
+	<span class="show-for-large-up"> $share</span>
+</a></div>
 <div class="edit_button right" style="float:right;margin-top:-10px;">
 <a href="/cgi/product.pl?type=edit&code=$code" class="button small icon">
 	<i class="fi-pencil"></i>
@@ -5574,7 +5735,7 @@ HTML
 				$html_upc .= " " . $' . " (UPC / UPC-A)";
 			}
 		}
-		$html .= "<p>" . lang("barcode") . "$Lang{sep}{$lc}: <span property=\"food:code\" itemprop=\"gtin13\">$code</span> $html_upc</p>
+		$html .= "<p>" . lang("barcode") . separator_before_colon($lc) . ": <span property=\"food:code\" itemprop=\"gtin13\">$code</span> $html_upc</p>
 <div property=\"gr:hasEAN_UCC-13\" content=\"$code\" datatype=\"xsd:string\"></div>\n";
 	}
 	
@@ -5641,7 +5802,7 @@ HTML
 	
 		
 	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
-	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . $Lang{sep}{$lc} . ":</span>";
+	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . separator_before_colon($lc) . ":</span>";
 	if ($lc ne $ingredients_text_lang) {
 		$html .= " <span id=\"ingredients_list\" property=\"food:ingredientListAsText\" lang=\"$ingredients_text_lang\">$ingredients_text</span>";
 	}
@@ -5661,7 +5822,7 @@ HTML
 	
 		if ((defined $product_ref->{$class . '_tags'}) and (scalar @{$product_ref->{$class . '_tags'}} > 0)) {
 
-			$html .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang($class . "_p") . lang("sep")) . ":</b><br />";
+			$html .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang($class . "_p") . separator_before_colon($lc)) . ":</b><br />";
 			
 			if (defined $tags_images{$lc}{$tagtype}{get_fileid($tagtype)}) {
 				my $img = $tags_images{$lc}{$tagtype}{get_fileid($tagtype)};
@@ -5735,7 +5896,7 @@ HTML
 		
 		if ($special_html ne "") {
 		
-			$html  .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang("ingredients_analysis") . lang("sep")) . ":</b><br />"
+			$html  .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang("ingredients_analysis") . separator_before_colon($lc)) . ":</b><br />"
 			. "<ul id=\"special_ingredients\">\n" . $special_html . "</ul>\n"
 			. "<p>" . lang("ingredients_analysis_note") . "</p></div>\n";
 		}
@@ -5807,6 +5968,28 @@ HTML
 	$html .= display_nutrition_table($product_ref, \@comparisons);
 	
 
+	if (defined $product_ref->{sources}) {
+		# FIXME : currently just a quick workaround to display openfood attribution
+
+#			push @{$product_ref->{sources}}, {
+#				id => "openfood-ch",
+#				url => "https://www.openfood.ch/en/products/$openfood_id",
+#				import_t => time(),
+#				fields => \@modified_fields,
+#				images => \@images_ids,	
+#			};
+		
+		if (defined $product_ref->{sources}[0]) {
+			my $lang_source = $product_ref->{sources}[0]{id};
+			$lang_source =~ s/-/_/g;
+			$html .= "<p>" . lang("sources_" . $lang_source ) . "</p>";
+			if (defined $product_ref->{sources}[0]{url}) {
+				$html .= "<p><a href=\"" . $product_ref->{sources}[0]{url} . "\">" . lang("sources_" . $lang_source . "_product_page" ) . "</a></p>";
+			}
+		}
+	}
+	
+	
 	my $created_date = display_date_tag($product_ref->{created_t});
 	my $last_modified_date = display_date_tag($product_ref->{last_modified_t});
 	
@@ -5966,7 +6149,7 @@ sub display_product_jqm ($) # jquerymobile
 	if ($code =~ /^2000/) { # internal code
 	}
 	else {
-		$html .= "<p>" . lang("barcode") . "$Lang{sep}{$lc}: $code</p>\n";
+		$html .= "<p>" . lang("barcode") . separator_before_colon($lc) . ": $code</p>\n";
 	}
 	
 	$html .= display_nutrient_levels($product_ref);
@@ -6023,7 +6206,7 @@ HTML
 	. $html_image;
 		
 	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
-	$html .= "<div id=\"ingredients_list\" ><span class=\"field\">" . lang("ingredients_text") . $Lang{sep}{$lc} . ":</span> $ingredients_text</div>";
+	$html .= "<div id=\"ingredients_list\" ><span class=\"field\">" . lang("ingredients_text") . separator_before_colon($lc) . ":</span> $ingredients_text</div>";
 	
 	$html .= display_field($product_ref, 'allergens');
 	
@@ -6034,7 +6217,7 @@ HTML
 	
 	if ((defined $product_ref->{$class . '_tags'}) and (scalar @{$product_ref->{$class . '_tags'}} > 0)) {
 
-		$html .= "<br/><hr class=\"floatleft\"><div><b>" . lang("additives_p") . lang("sep") . ":</b><br />";		
+		$html .= "<br/><hr class=\"floatleft\"><div><b>" . lang("additives_p") . separator_before_colon($lc) . ":</b><br />";		
 		
 		$html .= "<ul>";
 		foreach my $tagid (@{$product_ref->{$class . '_tags'}}) {
@@ -6173,22 +6356,22 @@ sub display_nutrient_levels($) {
 	
 	#return '' if (not $admin);
 	
-	if (($lc eq 'fr') and (exists $product_ref->{"nutrition_grade_fr"})) {
+	if ((exists $product_ref->{"nutrition_grade_fr"})) {
 		my $grade = $product_ref->{"nutrition_grade_fr"};
 		my $uc_grade = uc($grade);
 		
 		my $warning = '';
 		if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
-			$warning = "<p>Avertissement : Le taux de fibres n'étant pas renseigné, leur éventuelle contribution positive à la note n'a pas pu être prise en compte.</p>";
+			$warning = "<p>" . lang("nutrition_grade_fr_fiber_warning") . "</p>";
 		}
 
 		
 		$html_nutrition_grade .= <<HTML
-<h4>Note nutritionnelle de couleur NutriScore
-<a href="http://fr.openfoodfacts.org/score-nutritionnel-france" title="Mode de calcul de la note nutritionnelle de couleur">
+<h4>$Lang{nutrition_grade_fr_title}{$lc}
+<a href="http://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}">
 <i class="fi-info"></i></a>
 </h4>
-<img src="/images/misc/nutriscore-$grade.svg" alt="Note nutritionnelle NutriScore : $uc_grade" style="margin-bottom:1rem;max-width:100%" /><br/>
+<img src="/images/misc/nutriscore-$grade.svg" alt="$Lang{nutrition_grade_fr_alt}{$lc} $uc_grade" style="margin-bottom:1rem;max-width:100%" /><br/>
 $warning
 HTML
 ;
@@ -6480,7 +6663,7 @@ JS
 			$html .= "<div><input id=\"show_stats\" type=\"checkbox\" /><label for=\"show_stats\">"
 			. lang("show_category_stats")
 			. '<span class="show-for-xlarge-up">'
-			. lang("sep") . ": " . lang("show_category_stats_details") . "</span></label>" . "</div>";
+			. separator_before_colon($lc) . ": " . lang("show_category_stats_details") . "</span></label>" . "</div>";
 		
 			$initjs .= <<JS
 		
@@ -6950,6 +7133,9 @@ sub add_images_urls_to_product($) {
 
 	my $product_ref = shift;
 	
+	my $staticdom = format_subdomain('static');
+	my $path = product_path($product_ref->{code});
+	
 	foreach my $imagetype ('front','ingredients','nutrition') {
 	
 		my $size = $display_size;
@@ -6971,10 +7157,7 @@ sub add_images_urls_to_product($) {
 	
 			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 				and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
-			
-				my $path = product_path($product_ref->{code});
 
-				my $staticdom = format_subdomain('static');
 				$product_ref->{"image_" . $imagetype . "_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
 				$product_ref->{"image_" . $imagetype . "_small_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
 				$product_ref->{"image_" . $imagetype . "_thumb_url"} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
@@ -6988,8 +7171,18 @@ sub add_images_urls_to_product($) {
 				last;
 			}
 		}
-	}		
-
+		
+		foreach my $key (keys $product_ref->{languages_codes}) {
+			my $id = $imagetype . '_' . $key;
+			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+				and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
+			
+				$product_ref->{selected_images}{$imagetype}{display}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+				$product_ref->{selected_images}{$imagetype}{small}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+				$product_ref->{selected_images}{$imagetype}{thumb}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
+			}
+		}
+	}
 }
 
 
@@ -7001,7 +7194,7 @@ sub display_structured_response($)
 	my $request_ref = shift;
 	
 	
-	$debug and print STDERR "display_api - format: json = $request_ref->{json} - jsonp = $request_ref->{jsonp} - xml = $request_ref->{xml} - jqm = $request_ref->{jqm} \n";
+	$debug and print STDERR "display_api - format: json = $request_ref->{json} - jsonp = $request_ref->{jsonp} - xml = $request_ref->{xml} - jqm = $request_ref->{jqm} - rss = $request_ref->{rss}\n";
 	if ($request_ref->{xml}) {
 	
 		# my $xs = XML::Simple->new(NoAttr => 1, NumericEscape => 2);
@@ -7028,8 +7221,11 @@ sub display_structured_response($)
 		my $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
 		. $xs->XMLout($request_ref->{structured_response}); 	# noattr -> force nested elements instead of attributes
         
-		print "Content-Type: text/xml; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $xml;	
+		print header( -type => 'text/xml', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $xml;
 
+	}
+	elsif ($request_ref->{rss}) {
+		display_structured_response_opensearch_rss($request_ref);
 	}
 	else {
 		my $data =  encode_json($request_ref->{structured_response});
@@ -7046,14 +7242,86 @@ sub display_structured_response($)
 		$jsonp =~ s/[^a-zA-Z0-9_]//g;
 		
 		if (defined $jsonp) {
-			print "Content-Type: text/javascript; charset=UTF-8;\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $jsonp . "(" . $data . ");" ;	
+			print header( -type => 'text/javascript', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $jsonp . "(" . $data . ");" ;
 		}
 		else {
-			print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $data;	
+			print header( -type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $data;
 		}
 	}
 	
 	exit();
+}
+
+sub display_structured_response_opensearch_rss {
+	my ($request_ref) = @_;
+	
+	my $xs = XML::Simple->new(NumericEscape => 2);
+	
+	my $short_name = lang("site_name");
+	my $long_name = $short_name;
+	if ($cc eq 'world') {
+		$long_name .= " " . uc($lc);
+	}
+	else {
+		$long_name .= " " . uc($cc) . "/" . uc($lc);
+	}
+
+	$long_name = $xs->escape_value(encode_utf8($long_name));
+	$short_name = $xs->escape_value(encode_utf8($short_name));
+	my $dom = format_subdomain($subdomain);
+	my $query_link = $xs->escape_value(encode_utf8($dom . $request_ref->{current_link_query} . "&rss=1"));
+	my $description = $xs->escape_value(encode_utf8(lang("search_description_opensearch")));
+
+	my $search_terms = $xs->escape_value(encode_utf8(decode utf8=>param('search_terms')));
+	my $count = $xs->escape_value($request_ref->{structured_response}{count});
+	my $skip = $xs->escape_value($request_ref->{structured_response}{skip});
+	my $page_size = $xs->escape_value($request_ref->{structured_response}{page_size});
+	my $page = $xs->escape_value($request_ref->{structured_response}{page});
+	
+	my $xml = <<XML
+<?xml version="1.0" encoding="UTF-8"?>
+ <rss version="2.0" 
+      xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"
+      xmlns:atom="http://www.w3.org/2005/Atom">
+   <channel>
+     <title>$long_name</title>
+     <link>$query_link</link>
+     <description>$description</description>
+     <opensearch:totalResults>$count</opensearch:totalResults>
+     <opensearch:startIndex>$skip</opensearch:startIndex>
+     <opensearch:itemsPerPage>${page_size}</opensearch:itemsPerPage>
+     <atom:link rel="search" type="application/opensearchdescription+xml" href="$dom/cgi/opensearch.pl"/>
+     <opensearch:Query role="request" searchTerms="${search_terms}" startPage="$page" />
+XML
+;
+
+	if (defined $request_ref->{structured_response}{products}) {
+		foreach my $product_ref (@{$request_ref->{structured_response}{products}}) {
+			my $item_title = product_name_brand_quantity($product_ref);
+			$item_title = $product_ref->{code} unless $item_title;
+			my $item_description = $xs->escape_value(encode_utf8(sprintf(lang("product_description"), $item_title)));
+			$item_title = $xs->escape_value(encode_utf8($item_title));
+			my $item_link = $xs->escape_value(encode_utf8($dom . product_url($product_ref)));
+			
+			$xml .= <<XML
+     <item>
+       <title>$item_title</title>
+       <link>$item_link</link>
+       <description>$item_description</description>
+     </item>
+XML
+;
+		}
+	}
+
+	$xml .= <<XML
+   </channel>
+ </rss>
+XML
+;
+	
+	print header( -type => 'application/rss+xml', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $xml;
+
 }
 
 1;

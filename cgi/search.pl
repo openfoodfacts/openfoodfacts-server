@@ -53,7 +53,7 @@ if ((defined param('search_terms')) and (not defined param('action'))) {
 	$action = 'process';
 }
 
-foreach my $parameter ('json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml') {
+foreach my $parameter ('json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 'rss') {
 
 	if (defined param($parameter)) {
 		$request_ref->{$parameter} = param($parameter);
@@ -689,6 +689,8 @@ elsif ($action eq 'process') {
 	
 	
 	
+	my $share = lang('share');
+
 	# Graph, map, export or search
 
 	if (param("generate_map")) {
@@ -705,7 +707,16 @@ elsif ($action eq 'process') {
 			$request_ref->{title} = $map_title . " - " . lang("search_map");
 		}
 		$request_ref->{full_width} = 1;
-	
+		
+		${$request_ref->{content_ref}} .= <<HTML
+<div class="share_button right" style="float:right;margin-top:-10px;display:none;">
+<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
+	<i class="fi-share"></i>
+	<span class="show-for-large-up"> $share</span>
+</a></div>
+HTML
+;
+		
 		display_new($request_ref);	
 	}
 	elsif (param("generate_graph_scatter_plot")  # old parameter, kept for existing links
@@ -729,7 +740,16 @@ elsif ($action eq 'process') {
 			$request_ref->{title} = $graph_ref->{graph_title} . " - " . lang("search_graph");
 		}
 		$request_ref->{full_width} = 1;
-	
+		
+		${$request_ref->{content_ref}} .= <<HTML
+<div class="share_button right" style="float:right;margin-top:-10px;display:none;">
+<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
+	<i class="fi-share"></i>
+	<span class="show-for-large-up"> $share</span>
+</a></div>
+HTML
+;
+		
 		display_new($request_ref);	
 	}
 	elsif (param("download")) {
@@ -764,13 +784,20 @@ elsif ($action eq 'process') {
 
 	
 		if (not defined $request_ref->{jqm}) {
+			${$request_ref->{content_ref}} .= <<HTML
+<div class="share_button right" style="float:right;margin-top:-10px;display:none;">
+<a href="$request_ref->{current_link_query_display}&amp;action=display" class="button small icon" title="$request_ref->{title}">
+	<i class="fi-share"></i>
+	<span class="show-for-large-up"> $share</span>
+</a></div>
+HTML
+;
 			display_new($request_ref);
 		}
 		else {
 
 			my %response = ();
 			$response{jqm} = ${$request_ref->{content_ref}};
-			$response{jqm} =~ s/(href|src)=("\/)/$1="http:\/\/world.$server_domain\//g;
 
 			my $data =  encode_json(\%response);
 	
