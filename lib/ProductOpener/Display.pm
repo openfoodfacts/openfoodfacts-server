@@ -1309,7 +1309,7 @@ sub display_list_of_tags($$) {
 			if ($tagtype eq 'nutrition_grades') {
 				if ($tagid =~ /^a|b|c|d|e$/) {
 					my $grade = $tagid;
-					$display = "<img src=\"/images/misc/nutriscore-$grade.svg\" alt=\"Note nutritionnelle : " . uc($grade) . "\" style=\"margin-bottom:1rem;max-width:100%\" />" ;
+					$display = "<img src=\"/images/misc/nutriscore-$grade.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} " . uc($grade) . "\" style=\"margin-bottom:1rem;max-width:100%\" />" ;
 				}
 				else {
 					$display = lang("unknown");
@@ -6282,22 +6282,22 @@ sub display_nutrient_levels($) {
 	
 	#return '' if (not $admin);
 	
-	if (($lc eq 'fr') and (exists $product_ref->{"nutrition_grade_fr"})) {
+	if ((exists $product_ref->{"nutrition_grade_fr"})) {
 		my $grade = $product_ref->{"nutrition_grade_fr"};
 		my $uc_grade = uc($grade);
 		
 		my $warning = '';
 		if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
-			$warning = "<p>Avertissement : Le taux de fibres n'étant pas renseigné, leur éventuelle contribution positive à la note n'a pas pu être prise en compte.</p>";
+			$warning = "<p>" . lang("nutrition_grade_fr_fiber_warning") . "</p>";
 		}
 
 		
 		$html_nutrition_grade .= <<HTML
-<h4>Note nutritionnelle de couleur NutriScore
-<a href="http://fr.openfoodfacts.org/score-nutritionnel-france" title="Mode de calcul de la note nutritionnelle de couleur">
+<h4>$Lang{nutrition_grade_fr_title}{$lc}
+<a href="http://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}">
 <i class="fi-info"></i></a>
 </h4>
-<img src="/images/misc/nutriscore-$grade.svg" alt="Note nutritionnelle NutriScore : $uc_grade" style="margin-bottom:1rem;max-width:100%" /><br/>
+<img src="/images/misc/nutriscore-$grade.svg" alt="$Lang{nutrition_grade_fr_alt}{$lc} $uc_grade" style="margin-bottom:1rem;max-width:100%" /><br/>
 $warning
 HTML
 ;
