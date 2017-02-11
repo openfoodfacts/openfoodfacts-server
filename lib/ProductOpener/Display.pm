@@ -2034,6 +2034,14 @@ SIRET : $packager_codes{$canon_tagid}{siret} - <a href="$packager_codes{$canon_t
 HTML
 ;
 			}
+			
+			if ($packager_codes{$canon_tagid}{cc} eq 'ch') {
+				$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{full_address}</p>
+HTML
+;
+			}			
+			
 			if ($packager_codes{$canon_tagid}{cc} eq 'es') {
 				# Razón Social;Provincia/Localidad
 				$description .= <<HTML
@@ -4046,7 +4054,14 @@ JS
 						
 						if (exists $packager_codes{$emb_code}) {					
 							if (exists $packager_codes{$emb_code}{lat}) {
-								$geo = $packager_codes{$emb_code}{lat} . ',' . $packager_codes{$emb_code}{lng};
+								# some lat/lng have , for floating point numbers
+								my $lat = $packager_codes{$emb_code}{lat};
+								my $lng = $packager_codes{$emb_code}{lng};
+								$lat =~ s/,/\./g;
+								$lng =~ s/,/\./g;
+								
+								$lat =~ s/,/\./g;
+								$geo = $lat . ',' . $lng;
 							}
 							elsif (exists $packager_codes{$emb_code}{fsa_rating_business_geo_lat}) {
 								$geo = $packager_codes{$emb_code}{fsa_rating_business_geo_lat} . ',' . $packager_codes{$emb_code}{fsa_rating_business_geo_lng};
@@ -4064,11 +4079,16 @@ JS
 							
 						if ((not defined $geo) and (defined $emb_codes_geo{$city_code})) {
 						
-							$geo = $emb_codes_geo{$city_code}[0] . ',' . $emb_codes_geo{$city_code}[1];
+							# some lat/lng have , for floating point numbers
+							my $lat = $emb_codes_geo{$city_code}[0];
+							my $lng = $emb_codes_geo{$city_code}[1];
+							$lat =~ s/,/\./g;
+							$lng =~ s/,/\./g;
+							$geo = $lat . ',' . $lng;
 							
 						}
 						
-						if (defined $geo) {
+						if ((defined $geo) and ($geo !~ /^,/) and ($geo !~ /,$/)) {
 							if (not defined $current_seen{$geo}) {
 						
 								$current_seen{$geo} = 1;
