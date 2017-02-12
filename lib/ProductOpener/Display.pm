@@ -68,6 +68,7 @@ BEGIN
 					$connection
 					$database
 					$products_collection
+					$emb_codes_collection
 					
 					$debug
 					$scripts
@@ -137,6 +138,7 @@ $memd = new Cache::Memcached::Fast {
 $connection = MongoDB->connect();
 $database = $connection->get_database($mongodb);
 $products_collection = $database->get_collection('products');
+$emb_codes_collection = $database->get_collection('emb_codes');
 
 
 $default_request_ref = {
