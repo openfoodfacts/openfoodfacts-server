@@ -21,15 +21,15 @@ foreach my $emb_code (keys %packager_codes) {
 			$lng =~ s/,/\./g;
 			
 			$lat =~ s/,/\./g;
-			@geo = ($lat, $lng);
+			@geo = ($lng, $lat);
 		}
 		elsif (exists $packager_codes{$emb_code}{fsa_rating_business_geo_lat}) {
-			@geo = ($packager_codes{$emb_code}{fsa_rating_business_geo_lat}, $packager_codes{$emb_code}{fsa_rating_business_geo_lng});
+			@geo = ($packager_codes{$emb_code}{fsa_rating_business_geo_lng}, $packager_codes{$emb_code}{fsa_rating_business_geo_lat});
 		}
 		elsif (($packager_codes{$emb_code}{cc} eq 'uk') and (defined $packager_codes{$emb_code}{canon_local_authority})) {
 			my $address = 'uk' . '.' . $packager_codes{$emb_code}{canon_local_authority};
 			if (exists $geocode_addresses{$address}) {
-				@geo = ($geocode_addresses{$address}[0], $geocode_addresses{$address}[1]);
+				@geo = ($geocode_addresses{$address}[1], $geocode_addresses{$address}[0]);
 			}
 		}
 	}
@@ -42,7 +42,7 @@ foreach my $emb_code (keys %packager_codes) {
 		my $lng = $emb_codes_geo{$city_code}[1];
 		$lat =~ s/,/\./g;
 		$lng =~ s/,/\./g;
-		@geo = ($lat, $lng);
+		@geo = ($lng, $lat);
 	}
 	
 	if (@geo and (defined $geo[0]) and (defined $geo[1])) {
