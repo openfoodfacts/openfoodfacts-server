@@ -600,7 +600,7 @@ $lc = 'en';
                 text: '$Lang{products_stats}{$lang}'
             },
             subtitle: {
-                text: 'Source: <a href="http://openfoodfacts.org">'+
+                text: 'Source: <a href="https://openfoodfacts.org">'+
                     'openfoodfacts.org</a>'
             },
 			tooltip: {

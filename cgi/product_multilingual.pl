@@ -151,11 +151,11 @@ if ($type eq 'search_or_add') {
 	# jquery.fileupload ?
 	if (param('jqueryfileupload')) {
 	
-		my $data =  encode_json(\%data);
+		my $data = encode_json(\%data);
 
 		print STDERR "product.pl - jqueryfileupload - JSON data output: $data\n";
-		
-		print header() . $data;
+
+		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 		exit();	
 	}
 	
@@ -232,7 +232,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$debug and print STDERR "product.pl action: process - phase 1 - type: $type code $code\n";
 	
-	if (defined param('new_code')) {
+	# 26/01/2017 - disallow barcode changes until we fix bug #677
+	if (0 and (defined param('new_code'))) {
 		my $new_code = normalize_code(param('new_code'));
 		if ($new_code =~ /^\d+$/) {
 		# check that the new code is available
@@ -572,7 +573,7 @@ HTML
 		}
 	
 		$html .= <<HTML
-<p class="example">$examples $Lang{$fieldtype . "_example"}{$lang}</p>			
+<p class="example">$examples $Lang{$fieldtype . "_example"}{$lang}</p>
 HTML
 ;
 	}
@@ -697,8 +698,8 @@ textarea {  height:8rem; }
 	padding-top:0.5rem;
 }
 
-#ocrbutton_ingredients {
-	margin-top:1rem;
+.button_div {
+	margin-top:0.5rem;
 }
 
 #label_new_code, #new_code { display: inline; margin-top: 0px; width:200px; }
@@ -715,18 +716,39 @@ CSS
 <label for="new_code" id="label_new_code">${label_new_code}</label>
 <input type="text" name="new_code" id="new_code" class="text" value="" />			
 
-<div data-alert class="alert-box info">
+<div data-alert class="alert-box info store-state" id="warning_3rd_party_content" style="display:none;">
 <span>$Lang{warning_3rd_party_content}{$lang}
  <a href="#" class="close">&times;</a>
 </div>
 
-<div data-alert class="alert-box secondary">
+<div data-alert class="alert-box secondary store-state" id="licence_accept" style="display:none;">
 <span>$Lang{licence_accept}{$lang}</span>
  <a href="#" class="close">&times;</a>
 </div>
 HTML
 ;
-
+	
+	$scripts .= <<JS
+<script type="text/javascript">
+'use strict';
+\$(function() {
+  var alerts = \$('.alert-box.store-state');
+  \$.each(alerts, function( index, value ) {
+    var display = \$.cookie('state_' + value.id);
+    if (display !== undefined) {
+      value.style.display = display;
+    } else {
+      value.style.display = 'block';
+    }
+  });
+  alerts.on('close.fndtn.alert', function(event) {
+    \$.cookie('state_' + \$(this)[0].id, 'none', { path: '/', expires: 365, domain: '$server_domain' });
+  });
+});
+</script>
+JS
+;
+	
 	# Main language
 
 	$html .= "<label for=\"lang\">" . $Lang{lang}{$lang} . "</label>";
@@ -1850,7 +1872,7 @@ MAIL
 	
 }
 
-$html = "<p>" . lang("barcode") . lang("sep") . ": $code</p>\n" . $html;
+$html = "<p>" . lang("barcode") . separator_before_colon($lc) . ": $code</p>\n" . $html;
 
 display_new( {
 	blog_ref=>undef,

@@ -27,6 +27,12 @@ var angles = {};
 var imagefield_imgid = {};
 var imagefield_url = {};
 
+var units = [
+	[ 'g', 'mg', "\u00B5g", '% DV' ],
+	[ 'mol/l', 'moll/l', 'mmol/l', 'mval/l', 'ppm', "\u00B0rH", "\u00B0fH", "\u00B0e", "\u00B0dH", 'gpg' ],
+	[ 'kJ', 'kcal' ],
+];
+
 function stringStartsWith (string, prefix) {
     return string.slice(0, prefix.length) == prefix;
 }
@@ -106,17 +112,37 @@ function select_nutriment(event, ui) {
 	id = id.replace("_label", "");
 	$('#' + id).focus();
 	$('#' + id + '_unit').val(ui.item.unit);
-	if (ui.item.unit === '') {
-		$('#' + id + '_unit').hide();
-		$('#' + id + '_unit_percent').hide();
+	var unit = (ui.item.unit == '%' ? 'g' : ui.item.unit).toLowerCase();
+	var unitElement = $('#' + id + '_unit');
+	var percentElement = $('#' + id + '_unit_percent');
+	if (unit === '') {
+		unitElement.hide();
+		percentElement.hide();
 	}
-	else if (ui.item.unit == '%') {
-		$('#' + id + '_unit').hide();
-		$('#' + id + '_unit_percent').show();
+	else if (unit == '%') {
+		unitElement.hide();
+		percentElement.show();
 	}
 	else {
-		$('#' + id + '_unit').show();
-		$('#' + id + '_unit_percent').hide();	
+		unitElement.show();
+		percentElement.hide();
+
+		for (var entryIndex = 0; entryIndex < units.length; ++entryIndex) {
+			var entry = units[entryIndex];
+			for (var unitIndex = 0; unitIndex < entry.length; ++unitIndex) {
+				var unitEntry = entry[unitIndex].toLowerCase();
+				if (unitEntry == unit) {
+					var domElement = unitElement[0];
+					domElement.options.length = 0; // Remove current entries.
+					for (var itemIndex = 0; itemIndex < entry.length; ++itemIndex) {
+						var unitValue = entry[itemIndex];
+						domElement.options[domElement.options.length] = new Option(unitValue, unitValue, unitValue.toLowerCase() == unit);
+					}
+
+					return;
+				}
+			}
+		}
 	}
 }
 
@@ -337,8 +363,9 @@ function update_display(imagefield, first_display) {
 	if (display_url) {
 	
 	var html = Lang.current_image + '<br/><img src="' + img_path + display_url + '" />';
+	html += '<div class="button_div" id="unselectbuttondiv_' + imagefield + '"><button id="unselectbutton_' + imagefield + '" class="small button" type="button">' + Lang.unselect_image + '</button></div>';
 	if (stringStartsWith(imagefield, 'ingredients')) {
-		html += '<br/><div id="ocrbuttondiv_' + imagefield + '"><button id="ocrbutton_' + imagefield + '" class="small button" type="button">' + Lang.extract_ingredients + '</button>';
+		html += '<div class="button_div" id="ocrbuttondiv_' + imagefield + '"><button id="ocrbutton_' + imagefield + '" class="small button" type="button">' + Lang.extract_ingredients + '</button></div>';
 	}
 	if (stringStartsWith(imagefield, 'nutrition')) {
 		// width big enough to display a copy next to nutrition table?
@@ -373,6 +400,30 @@ function update_display(imagefield, first_display) {
 		$(document).foundation('equalizer', 'reflow');
 		
 	});
+	
+	$("#unselectbutton_" + imagefield).click({imagefield:imagefield},function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		// alert(event.data.imagefield);
+		$('div[id="unselectbuttondiv_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + Lang.unselecting_image);
+		$.post('/cgi/product_image_unselect.pl',
+				{code: code, id: imagefield }, function(data) {
+				
+			if (data.status_code === 0) {
+				$('div[id="unselectbuttondiv_' + imagefield +'"]').html(Lang.unselected_image_ok);
+				delete imagefield_url[imagefield];
+			}
+			else {
+				$('div[id="unselectbuttondiv_' + imagefield +'"]').html(Lang.unselected_image_nok);
+			}
+			update_display(imagefield, false);
+			$('div[id="display_' + imagefield +'"]').html('');
+			$(document).foundation('equalizer', 'reflow');
+		}, 'json');
+		
+		$(document).foundation('equalizer', 'reflow');
+		
+	});	
 	
 	}
 	

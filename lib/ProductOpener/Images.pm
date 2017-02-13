@@ -42,6 +42,7 @@ BEGIN
 					&process_image_move
 					
 					&process_image_crop
+					&process_image_unselect
 					
 					&scan_code
 					
@@ -373,11 +374,11 @@ sub process_search_image_form($) {
 			my $extension = lc($1) ;
 			my $filename = get_fileid(remote_addr(). '_' . $`);
 			
-			open (my $FILE, q{>}, "$data_root/tmp/$filename.$extension") ;
-			while (<$file>) {
-				print $FILE;
+			open (my $out, ">", "$data_root/tmp/$filename.$extension") ;
+			while (my $chunk = <$file>) {
+				print $out $chunk;
 			}
-			close ($FILE);
+			close ($out);
 			
 			$code = scan_code("$data_root/tmp/$filename.$extension");
 			if (defined $code) {
@@ -441,9 +442,11 @@ sub process_image_upload($$$$$) {
 		if (1 or ($file =~ /\.(gif|jpeg|jpg|png)$/i)) {
 			print STDERR "Images.pm - process_image_upload - imagefield: $imagefield - file: $file - format ok\n";
 			
-			my $extension = lc($1) ;
+			my $extension = 'jpg';
+			if (defined $1) {
+				$extension = lc($1) ;
+			}
 			$extension eq 'jpeg' and $extension = 'jpg';
-			$extension eq '' and $extension = 'jpg';
 			my $filename = get_fileid(remote_addr(). '_' . $`);
 			
 			my $current_product_ref = retrieve_product($code);
@@ -469,11 +472,11 @@ sub process_image_upload($$$$$) {
 			
 
 
-			open (my $FILE, q{>}, "$www_root/images/products/$path/$imgid.$extension") or print STDERR "Images.pm - Error - Could not save $www_root/images/products/$path/$imgid.$extension : $!\n";
-			while (<$file>) {
-				print $FILE;
+			open (my $out, ">", "$www_root/images/products/$path/$imgid.$extension") or print STDERR "Images.pm - Error - Could not save $www_root/images/products/$path/$imgid.$extension : $!\n";
+			while (my $chunk = <$file>) {
+				print $out $chunk;
 			}
-			close ($FILE);
+			close ($out);
 
 
 			
@@ -961,6 +964,28 @@ sub process_image_crop($$$$$$$$$$) {
 	return $product_ref;
 }
 
+sub process_image_unselect($$) {
+
+	my $code = shift;
+	my $id = shift;
+	
+	my $path = product_path($code);
+		
+	print STDERR "Images.pm - process_image_unselect - id: $id\n";
+			
+	# Update the product image data
+	my $product_ref = retrieve_product($code);
+	defined $product_ref->{images} or $product_ref->{images} = {};
+	if (defined $product_ref->{images}{$id}) {
+		delete $product_ref->{images}{$id};
+	}
+
+	store_product($product_ref, "unselected image $id");
+
+	print STDERR "Index::process_image_unselect done\n";
+	return $product_ref;
+}
+
 sub _set_magickal_options($$) {
 
 	# https://www.smashingmagazine.com/2015/06/efficient-image-resizing-with-imagemagick/
@@ -1119,7 +1144,7 @@ $html
 <img src="$full_image_url" alt="$alt" itemprop="contentUrl" />
 <a class="close-reveal-modal" aria-label="Close" href="#">&#215;</a>
 <meta itemprop="representativeOfPage" content="$representative_of_page"/>
-<meta itemprop="license" content="http://creativecommons.org/licenses/by-sa/3.0/"/>
+<meta itemprop="license" content="https://creativecommons.org/licenses/by-sa/3.0/"/>
 <meta itemprop="caption" content="$alt"/>
 </div>
 HTML
