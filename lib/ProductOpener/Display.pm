@@ -2477,11 +2477,11 @@ sub search_and_display_products($$$$$) {
 	eval {
 		if (defined $request_ref->{sample_size}) {
 			my $aggregate_parameters = [
-				{ "\$match" => $query_ref }
+				{ "\$match" => $query_ref },
+				{ "\$sample" => { "size" => $request_ref->{sample_size} } }
 			];
-			my $options = { "\$sample" => { "size" => $request_ref->{sample_size} } };
-			print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\noptions:\n" . Dumper($options) . "\n";
-			$cursor = $products_collection->aggregate($aggregate_parameters, $options);
+			print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
+			$cursor = $products_collection->aggregate($aggregate_parameters);
 		}
 		else {
 			print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
@@ -2506,11 +2506,11 @@ sub search_and_display_products($$$$$) {
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
 			if (defined $request_ref->{sample_size}) {
 				my $aggregate_parameters = [
-					{ "\$match" => $query_ref }
+					{ "\$match" => $query_ref },
+					{ "\$sample" => { "size" => $request_ref->{sample_size} } }
 				];
-				my $options = { "\$sample" => { "size" => $request_ref->{sample_size} } };
-				print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\noptions:\n" . Dumper($options) . "\n";
-				$cursor = $products_collection->aggregate($aggregate_parameters, $options);
+				print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
+				$cursor = $products_collection->aggregate($aggregate_parameters);
 			}
 			else {
 				print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
