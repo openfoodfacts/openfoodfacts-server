@@ -7152,10 +7152,6 @@ HTML
 			$response{jqm} =~ s/(href|src)=("\/)/$1="http:\/\/$cc.${server_domain}\//g;
 			$response{title} = $request_ref->{title};
 			
-		}		
-		
-		if (not $admin) {
-			delete $response{product}{images};
 		}
 	}
 	
