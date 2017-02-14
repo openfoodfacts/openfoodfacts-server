@@ -39,6 +39,7 @@ BEGIN
 					&display_form
 					&display_date
 					&display_date_tag
+					&get_packager_code_coordinates
 					
 					&display_structured_response
 					&display_new					
@@ -250,7 +251,7 @@ sub init()
 		print STDERR "Display::init - country_name($subdomain) -  ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
 		
 	}
-	elsif ($ENV{QUERY_STRING} !~ /cgi/) {
+	elsif ($ENV{QUERY_STRING} !~ /(cgi|api)\//) {
 		# redirect
 		my $worlddom = format_subdomain('world');
 		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $worlddom\n";
@@ -270,7 +271,7 @@ sub init()
 	$lang = $lc;
 	
 	# If the language is equal to the first language of the country, but we are on a different subdomain, redirect to the main country subdomain. (fr-fr => fr)
-	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^(ssl-)?api/) and ($r->method() eq 'GET')) {
+	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^(ssl-)?api/) and ($r->method() eq 'GET') and ($ENV{QUERY_STRING} !~ /(cgi|api)\//)) {
 		# redirect
 		my $ccdom = format_subdomain($cc);
 		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $ccdom\n";
@@ -2026,6 +2027,41 @@ sub display_tag($) {
 		if (exists $packager_codes{$canon_tagid}) {
 		
 			print STDERR "display_tag packager_codes - canon_tagid: $canon_tagid exists, cc : " . $packager_codes{$canon_tagid}{cc} . "\n";
+			
+			# Generate a map if we have coordinates
+			my ($lat, $lng) = get_packager_code_coordinates($canon_tagid);
+			my $html_map = "";
+			if ((defined $lat) and (defined $lng)) {
+				my $geo = "$lat,$lng";
+			
+				$header .= <<HTML		
+<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
+<script src="/bower_components/leaflet/dist/leaflet.js"></script>
+HTML
+;
+
+
+				my $js = <<JS
+var map = L.map('container').setView([$geo], 11);;	
+		
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);			
+
+L.marker([$geo]).addTo(map)	
+
+$request_ref->{map_options}
+JS
+;		
+				$initjs .= $js;
+				
+				$html_map .= <<HTML
+<div id="container" style="height: 300px"></div>​
+HTML
+;				
+			
+			}
 		
 			if ($packager_codes{$canon_tagid}{cc} eq 'fr') {
 				$description .= <<HTML
@@ -2098,8 +2134,29 @@ HTML
 ;
 				}
 			}	
+			
+			if ($html_map ne '') {
+			
+				$description = <<HTML
+<div class="row">
+
+	<div class="large-3 columns">
+		$description
+	</div>
+	<div class="large-9 columns">
+		$html_map
+	</div>
+
+</div>			
+
+HTML
+;
+			
+			}
 		
 		}
+		
+
 	}
 	
 	if ($tagtype eq 'users') {
@@ -3903,6 +3960,54 @@ sub search_and_graph_products($$$) {
 }
 
 
+sub get_packager_code_coordinates($) {
+
+	my $emb_code = shift;
+	my $lat;
+	my $lng;
+						
+	if (exists $packager_codes{$emb_code}) {					
+		if (exists $packager_codes{$emb_code}{lat}) {
+			# some lat/lng have , for floating point numbers
+			$lat = $packager_codes{$emb_code}{lat};
+			$lng = $packager_codes{$emb_code}{lng};
+			$lat =~ s/,/\./g;
+			$lng =~ s/,/\./g;
+		}
+		elsif (exists $packager_codes{$emb_code}{fsa_rating_business_geo_lat}) {
+			$lat = $packager_codes{$emb_code}{fsa_rating_business_geo_lat};
+			$lng = $packager_codes{$emb_code}{fsa_rating_business_geo_lng};
+		}								
+		elsif ($packager_codes{$emb_code}{cc} eq 'uk') {
+			#my $address = 'uk' . '.' . $packager_codes{$emb_code}{local_authority};
+			my $address = 'uk' . '.' . $packager_codes{$emb_code}{canon_local_authority};
+			if (exists $geocode_addresses{$address}) {
+				$lat = $geocode_addresses{$address}[0];
+				$lng = $geocode_addresses{$address}[1];
+			}
+		}
+	}
+	
+	my $city_code = get_city_code($emb_code);
+		
+	if (((not defined $lat) or (not defined $lng)) and (defined $emb_codes_geo{$city_code})) {
+	
+		# some lat/lng have , for floating point numbers
+		$lat = $emb_codes_geo{$city_code}[0];
+		$lng = $emb_codes_geo{$city_code}[1];
+		$lat =~ s/,/\./g;
+		$lng =~ s/,/\./g;
+	}
+	
+	# filter out empty coordinates
+	if ((not defined $lat) or (not defined $lng)) {
+		return (undef, undef);
+	}
+	
+	return ($lat, $lng);
+
+}
+
 
 
 sub search_and_map_products($$$) {
@@ -4052,45 +4157,10 @@ JS
 					
 					foreach my $emb_code (@{$product_ref->{"emb_codes_tags"}}) {
 					
-						my $geo = undef;
+						my ($lat, $lng) = get_packager_code_coordinates($emb_code);	
 						
-						if (exists $packager_codes{$emb_code}) {					
-							if (exists $packager_codes{$emb_code}{lat}) {
-								# some lat/lng have , for floating point numbers
-								my $lat = $packager_codes{$emb_code}{lat};
-								my $lng = $packager_codes{$emb_code}{lng};
-								$lat =~ s/,/\./g;
-								$lng =~ s/,/\./g;
-								
-								$lat =~ s/,/\./g;
-								$geo = $lat . ',' . $lng;
-							}
-							elsif (exists $packager_codes{$emb_code}{fsa_rating_business_geo_lat}) {
-								$geo = $packager_codes{$emb_code}{fsa_rating_business_geo_lat} . ',' . $packager_codes{$emb_code}{fsa_rating_business_geo_lng};
-							}								
-							elsif ($packager_codes{$emb_code}{cc} eq 'uk') {
-								#my $address = 'uk' . '.' . $packager_codes{$emb_code}{local_authority};
-								my $address = 'uk' . '.' . $packager_codes{$emb_code}{canon_local_authority};
-								if (exists $geocode_addresses{$address}) {
-									$geo = $geocode_addresses{$address}[0] . ',' . $geocode_addresses{$address}[1];
-								}
-							}
-						}
-						
-						my $city_code = get_city_code($emb_code);
-							
-						if ((not defined $geo) and (defined $emb_codes_geo{$city_code})) {
-						
-							# some lat/lng have , for floating point numbers
-							my $lat = $emb_codes_geo{$city_code}[0];
-							my $lng = $emb_codes_geo{$city_code}[1];
-							$lat =~ s/,/\./g;
-							$lng =~ s/,/\./g;
-							$geo = $lat . ',' . $lng;
-							
-						}
-						
-						if ((defined $geo) and ($geo !~ /^,/) and ($geo !~ /,$/)) {
+						if ((defined $lat) and (defined $lng)) {
+							my $geo = "$lat,$lng";
 							if (not defined $current_seen{$geo}) {
 						
 								$current_seen{$geo} = 1;
@@ -4147,9 +4217,9 @@ var pointers = [
 
 var map = L.map('container', {maxZoom:12});	
 		
-L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 19,
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);			
 
 
@@ -7085,10 +7155,6 @@ HTML
 			$response{jqm} =~ s/(href|src)=("\/)/$1="http:\/\/$cc.${server_domain}\//g;
 			$response{title} = $request_ref->{title};
 			
-		}		
-		
-		if (not $admin) {
-			delete $response{product}{images};
 		}
 	}
 	

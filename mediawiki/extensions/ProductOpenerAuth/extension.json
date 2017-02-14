@@ -1,0 +1,18 @@
+{
+	"name": "ProductOpenerAuth",
+	"author": "hangy",
+	"url": "https://openfoodfacts.org/",
+	"description": "Overrides MediaWiki's Authentication",
+	"version": "0.01",
+	"type": "authentication",
+	"manifest_version": 1,
+	"AutoloadClasses": {
+		"ProductOpenerSessionProvider": "ProductOpenerSessionProvider.php"
+	},
+	"SessionProviders": {
+		"ProductOpenerAuth": {
+			"class": "ProductOpenerSessionProvider",
+			"args": [{"priority": 100}]
+		}
+	}
+}
