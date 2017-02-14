@@ -39,6 +39,7 @@ BEGIN
 					&display_form
 					&display_date
 					&display_date_tag
+					&get_packager_code_coordinates
 					
 					&display_structured_response
 					&display_new					
@@ -68,6 +69,7 @@ BEGIN
 					$connection
 					$database
 					$products_collection
+					$emb_codes_collection
 					
 					$debug
 					$scripts
@@ -137,6 +139,7 @@ $memd = new Cache::Memcached::Fast {
 $connection = MongoDB->connect();
 $database = $connection->get_database($mongodb);
 $products_collection = $database->get_collection('products');
+$emb_codes_collection = $database->get_collection('emb_codes');
 
 
 $default_request_ref = {
@@ -2026,9 +2029,10 @@ sub display_tag($) {
 			print STDERR "display_tag packager_codes - canon_tagid: $canon_tagid exists, cc : " . $packager_codes{$canon_tagid}{cc} . "\n";
 			
 			# Generate a map if we have coordinates
-			my $geo = get_packager_code_coordinates($canon_tagid);
+			my ($lat, $lng) = get_packager_code_coordinates($canon_tagid);
 			my $html_map = "";
-			if (defined $geo) {
+			if ((defined $lat) and (defined $lng)) {
+				my $geo = "$lat,$lng";
 			
 				$header .= <<HTML		
 <link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
@@ -2040,9 +2044,9 @@ HTML
 				my $js = <<JS
 var map = L.map('container').setView([$geo], 11);;	
 		
-L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 19,
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);			
 
 L.marker([$geo]).addTo(map)	
@@ -3959,50 +3963,48 @@ sub search_and_graph_products($$$) {
 sub get_packager_code_coordinates($) {
 
 	my $emb_code = shift;
-	my $geo = undef;
+	my $lat;
+	my $lng;
 						
 	if (exists $packager_codes{$emb_code}) {					
 		if (exists $packager_codes{$emb_code}{lat}) {
 			# some lat/lng have , for floating point numbers
-			my $lat = $packager_codes{$emb_code}{lat};
-			my $lng = $packager_codes{$emb_code}{lng};
+			$lat = $packager_codes{$emb_code}{lat};
+			$lng = $packager_codes{$emb_code}{lng};
 			$lat =~ s/,/\./g;
 			$lng =~ s/,/\./g;
-			
-			$lat =~ s/,/\./g;
-			$geo = $lat . ',' . $lng;
 		}
 		elsif (exists $packager_codes{$emb_code}{fsa_rating_business_geo_lat}) {
-			$geo = $packager_codes{$emb_code}{fsa_rating_business_geo_lat} . ',' . $packager_codes{$emb_code}{fsa_rating_business_geo_lng};
+			$lat = $packager_codes{$emb_code}{fsa_rating_business_geo_lat};
+			$lng = $packager_codes{$emb_code}{fsa_rating_business_geo_lng};
 		}								
 		elsif ($packager_codes{$emb_code}{cc} eq 'uk') {
 			#my $address = 'uk' . '.' . $packager_codes{$emb_code}{local_authority};
 			my $address = 'uk' . '.' . $packager_codes{$emb_code}{canon_local_authority};
 			if (exists $geocode_addresses{$address}) {
-				$geo = $geocode_addresses{$address}[0] . ',' . $geocode_addresses{$address}[1];
+				$lat = $geocode_addresses{$address}[0];
+				$lng = $geocode_addresses{$address}[1];
 			}
 		}
 	}
 	
 	my $city_code = get_city_code($emb_code);
 		
-	if ((not defined $geo) and (defined $emb_codes_geo{$city_code})) {
+	if (((not defined $lat) or (not defined $lng)) and (defined $emb_codes_geo{$city_code})) {
 	
 		# some lat/lng have , for floating point numbers
-		my $lat = $emb_codes_geo{$city_code}[0];
-		my $lng = $emb_codes_geo{$city_code}[1];
+		$lat = $emb_codes_geo{$city_code}[0];
+		$lng = $emb_codes_geo{$city_code}[1];
 		$lat =~ s/,/\./g;
 		$lng =~ s/,/\./g;
-		$geo = $lat . ',' . $lng;
-		
 	}
 	
 	# filter out empty coordinates
-	if (($geo =~ /^,/) or ($geo =~ /,$/)) {
-		$geo = undef;
+	if ((not defined $lat) or (not defined $lng)) {
+		return (undef, undef);
 	}
 	
-	return $geo;
+	return ($lat, $lng);
 
 }
 
@@ -4155,9 +4157,10 @@ JS
 					
 					foreach my $emb_code (@{$product_ref->{"emb_codes_tags"}}) {
 					
-						my $geo = get_packager_code_coordinates($emb_code);	
+						my ($lat, $lng) = get_packager_code_coordinates($emb_code);	
 						
-						if (defined $geo) {
+						if ((defined $lat) and (defined $lng)) {
+							my $geo = "$lat,$lng";
 							if (not defined $current_seen{$geo}) {
 						
 								$current_seen{$geo} = 1;
@@ -4214,9 +4217,9 @@ var pointers = [
 
 var map = L.map('container', {maxZoom:12});	
 		
-L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 19,
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);			
 
 
