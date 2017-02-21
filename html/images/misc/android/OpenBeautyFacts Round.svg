@@ -1,0 +1,97 @@
+<svg width="240" height="240" viewBox="0 0 240 240" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:figma="http://www.figma.com/figma/ns">
+<title>OpenBeautyFacts Round</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="matrix(5 0 0 5 -300 120)" figma:type="canvas">
+<mask id="mask0_alpha" mask-type="alpha">
+<path d="M 60 -24L 108 -24L 108 24L 60 24L 60 -24Z" fill="#FFFFFF"/>
+</mask>
+<g id="OpenBeautyFacts Round" style="mix-blend-mode:normal;" mask="url(#mask0_alpha)" figma:type="frame">
+<g id="base" style="mix-blend-mode:normal;" filter="url(#filter0_ii)" figma:type="ellipse">
+<use xlink:href="#path0_fill" transform="translate(62 -22)" fill="#FFFFFF" style="mix-blend-mode:normal;"/>
+</g>
+<g id="products" style="mix-blend-mode:normal;" filter="url(#filter1_ii)" figma:type="frame">
+<g id="bottle?" style="mix-blend-mode:normal;" figma:type="vector-operation">
+<use xlink:href="#path1_fill" transform="translate(69 -2)" fill="#FECB2F" style="mix-blend-mode:normal;"/>
+</g>
+<g id="Intersect" style="mix-blend-mode:normal;" figma:type="vector-operation">
+<use xlink:href="#path2_fill" transform="translate(83 -8.5)" fill="#21D225" style="mix-blend-mode:normal;"/>
+</g>
+<g id="toothbrush" style="mix-blend-mode:normal;" figma:type="vector-operation">
+<use xlink:href="#path3_fill" transform="translate(102 -6.5)" fill="#136BFB" style="mix-blend-mode:normal;"/>
+</g>
+<g id="tube" style="mix-blend-mode:normal;" figma:type="vector-operation">
+<use xlink:href="#path4_fill" transform="translate(97.5 2)" fill="#23CDFD" style="mix-blend-mode:normal;"/>
+</g>
+<g id="lipstick" style="mix-blend-mode:normal;" figma:type="vector-operation">
+<use xlink:href="#path5_fill" transform="translate(62.5 -2)" fill="#FC0D1B" style="mix-blend-mode:normal;"/>
+</g>
+</g>
+<g id="magnifier" style="mix-blend-mode:normal;" filter="url(#filter2_dii)" figma:type="vector">
+<use xlink:href="#path6_fill" transform="translate(71 -13)" fill="#515151" style="mix-blend-mode:normal;"/>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_ii" filterUnits="userSpaceOnUse" x="62" y="-22" width="44" height="44" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<desc>type="innerShadow" x="0" y="0.5" size="0" spread="0" color="1,1,1,0.25" blend="normal"</desc>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0" result="hardAlpha"/>
+<feOffset dx="0" dy="0.5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
+<desc>type="innerShadow" x="0" y="-0.5" size="0" spread="0" color="0,0,0,0.25" blend="normal"</desc>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0" result="hardAlpha"/>
+<feOffset dx="0" dy="-0.5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="effect1_innerShadow" result="effect2_innerShadow"/>
+</filter>
+<filter id="filter1_ii" filterUnits="userSpaceOnUse" x="62" y="-9" width="43" height="31" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<desc>type="innerShadow" x="0" y="0.5" size="0" spread="0" color="1,1,1,0.25" blend="normal"</desc>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0" result="hardAlpha"/>
+<feOffset dx="0" dy="0.5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
+<desc>type="innerShadow" x="0" y="-0.5" size="0" spread="0" color="0,0,0,0.25" blend="normal"</desc>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0" result="hardAlpha"/>
+<feOffset dx="0" dy="-0.5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="effect1_innerShadow" result="effect2_innerShadow"/>
+</filter>
+<filter id="filter2_dii" filterUnits="userSpaceOnUse" x="67" y="-17" width="34" height="36" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<desc>type="dropShadow" x="0" y="1" size="4" spread="0" color="0,0,0,0.25" blend="normal"</desc>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0"/>
+<feOffset dx="0" dy="1"/>
+<feGaussianBlur stdDeviation="2"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+<desc>type="innerShadow" x="0" y="0.5" size="0" spread="0" color="1,1,1,0.25" blend="normal"</desc>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0" result="hardAlpha"/>
+<feOffset dx="0" dy="0.5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="shape" result="effect2_innerShadow"/>
+<desc>type="innerShadow" x="0" y="-0.5" size="0" spread="0" color="0,0,0,0.25" blend="normal"</desc>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0" result="hardAlpha"/>
+<feOffset dx="0" dy="-0.5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="effect2_innerShadow" result="effect3_innerShadow"/>
+</filter>
+<path id="path0_fill" d="M 44 22C 44 34.1503 34.1503 44 22 44C 9.84974 44 0 34.1503 0 22C 0 9.84974 9.84974 0 22 0C 34.1503 0 44 9.84974 44 22Z"/>
+<path id="path1_fill" fill-rule="evenodd" d="M 0 18.0936L 0 3C 0 1.34315 1.34315 0 3 0L 10 0C 11.6569 0 13 1.34315 13 3L 13 23.9103C 7.99466 23.4593 3.47272 21.3318 0 18.0936Z"/>
+<path id="path2_fill" fill-rule="evenodd" d="M 0 30.4777L 0 12.5C 0 11.1407 1.18652 9.93979 3 9.21697L 3 6.5C 3 6.0643 3.41797 5.69368 4.00118 5.55662C 4.0004 5.53781 4 5.51894 4 5.5C 4 4.62919 4.83481 3.88836 6 3.6138L 6 1.88853C 5.22291 1.85291 4.35719 1.85444 3.5 2C 2.70628 2.13478 1.5 2.5 1.5 2.5C 1.5 2.5 1.5 1.5 2 1.25C 2.5 1 4.5 0.5 4.5 0.5C 4.5 0.5 7 0 8 0L 9.5 0L 9.52794 0.0276537C 9.70119 0.198279 10 0.492564 10 1.25C 10 2.05 9.66666 2.5 9.5 2.5L 9 2.5C 9 2.5 9 2 8 2L 8 3.6138C 9.16519 3.88836 10 4.62919 10 5.5C 10 5.51894 9.9996 5.53781 9.99882 5.55662C 10.582 5.69368 11 6.0643 11 6.5L 11 9.21696C 12.8135 9.93979 14 11.1407 14 12.5L 14 26.2501C 10.358 28.922 5.86326 30.5 1 30.5C 0.664864 30.5 0.331474 30.4925 0 30.4777Z"/>
+<path id="path3_fill" fill-rule="evenodd" d="M 2 15.6779L 2 0.5C 2 0.223857 2.22385 0 2.5 0C 2.77615 0 3 0.223857 3 0.5L 3 13.0771C 2.72068 13.9699 2.38601 14.8382 2 15.6779ZM 1.75 0.5L 0 0.5L 0 0.75L 1.75 0.75L 1.75 0.5ZM 1.75 1L 0 1L 0 1.25L 1.75 1.25L 1.75 1ZM 0 1.5L 1.75 1.5L 1.75 1.75L 0 1.75L 0 1.5ZM 1.75 2L 0 2L 0 2.25L 1.75 2.25L 1.75 2ZM 0 2.5L 1.75 2.5L 1.75 2.75L 0 2.75L 0 2.5ZM 1.75 3L 0 3L 0 3.25L 1.75 3.25L 1.75 3ZM 0 3.5L 1.75 3.5L 1.75 3.75L 0 3.75L 0 3.5Z"/>
+<path id="path4_fill" fill-rule="evenodd" d="M 1.35501 14.2276L 0 0L 6 0L 5.0659 9.80801C 4.02566 11.4402 2.77608 12.926 1.35501 14.2276Z"/>
+<path id="path5_fill" fill-rule="evenodd" d="M 5.5 12L 5.5 17.0998C 2.80338 14.2434 0.863239 10.6651 0 6.68542L 0 2.5C 0.166668 1.66667 0.700001 0 1.5 0C 2.3 0 4.16666 2 5 3L 5 7.5L 5.5 7.5L 5.5 8.5L 5.5 12ZM 3 2.90903L 3 8L 3.5 8L 3.5 3.37547C 3.33385 3.21335 3.16583 3.05594 3 2.90903Z"/>
+<path id="path6_fill" d="M 18.582 16.352L 17.408 16.352L 16.991 15.95C 18.448 14.256 19.325 12.056 19.325 9.662C 19.325 4.326 14.999 -1.67847e-07 9.663 -1.67847e-07C 4.326 -1.67847e-07 0 4.326 0 9.662C 0 14.999 4.326 19.325 9.663 19.325C 12.056 19.325 14.256 18.448 15.951 16.991L 16.352 17.407L 16.352 18.582L 23.785 26L 26 23.785L 18.582 16.352ZM 9.663 16.352C 5.961 16.352 2.973 13.364 2.973 9.662C 2.973 5.961 5.961 2.973 9.663 2.973C 13.364 2.973 16.352 5.961 16.352 9.662C 16.352 13.364 13.364 16.352 9.663 16.352Z"/>
+</defs>
+</svg>
