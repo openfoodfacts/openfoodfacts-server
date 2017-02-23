@@ -18,7 +18,9 @@
   },
   "homepage": "https://www.openfoodfacts.org/",
   "dependencies": {
-    "bower": "^1.8.0"
+    "bower": "^1.8.0",
+    "gulp-imagemin": "^3.1.1",
+    "imagemin-svgo": "^5.2.0"
   },
   "devDependencies": {
     "jshint": "^2.9.4"
