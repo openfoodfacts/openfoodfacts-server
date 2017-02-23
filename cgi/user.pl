@@ -112,7 +112,7 @@ SCRIPT
 	$html .= ProductOpener::Users::display_user_form_optional($user_ref);
 	
 	if ($admin) {
-		$html .= "\n<tr><td colspan=\"2\">" . checkbox(-name=>'delete', -label=>'Effacer l\'utilisateur') . "</td></tr>";
+		$html .= "\n<tr><td colspan=\"2\">" . checkbox(-name=>'delete', -label=>lang("delete_user")) . "</td></tr>";
 	}	
 	
 	$html .= "\n<tr><td>"

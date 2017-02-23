@@ -1,0 +1,97 @@
+<svg width="240" height="240" viewBox="0 0 240 240" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:figma="http://www.figma.com/figma/ns">
+<title>OpenFoodFacts Round</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="matrix(5 0 0 5 0 120)" figma:type="canvas">
+<mask id="mask0_alpha" mask-type="alpha">
+<path d="M 0 -24L 48 -24L 48 24L 0 24L 0 -24Z" fill="#FFFFFF"/>
+</mask>
+<g id="OpenFoodFacts Round" style="mix-blend-mode:normal;" mask="url(#mask0_alpha)" figma:type="frame">
+<g id="base" style="mix-blend-mode:normal;" filter="url(#filter0_ii)" figma:type="ellipse">
+<use xlink:href="#path0_fill" transform="translate(2 -22)" fill="#FFFFFF" style="mix-blend-mode:normal;"/>
+</g>
+<g id="products" style="mix-blend-mode:normal;" filter="url(#filter1_ii)" figma:type="frame">
+<g id="Intersect" style="mix-blend-mode:normal;" figma:type="vector-operation">
+<use xlink:href="#path1_fill" transform="translate(3 -1)" fill="#FC0D1B" style="mix-blend-mode:normal;"/>
+</g>
+<g id="Intersect" style="mix-blend-mode:normal;" figma:type="vector-operation">
+<use xlink:href="#path2_fill" transform="translate(10 -3)" fill="#FECB2F" style="mix-blend-mode:normal;"/>
+</g>
+<g id="Intersect" style="mix-blend-mode:normal;" figma:type="vector-operation">
+<use xlink:href="#path3_fill" transform="translate(23 -6)" fill="#21D225" style="mix-blend-mode:normal;"/>
+</g>
+<g id="Intersect" style="mix-blend-mode:normal;" figma:type="vector-operation">
+<use xlink:href="#path4_fill" transform="translate(44 -5)" fill="#136BFB" style="mix-blend-mode:normal;"/>
+</g>
+<g id="Intersect" style="mix-blend-mode:normal;" figma:type="vector-operation">
+<use xlink:href="#path5_fill" transform="translate(37 -2)" fill="#23CDFD" style="mix-blend-mode:normal;"/>
+</g>
+</g>
+<g id="magnifier" style="mix-blend-mode:normal;" filter="url(#filter2_dii)" figma:type="vector">
+<use xlink:href="#path6_fill" transform="translate(11 -13)" fill="#515151" style="mix-blend-mode:normal;"/>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_ii" filterUnits="userSpaceOnUse" x="2" y="-22" width="44" height="44" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<desc>type="innerShadow" x="0" y="0.5" size="0" spread="0" color="1,1,1,0.25" blend="normal"</desc>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0" result="hardAlpha"/>
+<feOffset dx="0" dy="0.5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
+<desc>type="innerShadow" x="0" y="-0.5" size="0" spread="0" color="0,0,0,0.25" blend="normal"</desc>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0" result="hardAlpha"/>
+<feOffset dx="0" dy="-0.5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="effect1_innerShadow" result="effect2_innerShadow"/>
+</filter>
+<filter id="filter1_ii" filterUnits="userSpaceOnUse" x="3" y="-6" width="42" height="28" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<desc>type="innerShadow" x="0" y="0.5" size="0" spread="0" color="1,1,1,0.25" blend="normal"</desc>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0" result="hardAlpha"/>
+<feOffset dx="0" dy="0.5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
+<desc>type="innerShadow" x="0" y="-0.5" size="0" spread="0" color="0,0,0,0.25" blend="normal"</desc>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0" result="hardAlpha"/>
+<feOffset dx="0" dy="-0.5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="effect1_innerShadow" result="effect2_innerShadow"/>
+</filter>
+<filter id="filter2_dii" filterUnits="userSpaceOnUse" x="7" y="-17" width="34" height="36" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<desc>type="dropShadow" x="0" y="1" size="4" spread="0" color="0,0,0,0.25" blend="normal"</desc>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0"/>
+<feOffset dx="0" dy="1"/>
+<feGaussianBlur stdDeviation="2"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+<desc>type="innerShadow" x="0" y="0.5" size="0" spread="0" color="1,1,1,0.25" blend="normal"</desc>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0" result="hardAlpha"/>
+<feOffset dx="0" dy="0.5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="shape" result="effect2_innerShadow"/>
+<desc>type="innerShadow" x="0" y="-0.5" size="0" spread="0" color="0,0,0,0.25" blend="normal"</desc>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0" result="hardAlpha"/>
+<feOffset dx="0" dy="-0.5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="effect2_innerShadow" result="effect3_innerShadow"/>
+</filter>
+<path id="path0_fill" d="M 44 22C 44 34.1503 34.1503 44 22 44C 9.84974 44 0 34.1503 0 22C 0 9.84974 9.84974 0 22 0C 34.1503 0 44 9.84974 44 22Z"/>
+<path id="path1_fill" fill-rule="evenodd" d="M 6 17.0936C 3.2462 14.5258 1.15216 11.2596 0 7.57714L 0 0L 6 0L 6 17.0936Z"/>
+<path id="path2_fill" fill-rule="evenodd" d="M 12 24.9103C 7.46213 24.5014 3.32159 22.7145 0 19.9714L 0 0L 12 0L 12 24.9103Z"/>
+<path id="path3_fill" fill-rule="evenodd" d="M 0 27.9777L 0 0L 13 0L 13 24.4421C 9.54889 26.6923 5.42716 28 1 28C 0.664864 28 0.331478 27.9925 0 27.9777Z"/>
+<path id="path4_fill" fill-rule="evenodd" d="M 0 14.1779L 0 0L 1 0L 1 11.5771C 0.720684 12.4699 0.386009 13.3382 0 14.1779Z"/>
+<path id="path5_fill" fill-rule="evenodd" d="M 0 19.7501L 0 0L 6 0L 6 13.0976C 4.47372 15.7051 2.42603 17.9703 0 19.7501Z"/>
+<path id="path6_fill" d="M 18.582 16.352L 17.408 16.352L 16.991 15.95C 18.448 14.256 19.325 12.056 19.325 9.662C 19.325 4.326 14.999 -1.67847e-07 9.663 -1.67847e-07C 4.326 -1.67847e-07 0 4.326 0 9.662C 0 14.999 4.326 19.325 9.663 19.325C 12.056 19.325 14.256 18.448 15.951 16.991L 16.352 17.407L 16.352 18.582L 23.785 26L 26 23.785L 18.582 16.352ZM 9.663 16.352C 5.961 16.352 2.973 13.364 2.973 9.662C 2.973 5.961 5.961 2.973 9.663 2.973C 13.364 2.973 16.352 5.961 16.352 9.662C 16.352 13.364 13.364 16.352 9.663 16.352Z"/>
+</defs>
+</svg>

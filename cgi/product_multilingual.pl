@@ -1807,7 +1807,7 @@ elsif (($action eq 'display') and ($type eq 'delete')) {
 	$html .= start_multipart_form(-id=>"product_form") ;
 		
 	$html .= <<HTML
-<p>Etes-vous sûr de vouloir supprimer la fiche de ce produit ? (nom : $product_ref->{product_name}, code barre: $code)</p>
+<p>$Lang{delete_product_confirm}{$lc} ? ($Lang{product_name}{$lc} : $product_ref->{product_name}, $Lang{barcode}{$lc} : $code)</p>
 
 HTML
 ;
@@ -1821,7 +1821,7 @@ HTML
 <input type="text" id="comment" name="comment" value="" />
 HTML
 	. hidden(-name=>'csrf', -value=>generate_po_csrf_token($User_id), -override=>1)
-	. submit(-name=>'save', -label=>"Supprimer la fiche", -class=>"button small")
+	. submit(-name=>'save', -label=>lang("delete_product_page"), -class=>"button small")
 	. end_form();
 
 }
@@ -1840,7 +1840,7 @@ elsif ($action eq 'process') {
 		}
 
 		$product_ref->{deleted} = 'on';
-		$comment = "Suppression : ";
+		$comment = lang("deleting_product") . separator_before_colon($lc) . ":";
 	}
 	
 	my $time = time();
@@ -1852,13 +1852,13 @@ elsif ($action eq 'process') {
 		
 	if ($type eq 'delete') {
 		my $email = <<MAIL
-$User_id supprime :
+$User_id $Lang{has_deleted_product}{$lc}:
 
 $html
 	
 MAIL
 ;
-		send_email_to_admin("Suppression produit", $email);
+		send_email_to_admin(lang("deleting_product"), $email);
 	
 	}
 	

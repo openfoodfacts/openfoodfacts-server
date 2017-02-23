@@ -39,6 +39,7 @@ BEGIN
 					&display_form
 					&display_date
 					&display_date_tag
+					&get_packager_code_coordinates
 					
 					&display_structured_response
 					&display_new					
@@ -68,6 +69,7 @@ BEGIN
 					$connection
 					$database
 					$products_collection
+					$emb_codes_collection
 					
 					$debug
 					$scripts
@@ -137,6 +139,7 @@ $memd = new Cache::Memcached::Fast {
 $connection = MongoDB->connect();
 $database = $connection->get_database($mongodb);
 $products_collection = $database->get_collection('products');
+$emb_codes_collection = $database->get_collection('emb_codes');
 
 
 $default_request_ref = {
@@ -248,7 +251,7 @@ sub init()
 		print STDERR "Display::init - country_name($subdomain) -  ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
 		
 	}
-	elsif ($ENV{QUERY_STRING} !~ /cgi/) {
+	elsif ($ENV{QUERY_STRING} !~ /(cgi|api)\//) {
 		# redirect
 		my $worlddom = format_subdomain('world');
 		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $worlddom\n";
@@ -268,7 +271,7 @@ sub init()
 	$lang = $lc;
 	
 	# If the language is equal to the first language of the country, but we are on a different subdomain, redirect to the main country subdomain. (fr-fr => fr)
-	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^(ssl-)?api/) and ($r->method() eq 'GET')) {
+	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^(ssl-)?api/) and ($r->method() eq 'GET') and ($ENV{QUERY_STRING} !~ /(cgi|api)\//)) {
 		# redirect
 		my $ccdom = format_subdomain($cc);
 		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $ccdom\n";
@@ -1309,7 +1312,7 @@ sub display_list_of_tags($$) {
 			if ($tagtype eq 'nutrition_grades') {
 				if ($tagid =~ /^a|b|c|d|e$/) {
 					my $grade = $tagid;
-					$display = "<img src=\"/images/misc/nutriscore-$grade.svg\" alt=\"Note nutritionnelle : " . uc($grade) . "\" style=\"margin-bottom:1rem;max-width:100%\" />" ;
+					$display = "<img src=\"/images/misc/nutriscore-$grade.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} " . uc($grade) . "\" style=\"margin-bottom:1rem;max-width:100%\" />" ;
 				}
 				else {
 					$display = lang("unknown");
@@ -2024,6 +2027,41 @@ sub display_tag($) {
 		if (exists $packager_codes{$canon_tagid}) {
 		
 			print STDERR "display_tag packager_codes - canon_tagid: $canon_tagid exists, cc : " . $packager_codes{$canon_tagid}{cc} . "\n";
+			
+			# Generate a map if we have coordinates
+			my ($lat, $lng) = get_packager_code_coordinates($canon_tagid);
+			my $html_map = "";
+			if ((defined $lat) and (defined $lng)) {
+				my $geo = "$lat,$lng";
+			
+				$header .= <<HTML		
+<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
+<script src="/bower_components/leaflet/dist/leaflet.js"></script>
+HTML
+;
+
+
+				my $js = <<JS
+var map = L.map('container').setView([$geo], 11);;	
+		
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);			
+
+L.marker([$geo]).addTo(map)	
+
+$request_ref->{map_options}
+JS
+;		
+				$initjs .= $js;
+				
+				$html_map .= <<HTML
+<div id="container" style="height: 300px"></div>​
+HTML
+;				
+			
+			}
 		
 			if ($packager_codes{$canon_tagid}{cc} eq 'fr') {
 				$description .= <<HTML
@@ -2034,6 +2072,14 @@ SIRET : $packager_codes{$canon_tagid}{siret} - <a href="$packager_codes{$canon_t
 HTML
 ;
 			}
+			
+			if ($packager_codes{$canon_tagid}{cc} eq 'ch') {
+				$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{full_address}</p>
+HTML
+;
+			}			
+			
 			if ($packager_codes{$canon_tagid}{cc} eq 'es') {
 				# Razón Social;Provincia/Localidad
 				$description .= <<HTML
@@ -2088,8 +2134,29 @@ HTML
 ;
 				}
 			}	
+			
+			if ($html_map ne '') {
+			
+				$description = <<HTML
+<div class="row">
+
+	<div class="large-3 columns">
+		$description
+	</div>
+	<div class="large-9 columns">
+		$html_map
+	</div>
+
+</div>			
+
+HTML
+;
+			
+			}
 		
 		}
+		
+
 	}
 	
 	if ($tagtype eq 'users') {
@@ -3893,6 +3960,54 @@ sub search_and_graph_products($$$) {
 }
 
 
+sub get_packager_code_coordinates($) {
+
+	my $emb_code = shift;
+	my $lat;
+	my $lng;
+						
+	if (exists $packager_codes{$emb_code}) {					
+		if (exists $packager_codes{$emb_code}{lat}) {
+			# some lat/lng have , for floating point numbers
+			$lat = $packager_codes{$emb_code}{lat};
+			$lng = $packager_codes{$emb_code}{lng};
+			$lat =~ s/,/\./g;
+			$lng =~ s/,/\./g;
+		}
+		elsif (exists $packager_codes{$emb_code}{fsa_rating_business_geo_lat}) {
+			$lat = $packager_codes{$emb_code}{fsa_rating_business_geo_lat};
+			$lng = $packager_codes{$emb_code}{fsa_rating_business_geo_lng};
+		}								
+		elsif ($packager_codes{$emb_code}{cc} eq 'uk') {
+			#my $address = 'uk' . '.' . $packager_codes{$emb_code}{local_authority};
+			my $address = 'uk' . '.' . $packager_codes{$emb_code}{canon_local_authority};
+			if (exists $geocode_addresses{$address}) {
+				$lat = $geocode_addresses{$address}[0];
+				$lng = $geocode_addresses{$address}[1];
+			}
+		}
+	}
+	
+	my $city_code = get_city_code($emb_code);
+		
+	if (((not defined $lat) or (not defined $lng)) and (defined $emb_codes_geo{$city_code})) {
+	
+		# some lat/lng have , for floating point numbers
+		$lat = $emb_codes_geo{$city_code}[0];
+		$lng = $emb_codes_geo{$city_code}[1];
+		$lat =~ s/,/\./g;
+		$lng =~ s/,/\./g;
+	}
+	
+	# filter out empty coordinates
+	if ((not defined $lat) or (not defined $lng)) {
+		return (undef, undef);
+	}
+	
+	return ($lat, $lng);
+
+}
+
 
 
 sub search_and_map_products($$$) {
@@ -4042,33 +4157,10 @@ JS
 					
 					foreach my $emb_code (@{$product_ref->{"emb_codes_tags"}}) {
 					
-						my $geo = undef;
+						my ($lat, $lng) = get_packager_code_coordinates($emb_code);	
 						
-						if (exists $packager_codes{$emb_code}) {					
-							if (exists $packager_codes{$emb_code}{lat}) {
-								$geo = $packager_codes{$emb_code}{lat} . ',' . $packager_codes{$emb_code}{lng};
-							}
-							elsif (exists $packager_codes{$emb_code}{fsa_rating_business_geo_lat}) {
-								$geo = $packager_codes{$emb_code}{fsa_rating_business_geo_lat} . ',' . $packager_codes{$emb_code}{fsa_rating_business_geo_lng};
-							}								
-							elsif ($packager_codes{$emb_code}{cc} eq 'uk') {
-								#my $address = 'uk' . '.' . $packager_codes{$emb_code}{local_authority};
-								my $address = 'uk' . '.' . $packager_codes{$emb_code}{canon_local_authority};
-								if (exists $geocode_addresses{$address}) {
-									$geo = $geocode_addresses{$address}[0] . ',' . $geocode_addresses{$address}[1];
-								}
-							}
-						}
-						
-						my $city_code = get_city_code($emb_code);
-							
-						if ((not defined $geo) and (defined $emb_codes_geo{$city_code})) {
-						
-							$geo = $emb_codes_geo{$city_code}[0] . ',' . $emb_codes_geo{$city_code}[1];
-							
-						}
-						
-						if (defined $geo) {
+						if ((defined $lat) and (defined $lng)) {
+							my $geo = "$lat,$lng";
 							if (not defined $current_seen{$geo}) {
 						
 								$current_seen{$geo} = 1;
@@ -4125,9 +4217,9 @@ var pointers = [
 
 var map = L.map('container', {maxZoom:12});	
 		
-L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 19,
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);			
 
 
@@ -5916,6 +6008,28 @@ HTML
 	$html .= display_nutrition_table($product_ref, \@comparisons);
 	
 
+	if (defined $product_ref->{sources}) {
+		# FIXME : currently just a quick workaround to display openfood attribution
+
+#			push @{$product_ref->{sources}}, {
+#				id => "openfood-ch",
+#				url => "https://www.openfood.ch/en/products/$openfood_id",
+#				import_t => time(),
+#				fields => \@modified_fields,
+#				images => \@images_ids,	
+#			};
+		
+		if (defined $product_ref->{sources}[0]) {
+			my $lang_source = $product_ref->{sources}[0]{id};
+			$lang_source =~ s/-/_/g;
+			$html .= "<p>" . lang("sources_" . $lang_source ) . "</p>";
+			if (defined $product_ref->{sources}[0]{url}) {
+				$html .= "<p><a href=\"" . $product_ref->{sources}[0]{url} . "\">" . lang("sources_" . $lang_source . "_product_page" ) . "</a></p>";
+			}
+		}
+	}
+	
+	
 	my $created_date = display_date_tag($product_ref->{created_t});
 	my $last_modified_date = display_date_tag($product_ref->{last_modified_t});
 	
@@ -6282,22 +6396,22 @@ sub display_nutrient_levels($) {
 	
 	#return '' if (not $admin);
 	
-	if (($lc eq 'fr') and (exists $product_ref->{"nutrition_grade_fr"})) {
+	if ((exists $product_ref->{"nutrition_grade_fr"})) {
 		my $grade = $product_ref->{"nutrition_grade_fr"};
 		my $uc_grade = uc($grade);
 		
 		my $warning = '';
 		if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
-			$warning = "<p>Avertissement : Le taux de fibres n'étant pas renseigné, leur éventuelle contribution positive à la note n'a pas pu être prise en compte.</p>";
+			$warning = "<p>" . lang("nutrition_grade_fr_fiber_warning") . "</p>";
 		}
 
 		
 		$html_nutrition_grade .= <<HTML
-<h4>Note nutritionnelle de couleur NutriScore
-<a href="http://fr.openfoodfacts.org/score-nutritionnel-france" title="Mode de calcul de la note nutritionnelle de couleur">
+<h4>$Lang{nutrition_grade_fr_title}{$lc}
+<a href="http://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}">
 <i class="fi-info"></i></a>
 </h4>
-<img src="/images/misc/nutriscore-$grade.svg" alt="Note nutritionnelle NutriScore : $uc_grade" style="margin-bottom:1rem;max-width:100%" /><br/>
+<img src="/images/misc/nutriscore-$grade.svg" alt="$Lang{nutrition_grade_fr_alt}{$lc} $uc_grade" style="margin-bottom:1rem;max-width:100%" /><br/>
 $warning
 HTML
 ;
@@ -7041,10 +7155,6 @@ HTML
 			$response{jqm} =~ s/(href|src)=("\/)/$1="http:\/\/$cc.${server_domain}\//g;
 			$response{title} = $request_ref->{title};
 			
-		}		
-		
-		if (not $admin) {
-			delete $response{product}{images};
 		}
 	}
 	
