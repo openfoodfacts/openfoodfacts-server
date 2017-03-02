@@ -123,7 +123,7 @@ msgstr "Thanks for joining <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "Potentially hazardous food additive. Limit usage."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
@@ -1107,16 +1107,22 @@ msgid ""
 "barcode.\n"
 "You can try with another image, or directly enter the barcode."
 msgstr ""
+"The barcode in the image could not be read, or the image contained no "
+"barcode.\n"
+"You can try with another image, or directly enter the barcode."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
-msgstr ""
+msgstr "No barcode found in the image."
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid ""
 "You must enter the characters of the barcode or send a product image when "
 "the barcode is visible."
 msgstr ""
+"You must enter the characters of the barcode or send a product image when "
+"the barcode is visible."
+
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -2455,7 +2461,7 @@ msgstr ""
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
-msgstr ""
+msgstr "Open Food Facts product search"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
