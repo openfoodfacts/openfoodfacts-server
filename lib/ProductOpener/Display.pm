@@ -6018,13 +6018,19 @@ HTML
 #				fields => \@modified_fields,
 #				images => \@images_ids,	
 #			};
-		
-		if (defined $product_ref->{sources}[0]) {
-			my $lang_source = $product_ref->{sources}[0]{id};
+
+		my %unique_sources = ();
+	
+		foreach my $source_ref (@{$product_ref->{sources}}) {
+			$unique_sources{$source_ref->{id}} = $source_ref;
+		}
+		foreach my $source_id (sort keys %unique_sources) {
+			my $source_ref = $unique_sources{$source_id};
+			my $lang_source = $source_ref->{id};
 			$lang_source =~ s/-/_/g;
 			$html .= "<p>" . lang("sources_" . $lang_source ) . "</p>";
-			if (defined $product_ref->{sources}[0]{url}) {
-				$html .= "<p><a href=\"" . $product_ref->{sources}[0]{url} . "\">" . lang("sources_" . $lang_source . "_product_page" ) . "</a></p>";
+			if (defined $source_ref->{url}) {
+				$html .= "<p><a href=\"" . $source_ref->{url} . "\">" . lang("sources_" . $lang_source . "_product_page" ) . "</a></p>";
 			}
 		}
 	}
