@@ -1581,6 +1581,7 @@ salt => {
 	
 	unit => "µg",
 	dv => "1500",
+	iu => 0.3, # Vitamin A: 1 IU is the biological equivalent of 0.3 μg retinol, or of 0.6 μg beta-carotene.[6][7][a]
 	unit_us => '% DV',
 	unit_ca => '% DV',		
 },
@@ -1588,8 +1589,7 @@ salt => {
 	fr => "Vitamine D / D3 (cholécalciférol)",
 	en => "Vitamin D",
 	es => "Vitamina D",
-	unit => "µg",
-	dv => "40",
+
 	it => "Vitamina D (colecalciferolo)",
 	pt => "Vitamina D",
 	de => "Vitamin D / D3 (Cholecalciferol)",
@@ -1610,14 +1610,17 @@ salt => {
 	ro => "Vitamina D",
 	bg => "Витамин D",
 	zh => "维生素D",
+
+	unit => "µg",
+	dv => "40",	
+	iu => 0.025, # 1 IU is the biological equivalent of 25 ng cholecalciferol/ergocalciferol
 },
 'vitamin-e' => {
 	fr => "Vitamine E (tocophérol)",
 	en => "Vitamin E",
 	ja => "ビタミン E",
 	es => "Vitamina E (a-tocoferol)",
-	unit => "mg",
-	dv => "20",
+
 	it => "Vitamina E (Alfa-tocoferolo)",
 	pt => "Vitamina E",
 	de => "Vitamin E (Tocopherol)",
@@ -1637,6 +1640,10 @@ salt => {
 	ro => "Vitamina E",
 	bg => "Витамин E",
 	zh => "维生素E",
+	
+	unit => "mg",
+	dv => "20",
+	iu => 2/3, # 1 IU is the biological equivalent of about 0.667 mg d-alpha-tocopherol (2/3 mg exactly), or of 0.45 mg of dl-alpha-tocopherol acetate.[8][9]	
 },
 'vitamin-k' => {
 	fr => "Vitamine K",
@@ -1692,6 +1699,7 @@ salt => {
 	
 	unit => "mg",
 	dv => "60",
+	iu => 0.05, # 1 IU is 50 μg L-ascorbic acid
 	unit_us => '% DV',
 	unit_ca => '% DV',	
 },
