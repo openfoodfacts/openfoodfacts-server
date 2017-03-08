@@ -282,6 +282,7 @@ vitamin-b2-
 vitamin-pp-
 vitamin-b6-
 vitamin-b9-
+folates-
 vitamin-b12-
 biotin-
 pantothenic-acid-
@@ -387,6 +388,7 @@ vitamin-b2-
 vitamin-pp-
 vitamin-b6-
 vitamin-b9-
+folates-
 vitamin-b12-
 biotin-
 pantothenic-acid-
@@ -491,6 +493,7 @@ vitamin-b2-
 vitamin-pp-
 vitamin-b6-
 vitamin-b9-
+folates-
 vitamin-b12-
 biotin-
 pantothenic-acid-
@@ -598,6 +601,7 @@ vitamin-b2-
 vitamin-pp-
 vitamin-b6-
 vitamin-b9-
+folates-
 vitamin-b12-
 biotin-
 pantothenic-acid-
@@ -1580,7 +1584,8 @@ salt => {
 	zh => "维生素A",
 	
 	unit => "µg",
-	dv => "1500",
+	dv => 1500,
+	dv_2016 => "900 RAE", # ! not same unit
 	iu => 0.3, # Vitamin A: 1 IU is the biological equivalent of 0.3 μg retinol, or of 0.6 μg beta-carotene.[6][7][a]
 	unit_us => '% DV',
 	unit_ca => '% DV',		
@@ -1612,7 +1617,8 @@ salt => {
 	zh => "维生素D",
 
 	unit => "µg",
-	dv => "40",	
+	dv => 40,	
+	dv_2016 => 20,
 	iu => 0.025, # 1 IU is the biological equivalent of 25 ng cholecalciferol/ergocalciferol
 },
 'vitamin-e' => {
@@ -1620,7 +1626,6 @@ salt => {
 	en => "Vitamin E",
 	ja => "ビタミン E",
 	es => "Vitamina E (a-tocoferol)",
-
 	it => "Vitamina E (Alfa-tocoferolo)",
 	pt => "Vitamina E",
 	de => "Vitamin E (Tocopherol)",
@@ -1642,7 +1647,8 @@ salt => {
 	zh => "维生素E",
 	
 	unit => "mg",
-	dv => "20",
+	dv => 20,
+	dv_2016 => 15,
 	iu => 2/3, # 1 IU is the biological equivalent of about 0.667 mg d-alpha-tocopherol (2/3 mg exactly), or of 0.45 mg of dl-alpha-tocopherol acetate.[8][9]	
 },
 'vitamin-k' => {
@@ -1650,8 +1656,6 @@ salt => {
 	en => "Vitamin K",
 	es => "Vitamina K",
 	ja => "ビタミン K",
-	unit => "µg",
-	dv => "80",
 	it => "Vitamina K",
 	pt => "Vitamina K",
 	de => "Vitamin K",
@@ -1671,6 +1675,10 @@ salt => {
 	ro => "Vitamina K",
 	bg => "Витамин K",
 	zh => "维生素K",
+	
+	unit => "µg",
+	dv => 80,
+	dv_2016 => 120,	
 },
 'vitamin-c' => {
 	fr => "Vitamine C (acide ascorbique)",
@@ -1698,7 +1706,8 @@ salt => {
 	zh => "维生素C(抗坏血酸)",
 	
 	unit => "mg",
-	dv => "60",
+	dv => 60,
+	dv_2016 => 90,
 	iu => 0.05, # 1 IU is 50 μg L-ascorbic acid
 	unit_us => '% DV',
 	unit_ca => '% DV',	
@@ -1708,8 +1717,6 @@ salt => {
 	en => "Vitamin B1 (Thiamin)",
 	es => "Vitamina B1 (Tiamina)",
 	ja => "ビタミン B1",
-	unit => "mg",
-	dv => "1.5",
 	it => "Vitamina B1 (tiamina)",
 	pt => "Vitamina B1 (Tiamina)",
 	de => "Vitamin B1 (Thiamin)",
@@ -1730,14 +1737,15 @@ salt => {
 	ro => "Vitamina B1 (Tiamină)",
 	bg => "Витамин B1 (Тиамин)",
 	zh => "维生素B1(硫胺)",
+	
+	unit => "mg",
+	dv_2016 => 1.2,	
 },
 'vitamin-b2' => {
 	fr => "Vitamine B2 (Riboflavine)",
 	en => "Vitamin B2 (Riboflavin)",
 	es => "Vitamina B2 (Riboflavina)",
 	ja => "ビタミン B2",
-	unit => "mg",
-	dv => "1.7",
 	it => "Vitamina B2 (Riboflavina)",
 	pt => "Vitamina B2 (Riboflavina)",
 	de => "Vitamin B2 (Riboflavin)",
@@ -1757,14 +1765,16 @@ salt => {
 	ro => "Vitamina B2 (Riboflavină)",
 	bg => "Витамин B2 (Рибофлавин)",
 	zh => "维生素B2(核黄素)",
+	
+	unit => "mg",
+	dv => 1.7,	
+	dv_2016 => 1.3,
 },
 'vitamin-pp' => {
 	fr => "Vitamine B3 / Vitamine PP (Niacine)",
 	en => "Vitamin B3 / Vitamin PP (Niacin)",
 	es => "Vitamina B3 / Vitamina PP (Niacina)",
 	ja => "ビタミン B3",
-	unit => "mg",
-	dv => "20",
 	it => "Vitamina B3 / Vitamina PP (Niacina)",
 	pt => "Vitamina B3 / Vitamina PP (Niacina)",
 	de => "Vitamin B3 / Vitamin PP (Niacin)",
@@ -1783,14 +1793,16 @@ salt => {
 	ro => "Niacină",
 	bg => "Ниацин",
 	zh => "维生素B3(烟酸)",
+	
+	unit => "mg",
+	dv => 20,
+	dv_2016 => 16,	
 },	
 'vitamin-b6' => {
 	fr => "Vitamine B6 (Pyridoxine)",
 	en => "Vitamin B6 (Pyridoxin)",
 	es => "Vitamina B6 (Piridoxina)",
 	ja => "ビタミン B6",
-	unit => "mg",
-	dv => "2",
 	it => "Vitamina B6 (piridoxina)",
 	pt => "Vitamina B6 (Piridoxina)",
 	de => "Vitamin B6 (Pyridoxin)",
@@ -1812,10 +1824,8 @@ salt => {
 },
 'vitamin-b9' => {
 	fr => "Vitamine B9 (Acide folique)",
-	en => "Vitamin B9 (Folic acid / Folates)",
+	en => "Vitamin B9 (Folic acid)",
 	es => "Vitamina B9 (Ácido fólico)",
-	unit => "µg",
-	dv => "400",
 	ja => "ビタミン B9 (葉酸)",
 	it => "Vitamina B9 (Acido folico)",
 	pt => "Vitamina B9 (Ácido Fólico)",
@@ -1835,13 +1845,24 @@ salt => {
 	ro => "Vitamina B9 (Acid folic)",
 	bg => "Витамин B9 (Фолиева киселина)",
 	zh => "维生素B9(叶酸)",
+	
+	unit => "µg",
+	dv => 400,
+	dv_2016 => 400,
+},
+# folates = total folates = naturally occuring folates + added folic acid
+'folates' => {
+	en => "Folates (total folates)",
+	fr => "Folates (folates totaux)",
+
+	unit => "µg",
+	dv => 400,	
+	dv_2016 => 400,	
 },
 'vitamin-b12' => {
 	fr => "Vitamine B12 (cobalamine)",
 	en => "Vitamin B12 (cobalamin)",
 	es => "Vitamina B12 (Cianocobalamina)",
-	unit => "µg",
-	dv => "6",
 	it => "Vitamina B12 (Cobalamina)",
 	ja => "ビタミン B12",
 	pt => "Vitamina B12 (Cobalamina)",
@@ -1861,13 +1882,15 @@ salt => {
 	ro => "Vitamina B12",
 	bg => "Витамин В12",
 	zh => "维生素B12",
+	
+	unit => "µg",
+	dv => 6,
+	dv_2016 => 2.4,
 },
 'biotin' => {
 	fr => "Biotine (Vitamine B8 / B7 / H)",
 	en => "Biotin",
 	es => "Vitamina B7 (Biotina)",
-	unit => "µg",
-	dv => "300",
 	it => "Vitamina B8/B7/H/I (Biotina)",
 	pt => "Vitamina B7 (Biotina)",
 	de => "Biotin (Vitamin B8 / B7 / H)",
@@ -1886,14 +1909,16 @@ salt => {
 	ro => "Biotină",
 	bg => "Биотин",
 	zh => "生物素",
+	
+	unit => "µg",
+	dv => 300,	
+	dv_2016 => 30,
 },	
 'pantothenic-acid' => {
 	fr => "Acide pantothénique (Vitamine B5)",
 	en => "Pantothenic acid / Pantothenate (Vitamin B5)",
 	ja => "ビタミン B5",
 	es => "Vitamina B5 (Ácido pantoténico)",
-	unit => "mg",
-	dv => "10",
 	it => "Vitamina B5 (Acido pantotenico)",
 	pt => "Vitamina B5 (Ácido Pantotênico)",
 	pt_pt => "Vitamina B5 (ácido pantoténico)",
@@ -1917,6 +1942,10 @@ salt => {
 	sk => "Kyselina pantotenová",
 	ro => "Acid pantotenic",
 	bg => "Пантотенова киселина",
+	
+	unit => "mg",
+	dv => 10,
+	dv_2016 => 5,
 },	
 '#minerals' => {
 	fr => "Sels minéraux",
@@ -1976,8 +2005,6 @@ chloride => {
 	fr => "Chlorure",
 	en => "Chloride",
 	es => "Cloro",
-	unit => "mg",
-	dv => "3400",
 	it => "Cloruro",
 	pt => "Cloreto",
 	de => "Chlor",
@@ -2000,6 +2027,10 @@ chloride => {
 	bg => "Хлорид",
 	nl => "Chloor",
 	nl_be => "Chloor",
+	
+	unit => "mg",
+	dv => 3400,
+	dv_2016 => 2300,
 },
 silica => {
 	fr => "Silice",
@@ -2044,7 +2075,8 @@ calcium => {
 	nl_be => "Calcium",
 	
 	unit => "mg",
-	dv => "1000",	
+	dv => 1000,	
+	dv_2016 => 1300,
 	unit_us => '% DV',
 	unit_ca => '% DV',		
 },
@@ -2053,8 +2085,6 @@ phosphorus => {
 	en => "Phosphorus",
 	es => "Fósforo",
 	ar => "الفوسفور",
-	unit => "mg",
-	dv => "1000",
 	it => "Fosforo",
 	pt => "Fósforo",
 	de => "Phosphor",
@@ -2078,6 +2108,10 @@ phosphorus => {
 	ro => "Fosfor",
 	bg => "Фосфор",
 	zh => "磷",
+	
+	unit => "mg",
+	dv => 1000,
+	dv_2016 => 1250,
 },
 iron => {
 	fr => "Fer",
@@ -2109,7 +2143,8 @@ iron => {
 	zh => "鐵",
 	
 	unit => "mg",
-	dv => "18",	
+	dv => 18,	
+	dv_2016 => 18,
 	unit_us => '% DV',
 	unit_ca => '% DV',	
 },
@@ -2117,8 +2152,6 @@ magnesium => {
 	fr => "Magnésium",
 	en => "Magnesium",
 	es => "Magnesio",
-	unit => "mg",
-	dv => "400",
 	it => "Magnesio",
 	pt => "Magnésio",
 	de => "Magnesium",
@@ -2140,13 +2173,15 @@ magnesium => {
 	nl => "Magnesium",
 	nl_be => "Magnesium",
 	ja => "マグネシウム",
+	
+	unit => "mg",
+	dv => 400,
+	dv_2016 => 420,
 },
 zinc => {
 	fr => "Zinc",
 	en => "Zinc",
 	es => "Zinc",
-	unit => "mg",
-	dv => "15",
 	it => "Zinco",
 	pt => "Zinco",
 	de => "Zink",
@@ -2170,13 +2205,15 @@ zinc => {
 	bg => "Цинк",
 	zh => "鋅",
 	ja => "亜鉛",
+	
+	unit => "mg",
+	dv => 15,	
+	dv_2016 => 11,
 },
 copper => {
 	fr => "Cuivre",
 	en => "Copper",
 	es => "Cobre",
-	unit => "mg",
-	dv => "2",
 	it => "Rame",
 	pt => "Cobre",
 	de => "Kupfer",
@@ -2199,13 +2236,15 @@ copper => {
 	sk => "Meď",
 	ro => "Cupru",
 	bg => "Мед",
+	
+	unit => "mg",
+	dv => 2,	
+	dv_2016 => 0.9,
 },
 manganese => {
 	fr => "Manganèse",
 	en => "Manganese",
 	es => "Manganeso",
-	unit => "mg",
-	dv => "2",
 	it => "Manganese",
 	pt => "Manganês",
 	de => "Mangan",
@@ -2228,6 +2267,10 @@ manganese => {
 	sk => "Mangán",
 	ro => "Mangan",
 	bg => "Манган",
+	
+	unit => "mg",
+	dv => 2,	
+	dv_2016 => 2.3,
 },
 fluoride => {
 	fr => "Fluorure",
@@ -2261,8 +2304,6 @@ selenium => {
 	fr => "Sélénium",
 	en => "Selenium",
 	es => "Selenio",
-	unit => "µg",
-	dv => "70",
 	it => "Selenio",
 	pt => "Selênio",
 	pt_pt => "Selénio",
@@ -2287,13 +2328,15 @@ selenium => {
 	ro => "Seleniu",
 	bg => "Селен",
 	zh => "硒",
+	
+	unit => "µg",
+	dv => 70,	
+	dv_2016 => 55,
 },
 chromium => {
 	fr => "Chrome",
 	en => "Chromium",
 	es => "Cromo",
-	unit => "µg",
-	dv => "120",
 	it => "Cromo",
 	pt => "Cromo",
 	pt_pt => "Crómio",
@@ -2317,13 +2360,15 @@ chromium => {
 	sk => "Chróm",
 	ro => "Crom",
 	bg => "Хром",
+	
+	unit => "µg",
+	dv => 120,	
+	dv_2016 => 35,
 },
 molybdenum => {
 	fr => "Molybdène",
 	en => "Molybdenum",
 	es => "Molibdeno",
-	unit => "µg",
-	dv => "75",
 	it => "Molibdeno",
 	pt => "Molibdênio",
 	pt_pt => "Molibdénio",
@@ -2347,13 +2392,15 @@ molybdenum => {
 	sk => "Molybdén",
 	ro => "Molibden",
 	bg => "Молибден",
+	
+	unit => "µg",
+	dv => 75,	
+	dv_2016 => 45,
 },
 iodine => {
 	fr => "Iode",
 	en => "Iodine",
 	es => "Yodo",
-	unit => "µg",
-	dv => "150",
 	it=> "Iodio",
 	pt => "Iodo",
 	de => "Jod",
@@ -2376,6 +2423,10 @@ iodine => {
 	sk => "Jód",
 	ro => "Iod",
 	bg => "Йод",
+	
+	unit => "µg",
+	dv => 150,
+	dv_2016 => 150,
 },
 caffeine => {
 	fr => 'Caféine / Théine',
