@@ -43,7 +43,7 @@ cholesterol => "cholesterol",
 "fatty acids, total saturated" => "saturated-fat",
 "fatty acids, total trans" => "trans-fat",
 "fiber, total dietary" => "fiber",
-"folate, total" => "folate, total",
+"folate, total" => "folates",
 "folic acid" => "vitamin-b9",
 "iron, fe" => "iron",
 "lactose" => "lactose",
@@ -128,7 +128,6 @@ JELL-O
 WINN_DIXIE
 JENNIE-O
 DEL_MONTE
-BEEF_JERKY
 BUSH'S_BEST
 CLIF
 IGA
@@ -167,7 +166,6 @@ DUNCAN_HINES
 O_ORGANICS
 KINGS
 THE_BAKERY
-GREEK_NONFAT_YOGURT
 MOMENTUM_BRANDS
 LITTLE_DEBBIE
 NEWMAN'S_OWN
@@ -251,7 +249,6 @@ BUTTERBALL
 JELLY_BELLY
 BOB_EVANS
 POWERBAR
-SMOKED_SAUSAGE
 FERRIS
 PRICE_CHOPPER
 EVOLUTION_FRESH
@@ -306,7 +303,6 @@ EDEN
 GOOD_&_DELISH
 BUDDIG
 GONZALEZ
-KETTLE_COOKED_POTATO_CHIPS
 STONYFIELD_ORGANIC
 SHASTA
 NATURAL_DIRECTIONS
@@ -345,7 +341,6 @@ JOHNSONVILLE
 STUBB'S
 OLD_WISCONSIN
 JEWEL_OSCO
-LIQUID_WATER_ENHANCER
 SUNNY_D
 LUCKY_LEAF
 SARA_LEE
@@ -354,7 +349,6 @@ FAYGO
 KRUSTEAZ
 EL_MEXICANO
 TASTE_OF_INSPIRATIONS
-NONFAT_GREEK_YOGURT
 CORNER_STORE
 PIGGLY_WIGGLY
 TAYLOR_FARMS
@@ -387,7 +381,6 @@ PARADE
 CENTRELLA
 CHILI'S
 4C
-FLOUR_TORTILLAS
 TOO_GOOD_GOURMET
 WALLABY_ORGANIC
 LAND_O_LAKES
@@ -395,7 +388,6 @@ SUPERIOR_NUT_&_CANDY
 NATURE'S_PATH_ORGANIC
 SAN_GIORGIO
 MADE_IN_NATURE
-CRUNCHY_PEANUT_BUTTER
 7_SELECT
 THAT'S_SMART!
 TACOMA_BOYS
@@ -440,9 +432,7 @@ HELLMANN'S
 PRINCE
 JUSTIN'S
 RACCONTO
-GREAT_NORTHERN_BEANS
 KLONDIKE
-SELTZER
 PALMER'S_CANDIES
 THE_GREEK_GODS
 LIFEWAY
@@ -460,7 +450,6 @@ AIRHEADS
 KC_MASTERPIECE
 BOSTON_MARKET
 SHUR_FINE
-SPRINKLES
 SIMPLY_ORGANIC
 HEBERT
 WAL-MART_STORES
@@ -549,7 +538,6 @@ S._ROSEN'S
 MUELLER'S
 SWEET_BABY_RAY'S
 KETTLE
-PRETZELS
 SIMPLY_NATURE
 ROCKSTAR
 VAN'S
@@ -597,7 +585,6 @@ FOODTOWN
 7-SELECT
 ZICO
 MAPLE_HILL_CREAMERY
-CHICKEN_SAUSAGE
 DEMET'S
 OLD_DOMINION_PEANUT_COMPANY
 PALERMO'S
@@ -689,7 +676,6 @@ HILL_COUNTRY_FARE
 CHUCKANUT_BAY
 DREW'S
 DIERBERGS_KITCHEN
-BEEF_FRANKS
 STELLA_D'ORO
 GOURMET_SELECT
 S&B
@@ -704,9 +690,7 @@ COOKED_PERFECT
 ISOLA
 CHEK
 MOM'S_BEST_CEREALS
-GOURMET_POPCORN
 ANNIE_CHUN'S
-DANISH
 SARTORI
 AMERICAN_BEAUTY
 CAKE_MATE
@@ -737,7 +721,6 @@ GRAETER'S
 EL_GUAPO
 CHOCEUR
 TRUMOO
-GUMMY_BEARS
 7-ELEVEN
 DIVINE
 BIMBO
@@ -771,7 +754,6 @@ HAPPYTOT_ORGANICS
 PILLSBURY
 MAZOLA
 SUN-BIRD
-KOSHER_DILL_SPEARS
 BLAKE'S
 ADIRONDACK_BEVERAGES
 MARKET_DISTRICT
@@ -821,7 +803,6 @@ DANIELE
 LA_TORTILLA_FACTORY
 NONGSHIM
 MRS._RENFRO'S
-COTTON_CANDY
 DANONE
 CONTADINA
 VAN_DE_KAMP'S
@@ -1019,7 +1000,6 @@ Canada-dry
 Ken-s-steak-house
 Brisk
 Pillsbury
-Milk
 Private-selection
 Crown-prince
 Arrowhead
@@ -1336,6 +1316,9 @@ my $bad_files = "";
 
 my %existing_fields = ();
 
+my $total = 0;
+my $no_upc = 0;
+
 if (opendir (DH, "$dir")) {
 	foreach my $file (sort { $a <=> $b } readdir(DH)) {
 	
@@ -1439,6 +1422,8 @@ TEXT
 			my $code = undef;
 			my $name = $ndb_product_ref->{name};
 			
+			$total++;
+			
 			if ($name =~ /, UPC: (\d+)/) {
 				$code = $1;
 				$code = normalize_code($code);
@@ -1447,17 +1432,21 @@ TEXT
 			}
 			else {
 				print "no upc / barcode for product ndbno $ndb_id - name: $name\n";
+				$no_upc++;
 				next;
 			}
 			
 			#next if ($ndb_id !~ /^4504.76./);
+			next if $code ne "0744473912254";
 			
 			$i++;
 
 			
-			print "product $i - ndb_id: $ndb_id - code: $code\n";
 			
-			#$ndb_id < 7486 and next;
+			print "product $i - ndb_id: $ndb_id - code: $code\n";
+
+			# $i <= 108514 and next;
+			
 			
 			my $product_ref = product_exists($code); # returns 0 if not
 			
@@ -1617,6 +1606,8 @@ TEXT
 				'ing' => 'ingredients_text',
 			);
 			
+			my $updated = "";
+			
 			foreach my $field (sort keys %ndb_language_specific_fields) {
 			
 				my $off_field = $ndb_language_specific_fields{$field};
@@ -1627,6 +1618,9 @@ TEXT
 #            },				
 				if (defined $ndb_product_ref->{$field}) {
 					$params{$off_field} = $ndb_product_ref->{$field}{desc};
+					if (defined $ndb_product_ref->{$field}{upd}) {
+						$updated = $ndb_product_ref->{$field}{upd};
+					}
 					if (ref ($params{$off_field}) eq 'ARRAY') {
 						$params{$off_field} = join(', ', @{$params{$off_field}});
 					}					
@@ -1996,7 +1990,7 @@ TEXT
 				
 				compute_unknown_nutrients($product_ref);			
 			
-				store_product($product_ref, "Editing product (import_us_ndb.pl bulk import) - " . $comment );
+				store_product($product_ref, "Editing product (import_us_ndb.pl bulk import) - " . $comment . " - upd: " . $updated);
 				
 				push @edited, $code;
 				$edited{$code}++;
@@ -2054,3 +2048,6 @@ foreach my $name (sort {$potential_brands{$b} <=> $potential_brands{$a}} keys %p
 	print OUT $name . "\t" . $potential_brands{$name} . "\n";
 }
 close OUT;
+
+
+print "\nproducts:\ntotal: $total - with upc: $i - no upc: $no_upc\n"
