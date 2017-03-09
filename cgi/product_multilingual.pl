@@ -289,6 +289,12 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});						
 			}
 			print STDERR "product.pl - code: $code - field: $field = $product_ref->{$field}\n";
+			if ($field =~ /ingredients_text/) {
+				# the ingredients_text_with_allergens[_$lc] will be recomputed after
+				my $ingredients_text_with_allergens = $field;
+				$ingredients_text_with_allergens =~ s/ingredients_text/ingredients_text_with_allergens/;
+				delete $product_ref->{$ingredients_text_with_allergens};
+			}
 
 			compute_field_tags($product_ref, $field);
 			
