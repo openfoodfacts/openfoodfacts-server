@@ -1236,8 +1236,8 @@ foreach my $brand (sort ({ length($b) <=> length($a)  } @ch_brands)) {
 my %brands = ();
 my $products_with_brand = 0;
 
-open (IN, "</data/off/us/brands.txt") or die("unable to read /data/off/us/brands.txt");
-while (<IN>) {
+open (my $IN, "<" , "/home/off/usda-ndb/brands.txt") or die("unable to read /data/off/us/brands.txt");
+while (<$IN>) {
 	# remove bad chars
 	my $line = $_;
 	$line =~ s/[^[:ascii:]]//g;
@@ -1250,7 +1250,7 @@ while (<IN>) {
 		$products_with_brand++;
 	}
 }
-close IN;
+close $IN;
 print "$products_with_brand products with brand\n";
 #exit;
 
@@ -1437,9 +1437,15 @@ TEXT
 			}
 			
 			#next if ($ndb_id !~ /^4504.76./);
-			next if $code ne "0744473912254";
+			next if $code eq "0744473912254";
 			
 			$i++;
+
+			next if $i <= 10000;
+			#last if $i > 10000;
+			next if $ndb_id <= 45180400;
+			next if $ndb_id <= 45205042;
+			next if $ndb_id <= 45205353;
 
 			
 			
@@ -2036,18 +2042,18 @@ foreach my $name (sort keys %nutrients_names) {
 print "\n\nbad files:\n\n" . $bad_files;
 
 
-open OUT, ">product_names.txt";
+open (my OUT, ">", "product_names.txt");
 foreach my $name (sort keys %product_names) {
-	print OUT $name . "\n";
+	print $OUT $name . "\n";
 }
-close OUT;
+close $OUT;
 
 
-open OUT, ">potential_brands.txt";
+open ($OUT, ">", potential_brands.txt");
 foreach my $name (sort {$potential_brands{$b} <=> $potential_brands{$a}} keys %potential_brands) {
-	print OUT $name . "\t" . $potential_brands{$name} . "\n";
+	print $OUT $name . "\t" . $potential_brands{$name} . "\n";
 }
-close OUT;
+close $OUT;
 
 
 print "\nproducts:\ntotal: $total - with upc: $i - no upc: $no_upc\n"
