@@ -4159,7 +4159,7 @@ JS
 					
 						my ($lat, $lng) = get_packager_code_coordinates($emb_code);	
 						
-						if ((defined $lat) and (defined $lng)) {
+						if ((defined $lat) and ($lat ne '') and (defined $lng) and ($lng ne '')) {
 							my $geo = "$lat,$lng";
 							if (not defined $current_seen{$geo}) {
 						
