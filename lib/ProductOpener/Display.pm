@@ -142,6 +142,15 @@ $products_collection = $database->get_collection('products');
 $emb_codes_collection = $database->get_collection('emb_codes');
 
 
+if (defined $options{other_servers}) {
+
+	foreach my $server (keys %{$options{other_servers}}) {
+		$options{other_servers}{$server}{database} = $connection->get_database($options{other_servers}{$server}{mongodb});
+		$options{other_servers}{$server}{products_collection} = $options{other_servers}{$server}{database}->get_collection('products');
+	}
+}
+
+
 $default_request_ref = {
 page=>1,
 };
