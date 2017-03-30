@@ -232,7 +232,7 @@ sub store_product($$) {
 		if (defined $product_ref->{new_server}) {
 			my $new_server = $product_ref->{new_server};
 			$new_data_root = $options{other_servers}{$new_server}{data_root};
-			$new_www_root = $options{other_servers}{$new_server}{data_root};
+			$new_www_root = $options{other_servers}{$new_server}{www_root};
 			$new_products_collection = $options{other_servers}{$new_server}{products_collection};
 		}
 		
@@ -242,6 +242,10 @@ sub store_product($$) {
 		
 		my $prefix_path = $path;
 		$prefix_path =~ s/\/[^\/]+$//;	# remove the last subdir: we'll move it
+		if ($path eq $prefix_path) {
+			# short barcodes with no prefix
+			$prefix_path = '';
+		}
 		print STDERR "Products::store_product - path: $path - prefix_path: $prefix_path\n";
 		# Create the directories for the product
 		foreach my $current_dir  ($new_data_root . "/products", $new_www_root . "/images/products") {
@@ -266,7 +270,8 @@ sub store_product($$) {
 
 		}
 		else {
-			print STDERR "Products::store_product - cannot move from $data_root/products/$old_path to $data_root/products/$path (already exists)\n";		
+			(-e "$new_data_root/products/$path") and print STDERR "Products::store_product - cannot move from $data_root/products/$old_path to $new_data_root/products/$path (already exists)\n";		
+			(-e "$new_www_root/products/$path") and print STDERR "Products::store_product - cannot move from $www_root/products/$old_path to $new_www_root/products/$path (already exists)\n";		
 		}
 		
 		$comment .= " - barcode changed from $old_code to $code by $User_id";
