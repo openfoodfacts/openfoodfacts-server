@@ -1,0 +1,7 @@
+files:
+  - source: /po/common/en.po
+    translation: /po/common/%two_letters_code%.po
+  - source: /po/openbeautyfacts/en.po
+    translation: /po/openbeautyfacts/%two_letters_code%.po
+  - source: /po/openfoodfacts/en.po
+    translation: /po/openfoodfacts/%two_letters_code%.po
