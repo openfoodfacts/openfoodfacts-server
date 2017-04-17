@@ -232,20 +232,38 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$debug and print STDERR "product.pl action: process - phase 1 - type: $type code $code\n";
 	
+	exists $product_ref->{new_server} and delete $product_ref->{new_server};
+	
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if (0 and (defined param('new_code'))) {
-		my $new_code = normalize_code(param('new_code'));
+	if ($admin and (defined param('new_code'))) {
+		my $new_code = param('new_code');
+		my $new_server = "";
+		my $new_data_root = $data_root;
+		
+		if ($new_code =~ /^([a-z]+)$/) {
+			$new_server = $1;
+			if ((defined $options{other_servers}) and (defined $options{other_servers}{$new_server})
+				and ($options{other_servers}{$new_server}{data_root} ne $data_root)) {
+				$new_code = $code;
+				$new_data_root = $options{other_servers}{$new_server}{data_root};
+			}
+		}
+		
+		$new_code = normalize_code($new_code);
 		if ($new_code =~ /^\d+$/) {
 		# check that the new code is available
-			if (-e "$data_root/products/" . product_path($new_code)) {
+			if (-e "$new_data_root/products/" . product_path($new_code)) {
 				push @errors, lang("error_new_code_already_exists");
-				print STDERR "product.pl - cannot change code $code to $new_code (already exists)\n";
+				print STDERR "product.pl - cannot change code $code to $new_code - $new_server (already exists)\n";
 			}
 			else {
 				$product_ref->{old_code} = $code;
 				$code = $new_code;
 				$product_ref->{code} = $code;
-				print STDERR "product.pl - changing code $product_ref->{old_code} to $code\n";
+				if ($new_server ne '') {
+					$product_ref->{new_server} = $new_server;
+				}
+				print STDERR "product.pl - changing code $product_ref->{old_code} to $code - $new_server\n";
 			}
 		}
 	}
@@ -1862,7 +1880,14 @@ elsif ($action eq 'process') {
 	$comment = $comment . remove_tags_and_quote(decode utf8=>param('comment'));
 	store_product($product_ref, $comment);
 	
-	$html .= "<p>" . lang("product_changes_saved") . "</p><p>&rarr; <a href=\"" . product_url($product_ref) . "\">"
+	my $product_url = product_url($product_ref);
+	
+	# product that was moved to OBF from OFF etc.
+	if (defined $product_ref->{server}) {
+		$product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . $product_url;
+	}
+	
+	$html .= "<p>" . lang("product_changes_saved") . "</p><p>&rarr; <a href=\"" . $product_url . "\">"
 		. lang("see_product_page") . "</a></p>";
 		
 	if ($type eq 'delete') {

@@ -255,7 +255,7 @@ obf =>
         data_root => "/home/obf",
         www_root => "/home/obf/html",
         mongodb => "obf",
-	domain => "openbeautyfacts.org",
+        domain => "openbeautyfacts.org",
 },
 off =>
 {
@@ -263,7 +263,7 @@ off =>
         data_root => "/home/off",
         www_root => "/home/off/html",
         mongodb => "off",
-	domain => "openfoodfacts.org",
+        domain => "openfoodfacts.org",
 },
 opff =>
 {
@@ -272,8 +272,9 @@ opff =>
         data_root => "/home/opff",
         www_root => "/home/opff/html",
         mongodb => "opff",
-	domain => "openpetfoodfacts.org",
+        domain => "openpetfoodfacts.org",
 }
 };
+
 
 1;

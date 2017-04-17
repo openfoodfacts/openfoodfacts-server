@@ -212,22 +212,45 @@ sub store_product($$) {
 	my $path = product_path($code);
 	my $rev = $product_ref->{rev};
 	
+	# In case we need to move a product from OFF to OBF etc.
+	# then we first move the existing files (product and images)
+	# and then store the product with a comment.
+	
+	my $new_data_root = $data_root;
+	my $new_www_root = $www_root;
+	my $new_products_collection = $products_collection;
+		
+	
 	# Changing the code?
 	# 26/01/2017 - disallow code changes until we fix #677
-	if (0 and (defined $product_ref->{old_code})) {
+	if ($admin and (defined $product_ref->{old_code})) {
 	
 		my $old_code = $product_ref->{old_code};
 		my $old_path =  product_path($old_code);
 		
-		print STDERR "Products::store_product - move from $old_code to $code\n";
+
+		if (defined $product_ref->{new_server}) {
+			my $new_server = $product_ref->{new_server};
+			$new_data_root = $options{other_servers}{$new_server}{data_root};
+			$new_www_root = $options{other_servers}{$new_server}{www_root};
+			$new_products_collection = $options{other_servers}{$new_server}{products_collection};
+			$product_ref->{server} = $product_ref->{new_server};
+			delete $product_ref->{new_server};
+		}
+		
+		print STDERR "Products::store_product - move from $old_code to $code - $new_data_root \n";
 		
 		# Move directory
 		
 		my $prefix_path = $path;
 		$prefix_path =~ s/\/[^\/]+$//;	# remove the last subdir: we'll move it
+		if ($path eq $prefix_path) {
+			# short barcodes with no prefix
+			$prefix_path = '';
+		}
 		print STDERR "Products::store_product - path: $path - prefix_path: $prefix_path\n";
 		# Create the directories for the product
-		foreach my $current_dir  ($data_root . "/products", $www_root . "/images/products") {
+		foreach my $current_dir  ($new_data_root . "/products", $new_www_root . "/images/products") {
 			(-e "$current_dir") or mkdir($current_dir, 0755);
 			foreach my $component (split("/", $prefix_path)) {
 				$current_dir .= "/$component";
@@ -235,12 +258,12 @@ sub store_product($$) {
 			}
 		}
 		
-		if ((! -e "$data_root/products/$path")
-			and (! -e "$www_root/images/products/$path")) {
+		if ((! -e "$new_data_root/products/$path")
+			and (! -e "$new_www_root/images/products/$path")) {
 			use File::Copy;
 			print STDERR "Products::store_product - move from $data_root/products/$old_path to $data_root/products/$path (new)\n";
-			move("$data_root/products/$old_path", "$data_root/products/$path") or print STDERR "error moving data from $data_root/products/$old_path to $data_root/products/$path : $!\n";
-			move("$www_root/images/products/$old_path", "$www_root/images/products/$path") or print STDERR "error moving html from $www_root/images/products/$old_path to $www_root/images/products/$path : $!\n";
+			move("$data_root/products/$old_path", "$new_data_root/products/$path") or print STDERR "error moving data from $data_root/products/$old_path to $new_data_root/products/$path : $!\n";
+			move("$www_root/images/products/$old_path", "$new_www_root/images/products/$path") or print STDERR "error moving html from $www_root/images/products/$old_path to $new_www_root/images/products/$path : $!\n";
 			
 			delete $product_ref->{old_code};
 			
@@ -249,7 +272,8 @@ sub store_product($$) {
 
 		}
 		else {
-			print STDERR "Products::store_product - cannot move from $data_root/products/$old_path to $data_root/products/$path (already exists)\n";		
+			(-e "$new_data_root/products/$path") and print STDERR "Products::store_product - cannot move from $data_root/products/$old_path to $new_data_root/products/$path (already exists)\n";		
+			(-e "$new_www_root/products/$path") and print STDERR "Products::store_product - cannot move from $www_root/products/$old_path to $new_www_root/products/$path (already exists)\n";		
 		}
 		
 		$comment .= " - barcode changed from $old_code to $code by $User_id";
@@ -258,7 +282,7 @@ sub store_product($$) {
 	
 	if ($rev < 1) {
 		# Create the directories for the product
-		foreach my $current_dir  ($data_root . "/products", $www_root . "/images/products") {
+		foreach my $current_dir  ($new_data_root . "/products", $new_www_root . "/images/products") {
 			(-e "$current_dir") or mkdir($current_dir, 0755);
 			foreach my $component (split("/", $path)) {
 				$current_dir .= "/$component";
@@ -268,7 +292,7 @@ sub store_product($$) {
 	}
 	
 	# Check lock and previous version
-	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+	my $changes_ref = retrieve("$new_data_root/products/$path/changes.sto");
 	if (not defined $changes_ref) {
 		$changes_ref = [];
 	}
@@ -331,23 +355,25 @@ sub store_product($$) {
 	$product_ref->{complete} += 0;
 	$product_ref->{sortkey} += 0;
 	
+
+	
 	if ($product_ref->{deleted}) {
-		$products_collection->remove({"_id" => $product_ref->{_id}});
+		$new_products_collection->remove({"_id" => $product_ref->{_id}});
 	}
 	else {
-		$products_collection->save($product_ref);
+		$new_products_collection->save($product_ref);
 	}
 	
-	store("$data_root/products/$path/$rev.sto", $product_ref);
+	store("$new_data_root/products/$path/$rev.sto", $product_ref);
 	# Update link
-	my $link = "$data_root/products/$path/product.sto";
+	my $link = "$new_data_root/products/$path/product.sto";
 	if (-l $link) {
 		unlink($link) or print STDERR "Products::store_product could not unlink $link : $! \n";
 	}
-	#symlink("$data_root/products/$path/$rev.sto", $link) or print STDERR "Products::store_product could not symlink $data_root/products/$path/$rev.sto to $link : $! \n";
-	symlink("$rev.sto", $link) or print STDERR "Products::store_product could not symlink $data_root/products/$path/$rev.sto to $link : $! \n";
+	#symlink("$new_data_root/products/$path/$rev.sto", $link) or print STDERR "Products::store_product could not symlink $new_data_root/products/$path/$rev.sto to $link : $! \n";
+	symlink("$rev.sto", $link) or print STDERR "Products::store_product could not symlink $new_data_root/products/$path/$rev.sto to $link : $! \n";
 	
-	store("$data_root/products/$path/changes.sto", $changes_ref);
+	store("$new_data_root/products/$path/changes.sto", $changes_ref);
 }
 
 
