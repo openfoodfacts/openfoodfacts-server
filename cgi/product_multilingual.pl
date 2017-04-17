@@ -232,6 +232,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$debug and print STDERR "product.pl action: process - phase 1 - type: $type code $code\n";
 	
+	exists $product_ref->{new_server} and delete $product_ref->{new_server};
+	
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
 	if ($admin and (defined param('new_code'))) {
 		my $new_code = param('new_code');
@@ -1880,8 +1882,9 @@ elsif ($action eq 'process') {
 	
 	my $product_url = product_url($product_ref);
 	
-	if (defined $product_ref->{new_server}) {
-		$product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{new_server}}{domain} . $product_url;
+	# product that was moved to OBF from OFF etc.
+	if (defined $product_ref->{server}) {
+		$product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . $product_url;
 	}
 	
 	$html .= "<p>" . lang("product_changes_saved") . "</p><p>&rarr; <a href=\"" . $product_url . "\">"

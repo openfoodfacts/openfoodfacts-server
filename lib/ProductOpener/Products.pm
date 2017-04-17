@@ -234,6 +234,8 @@ sub store_product($$) {
 			$new_data_root = $options{other_servers}{$new_server}{data_root};
 			$new_www_root = $options{other_servers}{$new_server}{www_root};
 			$new_products_collection = $options{other_servers}{$new_server}{products_collection};
+			$product_ref->{server} = $product_ref->{new_server};
+			delete $product_ref->{new_server};
 		}
 		
 		print STDERR "Products::store_product - move from $old_code to $code - $new_data_root \n";
