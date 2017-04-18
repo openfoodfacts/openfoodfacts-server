@@ -101,7 +101,7 @@ scanparty-franprix-05-2016
 		["user_id", "kiliweb"],
 	],
 	actions => [
-		["ignore_if_existing_ingredients_text_fr"],
+		["warn_if_existing_ingredients_text_fr"],
 		["warn_if_0_nutriment_fruits-vegetables-nuts"],
 		["warn_if_greater_nutriment_fruits-vegetables-nuts", 0],
 	],

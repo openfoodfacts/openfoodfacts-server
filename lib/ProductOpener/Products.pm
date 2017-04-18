@@ -1154,12 +1154,21 @@ sub process_product_edit_rules($) {
 
 					if ($action =~ /^(ignore|warn)_(if_(existing|0|greater|lesser|equal|match|regexp_match)_)?(.*)$/) {
 						my ($type, $condition, $field) = ($1, $3, $4);
+						my $default_field = $field;
 						my $param_field = remove_tags_and_quote(decode utf8=>param($field));
 						
 						my $current_value = $product_ref->{$field};
 						if ($field =~ /^nutriment_(.*)/) {
 							my $nid = $1;
 							$current_value = $product_ref->{nutriments}{$nid . "_100g"};
+						}
+						
+						# language fields?
+						if ($field =~ /_(\w\w)$/) {
+							$default_field = $`;
+							if (not defined $param_field) {
+								$param_field = remove_tags_and_quote(decode utf8=>param($default_field));
+							}
 						}
 						
 						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current(field): " . $current_value . " - param(field): " . $param_field . "\n";	
@@ -1234,6 +1243,9 @@ sub process_product_edit_rules($) {
 							
 							if ($type eq 'ignore') {
 								Delete($field);
+								if ($default_field ne $field) {
+									Delete($default_field);
+								}
 							}
 							
 							if (defined $rule_ref->{notifications}) {
