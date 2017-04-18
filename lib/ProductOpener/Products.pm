@@ -46,7 +46,8 @@ BEGIN
 		&compute_product_history_and_completeness
 		&compute_languages
 					
-	
+		&process_product_edit_rules
+		
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -60,10 +61,13 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Mail qw/:all/;
+use ProductOpener::URL qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
 use MongoDB;
+use Encode;
 
 use Algorithm::CheckDigits;
 my $ean_check = CheckDigits('ean');
@@ -473,7 +477,7 @@ sub compute_completeness_and_missing_tags($$$) {
 	if ($complete) {
 		push @states_tags, "en:complete";	
 		
-		if ($product_ref->{checked} eq 'on') {
+		if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
 			push @states_tags, "en:checked"
 		}
 		else {
@@ -1073,6 +1077,230 @@ sub compute_languages($) {
 	$product_ref->{languages_hierarchy} = \@languages_hierarchy;
 }
 
+
+
+
+# @edit_rules = (
+# 
+# {
+# 	name => "App XYZ",
+# 	conditions => [
+# 		["user_id", "xyz"],
+# 	],
+# 	actions => {
+# 		["ignore_if_existing_ingredients_text_fr"],
+# 		["ignore_if_0_nutriments_fruits-vegetables-nuts"],
+# 		["warn_if_match_nutriments_fruits-vegetables-nuts", 100],
+# 		["ignore_if_regexp_match_packaging", "^(artikel|produit|producto|produkt|produkte)$"],
+# 	},
+# 	notifications => qw (
+# 		stephane@openfoodfacts.org
+# 		slack_channel_edit-alert
+# 		slack_channel_edit-alert-test
+# 	),
+# },
+# 
+# );
+# 
+
+
+sub process_product_edit_rules($) {
+
+	my $product_ref = shift;
+	my $code = $product_ref->{code};
+	
+	my $debug = 1;
+	
+	foreach my $rule_ref (@edit_rules) {
+	
+		$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name}\n";
+		
+		# Check the conditions
+		
+		my $conditions = 1;		
+		
+		if (defined $rule_ref->{conditions}) {
+			foreach my $condition_ref (@{$rule_ref->{conditions}}) {
+				if ($condition_ref->[0] eq 'user_id') {
+					if ($condition_ref->[1] ne $User_id) {
+						$conditions = 0;
+						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - condition $condition_ref->[0] does not match: $condition_ref->[1] (current: $User_id)\n";					
+						last;
+					}
+				}
+				else {
+					$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - unrecognized condition $condition_ref->[0]\n";					
+				}
+			}
+		}
+		
+		# If conditions match, process actions and notifications
+		if ($conditions) {
+		
+# 	actions => {
+# 		["ignore_if_existing_ingredients_texts_fr"],
+# 		["ignore_if_0_nutriments_fruits-vegetables-nuts"],
+# 		["warn_if_match_nutriments_fruits-vegetables-nuts", 100],
+# 		["ignore_if_regexp_match_packaging", "^(artikel|produit|producto|produkt|produkte)$"],
+# 	},
+			
+			if (defined $rule_ref->{actions}) {
+				foreach my $action_ref (@{$rule_ref->{actions}}) {
+					my $action = $action_ref->[0];
+					my $value = $action_ref->[1];
+					not defined $value and $value = '';
+					
+					$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - action: $action - value: $value\n";					
+
+					if ($action =~ /^(ignore|warn)_(if_(existing|0|greater|lesser|equal|match|regexp_match)_)?(.*)$/) {
+						my ($type, $condition, $field) = ($1, $3, $4);
+						my $param_field = remove_tags_and_quote(decode utf8=>param($field));
+						
+						my $current_value = $product_ref->{$field};
+						if ($field =~ /^nutriment_(.*)/) {
+							my $nid = $1;
+							$current_value = $product_ref->{nutriments}{$nid . "_100g"};
+						}
+						
+						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current(field): " . $current_value . " - param(field): " . $param_field . "\n";	
+						
+						# if there is an existing value equal to the passed value, just skip the rule
+						if  ((defined $current_value) and ($current_value eq $param_field)) {
+							$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current value equals new value -> skip edit rule - current(field): " . $current_value . " - param(field): " . $param_field . "\n";	
+							next;
+						}
+						
+						my $condition_ok = 1;						
+						
+						if (defined $condition) {
+							
+							$condition_ok = 0;
+							
+
+							if ($condition eq 'existing') {
+								if ((defined $current_value) and ($current_value ne '')) {
+									$condition_ok = 1;
+								}
+							}
+							elsif ($condition eq '0') {
+								if ((defined param($field)) and ($param_field == 0)) {
+									$condition_ok = 1;
+								}
+							}
+							elsif ($condition eq 'equal') {
+								if ((defined param($field)) and ($param_field == $value)) {
+									$condition_ok = 1;
+								}
+							}		
+							elsif ($condition eq 'lesser') {
+								if ((defined param($field)) and ($param_field < $value)) {
+									$condition_ok = 1;
+								}
+							}
+							elsif ($condition eq 'greater') {
+								if ((defined param($field)) and ($param_field > $value)) {
+									$condition_ok = 1;
+								}
+							}							
+							elsif ($condition eq 'match') {
+								if ((defined param($field)) and ($param_field eq $value)) {
+									$condition_ok = 1;
+								}
+							}							
+							elsif ($condition eq 'regexp_match') {
+								if ((defined param($field)) and ($param_field  =~ /$value/i)) {
+									$condition_ok = 1;
+								}
+							}
+							else {
+							}							
+							
+							if (not $condition_ok) {
+								$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current(field): " . $current_value . " - param(field): " . $param_field . " -- condition does not match\n";	
+							}
+							else {
+								$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current(field): " . $current_value . " - param(field): " . $param_field . " -- condition matches\n";								
+							}
+						}
+						
+						if ($condition_ok) {
+						
+							# Process action
+							
+							$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - executing action $action\n";
+							
+							
+							my $action_log = "product code $code - " . format_subdomain($subdomain) . product_url($product_ref) . " - edit rule $rule_ref->{name} - type: $type - condition: $condition - field: $field current(field): " . $current_value . " - param(field): " . $param_field . "\n";
+							
+							if ($type eq 'ignore') {
+								Delete($field);
+							}
+							
+							if (defined $rule_ref->{notifications}) {
+								foreach my $notification (@{$rule_ref->{notifications}}) {
+									if ($notification =~ /\@/) {
+										# e-mail
+										
+										my $user_ref = { name => $notification, email => $notification};
+										
+										send_email($user_ref, "Edit rule " . $rule_ref->{name} , $action_log );
+									}
+									elsif ($notification =~ /slack_/) {
+										# slack
+										
+										my $channel = $';
+										
+										# we need a slack bot with the Web api to post to multiple channel
+										# use the simpler incoming webhook api, and post only to edit-alerts for now
+										
+										$channel = "edit-alerts";
+										
+										my $emoji = ":lemon:";
+										if ($action eq 'warn') {
+											$emoji = ":pear:";
+										}
+																				
+										use LWP::UserAgent;
+										my $ua = LWP::UserAgent->new;
+										my $server_endpoint = "https://hooks.slack.com/services/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";
+
+										my $msg = $action_log;
+											
+										# set custom HTTP request header fields
+										my $req = HTTP::Request->new(POST => $server_endpoint);
+										$req->header('content-type' => 'application/json');
+										 
+										# add POST data to HTTP request body
+										my $post_data = '{"channel": "#' . $channel . '", "username": "editrules", "text": "' . $msg . '", "icon_emoji": "' . $emoji . '" }';
+										$req->content_type("text/plain; charset='utf8'");
+										$req->content(Encode::encode_utf8($post_data));
+										 
+										my $resp = $ua->request($req);
+										if ($resp->is_success) {
+											my $message = $resp->decoded_content;
+											print STDERR "Received reply: $message\n";
+										}
+										else {
+											print STDERR "HTTP POST error code: " .  $resp->code . "\n";
+											print STDERR "HTTP POST error message: " . $resp->message . "\n";
+										}										
+										
+									}
+								}
+							}
+						}
+						
+					}
+					else {
+						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - unrecognized action $action\n";
+					}
+				}
+			}		
+		
+		}
+	}
+	
+}
 
 1;
 
