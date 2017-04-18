@@ -53,4 +53,44 @@ is(canonicalize_taxonomy_tag("fr", "additives", "acide citrique"), "en:e330");
 
 #is_deeply($product_ref, $expected_product_ref);
 
+# issue/801-wrong-E471
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text => "Farine de blé 46 %, sucre de canne roux non raffiné, farine complète de blé 15 %, graines de sésame 13 %, huile de tournesol oléique 13 %, sel marin non raffiné, poudres à lever : carbonates d'ammonium et de sodium, acide citrique ; extrait de vanille, antioxydant : extraits de romarin.",
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+#use Data::Dumper;
+#print STDERR Dumper($product_ref->{additives_tags});
+
+is_deeply($product_ref->{additives_tags}, [
+                                'en:e503',
+                                'en:e500',
+                                'en:e330',
+                                'en:e392',
+                              ],
+);
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text => "carbonates de sodium et d'ammonium, nitrate de sodium et de potassium.",
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+#use Data::Dumper;
+#print STDERR Dumper($product_ref->{additives_tags});
+
+is_deeply($product_ref->{additives_tags}, [
+                                'en:e500',
+                                'en:e503',
+                                'en:e251',
+                                'en:e252',
+                              ],
+);
+
+
 done_testing();
