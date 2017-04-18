@@ -215,7 +215,7 @@ sub extract_ingredients_from_text($) {
 		my $level = shift;
 		my $s = shift;
 		
-		print STDERR "analyze_ingredients level $level: $s\n";
+		# print STDERR "analyze_ingredients level $level: $s\n";
 		
 		my $last_separator =  undef; # default separator to find the end of "acidifiants : E330 - E472"
 		
@@ -232,7 +232,7 @@ sub extract_ingredients_from_text($) {
 			my $sep = $1;
 			$after = $';
 			
-			print STDERR "separator: $sep\tbefore: $before\tafter: $after\n";
+			# print STDERR "separator: $sep\tbefore: $before\tafter: $after\n";
 			
 			if ($sep =~ /(:|\[|\()/i) {
 			
@@ -249,14 +249,14 @@ sub extract_ingredients_from_text($) {
 				$ending .= '|$';
 				$ending = '(' . $ending . ')';
 				
-				print STDERR "special separator: $sep - ending: $ending - after: $after\n";
+				# print STDERR "special separator: $sep - ending: $ending - after: $after\n";
 				
 				# another separator before the ending separator ? we probably have several sub-ingredients
 				if ($after =~ /^(.*?)$ending/i) {
 					$between = $1;
 					$after = $';
 					
-					print STDERR "sub-ingredients - between: $between - after: $after\n";
+					# print STDERR "sub-ingredients - between: $between - after: $after\n";
 					
 					if ($between =~ $separators) {
 						$between_level = $level + 1;
@@ -264,18 +264,18 @@ sub extract_ingredients_from_text($) {
 					else {
 						# no separator found : 34% ? or single ingredient
 						if ($between =~ /^\s*(\d+(\.\d+)?)\s*\%\s*$/) {
-							print STDERR "percent found:  $1\%\n";
+							# print STDERR "percent found:  $1\%\n";
 							$percent = $1;
 							$between = '';
 						}
 						else {
 							# single ingredient, stay at same level
-							print STDERR "single ingredient, stay at same level\n";
+							# print STDERR "single ingredient, stay at same level\n";
 						}
 					}
 				}
 				else {
-					print STDERR "could not find ending separator: $ending - after: $after\n"
+					# print STDERR "could not find ending separator: $ending - after: $after\n"
 					# ! could not find the ending separator
 				}
 			
@@ -286,27 +286,27 @@ sub extract_ingredients_from_text($) {
 			}
 			
 			if ($after =~ /^\s*(\d+(\.\d+)?)\s*\%\s*($separators|$)/) {
-				print STDERR "percent found: $after = $1 + $'\%\n";
+				# print STDERR "percent found: $after = $1 + $'\%\n";
 				$percent = $1;
 				$after = $';
 			}		
 		}
 		else {
 			# no separator found: only one ingredient
-			print STDERR "no separator found: $s\n";
+			# print STDERR "no separator found: $s\n";
 			$before = $s;
 		}
 		
 		# Strawberry 10.3%
 		if ($before =~ /\s*(\d+(\.\d+)?)\s*\%\s*$/) {
-			print STDERR "percent found: $before = $` + $1\%\n";
+			# print STDERR "percent found: $before = $` + $1\%\n";
 			$percent = $1;
 			$before = $`;
 		}		
 		
 		# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
 		if ($before =~ /^\s*(\d+(\.\d+)?)\s*\%\s*(pur|de|d')?\s*/i) {
-			print STDERR "'x% something' : percent found: $before = $' + $1\%\n";
+			# print STDERR "'x% something' : percent found: $before = $' + $1\%\n";
 			$percent = $1;
 			$before = $';
 		}		
@@ -446,6 +446,7 @@ sub extract_ingredients_classes_from_text($) {
 	
 	
 	foreach my $ingredient (@ingredients) {
+		next if not defined $ingredient;
 		if ($ingredient =~ / et (de )?/i) {
 			push @ingredients, $`;
 			push @ingredients, $';
