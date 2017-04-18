@@ -452,7 +452,10 @@ sub extract_ingredients_classes_from_text($) {
 	foreach my $ingredient (@ingredients) {
 		next if not defined $ingredient;
 		
-		if ($ingredient =~ /\b((de |d')(.*)) et (de |d')?/i) {
+		# Phosphate d'aluminium et de sodium --> E541. Should not be split.
+		
+		if (($ingredient !~ /phosphate(s)? d'aluminium et de sodium/i)
+			and ($ingredient =~ /\b((de |d')(.*)) et (de |d')?/i)) {
 			push @new_ingredients, $` . $1;	# huile de palme / carbonates d'ammonium
 			push @new_ingredients, $` . $4 . $'; # huile de tournesol / carbonates de sodium
 		}

@@ -76,7 +76,7 @@ is_deeply($product_ref->{additives_tags}, [
 
 $product_ref = {
         lc => "fr",
-        ingredients_text => "carbonates de sodium et d'ammonium, nitrate de sodium et de potassium.",
+        ingredients_text => "carbonates de sodium et d'ammonium, nitrate de sodium et de potassium, Phosphate d'aluminium et de sodium.",
 };
 
 extract_ingredients_classes_from_text($product_ref);
@@ -89,6 +89,7 @@ is_deeply($product_ref->{additives_tags}, [
                                 'en:e503',
                                 'en:e251',
                                 'en:e252',
+				'en:e541',
                               ],
 );
 
