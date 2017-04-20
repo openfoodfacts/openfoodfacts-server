@@ -444,14 +444,27 @@ sub extract_ingredients_classes_from_text($) {
 	
 	# huiles de palme et de
 	
+	# carbonates d'ammonium et de sodium
+	
+	# create a new list of ingredients where we can insert ingredients that we split in two
+	my @new_ingredients = ();
 	
 	foreach my $ingredient (@ingredients) {
 		next if not defined $ingredient;
-		if ($ingredient =~ / et (de )?/i) {
-			push @ingredients, $`;
-			push @ingredients, $';
+
+		# Phosphate d'aluminium et de sodium --> E541. Should not be split.
+		
+		if (($ingredient !~ /phosphate(s)? d'aluminium et de sodium/i)
+			and ($ingredient =~ /\b((de |d')(.*)) et (de |d')?/i)) {
+			push @new_ingredients, $` . $1;	# huile de palme / carbonates d'ammonium
+			push @new_ingredients, $` . $4 . $'; # huile de tournesol / carbonates de sodium
+		}
+		else {
+			push @new_ingredients, $ingredient;
 		}
 	}
+	
+	@ingredients = @new_ingredients;
 	
 	my @ingredients_ids = ();
 	foreach my $ingredient (@ingredients) {
@@ -515,8 +528,11 @@ sub extract_ingredients_classes_from_text($) {
 					
 					$product_ref->{$tagtype} .= " [ $ingredient_id_copy -> $canon_ingredient ";
 					
-					if ((not defined $seen{$canon_ingredient})
-						and (exists_taxonomy_tag($tagtype, $canon_ingredient))
+					if (defined $seen{$canon_ingredient}) {
+						$product_ref->{$tagtype} .= " -- already seen ";	
+						$match = 1;
+					}
+					elsif ((exists_taxonomy_tag($tagtype, $canon_ingredient))
 						# do not match synonyms
 						and ($canon_ingredient !~ /^en:(fd|no)/)
 						) {
