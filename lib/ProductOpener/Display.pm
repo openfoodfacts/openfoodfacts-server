@@ -5868,8 +5868,13 @@ HTML
 	foreach my $class ('additives', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil') {
 	
 		my $tagtype = $class;
+		my $tagtype_field = $tagtype;
+		# display the list of additives variants in the order that they were found, without the parents (no E450 for E450i)
+		if ($class eq 'additives') {
+			$tagtype_field = 'additives_original';
+		}
 	
-		if ((defined $product_ref->{$class . '_tags'}) and (scalar @{$product_ref->{$class . '_tags'}} > 0)) {
+		if ((defined $product_ref->{$tagtype_field . '_tags'}) and (scalar @{$product_ref->{$tagtype_field . '_tags'}} > 0)) {
 
 			$html .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang($class . "_p") . separator_before_colon($lc)) . ":</b><br />";
 			
@@ -5886,7 +5891,7 @@ HTML
 			}
 			
 			$html .= "<ul style=\"display:block;float:left;\">";
-			foreach my $tagid (@{$product_ref->{$class . '_tags'}}) {
+			foreach my $tagid (@{$product_ref->{$tagtype_field . '_tags'}}) {
 			
 				my $tag;
 				my $link;
