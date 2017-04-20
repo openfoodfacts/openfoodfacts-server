@@ -18,13 +18,13 @@ my $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-is($product_ref->{additives}, ' [ acide-citrique -> en:e330  -> exists  -- ok  ]  [ colorant -> fr:colorant  ]  [ e120 -> en:e120  -> exists  -- ok  ]  [ vitamine-c -> en:e300  -> exists  -- ok  ]  [ vitamine-e -> en:e306  -> exists  -- ok  ]  [ vitamine-500 -> fr:vitamine-500  ]  [ vitamine -> fr:vitamine  ] ');
+is($product_ref->{additives}, ' [ acide-citrique -> en:e330  -> exists  -- ok  ]  [ colorant -> fr:colorant  ]  [ e120 -> en:e120  -> exists  -- ok  ]  [ vitamine-c -> en:e300  -> exists  -- ok  ]  [ vitamine-e -> en:e307  -> exists  -- ok  ]  [ vitamine-500 -> fr:vitamine-500  ]  [ vitamine -> fr:vitamine  ] ');
 
 is_deeply($product_ref->{additives_tags}, [
                                 'en:e330',
                                 'en:e120',
                                 'en:e300',
-                                'en:e306'
+                                'en:e307'
                               ],
 );
 
@@ -92,6 +92,45 @@ is_deeply($product_ref->{additives_tags}, [
 				'en:e541',
                               ],
 );
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text => "calcium, sodium, potassium, aluminium, magnésium, fer, or, argent, sels",
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+use Data::Dumper;
+print STDERR Dumper($product_ref->{additives_tags});
+
+is_deeply($product_ref->{additives_tags}, [
+                                'en:e173',
+                                'en:e175',
+                                'en:e174',
+                              ],
+);
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text => "sirop de maltitol, Chlorophylle, Sels de sodium et de potassium de complexes cupriques de chlorophyllines, Carotènes végétaux, Carotènes d'algues",
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+use Data::Dumper;
+print STDERR Dumper($product_ref->{additives_tags});
+
+is_deeply($product_ref->{additives_tags}, [
+                                'en:e965ii',
+                                'en:e140i',
+				'en:e141ii',
+                                'en:e160aii',
+                                'en:e160aiv',
+                              ],
+);
+
+
 
 
 done_testing();
