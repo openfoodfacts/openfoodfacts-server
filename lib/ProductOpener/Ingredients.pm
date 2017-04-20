@@ -451,7 +451,7 @@ sub extract_ingredients_classes_from_text($) {
 	
 	foreach my $ingredient (@ingredients) {
 		next if not defined $ingredient;
-		
+
 		# Phosphate d'aluminium et de sodium --> E541. Should not be split.
 		
 		if (($ingredient !~ /phosphate(s)? d'aluminium et de sodium/i)

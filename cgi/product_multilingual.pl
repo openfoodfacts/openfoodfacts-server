@@ -230,6 +230,11 @@ my @fields = @ProductOpener::Config::product_fields;
 
 if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
+	# Process edit rules
+	
+	process_product_edit_rules($product_ref);
+
+
 	$debug and print STDERR "product.pl action: process - phase 1 - type: $type code $code\n";
 	
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
@@ -400,6 +405,10 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		next if $nid =~ /^nutrition-score/;
 
 		my $enid = encodeURIComponent($nid);
+		
+		# do not delete values if the nutriment is not provided
+		next if not defined param("nutriment_${enid}");		
+		
 		my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}"));
 		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_unit"));
 		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_label"));
