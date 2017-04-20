@@ -58,6 +58,10 @@ else {
 	}
 
 
+	# Process edit rules
+	
+	process_product_edit_rules($product_ref);	
+	
 	#my @app_fields = qw(product_name brands quantity);
 	my @app_fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
 
