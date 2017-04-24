@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: openfoodfacts\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-18 10:51+0000\n"
-"PO-Revision-Date: 2017-04-09 08:21-0400\n"
+"PO-Revision-Date: 2017-04-24 05:44-0400\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Language-Team: Romanian\n"
 "MIME-Version: 1.0\n"
@@ -20,44 +20,44 @@ msgstr ""
 #. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
 msgid ":langtag"
-msgstr ""
+msgstr "ro"
 
 #. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
 msgid ":langname"
-msgstr ""
+msgstr "Română"
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "1 produs"
 
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr " și "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "Despre mine"
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "Adaugă"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "Adaugă o limbă"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Adaugă un produs"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr ""
+msgstr "Înregistrare"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "<p>Vă mulțumim pentru înscriere. De acum vă puteți autentifica pe site pentru a adăuga și modifica produse.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -79,55 +79,55 @@ msgstr ""
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "Vă mulțumim pentru înscrierea la <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "Aditiv alimentar potențial riscant. Limitați utilizarea."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "Aditiv alimentar riscant. De evitat."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "Aditiv alimentar interzis în Europa. De evitat cu orice preț."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "Aditivi alimentari"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "Aditiv alimentar"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr ""
+msgstr "Căutare avansată"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "Căutare avansată și grafice"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "Consumul excesiv de alcool dăunează grav sănătății"
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "Toate misiunile"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr ""
+msgstr "Substanțe sau produse care cauzează alergii sau intoleranțe"
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr ""
+msgstr "alergeni"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "alergen"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
@@ -150,7 +150,7 @@ msgstr ""
 
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=ro"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -159,31 +159,31 @@ msgstr ""
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr ""
+msgstr "Faceți o fotografie"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr ""
+msgstr "Notă: fotografiile trimise sunt publicate sub o licență liberă Creative Commons Attribution and ShareAlike."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr ""
+msgstr "Puteți adăuga imagini:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "Axa orizontală"
 
 msgctxt "axis_y"
 msgid "Vertical axis"
-msgstr ""
+msgstr "Axa verticală"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr ""
+msgstr "Codul de bare"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr ""
+msgstr "Numărul din codul de bare:"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
@@ -195,11 +195,11 @@ msgstr ""
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
-msgstr ""
+msgstr "Participați la misiune"
 
 msgctxt "brands"
 msgid "Brands"
-msgstr ""
+msgstr "Mărci"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
@@ -207,19 +207,19 @@ msgstr ""
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr ""
+msgstr "marci"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr ""
+msgstr "Produse de la marca %s"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "marca"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "adăugați o marcă"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
@@ -227,35 +227,35 @@ msgstr ""
 
 msgctxt "by"
 msgid "by"
-msgstr ""
+msgstr "de către"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr ""
+msgstr "Categorii"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr ""
+msgstr "Sardine în ulei de măsline, Suc de portocale pe bază de concentrat"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr ""
+msgstr "Indicați doar categoria cea mai specifică. Categorile \"Părinte\" vor fi adăugate automat."
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "categorii"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr ""
+msgstr "Produse din categoria %s"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "categorie"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr ""
+msgstr "adugați o categorie"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
@@ -263,39 +263,39 @@ msgstr ""
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr ""
+msgstr "Date"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Nutrienți"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr ""
+msgstr "Imagini selectate"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr ""
+msgstr "Imagini încărcate"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr ""
+msgstr "verificatori"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr ""
+msgstr "verificator"
 
 msgctxt "cities_p"
 msgid "packaging cities"
-msgstr ""
+msgstr "orașele de împachetare"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr ""
+msgstr "Produse împachetate în orașul %s"
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr ""
+msgstr "orașul de împachetare"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
@@ -334,15 +334,38 @@ msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.p
 "<a href=\"http://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
 "<p>Windows Phone app:</p>\n\n"
 "<a href=\"http://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
-msgstr ""
+msgstr "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.png\" width=\"178\" height=\"144\" alt=\"<<site_name>>\" /></a>\n\n"
+"<p><<site_name>> adună informații și date despre produse alimentare din întreaga lume.</p>\n\n"
+"<select_country>\n\n"
+"<p>\n"
+"→ <a href=\"/marci\">Mărci</a><br />\n"
+"→ <a href=\"/categorii\">Categorii</a><br/>\n"
+"</p>\n\n"
+"<p>Informațiile despre produsele alimentare (fotografii, ingrediente, valori nutriționale etc.) sunt adunate într-un mod\n"
+"colaborativ și sunt puse la dispoziția tuturor și pentru toate utilizările într-o bază de date liberă și deschisă.</p>\n\n"
+"<p>Ne găsiți și pe:</p>\n\n"
+"<p>\n"
+"→ <a href=\"http://en.wiki.openfoodfacts.org\">wiki-ul nostru</a><br />\n"
+"→ <a href=\"http://twitter.com/openfoodfacts\">Twitter</a><br/>\n"
+"→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a><br />\n"
+"→ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
+"+ <a href=\"https://www.facebook.com/groups/374350705955208/\">grupul contributorilor</a><br />\n"
+"</p>\n\n"
+"<p>Aplicația pentru iPhone și iPad din App Store:</p>\n\n"
+"<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Disponibilă în App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
+"<p>Aplicația pentru Android din Google Play:</p>\n\n"
+"<a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner\"><img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Disponibilă în Google Play\" width=\"135\" height=\"47\" /></a><br/>\n"
+"<a href=\"http://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
+"<p>Aplicația pentru Windows Phone:</p>\n\n"
+"<a href=\"http://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr ""
+msgstr "a terminat %d misiuni:"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr ""
+msgstr "Sunteți conectat cu contul de Facebook."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
@@ -354,35 +377,35 @@ msgstr ""
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
-msgstr ""
+msgstr "Vă rugăm corectați erorile următoare:"
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr ""
+msgstr "corectori"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr ""
+msgstr "corector"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr ""
+msgstr "Țările unde se vinde"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
-msgstr ""
+msgstr "Țările unde produsul este disponibil pe scară largă (ne-incluzând magazinele specializate în produse străine)"
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr ""
+msgstr "tari"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Produse vândute în %s"
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "tara"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -390,7 +413,7 @@ msgstr ""
 
 msgctxt "data_source"
 msgid "Data source"
-msgstr ""
+msgstr "Sursa de date"
 
 msgctxt "debug_p"
 msgid "debug"
@@ -402,15 +425,15 @@ msgstr ""
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr ""
+msgstr "Motivul ștergerii"
 
 msgctxt "delete_product"
 msgid "Delete a product"
-msgstr ""
+msgstr "Ștergere produs"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr ""
+msgstr "Ștergere pagină"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
@@ -418,67 +441,67 @@ msgstr ""
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr ""
+msgstr "Ștergere utilizator"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr ""
+msgstr "Adăugate:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr ""
+msgstr "Schimbate:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr ""
+msgstr "Șterse:"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
-msgstr ""
+msgstr "Impact ecologic"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
-msgstr ""
+msgstr "Dacă amprenta de carbon este specificată pe etichetă (rar acum), indicați-o pentru aceeași cantitate ca și compoziția nutrițională."
 
 msgctxt "edit"
 msgid "edit"
-msgstr ""
+msgstr "modificare"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr ""
+msgstr "Sumarul schimbărilor"
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr ""
+msgstr "Modificare produs"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr ""
+msgstr "Modificare pagină"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
-msgstr ""
+msgstr "Modificați profilul public"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
-msgstr ""
+msgstr "Modificările asupra profilului public au fost salvate."
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
-msgstr ""
+msgstr "Informația următoare este vizibilă în profilul dumneavoastră public"
 
 msgctxt "edit_settings"
 msgid "Change your account parameters"
-msgstr ""
+msgstr "Schimbați parametrii contului"
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr ""
+msgstr "Parametrii contului"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr ""
+msgstr "<p>Parametrii contului dumneavoastră au fost schimbați.</p>"
 
 msgctxt "editors_p"
 msgid "editors"
@@ -490,7 +513,7 @@ msgstr ""
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr ""
+msgstr "Adresa de e-mail"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
@@ -518,7 +541,7 @@ msgstr ""
 
 msgctxt "emb_codes_p"
 msgid "packager codes"
-msgstr ""
+msgstr "codurile ambalatorului"
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
@@ -526,7 +549,7 @@ msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "packager code"
-msgstr ""
+msgstr "codul ambalatorului"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the emb code %s"
@@ -546,23 +569,23 @@ msgstr ""
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr ""
+msgstr "Nume de utilizator sau parolă incorectă. <a href=\"/cgi/reset_password.pl\">Parolă uitată?</a>"
 
 msgctxt "error_database"
 msgid "An error occured while reading the data, try to refresh the page."
-msgstr ""
+msgstr "A apărut o eroare în timp ce citeam datele, încercați să reîncărcați pagina."
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr ""
+msgstr "Parola și parola de confirmare sunt diferite."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "Adresa de email este deja folosită de către un alt utilizator. Poate că deja aveți un cont? Vă puteți <a href=\"/cgi/reset_password.pl\">reseta parola</a> celuilalt cont."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr ""
+msgstr "Adresă invalidă."
 
 msgctxt "error_invalid_csrf_token"
 msgid "Invalid CSRF token."
@@ -570,79 +593,79 @@ msgstr ""
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr ""
+msgstr "Adresă de e-mail invalidă"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
-msgstr ""
+msgstr "Parola trebuie să fie lungă de cel puțin 6 caractere."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr ""
+msgstr "Utilizator invalid."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr ""
+msgstr "Numele de utilizator trebuie să conțină doar litere neaccentuate, cifre și liniuțe."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
-msgstr ""
+msgstr "Un produs cu noul cod deja există"
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
-msgstr ""
+msgstr "Trebuie să introduceți un nume sau un pseudonim."
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
-msgstr ""
+msgstr "Acces refuzat."
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr ""
+msgstr "Trebuie să introduceți un nume de utilizator"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
-msgstr ""
+msgstr "Sunteți deja autentificați"
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
-msgstr ""
+msgstr "Link-ul pentru resetarea parolei este invalid sau a expirat."
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr ""
+msgstr "Nu există nici un cont cu această adresă de e-mail"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr ""
+msgstr "Acest nume de utilizator nu există."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr ""
+msgstr "Acest nume de utilizator există deja, vă rog alegeți altul."
 
 msgctxt "example"
 msgid "Example:"
-msgstr ""
+msgstr "Exemplu:"
 
 msgctxt "examples"
 msgid "Examples:"
-msgstr ""
+msgstr "Exemple:"
 
 msgctxt "expiration_date"
 msgid "Best before date"
-msgstr ""
+msgstr "A se consuma de preferință înainte de"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr ""
+msgstr "Data de expirare este o modalitate de a urmări schimbările produsului de-a lungul timpului și pentru a identifica cea mai recentă versiune."
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
-msgstr ""
+msgstr "Explorați produsele după..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
-msgstr ""
+msgstr "ro_RO"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
@@ -650,7 +673,7 @@ msgstr ""
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr ""
+msgstr "Dacă datele sunt incomplete sau incorecte, le puteți completa sau corecta modificând această pagină."
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
@@ -664,7 +687,7 @@ msgstr ""
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "și <a href=\"https://www.facebook.com/groups/374350705955208/\">grupul de Facebook pentru contribuitori</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -684,7 +707,7 @@ msgstr ""
 
 msgctxt "footer_data"
 msgid "Data"
-msgstr ""
+msgstr "Date"
 
 msgctxt "footer_data_link"
 msgid "/data"
@@ -692,11 +715,11 @@ msgstr ""
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr ""
+msgstr "Descoperiți proiectul"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
-msgstr ""
+msgstr "Întrebări frecvente"
 
 msgctxt "footer_faq_link"
 msgid "/faq"
@@ -710,19 +733,19 @@ msgstr ""
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
-msgstr ""
+msgstr "Instalați aplicația"
 
 msgctxt "footer_join_the_community"
 msgid "Join the community"
-msgstr ""
+msgstr "Alăturați-vă comunității"
 
 msgctxt "footer_join_us_on"
 msgid "Join us on %s:"
-msgstr ""
+msgstr "Alătură-te nouă pe %s:"
 
 msgctxt "footer_legal"
 msgid "Legal"
-msgstr ""
+msgstr "Mențiuni legale"
 
 msgctxt "footer_legal_link"
 msgid "/legal"
@@ -730,7 +753,7 @@ msgstr ""
 
 msgctxt "footer_press"
 msgid "Press"
-msgstr ""
+msgstr "Presa"
 
 msgctxt "footer_press_link"
 msgid "/press"
@@ -738,11 +761,11 @@ msgstr ""
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
-msgstr ""
+msgstr "O bază de date colaborativă, liberă și deschisă a produselor alimentare din întreaga lume."
 
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr ""
+msgstr "Condiții de utilizare"
 
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
@@ -750,7 +773,7 @@ msgstr ""
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
-msgstr ""
+msgstr "Cine suntem noi"
 
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
@@ -766,31 +789,31 @@ msgstr ""
 
 msgctxt "for"
 msgid "for"
-msgstr ""
+msgstr "pentru"
 
 msgctxt "front_alt"
 msgid "Product"
-msgstr ""
+msgstr "Produs"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr ""
+msgstr "Numele general"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
-msgstr ""
+msgstr "Baton de ciocolată cu lapte și alune"
 
 msgctxt "goodbye"
 msgid "See you soon!"
-msgstr ""
+msgstr "La revedere!"
 
 msgctxt "graph_count"
 msgid "%d products match the search criterias, of which %i products have defined values for the graph's axis."
-msgstr ""
+msgstr "%d produse se potrivesc criteriilor de căutare, din care %i produse au valori definite pentru axele graficului"
 
 msgctxt "graph_title"
 msgid "Graph title"
-msgstr ""
+msgstr "Titlul graficului"
 
 msgctxt "graphs_and_maps"
 msgid "Graphs and maps"
@@ -807,43 +830,52 @@ msgid "<meta property=\"fb:admins\" content=\"706410516\" />\n"
 "\tvar s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);\n"
 "  })();\n"
 "</script>\n\n\n"
-msgstr ""
+msgstr "<meta property=\"fb:admins\" content=\"706410516\" />\n"
+"<meta property=\"og:site_name\" content=\"<<site_name>> - baza de date liberă și deschisă cu informații despre produse alimentare\"/>\n\n"
+"<script type=\"text/javascript\">\n"
+"  var uvOptions = {};\n"
+"  (function() {\n"
+"\tvar uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;\n"
+"\tuv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/jQrwafQ94nbEbRWsznm6Q.js';\n"
+"\tvar s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);\n"
+"  })();\n"
+"</script>\n\n\n"
 
 msgctxt "hello"
 msgid "Hello"
-msgstr ""
+msgstr "Salut"
 
 msgctxt "high"
 msgid "high"
-msgstr ""
+msgstr "mare"
 
 msgctxt "high_quantity"
 msgid "high quantity"
-msgstr ""
+msgstr "cantitate mare"
 
 msgctxt "history"
 msgid "Changes history"
-msgstr ""
+msgstr "Istoricul schimbărilor"
 
 msgctxt "image_front"
 msgid "Front picture"
-msgstr ""
+msgstr "Imaginea din față"
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
-msgstr ""
+msgstr "Imaginea cu ingredientele"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
-msgstr ""
+msgstr "Dacă este suficient de clară și dreaptă, ingredientele ar putea fi extrase automat din fotografie."
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
-msgstr ""
+msgstr "Imaginea cu valori nutriționale"
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
-msgstr ""
+msgstr "Această imagine a fost deja trimis."
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
@@ -864,23 +896,23 @@ msgstr ""
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
-msgstr ""
+msgstr "Produse adăugate de dumneavoastră care trebuie completate"
 
 msgctxt "informers_p"
 msgid "informers"
-msgstr ""
+msgstr "informator"
 
 msgctxt "informers_s"
 msgid "informers"
-msgstr ""
+msgstr "informator"
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingrediente"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingrediente"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -892,19 +924,19 @@ msgstr ""
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
-msgstr ""
+msgstr "ingrediente care ar putea fi din sau ar putea proveni din ulei de palmier"
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_s"
 msgid "ingredient from or that may be from palm oil"
-msgstr ""
+msgstr "ingredient care ar putea fi din sau ar putea proveni din ulei de palmier"
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr ""
+msgstr "ingrediente din ulei de palmier"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
-msgstr ""
+msgstr "ingredient din ulei de palmier"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
@@ -916,11 +948,11 @@ msgstr ""
 
 msgctxt "ingredients_p"
 msgid "ingredients"
-msgstr ""
+msgstr "ingrediente"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
-msgstr ""
+msgstr "Produse care conțin ingredientul %s"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
@@ -928,11 +960,11 @@ msgstr ""
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
-msgstr ""
+msgstr "Lista de ingrediente"
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
-msgstr ""
+msgstr "Ingredientele sunt listate în ordinea importanței (cantitate)."
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
@@ -940,15 +972,15 @@ msgstr ""
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
-msgstr ""
+msgstr "Mențineți ordinea, indicați % unde este precizat, separați cu o virgulă sau - , folosiți () pentru ingredientele unui ingredient"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr ""
+msgstr "ingrediente care ar putea proveni din ulei de palmier"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
-msgstr ""
+msgstr "ingredient care ar putea proveni din ulei de palmier"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
@@ -964,39 +996,39 @@ msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
-msgstr ""
+msgstr "nutriente cunoscute"
 
 msgctxt "known_nutrients_s"
 msgid "known nutrient"
-msgstr ""
+msgstr "nutrient cunoscut"
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr ""
+msgstr "Etichete, certificări, premii"
 
 msgctxt "labels_example"
 msgid "Organic"
-msgstr ""
+msgstr "Bio"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
-msgstr ""
+msgstr "Indicați doar eticheta cea mai specifică. Etichetele \"Părinte\" vor fi adăugate automat."
 
 msgctxt "labels_p"
 msgid "labels"
-msgstr ""
+msgstr "etichete"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
-msgstr ""
+msgstr "Produse care au eticheta %s"
 
 msgctxt "labels_s"
 msgid "label"
-msgstr ""
+msgstr "eticheta"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
-msgstr ""
+msgstr "adăugați o etichetă"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
@@ -1004,11 +1036,11 @@ msgstr ""
 
 msgctxt "lang"
 msgid "Main language"
-msgstr ""
+msgstr "Limba principală"
 
 msgctxt "lang_ar"
 msgid "Arabic"
-msgstr ""
+msgstr "Arabă"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
@@ -1016,15 +1048,15 @@ msgstr ""
 
 msgctxt "lang_cs"
 msgid "Czech"
-msgstr ""
+msgstr "Cehă"
 
 msgctxt "lang_da"
 msgid "Danish"
-msgstr ""
+msgstr "Daneză"
 
 msgctxt "lang_de"
 msgid "German"
-msgstr ""
+msgstr "Germană"
 
 msgctxt "lang_el"
 msgid "Greek"
@@ -1032,11 +1064,11 @@ msgstr ""
 
 msgctxt "lang_en"
 msgid "English"
-msgstr ""
+msgstr "Engleză"
 
 msgctxt "lang_es"
 msgid "Spanish"
-msgstr ""
+msgstr "Spaniolă"
 
 msgctxt "lang_et"
 msgid "Estonian"
@@ -1044,11 +1076,11 @@ msgstr ""
 
 msgctxt "lang_fi"
 msgid "Finnish"
-msgstr ""
+msgstr "Finlandeză"
 
 msgctxt "lang_fr"
 msgid "French"
-msgstr ""
+msgstr "Franceză"
 
 msgctxt "lang_ga"
 msgid "Irish"
@@ -1056,7 +1088,7 @@ msgstr ""
 
 msgctxt "lang_he"
 msgid "Hebrew"
-msgstr ""
+msgstr "Ebraică"
 
 msgctxt "lang_hu"
 msgid "Hungarian"
@@ -1068,7 +1100,7 @@ msgstr ""
 
 msgctxt "lang_it"
 msgid "Italian"
-msgstr ""
+msgstr "Italiană"
 
 msgctxt "lang_ja"
 msgid "Japanese"
@@ -1084,7 +1116,7 @@ msgstr ""
 
 msgctxt "lang_lv"
 msgid "Latvian"
-msgstr ""
+msgstr "Letonă"
 
 msgctxt "lang_mt"
 msgid "Maltese"
@@ -1092,27 +1124,27 @@ msgstr ""
 
 msgctxt "lang_nl"
 msgid "Dutch"
-msgstr ""
+msgstr "Olandeză"
 
 msgctxt "lang_nl_be"
 msgid "Dutch"
-msgstr ""
+msgstr "Olandeză"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr ""
+msgstr "Limba cea mai prezentă și mai evidentă pe produs"
 
 msgctxt "lang_other"
 msgid "other language"
-msgstr ""
+msgstr "altă limbă"
 
 msgctxt "lang_pl"
 msgid "Polish"
-msgstr ""
+msgstr "Poloneză"
 
 msgctxt "lang_pt"
 msgid "Portuguese"
-msgstr ""
+msgstr "Portugheză"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
@@ -1120,11 +1152,11 @@ msgstr ""
 
 msgctxt "lang_ro"
 msgid "Romanian"
-msgstr ""
+msgstr "Română"
 
 msgctxt "lang_ru"
 msgid "Russian"
-msgstr ""
+msgstr "Rusă"
 
 msgctxt "lang_sk"
 msgid "Slovak"
@@ -1136,7 +1168,7 @@ msgstr ""
 
 msgctxt "lang_sv"
 msgid "Swedish"
-msgstr ""
+msgstr "Suedeză"
 
 msgctxt "lang_th"
 msgid "Thai"
@@ -1144,15 +1176,15 @@ msgstr ""
 
 msgctxt "lang_vi"
 msgid "Vietnamese"
-msgstr ""
+msgstr "Vietnameză"
 
 msgctxt "lang_zh"
 msgid "Chinese"
-msgstr ""
+msgstr "Chineză"
 
 msgctxt "language"
 msgid "en-US"
-msgstr ""
+msgstr "ro-RO"
 
 msgctxt "languages_p"
 msgid "languages"
@@ -1182,15 +1214,16 @@ msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"http://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"http://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr ""
+msgstr "Adăugând informații, date și/sau imagini, acceptați să vă faceți contribuția disponibilă sub licența pentru informație și date <a href=\"http://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a>, și sub licența pentru imagini <a href=\"http://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a>.\n"
+"Acceptați să fiți creditat pentru re-utilizări cu un link către produsul la care contribuiți."
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
-msgstr ""
+msgstr "Legătură către pagina produsului de pe site-ul oficial al producătorului"
 
 msgctxt "list_of_x"
 msgid "List of %s"
-msgstr ""
+msgstr "Listă de %s"
 
 msgctxt "loadmore"
 msgid "Load more results"
@@ -1198,19 +1231,19 @@ msgstr ""
 
 msgctxt "login_and_add_product"
 msgid "Sign-in and add the product"
-msgstr ""
+msgstr "Autentificați-vă și adăugați produsul"
 
 msgctxt "login_and_edit_product"
 msgid "Sign-in and edit the product"
-msgstr ""
+msgstr "Autentificați-vă și modificați produsul"
 
 msgctxt "login_create_your_account"
 msgid "Create your account."
-msgstr ""
+msgstr "Creați-vă contul."
 
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
-msgstr ""
+msgstr "Nu v-ați înregistrat încă?"
 
 msgctxt "login_register_content"
 msgid "<p>Sign-in to add or edit products.</p>\n\n"
@@ -1227,11 +1260,11 @@ msgstr ""
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "Autentificare"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
-msgstr ""
+msgstr "Autentificați-vă pentru a adăuga sau modifica produse."
 
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
@@ -1240,15 +1273,15 @@ msgstr ""
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr ""
+msgstr "Numele de utilizator sau adresa de e-mail:"
 
 msgctxt "low"
 msgid "low"
-msgstr ""
+msgstr "mic"
 
 msgctxt "low_quantity"
 msgid "low quantity"
-msgstr ""
+msgstr "cantitate mică"
 
 msgctxt "manage_images"
 msgid "Manage images"
@@ -1260,7 +1293,7 @@ msgstr ""
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr ""
+msgstr "Locurile de fabricare sau procesare"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
@@ -1268,19 +1301,19 @@ msgstr ""
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
-msgstr ""
+msgstr "locul de fabricație sau de procesare"
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
-msgstr ""
+msgstr "Produse fabricate sau procesate în %s"
 
 msgctxt "manufacturing_places_s"
 msgid "manufacturing or processing place"
-msgstr ""
+msgstr "locul de fabricație sau de procesare"
 
 msgctxt "manufacturing_places_tagsinput"
 msgid "add a place"
-msgstr ""
+msgstr "adăugați un loc"
 
 msgctxt "manufacturing_places_without_products"
 msgid "Products not manufactured or processed in %s"
@@ -1288,19 +1321,19 @@ msgstr ""
 
 msgctxt "map_count"
 msgid "%d products match the search criterias, of which %i products have a known production place."
-msgstr ""
+msgstr "%d produse corespund criteriilor de căutare, din care %i produse au un loc de producție cunoscut."
 
 msgctxt "map_title"
 msgid "Map title"
-msgstr ""
+msgstr "Titlul hărții"
 
 msgctxt "menu"
 msgid "Menu"
-msgstr ""
+msgstr "Meniu"
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Adaugă un produs"
 
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
@@ -1308,7 +1341,7 @@ msgstr ""
 
 msgctxt "menu_contribute"
 msgid "Contribute"
-msgstr ""
+msgstr "Contribuiți"
 
 msgctxt "menu_contribute_link"
 msgid "/contribute"
@@ -1316,7 +1349,7 @@ msgstr ""
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr ""
+msgstr "Descoperiți"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
@@ -1324,39 +1357,39 @@ msgstr ""
 
 msgctxt "mission_"
 msgid "Mission: "
-msgstr ""
+msgstr "Misiune: "
 
 msgctxt "mission_accomplished_by"
 msgid "This mission has been completed by:"
-msgstr ""
+msgstr "Această misiune a fost terminată de către:"
 
 msgctxt "mission_accomplished_by_n"
 msgid "Completed by %d persons."
-msgstr ""
+msgstr "Terminată de către %d persoane."
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
-msgstr ""
+msgstr "Fii primul care termină această misiune!"
 
 msgctxt "mission_goal"
 msgid "Goal:"
-msgstr ""
+msgstr "Obiectiv:"
 
 msgctxt "missions"
 msgid "Missions"
-msgstr ""
+msgstr "Misiuni"
 
 msgctxt "moderate"
 msgid "moderate"
-msgstr ""
+msgstr "moderat"
 
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
-msgstr ""
+msgstr "cantitate moderată"
 
 msgctxt "months"
 msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr ""
+msgstr "['Ianuarie', 'Februarie', 'Martie', 'Aprilie', 'Mai', 'Iunie', 'Iulie', 'August', 'Septembrie', 'Octombrie', 'Noiembrie', 'Decembrie']"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
@@ -1364,67 +1397,67 @@ msgstr ""
 
 msgctxt "n_products"
 msgid "%d products"
-msgstr ""
+msgstr "%d produse"
 
 msgctxt "name"
 msgid "Name"
-msgstr ""
+msgstr "Nume"
 
 msgctxt "names"
 msgid "Names"
-msgstr ""
+msgstr "Nume"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr ""
+msgstr "Dacă codul de bare nu este corect, sunteți rugat să-l corectați aici:"
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
-msgstr ""
+msgstr "Pentru produsele fără un cod de bare, un cod intern este înregistrat."
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr ""
+msgstr "Abonare la buletinul informativ (maxim 2 email-uri pe lună)"
 
 msgctxt "next"
 msgid "Next"
-msgstr ""
+msgstr "Următoarea"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
-msgstr ""
+msgstr "Produs fără cod de bare"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
-msgstr ""
+msgstr "Valorile nutriționale nu sunt specificate pe produs."
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
-msgstr ""
+msgstr "Nici un produs listat pentru codul de bare %s"
 
 msgctxt "no_products"
 msgid "No products."
-msgstr ""
+msgstr "Nici un produs."
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
-msgstr ""
+msgstr "Eroare de salvare, vă rog reîncercați."
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
-msgstr ""
+msgstr "Numărul de aditivi"
 
 msgctxt "number_of_products"
 msgid "Number of products"
-msgstr ""
+msgstr "Numărul produselor"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr ""
+msgstr "%s în %s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
-msgstr ""
+msgstr "Valori nutriționale pentru 100g"
 
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
@@ -1432,23 +1465,23 @@ msgstr ""
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
-msgstr ""
+msgstr "valori nutriționale"
 
 msgctxt "nutrient_levels_s"
 msgid "nutrient level"
-msgstr ""
+msgstr "valoare nutrițională"
 
 msgctxt "nutriments_p"
 msgid "nutriments"
-msgstr ""
+msgstr "nutriente"
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
-msgstr ""
+msgstr "Produse care conțin nutrientul %s"
 
 msgctxt "nutriments_s"
 msgid "nutriment"
-msgstr ""
+msgstr "nutrient"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
@@ -1456,47 +1489,47 @@ msgstr ""
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Valori nutriționale"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Valori nutriționale"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr ""
+msgstr "Valorile nutriționale medii pentru %d produse din categoria %s pentru care valorile nutriționale sunt cunoscute (din %d produse)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr ""
+msgstr "Diferența în %"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
-msgstr ""
+msgstr "valoare pentru 100 g / 100 ml"
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
-msgstr ""
+msgstr "Comparație cu valorile medii ale produselor din aceeași categorie:"
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr ""
+msgstr "De notat: pentru fiecare nutrient, media este calculată pentru produsele pentru care cantitatea nutrientului este cunoscută, nu pentru toate produsele din categorie."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr ""
+msgstr "Dacă fotografia este suficient de clară și dreaptă, informația nutrițională poate fi extrasă automat din imagine."
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
-msgstr ""
+msgstr "Al 10-lea procent"
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
-msgstr ""
+msgstr "pentru 100 g / 100 ml"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</supe> centile"
-msgstr ""
+msgstr "Al 5-lea procent"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
@@ -1504,11 +1537,11 @@ msgstr ""
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
-msgstr ""
+msgstr "Al 90-lea procent"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</supe> centile"
-msgstr ""
+msgstr "Al 95-lea procent"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
@@ -1524,20 +1557,20 @@ msgstr ""
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr ""
+msgstr "per porție"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
-msgstr ""
+msgstr "Deviația standard"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Valori nutriționale"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr ""
+msgstr "Tabelul listează implicit nutrienții care sunt specificați mai des. Lăsați câmpul liber dacă nu se regăsește pe etichetă.<br/>Puteți adăuga extra nutrienți (vitamine, minerale, colesterol etc.) tastând primele litere din numele lor în ultimul rând din tabel."
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
@@ -1562,7 +1595,7 @@ msgstr ""
 
 msgctxt "on_the_blog_title"
 msgid "News"
-msgstr ""
+msgstr "Noutăți"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
@@ -1575,7 +1608,7 @@ msgstr ""
 
 msgctxt "origins"
 msgid "Origin of ingredients"
-msgstr ""
+msgstr "Originea ingredientelor"
 
 msgctxt "origins_example"
 msgid "California, USA"
@@ -1583,23 +1616,23 @@ msgstr ""
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
-msgstr ""
+msgstr "Indicați originea ingredientelor"
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
-msgstr ""
+msgstr "originile ingredientelor"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr ""
+msgstr "Produse cu ingrediente originare din %s"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr ""
+msgstr "originea ingredientelor"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
-msgstr ""
+msgstr "adăugați o origine"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
@@ -1607,31 +1640,31 @@ msgstr ""
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "Ambalare"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
-msgstr ""
+msgstr "Proaspăt, Conservat, Înghețat, Îmbuteliat, Cutie, Sticlă, Plastic..."
 
 msgctxt "packaging_note"
 msgid "Packaging type, format, material"
-msgstr ""
+msgstr "Tipul de ambalaj, format, material"
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr ""
+msgstr "ambalaj"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
-msgstr ""
+msgstr "Produse cu ambalaj de %s"
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr ""
+msgstr "ambalaj"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
-msgstr ""
+msgstr "adăugați un tip, formă sau material"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
@@ -1639,23 +1672,23 @@ msgstr ""
 
 msgctxt "page_x"
 msgid "Page %d"
-msgstr ""
+msgstr "Pagina %d"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
-msgstr ""
+msgstr "Pagina %d din %d"
 
 msgctxt "pages"
 msgid "Pages:"
-msgstr ""
+msgstr "Pagini"
 
 msgctxt "password"
 msgid "Password"
-msgstr ""
+msgstr "Parola"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
-msgstr ""
+msgstr "Confirmare parolă"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
@@ -1675,11 +1708,11 @@ msgstr ""
 
 msgctxt "photographers_p"
 msgid "photographers"
-msgstr ""
+msgstr "fotografi"
 
 msgctxt "photographers_s"
 msgid "photographer"
-msgstr ""
+msgstr "fotograf"
 
 msgctxt "pnns_groups_1"
 msgid "PNNS groups 1"
@@ -1719,11 +1752,11 @@ msgstr ""
 
 msgctxt "points_ranking"
 msgid "Ranking"
-msgstr ""
+msgstr "Clasament"
 
 msgctxt "points_ranking_users_and_countries"
 msgid "Ranking of contributors and countries"
-msgstr ""
+msgstr "Clasament de contribuitori și țări"
 
 msgctxt "points_user"
 msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
@@ -1731,23 +1764,23 @@ msgstr ""
 
 msgctxt "previous"
 msgid "Previous"
-msgstr ""
+msgstr "Anterior"
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "Adăugați un nutrient"
 
 msgctxt "product_added"
 msgid "Product added on"
-msgstr ""
+msgstr "Produs adăugat în"
 
 msgctxt "product_changes_saved"
 msgid "Changes saved."
-msgstr ""
+msgstr "Schimbările au fost salvate."
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
-msgstr ""
+msgstr "Caracteristicile produslui"
 
 msgctxt "product_created"
 msgid "Product created"
@@ -1759,15 +1792,15 @@ msgstr ""
 
 msgctxt "product_image"
 msgid "Product picture"
-msgstr ""
+msgstr "Imaginea produsului"
 
 msgctxt "product_image_with_barcode"
 msgid "Picture with barcode:"
-msgstr ""
+msgstr "Imaginea produsului cu codul de bare:"
 
 msgctxt "product_js_current_image"
 msgid "Current image:"
-msgstr ""
+msgstr "Imaginea curentă:"
 
 msgctxt "product_js_deleting_images"
 msgid "Deleting images"
@@ -1775,63 +1808,63 @@ msgstr ""
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
-msgstr ""
+msgstr "Extrage ingredientele din imagine:"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr ""
+msgstr "Textul cu ingrediente nu a putut fi extras. Încercați cu o imagine mai clară, cu o rezoluție mai mare sau o mai bună încadrare a textului."
 
 msgctxt "product_js_extracted_ingredients_ok"
 msgid "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr ""
+msgstr "Textul cu ingrediente a fost extras. Recunoașterea de text nu este perfectă, deci sunteți rugați să verificați textul de mai jos și să corectați erorile dacă este necesar."
 
 msgctxt "product_js_extracting_ingredients"
 msgid "Extracting ingredients"
-msgstr ""
+msgstr "Extrag ingredientele"
 
 msgctxt "product_js_image_normalize"
 msgid "Normalize colors"
-msgstr ""
+msgstr "Normalizare culori"
 
 msgctxt "product_js_image_open_full_size_image"
 msgid "Open the picture in original size in a new windows"
-msgstr ""
+msgstr "Deschide imaginea în dimensiunea originală într-o fereastră nouă"
 
 msgctxt "product_js_image_received"
 msgid "Image received"
-msgstr ""
+msgstr "Imagine recepționată"
 
 msgctxt "product_js_image_rotate_and_crop"
 msgid "Rotate the image if necessary, then click and drag to select the interesting zone:"
-msgstr ""
+msgstr "Rotiți imaginea dacă este necesar, apoi dați click și trageți pentru a selecta zona de interes:"
 
 msgctxt "product_js_image_rotate_left"
 msgid "Rotate left"
-msgstr ""
+msgstr "Rotire la stânga"
 
 msgctxt "product_js_image_rotate_right"
 msgid "Rotate right"
-msgstr ""
+msgstr "Rotire la dreapta"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
-msgstr ""
+msgstr "Validează și/sau redimensionează imaginea"
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
-msgstr ""
+msgstr "Imagine salvată"
 
 msgctxt "product_js_image_saving"
 msgid "Saving image"
-msgstr ""
+msgstr "Imaginea se salvează"
 
 msgctxt "product_js_image_upload_error"
 msgid "Error while uploading image"
-msgstr ""
+msgstr "Eroare în timpul transmiterii imaginii"
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
-msgstr ""
+msgstr "Fotografie pe fundal alb: încearcă să ștergi fundalul"
 
 msgctxt "product_js_images_delete_error"
 msgid "Errors while deleting images"
@@ -1855,7 +1888,7 @@ msgstr ""
 
 msgctxt "product_js_upload_image"
 msgid "Add a picture"
-msgstr ""
+msgstr "Agaugă o imagine"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
@@ -1863,7 +1896,7 @@ msgstr ""
 
 msgctxt "product_js_uploading_image"
 msgid "Uploading image"
-msgstr ""
+msgstr "Îmaginea se transmite"
 
 msgctxt "product_last_edited"
 msgid "Last edit of product page on"
@@ -1871,7 +1904,7 @@ msgstr ""
 
 msgctxt "product_name"
 msgid "Product name"
-msgstr ""
+msgstr "Numele produsului"
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
@@ -1879,51 +1912,51 @@ msgstr ""
 
 msgctxt "products"
 msgid "products"
-msgstr ""
+msgstr "produse"
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
-msgstr ""
+msgstr "Evoluția numărului de produse pe <<site_name>>"
 
 msgctxt "products_stats_completed_t"
 msgid "Products with complete information"
-msgstr ""
+msgstr "Produse cu informații complete"
 
 msgctxt "products_stats_created_t"
 msgid "Products"
-msgstr ""
+msgstr "Produse"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
-msgstr ""
+msgstr "cu valori nutriționale"
 
 msgctxt "products_you_edited"
 msgid "Products you added or edited"
-msgstr ""
+msgstr "Produse adăugate sau modificate de dumneavoastră"
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr ""
+msgstr "Oraș, județ și țara de achiziție"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
-msgstr ""
+msgstr "Indicați unde ați achiziționat sau ați văzut produsul (cel puțin țara)"
 
 msgctxt "purchase_places_p"
 msgid "purchase places"
-msgstr ""
+msgstr "locațiile de cumpărare"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Produse vândute în %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
-msgstr ""
+msgstr "locația de cumpărare"
 
 msgctxt "purchase_places_tagsinput"
 msgid "add a place"
-msgstr ""
+msgstr "adăugați un loc"
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
@@ -1931,23 +1964,23 @@ msgstr ""
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr ""
+msgstr "Cantitate"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
-msgstr ""
+msgstr "2 l, 250 g, 1 kg, 250 ml"
 
 msgctxt "remember_me"
 msgid "Remember me"
-msgstr ""
+msgstr "Ține-mă minte"
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
-msgstr ""
+msgstr "Ține minte locul de achiziție și magazinul pentru următoarele adăugări de produse"
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr ""
+msgstr "Resetare parolă"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -1963,79 +1996,79 @@ msgstr ""
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
-msgstr ""
+msgstr "Resetarea parolei dumneavoastră pe <<site_name>>"
 
 msgctxt "reset_password_reset"
 msgid "Your password has been changed. You can now log-in with this password."
-msgstr ""
+msgstr "Parola a fost schimbată. De acum vă puteți autentifica cu această parolă."
 
 msgctxt "reset_password_reset_msg"
 msgid "Enter a new password."
-msgstr ""
+msgstr "Introduceți o parolă nouă."
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
-msgstr ""
+msgstr "Un e-mail cu un link pentru resetarea parolei v-a fost trimis la adresa de e-mail asociată cu contul dumneavoastră."
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
-msgstr ""
+msgstr "Dacă v-ați uitat parola, completați numele de utilizator sau adresa de e-mail pentru a primi instrucțiuni despre resetarea parolei."
 
 msgctxt "risk_level"
 msgid "Risk"
-msgstr ""
+msgstr "Risc"
 
 msgctxt "risk_level_0"
 msgid "To be completed"
-msgstr ""
+msgstr "De completat"
 
 msgctxt "risk_level_1"
 msgid "Low risks"
-msgstr ""
+msgstr "Risc scăzut"
 
 msgctxt "risk_level_2"
 msgid "Moderate risks"
-msgstr ""
+msgstr "Risc moderat"
 
 msgctxt "risk_level_3"
 msgid "High risks"
-msgstr ""
+msgstr "Risc mare"
 
 msgctxt "salt_equivalent"
 msgid "salt equivalent"
-msgstr ""
+msgstr "echivalentul de sare"
 
 msgctxt "save"
 msgid "Save"
-msgstr ""
+msgstr "Salvare"
 
 msgctxt "saved"
 msgid "Saved."
-msgstr ""
+msgstr "Salvat."
 
 msgctxt "saving"
 msgid "Saving."
-msgstr ""
+msgstr "Salvez."
 
 msgctxt "search"
 msgid "Search"
-msgstr ""
+msgstr "Căutare"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
-msgstr ""
+msgstr "Căutați un produs"
 
 msgctxt "search_button"
 msgid "Search"
-msgstr ""
+msgstr "Căutare"
 
 msgctxt "search_contains"
 msgid "contains"
-msgstr ""
+msgstr "conține"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
-msgstr ""
+msgstr "Alege produse cu marci specifice, categorii, etichete, originea de ingrediente, locuri de producție etc."
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
@@ -2043,47 +2076,47 @@ msgstr ""
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
-msgstr ""
+msgstr "nu conține"
 
 msgctxt "search_download_button"
 msgid "Download"
-msgstr ""
+msgstr "Descarcă"
 
 msgctxt "search_download_choice"
 msgid "Download results"
-msgstr ""
+msgstr "Descărcați rezultatele"
 
 msgctxt "search_download_results"
 msgid "Download results in CSV format (Excel, OpenOffice)"
-msgstr ""
+msgstr "Descărcați rezultatele în format CSV (Excel, OpenOffice)"
 
 msgctxt "search_download_results_description"
 msgid "Character set: Unicode (UTF-8)). Separator: tabulation (tab)."
-msgstr ""
+msgstr "Set de caractere: Unicode (UTF-8). Separator: tabulare (tab)."
 
 msgctxt "search_edit"
 msgid "Change search criteria"
-msgstr ""
+msgstr "Schimbă criteriile de căutare"
 
 msgctxt "search_flatten_tags"
 msgid "(Optional) - Create a column for every:"
-msgstr ""
+msgstr "(Opțional) - Crează o coloană pentru fiecare:"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
-msgstr ""
+msgstr "Generare grafic"
 
 msgctxt "search_generate_map"
 msgid "Generate the map"
-msgstr ""
+msgstr "Generează harta"
 
 msgctxt "search_graph"
 msgid "Graph"
-msgstr ""
+msgstr "Grafic"
 
 msgctxt "search_graph_2_axis"
 msgid "Scatter plot"
-msgstr ""
+msgstr "Grafic pe 2 axe"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
@@ -2091,7 +2124,7 @@ msgstr ""
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
-msgstr ""
+msgstr "Rezultatele pe un grafic"
 
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
@@ -2100,95 +2133,95 @@ msgstr ""
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Link permanent la acest grafic, transmisibil prin e-mail și pe rețele sociale"
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
-msgstr ""
+msgstr "Graficul va arăta numai produse pentru care valorile afișate sunt cunoscute."
 
 msgctxt "search_graph_title"
 msgid "Display results on a graph"
-msgstr ""
+msgstr "Afișarea rezultatelor pe un grafic"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr ""
+msgstr "Notă: acesta este un grafic generat de un utilizator. Titlul, produsele reprezentate și axa de vizualizare au fost alese de către autorul graficului."
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
-msgstr ""
+msgstr "Indiferent"
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingrediente"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Link permanent la aceste rezultate, transmisibil prin e-mail și pe rețele sociale"
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
-msgstr ""
+msgstr "Conduce la o listă de produse"
 
 msgctxt "search_map"
 msgid "Map"
-msgstr ""
+msgstr "Hartă"
 
 msgctxt "search_map_choice"
 msgid "Results on a map"
-msgstr ""
+msgstr "Rezultate pe o hartă"
 
 msgctxt "search_map_link"
 msgid "Permanent link to this map, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Link permanent la această hartă, transmisibil prin e-mail și pe rețele sociale"
 
 msgctxt "search_map_note"
 msgid "The map will show only products for which the production place is known."
-msgstr ""
+msgstr "Harta va arăta numai produsele pentru care locul de producție este cunoscut."
 
 msgctxt "search_map_title"
 msgid "Display results on a map"
-msgstr ""
+msgstr "Afișare rezultate pe o hartă"
 
 msgctxt "search_nutriment"
 msgid "choose a nutriment..."
-msgstr ""
+msgstr "alegeți un nutrient..."
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Nutrienți"
 
 msgctxt "search_or"
 msgid "or"
-msgstr ""
+msgstr "sau"
 
 msgctxt "search_page_size"
 msgid "Results per page"
-msgstr ""
+msgstr "Rezultate per pagină"
 
 msgctxt "search_products"
 msgid "Products search"
-msgstr ""
+msgstr "Căutare produse"
 
 msgctxt "search_results"
 msgid "Search results"
-msgstr ""
+msgstr "Rezultatele căutării"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
-msgstr ""
+msgstr "Folosește o culoare diferită pentru următoarele produse:"
 
 msgctxt "search_series_default"
 msgid "Other products"
-msgstr ""
+msgstr "Alte produse"
 
 msgctxt "search_series_fairtrade"
 msgid "Fair trade"
-msgstr ""
+msgstr "Comerț echitabil"
 
 msgctxt "search_series_fairtrade_label"
 msgid "fair-trade"
-msgstr ""
+msgstr "comerț-echitabil"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
@@ -2196,47 +2229,47 @@ msgstr ""
 
 msgctxt "search_series_organic"
 msgid "Organic"
-msgstr ""
+msgstr "Bio"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
-msgstr ""
+msgstr "bio"
 
 msgctxt "search_series_with_sweeteners"
 msgid "With sweeteners"
-msgstr ""
+msgstr "Cu îndulcitori"
 
 msgctxt "search_tag"
 msgid "choose a criterion..."
-msgstr ""
+msgstr "alegeți un criteriu..."
 
 msgctxt "search_tags"
 msgid "Criteria"
-msgstr ""
+msgstr "Criteriu"
 
 msgctxt "search_terms"
 msgid "Search terms"
-msgstr ""
+msgstr "Termeni de căutare"
 
 msgctxt "search_terms_note"
 msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
-msgstr ""
+msgstr "Căutați după cuvinte prezente în numele produsului, numele generic, mărci, categorii, origini și etichete"
 
 msgctxt "search_title"
 msgid "Search a product, brand, ingredient, nutriment etc."
-msgstr ""
+msgstr "Căutați un produs, marcă, ingredient, nutrient etc."
 
 msgctxt "search_title_graph"
 msgid "Results graph"
-msgstr ""
+msgstr "Graficul cu rezultate"
 
 msgctxt "search_title_map"
 msgid "Results map"
-msgstr ""
+msgstr "Harta cu rezultate"
 
 msgctxt "search_tools"
 msgid "Search tools"
-msgstr ""
+msgstr "Instrumente de căutare"
 
 msgctxt "search_value"
 msgid "value"
@@ -2244,47 +2277,47 @@ msgstr ""
 
 msgctxt "search_with"
 msgid "With"
-msgstr ""
+msgstr "Cu"
 
 msgctxt "search_without"
 msgid "Without"
-msgstr ""
+msgstr "Fără"
 
 msgctxt "see_product_page"
 msgid "See the product page"
-msgstr ""
+msgstr "Vedeți pagina produsului"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Țara"
 
 msgctxt "select_lang"
 msgid "Language"
-msgstr ""
+msgstr "Limba"
 
 msgctxt "send_image"
 msgid "Send a picture..."
-msgstr ""
+msgstr "Trimiteți o imagine..."
 
 msgctxt "send_image_error"
 msgid "Upload error"
-msgstr ""
+msgstr "Eroare de transmisie"
 
 msgctxt "sending_image"
 msgid "Sending image"
-msgstr ""
+msgstr "Imagine în curs de trimitere"
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr ""
+msgstr "Cantitatea unei porții"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
-msgstr ""
+msgstr "30 g, 2 biscuiți 60 g, 5 cl, un pahar 200 ml"
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "Autentificare"
 
 msgctxt "share"
 msgid "Share"
@@ -2292,23 +2325,23 @@ msgstr ""
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
-msgstr ""
+msgstr "Arată statistici detaliate"
 
 msgctxt "show_category_stats_details"
 msgid "standard deviation, minimum, maximum, 10th and 90th percentiles"
-msgstr ""
+msgstr "deviația standard, minimum, maximum, al 10-lea și al 90-lea procent"
 
 msgctxt "signin_before_submit"
 msgid "If you already have an account on <SITE>, please sign-in before filling this form."
-msgstr ""
+msgstr "Dacă deja aveți un cont pe <SITE>, vă rog autentificați-vă înainte de a completa acest formular."
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr ""
+msgstr "Deconectare"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
+msgstr "O bază de date liberă, colaborativă și deschisă de ingrediente, valori nutriționale și informații despre produsele alimentare din toată lumea"
 
 msgctxt "site_name"
 msgid "Open Food Facts"
@@ -2316,59 +2349,59 @@ msgstr ""
 
 msgctxt "sort_by"
 msgid "Sort by"
-msgstr ""
+msgstr "Ordonează după"
 
 msgctxt "sort_created_t"
 msgid "Add date"
-msgstr ""
+msgstr "Data adăugării"
 
 msgctxt "sort_modified_t"
 msgid "Edit date"
-msgstr ""
+msgstr "Data modificării"
 
 msgctxt "sort_popularity"
 msgid "Popularity"
-msgstr ""
+msgstr "Popularitate"
 
 msgctxt "sort_product_name"
 msgid "Product name"
-msgstr ""
+msgstr "Numele produsului"
 
 msgctxt "state"
 msgid "State"
-msgstr ""
+msgstr "Status"
 
 msgctxt "states_p"
 msgid "states"
-msgstr ""
+msgstr "statusuri"
 
 msgctxt "states_s"
 msgid "state"
-msgstr ""
+msgstr "status"
 
 msgctxt "stores"
 msgid "Stores"
-msgstr ""
+msgstr "Magazine"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
-msgstr ""
+msgstr "Numele magazinului sau al lanțului de magazine"
 
 msgctxt "stores_p"
 msgid "stores"
-msgstr ""
+msgstr "magazine"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
-msgstr ""
+msgstr "Produse vândute la %s"
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "magazin"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
-msgstr ""
+msgstr "adăugați un magazin"
 
 msgctxt "stores_without_products"
 msgid "Products not bought at %s"
@@ -2376,15 +2409,15 @@ msgstr ""
 
 msgctxt "subscribe"
 msgid "Subscribe"
-msgstr ""
+msgstr "Abonare"
 
 msgctxt "tag_belongs_to"
 msgid "Belongs to:"
-msgstr ""
+msgstr "Aparține de:"
 
 msgctxt "tag_contains"
 msgid "Contains:"
-msgstr ""
+msgstr "Conține"
 
 msgctxt "tag_weblinks"
 msgid "Weblinks"
@@ -2392,35 +2425,35 @@ msgstr ""
 
 msgctxt "tagstable_filtered"
 msgid "out of _MAX_"
-msgstr ""
+msgstr "din _MAX_"
 
 msgctxt "tagstable_search"
 msgid "Search:"
-msgstr ""
+msgstr "Căutare:"
 
 msgctxt "traces"
 msgid "Traces"
-msgstr ""
+msgstr "Urme"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
-msgstr ""
+msgstr "Lapte, Gluten, Alune, Nuci"
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
-msgstr ""
+msgstr "Indicați ingredientele din mențiuni ca de exemplu \"Ar putea conține urme de\", \"Produse într-o fabrică care produce și\" etc."
 
 msgctxt "traces_p"
 msgid "traces"
-msgstr ""
+msgstr "urme"
 
 msgctxt "traces_s"
 msgid "trace"
-msgstr ""
+msgstr "urma"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
-msgstr ""
+msgstr "Numele de utilizator Twitter (opțional)"
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
@@ -2428,43 +2461,43 @@ msgstr ""
 
 msgctxt "unknown"
 msgid "Unknown"
-msgstr ""
+msgstr "Necunoscut"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
-msgstr ""
+msgstr "nutriente necunoscute"
 
 msgctxt "unknown_nutrients_s"
 msgid "unknown nutrient"
-msgstr ""
+msgstr "nutrint necunoscut"
 
 msgctxt "unsubscribe"
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Dezabonare"
 
 msgctxt "unsubscribe_info"
 msgid "You can unsubscribe from the lists at any time."
-msgstr ""
+msgstr "Vă puteți dezabona de la liste în orice moment."
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
-msgstr ""
+msgstr "Nume de utilizator sau adresa de e-mail "
 
 msgctxt "username"
 msgid "User name"
-msgstr ""
+msgstr "Nume de utilizator"
 
 msgctxt "username_info"
 msgid "(non-accented letters, digits and/or dashes)"
-msgstr ""
+msgstr "(litere neaccentuate, cifre și/sau liniuțe)"
 
 msgctxt "username_or_email"
 msgid "Username or email address"
-msgstr ""
+msgstr "Numele de utilizator sau adresa de e-mail"
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
-msgstr ""
+msgstr "Produse care au fost adăugate de către utilizatorul %s"
 
 msgctxt "users_add_without_products"
 msgid "Products that were not added by the user %s"
@@ -2472,7 +2505,7 @@ msgstr ""
 
 msgctxt "users_edit_products"
 msgid "Products that were edited by the user %s"
-msgstr ""
+msgstr "Produse care au fost modificate de către utilizatorul %s"
 
 msgctxt "users_edit_without_products"
 msgid "Products that were not edited by the user %s"
@@ -2480,11 +2513,11 @@ msgstr ""
 
 msgctxt "users_p"
 msgid "contributors"
-msgstr ""
+msgstr "contributori"
 
 msgctxt "users_products"
 msgid "Products added by %s"
-msgstr ""
+msgstr "Produse adăugate de %s"
 
 msgctxt "users_s"
 msgid "contributor"
@@ -2496,32 +2529,33 @@ msgstr ""
 
 msgctxt "view"
 msgid "view"
-msgstr ""
+msgstr "vedere"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
-msgstr ""
+msgstr "Vedeți lista produselor corespunzătoare din toată lumea"
 
 msgctxt "view_products_from_the_entire_world"
 msgid "View matching products from the entire world"
-msgstr ""
+msgstr "Vedeți produsele corespunzătoare din toată lumea"
 
 msgctxt "view_results_from_the_entire_world"
 msgid "View results from the entire world"
-msgstr ""
+msgstr "Vedeți rezultatele din toată lumea"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"\">Why it matters</a>"
-msgstr ""
+msgstr "Informația și datele trebuie să provină de pe pachetul și eticheta produsului (nu de pe alte site-uri sau de pe site-ul producătorului), iar fotografia trebuie să fie făcută de voi înșivă.<br/>\n"
+"→ <a href=\"\">De ce contează?</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
-msgstr ""
+msgstr "Adresă site sau blog"
 
 msgctxt "weekdays"
 msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
-msgstr ""
+msgstr "['Duminică', 'Luni', 'Marți', 'Miercuri', 'Joi', 'Vineri', 'Sâmbătă']"
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
@@ -2533,7 +2567,7 @@ msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
-msgstr ""
+msgstr "Sunteți conectat cu %s."
 
 #~ msgctxt "login_register_content"
 #~ msgid ""
