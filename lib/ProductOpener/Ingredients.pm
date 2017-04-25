@@ -424,6 +424,8 @@ sub extract_ingredients_classes_from_text($) {
 	
 	# stabilisant e420 (sans : )
 	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement)(s)?(\s)?(:)?/$1$2 : /ig;
+	# citric acid natural flavor (may be a typo)
+	$text =~ s/(natural flavor)(s)?(\s)?(:)?/: $1$2 : /ig;
 	
 	# mono-glycéride -> monoglycérides
 	$text =~ s/(mono|di)-([a-z])/$1$2/ig;
@@ -445,6 +447,8 @@ sub extract_ingredients_classes_from_text($) {
 	# huiles de palme et de
 	
 	# carbonates d'ammonium et de sodium
+	
+	# carotène et extraits de paprika et de curcuma
 	
 	# create a new list of ingredients where we can insert ingredients that we split in two
 	my @new_ingredients = ();
@@ -536,7 +540,7 @@ sub extract_ingredients_classes_from_text($) {
 					}
 					elsif ((exists_taxonomy_tag($tagtype, $canon_ingredient))
 						# do not match synonyms
-						and ($canon_ingredient !~ /^en:(fd|no)/)
+						and ($canon_ingredient !~ /^en:(fd|no|colour)/)
 						) {
 						
 						$seen{$canon_ingredient} = 1;
