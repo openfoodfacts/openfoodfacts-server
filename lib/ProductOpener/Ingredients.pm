@@ -424,6 +424,8 @@ sub extract_ingredients_classes_from_text($) {
 	
 	# stabilisant e420 (sans : )
 	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement)(s)?(\s)?(:)?/$1$2 : /ig;
+	# citric acid natural flavor (may be a typo)
+	$text =~ s/(natural flavor)(s)?(\s)?(:)?/: $1$2 : /ig;
 	
 	# mono-glycéride -> monoglycérides
 	$text =~ s/(mono|di)-([a-z])/$1$2/ig;
@@ -446,15 +448,19 @@ sub extract_ingredients_classes_from_text($) {
 	
 	# carbonates d'ammonium et de sodium
 	
+	# carotène et extraits de paprika et de curcuma
+	
 	# create a new list of ingredients where we can insert ingredients that we split in two
 	my @new_ingredients = ();
 	
 	foreach my $ingredient (@ingredients) {
 		next if not defined $ingredient;
-
+		
 		# Phosphate d'aluminium et de sodium --> E541. Should not be split.
+		# Sels de sodium et de potassium de complexes cupriques de chlorophyllines -> should not be split... 
 		
 		if (($ingredient !~ /phosphate(s)? d'aluminium et de sodium/i)
+			and ($ingredient !~ /chlorophyl/i)
 			and ($ingredient =~ /\b((de |d')(.*)) et (de |d')?/i)) {
 			push @new_ingredients, $` . $1;	# huile de palme / carbonates d'ammonium
 			push @new_ingredients, $` . $4 . $'; # huile de tournesol / carbonates de sodium
@@ -534,7 +540,7 @@ sub extract_ingredients_classes_from_text($) {
 					}
 					elsif ((exists_taxonomy_tag($tagtype, $canon_ingredient))
 						# do not match synonyms
-						and ($canon_ingredient !~ /^en:(fd|no)/)
+						and ($canon_ingredient !~ /^en:(fd|no|colour)/)
 						) {
 						
 						$seen{$canon_ingredient} = 1;
@@ -576,13 +582,19 @@ sub extract_ingredients_classes_from_text($) {
 			}
 		
 		
+		# Also generate a list of additives with the parents (e.g. E500ii adds E500)
+		$product_ref->{ $tagtype . '_original_tags'} = $product_ref->{ $tagtype . '_tags'};
+		$product_ref->{ $tagtype . '_tags'} = [ sort(gen_tags_hierarchy_taxonomy("en", $tagtype, join(', ', @{$product_ref->{ $tagtype . '_original_tags'}})))];
+		
+		
 		# No ingredients?
 		if ($product_ref->{ingredients_text} eq '') {
 			delete $product_ref->{$tagtype . '_n'};
 		}
 		else {
-			if (defined $product_ref->{$tagtype . '_tags'}) {
-				$product_ref->{$tagtype. '_n'} = scalar @{$product_ref->{ $tagtype . '_tags'}};
+			# count the original list of additives, don't count E500ii as both E500 and E500ii
+			if (defined $product_ref->{$tagtype . '_original_tags'}) {
+				$product_ref->{$tagtype. '_n'} = scalar @{$product_ref->{ $tagtype . '_original_tags'}};
 			}
 			else {
 				delete $product_ref->{$tagtype . '_n'};
