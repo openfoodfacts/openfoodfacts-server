@@ -1155,6 +1155,13 @@ sub process_product_edit_rules($) {
 					if ($action =~ /^(ignore|warn)_(if_(existing|0|greater|lesser|equal|match|regexp_match)_)?(.*)$/) {
 						my ($type, $condition, $field) = ($1, $3, $4);
 						my $default_field = $field;
+						
+						# if field is not passed, skip rule
+						if (not defined param($field)) {
+							$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - no value passed -> skip edit rule\n";
+							next;
+						}
+						
 						my $param_field = remove_tags_and_quote(decode utf8=>param($field));
 						
 						my $current_value = $product_ref->{$field};
