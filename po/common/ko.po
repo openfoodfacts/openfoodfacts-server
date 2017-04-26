@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: openfoodfacts\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-18 10:51+0000\n"
-"PO-Revision-Date: 2017-04-09 08:41-0400\n"
+"PO-Revision-Date: 2017-04-26 13:06-0400\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Language-Team: Korean\n"
 "MIME-Version: 1.0\n"
@@ -20,12 +20,12 @@ msgstr ""
 #. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
 msgid ":langtag"
-msgstr ""
+msgstr "ko"
 
 #. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
 msgid ":langname"
-msgstr ""
+msgstr "Korean"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -33,31 +33,31 @@ msgstr ""
 
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr " 및 "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "내 소개"
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "추가"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "언어 추가"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr ""
+msgstr "제품 추가"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr ""
+msgstr "등록"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "<p>가입해주셔서 감사합니다. 이제 계정에 로그인하여 추가 및 수정을 할 수 있습니다."
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -79,15 +79,15 @@ msgstr ""
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "<<site_name>>에 가입해주셔서 감사합니다."
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "유해할 수 있는 첨가물입니다. 사용에 주의하세요."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "유해한 첨가물입니다. 되도록 피하세요."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
@@ -159,7 +159,7 @@ msgstr ""
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr ""
+msgstr "사진을 촬영"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
@@ -167,7 +167,7 @@ msgstr ""
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr ""
+msgstr "당신은 사진을 추가 할 수 있습니다 :"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
@@ -179,7 +179,7 @@ msgstr ""
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr ""
+msgstr "바코드"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
@@ -199,7 +199,7 @@ msgstr ""
 
 msgctxt "brands"
 msgid "Brands"
-msgstr ""
+msgstr "브랜드"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
@@ -227,11 +227,11 @@ msgstr ""
 
 msgctxt "by"
 msgid "by"
-msgstr ""
+msgstr "로"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr ""
+msgstr "카테고리"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -263,11 +263,11 @@ msgstr ""
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr ""
+msgstr "데이터"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "영양물"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
@@ -366,7 +366,7 @@ msgstr ""
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr ""
+msgstr "판매의 나라"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
@@ -410,7 +410,7 @@ msgstr ""
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr ""
+msgstr "페이지 삭제"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
@@ -450,11 +450,11 @@ msgstr ""
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr ""
+msgstr "제품을 편집"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr ""
+msgstr "페이지를 편집"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -630,7 +630,7 @@ msgstr ""
 
 msgctxt "expiration_date"
 msgid "Best before date"
-msgstr ""
+msgstr "날짜 이전 최고"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
@@ -638,7 +638,7 @@ msgstr ""
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
-msgstr ""
+msgstr "에 의해 제품에 드릴..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
@@ -650,7 +650,7 @@ msgstr ""
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr ""
+msgstr "데이터가 불완전하거나 부정확 한 경우, 당신은 완료하거나 문서를 편집하여 수정할 수 있습니다."
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
@@ -668,7 +668,7 @@ msgstr ""
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr ""
+msgstr "<<site_name>> 블로그"
 
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
@@ -684,7 +684,7 @@ msgstr ""
 
 msgctxt "footer_data"
 msgid "Data"
-msgstr ""
+msgstr "데이터"
 
 msgctxt "footer_data_link"
 msgid "/data"
@@ -692,11 +692,11 @@ msgstr ""
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr ""
+msgstr "프로젝트보세요"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
-msgstr ""
+msgstr "자주 묻는 질문"
 
 msgctxt "footer_faq_link"
 msgid "/faq"
@@ -710,19 +710,19 @@ msgstr ""
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
-msgstr ""
+msgstr "응용 프로그램을 설치"
 
 msgctxt "footer_join_the_community"
 msgid "Join the community"
-msgstr ""
+msgstr "커뮤니티에 참여"
 
 msgctxt "footer_join_us_on"
 msgid "Join us on %s:"
-msgstr ""
+msgstr "의 고객 센터 %s:"
 
 msgctxt "footer_legal"
 msgid "Legal"
-msgstr ""
+msgstr "법적 언급"
 
 msgctxt "footer_legal_link"
 msgid "/legal"
@@ -730,7 +730,7 @@ msgstr ""
 
 msgctxt "footer_press"
 msgid "Press"
-msgstr ""
+msgstr "프레스"
 
 msgctxt "footer_press_link"
 msgid "/press"
@@ -738,11 +738,11 @@ msgstr ""
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
-msgstr ""
+msgstr "세계 각국에서 식품의 협업 무료 오픈 데이터베이스."
 
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr ""
+msgstr "이용 약관"
 
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
@@ -750,7 +750,7 @@ msgstr ""
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
-msgstr ""
+msgstr "누가 우리가"
 
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
@@ -770,11 +770,11 @@ msgstr ""
 
 msgctxt "front_alt"
 msgid "Product"
-msgstr ""
+msgstr "생성물"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr ""
+msgstr "일반 이름"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
@@ -782,7 +782,7 @@ msgstr ""
 
 msgctxt "goodbye"
 msgid "See you soon!"
-msgstr ""
+msgstr "곧 당신을 참조하십시오!"
 
 msgctxt "graph_count"
 msgid "%d products match the search criterias, of which %i products have defined values for the graph's axis."
@@ -811,7 +811,7 @@ msgstr ""
 
 msgctxt "hello"
 msgid "Hello"
-msgstr ""
+msgstr "안녕하세요."
 
 msgctxt "high"
 msgid "high"
@@ -819,7 +819,7 @@ msgstr ""
 
 msgctxt "high_quantity"
 msgid "high quantity"
-msgstr ""
+msgstr "높은 양"
 
 msgctxt "history"
 msgid "Changes history"
@@ -831,7 +831,7 @@ msgstr ""
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
-msgstr ""
+msgstr "성분 목록의 그림"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
@@ -843,7 +843,7 @@ msgstr ""
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
-msgstr ""
+msgstr "이 사진은 이미 보냈습니다."
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
@@ -876,11 +876,11 @@ msgstr ""
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "성분"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr ""
+msgstr "성분"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -928,11 +928,11 @@ msgstr ""
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
-msgstr ""
+msgstr "성분 목록"
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
-msgstr ""
+msgstr "성분 중요성 (수량)의 순서로 나열되어 있습니다."
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
@@ -1076,7 +1076,7 @@ msgstr ""
 
 msgctxt "lang_ko"
 msgid "Korean"
-msgstr ""
+msgstr "한국어"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
@@ -1136,7 +1136,7 @@ msgstr ""
 
 msgctxt "lang_sv"
 msgid "Swedish"
-msgstr ""
+msgstr "스웨덴어"
 
 msgctxt "lang_th"
 msgid "Thai"
@@ -1186,11 +1186,11 @@ msgstr ""
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
-msgstr ""
+msgstr "생산자의 공식 사이트의 제품 페이지에 링크"
 
 msgctxt "list_of_x"
 msgid "List of %s"
-msgstr ""
+msgstr "%s 목록"
 
 msgctxt "loadmore"
 msgid "Load more results"
@@ -1206,11 +1206,11 @@ msgstr ""
 
 msgctxt "login_create_your_account"
 msgid "Create your account."
-msgstr ""
+msgstr "여러분의 계정을 만들어보세요."
 
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
-msgstr ""
+msgstr "아직 등록하지?"
 
 msgctxt "login_register_content"
 msgid "<p>Sign-in to add or edit products.</p>\n\n"
@@ -1227,11 +1227,11 @@ msgstr ""
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "로그인에"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
-msgstr ""
+msgstr "로그인에 추가하거나 편집 제품."
 
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
@@ -1240,7 +1240,7 @@ msgstr ""
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr ""
+msgstr "아이디 나 이메일 주소 :"
 
 msgctxt "low"
 msgid "low"
@@ -1296,11 +1296,11 @@ msgstr ""
 
 msgctxt "menu"
 msgid "Menu"
-msgstr ""
+msgstr "메뉴"
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr ""
+msgstr "제품 추가"
 
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
@@ -1308,7 +1308,7 @@ msgstr ""
 
 msgctxt "menu_contribute"
 msgid "Contribute"
-msgstr ""
+msgstr "기부"
 
 msgctxt "menu_contribute_link"
 msgid "/contribute"
@@ -1316,7 +1316,7 @@ msgstr ""
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr ""
+msgstr "발견"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
@@ -1352,7 +1352,7 @@ msgstr ""
 
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
-msgstr ""
+msgstr "적당한 양"
 
 msgctxt "months"
 msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
@@ -1364,7 +1364,7 @@ msgstr ""
 
 msgctxt "n_products"
 msgid "%d products"
-msgstr ""
+msgstr "%d 제품"
 
 msgctxt "name"
 msgid "Name"
@@ -1388,11 +1388,11 @@ msgstr ""
 
 msgctxt "next"
 msgid "Next"
-msgstr ""
+msgstr "다음"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
-msgstr ""
+msgstr "바코드가없는 제품"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
@@ -1416,7 +1416,7 @@ msgstr ""
 
 msgctxt "number_of_products"
 msgid "Number of products"
-msgstr ""
+msgstr "제품 수"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
@@ -1424,7 +1424,7 @@ msgstr ""
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
-msgstr ""
+msgstr "100g에 대한 영양 수준"
 
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
@@ -1456,11 +1456,11 @@ msgstr ""
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "영양 성분 표시"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "영양 성분 표시"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1492,7 +1492,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
-msgstr ""
+msgstr "100G / 100 ㎖"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</supe> centile"
@@ -1524,15 +1524,15 @@ msgstr ""
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr ""
+msgstr "인분"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
-msgstr ""
+msgstr "표준 편차"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "영양 성분 표시"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1575,7 +1575,7 @@ msgstr ""
 
 msgctxt "origins"
 msgid "Origin of ingredients"
-msgstr ""
+msgstr "성분의 유래"
 
 msgctxt "origins_example"
 msgid "California, USA"
@@ -1607,7 +1607,7 @@ msgstr ""
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "포장"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -1647,11 +1647,11 @@ msgstr ""
 
 msgctxt "pages"
 msgid "Pages:"
-msgstr ""
+msgstr "페이지 :"
 
 msgctxt "password"
 msgid "Password"
-msgstr ""
+msgstr "암호"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
@@ -1719,11 +1719,11 @@ msgstr ""
 
 msgctxt "points_ranking"
 msgid "Ranking"
-msgstr ""
+msgstr "순위"
 
 msgctxt "points_ranking_users_and_countries"
 msgid "Ranking of contributors and countries"
-msgstr ""
+msgstr "참여자 국가의 순위"
 
 msgctxt "points_user"
 msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
@@ -1747,7 +1747,7 @@ msgstr ""
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
-msgstr ""
+msgstr "제품 특징"
 
 msgctxt "product_created"
 msgid "Product created"
@@ -1763,7 +1763,7 @@ msgstr ""
 
 msgctxt "product_image_with_barcode"
 msgid "Picture with barcode:"
-msgstr ""
+msgstr "바코드 사진 :"
 
 msgctxt "product_js_current_image"
 msgid "Current image:"
@@ -1775,7 +1775,7 @@ msgstr ""
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
-msgstr ""
+msgstr "사진에서 성분을 추출"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
@@ -1807,11 +1807,11 @@ msgstr ""
 
 msgctxt "product_js_image_rotate_left"
 msgid "Rotate left"
-msgstr ""
+msgstr "회전 왼쪽"
 
 msgctxt "product_js_image_rotate_right"
 msgid "Rotate right"
-msgstr ""
+msgstr "오른쪽으로 회전"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
@@ -1855,7 +1855,7 @@ msgstr ""
 
 msgctxt "product_js_upload_image"
 msgid "Add a picture"
-msgstr ""
+msgstr "사진 추가"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
@@ -1863,7 +1863,7 @@ msgstr ""
 
 msgctxt "product_js_uploading_image"
 msgid "Uploading image"
-msgstr ""
+msgstr "업로드 이미지"
 
 msgctxt "product_last_edited"
 msgid "Last edit of product page on"
@@ -1871,7 +1871,7 @@ msgstr ""
 
 msgctxt "product_name"
 msgid "Product name"
-msgstr ""
+msgstr "제품 이름"
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
@@ -1879,7 +1879,7 @@ msgstr ""
 
 msgctxt "products"
 msgid "products"
-msgstr ""
+msgstr "제품"
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
@@ -1891,7 +1891,7 @@ msgstr ""
 
 msgctxt "products_stats_created_t"
 msgid "Products"
-msgstr ""
+msgstr "제품"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
@@ -1903,7 +1903,7 @@ msgstr ""
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr ""
+msgstr "도시, 주 및 구매의 나라"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
@@ -1931,7 +1931,7 @@ msgstr ""
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr ""
+msgstr "양"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
@@ -1939,7 +1939,7 @@ msgstr ""
 
 msgctxt "remember_me"
 msgid "Remember me"
-msgstr ""
+msgstr "저를 기억"
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
@@ -1991,15 +1991,15 @@ msgstr ""
 
 msgctxt "risk_level_1"
 msgid "Low risks"
-msgstr ""
+msgstr "낮은 위험"
 
 msgctxt "risk_level_2"
 msgid "Moderate risks"
-msgstr ""
+msgstr "보통 위험"
 
 msgctxt "risk_level_3"
 msgid "High risks"
-msgstr ""
+msgstr "높은 위험"
 
 msgctxt "salt_equivalent"
 msgid "salt equivalent"
@@ -2007,7 +2007,7 @@ msgstr ""
 
 msgctxt "save"
 msgid "Save"
-msgstr ""
+msgstr "저장"
 
 msgctxt "saved"
 msgid "Saved."
@@ -2019,15 +2019,15 @@ msgstr ""
 
 msgctxt "search"
 msgid "Search"
-msgstr ""
+msgstr "수색"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
-msgstr ""
+msgstr "제품 검색"
 
 msgctxt "search_button"
 msgid "Search"
-msgstr ""
+msgstr "수색"
 
 msgctxt "search_contains"
 msgid "contains"
@@ -2035,7 +2035,7 @@ msgstr ""
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
-msgstr ""
+msgstr "등 특정 브랜드, 종류, 라벨, 재료의 기원, 제조 장소와 제품 선택"
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
@@ -2047,11 +2047,11 @@ msgstr ""
 
 msgctxt "search_download_button"
 msgid "Download"
-msgstr ""
+msgstr "다운로드"
 
 msgctxt "search_download_choice"
 msgid "Download results"
-msgstr ""
+msgstr "다운로드 결과"
 
 msgctxt "search_download_results"
 msgid "Download results in CSV format (Excel, OpenOffice)"
@@ -2091,7 +2091,7 @@ msgstr ""
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
-msgstr ""
+msgstr "그래프에 결과"
 
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
@@ -2120,7 +2120,7 @@ msgstr ""
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "성분"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
@@ -2128,7 +2128,7 @@ msgstr ""
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
-msgstr ""
+msgstr "제품 목록에서 결과"
 
 msgctxt "search_map"
 msgid "Map"
@@ -2136,7 +2136,7 @@ msgstr ""
 
 msgctxt "search_map_choice"
 msgid "Results on a map"
-msgstr ""
+msgstr "지도 결과"
 
 msgctxt "search_map_link"
 msgid "Permanent link to this map, shareable by e-mail and on social networks"
@@ -2156,7 +2156,7 @@ msgstr ""
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "영양물"
 
 msgctxt "search_or"
 msgid "or"
@@ -2180,11 +2180,11 @@ msgstr ""
 
 msgctxt "search_series_default"
 msgid "Other products"
-msgstr ""
+msgstr "기타 제품"
 
 msgctxt "search_series_fairtrade"
 msgid "Fair trade"
-msgstr ""
+msgstr "공정 거래"
 
 msgctxt "search_series_fairtrade_label"
 msgid "fair-trade"
@@ -2228,15 +2228,15 @@ msgstr ""
 
 msgctxt "search_title_graph"
 msgid "Results graph"
-msgstr ""
+msgstr "결과 그래프"
 
 msgctxt "search_title_map"
 msgid "Results map"
-msgstr ""
+msgstr "결과지도"
 
 msgctxt "search_tools"
 msgid "Search tools"
-msgstr ""
+msgstr "검색 도구"
 
 msgctxt "search_value"
 msgid "value"
@@ -2252,19 +2252,19 @@ msgstr ""
 
 msgctxt "see_product_page"
 msgid "See the product page"
-msgstr ""
+msgstr "제품 페이지를 참조하십시오"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "국가"
 
 msgctxt "select_lang"
 msgid "Language"
-msgstr ""
+msgstr "언어"
 
 msgctxt "send_image"
 msgid "Send a picture..."
-msgstr ""
+msgstr "사진을 보내기를..."
 
 msgctxt "send_image_error"
 msgid "Upload error"
@@ -2276,7 +2276,7 @@ msgstr ""
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr ""
+msgstr "서빙 사이즈"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2284,7 +2284,7 @@ msgstr ""
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "로그인에"
 
 msgctxt "share"
 msgid "Share"
@@ -2332,7 +2332,7 @@ msgstr ""
 
 msgctxt "sort_product_name"
 msgid "Product name"
-msgstr ""
+msgstr "제품 이름"
 
 msgctxt "state"
 msgid "State"
@@ -2428,7 +2428,7 @@ msgstr ""
 
 msgctxt "unknown"
 msgid "Unknown"
-msgstr ""
+msgstr "알 수없는"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
@@ -2504,11 +2504,11 @@ msgstr ""
 
 msgctxt "view_products_from_the_entire_world"
 msgid "View matching products from the entire world"
-msgstr ""
+msgstr "전 세계에서 일치하는 모든 제품보기"
 
 msgctxt "view_results_from_the_entire_world"
 msgid "View results from the entire world"
-msgstr ""
+msgstr "전 세계에서보기 결과"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
