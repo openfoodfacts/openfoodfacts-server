@@ -11,6 +11,7 @@ files:
         en-AU: en_AU
         nl-BE: nl_BE
         nl: nl_NL
+        zh-TW: zh_TW
   - source: /po/openbeautyfacts/en.po
     translation: /po/openbeautyfacts/%two_letters_code%.po
     languages_mapping:
@@ -23,6 +24,7 @@ files:
         zh-HK: zh_HK
         nl-BE: nl_BE
         nl: nl_NL
+        zh-TW: zh_TW
   - source: /po/openfoodfacts/en.po
     translation: /po/openfoodfacts/%two_letters_code%.po
     languages_mapping:
@@ -35,3 +37,4 @@ files:
         nl: nl_NL
         pt-BR: pt_BR
         pt-PT: pt_PT
+        zh-TW: zh_TW
