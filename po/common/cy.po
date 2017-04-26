@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: openfoodfacts\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-18 10:51+0000\n"
-"PO-Revision-Date: 2017-04-09 08:41-0400\n"
+"PO-Revision-Date: 2017-04-26 13:02-0400\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Language-Team: Welsh\n"
 "MIME-Version: 1.0\n"
@@ -20,16 +20,16 @@ msgstr ""
 #. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
 msgid ":langtag"
-msgstr ""
+msgstr "cy"
 
 #. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
 msgid ":langname"
-msgstr ""
+msgstr "Welsh"
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "1 gynnyrch"
 
 msgctxt "_and_"
 msgid " and "
@@ -37,27 +37,27 @@ msgstr ""
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "Amdanaf i"
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "Ychwanegu"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "Ychwanegu iaith"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Ychwanegu cynnyrch"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr ""
+msgstr "Cofrestru"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "<p>Diolch am ymuno. Nawr gallwch fewngofnodi ar y wefan i ychwanegu a golygu cynhyrchion.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -79,7 +79,7 @@ msgstr ""
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "Diolch am ymuno â <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
@@ -87,31 +87,31 @@ msgstr ""
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "Ychwanegyn bwyd peryglus. Osgoi."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "Ychwanegyn bwyd wedi'i wahardd yn Ewrop. Osgoi ar bob cyfrif."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "ychwanegion"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "ychwanegyn"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr ""
+msgstr "Chwilio uwch"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "Chwilio a graffiau uwch"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "Mae goryfed yn neweidiol i iechyd."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -119,19 +119,19 @@ msgstr ""
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr ""
+msgstr "Sylweddau neu gynhyrchion sy'n achosi alergeddau neu anoddefiadau"
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr ""
+msgstr "alergenau"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "alergen"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr ""
+msgstr "Golygwyd y tudalen cynnyrch hefyd gan"
 
 #. Please do not change
 msgctxt "android_apk_app_badge"
@@ -146,7 +146,7 @@ msgstr ""
 #. Change the country code and description
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Ar gael ar Google Play\" width=\"135\" height=\"47\" />"
 
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
@@ -159,7 +159,7 @@ msgstr ""
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr ""
+msgstr "Tynnu llun"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
@@ -167,7 +167,7 @@ msgstr ""
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr ""
+msgstr "Gallwch ychwanegu lluniau:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
@@ -179,11 +179,11 @@ msgstr ""
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr ""
+msgstr "Côd bar"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr ""
+msgstr "Rhif côd bar:"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
@@ -199,19 +199,19 @@ msgstr ""
 
 msgctxt "brands"
 msgid "Brands"
-msgstr ""
+msgstr "Brandiau"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr ""
+msgstr "Kinder Bueno Gwyn, Kinder Bueno, Kinder, Ferrero"
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr ""
+msgstr "brandiau"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr ""
+msgstr "Cynhyrchion o'r brand %s"
 
 msgctxt "brands_s"
 msgid "brand"
@@ -219,23 +219,23 @@ msgstr ""
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "ychwanegu brand"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr ""
+msgstr "Cynhyrchion nad yw o'r brand %s"
 
 msgctxt "by"
 msgid "by"
-msgstr ""
+msgstr "gan"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr ""
+msgstr "Categorïau"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr ""
+msgstr "Sardinau mewn olew olewydd, sudd oren o dewsudd"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
@@ -243,23 +243,23 @@ msgstr ""
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "categorïau"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr ""
+msgstr "Cynhyrchion o'r gategori %s"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "categori"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr ""
+msgstr "ychwanegu categori"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr ""
+msgstr "Cynhyrchion nad yw o'r categori %s"
 
 msgctxt "change_fields"
 msgid "Data"
@@ -342,19 +342,19 @@ msgstr ""
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr ""
+msgstr "Rydych yn gysylltiedig â'ch cyfrif Facebook."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr ""
+msgstr "Cyfrannwr ers"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr ""
+msgstr "Copïo'r data o'r cynnyrch presennol i'r cynnyrch newydd"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
-msgstr ""
+msgstr "Cywirwch y gwallau canlynol:"
 
 msgctxt "correctors_p"
 msgid "correctors"
@@ -1300,7 +1300,7 @@ msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Ychwanegu cynnyrch"
 
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
