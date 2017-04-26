@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: openfoodfacts\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-18 10:51+0000\n"
-"PO-Revision-Date: 2017-04-09 09:11-0400\n"
+"PO-Revision-Date: 2017-04-26 13:07-0400\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Language-Team: Bulgarian\n"
 "MIME-Version: 1.0\n"
@@ -20,44 +20,44 @@ msgstr ""
 #. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
 msgid ":langtag"
-msgstr ""
+msgstr "bg"
 
 #. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
 msgid ":langname"
-msgstr ""
+msgstr "Bulgarian"
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "1 продукт"
 
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr " и "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "За мен"
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "Добави"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "Добави език"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Добави продукт"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr ""
+msgstr "Регистрирай се"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "<p>Благодарим Ви, че се присъединихте към OpenFoodFacts. Вече можете да влезете в профила си на сайта, за да добавите и редактирате продукти.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -79,7 +79,7 @@ msgstr ""
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "Благодарим Ви, че се присъединихте към <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
@@ -87,31 +87,31 @@ msgstr ""
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "Опасна хранителна добавка. Избягвайте."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "Хранителна добавка забранена в Европа. Избягвайте на всяка цена."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "добавки"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "добавка"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr ""
+msgstr "Разширено търсене"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "Разширено търсене и графики"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "Прекаленото пиене е вредно за здравето."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -119,19 +119,19 @@ msgstr ""
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr ""
+msgstr "вещества или продукти, причиняващи алергии или непоносимост"
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr ""
+msgstr "алергени"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "алерген"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr ""
+msgstr "страница на продукта е редактирана от"
 
 #. Please do not change
 msgctxt "android_apk_app_badge"
@@ -150,7 +150,7 @@ msgstr ""
 
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=bg"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -159,7 +159,7 @@ msgstr ""
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr ""
+msgstr "Направете снимка"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
@@ -167,23 +167,23 @@ msgstr ""
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr ""
+msgstr "Можете да добавяте снимки:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "Хоризонтална ос"
 
 msgctxt "axis_y"
 msgid "Vertical axis"
-msgstr ""
+msgstr "Вертикална ос"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr ""
+msgstr "Баркод"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr ""
+msgstr "Баркод номер:"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
@@ -195,11 +195,11 @@ msgstr ""
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
-msgstr ""
+msgstr "Приеми мисията"
 
 msgctxt "brands"
 msgid "Brands"
-msgstr ""
+msgstr "Марки"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
@@ -207,7 +207,7 @@ msgstr ""
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr ""
+msgstr "марки"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
@@ -1300,7 +1300,7 @@ msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Добави продукт"
 
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
