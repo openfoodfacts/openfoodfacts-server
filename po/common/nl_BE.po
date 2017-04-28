@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: openfoodfacts\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-18 10:51+0000\n"
-"PO-Revision-Date: 2017-04-26 13:08-0400\n"
+"PO-Revision-Date: 2017-04-28 06:41-0400\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Language-Team: Dutch, Belgium\n"
 "MIME-Version: 1.0\n"
@@ -179,7 +179,7 @@ msgstr "Verticale as"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr ""
+msgstr "Streepjescode"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
@@ -1411,7 +1411,7 @@ msgstr "%d producten"
 
 msgctxt "name"
 msgid "Name"
-msgstr "Naam"
+msgstr "Naam:"
 
 msgctxt "names"
 msgid "Names"
@@ -1499,11 +1499,11 @@ msgstr ""
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "Nutritionele samenstelling"
+msgstr "Voedingswaarden"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "Nutritionele samenstelling"
+msgstr "Voedingswaarden"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1575,7 +1575,7 @@ msgstr "Standaardafwijking"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "Nutritionele samenstelling"
+msgstr "Voedingswaarden"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1694,7 +1694,7 @@ msgstr "Pagina's"
 
 msgctxt "password"
 msgid "Password"
-msgstr "Paswoord"
+msgstr "Wachtwoord"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
@@ -2050,7 +2050,7 @@ msgstr "equivalent zout"
 
 msgctxt "save"
 msgid "Save"
-msgstr "Opslaan"
+msgstr "Bewaar"
 
 msgctxt "saved"
 msgid "Saved."
@@ -2062,7 +2062,7 @@ msgstr "De gegevens worden opgeslagen."
 
 msgctxt "search"
 msgid "Search"
-msgstr "Zoeken"
+msgstr "Zoek"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
@@ -2070,7 +2070,7 @@ msgstr "Zoek een product"
 
 msgctxt "search_button"
 msgid "Search"
-msgstr "Zoeken"
+msgstr "Zoek"
 
 msgctxt "search_contains"
 msgid "contains"
@@ -2331,7 +2331,7 @@ msgstr "Aanmelden"
 
 msgctxt "share"
 msgid "Share"
-msgstr ""
+msgstr "Delen"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
