@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: openfoodfacts\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-18 10:51+0000\n"
-"PO-Revision-Date: 2017-04-27 15:56-0400\n"
+"PO-Revision-Date: 2017-05-01 17:20-0400\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
@@ -365,7 +365,7 @@ msgstr "завершено %d заданий:"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr "Вы подключились с вашим аккаунтом Facebook."
+msgstr "Вы подключены используя ваш аккаунт Facebook"
 
 msgctxt "contributor_since"
 msgid "Contributor since"
@@ -657,7 +657,7 @@ msgstr "Срок годности"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr "Дата окончания срока действия - это способ отслеживания изменений продукта с течением времени и обнаружения самой последней версии."
+msgstr "Дата окончания срока годности — для отслеживания новизны данных."
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
@@ -875,21 +875,21 @@ msgstr "Фото пищевой ценности"
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
-msgstr "Это фото уже было отправлено."
+msgstr "Эта картинка уже была загружена"
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
-msgstr "Слишком маленькое фото. Не загружайте фотографии, найденные в Интернете. Отправляйте только фото, которые вы сделали сами."
+msgstr "Эта картинка слишком маленькая. Пожалуйста, не загружайте картинки, найденные в интернете, а загружайте только сделанные вами фотографии."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
 "You can try with another image, or directly enter the barcode."
-msgstr "Штрих-код на изображении прочитать не удалось, либо его там не было.\n"
-"Можете попробовать с другим изображением, или ввести код напрямую."
+msgstr "Штрих-код на изображении не удалось прочитать, или на нём вообще не было кода.\n"
+"Можете попробовать с другим изображением или ввести код вручную."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
-msgstr "Код на изображении не обнаружен."
+msgstr "Читаемый штрих-код на картинке не обнаружен."
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
@@ -933,11 +933,11 @@ msgstr "ингредиент из пальмового масла или мог�
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr "ингредиенты из пальмового масла"
+msgstr "компоненты из пальмового масла"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
-msgstr "ингредиент из пальмового масла"
+msgstr "компонент из пальмового масла"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
@@ -1449,7 +1449,7 @@ msgstr "Нет продуктов со штрихкодом %s."
 
 msgctxt "no_products"
 msgid "No products."
-msgstr "Нет продуктов."
+msgstr "Нет продуктов"
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
@@ -1509,7 +1509,7 @@ msgstr "Пищевая и энергетическая ценность"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr "Усреднённая пищевая ценность для  %d продуктов  в категории %s, для которых пищевая ценность известна (из %d продуктов)."
+msgstr "Средняя пищевая ценность для %d продуктов из категории %s, для которых указана пищевая ценность (из %d продуктов всего)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -1822,7 +1822,7 @@ msgstr "Удаление изображений"
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
-msgstr "Выписка ингредиенты, указанные на картинке"
+msgstr "Выписать ингредиенты, указанные на картинке (с кириллицей не работает)"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
@@ -1906,7 +1906,7 @@ msgstr "Добавить изображение"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr "С помощью Chrome, Firefox и Safari, вы можете выбрать несколько снимков (продукт, ингредиенты, пищевая ценность и т.д.), щелкнув их, удерживая клавишу Ctrl нажатой, чтобы добавить их все за один раз."
+msgstr "→ В Chrome, Firefox и Safari можно выбрать несколько файлов изображений (продукта, состава, пищевой ценности и т. п.), кликая по ним удерживая кнопку Ctrl, и загрузить их все одновременно."
 
 msgctxt "product_js_uploading_image"
 msgid "Uploading image"
