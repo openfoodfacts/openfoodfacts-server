@@ -5870,7 +5870,7 @@ HTML
 		my $tagtype = $class;
 		my $tagtype_field = $tagtype;
 		# display the list of additives variants in the order that they were found, without the parents (no E450 for E450i)
-		if ($class eq 'additives') {
+		if (($class eq 'additives') and (exists $product_ref->{'additives_original_tags'})) {
 			$tagtype_field = 'additives_original';
 		}
 	
