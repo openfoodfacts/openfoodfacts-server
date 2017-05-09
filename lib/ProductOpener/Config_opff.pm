@@ -48,9 +48,6 @@ BEGIN
 		%tesseract_ocr_available_languages
 		
 		%weblink_templates
-		
-		@edit_rules
-		
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -76,55 +73,6 @@ twoflower
 scanparty-franprix-05-2016
 );
 
-@edit_rules = (
-
-{
-	name => "Edit Rules Testing",
-	conditions => [
-		["user_id", "editrulestest"],
-	],
-	actions => [
-		["ignore_if_existing_ingredients_text_fr"],
-		["warn_if_0_nutriment_fruits-vegetables-nuts"],
-		["warn_if_greater_nutriment_fruits-vegetables-nuts", 0],
-		["ignore_if_regexp_match_packaging", '\b(artikel|produit|producto|produkt|produkte)\b'],
-	],
-	notifications => [ qw (
-		slack_channel_edit-alert
-	)],
-},
-
-{
-	name => "Yuka",
-	conditions => [
-		["user_id", "kiliweb"],
-	],
-	actions => [
-		["warn_if_existing_brands"],
-		["ignore_if_existing_ingredients_text"],
-		["ignore_if_existing_ingredients_text_fr"],
-		["ignore_if_0_nutriment_fruits-vegetables-nuts"],
-		["ignore_if_greater_nutriment_fruits-vegetables-nuts", 0],
-	],
-	notifications => [ qw (
-		slack_channel_edit-alert
-	)],
-},
-
-{
-	name => "Date Limite",
-	conditions => [
-		["user_id", "date-limite-app"],
-	],
-	actions => [
-		["ignore_if_regexp_match_packaging", '\b(artikel|produit|producto|produkt|produkte)\b'],
-	],
-	notifications => [ qw (
-		slack_channel_edit-alert
-	)],
-},
-
-);
 
 
 # server constants
@@ -307,7 +255,7 @@ obf =>
         data_root => "/home/obf",
         www_root => "/home/obf/html",
         mongodb => "obf",
-	domain => "openbeautyfacts.org",
+        domain => "openbeautyfacts.org",
 },
 off =>
 {
@@ -315,7 +263,7 @@ off =>
         data_root => "/home/off",
         www_root => "/home/off/html",
         mongodb => "off",
-	domain => "openfoodfacts.org",
+        domain => "openfoodfacts.org",
 },
 opff =>
 {
@@ -324,8 +272,9 @@ opff =>
         data_root => "/home/opff",
         www_root => "/home/opff/html",
         mongodb => "opff",
-	domain => "openpetfoodfacts.org",
+        domain => "openpetfoodfacts.org",
 }
 };
+
 
 1;

@@ -60,8 +60,11 @@ foreach my $parameter ('json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 'rss') {
 	}
 }
 
-my @search_fields = qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries additives allergens traces nutrition_grades states );
-my %search_tags_fields =  (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes => 1, allergens=> 1, traces => 1, nutrition_grades => 1, purchase_places => 1, stores => 1, countries => 1, additives => 1, states=>1);
+my @search_fields = qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries additives allergens traces nutrition_grades languages creator editors states );
+
+$admin and push @search_fields, "lang";
+
+my %search_tags_fields =  (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes => 1, allergens=> 1, traces => 1, nutrition_grades => 1, purchase_places => 1, stores => 1, countries => 1, additives => 1, states=>1, editors=>1, languages => 1 );
 
 my @search_ingredient_classes = ('additives', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil', 'ingredients_from_or_that_may_be_from_palm_oil');
 
@@ -211,7 +214,17 @@ HTML
 
 	my %search_fields_labels = ();
 	foreach my $field (@search_fields) {
-		$search_fields_labels{$field} = lang($field . "_p");
+		if ((not defined $tags_fields{$field}) and (lang($field) ne '')) {
+			$search_fields_labels{$field} = lc(lang($field));
+		}
+		else {
+			if ($field eq 'creator') {
+				$search_fields_labels{$field} = lang("users_p");
+			}
+			else {
+				$search_fields_labels{$field} = lang($field . "_p");
+			}
+		}
 	}
 	$search_fields_labels{search_tag} = lang("search_tag");
 	
@@ -564,27 +577,41 @@ elsif ($action eq 'process') {
 			
 			if ($tagid ne '') {
 			
-				# 2 or more criterias on the same field?
-				my $remove = 0;
-				if (defined $query_ref->{$tagtype . "_tags"}) {
-					$remove = 1;
-					if (not defined $and) {
-						$and = [];
+				if (not defined $tags_fields{$tagtype}) {
+					
+					if ($contains eq 'contains') {
+						$query_ref->{$tagtype} = $tagid;
 					}
-					push @$and, { $tagtype . "_tags" => $query_ref->{$tagtype . "_tags"} };
-				}
-			
-				if ($contains eq 'contains') {
-					$query_ref->{$tagtype . "_tags"} = $tagid;
+					else {
+						$query_ref->{$tagtype} =  { '$ne' => $tagid };
+					}				
+				
 				}
 				else {
-					$query_ref->{$tagtype . "_tags"} =  { '$ne' => $tagid };
-				}
+			
+					# 2 or more criterias on the same field?
+					my $remove = 0;
+					if (defined $query_ref->{$tagtype . "_tags"}) {
+						$remove = 1;
+						if (not defined $and) {
+							$and = [];
+						}
+						push @$and, { $tagtype . "_tags" => $query_ref->{$tagtype . "_tags"} };
+					}
 				
-				if ($remove) {
-					push @$and, { $tagtype . "_tags" => $query_ref->{$tagtype . "_tags"} };
-					delete $query_ref->{$tagtype . "_tags"};
-					$query_ref->{"\$and"} = $and;
+					if ($contains eq 'contains') {
+						$query_ref->{$tagtype . "_tags"} = $tagid;
+					}
+					else {
+						$query_ref->{$tagtype . "_tags"} =  { '$ne' => $tagid };
+					}
+					
+					if ($remove) {
+						push @$and, { $tagtype . "_tags" => $query_ref->{$tagtype . "_tags"} };
+						delete $query_ref->{$tagtype . "_tags"};
+						$query_ref->{"\$and"} = $and;
+					}
+				
 				}
 				
 				$current_link .= "\&tagtype_$i=$tagtype\&tag_contains_$i=$contains\&tag_$i=" . URI::Escape::XS::encodeURIComponent($tag);

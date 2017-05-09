@@ -142,6 +142,15 @@ $products_collection = $database->get_collection('products');
 $emb_codes_collection = $database->get_collection('emb_codes');
 
 
+if (defined $options{other_servers}) {
+
+	foreach my $server (keys %{$options{other_servers}}) {
+		$options{other_servers}{$server}{database} = $connection->get_database($options{other_servers}{$server}{mongodb});
+		$options{other_servers}{$server}{products_collection} = $options{other_servers}{$server}{database}->get_collection('products');
+	}
+}
+
+
 $default_request_ref = {
 page=>1,
 };
@@ -5210,6 +5219,7 @@ $$content_ref
 			<li><a href="$Lang{footer_legal_link}{$lc}">$Lang{footer_legal}{$lc}</a></li>
 			<li><a href="$Lang{footer_terms_link}{$lc}">$Lang{footer_terms}{$lc}</a></li>
 			<li><a href="$Lang{footer_data_link}{$lc}">$Lang{footer_data}{$lc}</a></li>
+			<li><a href="$Lang{donate_link}{$lc}">$Lang{donate}{$lc}</a></li>
 		</ul>
 	</div>
 	
@@ -5859,8 +5869,13 @@ HTML
 	foreach my $class ('additives', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil') {
 	
 		my $tagtype = $class;
+		my $tagtype_field = $tagtype;
+		# display the list of additives variants in the order that they were found, without the parents (no E450 for E450i)
+		if (($class eq 'additives') and (exists $product_ref->{'additives_original_tags'})) {
+			$tagtype_field = 'additives_original';
+		}
 	
-		if ((defined $product_ref->{$class . '_tags'}) and (scalar @{$product_ref->{$class . '_tags'}} > 0)) {
+		if ((defined $product_ref->{$tagtype_field . '_tags'}) and (scalar @{$product_ref->{$tagtype_field . '_tags'}} > 0)) {
 
 			$html .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang($class . "_p") . separator_before_colon($lc)) . ":</b><br />";
 			
@@ -5877,7 +5892,7 @@ HTML
 			}
 			
 			$html .= "<ul style=\"display:block;float:left;\">";
-			foreach my $tagid (@{$product_ref->{$class . '_tags'}}) {
+			foreach my $tagid (@{$product_ref->{$tagtype_field . '_tags'}}) {
 			
 				my $tag;
 				my $link;
