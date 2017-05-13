@@ -86,7 +86,10 @@ sub read_po_files {
 
         # move the strings into %l10n
         for my $key (keys %Lexicon) {
+            # fix extra ~ added before []
+            # 		months: ~['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'~],
             $l10n{$key}{$lc} = delete $Lexicon{$key};
+            $l10n{$key}{$lc} =~ s/\~(\[|\])/$1/g;
         }
     }
 	

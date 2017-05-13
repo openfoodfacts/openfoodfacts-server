@@ -58,13 +58,26 @@ else {
 	}
 
 
+	# Process edit rules
+	
+	process_product_edit_rules($product_ref);	
+	
 	#my @app_fields = qw(product_name brands quantity);
 	my @app_fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
 
 	
-	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang') {
+	# generate a list of potential languages for language specific fields
+	my %param_langs = ();
+	foreach my $param (param()) {
+		if ($param =~ /^(.*)_(\w\w)$/) {
+			if (defined $language_fields{$1}) {
+				$param_langs{$2} = 1;
+			}
+		}
+	}
+	my @param_langs = keys %param_langs;
 	
-
+	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang') {
 	
 		if (defined param($field)) {
 			$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
@@ -76,6 +89,16 @@ else {
 			
 			compute_field_tags($product_ref, $field);			
 			
+		}
+		
+		if (defined $language_fields{$field}) {
+			foreach my $param_lang (@param_langs) {
+				my $field_lc = $field . '_' . $param_lang;
+				if (defined param($field_lc)) {
+					$product_ref->{$field_lc} = remove_tags_and_quote(decode utf8=>param($field_lc));
+					compute_field_tags($product_ref, $field_lc);
+				}
+			}
 		}
 	}
 	
