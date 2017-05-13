@@ -39,6 +39,7 @@ BEGIN
 					&display_form
 					&display_date
 					&display_date_tag
+					&get_packager_code_coordinates
 					
 					&display_structured_response
 					&display_new					
@@ -68,6 +69,7 @@ BEGIN
 					$connection
 					$database
 					$products_collection
+					$emb_codes_collection
 					
 					$debug
 					$scripts
@@ -137,6 +139,16 @@ $memd = new Cache::Memcached::Fast {
 $connection = MongoDB->connect();
 $database = $connection->get_database($mongodb);
 $products_collection = $database->get_collection('products');
+$emb_codes_collection = $database->get_collection('emb_codes');
+
+
+if (defined $options{other_servers}) {
+
+	foreach my $server (keys %{$options{other_servers}}) {
+		$options{other_servers}{$server}{database} = $connection->get_database($options{other_servers}{$server}{mongodb});
+		$options{other_servers}{$server}{products_collection} = $options{other_servers}{$server}{database}->get_collection('products');
+	}
+}
 
 
 $default_request_ref = {
@@ -248,7 +260,7 @@ sub init()
 		print STDERR "Display::init - country_name($subdomain) -  ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
 		
 	}
-	elsif ($ENV{QUERY_STRING} !~ /cgi/) {
+	elsif ($ENV{QUERY_STRING} !~ /(cgi|api)\//) {
 		# redirect
 		my $worlddom = format_subdomain('world');
 		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $worlddom\n";
@@ -268,7 +280,7 @@ sub init()
 	$lang = $lc;
 	
 	# If the language is equal to the first language of the country, but we are on a different subdomain, redirect to the main country subdomain. (fr-fr => fr)
-	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^(ssl-)?api/) and ($r->method() eq 'GET')) {
+	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^(ssl-)?api/) and ($r->method() eq 'GET') and ($ENV{QUERY_STRING} !~ /(cgi|api)\//)) {
 		# redirect
 		my $ccdom = format_subdomain($cc);
 		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $ccdom\n";
@@ -2026,9 +2038,10 @@ sub display_tag($) {
 			print STDERR "display_tag packager_codes - canon_tagid: $canon_tagid exists, cc : " . $packager_codes{$canon_tagid}{cc} . "\n";
 			
 			# Generate a map if we have coordinates
-			my $geo = get_packager_code_coordinates($canon_tagid);
+			my ($lat, $lng) = get_packager_code_coordinates($canon_tagid);
 			my $html_map = "";
-			if (defined $geo) {
+			if ((defined $lat) and (defined $lng)) {
+				my $geo = "$lat,$lng";
 			
 				$header .= <<HTML		
 <link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
@@ -2040,9 +2053,9 @@ HTML
 				my $js = <<JS
 var map = L.map('container').setView([$geo], 11);;	
 		
-L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 19,
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);			
 
 L.marker([$geo]).addTo(map)	
@@ -3973,50 +3986,48 @@ sub search_and_graph_products($$$) {
 sub get_packager_code_coordinates($) {
 
 	my $emb_code = shift;
-	my $geo = undef;
+	my $lat;
+	my $lng;
 						
 	if (exists $packager_codes{$emb_code}) {					
 		if (exists $packager_codes{$emb_code}{lat}) {
 			# some lat/lng have , for floating point numbers
-			my $lat = $packager_codes{$emb_code}{lat};
-			my $lng = $packager_codes{$emb_code}{lng};
+			$lat = $packager_codes{$emb_code}{lat};
+			$lng = $packager_codes{$emb_code}{lng};
 			$lat =~ s/,/\./g;
 			$lng =~ s/,/\./g;
-			
-			$lat =~ s/,/\./g;
-			$geo = $lat . ',' . $lng;
 		}
 		elsif (exists $packager_codes{$emb_code}{fsa_rating_business_geo_lat}) {
-			$geo = $packager_codes{$emb_code}{fsa_rating_business_geo_lat} . ',' . $packager_codes{$emb_code}{fsa_rating_business_geo_lng};
+			$lat = $packager_codes{$emb_code}{fsa_rating_business_geo_lat};
+			$lng = $packager_codes{$emb_code}{fsa_rating_business_geo_lng};
 		}								
 		elsif ($packager_codes{$emb_code}{cc} eq 'uk') {
 			#my $address = 'uk' . '.' . $packager_codes{$emb_code}{local_authority};
 			my $address = 'uk' . '.' . $packager_codes{$emb_code}{canon_local_authority};
 			if (exists $geocode_addresses{$address}) {
-				$geo = $geocode_addresses{$address}[0] . ',' . $geocode_addresses{$address}[1];
+				$lat = $geocode_addresses{$address}[0];
+				$lng = $geocode_addresses{$address}[1];
 			}
 		}
 	}
 	
 	my $city_code = get_city_code($emb_code);
 		
-	if ((not defined $geo) and (defined $emb_codes_geo{$city_code})) {
+	if (((not defined $lat) or (not defined $lng)) and (defined $emb_codes_geo{$city_code})) {
 	
 		# some lat/lng have , for floating point numbers
-		my $lat = $emb_codes_geo{$city_code}[0];
-		my $lng = $emb_codes_geo{$city_code}[1];
+		$lat = $emb_codes_geo{$city_code}[0];
+		$lng = $emb_codes_geo{$city_code}[1];
 		$lat =~ s/,/\./g;
 		$lng =~ s/,/\./g;
-		$geo = $lat . ',' . $lng;
-		
 	}
 	
 	# filter out empty coordinates
-	if (($geo =~ /^,/) or ($geo =~ /,$/)) {
-		$geo = undef;
+	if ((not defined $lat) or (not defined $lng)) {
+		return (undef, undef);
 	}
 	
-	return $geo;
+	return ($lat, $lng);
 
 }
 
@@ -4169,9 +4180,10 @@ JS
 					
 					foreach my $emb_code (@{$product_ref->{"emb_codes_tags"}}) {
 					
-						my $geo = get_packager_code_coordinates($emb_code);	
+						my ($lat, $lng) = get_packager_code_coordinates($emb_code);	
 						
-						if (defined $geo) {
+						if ((defined $lat) and ($lat ne '') and (defined $lng) and ($lng ne '')) {
+							my $geo = "$lat,$lng";
 							if (not defined $current_seen{$geo}) {
 						
 								$current_seen{$geo} = 1;
@@ -4228,9 +4240,9 @@ var pointers = [
 
 var map = L.map('container', {maxZoom:12});	
 		
-L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 19,
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);			
 
 
@@ -5221,6 +5233,7 @@ $$content_ref
 			<li><a href="$Lang{footer_legal_link}{$lc}">$Lang{footer_legal}{$lc}</a></li>
 			<li><a href="$Lang{footer_terms_link}{$lc}">$Lang{footer_terms}{$lc}</a></li>
 			<li><a href="$Lang{footer_data_link}{$lc}">$Lang{footer_data}{$lc}</a></li>
+			<li><a href="$Lang{donate_link}{$lc}">$Lang{donate}{$lc}</a></li>
 		</ul>
 	</div>
 	
@@ -5888,8 +5901,13 @@ HTML
 	foreach my $class ('additives', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil') {
 	
 		my $tagtype = $class;
+		my $tagtype_field = $tagtype;
+		# display the list of additives variants in the order that they were found, without the parents (no E450 for E450i)
+		if (($class eq 'additives') and (exists $product_ref->{'additives_original_tags'})) {
+			$tagtype_field = 'additives_original';
+		}
 	
-		if ((defined $product_ref->{$class . '_tags'}) and (scalar @{$product_ref->{$class . '_tags'}} > 0)) {
+		if ((defined $product_ref->{$tagtype_field . '_tags'}) and (scalar @{$product_ref->{$tagtype_field . '_tags'}} > 0)) {
 
 			$html .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang($class . "_p") . separator_before_colon($lc)) . ":</b><br />";
 			
@@ -5906,7 +5924,7 @@ HTML
 			}
 			
 			$html .= "<ul style=\"display:block;float:left;\">";
-			foreach my $tagid (@{$product_ref->{$class . '_tags'}}) {
+			foreach my $tagid (@{$product_ref->{$tagtype_field . '_tags'}}) {
 			
 				my $tag;
 				my $link;
@@ -6047,13 +6065,19 @@ HTML
 #				fields => \@modified_fields,
 #				images => \@images_ids,	
 #			};
-		
-		if (defined $product_ref->{sources}[0]) {
-			my $lang_source = $product_ref->{sources}[0]{id};
+
+		my %unique_sources = ();
+	
+		foreach my $source_ref (@{$product_ref->{sources}}) {
+			$unique_sources{$source_ref->{id}} = $source_ref;
+		}
+		foreach my $source_id (sort keys %unique_sources) {
+			my $source_ref = $unique_sources{$source_id};
+			my $lang_source = $source_ref->{id};
 			$lang_source =~ s/-/_/g;
 			$html .= "<p>" . lang("sources_" . $lang_source ) . "</p>";
-			if (defined $product_ref->{sources}[0]{url}) {
-				$html .= "<p><a href=\"" . $product_ref->{sources}[0]{url} . "\">" . lang("sources_" . $lang_source . "_product_page" ) . "</a></p>";
+			if (defined $source_ref->{url}) {
+				$html .= "<p><a href=\"" . $source_ref->{url} . "\">" . lang("sources_" . $lang_source . "_product_page" ) . "</a></p>";
 			}
 		}
 	}
@@ -7184,10 +7208,6 @@ HTML
 			$response{jqm} =~ s/(href|src)=("\/)/$1="http:\/\/$cc.${server_domain}\//g;
 			$response{title} = $request_ref->{title};
 			
-		}		
-		
-		if (not $admin) {
-			delete $response{product}{images};
 		}
 	}
 	

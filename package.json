@@ -1,0 +1,26 @@
+{
+  "name": "openfoodfacts-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "private": true,
+  "scripts": {
+    "test": "jshint --show-non-errors html/js/product-multilingual.js html/js/search.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openfoodfacts/openfoodfacts-server.git"
+  },
+  "author": "Open Food Facts Association",
+  "license": "GNU Affero General Public License",
+  "bugs": {
+    "url": "https://github.com/openfoodfacts/openfoodfacts-server/issues"
+  },
+  "homepage": "https://www.openfoodfacts.org/",
+  "dependencies": {
+    "bower": "^1.8.0"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.4"
+  }
+}

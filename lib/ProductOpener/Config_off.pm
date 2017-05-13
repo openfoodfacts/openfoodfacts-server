@@ -48,6 +48,9 @@ BEGIN
 		%tesseract_ocr_available_languages
 		
 		%weblink_templates
+		
+		@edit_rules
+		
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -73,6 +76,55 @@ twoflower
 scanparty-franprix-05-2016
 );
 
+@edit_rules = (
+
+{
+	name => "Edit Rules Testing",
+	conditions => [
+		["user_id", "editrulestest"],
+	],
+	actions => [
+		["ignore_if_existing_ingredients_text_fr"],
+		["warn_if_0_nutriment_fruits-vegetables-nuts"],
+		["warn_if_greater_nutriment_fruits-vegetables-nuts", 0],
+		["ignore_if_regexp_match_packaging", '\b(artikel|produit|producto|produkt|produkte)\b'],
+	],
+	notifications => [ qw (
+		slack_channel_edit-alert
+	)],
+},
+
+{
+	name => "Yuka",
+	conditions => [
+		["user_id", "kiliweb"],
+	],
+	actions => [
+		["warn_if_existing_brands"],
+		["ignore_if_existing_ingredients_text"],
+		["ignore_if_existing_ingredients_text_fr"],
+		["ignore_if_0_nutriment_fruits-vegetables-nuts"],
+		["ignore_if_greater_nutriment_fruits-vegetables-nuts", 0],
+	],
+	notifications => [ qw (
+		slack_channel_edit-alert
+	)],
+},
+
+{
+	name => "Date Limite",
+	conditions => [
+		["user_id", "date-limite-app"],
+	],
+	actions => [
+		["ignore_if_regexp_match_packaging", '\b(artikel|produit|producto|produkt|produkte)\b'],
+	],
+	notifications => [ qw (
+		slack_channel_edit-alert
+	)],
+},
+
+);
 
 
 # server constants
@@ -245,5 +297,35 @@ last_edit_dates
 	'wikidata:en' => { href => 'https://www.wikidata.org/wiki/%s', text => 'Wikidata' },
 
 );
+
+# allow moving products to other instances of Product Opener on the same server
+# e.g. OFF -> OBF
+$options{other_servers} = {
+obf =>
+{
+        name => "Open Beauty Facts",
+        data_root => "/home/obf",
+        www_root => "/home/obf/html",
+        mongodb => "obf",
+	domain => "openbeautyfacts.org",
+},
+off =>
+{
+        name => "Open Food Facts",
+        data_root => "/home/off",
+        www_root => "/home/off/html",
+        mongodb => "off",
+	domain => "openfoodfacts.org",
+},
+opff =>
+{
+        prefix => "opff",
+        name => "Open Pet Food Facts",
+        data_root => "/home/opff",
+        www_root => "/home/opff/html",
+        mongodb => "opff",
+	domain => "openpetfoodfacts.org",
+}
+};
 
 1;

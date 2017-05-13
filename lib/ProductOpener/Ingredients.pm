@@ -215,7 +215,7 @@ sub extract_ingredients_from_text($) {
 		my $level = shift;
 		my $s = shift;
 		
-		print STDERR "analyze_ingredients level $level: $s\n";
+		# print STDERR "analyze_ingredients level $level: $s\n";
 		
 		my $last_separator =  undef; # default separator to find the end of "acidifiants : E330 - E472"
 		
@@ -232,7 +232,7 @@ sub extract_ingredients_from_text($) {
 			my $sep = $1;
 			$after = $';
 			
-			print STDERR "separator: $sep\tbefore: $before\tafter: $after\n";
+			# print STDERR "separator: $sep\tbefore: $before\tafter: $after\n";
 			
 			if ($sep =~ /(:|\[|\()/i) {
 			
@@ -249,14 +249,14 @@ sub extract_ingredients_from_text($) {
 				$ending .= '|$';
 				$ending = '(' . $ending . ')';
 				
-				print STDERR "special separator: $sep - ending: $ending - after: $after\n";
+				# print STDERR "special separator: $sep - ending: $ending - after: $after\n";
 				
 				# another separator before the ending separator ? we probably have several sub-ingredients
 				if ($after =~ /^(.*?)$ending/i) {
 					$between = $1;
 					$after = $';
 					
-					print STDERR "sub-ingredients - between: $between - after: $after\n";
+					# print STDERR "sub-ingredients - between: $between - after: $after\n";
 					
 					if ($between =~ $separators) {
 						$between_level = $level + 1;
@@ -264,18 +264,18 @@ sub extract_ingredients_from_text($) {
 					else {
 						# no separator found : 34% ? or single ingredient
 						if ($between =~ /^\s*(\d+(\.\d+)?)\s*\%\s*$/) {
-							print STDERR "percent found:  $1\%\n";
+							# print STDERR "percent found:  $1\%\n";
 							$percent = $1;
 							$between = '';
 						}
 						else {
 							# single ingredient, stay at same level
-							print STDERR "single ingredient, stay at same level\n";
+							# print STDERR "single ingredient, stay at same level\n";
 						}
 					}
 				}
 				else {
-					print STDERR "could not find ending separator: $ending - after: $after\n"
+					# print STDERR "could not find ending separator: $ending - after: $after\n"
 					# ! could not find the ending separator
 				}
 			
@@ -286,27 +286,27 @@ sub extract_ingredients_from_text($) {
 			}
 			
 			if ($after =~ /^\s*(\d+(\.\d+)?)\s*\%\s*($separators|$)/) {
-				print STDERR "percent found: $after = $1 + $'\%\n";
+				# print STDERR "percent found: $after = $1 + $'\%\n";
 				$percent = $1;
 				$after = $';
 			}		
 		}
 		else {
 			# no separator found: only one ingredient
-			print STDERR "no separator found: $s\n";
+			# print STDERR "no separator found: $s\n";
 			$before = $s;
 		}
 		
 		# Strawberry 10.3%
 		if ($before =~ /\s*(\d+(\.\d+)?)\s*\%\s*$/) {
-			print STDERR "percent found: $before = $` + $1\%\n";
+			# print STDERR "percent found: $before = $` + $1\%\n";
 			$percent = $1;
 			$before = $`;
 		}		
 		
 		# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
 		if ($before =~ /^\s*(\d+(\.\d+)?)\s*\%\s*(pur|de|d')?\s*/i) {
-			print STDERR "'x% something' : percent found: $before = $' + $1\%\n";
+			# print STDERR "'x% something' : percent found: $before = $' + $1\%\n";
 			$percent = $1;
 			$before = $';
 		}		
@@ -424,6 +424,8 @@ sub extract_ingredients_classes_from_text($) {
 	
 	# stabilisant e420 (sans : )
 	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement)(s)?(\s)?(:)?/$1$2 : /ig;
+	# citric acid natural flavor (may be a typo)
+	$text =~ s/(natural flavor)(s)?(\s)?(:)?/: $1$2 : /ig;
 	
 	# mono-glycéride -> monoglycérides
 	$text =~ s/(mono|di)-([a-z])/$1$2/ig;
@@ -444,13 +446,31 @@ sub extract_ingredients_classes_from_text($) {
 	
 	# huiles de palme et de
 	
+	# carbonates d'ammonium et de sodium
+	
+	# carotène et extraits de paprika et de curcuma
+	
+	# create a new list of ingredients where we can insert ingredients that we split in two
+	my @new_ingredients = ();
 	
 	foreach my $ingredient (@ingredients) {
-		if ($ingredient =~ / et (de )?/i) {
-			push @ingredients, $`;
-			push @ingredients, $';
+		next if not defined $ingredient;
+		
+		# Phosphate d'aluminium et de sodium --> E541. Should not be split.
+		# Sels de sodium et de potassium de complexes cupriques de chlorophyllines -> should not be split... 
+		
+		if (($ingredient !~ /phosphate(s)? d'aluminium et de sodium/i)
+			and ($ingredient !~ /chlorophyl/i)
+			and ($ingredient =~ /\b((de |d')(.*)) et (de |d')?/i)) {
+			push @new_ingredients, $` . $1;	# huile de palme / carbonates d'ammonium
+			push @new_ingredients, $` . $4 . $'; # huile de tournesol / carbonates de sodium
+		}
+		else {
+			push @new_ingredients, $ingredient;
 		}
 	}
+	
+	@ingredients = @new_ingredients;
 	
 	my @ingredients_ids = ();
 	foreach my $ingredient (@ingredients) {
@@ -514,10 +534,13 @@ sub extract_ingredients_classes_from_text($) {
 					
 					$product_ref->{$tagtype} .= " [ $ingredient_id_copy -> $canon_ingredient ";
 					
-					if ((not defined $seen{$canon_ingredient})
-						and (exists_taxonomy_tag($tagtype, $canon_ingredient))
+					if (defined $seen{$canon_ingredient}) {
+						$product_ref->{$tagtype} .= " -- already seen ";	
+						$match = 1;
+					}
+					elsif ((exists_taxonomy_tag($tagtype, $canon_ingredient))
 						# do not match synonyms
-						and ($canon_ingredient !~ /^en:(fd|no)/)
+						and ($canon_ingredient !~ /^en:(fd|no|colour)/)
 						) {
 						
 						$seen{$canon_ingredient} = 1;
@@ -559,13 +582,19 @@ sub extract_ingredients_classes_from_text($) {
 			}
 		
 		
+		# Also generate a list of additives with the parents (e.g. E500ii adds E500)
+		$product_ref->{ $tagtype . '_original_tags'} = $product_ref->{ $tagtype . '_tags'};
+		$product_ref->{ $tagtype . '_tags'} = [ sort(gen_tags_hierarchy_taxonomy("en", $tagtype, join(', ', @{$product_ref->{ $tagtype . '_original_tags'}})))];
+		
+		
 		# No ingredients?
 		if ($product_ref->{ingredients_text} eq '') {
 			delete $product_ref->{$tagtype . '_n'};
 		}
 		else {
-			if (defined $product_ref->{$tagtype . '_tags'}) {
-				$product_ref->{$tagtype. '_n'} = scalar @{$product_ref->{ $tagtype . '_tags'}};
+			# count the original list of additives, don't count E500ii as both E500 and E500ii
+			if (defined $product_ref->{$tagtype . '_original_tags'}) {
+				$product_ref->{$tagtype. '_n'} = scalar @{$product_ref->{ $tagtype . '_original_tags'}};
 			}
 			else {
 				delete $product_ref->{$tagtype . '_n'};

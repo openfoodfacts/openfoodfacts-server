@@ -1059,6 +1059,30 @@ HTML
 		}
 	}
 	
+	# If we don't have an image, display Pacman
+	if ($html eq '') {
+	
+		my @colors = qw(
+ff6600
+ffcc00
+55d400
+00ccff
+0066ff
+ff00cc
+cc00ff		
+);
+		my $color_id = $product_ref->{code} % (scalar @colors);
+		my $color = $colors[$color_id];
+	
+		$html = <<HTML
+<div style="background-color:#$color">
+<img src="$static/images/misc/pacman.svg" width="$thumb_size" height="$thumb_size" alt="Please add pictures of the product if you have it!" />
+</div>
+HTML
+;
+	}
+	
+	
 	return $html;
 }
 
