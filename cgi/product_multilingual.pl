@@ -127,7 +127,8 @@ if ($type eq 'search_or_add') {
 			$product_ref = init_product($code);
 			$product_ref->{interface_version_created} = $interface_version;
 			store_product($product_ref, 'product_created');
-			process_image_upload($code,$filename,$User_id, time(),'image with barcode from web site Add product button');
+			my $imgid;
+			process_image_upload($code,$filename,$User_id, time(),'image with barcode from web site Add product button',\$imgid);
 			$type = 'add';
 			$action = 'display';
 			$location = "/cgi/product.pl?type=add&code=$code";
