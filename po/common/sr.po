@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: openfoodfacts\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-18 10:51+0000\n"
-"PO-Revision-Date: 2017-05-09 12:05-0400\n"
+"PO-Revision-Date: 2017-06-05 08:46-0400\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Language-Team: Serbian (Latin)\n"
 "MIME-Version: 1.0\n"
@@ -159,7 +159,7 @@ msgstr ""
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr ""
+msgstr "Uslikaj"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
@@ -271,11 +271,11 @@ msgstr ""
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr ""
+msgstr "Odabrane fotografije"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr ""
+msgstr "Otpremljene fotografije"
 
 msgctxt "checkers_p"
 msgid "checkers"
@@ -426,7 +426,7 @@ msgstr "Додато:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr ""
+msgstr "Izmenjeno:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
@@ -486,11 +486,11 @@ msgstr ""
 
 msgctxt "editors_s"
 msgid "editor"
-msgstr ""
+msgstr "urednik"
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr ""
+msgstr "email adresa"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
@@ -542,7 +542,7 @@ msgstr ""
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "Greška"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
@@ -811,7 +811,7 @@ msgstr ""
 
 msgctxt "hello"
 msgid "Hello"
-msgstr ""
+msgstr "Zdravo"
 
 msgctxt "high"
 msgid "high"
@@ -831,23 +831,23 @@ msgstr ""
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
-msgstr ""
+msgstr "Fotografija sastojaka"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
-msgstr ""
+msgstr "Ako je fotografija čista, sastojke je moguće izvući automatski"
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
-msgstr ""
+msgstr "Fotografija nutritivnih vrednosti"
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
-msgstr ""
+msgstr "Ova fotografija je već poslata."
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
-msgstr ""
+msgstr "Fotografija je premala. Molimo vas da ne šaljete fotografije pronađene na internetu, već samo fotografije koje ste lično fotografisali."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
@@ -856,7 +856,7 @@ msgstr ""
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
-msgstr ""
+msgstr "Barkod nije pronađen na fotografiji."
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
@@ -976,7 +976,7 @@ msgstr "Oznake, sertifikati, nagrade"
 
 msgctxt "labels_example"
 msgid "Organic"
-msgstr ""
+msgstr "Organsko"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
@@ -1012,7 +1012,7 @@ msgstr "arapski"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bugarski"
 
 msgctxt "lang_cs"
 msgid "Czech"
@@ -1040,7 +1040,7 @@ msgstr "španski"
 
 msgctxt "lang_et"
 msgid "Estonian"
-msgstr ""
+msgstr "Estonski"
 
 msgctxt "lang_fi"
 msgid "Finnish"
@@ -1052,7 +1052,7 @@ msgstr "francuski"
 
 msgctxt "lang_ga"
 msgid "Irish"
-msgstr ""
+msgstr "Irski"
 
 msgctxt "lang_he"
 msgid "Hebrew"
@@ -1060,11 +1060,11 @@ msgstr "hebrejski"
 
 msgctxt "lang_hu"
 msgid "Hungarian"
-msgstr ""
+msgstr "Mađarski"
 
 msgctxt "lang_id"
 msgid "Indonesian"
-msgstr ""
+msgstr "Indonezijski"
 
 msgctxt "lang_it"
 msgid "Italian"
@@ -1080,7 +1080,7 @@ msgstr "korejski"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
-msgstr ""
+msgstr "Litvanski"
 
 msgctxt "lang_lv"
 msgid "Latvian"
@@ -1108,7 +1108,7 @@ msgstr ""
 
 msgctxt "lang_pl"
 msgid "Polish"
-msgstr ""
+msgstr "Poljski"
 
 msgctxt "lang_pt"
 msgid "Portuguese"
@@ -1116,7 +1116,7 @@ msgstr "portugalski"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
-msgstr ""
+msgstr "Portugalski - Portuguese"
 
 msgctxt "lang_ro"
 msgid "Romanian"
@@ -1128,11 +1128,11 @@ msgstr "ruski"
 
 msgctxt "lang_sk"
 msgid "Slovak"
-msgstr ""
+msgstr "Slovački"
 
 msgctxt "lang_sl"
 msgid "Slovenian"
-msgstr ""
+msgstr "Slovenski"
 
 msgctxt "lang_sv"
 msgid "Swedish"
@@ -1140,11 +1140,11 @@ msgstr "švedski"
 
 msgctxt "lang_th"
 msgid "Thai"
-msgstr ""
+msgstr "Tajlandski"
 
 msgctxt "lang_vi"
 msgid "Vietnamese"
-msgstr ""
+msgstr "Vijetnamski"
 
 msgctxt "lang_zh"
 msgid "Chinese"
@@ -1156,11 +1156,11 @@ msgstr ""
 
 msgctxt "languages_p"
 msgid "languages"
-msgstr ""
+msgstr "jezici"
 
 msgctxt "languages_s"
 msgid "language"
-msgstr ""
+msgstr "jezik"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
@@ -1227,7 +1227,7 @@ msgstr ""
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "Prijavite se"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
@@ -1456,11 +1456,11 @@ msgstr ""
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Hranljiva vrednost"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Hranljiva vrednost"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1532,7 +1532,7 @@ msgstr ""
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Hranljiva vrednost"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1655,7 +1655,7 @@ msgstr "Lozinka"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
-msgstr ""
+msgstr "Potvrdi lozinku"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
@@ -1875,11 +1875,11 @@ msgstr ""
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
-msgstr ""
+msgstr "Kinder Bueno White"
 
 msgctxt "products"
 msgid "products"
-msgstr ""
+msgstr "proizvodi"
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
@@ -1891,7 +1891,7 @@ msgstr ""
 
 msgctxt "products_stats_created_t"
 msgid "Products"
-msgstr ""
+msgstr "Proizvodi"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
@@ -2023,7 +2023,7 @@ msgstr "Pretraživanje"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
-msgstr ""
+msgstr "Traži proizvod"
 
 msgctxt "search_button"
 msgid "Search"
@@ -2132,11 +2132,11 @@ msgstr ""
 
 msgctxt "search_map"
 msgid "Map"
-msgstr ""
+msgstr "Mapa"
 
 msgctxt "search_map_choice"
 msgid "Results on a map"
-msgstr ""
+msgstr "Rezultati na mapi"
 
 msgctxt "search_map_link"
 msgid "Permanent link to this map, shareable by e-mail and on social networks"
@@ -2196,7 +2196,7 @@ msgstr ""
 
 msgctxt "search_series_organic"
 msgid "Organic"
-msgstr ""
+msgstr "Organsko"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
@@ -2212,7 +2212,7 @@ msgstr ""
 
 msgctxt "search_tags"
 msgid "Criteria"
-msgstr ""
+msgstr "Kriterijum"
 
 msgctxt "search_terms"
 msgid "Search terms"
@@ -2276,15 +2276,15 @@ msgstr ""
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr ""
+msgstr "Porcija"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
-msgstr ""
+msgstr "60 g, 12 oz, 20cl, 2 fl oz"
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "Prijavite se"
 
 msgctxt "share"
 msgid "Share"
@@ -2304,7 +2304,7 @@ msgstr ""
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr ""
+msgstr "Odjavite se"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -2376,7 +2376,7 @@ msgstr ""
 
 msgctxt "subscribe"
 msgid "Subscribe"
-msgstr ""
+msgstr "Pretplatite se"
 
 msgctxt "tag_belongs_to"
 msgid "Belongs to:"
@@ -2384,7 +2384,7 @@ msgstr ""
 
 msgctxt "tag_contains"
 msgid "Contains:"
-msgstr ""
+msgstr "Sadrži:"
 
 msgctxt "tag_weblinks"
 msgid "Weblinks"
@@ -2428,7 +2428,7 @@ msgstr ""
 
 msgctxt "unknown"
 msgid "Unknown"
-msgstr ""
+msgstr "Nepoznato"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
@@ -2440,7 +2440,7 @@ msgstr ""
 
 msgctxt "unsubscribe"
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Odjavite pretplatu"
 
 msgctxt "unsubscribe_info"
 msgid "You can unsubscribe from the lists at any time."
@@ -2452,7 +2452,7 @@ msgstr ""
 
 msgctxt "username"
 msgid "User name"
-msgstr ""
+msgstr "Korisničko ime"
 
 msgctxt "username_info"
 msgid "(non-accented letters, digits and/or dashes)"
@@ -2488,7 +2488,7 @@ msgstr ""
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr ""
+msgstr "saradnik"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
