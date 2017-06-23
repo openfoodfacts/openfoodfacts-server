@@ -5756,6 +5756,8 @@ HTML
 ;
 	}	
 	
+
+	
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
 	my @fields = @ProductOpener::Config::display_fields;
 	
@@ -5788,6 +5790,18 @@ HTML
 		$html .= "<p>" . lang("barcode") . separator_before_colon($lc) . ": <span property=\"food:code\" itemprop=\"gtin13\">$code</span> $html_upc</p>
 <div property=\"gr:hasEAN_UCC-13\" content=\"$code\" datatype=\"xsd:string\"></div>\n";
 	}
+	
+
+	if (not has_tag($product_ref, "states", "en:complete")) {
+	
+		$html .= <<HTML
+<div data-alert class="alert-box info" id="warning_not_complete" style="display: block;">
+$Lang{warning_not_complete}{$lc}
+<a href="#" class="close">&times;</a>
+</span></div>
+HTML
+;
+	}		
 	
 	
 	# photos and data sources
