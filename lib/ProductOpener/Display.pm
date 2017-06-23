@@ -5789,6 +5789,45 @@ HTML
 <div property=\"gr:hasEAN_UCC-13\" content=\"$code\" datatype=\"xsd:string\"></div>\n";
 	}
 	
+	
+	# photos and data sources
+
+	my $html_manufacturer_source = ""; # Displayed at the top of the product page
+	my $html_sources = "";	# 	Displayed at the bottom of the product page
+	
+	if (defined $product_ref->{sources}) {
+		# FIXME : currently just a quick workaround to display openfood attribution
+
+#			push @{$product_ref->{sources}}, {
+#				id => "openfood-ch",
+#				url => "https://www.openfood.ch/en/products/$openfood_id",
+#				import_t => time(),
+#				fields => \@modified_fields,
+#				images => \@images_ids,	
+#			};
+
+		my %unique_sources = ();
+	
+		foreach my $source_ref (@{$product_ref->{sources}}) {
+			$unique_sources{$source_ref->{id}} = $source_ref;
+		}
+		foreach my $source_id (sort keys %unique_sources) {
+			my $source_ref = $unique_sources{$source_id};
+			my $lang_source = $source_ref->{id};
+			$lang_source =~ s/-/_/g;
+			$html_sources .= "<p>" . lang("sources_" . $lang_source ) . "</p>";
+			if (defined $source_ref->{url}) {
+				$html_sources .= "<p><a href=\"" . $source_ref->{url} . "\">" . lang("sources_" . $lang_source . "_product_page" ) . "</a></p>";
+			}
+			
+			if ((defined $source_ref->{manufacturer}) and ($source_ref->{manufacturer} == 1)) {
+				$html_manufacturer_source = "<p>" . sprintf(lang("sources_manufacturer"), "<a href=\"" . $source_ref->{url} . "\">" . $source_ref->{name} . "</a>") . "</p>";
+			}
+		}
+	}	
+	
+	$html .= $html_manufacturer_source;
+	
 	my $minheight = 0;
 	my $html_image = display_image_box($product_ref, 'front', \$minheight);
 	$html_image =~ s/ width="/ itemprop="image" width="/;
@@ -6022,33 +6061,10 @@ HTML
 	
 	$html .= display_nutrition_table($product_ref, \@comparisons);
 	
+	# photos and data sources
 
-	if (defined $product_ref->{sources}) {
-		# FIXME : currently just a quick workaround to display openfood attribution
-
-#			push @{$product_ref->{sources}}, {
-#				id => "openfood-ch",
-#				url => "https://www.openfood.ch/en/products/$openfood_id",
-#				import_t => time(),
-#				fields => \@modified_fields,
-#				images => \@images_ids,	
-#			};
-
-		my %unique_sources = ();
 	
-		foreach my $source_ref (@{$product_ref->{sources}}) {
-			$unique_sources{$source_ref->{id}} = $source_ref;
-		}
-		foreach my $source_id (sort keys %unique_sources) {
-			my $source_ref = $unique_sources{$source_id};
-			my $lang_source = $source_ref->{id};
-			$lang_source =~ s/-/_/g;
-			$html .= "<p>" . lang("sources_" . $lang_source ) . "</p>";
-			if (defined $source_ref->{url}) {
-				$html .= "<p><a href=\"" . $source_ref->{url} . "\">" . lang("sources_" . $lang_source . "_product_page" ) . "</a></p>";
-			}
-		}
-	}
+	$html .= $html_sources;
 	
 	
 	my $created_date = display_date_tag($product_ref->{created_t});

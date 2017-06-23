@@ -124,6 +124,20 @@ scanparty-franprix-05-2016
 	)],
 },
 
+{
+	name => "Fleury Michon",
+	conditions => [
+		["user_id_not", "fleury-michon"],
+		["in_brands_tags", "fleury-michon"],
+	],
+	actions => [
+		["warn"]
+	],
+	notifications => [ qw (
+                slack_channel_edit-alert
+        )],
+},
+
 );
 
 

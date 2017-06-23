@@ -1128,6 +1128,30 @@ sub process_product_edit_rules($) {
 						last;
 					}
 				}
+				elsif ($condition_ref->[0] eq 'user_id_not') {
+					if ($condition_ref->[1] eq $User_id) {
+						$conditions = 0;
+						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - condition $condition_ref->[0] does not match: $condition_ref->[1] (current: $User_id)\n";					
+						last;
+					}
+				}
+				elsif ($condition_ref->[0] =~ /in_(.*)_tags/) {
+					my $tagtype = $1;
+					my $condition = 0;
+					if (defined $product_ref->{$tagtype . "_tags"}) {
+						foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
+							if ($tagid eq $condition_ref->[1]) {
+								$condition = 1;
+								last;
+							}
+						}
+					}
+					if (not $condition) {
+						$conditions = 0;
+						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - condition $condition_ref->[0] does not match: $condition_ref->[1]\n";					
+						last;
+					}
+				}				
 				else {
 					$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - unrecognized condition $condition_ref->[0]\n";					
 				}
@@ -1152,43 +1176,47 @@ sub process_product_edit_rules($) {
 					
 					$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - action: $action - value: $value\n";					
 
-					if ($action =~ /^(ignore|warn)_(if_(existing|0|greater|lesser|equal|match|regexp_match)_)?(.*)$/) {
+					if ($action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match)_)?(.*)$/) {
 						my ($type, $condition, $field) = ($1, $3, $4);
 						my $default_field = $field;
 						
-						# if field is not passed, skip rule
-						if (not defined param($field)) {
-							$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - no value passed -> skip edit rule\n";
-							next;
-						}
+						my $condition_ok = 1;	
 						
-						my $param_field = remove_tags_and_quote(decode utf8=>param($field));
-						
-						my $current_value = $product_ref->{$field};
-						if ($field =~ /^nutriment_(.*)/) {
-							my $nid = $1;
-							$current_value = $product_ref->{nutriments}{$nid . "_100g"};
-						}
-						
-						# language fields?
-						if ($field =~ /_(\w\w)$/) {
-							$default_field = $`;
-							if (not defined $param_field) {
-								$param_field = remove_tags_and_quote(decode utf8=>param($default_field));
-							}
-						}
-						
-						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current(field): " . $current_value . " - param(field): " . $param_field . "\n";	
-						
-						# if there is an existing value equal to the passed value, just skip the rule
-						if  ((defined $current_value) and ($current_value eq $param_field)) {
-							$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current value equals new value -> skip edit rule - current(field): " . $current_value . " - param(field): " . $param_field . "\n";	
-							next;
-						}
-						
-						my $condition_ok = 1;						
+						my $action_log = "";
 						
 						if (defined $condition) {
+						
+							# if field is not passed, skip rule
+							if (not defined param($field)) {
+								$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - no value passed -> skip edit rule\n";
+								next;
+							}
+							
+							my $param_field = remove_tags_and_quote(decode utf8=>param($field));
+							
+							my $current_value = $product_ref->{$field};
+							if ($field =~ /^nutriment_(.*)/) {
+								my $nid = $1;
+								$current_value = $product_ref->{nutriments}{$nid . "_100g"};
+							}
+							
+							# language fields?
+							if ($field =~ /_(\w\w)$/) {
+								$default_field = $`;
+								if (not defined $param_field) {
+									$param_field = remove_tags_and_quote(decode utf8=>param($default_field));
+								}
+							}
+							
+							$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current(field): " . $current_value . " - param(field): " . $param_field . "\n";	
+							
+							# if there is an existing value equal to the passed value, just skip the rule
+							if  ((defined $current_value) and ($current_value eq $param_field)) {
+								$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current value equals new value -> skip edit rule - current(field): " . $current_value . " - param(field): " . $param_field . "\n";	
+								next;
+							}
+						
+												
 							
 							$condition_ok = 0;
 							
@@ -1236,7 +1264,11 @@ sub process_product_edit_rules($) {
 							}
 							else {
 								$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current(field): " . $current_value . " - param(field): " . $param_field . " -- condition matches\n";								
+								$action_log = "product code $code - " . format_subdomain($subdomain) . product_url($product_ref) . " - edit rule $rule_ref->{name} - type: $type - condition: $condition - field: $field current(field): " . $current_value . " - param(field): " . $param_field . "\n";
 							}
+						}
+						else {
+							$action_log = "product code $code - " . format_subdomain($subdomain) . product_url($product_ref) . " - edit rule $rule_ref->{name} - type: $type - condition: $condition \n";
 						}
 						
 						if ($condition_ok) {
@@ -1246,7 +1278,6 @@ sub process_product_edit_rules($) {
 							$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - executing action $action\n";
 							
 							
-							my $action_log = "product code $code - " . format_subdomain($subdomain) . product_url($product_ref) . " - edit rule $rule_ref->{name} - type: $type - condition: $condition - field: $field current(field): " . $current_value . " - param(field): " . $param_field . "\n";
 							
 							if ($type eq 'ignore') {
 								Delete($field);
