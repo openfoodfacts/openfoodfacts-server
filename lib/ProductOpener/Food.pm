@@ -3030,6 +3030,22 @@ sub compute_nutrition_score($) {
 			return;
 	}
 	
+	
+	# do not compute a score for coffee, tea etc.
+	if (	(has_tag($product_ref, "categories", "en:alcoholic-beverages")) 
+		or	(has_tag($product_ref, "categories", "en:coffees"))
+		or	(has_tag($product_ref, "categories", "en:teas"))
+		or	(has_tag($product_ref, "categories", "en:teas"))
+		or	(has_tag($product_ref, "categories", "fr:levure"))
+		or	(has_tag($product_ref, "categories", "fr:levures"))
+		) {
+			$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
+			$product_ref->{nutrition_score_debug} = "no score for coffees, teas, alcoholic-beverages etc.";
+			return;
+	}
+	
+	
+	
 	my $energy_points = int(($product_ref->{nutriments}{"energy_100g"} - 0.00001) / 335);
 	$energy_points > 10 and $energy_points = 10;
 	
