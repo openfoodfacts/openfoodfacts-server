@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: openfoodfacts\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-18 10:51+0000\n"
-"PO-Revision-Date: 2017-06-28 11:02-0400\n"
+"PO-Revision-Date: 2017-06-28 11:12-0400\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Language-Team: Serbian (Latin)\n"
 "MIME-Version: 1.0\n"
@@ -57,15 +57,7 @@ msgstr "Региструјте се"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-<<<<<<< HEAD
-<<<<<<< HEAD
 msgstr "<p>Hvala što ste se registrovali. Sada se možete prijaviti na sajt i krenuti sa dodavanjem i uređivanjem proizvoda.</p>"
-=======
-msgstr ""
->>>>>>> master
-=======
-msgstr ""
->>>>>>> master
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -95,15 +87,7 @@ msgstr ""
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-<<<<<<< HEAD
-<<<<<<< HEAD
 msgstr "Opasan prehrambeni aditiv. Izbegavati."
-=======
-msgstr ""
->>>>>>> master
-=======
-msgstr ""
->>>>>>> master
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
@@ -283,15 +267,7 @@ msgstr "Podaci"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-<<<<<<< HEAD
-<<<<<<< HEAD
 msgstr "Hranljive materije"
-=======
-msgstr ""
->>>>>>> master
-=======
-msgstr ""
->>>>>>> master
 
 msgctxt "change_selected_images"
 msgid "Selected images"
@@ -370,15 +346,7 @@ msgstr "Повезани сте са вашим Facebook налогом"
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-<<<<<<< HEAD
-<<<<<<< HEAD
 msgstr "Saradanik od"
-=======
-msgstr ""
->>>>>>> master
-=======
-msgstr ""
->>>>>>> master
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
@@ -546,8 +514,6 @@ msgstr "EMB kod"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
-<<<<<<< HEAD
-<<<<<<< HEAD
 msgstr "U Evropi, kod se nalazi u elipsi sa inicijalima države (2 karaktera), nakon toga broj i na kraju inicijali CE."
 
 msgctxt "emb_codes_p"
@@ -569,34 +535,6 @@ msgstr "Proizvodi bez EMB koda %s"
 msgctxt "entry_dates_p"
 msgid "Entry dates"
 msgstr "Datum unosa"
-=======
-=======
->>>>>>> master
-msgstr ""
-
-msgctxt "emb_codes_p"
-msgid "packager codes"
-msgstr ""
-
-msgctxt "emb_codes_products"
-msgid "Products with the emb code %s"
-msgstr ""
-
-msgctxt "emb_codes_s"
-msgid "packager code"
-msgstr ""
-
-msgctxt "emb_codes_without_products"
-msgid "Products without the emb code %s"
-msgstr ""
-
-msgctxt "entry_dates_p"
-msgid "Entry dates"
-msgstr ""
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
 
 msgctxt "entry_dates_s"
 msgid "Entry date"
@@ -708,15 +646,7 @@ msgstr ""
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-<<<<<<< HEAD
-<<<<<<< HEAD
 msgstr "https://www.facebook.com/OpenFoodFacts"
-=======
-msgstr ""
->>>>>>> master
-=======
-msgstr ""
->>>>>>> master
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -762,25 +692,11 @@ msgstr ""
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-<<<<<<< HEAD
-<<<<<<< HEAD
 msgstr "Više o projektu"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
 msgstr "Često postavljana pitanja"
-=======
-=======
->>>>>>> master
-msgstr ""
-
-msgctxt "footer_faq"
-msgid "Frequently asked questions"
-msgstr ""
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
 
 msgctxt "footer_faq_link"
 msgid "/faq"
@@ -794,15 +710,7 @@ msgstr ""
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
-<<<<<<< HEAD
-<<<<<<< HEAD
 msgstr "Instaliraj aplikaciju"
-=======
-msgstr ""
->>>>>>> master
-=======
-msgstr ""
->>>>>>> master
 
 msgctxt "footer_join_the_community"
 msgid "Join the community"
@@ -1024,7 +932,7 @@ msgstr "Lista sastojaka"
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
-msgstr ""
+msgstr "Sastojci su navedeni prema značaju (količini)."
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
@@ -1032,11 +940,11 @@ msgstr "Žitarice 85.5% (_pšenično_ brašno, brašno od celog zrna _pšenice_ 
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
-msgstr ""
+msgstr "Pridržavajte se redosleda, naznačite % ako je naveden, koristite zarez ili - prilikom odvajanja, koristite () za sastojke nekog od sastojaka, ogradite alergene npr. _mleko_"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr ""
+msgstr "sastojci koji mogu biti od palminog ulja"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
@@ -1044,7 +952,7 @@ msgstr "sastojak koji može biti od palminog ulja"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr ""
+msgstr "Proizvodi koji ne sadrže sastojak %s"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
@@ -1244,15 +1152,7 @@ msgstr "kineski"
 
 msgctxt "language"
 msgid "en-US"
-<<<<<<< HEAD
-<<<<<<< HEAD
 msgstr "rs-RS"
-=======
-msgstr ""
->>>>>>> master
-=======
-msgstr ""
->>>>>>> master
 
 msgctxt "languages_p"
 msgid "languages"
@@ -1911,15 +1811,7 @@ msgstr ""
 
 msgctxt "product_js_image_rotate_right"
 msgid "Rotate right"
-<<<<<<< HEAD
-<<<<<<< HEAD
 msgstr "Rotiraj udesno"
-=======
-msgstr ""
->>>>>>> master
-=======
-msgstr ""
->>>>>>> master
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
@@ -2264,15 +2156,7 @@ msgstr ""
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-<<<<<<< HEAD
-<<<<<<< HEAD
 msgstr "Hranljive materije"
-=======
-msgstr ""
->>>>>>> master
-=======
-msgstr ""
->>>>>>> master
 
 msgctxt "search_or"
 msgid "or"
@@ -2596,15 +2480,7 @@ msgstr ""
 
 msgctxt "users_p"
 msgid "contributors"
-<<<<<<< HEAD
-<<<<<<< HEAD
 msgstr "saradnici"
-=======
-msgstr ""
->>>>>>> master
-=======
-msgstr ""
->>>>>>> master
 
 msgctxt "users_products"
 msgid "Products added by %s"
