@@ -279,6 +279,7 @@ additives
 allergens
 traces
 nutrition_grades
+misc
 languages
 users
 states
