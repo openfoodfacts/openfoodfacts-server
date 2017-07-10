@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: openfoodfacts\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-18 10:51+0000\n"
-"PO-Revision-Date: 2017-07-05 05:27-0400\n"
+"PO-Revision-Date: 2017-07-10 09:07-0400\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -194,7 +194,7 @@ msgstr "Vertical axis"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr ""
+msgstr "Barcode"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
@@ -936,11 +936,11 @@ msgstr "informers"
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingredients"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingredients"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -1068,7 +1068,7 @@ msgstr "Main language"
 
 msgctxt "lang_ar"
 msgid "Arabic"
-msgstr ""
+msgstr "Arabic"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
@@ -1076,27 +1076,27 @@ msgstr "Bulgarian"
 
 msgctxt "lang_cs"
 msgid "Czech"
-msgstr ""
+msgstr "Czech"
 
 msgctxt "lang_da"
 msgid "Danish"
-msgstr ""
+msgstr "Danish"
 
 msgctxt "lang_de"
 msgid "German"
-msgstr ""
+msgstr "German"
 
 msgctxt "lang_el"
 msgid "Greek"
-msgstr ""
+msgstr "Greek"
 
 msgctxt "lang_en"
 msgid "English"
-msgstr ""
+msgstr "English"
 
 msgctxt "lang_es"
 msgid "Spanish"
-msgstr ""
+msgstr "Spanish"
 
 msgctxt "lang_et"
 msgid "Estonian"
@@ -1104,11 +1104,11 @@ msgstr "Estonian"
 
 msgctxt "lang_fi"
 msgid "Finnish"
-msgstr ""
+msgstr "Finnish"
 
 msgctxt "lang_fr"
 msgid "French"
-msgstr ""
+msgstr "French"
 
 msgctxt "lang_ga"
 msgid "Irish"
@@ -1116,7 +1116,7 @@ msgstr "Irish"
 
 msgctxt "lang_he"
 msgid "Hebrew"
-msgstr ""
+msgstr "Hebrew"
 
 msgctxt "lang_hu"
 msgid "Hungarian"
@@ -1128,15 +1128,15 @@ msgstr "Indonesian"
 
 msgctxt "lang_it"
 msgid "Italian"
-msgstr ""
+msgstr "Italian"
 
 msgctxt "lang_ja"
 msgid "Japanese"
-msgstr ""
+msgstr "Japanese"
 
 msgctxt "lang_ko"
 msgid "Korean"
-msgstr ""
+msgstr "Korean"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
@@ -1144,7 +1144,7 @@ msgstr "Lithuanian"
 
 msgctxt "lang_lv"
 msgid "Latvian"
-msgstr ""
+msgstr "Latvian"
 
 msgctxt "lang_mt"
 msgid "Maltese"
@@ -1152,11 +1152,11 @@ msgstr "Maltese"
 
 msgctxt "lang_nl"
 msgid "Dutch"
-msgstr ""
+msgstr "Dutch"
 
 msgctxt "lang_nl_be"
 msgid "Dutch"
-msgstr ""
+msgstr "Dutch"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
@@ -1172,7 +1172,7 @@ msgstr "Polish"
 
 msgctxt "lang_pt"
 msgid "Portuguese"
-msgstr ""
+msgstr "Portuguese"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
@@ -1180,11 +1180,11 @@ msgstr "Portugal Portuguese"
 
 msgctxt "lang_ro"
 msgid "Romanian"
-msgstr ""
+msgstr "Romanian"
 
 msgctxt "lang_ru"
 msgid "Russian"
-msgstr ""
+msgstr "Russian"
 
 msgctxt "lang_sk"
 msgid "Slovak"
@@ -1196,7 +1196,7 @@ msgstr "Slovenian"
 
 msgctxt "lang_sv"
 msgid "Swedish"
-msgstr ""
+msgstr "Swedish"
 
 msgctxt "lang_th"
 msgid "Thai"
@@ -1208,7 +1208,7 @@ msgstr "Vietnamese"
 
 msgctxt "lang_zh"
 msgid "Chinese"
-msgstr ""
+msgstr "Chinese"
 
 msgctxt "language"
 msgid "en-US"
@@ -1298,7 +1298,7 @@ msgstr "<p>Sign-in to add or edit products.</p>\n\n"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "Sign in"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
@@ -1388,7 +1388,7 @@ msgstr "/contribute"
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr ""
+msgstr "Discover"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
@@ -1440,7 +1440,7 @@ msgstr "%d products"
 
 msgctxt "name"
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 msgctxt "names"
 msgid "Names"
@@ -1528,11 +1528,11 @@ msgstr "Products that do not contain the nutriment %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Nutrition facts"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Nutrition facts"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1568,7 +1568,7 @@ msgstr "for 100 g / 100 ml"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr "5<sup>th</sup> centile"
+msgstr ""
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
@@ -1580,7 +1580,7 @@ msgstr "90th centile"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
-msgstr "95<sup>th</sup> centile"
+msgstr ""
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
@@ -1604,7 +1604,7 @@ msgstr "Standard deviation"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Nutrition facts"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1726,7 +1726,7 @@ msgstr "Pages:"
 
 msgctxt "password"
 msgid "Password"
-msgstr ""
+msgstr "Password"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
@@ -2090,7 +2090,7 @@ msgstr "salt equivalent"
 
 msgctxt "save"
 msgid "Save"
-msgstr ""
+msgstr "Save"
 
 msgctxt "saved"
 msgid "Saved."
@@ -2102,15 +2102,15 @@ msgstr "Saving."
 
 msgctxt "search"
 msgid "Search"
-msgstr ""
+msgstr "Search"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
-msgstr ""
+msgstr "Search for a product"
 
 msgctxt "search_button"
 msgid "Search"
-msgstr ""
+msgstr "Search"
 
 msgctxt "search_contains"
 msgid "contains"
@@ -2142,7 +2142,7 @@ msgstr "Download results in CSV format (Excel, OpenOffice)"
 
 msgctxt "search_download_results_description"
 msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
+msgstr ""
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -2204,7 +2204,7 @@ msgstr "Indifferent"
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingredients"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
@@ -2344,7 +2344,7 @@ msgstr "Country"
 
 msgctxt "select_lang"
 msgid "Language"
-msgstr ""
+msgstr "Languages"
 
 msgctxt "send_image"
 msgid "Send a picture..."
@@ -2368,11 +2368,11 @@ msgstr "60 g, 12 oz, 20cl, 2 fl oz"
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "Sign in"
 
 msgctxt "share"
 msgid "Share"
-msgstr ""
+msgstr "Share"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
@@ -2396,7 +2396,7 @@ msgstr "A collaborative, free and open database of ingredients, nutrition facts 
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr ""
+msgstr "Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
