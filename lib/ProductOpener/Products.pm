@@ -474,6 +474,7 @@ sub compute_completeness_and_missing_tags($$$) {
 		$complete = 0;		
 	}
 	
+	
 	if ($complete) {
 		push @states_tags, "en:complete";	
 		
