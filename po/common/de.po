@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: openfoodfacts\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-18 10:51+0000\n"
-"PO-Revision-Date: 2017-07-16 03:20-0400\n"
+"PO-Revision-Date: 2017-07-16 03:30-0400\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Language-Team: German\n"
 "MIME-Version: 1.0\n"
@@ -2684,15 +2684,15 @@ msgstr "Warnung: die Menge an Ballaststoffen ist nicht angegeben, ihr möglicher
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Warnung: die Menge an Früchten, Gemüsen und Nüssen ist nicht angegeben. Der mögliche positive Beitrag zu der Sortierung konnte nicht berücksichtigt werden."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr ""
+msgstr "Warnung: die Menge an Früchten, Gemüsen und Nüssen ist nicht auf dem Etikett angegeben, sie wurde aus der Liste der Zutaten geschätzt: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr ""
+msgstr "Warnung: Die Menge an Obst, Gemüse und Nüssen ist nicht auf dem Etikett angegeben, sie wurde aus der Kategorie (%s) des Produktes geschätzt: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
