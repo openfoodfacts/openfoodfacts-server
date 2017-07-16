@@ -1,3 +1,6 @@
+branches:
+  except:
+  - l10n_master
 language: perl
 perl:
   - "system"
