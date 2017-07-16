@@ -3282,29 +3282,25 @@ sub display_scatter_plot($$$) {
 				
 				# print STDERR "Display::search_and_graph_products: i: $i - axis_x: $graph_ref->{axis_x} - axis_y: $graph_ref->{axis_y}\n";
 					
-				my $data = '{';
+				my %data;
 					
 				foreach my $axis ('x', 'y') {
 					my $nid = $graph_ref->{"axis_" . $axis};
-					$data .= $axis . ':';
 					if (($nid eq 'additives_n') or ($nid eq 'ingredients_n')) {
-						$data .= $product_ref->{$nid};
+						$data{$axis} = $product_ref->{$nid};
 					}
 					else {
-						$data .= g_to_unit($product_ref->{nutriments}{"${nid}_100g"}, $Nutriments{$nid}{unit});
+						$data{$axis} = g_to_unit($product_ref->{nutriments}{"${nid}_100g"}, $Nutriments{$nid}{unit});
 					}
-					$data .= ',';			
 									
 					add_product_nutriment_to_stats(\%nutriments, $nid, $product_ref->{nutriments}{"${nid}_100g"});
 				}
-				$data .= ' product_name:"' . escape_single_quote($product_ref->{product_name}) . '", url: "' . $url . '", img:\''
-					. escape_single_quote(display_image_thumb($product_ref, 'front')) . "'";
-;
-				
-				$data .= "},\n";
+				$data{product_name} = $product_ref->{product_name};
+				$data{url} = $url;
+				$data{img} = display_image_thumb($product_ref, 'front');
 				
 				defined $series{$seriesid} or $series{$seriesid} = '';
-				$series{$seriesid} .= $data;
+				$series{$seriesid} .= encode_json(\%data);
 				defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
 				$series_n{$seriesid}++;
 				$i++;
