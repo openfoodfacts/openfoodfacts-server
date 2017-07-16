@@ -3,9 +3,9 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2017 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
-# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# Address: 21 rue des Iles, 94100 Saint-Maur des FossÃ©s, France
 # 
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -144,7 +144,7 @@ if (($sort_by ne 'created_t') and ($sort_by ne 'last_modified_t') and ($sort_by 
 	$sort_by = 'unique_scans_n';
 }
 
-my $limit = param('page_size') || $page_size;
+my $limit = 0 + (param('page_size') || $page_size);
 if (($limit < 2) or ($limit > 1000)) {
 	$limit = $page_size;
 }
