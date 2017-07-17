@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ta_IN\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-07-17 03:21-0400\n"
+"PO-Revision-Date: 2017-07-17 04:36-0400\n"
 "Language-Team: Tamil\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -14,12 +14,10 @@ msgstr ""
 "X-Crowdin-Language: ta\n"
 "X-Crowdin-File: /master/po/openpetfoodfacts/openpetfoodfacts.pot\n"
 
-#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
 msgid ":langtag"
 msgstr ""
 
-#. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
 msgid ":langname"
 msgstr ""
@@ -32,6 +30,14 @@ msgctxt "logo2x"
 msgid "openfoodfacts-logo-en-356x300.png"
 msgstr ""
 
+msgctxt "site_name"
+msgid "Open Pet Food Facts"
+msgstr ""
+
 msgctxt "tagline"
-msgid "Open Pet Food Facts gathers information and data on food products from around the world."
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world.<br/> <div class=\"flex-video\"><embed width=\"640\" height=\"480\" src=\"https://world.openpetfoodfacts.org/images/misc/opff-leaderboard.svg\"></embed></div>"
+msgstr ""
+
+msgctxt "android_app_link"
+msgid "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=en"
 msgstr ""
