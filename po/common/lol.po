@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol_US\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-07-17 03:19-0400\n"
+"PO-Revision-Date: 2017-07-17 04:34-0400\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -503,8 +503,8 @@ msgid "EMB code"
 msgstr "crwdns36229:0crwdne36229:0"
 
 msgctxt "emb_codes_example"
-msgid "EMB code"
-msgstr "crwdns36230:0crwdne36230:0"
+msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
+msgstr "crwdns36738:0crwdne36738:0"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
@@ -1000,6 +1000,22 @@ msgctxt "lang"
 msgid "Main language"
 msgstr "crwdns36349:0crwdne36349:0"
 
+msgctxt "lang_ar"
+msgid "Arabic"
+msgstr "crwdns36739:0crwdne36739:0"
+
+msgctxt "lang_bg"
+msgid "Bulgarian"
+msgstr "crwdns36740:0crwdne36740:0"
+
+msgctxt "lang_cs"
+msgid "Czech"
+msgstr "crwdns36741:0crwdne36741:0"
+
+msgctxt "lang_da"
+msgid "Danish"
+msgstr "crwdns36742:0crwdne36742:0"
+
 msgctxt "lang_de"
 msgid "German"
 msgstr "crwdns36350:0crwdne36350:0"
@@ -1016,13 +1032,33 @@ msgctxt "lang_es"
 msgid "Spanish"
 msgstr "crwdns36353:0crwdne36353:0"
 
+msgctxt "lang_et"
+msgid "Estonian"
+msgstr "crwdns36743:0crwdne36743:0"
+
+msgctxt "lang_fi"
+msgid "Finnish"
+msgstr "crwdns36744:0crwdne36744:0"
+
 msgctxt "lang_fr"
 msgid "French"
 msgstr "crwdns36354:0crwdne36354:0"
 
+msgctxt "lang_ga"
+msgid "Irish"
+msgstr "crwdns36745:0crwdne36745:0"
+
 msgctxt "lang_he"
 msgid "Hebrew"
 msgstr "crwdns36355:0crwdne36355:0"
+
+msgctxt "lang_hu"
+msgid "Hungarian"
+msgstr "crwdns36746:0crwdne36746:0"
+
+msgctxt "lang_id"
+msgid "Indonesian"
+msgstr "crwdns36747:0crwdne36747:0"
 
 msgctxt "lang_it"
 msgid "Italian"
@@ -1035,6 +1071,18 @@ msgstr "crwdns36357:0crwdne36357:0"
 msgctxt "lang_ko"
 msgid "Korean"
 msgstr "crwdns36358:0crwdne36358:0"
+
+msgctxt "lang_lt"
+msgid "Lithuanian"
+msgstr "crwdns36748:0crwdne36748:0"
+
+msgctxt "lang_lv"
+msgid "Latvian"
+msgstr "crwdns36749:0crwdne36749:0"
+
+msgctxt "lang_mt"
+msgid "Maltese"
+msgstr "crwdns36750:0crwdne36750:0"
 
 msgctxt "lang_nl"
 msgid "Dutch"
@@ -1060,6 +1108,10 @@ msgctxt "lang_pt"
 msgid "Portuguese"
 msgstr "crwdns36364:0crwdne36364:0"
 
+msgctxt "lang_pt_pt"
+msgid "Portugal Portuguese"
+msgstr "crwdns36751:0crwdne36751:0"
+
 msgctxt "lang_ro"
 msgid "Romanian"
 msgstr "crwdns36365:0crwdne36365:0"
@@ -1067,6 +1119,18 @@ msgstr "crwdns36365:0crwdne36365:0"
 msgctxt "lang_ru"
 msgid "Russian"
 msgstr "crwdns36366:0crwdne36366:0"
+
+msgctxt "lang_sk"
+msgid "Slovak"
+msgstr "crwdns36752:0crwdne36752:0"
+
+msgctxt "lang_sl]]"
+msgid "Slovenian"
+msgstr "crwdns36753:0crwdne36753:0"
+
+msgctxt "lang_sv"
+msgid "Swedish"
+msgstr "crwdns36754:0crwdne36754:0"
 
 msgctxt "lang_th"
 msgid "Thai"
@@ -1425,8 +1489,8 @@ msgid "for 100 g / 100 ml"
 msgstr "crwdns36452:0crwdne36452:0"
 
 msgctxt "nutrition_data_per_5"
-msgid "5<sup>th</supe> centile"
-msgstr "crwdns36453:0crwdne36453:0"
+msgid "5<sup>th</sup> centile"
+msgstr "crwdns36755:0crwdne36755:0"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
@@ -1437,8 +1501,8 @@ msgid "90th centile"
 msgstr "crwdns36455:0crwdne36455:0"
 
 msgctxt "nutrition_data_per_95"
-msgid "95<sup>th</supe> centile"
-msgstr "crwdns36456:0crwdne36456:0"
+msgid "95<sup>th</sup> centile"
+msgstr "crwdns36756:0crwdne36756:0"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
@@ -1988,8 +2052,8 @@ msgid "Download results in CSV format (Excel, OpenOffice)"
 msgstr "crwdns36590:0crwdne36590:0"
 
 msgctxt "search_download_results_description"
-msgid "Character set: Unicode (UTF-8)). Separator: tabulation (tab)."
-msgstr "crwdns36591:0crwdne36591:0"
+msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
+msgstr "crwdns36757:0crwdne36757:0"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -2465,9 +2529,37 @@ msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
 msgstr "crwdns36709:0%scrwdne36709:0"
 
+msgctxt "product_js_unselect_image"
+msgid "Unselect image"
+msgstr "crwdns36758:0crwdne36758:0"
+
+msgctxt "product_js_unselecting_image"
+msgid "Unselecting image."
+msgstr "crwdns36759:0crwdne36759:0"
+
+msgctxt "product_js_unselected_image_ok"
+msgid "Unselected image."
+msgstr "crwdns36760:0crwdne36760:0"
+
+msgctxt "product_js_unselected_image_nok"
+msgid "Error while unselecting image."
+msgstr "crwdns36761:0crwdne36761:0"
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "crwdns36710:0crwdne36710:0"
+
+msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
+msgstr "crwdns36762:0crwdne36762:0"
+
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
+msgstr "crwdns36763:0%dcrwdne36763:0"
+
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
+msgstr "crwdns36764:0%scrwdnd36764:0%dcrwdne36764:0"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2480,3 +2572,59 @@ msgstr "crwdns36712:0crwdne36712:0"
 msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "crwdns36713:0crwdne36713:0"
+
+msgctxt "delete_product_page"
+msgid "Delete the product page"
+msgstr "crwdns36765:0crwdne36765:0"
+
+msgctxt "deleting_product"
+msgid "Deleting product"
+msgstr "crwdns36766:0crwdne36766:0"
+
+msgctxt "has_deleted_product"
+msgid "has deleted product"
+msgstr "crwdns36767:0crwdne36767:0"
+
+msgctxt "delete_product_confirm"
+msgid "Are you sure that you want to delete the page for this product?"
+msgstr "crwdns36768:0crwdne36768:0"
+
+msgctxt "delete_user"
+msgid "Delete the user"
+msgstr "crwdns36769:0crwdne36769:0"
+
+msgctxt "sources_openfood_ch"
+msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
+msgstr "crwdns36770:0crwdne36770:0"
+
+msgctxt "sources_openfood_ch_product_page"
+msgid "Product page on openfood.ch"
+msgstr "crwdns36771:0crwdne36771:0"
+
+msgctxt "sources_usda_ndb"
+msgid "Some of the data comes from the USDA National Nutrients Database for Branded Foods (the exact list is available in the product edit history)."
+msgstr "crwdns36772:0crwdne36772:0"
+
+msgctxt "sources_usda_ndb_product_page"
+msgid "Product page on USDA NDB"
+msgstr "crwdns36773:0crwdne36773:0"
+
+msgctxt "donate"
+msgid "Donate to Open Food Facts"
+msgstr "crwdns36774:0crwdne36774:0"
+
+msgctxt "donate_link"
+msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgstr "crwdns36775:0crwdne36775:0"
+
+msgctxt "sources_fleurymichon"
+msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
+msgstr "crwdns36776:0crwdne36776:0"
+
+msgctxt "sources_manufacturer"
+msgid "Some of the data for this product has been provided directly by the manufacturer %s"
+msgstr "crwdns36777:0%scrwdne36777:0"
+
+msgctxt "warning_not_complete"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "crwdns36778:0crwdne36778:0"
