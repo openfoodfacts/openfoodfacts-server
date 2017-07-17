@@ -1,5 +1,5 @@
 files:
-  - source: /po/common/en.po
+  - source: /po/common/common.pot
     translation: /po/common/%two_letters_code%.po
     languages_mapping:
       two_letters_code:
@@ -14,7 +14,7 @@ files:
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr
-  - source: /po/openbeautyfacts/en.po
+  - source: /po/openbeautyfacts/openbeautyfacts.pot
     translation: /po/openbeautyfacts/%two_letters_code%.po
     languages_mapping:
       two_letters_code:
@@ -29,7 +29,7 @@ files:
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr
-  - source: /po/openfoodfacts/en.po
+  - source: /po/openfoodfacts/openfoodfacts.pot
     translation: /po/openfoodfacts/%two_letters_code%.po
     languages_mapping:
       two_letters_code:
@@ -44,7 +44,7 @@ files:
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr
-  - source: /po/openpetfoodfacts/en.po
+  - source: /po/openpetfoodfacts/openpetfoodfacts.pot
     translation: /po/openpetfoodfacts/%two_letters_code%.po
     languages_mapping:
       two_letters_code:
