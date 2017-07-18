@@ -1,0 +1,353 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Project-Id-Version: openfoodfacts\n"
+"PO-Revision-Date: 2017-07-18 05:37-0400\n"
+"Language-Team: Chinese Traditional\n"
+"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Language: zh-TW\n"
+"X-Crowdin-File: /master/po/tags/tags.pot\n"
+
+#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
+msgctxt ":langtag"
+msgid ":langtag"
+msgstr ""
+
+#. put here the language name ("French", "Japanese", etc)
+msgctxt ":langname"
+msgid ":langname"
+msgstr ""
+
+msgctxt "additives:plural"
+msgid "additives"
+msgstr "添加劑"
+
+msgctxt "additives:singular"
+msgid "additive"
+msgstr "添加劑"
+
+msgctxt "allergens:plural"
+msgid "allergens"
+msgstr "過敏原"
+
+msgctxt "allergens:singular"
+msgid "allergen"
+msgstr "過敏原"
+
+msgctxt "brands:plural"
+msgid "brands"
+msgstr "品牌"
+
+msgctxt "brands:singular"
+msgid "brand"
+msgstr "品牌"
+
+msgctxt "categories:plural"
+msgid "categories"
+msgstr "類別"
+
+msgctxt "categories:singular"
+msgid "category"
+msgstr "類別"
+
+msgctxt "checkers:plural"
+msgid "checkers"
+msgstr "檢查"
+
+msgctxt "checkers:singular"
+msgid "checker"
+msgstr "檢查"
+
+msgctxt "cities:plural"
+msgid "cities"
+msgstr ""
+
+msgctxt "cities:singular"
+msgid "city"
+msgstr ""
+
+msgctxt "codes:plural"
+msgid "codes"
+msgstr ""
+
+msgctxt "codes:singular"
+msgid "code"
+msgstr ""
+
+msgctxt "correctors:plural"
+msgid "correctors"
+msgstr "校正者"
+
+msgctxt "correctors:singular"
+msgid "corrector"
+msgstr "校正者"
+
+msgctxt "countries:plural"
+msgid "countries"
+msgstr "國家"
+
+msgctxt "countries:singular"
+msgid "country"
+msgstr "國家"
+
+msgctxt "debug:plural"
+msgid "debug"
+msgstr "除錯"
+
+msgctxt "debug:singular"
+msgid "debug"
+msgstr "除錯"
+
+msgctxt "editors:plural"
+msgid "editors"
+msgstr "編輯"
+
+msgctxt "editors:singular"
+msgid "editor"
+msgstr "編輯"
+
+msgctxt "emb_codes:plural"
+msgid "packager-codes"
+msgstr ""
+
+msgctxt "emb_codes:singular"
+msgid "packager-code"
+msgstr ""
+
+msgctxt "entry_dates:plural"
+msgid "entry-dates"
+msgstr ""
+
+msgctxt "entry_dates:singular"
+msgid "entry-date"
+msgstr ""
+
+msgctxt "informers:plural"
+msgid "informers"
+msgstr "提供者"
+
+msgctxt "informers:singular"
+msgid "informer"
+msgstr ""
+
+msgctxt "ingredients:plural"
+msgid "ingredients"
+msgstr "成分"
+
+msgctxt "ingredients:singular"
+msgid "ingredient"
+msgstr "成分"
+
+msgctxt "ingredients_from_palm_oil:plural"
+msgid "ingredients-from-palm-oil"
+msgstr ""
+
+msgctxt "ingredients_from_palm_oil:singular"
+msgid "ingredients-from-palm-oil"
+msgstr ""
+
+msgctxt "ingredients_n:plural"
+msgid "numbers-of-ingredients"
+msgstr ""
+
+msgctxt "ingredients_n:singular"
+msgid "number-of-ingredients"
+msgstr ""
+
+msgctxt "ingredients_that_may_be_from_palm_oil:plural"
+msgid "ingredients-that-may-be-from-palm-oil"
+msgstr ""
+
+msgctxt "ingredients_that_may_be_from_palm_oil:singular"
+msgid "ingredients-that-may-be-from-palm-oil"
+msgstr ""
+
+msgctxt "known_nutrients:plural"
+msgid "known-nutrients"
+msgstr ""
+
+msgctxt "known_nutrients:singular"
+msgid "known-nutrient"
+msgstr ""
+
+msgctxt "labels:plural"
+msgid "labels"
+msgstr "標籤"
+
+msgctxt "labels:singular"
+msgid "label"
+msgstr "標籤"
+
+msgctxt "languages:plural"
+msgid "languages"
+msgstr "語言"
+
+msgctxt "languages:singular"
+msgid "language"
+msgstr "語言"
+
+msgctxt "last_edit_dates:plural"
+msgid "last-edit-dates"
+msgstr ""
+
+msgctxt "last_edit_dates:singular"
+msgid "last-edit-date"
+msgstr ""
+
+msgctxt "last_image_dates:plural"
+msgid "last-image-dates"
+msgstr ""
+
+msgctxt "last_image_dates:singular"
+msgid "last-image-date"
+msgstr ""
+
+msgctxt "manufacturing_places:plural"
+msgid "manufacturing-places"
+msgstr ""
+
+msgctxt "manufacturing_places:singular"
+msgid "manufacturing-place"
+msgstr ""
+
+msgctxt "missions:plural"
+msgid "missions"
+msgstr ""
+
+msgctxt "missions:singular"
+msgid "mission"
+msgstr ""
+
+msgctxt "nutrient_levels:plural"
+msgid "nutrient-levels"
+msgstr ""
+
+msgctxt "nutrient_levels:singular"
+msgid "nutrient-level"
+msgstr ""
+
+msgctxt "nutriments:plural"
+msgid "nutrients"
+msgstr ""
+
+msgctxt "nutriments:singular"
+msgid "nutrient"
+msgstr ""
+
+msgctxt "nutrition_grades:plural"
+msgid "nutrition-grades"
+msgstr ""
+
+msgctxt "nutrition_grades:singular"
+msgid "nutrition-grade"
+msgstr ""
+
+msgctxt "origins:plural"
+msgid "origins"
+msgstr ""
+
+msgctxt "origins:singular"
+msgid "origin"
+msgstr ""
+
+msgctxt "packaging:plural"
+msgid "packaging"
+msgstr "包裝"
+
+msgctxt "packaging:singular"
+msgid "packaging"
+msgstr "包裝"
+
+msgctxt "periods_after_opening:plural"
+msgid "periods-after-opening"
+msgstr ""
+
+msgctxt "periods_after_opening:singular"
+msgid "period-after-opening"
+msgstr ""
+
+msgctxt "photographers:plural"
+msgid "photographers"
+msgstr "攝影師"
+
+msgctxt "photographers:singular"
+msgid "photographer"
+msgstr "攝影師"
+
+msgctxt "pnns_groups_1:plural"
+msgid "pnns-groups-1"
+msgstr ""
+
+msgctxt "pnns_groups_1:singular"
+msgid "pnns-group-1"
+msgstr ""
+
+msgctxt "pnns_groups_2:plural"
+msgid "pnns-groups-2"
+msgstr ""
+
+msgctxt "pnns_groups_2:singular"
+msgid "pnns-group-2"
+msgstr ""
+
+msgctxt "products:plural"
+msgid "products"
+msgstr "產品"
+
+msgctxt "products:singular"
+msgid "product"
+msgstr ""
+
+msgctxt "purchase_places:plural"
+msgid "purchase-places"
+msgstr ""
+
+msgctxt "purchase_places:singular"
+msgid "purchase-place"
+msgstr ""
+
+msgctxt "states:plural"
+msgid "states"
+msgstr "狀態"
+
+msgctxt "states:singular"
+msgid "state"
+msgstr "狀態"
+
+msgctxt "stores:plural"
+msgid "stores"
+msgstr "商店"
+
+msgctxt "stores:singular"
+msgid "store"
+msgstr "商店"
+
+msgctxt "traces:plural"
+msgid "traces"
+msgstr "追蹤"
+
+msgctxt "traces:singular"
+msgid "trace"
+msgstr "追蹤"
+
+msgctxt "unknown_nutrients:plural"
+msgid "unknown-nutrients"
+msgstr ""
+
+msgctxt "unknown_nutrients:singular"
+msgid "unknown-nutrient"
+msgstr ""
+
+msgctxt "users:plural"
+msgid "contributors"
+msgstr "合作者"
+
+msgctxt "users:singular"
+msgid "contributor"
+msgstr "貢獻者"
