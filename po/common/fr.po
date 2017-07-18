@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr_FR\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-07-17 04:13-0400\n"
+"PO-Revision-Date: 2017-07-18 06:31-0400\n"
 "Language-Team: French\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -509,8 +509,8 @@ msgid "EMB code"
 msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_example"
-msgid "EMB code"
-msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
+msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
+msgstr ""
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
@@ -1026,6 +1026,22 @@ msgctxt "lang"
 msgid "Main language"
 msgstr "Langue principale"
 
+msgctxt "lang_ar"
+msgid "Arabic"
+msgstr "Arabe"
+
+msgctxt "lang_bg"
+msgid "Bulgarian"
+msgstr "Bulgare"
+
+msgctxt "lang_cs"
+msgid "Czech"
+msgstr "Tchèque"
+
+msgctxt "lang_da"
+msgid "Danish"
+msgstr "Danois"
+
 msgctxt "lang_de"
 msgid "German"
 msgstr "Allemand"
@@ -1042,13 +1058,33 @@ msgctxt "lang_es"
 msgid "Spanish"
 msgstr "Espagnol"
 
+msgctxt "lang_et"
+msgid "Estonian"
+msgstr "Estonien"
+
+msgctxt "lang_fi"
+msgid "Finnish"
+msgstr "Finnois"
+
 msgctxt "lang_fr"
 msgid "French"
 msgstr "Français"
 
+msgctxt "lang_ga"
+msgid "Irish"
+msgstr "Irlandais"
+
 msgctxt "lang_he"
 msgid "Hebrew"
 msgstr "Hébreu"
+
+msgctxt "lang_hu"
+msgid "Hungarian"
+msgstr "Hongrois"
+
+msgctxt "lang_id"
+msgid "Indonesian"
+msgstr "Indonésien"
 
 msgctxt "lang_it"
 msgid "Italian"
@@ -1061,6 +1097,18 @@ msgstr "Japonais"
 msgctxt "lang_ko"
 msgid "Korean"
 msgstr "Coréen"
+
+msgctxt "lang_lt"
+msgid "Lithuanian"
+msgstr "Lituanien"
+
+msgctxt "lang_lv"
+msgid "Latvian"
+msgstr "Letton"
+
+msgctxt "lang_mt"
+msgid "Maltese"
+msgstr "Maltais"
 
 msgctxt "lang_nl"
 msgid "Dutch"
@@ -1086,6 +1134,10 @@ msgctxt "lang_pt"
 msgid "Portuguese"
 msgstr "Portugais"
 
+msgctxt "lang_pt_pt"
+msgid "Portugal Portuguese"
+msgstr "Portugais du Portugal"
+
 msgctxt "lang_ro"
 msgid "Romanian"
 msgstr "Roumain"
@@ -1093,6 +1145,18 @@ msgstr "Roumain"
 msgctxt "lang_ru"
 msgid "Russian"
 msgstr "Russe"
+
+msgctxt "lang_sk"
+msgid "Slovak"
+msgstr "Slovaque"
+
+msgctxt "lang_sl]]"
+msgid "Slovenian"
+msgstr "Slovène"
+
+msgctxt "lang_sv"
+msgid "Swedish"
+msgstr "Suédois"
 
 msgctxt "lang_th"
 msgid "Thai"
@@ -1463,8 +1527,8 @@ msgid "for 100 g / 100 ml"
 msgstr "pour 100 g / 100 ml"
 
 msgctxt "nutrition_data_per_5"
-msgid "5<sup>th</supe> centile"
-msgstr ""
+msgid "5<sup>th</sup> centile"
+msgstr "5<sup>e</sup> centile"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
@@ -1475,8 +1539,8 @@ msgid "90th centile"
 msgstr "90ème centile"
 
 msgctxt "nutrition_data_per_95"
-msgid "95<sup>th</supe> centile"
-msgstr ""
+msgid "95<sup>th</sup> centile"
+msgstr "95<sup>e</sup> centile"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
@@ -2030,7 +2094,7 @@ msgid "Download results in CSV format (Excel, OpenOffice)"
 msgstr "Télécharger les résultats au format CSV (Excel, OpenOffice)"
 
 msgctxt "search_download_results_description"
-msgid "Character set: Unicode (UTF-8)). Separator: tabulation (tab)."
+msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
 msgstr ""
 
 msgctxt "search_edit"
@@ -2509,9 +2573,37 @@ msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
 msgstr "Vous êtes connecté en tant que %s."
 
+msgctxt "product_js_unselect_image"
+msgid "Unselect image"
+msgstr "Déselectionner l'image"
+
+msgctxt "product_js_unselecting_image"
+msgid "Unselecting image."
+msgstr "Déselection de l'image."
+
+msgctxt "product_js_unselected_image_ok"
+msgid "Unselected image."
+msgstr "Image déselectionnée."
+
+msgctxt "product_js_unselected_image_nok"
+msgid "Error while unselecting image."
+msgstr "Erreur lors de la déselection de l'image."
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Avertissement : Le taux de fibres n'étant pas renseigné, leur éventuelle contribution positive à la note n'a pas pu être prise en compte."
+
+msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
+msgstr ""
+
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
+msgstr ""
+
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
+msgstr ""
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2524,3 +2616,59 @@ msgstr "Mode de calcul de la note nutritionnelle de couleur"
 msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "Note nutritionnelle NutriScore :"
+
+msgctxt "delete_product_page"
+msgid "Delete the product page"
+msgstr "Supprimer la fiche produit"
+
+msgctxt "deleting_product"
+msgid "Deleting product"
+msgstr "Suppression du produit"
+
+msgctxt "has_deleted_product"
+msgid "has deleted product"
+msgstr "efface le produit"
+
+msgctxt "delete_product_confirm"
+msgid "Are you sure that you want to delete the page for this product?"
+msgstr "Etes-vous sûr de vouloir supprimer la fiche de ce produit ?"
+
+msgctxt "delete_user"
+msgid "Delete the user"
+msgstr "Supprimer l'utilisateur"
+
+msgctxt "sources_openfood_ch"
+msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
+msgstr "Certaines données et/ou images sont issues de la base de données OpenFood.ch (la liste détaillée est disponible dans l'historique de modification de la fiche produit). Ces éléments sont publiés sous la licence <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
+
+msgctxt "sources_openfood_ch_product_page"
+msgid "Product page on openfood.ch"
+msgstr "Fiche produit sur openfood.ch"
+
+msgctxt "sources_usda_ndb"
+msgid "Some of the data comes from the USDA National Nutrients Database for Branded Foods (the exact list is available in the product edit history)."
+msgstr "Certaines données proviennent de Base de données Nationale sur les Nutriments d'Aliments de Marque de l'USDA (la liste exacte est disponible l'historique d'édition du produit)."
+
+msgctxt "sources_usda_ndb_product_page"
+msgid "Product page on USDA NDB"
+msgstr "Page produit sur USDA NDB"
+
+msgctxt "donate"
+msgid "Donate to Open Food Facts"
+msgstr "Faire un don à l'association Open Food Facts"
+
+msgctxt "donate_link"
+msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget"
+
+msgctxt "sources_fleurymichon"
+msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
+msgstr ""
+
+msgctxt "sources_manufacturer"
+msgid "Some of the data for this product has been provided directly by the manufacturer %s"
+msgstr "Certaines des données de ce produit ont été fournies directement par le fabricant %s"
+
+msgctxt "warning_not_complete"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr ""
