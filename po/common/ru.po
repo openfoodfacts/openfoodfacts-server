@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru_RU\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-07-17 03:17-0400\n"
+"PO-Revision-Date: 2017-07-18 05:31-0400\n"
 "Language-Team: Russian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -72,7 +72,20 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr ""
+msgstr "Привет, <NAME>!\n\n"
+"Большое спасибо за то, что присоединились к https://openfoodfacts.org\n\n"
+"Ваше имя пользователя: <USERID>\n\n"
+"Теперь вы можете войти на сайт, чтобы добавлять и редактировать продукты.\n\n"
+"<<site_name>> это совместный проект, в который можно внести гораздо больше, чем новые продукты: вашу энергию, энтузиазм и идеи!\n"
+"Для обсуждения между участниками и продвижения проекта мы применяем очень удобную систему обмена сообщениями Slack: https://slack.openfoodfacts.org\n\n"
+"Вы также можете присоединиться к группе Facebook для участников:\n"
+"https://www.facebook.com/groups/374350705955208/\n\n"
+"Новое: мы также создали Open Beauty Facts для создания базы данных о косметике: мыле, зубной пасте, макияже и т. д.\n"
+"https://openbeautyfacts.org\n\n"
+"Большое спасибо!\n\n"
+"Stéphane и команда Open Food Facts\n"
+"https://openfoodfacts.org\n"
+"https://twitter.com/OpenFoodFacts\n"
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
@@ -136,7 +149,7 @@ msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
@@ -508,8 +521,8 @@ msgid "EMB code"
 msgstr "Код EMB"
 
 msgctxt "emb_codes_example"
-msgid "EMB code"
-msgstr "Код EMB"
+msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
+msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
@@ -1023,6 +1036,22 @@ msgctxt "lang"
 msgid "Main language"
 msgstr "Основной язык"
 
+msgctxt "lang_ar"
+msgid "Arabic"
+msgstr "Арабский"
+
+msgctxt "lang_bg"
+msgid "Bulgarian"
+msgstr "Болгарский"
+
+msgctxt "lang_cs"
+msgid "Czech"
+msgstr "Чешский"
+
+msgctxt "lang_da"
+msgid "Danish"
+msgstr "Датский"
+
 msgctxt "lang_de"
 msgid "German"
 msgstr "Немецкий"
@@ -1039,13 +1068,33 @@ msgctxt "lang_es"
 msgid "Spanish"
 msgstr "Испанский"
 
+msgctxt "lang_et"
+msgid "Estonian"
+msgstr "Эстонский"
+
+msgctxt "lang_fi"
+msgid "Finnish"
+msgstr "Финский"
+
 msgctxt "lang_fr"
 msgid "French"
 msgstr "Французский"
 
+msgctxt "lang_ga"
+msgid "Irish"
+msgstr "Ирландский"
+
 msgctxt "lang_he"
 msgid "Hebrew"
 msgstr "Иврит"
+
+msgctxt "lang_hu"
+msgid "Hungarian"
+msgstr "Венгерский"
+
+msgctxt "lang_id"
+msgid "Indonesian"
+msgstr "Индонезийский"
 
 msgctxt "lang_it"
 msgid "Italian"
@@ -1058,6 +1107,18 @@ msgstr "Японский"
 msgctxt "lang_ko"
 msgid "Korean"
 msgstr "Корейский"
+
+msgctxt "lang_lt"
+msgid "Lithuanian"
+msgstr "Литовский"
+
+msgctxt "lang_lv"
+msgid "Latvian"
+msgstr "Латышский"
+
+msgctxt "lang_mt"
+msgid "Maltese"
+msgstr "Мальтийский"
 
 msgctxt "lang_nl"
 msgid "Dutch"
@@ -1083,6 +1144,10 @@ msgctxt "lang_pt"
 msgid "Portuguese"
 msgstr "Португальский"
 
+msgctxt "lang_pt_pt"
+msgid "Portugal Portuguese"
+msgstr "Португальский (Португалия)"
+
 msgctxt "lang_ro"
 msgid "Romanian"
 msgstr "Румынский"
@@ -1090,6 +1155,18 @@ msgstr "Румынский"
 msgctxt "lang_ru"
 msgid "Russian"
 msgstr "Русский"
+
+msgctxt "lang_sk"
+msgid "Slovak"
+msgstr "Словацкий"
+
+msgctxt "lang_sl]]"
+msgid "Slovenian"
+msgstr "Словенский"
+
+msgctxt "lang_sv"
+msgid "Swedish"
+msgstr "Шведский"
 
 msgctxt "lang_th"
 msgid "Thai"
@@ -1460,8 +1537,8 @@ msgid "for 100 g / 100 ml"
 msgstr "в 100 г / 100 мл"
 
 msgctxt "nutrition_data_per_5"
-msgid "5<sup>th</supe> centile"
-msgstr ""
+msgid "5<sup>th</sup> centile"
+msgstr "5<sup>-я</sup> процентиль"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
@@ -1472,8 +1549,8 @@ msgid "90th centile"
 msgstr "90-я процентиль"
 
 msgctxt "nutrition_data_per_95"
-msgid "95<sup>th</supe> centile"
-msgstr ""
+msgid "95<sup>th</sup> centile"
+msgstr "95<sup>-я</sup> процентиль"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
@@ -1927,7 +2004,15 @@ msgid "Hello <NAME>,\n\n"
 "See you soon,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
-msgstr ""
+msgstr "Привет, <NAME>!\n\n"
+"Вы запросили сброс пароля на https://openfoodfacts.org\n\n"
+"для пользователя: <USERID>\n\n"
+"Для продолжения сброса пароля нажмите на ссылку ниже.\n"
+"Если вы не просили сбросить пароль, вы можете проигнорировать это сообщение.\n\n"
+"<RESET_URL>\n\n"
+"Скоро увидимся,\n\n"
+"Stephane\n"
+"https://openfoodfacts.org\n"
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
@@ -2026,8 +2111,8 @@ msgid "Download results in CSV format (Excel, OpenOffice)"
 msgstr "Скачать результаты в формате CSV (Excel, OpenOffice)"
 
 msgctxt "search_download_results_description"
-msgid "Character set: Unicode (UTF-8)). Separator: tabulation (tab)."
-msgstr ""
+msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
+msgstr "Набор символов: Unicode (UTF-8). Разделитель: табуляция (tab)."
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -2499,15 +2584,43 @@ msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Магазин W
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
-msgstr ""
+msgstr "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
 msgstr "Вы подключились как %s."
 
+msgctxt "product_js_unselect_image"
+msgid "Unselect image"
+msgstr "Снять выбор с изображения"
+
+msgctxt "product_js_unselecting_image"
+msgid "Unselecting image."
+msgstr "Снятие выбора с изображения."
+
+msgctxt "product_js_unselected_image_ok"
+msgid "Unselected image."
+msgstr "Невыбранное изображение."
+
+msgctxt "product_js_unselected_image_nok"
+msgid "Error while unselecting image."
+msgstr "Ошибки при снятии выбора с изображения."
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Предупреждение: количество питательных волокон не указано, их возможный положительный вклад в оценку не может быть учтен."
+
+msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
+msgstr "Предупреждение: количество фруктов, овощей и орехов не указано, их возможный положительный вклад в оценку не может быть учтен."
+
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
+msgstr "Предупреждение: количество фруктов, овощей и орехов не указано на этикетке, оно было определено из списка ингредиентов: %d%"
+
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
+msgstr "Предупреждение: количество фруктов, овощей и орехов не указано на этикетке, оно оценивалось по категории (%s) продукта: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2520,3 +2633,59 @@ msgstr "Как рассчитывается цвет уровня питател
 msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "Уровень питательной ценности NutriScore"
+
+msgctxt "delete_product_page"
+msgid "Delete the product page"
+msgstr "Удалить страницу продукта"
+
+msgctxt "deleting_product"
+msgid "Deleting product"
+msgstr "Удаление продукта"
+
+msgctxt "has_deleted_product"
+msgid "has deleted product"
+msgstr "удалил продукт"
+
+msgctxt "delete_product_confirm"
+msgid "Are you sure that you want to delete the page for this product?"
+msgstr "Вы действительно хотите удалить страницу этого продукта?"
+
+msgctxt "delete_user"
+msgid "Delete the user"
+msgstr "Удалить пользователя"
+
+msgctxt "sources_openfood_ch"
+msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
+msgstr "Некоторые данные и/или изображения происходят из базы данных OpenFood.ch (точный список доступен в истории редактирования продукта). Эти элементы лицензируются в соответствии с лицензией <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International</a>."
+
+msgctxt "sources_openfood_ch_product_page"
+msgid "Product page on openfood.ch"
+msgstr "Страница продукта на openfood.ch"
+
+msgctxt "sources_usda_ndb"
+msgid "Some of the data comes from the USDA National Nutrients Database for Branded Foods (the exact list is available in the product edit history)."
+msgstr "Некоторые данные получены из Национальной базы данных по питательным веществам USDA для фирменных продуктов (точный список доступен в истории редактирования продукта)."
+
+msgctxt "sources_usda_ndb_product_page"
+msgid "Product page on USDA NDB"
+msgstr "Страница продукта на USDA NDB"
+
+msgctxt "donate"
+msgid "Donate to Open Food Facts"
+msgstr "Пожертвовать Open Food Facts"
+
+msgctxt "donate_link"
+msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+
+msgctxt "sources_fleurymichon"
+msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
+msgstr "Некоторые данные и изображения были предоставлены непосредственно производителем Fleury Michon."
+
+msgctxt "sources_manufacturer"
+msgid "Some of the data for this product has been provided directly by the manufacturer %s"
+msgstr "Некоторые данные об этом продукте были предоставлены непосредственно производителем %s"
+
+msgctxt "warning_not_complete"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "Эта страница продукта не завершена. Вы можете помочь заполнить её, отредактировав и добавив больше данных с фотографий, которые у нас есть, или сделав дополнительные фотографий с помощью приложения для <a href=\"https://android.openfoodfacts.org\">Android</a> или <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Спасибо!"
