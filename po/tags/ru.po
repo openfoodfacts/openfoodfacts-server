@@ -1,21 +1,36 @@
-msgid  ""
+msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Project-Id-Version: \n"
-"PO-Revision-Date: \n"
-"Language-Team: \n"
-"Last-Translator: \n"
+"Language: ru_RU\n"
+"Project-Id-Version: openfoodfacts\n"
+"PO-Revision-Date: 2017-07-18 05:35-0400\n"
+"Language-Team: Russian\n"
+"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Language: ru\n"
+"X-Crowdin-File: /master/po/tags/tags.pot\n"
 
+#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
-msgid   ":langtag"
-msgstr  "ru"
+msgid ":langtag"
+msgstr "ru"
 
+#. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
-msgid   ":langname"
-msgstr  "Russian"
+msgid ":langname"
+msgstr "Russian"
+
+msgctxt "additives:plural"
+msgid "additives"
+msgstr "добавки"
+
+msgctxt "additives:singular"
+msgid "additive"
+msgstr "добавка"
 
 msgctxt "allergens:plural"
 msgid "allergens"
@@ -25,3 +40,314 @@ msgctxt "allergens:singular"
 msgid "allergen"
 msgstr "аллерген"
 
+msgctxt "brands:plural"
+msgid "brands"
+msgstr "марки"
+
+msgctxt "brands:singular"
+msgid "brand"
+msgstr "марка"
+
+msgctxt "categories:plural"
+msgid "categories"
+msgstr "категории"
+
+msgctxt "categories:singular"
+msgid "category"
+msgstr "категория"
+
+msgctxt "checkers:plural"
+msgid "checkers"
+msgstr "контролеры"
+
+msgctxt "checkers:singular"
+msgid "checker"
+msgstr "контролер"
+
+msgctxt "cities:plural"
+msgid "cities"
+msgstr ""
+
+msgctxt "cities:singular"
+msgid "city"
+msgstr ""
+
+msgctxt "codes:plural"
+msgid "codes"
+msgstr ""
+
+msgctxt "codes:singular"
+msgid "code"
+msgstr ""
+
+msgctxt "correctors:plural"
+msgid "correctors"
+msgstr "корректоры"
+
+msgctxt "correctors:singular"
+msgid "corrector"
+msgstr "корректор"
+
+msgctxt "countries:plural"
+msgid "countries"
+msgstr "страны"
+
+msgctxt "countries:singular"
+msgid "country"
+msgstr "страна"
+
+msgctxt "debug:plural"
+msgid "debug"
+msgstr "отладка"
+
+msgctxt "debug:singular"
+msgid "debug"
+msgstr "отладка"
+
+msgctxt "editors:plural"
+msgid "editors"
+msgstr "редакторы"
+
+msgctxt "editors:singular"
+msgid "editor"
+msgstr "редактор"
+
+msgctxt "emb_codes:plural"
+msgid "packager-codes"
+msgstr ""
+
+msgctxt "emb_codes:singular"
+msgid "packager-code"
+msgstr ""
+
+msgctxt "entry_dates:plural"
+msgid "entry-dates"
+msgstr ""
+
+msgctxt "entry_dates:singular"
+msgid "entry-date"
+msgstr ""
+
+msgctxt "informers:plural"
+msgid "informers"
+msgstr "информеры"
+
+msgctxt "informers:singular"
+msgid "informer"
+msgstr ""
+
+msgctxt "ingredients:plural"
+msgid "ingredients"
+msgstr "ингредиенты"
+
+msgctxt "ingredients:singular"
+msgid "ingredient"
+msgstr "ингредиент"
+
+msgctxt "ingredients_from_palm_oil:plural"
+msgid "ingredients-from-palm-oil"
+msgstr ""
+
+msgctxt "ingredients_from_palm_oil:singular"
+msgid "ingredients-from-palm-oil"
+msgstr ""
+
+msgctxt "ingredients_n:plural"
+msgid "numbers-of-ingredients"
+msgstr ""
+
+msgctxt "ingredients_n:singular"
+msgid "number-of-ingredients"
+msgstr ""
+
+msgctxt "ingredients_that_may_be_from_palm_oil:plural"
+msgid "ingredients-that-may-be-from-palm-oil"
+msgstr ""
+
+msgctxt "ingredients_that_may_be_from_palm_oil:singular"
+msgid "ingredients-that-may-be-from-palm-oil"
+msgstr ""
+
+msgctxt "known_nutrients:plural"
+msgid "known-nutrients"
+msgstr ""
+
+msgctxt "known_nutrients:singular"
+msgid "known-nutrient"
+msgstr ""
+
+msgctxt "labels:plural"
+msgid "labels"
+msgstr "маркировки"
+
+msgctxt "labels:singular"
+msgid "label"
+msgstr "маркировка"
+
+msgctxt "languages:plural"
+msgid "languages"
+msgstr "языки"
+
+msgctxt "languages:singular"
+msgid "language"
+msgstr "язык"
+
+msgctxt "last_edit_dates:plural"
+msgid "last-edit-dates"
+msgstr ""
+
+msgctxt "last_edit_dates:singular"
+msgid "last-edit-date"
+msgstr ""
+
+msgctxt "last_image_dates:plural"
+msgid "last-image-dates"
+msgstr ""
+
+msgctxt "last_image_dates:singular"
+msgid "last-image-date"
+msgstr ""
+
+msgctxt "manufacturing_places:plural"
+msgid "manufacturing-places"
+msgstr ""
+
+msgctxt "manufacturing_places:singular"
+msgid "manufacturing-place"
+msgstr ""
+
+msgctxt "missions:plural"
+msgid "missions"
+msgstr ""
+
+msgctxt "missions:singular"
+msgid "mission"
+msgstr ""
+
+msgctxt "nutrient_levels:plural"
+msgid "nutrient-levels"
+msgstr ""
+
+msgctxt "nutrient_levels:singular"
+msgid "nutrient-level"
+msgstr ""
+
+msgctxt "nutriments:plural"
+msgid "nutrients"
+msgstr ""
+
+msgctxt "nutriments:singular"
+msgid "nutrient"
+msgstr ""
+
+msgctxt "nutrition_grades:plural"
+msgid "nutrition-grades"
+msgstr ""
+
+msgctxt "nutrition_grades:singular"
+msgid "nutrition-grade"
+msgstr ""
+
+msgctxt "origins:plural"
+msgid "origins"
+msgstr ""
+
+msgctxt "origins:singular"
+msgid "origin"
+msgstr ""
+
+msgctxt "packaging:plural"
+msgid "packaging"
+msgstr "упаковка"
+
+msgctxt "packaging:singular"
+msgid "packaging"
+msgstr "упаковка"
+
+msgctxt "periods_after_opening:plural"
+msgid "periods-after-opening"
+msgstr ""
+
+msgctxt "periods_after_opening:singular"
+msgid "period-after-opening"
+msgstr ""
+
+msgctxt "photographers:plural"
+msgid "photographers"
+msgstr "фотографы"
+
+msgctxt "photographers:singular"
+msgid "photographer"
+msgstr "фотограф"
+
+msgctxt "pnns_groups_1:plural"
+msgid "pnns-groups-1"
+msgstr ""
+
+msgctxt "pnns_groups_1:singular"
+msgid "pnns-group-1"
+msgstr ""
+
+msgctxt "pnns_groups_2:plural"
+msgid "pnns-groups-2"
+msgstr ""
+
+msgctxt "pnns_groups_2:singular"
+msgid "pnns-group-2"
+msgstr ""
+
+msgctxt "products:plural"
+msgid "products"
+msgstr "продукты"
+
+msgctxt "products:singular"
+msgid "product"
+msgstr ""
+
+msgctxt "purchase_places:plural"
+msgid "purchase-places"
+msgstr ""
+
+msgctxt "purchase_places:singular"
+msgid "purchase-place"
+msgstr ""
+
+msgctxt "states:plural"
+msgid "states"
+msgstr "состояния"
+
+msgctxt "states:singular"
+msgid "state"
+msgstr "состояние"
+
+msgctxt "stores:plural"
+msgid "stores"
+msgstr "магазины"
+
+msgctxt "stores:singular"
+msgid "store"
+msgstr "магазин"
+
+msgctxt "traces:plural"
+msgid "traces"
+msgstr "следы"
+
+msgctxt "traces:singular"
+msgid "trace"
+msgstr "след"
+
+msgctxt "unknown_nutrients:plural"
+msgid "unknown-nutrients"
+msgstr ""
+
+msgctxt "unknown_nutrients:singular"
+msgid "unknown-nutrient"
+msgstr ""
+
+msgctxt "users:plural"
+msgid "contributors"
+msgstr "участники"
+
+msgctxt "users:singular"
+msgid "contributor"
+msgstr "участник"
