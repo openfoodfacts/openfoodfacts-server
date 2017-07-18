@@ -1,21 +1,28 @@
-msgid  ""
+msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
-"Project-Id-Version: \n"
-"PO-Revision-Date: \n"
-"Language-Team: \n"
-"Last-Translator: \n"
+"Language: en_US\n"
+"Project-Id-Version: openfoodfacts\n"
+"PO-Revision-Date: 2017-07-18 05:37-0400\n"
+"Language-Team: English\n"
+"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Language: en\n"
+"X-Crowdin-File: /master/po/tags/tags.pot\n"
 
+#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
-msgid   ":langtag"
-msgstr  "en"
+msgid ":langtag"
+msgstr "en"
 
+#. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
-msgid   ":langname"
-msgstr  "English"
+msgid ":langname"
+msgstr "English"
 
 msgctxt "additives:plural"
 msgid "additives"
@@ -59,19 +66,19 @@ msgstr "checker"
 
 msgctxt "cities:plural"
 msgid "cities"
-msgstr "cities"
+msgstr ""
 
 msgctxt "cities:singular"
 msgid "city"
-msgstr "city"
+msgstr ""
 
 msgctxt "codes:plural"
 msgid "codes"
-msgstr "codes"
+msgstr ""
 
 msgctxt "codes:singular"
 msgid "code"
-msgstr "code"
+msgstr ""
 
 msgctxt "correctors:plural"
 msgid "correctors"
@@ -107,19 +114,19 @@ msgstr "editor"
 
 msgctxt "emb_codes:plural"
 msgid "packager-codes"
-msgstr "packager-codes"
+msgstr ""
 
 msgctxt "emb_codes:singular"
 msgid "packager-code"
-msgstr "packager-code"
+msgstr ""
 
 msgctxt "entry_dates:plural"
 msgid "entry-dates"
-msgstr "entry-dates"
+msgstr ""
 
 msgctxt "entry_dates:singular"
 msgid "entry-date"
-msgstr "entry-date"
+msgstr ""
 
 msgctxt "informers:plural"
 msgid "informers"
@@ -127,7 +134,7 @@ msgstr "informers"
 
 msgctxt "informers:singular"
 msgid "informer"
-msgstr "informer"
+msgstr ""
 
 msgctxt "ingredients:plural"
 msgid "ingredients"
@@ -139,35 +146,35 @@ msgstr "ingredient"
 
 msgctxt "ingredients_from_palm_oil:plural"
 msgid "ingredients-from-palm-oil"
-msgstr "ingredients-from-palm-oil"
+msgstr ""
 
 msgctxt "ingredients_from_palm_oil:singular"
 msgid "ingredients-from-palm-oil"
-msgstr "ingredients-from-palm-oil"
+msgstr ""
 
 msgctxt "ingredients_n:plural"
 msgid "numbers-of-ingredients"
-msgstr "numbers-of-ingredients"
+msgstr ""
 
 msgctxt "ingredients_n:singular"
 msgid "number-of-ingredients"
-msgstr "number-of-ingredients"
+msgstr ""
 
 msgctxt "ingredients_that_may_be_from_palm_oil:plural"
 msgid "ingredients-that-may-be-from-palm-oil"
-msgstr "ingredients-that-may-be-from-palm-oil"
+msgstr ""
 
 msgctxt "ingredients_that_may_be_from_palm_oil:singular"
 msgid "ingredients-that-may-be-from-palm-oil"
-msgstr "ingredients-that-may-be-from-palm-oil"
+msgstr ""
 
 msgctxt "known_nutrients:plural"
 msgid "known-nutrients"
-msgstr "known-nutrients"
+msgstr ""
 
 msgctxt "known_nutrients:singular"
 msgid "known-nutrient"
-msgstr "known-nutrient"
+msgstr ""
 
 msgctxt "labels:plural"
 msgid "labels"
@@ -187,67 +194,67 @@ msgstr "language"
 
 msgctxt "last_edit_dates:plural"
 msgid "last-edit-dates"
-msgstr "last-edit-dates"
+msgstr ""
 
 msgctxt "last_edit_dates:singular"
 msgid "last-edit-date"
-msgstr "last-edit-date"
+msgstr ""
 
 msgctxt "last_image_dates:plural"
 msgid "last-image-dates"
-msgstr "last-image-dates"
+msgstr ""
 
 msgctxt "last_image_dates:singular"
 msgid "last-image-date"
-msgstr "last-image-date"
+msgstr ""
 
 msgctxt "manufacturing_places:plural"
 msgid "manufacturing-places"
-msgstr "manufacturing-places"
+msgstr ""
 
 msgctxt "manufacturing_places:singular"
 msgid "manufacturing-place"
-msgstr "manufacturing-place"
+msgstr ""
 
 msgctxt "missions:plural"
 msgid "missions"
-msgstr "missions"
+msgstr ""
 
 msgctxt "missions:singular"
 msgid "mission"
-msgstr "mission"
+msgstr ""
 
 msgctxt "nutrient_levels:plural"
 msgid "nutrient-levels"
-msgstr "nutrient-levels"
+msgstr ""
 
 msgctxt "nutrient_levels:singular"
 msgid "nutrient-level"
-msgstr "nutrient-level"
+msgstr ""
 
 msgctxt "nutriments:plural"
 msgid "nutrients"
-msgstr "nutrients"
+msgstr ""
 
 msgctxt "nutriments:singular"
 msgid "nutrient"
-msgstr "nutrient"
+msgstr ""
 
 msgctxt "nutrition_grades:plural"
 msgid "nutrition-grades"
-msgstr "nutrition-grades"
+msgstr ""
 
 msgctxt "nutrition_grades:singular"
 msgid "nutrition-grade"
-msgstr "nutrition-grade"
+msgstr ""
 
 msgctxt "origins:plural"
 msgid "origins"
-msgstr "origins"
+msgstr ""
 
 msgctxt "origins:singular"
 msgid "origin"
-msgstr "origin"
+msgstr ""
 
 msgctxt "packaging:plural"
 msgid "packaging"
@@ -259,11 +266,11 @@ msgstr "packaging"
 
 msgctxt "periods_after_opening:plural"
 msgid "periods-after-opening"
-msgstr "periods-after-opening"
+msgstr ""
 
 msgctxt "periods_after_opening:singular"
 msgid "period-after-opening"
-msgstr "period-after-opening"
+msgstr ""
 
 msgctxt "photographers:plural"
 msgid "photographers"
@@ -275,19 +282,19 @@ msgstr "photographer"
 
 msgctxt "pnns_groups_1:plural"
 msgid "pnns-groups-1"
-msgstr "pnns-groups-1"
+msgstr ""
 
 msgctxt "pnns_groups_1:singular"
 msgid "pnns-group-1"
-msgstr "pnns-group-1"
+msgstr ""
 
 msgctxt "pnns_groups_2:plural"
 msgid "pnns-groups-2"
-msgstr "pnns-groups-2"
+msgstr ""
 
 msgctxt "pnns_groups_2:singular"
 msgid "pnns-group-2"
-msgstr "pnns-group-2"
+msgstr ""
 
 msgctxt "products:plural"
 msgid "products"
@@ -295,15 +302,15 @@ msgstr "products"
 
 msgctxt "products:singular"
 msgid "product"
-msgstr "product"
+msgstr ""
 
 msgctxt "purchase_places:plural"
 msgid "purchase-places"
-msgstr "purchase-places"
+msgstr ""
 
 msgctxt "purchase_places:singular"
 msgid "purchase-place"
-msgstr "purchase-place"
+msgstr ""
 
 msgctxt "states:plural"
 msgid "states"
@@ -331,11 +338,11 @@ msgstr "trace"
 
 msgctxt "unknown_nutrients:plural"
 msgid "unknown-nutrients"
-msgstr "unknown-nutrients"
+msgstr ""
 
 msgctxt "unknown_nutrients:singular"
 msgid "unknown-nutrient"
-msgstr "unknown-nutrient"
+msgstr ""
 
 msgctxt "users:plural"
 msgid "contributors"
@@ -344,4 +351,3 @@ msgstr "contributors"
 msgctxt "users:singular"
 msgid "contributor"
 msgstr "contributor"
-
