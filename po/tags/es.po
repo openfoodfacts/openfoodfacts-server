@@ -1,21 +1,28 @@
-msgid  ""
+msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
-"Project-Id-Version: \n"
-"PO-Revision-Date: \n"
-"Language-Team: \n"
-"Last-Translator: \n"
+"Language: es_ES\n"
+"Project-Id-Version: openfoodfacts\n"
+"PO-Revision-Date: 2017-07-18 05:35-0400\n"
+"Language-Team: Spanish\n"
+"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Language: es-ES\n"
+"X-Crowdin-File: /master/po/tags/tags.pot\n"
 
+#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
-msgid   ":langtag"
-msgstr  "es"
+msgid ":langtag"
+msgstr "es"
 
+#. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
-msgid   ":langname"
-msgstr  "Spanish"
+msgid ":langname"
+msgstr "Spanish"
 
 msgctxt "additives:plural"
 msgid "additives"
@@ -43,11 +50,11 @@ msgstr "marca"
 
 msgctxt "categories:plural"
 msgid "categories"
-msgstr "categorias"
+msgstr "categorías"
 
 msgctxt "categories:singular"
 msgid "category"
-msgstr "categoria"
+msgstr "categoría"
 
 msgctxt "checkers:plural"
 msgid "checkers"
@@ -65,21 +72,45 @@ msgctxt "cities:singular"
 msgid "city"
 msgstr "ciudad"
 
+msgctxt "codes:plural"
+msgid "codes"
+msgstr ""
+
+msgctxt "codes:singular"
+msgid "code"
+msgstr ""
+
 msgctxt "correctors:plural"
 msgid "correctors"
 msgstr "correctores"
 
 msgctxt "correctors:singular"
 msgid "corrector"
-msgstr "corrector"
+msgstr ""
 
 msgctxt "countries:plural"
 msgid "countries"
-msgstr "paises"
+msgstr "países"
 
 msgctxt "countries:singular"
 msgid "country"
-msgstr "pais"
+msgstr "país"
+
+msgctxt "debug:plural"
+msgid "debug"
+msgstr "depuración"
+
+msgctxt "debug:singular"
+msgid "debug"
+msgstr "depuración"
+
+msgctxt "editors:plural"
+msgid "editors"
+msgstr "Editores"
+
+msgctxt "editors:singular"
+msgid "editor"
+msgstr "Editor"
 
 msgctxt "emb_codes:plural"
 msgid "packager-codes"
@@ -88,6 +119,14 @@ msgstr "codigos-de-envasadores"
 msgctxt "emb_codes:singular"
 msgid "packager-code"
 msgstr "codigo-de-envasador"
+
+msgctxt "entry_dates:plural"
+msgid "entry-dates"
+msgstr ""
+
+msgctxt "entry_dates:singular"
+msgid "entry-date"
+msgstr ""
 
 msgctxt "informers:plural"
 msgid "informers"
@@ -113,6 +152,14 @@ msgctxt "ingredients_from_palm_oil:singular"
 msgid "ingredients-from-palm-oil"
 msgstr "ingredientes-con-aceite-de-palma"
 
+msgctxt "ingredients_n:plural"
+msgid "numbers-of-ingredients"
+msgstr ""
+
+msgctxt "ingredients_n:singular"
+msgid "number-of-ingredients"
+msgstr ""
+
 msgctxt "ingredients_that_may_be_from_palm_oil:plural"
 msgid "ingredients-that-may-be-from-palm-oil"
 msgstr "ingredientes-que-pueden-proceder-de-aceite-de-palma"
@@ -136,6 +183,30 @@ msgstr "etiquetas"
 msgctxt "labels:singular"
 msgid "label"
 msgstr "etiqueta"
+
+msgctxt "languages:plural"
+msgid "languages"
+msgstr "idiomas"
+
+msgctxt "languages:singular"
+msgid "language"
+msgstr "idioma"
+
+msgctxt "last_edit_dates:plural"
+msgid "last-edit-dates"
+msgstr ""
+
+msgctxt "last_edit_dates:singular"
+msgid "last-edit-date"
+msgstr ""
+
+msgctxt "last_image_dates:plural"
+msgid "last-image-dates"
+msgstr ""
+
+msgctxt "last_image_dates:singular"
+msgid "last-image-date"
+msgstr ""
 
 msgctxt "manufacturing_places:plural"
 msgid "manufacturing-places"
@@ -169,6 +240,14 @@ msgctxt "nutriments:singular"
 msgid "nutrient"
 msgstr "nutriente"
 
+msgctxt "nutrition_grades:plural"
+msgid "nutrition-grades"
+msgstr ""
+
+msgctxt "nutrition_grades:singular"
+msgid "nutrition-grade"
+msgstr ""
+
 msgctxt "origins:plural"
 msgid "origins"
 msgstr "origenes"
@@ -179,19 +258,43 @@ msgstr "origen"
 
 msgctxt "packaging:plural"
 msgid "packaging"
-msgstr "envase"
+msgstr "envases"
 
 msgctxt "packaging:singular"
 msgid "packaging"
-msgstr "envase"
+msgstr "envases"
+
+msgctxt "periods_after_opening:plural"
+msgid "periods-after-opening"
+msgstr ""
+
+msgctxt "periods_after_opening:singular"
+msgid "period-after-opening"
+msgstr ""
 
 msgctxt "photographers:plural"
 msgid "photographers"
-msgstr "fotografos"
+msgstr "fotógrafos"
 
 msgctxt "photographers:singular"
 msgid "photographer"
-msgstr "fotografo"
+msgstr "fotógrafo"
+
+msgctxt "pnns_groups_1:plural"
+msgid "pnns-groups-1"
+msgstr ""
+
+msgctxt "pnns_groups_1:singular"
+msgid "pnns-group-1"
+msgstr ""
+
+msgctxt "pnns_groups_2:plural"
+msgid "pnns-groups-2"
+msgstr ""
+
+msgctxt "pnns_groups_2:singular"
+msgid "pnns-group-2"
+msgstr ""
 
 msgctxt "products:plural"
 msgid "products"
@@ -248,4 +351,3 @@ msgstr "contribuyentes"
 msgctxt "users:singular"
 msgid "contributor"
 msgstr "contribuyente"
-
