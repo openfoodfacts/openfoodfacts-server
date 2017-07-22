@@ -1557,7 +1557,11 @@ oTable = \$('#tagstable').DataTable({
 		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
 	},
 	paging: false,
-	order: [[ 1, "desc" ]]
+	order: [[ 1, "desc" ]],
+	columns: [
+		null,
+		{ "searchable": false }
+	]
 });
 JS
 ;
