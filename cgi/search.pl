@@ -521,7 +521,7 @@ elsif ($action eq 'process') {
 	
 	my $query_ref = {};
 
-	my $page = param('page') || 1;
+	my $page = 0 + (param('page') || 1);
 	if (($page < 1) or ($page > 1000)) {
 		$page = 1;
 	}
