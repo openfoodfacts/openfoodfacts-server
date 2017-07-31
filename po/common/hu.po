@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu_HU\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-07-18 11:10-0400\n"
+"PO-Revision-Date: 2017-07-30 20:35-0400\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -993,7 +993,7 @@ msgstr "összetevő, amely pálmaolajat tartalmazhat"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr "Azok a termékek, amelyek nem tartalmaznak %s összetevőt"
+msgstr "Termékek, amelyek nem tartalmaznak %s összetevőt"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
@@ -1029,7 +1029,7 @@ msgstr "címkék"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
-msgstr "Termékek, amelyek címkéje %s"
+msgstr "Termékek, amelyeknek címkéje %s"
 
 msgctxt "labels_s"
 msgid "label"
@@ -1041,7 +1041,7 @@ msgstr "címke hozzáadása"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
-msgstr "Termékek, amelyek nem rendelkeznek %s címkével"
+msgstr "Termékek, amelyeknek nem címkéje %s"
 
 msgctxt "lang"
 msgid "Main language"
@@ -1213,21 +1213,22 @@ msgstr "Utolsó szerkesztés dátuma"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
-msgstr ""
+msgstr "Utolsó kép dátumai"
 
 msgctxt "last_image_dates_s"
 msgid "Last picture date"
-msgstr ""
+msgstr "Utolsó kép dátuma"
 
 msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"http://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"http://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr ""
+msgstr "Információk, adatok és/vagy képek hozzáadásával Ön elfogadja, hogy hozzájárulása visszavonhatatlanul információk és adatok esetén a <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Adatbázis Tartalom Licenc 1.0</a>, képek esetén a <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.hu\">Creative Commons Nevezd meg! - Így add tovább! 3.0</a> (CC BY-SA 3.0) licenc alá fognak kerülni.\n"
+"Ön elfogadja, hogy az újrafelhasználók hivatkozhassanak a termékre amihez Ön hozzájárult."
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
-msgstr ""
+msgstr "A termék weboldalának címe a gyártó hivatalos honlapján"
 
 msgctxt "list_of_x"
 msgid "List of %s"
@@ -1235,7 +1236,7 @@ msgstr "%s listája"
 
 msgctxt "loadmore"
 msgid "Load more results"
-msgstr ""
+msgstr "További eredmények betöltése"
 
 msgctxt "login_and_add_product"
 msgid "Sign-in and add the product"
@@ -1287,7 +1288,7 @@ msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
 msgstr "<p>Kérem, jelentkezzen be a termék hozzáadásához vagy szerkesztéséhez.</p>\n\n"
-"<p>Amennyiben nem rendelkezik fiókkal a <<site_name>>-on, lehetősége van <a href=\"/cgi/user.pl\">létrehozni egyet (regisztrálni) 30 másodperc alatt</a>.</p>\n"
+"<p>Amennyiben nem rendelkezik fiókkal a(z) <<site_name>>-on, lehetősége van <a href=\"/cgi/user.pl\">létrehozni egyet (regisztrálni) 30 másodperc alatt</a>.</p>\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
@@ -1307,7 +1308,7 @@ msgstr "Képek kezelése"
 
 msgctxt "manage_images_info"
 msgid "You can select one or more images and then:"
-msgstr ""
+msgstr "Kiválaszthat egy vagy több képet, majd:"
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
@@ -1323,7 +1324,7 @@ msgstr "gyártás vagy feldolgozás helyei"
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
-msgstr ""
+msgstr "Termékek, amelyeknek %s a gyártás vagy feldolgozás helye"
 
 msgctxt "manufacturing_places_s"
 msgid "manufacturing or processing place"
@@ -1335,11 +1336,11 @@ msgstr "hely hozzáadása"
 
 msgctxt "manufacturing_places_without_products"
 msgid "Products not manufactured or processed in %s"
-msgstr ""
+msgstr "Termékek, amelyeknek nem %s a gyártás vagy feldolgozás helye"
 
 msgctxt "map_count"
 msgid "%d products match the search criterias, of which %i products have a known production place."
-msgstr ""
+msgstr "%d termék felel meg a keresési feltételeknek, amely(ek) közül %i termék rendelkezik ismert gyártási hellyel."
 
 msgctxt "map_title"
 msgid "Map title"
@@ -1415,7 +1416,7 @@ msgstr "A képek áthelyezése egy másik termékhez"
 
 msgctxt "n_products"
 msgid "%d products"
-msgstr "%d termékek"
+msgstr "%d termék"
 
 msgctxt "name"
 msgid "Name"
@@ -1431,7 +1432,7 @@ msgstr "Ha a vonalkód nem helyes, kérem javítsa ki itt:"
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
-msgstr ""
+msgstr "A vonalkód nélküli termékekhez automatikusan egy belső kód kerül beállításra."
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
@@ -1447,15 +1448,15 @@ msgstr "Vonalkód nélküli termék"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
-msgstr ""
+msgstr "Nincsenek megadva tápértékadatok a termékhez."
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
-msgstr ""
+msgstr "Nincs %s vonalkódú termék."
 
 msgctxt "no_products"
 msgid "No products."
-msgstr ""
+msgstr "Nincsenek termékek."
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
@@ -1483,11 +1484,11 @@ msgstr "/nutrient-levels"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
-msgstr ""
+msgstr "tápanyag szintek"
 
 msgctxt "nutrient_levels_s"
 msgid "nutrient level"
-msgstr ""
+msgstr "tápanyag szint"
 
 msgctxt "nutriments_p"
 msgid "nutriments"
@@ -1495,7 +1496,7 @@ msgstr "tápanyagok"
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
-msgstr ""
+msgstr "Termékek, amelyek tartalmaznak %s tápanyagot"
 
 msgctxt "nutriments_s"
 msgid "nutriment"
@@ -1503,7 +1504,7 @@ msgstr "tápanyag"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
-msgstr ""
+msgstr "Termékek, amelyek nem tartalmaznak %s tápanyagot"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
@@ -1515,7 +1516,7 @@ msgstr "Tápanyag ismertető"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr ""
+msgstr "%s kategória %d termékének átlagos tápértékadatai, ahol a tápértékadatok ismertek (%d termék közül)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -1527,19 +1528,19 @@ msgstr "érték 100 g / 100 ml-ben"
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
-msgstr ""
+msgstr "Az azonos kategóriába tartozó termékek átlagértékeinek összehasonlítása:"
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr ""
+msgstr "Kérjük, vegye figyelembe: minden tápanyagra vonatkozóan, az átlag azon termékek alapján kerül kiszámításra, ahol a tápanyagmennyiség ismert, nem az összes termékre az adott kategóriában."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr ""
+msgstr "Ha a kép eléggé éles és egyenletes, akkor a tápértékadatok automatikusan kiolvashatóak a képből."
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
-msgstr ""
+msgstr "10. centilis"
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
@@ -1547,31 +1548,31 @@ msgstr "100 g / 100 ml-ben"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr ""
+msgstr "5. centilis"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
-msgstr ""
+msgstr "Medián"
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
-msgstr ""
+msgstr "90. centilis"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
-msgstr ""
+msgstr "95. centilis"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
-msgstr ""
+msgstr "Maximum"
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
-msgstr ""
+msgstr "Középérték"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
-msgstr ""
+msgstr "Minimum"
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
@@ -1579,7 +1580,7 @@ msgstr "adagonként"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
-msgstr ""
+msgstr "Szórás"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
@@ -1588,28 +1589,29 @@ msgstr "Tápanyag ismertető"
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr ""
+msgstr "A táblázat tartalmazza az alapértelmezett tápanyagokat, amelyeket gyakran megadnak. Hagyja a mezőt üresen, ha az nem szerepel a címkén.<br/>Hozzáadhat további tápanyagokat (vitaminok, ásványi anyagok, koleszterin stb.) a táblázat utolsó sorában a nevük első betűjének beírásával."
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
-msgstr ""
+msgstr "Táplálkozási osztályzatok"
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
+msgstr "Táplálkozási osztályzat"
 
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr ""
+msgstr "<p>További információért a(z) <<site_name>> oldalról, látogasson el a <a href=\"https://en.blog.openfoodfacts.org\">blogunkra</a>!</p>\n"
+"<p>Friss hírek:</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -1618,7 +1620,8 @@ msgstr "Hírek"
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr ""
+msgstr "Ez a <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> (Nyílt Élelmiszer Vadászat) a(z) <<site_name>>-on 2015. Február 21. szombat és 2015. Március 1. vasárnap között! A hozzájárulók jutalomban részesülnek\n"
+"Felfedező pontok járnak a hozzáadott termékekért és Nagykövet pontok az új hozzájárulók toborzásáért. A pontok 30 percenként frissülnek."
 
 msgctxt "or"
 msgid "or:"
@@ -1626,7 +1629,7 @@ msgstr "vagy:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
-msgstr ""
+msgstr "Összetevők eredete"
 
 msgctxt "origins_example"
 msgid "California, USA"
@@ -1634,27 +1637,27 @@ msgstr "Kalifornia, Amerikai Egyesült Államok"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
-msgstr ""
+msgstr "Jelezze az összetevők eredetét"
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
-msgstr ""
+msgstr "összetevők eredete"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr ""
+msgstr "Termékek, amelyeknek %s az egyes összetevőinek eredete"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr ""
+msgstr "összetevők eredete"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
-msgstr ""
+msgstr "eredet hozzáadása"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
-msgstr ""
+msgstr "Termékek, amelyeknek nem %s az egyes összetevőinek eredete"
 
 msgctxt "packaging"
 msgid "Packaging"
@@ -1662,11 +1665,11 @@ msgstr "Csomagolás"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
-msgstr ""
+msgstr "Friss, Konzerv, Fagyasztott, Palack, Doboz, Üveg, Műanyag..."
 
 msgctxt "packaging_note"
 msgid "Packaging type, format, material"
-msgstr ""
+msgstr "Csomagolás típusa, formátuma, anyaga"
 
 msgctxt "packaging_p"
 msgid "packaging"
@@ -1674,7 +1677,7 @@ msgstr "csomagolás"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
-msgstr ""
+msgstr "Termékek, amelyeknek %s a csomagolása"
 
 msgctxt "packaging_s"
 msgid "packaging"
@@ -1682,11 +1685,11 @@ msgstr "csomagolás"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
-msgstr ""
+msgstr "típus, alak vagy anyag hozzáadása"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
-msgstr ""
+msgstr "Termékek, amelyeknek nem %s a csomagolása"
 
 msgctxt "page_x"
 msgid "Page %d"
@@ -1710,27 +1713,27 @@ msgstr "Jelszó megerősítése"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
-msgstr ""
+msgstr "Felbontás utáni időtartam"
 
 msgctxt "periods_after_opening_note"
 msgid "Found in an open container logo with a number of months: e.g. 12 M"
-msgstr ""
+msgstr "Jelölése egy nyitott tégely szimbólum a hónapok számával, például: 12 M"
 
 msgctxt "periods_after_opening_p"
 msgid "Periods after opening"
-msgstr ""
+msgstr "Felbontás utáni időtartamok"
 
 msgctxt "periods_after_opening_s"
 msgid "Period after opening"
-msgstr ""
+msgstr "Felbontás utáni időtartam"
 
 msgctxt "photographers_p"
 msgid "photographers"
-msgstr ""
+msgstr "fényképészek"
 
 msgctxt "photographers_s"
 msgid "photographer"
-msgstr ""
+msgstr "fényképész"
 
 msgctxt "pnns_groups_1"
 msgid "PNNS groups 1"
@@ -1758,27 +1761,27 @@ msgstr "PNNS csoport 2"
 
 msgctxt "points_all_countries"
 msgid "There are %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "%d a Felfedezők és %d a Nagykövetek száma."
 
 msgctxt "points_all_users"
 msgid "There are Explorers for %d countries and Ambassadors for %d countries."
-msgstr ""
+msgstr "%d országnak vannak Felfedezői és %d országnak vannak Nagykövetei."
 
 msgctxt "points_country"
 msgid "%s has %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "%s %d Felfedezővel és %d Nagykövettel rendelkezik."
 
 msgctxt "points_ranking"
 msgid "Ranking"
-msgstr ""
+msgstr "Rangsor"
 
 msgctxt "points_ranking_users_and_countries"
 msgid "Ranking of contributors and countries"
-msgstr ""
+msgstr "Hozzájárulók és országok rangsora"
 
 msgctxt "points_user"
 msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
-msgstr ""
+msgstr "%s %d országnak Felfedezője és %d országnak Nagykövete."
 
 msgctxt "previous"
 msgid "Previous"
@@ -1786,7 +1789,7 @@ msgstr "Előző"
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "Tápanyag hozzáadása"
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -1798,23 +1801,23 @@ msgstr "Módosítások elmentve."
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
-msgstr ""
+msgstr "Termékjellemzők"
 
 msgctxt "product_created"
 msgid "Product created"
-msgstr ""
+msgstr "Termék létrehozva"
 
 msgctxt "product_description"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
-msgstr ""
+msgstr "Összetevők, allergének, adalékanyagok, tápértékadatok, címkék, összetevők eredete és további információk a(z) %s termékről"
 
 msgctxt "product_image"
 msgid "Product picture"
-msgstr ""
+msgstr "Termék kép"
 
 msgctxt "product_image_with_barcode"
 msgid "Picture with barcode:"
-msgstr ""
+msgstr "Kép vonalkóddal:"
 
 msgctxt "product_js_current_image"
 msgid "Current image:"
@@ -1826,19 +1829,19 @@ msgstr "Képek törlése"
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
-msgstr ""
+msgstr "Összetevők kiolvasása a képből"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr ""
+msgstr "Az összetevők szövegét nem lehetett kiolvasni. Próbálja meg élesebb képpel, magasabb felbontással vagy a szöveg jobb keretezésével."
 
 msgctxt "product_js_extracted_ingredients_ok"
 msgid "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr ""
+msgstr "Az összetevők szövege kiolvasva. A szövegfelismerés nem tökéletes, ezért kérjük, hogy ellenőrizze az alábbi szöveget és javítsa ki a hibákat, ha szükséges."
 
 msgctxt "product_js_extracting_ingredients"
 msgid "Extracting ingredients"
-msgstr ""
+msgstr "Összetevők kiolvasása"
 
 msgctxt "product_js_image_normalize"
 msgid "Normalize colors"
@@ -1846,7 +1849,7 @@ msgstr "Színek normalizálása"
 
 msgctxt "product_js_image_open_full_size_image"
 msgid "Open the picture in original size in a new windows"
-msgstr ""
+msgstr "Kép megnyitása eredeti méretben egy új ablakban"
 
 msgctxt "product_js_image_received"
 msgid "Image received"
@@ -1854,7 +1857,7 @@ msgstr ""
 
 msgctxt "product_js_image_rotate_and_crop"
 msgid "Rotate the image if necessary, then click and drag to select the interesting zone:"
-msgstr ""
+msgstr "Forgassa el a képet, ha szükséges, majd kattintson és húzással jelölje ki az érdekes területet:"
 
 msgctxt "product_js_image_rotate_left"
 msgid "Rotate left"
@@ -1866,7 +1869,7 @@ msgstr "Forgatás jobbra"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
-msgstr ""
+msgstr "Kép érvényesítése és/vagy átméretezése"
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
@@ -1894,15 +1897,15 @@ msgstr "Képek törölve"
 
 msgctxt "product_js_images_move_error"
 msgid "Errors while moving images"
-msgstr ""
+msgstr "Hiba történt a kép(ek) áthelyezése közben"
 
 msgctxt "product_js_images_moved"
 msgid "Images moved"
-msgstr ""
+msgstr "Képek áthelyezve"
 
 msgctxt "product_js_moving_images"
 msgid "Moving images"
-msgstr ""
+msgstr "Képek áthelyezése"
 
 msgctxt "product_js_upload_image"
 msgid "Add a picture"
@@ -1918,7 +1921,7 @@ msgstr "Kép feltöltése"
 
 msgctxt "product_last_edited"
 msgid "Last edit of product page on"
-msgstr ""
+msgstr "A termékoldal legutóbb szerkesztve"
 
 msgctxt "product_name"
 msgid "Product name"
@@ -1934,11 +1937,11 @@ msgstr "termékek"
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
-msgstr ""
+msgstr "A termékek számának alakulása a(z) <<site_name>>-on"
 
 msgctxt "products_stats_completed_t"
 msgid "Products with complete information"
-msgstr ""
+msgstr "Termékek teljes információval"
 
 msgctxt "products_stats_created_t"
 msgid "Products"
@@ -1946,11 +1949,11 @@ msgstr "Termékek"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
-msgstr ""
+msgstr "tápértékadatokkal"
 
 msgctxt "products_you_edited"
 msgid "Products you added or edited"
-msgstr ""
+msgstr "Termékek, amelyeket hozzáadott vagy szerkesztett"
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
@@ -1962,7 +1965,7 @@ msgstr ""
 
 msgctxt "purchase_places_p"
 msgid "purchase places"
-msgstr ""
+msgstr "vásárlás helyei"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
@@ -1970,7 +1973,7 @@ msgstr "%s -ban/ben kapható termékek"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
-msgstr ""
+msgstr "vásárlás helye"
 
 msgctxt "purchase_places_tagsinput"
 msgid "add a place"
@@ -1998,7 +2001,7 @@ msgstr ""
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr ""
+msgstr "Jelszó visszaállítása"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -2020,7 +2023,7 @@ msgstr "Kedves <NAME>!\n\n"
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
-msgstr ""
+msgstr "Jelszó visszaállítása a(z) <<site_name>>-on"
 
 msgctxt "reset_password_reset"
 msgid "Your password has been changed. You can now log-in with this password."
@@ -2040,7 +2043,7 @@ msgstr ""
 
 msgctxt "risk_level"
 msgid "Risk"
-msgstr ""
+msgstr "Kockázat"
 
 msgctxt "risk_level_0"
 msgid "To be completed"
@@ -2048,19 +2051,19 @@ msgstr ""
 
 msgctxt "risk_level_1"
 msgid "Low risks"
-msgstr ""
+msgstr "Alacsony kockázatok"
 
 msgctxt "risk_level_2"
 msgid "Moderate risks"
-msgstr ""
+msgstr "Mérsékelt kockázatok"
 
 msgctxt "risk_level_3"
 msgid "High risks"
-msgstr ""
+msgstr "Magas kockázatok"
 
 msgctxt "salt_equivalent"
 msgid "salt equivalent"
-msgstr ""
+msgstr "só egyenérték"
 
 msgctxt "save"
 msgid "Save"
@@ -2068,11 +2071,11 @@ msgstr "Mentés"
 
 msgctxt "saved"
 msgid "Saved."
-msgstr ""
+msgstr "Elmentve."
 
 msgctxt "saving"
 msgid "Saving."
-msgstr ""
+msgstr "Mentés."
 
 msgctxt "search"
 msgid "Search"
@@ -2088,7 +2091,7 @@ msgstr "Keres"
 
 msgctxt "search_contains"
 msgid "contains"
-msgstr ""
+msgstr "tartalmaz"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
@@ -2096,11 +2099,11 @@ msgstr ""
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
-msgstr ""
+msgstr "Open Food Facts (Nyílt Élelmiszer Tények) termékkereső"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
-msgstr ""
+msgstr "nem tartalmaz"
 
 msgctxt "search_download_button"
 msgid "Download"
@@ -2120,7 +2123,7 @@ msgstr ""
 
 msgctxt "search_edit"
 msgid "Change search criteria"
-msgstr ""
+msgstr "Keresési feltételek módosítása"
 
 msgctxt "search_flatten_tags"
 msgid "(Optional) - Create a column for every:"
@@ -2173,7 +2176,7 @@ msgstr ""
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
-msgstr ""
+msgstr "Közömbös"
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
@@ -2209,7 +2212,7 @@ msgstr ""
 
 msgctxt "search_nutriment"
 msgid "choose a nutriment..."
-msgstr ""
+msgstr "válasszon egy tápanyagot..."
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
@@ -2221,23 +2224,23 @@ msgstr "vagy"
 
 msgctxt "search_page_size"
 msgid "Results per page"
-msgstr ""
+msgstr "Eredmények száma oldalanként"
 
 msgctxt "search_products"
 msgid "Products search"
-msgstr ""
+msgstr "Termékek keresése"
 
 msgctxt "search_results"
 msgid "Search results"
-msgstr ""
+msgstr "Keresési eredmények"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
-msgstr ""
+msgstr "Használjon különböző színeket a következő termékekhez:"
 
 msgctxt "search_series_default"
 msgid "Other products"
-msgstr ""
+msgstr "Más termékek"
 
 msgctxt "search_series_fairtrade"
 msgid "Fair trade"
@@ -2249,7 +2252,7 @@ msgstr ""
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
-msgstr ""
+msgstr "Színes táplálkozási osztályzatok használata"
 
 msgctxt "search_series_organic"
 msgid "Organic"
@@ -2257,7 +2260,7 @@ msgstr "Bio"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
-msgstr ""
+msgstr "bio"
 
 msgctxt "search_series_with_sweeteners"
 msgid "With sweeteners"
@@ -2265,11 +2268,11 @@ msgstr ""
 
 msgctxt "search_tag"
 msgid "choose a criterion..."
-msgstr ""
+msgstr "válasszon egy feltételt..."
 
 msgctxt "search_tags"
 msgid "Criteria"
-msgstr ""
+msgstr "Feltétel"
 
 msgctxt "search_terms"
 msgid "Search terms"
@@ -2293,7 +2296,7 @@ msgstr ""
 
 msgctxt "search_tools"
 msgid "Search tools"
-msgstr ""
+msgstr "Keresési eszközök"
 
 msgctxt "search_value"
 msgid "value"
@@ -2309,7 +2312,7 @@ msgstr ""
 
 msgctxt "see_product_page"
 msgid "See the product page"
-msgstr ""
+msgstr "Termékoldal megtekintése"
 
 msgctxt "select_country"
 msgid "Country"
@@ -2325,15 +2328,15 @@ msgstr ""
 
 msgctxt "send_image_error"
 msgid "Upload error"
-msgstr ""
+msgstr "Feltöltési hiba"
 
 msgctxt "sending_image"
 msgid "Sending image"
-msgstr ""
+msgstr "Kép elküldése"
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr ""
+msgstr "Adag"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2353,7 +2356,7 @@ msgstr ""
 
 msgctxt "show_category_stats_details"
 msgid "standard deviation, minimum, maximum, 10th and 90th percentiles"
-msgstr ""
+msgstr "szórás, minimum, maximum, 10. és 90. percentilis"
 
 msgctxt "signin_before_submit"
 msgid "If you already have an account on <SITE>, please sign-in before filling this form."
@@ -2373,7 +2376,7 @@ msgstr "Open Food Facts (Nyílt Élelmiszer Tények)"
 
 msgctxt "sort_by"
 msgid "Sort by"
-msgstr ""
+msgstr "Rendezés"
 
 msgctxt "sort_created_t"
 msgid "Add date"
@@ -2449,7 +2452,7 @@ msgstr ""
 
 msgctxt "tagstable_filtered"
 msgid "out of _MAX_"
-msgstr ""
+msgstr "_MAX_ közül"
 
 msgctxt "tagstable_search"
 msgid "Search:"
@@ -2626,15 +2629,15 @@ msgstr ""
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
-msgstr ""
+msgstr "NutriScore színes táplálkozási osztályzat"
 
 msgctxt "nutrition_grade_fr_formula"
 msgid "How the color nutrition grade is computed"
-msgstr ""
+msgstr "Hogyan kerül kiszámításra a színes táplálkozási osztályzat"
 
 msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
-msgstr ""
+msgstr "NutriScore táplálkozási osztályzat"
 
 msgctxt "delete_product_page"
 msgid "Delete the product page"
