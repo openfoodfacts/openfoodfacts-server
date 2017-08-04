@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar_SA\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-08-04 08:40-0400\n"
+"PO-Revision-Date: 2017-08-04 08:50-0400\n"
 "Language-Team: Arabic\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
@@ -249,7 +249,7 @@ msgstr "atassnifate"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr ""
+msgstr "إضافة فئة"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
@@ -265,11 +265,11 @@ msgstr "اغذية"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr ""
+msgstr "الصور المحددة"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr ""
+msgstr "الصور المرفوعة"
 
 msgctxt "checkers_p"
 msgid "checkers"
@@ -281,7 +281,7 @@ msgstr "mourakib"
 
 msgctxt "cities_p"
 msgid "packaging cities"
-msgstr ""
+msgstr "مدن التعبئة والتغليف"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
@@ -289,7 +289,7 @@ msgstr ""
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr ""
+msgstr "مدينة التعبئة والتغليف"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
@@ -556,7 +556,7 @@ msgstr ""
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr ""
+msgstr "عنوان خاطئ."
 
 msgctxt "error_invalid_csrf_token"
 msgid "Invalid CSRF token."
@@ -564,7 +564,7 @@ msgstr ""
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr ""
+msgstr "عنوان البريد الإلكتروني غير صالح"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
@@ -580,7 +580,7 @@ msgstr ""
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
-msgstr ""
+msgstr "هناك منتج موجود بالفعل مع الشفرة الجديدة"
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
@@ -588,11 +588,11 @@ msgstr ""
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
-msgstr ""
+msgstr "الإذن مرفوض."
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr ""
+msgstr "تحتاج إلى إدخال اسم المستخدم"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
@@ -600,7 +600,7 @@ msgstr "انت مسجل مسبقا."
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
-msgstr ""
+msgstr "رابط إعادة تعيين كلمة المرور غير صالح أو انتهت صلاحيته."
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
@@ -784,11 +784,11 @@ msgstr ""
 
 msgctxt "graph_title"
 msgid "Graph title"
-msgstr ""
+msgstr "عنوان الرسم البياني"
 
 msgctxt "graphs_and_maps"
 msgid "Graphs and maps"
-msgstr ""
+msgstr "الرسوم البيانية والخرائط"
 
 msgctxt "header"
 msgid "<meta property=\"fb:admins\" content=\"706410516\" />\n"
@@ -821,7 +821,7 @@ msgstr ""
 
 msgctxt "image_front"
 msgid "Front picture"
-msgstr ""
+msgstr "الصورة الأمامية"
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
@@ -833,7 +833,7 @@ msgstr ""
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
-msgstr ""
+msgstr "صورة الحقائق الغذائية"
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
@@ -878,7 +878,7 @@ msgstr "المكونات"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
-msgstr ""
+msgstr "تحليل المكونات"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -902,11 +902,11 @@ msgstr ""
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
-msgstr ""
+msgstr "عدد المكونات"
 
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
-msgstr ""
+msgstr "عدد المكونات"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
