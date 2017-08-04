@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar_SA\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-08-04 08:30-0400\n"
+"PO-Revision-Date: 2017-08-04 08:40-0400\n"
 "Language-Team: Arabic\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
@@ -237,7 +237,7 @@ msgstr ""
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "الفئات"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
@@ -297,11 +297,11 @@ msgstr ""
 
 msgctxt "codes_p"
 msgid "Codes"
-msgstr ""
+msgstr "رموز"
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr ""
+msgstr "رمز"
 
 msgctxt "column_obsolete_do_not_translate_for_reference_only"
 msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.png\" width=\"178\" height=\"144\" alt=\"<<site_name>>\" /></a>\n\n"
@@ -336,23 +336,23 @@ msgstr ""
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr ""
+msgstr "أنت متصل بحساب الفيسبوك الخاص بك."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr ""
+msgstr "مساهم منذ"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr ""
+msgstr "نسخ البيانات من المنتج الحالي إلى منتج جديد"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
-msgstr ""
+msgstr "الرجاء تصحيح الأخطاء التالية:"
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr ""
+msgstr "المصححين"
 
 msgctxt "correctors_s"
 msgid "corrector"
@@ -364,43 +364,43 @@ msgstr "بلدان بيع"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
-msgstr ""
+msgstr "البلدان التي يتوفر فيها المنتج على نطاق واسع (لا يشمل ذلك المتاجر المتخصصة في المنتجات الأجنبية)"
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr ""
+msgstr "الدول"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "المنتجات التي تباع في %s"
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "الدولة"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "المنتجات التي لا تباع في %s"
 
 msgctxt "data_source"
 msgid "Data source"
-msgstr ""
+msgstr "مصدر البيانات"
 
 msgctxt "debug_p"
 msgid "debug"
-msgstr ""
+msgstr "التصحيح"
 
 msgctxt "debug_s"
 msgid "debug"
-msgstr ""
+msgstr "التصحيح"
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr ""
+msgstr "سبب إزالة"
 
 msgctxt "delete_product"
 msgid "Delete a product"
-msgstr ""
+msgstr "حذف منتج"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
@@ -408,7 +408,7 @@ msgstr "حذف الصفحة"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr ""
+msgstr "حذف الصور"
 
 msgctxt "delete_user"
 msgid "Delete an user"
@@ -436,11 +436,11 @@ msgstr ""
 
 msgctxt "edit"
 msgid "edit"
-msgstr ""
+msgstr "تحرير"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr ""
+msgstr "ملخص التغييرات"
 
 msgctxt "edit_product"
 msgid "Edit a product"
@@ -476,19 +476,19 @@ msgstr "<p>لقد تم تعديل إعداداتكم بنجاح</p>"
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr ""
+msgstr "المحررين"
 
 msgctxt "editors_s"
 msgid "editor"
-msgstr ""
+msgstr "المحرر"
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr ""
+msgstr "عنوان البريد الإلكتروني"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr ""
+msgstr "رموز EMB"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
@@ -528,19 +528,19 @@ msgstr ""
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
-msgstr ""
+msgstr "تواريخ الدخول"
 
 msgctxt "entry_dates_s"
 msgid "Entry date"
-msgstr ""
+msgstr "تواريخ الدخول"
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "خطأ"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr ""
+msgstr "اسم المستخدم أو كلمة المرور غير صحيحة. <a href=\"/cgi/reset_password.pl\"> هل نسيت كلمة المرور؟ </a>"
 
 msgctxt "error_database"
 msgid "An error occured while reading the data, try to refresh the page."
@@ -596,7 +596,7 @@ msgstr ""
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
-msgstr ""
+msgstr "انت مسجل مسبقا."
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
@@ -604,7 +604,7 @@ msgstr ""
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr ""
+msgstr "لا يوجد حساب لهذا البريد الإلكتروني"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
@@ -612,15 +612,15 @@ msgstr "اسم المستخدم غير موجود"
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr ""
+msgstr "هذا الاسم مُستخدم بالفعل. يرجى اختيار اسم آخر."
 
 msgctxt "example"
 msgid "Example:"
-msgstr ""
+msgstr "مثال:"
 
 msgctxt "examples"
 msgid "Examples:"
-msgstr ""
+msgstr "أمثلة:"
 
 msgctxt "expiration_date"
 msgid "Best before date"
@@ -1910,7 +1910,7 @@ msgstr ""
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "المنتجات التي تباع في %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -1922,7 +1922,7 @@ msgstr ""
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "المنتجات التي لا تباع في %s"
 
 msgctxt "quantity"
 msgid "Quantity"
