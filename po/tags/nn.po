@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nn_NO\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-07-30 04:55-0400\n"
+"PO-Revision-Date: 2017-09-02 10:47-0400\n"
 "Language-Team: Norwegian Nynorsk\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -17,68 +17,68 @@ msgstr ""
 #. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
 msgid ":langtag"
-msgstr ""
+msgstr "no"
 
 #. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
 msgid ":langname"
-msgstr ""
+msgstr "Norsk"
 
 msgctxt "additives:plural"
 msgid "additives"
-msgstr ""
+msgstr "tilsetningsstoffer"
 
 msgctxt "additives:singular"
 msgid "additive"
-msgstr ""
+msgstr "tilsetningsstoff"
 
 msgctxt "allergens:plural"
 msgid "allergens"
-msgstr ""
+msgstr "allergener"
 
 msgctxt "allergens:singular"
 msgid "allergen"
-msgstr ""
+msgstr "allergen"
 
 msgctxt "brands:plural"
 msgid "brands"
-msgstr ""
+msgstr "kjeder"
 
 msgctxt "brands:singular"
 msgid "brand"
-msgstr ""
+msgstr "kjede"
 
 msgctxt "categories:plural"
 msgid "categories"
-msgstr ""
+msgstr "kategorier"
 
 msgctxt "categories:singular"
 msgid "category"
-msgstr ""
+msgstr "kategori"
 
 msgctxt "checkers:plural"
 msgid "checkers"
-msgstr ""
+msgstr "kontrollører"
 
 msgctxt "checkers:singular"
 msgid "checker"
-msgstr ""
+msgstr "kontrollør"
 
 msgctxt "cities:plural"
 msgid "cities"
-msgstr ""
+msgstr "byer"
 
 msgctxt "cities:singular"
 msgid "city"
-msgstr ""
+msgstr "by"
 
 msgctxt "codes:plural"
 msgid "codes"
-msgstr ""
+msgstr "koder"
 
 msgctxt "codes:singular"
 msgid "code"
-msgstr ""
+msgstr "kode"
 
 msgctxt "correctors:plural"
 msgid "correctors"
@@ -114,19 +114,19 @@ msgstr ""
 
 msgctxt "emb_codes:plural"
 msgid "packager-codes"
-msgstr ""
+msgstr "pakkekoder"
 
 msgctxt "emb_codes:singular"
 msgid "packager-code"
-msgstr ""
+msgstr "pakkekode"
 
 msgctxt "entry_dates:plural"
 msgid "entry-dates"
-msgstr ""
+msgstr "innleggsdatoer"
 
 msgctxt "entry_dates:singular"
 msgid "entry-date"
-msgstr ""
+msgstr "innleggsdato"
 
 msgctxt "informers:plural"
 msgid "informers"
@@ -134,7 +134,7 @@ msgstr ""
 
 msgctxt "informers:singular"
 msgid "informer"
-msgstr ""
+msgstr "informant"
 
 msgctxt "ingredients:plural"
 msgid "ingredients"
@@ -146,35 +146,35 @@ msgstr ""
 
 msgctxt "ingredients_from_palm_oil:plural"
 msgid "ingredients-from-palm-oil"
-msgstr ""
+msgstr "ingredienser-som-er-tilknyttet-palmeolje"
 
 msgctxt "ingredients_from_palm_oil:singular"
 msgid "ingredients-from-palm-oil"
-msgstr ""
+msgstr "ingredienser-som-er-tilknyttet-palmeolje"
 
 msgctxt "ingredients_n:plural"
 msgid "numbers-of-ingredients"
-msgstr ""
+msgstr "antall-ingredienser"
 
 msgctxt "ingredients_n:singular"
 msgid "number-of-ingredients"
-msgstr ""
+msgstr "antall-ingredienser"
 
 msgctxt "ingredients_that_may_be_from_palm_oil:plural"
 msgid "ingredients-that-may-be-from-palm-oil"
-msgstr ""
+msgstr "ingredienser-som-kan-være-tilknyttet-palmeolje"
 
 msgctxt "ingredients_that_may_be_from_palm_oil:singular"
 msgid "ingredients-that-may-be-from-palm-oil"
-msgstr ""
+msgstr "ingredienser-som-kan-være-tilknyttet-palmeolje"
 
 msgctxt "known_nutrients:plural"
 msgid "known-nutrients"
-msgstr ""
+msgstr "kjent-næring"
 
 msgctxt "known_nutrients:singular"
 msgid "known-nutrient"
-msgstr ""
+msgstr "kjent-næring"
 
 msgctxt "labels:plural"
 msgid "labels"
@@ -186,75 +186,75 @@ msgstr ""
 
 msgctxt "languages:plural"
 msgid "languages"
-msgstr ""
+msgstr "språk"
 
 msgctxt "languages:singular"
 msgid "language"
-msgstr ""
+msgstr "språk"
 
 msgctxt "last_edit_dates:plural"
 msgid "last-edit-dates"
-msgstr ""
+msgstr "siste-redigeringsdatoer"
 
 msgctxt "last_edit_dates:singular"
 msgid "last-edit-date"
-msgstr ""
+msgstr "siste-redigeringsdato"
 
 msgctxt "last_image_dates:plural"
 msgid "last-image-dates"
-msgstr ""
+msgstr "siste-bildedatoer"
 
 msgctxt "last_image_dates:singular"
 msgid "last-image-date"
-msgstr ""
+msgstr "siste-bildedato"
 
 msgctxt "manufacturing_places:plural"
 msgid "manufacturing-places"
-msgstr ""
+msgstr "produksjonssteder"
 
 msgctxt "manufacturing_places:singular"
 msgid "manufacturing-place"
-msgstr ""
+msgstr "produksjonssted"
 
 msgctxt "missions:plural"
 msgid "missions"
-msgstr ""
+msgstr "oppdrag"
 
 msgctxt "missions:singular"
 msgid "mission"
-msgstr ""
+msgstr "oppdrag"
 
 msgctxt "nutrient_levels:plural"
 msgid "nutrient-levels"
-msgstr ""
+msgstr "næringsnivåer"
 
 msgctxt "nutrient_levels:singular"
 msgid "nutrient-level"
-msgstr ""
+msgstr "næringsnivå"
 
 msgctxt "nutriments:plural"
 msgid "nutrients"
-msgstr ""
+msgstr "næring"
 
 msgctxt "nutriments:singular"
 msgid "nutrient"
-msgstr ""
+msgstr "næring"
 
 msgctxt "nutrition_grades:plural"
 msgid "nutrition-grades"
-msgstr ""
+msgstr "næringskarakterer"
 
 msgctxt "nutrition_grades:singular"
 msgid "nutrition-grade"
-msgstr ""
+msgstr "næringskarakter"
 
 msgctxt "origins:plural"
 msgid "origins"
-msgstr ""
+msgstr "opprinnelser"
 
 msgctxt "origins:singular"
 msgid "origin"
-msgstr ""
+msgstr "opprinnelse"
 
 msgctxt "packaging:plural"
 msgid "packaging"
@@ -266,11 +266,11 @@ msgstr ""
 
 msgctxt "periods_after_opening:plural"
 msgid "periods-after-opening"
-msgstr ""
+msgstr "perioder-etter-åpning"
 
 msgctxt "periods_after_opening:singular"
 msgid "period-after-opening"
-msgstr ""
+msgstr "periode-etter-åpning"
 
 msgctxt "photographers:plural"
 msgid "photographers"
@@ -282,19 +282,19 @@ msgstr ""
 
 msgctxt "pnns_groups_1:plural"
 msgid "pnns-groups-1"
-msgstr ""
+msgstr "pnns-grupper-1"
 
 msgctxt "pnns_groups_1:singular"
 msgid "pnns-group-1"
-msgstr ""
+msgstr "pnns-gruppe-1"
 
 msgctxt "pnns_groups_2:plural"
 msgid "pnns-groups-2"
-msgstr ""
+msgstr "pnns-grupper-2"
 
 msgctxt "pnns_groups_2:singular"
 msgid "pnns-group-2"
-msgstr ""
+msgstr "pnns-gruppe-2"
 
 msgctxt "products:plural"
 msgid "products"
@@ -302,15 +302,15 @@ msgstr ""
 
 msgctxt "products:singular"
 msgid "product"
-msgstr ""
+msgstr "produkt"
 
 msgctxt "purchase_places:plural"
 msgid "purchase-places"
-msgstr ""
+msgstr "kjøpssteder"
 
 msgctxt "purchase_places:singular"
 msgid "purchase-place"
-msgstr ""
+msgstr "kjøpssted"
 
 msgctxt "states:plural"
 msgid "states"
@@ -338,11 +338,11 @@ msgstr ""
 
 msgctxt "unknown_nutrients:plural"
 msgid "unknown-nutrients"
-msgstr ""
+msgstr "ukjent-næring"
 
 msgctxt "unknown_nutrients:singular"
 msgid "unknown-nutrient"
-msgstr ""
+msgstr "ukjent-næring"
 
 msgctxt "users:plural"
 msgid "contributors"
@@ -351,3 +351,4 @@ msgstr ""
 msgctxt "users:singular"
 msgid "contributor"
 msgstr ""
+
