@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nb_NO\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-07-30 20:32-0400\n"
+"PO-Revision-Date: 2017-09-02 10:47-0400\n"
 "Language-Team: Norwegian Bokmal\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -22,15 +22,15 @@ msgstr "nb"
 #. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
 msgid ":langname"
-msgstr ""
+msgstr "Norsk"
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "1 produkt"
 
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr " og "
 
 msgctxt "about"
 msgid "About me"
@@ -54,7 +54,7 @@ msgstr "Registrer bruker"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "<p>Takk for at du ble med. Du kan nå logge deg inn på siden for å legge til og redigere produkter.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -76,7 +76,7 @@ msgstr ""
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "Takk for at du ble med <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
@@ -108,11 +108,11 @@ msgstr "Avansert søk og grafer"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "Overdrevet drikking er skadelig for helsen."
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "Alle oppdrag"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
@@ -124,7 +124,7 @@ msgstr "allergener"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "allergen"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
@@ -144,12 +144,13 @@ msgstr "<img src=\"/images/misc/android-app-på-google-play-en_app_rgb_wo_135x47
 
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr ""
+msgstr "<p>Dette produktet er ikke i <<site_name>>-databasen ennå. Kunne du vennligst tatt noen bilder av det, strekkoden, ingredienslisten og næringslisten for å legge den til <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
+"<p>Takk på forskudd!</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -177,7 +178,7 @@ msgstr "Strekkode"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr ""
+msgstr "Strekkodenummer:"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
@@ -185,11 +186,14 @@ msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n
 "</a>\n"
 "<p>Contribute to <<site_name>> by adding product and win stars by\n"
 "fulfilling <a href=\"/missions\">missions</a>!</p>\n"
-msgstr ""
+msgstr "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
+"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
+"</a>\n"
+"<p>Bidra til <<site_name>> ved å legge til produkter og vinn stjerner ved å fullføre <a href=\"/missions\">oppdrag</a>!</p>\n"
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
-msgstr ""
+msgstr "Omfavn oppdraget"
 
 msgctxt "brands"
 msgid "Brands"
@@ -221,7 +225,7 @@ msgstr "Produkter ikke fra %s merkevare"
 
 msgctxt "by"
 msgid "by"
-msgstr ""
+msgstr "av"
 
 msgctxt "categories"
 msgid "Categories"
@@ -257,15 +261,15 @@ msgstr "Produkter ikke fra %s kategori"
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Næring"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr ""
+msgstr "Valgte bilder"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
@@ -273,15 +277,15 @@ msgstr "opplastede bilder"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr ""
+msgstr "kontrollører"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr ""
+msgstr "kontrollør"
 
 msgctxt "cities_p"
 msgid "packaging cities"
-msgstr ""
+msgstr "innpakningsbyer"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
@@ -289,11 +293,11 @@ msgstr "By der produktene ble emballert: %s"
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr ""
+msgstr "innpakningsbyer"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr ""
+msgstr "Produkter ikke innpakket i byen %s"
 
 msgctxt "codes_p"
 msgid "Codes"
@@ -678,7 +682,7 @@ msgstr ""
 
 msgctxt "footer_data"
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 msgctxt "footer_data_link"
 msgid "/data"
@@ -805,11 +809,11 @@ msgstr ""
 
 msgctxt "hello"
 msgid "Hello"
-msgstr ""
+msgstr "Hei,"
 
 msgctxt "high"
 msgid "high"
-msgstr ""
+msgstr "høy"
 
 msgctxt "high_quantity"
 msgid "high quantity"
@@ -1006,7 +1010,7 @@ msgstr "Arabisk"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bulgarsk"
 
 msgctxt "lang_cs"
 msgid "Czech"
@@ -1014,7 +1018,7 @@ msgstr "Tsjekkisk"
 
 msgctxt "lang_da"
 msgid "Danish"
-msgstr ""
+msgstr "Dansk"
 
 msgctxt "lang_de"
 msgid "German"
@@ -1034,7 +1038,7 @@ msgstr "Spansk"
 
 msgctxt "lang_et"
 msgid "Estonian"
-msgstr ""
+msgstr "Estisk"
 
 msgctxt "lang_fi"
 msgid "Finnish"
@@ -1046,7 +1050,7 @@ msgstr "Fransk"
 
 msgctxt "lang_ga"
 msgid "Irish"
-msgstr ""
+msgstr "Irsk"
 
 msgctxt "lang_he"
 msgid "Hebrew"
@@ -1054,11 +1058,11 @@ msgstr "Hebraisk"
 
 msgctxt "lang_hu"
 msgid "Hungarian"
-msgstr ""
+msgstr "Ungarsk"
 
 msgctxt "lang_id"
 msgid "Indonesian"
-msgstr ""
+msgstr "Indonesisk"
 
 msgctxt "lang_it"
 msgid "Italian"
@@ -1074,15 +1078,15 @@ msgstr "Koreansk"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
-msgstr ""
+msgstr "Litauisk"
 
 msgctxt "lang_lv"
 msgid "Latvian"
-msgstr ""
+msgstr "Latvisk"
 
 msgctxt "lang_mt"
 msgid "Maltese"
-msgstr ""
+msgstr "Maltesisk"
 
 msgctxt "lang_nl"
 msgid "Dutch"
@@ -1110,7 +1114,7 @@ msgstr "Portugisisk"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
-msgstr ""
+msgstr "Portugal-portugisisk"
 
 msgctxt "lang_ro"
 msgid "Romanian"
@@ -1122,11 +1126,11 @@ msgstr "Russisk"
 
 msgctxt "lang_sk"
 msgid "Slovak"
-msgstr ""
+msgstr "Slovakisk"
 
 msgctxt "lang_sl"
 msgid "Slovenian"
-msgstr ""
+msgstr "Slovensk"
 
 msgctxt "lang_sv"
 msgid "Swedish"
@@ -1146,7 +1150,7 @@ msgstr "Kinesisk"
 
 msgctxt "language"
 msgid "en-US"
-msgstr ""
+msgstr "no-NO"
 
 msgctxt "languages_p"
 msgid "languages"
@@ -1258,7 +1262,7 @@ msgstr ""
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
-msgstr ""
+msgstr "Montana, USA"
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
@@ -1535,7 +1539,7 @@ msgstr ""
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1565,7 +1569,7 @@ msgstr ""
 
 msgctxt "or"
 msgid "or:"
-msgstr ""
+msgstr "eller:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
@@ -1641,7 +1645,7 @@ msgstr ""
 
 msgctxt "pages"
 msgid "Pages:"
-msgstr ""
+msgstr "Sider:"
 
 msgctxt "password"
 msgid "Password"
@@ -2001,7 +2005,7 @@ msgstr ""
 
 msgctxt "save"
 msgid "Save"
-msgstr ""
+msgstr "Lagr"
 
 msgctxt "saved"
 msgid "Saved."
@@ -2017,7 +2021,7 @@ msgstr "Søk"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
-msgstr ""
+msgstr "Søk etter produkt"
 
 msgctxt "search_button"
 msgid "Search"
@@ -2150,7 +2154,7 @@ msgstr ""
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Næring"
 
 msgctxt "search_or"
 msgid "or"
@@ -2306,7 +2310,7 @@ msgstr ""
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr ""
+msgstr "Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2628,3 +2632,4 @@ msgstr ""
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr ""
+
