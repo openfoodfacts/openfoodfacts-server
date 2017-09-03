@@ -1,21 +1,28 @@
-msgid  ""
+msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
-"Project-Id-Version: \n"
-"PO-Revision-Date: \n"
-"Language-Team: \n"
-"Last-Translator: \n"
+"Language: fr_FR\n"
+"Project-Id-Version: openfoodfacts\n"
+"PO-Revision-Date: 2017-07-30 04:57-0400\n"
+"Language-Team: French\n"
+"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Language: fr\n"
+"X-Crowdin-File: /master/po/tags/tags.pot\n"
 
+#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
-msgid   ":langtag"
-msgstr  "fr"
+msgid ":langtag"
+msgstr "fr"
 
+#. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
-msgid   ":langname"
-msgstr  "French"
+msgid ":langname"
+msgstr "French"
 
 msgctxt "additives:plural"
 msgid "additives"
@@ -43,7 +50,7 @@ msgstr "marque"
 
 msgctxt "categories:plural"
 msgid "categories"
-msgstr "categories"
+msgstr "catégories"
 
 msgctxt "categories:singular"
 msgid "category"
@@ -65,6 +72,14 @@ msgctxt "cities:singular"
 msgid "city"
 msgstr "commune"
 
+msgctxt "codes:plural"
+msgid "codes"
+msgstr ""
+
+msgctxt "codes:singular"
+msgid "code"
+msgstr ""
+
 msgctxt "correctors:plural"
 msgid "correctors"
 msgstr "correcteurs"
@@ -80,6 +95,14 @@ msgstr "pays"
 msgctxt "countries:singular"
 msgid "country"
 msgstr "pays"
+
+msgctxt "debug:plural"
+msgid "debug"
+msgstr "débogage"
+
+msgctxt "debug:singular"
+msgid "debug"
+msgstr "débogage"
 
 msgctxt "editors:plural"
 msgid "editors"
@@ -115,11 +138,11 @@ msgstr "informateur"
 
 msgctxt "ingredients:plural"
 msgid "ingredients"
-msgstr "ingredients"
+msgstr "ingrédients"
 
 msgctxt "ingredients:singular"
 msgid "ingredient"
-msgstr "ingredient"
+msgstr "ingrédient"
 
 msgctxt "ingredients_from_palm_oil:plural"
 msgid "ingredients-from-palm-oil"
@@ -195,11 +218,11 @@ msgstr "lieu-de-fabrication"
 
 msgctxt "missions:plural"
 msgid "missions"
-msgstr "missions"
+msgstr ""
 
 msgctxt "missions:singular"
 msgid "mission"
-msgstr "mission"
+msgstr ""
 
 msgctxt "nutrient_levels:plural"
 msgid "nutrient-levels"
@@ -235,7 +258,7 @@ msgstr "origine"
 
 msgctxt "packaging:plural"
 msgid "packaging"
-msgstr "conditionnements"
+msgstr "conditionnement"
 
 msgctxt "packaging:singular"
 msgid "packaging"
@@ -256,6 +279,22 @@ msgstr "photographes"
 msgctxt "photographers:singular"
 msgid "photographer"
 msgstr "photographe"
+
+msgctxt "pnns_groups_1:plural"
+msgid "pnns-groups-1"
+msgstr ""
+
+msgctxt "pnns_groups_1:singular"
+msgid "pnns-group-1"
+msgstr ""
+
+msgctxt "pnns_groups_2:plural"
+msgid "pnns-groups-2"
+msgstr ""
+
+msgctxt "pnns_groups_2:singular"
+msgid "pnns-group-2"
+msgstr ""
 
 msgctxt "products:plural"
 msgid "products"
@@ -312,4 +351,3 @@ msgstr "contributeurs"
 msgctxt "users:singular"
 msgid "contributor"
 msgstr "contributeur"
-

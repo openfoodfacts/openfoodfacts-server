@@ -5,19 +5,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_NL\n"
 "Project-Id-Version: openfoodfacts\n"
+<<<<<<< HEAD
 "PO-Revision-Date: 2017-07-10 09:00-0400\n"
+=======
+"PO-Revision-Date: 2017-09-02 10:54-0400\n"
+>>>>>>> l10n_master
 "Language-Team: Dutch\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: nl\n"
-"X-Crowdin-File: /master/po/openfoodfacts/en.po\n"
+"X-Crowdin-File: /master/po/openfoodfacts/openfoodfacts.pot\n"
 
+#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
 msgid ":langtag"
 msgstr "nl"
 
+#. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
 msgid ":langname"
 msgstr "Dutch"
@@ -33,3 +39,4 @@ msgstr "openfoodfacts-logo-nl-356x300.png"
 msgctxt "tagline"
 msgid "Open Food Facts gathers information and data on food products from around the world."
 msgstr "Open Food Facts inventariseert alle voedingsmiddelen uit de hele wereld."
+

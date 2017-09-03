@@ -1,57 +1,144 @@
-msgid  ""
+msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ar\n"
-"Project-Id-Version: \n"
-"PO-Revision-Date: \n"
-"Language-Team: \n"
-"Last-Translator: \n"
+"Language: ar_SA\n"
+"Project-Id-Version: openfoodfacts\n"
+"PO-Revision-Date: 2017-08-04 20:40-0400\n"
+"Language-Team: Arabic\n"
+"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Language: ar\n"
+"X-Crowdin-File: /master/po/tags/tags.pot\n"
 
+#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
-msgid   ":langtag"
-msgstr  "ar"
+msgid ":langtag"
+msgstr "ar"
 
+#. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
-msgid   ":langname"
-msgstr  "Arabic"
+msgid ":langname"
+msgstr "Arabic"
+
+msgctxt "additives:plural"
+msgid "additives"
+msgstr "إضافات"
 
 msgctxt "additives:singular"
 msgid "additive"
-msgstr "mouthafat"
+msgstr "المواد المضافة"
+
+msgctxt "allergens:plural"
+msgid "allergens"
+msgstr "المواد المسببة للحساسية"
 
 msgctxt "allergens:singular"
 msgid "allergen"
-msgstr "moussabib-hassassiya"
+msgstr "المسببة للحساسية"
+
+msgctxt "brands:plural"
+msgid "brands"
+msgstr "العلامات التجارية"
 
 msgctxt "brands:singular"
 msgid "brand"
 msgstr "3alama-tijariya"
 
+msgctxt "categories:plural"
+msgid "categories"
+msgstr "الفئات"
+
 msgctxt "categories:singular"
 msgid "category"
 msgstr "atassnifate"
+
+msgctxt "checkers:plural"
+msgid "checkers"
+msgstr "مدقّقون"
 
 msgctxt "checkers:singular"
 msgid "checker"
 msgstr "mourakib"
 
+msgctxt "cities:plural"
+msgid "cities"
+msgstr "المدن"
+
 msgctxt "cities:singular"
 msgid "city"
 msgstr "almoudoun"
+
+msgctxt "codes:plural"
+msgid "codes"
+msgstr "الرموز"
+
+msgctxt "codes:singular"
+msgid "code"
+msgstr "الرمز"
+
+msgctxt "correctors:plural"
+msgid "correctors"
+msgstr "المصححين"
 
 msgctxt "correctors:singular"
 msgid "corrector"
 msgstr "moussahih"
 
+msgctxt "countries:plural"
+msgid "countries"
+msgstr "الدول"
+
+msgctxt "countries:singular"
+msgid "country"
+msgstr "الدولة"
+
+msgctxt "debug:plural"
+msgid "debug"
+msgstr "التصحيح"
+
+msgctxt "debug:singular"
+msgid "debug"
+msgstr "التصحيح"
+
+msgctxt "editors:plural"
+msgid "editors"
+msgstr "المحررين"
+
+msgctxt "editors:singular"
+msgid "editor"
+msgstr "المحرر"
+
+msgctxt "emb_codes:plural"
+msgid "packager-codes"
+msgstr "رموز-المغلف"
+
 msgctxt "emb_codes:singular"
 msgid "packager-code"
 msgstr "ramz-el-mou3abi"
 
+msgctxt "entry_dates:plural"
+msgid "entry-dates"
+msgstr "تواريخ الدخول"
+
+msgctxt "entry_dates:singular"
+msgid "entry-date"
+msgstr "تاريخ الدخول"
+
+msgctxt "informers:plural"
+msgid "informers"
+msgstr "المخبرين"
+
 msgctxt "informers:singular"
 msgid "informer"
 msgstr "moukhbir"
+
+msgctxt "ingredients:plural"
+msgid "ingredients"
+msgstr "المكونات"
 
 msgctxt "ingredients:singular"
 msgid "ingredient"
@@ -65,6 +152,14 @@ msgctxt "ingredients_from_palm_oil:singular"
 msgid "ingredients-from-palm-oil"
 msgstr "mawad-mousstakhraja-min-zayt-nakhil"
 
+msgctxt "ingredients_n:plural"
+msgid "numbers-of-ingredients"
+msgstr "عدد المكونات"
+
+msgctxt "ingredients_n:singular"
+msgid "number-of-ingredients"
+msgstr "عدد المكونات"
+
 msgctxt "ingredients_that_may_be_from_palm_oil:plural"
 msgid "ingredients-that-may-be-from-palm-oil"
 msgstr "mawad-kad-takoun-mousstakhraja-mina-nakhil"
@@ -73,47 +168,186 @@ msgctxt "ingredients_that_may_be_from_palm_oil:singular"
 msgid "ingredients-that-may-be-from-palm-oil"
 msgstr "mawad-kad-takoun-mousstakhraja-mina-nakhil"
 
+msgctxt "known_nutrients:plural"
+msgid "known-nutrients"
+msgstr "العناصر الغذائية المعروفة"
+
+msgctxt "known_nutrients:singular"
+msgid "known-nutrient"
+msgstr "العناصر الغذائية المعروفة"
+
+msgctxt "labels:plural"
+msgid "labels"
+msgstr "الملصقات"
+
 msgctxt "labels:singular"
 msgid "label"
 msgstr "al3alama"
+
+msgctxt "languages:plural"
+msgid "languages"
+msgstr "اللغات"
+
+msgctxt "languages:singular"
+msgid "language"
+msgstr "اللغة"
+
+msgctxt "last_edit_dates:plural"
+msgid "last-edit-dates"
+msgstr "توايخ-التعديلات-الأخيرة"
+
+msgctxt "last_edit_dates:singular"
+msgid "last-edit-date"
+msgstr "تاريخ-التعديل-الأخير"
+
+msgctxt "last_image_dates:plural"
+msgid "last-image-dates"
+msgstr "تواريخ-الصورة- الأخيرة"
+
+msgctxt "last_image_dates:singular"
+msgid "last-image-date"
+msgstr "تاريخ-الصورة-الأخيرة"
+
+msgctxt "manufacturing_places:plural"
+msgid "manufacturing-places"
+msgstr "أماكن التصنيع"
+
+msgctxt "manufacturing_places:singular"
+msgid "manufacturing-place"
+msgstr "مكان التصنيع"
+
+msgctxt "missions:plural"
+msgid "missions"
+msgstr "المهمات"
 
 msgctxt "missions:singular"
 msgid "mission"
 msgstr "mouhima"
 
+msgctxt "nutrient_levels:plural"
+msgid "nutrient-levels"
+msgstr "مستويات المغذيات"
+
+msgctxt "nutrient_levels:singular"
+msgid "nutrient-level"
+msgstr "مستوى المغذيات"
+
+msgctxt "nutriments:plural"
+msgid "nutrients"
+msgstr "المواد الغذائية"
+
 msgctxt "nutriments:singular"
 msgid "nutrient"
 msgstr "ghithae"
+
+msgctxt "nutrition_grades:plural"
+msgid "nutrition-grades"
+msgstr "درجات-التغذية"
+
+msgctxt "nutrition_grades:singular"
+msgid "nutrition-grade"
+msgstr "درجة-التغذية"
+
+msgctxt "origins:plural"
+msgid "origins"
+msgstr "الأصول"
 
 msgctxt "origins:singular"
 msgid "origin"
 msgstr "almassdar"
 
+msgctxt "packaging:plural"
+msgid "packaging"
+msgstr "ata3bia"
+
 msgctxt "packaging:singular"
 msgid "packaging"
 msgstr "ata3bia"
+
+msgctxt "periods_after_opening:plural"
+msgid "periods-after-opening"
+msgstr "فترات ما بعد الافتتاح"
+
+msgctxt "periods_after_opening:singular"
+msgid "period-after-opening"
+msgstr "فترة ما بعد الافتتاح"
+
+msgctxt "photographers:plural"
+msgid "photographers"
+msgstr "المصورون"
 
 msgctxt "photographers:singular"
 msgid "photographer"
 msgstr "moussawir"
 
+msgctxt "pnns_groups_1:plural"
+msgid "pnns-groups-1"
+msgstr "pnns-مجموعات-1"
+
+msgctxt "pnns_groups_1:singular"
+msgid "pnns-group-1"
+msgstr "pnns-مجموعة-1"
+
+msgctxt "pnns_groups_2:plural"
+msgid "pnns-groups-2"
+msgstr "pnns-مجموعات-2"
+
+msgctxt "pnns_groups_2:singular"
+msgid "pnns-group-2"
+msgstr "pnns-مجموعة-2"
+
+msgctxt "products:plural"
+msgid "products"
+msgstr "المنتوجات"
+
 msgctxt "products:singular"
 msgid "product"
 msgstr "mountaj"
+
+msgctxt "purchase_places:plural"
+msgid "purchase-places"
+msgstr "أماكن الشراء"
 
 msgctxt "purchase_places:singular"
 msgid "purchase-place"
 msgstr "nikate-alBay3"
 
+msgctxt "states:plural"
+msgid "states"
+msgstr "الولايات"
+
+msgctxt "states:singular"
+msgid "state"
+msgstr "الولاية"
+
+msgctxt "stores:plural"
+msgid "stores"
+msgstr "المتاجر"
+
 msgctxt "stores:singular"
 msgid "store"
 msgstr "almatajir"
+
+msgctxt "traces:plural"
+msgid "traces"
+msgstr "آثار"
 
 msgctxt "traces:singular"
 msgid "trace"
 msgstr "athar"
 
+msgctxt "unknown_nutrients:plural"
+msgid "unknown-nutrients"
+msgstr "عناصر غذائية غير معروفة"
+
+msgctxt "unknown_nutrients:singular"
+msgid "unknown-nutrient"
+msgstr "عنصر غذائي غير معروف"
+
+msgctxt "users:plural"
+msgid "contributors"
+msgstr "المساهمون"
+
 msgctxt "users:singular"
 msgid "contributor"
 msgstr "almousstakhdimoun"
-

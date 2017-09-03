@@ -1,21 +1,27 @@
 msgid ""
 msgstr ""
+<<<<<<< HEAD
 "Project-Id-Version: openfoodfacts\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-16 16:27+0000\n"
 "PO-Revision-Date: 2017-07-10 09:09-0400\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Language-Team: Russian\n"
+=======
+>>>>>>> l10n_master
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-01-12 10:21+0000\n"
-"X-Generator: crowdin.com\n"
 "Language: ru_RU\n"
+"Project-Id-Version: openfoodfacts\n"
+"PO-Revision-Date: 2017-09-02 10:48-0400\n"
+"Language-Team: Russian\n"
+"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: ru\n"
-"X-Crowdin-File: /master/po/openbeautyfacts/en.po\n"
+"X-Crowdin-File: /master/po/openbeautyfacts/openbeautyfacts.pot\n"
 
 #. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
@@ -32,16 +38,8 @@ msgid "http://world.openbeautyfacts.org/images/apps/obf.apk"
 msgstr "http://world.openbeautyfacts.org/images/apps/obf.apk"
 
 msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner"
-msgstr "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner"
-
-msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/en/app/open-beauty-facts/id1122926380"
-msgstr "https://itunes.apple.com/ru/app/open-beauty-facts/id1122926380"
-
-msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner"
-msgstr "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner"
+msgid "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en"
+msgstr "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=ru"
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/en/app/open-beauty-facts/id1122926380"
@@ -66,3 +64,4 @@ msgstr "Open Beauty Facts собирает информацию и данные 
 msgctxt "twitter_account"
 msgid "OpenBeautyFacts"
 msgstr "OpenBeautyFacts"
+

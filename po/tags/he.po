@@ -1,45 +1,88 @@
-msgid  ""
+msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: he\n"
-"Project-Id-Version: \n"
-"PO-Revision-Date: \n"
-"Language-Team: \n"
-"Last-Translator: \n"
+"Language: he_IL\n"
+"Project-Id-Version: openfoodfacts\n"
+"PO-Revision-Date: 2017-07-30 04:57-0400\n"
+"Language-Team: Hebrew\n"
+"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Language: he\n"
+"X-Crowdin-File: /master/po/tags/tags.pot\n"
 
+#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
-msgid   ":langtag"
-msgstr  "he"
+msgid ":langtag"
+msgstr "he"
 
+#. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
-msgid   ":langname"
-msgstr  "Hebrew"
+msgid ":langname"
+msgstr "Hebrew"
+
+msgctxt "additives:plural"
+msgid "additives"
+msgstr "תוספים"
 
 msgctxt "additives:singular"
 msgid "additive"
 msgstr "tosefet"
 
+msgctxt "allergens:plural"
+msgid "allergens"
+msgstr "אלרגנים"
+
 msgctxt "allergens:singular"
 msgid "allergen"
 msgstr "khomer-alergeni"
+
+msgctxt "brands:plural"
+msgid "brands"
+msgstr "מותגים"
 
 msgctxt "brands:singular"
 msgid "brand"
 msgstr "mutag"
 
+msgctxt "categories:plural"
+msgid "categories"
+msgstr "קטגוריות"
+
 msgctxt "categories:singular"
 msgid "category"
 msgstr "categoria"
+
+msgctxt "checkers:plural"
+msgid "checkers"
+msgstr "בודקים"
 
 msgctxt "checkers:singular"
 msgid "checker"
 msgstr "bodek"
 
+msgctxt "cities:plural"
+msgid "cities"
+msgstr ""
+
 msgctxt "cities:singular"
 msgid "city"
 msgstr "ir"
+
+msgctxt "codes:plural"
+msgid "codes"
+msgstr ""
+
+msgctxt "codes:singular"
+msgid "code"
+msgstr ""
+
+msgctxt "correctors:plural"
+msgid "correctors"
+msgstr "מתקנים"
 
 msgctxt "correctors:singular"
 msgid "corrector"
@@ -53,13 +96,49 @@ msgctxt "countries:singular"
 msgid "country"
 msgstr "medina"
 
+msgctxt "debug:plural"
+msgid "debug"
+msgstr "ניפוי שגיאות"
+
+msgctxt "debug:singular"
+msgid "debug"
+msgstr "ניפוי שגיאות"
+
+msgctxt "editors:plural"
+msgid "editors"
+msgstr "עורכים"
+
+msgctxt "editors:singular"
+msgid "editor"
+msgstr "עורך"
+
+msgctxt "emb_codes:plural"
+msgid "packager-codes"
+msgstr ""
+
 msgctxt "emb_codes:singular"
 msgid "packager-code"
 msgstr "cod-emb"
 
+msgctxt "entry_dates:plural"
+msgid "entry-dates"
+msgstr ""
+
+msgctxt "entry_dates:singular"
+msgid "entry-date"
+msgstr ""
+
+msgctxt "informers:plural"
+msgid "informers"
+msgstr "מודיע"
+
 msgctxt "informers:singular"
 msgid "informer"
 msgstr "meyadea"
+
+msgctxt "ingredients:plural"
+msgid "ingredients"
+msgstr "רכיבים"
 
 msgctxt "ingredients:singular"
 msgid "ingredient"
@@ -72,6 +151,14 @@ msgstr "rekhivim-mishemen-dkalim"
 msgctxt "ingredients_from_palm_oil:singular"
 msgid "ingredients-from-palm-oil"
 msgstr "rekhivim-mishemen-dkalim"
+
+msgctxt "ingredients_n:plural"
+msgid "numbers-of-ingredients"
+msgstr ""
+
+msgctxt "ingredients_n:singular"
+msgid "number-of-ingredients"
+msgstr ""
 
 msgctxt "ingredients_that_may_be_from_palm_oil:plural"
 msgid "ingredients-that-may-be-from-palm-oil"
@@ -89,49 +176,161 @@ msgctxt "known_nutrients:singular"
 msgid "known-nutrient"
 msgstr "khomrey-mazon-yeduim"
 
+msgctxt "labels:plural"
+msgid "labels"
+msgstr "תוויות"
+
 msgctxt "labels:singular"
 msgid "label"
 msgstr "tavit"
+
+msgctxt "languages:plural"
+msgid "languages"
+msgstr "שפות"
+
+msgctxt "languages:singular"
+msgid "language"
+msgstr "שפה"
+
+msgctxt "last_edit_dates:plural"
+msgid "last-edit-dates"
+msgstr ""
+
+msgctxt "last_edit_dates:singular"
+msgid "last-edit-date"
+msgstr ""
+
+msgctxt "last_image_dates:plural"
+msgid "last-image-dates"
+msgstr ""
+
+msgctxt "last_image_dates:singular"
+msgid "last-image-date"
+msgstr ""
+
+msgctxt "manufacturing_places:plural"
+msgid "manufacturing-places"
+msgstr ""
+
+msgctxt "manufacturing_places:singular"
+msgid "manufacturing-place"
+msgstr ""
+
+msgctxt "missions:plural"
+msgid "missions"
+msgstr ""
 
 msgctxt "missions:singular"
 msgid "mission"
 msgstr "messima"
 
+msgctxt "nutrient_levels:plural"
+msgid "nutrient-levels"
+msgstr ""
+
 msgctxt "nutrient_levels:singular"
 msgid "nutrient-level"
 msgstr "ramat-khomrey-hamazon"
+
+msgctxt "nutriments:plural"
+msgid "nutrients"
+msgstr ""
 
 msgctxt "nutriments:singular"
 msgid "nutrient"
 msgstr "arakhim-tzunatiyim"
 
+msgctxt "nutrition_grades:plural"
+msgid "nutrition-grades"
+msgstr ""
+
+msgctxt "nutrition_grades:singular"
+msgid "nutrition-grade"
+msgstr ""
+
+msgctxt "origins:plural"
+msgid "origins"
+msgstr ""
+
 msgctxt "origins:singular"
 msgid "origin"
 msgstr "makor"
+
+msgctxt "packaging:plural"
+msgid "packaging"
+msgstr "ariza"
 
 msgctxt "packaging:singular"
 msgid "packaging"
 msgstr "ariza"
 
+msgctxt "periods_after_opening:plural"
+msgid "periods-after-opening"
+msgstr ""
+
+msgctxt "periods_after_opening:singular"
+msgid "period-after-opening"
+msgstr ""
+
+msgctxt "photographers:plural"
+msgid "photographers"
+msgstr "צלמים"
+
 msgctxt "photographers:singular"
 msgid "photographer"
 msgstr "tzalam"
+
+msgctxt "pnns_groups_1:plural"
+msgid "pnns-groups-1"
+msgstr ""
+
+msgctxt "pnns_groups_1:singular"
+msgid "pnns-group-1"
+msgstr ""
+
+msgctxt "pnns_groups_2:plural"
+msgid "pnns-groups-2"
+msgstr ""
+
+msgctxt "pnns_groups_2:singular"
+msgid "pnns-group-2"
+msgstr ""
+
+msgctxt "products:plural"
+msgid "products"
+msgstr "מוצרים"
 
 msgctxt "products:singular"
 msgid "product"
 msgstr "mozar"
 
+msgctxt "purchase_places:plural"
+msgid "purchase-places"
+msgstr ""
+
 msgctxt "purchase_places:singular"
 msgid "purchase-place"
 msgstr "mekom-harekhisha"
+
+msgctxt "states:plural"
+msgid "states"
+msgstr "מצבים"
 
 msgctxt "states:singular"
 msgid "state"
 msgstr "matzav"
 
+msgctxt "stores:plural"
+msgid "stores"
+msgstr "חנויות"
+
 msgctxt "stores:singular"
 msgid "store"
 msgstr "khanut"
+
+msgctxt "traces:plural"
+msgid "traces"
+msgstr "עקבות"
 
 msgctxt "traces:singular"
 msgid "trace"
@@ -145,7 +344,10 @@ msgctxt "unknown_nutrients:singular"
 msgid "unknown-nutrient"
 msgstr "khmorey-mazon-bilti-yeduim"
 
+msgctxt "users:plural"
+msgid "contributors"
+msgstr "תורמים"
+
 msgctxt "users:singular"
 msgid "contributor"
 msgstr "torem"
-

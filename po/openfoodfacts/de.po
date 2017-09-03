@@ -5,19 +5,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de_DE\n"
 "Project-Id-Version: openfoodfacts\n"
+<<<<<<< HEAD
 "PO-Revision-Date: 2017-07-10 09:01-0400\n"
+=======
+"PO-Revision-Date: 2017-07-30 20:35-0400\n"
+>>>>>>> l10n_master
 "Language-Team: German\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: de\n"
-"X-Crowdin-File: /master/po/openfoodfacts/en.po\n"
+"X-Crowdin-File: /master/po/openfoodfacts/openfoodfacts.pot\n"
 
+#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
 msgid ":langtag"
 msgstr "de"
 
+#. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
 msgid ":langname"
 msgstr "Deutsch"

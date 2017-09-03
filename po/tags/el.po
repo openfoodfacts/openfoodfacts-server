@@ -1,21 +1,28 @@
-msgid  ""
+msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
-"Project-Id-Version: \n"
-"PO-Revision-Date: \n"
-"Language-Team: \n"
-"Last-Translator: \n"
+"Language: el_GR\n"
+"Project-Id-Version: openfoodfacts\n"
+"PO-Revision-Date: 2017-07-30 04:58-0400\n"
+"Language-Team: Greek\n"
+"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Language: el\n"
+"X-Crowdin-File: /master/po/tags/tags.pot\n"
 
+#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
-msgid   ":langtag"
-msgstr  "el"
+msgid ":langtag"
+msgstr "el"
 
+#. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
-msgid   ":langname"
-msgstr  "Modern Greek"
+msgid ":langname"
+msgstr "Modern Greek"
 
 msgctxt "additives:plural"
 msgid "additives"
@@ -65,6 +72,14 @@ msgctxt "cities:singular"
 msgid "city"
 msgstr "πολη"
 
+msgctxt "codes:plural"
+msgid "codes"
+msgstr ""
+
+msgctxt "codes:singular"
+msgid "code"
+msgstr ""
+
 msgctxt "correctors:plural"
 msgid "correctors"
 msgstr "διορθωτες"
@@ -80,6 +95,22 @@ msgstr "χωρες"
 msgctxt "countries:singular"
 msgid "country"
 msgstr "χωρα"
+
+msgctxt "debug:plural"
+msgid "debug"
+msgstr ""
+
+msgctxt "debug:singular"
+msgid "debug"
+msgstr ""
+
+msgctxt "editors:plural"
+msgid "editors"
+msgstr ""
+
+msgctxt "editors:singular"
+msgid "editor"
+msgstr ""
 
 msgctxt "emb_codes:plural"
 msgid "packager-codes"
@@ -119,7 +150,15 @@ msgstr "συστατικα από φοινικελαιο"
 
 msgctxt "ingredients_from_palm_oil:singular"
 msgid "ingredients-from-palm-oil"
-msgstr "συστατικα απο φοινικελαιο"
+msgstr "συστατικα από φοινικελαιο"
+
+msgctxt "ingredients_n:plural"
+msgid "numbers-of-ingredients"
+msgstr ""
+
+msgctxt "ingredients_n:singular"
+msgid "number-of-ingredients"
+msgstr ""
 
 msgctxt "ingredients_that_may_be_from_palm_oil:plural"
 msgid "ingredients-that-may-be-from-palm-oil"
@@ -127,7 +166,7 @@ msgstr "συστατικα πιθανως προερχομενα από φοιν
 
 msgctxt "ingredients_that_may_be_from_palm_oil:singular"
 msgid "ingredients-that-may-be-from-palm-oil"
-msgstr "συστατικα ισως προερχομενα απο φοινικελαιο"
+msgstr "συστατικα πιθανως προερχομενα από φοινικελαιο"
 
 msgctxt "known_nutrients:plural"
 msgid "known-nutrients"
@@ -145,6 +184,14 @@ msgctxt "labels:singular"
 msgid "label"
 msgstr "ετικετα"
 
+msgctxt "languages:plural"
+msgid "languages"
+msgstr ""
+
+msgctxt "languages:singular"
+msgid "language"
+msgstr ""
+
 msgctxt "last_edit_dates:plural"
 msgid "last-edit-dates"
 msgstr "ημερομηνιες τελευταιας τροποποιησης"
@@ -152,6 +199,14 @@ msgstr "ημερομηνιες τελευταιας τροποποιησης"
 msgctxt "last_edit_dates:singular"
 msgid "last-edit-date"
 msgstr "ημερομηνια τελευταιας τροποποιησης"
+
+msgctxt "last_image_dates:plural"
+msgid "last-image-dates"
+msgstr ""
+
+msgctxt "last_image_dates:singular"
+msgid "last-image-date"
+msgstr ""
 
 msgctxt "manufacturing_places:plural"
 msgid "manufacturing-places"
@@ -203,11 +258,19 @@ msgstr "προελευση"
 
 msgctxt "packaging:plural"
 msgid "packaging"
-msgstr "συσκευασιες"
+msgstr "συσκευασια"
 
 msgctxt "packaging:singular"
 msgid "packaging"
 msgstr "συσκευασια"
+
+msgctxt "periods_after_opening:plural"
+msgid "periods-after-opening"
+msgstr ""
+
+msgctxt "periods_after_opening:singular"
+msgid "period-after-opening"
+msgstr ""
 
 msgctxt "photographers:plural"
 msgid "photographers"
@@ -216,6 +279,22 @@ msgstr "φωτογραφοι"
 msgctxt "photographers:singular"
 msgid "photographer"
 msgstr "φωτογραφος"
+
+msgctxt "pnns_groups_1:plural"
+msgid "pnns-groups-1"
+msgstr ""
+
+msgctxt "pnns_groups_1:singular"
+msgid "pnns-group-1"
+msgstr ""
+
+msgctxt "pnns_groups_2:plural"
+msgid "pnns-groups-2"
+msgstr ""
+
+msgctxt "pnns_groups_2:singular"
+msgid "pnns-group-2"
+msgstr ""
 
 msgctxt "products:plural"
 msgid "products"
@@ -272,4 +351,3 @@ msgstr "χρηστες"
 msgctxt "users:singular"
 msgid "contributor"
 msgstr "συντελεστης"
-
