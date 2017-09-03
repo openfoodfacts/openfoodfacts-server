@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar_SA\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-08-04 08:50-0400\n"
+"PO-Revision-Date: 2017-09-03 10:36-0400\n"
 "Language-Team: Arabic\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
@@ -26,7 +26,7 @@ msgstr "Arabic"
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr "منتج واحد"
+msgstr "منتج"
 
 msgctxt "_and_"
 msgid " and "
@@ -80,11 +80,11 @@ msgstr "شكرا على انضمامك لموقعنا <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "يحتمل أن تكون مضاف إليها مواد غذائية خطرة. قلل من استخدامها."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "المضافات الغذائية الخطرة. تجنبها."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
@@ -96,7 +96,7 @@ msgstr "إضافات"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr "المواد المضافة"
+msgstr "mouthafat"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
@@ -112,7 +112,7 @@ msgstr "الإفراط في الشرب مضر بالصحة."
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "جميع المهمات"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
@@ -124,7 +124,7 @@ msgstr "المواد المسببة للحساسية"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr "المسببة للحساسية"
+msgstr "moussabib-hassassiya"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
@@ -132,7 +132,7 @@ msgstr "تم تحرير صفحة المنتج أيضا بواسطة"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
@@ -140,11 +140,11 @@ msgstr ""
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"متوفرة على قوقل بلاي\" width=\"135\" height=\"47\" />"
 
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -185,7 +185,11 @@ msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n
 "</a>\n"
 "<p>Contribute to <<site_name>> by adding product and win stars by\n"
 "fulfilling <a href=\"/missions\">missions</a>!</p>\n"
-msgstr ""
+msgstr "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
+"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
+"</a>\n"
+"<p>المساهمة في <<site_name>> بإضافة منتج والفوز بالنجوم من خلال\n"
+"تحقيق <a href=\"/missions\">المهمات</a>!</p>\n"
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
@@ -197,7 +201,7 @@ msgstr "العلامات التجارية"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr ""
+msgstr "كيندر بوينو الأبيض، كيندر بوينو، كيندر، فيريرو"
 
 msgctxt "brands_p"
 msgid "brands"
@@ -233,7 +237,7 @@ msgstr ""
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr ""
+msgstr "تشير فقط إلى الفئة الأكثر تحديدا. سيتم إضافة فئات \"الآباء\" تلقائيا."
 
 msgctxt "categories_p"
 msgid "categories"
@@ -241,7 +245,7 @@ msgstr "الفئات"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr ""
+msgstr "منتجات من فئة %s"
 
 msgctxt "categories_s"
 msgid "category"
@@ -253,7 +257,7 @@ msgstr "إضافة فئة"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr ""
+msgstr "منتجات ليست من فئة %s"
 
 msgctxt "change_fields"
 msgid "Data"
@@ -273,7 +277,7 @@ msgstr "الصور المرفوعة"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr ""
+msgstr "مدقّقون"
 
 msgctxt "checkers_s"
 msgid "checker"
@@ -285,7 +289,7 @@ msgstr "مدن التعبئة والتغليف"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr ""
+msgstr "المنتجات التي يتم تعبئتها في مدينة %s"
 
 msgctxt "cities_s"
 msgid "packaging city"
@@ -293,7 +297,7 @@ msgstr "مدينة التعبئة والتغليف"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr ""
+msgstr "المنتجات التي لا يتم تعبئتها في مدينة %s"
 
 msgctxt "codes_p"
 msgid "Codes"
@@ -332,7 +336,7 @@ msgstr ""
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr ""
+msgstr "أكملت %d مهمات:"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
@@ -416,19 +420,19 @@ msgstr "حذف المستخدم"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr ""
+msgstr "أضيف:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr ""
+msgstr "تغير:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr ""
+msgstr "حذف:"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
-msgstr ""
+msgstr "آثار بيئية"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
@@ -464,7 +468,7 @@ msgstr "هذه المعلومات تظهر في صفحتك و يطلع عليه�
 
 msgctxt "edit_settings"
 msgid "Change your account parameters"
-msgstr ""
+msgstr "تغيير معلمات الحساب الخاص بك"
 
 msgctxt "edit_user"
 msgid "Account parameters"
@@ -492,15 +496,15 @@ msgstr "رموز EMB"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
-msgstr ""
+msgstr "المنتجات التي يتم تعبئتها من قبل الشركة مع رمز emb %s"
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr ""
+msgstr "رمز EMB"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr ""
+msgstr "رمز EMB"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
@@ -512,19 +516,19 @@ msgstr ""
 
 msgctxt "emb_codes_p"
 msgid "packager codes"
-msgstr ""
+msgstr "رموز-المغلف"
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
-msgstr ""
+msgstr "المنتجات التي تحتوي على رمز الشفرة %s"
 
 msgctxt "emb_codes_s"
 msgid "packager code"
-msgstr ""
+msgstr "رمز-المغلف"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the emb code %s"
-msgstr ""
+msgstr "المنتجات التي لا تحتوي على رمز الشفرة %s"
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
@@ -544,15 +548,15 @@ msgstr "اسم المستخدم أو كلمة المرور غير صحيحة. <a
 
 msgctxt "error_database"
 msgid "An error occured while reading the data, try to refresh the page."
-msgstr ""
+msgstr "حدث خطأ أثناء قراءة البيانات، حاول تحديث الصفحة."
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr ""
+msgstr "كلمة المرور وتأكيد كلمة المرور مختلفتان."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "عنوان البريد الإلكتروني مستخدم بالفعل من قبل مستخدم آخر. ربما لديك بالفعل حساب؟ يمكنك <a href=\"/cgi/reset_password.pl\"> إعادة تعيين كلمة مرور </a> حسابك الآخر."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -568,11 +572,11 @@ msgstr "عنوان البريد الإلكتروني غير صالح"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
-msgstr ""
+msgstr "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr ""
+msgstr "اسم المستخدم غير صحيح."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
@@ -584,7 +588,7 @@ msgstr "هناك منتج موجود بالفعل مع الشفرة الجديد
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
-msgstr ""
+msgstr "تحتاج إلى إدخال اسم أو لقب."
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
@@ -628,7 +632,7 @@ msgstr "أفضل قبل التاريخ"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr ""
+msgstr "تاريخ انتهاء الصلاحية هو وسيلة لتتبع تغييرات المنتج بمرور الوقت وتحديد أحدث إصدار منه."
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
@@ -640,7 +644,7 @@ msgstr "ar_AR"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -654,11 +658,17 @@ msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/legal\">قانوني</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/terms-of-use\">تعليمات الاستخدام</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/who-we-are\">من نحن</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/faq\">الأسئلة الشائعة</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">منتدى الأفكار</a> -\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">مدونة</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">الصحافة والمدونات</a>\n"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "و <a href=\"https://www.facebook.com/groups/374350705955208/\"> مجموعة فيسبوك للمساهمين </a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -666,7 +676,7 @@ msgstr "و<<site_name>> بلوق"
 
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -682,7 +692,7 @@ msgstr "معطيات"
 
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr ""
+msgstr "/البيانات"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -694,13 +704,15 @@ msgstr "أسئلة مكررة"
 
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr ""
+msgstr "/التعليمات"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
-msgstr ""
+msgstr "تابعنا على <a href=\"https://twitter.com/openfoodfacts\">تويتر</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">فيسبوك</a> و\n"
+"<a href=\"https://plus.google.com/u/0/110748322211084668559/\">قوقل+</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -720,7 +732,7 @@ msgstr "يذكر قانونية"
 
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr ""
+msgstr "/قانوني"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -728,7 +740,7 @@ msgstr "صحافة"
 
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr ""
+msgstr "/اضغط"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -740,7 +752,7 @@ msgstr "شروط الاستخدام"
 
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/تعليمات-الاستخدام"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -748,7 +760,7 @@ msgstr "من نحن"
 
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "/من-نحن"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -756,7 +768,7 @@ msgstr ""
 
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.wiki.openfoodfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -772,7 +784,7 @@ msgstr "اسم شائع"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
-msgstr ""
+msgstr "لوح شوكولاتة بالحليب والبندق"
 
 msgctxt "goodbye"
 msgid "See you soon!"
@@ -780,7 +792,7 @@ msgstr "مع السلامه!"
 
 msgctxt "graph_count"
 msgid "%d products match the search criterias, of which %i products have defined values for the graph's axis."
-msgstr ""
+msgstr "%d تتطابق المنتجات مع معايير البحث، والتي تتضمن %i منتجا لديه قيم محددة لمحور الرسم البياني."
 
 msgctxt "graph_title"
 msgid "Graph title"
@@ -809,7 +821,7 @@ msgstr "مرحبا"
 
 msgctxt "high"
 msgid "high"
-msgstr ""
+msgstr "عالي"
 
 msgctxt "high_quantity"
 msgid "high quantity"
@@ -817,7 +829,7 @@ msgstr "كمية عالية"
 
 msgctxt "history"
 msgid "Changes history"
-msgstr ""
+msgstr "تاريخ التغييرات"
 
 msgctxt "image_front"
 msgid "Front picture"
@@ -829,7 +841,7 @@ msgstr "صورة للقائمة المكونات"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
-msgstr ""
+msgstr "إذا كانت الصورة صافية بما فيه الكفاية، يمكن استخراج المكونات تلقائياً"
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
@@ -841,32 +853,32 @@ msgstr "وقد تم إرسال هذه الصورة."
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
-msgstr ""
+msgstr "الصورة صغيرة جدا. الرجاء عدم تحميل صور وجدت على الإنترنت وإرسال الصور التي التقطتها بنفسك فقط."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
 "You can try with another image, or directly enter the barcode."
-msgstr ""
+msgstr "تعذر قراءة الباركود في الصورة، أو لا تحتوي الصورة على الباركود. يمكنك المحاولة مع صورة أخرى، أو إدخال الباركود مباشرة."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
-msgstr ""
+msgstr "لم يتم العثور على الباركود في الصورة."
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
-msgstr ""
+msgstr "يجب إدخال الأحرف من الباركود أو إرسال صورة المنتج عندما يكون الباركود مرئيًا."
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
-msgstr ""
+msgstr "المنتجات التي أضفتها وتحتاج إلى إكمالها"
 
 msgctxt "informers_p"
 msgid "informers"
-msgstr ""
+msgstr "المخبرين"
 
 msgctxt "informers_s"
 msgid "informers"
-msgstr ""
+msgstr "المخبرين"
 
 msgctxt "ingredients"
 msgid "Ingredients"
@@ -882,7 +894,7 @@ msgstr "تحليل المكونات"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
-msgstr ""
+msgstr "ملاحظة: المكونات يمكن سردها مع العديد من الأسماء المختلفة، وفضلا اسمح لنا أن نعرف إذا كنت تعتقد أن التحليل أعلاه غير صحيح."
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
@@ -894,11 +906,11 @@ msgstr ""
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr ""
+msgstr "المكونات من زيت النخيل"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
-msgstr ""
+msgstr "مكون من زيت النخيل"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
@@ -910,11 +922,11 @@ msgstr "عدد المكونات"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
-msgstr ""
+msgstr "المكونات"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
-msgstr ""
+msgstr "المنتجات التي تحتوي على المكون %s"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
@@ -930,7 +942,7 @@ msgstr "يتم سرد المكونات في الترتيب من حيث الأه�
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr ""
+msgstr "الحبوب 85.5٪ (_دقيق_ القمح، كامل-_دقيق_ القمح 11٪)، مستخلص الشعير، الكاكاو 4،8٪، حمض الاسكوربيك"
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
@@ -970,7 +982,7 @@ msgstr ""
 
 msgctxt "labels_example"
 msgid "Organic"
-msgstr ""
+msgstr "عضوي"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
@@ -978,7 +990,7 @@ msgstr ""
 
 msgctxt "labels_p"
 msgid "labels"
-msgstr ""
+msgstr "الملصقات"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
@@ -1006,7 +1018,7 @@ msgstr "اللغة العربية"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
-msgstr ""
+msgstr "البلغارية"
 
 msgctxt "lang_cs"
 msgid "Czech"
@@ -1034,7 +1046,7 @@ msgstr "الإسبانية"
 
 msgctxt "lang_et"
 msgid "Estonian"
-msgstr ""
+msgstr "الإستونية"
 
 msgctxt "lang_fi"
 msgid "Finnish"
@@ -1046,7 +1058,7 @@ msgstr "الفرنسية"
 
 msgctxt "lang_ga"
 msgid "Irish"
-msgstr ""
+msgstr "الأيرلندية"
 
 msgctxt "lang_he"
 msgid "Hebrew"
@@ -1054,11 +1066,11 @@ msgstr "العبريَة"
 
 msgctxt "lang_hu"
 msgid "Hungarian"
-msgstr ""
+msgstr "الهنغارية"
 
 msgctxt "lang_id"
 msgid "Indonesian"
-msgstr ""
+msgstr "الإندونيسية"
 
 msgctxt "lang_it"
 msgid "Italian"
@@ -1074,7 +1086,7 @@ msgstr "الكورية"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
-msgstr ""
+msgstr "اللتوانية"
 
 msgctxt "lang_lv"
 msgid "Latvian"
@@ -1082,7 +1094,7 @@ msgstr "اللاتفية"
 
 msgctxt "lang_mt"
 msgid "Maltese"
-msgstr ""
+msgstr "المالطية"
 
 msgctxt "lang_nl"
 msgid "Dutch"
@@ -1122,11 +1134,11 @@ msgstr "الروسيَة"
 
 msgctxt "lang_sk"
 msgid "Slovak"
-msgstr ""
+msgstr "السلوفاكية"
 
 msgctxt "lang_sl"
 msgid "Slovenian"
-msgstr ""
+msgstr "السلوفينية"
 
 msgctxt "lang_sv"
 msgid "Swedish"
@@ -1150,11 +1162,11 @@ msgstr "ar-AR"
 
 msgctxt "languages_p"
 msgid "languages"
-msgstr ""
+msgstr "اللغات"
 
 msgctxt "languages_s"
 msgid "language"
-msgstr ""
+msgstr "اللغة"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
@@ -1188,7 +1200,7 @@ msgstr "قائمة %s"
 
 msgctxt "loadmore"
 msgid "Load more results"
-msgstr ""
+msgstr "عرض المزيد من النتائج"
 
 msgctxt "login_and_add_product"
 msgid "Sign-in and add the product"
@@ -1196,7 +1208,7 @@ msgstr "تسجيل الدخول لاضافه منتج"
 
 msgctxt "login_and_edit_product"
 msgid "Sign-in and edit the product"
-msgstr ""
+msgstr "تسجيل الدخول وتحرير المنتج"
 
 msgctxt "login_create_your_account"
 msgid "Create your account."
@@ -1239,43 +1251,43 @@ msgstr "اسم الدخول او البريد الالكتروني :"
 
 msgctxt "low"
 msgid "low"
-msgstr ""
+msgstr "منخفض"
 
 msgctxt "low_quantity"
 msgid "low quantity"
-msgstr ""
+msgstr "كمية قليلة"
 
 msgctxt "manage_images"
 msgid "Manage images"
-msgstr ""
+msgstr "إدارة الصور"
 
 msgctxt "manage_images_info"
 msgid "You can select one or more images and then:"
-msgstr ""
+msgstr "يمكنك اختيار صورة واحدة أو أكثر، ثم:"
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr ""
+msgstr "أماكن التصنيع أو التجهيز"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
-msgstr ""
+msgstr "مونتانا، الولايات المتحدة الأمريكية"
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
-msgstr ""
+msgstr "أماكن التصنيع أو التجهيز"
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
-msgstr ""
+msgstr "المنتجات المصنعة أو المعالجة في %s"
 
 msgctxt "manufacturing_places_s"
 msgid "manufacturing or processing place"
-msgstr ""
+msgstr "مكان التصنيع أو التجهيز"
 
 msgctxt "manufacturing_places_tagsinput"
 msgid "add a place"
-msgstr ""
+msgstr "إضافة مكان"
 
 msgctxt "manufacturing_places_without_products"
 msgid "Products not manufactured or processed in %s"
@@ -1287,7 +1299,7 @@ msgstr ""
 
 msgctxt "map_title"
 msgid "Map title"
-msgstr ""
+msgstr "عنوان الخريطة"
 
 msgctxt "menu"
 msgid "Menu"
@@ -1311,15 +1323,15 @@ msgstr ""
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr "اكتشف"
+msgstr "إكتشف"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/اكتشف"
 
 msgctxt "mission_"
 msgid "Mission: "
-msgstr ""
+msgstr "المهمة: "
 
 msgctxt "mission_accomplished_by"
 msgid "This mission has been completed by:"
@@ -1335,11 +1347,11 @@ msgstr ""
 
 msgctxt "mission_goal"
 msgid "Goal:"
-msgstr ""
+msgstr "الهدف:"
 
 msgctxt "missions"
 msgid "Missions"
-msgstr ""
+msgstr "المهمات"
 
 msgctxt "moderate"
 msgid "moderate"
@@ -1355,7 +1367,7 @@ msgstr ""
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
-msgstr ""
+msgstr "نقل الصور إلى منتج آخر"
 
 msgctxt "n_products"
 msgid "%d products"
@@ -1367,7 +1379,7 @@ msgstr "اﻹسم"
 
 msgctxt "names"
 msgid "Names"
-msgstr ""
+msgstr "الأسماء"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
@@ -1391,23 +1403,23 @@ msgstr "المنتج دون الباركود"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
-msgstr ""
+msgstr "لم يتم تحديد الحقائق الغذائية على المنتج."
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
-msgstr ""
+msgstr "لم يتم إدراج أي منتج للباركود %s."
 
 msgctxt "no_products"
 msgid "No products."
-msgstr ""
+msgstr "لا توجد منتجات."
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
-msgstr ""
+msgstr "حدث خطأ أثناء الحفظ، يرجى إعادة المحاولة."
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
-msgstr ""
+msgstr "عدد الإضافات"
 
 msgctxt "number_of_products"
 msgid "Number of products"
@@ -1415,7 +1427,7 @@ msgstr "عدد من المنتجات"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr ""
+msgstr "%s في %s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
@@ -1439,7 +1451,7 @@ msgstr ""
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
-msgstr ""
+msgstr "المنتجات التي تحتوي على المغذيات %s"
 
 msgctxt "nutriments_s"
 msgid "nutriment"
@@ -1447,7 +1459,7 @@ msgstr ""
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
-msgstr ""
+msgstr "المنتجات التي لا تحتوي على المغذيات %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
@@ -1463,11 +1475,11 @@ msgstr ""
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr ""
+msgstr "٪ من الفرق"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
-msgstr ""
+msgstr "قيمة 100 ج / 100 مل"
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
@@ -1918,7 +1930,7 @@ msgstr ""
 
 msgctxt "purchase_places_tagsinput"
 msgid "add a place"
-msgstr ""
+msgstr "إضافة مكان"
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
@@ -2191,7 +2203,7 @@ msgstr ""
 
 msgctxt "search_series_organic"
 msgid "Organic"
-msgstr ""
+msgstr "عضوي"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
@@ -2629,3 +2641,4 @@ msgstr ""
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr ""
+
