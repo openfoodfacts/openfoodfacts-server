@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de_DE\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-07-30 04:58-0400\n"
+"PO-Revision-Date: 2017-09-03 10:33-0400\n"
 "Language-Team: German\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -22,19 +22,19 @@ msgstr "de"
 #. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
 msgid ":langname"
-msgstr "Deutsch"
+msgstr "German"
 
 msgctxt "additives:plural"
 msgid "additives"
-msgstr "Zusatzstoffe"
+msgstr "zusatzstoffe"
 
 msgctxt "additives:singular"
 msgid "additive"
-msgstr "Zusatzstoff"
+msgstr "zusatzstoff"
 
 msgctxt "allergens:plural"
 msgid "allergens"
-msgstr "Allergene"
+msgstr "allergene"
 
 msgctxt "allergens:singular"
 msgid "allergen"
@@ -42,27 +42,27 @@ msgstr "Allergen"
 
 msgctxt "brands:plural"
 msgid "brands"
-msgstr "Marken"
+msgstr "marken"
 
 msgctxt "brands:singular"
 msgid "brand"
-msgstr "Marke"
+msgstr "marke"
 
 msgctxt "categories:plural"
 msgid "categories"
-msgstr "Kategorien"
+msgstr "kategorien"
 
 msgctxt "categories:singular"
 msgid "category"
-msgstr "Kategorie"
+msgstr "kategorie"
 
 msgctxt "checkers:plural"
 msgid "checkers"
-msgstr "Prüfer"
+msgstr "pruefer"
 
 msgctxt "checkers:singular"
 msgid "checker"
-msgstr "Prüfer"
+msgstr "pruefer"
 
 msgctxt "cities:plural"
 msgid "cities"
@@ -82,19 +82,19 @@ msgstr ""
 
 msgctxt "correctors:plural"
 msgid "correctors"
-msgstr "Überprüfer"
+msgstr "korrektoren"
 
 msgctxt "correctors:singular"
 msgid "corrector"
-msgstr "Überprüfer"
+msgstr "korrekteur"
 
 msgctxt "countries:plural"
 msgid "countries"
-msgstr "Länder"
+msgstr "länder"
 
 msgctxt "countries:singular"
 msgid "country"
-msgstr "Land"
+msgstr "land"
 
 msgctxt "debug:plural"
 msgid "debug"
@@ -130,7 +130,7 @@ msgstr ""
 
 msgctxt "informers:plural"
 msgid "informers"
-msgstr "Informanten"
+msgstr "informanten"
 
 msgctxt "informers:singular"
 msgid "informer"
@@ -138,11 +138,11 @@ msgstr "informant"
 
 msgctxt "ingredients:plural"
 msgid "ingredients"
-msgstr "Inhaltsstoffe"
+msgstr "zutaten"
 
 msgctxt "ingredients:singular"
 msgid "ingredient"
-msgstr "Inhaltsstoff"
+msgstr "zutat"
 
 msgctxt "ingredients_from_palm_oil:plural"
 msgid "ingredients-from-palm-oil"
@@ -150,7 +150,7 @@ msgstr "zutaten-aus-Palmoel"
 
 msgctxt "ingredients_from_palm_oil:singular"
 msgid "ingredients-from-palm-oil"
-msgstr "zutaten-aus-Palmoel"
+msgstr "zutaten-aus-palmoel"
 
 msgctxt "ingredients_n:plural"
 msgid "numbers-of-ingredients"
@@ -166,7 +166,7 @@ msgstr "zutaten-die-möglicherweise-Palmoel-beinhalten"
 
 msgctxt "ingredients_that_may_be_from_palm_oil:singular"
 msgid "ingredients-that-may-be-from-palm-oil"
-msgstr "zutaten-die-möglicherweise-Palmoel-beinhalten"
+msgstr "zutaten-die-möglicherweise-palmoel-beinhalten"
 
 msgctxt "known_nutrients:plural"
 msgid "known-nutrients"
@@ -258,11 +258,11 @@ msgstr "herkunft"
 
 msgctxt "packaging:plural"
 msgid "packaging"
-msgstr "Verpackung"
+msgstr "verpackungen"
 
 msgctxt "packaging:singular"
 msgid "packaging"
-msgstr "Verpackung"
+msgstr "verpackung"
 
 msgctxt "periods_after_opening:plural"
 msgid "periods-after-opening"
@@ -274,11 +274,11 @@ msgstr ""
 
 msgctxt "photographers:plural"
 msgid "photographers"
-msgstr "Fotografen"
+msgstr "fotografen"
 
 msgctxt "photographers:singular"
 msgid "photographer"
-msgstr "Fotograf"
+msgstr "fotograf"
 
 msgctxt "pnns_groups_1:plural"
 msgid "pnns-groups-1"
@@ -298,7 +298,7 @@ msgstr ""
 
 msgctxt "products:plural"
 msgid "products"
-msgstr "Produkte"
+msgstr "produkte"
 
 msgctxt "products:singular"
 msgid "product"
@@ -314,27 +314,27 @@ msgstr "verkaufsort"
 
 msgctxt "states:plural"
 msgid "states"
-msgstr "Stände"
+msgstr "status"
 
 msgctxt "states:singular"
 msgid "state"
-msgstr "Stand"
+msgstr "status"
 
 msgctxt "stores:plural"
 msgid "stores"
-msgstr "Läden"
+msgstr "geschaefte"
 
 msgctxt "stores:singular"
 msgid "store"
-msgstr "Laden"
+msgstr "geschaeft"
 
 msgctxt "traces:plural"
 msgid "traces"
-msgstr "Spuren"
+msgstr "spuren"
 
 msgctxt "traces:singular"
 msgid "trace"
-msgstr "Spur"
+msgstr "spur"
 
 msgctxt "unknown_nutrients:plural"
 msgid "unknown-nutrients"
@@ -346,8 +346,9 @@ msgstr "unbekannte-naehrwerte"
 
 msgctxt "users:plural"
 msgid "contributors"
-msgstr "Mitwirkende"
+msgstr "beitragszahler"
 
 msgctxt "users:singular"
 msgid "contributor"
-msgstr "Mitwirkender"
+msgstr "beitragszahler"
+
