@@ -1,14 +1,5 @@
 msgid ""
 msgstr ""
-<<<<<<< HEAD
-"Project-Id-Version: openfoodfacts\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-18 10:51+0000\n"
-"PO-Revision-Date: 2017-07-10 09:07-0400\n"
-"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
-"Language-Team: English\n"
-=======
->>>>>>> l10n_master
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -518,11 +509,7 @@ msgstr "EMB code"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-<<<<<<< HEAD
 msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-=======
-msgstr ""
->>>>>>> l10n_master
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
@@ -2608,19 +2595,11 @@ msgstr "Warning: the amount of fruits, vegetable and nuts is not specified, thei
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-<<<<<<< HEAD
 msgstr "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
 msgstr "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-=======
-msgstr ""
-
-msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
-msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr ""
->>>>>>> l10n_master
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
