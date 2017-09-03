@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de_DE\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-07-30 20:35-0400\n"
+"PO-Revision-Date: 2017-09-03 10:37-0400\n"
 "Language-Team: German\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -202,7 +202,7 @@ msgstr "Kinder Bueno Weiß, Kinder Bueno, Kinder, Ferrero"
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr "Marken"
+msgstr "marken"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
@@ -210,7 +210,7 @@ msgstr "Produkte der Marke %s"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr "Marke"
+msgstr "marke"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
@@ -238,7 +238,7 @@ msgstr "Geben Sie nur die zutreffenste Kategorie an, die Überkategorien werden 
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr "Kategorien"
+msgstr "kategorien"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
@@ -246,7 +246,7 @@ msgstr "Die Produkte aus der Kategorie %s"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr "Kategorie"
+msgstr "kategorie"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
@@ -274,11 +274,11 @@ msgstr "Hochgeladene Fotos"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr "Prüfer"
+msgstr "pruefer"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr "Prüfer"
+msgstr "pruefer"
 
 msgctxt "cities_p"
 msgid "packaging cities"
@@ -341,7 +341,7 @@ msgstr "Sie sind mit Ihrem Facebook-Konto verbunden."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr "Beitragender seit"
+msgstr "BeitragendeR seit"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
@@ -353,11 +353,11 @@ msgstr "Bitte korrigieren Sie die folgenden Fehler:"
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr "Überprüfer"
+msgstr "korrektoren"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr "Überprüfer"
+msgstr "korrekteur"
 
 msgctxt "countries"
 msgid "Countries where sold"
@@ -369,7 +369,7 @@ msgstr "Länder, in denen das Produkt weit verbreitet ist (Spezialgeschäfte fü
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr "Länder"
+msgstr "länder"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
@@ -377,7 +377,7 @@ msgstr "Produkte verkauft in %s"
 
 msgctxt "countries_s"
 msgid "country"
-msgstr "Land"
+msgstr "land"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -879,11 +879,11 @@ msgstr "Von Ihnen hinzugefügte Produkte, die noch fertiggestellt werden müssen
 
 msgctxt "informers_p"
 msgid "informers"
-msgstr "Informanten"
+msgstr "informanten"
 
 msgctxt "informers_s"
 msgid "informers"
-msgstr "Informanten"
+msgstr "informanten"
 
 msgctxt "ingredients"
 msgid "Ingredients"
@@ -927,7 +927,7 @@ msgstr "Anzahl der Inhaltsstoffe"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
-msgstr "Inhaltsstoffe"
+msgstr "zutaten"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
@@ -935,7 +935,7 @@ msgstr "Produkte , die den Inhaltsstoff %s enthalten"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
-msgstr "Inhaltsstoff"
+msgstr "zutat"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
@@ -1644,7 +1644,7 @@ msgstr "Verpackungsart, Format, Material"
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr "Verpackung"
+msgstr "verpackung"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
@@ -1652,7 +1652,7 @@ msgstr "Produkte mit der Verpackung %s"
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr "Verpackung"
+msgstr "verpackung"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -1700,11 +1700,11 @@ msgstr "Zeitraum nach dem Öffnen"
 
 msgctxt "photographers_p"
 msgid "photographers"
-msgstr "Fotografen"
+msgstr "fotografen"
 
 msgctxt "photographers_s"
 msgid "photographer"
-msgstr "Fotograf"
+msgstr "fotograf"
 
 msgctxt "pnns_groups_1"
 msgid "PNNS groups 1"
@@ -1904,7 +1904,7 @@ msgstr "Kinder Bueno Weiß"
 
 msgctxt "products"
 msgid "products"
-msgstr "Produkte"
+msgstr "produkte"
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
@@ -2382,7 +2382,7 @@ msgstr "Name des Ladens oder Supermarkt-Kette"
 
 msgctxt "stores_p"
 msgid "stores"
-msgstr "Läden"
+msgstr "geschaefte"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
@@ -2390,7 +2390,7 @@ msgstr "Produkte verkauft bei %s"
 
 msgctxt "stores_s"
 msgid "store"
-msgstr "Laden"
+msgstr "geschaeft"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2438,11 +2438,11 @@ msgstr "Geben Sie Inhaltsstoffe von Erwähnungen wie \"Kann Spuren von ... entha
 
 msgctxt "traces_p"
 msgid "traces"
-msgstr "Spuren"
+msgstr "spuren"
 
 msgctxt "traces_s"
 msgid "trace"
-msgstr "Spur"
+msgstr "spur"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
@@ -2506,7 +2506,7 @@ msgstr "Produkte, die vom Benutzer %s nicht bearbeitet wurden"
 
 msgctxt "users_p"
 msgid "contributors"
-msgstr "Mitwirkende"
+msgstr "beitragszahler"
 
 msgctxt "users_products"
 msgid "Products added by %s"
@@ -2514,7 +2514,7 @@ msgstr "Produkte, die von %s hinzugefügt wurden"
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr "Mitwirkender"
+msgstr "beitragszahler"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
@@ -2661,3 +2661,4 @@ msgstr "Einige der Daten für dieses Produkt wurden direkt vom Hersteller %s ber
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "Diese Produktseite ist nicht vollständig. Sie können helfen, sie zu vervollständigen, indem Sie das Produkt bearbeiten und weitere Daten aus den vorhandenen Fotos hinzufügen oder indem Sie mehr Fotos aufnehmen mit der App für <a href=\"https://android.openfoodfacts.org\">Android</a> oder <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Vielen Dank!"
+
