@@ -1557,7 +1557,11 @@ oTable = \$('#tagstable').DataTable({
 		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
 	},
 	paging: false,
-	order: [[ 1, "desc" ]]
+	order: [[ 1, "desc" ]],
+	columns: [
+		null,
+		{ "searchable": false }
+	]
 });
 JS
 ;
@@ -3282,29 +3286,25 @@ sub display_scatter_plot($$$) {
 				
 				# print STDERR "Display::search_and_graph_products: i: $i - axis_x: $graph_ref->{axis_x} - axis_y: $graph_ref->{axis_y}\n";
 					
-				my $data = '{';
+				my %data;
 					
 				foreach my $axis ('x', 'y') {
 					my $nid = $graph_ref->{"axis_" . $axis};
-					$data .= $axis . ':';
 					if (($nid eq 'additives_n') or ($nid eq 'ingredients_n')) {
-						$data .= $product_ref->{$nid};
+						$data{$axis} = $product_ref->{$nid};
 					}
 					else {
-						$data .= g_to_unit($product_ref->{nutriments}{"${nid}_100g"}, $Nutriments{$nid}{unit});
+						$data{$axis} = g_to_unit($product_ref->{nutriments}{"${nid}_100g"}, $Nutriments{$nid}{unit});
 					}
-					$data .= ',';			
 									
 					add_product_nutriment_to_stats(\%nutriments, $nid, $product_ref->{nutriments}{"${nid}_100g"});
 				}
-				$data .= ' product_name:"' . escape_single_quote($product_ref->{product_name}) . '", url: "' . $url . '", img:\''
-					. escape_single_quote(display_image_thumb($product_ref, 'front')) . "'";
-;
-				
-				$data .= "},\n";
+				$data{product_name} = $product_ref->{product_name};
+				$data{url} = $url;
+				$data{img} = display_image_thumb($product_ref, 'front');
 				
 				defined $series{$seriesid} or $series{$seriesid} = '';
-				$series{$seriesid} .= $data;
+				$series{$seriesid} .= encode_json(\%data);
 				defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
 				$series_n{$seriesid}++;
 				$i++;
@@ -6453,8 +6453,23 @@ sub display_nutrient_levels($) {
 		
 		my $warning = '';
 		if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
-			$warning = "<p>" . lang("nutrition_grade_fr_fiber_warning") . "</p>";
+			$warning .= "<p>" . lang("nutrition_grade_fr_fiber_warning") . "</p>";
 		}
+		if ((defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
+				and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
+			$warning .= "<p>" . lang("nutrition_grade_fr_no_fruits_vegetables_nuts_warning") . "</p>";
+		}
+		if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate})
+				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} == 1)) {
+			$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
+								$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"}) . "</p>";
+		}
+		if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category})
+				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} ne '')) {
+			$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"),
+								display_taxonomy_tag($lc,'categories',$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}),
+								$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}) . "</p>";
+		}		
 
 		
 		$html_nutrition_grade .= <<HTML

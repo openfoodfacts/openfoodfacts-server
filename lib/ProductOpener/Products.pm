@@ -3,7 +3,7 @@
 # Product Opener
 # Copyright (C) 2011-2016 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
-# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# Address: 21 rue des Iles, 94100 Saint-Maur des FossÃ©s, France
 # 
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -473,6 +473,7 @@ sub compute_completeness_and_missing_tags($$$) {
 		push @states_tags, "en:nutrition-facts-to-be-completed";
 		$complete = 0;		
 	}
+	
 	
 	if ($complete) {
 		push @states_tags, "en:complete";	

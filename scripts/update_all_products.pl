@@ -16,6 +16,8 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 
 --process-ingredients	compute allergens, additives detection
 
+--compute-nutrition-score	nutriscore
+
 --index		specifies that the keywords used by the free text search function (name, brand etc.) need to be reindexed. -- TBD
 
 --pretend	do not actually update products
@@ -53,12 +55,14 @@ my $key;
 my $index = '';
 my $pretend = '';
 my $process_ingredients = '';
+my $compute_nutrition_score = '';
 
 GetOptions ("key=s"   => \$key,      # string
 			"fields=s" => \@fields_to_update,
 			"index" => \$index,
 			"pretend" => \$pretend,
 			"process-ingredients" => \$process_ingredients,
+			"compute-nutrition-score" => \$compute_nutrition_score,
 			)
   or die("Error in command line arguments:\n$\nusage");
  
@@ -90,7 +94,7 @@ if ($unknown_fields > 0) {
 	die("Unknown fields, check for typos.");
 }
 
-if ((not $process_ingredients) and (scalar @fields_to_update == 0)) {
+if ((not $process_ingredients) and (not $compute_nutrition_score) and (scalar @fields_to_update == 0)) {
 	die("Missing fields to update:\n$\nusage");
 }  
 
@@ -157,6 +161,10 @@ while (my $product_ref = $cursor->next) {
 
 			compute_languages($product_ref); # need languages for allergens detection
 			detect_allergens_from_text($product_ref);		
+		}
+
+		if ($compute_nutrition_score) {
+			compute_nutrition_score($product_ref);
 		}
 		
 		if ($server_domain =~ /openfoodfacts/) {

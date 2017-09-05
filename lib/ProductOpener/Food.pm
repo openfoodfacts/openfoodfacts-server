@@ -307,6 +307,7 @@ caffeine-
 taurine-
 ph-
 fruits-vegetables-nuts-
+fruits-vegetables-nuts-estimate-
 collagen-meat-protein-ratio-
 cocoa-
 chlorophyl-
@@ -413,6 +414,7 @@ caffeine-
 taurine-
 ph-
 fruits-vegetables-nuts-
+fruits-vegetables-nuts-estimate-
 collagen-meat-protein-ratio-
 cocoa-
 chlorophyl-
@@ -518,6 +520,7 @@ caffeine-
 taurine-
 ph-
 fruits-vegetables-nuts-
+fruits-vegetables-nuts-estimate-
 collagen-meat-protein-ratio-
 cocoa-
 chlorophyl-
@@ -626,6 +629,7 @@ caffeine-
 taurine-
 ph-
 fruits-vegetables-nuts-
+fruits-vegetables-nuts-estimate-
 collagen-meat-protein-ratio-
 cocoa-
 chlorophyl-
@@ -2535,6 +2539,15 @@ ph => {
 	de => "Obst, Gemüse und Nüsse (Minimum)",
 	unit => '%',
 },
+"fruits-vegetables-nuts-estimate" => {
+	en => "Fruits, vegetables and nuts (estimate from ingredients list)",
+	fr => "Fruits, légumes et noix (estimation avec la liste des ingrédients)",
+	es => "Frutas, verduras y nueces (estimación de la lista de ingredientes)",
+	nl => "Fruit, groenten en noten (Schat uit ingrediëntenlijst)",
+	nl_be => "Fruit, groenten en noten (Schat uit ingrediëntenlijst)",
+	de => "Obst, Gemüse und Nüsse (Schätzung aus Zutatenliste)",
+	unit => '%',
+},
 "collagen-meat-protein-ratio" => {
 	en => "Collagen/Meat protein ratio (maximum)",
 	fr => "Rapport collagène sur protéines de viande (maximum)",
@@ -2981,6 +2994,22 @@ sub fix_salt_equivalent($) {
 
 # UK FSA scores thresholds
 
+	# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
+	my %fruits_vegetables_nuts_by_category = (
+"en:fruit-juices" => 100,
+"en:vegetable-juices" => 100,
+"en:fruit-sauces" => 90,
+"en:vegetables" => 90,
+"en:fruits" => 90,
+"en:mushrooms" => 90,
+"en:canned-fruits" => 90,
+"en:frozen-fruits" => 90,
+"en:jams" => 50,
+"en:fruits-based-foods" => 85,
+"en:vegetables-based-foods" => 85,
+);
+
+	my @fruits_vegetables_nuts_by_category_sorted = sort { $fruits_vegetables_nuts_by_category{$b} <=> $fruits_vegetables_nuts_by_category{$a} } keys %fruits_vegetables_nuts_by_category;
 
 
 sub compute_nutrition_score($) {
@@ -3002,30 +3031,18 @@ sub compute_nutrition_score($) {
 	delete $product_ref->{"nutrition_grade_fr"};
 	delete $product_ref->{"nutrition_grades_tags"};
 	delete $product_ref->{nutrition_score_warning_no_fiber};
+	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate};
+	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category};
+	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value};
+	delete $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts};
+
+	defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
 	
-	
-	# compute the score only if all values are known
-	# for fiber, compute score without fiber points if the value is not known
-	# foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "fiber", "proteins") {
-	foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "proteins") {
-		if (not defined $product_ref->{nutriments}{$nid . "_100g"}) {
-			$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
-			$product_ref->{nutrition_score_debug} = "missing $nid";
-			return;
-		}
-	}
-	
-	# some categories of products do not have fibers > 0.7g (e.g. sodas)
-	# for others, display a warning when the value is missing
-	if ((not defined $product_ref->{nutriments}{"fiber_100g"})
-		and not (has_tag($product_ref, "categories", "en:sodas"))) {
-		$product_ref->{nutrition_score_warning_no_fiber} = 1;
-	}
-	
-	
+	$product_ref->{misc_tags} = ["en:nutriscore-not-computed"];
+
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
 	if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
-			$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
+			$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
 			$product_ref->{nutrition_score_debug} = "no score for en:dried-products-to-be-rehydrated";
 			return;
 	}
@@ -3039,11 +3056,34 @@ sub compute_nutrition_score($) {
 		or	(has_tag($product_ref, "categories", "fr:levure"))
 		or	(has_tag($product_ref, "categories", "fr:levures"))
 		) {
-			$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
+			$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
 			$product_ref->{nutrition_score_debug} = "no score for coffees, teas, alcoholic-beverages etc.";
 			return;
 	}
+		
 	
+	# compute the score only if all values are known
+	# for fiber, compute score without fiber points if the value is not known
+	# foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "fiber", "proteins") {
+	foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "proteins") {
+		if (not defined $product_ref->{nutriments}{$nid . "_100g"}) {
+			$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
+			push @{$product_ref->{misc_tags}}, "en:nutrition-not-enough-data-to-compute-nutrition-score";
+			if (not defined $product_ref->{nutriments}{"saturated-fat_100g"}) {
+				push @{$product_ref->{misc_tags}}, "en:nutrition-no-saturated-fat";
+			}
+			$product_ref->{nutrition_score_debug} = "missing $nid";
+			return;
+		}
+	}
+	
+	# some categories of products do not have fibers > 0.7g (e.g. sodas)
+	# for others, display a warning when the value is missing
+	if ((not defined $product_ref->{nutriments}{"fiber_100g"})
+		and not (has_tag($product_ref, "categories", "en:sodas"))) {
+		$product_ref->{nutrition_score_warning_no_fiber} = 1;
+		push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber";
+	}
 	
 	
 	my $energy_points = int(($product_ref->{nutriments}{"energy_100g"} - 0.00001) / 335);
@@ -3087,41 +3127,51 @@ sub compute_nutrition_score($) {
 	my $a_points_fr_beverages = $fr_beverages_energy_points + $saturated_fat_points + $fr_beverages_sugars_points + $sodium_points;
 	
 	# points for fruits, vegetables and nuts
-	
-	my $fruits = 0;
+		
+	my $fruits = undef;
 	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts_100g"}) {
 		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts_100g"};
+		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
 	}
-	# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
-	elsif (
-		has_tag($product_ref, "categories", "en:fruit-juices")
-		or has_tag($product_ref, "categories", "en:vegetable-juices") 
-		) {
-		$fruits = "100";
-	}
-	elsif (
-		has_tag($product_ref, "categories", "en:fruit-sauces")
-		) {
-		$fruits = "90";
-	}		
-	elsif (
-		has_tag($product_ref, "categories", "en:vegetables")
-		or has_tag($product_ref, "categories", "en:fruits")
-		or has_tag($product_ref, "categories", "en:mushrooms")
-		or has_tag($product_ref, "categories", "en:canned-fruits")
-		or has_tag($product_ref, "categories", "en:frozen-fruits")
-		) {
-		$fruits = "90";
+	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"}) {
+		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"};
+		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} = 1;
+		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate";
 	}	
-	elsif (has_tag($product_ref, "categories", "en:jams")
-		) {
-		$fruits = "50";
+	# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
+	else {
+		foreach my $category_id (@fruits_vegetables_nuts_by_category_sorted ) {
+
+			if (has_tag($product_ref, "categories", $category_id)) {
+				$fruits = $fruits_vegetables_nuts_by_category{$category_id};
+				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} = $category_id;
+				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value} = $fruits_vegetables_nuts_by_category{$category_id};
+				push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-from-category";
+				my $category = $category_id;
+				$category =~ s/:/-/;
+				push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-from-category-$category";
+				last;
+			}
+		}	
+			
+		if (defined $fruits) {
+			$product_ref->{"fruits-vegetables-nuts_100g_estimate"} = $fruits;
+		}
+		else {
+			$fruits = 0;
+			$product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} = 1;
+			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fruits-vegetables-nuts";
+		}
+		
 	}
-	elsif (has_tag($product_ref, "categories", "en:fruits-based-foods")
-		or has_tag($product_ref, "categories", "en:vegetables-based-foods")) {
-		$fruits = 85;
+	
+	if ((defined $product_ref->{nutrition_score_warning_no_fiber}) or (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})) {
+		push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber-or-fruits-vegetables-nuts";
 	}
-	$product_ref->{"fruits-vegetables-nuts_100g_estimate"} = $fruits;
+	else {
+		push @{$product_ref->{misc_tags}}, "en:nutrition-all-nutriscore-values-known";		
+	}
+
 	
 	my $fruits_points = 0;
 	
@@ -3296,6 +3346,9 @@ COMMENT
 
 	delete $product_ref->{"nutrition-grade-fr"};
 	delete $product_ref->{"nutrition_grade_fr"};
+	
+	shift @{$product_ref->{misc_tags}};
+	push @{$product_ref->{misc_tags}}, "en:nutriscore-computed";	
 	
 	if (has_tag($product_ref, "categories", "en:beverages")
 		and not (has_tag($product_ref, "categories", "en:plant-milks") or has_tag($product_ref, "categories", "en:milks"))) {
