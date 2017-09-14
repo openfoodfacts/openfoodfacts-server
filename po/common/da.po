@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da_DK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-09-04 03:48-0400\n"
+"PO-Revision-Date: 2017-09-14 13:50-0400\n"
 "Language-Team: Danish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -17,7 +17,7 @@ msgstr ""
 #. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
 msgid ":langtag"
-msgstr "nb"
+msgstr "da"
 
 #. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
@@ -34,27 +34,27 @@ msgstr " og "
 
 msgctxt "about"
 msgid "About me"
-msgstr "Om meg"
+msgstr "Om mig"
 
 msgctxt "add"
 msgid "Add"
-msgstr "Legg til"
+msgstr "Tilføj"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr "Legg til språk"
+msgstr "Tilføj sprog"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr "Legg til et produkt"
+msgstr "Tilføj produkt"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr "Registrer bruker"
+msgstr "Registrer bruger"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr "<p>Tak for tilmeldelsen. Du kan nu logge på på webstedet for at tilføje og redigere produkter.</p>"
+msgstr "<p>Tak for indmeldingen. Du kan nu logge på webstedet for at tilføje og redigere produkter.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -80,31 +80,31 @@ msgstr ""
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr "Potensielt farlig tilsetningsstoff. Begrens bruk."
+msgstr "Potentielt farligt tilsætningsstof. Begræns brugen."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr "Farlig tilsetningsstoff. Unngå."
+msgstr "Farlig tilsætningsstof. Undgå."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr "Tilsetningsstoff som er forbudt i Europa. Unngå for enhver pris."
+msgstr "Tilsætningsstof som er forbudt i Europa. Undgå for enhver pris."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr "tilsetningsstoffer"
+msgstr "tilsætningsstoffer"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr "tilsetningsstoff"
+msgstr "tilsætningsstof"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr "Avansert søk"
+msgstr "Avanceret søgning"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr "Avansert søk og grafer"
+msgstr "Avanceret søgning og grafer"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
@@ -116,7 +116,7 @@ msgstr "Alle missioner"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "Stoffer eller produkter som forårsaker allergi eller intoleranse"
+msgstr "Stoffer eller produkter som forårsager allergi eller intolerance"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -128,7 +128,7 @@ msgstr ""
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr "Produktside også redigert av"
+msgstr "Produktside også redigeret af"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
@@ -140,7 +140,7 @@ msgstr ""
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr "<img src=\"/images/misc/android-app-på-google-play-en_app_rgb_wo_135x47.png \" alt=\"tilgjengelig på Google Play \" width=\"135 \" height=\"47 \" />"
+msgstr "<img src=\"/images/misc/android-app-på-google-play-en_app_rgb_wo_135x47.png \" alt=\"Tilgængelig på Google Play \" width=\"135 \" height=\"47 \" />"
 
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
@@ -153,15 +153,15 @@ msgstr ""
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr "Ta et bilde"
+msgstr "Tag et billede"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr "Merk: bildene du sender, blir utgitt under gratislisensen Creative Commons Attribution og Sharealike."
+msgstr "Bemærk: billederne du sender, bliver offentliggjort under den frie licens Creative Commons Attribution ShareAlike."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr "Du kan legge til bilder:"
+msgstr "Du kan tilføje billeder:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
@@ -193,27 +193,27 @@ msgstr ""
 
 msgctxt "brands"
 msgid "Brands"
-msgstr "Merker"
+msgstr "Varemærker"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr "Kinder Bueno hvit, Kinder Bueno, Kinder, Ferrero"
+msgstr "Kinder Bueno hvid, Kinder Bueno, Kinder, Ferrero"
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr "merker"
+msgstr "varemærker"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr "Produkter fra %s merkevaren"
+msgstr "Produkter fra %s-varemærket"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr "merke"
+msgstr "varemærke"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr "legge til en merkevare"
+msgstr "tilføj et varemærke"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
