@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da_DK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-09-14 14:00-0400\n"
+"PO-Revision-Date: 2017-09-14 14:10-0400\n"
 "Language-Team: Danish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -464,11 +464,11 @@ msgstr "Rediger din offentlige profil"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
-msgstr "Endringer i den offentlige profilen er lagret."
+msgstr "Ændringerne i din offentlige profil er gemt."
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
-msgstr "Informasjonen nedenfor er synlig i din offentlige profil."
+msgstr "Informationen nedenfor er synlig i din offentlige profil."
 
 msgctxt "edit_settings"
 msgid "Change your account parameters"
@@ -476,11 +476,11 @@ msgstr ""
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr "Konto parametre"
+msgstr "Kontoparametre"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr "<p>Dine konto parametre er blevet ændret.</p>"
+msgstr "<p>Dine kontoparametre er blevet ændret.</p>"
 
 msgctxt "editors_p"
 msgid "editors"
@@ -492,7 +492,7 @@ msgstr "redaktør"
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr "epostadresse"
+msgstr "email-adresse"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
@@ -544,23 +544,23 @@ msgstr ""
 
 msgctxt "error"
 msgid "Error"
-msgstr "Feilmelding"
+msgstr "Fejlmelding"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr "Feil brukernavn eller passord. <a href=\"/cgi/reset_password.pl\">Glemt passord?</a>"
+msgstr "Fejl i brugernavn eller adgangskode. <a href=\"/cgi/reset_password.pl\">Glemt adgangskode?</a>"
 
 msgctxt "error_database"
 msgid "An error occured while reading the data, try to refresh the page."
-msgstr "Det oppsto en feil under lesing av data, vennligst prøv å oppdatere siden."
+msgstr "Der opstod en fejl under læsning af data, prøv at genindlæse siden."
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr "Passordene er forskjellige."
+msgstr "Adgangskoderne er forskellige."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr "Denne e-postadressen er allerede i bruk av en annen bruker. Kanskje du allerede har en konto? Du kan <a href=\"/cgi/reset_password.pl\">tilbakestille passordet</a> til den eksisterende kontoen."
+msgstr "Denne email-adresse er allerede i brug af en eksisterende bruger. Måske du allerede har en konto? Du kan <a href=\"/cgi/reset_password.pl\">nulstille adgangskoden</a> på den eksisterende konto."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -572,15 +572,15 @@ msgstr ""
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr "Ugyldig epostadresse"
+msgstr "Ugyldig email-adresse"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
-msgstr "Passordet må være minst 6 tegn langt"
+msgstr "Adgangskoden skal være mindst 6 tegn langt."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr "Ugyldig bruker."
+msgstr "Ugyldig bruger."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
@@ -588,19 +588,19 @@ msgstr ""
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
-msgstr "Et produkt finnes allerede med den nye koden"
+msgstr "Det findes allerede et produkt med den nye kode"
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
-msgstr "Du må skrive inn et navn eller kallenavn."
+msgstr "Du skal skrive et navn eller kaldenavn."
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
-msgstr "Tilgang nektet."
+msgstr "Adgang nægtet."
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr "Du må oppgi et brukernavn"
+msgstr "Du skal opgive et brugernavn"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
@@ -608,19 +608,19 @@ msgstr "Du er allerede logget på."
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
-msgstr "Lenken for tilbakestilling av passordet er ugyldig eller utløpt."
+msgstr "Linket til nulstilling af adgangskoden er ugyldigt eller udløbet."
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr "Det finnes ingen konto tilhørende denne e-postadressen"
+msgstr "Der findes ingen konto tilhørende denne email-adresse"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr "Brukernavnet eksisterer ikke."
+msgstr "Dette brugernavn eksisterer ikke."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr "Dette brukernavnet er allerede tatt, velg et annet."
+msgstr "Dette brugernavn er allerede anvendt, vælg et andet."
 
 msgctxt "example"
 msgid "Example:"
@@ -632,11 +632,11 @@ msgstr "Eksempler:"
 
 msgctxt "expiration_date"
 msgid "Best before date"
-msgstr "Best før dato"
+msgstr "Bedst før dato"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr "Utløpsdatoen er en måte å spore produktendringer over tid, og for å identifisere den nyeste versjonen av produktet."
+msgstr "Udløbsdatoen er en måde at spore produktændringer over tid, og for at identificere den nyeste udgaver af et produkt."
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
@@ -652,7 +652,7 @@ msgstr ""
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr "Hvis dataene er ufullstendig eller feil, kan du fullføre eller korrigere dem ved å endre denne siden."
+msgstr "Hvis dataene er ufuldstændige eller forkerte, kan du tilføje eller korrigere dem ved at ændre denne side."
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
@@ -666,11 +666,11 @@ msgstr ""
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook group for contributors</a>"
-msgstr "og <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook-gruppen for bidragsytere</a>"
+msgstr "og <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook-gruppen for bidragsydere</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr "<< site_name >> blogg"
+msgstr "<< site_name >>-blog"
 
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
@@ -694,7 +694,7 @@ msgstr ""
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr "Oppdag prosjektet"
+msgstr "Gå på opdagelse i projektet"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
