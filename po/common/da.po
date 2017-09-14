@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da_DK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-09-14 13:50-0400\n"
+"PO-Revision-Date: 2017-09-14 14:00-0400\n"
 "Language-Team: Danish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -229,11 +229,11 @@ msgstr "Kategorier"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr "Sardiner i olivenolje, appelsinjuice fra konsentrat"
+msgstr "Sardiner i olivenolie, appelsinjuice af koncentrat"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr "Indikerer bare den mest spesifikke kategorien.\"foreldre \"-kategorier vil automatisk bli lagt til."
+msgstr "Indikerer kun den mest specifikke kategori. Overordnede kategorier vil automatisk blive tilføjet."
 
 msgctxt "categories_p"
 msgid "categories"
@@ -241,7 +241,7 @@ msgstr "kategorier"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr "Produkter fra %s kategori"
+msgstr "Produkter fra %s-kategorien"
 
 msgctxt "categories_s"
 msgid "category"
@@ -249,11 +249,11 @@ msgstr "kategori"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr "legg til en kategori"
+msgstr "tilføj en kategori"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr "Produkter ikke fra %s kategori"
+msgstr "Produkter ikke fra %s-kategorien"
 
 msgctxt "change_fields"
 msgid "Data"
@@ -269,7 +269,7 @@ msgstr ""
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr "opplastede bilder"
+msgstr "Uploadede billeder"
 
 msgctxt "checkers_p"
 msgid "checkers"
@@ -285,7 +285,7 @@ msgstr ""
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr "By der produktene ble emballert: %s"
+msgstr "Produkter pakket i byen %s"
 
 msgctxt "cities_s"
 msgid "packaging city"
@@ -332,23 +332,23 @@ msgstr ""
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr "fullført %d oppdrag:"
+msgstr "fuldført %d missioner:"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr "Du er tilkoblet med Facebook-kontoen din."
+msgstr "Du er forbundet med din Facebook-konto."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr "Bidragsyter siden"
+msgstr "Bidragsyder siden"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr "Kopier data fra aktuelle produktet til nytt produkt"
+msgstr "Kopier data fra aktuelle produkt til nyt produkt"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
-msgstr "Vennligst korriger følgende feil:"
+msgstr "Ret venligst disse fejl:"
 
 msgctxt "correctors_p"
 msgid "correctors"
@@ -360,19 +360,19 @@ msgstr ""
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "Land hvor produktet selges"
+msgstr "Produktet sælges i disse lande"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
-msgstr "Land hvor produktet er allment tilgjengelig (ikke inkludert butikker som spesialiserer seg på utenlandske produkter)"
+msgstr "Lande hvor produktet er almindeligt tilgængeligt (udover butikker som specialiserer sig i udenlandske produkter)"
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr "land"
+msgstr "lande"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr "Produkter selges i %s"
+msgstr "Produkter som sælges i %s"
 
 msgctxt "countries_s"
 msgid "country"
@@ -380,7 +380,7 @@ msgstr "land"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr "Produkter selges ikke i %s"
+msgstr "Produkter som ikke sælges i %s"
 
 msgctxt "data_source"
 msgid "Data source"
@@ -400,27 +400,27 @@ msgstr "Årsag til fjernelse"
 
 msgctxt "delete_product"
 msgid "Delete a product"
-msgstr "Slett et produkt"
+msgstr "Slet et produkt"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr "Slett side"
+msgstr "Slet side"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr "Slett bildene"
+msgstr "Slet billederne"
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr "Slett bruker"
+msgstr "Slet bruger"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr "Lagt til:"
+msgstr "Tilføjet:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr "Endret:"
+msgstr "Ændret:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
@@ -436,11 +436,11 @@ msgstr ""
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
-msgstr "Økologisk fotavtrykk"
+msgstr "Økologisk fodaftryk"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
-msgstr "Hvis karbonutslipp eller karbon-fottavtrykk er angitt på etiketten (dette er sjeldent foreløpig), indikerer karbonutslipp for samme mengde som ernæringsinnholdet oppgis for."
+msgstr "Hvis CO2-udslip eller CO2-fodaftryk er angivet på etiketten (endnu sjældent set), skal det angives for den samme mængde som ernæringsindholdet opgives for."
 
 msgctxt "edit"
 msgid "edit"
@@ -448,7 +448,7 @@ msgstr "rediger"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr "sammendrag av endringer"
+msgstr "Ændringsoversigt"
 
 msgctxt "edit_product"
 msgid "Edit a product"
