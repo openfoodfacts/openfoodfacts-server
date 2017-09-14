@@ -24,7 +24,7 @@ before_install:
 install:
   - cpanm --quiet --installdeps --notest --skip-satisfied .
   - npm install
-  - bower install
+  - node_modules/.bin/bower install
   - ln -s $TRAVIS_BUILD_DIR/lib/ProductOpener/Config_off.pm $TRAVIS_BUILD_DIR/lib/ProductOpener/Config.pm
   - cp $TRAVIS_BUILD_DIR/lib/ProductOpener/Config2_sample.pm $TRAVIS_BUILD_DIR/lib/ProductOpener/Config2.pm
   - ln -s $TRAVIS_BUILD_DIR/lib/ProductOpener/SiteLang_off.pm $TRAVIS_BUILD_DIR/lib/ProductOpener/SiteLang.pm
@@ -33,6 +33,6 @@ install:
 script:
   - prove -l
   - perl -c -CS -I$TRAVIS_BUILD_DIR/lib lib/startup_apache2.pl
-  - jshint --show-non-errors html/js/product-multilingual.js html/js/search.js
+  - node_modules/.bin/jshint --show-non-errors html/js/product-multilingual.js html/js/search.js
 notifications:
   slack: openfoodfacts:Pre9ZXKFH1CYtix8DeJAaFi2
