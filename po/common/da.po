@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da_DK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-09-14 14:20-0400\n"
+"PO-Revision-Date: 2017-09-14 14:31-0400\n"
 "Language-Team: Danish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -898,15 +898,15 @@ msgstr "ingredienser som er, eller som kan stamme fra, palmeolie"
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_s"
 msgid "ingredient from or that may be from palm oil"
-msgstr "ingredienser som er, eller som kan stamme fra, palmeolje"
+msgstr "ingrediens som er, eller som kan stamme fra, palmeolie"
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr "ingredienser fra palmeolje"
+msgstr "ingredienser fra palmeolie"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
-msgstr "ingrediens fra palmeolje"
+msgstr "ingrediens fra palmeolie"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
@@ -946,19 +946,19 @@ msgstr ""
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr "ingredienser som kan være fra palmeolje"
+msgstr "ingredienser som kan være fra palmeolie"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
-msgstr "ingrediens som kan være fra palmeolje"
+msgstr "ingrediens som kan være fra palmeolie"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr "Produkter som ikke inneholder ingrediensen %s"
+msgstr "Produkter som ikke indeholder ingrediensen %s"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png \" alt=\"tilgjengelig på App Store \" width=\"135 \" height=\"40 \" />"
+msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png \" alt=\"Tilgængelig på App Store\" width=\"135 \" height=\"40 \" />"
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
@@ -966,15 +966,15 @@ msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
-msgstr "kjente næringsstoffer"
+msgstr "kendte næringsstoffer"
 
 msgctxt "known_nutrients_s"
 msgid "known nutrient"
-msgstr "kjent næringsstoff"
+msgstr "kendt næringsstof"
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr "Etiketter, sertifiseringer, priser"
+msgstr "Etiketter, certificeringer, udmærkelser"
 
 msgctxt "labels_example"
 msgid "Organic"
@@ -998,7 +998,7 @@ msgstr ""
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
-msgstr "tilføje en etiket"
+msgstr "tilføj en etiket"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
@@ -1006,7 +1006,7 @@ msgstr "Produkter som ikke har etiketten %s"
 
 msgctxt "lang"
 msgid "Main language"
-msgstr "Hovedspråk"
+msgstr "Hovedsprog"
 
 msgctxt "lang_ar"
 msgid "Arabic"
@@ -1106,7 +1106,7 @@ msgstr ""
 
 msgctxt "lang_other"
 msgid "other language"
-msgstr "annet språk"
+msgstr "andet sprog"
 
 msgctxt "lang_pl"
 msgid "Polish"
@@ -1122,7 +1122,7 @@ msgstr ""
 
 msgctxt "lang_ro"
 msgid "Romanian"
-msgstr "Rumensk"
+msgstr "Rumænsk"
 
 msgctxt "lang_ru"
 msgid "Russian"
@@ -1158,11 +1158,11 @@ msgstr ""
 
 msgctxt "languages_p"
 msgid "languages"
-msgstr "språk"
+msgstr "sprog"
 
 msgctxt "languages_s"
 msgid "language"
-msgstr "språk"
+msgstr "sprog"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
@@ -1170,7 +1170,7 @@ msgstr ""
 
 msgctxt "last_edit_dates_s"
 msgid "Last edit date"
-msgstr "Sist endret dato"
+msgstr "Dato for seneste ændring"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
@@ -1200,19 +1200,19 @@ msgstr ""
 
 msgctxt "login_and_add_product"
 msgid "Sign-in and add the product"
-msgstr "Logg deg inn og legg til produktet"
+msgstr "Log ind og tilføj produktet"
 
 msgctxt "login_and_edit_product"
 msgid "Sign-in and edit the product"
-msgstr "Logg inn og redigere produktet"
+msgstr "Log ind og rediger produktet"
 
 msgctxt "login_create_your_account"
 msgid "Create your account."
-msgstr "Opprett konto"
+msgstr "Opret konto."
 
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
-msgstr "Ikke registrert ennå?"
+msgstr "Ikke oprettet endnu?"
 
 msgctxt "login_register_content"
 msgid "<p>Sign-in to add or edit products.</p>\n\n"
@@ -1229,7 +1229,7 @@ msgstr ""
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr "Logg inn"
+msgstr "Log ind"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
@@ -1242,7 +1242,7 @@ msgstr ""
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr "Brukernavn eller e-post adresse:"
+msgstr "Brugernavn eller email-adresse:"
 
 msgctxt "low"
 msgid "low"
@@ -1302,7 +1302,7 @@ msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr "Legg til et produkt"
+msgstr "Tilføj et produkt"
 
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
@@ -1310,15 +1310,15 @@ msgstr ""
 
 msgctxt "menu_contribute"
 msgid "Contribute"
-msgstr "Bidra"
+msgstr "Bidrag"
 
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr "/bidra"
+msgstr "/bidrag"
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr "Opdage"
+msgstr "Opdag"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
@@ -1326,19 +1326,19 @@ msgstr ""
 
 msgctxt "mission_"
 msgid "Mission: "
-msgstr "Oppdrag: "
+msgstr "Mission: "
 
 msgctxt "mission_accomplished_by"
 msgid "This mission has been completed by:"
-msgstr "Dette oppdraget har blitt fullført av:"
+msgstr "Denne mission er fuldført af:"
 
 msgctxt "mission_accomplished_by_n"
 msgid "Completed by %d persons."
-msgstr "Fullført av %d personer."
+msgstr "Fuldført af %d personer."
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
-msgstr "Bli den første til å fullføre dette oppdraget!"
+msgstr "Bliv den første til at fuldføre denne mission!"
 
 msgctxt "mission_goal"
 msgid "Goal:"
@@ -1346,7 +1346,7 @@ msgstr "Mål:"
 
 msgctxt "missions"
 msgid "Missions"
-msgstr "Oppdrag:"
+msgstr "Missioner"
 
 msgctxt "moderate"
 msgid "moderate"
@@ -1358,11 +1358,11 @@ msgstr ""
 
 msgctxt "months"
 msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr "[ 'Januar', 'Februar', 'Mars', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September','Oktober','November','Desember']"
+msgstr "[ 'Januar', 'Februar', 'Marts', 'April', 'Maj', 'Juni', 'Juli', 'August', 'September','Oktober','November','December']"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
-msgstr "Flytt bildene til et annet produkt"
+msgstr "Flyt billederne til et andet produkt"
 
 msgctxt "n_products"
 msgid "%d products"
@@ -1374,35 +1374,35 @@ msgstr "Navn"
 
 msgctxt "names"
 msgid "Names"
-msgstr "Navn"
+msgstr "Navne"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr "Hvis strekkoden ikke er riktig, kan du rette det opp her:"
+msgstr "Hvis stregkoden ikke er rigtig, kan du korrigere det her:"
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
-msgstr "For produkter uten strekkode, blir en intern kode automatisk gitt."
+msgstr "For produkter uden stregkode, genereres en intern kode automatiskt."
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr "Abonner på vårt nyhetsbrev (Maks to e-poster per måned)"
+msgstr "Abonner på vores nyhedsbrev (maksimalt to emails pr. måned)"
 
 msgctxt "next"
 msgid "Next"
-msgstr "Neste"
+msgstr "Næste"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
-msgstr "Produkt uten strekkode"
+msgstr "Produkt uden stregkode"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
-msgstr "Ernæringsinnhold er ikke spesifisert på produktet."
+msgstr "Ernæringsindhold er ikke specificeret på produktet."
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
-msgstr "Ingen produkter oppført for strekkode %s ."
+msgstr "Ingen produkter fundet med stregkode %s."
 
 msgctxt "no_products"
 msgid "No products."
@@ -1410,15 +1410,15 @@ msgstr "Ingen produkter."
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
-msgstr "Feil under lagring, vennligst prøv igjen."
+msgstr "Fejl under gemning, prøv igen."
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
-msgstr "Antall tilsetningsstoffer"
+msgstr "Antal tilsætningsstoffer"
 
 msgctxt "number_of_products"
 msgid "Number of products"
-msgstr "Antall produkter"
+msgstr "Antal produkter"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
@@ -1458,11 +1458,11 @@ msgstr ""
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "Ernæringsinnhold"
+msgstr "Ernæringsindhold"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "Ernæringsinnhold"
+msgstr "Ernæringsindhold"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
