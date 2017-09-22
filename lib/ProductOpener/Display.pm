@@ -5324,6 +5324,8 @@ $Lang{footer_follow_us}{$lc}
 <script src="/foundation/js/foundation.min.js"></script>
 <script src="/foundation/js/vendor/jquery.cookie.js"></script>
 
+<script async defer src="/bower_components/ManUp.js/manup.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" integrity="sha384-222hzbb8Z8ZKe6pzP18nTSltQM3PdcAwxWKzGOKOIF+Y3bROr5n9zdQ8yTRHgQkQ" crossorigin="anonymous"></script>
 
 $scripts
