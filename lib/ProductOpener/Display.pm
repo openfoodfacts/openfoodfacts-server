@@ -2483,19 +2483,27 @@ sub search_and_display_products($$$$$) {
 	my $cursor;
 	my $count;
 	
+	use Data::Dumper;
 	#if ($admin) 
 	{
-	
-		use Data::Dumper;
-		print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
 		print STDERR "Display.pm - search_and_display_products - sort:\n" . Dumper($sort_ref) . "\n";
 		print STDERR "Display.pm - search_and_display_products - limit:\n" . Dumper($limit) . "\n";
 	
 	}
 	
 	eval {
-		$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-		$count = $cursor->count() + 0;
+		if (defined $request_ref->{sample_size}) {
+			my $aggregate_parameters = [
+				{ "\$match" => $query_ref },
+				{ "\$sample" => { "size" => $request_ref->{sample_size} } }
+			];
+			print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
+			$cursor = $products_collection->aggregate($aggregate_parameters);
+		}
+		else {
+			print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
+			$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+		}
 	};
 	if ($@) {
 		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
@@ -2513,22 +2521,35 @@ sub search_and_display_products($$$$$) {
 		}
 		else {		
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
-			$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-			$count = $cursor->count() + 0;
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
+			if (defined $request_ref->{sample_size}) {
+				my $aggregate_parameters = [
+					{ "\$match" => $query_ref },
+					{ "\$sample" => { "size" => $request_ref->{sample_size} } }
+				];
+				print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
+				$cursor = $products_collection->aggregate($aggregate_parameters);
+			}
+			else {
+				print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
+				$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+			}
+			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok\n";
 		}
 	}
-		
-	$request_ref->{count} = $count + 0;
-	print STDERR "Display.pm - search_and_display_products - count: $count\n";
 	
+	$count = 0;
+	while (my $product_ref = $cursor->next) {
+		push @{$request_ref->{structured_response}{products}}, $product_ref;
+		$count++;
+	}
+	
+	$request_ref->{structured_response}{count} = $count + 0;
 	
 	my $html = '';
 	my $html_pages = '';
 	my $html_count = '';
 	
 	if (not defined $request_ref->{jqm_loadmore}) {
-
 		if ($count < 0) {
 			$html .= "<p>" . lang("error_database") . "</p>";	
 		}
@@ -2541,10 +2562,7 @@ sub search_and_display_products($$$$$) {
 		elsif ($count > 1) {
 			$html_count .= sprintf(lang("n_products"), $count) ;
 		}
-	
 	}
-	
-	$request_ref->{structured_response}{count} = $count + 0;
 	
 	if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
 	
@@ -2559,7 +2577,7 @@ sub search_and_display_products($$$$$) {
 			
 		
 	}
-	
+		
 	if ($count > 0) {
 	
 		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm}))  {
@@ -2575,7 +2593,7 @@ sub search_and_display_products($$$$$) {
 		print STDERR $debug_log . "\n"; 
 		
 		if ((not defined $request_ref->{search}) and ($count >= 5) 	
-			and (not defined $request_ref->{tagid2})) {
+			and (not defined $request_ref->{tagid2}) and (not defined $request_ref->{product_changes_saved})) {
 			
 			my @current_drilldown_fields = @ProductOpener::Config::drilldown_fields;
 			if ($country eq 'en:world') {
@@ -2612,9 +2630,7 @@ HTML
 			$html .= "<ul class=\"products\">\n";
 		}
 	
-		
-		while (my $product_ref = $cursor->next) {
-			
+		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 			my $img_url;
 			my $img_w;
 			my $img_h;
@@ -2672,8 +2688,6 @@ HTML
 			delete $product_ref->{additives};
 			delete $product_ref->{additives_prev};
 			delete $product_ref->{additives_next};			
-			
-			push @{$request_ref->{structured_response}{products}}, $product_ref;
 		}
 	
 
@@ -2692,7 +2706,7 @@ HTML
 		
 		my $next_page_url;
 		
-		if (($nb_pages > 1) and ((defined $current_link) or (defined $current_link_query))) {
+		if ((($nb_pages > 1) and ((defined $current_link) or (defined $current_link_query))) and (not defined $request_ref->{product_changes_saved})) {
 		
 			my $prev = '';
 			my $next = '';
@@ -5732,6 +5746,24 @@ CSS
 		return 301;
 	}
 
+	if ($request_ref->{product_changes_saved}) {
+		my $text = lang('product_changes_saved');
+		$html .= <<HTML
+<div data-alert class="alert-box info">
+<span>$text</span>
+ <a href="#" class="close">&times;</a>
+</div>
+HTML
+;
+		my $query_ref = {};
+		$query_ref->{ ("states_tags") } = "en:to-be-completed";
+		
+		my $search_result = search_and_display_products($request_ref, $query_ref, undef, undef, undef);
+		if ($request_ref->{structured_response}{count} > 0) {
+			$html .= $search_result . '<hr/>';
+		}
+	}
+	
 	my $share = lang('share');
 	$html .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
