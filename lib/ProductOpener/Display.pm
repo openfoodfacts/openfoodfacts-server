@@ -936,7 +936,7 @@ sub display_text($)
 	}		
 	
 	if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
-		$request_ref->{title} = $title . " - " . sprintf(lang("page_x"), $request_ref->{page});
+		$request_ref->{title} = $title . lang("title_separator") . sprintf(lang("page_x"), $request_ref->{page});
 	}
 	else {
 		$request_ref->{title} = $title;
@@ -1798,12 +1798,12 @@ sub display_points($) {
 
 	if (defined $tagtype) {
 		$html .= display_points_ranking($tagtype, $tagid);
-		$request_ref->{title} = "Open Food Hunt - " . lang("points_ranking") . " - " . $title;
+		$request_ref->{title} = "Open Food Hunt" . lang("title_separator") . lang("points_ranking") . lang("title_separator") . $title;
 	}
 	else {
 		$html .= display_points_ranking("users", "_all_");
 		$html .= display_points_ranking("countries", "_all_");
-		$request_ref->{title} = "Open Food Hunt - " . lang("points_ranking_users_and_countries");
+		$request_ref->{title} = "Open Food Hunt" . lang("title_separator") . lang("points_ranking_users_and_countries");
 	}
 	
 	$request_ref->{content_ref} = \$html;
@@ -2237,7 +2237,7 @@ HTML
 	
 	
 	if (defined $tagid2) {
-		$products_title .= " - " . lang($tagtype2 . '_s') . separator_before_colon($lc) . ": " . $display_tag2;
+		$products_title .= lang("title_separator") . lang($tagtype2 . '_s') . separator_before_colon($lc) . ": " . $display_tag2;
 	}
 	
 	if (not defined $request_ref->{groupby_tagtype}) {
@@ -2271,7 +2271,7 @@ HTML
 		
 		
 	
-		$html .= "<h2>" . $products_title . " - " . display_taxonomy_tag($lc,"countries",$country) . "</h2>\n";
+		$html .= "<h2>" . $products_title . lang("title_separator") . display_taxonomy_tag($lc,"countries",$country) . "</h2>\n";
 	}
 	
 	} # end of if (defined $tagtype)
@@ -2356,11 +2356,11 @@ HTML
 		if ($products_title ne '') {
 			$request_ref->{title} .= " " . lang("for") . " " . lcfirst($products_title);
 		}
-		$request_ref->{title} .= " - " . display_taxonomy_tag($lc,"countries",$country);
+		$request_ref->{title} .= lang("title_separator") . display_taxonomy_tag($lc,"countries",$country);
 	}
 	else {
 		if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
-			$request_ref->{title} = $title . " - " . sprintf(lang("page_x"), $request_ref->{page});
+			$request_ref->{title} = $title . lang("title_separator") . sprintf(lang("page_x"), $request_ref->{page});
 		}
 		else {
 			$request_ref->{title} = $title;

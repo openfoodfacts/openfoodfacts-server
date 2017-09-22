@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2016 Association Open Food Facts
+# Copyright (C) 2011-2017 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -874,7 +874,7 @@ sub product_name_brand($) {
 		my $brandid = '-' . get_fileid($brand) . '-';
 		my $full_name_id = '-' . get_fileid($full_name) . '-';
 		if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {
-			$full_name .= " - " . $brand;
+			$full_name .= lang("title_separator") . $brand;
 		}
 	}	
 	
@@ -893,7 +893,7 @@ sub product_name_brand_quantity($) {
 		my $quantity = $ref->{quantity};
 		my $quantityid = '-' . get_fileid($quantity) . '-';	
 		if (($quantity ne '') and ($full_name_id !~ /$quantityid/i)) {
-			$full_name .= " - " . $quantity;
+			$full_name .= lang("title_separator") . $quantity;
 		}
 	}		
 	
