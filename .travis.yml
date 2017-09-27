@@ -32,7 +32,7 @@ install:
   - sed -i -e 's|\/home\/off|'$TRAVIS_BUILD_DIR'|g' $TRAVIS_BUILD_DIR/lib/ProductOpener/Config2.pm
 script:
   - prove -l
-  - perl -c -CS -I$TRAVIS_BUILD_DIR/lib lib/startup_apache2.pl
+  - perl -c -CS -I$TRAVIS_BUILD_DIR/lib lib/startup_apache2.pl cgi/product_multilingual.pl
   - node_modules/.bin/jshint --show-non-errors html/js/product-multilingual.js html/js/search.js
 notifications:
   slack: openfoodfacts:Pre9ZXKFH1CYtix8DeJAaFi2
