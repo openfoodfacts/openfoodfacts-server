@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2016 Association Open Food Facts
+# Copyright (C) 2011-2017 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -1584,7 +1584,7 @@ HTML
 		}
 		
 		$input .= <<HTML
-<span id="nutriment_${enid}_unit_percent"$hide_percent>%</span>
+<span class="nutriment_unit_percent" id="nutriment_${enid}_unit_percent"$hide_percent>%</span>
 <select class="nutriment_unit" id="nutriment_${enid}_unit" name="nutriment_${enid}_unit"$hide_select>
 HTML
 ;		
