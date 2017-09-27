@@ -1892,7 +1892,7 @@ elsif ($action eq 'process') {
 	
 	if (defined $product_ref->{server}) {
 		# product that was moved to OBF from OFF etc.
-		my $product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . $product_url;
+		my $product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . product_url($product_ref);;
 		$html .= "<p>" . lang("product_changes_saved") . "</p><p>&rarr; <a href=\"" . $product_url . "\">"
 			. lang("see_product_page") . "</a></p>";
 	}
