@@ -31,6 +31,7 @@ install:
   - sed -i -e 's|\$server_domain = "openfoodfacts.org";|\$server_domain = "off.travis-ci.org";|g' $TRAVIS_BUILD_DIR/lib/ProductOpener/Config2.pm
   - sed -i -e 's|\/home\/off|'$TRAVIS_BUILD_DIR'|g' $TRAVIS_BUILD_DIR/lib/ProductOpener/Config2.pm
 script:
+  - scripts/check_po_file.pl $TRAVIS_BUILD_DIR/po/common/en.po
   - scripts/check_po_file.pl $TRAVIS_BUILD_DIR/po/tags/en.po
   - prove -l
   - perl -c -CS -I$TRAVIS_BUILD_DIR/lib lib/startup_apache2.pl
