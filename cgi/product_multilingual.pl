@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2016 Association Open Food Facts
+# Copyright (C) 2011-2017 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -1584,7 +1584,7 @@ HTML
 		}
 		
 		$input .= <<HTML
-<span id="nutriment_${enid}_unit_percent"$hide_percent>%</span>
+<span class="nutriment_unit_percent" id="nutriment_${enid}_unit_percent"$hide_percent>%</span>
 <select class="nutriment_unit" id="nutriment_${enid}_unit" name="nutriment_${enid}_unit"$hide_select>
 HTML
 ;		
@@ -1890,17 +1890,13 @@ elsif ($action eq 'process') {
 	$comment = $comment . remove_tags_and_quote(decode utf8=>param('comment'));
 	store_product($product_ref, $comment);
 	
-	my $product_url = product_url($product_ref);
-	
-	# product that was moved to OBF from OFF etc.
 	if (defined $product_ref->{server}) {
-		$product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . $product_url;
+		# product that was moved to OBF from OFF etc.
+		my $product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . product_url($product_ref);;
+		$html .= "<p>" . lang("product_changes_saved") . "</p><p>&rarr; <a href=\"" . $product_url . "\">"
+			. lang("see_product_page") . "</a></p>";
 	}
-	
-	$html .= "<p>" . lang("product_changes_saved") . "</p><p>&rarr; <a href=\"" . $product_url . "\">"
-		. lang("see_product_page") . "</a></p>";
-		
-	if ($type eq 'delete') {
+	elsif ($type eq 'delete') {
 		my $email = <<MAIL
 $User_id $Lang{has_deleted_product}{$lc}:
 
@@ -1910,6 +1906,17 @@ MAIL
 ;
 		send_email_to_admin(lang("deleting_product"), $email);
 	
+	} else {
+		my %request = (
+			'titleid'=>get_fileid(product_name_brand($product_ref)),
+			'query_string'=>$ENV{QUERY_STRING},
+			'referer'=>referer(),
+			'code'=>$code,
+			'product_changes_saved'=>1,
+			'sample_size'=>10
+		);
+		
+		display_product(\%request);
 	}
 	
 }

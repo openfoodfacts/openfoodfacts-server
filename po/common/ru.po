@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru_RU\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-09-02 10:48-0400\n"
+"PO-Revision-Date: 2017-09-22 04:04-0400\n"
 "Language-Team: Russian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -465,6 +465,14 @@ msgstr "Изменено:"
 msgctxt "diff_delete"
 msgid "Deleted:"
 msgstr "Удалено:"
+
+msgctxt "donate"
+msgid "Donate to Open Food Facts"
+msgstr "Пожертвовать Open Food Facts"
+
+msgctxt "donate_link"
+msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -2711,4 +2719,8 @@ msgstr "Некоторые данные об этом продукте были 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "Эта страница продукта не завершена. Вы можете помочь заполнить её, отредактировав и добавив больше данных с фотографий, которые у нас есть, или сделав дополнительные фотографий с помощью приложения для <a href=\"https://android.openfoodfacts.org\">Android</a> или <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Спасибо!"
+
+msgctxt "title_separator"
+msgid " — "
+msgstr ""
 
