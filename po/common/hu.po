@@ -3,9 +3,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu_HU\n"
+"Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-09-22 04:14-0400\n"
+"PO-Revision-Date: 2017-10-19 06:52-0400\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -529,7 +529,7 @@ msgstr "szerkesztő"
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr "e-mail-cím"
+msgstr "email cím"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
@@ -609,7 +609,7 @@ msgstr "Érvénytelen CSRF-token!"
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr "Érvénytelen e-mail cím!"
+msgstr "Érvénytelen email cím"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
@@ -649,7 +649,7 @@ msgstr "A jelszónullázó link érvénytelen vagy lejárt!"
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr "Nem létezik ezzel az e-mail címmel fiók!"
+msgstr "Nem létezik ezzel az email címmel fiók"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
@@ -2168,7 +2168,7 @@ msgstr "Válassza ki, hogy mit ábrázoljon a grafikon a vízszintes tengelyen a
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Állandó link ehhez a grafikonhoz, ami megosztható email-ben és közösségi hálózatokon"
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
