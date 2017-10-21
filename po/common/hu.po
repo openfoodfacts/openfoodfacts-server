@@ -3,9 +3,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu_HU\n"
+"Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-09-22 04:14-0400\n"
+"PO-Revision-Date: 2017-10-19 07:51-0400\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -529,7 +529,7 @@ msgstr "szerkesztő"
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr "e-mail-cím"
+msgstr "email cím"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
@@ -609,7 +609,7 @@ msgstr "Érvénytelen CSRF-token!"
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr "Érvénytelen e-mail cím!"
+msgstr "Érvénytelen email cím"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
@@ -649,7 +649,7 @@ msgstr "A jelszónullázó link érvénytelen vagy lejárt!"
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr "Nem létezik ezzel az e-mail címmel fiók!"
+msgstr "Nem létezik ezzel az email címmel fiók"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
@@ -937,7 +937,7 @@ msgstr "Összetevők elemzése"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
-msgstr "Az összetevők számos különféle néven lehetnek listázva, kérlek, tudasd velünk, ha szerinted a fenti elemzés hibás."
+msgstr "Megjegyzés: Az összetevők számos különféle néven lehetnek listázva, kérlek, tudasd velünk, ha szerinted a fenti elemzés hibás."
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
@@ -2168,11 +2168,11 @@ msgstr "Válassza ki, hogy mit ábrázoljon a grafikon a vízszintes tengelyen a
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Állandó link ehhez a grafikonhoz, ami megosztható email-ben és közösségi hálózatokon"
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
-msgstr ""
+msgstr "A grafikon csak azokat a termékeket jeleníti meg, amelyeknek a megjelenített értékei ismertek."
 
 msgctxt "search_graph_title"
 msgid "Display results on a graph"
@@ -2180,7 +2180,7 @@ msgstr "Eredmények megjelenítése grafikonon"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr ""
+msgstr "Megjegyzés: ez egy felhasználó által létrehozott grafikon. A címet, az ábrázolt termékeket és a tengelyek megjelenítését a grafikon szerzője választotta ki."
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
@@ -2192,11 +2192,11 @@ msgstr "Összetevők"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Állandó link ezekhez az eredményekhez, ami megosztható email-ben és közösségi hálózatokon"
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
-msgstr ""
+msgstr "Eredmények a termékek listájával"
 
 msgctxt "search_map"
 msgid "Map"
@@ -2208,11 +2208,11 @@ msgstr "Eredmények térképen"
 
 msgctxt "search_map_link"
 msgid "Permanent link to this map, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Állandó link ehhez a térképhez, ami megosztható email-ben és közösségi hálózatokon"
 
 msgctxt "search_map_note"
 msgid "The map will show only products for which the production place is known."
-msgstr ""
+msgstr "A térkép csak azokat a termékeket jeleníti meg, amelyeknek a gyártási helye ismert."
 
 msgctxt "search_map_title"
 msgid "Display results on a map"
@@ -2284,11 +2284,11 @@ msgstr "Feltétel"
 
 msgctxt "search_terms"
 msgid "Search terms"
-msgstr ""
+msgstr "Keresési feltételek"
 
 msgctxt "search_terms_note"
 msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
-msgstr ""
+msgstr "Keresés azokra a szavakra, amelyek szerepelnek a termék nevében, általános nevében, márkanevei, kategóriái, eredete és címkéi között"
 
 msgctxt "search_title"
 msgid "Search a product, brand, ingredient, nutriment etc."
@@ -2296,11 +2296,11 @@ msgstr ""
 
 msgctxt "search_title_graph"
 msgid "Results graph"
-msgstr ""
+msgstr "Eredmények grafikonja"
 
 msgctxt "search_title_map"
 msgid "Results map"
-msgstr ""
+msgstr "Eredmények térképe"
 
 msgctxt "search_tools"
 msgid "Search tools"
@@ -2705,5 +2705,5 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " — "
-msgstr ""
+msgstr " — "
 
