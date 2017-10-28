@@ -3,9 +3,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: eo_UY\n"
+"Language: eo\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-09-22 04:13-0400\n"
+"PO-Revision-Date: 2017-10-28 12:30-0400\n"
 "Language-Team: Esperanto\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -17,12 +17,12 @@ msgstr ""
 #. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
 msgid ":langtag"
-msgstr ""
+msgstr ":eo"
 
 #. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
 msgid ":langname"
-msgstr ""
+msgstr ":Esperanto"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -116,15 +116,15 @@ msgstr ""
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr ""
+msgstr "Substancoj aŭ produktoj kaŭzantaj alergiojn aŭ netolerojn"
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr ""
+msgstr "alergenoj"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "alergeno"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
@@ -173,7 +173,7 @@ msgstr ""
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr ""
+msgstr "Strekokodo"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
@@ -193,7 +193,7 @@ msgstr ""
 
 msgctxt "brands"
 msgid "Brands"
-msgstr ""
+msgstr "Varomarkoj"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
@@ -201,7 +201,7 @@ msgstr ""
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr ""
+msgstr "varomarkoj"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
@@ -209,7 +209,7 @@ msgstr ""
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "varomarko"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
@@ -225,7 +225,7 @@ msgstr ""
 
 msgctxt "categories"
 msgid "Categories"
-msgstr ""
+msgstr "Kategorioj"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -237,7 +237,7 @@ msgstr ""
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "kategorioj"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
@@ -245,7 +245,7 @@ msgstr ""
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "kategorio"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
@@ -368,7 +368,7 @@ msgstr ""
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr ""
+msgstr "landoj"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
@@ -376,7 +376,7 @@ msgstr ""
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "lando"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -416,15 +416,15 @@ msgstr ""
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr ""
+msgstr "Aldonita:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr ""
+msgstr "Ŝanĝita:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr ""
+msgstr "Forigita:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
@@ -492,7 +492,7 @@ msgstr ""
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr ""
+msgstr "retpoŝtadreso"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
@@ -624,11 +624,11 @@ msgstr ""
 
 msgctxt "example"
 msgid "Example:"
-msgstr ""
+msgstr "Ekzemplo:"
 
 msgctxt "examples"
 msgid "Examples:"
-msgstr ""
+msgstr "Ekzemploj:"
 
 msgctxt "expiration_date"
 msgid "Best before date"
@@ -878,11 +878,11 @@ msgstr ""
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingrediencoj"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingrediencoj"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -918,7 +918,7 @@ msgstr ""
 
 msgctxt "ingredients_p"
 msgid "ingredients"
-msgstr ""
+msgstr "ingrediencoj"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
@@ -926,7 +926,7 @@ msgstr ""
 
 msgctxt "ingredients_s"
 msgid "ingredient"
-msgstr ""
+msgstr "ingredienco"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
@@ -1010,59 +1010,59 @@ msgstr ""
 
 msgctxt "lang_ar"
 msgid "Arabic"
-msgstr ""
+msgstr "Araba"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bulgara"
 
 msgctxt "lang_cs"
 msgid "Czech"
-msgstr ""
+msgstr "Ĉeĥa"
 
 msgctxt "lang_da"
 msgid "Danish"
-msgstr ""
+msgstr "Dana"
 
 msgctxt "lang_de"
 msgid "German"
-msgstr ""
+msgstr "Germana"
 
 msgctxt "lang_el"
 msgid "Greek"
-msgstr ""
+msgstr "Greka"
 
 msgctxt "lang_en"
 msgid "English"
-msgstr ""
+msgstr "Angla"
 
 msgctxt "lang_es"
 msgid "Spanish"
-msgstr ""
+msgstr "Hispana"
 
 msgctxt "lang_et"
 msgid "Estonian"
-msgstr ""
+msgstr "Estona"
 
 msgctxt "lang_fi"
 msgid "Finnish"
-msgstr ""
+msgstr "Finna"
 
 msgctxt "lang_fr"
 msgid "French"
-msgstr ""
+msgstr "Franca"
 
 msgctxt "lang_ga"
 msgid "Irish"
-msgstr ""
+msgstr "Irlanda"
 
 msgctxt "lang_he"
 msgid "Hebrew"
-msgstr ""
+msgstr "Hebrea"
 
 msgctxt "lang_hu"
 msgid "Hungarian"
-msgstr ""
+msgstr "Hungara"
 
 msgctxt "lang_id"
 msgid "Indonesian"
@@ -1070,15 +1070,15 @@ msgstr ""
 
 msgctxt "lang_it"
 msgid "Italian"
-msgstr ""
+msgstr "Itala"
 
 msgctxt "lang_ja"
 msgid "Japanese"
-msgstr ""
+msgstr "Japana"
 
 msgctxt "lang_ko"
 msgid "Korean"
-msgstr ""
+msgstr "Korea"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
@@ -1086,7 +1086,7 @@ msgstr ""
 
 msgctxt "lang_lv"
 msgid "Latvian"
-msgstr ""
+msgstr "Latva"
 
 msgctxt "lang_mt"
 msgid "Maltese"
@@ -1094,11 +1094,11 @@ msgstr ""
 
 msgctxt "lang_nl"
 msgid "Dutch"
-msgstr ""
+msgstr "Nederlanda"
 
 msgctxt "lang_nl_be"
 msgid "Dutch"
-msgstr ""
+msgstr "Nederlanda"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
@@ -1106,15 +1106,15 @@ msgstr ""
 
 msgctxt "lang_other"
 msgid "other language"
-msgstr ""
+msgstr "alia lingvo"
 
 msgctxt "lang_pl"
 msgid "Polish"
-msgstr ""
+msgstr "Pola"
 
 msgctxt "lang_pt"
 msgid "Portuguese"
-msgstr ""
+msgstr "Portugala"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
@@ -1122,23 +1122,23 @@ msgstr ""
 
 msgctxt "lang_ro"
 msgid "Romanian"
-msgstr ""
+msgstr "Rumana"
 
 msgctxt "lang_ru"
 msgid "Russian"
-msgstr ""
+msgstr "Rusa"
 
 msgctxt "lang_sk"
 msgid "Slovak"
-msgstr ""
+msgstr "Slovaka"
 
 msgctxt "lang_sl"
 msgid "Slovenian"
-msgstr ""
+msgstr "Slovena"
 
 msgctxt "lang_sv"
 msgid "Swedish"
-msgstr ""
+msgstr "Sveda"
 
 msgctxt "lang_th"
 msgid "Thai"
@@ -1150,7 +1150,7 @@ msgstr ""
 
 msgctxt "lang_zh"
 msgid "Chinese"
-msgstr ""
+msgstr "Ĉina"
 
 msgctxt "language"
 msgid "en-US"
@@ -1158,11 +1158,11 @@ msgstr ""
 
 msgctxt "languages_p"
 msgid "languages"
-msgstr ""
+msgstr "lingvoj"
 
 msgctxt "languages_s"
 msgid "language"
-msgstr ""
+msgstr "lingvo"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
@@ -1494,7 +1494,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
-msgstr ""
+msgstr "po 100 g / 100 ml"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
@@ -1573,7 +1573,7 @@ msgstr ""
 
 msgctxt "or"
 msgid "or:"
-msgstr ""
+msgstr "aŭ:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
@@ -1653,7 +1653,7 @@ msgstr ""
 
 msgctxt "password"
 msgid "Password"
-msgstr ""
+msgstr "Pasvorto"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
@@ -1677,11 +1677,11 @@ msgstr ""
 
 msgctxt "photographers_p"
 msgid "photographers"
-msgstr ""
+msgstr "fotistoj"
 
 msgctxt "photographers_s"
 msgid "photographer"
-msgstr ""
+msgstr "fotisto"
 
 msgctxt "pnns_groups_1"
 msgid "PNNS groups 1"
@@ -2122,7 +2122,7 @@ msgstr ""
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingrediencoj"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
@@ -2162,7 +2162,7 @@ msgstr ""
 
 msgctxt "search_or"
 msgid "or"
-msgstr ""
+msgstr "aŭ"
 
 msgctxt "search_page_size"
 msgid "Results per page"
@@ -2258,11 +2258,11 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Lando"
 
 msgctxt "select_lang"
 msgid "Language"
-msgstr ""
+msgstr "Lingvo"
 
 msgctxt "send_image"
 msgid "Send a picture..."
