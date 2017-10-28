@@ -112,7 +112,7 @@ foreach my $table_ref (@{$fleurymichon_xml_ref->{genfi}{table}}) {
 
 
 use Data::Dumper;
-print STDERR Dumper($fleury_michon_products_ref);
+#print STDERR Dumper($fleury_michon_products_ref);
 #exit;
 
 
@@ -129,16 +129,27 @@ print STDERR Dumper($fleury_michon_products_ref);
 # 3302741714107-03302741714107_A1R1_s01.jpg
 # 3302741714107-03302741714107_A7C1_s03.jpg
 
+# new filenames:
+
+# 03302749357023_A7C1_s02.png
+# 03302740447020_A1R1_s08.png
+# 03302749358020_A1C1_s01.png
+# 03302740447020_A7C1_s02.png
+# 03302749358020_A7C1_s02.png
+
 my $fleury_michon_images_ref = {};
+
+print "Opening image dir $dir\n";
 
 if (opendir (DH, "$dir")) {
 	foreach my $file (sort { $a cmp $b } readdir(DH)) {
 
-		if ($file =~ /^(\d+)-(\d+)_(.*)\.jpg/) {
+		#if ($file =~ /^(\d+)-(\d+)_(.*)\.jpg/) {
+		if ($file =~ /0(\d+)_(.*)\.png/) {
 		
 			my $code = $1;
 			
-			print STDERR "foud image $file for product code $code\n";
+			print STDERR "found image $file for product code $code\n";
 
 			defined $fleury_michon_images_ref->{$code} or $fleury_michon_images_ref->{$code} = [];
 			push @{$fleury_michon_images_ref->{$code}}, $file;
@@ -161,7 +172,7 @@ my $current_product_ref = undef;
 
 my @fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
 
-my @param_sorted_langs = qw(fr en de it);
+my @param_sorted_langs = qw(fr en nl);
 
 my %global_params = (
 	lc => 'fr',
@@ -221,7 +232,7 @@ print STDERR "importing products\n";
 					print "product code $code does not exist yet, creating product\n";
 					$User_id = $photo_user_id;
 					$product_ref = init_product($code);
-					$product_ref->{interface_version_created} = "import_fleurymichon_ch.pl - version 2017/05/11";
+					$product_ref->{interface_version_created} = "import_fleurymichon_ch.pl - version 2017/09/04";
 					$product_ref->{lc} = $global_params{lc};
 					delete $product_ref->{countries};
 					delete $product_ref->{countries_tags};
@@ -408,6 +419,8 @@ BOO_JOE_ROB => "Joël Robuchon"
 #<cdonne nom="LIB_FAM_MKT_2">Viandes rôties et cuisinées</cdonne>
 #<cdonne nom="LIB_FAM_MKT_1">Charcuterie</cdonne>
 
+			# skip Fleury Michon categories
+			if (0) {
 			for (my $c = 1; $c <= 4; $c++) {
 			
 				if ((defined $fleurymichon_product_ref->{"LIB_FAM_MKT_$c"}) and ($fleurymichon_product_ref->{"LIB_FAM_MKT_$c"} ne '')) {
@@ -419,7 +432,7 @@ BOO_JOE_ROB => "Joël Robuchon"
 			(defined $params{categories}) and $params{categories} =~ s/^, //;
 			
 			print STDERR "categories for product code $code : " . $params{categories} . "\n";
-			
+			}
 			
 			# <cdonne nom="PDS_NET">0,3</cdonne>
 			
@@ -437,9 +450,9 @@ BOO_JOE_ROB => "Joël Robuchon"
 				$params{serving_size} = $params{serving_size} . " g";
 				
 				# TXT_DEF_POR
-				if ((defined $fleurymichon_product_ref->{PDS_POR}) and ($fleurymichon_product_ref->{PDS_POR} ne '')) {
-					$params{serving_size} .= " (" . $fleurymichon_product_ref->{PDS_POR} . ")"
-				}
+				#if ((defined $fleurymichon_product_ref->{PDS_POR}) and ($fleurymichon_product_ref->{PDS_POR} ne '')) {
+				#	$params{serving_size} .= " (" . $fleurymichon_product_ref->{PDS_POR} . ")"
+				#}
 				
 				
 				print "set serving_size to $params{serving_size}\n";
@@ -449,6 +462,9 @@ BOO_JOE_ROB => "Joël Robuchon"
 # Filet de dinde (88%), bouillons (2%) (eau, os de poulet, sel, &eacute;pices, carotte, <strong><u>c&eacute;leri</u></strong>, oignon, poireau, plantes aromatiques), sel (1.7%), dextrose de ma&iuml;s, jus concentr&eacute; de <u><strong>c&eacute;leri</strong></u> et de betterave jaune, plantes aromatiques (0.2%),&nbsp;poivre, ferments, colorant : caramel ordinaire.</p>]]></cdonne>
 #<cdonne nom="TXT_LST_ING_EN"></cdonne>
 #<cdonne nom="TXT_LST_ING_NL"></cdonne>			
+
+# Riz basmati cuit 39% (eau, riz), saumon Atlantique (<strong>saumon</strong> Atlantique 23.4%, sel), eau, <strong>crème </strong>fraîche (8.2%), huile de colza, oseille (1.8%), vin blanc, <strong>beurre</strong>, farine de <strong>blé</strong>, sel, échalote, jus de citron (0.5%), vinaigre de vin blanc, curcuma, piment.
+
 			
 			my %ingredients_fields = (
 				'TXT_LST_ING' => 'ingredients_text_fr',
@@ -463,12 +479,42 @@ BOO_JOE_ROB => "Joël Robuchon"
 					
 					$debug and print STDERR "ingredients 1 : $params{$ingredients_fields{$field}} \n";
 					
-					$params{$ingredients_fields{$field}} =~ s/<strong><u>|<u><strong>/_/g;
-					$params{$ingredients_fields{$field}} =~ s/((<\/u><\/strong>)|(<\/strong><\/u>))(s)/$4_/ig;
-					$params{$ingredients_fields{$field}} =~ s/((<\/u><\/strong>)|(<\/strong><\/u>))/_/ig;
+					#  <u><strong>soja</strong></u> (eau, <u><strong>soja</strong></u>,<strong> </strong>farine de<strong> <u>bl&eacute;</u></strong>
+					
+					$params{$ingredients_fields{$field}} =~ s/<u>/<strong>/ig;
+					$params{$ingredients_fields{$field}} =~ s/<\/u>/<\/strong>/ig;
+					$params{$ingredients_fields{$field}} =~ s/(<strong>)+/<strong>/ig;
+					$params{$ingredients_fields{$field}} =~ s/(<\/strong>)+/<\/strong>/ig;
+					
+						# _lait, poisson_
+					$params{$ingredients_fields{$field}} =~ s/<strong>(\w+), (\w+)<\/strong>/<strong>$1<\/strong>, <strong>$2<\/strong>/g;
+
+					
+					
+					# gélatine de_ poisson_
+					
+					# <strong>cabillaud, </strong>sel
+					
+
+					
+					$params{$ingredients_fields{$field}} =~ s/<strong> / _/ig;		
+					$params{$ingredients_fields{$field}} =~ s/<strong>/_/ig;
+					$params{$ingredients_fields{$field}} =~ s/,<\/strong>/_,/ig;					
+					$params{$ingredients_fields{$field}} =~ s/, <\/strong>/_, /ig;					
+					$params{$ingredients_fields{$field}} =~ s/ <\/strong>/_ /ig;
+					$params{$ingredients_fields{$field}} =~ s/(<\/strong>)(s)/$2_/ig;					
+					$params{$ingredients_fields{$field}} =~ s/<\/strong>/_/ig;
+
+					
 					$params{$ingredients_fields{$field}} =~ s/<p>//g;
 					$params{$ingredients_fields{$field}} =~ s/<\/p>/\n\n/g;
 					
+					$params{$ingredients_fields{$field}} =~ s/_+/_/g;
+					
+					$params{$ingredients_fields{$field}} =~ s/_ _/ /g;
+					$params{$ingredients_fields{$field}} =~ s/_,_ /, /g;
+					
+				
 					$debug and print STDERR "ingredients 2 : $params{$ingredients_fields{$field}} \n";
 
 					
@@ -594,10 +640,10 @@ BOO_JOE_ROB => "Joël Robuchon"
 							
 							if ($field =~ /\ingredients/) {
 							
-								$current_value = get_fileid(lc($current_value));
-								$current_value =~ s/\W+//g;
-								$normalized_new_field_value = get_fileid(lc($normalized_new_field_value));
-								$normalized_new_field_value =~ s/\W+//g;
+								#$current_value = get_fileid(lc($current_value));
+								#$current_value =~ s/\W+//g;
+								#$normalized_new_field_value = get_fileid(lc($normalized_new_field_value));
+								#$normalized_new_field_value =~ s/\W+//g;
 								
 							}
 							
@@ -706,8 +752,23 @@ QTE_SUCRE => "sugars",
 					my $nid = $nutrients{$nutrient};
 					my $enid = encodeURIComponent($nid);
 					my $value = $fleurymichon_product_ref->{$nutrient};
+					
+					# <cdonne nom="QTE_SUCRE">&lt;0,5</cdonne>
+					my $modifier = "";
+					if ($value =~ /^(\&lt;|<)/) {
+						$value = $';
+						$modifier = "<";
+					}
+					
 					$value =~ s/,/./;
 					$value += 0;
+					
+					if ((defined $modifier) and ($modifier ne '')) {
+						$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
+					}
+					else {
+						delete $product_ref->{nutriments}{$nid . "_modifier"};
+					}					
 					
 					
 					$product_ref->{nutriments}{$nid . "_unit"} = "g";	
@@ -716,7 +777,15 @@ QTE_SUCRE => "sugars",
 					}
 					$product_ref->{nutriments}{$nid . "_value"} = $value;
 					
-					$product_ref->{nutriments}{$nid} = unit_to_g($value, $product_ref->{nutriments}{$nid . "_unit"});
+					my $new_value = $modifier . unit_to_g($value, $product_ref->{nutriments}{$nid . "_unit"});
+					
+					if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{$nid})
+						and ($new_value != $product_ref->{nutriments}{$nid}) ) {
+						my $current_value = $product_ref->{nutriments}{$nid};
+						print "differing nutrient value for product code $code - nid $nid - existing value: $current_value - new value: $new_value - https://world.openfoodfacts.org/product/$code \n";
+					}
+					
+					$product_ref->{nutriments}{$nid} = $new_value;
 					
 					print STDERR "$nutrient - $nid - $value\n";
 				}

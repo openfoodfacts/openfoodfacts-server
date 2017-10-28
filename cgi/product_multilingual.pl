@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2016 Association Open Food Facts
+# Copyright (C) 2011-2017 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -1584,7 +1584,7 @@ HTML
 		}
 		
 		$input .= <<HTML
-<span id="nutriment_${enid}_unit_percent"$hide_percent>%</span>
+<span class="nutriment_unit_percent" id="nutriment_${enid}_unit_percent"$hide_percent>%</span>
 <select class="nutriment_unit" id="nutriment_${enid}_unit" name="nutriment_${enid}_unit"$hide_select>
 HTML
 ;		
@@ -1892,7 +1892,7 @@ elsif ($action eq 'process') {
 	
 	if (defined $product_ref->{server}) {
 		# product that was moved to OBF from OFF etc.
-		my $product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . $product_url;
+		my $product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . product_url($product_ref);;
 		$html .= "<p>" . lang("product_changes_saved") . "</p><p>&rarr; <a href=\"" . $product_url . "\">"
 			. lang("see_product_page") . "</a></p>";
 	}
