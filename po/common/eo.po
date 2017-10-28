@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: eo\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-10-28 12:30-0400\n"
+"PO-Revision-Date: 2017-10-28 15:10-0400\n"
 "Language-Team: Esperanto\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -26,7 +26,7 @@ msgstr ":Esperanto"
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "1 produkto"
 
 msgctxt "_and_"
 msgid " and "
@@ -38,15 +38,15 @@ msgstr ""
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "Aldoni"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "Aldoni lingvon"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Aldoni produkton"
 
 msgctxt "add_user"
 msgid "Register"
@@ -92,11 +92,11 @@ msgstr ""
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "aldonaĵoj"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "aldonaĵo"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
@@ -213,7 +213,7 @@ msgstr "varomarko"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "aldoni varomarkon"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
@@ -249,7 +249,7 @@ msgstr "kategorio"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr ""
+msgstr "aldoni kategorion"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
@@ -261,7 +261,7 @@ msgstr ""
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Nutraĵoj"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
@@ -352,11 +352,11 @@ msgstr ""
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr ""
+msgstr "korektantoj"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr ""
+msgstr "korektanto"
 
 msgctxt "countries"
 msgid "Countries where sold"
@@ -404,15 +404,15 @@ msgstr ""
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr ""
+msgstr "Forigi la paĝon"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr ""
+msgstr "Forigi la bildojn"
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr ""
+msgstr "Forigi uzanton"
 
 msgctxt "diff_add"
 msgid "Added:"
@@ -544,7 +544,7 @@ msgstr ""
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "Eraro"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
@@ -564,7 +564,7 @@ msgstr ""
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr ""
+msgstr "Nevalida adreso."
 
 msgctxt "error_invalid_csrf_token"
 msgid "Invalid CSRF token."
@@ -572,7 +572,7 @@ msgstr ""
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr ""
+msgstr "Nevalida retpoŝtadreso"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
@@ -580,7 +580,7 @@ msgstr ""
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr ""
+msgstr "Nevalida uzanto."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
@@ -674,7 +674,7 @@ msgstr ""
 
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.blog.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -682,7 +682,7 @@ msgstr ""
 
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/kondutkodo"
 
 msgctxt "footer_data"
 msgid "Data"
@@ -760,7 +760,7 @@ msgstr ""
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
-msgstr ""
+msgstr "<<site_name>> Vikio (eo)"
 
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
@@ -772,7 +772,7 @@ msgstr ""
 
 msgctxt "front_alt"
 msgid "Product"
-msgstr ""
+msgstr "Produkto"
 
 msgctxt "generic_name"
 msgid "Common name"
@@ -784,7 +784,7 @@ msgstr ""
 
 msgctxt "goodbye"
 msgid "See you soon!"
-msgstr ""
+msgstr "Ĝis baldaŭ!"
 
 msgctxt "graph_count"
 msgid "%d products match the search criterias, of which %i products have defined values for the graph's axis."
@@ -870,11 +870,11 @@ msgstr ""
 
 msgctxt "informers_p"
 msgid "informers"
-msgstr ""
+msgstr "informantoj"
 
 msgctxt "informers_s"
 msgid "informers"
-msgstr ""
+msgstr "informantoj"
 
 msgctxt "ingredients"
 msgid "Ingredients"
@@ -910,11 +910,11 @@ msgstr ""
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
-msgstr ""
+msgstr "Nombroj da ingrediencoj"
 
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
-msgstr ""
+msgstr "Nombro da ingrediencoj"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -962,15 +962,15 @@ msgstr ""
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
-msgstr ""
+msgstr "https://itunes.apple.com/eo/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
-msgstr ""
+msgstr "konataj nutraĵoj"
 
 msgctxt "known_nutrients_s"
 msgid "known nutrient"
-msgstr ""
+msgstr "konata nutraĵo"
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
@@ -978,7 +978,7 @@ msgstr ""
 
 msgctxt "labels_example"
 msgid "Organic"
-msgstr ""
+msgstr "Ekologia"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
@@ -986,7 +986,7 @@ msgstr ""
 
 msgctxt "labels_p"
 msgid "labels"
-msgstr ""
+msgstr "etikedoj"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
@@ -994,11 +994,11 @@ msgstr ""
 
 msgctxt "labels_s"
 msgid "label"
-msgstr ""
+msgstr "etikedo"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
-msgstr ""
+msgstr "aldoni etikedon"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
@@ -1006,7 +1006,7 @@ msgstr ""
 
 msgctxt "lang"
 msgid "Main language"
-msgstr ""
+msgstr "Ĉefa lingvo"
 
 msgctxt "lang_ar"
 msgid "Arabic"
@@ -1066,7 +1066,7 @@ msgstr "Hungara"
 
 msgctxt "lang_id"
 msgid "Indonesian"
-msgstr ""
+msgstr "Indonezia"
 
 msgctxt "lang_it"
 msgid "Italian"
@@ -1082,7 +1082,7 @@ msgstr "Korea"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
-msgstr ""
+msgstr "Litova"
 
 msgctxt "lang_lv"
 msgid "Latvian"
@@ -1090,7 +1090,7 @@ msgstr "Latva"
 
 msgctxt "lang_mt"
 msgid "Maltese"
-msgstr ""
+msgstr "Malta"
 
 msgctxt "lang_nl"
 msgid "Dutch"
@@ -1118,7 +1118,7 @@ msgstr "Portugala"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
-msgstr ""
+msgstr "Portugala (Portugalio)"
 
 msgctxt "lang_ro"
 msgid "Romanian"
@@ -1142,11 +1142,11 @@ msgstr "Sveda"
 
 msgctxt "lang_th"
 msgid "Thai"
-msgstr ""
+msgstr "Taja"
 
 msgctxt "lang_vi"
 msgid "Vietnamese"
-msgstr ""
+msgstr "Vjetnama"
 
 msgctxt "lang_zh"
 msgid "Chinese"
@@ -1154,7 +1154,7 @@ msgstr "Ĉina"
 
 msgctxt "language"
 msgid "en-US"
-msgstr ""
+msgstr "eo-EO"
 
 msgctxt "languages_p"
 msgid "languages"
@@ -1166,11 +1166,11 @@ msgstr "lingvo"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
-msgstr ""
+msgstr "Lastaj redaktaj datoj"
 
 msgctxt "last_edit_dates_s"
 msgid "Last edit date"
-msgstr ""
+msgstr "Lasta redakta dato"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
@@ -1229,7 +1229,7 @@ msgstr ""
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "Ensaluti"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
@@ -1242,7 +1242,7 @@ msgstr ""
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr ""
+msgstr "Uzantnomo aŭ retpoŝtadreso:"
 
 msgctxt "low"
 msgid "low"
@@ -1282,7 +1282,7 @@ msgstr ""
 
 msgctxt "manufacturing_places_tagsinput"
 msgid "add a place"
-msgstr ""
+msgstr "aldoni lokon"
 
 msgctxt "manufacturing_places_without_products"
 msgid "Products not manufactured or processed in %s"
@@ -1302,19 +1302,19 @@ msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Aldoni produkton"
 
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr ""
+msgstr "/aldoni-produkton"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
-msgstr ""
+msgstr "Kontribui"
 
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/kontribui"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1326,7 +1326,7 @@ msgstr ""
 
 msgctxt "mission_"
 msgid "Mission: "
-msgstr ""
+msgstr "Misio: "
 
 msgctxt "mission_accomplished_by"
 msgid "This mission has been completed by:"
@@ -1346,19 +1346,19 @@ msgstr ""
 
 msgctxt "missions"
 msgid "Missions"
-msgstr ""
+msgstr "Misioj"
 
 msgctxt "moderate"
 msgid "moderate"
-msgstr ""
+msgstr "modera"
 
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
-msgstr ""
+msgstr "modera kvanto"
 
 msgctxt "months"
 msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr ""
+msgstr "['Januaro', 'Februaro', 'Marto', 'Aprilo', 'Majo', 'Junio', 'Julio', 'Aŭgusto', 'Septembro', 'Oktobro', 'Novembro', 'Decembro']"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
@@ -1370,11 +1370,11 @@ msgstr ""
 
 msgctxt "name"
 msgid "Name"
-msgstr ""
+msgstr "Nomo"
 
 msgctxt "names"
 msgid "Names"
-msgstr ""
+msgstr "Nomoj"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
@@ -1390,11 +1390,11 @@ msgstr ""
 
 msgctxt "next"
 msgid "Next"
-msgstr ""
+msgstr "Sekva"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
-msgstr ""
+msgstr "Produkto sen strekokodo"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
@@ -1414,11 +1414,11 @@ msgstr ""
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
-msgstr ""
+msgstr "Nombro da aldonaĵoj"
 
 msgctxt "number_of_products"
 msgid "Number of products"
-msgstr ""
+msgstr "Nombro da produktoj"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
@@ -1434,15 +1434,15 @@ msgstr ""
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
-msgstr ""
+msgstr "nutraĵaj niveloj"
 
 msgctxt "nutrient_levels_s"
 msgid "nutrient level"
-msgstr ""
+msgstr "nutraĵa nivelo"
 
 msgctxt "nutriments_p"
 msgid "nutriments"
-msgstr ""
+msgstr "nutraĵoj"
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
@@ -1450,7 +1450,7 @@ msgstr ""
 
 msgctxt "nutriments_s"
 msgid "nutriment"
-msgstr ""
+msgstr "nutraĵo"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
@@ -1581,7 +1581,7 @@ msgstr ""
 
 msgctxt "origins_example"
 msgid "California, USA"
-msgstr ""
+msgstr "Bjalistoko, Pollando"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
@@ -1641,15 +1641,15 @@ msgstr ""
 
 msgctxt "page_x"
 msgid "Page %d"
-msgstr ""
+msgstr "Paĝo %d"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
-msgstr ""
+msgstr "Paĝo %d el %d."
 
 msgctxt "pages"
 msgid "Pages:"
-msgstr ""
+msgstr "Paĝoj:"
 
 msgctxt "password"
 msgid "Password"
@@ -1685,27 +1685,27 @@ msgstr "fotisto"
 
 msgctxt "pnns_groups_1"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "PNNS-grupoj 1"
 
 msgctxt "pnns_groups_1_p"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "PNNS-grupoj 1"
 
 msgctxt "pnns_groups_1_s"
 msgid "PNNS group 1"
-msgstr ""
+msgstr "PNNS-grupo 1"
 
 msgctxt "pnns_groups_2"
 msgid "PNNS groups 2"
-msgstr ""
+msgstr "PNNS-grupoj 2"
 
 msgctxt "pnns_groups_2_p"
 msgid "PNNS groups 2"
-msgstr ""
+msgstr "PNNS-grupoj 2"
 
 msgctxt "pnns_groups_2_s"
 msgid "PNNS group 2"
-msgstr ""
+msgstr "PNNS-grupo 2"
 
 msgctxt "points_all_countries"
 msgid "There are %d Explorers and %d Ambassadors."
@@ -1733,11 +1733,11 @@ msgstr ""
 
 msgctxt "previous"
 msgid "Previous"
-msgstr ""
+msgstr "Antaŭa"
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "Aldoni nutraĵon"
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -1773,7 +1773,7 @@ msgstr ""
 
 msgctxt "product_js_deleting_images"
 msgid "Deleting images"
-msgstr ""
+msgstr "Forigas bildojn"
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
@@ -1857,7 +1857,7 @@ msgstr ""
 
 msgctxt "product_js_upload_image"
 msgid "Add a picture"
-msgstr ""
+msgstr "Aldoni bildon"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
@@ -1881,7 +1881,7 @@ msgstr ""
 
 msgctxt "products"
 msgid "products"
-msgstr ""
+msgstr "produktoj"
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
@@ -1893,7 +1893,7 @@ msgstr ""
 
 msgctxt "products_stats_created_t"
 msgid "Products"
-msgstr ""
+msgstr "Produktoj"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
@@ -1925,7 +1925,7 @@ msgstr ""
 
 msgctxt "purchase_places_tagsinput"
 msgid "add a place"
-msgstr ""
+msgstr "aldoni lokon"
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
@@ -1933,7 +1933,7 @@ msgstr ""
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr ""
+msgstr "Kvanto"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
@@ -1985,7 +1985,7 @@ msgstr ""
 
 msgctxt "risk_level"
 msgid "Risk"
-msgstr ""
+msgstr "Risko"
 
 msgctxt "risk_level_0"
 msgid "To be completed"
@@ -1997,7 +1997,7 @@ msgstr ""
 
 msgctxt "risk_level_2"
 msgid "Moderate risks"
-msgstr ""
+msgstr "Moderaj riskoj"
 
 msgctxt "risk_level_3"
 msgid "High risks"
@@ -2009,11 +2009,11 @@ msgstr ""
 
 msgctxt "save"
 msgid "Save"
-msgstr ""
+msgstr "Konservi"
 
 msgctxt "saved"
 msgid "Saved."
-msgstr ""
+msgstr "Konservita."
 
 msgctxt "saving"
 msgid "Saving."
@@ -2033,7 +2033,7 @@ msgstr ""
 
 msgctxt "search_contains"
 msgid "contains"
-msgstr ""
+msgstr "enhavas"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
@@ -2045,7 +2045,7 @@ msgstr ""
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
-msgstr ""
+msgstr "ne enhavas"
 
 msgctxt "search_download_button"
 msgid "Download"
@@ -2134,7 +2134,7 @@ msgstr ""
 
 msgctxt "search_map"
 msgid "Map"
-msgstr ""
+msgstr "Mapo"
 
 msgctxt "search_map_choice"
 msgid "Results on a map"
@@ -2158,7 +2158,7 @@ msgstr ""
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Nutraĵoj"
 
 msgctxt "search_or"
 msgid "or"
@@ -2174,7 +2174,7 @@ msgstr ""
 
 msgctxt "search_results"
 msgid "Search results"
-msgstr ""
+msgstr "Trovaĵoj"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
@@ -2186,11 +2186,11 @@ msgstr ""
 
 msgctxt "search_series_fairtrade"
 msgid "Fair trade"
-msgstr ""
+msgstr "Justa komerco"
 
 msgctxt "search_series_fairtrade_label"
 msgid "fair-trade"
-msgstr ""
+msgstr "justa-komerco"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
@@ -2198,11 +2198,11 @@ msgstr ""
 
 msgctxt "search_series_organic"
 msgid "Organic"
-msgstr ""
+msgstr "Ekologia"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
-msgstr ""
+msgstr "ekologia"
 
 msgctxt "search_series_with_sweeteners"
 msgid "With sweeteners"
@@ -2238,7 +2238,7 @@ msgstr ""
 
 msgctxt "search_tools"
 msgid "Search tools"
-msgstr ""
+msgstr "Serĉiloj"
 
 msgctxt "search_value"
 msgid "value"
@@ -2246,11 +2246,11 @@ msgstr ""
 
 msgctxt "search_with"
 msgid "With"
-msgstr ""
+msgstr "Kun"
 
 msgctxt "search_without"
 msgid "Without"
-msgstr ""
+msgstr "Sen"
 
 msgctxt "see_product_page"
 msgid "See the product page"
@@ -2286,7 +2286,7 @@ msgstr ""
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "Ensaluti"
 
 msgctxt "share"
 msgid "Share"
@@ -2306,7 +2306,7 @@ msgstr ""
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr ""
+msgstr "Elsaluti"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -2322,7 +2322,7 @@ msgstr ""
 
 msgctxt "sort_created_t"
 msgid "Add date"
-msgstr ""
+msgstr "Aldoni daton"
 
 msgctxt "sort_modified_t"
 msgid "Edit date"
@@ -2338,19 +2338,19 @@ msgstr ""
 
 msgctxt "state"
 msgid "State"
-msgstr ""
+msgstr "Ŝtato"
 
 msgctxt "states_p"
 msgid "states"
-msgstr ""
+msgstr "ŝtatoj"
 
 msgctxt "states_s"
 msgid "state"
-msgstr ""
+msgstr "ŝtato"
 
 msgctxt "stores"
 msgid "Stores"
-msgstr ""
+msgstr "Vendejoj"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2358,7 +2358,7 @@ msgstr ""
 
 msgctxt "stores_p"
 msgid "stores"
-msgstr ""
+msgstr "vendejoj"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
@@ -2366,11 +2366,11 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "vendejo"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
-msgstr ""
+msgstr "aldoni vendejon"
 
 msgctxt "stores_without_products"
 msgid "Products not bought at %s"
@@ -2386,7 +2386,7 @@ msgstr ""
 
 msgctxt "tag_contains"
 msgid "Contains:"
-msgstr ""
+msgstr "Enhavas:"
 
 msgctxt "tag_weblinks"
 msgid "Weblinks"
@@ -2406,7 +2406,7 @@ msgstr ""
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
-msgstr ""
+msgstr "Lakto, Gluteno, Nuksoj"
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
@@ -2430,15 +2430,15 @@ msgstr ""
 
 msgctxt "unknown"
 msgid "Unknown"
-msgstr ""
+msgstr "Nekonata"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
-msgstr ""
+msgstr "nekonataj nutraĵoj"
 
 msgctxt "unknown_nutrients_s"
 msgid "unknown nutrient"
-msgstr ""
+msgstr "nekonata nutraĵo"
 
 msgctxt "unsubscribe"
 msgid "Unsubscribe"
@@ -2450,11 +2450,11 @@ msgstr ""
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
-msgstr ""
+msgstr "Uzantnomo aŭ retpoŝtadreso: "
 
 msgctxt "username"
 msgid "User name"
-msgstr ""
+msgstr "Uzantonomo"
 
 msgctxt "username_info"
 msgid "(non-accented letters, digits and/or dashes)"
@@ -2462,7 +2462,7 @@ msgstr ""
 
 msgctxt "username_or_email"
 msgid "Username or email address"
-msgstr ""
+msgstr "Uzantnomo aŭ retpoŝtadreso"
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
@@ -2482,7 +2482,7 @@ msgstr ""
 
 msgctxt "users_p"
 msgid "contributors"
-msgstr ""
+msgstr "kontribuantoj"
 
 msgctxt "users_products"
 msgid "Products added by %s"
@@ -2490,7 +2490,7 @@ msgstr ""
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr ""
+msgstr "kontribuanto"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
@@ -2523,7 +2523,7 @@ msgstr ""
 
 msgctxt "weekdays"
 msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
-msgstr ""
+msgstr "['Dimanĉo', 'Lundo', 'Mardo', 'Merkredo', 'Ĵaŭdo', 'Vendredo', 'Sabato']"
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
@@ -2587,7 +2587,7 @@ msgstr ""
 
 msgctxt "deleting_product"
 msgid "Deleting product"
-msgstr ""
+msgstr "Forigas produkton"
 
 msgctxt "has_deleted_product"
 msgid "has deleted product"
@@ -2599,7 +2599,7 @@ msgstr ""
 
 msgctxt "delete_user"
 msgid "Delete the user"
-msgstr ""
+msgstr "Forigi la uzanton"
 
 msgctxt "sources_openfood_ch"
 msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
@@ -2639,5 +2639,5 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " — "
-msgstr ""
+msgstr " — "
 
