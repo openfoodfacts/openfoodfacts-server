@@ -6,8 +6,10 @@ perl:
   - "system"
 env: COVERAGE=1
 cache:
+  yarn: true
   directories:
   - $HOME/.npm
+  - node_modules
   - $HOME/.cache
   - $HOME/perl5
 addons:
@@ -23,7 +25,7 @@ before_install:
   - cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
 install:
   - cpanm --quiet --installdeps --notest --skip-satisfied .
-  - npm install
+  - yarn install
   - node_modules/.bin/bower install
   - ln -s $TRAVIS_BUILD_DIR/lib/ProductOpener/Config_off.pm $TRAVIS_BUILD_DIR/lib/ProductOpener/Config.pm
   - cp $TRAVIS_BUILD_DIR/lib/ProductOpener/Config2_sample.pm $TRAVIS_BUILD_DIR/lib/ProductOpener/Config2.pm
