@@ -118,7 +118,7 @@ WORKDIR /srv/openfoodfacts
 
 # Install Perl modules
 COPY cpanfile /srv/openfoodfacts/
-# TODO: Like .travis.yml   -   RUN cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
+RUN cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
 RUN cpanm --quiet --installdeps --notest --skip-satisfied .
 # perl cpanm --installdeps .
 # RUN cpan URI::Escape::XS
@@ -139,10 +139,7 @@ RUN npm install
 
 # Install Frontend assets
 COPY bower.json .bowerrc /srv/openfoodfacts/
-# TODO: RUN /srv/openfoodfacts/node_modules/.bin/bower install
 RUN node_modules/.bin/bower install --allow-root
-# RUN npm install -g bower
-# RUN bower install
 
 COPY . $WORKDIR
 
