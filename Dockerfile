@@ -112,6 +112,7 @@ RUN apt-get update -qq && \
 RUN apt-get update -qq && \
     apt-get install -y nodejs npm \
                         libssl-dev
+RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 WORKDIR /srv/openfoodfacts
 
@@ -139,7 +140,7 @@ RUN npm install
 # Install Frontend assets
 COPY bower.json .bowerrc /srv/openfoodfacts/
 # TODO: RUN /srv/openfoodfacts/node_modules/.bin/bower install
-RUN node_modules/.bin/bower install
+RUN node_modules/.bin/bower install --allow-root
 # RUN npm install -g bower
 # RUN bower install
 
