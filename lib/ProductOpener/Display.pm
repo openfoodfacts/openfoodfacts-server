@@ -39,6 +39,7 @@ BEGIN
 					&display_form
 					&display_date
 					&display_date_tag
+					&get_packager_code_coordinates
 					
 					&display_structured_response
 					&display_new					
@@ -68,6 +69,7 @@ BEGIN
 					$connection
 					$database
 					$products_collection
+					$emb_codes_collection
 					
 					$debug
 					$scripts
@@ -137,6 +139,16 @@ $memd = new Cache::Memcached::Fast {
 $connection = MongoDB->connect();
 $database = $connection->get_database($mongodb);
 $products_collection = $database->get_collection('products');
+$emb_codes_collection = $database->get_collection('emb_codes');
+
+
+if (defined $options{other_servers}) {
+
+	foreach my $server (keys %{$options{other_servers}}) {
+		$options{other_servers}{$server}{database} = $connection->get_database($options{other_servers}{$server}{mongodb});
+		$options{other_servers}{$server}{products_collection} = $options{other_servers}{$server}{database}->get_collection('products');
+	}
+}
 
 
 $default_request_ref = {
@@ -248,7 +260,7 @@ sub init()
 		print STDERR "Display::init - country_name($subdomain) -  ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
 		
 	}
-	elsif ($ENV{QUERY_STRING} !~ /cgi/) {
+	elsif ($ENV{QUERY_STRING} !~ /(cgi|api)\//) {
 		# redirect
 		my $worlddom = format_subdomain('world');
 		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $worlddom\n";
@@ -268,7 +280,7 @@ sub init()
 	$lang = $lc;
 	
 	# If the language is equal to the first language of the country, but we are on a different subdomain, redirect to the main country subdomain. (fr-fr => fr)
-	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^(ssl-)?api/) and ($r->method() eq 'GET')) {
+	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^(ssl-)?api/) and ($r->method() eq 'GET') and ($ENV{QUERY_STRING} !~ /(cgi|api)\//)) {
 		# redirect
 		my $ccdom = format_subdomain($cc);
 		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $ccdom\n";
@@ -924,7 +936,7 @@ sub display_text($)
 	}		
 	
 	if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
-		$request_ref->{title} = $title . " - " . sprintf(lang("page_x"), $request_ref->{page});
+		$request_ref->{title} = $title . lang("title_separator") . sprintf(lang("page_x"), $request_ref->{page});
 	}
 	else {
 		$request_ref->{title} = $title;
@@ -1545,7 +1557,11 @@ oTable = \$('#tagstable').DataTable({
 		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
 	},
 	paging: false,
-	order: [[ 1, "desc" ]]
+	order: [[ 1, "desc" ]],
+	columns: [
+		null,
+		{ "searchable": false }
+	]
 });
 JS
 ;
@@ -1782,12 +1798,12 @@ sub display_points($) {
 
 	if (defined $tagtype) {
 		$html .= display_points_ranking($tagtype, $tagid);
-		$request_ref->{title} = "Open Food Hunt - " . lang("points_ranking") . " - " . $title;
+		$request_ref->{title} = "Open Food Hunt" . lang("title_separator") . lang("points_ranking") . lang("title_separator") . $title;
 	}
 	else {
 		$html .= display_points_ranking("users", "_all_");
 		$html .= display_points_ranking("countries", "_all_");
-		$request_ref->{title} = "Open Food Hunt - " . lang("points_ranking_users_and_countries");
+		$request_ref->{title} = "Open Food Hunt" . lang("title_separator") . lang("points_ranking_users_and_countries");
 	}
 	
 	$request_ref->{content_ref} = \$html;
@@ -2026,9 +2042,10 @@ sub display_tag($) {
 			print STDERR "display_tag packager_codes - canon_tagid: $canon_tagid exists, cc : " . $packager_codes{$canon_tagid}{cc} . "\n";
 			
 			# Generate a map if we have coordinates
-			my $geo = get_packager_code_coordinates($canon_tagid);
+			my ($lat, $lng) = get_packager_code_coordinates($canon_tagid);
 			my $html_map = "";
-			if (defined $geo) {
+			if ((defined $lat) and (defined $lng)) {
+				my $geo = "$lat,$lng";
 			
 				$header .= <<HTML		
 <link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
@@ -2040,9 +2057,9 @@ HTML
 				my $js = <<JS
 var map = L.map('container').setView([$geo], 11);;	
 		
-L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 19,
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);			
 
 L.marker([$geo]).addTo(map)	
@@ -2220,7 +2237,7 @@ HTML
 	
 	
 	if (defined $tagid2) {
-		$products_title .= " - " . lang($tagtype2 . '_s') . separator_before_colon($lc) . ": " . $display_tag2;
+		$products_title .= lang("title_separator") . lang($tagtype2 . '_s') . separator_before_colon($lc) . ": " . $display_tag2;
 	}
 	
 	if (not defined $request_ref->{groupby_tagtype}) {
@@ -2254,7 +2271,7 @@ HTML
 		
 		
 	
-		$html .= "<h2>" . $products_title . " - " . display_taxonomy_tag($lc,"countries",$country) . "</h2>\n";
+		$html .= "<h2>" . $products_title . lang("title_separator") . display_taxonomy_tag($lc,"countries",$country) . "</h2>\n";
 	}
 	
 	} # end of if (defined $tagtype)
@@ -2339,11 +2356,11 @@ HTML
 		if ($products_title ne '') {
 			$request_ref->{title} .= " " . lang("for") . " " . lcfirst($products_title);
 		}
-		$request_ref->{title} .= " - " . display_taxonomy_tag($lc,"countries",$country);
+		$request_ref->{title} .= lang("title_separator") . display_taxonomy_tag($lc,"countries",$country);
 	}
 	else {
 		if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
-			$request_ref->{title} = $title . " - " . sprintf(lang("page_x"), $request_ref->{page});
+			$request_ref->{title} = $title . lang("title_separator") . sprintf(lang("page_x"), $request_ref->{page});
 		}
 		else {
 			$request_ref->{title} = $title;
@@ -2466,19 +2483,27 @@ sub search_and_display_products($$$$$) {
 	my $cursor;
 	my $count;
 	
+	use Data::Dumper;
 	#if ($admin) 
 	{
-	
-		use Data::Dumper;
-		print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
 		print STDERR "Display.pm - search_and_display_products - sort:\n" . Dumper($sort_ref) . "\n";
 		print STDERR "Display.pm - search_and_display_products - limit:\n" . Dumper($limit) . "\n";
 	
 	}
 	
 	eval {
-		$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-		$count = $cursor->count() + 0;
+		if (defined $request_ref->{sample_size}) {
+			my $aggregate_parameters = [
+				{ "\$match" => $query_ref },
+				{ "\$sample" => { "size" => $request_ref->{sample_size} } }
+			];
+			print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
+			$cursor = $products_collection->aggregate($aggregate_parameters);
+		}
+		else {
+			print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
+			$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+		}
 	};
 	if ($@) {
 		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
@@ -2496,22 +2521,35 @@ sub search_and_display_products($$$$$) {
 		}
 		else {		
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
-			$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-			$count = $cursor->count() + 0;
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
+			if (defined $request_ref->{sample_size}) {
+				my $aggregate_parameters = [
+					{ "\$match" => $query_ref },
+					{ "\$sample" => { "size" => $request_ref->{sample_size} } }
+				];
+				print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
+				$cursor = $products_collection->aggregate($aggregate_parameters);
+			}
+			else {
+				print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
+				$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+			}
+			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok\n";
 		}
 	}
-		
-	$request_ref->{count} = $count + 0;
-	print STDERR "Display.pm - search_and_display_products - count: $count\n";
 	
+	$count = 0;
+	while (my $product_ref = $cursor->next) {
+		push @{$request_ref->{structured_response}{products}}, $product_ref;
+		$count++;
+	}
+	
+	$request_ref->{structured_response}{count} = $count + 0;
 	
 	my $html = '';
 	my $html_pages = '';
 	my $html_count = '';
 	
 	if (not defined $request_ref->{jqm_loadmore}) {
-
 		if ($count < 0) {
 			$html .= "<p>" . lang("error_database") . "</p>";	
 		}
@@ -2524,10 +2562,7 @@ sub search_and_display_products($$$$$) {
 		elsif ($count > 1) {
 			$html_count .= sprintf(lang("n_products"), $count) ;
 		}
-	
 	}
-	
-	$request_ref->{structured_response}{count} = $count + 0;
 	
 	if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
 	
@@ -2542,7 +2577,7 @@ sub search_and_display_products($$$$$) {
 			
 		
 	}
-	
+		
 	if ($count > 0) {
 	
 		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm}))  {
@@ -2558,7 +2593,7 @@ sub search_and_display_products($$$$$) {
 		print STDERR $debug_log . "\n"; 
 		
 		if ((not defined $request_ref->{search}) and ($count >= 5) 	
-			and (not defined $request_ref->{tagid2})) {
+			and (not defined $request_ref->{tagid2}) and (not defined $request_ref->{product_changes_saved})) {
 			
 			my @current_drilldown_fields = @ProductOpener::Config::drilldown_fields;
 			if ($country eq 'en:world') {
@@ -2595,9 +2630,7 @@ HTML
 			$html .= "<ul class=\"products\">\n";
 		}
 	
-		
-		while (my $product_ref = $cursor->next) {
-			
+		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 			my $img_url;
 			my $img_w;
 			my $img_h;
@@ -2655,8 +2688,6 @@ HTML
 			delete $product_ref->{additives};
 			delete $product_ref->{additives_prev};
 			delete $product_ref->{additives_next};			
-			
-			push @{$request_ref->{structured_response}{products}}, $product_ref;
 		}
 	
 
@@ -2675,7 +2706,7 @@ HTML
 		
 		my $next_page_url;
 		
-		if (($nb_pages > 1) and ((defined $current_link) or (defined $current_link_query))) {
+		if ((($nb_pages > 1) and ((defined $current_link) or (defined $current_link_query))) and (not defined $request_ref->{product_changes_saved})) {
 		
 			my $prev = '';
 			my $next = '';
@@ -3269,29 +3300,25 @@ sub display_scatter_plot($$$) {
 				
 				# print STDERR "Display::search_and_graph_products: i: $i - axis_x: $graph_ref->{axis_x} - axis_y: $graph_ref->{axis_y}\n";
 					
-				my $data = '{';
+				my %data;
 					
 				foreach my $axis ('x', 'y') {
 					my $nid = $graph_ref->{"axis_" . $axis};
-					$data .= $axis . ':';
 					if (($nid eq 'additives_n') or ($nid eq 'ingredients_n')) {
-						$data .= $product_ref->{$nid};
+						$data{$axis} = $product_ref->{$nid};
 					}
 					else {
-						$data .= g_to_unit($product_ref->{nutriments}{"${nid}_100g"}, $Nutriments{$nid}{unit});
+						$data{$axis} = g_to_unit($product_ref->{nutriments}{"${nid}_100g"}, $Nutriments{$nid}{unit});
 					}
-					$data .= ',';			
 									
 					add_product_nutriment_to_stats(\%nutriments, $nid, $product_ref->{nutriments}{"${nid}_100g"});
 				}
-				$data .= ' product_name:"' . escape_single_quote($product_ref->{product_name}) . '", url: "' . $url . '", img:\''
-					. escape_single_quote(display_image_thumb($product_ref, 'front')) . "'";
-;
-				
-				$data .= "},\n";
+				$data{product_name} = $product_ref->{product_name};
+				$data{url} = $url;
+				$data{img} = display_image_thumb($product_ref, 'front');
 				
 				defined $series{$seriesid} or $series{$seriesid} = '';
-				$series{$seriesid} .= $data;
+				$series{$seriesid} .= encode_json(\%data);
 				defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
 				$series_n{$seriesid}++;
 				$i++;
@@ -3959,50 +3986,48 @@ sub search_and_graph_products($$$) {
 sub get_packager_code_coordinates($) {
 
 	my $emb_code = shift;
-	my $geo = undef;
+	my $lat;
+	my $lng;
 						
 	if (exists $packager_codes{$emb_code}) {					
 		if (exists $packager_codes{$emb_code}{lat}) {
 			# some lat/lng have , for floating point numbers
-			my $lat = $packager_codes{$emb_code}{lat};
-			my $lng = $packager_codes{$emb_code}{lng};
+			$lat = $packager_codes{$emb_code}{lat};
+			$lng = $packager_codes{$emb_code}{lng};
 			$lat =~ s/,/\./g;
 			$lng =~ s/,/\./g;
-			
-			$lat =~ s/,/\./g;
-			$geo = $lat . ',' . $lng;
 		}
 		elsif (exists $packager_codes{$emb_code}{fsa_rating_business_geo_lat}) {
-			$geo = $packager_codes{$emb_code}{fsa_rating_business_geo_lat} . ',' . $packager_codes{$emb_code}{fsa_rating_business_geo_lng};
+			$lat = $packager_codes{$emb_code}{fsa_rating_business_geo_lat};
+			$lng = $packager_codes{$emb_code}{fsa_rating_business_geo_lng};
 		}								
 		elsif ($packager_codes{$emb_code}{cc} eq 'uk') {
 			#my $address = 'uk' . '.' . $packager_codes{$emb_code}{local_authority};
 			my $address = 'uk' . '.' . $packager_codes{$emb_code}{canon_local_authority};
 			if (exists $geocode_addresses{$address}) {
-				$geo = $geocode_addresses{$address}[0] . ',' . $geocode_addresses{$address}[1];
+				$lat = $geocode_addresses{$address}[0];
+				$lng = $geocode_addresses{$address}[1];
 			}
 		}
 	}
 	
 	my $city_code = get_city_code($emb_code);
 		
-	if ((not defined $geo) and (defined $emb_codes_geo{$city_code})) {
+	if (((not defined $lat) or (not defined $lng)) and (defined $emb_codes_geo{$city_code})) {
 	
 		# some lat/lng have , for floating point numbers
-		my $lat = $emb_codes_geo{$city_code}[0];
-		my $lng = $emb_codes_geo{$city_code}[1];
+		$lat = $emb_codes_geo{$city_code}[0];
+		$lng = $emb_codes_geo{$city_code}[1];
 		$lat =~ s/,/\./g;
 		$lng =~ s/,/\./g;
-		$geo = $lat . ',' . $lng;
-		
 	}
 	
 	# filter out empty coordinates
-	if (($geo =~ /^,/) or ($geo =~ /,$/)) {
-		$geo = undef;
+	if ((not defined $lat) or (not defined $lng)) {
+		return (undef, undef);
 	}
 	
-	return $geo;
+	return ($lat, $lng);
 
 }
 
@@ -4155,9 +4180,10 @@ JS
 					
 					foreach my $emb_code (@{$product_ref->{"emb_codes_tags"}}) {
 					
-						my $geo = get_packager_code_coordinates($emb_code);	
+						my ($lat, $lng) = get_packager_code_coordinates($emb_code);	
 						
-						if (defined $geo) {
+						if ((defined $lat) and ($lat ne '') and (defined $lng) and ($lng ne '')) {
+							my $geo = "$lat,$lng";
 							if (not defined $current_seen{$geo}) {
 						
 								$current_seen{$geo} = 1;
@@ -4214,9 +4240,9 @@ var pointers = [
 
 var map = L.map('container', {maxZoom:12});	
 		
-L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 19,
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);			
 
 
@@ -5206,6 +5232,7 @@ $$content_ref
 			<li><a href="$Lang{footer_legal_link}{$lc}">$Lang{footer_legal}{$lc}</a></li>
 			<li><a href="$Lang{footer_terms_link}{$lc}">$Lang{footer_terms}{$lc}</a></li>
 			<li><a href="$Lang{footer_data_link}{$lc}">$Lang{footer_data}{$lc}</a></li>
+			<li><a href="$Lang{donate_link}{$lc}">$Lang{donate}{$lc}</a></li>
 		</ul>
 	</div>
 	
@@ -5309,6 +5336,8 @@ $Lang{footer_follow_us}{$lc}
 
 <script src="/bower_components/foundation/js/foundation.min.js"></script>
 <script src="/bower_components/foundation/js/vendor/jquery.cookie.js"></script>
+
+<script async defer src="/bower_components/ManUp.js/manup.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" integrity="sha384-222hzbb8Z8ZKe6pzP18nTSltQM3PdcAwxWKzGOKOIF+Y3bROr5n9zdQ8yTRHgQkQ" crossorigin="anonymous"></script>
 
@@ -5716,6 +5745,24 @@ CSS
 		return 301;
 	}
 
+	if ($request_ref->{product_changes_saved}) {
+		my $text = lang('product_changes_saved');
+		$html .= <<HTML
+<div data-alert class="alert-box info">
+<span>$text</span>
+ <a href="#" class="close">&times;</a>
+</div>
+HTML
+;
+		my $query_ref = {};
+		$query_ref->{ ("states_tags") } = "en:to-be-completed";
+		
+		my $search_result = search_and_display_products($request_ref, $query_ref, undef, undef, undef);
+		if ($request_ref->{structured_response}{count} > 0) {
+			$html .= $search_result . '<hr/>';
+		}
+	}
+	
 	my $share = lang('share');
 	$html .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
@@ -5741,6 +5788,8 @@ HTML
 HTML
 ;
 	}	
+	
+
 	
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
 	my @fields = @ProductOpener::Config::display_fields;
@@ -5774,6 +5823,57 @@ HTML
 		$html .= "<p>" . lang("barcode") . separator_before_colon($lc) . ": <span property=\"food:code\" itemprop=\"gtin13\">$code</span> $html_upc</p>
 <div property=\"gr:hasEAN_UCC-13\" content=\"$code\" datatype=\"xsd:string\"></div>\n";
 	}
+	
+
+	if (not has_tag($product_ref, "states", "en:complete")) {
+	
+		$html .= <<HTML
+<div data-alert class="alert-box info" id="warning_not_complete" style="display: block;">
+$Lang{warning_not_complete}{$lc}
+<a href="#" class="close">&times;</a>
+</span></div>
+HTML
+;
+	}		
+	
+	
+	# photos and data sources
+
+	my $html_manufacturer_source = ""; # Displayed at the top of the product page
+	my $html_sources = "";	# 	Displayed at the bottom of the product page
+	
+	if (defined $product_ref->{sources}) {
+		# FIXME : currently just a quick workaround to display openfood attribution
+
+#			push @{$product_ref->{sources}}, {
+#				id => "openfood-ch",
+#				url => "https://www.openfood.ch/en/products/$openfood_id",
+#				import_t => time(),
+#				fields => \@modified_fields,
+#				images => \@images_ids,	
+#			};
+
+		my %unique_sources = ();
+	
+		foreach my $source_ref (@{$product_ref->{sources}}) {
+			$unique_sources{$source_ref->{id}} = $source_ref;
+		}
+		foreach my $source_id (sort keys %unique_sources) {
+			my $source_ref = $unique_sources{$source_id};
+			my $lang_source = $source_ref->{id};
+			$lang_source =~ s/-/_/g;
+			$html_sources .= "<p>" . lang("sources_" . $lang_source ) . "</p>";
+			if (defined $source_ref->{url}) {
+				$html_sources .= "<p><a href=\"" . $source_ref->{url} . "\">" . lang("sources_" . $lang_source . "_product_page" ) . "</a></p>";
+			}
+			
+			if ((defined $source_ref->{manufacturer}) and ($source_ref->{manufacturer} == 1)) {
+				$html_manufacturer_source = "<p>" . sprintf(lang("sources_manufacturer"), "<a href=\"" . $source_ref->{url} . "\">" . $source_ref->{name} . "</a>") . "</p>";
+			}
+		}
+	}	
+	
+	$html .= $html_manufacturer_source;
 	
 	my $minheight = 0;
 	my $html_image = display_image_box($product_ref, 'front', \$minheight);
@@ -5855,8 +5955,13 @@ HTML
 	foreach my $class ('additives', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil') {
 	
 		my $tagtype = $class;
+		my $tagtype_field = $tagtype;
+		# display the list of additives variants in the order that they were found, without the parents (no E450 for E450i)
+		if (($class eq 'additives') and (exists $product_ref->{'additives_original_tags'})) {
+			$tagtype_field = 'additives_original';
+		}
 	
-		if ((defined $product_ref->{$class . '_tags'}) and (scalar @{$product_ref->{$class . '_tags'}} > 0)) {
+		if ((defined $product_ref->{$tagtype_field . '_tags'}) and (scalar @{$product_ref->{$tagtype_field . '_tags'}} > 0)) {
 
 			$html .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang($class . "_p") . separator_before_colon($lc)) . ":</b><br />";
 			
@@ -5873,7 +5978,7 @@ HTML
 			}
 			
 			$html .= "<ul style=\"display:block;float:left;\">";
-			foreach my $tagid (@{$product_ref->{$class . '_tags'}}) {
+			foreach my $tagid (@{$product_ref->{$tagtype_field . '_tags'}}) {
 			
 				my $tag;
 				my $link;
@@ -6003,27 +6108,10 @@ HTML
 	
 	$html .= display_nutrition_table($product_ref, \@comparisons);
 	
+	# photos and data sources
 
-	if (defined $product_ref->{sources}) {
-		# FIXME : currently just a quick workaround to display openfood attribution
-
-#			push @{$product_ref->{sources}}, {
-#				id => "openfood-ch",
-#				url => "https://www.openfood.ch/en/products/$openfood_id",
-#				import_t => time(),
-#				fields => \@modified_fields,
-#				images => \@images_ids,	
-#			};
-		
-		if (defined $product_ref->{sources}[0]) {
-			my $lang_source = $product_ref->{sources}[0]{id};
-			$lang_source =~ s/-/_/g;
-			$html .= "<p>" . lang("sources_" . $lang_source ) . "</p>";
-			if (defined $product_ref->{sources}[0]{url}) {
-				$html .= "<p><a href=\"" . $product_ref->{sources}[0]{url} . "\">" . lang("sources_" . $lang_source . "_product_page" ) . "</a></p>";
-			}
-		}
-	}
+	
+	$html .= $html_sources;
 	
 	
 	my $created_date = display_date_tag($product_ref->{created_t});
@@ -6398,8 +6486,23 @@ sub display_nutrient_levels($) {
 		
 		my $warning = '';
 		if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
-			$warning = "<p>" . lang("nutrition_grade_fr_fiber_warning") . "</p>";
+			$warning .= "<p>" . lang("nutrition_grade_fr_fiber_warning") . "</p>";
 		}
+		if ((defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
+				and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
+			$warning .= "<p>" . lang("nutrition_grade_fr_no_fruits_vegetables_nuts_warning") . "</p>";
+		}
+		if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate})
+				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} == 1)) {
+			$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
+								$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"}) . "</p>";
+		}
+		if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category})
+				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} ne '')) {
+			$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"),
+								display_taxonomy_tag($lc,'categories',$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}),
+								$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}) . "</p>";
+		}		
 
 		
 		$html_nutrition_grade .= <<HTML
@@ -7151,10 +7254,6 @@ HTML
 			$response{jqm} =~ s/(href|src)=("\/)/$1="http:\/\/$cc.${server_domain}\//g;
 			$response{title} = $request_ref->{title};
 			
-		}		
-		
-		if (not $admin) {
-			delete $response{product}{images};
 		}
 	}
 	

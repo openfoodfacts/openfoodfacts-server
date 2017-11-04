@@ -1,3 +1,6 @@
+branches:
+  except:
+  - l10n_master
 language: perl
 perl:
   - "system"
@@ -22,13 +25,13 @@ before_install:
 install:
   - cpanm --quiet --installdeps --notest --skip-satisfied .
   - npm install
+   - node_modules/.bin/bower install
   - ./node_modules/.bin/gulp
-  - ln -s /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/Config_off.pm /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/Config.pm
-  - cp /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/Config2_sample.pm /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/Config2.pm
-  - ln -s /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/SiteLang_off.pm /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/SiteLang.pm
-  - sed -i -e 's/\$server_domain = "openfoodfacts.org";/\$server_domain = "off.travis-ci.org";/g' /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/Config2.pm
-  - sed -i -e 's/\$www_root = "\/home\/off\/html";/\$www_root = "\/home\/travis\/build\/openfoodfacts\/openfoodfacts-server\/html";/g' /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/Config2.pm
-  - sed -i -e 's/\$data_root = "\/home\/off";/\$data_root = "\/home\/travis\/build\/openfoodfacts\/openfoodfacts-server";/g' /home/travis/build/openfoodfacts/openfoodfacts-server/lib/ProductOpener/Config2.pm
+  - ln -s $TRAVIS_BUILD_DIR/lib/ProductOpener/Config_off.pm $TRAVIS_BUILD_DIR/lib/ProductOpener/Config.pm
+  - cp $TRAVIS_BUILD_DIR/lib/ProductOpener/Config2_sample.pm $TRAVIS_BUILD_DIR/lib/ProductOpener/Config2.pm
+  - ln -s $TRAVIS_BUILD_DIR/lib/ProductOpener/SiteLang_off.pm $TRAVIS_BUILD_DIR/lib/ProductOpener/SiteLang.pm
+  - sed -i -e 's|\$server_domain = "openfoodfacts.org";|\$server_domain = "off.travis-ci.org";|g' $TRAVIS_BUILD_DIR/lib/ProductOpener/Config2.pm
+  - sed -i -e 's|\/home\/off|'$TRAVIS_BUILD_DIR'|g' $TRAVIS_BUILD_DIR/lib/ProductOpener/Config2.pm
 script:
   - npm test
 notifications:

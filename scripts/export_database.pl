@@ -20,6 +20,11 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 
+# for RDF export: replace xml_escape() with xml_escape_NFC()
+use Unicode::Normalize;
+
+
+
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -28,6 +33,12 @@ use Encode;
 use JSON;
 use DateTime qw/:all/;
 
+
+sub xml_escape_NFC($) {
+
+        my $s = shift;
+        return xml_escape(NFC($s));
+}
 
 
 my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergen=>1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1, countries => 1, states=>1);
@@ -348,14 +359,19 @@ XML
 			$nid =~ s/!//g;
 			$nid =~ s/^-//g;
 			$nid =~ s/-$//g;
-					
+			
+			if (defined $product_ref->{nutriments}{$nid . "_100g"}) {		
 			$csv .= $product_ref->{nutriments}{$nid . "_100g"} . "\t";
+			}
+			else {
+				$csv .= "\t";
+			}
 		}
 		
 		$csv =~ s/\t$/\n/;
 		
-		my $name = xml_escape($product_ref->{product_name});
-		my $ingredients_text = xml_escape($product_ref->{ingredients_text});
+		my $name = xml_escape_NFC($product_ref->{product_name});
+		my $ingredients_text = xml_escape_NFC($product_ref->{ingredients_text});
 		
 		my $rdf = <<XML
 <rdf:Description rdf:about="$url" rdf:type="http://data.lirmm.fr/ontologies/food#FoodProduct">
@@ -425,7 +441,7 @@ XML
 	foreach my $i (sort keys %ingredients) {
 	
 		my @names = sort ( { $ingredients{$i}{$b} <=> $ingredients{$i}{$a} } keys %{$ingredients{$i}});
-		my $name = xml_escape($names[0]);	
+		my $name = xml_escape_NFC($names[0]);	
 		
 		# sameAs
 		# <owl:sameAs rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#xlogP"/>

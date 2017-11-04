@@ -86,17 +86,25 @@ sub read_po_files {
 
         # move the strings into %l10n
         for my $key (keys %Lexicon) {
+            # fix extra ~ added before []
+            # 		months: ~['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'~],
             $l10n{$key}{$lc} = delete $Lexicon{$key};
+            $l10n{$key}{$lc} =~ s/\~(\[|\])/$1/g;
+			
+			# Remove empty values that Crowdin puts in .po files when the string is not translated. issue #889
+			if ($l10n{$key}{$lc} eq "") {
+				delete $l10n{$key}{$lc};
+			}
         }
     }
 	
 	# for debugging purposes, export the structure
 	
-	#use Data::Dumper;
-	#$Data::Dumper::Sortkeys = 1;
-	#open my $fh, ">", "${dir}/l10n.debug" or die "can not create ${dir}/l10n.debug : $!";
-	#print $fh "I18N.pm - read_po_file - dir: $dir\n\n" . Dumper(\%l10n) . "\n";
-	#close $fh;
+	# use Data::Dumper;
+	# $Data::Dumper::Sortkeys = 1;
+	# open my $fh, ">", "${dir}/l10n.debug" or die "can not create ${dir}/l10n.debug : $!";
+	# print $fh "I18N.pm - read_po_file - dir: $dir\n\n" . Dumper(\%l10n) . "\n";
+	# close $fh;
 
     return \%l10n
 }

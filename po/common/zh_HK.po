@@ -1,0 +1,2646 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_HK\n"
+"Project-Id-Version: openfoodfacts\n"
+"PO-Revision-Date: 2017-09-22 04:08-0400\n"
+"Language-Team: Chinese Traditional, Hong Kong\n"
+"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Language: zh-HK\n"
+"X-Crowdin-File: /master/po/common/common.pot\n"
+
+#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
+msgctxt ":langtag"
+msgid ":langtag"
+msgstr ""
+
+#. put here the language name ("French", "Japanese", etc)
+msgctxt ":langname"
+msgid ":langname"
+msgstr ""
+
+msgctxt "1_product"
+msgid "1 product"
+msgstr "一個產品"
+
+msgctxt "_and_"
+msgid " and "
+msgstr " 和 "
+
+msgctxt "about"
+msgid "About me"
+msgstr "關於我"
+
+msgctxt "add"
+msgid "Add"
+msgstr "新增"
+
+msgctxt "add_language"
+msgid "Add language"
+msgstr "新增語言"
+
+msgctxt "add_product"
+msgid "Add a product"
+msgstr "新增產品"
+
+msgctxt "add_user"
+msgid "Register"
+msgstr "註冊"
+
+msgctxt "add_user_confirm"
+msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
+msgstr "<p>感謝您的加入。您現在可以登入進行新增或編輯產品。</p>"
+
+msgctxt "add_user_email_body"
+msgid "Hello <NAME>,\n\n"
+"Thanks a lot for joining https://openfoodfacts.org\n"
+"Here is your user name:\n\n"
+"User name: <USERID>\n\n"
+"You can now sign in on the site to add and edit products.\n\n"
+"<<site_name>> is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!\n"
+"To discuss between contributors and make the project go forward, we use a very convenient messaging system called Slack: https://slack.openfoodfacts.org\n\n"
+"You can also join the Facebook group for contributors:\n"
+"https://www.facebook.com/groups/374350705955208/\n\n"
+"New: we are also starting Open Beauty Facts to create a database of cosmetics: soap, toothpaste, makeup etc.\n"
+"https://openbeautyfacts.org\n\n"
+"Thank you very much!\n\n"
+"Stéphane and the Open Food Facts team\n"
+"https://openfoodfacts.org\n"
+"https://twitter.com/OpenFoodFacts\n"
+msgstr ""
+
+msgctxt "add_user_email_subject"
+msgid "Thanks for joining <<site_name>>"
+msgstr "感謝您的加入 <<site_name>>"
+
+msgctxt "additives_1"
+msgid "Potentially hazardous food additive. Limit usage."
+msgstr ""
+
+msgctxt "additives_2"
+msgid "Hazardous food additive. Avoid."
+msgstr "危險的食物添加劑。避免。"
+
+msgctxt "additives_3"
+msgid "Food additive banned in Europe. Avoid at all cost."
+msgstr "歐洲禁止食物添加劑。一定要避免。"
+
+msgctxt "additives_p"
+msgid "additives"
+msgstr "添加劑"
+
+msgctxt "additives_s"
+msgid "additive"
+msgstr "添加劑"
+
+msgctxt "advanced_search"
+msgid "Advanced search"
+msgstr "進階搜尋"
+
+msgctxt "advanced_search_old"
+msgid "Advanced search and graphs"
+msgstr "進階搜尋及圖表"
+
+msgctxt "alcohol_warning"
+msgid "Excess drinking is harmful for health."
+msgstr "飲酒過量有害健康"
+
+msgctxt "all_missions"
+msgid "All missions"
+msgstr "所有的任務"
+
+msgctxt "allergens"
+msgid "Substances or products causing allergies or intolerances"
+msgstr "物品造成過敏"
+
+msgctxt "allergens_p"
+msgid "allergens"
+msgstr "過敏原"
+
+msgctxt "allergens_s"
+msgid "allergen"
+msgstr "過敏原"
+
+msgctxt "also_edited_by"
+msgid "Product page also edited by"
+msgstr "產品頁編輯由"
+
+msgctxt "android_apk_app_badge"
+msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
+msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
+
+msgctxt "android_apk_app_link"
+msgid "https://world.openfoodfacts.org/files/off.apk"
+msgstr ""
+
+msgctxt "android_app_badge"
+msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
+msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"可於 Google Play 上載\" width=\"135\" height=\"47\" />"
+
+msgctxt "android_app_link"
+msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
+
+msgctxt "app_please_take_pictures"
+msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
+"<p>Thanks in advance!</p>\n"
+msgstr ""
+
+msgctxt "app_take_a_picture"
+msgid "Take a picture"
+msgstr "選一張圖"
+
+msgctxt "app_take_a_picture_note"
+msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
+msgstr "注意:  您送出的圖片為創用CC授權。"
+
+msgctxt "app_you_can_add_pictures"
+msgid "You can add pictures:"
+msgstr "您可新增圖片"
+
+msgctxt "axis_x"
+msgid "Horizontal axis"
+msgstr "橫軸"
+
+msgctxt "axis_y"
+msgid "Vertical axis"
+msgstr "縱軸"
+
+msgctxt "barcode"
+msgid "Barcode"
+msgstr "條碼"
+
+msgctxt "barcode_number"
+msgid "Barcode number:"
+msgstr "條碼"
+
+msgctxt "bottom_content"
+msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
+"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
+"</a>\n"
+"<p>Contribute to <<site_name>> by adding product and win stars by\n"
+"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
+msgstr ""
+
+msgctxt "bottom_title"
+msgid "Embrace the mission"
+msgstr "擁抱任務"
+
+msgctxt "brands"
+msgid "Brands"
+msgstr "品牌"
+
+msgctxt "brands_example"
+msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
+msgstr "健達繽紛樂白巧克力"
+
+msgctxt "brands_p"
+msgid "brands"
+msgstr "品牌"
+
+msgctxt "brands_products"
+msgid "Products from the %s brand"
+msgstr "%s 品牌的產品"
+
+msgctxt "brands_s"
+msgid "brand"
+msgstr "品牌"
+
+msgctxt "brands_tagsinput"
+msgid "add a brand"
+msgstr "新增品牌"
+
+msgctxt "brands_without_products"
+msgid "Products not from the %s brand"
+msgstr "非 %s 品牌的產品"
+
+msgctxt "by"
+msgid "by"
+msgstr "由"
+
+msgctxt "categories"
+msgid "Categories"
+msgstr "類別"
+
+msgctxt "categories_example"
+msgid "Sardines in olive oil, Orange juice from concentrate"
+msgstr "橄欖油沙丁魚, 濃縮橙汁"
+
+msgctxt "categories_note"
+msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
+msgstr "指明具體類別，其上層類別會自動新增。"
+
+msgctxt "categories_p"
+msgid "categories"
+msgstr "類別"
+
+msgctxt "categories_products"
+msgid "Products from the %s category"
+msgstr "%s 類別的產品"
+
+msgctxt "categories_s"
+msgid "category"
+msgstr "類別"
+
+msgctxt "categories_tagsinput"
+msgid "add a category"
+msgstr "新增類別"
+
+msgctxt "categories_without_products"
+msgid "Products not from the %s category"
+msgstr "非 %s 類別的產品"
+
+msgctxt "change_fields"
+msgid "Data"
+msgstr "資料"
+
+msgctxt "change_nutriments"
+msgid "Nutriments"
+msgstr "營養"
+
+msgctxt "change_selected_images"
+msgid "Selected images"
+msgstr "選擇圖片"
+
+msgctxt "change_uploaded_images"
+msgid "Uploaded images"
+msgstr "上傳圖片"
+
+msgctxt "checkers_p"
+msgid "checkers"
+msgstr "檢查"
+
+msgctxt "checkers_s"
+msgid "checker"
+msgstr "檢查"
+
+msgctxt "cities_p"
+msgid "packaging cities"
+msgstr "包裝城市"
+
+msgctxt "cities_products"
+msgid "Products packaged in the city of %s"
+msgstr "產品包裝於 %s"
+
+msgctxt "cities_s"
+msgid "packaging city"
+msgstr "包裝城市"
+
+msgctxt "cities_without_products"
+msgid "Products not packaged in the city of %s"
+msgstr "產品非包裝於 %s"
+
+msgctxt "codes_p"
+msgid "Codes"
+msgstr "代碼"
+
+msgctxt "codes_s"
+msgid "Code"
+msgstr "代碼"
+
+msgctxt "column_obsolete_do_not_translate_for_reference_only"
+msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.png\" width=\"178\" height=\"144\" alt=\"<<site_name>>\" /></a>\n\n"
+"<p><<site_name>> gathers information and data on food products from around the world.</p>\n\n"
+"<select_country>\n\n"
+"<p>\n"
+"→ <a href=\"/brands\">Brands</a><br />\n"
+"→ <a href=\"/categories\">Categories</a><br/>\n"
+"</p>\n\n"
+"<p>Food product information (photos, ingredients, nutrition facts etc.) is collected in a collaborative way\n"
+"and is made available to everyone and for all uses in a free and open database.</p>\n\n\n"
+"<p>Find us also on:</p>\n\n"
+"<p>\n"
+"→ <a href=\"https://en.wiki.openfoodfacts.org\">our wiki</a><br />\n"
+"→ <a href=\"https://twitter.com/openfoodfacts\">Twitter</a><br/>\n"
+"→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a><br />\n"
+"→ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
+"+ <a href=\"https://www.facebook.com/groups/374350705955208/\">contributors group</a><br />\n"
+"</p>\n\n"
+"<p>iPhone and iPad app on the App Store:</p>\n\n"
+"<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
+"<p>Android app on Google Play:</p>\n\n"
+"<a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner\"><img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" /></a><br/>\n"
+"<a href=\"https://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
+"<p>Windows Phone app:</p>\n\n"
+"<a href=\"https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
+msgstr ""
+
+msgctxt "completed_n_missions"
+msgid "completed %d missions:"
+msgstr "完成 %d 任務"
+
+msgctxt "connected_with_facebook"
+msgid "You are connected with your Facebook account."
+msgstr "已與你的Facebook帳號連結"
+
+msgctxt "contributor_since"
+msgid "Contributor since"
+msgstr "自貢獻者"
+
+msgctxt "copy_data"
+msgid "Copy data from current product to new product"
+msgstr "從目前產品複制資料到新產品"
+
+msgctxt "correct_the_following_errors"
+msgid "Please correct the following errors:"
+msgstr "請更正以下錯誤:"
+
+msgctxt "correctors_p"
+msgid "correctors"
+msgstr "校正者"
+
+msgctxt "correctors_s"
+msgid "corrector"
+msgstr "校正者"
+
+msgctxt "countries"
+msgid "Countries where sold"
+msgstr "販售國"
+
+msgctxt "countries_note"
+msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
+msgstr "主要販售國家 (不包含賣場的外國貨品)"
+
+msgctxt "countries_p"
+msgid "countries"
+msgstr "國家"
+
+msgctxt "countries_products"
+msgid "Products sold in %s"
+msgstr "產品售於 %s"
+
+msgctxt "countries_s"
+msgid "country"
+msgstr "國家"
+
+msgctxt "countries_without_products"
+msgid "Products not sold in %s"
+msgstr "產品未販售於 %s"
+
+msgctxt "data_source"
+msgid "Data source"
+msgstr "資料來源"
+
+msgctxt "debug_p"
+msgid "debug"
+msgstr "除錯"
+
+msgctxt "debug_s"
+msgid "debug"
+msgstr "除錯"
+
+msgctxt "delete_comment"
+msgid "Reason for removal"
+msgstr "移除原因"
+
+msgctxt "delete_product"
+msgid "Delete a product"
+msgstr "刪除產品"
+
+msgctxt "delete_product_page"
+msgid "Delete the page"
+msgstr "刪除頁面"
+
+msgctxt "delete_the_images"
+msgid "Delete the images"
+msgstr "刪除圖片"
+
+msgctxt "delete_user"
+msgid "Delete an user"
+msgstr "刪除使用者"
+
+msgctxt "diff_add"
+msgid "Added:"
+msgstr "新增"
+
+msgctxt "diff_change"
+msgid "Changed:"
+msgstr "修改"
+
+msgctxt "diff_delete"
+msgid "Deleted:"
+msgstr "刪除"
+
+msgctxt "donate"
+msgid "Donate to Open Food Facts"
+msgstr ""
+
+msgctxt "donate_link"
+msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgstr ""
+
+msgctxt "ecological_data_table"
+msgid "Ecological footprint"
+msgstr "生態足跡"
+
+msgctxt "ecological_data_table_note"
+msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
+msgstr "若碳足跡有標明於標籤上 (目前不多)，請按營養組成表明相同的數量。"
+
+msgctxt "edit"
+msgid "edit"
+msgstr "編輯"
+
+msgctxt "edit_comment"
+msgid "Changes summary"
+msgstr "修改概要"
+
+msgctxt "edit_product"
+msgid "Edit a product"
+msgstr "編輯產品"
+
+msgctxt "edit_product_page"
+msgid "Edit the page"
+msgstr "編輯頁面"
+
+msgctxt "edit_profile"
+msgid "Edit your public profile"
+msgstr "編輯你的公開簡介"
+
+msgctxt "edit_profile_confirm"
+msgid "Changes to your public profile have been saved."
+msgstr "您修改的公開簡介已被儲存"
+
+msgctxt "edit_profile_msg"
+msgid "Information below is visible in your public profile."
+msgstr "以下資訊可在你的公開簡介中看到"
+
+msgctxt "edit_settings"
+msgid "Change your account parameters"
+msgstr "修改您的帳戶參數"
+
+msgctxt "edit_user"
+msgid "Account parameters"
+msgstr "帳戶參數"
+
+msgctxt "edit_user_confirm"
+msgid "<p>Your account parameters have been changed.</p>"
+msgstr "<p>您的帳戶參數已修改。</p>"
+
+msgctxt "editors_p"
+msgid "editors"
+msgstr "編輯"
+
+msgctxt "editors_s"
+msgid "editor"
+msgstr "編輯"
+
+msgctxt "email"
+msgid "e-mail address"
+msgstr "電子郵件地址"
+
+msgctxt "emb_code_p"
+msgid "EMB codes"
+msgstr "EMB 編碼"
+
+msgctxt "emb_code_products"
+msgid "Products packaged by the company with emb code %s"
+msgstr "產品由公司 emb 碼為 %s 包裝"
+
+msgctxt "emb_code_s"
+msgid "EMB code"
+msgstr "EMB 碼"
+
+msgctxt "emb_codes"
+msgid "EMB code"
+msgstr "EMB 碼"
+
+msgctxt "emb_codes_example"
+msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
+msgstr ""
+
+msgctxt "emb_codes_note"
+msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
+msgstr ""
+
+msgctxt "emb_codes_p"
+msgid "packager codes"
+msgstr "包裝機碼"
+
+msgctxt "emb_codes_products"
+msgid "Products with the emb code %s"
+msgstr "產品 EMB 碼 %s"
+
+msgctxt "emb_codes_s"
+msgid "packager code"
+msgstr "包裝機碼"
+
+msgctxt "emb_codes_without_products"
+msgid "Products without the emb code %s"
+msgstr "產品無 emb 碼 %s"
+
+msgctxt "entry_dates_p"
+msgid "Entry dates"
+msgstr "輸入日期"
+
+msgctxt "entry_dates_s"
+msgid "Entry date"
+msgstr "輸入日期"
+
+msgctxt "error"
+msgid "Error"
+msgstr "錯誤"
+
+msgctxt "error_bad_login_password"
+msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
+msgstr "不正確的使用者名稱或密碼。 <a href=\"/cgi/reset_password.pl\">忘記密碼了嗎?</a>"
+
+msgctxt "error_database"
+msgid "An error occured while reading the data, try to refresh the page."
+msgstr "讀取資料時發生錯誤，請重新更新網頁再試一次。"
+
+msgctxt "error_different_passwords"
+msgid "The password and confirmation password are different."
+msgstr "密碼與確認密碼不符"
+
+msgctxt "error_email_already_in_use"
+msgid "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
+msgstr "電子郵件地址已被其它使用者使用過。是否你已有帳號了?你可以將你的帳號 <a href=\"/cgi/reset_password.pl\">重設密碼</a> 。"
+
+msgctxt "error_invalid_address"
+msgid "Invalid address."
+msgstr "無效的地址。"
+
+msgctxt "error_invalid_csrf_token"
+msgid "Invalid CSRF token."
+msgstr ""
+
+msgctxt "error_invalid_email"
+msgid "Invalid e-mail address"
+msgstr "無效的電子郵件地址。"
+
+msgctxt "error_invalid_password"
+msgid "The password needs to be a least 6 characters long."
+msgstr "密碼至少要有6個字元。"
+
+msgctxt "error_invalid_user"
+msgid "Invalid user."
+msgstr "無效的使用者"
+
+msgctxt "error_invalid_username"
+msgid "The user name must contain only unaccented letters, digits and dashes."
+msgstr "使用者帳號只能包含字母、數字及破折號。"
+
+msgctxt "error_new_code_already_exists"
+msgid "A product already exists with the new code"
+msgstr "新編碼的原產品已經存在"
+
+msgctxt "error_no_name"
+msgid "You need to enter a name or nickname."
+msgstr "您必須輸入名字或暱稱。"
+
+msgctxt "error_no_permission"
+msgid "Permission denied."
+msgstr "權限被拒絕。"
+
+msgctxt "error_no_username"
+msgid "You need to enter a user name"
+msgstr "您必須輸入名字"
+
+msgctxt "error_reset_already_connected"
+msgid "You are already signed in."
+msgstr "您已登入"
+
+msgctxt "error_reset_invalid_token"
+msgid "The reset password link is invalid or has expired."
+msgstr "重設密碼的連結無效或已過期。"
+
+msgctxt "error_reset_unknown_email"
+msgid "There is no account with this email"
+msgstr "這個電子郵地址未使用過"
+
+msgctxt "error_reset_unknown_id"
+msgid "This username does not exist."
+msgstr "此使用者名稱不存在。"
+
+msgctxt "error_username_not_available"
+msgid "This username already exists, please choose another."
+msgstr "這個使用者名稱已存在，請選用其它的名稱。"
+
+msgctxt "example"
+msgid "Example:"
+msgstr "範例："
+
+msgctxt "examples"
+msgid "Examples:"
+msgstr "範例："
+
+msgctxt "expiration_date"
+msgid "Best before date"
+msgstr "有效期限"
+
+msgctxt "expiration_date_note"
+msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
+msgstr "有效期限作為追蹤產品是否過期與辨認是否為新品。"
+
+msgctxt "explore_products_by"
+msgid "Drilldown into products by..."
+msgstr "追溯產品藉由..."
+
+msgctxt "facebook_locale"
+msgid "en_US"
+msgstr "zh_TW"
+
+msgctxt "facebook_page"
+msgid "https://www.facebook.com/OpenFoodFacts"
+msgstr "https://www.facebook.com/OpenFoodFacts"
+
+msgctxt "fixme_product"
+msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
+msgstr "若日期有誤或不正確，您可以藉由編輯此頁來修正它。"
+
+msgctxt "footer"
+msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/terms-of-use\">Terms of Use</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/who-we-are\">Who we are</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/faq\">Frequently Asked Questions</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
+msgstr ""
+
+msgctxt "footer_and_the_facebook_group"
+msgid "and the <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook group for contributors</a>"
+msgstr "以及 <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook 的協作者群組</a>"
+
+msgctxt "footer_blog"
+msgid "<<site_name>> blog"
+msgstr "<<site_name>> 部落格"
+
+msgctxt "footer_blog_link"
+msgid "https://en.blog.openfoodfacts.org"
+msgstr "http://en.wiki.openfoodfacts.org"
+
+msgctxt "footer_code_of_conduct"
+msgid "Code of conduct"
+msgstr "行為準則"
+
+msgctxt "footer_code_of_conduct_link"
+msgid "/code-of-conduct"
+msgstr "/code-of-conduct"
+
+msgctxt "footer_data"
+msgid "Data"
+msgstr "資料"
+
+msgctxt "footer_data_link"
+msgid "/data"
+msgstr "/data"
+
+msgctxt "footer_discover_the_project"
+msgid "Discover the project"
+msgstr "探索專案"
+
+msgctxt "footer_faq"
+msgid "Frequently asked questions"
+msgstr "常見問答集"
+
+msgctxt "footer_faq_link"
+msgid "/faq"
+msgstr "/faq"
+
+msgctxt "footer_follow_us"
+msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
+"<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
+msgstr "在 <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>、\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> 與 \n"
+"<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a> 上追蹤我們\n"
+
+msgctxt "footer_install_the_app"
+msgid "Install the app"
+msgstr "安裝 App"
+
+msgctxt "footer_join_the_community"
+msgid "Join the community"
+msgstr "加入社群"
+
+msgctxt "footer_join_us_on"
+msgid "Join us on %s:"
+msgstr "加入我們 %s"
+
+msgctxt "footer_legal"
+msgid "Legal"
+msgstr "法律"
+
+msgctxt "footer_legal_link"
+msgid "/legal"
+msgstr "/legal"
+
+msgctxt "footer_press"
+msgid "Press"
+msgstr "投稿"
+
+msgctxt "footer_press_link"
+msgid "/press"
+msgstr "/press"
+
+msgctxt "footer_tagline"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "來自全世界共同協作、自由且開放的食品資料庫。"
+
+msgctxt "footer_terms"
+msgid "Terms of use"
+msgstr "使用條款"
+
+msgctxt "footer_terms_link"
+msgid "/terms-of-use"
+msgstr "/terms-of-use"
+
+msgctxt "footer_who_we_are"
+msgid "Who we are"
+msgstr "我們是誰"
+
+msgctxt "footer_who_we_are_link"
+msgid "/who-we-are"
+msgstr "/who-we-are"
+
+msgctxt "footer_wiki"
+msgid "<<site_name>> wiki (en)"
+msgstr ""
+
+msgctxt "footer_wiki_link"
+msgid "https://en.wiki.openfoodfacts.org"
+msgstr "http://en.wiki.openfoodfacts.org"
+
+msgctxt "for"
+msgid "for"
+msgstr "為"
+
+msgctxt "front_alt"
+msgid "Product"
+msgstr "產品"
+
+msgctxt "generic_name"
+msgid "Common name"
+msgstr "一般名稱"
+
+msgctxt "generic_name_example"
+msgid "Chocolate bar with milk and hazelnuts"
+msgstr "榛果牛奶巧克力"
+
+msgctxt "goodbye"
+msgid "See you soon!"
+msgstr "再見!"
+
+msgctxt "graph_count"
+msgid "%d products match the search criterias, of which %i products have defined values for the graph's axis."
+msgstr "%d 產品符合搜尋標準，其中 %i 產品已被定義圖片軸值。"
+
+msgctxt "graph_title"
+msgid "Graph title"
+msgstr "圖片標題"
+
+msgctxt "graphs_and_maps"
+msgid "Graphs and maps"
+msgstr "圖片及地圖"
+
+msgctxt "header"
+msgid "<meta property=\"fb:admins\" content=\"706410516\" />\n"
+"<meta property=\"og:site_name\" content=\"<<site_name>> - the free and open food products information database\"/>\n\n"
+"<script type=\"text/javascript\">\n"
+"  var uvOptions = {};\n"
+"  (function() {\n"
+"\tvar uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;\n"
+"\tuv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/jQrwafQ94nbEbRWsznm6Q.js';\n"
+"\tvar s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);\n"
+"  })();\n"
+"</script>\n\n\n"
+msgstr ""
+
+msgctxt "hello"
+msgid "Hello"
+msgstr "您好"
+
+msgctxt "high"
+msgid "high"
+msgstr "高"
+
+msgctxt "high_quantity"
+msgid "high quantity"
+msgstr "大量"
+
+msgctxt "history"
+msgid "Changes history"
+msgstr "修改歷史"
+
+msgctxt "image_front"
+msgid "Front picture"
+msgstr "前端照片"
+
+msgctxt "image_ingredients"
+msgid "Ingredients picture"
+msgstr "配料照片"
+
+msgctxt "image_ingredients_note"
+msgid "If the picture is neat enough, the ingredients can be extracted automatically"
+msgstr "若照片夠整齊，則配件資訊可額外被自動擷取。"
+
+msgctxt "image_nutrition"
+msgid "Nutrition facts picture"
+msgstr "營養成分照片"
+
+msgctxt "image_upload_error_image_already_exists"
+msgid "This picture has already been sent."
+msgstr "這張照片已被送出。"
+
+msgctxt "image_upload_error_image_too_small"
+msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
+msgstr "照片太小了。請勿上傳網路上找的照片，上傳您自己拍的。"
+
+msgctxt "image_upload_error_no_barcode_found_in_image_long"
+msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
+"You can try with another image, or directly enter the barcode."
+msgstr "無法讀取圖片中的條碼，或者圖片中沒有條碼。\n"
+"您可以試試其它圖片或重新輸入條碼。"
+
+msgctxt "image_upload_error_no_barcode_found_in_image_short"
+msgid "No barcode found in the image."
+msgstr "照片上找不到條碼。"
+
+msgctxt "image_upload_error_no_barcode_found_in_text"
+msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
+msgstr "您必須輸入條碼或者是當條碼是可見時送出產品的圖片。"
+
+msgctxt "incomplete_products_you_added"
+msgid "Products you added that need to be completed"
+msgstr "您上傳的產品需要更完善。"
+
+msgctxt "informers_p"
+msgid "informers"
+msgstr "提供者"
+
+msgctxt "informers_s"
+msgid "informers"
+msgstr "提供者"
+
+msgctxt "ingredients"
+msgid "Ingredients"
+msgstr "成分"
+
+msgctxt "ingredients_alt"
+msgid "Ingredients"
+msgstr "成分"
+
+msgctxt "ingredients_analysis"
+msgid "Ingredients analysis"
+msgstr "成分分析"
+
+msgctxt "ingredients_analysis_note"
+msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
+msgstr "注意: 同一成分可能有不同的名稱，如果您認為以上分析有誤，請讓我們知道。"
+
+msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
+msgid "ingredients from or that may be from palm oil"
+msgstr "成分為(或可能為)棕櫚油"
+
+msgctxt "ingredients_from_or_that_may_be_from_palm_oil_s"
+msgid "ingredient from or that may be from palm oil"
+msgstr "成分為(或可能為)棕櫚油"
+
+msgctxt "ingredients_from_palm_oil_p"
+msgid "ingredients from palm oil"
+msgstr "成分為棕櫚油"
+
+msgctxt "ingredients_from_palm_oil_s"
+msgid "ingredient from palm oil"
+msgstr "成分為棕櫚油"
+
+msgctxt "ingredients_n_p"
+msgid "Numbers of ingredients"
+msgstr "成分的數量"
+
+msgctxt "ingredients_n_s"
+msgid "Number of ingredients"
+msgstr "成分的數量"
+
+msgctxt "ingredients_p"
+msgid "ingredients"
+msgstr "成分"
+
+msgctxt "ingredients_products"
+msgid "Products that contain the ingredient %s"
+msgstr "產品包含了成分 %s"
+
+msgctxt "ingredients_s"
+msgid "ingredient"
+msgstr "成分"
+
+msgctxt "ingredients_text"
+msgid "Ingredients list"
+msgstr "成分清單"
+
+msgctxt "ingredients_text_display_note"
+msgid "Ingredients are listed in order of importance (quantity)."
+msgstr "成分按重要程度(分量)列舉"
+
+msgctxt "ingredients_text_example"
+msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
+msgstr "穀物 85.5% (_小麥_麵粉, 整體-_小麥_麵粉 11%)，麥精，可可 4，8%，抗壞血酸"
+
+msgctxt "ingredients_text_note"
+msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
+msgstr "保持順這個順序，標明%，用逗號或破折號來分隔，使用 ( ) 把過敏原成分括起來，例如蛋或牛奶。"
+
+msgctxt "ingredients_that_may_be_from_palm_oil_p"
+msgid "ingredients that may be from palm oil"
+msgstr "也許有棕櫚油成分"
+
+msgctxt "ingredients_that_may_be_from_palm_oil_s"
+msgid "ingredient that may be from palm oil"
+msgstr "也許有棕櫚油成分"
+
+msgctxt "ingredients_without_products"
+msgid "Products that do not contain the ingredient %s"
+msgstr "產品不含 %s 成分"
+
+msgctxt "ios_app_badge"
+msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
+msgstr ""
+
+msgctxt "ios_app_link"
+msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
+msgstr ""
+
+msgctxt "known_nutrients_p"
+msgid "known nutrients"
+msgstr "已知營養成分"
+
+msgctxt "known_nutrients_s"
+msgid "known nutrient"
+msgstr "已知營養成分"
+
+msgctxt "labels"
+msgid "Labels, certifications, awards"
+msgstr "標籤，認證，獎項"
+
+msgctxt "labels_example"
+msgid "Organic"
+msgstr "有機"
+
+msgctxt "labels_note"
+msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
+msgstr "標明具體的標籤，其上層標籤將會自動加入。"
+
+msgctxt "labels_p"
+msgid "labels"
+msgstr "標籤"
+
+msgctxt "labels_products"
+msgid "Products that have the label %s"
+msgstr "產品的標籤 %s"
+
+msgctxt "labels_s"
+msgid "label"
+msgstr "標籤"
+
+msgctxt "labels_tagsinput"
+msgid "add a label"
+msgstr "新增標籤"
+
+msgctxt "labels_without_products"
+msgid "Products that do not have the label %s"
+msgstr "產品無標籤 %s"
+
+msgctxt "lang"
+msgid "Main language"
+msgstr "主要語言"
+
+msgctxt "lang_ar"
+msgid "Arabic"
+msgstr "阿拉伯語"
+
+msgctxt "lang_bg"
+msgid "Bulgarian"
+msgstr ""
+
+msgctxt "lang_cs"
+msgid "Czech"
+msgstr "捷克語"
+
+msgctxt "lang_da"
+msgid "Danish"
+msgstr "丹麥語"
+
+msgctxt "lang_de"
+msgid "German"
+msgstr "德語"
+
+msgctxt "lang_el"
+msgid "Greek"
+msgstr "希臘語"
+
+msgctxt "lang_en"
+msgid "English"
+msgstr "英語"
+
+msgctxt "lang_es"
+msgid "Spanish"
+msgstr "西班牙語"
+
+msgctxt "lang_et"
+msgid "Estonian"
+msgstr "愛沙尼亞語"
+
+msgctxt "lang_fi"
+msgid "Finnish"
+msgstr "芬蘭語"
+
+msgctxt "lang_fr"
+msgid "French"
+msgstr "法語"
+
+msgctxt "lang_ga"
+msgid "Irish"
+msgstr "愛爾蘭語"
+
+msgctxt "lang_he"
+msgid "Hebrew"
+msgstr "希伯來語"
+
+msgctxt "lang_hu"
+msgid "Hungarian"
+msgstr "匈牙利語"
+
+msgctxt "lang_id"
+msgid "Indonesian"
+msgstr "印尼語"
+
+msgctxt "lang_it"
+msgid "Italian"
+msgstr "義大利語"
+
+msgctxt "lang_ja"
+msgid "Japanese"
+msgstr "日語"
+
+msgctxt "lang_ko"
+msgid "Korean"
+msgstr "韓語"
+
+msgctxt "lang_lt"
+msgid "Lithuanian"
+msgstr ""
+
+msgctxt "lang_lv"
+msgid "Latvian"
+msgstr "拉脫維亞語"
+
+msgctxt "lang_mt"
+msgid "Maltese"
+msgstr ""
+
+msgctxt "lang_nl"
+msgid "Dutch"
+msgstr "荷蘭語"
+
+msgctxt "lang_nl_be"
+msgid "Dutch"
+msgstr "荷蘭語"
+
+msgctxt "lang_note"
+msgid "Language most present and most highlighted on the product"
+msgstr "產品上的語言要清楚呈現"
+
+msgctxt "lang_other"
+msgid "other language"
+msgstr "其它語言"
+
+msgctxt "lang_pl"
+msgid "Polish"
+msgstr "波蘭語"
+
+msgctxt "lang_pt"
+msgid "Portuguese"
+msgstr "葡萄牙語"
+
+msgctxt "lang_pt_pt"
+msgid "Portugal Portuguese"
+msgstr ""
+
+msgctxt "lang_ro"
+msgid "Romanian"
+msgstr "羅馬尼亞語"
+
+msgctxt "lang_ru"
+msgid "Russian"
+msgstr "俄語"
+
+msgctxt "lang_sk"
+msgid "Slovak"
+msgstr ""
+
+msgctxt "lang_sl"
+msgid "Slovenian"
+msgstr ""
+
+msgctxt "lang_sv"
+msgid "Swedish"
+msgstr "瑞典語"
+
+msgctxt "lang_th"
+msgid "Thai"
+msgstr "泰語"
+
+msgctxt "lang_vi"
+msgid "Vietnamese"
+msgstr "越南語"
+
+msgctxt "lang_zh"
+msgid "Chinese"
+msgstr "漢語"
+
+msgctxt "language"
+msgid "en-US"
+msgstr "en-US"
+
+msgctxt "languages_p"
+msgid "languages"
+msgstr "語言"
+
+msgctxt "languages_s"
+msgid "language"
+msgstr "語言"
+
+msgctxt "last_edit_dates_p"
+msgid "Last edit dates"
+msgstr "最後編輯日期"
+
+msgctxt "last_edit_dates_s"
+msgid "Last edit date"
+msgstr "最後編輯日期"
+
+msgctxt "last_image_dates_p"
+msgid "Last picture dates"
+msgstr "最後照片日期"
+
+msgctxt "last_image_dates_s"
+msgid "Last picture date"
+msgstr "最後照片日期"
+
+msgctxt "licence_accept"
+msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"http://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
+"for information and data, and under the <a href=\"http://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
+"You accept to be credited by re-users by a link to the product your are contributing to."
+msgstr ""
+
+msgctxt "link"
+msgid "Link to the product page on the official site of the producer"
+msgstr "連結至產品的官方網頁"
+
+msgctxt "list_of_x"
+msgid "List of %s"
+msgstr "%s 列表"
+
+msgctxt "loadmore"
+msgid "Load more results"
+msgstr "載入更多結果"
+
+msgctxt "login_and_add_product"
+msgid "Sign-in and add the product"
+msgstr "登入來新增產品"
+
+msgctxt "login_and_edit_product"
+msgid "Sign-in and edit the product"
+msgstr "登入來編輯產品"
+
+msgctxt "login_create_your_account"
+msgid "Create your account."
+msgstr "建立您的帳戶"
+
+msgctxt "login_not_registered_yet"
+msgid "Not registered yet?"
+msgstr "還沒註冊帳號嗎?"
+
+msgctxt "login_register_content"
+msgid "<p>Sign-in to add or edit products.</p>\n\n"
+"<form method=\"post\" action=\"/cgi/session.pl\">\n"
+"Username or e-mail address:<br />\n"
+"<input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\" /><br />\n"
+"Password<br />\n"
+"<input type=\"password\" name=\"password\" tabindex=\"2\" style=\"width:220px;\" autocomplete=\"current-password\" /><br />\n"
+"<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>Remember me</label><br />\n"
+"<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Sign-in\" class=\"button small\" />\n"
+"</form>\n"
+"<p>Not registered yet? <a href=\"/cgi/user.pl\">Create your account</a>.</p>\n"
+msgstr ""
+
+msgctxt "login_register_title"
+msgid "Sign-in"
+msgstr "登入"
+
+msgctxt "login_to_add_and_edit_products"
+msgid "Sign-in to add or edit products."
+msgstr "登入來新增或編輯產品。"
+
+msgctxt "login_to_add_products"
+msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
+"<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
+msgstr "請登入來新增或編輯產品。\n"
+
+msgctxt "login_username_email"
+msgid "Username or e-mail address:"
+msgstr "使用者名稱或電子郵件地址:"
+
+msgctxt "low"
+msgid "low"
+msgstr "低"
+
+msgctxt "low_quantity"
+msgid "low quantity"
+msgstr "低量"
+
+msgctxt "manage_images"
+msgid "Manage images"
+msgstr "管理圖片"
+
+msgctxt "manage_images_info"
+msgid "You can select one or more images and then:"
+msgstr "你可以選擇一張或多張圖片:"
+
+msgctxt "manufacturing_places"
+msgid "Manufacturing or processing places"
+msgstr "生產地點"
+
+msgctxt "manufacturing_places_example"
+msgid "Montana, USA"
+msgstr "蒙大拿, 美國"
+
+msgctxt "manufacturing_places_p"
+msgid "manufacturing or processing places"
+msgstr "生產地點"
+
+msgctxt "manufacturing_places_products"
+msgid "Products manufactured or processed in %s"
+msgstr "產品生產地點為 %s"
+
+msgctxt "manufacturing_places_s"
+msgid "manufacturing or processing place"
+msgstr "生產地點"
+
+msgctxt "manufacturing_places_tagsinput"
+msgid "add a place"
+msgstr "新增地點"
+
+msgctxt "manufacturing_places_without_products"
+msgid "Products not manufactured or processed in %s"
+msgstr "產品生產地點非為 %s"
+
+msgctxt "map_count"
+msgid "%d products match the search criterias, of which %i products have a known production place."
+msgstr "%d 產品符合搜尋標準，其中 %i 產品有已知的生產地點。"
+
+msgctxt "map_title"
+msgid "Map title"
+msgstr "地圖搜尋"
+
+msgctxt "menu"
+msgid "Menu"
+msgstr "選單"
+
+msgctxt "menu_add_a_product"
+msgid "Add a product"
+msgstr "新增產品"
+
+msgctxt "menu_add_a_product_link"
+msgid "/add-a-product"
+msgstr "/add-a-product"
+
+msgctxt "menu_contribute"
+msgid "Contribute"
+msgstr "貢獻"
+
+msgctxt "menu_contribute_link"
+msgid "/contribute"
+msgstr "/contribute"
+
+msgctxt "menu_discover"
+msgid "Discover"
+msgstr "探索"
+
+msgctxt "menu_discover_link"
+msgid "/discover"
+msgstr "/discover"
+
+msgctxt "mission_"
+msgid "Mission: "
+msgstr "任務: "
+
+msgctxt "mission_accomplished_by"
+msgid "This mission has been completed by:"
+msgstr "此任務已完成:"
+
+msgctxt "mission_accomplished_by_n"
+msgid "Completed by %d persons."
+msgstr "完成率 %s"
+
+msgctxt "mission_accomplished_by_nobody"
+msgid "Be the first to complete this mission!"
+msgstr "當第一位完成此任務的人!"
+
+msgctxt "mission_goal"
+msgid "Goal:"
+msgstr "目標:"
+
+msgctxt "missions"
+msgid "Missions"
+msgstr "任務"
+
+msgctxt "moderate"
+msgid "moderate"
+msgstr "中等"
+
+msgctxt "moderate_quantity"
+msgid "moderate quantity"
+msgstr "中等量"
+
+msgctxt "months"
+msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
+msgstr "['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']"
+
+msgctxt "move_images_to_another_product"
+msgid "Move the images to another product"
+msgstr "移動圖片到其它產品"
+
+msgctxt "n_products"
+msgid "%d products"
+msgstr "%d 產品"
+
+msgctxt "name"
+msgid "Name"
+msgstr "名稱"
+
+msgctxt "names"
+msgid "Names"
+msgstr "名稱"
+
+msgctxt "new_code"
+msgid "If the barcode is not correct, please correct it here:"
+msgstr "若條碼不正確，請修在此修正它:"
+
+msgctxt "new_code_note"
+msgid "For products without a barcode, an internal code is automatically set."
+msgstr "若產品沒有條碼，則會自動幫它產生一個內部碼。"
+
+msgctxt "newsletter_description"
+msgid "Subscribe to the newsletter (2 emails per month maximum)"
+msgstr "訂閱新聞 (一個月最多2封信)"
+
+msgctxt "next"
+msgid "Next"
+msgstr "下一個"
+
+msgctxt "no_barcode"
+msgid "Product without barcode"
+msgstr "產品沒有條碼"
+
+msgctxt "no_nutrition_data"
+msgid "Nutrition facts are not specified on the product."
+msgstr "產品未具體標明營養成分"
+
+msgctxt "no_product_for_barcode"
+msgid "No product listed for barcode %s."
+msgstr "無此條碼 %s 的產品"
+
+msgctxt "no_products"
+msgid "No products."
+msgstr "沒有產品"
+
+msgctxt "not_saved"
+msgid "Error while saving, please retry."
+msgstr "儲存發生錯誤，請再試一次。"
+
+msgctxt "number_of_additives"
+msgid "Number of additives"
+msgstr "添加劑編號"
+
+msgctxt "number_of_products"
+msgid "Number of products"
+msgstr "產品編號"
+
+msgctxt "nutrient_in_quantity"
+msgid "%s in %s"
+msgstr "%s 於 %s"
+
+msgctxt "nutrient_levels_info"
+msgid "Nutrient levels for 100 g"
+msgstr "每100公克的營養等級"
+
+msgctxt "nutrient_levels_link"
+msgid "/nutrient-levels"
+msgstr "/nutrient-levels"
+
+msgctxt "nutrient_levels_p"
+msgid "nutrient levels"
+msgstr "營養等級"
+
+msgctxt "nutrient_levels_s"
+msgid "nutrient level"
+msgstr "營養等級"
+
+msgctxt "nutriments_p"
+msgid "nutriments"
+msgstr "營養"
+
+msgctxt "nutriments_products"
+msgid "Products that contain the nutriment %s"
+msgstr "產品包含營養 %s"
+
+msgctxt "nutriments_s"
+msgid "nutriment"
+msgstr "營養"
+
+msgctxt "nutriments_without_products"
+msgid "Products that do not contain the nutriment %s"
+msgstr "產品不包含營養 %s"
+
+msgctxt "nutrition_alt"
+msgid "Nutrition facts"
+msgstr "營養成分"
+
+msgctxt "nutrition_data"
+msgid "Nutrition facts"
+msgstr "營養成分"
+
+msgctxt "nutrition_data_average"
+msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
+msgstr ""
+
+msgctxt "nutrition_data_compare_percent"
+msgid "% of difference"
+msgstr "差異 %"
+
+msgctxt "nutrition_data_compare_value"
+msgid "value for 100 g / 100 ml"
+msgstr "每 100克/100毫升 值"
+
+msgctxt "nutrition_data_comparison_with_categories"
+msgid "Comparison to average values of products in the same category:"
+msgstr "比較相同產品類別的平均值"
+
+msgctxt "nutrition_data_comparison_with_categories_note"
+msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
+msgstr "請注意: 針對每一種營養，是以產品已知的的營養量來計算平均，而非分類中的所有產品。"
+
+msgctxt "nutrition_data_note"
+msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
+msgstr "若照片十分地清楚完整，其營養成分會從照片中被自動擷取出來。"
+
+msgctxt "nutrition_data_per_10"
+msgid "10th centile"
+msgstr "10個百分比"
+
+msgctxt "nutrition_data_per_100g"
+msgid "for 100 g / 100 ml"
+msgstr "每 100克/100毫升"
+
+msgctxt "nutrition_data_per_5"
+msgid "5<sup>th</sup> centile"
+msgstr ""
+
+msgctxt "nutrition_data_per_50"
+msgid "Median"
+msgstr "中位數"
+
+msgctxt "nutrition_data_per_90"
+msgid "90th centile"
+msgstr "90個百分比"
+
+msgctxt "nutrition_data_per_95"
+msgid "95<sup>th</sup> centile"
+msgstr ""
+
+msgctxt "nutrition_data_per_max"
+msgid "Maximum"
+msgstr "最大值"
+
+msgctxt "nutrition_data_per_mean"
+msgid "Mean"
+msgstr "平均值"
+
+msgctxt "nutrition_data_per_min"
+msgid "Minimum"
+msgstr "最小值"
+
+msgctxt "nutrition_data_per_serving"
+msgid "per serving"
+msgstr "每個包含"
+
+msgctxt "nutrition_data_per_std"
+msgid "Standard deviation"
+msgstr "標準差"
+
+msgctxt "nutrition_data_table"
+msgid "Nutrition facts"
+msgstr "營養成分"
+
+msgctxt "nutrition_data_table_note"
+msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
+"by typing the first letters of their name in the last row of the table."
+msgstr "營養成分表常被提起。若標籤未標示則空下該欄。<br/>您可以藉由在表上打上營養素的第一個字母來新增額外的營養 (如 維生素、礦物質、膽固醇...等等)。"
+
+msgctxt "nutrition_data_table_sub"
+msgid "-"
+msgstr ""
+
+msgctxt "nutrition_grades_p"
+msgid "Nutrition grades"
+msgstr "營養等級"
+
+msgctxt "nutrition_grades_s"
+msgid "Nutrition grade"
+msgstr "營養等級"
+
+msgctxt "og_image_url"
+msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+msgstr ""
+
+msgctxt "on_the_blog_content"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+"<p>Recent news:</p>\n"
+msgstr ""
+
+msgctxt "on_the_blog_title"
+msgid "News"
+msgstr "新聞"
+
+msgctxt "openfoodhunt_points"
+msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
+"Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
+msgstr ""
+
+msgctxt "or"
+msgid "or:"
+msgstr ""
+
+msgctxt "origins"
+msgid "Origin of ingredients"
+msgstr "配料來源"
+
+msgctxt "origins_example"
+msgid "California, USA"
+msgstr "加州, 美國"
+
+msgctxt "origins_note_xxx"
+msgid "Indicate the origin of ingredients"
+msgstr "標示原料來源"
+
+msgctxt "origins_p"
+msgid "origins of ingredients"
+msgstr "原料來源"
+
+msgctxt "origins_products"
+msgid "Products with ingredients originating from %s"
+msgstr "產品的原料來自於 %s"
+
+msgctxt "origins_s"
+msgid "origin of ingredients"
+msgstr "原料來源"
+
+msgctxt "origins_tagsinput"
+msgid "add an origin"
+msgstr "新增來源"
+
+msgctxt "origins_without_products"
+msgid "Products without ingredients originating from %s"
+msgstr "產品的原料非來自於 %s"
+
+msgctxt "packaging"
+msgid "Packaging"
+msgstr "包裝套件"
+
+msgctxt "packaging_example"
+msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
+msgstr "新鮮、罐裝、冷凍、瓶裝、盒裝、玻璃、塑膠..."
+
+msgctxt "packaging_note"
+msgid "Packaging type, format, material"
+msgstr "包裝類型、規格、材料"
+
+msgctxt "packaging_p"
+msgid "packaging"
+msgstr "包裝"
+
+msgctxt "packaging_products"
+msgid "Products with a %s packaging"
+msgstr "產品由 %s 包裝"
+
+msgctxt "packaging_s"
+msgid "packaging"
+msgstr "包裝"
+
+msgctxt "packaging_tagsinput"
+msgid "add a type, shape or material"
+msgstr "新增類型、外形或材料"
+
+msgctxt "packaging_without_products"
+msgid "Products without a %s packaging"
+msgstr "產品非由 %s 包裝"
+
+msgctxt "page_x"
+msgid "Page %d"
+msgstr "第 %d 頁"
+
+msgctxt "page_x_out_of_y"
+msgid "Page %d out of %d."
+msgstr ""
+
+msgctxt "pages"
+msgid "Pages:"
+msgstr "頁面："
+
+msgctxt "password"
+msgid "Password"
+msgstr "密碼"
+
+msgctxt "password_confirm"
+msgid "Confirm password"
+msgstr "確認密碼"
+
+msgctxt "periods_after_opening"
+msgid "Period of time after opening"
+msgstr "開封後保存期限"
+
+msgctxt "periods_after_opening_note"
+msgid "Found in an open container logo with a number of months: e.g. 12 M"
+msgstr ""
+
+msgctxt "periods_after_opening_p"
+msgid "Periods after opening"
+msgstr "開封後保存期限"
+
+msgctxt "periods_after_opening_s"
+msgid "Period after opening"
+msgstr "開封後保存期限"
+
+msgctxt "photographers_p"
+msgid "photographers"
+msgstr "攝影師"
+
+msgctxt "photographers_s"
+msgid "photographer"
+msgstr "攝影師"
+
+msgctxt "pnns_groups_1"
+msgid "PNNS groups 1"
+msgstr "PNNS 群組1"
+
+msgctxt "pnns_groups_1_p"
+msgid "PNNS groups 1"
+msgstr "PNNS 群組1"
+
+msgctxt "pnns_groups_1_s"
+msgid "PNNS group 1"
+msgstr "PNNS 群組1"
+
+msgctxt "pnns_groups_2"
+msgid "PNNS groups 2"
+msgstr "PNNS 群組2"
+
+msgctxt "pnns_groups_2_p"
+msgid "PNNS groups 2"
+msgstr "PNNS 群組2"
+
+msgctxt "pnns_groups_2_s"
+msgid "PNNS group 2"
+msgstr "PNNS 群組2"
+
+msgctxt "points_all_countries"
+msgid "There are %d Explorers and %d Ambassadors."
+msgstr "有 %d 探險家及 %d 大使"
+
+msgctxt "points_all_users"
+msgid "There are Explorers for %d countries and Ambassadors for %d countries."
+msgstr "有 %d 國家探險家及 %d 國家大使"
+
+msgctxt "points_country"
+msgid "%s has %d Explorers and %d Ambassadors."
+msgstr "%s 有 %d 探險家及 %d 大使"
+
+msgctxt "points_ranking"
+msgid "Ranking"
+msgstr "排行"
+
+msgctxt "points_ranking_users_and_countries"
+msgid "Ranking of contributors and countries"
+msgstr "貢獻者及國家排行"
+
+msgctxt "points_user"
+msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
+msgstr "%s 是 %d 國的探險家及 %d 國的大使"
+
+msgctxt "previous"
+msgid "Previous"
+msgstr "前一頁"
+
+msgctxt "product_add_nutrient"
+msgid "Add a nutrient"
+msgstr "新增營養"
+
+msgctxt "product_added"
+msgid "Product added on"
+msgstr "新增加的產品"
+
+msgctxt "product_changes_saved"
+msgid "Changes saved."
+msgstr "儲存已變更"
+
+msgctxt "product_characteristics"
+msgid "Product characteristics"
+msgstr "產品特徵"
+
+msgctxt "product_created"
+msgid "Product created"
+msgstr "產品已建立"
+
+msgctxt "product_description"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "產品 %s 的配料、過敏原、添加劑、營養成分、標籤、配料來源及資訊"
+
+msgctxt "product_image"
+msgid "Product picture"
+msgstr "產品圖片"
+
+msgctxt "product_image_with_barcode"
+msgid "Picture with barcode:"
+msgstr "條碼圖片"
+
+msgctxt "product_js_current_image"
+msgid "Current image:"
+msgstr "現在的圖片"
+
+msgctxt "product_js_deleting_images"
+msgid "Deleting images"
+msgstr "刪除圖片中"
+
+msgctxt "product_js_extract_ingredients"
+msgid "Extract the ingredients from the picture"
+msgstr "從圖片中摘錄配料"
+
+msgctxt "product_js_extracted_ingredients_nok"
+msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
+msgstr "配料內容無法被摘錄。試看看更清楚、更高解析度或取景更佳的圖片，"
+
+msgctxt "product_js_extracted_ingredients_ok"
+msgid "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
+msgstr "配料內容已被摘錄。但內容辨識不完善，故請檢查以下內容及勘誤。"
+
+msgctxt "product_js_extracting_ingredients"
+msgid "Extracting ingredients"
+msgstr "摘錄配料"
+
+msgctxt "product_js_image_normalize"
+msgid "Normalize colors"
+msgstr "正常化顏色"
+
+msgctxt "product_js_image_open_full_size_image"
+msgid "Open the picture in original size in a new windows"
+msgstr "在新視窗中開啟原始大小的圖片"
+
+msgctxt "product_js_image_received"
+msgid "Image received"
+msgstr "收到圖片"
+
+msgctxt "product_js_image_rotate_and_crop"
+msgid "Rotate the image if necessary, then click and drag to select the interesting zone:"
+msgstr "如果有必要則旋轉圖片，然後再點擊及拉取你有興趣的圖片區域:"
+
+msgctxt "product_js_image_rotate_left"
+msgid "Rotate left"
+msgstr "向左旋轉"
+
+msgctxt "product_js_image_rotate_right"
+msgid "Rotate right"
+msgstr "向右旋轉"
+
+msgctxt "product_js_image_save"
+msgid "Validate and/or resize image"
+msgstr "驗證及(或)改變圖片大小"
+
+msgctxt "product_js_image_saved"
+msgid "Image saved"
+msgstr "圖片已保存"
+
+msgctxt "product_js_image_saving"
+msgid "Saving image"
+msgstr "儲存圖片"
+
+msgctxt "product_js_image_upload_error"
+msgid "Error while uploading image"
+msgstr "上傳圖片時發生錯誤"
+
+msgctxt "product_js_image_white_magic"
+msgid "Photo on white background: try to remove the background"
+msgstr "照片為白色背景: 請試著去移除其背景"
+
+msgctxt "product_js_images_delete_error"
+msgid "Errors while deleting images"
+msgstr "刪除圖片時發生錯誤"
+
+msgctxt "product_js_images_deleted"
+msgid "Images deleted"
+msgstr "圖片已刪除"
+
+msgctxt "product_js_images_move_error"
+msgid "Errors while moving images"
+msgstr "移動圖片時發生錯誤"
+
+msgctxt "product_js_images_moved"
+msgid "Images moved"
+msgstr "圖片已移動"
+
+msgctxt "product_js_moving_images"
+msgid "Moving images"
+msgstr "移動圖片中"
+
+msgctxt "product_js_upload_image"
+msgid "Add a picture"
+msgstr "新增圖片"
+
+msgctxt "product_js_upload_image_note"
+msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
+msgstr ""
+
+msgctxt "product_js_uploading_image"
+msgid "Uploading image"
+msgstr "更新圖片中"
+
+msgctxt "product_last_edited"
+msgid "Last edit of product page on"
+msgstr "產品頁最後編輯為:"
+
+msgctxt "product_name"
+msgid "Product name"
+msgstr "品名"
+
+msgctxt "product_name_example"
+msgid "Kinder Bueno White"
+msgstr ""
+
+msgctxt "products"
+msgid "products"
+msgstr "產品"
+
+msgctxt "products_stats"
+msgid "Evolution of the number of products on <<site_name>>"
+msgstr "<<site_name>> 上的產品數量變化"
+
+msgctxt "products_stats_completed_t"
+msgid "Products with complete information"
+msgstr "完整資訊的產品"
+
+msgctxt "products_stats_created_t"
+msgid "Products"
+msgstr "產品"
+
+msgctxt "products_with_nutriments"
+msgid "with nutrition facts"
+msgstr "相關營養成分"
+
+msgctxt "products_you_edited"
+msgid "Products you added or edited"
+msgstr "您新增或編輯的產品"
+
+msgctxt "purchase_places"
+msgid "City, state and country where purchased"
+msgstr "購的買城市, 州及城鎮"
+
+msgctxt "purchase_places_note"
+msgid "Indicate where you bought or saw the product (at least the country)"
+msgstr "標示出您在何處購該產品 (至少要有國別)"
+
+msgctxt "purchase_places_p"
+msgid "purchase places"
+msgstr "採購地點"
+
+msgctxt "purchase_places_products"
+msgid "Products sold in %s"
+msgstr "產品售於 %s"
+
+msgctxt "purchase_places_s"
+msgid "purchase place"
+msgstr "採購地點"
+
+msgctxt "purchase_places_tagsinput"
+msgid "add a place"
+msgstr "新增地點"
+
+msgctxt "purchase_places_without_products"
+msgid "Products not sold in %s"
+msgstr "產品未販售於 %s"
+
+msgctxt "quantity"
+msgid "Quantity"
+msgstr "數量"
+
+msgctxt "quantity_example"
+msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
+msgstr "2公升、250公克、1公斤、25 cl、 6 fl oz、 1 磅"
+
+msgctxt "remember_me"
+msgid "Remember me"
+msgstr "記住我的登錄資料"
+
+msgctxt "remember_purchase_places_and_stores"
+msgid "Remember the place of purchase and store for the next product adds"
+msgstr "記住採購地點給以後的產品使用"
+
+msgctxt "reset_password"
+msgid "Reset password"
+msgstr "重設密碼"
+
+msgctxt "reset_password_email_body"
+msgid "Hello <NAME>,\n\n"
+"You asked for your password to be reset on https://openfoodfacts.org\n\n"
+"for the username: <USERID>\n\n"
+"To continue the password reset, click on the link below.\n"
+"If you did not ask for the password reset, you can ignore this message.\n\n"
+"<RESET_URL>\n\n"
+"See you soon,\n\n"
+"Stephane\n"
+"https://openfoodfacts.org\n"
+msgstr ""
+
+msgctxt "reset_password_email_subject"
+msgid "Reset of your password on <<site_name>>"
+msgstr "重設您的密碼於 <<site_name>>"
+
+msgctxt "reset_password_reset"
+msgid "Your password has been changed. You can now log-in with this password."
+msgstr "您的密碼已改變。您現在可以使用此密碼登入。"
+
+msgctxt "reset_password_reset_msg"
+msgid "Enter a new password."
+msgstr "輸入新密碼。"
+
+msgctxt "reset_password_send_email"
+msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
+msgstr "電子郵件裡有一個連結用來重設您的密嗎，該信已寄給您帳戶中所設定的電子郵件地址。"
+
+msgctxt "reset_password_send_email_msg"
+msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
+msgstr "如果您忘了密碼，請填入您的帳戶名稱或電子郵件地址，您將會收到重設密碼的說明。"
+
+msgctxt "risk_level"
+msgid "Risk"
+msgstr "風險等級"
+
+msgctxt "risk_level_0"
+msgid "To be completed"
+msgstr "即將完成"
+
+msgctxt "risk_level_1"
+msgid "Low risks"
+msgstr "低風險等級"
+
+msgctxt "risk_level_2"
+msgid "Moderate risks"
+msgstr "中等風險等級"
+
+msgctxt "risk_level_3"
+msgid "High risks"
+msgstr "高風險等級"
+
+msgctxt "salt_equivalent"
+msgid "salt equivalent"
+msgstr "相當食鹽量"
+
+msgctxt "save"
+msgid "Save"
+msgstr "儲存"
+
+msgctxt "saved"
+msgid "Saved."
+msgstr "儲存"
+
+msgctxt "saving"
+msgid "Saving."
+msgstr "儲存"
+
+msgctxt "search"
+msgid "Search"
+msgstr "搜尋"
+
+msgctxt "search_a_product_placeholder"
+msgid "Search a product"
+msgstr "搜尋產品"
+
+msgctxt "search_button"
+msgid "Search"
+msgstr "搜尋"
+
+msgctxt "search_contains"
+msgid "contains"
+msgstr "搜尋條件包含"
+
+msgctxt "search_criteria"
+msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
+msgstr "選擇具體品牌、類別、標籤、配料來源、製造地點...等等的產品"
+
+msgctxt "search_description_opensearch"
+msgid "Open Food Facts product search"
+msgstr "Open Food Facts 產品搜尋"
+
+msgctxt "search_does_not_contain"
+msgid "does not contain"
+msgstr "搜尋條件不包含"
+
+msgctxt "search_download_button"
+msgid "Download"
+msgstr "下載"
+
+msgctxt "search_download_choice"
+msgid "Download results"
+msgstr "下載結果"
+
+msgctxt "search_download_results"
+msgid "Download results in CSV format (Excel, OpenOffice)"
+msgstr "下載 CSV 格式 (Excel, OpenOffice) 結果"
+
+msgctxt "search_download_results_description"
+msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
+msgstr ""
+
+msgctxt "search_edit"
+msgid "Change search criteria"
+msgstr "變更搜尋條件"
+
+msgctxt "search_flatten_tags"
+msgid "(Optional) - Create a column for every:"
+msgstr "(可選的) - 建立一個欄位供每個:"
+
+msgctxt "search_generate_graph"
+msgid "Generate graph"
+msgstr "產生圖表"
+
+msgctxt "search_generate_map"
+msgid "Generate the map"
+msgstr "產生地圖"
+
+msgctxt "search_graph"
+msgid "Graph"
+msgstr "圖表"
+
+msgctxt "search_graph_2_axis"
+msgid "Scatter plot"
+msgstr "散佈圖"
+
+msgctxt "search_graph_blog"
+msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
+msgstr ""
+
+msgctxt "search_graph_choice"
+msgid "Results on a graph"
+msgstr "圖表結果"
+
+msgctxt "search_graph_instructions"
+msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
+"get a cloud of products (scatter plot)."
+msgstr "在縱軸選擇您想要的圖解以獲取柱狀圖，或者選擇二軸以取得產品雲(散佈圖)。"
+
+msgctxt "search_graph_link"
+msgid "Permanent link to this graph, shareable by e-mail and on social networks"
+msgstr "永久連結至此圖表，藉由電子郵件或社群來共享。"
+
+msgctxt "search_graph_note"
+msgid "The graph will show only products for which displayed values are known."
+msgstr "此圖表將只顯示該產品已知資訊。"
+
+msgctxt "search_graph_title"
+msgid "Display results on a graph"
+msgstr "顯示圖表結果"
+
+msgctxt "search_graph_warning"
+msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
+msgstr "注意:  這是使用者產生的圖表。 其標題，產品的呈現及其樣式已由圖表作者決定。"
+
+msgctxt "search_indifferent"
+msgid "Indifferent"
+msgstr ""
+
+msgctxt "search_ingredients"
+msgid "Ingredients"
+msgstr "成分"
+
+msgctxt "search_link"
+msgid "Permanent link to these results, shareable by e-mail and on social networks"
+msgstr "這些成果的永久連結，可藉由電子郵件及社群網路來分享。"
+
+msgctxt "search_list_choice"
+msgid "Results in a list of products"
+msgstr "產品清單的結果"
+
+msgctxt "search_map"
+msgid "Map"
+msgstr "地圖"
+
+msgctxt "search_map_choice"
+msgid "Results on a map"
+msgstr "地圖上的結果"
+
+msgctxt "search_map_link"
+msgid "Permanent link to this map, shareable by e-mail and on social networks"
+msgstr "此地圖的永久連結，可藉由電子郵件及社群網路來分享。"
+
+msgctxt "search_map_note"
+msgid "The map will show only products for which the production place is known."
+msgstr "此地圖將只顯示已知生產地點的產品。"
+
+msgctxt "search_map_title"
+msgid "Display results on a map"
+msgstr "在地圖上呈現結果"
+
+msgctxt "search_nutriment"
+msgid "choose a nutriment..."
+msgstr "選擇營養"
+
+msgctxt "search_nutriments"
+msgid "Nutriments"
+msgstr "營養"
+
+msgctxt "search_or"
+msgid "or"
+msgstr "或"
+
+msgctxt "search_page_size"
+msgid "Results per page"
+msgstr "每頁結果"
+
+msgctxt "search_products"
+msgid "Products search"
+msgstr "產品搜尋"
+
+msgctxt "search_results"
+msgid "Search results"
+msgstr "搜尋結果"
+
+msgctxt "search_series"
+msgid "Use a different color for the following products:"
+msgstr "針對以下產品使用不同的顏色"
+
+msgctxt "search_series_default"
+msgid "Other products"
+msgstr "其它產品"
+
+msgctxt "search_series_fairtrade"
+msgid "Fair trade"
+msgstr "公平貿易"
+
+msgctxt "search_series_fairtrade_label"
+msgid "fair-trade"
+msgstr "公平貿易"
+
+msgctxt "search_series_nutrition_grades"
+msgid "Use nutrition grades colors"
+msgstr "使用營養等級顏色"
+
+msgctxt "search_series_organic"
+msgid "Organic"
+msgstr "有機"
+
+msgctxt "search_series_organic_label"
+msgid "organic"
+msgstr "有機"
+
+msgctxt "search_series_with_sweeteners"
+msgid "With sweeteners"
+msgstr "含甜味劑"
+
+msgctxt "search_tag"
+msgid "choose a criterion..."
+msgstr "選擇標準"
+
+msgctxt "search_tags"
+msgid "Criteria"
+msgstr "標準"
+
+msgctxt "search_terms"
+msgid "Search terms"
+msgstr "搜索條件"
+
+msgctxt "search_terms_note"
+msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
+msgstr "搜索品名、學名、商標、分類、來源及標籤上的文字"
+
+msgctxt "search_title"
+msgid "Search a product, brand, ingredient, nutriment etc."
+msgstr "搜索產品、商標、成分、營養...等。"
+
+msgctxt "search_title_graph"
+msgid "Results graph"
+msgstr "結果圖表"
+
+msgctxt "search_title_map"
+msgid "Results map"
+msgstr "結果地圖"
+
+msgctxt "search_tools"
+msgid "Search tools"
+msgstr "搜尋工具"
+
+msgctxt "search_value"
+msgid "value"
+msgstr "值"
+
+msgctxt "search_with"
+msgid "With"
+msgstr "和"
+
+msgctxt "search_without"
+msgid "Without"
+msgstr "無"
+
+msgctxt "see_product_page"
+msgid "See the product page"
+msgstr "看產品頁"
+
+msgctxt "select_country"
+msgid "Country"
+msgstr "國家"
+
+msgctxt "select_lang"
+msgid "Language"
+msgstr "語言"
+
+msgctxt "send_image"
+msgid "Send a picture..."
+msgstr "送出圖片"
+
+msgctxt "send_image_error"
+msgid "Upload error"
+msgstr "上傳發生錯誤"
+
+msgctxt "sending_image"
+msgid "Sending image"
+msgstr "送出照片中"
+
+msgctxt "serving_size"
+msgid "Serving size"
+msgstr "份量"
+
+msgctxt "serving_size_example"
+msgid "60 g, 12 oz, 20cl, 2 fl oz"
+msgstr "60克, 12盎司, 20cl, 2液體盎司"
+
+msgctxt "session_title"
+msgid "Sign-in"
+msgstr "登入"
+
+msgctxt "share"
+msgid "Share"
+msgstr "分享"
+
+msgctxt "show_category_stats"
+msgid "Show detailed stats"
+msgstr "顯示詳細統計"
+
+msgctxt "show_category_stats_details"
+msgid "standard deviation, minimum, maximum, 10th and 90th percentiles"
+msgstr "標準差, 最小值, 最大值, 第10和第90百分位數"
+
+msgctxt "signin_before_submit"
+msgid "If you already have an account on <SITE>, please sign-in before filling this form."
+msgstr "若您已有帳號於 <SITE>，入在填寫此表前請先登入。"
+
+msgctxt "signout"
+msgid "Sign-out"
+msgstr "登出"
+
+msgctxt "site_description"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr "來自全球有關食品原料、營養成分、及其資訊的合作、自由且開放的資料庫。"
+
+msgctxt "site_name"
+msgid "Open Food Facts"
+msgstr "Open Food Facts"
+
+msgctxt "sort_by"
+msgid "Sort by"
+msgstr "排序依"
+
+msgctxt "sort_created_t"
+msgid "Add date"
+msgstr "新增日期"
+
+msgctxt "sort_modified_t"
+msgid "Edit date"
+msgstr "編輯日期"
+
+msgctxt "sort_popularity"
+msgid "Popularity"
+msgstr "人氣"
+
+msgctxt "sort_product_name"
+msgid "Product name"
+msgstr "品名"
+
+msgctxt "state"
+msgid "State"
+msgstr "狀態"
+
+msgctxt "states_p"
+msgid "states"
+msgstr "狀態"
+
+msgctxt "states_s"
+msgid "state"
+msgstr "狀態"
+
+msgctxt "stores"
+msgid "Stores"
+msgstr "商店"
+
+msgctxt "stores_note"
+msgid "Name of the shop or supermarket chain"
+msgstr "商店或賣場名稱"
+
+msgctxt "stores_p"
+msgid "stores"
+msgstr "商店"
+
+msgctxt "stores_products"
+msgid "Products sold at %s"
+msgstr "產品售於 %s"
+
+msgctxt "stores_s"
+msgid "store"
+msgstr "商店"
+
+msgctxt "stores_tagsinput"
+msgid "add a store"
+msgstr "新增商店"
+
+msgctxt "stores_without_products"
+msgid "Products not bought at %s"
+msgstr "產品非購於 %s"
+
+msgctxt "subscribe"
+msgid "Subscribe"
+msgstr "訂閱"
+
+msgctxt "tag_belongs_to"
+msgid "Belongs to:"
+msgstr "屬於:"
+
+msgctxt "tag_contains"
+msgid "Contains:"
+msgstr "包含："
+
+msgctxt "tag_weblinks"
+msgid "Weblinks"
+msgstr "網站鏈接"
+
+msgctxt "tagstable_filtered"
+msgid "out of _MAX_"
+msgstr ""
+
+msgctxt "tagstable_search"
+msgid "Search:"
+msgstr "搜尋："
+
+msgctxt "traces"
+msgid "Traces"
+msgstr "追蹤"
+
+msgctxt "traces_example"
+msgid "Milk, Gluten, Nuts"
+msgstr "牛奶, 麩質, 堅果"
+
+msgctxt "traces_note"
+msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
+msgstr "指出原料提到像是“可能含有微量”，“製造工廠也使用”等。"
+
+msgctxt "traces_p"
+msgid "traces"
+msgstr "追蹤"
+
+msgctxt "traces_s"
+msgid "trace"
+msgstr "追蹤"
+
+msgctxt "twitter"
+msgid "Twitter username (optional)"
+msgstr "Twitter 使用者名稱"
+
+msgctxt "twitter_account"
+msgid "OpenFoodFacts"
+msgstr ""
+
+msgctxt "unknown"
+msgid "Unknown"
+msgstr "不明"
+
+msgctxt "unknown_nutrients_p"
+msgid "unknown nutrients"
+msgstr "不明營養成分"
+
+msgctxt "unknown_nutrients_s"
+msgid "unknown nutrient"
+msgstr "不明營養成分"
+
+msgctxt "unsubscribe"
+msgid "Unsubscribe"
+msgstr "取消訂閱"
+
+msgctxt "unsubscribe_info"
+msgid "You can unsubscribe from the lists at any time."
+msgstr "您可以在任何時候從此清單取消訂閱。"
+
+msgctxt "userid_or_email"
+msgid "Username or e-mail address: "
+msgstr "使用者名稱或電子郵件地址: "
+
+msgctxt "username"
+msgid "User name"
+msgstr "使用者名稱"
+
+msgctxt "username_info"
+msgid "(non-accented letters, digits and/or dashes)"
+msgstr "(非重音字母，數字 及/或 破折號)"
+
+msgctxt "username_or_email"
+msgid "Username or email address"
+msgstr "使用者名稱或電子郵件地址:"
+
+msgctxt "users_add_products"
+msgid "Products that were added by the user %s"
+msgstr "產品已由使用者 %s 所新增"
+
+msgctxt "users_add_without_products"
+msgid "Products that were not added by the user %s"
+msgstr "產品未由使用者 %s 所新增"
+
+msgctxt "users_edit_products"
+msgid "Products that were edited by the user %s"
+msgstr "產品已由使用者 %s 所編輯"
+
+msgctxt "users_edit_without_products"
+msgid "Products that were not edited by the user %s"
+msgstr "產品非由使用者 %s 所編輯"
+
+msgctxt "users_p"
+msgid "contributors"
+msgstr "合作者"
+
+msgctxt "users_products"
+msgid "Products added by %s"
+msgstr "產品由 %s 所新增"
+
+msgctxt "users_s"
+msgid "contributor"
+msgstr "貢獻者"
+
+msgctxt "users_without_products"
+msgid "Products not added by %s"
+msgstr "產品非由 %s 所新增"
+
+msgctxt "view"
+msgid "view"
+msgstr "檢視"
+
+msgctxt "view_list_for_products_from_the_entire_world"
+msgid "View the list for matching products from the entire world"
+msgstr "檢視藉由輸入文字所找出相符的產品清單"
+
+msgctxt "view_products_from_the_entire_world"
+msgid "View matching products from the entire world"
+msgstr "檢視藉由輸入文字所找出相符的產品"
+
+msgctxt "view_results_from_the_entire_world"
+msgid "View results from the entire world"
+msgstr "檢視輸入文字的結果"
+
+msgctxt "warning_3rd_party_content"
+msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
+"→ <a href=\"\">Why it matters</a>"
+msgstr "資訊及資料必須來自於產品包裝及標籤 (且非來自於其它網站或製造商網站)，照片須由您自行拍的。"
+
+msgctxt "website"
+msgid "Site or blog address"
+msgstr "網站或部落格地址"
+
+msgctxt "weekdays"
+msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
+msgstr "['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']"
+
+msgctxt "windows_phone_app_badge"
+msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
+msgstr ""
+
+msgctxt "windows_phone_app_link"
+msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
+msgstr ""
+
+msgctxt "you_are_connected_as_x"
+msgid "You are connected as %s."
+msgstr "您已連接 %s 。"
+
+msgctxt "product_js_unselect_image"
+msgid "Unselect image"
+msgstr ""
+
+msgctxt "product_js_unselecting_image"
+msgid "Unselecting image."
+msgstr ""
+
+msgctxt "product_js_unselected_image_ok"
+msgid "Unselected image."
+msgstr ""
+
+msgctxt "product_js_unselected_image_nok"
+msgid "Error while unselecting image."
+msgstr ""
+
+msgctxt "nutrition_grade_fr_fiber_warning"
+msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
+msgstr ""
+
+msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
+msgstr ""
+
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
+msgstr ""
+
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
+msgstr ""
+
+msgctxt "nutrition_grade_fr_title"
+msgid "NutriScore color nutrition grade"
+msgstr ""
+
+msgctxt "nutrition_grade_fr_formula"
+msgid "How the color nutrition grade is computed"
+msgstr ""
+
+msgctxt "nutrition_grade_fr_alt"
+msgid "NutriScore nutrition grade"
+msgstr ""
+
+msgctxt "delete_product_page"
+msgid "Delete the product page"
+msgstr "刪除產品頁面"
+
+msgctxt "deleting_product"
+msgid "Deleting product"
+msgstr ""
+
+msgctxt "has_deleted_product"
+msgid "has deleted product"
+msgstr ""
+
+msgctxt "delete_product_confirm"
+msgid "Are you sure that you want to delete the page for this product?"
+msgstr ""
+
+msgctxt "delete_user"
+msgid "Delete the user"
+msgstr ""
+
+msgctxt "sources_openfood_ch"
+msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
+msgstr ""
+
+msgctxt "sources_openfood_ch_product_page"
+msgid "Product page on openfood.ch"
+msgstr ""
+
+msgctxt "sources_usda_ndb"
+msgid "Some of the data comes from the USDA National Nutrients Database for Branded Foods (the exact list is available in the product edit history)."
+msgstr ""
+
+msgctxt "sources_usda_ndb_product_page"
+msgid "Product page on USDA NDB"
+msgstr ""
+
+msgctxt "donate"
+msgid "Donate to Open Food Facts"
+msgstr ""
+
+msgctxt "donate_link"
+msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgstr ""
+
+msgctxt "sources_fleurymichon"
+msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
+msgstr ""
+
+msgctxt "sources_manufacturer"
+msgid "Some of the data for this product has been provided directly by the manufacturer %s"
+msgstr ""
+
+msgctxt "warning_not_complete"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr ""
+
+msgctxt "title_separator"
+msgid " — "
+msgstr ""
+

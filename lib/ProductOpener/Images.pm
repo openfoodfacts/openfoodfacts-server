@@ -391,13 +391,17 @@ sub process_search_image_form($) {
 }
 
 
-sub process_image_upload($$$$$) {
+sub process_image_upload($$$$$$) {
 
 	my $code = shift;
 	my $imagefield = shift;
 	my $userid = shift; 
 	my $time = shift; # usually current time (images just uploaded), except for images moved from another product
 	my $comment = shift;
+	my $imgid_ref = shift; # to return the imgid (new image or existing image)
+	
+	my $bogus_imgid;
+	not defined $imgid_ref and $imgid_ref = \$bogus_imgid;
 	
 	my $path = product_path($code);
 	my $imgid = -1;
@@ -504,9 +508,10 @@ sub process_image_upload($$$$$) {
 			for (my $i = 0; $i < $imgid; $i++) {
 				print STDERR "existing image $i - size: " . (-s "$www_root/images/products/$path/$i.$extension") . " -- $imgid size: $size\n";
 				if ((-s "$www_root/images/products/$path/$i.$extension") == $size) {
-					print STDERR "image $imgid has same size than $www_root/images/products/$path/$i.$extension : deleting $www_root/images/products/$path/$imgid.$extension\n";
+					print STDERR "image $imgid has same size $size than $www_root/images/products/$path/$i.$extension : deleting $www_root/images/products/$path/$imgid.$extension\n";
 					unlink "$www_root/images/products/$path/$imgid.$extension";
 					rmdir ("$www_root/images/products/$path/$imgid.lock");
+					$$imgid_ref = $i;
 					return -3;
 				}
 			}			
@@ -610,6 +615,9 @@ sub process_image_upload($$$$$) {
 		$imgid = -2;
 	}
 	print STDERR "Images::process_image_upload - return imgid: $imgid - imagefield: $imagefield\n";
+	
+	$$imgid_ref = $imgid;
+	
 	return $imgid;
 }
 
@@ -645,7 +653,7 @@ sub process_image_move($$$$) {
 			my $ok = 1;
 	
 			if ($move_to =~ /^\d+$/) {
-				$ok = process_image_upload($move_to, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code by $userid -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}");
+				$ok = process_image_upload($move_to, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code by $userid -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", undef);
 				print STDERR "Images.pm - products_image_move - moving $www_root/images/products/$path/$imgid.jpg to $code by $userid - result: $ok (negative: error)\n";
 			}
 			
@@ -695,7 +703,7 @@ sub process_image_crop($$$$$$$$$$) {
 	my $new_product_ref = retrieve_product($code);
 	my $rev = $new_product_ref->{rev} + 1;	# For naming images
 	
-	print STDERR "Images.pm - process_image_crop - imgid: $imgid\n";
+	print STDERR "Images.pm - process_image_crop - code: $code - id: $id - imgid: $imgid\n";
 			
 	my $source = Image::Magick->new;			
 	my $x = $source->Read("$www_root/images/products/$path/$imgid.jpg");
@@ -739,7 +747,7 @@ sub process_image_crop($$$$$$$$$$) {
 	
 	my $filename = "$id.$imgid";
 	
-	if (($white_magic eq 'checked') or ($white_magic eq 'true')) {
+	if ((defined $white_magic) and (($white_magic eq 'checked') or ($white_magic eq 'true'))) {
 		$filename .= ".white";
 
 		my $image = $source;
@@ -863,7 +871,7 @@ sub process_image_crop($$$$$$$$$$) {
 	}	
 	
 	
-	if (($normalize eq 'checked') or ($normalize eq 'true')) {
+	if ((defined $normalize) and (($normalize eq 'checked') or ($normalize eq 'true'))) {
 		$source->Normalize( channel=>'RGB' );
 		$filename .= ".normalize";
 	}
@@ -878,8 +886,8 @@ sub process_image_crop($$$$$$$$$$) {
 	
 	# Re-read cropped image
 	my $cropped_source = Image::Magick->new;
-	$cropped_source->Read("$www_root/images/products/$path/$filename.full.jpg");
-	("$cropped_source") and print STDERR "Images::process_image_crop - cannot read $www_root/images/products/$path/$filename.full.jpg $cropped_source-\n";
+	$x = $cropped_source->Read("$www_root/images/products/$path/$filename.full.jpg");
+	("$x") and print STDERR "Images::process_image_crop - cannot read $www_root/images/products/$path/$filename.full.jpg $x\n";
 
 	my $img2 = $cropped_source->Clone();
 	my $window = $nw;
@@ -1058,6 +1066,30 @@ HTML
 			last;
 		}
 	}
+	
+	# If we don't have an image, display Pacman
+	if ($html eq '') {
+	
+		my @colors = qw(
+ff6600
+ffcc00
+55d400
+00ccff
+0066ff
+ff00cc
+cc00ff		
+);
+		my $color_id = $product_ref->{code} % (scalar @colors);
+		my $color = $colors[$color_id];
+	
+		$html = <<HTML
+<div style="background-color:#$color">
+<img src="$static/images/misc/pacman.svg" width="$thumb_size" height="$thumb_size" alt="Please add pictures of the product if you have it!" />
+</div>
+HTML
+;
+	}
+	
 	
 	return $html;
 }

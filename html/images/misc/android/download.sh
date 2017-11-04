@@ -1,5 +1,5 @@
 #!/bin/sh
-
+# Those URLs seem obsolete. Pierre. 19 Mars 2017
 wget http://developer.android.com/images/brand/ar_app_rgb_wo_45.png
 wget http://developer.android.com/images/brand/de_app_rgb_wo_45.png
 wget http://developer.android.com/images/brand/en_app_rgb_wo_45.png

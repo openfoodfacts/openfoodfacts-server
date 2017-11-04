@@ -1,21 +1,18 @@
-# Galician translation for openfoodfacts
-# Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
-# This file is distributed under the same license as the openfoodfacts package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: openfoodfacts\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-07-16 16:27+0000\n"
-"PO-Revision-Date: 2016-07-16 17:22+0000\n"
-"Last-Translator: Marcos Lans <Unknown>\n"
-"Language-Team: Galician <gl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-01-12 10:21+0000\n"
-"X-Generator: Launchpad (build 18302)\n"
+"Language: gl_ES\n"
+"Project-Id-Version: openfoodfacts\n"
+"PO-Revision-Date: 2017-09-03 10:37-0400\n"
+"Language-Team: Galician\n"
+"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Language: gl\n"
+"X-Crowdin-File: /master/po/openbeautyfacts/openbeautyfacts.pot\n"
 
 #. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
@@ -29,7 +26,15 @@ msgstr "Galego"
 
 msgctxt "android_apk_app_link"
 msgid "http://world.openbeautyfacts.org/images/apps/obf.apk"
-msgstr "http://world.openbeautyfacts.org/images/apps/obf.apk"
+msgstr ""
+
+msgctxt "android_app_link"
+msgid "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en"
+msgstr ""
+
+msgctxt "ios_app_link"
+msgid "https://itunes.apple.com/en/app/open-beauty-facts/id1122926380"
+msgstr ""
 
 msgctxt "logo"
 msgid "openbeautyfacts-logo-en-178x150.png"
@@ -41,16 +46,13 @@ msgstr ""
 
 msgctxt "site_name"
 msgid "Open Beauty Facts"
-msgstr "Open Beauty Facts"
+msgstr ""
 
 msgctxt "tagline"
-msgid ""
-"Open Beauty Facts gathers information and data on cosmetic products from "
-"around the world."
-msgstr ""
-"Open Beauty Facts reúne información e datos sobre produtos cosméticos de "
-"todo o mundo."
+msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
+msgstr "Open Beauty Facts reúne información e datos sobre produtos cosméticos de todo o mundo."
 
 msgctxt "twitter_account"
 msgid "OpenBeautyFacts"
-msgstr "OpenBeautyFacts"
+msgstr ""
+

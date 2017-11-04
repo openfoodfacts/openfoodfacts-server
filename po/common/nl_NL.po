@@ -1,0 +1,2656 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl_NL\n"
+"Project-Id-Version: openfoodfacts\n"
+"PO-Revision-Date: 2017-09-22 04:09-0400\n"
+"Language-Team: Dutch\n"
+"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Language: nl\n"
+"X-Crowdin-File: /master/po/common/common.pot\n"
+
+#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
+msgctxt ":langtag"
+msgid ":langtag"
+msgstr "nl"
+
+#. put here the language name ("French", "Japanese", etc)
+msgctxt ":langname"
+msgid ":langname"
+msgstr "Dutch"
+
+msgctxt "1_product"
+msgid "1 product"
+msgstr ""
+
+msgctxt "_and_"
+msgid " and "
+msgstr " en "
+
+msgctxt "about"
+msgid "About me"
+msgstr "Over mij"
+
+msgctxt "add"
+msgid "Add"
+msgstr "Toevoegen"
+
+msgctxt "add_language"
+msgid "Add language"
+msgstr "Voeg taal toe"
+
+msgctxt "add_product"
+msgid "Add a product"
+msgstr "Product toevoegen"
+
+msgctxt "add_user"
+msgid "Register"
+msgstr "Registreren"
+
+msgctxt "add_user_confirm"
+msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
+msgstr "<p>Bedankt voor je inschrijving. Je kunt nu inloggen op de site en producten toevoegen of bewerken.</p>"
+
+msgctxt "add_user_email_body"
+msgid "Hello <NAME>,\n\n"
+"Thanks a lot for joining https://openfoodfacts.org\n"
+"Here is your user name:\n\n"
+"User name: <USERID>\n\n"
+"You can now sign in on the site to add and edit products.\n\n"
+"<<site_name>> is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!\n"
+"To discuss between contributors and make the project go forward, we use a very convenient messaging system called Slack: https://slack.openfoodfacts.org\n\n"
+"You can also join the Facebook group for contributors:\n"
+"https://www.facebook.com/groups/374350705955208/\n\n"
+"New: we are also starting Open Beauty Facts to create a database of cosmetics: soap, toothpaste, makeup etc.\n"
+"https://openbeautyfacts.org\n\n"
+"Thank you very much!\n\n"
+"Stéphane and the Open Food Facts team\n"
+"https://openfoodfacts.org\n"
+"https://twitter.com/OpenFoodFacts\n"
+msgstr ""
+
+msgctxt "add_user_email_subject"
+msgid "Thanks for joining <<site_name>>"
+msgstr "Bedankt voor uw inschrijving op <<site_name>>"
+
+msgctxt "additives_1"
+msgid "Potentially hazardous food additive. Limit usage."
+msgstr "Potentieel gevaarlijk voedingsadditief. Beperk het gebruik."
+
+msgctxt "additives_2"
+msgid "Hazardous food additive. Avoid."
+msgstr "Risicovol voedingsadditief. Te vermijden."
+
+msgctxt "additives_3"
+msgid "Food additive banned in Europe. Avoid at all cost."
+msgstr "Voedingsadditief verboden in Europa. Absoluut te vermijden."
+
+msgctxt "additives_p"
+msgid "additives"
+msgstr "additieven"
+
+msgctxt "additives_s"
+msgid "additive"
+msgstr "additief"
+
+msgctxt "advanced_search"
+msgid "Advanced search"
+msgstr "Geavanceerd zoeken"
+
+msgctxt "advanced_search_old"
+msgid "Advanced search and graphs"
+msgstr "Geavanceerd zoeken, grafieken en kaart"
+
+msgctxt "alcohol_warning"
+msgid "Excess drinking is harmful for health."
+msgstr "Overmatig alcoholgebruik schaadt de gezondheid. Drink met mate."
+
+msgctxt "all_missions"
+msgid "All missions"
+msgstr "Alle missies"
+
+msgctxt "allergens"
+msgid "Substances or products causing allergies or intolerances"
+msgstr "Stoffen of producten die allergieën of intoleranties veroorzaken"
+
+msgctxt "allergens_p"
+msgid "allergens"
+msgstr "allergenen"
+
+msgctxt "allergens_s"
+msgid "allergen"
+msgstr "allergeen"
+
+msgctxt "also_edited_by"
+msgid "Product page also edited by"
+msgstr "Productpagina ook bewerkt door"
+
+msgctxt "android_apk_app_badge"
+msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
+msgstr ""
+
+msgctxt "android_apk_app_link"
+msgid "https://world.openfoodfacts.org/files/off.apk"
+msgstr ""
+
+msgctxt "android_app_badge"
+msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
+msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Beschikbaar in Google Play\" width=\"135\" height=\"47\" />"
+
+msgctxt "android_app_link"
+msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
+msgstr ""
+
+msgctxt "app_please_take_pictures"
+msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
+"<p>Thanks in advance!</p>\n"
+msgstr ""
+
+msgctxt "app_take_a_picture"
+msgid "Take a picture"
+msgstr "Maak foto"
+
+msgctxt "app_take_a_picture_note"
+msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
+msgstr "NB: de foto's die je upload, worden gepubliceerd onder de vrije licentie Creative Commons Attribution and ShareAlike."
+
+msgctxt "app_you_can_add_pictures"
+msgid "You can add pictures:"
+msgstr "Je kan foto's toevoegen:"
+
+msgctxt "axis_x"
+msgid "Horizontal axis"
+msgstr "Horizontale as"
+
+msgctxt "axis_y"
+msgid "Vertical axis"
+msgstr "Verticale as"
+
+msgctxt "barcode"
+msgid "Barcode"
+msgstr ""
+
+msgctxt "barcode_number"
+msgid "Barcode number:"
+msgstr "Barcodenummer:"
+
+msgctxt "bottom_content"
+msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
+"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
+"</a>\n"
+"<p>Contribute to <<site_name>> by adding product and win stars by\n"
+"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
+msgstr ""
+
+msgctxt "bottom_title"
+msgid "Embrace the mission"
+msgstr "Neem deel aan de missie"
+
+msgctxt "brands"
+msgid "Brands"
+msgstr "Merken"
+
+msgctxt "brands_example"
+msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
+msgstr ""
+
+msgctxt "brands_p"
+msgid "brands"
+msgstr "merken"
+
+msgctxt "brands_products"
+msgid "Products from the %s brand"
+msgstr "Producten van het merk %s"
+
+msgctxt "brands_s"
+msgid "brand"
+msgstr "merk"
+
+msgctxt "brands_tagsinput"
+msgid "add a brand"
+msgstr "voeg merk toe"
+
+msgctxt "brands_without_products"
+msgid "Products not from the %s brand"
+msgstr "Producten niet van het merk %s"
+
+msgctxt "by"
+msgid "by"
+msgstr "door"
+
+msgctxt "categories"
+msgid "Categories"
+msgstr "Categorieën"
+
+msgctxt "categories_example"
+msgid "Sardines in olive oil, Orange juice from concentrate"
+msgstr "Sardines in olijfolie, Lightmayonaise, Sinaasappelsap op basis van geconcentreerd sap"
+
+msgctxt "categories_note"
+msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
+msgstr "Duid enkel de meest specifieke categorie aan. De \"verwante\" categorieën worden automatisch toegevoegd."
+
+msgctxt "categories_p"
+msgid "categories"
+msgstr "categorieën"
+
+msgctxt "categories_products"
+msgid "Products from the %s category"
+msgstr "Producten van de categorie %s"
+
+msgctxt "categories_s"
+msgid "category"
+msgstr "categorie"
+
+msgctxt "categories_tagsinput"
+msgid "add a category"
+msgstr "voeg categorie toe"
+
+msgctxt "categories_without_products"
+msgid "Products not from the %s category"
+msgstr "Producten niet uit de categorie"
+
+msgctxt "change_fields"
+msgid "Data"
+msgstr "Gegevens"
+
+msgctxt "change_nutriments"
+msgid "Nutriments"
+msgstr "Voedingsstoffen"
+
+msgctxt "change_selected_images"
+msgid "Selected images"
+msgstr "Geselecteerde foto's"
+
+msgctxt "change_uploaded_images"
+msgid "Uploaded images"
+msgstr "Geüploade foto's"
+
+msgctxt "checkers_p"
+msgid "checkers"
+msgstr "verificateurs"
+
+msgctxt "checkers_s"
+msgid "checker"
+msgstr "verificateur"
+
+msgctxt "cities_p"
+msgid "packaging cities"
+msgstr "verpakkingsteden"
+
+msgctxt "cities_products"
+msgid "Products packaged in the city of %s"
+msgstr "Producten verpakt in de stad %s"
+
+msgctxt "cities_s"
+msgid "packaging city"
+msgstr "verpakkingstad"
+
+msgctxt "cities_without_products"
+msgid "Products not packaged in the city of %s"
+msgstr "Producten niet verpakt in de stad %s"
+
+msgctxt "codes_p"
+msgid "Codes"
+msgstr ""
+
+msgctxt "codes_s"
+msgid "Code"
+msgstr "Broncode"
+
+msgctxt "column_obsolete_do_not_translate_for_reference_only"
+msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.png\" width=\"178\" height=\"144\" alt=\"<<site_name>>\" /></a>\n\n"
+"<p><<site_name>> gathers information and data on food products from around the world.</p>\n\n"
+"<select_country>\n\n"
+"<p>\n"
+"→ <a href=\"/brands\">Brands</a><br />\n"
+"→ <a href=\"/categories\">Categories</a><br/>\n"
+"</p>\n\n"
+"<p>Food product information (photos, ingredients, nutrition facts etc.) is collected in a collaborative way\n"
+"and is made available to everyone and for all uses in a free and open database.</p>\n\n\n"
+"<p>Find us also on:</p>\n\n"
+"<p>\n"
+"→ <a href=\"https://en.wiki.openfoodfacts.org\">our wiki</a><br />\n"
+"→ <a href=\"https://twitter.com/openfoodfacts\">Twitter</a><br/>\n"
+"→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a><br />\n"
+"→ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
+"+ <a href=\"https://www.facebook.com/groups/374350705955208/\">contributors group</a><br />\n"
+"</p>\n\n"
+"<p>iPhone and iPad app on the App Store:</p>\n\n"
+"<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
+"<p>Android app on Google Play:</p>\n\n"
+"<a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner\"><img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" /></a><br/>\n"
+"<a href=\"https://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
+"<p>Windows Phone app:</p>\n\n"
+"<a href=\"https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
+msgstr ""
+
+msgctxt "completed_n_missions"
+msgid "completed %d missions:"
+msgstr "%s missies voltooid"
+
+msgctxt "connected_with_facebook"
+msgid "You are connected with your Facebook account."
+msgstr "Je bent verbonden via je Facebookaccount"
+
+msgctxt "contributor_since"
+msgid "Contributor since"
+msgstr "Vrijwilliger sinds"
+
+msgctxt "copy_data"
+msgid "Copy data from current product to new product"
+msgstr "Kopieer de productendata naar het nieuwe product"
+
+msgctxt "correct_the_following_errors"
+msgid "Please correct the following errors:"
+msgstr "Gelieve de volgende fouten te verbeteren"
+
+msgctxt "correctors_p"
+msgid "correctors"
+msgstr "correctoren"
+
+msgctxt "correctors_s"
+msgid "corrector"
+msgstr "verbeteraar"
+
+msgctxt "countries"
+msgid "Countries where sold"
+msgstr "Verkooplanden"
+
+msgctxt "countries_note"
+msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
+msgstr "Landen waar het product op grote schaal beschikbaar is (behalve winkels gespecialiseerd in import)"
+
+msgctxt "countries_p"
+msgid "countries"
+msgstr "landen"
+
+msgctxt "countries_products"
+msgid "Products sold in %s"
+msgstr "Producten verkocht in %s"
+
+msgctxt "countries_s"
+msgid "country"
+msgstr "land"
+
+msgctxt "countries_without_products"
+msgid "Products not sold in %s"
+msgstr "Producten niet verkrijgbaar in %s"
+
+msgctxt "data_source"
+msgid "Data source"
+msgstr "Gegevensbron"
+
+msgctxt "debug_p"
+msgid "debug"
+msgstr "foutopsporing"
+
+msgctxt "debug_s"
+msgid "debug"
+msgstr "foutopsporing"
+
+msgctxt "delete_comment"
+msgid "Reason for removal"
+msgstr "Reden voor verwijdering"
+
+msgctxt "delete_product"
+msgid "Delete a product"
+msgstr "Product verwijderen"
+
+msgctxt "delete_product_page"
+msgid "Delete the page"
+msgstr "Pagina verwijderen"
+
+msgctxt "delete_the_images"
+msgid "Delete the images"
+msgstr "Verwijder de foto's"
+
+msgctxt "delete_user"
+msgid "Delete an user"
+msgstr "Verwijder gebruiker"
+
+msgctxt "diff_add"
+msgid "Added:"
+msgstr "Toevoeging:"
+
+msgctxt "diff_change"
+msgid "Changed:"
+msgstr "Wijziging:"
+
+msgctxt "diff_delete"
+msgid "Deleted:"
+msgstr "Verwijdering:"
+
+msgctxt "donate"
+msgid "Donate to Open Food Facts"
+msgstr ""
+
+msgctxt "donate_link"
+msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgstr ""
+
+msgctxt "ecological_data_table"
+msgid "Ecological footprint"
+msgstr "Ecologische impact"
+
+msgctxt "ecological_data_table_note"
+msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
+msgstr "Als de ecologische voetafdruk op het etiket vermeld wordt (momenteel is dat zelden), geef ze dan voor dezelfde hoeveelheid als voor de nutritionele samenstelling"
+
+msgctxt "edit"
+msgid "edit"
+msgstr "bewerken"
+
+msgctxt "edit_comment"
+msgid "Changes summary"
+msgstr "Overzicht van de wijzigingen"
+
+msgctxt "edit_product"
+msgid "Edit a product"
+msgstr "Product aanpassen"
+
+msgctxt "edit_product_page"
+msgid "Edit the page"
+msgstr "Productpagina aanpassen"
+
+msgctxt "edit_profile"
+msgid "Edit your public profile"
+msgstr "Je publiek profiel aanpassen"
+
+msgctxt "edit_profile_confirm"
+msgid "Changes to your public profile have been saved."
+msgstr "De aanpassingen aan je publiek profiel werden opgeslagen"
+
+msgctxt "edit_profile_msg"
+msgid "Information below is visible in your public profile."
+msgstr "De onderstaande informatie is zichtbaar op je publiek profiel"
+
+msgctxt "edit_settings"
+msgid "Change your account parameters"
+msgstr "Wijzig de parameters van je account"
+
+msgctxt "edit_user"
+msgid "Account parameters"
+msgstr "Accountinstellingen"
+
+msgctxt "edit_user_confirm"
+msgid "<p>Your account parameters have been changed.</p>"
+msgstr "<p>Je accountinstellingen werden succesvol gewijzigd</p>"
+
+msgctxt "editors_p"
+msgid "editors"
+msgstr ""
+
+msgctxt "editors_s"
+msgid "editor"
+msgstr ""
+
+msgctxt "email"
+msgid "e-mail address"
+msgstr "E-mailadres"
+
+msgctxt "emb_code_p"
+msgid "EMB codes"
+msgstr "verpakkerscodes"
+
+msgctxt "emb_code_products"
+msgid "Products packaged by the company with emb code %s"
+msgstr "Producten verpakt door het bedrijf met de verpakkerscode %s"
+
+msgctxt "emb_code_s"
+msgid "EMB code"
+msgstr "EMB code, FR 62.448.034 CE, 84 R 20."
+
+msgctxt "emb_codes"
+msgid "EMB code"
+msgstr "EMB code, FR 62.448.034 CE, 84 R 20."
+
+msgctxt "emb_codes_example"
+msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
+msgstr ""
+
+msgctxt "emb_codes_note"
+msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
+msgstr "In Europa, de code in een ovaal met de 2 letters van het land gevolgd door een cijfer en de letters CE."
+
+msgctxt "emb_codes_p"
+msgid "packager codes"
+msgstr "verpakkerscodes"
+
+msgctxt "emb_codes_products"
+msgid "Products with the emb code %s"
+msgstr "Producten met verpakkerscode %s"
+
+msgctxt "emb_codes_s"
+msgid "packager code"
+msgstr "verpakkerscode"
+
+msgctxt "emb_codes_without_products"
+msgid "Products without the emb code %s"
+msgstr "Artikelen zonder de emb-code %s"
+
+msgctxt "entry_dates_p"
+msgid "Entry dates"
+msgstr "Datums toegevoegd"
+
+msgctxt "entry_dates_s"
+msgid "Entry date"
+msgstr "Datum toegevoegd"
+
+msgctxt "error"
+msgid "Error"
+msgstr "Foutmelding"
+
+msgctxt "error_bad_login_password"
+msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
+msgstr "Gebruikersnaam of wachtwoord ongeldig. <a href=\"/cgi/reset_password.pl\">Wachtwoord vergeten?</a>"
+
+msgctxt "error_database"
+msgid "An error occured while reading the data, try to refresh the page."
+msgstr "Er is een fout opgetreden tijdens het lezen van de gegevens, gelieve de pagina opnieuw te laden"
+
+msgctxt "error_different_passwords"
+msgid "The password and confirmation password are different."
+msgstr "Het wachtwoord stemt niet overeen met de bevestiging"
+
+msgctxt "error_email_already_in_use"
+msgid "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
+msgstr "Dit e-mailadres wordt al gebruikt door een andere gebruiker. Misschien heeft u al een account? U kunt het wachtwoord van uw andere account  <a href=\"/cgi/reset_password.pl\">resetten</a>."
+
+msgctxt "error_invalid_address"
+msgid "Invalid address."
+msgstr "Ongeldig adres"
+
+msgctxt "error_invalid_csrf_token"
+msgid "Invalid CSRF token."
+msgstr ""
+
+msgctxt "error_invalid_email"
+msgid "Invalid e-mail address"
+msgstr "Ongeldig e-mailadres"
+
+msgctxt "error_invalid_password"
+msgid "The password needs to be a least 6 characters long."
+msgstr "Het wachtwoord moet uit minstens 6 tekens bestaan"
+
+msgctxt "error_invalid_user"
+msgid "Invalid user."
+msgstr "Ongeldige gebruiker"
+
+msgctxt "error_invalid_username"
+msgid "The user name must contain only unaccented letters, digits and dashes."
+msgstr "De gebruikersnaam mag enkel kleine letters zonder accenten, streepjes en/of cijfers bevatten"
+
+msgctxt "error_new_code_already_exists"
+msgid "A product already exists with the new code"
+msgstr "Er bestaat reeds een product met de nieuwe code"
+
+msgctxt "error_no_name"
+msgid "You need to enter a name or nickname."
+msgstr "Vul een naam of pseudoniem in"
+
+msgctxt "error_no_permission"
+msgid "Permission denied."
+msgstr "Toegang geweigerd"
+
+msgctxt "error_no_username"
+msgid "You need to enter a user name"
+msgstr "Je moet een gebruikersnaam invoeren"
+
+msgctxt "error_reset_already_connected"
+msgid "You are already signed in."
+msgstr "Je bent reeds aangemeld"
+
+msgctxt "error_reset_invalid_token"
+msgid "The reset password link is invalid or has expired."
+msgstr "De link om je paswoord te resetten is ongeldig of bestaat niet meer"
+
+msgctxt "error_reset_unknown_email"
+msgid "There is no account with this email"
+msgstr "Er is geen account aan dit e-mailadres verbonden"
+
+msgctxt "error_reset_unknown_id"
+msgid "This username does not exist."
+msgstr "Deze gebruikersnaam bestaat niet"
+
+msgctxt "error_username_not_available"
+msgid "This username already exists, please choose another."
+msgstr "Deze gebruikersnaam bestaat reeds, kies een andere"
+
+msgctxt "example"
+msgid "Example:"
+msgstr "Voorbeeld:"
+
+msgctxt "examples"
+msgid "Examples:"
+msgstr "Voorbeelden:"
+
+msgctxt "expiration_date"
+msgid "Best before date"
+msgstr "Houdbaarheidsdatum"
+
+msgctxt "expiration_date_note"
+msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
+msgstr "Dankzij de houdbaarheidsdatum is het mogelijk om veranderingen van het product over een bepaalde periode waar te nemen en om de meest recente versie te bepalen."
+
+msgctxt "explore_products_by"
+msgid "Drilldown into products by..."
+msgstr "Doorzoek de producten volgens..."
+
+msgctxt "facebook_locale"
+msgid "en_US"
+msgstr "nl_NL"
+
+msgctxt "facebook_page"
+msgid "https://www.facebook.com/OpenFoodFacts"
+msgstr ""
+
+msgctxt "fixme_product"
+msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
+msgstr "Indien de informatie onvolledig of foutief is, kan je ze op deze pagina aanvullen of corrigeren."
+
+msgctxt "footer"
+msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/terms-of-use\">Terms of Use</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/who-we-are\">Who we are</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/faq\">Frequently Asked Questions</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
+msgstr ""
+
+msgctxt "footer_and_the_facebook_group"
+msgid "and the <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook group for contributors</a>"
+msgstr "en de <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook-groep voor editors</a>"
+
+msgctxt "footer_blog"
+msgid "<<site_name>> blog"
+msgstr "De <<site_name>> blog"
+
+msgctxt "footer_blog_link"
+msgid "https://en.blog.openfoodfacts.org"
+msgstr ""
+
+msgctxt "footer_code_of_conduct"
+msgid "Code of conduct"
+msgstr "Gedragscode"
+
+msgctxt "footer_code_of_conduct_link"
+msgid "/code-of-conduct"
+msgstr "/gedragscode"
+
+msgctxt "footer_data"
+msgid "Data"
+msgstr "Gegevens"
+
+msgctxt "footer_data_link"
+msgid "/data"
+msgstr ""
+
+msgctxt "footer_discover_the_project"
+msgid "Discover the project"
+msgstr "Ontdek het project"
+
+msgctxt "footer_faq"
+msgid "Frequently asked questions"
+msgstr "Veel gestelde vragen"
+
+msgctxt "footer_faq_link"
+msgid "/faq"
+msgstr ""
+
+msgctxt "footer_follow_us"
+msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
+"<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
+msgstr ""
+
+msgctxt "footer_install_the_app"
+msgid "Install the app"
+msgstr "Installeer de app"
+
+msgctxt "footer_join_the_community"
+msgid "Join the community"
+msgstr "Word lid van de community"
+
+msgctxt "footer_join_us_on"
+msgid "Join us on %s:"
+msgstr "Kom erbij op %s:"
+
+msgctxt "footer_legal"
+msgid "Legal"
+msgstr "Wettelijke vermeldingen"
+
+msgctxt "footer_legal_link"
+msgid "/legal"
+msgstr "/juridisch"
+
+msgctxt "footer_press"
+msgid "Press"
+msgstr "Pers"
+
+msgctxt "footer_press_link"
+msgid "/press"
+msgstr "/pers"
+
+msgctxt "footer_tagline"
+msgid "A collaborative, free and open database of food products from around the world."
+msgstr "Een gezamenlijke, vrije en open database van voedingsmiddelen uit de hele wereld."
+
+msgctxt "footer_terms"
+msgid "Terms of use"
+msgstr "Gebruiksvoorwaarden"
+
+msgctxt "footer_terms_link"
+msgid "/terms-of-use"
+msgstr "/gebruiksvoorwaarden"
+
+msgctxt "footer_who_we_are"
+msgid "Who we are"
+msgstr "Wie zijn wij?"
+
+msgctxt "footer_who_we_are_link"
+msgid "/who-we-are"
+msgstr "/wie-wij-zijn"
+
+msgctxt "footer_wiki"
+msgid "<<site_name>> wiki (en)"
+msgstr "<<site_name>> wiki (nl)"
+
+msgctxt "footer_wiki_link"
+msgid "https://en.wiki.openfoodfacts.org"
+msgstr ""
+
+msgctxt "for"
+msgid "for"
+msgstr "voor"
+
+msgctxt "front_alt"
+msgid "Product"
+msgstr ""
+
+msgctxt "generic_name"
+msgid "Common name"
+msgstr "Algemene benaming"
+
+msgctxt "generic_name_example"
+msgid "Chocolate bar with milk and hazelnuts"
+msgstr "Chocoladereep met melkchocolade en hazelnoten"
+
+msgctxt "goodbye"
+msgid "See you soon!"
+msgstr "Tot ziens"
+
+msgctxt "graph_count"
+msgid "%d products match the search criterias, of which %i products have defined values for the graph's axis."
+msgstr "%d producten stemmen overeen met uw zoekcriteria, waarvan %i producten gedefinieerde waarden hebben voor de assen van de grafiek."
+
+msgctxt "graph_title"
+msgid "Graph title"
+msgstr "Titel van de grafiek"
+
+msgctxt "graphs_and_maps"
+msgid "Graphs and maps"
+msgstr "Grafieken en kaart"
+
+msgctxt "header"
+msgid "<meta property=\"fb:admins\" content=\"706410516\" />\n"
+"<meta property=\"og:site_name\" content=\"<<site_name>> - the free and open food products information database\"/>\n\n"
+"<script type=\"text/javascript\">\n"
+"  var uvOptions = {};\n"
+"  (function() {\n"
+"\tvar uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;\n"
+"\tuv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/jQrwafQ94nbEbRWsznm6Q.js';\n"
+"\tvar s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);\n"
+"  })();\n"
+"</script>\n\n\n"
+msgstr "<meta property=\"fb:admins\" content=\"706410516\" />\n"
+"<meta property=\"og:site_name\" content=\"<<site_name>> - de vrije databank voor voedingsmiddelen\"/>\n\n"
+"<script type=\"text/javascript\">\n"
+"  var uvOptions = {};\n"
+"  (function() {\n"
+"\tvar uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;\n"
+"\tuv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/Mjjw72JUjigdFxd4qo6wQ.js';\n"
+"\tvar s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);\n"
+"  })();\n"
+"</script>\n\n\n"
+
+msgctxt "hello"
+msgid "Hello"
+msgstr "Hallo"
+
+msgctxt "high"
+msgid "high"
+msgstr "hoog"
+
+msgctxt "high_quantity"
+msgid "high quantity"
+msgstr "grote hoeveelheid"
+
+msgctxt "history"
+msgid "Changes history"
+msgstr "Wijzigingsschiedenis"
+
+msgctxt "image_front"
+msgid "Front picture"
+msgstr "Foto van het product (voorkant)"
+
+msgctxt "image_ingredients"
+msgid "Ingredients picture"
+msgstr "Foto van de ingrediëntenlijst"
+
+msgctxt "image_ingredients_note"
+msgid "If the picture is neat enough, the ingredients can be extracted automatically"
+msgstr "Als de foto voldoende scherp en recht is, kunnen de ingrediënten automatisch uit de foto afgeleid worden."
+
+msgctxt "image_nutrition"
+msgid "Nutrition facts picture"
+msgstr "Foto van de voedingswaardetabel"
+
+msgctxt "image_upload_error_image_already_exists"
+msgid "This picture has already been sent."
+msgstr "Deze foto werd reeds geupload."
+
+msgctxt "image_upload_error_image_too_small"
+msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
+msgstr "De foto is te klein. Stuur alsjeblieft geen foto's op, die je op Internet hebt gevonden. Upload alleen foto's, die je zelf hebt gemaakt."
+
+msgctxt "image_upload_error_no_barcode_found_in_image_long"
+msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
+"You can try with another image, or directly enter the barcode."
+msgstr "De barcode in het beeld kon niet worden gelezen, of het beeld bevatte geen barcode.\n"
+"Je kunt het proberen met een andere afbeelding, of de barcode zelf invoeren."
+
+msgctxt "image_upload_error_no_barcode_found_in_image_short"
+msgid "No barcode found in the image."
+msgstr "Geen barcode gevonden in het beeld."
+
+msgctxt "image_upload_error_no_barcode_found_in_text"
+msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
+msgstr "Je moet de tekens van de barcode invoeren, of verstuur de productafbeelding als de barcode zichtbaar is ."
+
+msgctxt "incomplete_products_you_added"
+msgid "Products you added that need to be completed"
+msgstr "Producten die je toegevoegd hebt en nog onvolledig zijn"
+
+msgctxt "informers_p"
+msgid "informers"
+msgstr "informant"
+
+msgctxt "informers_s"
+msgid "informers"
+msgstr "informant"
+
+msgctxt "ingredients"
+msgid "Ingredients"
+msgstr "Ingrediënten"
+
+msgctxt "ingredients_alt"
+msgid "Ingredients"
+msgstr "Ingrediënten"
+
+msgctxt "ingredients_analysis"
+msgid "Ingredients analysis"
+msgstr "ingrediënten_analyse"
+
+msgctxt "ingredients_analysis_note"
+msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
+msgstr "Opmerking: ingrediënten kunnen onder veel verschillende namen zijn opgenomen. Laat het ons weten als u denkt dat de bovenstaande analyse onjuist is."
+
+msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
+msgid "ingredients from or that may be from palm oil"
+msgstr "ingrediënten die (mogelijk) palmolie bevatten"
+
+msgctxt "ingredients_from_or_that_may_be_from_palm_oil_s"
+msgid "ingredient from or that may be from palm oil"
+msgstr "ingrediënt dat (mogelijk) palmolie bevat"
+
+msgctxt "ingredients_from_palm_oil_p"
+msgid "ingredients from palm oil"
+msgstr "ingrediënten uit palmolie"
+
+msgctxt "ingredients_from_palm_oil_s"
+msgid "ingredient from palm oil"
+msgstr "ingrediënt uit palmolie"
+
+msgctxt "ingredients_n_p"
+msgid "Numbers of ingredients"
+msgstr "Ingrediëntgetallen"
+
+msgctxt "ingredients_n_s"
+msgid "Number of ingredients"
+msgstr "aantal_ingrediënten"
+
+msgctxt "ingredients_p"
+msgid "ingredients"
+msgstr "ingrediënten"
+
+msgctxt "ingredients_products"
+msgid "Products that contain the ingredient %s"
+msgstr "Producten met het ingrediënt %s"
+
+msgctxt "ingredients_s"
+msgid "ingredient"
+msgstr "ingrediënt"
+
+msgctxt "ingredients_text"
+msgid "Ingredients list"
+msgstr "Ingrediëntenlijst"
+
+msgctxt "ingredients_text_display_note"
+msgid "Ingredients are listed in order of importance (quantity)."
+msgstr "De ingrediënten worden geordend volgens belangrijkheid (hoeveelheid)."
+
+msgctxt "ingredients_text_example"
+msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
+msgstr "Granen 85.5% (_tarwe_bloem, volkoren _tarwe_bloem 11%), moutextract (gerst), cacao 4,8%, vitamine C"
+
+msgctxt "ingredients_text_note"
+msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
+msgstr "Behoudt de volgorde, geef het % indien vermeld, scheiden door middel van een komma of '-' , gebruik de ( ) voor de ingrediënten van een ingrediënt, vermeldt de allergenen tussen '_' zoals bijvoorbeeld _melk_"
+
+msgctxt "ingredients_that_may_be_from_palm_oil_p"
+msgid "ingredients that may be from palm oil"
+msgstr "ingrediënten die mogelijk palmolie bevatten"
+
+msgctxt "ingredients_that_may_be_from_palm_oil_s"
+msgid "ingredient that may be from palm oil"
+msgstr "ingrediënt dat mogelijk palmolie bevat"
+
+msgctxt "ingredients_without_products"
+msgid "Products that do not contain the ingredient %s"
+msgstr "Producten die ingrediënt %en niet bevatten"
+
+msgctxt "ios_app_badge"
+msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
+msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Beschikbaar in de App Store\" width=\"135\" height=\"40\" />"
+
+msgctxt "ios_app_link"
+msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
+msgstr ""
+
+msgctxt "known_nutrients_p"
+msgid "known nutrients"
+msgstr "bekende voedingsstoffen"
+
+msgctxt "known_nutrients_s"
+msgid "known nutrient"
+msgstr "bekende voedingsstof"
+
+msgctxt "labels"
+msgid "Labels, certifications, awards"
+msgstr "Keurmerken, certificaten, prijzen"
+
+msgctxt "labels_example"
+msgid "Organic"
+msgstr "Bio"
+
+msgctxt "labels_note"
+msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
+msgstr "Duid enkel de meest specifieke keurmerken aan. De \"verwante\" categorieën zoals 'Bio of ' Fair trade' worden automatisch toegevoegd"
+
+msgctxt "labels_p"
+msgid "labels"
+msgstr "keurmerken"
+
+msgctxt "labels_products"
+msgid "Products that have the label %s"
+msgstr "Producten met het keurmerk %s"
+
+msgctxt "labels_s"
+msgid "label"
+msgstr "keurmerk"
+
+msgctxt "labels_tagsinput"
+msgid "add a label"
+msgstr "voeg label toe"
+
+msgctxt "labels_without_products"
+msgid "Products that do not have the label %s"
+msgstr "Producten zonder label %s"
+
+msgctxt "lang"
+msgid "Main language"
+msgstr "Hoofdtaal"
+
+msgctxt "lang_ar"
+msgid "Arabic"
+msgstr "Arabisch"
+
+msgctxt "lang_bg"
+msgid "Bulgarian"
+msgstr ""
+
+msgctxt "lang_cs"
+msgid "Czech"
+msgstr "Tsjechisch"
+
+msgctxt "lang_da"
+msgid "Danish"
+msgstr "Deens"
+
+msgctxt "lang_de"
+msgid "German"
+msgstr "Duits"
+
+msgctxt "lang_el"
+msgid "Greek"
+msgstr "Grieks"
+
+msgctxt "lang_en"
+msgid "English"
+msgstr "Engels"
+
+msgctxt "lang_es"
+msgid "Spanish"
+msgstr "Spaans"
+
+msgctxt "lang_et"
+msgid "Estonian"
+msgstr ""
+
+msgctxt "lang_fi"
+msgid "Finnish"
+msgstr "Fins"
+
+msgctxt "lang_fr"
+msgid "French"
+msgstr "Frans"
+
+msgctxt "lang_ga"
+msgid "Irish"
+msgstr ""
+
+msgctxt "lang_he"
+msgid "Hebrew"
+msgstr "Hebreeuws"
+
+msgctxt "lang_hu"
+msgid "Hungarian"
+msgstr ""
+
+msgctxt "lang_id"
+msgid "Indonesian"
+msgstr ""
+
+msgctxt "lang_it"
+msgid "Italian"
+msgstr "Italiaans"
+
+msgctxt "lang_ja"
+msgid "Japanese"
+msgstr "Japans"
+
+msgctxt "lang_ko"
+msgid "Korean"
+msgstr "Koreaans"
+
+msgctxt "lang_lt"
+msgid "Lithuanian"
+msgstr ""
+
+msgctxt "lang_lv"
+msgid "Latvian"
+msgstr "Lets"
+
+msgctxt "lang_mt"
+msgid "Maltese"
+msgstr ""
+
+msgctxt "lang_nl"
+msgid "Dutch"
+msgstr "Nederlands"
+
+msgctxt "lang_nl_be"
+msgid "Dutch"
+msgstr "Nederlands"
+
+msgctxt "lang_note"
+msgid "Language most present and most highlighted on the product"
+msgstr "De taal die het meest gebruikt wordt op het product"
+
+msgctxt "lang_other"
+msgid "other language"
+msgstr "andere taal"
+
+msgctxt "lang_pl"
+msgid "Polish"
+msgstr "Pools"
+
+msgctxt "lang_pt"
+msgid "Portuguese"
+msgstr "Portugees"
+
+msgctxt "lang_pt_pt"
+msgid "Portugal Portuguese"
+msgstr ""
+
+msgctxt "lang_ro"
+msgid "Romanian"
+msgstr "Roemeens"
+
+msgctxt "lang_ru"
+msgid "Russian"
+msgstr "Russisch"
+
+msgctxt "lang_sk"
+msgid "Slovak"
+msgstr ""
+
+msgctxt "lang_sl"
+msgid "Slovenian"
+msgstr ""
+
+msgctxt "lang_sv"
+msgid "Swedish"
+msgstr "Zweeds"
+
+msgctxt "lang_th"
+msgid "Thai"
+msgstr ""
+
+msgctxt "lang_vi"
+msgid "Vietnamese"
+msgstr "Vietnamees"
+
+msgctxt "lang_zh"
+msgid "Chinese"
+msgstr "Chinees"
+
+msgctxt "language"
+msgid "en-US"
+msgstr "nl-NL"
+
+msgctxt "languages_p"
+msgid "languages"
+msgstr "talen"
+
+msgctxt "languages_s"
+msgid "language"
+msgstr "taal"
+
+msgctxt "last_edit_dates_p"
+msgid "Last edit dates"
+msgstr "Laatste wijzigingsdatums"
+
+msgctxt "last_edit_dates_s"
+msgid "Last edit date"
+msgstr "Laatste wijzigingsdatum"
+
+msgctxt "last_image_dates_p"
+msgid "Last picture dates"
+msgstr "Datums meest recente afbeelding"
+
+msgctxt "last_image_dates_s"
+msgid "Last picture date"
+msgstr "Datum meest recente afbeelding"
+
+msgctxt "licence_accept"
+msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"http://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
+"for information and data, and under the <a href=\"http://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
+"You accept to be credited by re-users by a link to the product your are contributing to."
+msgstr "Door informatie, data en/of beelden toe te voegen, aanvaard je dat je bijdrage onherroepelijk geplaatst wordt onder de <a href=\"http://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licentie\n"
+"voor informatie en data, en onder de <a href=\"http://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licentie voor beelden.\n"
+"Je aanvaard ook dat je gecrediteerd kan worden door hergebruikers via een link naar het product waar je aan bijgedragen hebt."
+
+msgctxt "link"
+msgid "Link to the product page on the official site of the producer"
+msgstr "Link naar de pagina van het product op de officiële site van de producent"
+
+msgctxt "list_of_x"
+msgid "List of %s"
+msgstr "Lijst van %s"
+
+msgctxt "loadmore"
+msgid "Load more results"
+msgstr ""
+
+msgctxt "login_and_add_product"
+msgid "Sign-in and add the product"
+msgstr "Inloggen en het product toevoegen"
+
+msgctxt "login_and_edit_product"
+msgid "Sign-in and edit the product"
+msgstr "Inloggen en het product bewerken"
+
+msgctxt "login_create_your_account"
+msgid "Create your account."
+msgstr "Creëer je account"
+
+msgctxt "login_not_registered_yet"
+msgid "Not registered yet?"
+msgstr "Nog niet geregistreerd?"
+
+msgctxt "login_register_content"
+msgid "<p>Sign-in to add or edit products.</p>\n\n"
+"<form method=\"post\" action=\"/cgi/session.pl\">\n"
+"Username or e-mail address:<br />\n"
+"<input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\" /><br />\n"
+"Password<br />\n"
+"<input type=\"password\" name=\"password\" tabindex=\"2\" style=\"width:220px;\" autocomplete=\"current-password\" /><br />\n"
+"<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>Remember me</label><br />\n"
+"<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Sign-in\" class=\"button small\" />\n"
+"</form>\n"
+"<p>Not registered yet? <a href=\"/cgi/user.pl\">Create your account</a>.</p>\n"
+msgstr ""
+
+msgctxt "login_register_title"
+msgid "Sign-in"
+msgstr "Aanmelden"
+
+msgctxt "login_to_add_and_edit_products"
+msgid "Sign-in to add or edit products."
+msgstr "Meld je aan om producten toe te voegen of te bewerken."
+
+msgctxt "login_to_add_products"
+msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
+"<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
+msgstr "<p>Je moet je aanmelden om producten toe te voegen of te bewerken.</p>\n\n"
+"<p>Als je nog geen account hebt op <<site_name>>, kan je <a href=\"/cgi/user.pl\">je registreren in 30 seconden</a>.</p>\n"
+
+msgctxt "login_username_email"
+msgid "Username or e-mail address:"
+msgstr "Gebruikersnaam of e-mailadres"
+
+msgctxt "low"
+msgid "low"
+msgstr "laag"
+
+msgctxt "low_quantity"
+msgid "low quantity"
+msgstr "kleine hoeveelheid"
+
+msgctxt "manage_images"
+msgid "Manage images"
+msgstr "Beheer de foto's"
+
+msgctxt "manage_images_info"
+msgid "You can select one or more images and then:"
+msgstr "Je kan één of meer foto's kiezen en vervolgens:"
+
+msgctxt "manufacturing_places"
+msgid "Manufacturing or processing places"
+msgstr "Locaties van productie of verwerking"
+
+msgctxt "manufacturing_places_example"
+msgid "Montana, USA"
+msgstr "Leuven, België"
+
+msgctxt "manufacturing_places_p"
+msgid "manufacturing or processing places"
+msgstr "productie- of verwerkingslocaties"
+
+msgctxt "manufacturing_places_products"
+msgid "Products manufactured or processed in %s"
+msgstr "Producten geproduceerd of verwerkt in %s"
+
+msgctxt "manufacturing_places_s"
+msgid "manufacturing or processing place"
+msgstr "productie- of verwerkingslocatie"
+
+msgctxt "manufacturing_places_tagsinput"
+msgid "add a place"
+msgstr "voeg locatie toe"
+
+msgctxt "manufacturing_places_without_products"
+msgid "Products not manufactured or processed in %s"
+msgstr "Producten niet vervaardigd of verwerkt in %s"
+
+msgctxt "map_count"
+msgid "%d products match the search criterias, of which %i products have a known production place."
+msgstr "%d producten stemmen overeen met uw zoekcriteria, waaronder %i producten waarvan de productielocatie of de locatie van verpakking gekend is."
+
+msgctxt "map_title"
+msgid "Map title"
+msgstr "Titel van de kaart"
+
+msgctxt "menu"
+msgid "Menu"
+msgstr ""
+
+msgctxt "menu_add_a_product"
+msgid "Add a product"
+msgstr "Product toevoegen"
+
+msgctxt "menu_add_a_product_link"
+msgid "/add-a-product"
+msgstr "/toevoegen-product"
+
+msgctxt "menu_contribute"
+msgid "Contribute"
+msgstr "Bijdragen"
+
+msgctxt "menu_contribute_link"
+msgid "/contribute"
+msgstr "/bijdragen"
+
+msgctxt "menu_discover"
+msgid "Discover"
+msgstr "Ontdek"
+
+msgctxt "menu_discover_link"
+msgid "/discover"
+msgstr "/ontdek"
+
+msgctxt "mission_"
+msgid "Mission: "
+msgstr "Missie: "
+
+msgctxt "mission_accomplished_by"
+msgid "This mission has been completed by:"
+msgstr "Deze missie werd voltooid door:"
+
+msgctxt "mission_accomplished_by_n"
+msgid "Completed by %d persons."
+msgstr "Voltooid door %d personen"
+
+msgctxt "mission_accomplished_by_nobody"
+msgid "Be the first to complete this mission!"
+msgstr "Wees de eerste om deze missie te voltooien!"
+
+msgctxt "mission_goal"
+msgid "Goal:"
+msgstr "Doel:"
+
+msgctxt "missions"
+msgid "Missions"
+msgstr "Missies"
+
+msgctxt "moderate"
+msgid "moderate"
+msgstr "gemiddeld"
+
+msgctxt "moderate_quantity"
+msgid "moderate quantity"
+msgstr "gemiddelde hoeveelheid"
+
+msgctxt "months"
+msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
+msgstr "['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'Oktober', 'November', 'December']"
+
+msgctxt "move_images_to_another_product"
+msgid "Move the images to another product"
+msgstr "Verplaats de foto's naar een ander product"
+
+msgctxt "n_products"
+msgid "%d products"
+msgstr "%d producten"
+
+msgctxt "name"
+msgid "Name"
+msgstr "Naam"
+
+msgctxt "names"
+msgid "Names"
+msgstr "Namen"
+
+msgctxt "new_code"
+msgid "If the barcode is not correct, please correct it here:"
+msgstr "Een foutieve barcode? Type hier de correcte code:"
+
+msgctxt "new_code_note"
+msgid "For products without a barcode, an internal code is automatically set."
+msgstr "Producten zonder barcode krijgen automatisch een interne code."
+
+msgctxt "newsletter_description"
+msgid "Subscribe to the newsletter (2 emails per month maximum)"
+msgstr "Inschrijven voor de nieuwsbrief (maximum 2 e-mails per maand)"
+
+msgctxt "next"
+msgid "Next"
+msgstr "Volgende"
+
+msgctxt "no_barcode"
+msgid "Product without barcode"
+msgstr "Product zonder barcode"
+
+msgctxt "no_nutrition_data"
+msgid "Nutrition facts are not specified on the product."
+msgstr "De voedingswaarden zijn niet op het product vermeld"
+
+msgctxt "no_product_for_barcode"
+msgid "No product listed for barcode %s."
+msgstr "Er is geen product gevonden voor de barcode %s."
+
+msgctxt "no_products"
+msgid "No products."
+msgstr "Geen producten"
+
+msgctxt "not_saved"
+msgid "Error while saving, please retry."
+msgstr "Fout tijdens het opslaan, gelieve opnieuw te proberen"
+
+msgctxt "number_of_additives"
+msgid "Number of additives"
+msgstr "Aantal additieven"
+
+msgctxt "number_of_products"
+msgid "Number of products"
+msgstr "Aantal producten"
+
+msgctxt "nutrient_in_quantity"
+msgid "%s in %s"
+msgstr ""
+
+msgctxt "nutrient_levels_info"
+msgid "Nutrient levels for 100 g"
+msgstr "Voedingswaarden per 100 g"
+
+msgctxt "nutrient_levels_link"
+msgid "/nutrient-levels"
+msgstr "/voedingsstofgehalte"
+
+msgctxt "nutrient_levels_p"
+msgid "nutrient levels"
+msgstr "voedingswaarden"
+
+msgctxt "nutrient_levels_s"
+msgid "nutrient level"
+msgstr "voedingswaarde"
+
+msgctxt "nutriments_p"
+msgid "nutriments"
+msgstr "voedingsstoffen"
+
+msgctxt "nutriments_products"
+msgid "Products that contain the nutriment %s"
+msgstr "Producten met de voedingsstof %s"
+
+msgctxt "nutriments_s"
+msgid "nutriment"
+msgstr "voedingsstof"
+
+msgctxt "nutriments_without_products"
+msgid "Products that do not contain the nutriment %s"
+msgstr "Producten zonder de voedingsstof %s"
+
+msgctxt "nutrition_alt"
+msgid "Nutrition facts"
+msgstr "Voedigswaarden"
+
+msgctxt "nutrition_data"
+msgid "Nutrition facts"
+msgstr "Voedigswaarden"
+
+msgctxt "nutrition_data_average"
+msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
+msgstr "Gemiddelde voedingswaarden voor de %d producten van de categorie %s waarvan de voedingswaarden bekend zijn (op een totaal van %d producten)."
+
+msgctxt "nutrition_data_compare_percent"
+msgid "% of difference"
+msgstr "Verschil in %"
+
+msgctxt "nutrition_data_compare_value"
+msgid "value for 100 g / 100 ml"
+msgstr "waarde voor 100 g / 100 ml"
+
+msgctxt "nutrition_data_comparison_with_categories"
+msgid "Comparison to average values of products in the same category:"
+msgstr "Vergelijking met de gemiddelde waarden van producten uit dezelfde categorie:"
+
+msgctxt "nutrition_data_comparison_with_categories_note"
+msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
+msgstr "NB: voor elke voedingsstof is het gemiddelde niet dat van alle producten uit de categorie, maar dat van de producten waarvoor de hoeveelheid van de voedingsstof bekend is."
+
+msgctxt "nutrition_data_note"
+msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
+msgstr "Als de foto voldoende scherp en recht is, dan kunnen de voedingswaarden automatisch uit de foto afgeleid worden"
+
+msgctxt "nutrition_data_per_10"
+msgid "10th centile"
+msgstr "10<sup>e</sup> percentiel"
+
+msgctxt "nutrition_data_per_100g"
+msgid "for 100 g / 100 ml"
+msgstr "voor 100 g / 100 ml"
+
+msgctxt "nutrition_data_per_5"
+msgid "5<sup>th</sup> centile"
+msgstr ""
+
+msgctxt "nutrition_data_per_50"
+msgid "Median"
+msgstr "Mediaan"
+
+msgctxt "nutrition_data_per_90"
+msgid "90th centile"
+msgstr "90<sup>e</e> percentiel"
+
+msgctxt "nutrition_data_per_95"
+msgid "95<sup>th</sup> centile"
+msgstr ""
+
+msgctxt "nutrition_data_per_max"
+msgid "Maximum"
+msgstr ""
+
+msgctxt "nutrition_data_per_mean"
+msgid "Mean"
+msgstr "Gemiddelde"
+
+msgctxt "nutrition_data_per_min"
+msgid "Minimum"
+msgstr ""
+
+msgctxt "nutrition_data_per_serving"
+msgid "per serving"
+msgstr "per portie"
+
+msgctxt "nutrition_data_per_std"
+msgid "Standard deviation"
+msgstr "Standaardafwijking"
+
+msgctxt "nutrition_data_table"
+msgid "Nutrition facts"
+msgstr "Voedigswaarden"
+
+msgctxt "nutrition_data_table_note"
+msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
+"by typing the first letters of their name in the last row of the table."
+msgstr "De tabel bevat automatisch de voedingsstoffen die het meest vermeld worden. Laat het veld leeg indien het niet vermeld staat op de verpakking.<br />Je kan andere voedingsstoffen (vitamines, mineralen, cholesterol, omega 3 en 6 etc.) toevoegen door de eerste letters van hun naam in de laatste rij van de tabel in te voeren."
+
+msgctxt "nutrition_data_table_sub"
+msgid "-"
+msgstr "waarvan"
+
+msgctxt "nutrition_grades_p"
+msgid "Nutrition grades"
+msgstr "Voedingsgraden"
+
+msgctxt "nutrition_grades_s"
+msgid "Nutrition grade"
+msgstr "Voedingsgraad"
+
+msgctxt "og_image_url"
+msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+msgstr ""
+
+msgctxt "on_the_blog_content"
+msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+"<p>Recent news:</p>\n"
+msgstr ""
+
+msgctxt "on_the_blog_title"
+msgid "News"
+msgstr "Nieuws"
+
+msgctxt "openfoodhunt_points"
+msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
+"Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
+msgstr "Het is <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> op <<site_name>> van zaterdag 21 februari 2015 tot zondag 1 maart 2015 ! De deelnemers ontvangen Onderkkerspunten voor de producten die ze toevoegen, en Ambassadeurspunten voor nieuwe deelnemers, die ze aanbrengen. De punten worden elke 30 minuten geupdate."
+
+msgctxt "or"
+msgid "or:"
+msgstr ""
+
+msgctxt "origins"
+msgid "Origin of ingredients"
+msgstr "Herkomst van de ingrediënten"
+
+msgctxt "origins_example"
+msgid "California, USA"
+msgstr "Leuven, Vlaams-Brabant, België"
+
+msgctxt "origins_note_xxx"
+msgid "Indicate the origin of ingredients"
+msgstr "Geef de herkomst van de ingrediënten weer"
+
+msgctxt "origins_p"
+msgid "origins of ingredients"
+msgstr "herkomst"
+
+msgctxt "origins_products"
+msgid "Products with ingredients originating from %s"
+msgstr "Producten waarvan de ingrediënten afkomstig zijn uit %s"
+
+msgctxt "origins_s"
+msgid "origin of ingredients"
+msgstr "herkomst van de ingrediënten"
+
+msgctxt "origins_tagsinput"
+msgid "add an origin"
+msgstr "voeg herkomst toe"
+
+msgctxt "origins_without_products"
+msgid "Products without ingredients originating from %s"
+msgstr "Producten zonder ingrediënten uit %s"
+
+msgctxt "packaging"
+msgid "Packaging"
+msgstr "Verpakking"
+
+msgctxt "packaging_example"
+msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
+msgstr "Vers, Blik, Vacuüm, Diepgevroren, Fles, Bokaal, Doos, Glas, Plastic, Karton, ..."
+
+msgctxt "packaging_note"
+msgid "Packaging type, format, material"
+msgstr "Soort verpakking, formaat, materiaal"
+
+msgctxt "packaging_p"
+msgid "packaging"
+msgstr "verpakkingen"
+
+msgctxt "packaging_products"
+msgid "Products with a %s packaging"
+msgstr "Producten met een verpakking van %s"
+
+msgctxt "packaging_s"
+msgid "packaging"
+msgstr "verpakkingen"
+
+msgctxt "packaging_tagsinput"
+msgid "add a type, shape or material"
+msgstr "vorm, materiaal"
+
+msgctxt "packaging_without_products"
+msgid "Products without a %s packaging"
+msgstr "Verpakkingsvrije producten"
+
+msgctxt "page_x"
+msgid "Page %d"
+msgstr "Pagina %d"
+
+msgctxt "page_x_out_of_y"
+msgid "Page %d out of %d."
+msgstr "Pagina %d van %d."
+
+msgctxt "pages"
+msgid "Pages:"
+msgstr "Pagina's"
+
+msgctxt "password"
+msgid "Password"
+msgstr "Wachtwoord"
+
+msgctxt "password_confirm"
+msgid "Confirm password"
+msgstr "Bevestig wachtwoord"
+
+msgctxt "periods_after_opening"
+msgid "Period of time after opening"
+msgstr "Houdbaarheid na openen"
+
+msgctxt "periods_after_opening_note"
+msgid "Found in an open container logo with a number of months: e.g. 12 M"
+msgstr "Gevonden in een aangebroken verpakkingslogo met een houdbaarheidsduur, bijv. 12 maanden"
+
+msgctxt "periods_after_opening_p"
+msgid "Periods after opening"
+msgstr "Houdbaarheidsduur na openen"
+
+msgctxt "periods_after_opening_s"
+msgid "Period after opening"
+msgstr "Houdbaarheidsduur na openen"
+
+msgctxt "photographers_p"
+msgid "photographers"
+msgstr "fotografen"
+
+msgctxt "photographers_s"
+msgid "photographer"
+msgstr "fotograaf"
+
+msgctxt "pnns_groups_1"
+msgid "PNNS groups 1"
+msgstr ""
+
+msgctxt "pnns_groups_1_p"
+msgid "PNNS groups 1"
+msgstr ""
+
+msgctxt "pnns_groups_1_s"
+msgid "PNNS group 1"
+msgstr ""
+
+msgctxt "pnns_groups_2"
+msgid "PNNS groups 2"
+msgstr ""
+
+msgctxt "pnns_groups_2_p"
+msgid "PNNS groups 2"
+msgstr ""
+
+msgctxt "pnns_groups_2_s"
+msgid "PNNS group 2"
+msgstr ""
+
+msgctxt "points_all_countries"
+msgid "There are %d Explorers and %d Ambassadors."
+msgstr "Er zijn %d Ontdekkers et %d Ambassadeurs."
+
+msgctxt "points_all_users"
+msgid "There are Explorers for %d countries and Ambassadors for %d countries."
+msgstr "Er zijn Ontdekkers voor %d landen en Ambassadeurs voor %d landen."
+
+msgctxt "points_country"
+msgid "%s has %d Explorers and %d Ambassadors."
+msgstr "%s heeft %d Ontdekkers et %d Ambassadeurs."
+
+msgctxt "points_ranking"
+msgid "Ranking"
+msgstr "Ordening"
+
+msgctxt "points_ranking_users_and_countries"
+msgid "Ranking of contributors and countries"
+msgstr "Ordening van medewerkers en landen"
+
+msgctxt "points_user"
+msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
+msgstr "%s is een Ontdekker van %d landen en een Ambassadeur van %d landen."
+
+msgctxt "previous"
+msgid "Previous"
+msgstr "Vorige"
+
+msgctxt "product_add_nutrient"
+msgid "Add a nutrient"
+msgstr "Voeg voedingsstof toe"
+
+msgctxt "product_added"
+msgid "Product added on"
+msgstr "Product toegevoegd op"
+
+msgctxt "product_changes_saved"
+msgid "Changes saved."
+msgstr "De wijzigingen werden opgeslagen."
+
+msgctxt "product_characteristics"
+msgid "Product characteristics"
+msgstr "Eigenschappen van het product"
+
+msgctxt "product_created"
+msgid "Product created"
+msgstr ""
+
+msgctxt "product_description"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "Ingrediënten, allergenen, additieven, voedingswaarden, keurmerken, herkomst ingrediënten en informatie van product %s"
+
+msgctxt "product_image"
+msgid "Product picture"
+msgstr "Foto van het product"
+
+msgctxt "product_image_with_barcode"
+msgid "Picture with barcode:"
+msgstr "Foto van het product met barcode"
+
+msgctxt "product_js_current_image"
+msgid "Current image:"
+msgstr "Huidige foto:"
+
+msgctxt "product_js_deleting_images"
+msgid "Deleting images"
+msgstr "Foto's aan het verwijderen"
+
+msgctxt "product_js_extract_ingredients"
+msgid "Extract the ingredients from the picture"
+msgstr "Detecteer de ingrediënten op de foto"
+
+msgctxt "product_js_extracted_ingredients_nok"
+msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
+msgstr "De tekst met de ingrediënten kon niet gedetecteerd worden. Je kan het opnieuw proberen met een scherpere foto, of met een foto met een hogere resolutie of een betere kadrering van de tekst"
+
+msgctxt "product_js_extracted_ingredients_ok"
+msgid "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
+msgstr "De tekst met de ingrediënten is gedetecteerd. De tekstherkenning is niet altijd perfect, dus controleer de tekst hieronder en verbeter eventuele fouten."
+
+msgctxt "product_js_extracting_ingredients"
+msgid "Extracting ingredients"
+msgstr "Bezig de ingrediënten te detecteren"
+
+msgctxt "product_js_image_normalize"
+msgid "Normalize colors"
+msgstr "Kleurbalans corrigeren"
+
+msgctxt "product_js_image_open_full_size_image"
+msgid "Open the picture in original size in a new windows"
+msgstr "De foto in het groot of in een nieuw venster bekijken"
+
+msgctxt "product_js_image_received"
+msgid "Image received"
+msgstr "Foto ontvangen"
+
+msgctxt "product_js_image_rotate_and_crop"
+msgid "Rotate the image if necessary, then click and drag to select the interesting zone:"
+msgstr "Draai indien nodig de foto, klik en sleep om de beoogde zone te selecteren:"
+
+msgctxt "product_js_image_rotate_left"
+msgid "Rotate left"
+msgstr "Draai naar links"
+
+msgctxt "product_js_image_rotate_right"
+msgid "Rotate right"
+msgstr "Draai naar rechts"
+
+msgctxt "product_js_image_save"
+msgid "Validate and/or resize image"
+msgstr "De foto goedkeuren en/of verkleinen"
+
+msgctxt "product_js_image_saved"
+msgid "Image saved"
+msgstr "Foto opgeslagen"
+
+msgctxt "product_js_image_saving"
+msgid "Saving image"
+msgstr "De foto wordt opgeslagen"
+
+msgctxt "product_js_image_upload_error"
+msgid "Error while uploading image"
+msgstr "Fout tijdens het uploaden van de foto"
+
+msgctxt "product_js_image_white_magic"
+msgid "Photo on white background: try to remove the background"
+msgstr "Foto op een witte achtergrond: probeer de achtergrond te verwijderen"
+
+msgctxt "product_js_images_delete_error"
+msgid "Errors while deleting images"
+msgstr "Fouten tijdens verwijderen foto's"
+
+msgctxt "product_js_images_deleted"
+msgid "Images deleted"
+msgstr "Foto's verwijderd"
+
+msgctxt "product_js_images_move_error"
+msgid "Errors while moving images"
+msgstr "Fouten tijdens het verplaatsen foto's"
+
+msgctxt "product_js_images_moved"
+msgid "Images moved"
+msgstr "Foto's verplaatst"
+
+msgctxt "product_js_moving_images"
+msgid "Moving images"
+msgstr "Foto's aan het verplaatsen"
+
+msgctxt "product_js_upload_image"
+msgid "Add a picture"
+msgstr "Voeg een foto toe"
+
+msgctxt "product_js_upload_image_note"
+msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
+msgstr ""
+
+msgctxt "product_js_uploading_image"
+msgid "Uploading image"
+msgstr "De foto wordt verzonden"
+
+msgctxt "product_last_edited"
+msgid "Last edit of product page on"
+msgstr "Laatste wijziging productpagina op"
+
+msgctxt "product_name"
+msgid "Product name"
+msgstr "Productnaam"
+
+msgctxt "product_name_example"
+msgid "Kinder Bueno White"
+msgstr ""
+
+msgctxt "products"
+msgid "products"
+msgstr "producten"
+
+msgctxt "products_stats"
+msgid "Evolution of the number of products on <<site_name>>"
+msgstr "Evolutie van het aantal producten op <<site_name>>"
+
+msgctxt "products_stats_completed_t"
+msgid "Products with complete information"
+msgstr "Producten met volledige informatie"
+
+msgctxt "products_stats_created_t"
+msgid "Products"
+msgstr "Producten"
+
+msgctxt "products_with_nutriments"
+msgid "with nutrition facts"
+msgstr "met voedingswaarden"
+
+msgctxt "products_you_edited"
+msgid "Products you added or edited"
+msgstr "De producten die je toegevoegd of aangepast hebt"
+
+msgctxt "purchase_places"
+msgid "City, state and country where purchased"
+msgstr "Stad en land van aankoop"
+
+msgctxt "purchase_places_note"
+msgid "Indicate where you bought or saw the product (at least the country)"
+msgstr "Geef de plaats aan waar je het product gekocht of gezien heeft (ten minste het land)"
+
+msgctxt "purchase_places_p"
+msgid "purchase places"
+msgstr "verkooplocaties"
+
+msgctxt "purchase_places_products"
+msgid "Products sold in %s"
+msgstr "Producten verkocht in %s"
+
+msgctxt "purchase_places_s"
+msgid "purchase place"
+msgstr "verkooplocatie"
+
+msgctxt "purchase_places_tagsinput"
+msgid "add a place"
+msgstr "voeg locatie toe"
+
+msgctxt "purchase_places_without_products"
+msgid "Products not sold in %s"
+msgstr "Producten niet verkrijgbaar in %s"
+
+msgctxt "quantity"
+msgid "Quantity"
+msgstr "Hoeveelheid"
+
+msgctxt "quantity_example"
+msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
+msgstr "2 l, 250 g, 1 kg, 25 cl"
+
+msgctxt "remember_me"
+msgid "Remember me"
+msgstr "Aangemeld blijven"
+
+msgctxt "remember_purchase_places_and_stores"
+msgid "Remember the place of purchase and store for the next product adds"
+msgstr "De locatie van aankoop en de winkel onthouden voor het toevoegen van nieuwe producten"
+
+msgctxt "reset_password"
+msgid "Reset password"
+msgstr "Wachtwoord resetten"
+
+msgctxt "reset_password_email_body"
+msgid "Hello <NAME>,\n\n"
+"You asked for your password to be reset on https://openfoodfacts.org\n\n"
+"for the username: <USERID>\n\n"
+"To continue the password reset, click on the link below.\n"
+"If you did not ask for the password reset, you can ignore this message.\n\n"
+"<RESET_URL>\n\n"
+"See you soon,\n\n"
+"Stephane\n"
+"https://openfoodfacts.org\n"
+msgstr ""
+
+msgctxt "reset_password_email_subject"
+msgid "Reset of your password on <<site_name>>"
+msgstr "Wijziging van je wachtwoord op <<site_name>>"
+
+msgctxt "reset_password_reset"
+msgid "Your password has been changed. You can now log-in with this password."
+msgstr "Je wachtwoord werd gewijzigd. Je kan zich nu aanmelden met het nieuwe wachtwoord."
+
+msgctxt "reset_password_reset_msg"
+msgid "Enter a new password."
+msgstr "Voer een nieuw paswoord in"
+
+msgctxt "reset_password_send_email"
+msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
+msgstr "Er werd een e-mail verstuurd met een link om je paswoord te resetten naar het e-mailadres dat verbonden is aan je account."
+
+msgctxt "reset_password_send_email_msg"
+msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
+msgstr "Indien je je paswoord vergeten bent, vul dan je gebruikersnaam of e-mailadres in en ontvang instructies om je paswoord te resetten."
+
+msgctxt "risk_level"
+msgid "Risk"
+msgstr "Risico's"
+
+msgctxt "risk_level_0"
+msgid "To be completed"
+msgstr "Aan te vullen"
+
+msgctxt "risk_level_1"
+msgid "Low risks"
+msgstr "Lage risico's"
+
+msgctxt "risk_level_2"
+msgid "Moderate risks"
+msgstr "Gemiddelde risico's"
+
+msgctxt "risk_level_3"
+msgid "High risks"
+msgstr "Hoge risico's"
+
+msgctxt "salt_equivalent"
+msgid "salt equivalent"
+msgstr "equivalent zout"
+
+msgctxt "save"
+msgid "Save"
+msgstr "Opslaan"
+
+msgctxt "saved"
+msgid "Saved."
+msgstr "De gegevens werden opgeslagen."
+
+msgctxt "saving"
+msgid "Saving."
+msgstr "De gegevens worden opgeslagen."
+
+msgctxt "search"
+msgid "Search"
+msgstr "Zoeken"
+
+msgctxt "search_a_product_placeholder"
+msgid "Search a product"
+msgstr "Zoek een product"
+
+msgctxt "search_button"
+msgid "Search"
+msgstr "Zoeken"
+
+msgctxt "search_contains"
+msgid "contains"
+msgstr "bevat"
+
+msgctxt "search_criteria"
+msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
+msgstr "Kies producten met specifieke merken, categorieën, labels, de herkomst van de ingrediënten, productie plaatsen etc."
+
+msgctxt "search_description_opensearch"
+msgid "Open Food Facts product search"
+msgstr "Product zoeken in Open Food Facts"
+
+msgctxt "search_does_not_contain"
+msgid "does not contain"
+msgstr "bevat geen"
+
+msgctxt "search_download_button"
+msgid "Download"
+msgstr "Downloaden"
+
+msgctxt "search_download_choice"
+msgid "Download results"
+msgstr "Download de resultaten"
+
+msgctxt "search_download_results"
+msgid "Download results in CSV format (Excel, OpenOffice)"
+msgstr "Download de resultaten in CSV-formaat (Excel, OpenOffice)"
+
+msgctxt "search_download_results_description"
+msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
+msgstr ""
+
+msgctxt "search_edit"
+msgid "Change search criteria"
+msgstr "Wijzig de zoekcriteria"
+
+msgctxt "search_flatten_tags"
+msgid "(Optional) - Create a column for every:"
+msgstr "(Optioneel) - Een kolom creëren voor elke:"
+
+msgctxt "search_generate_graph"
+msgid "Generate graph"
+msgstr "De grafiek maken"
+
+msgctxt "search_generate_map"
+msgid "Generate the map"
+msgstr "De kaart maken"
+
+msgctxt "search_graph"
+msgid "Graph"
+msgstr "Grafiek"
+
+msgctxt "search_graph_2_axis"
+msgid "Scatter plot"
+msgstr "Grafiek met 2 assen"
+
+msgctxt "search_graph_blog"
+msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
+msgstr ""
+
+msgctxt "search_graph_choice"
+msgid "Results on a graph"
+msgstr "Resultatengrafiek"
+
+msgctxt "search_graph_instructions"
+msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
+"get a cloud of products (scatter plot)."
+msgstr "Kies wat je wil plotten op de horizontale as om een histogram te krijgen, of kies twee assen om een productenwolk te tonen."
+
+msgctxt "search_graph_link"
+msgid "Permanent link to this graph, shareable by e-mail and on social networks"
+msgstr "Permanente link naar deze grafiek, deelbaar via e-mail of de sociale media"
+
+msgctxt "search_graph_note"
+msgid "The graph will show only products for which displayed values are known."
+msgstr "De grafiek geeft enkel producten weer waarvan de afgebeelde waarden gekend zijn."
+
+msgctxt "search_graph_title"
+msgid "Display results on a graph"
+msgstr "Geef de resultaten weer in een grafiek"
+
+msgctxt "search_graph_warning"
+msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
+msgstr "Opmerking: deze grafiek werd gemaakt door een gebruiker van <<site_name>>. De titel, de afgebeelde producten en de assen werden gekozen door de maker van de grafiek."
+
+msgctxt "search_indifferent"
+msgid "Indifferent"
+msgstr "Niet van belang"
+
+msgctxt "search_ingredients"
+msgid "Ingredients"
+msgstr "Ingrediënten"
+
+msgctxt "search_link"
+msgid "Permanent link to these results, shareable by e-mail and on social networks"
+msgstr "Permanente link naar deze resultaten, deelbaar via e-mail of de sociale media"
+
+msgctxt "search_list_choice"
+msgid "Results in a list of products"
+msgstr "Resulteert in een lijst van producten"
+
+msgctxt "search_map"
+msgid "Map"
+msgstr "Kaart"
+
+msgctxt "search_map_choice"
+msgid "Results on a map"
+msgstr "Resultaten op een kaart"
+
+msgctxt "search_map_link"
+msgid "Permanent link to this map, shareable by e-mail and on social networks"
+msgstr "Permanente link naar deze kaart, deelbaar via e-mail of de sociale media"
+
+msgctxt "search_map_note"
+msgid "The map will show only products for which the production place is known."
+msgstr "De kaart toont enkel de producten waarvan de productielocatie bekend is."
+
+msgctxt "search_map_title"
+msgid "Display results on a map"
+msgstr "Geef de resultaten weer op de kaart"
+
+msgctxt "search_nutriment"
+msgid "choose a nutriment..."
+msgstr "kies een voedingsstof"
+
+msgctxt "search_nutriments"
+msgid "Nutriments"
+msgstr "Voedingsstoffen"
+
+msgctxt "search_or"
+msgid "or"
+msgstr "of"
+
+msgctxt "search_page_size"
+msgid "Results per page"
+msgstr "Resultaten per pagina"
+
+msgctxt "search_products"
+msgid "Products search"
+msgstr "Producten zoeken"
+
+msgctxt "search_results"
+msgid "Search results"
+msgstr "Zoekresultaten"
+
+msgctxt "search_series"
+msgid "Use a different color for the following products:"
+msgstr "Gebruik een andere kleur voor de volgende producten:"
+
+msgctxt "search_series_default"
+msgid "Other products"
+msgstr "Andere producten"
+
+msgctxt "search_series_fairtrade"
+msgid "Fair trade"
+msgstr ""
+
+msgctxt "search_series_fairtrade_label"
+msgid "fair-trade"
+msgstr ""
+
+msgctxt "search_series_nutrition_grades"
+msgid "Use nutrition grades colors"
+msgstr "Gebruik voedingsgraadkleuren"
+
+msgctxt "search_series_organic"
+msgid "Organic"
+msgstr "Bio"
+
+msgctxt "search_series_organic_label"
+msgid "organic"
+msgstr "bio"
+
+msgctxt "search_series_with_sweeteners"
+msgid "With sweeteners"
+msgstr "Met zoetstoffen"
+
+msgctxt "search_tag"
+msgid "choose a criterion..."
+msgstr "kies een criterium..."
+
+msgctxt "search_tags"
+msgid "Criteria"
+msgstr ""
+
+msgctxt "search_terms"
+msgid "Search terms"
+msgstr "Zoektermen"
+
+msgctxt "search_terms_note"
+msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
+msgstr "Zoek naar woorden in de naam van het product, de algemene benaming, de merken, de categorieën, de herkomst en de labels"
+
+msgctxt "search_title"
+msgid "Search a product, brand, ingredient, nutriment etc."
+msgstr "Een product, een merk, een ingrediënt, een voedingsstof, etc. zoeken."
+
+msgctxt "search_title_graph"
+msgid "Results graph"
+msgstr "Resultatengrafiek"
+
+msgctxt "search_title_map"
+msgid "Results map"
+msgstr "Resultatenkaart"
+
+msgctxt "search_tools"
+msgid "Search tools"
+msgstr "Zoekfuncties"
+
+msgctxt "search_value"
+msgid "value"
+msgstr "waarde"
+
+msgctxt "search_with"
+msgid "With"
+msgstr "Met"
+
+msgctxt "search_without"
+msgid "Without"
+msgstr "Zonder"
+
+msgctxt "see_product_page"
+msgid "See the product page"
+msgstr "De pagina van het product bekijken"
+
+msgctxt "select_country"
+msgid "Country"
+msgstr "Land"
+
+msgctxt "select_lang"
+msgid "Language"
+msgstr "Taal"
+
+msgctxt "send_image"
+msgid "Send a picture..."
+msgstr "Foto uploaden..."
+
+msgctxt "send_image_error"
+msgid "Upload error"
+msgstr "Fout bij het uploaden"
+
+msgctxt "sending_image"
+msgid "Sending image"
+msgstr "Foto wordt geupload"
+
+msgctxt "serving_size"
+msgid "Serving size"
+msgstr "Grootte van een portie"
+
+msgctxt "serving_size_example"
+msgid "60 g, 12 oz, 20cl, 2 fl oz"
+msgstr "30 g, 2 koekjes 60 g, 5 cl, een glas 20 cl"
+
+msgctxt "session_title"
+msgid "Sign-in"
+msgstr "Aanmelden"
+
+msgctxt "share"
+msgid "Share"
+msgstr ""
+
+msgctxt "show_category_stats"
+msgid "Show detailed stats"
+msgstr "De gedetailleerde statistieken weergeven"
+
+msgctxt "show_category_stats_details"
+msgid "standard deviation, minimum, maximum, 10th and 90th percentiles"
+msgstr "standaardafwijking, minimum, maximum, 10e en 90e percentiel"
+
+msgctxt "signin_before_submit"
+msgid "If you already have an account on <SITE>, please sign-in before filling this form."
+msgstr "Indien je al een account hebt op <SITE>, meld je dan eerst aan voordat je dit formulier invult"
+
+msgctxt "signout"
+msgid "Sign-out"
+msgstr "Afmelden"
+
+msgctxt "site_description"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
+msgstr "Ingrediënten, voedingswaarden en informatie over voedingsproducten uit de hele wereld in een open en vrije databank"
+
+msgctxt "site_name"
+msgid "Open Food Facts"
+msgstr "Open Food Facts"
+
+msgctxt "sort_by"
+msgid "Sort by"
+msgstr "Ordenen volgens"
+
+msgctxt "sort_created_t"
+msgid "Add date"
+msgstr "Toevoegdatum"
+
+msgctxt "sort_modified_t"
+msgid "Edit date"
+msgstr "Aanpassingsdatum"
+
+msgctxt "sort_popularity"
+msgid "Popularity"
+msgstr "Populariteit"
+
+msgctxt "sort_product_name"
+msgid "Product name"
+msgstr "Productnaam"
+
+msgctxt "state"
+msgid "State"
+msgstr "Status"
+
+msgctxt "states_p"
+msgid "states"
+msgstr "statussen"
+
+msgctxt "states_s"
+msgid "state"
+msgstr "status"
+
+msgctxt "stores"
+msgid "Stores"
+msgstr "Winkels"
+
+msgctxt "stores_note"
+msgid "Name of the shop or supermarket chain"
+msgstr "Naam van de winkel of supermarktketen waar je het product gekocht of gezien hebt"
+
+msgctxt "stores_p"
+msgid "stores"
+msgstr "winkels"
+
+msgctxt "stores_products"
+msgid "Products sold at %s"
+msgstr "Producten verkocht in %s"
+
+msgctxt "stores_s"
+msgid "store"
+msgstr "winkel"
+
+msgctxt "stores_tagsinput"
+msgid "add a store"
+msgstr "voeg winkel toe"
+
+msgctxt "stores_without_products"
+msgid "Products not bought at %s"
+msgstr "Producten niet gekocht bij %s"
+
+msgctxt "subscribe"
+msgid "Subscribe"
+msgstr "Abonneren"
+
+msgctxt "tag_belongs_to"
+msgid "Belongs to:"
+msgstr "Behoort tot:"
+
+msgctxt "tag_contains"
+msgid "Contains:"
+msgstr "Bevat:"
+
+msgctxt "tag_weblinks"
+msgid "Weblinks"
+msgstr ""
+
+msgctxt "tagstable_filtered"
+msgid "out of _MAX_"
+msgstr "tussen _MAX_"
+
+msgctxt "tagstable_search"
+msgid "Search:"
+msgstr "Zoeken:"
+
+msgctxt "traces"
+msgid "Traces"
+msgstr "Sporen"
+
+msgctxt "traces_example"
+msgid "Milk, Gluten, Nuts"
+msgstr "Melk, Gluten, Noten"
+
+msgctxt "traces_note"
+msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
+msgstr "Geef de ingrediënten met de vermelding \"Kan sporen bevatten van\", \"Geproduceerd in een fabriek waar ook X verwerkt wordt"
+
+msgctxt "traces_p"
+msgid "traces"
+msgstr "sporen"
+
+msgctxt "traces_s"
+msgid "trace"
+msgstr "spoor"
+
+msgctxt "twitter"
+msgid "Twitter username (optional)"
+msgstr "Gebruikersnaam Twitter (optioneel)"
+
+msgctxt "twitter_account"
+msgid "OpenFoodFacts"
+msgstr "OpenFoodFactsNl"
+
+msgctxt "unknown"
+msgid "Unknown"
+msgstr "Onbekend"
+
+msgctxt "unknown_nutrients_p"
+msgid "unknown nutrients"
+msgstr "onbekende voedingsstoffen"
+
+msgctxt "unknown_nutrients_s"
+msgid "unknown nutrient"
+msgstr "onbekende voedingsstof"
+
+msgctxt "unsubscribe"
+msgid "Unsubscribe"
+msgstr "Uitschrijven"
+
+msgctxt "unsubscribe_info"
+msgid "You can unsubscribe from the lists at any time."
+msgstr "Je kan zich makkelijk en op elk moment uitschrijven voor de nieuwsbrief"
+
+msgctxt "userid_or_email"
+msgid "Username or e-mail address: "
+msgstr "Gebruikersnaam of e-mailadres: "
+
+msgctxt "username"
+msgid "User name"
+msgstr "Gebruikersnaam"
+
+msgctxt "username_info"
+msgid "(non-accented letters, digits and/or dashes)"
+msgstr "(letters zonder accenten, cijfers en/of streepjes)"
+
+msgctxt "username_or_email"
+msgid "Username or email address"
+msgstr "Gebruikersnaam of e-mailadres"
+
+msgctxt "users_add_products"
+msgid "Products that were added by the user %s"
+msgstr "Producten die toegevoegd werden door gebruiker %s"
+
+msgctxt "users_add_without_products"
+msgid "Products that were not added by the user %s"
+msgstr "Producten niet toegevoegd door gebruiker %s"
+
+msgctxt "users_edit_products"
+msgid "Products that were edited by the user %s"
+msgstr "Producten die aangepast werden door gebruiker %s"
+
+msgctxt "users_edit_without_products"
+msgid "Products that were not edited by the user %s"
+msgstr "Producten niet bewerkt door de gebruiker %s"
+
+msgctxt "users_p"
+msgid "contributors"
+msgstr "gebruikers"
+
+msgctxt "users_products"
+msgid "Products added by %s"
+msgstr "Producten toegevoegd door %s"
+
+msgctxt "users_s"
+msgid "contributor"
+msgstr "gebruiker"
+
+msgctxt "users_without_products"
+msgid "Products not added by %s"
+msgstr "Producten niet toegevoegd door %s"
+
+msgctxt "view"
+msgid "view"
+msgstr "bekijken"
+
+msgctxt "view_list_for_products_from_the_entire_world"
+msgid "View the list for matching products from the entire world"
+msgstr "De lijst met vergelijkbare producten uit de hele wereld bekijken"
+
+msgctxt "view_products_from_the_entire_world"
+msgid "View matching products from the entire world"
+msgstr "Vergelijkbare producten uit de hele wereld bekijken"
+
+msgctxt "view_results_from_the_entire_world"
+msgid "View results from the entire world"
+msgstr "De resultaten van de hele wereld bekijken"
+
+msgctxt "warning_3rd_party_content"
+msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
+"→ <a href=\"\">Why it matters</a>"
+msgstr "De informatie moet afkomstig zijn van de productverpakking (en niet van een andere site of de site van de producent), en je moet de foto's zelf gemaakt hebben."
+
+msgctxt "website"
+msgid "Site or blog address"
+msgstr "Adres van website of blog"
+
+msgctxt "weekdays"
+msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
+msgstr "['Zondag', Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag']"
+
+msgctxt "windows_phone_app_badge"
+msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
+msgstr ""
+
+msgctxt "windows_phone_app_link"
+msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
+msgstr ""
+
+msgctxt "you_are_connected_as_x"
+msgid "You are connected as %s."
+msgstr "Je bent verbonden als %s"
+
+msgctxt "product_js_unselect_image"
+msgid "Unselect image"
+msgstr ""
+
+msgctxt "product_js_unselecting_image"
+msgid "Unselecting image."
+msgstr ""
+
+msgctxt "product_js_unselected_image_ok"
+msgid "Unselected image."
+msgstr ""
+
+msgctxt "product_js_unselected_image_nok"
+msgid "Error while unselecting image."
+msgstr ""
+
+msgctxt "nutrition_grade_fr_fiber_warning"
+msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
+msgstr ""
+
+msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
+msgstr ""
+
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
+msgstr ""
+
+msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
+msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
+msgstr ""
+
+msgctxt "nutrition_grade_fr_title"
+msgid "NutriScore color nutrition grade"
+msgstr ""
+
+msgctxt "nutrition_grade_fr_formula"
+msgid "How the color nutrition grade is computed"
+msgstr ""
+
+msgctxt "nutrition_grade_fr_alt"
+msgid "NutriScore nutrition grade"
+msgstr ""
+
+msgctxt "delete_product_page"
+msgid "Delete the product page"
+msgstr ""
+
+msgctxt "deleting_product"
+msgid "Deleting product"
+msgstr ""
+
+msgctxt "has_deleted_product"
+msgid "has deleted product"
+msgstr ""
+
+msgctxt "delete_product_confirm"
+msgid "Are you sure that you want to delete the page for this product?"
+msgstr ""
+
+msgctxt "delete_user"
+msgid "Delete the user"
+msgstr ""
+
+msgctxt "sources_openfood_ch"
+msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
+msgstr ""
+
+msgctxt "sources_openfood_ch_product_page"
+msgid "Product page on openfood.ch"
+msgstr ""
+
+msgctxt "sources_usda_ndb"
+msgid "Some of the data comes from the USDA National Nutrients Database for Branded Foods (the exact list is available in the product edit history)."
+msgstr ""
+
+msgctxt "sources_usda_ndb_product_page"
+msgid "Product page on USDA NDB"
+msgstr ""
+
+msgctxt "donate"
+msgid "Donate to Open Food Facts"
+msgstr ""
+
+msgctxt "donate_link"
+msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgstr ""
+
+msgctxt "sources_fleurymichon"
+msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
+msgstr ""
+
+msgctxt "sources_manufacturer"
+msgid "Some of the data for this product has been provided directly by the manufacturer %s"
+msgstr ""
+
+msgctxt "warning_not_complete"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr ""
+
+msgctxt "title_separator"
+msgid " — "
+msgstr ""
+

@@ -133,11 +133,23 @@ if (opendir (DH, "$data_root/packager-codes")) {
 				}
 				
 				#print "country: $country - code: $code\n";
-				
-				$packager_codes{$code} = { cc => $country};
+		
+				# if we already have some info for the packager
+				# code from a previous line, keep it	
+				if (not defined $packager_codes{$code}) {	
+					$packager_codes{$code} = { cc => $country};
+				}
 					
 				foreach (my $f = 0; $f <= $#headers; $f++) {
-					$packager_codes{$code}{$headers[$f]} = $fields[$f];
+					# do not overwrite with empty values
+					# in case we already have some info
+					# from another line with the same code
+					# e.g. current CH file contains
+					# multiple lines for CH 336 with geo
+					# info missing on last line. bug #781
+					if ((defined $fields[$f]) and ( $fields[$f] ne '')) {
+						$packager_codes{$code}{$headers[$f]} = $fields[$f];
+					}
 					if (not defined $packager_codes{$code}{$headers[$f]}) {
 						$packager_codes{$code}{$headers[$f]} = '';
 					}

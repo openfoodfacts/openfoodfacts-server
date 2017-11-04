@@ -592,11 +592,11 @@ sub build_tags_taxonomy($$) {
 			
 			
 			# just remove everything between parenthesis
-			$line =~ s/\([^\)]*\)/ /g;
-			$line =~ s/\([^\)]*\)/ /g;
-			$line =~ s/\([^\)]*\)/ /g;
+			#$line =~ s/\([^\)]*\)/ /g;
+			#$line =~ s/\([^\)]*\)/ /g;
+			#$line =~ s/\([^\)]*\)/ /g;
 			# 3 times for embedded parenthesis
-			$line =~ s/\(|\)/-/g;			
+			#$line =~ s/\(|\)/-/g;			
 			
 			$line =~ s/\s+$//;			
 			
@@ -662,8 +662,12 @@ sub build_tags_taxonomy($$) {
 					next if $tagid eq '';		
 							
 					if (defined $synonyms{$tagtype}{$lc}{$tagid}) {
+						($synonyms{$tagtype}{$lc}{$tagid} eq $current_tagid) and next;
+						# for additives, E101 contains synonyms that corresponds to E101(i) etc.   Make E101(i) override E101.
+						if (not ($tagtype =~ /^additives/)) {
 						($synonyms{$tagtype}{$lc}{$tagid} ne $current_tagid) and print "$tagid already is a synonym of $synonyms{$tagtype}{$lc}{$tagid} - cannot add $current_tagid\n";
 						next;
+						}
 					}
 							
 					push @{$synonyms_for{$tagtype}{$lc}{$current_tagid}}, $tag;
@@ -889,9 +893,9 @@ sub build_tags_taxonomy($$) {
 			$line =~ s/\(((i|v|x)+)\)/$1/i;
 			
 			# just remove everything between parenthesis
-			$line =~ s/\([^\)]*\)/ /g;
-			$line =~ s/\([^\)]*\)/ /g;
-			$line =~ s/\([^\)]*\)/ /g;
+			#$line =~ s/\([^\)]*\)/ /g;
+			#$line =~ s/\([^\)]*\)/ /g;
+			#$line =~ s/\([^\)]*\)/ /g;
 			# 3 times for embedded parenthesis
 			
 			$line =~ s/\(|\)/-/g;

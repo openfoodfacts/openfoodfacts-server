@@ -1,9 +1,9 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2016 Association Open Food Facts
+# Copyright (C) 2011-2017 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
-# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# Address: 21 rue des Iles, 94100 Saint-Maur des FossÃ©s, France
 # 
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -46,7 +46,8 @@ BEGIN
 		&compute_product_history_and_completeness
 		&compute_languages
 					
-	
+		&process_product_edit_rules
+		
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -60,10 +61,13 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Mail qw/:all/;
+use ProductOpener::URL qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
 use MongoDB;
+use Encode;
 
 use Algorithm::CheckDigits;
 my $ean_check = CheckDigits('ean');
@@ -212,22 +216,45 @@ sub store_product($$) {
 	my $path = product_path($code);
 	my $rev = $product_ref->{rev};
 	
+	# In case we need to move a product from OFF to OBF etc.
+	# then we first move the existing files (product and images)
+	# and then store the product with a comment.
+	
+	my $new_data_root = $data_root;
+	my $new_www_root = $www_root;
+	my $new_products_collection = $products_collection;
+		
+	
 	# Changing the code?
 	# 26/01/2017 - disallow code changes until we fix #677
-	if (0 and (defined $product_ref->{old_code})) {
+	if ($admin and (defined $product_ref->{old_code})) {
 	
 		my $old_code = $product_ref->{old_code};
 		my $old_path =  product_path($old_code);
 		
-		print STDERR "Products::store_product - move from $old_code to $code\n";
+
+		if (defined $product_ref->{new_server}) {
+			my $new_server = $product_ref->{new_server};
+			$new_data_root = $options{other_servers}{$new_server}{data_root};
+			$new_www_root = $options{other_servers}{$new_server}{www_root};
+			$new_products_collection = $options{other_servers}{$new_server}{products_collection};
+			$product_ref->{server} = $product_ref->{new_server};
+			delete $product_ref->{new_server};
+		}
+		
+		print STDERR "Products::store_product - move from $old_code to $code - $new_data_root \n";
 		
 		# Move directory
 		
 		my $prefix_path = $path;
 		$prefix_path =~ s/\/[^\/]+$//;	# remove the last subdir: we'll move it
+		if ($path eq $prefix_path) {
+			# short barcodes with no prefix
+			$prefix_path = '';
+		}
 		print STDERR "Products::store_product - path: $path - prefix_path: $prefix_path\n";
 		# Create the directories for the product
-		foreach my $current_dir  ($data_root . "/products", $www_root . "/images/products") {
+		foreach my $current_dir  ($new_data_root . "/products", $new_www_root . "/images/products") {
 			(-e "$current_dir") or mkdir($current_dir, 0755);
 			foreach my $component (split("/", $prefix_path)) {
 				$current_dir .= "/$component";
@@ -235,12 +262,12 @@ sub store_product($$) {
 			}
 		}
 		
-		if ((! -e "$data_root/products/$path")
-			and (! -e "$www_root/images/products/$path")) {
+		if ((! -e "$new_data_root/products/$path")
+			and (! -e "$new_www_root/images/products/$path")) {
 			use File::Copy;
 			print STDERR "Products::store_product - move from $data_root/products/$old_path to $data_root/products/$path (new)\n";
-			move("$data_root/products/$old_path", "$data_root/products/$path") or print STDERR "error moving data from $data_root/products/$old_path to $data_root/products/$path : $!\n";
-			move("$www_root/images/products/$old_path", "$www_root/images/products/$path") or print STDERR "error moving html from $www_root/images/products/$old_path to $www_root/images/products/$path : $!\n";
+			move("$data_root/products/$old_path", "$new_data_root/products/$path") or print STDERR "error moving data from $data_root/products/$old_path to $new_data_root/products/$path : $!\n";
+			move("$www_root/images/products/$old_path", "$new_www_root/images/products/$path") or print STDERR "error moving html from $www_root/images/products/$old_path to $new_www_root/images/products/$path : $!\n";
 			
 			delete $product_ref->{old_code};
 			
@@ -249,7 +276,8 @@ sub store_product($$) {
 
 		}
 		else {
-			print STDERR "Products::store_product - cannot move from $data_root/products/$old_path to $data_root/products/$path (already exists)\n";		
+			(-e "$new_data_root/products/$path") and print STDERR "Products::store_product - cannot move from $data_root/products/$old_path to $new_data_root/products/$path (already exists)\n";		
+			(-e "$new_www_root/products/$path") and print STDERR "Products::store_product - cannot move from $www_root/products/$old_path to $new_www_root/products/$path (already exists)\n";		
 		}
 		
 		$comment .= " - barcode changed from $old_code to $code by $User_id";
@@ -258,7 +286,7 @@ sub store_product($$) {
 	
 	if ($rev < 1) {
 		# Create the directories for the product
-		foreach my $current_dir  ($data_root . "/products", $www_root . "/images/products") {
+		foreach my $current_dir  ($new_data_root . "/products", $new_www_root . "/images/products") {
 			(-e "$current_dir") or mkdir($current_dir, 0755);
 			foreach my $component (split("/", $path)) {
 				$current_dir .= "/$component";
@@ -268,7 +296,7 @@ sub store_product($$) {
 	}
 	
 	# Check lock and previous version
-	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+	my $changes_ref = retrieve("$new_data_root/products/$path/changes.sto");
 	if (not defined $changes_ref) {
 		$changes_ref = [];
 	}
@@ -331,23 +359,25 @@ sub store_product($$) {
 	$product_ref->{complete} += 0;
 	$product_ref->{sortkey} += 0;
 	
+
+	
 	if ($product_ref->{deleted}) {
-		$products_collection->remove({"_id" => $product_ref->{_id}});
+		$new_products_collection->remove({"_id" => $product_ref->{_id}});
 	}
 	else {
-		$products_collection->save($product_ref);
+		$new_products_collection->save($product_ref);
 	}
 	
-	store("$data_root/products/$path/$rev.sto", $product_ref);
+	store("$new_data_root/products/$path/$rev.sto", $product_ref);
 	# Update link
-	my $link = "$data_root/products/$path/product.sto";
+	my $link = "$new_data_root/products/$path/product.sto";
 	if (-l $link) {
 		unlink($link) or print STDERR "Products::store_product could not unlink $link : $! \n";
 	}
-	#symlink("$data_root/products/$path/$rev.sto", $link) or print STDERR "Products::store_product could not symlink $data_root/products/$path/$rev.sto to $link : $! \n";
-	symlink("$rev.sto", $link) or print STDERR "Products::store_product could not symlink $data_root/products/$path/$rev.sto to $link : $! \n";
+	#symlink("$new_data_root/products/$path/$rev.sto", $link) or print STDERR "Products::store_product could not symlink $new_data_root/products/$path/$rev.sto to $link : $! \n";
+	symlink("$rev.sto", $link) or print STDERR "Products::store_product could not symlink $new_data_root/products/$path/$rev.sto to $link : $! \n";
 	
-	store("$data_root/products/$path/changes.sto", $changes_ref);
+	store("$new_data_root/products/$path/changes.sto", $changes_ref);
 }
 
 
@@ -444,10 +474,11 @@ sub compute_completeness_and_missing_tags($$$) {
 		$complete = 0;		
 	}
 	
+	
 	if ($complete) {
 		push @states_tags, "en:complete";	
 		
-		if ($product_ref->{checked} eq 'on') {
+		if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
 			push @states_tags, "en:checked"
 		}
 		else {
@@ -843,7 +874,7 @@ sub product_name_brand($) {
 		my $brandid = '-' . get_fileid($brand) . '-';
 		my $full_name_id = '-' . get_fileid($full_name) . '-';
 		if (($brandid ne '') and ($full_name_id !~ /$brandid/i)) {
-			$full_name .= " - " . $brand;
+			$full_name .= lang("title_separator") . $brand;
 		}
 	}	
 	
@@ -862,7 +893,7 @@ sub product_name_brand_quantity($) {
 		my $quantity = $ref->{quantity};
 		my $quantityid = '-' . get_fileid($quantity) . '-';	
 		if (($quantity ne '') and ($full_name_id !~ /$quantityid/i)) {
-			$full_name .= " - " . $quantity;
+			$full_name .= lang("title_separator") . $quantity;
 		}
 	}		
 	
@@ -1047,6 +1078,280 @@ sub compute_languages($) {
 	$product_ref->{languages_hierarchy} = \@languages_hierarchy;
 }
 
+
+
+
+# @edit_rules = (
+# 
+# {
+# 	name => "App XYZ",
+# 	conditions => [
+# 		["user_id", "xyz"],
+# 	],
+# 	actions => {
+# 		["ignore_if_existing_ingredients_text_fr"],
+# 		["ignore_if_0_nutriments_fruits-vegetables-nuts"],
+# 		["warn_if_match_nutriments_fruits-vegetables-nuts", 100],
+# 		["ignore_if_regexp_match_packaging", "^(artikel|produit|producto|produkt|produkte)$"],
+# 	},
+# 	notifications => qw (
+# 		stephane@openfoodfacts.org
+# 		slack_channel_edit-alert
+# 		slack_channel_edit-alert-test
+# 	),
+# },
+# 
+# );
+# 
+
+
+sub process_product_edit_rules($) {
+
+	my $product_ref = shift;
+	my $code = $product_ref->{code};
+	
+	my $debug = 1;
+	
+	foreach my $rule_ref (@edit_rules) {
+	
+		$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name}\n";
+		
+		# Check the conditions
+		
+		my $conditions = 1;		
+		
+		if (defined $rule_ref->{conditions}) {
+			foreach my $condition_ref (@{$rule_ref->{conditions}}) {
+				if ($condition_ref->[0] eq 'user_id') {
+					if ($condition_ref->[1] ne $User_id) {
+						$conditions = 0;
+						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - condition $condition_ref->[0] does not match: $condition_ref->[1] (current: $User_id)\n";					
+						last;
+					}
+				}
+				elsif ($condition_ref->[0] eq 'user_id_not') {
+					if ($condition_ref->[1] eq $User_id) {
+						$conditions = 0;
+						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - condition $condition_ref->[0] does not match: $condition_ref->[1] (current: $User_id)\n";					
+						last;
+					}
+				}
+				elsif ($condition_ref->[0] =~ /in_(.*)_tags/) {
+					my $tagtype = $1;
+					my $condition = 0;
+					if (defined $product_ref->{$tagtype . "_tags"}) {
+						foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
+							if ($tagid eq $condition_ref->[1]) {
+								$condition = 1;
+								last;
+							}
+						}
+					}
+					if (not $condition) {
+						$conditions = 0;
+						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - condition $condition_ref->[0] does not match: $condition_ref->[1]\n";					
+						last;
+					}
+				}				
+				else {
+					$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - unrecognized condition $condition_ref->[0]\n";					
+				}
+			}
+		}
+		
+		# If conditions match, process actions and notifications
+		if ($conditions) {
+		
+# 	actions => {
+# 		["ignore_if_existing_ingredients_texts_fr"],
+# 		["ignore_if_0_nutriments_fruits-vegetables-nuts"],
+# 		["warn_if_match_nutriments_fruits-vegetables-nuts", 100],
+# 		["ignore_if_regexp_match_packaging", "^(artikel|produit|producto|produkt|produkte)$"],
+# 	},
+			
+			if (defined $rule_ref->{actions}) {
+				foreach my $action_ref (@{$rule_ref->{actions}}) {
+					my $action = $action_ref->[0];
+					my $value = $action_ref->[1];
+					not defined $value and $value = '';
+					
+					$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - action: $action - value: $value\n";					
+
+					if ($action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match)_)?(.*)$/) {
+						my ($type, $condition, $field) = ($1, $3, $4);
+						my $default_field = $field;
+						
+						my $condition_ok = 1;	
+						
+						my $action_log = "";
+						
+						if (defined $condition) {
+						
+							# if field is not passed, skip rule
+							if (not defined param($field)) {
+								$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - no value passed -> skip edit rule\n";
+								next;
+							}
+							
+							my $param_field = remove_tags_and_quote(decode utf8=>param($field));
+							
+							my $current_value = $product_ref->{$field};
+							if ($field =~ /^nutriment_(.*)/) {
+								my $nid = $1;
+								$current_value = $product_ref->{nutriments}{$nid . "_100g"};
+							}
+							
+							# language fields?
+							if ($field =~ /_(\w\w)$/) {
+								$default_field = $`;
+								if (not defined $param_field) {
+									$param_field = remove_tags_and_quote(decode utf8=>param($default_field));
+								}
+							}
+							
+							$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current(field): " . $current_value . " - param(field): " . $param_field . "\n";	
+							
+							# if there is an existing value equal to the passed value, just skip the rule
+							if  ((defined $current_value) and ($current_value eq $param_field)) {
+								$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current value equals new value -> skip edit rule - current(field): " . $current_value . " - param(field): " . $param_field . "\n";	
+								next;
+							}
+						
+												
+							
+							$condition_ok = 0;
+							
+
+							if ($condition eq 'existing') {
+								if ((defined $current_value) and ($current_value ne '')) {
+									$condition_ok = 1;
+								}
+							}
+							elsif ($condition eq '0') {
+								if ((defined param($field)) and ($param_field == 0)) {
+									$condition_ok = 1;
+								}
+							}
+							elsif ($condition eq 'equal') {
+								if ((defined param($field)) and ($param_field == $value)) {
+									$condition_ok = 1;
+								}
+							}		
+							elsif ($condition eq 'lesser') {
+								if ((defined param($field)) and ($param_field < $value)) {
+									$condition_ok = 1;
+								}
+							}
+							elsif ($condition eq 'greater') {
+								if ((defined param($field)) and ($param_field > $value)) {
+									$condition_ok = 1;
+								}
+							}							
+							elsif ($condition eq 'match') {
+								if ((defined param($field)) and ($param_field eq $value)) {
+									$condition_ok = 1;
+								}
+							}							
+							elsif ($condition eq 'regexp_match') {
+								if ((defined param($field)) and ($param_field  =~ /$value/i)) {
+									$condition_ok = 1;
+								}
+							}
+							else {
+							}							
+							
+							if (not $condition_ok) {
+								$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current(field): " . $current_value . " - param(field): " . $param_field . " -- condition does not match\n";	
+							}
+							else {
+								$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current(field): " . $current_value . " - param(field): " . $param_field . " -- condition matches\n";								
+								$action_log = "product code $code - " . format_subdomain($subdomain) . product_url($product_ref) . " - edit rule $rule_ref->{name} - type: $type - condition: $condition - field: $field current(field): " . $current_value . " - param(field): " . $param_field . "\n";
+							}
+						}
+						else {
+							$action_log = "product code $code - " . format_subdomain($subdomain) . product_url($product_ref) . " - edit rule $rule_ref->{name} - type: $type - condition: $condition \n";
+						}
+						
+						if ($condition_ok) {
+						
+							# Process action
+							
+							$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - executing action $action\n";
+							
+							
+							
+							if ($type eq 'ignore') {
+								Delete($field);
+								if ($default_field ne $field) {
+									Delete($default_field);
+								}
+							}
+							
+							if (defined $rule_ref->{notifications}) {
+								foreach my $notification (@{$rule_ref->{notifications}}) {
+									if ($notification =~ /\@/) {
+										# e-mail
+										
+										my $user_ref = { name => $notification, email => $notification};
+										
+										send_email($user_ref, "Edit rule " . $rule_ref->{name} , $action_log );
+									}
+									elsif ($notification =~ /slack_/) {
+										# slack
+										
+										my $channel = $';
+										
+										# we need a slack bot with the Web api to post to multiple channel
+										# use the simpler incoming webhook api, and post only to edit-alerts for now
+										
+										$channel = "edit-alerts";
+										
+										my $emoji = ":lemon:";
+										if ($action eq 'warn') {
+											$emoji = ":pear:";
+										}
+																				
+										use LWP::UserAgent;
+										my $ua = LWP::UserAgent->new;
+										my $server_endpoint = "https://hooks.slack.com/services/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";
+
+										my $msg = $action_log;
+											
+										# set custom HTTP request header fields
+										my $req = HTTP::Request->new(POST => $server_endpoint);
+										$req->header('content-type' => 'application/json');
+										 
+										# add POST data to HTTP request body
+										my $post_data = '{"channel": "#' . $channel . '", "username": "editrules", "text": "' . $msg . '", "icon_emoji": "' . $emoji . '" }';
+										$req->content_type("text/plain; charset='utf8'");
+										$req->content(Encode::encode_utf8($post_data));
+										 
+										my $resp = $ua->request($req);
+										if ($resp->is_success) {
+											my $message = $resp->decoded_content;
+											print STDERR "Received reply: $message\n";
+										}
+										else {
+											print STDERR "HTTP POST error code: " .  $resp->code . "\n";
+											print STDERR "HTTP POST error message: " . $resp->message . "\n";
+										}										
+										
+									}
+								}
+							}
+						}
+						
+					}
+					else {
+						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - unrecognized action $action\n";
+					}
+				}
+			}		
+		
+		}
+	}
+	
+}
 
 1;
 

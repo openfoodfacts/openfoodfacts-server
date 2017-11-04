@@ -1,0 +1,354 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu_HU\n"
+"Project-Id-Version: openfoodfacts\n"
+"PO-Revision-Date: 2017-09-03 10:33-0400\n"
+"Language-Team: Hungarian\n"
+"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Language: hu\n"
+"X-Crowdin-File: /master/po/tags/tags.pot\n"
+
+#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
+msgctxt ":langtag"
+msgid ":langtag"
+msgstr "hu"
+
+#. put here the language name ("French", "Japanese", etc)
+msgctxt ":langname"
+msgid ":langname"
+msgstr "Hungarian"
+
+msgctxt "additives:plural"
+msgid "additives"
+msgstr "adalék(ok)"
+
+msgctxt "additives:singular"
+msgid "additive"
+msgstr "adalék"
+
+msgctxt "allergens:plural"
+msgid "allergens"
+msgstr "allergén(ek)"
+
+msgctxt "allergens:singular"
+msgid "allergen"
+msgstr "allergén"
+
+msgctxt "brands:plural"
+msgid "brands"
+msgstr "márkanev(ek)"
+
+msgctxt "brands:singular"
+msgid "brand"
+msgstr "márkanév"
+
+msgctxt "categories:plural"
+msgid "categories"
+msgstr "kategóriá(k)"
+
+msgctxt "categories:singular"
+msgid "category"
+msgstr "kategória"
+
+msgctxt "checkers:plural"
+msgid "checkers"
+msgstr "ellenőrző(k)"
+
+msgctxt "checkers:singular"
+msgid "checker"
+msgstr "ellenőrző"
+
+msgctxt "cities:plural"
+msgid "cities"
+msgstr "városok"
+
+msgctxt "cities:singular"
+msgid "city"
+msgstr "város"
+
+msgctxt "codes:plural"
+msgid "codes"
+msgstr "kódok"
+
+msgctxt "codes:singular"
+msgid "code"
+msgstr "kód"
+
+msgctxt "correctors:plural"
+msgid "correctors"
+msgstr "javító(k)"
+
+msgctxt "correctors:singular"
+msgid "corrector"
+msgstr "javító"
+
+msgctxt "countries:plural"
+msgid "countries"
+msgstr "ország(ok)"
+
+msgctxt "countries:singular"
+msgid "country"
+msgstr "ország"
+
+msgctxt "debug:plural"
+msgid "debug"
+msgstr "debug"
+
+msgctxt "debug:singular"
+msgid "debug"
+msgstr "debug"
+
+msgctxt "editors:plural"
+msgid "editors"
+msgstr "szerkesztő(k)"
+
+msgctxt "editors:singular"
+msgid "editor"
+msgstr "szerkesztő"
+
+msgctxt "emb_codes:plural"
+msgid "packager-codes"
+msgstr "üzemkódok"
+
+msgctxt "emb_codes:singular"
+msgid "packager-code"
+msgstr "üzemkód"
+
+msgctxt "entry_dates:plural"
+msgid "entry-dates"
+msgstr "bejegyzés-dátumai"
+
+msgctxt "entry_dates:singular"
+msgid "entry-date"
+msgstr "bejegyzés-dátuma"
+
+msgctxt "informers:plural"
+msgid "informers"
+msgstr "informátor(ok)"
+
+msgctxt "informers:singular"
+msgid "informer"
+msgstr "informátor"
+
+msgctxt "ingredients:plural"
+msgid "ingredients"
+msgstr "összetevő(k)"
+
+msgctxt "ingredients:singular"
+msgid "ingredient"
+msgstr "összetevő"
+
+msgctxt "ingredients_from_palm_oil:plural"
+msgid "ingredients-from-palm-oil"
+msgstr "összetevők-pálmaolajból"
+
+msgctxt "ingredients_from_palm_oil:singular"
+msgid "ingredients-from-palm-oil"
+msgstr "összetevők-pálmaolajból"
+
+msgctxt "ingredients_n:plural"
+msgid "numbers-of-ingredients"
+msgstr "összetevők-száma"
+
+msgctxt "ingredients_n:singular"
+msgid "number-of-ingredients"
+msgstr "összetevők-száma"
+
+msgctxt "ingredients_that_may_be_from_palm_oil:plural"
+msgid "ingredients-that-may-be-from-palm-oil"
+msgstr "összetevők-amelyek-pálmaolajat-tartalmazhatnak"
+
+msgctxt "ingredients_that_may_be_from_palm_oil:singular"
+msgid "ingredients-that-may-be-from-palm-oil"
+msgstr "összetevők-amelyek-pálmaolajat-tartalmazhatnak"
+
+msgctxt "known_nutrients:plural"
+msgid "known-nutrients"
+msgstr "ismert-tápanyagok"
+
+msgctxt "known_nutrients:singular"
+msgid "known-nutrient"
+msgstr "ismert-tápanyag"
+
+msgctxt "labels:plural"
+msgid "labels"
+msgstr "címkék"
+
+msgctxt "labels:singular"
+msgid "label"
+msgstr "címke"
+
+msgctxt "languages:plural"
+msgid "languages"
+msgstr "nyelvek"
+
+msgctxt "languages:singular"
+msgid "language"
+msgstr "nyelv"
+
+msgctxt "last_edit_dates:plural"
+msgid "last-edit-dates"
+msgstr "utolsó-szerkesztés-dátumai"
+
+msgctxt "last_edit_dates:singular"
+msgid "last-edit-date"
+msgstr "utolsó-szerkesztés-dátuma"
+
+msgctxt "last_image_dates:plural"
+msgid "last-image-dates"
+msgstr "utolsó-kép-dátumai"
+
+msgctxt "last_image_dates:singular"
+msgid "last-image-date"
+msgstr "utolsó-kép-dátuma"
+
+msgctxt "manufacturing_places:plural"
+msgid "manufacturing-places"
+msgstr "gyártás-helyei"
+
+msgctxt "manufacturing_places:singular"
+msgid "manufacturing-place"
+msgstr "gyártás-helye"
+
+msgctxt "missions:plural"
+msgid "missions"
+msgstr "küldetések"
+
+msgctxt "missions:singular"
+msgid "mission"
+msgstr "küldetés"
+
+msgctxt "nutrient_levels:plural"
+msgid "nutrient-levels"
+msgstr "tápanyag-szintek"
+
+msgctxt "nutrient_levels:singular"
+msgid "nutrient-level"
+msgstr "tápanyag-szint"
+
+msgctxt "nutriments:plural"
+msgid "nutrients"
+msgstr "tápanyagok"
+
+msgctxt "nutriments:singular"
+msgid "nutrient"
+msgstr "tápanyag"
+
+msgctxt "nutrition_grades:plural"
+msgid "nutrition-grades"
+msgstr "táplálkozási-osztályzatok"
+
+msgctxt "nutrition_grades:singular"
+msgid "nutrition-grade"
+msgstr "táplálkozási-osztályzat"
+
+msgctxt "origins:plural"
+msgid "origins"
+msgstr "eredetek"
+
+msgctxt "origins:singular"
+msgid "origin"
+msgstr "eredet"
+
+msgctxt "packaging:plural"
+msgid "packaging"
+msgstr "csomagolás"
+
+msgctxt "packaging:singular"
+msgid "packaging"
+msgstr "csomagolás"
+
+msgctxt "periods_after_opening:plural"
+msgid "periods-after-opening"
+msgstr "felbontás-utáni-időtartamok"
+
+msgctxt "periods_after_opening:singular"
+msgid "period-after-opening"
+msgstr "felbontás-utáni-időtartam"
+
+msgctxt "photographers:plural"
+msgid "photographers"
+msgstr "fényképészek"
+
+msgctxt "photographers:singular"
+msgid "photographer"
+msgstr "fényképész"
+
+msgctxt "pnns_groups_1:plural"
+msgid "pnns-groups-1"
+msgstr "pnns-csoportok-1"
+
+msgctxt "pnns_groups_1:singular"
+msgid "pnns-group-1"
+msgstr "pnns-csoport-1"
+
+msgctxt "pnns_groups_2:plural"
+msgid "pnns-groups-2"
+msgstr "pnns-csoportok-2"
+
+msgctxt "pnns_groups_2:singular"
+msgid "pnns-group-2"
+msgstr "pnns-csoport-2"
+
+msgctxt "products:plural"
+msgid "products"
+msgstr "termékek"
+
+msgctxt "products:singular"
+msgid "product"
+msgstr "termék"
+
+msgctxt "purchase_places:plural"
+msgid "purchase-places"
+msgstr "vásárlás-helyei"
+
+msgctxt "purchase_places:singular"
+msgid "purchase-place"
+msgstr "vásárlás-helye"
+
+msgctxt "states:plural"
+msgid "states"
+msgstr "államok"
+
+msgctxt "states:singular"
+msgid "state"
+msgstr "állam"
+
+msgctxt "stores:plural"
+msgid "stores"
+msgstr "boltok"
+
+msgctxt "stores:singular"
+msgid "store"
+msgstr "bolt"
+
+msgctxt "traces:plural"
+msgid "traces"
+msgstr "nyomokban"
+
+msgctxt "traces:singular"
+msgid "trace"
+msgstr "nyom"
+
+msgctxt "unknown_nutrients:plural"
+msgid "unknown-nutrients"
+msgstr "ismeretlen-tápanyagok"
+
+msgctxt "unknown_nutrients:singular"
+msgid "unknown-nutrient"
+msgstr "ismeretlen-tápanyag"
+
+msgctxt "users:plural"
+msgid "contributors"
+msgstr "hozzájárulók"
+
+msgctxt "users:singular"
+msgid "contributor"
+msgstr "hozzájáruló"
+

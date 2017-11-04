@@ -24,6 +24,13 @@ server {
 	return 301 https://$host$request_uri;
 }
 
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	server_name default.openfoodfacts.org;
+	return 301 https://world.openfoodfacts.org;
+}
+
 
 server {
 	#listen 80 default_server;
@@ -62,6 +69,7 @@ server {
         if ($host = androidtest.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
         if ($host = ios.openfoodfacts.org) { return 302 https://itunes.apple.com/app/open-food-facts/id588797948 ; }
         if ($host = iostest.openfoodfacts.org) { return 302 https://itunes.apple.com/app/open-food-facts/id588797948 ; }
+        if ($host = slack.openfoodfacts.org) { return 302 https://slack-openfoodfacts.herokuapp.com ; }
 
 	# Redirect GET requests to https. POST requests will be transformed
 	# to GET by most browsers when redirected, and it breaks apps that

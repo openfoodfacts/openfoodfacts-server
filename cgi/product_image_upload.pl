@@ -42,7 +42,7 @@ $debug = 1;
 
 
 
-print STDERR "product_image_upload.pl - upload_session: $upload_session - user: $User_id - code: $code - cc: $cc - lc: $lc - imagefield: $imagefield - ip: " . remote_addr() . "\n";
+print STDERR "product_image_upload.pl - subdomain: $subdomain - original_subdomain: $original_subdomain - upload_session: $upload_session - user: $User_id - code: $code - cc: $cc - lc: $lc - imagefield: $imagefield - ip: " . remote_addr() . "\n";
 
 if ((not defined $code) or ($code eq '')) {
 	
@@ -101,21 +101,23 @@ if ($imagefield) {
 			# otherwise if the product was just created above, we will get the current $lc
 			$imagefield .= "_" . $product_ref->{lc};
 		}		
+		
+		my $imgid;
 	
-		my $imgid = process_image_upload($code, $imagefield, $User_id, time(), "image upload");
+		my $imgid_returncode = process_image_upload($code, $imagefield, $User_id, time(), "image upload", \$imgid);
 		
 			print STDERR "product_image_upload.pl - upload_session: $upload_session - imgid from process_image_upload: $imgid\n";
 		
 		
 		my $data;
 
-		if ($imgid < 0) {
-			my %response = ( status => 'status not ok', imgid => $imgid);
+		if ($imgid_returncode < 0) {
+			my %response = ( status => 'status not ok', imgid => $imgid_returncode);
 			$response{error} = "error";
-			($imgid == -2) and $response{error} = "field imgupload_$imagefield not set";
-			($imgid == -3) and $response{error} = lang("image_upload_error_image_already_exists");
-			($imgid == -4) and $response{error} = lang("image_upload_error_image_too_small");
-			($imgid == -5) and $response{error} = "could not read image";
+			($imgid_returncode == -2) and $response{error} = "field imgupload_$imagefield not set";
+			($imgid_returncode == -3) and $response{error} = lang("image_upload_error_image_already_exists");
+			($imgid_returncode == -4) and $response{error} = lang("image_upload_error_image_too_small");
+			($imgid_returncode == -5) and $response{error} = "could not read image";
 			
 			$data =  encode_json(\%response);	
 		}
