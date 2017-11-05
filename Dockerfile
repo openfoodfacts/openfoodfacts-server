@@ -119,7 +119,7 @@ WORKDIR /srv/openfoodfacts
 # Install Perl modules
 COPY cpanfile /srv/openfoodfacts/
 RUN cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
-RUN cpanm --quiet --installdeps --notest --skip-satisfied .
+
 # perl cpanm --installdeps .
 # RUN cpan URI::Escape::XS
 # && \
@@ -143,6 +143,8 @@ RUN node_modules/.bin/bower install --allow-root
 
 COPY . $WORKDIR
 
+RUN cpanm --quiet --installdeps --notest --skip-satisfied .
+
 # Clena up
 RUN mkdir /srv/openfoodfacts/users
 RUN mkdir /srv/openfoodfacts/products
@@ -154,7 +156,7 @@ RUN ln -s . Blogs
 RUN ln -s SiteLang_off.pm SiteLang.pm
 
 # Launch
-CMD ["/bin/bash", "echo", "It works !"]
+CMD ["/bin/bash"]
 
 # This is perl 5, version 20, subversion 2 (v5.20.2) built for x86_64-linux-gnu-thread-multi
 
