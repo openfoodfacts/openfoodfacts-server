@@ -9,6 +9,15 @@ services:
   app:
     build:
       context: .
+    stdin_open: true
+    tty: true
+    entrypoint: /bin/bash
+
+    command: [""]
+    # app_1  | /bin/bash: : No such file or directory
+
+    # app_1  | /bin/bash: /bin/bash: cannot execute binary file
+
     ports:
       - "8080:8080"
     depends_on:
