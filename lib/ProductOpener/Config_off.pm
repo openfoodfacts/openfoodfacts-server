@@ -62,6 +62,7 @@ use ProductOpener::Config2;
 agamitsudo
 bcatelin
 beniben
+bojackhorseman
 hangy
 javichu
 kyzh
@@ -215,6 +216,8 @@ $manifest->{related_applications} = \@related_applications;
 $manifest->{theme_color} = '#ffffff';
 $manifest->{background_color} = '#ffffff';
 $options{manifest} = $manifest;
+
+$options{mongodb_supports_sample} = 0;  # from MongoDB 3.2 onward
 
 $options{favicons} = <<HTML
 <link rel="manifest" href="/cgi/manifest.pl">

@@ -2492,7 +2492,7 @@ sub search_and_display_products($$$$$) {
 	}
 	
 	eval {
-		if (defined $request_ref->{sample_size}) {
+		if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
 			my $aggregate_parameters = [
 				{ "\$match" => $query_ref },
 				{ "\$sample" => { "size" => $request_ref->{sample_size} } }
@@ -2521,7 +2521,7 @@ sub search_and_display_products($$$$$) {
 		}
 		else {		
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
-			if (defined $request_ref->{sample_size}) {
+			if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
 				my $aggregate_parameters = [
 					{ "\$match" => $query_ref },
 					{ "\$sample" => { "size" => $request_ref->{sample_size} } }
