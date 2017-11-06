@@ -39,6 +39,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::URL qw/:all/;
+use ProductOpener::SiteQuality qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -521,6 +522,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	compute_nutrient_levels($product_ref);
 	
 	compute_unknown_nutrients($product_ref);
+	
+	ProductOpener::SiteQuality::check_quality($product_ref);
 	
 	
 	$admin and print STDERR "compute_serving_size_date -- done\n";	
