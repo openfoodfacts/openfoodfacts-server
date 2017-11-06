@@ -325,12 +325,20 @@ sub extract_ingredients_from_text($) {
 			$ingredient{percent} = $percent;
 		}
 		
+
+		
 		if ($ingredient ne '') {
-			if ($level == 0) {
-				push @$ranked_ingredients_ref, \%ingredient;
-			}
-			else {
-				push @$unranked_ingredients_ref, \%ingredient;
+		
+			# ingredients tags that are too long (greater than 1024, mongodb max index key size)
+			# will cause issues for the mongodb ingredients_tags index, just drop them
+			
+			if (length($ingredient{id} < 500)) {
+				if ($level == 0) {
+					push @$ranked_ingredients_ref, \%ingredient;
+				}
+				else {
+					push @$unranked_ingredients_ref, \%ingredient;
+				}
 			}
 		}
 		
