@@ -2503,6 +2503,8 @@ sub search_and_display_products($$$$$) {
 		else {
 			print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
 			$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+			$count = $cursor->count() + 0;
+			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";
 		}
 	};
 	if ($@) {
@@ -2532,15 +2534,16 @@ sub search_and_display_products($$$$$) {
 			else {
 				print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
 				$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+				$count = $cursor->count() + 0;
+				print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";
+
 			}
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok\n";
 		}
 	}
 	
-	$count = 0;
 	while (my $product_ref = $cursor->next) {
 		push @{$request_ref->{structured_response}{products}}, $product_ref;
-		$count++;
 	}
 	
 	$request_ref->{structured_response}{count} = $count + 0;
