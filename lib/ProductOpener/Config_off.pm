@@ -218,6 +218,7 @@ $manifest->{background_color} = '#ffffff';
 $options{manifest} = $manifest;
 
 $options{mongodb_supports_sample} = 0;  # from MongoDB 3.2 onward
+$options{display_random_sample_of_products_after_edits} = 0;  # from MongoDB 3.2 onward
 
 $options{favicons} = <<HTML
 <link rel="manifest" href="/cgi/manifest.pl">
