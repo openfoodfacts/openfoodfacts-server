@@ -1549,6 +1549,11 @@ HTML
 		
 		my $tagtype_p = $Lang{$tagtype . "_p"}{$lang};
 		
+		my $extra_column_searchable = "";
+		if (defined $taxonomy_fields{$tagtype}) {
+			$extra_column_searchable .= ', { "searchable": false }';
+		}
+		
 		$initjs .= <<JS
 oTable = \$('#tagstable').DataTable({
 	language: {
@@ -1560,7 +1565,7 @@ oTable = \$('#tagstable').DataTable({
 	order: [[ 1, "desc" ]],
 	columns: [
 		null,
-		{ "searchable": false }
+		{ "searchable": false } $extra_column_searchable
 	]
 });
 JS
