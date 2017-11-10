@@ -50,16 +50,33 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::URL qw/:all/;
+
 
 use Image::OCR::Tesseract 'get_ocr';
 use Encode;
 use Clone qw(clone);
 
+use LWP::UserAgent;
+use Encode;
+use JSON::PP;
+
+my $google_cloud_vision_api_key = "";
+
+# Read the google cloud vision api key
+if (-e "$data_root/keys/google_cloud_vision_api_key") {
+	open (my $IN, "<$data_root/keys/google_cloud_vision_api_key");
+	$google_cloud_vision_api_key = <$IN>;
+	chomp($google_cloud_vision_api_key);
+	close $IN;
+}
+
+
 # MIDDLE DOT with common substitutes (BULLET variants, BULLET OPERATOR and DOT OPERATOR (multiplication))
 my $middle_dot = qr/(?:\N{U+00B7}|\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N{U+204C}|\N{U+204D}|\N{U+2219}|\N{U+22C5})/i;
 # Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
 my $dashes = qr/(?:\p{Pd}|\N{U+2053}|\N{U+2212})/i;
-my $separators = qr/(,|;|:|$middle_dot|\[|\(|( $dashes ))/i;
+my $separators = qr/(,|;|:|$middle_dot|\[|\(|( $dashes ))|(\/)/i;
 
 # load ingredients classes
 
@@ -114,12 +131,14 @@ closedir(DH);
 
 
 
-sub extract_ingredients_from_image($$) {
+sub extract_ingredients_from_image($$$) {
 
 	my $product_ref = shift;
 	my $id = shift;
+	my $ocr_engine = shift;
+	
 	my $path = product_path($product_ref->{code});
-	my $status = 0;
+	my $status = 1;
 	
 	my $filename = '';
 	
@@ -139,35 +158,101 @@ sub extract_ingredients_from_image($$) {
 	}
 	
 	my $image = "$www_root/images/products/$path/$filename.full.jpg";
+	my $image_url = format_subdomain('static') . "/images/products/$path/$filename.full.jpg";
+	
 	my $text;
 	
-	my $lan;
+	print STDERR "Ingredients.pm - extracts_ingredients_from_image - id: $id - ocr_engine: $ocr_engine\n";
 	
-	if (defined $ProductOpener::Config::tesseract_ocr_available_languages{$lc}) {
-		$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$lc};
-	}
-	elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}}) {
-		$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}};
-	}	
-	elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{en}) {
-		$lan = $ProductOpener::Config::tesseract_ocr_available_languages{en};
-	}
+	if ($ocr_engine eq 'tesseract') {
 	
-	print STDERR "extract_ingredients_from_image - lc: $lc - lan: $lan - id: $id - image: $image\n";
-	
-	if (defined $lan) {
-		$text =  decode utf8=>get_ocr($image,undef,'fra');
+		my $lan;
 		
-		if ((defined $text) and ($text ne '')) {
-			$product_ref->{ingredients_text_from_image} = $text;
+		if (defined $ProductOpener::Config::tesseract_ocr_available_languages{$lc}) {
+			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$lc};
+		}
+		elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}}) {
+			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}};
+		}	
+		elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{en}) {
+			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{en};
+		}
+		
+		print STDERR "extract_ingredients_from_image - lc: $lc - lan: $lan - id: $id - image: $image\n";
+		
+		if (defined $lan) {
+			$text =  decode utf8=>get_ocr($image,undef,$lan);
+			
+			if ((defined $text) and ($text ne '')) {
+				$product_ref->{ingredients_text_from_image} = $text;
+				$status = 0;
+			}
 		}
 		else {
-			$status = 1;
+			print STDERR "extract_ingredients_from_image - lc: $lc - lan: $lan - id: $id - no available tesseract dictionary\n";	
 		}
+	
 	}
-	else {
-		print STDERR "extract_ingredients_from_image - lc: $lc - lan: $lan - id: $id - no available tesseract dictionary\n";	
+	elsif ($ocr_engine eq 'google_cloud_vision') {
+
+		my $url = "https://alpha-vision.googleapis.com/v1/images:annotate?key=" . $google_cloud_vision_api_key;
+		# alpha-vision.googleapis.com/
+
+		my $ua = LWP::UserAgent->new();
+
+		my $api_request_ref = 		 
+			{
+				requests => 
+					[ 
+						{
+							features => [{ type => 'TEXT_DETECTION'}], image => { source => { imageUri => $image_url}}
+						}
+					]
+			}
+		;
+		my $json = encode_json($api_request_ref);
+						
+		my $request = HTTP::Request->new(POST => $url);
+		$request->header( 'Content-Type' => 'application/json' );
+		$request->content( $json );
+
+		my $res = $ua->request($request);
+			
+		if ($res->is_success) {
+		
+			print STDERR "google cloud vision: success\n";
+		
+			my $json_response = $res->decoded_content;
+			
+			my $cloudvision_ref = decode_json($json_response);
+			
+			my $json_file = "$www_root/images/products/$path/$filename.full.jpg" . ".google_cloud_vision.json";
+			
+			print STDERR "google cloud vision: saving json response to $json_file\n";
+			
+			open (my $OUT, ">:encoding(UTF-8)", $json_file);
+			print $OUT $json_response;
+			close $OUT;			
+			
+			if ((defined $cloudvision_ref->{responses}) and (defined $cloudvision_ref->{responses}[0])
+				and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation})
+				and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text})) {
+				
+				print STDERR "google cloud vision: found a text response\n";
+	
+				
+				$product_ref->{ingredients_text_from_image} = $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text};
+				$status = 0;
+			}
+			
+		}
+		else {
+			print STDERR "google cloud vision: not ok - code: " . $res->code . " - message: " . $res->message . "\n";
+		}
+
+	
 	}
+	
 	
 	return $status;
 
