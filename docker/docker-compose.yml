@@ -1,0 +1,52 @@
+﻿version: "3.3"
+services:
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - dbdata:/var/lib/mongodb
+    ports:
+      - 27017:27017
+    networks:
+      - webnet
+  backend:
+    image: productopener/backend:latest
+    depends_on:
+      - mongodb
+    volumes:
+      - podata:/mnt/podata
+    configs:
+      - source: poconfig
+        target: /opt/product-opener/lib/ProductOpener/Config.pm
+      - source: poconfig2
+        target: /opt/product-opener/lib/ProductOpener/Config2.pm
+      - source: apacheconfig
+        target: /usr/local/apache2/conf/sites-enabled/product-opener.conf
+    ports:
+      - 80
+    networks:
+      - webnet
+  frontend:
+    image: productopener/frontend:latest
+    depends_on:
+      - backend
+    configs:
+      - source: nginxconfig
+        target: /etc/nginx/conf.d/default.conf
+    ports:
+      - 80
+    networks:
+      - webnet
+networks:
+  webnet:
+volumes:
+  dbdata:
+  podata:
+configs:
+  poconfig:
+    file: ./backend/conf/Config.pm
+  poconfig2:
+    file: ./backend/conf/Config2.pm
+  apacheconfig:
+    file: ./backend/conf/apache.conf
+  nginxconfig:
+    file: ./frontend/conf/nginx.conf

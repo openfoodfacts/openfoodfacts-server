@@ -25,6 +25,7 @@ BEGIN
                 $csrf_secret
 		
 		$mongodb
+		$mongodb_host
 	
 		$google_analytics
 		
@@ -79,6 +80,7 @@ scanparty-franprix-05-2016
 $server_domain = $ProductOpener::Config2::server_domain;
 @ssl_subdomains = @ProductOpener::Config2::ssl_subdomains;
 $mongodb = $ProductOpener::Config2::mongodb;
+$mongodb_host = $ProductOpener::Config2::mongodb_host;
 
 # server paths
 $www_root = $ProductOpener::Config2::www_root;

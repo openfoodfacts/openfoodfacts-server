@@ -25,22 +25,20 @@ BEGIN
 use vars @EXPORT_OK ; # no 'my' keyword for these
 
 # server constants
-$server_domain = "openfoodfacts.org";
+$server_domain = "productopener.localhost";
 
-@ssl_subdomains = qw(
-ssl-api
-);
+@ssl_subdomains = qw();
 
 # server paths
-$www_root = "/home/off/html";
-$data_root = "/home/off";
+$www_root = "/opt/product-opener/html";
+$data_root = "/mnt/podata";
 
 $mongodb = "off";
-$mongodb_host = "mongodb://localhost";
+$mongodb_host = "mongodb://mongodb";
 
 $facebook_app_id = "";
 $facebook_app_secret = "";
 
-$csrf_secret = "SWMAqq4znqqaHN9q7UWM5xQ5aJqKqPsekcwSuvjkkTmTtTXvPpyZxXkY25kqgaXQbLFVEaqZ";
+$csrf_secret = "EYvfj3GDJnc2UPVqTwTGPgWC";
 
 1;
