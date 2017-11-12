@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: eo\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-10-28 15:10-0400\n"
+"PO-Revision-Date: 2017-11-12 18:45-0500\n"
 "Language-Team: Esperanto\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -34,7 +34,7 @@ msgstr " kaj "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "Pri mi"
 
 msgctxt "add"
 msgid "Add"
@@ -65,7 +65,7 @@ msgid "Hello <NAME>,\n\n"
 "<<site_name>> is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!\n"
 "To discuss between contributors and make the project go forward, we use a very convenient messaging system called Slack: https://slack.openfoodfacts.org\n\n"
 "You can also join the Facebook group for contributors:\n"
-"https://www.facebook.com/groups/374350705955208/\n\n"
+"https://www.facebook.com/groups/OpenFoodFacts/\n\n"
 "New: we are also starting Open Beauty Facts to create a database of cosmetics: soap, toothpaste, makeup etc.\n"
 "https://openbeautyfacts.org\n\n"
 "Thank you very much!\n\n"
@@ -112,7 +112,7 @@ msgstr ""
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "Ĉiuj misioj"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
@@ -136,15 +136,15 @@ msgstr ""
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world-eo.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Havebla en Google Play\" width=\"135\" height=\"47\" />"
 
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -229,7 +229,7 @@ msgstr "Kategorioj"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr ""
+msgstr "Sardinoj en olivoleo, oranĝa suko je koncentriĝo"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
@@ -273,11 +273,11 @@ msgstr ""
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr ""
+msgstr "kontrolantoj"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr ""
+msgstr "kontrolanto"
 
 msgctxt "cities_p"
 msgid "packaging cities"
@@ -297,11 +297,11 @@ msgstr ""
 
 msgctxt "codes_p"
 msgid "Codes"
-msgstr ""
+msgstr "Kodoj"
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr ""
+msgstr "Kodo"
 
 msgctxt "column_obsolete_do_not_translate_for_reference_only"
 msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.png\" width=\"178\" height=\"144\" alt=\"<<site_name>>\" /></a>\n\n"
@@ -340,7 +340,7 @@ msgstr ""
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr ""
+msgstr "Kontribuanto ekde"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
@@ -360,7 +360,7 @@ msgstr "korektanto"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr ""
+msgstr "Landoj, kie ĝi vendiĝas"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
@@ -400,7 +400,7 @@ msgstr ""
 
 msgctxt "delete_product"
 msgid "Delete a product"
-msgstr ""
+msgstr "Forigi produkton"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
@@ -432,7 +432,7 @@ msgstr ""
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr ""
+msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -444,7 +444,7 @@ msgstr ""
 
 msgctxt "edit"
 msgid "edit"
-msgstr ""
+msgstr "redakti"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
@@ -452,15 +452,15 @@ msgstr ""
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr ""
+msgstr "Redaktante produkton"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr ""
+msgstr "Redakti la paĝon"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
-msgstr ""
+msgstr "Redakti vian publikan profilon"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
@@ -484,11 +484,11 @@ msgstr ""
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr ""
+msgstr "redaktantoj"
 
 msgctxt "editors_s"
 msgid "editor"
-msgstr ""
+msgstr "redaktanto"
 
 msgctxt "email"
 msgid "e-mail address"
@@ -496,7 +496,7 @@ msgstr "retpoŝtadreso"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr ""
+msgstr "EMB-kodoj"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
@@ -504,11 +504,11 @@ msgstr ""
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr ""
+msgstr "EMB-kodo"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr ""
+msgstr "EMB-kodo"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
@@ -644,11 +644,11 @@ msgstr ""
 
 msgctxt "facebook_locale"
 msgid "en_US"
-msgstr ""
+msgstr "eo_EO"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -670,7 +670,7 @@ msgstr ""
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr ""
+msgstr "<<site_name>> blogo"
 
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
@@ -694,7 +694,7 @@ msgstr ""
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr ""
+msgstr "Esploru la projekton"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
@@ -764,7 +764,7 @@ msgstr "<<site_name>> Vikio (eo)"
 
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.wiki.openfoodfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -776,11 +776,11 @@ msgstr "Produkto"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr ""
+msgstr "Ĝenerala nomo"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
-msgstr ""
+msgstr "Ĉokoladaĵo kun lakto kaj aveloj"
 
 msgctxt "goodbye"
 msgid "See you soon!"
@@ -792,11 +792,11 @@ msgstr ""
 
 msgctxt "graph_title"
 msgid "Graph title"
-msgstr ""
+msgstr "Titolo de la diagramo"
 
 msgctxt "graphs_and_maps"
 msgid "Graphs and maps"
-msgstr ""
+msgstr "Diagramoj kaj mapoj"
 
 msgctxt "header"
 msgid "<meta property=\"fb:admins\" content=\"706410516\" />\n"
@@ -813,7 +813,7 @@ msgstr ""
 
 msgctxt "hello"
 msgid "Hello"
-msgstr ""
+msgstr "Saluton"
 
 msgctxt "high"
 msgid "high"
@@ -833,7 +833,7 @@ msgstr ""
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
-msgstr ""
+msgstr "Bildo de ingrediencoj"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
@@ -894,19 +894,19 @@ msgstr ""
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
-msgstr ""
+msgstr "ingrediencoj, kiuj enhavas aŭ kiuj eble enhavas palmoleon"
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_s"
 msgid "ingredient from or that may be from palm oil"
-msgstr ""
+msgstr "ingredienco, kiu enhavas aŭ kiu eble enhavas palmoleon"
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr ""
+msgstr "ingrediencoj, kiuj enhavas palmoleon"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
-msgstr ""
+msgstr "ingredienco, kiu enhavas palmoleon"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
@@ -930,7 +930,7 @@ msgstr "ingredienco"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
-msgstr ""
+msgstr "Listo da ingrediencoj"
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
@@ -938,7 +938,7 @@ msgstr ""
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr ""
+msgstr "Cerealoj 85,5% (_tritika_ faruno, branoenhava _tritika_ faruno 11%), maltekstrakto, kakao 4,8%, askorbata acido"
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
@@ -946,11 +946,11 @@ msgstr ""
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr ""
+msgstr "ingrediencoj, kiuj eble enhavas palmoleon"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
-msgstr ""
+msgstr "ingredienco, kiu eble enhavas palmoleon"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
@@ -1174,15 +1174,15 @@ msgstr "Lasta redakta dato"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
-msgstr ""
+msgstr "Datoj de lastaj bildoj"
 
 msgctxt "last_image_dates_s"
 msgid "Last picture date"
-msgstr ""
+msgstr "Dato de lasta bildo"
 
 msgctxt "licence_accept"
-msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"http://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
-"for information and data, and under the <a href=\"http://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
+msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
+"for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
 msgstr ""
 
@@ -1192,7 +1192,7 @@ msgstr ""
 
 msgctxt "list_of_x"
 msgid "List of %s"
-msgstr ""
+msgstr "Listo da %s"
 
 msgctxt "loadmore"
 msgid "Load more results"
@@ -1266,7 +1266,7 @@ msgstr ""
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
-msgstr ""
+msgstr "Montano, Usono"
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
@@ -1294,7 +1294,7 @@ msgstr ""
 
 msgctxt "map_title"
 msgid "Map title"
-msgstr ""
+msgstr "Titolo de la mapo"
 
 msgctxt "menu"
 msgid "Menu"
@@ -1318,11 +1318,11 @@ msgstr "/kontribui"
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr ""
+msgstr "Esploru"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/esploru"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1342,7 +1342,7 @@ msgstr ""
 
 msgctxt "mission_goal"
 msgid "Goal:"
-msgstr ""
+msgstr "Golo:"
 
 msgctxt "missions"
 msgid "Missions"
@@ -1378,7 +1378,7 @@ msgstr "Nomoj"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr ""
+msgstr "Se la strekokodo ne estas korekta, bonvolu korektigi ĝin tie ĉi:"
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
@@ -1426,7 +1426,7 @@ msgstr ""
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
-msgstr ""
+msgstr "Nutraĵa nivelo por 100 g"
 
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
@@ -1458,11 +1458,11 @@ msgstr ""
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Nutra valoro"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Nutra valoro"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1534,7 +1534,7 @@ msgstr ""
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Nutra valoro"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1543,7 +1543,7 @@ msgstr ""
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1555,7 +1555,7 @@ msgstr ""
 
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr ""
+msgstr "https://world-eo.openfoodfacts.org/images/misc/openfoodfacts-logo-eo-356.png"
 
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
@@ -1564,7 +1564,7 @@ msgstr ""
 
 msgctxt "on_the_blog_title"
 msgid "News"
-msgstr ""
+msgstr "Novaĵoj"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
@@ -1577,7 +1577,7 @@ msgstr "aŭ:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
-msgstr ""
+msgstr "Origino de ingrediencoj"
 
 msgctxt "origins_example"
 msgid "California, USA"
@@ -1589,7 +1589,7 @@ msgstr ""
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
-msgstr ""
+msgstr "originoj de ingrediencoj"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
@@ -1597,11 +1597,11 @@ msgstr ""
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr ""
+msgstr "origino de ingrediencoj"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
-msgstr ""
+msgstr "aldoni originon"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
@@ -1609,7 +1609,7 @@ msgstr ""
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "Pakaĵo"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -1621,7 +1621,7 @@ msgstr ""
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr ""
+msgstr "pakaĵoj"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
@@ -1629,7 +1629,7 @@ msgstr ""
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr ""
+msgstr "pakaĵo"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -1657,7 +1657,7 @@ msgstr "Pasvorto"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
-msgstr ""
+msgstr "Konfirmu pasvorton"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
@@ -1749,7 +1749,7 @@ msgstr ""
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
-msgstr ""
+msgstr "Karakterizaĵoj de la produkto"
 
 msgctxt "product_created"
 msgid "Product created"
@@ -1769,7 +1769,7 @@ msgstr ""
 
 msgctxt "product_js_current_image"
 msgid "Current image:"
-msgstr ""
+msgstr "Nuna bildo:"
 
 msgctxt "product_js_deleting_images"
 msgid "Deleting images"
@@ -1869,11 +1869,11 @@ msgstr ""
 
 msgctxt "product_last_edited"
 msgid "Last edit of product page on"
-msgstr ""
+msgstr "Lasta ŝanĝo de produktpaĝo je"
 
 msgctxt "product_name"
 msgid "Product name"
-msgstr ""
+msgstr "Nomo de la produkto"
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
@@ -2053,11 +2053,11 @@ msgstr ""
 
 msgctxt "search_download_choice"
 msgid "Download results"
-msgstr ""
+msgstr "Elŝuti rezultojn"
 
 msgctxt "search_download_results"
 msgid "Download results in CSV format (Excel, OpenOffice)"
-msgstr ""
+msgstr "Elŝuti rezultojn en CSV-formato (Excel, OpenOffice)"
 
 msgctxt "search_download_results_description"
 msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
@@ -2081,7 +2081,7 @@ msgstr ""
 
 msgctxt "search_graph"
 msgid "Graph"
-msgstr ""
+msgstr "Diagramo"
 
 msgctxt "search_graph_2_axis"
 msgid "Scatter plot"
@@ -2118,7 +2118,7 @@ msgstr ""
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
-msgstr ""
+msgstr "Indiferenta"
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
@@ -2182,7 +2182,7 @@ msgstr ""
 
 msgctxt "search_series_default"
 msgid "Other products"
-msgstr ""
+msgstr "Aliaj produktoj"
 
 msgctxt "search_series_fairtrade"
 msgid "Fair trade"
@@ -2214,7 +2214,7 @@ msgstr ""
 
 msgctxt "search_tags"
 msgid "Criteria"
-msgstr ""
+msgstr "Kriterioj"
 
 msgctxt "search_terms"
 msgid "Search terms"
@@ -2314,7 +2314,7 @@ msgstr ""
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr ""
+msgstr "Publikaj Manĝoj Faktoj"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2334,7 +2334,7 @@ msgstr ""
 
 msgctxt "sort_product_name"
 msgid "Product name"
-msgstr ""
+msgstr "Nomo de la produkto"
 
 msgctxt "state"
 msgid "State"
@@ -2394,7 +2394,7 @@ msgstr ""
 
 msgctxt "tagstable_filtered"
 msgid "out of _MAX_"
-msgstr ""
+msgstr "el _MAX_"
 
 msgctxt "tagstable_search"
 msgid "Search:"
@@ -2426,7 +2426,7 @@ msgstr ""
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
-msgstr ""
+msgstr "OpenFoodFacts"
 
 msgctxt "unknown"
 msgid "Unknown"
@@ -2498,7 +2498,7 @@ msgstr ""
 
 msgctxt "view"
 msgid "view"
-msgstr ""
+msgstr "vidu"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -2527,11 +2527,11 @@ msgstr "['Dimanĉo', 'Lundo', 'Mardo', 'Merkredo', 'Ĵaŭdo', 'Vendredo', 'Sabat
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
-msgstr ""
+msgstr "https://www.windowsphone.com/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2583,7 +2583,7 @@ msgstr ""
 
 msgctxt "delete_product_page"
 msgid "Delete the product page"
-msgstr ""
+msgstr "Forigi la paĝon pri la produkto"
 
 msgctxt "deleting_product"
 msgid "Deleting product"
@@ -2591,11 +2591,11 @@ msgstr "Forigas produkton"
 
 msgctxt "has_deleted_product"
 msgid "has deleted product"
-msgstr ""
+msgstr "forigis produkton"
 
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
-msgstr ""
+msgstr "Ĉu vi certas, ke vi volas forigi la paĝon pri ĉi tiu produkto?"
 
 msgctxt "delete_user"
 msgid "Delete the user"
@@ -2623,7 +2623,7 @@ msgstr ""
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr ""
+msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
 
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
