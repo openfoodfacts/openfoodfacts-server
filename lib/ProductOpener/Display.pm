@@ -381,8 +381,8 @@ sub analyze_request($)
 	print STDERR "analyze_request : query_string 0 : $request_ref->{query_string} \n";
 	
 	
-	# http://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
-	# http://world.openfoodfacts.org/?ref=producthunt
+	# https://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
+	# https://world.openfoodfacts.org/?ref=producthunt
 	
 	if ($request_ref->{query_string} =~ /(\&|\?)(utm_|ref=)/) {
 		$request_ref->{query_string} = $`;
@@ -6513,7 +6513,7 @@ sub display_nutrient_levels($) {
 		
 		$html_nutrition_grade .= <<HTML
 <h4>$Lang{nutrition_grade_fr_title}{$lc}
-<a href="http://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}">
+<a href="https://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}">
 <i class="fi-info"></i></a>
 </h4>
 <img src="/images/misc/nutriscore-$grade.svg" alt="$Lang{nutrition_grade_fr_alt}{$lc} $uc_grade" style="margin-bottom:1rem;max-width:100%" /><br/>
