@@ -34,7 +34,7 @@ $www_root = "/opt/product-opener/html";
 $data_root = "/mnt/podata";
 
 $mongodb = "off";
-$mongodb_host = "mongodb://mongodb";
+$mongodb_host = "mongodb://mongodb:27017";
 
 $facebook_app_id = "";
 $facebook_app_secret = "";

@@ -145,9 +145,8 @@ $csrf_secret = $Blogs::Config2::csrf_secret;
 
 $reference_timezone = 'Europe/Paris';
 
-$contact_email = 'contact@' + $server_domain;
-$admin_email = 'admin@' + $server_domain;
-
+$contact_email = 'contact@' . $server_domain;
+$admin_email = 'admin@' . $server_domain;
 
 $thumb_size = 100;
 $crop_size = 400;

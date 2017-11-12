@@ -28,13 +28,16 @@ RUN set -x \
     && make install
 
 # Add ProductOpener runtime dependencies from apt
-RUN apt-get install -y --no-install-recommends \
+RUN set -x \
+    && apt-get install -y --no-install-recommends \
 	libapache2-request-perl \
 	libimage-magick-perl \
 	libbarcode-zbar-perl \
 	tesseract-ocr \
 	graphviz \
-    imagemagick
+    imagemagick \
+    geoip-database \
+    && ln -s /usr/share/GeoIP /usr/local/share/GeoIP
 
 # Add ProductOpener runtime dependencies cpanm
 RUN set -x \
