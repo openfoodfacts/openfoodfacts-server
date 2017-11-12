@@ -1821,7 +1821,7 @@ SCRIPTS
 
 	$header .= <<HEADER
 <link rel="stylesheet" href="/js/datatables.min.css" />
-<meta property="og:image" content="http://world.openfoodfacts.org/images/misc/open-food-hunt-2015.1304x893.png"/>
+<meta property="og:image" content="https://world.openfoodfacts.org/images/misc/open-food-hunt-2015.1304x893.png"/>
 HEADER
 ;	
 			
@@ -4231,7 +4231,7 @@ HTML
 
 # 18/07/2016 -> mapquest removed free access to their tiles without registration
 #L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpeg', {
-#	attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+#	attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
 #	subdomains: '1234',
 #    maxZoom: 18
 #}).addTo(map);			
@@ -4597,7 +4597,7 @@ sub display_new($) {
 	my $og_images2 = '<meta property="og:image" content="' . lang("og_image_url") . '"/>';
 	my $more_images = 0;
 	
-	# <img id="og_image" src="http://recettes.de/images/misc/recettes-de-cuisine-logo.gif" width="150" height="200" /> 
+	# <img id="og_image" src="https://recettes.de/images/misc/recettes-de-cuisine-logo.gif" width="150" height="200" /> 
 	if ($$content_ref =~ /<img id="og_image" src="([^"]+)"/) {
 		my $img_url = $1;
 		$img_url =~ s/\.200\.jpg/\.400\.jpg/;
@@ -4624,12 +4624,12 @@ sub display_new($) {
 	
 # <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 # <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-# <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
+# <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
 
 
 #<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 #<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-#<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-lightness/jquery-ui.css" />
+#<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-lightness/jquery-ui.css" />
 	
 	my $html = <<HTML
 <!doctype html>
