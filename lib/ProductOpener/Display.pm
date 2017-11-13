@@ -381,8 +381,8 @@ sub analyze_request($)
 	print STDERR "analyze_request : query_string 0 : $request_ref->{query_string} \n";
 	
 	
-	# http://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
-	# http://world.openfoodfacts.org/?ref=producthunt
+	# https://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
+	# https://world.openfoodfacts.org/?ref=producthunt
 	
 	if ($request_ref->{query_string} =~ /(\&|\?)(utm_|ref=)/) {
 		$request_ref->{query_string} = $`;
@@ -1549,6 +1549,11 @@ HTML
 		
 		my $tagtype_p = $Lang{$tagtype . "_p"}{$lang};
 		
+		my $extra_column_searchable = "";
+		if (defined $taxonomy_fields{$tagtype}) {
+			$extra_column_searchable .= ', { "searchable": false }';
+		}
+		
 		$initjs .= <<JS
 oTable = \$('#tagstable').DataTable({
 	language: {
@@ -1560,7 +1565,7 @@ oTable = \$('#tagstable').DataTable({
 	order: [[ 1, "desc" ]],
 	columns: [
 		null,
-		{ "searchable": false }
+		{ "searchable": false } $extra_column_searchable
 	]
 });
 JS
@@ -1816,7 +1821,7 @@ SCRIPTS
 
 	$header .= <<HEADER
 <link rel="stylesheet" href="/js/datatables.min.css" />
-<meta property="og:image" content="http://world.openfoodfacts.org/images/misc/open-food-hunt-2015.1304x893.png"/>
+<meta property="og:image" content="https://world.openfoodfacts.org/images/misc/open-food-hunt-2015.1304x893.png"/>
 HEADER
 ;	
 			
@@ -4226,7 +4231,7 @@ HTML
 
 # 18/07/2016 -> mapquest removed free access to their tiles without registration
 #L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpeg', {
-#	attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+#	attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
 #	subdomains: '1234',
 #    maxZoom: 18
 #}).addTo(map);			
@@ -4592,7 +4597,7 @@ sub display_new($) {
 	my $og_images2 = '<meta property="og:image" content="' . lang("og_image_url") . '"/>';
 	my $more_images = 0;
 	
-	# <img id="og_image" src="http://recettes.de/images/misc/recettes-de-cuisine-logo.gif" width="150" height="200" /> 
+	# <img id="og_image" src="https://recettes.de/images/misc/recettes-de-cuisine-logo.gif" width="150" height="200" /> 
 	if ($$content_ref =~ /<img id="og_image" src="([^"]+)"/) {
 		my $img_url = $1;
 		$img_url =~ s/\.200\.jpg/\.400\.jpg/;
@@ -4619,12 +4624,12 @@ sub display_new($) {
 	
 # <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 # <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-# <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
+# <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
 
 
 #<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 #<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-#<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-lightness/jquery-ui.css" />
+#<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-lightness/jquery-ui.css" />
 	
 	my $html = <<HTML
 <!doctype html>
@@ -6508,7 +6513,7 @@ sub display_nutrient_levels($) {
 		
 		$html_nutrition_grade .= <<HTML
 <h4>$Lang{nutrition_grade_fr_title}{$lc}
-<a href="http://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}">
+<a href="https://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}">
 <i class="fi-info"></i></a>
 </h4>
 <img src="/images/misc/nutriscore-$grade.svg" alt="$Lang{nutrition_grade_fr_alt}{$lc} $uc_grade" style="margin-bottom:1rem;max-width:100%" /><br/>
@@ -7308,14 +7313,16 @@ sub add_images_urls_to_product($) {
 			}
 		}
 		
-		foreach my $key (keys $product_ref->{languages_codes}) {
-			my $id = $imagetype . '_' . $key;
-			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
-				and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
-			
-				$product_ref->{selected_images}{$imagetype}{display}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-				$product_ref->{selected_images}{$imagetype}{small}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-				$product_ref->{selected_images}{$imagetype}{thumb}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
+		if (defined $product_ref->{languages_codes}) {
+			foreach my $key (keys $product_ref->{languages_codes}) {
+				my $id = $imagetype . '_' . $key;
+				if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+					and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
+					
+					$product_ref->{selected_images}{$imagetype}{display}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+					$product_ref->{selected_images}{$imagetype}{small}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+					$product_ref->{selected_images}{$imagetype}{thumb}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
+				}
 			}
 		}
 	}
