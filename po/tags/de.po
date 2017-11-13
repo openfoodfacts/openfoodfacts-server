@@ -3,9 +3,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de_DE\n"
+"Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-09-14 13:50-0400\n"
+"PO-Revision-Date: 2017-11-12 18:46-0500\n"
 "Language-Team: German\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -26,15 +26,15 @@ msgstr "German"
 
 msgctxt "additives:plural"
 msgid "additives"
-msgstr "zusatzstoffe"
+msgstr "Zusatzstoffe"
 
 msgctxt "additives:singular"
 msgid "additive"
-msgstr "zusatzstoff"
+msgstr "Zusatzstoff"
 
 msgctxt "allergens:plural"
 msgid "allergens"
-msgstr "allergene"
+msgstr "Allergene"
 
 msgctxt "allergens:singular"
 msgid "allergen"
@@ -74,11 +74,11 @@ msgstr "stadt"
 
 msgctxt "codes:plural"
 msgid "codes"
-msgstr ""
+msgstr "codes"
 
 msgctxt "codes:singular"
 msgid "code"
-msgstr ""
+msgstr "code"
 
 msgctxt "correctors:plural"
 msgid "correctors"
@@ -90,7 +90,7 @@ msgstr "korrekteur"
 
 msgctxt "countries:plural"
 msgid "countries"
-msgstr "länder"
+msgstr "laender"
 
 msgctxt "countries:singular"
 msgid "country"
@@ -122,11 +122,11 @@ msgstr "produzenten-code"
 
 msgctxt "entry_dates:plural"
 msgid "entry-dates"
-msgstr ""
+msgstr "datum-der-eintragungen"
 
 msgctxt "entry_dates:singular"
 msgid "entry-date"
-msgstr ""
+msgstr "datum-der-eintragung"
 
 msgctxt "informers:plural"
 msgid "informers"
@@ -146,35 +146,35 @@ msgstr "zutat"
 
 msgctxt "ingredients_from_palm_oil:plural"
 msgid "ingredients-from-palm-oil"
-msgstr "zutaten-aus-Palmoel"
+msgstr "zutaten-aus-palmoel"
 
 msgctxt "ingredients_from_palm_oil:singular"
 msgid "ingredients-from-palm-oil"
-msgstr "zutaten-aus-palmoel"
+msgstr "zutat-aus-palmoel"
 
 msgctxt "ingredients_n:plural"
 msgid "numbers-of-ingredients"
-msgstr ""
+msgstr "anzahlen-der-zutaten"
 
 msgctxt "ingredients_n:singular"
 msgid "number-of-ingredients"
-msgstr ""
+msgstr "anzahl-der-zutaten"
 
 msgctxt "ingredients_that_may_be_from_palm_oil:plural"
 msgid "ingredients-that-may-be-from-palm-oil"
-msgstr "zutaten-die-möglicherweise-Palmoel-beinhalten"
+msgstr "zutaten-die-moeglicherweise-aus-palmoel-hergestellt-werden"
 
 msgctxt "ingredients_that_may_be_from_palm_oil:singular"
 msgid "ingredients-that-may-be-from-palm-oil"
-msgstr "zutaten-die-möglicherweise-palmoel-beinhalten"
+msgstr "zutat-die-moeglicherweise-aus-palmoel-hergestellt-wird"
 
 msgctxt "known_nutrients:plural"
 msgid "known-nutrients"
-msgstr "bekannte-Naehrwerte"
+msgstr "bekannte-naehrstoffe"
 
 msgctxt "known_nutrients:singular"
 msgid "known-nutrient"
-msgstr "bekannte-naehrwerte"
+msgstr "bekannter-naehrstoff"
 
 msgctxt "labels:plural"
 msgid "labels"
@@ -194,19 +194,19 @@ msgstr "Sprache"
 
 msgctxt "last_edit_dates:plural"
 msgid "last-edit-dates"
-msgstr ""
+msgstr "datum-der-letzten-bearbeitungen"
 
 msgctxt "last_edit_dates:singular"
 msgid "last-edit-date"
-msgstr ""
+msgstr "datum-der-letzten-bearbeitung"
 
 msgctxt "last_image_dates:plural"
 msgid "last-image-dates"
-msgstr ""
+msgstr "datum-der-letzten-bilder"
 
 msgctxt "last_image_dates:singular"
 msgid "last-image-date"
-msgstr ""
+msgstr "datum-des-letzten-bildes"
 
 msgctxt "manufacturing_places:plural"
 msgid "manufacturing-places"
@@ -242,11 +242,11 @@ msgstr "naehrstoff"
 
 msgctxt "nutrition_grades:plural"
 msgid "nutrition-grades"
-msgstr ""
+msgstr "naehrwertklassen"
 
 msgctxt "nutrition_grades:singular"
 msgid "nutrition-grade"
-msgstr ""
+msgstr "naehrwertklasse"
 
 msgctxt "origins:plural"
 msgid "origins"
@@ -266,11 +266,11 @@ msgstr "verpackung"
 
 msgctxt "periods_after_opening:plural"
 msgid "periods-after-opening"
-msgstr ""
+msgstr "zeitraeume-nach-dem-oeffnen"
 
 msgctxt "periods_after_opening:singular"
 msgid "period-after-opening"
-msgstr ""
+msgstr "zeitraum-nach-dem-oeffnen"
 
 msgctxt "photographers:plural"
 msgid "photographers"
@@ -282,19 +282,19 @@ msgstr "fotograf"
 
 msgctxt "pnns_groups_1:plural"
 msgid "pnns-groups-1"
-msgstr ""
+msgstr "pnns-gruppen-1"
 
 msgctxt "pnns_groups_1:singular"
 msgid "pnns-group-1"
-msgstr ""
+msgstr "pnns-gruppe-1"
 
 msgctxt "pnns_groups_2:plural"
 msgid "pnns-groups-2"
-msgstr ""
+msgstr "pnns-gruppen-2"
 
 msgctxt "pnns_groups_2:singular"
 msgid "pnns-group-2"
-msgstr ""
+msgstr "pnns-gruppe-2"
 
 msgctxt "products:plural"
 msgid "products"
@@ -346,9 +346,9 @@ msgstr "unbekannte-naehrwerte"
 
 msgctxt "users:plural"
 msgid "contributors"
-msgstr "beitragszahler"
+msgstr "Mitwirkende"
 
 msgctxt "users:singular"
 msgid "contributor"
-msgstr "beitragszahler"
+msgstr "Mitwirkende(r)"
 
