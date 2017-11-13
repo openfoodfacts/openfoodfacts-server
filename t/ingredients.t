@@ -15,11 +15,15 @@ my $product_ref = {
 
 extract_ingredients_from_text($product_ref);
 
-is($product_ref->{ingredients_n}, 16);
+use Data::Dumper;
+print STDERR Dumper($product_ref);
+
+
+is($product_ref->{ingredients_n}, 17);
 
 my $expected_product_ref = {
           'ingredients_n_tags' => [
-                                    '16',
+                                    '17',
                                     '11-20'
                                   ],
           'ingredients_tags' => [
@@ -32,11 +36,12 @@ my $expected_product_ref = {
                                   'e463',
                                   'e432-et-e472',
                                   'correcteurs-d-acidita',
-                                  'e322-e333-e474',
                                   'e475',
                                   'acidifiant',
                                   'sel',
                                   'beurre-de-cacao',
+                                  'e322',
+                                  'e333-e474',
                                   'acide-citrique',
                                   'acide-phosphorique'
                                 ],
@@ -89,29 +94,32 @@ my $expected_product_ref = {
                                'rank' => 9
                              },
                              {
-                               'text' => 'E322/E333 E474',
-                               'id' => 'e322-e333-e474',
-                               'rank' => 10
-                             },
-                             {
                                'text' => 'E475',
                                'id' => 'e475',
-                               'rank' => 11
+                               'rank' => 10
                              },
                              {
                                'text' => 'acidifiant',
                                'id' => 'acidifiant',
-                               'rank' => 12
+                               'rank' => 11
                              },
                              {
                                'text' => 'sel',
                                'id' => 'sel',
-                               'rank' => 13
+                               'rank' => 12
                              },
                              {
                                'percent' => '15',
                                'text' => 'beurre de cacao',
                                'id' => 'beurre-de-cacao'
+                             },
+                             {
+                               'text' => 'E322',
+                               'id' => 'e322'
+                             },
+                             {
+                               'text' => 'E333 E474',
+                               'id' => 'e333-e474'
                              },
                              {
                                'text' => 'acide citrique',
@@ -122,9 +130,10 @@ my $expected_product_ref = {
                                'id' => 'acide-phosphorique'
                              }
                            ],
-          'ingredients_n' => 16,
+          'ingredients_n' => 17,
           'ingredients_text' => 'farine (12%), chocolat (beurre de cacao (15%), sucre [10%], protéines de lait, oeuf 1%) - émulsifiants : E463, E432 et E472 - correcteurs d\'acidité : E322/E333 E474-E475, acidifiant (acide citrique, acide phosphorique) - sel'
         };
+
 
 
 is_deeply($product_ref, $expected_product_ref);

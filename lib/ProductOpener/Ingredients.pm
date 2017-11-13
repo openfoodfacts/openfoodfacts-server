@@ -61,17 +61,6 @@ use LWP::UserAgent;
 use Encode;
 use JSON::PP;
 
-my $google_cloud_vision_api_key = "";
-
-# Read the google cloud vision api key
-if (-e "$data_root/keys/google_cloud_vision_api_key") {
-	open (my $IN, "<$data_root/keys/google_cloud_vision_api_key");
-	$google_cloud_vision_api_key = <$IN>;
-	chomp($google_cloud_vision_api_key);
-	close $IN;
-}
-
-
 # MIDDLE DOT with common substitutes (BULLET variants, BULLET OPERATOR and DOT OPERATOR (multiplication))
 my $middle_dot = qr/(?:\N{U+00B7}|\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N{U+204C}|\N{U+204D}|\N{U+2219}|\N{U+22C5})/i;
 # Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
@@ -195,7 +184,7 @@ sub extract_ingredients_from_image($$$) {
 	}
 	elsif ($ocr_engine eq 'google_cloud_vision') {
 
-		my $url = "https://alpha-vision.googleapis.com/v1/images:annotate?key=" . $google_cloud_vision_api_key;
+		my $url = "https://alpha-vision.googleapis.com/v1/images:annotate?key=" . $ProductOpener::Config::google_cloud_vision_api_key;
 		# alpha-vision.googleapis.com/
 
 		my $ua = LWP::UserAgent->new();
