@@ -8,4 +8,5 @@ ln -s /opt/product-opener/po/openfoodfacts /opt/product-opener/po/site-specific
 ln -s /opt/product-opener/taxonomies /mnt/podata/taxonomies
 perl -I/opt/product-opener/lib /opt/product-opener/scripts/build_lang.pl
 chown -R daemon:daemon /mnt/podata
+chown -R daemon:daemon /opt/product-opener/html/images/products
 /usr/local/bin/httpd-foreground
