@@ -14,6 +14,8 @@ services:
       - mongodb
     volumes:
       - podata:/mnt/podata
+      - type: tmpfs
+        target: /mnt/podata/mnt
       - type: bind
         source: ../
         target: /opt/product-opener/

@@ -14,6 +14,8 @@ services:
       - mongodb
     volumes:
       - podata:/mnt/podata
+      - type: tmpfs
+        target: /mnt/podata/mnt
       - product_images:/opt/product-opener/html/images/products
     configs:
       - source: poconfig
