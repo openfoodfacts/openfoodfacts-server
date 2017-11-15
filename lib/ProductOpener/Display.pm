@@ -136,7 +136,7 @@ $memd = new Cache::Memcached::Fast {
 	'utf8' => 1,
 };
 
-$connection = MongoDB->connect();
+$connection = MongoDB->connect($mongodb_host);
 $database = $connection->get_database($mongodb);
 $products_collection = $database->get_collection('products');
 $emb_codes_collection = $database->get_collection('emb_codes');
@@ -1085,7 +1085,7 @@ sub display_list_of_tags($$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB->connect();
+			$connection = MongoDB->connect($mongodb_host);
 			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
@@ -2516,7 +2516,7 @@ sub search_and_display_products($$$$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB->connect();
+			$connection = MongoDB->connect($mongodb_host);
 			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
@@ -2876,7 +2876,7 @@ sub search_and_export_products($$$$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB->connect();
+			$connection = MongoDB->connect($mongodb_host);
 			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
@@ -3914,7 +3914,7 @@ sub search_and_graph_products($$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB->connect();
+			$connection = MongoDB->connect($mongodb_host);
 			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
@@ -4069,7 +4069,7 @@ sub search_and_map_products($$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB->connect();
+			$connection = MongoDB->connect($mongodb_host);
 			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
