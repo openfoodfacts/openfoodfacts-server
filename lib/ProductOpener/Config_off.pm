@@ -24,6 +24,8 @@ BEGIN
 		
 		$csrf_secret
 		
+		$google_cloud_vision_api_key
+		
 		$mongodb
 	
 		$google_analytics
@@ -62,6 +64,7 @@ use ProductOpener::Config2;
 agamitsudo
 bcatelin
 beniben
+bojackhorseman
 hangy
 javichu
 kyzh
@@ -153,7 +156,8 @@ $data_root = $ProductOpener::Config2::data_root;
 $facebook_app_id = $ProductOpener::Config2::facebook_app_id;
 $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
-$csrf_secret = $Blogs::Config2::csrf_secret;
+$csrf_secret = $ProductOpener::Config2::csrf_secret;
+$google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 
 $reference_timezone = 'Europe/Paris';
 
@@ -215,6 +219,9 @@ $manifest->{related_applications} = \@related_applications;
 $manifest->{theme_color} = '#ffffff';
 $manifest->{background_color} = '#ffffff';
 $options{manifest} = $manifest;
+
+$options{mongodb_supports_sample} = 0;  # from MongoDB 3.2 onward
+$options{display_random_sample_of_products_after_edits} = 0;  # from MongoDB 3.2 onward
 
 $options{favicons} = <<HTML
 <link rel="manifest" href="/cgi/manifest.pl">
