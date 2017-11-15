@@ -9,7 +9,7 @@ services:
     networks:
       - webnet
   backend:
-    image: productopener/backend:latest
+    image: productopener/backend-git:latest
     depends_on:
       - mongodb
     volumes:
@@ -30,7 +30,7 @@ services:
     networks:
       - webnet
   frontend:
-    image: productopener/frontend:latest
+    image: productopener/frontend-git:latest
     depends_on:
       - backend
     volumes:
@@ -50,12 +50,12 @@ volumes:
   product_images:
 configs:
   poconfig:
-    file: ./backend/conf/Config.pm
+    file: ./backend-git/conf/Config.pm
   poconfig2:
-    file: ./backend/conf/Config2.pm
+    file: ./backend-git/conf/Config2.pm
   apacheconfig:
-    file: ./backend/conf/apache.conf
+    file: ./backend-git/conf/apache.conf
   starthttpd:
-    file: ./backend/conf/po-foreground.sh
+    file: ./backend-git/conf/po-foreground.sh
   nginxconfig:
-    file: ./frontend/conf/nginx.conf
+    file: ./frontend-git/conf/nginx.conf
