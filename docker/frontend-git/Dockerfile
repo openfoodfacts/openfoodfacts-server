@@ -18,7 +18,7 @@ RUN git clone --depth 1 https://github.com/openfoodfacts/openfoodfacts-server.gi
 WORKDIR "/opt/product-opener"
 
 # Add ProductOpener runtime dependencies from yarn
-RUN yarn install
+RUN /root/.yarn/bin/yarn install
 
 # Remove build dependencies
 RUN set -x \
