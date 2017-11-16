@@ -5,7 +5,8 @@
   "main": "",
   "private": true,
   "scripts": {
-    "test": "jshint --show-non-errors html/js/product-multilingual.js html/js/search.js"
+    "test": "jshint --show-non-errors html/js/product-multilingual.js html/js/search.js",
+    "postinstall": "node -e \"try { require('fs').symlinkSync(require('path').resolve('node_modules/@bower_components'), 'html/bower_components', 'junction') } catch (e) { }\""
   },
   "repository": {
     "type": "git",
@@ -18,9 +19,15 @@
   },
   "homepage": "https://www.openfoodfacts.org/",
   "dependencies": {
-    "bower": "^1.8.0"
+    "@bower_components/ManUp.js": "git://github.com/boyofgreen/ManUp.js.git#*",
+    "@bower_components/leaflet": "Leaflet/Leaflet#>=1.0.0",
+    "@bower_components/leaflet.markercluster": "Leaflet/Leaflet.markercluster#>=1.0.0",
+    "yarn": "^1.2.1"
   },
   "devDependencies": {
     "jshint": "^2.9.4"
+  },
+  "engines": {
+    "yarn": ">= 1.0.0"
   }
 }
