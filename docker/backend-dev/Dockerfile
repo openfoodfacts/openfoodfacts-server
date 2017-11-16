@@ -1,4 +1,4 @@
-FROM productopener/backend-base
+FROM productopener/backend-base-cpan
 
 # https://github.com/tianon/docker-brew-ubuntu-core/issues/59
 ARG DEBIAN_FRONTEND=noninteractive
