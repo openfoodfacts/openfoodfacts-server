@@ -136,7 +136,7 @@ $memd = new Cache::Memcached::Fast {
 	'utf8' => 1,
 };
 
-$connection = MongoDB->connect();
+$connection = MongoDB->connect($mongodb_host);
 $database = $connection->get_database($mongodb);
 $products_collection = $database->get_collection('products');
 $emb_codes_collection = $database->get_collection('emb_codes');
@@ -1085,7 +1085,7 @@ sub display_list_of_tags($$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB->connect();
+			$connection = MongoDB->connect($mongodb_host);
 			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
@@ -2497,7 +2497,7 @@ sub search_and_display_products($$$$$) {
 	}
 	
 	eval {
-		if (defined $request_ref->{sample_size}) {
+		if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
 			my $aggregate_parameters = [
 				{ "\$match" => $query_ref },
 				{ "\$sample" => { "size" => $request_ref->{sample_size} } }
@@ -2508,6 +2508,8 @@ sub search_and_display_products($$$$$) {
 		else {
 			print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
 			$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+			$count = $cursor->count() + 0;
+			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";
 		}
 	};
 	if ($@) {
@@ -2516,7 +2518,7 @@ sub search_and_display_products($$$$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB->connect();
+			$connection = MongoDB->connect($mongodb_host);
 			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
@@ -2526,7 +2528,7 @@ sub search_and_display_products($$$$$) {
 		}
 		else {		
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
-			if (defined $request_ref->{sample_size}) {
+			if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
 				my $aggregate_parameters = [
 					{ "\$match" => $query_ref },
 					{ "\$sample" => { "size" => $request_ref->{sample_size} } }
@@ -2537,15 +2539,16 @@ sub search_and_display_products($$$$$) {
 			else {
 				print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
 				$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+				$count = $cursor->count() + 0;
+				print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";
+
 			}
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok\n";
 		}
 	}
 	
-	$count = 0;
 	while (my $product_ref = $cursor->next) {
 		push @{$request_ref->{structured_response}{products}}, $product_ref;
-		$count++;
 	}
 	
 	$request_ref->{structured_response}{count} = $count + 0;
@@ -2876,7 +2879,7 @@ sub search_and_export_products($$$$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB->connect();
+			$connection = MongoDB->connect($mongodb_host);
 			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
@@ -3323,7 +3326,7 @@ sub display_scatter_plot($$$) {
 				$data{img} = display_image_thumb($product_ref, 'front');
 				
 				defined $series{$seriesid} or $series{$seriesid} = '';
-				$series{$seriesid} .= encode_json(\%data);
+				$series{$seriesid} .= encode_json(\%data) . ',';
 				defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
 				$series_n{$seriesid}++;
 				$i++;
@@ -3914,7 +3917,7 @@ sub search_and_graph_products($$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB->connect();
+			$connection = MongoDB->connect($mongodb_host);
 			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
@@ -4069,7 +4072,7 @@ sub search_and_map_products($$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB->connect();
+			$connection = MongoDB->connect($mongodb_host);
 			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};

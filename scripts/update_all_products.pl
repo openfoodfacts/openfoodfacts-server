@@ -18,6 +18,8 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 
 --compute-nutrition-score	nutriscore
 
+--check-quality	run quality checks
+
 --index		specifies that the keywords used by the free text search function (name, brand etc.) need to be reindexed. -- TBD
 
 --pretend	do not actually update products
@@ -39,6 +41,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
+use ProductOpener::SiteQuality qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -56,6 +59,7 @@ my $index = '';
 my $pretend = '';
 my $process_ingredients = '';
 my $compute_nutrition_score = '';
+my $check_quality = '';
 
 GetOptions ("key=s"   => \$key,      # string
 			"fields=s" => \@fields_to_update,
@@ -63,6 +67,7 @@ GetOptions ("key=s"   => \$key,      # string
 			"pretend" => \$pretend,
 			"process-ingredients" => \$process_ingredients,
 			"compute-nutrition-score" => \$compute_nutrition_score,
+			"check-quality" => \$check_quality,
 			)
   or die("Error in command line arguments:\n$\nusage");
  
@@ -94,7 +99,7 @@ if ($unknown_fields > 0) {
 	die("Unknown fields, check for typos.");
 }
 
-if ((not $process_ingredients) and (not $compute_nutrition_score) and (scalar @fields_to_update == 0)) {
+if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $check_quality) and (scalar @fields_to_update == 0)) {
 	die("Missing fields to update:\n$\nusage");
 }  
 
@@ -170,6 +175,10 @@ while (my $product_ref = $cursor->next) {
 		if ($server_domain =~ /openfoodfacts/) {
 			ProductOpener::Food::special_process_product($product_ref);
 		}		
+		
+		if ($check_quality) {
+			ProductOpener::SiteQuality::check_quality($product_ref);
+		}
 		
 		if (not $pretend) {
 			$product_ref->{update_key} = $key;

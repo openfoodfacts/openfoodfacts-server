@@ -988,6 +988,20 @@ sub process_image_unselect($$) {
 		delete $product_ref->{images}{$id};
 	}
 
+	# also remove old images without language id (selected before product pages became multilingual)	
+	
+	if ($id =~ /(.*)_(.*)/) {
+		$id = $1;
+		my $id_lc = $2;
+		
+		if ($product_ref->{lc} eq $id_lc) {
+			if (defined $product_ref->{images}{$id}) {
+				delete $product_ref->{images}{$id};
+			}			
+		}		
+	}
+	
+
 	store_product($product_ref, "unselected image $id");
 
 	print STDERR "Index::process_image_unselect done\n";
