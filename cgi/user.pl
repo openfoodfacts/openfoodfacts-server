@@ -5,7 +5,7 @@
 # Product Opener
 # Copyright (C) 2011-2015 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
-# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# Address: 21 rue des Iles, 94100 Saint-Maur des FossÃ©s, France
 # 
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as

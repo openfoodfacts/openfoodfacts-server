@@ -66,7 +66,7 @@ sub separator_before_colon($) {
 	my $l = shift;
 
 	if ($l eq 'fr') {
-		return ' ';
+		return "\N{U+00A0}";
 	}
 	else {
 		return '';

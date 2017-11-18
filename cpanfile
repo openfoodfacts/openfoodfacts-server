@@ -43,6 +43,7 @@ requires 'CLDR::Number::Format::Percent';
 requires 'CLDR::Number';
 requires 'Modern::Perl', '>= 1.20150127';
 requires 'Data::Dumper::AutoEncode';
+requires 'XML::Rules';
 
 on 'test' => sub {
   requires 'Test::More', '>= 1.302049, < 2.0';

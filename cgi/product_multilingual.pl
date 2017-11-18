@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2016 Association Open Food Facts
+# Copyright (C) 2011-2017 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -39,6 +39,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::URL qw/:all/;
+use ProductOpener::SiteQuality qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -127,7 +128,8 @@ if ($type eq 'search_or_add') {
 			$product_ref = init_product($code);
 			$product_ref->{interface_version_created} = $interface_version;
 			store_product($product_ref, 'product_created');
-			process_image_upload($code,$filename,$User_id, time(),'image with barcode from web site Add product button');
+			my $imgid;
+			process_image_upload($code,$filename,$User_id, time(),'image with barcode from web site Add product button',\$imgid);
 			$type = 'add';
 			$action = 'display';
 			$location = "/cgi/product.pl?type=add&code=$code";
@@ -520,6 +522,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	compute_nutrient_levels($product_ref);
 	
 	compute_unknown_nutrients($product_ref);
+	
+	ProductOpener::SiteQuality::check_quality($product_ref);
 	
 	
 	$admin and print STDERR "compute_serving_size_date -- done\n";	
@@ -1583,7 +1587,7 @@ HTML
 		}
 		
 		$input .= <<HTML
-<span id="nutriment_${enid}_unit_percent"$hide_percent>%</span>
+<span class="nutriment_unit_percent" id="nutriment_${enid}_unit_percent"$hide_percent>%</span>
 <select class="nutriment_unit" id="nutriment_${enid}_unit" name="nutriment_${enid}_unit"$hide_select>
 HTML
 ;		
@@ -1889,17 +1893,15 @@ elsif ($action eq 'process') {
 	$comment = $comment . remove_tags_and_quote(decode utf8=>param('comment'));
 	store_product($product_ref, $comment);
 	
-	my $product_url = product_url($product_ref);
+	 my $product_url = product_url($product_ref);
 	
-	# product that was moved to OBF from OFF etc.
 	if (defined $product_ref->{server}) {
-		$product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . $product_url;
+		# product that was moved to OBF from OFF etc.
+		$product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . product_url($product_ref);;
+		$html .= "<p>" . lang("product_changes_saved") . "</p><p>&rarr; <a href=\"" . $product_url . "\">"
+			. lang("see_product_page") . "</a></p>";
 	}
-	
-	$html .= "<p>" . lang("product_changes_saved") . "</p><p>&rarr; <a href=\"" . $product_url . "\">"
-		. lang("see_product_page") . "</a></p>";
-		
-	if ($type eq 'delete') {
+	elsif ($type eq 'delete') {
 		my $email = <<MAIL
 $User_id $Lang{has_deleted_product}{$lc}:
 
@@ -1909,6 +1911,27 @@ MAIL
 ;
 		send_email_to_admin(lang("deleting_product"), $email);
 	
+	} else {
+	
+		# warning: this option is very slow
+		if ((defined $options{display_random_sample_of_products_after_edits}) and ($options{display_random_sample_of_products_after_edits})) {
+		
+			my %request = (
+				'titleid'=>get_fileid(product_name_brand($product_ref)),
+				'query_string'=>$ENV{QUERY_STRING},
+				'referer'=>referer(),
+				'code'=>$code,
+				'product_changes_saved'=>1,
+				'sample_size'=>10
+			);
+			
+			display_product(\%request);
+		
+		}
+		else {
+			$html .= "<p>" . lang("product_changes_saved") . "</p><p>&rarr; <a href=\"" . $product_url . "\">"
+                . lang("see_product_page") . "</a></p>";
+		}
 	}
 	
 }

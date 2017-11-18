@@ -1,21 +1,28 @@
-msgid  ""
+msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
-"Project-Id-Version: \n"
-"PO-Revision-Date: \n"
-"Language-Team: \n"
-"Last-Translator: \n"
+"Language: nl_BE\n"
+"Project-Id-Version: openfoodfacts\n"
+"PO-Revision-Date: 2017-09-02 10:55-0400\n"
+"Language-Team: Dutch, Belgium\n"
+"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Language: nl-BE\n"
+"X-Crowdin-File: /master/po/tags/tags.pot\n"
 
+#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
-msgid   ":langtag"
-msgstr  "nl"
+msgid ":langtag"
+msgstr "nl"
 
+#. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
-msgid   ":langname"
-msgstr  "Dutch"
+msgid ":langname"
+msgstr "Dutch"
 
 msgctxt "additives:plural"
 msgid "additives"
@@ -65,13 +72,21 @@ msgctxt "cities:singular"
 msgid "city"
 msgstr "stad"
 
+msgctxt "codes:plural"
+msgid "codes"
+msgstr ""
+
+msgctxt "codes:singular"
+msgid "code"
+msgstr ""
+
 msgctxt "correctors:plural"
 msgid "correctors"
 msgstr "correctoren"
 
 msgctxt "correctors:singular"
 msgid "corrector"
-msgstr "corrector"
+msgstr "verbeteraar"
 
 msgctxt "countries:plural"
 msgid "countries"
@@ -80,6 +95,22 @@ msgstr "landen"
 msgctxt "countries:singular"
 msgid "country"
 msgstr "land"
+
+msgctxt "debug:plural"
+msgid "debug"
+msgstr "foutopsporing"
+
+msgctxt "debug:singular"
+msgid "debug"
+msgstr "foutopsporing"
+
+msgctxt "editors:plural"
+msgid "editors"
+msgstr ""
+
+msgctxt "editors:singular"
+msgid "editor"
+msgstr ""
 
 msgctxt "emb_codes:plural"
 msgid "packager-codes"
@@ -121,6 +152,14 @@ msgctxt "ingredients_from_palm_oil:singular"
 msgid "ingredients-from-palm-oil"
 msgstr "ingredienten-uit-palmolie"
 
+msgctxt "ingredients_n:plural"
+msgid "numbers-of-ingredients"
+msgstr ""
+
+msgctxt "ingredients_n:singular"
+msgid "number-of-ingredients"
+msgstr ""
+
 msgctxt "ingredients_that_may_be_from_palm_oil:plural"
 msgid "ingredients-that-may-be-from-palm-oil"
 msgstr "ingredienten-die-mogelijk-palmolie-bevatten"
@@ -145,6 +184,14 @@ msgctxt "labels:singular"
 msgid "label"
 msgstr "keurmerk"
 
+msgctxt "languages:plural"
+msgid "languages"
+msgstr "talen"
+
+msgctxt "languages:singular"
+msgid "language"
+msgstr "taal"
+
 msgctxt "last_edit_dates:plural"
 msgid "last-edit-dates"
 msgstr "laatste-wijziging-datums"
@@ -152,6 +199,14 @@ msgstr "laatste-wijziging-datums"
 msgctxt "last_edit_dates:singular"
 msgid "last-edit-date"
 msgstr "datum-laatste-wijziging"
+
+msgctxt "last_image_dates:plural"
+msgid "last-image-dates"
+msgstr ""
+
+msgctxt "last_image_dates:singular"
+msgid "last-image-date"
+msgstr ""
 
 msgctxt "manufacturing_places:plural"
 msgid "manufacturing-places"
@@ -209,6 +264,14 @@ msgctxt "packaging:singular"
 msgid "packaging"
 msgstr "verpakking"
 
+msgctxt "periods_after_opening:plural"
+msgid "periods-after-opening"
+msgstr ""
+
+msgctxt "periods_after_opening:singular"
+msgid "period-after-opening"
+msgstr ""
+
 msgctxt "photographers:plural"
 msgid "photographers"
 msgstr "fotografen"
@@ -217,13 +280,29 @@ msgctxt "photographers:singular"
 msgid "photographer"
 msgstr "fotograaf"
 
+msgctxt "pnns_groups_1:plural"
+msgid "pnns-groups-1"
+msgstr ""
+
+msgctxt "pnns_groups_1:singular"
+msgid "pnns-group-1"
+msgstr ""
+
+msgctxt "pnns_groups_2:plural"
+msgid "pnns-groups-2"
+msgstr ""
+
+msgctxt "pnns_groups_2:singular"
+msgid "pnns-group-2"
+msgstr ""
+
 msgctxt "products:plural"
 msgid "products"
 msgstr "producten"
 
 msgctxt "products:singular"
 msgid "product"
-msgstr "product"
+msgstr ""
 
 msgctxt "purchase_places:plural"
 msgid "purchase-places"
