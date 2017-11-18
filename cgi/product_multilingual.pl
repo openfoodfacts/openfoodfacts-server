@@ -39,6 +39,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::URL qw/:all/;
+use ProductOpener::SiteQuality qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -521,6 +522,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	compute_nutrient_levels($product_ref);
 	
 	compute_unknown_nutrients($product_ref);
+	
+	ProductOpener::SiteQuality::check_quality($product_ref);
 	
 	
 	$admin and print STDERR "compute_serving_size_date -- done\n";	
@@ -1890,9 +1893,11 @@ elsif ($action eq 'process') {
 	$comment = $comment . remove_tags_and_quote(decode utf8=>param('comment'));
 	store_product($product_ref, $comment);
 	
+	 my $product_url = product_url($product_ref);
+	
 	if (defined $product_ref->{server}) {
 		# product that was moved to OBF from OFF etc.
-		my $product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . product_url($product_ref);;
+		$product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . product_url($product_ref);;
 		$html .= "<p>" . lang("product_changes_saved") . "</p><p>&rarr; <a href=\"" . $product_url . "\">"
 			. lang("see_product_page") . "</a></p>";
 	}
@@ -1907,16 +1912,26 @@ MAIL
 		send_email_to_admin(lang("deleting_product"), $email);
 	
 	} else {
-		my %request = (
-			'titleid'=>get_fileid(product_name_brand($product_ref)),
-			'query_string'=>$ENV{QUERY_STRING},
-			'referer'=>referer(),
-			'code'=>$code,
-			'product_changes_saved'=>1,
-			'sample_size'=>10
-		);
+	
+		# warning: this option is very slow
+		if ((defined $options{display_random_sample_of_products_after_edits}) and ($options{display_random_sample_of_products_after_edits})) {
 		
-		display_product(\%request);
+			my %request = (
+				'titleid'=>get_fileid(product_name_brand($product_ref)),
+				'query_string'=>$ENV{QUERY_STRING},
+				'referer'=>referer(),
+				'code'=>$code,
+				'product_changes_saved'=>1,
+				'sample_size'=>10
+			);
+			
+			display_product(\%request);
+		
+		}
+		else {
+			$html .= "<p>" . lang("product_changes_saved") . "</p><p>&rarr; <a href=\"" . $product_url . "\">"
+                . lang("see_product_page") . "</a></p>";
+		}
 	}
 	
 }

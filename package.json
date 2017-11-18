@@ -5,12 +5,17 @@
   "main": "",
   "private": true,
   "scripts": {
-    "test": "concurrently 'npm run prove' 'npm run jshint' 'npm run perlc'",
+    "build": "./node_modules/.bin/gulp",
+    "test": "yarn run test:lang && yarn run prove && yarn run jshint && yarn run perlc",
+    "test:lang": "yarn run test:lang:common && yarn run test:lang:en",
+    "test:lang:en": "perl scripts/check_po_file.pl po/tags/en.po",
+    "test:lang:common": "perl scripts/check_po_file.pl po/common/en.po",
     "prove": "prove -l",
     "jshint": "./node_modules/.bin/jshint --show-non-errors html/js/product-multilingual.js html/js/search.js",
-    "perlc": "perl -c -CS -I/home/travis/build/openfoodfacts/openfoodfacts-server/lib lib/startup_apache2.pl",
-    "postinstall": "npm run bower",
-    "bower": "./node_modules/.bin/bower install"
+    "perlc": "yarn run perlc:startup && yarn run perlc:product",
+    "perlc:startup": "perl -c -CS -Ilib lib/startup_apache2.pl",
+    "perlc:product": "perl -c -CS -Ilib cgi/product_multilingual.pl",
+    "postinstall": "node -e \"try { require('fs').symlinkSync(require('path').resolve('node_modules/@bower_components'), 'html/bower_components', 'junction') } catch (e) { }\""
   },
   "repository": {
     "type": "git",
@@ -24,17 +29,26 @@
   "homepage": "https://github.com/openfoodfacts/openfoodfacts-server#readme",
   "os": [
     "darwin",
-    "linux"
+    "linux",
+    "win32"
   ],
   "dependencies": {
-    "bower": "^1.8.0",
+    "@bower_components/ManUp.js": "git://github.com/boyofgreen/ManUp.js.git#*",
+    "@bower_components/leaflet": "Leaflet/Leaflet#>=1.0.0",
+    "@bower_components/leaflet.markercluster": "Leaflet/Leaflet.markercluster#>=1.0.0",
+    "@bower_components/foundation": "zurb/foundation#^5.5.3",
+    "@bower_components/foundation-icon-fonts": "zurb/foundation-icon-fonts#*",
+    "@bower_components/jquery-ui": "jquery/jquery-ui#^1.12.1",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.3.2",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.4.0"
+    "gulp-sourcemaps": "^2.4.0",
+    "yarn": "^1.2.1"
   },
   "devDependencies": {
-    "concurrently": "^3.2.0",
     "jshint": "^2.9.4"
+  },
+  "engines": {
+    "yarn": ">= 1.0.0"
   }
 }
