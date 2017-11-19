@@ -1,5 +1,5 @@
 {
-  "name": "openfoodfacts-server",
+  "name": "product-opener",
   "description": "",
   "main": "",
   "moduleType": [],
@@ -7,7 +7,7 @@
     "Open Food Facts Association"
   ],
   "license": "GNU Affero General Public License",
-  "homepage": "https://www.openfoodfacts.org/",
+  "homepage": "https://github.com/openfoodfacts/openfoodfacts-server#readme",
   "private": true,
   "ignore": [
     "**/.*",
@@ -19,6 +19,9 @@
   "dependencies": {
     "leaflet": ">=1.0.0",
     "leaflet.markercluster": ">=1.0.0",
+    "foundation": "^5.5.3",
+    "foundation-icon-fonts": "*",
+    "jquery-ui": "^1.12.1",
     "ManUp.js": "git://github.com/boyofgreen/ManUp.js"
   }
 }
