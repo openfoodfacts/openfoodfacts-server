@@ -378,6 +378,18 @@ sub store_product($$) {
 	symlink("$rev.sto", $link) or print STDERR "Products::store_product could not symlink $new_data_root/products/$path/$rev.sto to $link : $! \n";
 	
 	store("$new_data_root/products/$path/changes.sto", $changes_ref);
+
+	my $change_ref = @$changes_ref[-1];
+	my $change_document = {
+		code => $product_ref->{code},
+		userid => $change_ref->{userid},
+		ip => $change_ref->{ip},
+		t => $change_ref->{t},
+		comment => $comment,
+		rev => $rev,
+		diff => $change_ref->{diffs}
+	};
+	$recent_changes_collection->insert_one($change_document);
 }
 
 

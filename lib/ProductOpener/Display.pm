@@ -70,6 +70,7 @@ BEGIN
 					$database
 					$products_collection
 					$emb_codes_collection
+					$recent_changes_collection
 					
 					$debug
 					$scripts
@@ -140,7 +141,7 @@ $connection = MongoDB->connect($mongodb_host);
 $database = $connection->get_database($mongodb);
 $products_collection = $database->get_collection('products');
 $emb_codes_collection = $database->get_collection('emb_codes');
-
+$recent_changes_collection = $database->get_collection('recent_changes');
 
 if (defined $options{other_servers}) {
 
