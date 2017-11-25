@@ -41,6 +41,7 @@ BEGIN
 		&product_url
 		&normalize_search_terms
 		&index_product
+		&log_change
 		
 		&compute_codes
 		&compute_product_history_and_completeness
@@ -378,18 +379,10 @@ sub store_product($$) {
 	symlink("$rev.sto", $link) or print STDERR "Products::store_product could not symlink $new_data_root/products/$path/$rev.sto to $link : $! \n";
 	
 	store("$new_data_root/products/$path/changes.sto", $changes_ref);
-
+	
 	my $change_ref = @$changes_ref[-1];
-	my $change_document = {
-		code => $product_ref->{code},
-		userid => $change_ref->{userid},
-		ip => $change_ref->{ip},
-		t => $change_ref->{t},
-		comment => $comment,
-		rev => $rev,
-		diff => $change_ref->{diffs}
-	};
-	$recent_changes_collection->insert_one($change_document);
+	log_change($product_ref, $change_ref);
+
 }
 
 
@@ -1363,6 +1356,24 @@ sub process_product_edit_rules($) {
 		}
 	}
 	
+}
+
+sub log_change {
+
+	my ($product_ref, $change_ref) = @_;
+	
+	my $change_document = {
+		code => $product_ref->{code},
+		countries_tags => $product_ref->{countries_tags},
+		userid => $change_ref->{userid},
+		ip => $change_ref->{ip},
+		t => $change_ref->{t},
+		comment => $change_ref->{comment},
+		rev => $change_ref->{rev},
+		diff => $change_ref->{diffs}
+	};
+	$recent_changes_collection->insert_one($change_document);
+
 }
 
 1;

@@ -67,16 +67,7 @@ while (my $product_ref = $cursor->next) {
 	}
 
 	foreach my $change_ref (@$changes_ref) {
-		my $change_document = {
-			code => $product_ref->{code},
-			userid => $change_ref->{userid},
-			ip => $change_ref->{ip},
-			t => $change_ref->{t},
-			comment => $change_ref->{comment},
-			rev => $change_ref->{rev},
-			diff => $change_ref->{diffs}
-		};
-		$recent_changes_collection->insert_one($change_document);
+		log_change($product_ref, $change_ref);
 	}
 
 	$n++;
