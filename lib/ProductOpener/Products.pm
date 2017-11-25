@@ -46,6 +46,7 @@ BEGIN
 		&compute_codes
 		&compute_product_history_and_completeness
 		&compute_languages
+		&compute_changes_diff_text
 					
 		&process_product_edit_rules
 		
@@ -1373,6 +1374,49 @@ sub log_change {
 		diffs => $change_ref->{diffs}
 	};
 	$recent_changes_collection->insert_one($change_document);
+
+}
+
+sub compute_changes_diff_text {
+
+	my $change_ref = shift;
+	
+	my $diffs = '';
+	if (defined $change_ref->{diffs}) {
+		my %diffs = %{$change_ref->{diffs}};
+		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments') {
+			if (defined $diffs{$group}) {
+				$diffs .= lang("change_$group") . " ";
+							
+				foreach my $diff ('add','change','delete') {
+					if (defined $diffs{$group}{$diff}) {
+						$diffs .= "(" . lang("diff_$diff") . ' ' ;
+						my @diffs = @{$diffs{$group}{$diff}};
+						if ($group eq 'fields') {
+							# @diffs = map( lang($_), @diffs);
+						}
+						elsif ($group eq 'nutriments') {
+							# @diffs = map( $Nutriments{$_}{$lc}, @diffs);
+							# Attempt to access disallowed key 'nutrition-score' in a restricted hash at /home/off-fr/cgi/product.pl line 1039.
+							my @lc_diffs = ();
+							foreach my $nid (@diffs) {
+								if (exists $Nutriments{$nid}) {
+									push @lc_diffs, $Nutriments{$nid}{$lc};
+								}
+							}
+						}
+						$diffs .= join(", ", @diffs) ;
+						$diffs .= ") ";
+					}
+				}
+				
+				$diffs .= "-- ";
+			}
+		}
+		$diffs =~  s/-- $//;
+	}
+
+	return $diffs;
 
 }
 
