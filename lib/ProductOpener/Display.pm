@@ -7555,6 +7555,8 @@ sub display_recent_changes {
 			diffs => $change_ref->{diffs}
 		};
 
+		delete $change_hash->{ip} unless $admin; # security: Do not expose IP addresses to non-admin or anonymous users.
+
 		push @{$request_ref->{structured_response}{changes}}, $change_hash;
 
 		my $date = display_date_tag($change_ref->{t});	
