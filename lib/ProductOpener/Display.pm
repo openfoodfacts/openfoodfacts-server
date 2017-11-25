@@ -7473,7 +7473,13 @@ XML
 
 sub display_recent_changes {
 
-	my ($request_ref, $limit, $page) = @_;
+	my ($request_ref, $query_ref, $limit, $page) = @_;
+
+	if ((defined $country) and ($country ne 'en:world')) {
+		$query_ref->{countries_tags} = $country;
+	}
+	
+	delete $query_ref->{lc};
 
 	if (defined $limit) {
 	}
@@ -7508,7 +7514,6 @@ sub display_recent_changes {
 	my $sort_ref = Tie::IxHash->new();
 	$sort_ref->Push('$natural' => -1);
 
-	my $query_ref = Tie::IxHash->new();
 	print STDERR "Display.pm - display_recent_changes - query:\n" . Dumper($query_ref) . "\n";
 	my $cursor = $recent_changes_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 	my $count = $cursor->count() + 0;
@@ -7536,7 +7541,7 @@ sub display_recent_changes {
 		}
 	}
 	
-	my $html .= "<h2>" . lang("recent_changes") . "</h2>\n<ul>\n";
+	my $html .= "<ul>\n";
 	while (my $change_ref = $cursor->next) {
 		push @{$request_ref->{structured_response}{changes}}, $change_ref;
 

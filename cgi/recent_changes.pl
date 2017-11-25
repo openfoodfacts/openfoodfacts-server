@@ -45,6 +45,8 @@ use JSON::PP;
 ProductOpener::Display::init();
 use ProductOpener::Lang qw/:all/;
 
+my $query_ref = {};
+
 my $limit = 0 + (param('page_size') || $page_size);
 if (($limit < 2) or ($limit > 1000)) {
 	$limit = $page_size;
@@ -64,4 +66,4 @@ foreach my $parameter ('json') {
 	}
 }
 
-display_recent_changes($request_ref, $limit, $page);
+display_recent_changes($request_ref, $query_ref, $limit, $page);
