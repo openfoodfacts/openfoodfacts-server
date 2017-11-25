@@ -1370,7 +1370,7 @@ sub log_change {
 		t => $change_ref->{t},
 		comment => $change_ref->{comment},
 		rev => $change_ref->{rev},
-		diff => $change_ref->{diffs}
+		diffs => $change_ref->{diffs}
 	};
 	$recent_changes_collection->insert_one($change_document);
 
