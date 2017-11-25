@@ -59,6 +59,7 @@ BEGIN
 					&search_and_export_products
 					&search_and_graph_products
 					&search_and_map_products
+					&display_recent_changes
 					
 					@search_series
 					
@@ -7467,6 +7468,146 @@ XML
 ;
 	
 	print header( -type => 'application/rss+xml', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $xml;
+
+}
+
+sub display_recent_changes {
+
+	my ($request_ref, $limit, $page) = @_;
+
+	if (defined $limit) {
+	}
+	elsif (defined $request_ref->{page_size}) {
+		$limit = $request_ref->{page_size};
+	}
+	else {
+		$limit = $page_size;
+	}
+
+	my $skip = 0;
+	if (defined $page) {
+		$skip = ($page - 1) * $limit;
+	}
+	elsif (defined $request_ref->{page}) {
+		$page = $request_ref->{page};
+		$skip = ($page - 1) * $limit;
+	}
+	else {
+		$page = 1;
+	}
+
+	# support for returning structured results in json / xml etc.
+
+	$request_ref->{structured_response} = {
+		page => $page,
+		page_size => $limit,
+		skip => $skip,
+		products => [],
+	};	
+
+	my $sort_ref = Tie::IxHash->new();
+	$sort_ref->Push('$natural' => -1);
+
+	my $query_ref = Tie::IxHash->new();
+	print STDERR "Display.pm - display_recent_changes - query:\n" . Dumper($query_ref) . "\n";
+	my $cursor = $recent_changes_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+	my $count = $cursor->count() + 0;
+	print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - ok, got count: $count\n";
+
+	if ($@) {
+		print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - retrying once\n";
+		
+		# opening new connection
+		eval {
+			$connection = MongoDB->connect($mongodb_host);
+			$database = $connection->get_database($mongodb);
+			$recent_changes_collection = $database->get_collection('recent_changes');
+		};
+		if ($@) {
+			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - reconnecting failed\n";
+			$count = -1;
+		}
+		else {		
+			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - reconnected ok\n";					
+			print STDERR "Display.pm - display_recent_changes - query:\n" . Dumper($query_ref) . "\n";
+			$cursor = $recent_changes_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+			$count = $cursor->count() + 0;
+			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - ok, got count: $count\n";
+		}
+	}
+	
+	my $html .= "<h2>" . lang("recent_changes") . "</h2>\n<ul>\n";
+	while (my $change_ref = $cursor->next) {
+		push @{$request_ref->{structured_response}{changes}}, $change_ref;
+
+		my $date = display_date_tag($change_ref->{t});	
+		my $user = "";
+		if (defined $change_ref->{userid}) {
+			$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
+		}
+		
+		my $comment = $change_ref->{comment};
+		$comment = lang($comment) if $comment eq 'product_created';
+		
+		$comment =~ s/^Modification :\s+//;
+		if ($comment eq 'Modification :') {
+			$comment = '';
+		}
+		$comment =~ s/\new image \d+( -)?//;
+		
+		if ($comment ne '') {
+			$comment = "- $comment";
+		}
+		
+		my $change_rev = $change_ref->{rev};
+
+		# Display diffs
+		# [Image upload - add: 1, 2 - delete 2], [Image selection - add: front], [Nutriments... ]
+		
+		my $diffs = '';
+		if (defined $change_ref->{diffs}) {
+			my %diffs = %{$change_ref->{diffs}};
+			foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments') {
+				if (defined $diffs{$group}) {
+					$diffs .= lang("change_$group") . " ";
+								
+					foreach my $diff ('add','change','delete') {
+						if (defined $diffs{$group}{$diff}) {
+							$diffs .= "(" . lang("diff_$diff") . ' ' ;
+							my @diffs = @{$diffs{$group}{$diff}};
+							if ($group eq 'fields') {
+								# @diffs = map( lang($_), @diffs);
+							}
+							elsif ($group eq 'nutriments') {
+								# @diffs = map( $Nutriments{$_}{$lc}, @diffs);
+								# Attempt to access disallowed key 'nutrition-score' in a restricted hash at /home/off-fr/cgi/product.pl line 1039.
+								my @lc_diffs = ();
+								foreach my $nid (@diffs) {
+									if (exists $Nutriments{$nid}) {
+										push @lc_diffs, $Nutriments{$nid}{$lc};
+									}
+								}
+							}
+							$diffs .= join(", ", @diffs) ;
+							$diffs .= ") ";
+						}
+					}
+					
+					$diffs .= "-- ";
+				}
+			}
+			$diffs =~  s/-- $//;
+		}
+		
+		my $product_url = product_url($change_ref->{code});
+		$html .= "<li><a href=\"" . $product_url . "\">" . $change_ref->{code} . "</a> $date - $user $diffs $comment - <a href=\"" . $product_url . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
+
+	}
+
+	$html .= "</ul>";
+	${$request_ref->{content_ref}} .= $html;
+	$request_ref->{title} = lang("recent_changes");
+	display_new($request_ref);
 
 }
 
