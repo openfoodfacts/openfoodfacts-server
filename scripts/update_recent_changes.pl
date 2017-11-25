@@ -35,7 +35,7 @@ use boolean; # imports 'true' and 'false'
 # Get a list of all products not yet updated
 
 my $query_ref = {};
-my $cursor = $products_collection->query($query_ref)->fields({ code => 1 });
+my $cursor = $products_collection->query($query_ref)->fields({ code => 1, countries_tags => 2 });
 my $count = $products_collection->count($query_ref);
 
 my $n = 0;
