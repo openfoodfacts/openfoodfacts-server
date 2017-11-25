@@ -7508,7 +7508,7 @@ sub display_recent_changes {
 		page => $page,
 		page_size => $limit,
 		skip => $skip,
-		products => [],
+		changes => [],
 	};	
 
 	my $sort_ref = Tie::IxHash->new();
@@ -7543,7 +7543,19 @@ sub display_recent_changes {
 	
 	my $html .= "<ul>\n";
 	while (my $change_ref = $cursor->next) {
-		push @{$request_ref->{structured_response}{changes}}, $change_ref;
+		# Conversion for JSON, because the $change_ref cannot be passed to encode_json.
+		my $change_hash = {
+			code => $change_ref->{code},
+			countries_tags => $change_ref->{countries_tags},
+			userid => $change_ref->{userid},
+			ip => $change_ref->{ip},
+			t => $change_ref->{t},
+			comment => $change_ref->{comment},
+			rev => $change_ref->{rev},
+			diffs => $change_ref->{diffs}
+		};
+
+		push @{$request_ref->{structured_response}{changes}}, $change_hash;
 
 		my $date = display_date_tag($change_ref->{t});	
 		my $user = "";
@@ -7602,6 +7614,7 @@ sub display_recent_changes {
 				}
 			}
 			$diffs =~  s/-- $//;
+			$change_hash->{diffs_text} = $diffs;
 		}
 		
 		my $product_url = product_url($change_ref->{code});
