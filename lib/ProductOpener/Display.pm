@@ -3305,7 +3305,7 @@ sub display_scatter_plot($$$) {
 				}
 				
 				defined $series{$seriesid} or $series{$seriesid} = '';
-				
+
 				# print STDERR "Display::search_and_graph_products: i: $i - axis_x: $graph_ref->{axis_x} - axis_y: $graph_ref->{axis_y}\n";
 					
 				my %data;
@@ -3326,7 +3326,7 @@ sub display_scatter_plot($$$) {
 				$data{img} = display_image_thumb($product_ref, 'front');
 				
 				defined $series{$seriesid} or $series{$seriesid} = '';
-				$series{$seriesid} .= encode_json(\%data) . ',';
+				$series{$seriesid} .= JSON::PP->new->encode(\%data) . ',';
 				defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
 				$series_n{$seriesid}++;
 				$i++;
