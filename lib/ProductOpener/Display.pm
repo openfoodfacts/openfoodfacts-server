@@ -6479,6 +6479,32 @@ sub display_nutrient_levels($) {
 	# For some products we can have the nutrition grade (A to Z, French style) + nutrient levels (traffic lights, UK style)
 	# or one of them, or none
 	
+	# Do not display nutriscore and traffic lights for some categories of products
+	# do not compute a score for baby foods
+	if (has_tag($product_ref, "categories", "en:baby-foods")) {
+
+			return "";
+	}	
+	
+	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
+	if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
+
+			return "";
+	}
+	
+	
+	# do not compute a score for coffee, tea etc.
+	if (	(has_tag($product_ref, "categories", "en:alcoholic-beverages")) 
+		or	(has_tag($product_ref, "categories", "en:coffees"))
+		or	(has_tag($product_ref, "categories", "en:teas"))
+		or	(has_tag($product_ref, "categories", "en:teas"))
+		or	(has_tag($product_ref, "categories", "fr:levure"))
+		or	(has_tag($product_ref, "categories", "fr:levures"))
+		) {
+
+			return "";
+	}		
+	
 	my $html_nutrition_grade = '';
 	my $html_nutrient_levels = '';
 	
