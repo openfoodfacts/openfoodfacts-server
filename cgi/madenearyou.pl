@@ -53,7 +53,7 @@ sub display_madenearyou($) {
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
 <script type="text/javascript" src="/js/jquery.cookie.min.js"></script>	
 
 <script src="/js/jquery.iframe-transport.js"></script>
@@ -154,7 +154,7 @@ font-size:48px;
 
 </script>
 
-<link href='http://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
 
 	
 </head>
@@ -203,7 +203,7 @@ ou de route. Vous nous rejoignez ?</p>
 <p>Retrouvez-nous aussi sur :</p>
 
 <p>
-&rarr; <a href="https://twitter.com/openfoodfactsfr">Twitter</a><br/>
+&rarr; <a href="https://twitter.com/OpenFoodFactsFR">Twitter</a><br/>
 &rarr; <a href="https://plus.google.com/u/0/b/102622509148794386660/">Google+</a><br />
 &rarr; <a href="https://www.facebook.com/OpenFoodFacts.fr">Facebook</a> + <a href="https://www.facebook.com/groups/356858984359591/">groupe des contributeurs</a><br />
 </p>
