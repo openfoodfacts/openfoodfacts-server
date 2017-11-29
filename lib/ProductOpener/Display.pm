@@ -1952,6 +1952,14 @@ sub display_tag($) {
 		return 301;
 	}
 	
+	$header .= <<HTML		
+	<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
+	<script src="/bower_components/leaflet/dist/leaflet.js"></script>
+	<script src="/bower_components/osmtogeojson/osmtogeojson.js"></script>
+	<script src="/js/display-tag.js"></script>
+HTML
+;
+
 	my $weblinks_html = '';
 	if (not defined $request_ref->{groupby_tagtype}) {
 		my @weblinks = ();
@@ -2052,13 +2060,6 @@ sub display_tag($) {
 			if ((defined $lat) and (defined $lng)) {
 				my $geo = "$lat,$lng";
 			
-				$header .= <<HTML		
-<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
-<script src="/bower_components/leaflet/dist/leaflet.js"></script>
-HTML
-;
-
-
 				my $js = <<JS
 var map = L.map('container').setView([$geo], 11);;	
 		
