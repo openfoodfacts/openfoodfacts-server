@@ -1952,15 +1952,9 @@ sub display_tag($) {
 		return 301;
 	}
 	
-	$header .= <<HTML		
-	<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
-	<script src="/bower_components/leaflet/dist/leaflet.js"></script>
-	<script src="/bower_components/osmtogeojson/osmtogeojson.js"></script>
-	<script src="/js/display-tag.js"></script>
-HTML
-;
-
 	my $weblinks_html = '';
+	my @map_layers = ();
+	my $map_set_view = '';
 	if (not defined $request_ref->{groupby_tagtype}) {
 		my @weblinks = ();
 		if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})) {
@@ -2056,30 +2050,11 @@ HTML
 			
 			# Generate a map if we have coordinates
 			my ($lat, $lng) = get_packager_code_coordinates($canon_tagid);
-			my $html_map = "";
 			if ((defined $lat) and (defined $lng)) {
 				my $geo = "$lat,$lng";
-			
-				my $js = <<JS
-var map = L.map('container').setView([$geo], 11);;	
-		
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	maxZoom: 19,
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);			
-
-L.marker([$geo]).addTo(map)	
-
-$request_ref->{map_options}
-JS
-;		
-				$initjs .= $js;
-				
-				$html_map .= <<HTML
-<div id="container" style="height: 300px"></div>​
-HTML
-;				
-			
+				my $layer = "L.marker([$geo]).addTo(map)";
+				push @map_layers, $layer;
+				$map_set_view = "setView([$geo], 11)";
 			}
 		
 			if ($packager_codes{$canon_tagid}{cc} eq 'fr') {
@@ -2153,31 +2128,53 @@ HTML
 ;
 				}
 			}	
-			
-			if ($html_map ne '') {
-			
-				$description = <<HTML
+		}
+	}
+
+	if ((scalar @map_layers) > 0) {
+		$header .= <<HTML		
+	<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
+	<script src="/bower_components/leaflet/dist/leaflet.js"></script>
+	<script src="/bower_components/osmtogeojson/osmtogeojson.js"></script>
+	<script src="/js/display-tag.js"></script>
+HTML
+;
+		
+		my $js = <<JS
+var map = L.map('container');
+		
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+JS
+;
+
+		foreach my $layer (@map_layers) {
+			$js .= $layer;
+		}
+
+		$js .= $map_set_view;
+		$js .= $request_ref->{map_options};
+
+		$initjs .= $js;
+
+		$description = <<HTML
 <div class="row">
 
 	<div class="large-3 columns">
 		$description
 	</div>
 	<div class="large-9 columns">
-		$html_map
+		<div id="container" style="height: 300px"></div>​
 	</div>
 
 </div>			
 
 HTML
 ;
-			
-			}
-		
-		}
-		
-
 	}
-	
+
 	if ($tagtype eq 'users') {
 		my $user_ref = retrieve("$data_root/users/$tagid.sto");
 		
