@@ -3305,7 +3305,7 @@ sub display_scatter_plot($$$) {
 				}
 				
 				defined $series{$seriesid} or $series{$seriesid} = '';
-				
+
 				# print STDERR "Display::search_and_graph_products: i: $i - axis_x: $graph_ref->{axis_x} - axis_y: $graph_ref->{axis_y}\n";
 					
 				my %data;
@@ -3326,7 +3326,7 @@ sub display_scatter_plot($$$) {
 				$data{img} = display_image_thumb($product_ref, 'front');
 				
 				defined $series{$seriesid} or $series{$seriesid} = '';
-				$series{$seriesid} .= encode_json(\%data) . ',';
+				$series{$seriesid} .= JSON::PP->new->encode(\%data) . ',';
 				defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
 				$series_n{$seriesid}++;
 				$i++;
@@ -4640,17 +4640,16 @@ sub display_new($) {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/foundation/css/app.css" />
-    <link rel="stylesheet" href="/foundation/foundation-icons/foundation-icons.css" />
-    <script src="/foundation/js/vendor/modernizr.js"></script>
+    <link rel="stylesheet" href="/css/dist/app.css" />
+    <script src="/bower_components/foundation/js/vendor/modernizr.js"></script>
 	
 <title>$title</title>
 
 $meta_description
 	
-<script src="/foundation/js/vendor/jquery.js"></script>
-<script type="text/javascript" src="/js/jquery-ui-1.11.4/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="/js/jquery-ui-1.11.4/jquery-ui.min.css" />
+<script src="/bower_components/foundation/js/vendor/jquery.js"></script>
+<script type="text/javascript" src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="/bower_components/jquery-ui/themes/base/jquery-ui.min.css" />
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
 <link rel="search" href="@{[ format_subdomain($subdomain) ]}/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}" />
@@ -5343,8 +5342,8 @@ $Lang{footer_follow_us}{$lc}
 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>	
 
-<script src="/foundation/js/foundation.min.js"></script>
-<script src="/foundation/js/vendor/jquery.cookie.js"></script>
+<script src="/bower_components/foundation/js/foundation.min.js"></script>
+<script src="/bower_components/foundation/js/vendor/jquery.cookie.js"></script>
 
 <script async defer src="/bower_components/ManUp.js/manup.min.js"></script>
 
