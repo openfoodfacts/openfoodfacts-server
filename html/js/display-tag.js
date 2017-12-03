@@ -18,7 +18,44 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-function addWikidataObjectToMap(id, map){
+var markers = [];
+var map;
+function ensureMapIsDisplayed() {
+	if (map) {
+		return;
+	}
+
+	$('#tag_description').removeClass('large-12');
+	$('#tag_description').addClass('large-9');
+	$('#tag_map').show();
+
+	map = L.map('container');
+
+	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
+}
+
+function fitBoundsToAllLayers(map) {
+	var latlngbounds = new L.latLngBounds();
+
+	map.eachLayer(function (l) {
+		if (typeof l.getBounds === "function") {
+			latlngbounds.extend(l.getBounds());
+		}
+	});
+
+	latlngbounds.extend(L.latLngBounds(markers));
+	map.fitBounds(latlngbounds);
+}
+
+function runCallbackOnJson(callback) {
+	ensureMapIsDisplayed();
+	callback(map);
+}
+
+function addWikidataObjectToMap(id){
 	getOpenStreetMapFromWikidata(id, function(data)
 	{
 		var bindings = data.results.bindings;
@@ -28,13 +65,16 @@ function addWikidataObjectToMap(id, map){
 
 		var binding = bindings[0];
 		var relationId = binding.OpenStreetMap_Relations_ID.value;
-		if (!relationId){
+		if (!relationId) {
 			return;
 		}
 
 		getGeoJsonFromOsmRelation(relationId, function (geoJson) {
 			if (geoJson) {
-				L.geoJSON(geojson).addTo(map);
+				runCallbackOnJson(function (map) {
+					var geoJsonLayer = L.geoJSON(geoJson).addTo(map);
+					fitBoundsToAllLayers(map);
+				});
 			}
 		});
 	});
