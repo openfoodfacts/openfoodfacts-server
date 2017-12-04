@@ -86,24 +86,32 @@ JS
 ;
 $initjs .= $js;
 
-my $html = <<HTML
+my $html = '<p>' . lang('translators_lead') . '</p>';
+
+my $translators_column_name = lang('translators_column_name');
+my $translators_column_translated_words = lang('translators_column_translated_words');
+my $translators_column_target_words = lang('translators_column_target_words');
+my $translators_column_approved_words = lang('translators_column_approved_words');
+my $translators_column_votes_made = lang('translators_column_votes_made');
+
+$html .= <<HTML
 <table id="top_translators" class="display" cellspacing="0" width="100%">
 	<thead>
 		<tr>
-			<th>Name</th>
-			<th>Translated (Words)</th>
-			<th>Target Words</th>
-			<th>Approved (Words)</th>
-			<th>Votes Made</th>
+			<th>$translators_column_name</th>
+			<th>$translators_column_translated_words</th>
+			<th>$translators_column_target_words</th>
+			<th>$translators_column_approved_words</th>
+			<th>$translators_column_votes_made</th>
 		</tr>
 	</thead>
 	<tfoot>
 		<tr>
-			<th>Name</th>
-			<th>Translated (Words)</th>
-			<th>Target Words</th>
-			<th>Approved (Words)</th>
-			<th>Votes Made</th>
+			<th>$translators_column_name</th>
+			<th>$translators_column_translated_words</th>
+			<th>$translators_column_target_words</th>
+			<th>$translators_column_approved_words</th>
+			<th>$translators_column_votes_made</th>
 		</tr>
 	</tfoot>
 	<tbody>
@@ -112,7 +120,9 @@ my $html = <<HTML
 HTML
 ;
 
+$html .= '<p style="font-size: smaller;">' . lang('translators_renewal_notice') . '</p>';
+
 display_new( {
-	title=>lang('top_translators'),
+	title=>lang('translators_title'),
 	content_ref=>\$html
 });
