@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-12-04 06:40-0500\n"
+"PO-Revision-Date: 2017-12-04 06:50-0500\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -369,11 +369,11 @@ msgstr "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr "befejezett %d küldetést:"
+msgstr "teljesített %d küldetést:"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr "A Facebook-fiókoddal csatlakozol."
+msgstr "Jelenleg a Facebook-fiókoddal csatlakozol."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
@@ -385,11 +385,11 @@ msgstr "Adatok másolása a jelenlegi terméktől új termékhez"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
-msgstr "Kérem, javítsa ki az alábbi hibákat:"
+msgstr "Kérem, javítsa ki a következő hibákat:"
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr "javító(k)"
+msgstr "javítók"
 
 msgctxt "correctors_s"
 msgid "corrector"
@@ -405,7 +405,7 @@ msgstr "Azon országok, ahol a termék relatíve széles körben kapható (nem c
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr "ország(ok)"
+msgstr "országok"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
@@ -453,15 +453,15 @@ msgstr "Felhasználó törlése"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr "Új:"
+msgstr "Hozzáadva:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr "Változott:"
+msgstr "Módosítva:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr "Törölt:"
+msgstr "Törölve:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
@@ -485,7 +485,7 @@ msgstr "szerkesztés"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr "A változtatások összefoglalója"
+msgstr "A módosítások összefoglalása"
 
 msgctxt "edit_product"
 msgid "Edit a product"
@@ -521,7 +521,7 @@ msgstr "<p>A fiókbeállításaid megváltoztak.</p>"
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr "szerkesztő(k)"
+msgstr "szerkesztők"
 
 msgctxt "editors_s"
 msgid "editor"
@@ -533,19 +533,19 @@ msgstr "email cím"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr "EK- vagy EMB-üzemkód(ok)"
+msgstr "EMB vagy EK üzemkódok"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
-msgstr "%s EK- vagy EMB-üzemkódú vállalat által csomagolt termékek"
+msgstr "%s EMB vagy EK üzemkódú vállalat által csomagolt termékek"
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr "EK- vagy EMB-üzemkód"
+msgstr "EMB vagy EK üzemkód"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr "EK- vagy EMB-üzemkód"
+msgstr "EMB vagy EK üzemkód"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
@@ -557,7 +557,7 @@ msgstr "Az EU-ban az EK-üzemkód egy ellipszisben szereplő kétjegyű országj
 
 msgctxt "emb_codes_p"
 msgid "packager codes"
-msgstr "üzemkód(ok)"
+msgstr "üzemkódok"
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
