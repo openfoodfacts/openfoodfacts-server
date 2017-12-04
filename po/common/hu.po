@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-12-03 11:31-0500\n"
+"PO-Revision-Date: 2017-12-04 06:32-0500\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -38,7 +38,7 @@ msgstr "Rólam"
 
 msgctxt "add"
 msgid "Add"
-msgstr "Hozzáadás"
+msgstr "Hozzáad"
 
 msgctxt "add_language"
 msgid "Add language"
@@ -54,7 +54,7 @@ msgstr "Regisztráció"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr "<p>Köszönjük, hogy csatlakoztál! Most már be tudsz jelentkezni az oldalon és vihetsz fel/szerkeszthetsz termékeket.</p>"
+msgstr "<p>Köszönjük, hogy csatlakozott! Most már be tud jelentkezni a weboldalon, hogy hozzáadhasson és szerkeszthessen termékeket.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -89,7 +89,7 @@ msgstr "Kedves <NAME>!\n\n"
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr "Köszi, hogy csatlakoztál az <<site_name>> -hez!"
+msgstr "Köszönjük, hogy csatlakozott a(z) <<site_name>>-hoz!"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
@@ -166,7 +166,7 @@ msgstr "<p>Ez a termék jelenleg nem szerepel a(z) <<site_name>> adatbázisában
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr "Készíts képet"
+msgstr "Készítsen képet"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
@@ -174,7 +174,7 @@ msgstr "Megjegyzés: a képek amiket beküldesz a Creative Commons Attribution S
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr "Hozzáadhatsz képeket"
+msgstr "Hozzáadhat képeket:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
@@ -190,7 +190,7 @@ msgstr "Vonalkód"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr "Vonalkódszám:"
+msgstr "Vonalkód szám:"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
@@ -202,7 +202,7 @@ msgstr "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\"> 
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
-msgstr "Fogadd be a küldetést"
+msgstr "Teljesítse a küldetést"
 
 msgctxt "brands"
 msgid "Brands"
@@ -210,11 +210,11 @@ msgstr "Márkanevek"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr "Pl.: Kinder, Ferrero / Nutella, Ferrero / Coca-Cola / Pick / Riska, Alföldi Tej (kft., bt. stb. nélkül)"
+msgstr "Kinder Bueno White, Kinder Bueno, Kinder, Nutella, Ferrero, Coca-Cola, Pick Szeged, Riska, Alföldi Tej (kft., bt. stb. nélkül)"
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr "márkanev(ek)"
+msgstr "márkanevek"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
