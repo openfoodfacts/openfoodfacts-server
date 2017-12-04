@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-12-04 06:32-0500\n"
+"PO-Revision-Date: 2017-12-04 06:40-0500\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -105,11 +105,11 @@ msgstr "Az EFSA által az EU-ban betiltott élelmiszeradalék. Mindenképpen ker
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr "adalék(ok)"
+msgstr "adalékanyagok"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr "adalék"
+msgstr "adalékanyag"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
@@ -133,7 +133,7 @@ msgstr "Allergiás vagy intoleranciás reakciót okozó anyagok, termékek"
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr "allergén(ek)"
+msgstr "allergének"
 
 msgctxt "allergens_s"
 msgid "allergen"
@@ -162,7 +162,8 @@ msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Ez a termék jelenleg nem szerepel a(z) <<site_name>> adatbázisában. Tudna készíteni néhány képet a termékről, a termék vonalkódjáról, az összetevők listájáról és a tápanyag adatokról, hogy azok elérhetőek legyenek a(z) <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>-on?</p> <p>Előre is köszönjük!</p>\n"
+msgstr "<p>Ez a termék jelenleg nem szerepel a(z) <<site_name>> adatbázisában. Tudna készíteni néhány képet a termékről, a termék vonalkódjáról, az összetevők listájáról és a tápértékadatokról, hogy azok elérhetőek legyenek a(z) <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>-on?</p>\n"
+"<p>Előre is köszönjük!</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -218,7 +219,7 @@ msgstr "márkanevek"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr "A(z) %s márkanév termékei"
+msgstr "A(z) %s márka termékei"
 
 msgctxt "brands_s"
 msgid "brand"
@@ -230,7 +231,7 @@ msgstr "márkanév hozzáadása"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr "Nem a(z) %s márkanév termékei"
+msgstr "Nem a(z) %s márka termékei"
 
 msgctxt "by"
 msgid "by"
@@ -242,7 +243,7 @@ msgstr "Kategóriák"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr "Pl.: Sajtkrém / Gyümölcsjoghurt / Téliszalámi"
+msgstr "Szardínia olívaolajban, Narancslé sűrítményből, Sajtkrém, Gyümölcsjoghurt, Téliszalámi"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
@@ -250,7 +251,7 @@ msgstr "Csak a legpontosabb alkategóriát add meg. A szülőkategóriák automa
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr "kategóriá(k)"
+msgstr "kategóriák"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
@@ -286,7 +287,7 @@ msgstr "Feltöltött képek"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr "ellenőrző(k)"
+msgstr "ellenőrzők"
 
 msgctxt "checkers_s"
 msgid "checker"
@@ -294,7 +295,7 @@ msgstr "ellenőrző"
 
 msgctxt "cities_p"
 msgid "packaging cities"
-msgstr "csomagolást végző város(ok)"
+msgstr "csomagolást végző városok"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
@@ -310,11 +311,11 @@ msgstr "Nem %s városában csomagolt termékek"
 
 msgctxt "codes_p"
 msgid "Codes"
-msgstr "Üzemkód(ok)"
+msgstr "Kódok"
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr "Üzemkód"
+msgstr "Kód"
 
 msgctxt "column_obsolete_do_not_translate_for_reference_only"
 msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.png\" width=\"178\" height=\"144\" alt=\"<<site_name>>\" /></a>\n\n"
