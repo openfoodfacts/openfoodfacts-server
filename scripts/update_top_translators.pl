@@ -18,7 +18,7 @@ if ((not defined $crowdin_project_key) or ($crowdin_project_key eq '')) {
 }
 
 sub create_export {
-	my $url = "https://api.crowdin.com/api/project/$crowdin_project_identifier/reports/top-members/export?json&key=" . $crowdin_project_key;
+	my $url = "https://api.crowdin.com/api/project/$crowdin_project_identifier/reports/top-members/export?json&format=csv&key=" . $crowdin_project_key;
 	my $ua = LWP::UserAgent->new();
 
 	my $request = HTTP::Request->new(POST => $url);
@@ -31,9 +31,9 @@ sub create_export {
 		my $json_response = $res->decoded_content;
 		my $json_ref = decode_json($json_response);
 
-		if ((defined $json_ref->{success}) and (defined $json_ref->{responses}{hash})) {
-			print STDERR "create_export: found hash: " . $json_ref->{responses}{hash};
-			return (0, $json_ref->{responses}{hash});
+		if ((defined $json_ref->{success}) and ($json_ref->{success}) and (defined $json_ref->{hash})) {
+			print STDERR "create_export: found hash: " . $json_ref->{hash} . "\n";
+			return (0, $json_ref->{hash});
 		}
 		else {
 			print STDERR "create_export: hash not found in response: " . $json_response . "\n";
@@ -65,7 +65,7 @@ sub download_export {
 		print STDERR "download_export: saving response to $filename\n";
 		
 		open (my $OUT, ">:encoding(UTF-8)", $filename);
-		print $OUT $filename;
+		print $OUT $csv_response;
 		close $OUT;	
 
 		print STDERR "download_export: saved response to $filename\n";
