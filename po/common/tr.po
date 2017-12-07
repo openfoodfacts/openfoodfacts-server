@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-12-07 14:10-0500\n"
+"PO-Revision-Date: 2017-12-07 14:20-0500\n"
 "Language-Team: Turkish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -213,7 +213,7 @@ msgstr ""
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "marka ekle"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
@@ -265,11 +265,11 @@ msgstr ""
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr ""
+msgstr "Seçili resimler"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr ""
+msgstr "Yüklenen resimler"
 
 msgctxt "checkers_p"
 msgid "checkers"
@@ -285,7 +285,7 @@ msgstr ""
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr ""
+msgstr "%s Şehrinde paketlenmiş ürünler"
 
 msgctxt "cities_s"
 msgid "packaging city"
@@ -400,27 +400,27 @@ msgstr ""
 
 msgctxt "delete_product"
 msgid "Delete a product"
-msgstr ""
+msgstr "Ürün sil"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr ""
+msgstr "Sayfayı sil"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr ""
+msgstr "Resmi sil"
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr ""
+msgstr "Kullanıcıyı sil"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr ""
+msgstr "Eklendi:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr ""
+msgstr "Değiştirildi:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
@@ -428,7 +428,7 @@ msgstr "Silindi:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr ""
+msgstr "Open Food Facts'e bağış yap"
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
@@ -452,35 +452,35 @@ msgstr ""
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr ""
+msgstr "Ürün düzenle"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr ""
+msgstr "Sayfayı düzenle"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
-msgstr ""
+msgstr "Herkese açık profili düzenle"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
-msgstr ""
+msgstr "Herkese açık profilinizde ki değişiklikler kaydedildi."
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
-msgstr ""
+msgstr "Aşşağıda ki bilgiler herkese açık profilinizde görünür."
 
 msgctxt "edit_settings"
 msgid "Change your account parameters"
-msgstr ""
+msgstr "Hesap parametrelerini değiştir"
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr ""
+msgstr "Hesap parametreleri"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr ""
+msgstr "<p>Hesap parametreleriniz değiştirildi.</p>"
 
 msgctxt "editors_p"
 msgid "editors"
@@ -500,7 +500,7 @@ msgstr ""
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
-msgstr ""
+msgstr "Şirket tarafından emb kodu ile paketlenmiş ürünler %s"
 
 msgctxt "emb_code_s"
 msgid "EMB code"
@@ -556,7 +556,7 @@ msgstr ""
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr ""
+msgstr "Şifre ve doğrulama şifresi birbirinden farklı."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
@@ -564,7 +564,7 @@ msgstr ""
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr ""
+msgstr "Geçersiz adres."
 
 msgctxt "error_invalid_csrf_token"
 msgid "Invalid CSRF token."
