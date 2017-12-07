@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-12-07 12:30-0500\n"
+"PO-Revision-Date: 2017-12-07 13:00-0500\n"
 "Language-Team: Chinese Simplified\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -542,7 +542,7 @@ msgstr "打包代码"
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
-msgstr ""
+msgstr "Emb代码为%s的产品"
 
 msgctxt "emb_codes_s"
 msgid "packager code"
@@ -550,7 +550,7 @@ msgstr "包装代码"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the emb code %s"
-msgstr ""
+msgstr "不含Emb代码%s的产品"
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
@@ -1523,7 +1523,7 @@ msgstr "如果图片有较高的清晰度，可以用图片中自动提取营养
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
-msgstr ""
+msgstr "百分之十"
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
