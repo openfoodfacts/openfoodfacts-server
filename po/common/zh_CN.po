@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-12-07 08:20-0500\n"
+"PO-Revision-Date: 2017-12-07 08:40-0500\n"
 "Language-Team: Chinese Simplified\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -1997,7 +1997,7 @@ msgstr ""
 
 msgctxt "reset_password_reset_msg"
 msgid "Enter a new password."
-msgstr ""
+msgstr "输入新密码"
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
@@ -2009,27 +2009,27 @@ msgstr ""
 
 msgctxt "risk_level"
 msgid "Risk"
-msgstr ""
+msgstr "风险"
 
 msgctxt "risk_level_0"
 msgid "To be completed"
-msgstr ""
+msgstr "即便完成"
 
 msgctxt "risk_level_1"
 msgid "Low risks"
-msgstr ""
+msgstr "低风险"
 
 msgctxt "risk_level_2"
 msgid "Moderate risks"
-msgstr ""
+msgstr "中等风险"
 
 msgctxt "risk_level_3"
 msgid "High risks"
-msgstr ""
+msgstr "高风险"
 
 msgctxt "salt_equivalent"
 msgid "salt equivalent"
-msgstr ""
+msgstr "盐当量"
 
 msgctxt "save"
 msgid "Save"
@@ -2037,11 +2037,11 @@ msgstr "保存"
 
 msgctxt "saved"
 msgid "Saved."
-msgstr ""
+msgstr "保存"
 
 msgctxt "saving"
 msgid "Saving."
-msgstr ""
+msgstr "存储"
 
 msgctxt "search"
 msgid "Search"
@@ -2057,7 +2057,7 @@ msgstr "搜索"
 
 msgctxt "search_contains"
 msgid "contains"
-msgstr ""
+msgstr "包含"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
@@ -2065,23 +2065,23 @@ msgstr ""
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
-msgstr ""
+msgstr "Open Food Facts 产品搜索"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
-msgstr ""
+msgstr "不包括"
 
 msgctxt "search_download_button"
 msgid "Download"
-msgstr ""
+msgstr "下载"
 
 msgctxt "search_download_choice"
 msgid "Download results"
-msgstr ""
+msgstr "下载结果"
 
 msgctxt "search_download_results"
 msgid "Download results in CSV format (Excel, OpenOffice)"
-msgstr ""
+msgstr "下载CSV格式的结果 (Excel, OpenOffice)"
 
 msgctxt "search_download_results_description"
 msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
@@ -2089,7 +2089,7 @@ msgstr ""
 
 msgctxt "search_edit"
 msgid "Change search criteria"
-msgstr ""
+msgstr "修改搜索标准"
 
 msgctxt "search_flatten_tags"
 msgid "(Optional) - Create a column for every:"
@@ -2478,7 +2478,7 @@ msgstr "用户名或电子邮件地址： "
 
 msgctxt "username"
 msgid "User name"
-msgstr ""
+msgstr "用户名"
 
 msgctxt "username_info"
 msgid "(non-accented letters, digits and/or dashes)"
@@ -2486,7 +2486,7 @@ msgstr ""
 
 msgctxt "username_or_email"
 msgid "Username or email address"
-msgstr ""
+msgstr "用户名或电子邮件地址："
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
@@ -2506,23 +2506,23 @@ msgstr ""
 
 msgctxt "users_p"
 msgid "contributors"
-msgstr ""
+msgstr "贡献者"
 
 msgctxt "users_products"
 msgid "Products added by %s"
-msgstr ""
+msgstr "由%s添加的产品"
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr ""
+msgstr "贡献者"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
-msgstr ""
+msgstr "不是由%s添加的产品"
 
 msgctxt "view"
 msgid "view"
-msgstr ""
+msgstr "视图"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -2543,11 +2543,11 @@ msgstr ""
 
 msgctxt "website"
 msgid "Site or blog address"
-msgstr ""
+msgstr "网站或博客地址"
 
 msgctxt "weekdays"
 msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
-msgstr ""
+msgstr "['周日', '周一', '周二', '周三', '周四', '周五', '周六']"
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
