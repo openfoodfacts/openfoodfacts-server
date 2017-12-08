@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-12-08 10:10-0500\n"
+"PO-Revision-Date: 2017-12-08 10:20-0500\n"
 "Language-Team: Turkish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -2235,7 +2235,7 @@ msgstr "bir kriter seçin..."
 
 msgctxt "search_tags"
 msgid "Criteria"
-msgstr ""
+msgstr "Kriter"
 
 msgctxt "search_terms"
 msgid "Search terms"
@@ -2259,11 +2259,11 @@ msgstr ""
 
 msgctxt "search_tools"
 msgid "Search tools"
-msgstr ""
+msgstr "Arama araçları"
 
 msgctxt "search_value"
 msgid "value"
-msgstr ""
+msgstr "değer"
 
 msgctxt "search_with"
 msgid "With"
@@ -2279,7 +2279,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Ülke"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2287,11 +2287,11 @@ msgstr "Dil"
 
 msgctxt "send_image"
 msgid "Send a picture..."
-msgstr ""
+msgstr "Resim gönder..."
 
 msgctxt "send_image_error"
 msgid "Upload error"
-msgstr ""
+msgstr "Yükleme hatası"
 
 msgctxt "sending_image"
 msgid "Sending image"
@@ -2331,7 +2331,7 @@ msgstr ""
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
+msgstr "Dünyadaki gıda ürünleri hakkında bilgi veren, besleyici unsurlar ve işbirliği içinde bulunan, serbest ve açık bir veri tabanı"
 
 msgctxt "site_name"
 msgid "Open Food Facts"
@@ -2339,31 +2339,31 @@ msgstr "Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
-msgstr ""
+msgstr "Sırala"
 
 msgctxt "sort_created_t"
 msgid "Add date"
-msgstr ""
+msgstr "Tarih ekle"
 
 msgctxt "sort_modified_t"
 msgid "Edit date"
-msgstr ""
+msgstr "Tarihi düzenle"
 
 msgctxt "sort_popularity"
 msgid "Popularity"
-msgstr ""
+msgstr "Popülerlik"
 
 msgctxt "sort_product_name"
 msgid "Product name"
-msgstr ""
+msgstr "Ürün adı"
 
 msgctxt "state"
 msgid "State"
-msgstr ""
+msgstr "Eyalet"
 
 msgctxt "states_p"
 msgid "states"
-msgstr ""
+msgstr "eyaletler"
 
 msgctxt "states_s"
 msgid "state"
@@ -2379,7 +2379,7 @@ msgstr ""
 
 msgctxt "stores_p"
 msgid "stores"
-msgstr ""
+msgstr "mağazalar"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
@@ -2391,7 +2391,7 @@ msgstr ""
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
-msgstr ""
+msgstr "mağaza ekle"
 
 msgctxt "stores_without_products"
 msgid "Products not bought at %s"
@@ -2483,7 +2483,7 @@ msgstr ""
 
 msgctxt "username_or_email"
 msgid "Username or email address"
-msgstr ""
+msgstr "Kullanıcı adı veya e-posta adresi"
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
@@ -2503,7 +2503,7 @@ msgstr ""
 
 msgctxt "users_p"
 msgid "contributors"
-msgstr ""
+msgstr "katkıda bulunanlar"
 
 msgctxt "users_products"
 msgid "Products added by %s"
@@ -2511,7 +2511,7 @@ msgstr ""
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr ""
+msgstr "katkı sağlayan"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
@@ -2519,7 +2519,7 @@ msgstr ""
 
 msgctxt "view"
 msgid "view"
-msgstr ""
+msgstr "görüntüle"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -2531,7 +2531,7 @@ msgstr ""
 
 msgctxt "view_results_from_the_entire_world"
 msgid "View results from the entire world"
-msgstr ""
+msgstr "Tüm dünyadan sonuçları gör"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
@@ -2604,15 +2604,15 @@ msgstr ""
 
 msgctxt "delete_product_page"
 msgid "Delete the product page"
-msgstr ""
+msgstr "Ürün sayfasını sil"
 
 msgctxt "deleting_product"
 msgid "Deleting product"
-msgstr ""
+msgstr "Ürün siliniyor"
 
 msgctxt "has_deleted_product"
 msgid "has deleted product"
-msgstr ""
+msgstr "silinmiş ürün"
 
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
@@ -2620,7 +2620,7 @@ msgstr ""
 
 msgctxt "delete_user"
 msgid "Delete the user"
-msgstr ""
+msgstr "Kullanıcıyı sil"
 
 msgctxt "sources_openfood_ch"
 msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
@@ -2640,7 +2640,7 @@ msgstr ""
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr ""
+msgstr "Open Food Facts'e bağışta bulun"
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
