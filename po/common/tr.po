@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-12-07 14:41-0500\n"
+"PO-Revision-Date: 2017-12-08 10:20-0500\n"
 "Language-Team: Turkish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -17,16 +17,16 @@ msgstr ""
 #. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
 msgid ":langtag"
-msgstr ""
+msgstr ":tr"
 
 #. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
 msgid ":langname"
-msgstr ""
+msgstr ":turkish"
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "1 Ürün"
 
 msgctxt "_and_"
 msgid " and "
@@ -54,7 +54,7 @@ msgstr "Kayıt Ol"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "<p> Katıldığınız için teşekkürler. Siteye giriş yapabilir ve ürünleri ekleyip, düzenleyebilirsiniz</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -72,15 +72,28 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr ""
+msgstr "Merhaba<NAME>,\n\n"
+"https://openfoodfacts.org'a katıldığınız için çok teşekkür ederiz.\n"
+"Kullanıcı adınız:\n\n"
+"Kullanıcı adı:<USERID>\n\n"
+"Siteye giriş yapabilir, ürünleri ekleyip düzenleyebilirsiniz.\n\n"
+"<<site_name>> Yeni ürünlerden fazlasını ekleyebileceğiniz ortak bir projedir. Enerjiniz, fikriniz ve coşkunuz!\n"
+"Katkı sağlayanlar ile beraber projeyi ileriye taşımak için Slack: https://slack.openfoodfacts.org isimli kullanışlı bir mesajlaşma sistemi kullanıyoruz.\n\n"
+"Aynı zamanda katkı sağlayanlar için facebook grubumuza katılabilirsiniz:\n"
+"https://www.facebook.com/groups/OpenFoodFacts/\n\n"
+"Yenilik: Aynı zamanda Open Beauty Facts üzerinde yeni cosmetik veritabanı kuruyoruz: Sabun, diş macunu, makyaj malzemesi gibi\n\n"
+"Çok teşekkür ederiz!\n\n"
+"Stéphane ve Open Food Facts takımı\n"
+"https://openfoodfacts.org\n"
+"https://twitter.com/OpenFoodFacts\n"
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "Katıldığınız için teşekkür ederiz <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "Potansiyel tehlikeli gıda katkı maddesi. Kullanım limiti."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
@@ -92,11 +105,11 @@ msgstr ""
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "katkı maddeleri"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "katkı"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
@@ -104,7 +117,7 @@ msgstr "Gelişmiş arama"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "Gelişmiş arama ve grafikler"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
@@ -201,7 +214,7 @@ msgstr ""
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr ""
+msgstr "markalar"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
@@ -209,7 +222,7 @@ msgstr ""
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "marka"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
@@ -221,7 +234,7 @@ msgstr ""
 
 msgctxt "by"
 msgid "by"
-msgstr ""
+msgstr "tarafından"
 
 msgctxt "categories"
 msgid "Categories"
@@ -261,7 +274,7 @@ msgstr "Veri"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Besinler"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
@@ -273,15 +286,15 @@ msgstr "Yüklenen resimler"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr ""
+msgstr "kontrolörler"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr ""
+msgstr "kontrolör"
 
 msgctxt "cities_p"
 msgid "packaging cities"
-msgstr ""
+msgstr "ambalajlama şehirleri"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
@@ -289,7 +302,7 @@ msgstr "%s Şehrinde paketlenmiş ürünler"
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr ""
+msgstr "ambalajlama şehri"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
@@ -376,7 +389,7 @@ msgstr ""
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "ülke"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -1090,7 +1103,7 @@ msgstr "Korece"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
-msgstr ""
+msgstr "Litvanyalı"
 
 msgctxt "lang_lv"
 msgid "Latvian"
@@ -1098,7 +1111,7 @@ msgstr "Letonyalı"
 
 msgctxt "lang_mt"
 msgid "Maltese"
-msgstr ""
+msgstr "Maltalı"
 
 msgctxt "lang_nl"
 msgid "Dutch"
@@ -1208,19 +1221,19 @@ msgstr ""
 
 msgctxt "login_and_add_product"
 msgid "Sign-in and add the product"
-msgstr ""
+msgstr "Giriş yapın ve ürün ekleyin"
 
 msgctxt "login_and_edit_product"
 msgid "Sign-in and edit the product"
-msgstr ""
+msgstr "Giriş yapın ve ürünü düzenleyin"
 
 msgctxt "login_create_your_account"
 msgid "Create your account."
-msgstr ""
+msgstr "Hesabınızı oluşturun."
 
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
-msgstr ""
+msgstr "Henüz kayıt olmadınız mı?"
 
 msgctxt "login_register_content"
 msgid "<p>Sign-in to add or edit products.</p>\n\n"
@@ -1250,7 +1263,7 @@ msgstr ""
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr ""
+msgstr "Kullanıcı adı veya e-posta adresi:"
 
 msgctxt "low"
 msgid "low"
@@ -1274,7 +1287,7 @@ msgstr ""
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
-msgstr ""
+msgstr "Montana, ABD"
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
@@ -1350,11 +1363,11 @@ msgstr ""
 
 msgctxt "mission_goal"
 msgid "Goal:"
-msgstr ""
+msgstr "Hedef:"
 
 msgctxt "missions"
 msgid "Missions"
-msgstr ""
+msgstr "Görevler"
 
 msgctxt "moderate"
 msgid "moderate"
@@ -1414,7 +1427,7 @@ msgstr ""
 
 msgctxt "no_products"
 msgid "No products."
-msgstr ""
+msgstr "Ürün yok."
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
@@ -1422,11 +1435,11 @@ msgstr "Kaydederken hata oluştu, lütfen yeniden deneyin."
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
-msgstr ""
+msgstr "Katkı maddesi sayısı"
 
 msgctxt "number_of_products"
 msgid "Number of products"
-msgstr ""
+msgstr "Ürün sayısı"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
@@ -1522,7 +1535,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
-msgstr ""
+msgstr "En çok"
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
@@ -1530,11 +1543,11 @@ msgstr ""
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
-msgstr ""
+msgstr "En az"
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr ""
+msgstr "porsiyon başına"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
@@ -1572,7 +1585,7 @@ msgstr ""
 
 msgctxt "on_the_blog_title"
 msgid "News"
-msgstr ""
+msgstr "Haberler"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
@@ -1629,7 +1642,7 @@ msgstr ""
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr ""
+msgstr "paketleme"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
@@ -1637,7 +1650,7 @@ msgstr ""
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr ""
+msgstr "paketleme"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -1765,7 +1778,7 @@ msgstr ""
 
 msgctxt "product_description"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
-msgstr ""
+msgstr "Bileşenler, alerjenler, katkı maddeleri, besin maddeleri, etiketler, içerik maddelerinin kaynağı ve ürün hakkındaki bilgiler %s"
 
 msgctxt "product_image"
 msgid "Product picture"
@@ -1809,7 +1822,7 @@ msgstr ""
 
 msgctxt "product_js_image_received"
 msgid "Image received"
-msgstr ""
+msgstr "Görüntü alındı"
 
 msgctxt "product_js_image_rotate_and_crop"
 msgid "Rotate the image if necessary, then click and drag to select the interesting zone:"
@@ -1817,11 +1830,11 @@ msgstr ""
 
 msgctxt "product_js_image_rotate_left"
 msgid "Rotate left"
-msgstr ""
+msgstr "Sola döndür"
 
 msgctxt "product_js_image_rotate_right"
 msgid "Rotate right"
-msgstr ""
+msgstr "Sağa döndür"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
@@ -1873,7 +1886,7 @@ msgstr ""
 
 msgctxt "product_js_uploading_image"
 msgid "Uploading image"
-msgstr ""
+msgstr "Görüntü yükleniyor"
 
 msgctxt "product_last_edited"
 msgid "Last edit of product page on"
@@ -1881,11 +1894,11 @@ msgstr ""
 
 msgctxt "product_name"
 msgid "Product name"
-msgstr ""
+msgstr "Ürün adı"
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
-msgstr ""
+msgstr "Kinder bueno white"
 
 msgctxt "products"
 msgid "products"
@@ -1977,11 +1990,11 @@ msgstr ""
 
 msgctxt "reset_password_reset"
 msgid "Your password has been changed. You can now log-in with this password."
-msgstr ""
+msgstr "Şifreniz değiştirildi. Artık yeni şifrenizle giriş yapabilirsiniz."
 
 msgctxt "reset_password_reset_msg"
 msgid "Enter a new password."
-msgstr ""
+msgstr "Yeni şifrenizi girin."
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
@@ -1993,7 +2006,7 @@ msgstr ""
 
 msgctxt "risk_level"
 msgid "Risk"
-msgstr ""
+msgstr "Risk"
 
 msgctxt "risk_level_0"
 msgid "To be completed"
@@ -2001,19 +2014,19 @@ msgstr ""
 
 msgctxt "risk_level_1"
 msgid "Low risks"
-msgstr ""
+msgstr "Düşük risk"
 
 msgctxt "risk_level_2"
 msgid "Moderate risks"
-msgstr ""
+msgstr "Orta risk"
 
 msgctxt "risk_level_3"
 msgid "High risks"
-msgstr ""
+msgstr "Yüksek risk"
 
 msgctxt "salt_equivalent"
 msgid "salt equivalent"
-msgstr ""
+msgstr "tuz dengi"
 
 msgctxt "save"
 msgid "Save"
@@ -2021,11 +2034,11 @@ msgstr "Kaydet"
 
 msgctxt "saved"
 msgid "Saved."
-msgstr ""
+msgstr "Kaydedildi."
 
 msgctxt "saving"
 msgid "Saving."
-msgstr ""
+msgstr "Kaydediliyor."
 
 msgctxt "search"
 msgid "Search"
@@ -2041,11 +2054,11 @@ msgstr "Ara"
 
 msgctxt "search_contains"
 msgid "contains"
-msgstr ""
+msgstr "içerir"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
-msgstr ""
+msgstr "Belirli markalar, kategoriler, etiketler, içeriklerin kaynağı, üretim yerleri vb. Olan ürünleri seçin."
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
@@ -2085,7 +2098,7 @@ msgstr ""
 
 msgctxt "search_generate_map"
 msgid "Generate the map"
-msgstr ""
+msgstr "Harita oluştur"
 
 msgctxt "search_graph"
 msgid "Graph"
@@ -2118,7 +2131,7 @@ msgstr ""
 
 msgctxt "search_graph_title"
 msgid "Display results on a graph"
-msgstr ""
+msgstr "Sonuçları grafikte göster"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
@@ -2206,11 +2219,11 @@ msgstr ""
 
 msgctxt "search_series_organic"
 msgid "Organic"
-msgstr ""
+msgstr "Organik"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
-msgstr ""
+msgstr "organik"
 
 msgctxt "search_series_with_sweeteners"
 msgid "With sweeteners"
@@ -2218,11 +2231,11 @@ msgstr ""
 
 msgctxt "search_tag"
 msgid "choose a criterion..."
-msgstr ""
+msgstr "bir kriter seçin..."
 
 msgctxt "search_tags"
 msgid "Criteria"
-msgstr ""
+msgstr "Kriter"
 
 msgctxt "search_terms"
 msgid "Search terms"
@@ -2230,7 +2243,7 @@ msgstr ""
 
 msgctxt "search_terms_note"
 msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
-msgstr ""
+msgstr "Ürün adına, genel ismine, markalara, kategorilere, kökenlere ve etiketlere ait kelimeleri arayın"
 
 msgctxt "search_title"
 msgid "Search a product, brand, ingredient, nutriment etc."
@@ -2246,11 +2259,11 @@ msgstr ""
 
 msgctxt "search_tools"
 msgid "Search tools"
-msgstr ""
+msgstr "Arama araçları"
 
 msgctxt "search_value"
 msgid "value"
-msgstr ""
+msgstr "değer"
 
 msgctxt "search_with"
 msgid "With"
@@ -2266,7 +2279,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Ülke"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2274,11 +2287,11 @@ msgstr "Dil"
 
 msgctxt "send_image"
 msgid "Send a picture..."
-msgstr ""
+msgstr "Resim gönder..."
 
 msgctxt "send_image_error"
 msgid "Upload error"
-msgstr ""
+msgstr "Yükleme hatası"
 
 msgctxt "sending_image"
 msgid "Sending image"
@@ -2318,7 +2331,7 @@ msgstr ""
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
+msgstr "Dünyadaki gıda ürünleri hakkında bilgi veren, besleyici unsurlar ve işbirliği içinde bulunan, serbest ve açık bir veri tabanı"
 
 msgctxt "site_name"
 msgid "Open Food Facts"
@@ -2326,31 +2339,31 @@ msgstr "Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
-msgstr ""
+msgstr "Sırala"
 
 msgctxt "sort_created_t"
 msgid "Add date"
-msgstr ""
+msgstr "Tarih ekle"
 
 msgctxt "sort_modified_t"
 msgid "Edit date"
-msgstr ""
+msgstr "Tarihi düzenle"
 
 msgctxt "sort_popularity"
 msgid "Popularity"
-msgstr ""
+msgstr "Popülerlik"
 
 msgctxt "sort_product_name"
 msgid "Product name"
-msgstr ""
+msgstr "Ürün adı"
 
 msgctxt "state"
 msgid "State"
-msgstr ""
+msgstr "Eyalet"
 
 msgctxt "states_p"
 msgid "states"
-msgstr ""
+msgstr "eyaletler"
 
 msgctxt "states_s"
 msgid "state"
@@ -2366,7 +2379,7 @@ msgstr ""
 
 msgctxt "stores_p"
 msgid "stores"
-msgstr ""
+msgstr "mağazalar"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
@@ -2378,7 +2391,7 @@ msgstr ""
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
-msgstr ""
+msgstr "mağaza ekle"
 
 msgctxt "stores_without_products"
 msgid "Products not bought at %s"
@@ -2470,7 +2483,7 @@ msgstr ""
 
 msgctxt "username_or_email"
 msgid "Username or email address"
-msgstr ""
+msgstr "Kullanıcı adı veya e-posta adresi"
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
@@ -2490,7 +2503,7 @@ msgstr ""
 
 msgctxt "users_p"
 msgid "contributors"
-msgstr ""
+msgstr "katkıda bulunanlar"
 
 msgctxt "users_products"
 msgid "Products added by %s"
@@ -2498,7 +2511,7 @@ msgstr ""
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr ""
+msgstr "katkı sağlayan"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
@@ -2506,7 +2519,7 @@ msgstr ""
 
 msgctxt "view"
 msgid "view"
-msgstr ""
+msgstr "görüntüle"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -2518,7 +2531,7 @@ msgstr ""
 
 msgctxt "view_results_from_the_entire_world"
 msgid "View results from the entire world"
-msgstr ""
+msgstr "Tüm dünyadan sonuçları gör"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
@@ -2591,15 +2604,15 @@ msgstr ""
 
 msgctxt "delete_product_page"
 msgid "Delete the product page"
-msgstr ""
+msgstr "Ürün sayfasını sil"
 
 msgctxt "deleting_product"
 msgid "Deleting product"
-msgstr ""
+msgstr "Ürün siliniyor"
 
 msgctxt "has_deleted_product"
 msgid "has deleted product"
-msgstr ""
+msgstr "silinmiş ürün"
 
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
@@ -2607,7 +2620,7 @@ msgstr ""
 
 msgctxt "delete_user"
 msgid "Delete the user"
-msgstr ""
+msgstr "Kullanıcıyı sil"
 
 msgctxt "sources_openfood_ch"
 msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
@@ -2627,7 +2640,7 @@ msgstr ""
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr ""
+msgstr "Open Food Facts'e bağışta bulun"
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
