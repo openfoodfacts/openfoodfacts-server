@@ -23,6 +23,8 @@ BEGIN
                 $facebook_app_secret
 
                 $csrf_secret
+
+		$google_cloud_vision_api_key
 		
 		$crowdin_project_identifier
 		$crowdin_project_key
@@ -53,6 +55,9 @@ BEGIN
 		%tesseract_ocr_available_languages		
 		
 		%weblink_templates
+
+		@edit_rules
+
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -77,6 +82,8 @@ teolemon
 twoflower
 scanparty-franprix-05-2016
 );
+
+@edit_rules = ();
 
 
 # server constants
