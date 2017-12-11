@@ -5580,27 +5580,27 @@ HTML
 					
 		
 			my $html = <<HTML
-<div class="button_div" id="unselectbuttondiv_$idlc"><button id="unselectbutton_$idlc" class="small button" type="button">Unselect image</button></div>
+<div class="button_div unselectbuttondiv_$idlc"><button class="unselectbutton_$idlc" class="small button" type="button">Unselect image</button></div>
 HTML
 ;
 			$img .= $html;
 			
 			
 			$initjs .= <<JS
-	\$("#unselectbutton_$idlc").click({imagefield:"$idlc"},function(event) {
+	\$(".unselectbutton_$idlc").click({imagefield:"$idlc"},function(event) {
 		event.stopPropagation();
 		event.preventDefault();
 		// alert(event.data.imagefield);
-		\$('div[id="unselectbuttondiv_$idlc"]').html('<img src="/images/misc/loading2.gif" /> Unselecting image');
+		\$('div.unselectbuttondiv_$idlc').html('<img src="/images/misc/loading2.gif" /> Unselecting image');
 		\$.post('/cgi/product_image_unselect.pl',
 				{code: "$code", id: "$idlc" }, function(data) {
 				
 			if (data.status_code === 0) {
-				\$('div[id="unselectbuttondiv_$idlc"]').html("Unselected image");
+				\$('div.unselectbuttondiv_$idlc').html("Unselected image");
 				\$('div[id="image_box_$id"]').html("");
 			}
 			else {
-				\$('div[id="unselectbuttondiv_$idlc"]').html("Could not unselect image");
+				\$('div.unselectbuttondiv_$idlc').html("Could not unselect image");
 			}
 			\$(document).foundation('equalizer', 'reflow');
 		}, 'json');
