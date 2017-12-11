@@ -1317,7 +1317,7 @@ sub display_list_of_tags($$) {
 			$html .= "<tr><td>";
 			
 			my $display = '';
-			
+			my $linkeddata;
 			if ($tagtype eq 'nutrition_grades') {
 				if ($tagid =~ /^a|b|c|d|e$/) {
 					my $grade = $tagid;
@@ -1328,7 +1328,8 @@ sub display_list_of_tags($$) {
 				}
 			}
 			elsif (defined $taxonomy_fields{$tagtype}) {
-				$display = display_taxonomy_tag($lc, $tagtype, $tagid);				 			 
+				$display = display_taxonomy_tag($lc, $tagtype, $tagid);
+				$linkeddata = $properties{$tagtype}{$tagid};
 			}
 			else {
 				$display = canonicalize_tag2($tagtype, $tagid);
@@ -1345,6 +1346,10 @@ sub display_list_of_tags($$) {
 				url => format_subdomain($subdomain) . $product_link,
 				products => $products + 0, # + 0 to make the value numeric
 			};
+			
+			if (defined $linkeddata) {
+				$tagentry->{linkeddata} = $linkeddata;
+			}
 
 			if (defined $tags_images{$lc}{$tagtype}{get_fileid($icid)}) {
 				my $img = $tags_images{$lc}{$tagtype}{get_fileid($icid)};
