@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-11-12 18:41-0500\n"
+"PO-Revision-Date: 2017-12-03 11:29-0500\n"
 "Language-Team: Arabic\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
@@ -1371,7 +1371,7 @@ msgstr "كمية معتدلة"
 
 msgctxt "months"
 msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr ""
+msgstr "['يناير'، 'فبراير'، 'مارس'، 'أبريل'، 'مايو'، 'يونيو'، 'يوليو'، 'أغسطس'، 'سبتمبر'، 'أكتوبر'، 'نوفمبر'، 'ديسمبر']"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
@@ -1594,7 +1594,7 @@ msgstr "أصل المكونات"
 
 msgctxt "origins_example"
 msgid "California, USA"
-msgstr ""
+msgstr "كاليفورنيا، الولايات المتحدة الأمريكية"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
@@ -1602,7 +1602,7 @@ msgstr ""
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
-msgstr ""
+msgstr "أصول المكونات"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
@@ -1610,15 +1610,15 @@ msgstr ""
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr ""
+msgstr "أصل المكونات"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
-msgstr ""
+msgstr "إضافة أصل"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
-msgstr ""
+msgstr "منتجات بدون مكونات مصدرها %s"
 
 msgctxt "packaging"
 msgid "Packaging"
@@ -1626,7 +1626,7 @@ msgstr "التعبئة والتغليف"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
-msgstr ""
+msgstr "طازجة، معلبة، مجمدة، زجاجة، صندوق، زجاج، بلاستيك..."
 
 msgctxt "packaging_note"
 msgid "Packaging type, format, material"
@@ -1670,7 +1670,7 @@ msgstr "كلمة المرور"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
-msgstr ""
+msgstr "تأكيد كلمة المرور"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
@@ -2203,7 +2203,7 @@ msgstr "معرض تجاري"
 
 msgctxt "search_series_fairtrade_label"
 msgid "fair-trade"
-msgstr ""
+msgstr "تجارة عادلة"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
@@ -2215,11 +2215,11 @@ msgstr "عضوي"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
-msgstr ""
+msgstr "عضوي"
 
 msgctxt "search_series_with_sweeteners"
 msgid "With sweeteners"
-msgstr ""
+msgstr "مع المحليات"
 
 msgctxt "search_tag"
 msgid "choose a criterion..."
@@ -2255,7 +2255,7 @@ msgstr "أدوات البحث"
 
 msgctxt "search_value"
 msgid "value"
-msgstr ""
+msgstr "قيمة"
 
 msgctxt "search_with"
 msgid "With"
@@ -2263,7 +2263,7 @@ msgstr ""
 
 msgctxt "search_without"
 msgid "Without"
-msgstr ""
+msgstr "بدون"
 
 msgctxt "see_product_page"
 msgid "See the product page"
@@ -2319,7 +2319,7 @@ msgstr ""
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr ""
+msgstr "تسجيل الخروج"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -2335,7 +2335,7 @@ msgstr ""
 
 msgctxt "sort_created_t"
 msgid "Add date"
-msgstr ""
+msgstr "إضافة تاريخ"
 
 msgctxt "sort_modified_t"
 msgid "Edit date"
