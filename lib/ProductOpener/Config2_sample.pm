@@ -18,6 +18,8 @@ BEGIN
 		$facebook_app_id
 	    $facebook_app_secret
 		$csrf_secret
+		$crowdin_project_identifier
+		$crowdin_project_key
 		
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -42,5 +44,8 @@ $facebook_app_id = "";
 $facebook_app_secret = "";
 
 $csrf_secret = "SWMAqq4znqqaHN9q7UWM5xQ5aJqKqPsekcwSuvjkkTmTtTXvPpyZxXkY25kqgaXQbLFVEaqZ";
+
+$crowdin_project_identifier = '';
+$crowdin_project_key = '';
 
 1;

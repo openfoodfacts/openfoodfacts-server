@@ -658,7 +658,7 @@ JS
 	$header .= <<HTML
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.2/cropper.min.css" />
 <link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.css" />
-
+<link rel="stylesheet" type="text/css" href="/css/product-multilingual.css" />
 
 HTML
 ;
