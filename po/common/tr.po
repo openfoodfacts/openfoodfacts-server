@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-12-11 09:53-0500\n"
+"PO-Revision-Date: 2017-12-12 04:30-0500\n"
 "Language-Team: Turkish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -1332,7 +1332,7 @@ msgstr "Bir veya birden fazla resim seçebilirsiniz ve sonra:"
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr ""
+msgstr "Üretim veya işleme alanları"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
@@ -1340,15 +1340,15 @@ msgstr "Montana, ABD"
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
-msgstr ""
+msgstr "imalat veya işleme alanları"
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
-msgstr ""
+msgstr "% S'de imal edilen veya işlenmiş ürünler"
 
 msgctxt "manufacturing_places_s"
 msgid "manufacturing or processing place"
-msgstr ""
+msgstr "imalat veya işleme yeri"
 
 msgctxt "manufacturing_places_tagsinput"
 msgid "add a place"
@@ -1356,15 +1356,15 @@ msgstr "mekan ekle"
 
 msgctxt "manufacturing_places_without_products"
 msgid "Products not manufactured or processed in %s"
-msgstr ""
+msgstr "% S'de imal edilmeyen veya işlenmeyen ürünler"
 
 msgctxt "map_count"
 msgid "%d products match the search criterias, of which %i products have a known production place."
-msgstr ""
+msgstr "% d ürünleri% i ürünlerinde bilinen bir üretim alanına sahip olan arama kriterlerine uyuyor."
 
 msgctxt "map_title"
 msgid "Map title"
-msgstr ""
+msgstr "Harita başlığı"
 
 msgctxt "menu"
 msgid "Menu"
@@ -1376,7 +1376,7 @@ msgstr "Bir ürün ekle"
 
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr ""
+msgstr "Ekleme /-a-ürün"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -1400,15 +1400,15 @@ msgstr "Görev: "
 
 msgctxt "mission_accomplished_by"
 msgid "This mission has been completed by:"
-msgstr ""
+msgstr "Bu görev şu kişiler tarafından tamamlanmıştır:"
 
 msgctxt "mission_accomplished_by_n"
 msgid "Completed by %d persons."
-msgstr ""
+msgstr "% D kişi tarafından tamamlandı."
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
-msgstr ""
+msgstr "Bu görevi tamamlayan ilk siz olun!"
 
 msgctxt "mission_goal"
 msgid "Goal:"
@@ -1420,11 +1420,11 @@ msgstr "Görevler"
 
 msgctxt "moderate"
 msgid "moderate"
-msgstr ""
+msgstr "orta"
 
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
-msgstr ""
+msgstr "orta miktar"
 
 msgctxt "months"
 msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
@@ -1432,11 +1432,11 @@ msgstr "['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağu
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
-msgstr ""
+msgstr "Görüntüleri başka bir ürüne taşı"
 
 msgctxt "n_products"
 msgid "%d products"
-msgstr ""
+msgstr "% d ürün"
 
 msgctxt "name"
 msgid "Name"
@@ -1452,27 +1452,27 @@ msgstr "Eğer barkod doğru değilse, buradan doğrulayın:"
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
-msgstr ""
+msgstr "Barkodu olmayan ürünler için dahili bir kod otomatik olarak ayarlanır."
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr ""
+msgstr "Bültene abone olun (aylık maksimum 2 e-posta)"
 
 msgctxt "next"
 msgid "Next"
-msgstr ""
+msgstr "Sonraki"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
-msgstr ""
+msgstr "Barkodsuz ürün"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
-msgstr ""
+msgstr "Besin değerleri ürün üzerinde belirtilmemiştir."
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
-msgstr ""
+msgstr "Barkod% s için listelenen ürün yok."
 
 msgctxt "no_products"
 msgid "No products."
@@ -1492,39 +1492,39 @@ msgstr "Ürün sayısı"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr ""
+msgstr "% s içinde% s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
-msgstr ""
+msgstr "Besin değeri 100 g için"
 
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/ Besin seviyeleri"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
-msgstr ""
+msgstr "besin seviyeleri"
 
 msgctxt "nutrient_levels_s"
 msgid "nutrient level"
-msgstr ""
+msgstr "besin seviyesi"
 
 msgctxt "nutriments_p"
 msgid "nutriments"
-msgstr ""
+msgstr "besinler"
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
-msgstr ""
+msgstr "Besin maddesi içeren ürünler% s"
 
 msgctxt "nutriments_s"
 msgid "nutriment"
-msgstr ""
+msgstr "besin"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
-msgstr ""
+msgstr "Besin değeri% s içermeyen ürünler"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
@@ -1536,31 +1536,31 @@ msgstr "Beslenme gerçekleri"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr ""
+msgstr "Beslenme bilgisinin bulunduğu% s kategorisinin% d ürünleri için ortalama beslenme durumu (% d ürünlerden)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr ""
+msgstr "farkın yüzdesi"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
-msgstr ""
+msgstr "100 g / 100 ml için değer"
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
-msgstr ""
+msgstr "Aynı kategorideki ürünlerin ortalama değerleriyle karşılaştırma:"
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr ""
+msgstr "Lütfen unutmayın: her besin için, ortalama, besin miktarının bilinmekte olduğu ürünler için hesaplanır, kategorideki tüm ürünler için hesaplanmaz."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr ""
+msgstr "Resim yeterince keskin ve düzeldiyse, beslenme bilgileri otomatik olarak resimden çıkarılabilir."
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
-msgstr ""
+msgstr "10. yüzyıl"
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
