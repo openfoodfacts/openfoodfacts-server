@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-12-12 05:11-0500\n"
+"PO-Revision-Date: 2017-12-12 05:30-0500\n"
 "Language-Team: Turkish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -2356,15 +2356,15 @@ msgstr "Yükleme hatası"
 
 msgctxt "sending_image"
 msgid "Sending image"
-msgstr ""
+msgstr "Resim gönderiliyor"
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr ""
+msgstr "Porsiyon ölçüsü"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
-msgstr ""
+msgstr "60g, 12 oz, 20cş, 2 fl oz"
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2376,19 +2376,19 @@ msgstr "Paylaş"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
-msgstr ""
+msgstr "Detaylı istatistikleri göster"
 
 msgctxt "show_category_stats_details"
 msgid "standard deviation, minimum, maximum, 10th and 90th percentiles"
-msgstr ""
+msgstr "standart sapma, en az, en fazla, 10 ve 90'ıncı yüzdeliklerde"
 
 msgctxt "signin_before_submit"
 msgid "If you already have an account on <SITE>, please sign-in before filling this form."
-msgstr ""
+msgstr "<SITE>'de zaten bir hesabınız varsa, bu formu doldurmadan önce lütfen giriş yapın."
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr ""
+msgstr "Çıkış"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -2428,15 +2428,15 @@ msgstr "eyaletler"
 
 msgctxt "states_s"
 msgid "state"
-msgstr ""
+msgstr "devlet"
 
 msgctxt "stores"
 msgid "Stores"
-msgstr ""
+msgstr "Mağazalar"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
-msgstr ""
+msgstr "Süpermarket veya mağaza zincirlerinin ismi"
 
 msgctxt "stores_p"
 msgid "stores"
@@ -2444,11 +2444,11 @@ msgstr "mağazalar"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
-msgstr ""
+msgstr "%s ürün satıldı"
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "mağaza"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2456,79 +2456,79 @@ msgstr "mağaza ekle"
 
 msgctxt "stores_without_products"
 msgid "Products not bought at %s"
-msgstr ""
+msgstr "%s kadar satın alınmayan ürünler"
 
 msgctxt "subscribe"
 msgid "Subscribe"
-msgstr ""
+msgstr "Abonelik"
 
 msgctxt "tag_belongs_to"
 msgid "Belongs to:"
-msgstr ""
+msgstr "Ait:"
 
 msgctxt "tag_contains"
 msgid "Contains:"
-msgstr ""
+msgstr "İçerir:"
 
 msgctxt "tag_weblinks"
 msgid "Weblinks"
-msgstr ""
+msgstr "Web bağlantısı"
 
 msgctxt "tagstable_filtered"
 msgid "out of _MAX_"
-msgstr ""
+msgstr "_MAX_ dışında"
 
 msgctxt "tagstable_search"
 msgid "Search:"
-msgstr ""
+msgstr "Arama:"
 
 msgctxt "traces"
 msgid "Traces"
-msgstr ""
+msgstr "İzler"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
-msgstr ""
+msgstr "Süt, glüten, fındık"
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
-msgstr ""
+msgstr "\"Mayaların izlerini içerebilir\", \"Kullanan bir fabrikada üretildi\" gibi sözlerden içerikler belirtin."
 
 msgctxt "traces_p"
 msgid "traces"
-msgstr ""
+msgstr "izler"
 
 msgctxt "traces_s"
 msgid "trace"
-msgstr ""
+msgstr "iz"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
-msgstr ""
+msgstr "Twitter kullanıcı adı (opsiyonel)"
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
-msgstr ""
+msgstr "OpenFoodFacts"
 
 msgctxt "unknown"
 msgid "Unknown"
-msgstr ""
+msgstr "Bilinmeyen"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
-msgstr ""
+msgstr "bilinmeyen besinler"
 
 msgctxt "unknown_nutrients_s"
 msgid "unknown nutrient"
-msgstr ""
+msgstr "bilinmeyen besin"
 
 msgctxt "unsubscribe"
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Abonelikten çık"
 
 msgctxt "unsubscribe_info"
 msgid "You can unsubscribe from the lists at any time."
-msgstr ""
+msgstr "Liste aboneliğinizden istediğiniz zaman çıkabilirsiniz."
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
@@ -2548,19 +2548,19 @@ msgstr "Kullanıcı adı veya e-posta adresi"
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
-msgstr ""
+msgstr "%s kullanıcısı tarafından eklenen ürünler"
 
 msgctxt "users_add_without_products"
 msgid "Products that were not added by the user %s"
-msgstr ""
+msgstr "%s kullanıcısı tarafından eklenmemiş ürünler"
 
 msgctxt "users_edit_products"
 msgid "Products that were edited by the user %s"
-msgstr ""
+msgstr "%s kullanıcısı tarafından düzenlenmiş ürünler"
 
 msgctxt "users_edit_without_products"
 msgid "Products that were not edited by the user %s"
-msgstr ""
+msgstr "%s kullanıcısı tarafından düzenlenmemiş ürünler"
 
 msgctxt "users_p"
 msgid "contributors"
@@ -2568,7 +2568,7 @@ msgstr "katkıda bulunanlar"
 
 msgctxt "users_products"
 msgid "Products added by %s"
-msgstr ""
+msgstr "%s tarafından eklenen ürünler"
 
 msgctxt "users_s"
 msgid "contributor"
