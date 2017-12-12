@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-12-12 04:42-0500\n"
+"PO-Revision-Date: 2017-12-12 04:50-0500\n"
 "Language-Team: Turkish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -1646,7 +1646,7 @@ msgstr "21 Şubat 2015 Cumartesi'den Pazar 1 Mart 2015 e kadar, << site_name> ü
 
 msgctxt "or"
 msgid "or:"
-msgstr ""
+msgstr "veya:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
@@ -1658,39 +1658,39 @@ msgstr "Kaliforniya, ABD"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
-msgstr ""
+msgstr "Malzemelerin orijinini belirtin"
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
-msgstr ""
+msgstr "içindekilerin kaynağı"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr ""
+msgstr "% S kaynaklı içerikli ürünler"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr ""
+msgstr "origin of ingredients"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
-msgstr ""
+msgstr "kaynak ekleme"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
-msgstr ""
+msgstr "% S kaynaklı içerikli ürünler"
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "Paketleme"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
-msgstr ""
+msgstr "Taze, Konserve, Dondurulmuş, Şişe, Kutu, Cam, Plastik..."
 
 msgctxt "packaging_note"
 msgid "Packaging type, format, material"
-msgstr ""
+msgstr "Ambalaj türü, biçimi, malzemesi"
 
 msgctxt "packaging_p"
 msgid "packaging"
@@ -2174,20 +2174,21 @@ msgstr "<p> → << site_name >> grafikleri hakkında daha fazla bilgi edinin: <a
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
-msgstr ""
+msgstr "Bir grafikte sonuçlar"
 
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
 "get a cloud of products (scatter plot)."
-msgstr ""
+msgstr "Bir histogram elde etmek için yatay eksende grafiğe neleri çizmek istediğinizi seçin veya iki ekseni seçin;\n"
+"Bir ürün bulutu (scatter plot) elde edin."
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Bu grafiğin kalıcı bağlantısı, e-posta yoluyla ve sosyal paylaşım ağlarında paylaşılabilir"
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
-msgstr ""
+msgstr "Grafik, yalnızca görüntülenen değerlerin bilinen ürünleri gösterecektir."
 
 msgctxt "search_graph_title"
 msgid "Display results on a graph"
@@ -2195,11 +2196,11 @@ msgstr "Sonuçları grafikte göster"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr ""
+msgstr "Not: Bu, kullanıcı tarafından oluşturulan bir grafiktir. Başlık, temsil edilen ürünler ve görselleştirme ekseni grafik yazarı tarafından seçildi."
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
-msgstr ""
+msgstr "Kayıtsız"
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
@@ -2207,31 +2208,31 @@ msgstr "İçindekiler"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Bu sonuçlar kalıcı bağlantı, e-posta yoluyla ve sosyal paylaşım ağlarında paylaşılabilir"
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
-msgstr ""
+msgstr "Bir ürün listesinde sonuçlar"
 
 msgctxt "search_map"
 msgid "Map"
-msgstr ""
+msgstr "Harita"
 
 msgctxt "search_map_choice"
 msgid "Results on a map"
-msgstr ""
+msgstr "Haritadaki sonuçlar"
 
 msgctxt "search_map_link"
 msgid "Permanent link to this map, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Bu haritaya kalıcı bağlantı, e-posta yoluyla ve sosyal paylaşım ağlarında paylaşılabilir"
 
 msgctxt "search_map_note"
 msgid "The map will show only products for which the production place is known."
-msgstr ""
+msgstr "Harita, yalnızca üretim yerinin bilinen ürünleri gösterecektir."
 
 msgctxt "search_map_title"
 msgid "Display results on a map"
-msgstr ""
+msgstr "Sonuçları bir haritada görüntüle"
 
 msgctxt "search_nutriment"
 msgid "choose a nutriment..."
