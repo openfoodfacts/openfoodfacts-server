@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fil\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-12-14 02:40-0500\n"
+"PO-Revision-Date: 2017-12-14 02:50-0500\n"
 "Language-Team: Filipino\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -1525,15 +1525,15 @@ msgstr ""
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
-msgstr ""
+msgstr "Pinakamababa"
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr ""
+msgstr "bawat putahe"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
-msgstr ""
+msgstr "Karaniwang paglihis"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
@@ -1546,7 +1546,7 @@ msgstr ""
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1558,7 +1558,7 @@ msgstr ""
 
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
@@ -1567,7 +1567,7 @@ msgstr ""
 
 msgctxt "on_the_blog_title"
 msgid "News"
-msgstr ""
+msgstr "Balita"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
@@ -1576,43 +1576,43 @@ msgstr ""
 
 msgctxt "or"
 msgid "or:"
-msgstr ""
+msgstr "or:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
-msgstr ""
+msgstr "Pinagmulan ng mga sangkap"
 
 msgctxt "origins_example"
 msgid "California, USA"
-msgstr ""
+msgstr "California, USA"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
-msgstr ""
+msgstr "Ipahiwatig kung saan nagmula ang mga sangkap"
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
-msgstr ""
+msgstr "pinagmulan ng mga sangkap"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr ""
+msgstr "Mga produkto na may mga sangkap na nagmumula sa %s"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr ""
+msgstr "pinagmulan ng sangkap"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
-msgstr ""
+msgstr "magdagdag ng pinagmulan"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
-msgstr ""
+msgstr "Mga produkto na may sangkap na nagmumula sa %s"
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "Balot"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -1624,35 +1624,35 @@ msgstr ""
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr ""
+msgstr "balot"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
-msgstr ""
+msgstr "Mga produkto na may %s na balot"
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr ""
+msgstr "balot"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
-msgstr ""
+msgstr "magdagdag ng uri, hugis o materyal"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
-msgstr ""
+msgstr "Mga produkto na walang %s na balot"
 
 msgctxt "page_x"
 msgid "Page %d"
-msgstr ""
+msgstr "Pahina %d"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
-msgstr ""
+msgstr "Pahina %d mula sa %d."
 
 msgctxt "pages"
 msgid "Pages:"
-msgstr ""
+msgstr "Mga pahina:"
 
 msgctxt "password"
 msgid "Password"
@@ -1660,7 +1660,7 @@ msgstr "Password"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
-msgstr ""
+msgstr "Kumpirmahin ang password"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
