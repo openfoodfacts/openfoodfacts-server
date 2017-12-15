@@ -5555,7 +5555,7 @@ sub display_image_box($$$) {
 		}
 	
 		$img = <<HTML
-<div class="image_box" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+<div id="image_box_$id" class="image_box" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
 $img
 </div>			
 HTML
@@ -5563,6 +5563,54 @@ HTML
 
 		if ($img =~ /height="(\d+)"/) {
 			$$minheight_ref = $1 + 22;
+		}
+		
+		# Unselect button for admins
+		if ($admin) {
+		
+			my $code = $product_ref->{code};
+			
+			my $idlc = $id;
+			
+			# <img src="/images/products/$path/$id.$rev.$size.jpg" 
+			
+			if ($img =~ /src="([^"]*)\/([^\.]+)\./) {
+				$idlc = $2;
+			}
+					
+		
+			my $html = <<HTML
+<div class="button_div unselectbuttondiv_$idlc"><button class="unselectbutton_$idlc" class="small button" type="button">Unselect image</button></div>
+HTML
+;
+			$img .= $html;
+			
+			
+			$initjs .= <<JS
+	\$(".unselectbutton_$idlc").click({imagefield:"$idlc"},function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		// alert(event.data.imagefield);
+		\$('div.unselectbuttondiv_$idlc').html('<img src="/images/misc/loading2.gif" /> Unselecting image');
+		\$.post('/cgi/product_image_unselect.pl',
+				{code: "$code", id: "$idlc" }, function(data) {
+				
+			if (data.status_code === 0) {
+				\$('div.unselectbuttondiv_$idlc').html("Unselected image");
+				\$('div[id="image_box_$id"]').html("");
+			}
+			else {
+				\$('div.unselectbuttondiv_$idlc').html("Could not unselect image");
+			}
+			\$(document).foundation('equalizer', 'reflow');
+		}, 'json');
+		
+		\$(document).foundation('equalizer', 'reflow');
+		
+	});				
+JS
+;
+		
 		}
 		
 	
@@ -5917,20 +5965,20 @@ HTML
 	
 	# try to display ingredients in the local language if available
 	
-	my $ingredients_text = $product_ref->{ingredients_text} . "<!-- 1 - lc $lc -->";
+	my $ingredients_text = $product_ref->{ingredients_text};
 	my $ingredients_text_lang = $product_ref->{lang};
 	
 	if (defined $product_ref->{ingredients_text_with_allergens}) {
-		$ingredients_text = $product_ref->{ingredients_text_with_allergens} . "<!-- 2 - lc $lc -->" ;
+		$ingredients_text = $product_ref->{ingredients_text_with_allergens};
 	}	
 	
 	if ((defined $product_ref->{"ingredients_text" . "_" . $lc}) and ($product_ref->{"ingredients_text" . "_" . $lc} ne '')) {
-		$ingredients_text = $product_ref->{"ingredients_text" . "_" . $lc} . "<!-- 3 - lc $lc -->";
+		$ingredients_text = $product_ref->{"ingredients_text" . "_" . $lc};
 		$ingredients_text_lang = $lc;
 	}
 	
 	if ((defined $product_ref->{"ingredients_text_with_allergens" . "_" . $lc}) and ($product_ref->{"ingredients_text_with_allergens" . "_" . $lc} ne '')) {
-		$ingredients_text = $product_ref->{"ingredients_text_with_allergens" . "_" . $lc} . "<!-- 4 - lc $lc -->" ;
+		$ingredients_text = $product_ref->{"ingredients_text_with_allergens" . "_" . $lc};
 		$ingredients_text_lang = $lc;
 	}
 		
@@ -5954,6 +6002,40 @@ HTML
 		$html .= " <span id=\"ingredients_list\" property=\"food:ingredientListAsText\">$ingredients_text</span>";
 	}
 	$html .= "</div>";
+	
+	if ($admin and ($ingredients_text !~ /^\s*$/)) {
+	
+			my $ilc = $ingredients_text_lang;
+	
+	
+			$html .= <<HTML
+<div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="small button" type="button">Ingredients ($ilc) are completely bogus, erase them.</button></div>
+HTML
+;			
+						
+			$initjs .= <<JS
+	\$("#wipeingredients").click({},function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		// alert(event.data.imagefield);
+		\$('div[id="unselectbuttondiv"]').html('<img src="/images/misc/loading2.gif" /> Erasing ingredients_texts_$ilc');
+		\$.post('/cgi/product_jqm_multilingual.pl',
+				{code: "$code", ingredients_text_$ilc : "", comment: "Erased ingredients_texts_$ilc: too much bad data" }, function(data) {
+				
+
+				\$('div[id="wipeingredientsbuttondiv"]').html("Erased ingredients_texts_$ilc");
+				\$('div[id="ingredients_list"]').html("");
+
+			\$(document).foundation('equalizer', 'reflow');
+		}, 'json');
+		
+		\$(document).foundation('equalizer', 'reflow');
+		
+	});				
+JS
+;	
+	
+	}
 
 	$html .= display_field($product_ref, 'allergens');
 	
@@ -6480,14 +6562,35 @@ sub display_nutrient_levels($) {
 	
 	my $html = '';
 	
-	# For some products we can have the nutrition grade (A to Z, French style) + nutrient levels (traffic lights, UK style)
-	# or one of them, or none
+	# Do not display nutriscore and traffic lights for some categories of products
+	# do not compute a score for baby foods
+	if (has_tag($product_ref, "categories", "en:baby-foods")) {
+
+			return "";
+	}	
+	
+	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
+	if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
+
+			return "";
+	}
+	
+	
+	# do not compute a score for coffee, tea etc.
+	if (	(has_tag($product_ref, "categories", "en:alcoholic-beverages")) 
+		or	(has_tag($product_ref, "categories", "en:coffees"))
+		or	(has_tag($product_ref, "categories", "en:teas"))
+		or	(has_tag($product_ref, "categories", "en:teas"))
+		or	(has_tag($product_ref, "categories", "fr:levure"))
+		or	(has_tag($product_ref, "categories", "fr:levures"))
+		) {
+
+			return "";
+	}	
 	
 	my $html_nutrition_grade = '';
 	my $html_nutrient_levels = '';
-	
-	#return '' if (not $admin);
-	
+		
 	if ((exists $product_ref->{"nutrition_grade_fr"})) {
 		my $grade = $product_ref->{"nutrition_grade_fr"};
 		my $uc_grade = uc($grade);
