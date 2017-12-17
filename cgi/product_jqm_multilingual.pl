@@ -151,6 +151,11 @@ else {
 	
 	$product_ref->{no_nutrition_data} = remove_tags_and_quote(decode utf8=>param("no_nutrition_data"));	
 	
+	my $no_nutrition_data = 0;
+	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
+		$no_nutrition_data = 1;
+	}
+
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
 
 	my @unknown_nutriments = ();
@@ -270,6 +275,22 @@ else {
 		}
 	}
 	
+	if ($no_nutrition_data) {
+		# Delete all non-carbon-footprint nids.
+		foreach my $key (keys $product_ref->{nutriments}) {
+			next if $key =~ /_/;
+			next if $key eq 'carbon-footprint';
+
+			delete $product_ref->{nutriments}{$key};
+			delete $product_ref->{nutriments}{$key . "_unit"};
+			delete $product_ref->{nutriments}{$key . "_value"};
+			delete $product_ref->{nutriments}{$key . "_modifier"};
+			delete $product_ref->{nutriments}{$key . "_label"};
+			delete $product_ref->{nutriments}{$key . "_100g"};
+			delete $product_ref->{nutriments}{$key . "_serving"};
+		}
+	}
+
 	# Compute nutrition data per 100g and per serving
 	
 	$admin and print STDERR "compute_serving_size_date\n";
