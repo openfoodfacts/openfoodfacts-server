@@ -1395,6 +1395,22 @@ $html .= "</div><!-- fieldset -->
 HTML
 ;
 
+	$initjs .= <<JS
+\$('#no_nutrition_data').change(function() {
+	if (\$(this).prop('checked')) {
+		\$('#nutrition_data_table input').prop('disabled', true);
+		\$('#nutrition_data_table select').prop('disabled', true);
+		\$('#nutrition_data_table input.nutriment_value').val('');
+		\$('#nutrition_data_table').hide();
+	} else {
+		\$('#nutrition_data_table input').prop('disabled', false);
+		\$('#nutrition_data_table select').prop('disabled', false);
+		\$('#nutrition_data_table').show();
+	}
+});
+JS
+;
+
 	$html .= display_tabs($product_ref, $select_add_language, "nutrition_image", $product_ref->{sorted_langs}, \%Langs, ["nutrition_image"]);
 	
 	$initjs .= display_select_crop_init($product_ref);
