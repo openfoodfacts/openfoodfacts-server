@@ -1411,6 +1411,8 @@ HTML
 		\$('#nutrition_data_table select').prop('disabled', false);
 		\$('#nutrition_data_table').show();
 	}
+
+	\$(document).foundation('equalizer', 'reflow');
 });
 JS
 ;
