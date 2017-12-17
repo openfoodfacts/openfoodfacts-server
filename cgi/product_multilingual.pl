@@ -1385,8 +1385,12 @@ $html .= "</div><!-- fieldset -->
 <div class=\"fieldset\" id=\"nutrition\"><legend>$Lang{nutrition_data}{$lang}</legend>\n";
 
 	my $checked = '';
+	my $tablestyle = 'display: table;';
+	my $disabled = '';
 	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
 		$checked = 'checked="checked"';
+		$tablestyle = 'display: none;';
+		$disabled = 'disabled="disabled"';
 	}
 
 	$html .= <<HTML
@@ -1436,7 +1440,7 @@ JS
 <div style="position:relative">
 
 
-<table id="nutrition_data_table" class="data_table">
+<table id="nutrition_data_table" class="data_table" style="$tablestyle">
 <thead class="nutriment_header">
 <th colspan="2">
 $Lang{nutrition_data_table}{$lang}<br/>
@@ -1559,6 +1563,13 @@ HTML
 		
 		# print STDERR "nutriment: $nutriment - nid: $nid - shown: $shown - class: $class - prefix: $prefix \n";
 		
+		my $disabled_backup = $disabled;
+		if ($nid eq 'carbon-footprint') {
+			# Workaround, so that the carbon footprint, that could be in a location different from actual nutrition facts,
+			# will never be disabled.
+			$disabled = '';
+		}
+		
 		my $input = '';
 		
 		
@@ -1566,7 +1577,7 @@ HTML
 <tr id="nutriment_${enid}_tr" class="nutriment_$class"$display>
 <td>$label</td>
 <td>
-<input class="nutriment_value" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" />
+<input class="nutriment_value" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" $disabled/>
 HTML
 ;
 
@@ -1607,13 +1618,14 @@ HTML
 		else {
 			$hide_percent = ' style="display:none"';
 		}
-		
+
 		$input .= <<HTML
 <span class="nutriment_unit_percent" id="nutriment_${enid}_unit_percent"$hide_percent>%</span>
-<select class="nutriment_unit" id="nutriment_${enid}_unit" name="nutriment_${enid}_unit"$hide_select>
+<select class="nutriment_unit" id="nutriment_${enid}_unit" name="nutriment_${enid}_unit"$hide_select $disabled>
 HTML
 ;		
-		
+		$disabled = $disabled_backup;
+
 		foreach my $u (@units) {
 			my $selected = '';
 			if ($unit eq $u) {
