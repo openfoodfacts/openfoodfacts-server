@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-12-18 07:40-0500\n"
+"PO-Revision-Date: 2017-12-18 07:50-0500\n"
 "Language-Team: Indonesian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -948,75 +948,75 @@ msgstr "Bahan tercantum dalam urutan kepentingan (kuantitas)."
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr ""
+msgstr "Sereal 85,5% (tepung _wheat_, tepung whole-_wheat_ tepung 11%), ekstrak malt, kakao 4,8%, asam askorbat"
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
-msgstr ""
+msgstr "Simpan pesanan, tunjukkan% bila ditentukan, terpisah dengan koma atau -, gunakan () untuk ramuan bahan, alergen surround dengan _ eg _milk_"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr ""
+msgstr "bahan yang mungkin berasal dari minyak sawit"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
-msgstr ""
+msgstr "bahan yang mungkin berasal dari minyak sawit"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr ""
+msgstr "Produk yang tidak mengandung bahan %s"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
-msgstr ""
+msgstr "https://itunes.apple.com/en/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
-msgstr ""
+msgstr "nutrisi yang dikenal"
 
 msgctxt "known_nutrients_s"
 msgid "known nutrient"
-msgstr ""
+msgstr "nutrisi yang dikenal"
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr ""
+msgstr "Label, sertifikasi, penghargaan"
 
 msgctxt "labels_example"
 msgid "Organic"
-msgstr ""
+msgstr "Organik"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
-msgstr ""
+msgstr "Tunjukkan hanya label yang paling spesifik. Label \"Orang Tua\" akan ditambahkan secara otomatis."
 
 msgctxt "labels_p"
 msgid "labels"
-msgstr ""
+msgstr "label"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
-msgstr ""
+msgstr "Produk yang memiliki label %s"
 
 msgctxt "labels_s"
 msgid "label"
-msgstr ""
+msgstr "label"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
-msgstr ""
+msgstr "tambahkan label"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
-msgstr ""
+msgstr "Produk yang tidak memiliki label %s"
 
 msgctxt "lang"
 msgid "Main language"
-msgstr ""
+msgstr "Bahasa utama"
 
 msgctxt "lang_ar"
 msgid "Arabic"
@@ -1024,7 +1024,7 @@ msgstr "Arab"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bahasa Bulgaria"
 
 msgctxt "lang_cs"
 msgid "Czech"
@@ -1052,7 +1052,7 @@ msgstr "Spanyol"
 
 msgctxt "lang_et"
 msgid "Estonian"
-msgstr ""
+msgstr "Estonia"
 
 msgctxt "lang_fi"
 msgid "Finnish"
@@ -1064,7 +1064,7 @@ msgstr "Perancis"
 
 msgctxt "lang_ga"
 msgid "Irish"
-msgstr ""
+msgstr "orang Irlandia"
 
 msgctxt "lang_he"
 msgid "Hebrew"
@@ -1072,11 +1072,11 @@ msgstr "Ibrani"
 
 msgctxt "lang_hu"
 msgid "Hungarian"
-msgstr ""
+msgstr "Hongaria"
 
 msgctxt "lang_id"
 msgid "Indonesian"
-msgstr ""
+msgstr "bahasa Indonesia"
 
 msgctxt "lang_it"
 msgid "Italian"
@@ -1092,7 +1092,7 @@ msgstr "Korea"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
-msgstr ""
+msgstr "Lithuania"
 
 msgctxt "lang_lv"
 msgid "Latvian"
@@ -1100,7 +1100,7 @@ msgstr "Latvia"
 
 msgctxt "lang_mt"
 msgid "Maltese"
-msgstr ""
+msgstr "Malta"
 
 msgctxt "lang_nl"
 msgid "Dutch"
@@ -1112,15 +1112,15 @@ msgstr "Belanda"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr ""
+msgstr "Bahasa paling banyak hadir dan paling disorot pada produk"
 
 msgctxt "lang_other"
 msgid "other language"
-msgstr ""
+msgstr "bahasa lain"
 
 msgctxt "lang_pl"
 msgid "Polish"
-msgstr ""
+msgstr "Polandia"
 
 msgctxt "lang_pt"
 msgid "Portuguese"
@@ -1844,27 +1844,27 @@ msgstr "Kesalahan saat mengupload gambar"
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
-msgstr ""
+msgstr "Foto di latar belakang putih: coba hapus latar belakangnya"
 
 msgctxt "product_js_images_delete_error"
 msgid "Errors while deleting images"
-msgstr ""
+msgstr "Kesalahan saat menghapus gambar"
 
 msgctxt "product_js_images_deleted"
 msgid "Images deleted"
-msgstr ""
+msgstr "Gambar dihapus"
 
 msgctxt "product_js_images_move_error"
 msgid "Errors while moving images"
-msgstr ""
+msgstr "Kesalahan saat memindahkan gambar"
 
 msgctxt "product_js_images_moved"
 msgid "Images moved"
-msgstr ""
+msgstr "Gambar dipindahkan"
 
 msgctxt "product_js_moving_images"
 msgid "Moving images"
-msgstr ""
+msgstr "Memindahkan gambar"
 
 msgctxt "product_js_upload_image"
 msgid "Add a picture"
@@ -2209,7 +2209,7 @@ msgstr ""
 
 msgctxt "search_series_organic"
 msgid "Organic"
-msgstr ""
+msgstr "Organik"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
