@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-12-18 07:10-0500\n"
+"PO-Revision-Date: 2017-12-18 07:20-0500\n"
 "Language-Team: Indonesian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -1305,11 +1305,11 @@ msgstr "%d produk sesuai dengan kriteria pencarian, dimana %i produk memiliki te
 
 msgctxt "map_title"
 msgid "Map title"
-msgstr ""
+msgstr "Judul peta"
 
 msgctxt "menu"
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
@@ -1317,15 +1317,15 @@ msgstr "Menambahkan produk"
 
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr ""
+msgstr "/ add-a-product"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
-msgstr ""
+msgstr "Menyumbang"
 
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/menyumbang"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1333,51 +1333,51 @@ msgstr "mendapatkan"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/menemukan"
 
 msgctxt "mission_"
 msgid "Mission: "
-msgstr ""
+msgstr "Misi:"
 
 msgctxt "mission_accomplished_by"
 msgid "This mission has been completed by:"
-msgstr ""
+msgstr "Misi ini telah selesai dengan:"
 
 msgctxt "mission_accomplished_by_n"
 msgid "Completed by %d persons."
-msgstr ""
+msgstr "Diselesaikan oleh %d orang."
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
-msgstr ""
+msgstr "Jadilah yang pertama untuk menyelesaikan misi ini!"
 
 msgctxt "mission_goal"
 msgid "Goal:"
-msgstr ""
+msgstr "Tujuan:"
 
 msgctxt "missions"
 msgid "Missions"
-msgstr ""
+msgstr "Misi"
 
 msgctxt "moderate"
 msgid "moderate"
-msgstr ""
+msgstr "moderat"
 
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
-msgstr ""
+msgstr "kuantitas moderat"
 
 msgctxt "months"
 msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr ""
+msgstr "['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
-msgstr ""
+msgstr "Pindahkan gambar ke produk lain"
 
 msgctxt "n_products"
 msgid "%d products"
-msgstr ""
+msgstr "%d produk"
 
 msgctxt "name"
 msgid "Name"
@@ -1385,83 +1385,83 @@ msgstr "nama"
 
 msgctxt "names"
 msgid "Names"
-msgstr ""
+msgstr "Nama"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr ""
+msgstr "Jika kode batangnya tidak benar, perbaiki di sini:"
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
-msgstr ""
+msgstr "Untuk produk tanpa kode batang, kode internal diatur secara otomatis."
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr ""
+msgstr "Berlangganan newsletter (maksimal 2 email per bulan)"
 
 msgctxt "next"
 msgid "Next"
-msgstr ""
+msgstr "Berikutnya"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
-msgstr ""
+msgstr "Produk tanpa kode batang"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
-msgstr ""
+msgstr "Fakta nutrisi tidak ditentukan pada produk."
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
-msgstr ""
+msgstr "Tidak ada produk yang tercantum untuk kode batang %s."
 
 msgctxt "no_products"
 msgid "No products."
-msgstr ""
+msgstr "Tidak ada produk"
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
-msgstr ""
+msgstr "Kesalahan saat menyimpan, coba lagi."
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
-msgstr ""
+msgstr "Jumlah aditif"
 
 msgctxt "number_of_products"
 msgid "Number of products"
-msgstr ""
+msgstr "Jumlah produk"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr ""
+msgstr "%s di %s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
-msgstr ""
+msgstr "Tingkat hara untuk 100 g"
 
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/ tingkat hara"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
-msgstr ""
+msgstr "tingkat gizi"
 
 msgctxt "nutrient_levels_s"
 msgid "nutrient level"
-msgstr ""
+msgstr "tingkat gizi\n"
 
 msgctxt "nutriments_p"
 msgid "nutriments"
-msgstr ""
+msgstr "nutrisi"
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
-msgstr ""
+msgstr "Produk yang mengandung nutrisi %s"
 
 msgctxt "nutriments_s"
 msgid "nutriment"
-msgstr ""
+msgstr "makanan bergizi"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
@@ -1684,87 +1684,87 @@ msgstr ""
 
 msgctxt "periods_after_opening_s"
 msgid "Period after opening"
-msgstr ""
+msgstr "Periode setelah pembukaan"
 
 msgctxt "photographers_p"
 msgid "photographers"
-msgstr ""
+msgstr "fotografer"
 
 msgctxt "photographers_s"
 msgid "photographer"
-msgstr ""
+msgstr "juru potret"
 
 msgctxt "pnns_groups_1"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "Kelompok PNNS 1"
 
 msgctxt "pnns_groups_1_p"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "Kelompok PNNS 1"
 
 msgctxt "pnns_groups_1_s"
 msgid "PNNS group 1"
-msgstr ""
+msgstr "Kelompok PNNS 1"
 
 msgctxt "pnns_groups_2"
 msgid "PNNS groups 2"
-msgstr ""
+msgstr "Kelompok PNNS 2"
 
 msgctxt "pnns_groups_2_p"
 msgid "PNNS groups 2"
-msgstr ""
+msgstr "Kelompok PNNS 2"
 
 msgctxt "pnns_groups_2_s"
 msgid "PNNS group 2"
-msgstr ""
+msgstr "Kelompok PNNS 2"
 
 msgctxt "points_all_countries"
 msgid "There are %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "Ada %d Penjelajah dan %d Duta Besar."
 
 msgctxt "points_all_users"
 msgid "There are Explorers for %d countries and Ambassadors for %d countries."
-msgstr ""
+msgstr "Ada Penjelajah untuk %d negara dan Duta Besar untuk %d negara."
 
 msgctxt "points_country"
 msgid "%s has %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "%s memiliki %d Penjelajah dan %d Duta Besar."
 
 msgctxt "points_ranking"
 msgid "Ranking"
-msgstr ""
+msgstr "Peringkat"
 
 msgctxt "points_ranking_users_and_countries"
 msgid "Ranking of contributors and countries"
-msgstr ""
+msgstr "Peringkat kontributor dan negara"
 
 msgctxt "points_user"
 msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
-msgstr ""
+msgstr "%s adalah Penjelajah untuk %d negara dan Ambassador untuk %d negara."
 
 msgctxt "previous"
 msgid "Previous"
-msgstr ""
+msgstr "Sebelumnya"
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "Tambahkan nutrisi"
 
 msgctxt "product_added"
 msgid "Product added on"
-msgstr ""
+msgstr "Produk ditambahkan pada"
 
 msgctxt "product_changes_saved"
 msgid "Changes saved."
-msgstr ""
+msgstr "Perubahan tersimpan."
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
-msgstr ""
+msgstr "Karakteristik produk"
 
 msgctxt "product_created"
 msgid "Product created"
-msgstr ""
+msgstr "Produk dibuat"
 
 msgctxt "product_description"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
