@@ -974,7 +974,7 @@ sub build_tags_taxonomy($$) {
 		
 		# print STDERR "Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype - compute all parents breadth first\n";		
 		
-		my %longest_parent = {};
+		my %longest_parent = ();
 		
 		# foreach my $tagid (keys %{$direct_parents{$tagtype}}) {   
 		foreach my $tagid (keys %{$translations_to{$tagtype}}) {   
