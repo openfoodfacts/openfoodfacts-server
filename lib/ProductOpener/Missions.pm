@@ -165,7 +165,7 @@ sub compute_missions_for_user($) {
 			print STDERR "compute_missions: user_id: " . $user_ref->{userid} . " mission: $mission_ref->{id} ?\n";
 
 			
-			# {name=>'Serrés comme des sardines', description=>'Ajouter 2 boîtes de sardines en conserve', thanks=>'Merci pour les sardines !',
+			# {name=>'SerrÃ©s comme des sardines', description=>'Ajouter 2 boÃ®tes de sardines en conserve', thanks=>'Merci pour les sardines !',
 			# conditions=>[[2,{categories_tags=>'sardines', packaging_tags=>'conserve'}]]},
 		
 			my $complete = 1;
