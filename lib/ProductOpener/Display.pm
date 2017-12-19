@@ -5996,10 +5996,10 @@ HTML
 	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
 	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . separator_before_colon($lc) . ":</span>";
 	if ($lc ne $ingredients_text_lang) {
-		$html .= " <span id=\"ingredients_list\" property=\"food:ingredientListAsText\" lang=\"$ingredients_text_lang\">$ingredients_text</span>";
+		$html .= " <div id=\"ingredients_list\" property=\"food:ingredientListAsText\" lang=\"$ingredients_text_lang\">$ingredients_text</div>";
 	}
 	else {
-		$html .= " <span id=\"ingredients_list\" property=\"food:ingredientListAsText\">$ingredients_text</span>";
+		$html .= " <div id=\"ingredients_list\" property=\"food:ingredientListAsText\">$ingredients_text</div>";
 	}
 	$html .= "</div>";
 	
@@ -6009,16 +6009,72 @@ HTML
 	
 	
 			$html .= <<HTML
+			
+<div class="button_div" id="editingredientsbuttondiv"><button id="editingredients" class="small button" type="button">Edit ingredients ($ilc)</div>
+<div class="button_div" id="saveingredientsbuttondiv_status" style="display:none"></div>
+<div class="button_div" id="saveingredientsbuttondiv" style="display:none"><button id="saveingredients" class="small button" type="button">Save ingredients ($ilc)</div>
+
+			
 <div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="small button" type="button">Ingredients ($ilc) are completely bogus, erase them.</button></div>
 HTML
 ;			
 						
 			$initjs .= <<JS
+			
+	var editableText;
+
+    \$("#editingredients").click({},function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		
+    var divHtml = \$("#ingredients_list").html();
+	var allergens = /(<span class="allergen">|<\\/span>)/g;
+	divHtml = divHtml.replace(allergens, '_');
+	
+    var editableText = \$('<textarea id="ingredients_list" style="height:8rem"/>');
+    editableText.val(divHtml);
+    \$("#ingredients_list").replaceWith(editableText);
+    editableText.focus();
+	
+	
+		\$("#editingredientsbuttondiv").hide();
+		\$("#saveingredientsbuttondiv").show();
+  
+		
+		\$(document).foundation('equalizer', 'reflow');
+		
+	});		
+
+
+    \$("#saveingredients").click({},function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		
+		\$('div[id="saveingredientsbuttondiv"]').hide();
+		\$('div[id="saveingredientsbuttondiv_status"]').html('<img src="/images/misc/loading2.gif" /> Saving ingredients_texts_$ilc');
+		\$('div[id="saveingredientsbuttondiv_status"]').show();
+
+		\$.post('/cgi/product_jqm_multilingual.pl',
+				{code: "$code", ingredients_text_$ilc :  \$("#ingredients_list").val(), comment: "Updated ingredients_texts_$ilc" }, function(data) {
+				
+				\$('div[id="saveingredientsbuttondiv_status"]').html('Saved ingredients_texts_$ilc');
+						\$('div[id="saveingredientsbuttondiv"]').show();
+
+		
+			\$(document).foundation('equalizer', 'reflow');
+		}, 'json');  
+		
+		\$(document).foundation('equalizer', 'reflow');
+		
+	});		
+	
+	
+			
 	\$("#wipeingredients").click({},function(event) {
 		event.stopPropagation();
 		event.preventDefault();
 		// alert(event.data.imagefield);
-		\$('div[id="unselectbuttondiv"]').html('<img src="/images/misc/loading2.gif" /> Erasing ingredients_texts_$ilc');
+		\$('div[id="wipeingredientsbuttondiv"]').html('<img src="/images/misc/loading2.gif" /> Erasing ingredients_texts_$ilc');
 		\$.post('/cgi/product_jqm_multilingual.pl',
 				{code: "$code", ingredients_text_$ilc : "", comment: "Erased ingredients_texts_$ilc: too much bad data" }, function(data) {
 				
