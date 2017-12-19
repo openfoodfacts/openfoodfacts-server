@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-12-19 07:30-0500\n"
+"PO-Revision-Date: 2017-12-19 07:41-0500\n"
 "Language-Team: Indonesian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -30,7 +30,7 @@ msgstr "1 produk"
 
 msgctxt "_and_"
 msgid " and "
-msgstr " dan "
+msgstr "dan"
 
 msgctxt "about"
 msgid "About me"
@@ -38,15 +38,15 @@ msgstr "Tentang saya"
 
 msgctxt "add"
 msgid "Add"
-msgstr "Tambahkan"
+msgstr "Menambahkan"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr "menambahkan bahasa"
+msgstr "Tambahkan bahasa"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr "Menambahkan produk"
+msgstr "Tambahkan produk"
 
 msgctxt "add_user"
 msgid "Register"
@@ -744,7 +744,7 @@ msgstr "/tekan"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
-msgstr "Sebuah basis data bahan, fakta nutrisi dan informasi pada makanan dari seluruh dunia, yang kolaboratif, bebas dan terbuka"
+msgstr "Sebuah database produk makanan kolaboratif, bebas dan terbuka dari seluruh dunia."
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -888,11 +888,11 @@ msgstr "informan"
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr "bahan"
+msgstr "Bahan"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr "bahan"
+msgstr "Bahan"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -1485,63 +1485,63 @@ msgstr "% perbedaan"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
-msgstr ""
+msgstr "nilai 100 g / 100 ml"
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
-msgstr ""
+msgstr "Perbandingan dengan nilai rata-rata produk dalam kategori yang sama:"
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr ""
+msgstr "Harap dicatat: untuk setiap nutrisi, rata-rata dihitung untuk produk yang kuantitas nutrisinya diketahui, tidak pada semua produk kategori."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr ""
+msgstr "Jika gambarnya cukup tajam dan rata, fakta nutrisi bisa diekstraksi secara otomatis dari gambar."
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
-msgstr ""
+msgstr "Sentil 10"
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
-msgstr ""
+msgstr "untuk 100 g / 100 ml"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr ""
+msgstr "5<sup>th</sup> sentil"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
-msgstr ""
+msgstr "Median"
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
-msgstr ""
+msgstr "Sentil ke 90"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
-msgstr ""
+msgstr "95<sup>th</sup> sentil"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
-msgstr ""
+msgstr "Maksimum"
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
-msgstr ""
+msgstr "Berarti"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
-msgstr ""
+msgstr "Minimum"
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr ""
+msgstr "per porsi"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
-msgstr ""
+msgstr "Standar deviasi"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
@@ -1550,109 +1550,109 @@ msgstr "tabel nutrisi"
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr ""
+msgstr "Tabel daftar secara default nutrisi yang sering ditentukan. Biarkan bidang kosong jika tidak ada dalam label.<br/>Anda dapat menambahkan makanan tambahan (vitamin, mineral, kolesterol, dll.) Dengan mengetik huruf pertama dari namanya di baris terakhir tabel."
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
-msgstr ""
+msgstr "Nilai gizi"
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
+msgstr "Kelas gizi"
 
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr ""
+msgstr "<p>Untuk mempelajari lebih lanjut tentang <<site_name>>, kunjungi <a href=\"https://en.blog.openfoodfacts.org\"> blog kami</a>! </p> <p>Recent news: </p>"
 
 msgctxt "on_the_blog_title"
 msgid "News"
-msgstr ""
+msgstr "Berita"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr ""
+msgstr "Ini <a href=\"/open-food-hunt-2015\">Buka Makanan Hunt</a> di <<site_name>> mulai hari Sabtu 21 Februari 2015 sampai Minggu 1 Maret 2015! Kontributor diberikan poin Explorer untuk produk yang mereka tambahkan dan poin Ambassador untuk kontributor baru yang mereka rekrut. Poin diperbarui setiap 30 menit."
 
 msgctxt "or"
 msgid "or:"
-msgstr ""
+msgstr "atau:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
-msgstr ""
+msgstr "Asal bahan"
 
 msgctxt "origins_example"
 msgid "California, USA"
-msgstr ""
+msgstr "California, Amerika Serikat"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
-msgstr ""
+msgstr "Tunjukkan asal ramuannya"
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
-msgstr ""
+msgstr "asal bahan"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr ""
+msgstr "Produk dengan bahan yang berasal dari %s"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr ""
+msgstr "asal bahannya"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
-msgstr ""
+msgstr "tambahkan asal"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
-msgstr ""
+msgstr "Produk tanpa bahan yang berasal dari %s"
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "Pengemasan"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
-msgstr ""
+msgstr "Segar, Kalengan, Beku, Botol, Kotak, Kaca, Plastik ..."
 
 msgctxt "packaging_note"
 msgid "Packaging type, format, material"
-msgstr ""
+msgstr "Jenis kemasan, format, bahan"
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr ""
+msgstr "pengemasan"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
-msgstr ""
+msgstr "Produk dengan kemasan %s"
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr ""
+msgstr "pengemasan"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
-msgstr ""
+msgstr "tambahkan tipe, bentuk atau bahan"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
-msgstr ""
+msgstr "Produk tanpa kemasan %s"
 
 msgctxt "page_x"
 msgid "Page %d"
-msgstr ""
+msgstr "Halaman %d"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
@@ -2305,23 +2305,23 @@ msgstr "membagikan"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
-msgstr ""
+msgstr "Tampilkan statistik terperinci"
 
 msgctxt "show_category_stats_details"
 msgid "standard deviation, minimum, maximum, 10th and 90th percentiles"
-msgstr ""
+msgstr "standar deviasi, minimum, maksimum, 10 dan 90th persentil"
 
 msgctxt "signin_before_submit"
 msgid "If you already have an account on <SITE>, please sign-in before filling this form."
-msgstr ""
+msgstr "Jika Anda sudah memiliki akun di <SITE>, masuklah sebelum mengisi formulir ini."
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr ""
+msgstr "Keluar"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
+msgstr "Database bahan, fakta gizi dan informasi tentang produk makanan yang kolaboratif, bebas dan terbuka dari seluruh dunia"
 
 msgctxt "site_name"
 msgid "Open Food Facts"
@@ -2329,11 +2329,11 @@ msgstr "membuka fakta makanan"
 
 msgctxt "sort_by"
 msgid "Sort by"
-msgstr ""
+msgstr "Sortir dengan"
 
 msgctxt "sort_created_t"
 msgid "Add date"
-msgstr ""
+msgstr "Tambahkan tanggal"
 
 msgctxt "sort_modified_t"
 msgid "Edit date"
@@ -2542,113 +2542,113 @@ msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone St
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
-msgstr ""
+msgstr "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
-msgstr ""
+msgstr "Anda terhubung sebagai %s."
 
 msgctxt "product_js_unselect_image"
 msgid "Unselect image"
-msgstr ""
+msgstr "Batalkan pilihan gambar"
 
 msgctxt "product_js_unselecting_image"
 msgid "Unselecting image."
-msgstr ""
+msgstr "Batalkan pilihan gambar."
 
 msgctxt "product_js_unselected_image_ok"
 msgid "Unselected image."
-msgstr ""
+msgstr "Gambar yang tidak dipilih"
 
 msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
-msgstr ""
+msgstr "Kesalahan saat tidak memilih gambar"
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Peringatan: jumlah serat tidak ditentukan, kemungkinan kontribusi positif mereka terhadap nilai tidak dapat diperhitungkan."
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Peringatan: jumlah buah, sayuran dan kacang-kacangan tidak ditentukan, kemungkinan kontribusi positif mereka terhadap nilai tidak dapat diperhitungkan."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr ""
+msgstr "Peringatan: jumlah buah, sayuran dan kacang-kacangan tidak ditentukan pada label, diperkirakan dari daftar bahan: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr ""
+msgstr "Peringatan: jumlah buah, sayuran dan kacang-kacangan tidak ditentukan pada label, diperkirakan dari kategori (%s) produk: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
-msgstr ""
+msgstr "NutriScore warna kadar gizi"
 
 msgctxt "nutrition_grade_fr_formula"
 msgid "How the color nutrition grade is computed"
-msgstr ""
+msgstr "Bagaimana nilai nutrisi warna dihitung"
 
 msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
-msgstr ""
+msgstr "Nutrisi NutriScore"
 
 msgctxt "delete_product_page"
 msgid "Delete the product page"
-msgstr ""
+msgstr "Hapus halaman produk"
 
 msgctxt "deleting_product"
 msgid "Deleting product"
-msgstr ""
+msgstr "Menghapus produk"
 
 msgctxt "has_deleted_product"
 msgid "has deleted product"
-msgstr ""
+msgstr "telah menghapus produk"
 
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
-msgstr ""
+msgstr "Yakin ingin menghapus halaman untuk produk ini?"
 
 msgctxt "delete_user"
 msgid "Delete the user"
-msgstr ""
+msgstr "Hapus pengguna"
 
 msgctxt "sources_openfood_ch"
 msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
-msgstr ""
+msgstr "Beberapa data dan / atau gambar berasal dari database OpenFood.ch (daftar yang tepat tersedia dalam riwayat penyuntingan produk). Elemen tersebut dilisensikan berdasarkan Lisensi Internasional Attribution 4.088_55_0_321Creative Commons</a>."
 
 msgctxt "sources_openfood_ch_product_page"
 msgid "Product page on openfood.ch"
-msgstr ""
+msgstr "Halaman produk di openfood.ch"
 
 msgctxt "sources_usda_ndb"
 msgid "Some of the data comes from the USDA National Nutrients Database for Branded Foods (the exact list is available in the product edit history)."
-msgstr ""
+msgstr "Beberapa data berasal dari Database Nutrisi Nasional USDA untuk Makanan Bermerek (daftar pastinya tersedia dalam riwayat penyuntingan produk)."
 
 msgctxt "sources_usda_ndb_product_page"
 msgid "Product page on USDA NDB"
-msgstr ""
+msgstr "Halaman produk di USDA NDB"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr ""
+msgstr "Donasi untuk Membuka Fakta Pangan"
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr ""
+msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
 
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
-msgstr ""
+msgstr "Beberapa data dan gambar telah disediakan langsung oleh pabrikan Fleury Michon."
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
-msgstr ""
+msgstr "Beberapa data untuk produk ini telah disediakan langsung oleh pabrikan %s"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgstr "Halaman produk ini tidak lengkap. Anda dapat membantu menyelesaikannya dengan mengeditnya dan menambahkan lebih banyak data dari foto yang kami miliki, atau dengan mengambil lebih banyak foto menggunakan aplikasi ini untuk <a href=\"https://android.openfoodfacts.org\">Android</a> atau <a href=\"https://ios.openfoodfacts.org\">iPhone / iPad</a>. Terima kasih!"
 
 msgctxt "title_separator"
 msgid " — "
-msgstr ""
+msgstr "-"
 
