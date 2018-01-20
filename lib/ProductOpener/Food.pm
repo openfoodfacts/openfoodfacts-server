@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -535,7 +535,7 @@ water-hardness-
 
 us => [qw(
 !energy
--energy-from-fat
+-energy-from-fat-
 !fat
 -saturated-fat
 --butyric-acid-
@@ -593,12 +593,12 @@ sodium
 -nucleotides-
 alcohol
 #vitamins
-vitamin-a
+vitamin-a-
 beta-carotene-
-vitamin-d-
+vitamin-d
 vitamin-e-
 vitamin-k-
-vitamin-c
+vitamin-c-
 vitamin-b1-
 vitamin-b2-
 vitamin-pp-
@@ -611,7 +611,7 @@ pantothenic-acid-
 #minerals
 silica-
 bicarbonate-
-potassium-
+potassium
 chloride-
 calcium
 phosphorus-
