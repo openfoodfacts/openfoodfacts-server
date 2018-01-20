@@ -5082,7 +5082,11 @@ HTML
 		$torso_color = "#ffe681";
 	}
 	
-	my $search_terms = remove_tags_and_quote(decode utf8=>param('search_terms')) if defined param('search_terms');
+	my $search_terms = '';
+	if (defined param('search_terms')) {
+		$search_terms = remove_tags_and_quote(decode utf8=>param('search_terms'))
+	}
+		
 	$html .= <<HTML
 
 	
