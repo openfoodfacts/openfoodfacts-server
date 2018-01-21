@@ -6,12 +6,15 @@
   "private": true,
   "scripts": {
     "build": "./node_modules/.bin/gulp",
-    "test": "yarn run test:lang && yarn run prove && yarn run jshint && yarn run perlc",
+    "test": "yarn run test:lang && yarn run prove && yarn run lint && yarn run perlc",
     "test:lang": "yarn run test:lang:common && yarn run test:lang:en",
     "test:lang:en": "perl scripts/check_po_file.pl po/tags/en.po",
     "test:lang:common": "perl scripts/check_po_file.pl po/common/en.po",
     "prove": "prove -l",
-    "jshint": "./node_modules/.bin/jshint --show-non-errors html/js/product-multilingual.js html/js/search.js",
+    "lint": "yarn run lint:js && yarn run lint:css && yarn run lint:scss",
+    "lint:js": "./node_modules/.bin/jshint --show-non-errors html/js/product-multilingual.js html/js/search.js html/js/display-tag.js",
+    "lint:css": "./node_modules/.bin/stylelint html/css/product-multilingual.css",
+    "lint:scss": "./node_modules/.bin/stylelint scss/app.scss",
     "perlc": "yarn run perlc:startup && yarn run perlc:product",
     "perlc:startup": "perl -c -CS -Ilib lib/startup_apache2.pl",
     "perlc:product": "perl -c -CS -Ilib cgi/product_multilingual.pl",
@@ -46,7 +49,10 @@
     "yarn": "^1.2.1"
   },
   "devDependencies": {
-    "jshint": "^2.9.4"
+    "jshint": "^2.9.4",
+    "stylelint": "^8.3.1",
+    "stylelint-scss": "^2.2.0",
+    "stylelint-config-recommended-scss": "^3.0.0"
   },
   "engines": {
     "yarn": ">= 1.0.0"
