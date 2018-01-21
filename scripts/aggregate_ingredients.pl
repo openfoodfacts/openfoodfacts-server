@@ -62,8 +62,8 @@ my $count = $cursor->count();
 my $n = 0;
 my $i = 0;
 
-binmode(STDOUT, ":utf8");
-binmode(STDIN, ":utf8");
+binmode(STDOUT, ":encoding(UTF-8)");
+binmode(STDIN, ":encoding(UTF-8)");
 
 my %ingredient_ids = ();
 	
