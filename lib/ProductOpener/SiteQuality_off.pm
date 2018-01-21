@@ -41,6 +41,47 @@ sub check_ingredients($) {
 
 	my $product_ref = shift;
 	
+	# Multiple languages in ingredient lists
+	
+	my $nb_languages = 0;
+	
+	($product_ref->{ingredients_text} =~ /\b(ingrédients|sucre|eau|sel|farine)\b/i) and $nb_languages++;
+	($product_ref->{ingredients_text} =~ /\b(sugar|salt|flour|milk)\b/i) and $nb_languages++;
+	($product_ref->{ingredients_text} =~ /\b(ingrediënten|suiker|zout|bloem)\b/i) and $nb_languages++;
+	($product_ref->{ingredients_text} =~ /\b(ingredientes|azucar|agua|sal|harina)\b/i) and $nb_languages++;
+	($product_ref->{ingredients_text} =~ /\b(zutaten|Zucker|Salz|Wasser|Mehl)\b/i) and $nb_languages++;
+	($product_ref->{ingredients_text} =~ /\b(açúcar|farinha|água)\b/i) and $nb_languages++;
+	($product_ref->{ingredients_text} =~ /\b(ingredienti|zucchero|farina|acqua)\b/i) and $nb_languages++;
+	
+	
+	if ($nb_languages > 1) {
+			foreach my $max (5, 4, 3, 2, 1) {
+				if ($nb_languages > $max) {
+					push $product_ref->{quality_tags}, "ingredients-number-of-languages-above-$max";
+				}
+			}		
+		push $product_ref->{quality_tags}, "ingredients-number-of-languages-$nb_languages";
+	}
+	
+	if ((defined $product_ref->{ingredients_n}) and ( $product_ref->{ingredients_n} > 0)) {	
+	
+			my $score = $product_ref->{unknown_ingredients_n} * 2 - $product_ref->{ingredients_n};
+			
+			foreach my $max (50, 40, 30, 20, 10, 5, 0) {
+				if ($score > $max) {
+					push $product_ref->{quality_tags}, "ingredients-unknown-score-above-$max";
+					last;
+				}
+			}			
+	
+			foreach my $max (100, 90, 80, 70, 60, 50) {
+				if (($product_ref->{unknown_ingredients_n} / $product_ref->{ingredients_n}) >= ($max / 100)) {
+					push $product_ref->{quality_tags}, "ingredients-$max-percent-unknown";
+					last;
+				}
+			}
+	}
+	
 	
 	
 	if (defined $product_ref->{ingredients_tags}) {	
