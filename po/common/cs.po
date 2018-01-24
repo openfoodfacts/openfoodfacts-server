@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-01-24 05:50-0500\n"
+"PO-Revision-Date: 2018-01-24 06:00-0500\n"
 "Language-Team: Czech\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
@@ -1284,39 +1284,39 @@ msgstr "Výrobní nebo zpracovatelská místa"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
-msgstr ""
+msgstr "Brno, Česká Republika"
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
-msgstr ""
+msgstr "výrobní nebo zpracovatelská místa"
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
-msgstr ""
+msgstr "Výrobky vyrobené nebo zpracované v %s"
 
 msgctxt "manufacturing_places_s"
 msgid "manufacturing or processing place"
-msgstr ""
+msgstr "výrobní nebo zpracovatelské místo"
 
 msgctxt "manufacturing_places_tagsinput"
 msgid "add a place"
-msgstr ""
+msgstr "přidat místo"
 
 msgctxt "manufacturing_places_without_products"
 msgid "Products not manufactured or processed in %s"
-msgstr ""
+msgstr "Výrobky, které nebyly vyrobené nebo zpracované v %s"
 
 msgctxt "map_count"
 msgid "%d products match the search criterias, of which %i products have a known production place."
-msgstr ""
+msgstr "%d úroduktů odpovídá kritériím vyhledávání, z nichž %i produktů má známé místo výroby."
 
 msgctxt "map_title"
 msgid "Map title"
-msgstr ""
+msgstr "Název mapy"
 
 msgctxt "menu"
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
@@ -1324,7 +1324,7 @@ msgstr "Přidat produkt"
 
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr ""
+msgstr "/add-a-product"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -1332,7 +1332,7 @@ msgstr "Přispět"
 
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/contribute"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1340,19 +1340,19 @@ msgstr "Objevte"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/discover"
 
 msgctxt "mission_"
 msgid "Mission: "
-msgstr ""
+msgstr "Mise: "
 
 msgctxt "mission_accomplished_by"
 msgid "This mission has been completed by:"
-msgstr ""
+msgstr "Tato mise byla dokončena uživatelem:"
 
 msgctxt "mission_accomplished_by_n"
 msgid "Completed by %d persons."
-msgstr ""
+msgstr "Dokončeno %d lidmi."
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
@@ -1603,27 +1603,27 @@ msgstr ""
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
-msgstr ""
+msgstr "Uveďte původ přísad"
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
-msgstr ""
+msgstr "původ přísad"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr ""
+msgstr "Produkty se přísadami pocházejícími z %s"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr ""
+msgstr "původ přísad"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
-msgstr ""
+msgstr "přidat původ"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
-msgstr ""
+msgstr "Produkty bez přísad pocházejících z %s"
 
 msgctxt "packaging"
 msgid "Packaging"
@@ -1631,39 +1631,39 @@ msgstr "Obal"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
-msgstr ""
+msgstr "Čerstvé, Konzerva, Zmrazené, Láhev, Krabice, Sklo, Plast, Plastová vanička, ..."
 
 msgctxt "packaging_note"
 msgid "Packaging type, format, material"
-msgstr ""
+msgstr "Typ balení, formát, materiál"
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr ""
+msgstr "balení"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
-msgstr ""
+msgstr "Výrobky s balením typu %s"
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr ""
+msgstr "balení"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
-msgstr ""
+msgstr "přidat typ, tvar nebo materiál"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
-msgstr ""
+msgstr "Produkty, které nejsou v balení typu %s"
 
 msgctxt "page_x"
 msgid "Page %d"
-msgstr ""
+msgstr "Stránka %d"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
-msgstr ""
+msgstr "Strana %d z %d."
 
 msgctxt "pages"
 msgid "Pages:"
@@ -1675,43 +1675,43 @@ msgstr "Heslo"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
-msgstr ""
+msgstr "Potvrdit heslo"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
-msgstr ""
+msgstr "Doba od otevření"
 
 msgctxt "periods_after_opening_note"
 msgid "Found in an open container logo with a number of months: e.g. 12 M"
-msgstr ""
+msgstr "Nalezeno v otevřeném obalu logo s několika měsíci: např. 12 M"
 
 msgctxt "periods_after_opening_p"
 msgid "Periods after opening"
-msgstr ""
+msgstr "Doba od otevření"
 
 msgctxt "periods_after_opening_s"
 msgid "Period after opening"
-msgstr ""
+msgstr "Doba od otevření"
 
 msgctxt "photographers_p"
 msgid "photographers"
-msgstr ""
+msgstr "fotografové"
 
 msgctxt "photographers_s"
 msgid "photographer"
-msgstr ""
+msgstr "fotograf"
 
 msgctxt "pnns_groups_1"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "Skupiny PNNS 1"
 
 msgctxt "pnns_groups_1_p"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "Skupiny PNNS 1"
 
 msgctxt "pnns_groups_1_s"
 msgid "PNNS group 1"
-msgstr ""
+msgstr "Skupina PNNS 1"
 
 msgctxt "pnns_groups_2"
 msgid "PNNS groups 2"
