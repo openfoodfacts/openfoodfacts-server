@@ -14,6 +14,7 @@ BEGIN
 		$data_root
 		$www_root
 		$mongodb
+		$mongodb_host
 		$facebook_app_id
 	    $facebook_app_secret
 		$csrf_secret
@@ -35,6 +36,7 @@ $www_root = "/home/off/html";
 $data_root = "/home/off";
 
 $mongodb = "off";
+$mongodb_host = "mongodb://localhost";
 
 $facebook_app_id = "";
 $facebook_app_secret = "";

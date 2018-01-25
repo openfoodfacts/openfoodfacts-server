@@ -3,9 +3,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de_DE\n"
+"Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-09-22 04:14-0400\n"
+"PO-Revision-Date: 2017-11-13 11:09-0500\n"
 "Language-Team: German\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -65,7 +65,7 @@ msgid "Hello <NAME>,\n\n"
 "<<site_name>> is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!\n"
 "To discuss between contributors and make the project go forward, we use a very convenient messaging system called Slack: https://slack.openfoodfacts.org\n\n"
 "You can also join the Facebook group for contributors:\n"
-"https://www.facebook.com/groups/374350705955208/\n\n"
+"https://www.facebook.com/groups/OpenFoodFacts/\n\n"
 "New: we are also starting Open Beauty Facts to create a database of cosmetics: soap, toothpaste, makeup etc.\n"
 "https://openbeautyfacts.org\n\n"
 "Thank you very much!\n\n"
@@ -84,7 +84,7 @@ msgstr "Möglicherweise gefährlicher Nahrungsmittelzusatz. Verwendung reduziere
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr "Gefährlicher Nahrumgsmittelzusatz. Vermeiden."
+msgstr "Gefährlicher Nahrungsmittelzusatz. Vermeiden."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
@@ -202,7 +202,7 @@ msgstr "Kinder Bueno Weiß, Kinder Bueno, Kinder, Ferrero"
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr "marken"
+msgstr "Marken"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
@@ -210,7 +210,7 @@ msgstr "Produkte der Marke %s"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr "marke"
+msgstr "Marke"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
@@ -218,7 +218,7 @@ msgstr "Marke hinzufügen"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr "Produkte, die nicht von der Markte %s sind"
+msgstr "Produkte, die nicht von der Marke %s sind"
 
 msgctxt "by"
 msgid "by"
@@ -234,11 +234,11 @@ msgstr "Sardinen in Olivenöl, Orangensaft aus Orangensaftkonzentrat"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr "Geben Sie nur die zutreffenste Kategorie an, die Überkategorien werden automatisch hinzugefügt."
+msgstr "Geben Sie nur die zutreffendste Kategorie an, die Überkategorien werden automatisch hinzugefügt."
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr "kategorien"
+msgstr "Kategorien"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
@@ -246,7 +246,7 @@ msgstr "Die Produkte aus der Kategorie %s"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr "kategorie"
+msgstr "Kategorie"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
@@ -274,11 +274,11 @@ msgstr "Hochgeladene Fotos"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr "pruefer"
+msgstr "Prüfer"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr "pruefer"
+msgstr "Prüfer"
 
 msgctxt "cities_p"
 msgid "packaging cities"
@@ -329,7 +329,30 @@ msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.p
 "<a href=\"https://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
 "<p>Windows Phone app:</p>\n\n"
 "<a href=\"https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
-msgstr ""
+msgstr "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-de.png\" width=\"178\" height=\"142\" alt=\"<<site_name>>\" /></a>\n\n"
+"<p><<site_name>> erfasst Nahrungsmittel aus der ganzen Welt.</p>\n\n"
+"<select_country>\n\n"
+"<p>\n"
+"→ <a href=\"/marken\">Marken</a><br />\n"
+"→ <a href=\"/kategorien\">Kategorien</a><br/>\n"
+"</p>\n\n"
+"<p>\n"
+"Die Informationen über die Produkte (Fotos, Inhaltsstoffe, Zusammensetzung, etc.) werden gemeinsam gesammelt, für alle frei zugänglich gemacht und können danach für jegliche Nutzung verwendet werden. Die Datenbank ist offen, frei und gratis.</p>\n\n\n"
+"<p>Wir sind auch zu finden auf:</p>\n\n"
+"<p>\n"
+"→ <a href=\"http://en.wiki.openfoodfacts.org\">Unser Wiki</a><br />\n"
+"→ <a href=\"http://twitter.com/openfoodfactsde\">Twitter</a><br/>\n"
+"→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a><br />\n"
+"→ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
+"+ <a href=\"https://www.facebook.com/groups/488163711199190/\">Gruppe der Unterstützer</a><br />\n"
+"</p>\n\n\n"
+"<p>iPhone- und iPad-App im App-Store:</p>\n\n"
+"<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Verfügbar im App-Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
+"<p>Android-App auf Google Play:</p>\n\n"
+"<a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner\"><img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Verügbar auf Google Play\" width=\"135\" height=\"47\" /></a><br/>\n"
+"<a href=\"http://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
+"<p>Windows-Phone-App:</p>\n\n"
+"<a href=\"http://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
@@ -341,7 +364,7 @@ msgstr "Sie sind mit Ihrem Facebook-Konto verbunden."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr "BeitragendeR seit"
+msgstr "Mitwirkende(r) seit"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
@@ -353,11 +376,11 @@ msgstr "Bitte korrigieren Sie die folgenden Fehler:"
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr "korrektoren"
+msgstr "Korrektoren"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr "korrekteur"
+msgstr "Korrektor"
 
 msgctxt "countries"
 msgid "Countries where sold"
@@ -369,7 +392,7 @@ msgstr "Länder, in denen das Produkt weit verbreitet ist (Spezialgeschäfte fü
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr "länder"
+msgstr "Länder"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
@@ -377,7 +400,7 @@ msgstr "Produkte verkauft in %s"
 
 msgctxt "countries_s"
 msgid "country"
-msgstr "land"
+msgstr "Land"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -397,7 +420,7 @@ msgstr "Fehlersuche"
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr "Löschung begründen"
+msgstr "Grund der Löschung"
 
 msgctxt "delete_product"
 msgid "Delete a product"
@@ -457,11 +480,11 @@ msgstr "Produkt bearbeiten"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr "Produkt bearbeiten"
+msgstr "Seite bearbeiten"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
-msgstr "Bearbeiten Sie Ihr öffentliches Profil"
+msgstr "Öffentliches Profil bearbeiten"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
@@ -505,11 +528,11 @@ msgstr "Produkte vom Unternehmen mit Produzenten-Code %s verpackt"
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr "DE BY117 EG, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
+msgstr "Produzenten-Code"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr "DE BY117 EG, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
+msgstr "Produzenten-Code"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
@@ -569,7 +592,7 @@ msgstr "Ungültige Adresse."
 
 msgctxt "error_invalid_csrf_token"
 msgid "Invalid CSRF token."
-msgstr "Ungültiges CSRF Token."
+msgstr "Ungültiges CSRF-Token."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
@@ -617,7 +640,7 @@ msgstr "Mit dieser E-Mail-Adresse ist kein Benutzerkonto vorhanden"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr "Dieser Benutzername ist nicht gültig"
+msgstr "Dieser Benutzername ist nicht gültig."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
@@ -689,7 +712,7 @@ msgstr "Verhaltensregeln"
 
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr "Verhaltensregeln"
+msgstr "/verhaltensregeln"
 
 msgctxt "footer_data"
 msgid "Data"
@@ -697,7 +720,7 @@ msgstr "Daten"
 
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr "Die Daten"
+msgstr "/daten"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -709,7 +732,7 @@ msgstr "Häufig gestellte Fragen"
 
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "Häufige Fragen"
+msgstr "/haeufige-fragen"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
@@ -735,7 +758,7 @@ msgstr "Gesetzliche Hinweise"
 
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr "Gesetzliche Hinweise"
+msgstr "/gesetzliche-hinweise"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -743,7 +766,7 @@ msgstr "Presse"
 
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr "Presse"
+msgstr "/presse"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -755,7 +778,7 @@ msgstr "Nutzungsbedingungen"
 
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr "Nutzungsbedingungen"
+msgstr "/nutzungsbedingungen"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -763,7 +786,7 @@ msgstr "Wer wir sind"
 
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr "Wer wir sind"
+msgstr "/wer-wir-sind"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -787,7 +810,7 @@ msgstr "Allgemeiner Name"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
-msgstr "Schokoladenriegel mit Milch und Haselnuß"
+msgstr "Schokoladenriegel mit Milch und Haselnuss"
 
 msgctxt "goodbye"
 msgid "See you soon!"
@@ -887,23 +910,23 @@ msgstr "Von Ihnen hinzugefügte Produkte, die noch fertiggestellt werden müssen
 
 msgctxt "informers_p"
 msgid "informers"
-msgstr "informanten"
+msgstr "Informanten"
 
 msgctxt "informers_s"
 msgid "informers"
-msgstr "informanten"
+msgstr "Informanten"
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr "Inhaltsstoffe"
+msgstr "Zutaten"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr "Inhaltsstoffe"
+msgstr "Zutaten"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
-msgstr "Zutaten-Analyse"
+msgstr "Analyse der Zutaten"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -911,19 +934,19 @@ msgstr "Anmerkung: Inhaltsstoffe können mit vielen verschiedenen Namen angegebe
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
-msgstr "Zutaten, die (möglicherweise) aus Palmöl hergestellt werden"
+msgstr "Zutaten, die aus oder die möglicherweise aus Palmöl hergestellt werden"
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_s"
 msgid "ingredient from or that may be from palm oil"
-msgstr "Zutat, die (möglicherweise) aus Palmöl hergestellt wird"
+msgstr "Zutat, die aus oder die möglicherweise aus Palmöl hergestellt wird"
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr "Zutaten aus Palmöl"
+msgstr "aus Palmöl hergestellte Zutaten"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
-msgstr "Zutat aus Palmöl"
+msgstr "aus Palmöl hergestellte Zutat"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
@@ -935,7 +958,7 @@ msgstr "Anzahl der Inhaltsstoffe"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
-msgstr "zutaten"
+msgstr "Zutaten"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
@@ -943,31 +966,31 @@ msgstr "Produkte , die den Inhaltsstoff %s enthalten"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
-msgstr "zutat"
+msgstr "Zutat"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
-msgstr "Inhaltsstoffliste"
+msgstr "Zutatenliste"
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
-msgstr "Die Inhaltsstoffe werden nach ihrer Wichtigkeit (Menge) gereiht."
+msgstr "Die Zutaten werden nach ihrer Wichtigkeit (Menge) gereiht."
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr "Getreide 85,5% (_Weizen_mehl, _Vollkorn_mehl 11%), Malzextrakt (Gerste), Kakao 4,8%, Vitamin C"
+msgstr "Getreide 85,5% (_Weizenmehl_, _Vollkornmehl_ 11%), Malzextrakt (Gerste), Kakao 4,8%, Vitamin C"
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
-msgstr "Reihung beibehalten, % angeben falls vorhanden, mit Komma oder - trennen, für die Bestandteile eines Inhaltsstoffs () verwenden, Allergene mit _ markieren: zum Beispiel _Milch_"
+msgstr "Reihung beibehalten, % angeben falls vorhanden, mit Komma oder - trennen, für die Bestandteile eines Inhaltsstoffs ( ) verwenden, Allergene mit _ markieren: z. B. _Milch_"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr "Inhaltsstoffe, die möglicherweise aus Palmöl hergestellt werden"
+msgstr "Zutaten, die möglicherweise aus Palmöl hergestellt werden"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
-msgstr "Inhaltsstoff, die möglicherweise aus Palmöl hergestellt wird"
+msgstr "Zutat, die möglicherweise aus Palmöl hergestellt wird"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
@@ -1198,12 +1221,10 @@ msgid "Last picture date"
 msgstr "Datum des letzten Bildes"
 
 msgctxt "licence_accept"
-msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"http://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
-"for information and data, and under the <a href=\"http://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
+msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
+"for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr "Durch das Eingeben von Daten und Hinzufügen von Fotos erklären Sie sich unwiderruflich damit einverstanden Ihre Daten unter der Lizenz <a href=\"http://opendatacommons.org/licenses/dbcl/1.0/\" hreflang=\"en\">Database Contents Licence 1.0</a>\n"
-" und die Fotos unter den Lizenz <a href=\"http://creativecommons.org/licenses/by-sa/3.0/deed.de\">Creative Commons Namensnennung - Weitergabe unter gleichen Bediungungen 3.0</a> zu veröffentlichen.\n"
-"Sie stimmen damit zu, von anderen Projekten, die diese Daten nutzen, mit einem Link zu den von Ihnen bearbeiteten Produkten gennant zu werden."
+msgstr ""
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
@@ -1335,7 +1356,7 @@ msgstr "Produkt hinzufügen"
 
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr "Produkt hinzufügen"
+msgstr "/produkt-hinzufuegen"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -1343,7 +1364,7 @@ msgstr "Beitragen"
 
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr "Mitmachen"
+msgstr "/mitmachen"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1351,7 +1372,7 @@ msgstr "Entdecken"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr "Entdecken"
+msgstr "/entdecken"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1459,7 +1480,7 @@ msgstr "Nährstoffmengen für 100 g"
 
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr "Nährwertstufen"
+msgstr "/naehrwertstufen"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -1812,11 +1833,11 @@ msgstr "Extrahieren Sie die Inhaltsstoffe aus dem Bild"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr "Die Angaben der Inhaltsstoffe konnten nicht extrahiert werden. Sie können es mit einem schärferen Bild, mit höherer Auflösung, oder durch eine bessere Bildeinstellung erneut probieren."
+msgstr "Die Angaben der Zutaten konnten nicht extrahiert werden. Sie können es mit einem schärferen Bild, mit höherer Auflösung, oder durch eine bessere Bildeinstellung erneut probieren."
 
 msgctxt "product_js_extracted_ingredients_ok"
 msgid "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr "Die angegebenen Inhaltsstoffe wurden extrahiert. Da die Texterkennung nicht immer richtig ist, bitten wir Sie, den untenstehenden Text zu überprüfen und möglicherweise vorhandene Fehler zu korrigieren."
+msgstr "Die Zutaten wurden extrahiert. Da die Texterkennung nicht perfekt ist, bitten wir Sie, den unten stehenden Text zu überprüfen und wenn nötig Fehler zu korrigieren."
 
 msgctxt "product_js_extracting_ingredients"
 msgid "Extracting ingredients"
@@ -1888,7 +1909,7 @@ msgstr "Bilder verschieben"
 
 msgctxt "product_js_upload_image"
 msgid "Add a picture"
-msgstr "Ein Bild hinzufügen"
+msgstr "Bild hinzufügen"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
@@ -1912,7 +1933,7 @@ msgstr "Kinder Bueno Weiß"
 
 msgctxt "products"
 msgid "products"
-msgstr "produkte"
+msgstr "Produkte"
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
@@ -1992,7 +2013,15 @@ msgid "Hello <NAME>,\n\n"
 "See you soon,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
-msgstr ""
+msgstr "Hallo <NAME>,\n\n"
+"Sie haben eine Passwort-Zurücksetzung auf http://openfoodfacts.org\n\n"
+"für folgenden Benutzer angefordert: <USERID>\n\n"
+"Um die Passwort-Zurücksetzung abzuschließen, klicken Sie auf den Link unten.\n"
+"Falls Sie keine Zurücksetzung angefordert haben, ignorieren Sie diese E-Mail einfach.\n\n"
+"<RESET_URL>\n\n"
+"Mit freundlichen Grüßen,\n\n"
+"Stephane\n"
+"https://openfoodfacts.org\n"
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
@@ -2100,7 +2129,7 @@ msgstr "Suchkriterien ändern"
 
 msgctxt "search_flatten_tags"
 msgid "(Optional) - Create a column for every:"
-msgstr "(optional) - Spalte erstellen für jede(s)/n:"
+msgstr "(optional) - Spalte erstellen für jede(s/n):"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
@@ -2154,7 +2183,7 @@ msgstr "Egal"
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
-msgstr "Inhaltsstoffe"
+msgstr "Zutaten"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
@@ -2514,7 +2543,7 @@ msgstr "Produkte, die vom Benutzer %s nicht bearbeitet wurden"
 
 msgctxt "users_p"
 msgid "contributors"
-msgstr "beitragszahler"
+msgstr "Mitwirkende"
 
 msgctxt "users_products"
 msgid "Products added by %s"
@@ -2522,7 +2551,7 @@ msgstr "Produkte, die von %s hinzugefügt wurden"
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr "beitragszahler"
+msgstr "Mitwirkende(r)"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
