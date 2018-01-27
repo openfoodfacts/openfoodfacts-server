@@ -1,0 +1,24 @@
+version: '3.3'
+services:
+  db:
+    image: mongo:2.4
+    volumes:
+      - ./data/mongodb:/data/db
+    ports:
+        - 27017:27017
+  app:
+    build:
+      context: .
+    stdin_open: true
+    tty: true
+    entrypoint: /bin/bash
+
+    command: [""]
+    # app_1  | /bin/bash: : No such file or directory
+
+    # app_1  | /bin/bash: /bin/bash: cannot execute binary file
+
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
