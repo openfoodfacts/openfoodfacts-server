@@ -10,6 +10,7 @@ LABEL maintainer="https://github.com/openfoodfacts/openfoodfacts-server/" \
 EXPOSE 8080
 
 # To avoid warnings
+ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -qq && \
     apt-get install -y --no-install-recommends apt-utils
 
@@ -109,10 +110,11 @@ RUN apt-get update -qq && \
     apt-get install -y cpanminus
 
 # Node - Frontend
-RUN apt-get update -qq && \
-    apt-get install -y nodejs npm \
-                        libssl-dev
-RUN ln -s /usr/bin/nodejs /usr/bin/node
+RUN set -x \
+    && apt-get install -y --no-install-recommends git ca-certificates curl gnupg2 \
+    && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
+    && apt-get install -y --no-install-recommends nodejs \
+    && curl -o- -L https://yarnpkg.com/install.sh | bash
 
 WORKDIR /srv/openfoodfacts
 
@@ -133,19 +135,15 @@ RUN cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -M
 #     cpan DateTime::Format::CLDR && \
 #     cpan DateTime::Locale
 
-# Install Frontend packages
+# Install Frontend packages and assets
 COPY package.json /srv/openfoodfacts/
-RUN npm install
-
-# Install Frontend assets
-COPY bower.json .bowerrc /srv/openfoodfacts/
-RUN node_modules/.bin/bower install --allow-root
+RUN /root/.yarn/bin/yarn install
 
 COPY . $WORKDIR
 
 RUN cpanm --quiet --installdeps --notest --skip-satisfied .
 
-# Clena up
+# Clean up
 RUN mkdir /srv/openfoodfacts/users
 RUN mkdir /srv/openfoodfacts/products
 RUN chown -R www-data:www-data /srv/openfoodfacts

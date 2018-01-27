@@ -4,8 +4,7 @@ FROM productopener/backend-base-cpan
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install --assume-yes apt-utils
 
-ADD ./product-opener/ "/opt/product-opener/"
-COPY ./product-opener/cpanfile "/opt/product-opener/cpanfile"
+ADD . "/opt/product-opener/"
 WORKDIR "/opt/product-opener"
 
 # Add ProductOpener runtime dependencies cpanm
