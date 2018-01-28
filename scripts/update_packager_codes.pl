@@ -112,7 +112,7 @@ if (opendir (DH, "$data_root/packager-codes")) {
 					
 				}
 				elsif ($country eq 'es') {
-					# Nº RGSEAA; Razón Social;Provincia/Localidad;lat;lon;Actividades;Especies;Otros Detalles
+					# NÂº RGSEAA; RazÃ³n Social;Provincia/Localidad;lat;lon;Actividades;Especies;Otros Detalles
 					$code = $fields[$headers{n_rgseaa}];
 					$code = normalize_packager_codes("ES $code CE");
 				}

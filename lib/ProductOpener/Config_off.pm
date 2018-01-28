@@ -238,6 +238,8 @@ $options{favicons} = <<HTML
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-TileImage" content="/images/favicon/mstile-144x144.png">
 <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
+<meta name="_globalsign-domain-verification" content="2ku73dDL0bAPTj_s1aylm6vxvrBZFK59SfbH_RdUya" />
+
 HTML
 ;
 
@@ -279,7 +281,7 @@ XML
 
 # fields for which we will load taxonomies
 
-@taxonomy_fields = qw(states countries languages labels categories additives additives_classes allergens traces nutrient_levels misc);
+@taxonomy_fields = qw(states countries languages labels categories additives additives_classes allergens traces nutrient_levels misc ingredients);
 
 
 # fields in product edit form

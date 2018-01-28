@@ -52,6 +52,8 @@ BEGIN
 		%tesseract_ocr_available_languages
 		
 		%weblink_templates
+	
+		@edit_rules
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -77,7 +79,7 @@ twoflower
 scanparty-franprix-05-2016
 );
 
-
+@edit_rules = ();
 
 # server constants
 $server_domain = $ProductOpener::Config2::server_domain;
