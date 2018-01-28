@@ -2600,6 +2600,23 @@ cocoa => {
 	fr => "Note nutritionnelle",
 	en => "Nutrition grade",
 },
+choline => {
+	en => "Choline"
+},
+phylloquinone => {
+	en => "Vitamin K1 (Phylloquinone)",
+	fr => "Vitamine K1"
+},
+"beta-glucan" => {
+	en => "Beta-glucan",
+	fr => "Bêta-glucanes"
+},
+inositol => {
+	en => "Inositol"
+},
+carnitine => {
+	en => "Carnitine"
+}
 );
 
 
