@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2017 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -40,6 +40,47 @@ use vars @EXPORT_OK ;
 sub check_ingredients($) {
 
 	my $product_ref = shift;
+	
+	# Multiple languages in ingredient lists
+	
+	my $nb_languages = 0;
+	
+	($product_ref->{ingredients_text} =~ /\b(ingrédients|sucre|eau|sel|farine)\b/i) and $nb_languages++;
+	($product_ref->{ingredients_text} =~ /\b(sugar|salt|flour|milk)\b/i) and $nb_languages++;
+	($product_ref->{ingredients_text} =~ /\b(ingrediënten|suiker|zout|bloem)\b/i) and $nb_languages++;
+	($product_ref->{ingredients_text} =~ /\b(ingredientes|azucar|agua|sal|harina)\b/i) and $nb_languages++;
+	($product_ref->{ingredients_text} =~ /\b(zutaten|Zucker|Salz|Wasser|Mehl)\b/i) and $nb_languages++;
+	($product_ref->{ingredients_text} =~ /\b(açúcar|farinha|água)\b/i) and $nb_languages++;
+	($product_ref->{ingredients_text} =~ /\b(ingredienti|zucchero|farina|acqua)\b/i) and $nb_languages++;
+	
+	
+	if ($nb_languages > 1) {
+			foreach my $max (5, 4, 3, 2, 1) {
+				if ($nb_languages > $max) {
+					push $product_ref->{quality_tags}, "ingredients-number-of-languages-above-$max";
+				}
+			}		
+		push $product_ref->{quality_tags}, "ingredients-number-of-languages-$nb_languages";
+	}
+	
+	if ((defined $product_ref->{ingredients_n}) and ( $product_ref->{ingredients_n} > 0)) {	
+	
+			my $score = $product_ref->{unknown_ingredients_n} * 2 - $product_ref->{ingredients_n};
+			
+			foreach my $max (50, 40, 30, 20, 10, 5, 0) {
+				if ($score > $max) {
+					push $product_ref->{quality_tags}, "ingredients-unknown-score-above-$max";
+					last;
+				}
+			}			
+	
+			foreach my $max (100, 90, 80, 70, 60, 50) {
+				if (($product_ref->{unknown_ingredients_n} / $product_ref->{ingredients_n}) >= ($max / 100)) {
+					push $product_ref->{quality_tags}, "ingredients-$max-percent-unknown";
+					last;
+				}
+			}
+	}
 	
 	
 	
@@ -135,7 +176,18 @@ sub check_ingredients($) {
 
 }
 
+sub check_quantity($) {
 
+	my $product_ref = shift;
+	
+	# quantity contains "e" - might be an indicator that the user might have wanted to use "℮" \N{U+212E}
+	if ((defined $product_ref->{quantity})
+		and ($product_ref->{quantity} =~ /(?:.*e$)|(?:[0-9]+\s*[kmc]?[gl]?\s*e)/i)
+		and (not ($product_ref->{quantity} =~ /\N{U+212E}/i))) {
+		push $product_ref->{quality_tags}, "quantity-contains-e";
+	}
+
+}
 
 # Run site specific quality checks
 
@@ -146,6 +198,7 @@ sub check_quality($) {
 	$product_ref->{quality_tags} = [];
 	
 	check_ingredients($product_ref);
+	check_quantity($product_ref);
 }
 
 
