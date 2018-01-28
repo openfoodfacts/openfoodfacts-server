@@ -2371,7 +2371,14 @@ HTML
 			$request_ref->{title} = $title;
 		}
 
-		$html = "<div itemscope itemtype=\"http://schema.org/Thing\"><h1 itemprop=\"name\">" . $title ."</h1>" . $html . "</div>";
+		$itemtype = "http://schema.org/Thing";
+		if ($tagtype eq "brands") {
+			$itemtype = "http://schema.org/Brand";
+		}
+		# TODO: Dietary supplements (https://github.com/openfoodfacts/openfoodfacts-server/issues/15)
+		# TODO: Producer
+
+		$html = "<div itemscope itemtype=\"" . $itemtype . "\"><h1 itemprop=\"name\">" . $title ."</h1>" . $html . "</div>";
 		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
 	}
 
