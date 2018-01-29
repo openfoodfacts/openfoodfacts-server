@@ -3258,9 +3258,14 @@ COMMENT
 		$a_points_fr = $a_points_fr_matieres_grasses;
 		$product_ref->{nutrition_score_debug} .= " -- in fats category";		
 	}
+
+	# Nutriscore: milk and drinkable yogurts are not considered beverages
 	
 	if (has_tag($product_ref, "categories", "en:beverages")
-		and not (has_tag($product_ref, "categories", "en:plant-milks") or has_tag($product_ref, "categories", "en:milks"))) {
+		and not (has_tag($product_ref, "categories", "en:plant-milks")
+			 or has_tag($product_ref, "categories", "en:milks")
+			 or has_tag($product_ref, "categories", "en:dairy-drinks")
+			)) {
 		$product_ref->{nutrition_score_debug} .= " -- in beverages category - a_points_fr_beverage: $fr_beverages_energy_points (energy) + $saturated_fat_points (sat_fat) + $fr_beverages_sugars_points (sugars) + $sodium_points (sodium) = $a_points_fr_beverages - ";
 		
 		$a_points_fr = $a_points_fr_beverages;
@@ -3351,7 +3356,10 @@ COMMENT
 	push @{$product_ref->{misc_tags}}, "en:nutriscore-computed";	
 	
 	if (has_tag($product_ref, "categories", "en:beverages")
-		and not (has_tag($product_ref, "categories", "en:plant-milks") or has_tag($product_ref, "categories", "en:milks"))) {
+		and not (has_tag($product_ref, "categories", "en:plant-milks")
+		 or has_tag($product_ref, "categories", "en:milks")
+		 or has_tag($product_ref, "categories", "en:dairy-drinks")
+	)) {
 		
 # Tableau 6 : Seuils du score FSA retenus pour les boissons
 # Classe du 5-C
