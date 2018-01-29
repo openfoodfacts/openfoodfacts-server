@@ -316,6 +316,11 @@ nutrition-score-fr-
 nutrition-score-uk-
 glycemic-index-
 water-hardness-
+choline-
+phylloquinone-
+beta-glucan-
+inositol-
+carnitine-
 )
 ],
 
@@ -423,6 +428,11 @@ nutrition-score-fr-
 nutrition-score-uk-
 glycemic-index-
 water-hardness-
+choline-
+phylloquinone-
+beta-glucan-
+inositol-
+carnitine-
 )
 ],
 
@@ -529,6 +539,11 @@ nutrition-score-fr-
 nutrition-score-uk-
 glycemic-index-
 water-hardness-
+choline-
+phylloquinone-
+beta-glucan-
+inositol-
+carnitine-
 )
 ],
 
@@ -638,6 +653,11 @@ nutrition-score-fr-
 nutrition-score-uk-
 glycemic-index-
 water-hardness-
+choline-
+phylloquinone-
+beta-glucan-
+inositol-
+carnitine-
 )
 ],
 
