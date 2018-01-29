@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2017 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -176,7 +176,18 @@ sub check_ingredients($) {
 
 }
 
+sub check_quantity($) {
 
+	my $product_ref = shift;
+	
+	# quantity contains "e" - might be an indicator that the user might have wanted to use "℮" \N{U+212E}
+	if ((defined $product_ref->{quantity})
+		and ($product_ref->{quantity} =~ /(?:.*e$)|(?:[0-9]+\s*[kmc]?[gl]?\s*e)/i)
+		and (not ($product_ref->{quantity} =~ /\N{U+212E}/i))) {
+		push $product_ref->{quality_tags}, "quantity-contains-e";
+	}
+
+}
 
 # Run site specific quality checks
 
@@ -187,6 +198,7 @@ sub check_quality($) {
 	$product_ref->{quality_tags} = [];
 	
 	check_ingredients($product_ref);
+	check_quantity($product_ref);
 }
 
 
