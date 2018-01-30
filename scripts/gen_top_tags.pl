@@ -354,7 +354,7 @@ foreach my $l (sort { $langs{$b} <=> $langs{$a}} keys %langs) {
 
         if ($langs{$l} > 0) {
                 $lang = $l;
-                $html .= "<p><a href=\"http://$lang.$server_domain/\">" . $Langs{$l} . "</a> - $langs{$l} " . lang("products") . "</p>";
+                $html .= "<p><a href=\"https://$lang.$server_domain/\">" . $Langs{$l} . "</a> - $langs{$l} " . lang("products") . "</p>";
         }
 
 }
@@ -369,7 +369,7 @@ foreach my $l (sort { $langs{$b} <=> $langs{$a}} keys %langs) {
 
         if ($langs{$l} > 0) {
                 $lang = $l;
-                $html .= "<a href=\"http://$lang.$server_domain/\" title=\"" . $langs{$l} . " " . lang("products").  "\">" . $Langs{$l} . "</a> - ";
+                $html .= "<a href=\"https://$lang.$server_domain/\" title=\"" . $langs{$l} . " " . lang("products").  "\">" . $Langs{$l} . "</a> - ";
         }
 
 }
@@ -387,7 +387,7 @@ foreach my $lc (sort keys %langs) {
 	my $meta = '';
 	if (-e "$www_root/images/misc/products_graph_$lc.png") {
 		$meta = <<HTML
-<meta property="og:image" content="http://$lc.openfoodfacts.org/images/misc/products_graph_$lc.png"/>
+<meta property="og:image" content="https://$lc.openfoodfacts.org/images/misc/products_graph_$lc.png"/>
 HTML
 ;
 		print "found meta products_graph_$lc.png image\n";
@@ -464,7 +464,7 @@ Highcharts.setOptions({
                 text: '$Lang{products_stats}{$lang} - $Langs{$lang}'
             },
             subtitle: {
-                text: 'Source: <a href="http://$lc.openfoodfacts.org">'+
+                text: 'Source: <a href="https://$lc.openfoodfacts.org">'+
                     '$lc.openfoodfacts.org</a>'
             },
             xAxis: {
