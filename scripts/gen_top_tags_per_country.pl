@@ -18,7 +18,7 @@
 # GNU Affero General Public License for more details.
 # 
 # You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -672,7 +672,7 @@ foreach my $country (sort { $countries{$b} <=> $countries{$a}} keys %countries) 
 				if ($country eq 'en:world') {
 					$cc = 'world';
 				}				
-                $html .= "<a href=\"http://$cc.$server_domain/\">" . display_taxonomy_tag_link('en','countries',$country) . "</a> : $countries{$country} " . lang("products") . "<br />";
+                $html .= "<a href=\"https://$cc.$server_domain/\">" . display_taxonomy_tag_link('en','countries',$country) . "</a> : $countries{$country} " . lang("products") . "<br />";
         }
 
 }
@@ -696,7 +696,7 @@ foreach my $country (sort { $countries{$b} <=> $countries{$a}} keys %countries) 
 				
 				my $n = $countries{$country};
 				$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
-				my $link = "<a href=\"http://$cc.$server_domain/\">" . display_taxonomy_tag('en','countries',$country) . "</a>";
+				my $link = "<a href=\"https://$cc.$server_domain/\">" . display_taxonomy_tag('en','countries',$country) . "</a>";
 				my $i = 0;
 				foreach my $lc (@{$country_languages{$cc}}) {
 					if ($lc ne 'en') {
@@ -704,7 +704,7 @@ foreach my $country (sort { $countries{$b} <=> $countries{$a}} keys %countries) 
 						if ($i != 0) {
 							$subdomain = "$cc-$lc";
 						}
-						$link .= " / " . "<a href=\"http://$subdomain.$server_domain/\">" . display_taxonomy_tag($lc,'countries',$country) . "</a>"
+						$link .= " / " . "<a href=\"https://$subdomain.$server_domain/\">" . display_taxonomy_tag($lc,'countries',$country) . "</a>"
 					}
 
 					$i++;
@@ -759,7 +759,7 @@ foreach my $country (sort { $countries_tags{$b}{categories}{"en:yogurts"} <=> $c
 				
 				my $n = $countries_tags{$country}{categories}{"en:yogurts"};
 				$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
-				my $link = "<a href=\"http://$cc.$server_domain" . canonicalize_taxonomy_tag_link($lc,"categories", "en:yogurts") . "\">" . display_taxonomy_tag('en','countries',$country) . "</a>";
+				my $link = "<a href=\"https://$cc.$server_domain" . canonicalize_taxonomy_tag_link($lc,"categories", "en:yogurts") . "\">" . display_taxonomy_tag('en','countries',$country) . "</a>";
 
 		
                 $html .= "<li>$link - " . $countries_tags{$country}{categories}{"en:yogurts"} . " yogurts</li>\n";
@@ -812,7 +812,7 @@ foreach my $country (sort { $countries_tags{$b}{categories}{"en:shampoos"} <=> $
 				
 				my $n = $countries_tags{$country}{categories}{"en:shampoos"};
 				$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
-				my $link = "<a href=\"http://$cc.$server_domain" . canonicalize_taxonomy_tag_link($lc,"categories", "en:shampoos") . "\">" . display_taxonomy_tag('en','countries',$country) . "</a>";
+				my $link = "<a href=\"https://$cc.$server_domain" . canonicalize_taxonomy_tag_link($lc,"categories", "en:shampoos") . "\">" . display_taxonomy_tag('en','countries',$country) . "</a>";
 
 		
                 $html .= "<li>$link - " . $countries_tags{$country}{categories}{"en:shampoos"} . " shampoos</li>\n";
@@ -847,7 +847,7 @@ foreach my $country (sort { $countries{$b} <=> $countries{$a}} keys %countries) 
 	my $meta = '';
 	if (-e "$www_root/images/misc/products_graph_country_$cc.png") {
 		$meta = <<HTML
-<meta property="og:image" content="http://$lc.$server_domain/images/misc/products_graph_country_$cc.png"/>
+<meta property="og:image" content="https://$lc.$server_domain/images/misc/products_graph_country_$cc.png"/>
 HTML
 ;
 		print "found meta products_graph_country_$cc.png image\n";
@@ -929,7 +929,7 @@ Highcharts.setOptions({
                 text: '$Lang{products_stats}{$lang} - $country_name'
             },
             subtitle: {
-                text: 'Source: <a href="http://$cc.$server_domain">'+
+                text: 'Source: <a href="https://$cc.$server_domain">'+
                     '$cc.$server_domain</a>'
             },
             xAxis: {
@@ -1068,7 +1068,7 @@ HTML
                 text: '$Lang{products_stats}{$lang}'
             },
             subtitle: {
-                text: 'Source: <a href="http://$server_domain">'+
+                text: 'Source: <a href="https://$server_domain">'+
                     '$server_domain</a>'
             },
 			tooltip: {
