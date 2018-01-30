@@ -217,7 +217,7 @@ HTML
 		
 		my $id = get_fileid($name);		
 		
-		$html .= "<tr><td>" . $product_ref->{code} . "</td><td><a href=\"http://howmuchsugar.in/$id\">" . $product_ref->{product_name} . "</a></td><td>" . $name . "</td><td>" . $product_ref->{brands} . "</td><td>" . $product_ref->{quantity} 
+		$html .= "<tr><td>" . $product_ref->{code} . "</td><td><a href=\"https://howmuchsugar.in/$id\">" . $product_ref->{product_name} . "</a></td><td>" . $name . "</td><td>" . $product_ref->{brands} . "</td><td>" . $product_ref->{quantity} 
 			. "</td><td>$q x $x = $qx</td><td>$s</td><td>$sc</td><td>" . $product_ref->{"nutriments"}{"sugars_100g"} . "</td></tr>\n";
 			
 
@@ -253,9 +253,9 @@ HTML
 <meta property="fb:app_id" content="472618429477645" />
 <meta property="og:type" content="food"/>
 <meta property="og:title" content="How much sugar?"/>
-<meta property="og:url" content="http://howmuchsugar.in/$id"/>
+<meta property="og:url" content="https://howmuchsugar.in/$id"/>
 
-<meta property="og:image" content="http://howmuchsugar.in/howmuchsugar.png"/>
+<meta property="og:image" content="https://howmuchsugar.in/howmuchsugar.png"/>
 <meta property="og:image" content="$img_url"/>
 <meta property="og:description" content="$description"/>
 <meta name="description" content="$description" />
@@ -500,8 +500,8 @@ $zoom
 <div style="float:left;margin-right:15px;width:150px;color:darkblue;background:white;padding:10px;">See if your friends know the answer!</div>
 <div style="float:left;padding-right:15px;" class="sharebutton"><iframe allowtransparency="true" frameborder="0" scrolling="no" role="presentation" 
 src="https://platform.twitter.com/widgets/tweet_button.html?via=OpenFoodFactsUK&amp;count=vertical&amp;lang=fr&amp;text=How%20much%20sugar%20in%20$escapedname%20%3F" style="width:65px; height:63px;"></iframe></div>
-<div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="http://howmuchsugar.in/$id" layout="box_count"></fb:like></div>
-<div style="float:left;padding-right:15px;padding-bottom:10px;" class="sharebutton"><g:plusone size="tall" count="true" href="http://howmuchsugar.in/$id"></g:plusone></div>
+<div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="https://howmuchsugar.in/$id" layout="box_count"></fb:like></div>
+<div style="float:left;padding-right:15px;padding-bottom:10px;" class="sharebutton"><g:plusone size="tall" count="true" href="https://howmuchsugar.in/$id"></g:plusone></div>
 </div>
 
 
