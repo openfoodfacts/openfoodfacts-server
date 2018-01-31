@@ -316,6 +316,11 @@ nutrition-score-fr-
 nutrition-score-uk-
 glycemic-index-
 water-hardness-
+choline-
+phylloquinone-
+beta-glucan-
+inositol-
+carnitine-
 )
 ],
 
@@ -423,6 +428,11 @@ nutrition-score-fr-
 nutrition-score-uk-
 glycemic-index-
 water-hardness-
+choline-
+phylloquinone-
+beta-glucan-
+inositol-
+carnitine-
 )
 ],
 
@@ -529,6 +539,11 @@ nutrition-score-fr-
 nutrition-score-uk-
 glycemic-index-
 water-hardness-
+choline-
+phylloquinone-
+beta-glucan-
+inositol-
+carnitine-
 )
 ],
 
@@ -638,6 +653,11 @@ nutrition-score-fr-
 nutrition-score-uk-
 glycemic-index-
 water-hardness-
+choline-
+phylloquinone-
+beta-glucan-
+inositol-
+carnitine-
 )
 ],
 
@@ -2600,6 +2620,23 @@ cocoa => {
 	fr => "Note nutritionnelle",
 	en => "Nutrition grade",
 },
+choline => {
+	en => "Choline"
+},
+phylloquinone => {
+	en => "Vitamin K1 (Phylloquinone)",
+	fr => "Vitamine K1"
+},
+"beta-glucan" => {
+	en => "Beta-glucan",
+	fr => "Bêta-glucanes"
+},
+inositol => {
+	en => "Inositol"
+},
+carnitine => {
+	en => "Carnitine"
+}
 );
 
 
