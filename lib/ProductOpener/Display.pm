@@ -792,6 +792,37 @@ sub display_date($) {
 
 }
 
+sub display_date_without_time($) {
+
+	my $t = shift;
+
+	if (defined $t) {
+		my @codes = DateTime::Locale->codes;
+		my $locale;
+		if ( $lc ~~ @codes ) {
+			$locale = DateTime::Locale->load($lc);
+		}
+		else {
+			$locale = DateTime::Locale->load('en');
+		}
+	
+		my $dt = DateTime->from_epoch(
+			locale => $locale,
+			time_zone => $reference_timezone,
+			epoch => $t );
+		my $formatter = DateTime::Format::CLDR->new(
+		    pattern => $locale->date_format_long,
+		    locale => $locale
+		);
+		$dt->set_formatter($formatter);
+		return $dt;
+	}
+	else {
+		return;
+	}
+
+}
+
 sub display_date_tag($) {
 
 	my $t = shift;
@@ -6686,6 +6717,47 @@ HTML
 
 	my $created_date = display_date_tag($product_ref->{created_t});
 	
+	# Ask for photos if we do not have any, or if they are too old
+
+	my $last_image = "";	
+	my $image_warning = "";	
+	
+	if ((not defined ($product_ref->{images})) or ((scalar keys %{$product_ref->{images}}) < 1)) {
+	
+		$image_warning = $Lang{product_has_no_photos}{$lang};
+	
+	}	
+	elsif ((defined $product_ref->{last_image_t}) and ($product_ref->{last_image_t} > 0)) {
+	
+		my $last_image_date = display_date($product_ref->{last_image_t});
+		my $last_image_date_without_time = display_date_without_time($product_ref->{last_image_t});
+		
+		$last_image = "<br/>" . "$Lang{last_image_added}{$lang} $last_image_date";
+		
+		# Was the last photo uploaded more than 6 months ago?
+		
+		if (($product_ref->{last_image_t} + 86400 * 30 * 6) < time()) {
+
+			$image_warning = sprintf($Lang{product_has_old_photos}{$lang}, $last_image_date_without_time);
+		
+		}
+		
+	}
+	
+
+	if ($image_warning ne "") {
+	
+		$image_warning = <<HTML
+<div id="image_warning" style="display: block; background:#ffcc33;color:black;padding:1em;text-decoration:none;">
+$image_warning
+</div>
+HTML
+;		
+	
+	}
+	
+
+	
 	my $creator =  $product_ref->{creator} ;
 	
 	# Remove links for iOS (issues with twitter / facebook badges loading in separate windows..)
@@ -6700,17 +6772,24 @@ HTML
 	
 <p>
 $Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator
+$last_image
 </p>	
+
 	
-<div class="ui-state-highlight ui-corner-all" style="padding:5px;margin-right:20px;display:table;margin-top:20px;margin-bottom:20px;">
-<span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
-<span>
-HTML
-. lang("fixme_product") . <<HTML
-</span>
+<div style="margin-bottom:20px;">
+
+<p>$Lang{fixme_product}{$lang}</p>
+
+$image_warning
 
 <p>$Lang{app_you_can_add_pictures}{$lang}</p>
 
+<button onclick="captureImage();" data-icon="off-camera">$Lang{image_front}{$lang}</button> 
+<div id="upload_image_result_front"></div>
+<button onclick="captureImage();" data-icon="off-camera">$Lang{image_ingredients}{$lang}</button> 
+<div id="upload_image_result_ingredients"></div>
+<button onclick="captureImage();" data-icon="off-camera">$Lang{image_nutrition}{$lang}</button> 
+<div id="upload_image_result_nutrition"></div>
 <button onclick="captureImage();" data-icon="off-camera">$Lang{app_take_a_picture}{$lang}</button> 
 <div id="upload_image_result"></div>
 <p>$Lang{app_take_a_picture_note}{$lang}</p>
