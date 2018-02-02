@@ -6257,6 +6257,11 @@ HTML
 </div>
 HTML
 ;
+
+	# Do not display nutrition table for Open Beauty Facts
+	
+	if (not ((defined $options{no_nutrition_table}) and ($options{no_nutrition_table}))) {
+
 	
 	$html_image = display_image_box($product_ref, 'nutrition', \$minheight);	
 
@@ -6314,6 +6319,15 @@ HTML
 	
 	$html .= display_nutrition_table($product_ref, \@comparisons);
 	
+	$html .= <<HTML
+</div>
+<div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$html_image</div>
+</div>
+HTML
+;	
+	
+	}
+	
 	# photos and data sources
 
 	
@@ -6346,10 +6360,6 @@ HTML
 	}
 
 	$html .= <<HTML
-</div>
-<div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$html_image</div>
-</div>
-
 	
 <p>$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator.<br/>
 $Lang{product_last_edited}{$lang} $last_modified_date $Lang{by}{$lang} $last_editor.
@@ -6648,6 +6658,35 @@ HTML
 		
 	}
 	
+	
+	# special ingredients tags
+	
+	if ((defined $ingredients_text) and ($ingredients_text !~ /^\s*$/s) and (defined $special_tags{ingredients})) {
+	
+		my $special_html = "";
+	
+		foreach my $special_tag_ref (@{$special_tags{ingredients}}) {
+		
+			my $tagid = $special_tag_ref->{tagid};
+			my $type = $special_tag_ref->{type};
+			
+			if (  (($type eq 'without') and (not has_tag($product_ref, "ingredients", $tagid)))
+			or (($type eq 'with') and (has_tag($product_ref, "ingredients", $tagid)))) {
+				
+				$special_html .= "<li class=\"${type}_${tagid}_$lc\">" . lang("search_" . $type) . " " . display_taxonomy_tag_link($lc, "ingredients", $tagid) . "</li>\n";
+			}
+		
+		}
+		
+		if ($special_html ne "") {
+		
+			$html  .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang("ingredients_analysis") . separator_before_colon($lc)) . ":</b><br />"
+			. "<ul id=\"special_ingredients\">\n" . $special_html . "</ul>\n"
+			. "<p>" . lang("ingredients_analysis_note") . "</p></div>\n";
+		}
+	
+	}	
+	
 	$html_image = display_image_box($product_ref, 'nutrition', \$minheight);	
 	
 	$html .= "</div>";
@@ -6655,6 +6694,13 @@ HTML
 	$html .= <<HTML
 			</div>
 		</div>
+HTML
+;
+
+	if (not ((defined $options{no_nutrition_table}) and ($options{no_nutrition_table}))) {
+
+		
+	$html .= <<HTML	
         <div data-role="collapsible-set" data-theme="" data-content-theme="">
             <div data-role="collapsible" data-collapsed="true">	
 HTML
@@ -6681,8 +6727,12 @@ HTML
 	
 	$html .= display_nutrition_table($product_ref, \@comparisons);
 	
-	
-	
+	$html .= <<HTML
+			</div>
+		</div>
+HTML
+;		
+	}
 
 	my $created_date = display_date_tag($product_ref->{created_t});
 	
@@ -6695,8 +6745,6 @@ HTML
 	$html =~ s/<span  /<span /g;
 
 	$html .= <<HTML
-			</div>
-		</div>
 	
 <p>
 $Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator
