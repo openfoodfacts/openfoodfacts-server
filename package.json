@@ -5,13 +5,16 @@
   "main": "",
   "private": true,
   "scripts": {
-    "build": "./node_modules/.bin/gulp",
-    "test": "yarn run test:lang && yarn run prove && yarn run jshint && yarn run perlc",
+    "build": "gulp",
+    "test": "yarn run test:lang && yarn run prove && yarn run lint && yarn run perlc",
     "test:lang": "yarn run test:lang:common && yarn run test:lang:en",
     "test:lang:en": "perl scripts/check_po_file.pl po/tags/en.po",
     "test:lang:common": "perl scripts/check_po_file.pl po/common/en.po",
     "prove": "prove -l",
-    "jshint": "./node_modules/.bin/jshint --show-non-errors html/js/product-multilingual.js html/js/search.js",
+    "lint": "yarn run lint:js && yarn run lint:css && yarn run lint:scss",
+    "lint:js": "jshint --show-non-errors html/js/product-multilingual.js html/js/search.js html/js/display-tag.js",
+    "lint:css": "stylelint html/css/product-multilingual.css",
+    "lint:scss": "stylelint scss/app.scss",
     "perlc": "yarn run perlc:startup && yarn run perlc:product",
     "perlc:startup": "perl -c -CS -Ilib lib/startup_apache2.pl",
     "perlc:product": "perl -c -CS -Ilib cgi/product_multilingual.pl",
@@ -34,11 +37,11 @@
   ],
   "dependencies": {
     "@bower_components/ManUp.js": "git://github.com/boyofgreen/ManUp.js.git#*",
+    "@bower_components/foundation": "zurb/bower-foundation#^5.5.3",
+    "@bower_components/foundation-icon-fonts": "zurb/foundation-icon-fonts#*",
     "@bower_components/leaflet": "Leaflet/Leaflet#>=1.0.0",
     "@bower_components/leaflet.markercluster": "Leaflet/Leaflet.markercluster#>=1.0.0",
-    "@bower_components/foundation": "zurb/foundation#^5.5.3",
-    "@bower_components/foundation-icon-fonts": "zurb/foundation-icon-fonts#*",
-    "@bower_components/jquery-ui": "jquery/jquery-ui#^1.12.1",
+    "@bower_components/jquery-ui": "components/jqueryui#^1.12.1",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.3.2",
     "gulp-sass": "^3.1.0",
@@ -48,7 +51,10 @@
     "yarn": "^1.2.1"
   },
   "devDependencies": {
-    "jshint": "^2.9.4"
+    "jshint": "^2.9.4",
+    "stylelint": "^8.3.1",
+    "stylelint-scss": "^2.2.0",
+    "stylelint-config-recommended-scss": "^3.0.0"
   },
   "engines": {
     "yarn": ">= 1.0.0"

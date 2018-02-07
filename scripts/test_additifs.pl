@@ -115,13 +115,13 @@ my $count = $cursor->count();
 	}
 	
 	
-print $OUT "<br><br><br>Additifs les plus enlevés :</br>";
+print $OUT "<br><br><br>Additifs les plus enlevÃ©s :</br>";
 
 foreach my $id (sort { $minus{$b} <=> $minus{$a} } keys %minus) {
 	print $OUT "<span style=\"color:#a00\">($id)</span> : $minus{$id}<br/>\n";
 }	
 
-print $OUT "<br><br><br>Additifs les plus ajoutés :</br>";
+print $OUT "<br><br><br>Additifs les plus ajoutÃ©s :</br>";
 
 foreach my $id (sort { $plus{$b} <=> $plus{$a} } keys %plus) {
 	print $OUT "<span style=\"color:#0a0\">+$id</span> : $plus{$id}<br/>\n";

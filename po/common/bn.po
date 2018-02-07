@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bn\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-11-12 18:42-0500\n"
+"PO-Revision-Date: 2017-12-21 12:33-0500\n"
 "Language-Team: Bengali\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -22,11 +22,11 @@ msgstr "bn"
 #. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
 msgid ":langname"
-msgstr ""
+msgstr ":langname"
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "একটি পণ্য"
 
 msgctxt "_and_"
 msgid " and "
@@ -38,7 +38,7 @@ msgstr "আমার সম্পর্কে"
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "যোগ"
 
 msgctxt "add_language"
 msgid "Add language"
@@ -46,7 +46,7 @@ msgstr "ভাষা যুক্ত করুন"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr ""
+msgstr "একটি পণ্য যোগণ করুন"
 
 msgctxt "add_user"
 msgid "Register"
@@ -54,7 +54,7 @@ msgstr "নিবন্ধন করুন"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "<p>যুক্ত হবার জন্য।এখন আপনি সাইটটিতে সাইন-ইন এবং পণ্য সম্পাদনা করতে পারেন।<p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -72,27 +72,36 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr ""
+msgstr "হ্যালো <NAME>,\n\n"
+"https://openfoodfacts.org এ যোগদান করার জন্য অনেক ধন্যবাদ\n"
+"এখানে আপনার ইউসার নাম:\n\n"
+" ব্যবহারকারী নাম: <USERID>\n\n"
+"আপনি এখন পণ্যগুলি যোগ এবং সম্পাদনা করার জন্য সাইটটিতে সাইন ইন করতে পারেন। \n\n"
+"<<site_name>> একটি সহযোগী প্রকল্প যা আপনি নতুন পণ্যগুলির চেয়ে অনেক বেশি আনতে পারেন: আপনার শক্তি, উত্সাহ এবং ধারনা! অবদানকারীর মধ্যে আলোচনার জন্য এবং প্রকল্পটিকে এগিয়ে নিয়ে যাওয়ার জন্য, আমরা খুব সুসংগত মেসেজিং সিস্টেম ব্যবহার করি যা স্ল্যাক নামে পরিচিত: https://slack.openfoodfacts.org\n\n"
+"আপনি অবদানকারীর জন্য ফেসবুক গ্রুপেও যোগ দিতে পারেন: https://www.facebook.com/group/openfoodfacts/\n\n"
+"নতুন: আমরাও প্রসাধনীগুলির একটি ডাটাবেস তৈরি করতে ওপেন সৌন্দর্যের তথ্যগুলি শুরু করছি: সাবান, টুথপেষ্ট, মেকআপ ইত্যাদি https://openbeautyfacts.org আপনাকে \n\n"
+"অনেক ধন্যবাদ!\n\n"
+"স্টেফেন এবং open food facts দল https://openfoodfacts.org https://twitter.com/OpenFoodFacts\n"
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "যুক্ত হবার জন্য ধন্যবাদ <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "সম্ভাব্য ক্ষতিকর ভোজ্য উপাদান। সীমিত ব্যবহার।"
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "ক্ষতিকর ভোজ্য উপাদান।বর্জন করুন।"
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "ইউরোপে এই খাদ্য উপাদান নিষিদ্ধ।যে ভাবে হোক এড়িয়ে চলুন।"
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "ভোজ্য উপাদান"
 
 msgctxt "additives_s"
 msgid "additive"
@@ -124,7 +133,7 @@ msgstr "অতিপ্রতিক্রিয়া সৃষ্টিকার�
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "অ্যালার্জি"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
@@ -132,24 +141,25 @@ msgstr "পণ্য পাতাটি যারা সম্পাদনা �
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
 
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr ""
+msgstr "<p> এই পণ্য এখনো <<site_name>> ডাটাবেসে নেই। তা যোগ করার জন্য আপনি কি পণ্য, বারকোড, উপাদান তালিকার এবং পুষ্টি বিষয়গুলির কিছু ছবি নিয়ে অনুগ্রহপূর্বক <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p> এ দিন\n"
+"<p>অগ্রিম ধন্যবাদ! </p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -157,7 +167,7 @@ msgstr "একটি ছবি নিন"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr ""
+msgstr "আপনি যে চিত্রগুলি পাঠিয়েছেন সেগুলি মুক্ত লাইসেন্স ক্রিয়েটিভ কমন্স অ্যাট্রিবিউশন এবং শেয়ারএলইকের অধীনে প্রকাশ করা হয়েছে।"
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
@@ -185,11 +195,15 @@ msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n
 "</a>\n"
 "<p>Contribute to <<site_name>> by adding product and win stars by\n"
 "fulfilling <a href=\"/missions\">missions</a>!</p>\n"
-msgstr ""
+msgstr "Copy text \t\n"
+"<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
+"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
+"</a>\n"
+"<p>অবদানের জন্য <<site_name>> পণ্য সংযুক্ত ও সম্পুন্ন করলে স্টার জিতুন <a href=\"/missions\">কাজ</a>!</p>\n"
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
-msgstr ""
+msgstr "মিশন আলিঙ্গন করুন"
 
 msgctxt "brands"
 msgid "Brands"
@@ -197,7 +211,7 @@ msgstr "মার্কা"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr ""
+msgstr "কাইন্ডার বেনো হোয়াইট, কাইন্ডার বেনো, কাইন্ডার, ফেররেও"
 
 msgctxt "brands_p"
 msgid "brands"
@@ -205,11 +219,11 @@ msgstr "মার্কা গুলো"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr ""
+msgstr "পণ্যগুলো %s ব্র্যান্ড থেকে"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "ব্র্যান্ড"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
@@ -217,7 +231,7 @@ msgstr "একটি মার্কা যুক্ত করুন"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr ""
+msgstr "পণ্য %s থেকে নয়"
 
 msgctxt "by"
 msgid "by"
@@ -229,79 +243,79 @@ msgstr "শ্রেণীসমূহ"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr ""
+msgstr "জলপাই তেলে সারডিন, ঘনীভূত করা থেকে কমলা রস"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr ""
+msgstr "শুধুমাত্র সবচেয়ে নির্দিষ্ট বিভাগ নির্দেশ করুন। \"মাতাপিতা\" বিভাগ স্বয়ংক্রিয়ভাবে যোগ হয় যাবে।"
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "শ্রেণীসমূহ"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr ""
+msgstr "%s বিভাগ থেকে পণ্য"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "শ্রেণীসমূহ"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr ""
+msgstr "শ্রেণি যুক্ত করণ"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr ""
+msgstr "%s শ্রেণি থেকে পণ্য নয়।"
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr ""
+msgstr "তথ্য"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "পুষ্টিসাধকতা"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr ""
+msgstr "নির্বাচিত চিত্র"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr ""
+msgstr "আপলোড করা ছবিগুলি"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr ""
+msgstr "পরীক্ষকরা"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr ""
+msgstr "পরীক্ষক"
 
 msgctxt "cities_p"
 msgid "packaging cities"
-msgstr ""
+msgstr "প্যাকেজিং শহরগুলি"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr ""
+msgstr "%s শহরের মধ্যে প্যাক করা পণ্য"
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr ""
+msgstr "প্যাকেজিং করা শহর হল"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr ""
+msgstr "%s শহরের মধ্যে প্যাক করা পণ্য নয়"
 
 msgctxt "codes_p"
 msgid "Codes"
-msgstr ""
+msgstr "সংকেত"
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr ""
+msgstr "সংকেত"
 
 msgctxt "column_obsolete_do_not_translate_for_reference_only"
 msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.png\" width=\"178\" height=\"144\" alt=\"<<site_name>>\" /></a>\n\n"
@@ -328,315 +342,338 @@ msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.p
 "<a href=\"https://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
 "<p>Windows Phone app:</p>\n\n"
 "<a href=\"https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
-msgstr ""
+msgstr "<img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.png\" width=\"178\" height=\"144\" alt=\"<<site_name>>\" /></a>\n\n"
+"<p><site_name>সারা বিশ্বে খাদ্য পণ্য সম্পর্কে তথ্য এবং তথ্য সংগ্রহ করে</p>\n\n"
+"<select_country>\n\n"
+"<p>\n"
+"→<a href=\"/brands\"> ব্র্যান্ড </a><br />\n"
+"→ <a href=\"/categories\"> ক্যাটাগরি </a><br/>\n"
+"</p>\n\n"
+"<p>খাদ্যের তথ্য (ছবি, উপাদান, পুষ্টি সংক্রান্ত তথ্য ইত্যাদি) একটি সহযোগিতামূলকভাবে সংগ্রহ করা হয় এবং একটি বিনামূল্যে এবং খোলা ডাটাবেসের মধ্যে সবার জন্য সবকিছু ব্যবহারের জন্য উপলব্ধ করা হয়।</p>\n\n"
+"<p>আমাদের পেতে পারেন: </p>\n\n"
+"<p>\n"
+"→ <a href=\"https://en.wiki.openfoodfacts.org\">আমাদের উইকি </a><br/>\n"
+"→ <a href=\"https://twitter.com/openfoodfacts\"> টুইটার </a><br/>\n"
+"→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">গুগল প্লাস </a><br />\n"
+"→ <a href=\"https://www.facebook.com/OpenFoodFacts\">ফেসবুক </a><br />\n"
+"+ <a href=\"https://www.facebook.com/groups/374350705955208/\"> অবদানকারীদের গ্রুপ </a><br/>\n"
+"</p>\n\n"
+"<p> অ্যাপ স্টোরে আইফন এবং আইপ্যাড অ্যাপ: </p>\n\n"
+"<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a>\n"
+"<br/>\n\n"
+"<p> গুগল প্লে তে আন্ড্রএড অ্যাপ: </p>\n\n"
+"<a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner\"><img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" /></a><br/>\n"
+"<a href=\"https://world.openfoodfacts.org/files/off.apk\"> apk </a>\n\n"
+"<p> উইন্ডস ফোনের অ্যাপ: </p>\n\n"
+"<a href=\"https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr ""
+msgstr "সম্পন্ন %d মিশন:"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr ""
+msgstr "আপনি আপনার ফেসবুক একাউন্টের সাথে সংযুক্ত।"
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr ""
+msgstr "অবদানকারী যখনথেকে"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr ""
+msgstr "বর্তমান পণ্য থেকে নতুন পণ্য থেকে কপি করা তথ্য"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
-msgstr ""
+msgstr "নিম্নলিখিত ত্রুটিগুলি সংশোধন করুনঃ"
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr ""
+msgstr "সংশোধনকারী"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr ""
+msgstr "সংশোধক"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr ""
+msgstr "যে দেশে বিক্রি হয়েছে"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
-msgstr ""
+msgstr "পণ্য যে দেশে ব্যাপকভাবে পাওয়া যায় (বিদেশী পণ্য বিশেষজ্ঞ specializing সহ না)"
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr ""
+msgstr "দেশ"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "পণ্য বিক্রি হয়েছে এখানে %s"
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "দেশ"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "পণ্যগুলি %s এ বিক্রি হয়নি"
 
 msgctxt "data_source"
 msgid "Data source"
-msgstr ""
+msgstr "তথ্যের উৎস"
 
 msgctxt "debug_p"
 msgid "debug"
-msgstr ""
+msgstr "ডিবাগ"
 
 msgctxt "debug_s"
 msgid "debug"
-msgstr ""
+msgstr "ডিবাগ"
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr ""
+msgstr "অপসারণের কারণ"
 
 msgctxt "delete_product"
 msgid "Delete a product"
-msgstr ""
+msgstr "একটি পণ্য মুছুন"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr ""
+msgstr "পেজটি মুছুন"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr ""
+msgstr "চিত্রগুলি মুছুন"
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr ""
+msgstr "একটি ব্যবহারকারীকে মুছে দিন"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr ""
+msgstr "যোগ করা হয়েছে:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr ""
+msgstr "পরিবর্তিত:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr ""
+msgstr "মুছে ফেলা হয়েছে:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr ""
+msgstr "Open Food Facts কে দান করুন"
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr ""
+msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
-msgstr ""
+msgstr "পরিবেশগত পদচিহ্ন"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
-msgstr ""
+msgstr "যদি কার্বন ফুটপ্রিন্ট লেবেলে নির্দিষ্ট করা হয় (এই সময়ে খুব কমই ), তবে পুষ্টির মিশ্রণের তুলনায় একই পরিমাণের জন্য ইঙ্গিত দিন।"
 
 msgctxt "edit"
 msgid "edit"
-msgstr ""
+msgstr "সম্পাদন করা"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr ""
+msgstr "পরিবর্তনের সারাংশ"
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr ""
+msgstr "একটি পণ্য সম্পাদন করুন"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr ""
+msgstr "পৃষ্ঠাটি সম্পাদনা করুন"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
-msgstr ""
+msgstr "আপনার পাবলিক প্রোফাইল সম্পাদনা করুন"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
-msgstr ""
+msgstr "আপনার পাবলিক প্রোফাইলে পরিবর্তনগুলি সংরক্ষণ করা হয়েছে।"
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
-msgstr ""
+msgstr "নিচের তথ্যগুলি আপনার পাবলিক প্রোফাইলে দৃশ্যমান হয়।"
 
 msgctxt "edit_settings"
 msgid "Change your account parameters"
-msgstr ""
+msgstr "আপনার অ্যাকাউন্ট পরামিতিতে পরিবর্তন করুন"
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr ""
+msgstr "অ্যাকাউন্ট প্যারামিটার"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr ""
+msgstr "<p> আপনার একাউন্টের প্যারামিটার পরিবর্তিত করা হয়েছে। </p>"
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr ""
+msgstr "সম্পাদকবৃন্দ"
 
 msgctxt "editors_s"
 msgid "editor"
-msgstr ""
+msgstr "সম্পাদক"
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr ""
+msgstr "ই-মেইল ঠিকানা"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr ""
+msgstr "EMB কোডগুলি"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
-msgstr ""
+msgstr "দূতাবাসের কোডের সাথে কোম্পানি দ্বারা প্যাকেজ করা হয়েছে %s"
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr ""
+msgstr "দূতাবাসের কোড"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr ""
+msgstr "দূতাবাসের কোড"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr ""
+msgstr "দূতাবাসের 53062, FR 62.448.034 সিই-84 টি 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
-msgstr ""
+msgstr "ইউরোপে, একটি সংখ্যা এবং সিই দ্বারা অনুসরণ করে 2 টি দেশের প্রাথমিক সংখ্যার একটি এলিপসে কোড।"
 
 msgctxt "emb_codes_p"
 msgid "packager codes"
-msgstr ""
+msgstr "প্যাকেজকারক কোডগুলো"
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
-msgstr ""
+msgstr "দূতাবাসের কোডের মাধ্যমে পণ্য %s"
 
 msgctxt "emb_codes_s"
 msgid "packager code"
-msgstr ""
+msgstr "প্যাকেজকারক কোড"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the emb code %s"
-msgstr ""
+msgstr "দূতাবাসের কোড ছাড়া পণ্য %s"
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
-msgstr ""
+msgstr "এন্ট্রি তারিখগুলি"
 
 msgctxt "entry_dates_s"
 msgid "Entry date"
-msgstr ""
+msgstr "এন্ট্রি তারিখ"
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "ত্রুটি"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr ""
+msgstr "ভুল ইউসার নাম বা পাসওয়ার্ড। <a href=\"/cgi/reset_password.pl\"> ভুলে গেছেন পাসওয়ার্ড? </a>"
 
 msgctxt "error_database"
 msgid "An error occured while reading the data, try to refresh the page."
-msgstr ""
+msgstr "ডেটা পড়ার সময় একটি ত্রুটি ঘটেছে, পৃষ্ঠাটি রিফ্রেশ করার চেষ্টা করুন।"
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr ""
+msgstr "পাসওয়ার্ড এবং নিশ্চিতকরণ পাসওয়ার্ড গুলো ভিন্ন।"
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "ই-মেইল ঠিকানাটি অন্য ব্যবহারকারীর দ্বারা ইতিমধ্যে ব্যবহৃত হয়েছে।হয়ত আপনার ইতিমধ্যে একটি অ্যাকাউন্ট আছে? আপনি <a href=\"/cgi/reset_password.pl\"> পাসওয়ার্ডটি পুনরায় সেট করতে পারেন </a> আপনার অন্য অ্যাকাউন্টের।"
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr ""
+msgstr "অবৈধ ঠিকানা।"
 
 msgctxt "error_invalid_csrf_token"
 msgid "Invalid CSRF token."
-msgstr ""
+msgstr "অবৈধ CSRF টোকেন।"
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr ""
+msgstr "অকার্যকর ই-মেইল ঠিকানা"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
-msgstr ""
+msgstr "পাসওয়ার্ডটি অন্ততপক্ষে ৬ অক্ষরের দীর্ঘ হতে হবে।"
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr ""
+msgstr "অকার্যকর বাবহারকারী ।"
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr ""
+msgstr "এউজার নামের মধ্যে কেবল অসংরক্ষিত অক্ষর, সংখ্যা এবং ড্যাশ থাকা আবশ্যক।"
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
-msgstr ""
+msgstr "নতুন কোডের সাথে একটি পণ্য ইতিমধ্যেই বিদ্যমান"
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
-msgstr ""
+msgstr "আপনাকে একটি নাম অথবা ডাকনাম লিখতে হবে।"
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
-msgstr ""
+msgstr "অনুমতি দেওয়া হয়নি।"
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr ""
+msgstr "আওনাকে একটি ইউসার নাম দিতে হবে"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
-msgstr ""
+msgstr "আপনি আগে থেকেই সাইন ইন রয়েছেন।"
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
-msgstr ""
+msgstr "রিসেট পাসওয়ার্ড লিংকটি অবৈধ বা মেয়াদ শেষ হয়েছে।"
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr ""
+msgstr "এই ইমেইল দিয়ে কোন একাউন্ট নাই"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr ""
+msgstr "এই ইউজার নামের অস্তিত্ব নাই।"
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr ""
+msgstr "আগে থেকেই আছে এই ইউসার নাম, অন্য একটি নির্বাচন করুন।"
 
 msgctxt "example"
 msgid "Example:"
-msgstr ""
+msgstr "উদাহরন:"
 
 msgctxt "examples"
 msgid "Examples:"
-msgstr ""
+msgstr "উদাহরণগুলো:"
 
 msgctxt "expiration_date"
 msgid "Best before date"
-msgstr ""
+msgstr "তারিখের আগে সেরা"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr ""
+msgstr "মেয়াদ শেষের তারিখ হল সময়ের সাথে পণ্য পরিবর্তনগুলি ট্র্যাক করার একটি বিশেষ উপায় এবং সবচেয়ে সাম্প্রতিক সংস্করণটি সনাক্ত করা।"
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
@@ -878,11 +915,11 @@ msgstr ""
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "উপকরণসমূহ"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr ""
+msgstr "উপকরণসমূহ"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -1010,7 +1047,7 @@ msgstr ""
 
 msgctxt "lang_ar"
 msgid "Arabic"
-msgstr ""
+msgstr "আরবি"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
@@ -1018,27 +1055,27 @@ msgstr ""
 
 msgctxt "lang_cs"
 msgid "Czech"
-msgstr ""
+msgstr "চেক"
 
 msgctxt "lang_da"
 msgid "Danish"
-msgstr ""
+msgstr "ড্যানিশ"
 
 msgctxt "lang_de"
 msgid "German"
-msgstr ""
+msgstr "জার্মান"
 
 msgctxt "lang_el"
 msgid "Greek"
-msgstr ""
+msgstr "গ্রিক"
 
 msgctxt "lang_en"
 msgid "English"
-msgstr ""
+msgstr "ইংরেজি"
 
 msgctxt "lang_es"
 msgid "Spanish"
-msgstr ""
+msgstr "স্প্যানীয়"
 
 msgctxt "lang_et"
 msgid "Estonian"
@@ -1046,11 +1083,11 @@ msgstr ""
 
 msgctxt "lang_fi"
 msgid "Finnish"
-msgstr ""
+msgstr "ফিনিয়"
 
 msgctxt "lang_fr"
 msgid "French"
-msgstr ""
+msgstr "ফরাসি"
 
 msgctxt "lang_ga"
 msgid "Irish"
@@ -1058,7 +1095,7 @@ msgstr ""
 
 msgctxt "lang_he"
 msgid "Hebrew"
-msgstr ""
+msgstr "হিব্রু"
 
 msgctxt "lang_hu"
 msgid "Hungarian"
@@ -1070,15 +1107,15 @@ msgstr ""
 
 msgctxt "lang_it"
 msgid "Italian"
-msgstr ""
+msgstr "ইতালীয়"
 
 msgctxt "lang_ja"
 msgid "Japanese"
-msgstr ""
+msgstr "জাপানি"
 
 msgctxt "lang_ko"
 msgid "Korean"
-msgstr ""
+msgstr "কোরীয়"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
@@ -1086,7 +1123,7 @@ msgstr ""
 
 msgctxt "lang_lv"
 msgid "Latvian"
-msgstr ""
+msgstr "লাতভিয়"
 
 msgctxt "lang_mt"
 msgid "Maltese"
@@ -1094,11 +1131,11 @@ msgstr ""
 
 msgctxt "lang_nl"
 msgid "Dutch"
-msgstr ""
+msgstr "ডাচ"
 
 msgctxt "lang_nl_be"
 msgid "Dutch"
-msgstr ""
+msgstr "ডাচ"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
@@ -1114,7 +1151,7 @@ msgstr ""
 
 msgctxt "lang_pt"
 msgid "Portuguese"
-msgstr ""
+msgstr "পর্তুগিজ"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
@@ -1122,11 +1159,11 @@ msgstr ""
 
 msgctxt "lang_ro"
 msgid "Romanian"
-msgstr ""
+msgstr "রোমানীয়"
 
 msgctxt "lang_ru"
 msgid "Russian"
-msgstr ""
+msgstr "রুশ"
 
 msgctxt "lang_sk"
 msgid "Slovak"
@@ -1138,7 +1175,7 @@ msgstr ""
 
 msgctxt "lang_sv"
 msgid "Swedish"
-msgstr ""
+msgstr "সুইডিশ"
 
 msgctxt "lang_th"
 msgid "Thai"
@@ -1150,7 +1187,7 @@ msgstr ""
 
 msgctxt "lang_zh"
 msgid "Chinese"
-msgstr ""
+msgstr "চীনা"
 
 msgctxt "language"
 msgid "en-US"
@@ -1229,7 +1266,7 @@ msgstr ""
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "সাইন-ইন"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
@@ -1302,7 +1339,7 @@ msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr ""
+msgstr "একটি পণ্য যুক্ত করুন"
 
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
@@ -1318,7 +1355,7 @@ msgstr ""
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr ""
+msgstr "খুঁজুন"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
@@ -1370,7 +1407,7 @@ msgstr ""
 
 msgctxt "name"
 msgid "Name"
-msgstr ""
+msgstr "নাম"
 
 msgctxt "names"
 msgid "Names"
@@ -1458,11 +1495,11 @@ msgstr ""
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "পুষ্টি তথ্য"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "পুষ্টি তথ্য"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1534,7 +1571,7 @@ msgstr ""
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "পুষ্টি তথ্য"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1653,7 +1690,7 @@ msgstr ""
 
 msgctxt "password"
 msgid "Password"
-msgstr ""
+msgstr "পাসওয়ার্ড"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
@@ -2009,7 +2046,7 @@ msgstr ""
 
 msgctxt "save"
 msgid "Save"
-msgstr ""
+msgstr "সংরক্ষণ করুন"
 
 msgctxt "saved"
 msgid "Saved."
@@ -2021,15 +2058,15 @@ msgstr ""
 
 msgctxt "search"
 msgid "Search"
-msgstr ""
+msgstr "অনুসন্ধান"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
-msgstr ""
+msgstr "পণ্য অনুসন্ধান করুন"
 
 msgctxt "search_button"
 msgid "Search"
-msgstr ""
+msgstr "অনুসন্ধান"
 
 msgctxt "search_contains"
 msgid "contains"
@@ -2122,7 +2159,7 @@ msgstr ""
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "উপকরণসমূহ"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
@@ -2262,7 +2299,7 @@ msgstr ""
 
 msgctxt "select_lang"
 msgid "Language"
-msgstr ""
+msgstr "ভাষা"
 
 msgctxt "send_image"
 msgid "Send a picture..."
@@ -2286,11 +2323,11 @@ msgstr ""
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "সাইন-ইন"
 
 msgctxt "share"
 msgid "Share"
-msgstr ""
+msgstr "শেয়ার"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
@@ -2314,7 +2351,7 @@ msgstr ""
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr ""
+msgstr "Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"

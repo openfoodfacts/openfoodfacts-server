@@ -143,7 +143,7 @@ while (<$IN>) {
 			my $off_brands_id = get_fileid($off_brands);
 			
 			if (($off_brands_id ne "") and ($off_brands_id !~ /$franprix_marque_id/)) {
-				print $OUT2 $row . "\t" . $off_brands . "\t" . "http://world-fr.openfoodfacts.org/produit/$code\n";
+				print $OUT2 $row . "\t" . $off_brands . "\t" . "https://world-fr.openfoodfacts.org/produit/$code\n";
 			}
 			
 			my $description = product_name_brand_quantity($product_ref);

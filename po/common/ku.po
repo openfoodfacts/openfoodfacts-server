@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ku\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-11-12 18:43-0500\n"
+"PO-Revision-Date: 2018-01-21 11:53-0500\n"
 "Language-Team: Kurdish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -17,16 +17,16 @@ msgstr ""
 #. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
 msgid ":langtag"
-msgstr ""
+msgstr "zıman"
 
 #. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
 msgid ":langname"
-msgstr ""
+msgstr "nav"
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "1 mal"
 
 msgctxt "_and_"
 msgid " and "
@@ -34,7 +34,7 @@ msgstr " û "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "Der barê min"
 
 msgctxt "add"
 msgid "Add"
@@ -42,11 +42,11 @@ msgstr "Lê zêde bike"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "Lê zêde bike Ziman"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Lê zêde bike babetî"
 
 msgctxt "add_user"
 msgid "Register"
@@ -54,7 +54,7 @@ msgstr "Rojavayî"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "</ p>Spas dikim ji bo tevlî. Tu niha dikarin li ser têkevim vê malperê ji bo zêde û berhemên <p>biguherîn"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -72,112 +72,114 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr ""
+msgstr "Merhabe <nav>, https: //openfoodfacts.org'a Gelek spas dikim ji bo beşdariya we. Navê te yê bikarhêner: navdêr:\n\n"
+"Tu niha dikarin li ser têkevim vê malperê ji bo lê zêde bike û mesaja tomar.<< site_name>>,, Gelo projeyeke hevbeş yên ku berhemên nû çiqas bêtir bîne: enerjî, coş û ramanên! Di nav contributors bo gengeşîkirina pir kêrhatî û em bikaranîna pergala mesajên ya bi navê Xwarin ji bo pêşxistina vê projeyê: https://slack.openfoodfacts.org tu dikarî koma Facebook ji bo gelê Ji destê tevlî: https://www.facebook.com/ komên / openfoodfacts / New: em dest bi agahî ji bo pêkanîna heye di Cosmetics Open Beauty yî: sabûn, macûna, makeup û da ser. https://openbeautyfacts.org gelek sipas! Stéphane û ekîba wî https://openfoodfacts.org https://twitter.com/openfoodfacts Facts Food Open\n"
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "<Spas dikim ji bo tevlî<navê_site> >"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "Melzemeyê xwarinê potansiyel xeterê. Bi kar kir."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "Melzemeyê xwarinê talûke. Dûr."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "Madeyên xwarinê yên li Ewropayê qedexekirin. Dûr li hemû mesrefên."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "ji bilî"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "beşdariyên"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr ""
+msgstr "Mezin lêgerîn"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "Legerin pêşketî û graphics"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "Vexwarinê Excessive tendûristîya meriv e."
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "Hemû Peywir"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr ""
+msgstr "Madeyên an berhemên ku sedema alerjî an tehamûlî"
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr ""
+msgstr "alerjen"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "alerjen"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr ""
+msgstr "Biserûberkirina rûpel berhem"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src = \"/ images / misc / android-apk.112x40.png\" alt = \"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
 
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr ""
+msgstr "<p>Ev berhema e yet di ne<<site_nav>> di nav Htmlê da ne. To lê zêde bike li ser products, barcodes, lîsteya maddeyên û maddeyên bi we hinek pictures <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_nav>></a>?</p>\n"
+"<p>Spas dikim di pêş!</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr ""
+msgstr "Bigire a resma"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr ""
+msgstr "Nîşe: Gondermişke nigar xwe bi di bin lîsanseke azad Creative Commons Attribution ShareAlike û weşandin."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr ""
+msgstr "Tu dikarî an n ilgêa rzêde bike:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "Qêrqaş tewere"
 
 msgctxt "axis_y"
 msgid "Vertical axis"
-msgstr ""
+msgstr "Emûdî tewere"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr ""
+msgstr "Barcode"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr ""
+msgstr "Hejmara barkot:"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
@@ -185,35 +187,38 @@ msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n
 "</a>\n"
 "<p>Contribute to <<site_name>> by adding product and win stars by\n"
 "fulfilling <a href=\"/missions\">missions</a>!</p>\n"
-msgstr ""
+msgstr "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
+"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
+"</a>\n"
+"<p>keda wan <<site_name>> bi lêzêdekirina berhem û li şûna gihandina stars qezenc <a href=\"/missions\">mîsyonên</a>!</p>\n"
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
-msgstr ""
+msgstr "Di vê pergalê de mîsyonên"
 
 msgctxt "brands"
 msgid "Brands"
-msgstr ""
+msgstr "Marke"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr ""
+msgstr "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr ""
+msgstr "marke"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr ""
+msgstr "%s marke berhem"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "marke"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "marke cijike"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
@@ -221,35 +226,35 @@ msgstr ""
 
 msgctxt "by"
 msgid "by"
-msgstr ""
+msgstr "ji"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr ""
+msgstr "Vebir"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr ""
+msgstr "Sardines di rûnê zeytê, seqbêrî û ava porteqalê"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr ""
+msgstr "Just kategoriya herî diyar bike. \"Bav\" kategoriyê de wê were kirin."
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "kategori"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr ""
+msgstr "% k aSt ejgio rbierhemên"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "kategori"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr ""
+msgstr "kategori cijike"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
@@ -472,15 +477,15 @@ msgstr ""
 
 msgctxt "edit_settings"
 msgid "Change your account parameters"
-msgstr ""
+msgstr "\tHejmari degijke"
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr ""
+msgstr "Hejmari"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr ""
+msgstr "<p>Hesap parametreleriniz değiştirildi.</ p>"
 
 msgctxt "editors_p"
 msgid "editors"
@@ -878,11 +883,11 @@ msgstr ""
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Materyalên"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr ""
+msgstr "Materyalên"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -1010,7 +1015,7 @@ msgstr ""
 
 msgctxt "lang_ar"
 msgid "Arabic"
-msgstr ""
+msgstr "Erebî"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
@@ -1018,27 +1023,27 @@ msgstr ""
 
 msgctxt "lang_cs"
 msgid "Czech"
-msgstr ""
+msgstr "Çek"
 
 msgctxt "lang_da"
 msgid "Danish"
-msgstr ""
+msgstr "Denmarkî"
 
 msgctxt "lang_de"
 msgid "German"
-msgstr ""
+msgstr "Almanî"
 
 msgctxt "lang_el"
 msgid "Greek"
-msgstr ""
+msgstr "Grek"
 
 msgctxt "lang_en"
 msgid "English"
-msgstr ""
+msgstr "Îngilîzî"
 
 msgctxt "lang_es"
 msgid "Spanish"
-msgstr ""
+msgstr "Hîspanî"
 
 msgctxt "lang_et"
 msgid "Estonian"
@@ -1046,11 +1051,11 @@ msgstr ""
 
 msgctxt "lang_fi"
 msgid "Finnish"
-msgstr ""
+msgstr "Fince"
 
 msgctxt "lang_fr"
 msgid "French"
-msgstr ""
+msgstr "Fransî"
 
 msgctxt "lang_ga"
 msgid "Irish"
@@ -1058,7 +1063,7 @@ msgstr ""
 
 msgctxt "lang_he"
 msgid "Hebrew"
-msgstr ""
+msgstr "İbrani"
 
 msgctxt "lang_hu"
 msgid "Hungarian"
@@ -1070,15 +1075,15 @@ msgstr ""
 
 msgctxt "lang_it"
 msgid "Italian"
-msgstr ""
+msgstr "Îtalya"
 
 msgctxt "lang_ja"
 msgid "Japanese"
-msgstr ""
+msgstr "Japonî"
 
 msgctxt "lang_ko"
 msgid "Korean"
-msgstr ""
+msgstr "Koreli"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
@@ -1086,7 +1091,7 @@ msgstr ""
 
 msgctxt "lang_lv"
 msgid "Latvian"
-msgstr ""
+msgstr "Letonyalı"
 
 msgctxt "lang_mt"
 msgid "Maltese"
@@ -1094,11 +1099,11 @@ msgstr ""
 
 msgctxt "lang_nl"
 msgid "Dutch"
-msgstr ""
+msgstr "Flemenk"
 
 msgctxt "lang_nl_be"
 msgid "Dutch"
-msgstr ""
+msgstr "Flemenk"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
@@ -1114,7 +1119,7 @@ msgstr ""
 
 msgctxt "lang_pt"
 msgid "Portuguese"
-msgstr ""
+msgstr "Portûgalî"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
@@ -1122,11 +1127,11 @@ msgstr ""
 
 msgctxt "lang_ro"
 msgid "Romanian"
-msgstr ""
+msgstr "Roman"
 
 msgctxt "lang_ru"
 msgid "Russian"
-msgstr ""
+msgstr "Rûsî"
 
 msgctxt "lang_sk"
 msgid "Slovak"
@@ -1138,7 +1143,7 @@ msgstr ""
 
 msgctxt "lang_sv"
 msgid "Swedish"
-msgstr ""
+msgstr "Swêd"
 
 msgctxt "lang_th"
 msgid "Thai"
@@ -1150,7 +1155,7 @@ msgstr ""
 
 msgctxt "lang_zh"
 msgid "Chinese"
-msgstr ""
+msgstr "Çince"
 
 msgctxt "language"
 msgid "en-US"
@@ -1229,7 +1234,7 @@ msgstr ""
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "Niştin birçi"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
@@ -1302,7 +1307,7 @@ msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Berhem bike"
 
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
@@ -1318,7 +1323,7 @@ msgstr ""
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr ""
+msgstr "Ce_sûsîya"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
@@ -1370,7 +1375,7 @@ msgstr ""
 
 msgctxt "name"
 msgid "Name"
-msgstr ""
+msgstr "Nav"
 
 msgctxt "names"
 msgid "Names"
@@ -1458,11 +1463,11 @@ msgstr ""
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Xwarin û rast"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Xwarin û rast"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1534,7 +1539,7 @@ msgstr ""
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Xwarin û rast"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1653,7 +1658,7 @@ msgstr ""
 
 msgctxt "password"
 msgid "Password"
-msgstr ""
+msgstr "Şîfreya"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
@@ -2009,7 +2014,7 @@ msgstr ""
 
 msgctxt "save"
 msgid "Save"
-msgstr ""
+msgstr "Rekor"
 
 msgctxt "saved"
 msgid "Saved."
@@ -2021,15 +2026,15 @@ msgstr ""
 
 msgctxt "search"
 msgid "Search"
-msgstr ""
+msgstr "Lêgerîn"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
-msgstr ""
+msgstr "Berhem navber"
 
 msgctxt "search_button"
 msgid "Search"
-msgstr ""
+msgstr "Lêgerîn"
 
 msgctxt "search_contains"
 msgid "contains"
@@ -2122,7 +2127,7 @@ msgstr ""
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Materyalên"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
@@ -2262,7 +2267,7 @@ msgstr ""
 
 msgctxt "select_lang"
 msgid "Language"
-msgstr ""
+msgstr "Ziman"
 
 msgctxt "send_image"
 msgid "Send a picture..."
@@ -2286,11 +2291,11 @@ msgstr ""
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "Niştin birçi"
 
 msgctxt "share"
 msgid "Share"
-msgstr ""
+msgstr "Re"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
@@ -2314,7 +2319,7 @@ msgstr ""
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr ""
+msgstr "Vegirin xwarin rasti"
 
 msgctxt "sort_by"
 msgid "Sort by"

@@ -23,6 +23,8 @@ BEGIN
                 $facebook_app_secret
 
                 $csrf_secret
+
+		$google_cloud_vision_api_key
 		
 		$mongodb
 		$mongodb_host
@@ -50,6 +52,9 @@ BEGIN
 		%tesseract_ocr_available_languages		
 		
 		%weblink_templates
+
+		@edit_rules
+
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -75,6 +80,8 @@ twoflower
 scanparty-franprix-05-2016
 );
 
+@edit_rules = ();
+
 
 # server constants
 $server_domain = $ProductOpener::Config2::server_domain;
@@ -89,7 +96,8 @@ $data_root = $ProductOpener::Config2::data_root;
 $facebook_app_id = $ProductOpener::Config2::facebook_app_id;
 $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
-$csrf_secret = $Blogs::Config2::csrf_secret;
+$csrf_secret = $ProductOpener::Config2::csrf_secret;
+$google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 
 $reference_timezone = 'Europe/Paris';
 
@@ -243,5 +251,7 @@ opff =>
 }
 };
 
+
+$options{no_nutrition_table} = 1;
 
 1;

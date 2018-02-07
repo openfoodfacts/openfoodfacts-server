@@ -792,6 +792,37 @@ sub display_date($) {
 
 }
 
+sub display_date_without_time($) {
+
+	my $t = shift;
+
+	if (defined $t) {
+		my @codes = DateTime::Locale->codes;
+		my $locale;
+		if ( $lc ~~ @codes ) {
+			$locale = DateTime::Locale->load($lc);
+		}
+		else {
+			$locale = DateTime::Locale->load('en');
+		}
+	
+		my $dt = DateTime->from_epoch(
+			locale => $locale,
+			time_zone => $reference_timezone,
+			epoch => $t );
+		my $formatter = DateTime::Format::CLDR->new(
+		    pattern => $locale->date_format_long,
+		    locale => $locale
+		);
+		$dt->set_formatter($formatter);
+		return $dt;
+	}
+	else {
+		return;
+	}
+
+}
+
 sub display_date_tag($) {
 
 	my $t = shift;
@@ -2371,7 +2402,7 @@ HTML
 			$request_ref->{title} = $title;
 		}
 
-		$html = "<div itemscope itemtype=\"http://schema.org/Thing\"><h1>" . $title ."</h1>" . $html . "</div>";
+		$html = "<div itemscope itemtype=\"http://schema.org/Thing\"><h1 itemprop=\"name\">" . $title ."</h1>" . $html . "</div>";
 		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
 	}
 
@@ -3305,7 +3336,7 @@ sub display_scatter_plot($$$) {
 				}
 				
 				defined $series{$seriesid} or $series{$seriesid} = '';
-				
+
 				# print STDERR "Display::search_and_graph_products: i: $i - axis_x: $graph_ref->{axis_x} - axis_y: $graph_ref->{axis_y}\n";
 					
 				my %data;
@@ -3326,7 +3357,7 @@ sub display_scatter_plot($$$) {
 				$data{img} = display_image_thumb($product_ref, 'front');
 				
 				defined $series{$seriesid} or $series{$seriesid} = '';
-				$series{$seriesid} .= encode_json(\%data) . ',';
+				$series{$seriesid} .= JSON::PP->new->encode(\%data) . ',';
 				defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
 				$series_n{$seriesid}++;
 				$i++;
@@ -5555,7 +5586,7 @@ sub display_image_box($$$) {
 		}
 	
 		$img = <<HTML
-<div class="image_box" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+<div id="image_box_$id" class="image_box" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
 $img
 </div>			
 HTML
@@ -5563,6 +5594,54 @@ HTML
 
 		if ($img =~ /height="(\d+)"/) {
 			$$minheight_ref = $1 + 22;
+		}
+		
+		# Unselect button for admins
+		if ($admin) {
+		
+			my $code = $product_ref->{code};
+			
+			my $idlc = $id;
+			
+			# <img src="/images/products/$path/$id.$rev.$size.jpg" 
+			
+			if ($img =~ /src="([^"]*)\/([^\.]+)\./) {
+				$idlc = $2;
+			}
+					
+		
+			my $html = <<HTML
+<div class="button_div unselectbuttondiv_$idlc"><button class="unselectbutton_$idlc" class="small button" type="button">Unselect image</button></div>
+HTML
+;
+			$img .= $html;
+			
+			
+			$initjs .= <<JS
+	\$(".unselectbutton_$idlc").click({imagefield:"$idlc"},function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		// alert(event.data.imagefield);
+		\$('div.unselectbuttondiv_$idlc').html('<img src="/images/misc/loading2.gif" /> Unselecting image');
+		\$.post('/cgi/product_image_unselect.pl',
+				{code: "$code", id: "$idlc" }, function(data) {
+				
+			if (data.status_code === 0) {
+				\$('div.unselectbuttondiv_$idlc').html("Unselected image");
+				\$('div[id="image_box_$id"]').html("");
+			}
+			else {
+				\$('div.unselectbuttondiv_$idlc').html("Could not unselect image");
+			}
+			\$(document).foundation('equalizer', 'reflow');
+		}, 'json');
+		
+		\$(document).foundation('equalizer', 'reflow');
+		
+	});				
+JS
+;
+		
 		}
 		
 	
@@ -5845,6 +5924,66 @@ HTML
 	}		
 	
 	
+	if (($lc eq 'fr') and (has_tag($product_ref, "labels","fr:produits-retires-du-marche-lors-du-scandale-lactalis-de-decembre-2017"))) {
+		
+		$html .= <<HTML
+<div data-alert class="alert-box warn" id="warning_lactalis_201712" style="display: block; background:#ffaa33;color:black;">
+Ce produit fait partie d'une liste de produits retirés du marché, et a été étiqueté comme tel par un bénévole d'Open Food Facts.
+<br/><br/>
+&rarr; <a href="http://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a>.
+<a href="#" class="close">&times;</a>
+</span></div>
+HTML
+;		
+		
+	}
+	elsif (($lc eq 'fr') and (has_tag($product_ref, "categories","en:baby-milks")) and (
+		
+		has_tag($product_ref, "brands", "amilk") or
+		has_tag($product_ref, "brands", "babycare") or
+		has_tag($product_ref, "brands", "celia") or
+		has_tag($product_ref, "brands", "celia-ad") or
+		has_tag($product_ref, "brands", "celia-develop") or
+		has_tag($product_ref, "brands", "celia-expert") or
+		has_tag($product_ref, "brands", "celia-nutrition") or
+		has_tag($product_ref, "brands", "enfastar") or
+		has_tag($product_ref, "brands", "fbb") or
+		has_tag($product_ref, "brands", "fl") or
+		has_tag($product_ref, "brands", "frezylac") or	
+		has_tag($product_ref, "brands", "gromore") or
+		has_tag($product_ref, "brands", "malyatko") or
+		has_tag($product_ref, "brands", "mamy") or
+		has_tag($product_ref, "brands", "milumel") or
+		has_tag($product_ref, "brands", "neoangelac") or
+		has_tag($product_ref, "brands", "neoangelac") or
+		has_tag($product_ref, "brands", "nophenyl") or
+		has_tag($product_ref, "brands", "novil") or
+		has_tag($product_ref, "brands", "ostricare") or
+		has_tag($product_ref, "brands", "pc") or
+		has_tag($product_ref, "brands", "picot") or
+		has_tag($product_ref, "brands", "sanutri")
+		
+	
+	)
+	
+		
+		
+	) {
+		
+		$html .= <<HTML
+<div data-alert class="alert-box warn" id="warning_lactalis_201712" style="display: block; background:#ffcc33;color:black;">
+Certains produits de cette marque font partie d'une liste de produits retirés du marché.
+<br/><br/>
+&rarr; <a href="http://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des produits et lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a>.
+<a href="#" class="close">&times;</a>
+</span></div>
+HTML
+;		
+		
+	}
+	
+	
+	
 	# photos and data sources
 
 	my $html_manufacturer_source = ""; # Displayed at the top of the product page
@@ -5917,20 +6056,20 @@ HTML
 	
 	# try to display ingredients in the local language if available
 	
-	my $ingredients_text = $product_ref->{ingredients_text} . "<!-- 1 - lc $lc -->";
+	my $ingredients_text = $product_ref->{ingredients_text};
 	my $ingredients_text_lang = $product_ref->{lang};
 	
 	if (defined $product_ref->{ingredients_text_with_allergens}) {
-		$ingredients_text = $product_ref->{ingredients_text_with_allergens} . "<!-- 2 - lc $lc -->" ;
+		$ingredients_text = $product_ref->{ingredients_text_with_allergens};
 	}	
 	
 	if ((defined $product_ref->{"ingredients_text" . "_" . $lc}) and ($product_ref->{"ingredients_text" . "_" . $lc} ne '')) {
-		$ingredients_text = $product_ref->{"ingredients_text" . "_" . $lc} . "<!-- 3 - lc $lc -->";
+		$ingredients_text = $product_ref->{"ingredients_text" . "_" . $lc};
 		$ingredients_text_lang = $lc;
 	}
 	
 	if ((defined $product_ref->{"ingredients_text_with_allergens" . "_" . $lc}) and ($product_ref->{"ingredients_text_with_allergens" . "_" . $lc} ne '')) {
-		$ingredients_text = $product_ref->{"ingredients_text_with_allergens" . "_" . $lc} . "<!-- 4 - lc $lc -->" ;
+		$ingredients_text = $product_ref->{"ingredients_text_with_allergens" . "_" . $lc};
 		$ingredients_text_lang = $lc;
 	}
 		
@@ -5948,12 +6087,102 @@ HTML
 	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
 	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . separator_before_colon($lc) . ":</span>";
 	if ($lc ne $ingredients_text_lang) {
-		$html .= " <span id=\"ingredients_list\" property=\"food:ingredientListAsText\" lang=\"$ingredients_text_lang\">$ingredients_text</span>";
+		$html .= " <div id=\"ingredients_list\" property=\"food:ingredientListAsText\" lang=\"$ingredients_text_lang\">$ingredients_text</div>";
 	}
 	else {
-		$html .= " <span id=\"ingredients_list\" property=\"food:ingredientListAsText\">$ingredients_text</span>";
+		$html .= " <div id=\"ingredients_list\" property=\"food:ingredientListAsText\">$ingredients_text</div>";
 	}
 	$html .= "</div>";
+	
+	if ($admin and ($ingredients_text !~ /^\s*$/)) {
+	
+			my $ilc = $ingredients_text_lang;
+	
+	
+			$html .= <<HTML
+			
+<div class="button_div" id="editingredientsbuttondiv"><button id="editingredients" class="small button" type="button">Edit ingredients ($ilc)</div>
+<div class="button_div" id="saveingredientsbuttondiv_status" style="display:none"></div>
+<div class="button_div" id="saveingredientsbuttondiv" style="display:none"><button id="saveingredients" class="small button" type="button">Save ingredients ($ilc)</div>
+
+			
+<div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="small button" type="button">Ingredients ($ilc) are completely bogus, erase them.</button></div>
+HTML
+;			
+						
+			$initjs .= <<JS
+			
+	var editableText;
+
+    \$("#editingredients").click({},function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		
+    var divHtml = \$("#ingredients_list").html();
+	var allergens = /(<span class="allergen">|<\\/span>)/g;
+	divHtml = divHtml.replace(allergens, '_');
+	
+    var editableText = \$('<textarea id="ingredients_list" style="height:8rem"/>');
+    editableText.val(divHtml);
+    \$("#ingredients_list").replaceWith(editableText);
+    editableText.focus();
+	
+	
+		\$("#editingredientsbuttondiv").hide();
+		\$("#saveingredientsbuttondiv").show();
+  
+		
+		\$(document).foundation('equalizer', 'reflow');
+		
+	});		
+
+
+    \$("#saveingredients").click({},function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		
+		\$('div[id="saveingredientsbuttondiv"]').hide();
+		\$('div[id="saveingredientsbuttondiv_status"]').html('<img src="/images/misc/loading2.gif" /> Saving ingredients_texts_$ilc');
+		\$('div[id="saveingredientsbuttondiv_status"]').show();
+
+		\$.post('/cgi/product_jqm_multilingual.pl',
+				{code: "$code", ingredients_text_$ilc :  \$("#ingredients_list").val(), comment: "Updated ingredients_texts_$ilc" }, function(data) {
+				
+				\$('div[id="saveingredientsbuttondiv_status"]').html('Saved ingredients_texts_$ilc');
+						\$('div[id="saveingredientsbuttondiv"]').show();
+
+		
+			\$(document).foundation('equalizer', 'reflow');
+		}, 'json');  
+		
+		\$(document).foundation('equalizer', 'reflow');
+		
+	});		
+	
+	
+			
+	\$("#wipeingredients").click({},function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		// alert(event.data.imagefield);
+		\$('div[id="wipeingredientsbuttondiv"]').html('<img src="/images/misc/loading2.gif" /> Erasing ingredients_texts_$ilc');
+		\$.post('/cgi/product_jqm_multilingual.pl',
+				{code: "$code", ingredients_text_$ilc : "", comment: "Erased ingredients_texts_$ilc: too much bad data" }, function(data) {
+				
+
+				\$('div[id="wipeingredientsbuttondiv"]').html("Erased ingredients_texts_$ilc");
+				\$('div[id="ingredients_list"]').html("");
+
+			\$(document).foundation('equalizer', 'reflow');
+		}, 'json');
+		
+		\$(document).foundation('equalizer', 'reflow');
+		
+	});				
+JS
+;	
+	
+	}
 
 	$html .= display_field($product_ref, 'allergens');
 	
@@ -6059,6 +6288,11 @@ HTML
 </div>
 HTML
 ;
+
+	# Do not display nutrition table for Open Beauty Facts
+	
+	if (not ((defined $options{no_nutrition_table}) and ($options{no_nutrition_table}))) {
+
 	
 	$html_image = display_image_box($product_ref, 'nutrition', \$minheight);	
 
@@ -6116,6 +6350,15 @@ HTML
 	
 	$html .= display_nutrition_table($product_ref, \@comparisons);
 	
+	$html .= <<HTML
+</div>
+<div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$html_image</div>
+</div>
+HTML
+;	
+	
+	}
+	
 	# photos and data sources
 
 	
@@ -6148,10 +6391,6 @@ HTML
 	}
 
 	$html .= <<HTML
-</div>
-<div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$html_image</div>
-</div>
-
 	
 <p>$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator.<br/>
 $Lang{product_last_edited}{$lang} $last_modified_date $Lang{by}{$lang} $last_editor.
@@ -6284,6 +6523,64 @@ sub display_product_jqm ($) # jquerymobile
 		$html .= "<p>" . lang("barcode") . separator_before_colon($lc) . ": $code</p>\n";
 	}
 	
+	
+	if (($lc eq 'fr') and (has_tag($product_ref, "labels","fr:produits-retires-du-marche-lors-du-scandale-lactalis-de-decembre-2017"))) {
+		
+		$html .= <<HTML
+<div id="warning_lactalis_201712" style="display: block; background:#ffaa33;color:black;padding:1em;text-decoration:none;">
+Ce produit fait partie d'une liste de produits retirés du marché, et a été étiqueté comme tel par un bénévole d'Open Food Facts.
+<br/><br/>
+&rarr; <a href="http://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a>.
+</div>
+HTML
+;		
+		
+	}
+	elsif (($lc eq 'fr') and (has_tag($product_ref, "categories","en:baby-milks")) and (
+		
+		has_tag($product_ref, "brands", "amilk") or
+		has_tag($product_ref, "brands", "babycare") or
+		has_tag($product_ref, "brands", "celia") or
+		has_tag($product_ref, "brands", "celia-ad") or
+		has_tag($product_ref, "brands", "celia-develop") or
+		has_tag($product_ref, "brands", "celia-expert") or
+		has_tag($product_ref, "brands", "celia-nutrition") or
+		has_tag($product_ref, "brands", "enfastar") or
+		has_tag($product_ref, "brands", "fbb") or
+		has_tag($product_ref, "brands", "fl") or
+		has_tag($product_ref, "brands", "frezylac") or	
+		has_tag($product_ref, "brands", "gromore") or
+		has_tag($product_ref, "brands", "malyatko") or
+		has_tag($product_ref, "brands", "mamy") or
+		has_tag($product_ref, "brands", "milumel") or
+		has_tag($product_ref, "brands", "neoangelac") or
+		has_tag($product_ref, "brands", "neoangelac") or
+		has_tag($product_ref, "brands", "nophenyl") or
+		has_tag($product_ref, "brands", "novil") or
+		has_tag($product_ref, "brands", "ostricare") or
+		has_tag($product_ref, "brands", "pc") or
+		has_tag($product_ref, "brands", "picot") or
+		has_tag($product_ref, "brands", "sanutri")
+		
+	
+	)
+	
+		
+		
+	) {
+		
+		$html .= <<HTML
+<div id="warning_lactalis_201712" style="display: block; background:#ffcc33;color:black;padding:1em;text-decoration:none;">
+Certains produits de cette marque font partie d'une liste de produits retirés du marché.
+<br/><br/>
+&rarr; <a href="http://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des produits et lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a>.
+</div>
+HTML
+;		
+		
+	}	
+	
+	
 	$html .= display_nutrient_levels($product_ref);
 	
 	my $minheight = 0;
@@ -6392,6 +6689,35 @@ HTML
 		
 	}
 	
+	
+	# special ingredients tags
+	
+	if ((defined $ingredients_text) and ($ingredients_text !~ /^\s*$/s) and (defined $special_tags{ingredients})) {
+	
+		my $special_html = "";
+	
+		foreach my $special_tag_ref (@{$special_tags{ingredients}}) {
+		
+			my $tagid = $special_tag_ref->{tagid};
+			my $type = $special_tag_ref->{type};
+			
+			if (  (($type eq 'without') and (not has_tag($product_ref, "ingredients", $tagid)))
+			or (($type eq 'with') and (has_tag($product_ref, "ingredients", $tagid)))) {
+				
+				$special_html .= "<li class=\"${type}_${tagid}_$lc\">" . lang("search_" . $type) . " " . display_taxonomy_tag_link($lc, "ingredients", $tagid) . "</li>\n";
+			}
+		
+		}
+		
+		if ($special_html ne "") {
+		
+			$html  .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang("ingredients_analysis") . separator_before_colon($lc)) . ":</b><br />"
+			. "<ul id=\"special_ingredients\">\n" . $special_html . "</ul>\n"
+			. "<p>" . lang("ingredients_analysis_note") . "</p></div>\n";
+		}
+	
+	}	
+	
 	$html_image = display_image_box($product_ref, 'nutrition', \$minheight);	
 	
 	$html .= "</div>";
@@ -6399,6 +6725,13 @@ HTML
 	$html .= <<HTML
 			</div>
 		</div>
+HTML
+;
+
+	if (not ((defined $options{no_nutrition_table}) and ($options{no_nutrition_table}))) {
+
+		
+	$html .= <<HTML	
         <div data-role="collapsible-set" data-theme="" data-content-theme="">
             <div data-role="collapsible" data-collapsed="true">	
 HTML
@@ -6425,10 +6758,55 @@ HTML
 	
 	$html .= display_nutrition_table($product_ref, \@comparisons);
 	
-	
-	
+	$html .= <<HTML
+			</div>
+		</div>
+HTML
+;		
+	}
 
 	my $created_date = display_date_tag($product_ref->{created_t});
+	
+	# Ask for photos if we do not have any, or if they are too old
+
+	my $last_image = "";	
+	my $image_warning = "";	
+	
+	if ((not defined ($product_ref->{images})) or ((scalar keys %{$product_ref->{images}}) < 1)) {
+	
+		$image_warning = $Lang{product_has_no_photos}{$lang};
+	
+	}	
+	elsif ((defined $product_ref->{last_image_t}) and ($product_ref->{last_image_t} > 0)) {
+	
+		my $last_image_date = display_date($product_ref->{last_image_t});
+		my $last_image_date_without_time = display_date_without_time($product_ref->{last_image_t});
+		
+		$last_image = "<br/>" . "$Lang{last_image_added}{$lang} $last_image_date";
+		
+		# Was the last photo uploaded more than 6 months ago?
+		
+		if (($product_ref->{last_image_t} + 86400 * 30 * 6) < time()) {
+
+			$image_warning = sprintf($Lang{product_has_old_photos}{$lang}, $last_image_date_without_time);
+		
+		}
+		
+	}
+	
+
+	if ($image_warning ne "") {
+	
+		$image_warning = <<HTML
+<div id="image_warning" style="display: block; background:#ffcc33;color:black;padding:1em;text-decoration:none;">
+$image_warning
+</div>
+HTML
+;		
+	
+	}
+	
+
 	
 	my $creator =  $product_ref->{creator} ;
 	
@@ -6439,22 +6817,27 @@ HTML
 	$html =~ s/<span  /<span /g;
 
 	$html .= <<HTML
-			</div>
-		</div>
 	
 <p>
 $Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator
+$last_image
 </p>	
+
 	
-<div class="ui-state-highlight ui-corner-all" style="padding:5px;margin-right:20px;display:table;margin-top:20px;margin-bottom:20px;">
-<span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
-<span>
-HTML
-. lang("fixme_product") . <<HTML
-</span>
+<div style="margin-bottom:20px;">
+
+<p>$Lang{fixme_product}{$lang}</p>
+
+$image_warning
 
 <p>$Lang{app_you_can_add_pictures}{$lang}</p>
 
+<button onclick="captureImage();" data-icon="off-camera">$Lang{image_front}{$lang}</button> 
+<div id="upload_image_result_front"></div>
+<button onclick="captureImage();" data-icon="off-camera">$Lang{image_ingredients}{$lang}</button> 
+<div id="upload_image_result_ingredients"></div>
+<button onclick="captureImage();" data-icon="off-camera">$Lang{image_nutrition}{$lang}</button> 
+<div id="upload_image_result_nutrition"></div>
 <button onclick="captureImage();" data-icon="off-camera">$Lang{app_take_a_picture}{$lang}</button> 
 <div id="upload_image_result"></div>
 <p>$Lang{app_take_a_picture_note}{$lang}</p>
@@ -6480,14 +6863,35 @@ sub display_nutrient_levels($) {
 	
 	my $html = '';
 	
-	# For some products we can have the nutrition grade (A to Z, French style) + nutrient levels (traffic lights, UK style)
-	# or one of them, or none
+	# Do not display nutriscore and traffic lights for some categories of products
+	# do not compute a score for baby foods
+	if (has_tag($product_ref, "categories", "en:baby-foods")) {
+
+			return "";
+	}	
+	
+	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
+	if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
+
+			return "";
+	}
+	
+	
+	# do not compute a score for coffee, tea etc.
+	if (	(has_tag($product_ref, "categories", "en:alcoholic-beverages")) 
+		or	(has_tag($product_ref, "categories", "en:coffees"))
+		or	(has_tag($product_ref, "categories", "en:teas"))
+		or	(has_tag($product_ref, "categories", "en:teas"))
+		or	(has_tag($product_ref, "categories", "fr:levure"))
+		or	(has_tag($product_ref, "categories", "fr:levures"))
+		) {
+
+			return "";
+	}	
 	
 	my $html_nutrition_grade = '';
 	my $html_nutrient_levels = '';
-	
-	#return '' if (not $admin);
-	
+		
 	if ((exists $product_ref->{"nutrition_grade_fr"})) {
 		my $grade = $product_ref->{"nutrition_grade_fr"};
 		my $uc_grade = uc($grade);

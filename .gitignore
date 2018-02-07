@@ -1,13 +1,28 @@
-Store.debug.txt
+# Configuration
 lib/ProductOpener/Config.pm
 lib/ProductOpener/Config2.pm
 lib/ProductOpener/SiteLang.pm
 
-.DS_Store
+# Local files
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
+# Logs
+Store.debug.txt
+*.log
+
+# Local databases
+data/mongodb
+
+# Libraries
 node_modules
-
 html/bower_components
 html/images
+
+# Front build
 html/css/dist
 html/js/dist
