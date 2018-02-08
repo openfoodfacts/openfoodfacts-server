@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-08 17:50-0500\n"
+"PO-Revision-Date: 2018-02-08 18:00-0500\n"
 "Language-Team: Polish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -1834,7 +1834,7 @@ msgstr "Składniki, alergeny, dodatki, dane odżywcze, etykiety, pochodzenie sk�
 
 msgctxt "product_image"
 msgid "Product picture"
-msgstr ""
+msgstr "Zdjęcie produktu"
 
 msgctxt "product_image_with_barcode"
 msgid "Picture with barcode:"
@@ -1842,11 +1842,11 @@ msgstr "Zdjęcie z kodem kreskowym:"
 
 msgctxt "product_js_current_image"
 msgid "Current image:"
-msgstr ""
+msgstr "Obecne zdjęcie:"
 
 msgctxt "product_js_deleting_images"
 msgid "Deleting images"
-msgstr ""
+msgstr "Usuwanie zdjęć"
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
@@ -1854,19 +1854,19 @@ msgstr "Wyodrębnić składniki z obrazka"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr ""
+msgstr "Tekst składników nie może zostać wyodrębniony. Spróbuj uzyskać ostrzejszy obraz o wyższej rozdzielczości lub lepszym kadrowaniu tekstu."
 
 msgctxt "product_js_extracted_ingredients_ok"
 msgid "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr ""
+msgstr "Tekst składników został wyodrębniony. Rozpoznawanie tekstu nie jest doskonałe, więc sprawdź poniższy tekst i popraw błędy w razie potrzeby."
 
 msgctxt "product_js_extracting_ingredients"
 msgid "Extracting ingredients"
-msgstr ""
+msgstr "Wyodrębnianie składników"
 
 msgctxt "product_js_image_normalize"
 msgid "Normalize colors"
-msgstr ""
+msgstr "Normalizuj kolory"
 
 msgctxt "product_js_image_open_full_size_image"
 msgid "Open the picture in original size in a new windows"
