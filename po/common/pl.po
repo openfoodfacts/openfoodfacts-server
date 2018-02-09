@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-09 14:30-0500\n"
+"PO-Revision-Date: 2018-02-09 14:40-0500\n"
 "Language-Team: Polish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -2058,11 +2058,11 @@ msgstr "Wprowadź nowe hasło."
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
-msgstr ""
+msgstr "Wysłaliśmy odsyłacz do resetu hasła na adres e-mail powiązany z twoim kontem."
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
-msgstr ""
+msgstr "Jeśli zapomniałeś hasła, wpisz swoją nazwę lub adres e-mail by otrzymać instrukcje resetowania hasła."
 
 msgctxt "risk_level"
 msgid "Risk"
@@ -2070,7 +2070,7 @@ msgstr "Ryzyko"
 
 msgctxt "risk_level_0"
 msgid "To be completed"
-msgstr ""
+msgstr "By ukończyć"
 
 msgctxt "risk_level_1"
 msgid "Low risks"
@@ -2086,7 +2086,7 @@ msgstr "Wysokie ryzyko"
 
 msgctxt "salt_equivalent"
 msgid "salt equivalent"
-msgstr ""
+msgstr "odpowiednik soli"
 
 msgctxt "save"
 msgid "Save"
@@ -2098,7 +2098,7 @@ msgstr "Zapisz."
 
 msgctxt "saving"
 msgid "Saving."
-msgstr ""
+msgstr "Zapisywanie."
 
 msgctxt "search"
 msgid "Search"
@@ -2114,7 +2114,7 @@ msgstr "Poszukiwanie"
 
 msgctxt "search_contains"
 msgid "contains"
-msgstr ""
+msgstr "zawiera"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
@@ -2122,11 +2122,11 @@ msgstr "Wybierz produkty ze wzgledu na marki, kategorie, etykiety, pochodzenie s
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
-msgstr ""
+msgstr "Wyszukiwarka produktów Open Food Facts"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
-msgstr ""
+msgstr "nie zawiera"
 
 msgctxt "search_download_button"
 msgid "Download"
@@ -2138,27 +2138,27 @@ msgstr "Pobierz wyniki"
 
 msgctxt "search_download_results"
 msgid "Download results in CSV format (Excel, OpenOffice)"
-msgstr ""
+msgstr "Pobierz wyniki w formacie CSV (Excel, Open Office)"
 
 msgctxt "search_download_results_description"
 msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr ""
+msgstr "Zestaw znaków: Unicode (UTF-8) Separator: tabulacja (tab)."
 
 msgctxt "search_edit"
 msgid "Change search criteria"
-msgstr ""
+msgstr "Zmień kryteria wyszukiwania"
 
 msgctxt "search_flatten_tags"
 msgid "(Optional) - Create a column for every:"
-msgstr ""
+msgstr "(Alternatywnie) - Stwórz kolumnę dla każdego:"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
-msgstr ""
+msgstr "Generuj wykres"
 
 msgctxt "search_generate_map"
 msgid "Generate the map"
-msgstr ""
+msgstr "Generuj mapę"
 
 msgctxt "search_graph"
 msgid "Graph"
@@ -2166,11 +2166,11 @@ msgstr "Wykres"
 
 msgctxt "search_graph_2_axis"
 msgid "Scatter plot"
-msgstr ""
+msgstr "Wykres punktowy"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p>→ dowiedz się więcej o <<site_name>> wykresach: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Wykresy trzema kliknięciami</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2179,11 +2179,11 @@ msgstr "Wyniki na wykresie"
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
 "get a cloud of products (scatter plot)."
-msgstr ""
+msgstr "Wybierz co chcesz wykreślić na osi poziomej by uzyskać histogram, lub wybierz osie by uzyskać chmurę produktów (wykres punktowy)."
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Stały link do tego wykresu, do udostępnienia e-mailem lub w portalach społecznościowych"
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
