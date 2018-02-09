@@ -16,7 +16,7 @@
 # GNU Affero General Public License for more details.
 # 
 # You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 package ProductOpener::Ingredients;
 
@@ -50,16 +50,22 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::URL qw/:all/;
+
 
 use Image::OCR::Tesseract 'get_ocr';
 use Encode;
 use Clone qw(clone);
 
+use LWP::UserAgent;
+use Encode;
+use JSON::PP;
+
 # MIDDLE DOT with common substitutes (BULLET variants, BULLET OPERATOR and DOT OPERATOR (multiplication))
 my $middle_dot = qr/(?:\N{U+00B7}|\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N{U+204C}|\N{U+204D}|\N{U+2219}|\N{U+22C5})/i;
 # Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
 my $dashes = qr/(?:\p{Pd}|\N{U+2053}|\N{U+2212})/i;
-my $separators = qr/(,|;|:|$middle_dot|\[|\(|( $dashes ))/i;
+my $separators = qr/(,|;|:|$middle_dot|\[|\{|\(|( $dashes ))|(\/)/i;
 
 # load ingredients classes
 
@@ -114,12 +120,14 @@ closedir(DH);
 
 
 
-sub extract_ingredients_from_image($$) {
+sub extract_ingredients_from_image($$$) {
 
 	my $product_ref = shift;
 	my $id = shift;
+	my $ocr_engine = shift;
+	
 	my $path = product_path($product_ref->{code});
-	my $status = 0;
+	my $status = 1;
 	
 	my $filename = '';
 	
@@ -139,35 +147,101 @@ sub extract_ingredients_from_image($$) {
 	}
 	
 	my $image = "$www_root/images/products/$path/$filename.full.jpg";
+	my $image_url = format_subdomain('static') . "/images/products/$path/$filename.full.jpg";
+	
 	my $text;
 	
-	my $lan;
+	print STDERR "Ingredients.pm - extracts_ingredients_from_image - id: $id - ocr_engine: $ocr_engine\n";
 	
-	if (defined $ProductOpener::Config::tesseract_ocr_available_languages{$lc}) {
-		$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$lc};
-	}
-	elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}}) {
-		$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}};
-	}	
-	elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{en}) {
-		$lan = $ProductOpener::Config::tesseract_ocr_available_languages{en};
-	}
+	if ($ocr_engine eq 'tesseract') {
 	
-	print STDERR "extract_ingredients_from_image - lc: $lc - lan: $lan - id: $id - image: $image\n";
-	
-	if (defined $lan) {
-		$text =  decode utf8=>get_ocr($image,undef,'fra');
+		my $lan;
 		
-		if ((defined $text) and ($text ne '')) {
-			$product_ref->{ingredients_text_from_image} = $text;
+		if (defined $ProductOpener::Config::tesseract_ocr_available_languages{$lc}) {
+			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$lc};
+		}
+		elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}}) {
+			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{$product_ref->{lc}};
+		}	
+		elsif (defined $ProductOpener::Config::tesseract_ocr_available_languages{en}) {
+			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{en};
+		}
+		
+		print STDERR "extract_ingredients_from_image - lc: $lc - lan: $lan - id: $id - image: $image\n";
+		
+		if (defined $lan) {
+			$text =  decode utf8=>get_ocr($image,undef,$lan);
+			
+			if ((defined $text) and ($text ne '')) {
+				$product_ref->{ingredients_text_from_image} = $text;
+				$status = 0;
+			}
 		}
 		else {
-			$status = 1;
+			print STDERR "extract_ingredients_from_image - lc: $lc - lan: $lan - id: $id - no available tesseract dictionary\n";	
 		}
+	
 	}
-	else {
-		print STDERR "extract_ingredients_from_image - lc: $lc - lan: $lan - id: $id - no available tesseract dictionary\n";	
+	elsif ($ocr_engine eq 'google_cloud_vision') {
+
+		my $url = "https://alpha-vision.googleapis.com/v1/images:annotate?key=" . $ProductOpener::Config::google_cloud_vision_api_key;
+		# alpha-vision.googleapis.com/
+
+		my $ua = LWP::UserAgent->new();
+
+		my $api_request_ref = 		 
+			{
+				requests => 
+					[ 
+						{
+							features => [{ type => 'TEXT_DETECTION'}], image => { source => { imageUri => $image_url}}
+						}
+					]
+			}
+		;
+		my $json = encode_json($api_request_ref);
+						
+		my $request = HTTP::Request->new(POST => $url);
+		$request->header( 'Content-Type' => 'application/json' );
+		$request->content( $json );
+
+		my $res = $ua->request($request);
+			
+		if ($res->is_success) {
+		
+			print STDERR "google cloud vision: success\n";
+		
+			my $json_response = $res->decoded_content;
+			
+			my $cloudvision_ref = decode_json($json_response);
+			
+			my $json_file = "$www_root/images/products/$path/$filename.full.jpg" . ".google_cloud_vision.json";
+			
+			print STDERR "google cloud vision: saving json response to $json_file\n";
+			
+			open (my $OUT, ">:encoding(UTF-8)", $json_file);
+			print $OUT $json_response;
+			close $OUT;			
+			
+			if ((defined $cloudvision_ref->{responses}) and (defined $cloudvision_ref->{responses}[0])
+				and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation})
+				and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text})) {
+				
+				print STDERR "google cloud vision: found a text response\n";
+	
+				
+				$product_ref->{ingredients_text_from_image} = $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text};
+				$status = 0;
+			}
+			
+		}
+		else {
+			print STDERR "google cloud vision: not ok - code: " . $res->code . " - message: " . $res->message . "\n";
+		}
+
+	
 	}
+	
 	
 	return $status;
 
@@ -186,11 +260,10 @@ sub extract_ingredients_from_text($) {
 	$text =~ s/\r\n/\n/g;
 	$text =~ s/\R/\n/g;
 	
-	# assume commas between numbers are part of the name
-	# e.g. en:2-Bromo-2-Nitropropane-1,3-Diol, Bronopol
-	# replace by a lower comma ‚
+	# remove ending .
+	$text =~ s/(\s|\.)+$//;
+	
 
-	$text =~ s/(\d),(\d)/$1‚$2/g;	
 	
 	# $product_ref->{ingredients_tags} = ["first-ingredient", "second-ingredient"...]
 	# $product_ref->{ingredients}= [{id =>, text =>, percent => etc. }, ] # bio / équitable ? 
@@ -208,6 +281,12 @@ sub extract_ingredients_from_text($) {
 	$text =~ s/(\d),(\d+)( )?\%/$1.$2\%/g;
 	$text =~ s/—/-/g;
 	
+	# assume commas between numbers are part of the name
+	# e.g. en:2-Bromo-2-Nitropropane-1,3-Diol, Bronopol
+	# replace by a lower comma ‚
+
+	$text =~ s/(\d),(\d)/$1‚$2/g;		
+	
 	my $analyze_ingredients = sub($$$$$) {
 		my $analyze_ingredients_self = shift;
 		my $ranked_ingredients_ref = shift;
@@ -215,7 +294,7 @@ sub extract_ingredients_from_text($) {
 		my $level = shift;
 		my $s = shift;
 		
-		print STDERR "analyze_ingredients level $level: $s\n";
+		# print STDERR "analyze_ingredients level $level: $s\n";
 		
 		my $last_separator =  undef; # default separator to find the end of "acidifiants : E330 - E472"
 		
@@ -232,9 +311,9 @@ sub extract_ingredients_from_text($) {
 			my $sep = $1;
 			$after = $';
 			
-			print STDERR "separator: $sep\tbefore: $before\tafter: $after\n";
+			# print STDERR "separator: $sep\tbefore: $before\tafter: $after\n";
 			
-			if ($sep =~ /(:|\[|\()/i) {
+			if ($sep =~ /(:|\[|\{|\()/i) {
 			
 				my $ending = $last_separator;
 				if (not defined $ending) {
@@ -246,36 +325,39 @@ sub extract_ingredients_from_text($) {
 				elsif ($sep eq '[') {
 					$ending = '\]';
 				}
+				elsif ($sep eq '{') {
+					$ending = '\}';
+				}				
 				$ending .= '|$';
 				$ending = '(' . $ending . ')';
 				
-				print STDERR "special separator: $sep - ending: $ending - after: $after\n";
+				# print STDERR "special separator: $sep - ending: $ending - after: $after\n";
 				
 				# another separator before the ending separator ? we probably have several sub-ingredients
 				if ($after =~ /^(.*?)$ending/i) {
 					$between = $1;
 					$after = $';
 					
-					print STDERR "sub-ingredients - between: $between - after: $after\n";
+					# print STDERR "sub-ingredients - between: $between - after: $after\n";
 					
 					if ($between =~ $separators) {
 						$between_level = $level + 1;
 					}
 					else {
 						# no separator found : 34% ? or single ingredient
-						if ($between =~ /^\s*(\d+(\.\d+)?)\s*\%\s*$/) {
-							print STDERR "percent found:  $1\%\n";
+						if ($between =~ /^\s*(\d+((\,|\.)\d+)?)\s*\%\s*$/) {
+							# print STDERR "percent found:  $1\%\n";
 							$percent = $1;
 							$between = '';
 						}
 						else {
 							# single ingredient, stay at same level
-							print STDERR "single ingredient, stay at same level\n";
+							# print STDERR "single ingredient, stay at same level\n";
 						}
 					}
 				}
 				else {
-					print STDERR "could not find ending separator: $ending - after: $after\n"
+					# print STDERR "could not find ending separator: $ending - after: $after\n"
 					# ! could not find the ending separator
 				}
 			
@@ -285,28 +367,31 @@ sub extract_ingredients_from_text($) {
 				$last_separator = $sep;
 			}
 			
-			if ($after =~ /^\s*(\d+(\.\d+)?)\s*\%\s*($separators|$)/) {
-				print STDERR "percent found: $after = $1 + $'\%\n";
+			if ($after =~ /^\s*(\d+((\,|\.)\d+)?)\s*\%\s*(\),\],\])*($separators|$)/) {
+				# print STDERR "percent found: $after = $1 + $'\%\n";
 				$percent = $1;
 				$after = $';
 			}		
 		}
 		else {
 			# no separator found: only one ingredient
-			print STDERR "no separator found: $s\n";
+			# print STDERR "no separator found: $s\n";
 			$before = $s;
 		}
 		
+		# remove ending parenthesis
+		$before =~ s/(\),\],\])*//;
+		
 		# Strawberry 10.3%
-		if ($before =~ /\s*(\d+(\.\d+)?)\s*\%\s*$/) {
-			print STDERR "percent found: $before = $` + $1\%\n";
+		if ($before =~ /\s*(\d+((\,|\.)\d+)?)\s*\%\s*(\),\],\])*$/) {
+			# print STDERR "percent found: $before = $` + $1\%\n";
 			$percent = $1;
 			$before = $`;
 		}		
 		
 		# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
-		if ($before =~ /^\s*(\d+(\.\d+)?)\s*\%\s*(pur|de|d')?\s*/i) {
-			print STDERR "'x% something' : percent found: $before = $' + $1\%\n";
+		if ($before =~ /^\s*(\d+((\,|\.)\d+)?)\s*\%\s*(pur|de|d')?\s*/i) {
+			# print STDERR "'x% something' : percent found: $before = $' + $1\%\n";
 			$percent = $1;
 			$before = $';
 		}		
@@ -317,6 +402,15 @@ sub extract_ingredients_from_text($) {
 		chomp($ingredient);
 		$ingredient =~ s/\s+$//;
 		$ingredient =~ s/^\s+//;
+		
+		# remove percent
+		
+		# remove * and other chars before and after the name of ingredients
+		$ingredient =~ s/(\s|\*|\)|\]|\}|\.|-|')+$//;
+		$ingredient =~ s/^(\s|\*|\)|\]|\}|\.|-|')+//;
+		
+		$ingredient =~ s/\s*(\d+(\,\.\d+)?)\s*\%\s*$//;
+		
 		my %ingredient = (
 			id => get_fileid($ingredient),
 			text => $ingredient
@@ -325,12 +419,20 @@ sub extract_ingredients_from_text($) {
 			$ingredient{percent} = $percent;
 		}
 		
+
+		
 		if ($ingredient ne '') {
-			if ($level == 0) {
-				push @$ranked_ingredients_ref, \%ingredient;
-			}
-			else {
-				push @$unranked_ingredients_ref, \%ingredient;
+		
+			# ingredients tags that are too long (greater than 1024, mongodb max index key size)
+			# will cause issues for the mongodb ingredients_tags index, just drop them
+			
+			if (length($ingredient{id}) < 500) {
+				if ($level == 0) {
+					push @$ranked_ingredients_ref, \%ingredient;
+				}
+				else {
+					push @$unranked_ingredients_ref, \%ingredient;
+				}
 			}
 		}
 		
@@ -357,11 +459,17 @@ sub extract_ingredients_from_text($) {
 	
 	my $field = "ingredients";
 	if (defined $taxonomy_fields{$field}) {
-		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($product_ref->{lc}, $field, join(", ", @{$product_ref->{ingredients_tags}} )) ];
+		$product_ref->{$field . "_hierarchy" } = [ gen_ingredients_tags_hierarchy_taxonomy($product_ref->{lc}, join(", ", @{$product_ref->{ingredients_tags}} )) ];
 		$product_ref->{$field . "_tags" } = [];
+		my $unknown = 0;
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
+			my $tagid = get_taxonomyid($tag);
+			push @{$product_ref->{$field . "_tags" }}, $tagid;
+			if (not exists_taxonomy_tag("ingredients", $tagid)) {
+				$unknown++;
+			}
 		}
+		$product_ref->{"unknown_ingredients_n" } = $unknown;
 	}
 	
 	
@@ -424,6 +532,8 @@ sub extract_ingredients_classes_from_text($) {
 	
 	# stabilisant e420 (sans : )
 	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement)(s)?(\s)?(:)?/$1$2 : /ig;
+	# citric acid natural flavor (may be a typo)
+	$text =~ s/(natural flavor)(s)?(\s)?(:)?/: $1$2 : /ig;
 	
 	# mono-glycéride -> monoglycérides
 	$text =~ s/(mono|di)-([a-z])/$1$2/ig;
@@ -444,13 +554,31 @@ sub extract_ingredients_classes_from_text($) {
 	
 	# huiles de palme et de
 	
+	# carbonates d'ammonium et de sodium
+	
+	# carotène et extraits de paprika et de curcuma
+	
+	# create a new list of ingredients where we can insert ingredients that we split in two
+	my @new_ingredients = ();
 	
 	foreach my $ingredient (@ingredients) {
-		if ($ingredient =~ / et (de )?/i) {
-			push @ingredients, $`;
-			push @ingredients, $';
+		next if not defined $ingredient;
+		
+		# Phosphate d'aluminium et de sodium --> E541. Should not be split.
+		# Sels de sodium et de potassium de complexes cupriques de chlorophyllines -> should not be split... 
+		
+		if (($ingredient !~ /phosphate(s)? d'aluminium et de sodium/i)
+			and ($ingredient !~ /chlorophyl/i)
+			and ($ingredient =~ /\b((de |d')(.*)) et (de |d')?/i)) {
+			push @new_ingredients, $` . $1;	# huile de palme / carbonates d'ammonium
+			push @new_ingredients, $` . $4 . $'; # huile de tournesol / carbonates de sodium
+		}
+		else {
+			push @new_ingredients, $ingredient;
 		}
 	}
+	
+	@ingredients = @new_ingredients;
 	
 	my @ingredients_ids = ();
 	foreach my $ingredient (@ingredients) {
@@ -514,10 +642,13 @@ sub extract_ingredients_classes_from_text($) {
 					
 					$product_ref->{$tagtype} .= " [ $ingredient_id_copy -> $canon_ingredient ";
 					
-					if ((not defined $seen{$canon_ingredient})
-						and (exists_taxonomy_tag($tagtype, $canon_ingredient))
+					if (defined $seen{$canon_ingredient}) {
+						$product_ref->{$tagtype} .= " -- already seen ";	
+						$match = 1;
+					}
+					elsif ((exists_taxonomy_tag($tagtype, $canon_ingredient))
 						# do not match synonyms
-						and ($canon_ingredient !~ /^en:(fd|no)/)
+						and ($canon_ingredient !~ /^en:(fd|no|colour)/)
 						) {
 						
 						$seen{$canon_ingredient} = 1;
@@ -559,13 +690,19 @@ sub extract_ingredients_classes_from_text($) {
 			}
 		
 		
+		# Also generate a list of additives with the parents (e.g. E500ii adds E500)
+		$product_ref->{ $tagtype . '_original_tags'} = $product_ref->{ $tagtype . '_tags'};
+		$product_ref->{ $tagtype . '_tags'} = [ sort(gen_tags_hierarchy_taxonomy("en", $tagtype, join(', ', @{$product_ref->{ $tagtype . '_original_tags'}})))];
+		
+		
 		# No ingredients?
 		if ($product_ref->{ingredients_text} eq '') {
 			delete $product_ref->{$tagtype . '_n'};
 		}
 		else {
-			if (defined $product_ref->{$tagtype . '_tags'}) {
-				$product_ref->{$tagtype. '_n'} = scalar @{$product_ref->{ $tagtype . '_tags'}};
+			# count the original list of additives, don't count E500ii as both E500 and E500ii
+			if (defined $product_ref->{$tagtype . '_original_tags'}) {
+				$product_ref->{$tagtype. '_n'} = scalar @{$product_ref->{ $tagtype . '_original_tags'}};
 			}
 			else {
 				delete $product_ref->{$tagtype . '_n'};

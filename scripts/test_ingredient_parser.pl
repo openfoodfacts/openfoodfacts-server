@@ -29,7 +29,7 @@ use JSON;
 my $text = decode utf8=>param('text');
 
 my $html = <<HTML
-<p>Liste des ingrédients :</p>
+<p>Liste des ingrÃ©dients :</p>
 <form>
 <textarea name="text" id="text" cols="80" rows="10">
 $text
@@ -47,7 +47,7 @@ if ($text ne '') {
 	
 	
 	if (not defined $product_ref->{ingredients}) {
-		$html .= "<p>Pas d'ingrédients reconnus</p>";
+		$html .= "<p>Pas d'ingrÃ©dients reconnus</p>";
 	}
 	else {
 		$html .= <<HTML

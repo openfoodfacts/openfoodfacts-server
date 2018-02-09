@@ -1,0 +1,74 @@
+files:
+  - source: /po/common/common.pot
+    translation: /po/common/%two_letters_code%.po
+    languages_mapping:
+      two_letters_code:
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        zh-CN: zh_CN
+        zh-HK: zh_HK
+        en-GB: en_GB
+        en-AU: en_AU
+        nl-BE: nl_BE
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr
+  - source: /po/openbeautyfacts/openbeautyfacts.pot
+    translation: /po/openbeautyfacts/%two_letters_code%.po
+    languages_mapping:
+      two_letters_code:
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        en-AU: en_AU
+        zh-CN: zh_CN
+        zh-HK: zh_HK
+        nl-BE: nl_BE
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr
+  - source: /po/openfoodfacts/openfoodfacts.pot
+    translation: /po/openfoodfacts/%two_letters_code%.po
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        nl-BE: nl_BE
+        nl: nl_NL
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr
+  - source: /po/openpetfoodfacts/openpetfoodfacts.pot
+    translation: /po/openpetfoodfacts/%two_letters_code%.po
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr
+  - source: /po/tags/tags.pot
+    translation: /po/tags/%two_letters_code%.po
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr

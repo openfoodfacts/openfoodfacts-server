@@ -44,6 +44,7 @@ requires 'CLDR::Number::Format::Percent';
 requires 'CLDR::Number';
 requires 'Modern::Perl', '>= 1.20150127';
 requires 'Data::Dumper::AutoEncode';
+requires 'XML::Rules';
 
 # OIDC
 requires 'OAuth::Lite2', '0.11';

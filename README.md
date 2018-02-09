@@ -7,6 +7,7 @@
 [![Build Status](https://travis-ci.org/openfoodfacts/openfoodfacts-server.svg?branch=master)](https://travis-ci.org/openfoodfacts/openfoodfacts-server)
 [![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/openfoodfacts/openfoodfacts-server.svg)](https://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Average time to resolve an issue")
 [![Percentage of issues still open](https://isitmaintained.com/badge/open/openfoodfacts/openfoodfacts-server.svg)](https://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Percentage of issues still open")
+[![Crowdin](https://d322cqt584bo4o.cloudfront.net/openfoodfacts/localized.svg)](https://crowdin.com/project/openfoodfacts)
 
 ## What is Product Opener?
 
@@ -77,10 +78,7 @@ https://github.com/openfoodfacts/openfoodfacts-server/issues
 ### Translate Open Food Facts in your language
 
 You can help translate Open Food Facts and the app at (no technical knowledge required, takes a minute to signup): <br>
-https://translations.launchpad.net/openfoodfacts/trunk/+pots/openfoodfacts-web
-https://translations.launchpad.net/openfoodfacts/trunk/+pots/openbeautyfacts-web
-https://translations.launchpad.net/openfoodfacts/trunk/+pots/common-web
-
+https://crowdin.com/project/openfoodfacts
 
 ### Who do I talk to? ###
 

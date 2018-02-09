@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2017 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -39,6 +39,7 @@ BEGIN
 					&display_form
 					&display_date
 					&display_date_tag
+					&get_packager_code_coordinates
 					
 					&display_structured_response
 					&display_new					
@@ -68,6 +69,7 @@ BEGIN
 					$connection
 					$database
 					$products_collection
+					$emb_codes_collection
 					
 					$debug
 					$scripts
@@ -135,9 +137,19 @@ $memd = new Cache::Memcached::Fast {
 	'utf8' => 1,
 };
 
-$connection = MongoDB->connect();
+$connection = MongoDB->connect($mongodb_host);
 $database = $connection->get_database($mongodb);
 $products_collection = $database->get_collection('products');
+$emb_codes_collection = $database->get_collection('emb_codes');
+
+
+if (defined $options{other_servers}) {
+
+	foreach my $server (keys %{$options{other_servers}}) {
+		$options{other_servers}{$server}{database} = $connection->get_database($options{other_servers}{$server}{mongodb});
+		$options{other_servers}{$server}{products_collection} = $options{other_servers}{$server}{database}->get_collection('products');
+	}
+}
 
 
 $default_request_ref = {
@@ -249,7 +261,7 @@ sub init()
 		print STDERR "Display::init - country_name($subdomain) -  ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
 		
 	}
-	elsif (($ENV{QUERY_STRING} !~ /cgi/) and ($subdomain ne 'accounts')) {
+	elsif (($ENV{QUERY_STRING} !~ /(cgi|api)\//) and ($subdomain ne 'accounts')) {
 		# redirect
 		my $worlddom = format_subdomain('world');
 		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $worlddom\n";
@@ -300,7 +312,7 @@ sub init()
 	$lang = $lc;
 	
 	# If the language is equal to the first language of the country, but we are on a different subdomain, redirect to the main country subdomain. (fr-fr => fr)
-	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^ssl-api/) and ($subdomain ne 'accounts') and ($r->method() eq 'GET')) {
+	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^(ssl-)?api/) and ($subdomain ne 'accounts') and ($r->method() eq 'GET') and ($ENV{QUERY_STRING} !~ /(cgi|api)\//)) {
 		# redirect
 		my $ccdom = format_subdomain($cc);
 		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $ccdom\n";
@@ -401,8 +413,8 @@ sub analyze_request($)
 	print STDERR "analyze_request : query_string 0 : $request_ref->{query_string} \n";
 	
 	
-	# http://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
-	# http://world.openfoodfacts.org/?ref=producthunt
+	# https://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
+	# https://world.openfoodfacts.org/?ref=producthunt
 	
 	if ($request_ref->{query_string} =~ /(\&|\?)(utm_|ref=)/) {
 		$request_ref->{query_string} = $`;
@@ -812,6 +824,37 @@ sub display_date($) {
 
 }
 
+sub display_date_without_time($) {
+
+	my $t = shift;
+
+	if (defined $t) {
+		my @codes = DateTime::Locale->codes;
+		my $locale;
+		if ( $lc ~~ @codes ) {
+			$locale = DateTime::Locale->load($lc);
+		}
+		else {
+			$locale = DateTime::Locale->load('en');
+		}
+	
+		my $dt = DateTime->from_epoch(
+			locale => $locale,
+			time_zone => $reference_timezone,
+			epoch => $t );
+		my $formatter = DateTime::Format::CLDR->new(
+		    pattern => $locale->date_format_long,
+		    locale => $locale
+		);
+		$dt->set_formatter($formatter);
+		return $dt;
+	}
+	else {
+		return;
+	}
+
+}
+
 sub display_date_tag($) {
 
 	my $t = shift;
@@ -956,7 +999,7 @@ sub display_text($)
 	}		
 	
 	if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
-		$request_ref->{title} = $title . " - " . sprintf(lang("page_x"), $request_ref->{page});
+		$request_ref->{title} = $title . lang("title_separator") . sprintf(lang("page_x"), $request_ref->{page});
 	}
 	else {
 		$request_ref->{title} = $title;
@@ -1105,7 +1148,7 @@ sub display_list_of_tags($$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB->connect();
+			$connection = MongoDB->connect($mongodb_host);
 			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
@@ -1569,6 +1612,11 @@ HTML
 		
 		my $tagtype_p = $Lang{$tagtype . "_p"}{$lang};
 		
+		my $extra_column_searchable = "";
+		if (defined $taxonomy_fields{$tagtype}) {
+			$extra_column_searchable .= ', { "searchable": false }';
+		}
+		
 		$initjs .= <<JS
 oTable = \$('#tagstable').DataTable({
 	language: {
@@ -1577,7 +1625,11 @@ oTable = \$('#tagstable').DataTable({
 		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
 	},
 	paging: false,
-	order: [[ 1, "desc" ]]
+	order: [[ 1, "desc" ]],
+	columns: [
+		null,
+		{ "searchable": false } $extra_column_searchable
+	]
 });
 JS
 ;
@@ -1814,12 +1866,12 @@ sub display_points($) {
 
 	if (defined $tagtype) {
 		$html .= display_points_ranking($tagtype, $tagid);
-		$request_ref->{title} = "Open Food Hunt - " . lang("points_ranking") . " - " . $title;
+		$request_ref->{title} = "Open Food Hunt" . lang("title_separator") . lang("points_ranking") . lang("title_separator") . $title;
 	}
 	else {
 		$html .= display_points_ranking("users", "_all_");
 		$html .= display_points_ranking("countries", "_all_");
-		$request_ref->{title} = "Open Food Hunt - " . lang("points_ranking_users_and_countries");
+		$request_ref->{title} = "Open Food Hunt" . lang("title_separator") . lang("points_ranking_users_and_countries");
 	}
 	
 	$request_ref->{content_ref} = \$html;
@@ -1832,7 +1884,7 @@ SCRIPTS
 
 	$header .= <<HEADER
 <link rel="stylesheet" href="/js/datatables.min.css" />
-<meta property="og:image" content="http://world.openfoodfacts.org/images/misc/open-food-hunt-2015.1304x893.png"/>
+<meta property="og:image" content="https://world.openfoodfacts.org/images/misc/open-food-hunt-2015.1304x893.png"/>
 HEADER
 ;	
 			
@@ -2056,6 +2108,41 @@ sub display_tag($) {
 		if (exists $packager_codes{$canon_tagid}) {
 		
 			print STDERR "display_tag packager_codes - canon_tagid: $canon_tagid exists, cc : " . $packager_codes{$canon_tagid}{cc} . "\n";
+			
+			# Generate a map if we have coordinates
+			my ($lat, $lng) = get_packager_code_coordinates($canon_tagid);
+			my $html_map = "";
+			if ((defined $lat) and (defined $lng)) {
+				my $geo = "$lat,$lng";
+			
+				$header .= <<HTML		
+<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
+<script src="/bower_components/leaflet/dist/leaflet.js"></script>
+HTML
+;
+
+
+				my $js = <<JS
+var map = L.map('container').setView([$geo], 11);;	
+		
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);			
+
+L.marker([$geo]).addTo(map)	
+
+$request_ref->{map_options}
+JS
+;		
+				$initjs .= $js;
+				
+				$html_map .= <<HTML
+<div id="container" style="height: 300px"></div>​
+HTML
+;				
+			
+			}
 		
 			if ($packager_codes{$canon_tagid}{cc} eq 'fr') {
 				$description .= <<HTML
@@ -2128,8 +2215,29 @@ HTML
 ;
 				}
 			}	
+			
+			if ($html_map ne '') {
+			
+				$description = <<HTML
+<div class="row">
+
+	<div class="large-3 columns">
+		$description
+	</div>
+	<div class="large-9 columns">
+		$html_map
+	</div>
+
+</div>			
+
+HTML
+;
+			
+			}
 		
 		}
+		
+
 	}
 	
 	if ($tagtype eq 'users') {
@@ -2197,7 +2305,7 @@ HTML
 	
 	
 	if (defined $tagid2) {
-		$products_title .= " - " . lang($tagtype2 . '_s') . separator_before_colon($lc) . ": " . $display_tag2;
+		$products_title .= lang("title_separator") . lang($tagtype2 . '_s') . separator_before_colon($lc) . ": " . $display_tag2;
 	}
 	
 	if (not defined $request_ref->{groupby_tagtype}) {
@@ -2231,7 +2339,7 @@ HTML
 		
 		
 	
-		$html .= "<h2>" . $products_title . " - " . display_taxonomy_tag($lc,"countries",$country) . "</h2>\n";
+		$html .= "<h2>" . $products_title . lang("title_separator") . display_taxonomy_tag($lc,"countries",$country) . "</h2>\n";
 	}
 	
 	} # end of if (defined $tagtype)
@@ -2316,17 +2424,17 @@ HTML
 		if ($products_title ne '') {
 			$request_ref->{title} .= " " . lang("for") . " " . lcfirst($products_title);
 		}
-		$request_ref->{title} .= " - " . display_taxonomy_tag($lc,"countries",$country);
+		$request_ref->{title} .= lang("title_separator") . display_taxonomy_tag($lc,"countries",$country);
 	}
 	else {
 		if ((defined $request_ref->{page}) and ($request_ref->{page} > 1)) {
-			$request_ref->{title} = $title . " - " . sprintf(lang("page_x"), $request_ref->{page});
+			$request_ref->{title} = $title . lang("title_separator") . sprintf(lang("page_x"), $request_ref->{page});
 		}
 		else {
 			$request_ref->{title} = $title;
 		}
 
-		$html = "<div itemscope itemtype=\"http://schema.org/Thing\"><h1>" . $title ."</h1>" . $html . "</div>";
+		$html = "<div itemscope itemtype=\"http://schema.org/Thing\"><h1 itemprop=\"name\">" . $title ."</h1>" . $html . "</div>";
 		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
 	}
 
@@ -2443,19 +2551,29 @@ sub search_and_display_products($$$$$) {
 	my $cursor;
 	my $count;
 	
+	use Data::Dumper;
 	#if ($admin) 
 	{
-	
-		use Data::Dumper;
-		print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
 		print STDERR "Display.pm - search_and_display_products - sort:\n" . Dumper($sort_ref) . "\n";
 		print STDERR "Display.pm - search_and_display_products - limit:\n" . Dumper($limit) . "\n";
 	
 	}
 	
 	eval {
-		$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-		$count = $cursor->count() + 0;
+		if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
+			my $aggregate_parameters = [
+				{ "\$match" => $query_ref },
+				{ "\$sample" => { "size" => $request_ref->{sample_size} } }
+			];
+			print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
+			$cursor = $products_collection->aggregate($aggregate_parameters);
+		}
+		else {
+			print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
+			$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+			$count = $cursor->count() + 0;
+			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";
+		}
 	};
 	if ($@) {
 		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
@@ -2463,7 +2581,7 @@ sub search_and_display_products($$$$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB->connect();
+			$connection = MongoDB->connect($mongodb_host);
 			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
@@ -2473,22 +2591,36 @@ sub search_and_display_products($$$$$) {
 		}
 		else {		
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
-			$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-			$count = $cursor->count() + 0;
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
+			if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
+				my $aggregate_parameters = [
+					{ "\$match" => $query_ref },
+					{ "\$sample" => { "size" => $request_ref->{sample_size} } }
+				];
+				print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
+				$cursor = $products_collection->aggregate($aggregate_parameters);
+			}
+			else {
+				print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
+				$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+				$count = $cursor->count() + 0;
+				print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";
+
+			}
+			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok\n";
 		}
 	}
-		
-	$request_ref->{count} = $count + 0;
-	print STDERR "Display.pm - search_and_display_products - count: $count\n";
 	
+	while (my $product_ref = $cursor->next) {
+		push @{$request_ref->{structured_response}{products}}, $product_ref;
+	}
+	
+	$request_ref->{structured_response}{count} = $count + 0;
 	
 	my $html = '';
 	my $html_pages = '';
 	my $html_count = '';
 	
 	if (not defined $request_ref->{jqm_loadmore}) {
-
 		if ($count < 0) {
 			$html .= "<p>" . lang("error_database") . "</p>";	
 		}
@@ -2501,10 +2633,7 @@ sub search_and_display_products($$$$$) {
 		elsif ($count > 1) {
 			$html_count .= sprintf(lang("n_products"), $count) ;
 		}
-	
 	}
-	
-	$request_ref->{structured_response}{count} = $count + 0;
 	
 	if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
 	
@@ -2519,7 +2648,7 @@ sub search_and_display_products($$$$$) {
 			
 		
 	}
-	
+		
 	if ($count > 0) {
 	
 		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm}))  {
@@ -2535,7 +2664,7 @@ sub search_and_display_products($$$$$) {
 		print STDERR $debug_log . "\n"; 
 		
 		if ((not defined $request_ref->{search}) and ($count >= 5) 	
-			and (not defined $request_ref->{tagid2})) {
+			and (not defined $request_ref->{tagid2}) and (not defined $request_ref->{product_changes_saved})) {
 			
 			my @current_drilldown_fields = @ProductOpener::Config::drilldown_fields;
 			if ($country eq 'en:world') {
@@ -2572,9 +2701,7 @@ HTML
 			$html .= "<ul class=\"products\">\n";
 		}
 	
-		
-		while (my $product_ref = $cursor->next) {
-			
+		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 			my $img_url;
 			my $img_w;
 			my $img_h;
@@ -2632,8 +2759,6 @@ HTML
 			delete $product_ref->{additives};
 			delete $product_ref->{additives_prev};
 			delete $product_ref->{additives_next};			
-			
-			push @{$request_ref->{structured_response}{products}}, $product_ref;
 		}
 	
 
@@ -2652,7 +2777,7 @@ HTML
 		
 		my $next_page_url;
 		
-		if (($nb_pages > 1) and ((defined $current_link) or (defined $current_link_query))) {
+		if ((($nb_pages > 1) and ((defined $current_link) or (defined $current_link_query))) and (not defined $request_ref->{product_changes_saved})) {
 		
 			my $prev = '';
 			my $next = '';
@@ -2817,7 +2942,7 @@ sub search_and_export_products($$$$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB->connect();
+			$connection = MongoDB->connect($mongodb_host);
 			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
@@ -3243,32 +3368,28 @@ sub display_scatter_plot($$$) {
 				}
 				
 				defined $series{$seriesid} or $series{$seriesid} = '';
-				
+
 				# print STDERR "Display::search_and_graph_products: i: $i - axis_x: $graph_ref->{axis_x} - axis_y: $graph_ref->{axis_y}\n";
 					
-				my $data = '{';
+				my %data;
 					
 				foreach my $axis ('x', 'y') {
 					my $nid = $graph_ref->{"axis_" . $axis};
-					$data .= $axis . ':';
 					if (($nid eq 'additives_n') or ($nid eq 'ingredients_n')) {
-						$data .= $product_ref->{$nid};
+						$data{$axis} = $product_ref->{$nid};
 					}
 					else {
-						$data .= g_to_unit($product_ref->{nutriments}{"${nid}_100g"}, $Nutriments{$nid}{unit});
+						$data{$axis} = g_to_unit($product_ref->{nutriments}{"${nid}_100g"}, $Nutriments{$nid}{unit});
 					}
-					$data .= ',';			
 									
 					add_product_nutriment_to_stats(\%nutriments, $nid, $product_ref->{nutriments}{"${nid}_100g"});
 				}
-				$data .= ' product_name:"' . escape_single_quote($product_ref->{product_name}) . '", url: "' . $url . '", img:\''
-					. escape_single_quote(display_image_thumb($product_ref, 'front')) . "'";
-;
-				
-				$data .= "},\n";
+				$data{product_name} = $product_ref->{product_name};
+				$data{url} = $url;
+				$data{img} = display_image_thumb($product_ref, 'front');
 				
 				defined $series{$seriesid} or $series{$seriesid} = '';
-				$series{$seriesid} .= $data;
+				$series{$seriesid} .= JSON::PP->new->encode(\%data) . ',';
 				defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
 				$series_n{$seriesid}++;
 				$i++;
@@ -3859,7 +3980,7 @@ sub search_and_graph_products($$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB->connect();
+			$connection = MongoDB->connect($mongodb_host);
 			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
@@ -3933,6 +4054,54 @@ sub search_and_graph_products($$$) {
 }
 
 
+sub get_packager_code_coordinates($) {
+
+	my $emb_code = shift;
+	my $lat;
+	my $lng;
+						
+	if (exists $packager_codes{$emb_code}) {					
+		if (exists $packager_codes{$emb_code}{lat}) {
+			# some lat/lng have , for floating point numbers
+			$lat = $packager_codes{$emb_code}{lat};
+			$lng = $packager_codes{$emb_code}{lng};
+			$lat =~ s/,/\./g;
+			$lng =~ s/,/\./g;
+		}
+		elsif (exists $packager_codes{$emb_code}{fsa_rating_business_geo_lat}) {
+			$lat = $packager_codes{$emb_code}{fsa_rating_business_geo_lat};
+			$lng = $packager_codes{$emb_code}{fsa_rating_business_geo_lng};
+		}								
+		elsif ($packager_codes{$emb_code}{cc} eq 'uk') {
+			#my $address = 'uk' . '.' . $packager_codes{$emb_code}{local_authority};
+			my $address = 'uk' . '.' . $packager_codes{$emb_code}{canon_local_authority};
+			if (exists $geocode_addresses{$address}) {
+				$lat = $geocode_addresses{$address}[0];
+				$lng = $geocode_addresses{$address}[1];
+			}
+		}
+	}
+	
+	my $city_code = get_city_code($emb_code);
+		
+	if (((not defined $lat) or (not defined $lng)) and (defined $emb_codes_geo{$city_code})) {
+	
+		# some lat/lng have , for floating point numbers
+		$lat = $emb_codes_geo{$city_code}[0];
+		$lng = $emb_codes_geo{$city_code}[1];
+		$lat =~ s/,/\./g;
+		$lng =~ s/,/\./g;
+	}
+	
+	# filter out empty coordinates
+	if ((not defined $lat) or (not defined $lng)) {
+		return (undef, undef);
+	}
+	
+	return ($lat, $lng);
+
+}
+
 
 
 sub search_and_map_products($$$) {
@@ -3966,7 +4135,7 @@ sub search_and_map_products($$$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB->connect();
+			$connection = MongoDB->connect($mongodb_host);
 			$database = $connection->get_database($mongodb);
 			$products_collection = $database->get_collection('products');
 		};
@@ -4082,45 +4251,10 @@ JS
 					
 					foreach my $emb_code (@{$product_ref->{"emb_codes_tags"}}) {
 					
-						my $geo = undef;
+						my ($lat, $lng) = get_packager_code_coordinates($emb_code);	
 						
-						if (exists $packager_codes{$emb_code}) {					
-							if (exists $packager_codes{$emb_code}{lat}) {
-								# some lat/lng have , for floating point numbers
-								my $lat = $packager_codes{$emb_code}{lat};
-								my $lng = $packager_codes{$emb_code}{lng};
-								$lat =~ s/,/\./g;
-								$lng =~ s/,/\./g;
-								
-								$lat =~ s/,/\./g;
-								$geo = $lat . ',' . $lng;
-							}
-							elsif (exists $packager_codes{$emb_code}{fsa_rating_business_geo_lat}) {
-								$geo = $packager_codes{$emb_code}{fsa_rating_business_geo_lat} . ',' . $packager_codes{$emb_code}{fsa_rating_business_geo_lng};
-							}								
-							elsif ($packager_codes{$emb_code}{cc} eq 'uk') {
-								#my $address = 'uk' . '.' . $packager_codes{$emb_code}{local_authority};
-								my $address = 'uk' . '.' . $packager_codes{$emb_code}{canon_local_authority};
-								if (exists $geocode_addresses{$address}) {
-									$geo = $geocode_addresses{$address}[0] . ',' . $geocode_addresses{$address}[1];
-								}
-							}
-						}
-						
-						my $city_code = get_city_code($emb_code);
-							
-						if ((not defined $geo) and (defined $emb_codes_geo{$city_code})) {
-						
-							# some lat/lng have , for floating point numbers
-							my $lat = $emb_codes_geo{$city_code}[0];
-							my $lng = $emb_codes_geo{$city_code}[1];
-							$lat =~ s/,/\./g;
-							$lng =~ s/,/\./g;
-							$geo = $lat . ',' . $lng;
-							
-						}
-						
-						if ((defined $geo) and ($geo !~ /^,/) and ($geo !~ /,$/)) {
+						if ((defined $lat) and ($lat ne '') and (defined $lng) and ($lng ne '')) {
+							my $geo = "$lat,$lng";
 							if (not defined $current_seen{$geo}) {
 						
 								$current_seen{$geo} = 1;
@@ -4163,7 +4297,7 @@ HTML
 
 # 18/07/2016 -> mapquest removed free access to their tiles without registration
 #L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpeg', {
-#	attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+#	attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
 #	subdomains: '1234',
 #    maxZoom: 18
 #}).addTo(map);			
@@ -4177,9 +4311,9 @@ var pointers = [
 
 var map = L.map('container', {maxZoom:12});	
 		
-L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 19,
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);			
 
 
@@ -4529,7 +4663,7 @@ sub display_new($) {
 	my $og_images2 = '<meta property="og:image" content="' . lang("og_image_url") . '"/>';
 	my $more_images = 0;
 	
-	# <img id="og_image" src="http://recettes.de/images/misc/recettes-de-cuisine-logo.gif" width="150" height="200" /> 
+	# <img id="og_image" src="https://recettes.de/images/misc/recettes-de-cuisine-logo.gif" width="150" height="200" /> 
 	if ($$content_ref =~ /<img id="og_image" src="([^"]+)"/) {
 		my $img_url = $1;
 		$img_url =~ s/\.200\.jpg/\.400\.jpg/;
@@ -4556,12 +4690,12 @@ sub display_new($) {
 	
 # <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 # <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-# <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
+# <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
 
 
 #<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 #<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-#<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-lightness/jquery-ui.css" />
+#<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-lightness/jquery-ui.css" />
 	
 	my $html = <<HTML
 <!doctype html>
@@ -4569,17 +4703,16 @@ sub display_new($) {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/foundation/css/app.css" />
-    <link rel="stylesheet" href="/foundation/foundation-icons/foundation-icons.css" />
-    <script src="/foundation/js/vendor/modernizr.js"></script>
+    <link rel="stylesheet" href="/css/dist/app.css" />
+    <script src="/bower_components/foundation/js/vendor/modernizr.js"></script>
 	
 <title>$title</title>
 
 $meta_description
 	
-<script src="/foundation/js/vendor/jquery.js"></script>
-<script type="text/javascript" src="/js/jquery-ui-1.11.4/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="/js/jquery-ui-1.11.4/jquery-ui.min.css" />
+<script src="/bower_components/foundation/js/vendor/jquery.js"></script>
+<script type="text/javascript" src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="/bower_components/jquery-ui/themes/base/jquery-ui.min.css" />
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
 <link rel="search" href="@{[ format_subdomain($subdomain) ]}/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}" />
@@ -5170,6 +5303,7 @@ $$content_ref
 			<li><a href="$Lang{footer_legal_link}{$lc}">$Lang{footer_legal}{$lc}</a></li>
 			<li><a href="$Lang{footer_terms_link}{$lc}">$Lang{footer_terms}{$lc}</a></li>
 			<li><a href="$Lang{footer_data_link}{$lc}">$Lang{footer_data}{$lc}</a></li>
+			<li><a href="$Lang{donate_link}{$lc}">$Lang{donate}{$lc}</a></li>
 		</ul>
 	</div>
 	
@@ -5271,8 +5405,10 @@ $Lang{footer_follow_us}{$lc}
 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>	
 
-<script src="/foundation/js/foundation.min.js"></script>
-<script src="/foundation/js/vendor/jquery.cookie.js"></script>
+<script src="/bower_components/foundation/js/foundation.min.js"></script>
+<script src="/bower_components/foundation/js/vendor/jquery.cookie.js"></script>
+
+<script async defer src="/bower_components/ManUp.js/manup.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" integrity="sha384-222hzbb8Z8ZKe6pzP18nTSltQM3PdcAwxWKzGOKOIF+Y3bROr5n9zdQ8yTRHgQkQ" crossorigin="anonymous"></script>
 
@@ -5482,7 +5618,7 @@ sub display_image_box($$$) {
 		}
 	
 		$img = <<HTML
-<div class="image_box" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+<div id="image_box_$id" class="image_box" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
 $img
 </div>			
 HTML
@@ -5490,6 +5626,54 @@ HTML
 
 		if ($img =~ /height="(\d+)"/) {
 			$$minheight_ref = $1 + 22;
+		}
+		
+		# Unselect button for admins
+		if ($admin) {
+		
+			my $code = $product_ref->{code};
+			
+			my $idlc = $id;
+			
+			# <img src="/images/products/$path/$id.$rev.$size.jpg" 
+			
+			if ($img =~ /src="([^"]*)\/([^\.]+)\./) {
+				$idlc = $2;
+			}
+					
+		
+			my $html = <<HTML
+<div class="button_div unselectbuttondiv_$idlc"><button class="unselectbutton_$idlc" class="small button" type="button">Unselect image</button></div>
+HTML
+;
+			$img .= $html;
+			
+			
+			$initjs .= <<JS
+	\$(".unselectbutton_$idlc").click({imagefield:"$idlc"},function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		// alert(event.data.imagefield);
+		\$('div.unselectbuttondiv_$idlc').html('<img src="/images/misc/loading2.gif" /> Unselecting image');
+		\$.post('/cgi/product_image_unselect.pl',
+				{code: "$code", id: "$idlc" }, function(data) {
+				
+			if (data.status_code === 0) {
+				\$('div.unselectbuttondiv_$idlc').html("Unselected image");
+				\$('div[id="image_box_$id"]').html("");
+			}
+			else {
+				\$('div.unselectbuttondiv_$idlc').html("Could not unselect image");
+			}
+			\$(document).foundation('equalizer', 'reflow');
+		}, 'json');
+		
+		\$(document).foundation('equalizer', 'reflow');
+		
+	});				
+JS
+;
+		
 		}
 		
 	
@@ -5680,6 +5864,24 @@ CSS
 		return 301;
 	}
 
+	if ($request_ref->{product_changes_saved}) {
+		my $text = lang('product_changes_saved');
+		$html .= <<HTML
+<div data-alert class="alert-box info">
+<span>$text</span>
+ <a href="#" class="close">&times;</a>
+</div>
+HTML
+;
+		my $query_ref = {};
+		$query_ref->{ ("states_tags") } = "en:to-be-completed";
+		
+		my $search_result = search_and_display_products($request_ref, $query_ref, undef, undef, undef);
+		if ($request_ref->{structured_response}{count} > 0) {
+			$html .= $search_result . '<hr/>';
+		}
+	}
+	
 	my $share = lang('share');
 	$html .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
@@ -5705,6 +5907,8 @@ HTML
 HTML
 ;
 	}	
+	
+
 	
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
 	my @fields = @ProductOpener::Config::display_fields;
@@ -5738,6 +5942,117 @@ HTML
 		$html .= "<p>" . lang("barcode") . separator_before_colon($lc) . ": <span property=\"food:code\" itemprop=\"gtin13\">$code</span> $html_upc</p>
 <div property=\"gr:hasEAN_UCC-13\" content=\"$code\" datatype=\"xsd:string\"></div>\n";
 	}
+	
+
+	if (not has_tag($product_ref, "states", "en:complete")) {
+	
+		$html .= <<HTML
+<div data-alert class="alert-box info" id="warning_not_complete" style="display: block;">
+$Lang{warning_not_complete}{$lc}
+<a href="#" class="close">&times;</a>
+</span></div>
+HTML
+;
+	}		
+	
+	
+	if (($lc eq 'fr') and (has_tag($product_ref, "labels","fr:produits-retires-du-marche-lors-du-scandale-lactalis-de-decembre-2017"))) {
+		
+		$html .= <<HTML
+<div data-alert class="alert-box warn" id="warning_lactalis_201712" style="display: block; background:#ffaa33;color:black;">
+Ce produit fait partie d'une liste de produits retirés du marché, et a été étiqueté comme tel par un bénévole d'Open Food Facts.
+<br/><br/>
+&rarr; <a href="http://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a>.
+<a href="#" class="close">&times;</a>
+</span></div>
+HTML
+;		
+		
+	}
+	elsif (($lc eq 'fr') and (has_tag($product_ref, "categories","en:baby-milks")) and (
+		
+		has_tag($product_ref, "brands", "amilk") or
+		has_tag($product_ref, "brands", "babycare") or
+		has_tag($product_ref, "brands", "celia") or
+		has_tag($product_ref, "brands", "celia-ad") or
+		has_tag($product_ref, "brands", "celia-develop") or
+		has_tag($product_ref, "brands", "celia-expert") or
+		has_tag($product_ref, "brands", "celia-nutrition") or
+		has_tag($product_ref, "brands", "enfastar") or
+		has_tag($product_ref, "brands", "fbb") or
+		has_tag($product_ref, "brands", "fl") or
+		has_tag($product_ref, "brands", "frezylac") or	
+		has_tag($product_ref, "brands", "gromore") or
+		has_tag($product_ref, "brands", "malyatko") or
+		has_tag($product_ref, "brands", "mamy") or
+		has_tag($product_ref, "brands", "milumel") or
+		has_tag($product_ref, "brands", "neoangelac") or
+		has_tag($product_ref, "brands", "neoangelac") or
+		has_tag($product_ref, "brands", "nophenyl") or
+		has_tag($product_ref, "brands", "novil") or
+		has_tag($product_ref, "brands", "ostricare") or
+		has_tag($product_ref, "brands", "pc") or
+		has_tag($product_ref, "brands", "picot") or
+		has_tag($product_ref, "brands", "sanutri")
+		
+	
+	)
+	
+		
+		
+	) {
+		
+		$html .= <<HTML
+<div data-alert class="alert-box warn" id="warning_lactalis_201712" style="display: block; background:#ffcc33;color:black;">
+Certains produits de cette marque font partie d'une liste de produits retirés du marché.
+<br/><br/>
+&rarr; <a href="http://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des produits et lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a>.
+<a href="#" class="close">&times;</a>
+</span></div>
+HTML
+;		
+		
+	}
+	
+	
+	
+	# photos and data sources
+
+	my $html_manufacturer_source = ""; # Displayed at the top of the product page
+	my $html_sources = "";	# 	Displayed at the bottom of the product page
+	
+	if (defined $product_ref->{sources}) {
+		# FIXME : currently just a quick workaround to display openfood attribution
+
+#			push @{$product_ref->{sources}}, {
+#				id => "openfood-ch",
+#				url => "https://www.openfood.ch/en/products/$openfood_id",
+#				import_t => time(),
+#				fields => \@modified_fields,
+#				images => \@images_ids,	
+#			};
+
+		my %unique_sources = ();
+	
+		foreach my $source_ref (@{$product_ref->{sources}}) {
+			$unique_sources{$source_ref->{id}} = $source_ref;
+		}
+		foreach my $source_id (sort keys %unique_sources) {
+			my $source_ref = $unique_sources{$source_id};
+			my $lang_source = $source_ref->{id};
+			$lang_source =~ s/-/_/g;
+			$html_sources .= "<p>" . lang("sources_" . $lang_source ) . "</p>";
+			if (defined $source_ref->{url}) {
+				$html_sources .= "<p><a href=\"" . $source_ref->{url} . "\">" . lang("sources_" . $lang_source . "_product_page" ) . "</a></p>";
+			}
+			
+			if ((defined $source_ref->{manufacturer}) and ($source_ref->{manufacturer} == 1)) {
+				$html_manufacturer_source = "<p>" . sprintf(lang("sources_manufacturer"), "<a href=\"" . $source_ref->{url} . "\">" . $source_ref->{name} . "</a>") . "</p>";
+			}
+		}
+	}	
+	
+	$html .= $html_manufacturer_source;
 	
 	my $minheight = 0;
 	my $html_image = display_image_box($product_ref, 'front', \$minheight);
@@ -5773,20 +6088,20 @@ HTML
 	
 	# try to display ingredients in the local language if available
 	
-	my $ingredients_text = $product_ref->{ingredients_text} . "<!-- 1 - lc $lc -->";
+	my $ingredients_text = $product_ref->{ingredients_text};
 	my $ingredients_text_lang = $product_ref->{lang};
 	
 	if (defined $product_ref->{ingredients_text_with_allergens}) {
-		$ingredients_text = $product_ref->{ingredients_text_with_allergens} . "<!-- 2 - lc $lc -->" ;
+		$ingredients_text = $product_ref->{ingredients_text_with_allergens};
 	}	
 	
 	if ((defined $product_ref->{"ingredients_text" . "_" . $lc}) and ($product_ref->{"ingredients_text" . "_" . $lc} ne '')) {
-		$ingredients_text = $product_ref->{"ingredients_text" . "_" . $lc} . "<!-- 3 - lc $lc -->";
+		$ingredients_text = $product_ref->{"ingredients_text" . "_" . $lc};
 		$ingredients_text_lang = $lc;
 	}
 	
 	if ((defined $product_ref->{"ingredients_text_with_allergens" . "_" . $lc}) and ($product_ref->{"ingredients_text_with_allergens" . "_" . $lc} ne '')) {
-		$ingredients_text = $product_ref->{"ingredients_text_with_allergens" . "_" . $lc} . "<!-- 4 - lc $lc -->" ;
+		$ingredients_text = $product_ref->{"ingredients_text_with_allergens" . "_" . $lc};
 		$ingredients_text_lang = $lc;
 	}
 		
@@ -5804,12 +6119,102 @@ HTML
 	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
 	$html .= "<div><span class=\"field\">" . lang("ingredients_text") . separator_before_colon($lc) . ":</span>";
 	if ($lc ne $ingredients_text_lang) {
-		$html .= " <span id=\"ingredients_list\" property=\"food:ingredientListAsText\" lang=\"$ingredients_text_lang\">$ingredients_text</span>";
+		$html .= " <div id=\"ingredients_list\" property=\"food:ingredientListAsText\" lang=\"$ingredients_text_lang\">$ingredients_text</div>";
 	}
 	else {
-		$html .= " <span id=\"ingredients_list\" property=\"food:ingredientListAsText\">$ingredients_text</span>";
+		$html .= " <div id=\"ingredients_list\" property=\"food:ingredientListAsText\">$ingredients_text</div>";
 	}
 	$html .= "</div>";
+	
+	if ($admin and ($ingredients_text !~ /^\s*$/)) {
+	
+			my $ilc = $ingredients_text_lang;
+	
+	
+			$html .= <<HTML
+			
+<div class="button_div" id="editingredientsbuttondiv"><button id="editingredients" class="small button" type="button">Edit ingredients ($ilc)</div>
+<div class="button_div" id="saveingredientsbuttondiv_status" style="display:none"></div>
+<div class="button_div" id="saveingredientsbuttondiv" style="display:none"><button id="saveingredients" class="small button" type="button">Save ingredients ($ilc)</div>
+
+			
+<div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="small button" type="button">Ingredients ($ilc) are completely bogus, erase them.</button></div>
+HTML
+;			
+						
+			$initjs .= <<JS
+			
+	var editableText;
+
+    \$("#editingredients").click({},function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		
+    var divHtml = \$("#ingredients_list").html();
+	var allergens = /(<span class="allergen">|<\\/span>)/g;
+	divHtml = divHtml.replace(allergens, '_');
+	
+    var editableText = \$('<textarea id="ingredients_list" style="height:8rem"/>');
+    editableText.val(divHtml);
+    \$("#ingredients_list").replaceWith(editableText);
+    editableText.focus();
+	
+	
+		\$("#editingredientsbuttondiv").hide();
+		\$("#saveingredientsbuttondiv").show();
+  
+		
+		\$(document).foundation('equalizer', 'reflow');
+		
+	});		
+
+
+    \$("#saveingredients").click({},function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		
+		\$('div[id="saveingredientsbuttondiv"]').hide();
+		\$('div[id="saveingredientsbuttondiv_status"]').html('<img src="/images/misc/loading2.gif" /> Saving ingredients_texts_$ilc');
+		\$('div[id="saveingredientsbuttondiv_status"]').show();
+
+		\$.post('/cgi/product_jqm_multilingual.pl',
+				{code: "$code", ingredients_text_$ilc :  \$("#ingredients_list").val(), comment: "Updated ingredients_texts_$ilc" }, function(data) {
+				
+				\$('div[id="saveingredientsbuttondiv_status"]').html('Saved ingredients_texts_$ilc');
+						\$('div[id="saveingredientsbuttondiv"]').show();
+
+		
+			\$(document).foundation('equalizer', 'reflow');
+		}, 'json');  
+		
+		\$(document).foundation('equalizer', 'reflow');
+		
+	});		
+	
+	
+			
+	\$("#wipeingredients").click({},function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		// alert(event.data.imagefield);
+		\$('div[id="wipeingredientsbuttondiv"]').html('<img src="/images/misc/loading2.gif" /> Erasing ingredients_texts_$ilc');
+		\$.post('/cgi/product_jqm_multilingual.pl',
+				{code: "$code", ingredients_text_$ilc : "", comment: "Erased ingredients_texts_$ilc: too much bad data" }, function(data) {
+				
+
+				\$('div[id="wipeingredientsbuttondiv"]').html("Erased ingredients_texts_$ilc");
+				\$('div[id="ingredients_list"]').html("");
+
+			\$(document).foundation('equalizer', 'reflow');
+		}, 'json');
+		
+		\$(document).foundation('equalizer', 'reflow');
+		
+	});				
+JS
+;	
+	
+	}
 
 	$html .= display_field($product_ref, 'allergens');
 	
@@ -5819,8 +6224,13 @@ HTML
 	foreach my $class ('additives', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil') {
 	
 		my $tagtype = $class;
+		my $tagtype_field = $tagtype;
+		# display the list of additives variants in the order that they were found, without the parents (no E450 for E450i)
+		if (($class eq 'additives') and (exists $product_ref->{'additives_original_tags'})) {
+			$tagtype_field = 'additives_original';
+		}
 	
-		if ((defined $product_ref->{$class . '_tags'}) and (scalar @{$product_ref->{$class . '_tags'}} > 0)) {
+		if ((defined $product_ref->{$tagtype_field . '_tags'}) and (scalar @{$product_ref->{$tagtype_field . '_tags'}} > 0)) {
 
 			$html .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang($class . "_p") . separator_before_colon($lc)) . ":</b><br />";
 			
@@ -5837,7 +6247,7 @@ HTML
 			}
 			
 			$html .= "<ul style=\"display:block;float:left;\">";
-			foreach my $tagid (@{$product_ref->{$class . '_tags'}}) {
+			foreach my $tagid (@{$product_ref->{$tagtype_field . '_tags'}}) {
 			
 				my $tag;
 				my $link;
@@ -5910,6 +6320,11 @@ HTML
 </div>
 HTML
 ;
+
+	# Do not display nutrition table for Open Beauty Facts
+	
+	if (not ((defined $options{no_nutrition_table}) and ($options{no_nutrition_table}))) {
+
 	
 	$html_image = display_image_box($product_ref, 'nutrition', \$minheight);	
 
@@ -5967,27 +6382,19 @@ HTML
 	
 	$html .= display_nutrition_table($product_ref, \@comparisons);
 	
-
-	if (defined $product_ref->{sources}) {
-		# FIXME : currently just a quick workaround to display openfood attribution
-
-#			push @{$product_ref->{sources}}, {
-#				id => "openfood-ch",
-#				url => "https://www.openfood.ch/en/products/$openfood_id",
-#				import_t => time(),
-#				fields => \@modified_fields,
-#				images => \@images_ids,	
-#			};
-		
-		if (defined $product_ref->{sources}[0]) {
-			my $lang_source = $product_ref->{sources}[0]{id};
-			$lang_source =~ s/-/_/g;
-			$html .= "<p>" . lang("sources_" . $lang_source ) . "</p>";
-			if (defined $product_ref->{sources}[0]{url}) {
-				$html .= "<p><a href=\"" . $product_ref->{sources}[0]{url} . "\">" . lang("sources_" . $lang_source . "_product_page" ) . "</a></p>";
-			}
-		}
+	$html .= <<HTML
+</div>
+<div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$html_image</div>
+</div>
+HTML
+;	
+	
 	}
+	
+	# photos and data sources
+
+	
+	$html .= $html_sources;
 	
 	
 	my $created_date = display_date_tag($product_ref->{created_t});
@@ -6016,10 +6423,6 @@ HTML
 	}
 
 	$html .= <<HTML
-</div>
-<div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$html_image</div>
-</div>
-
 	
 <p>$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator.<br/>
 $Lang{product_last_edited}{$lang} $last_modified_date $Lang{by}{$lang} $last_editor.
@@ -6152,6 +6555,64 @@ sub display_product_jqm ($) # jquerymobile
 		$html .= "<p>" . lang("barcode") . separator_before_colon($lc) . ": $code</p>\n";
 	}
 	
+	
+	if (($lc eq 'fr') and (has_tag($product_ref, "labels","fr:produits-retires-du-marche-lors-du-scandale-lactalis-de-decembre-2017"))) {
+		
+		$html .= <<HTML
+<div id="warning_lactalis_201712" style="display: block; background:#ffaa33;color:black;padding:1em;text-decoration:none;">
+Ce produit fait partie d'une liste de produits retirés du marché, et a été étiqueté comme tel par un bénévole d'Open Food Facts.
+<br/><br/>
+&rarr; <a href="http://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a>.
+</div>
+HTML
+;		
+		
+	}
+	elsif (($lc eq 'fr') and (has_tag($product_ref, "categories","en:baby-milks")) and (
+		
+		has_tag($product_ref, "brands", "amilk") or
+		has_tag($product_ref, "brands", "babycare") or
+		has_tag($product_ref, "brands", "celia") or
+		has_tag($product_ref, "brands", "celia-ad") or
+		has_tag($product_ref, "brands", "celia-develop") or
+		has_tag($product_ref, "brands", "celia-expert") or
+		has_tag($product_ref, "brands", "celia-nutrition") or
+		has_tag($product_ref, "brands", "enfastar") or
+		has_tag($product_ref, "brands", "fbb") or
+		has_tag($product_ref, "brands", "fl") or
+		has_tag($product_ref, "brands", "frezylac") or	
+		has_tag($product_ref, "brands", "gromore") or
+		has_tag($product_ref, "brands", "malyatko") or
+		has_tag($product_ref, "brands", "mamy") or
+		has_tag($product_ref, "brands", "milumel") or
+		has_tag($product_ref, "brands", "neoangelac") or
+		has_tag($product_ref, "brands", "neoangelac") or
+		has_tag($product_ref, "brands", "nophenyl") or
+		has_tag($product_ref, "brands", "novil") or
+		has_tag($product_ref, "brands", "ostricare") or
+		has_tag($product_ref, "brands", "pc") or
+		has_tag($product_ref, "brands", "picot") or
+		has_tag($product_ref, "brands", "sanutri")
+		
+	
+	)
+	
+		
+		
+	) {
+		
+		$html .= <<HTML
+<div id="warning_lactalis_201712" style="display: block; background:#ffcc33;color:black;padding:1em;text-decoration:none;">
+Certains produits de cette marque font partie d'une liste de produits retirés du marché.
+<br/><br/>
+&rarr; <a href="http://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des produits et lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a>.
+</div>
+HTML
+;		
+		
+	}	
+	
+	
 	$html .= display_nutrient_levels($product_ref);
 	
 	my $minheight = 0;
@@ -6260,6 +6721,35 @@ HTML
 		
 	}
 	
+	
+	# special ingredients tags
+	
+	if ((defined $ingredients_text) and ($ingredients_text !~ /^\s*$/s) and (defined $special_tags{ingredients})) {
+	
+		my $special_html = "";
+	
+		foreach my $special_tag_ref (@{$special_tags{ingredients}}) {
+		
+			my $tagid = $special_tag_ref->{tagid};
+			my $type = $special_tag_ref->{type};
+			
+			if (  (($type eq 'without') and (not has_tag($product_ref, "ingredients", $tagid)))
+			or (($type eq 'with') and (has_tag($product_ref, "ingredients", $tagid)))) {
+				
+				$special_html .= "<li class=\"${type}_${tagid}_$lc\">" . lang("search_" . $type) . " " . display_taxonomy_tag_link($lc, "ingredients", $tagid) . "</li>\n";
+			}
+		
+		}
+		
+		if ($special_html ne "") {
+		
+			$html  .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang("ingredients_analysis") . separator_before_colon($lc)) . ":</b><br />"
+			. "<ul id=\"special_ingredients\">\n" . $special_html . "</ul>\n"
+			. "<p>" . lang("ingredients_analysis_note") . "</p></div>\n";
+		}
+	
+	}	
+	
 	$html_image = display_image_box($product_ref, 'nutrition', \$minheight);	
 	
 	$html .= "</div>";
@@ -6267,6 +6757,13 @@ HTML
 	$html .= <<HTML
 			</div>
 		</div>
+HTML
+;
+
+	if (not ((defined $options{no_nutrition_table}) and ($options{no_nutrition_table}))) {
+
+		
+	$html .= <<HTML	
         <div data-role="collapsible-set" data-theme="" data-content-theme="">
             <div data-role="collapsible" data-collapsed="true">	
 HTML
@@ -6293,10 +6790,55 @@ HTML
 	
 	$html .= display_nutrition_table($product_ref, \@comparisons);
 	
-	
-	
+	$html .= <<HTML
+			</div>
+		</div>
+HTML
+;		
+	}
 
 	my $created_date = display_date_tag($product_ref->{created_t});
+	
+	# Ask for photos if we do not have any, or if they are too old
+
+	my $last_image = "";	
+	my $image_warning = "";	
+	
+	if ((not defined ($product_ref->{images})) or ((scalar keys %{$product_ref->{images}}) < 1)) {
+	
+		$image_warning = $Lang{product_has_no_photos}{$lang};
+	
+	}	
+	elsif ((defined $product_ref->{last_image_t}) and ($product_ref->{last_image_t} > 0)) {
+	
+		my $last_image_date = display_date($product_ref->{last_image_t});
+		my $last_image_date_without_time = display_date_without_time($product_ref->{last_image_t});
+		
+		$last_image = "<br/>" . "$Lang{last_image_added}{$lang} $last_image_date";
+		
+		# Was the last photo uploaded more than 6 months ago?
+		
+		if (($product_ref->{last_image_t} + 86400 * 30 * 6) < time()) {
+
+			$image_warning = sprintf($Lang{product_has_old_photos}{$lang}, $last_image_date_without_time);
+		
+		}
+		
+	}
+	
+
+	if ($image_warning ne "") {
+	
+		$image_warning = <<HTML
+<div id="image_warning" style="display: block; background:#ffcc33;color:black;padding:1em;text-decoration:none;">
+$image_warning
+</div>
+HTML
+;		
+	
+	}
+	
+
 	
 	my $creator =  $product_ref->{creator} ;
 	
@@ -6307,22 +6849,27 @@ HTML
 	$html =~ s/<span  /<span /g;
 
 	$html .= <<HTML
-			</div>
-		</div>
 	
 <p>
 $Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator
+$last_image
 </p>	
+
 	
-<div class="ui-state-highlight ui-corner-all" style="padding:5px;margin-right:20px;display:table;margin-top:20px;margin-bottom:20px;">
-<span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
-<span>
-HTML
-. lang("fixme_product") . <<HTML
-</span>
+<div style="margin-bottom:20px;">
+
+<p>$Lang{fixme_product}{$lang}</p>
+
+$image_warning
 
 <p>$Lang{app_you_can_add_pictures}{$lang}</p>
 
+<button onclick="captureImage();" data-icon="off-camera">$Lang{image_front}{$lang}</button> 
+<div id="upload_image_result_front"></div>
+<button onclick="captureImage();" data-icon="off-camera">$Lang{image_ingredients}{$lang}</button> 
+<div id="upload_image_result_ingredients"></div>
+<button onclick="captureImage();" data-icon="off-camera">$Lang{image_nutrition}{$lang}</button> 
+<div id="upload_image_result_nutrition"></div>
 <button onclick="captureImage();" data-icon="off-camera">$Lang{app_take_a_picture}{$lang}</button> 
 <div id="upload_image_result"></div>
 <p>$Lang{app_take_a_picture_note}{$lang}</p>
@@ -6348,27 +6895,63 @@ sub display_nutrient_levels($) {
 	
 	my $html = '';
 	
-	# For some products we can have the nutrition grade (A to Z, French style) + nutrient levels (traffic lights, UK style)
-	# or one of them, or none
+	# Do not display nutriscore and traffic lights for some categories of products
+	# do not compute a score for baby foods
+	if (has_tag($product_ref, "categories", "en:baby-foods")) {
+
+			return "";
+	}	
+	
+	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
+	if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
+
+			return "";
+	}
+	
+	
+	# do not compute a score for coffee, tea etc.
+	if (	(has_tag($product_ref, "categories", "en:alcoholic-beverages")) 
+		or	(has_tag($product_ref, "categories", "en:coffees"))
+		or	(has_tag($product_ref, "categories", "en:teas"))
+		or	(has_tag($product_ref, "categories", "en:teas"))
+		or	(has_tag($product_ref, "categories", "fr:levure"))
+		or	(has_tag($product_ref, "categories", "fr:levures"))
+		) {
+
+			return "";
+	}	
 	
 	my $html_nutrition_grade = '';
 	my $html_nutrient_levels = '';
-	
-	#return '' if (not $admin);
-	
+		
 	if ((exists $product_ref->{"nutrition_grade_fr"})) {
 		my $grade = $product_ref->{"nutrition_grade_fr"};
 		my $uc_grade = uc($grade);
 		
 		my $warning = '';
 		if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
-			$warning = "<p>" . lang("nutrition_grade_fr_fiber_warning") . "</p>";
+			$warning .= "<p>" . lang("nutrition_grade_fr_fiber_warning") . "</p>";
 		}
+		if ((defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
+				and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
+			$warning .= "<p>" . lang("nutrition_grade_fr_no_fruits_vegetables_nuts_warning") . "</p>";
+		}
+		if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate})
+				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} == 1)) {
+			$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
+								$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"}) . "</p>";
+		}
+		if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category})
+				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} ne '')) {
+			$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"),
+								display_taxonomy_tag($lc,'categories',$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}),
+								$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}) . "</p>";
+		}		
 
 		
 		$html_nutrition_grade .= <<HTML
 <h4>$Lang{nutrition_grade_fr_title}{$lc}
-<a href="http://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}">
+<a href="https://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}">
 <i class="fi-info"></i></a>
 </h4>
 <img src="/images/misc/nutriscore-$grade.svg" alt="$Lang{nutrition_grade_fr_alt}{$lc} $uc_grade" style="margin-bottom:1rem;max-width:100%" /><br/>
@@ -7115,10 +7698,6 @@ HTML
 			$response{jqm} =~ s/(href|src)=("\/)/$1="http:\/\/$cc.${server_domain}\//g;
 			$response{title} = $request_ref->{title};
 			
-		}		
-		
-		if (not $admin) {
-			delete $response{product}{images};
 		}
 	}
 	
@@ -7172,14 +7751,16 @@ sub add_images_urls_to_product($) {
 			}
 		}
 		
-		foreach my $key (keys $product_ref->{languages_codes}) {
-			my $id = $imagetype . '_' . $key;
-			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
-				and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
-			
-				$product_ref->{selected_images}{$imagetype}{display}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-				$product_ref->{selected_images}{$imagetype}{small}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-				$product_ref->{selected_images}{$imagetype}{thumb}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
+		if (defined $product_ref->{languages_codes}) {
+			foreach my $key (keys $product_ref->{languages_codes}) {
+				my $id = $imagetype . '_' . $key;
+				if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
+					and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
+					
+					$product_ref->{selected_images}{$imagetype}{display}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+					$product_ref->{selected_images}{$imagetype}{small}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+					$product_ref->{selected_images}{$imagetype}{thumb}{$key} = "$staticdom/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $thumb_size . '.jpg';
+				}
 			}
 		}
 	}

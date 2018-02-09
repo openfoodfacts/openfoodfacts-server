@@ -97,8 +97,8 @@ foreach my $l (values %lang_lc) {
 			my $path = product_path($product_ref->{code});
 
 			
-			$product_ref->{image_url} = "http://$lc.openfoodfacts.org/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-			$product_ref->{image_small_url} = "http://$lc.openfoodfacts.org/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
+			$product_ref->{image_url} = "https://$lc.openfoodfacts.org/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
+			$product_ref->{image_small_url} = "https://$lc.openfoodfacts.org/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
 			
 			push @products, $product_ref;
 		}		

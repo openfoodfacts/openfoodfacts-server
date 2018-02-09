@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 // 
 // Product Opener
-// Copyright (C) 2011-2015 Association Open Food Facts
+// Copyright (C) 2011-2017 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 // 
@@ -112,7 +112,7 @@ function select_nutriment(event, ui) {
 	id = id.replace("_label", "");
 	$('#' + id).focus();
 	$('#' + id + '_unit').val(ui.item.unit);
-	var unit = (ui.item.unit == '%' ? 'g' : ui.item.unit).toLowerCase();
+	var unit = (ui.item.unit == '%' ? '%' : ui.item.unit).toLowerCase();
 	var unitElement = $('#' + id + '_unit');
 	var percentElement = $('#' + id + '_unit_percent');
 	if (unit === '') {
@@ -136,7 +136,7 @@ function select_nutriment(event, ui) {
 					domElement.options.length = 0; // Remove current entries.
 					for (var itemIndex = 0; itemIndex < entry.length; ++itemIndex) {
 						var unitValue = entry[itemIndex];
-						domElement.options[domElement.options.length] = new Option(unitValue, unitValue, unitValue.toLowerCase() == unit);
+						domElement.options[domElement.options.length] = new Option(unitValue, unitValue, false, unitValue.toLowerCase() == unit);
 					}
 
 					return;
@@ -159,6 +159,7 @@ function add_line(event, ui) {
 	newline.attr('id', newid + "_tr");
 	newline.find(".nutriment_label").attr("id",newid + "_label").attr("name",newid + "_label");
 	newline.find(".nutriment_unit").attr("id",newid + "_unit").attr("name",newid + "_unit");
+	newline.find(".nutriment_unit_percent").attr("id",newid + "_unit_percent").attr("name",newid + "_unit_percent");
 	newline.find(".nutriment_value").attr("id",newid).attr("name",newid);
 
 	$('#nutrition_data_table > tbody:last').append(newline);
@@ -365,8 +366,10 @@ function update_display(imagefield, first_display) {
 	var html = Lang.current_image + '<br/><img src="' + img_path + display_url + '" />';
 	html += '<div class="button_div" id="unselectbuttondiv_' + imagefield + '"><button id="unselectbutton_' + imagefield + '" class="small button" type="button">' + Lang.unselect_image + '</button></div>';
 	if (stringStartsWith(imagefield, 'ingredients')) {
-		html += '<div class="button_div" id="ocrbuttondiv_' + imagefield + '"><button id="ocrbutton_' + imagefield + '" class="small button" type="button">' + Lang.extract_ingredients + '</button></div>';
+		html += '<div id="ocrbutton_loading_' + imagefield + '"></div><div class="button_div" id="ocrbuttondiv_' + imagefield + '"><button id="ocrbutton_' + imagefield + '" class="small button" type="button">' + Lang.extract_ingredients + '</button>'
+		+ ' <button id="ocrbuttongooglecloudvision_' + imagefield + '" class="small button" type="button">' + 'Cloud Vision' + '</button></div>';
 	}
+	
 	if (stringStartsWith(imagefield, 'nutrition')) {
 		// width big enough to display a copy next to nutrition table?
 		if ($('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
@@ -378,21 +381,26 @@ function update_display(imagefield, first_display) {
 	}
 	
 	$('div[id="display_' + imagefield +'"]').html(html);
+		
 	$("#ocrbutton_" + imagefield).click({imagefield:imagefield},function(event) {
 		event.stopPropagation();
 		event.preventDefault();
 		// alert(event.data.imagefield);
-		$('div[id="ocrbuttondiv_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + Lang.extracting_ingredients);
+		
+		$('div[id="ocrbutton_loading_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + Lang.extracting_ingredients).show();
+		$('div[id="ocrbuttondiv_' + imagefield +'"]').hide();
 		$.post('/cgi/ingredients.pl',
-				{code: code, id: imagefield, process_image:1 }, function(data) {
+				{code: code, id: imagefield, process_image:1, ocr_engine:"tesseract" }, function(data) {
 				
+			$('div[id="ocrbuttondiv_' + imagefield +'"]').show();
 			if (data.status === 0) {
-				$('div[id="ocrbuttondiv_' + imagefield +'"]').html(Lang.extracted_ingredients_ok);
+				$('div[id="ocrbutton_loading_' + imagefield +'"]').html(Lang.extracted_ingredients_ok);
+
 				var ingredients_text_id = imagefield.replace("ingredients","ingredients_text");
 				$("#" + ingredients_text_id).val(data.ingredients_text_from_image);
 			}
 			else {
-				$('div[id="ocrbuttondiv_' + imagefield +'"]').html(Lang.extracted_ingredients_nok);
+				$('div[id="ocrbutton_loading_' + imagefield +'"]').html(ocr_button_div_original_html + Lang.extracted_ingredients_nok);
 			}
 			$(document).foundation('equalizer', 'reflow');
 		}, 'json');
@@ -400,6 +408,31 @@ function update_display(imagefield, first_display) {
 		$(document).foundation('equalizer', 'reflow');
 		
 	});
+	$("#ocrbuttongooglecloudvision_" + imagefield).click({imagefield:imagefield},function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		// alert(event.data.imagefield);
+		$('div[id="ocrbutton_loading_' + imagefield +'"]').html('<img src="/images/misc/loading2.gif" /> ' + Lang.extracting_ingredients).show();
+		$('div[id="ocrbuttondiv_' + imagefield +'"]').hide();
+		$.post('/cgi/ingredients.pl',
+				{code: code, id: imagefield, process_image:1, ocr_engine:"google_cloud_vision" }, function(data) {
+				
+			$('div[id="ocrbuttondiv_' + imagefield +'"]').show();
+			if (data.status === 0) {
+				$('div[id="ocrbutton_loading_' + imagefield +'"]').html(Lang.extracted_ingredients_ok);
+				var ingredients_text_id = imagefield.replace("ingredients","ingredients_text");
+				$("#" + ingredients_text_id).val(data.ingredients_text_from_image);
+			}
+			else {
+				$('div[id="ocrbutton_loading_' + imagefield +'"]').html(Lang.extracted_ingredients_nok);
+			}
+			$(document).foundation('equalizer', 'reflow');
+		}, 'json');
+		
+		$(document).foundation('equalizer', 'reflow');
+		
+	});	
+	
 	
 	$("#unselectbutton_" + imagefield).click({imagefield:imagefield},function(event) {
 		event.stopPropagation();

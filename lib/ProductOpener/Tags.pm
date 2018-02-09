@@ -49,6 +49,7 @@ BEGIN
 					
 					&gen_tags_hierarchy
 					&gen_tags_hierarchy_taxonomy
+					&gen_ingredients_tags_hierarchy_taxonomy
 					&display_tags_hierarchy_taxonomy
 					&build_tags_taxonomy
 					
@@ -592,11 +593,11 @@ sub build_tags_taxonomy($$) {
 			
 			
 			# just remove everything between parenthesis
-			$line =~ s/\([^\)]*\)/ /g;
-			$line =~ s/\([^\)]*\)/ /g;
-			$line =~ s/\([^\)]*\)/ /g;
+			#$line =~ s/\([^\)]*\)/ /g;
+			#$line =~ s/\([^\)]*\)/ /g;
+			#$line =~ s/\([^\)]*\)/ /g;
 			# 3 times for embedded parenthesis
-			$line =~ s/\(|\)/-/g;			
+			#$line =~ s/\(|\)/-/g;			
 			
 			$line =~ s/\s+$//;			
 			
@@ -662,8 +663,12 @@ sub build_tags_taxonomy($$) {
 					next if $tagid eq '';		
 							
 					if (defined $synonyms{$tagtype}{$lc}{$tagid}) {
+						($synonyms{$tagtype}{$lc}{$tagid} eq $current_tagid) and next;
+						# for additives, E101 contains synonyms that corresponds to E101(i) etc.   Make E101(i) override E101.
+						if (not ($tagtype =~ /^additives/)) {
 						($synonyms{$tagtype}{$lc}{$tagid} ne $current_tagid) and print "$tagid already is a synonym of $synonyms{$tagtype}{$lc}{$tagid} - cannot add $current_tagid\n";
 						next;
+						}
 					}
 							
 					push @{$synonyms_for{$tagtype}{$lc}{$current_tagid}}, $tag;
@@ -889,9 +894,9 @@ sub build_tags_taxonomy($$) {
 			$line =~ s/\(((i|v|x)+)\)/$1/i;
 			
 			# just remove everything between parenthesis
-			$line =~ s/\([^\)]*\)/ /g;
-			$line =~ s/\([^\)]*\)/ /g;
-			$line =~ s/\([^\)]*\)/ /g;
+			#$line =~ s/\([^\)]*\)/ /g;
+			#$line =~ s/\([^\)]*\)/ /g;
+			#$line =~ s/\([^\)]*\)/ /g;
 			# 3 times for embedded parenthesis
 			
 			$line =~ s/\(|\)/-/g;
@@ -1451,6 +1456,54 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 	
 	my @sorted_list = sort { ($level{$tagtype}{$b} <=> $level{$tagtype}{$a}) || ($a cmp $b) } keys %tags;
 	return @sorted_list;
+}
+
+
+
+sub gen_ingredients_tags_hierarchy_taxonomy($$) {
+
+	# for ingredients, we should keep the order
+	# question: what do do with parents?
+
+	my $tag_lc = shift;
+	my $tagtype = "ingredients";
+	my $tags_list = shift;	# comma-separated list of tags, not in a specific order
+	
+	if (not defined $all_parents{$tagtype}) {
+		print STDERR "all_parents{$tagtype} not defined\n";
+		return (split(/(\s*),(\s*)/, $tags_list));
+	}
+	
+	my @tags = ();
+	
+	foreach my $tag (split(/(\s*),(\s*)/, $tags_list)) {
+		my $l = $tag_lc;
+		if ($tag =~ /^(\w\w):/) {
+			$l = $1;
+			$tag = $';			
+		}
+		next if $tag eq '';
+		$tag = canonicalize_taxonomy_tag($l,$tagtype, $tag);
+		my $tagid = get_taxonomyid($tag);
+		next if $tagid eq '';
+		if ($tagid =~ /:$/) {
+			#print STDERR "taxonomy - empty tag: $tag - l: $l - tagid: $tagid - tag_lc: >$tags_list< \n";
+			next;
+		}
+		push @tags, $tag;
+		
+		if (defined $all_parents{$tagtype}{$tagid}) {
+			foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
+				if ($parentid eq 'fr:') {
+					print STDERR "taxonomy - empty parentid: $parentid - tagid: $tagid - tag_lc: >$tags_list< \n";
+					next;
+				}			
+				push @tags, $parentid;
+			}
+		}
+	}
+	
+	return @tags;
 }
 
 

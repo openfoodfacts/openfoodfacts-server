@@ -18,6 +18,8 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
+use ProductOpener::SiteQuality qw/:all/;
+
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -58,13 +60,26 @@ else {
 	}
 
 
+	# Process edit rules
+	
+	process_product_edit_rules($product_ref);	
+	
 	#my @app_fields = qw(product_name brands quantity);
 	my @app_fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
 
 	
-	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang') {
+	# generate a list of potential languages for language specific fields
+	my %param_langs = ();
+	foreach my $param (param()) {
+		if ($param =~ /^(.*)_(\w\w)$/) {
+			if (defined $language_fields{$1}) {
+				$param_langs{$2} = 1;
+			}
+		}
+	}
+	my @param_langs = keys %param_langs;
 	
-
+	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang') {
 	
 		if (defined param($field)) {
 			$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
@@ -76,6 +91,16 @@ else {
 			
 			compute_field_tags($product_ref, $field);			
 			
+		}
+		
+		if (defined $language_fields{$field}) {
+			foreach my $param_lang (@param_langs) {
+				my $field_lc = $field . '_' . $param_lang;
+				if (defined param($field_lc)) {
+					$product_ref->{$field_lc} = remove_tags_and_quote(decode utf8=>param($field_lc));
+					compute_field_tags($product_ref, $field_lc);
+				}
+			}
 		}
 	}
 	
@@ -126,6 +151,11 @@ else {
 	
 	$product_ref->{no_nutrition_data} = remove_tags_and_quote(decode utf8=>param("no_nutrition_data"));	
 	
+	my $no_nutrition_data = 0;
+	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
+		$no_nutrition_data = 1;
+	}
+
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
 
 	my @unknown_nutriments = ();
@@ -245,6 +275,22 @@ else {
 		}
 	}
 	
+	if ($no_nutrition_data) {
+		# Delete all non-carbon-footprint nids.
+		foreach my $key (keys $product_ref->{nutriments}) {
+			next if $key =~ /_/;
+			next if $key eq 'carbon-footprint';
+
+			delete $product_ref->{nutriments}{$key};
+			delete $product_ref->{nutriments}{$key . "_unit"};
+			delete $product_ref->{nutriments}{$key . "_value"};
+			delete $product_ref->{nutriments}{$key . "_modifier"};
+			delete $product_ref->{nutriments}{$key . "_label"};
+			delete $product_ref->{nutriments}{$key . "_100g"};
+			delete $product_ref->{nutriments}{$key . "_serving"};
+		}
+	}
+
 	# Compute nutrition data per 100g and per serving
 	
 	$admin and print STDERR "compute_serving_size_date\n";
@@ -258,6 +304,8 @@ else {
 	compute_nutrient_levels($product_ref);
 	
 	compute_unknown_nutrients($product_ref);
+	
+	ProductOpener::SiteQuality::check_quality($product_ref);	
 	
 
 	$debug and print STDERR "product_jqm.pl - code $code - saving\n";

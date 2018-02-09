@@ -1,21 +1,32 @@
-msgid  ""
+msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
-"Project-Id-Version: \n"
-"PO-Revision-Date: \n"
-"Language-Team: \n"
-"Last-Translator: \n"
+"Language: en_US\n"
+"Project-Id-Version: openfoodfacts\n"
+<<<<<<< HEAD
+"PO-Revision-Date: 2017-07-10 09:00-0400\n"
+=======
+"PO-Revision-Date: 2017-09-02 10:55-0400\n"
+>>>>>>> l10n_master
+"Language-Team: English\n"
+"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Language: en\n"
+"X-Crowdin-File: /master/po/openfoodfacts/openfoodfacts.pot\n"
 
+#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
-msgid   ":langtag"
-msgstr  "en"
+msgid ":langtag"
+msgstr "en"
 
+#. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
-msgid   ":langname"
-msgstr  "English"
+msgid ":langname"
+msgstr "English"
 
 msgctxt "logo"
 msgid "openfoodfacts-logo-en-178x150.png"

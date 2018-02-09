@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2016 Association Open Food Facts
+# Copyright (C) 2011-2017 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -18,7 +18,7 @@
 # GNU Affero General Public License for more details.
 # 
 # You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use Modern::Perl '2012';
 use utf8;
@@ -39,6 +39,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::URL qw/:all/;
+use ProductOpener::SiteQuality qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -127,7 +128,8 @@ if ($type eq 'search_or_add') {
 			$product_ref = init_product($code);
 			$product_ref->{interface_version_created} = $interface_version;
 			store_product($product_ref, 'product_created');
-			process_image_upload($code,$filename,$User_id, time(),'image with barcode from web site Add product button');
+			my $imgid;
+			process_image_upload($code,$filename,$User_id, time(),'image with barcode from web site Add product button',\$imgid);
 			$type = 'add';
 			$action = 'display';
 			$location = "/cgi/product.pl?type=add&code=$code";
@@ -230,22 +232,45 @@ my @fields = @ProductOpener::Config::product_fields;
 
 if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
+	# Process edit rules
+	
+	process_product_edit_rules($product_ref);
+
+
 	$debug and print STDERR "product.pl action: process - phase 1 - type: $type code $code\n";
 	
+	exists $product_ref->{new_server} and delete $product_ref->{new_server};
+	
 	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if (0 and (defined param('new_code'))) {
-		my $new_code = normalize_code(param('new_code'));
+	if ($admin and (defined param('new_code'))) {
+		my $new_code = param('new_code');
+		my $new_server = "";
+		my $new_data_root = $data_root;
+		
+		if ($new_code =~ /^([a-z]+)$/) {
+			$new_server = $1;
+			if ((defined $options{other_servers}) and (defined $options{other_servers}{$new_server})
+				and ($options{other_servers}{$new_server}{data_root} ne $data_root)) {
+				$new_code = $code;
+				$new_data_root = $options{other_servers}{$new_server}{data_root};
+			}
+		}
+		
+		$new_code = normalize_code($new_code);
 		if ($new_code =~ /^\d+$/) {
 		# check that the new code is available
-			if (-e "$data_root/products/" . product_path($new_code)) {
+			if (-e "$new_data_root/products/" . product_path($new_code)) {
 				push @errors, lang("error_new_code_already_exists");
-				print STDERR "product.pl - cannot change code $code to $new_code (already exists)\n";
+				print STDERR "product.pl - cannot change code $code to $new_code - $new_server (already exists)\n";
 			}
 			else {
 				$product_ref->{old_code} = $code;
 				$code = $new_code;
 				$product_ref->{code} = $code;
-				print STDERR "product.pl - changing code $product_ref->{old_code} to $code\n";
+				if ($new_server ne '') {
+					$product_ref->{new_server} = $new_server;
+				}
+				print STDERR "product.pl - changing code $product_ref->{old_code} to $code - $new_server\n";
 			}
 		}
 	}
@@ -289,6 +314,12 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});						
 			}
 			print STDERR "product.pl - code: $code - field: $field = $product_ref->{$field}\n";
+			if ($field =~ /ingredients_text/) {
+				# the ingredients_text_with_allergens[_$lc] will be recomputed after
+				my $ingredients_text_with_allergens = $field;
+				$ingredients_text_with_allergens =~ s/ingredients_text/ingredients_text_with_allergens/;
+				delete $product_ref->{$ingredients_text_with_allergens};
+			}
 
 			compute_field_tags($product_ref, $field);
 			
@@ -376,6 +407,10 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		next if $nid =~ /^nutrition-score/;
 
 		my $enid = encodeURIComponent($nid);
+		
+		# do not delete values if the nutriment is not provided
+		next if not defined param("nutriment_${enid}");		
+		
 		my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}"));
 		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_unit"));
 		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_label"));
@@ -456,7 +491,12 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 			}
 			$product_ref->{nutriments}{$nid . "_unit"} = $unit;		
 			$product_ref->{nutriments}{$nid . "_value"} = $value;
-			if (($unit eq '% DV') and ($Nutriments{$nid}{dv} > 0)) {
+			
+			if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and ($Nutriments{$nid}{iu} > 0)) {
+				$value = $value * $Nutriments{$nid}{iu} ;
+				$unit = $Nutriments{$nid}{unit};
+			}
+			elsif  (($unit eq '% DV') and ($Nutriments{$nid}{dv} > 0)) {
 				$value = $value / 100 * $Nutriments{$nid}{dv} ;
 				$unit = $Nutriments{$nid}{unit};
 			}
@@ -482,6 +522,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	compute_nutrient_levels($product_ref);
 	
 	compute_unknown_nutrients($product_ref);
+	
+	ProductOpener::SiteQuality::check_quality($product_ref);
 	
 	
 	$admin and print STDERR "compute_serving_size_date -- done\n";	
@@ -616,15 +658,15 @@ JS
 	$header .= <<HTML
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.2/cropper.min.css" />
 <link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.css" />
-
+<link rel="stylesheet" type="text/css" href="/css/product-multilingual.css" />
 
 HTML
 ;
 
 
 #<!-- Autocomplete -->
-#<script type='text/javascript' src='http://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.min.js'></script>
-#<link rel="stylesheet" type="text/css" href="http://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.css" ></link>
+#<script type='text/javascript' src='https://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.min.js'></script>
+#<link rel="stylesheet" type="text/css" href="https://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.css" ></link>
 
 # <script type="text/javascript" src="/js/jquery.imgareaselect-0.9.8/scripts/jquery.imgareaselect.pack.js"></script>
 # <script type="text/javascript" src="/js/jquery.imgareaselect-0.9.11/scripts/jquery.imgareaselect.touch-support.js"></script>
@@ -712,10 +754,16 @@ CSS
 
 	my $label_new_code = $Lang{new_code}{$lang};
 	
-	$html .= <<HTML
+	# 26/01/2017 - disallow barcode changes until we fix bug #677
+	if ($admin) {
+		$html .= <<HTML
 <label for="new_code" id="label_new_code">${label_new_code}</label>
-<input type="text" name="new_code" id="new_code" class="text" value="" />			
+<input type="text" name="new_code" id="new_code" class="text" value="" />
+HTML
+;
+	}
 
+	$html .= <<HTML
 <div data-alert class="alert-box info store-state" id="warning_3rd_party_content" style="display:none;">
 <span>$Lang{warning_3rd_party_content}{$lang}
  <a href="#" class="close">&times;</a>
@@ -1337,14 +1385,36 @@ $html .= "</div><!-- fieldset -->
 <div class=\"fieldset\" id=\"nutrition\"><legend>$Lang{nutrition_data}{$lang}</legend>\n";
 
 	my $checked = '';
+	my $tablestyle = 'display: table;';
+	my $disabled = '';
 	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
 		$checked = 'checked="checked"';
+		$tablestyle = 'display: none;';
+		$disabled = 'disabled="disabled"';
 	}
 
 	$html .= <<HTML
 <input type="checkbox" id="no_nutrition_data" name="no_nutrition_data" $checked />	
 <label for="no_nutrition_data" class="checkbox_label">$Lang{no_nutrition_data}{$lang}</label><br/>
 HTML
+;
+
+	$initjs .= <<JS
+\$('#no_nutrition_data').change(function() {
+	if (\$(this).prop('checked')) {
+		\$('#nutrition_data_table input').prop('disabled', true);
+		\$('#nutrition_data_table select').prop('disabled', true);
+		\$('#nutrition_data_table input.nutriment_value').val('');
+		\$('#nutrition_data_table').hide();
+	} else {
+		\$('#nutrition_data_table input').prop('disabled', false);
+		\$('#nutrition_data_table select').prop('disabled', false);
+		\$('#nutrition_data_table').show();
+	}
+
+	\$(document).foundation('equalizer', 'reflow');
+});
+JS
 ;
 
 	$html .= display_tabs($product_ref, $select_add_language, "nutrition_image", $product_ref->{sorted_langs}, \%Langs, ["nutrition_image"]);
@@ -1372,7 +1442,7 @@ HTML
 <div style="position:relative">
 
 
-<table id="nutrition_data_table" class="data_table">
+<table id="nutrition_data_table" class="data_table" style="$tablestyle">
 <thead class="nutriment_header">
 <th colspan="2">
 $Lang{nutrition_data_table}{$lang}<br/>
@@ -1495,6 +1565,13 @@ HTML
 		
 		# print STDERR "nutriment: $nutriment - nid: $nid - shown: $shown - class: $class - prefix: $prefix \n";
 		
+		my $disabled_backup = $disabled;
+		if ($nid eq 'carbon-footprint') {
+			# Workaround, so that the carbon footprint, that could be in a location different from actual nutrition facts,
+			# will never be disabled.
+			$disabled = '';
+		}
+		
 		my $input = '';
 		
 		
@@ -1502,7 +1579,7 @@ HTML
 <tr id="nutriment_${enid}_tr" class="nutriment_$class"$display>
 <td>$label</td>
 <td>
-<input class="nutriment_value" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" />
+<input class="nutriment_value" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" $disabled/>
 HTML
 ;
 
@@ -1524,6 +1601,10 @@ HTML
 			or ($nid =~ /^new_/)) {
 			push @units, '% DV';
 		}
+		if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0))
+			or ($nid =~ /^new_/)) {
+			push @units, 'IU';
+		}		
 		
 		my $hide_percent = '';
 		my $hide_select = '';
@@ -1539,13 +1620,14 @@ HTML
 		else {
 			$hide_percent = ' style="display:none"';
 		}
-		
+
 		$input .= <<HTML
-<span id="nutriment_${enid}_unit_percent"$hide_percent>%</span>
-<select class="nutriment_unit" id="nutriment_${enid}_unit" name="nutriment_${enid}_unit"$hide_select>
+<span class="nutriment_unit_percent" id="nutriment_${enid}_unit_percent"$hide_percent>%</span>
+<select class="nutriment_unit" id="nutriment_${enid}_unit" name="nutriment_${enid}_unit"$hide_select $disabled>
 HTML
 ;		
-		
+		$disabled = $disabled_backup;
+
 		foreach my $u (@units) {
 			my $selected = '';
 			if ($unit eq $u) {
@@ -1807,7 +1889,7 @@ elsif (($action eq 'display') and ($type eq 'delete')) {
 	$html .= start_multipart_form(-id=>"product_form") ;
 		
 	$html .= <<HTML
-<p>Etes-vous sûr de vouloir supprimer la fiche de ce produit ? (nom : $product_ref->{product_name}, code barre: $code)</p>
+<p>$Lang{delete_product_confirm}{$lc} ? ($Lang{product_name}{$lc} : $product_ref->{product_name}, $Lang{barcode}{$lc} : $code)</p>
 
 HTML
 ;
@@ -1821,7 +1903,7 @@ HTML
 <input type="text" id="comment" name="comment" value="" />
 HTML
 	. hidden(-name=>'csrf', -value=>generate_po_csrf_token($User_id), -override=>1)
-	. submit(-name=>'save', -label=>"Supprimer la fiche", -class=>"button small")
+	. submit(-name=>'save', -label=>lang("delete_product_page"), -class=>"button small")
 	. end_form();
 
 }
@@ -1840,26 +1922,52 @@ elsif ($action eq 'process') {
 		}
 
 		$product_ref->{deleted} = 'on';
-		$comment = "Suppression : ";
+		$comment = lang("deleting_product") . separator_before_colon($lc) . ":";
 	}
 	
 	my $time = time();
 	$comment = $comment . remove_tags_and_quote(decode utf8=>param('comment'));
 	store_product($product_ref, $comment);
 	
-	$html .= "<p>" . lang("product_changes_saved") . "</p><p>&rarr; <a href=\"" . product_url($product_ref) . "\">"
-		. lang("see_product_page") . "</a></p>";
-		
-	if ($type eq 'delete') {
+	 my $product_url = product_url($product_ref);
+	
+	if (defined $product_ref->{server}) {
+		# product that was moved to OBF from OFF etc.
+		$product_url = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain} . product_url($product_ref);;
+		$html .= "<p>" . lang("product_changes_saved") . "</p><p>&rarr; <a href=\"" . $product_url . "\">"
+			. lang("see_product_page") . "</a></p>";
+	}
+	elsif ($type eq 'delete') {
 		my $email = <<MAIL
-$User_id supprime :
+$User_id $Lang{has_deleted_product}{$lc}:
 
 $html
 	
 MAIL
 ;
-		send_email_to_admin("Suppression produit", $email);
+		send_email_to_admin(lang("deleting_product"), $email);
 	
+	} else {
+	
+		# warning: this option is very slow
+		if ((defined $options{display_random_sample_of_products_after_edits}) and ($options{display_random_sample_of_products_after_edits})) {
+		
+			my %request = (
+				'titleid'=>get_fileid(product_name_brand($product_ref)),
+				'query_string'=>$ENV{QUERY_STRING},
+				'referer'=>referer(),
+				'code'=>$code,
+				'product_changes_saved'=>1,
+				'sample_size'=>10
+			);
+			
+			display_product(\%request);
+		
+		}
+		else {
+			$html .= "<p>" . lang("product_changes_saved") . "</p><p>&rarr; <a href=\"" . $product_url . "\">"
+                . lang("see_product_page") . "</a></p>";
+		}
 	}
 	
 }

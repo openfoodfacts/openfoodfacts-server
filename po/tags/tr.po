@@ -1,0 +1,354 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: tr\n"
+"Project-Id-Version: openfoodfacts\n"
+"PO-Revision-Date: 2017-12-08 06:30-0500\n"
+"Language-Team: Turkish\n"
+"Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Language: tr\n"
+"X-Crowdin-File: /master/po/tags/tags.pot\n"
+
+#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
+msgctxt ":langtag"
+msgid ":langtag"
+msgstr ": diletiketi"
+
+#. put here the language name ("French", "Japanese", etc)
+msgctxt ":langname"
+msgid ":langname"
+msgstr ":diladı"
+
+msgctxt "additives:plural"
+msgid "additives"
+msgstr "katkı maddeleri"
+
+msgctxt "additives:singular"
+msgid "additive"
+msgstr "katkı"
+
+msgctxt "allergens:plural"
+msgid "allergens"
+msgstr "alerjen içerikler"
+
+msgctxt "allergens:singular"
+msgid "allergen"
+msgstr "alerjen"
+
+msgctxt "brands:plural"
+msgid "brands"
+msgstr "markalar"
+
+msgctxt "brands:singular"
+msgid "brand"
+msgstr "marka"
+
+msgctxt "categories:plural"
+msgid "categories"
+msgstr "kategoriler"
+
+msgctxt "categories:singular"
+msgid "category"
+msgstr "kategori"
+
+msgctxt "checkers:plural"
+msgid "checkers"
+msgstr "denetleyiciler"
+
+msgctxt "checkers:singular"
+msgid "checker"
+msgstr "denetleyici"
+
+msgctxt "cities:plural"
+msgid "cities"
+msgstr "şehirler"
+
+msgctxt "cities:singular"
+msgid "city"
+msgstr "sehir"
+
+msgctxt "codes:plural"
+msgid "codes"
+msgstr "kodlar"
+
+msgctxt "codes:singular"
+msgid "code"
+msgstr "kod"
+
+msgctxt "correctors:plural"
+msgid "correctors"
+msgstr "düzelticiler"
+
+msgctxt "correctors:singular"
+msgid "corrector"
+msgstr "düzeltici"
+
+msgctxt "countries:plural"
+msgid "countries"
+msgstr "ülkeler"
+
+msgctxt "countries:singular"
+msgid "country"
+msgstr "ülke"
+
+msgctxt "debug:plural"
+msgid "debug"
+msgstr "hata ayıklama"
+
+msgctxt "debug:singular"
+msgid "debug"
+msgstr "hata ayıklama"
+
+msgctxt "editors:plural"
+msgid "editors"
+msgstr "düzenleyiciler"
+
+msgctxt "editors:singular"
+msgid "editor"
+msgstr "düzenleyici"
+
+msgctxt "emb_codes:plural"
+msgid "packager-codes"
+msgstr "paketleyici kodlar"
+
+msgctxt "emb_codes:singular"
+msgid "packager-code"
+msgstr "paketleyici kod"
+
+msgctxt "entry_dates:plural"
+msgid "entry-dates"
+msgstr "giriş tarihleri"
+
+msgctxt "entry_dates:singular"
+msgid "entry-date"
+msgstr "giriş tarihi"
+
+msgctxt "informers:plural"
+msgid "informers"
+msgstr "muhbirler"
+
+msgctxt "informers:singular"
+msgid "informer"
+msgstr "muhbir"
+
+msgctxt "ingredients:plural"
+msgid "ingredients"
+msgstr "içindekiler"
+
+msgctxt "ingredients:singular"
+msgid "ingredient"
+msgstr "bileşen"
+
+msgctxt "ingredients_from_palm_oil:plural"
+msgid "ingredients-from-palm-oil"
+msgstr "maddeler-hurma yağından"
+
+msgctxt "ingredients_from_palm_oil:singular"
+msgid "ingredients-from-palm-oil"
+msgstr "maddeler-hurma yağından"
+
+msgctxt "ingredients_n:plural"
+msgid "numbers-of-ingredients"
+msgstr "sayılar-of-the maddeler"
+
+msgctxt "ingredients_n:singular"
+msgid "number-of-ingredients"
+msgstr "bileşenler-sayısı"
+
+msgctxt "ingredients_that_may_be_from_palm_oil:plural"
+msgid "ingredients-that-may-be-from-palm-oil"
+msgstr "bileşenler-hurma yağından-olabilir"
+
+msgctxt "ingredients_that_may_be_from_palm_oil:singular"
+msgid "ingredients-that-may-be-from-palm-oil"
+msgstr "bileşenler-hurma yağından-olabilir"
+
+msgctxt "known_nutrients:plural"
+msgid "known-nutrients"
+msgstr "bilinen-besinler"
+
+msgctxt "known_nutrients:singular"
+msgid "known-nutrient"
+msgstr "bilinen-besin"
+
+msgctxt "labels:plural"
+msgid "labels"
+msgstr "etiketler"
+
+msgctxt "labels:singular"
+msgid "label"
+msgstr "etiket"
+
+msgctxt "languages:plural"
+msgid "languages"
+msgstr "diller"
+
+msgctxt "languages:singular"
+msgid "language"
+msgstr "dil"
+
+msgctxt "last_edit_dates:plural"
+msgid "last-edit-dates"
+msgstr "son-düzenleme-tarihleri"
+
+msgctxt "last_edit_dates:singular"
+msgid "last-edit-date"
+msgstr "son-düenleme-tarihi"
+
+msgctxt "last_image_dates:plural"
+msgid "last-image-dates"
+msgstr "son-resim-tarihleri"
+
+msgctxt "last_image_dates:singular"
+msgid "last-image-date"
+msgstr "son-resim-tarihi"
+
+msgctxt "manufacturing_places:plural"
+msgid "manufacturing-places"
+msgstr "imalat-yerleri"
+
+msgctxt "manufacturing_places:singular"
+msgid "manufacturing-place"
+msgstr "imalat-yeri"
+
+msgctxt "missions:plural"
+msgid "missions"
+msgstr "amaçlar"
+
+msgctxt "missions:singular"
+msgid "mission"
+msgstr "amaç"
+
+msgctxt "nutrient_levels:plural"
+msgid "nutrient-levels"
+msgstr "besin-seviyeleri"
+
+msgctxt "nutrient_levels:singular"
+msgid "nutrient-level"
+msgstr "besin-seviyesi"
+
+msgctxt "nutriments:plural"
+msgid "nutrients"
+msgstr "besinler"
+
+msgctxt "nutriments:singular"
+msgid "nutrient"
+msgstr "besin"
+
+msgctxt "nutrition_grades:plural"
+msgid "nutrition-grades"
+msgstr "beslenme-sınıfları"
+
+msgctxt "nutrition_grades:singular"
+msgid "nutrition-grade"
+msgstr "beslenme-sınıfı"
+
+msgctxt "origins:plural"
+msgid "origins"
+msgstr "kökenleri"
+
+msgctxt "origins:singular"
+msgid "origin"
+msgstr "köken"
+
+msgctxt "packaging:plural"
+msgid "packaging"
+msgstr "paketleme"
+
+msgctxt "packaging:singular"
+msgid "packaging"
+msgstr "paketleme"
+
+msgctxt "periods_after_opening:plural"
+msgid "periods-after-opening"
+msgstr "açılış-sonrası-dönemler"
+
+msgctxt "periods_after_opening:singular"
+msgid "period-after-opening"
+msgstr "açılış-sonrası-dönemler"
+
+msgctxt "photographers:plural"
+msgid "photographers"
+msgstr "fotoğrafçılar"
+
+msgctxt "photographers:singular"
+msgid "photographer"
+msgstr "fotoğrafçı"
+
+msgctxt "pnns_groups_1:plural"
+msgid "pnns-groups-1"
+msgstr "pnns-gurupları-1"
+
+msgctxt "pnns_groups_1:singular"
+msgid "pnns-group-1"
+msgstr "pnns-grubu-1"
+
+msgctxt "pnns_groups_2:plural"
+msgid "pnns-groups-2"
+msgstr "pnns-grupları-2"
+
+msgctxt "pnns_groups_2:singular"
+msgid "pnns-group-2"
+msgstr "pnns-grubu-2"
+
+msgctxt "products:plural"
+msgid "products"
+msgstr "ürünler"
+
+msgctxt "products:singular"
+msgid "product"
+msgstr "ürün"
+
+msgctxt "purchase_places:plural"
+msgid "purchase-places"
+msgstr "alım-yerleri"
+
+msgctxt "purchase_places:singular"
+msgid "purchase-place"
+msgstr "alım-yeri"
+
+msgctxt "states:plural"
+msgid "states"
+msgstr "devletler"
+
+msgctxt "states:singular"
+msgid "state"
+msgstr "devlet"
+
+msgctxt "stores:plural"
+msgid "stores"
+msgstr "mağazalar"
+
+msgctxt "stores:singular"
+msgid "store"
+msgstr "mağaza"
+
+msgctxt "traces:plural"
+msgid "traces"
+msgstr "izler"
+
+msgctxt "traces:singular"
+msgid "trace"
+msgstr "iz"
+
+msgctxt "unknown_nutrients:plural"
+msgid "unknown-nutrients"
+msgstr "bilinmeyen-besinler"
+
+msgctxt "unknown_nutrients:singular"
+msgid "unknown-nutrient"
+msgstr "bilinmeyen-besin"
+
+msgctxt "users:plural"
+msgid "contributors"
+msgstr "katkıda bulunanlar"
+
+msgctxt "users:singular"
+msgid "contributor"
+msgstr "katkıda bulunan"
+
