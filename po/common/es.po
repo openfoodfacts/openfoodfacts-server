@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-09 15:00-0500\n"
+"PO-Revision-Date: 2018-02-09 15:10-0500\n"
 "Language-Team: Spanish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -146,11 +146,11 @@ msgstr "Página del producto ha sido editado por"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
@@ -158,7 +158,7 @@ msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.
 
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -470,7 +470,7 @@ msgstr "Done a Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr ""
+msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -687,7 +687,7 @@ msgstr "es_ES"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -753,7 +753,9 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
-msgstr ""
+msgstr "Síguenos en <a href=\"https://twitter.com/openfoodfactses\">Twitter</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> y\n"
+"<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -809,7 +811,7 @@ msgstr "<<site_name>> wiki (es)"
 
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://es.wiki.openfoodfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -1017,7 +1019,7 @@ msgstr "<Img src=\"/ images/misc/Available_on_the_App_Store_Badge_EN_135x40.png 
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
-msgstr ""
+msgstr "https://itunes.apple.com/es/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -2164,7 +2166,7 @@ msgstr "Gráfico en 2 ejes"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p> → aprenda más sobre <<site_name>> gráficos: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Gráficas en 3 clics</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2604,11 +2606,11 @@ msgstr "['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sába
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Store\" width=\"154\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
-msgstr ""
+msgstr "https://www.microsoft.com/es-es/store/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2700,7 +2702,7 @@ msgstr "Done a Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr ""
+msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
 
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
