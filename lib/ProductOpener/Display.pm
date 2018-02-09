@@ -5614,8 +5614,30 @@ HTML
 <div class="button_div unselectbuttondiv_$idlc"><button class="unselectbutton_$idlc" class="small button" type="button">Unselect image</button></div>
 HTML
 ;
-			$img .= $html;
+
+			my $filename = '';
+			my $size = 'full';
+			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$idlc})
+				and (defined $product_ref->{images}{$idlc}{sizes}) and (defined $product_ref->{images}{$idlc}{sizes}{$size})) {
+				$filename = $idlc . '.' . $product_ref->{images}{$idlc}{rev} ;
+			}
+
+			my $path = product_path($product_ref->{code});
+			if (-e "$www_root/images/products/$path/$filename.full.jpg.google_cloud_vision.json") {
+				$html .= <<HTML
+<a href="/images/products/$path/$filename.full.jpg.google_cloud_vision.json" class="button tiny">Cloud Vision</a>
+HTML
+;
+			}
+
+			if (-e "$www_root/images/products/$path/$filename.full.json") {
+				$html .= <<HTML
+<a href="/images/products/$path/$filename.full.json" class="button tiny">OCR</a>
+HTML
+;
+			}
 			
+			$img .= $html;
 			
 			$initjs .= <<JS
 	\$(".unselectbutton_$idlc").click({imagefield:"$idlc"},function(event) {
