@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-09 15:10-0500\n"
+"PO-Revision-Date: 2018-02-09 15:20-0500\n"
 "Language-Team: Polish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -225,7 +225,7 @@ msgstr "marki"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr "Produkty z %s marki"
+msgstr "Produkty marki %s"
 
 msgctxt "brands_s"
 msgid "brand"
@@ -402,7 +402,7 @@ msgstr "korektor"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "Kraje sprzedaż"
+msgstr "Kraje sprzedaży"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
@@ -494,7 +494,7 @@ msgstr "Podsumowanie zmian"
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr "Edycja produkt"
+msgstr "Edytuj produkt"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
@@ -510,7 +510,7 @@ msgstr "Zmiany profilu publicznego zostały zapisane."
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
-msgstr "Poniższe informacje są widoczne w profilu publicznego."
+msgstr "Poniższe informacje są widoczne w twoim publiczny profilu."
 
 msgctxt "edit_settings"
 msgid "Change your account parameters"
@@ -694,7 +694,7 @@ msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr "Jeśli dane są niepełne lub błędne, można uzupełnienie lub poprawienie go do tej wersji."
+msgstr "Jeśli dane są niepełne lub błędne, można uzupełnić lub poprawić je przez edycję strony."
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
@@ -839,7 +839,7 @@ msgstr "Do zobaczenia wkrótce!"
 
 msgctxt "graph_count"
 msgid "%d products match the search criterias, of which %i products have defined values for the graph's axis."
-msgstr "%d produktów odpowiada kryteriom wyszukiwania, z których wartości %i produkty zostały zdefiniowane na osi wykresu."
+msgstr "%d produktów odpowiada kryteriom wyszukiwania, z których wartości %i produktów zostały zdefiniowane na osi wykresu."
 
 msgctxt "graph_title"
 msgid "Graph title"
@@ -873,7 +873,7 @@ msgstr "<meta property=\"fb:admins\" content=\"706410516\" />\n"
 
 msgctxt "hello"
 msgid "Hello"
-msgstr "Halo"
+msgstr "Witaj"
 
 msgctxt "high"
 msgid "high"
