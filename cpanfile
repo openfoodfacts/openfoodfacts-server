@@ -45,6 +45,9 @@ requires 'Modern::Perl', '>= 1.20150127';
 requires 'Data::Dumper::AutoEncode';
 requires 'XML::Rules';
 
+# Logging
+requires 'Log::Any', '>= 1.705';
+
 on 'test' => sub {
   requires 'Test::More', '>= 1.302049, < 2.0';
   requires 'Test::Perl::Critic';
