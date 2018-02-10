@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -549,6 +549,114 @@ carnitine-
 
 
 us => [qw(
+!energy
+-energy-from-fat-
+!fat
+-saturated-fat
+--butyric-acid-
+--caproic-acid-
+--caprylic-acid-
+--capric-acid-
+--lauric-acid-
+--myristic-acid-
+--palmitic-acid-
+--stearic-acid-
+--arachidic-acid-
+--behenic-acid-
+--lignoceric-acid-
+--cerotic-acid-
+--montanic-acid-
+--melissic-acid-
+-monounsaturated-fat-
+-polyunsaturated-fat-
+-omega-3-fat-
+--alpha-linolenic-acid-
+--eicosapentaenoic-acid-
+--docosahexaenoic-acid-
+-omega-6-fat-
+--linoleic-acid-
+--arachidonic-acid-
+--gamma-linolenic-acid-
+--dihomo-gamma-linolenic-acid-
+-omega-9-fat-
+--oleic-acid-
+--elaidic-acid-
+--gondoic-acid-
+--mead-acid-
+--erucic-acid-
+--nervonic-acid-
+-trans-fat
+cholesterol
+salt-
+sodium
+!carbohydrates
+-fiber
+--soluble-fiber-
+--insoluble-fiber-
+-sugars
+--sucrose-
+--glucose-
+--fructose-
+--lactose-
+--maltose-
+--maltodextrins-
+-starch-
+-polyols-
+!proteins
+-casein-
+-serum-proteins-
+-nucleotides-
+alcohol
+#vitamins
+vitamin-a-
+beta-carotene-
+vitamin-d
+vitamin-e-
+vitamin-k-
+vitamin-c-
+vitamin-b1-
+vitamin-b2-
+vitamin-pp-
+vitamin-b6-
+vitamin-b9-
+folates-
+vitamin-b12-
+biotin-
+pantothenic-acid-
+#minerals
+silica-
+bicarbonate-
+potassium
+chloride-
+calcium
+phosphorus-
+iron
+magnesium-
+zinc-
+copper-
+manganese-
+fluoride-
+selenium-
+chromium-
+molybdenum-
+iodine-
+caffeine-
+taurine-
+ph-
+fruits-vegetables-nuts-
+fruits-vegetables-nuts-estimate-
+collagen-meat-protein-ratio-
+cocoa-
+chlorophyl-
+carbon-footprint
+nutrition-score-fr-
+nutrition-score-uk-
+glycemic-index-
+water-hardness-
+)
+],
+
+us_before_2017 => [qw(
 !energy
 -energy-from-fat
 !fat
