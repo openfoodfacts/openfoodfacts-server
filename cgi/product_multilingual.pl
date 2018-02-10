@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2017 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -492,11 +492,11 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 			$product_ref->{nutriments}{$nid . "_unit"} = $unit;		
 			$product_ref->{nutriments}{$nid . "_value"} = $value;
 			
-			if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and ($Nutriments{$nid}{iu} > 0)) {
+			if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
 				$value = $value * $Nutriments{$nid}{iu} ;
 				$unit = $Nutriments{$nid}{unit};
 			}
-			elsif  (($unit eq '% DV') and ($Nutriments{$nid}{dv} > 0)) {
+			elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
 				$value = $value / 100 * $Nutriments{$nid}{dv} ;
 				$unit = $Nutriments{$nid}{unit};
 			}
@@ -1598,11 +1598,14 @@ HTML
 		}
 		
 		if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
-			or ($nid =~ /^new_/)) {
+			or ($nid =~ /^new_/)
+			or ($unit eq '% DV')) {
 			push @units, '% DV';
 		}
 		if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0))
-			or ($nid =~ /^new_/)) {
+			or ($nid =~ /^new_/)
+			or ($unit eq 'IU')
+			or ($unit eq 'UI')) {
 			push @units, 'IU';
 		}		
 		
