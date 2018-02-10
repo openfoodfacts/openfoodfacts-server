@@ -189,6 +189,46 @@ sub check_quantity($) {
 
 }
 
+sub check_bugs($) {
+
+	my $product_ref = shift;
+	
+	check_bug_code_missing($product_ref);
+	check_bug_created_t_missing($product_ref);
+
+}
+
+sub check_bug_code_missing($) {
+
+	my $product_ref = shift;
+	
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/185#issuecomment-364653043
+	if ((not (defined $product_ref->{code}))) {
+		push $product_ref->{quality_tags}, "code-missing";
+	}
+	elsif ($product_ref->{code} eq '') {
+		push $product_ref->{quality_tags}, "code-empty";
+	}
+	elsif ($product_ref->{code} == 0) {
+		push $product_ref->{quality_tags}, "code-zero";
+	}
+
+}
+
+sub check_bug_created_t_missing($) {
+
+	my $product_ref = shift;
+	
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/185
+	if ((not (defined $product_ref->{created_t}))) {
+		push $product_ref->{quality_tags}, "created-missing";
+	}
+	elsif ($product_ref->{created_t} == 0) {
+		push $product_ref->{quality_tags}, "created-zero";
+	}
+
+}
+
 # Run site specific quality checks
 
 sub check_quality($) {
@@ -199,6 +239,8 @@ sub check_quality($) {
 	
 	check_ingredients($product_ref);
 	check_quantity($product_ref);
+	check_bugs($product_ref);
+
 }
 
 
