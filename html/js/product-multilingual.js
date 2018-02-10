@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 // 
 // Product Opener
-// Copyright (C) 2011-2017 Association Open Food Facts
+// Copyright (C) 2011-2018 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 // 
@@ -137,6 +137,10 @@ function select_nutriment(event, ui) {
 					for (var itemIndex = 0; itemIndex < entry.length; ++itemIndex) {
 						var unitValue = entry[itemIndex];
 						domElement.options[domElement.options.length] = new Option(unitValue, unitValue, false, unitValue.toLowerCase() == unit);
+					}
+
+					if (ui.item.iu) {
+						domElement.options[domElement.options.length] = new Option('IU', 'IU', false, 'iu' == unit);
 					}
 
 					return;
