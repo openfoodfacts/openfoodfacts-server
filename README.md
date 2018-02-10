@@ -81,6 +81,11 @@ https://github.com/openfoodfacts/openfoodfacts-server/issues
 You can help translate Open Food Facts and the app at (no technical knowledge required, takes a minute to signup): <br>
 https://crowdin.com/project/openfoodfacts
 
+#### Updating translations for static content
+A number of the translations are maintained externally, see `scripts/update_texts_from_wiki.pl` to sync translation data.
+
+Specific pages are defined in the relevant `Config.pm` `wiki_texts` variables.
+
 ### Who do I talk to? ###
 
 * Repo owner or admin
