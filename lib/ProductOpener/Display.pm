@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2017 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -5113,7 +5113,11 @@ HTML
 		$torso_color = "#ffe681";
 	}
 	
-	
+	my $search_terms = '';
+	if (defined param('search_terms')) {
+		$search_terms = remove_tags_and_quote(decode utf8=>param('search_terms'))
+	}
+		
 	$html .= <<HTML
 
 	
@@ -5124,7 +5128,7 @@ HTML
 			<div class="row collapse ">
 
 					<div class="small-8 columns">
-						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lang}" name="search_terms" />
+						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lang}" name="search_terms" value="${search_terms}" />
 						<input name="search_simple" value="1" type="hidden" />
 						<input name="action" value="process" type="hidden" />
 					</div>
