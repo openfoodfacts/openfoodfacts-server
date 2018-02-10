@@ -597,7 +597,7 @@ HTML
 
 	my $html = <<HTML
 <label for="$field">$Lang{$fieldtype}{$lang}</label>
-<input type="text" name="$field" id="$field" class="text${tagsinput}" value="$value" />		
+<input type="text" name="$field" id="$field" class="text${tagsinput}" value="$value" lang="${display_lc}" />		
 HTML
 ;
 	if (defined $Lang{$fieldtype . "_note"}{$lang}) {
@@ -1287,7 +1287,7 @@ HTML
 				
 					$html_content_tab .= <<HTML
 <label for="$id">$Lang{ingredients_text}{$lang}</label>
-<textarea id="$id" name="$id">$value</textarea>
+<textarea id="$id" name="$id" lang="${display_lc}">$value</textarea>
 <p class="note">&rarr; $Lang{ingredients_text_note}{$lang}</p>			
 <p class="example">$Lang{example}{$lang} $Lang{ingredients_text_example}{$lang}</p>			
 HTML

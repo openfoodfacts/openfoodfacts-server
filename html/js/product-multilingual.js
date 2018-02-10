@@ -61,7 +61,6 @@ $('.new_lc').each(function(i, obj) {
 		
 	});	
 	
-	
 	$clone.find('[for]').each(function() { 
 
 		var $th = $(this);
@@ -82,7 +81,14 @@ $('.new_lc').each(function(i, obj) {
 		var $th = $(this);
 		var newID = $th.attr('href').replace(/new_lc/, lc);
 		$th.attr('href', newID);
-	});	
+	});
+
+	$clone.find('[lang]').each(function() {
+
+		var $th = $(this);
+		var newID = $th.attr('lang').replace(/new_lc/, lc);
+		$th.attr('lang', newID);
+	});
 	
 	$clone.find('.tab_language').each(function() { 
 
