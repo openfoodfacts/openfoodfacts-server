@@ -5312,6 +5312,7 @@ $Lang{android_apk_app_badge}{$lc}
 			<li><a href="$Lang{footer_blog_link}{$lc}">$Lang{footer_blog}{$lc}</a></li>
 			<li><a href="$Lang{footer_press_link}{$lc}">$Lang{footer_press}{$lc}</a></li>
 			<li><a href="$Lang{footer_wiki_link}{$lc}">$Lang{footer_wiki}{$lc}</a></li>
+			<li><a href="$Lang{footer_translators_link}{$lc}">$Lang{footer_translators}{$lc}</a></li>
 		</ul>
 	</div>
 	
