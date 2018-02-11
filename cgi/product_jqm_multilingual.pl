@@ -267,11 +267,20 @@ else {
 			}
 			$product_ref->{nutriments}{$nid . "_unit"} = $unit;		
 			$product_ref->{nutriments}{$nid . "_value"} = $value;
-			if (($unit eq '% DV') and ($Nutriments{$nid}{dv} > 0)) {
+			if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
+				$value = $value * $Nutriments{$nid}{iu} ;
+				$unit = $Nutriments{$nid}{unit};
+			}
+			elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
 				$value = $value / 100 * $Nutriments{$nid}{dv} ;
 				$unit = $Nutriments{$nid}{unit};
 			}
-			$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
+			if ($nid eq 'water-hardness') {
+				$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit);
+			}
+			else {
+				$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
+			}
 		}
 	}
 	
