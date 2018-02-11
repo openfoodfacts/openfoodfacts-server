@@ -18,6 +18,7 @@ use ProductOpener::URL qw/:all/;
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Encode;
+use Log::Any qw($log);
 
 use WWW::CSRF qw(CSRF_OK);
 
@@ -28,7 +29,7 @@ my $action = param('action') || 'display';
 
 my $id = param('userid_or_email');
 
-print STDERR "password.pl - type: $type - action: $action - userid_or_email: $id\n";
+$log->info("reset_password.pl - start", { type => $type, action => $action, userid_or_email => $id }) if $log->is_info();
 
 my @errors = ();
 

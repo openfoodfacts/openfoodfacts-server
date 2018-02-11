@@ -16,6 +16,7 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+use Log::Any qw($log);
 
 ProductOpener::Display::init();
 use ProductOpener::Lang qw/:all/;
@@ -47,7 +48,7 @@ if (defined $User_id) {
 	
 	if (defined $url) {
 		
-		print STDERR "session.pl - redirection to $url\n";
+		$log->info("session.pl - redirection", { url => $url }) if $log->is_info();
 	
         $r->err_headers_out->add('Set-Cookie' => $cookie);
 		$r->headers_out->set(Location =>"$url");

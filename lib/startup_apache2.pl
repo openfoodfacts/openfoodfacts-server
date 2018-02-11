@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -47,6 +47,7 @@ use XML::Encoding ();
 use Encode ();
 use Cache::Memcached::Fast ();
 use URI::Escape::XS ();
+use Log::Any qw($log);
 
 use ProductOpener::Lang qw/:all/;
 
@@ -87,7 +88,7 @@ sub My::ProxyRemoteAddr ($) {
   return Apache2::Const::OK;
 }
 
-print STDERR "version: $ProductOpener::Version::version\n";
+$log->info("product opener started", { version => $ProductOpener::Version::version });
 
 open (*STDERR,'>',"/$data_root/logs/modperl_error_log") or die ($!);
 

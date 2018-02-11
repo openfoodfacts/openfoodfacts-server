@@ -19,10 +19,9 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+use Log::Any qw($log);
 
 ProductOpener::Display::init();
-
-$debug = 1;
 
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
@@ -35,7 +34,7 @@ my ($x1,$y1,$x2,$y2) = (param('x1'),param('y1'),param('x2'),param('y2'));
 my $normalize = param('normalize');
 my $white_magic = param('white_magic');
 
-$debug and print STDERR "product_image_crop.pl - code: $code - imgid: $imgid $x1,$y1 $x2,$y2\n";
+$log->debug("product_image_crop.pl - start", { code => $code, imgid => $imgid, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2 }) if $log->is_debug();
 
 if (not defined $code) {
 	
@@ -51,7 +50,7 @@ my $data =  encode_json({ status => 'status ok',
 		imagefield=>$id,
 });
 
-print STDERR "product_image_crop - JSON data output: $data\n";
+$log->debug("product_image_crop.pl - JSON data output", { data => $data }) if $log->is_debug();
 
 print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 

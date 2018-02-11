@@ -12,6 +12,7 @@ use Apache2::RequestRec ();
 use Apache2::Const ();
 
 use List::Util qw(shuffle);
+use Log::Any qw($log);
 
 my $ids_ref = lock_retrieve("/home/sugar/data/products_ids.sto");
 my @ids = @$ids_ref;
@@ -22,7 +23,7 @@ my @shuffle = shuffle(@ids);
 
 my $id = pop(@shuffle);
 
-print STDERR "sugar_random.pl - " . scalar(@ids) . " products - id: $id\n";
+$log->info("sugar_random.pl", { ids => scalar(@ids), id => $id }) if $log->is_info();
 		my $r = shift;
 
 		$r->headers_out->set(Location =>"/$id");

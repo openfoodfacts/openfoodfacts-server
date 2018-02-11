@@ -21,6 +21,7 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON;
+use Log::Any qw($log);
 
 ProductOpener::Display::init();
 use ProductOpener::Lang qw/:all/;
@@ -528,8 +529,7 @@ if ($action eq 'process') {
 	
 	my $html = '';
 	
-	use Data::Dumper;
-	print STDERR "search.pl - query: \n" . Dumper($query_ref) . "\n";
+	$log->info("madenearyou.pl", { lc => $lc, cc => $cc, query => $query_ref }) if $log->is_info();
 	
 	$query_ref->{lc} = $lc;
 	
