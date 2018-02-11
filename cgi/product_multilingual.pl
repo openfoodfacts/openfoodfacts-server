@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2017 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -18,7 +18,7 @@
 # GNU Affero General Public License for more details.
 # 
 # You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use Modern::Perl '2012';
 use utf8;
@@ -492,11 +492,11 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 			$product_ref->{nutriments}{$nid . "_unit"} = $unit;		
 			$product_ref->{nutriments}{$nid . "_value"} = $value;
 			
-			if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and ($Nutriments{$nid}{iu} > 0)) {
+			if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
 				$value = $value * $Nutriments{$nid}{iu} ;
 				$unit = $Nutriments{$nid}{unit};
 			}
-			elsif  (($unit eq '% DV') and ($Nutriments{$nid}{dv} > 0)) {
+			elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
 				$value = $value / 100 * $Nutriments{$nid}{dv} ;
 				$unit = $Nutriments{$nid}{unit};
 			}
@@ -597,7 +597,7 @@ HTML
 
 	my $html = <<HTML
 <label for="$field">$Lang{$fieldtype}{$lang}</label>
-<input type="text" name="$field" id="$field" class="text${tagsinput}" value="$value" />		
+<input type="text" name="$field" id="$field" class="text${tagsinput}" value="$value" lang="${display_lc}" />		
 HTML
 ;
 	if (defined $Lang{$fieldtype . "_note"}{$lang}) {
@@ -665,8 +665,8 @@ HTML
 
 
 #<!-- Autocomplete -->
-#<script type='text/javascript' src='http://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.min.js'></script>
-#<link rel="stylesheet" type="text/css" href="http://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.css" ></link>
+#<script type='text/javascript' src='https://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.min.js'></script>
+#<link rel="stylesheet" type="text/css" href="https://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.css" ></link>
 
 # <script type="text/javascript" src="/js/jquery.imgareaselect-0.9.8/scripts/jquery.imgareaselect.pack.js"></script>
 # <script type="text/javascript" src="/js/jquery.imgareaselect-0.9.11/scripts/jquery.imgareaselect.touch-support.js"></script>
@@ -1287,7 +1287,7 @@ HTML
 				
 					$html_content_tab .= <<HTML
 <label for="$id">$Lang{ingredients_text}{$lang}</label>
-<textarea id="$id" name="$id">$value</textarea>
+<textarea id="$id" name="$id" lang="${display_lc}">$value</textarea>
 <p class="note">&rarr; $Lang{ingredients_text_note}{$lang}</p>			
 <p class="example">$Lang{example}{$lang} $Lang{ingredients_text_example}{$lang}</p>			
 HTML
@@ -1598,11 +1598,14 @@ HTML
 		}
 		
 		if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
-			or ($nid =~ /^new_/)) {
+			or ($nid =~ /^new_/)
+			or ($unit eq '% DV')) {
 			push @units, '% DV';
 		}
 		if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0))
-			or ($nid =~ /^new_/)) {
+			or ($nid =~ /^new_/)
+			or ($unit eq 'IU')
+			or ($unit eq 'UI')) {
 			push @units, 'IU';
 		}		
 		
@@ -1679,7 +1682,12 @@ HTML
 	my $nutriments = '';
 	foreach my $nid (@{$other_nutriments_lists{$nutriment_table}}) {
 		if ((not defined $product_ref->{nutriments}{$nid}) or ($product_ref->{nutriments}{$nid} eq '')) {
-			$other_nutriments .= '{ "value" : "' . $Nutriments{$nid}{$lang} . '", "unit" : "' . $Nutriments{$nid}{unit} . '" },' . "\n";
+			my $supports_iu = "false";
+			if ((exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0)) {
+				$supports_iu = "true";
+			}
+
+			$other_nutriments .= '{ "value" : "' . $Nutriments{$nid}{$lang} . '", "unit" : "' . $Nutriments{$nid}{unit} . '", "iu": ' . $supports_iu . '  },' . "\n";
 		}
 		$nutriments .= '"' . $Nutriments{$nid}{$lang} . '" : "' . $nid . '",' . "\n";
 	}

@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2017 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -781,6 +781,37 @@ sub display_date($) {
 			epoch => $t );
 		my $formatter = DateTime::Format::CLDR->new(
 		    pattern => $locale->datetime_format_long,
+		    locale => $locale
+		);
+		$dt->set_formatter($formatter);
+		return $dt;
+	}
+	else {
+		return;
+	}
+
+}
+
+sub display_date_without_time($) {
+
+	my $t = shift;
+
+	if (defined $t) {
+		my @codes = DateTime::Locale->codes;
+		my $locale;
+		if ( $lc ~~ @codes ) {
+			$locale = DateTime::Locale->load($lc);
+		}
+		else {
+			$locale = DateTime::Locale->load('en');
+		}
+	
+		my $dt = DateTime->from_epoch(
+			locale => $locale,
+			time_zone => $reference_timezone,
+			epoch => $t );
+		my $formatter = DateTime::Format::CLDR->new(
+		    pattern => $locale->date_format_long,
 		    locale => $locale
 		);
 		$dt->set_formatter($formatter);
@@ -5093,7 +5124,11 @@ HTML
 		$torso_color = "#ffe681";
 	}
 	
-	
+	my $search_terms = '';
+	if (defined param('search_terms')) {
+		$search_terms = remove_tags_and_quote(decode utf8=>param('search_terms'))
+	}
+		
 	$html .= <<HTML
 
 	
@@ -5104,7 +5139,7 @@ HTML
 			<div class="row collapse ">
 
 					<div class="small-8 columns">
-						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lang}" name="search_terms" />
+						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lang}" name="search_terms" value="${search_terms}" />
 						<input name="search_simple" value="1" type="hidden" />
 						<input name="action" value="process" type="hidden" />
 					</div>
@@ -5595,8 +5630,30 @@ HTML
 <div class="button_div unselectbuttondiv_$idlc"><button class="unselectbutton_$idlc" class="small button" type="button">Unselect image</button></div>
 HTML
 ;
-			$img .= $html;
+
+			my $filename = '';
+			my $size = 'full';
+			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$idlc})
+				and (defined $product_ref->{images}{$idlc}{sizes}) and (defined $product_ref->{images}{$idlc}{sizes}{$size})) {
+				$filename = $idlc . '.' . $product_ref->{images}{$idlc}{rev} ;
+			}
+
+			my $path = product_path($product_ref->{code});
+			if (-e "$www_root/images/products/$path/$filename.full.jpg.google_cloud_vision.json") {
+				$html .= <<HTML
+<a href="/images/products/$path/$filename.full.jpg.google_cloud_vision.json" class="button tiny">Cloud Vision</a>
+HTML
+;
+			}
+
+			if (-e "$www_root/images/products/$path/$filename.full.json") {
+				$html .= <<HTML
+<a href="/images/products/$path/$filename.full.json" class="button tiny">OCR</a>
+HTML
+;
+			}
 			
+			$img .= $html;
 			
 			$initjs .= <<JS
 	\$(".unselectbutton_$idlc").click({imagefield:"$idlc"},function(event) {
@@ -6269,6 +6326,11 @@ HTML
 </div>
 HTML
 ;
+
+	# Do not display nutrition table for Open Beauty Facts
+	
+	if (not ((defined $options{no_nutrition_table}) and ($options{no_nutrition_table}))) {
+
 	
 	$html_image = display_image_box($product_ref, 'nutrition', \$minheight);	
 
@@ -6326,6 +6388,15 @@ HTML
 	
 	$html .= display_nutrition_table($product_ref, \@comparisons);
 	
+	$html .= <<HTML
+</div>
+<div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$html_image</div>
+</div>
+HTML
+;	
+	
+	}
+	
 	# photos and data sources
 
 	
@@ -6358,10 +6429,6 @@ HTML
 	}
 
 	$html .= <<HTML
-</div>
-<div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$html_image</div>
-</div>
-
 	
 <p>$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator.<br/>
 $Lang{product_last_edited}{$lang} $last_modified_date $Lang{by}{$lang} $last_editor.
@@ -6660,6 +6727,35 @@ HTML
 		
 	}
 	
+	
+	# special ingredients tags
+	
+	if ((defined $ingredients_text) and ($ingredients_text !~ /^\s*$/s) and (defined $special_tags{ingredients})) {
+	
+		my $special_html = "";
+	
+		foreach my $special_tag_ref (@{$special_tags{ingredients}}) {
+		
+			my $tagid = $special_tag_ref->{tagid};
+			my $type = $special_tag_ref->{type};
+			
+			if (  (($type eq 'without') and (not has_tag($product_ref, "ingredients", $tagid)))
+			or (($type eq 'with') and (has_tag($product_ref, "ingredients", $tagid)))) {
+				
+				$special_html .= "<li class=\"${type}_${tagid}_$lc\">" . lang("search_" . $type) . " " . display_taxonomy_tag_link($lc, "ingredients", $tagid) . "</li>\n";
+			}
+		
+		}
+		
+		if ($special_html ne "") {
+		
+			$html  .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang("ingredients_analysis") . separator_before_colon($lc)) . ":</b><br />"
+			. "<ul id=\"special_ingredients\">\n" . $special_html . "</ul>\n"
+			. "<p>" . lang("ingredients_analysis_note") . "</p></div>\n";
+		}
+	
+	}	
+	
 	$html_image = display_image_box($product_ref, 'nutrition', \$minheight);	
 	
 	$html .= "</div>";
@@ -6667,6 +6763,13 @@ HTML
 	$html .= <<HTML
 			</div>
 		</div>
+HTML
+;
+
+	if (not ((defined $options{no_nutrition_table}) and ($options{no_nutrition_table}))) {
+
+		
+	$html .= <<HTML	
         <div data-role="collapsible-set" data-theme="" data-content-theme="">
             <div data-role="collapsible" data-collapsed="true">	
 HTML
@@ -6693,10 +6796,55 @@ HTML
 	
 	$html .= display_nutrition_table($product_ref, \@comparisons);
 	
-	
-	
+	$html .= <<HTML
+			</div>
+		</div>
+HTML
+;		
+	}
 
 	my $created_date = display_date_tag($product_ref->{created_t});
+	
+	# Ask for photos if we do not have any, or if they are too old
+
+	my $last_image = "";	
+	my $image_warning = "";	
+	
+	if ((not defined ($product_ref->{images})) or ((scalar keys %{$product_ref->{images}}) < 1)) {
+	
+		$image_warning = $Lang{product_has_no_photos}{$lang};
+	
+	}	
+	elsif ((defined $product_ref->{last_image_t}) and ($product_ref->{last_image_t} > 0)) {
+	
+		my $last_image_date = display_date($product_ref->{last_image_t});
+		my $last_image_date_without_time = display_date_without_time($product_ref->{last_image_t});
+		
+		$last_image = "<br/>" . "$Lang{last_image_added}{$lang} $last_image_date";
+		
+		# Was the last photo uploaded more than 6 months ago?
+		
+		if (($product_ref->{last_image_t} + 86400 * 30 * 6) < time()) {
+
+			$image_warning = sprintf($Lang{product_has_old_photos}{$lang}, $last_image_date_without_time);
+		
+		}
+		
+	}
+	
+
+	if ($image_warning ne "") {
+	
+		$image_warning = <<HTML
+<div id="image_warning" style="display: block; background:#ffcc33;color:black;padding:1em;text-decoration:none;">
+$image_warning
+</div>
+HTML
+;		
+	
+	}
+	
+
 	
 	my $creator =  $product_ref->{creator} ;
 	
@@ -6707,22 +6855,27 @@ HTML
 	$html =~ s/<span  /<span /g;
 
 	$html .= <<HTML
-			</div>
-		</div>
 	
 <p>
 $Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator
+$last_image
 </p>	
+
 	
-<div class="ui-state-highlight ui-corner-all" style="padding:5px;margin-right:20px;display:table;margin-top:20px;margin-bottom:20px;">
-<span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
-<span>
-HTML
-. lang("fixme_product") . <<HTML
-</span>
+<div style="margin-bottom:20px;">
+
+<p>$Lang{fixme_product}{$lang}</p>
+
+$image_warning
 
 <p>$Lang{app_you_can_add_pictures}{$lang}</p>
 
+<button onclick="captureImage();" data-icon="off-camera">$Lang{image_front}{$lang}</button> 
+<div id="upload_image_result_front"></div>
+<button onclick="captureImage();" data-icon="off-camera">$Lang{image_ingredients}{$lang}</button> 
+<div id="upload_image_result_ingredients"></div>
+<button onclick="captureImage();" data-icon="off-camera">$Lang{image_nutrition}{$lang}</button> 
+<div id="upload_image_result_nutrition"></div>
 <button onclick="captureImage();" data-icon="off-camera">$Lang{app_take_a_picture}{$lang}</button> 
 <div id="upload_image_result"></div>
 <p>$Lang{app_take_a_picture_note}{$lang}</p>

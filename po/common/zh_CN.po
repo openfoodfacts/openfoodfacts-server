@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-12-21 15:10-0500\n"
+"PO-Revision-Date: 2018-01-21 11:51-0500\n"
 "Language-Team: Chinese Simplified\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -1744,15 +1744,15 @@ msgstr "PNNS 组2"
 
 msgctxt "points_all_countries"
 msgid "There are %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "有%d个探险家和%d个大使"
 
 msgctxt "points_all_users"
 msgid "There are Explorers for %d countries and Ambassadors for %d countries."
-msgstr ""
+msgstr "有%d个国家的探险家和%d个国家的大使"
 
 msgctxt "points_country"
 msgid "%s has %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "%s有%d个探险家和%d个大使"
 
 msgctxt "points_ranking"
 msgid "Ranking"
@@ -2497,7 +2497,7 @@ msgstr "用户名"
 
 msgctxt "username_info"
 msgid "(non-accented letters, digits and/or dashes)"
-msgstr ""
+msgstr "（非重音字母，数字和/或破折号）"
 
 msgctxt "username_or_email"
 msgid "Username or email address"
@@ -2505,19 +2505,19 @@ msgstr "用户名或电子邮件地址："
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
-msgstr ""
+msgstr "由用户%s添加的商品"
 
 msgctxt "users_add_without_products"
 msgid "Products that were not added by the user %s"
-msgstr ""
+msgstr "没有被%s用户添加的商品"
 
 msgctxt "users_edit_products"
 msgid "Products that were edited by the user %s"
-msgstr ""
+msgstr "由用户%s编辑的商品"
 
 msgctxt "users_edit_without_products"
 msgid "Products that were not edited by the user %s"
-msgstr ""
+msgstr "没有被用户%s编辑的商品"
 
 msgctxt "users_p"
 msgid "contributors"
@@ -2541,20 +2541,20 @@ msgstr "视图"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
-msgstr ""
+msgstr "查看来自全球的匹配商品列表"
 
 msgctxt "view_products_from_the_entire_world"
 msgid "View matching products from the entire world"
-msgstr ""
+msgstr "查看来自全球的匹配产品"
 
 msgctxt "view_results_from_the_entire_world"
 msgid "View results from the entire world"
-msgstr ""
+msgstr "查看来自全球的匹配商品"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"\">Why it matters</a>"
-msgstr ""
+msgstr "信息和数据必须来自产品包装和标签（而不是来自其他网站或制造商的网站），您必须亲自拍照<br/><a href=\"\">重要原因</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -2598,11 +2598,11 @@ msgstr ""
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "注意：水果，蔬菜和坚果的数量没有规定，他们对该等级做出的积极贡献可能不被考虑。"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr ""
+msgstr "注意：标签上没有标明水果，蔬菜和坚果的数量，从成分列表中进行估算：%d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
@@ -2634,7 +2634,7 @@ msgstr "已删除产品"
 
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
-msgstr ""
+msgstr "您确定要想要删除这个产品的页面吗？"
 
 msgctxt "delete_user"
 msgid "Delete the user"
@@ -2650,7 +2650,7 @@ msgstr "在openfood.ch中的产品页面"
 
 msgctxt "sources_usda_ndb"
 msgid "Some of the data comes from the USDA National Nutrients Database for Branded Foods (the exact list is available in the product edit history)."
-msgstr ""
+msgstr "一些数据来自美国农业部国家营养品牌数据库USDA（品牌食品的确切名单可在产品编辑历史中找到）。"
 
 msgctxt "sources_usda_ndb_product_page"
 msgid "Product page on USDA NDB"
@@ -2666,15 +2666,15 @@ msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/wid
 
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
-msgstr ""
+msgstr "一些数据和图像由制造商Fleury Michon直接提供。"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
-msgstr ""
+msgstr "该产品的部分数据是由制造商％s直接提供的。"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgstr "此产品页面不完整。 您可以通过编辑它并从我们的照片中添加更多数据，或通过使用应用程序拍摄更多照片来帮助完成<a href=\"https://android.openfoodfacts.org\">安卓</a>或者<a href=\"https://ios.openfoodfacts.org\">iphone手机</a>感谢"
 
 msgctxt "title_separator"
 msgid " — "

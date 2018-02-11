@@ -258,4 +258,6 @@ opff =>
 };
 
 
+$options{no_nutrition_table} = 1;
+
 1;

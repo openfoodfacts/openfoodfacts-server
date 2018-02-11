@@ -8,6 +8,7 @@
 [![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/openfoodfacts/openfoodfacts-server.svg)](https://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Average time to resolve an issue")
 [![Percentage of issues still open](https://isitmaintained.com/badge/open/openfoodfacts/openfoodfacts-server.svg)](https://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Percentage of issues still open")
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/openfoodfacts/localized.svg)](https://crowdin.com/project/openfoodfacts)
+[![Open Source Helpers](https://www.codetriage.com/openfoodfacts/openfoodfacts-server/badges/users.svg)](https://www.codetriage.com/openfoodfacts/openfoodfacts-server)
 
 ## What is Product Opener?
 
@@ -79,6 +80,11 @@ https://github.com/openfoodfacts/openfoodfacts-server/issues
 
 You can help translate Open Food Facts and the app at (no technical knowledge required, takes a minute to signup): <br>
 https://crowdin.com/project/openfoodfacts
+
+#### Updating translations for static content
+A number of the translations are maintained externally, see `scripts/update_texts_from_wiki.pl` to sync translation data.
+
+Specific pages are defined in the relevant `Config.pm` `wiki_texts` variables.
 
 ### Who do I talk to? ###
 

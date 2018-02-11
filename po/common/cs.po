@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-11-12 18:41-0500\n"
+"PO-Revision-Date: 2018-01-24 06:10-0500\n"
 "Language-Team: Czech\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
@@ -26,7 +26,7 @@ msgstr "Czech"
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "1 produkt"
 
 msgctxt "_and_"
 msgid " and "
@@ -34,7 +34,7 @@ msgstr " a "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "O mně"
 
 msgctxt "add"
 msgid "Add"
@@ -42,7 +42,7 @@ msgstr "Přidat"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "Přidat jazyk"
 
 msgctxt "add_product"
 msgid "Add a product"
@@ -50,11 +50,11 @@ msgstr "Přidat produkt"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr ""
+msgstr "Registrovat se"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "<p>Díky, že jste s námi! Nyní se můžete přihlásit abyste mohli přidávat a upravovat produkty.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -72,47 +72,59 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr ""
+msgstr "Dobrý den,\n\n"
+"Děkujeme, že jste se přidali ke komunitě https://openfoodfacts.org\n"
+"Vaše uživatelské jméno je: <USERID>\n\n"
+"Nyní se můžete přihlásit abyste mohli přidávat a upravovat produkty. \n\n"
+"<<site_name>> je projekt založený na spolupráci. Můžete do něj vložit více než jen nové produkty: svou energii, nadšení a nápady. \n"
+"Pro posouvání projektu kupředu a pro komunikaci mezi přispěvateli používáme velmi pohodlný systém nazvaný Slack: https://slack.openfoodfacts.org\n\n"
+"Můžete se také přidat k přispěvatelské skupině na Facebooku:\n"
+"https://www.facebook.com/groups/OpenFoodFacts/\n\n"
+"Novinka: také zakládáme projekt Open Beauty Facts, databázi kosmetických produktů a drogerie: mýdel, zubních past, makeupu, atd. Tento projekt naleznete na https://openbeautyfacts.org\n\n"
+"Vřelé díky!\n\n"
+"Stéphane a tým Open Food Facts\n"
+"https://openfoodfacts.org\n"
+"https://twitter.com/OpenFoodFacts\n"
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "Děkujeme, že jste se připojili k <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "Potenciálně nebezpečná potravinová přísada. Omezte používání."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "Nebezpečná potravinová přísada. Vyhýbat se."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "Potravinářská přísada zakázaná v Evropě. Vyhněte se za každou cenu."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "přísady"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "přísada"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr ""
+msgstr "Pokročilé vyhledávání"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "Pokročilé vyhledávání a grafy"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "Nadměrné pití je škodlivé pro zdraví."
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "Všechny mise"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
@@ -120,36 +132,36 @@ msgstr "Látky nebo produkty vyvolávající alergie nebo nesnášenlivost"
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr ""
+msgstr "alergeny"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "alergen"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr ""
+msgstr "Stránka produktu také editoval(a)"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world-cs.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Ke stažení na Google Play\" width=\"135\" height=\"47\" />"
 
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr ""
+msgstr "<p>Tento produkt dosud není v databázi <<site_name>>. Mohli byste, prosím, pořídit nějaké obrázky produktu, čárového kódu, seznamu ingrediencí a nutriční tabulky a přidat je na <a href=\"https://world-cs.openfoodfacts.org\" target=\"_blank\"> <<site_name>> </a>? </p> <p>Předem děkujeme! </p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -157,7 +169,7 @@ msgstr "Vyfotit"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr ""
+msgstr "Poznámka: Obrázky, které odesíláte jsou zveřejňovány pod svobodnou licencí \"Creative Commons Uveďte původ-Zachovejte licenci\" (CC BY-SA 2.5)."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
@@ -165,19 +177,19 @@ msgstr "Můžete přidat obrázky:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "Vodorovná osa"
 
 msgctxt "axis_y"
 msgid "Vertical axis"
-msgstr ""
+msgstr "Svislá osa"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr ""
+msgstr "Čárový kód"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr ""
+msgstr "Číslo čárového kódu:"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
@@ -189,7 +201,7 @@ msgstr ""
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
-msgstr ""
+msgstr "Přijměte misi"
 
 msgctxt "brands"
 msgid "Brands"
@@ -197,27 +209,27 @@ msgstr "Značky"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr ""
+msgstr "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr ""
+msgstr "značky"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr ""
+msgstr "Produkty značky %s"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "značka"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "přidat značku"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr ""
+msgstr "Produkty, které nejsou značky %s"
 
 msgctxt "by"
 msgid "by"
@@ -229,31 +241,31 @@ msgstr "Kategorie"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr ""
+msgstr "Sardinky v olivovém oleji, pomerančový džus z koncentrátu"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr ""
+msgstr "Uveďte pouze nejkonkrétnější kategorii. \"Rodičovské\" kategorie budou přidány automaticky."
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "kategorie"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr ""
+msgstr "Výrobky z kategorie %s"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "kategorie"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr ""
+msgstr "přidat kategorii"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr ""
+msgstr "Výrobky, které nejsou z kategorie %s"
 
 msgctxt "change_fields"
 msgid "Data"
@@ -265,11 +277,11 @@ msgstr "Živin"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr ""
+msgstr "Vybrané obrázky"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr ""
+msgstr "Nahrané obrázky"
 
 msgctxt "checkers_p"
 msgid "checkers"
@@ -285,11 +297,11 @@ msgstr ""
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr ""
+msgstr "Produkty zabalené ve městě %s"
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr ""
+msgstr "baleno ve městě"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
@@ -516,7 +528,7 @@ msgstr ""
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
-msgstr ""
+msgstr "V Evropě, kód v oválu s dvouznakou zkratkou země následovaný číslem a písmeny CE."
 
 msgctxt "emb_codes_p"
 msgid "packager codes"
@@ -524,7 +536,7 @@ msgstr ""
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
-msgstr ""
+msgstr "Produkty s emb kódem %s"
 
 msgctxt "emb_codes_s"
 msgid "packager code"
@@ -532,7 +544,7 @@ msgstr ""
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the emb code %s"
-msgstr ""
+msgstr "Produkty bez emb kódu %s"
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
@@ -544,91 +556,91 @@ msgstr ""
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "Chyba"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr ""
+msgstr "Nesprávné uživatelské jméno nebo heslo. <a href=\"/cgi/reset_password.pl\">Zapomenuté heslo?</a>"
 
 msgctxt "error_database"
 msgid "An error occured while reading the data, try to refresh the page."
-msgstr ""
+msgstr "Při čtení dat došlo k chybě, zkuste obnovit stránku."
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr ""
+msgstr "Heslo a heslo pro potvrzení se liší."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "E-mailová adresa je již použita. Možná už u nás máte účet? Pak u něj můžete <a href=\"/cgi/reset_password.pl\">resetovat heslo</a>."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr ""
+msgstr "Neplatná adresa."
 
 msgctxt "error_invalid_csrf_token"
 msgid "Invalid CSRF token."
-msgstr ""
+msgstr "Neplatný token CSRF."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr ""
+msgstr "Neplatná emailová adresa"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
-msgstr ""
+msgstr "Heslo musí mít délku alespoň 6 znaků."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr ""
+msgstr "Neplatný uživatel."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr ""
+msgstr "Uživatelské jméno musí obsahovat pouze písmena bez diakritiky, číslice a pomlčky."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
-msgstr ""
+msgstr "Produkt s tímto kódem již existuje"
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
-msgstr ""
+msgstr "Je třeba zadat jméno nebo přezdívku."
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
-msgstr ""
+msgstr "Přístup odepřen."
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr ""
+msgstr "Je třeba zadat uživatelské jméno"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
-msgstr ""
+msgstr "Jste již přihlášen."
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
-msgstr ""
+msgstr "Odkaz pro obnovení hesla je chybný nebo vypršela jeho platnost."
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr ""
+msgstr "Účet s tímto e-mailem neexistuje"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr ""
+msgstr "Toto uživatelské jméno neexistuje."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr ""
+msgstr "Toto uživatelské jméno je již zabrané. Prosím vyberte si jiné."
 
 msgctxt "example"
 msgid "Example:"
-msgstr ""
+msgstr "Například:"
 
 msgctxt "examples"
 msgid "Examples:"
-msgstr ""
+msgstr "Například:"
 
 msgctxt "expiration_date"
 msgid "Best before date"
@@ -636,7 +648,7 @@ msgstr "Nejlepší před datem"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr ""
+msgstr "Datum spotřeby je údaj, pomocí něhož můžeme sledovat změny produktu v průběhu času a identifikovat jeho nejnovější verzi."
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
@@ -648,7 +660,7 @@ msgstr ""
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -662,27 +674,33 @@ msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
+msgstr "<a href=\"https://world-cs.openfoodfacts.org/legal\">Legal</a> -\n"
+"<a href=\"https://world-cs.openfoodfacts.org/terms-of-use\">Podmínky užívání</a> -\n"
+"<a href=\"https://world-cs.openfoodfacts.org/who-we-are\">Kdo jsme</a> -\n"
+"<a href=\"https://world-cs.openfoodfacts.org/faq\">Často kladené dotazy</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">Nápadovník</a> -\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
+"<a href=\"https://world-cs.openfoodfacts.org/press-and-blogs\">Press a Blogy</a>\n"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "a <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebooková skupina pro přispěvatele</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr ""
+msgstr "<<site_name>> blog"
 
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.blog.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
-msgstr ""
+msgstr "Etický kodex"
 
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data"
@@ -690,7 +708,7 @@ msgstr "Údaje"
 
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr ""
+msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -702,13 +720,13 @@ msgstr "Často kladené otázky"
 
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr ""
+msgstr "/faq"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
-msgstr ""
+msgstr "Sledujte nás na <a href=\"https://twitter.com/openfoodfacts\">Twitteru</a>, <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebooku</a> a <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google + </a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -728,7 +746,7 @@ msgstr "Právní zmínky"
 
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr ""
+msgstr "/legal"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -736,7 +754,7 @@ msgstr "Lis"
 
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr ""
+msgstr "/press"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -748,7 +766,7 @@ msgstr "Podmínky použití"
 
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/terms-of-use"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -756,7 +774,7 @@ msgstr "Kdo jsme"
 
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "/who-we-are"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -780,7 +798,7 @@ msgstr "Běžné jméno"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
-msgstr ""
+msgstr "Čokoládová tyčinka s mlékem a lískovými oříšky"
 
 msgctxt "goodbye"
 msgid "See you soon!"
@@ -788,7 +806,7 @@ msgstr "Uvidíme se brzy!"
 
 msgctxt "graph_count"
 msgid "%d products match the search criterias, of which %i products have defined values for the graph's axis."
-msgstr ""
+msgstr "%d úroduktů odpovídá kritériím vyhledávání, z nichž %i produkty mají definované hodnoty pro osy grafu."
 
 msgctxt "graph_title"
 msgid "Graph title"
@@ -1002,155 +1020,155 @@ msgstr ""
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
-msgstr ""
+msgstr "Produkty, které nemají štítek %s"
 
 msgctxt "lang"
 msgid "Main language"
-msgstr ""
+msgstr "Hlavní jazyk"
 
 msgctxt "lang_ar"
 msgid "Arabic"
-msgstr ""
+msgstr "Arabština"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bulharština"
 
 msgctxt "lang_cs"
 msgid "Czech"
-msgstr ""
+msgstr "Čeština"
 
 msgctxt "lang_da"
 msgid "Danish"
-msgstr ""
+msgstr "Dánština"
 
 msgctxt "lang_de"
 msgid "German"
-msgstr ""
+msgstr "Němčina"
 
 msgctxt "lang_el"
 msgid "Greek"
-msgstr ""
+msgstr "Řečtina"
 
 msgctxt "lang_en"
 msgid "English"
-msgstr ""
+msgstr "Angličtina"
 
 msgctxt "lang_es"
 msgid "Spanish"
-msgstr ""
+msgstr "Španělština"
 
 msgctxt "lang_et"
 msgid "Estonian"
-msgstr ""
+msgstr "Estonština"
 
 msgctxt "lang_fi"
 msgid "Finnish"
-msgstr ""
+msgstr "Finština"
 
 msgctxt "lang_fr"
 msgid "French"
-msgstr ""
+msgstr "Francouzština"
 
 msgctxt "lang_ga"
 msgid "Irish"
-msgstr ""
+msgstr "Irština"
 
 msgctxt "lang_he"
 msgid "Hebrew"
-msgstr ""
+msgstr "Hebrejština"
 
 msgctxt "lang_hu"
 msgid "Hungarian"
-msgstr ""
+msgstr "Maďarština"
 
 msgctxt "lang_id"
 msgid "Indonesian"
-msgstr ""
+msgstr "Indonéština"
 
 msgctxt "lang_it"
 msgid "Italian"
-msgstr ""
+msgstr "Italština"
 
 msgctxt "lang_ja"
 msgid "Japanese"
-msgstr ""
+msgstr "Japonština"
 
 msgctxt "lang_ko"
 msgid "Korean"
-msgstr ""
+msgstr "Korejština"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
-msgstr ""
+msgstr "Litevština"
 
 msgctxt "lang_lv"
 msgid "Latvian"
-msgstr ""
+msgstr "Lotyština"
 
 msgctxt "lang_mt"
 msgid "Maltese"
-msgstr ""
+msgstr "Maltština"
 
 msgctxt "lang_nl"
 msgid "Dutch"
-msgstr ""
+msgstr "Holandština"
 
 msgctxt "lang_nl_be"
 msgid "Dutch"
-msgstr ""
+msgstr "Holandština"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr ""
+msgstr "Jazyk nejvíce přítomný a nejvíce zvýrazněný na produktu"
 
 msgctxt "lang_other"
 msgid "other language"
-msgstr ""
+msgstr "jiný jazyk"
 
 msgctxt "lang_pl"
 msgid "Polish"
-msgstr ""
+msgstr "Polština"
 
 msgctxt "lang_pt"
 msgid "Portuguese"
-msgstr ""
+msgstr "Portugalština"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
-msgstr ""
+msgstr "Portugalština (Portugalská)"
 
 msgctxt "lang_ro"
 msgid "Romanian"
-msgstr ""
+msgstr "Rumunština"
 
 msgctxt "lang_ru"
 msgid "Russian"
-msgstr ""
+msgstr "Ruština"
 
 msgctxt "lang_sk"
 msgid "Slovak"
-msgstr ""
+msgstr "Slovenština"
 
 msgctxt "lang_sl"
 msgid "Slovenian"
-msgstr ""
+msgstr "Slovinština"
 
 msgctxt "lang_sv"
 msgid "Swedish"
-msgstr ""
+msgstr "Švédština"
 
 msgctxt "lang_th"
 msgid "Thai"
-msgstr ""
+msgstr "Thajština"
 
 msgctxt "lang_vi"
 msgid "Vietnamese"
-msgstr ""
+msgstr "Vietnamština"
 
 msgctxt "lang_zh"
 msgid "Chinese"
-msgstr ""
+msgstr "Čínština"
 
 msgctxt "language"
 msgid "en-US"
@@ -1158,19 +1176,19 @@ msgstr ""
 
 msgctxt "languages_p"
 msgid "languages"
-msgstr ""
+msgstr "jazyky"
 
 msgctxt "languages_s"
 msgid "language"
-msgstr ""
+msgstr "jazyk"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
-msgstr ""
+msgstr "Data posledních úprav"
 
 msgctxt "last_edit_dates_s"
 msgid "Last edit date"
-msgstr ""
+msgstr "Datum poslední úpravy"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
@@ -1184,7 +1202,7 @@ msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr ""
+msgstr "Přidáním informací, dat a/nebo obrázků souhlasíte s tím, že neomezitelně umísťujete svůj příspěvek pod licencí <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\"> Database Contents Licence 1.0</a> pro informace a data a pod licencí <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> pro obrázky. Přijímáte, že budet oceněno vaše autorství pře-uživateli dat, přidáním odkazu na produkt, do kterého přispíváte."
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
@@ -1196,15 +1214,15 @@ msgstr "Seznam %s"
 
 msgctxt "loadmore"
 msgid "Load more results"
-msgstr ""
+msgstr "Načíst další výsledky"
 
 msgctxt "login_and_add_product"
 msgid "Sign-in and add the product"
-msgstr ""
+msgstr "Přihlaste se a přidejte produkt"
 
 msgctxt "login_and_edit_product"
 msgid "Sign-in and edit the product"
-msgstr ""
+msgstr "Přihlaste se a upravte produkt"
 
 msgctxt "login_create_your_account"
 msgid "Create your account."
@@ -1246,59 +1264,59 @@ msgstr "Uživatelské jméno nebo e-mailová adresa:"
 
 msgctxt "low"
 msgid "low"
-msgstr ""
+msgstr "nízký"
 
 msgctxt "low_quantity"
 msgid "low quantity"
-msgstr ""
+msgstr "malé množství"
 
 msgctxt "manage_images"
 msgid "Manage images"
-msgstr ""
+msgstr "Spravovat obrázky"
 
 msgctxt "manage_images_info"
 msgid "You can select one or more images and then:"
-msgstr ""
+msgstr "Můžete vybrat jeden nebo více obrázků a pak:"
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr ""
+msgstr "Výrobní nebo zpracovatelská místa"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
-msgstr ""
+msgstr "Brno, Česká Republika"
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
-msgstr ""
+msgstr "výrobní nebo zpracovatelská místa"
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
-msgstr ""
+msgstr "Výrobky vyrobené nebo zpracované v %s"
 
 msgctxt "manufacturing_places_s"
 msgid "manufacturing or processing place"
-msgstr ""
+msgstr "výrobní nebo zpracovatelské místo"
 
 msgctxt "manufacturing_places_tagsinput"
 msgid "add a place"
-msgstr ""
+msgstr "přidat místo"
 
 msgctxt "manufacturing_places_without_products"
 msgid "Products not manufactured or processed in %s"
-msgstr ""
+msgstr "Výrobky, které nebyly vyrobené nebo zpracované v %s"
 
 msgctxt "map_count"
 msgid "%d products match the search criterias, of which %i products have a known production place."
-msgstr ""
+msgstr "%d úroduktů odpovídá kritériím vyhledávání, z nichž %i produktů má známé místo výroby."
 
 msgctxt "map_title"
 msgid "Map title"
-msgstr ""
+msgstr "Název mapy"
 
 msgctxt "menu"
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
@@ -1306,7 +1324,7 @@ msgstr "Přidat produkt"
 
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr ""
+msgstr "/add-a-product"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -1314,7 +1332,7 @@ msgstr "Přispět"
 
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/contribute"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1322,19 +1340,19 @@ msgstr "Objevte"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/discover"
 
 msgctxt "mission_"
 msgid "Mission: "
-msgstr ""
+msgstr "Mise: "
 
 msgctxt "mission_accomplished_by"
 msgid "This mission has been completed by:"
-msgstr ""
+msgstr "Tato mise byla dokončena uživatelem:"
 
 msgctxt "mission_accomplished_by_n"
 msgid "Completed by %d persons."
-msgstr ""
+msgstr "Dokončeno %d lidmi."
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
@@ -1370,7 +1388,7 @@ msgstr "%d produktů"
 
 msgctxt "name"
 msgid "Name"
-msgstr ""
+msgstr "Jméno"
 
 msgctxt "names"
 msgid "Names"
@@ -1585,27 +1603,27 @@ msgstr ""
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
-msgstr ""
+msgstr "Uveďte původ přísad"
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
-msgstr ""
+msgstr "původ přísad"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr ""
+msgstr "Produkty se přísadami pocházejícími z %s"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr ""
+msgstr "původ přísad"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
-msgstr ""
+msgstr "přidat původ"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
-msgstr ""
+msgstr "Produkty bez přísad pocházejících z %s"
 
 msgctxt "packaging"
 msgid "Packaging"
@@ -1613,39 +1631,39 @@ msgstr "Obal"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
-msgstr ""
+msgstr "Čerstvé, Konzerva, Zmrazené, Láhev, Krabice, Sklo, Plast, Plastová vanička, ..."
 
 msgctxt "packaging_note"
 msgid "Packaging type, format, material"
-msgstr ""
+msgstr "Typ balení, formát, materiál"
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr ""
+msgstr "balení"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
-msgstr ""
+msgstr "Výrobky s balením typu %s"
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr ""
+msgstr "balení"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
-msgstr ""
+msgstr "přidat typ, tvar nebo materiál"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
-msgstr ""
+msgstr "Produkty, které nejsou v balení typu %s"
 
 msgctxt "page_x"
 msgid "Page %d"
-msgstr ""
+msgstr "Stránka %d"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
-msgstr ""
+msgstr "Strana %d z %d."
 
 msgctxt "pages"
 msgid "Pages:"
@@ -1657,59 +1675,59 @@ msgstr "Heslo"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
-msgstr ""
+msgstr "Potvrdit heslo"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
-msgstr ""
+msgstr "Doba od otevření"
 
 msgctxt "periods_after_opening_note"
 msgid "Found in an open container logo with a number of months: e.g. 12 M"
-msgstr ""
+msgstr "Nalezeno v otevřeném obalu logo s několika měsíci: např. 12 M"
 
 msgctxt "periods_after_opening_p"
 msgid "Periods after opening"
-msgstr ""
+msgstr "Doba od otevření"
 
 msgctxt "periods_after_opening_s"
 msgid "Period after opening"
-msgstr ""
+msgstr "Doba od otevření"
 
 msgctxt "photographers_p"
 msgid "photographers"
-msgstr ""
+msgstr "fotografové"
 
 msgctxt "photographers_s"
 msgid "photographer"
-msgstr ""
+msgstr "fotograf"
 
 msgctxt "pnns_groups_1"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "Skupiny PNNS 1"
 
 msgctxt "pnns_groups_1_p"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "Skupiny PNNS 1"
 
 msgctxt "pnns_groups_1_s"
 msgid "PNNS group 1"
-msgstr ""
+msgstr "Skupina PNNS 1"
 
 msgctxt "pnns_groups_2"
 msgid "PNNS groups 2"
-msgstr ""
+msgstr "Skupiny PNNS 2"
 
 msgctxt "pnns_groups_2_p"
 msgid "PNNS groups 2"
-msgstr ""
+msgstr "Skupiny PNNS 2"
 
 msgctxt "pnns_groups_2_s"
 msgid "PNNS group 2"
-msgstr ""
+msgstr "Skupina PNNS 2"
 
 msgctxt "points_all_countries"
 msgid "There are %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "K dispozici jsou %d Průzkumníci a %d Ambassadoři."
 
 msgctxt "points_all_users"
 msgid "There are Explorers for %d countries and Ambassadors for %d countries."
@@ -2009,7 +2027,7 @@ msgstr ""
 
 msgctxt "save"
 msgid "Save"
-msgstr ""
+msgstr "Uložit"
 
 msgctxt "saved"
 msgid "Saved."
@@ -2290,7 +2308,7 @@ msgstr "Podepiš"
 
 msgctxt "share"
 msgid "Share"
-msgstr ""
+msgstr "Sdílet"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
@@ -2314,7 +2332,7 @@ msgstr ""
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr ""
+msgstr "Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
