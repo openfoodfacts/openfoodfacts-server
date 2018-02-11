@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-09 15:20-0500\n"
+"PO-Revision-Date: 2018-02-11 07:22-0500\n"
 "Language-Team: Spanish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -748,6 +748,14 @@ msgstr "Preguntas frecuentes"
 msgctxt "footer_faq_link"
 msgid "/faq"
 msgstr "/preguntas-frecuentes"
+
+msgctxt "footer_translators"
+msgid "Translators"
+msgstr ""
+
+msgctxt "footer_translators_link"
+msgid "/cgi/top_translators.pl"
+msgstr ""
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
@@ -2719,4 +2727,36 @@ msgstr "Esta página de producto no está completa. Puedes ayudar a completarla 
 msgctxt "title_separator"
 msgid " — "
 msgstr " — "
+
+msgctxt "translators_title"
+msgid "Our Translators"
+msgstr ""
+
+msgctxt "translators_lead"
+msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages!"
+msgstr ""
+
+msgctxt "translators_renewal_notice"
+msgid "Please note that this table is refreshed nightly and might be out of date."
+msgstr ""
+
+msgctxt "translators_column_name"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "translators_column_translated_words"
+msgid "Translated (Words)"
+msgstr ""
+
+msgctxt "translators_column_target_words"
+msgid "Target Words"
+msgstr ""
+
+msgctxt "translators_column_approved_words"
+msgid "Approved (Words)"
+msgstr ""
+
+msgctxt "translators_column_votes_made"
+msgid "Votes Made"
+msgstr ""
 
