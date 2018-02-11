@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -25,7 +25,7 @@ use warnings;
 use File::Find::Rule;
 use Locale::Maketext::Lexicon _auto => 0, _decode => 1, _style => "gettext";
 use Locale::Maketext::Lexicon::Getcontext;
-
+use Log::Any qw($log);
 
 my @metadata_fields = qw<
     __Content-Transfer-Encoding
@@ -51,7 +51,8 @@ my @metadata_fields = qw<
 sub read_po_files {
     my ($dir) = @_;
 
-	print STDERR "Reading po files from dir $dir\n";
+    local $log->context->{directory} = $dir;
+    $log->debug("Reading po files from disk");
 	
     return unless $dir;
 	
@@ -63,8 +64,8 @@ sub read_po_files {
 
     for my $file (sort @files) {
         # read the .po file
-		
-		print STDERR "Reading $file\n";
+		local $log->context->{file} = basename($file);
+        $log->debug("Reading po file");
 		
 		my $lc;
 		
@@ -72,7 +73,7 @@ sub read_po_files {
 			$lc = $1;
 		}
 		else {
-			print STDERR "Skipping $file (not in [2-letter code].po format)\n";
+            $log->debug("Skipping file (not in [2-letter code].po format)");
 			next;
 		}
 		

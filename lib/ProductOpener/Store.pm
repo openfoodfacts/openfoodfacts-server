@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -112,14 +112,16 @@ sub get_fileid($) {
 
 sub get_urlid($) {
 
-	my $file = shift;
+	my $input = shift;
+	my $file = $input;
 	
 	$file = get_fileid($file);
 	
 	if ($file =~ /[^a-zA-Z0-9-]/) {
 		$file = URI::Escape::XS::encodeURIComponent($file);
 	}
-	# print STDERR "get_urlid : $file \n";
+	
+	$log->trace("get_urlid", { in => $input, out => $file }) if $log->is_tace();
 	
 	return $file;
 }

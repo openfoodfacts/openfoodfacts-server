@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -45,6 +45,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use MIME::Lite;
 use Encode;
+use Log::Any qw($log);
 
 sub send_email($$$)
 {
@@ -96,10 +97,10 @@ sub send_email_to_admin($$)
 	eval { $mime_email->send; };
 	
     if ( $@ ) {
-	    print STDERR "WARNING no email sent to admin: \n" . $mime_email->as_string . "\n";
+		$log->warn("no email sent to admin", { mail => $mime_email->as_string }) if $log->is_warn();
         return 1;
     } else {
-	    print STDERR "sent email to admin: \n" . $mime_email->as_string . "\n";
+		$log->info("sent email to admin", { mail => $mime_email->as_string }) if $log->is_info();
         return 0;
     }
 }
