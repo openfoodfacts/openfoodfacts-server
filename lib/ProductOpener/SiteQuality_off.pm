@@ -286,6 +286,59 @@ sub check_ingredients($) {
 }
 
 
+sub check_quantity($) {
+ 
+	my $product_ref = shift;
+	
+	# quantity contains "e" - might be an indicator that the user might have wanted to use "℮" \N{U+212E}
+	if ((defined $product_ref->{quantity})
+		and ($product_ref->{quantity} =~ /(?:.*e$)|(?:[0-9]+\s*[kmc]?[gl]?\s*e)/i)
+		and (not ($product_ref->{quantity} =~ /\N{U+212E}/i))) {
+		push $product_ref->{quality_tags}, "quantity-contains-e";
+	}
+
+}
+
+sub check_bugs($) {
+
+	my $product_ref = shift;
+	
+	check_bug_code_missing($product_ref);
+	check_bug_created_t_missing($product_ref);
+
+}
+
+sub check_bug_code_missing($) {
+
+	my $product_ref = shift;
+	
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/185#issuecomment-364653043
+	if ((not (defined $product_ref->{code}))) {
+		push $product_ref->{quality_tags}, "code-missing";
+	}
+	elsif ($product_ref->{code} eq '') {
+		push $product_ref->{quality_tags}, "code-empty";
+	}
+	elsif ($product_ref->{code} == 0) {
+		push $product_ref->{quality_tags}, "code-zero";
+	}
+
+}
+
+sub check_bug_created_t_missing($) {
+
+	my $product_ref = shift;
+	
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/185
+	if ((not (defined $product_ref->{created_t}))) {
+		push $product_ref->{quality_tags}, "created-missing";
+	}
+	elsif ($product_ref->{created_t} == 0) {
+		push $product_ref->{quality_tags}, "created-zero";
+	}
+
+}
+
 
 # Run site specific quality checks
 
@@ -296,6 +349,9 @@ sub check_quality($) {
 	$product_ref->{quality_tags} = [];
 	
 	check_ingredients($product_ref);
+	
+	check_quantity($product_ref);
+	check_bugs($product_ref);	
 	
 	detect_categories($product_ref);
 }
