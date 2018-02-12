@@ -55,8 +55,8 @@ foreach my $link (@links) {
 
 		#	print "$link - $lang - $textid\n";
 
-			ok ( -e "$data_root/lang/$lang/$textid.html",
-				"$field link - lang: $lang - textid: $textid -- file /lang/$lang/$textid.html does not exist");
+			ok ( -e "$data_root/lang/$lang/texts/$textid.html",
+				"$field link - lang: $lang - textid: $textid -- file /lang/$lang/texts/$textid.html does not exist");
 		}
 
 		
