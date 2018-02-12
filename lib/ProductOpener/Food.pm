@@ -3185,6 +3185,14 @@ sub compute_nutrition_score($) {
 	
 	$product_ref->{misc_tags} = ["en:nutriscore-not-computed"];
 
+	# do not compute a score when we don't have a category
+	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
+			$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+			$product_ref->{nutrition_score_debug} = "no score when the product does not have a category";
+			return;
+	}	
+	
+	
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
 	if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
 			$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
