@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2017 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -16,13 +16,16 @@
 # GNU Affero General Public License for more details.
 # 
 # You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 package ProductOpener::SiteQuality;
 
 use utf8;
 use Modern::Perl '2012';
 use Exporter    qw< import >;
+
+
+
 
 BEGIN
 {
@@ -37,9 +40,115 @@ BEGIN
 
 use vars @EXPORT_OK ;
 
+use ProductOpener::Store qw/:all/;
+use ProductOpener::Tags qw/:all/;
+
+
+my @baby_food_brands = qw(
+Gallia
+Bledina
+Modilac
+Guigoz
+Milumel
+Hipp
+Babybio
+Novalac
+Premibio
+Picot
+Bledilait
+Carrefour-baby
+Pommette
+Laboratoires-guigoz
+Nidal
+Lactel-eveil
+Holle
+Mots-d-enfants
+Laboratoire-guigoz
+Bledidej
+Bebe-nestle
+Laboratoire-gallia
+Gilbert
+Hipp-biologique
+U-tout-petits
+Milupa
+Nestle-bebe
+Blediner
+Guiguoz
+Laboratoires-picot
+Nutricia
+P-tit-souper
+P-tit-dej-croissance
+P-tit-dej
+Sodiaal
+Premichevre
+Auchan-baby
+Aptamil
+Candia-croissance
+Lactel-lait-pour-nourrisson
+Croissance
+Biostime
+Premilait
+Envia
+Babysoif
+Capricare
+France-lait
+Candia-baby
+Physiolac
+Topfer
+);
+
+
+my %baby_food_brands = ();
+
+foreach my $brand (@baby_food_brands) {
+
+	my $brandid = get_fileid($brand);
+	$baby_food_brands{$brandid} = 1;
+
+}
+
+
+sub detect_categories ($) {
+
+	my $product_ref = shift;
+
+	# match on fr product name, generic name, ingredients
+	my $match_fr = "";
+
+	(defined $product_ref->{product_name}) and $match_fr .= " " . $product_ref->{product_name};
+	(defined $product_ref->{product_name_fr}) and $match_fr .= "  " . $product_ref->{product_name_fr};
+	
+	(defined $product_ref->{generic_name}) and $match_fr .= " " . $product_ref->{generic_name};
+	(defined $product_ref->{generic_name_fr}) and $match_fr .= "  " . $product_ref->{generic_name_fr};	
+	
+	(defined $product_ref->{ingredients_text}) and $match_fr .= " " . $product_ref->{ingredients_text};
+	(defined $product_ref->{ingredients_text_fr}) and $match_fr .= "  " . $product_ref->{ingredients_text_fr};
+
+	
+	# try to identify baby milks 	
+	
+	if ($match_fr =~ /lait ([^,-]* )?(suite|croissance|infantile|bébé|bebe|nourrisson|nourisson|age|maternise|maternisé)/i) {
+		if (not has_tag($product_ref, "categories", "en:baby-milks")) {
+			push $product_ref->{quality_tags}, "detected-category-from-name-ingredients-en-baby-milks";
+		}
+	}
+	
+	if (defined $product_ref->{brands_tags}) {
+		foreach my $brandid (@{$product_ref->{brands_tags}}) {
+			if (defined $baby_food_brands{$brandid}) {
+				push $product_ref->{quality_tags}, "detected-category-from-brand-ingredients-en-baby-foods";
+				last;
+			}
+		}
+	}
+	
+}
+
+
 sub check_ingredients($) {
 
 	my $product_ref = shift;
+
 	
 	# Multiple languages in ingredient lists
 	
@@ -176,58 +285,7 @@ sub check_ingredients($) {
 
 }
 
-sub check_quantity($) {
 
-	my $product_ref = shift;
-	
-	# quantity contains "e" - might be an indicator that the user might have wanted to use "℮" \N{U+212E}
-	if ((defined $product_ref->{quantity})
-		and ($product_ref->{quantity} =~ /(?:.*e$)|(?:[0-9]+\s*[kmc]?[gl]?\s*e)/i)
-		and (not ($product_ref->{quantity} =~ /\N{U+212E}/i))) {
-		push $product_ref->{quality_tags}, "quantity-contains-e";
-	}
-
-}
-
-sub check_bugs($) {
-
-	my $product_ref = shift;
-	
-	check_bug_code_missing($product_ref);
-	check_bug_created_t_missing($product_ref);
-
-}
-
-sub check_bug_code_missing($) {
-
-	my $product_ref = shift;
-	
-	# https://github.com/openfoodfacts/openfoodfacts-server/issues/185#issuecomment-364653043
-	if ((not (defined $product_ref->{code}))) {
-		push $product_ref->{quality_tags}, "code-missing";
-	}
-	elsif ($product_ref->{code} eq '') {
-		push $product_ref->{quality_tags}, "code-empty";
-	}
-	elsif ($product_ref->{code} == 0) {
-		push $product_ref->{quality_tags}, "code-zero";
-	}
-
-}
-
-sub check_bug_created_t_missing($) {
-
-	my $product_ref = shift;
-	
-	# https://github.com/openfoodfacts/openfoodfacts-server/issues/185
-	if ((not (defined $product_ref->{created_t}))) {
-		push $product_ref->{quality_tags}, "created-missing";
-	}
-	elsif ($product_ref->{created_t} == 0) {
-		push $product_ref->{quality_tags}, "created-zero";
-	}
-
-}
 
 # Run site specific quality checks
 
@@ -238,9 +296,8 @@ sub check_quality($) {
 	$product_ref->{quality_tags} = [];
 	
 	check_ingredients($product_ref);
-	check_quantity($product_ref);
-	check_bugs($product_ref);
-
+	
+	detect_categories($product_ref);
 }
 
 
