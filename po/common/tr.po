@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-12-12 21:20-0500\n"
+"PO-Revision-Date: 2018-02-12 05:10-0500\n"
 "Language-Team: Turkish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -737,7 +737,7 @@ msgstr "Veri"
 
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr "/veri"
+msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -750,6 +750,14 @@ msgstr "Sıkça sorulan sorular"
 msgctxt "footer_faq_link"
 msgid "/faq"
 msgstr "/Sss"
+
+msgctxt "footer_translators"
+msgid "Translators"
+msgstr ""
+
+msgctxt "footer_translators_link"
+msgid "/cgi/top_translators.pl"
+msgstr ""
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
@@ -777,7 +785,7 @@ msgstr "Hukuki"
 
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr "/hukuki"
+msgstr "/legal"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -797,7 +805,7 @@ msgstr "Kullanım Koşulları"
 
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr "/kullanım Koşulları"
+msgstr "/terms-of-use"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -2724,4 +2732,36 @@ msgstr "Bu ürün sayfası tam değil. Düzenleyerek ve sahip olduğunuzu fotoğ
 msgctxt "title_separator"
 msgid " — "
 msgstr " — "
+
+msgctxt "translators_title"
+msgid "Our Translators"
+msgstr ""
+
+msgctxt "translators_lead"
+msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages!"
+msgstr ""
+
+msgctxt "translators_renewal_notice"
+msgid "Please note that this table is refreshed nightly and might be out of date."
+msgstr ""
+
+msgctxt "translators_column_name"
+msgid "Name"
+msgstr "İsim"
+
+msgctxt "translators_column_translated_words"
+msgid "Translated (Words)"
+msgstr ""
+
+msgctxt "translators_column_target_words"
+msgid "Target Words"
+msgstr ""
+
+msgctxt "translators_column_approved_words"
+msgid "Approved (Words)"
+msgstr ""
+
+msgctxt "translators_column_votes_made"
+msgid "Votes Made"
+msgstr ""
 

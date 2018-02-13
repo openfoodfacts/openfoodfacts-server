@@ -18,12 +18,11 @@ my $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-is($product_ref->{additives}, ' [ acide-citrique -> en:e330  -> exists  -- ok  ]  [ colorant -> fr:colorant  ]  [ e120 -> en:e120  -> exists  -- ok  ]  [ vitamine-c -> en:e300  -> exists  -- ok  ]  [ vitamine-e -> en:e307  -> exists  -- ok  ]  [ vitamine-500 -> fr:vitamine-500  ]  [ vitamine -> fr:vitamine  ] ');
+is($product_ref->{additives}, ' [ acide-citrique -> en:e330  -> exists  -- ok  ]  [ colorant -> fr:colorant  ]  [ e120 -> en:e120  -> exists  -- ok  ]  [ vitamine-c -> en:e300  -> exists  -- mandatory_additive_class: antioxidant (current: en:colour)  ]  [ vitamine-c -> en:e300  -- already seen  ]  [ vitamine-e -> en:e307  -> exists  -- ok  ]  [ vitamine-500 -> fr:vitamine-500  ]  [ vitamine -> fr:vitamine  ] ');
 
 is_deeply($product_ref->{additives_original_tags}, [
                                 'en:e330',
                                 'en:e120',
-                                'en:e300',
                                 'en:e307'
                               ],
 );
@@ -245,6 +244,66 @@ is_deeply($product_ref->{additives_original_tags}, [
           'en:e320'
                               ],
 );
+
+
+# additives that are only additives when preceeded by their function
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text => "Eau, sucre, vitamine C"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+is_deeply($product_ref->{additives_original_tags}, [
+                              ],
+);
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text => "Eau, sucre, antioxydant: vitamine C"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+          'en:e300',
+                              ],
+);
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text => "Eau, sucre, anti-oxydants: vitamine C"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+          'en:e300',
+                              ],
+);
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text => "Eau, sucre, antioxydants: vitamine C, acide citrique"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+          'en:e300',
+          'en:e330',
+                              ],
+);
+
+
 
 
 

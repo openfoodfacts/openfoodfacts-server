@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2017 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -5113,7 +5113,11 @@ HTML
 		$torso_color = "#ffe681";
 	}
 	
-	
+	my $search_terms = '';
+	if (defined param('search_terms')) {
+		$search_terms = remove_tags_and_quote(decode utf8=>param('search_terms'))
+	}
+		
 	$html .= <<HTML
 
 	
@@ -5124,7 +5128,7 @@ HTML
 			<div class="row collapse ">
 
 					<div class="small-8 columns">
-						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lang}" name="search_terms" />
+						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lang}" name="search_terms" value="${search_terms}" />
 						<input name="search_simple" value="1" type="hidden" />
 						<input name="action" value="process" type="hidden" />
 					</div>
@@ -5308,6 +5312,7 @@ $Lang{android_apk_app_badge}{$lc}
 			<li><a href="$Lang{footer_blog_link}{$lc}">$Lang{footer_blog}{$lc}</a></li>
 			<li><a href="$Lang{footer_press_link}{$lc}">$Lang{footer_press}{$lc}</a></li>
 			<li><a href="$Lang{footer_wiki_link}{$lc}">$Lang{footer_wiki}{$lc}</a></li>
+			<li><a href="$Lang{footer_translators_link}{$lc}">$Lang{footer_translators}{$lc}</a></li>
 		</ul>
 	</div>
 	
@@ -5614,8 +5619,30 @@ HTML
 <div class="button_div unselectbuttondiv_$idlc"><button class="unselectbutton_$idlc" class="small button" type="button">Unselect image</button></div>
 HTML
 ;
-			$img .= $html;
+
+			my $filename = '';
+			my $size = 'full';
+			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$idlc})
+				and (defined $product_ref->{images}{$idlc}{sizes}) and (defined $product_ref->{images}{$idlc}{sizes}{$size})) {
+				$filename = $idlc . '.' . $product_ref->{images}{$idlc}{rev} ;
+			}
+
+			my $path = product_path($product_ref->{code});
+			if (-e "$www_root/images/products/$path/$filename.full.jpg.google_cloud_vision.json") {
+				$html .= <<HTML
+<a href="/images/products/$path/$filename.full.jpg.google_cloud_vision.json" class="button tiny">Cloud Vision</a>
+HTML
+;
+			}
+
+			if (-e "$www_root/images/products/$path/$filename.full.json") {
+				$html .= <<HTML
+<a href="/images/products/$path/$filename.full.json" class="button tiny">OCR</a>
+HTML
+;
+			}
 			
+			$img .= $html;
 			
 			$initjs .= <<JS
 	\$(".unselectbutton_$idlc").click({imagefield:"$idlc"},function(event) {

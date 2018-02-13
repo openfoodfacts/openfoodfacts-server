@@ -10,9 +10,13 @@
   version "0.0.0"
   resolved "https://codeload.github.com/zurb/foundation-icon-fonts/tar.gz/afed003521ff971bc614de68bba2676e16ce39f4"
 
-"@bower_components/foundation@zurb/foundation#^5.5.3":
+"@bower_components/foundation@zurb/bower-foundation#^5.5.3":
   version "5.5.3"
-  resolved "https://codeload.github.com/zurb/foundation/tar.gz/563a7342a4d28a7ab54cfbd0ac4bfad05fb4475e"
+  resolved "https://codeload.github.com/zurb/bower-foundation/tar.gz/b879716aa268e1f88fe43de98db2db4487af00ca"
+
+"@bower_components/jquery-ui@components/jqueryui#^1.12.1":
+  version "1.12.1"
+  resolved "https://codeload.github.com/components/jqueryui/tar.gz/44ecf3794cc56b65954cc19737234a3119d036cc"
 
 "@bower_components/leaflet.markercluster@Leaflet/Leaflet.markercluster#>=1.0.0":
   version "1.1.0"
@@ -21,6 +25,10 @@
 "@bower_components/leaflet@Leaflet/Leaflet#>=1.0.0":
   version "1.2.0"
   resolved "https://codeload.github.com/Leaflet/Leaflet/tar.gz/1ac320ba232cb85b73ac81f3d82780c9d07f0d4e"
+
+"@bower_components/papaparse@mholt/papaparse#^4.3.6":
+  version "4.3.6"
+  resolved "https://codeload.github.com/mholt/papaparse/tar.gz/60141533d4da7853383c2c51620fe9eac81c1333"
 
 "@gulp-sourcemaps/identity-map@1.X":
   version "1.0.1"
@@ -1562,10 +1570,6 @@ isobject@^3.0.0, isobject@^3.0.1:
 isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
-
-jquery-ui@^1.12.1:
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/jquery-ui/-/jquery-ui-1.12.1.tgz#bcb4045c8dd0539c134bc1488cdd3e768a7a9e51"
 
 js-base64@^2.1.8:
   version "2.3.2"

@@ -33,7 +33,7 @@ Data about food is of public interest and has to be open. The complete database 
 # Copyright and Licence #
 
 Product Opener
-Copyright (C) 2011-2017 Association Open Food Facts
+Copyright (C) 2011-2018 Association Open Food Facts
 Contact: contact@openfoodfacts.org
 Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 
@@ -80,6 +80,11 @@ https://github.com/openfoodfacts/openfoodfacts-server/issues
 
 You can help translate Open Food Facts and the app at (no technical knowledge required, takes a minute to signup): <br>
 https://crowdin.com/project/openfoodfacts
+
+#### Updating translations for static content
+A number of the translations are maintained externally, see `scripts/update_texts_from_wiki.pl` to sync translation data.
+
+Specific pages are defined in the relevant `Config.pm` `wiki_texts` variables.
 
 ### Who do I talk to? ###
 

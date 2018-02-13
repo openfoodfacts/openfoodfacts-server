@@ -392,7 +392,7 @@ sub load_tags_hierarchy($$) {
 		
 		# print STDERR "Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype - compute all parents breadth first\n";		
 		
-		my %longest_parent = {$lc => {}};
+		my %longest_parent = ($lc => {});
 		
 		# foreach my $tagid (keys %{$tags_direct_parents{$lc}{$tagtype}}) {
 		foreach my $tag (values %{$canon_tags{$lc}{$tagtype}}) {
@@ -975,7 +975,7 @@ sub build_tags_taxonomy($$) {
 		
 		# print STDERR "Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype - compute all parents breadth first\n";		
 		
-		my %longest_parent = {};
+		my %longest_parent = ();
 		
 		# foreach my $tagid (keys %{$direct_parents{$tagtype}}) {   
 		foreach my $tagid (keys %{$translations_to{$tagtype}}) {   
@@ -2030,9 +2030,22 @@ sub canonicalize_taxonomy_tag($$$)
 		# try removing stopwords and plurals
 		my $tagid2 = remove_stopwords($tagtype,$tag_lc,$tagid);
 		$tagid2 = remove_plurals($tag_lc,$tagid2);
+		
+		# try to add / remove hyphens (e.g. antioxydant / anti-oxydant)
+		my $tagid3 = $tagid2;
+		my $tagid4 = $tagid2;
+		$tagid3 =~ s/(anti)(-| )/$1/;
+		$tagid4 =~ s/(anti)([a-z])/$1-$2/;
+		
 		if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid2})) {
 			$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid2};
 		}
+		if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid3})) {
+			$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid3};
+		}
+		if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid4})) {
+			$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid4};
+		}		
 		elsif ($tag_lc ne 'en') {
 			# try English
 			# try removing stopwords and plurals
