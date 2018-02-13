@@ -47,7 +47,12 @@ use XML::Encoding ();
 use Encode ();
 use Cache::Memcached::Fast ();
 use URI::Escape::XS ();
+
 use Log::Any qw($log);
+use Log::Log4perl;
+Log::Log4perl->init('log.conf'); # Init log4perl from a config file.
+use Log::Any::Adapter;
+Log::Any::Adapter->set('Log4perl'); # Send all logs to Log::Log4perl
 
 use ProductOpener::Lang qw/:all/;
 
@@ -93,5 +98,6 @@ $log->info("product opener started", { version => $ProductOpener::Version::versi
 
 open (*STDERR,'>',"/$data_root/logs/modperl_error_log") or die ($!);
 
+print STDERR $log;
 
 1;
