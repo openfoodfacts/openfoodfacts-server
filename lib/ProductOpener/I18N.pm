@@ -22,6 +22,7 @@ package ProductOpener::I18N;
 
 use strict;
 use warnings;
+use File::Basename;
 use File::Find::Rule;
 use Locale::Maketext::Lexicon _auto => 0, _decode => 1, _style => "gettext", _disable_maketext_conversion => 1;
 use Locale::Maketext::Lexicon::Getcontext;
