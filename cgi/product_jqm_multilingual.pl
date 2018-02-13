@@ -1,4 +1,24 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
+
+# This file is part of Product Opener.
+# 
+# Product Opener
+# Copyright (C) 2011-2018 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# 
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# 
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use Modern::Perl '2012';
 use utf8;
@@ -29,10 +49,9 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+use Log::Any qw($log);
 
 ProductOpener::Display::init();
-
-$debug = 1;
 
 my $comment = '(app)';
 
@@ -42,11 +61,11 @@ my %response = ();
 
 my $code = normalize_code(param('code'));
 
-$debug and print STDERR "product_jqm2.pl - code $code - lc $lc\n";
+$log->debug("start", { code => $code, lc => $lc }) if $log->is_debug();
 
 if ($code !~ /^\d+$/) {
 
-	$debug and print STDERR "product_jqm2.pl - invalid code $code \n";
+	$log->info("invalid code", { code => $code }) if $log->is_info();
 	$response{status} = 0;
 	$response{status_verbose} = 'no code or invalid code';
 
@@ -163,7 +182,7 @@ else {
 		next if $nid =~ /_/;
 		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})) {
 			push @unknown_nutriments, $nid;
-			print STDERR "product.pl - unknown_nutriment: $nid\n";
+			$log->debug("unknown nutrient", { nid => $nid }) if $log->is_debug();
 		}
 	}
 	
@@ -233,7 +252,7 @@ else {
 		my $new_nid = undef;
 		if ((defined $label) and ($label ne '')) {
 			$new_nid = canonicalize_nutriment($lc,$label);
-			print STDERR "product_multilingual.pl - unknown nutrient $nid (lc: $lc) -> canonicalize_nutriment: $new_nid\n";
+			$log->debug("unknown nutrient", { nid => $nid, lc => $lc, canonicalize_nutriment => $new_nid }) if $log->is_debug();
 			
 			if ($new_nid ne $nid) {
 				delete $product_ref->{nutriments}{$nid};
@@ -243,7 +262,7 @@ else {
 				delete $product_ref->{nutriments}{$nid . "_label"};
 				delete $product_ref->{nutriments}{$nid . "_100g"};
 				delete $product_ref->{nutriments}{$nid . "_serving"};			
-				print STDERR "product_multilingual.pl - unknown nutrient $nid (lc: $lc) -> known $new_nid\n";
+				$log->debug("unknown nutrient, but known canonical new id", { nid => $nid, lc => $lc, canonicalize_nutriment => $new_nid }) if $log->is_debug();
 				$nid = $new_nid;
 			}
 			$product_ref->{nutriments}{$nid . "_label"} = $label;
@@ -302,7 +321,7 @@ else {
 
 	# Compute nutrition data per 100g and per serving
 	
-	$admin and print STDERR "compute_serving_size_date\n";
+	$log->trace("compute_serving_size_date") if ($admin and $log->is_trace());
 	
 	fix_salt_equivalent($product_ref);
 		
@@ -317,9 +336,8 @@ else {
 	ProductOpener::SiteQuality::check_quality($product_ref);	
 	
 
-	$debug and print STDERR "product_jqm.pl - code $code - saving\n";
-	#use Data::Dumper;
-	#print STDERR Dumper($product_ref);
+	$log->info("saving product", { code => $code }) if ($log->is_info() and not $log->is_debug());
+	$log->debug("saving product", { code => $code, product => $product_ref }) if ($log->is_debug() and not $log->is_info());
 	
 	$product_ref->{interface_version_modified} = $interface_version;
 	

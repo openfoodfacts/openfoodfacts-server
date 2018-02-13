@@ -121,7 +121,7 @@ sub get_urlid($) {
 		$file = URI::Escape::XS::encodeURIComponent($file);
 	}
 	
-	$log->trace("get_urlid", { in => $input, out => $file }) if $log->is_tace();
+	$log->trace("get_urlid", { in => $input, out => $file }) if $log->is_trace();
 	
 	return $file;
 }
