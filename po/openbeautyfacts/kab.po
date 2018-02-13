@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: kab\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-11-12 18:44-0500\n"
+"PO-Revision-Date: 2018-02-11 13:22-0500\n"
 "Language-Team: Kabyle\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -24,10 +24,12 @@ msgctxt ":langname"
 msgid ":langname"
 msgstr "Kabyle"
 
+#. do not translate
 msgctxt "android_apk_app_link"
-msgid "http://world.openbeautyfacts.org/images/apps/obf.apk"
-msgstr ""
+msgid "https://world.openbeautyfacts.org/images/apps/obf.apk"
+msgstr "https://world.openbeautyfacts.org/images/apps/obf.apk"
 
+#. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en"
 msgstr ""
@@ -36,22 +38,25 @@ msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/en/app/open-beauty-facts/id1122926380"
 msgstr ""
 
+#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo"
 msgid "openbeautyfacts-logo-en-178x150.png"
 msgstr ""
 
+#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo2x"
 msgid "openbeautyfacts-logo-en-356x300.png"
 msgstr ""
 
 msgctxt "site_name"
 msgid "Open Beauty Facts"
-msgstr ""
+msgstr "Ldi Beauty Facts"
 
 msgctxt "tagline"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
 msgstr ""
 
+#. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
 msgid "OpenBeautyFacts"
 msgstr ""

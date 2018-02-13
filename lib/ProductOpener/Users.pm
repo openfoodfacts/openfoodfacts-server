@@ -16,7 +16,7 @@
 # GNU Affero General Public License for more details.
 # 
 # You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 package ProductOpener::Users;
 
@@ -342,7 +342,7 @@ Inscription d'un utilisateur :
 		
 name: $user_ref->{name}
 email: $user_ref->{email}
-twitter: http://twitter.com/$user_ref->{twitter}
+twitter: https://twitter.com/$user_ref->{twitter}
 newsletter: $user_ref->{newsletter}
 discussion: $user_ref->{discussion}
 lc: $user_ref->{initial_lc}

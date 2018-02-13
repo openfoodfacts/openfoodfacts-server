@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-12-03 11:26-0500\n"
+"PO-Revision-Date: 2018-02-11 13:06-0500\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -78,7 +78,7 @@ msgstr "Olá <NAME>,\n\n"
 "Nome de utilizador: <USERID>\n\n"
 "Pode agora iniciar sessão no site para adicionar e modificar produtos.\n\n"
 "O <<site_name>> é um projecto colaborativo para o qual poderá trazer muito mais do que novos produtos: a sua energia, entusiasmo e ideias!\n"
-"Para o debate entre colaboradores e fazer o projecto avançar, usamos um sistema de mensagens muito conveniente chamado Slack: http://slack.openfoodfacts.org\n\n"
+"Para o debate entre colaboradores e fazer o projecto avançar, usamos um sistema de mensagens muito conveniente chamado Slack: https://slack.openfoodfacts.org\n\n"
 "Poderá ainda juntar-se ao grupo de Facebook para colaboradores:\n"
 "https://www.facebook.com/groups/OpenFoodFacts/\n\n"
 "Novidade: estamos também a iniciar o projecto Open Beauty Facts para criar uma base de dados de cosméticos: sabonete, pasta de dentes, maquilhagem, etc.\n"
@@ -685,8 +685,8 @@ msgstr "<a href=\"https://pt.openfoodfacts.org/legal\">Informação Legal</a> -\
 "<a href=https://pt.openfoodfacts.org/who-we-are\">Quem somos</a> -\n"
 "<a href=\"https://pt.openfoodfacts.org/faq\">FAQ</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Fórum de ideias</a> -\n"
-"<a href=\"http://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"http://pt.openfoodfacts.org/imprensa-e-blogs\">Imprensa e Blogs</a>\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
+"<a href=\"https://pt.openfoodfacts.org/imprensa-e-blogs\">Imprensa e Blogs</a>\n"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook group for contributors</a>"
@@ -727,6 +727,14 @@ msgstr "Perguntas frequentes"
 msgctxt "footer_faq_link"
 msgid "/faq"
 msgstr "/faq"
+
+msgctxt "footer_translators"
+msgid "Translators"
+msgstr ""
+
+msgctxt "footer_translators_link"
+msgid "/cgi/top_translators.pl"
+msgstr ""
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
@@ -2688,5 +2696,37 @@ msgstr "Esta página de produto não está completa. Você pode ajudar a complet
 
 msgctxt "title_separator"
 msgid " — "
+msgstr ""
+
+msgctxt "translators_title"
+msgid "Our Translators"
+msgstr ""
+
+msgctxt "translators_lead"
+msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages!"
+msgstr ""
+
+msgctxt "translators_renewal_notice"
+msgid "Please note that this table is refreshed nightly and might be out of date."
+msgstr ""
+
+msgctxt "translators_column_name"
+msgid "Name"
+msgstr "Nome"
+
+msgctxt "translators_column_translated_words"
+msgid "Translated (Words)"
+msgstr ""
+
+msgctxt "translators_column_target_words"
+msgid "Target Words"
+msgstr ""
+
+msgctxt "translators_column_approved_words"
+msgid "Approved (Words)"
+msgstr ""
+
+msgctxt "translators_column_votes_made"
+msgid "Votes Made"
 msgstr ""
 

@@ -26,6 +26,9 @@ BEGIN
 
 		$google_cloud_vision_api_key
 		
+		$crowdin_project_identifier
+		$crowdin_project_key
+
 		$mongodb
 		$mongodb_host
 	
@@ -98,6 +101,9 @@ $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
 $csrf_secret = $ProductOpener::Config2::csrf_secret;
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
+
+$crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
+$crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 
 $reference_timezone = 'Europe/Paris';
 
@@ -251,5 +257,7 @@ opff =>
 }
 };
 
+
+$options{no_nutrition_table} = 1;
 
 1;

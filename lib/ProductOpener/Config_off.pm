@@ -26,6 +26,9 @@ BEGIN
 		
 		$google_cloud_vision_api_key
 		
+		$crowdin_project_identifier
+		$crowdin_project_key
+		
 		$mongodb
 		$mongodb_host
 	
@@ -161,6 +164,9 @@ $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 $csrf_secret = $ProductOpener::Config2::csrf_secret;
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 
+$crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
+$crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
+
 $reference_timezone = 'Europe/Paris';
 
 $contact_email = 'contact@openfoodfacts.org';
@@ -232,6 +238,8 @@ $options{favicons} = <<HTML
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-TileImage" content="/images/favicon/mstile-144x144.png">
 <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
+<meta name="_globalsign-domain-verification" content="2ku73dDL0bAPTj_s1aylm6vxvrBZFK59SfbH_RdUya" />
+
 HTML
 ;
 
@@ -273,7 +281,7 @@ XML
 
 # fields for which we will load taxonomies
 
-@taxonomy_fields = qw(states countries languages labels categories additives additives_classes allergens traces nutrient_levels misc);
+@taxonomy_fields = qw(states countries languages labels categories additives additives_classes allergens traces nutrient_levels misc ingredients);
 
 
 # fields in product edit form

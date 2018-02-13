@@ -59,6 +59,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Version qw/:all/;
+use ProductOpener::SiteQuality qw/:all/;
 
 use Apache2::Const -compile => qw(OK);
 use Apache2::Connection ();

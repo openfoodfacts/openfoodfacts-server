@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ku\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-11-17 14:41-0500\n"
+"PO-Revision-Date: 2018-02-11 13:20-0500\n"
 "Language-Team: Kurdish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -16,16 +16,18 @@ msgstr ""
 
 msgctxt ":langtag"
 msgid ":langtag"
-msgstr ""
+msgstr "ziman"
 
 msgctxt ":langname"
 msgid ":langname"
-msgstr ""
+msgstr "nav"
 
+#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
 msgctxt "logo"
 msgid "openfoodfacts-logo-en-178x150.png"
 msgstr ""
 
+#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
 msgctxt "logo2x"
 msgid "openfoodfacts-logo-en-356x300.png"
 msgstr ""
@@ -38,6 +40,7 @@ msgctxt "tagline"
 msgid "Open Pet Food Facts gathers information and data on pet food products from around the world.<br/> <div class=\"flex-video\"><embed width=\"640\" height=\"480\" src=\"https://world.openpetfoodfacts.org/images/misc/opff-leaderboard.svg\"></embed></div>"
 msgstr ""
 
+#. replace by the right country code, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=en"
 msgstr ""
@@ -60,7 +63,7 @@ msgstr ""
 
 msgctxt "labels_example"
 msgid "No sugar, No colorings"
-msgstr ""
+msgstr "Şekir tıne renk tıne"
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, ascorbic acid"

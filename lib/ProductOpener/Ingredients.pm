@@ -16,7 +16,7 @@
 # GNU Affero General Public License for more details.
 # 
 # You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 package ProductOpener::Ingredients;
 
@@ -65,7 +65,7 @@ use JSON::PP;
 my $middle_dot = qr/(?:\N{U+00B7}|\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N{U+204C}|\N{U+204D}|\N{U+2219}|\N{U+22C5})/i;
 # Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
 my $dashes = qr/(?:\p{Pd}|\N{U+2053}|\N{U+2212})/i;
-my $separators = qr/(,|;|:|$middle_dot|\[|\(|( $dashes ))|(\/)/i;
+my $separators = qr/(,|;|:|$middle_dot|\[|\{|\(|( $dashes ))|(\/)/i;
 
 # load ingredients classes
 
@@ -260,11 +260,10 @@ sub extract_ingredients_from_text($) {
 	$text =~ s/\r\n/\n/g;
 	$text =~ s/\R/\n/g;
 	
-	# assume commas between numbers are part of the name
-	# e.g. en:2-Bromo-2-Nitropropane-1,3-Diol, Bronopol
-	# replace by a lower comma ‚
+	# remove ending .
+	$text =~ s/(\s|\.)+$//;
+	
 
-	$text =~ s/(\d),(\d)/$1‚$2/g;	
 	
 	# $product_ref->{ingredients_tags} = ["first-ingredient", "second-ingredient"...]
 	# $product_ref->{ingredients}= [{id =>, text =>, percent => etc. }, ] # bio / équitable ? 
@@ -281,6 +280,12 @@ sub extract_ingredients_from_text($) {
 	# transform 0,2% into 0.2%
 	$text =~ s/(\d),(\d+)( )?\%/$1.$2\%/g;
 	$text =~ s/—/-/g;
+	
+	# assume commas between numbers are part of the name
+	# e.g. en:2-Bromo-2-Nitropropane-1,3-Diol, Bronopol
+	# replace by a lower comma ‚
+
+	$text =~ s/(\d),(\d)/$1‚$2/g;		
 	
 	my $analyze_ingredients = sub($$$$$) {
 		my $analyze_ingredients_self = shift;
@@ -308,7 +313,7 @@ sub extract_ingredients_from_text($) {
 			
 			# print STDERR "separator: $sep\tbefore: $before\tafter: $after\n";
 			
-			if ($sep =~ /(:|\[|\()/i) {
+			if ($sep =~ /(:|\[|\{|\()/i) {
 			
 				my $ending = $last_separator;
 				if (not defined $ending) {
@@ -320,6 +325,9 @@ sub extract_ingredients_from_text($) {
 				elsif ($sep eq '[') {
 					$ending = '\]';
 				}
+				elsif ($sep eq '{') {
+					$ending = '\}';
+				}				
 				$ending .= '|$';
 				$ending = '(' . $ending . ')';
 				
@@ -337,7 +345,7 @@ sub extract_ingredients_from_text($) {
 					}
 					else {
 						# no separator found : 34% ? or single ingredient
-						if ($between =~ /^\s*(\d+(\.\d+)?)\s*\%\s*$/) {
+						if ($between =~ /^\s*(\d+((\,|\.)\d+)?)\s*\%\s*$/) {
 							# print STDERR "percent found:  $1\%\n";
 							$percent = $1;
 							$between = '';
@@ -359,7 +367,7 @@ sub extract_ingredients_from_text($) {
 				$last_separator = $sep;
 			}
 			
-			if ($after =~ /^\s*(\d+(\.\d+)?)\s*\%\s*($separators|$)/) {
+			if ($after =~ /^\s*(\d+((\,|\.)\d+)?)\s*\%\s*(\),\],\])*($separators|$)/) {
 				# print STDERR "percent found: $after = $1 + $'\%\n";
 				$percent = $1;
 				$after = $';
@@ -371,15 +379,18 @@ sub extract_ingredients_from_text($) {
 			$before = $s;
 		}
 		
+		# remove ending parenthesis
+		$before =~ s/(\),\],\])*//;
+		
 		# Strawberry 10.3%
-		if ($before =~ /\s*(\d+(\.\d+)?)\s*\%\s*$/) {
+		if ($before =~ /\s*(\d+((\,|\.)\d+)?)\s*\%\s*(\),\],\])*$/) {
 			# print STDERR "percent found: $before = $` + $1\%\n";
 			$percent = $1;
 			$before = $`;
 		}		
 		
 		# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
-		if ($before =~ /^\s*(\d+(\.\d+)?)\s*\%\s*(pur|de|d')?\s*/i) {
+		if ($before =~ /^\s*(\d+((\,|\.)\d+)?)\s*\%\s*(pur|de|d')?\s*/i) {
 			# print STDERR "'x% something' : percent found: $before = $' + $1\%\n";
 			$percent = $1;
 			$before = $';
@@ -391,6 +402,15 @@ sub extract_ingredients_from_text($) {
 		chomp($ingredient);
 		$ingredient =~ s/\s+$//;
 		$ingredient =~ s/^\s+//;
+		
+		# remove percent
+		
+		# remove * and other chars before and after the name of ingredients
+		$ingredient =~ s/(\s|\*|\)|\]|\}|\.|-|')+$//;
+		$ingredient =~ s/^(\s|\*|\)|\]|\}|\.|-|')+//;
+		
+		$ingredient =~ s/\s*(\d+(\,\.\d+)?)\s*\%\s*$//;
+		
 		my %ingredient = (
 			id => get_fileid($ingredient),
 			text => $ingredient
@@ -406,7 +426,7 @@ sub extract_ingredients_from_text($) {
 			# ingredients tags that are too long (greater than 1024, mongodb max index key size)
 			# will cause issues for the mongodb ingredients_tags index, just drop them
 			
-			if (length($ingredient{id} < 500)) {
+			if (length($ingredient{id}) < 500) {
 				if ($level == 0) {
 					push @$ranked_ingredients_ref, \%ingredient;
 				}
@@ -439,11 +459,17 @@ sub extract_ingredients_from_text($) {
 	
 	my $field = "ingredients";
 	if (defined $taxonomy_fields{$field}) {
-		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($product_ref->{lc}, $field, join(", ", @{$product_ref->{ingredients_tags}} )) ];
+		$product_ref->{$field . "_hierarchy" } = [ gen_ingredients_tags_hierarchy_taxonomy($product_ref->{lc}, join(", ", @{$product_ref->{ingredients_tags}} )) ];
 		$product_ref->{$field . "_tags" } = [];
+		my $unknown = 0;
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
+			my $tagid = get_taxonomyid($tag);
+			push @{$product_ref->{$field . "_tags" }}, $tagid;
+			if (not exists_taxonomy_tag("ingredients", $tagid)) {
+				$unknown++;
+			}
 		}
+		$product_ref->{"unknown_ingredients_n" } = $unknown;
 	}
 	
 	
@@ -718,7 +744,6 @@ sub extract_ingredients_classes_from_text($) {
 					$seen{$ingredients_classes{$class}{$ingredient_id}{id}} = 1;
 					$all_seen{$ingredients_classes{$class}{$ingredient_id}{id}} = 1;
 					
-					($product_ref->{code} eq '3245414658769') and print STDERR "extract_ingredient_classes 1 : ingredient_id: $ingredient_id - id/id: $ingredients_classes{$class}{$ingredient_id}{id}\n";
 				}
 				else {
 				
