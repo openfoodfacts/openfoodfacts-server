@@ -744,7 +744,6 @@ sub extract_ingredients_classes_from_text($) {
 					$seen{$ingredients_classes{$class}{$ingredient_id}{id}} = 1;
 					$all_seen{$ingredients_classes{$class}{$ingredient_id}{id}} = 1;
 					
-					($product_ref->{code} eq '3245414658769') and print STDERR "extract_ingredient_classes 1 : ingredient_id: $ingredient_id - id/id: $ingredients_classes{$class}{$ingredient_id}{id}\n";
 				}
 				else {
 				

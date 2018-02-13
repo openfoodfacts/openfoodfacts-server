@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -23,7 +23,7 @@ package ProductOpener::I18N;
 use strict;
 use warnings;
 use File::Find::Rule;
-use Locale::Maketext::Lexicon _auto => 0, _decode => 1, _style => "gettext";
+use Locale::Maketext::Lexicon _auto => 0, _decode => 1, _style => "gettext", _disable_maketext_conversion => 1;
 use Locale::Maketext::Lexicon::Getcontext;
 
 
@@ -86,10 +86,7 @@ sub read_po_files {
 
         # move the strings into %l10n
         for my $key (keys %Lexicon) {
-            # fix extra ~ added before []
-            # 		months: ~['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'~],
             $l10n{$key}{$lc} = delete $Lexicon{$key};
-            $l10n{$key}{$lc} =~ s/\~(\[|\])/$1/g;
 			
 			# Remove empty values that Crowdin puts in .po files when the string is not translated. issue #889
 			if ($l10n{$key}{$lc} eq "") {
