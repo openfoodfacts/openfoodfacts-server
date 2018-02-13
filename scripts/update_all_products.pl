@@ -183,6 +183,11 @@ while (my $product_ref = $cursor->next) {
 		if (not $pretend) {
 			$product_ref->{update_key} = $key;
 			store("$data_root/products/$path/product.sto", $product_ref);		
+
+			# Make sure product code is saved as string and not a number
+			# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077
+			# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
+			$product_ref->{code} = $product_ref->{code} . '';
 			$products_collection->save($product_ref);		
 		}
 		
