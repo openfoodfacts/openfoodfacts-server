@@ -322,7 +322,7 @@ if ($action eq 'process') {
 	
 	my $html = '';
 	
-	$log->info("madenearme.pl", { lc => $lc, cc => $cc, query => $query_ref }) if $log->is_info();
+	$log->info("building query", { lc => $lc, cc => $cc, query => $query_ref }) if $log->is_info();
 	
 	$query_ref->{lc} = $lc;
 	

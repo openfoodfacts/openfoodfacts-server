@@ -44,11 +44,11 @@ my %request = (
 'referer'=>referer()
 );
 
-$log->debug("display.pl before analyze_request", { query_string => $request{query_string} });
+$log->debug("before analyze_request", { query_string => $request{query_string} });
 
 analyze_request(\%request);
 
-$log->debug("display.pl after analyze_request", { blogid => $request{blogid}, tagid => $request{tagid}, urlsdate => $request{urlsdate}, urlid => $request{urlid}, user => $request{user}, query => $request{query} });
+$log->debug("after analyze_request", { blogid => $request{blogid}, tagid => $request{tagid}, urlsdate => $request{urlsdate}, urlid => $request{urlid}, user => $request{user}, query => $request{query} });
 
 if (defined $request{api}) {
 	display_product_api(\%request);

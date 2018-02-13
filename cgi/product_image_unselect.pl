@@ -30,7 +30,7 @@ my $code = normalize_code(param('code'));
 my $id = param('id');
 
 
-$log->debug("product_image_unselect.pl - start", { code => $code, id => $id }) if $log->is_debug();
+$log->debug("start", { code => $code, id => $id }) if $log->is_debug();
 
 if (not defined $code) {
 	
@@ -41,7 +41,7 @@ my $product_ref = process_image_unselect($code, $id);
 
 my $data = encode_json({ status_code => 0, status => 'status ok', imagefield=>$id });
 
-$log->debug("product_image_unselect.pl - JSON data output", { data => $data }) if $log->is_debug();
+$log->debug("JSON data output", { data => $data }) if $log->is_debug();
 
 print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 

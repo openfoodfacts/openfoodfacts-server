@@ -23,7 +23,7 @@ my @shuffle = shuffle(@ids);
 
 my $id = pop(@shuffle);
 
-$log->info("sugar_random.pl", { ids => scalar(@ids), id => $id }) if $log->is_info();
+$log->info("random ids sampled", { ids => scalar(@ids), id => $id }) if $log->is_info();
 		my $r = shift;
 
 		$r->headers_out->set(Location =>"/$id");

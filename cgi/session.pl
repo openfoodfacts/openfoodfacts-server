@@ -48,7 +48,7 @@ if (defined $User_id) {
 	
 	if (defined $url) {
 		
-		$log->info("session.pl - redirection", { url => $url }) if $log->is_info();
+		$log->info("redirecting after login", { url => $url }) if $log->is_info();
 	
         $r->err_headers_out->add('Set-Cookie' => $cookie);
 		$r->headers_out->set(Location =>"$url");

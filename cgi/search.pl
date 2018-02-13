@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2017 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -41,6 +41,7 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+use Log::Any qw($log);
 
 ProductOpener::Display::init();
 use ProductOpener::Lang qw/:all/;
@@ -88,7 +89,7 @@ if ((not defined param('jqm')) and ($search_terms =~ /^(\d{8})\d*$/)) {
 		my $product_ref = product_exists($code); # returns 0 if not
 		
 		if ($product_ref) {
-			print STDERR "search.pl - product code $code exists, redirecting to product page\n";
+			$log->info("product code exists, redirecting to product page", { code => $code });
 			my $location = product_url($product_ref);
 			
 
@@ -309,7 +310,7 @@ HTML
 	my %nutriments_labels = ();
 	foreach my $nid (@{$nutriments_lists{$nutriment_table}}) {
 		$nutriments_labels{$nid} = $Nutriments{$nid}{$lang};
-		print STDERR "search.pl - nutriments - $nid -- $nutriments_labels{$nid} \n";
+		$log->debug("nutriments", { nid => $nid, value => $nutriments_labels{$nid} }) if $log->is_debug();
 	}
 	$nutriments_labels{search_nutriment} = lang("search_nutriment");
 
@@ -565,7 +566,7 @@ elsif ($action eq 'process') {
 			my $tagid; 
 			if (defined $taxonomy_fields{$tagtype}) {
 				$tagid = get_taxonomyid(canonicalize_taxonomy_tag($lc,$tagtype, $tag)); 
-				print STDERR "search - taxonomy - tag: $tag - tagid: $tagid\n";
+				$log->debug("taxonomy", { tag => $tag, tagid => $tagid }) if $log->is_debug();
 			}
 			else {
 				$tagid = get_fileid(canonicalize_tag2($tagtype, $tag));
@@ -711,8 +712,7 @@ elsif ($action eq 'process') {
 	my $html = '';
 	#$query_ref->{lc} = $lc;
 	
-	use Data::Dumper;
-	print STDERR "search.pl - query: \n" . Dumper($query_ref) . "\n";
+	$log->debug("query", { query => $query_ref }) if $log->is_debug();
 	
 	
 	
@@ -802,7 +802,7 @@ HTML
 	
 		# Normal search results
 		
-		print STDERR "search.pl - current_link: $request_ref->{current_link} - current_link_query: $request_ref->{current_link_query} \n";	
+		$log->debug("displaying results", { current_linkg => $request_ref->{current_link}, current_link_query => $request_ref->{current_link_query} }) if $log->is_debug();
 		
 		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, $limit, $page);
 

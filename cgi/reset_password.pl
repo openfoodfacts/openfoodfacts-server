@@ -29,7 +29,7 @@ my $action = param('action') || 'display';
 
 my $id = param('userid_or_email');
 
-$log->info("reset_password.pl - start", { type => $type, action => $action, userid_or_email => $id }) if $log->is_info();
+$log->info("start", { type => $type, action => $action, userid_or_email => $id }) if $log->is_info();
 
 my @errors = ();
 
