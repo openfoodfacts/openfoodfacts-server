@@ -242,7 +242,7 @@ if (-e $path) {
 	sleep(1);
 }
 else {
-	$log->warn("File does not exist, \%Lang will be empty. Run scripts/build_lang.pm to fix this.", { path => $path }); if $log->is_warn();
+	$log->warn("File does not exist, \%Lang will be empty. Run scripts/build_lang.pm to fix this.", { path => $path }) if $log->is_warn();
 }
 
 
