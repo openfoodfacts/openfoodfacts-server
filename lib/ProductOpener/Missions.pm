@@ -1,13 +1,24 @@
-package ProductOpener::Missions;
+# This file is part of Product Opener.
+#
+# Product Opener
+# Copyright (C) 2011-2018 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+#
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-######################################################################
-#
-#	Package	Missions
-#
-#	Author:	Stephane Gigandet
-#	Date:	05/04/12
-#
-######################################################################
+package ProductOpener::Missions;
 
 use utf8;
 use Modern::Perl '2012';
@@ -35,8 +46,10 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::MissionsConfig qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
+
 use MongoDB;
 use Tie::IxHash;
+use Log::Any qw($log);
 
 
 sub gen_missions_html() {
@@ -124,12 +137,11 @@ sub compute_missions() {
 		next if $userid eq "." or $userid eq "..";
 		next if $userid eq 'all';
 
-		print STDERR "userid: $userid\n";
+		$log->debug("userid with extension", { userid => $userid }) if $log->is_debug();
 
-		
 		$userid =~ s/\.sto$//;
 		
-		print STDERR "userid: $userid\n";
+		$log->debug("userid without extension", { userid => $userid }) if $log->is_debug();
 
 		my $user_ref = retrieve("$data_root/users/$userid.sto");
 		
@@ -162,7 +174,7 @@ sub compute_missions_for_user($) {
 			# skip missions already complete
 			next if (defined $user_ref->{missions}{$mission_ref->{id}});
 			
-			print STDERR "compute_missions: user_id: " . $user_ref->{userid} . " mission: $mission_ref->{id} ?\n";
+			$log->debug("computing user mission", { userid => $user_ref->{userid}, missionid => $mission_ref->{id} }) if $log->is_debug();
 
 			
 			# {name=>'Serrés comme des sardines', description=>'Ajouter 2 boîtes de sardines en conserve', thanks=>'Merci pour les sardines !',
@@ -202,7 +214,7 @@ sub compute_missions_for_user($) {
 				}
 				
 				
-				print STDERR "compute_missions: querying condition $i\n";
+				$log->debug("querying condition", { condition => $i }) if $log->is_debug();
 
 				
 				my $cursor = $products_collection->query($query_ref)->fields({});
@@ -218,7 +230,7 @@ sub compute_missions_for_user($) {
 			
 			if ($complete) {
 				$user_ref->{missions}{$mission_ref->{id}} = time();
-				print STDERR "compute_missions: user_id: " . $user_ref->{userid} . " mission: $mission_ref->{id} complete!\n";
+				$log->info("computing user mission completed", { userid => $user_ref->{userid}, missionid => $mission_ref->{id} }) if $log->is_info();
 				$m++;
 				sleep(1);
 			}
