@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2017 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -43,6 +43,7 @@ use vars @EXPORT_OK ;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 
+use Log::Any qw($log);
 
 my @baby_food_brands = qw(
 Gallia
@@ -221,7 +222,7 @@ sub check_ingredients($) {
 			
 			if (defined $product_ref->{$ingredients_text_lc}) {
 			
-				#print STDERR "quality:" .  $product_ref->{$ingredients_text_lc} . "\n";
+				$log->debug("ingredients text", { quality => $product_ref->{$ingredients_text_lc} }) if $log->is_debug();
 			
 				if ($product_ref->{$ingredients_text_lc} =~ /,(\s*)$/is) {
 			

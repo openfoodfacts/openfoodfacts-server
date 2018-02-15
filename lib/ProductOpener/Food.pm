@@ -80,7 +80,7 @@ use Hash::Util;
 
 use CGI qw/:cgi :form escapeHTML/;
 
-
+use Log::Any qw($log);
 
 sub unit_to_g($$) {
 	my $value = shift;
@@ -2874,7 +2874,7 @@ sub canonicalize_nutriment($$) {
 
 
 
-print STDERR "Food.pm - initialize \%nutriments_labels\n";
+$log->info("initialize \%nutriments_labels");
 
 foreach my $nid (keys %Nutriments) {
 	
@@ -3106,7 +3106,7 @@ CAT
 			$product_ref->{pnns_groups_1_tags} = [get_fileid($product_ref->{pnns_groups_1})];
 		}
 		else {
-			print STDERR "warning, no pnns group 1 for pnns group 2 $product_ref->{pnns_groups_2}\n";
+			$log->warn("no pnns group 1 for pnns group 2", { pnns_group_2 => $product_ref->{pnns_groups_2} }) if $log->is_warn();
 		}
 	}
 	else {

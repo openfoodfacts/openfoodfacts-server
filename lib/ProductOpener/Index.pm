@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -66,6 +66,7 @@ use HTML::Defang;
 use Text::Unaccent "unac_string";
 use DateTime;
 use Image::Magick;
+use Log::Any qw($log);
 
 use Encode qw/from_to decode encode/;
 require Encode::Detect;
@@ -91,7 +92,7 @@ opendir DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
 foreach my $langid (readdir(DH2)) {
 	next if $langid eq '.';
 	next if $langid eq '..';
-	# print STDERR "reading texts for lang $langid\n";
+	$log->trace("reading texts", { lang => $langid }) if $log->is_trace();
 	next if ((length($langid) ne 2) and not ($langid eq 'other'));
 
 	if (-e "$data_root/lang/$langid/texts") {
@@ -106,7 +107,8 @@ foreach my $langid (readdir(DH2)) {
 			if ((not defined $texts{$textid}{$langid}) or (length($file) > length($texts{$textid}{$langid}))) {
 				$texts{$textid}{$langid} = $file;
 			}
-			# print STDERR "Display : loaded text $langid/$textid\n";
+			
+			$log->trace("text loaded", { langid => $langid, textid => $textid }) if $log->is_trace();
 		}
 		closedir(DH);
 	}
@@ -223,7 +225,7 @@ sub decode_html($)
 	}
 	#my $utf8 = decode("UTF8", $string);
 
-	print STDERR "\n\ndecode_html : encoding: $encoding \n\n";
+	$log->debug("decoding", { encoding => $encoding }) if $log->is_debug();
 	$utf8 = decode_entities($utf8);	
 	
 	return $utf8;
