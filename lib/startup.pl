@@ -1,3 +1,5 @@
+#!/usr/bin/perl -w
+
 # This file is part of Product Opener.
 # 
 # Product Opener
@@ -16,7 +18,7 @@
 # GNU Affero General Public License for more details.
 # 
 # You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 # startup file for preloading modules into Apache/mod_perl when the server starts
 # (instead of when each httpd child starts)
