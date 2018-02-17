@@ -1,20 +1,20 @@
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -316,6 +316,11 @@ nutrition-score-fr-
 nutrition-score-uk-
 glycemic-index-
 water-hardness-
+choline-
+phylloquinone-
+beta-glucan-
+inositol-
+carnitine-
 )
 ],
 
@@ -423,6 +428,11 @@ nutrition-score-fr-
 nutrition-score-uk-
 glycemic-index-
 water-hardness-
+choline-
+phylloquinone-
+beta-glucan-
+inositol-
+carnitine-
 )
 ],
 
@@ -529,11 +539,124 @@ nutrition-score-fr-
 nutrition-score-uk-
 glycemic-index-
 water-hardness-
+choline-
+phylloquinone-
+beta-glucan-
+inositol-
+carnitine-
 )
 ],
 
 
 us => [qw(
+!energy
+-energy-from-fat-
+!fat
+-saturated-fat
+--butyric-acid-
+--caproic-acid-
+--caprylic-acid-
+--capric-acid-
+--lauric-acid-
+--myristic-acid-
+--palmitic-acid-
+--stearic-acid-
+--arachidic-acid-
+--behenic-acid-
+--lignoceric-acid-
+--cerotic-acid-
+--montanic-acid-
+--melissic-acid-
+-monounsaturated-fat-
+-polyunsaturated-fat-
+-omega-3-fat-
+--alpha-linolenic-acid-
+--eicosapentaenoic-acid-
+--docosahexaenoic-acid-
+-omega-6-fat-
+--linoleic-acid-
+--arachidonic-acid-
+--gamma-linolenic-acid-
+--dihomo-gamma-linolenic-acid-
+-omega-9-fat-
+--oleic-acid-
+--elaidic-acid-
+--gondoic-acid-
+--mead-acid-
+--erucic-acid-
+--nervonic-acid-
+-trans-fat
+cholesterol
+salt-
+sodium
+!carbohydrates
+-fiber
+--soluble-fiber-
+--insoluble-fiber-
+-sugars
+--sucrose-
+--glucose-
+--fructose-
+--lactose-
+--maltose-
+--maltodextrins-
+-starch-
+-polyols-
+!proteins
+-casein-
+-serum-proteins-
+-nucleotides-
+alcohol
+#vitamins
+vitamin-a-
+beta-carotene-
+vitamin-d
+vitamin-e-
+vitamin-k-
+vitamin-c-
+vitamin-b1-
+vitamin-b2-
+vitamin-pp-
+vitamin-b6-
+vitamin-b9-
+folates-
+vitamin-b12-
+biotin-
+pantothenic-acid-
+#minerals
+silica-
+bicarbonate-
+potassium
+chloride-
+calcium
+phosphorus-
+iron
+magnesium-
+zinc-
+copper-
+manganese-
+fluoride-
+selenium-
+chromium-
+molybdenum-
+iodine-
+caffeine-
+taurine-
+ph-
+fruits-vegetables-nuts-
+fruits-vegetables-nuts-estimate-
+collagen-meat-protein-ratio-
+cocoa-
+chlorophyl-
+carbon-footprint
+nutrition-score-fr-
+nutrition-score-uk-
+glycemic-index-
+water-hardness-
+)
+],
+
+us_before_2017 => [qw(
 !energy
 -energy-from-fat
 !fat
@@ -638,6 +761,11 @@ nutrition-score-fr-
 nutrition-score-uk-
 glycemic-index-
 water-hardness-
+choline-
+phylloquinone-
+beta-glucan-
+inositol-
+carnitine-
 )
 ],
 
@@ -2600,6 +2728,23 @@ cocoa => {
 	fr => "Note nutritionnelle",
 	en => "Nutrition grade",
 },
+choline => {
+	en => "Choline"
+},
+phylloquinone => {
+	en => "Vitamin K1 (Phylloquinone)",
+	fr => "Vitamine K1"
+},
+"beta-glucan" => {
+	en => "Beta-glucan",
+	fr => "Bêta-glucanes"
+},
+inositol => {
+	en => "Inositol"
+},
+carnitine => {
+	en => "Carnitine"
+}
 );
 
 
@@ -3040,6 +3185,14 @@ sub compute_nutrition_score($) {
 	
 	$product_ref->{misc_tags} = ["en:nutriscore-not-computed"];
 
+	# do not compute a score when we don't have a category
+	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
+			$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+			$product_ref->{nutrition_score_debug} = "no score when the product does not have a category";
+			return;
+	}	
+	
+	
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
 	if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
 			$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
@@ -3258,9 +3411,14 @@ COMMENT
 		$a_points_fr = $a_points_fr_matieres_grasses;
 		$product_ref->{nutrition_score_debug} .= " -- in fats category";		
 	}
+
+	# Nutriscore: milk and drinkable yogurts are not considered beverages
 	
 	if (has_tag($product_ref, "categories", "en:beverages")
-		and not (has_tag($product_ref, "categories", "en:plant-milks") or has_tag($product_ref, "categories", "en:milks"))) {
+		and not (has_tag($product_ref, "categories", "en:plant-milks")
+			 or has_tag($product_ref, "categories", "en:milks")
+			 or has_tag($product_ref, "categories", "en:dairy-drinks")
+			)) {
 		$product_ref->{nutrition_score_debug} .= " -- in beverages category - a_points_fr_beverage: $fr_beverages_energy_points (energy) + $saturated_fat_points (sat_fat) + $fr_beverages_sugars_points (sugars) + $sodium_points (sodium) = $a_points_fr_beverages - ";
 		
 		$a_points_fr = $a_points_fr_beverages;
@@ -3351,7 +3509,10 @@ COMMENT
 	push @{$product_ref->{misc_tags}}, "en:nutriscore-computed";	
 	
 	if (has_tag($product_ref, "categories", "en:beverages")
-		and not (has_tag($product_ref, "categories", "en:plant-milks") or has_tag($product_ref, "categories", "en:milks"))) {
+		and not (has_tag($product_ref, "categories", "en:plant-milks")
+		 or has_tag($product_ref, "categories", "en:milks")
+		 or has_tag($product_ref, "categories", "en:dairy-drinks")
+	)) {
 		
 # Tableau 6 : Seuils du score FSA retenus pour les boissons
 # Classe du 5-C

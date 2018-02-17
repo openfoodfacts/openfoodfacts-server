@@ -1,20 +1,20 @@
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2016 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -49,6 +49,7 @@ BEGIN
 					
 					&gen_tags_hierarchy
 					&gen_tags_hierarchy_taxonomy
+					&gen_ingredients_tags_hierarchy_taxonomy
 					&display_tags_hierarchy_taxonomy
 					&build_tags_taxonomy
 					
@@ -391,7 +392,7 @@ sub load_tags_hierarchy($$) {
 		
 		# print STDERR "Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype - compute all parents breadth first\n";		
 		
-		my %longest_parent = {$lc => {}};
+		my %longest_parent = ($lc => {});
 		
 		# foreach my $tagid (keys %{$tags_direct_parents{$lc}{$tagtype}}) {
 		foreach my $tag (values %{$canon_tags{$lc}{$tagtype}}) {
@@ -974,7 +975,7 @@ sub build_tags_taxonomy($$) {
 		
 		# print STDERR "Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype - compute all parents breadth first\n";		
 		
-		my %longest_parent = {};
+		my %longest_parent = ();
 		
 		# foreach my $tagid (keys %{$direct_parents{$tagtype}}) {   
 		foreach my $tagid (keys %{$translations_to{$tagtype}}) {   
@@ -1455,6 +1456,54 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 	
 	my @sorted_list = sort { ($level{$tagtype}{$b} <=> $level{$tagtype}{$a}) || ($a cmp $b) } keys %tags;
 	return @sorted_list;
+}
+
+
+
+sub gen_ingredients_tags_hierarchy_taxonomy($$) {
+
+	# for ingredients, we should keep the order
+	# question: what do do with parents?
+
+	my $tag_lc = shift;
+	my $tagtype = "ingredients";
+	my $tags_list = shift;	# comma-separated list of tags, not in a specific order
+	
+	if (not defined $all_parents{$tagtype}) {
+		print STDERR "all_parents{$tagtype} not defined\n";
+		return (split(/(\s*),(\s*)/, $tags_list));
+	}
+	
+	my @tags = ();
+	
+	foreach my $tag (split(/(\s*),(\s*)/, $tags_list)) {
+		my $l = $tag_lc;
+		if ($tag =~ /^(\w\w):/) {
+			$l = $1;
+			$tag = $';			
+		}
+		next if $tag eq '';
+		$tag = canonicalize_taxonomy_tag($l,$tagtype, $tag);
+		my $tagid = get_taxonomyid($tag);
+		next if $tagid eq '';
+		if ($tagid =~ /:$/) {
+			#print STDERR "taxonomy - empty tag: $tag - l: $l - tagid: $tagid - tag_lc: >$tags_list< \n";
+			next;
+		}
+		push @tags, $tag;
+		
+		if (defined $all_parents{$tagtype}{$tagid}) {
+			foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
+				if ($parentid eq 'fr:') {
+					print STDERR "taxonomy - empty parentid: $parentid - tagid: $tagid - tag_lc: >$tags_list< \n";
+					next;
+				}			
+				push @tags, $parentid;
+			}
+		}
+	}
+	
+	return @tags;
 }
 
 
@@ -1981,9 +2030,22 @@ sub canonicalize_taxonomy_tag($$$)
 		# try removing stopwords and plurals
 		my $tagid2 = remove_stopwords($tagtype,$tag_lc,$tagid);
 		$tagid2 = remove_plurals($tag_lc,$tagid2);
+		
+		# try to add / remove hyphens (e.g. antioxydant / anti-oxydant)
+		my $tagid3 = $tagid2;
+		my $tagid4 = $tagid2;
+		$tagid3 =~ s/(anti)(-| )/$1/;
+		$tagid4 =~ s/(anti)([a-z])/$1-$2/;
+		
 		if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid2})) {
 			$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid2};
 		}
+		if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid3})) {
+			$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid3};
+		}
+		if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid4})) {
+			$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid4};
+		}		
 		elsif ($tag_lc ne 'en') {
 			# try English
 			# try removing stopwords and plurals

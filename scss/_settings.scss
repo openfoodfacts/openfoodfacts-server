@@ -116,7 +116,8 @@ $jet         : #222222;
 $black       : #000000;
 
 // We use these as default colors throughout
-$primary-color: #0066ff;
+// $primary-color: #0066ff;
+$primary-color: #0099ff;
 $secondary-color: #e7e7e7;
 $alert-color: #ff0000;
 $success-color: #00d400;
@@ -836,13 +837,15 @@ $button-disabled-cursor: $cursor-default-value;
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // Off Canvas Tab Bar Variables
-// $include-html-off-canvas-classes: $include-html-classes;
+$include-html-off-canvas-classes: $include-html-classes;
 
 // $tabbar-bg: $oil;
+$tabbar-bg: $smoke;
 // $tabbar-height: rem-calc(45);
 // $tabbar-icon-width: $tabbar-height;
 // $tabbar-line-height: $tabbar-height;
 // $tabbar-color: $white;
+$tabbar-color: $black;
 // $tabbar-middle-padding: 0 rem-calc(10);
 
 // Off Canvas Divider Styles
@@ -859,6 +862,7 @@ $button-disabled-cursor: $cursor-default-value;
 // Off Canvas Menu Variables
 // $off-canvas-width: rem-calc(250);
 // $off-canvas-bg: $oil;
+$off-canvas-bg: #fafafa;
 // $off-canvas-bg-hover: scale-color($tabbar-bg, $lightness: -30%);
 // $off-canvas-bg-active: scale-color($tabbar-bg, $lightness: -30%);
 
@@ -1403,7 +1407,8 @@ $switch-active-color: $primary-color;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: #EFEFEF;
+// $topbar-bg-color: #EFEFEF;
+$topbar-bg-color: $silver;
 $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1423,9 +1428,11 @@ $topbar-link-weight: $font-weight-normal;
 $topbar-link-font-size: rem-calc(13);
 $topbar-link-hover-lightness: -10%; // Darken by 10%
 $topbar-link-bg: $topbar-bg;
-$topbar-link-bg-hover: $jet;
+// $topbar-link-bg-hover: $jet;
+$topbar-link-bg-hover: $gainsboro;
 $topbar-link-bg-color-hover: $charcoal;
-$topbar-link-bg-active: $primary-color;
+// $topbar-link-bg-active: $primary-color;
+$topbar-link-bg-active: $smoke;
 $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
 $topbar-link-font-family: $body-font-family;
 $topbar-link-text-transform: none;
@@ -1436,11 +1443,15 @@ $topbar-button-font-size: .75rem;
 $topbar-button-top: 7px;
 
 // Style the top bar dropdown elements
-$topbar-dropdown-bg: $oil;
-$topbar-dropdown-link-color: $white;
+// $topbar-dropdown-bg: $oil;
+$topbar-dropdown-bg: scale-color($topbar-bg-color, $lightness: +50%);
+// $topbar-dropdown-link-color: $white;
+$topbar-dropdown-link-color: $black;
 $topbar-dropdown-link-color-hover: $topbar-link-color-hover;
-$topbar-dropdown-link-bg: $oil;
-$topbar-dropdown-link-bg-hover: $jet;
+// $topbar-dropdown-link-bg: $oil;
+$topbar-dropdown-link-bg: $topbar-dropdown-bg;
+// $topbar-dropdown-link-bg-hover: $jet;
+$topbar-dropdown-link-bg-hover: $gainsboro;
 $topbar-dropdown-link-weight: $font-weight-normal;
 $topbar-dropdown-toggle-size: 5px;
 $topbar-dropdown-toggle-color: $white;
@@ -1453,11 +1464,13 @@ $topbar-dropdown-label-font-size: rem-calc(10);
 $topbar-dropdown-label-bg: $oil;
 
 // Top menu icon styles
-$topbar-menu-link-transform: uppercase;
+// $topbar-menu-link-transform: uppercase;
 $topbar-menu-link-font-size: rem-calc(13);
 $topbar-menu-link-weight: $font-weight-bold;
-$topbar-menu-link-color: $white;
-$topbar-menu-icon-color: $white;
+// $topbar-menu-link-color: $white;
+$topbar-menu-link-color: $black;
+// $topbar-menu-icon-color: $white;
+$topbar-menu-icon-color: $black;
 $topbar-menu-link-color-toggled: $jumbo;
 $topbar-menu-icon-color-toggled: $jumbo;
 $topbar-menu-icon-position: $opposite-direction; // Change to $default-float for a left menu icon

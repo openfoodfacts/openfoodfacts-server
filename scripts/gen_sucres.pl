@@ -1,4 +1,24 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
+
+# This file is part of Product Opener.
+# 
+# Product Opener
+# Copyright (C) 2011-2018 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# 
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# 
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -217,7 +237,7 @@ HTML
 		
 		my $id = get_fileid($name);		
 		
-		$html .= "<tr><td>" . $product_ref->{code} . "</td><td><a href=\"http://combiendesucres.fr/$id\">" . $product_ref->{product_name} . "</a></td><td>" . $name . "</td><td>" . $product_ref->{brands} . "</td><td>" . $product_ref->{quantity} 
+		$html .= "<tr><td>" . $product_ref->{code} . "</td><td><a href=\"https://combiendesucres.fr/$id\">" . $product_ref->{product_name} . "</a></td><td>" . $name . "</td><td>" . $product_ref->{brands} . "</td><td>" . $product_ref->{quantity} 
 			. "</td><td>$q x $x = $qx</td><td>$s</td><td>$sc</td><td>" . $product_ref->{"nutriments"}{"sugars_100g"} . "</td></tr>\n";
 			
 
@@ -253,9 +273,9 @@ HTML
 <meta property="fb:app_id" content="472618429477645" />
 <meta property="og:type" content="food"/>
 <meta property="og:title" content="Combien de sucres ?"/>
-<meta property="og:url" content="http://combiendesucres.fr/$id"/>
+<meta property="og:url" content="https://combiendesucres.fr/$id"/>
 
-<meta property="og:image" content="http://combiendesucres.fr/combien_de_sucres.png"/>
+<meta property="og:image" content="https://combiendesucres.fr/combien_de_sucres.png"/>
 <meta property="og:image" content="$img_url"/>
 <meta property="og:description" content="$description"/>
 <meta name="description" content="$description" />
@@ -264,9 +284,9 @@ HTML
 <script type="text/javascript" src="Box2dWeb-2.1.a.3.min.js"></script>
 
 
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/start/jquery-ui.css" />
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.2/themes/start/jquery-ui.css" />
+<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="https://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 <script src="jquery.html5storage.min.js"></script>
 <script type="text/javascript" src="sucres.js"></script>
 
@@ -501,9 +521,9 @@ $zoom
 <div id="sharebuttons">
 <div style="float:left;margin-right:15px;width:150px;color:darkblue;background:white;padding:10px;">Posez la question à vos amis !</div>
 <div style="float:left;padding-right:15px;" class="sharebutton"><iframe allowtransparency="true" frameborder="0" scrolling="no" role="presentation" 
-src="http://platform.twitter.com/widgets/tweet_button.html?via=CombienDeSucres&amp;count=vertical&amp;lang=fr&amp;text=Combien%20de%20sucres%20dans%20$escapedname%20%3F" style="width:65px; height:63px;"></iframe></div>
-<div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="http://combiendesucres.fr/$id" layout="box_count"></fb:like></div>
-<div style="float:left;padding-right:15px;padding-bottom:10px;" class="sharebutton"><g:plusone size="tall" count="true" href="http://combiendesucres.fr/$id"></g:plusone></div>
+src="https://platform.twitter.com/widgets/tweet_button.html?via=CombienDeSucres&amp;count=vertical&amp;lang=fr&amp;text=Combien%20de%20sucres%20dans%20$escapedname%20%3F" style="width:65px; height:63px;"></iframe></div>
+<div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="https://combiendesucres.fr/$id" layout="box_count"></fb:like></div>
+<div style="float:left;padding-right:15px;padding-bottom:10px;" class="sharebutton"><g:plusone size="tall" count="true" href="https://combiendesucres.fr/$id"></g:plusone></div>
 </div>
 
 
@@ -545,9 +565,9 @@ Appuyez ensuite sur le bouton <b>✓</b> pour valider et vérifier votre répons
 
 <h2>Source des données</h2>
 
-<div style="float:right;margin-left:20px;margin-bottom:20px;"><a href="http://fr.openfoodfacts.org"><img src="openfoodfacts-logo-fr.png" alt="Open Food Facts" style="background-color:white;padding:5px;display:block"/></a></div>
+<div style="float:right;margin-left:20px;margin-bottom:20px;"><a href="https://fr.openfoodfacts.org"><img src="openfoodfacts-logo-fr.png" alt="Open Food Facts" style="background-color:white;padding:5px;display:block"/></a></div>
 
-<p>Les données sur les produits et les photos proviennent de la base collaborative <a href="http://fr.openfoodfacts.org">Open Food Facts</a>.
+<p>Les données sur les produits et les photos proviennent de la base collaborative <a href="https://fr.openfoodfacts.org">Open Food Facts</a>.
 Les données sont disponibles sous la licence ouverte <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a> et les photos sous la licence
 <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.fr">Creative Commons Attribution Partage à l'identique</a>. Les marques citées sont la propriété de leurs propriétaires respectifs.</p>
 <p>La base de données est constituée de manière collaborative, il n'est pas possible de garantir qu'elle soit exempte d'erreurs. La composition des produits peut également avoir changé.

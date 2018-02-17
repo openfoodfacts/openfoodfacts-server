@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2017 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -18,7 +18,7 @@
 # GNU Affero General Public License for more details.
 # 
 # You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use Modern::Perl '2012';
 use utf8;
@@ -492,11 +492,11 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 			$product_ref->{nutriments}{$nid . "_unit"} = $unit;		
 			$product_ref->{nutriments}{$nid . "_value"} = $value;
 			
-			if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and ($Nutriments{$nid}{iu} > 0)) {
+			if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
 				$value = $value * $Nutriments{$nid}{iu} ;
 				$unit = $Nutriments{$nid}{unit};
 			}
-			elsif  (($unit eq '% DV') and ($Nutriments{$nid}{dv} > 0)) {
+			elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
 				$value = $value / 100 * $Nutriments{$nid}{dv} ;
 				$unit = $Nutriments{$nid}{unit};
 			}
@@ -597,7 +597,7 @@ HTML
 
 	my $html = <<HTML
 <label for="$field">$Lang{$fieldtype}{$lang}</label>
-<input type="text" name="$field" id="$field" class="text${tagsinput}" value="$value" />		
+<input type="text" name="$field" id="$field" class="text${tagsinput}" value="$value" lang="${display_lc}" />		
 HTML
 ;
 	if (defined $Lang{$fieldtype . "_note"}{$lang}) {
@@ -658,15 +658,15 @@ JS
 	$header .= <<HTML
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.2/cropper.min.css" />
 <link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.css" />
-
+<link rel="stylesheet" type="text/css" href="/css/product-multilingual.css" />
 
 HTML
 ;
 
 
 #<!-- Autocomplete -->
-#<script type='text/javascript' src='http://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.min.js'></script>
-#<link rel="stylesheet" type="text/css" href="http://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.css" ></link>
+#<script type='text/javascript' src='https://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.min.js'></script>
+#<link rel="stylesheet" type="text/css" href="https://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.css" ></link>
 
 # <script type="text/javascript" src="/js/jquery.imgareaselect-0.9.8/scripts/jquery.imgareaselect.pack.js"></script>
 # <script type="text/javascript" src="/js/jquery.imgareaselect-0.9.11/scripts/jquery.imgareaselect.touch-support.js"></script>
@@ -754,10 +754,16 @@ CSS
 
 	my $label_new_code = $Lang{new_code}{$lang};
 	
-	$html .= <<HTML
+	# 26/01/2017 - disallow barcode changes until we fix bug #677
+	if ($admin) {
+		$html .= <<HTML
 <label for="new_code" id="label_new_code">${label_new_code}</label>
-<input type="text" name="new_code" id="new_code" class="text" value="" />			
+<input type="text" name="new_code" id="new_code" class="text" value="" />
+HTML
+;
+	}
 
+	$html .= <<HTML
 <div data-alert class="alert-box info store-state" id="warning_3rd_party_content" style="display:none;">
 <span>$Lang{warning_3rd_party_content}{$lang}
  <a href="#" class="close">&times;</a>
@@ -1281,7 +1287,7 @@ HTML
 				
 					$html_content_tab .= <<HTML
 <label for="$id">$Lang{ingredients_text}{$lang}</label>
-<textarea id="$id" name="$id">$value</textarea>
+<textarea id="$id" name="$id" lang="${display_lc}">$value</textarea>
 <p class="note">&rarr; $Lang{ingredients_text_note}{$lang}</p>			
 <p class="example">$Lang{example}{$lang} $Lang{ingredients_text_example}{$lang}</p>			
 HTML
@@ -1379,14 +1385,36 @@ $html .= "</div><!-- fieldset -->
 <div class=\"fieldset\" id=\"nutrition\"><legend>$Lang{nutrition_data}{$lang}</legend>\n";
 
 	my $checked = '';
+	my $tablestyle = 'display: table;';
+	my $disabled = '';
 	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
 		$checked = 'checked="checked"';
+		$tablestyle = 'display: none;';
+		$disabled = 'disabled="disabled"';
 	}
 
 	$html .= <<HTML
 <input type="checkbox" id="no_nutrition_data" name="no_nutrition_data" $checked />	
 <label for="no_nutrition_data" class="checkbox_label">$Lang{no_nutrition_data}{$lang}</label><br/>
 HTML
+;
+
+	$initjs .= <<JS
+\$('#no_nutrition_data').change(function() {
+	if (\$(this).prop('checked')) {
+		\$('#nutrition_data_table input').prop('disabled', true);
+		\$('#nutrition_data_table select').prop('disabled', true);
+		\$('#nutrition_data_table input.nutriment_value').val('');
+		\$('#nutrition_data_table').hide();
+	} else {
+		\$('#nutrition_data_table input').prop('disabled', false);
+		\$('#nutrition_data_table select').prop('disabled', false);
+		\$('#nutrition_data_table').show();
+	}
+
+	\$(document).foundation('equalizer', 'reflow');
+});
+JS
 ;
 
 	$html .= display_tabs($product_ref, $select_add_language, "nutrition_image", $product_ref->{sorted_langs}, \%Langs, ["nutrition_image"]);
@@ -1414,7 +1442,7 @@ HTML
 <div style="position:relative">
 
 
-<table id="nutrition_data_table" class="data_table">
+<table id="nutrition_data_table" class="data_table" style="$tablestyle">
 <thead class="nutriment_header">
 <th colspan="2">
 $Lang{nutrition_data_table}{$lang}<br/>
@@ -1537,6 +1565,13 @@ HTML
 		
 		# print STDERR "nutriment: $nutriment - nid: $nid - shown: $shown - class: $class - prefix: $prefix \n";
 		
+		my $disabled_backup = $disabled;
+		if ($nid eq 'carbon-footprint') {
+			# Workaround, so that the carbon footprint, that could be in a location different from actual nutrition facts,
+			# will never be disabled.
+			$disabled = '';
+		}
+		
 		my $input = '';
 		
 		
@@ -1544,7 +1579,7 @@ HTML
 <tr id="nutriment_${enid}_tr" class="nutriment_$class"$display>
 <td>$label</td>
 <td>
-<input class="nutriment_value" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" />
+<input class="nutriment_value" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" $disabled/>
 HTML
 ;
 
@@ -1563,11 +1598,14 @@ HTML
 		}
 		
 		if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
-			or ($nid =~ /^new_/)) {
+			or ($nid =~ /^new_/)
+			or ($unit eq '% DV')) {
 			push @units, '% DV';
 		}
 		if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0))
-			or ($nid =~ /^new_/)) {
+			or ($nid =~ /^new_/)
+			or ($unit eq 'IU')
+			or ($unit eq 'UI')) {
 			push @units, 'IU';
 		}		
 		
@@ -1585,13 +1623,14 @@ HTML
 		else {
 			$hide_percent = ' style="display:none"';
 		}
-		
+
 		$input .= <<HTML
 <span class="nutriment_unit_percent" id="nutriment_${enid}_unit_percent"$hide_percent>%</span>
-<select class="nutriment_unit" id="nutriment_${enid}_unit" name="nutriment_${enid}_unit"$hide_select>
+<select class="nutriment_unit" id="nutriment_${enid}_unit" name="nutriment_${enid}_unit"$hide_select $disabled>
 HTML
 ;		
-		
+		$disabled = $disabled_backup;
+
 		foreach my $u (@units) {
 			my $selected = '';
 			if ($unit eq $u) {
@@ -1643,7 +1682,12 @@ HTML
 	my $nutriments = '';
 	foreach my $nid (@{$other_nutriments_lists{$nutriment_table}}) {
 		if ((not defined $product_ref->{nutriments}{$nid}) or ($product_ref->{nutriments}{$nid} eq '')) {
-			$other_nutriments .= '{ "value" : "' . $Nutriments{$nid}{$lang} . '", "unit" : "' . $Nutriments{$nid}{unit} . '" },' . "\n";
+			my $supports_iu = "false";
+			if ((exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0)) {
+				$supports_iu = "true";
+			}
+
+			$other_nutriments .= '{ "value" : "' . $Nutriments{$nid}{$lang} . '", "unit" : "' . $Nutriments{$nid}{unit} . '", "iu": ' . $supports_iu . '  },' . "\n";
 		}
 		$nutriments .= '"' . $Nutriments{$nid}{$lang} . '" : "' . $nid . '",' . "\n";
 	}

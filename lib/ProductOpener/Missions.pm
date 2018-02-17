@@ -1,13 +1,24 @@
-package ProductOpener::Missions;
+# This file is part of Product Opener.
+#
+# Product Opener
+# Copyright (C) 2011-2018 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Foss√©s, France
+#
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-######################################################################
-#
-#	Package	Missions
-#
-#	Author:	Stephane Gigandet
-#	Date:	05/04/12
-#
-######################################################################
+package ProductOpener::Missions;
 
 use utf8;
 use Modern::Perl '2012';
@@ -165,7 +176,7 @@ sub compute_missions_for_user($) {
 			print STDERR "compute_missions: user_id: " . $user_ref->{userid} . " mission: $mission_ref->{id} ?\n";
 
 			
-			# {name=>'SerrÈs comme des sardines', description=>'Ajouter 2 boÓtes de sardines en conserve', thanks=>'Merci pour les sardines !',
+			# {name=>'Serr√©s comme des sardines', description=>'Ajouter 2 bo√Ætes de sardines en conserve', thanks=>'Merci pour les sardines !',
 			# conditions=>[[2,{categories_tags=>'sardines', packaging_tags=>'conserve'}]]},
 		
 			my $complete = 1;

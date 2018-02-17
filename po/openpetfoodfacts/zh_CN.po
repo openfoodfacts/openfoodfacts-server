@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-11-12 18:39-0500\n"
+"PO-Revision-Date: 2018-02-11 13:27-0500\n"
 "Language-Team: Chinese Simplified\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -20,25 +20,52 @@ msgstr "zh_CN"
 
 msgctxt ":langname"
 msgid ":langname"
-msgstr "Chinese"
+msgstr "Simplified Chinese"
 
+#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
 msgctxt "logo"
 msgid "openfoodfacts-logo-en-178x150.png"
-msgstr ""
+msgstr "openfoodfacts-logo-zh-178x150.png"
 
+#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
 msgctxt "logo2x"
 msgid "openfoodfacts-logo-en-356x300.png"
-msgstr ""
+msgstr "openfoodfacts-logo-zh-356x300.png"
 
 msgctxt "site_name"
 msgid "Open Pet Food Facts"
-msgstr ""
+msgstr "Open Pet Food Facts"
 
 msgctxt "tagline"
 msgid "Open Pet Food Facts gathers information and data on pet food products from around the world.<br/> <div class=\"flex-video\"><embed width=\"640\" height=\"480\" src=\"https://world.openpetfoodfacts.org/images/misc/opff-leaderboard.svg\"></embed></div>"
-msgstr ""
+msgstr "Open Pet Food Facts收集来自世界各地的宠物食品产品的信息和数据<br/> <div class=\"flex-video\"><embed width=\"640\" height=\"480\" src=\"https://world.openpetfoodfacts.org/images/misc/opff-leaderboard.svg\"></embed></div>"
 
+#. replace by the right country code, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=zh_cn"
+
+msgctxt "brands_example"
+msgid "Purina, Pedigree"
+msgstr "普瑞纳，血统"
+
+msgctxt "product_name_example"
+msgid "Pro Plan Adult, rich in chicken"
+msgstr "成人计划，丰富的肌肉"
+
+msgctxt "generic_name_example"
+msgid "Complete pet food for adult cats"
+msgstr "完成成年猫的宠物食品"
+
+msgctxt "categories_example"
+msgid "Dry adult cat food"
+msgstr "干的成年猫猫粮"
+
+msgctxt "labels_example"
+msgid "No sugar, No colorings"
+msgstr "没有糖，没有色素"
+
+msgctxt "ingredients_text_example"
+msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, ascorbic acid"
+msgstr "谷物85.5％（荞麦粉，全麦粉11％），麦芽汁，抗坏血酸"
 

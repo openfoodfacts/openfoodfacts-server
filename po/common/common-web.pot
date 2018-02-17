@@ -145,15 +145,18 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr ""
 
+#. Do not translate
 msgctxt "android_apk_app_badge"
 msgid ""
 "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
 msgstr ""
 
+#. Do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr ""
 
+#. Do not translate
 msgctxt "android_app_badge"
 msgid ""
 "<img src=\"/images/misc/android-app-on-google-play-"
@@ -161,6 +164,7 @@ msgid ""
 "height=\"47\" />"
 msgstr ""
 
+#. Add &hl=fr with fr being your country code
 msgctxt "android_app_link"
 msgid ""
 "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
@@ -205,6 +209,7 @@ msgctxt "barcode_number"
 msgid "Barcode number:"
 msgstr ""
 
+#. Extra caution with the HTML
 msgctxt "bottom_content"
 msgid ""
 "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
@@ -396,6 +401,7 @@ msgctxt "completed_n_missions"
 msgid "completed %d missions:"
 msgstr ""
 
+#. String is not actually used
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
 msgstr ""
@@ -737,10 +743,11 @@ msgid ""
 "Blogs</a>\n"
 msgstr ""
 
+#. Replace by local group if it exists
 msgctxt "footer_and_the_facebook_group"
 msgid ""
 "and the <a "
-"href=\"https://www.facebook.com/groups/374350705955208/\">Facebook group for "
+"href=\"https://www.facebook.com/groups/OpenFoodFacts/\">Facebook group for "
 "contributors</a>"
 msgstr ""
 
@@ -756,6 +763,7 @@ msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
 msgstr ""
 
+#. This is an URL. Check it matches the one defined in the tags template
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
 msgstr ""
@@ -764,6 +772,7 @@ msgctxt "footer_data"
 msgid "Data"
 msgstr ""
 
+#. This is an URL. Check it matches the one defined in the tags template
 msgctxt "footer_data_link"
 msgid "/data"
 msgstr ""
@@ -776,6 +785,7 @@ msgctxt "footer_faq"
 msgid "Frequently asked questions"
 msgstr ""
 
+#. This is an URL. Check it matches the one defined in the tags template
 msgctxt "footer_faq_link"
 msgid "/faq"
 msgstr ""
@@ -803,6 +813,7 @@ msgctxt "footer_legal"
 msgid "Legal"
 msgstr ""
 
+#. This is an URL. Check it matches the one defined in the tags template
 msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr ""
@@ -811,6 +822,7 @@ msgctxt "footer_press"
 msgid "Press"
 msgstr ""
 
+#. This is an URL. Check it matches the one defined in the tags template
 msgctxt "footer_press_link"
 msgid "/press"
 msgstr ""
@@ -825,6 +837,7 @@ msgctxt "footer_terms"
 msgid "Terms of use"
 msgstr ""
 
+#. This is an URL. Check it matches the one defined in the tags template
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
 msgstr ""
@@ -833,6 +846,7 @@ msgctxt "footer_who_we_are"
 msgid "Who we are"
 msgstr ""
 
+#. This is an URL. Check it matches the one defined in the tags template
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
 msgstr ""
@@ -879,6 +893,7 @@ msgctxt "graphs_and_maps"
 msgid "Graphs and maps"
 msgstr ""
 
+#. The only part to translate is the content property in the second line
 msgctxt "header"
 msgid ""
 "<meta property=\"fb:admins\" content=\"706410516\" />\n"
@@ -1059,12 +1074,14 @@ msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
 msgstr ""
 
+#. Check if the image is available before translating. Otherwise file a bug
 msgctxt "ios_app_badge"
 msgid ""
 "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" "
 "alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
 msgstr ""
 
+#. Replace en by your country code and make sure it works
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
 msgstr ""
@@ -1366,6 +1383,7 @@ msgctxt "menu_add_a_product"
 msgid "Add a product"
 msgstr ""
 
+#. This is an URL. Check it matches the one defined in the tags template
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
 msgstr ""
@@ -1374,6 +1392,7 @@ msgctxt "menu_contribute"
 msgid "Contribute"
 msgstr ""
 
+#. This is an URL. Check it matches the one defined in the tags template
 msgctxt "menu_contribute_link"
 msgid "/contribute"
 msgstr ""
@@ -1382,6 +1401,7 @@ msgctxt "menu_discover"
 msgid "Discover"
 msgstr ""
 
+#. This is an URL. Check it matches the one defined in the tags template
 msgctxt "menu_discover_link"
 msgid "/discover"
 msgstr ""
@@ -1627,6 +1647,7 @@ msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr ""
 
+#. This is an URL. Check the image for your language exists, otherwise file a bug
 msgctxt "og_image_url"
 msgid ""
 "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
@@ -1764,26 +1785,32 @@ msgctxt "photographers_s"
 msgid "photographer"
 msgstr ""
 
+#. This is the French Nutrition Programme Groups. Keep PNNS as it
 msgctxt "pnns_groups_1"
 msgid "PNNS groups 1"
 msgstr ""
 
+#. This is the French Nutrition Programme Groups. Keep PNNS as it
 msgctxt "pnns_groups_1_p"
 msgid "PNNS groups 1"
 msgstr ""
 
+#. This is the French Nutrition Programme Groups. Keep PNNS as it
 msgctxt "pnns_groups_1_s"
 msgid "PNNS group 1"
 msgstr ""
 
+#. This is the French Nutrition Programme Groups. Keep PNNS as it
 msgctxt "pnns_groups_2"
 msgid "PNNS groups 2"
 msgstr ""
 
+#. This is the French Nutrition Programme Groups. Keep PNNS as it
 msgctxt "pnns_groups_2_p"
 msgid "PNNS groups 2"
 msgstr ""
 
+#. This is the French Nutrition Programme Groups. Keep PNNS as it
 msgctxt "pnns_groups_2_s"
 msgid "PNNS group 2"
 msgstr ""
@@ -1969,6 +1996,7 @@ msgctxt "product_name"
 msgid "Product name"
 msgstr ""
 
+#. You can replace it by something popular in your country, especially with children
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
 msgstr ""
@@ -2195,6 +2223,7 @@ msgctxt "search_graph_2_axis"
 msgid "Scatter plot"
 msgstr ""
 
+#. Needs to be made international
 msgctxt "search_graph_blog"
 msgid ""
 "<p>→ learn more about <<site_name>> graphs: <a "
@@ -2402,6 +2431,7 @@ msgctxt "serving_size"
 msgid "Serving size"
 msgstr ""
 
+#. Adapt as needed, while keeping the current units
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
 msgstr ""
@@ -2552,6 +2582,7 @@ msgctxt "twitter"
 msgid "Twitter username (optional)"
 msgstr ""
 
+#. Adapt as needed, if a local Twitter account exists. Please ask @stephane if you want to have a local account
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
 msgstr ""
@@ -2664,6 +2695,7 @@ msgid ""
 "Store\" width=\"154\" height=\"40\" />"
 msgstr ""
 
+#. Adapt the country code as needed, check the URL works.
 msgctxt "windows_phone_app_link"
 msgid ""
 "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-"

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-11-12 18:35-0500\n"
+"PO-Revision-Date: 2018-02-11 13:08-0500\n"
 "Language-Team: Russian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -22,10 +22,12 @@ msgctxt ":langname"
 msgid ":langname"
 msgstr "Russian"
 
+#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
 msgctxt "logo"
 msgid "openfoodfacts-logo-en-178x150.png"
 msgstr "openfoodfacts-logo-ru-178x150.png"
 
+#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
 msgctxt "logo2x"
 msgid "openfoodfacts-logo-en-356x300.png"
 msgstr "openfoodfacts-logo-ru-356x300.png"
@@ -36,9 +38,34 @@ msgstr "Open Pet Food Facts"
 
 msgctxt "tagline"
 msgid "Open Pet Food Facts gathers information and data on pet food products from around the world.<br/> <div class=\"flex-video\"><embed width=\"640\" height=\"480\" src=\"https://world.openpetfoodfacts.org/images/misc/opff-leaderboard.svg\"></embed></div>"
-msgstr "Open Pet Food Facts собирает информацию и данные о кормах для домашних животных по всему миру.<br/> <div class=\"flex-video\"><embed width=\"640\" height=\"480\" src=\"https://world.openpetfoodfacts.org/images/misc/opff-leaderboard.svg\"></embed></div>"
+msgstr "Open Pet Food Facts (Открытые факты о кормах) собирает данные с упаковок кормов для домашних животных по всему миру.<br/> <div class=\"flex-video\"><embed width=\"640\" height=\"480\" src=\"https://world.openpetfoodfacts.org/images/misc/opff-leaderboard.svg\"></embed></div>"
 
+#. replace by the right country code, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=en"
 msgstr "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=ru"
+
+msgctxt "brands_example"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "product_name_example"
+msgid "Pro Plan Adult, rich in chicken"
+msgstr "Pro Plan Adult, высокое содержание курицы"
+
+msgctxt "generic_name_example"
+msgid "Complete pet food for adult cats"
+msgstr "Корм сухой полнорационный для взрослых кошек, с высоким содержанием курицы"
+
+msgctxt "categories_example"
+msgid "Dry adult cat food"
+msgstr "Полнорационный сухой корм для кошек"
+
+msgctxt "labels_example"
+msgid "No sugar, No colorings"
+msgstr "Без сахара, Без красителей"
+
+msgctxt "ingredients_text_example"
+msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, ascorbic acid"
+msgstr "Злаки 85.5% (_пшеничная_ мука, цельнозерновая _пшеничная_ мука 11%), солодовый экстракт, какао %, аскорбиновая кислота"
 

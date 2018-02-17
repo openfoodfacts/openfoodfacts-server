@@ -1,4 +1,24 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
+
+# This file is part of Product Opener.
+# 
+# Product Opener
+# Copyright (C) 2011-2018 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# 
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# 
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -354,7 +374,7 @@ foreach my $l (sort { $langs{$b} <=> $langs{$a}} keys %langs) {
 
         if ($langs{$l} > 0) {
                 $lang = $l;
-                $html .= "<p><a href=\"http://$lang.$server_domain/\">" . $Langs{$l} . "</a> - $langs{$l} " . lang("products") . "</p>";
+                $html .= "<p><a href=\"https://$lang.$server_domain/\">" . $Langs{$l} . "</a> - $langs{$l} " . lang("products") . "</p>";
         }
 
 }
@@ -369,7 +389,7 @@ foreach my $l (sort { $langs{$b} <=> $langs{$a}} keys %langs) {
 
         if ($langs{$l} > 0) {
                 $lang = $l;
-                $html .= "<a href=\"http://$lang.$server_domain/\" title=\"" . $langs{$l} . " " . lang("products").  "\">" . $Langs{$l} . "</a> - ";
+                $html .= "<a href=\"https://$lang.$server_domain/\" title=\"" . $langs{$l} . " " . lang("products").  "\">" . $Langs{$l} . "</a> - ";
         }
 
 }
@@ -387,7 +407,7 @@ foreach my $lc (sort keys %langs) {
 	my $meta = '';
 	if (-e "$www_root/images/misc/products_graph_$lc.png") {
 		$meta = <<HTML
-<meta property="og:image" content="http://$lc.openfoodfacts.org/images/misc/products_graph_$lc.png"/>
+<meta property="og:image" content="https://$lc.openfoodfacts.org/images/misc/products_graph_$lc.png"/>
 HTML
 ;
 		print "found meta products_graph_$lc.png image\n";
@@ -464,7 +484,7 @@ Highcharts.setOptions({
                 text: '$Lang{products_stats}{$lang} - $Langs{$lang}'
             },
             subtitle: {
-                text: 'Source: <a href="http://$lc.openfoodfacts.org">'+
+                text: 'Source: <a href="https://$lc.openfoodfacts.org">'+
                     '$lc.openfoodfacts.org</a>'
             },
             xAxis: {

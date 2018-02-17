@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-11-12 18:40-0500\n"
+"PO-Revision-Date: 2018-02-12 11:14-0500\n"
 "Language-Team: Danish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -690,7 +690,7 @@ msgstr ""
 
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr ""
+msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -702,6 +702,14 @@ msgstr "Ofte Stillede Spørgsmål"
 
 msgctxt "footer_faq_link"
 msgid "/faq"
+msgstr ""
+
+msgctxt "footer_translators"
+msgid "Translators"
+msgstr ""
+
+msgctxt "footer_translators_link"
+msgid "/cgi/top_translators.pl"
 msgstr ""
 
 msgctxt "footer_follow_us"
@@ -748,7 +756,7 @@ msgstr "Brugsvilkår"
 
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr "/brugsvilkaar"
+msgstr "/terms-of-use"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -1018,11 +1026,11 @@ msgstr ""
 
 msgctxt "lang_cs"
 msgid "Czech"
-msgstr ""
+msgstr "Tjekkisk"
 
 msgctxt "lang_da"
 msgid "Danish"
-msgstr ""
+msgstr "Dansk"
 
 msgctxt "lang_de"
 msgid "German"
@@ -1086,7 +1094,7 @@ msgstr ""
 
 msgctxt "lang_lv"
 msgid "Latvian"
-msgstr ""
+msgstr "Lettisk"
 
 msgctxt "lang_mt"
 msgid "Maltese"
@@ -2009,7 +2017,7 @@ msgstr ""
 
 msgctxt "save"
 msgid "Save"
-msgstr ""
+msgstr "Gem"
 
 msgctxt "saved"
 msgid "Saved."
@@ -2025,7 +2033,7 @@ msgstr "Søg"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
-msgstr ""
+msgstr "Søg efter produkt"
 
 msgctxt "search_button"
 msgid "Search"
@@ -2314,7 +2322,7 @@ msgstr ""
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr ""
+msgstr "Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2639,5 +2647,37 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " — "
+msgstr ""
+
+msgctxt "translators_title"
+msgid "Our Translators"
+msgstr ""
+
+msgctxt "translators_lead"
+msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages!"
+msgstr ""
+
+msgctxt "translators_renewal_notice"
+msgid "Please note that this table is refreshed nightly and might be out of date."
+msgstr ""
+
+msgctxt "translators_column_name"
+msgid "Name"
+msgstr "Navn"
+
+msgctxt "translators_column_translated_words"
+msgid "Translated (Words)"
+msgstr ""
+
+msgctxt "translators_column_target_words"
+msgid "Target Words"
+msgstr ""
+
+msgctxt "translators_column_approved_words"
+msgid "Approved (Words)"
+msgstr ""
+
+msgctxt "translators_column_votes_made"
+msgid "Votes Made"
 msgstr ""
 
