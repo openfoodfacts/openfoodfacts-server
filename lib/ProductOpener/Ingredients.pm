@@ -1,22 +1,22 @@
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 package ProductOpener::Ingredients;
 
@@ -744,7 +744,6 @@ sub extract_ingredients_classes_from_text($) {
 					$seen{$ingredients_classes{$class}{$ingredient_id}{id}} = 1;
 					$all_seen{$ingredients_classes{$class}{$ingredient_id}{id}} = 1;
 					
-					($product_ref->{code} eq '3245414658769') and print STDERR "extract_ingredient_classes 1 : ingredient_id: $ingredient_id - id/id: $ingredients_classes{$class}{$ingredient_id}{id}\n";
 				}
 				else {
 				

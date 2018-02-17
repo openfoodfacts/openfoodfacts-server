@@ -1,20 +1,20 @@
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
 # Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -3185,6 +3185,14 @@ sub compute_nutrition_score($) {
 	
 	$product_ref->{misc_tags} = ["en:nutriscore-not-computed"];
 
+	# do not compute a score when we don't have a category
+	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
+			$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+			$product_ref->{nutrition_score_debug} = "no score when the product does not have a category";
+			return;
+	}	
+	
+	
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
 	if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
 			$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
