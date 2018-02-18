@@ -1786,15 +1786,24 @@ HTML
 	. hidden(-name=>'code', -value=>$code, -override=>1)
 	. hidden(-name=>'action', -value=>'process', -override=>1);
 	
+	$html .= '<div style="position: fixed; bottom: 0; width: 100%; border-top: 1px solid #eee; background-color: white; z-index: 100; padding-top: 10px;">';
+
 	if ($type eq 'edit') {
 		$html .= <<HTML
-<label for="comment" style="margin-left:10px">$Lang{edit_comment}{$lang}</label>
-<input id="comment" name="comment" value="" type="text" class="text" />
+<input id="comment" name="comment" placeholder="$Lang{edit_comment}{$lang}" value="" type="text" class="text" style="width: 70%; float: left; margin-right: 5px">
+<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small" style="float: left">
 HTML
+;
+	}
+	else {
+		$html .= <<HTML
+<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small" style="float: left; margin-left: 70%;">
+HTML
+;
 	}
 	
 	$html .= <<HTML
-<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small" />
+</div>
 </form>
 HTML
 ;
