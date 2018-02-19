@@ -1348,7 +1348,7 @@ sub display_list_of_tags($$) {
 			$html .= "<tr><td>";
 			
 			my $display = '';
-			
+			my $linkeddata;
 			if ($tagtype eq 'nutrition_grades') {
 				if ($tagid =~ /^a|b|c|d|e$/) {
 					my $grade = $tagid;
@@ -1359,7 +1359,8 @@ sub display_list_of_tags($$) {
 				}
 			}
 			elsif (defined $taxonomy_fields{$tagtype}) {
-				$display = display_taxonomy_tag($lc, $tagtype, $tagid);				 			 
+				$display = display_taxonomy_tag($lc, $tagtype, $tagid);
+				$linkeddata = $properties{$tagtype}{$tagid};
 			}
 			else {
 				$display = canonicalize_tag2($tagtype, $tagid);
@@ -1376,6 +1377,10 @@ sub display_list_of_tags($$) {
 				url => format_subdomain($subdomain) . $product_link,
 				products => $products + 0, # + 0 to make the value numeric
 			};
+			
+			if (defined $linkeddata) {
+				$tagentry->{linkeddata} = $linkeddata;
+			}
 
 			if (defined $tags_images{$lc}{$tagtype}{get_fileid($icid)}) {
 				my $img = $tags_images{$lc}{$tagtype}{get_fileid($icid)};
@@ -1984,6 +1989,7 @@ sub display_tag($) {
 	}
 	
 	my $weblinks_html = '';
+	my @map_layers = ();
 	if (not defined $request_ref->{groupby_tagtype}) {
 		my @weblinks = ();
 		if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})) {
@@ -1996,6 +2002,10 @@ sub display_tag($) {
 				};
 				$weblink->{title} = sprintf($weblink_templates{$key}{title}, $properties{$tagtype}{$canon_tagid}{$key}) if defined $weblink_templates{$key}{title},
 				push @weblinks, $weblink;
+			}
+
+			if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid}{'wikidata:en'})) {
+				push @map_layers, 'addWikidataObjectToMap("' . $properties{$tagtype}{$canon_tagid}{'wikidata:en'} . '")';
 			}
 		}
 
@@ -2061,6 +2071,7 @@ sub display_tag($) {
 		$description .= $tags_texts{$lc}{$tagtype}{$icid};
 	}	
 	
+	my @markers = ();
 	if ($tagtype eq 'emb_codes') {
 	
 		my $city_code = get_city_code($tagid);
@@ -2079,37 +2090,9 @@ sub display_tag($) {
 			
 			# Generate a map if we have coordinates
 			my ($lat, $lng) = get_packager_code_coordinates($canon_tagid);
-			my $html_map = "";
 			if ((defined $lat) and (defined $lng)) {
 				my $geo = "$lat,$lng";
-			
-				$header .= <<HTML		
-<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
-<script src="/bower_components/leaflet/dist/leaflet.js"></script>
-HTML
-;
-
-
-				my $js = <<JS
-var map = L.map('container').setView([$geo], 11);;	
-		
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	maxZoom: 19,
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);			
-
-L.marker([$geo]).addTo(map)	
-
-$request_ref->{map_options}
-JS
-;		
-				$initjs .= $js;
-				
-				$html_map .= <<HTML
-<div id="container" style="height: 300px"></div>​
-HTML
-;				
-			
+				push @markers, $geo;
 			}
 		
 			if ($packager_codes{$canon_tagid}{cc} eq 'fr') {
@@ -2183,31 +2166,59 @@ HTML
 ;
 				}
 			}	
-			
-			if ($html_map ne '') {
-			
-				$description = <<HTML
+		}
+	}
+
+	$description = <<HTML
 <div class="row">
 
-	<div class="large-3 columns">
+	<div id="tag_description" class="large-12 columns">
 		$description
 	</div>
-	<div class="large-9 columns">
-		$html_map
+	<div id="tag_map" class="large-9 columns" style="display: none;">
+		<div id="container" style="height: 300px"></div>​
 	</div>
 
 </div>			
 
 HTML
 ;
-			
-			}
+
+	if ((scalar @markers) > 0) {
+		my $layer = '';
+		foreach my $geo (@markers) {
+			$layer .= "\nmarkers.push(L.marker([$geo]))\n";
+		}
+
+		$layer .= <<JS
+runCallbackOnJson(function (map) {
+	L.featureGroup(markers).addTo(map)
+	fitBoundsToAllLayers(map)
+})
+JS
+;
+		push @map_layers, $layer;
+	}
+
+	if ((scalar @map_layers) > 0) {
+		$header .= <<HTML		
+	<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
+	<script src="/bower_components/leaflet/dist/leaflet.js"></script>
+	<script src="/bower_components/osmtogeojson/osmtogeojson.js"></script>
+	<script src="/js/display-tag.js"></script>
+HTML
+;
 		
+		my $js = '';
+		foreach my $layer (@map_layers) {
+			$js .= $layer;
 		}
 		
-
+		$js .= $request_ref->{map_options};
+		
+		$initjs .= $js;
 	}
-	
+
 	if ($tagtype eq 'users') {
 		my $user_ref = retrieve("$data_root/users/$tagid.sto");
 		
