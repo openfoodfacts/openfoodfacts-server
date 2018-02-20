@@ -60,6 +60,10 @@ if (scalar $#products < 0) {
 }
 
 
+# Create directory to move old images to
+(-e "$www_root/old-images") or mkdir("$www_root/old-images", 0755);
+(-e "$www_root/old-images/products") or mkdir("$www_root/old-images/products", 0755);
+
 
 
 
@@ -132,8 +136,19 @@ my %codes = ();
 					print STDERR "2nd pass: $file - id: $imageid - v: $version - highest: $highest_version{$imageid}\n";
 					
 					if ($version < $highest_version{$imageid}) {
-						print STDERR "deleting imageid: $imageid - version: $version\n";
-						unlink("$dir/$file");
+						print STDERR "moving imageid: $imageid - version: $version\n";
+						print STDERR "mv $dir/$file $www_root/old-images/products/$path/\n";
+
+						# Create the directories for the product
+						my $current_dir = "$www_root/old-images/products";
+						foreach my $component (split("/", $path)) {
+							$current_dir .= "/$component";
+							(-e "$current_dir") or mkdir($current_dir, 0755);
+						}
+					
+						use File::Copy;
+						move("$dir/$file","$www_root/old-images/products/$path/") or die("could not move: $!\n");
+						
 						$images_deleted++;
 					}
 				}
@@ -143,7 +158,7 @@ my %codes = ();
 		}
 	}
 
-print STDERR "$i products - $images_deleted images deleted\n";
+print STDERR "$i products - $images_deleted images moved\n";
 
 exit(0);
 
