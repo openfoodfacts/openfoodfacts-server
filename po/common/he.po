@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-19 06:56-0500\n"
+"PO-Revision-Date: 2018-02-22 06:09-0500\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
@@ -1582,7 +1582,8 @@ msgstr ""
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr ""
+msgstr "<p>כדי ללמוד עוד על <<site_name>>, יש לבקר ב<a href=\"https://he.blog.openfoodfacts.org\">בלוג שלנו</a>!</p>\n"
+"<p>חדשות עדכניות:</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -1659,7 +1660,7 @@ msgstr "הוספת סוג, צורה או חומר"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
-msgstr ""
+msgstr "מוצרים ללא אריזה מסוג %s"
 
 msgctxt "page_x"
 msgid "Page %d"
@@ -1759,7 +1760,7 @@ msgstr "הקודם"
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "הוספת רכיב תזונתי"
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -2083,7 +2084,7 @@ msgstr "הורדת התוצאות במבנה CSV (Excel, LibreOffice)"
 
 msgctxt "search_download_results_description"
 msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr ""
+msgstr "ערכת תווים: יוניקוד (UTF-8). מפריד: טאב (tab)."
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -2336,7 +2337,7 @@ msgstr "מסד נתונים שיתופי, חופשי ופתוח של רכיבי�
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr ""
+msgstr "Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2448,7 +2449,7 @@ msgstr "שם משתמש בטוויטר"
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
-msgstr ""
+msgstr "OpenFoodFacts"
 
 msgctxt "unknown"
 msgid "Unknown"
