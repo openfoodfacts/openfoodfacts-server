@@ -682,6 +682,9 @@ sub remove_tags_and_quote($) {
 	$s =~ s/>/&gt;/g;
 	$s =~ s/"/&quot;/g;
 
+	# Remove whitespace
+	$s =~ s/^\s+|\s+$//g;
+
 	return $s;
 }
 
@@ -695,6 +698,9 @@ sub xml_escape($) {
 	$s =~ s/</&lt;/g;
 	$s =~ s/>/&gt;/g;
 	$s =~ s/"/&quot;/g;
+
+	# Remove whitespace
+	$s =~ s/^\s+|\s+$//g;
 
 	return $s;
 
