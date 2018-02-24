@@ -1681,15 +1681,33 @@ HTML
 	my $other_nutriments = '';
 	my $nutriments = '';
 	foreach my $nid (@{$other_nutriments_lists{$nutriment_table}}) {
+		my $other_nutriment_value;
+		if ((exists $Nutriments{$nid}{$lang}) and ($Nutriments{$nid}{$lang} ne '')) {
+			$other_nutriment_value = $Nutriments{$nid}{$lang};
+		}
+		else {
+			foreach my $olc (@{$country_languages{$cc}}, 'en') {
+				next if $olc eq $lang;
+				if ((exists $Nutriments{$nid}{$olc}) and ($Nutriments{$nid}{$olc} ne '')) {
+					$other_nutriment_value = $Nutriments{$nid}{$olc};
+					last;
+				}
+			}
+		}
+
+		if ((not (defined $other_nutriment_value)) or ($other_nutriment_value eq '')) {
+			$other_nutriment_value = $nid;
+		}
+
 		if ((not defined $product_ref->{nutriments}{$nid}) or ($product_ref->{nutriments}{$nid} eq '')) {
 			my $supports_iu = "false";
 			if ((exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0)) {
 				$supports_iu = "true";
 			}
 
-			$other_nutriments .= '{ "value" : "' . $Nutriments{$nid}{$lang} . '", "unit" : "' . $Nutriments{$nid}{unit} . '", "iu": ' . $supports_iu . '  },' . "\n";
+			$other_nutriments .= '{ "value" : "' . $other_nutriment_value . '", "unit" : "' . $Nutriments{$nid}{unit} . '", "iu": ' . $supports_iu . '  },' . "\n";
 		}
-		$nutriments .= '"' . $Nutriments{$nid}{$lang} . '" : "' . $nid . '",' . "\n";
+		$nutriments .= '"' . $other_nutriment_value . '" : "' . $nid . '",' . "\n";
 	}
 	$nutriments =~ s/,\n$//s;
 	$other_nutriments =~ s/,\n$//s;
