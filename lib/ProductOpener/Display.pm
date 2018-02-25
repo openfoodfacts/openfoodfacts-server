@@ -395,28 +395,34 @@ sub analyze_request($)
 		
 	print STDERR "analyze_request : query_string 1 : $request_ref->{query_string} \n";
 	
+	# Process API parameters: fields, formats, revision
+	
 	# API calls may request JSON, JSONP or XML by appending .json, .jsonp or .xml at the end of the query string
 	# .jqm returns results in HTML specifically formated for the OFF mobile app (which uses jquerymobile)
 	# for calls to /cgi/ actions (e.g. search.pl), the format can also be indicated with a parameter &json=1 &jsonp=1 &xml=1 &jqm=1
 	# (or ?json=1 if it's the first parameter)
 	
-	# first check for the rev parameter (revision of a product)
+	# first check parameters in the query string
+
+	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml') {
 	
-	foreach my $parameter ('rev', 'json', 'jsonp', 'jqm','xml') {
-	
-		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=(\d+)/) {
-			$request_ref->{query_string} =~ s/(\&|\?)$parameter=(\d+)//;
+		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
+			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
 			$request_ref->{$parameter} = $2;
 			print STDERR "analyze_request : $parameter = $request_ref->{$parameter} \n";
 		}	
-		
+	}	
+	
+	# then check suffixes .json etc.
+	
+	foreach my $parameter ('json', 'jsonp', 'jqm','xml') {
+	
 		if ($request_ref->{query_string} =~ /\.$parameter$/) {
 			$request_ref->{query_string} =~ s/\.$parameter$//;
 			$request_ref->{$parameter} = 1;
 			print STDERR "analyze_request : $parameter = 1 (.$parameter) \n";
 		}
-	
-	}
+	}	
 	
 	print STDERR "analyze_request : query_string 2 : $request_ref->{query_string} \n";
 	
@@ -682,6 +688,9 @@ sub remove_tags_and_quote($) {
 	$s =~ s/>/&gt;/g;
 	$s =~ s/"/&quot;/g;
 
+	# Remove whitespace
+	$s =~ s/^\s+|\s+$//g;
+
 	return $s;
 }
 
@@ -695,6 +704,9 @@ sub xml_escape($) {
 	$s =~ s/</&lt;/g;
 	$s =~ s/>/&gt;/g;
 	$s =~ s/"/&quot;/g;
+
+	# Remove whitespace
+	$s =~ s/^\s+|\s+$//g;
 
 	return $s;
 
@@ -2741,6 +2753,24 @@ HTML
 		}
 	
 
+		# If the request specified a value for the fields parameter, return only the fields listed
+		if (defined $request_ref->{fields}) {
+		
+			my $compact_products = [];
+		
+			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
+		
+				my $compact_product_ref = {};
+				foreach my $field (split(/,/, $request_ref->{fields})) {
+					if (defined $product_ref->{$field}) {
+						$compact_product_ref->{$field} = $product_ref->{$field};
+					}
+				}
+				push @$compact_products, $compact_product_ref;
+			}
+			
+			$request_ref->{structured_response}{products} = $compact_products;
+		}	
 	
 		
 		# Pagination
@@ -7692,9 +7722,22 @@ HTML
 	else {
 		$response{status} = 1;
 		$response{status_verbose} = 'product found';
-		$response{product} = $product_ref;
 		
 		add_images_urls_to_product($product_ref);
+		
+		$response{product} = $product_ref;
+		
+		# If the request specified a value for the fields parameter, return only the fields listed
+		if (defined $request_ref->{fields}) {
+			my $compact_product_ref = {};
+			foreach my $field (split(/,/, $request_ref->{fields})) {
+				if (defined $product_ref->{$field}) {
+					$compact_product_ref->{$field} = $product_ref->{$field};
+				}
+			}
+			$response{product} = $compact_product_ref;
+		}		
+		
 		
 		if ($request_ref->{jqm}) {
 			# return a jquerymobile page for the product

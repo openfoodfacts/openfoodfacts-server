@@ -3174,6 +3174,7 @@ sub compute_nutrition_score($) {
 	delete $product_ref->{nutriments}{"nutrition-score-uk_100g"};
 	delete $product_ref->{nutriments}{"nutrition-score-uk_serving"};	
 	delete $product_ref->{"nutrition_grade_fr"};
+	delete $product_ref->{"nutrition_grades"};
 	delete $product_ref->{"nutrition_grades_tags"};
 	delete $product_ref->{nutrition_score_warning_no_fiber};
 	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate};
@@ -3192,6 +3193,13 @@ sub compute_nutrition_score($) {
 			return;
 	}	
 	
+	# do not compute a score for baby / infant food, drinks and milk
+	if (has_tag($product_ref, "categories", "en:baby-foods") or has_tag($product_ref, "categories", "en:baby-milks")) {
+			$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+			$product_ref->{nutrition_score_debug} = "no score for en:baby-foods , en:baby-milks";
+			return;
+	}
+		
 	
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
 	if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
