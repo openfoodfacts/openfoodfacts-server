@@ -1,20 +1,20 @@
 # This file is part of Product Opener.
-#
+# 
 # Product Opener
 # Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-#
+# 
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-#
+# 
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-#
+# 
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -3174,6 +3174,7 @@ sub compute_nutrition_score($) {
 	delete $product_ref->{nutriments}{"nutrition-score-uk_100g"};
 	delete $product_ref->{nutriments}{"nutrition-score-uk_serving"};	
 	delete $product_ref->{"nutrition_grade_fr"};
+	delete $product_ref->{"nutrition_grades"};
 	delete $product_ref->{"nutrition_grades_tags"};
 	delete $product_ref->{nutrition_score_warning_no_fiber};
 	delete $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate};
@@ -3192,6 +3193,13 @@ sub compute_nutrition_score($) {
 			return;
 	}	
 	
+	# do not compute a score for baby / infant food, drinks and milk
+	if (has_tag($product_ref, "categories", "en:baby-foods") or has_tag($product_ref, "categories", "en:baby-milks")) {
+			$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+			$product_ref->{nutrition_score_debug} = "no score for en:baby-foods , en:baby-milks";
+			return;
+	}
+		
 	
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
 	if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
@@ -3707,7 +3715,14 @@ foreach my $nutrient_level_ref (@nutrient_levels) {
 		$nutrient_levels_taxonomy .= "\n" . 'en:' . sprintf($Lang{nutrient_in_quantity}{en}, $Nutriments{$nid}{en}, $Lang{$level . "_quantity"}{en}) . "\n";
 		foreach my $l (sort keys %Langs) {
 			next if $l eq 'en';
-			$nutrient_levels_taxonomy .= $l . ':' . sprintf($Lang{nutrient_in_quantity}{$l}, $Nutriments{$nid}{$l}, $Lang{$level . "_quantity"}{$l}) . "\n";
+			my $nutrient_l;
+			if (defined $Nutriments{$nid}{$l}) {
+				$nutrient_l = $Nutriments{$nid}{$l};
+			}
+			else {
+				$nutrient_l = $Nutriments{$nid}{"en"};
+			}	
+			$nutrient_levels_taxonomy .= $l . ':' . sprintf($Lang{nutrient_in_quantity}{$l}, $nutrient_l, $Lang{$level . "_quantity"}{$l}) . "\n";
 		}
 	}
 }

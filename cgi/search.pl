@@ -53,7 +53,7 @@ if ((defined param('search_terms')) and (not defined param('action'))) {
 	$action = 'process';
 }
 
-foreach my $parameter ('json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 'rss') {
+foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 'rss') {
 
 	if (defined param($parameter)) {
 		$request_ref->{$parameter} = param($parameter);
