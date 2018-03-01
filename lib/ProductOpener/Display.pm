@@ -59,6 +59,7 @@ BEGIN
 					&search_and_export_products
 					&search_and_graph_products
 					&search_and_map_products
+					&display_recent_changes
 					
 					@search_series
 					
@@ -70,6 +71,7 @@ BEGIN
 					$database
 					$products_collection
 					$emb_codes_collection
+					$recent_changes_collection
 					
 					$debug
 					$scripts
@@ -140,7 +142,7 @@ $connection = MongoDB->connect($mongodb_host);
 $database = $connection->get_database($mongodb);
 $products_collection = $database->get_collection('products');
 $emb_codes_collection = $database->get_collection('emb_codes');
-
+$recent_changes_collection = $database->get_collection('recent_changes');
 
 if (defined $options{other_servers}) {
 
@@ -7951,6 +7953,133 @@ XML
 ;
 	
 	print header( -type => 'application/rss+xml', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $xml;
+
+}
+
+sub display_recent_changes {
+
+	my ($request_ref, $query_ref, $limit, $page) = @_;
+
+	if ((defined $country) and ($country ne 'en:world')) {
+		$query_ref->{countries_tags} = $country;
+	}
+	
+	delete $query_ref->{lc};
+
+	if (defined $limit) {
+	}
+	elsif (defined $request_ref->{page_size}) {
+		$limit = $request_ref->{page_size};
+	}
+	else {
+		$limit = $page_size;
+	}
+
+	my $skip = 0;
+	if (defined $page) {
+		$skip = ($page - 1) * $limit;
+	}
+	elsif (defined $request_ref->{page}) {
+		$page = $request_ref->{page};
+		$skip = ($page - 1) * $limit;
+	}
+	else {
+		$page = 1;
+	}
+
+	# support for returning structured results in json / xml etc.
+
+	$request_ref->{structured_response} = {
+		page => $page,
+		page_size => $limit,
+		skip => $skip,
+		changes => [],
+	};	
+
+	my $sort_ref = Tie::IxHash->new();
+	$sort_ref->Push('$natural' => -1);
+
+	print STDERR "Display.pm - display_recent_changes - query:\n" . Dumper($query_ref) . "\n";
+	my $cursor = $recent_changes_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+	my $count = $cursor->count() + 0;
+	print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - ok, got count: $count\n";
+
+	if ($@) {
+		print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - retrying once\n";
+		
+		# opening new connection
+		eval {
+			$connection = MongoDB->connect($mongodb_host);
+			$database = $connection->get_database($mongodb);
+			$recent_changes_collection = $database->get_collection('recent_changes');
+		};
+		if ($@) {
+			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - reconnecting failed\n";
+			$count = -1;
+		}
+		else {		
+			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - reconnected ok\n";					
+			print STDERR "Display.pm - display_recent_changes - query:\n" . Dumper($query_ref) . "\n";
+			$cursor = $recent_changes_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+			$count = $cursor->count() + 0;
+			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - ok, got count: $count\n";
+		}
+	}
+	
+	my $html .= "<ul>\n";
+	while (my $change_ref = $cursor->next) {
+		# Conversion for JSON, because the $change_ref cannot be passed to encode_json.
+		my $change_hash = {
+			code => $change_ref->{code},
+			countries_tags => $change_ref->{countries_tags},
+			userid => $change_ref->{userid},
+			ip => $change_ref->{ip},
+			t => $change_ref->{t},
+			comment => $change_ref->{comment},
+			rev => $change_ref->{rev},
+			diffs => $change_ref->{diffs}
+		};
+
+		delete $change_hash->{ip} unless $admin; # security: Do not expose IP addresses to non-admin or anonymous users.
+
+		push @{$request_ref->{structured_response}{changes}}, $change_hash;
+
+		my $date = display_date_tag($change_ref->{t});	
+		my $user = "";
+		if (defined $change_ref->{userid}) {
+			$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
+		}
+		
+		my $comment = $change_ref->{comment};
+		$comment = lang($comment) if $comment eq 'product_created';
+		
+		$comment =~ s/^Modification :\s+//;
+		if ($comment eq 'Modification :') {
+			$comment = '';
+		}
+		$comment =~ s/\new image \d+( -)?//;
+		
+		if ($comment ne '') {
+			$comment = "- $comment";
+		}
+		
+		my $change_rev = $change_ref->{rev};
+
+		# Display diffs
+		# [Image upload - add: 1, 2 - delete 2], [Image selection - add: front], [Nutriments... ]
+		
+		my $diffs = compute_changes_diff_text($change_ref);
+		$change_hash->{diffs_text} = $diffs;
+		
+		my $product_url = product_url($change_ref->{code});
+		$html .= "<li><a href=\"" . $product_url . "\">" . $change_ref->{code} . "</a> $date - $user $diffs $comment - <a href=\"" . $product_url . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
+
+	}
+
+	$html .= "</ul>";
+	${$request_ref->{content_ref}} .= $html;
+	$request_ref->{title} = lang("recent_changes");
+	display_new($request_ref);
 
 }
 
