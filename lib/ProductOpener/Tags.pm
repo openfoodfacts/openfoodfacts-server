@@ -2007,6 +2007,27 @@ sub canonicalize_taxonomy_tag($$$)
 	$tag =~ s/^ //g;
 	$tag =~ s/ $//g;		
 	
+	if (($tag =~ /^(\w+:\w\w):(.+)/) and (defined $properties{$tagtype})) {
+		# Test for linked data, ie. wikidata:en:Q1234
+		my $property_key = $1;
+		my $property_value = $2;
+		my $matched_tagid;
+		foreach my $canon_tagid (keys %{$properties{$tagtype}}) {
+			if ((defined $properties{$tagtype}{$canon_tagid}{$property_key}) and ($properties{$tagtype}{$canon_tagid}{$property_key} eq $property_value)) {
+				if (defined $matched_tagid) {
+					# Bail out on multiple matches for a single tag.
+					undef $matched_tagid;
+					last;
+				}
+				
+				$matched_tagid = $canon_tagid;
+			}
+		}
+
+		if (defined $matched_tagid) {
+			return $matched_tagid;
+		}
+	}
 		
 	if ($tag =~ /^(\w\w):/) {
 		$tag_lc = $1;

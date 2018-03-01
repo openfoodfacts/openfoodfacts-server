@@ -26,4 +26,7 @@ ok( !has_tag($product_ref, 'test', 'de:mein-tag'), 'has_tag should be false afte
 add_tag($product_ref, 'nexist', 'en:test');
 ok( has_tag($product_ref, 'nexist', 'en:test'), 'has_tag should be true after add' );
 
+# verify known Wikidata ID is converted to the taxonomy tag
+is( canonicalize_taxonomy_tag('en', 'categories', 'wikidata:en:Q470974'), 'fr:fitou', '"wikidata:en:Q470974" should be canonicalized to "fr:fitou"' );
+
 done_testing();
