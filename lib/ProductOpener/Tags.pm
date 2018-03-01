@@ -119,6 +119,7 @@ use Clone qw(clone);
 use URI::Escape::XS;
 
 use GraphViz2;
+use JSON::PP;
 
 
 my $debug = 0;
@@ -1044,6 +1045,10 @@ sub build_tags_taxonomy($$) {
 		
 		open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.result.txt");
 		
+		
+		# data structure to export the taxonomy to json format
+		my %taxonomy_json = ();
+		
 		my $errors = '';
 		
 		foreach my $lc (keys %{$stopwords{$tagtype}}) {
@@ -1056,21 +1061,33 @@ sub build_tags_taxonomy($$) {
 				|| ($a cmp $b)
 				}
 				keys %{$level{$tagtype}} ) {
+				
+			$taxonomy_json{$tagid} = {name => {}};
 			
 			# print "taxonomy - compute all children - $tagid - level: $level{$tagtype}{$tagid} - longest: $longest_parent{$tagid} - syn: $just_synonyms{$tagtype}{$tagid} - sort_key: $sort_key_parents{$tagid} \n";
 			if (defined $direct_parents{$tagtype}{$tagid}) {
 				print "taxonomy - direct_parents\n";
+				$taxonomy_json{$tagid}{parents} = [];
 				foreach my $parentid (sort keys %{$direct_parents{$tagtype}{$tagid}}) {
 					my $lc = $parentid;
 					$lc =~ s/^(\w\w):.*/$1/;
 					print $OUT "< $lc:" . $translations_to{$tagtype}{$parentid}{$lc} . "\n";
+					push @{$taxonomy_json{$tagid}{parents}}, $parentid;
 					print "taxonomy - parentid: $parentid > tagid: $tagid\n";
 					if (not exists $translations_to{$tagtype}{$parentid}{$lc}) {
 						$errors .= "ERROR - parent $parentid is not defined for tag $tagid\n";
 					}
 				}
-				
 			}
+			
+			if (defined $direct_children{$tagtype}{$tagid}) {
+				print "taxonomy - direct_children\n";
+				$taxonomy_json{$tagid}{children} = [];
+				foreach my $childid (sort keys %{$direct_children{$tagtype}{$tagid}}) {
+					my $lc = $childid;
+					push @{$taxonomy_json{$tagid}{children}}, $childid;
+				}
+			}			
 			
 			my $main_lc = $tagid;
 			$main_lc =~ s/^(\w\w):.*/$1/;
@@ -1086,6 +1103,9 @@ sub build_tags_taxonomy($$) {
 			
 			foreach my $lc ($main_lc, sort keys %{$translations_to{$tagtype}{$tagid}}) {
 				$i++;
+				
+				$taxonomy_json{$tagid}{name}{$lc} = $translations_to{$tagtype}{$tagid}{$lc};
+				
 				next if (($lc eq $main_lc) and ($i > 1));
 				
 				my $lc_tagid = get_fileid($translations_to{$tagtype}{$tagid}{$lc});
@@ -1097,8 +1117,18 @@ sub build_tags_taxonomy($$) {
 			}
 			
 			if (defined $properties{$tagtype}{$tagid}) {
+				
 				foreach my $prop_lc (keys %{$properties{$tagtype}{$tagid}}) {
 					print $OUT "$prop_lc: " . $properties{$tagtype}{$tagid}{$prop_lc} . "\n";
+					if ($prop_lc =~ /^(.*):(\w\w)$/) {
+						my $prop = $1;
+						my $lc = $2;
+						(defined $taxonomy_json{$tagid}{$prop}) or $taxonomy_json{$tagid}{$prop} = {};
+						$taxonomy_json{$tagid}{$prop}{$lc} = $properties{$tagtype}{$tagid}{$prop_lc};
+					}
+					else {
+						$taxonomy_json{$tagid}{$prop_lc} = $properties{$tagtype}{$tagid}{$prop_lc};
+					}
 				}
 			}
 			
@@ -1107,6 +1137,19 @@ sub build_tags_taxonomy($$) {
 		}
 		
 		close $OUT;
+		
+		(-e "$www_root/data/taxonomies") or mkdir("$www_root/data/taxonomies", 0755);
+		
+		{
+		binmode STDOUT, ":utf8";
+		open (my $OUT_JSON, ">", "$www_root/data/taxonomies/$tagtype.json");
+		print $OUT_JSON encode_json(\%taxonomy_json);
+		close ($OUT_JSON);
+		# to serve pre-compressed files from Apache
+		# nginx : needs nginx_static module
+		# system("cp $www_root/data/taxonomies/$tagtype.json $www_root/data/taxonomies/$tagtype.json.json");
+		# system("gzip $www_root/data/taxonomies/$tagtype.json");
+		}
 		
 		print STDERR $errors;
 		
