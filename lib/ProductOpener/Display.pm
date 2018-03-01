@@ -1362,7 +1362,7 @@ sub display_list_of_tags($$) {
 			$html .= "<tr><td>";
 			
 			my $display = '';
-			my $linkeddata;
+			my @sameAs = ();
 			if ($tagtype eq 'nutrition_grades') {
 				if ($tagid =~ /^a|b|c|d|e$/) {
 					my $grade = $tagid;
@@ -1374,7 +1374,12 @@ sub display_list_of_tags($$) {
 			}
 			elsif (defined $taxonomy_fields{$tagtype}) {
 				$display = display_taxonomy_tag($lc, $tagtype, $tagid);
-				$linkeddata = $properties{$tagtype}{$tagid};
+				if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$tagid})) {
+					foreach my $key (keys %weblink_templates) {
+						next if not defined $properties{$tagtype}{$tagid}{$key};
+						push @sameAs, sprintf($weblink_templates{$key}{href}, $properties{$tagtype}{$tagid}{$key});
+					}
+				}
 			}
 			else {
 				$display = canonicalize_tag2($tagtype, $tagid);
@@ -1392,8 +1397,8 @@ sub display_list_of_tags($$) {
 				products => $products + 0, # + 0 to make the value numeric
 			};
 			
-			if (defined $linkeddata) {
-				$tagentry->{linkeddata} = $linkeddata;
+			if (($#sameAs >= 0)) {
+				$tagentry->{sameAs} = \@sameAs;
 			}
 
 			if (defined $tags_images{$lc}{$tagtype}{get_fileid($icid)}) {
