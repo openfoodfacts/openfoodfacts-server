@@ -66,6 +66,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ### Contribution guidelines ###
 
+If you're new to Open-Source,We recommend you to Checkout our [_Contributing Guidelines_](https://github.com/openfoodfacts/openfoodfacts-server/blob/master/CONTRIBUTING.md).Feel free to fork the project and send us a pull request.
+
 * Writing tests
 * Code review
 * Other guidelines
