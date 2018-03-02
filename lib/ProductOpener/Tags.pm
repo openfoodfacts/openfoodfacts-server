@@ -1146,7 +1146,7 @@ sub build_tags_taxonomy($$) {
 		(-e "$www_root/data/taxonomies") or mkdir("$www_root/data/taxonomies", 0755);
 		
 		{
-		binmode STDOUT, ":utf8";
+		binmode STDOUT, ":encoding(UTF-8)";
 		open (my $OUT_JSON, ">", "$www_root/data/taxonomies/$tagtype.json");
 		print $OUT_JSON encode_json(\%taxonomy_json);
 		close ($OUT_JSON);

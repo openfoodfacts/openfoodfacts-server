@@ -15,8 +15,8 @@ sub test_links {
     my @links = shift;
 
     foreach my $key (@links) {
-        foreach my $lang (keys $Lang{$key}) {
-            like($Lang{$key}{$lang}, $regex);
+	foreach my $lang (keys %{$Lang{$key}}) {
+            like($Lang{$key}{$lang}, $regex, "'$key' in '$lang' should be a link");
         }
     }
 
@@ -70,7 +70,7 @@ is( $Lang{months}{en}, "['January', 'February', 'March', 'April', 'May', 'June',
 # https://github.com/openfoodfacts/openfoodfacts-server/issues/1116
 sub test_logo_exists {
 	my $logo = shift;
-	foreach my $lang (keys $Lang{$logo}) {
+	foreach my $lang (keys %{$Lang{$logo}}) {
 		my $path = "$www_root/images/misc/$Lang{$logo}{$lang}";
 		ok( -e $path, "file '$path' exists");
 	}
