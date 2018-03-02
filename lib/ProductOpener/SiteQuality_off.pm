@@ -97,7 +97,7 @@ Physiolac
 Topfer
 );
 
-my @cigarette_food_brands = qw(
+my @cigarette_brands = qw(
 A Mild
 Absolute Mild
 Access Mild
@@ -344,6 +344,15 @@ foreach my $brand (@baby_food_brands) {
 }
 
 
+my %cigarette_brands = ();
+
+foreach my $brand (@cigarette_brands) {
+
+	my $brandid = get_fileid($brand);
+	$cigarette_brands{$brandid} = 1;
+
+}
+
 sub detect_categories ($) {
 
 	my $product_ref = shift;
@@ -372,7 +381,16 @@ sub detect_categories ($) {
 	if (defined $product_ref->{brands_tags}) {
 		foreach my $brandid (@{$product_ref->{brands_tags}}) {
 			if (defined $baby_food_brands{$brandid}) {
-				push $product_ref->{quality_tags}, "detected-category-from-brand-ingredients-en-baby-foods";
+				push $product_ref->{quality_tags}, "detected-category-from-brand-en-baby-foods";
+				last;
+			}
+		}
+	}
+
+	if (defined $product_ref->{brands_tags}) {
+		foreach my $brandid (@{$product_ref->{brands_tags}}) {
+			if (defined $cigarette_brands{$brandid}) {
+				push $product_ref->{quality_tags}, "detected-category-from-brand-en-cigarettes";
 				last;
 			}
 		}
