@@ -5,10 +5,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-11 13:22-0500\n"
+"PO-Revision-Date: 2018-03-02 12:12-0500\n"
 "Language-Team: Ukrainian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: uk\n"
@@ -173,7 +173,7 @@ msgstr ""
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr ""
+msgstr "Код товару"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
@@ -886,11 +886,11 @@ msgstr ""
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Інгредієнти"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr ""
+msgstr "Інгредієнти"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -1326,7 +1326,7 @@ msgstr ""
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr ""
+msgstr "Дізнатись більше"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
@@ -1661,7 +1661,7 @@ msgstr ""
 
 msgctxt "password"
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
@@ -2017,7 +2017,7 @@ msgstr ""
 
 msgctxt "save"
 msgid "Save"
-msgstr ""
+msgstr "Зберегти"
 
 msgctxt "saved"
 msgid "Saved."
@@ -2029,7 +2029,7 @@ msgstr ""
 
 msgctxt "search"
 msgid "Search"
-msgstr ""
+msgstr "Пошук"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
@@ -2037,7 +2037,7 @@ msgstr ""
 
 msgctxt "search_button"
 msgid "Search"
-msgstr ""
+msgstr "Пошук"
 
 msgctxt "search_contains"
 msgid "contains"
@@ -2130,7 +2130,7 @@ msgstr ""
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Інгредієнти"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
@@ -2647,6 +2647,10 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " — "
+msgstr ""
+
+msgctxt "recent_changes"
+msgid "Recent Changes"
 msgstr ""
 
 msgctxt "translators_title"
