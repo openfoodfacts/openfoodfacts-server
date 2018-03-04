@@ -314,7 +314,15 @@ last_edit_dates
 
 %weblink_templates = (
 
-	'wikidata:en' => { href => 'https://www.wikidata.org/wiki/%s', text => 'Wikidata' },
+	'wikidata:en' => { href => 'https://www.wikidata.org/wiki/%s', text => 'Wikidata', parse => sub
+	{
+		my ($url) = @_;
+		if ($url =~ /^https?:\/\/www.wikidata.org\/wiki\/(Q\d+)$/) {
+			return $1
+		}
+
+		return;
+	} },
 
 );
 

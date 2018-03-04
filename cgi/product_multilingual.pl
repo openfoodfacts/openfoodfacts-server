@@ -1681,15 +1681,33 @@ HTML
 	my $other_nutriments = '';
 	my $nutriments = '';
 	foreach my $nid (@{$other_nutriments_lists{$nutriment_table}}) {
+		my $other_nutriment_value;
+		if ((exists $Nutriments{$nid}{$lang}) and ($Nutriments{$nid}{$lang} ne '')) {
+			$other_nutriment_value = $Nutriments{$nid}{$lang};
+		}
+		else {
+			foreach my $olc (@{$country_languages{$cc}}, 'en') {
+				next if $olc eq $lang;
+				if ((exists $Nutriments{$nid}{$olc}) and ($Nutriments{$nid}{$olc} ne '')) {
+					$other_nutriment_value = $Nutriments{$nid}{$olc};
+					last;
+				}
+			}
+		}
+
+		if ((not (defined $other_nutriment_value)) or ($other_nutriment_value eq '')) {
+			$other_nutriment_value = $nid;
+		}
+
 		if ((not defined $product_ref->{nutriments}{$nid}) or ($product_ref->{nutriments}{$nid} eq '')) {
 			my $supports_iu = "false";
 			if ((exists $Nutriments{$nid}{iu}) and ($Nutriments{$nid}{iu} > 0)) {
 				$supports_iu = "true";
 			}
 
-			$other_nutriments .= '{ "value" : "' . $Nutriments{$nid}{$lang} . '", "unit" : "' . $Nutriments{$nid}{unit} . '", "iu": ' . $supports_iu . '  },' . "\n";
+			$other_nutriments .= '{ "value" : "' . $other_nutriment_value . '", "unit" : "' . $Nutriments{$nid}{unit} . '", "iu": ' . $supports_iu . '  },' . "\n";
 		}
-		$nutriments .= '"' . $Nutriments{$nid}{$lang} . '" : "' . $nid . '",' . "\n";
+		$nutriments .= '"' . $other_nutriment_value . '" : "' . $nid . '",' . "\n";
 	}
 	$nutriments =~ s/,\n$//s;
 	$other_nutriments =~ s/,\n$//s;
@@ -1786,15 +1804,24 @@ HTML
 	. hidden(-name=>'code', -value=>$code, -override=>1)
 	. hidden(-name=>'action', -value=>'process', -override=>1);
 	
+	$html .= '<div style="position: fixed; bottom: 0; width: 100%; border-top: 1px solid #eee; background-color: white; z-index: 100; padding-top: 10px;">';
+
 	if ($type eq 'edit') {
 		$html .= <<HTML
-<label for="comment" style="margin-left:10px">$Lang{edit_comment}{$lang}</label>
-<input id="comment" name="comment" value="" type="text" class="text" />
+<input id="comment" name="comment" placeholder="$Lang{edit_comment}{$lang}" value="" type="text" class="text" style="width: 70%; float: left; margin-right: 5px">
+<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small" style="float: left">
 HTML
+;
+	}
+	else {
+		$html .= <<HTML
+<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small" style="float: left; margin-left: 70%;">
+HTML
+;
 	}
 	
 	$html .= <<HTML
-<input type="submit" name=".submit" value="$Lang{save}{$lc}" class="button small" />
+</div>
 </form>
 HTML
 ;
@@ -1844,41 +1871,7 @@ HTML
 			# Display diffs
 			# [Image upload - add: 1, 2 - delete 2], [Image selection - add: front], [Nutriments... ]
 			
-			my $diffs = '';
-			if (defined $change_ref->{diffs}) {
-				my %diffs = %{$change_ref->{diffs}};
-				foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments') {
-					if (defined $diffs{$group}) {
-						$diffs .= lang("change_$group") . " ";
-									
-						foreach my $diff ('add','change','delete') {
-							if (defined $diffs{$group}{$diff}) {
-								$diffs .= "(" . lang("diff_$diff") . ' ' ;
-								my @diffs = @{$diffs{$group}{$diff}};
-								if ($group eq 'fields') {
-									# @diffs = map( lang($_), @diffs);
-								}
-								elsif ($group eq 'nutriments') {
-									# @diffs = map( $Nutriments{$_}{$lc}, @diffs);
-									# Attempt to access disallowed key 'nutrition-score' in a restricted hash at /home/off-fr/cgi/product.pl line 1039.
-									my @lc_diffs = ();
-									foreach my $nid (@diffs) {
-										if (exists $Nutriments{$nid}) {
-											push @lc_diffs, $Nutriments{$nid}{$lc};
-										}
-									}
-								}
-								$diffs .= join(", ", @diffs) ;
-								$diffs .= ") ";
-							}
-						}
-						
-						$diffs .= "-- ";
-					}
-				}
-				$diffs =~  s/-- $//;
-			}
-			
+			my $diffs = compute_changes_diff_text($change_ref);
 			$html .= "<li>$date - $user $diffs $comment - <a href=\"" . product_url($product_ref) . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
 		
 		}
