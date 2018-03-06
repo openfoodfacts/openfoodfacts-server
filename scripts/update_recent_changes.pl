@@ -47,7 +47,7 @@ $recent_changes_collection->drop;
 my $cmd = [
 	create => 'recent_changes',
 	capped => true,
-	size   => 102400104857600
+	size   => 104857600
 ];
 
 $database->run_command($cmd);
