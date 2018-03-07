@@ -18,12 +18,14 @@ my $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-is($product_ref->{additives}, ' [ acide-citrique -> en:e330  -> exists  -- ok  ]  [ colorant -> fr:colorant  ]  [ e120 -> en:e120  -> exists  -- ok  ]  [ vitamine-c -> en:e300  -> exists  -- mandatory_additive_class: antioxidant (current: en:colour)  ]  [ vitamine-c -> en:e300  -- already seen  ]  [ vitamine-e -> en:e307  -> exists  -- ok  ]  [ vitamine-500 -> fr:vitamine-500  ]  [ vitamine -> fr:vitamine  ] ');
+is($product_ref->{additives}, ' [ acide-citrique -> en:e330  -> exists  -- ok  ]  [ colorant -> fr:colorant  ]  [ e120 -> en:e120  -> exists  -- ok  ]  [ vitamine-c -> en:e300  -> exists  -- mandatory_additive_class: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant (current: en:colour)  ]  [ vitamine-c -> en:e300  -- already seen  ]  [ e500 -> en:e500  -> exists  -- ok  ] ');
+
+# vitamine C is not used as an additive (no fuction)
 
 is_deeply($product_ref->{additives_original_tags}, [
                                 'en:e330',
                                 'en:e120',
-                                'en:e307'
+                                'en:e500'
                               ],
 );
 
@@ -101,7 +103,7 @@ $product_ref = {
 extract_ingredients_classes_from_text($product_ref);
 
 use Data::Dumper;
-print STDERR Dumper($product_ref->{additives_original_tags});
+#print STDERR Dumper($product_ref->{additives_original_tags});
 
 is_deeply($product_ref->{additives_original_tags}, [
                                 'en:e173',
@@ -118,7 +120,7 @@ $product_ref = {
 extract_ingredients_classes_from_text($product_ref);
 
 use Data::Dumper;
-print STDERR Dumper($product_ref->{additives_original_tags});
+#print STDERR Dumper($product_ref->{additives_original_tags});
 
 is_deeply($product_ref->{additives_original_tags}, [
                                 'en:e965ii',
@@ -137,7 +139,7 @@ $product_ref = {
 extract_ingredients_classes_from_text($product_ref);
 
 use Data::Dumper;
-print STDERR Dumper($product_ref->{additives_original_tags});
+#print STDERR Dumper($product_ref->{additives_original_tags});
 
 0 and is_deeply($product_ref->{additives_original_tags}, [
                                 'en:e160a',
@@ -155,7 +157,7 @@ $product_ref = {
 extract_ingredients_classes_from_text($product_ref);
 
 use Data::Dumper;
-print STDERR Dumper($product_ref->{additives_original_tags});
+#print STDERR Dumper($product_ref->{additives_original_tags});
 
 0 and is_deeply($product_ref->{additives_original_tags}, [
                                 'en:e100',
@@ -175,7 +177,7 @@ $product_ref = {
 extract_ingredients_classes_from_text($product_ref);
 
 use Data::Dumper;
-print STDERR Dumper($product_ref->{additives_original_tags});
+#print STDERR Dumper($product_ref->{additives_original_tags});
 
 is_deeply($product_ref->{additives_original_tags}, [
                                 'en:e160a',
@@ -192,7 +194,7 @@ $product_ref = {
 extract_ingredients_classes_from_text($product_ref);
 
 use Data::Dumper;
-print STDERR Dumper($product_ref->{additives_original_tags});
+#print STDERR Dumper($product_ref->{additives_original_tags});
 
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e14xx',
@@ -295,7 +297,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+#print STDERR $product_ref->{additives} . "\n";
 
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e300',
@@ -303,7 +305,181 @@ is_deeply($product_ref->{additives_original_tags}, [
                               ],
 );
 
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"Chlorures d'ammonium et de calcium"
+};
 
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+
+is_deeply($product_ref->{additives_original_tags}, [
+          'en:e510',
+          'en:e509',
+                              ],
+);
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"Chlorures de calcium et ammonium"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+
+is_deeply($product_ref->{additives_original_tags}, [
+          'en:e509',
+          'en:e510',
+                              ],
+);
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"Sulfates de fer, de zinc et de cuivre"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+          'en:e519',
+                              ],
+);
+
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"Minéraux (carbonate de calcium)"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+                              ],
+);
+
+is_deeply($product_ref->{minerals_tags}, [
+	"en:calcium-carbonate",
+                              ],
+);
+
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"carbonate de calcium"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+	"en:e170",
+                              ],
+);
+
+is_deeply($product_ref->{minerals_tags}, [
+                              ],
+);
+
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"Mineraux (carbonate de calcium, chlorures de calcium, potassium et magnésium, citrates de potassium et de sodium, phosphate de calcium, sulfates de fer, de zinc, de cuivre et de manganèse, iodure de potassium, sélénite de sodium)."
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+
+is_deeply($product_ref->{additives_original_tags}, [
+                              ],
+);
+
+is_deeply($product_ref->{minerals_tags}, [
+	"en:calcium-carbonate",
+	"en:calcium-chloride",
+	"en:potassium-chloride",
+	"en:magnesium-chloride",
+	"en:potassium-citrate",
+	"en:sodium-citrate",
+	"en:calcium-phosphate",
+	"en:iron-sulfide",
+	"en:zinc-sulfide",
+	"en:copper-sulfide",
+	"en:manganese-sulfide",
+	"en:potassium-iodide",
+	"en:sodium-selenite",
+                              ],
+);
+
+
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"(carbonate de calcium, chlorures de calcium, potassium et magnésium, citrates de potassium et de sodium, phosphate de calcium, sulfates de fer, de zinc, de cuivre et de manganèse, iodure de potassium, sélénite de sodium)."
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+
+is_deeply($product_ref->{additives_original_tags}, [
+	"en:e170",
+	"en:e509",
+	"en:e508",
+	"en:e511",
+	"en:e332",
+	"en:e331",
+	"en:e341",
+	"en:e519",
+	"en:e516",
+                              ],
+);
+
+is_deeply($product_ref->{minerals_tags}, [
+                              ],
+);
+
+
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text => 
+"Lactosérum déminéralisé (lait) - Huiles végétales (Palme, Colza, Coprah, Tournesol, Mortierella alpina) - Lactose (lait) - Lait écrémé - Galacto- oligosaccharides (GOS) (lait) - Protéines de lactosérum concentrées (lait) - Fructo- oligosaccharides (FOS) - Huile de poisson - Chlorure de choline - Emulsifiant: lécithine de soja - Taurine - Nucléotides - Inositol - L-tryptophane - L-carnitine - Vitamines (C, PP, B5, B9, A, E, B8, B12, BI, D3, B6, K1, B2) - Minéraux (carbonate de calcium, chlorures de potassium et de magnésium, citrates de potassium et de sodium, phosphate de calcium, sulfates de fer, de zinc, de cuivre et de manganèse, iodure de potassium, sélénite de sodium)."
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR Dumper($product_ref->{additives_original_tags});
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+          'en:e322i',
+                              ],
+);
 
 
 
