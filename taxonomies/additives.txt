@@ -1,3 +1,14 @@
+# For reference:
+#
+# EU list of additives:
+# 
+# http://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1333-20141106&rid=1
+# Annex 2 REGULATION (EC) No 1333/2008 OF THE EUROPEAN PARLIAMENT AND OF THE
+# COUNCIL
+# of 16 December 2008
+# on food additives
+# (Text with EEA relevance)
+
 synonyms:en:FD&C, FC and C, FDC, FFDCA, FDCA
 synonyms:en:n°, no, number, nb, #
 synonyms:en:no1, n1, 1
@@ -479,7 +490,7 @@ sk:E123, Amarant
 sl:E123, Amarant
 sv:E123, Amarant
 e_number:en:123
-mandatory_additive_class:en:colour
+mandatory_additive_class:en: en:colour
 wikidata:en:Q421074
 colour_index:en:CI 16185
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/1649.pdf
@@ -1008,7 +1019,7 @@ sk:E150, E150 food additive
 sl:E150, E150 food additive
 sv:E150, E150 food additive
 e_number:en:150
-mandatory_additive_class:en:colour
+mandatory_additive_class:en: en:colour
 
 en:E150a, Plain caramel, caramel color, caramel coloring
 bg:E150a, Обикновен карамел
@@ -1330,6 +1341,7 @@ sk:E160a, Karotén
 sl:E160a, E160a food additive
 sv:E160a, Karoten, E 160, Karotener, Karotin, E 160a, Alfakaroten, E 160 a, E160
 e_number:en:160
+mandatory_additive_class:en: en:colour
 wikidata:en:Q190156
 
 <en:E160a
@@ -2917,6 +2929,7 @@ nl:E224, Kaliumdisulfiet, Kaliummetabisulfiet
 pl:E224, Pirosiarczyn potasu, Metadisiarczek potasu
 pt:E224, Metabissulfito de potássio
 ro:E224, Metabisulfit de potasiu
+rs:E224, Kalijum-metabisulfit
 ru:E224, Пиросульфит калия, дисульфит калия
 sk:E224, Disiričitan draselný
 sl:E224, Kalijev metabisulfit
@@ -3530,7 +3543,7 @@ en:E262, Sodium acetates, sodium acetate
 bg:E262, Натриев ацетат
 cs:E262, Octan sodný, Etanoát sodný, Metylkarboxát sodný, Metylkarboxylát sodný, Sodná sůl kyseliny ethanové, CH3COONa, Methylkarboxylát sodný, Sodná sůl kyseliny octové, Ethanoát sodný, Sodná sůl kyseliny etanové, E 262, Methylkarboxát sodný
 da:E262, CH_3 COONa
-de:E262, Natriumacetat, Natrium aceticum, Natriumethanoat, Sodiumacetat, NaOAc, CH3COONa, Natriumacetat-Trihydrat, NaAc, E 262
+de:E262, Natriumacetat, Natriumacetate, Natrium aceticum, Natriumethanoat, Sodiumacetat, NaOAc, CH3COONa, Natriumacetat-Trihydrat, NaAc, E 262
 el:E262, E262 food additive
 es:E262, Acetato de sodio, Acetato sódico, E 262
 et:E262, Naatriumetanoaat, Naatriumatsetaat
@@ -3976,8 +3989,9 @@ ru:E300, Аскорбиновая кислота, Витамин С, Аскор�
 sk:E300, Kyselina askorbová, kyselina l-askorbová, Vitamín C, E 300
 sl:E300, Askorbinska kislina, l-askorbinska kislina
 sv:E300, Askorbinsyra, l-askorbinsyra, Vitamin C, Hexuronsyra, E 300, C-Vitamin, Askorbat, Askobinsyror, Askorbin
-mandatory_additive_class:en:antioxidant
 e_number:en:300
+mandatory_additive_class:en: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant
+default_additive_class:en: en:vitamin
 wikidata:en:Q193598
 
 en:E301, Sodium ascorbate, Sodium L-ascorbate
@@ -4005,6 +4019,7 @@ sk:E301, Askorban sodný, L-askorbát sodný
 sl:E301, Natrijev askorbat, natrijev L-askorbat
 sv:E301, Natriumaskorbat, Natrium-L-askorbat
 e_number:en:301
+mandatory_additive_class:en: en:antioxidant
 wikidata:en:Q424551
 
 en:E302, Calcium ascorbate
@@ -4030,7 +4045,9 @@ sk:E302, Askorban vápenatý
 sl:E302, Kalcijev askorbat
 sv:E302, Kalciumaskorbat
 e_number:en:302
+mandatory_additive_class:en :en:antioxidant
 wikidata:en:Q283033
+
 
 en:E303, Potassium ascorbate
 bg:E303, E303 food additive
@@ -4214,6 +4231,7 @@ sk:E307a, E307a food additive
 sl:E307a, E307a food additive
 sv:E307a, E307a food additive
 e_number:en:307
+mandatory_additive_class:en :en:antioxidant
 wikidata:en:Q158348
 
 en:E307b, tocopherol
@@ -4239,6 +4257,7 @@ sk:E307b, E307b food additive
 sl:E307b, E307b food additive
 sv:E307b, E307b food additive
 e_number:en:307
+mandatory_additive_class:en :en:antioxidant
 wikidata:en:Q158348
 
 en:E307c, tocopherol
@@ -4264,6 +4283,7 @@ sk:E307c, E307c food additive
 sl:E307c, E307c food additive
 sv:E307c, E307c food additive
 e_number:en:307
+mandatory_additive_class:en :en:antioxidant
 wikidata:en:Q158348
 
 en:E308, Gamme-tocopherol, gamma-Tocopherol
@@ -4290,6 +4310,9 @@ sl:E308, E308 food additive
 sv:E308, E308 food additive
 e_number:en:308
 wikidata:en:Q155753
+
+# E309 : https://webgate.ec.europa.eu/foods_system/main/index.cfm?event=substance.view&identifier=104
+# listed as an additive in EU, but I couldn't find a function / class
 
 en:E309, Delta-tocopherol, δ-tocopherol
 bg:E309, E309 food additive
@@ -6443,6 +6466,7 @@ ro:E375, E375 food additive
 sk:E375, E375 food additive
 sl:E375, E375 food additive
 sv:E375, E375 food additive
+mandatory_additive_class:en :en:colour-retention-agent
 e_number:en:375
 
 en:E380, Triammonium citrate
@@ -7608,7 +7632,7 @@ en:E428, Gelatine, gelatin
 bg:E428, Желатин
 cs:E428, želatina
 da:E428, gelatine, Husblas
-de:E428, Gelatine, Speisegelatine, Gelatinpulver, Gelatinieren
+de:E428, Gelatine, Speisegelatine, Gelatinpulver, Gelatinieren, Rindergelatine
 el:E428, ζελατίνη
 es:E428, Gelatina, Gelatinosa, Grenetina, Gelatinoso
 et:E428, želatiin
@@ -10198,7 +10222,7 @@ en:E500, Sodium carbonates, sodium carbonate
 bg:E500, Натриев карбонат, Калцинирана сода, Динатриев карбонат
 cs:E500, Uhličitan sodný, Na2CO3, Soda na praní
 da:E500, Soda, Natriumcarbonat
-de:E500, Natriumcarbonat, Natriumkarbonat, Calciniertes Soda, Calcinierte Soda, Waschsoda, Kalzinierte Soda, Na2CO3, Kalziniertes Soda
+de:E500, Natriumcarbonat, Natriumcarbonate, Natriumkarbonat, Calciniertes Soda, Calcinierte Soda, Waschsoda, Kalzinierte Soda, Na2CO3, Kalziniertes Soda
 el:E500, E500 food additive
 es:E500, Carbonatos de sodio, Carbonato de sodio, Sosa comercial, Na2CO3, Carbonato sódico
 et:E500, Naatriumkarbonaat, Sooda, Pesusooda, Kristalne sooda, Kaltsineeritud sooda
@@ -11993,7 +12017,7 @@ en:E579, Ferrous gluconate, Iron(II) gluconate
 bg:E579, Феро глюконат, Феро-ди-D-глюконат дихидрат
 cs:E579, Glukonan železnatý
 da:E579, Ferrogluconat, Ferrodi-D-gluconatdihydrat
-de:E579, Eisen(ii)-gluconat, Eisengluconat, E 579
+de:E579, Eisen(ii)-gluconat, Eisengluconat, E 579, Eisen(II)Gluconat
 el:E579, Γλυκονικος σιδηρος
 es:E579, Gluconato ferroso
 et:E579, Ferroglükonaat
@@ -12132,7 +12156,7 @@ nl:E621, Mononatriumglutamaat, Natriumglutamaat, MSG, Vetsin, Ve tsin
 pl:E621, Glutaminian monosodowy, Glutaminian sodu
 pt:E621, Glutamato monossódico, Glutamato de sódio
 ro:E621, Glutamat monosodic, Glutamat de sodiu, Glumat de monosodiu
-rs:E621, mononatrijum glutamat
+rs:E621, mononatrijum glutamat, mononatrijum-glutaminat, mononatrijum-glutamat, mononatrijum glutaminat
 ru:E621, Глутамат натрия, Вэйцзин, Фе-цзин, Вейцзин, Глютамат натрия, Адзи-но-мото, Глутаминат натрия, Е621, Е-621
 sk:E621, Glutaman sodný, Glutaman sodný, E 621
 sl:E621, Mononatrijev glutamat, natrijev glutamat, mononatrijevgluamat
@@ -14862,6 +14886,8 @@ ro:E1001, E1001 food additive
 sk:E1001, E1001 food additive
 sl:E1001, E1001 food additive
 sv:E1001, E1001 food additive
+# not sure about this, it seems to be used in baby milks without a listed function
+mandatory_additive_class:en: en:emulsifier
 e_number:en:1001
 wikidata:en:Q18668392
 
