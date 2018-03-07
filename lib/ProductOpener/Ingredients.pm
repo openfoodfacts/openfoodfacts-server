@@ -66,6 +66,7 @@ my $middle_dot = qr/(?:\N{U+00B7}|\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N
 # Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
 my $dashes = qr/(?:\p{Pd}|\N{U+2053}|\N{U+2212})/i;
 my $separators = qr/(,|;|:|$middle_dot|\[|\{|\(|( $dashes ))|(\/)/i;
+my $separators_except_comma = qr/(;|:|$middle_dot|\[|\{|\(|( $dashes ))|(\/)/i;
 
 # load ingredients classes
 
@@ -490,6 +491,35 @@ sub extract_ingredients_from_text($) {
 }
 
 
+# function to normalize strings like "Carbonate d'ammonium" in French
+# x is the prefix
+# y can contain de/d' (of in French)
+sub normalize_fr_a_de_b($$) {
+
+	my $a = shift;
+	my $b = shift;
+	
+	$a =~ s/\s+$//;
+	$b =~ s/^\s+//;
+
+	$b =~ s/^(de |d')//;
+	
+	if ($b =~ /^(a|e|i|o|u|y|h)/i) {
+		return $a . " d'" . $b;
+	}
+	else {
+		return $a . " de " . $b;
+	}
+}
+
+sub normalize_fr_a_de_enumeration {
+
+	my $a = shift;
+	
+	return join(",", map { normalize_fr_a_de_b($a, $_)} @_);
+}
+
+
 sub extract_ingredients_classes_from_text($) {
 
 	my $product_ref = shift;
@@ -513,7 +543,11 @@ sub extract_ingredients_classes_from_text($) {
 	};
 	
 	# vitamin code: 1 or 2 letters followed by 1 or 2 numbers (e.g. PP, B6, B12)
-	$text =~ s/(vitamin|vitamine)(s?)(((\W+)((and|et) )?(\w(\w)?(\d+)?)\b)+)/$split_vitamins->($1,$3)/eig;
+	# $text =~ s/(vitamin|vitamine)(s?)(((\W+)((and|et) )?(\w(\w)?(\d+)?)\b)+)/$split_vitamins->($1,$3)/eig;
+	
+	# 2018-03-07 : commenting out the code above as we are now separating vitamins from additives,
+	# and PP, B6, B12 etc. will be listed as synonyms for Vitamine PP, Vitamin B6, Vitamin B12 etc.
+	# we will need to be careful that we don't match a single letter K, E etc. that is not a vitamin, and if it happens, check for a "vitamin" prefix
 		
 	
 	# E 240, E.240, E-240..
@@ -549,36 +583,104 @@ sub extract_ingredients_classes_from_text($) {
 	
 	$product_ref->{ingredients_text_debug} = $text;	
 	
+
+	if ($lc eq 'fr') {
+	
+		# huiles de palme et de
+		
+		# carbonates d'ammonium et de sodium
+		
+		# carotène et extraits de paprika et de curcuma
+		
+		# Minéraux (carbonate de calcium, chlorures de calcium, potassium et magnésium, citrates de potassium et de sodium, phosphate de calcium,
+		# sulfates de fer, de zinc, de cuivre et de manganèse, iodure de potassium, sélénite de sodium).
+		
+		
+		# simple plural (just an additional "s" at the end) will be added in the regexp
+		my @prefixes = (
+"extrait",
+"huile",
+"huile végétale",
+"huiles végétales",
+"matière grasse",
+"matières grasses",
+"graisses",
+"lécithine",
+
+"carbonate",
+"chlorure",
+"citrate",
+"iodure",
+"nitrate",
+"phosphate",
+"sélénite",
+"sulfate",
+	);
+	
+		my @suffixes = (
+"curcuma",
+"romarin",
+	
+"colza",
+"palme",
+"tournesol",
+
+"aluminium",
+"ammonium",
+"calcium",
+"citrate",
+"cuivre",
+"fer",
+"magnésium",
+"manganèse",
+"potassium",
+"sodium",
+"zinc",
+);
+
+
+			my $prefixregexp = "";
+			foreach my $prefix (@prefixes) {
+				$prefixregexp .= '|' . $prefix . '|' . $prefix . 's';
+				my $unaccented_prefix = unac_string_perl($prefix);
+				if ($unaccented_prefix ne $prefix) {
+					$prefixregexp .= '|' . $unaccented_prefix . '|' . $unaccented_prefix . 's';
+				}
+				
+			}
+			$prefixregexp =~ s/^\|//;
+			
+			
+
+			my $suffixregexp = "";
+			foreach my $suffix (@suffixes) {
+				$suffixregexp .= '|' . $suffix . '|' . $suffix . 's';
+				my $unaccented_suffix = unac_string_perl($suffix);
+				if ($unaccented_suffix ne $suffix) {
+					$suffixregexp .= '|' . $unaccented_suffix . '|' . $unaccented_suffix . 's';
+				}
+				
+			}
+			$suffixregexp =~ s/^\|//;		
+		
+		
+		$text =~ s/($prefixregexp) (de |d')?($suffixregexp) et (de |d')?($suffixregexp)/normalize_fr_a_de_enumeration($1, $3, $5)/ieg;
+		$text =~ s/($prefixregexp) (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)/normalize_fr_a_de_enumeration($1, $3, $5, $7)/ieg;
+		$text =~ s/($prefixregexp) (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9)/ieg;
+		$text =~ s/($prefixregexp) (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9, $11)/ieg;
+		
+		# Phosphate d'aluminium et de sodium --> E541. Should not be split.
+		
+		$text =~ s/(phosphate|phosphates) d'aluminium,?(phosphate|phosphates) de sodium/phosphate d'aluminium et de sodium/ig;
+		
+		# Sels de sodium et de potassium de complexes cupriques de chlorophyllines -> should not be split... 
+		$text =~ s/(sel|sels) de sodium,(sel|sels) de potassium/sels de sodium et de potassium/ig;
+	
+	
+	}
 	
 	my @ingredients = split($separators, $text);
 	
-	# huiles de palme et de
-	
-	# carbonates d'ammonium et de sodium
-	
-	# carotène et extraits de paprika et de curcuma
-	
-	# create a new list of ingredients where we can insert ingredients that we split in two
-	my @new_ingredients = ();
-	
-	foreach my $ingredient (@ingredients) {
-		next if not defined $ingredient;
-		
-		# Phosphate d'aluminium et de sodium --> E541. Should not be split.
-		# Sels de sodium et de potassium de complexes cupriques de chlorophyllines -> should not be split... 
-		
-		if (($ingredient !~ /phosphate(s)? d'aluminium et de sodium/i)
-			and ($ingredient !~ /chlorophyl/i)
-			and ($ingredient =~ /\b((de |d')(.*)) et (de |d')?/i)) {
-			push @new_ingredients, $` . $1;	# huile de palme / carbonates d'ammonium
-			push @new_ingredients, $` . $4 . $'; # huile de tournesol / carbonates de sodium
-		}
-		else {
-			push @new_ingredients, $ingredient;
-		}
-	}
-	
-	@ingredients = @new_ingredients;
 	
 	my @ingredients_ids = ();
 	foreach my $ingredient (@ingredients) {
@@ -586,6 +688,7 @@ sub extract_ingredients_classes_from_text($) {
 		my $ingredientid = get_fileid($ingredient);
 		if ((defined $ingredientid) and ($ingredientid ne '')) {
 			push @ingredients_ids, $ingredientid;
+			print STDERR "ingredient 3: $ingredient \n";
 		}
 	}
 	
@@ -616,6 +719,15 @@ sub extract_ingredients_classes_from_text($) {
 		next if (not exists $loaded_taxonomies{$tagtype});
 		
 		$product_ref->{$tagtype . '_tags'} = [];		
+		
+		my $tagtype_suffix = $tagtype;
+		$tagtype_suffix =~ s/[^_]+//;
+		
+		my $vitamins_tagtype = "vitamins" . $tagtype_suffix;
+		my $minerals_tagtype = "minerals" . $tagtype_suffix;
+		$product_ref->{$vitamins_tagtype . '_tags'} = [];
+		$product_ref->{$minerals_tagtype . '_tags'} = [];
+		
 		my $class = $tagtype;		
 		
 			my %seen = ();
@@ -635,10 +747,13 @@ sub extract_ingredients_classes_from_text($) {
 					
 					if (exists_taxonomy_tag("additives_classes", $canon_ingredient_additive_class )) {
 						$current_additive_class = $canon_ingredient_additive_class;
+						print STDERR "current_additive_class : $canon_ingredient_additive_class\n";
 					}
 				
 					# additive?
 					my $canon_ingredient = canonicalize_taxonomy_tag($product_ref->{lc}, $tagtype, $ingredient_id_copy);
+					my $canon_ingredient_vitamins = canonicalize_taxonomy_tag($product_ref->{lc}, "vitamins", $ingredient_id_copy);
+					my $canon_ingredient_minerals = canonicalize_taxonomy_tag($product_ref->{lc}, "minerals", $ingredient_id_copy);
 					
 					$product_ref->{$tagtype} .= " [ $ingredient_id_copy -> $canon_ingredient ";
 					
@@ -646,6 +761,24 @@ sub extract_ingredients_classes_from_text($) {
 						$product_ref->{$tagtype} .= " -- already seen ";	
 						$match = 1;
 					}
+					
+					# For additives, first check if the current class is vitamins or minerals and if the ingredient
+					# exists in the vitamins and minerals taxonomy
+					
+					elsif (($current_additive_class eq "en:vitamin") and (exists_taxonomy_tag("vitamins", $canon_ingredient_vitamins))) {
+						$match = 1;
+						$seen{$canon_ingredient} = 1;
+						$product_ref->{$tagtype} .= " -> exists as a vitamin and current class is en:vitamins ";
+						push @{$product_ref->{ $vitamins_tagtype . '_tags'}}, $canon_ingredient_vitamins;
+					}
+					
+					elsif (($current_additive_class eq "en:mineral") and (exists_taxonomy_tag("minerals", $canon_ingredient_minerals))) {
+						$match = 1;
+						$seen{$canon_ingredient} = 1;
+						$product_ref->{$tagtype} .= " -> exists as a vitamin and current class is en:minerals ";
+						push @{$product_ref->{ $minerals_tagtype . '_tags'}}, $canon_ingredient_minerals;
+					}					
+					
 					elsif ((exists_taxonomy_tag($tagtype, $canon_ingredient))
 						# do not match synonyms
 						and ($canon_ingredient !~ /^en:(fd|no|colour)/)
@@ -658,8 +791,11 @@ sub extract_ingredients_classes_from_text($) {
 							and (defined $properties{$tagtype}{$canon_ingredient}{"mandatory_additive_class:en"})) {
 							
 							my $mandatory_additive_class = $properties{$tagtype}{$canon_ingredient}{"mandatory_additive_class:en"};
+							# make the comma separated list a regexp
 							$product_ref->{$tagtype} .= " -- mandatory_additive_class: $mandatory_additive_class (current: $current_additive_class) ";
-							if ($current_additive_class eq ("en:" . $mandatory_additive_class)) {
+							$mandatory_additive_class =~ s/,/\|/g;
+							$mandatory_additive_class =~ s/\s//g;
+							if ($current_additive_class =~ /^$mandatory_additive_class$/) {
 								push @{$product_ref->{ $tagtype . '_tags'}}, $canon_ingredient;
 								# success!
 								$match = 1;		
