@@ -6263,8 +6263,13 @@ JS
 	
 	$html .= display_field($product_ref, 'traces');
 	
+	
+	my $html_ingredients_classes = "";
+	
+	# to compute the number of columns displayed
+	my $html_ingredients_classes_n = 0;
 
-	foreach my $class ('additives', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil') {
+	foreach my $class ('additives', 'vitamins', 'minerals', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil') {
 	
 		my $tagtype = $class;
 		my $tagtype_field = $tagtype;
@@ -6275,7 +6280,9 @@ JS
 	
 		if ((defined $product_ref->{$tagtype_field . '_tags'}) and (scalar @{$product_ref->{$tagtype_field . '_tags'}} > 0)) {
 
-			$html .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang($class . "_p") . separator_before_colon($lc)) . ":</b><br />";
+			$html_ingredients_classes_n++;
+			
+			$html_ingredients_classes .= "<div class=\"column_class\"><b>" . ucfirst( lang($class . "_p") . separator_before_colon($lc)) . ":</b><br />";
 			
 			if (defined $tags_images{$lc}{$tagtype}{get_fileid($tagtype)}) {
 				my $img = $tags_images{$lc}{$tagtype}{get_fileid($tagtype)};
@@ -6283,13 +6290,13 @@ JS
 				if ($img =~ /\.(\d+)x(\d+)/) {
 					$size = " width=\"$1\" height=\"$2\"";
 				}
-				$html .= <<HTML
+				$html_ingredients_classes .= <<HTML
 <img src="/images/lang/$lc/$tagtype/$img"$size/ style="display:inline"> 
 HTML
 ;
 			}
 			
-			$html .= "<ul style=\"display:block;float:left;\">";
+			$html_ingredients_classes .= "<ul style=\"display:block;float:left;\">";
 			foreach my $tagid (@{$product_ref->{$tagtype_field . '_tags'}}) {
 			
 				my $tag;
@@ -6320,11 +6327,42 @@ HTML
 				}
 
 		
-				$html .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a></li>\n";
+				$html_ingredients_classes .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a></li>\n";
 			}
-			$html .= "</ul></div>";
+			$html_ingredients_classes .= "</ul></div>";
 		}
 	
+	}
+	
+	if ($html_ingredients_classes_n > 0) {
+	
+		my $column_class = "small-12 columns";
+	
+		if ($html_ingredients_classes_n == 2) {
+			$column_class = "medium-6 columns";
+		}
+		elsif ($html_ingredients_classes_n == 3) {
+			$column_class = "medium-6 large-4 columns";
+		}		
+		elsif ($html_ingredients_classes_n == 4) {
+			$column_class = "medium-6 large-3 columns";
+		}
+		elsif ($html_ingredients_classes_n == 5) {
+			$column_class = "medium-6 large-4 xlarge-2 columns";
+		}			
+	
+		$html_ingredients_classes =~ s/column_class/$column_class/g;
+	
+		$html .= <<HTML
+
+<div class="row">
+
+$html_ingredients_classes
+
+</div>
+	
+HTML
+;
 	}
 	
 	

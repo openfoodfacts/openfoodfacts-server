@@ -210,6 +210,7 @@ is_deeply($product_ref->{additives_original_tags}, [
           'en:e211',
           'en:e160ai',
           'en:e122',
+          'en:e150',
           'en:e385',
 		      ],
 );
@@ -666,6 +667,77 @@ is_deeply($product_ref->{additives_original_tags}, [
 is_deeply($product_ref->{minerals_tags}, [
                               ],
 );
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"Dextrines maltées de mais, lait écrémé, huiles végétales non hydrogénées : colza, noix de coco, tournesol, lactose, Bifidus longum maternis. Minéraux : phosphate de calcium naturel de lait, oxyde de magnésium naturel, pyrophosphate de fer, gluconate de zinc, gluconate de cuivre, iodate de potassium, sélénite de sodium Vitamine d'Origine Végétale : L-ascorbate de sodium (vitamine C, cobalamine (vitamine B12), vitamines nature identique : niacine (vitamine PP), acide pantothénique (vitamine B5), riboflavine (vitamine B2), thiamine (vitamine B1), pyridoxine (vitamine B6), rétinol (vitamine A), acide folique (vitamine B9), phytoménadione (vitamine K1), biotine (vitamine B8), ergocalciférol (vitamine D2), vitamine Naturelle : tocophérols naturels extrait de tournesol (vitamine E)"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+        "en:e1400",
+                              ],
+);
+
+is_deeply($product_ref->{minerals_tags}, [
+	"en:calcium-phosphate",
+	"en:magnesium-oxide",
+	"en:iron-pyrophosphate",
+	"en:zinc-gluconate",
+	"en:copper-gluconate",
+	"en:potassium-iodate",
+	"en:sodium-selenite",
+                             ],
+);
+
+is_deeply($product_ref->{vitamins_tags}, [
+	"en:vitamin-c",
+	"en:vitamin-b12",
+	"en:vitamin-b3",
+	"en:pantothenic-acid",
+	"en:vitamin-b2",
+	"en:vitamin-b1",
+	"en:vitamin-b6",
+	"en:vitamin-a",
+	"en:vitamin-b9",
+	"en:vitamin-k1",
+	"en:biotin",
+	"en:vitamin-e",
+                              ],
+);
+
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"Oxyde de magnésium, Acide gluconique, Gluconate de calcium"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+	"en:e574",
+                              ],
+);
+
+is_deeply($product_ref->{minerals_tags}, [
+	"en:magnesium-oxide",
+	"en:calcium-gluconate",
+                              ],
+);
+
+is_deeply($product_ref->{vitamins_tags}, [
+                              ],
+);
+
 
 
 

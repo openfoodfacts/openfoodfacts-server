@@ -65,7 +65,8 @@ use JSON::PP;
 my $middle_dot = qr/(?:\N{U+00B7}|\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N{U+204C}|\N{U+204D}|\N{U+2219}|\N{U+22C5})/i;
 # Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
 my $dashes = qr/(?:\p{Pd}|\N{U+2053}|\N{U+2212})/i;
-my $separators = qr/(,|;|:|$middle_dot|\[|\{|\(|( $dashes ))|(\/)/i;
+my $separators = qr/(\.\s|,|;|:|$middle_dot|\[|\{|\(|( $dashes ))|(\/)/i;
+# separators include the dot . followed by a space, but we don't want to separate 1.4 etc.
 my $separators_except_comma = qr/(;|:|$middle_dot|\[|\{|\(|( $dashes ))|(\/)/i;
 
 # load ingredients classes
@@ -814,6 +815,7 @@ sub extract_ingredients_classes_from_text($) {
 		my $class = $tagtype;		
 		
 			my %seen = ();
+			my %seen_tags = ();
 			
 			# Keep track of mentions of the additive class (e.g. "coloring: X, Y, Z") so that we can correctly identify additives after
 			my $current_additive_class = "ingredient";
@@ -852,14 +854,20 @@ sub extract_ingredients_classes_from_text($) {
 						$match = 1;
 						$seen{$canon_ingredient} = 1;
 						$product_ref->{$tagtype} .= " -> exists as a vitamin $canon_ingredient_vitamins and current class is en:vitamins ";
-						push @{$product_ref->{ $vitamins_tagtype . '_tags'}}, $canon_ingredient_vitamins;
+						if (not exists $seen_tags{$vitamins_tagtype . '_tags' . $canon_ingredient_vitamins}) {
+							push @{$product_ref->{ $vitamins_tagtype . '_tags'}}, $canon_ingredient_vitamins;
+							$seen_tags{$vitamins_tagtype . '_tags' . $canon_ingredient_vitamins} = 1;
+						}
 					}
 					
 					elsif (($current_additive_class eq "en:mineral") and (exists_taxonomy_tag("minerals", $canon_ingredient_minerals))) {
 						$match = 1;
 						$seen{$canon_ingredient} = 1;
 						$product_ref->{$tagtype} .= " -> exists as a mineral $canon_ingredient_minerals and current class is en:minerals ";
-						push @{$product_ref->{ $minerals_tagtype . '_tags'}}, $canon_ingredient_minerals;
+						if (not exists $seen_tags{$minerals_tagtype . '_tags' . $canon_ingredient_minerals}) {
+							push @{$product_ref->{ $minerals_tagtype . '_tags'}}, $canon_ingredient_minerals;
+							$seen_tags{$minerals_tagtype . '_tags' . $canon_ingredient_minerals} = 1;
+						}
 					}					
 					
 					elsif ((exists_taxonomy_tag($tagtype, $canon_ingredient))
@@ -879,14 +887,20 @@ sub extract_ingredients_classes_from_text($) {
 							$mandatory_additive_class =~ s/,/\|/g;
 							$mandatory_additive_class =~ s/\s//g;
 							if ($current_additive_class =~ /^$mandatory_additive_class$/) {
-								push @{$product_ref->{ $tagtype . '_tags'}}, $canon_ingredient;
+								if (not exists $seen_tags{$tagtype . '_tags' . $canon_ingredient}) {
+									push @{$product_ref->{ $tagtype . '_tags'}}, $canon_ingredient;
+									$seen_tags{$tagtype . '_tags' . $canon_ingredient} = 1;
+								}
 								# success!
 								$match = 1;		
 								$product_ref->{$tagtype} .= " -- ok ";								
 							}
 						}
 						else {
-							push @{$product_ref->{ $tagtype . '_tags'}}, $canon_ingredient;
+							if (not exists $seen_tags{$tagtype . '_tags' . $canon_ingredient}) {
+								push @{$product_ref->{ $tagtype . '_tags'}}, $canon_ingredient;
+								 $seen_tags{$tagtype . '_tags' . $canon_ingredient} = 1;
+							}
 							# success!
 							$match = 1;
 							$product_ref->{$tagtype} .= " -- ok ";	
@@ -902,14 +916,20 @@ sub extract_ingredients_classes_from_text($) {
 							$match = 1;
 							$seen{$canon_ingredient} = 1;
 							$product_ref->{$tagtype} .= " -> exists as a vitamin $canon_ingredient_vitamins ";
-							push @{$product_ref->{ $vitamins_tagtype . '_tags'}}, $canon_ingredient_vitamins;
+							if (not exists $seen_tags{$vitamins_tagtype . '_tags' . $canon_ingredient_vitamins}) {
+								push @{$product_ref->{ $vitamins_tagtype . '_tags'}}, $canon_ingredient_vitamins;
+								$seen_tags{$vitamins_tagtype . '_tags' . $canon_ingredient_vitamins} = 1;
+							}
 						}
 						
 						elsif ((exists_taxonomy_tag("minerals", $canon_ingredient_minerals))) {
 							$match = 1;
 							$seen{$canon_ingredient} = 1;
 							$product_ref->{$tagtype} .= " -> exists as a mineral $canon_ingredient_minerals ";
-							push @{$product_ref->{ $minerals_tagtype . '_tags'}}, $canon_ingredient_minerals;
+							if (not exists $seen_tags{$minerals_tagtype . '_tags' . $canon_ingredient_minerals}) {
+								push @{$product_ref->{ $minerals_tagtype . '_tags'}}, $canon_ingredient_minerals;
+								$seen_tags{$minerals_tagtype . '_tags' . $canon_ingredient_minerals} = 1;
+							}
 						}	
 						
 						# try to shorten the ingredient to make it less specific, to see if it matches then

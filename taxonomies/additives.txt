@@ -8,6 +8,9 @@
 # of 16 December 2008
 # on food additives
 # (Text with EEA relevance)
+#
+# Codex Alimentarius:
+# http://www.fao.org/gsfaonline/additives/details.html?id=322
 
 synonyms:en:FD&C, FC and C, FDC, FFDCA, FDCA
 synonyms:en:n°, no, number, nb, #
@@ -11312,6 +11315,7 @@ sk:E530, Oxid horečnatý
 sl:E530, Magnezijev oksid
 sv:E530, Magnesiumoxid
 e_number:en:530
+mandatory_additive_class:en: en:acidity-regulator, en:anticaking-agent
 wikidata:en:Q214769
 
 en:E535, Sodium ferrocyanide, Yellow prussiate of soda
@@ -12012,6 +12016,7 @@ ro:E578, Gluconat de calciu
 sk:E578, Glukonan vápenatý
 sl:E578, Kalcijev glukonat
 sv:E578, Kalciumglukonat
+mandatory_additive_class:en: en:acidity-regulator, en:firming-agent, en:sequestrant
 e_number:en:578
 wikidata:en:Q413739
 
