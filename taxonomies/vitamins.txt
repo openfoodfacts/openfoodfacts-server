@@ -1,5 +1,8 @@
-stopwords:en:vitamin,vitamins
-stopwords:fr:vitamine,vitamines
+# commenting out the vitamin stopwords
+# instead, in the ingredient list, things like vitamins A, B and C
+# are split into: vitamins: vitamin A, vitamin B, Vitamin C
+#stopwords:en:vitamin,vitamins
+#stopwords:fr:vitamine,vitamines
 
 
 en:Vitamin C, Ascorbic Acid, E300
@@ -79,7 +82,7 @@ bg:Витамин A
 zh:维生素A
 
 
-en:Vitamin D
+en:Vitamin D, Vitamin D3
 fr:Vitamine D, Vitamine D3, cholécalciférol
 es:Vitamina D
 it:Vitamina D, colecalciferolo
@@ -321,12 +324,12 @@ bg:Витамин В12
 zh:维生素B12
 
 en:Biotin
-fr:Biotine, Vitamine B8, B7, H
+fr:Biotine, Vitamine B8, Vitamine B7, Vitamine H
 es:Vitamina B7, Biotina
-it:Vitamina B8, B7, H, I, Biotina
+it:Vitamina B8, Vitamina B7, Vitamina H, Vitamina I, Biotina
 pt:Vitamina B7, Biotina
-de:Biotin, Vitamin B8, B7, H
-ja:ビタミン B8, B7, H
+de:Biotin, Vitamin B8, Vitamin B7, Vitamin H
+ja:ビタミン B8, ビタミン B7, ビタミン H
 he:ביוטין, ויטמין B7
 ga:Bitin
 el:Βιοτίνη

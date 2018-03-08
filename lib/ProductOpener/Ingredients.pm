@@ -520,6 +520,42 @@ sub normalize_fr_a_de_enumeration {
 }
 
 
+sub normalize_fr_vitamin($) {
+
+	my $a = shift;
+
+	print STDERR "norm vitamin - ->$a<-\n";
+	
+	$a =~ s/\s+$//;
+	$a =~ s/^\s+//;
+
+
+	
+	# does it look like a vitamin code?
+	if ($a =~ /^[a-z][a-z]?-? ?\d?\d?$/i) {
+		return "vitamine $a";
+	}
+	else {
+		return $a;
+	}
+}
+
+sub normalize_fr_vitamins_enumeration($) {
+	
+	my $vitamins_list = shift;
+	
+	my @vitamins = split(/\/| \/ | - |, |,| et /, $vitamins_list);
+	
+	print STDERR "split_vitamins input: " . $vitamins_list . "\n";
+	
+	
+	# first output "vitamines," so that the current additive class is set to "vitamins"
+	my $split_vitamins_list = "vitamines," . join(",", map { normalize_fr_vitamin($_)} @vitamins);
+	print STDERR "split_vitamins output: " . $split_vitamins_list . "\n";
+	return $split_vitamins_list;
+}
+
+
 sub extract_ingredients_classes_from_text($) {
 
 	my $product_ref = shift;
@@ -639,29 +675,29 @@ sub extract_ingredients_classes_from_text($) {
 );
 
 
-			my $prefixregexp = "";
-			foreach my $prefix (@prefixes) {
-				$prefixregexp .= '|' . $prefix . '|' . $prefix . 's';
-				my $unaccented_prefix = unac_string_perl($prefix);
-				if ($unaccented_prefix ne $prefix) {
-					$prefixregexp .= '|' . $unaccented_prefix . '|' . $unaccented_prefix . 's';
-				}
-				
+		my $prefixregexp = "";
+		foreach my $prefix (@prefixes) {
+			$prefixregexp .= '|' . $prefix . '|' . $prefix . 's';
+			my $unaccented_prefix = unac_string_perl($prefix);
+			if ($unaccented_prefix ne $prefix) {
+				$prefixregexp .= '|' . $unaccented_prefix . '|' . $unaccented_prefix . 's';
 			}
-			$prefixregexp =~ s/^\|//;
 			
-			
+		}
+		$prefixregexp =~ s/^\|//;
+		
+		
 
-			my $suffixregexp = "";
-			foreach my $suffix (@suffixes) {
-				$suffixregexp .= '|' . $suffix . '|' . $suffix . 's';
-				my $unaccented_suffix = unac_string_perl($suffix);
-				if ($unaccented_suffix ne $suffix) {
-					$suffixregexp .= '|' . $unaccented_suffix . '|' . $unaccented_suffix . 's';
-				}
-				
+		my $suffixregexp = "";
+		foreach my $suffix (@suffixes) {
+			$suffixregexp .= '|' . $suffix . '|' . $suffix . 's';
+			my $unaccented_suffix = unac_string_perl($suffix);
+			if ($unaccented_suffix ne $suffix) {
+				$suffixregexp .= '|' . $unaccented_suffix . '|' . $unaccented_suffix . 's';
 			}
-			$suffixregexp =~ s/^\|//;		
+			
+		}
+		$suffixregexp =~ s/^\|//;		
 		
 		
 		$text =~ s/($prefixregexp) (de |d')?($suffixregexp) et (de |d')?($suffixregexp)/normalize_fr_a_de_enumeration($1, $3, $5)/ieg;
@@ -676,7 +712,54 @@ sub extract_ingredients_classes_from_text($) {
 		# Sels de sodium et de potassium de complexes cupriques de chlorophyllines -> should not be split... 
 		$text =~ s/(sel|sels) de sodium,(sel|sels) de potassium/sels de sodium et de potassium/ig;
 	
+		# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E
+		# vitamines (A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E)
+
+		
+		my @vitaminssuffixes = (
+"a", "rétinol",
+"b", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b10", "b11", "b12",
+"thiamine",
+"riboflavine",
+"niacine",
+"pyridoxine",
+"cobalamine",
+"biotine",
+"acide pantothénique",
+"acide folique",
+"c", "acide ascorbique",
+"d", "d3", "cholécalciférol",
+"e", "tocophérol", "alphatocophérol", "alpha-tocophérol",
+"f",
+"h",
+"k",
+"p", "pp"
+
+);		
+		
+		my $vitaminsprefixregexp = "vitamine|vitamines";
+		
+		my $vitaminssuffixregexp = "";
+		foreach my $suffix (@vitaminssuffixes) {
+			$vitaminssuffixregexp .= '|' . $suffix;
+			my $unaccented_suffix = unac_string_perl($suffix);
+			if ($unaccented_suffix ne $suffix) {
+				$vitaminssuffixregexp .= '|' . $unaccented_suffix;
+			}
+			if ($suffix =~ /[a-z]\d/) {
+				$suffix =~ s/([a-z])(\d)/$1 $2/;
+				$vitaminssuffixregexp .= '|' . $suffix;
+				$suffix =~ s/ /-/;
+				$vitaminssuffixregexp .= '|' . $suffix;
+			}
+			
+		}
+		$vitaminssuffixregexp =~ s/^\|//;		
+		
+		print STDERR "vitamins regexp: s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et ))+/\n";
 	
+		$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )*((($vitaminssuffixregexp)(\/| \/ | - |,|, | et ))+($vitaminssuffixregexp))\b/normalize_fr_vitamins_enumeration($3)/ieg;
+
 	}
 	
 	my @ingredients = split($separators, $text);
@@ -768,14 +851,14 @@ sub extract_ingredients_classes_from_text($) {
 					elsif (($current_additive_class eq "en:vitamin") and (exists_taxonomy_tag("vitamins", $canon_ingredient_vitamins))) {
 						$match = 1;
 						$seen{$canon_ingredient} = 1;
-						$product_ref->{$tagtype} .= " -> exists as a vitamin and current class is en:vitamins ";
+						$product_ref->{$tagtype} .= " -> exists as a vitamin $canon_ingredient_vitamins and current class is en:vitamins ";
 						push @{$product_ref->{ $vitamins_tagtype . '_tags'}}, $canon_ingredient_vitamins;
 					}
 					
 					elsif (($current_additive_class eq "en:mineral") and (exists_taxonomy_tag("minerals", $canon_ingredient_minerals))) {
 						$match = 1;
 						$seen{$canon_ingredient} = 1;
-						$product_ref->{$tagtype} .= " -> exists as a vitamin and current class is en:minerals ";
+						$product_ref->{$tagtype} .= " -> exists as a mineral $canon_ingredient_minerals and current class is en:minerals ";
 						push @{$product_ref->{ $minerals_tagtype . '_tags'}}, $canon_ingredient_minerals;
 					}					
 					
@@ -809,17 +892,41 @@ sub extract_ingredients_classes_from_text($) {
 							$product_ref->{$tagtype} .= " -- ok ";	
 						}
 					}
-					elsif (($lc eq 'en') and ($ingredient_id_copy =~ /^([^-]+)-/)) {
-						# soy lecithin -> lecithin
-						$ingredient_id_copy = $';
-					}
-					elsif (($lc eq 'fr') and ($ingredient_id_copy =~ /-([^-]+)$/)) {
-						# lécithine de soja -> lécithine de -> lécithine
-						$ingredient_id_copy = $`;
-					}
-					else {
-						# give up
-						$match = 1;
+					
+					# continue to try to match a known additive, mineral or vitamin
+					if (not $match) {
+					
+						
+						# check if it is mineral or vitamin, even if we haven't seen "minerals" or "vitamins" before
+						if ((exists_taxonomy_tag("vitamins", $canon_ingredient_vitamins))) {
+							$match = 1;
+							$seen{$canon_ingredient} = 1;
+							$product_ref->{$tagtype} .= " -> exists as a vitamin $canon_ingredient_vitamins ";
+							push @{$product_ref->{ $vitamins_tagtype . '_tags'}}, $canon_ingredient_vitamins;
+						}
+						
+						elsif ((exists_taxonomy_tag("minerals", $canon_ingredient_minerals))) {
+							$match = 1;
+							$seen{$canon_ingredient} = 1;
+							$product_ref->{$tagtype} .= " -> exists as a mineral $canon_ingredient_minerals ";
+							push @{$product_ref->{ $minerals_tagtype . '_tags'}}, $canon_ingredient_minerals;
+						}	
+						
+						# try to shorten the ingredient to make it less specific, to see if it matches then
+						
+						elsif (($lc eq 'en') and ($ingredient_id_copy =~ /^([^-]+)-/)) {
+							# soy lecithin -> lecithin
+							$ingredient_id_copy = $';
+						}
+						elsif (($lc eq 'fr') and ($ingredient_id_copy =~ /-([^-]+)$/)) {
+							# lécithine de soja -> lécithine de -> lécithine
+							$ingredient_id_copy = $`;
+						}
+						
+						else {
+							# give up
+							$match = 1;
+						}
 					}
 					$product_ref->{$tagtype} .= " ] ";
 				}

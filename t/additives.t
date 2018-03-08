@@ -18,7 +18,9 @@ my $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-is($product_ref->{additives}, ' [ acide-citrique -> en:e330  -> exists  -- ok  ]  [ colorant -> fr:colorant  ]  [ e120 -> en:e120  -> exists  -- ok  ]  [ vitamine-c -> en:e300  -> exists  -- mandatory_additive_class: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant (current: en:colour)  ]  [ vitamine-c -> en:e300  -- already seen  ]  [ e500 -> en:e500  -> exists  -- ok  ] ');
+is($product_ref->{additives}, 
+' [ acide-citrique -> en:e330  -> exists  -- ok  ]  [ colorant -> fr:colorant  ]  [ e120 -> en:e120  -> exists  -- ok  ]  [ vitamine-c -> en:e300  -> exists  -- mandatory_additive_class: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant (current: en:colour)  -> exists as a vitamin en:vitamin-c  ]  [ e500 -> en:e500  -> exists  -- ok  ] '
+);
 
 # vitamine C is not used as an additive (no fuction)
 
@@ -308,6 +310,95 @@ is_deeply($product_ref->{additives_original_tags}, [
 $product_ref = {
         lc => "fr",
         ingredients_text =>
+"vitamines (A,C)"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{vitamins_tags}, [
+        "en:vitamin-a",
+        "en:vitamin-c",
+                              ],
+);
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"vitamines E, B6"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{vitamins_tags}, [
+        "en:vitamin-e",
+        "en:vitamin-b6",
+                              ],
+);
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"vitamines B9 et B12"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{vitamins_tags}, [
+        "en:vitamin-b9",
+        "en:vitamin-b12",
+                              ],
+);
+
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"vitamines: D, K et PP"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{vitamins_tags}, [
+        "en:vitamin-d",
+        "en:vitamin-k",
+        "en:vitamin-b3",
+                              ],
+);
+
+
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"vitamines : C, PP, acide folique et E"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{vitamins_tags}, [
+        "en:vitamin-c",
+        "en:vitamin-b3",
+        "en:vitamin-b9",
+        "en:vitamin-e",
+                              ],
+);
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
 "Chlorures d'ammonium et de calcium"
 };
 
@@ -451,15 +542,20 @@ is_deeply($product_ref->{additives_original_tags}, [
 	"en:e511",
 	"en:e332",
 	"en:e331",
-	"en:e341",
 	"en:e519",
-	"en:e516",
                               ],
 );
 
 is_deeply($product_ref->{minerals_tags}, [
+	"en:calcium-phosphate",
+	"en:iron-sulfide",
+	"en:zinc-sulfide",
+	"en:manganese-sulfide",
+	"en:potassium-iodide",
+	"en:sodium-selenite",
                               ],
 );
+
 
 
 
@@ -480,6 +576,98 @@ is_deeply($product_ref->{additives_original_tags}, [
           'en:e322i',
                               ],
 );
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text => 
+"Purée de pomme 40 %, sirop de glucose-fructose, farine de blé, protéines de lait, sucre, protéines de soja, purée de framboise 5 %, lactosérum, protéines de blé hydrolysées, sirop de glucose, graisse de palme non hydrogénée, humectant : glycérol végétal, huile de tournesol, minéraux (potassium, calcium, magnésium, fer, zinc, cuivre, sélénium, iode), jus concentré de raisin, arômes naturels, jus concentré de citron, levure désactivée, correcteur d'acidité : citrates de sodium, sel marin, acidifiant : acide citrique, vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E (lactose, protéines de lait), cannelle, poudres à lever (carbonates de sodium, carbonates d'ammonium)."
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR Dumper($product_ref->{additives_original_tags});
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+          'en:e422',
+          'en:e331',
+          'en:e330',
+          'en:e500',
+          'en:e503',
+                              ],
+);
+
+is_deeply($product_ref->{vitamins_tags}, [
+          'en:vitamin-a',
+          'en:vitamin-b1',
+          'en:vitamin-b2',
+          'en:pantothenic-acid',
+          'en:vitamin-b6',
+          'en:vitamin-b9',
+          'en:vitamin-b12',
+          'en:vitamin-c',
+          'en:vitamin-d',
+          'en:biotin',
+          'en:vitamin-b3',
+          'en:vitamin-e',
+                              ],
+);
+
+is_deeply($product_ref->{minerals_tags}, [
+          'en:potassium',
+          'en:calcium',
+          'en:magnesium',
+          'en:iron',
+          'en:zinc',
+          'en:copper',
+          'en:selenium',
+          'en:iodine',
+                              ],
+);
+
+
+
+$product_ref = {
+        lc => "en",
+        ingredients_text =>
+"Calcium phosphate"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+                              ],
+);
+
+is_deeply($product_ref->{minerals_tags}, [
+        "en:calcium-phosphate",
+                              ],
+);
+
+$product_ref = {
+        lc => "en",
+        ingredients_text =>
+"acidity regulators: Calcium phosphate"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+	"en:e341"
+                              ],
+);
+
+is_deeply($product_ref->{minerals_tags}, [
+                              ],
+);
+
+
 
 
 
