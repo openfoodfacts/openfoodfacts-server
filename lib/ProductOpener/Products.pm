@@ -156,6 +156,12 @@ sub init_product($) {
 	# look up IP address '24.24.24.24'
 	# returns undef if country is unallocated, or not defined in our database
 	my $country = $gi->country_code_by_addr(remote_addr());
+	
+	# ugly fix: products added by yuka should have country france, regardless of the server ip
+	if ($creator eq 'kiliweb') {
+		$country = "france";
+	}
+	
 	if (defined $country) {
 		if ($country !~ /a1|a2|o1/i) {
 			$product_ref->{countries} = "en:" . $country;

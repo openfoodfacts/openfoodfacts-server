@@ -1106,13 +1106,13 @@ sub build_tags_taxonomy($$) {
 				
 				$taxonomy_json{$tagid}{name}{$lc} = $translations_to{$tagtype}{$tagid}{$lc};
 				
-				next if (($lc eq $main_lc) and ($i > 1));
-				
 				my $lc_tagid = get_fileid($translations_to{$tagtype}{$tagid}{$lc});
 				
 				# print "taxonomy - lc: $lc - tagid: $tagid - lc_tagid: $lc_tagid\n";
 				if (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid}) {
-					print $OUT "$synonyms$lc:" . join(", ", @{$synonyms_for{$tagtype}{$lc}{$lc_tagid}}) . "\n";
+					if (not (($lc eq $main_lc) and ($i > 1))) {
+						print $OUT "$synonyms$lc:" . join(", ", @{$synonyms_for{$tagtype}{$lc}{$lc_tagid}}) . "\n";
+					}
 					
 					# additives has e-number as their name, and the first synonym is the additive name
 					if (($tagtype eq 'additives') and (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1])) {
