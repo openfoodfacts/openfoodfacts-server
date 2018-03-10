@@ -1,209 +1,401 @@
-# commenting out the vitamin stopwords
-# instead, in the ingredient list, things like vitamins A, B and C
-# are split into: vitamins: vitamin A, vitamin B, Vitamin C
-#stopwords:en:vitamin,vitamins
-#stopwords:fr:vitamine,vitamines
+# http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2006:339:0016:0035:EN:PDF
+# http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2006:339:0016:0035:FR:PDF
 
-
-en:Vitamin C, Ascorbic Acid, E300
-fr:Vitamine C, acide ascorbique
-es:Vitamina C, Ácido ascórbico
-ja:ビタミン C
-it:Vitamina C, Acido ascorbico
-pt:Vitamina C
-de:Vitamin C, Ascorbinsäure
-he:ויטמין C, חומצה אסקורבית
-ga:Vitimín C
-el:Βιταμίνη C
-fi:C-vitamiini
-nl:Vitamine C
-nl_be:Vitamine C
-lv:C vitamīns
-et:Vitamiin C
-hu:C-vitamin
-pl:Witamina C
-lt:Vitaminas C
-mt:Vitamina C
-sk:Vitamín C
-ro:Vitamina C
-bg:Витамин C
-zh:维生素C, 抗坏血酸
-e_number:en:300	
-
-
-
-en:Vitamin B9, Folic acid
-fr:Vitamine B9, Acide folique
-es:Vitamina B9, Ácido fólico
-ja:ビタミン B9, 葉酸
-it:Vitamina B9, Acido folico
-pt:Vitamina B9, Ácido Fólico
-de:Vitamin B9, Folsäure
-he:ויטמין B9, חומצה פולית
-ga:Vitimín B9, Aigéad fólach
-el:Βιταμίνη B9, Φολικό οξύ
-fi:B9-vitamiini, Foolihappo
-nl:Vitamine B9, Foliumzuur
-nl_be:Vitamine B9, Foliumzuur
-lv:B9 vitamīns, Folijskābe
-et:Vitamiin B9, Foolhape
-hu:B9-vitamin, Folsav
-pl:Witamina B9, Kwas foliowy
-lt:Vitaminas B9, Folio rūgštis
-sk:Vitamín B9, Kyselina listová
-ro:Vitamina B9, Acid folic
-bg:Витамин B9, Фолиева киселина
-zh:维生素B9(叶酸
-
+# list copied from:
+# REGULATION (EU) No 609/2013 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL
+# of 12 June 2013
+# on food intended for infants and young children, food for special medical purposes, 
+# and total diet replacement for weight control and repealing Council Directive 92/52/EEC,
+# Commission Directives 96/8/EC, 1999/21/EC, 2006/125/EC and 2006/141/EC,
+# Directive 2009/39/EC of the European Parliament and of the Council and 
+# Commission Regulations (EC) No 41/2009 and (EC) No 953/2009
+# http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32013R0609&from=FR
 
 
 en:Vitamin A
-fr:Vitamine A, rétinol
-ja:ビタミン A
-es:Vitamina A, Retinol
-it:Vitamina A, Retinolo
-pt:Vitamina A
-de:Vitamin A, Retinol
+bg:Витамин А
+de:Vitamin A,
 he:ויטמין A, רטינול
-ga:Vitimín A
 el:Βιταμίνη A
+es:Vitamina A
+et:A-vitamiin
 fi:A-vitamiini
-nl:Vitamine A
-nl_be:Vitamine A
-lv:A vitamīns
-et:Vitamiin A
+fr:Vitamine A
 hu:A-vitamin
-pl:Witamina A
+it:Vitamina A
+ja:ビタミン A
 lt:Vitaminas A
+lv:A vitamīns
 mt:Vitamina A
-sk:Vitamín A
+nl:Vitamine A
+pl:Witamina A
+pt:Vitamina A
 ro:Vitamina A
-bg:Витамин A
+sk:Vitamín A
 zh:维生素A
 
+<en:Vitamin A
+en:retinol
+bg:Ретинол
+de:Retinol
+el:ρετινόλη
+et:retinool
+fi:retinoli
+fr:rétinol
+it:retinolo
+lt:retinolis
+lv:retinols
 
-en:Vitamin D, Vitamin D3
-fr:Vitamine D, Vitamine D3, cholécalciférol
-es:Vitamina D
-it:Vitamina D, colecalciferolo
-pt:Vitamina D
-de:Vitamin D, Vitamin D3, Cholecalciferol
+<en:Vitamin A
+en:retinyl acetate
+bg:Ретинил ацетат
+cs:retinyl-acetát
+de:Retinylacetat
+el:οξική ρετινόλη
+es:acetato de retinilo
+et:retinüülatsetaat
+fi:retinyyliasetaatti
+fr:acétate de rétinol
+hu:retinil-acetát
+it:acetato di retinile
+lt:retinilo acetatas
+lv:retinilacetāts
+mt:aċetat tar-retinil
+nl:retinylacetaat
+pl:octan retinylu
+pt:acetato de retinilo
+ro:acetat de retinil
+sk:retinylacetát
+sl:retinil acetat
+sv:retinylacetat
+
+<en:Vitamin A
+en:retinyl palmitate
+bg:Ретинил палмитат
+cs:retinyl-palmitát
+de:Retinylpalmitat
+el:παλμιτική ρετινόλη
+es:palmitato de retinilo
+et:retinüülpalmitaat
+fi:retinyylipalmitaatti
+fr:palmitate de rétinol
+hu:retinil-palmitát
+it:palmitato di retinile
+lt:retinilo palmitatas
+lv:retinilpalmitāts
+mt:palmitat tar-retinil
+nl:retinylpalmitaat
+pl:palmitynian retinylu
+pt:palmitato de retinilo
+ro:palmitat de retinil
+sk:retinylpalmitát
+sl:retinil palmitat
+sv:retinylpalmitat
+
+<en:Vitamin A
+en:beta-carotene
+bg:Бета-каротен
+cs:β-karoten
+de:Beta-Carotin
+el:β-καροτένιο
+es:beta-caroteno
+et:beetakaroteen
+fi:beetakaroteeni
+fr:bêta-carotène
+hu:béta-karotin
+lt:b-karotenas
+lv:beta-karotīns
+mt:beta-karotina
+nl:bèta-caroteen
+pl:beta-karoten
+pt:beta-caroteno
+ro:beta-caroten
+sk:beta-karotén
+sl:beta-karoten
+sv:betakaroten
+
+en:Vitamin D
+bg:Витамин D
+de:Vitamin D
 he:ויטמין D
 ja:ビタミン D
 ga:Vitimín D
 el:Βιταμίνη D
+es:Vitamina D
+et:D-vitamiin
 fi:D-vitamiini
-nl:Vitamine D
-nl_be:Vitamine D
-lv:D vitamīns
-et:Vitamiin D
+fr:Vitamine D
 hu:D-vitamin
-pl:Witamina D
+it:Vitamina D
 lt:Vitaminas D
+lv:D vitamīns
 mt:Vitamina D
-sk:Vitamín D
+nl:Vitamine D
+pl:Witamina D
+pt:Vitamina D
 ro:Vitamina D
-bg:Витамин D
-zh:维生素D
+sk:Vitamín D
 
+<en:Vitamin D
+en:ergocalciferol
+bg:Ергокалциферол
+cs:ergokalciferol
+el:εργοκαλσιφερόλη
+et:ergokaltsiferool
+fi:ergokalsiferoli
+fr:ergocalciférol
+hu:ergokalciferol
+it:ergocalciferolo
+lt:ergokalciferolis
+lv:ergokalciferols
+mt:ergokalċiferol
+pl:ergokalcyferol
+sk:ergokalciferol
+sl:ergokalciferol
+sv:ergokalciferol
 
-en:Vitamin E
-fr:Vitamine E, tocophérol
-ja:ビタミン E
-es:Vitamina E, a-tocoferol
-it:Vitamina E, Alfa-tocoferolo
-pt:Vitamina E
-de:Vitamin E, Tocopherol
-he:ויטמין E, אלפא טוקופרול
-ga:Vitimín E
+<en:Vitamin D
+en:cholecalciferol, Vitamin D3
+bg:Холекалциферол
+cs:cholekalciferol
+el:χοληκαλσιφερόλη
+es:colecalciferol
+et:kolekaltsiferool
+fi:kolekalsiferoli
+fr:cholécalciférol, Vitamine D3
+hu:kolekalciferol
+it:colecalciferolo
+lt:cholekalciferolis
+lv:holekalciferols
+mt:kolekalċiferol
+pl:cholekalcyferol
+pt:colecalciferol
+ro:colecalciferol
+sk:cholekalciferol
+sl:holekalciferol
+sv:kolekalciferol
+
+en:Vitamin E, tocopherol
+bg:Витамин Е
 el:Βιταμίνη E
+es:Vitamina E
+et:E-vitamiin
 fi:E-vitamiini
-nl:Vitamine E
-nl_be:Vitamine E
-lv:E vitamīns
-et:Vitamiin E
+fr:Vitamine E, tocophérol
 hu:E-vitamin
-pl:Witamina E
+it:Vitamina E
+ja:ビタミン E
 lt:Vitaminas E
+lv:E vitamīns
 mt:Vitamina E
-sk:Vitamín E
+nl:Vitamine E
+pl:Witamina E
+pt:Vitamina E
 ro:Vitamina E
-bg:Витамин E
-zh:维生素E
+sk:Vitamín E
+
+<en:Vitamin E
+en:D-alpha tocopherol
+bg:D-алфа токоферол
+cs:D- α-tokoferol
+de:D-alpha-Tocopherol
+el:D-α-τοκοφερόλη
+es:D-alfa tocoferol
+et:D-alfa-tokoferool
+fi:D-alfa-tokoferoli
+fr:D-alpha-tocophérol
+hu:D-alfa tokoferol
+it:D-alfa-tocoferolo
+lt:D-alfa-tokoferolis
+lv:D-alfa-tokoferols
+mt:D-alfa tokoferol
+nl:D-alfa-tocoferol
+pl:D-alfa tokoferol
+pt:D-alfa-tocoferol
+ro:tocoferol D-alfa
+sk:D-alfa-tokoferol
+sl:D-alfa tokoferol
+sv:D-alfa-tokoferol
+
+<en:Vitamin E
+en:DL-alpha tocopherol
+bg:DL-алфа токоферол
+cs:DL- α-tokoferol
+de:DL-alpha-Tocopherol
+el:DL-α-τοκοφερόλη
+es:DL-alfa tocoferol
+et:DL-alfa-tokoferool
+fi:DL-alfa-tokoferoli
+fr:DL-alpha-tocophérol
+hu:DL-alfa tokoferol
+it:DL-alfa-tocoferolo
+lt:DL-alfa-tokoferolis
+lv:DL-alfa-tokoferols
+mt:DL-alfa tokoferol
+nl:DL-alfa-tocoferol
+pl:DL-alfa tokoferol
+pt:DL-alfa-tocoferol
+ro:tocoferol DL-alfa
+sk:DL-alfa-tokoferol
+sl:DL-alfa tokoferol
+sv:DL-alfa-tokoferol
+
+<en:Vitamin E
+en:D-alpha tocopheryl acetate
+bg:D-алфатокоферил ацетат
+cs:D- α-tokoferyl-acetát
+de:D-alpha-Tocopherylacetat
+el:οξική D-α-τοκοφερόλη
+es:acetato de D-alfa tocoferilo
+et:D-alfa-tokoferüülatsetaat
+fi:D-alfa-tokoferyyliasetaatti
+fr:acétate de D-alpha-tocophérol
+hu:D-alfa-tokoferil-acetát
+it:acetato di D-alfa-tocoferile
+lt:D-alfa-tokoferilacetatas
+lv:D-alfa-tokoferilacetāts
+mt:Aċetat ta’ D-alfa-tokoferil
+nl:D-alfa-tocoferylacetaat
+pl:octan D-alfa-tokoferylu
+pt:acetato de D-alfa-tocoferilo
+ro:acetat de tocoferil D-alfa
+sk:D-alfa-tokoferylacetát
+sl:D-alfa-tokoferil acetat
+sv:D-alfa-tokoferylacetat
+
+<en:Vitamin E
+en:DL-alpha tocopheryl acetate
+bg:DL-алфатокоферил ацетат
+cs:DL-α-tokoferyl-acetát
+de:DL-alpha-Tocopherylacetat
+el:οξική DL-α-τοκοφερόλη
+es:acetato de DL-alfa tocoferilo
+et:DL-alfa-tokoferüülatsetaat
+fi:DL-alfa-tokoferyyliasetaatti
+fr:acétate de DL-alpha-tocophérol
+hu:DL-alfa-tokoferil-acetát
+it:acetato di DL-alfa-tocoferile
+lt:DL-alfa-tokoferilacetatas
+lv:DL-alfa-tokoferilacetāts
+mt:Aċetat ta’ DL-alfa-tokoferil
+nl:DL-alfa-tocoferylacetaat
+pl:octan DL-alfa-tokoferylu
+pt:acetato de DL-alfa-tocoferilo
+ro:acetat de tocoferil DL-alfa
+sk:DL-alfa-tokoferylacetát
+sl:DL-alfa-tokoferil acetat
+sv:DL-alfa-tokoferylacetat
+
+<en:Vitamin E
+en:D-alpha-tocopheryl acid succinate
+bg:D-алфа-токоферил кисел сукцинат
+cs:D-α-tokoferyl-sukcinát
+de:D-alpha-Tocopherylsäuresuccinat
+el:όξινη ηλεκτρική D-α-τοκοφερόλη
+es:Succinato ácido de D-alfa tocoferilo
+et:D-alfa-tokoferüülhappe suktsinaat
+fi:D-alfa-tokoferyylihapon sukkinaatti
+fr:succinate acide de D-alpha-tocophérol
+hu:D-alfa-tokoferil-szukcinát
+it:succinato acido di D-alfa-tocoferile
+lt:D-alfa-tokoferilo rūgšties sukcinatas
+lv:skābais D-alfa-tokoferilsukcināts
+mt:Suċċinat aċidu ta’ D-alfa-tokoferil
+nl:D-alfa-tocoferylwaterstof-succinaat
+pl:bursztynian D-alfa-tokoferylu
+pt:succinato ácido de D-alfa-tocoferilo
+ro:succinat acid de tocoferil D-alfa
+sk:jantáran kyseliny D-alfa-tokoferolovej
+sl:D-alfa-tokoferil kisli sukcinat
+sv:D-alfa-tokoferylvätesuccinat
+
+<en:Vitamin E
+en:D-alpha-tocopheryl polyethylene glycol-1000 succinate (TPGS)
+bg:D-алфа-токоферил полиетилен гликол-1000 сукцинат (TPGS)
+cs:poly(ethylenglykol) 1000, ether s (+)-α-tokoferolem, sukcinát (TPGS)
+de:D-alpha-Tocopheryl-Polyethylenglycol-1000-Succinat (TPGS)
+el:D-α-τοκοφερυλο-ηλεκτρική πολυαιθυλενο (1000) γλυκόλη (TPGS)
+es:Succinado de D-alfa-tocoferil polietilenglicol-1000 (TPGS)
+et:D-alfa-tokoferüülpolüeteenglükool-1000-suktsinaat (TPGS)
+fi:D-alfa-tokoferyylipolyetyleeniglykoli-1000 sukkinaatti
+fr:succinate de D-alpha-tocophéryl polyéthylène glycol 1000 (TPGS)
+hu:D-alfa-tokoferil-polietilén-glikol-1000-szukcinát (TPGS)
+it:succinato D-alfa-tocoferile polietilenglicole 1000 (TPGS)
+lt:D-alfa-tokoferilpolietilenglikol-1000-sukcinatas (TPGS)
+lv:D-alfa-tokoferilpolietilēnglikola-1000-sukcināts (TPGS)
+mt:D-alfa-tokoferil polietilene glikol -1000 suċċinat (TPGS)
+nl:D-alfa-tocoferylpolyethyleenglycolsuccinaat 1000 (TPGS)
+pl:bursztynian D-alfa-tokoferolu polietylen glikolu -1000 (TPGS)
+pt:succinato de D-alfa-tocoferil-polietilenoglicol-1000 (TPGS)
+ro:succinat polietilen glicol 1000 de tocoferil D-alfa (TPGS)
+sk:D-alfa –tokoferolpolyetylénglykol-1000 sukcinát (TPGS)
+sl:D-alfa-tokoferil polietilen glikol-1000 sukcinat (TPGS)
+sv:D-alfa-tokoferyl-polyetylenglykol 1000 succinat (TPGS)
 
 en:Vitamin K
-fr:Vitamine K
-es:Vitamina K
-ja:ビタミン K
-it:Vitamina K
-pt:Vitamina K
-de:Vitamin K
-he:ויטמין K, מנדיון
-ga:Vitimín K
-el:Βιταμίνη K
-fi:K-vitamiini
-nl:Vitamine K
-nl_be:Vitamine K
-lv:K vitamīns
-et:Vitamiin K
-hu:K-vitamin
-pl:Witamina K
-lt:Vitaminas K
-mt:Vitamina K
-sk:Vitamín K
-ro:Vitamina K
 bg:Витамин K
-zh:维生素K
+el:Βιταμίνη K
+es:Vitamina K
+et:K-vitamiin
+fi:K-vitamiini
+fr:Vitamine K
+hu:K-vitamin
+it:Vitamina K
+ja:ビタミン K
+lt:Vitaminas K
+lv:K vitamīns
+mt:Vitamina K
+nl:Vitamine K
+pl:Witamina K
+pt:Vitamina K
+ro:Vitamina K
+sk:Vitamín K
 
 <en:Vitamin K
-en:Vitamin K1
-fr:Vitamine K1, phylloquinone, phytoménadione, phytonadione
-es:Vitamina K1
-ja:ビタミン K1
-it:Vitamina K1
-pt:Vitamina K1
-de:Vitamin K1
-he:ויטמין K1, מנדיון
-ga:Vitimín K1
-el:Βιταμίνη K1
-fi:K1-vitamiini
-nl:Vitamine K1
-nl_be:Vitamine K1
-lv:K1 vitamīns
-et:Vitamiin K1
-hu:K1-vitamin
-pl:Witamina K1
-lt:Vitaminas K1
-mt:Vitamina K1
-sK1:Vitamín K1
-ro:Vitamina K1
-bg:Витамин K1
-zh:维生素K1
+en:phylloquinone, phytomenadione, Vitamin K1
+bg:Филохинон, фитоменадион
+cs:fyllochinon, fytomenadion
+de:Phyllochinon, Phytomenadion
+el:φυλλοκινόνη, φυτομεναδιόνη
+es:filoquinona, fitomenadiona
+et:füllokinoon, fütomenadioon
+fi:fyllokinoni, fytomenadioni
+fr:phylloquinone, phytoménadione, phytonadione, Vitamine K1
+hu:fillokinon, fitomenadion
+it:fillochinone, fitomenadione
+lt:filochinonas, fitomenadionas
+lv:filohinons, fitomenadions
+mt:fillokinona, fitomenadjona
+nl:fyllochinon, fytomenadion
+pl:filochinon, fitomenadion
+pt:filoquinona, fitomenadiona
+ro:filochinonă, fitomenadionă
+sk:fylochinón, fytomenadion
+sl:filokinon, fitomenadion
+sv:fyllokinon, fytomenadion
 
 <en:Vitamin K
-en:Vitamin K2
-fr:Vitamine K2, ménaquinone
-es:Vitamina K2
-ja:ビタミン K2
-it:Vitamina K2
-pt:Vitamina K2
-de:Vitamin K2
-he:ויטמין K2, מנדיון
-ga:Vitimín K2
-el:Βιταμίνη K2
-fi:K2-vitamiini
-nl:Vitamine K2
-nl_be:Vitamine K2
-lv:K2 vitamīns
-et:Vitamiin K2
-hu:K2-vitamin
-pl:Witamina K2
-lt:Vitaminas K2
-mt:Vitamina K2
-sK2:Vitamín K2
-ro:Vitamina K2
-bg:Витамин K2
-zh:维生素K2
+en:Menaquinone, Vitamin K2
+bg:Менахинон
+cs:menachinon
+de:Menachinon
+el:μενακινόνη
+es:menaquinona
+et:menakinoon
+fi:menakinoni
+fr:ménaquinone, Vitamine K2
+hu:menakinon
+it:menachinone
+lt:menachinonas
+lv:menahinons
+mt:menakinona
+nl:menachinon
+pl:menachinon
+pt:menaquinona
+ro:menachinonă
+sk:menachinón
+sl:menakinon
+sv:Menakinon
 
 <en:Vitamin K
 en:Vitamin K3
@@ -230,220 +422,606 @@ ro:Vitamina K3
 bg:Витамин K3
 zh:维生素K3
 
-en:Vitamin C, ascorbic acid
-fr:Vitamine C, acide ascorbique
-es:Vitamina C, Ácido ascórbico
-ja:ビタミン C
-it:Vitamina C, Acido ascorbico
-pt:Vitamina C
-de:Vitamin C, Ascorbinsäure
-he:ויטמין C, חומצה אסקורבית
-ga:Vitimín C
-el:Βιταμίνη C
-fi:C-vitamiini
-nl:Vitamine C
-nl_be:Vitamine C
-lv:C vitamīns
-et:Vitamiin C
-hu:C-vitamin
-pl:Witamina C
-lt:Vitaminas C
-mt:Vitamina C
-sk:Vitamín C
-ro:Vitamina C
+en:Vitamin C
 bg:Витамин C
-zh:维生素C(抗坏血酸
+el:Βιταμίνη C
+es:Vitamina C
+et:C-vitamiin
+fi:C-vitamiini
+fr:Vitamine C
+hu:C-vitamin
+it:Vitamina C
+lt:Vitaminas C
+lv:C vitamīns
+mt:Vitamina Ċ
+nl:Vitamine C
+pl:Witamina C
+pt:Vitamina C
+ro:Vitamina C
+sk:Vitamín C
+zh:维生素C
 
-en:Vitamin B1, Thiamin
-fr:Vitamine B1, Thiamine
-es:Vitamina B1, Tiamina
-ja:ビタミン B1
-it:Vitamina B1, tiamina
-pt:Vitamina B1, Tiamina
-de:Vitamin B1, Thiamin
-he:ויטמין B1, תיאמין
-ga:Vitimín B1, Tiaimín
-el:Βιταμίνη B1, Θειαμίνη
-fi:B1-vitamiini, Tiamiini
-nl:Vitamine B1, Thiamine
-nl_be:Vitamine B1, Thiamine
-lv:B1 vitamīns, Tiamīns
-et:Vitamiin B1, Tiamiin
-hu:B1-vitamin, Tiamin
-pl:Witamina B1, Tiamina
-sl:Vitamin B1, Tiamin
-lt:Vitaminas B1, Tiaminas
-mt:Vitamina B1, Tiamina
-sk:Vitamín B1
-ro:Vitamina B1, Tiamină
-bg:Витамин B1, Тиамин
-zh:维生素B1(硫胺
+<en:Vitamin C
+en:L-ascorbic acid, ascorbic acid
+bg:L-аскорбинова киселина, аскорбинова киселина
+cs:L-askorbová kyselina, askorbová kyselina
+de:L-Ascorbinsäure, Ascorbinsäure
+el:L-ασκορβικό οξύ, ασκορβικό οξύ
+es:Ácido L-ascórbico, Ácido ascórbico
+et:L-askorbiinhape, askorbiinhape
+fi:L-askorbiinihappo, askorbiinihappo
+fr:acide L-ascorbique, acide ascorbique
+hu:L-aszkorbinsav, aszkorbinsav
+it:acido L-Ascorbico, acido Ascorbico
+lt:L–askorbo rūgštis, askorbo rūgštis
+lv:L-askorbīnskābe, askorbīnskābe
+mt:L-aċidu askorbiku, aċidu askorbiku
+nl:L-ascorbinezuur, ascorbinezuur
+pl:kwas L-askorbinowy, kwas askorbinowy
+pt:Ácido L-ascórbico, Ácido ascórbico
+ro:acid L-ascorbic, acid ascorbic
+sk:kyselina L-askorbová, kyselina askorbová
+sl:L-askorbinska kislina, askorbinska kislina
+sv:L-askorbinsyra, askorbinsyra
+zh:抗坏血酸
 
+<en:Vitamin C
+en:sodium-L-ascorbate
+bg:Натриев-L-аскорбат
+cs:L-askorbát sodný
+de:Natrium-L-ascorbat
+el:L-ασκορβικό νάτριο
+es:L-ascorbato sódico
+et:naatrium-L-askorbaat
+fi:natrium-L-askorbaatti
+fr:L-ascorbate de sodium
+hu:nátrium-L-aszkorbát
+it:L-ascorbato di sodio
+lt:natrio L-askorbatas
+lv:nātrija L-askorbāts
+mt:L-assorbat tas-sodju
+nl:natrium-L-ascorbaat
+pl:L-askorbinian sodu
+pt:L-ascorbato de sódio
+ro:L-ascorbat de sodiu
+sk:L-askorban sodný
+sl:natrijev-L-askorbat
+sv:natrium-L-askorbat
 
-en:Vitamin B2, Riboflavin
-fr:Vitamine B2, Riboflavine
-es:Vitamina B2, Riboflavina
-ja:ビタミン B2
-it:Vitamina B2, Riboflavina
-pt:Vitamina B2, Riboflavina
-de:Vitamin B2, Riboflavin
-he:ויטמין B2, ריבופלבין
-ga:Vitimín B2, Ribeaflaivin
-el:Βιταμίνη B2, Ριβοφλαβίνη
-fi:B2-vitamiini, Riboflaviini
-nl:Vitamine B2, Riboflavine
-nl_be:Vitamine B2, Riboflavine
-lv:B2 vitamīns, Riboflavīns
-et:Vitamiin B2, Riboflaviin
-hu:B2-vitamin, Riboflavin
-pl:Witamina B2, Ryboflawina
-lt:Vitaminas B2, Riboflavinas
-mt:Vitamina B2, Riboflavina
-sk:Vitamín B2
-ro:Vitamina B2, Riboflavină
-bg:Витамин B2, Рибофлавин
-zh:维生素B2(核黄素
+<en:Vitamin C
+en:calcium-L-ascorbate
+bg:Калциев-L-аскорбат
+cs:L-askorbát vápenatý
+de:Calcium-L-ascorbat
+el:L-ασκορβικό ασβέστιο
+es:L-ascorbato cálcico
+et:kaltsium-L-askorbaat
+fi:kalsium-L-askorbaatti
+fr:L-ascorbate de calcium
+hu:kalcium-L-aszkorbát
+it:L-ascorbato di calcio
+lt:kalcio L-askorbatas
+lv:kalcija L-askorbāts
+mt:L-assorbat tal-kalċju
+nl:calcium-L-ascorbaat
+pl:L-askorbinian wapnia
+pt:L-ascorbato de cálcio
+ro:L-ascorbat de calciu
+sk:L-askorban vápenatý
+sl:kalcijev-L-askorbat
+sv:kalcium-L-askorbat
 
-en:Vitamin B3, Vitamin PP, Niacin
-fr:Vitamine B3, Vitamine PP, Niacine
-es:Vitamina B3, Vitamina PP, Niacina
-ja:ビタミン B3
-it:Vitamina B3, Vitamina PP, Niacina
-pt:Vitamina B3, Vitamina PP, Niacina
-de:Vitamin B3, Vitamin PP, Niacin
-he:ויטמין B3 /ויטמין PP, ניאצין או חומצה ניקוטינית
-ga:Niaicin
-el:Νιασίνη
-fi:Niasiini
-nl:Niacine
-nl_be:Niacine
-lv:Niacīns
-et:Niatsiin
-pl:Niacyna
-lt:Niacinas
-mt:Niaċina
-sk:Niacín
-ro:Niacină
+<en:Vitamin C
+en:potassium-L-ascorbate
+bg:Калиев-L-аскорбат
+cs:L-askorbát draselný
+de:Kalium-L-ascorbat
+el:L-ασκορβικό κάλιο
+es:L-ascorbato potásico
+et:kaalium-L-askorbaat
+fi:kalium-L-askorbaatti
+fr:L-ascorbate de potassium
+hu:kálium-L-aszkorbát
+it:L-ascorbato di potassio
+lt:kalio L-askorbatas
+lv:kālija L-askorbāts
+mt:L-assorbat tal-potassju
+nl:kalium-L-ascorbaat
+pl:L-askorbinian potasu
+pt:L-ascorbato de potássio
+ro:L-ascorbat de potasiu
+sk:L-askorban draselný
+sl:kalijev-L-askorbat
+sv:kalium-L-askorbat
+
+<en:Vitamin C
+en:L-ascorbyl 6-palmitate
+bg:L-аскорбил 6-палмитат
+cs:L-askorbyl-6-palmitát
+de:L-Ascorbyl-6-palmitat
+el:αλμιτικό L-ασκορβύλιο
+es:almitato de L-ascorbilo
+et:L-askorbüül-6-palmitaat
+fi:L-askorbyyli-6-palmitaatti
+hu:L-aszkorbil-6-palmitát
+it:almitato di L-ascorbile
+lt:L-askorbil- 6-palmitatas
+lv:L-askorbil-6-palmitāts
+mt:L-assorbil 6-palmitat
+nl:almityl-L-ascorbinezuur
+pl:almitynian-L-askorbylu
+pt:almitato de L-ascorbilo
+ro:L-ascorbil 6-palmitat
+sk:L-askorbyl-6-palmitát
+sl:L-askorbil 6-palmitat
+sv:L-askorbyl-6-palmitat
+
+en:Thiamin, Vitamin B1
+bg:Тиамин
+el:Θειαμίνη
+es:Tiamina
+et:Tiamiin
+fi:Tiamiini
+fr:Thiamine, Vitamine B1
+hu:Tiamin
+it:Tiamina
+lt:Tiaminas
+lv:Tiamīns
+mt:Tiamina
+nl:Thiamine
+pl:Tiamina
+pt:Tiamina
+ro:Tiamină
+sl:Tiamin
+sv:Tiamin
+
+<en:Thiamin
+en:thiamin hydrochloride
+bg:Тиамин хидрохлорид
+cs:thiamin-hydrochlorid
+de:Thiaminhydrochlorid
+el:υδροχλωρική θειαμίνη
+es:clorhidrato de tiamina
+et:tiamiinhüdrokloriid
+fi:tiamiinihydrokloridi
+fr:chlorhydrate de thiamine
+hu:tiamin-hidroklorid
+it:cloridrato di tiamina
+lt:tiamino hidrochloridas
+lv:tiamīna hidrohlorīds
+mt:idroklorur tat-tijamina
+nl:thiaminehydrochloride
+pl:chlorowodorek tiaminy
+pt:cloridrato de tiamina
+ro:clorhidrat de tiamină
+sk:tiamínhydrochlorid
+sl:tiamin hidroklorid
+sv:tiaminhydroklorid
+
+<en:Thiamin
+en:thiamin mononitrate
+bg:Тиамин мононитрат
+cs:thiamin-mononitrát
+de:Thiaminmononitrat
+el:μονονιτρική θειαμίνη
+es:mononitrato de tiamina
+et:tiamiinmononitraat
+fi:tiamiinimononitraatti
+fr:mononitrate de thiamine
+hu:tiamin-mononitrát
+it:mononitrato di tiamina
+lt:tiamino mononitratas
+lv:tiamīna mononitrāts
+mt:mononitrat tat-tijamina
+nl:thiaminemononitraat
+pl:monoazotan tiaminy
+pt:mononitrato de tiamina
+ro:mononitrat de tiamină
+sk:tiamínmononitrát
+sl:tiamin mononitrat
+sv:tiaminmononitrat
+
+en:Riboflavin, Vitamin B2
+bg:Рибофлавин
+el:Ριβοφλαβίνη
+es:Riboflavina
+et:Riboflaviin
+fi:Riboflaviini
+fr:Riboflavine, Vitamine B2
+it:Riboflavina
+lt:Riboflavinas
+lv:Riboflavīns
+nl:Riboflavine
+pl:Ryboflawina
+pt:Riboflavina
+ro:Riboflavină
+
+<en:Riboflavin
+en:riboflavin
+bg:Рибофлавин
+el:ριβοφλαβίνη
+es:riboflavina
+et:riboflaviin
+fi:riboflaviini
+fr:riboflavine
+it:riboflavina
+lt:riboflavinas
+lv:riboflavīns
+nl:riboflavine
+pl:ryboflawina
+pt:riboflavina
+ro:riboflavină
+sk:riboflavín
+
+<en:Riboflavin
+en:riboflavin 5'-phosphate sodium
+
+en:Niacin, Vitamin B3, Vitamin PP
 bg:Ниацин
-zh:维生素B3(烟酸
+el:Νιασίνη
+es:Niacina
+et:Niatsiin
+fi:Niasiini
+fr:Niacine, Vitamine B3, Vitamine PP
+it:Niacina
+lt:Niacinas
+lv:Niacīns
+mt:Niaċina
+nl:Niacine
+pl:Niacyna
+pt:Niacina
+ro:Niacină
+sk:Niacín
+
+<en:Niacin
+en:nicotinic acid
+bg:Никотинова киселина
+cs:kyselina nikotinová
+de:Nicotinsäure
+el:νικοτινικό οξύ
+es:ácido nicotínico
+et:nikotiinhape
+fi:nikotiinihappo
+fr:acide nicotinique
+hu:nikotinsav
+it:acido nicotinico
+lt:nikotino rūgštis
+lv:nikotīnskābe
+mt:aċidu nikotoniku
+nl:nicotinezuur
+pl:kwas nikotynowy
+pt:ácido nicotínico
+ro:acid nicotinic
+sk:kyselina nikotínová
+sl:nikotinska kislina
+sv:nikotinsyra
+
+<en:Niacin
+en:nicotinamide
+bg:Никотинамид
+cs:nikotinamid
+de:Nicotinamid
+el:νικοτιναμίδιο
+es:nicotinamida
+et:nikotiinamiid
+fi:nikotiiniamidi
+hu:nikotinamid
+lt:nikotinamidas
+lv:nikotīnamīds
+mt:nikotinamide
+pl:nikotynamid
+pt:nicotinamida
+ro:nicotinamidă
+sk:nikotínamid
+sl:nikotinamid
+sv:nikotinamid
 
 en:Vitamin B6, Pyridoxin
-fr:Vitamine B6, Pyridoxine
-es:Vitamina B6, Piridoxina
-ja:ビタミン B6
-it:Vitamina B6, piridoxina
-pt:Vitamina B6, Piridoxina
-de:Vitamin B6, Pyridoxin
-he:ויטמין B6, פירידוקסין
-ga:Vitimín B6
-el:Βιταμίνη B6
-fi:B6-vitamiini
-nl:Vitamine B6
-nl_be:Vitamine B6
-lv:B6 vitamīns
-et:Vitamiin B6
-hu:B6-vitamin
-pl:Witamina B6
-lt:Vitaminas B6
-sk:Vitamín B6
-ro:Vitamina B6
 bg:Витамин B6
+de:de:Vitamin B6, Pyridoxin
+el:Βιταμίνη B6
+es:Vitamina B6
+et:B6-vitamiin
+fi:B6-vitamiini
+fr:Vitamine B6, Pyridoxine
+hu:B6-vitamin
+it:Vitamina B6, piridoxina
+lt:Vitaminas B6
+lv:B6 vitamīns
+mt:Vitamina B6
+nl:Vitamine B6
+pl:Witamina B6
+pt:Vitamina B6
+ro:Vitamina B6
+sk:Vitamín B6
 zh:维生素B6
 
-en:Vitamin B9, Folic acid
-fr:Vitamine B9, Acide folique
-es:Vitamina B9, Ácido fólico
-ja:ビタミン B9, 葉酸
-it:Vitamina B9, Acido folico
-pt:Vitamina B9, Ácido Fólico
-de:Vitamin B9, Folsäure
-he:ויטמין B9, חומצה פולית
-ga:Vitimín B9, Aigéad fólach
-el:Βιταμίνη B9, Φολικό οξύ
-fi:B9-vitamiini, Foolihappo
-nl:Vitamine B9, Foliumzuur
-nl_be:Vitamine B9, Foliumzuur
-lv:B9 vitamīns, Folijskābe
-et:Vitamiin B9, Foolhape
-hu:B9-vitamin, Folsav
-pl:Witamina B9, Kwas foliowy
-lt:Vitaminas B9, Folio rūgštis
-sk:Vitamín B9, Kyselina listová
-ro:Vitamina B9, Acid folic
-bg:Витамин B9, Фолиева киселина
+<en:Vitamin B6
+en:pyridoxine hydrochloride
+bg:Пиридоксин хидрохлорид
+cs:pyridoxin-hydrochlorid
+de:Pyridoxinhydrochlorid
+el:υδροχλωρική πυριδοξίνη
+es:clorhidrato de piridoxina
+et:püridoksiinvesinikkloriid
+fi:pyridoksiinihydrokloridi
+fr:chlorhydrate de pyridoxine
+hu:piridoxin-hidroklorid
+it:cloridrato di piridossina
+lt:piridoksino hidrochloridas
+lv:piridoksīna hidrohlorīds
+mt:idroklorur tal-piridossina
+nl:pyridoxinehydrochloride
+pl:chlorowodorek pirydoksyny
+pt:cloridrato de piridoxina
+ro:clorhidrat de piridoxină
+sk:pyridoxínhydrochlorid
+sl:piridoksin hidroklorid
+sv:pyridoxinhydroklorid
+
+<en:Vitamin B6
+en:pyridoxine 5'-phosphate
+
+<en:Vitamin B6
+en:pyridoxine dipalmitate
+bg:Пиридоксин дипалмитат
+cs:pyridoxin-dipalmitát
+de:Pyridoxindipalmitat
+el:διπαλμιτική πυριδοξίνη
+es:dipalmitato de piridixona
+et:püridoksiindipalmitaat
+fi:pyridoksiinidipalmitaatti
+fr:dipalmitate de pyridoxine
+hu:piridoxin-dipalmitát
+it:dipalmitato di piridossina
+lt:piridoksino dipalmitatas
+lv:piridoksīna dipalmitāts
+mt:dipalmitat tal-piridossina
+nl:pyridoxinedipalmitaat
+pl:dwupalmitynian pirydoksyny
+pt:dipalmitato de piridoxina
+ro:dipalmitat de piridoxină
+sk:pyridoxíndipalmitát
+sl:piridoksin dipalmitat
+sv:pyridoxindipalmitat
+
+en:Folate
+bg:Фолат
+cs:Folát
+de:Folat
+el:Φολικό οξύ
+es:Folato
+et:Folaat
+fi:Folaatti
+hu:Folát
+it:Folato
+lt:Foliatai
+lv:Folāts
+mt:Folat
+nl:Folaat
+pl:Folian
+pt:Folato
+ro:Folat
+sk:Folát
+sl:Folat
+sv:Folat
+
+<en:Folate
+en:folic acid, pteroylmonoglutamic acid,Vitamin B9
+bg:Фолиева киселина, птероилмоноглутаминова киселина, Витамин B9
+cs:kyselina listová, kyselina pteroylmonoglutamová
+de:Folsäure, Pteroylmonoglutaminsäure, Vitamin B9
+el:φολικό οξύ, πτεροϋλομονογλουταμικό οξύ
+es:ácido fólico, ácido pteroilmonoglutámico, Vitamina B9
+et:foolhape, pteroüülmonoglutaamhape
+fi:foolihappo, pteroyylimonoglutamiinihappo
+fr:acide folique, acide ptéroylmonoglutamique,Vitamine B9
+hu:folsav, pteroil-monoglutaminsav, B9-vitamin
+it:acido folico(acido pteroil-monoglutammico, Vitamina B9
+lt:folio rūgštis, pteroilmonoglutamo rūgštis
+lv:Folijskābe, pteroilmonoglutamīnskābe
+mt:aċidu foliku, aċidu pterojlmonoglutamiku
+nl:foliumzuur, pteroylmonoglutaminezuur, Vitamine B9
+pl:kwas foliowy, kwas pteroilomonoglutaminowy, Witamina B9
+pt:ácido fólico, ácido pteroilmonoglutâmico, Vitamina B9
+ro:acid folic, acid pteroilmonoglutamic, Vitamina B9
+sk:kyselina listová, kyselina pteroylmonoglutámová
+sl:folna kislina, pteroilmonoglutaminska kislina
+sv:folsyra, pteroylmonoglutaminsyra
 zh:维生素B9(叶酸
 
+<en:Folate
+en:calcium-L-methylfolate
+bg:Калциев L-метилфолат
+cs:L-metylfolát vápenatý
+de:Calcium-L-methylfolat
+el:L-μεθυλοφολικό ασβέστιο
+es:L-metilfolato cálcico
+et:kaltsium-L-metüülfolaat
+fi:kalsium-L-metyylifolaatti
+fr:L-méthylfolate de calcium
+hu:kalcium-L-metil-folát
+it:L-metilfolato di calcio
+lt:kalcio-L-metilfoliatas
+lv:kalcija-L-metilfolāts
+mt:L-methylfolate tal-kalċju
+nl:calcium-L-methylfolaat
+pl:L-metylfolian wapnia
+pt:L-metilfolato de cálcio
+ro:L-metilfolat de calciu
+sk:L- metylfolát vápenatý
+sl:kalcijev-L-metilfolat
+sv:kalcium-L-metylfolat
 
-en:Vitamin B12, cobalamin
-fr:Vitamine B12, cobalamine
-es:Vitamina B12, Cianocobalamina
+en:Vitamin B12, Cobalamin
+bg:Витамин B12
+el:Βιταμίνη B12
+es:Vitamina B12
+et:B12-vitamiin
+fi:B12-vitamiini
+fr:Vitamine B12, Cobalamine
+hu:B12-vitamin
 it:Vitamina B12, Cobalamina
 ja:ビタミン B12
-pt:Vitamina B12, Cobalamina
-de:Vitamin B12, Cobalamin
-he:ויטמין B12, ציאנוקובלאמין
-ga:Vitimín B12
-el:Βιταμίνη B12
-fi:B12-vitamiini
-nl:Vitamine B12
-nl_be:Vitamine B12
-lv:B12 vitamīns
-et:Vitamiin B12
-hu:B12-vitamin
-pl:Witamina B12
 lt:Vitaminas B12
-sk:Vitamín B12
+lv:B12 vitamīns
+mt:Vitamina B12
+nl:Vitamine B12
+pl:Witamina B12
+pt:Vitamina B12
 ro:Vitamina B12
-bg:Витамин В12
-zh:维生素B12
+sk:Vitamín B12
+
+<en:Vitamin B12
+en:cyanocobalamin
+bg:Цианокобаламин
+cs:kyanokobalamin
+el:κυανοκοβαλαμίνη
+es:cianocobalamina
+et:tsüanokobalamiin
+fi:syaanikobalamiini
+fr:cyanocobalamine
+hu:cianokobalamin
+it:cianocobalamina
+lt:cianokobalaminas
+lv:ciānkobalamīns
+mt:ċjanokobalamina
+nl:cyanocobalamine
+pl:cyjanokobalamina
+pt:cianocobalamine
+ro:cianocobalamină
+sk:kyanokobalamín
+sl:cianokobalamin
+sv:cyanokobalamin
+
+<en:Vitamin B12
+en:hydroxocobalamin
+bg:Хидроксокобаламин
+cs:hydroxokobalamin
+el:υδροξοκοβαλαμίνη
+es:hidroxocobalamina
+et:hüdroksokobalamiin
+fi:hydroksokobalamiini
+fr:hydroxocobalamine
+hu:hidroxokobalamin
+it:idrossocobalamina
+lt:hidroksokobalaminas
+lv:hidroksokobalamīns
+mt:idrossokobalamina
+nl:hydroxocobalamine
+pl:hydroksokobalamina
+pt:hidroxocobalamine
+ro:hidroxocobalamină
+sk:hydroxokobalamín
+sl:hidroksokobalamin
+sv:hydroxykobalamin
 
 en:Biotin
-fr:Biotine, Vitamine B8, Vitamine B7, Vitamine H
-es:Vitamina B7, Biotina
-it:Vitamina B8, Vitamina B7, Vitamina H, Vitamina I, Biotina
-pt:Vitamina B7, Biotina
-de:Biotin, Vitamin B8, Vitamin B7, Vitamin H
-ja:ビタミン B8, ビタミン B7, ビタミン H
-he:ביוטין, ויטמין B7
-ga:Bitin
-el:Βιοτίνη
-fi:Biotiini
-nl:Biotine
-nl_be:Biotine
-lv:Biotīns
-et:Biotiin
-pl:Biotyna
-lt:Biotinas
-sk:Biotín
-ro:Biotină
 bg:Биотин
-zh:生物素
+el:Βιοτίνη
+es:Biotina, Vitamina B7
+et:Biotiin
+fi:Biotiini
+fr:Biotine, Vitamine B8, Vitamine B7, Vitamine H
+it:Biotina
+lt:Biotinas
+lv:Biotīns
+mt:Bijotina
+nl:Biotine
+pl:Biotyna
+pt:Biotina
+ro:Biotină
+sk:Biotín
 
-en:Pantothenic acid, Pantothenate, Vitamin B5
-fr:Acide pantothénique, Vitamine B5
-ja:ビタミン B5
-es:Vitamina B5, Ácido pantoténico
-it:Vitamina B5, Acido pantotenico
-pt:Vitamina B5, Ácido Pantotênico
-pt_pt:Vitamina B5, ácido pantoténico
-de:Pantothensäure, Vitamin B5
-he:חומצה פנטותנית, ויטמין B5
-ga:Aigéad pantaitéineach
-da:Pantothensyre
-el:Παντοθενικό οξύ
-fi:Pantoteenihappo
-nl:Pantotheenzuur
-nl_be:Pantotheenzuur
-sv:Pantotensyra
-lv:Pantotēnskābe
-cs:Kyselina pantothenová
-et:Pantoteenhape
-hu:Pantoténsav
-pl:Kwas pantotenowy
-sl:Pantotenska kislina
-lt:Pantoteno rūgštis
-mt:Aċidu Pantoteniku
-sk:Kyselina pantotenová
-ro:Acid pantotenic
+<en:Biotin
+en:D-Biotin
+
+en:Pantothenic Acid, Vitamin B5
 bg:Пантотенова киселина
+cs:Kyselina pantothenová
+de:Pantothensäure
+el:Παντοθενικό οξύ
+es:Ácido pantoténico
+et:Pantoteenhape
+fi:Pantoteenihappo
+fr:Acide pantothénique, Vitamine B5
+hu:Panoténsav
+it:Acido pantotenico
+lt:Pantoteno rūgštis
+lv:Pantotēn-skābe
+mt:Aċidu Pantoteniku
+nl:Pantotheenzuur
+pl:Kwas pantotenowy
+pt:Ácido pantoténico
+ro:Acid pantotenic
+sk:Kyselina pantoténová
+sl:Pantotenska kislina
+sv:Pantotensyra
+
+<en:Pantothenic Acid
+en:D-pantothenate, calcium
+bg:D-пантотенат калций
+cs:D-pantothenát vápenatý
+de:Calcium-D-pantothenat
+el:D-παντοθενικό ασβέστιο
+es:D-pantotenato cálcico
+et:kaltsium-D-pantotenaat
+fi:D-pantotenaatti, kalsium
+fr:D-pantothénate de calcium
+hu:kalcium-D-pantotenát
+it:D-pantotenato, calcio
+lt:kalcio D-pantotenatas
+lv:kalcija D-pantotenāts
+mt:D-pantotenat, kalċju
+nl:calcium-D-pantothenaat
+pl:D-pantotenian wapnia
+pt:D-pantotenato de cálcio
+ro:D-pantotenat de calciu
+sk:D-pantotenát vápenatý
+sl:kalcijev D-pantotenat
+sv:kalcium-D-pantotenat
+
+<en:Pantothenic Acid
+en:D-pantothenate, sodium
+bg:D-пантотенат натрий
+cs:D-pantothenát sodný
+de:Natrium-D-pantothenat
+el:D-παντοθενικό νάτριο
+es:D-pantotenato sódico
+et:naatrium-D-pantotenaat
+fi:D-pantotenaatti, natrium
+fr:D-pantothénate de sodium
+hu:nátrium-D-pantotenát
+it:D-pantotenato, sodio
+lt:natrio D-pantotenatas
+lv:nātrija D-pantotenāts
+mt:D-pantotenat, sodju
+nl:natrium-D-pantothenaat
+pl:D-pantotenian sodu
+pt:D-pantotenato de sódio
+ro:D-pantotenat de sodiu
+sk:D-pantotenát sodný
+sl:natrijev D-pantotenat
+sv:natrium-D-pantotenat
+
+<en:Pantothenic Acid
+en:dexpanthenol
+bg:Декспантенол
+el:δεξπανθενόλη
+es:dexpantenol
+et:dekspantenool
+fi:dekspantenoli
+fr:dexpanthénol
+hu:dexpantenol
+it:dexpantenolo
+lt:dekspantenolis
+lv:dekspantenols
+mt:dexpantenolu
+pl:dekspantenol
+pt:dexpantenol
+ro:dexpantenol
+sk:dexpantenol
+sl:dekspantenol
+sv:dexpantenol
+
 
