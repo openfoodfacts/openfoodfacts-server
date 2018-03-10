@@ -351,7 +351,7 @@ extract_ingredients_classes_from_text($product_ref);
 print STDERR $product_ref->{additives} . "\n";
 
 is_deeply($product_ref->{vitamins_tags}, [
-        "en:vitamin-b9",
+        "en:folic-acid",
         "en:vitamin-b12",
                               ],
 );
@@ -371,7 +371,7 @@ print STDERR $product_ref->{additives} . "\n";
 is_deeply($product_ref->{vitamins_tags}, [
         "en:vitamin-d",
         "en:vitamin-k",
-        "en:vitamin-b3",
+        "en:niacin",
                               ],
 );
 
@@ -390,8 +390,8 @@ print STDERR $product_ref->{additives} . "\n";
 
 is_deeply($product_ref->{vitamins_tags}, [
         "en:vitamin-c",
-        "en:vitamin-b3",
-        "en:vitamin-b9",
+        "en:niacin",
+        "en:folic-acid",
         "en:vitamin-e",
                               ],
 );
@@ -602,16 +602,16 @@ is_deeply($product_ref->{additives_original_tags}, [
 
 is_deeply($product_ref->{vitamins_tags}, [
           'en:vitamin-a',
-          'en:vitamin-b1',
-          'en:vitamin-b2',
+          'en:thiamin',
+          'en:riboflavin',
           'en:pantothenic-acid',
           'en:vitamin-b6',
-          'en:vitamin-b9',
+          'en:folic-acid',
           'en:vitamin-b12',
           'en:vitamin-c',
           'en:vitamin-d',
           'en:biotin',
-          'en:vitamin-b3',
+          'en:niacin',
           'en:vitamin-e',
                               ],
 );
@@ -696,17 +696,20 @@ is_deeply($product_ref->{minerals_tags}, [
 );
 
 is_deeply($product_ref->{vitamins_tags}, [
+	"en:sodium-l-ascorbate",
 	"en:vitamin-c",
 	"en:vitamin-b12",
-	"en:vitamin-b3",
+	"en:niacin",
 	"en:pantothenic-acid",
-	"en:vitamin-b2",
-	"en:vitamin-b1",
+	"en:riboflavin",
+	"en:thiamin",
 	"en:vitamin-b6",
+	"en:retinol",
 	"en:vitamin-a",
-	"en:vitamin-b9",
-	"en:vitamin-k1",
+	"en:folic-acid",
+	"en:phylloquinone",
 	"en:biotin",
+	"en:ergocalciferol",
 	"en:vitamin-e",
                               ],
 );
@@ -740,6 +743,36 @@ is_deeply($product_ref->{vitamins_tags}, [
 
 
 
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"Céréales 90,5 % (farine de blé et gluten de blé 57,8 %, farine complète de blé 31 %, farine de blé malté), sucre, graines de lin, levure, huile de palme, fibres d'avoine, sel, minéraux [calcium (orthophosphate), fer (fumarate), magnésium (oxyde)], agent de traitement de la farine (acide ascorbique), vitamines [E, thiamine (B1), riboflavine (B2), B6, acide folique)]."
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+	"en:e300",
+                              ],
+);
+
+is_deeply($product_ref->{minerals_tags}, [
+	"en:calcium",
+	"en:iron",
+	"en:magnesium",
+                              ],
+);
+
+is_deeply($product_ref->{vitamins_tags}, [
+	"en:vitamin-e",
+	"en:thiamin",
+	"en:riboflavin",
+	"en:vitamin-b6",
+	"en:folic-acid",
+                              ],
+);
 
 
 
