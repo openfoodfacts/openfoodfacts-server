@@ -6269,7 +6269,7 @@ JS
 	# to compute the number of columns displayed
 	my $html_ingredients_classes_n = 0;
 
-	foreach my $class ('additives', 'vitamins', 'minerals', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil') {
+	foreach my $class ('additives', 'vitamins', 'minerals', 'amino_acids', 'nucleotides', 'other_nutritional_substances', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil') {
 	
 		my $tagtype = $class;
 		my $tagtype_field = $tagtype;
@@ -6347,8 +6347,8 @@ HTML
 		elsif ($html_ingredients_classes_n == 4) {
 			$column_class = "medium-6 large-3 columns";
 		}
-		elsif ($html_ingredients_classes_n == 5) {
-			$column_class = "medium-6 large-4 xlarge-2 columns";
+		elsif ($html_ingredients_classes_n >= 5) {
+			$column_class = "medium-6 large-3 xlarge-2 columns";
 		}			
 	
 		$html_ingredients_classes =~ s/column_class/$column_class/g;
