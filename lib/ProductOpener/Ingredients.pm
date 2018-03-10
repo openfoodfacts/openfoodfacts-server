@@ -545,7 +545,7 @@ sub normalize_fr_vitamins_enumeration($) {
 	
 	my $vitamins_list = shift;
 	
-	my @vitamins = split(/\/| \/ | - |, |,| et /, $vitamins_list);
+	my @vitamins = split(/\(|\)|\/| \/ | - |, |,| et /, $vitamins_list);
 	
 	print STDERR "split_vitamins input: " . $vitamins_list . "\n";
 	
@@ -602,7 +602,7 @@ sub extract_ingredients_classes_from_text($) {
 	$text =~ s/ - et / - /ig;
 	
 	# stabilisant e420 (sans : )
-	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement)(s)?(\s)?(:)?/$1$2 : /ig;
+	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement)(s)?(\s)?(:)?/$1$2 : /ig;
 	# citric acid natural flavor (may be a typo)
 	$text =~ s/(natural flavor)(s)?(\s)?(:)?/: $1$2 : /ig;
 	
@@ -729,11 +729,11 @@ sub extract_ingredients_classes_from_text($) {
 "acide pantothénique",
 "acide folique",
 "c", "acide ascorbique",
-"d", "d3", "cholécalciférol",
+"d", "d2", "d3", "cholécalciférol",
 "e", "tocophérol", "alphatocophérol", "alpha-tocophérol",
 "f",
 "h",
-"k",
+"k", "k1", "k2", "k3",
 "p", "pp"
 
 );		
@@ -743,15 +743,22 @@ sub extract_ingredients_classes_from_text($) {
 		my $vitaminssuffixregexp = "";
 		foreach my $suffix (@vitaminssuffixes) {
 			$vitaminssuffixregexp .= '|' . $suffix;
+			# vitamines [E, thiamine (B1), riboflavine (B2), B6, acide folique)].
+			# -> also put (B1)
+			$vitaminssuffixregexp .= '|\(' . $suffix . '\)';
+			
 			my $unaccented_suffix = unac_string_perl($suffix);
 			if ($unaccented_suffix ne $suffix) {
 				$vitaminssuffixregexp .= '|' . $unaccented_suffix;
 			}
 			if ($suffix =~ /[a-z]\d/) {
+				
+				
 				$suffix =~ s/([a-z])(\d)/$1 $2/;
 				$vitaminssuffixregexp .= '|' . $suffix;
 				$suffix =~ s/ /-/;
 				$vitaminssuffixregexp .= '|' . $suffix;
+				
 			}
 			
 		}
@@ -759,7 +766,7 @@ sub extract_ingredients_classes_from_text($) {
 		
 		print STDERR "vitamins regexp: s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et ))+/\n";
 	
-		$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )*((($vitaminssuffixregexp)(\/| \/ | - |,|, | et ))+($vitaminssuffixregexp))\b/normalize_fr_vitamins_enumeration($3)/ieg;
+		$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )*((($vitaminssuffixregexp)( |\/| \/ | - |,|, | et ))+($vitaminssuffixregexp))\b/normalize_fr_vitamins_enumeration($3)/ieg;
 
 	}
 	
@@ -809,8 +816,14 @@ sub extract_ingredients_classes_from_text($) {
 		
 		my $vitamins_tagtype = "vitamins" . $tagtype_suffix;
 		my $minerals_tagtype = "minerals" . $tagtype_suffix;
+		my $amino_acids_tagtype = "amino_acids" . $tagtype_suffix;
+		my $nucleotides_tagtype = "nucleotides" . $tagtype_suffix;
+		my $other_nutritional_substances_tagtype = "other_nutritional_substances" . $tagtype_suffix;
 		$product_ref->{$vitamins_tagtype . '_tags'} = [];
 		$product_ref->{$minerals_tagtype . '_tags'} = [];
+		$product_ref->{$amino_acids_tagtype . '_tags'} = [];
+		$product_ref->{$nucleotides_tagtype . '_tags'} = [];
+		$product_ref->{$vitamins_tagtype . '_tags'} = [];
 		
 		my $class = $tagtype;		
 		
@@ -839,6 +852,9 @@ sub extract_ingredients_classes_from_text($) {
 					my $canon_ingredient = canonicalize_taxonomy_tag($product_ref->{lc}, $tagtype, $ingredient_id_copy);
 					my $canon_ingredient_vitamins = canonicalize_taxonomy_tag($product_ref->{lc}, "vitamins", $ingredient_id_copy);
 					my $canon_ingredient_minerals = canonicalize_taxonomy_tag($product_ref->{lc}, "minerals", $ingredient_id_copy);
+					my $canon_ingredient_amino_acids = canonicalize_taxonomy_tag($product_ref->{lc}, "amino_acids", $ingredient_id_copy);
+					my $canon_ingredient_nucleotides = canonicalize_taxonomy_tag($product_ref->{lc}, "nucleotides", $ingredient_id_copy);
+					my $canon_ingredient_other_nutritional_substances = canonicalize_taxonomy_tag($product_ref->{lc}, "other_nutritional_substances", $ingredient_id_copy);
 					
 					$product_ref->{$tagtype} .= " [ $ingredient_id_copy -> $canon_ingredient ";
 					
@@ -850,7 +866,7 @@ sub extract_ingredients_classes_from_text($) {
 					# For additives, first check if the current class is vitamins or minerals and if the ingredient
 					# exists in the vitamins and minerals taxonomy
 					
-					elsif (($current_additive_class eq "en:vitamin") and (exists_taxonomy_tag("vitamins", $canon_ingredient_vitamins))) {
+					elsif (($current_additive_class eq "en:vitamins") and (exists_taxonomy_tag("vitamins", $canon_ingredient_vitamins))) {
 						$match = 1;
 						$seen{$canon_ingredient} = 1;
 						$product_ref->{$tagtype} .= " -> exists as a vitamin $canon_ingredient_vitamins and current class is en:vitamins ";
@@ -860,7 +876,7 @@ sub extract_ingredients_classes_from_text($) {
 						}
 					}
 					
-					elsif (($current_additive_class eq "en:mineral") and (exists_taxonomy_tag("minerals", $canon_ingredient_minerals))) {
+					elsif (($current_additive_class eq "en:minerals") and (exists_taxonomy_tag("minerals", $canon_ingredient_minerals))) {
 						$match = 1;
 						$seen{$canon_ingredient} = 1;
 						$product_ref->{$tagtype} .= " -> exists as a mineral $canon_ingredient_minerals and current class is en:minerals ";
@@ -931,6 +947,36 @@ sub extract_ingredients_classes_from_text($) {
 								$seen_tags{$minerals_tagtype . '_tags' . $canon_ingredient_minerals} = 1;
 							}
 						}	
+						
+						if ((exists_taxonomy_tag("amino_acids", $canon_ingredient_amino_acids))) {
+							$match = 1;
+							$seen{$canon_ingredient} = 1;
+							$product_ref->{$tagtype} .= " -> exists as a amino_acid $canon_ingredient_amino_acids ";
+							if (not exists $seen_tags{$amino_acids_tagtype . '_tags' . $canon_ingredient_amino_acids}) {
+								push @{$product_ref->{ $amino_acids_tagtype . '_tags'}}, $canon_ingredient_amino_acids;
+								$seen_tags{$amino_acids_tagtype . '_tags' . $canon_ingredient_amino_acids} = 1;
+							}
+						}
+						
+						elsif ((exists_taxonomy_tag("nucleotides", $canon_ingredient_nucleotides))) {
+							$match = 1;
+							$seen{$canon_ingredient} = 1;
+							$product_ref->{$tagtype} .= " -> exists as a nucleotide $canon_ingredient_nucleotides ";
+							if (not exists $seen_tags{$nucleotides_tagtype . '_tags' . $canon_ingredient_nucleotides}) {
+								push @{$product_ref->{ $nucleotides_tagtype . '_tags'}}, $canon_ingredient_nucleotides;
+								$seen_tags{$nucleotides_tagtype . '_tags' . $canon_ingredient_nucleotides} = 1;
+							}
+						}	
+
+						elsif ((exists_taxonomy_tag("other_nutritional_substances", $canon_ingredient_other_nutritional_substances))) {
+							$match = 1;
+							$seen{$canon_ingredient} = 1;
+							$product_ref->{$tagtype} .= " -> exists as a other_nutritional_substance $canon_ingredient_other_nutritional_substances ";
+							if (not exists $seen_tags{$other_nutritional_substances_tagtype . '_tags' . $canon_ingredient_other_nutritional_substances}) {
+								push @{$product_ref->{ $other_nutritional_substances_tagtype . '_tags'}}, $canon_ingredient_other_nutritional_substances;
+								$seen_tags{$other_nutritional_substances_tagtype . '_tags' . $canon_ingredient_other_nutritional_substances} = 1;
+							}
+						}							
 						
 						# try to shorten the ingredient to make it less specific, to see if it matches then
 						
