@@ -2003,7 +2003,12 @@ sub display_tag($) {
 	
 	if (((defined $newtagid) and ($newtagid ne $tagid)) or ((defined $newtagid2) and ($newtagid2 ne $tagid2))) {
 		$request_ref->{redirect} = $request_ref->{current_link};
-		print STDERR "Display.pm display_tag - redirect - tagid: $tagid - newtagid: $newtagid - tagid2: $tagid2 - newtagid2: $newtagid2 - url: $request_ref->{current_link} \n";
+		# Re-add file suffix, so that the correct response format is kept. https://github.com/openfoodfacts/openfoodfacts-server/issues/894
+		$request_ref->{redirect} .= '.json' if $request_ref->{json};
+		$request_ref->{redirect} .= '.jsonp' if $request_ref->{jsonp};
+		$request_ref->{redirect} .= '.xml' if $request_ref->{xml};
+		$request_ref->{redirect} .= '.jqm' if $request_ref->{jqm};
+		print STDERR "Display.pm display_tag - redirect - tagid: $tagid - newtagid: $newtagid - tagid2: $tagid2 - newtagid2: $newtagid2 - url: $request_ref->{redirect} \n";
 		return 301;
 	}
 	
