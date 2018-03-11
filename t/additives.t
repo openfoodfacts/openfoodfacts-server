@@ -775,5 +775,42 @@ is_deeply($product_ref->{vitamins_tags}, [
 );
 
 
+$product_ref = {
+        lc => "en",
+        ingredients_text =>
+"REAL SUGARCANE, SALT, ANTIOXIDANT (INS 300), ACIDITY REGULATOR (INS 334), STABILIZER (INS 440, INS 337), WATER (FOR MAINTAINING DESIRED BRIX), CONTAINS PERMITTED NATURAL FLAVOUR & NATURAL IDENTICAL COLOURING SUBSTANCES (INS 141[i])"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+	"en:e300",
+	"en:e334",
+	"en:e440",
+	"en:e337",
+	"en:e141",
+                              ],
+);
+
+
+# bug 1133
+$product_ref = {
+        lc => "en",
+        ingredients_text =>
+"water, sugar, tea, lemon juice, flavouring, acidity regulator (330, 331), vitamin C, antioxidant (304)"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+	"en:e330",
+	"en:e331",
+	"en:e304",
+                              ],
+);
 
 done_testing();

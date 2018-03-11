@@ -586,6 +586,10 @@ sub extract_ingredients_classes_from_text($) {
 	# and PP, B6, B12 etc. will be listed as synonyms for Vitamine PP, Vitamin B6, Vitamin B12 etc.
 	# we will need to be careful that we don't match a single letter K, E etc. that is not a vitamin, and if it happens, check for a "vitamin" prefix
 		
+		
+		
+	# in India: INS 240 instead of E 240, bug #1133)
+	$text =~ s/\bins( |-)?(\d)/E$2/ig;
 	
 	# E 240, E.240, E-240..
 	# E250-E251-E260
@@ -850,6 +854,9 @@ sub extract_ingredients_classes_from_text($) {
 				
 					# additive?
 					my $canon_ingredient = canonicalize_taxonomy_tag($product_ref->{lc}, $tagtype, $ingredient_id_copy);
+					# in Hong Kong, the E- can be ommited in E-numbers
+					my $canon_e_ingredient = canonicalize_taxonomy_tag($product_ref->{lc}, $tagtype, "e" . $ingredient_id_copy);
+					print STDERR "e_ingredient: $canon_e_ingredient\n";
 					my $canon_ingredient_vitamins = canonicalize_taxonomy_tag($product_ref->{lc}, "vitamins", $ingredient_id_copy);
 					my $canon_ingredient_minerals = canonicalize_taxonomy_tag($product_ref->{lc}, "minerals", $ingredient_id_copy);
 					my $canon_ingredient_amino_acids = canonicalize_taxonomy_tag($product_ref->{lc}, "amino_acids", $ingredient_id_copy);
@@ -976,7 +983,24 @@ sub extract_ingredients_classes_from_text($) {
 								push @{$product_ref->{ $other_nutritional_substances_tagtype . '_tags'}}, $canon_ingredient_other_nutritional_substances;
 								$seen_tags{$other_nutritional_substances_tagtype . '_tags' . $canon_ingredient_other_nutritional_substances} = 1;
 							}
-						}							
+						}			
+
+						# in Hong Kong, the E- can be ommited in E-numbers
+						
+						elsif (($canon_ingredient =~ /^en:(\d+)( |-)?([a-z])??(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?$/i)
+							and (exists_taxonomy_tag($tagtype, $canon_e_ingredient))) {
+					
+							$seen{$canon_e_ingredient} = 1;
+							$product_ref->{$tagtype} .= " -> e-ingredient exists  ";
+						
+							if (not exists $seen_tags{$tagtype . '_tags' . $canon_e_ingredient}) {
+								push @{$product_ref->{ $tagtype . '_tags'}}, $canon_e_ingredient;
+								 $seen_tags{$tagtype . '_tags' . $canon_e_ingredient} = 1;
+							}
+							# success!
+							$match = 1;
+							$product_ref->{$tagtype} .= " -- ok ";	
+						}
 						
 						# try to shorten the ingredient to make it less specific, to see if it matches then
 						
