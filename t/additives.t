@@ -410,9 +410,14 @@ print STDERR $product_ref->{additives} . "\n";
 
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e510',
-          'en:e509',
                               ],
 );
+
+is_deeply($product_ref->{minerals_tags}, [
+          'en:calcium-chloride',
+                              ],
+);
+
 
 $product_ref = {
         lc => "fr",
@@ -426,10 +431,15 @@ print STDERR $product_ref->{additives} . "\n";
 
 
 is_deeply($product_ref->{additives_original_tags}, [
-          'en:e509',
           'en:e510',
                               ],
 );
+
+is_deeply($product_ref->{minerals_tags}, [
+          'en:calcium-chloride',
+                              ],
+);
+
 
 $product_ref = {
         lc => "fr",
@@ -488,11 +498,11 @@ extract_ingredients_classes_from_text($product_ref);
 print STDERR $product_ref->{additives} . "\n";
 
 is_deeply($product_ref->{additives_original_tags}, [
-	"en:e170",
                               ],
 );
 
 is_deeply($product_ref->{minerals_tags}, [
+	"en:calcium-carbonate",
                               ],
 );
 
@@ -545,16 +555,16 @@ print STDERR $product_ref->{additives} . "\n";
 
 
 is_deeply($product_ref->{additives_original_tags}, [
-	"en:e170",
-	"en:e509",
-	"en:e508",
-	"en:e511",
-	"en:e332",
-	"en:e331",
                               ],
 );
 
 is_deeply($product_ref->{minerals_tags}, [
+	"en:calcium-carbonate",
+	"en:calcium-chloride",
+	"en:potassium-chloride",
+	"en:magnesium-chloride",
+	"en:potassium-citrate",
+	"en:sodium-citrate",
 	"en:calcium-phosphate",
 	"en:ferrous-sulphate",
 	"en:zinc-sulphate",

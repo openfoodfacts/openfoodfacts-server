@@ -2152,6 +2152,7 @@ sk:E170, Uhličitan vápenatý, CI pigment biely 18
 sl:E170, Kalcijev karbonat, CI Pigment White 18
 sv:E170, Kalciumkarbonat, CI Pigment White 18
 e_number:en:170
+mandatory_additive_class:en: en:acidity-regulator, en:anti-caking-agent, en:stabiliser, en:firming-agent, en:flour-treatment-agent, en:colour
 wikidata:en:Q23767
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/2318.pdf
 
@@ -5073,6 +5074,7 @@ ru:E332, Цитрат калия
 sk:E332, E332 food additive
 sl:E332, E332 food additive
 sv:E332, Kaliumcitrat, Kaliumcitrater, E 332
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
 e_number:en:332
 wikidata:en:Q419921
 
@@ -5099,6 +5101,7 @@ ro:E332(i), Citrat monopotasic
 sk:E332(i), Citran draselný, Kálium-citrát
 sl:E332(i), Monokalijev citrat
 sv:E332(i), Monokaliumcitrat
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
 e_number:en:332
 wikidata:en:Q419921
 
@@ -5126,6 +5129,7 @@ sk:E332(ii), Citran tridraselný, Kálium-citrát
 sl:E332(ii), Trikalijev citrat
 sv:E332(ii), Trikaliumcitrat
 e_number:en:332
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
 wikidata:en:Q419921
 
 en:E333, Calcium citrates , Calcium citrate
@@ -5150,6 +5154,7 @@ ro:E333, E333 food additive
 sk:E333, Citrát trivápenatý
 sl:E333, E333 food additive
 sv:E333, E333 food additive
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:firming-agent
 e_number:en:333
 wikidata:en:Q420280
 
@@ -5176,6 +5181,7 @@ ro:E333(i), Citrat monocalcic
 sk:E333(i), Citran monovápenatý, Kalcium-citrát
 sl:E333(i), Monokalcijev citrat
 sv:E333(i), Monokalciumcitrat
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:firming-agent
 e_number:en:333
 wikidata:en:Q420280
 
@@ -5228,6 +5234,7 @@ ro:E333(iii), Citrat tricalcic
 sk:E333(iii), Citran trivápenatý (dicitran trivápenatý), Kalcium-citrát
 sl:E333(iii), Trikalcijev citrat
 sv:E333(iii), Trikalciumcitrat
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:firming-agent
 e_number:en:333
 wikidata:en:Q420280
 
@@ -6470,7 +6477,7 @@ ro:E375, E375 food additive
 sk:E375, E375 food additive
 sl:E375, E375 food additive
 sv:E375, E375 food additive
-mandatory_additive_class:en :en:colour-retention-agent
+mandatory_additive_class:en: en:colour-retention-agent
 e_number:en:375
 
 en:E380, Triammonium citrate
@@ -10656,6 +10663,7 @@ ro:E508, Clorură de potasiu, Silvină
 sk:E508, Chlorid draselný, Sylvín
 sl:E508, Kalijev klorid
 sv:E508, Kaliumklorid, Sylvin, E 508
+mandatory_additive_class:en: en:flavour-enhancer, en:stabiliser, en:thickener
 e_number:en:508
 wikidata:en:Q184630
 
@@ -10682,6 +10690,7 @@ ru:E509, Хлорид кальция, CaCl2, Хлористый кальций, 
 sk:E509, Chlorid vápenatý
 sl:E509, Kalcijev klorid
 sv:E509, Kalciumklorid, E 509
+mandatory_additive_class:en: en:firming-agent, en:stabiliser, en:thickener
 e_number:en:509
 wikidata:en:Q208451
 
@@ -10731,6 +10740,7 @@ ro:E511, Clorură de magneziu
 sk:E511, Chlorid horečnatý
 sl:E511, Magnezijev klorid
 sv:E511, Magnesiumklorid
+mandatory_additive_class:en: en:acidity-regulator, en:firming-agent, en:sequestrant, en:colour-retention-agent
 e_number:en:511
 wikidata:en:Q265414
 
@@ -11012,6 +11022,7 @@ ro:E518, Sulfat de magneziu
 sk:E518, E518 food additive
 sl:E518, Magnezijev sulfat
 sv:E518, Magnesiumsulfat
+mandatory_additive_class:en: en:colour-retention-agent, en:preservative
 e_number:en:518
 wikidata:en:Q288266
 
@@ -13490,6 +13501,7 @@ sk:E917, E917 food additive
 sl:E917, E917 food additive
 sv:E917, E917 food additive
 e_number:en:917
+mandatory_additive_class:en: en:flour-treatment-agent
 wikidata:en:Q414599
 
 en:E918, Nitrogen oxides
@@ -13565,6 +13577,7 @@ sk:E920, L-cysteín, Cysteín
 sl:E920, L-cistein, Cistein
 sv:E920, L-cystein, Cystein, E 910, Cysteiner, E 920
 e_number:en:920
+mandatory_additive_class:en: en:flour-treatment-agent
 wikidata:en:Q186474
 
 en:E921, L-cysteine hydrochloride monohydrate
