@@ -813,4 +813,89 @@ is_deeply($product_ref->{additives_original_tags}, [
                               ],
 );
 
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"chlorure de choline, taurine, inositol, L-cystéine, sels de sodium de l’AMP, citrate de choline, carnitine"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+                              ],
+);
+
+is_deeply($product_ref->{amino_acids_tags}, [
+	"en:l-cysteine",
+                              ],
+);
+
+is_deeply($product_ref->{nucleotides_tags}, [
+	"en:sodium-salts-of-amp",
+                              ],
+);
+
+is_deeply($product_ref->{other_nutritional_substances_tags}, [
+	"en:choline-chloride",
+	"en:taurine",
+	"en:inositol",
+	"en:carnitine",
+                              ],
+);
+
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"émulsifiant: chlorure de choline, agent de traitement de la farine:l cystéine"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+        "en:e1001",
+        "en:e920",
+                              ],
+);
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"
+Lait partiellement écrémé, eau, lactose, maltodextrines, huiles végétales (colza, tournesol), vitamines : A, B1, B2, B5, B6, B8, B9, B12, C, D3, E, K1 et PP, substances d'apport minéral : citrate de calcium, sulfates de fer, de magnésium, de zinc, de cuivre et de manganèse, citrate de sodium, iodure et hydroxyde de potassium, sélénite de sodium, émulsifiant : lécithine de colza, éthylvanilline."
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+        "en:e322i",
+                              ],
+);
+
+is_deeply($product_ref->{minerals_tags}, [
+	"en:calcium-citrate",
+        "en:ferrous-sulphate",
+        "en:magnesium-sulphate",
+        "en:zinc-sulphate",
+        "en:cupric-sulphate",
+        "en:manganese-sulphate",
+        "en:sodium-citrate",
+        "en:potassium-iodide",
+        "en:potassium-hydroxide",
+        "en:sodium-selenite",
+
+                              ],
+);
+
+
+
+
+
 done_testing();
