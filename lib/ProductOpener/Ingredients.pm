@@ -521,6 +521,17 @@ sub normalize_fr_a_de_enumeration {
 }
 
 
+# iodure et hydroxide de potassium
+sub normalize_fr_a_et_b_de_c($$$) {
+
+	my $a = shift;
+	my $b = shift;
+	my $c = shift;
+	
+	return normalize_fr_a_de_b($a, $c) . "," . normalize_fr_a_de_b($b, $c);
+}
+
+
 sub normalize_fr_vitamin($) {
 
 	my $a = shift;
@@ -656,6 +667,8 @@ sub extract_ingredients_classes_from_text($) {
 "phosphate",
 "sélénite",
 "sulfate",
+"hydroxyde",
+"sulphate",
 	);
 	
 		my @suffixes = (
@@ -704,6 +717,7 @@ sub extract_ingredients_classes_from_text($) {
 		}
 		$suffixregexp =~ s/^\|//;		
 		
+		$text =~ s/($prefixregexp) et ($prefixregexp) (de |d')?($suffixregexp)/normalize_fr_a_et_b_de_c($1, $2, $4)/ieg;
 		
 		$text =~ s/($prefixregexp) (de |d')?($suffixregexp) et (de |d')?($suffixregexp)/normalize_fr_a_de_enumeration($1, $3, $5)/ieg;
 		$text =~ s/($prefixregexp) (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)/normalize_fr_a_de_enumeration($1, $3, $5, $7)/ieg;
@@ -856,12 +870,12 @@ sub extract_ingredients_classes_from_text($) {
 					my $canon_ingredient = canonicalize_taxonomy_tag($product_ref->{lc}, $tagtype, $ingredient_id_copy);
 					# in Hong Kong, the E- can be ommited in E-numbers
 					my $canon_e_ingredient = canonicalize_taxonomy_tag($product_ref->{lc}, $tagtype, "e" . $ingredient_id_copy);
-					print STDERR "e_ingredient: $canon_e_ingredient\n";
 					my $canon_ingredient_vitamins = canonicalize_taxonomy_tag($product_ref->{lc}, "vitamins", $ingredient_id_copy);
 					my $canon_ingredient_minerals = canonicalize_taxonomy_tag($product_ref->{lc}, "minerals", $ingredient_id_copy);
 					my $canon_ingredient_amino_acids = canonicalize_taxonomy_tag($product_ref->{lc}, "amino_acids", $ingredient_id_copy);
 					my $canon_ingredient_nucleotides = canonicalize_taxonomy_tag($product_ref->{lc}, "nucleotides", $ingredient_id_copy);
 					my $canon_ingredient_other_nutritional_substances = canonicalize_taxonomy_tag($product_ref->{lc}, "other_nutritional_substances", $ingredient_id_copy);
+					($ingredient_id_copy =~ /carniti/i) and print STDERR "other: $canon_ingredient_other_nutritional_substances\n";
 					
 					$product_ref->{$tagtype} .= " [ $ingredient_id_copy -> $canon_ingredient ";
 					
