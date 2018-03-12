@@ -897,7 +897,8 @@ sub extract_ingredients_classes_from_text($) {
 						}
 					}
 					
-					elsif (($current_additive_class eq "en:minerals") and (exists_taxonomy_tag("minerals", $canon_ingredient_minerals))) {
+					elsif (($current_additive_class eq "en:minerals") and (exists_taxonomy_tag("minerals", $canon_ingredient_minerals))
+						and not ($just_synonyms{"minerals"}{$canon_ingredient_minerals})) {
 						$match = 1;
 						$seen{$canon_ingredient} = 1;
 						$product_ref->{$tagtype} .= " -> exists as a mineral $canon_ingredient_minerals and current class is en:minerals ";
@@ -957,9 +958,12 @@ sub extract_ingredients_classes_from_text($) {
 								push @{$product_ref->{ $vitamins_tagtype . '_tags'}}, $canon_ingredient_vitamins;
 								$seen_tags{$vitamins_tagtype . '_tags' . $canon_ingredient_vitamins} = 1;
 							}
+							# set current class to vitamins
+							$current_additive_class = "en:vitamins";
 						}
 						
-						elsif ((exists_taxonomy_tag("minerals", $canon_ingredient_minerals))) {
+						elsif ((exists_taxonomy_tag("minerals", $canon_ingredient_minerals))
+							and not ($just_synonyms{"minerals"}{$canon_ingredient_minerals})) {
 							$match = 1;
 							$seen{$canon_ingredient} = 1;
 							$product_ref->{$tagtype} .= " -> exists as a mineral $canon_ingredient_minerals ";
@@ -967,6 +971,7 @@ sub extract_ingredients_classes_from_text($) {
 								push @{$product_ref->{ $minerals_tagtype . '_tags'}}, $canon_ingredient_minerals;
 								$seen_tags{$minerals_tagtype . '_tags' . $canon_ingredient_minerals} = 1;
 							}
+							$current_additive_class = "en:minerals";
 						}	
 						
 						if ((exists_taxonomy_tag("amino_acids", $canon_ingredient_amino_acids))) {
@@ -977,6 +982,7 @@ sub extract_ingredients_classes_from_text($) {
 								push @{$product_ref->{ $amino_acids_tagtype . '_tags'}}, $canon_ingredient_amino_acids;
 								$seen_tags{$amino_acids_tagtype . '_tags' . $canon_ingredient_amino_acids} = 1;
 							}
+							$current_additive_class = "en:amino-acids";
 						}
 						
 						elsif ((exists_taxonomy_tag("nucleotides", $canon_ingredient_nucleotides))) {
@@ -987,6 +993,7 @@ sub extract_ingredients_classes_from_text($) {
 								push @{$product_ref->{ $nucleotides_tagtype . '_tags'}}, $canon_ingredient_nucleotides;
 								$seen_tags{$nucleotides_tagtype . '_tags' . $canon_ingredient_nucleotides} = 1;
 							}
+							$current_additive_class = "en:nucleotides";
 						}	
 
 						elsif ((exists_taxonomy_tag("other_nutritional_substances", $canon_ingredient_other_nutritional_substances))) {
@@ -997,6 +1004,7 @@ sub extract_ingredients_classes_from_text($) {
 								push @{$product_ref->{ $other_nutritional_substances_tagtype . '_tags'}}, $canon_ingredient_other_nutritional_substances;
 								$seen_tags{$other_nutritional_substances_tagtype . '_tags' . $canon_ingredient_other_nutritional_substances} = 1;
 							}
+							$current_additive_class = "en:other-nutritional-substances";
 						}			
 
 						# in Hong Kong, the E- can be ommited in E-numbers

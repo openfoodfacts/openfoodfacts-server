@@ -442,9 +442,17 @@ extract_ingredients_classes_from_text($product_ref);
 print STDERR $product_ref->{additives} . "\n";
 
 is_deeply($product_ref->{additives_original_tags}, [
-          'en:e519',
                               ],
 );
+
+is_deeply($product_ref->{minerals_tags}, [
+	"en:ferrous-sulphate",
+	"en:zinc-sulphate",
+	"en:cupric-sulphate",
+                              ],
+);
+
+
 
 
 
@@ -543,7 +551,6 @@ is_deeply($product_ref->{additives_original_tags}, [
 	"en:e511",
 	"en:e332",
 	"en:e331",
-	"en:e519",
                               ],
 );
 
@@ -551,6 +558,7 @@ is_deeply($product_ref->{minerals_tags}, [
 	"en:calcium-phosphate",
 	"en:ferrous-sulphate",
 	"en:zinc-sulphate",
+	"en:cupric-sulphate",
 	"en:manganese-sulphate",
 	"en:potassium-iodide",
 	"en:sodium-selenite",
@@ -842,8 +850,10 @@ is_deeply($product_ref->{other_nutritional_substances_tags}, [
 	"en:taurine",
 	"en:inositol",
 	"en:carnitine",
+
                               ],
 );
+
 
 
 
@@ -880,7 +890,7 @@ is_deeply($product_ref->{additives_original_tags}, [
 );
 
 is_deeply($product_ref->{minerals_tags}, [
-	"en:calcium-citrate",
+        "en:calcium-citrate",
         "en:ferrous-sulphate",
         "en:magnesium-sulphate",
         "en:zinc-sulphate",
@@ -891,6 +901,86 @@ is_deeply($product_ref->{minerals_tags}, [
         "en:potassium-hydroxide",
         "en:sodium-selenite",
 
+                              ],
+);
+
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"INFORMATIONS NUTRITIONNELLES PRÉPARATION POUR NOURRISSONS EN potlDRE - Ingrédients du produit reconstitué : Lactose (lait), huiles végétales (palme, colza, tournesol), maltodextrines, proteines de lait hydrolysées, minéraux (phosphate tricalcique, chlorure de potassium, citrate trisodique, phosphate dipotassique, phosphate de magnésium, sulfate ferreux, sulfate de zinc, hydroxyde de potassium, sélénite de sodium, iodure de potassium, sulfate de cuivre, sulfate de manganèse), émulsifiant (esters citriques de mono et diglycérides d'acides gras), vitamines (C,pp, B9,H,B12), L-phénylalanine, chlorure de choline, L-tryptophane, L-tyrosine, taurine, inositol, antioxydants (palmitate d'ascorbyle, tocophérols) (soja), L-carnitine, ferments lactiques (Lactobacillus fermentum CECT5716)"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+        "en:e472c",
+        "en:e304i",
+        "en:e307c",
+                              ],
+);
+
+is_deeply($product_ref->{nucleotides_tags}, [
+                              ],
+);
+
+is_deeply($product_ref->{amino_acids_tags}, [
+	"en:l-phenylalanine",
+	"en:l-tryptophan",
+	"en:l-tyrosine",
+                              ],
+);
+
+is_deeply($product_ref->{other_nutritional_substances_tags}, [
+	"en:choline-chloride",
+	"en:taurine",
+	"en:inositol",
+	"en:l-carnitine",
+                              ],
+);
+
+
+
+
+
+is_deeply($product_ref->{minerals_tags}, [
+	"en:calcium-phosphate",
+	"en:potassium-chloride",
+	"en:sodium-citrate",
+	"en:potassium-phosphate",
+	"en:magnesium-phosphate",
+	"en:ferrous-sulphate",
+	"en:zinc-sulphate",
+	"en:potassium-hydroxide",
+	"en:sodium-selenite",
+	"en:potassium-iodide",
+        "en:cupric-sulphate",
+        "en:manganese-sulphate",
+                              ],
+);
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"huile de colza, orthophosphates de calcium, carbonate de calcium, citrates de potassium"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+                              ],
+);
+
+is_deeply($product_ref->{minerals_tags}, [
+	"en:calcium-phosphate",
+	"en:calcium-carbonate",
+	"en:potassium-citrate",
                               ],
 );
 
