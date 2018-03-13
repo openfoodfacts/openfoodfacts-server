@@ -40,8 +40,8 @@ my %translations = ();
 #<tuv lang="DE-DE">
 #<seg>Verordnung (EU) Nr. 609/2013 des Europäischen Parlaments und des Rates</seg>
 
-binmode(STDOUT, ":utf8");
-binmode(STDERR, ":utf8");
+binmode(STDOUT, ":encoding(UTF-8)");
+binmode(STDERR, ":encoding(UTF-8)");
 
 foreach my $tmx_file (@tmx_files) {
 
