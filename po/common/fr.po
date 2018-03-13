@@ -1451,6 +1451,15 @@ msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
 msgstr "Les informations nutritionnelles ne sont pas mentionnées sur le produit."
 
+msgctxt "multiple_nutrition_data"
+msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
+msgstr "Différentes valeurs nutritionnelles sont mentionnées sur le produit (par exemple avec de l'eau ou du lait)"
+
+msgctxt "multiple_nutrition_data_instructions"
+msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
+msgstr "Entrez seulement les valeurs nutritionnelles pour le produit non préparé, sans eau ou lait ajouté. S'il y a des produits différents, entrez les valeurs nutritionnelles pour le premier produit listé."
+
+
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
 msgstr "Il n'y a pas de produit référencé pour le code barre %s."
