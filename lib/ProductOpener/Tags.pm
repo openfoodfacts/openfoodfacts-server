@@ -152,6 +152,7 @@ my %tags_all_parents = ();
 
 my %stopwords = ();
 %just_synonyms = ();
+my %just_tags = ();	# does not include synonyms that are only synonyms
 my %synonyms = ();
 my %synonyms_for = ();
 my %synonyms_for_extended = ();
@@ -547,6 +548,7 @@ sub build_tags_taxonomy($$) {
 	$direct_children{$tagtype} = {};
 	$all_parents{$tagtype} = {};	
 	
+	$just_tags{$tagtype} = {};
 	$just_synonyms{$tagtype} = {};
 	$properties{$tagtype} = {};
 	
@@ -943,6 +945,7 @@ sub build_tags_taxonomy($$) {
 				
 				if (not defined $canon_tagid) {
 					$canon_tagid = "$lc:$current_tagid";
+					$just_tags{$tagtype}{$canon_tagid} = 1;
 					foreach my $parentid (keys %parents) {
 						defined $direct_parents{$tagtype}{$canon_tagid} or $direct_parents{$tagtype}{$canon_tagid} = {};
 						$direct_parents{$tagtype}{$canon_tagid}{$parentid} = 1;
@@ -1099,6 +1102,11 @@ sub build_tags_taxonomy($$) {
 			my $synonyms = '';
 			if (defined $just_synonyms{$tagtype}{$tagid}) {
 				$synonyms = "synonyms:";
+				
+				# remove synonyms that are also tags from just_synonyms
+				if (defined $just_tags{$tagtype}{$tagid}) {
+					delete $just_synonyms{$tagtype}{$tagid};
+				}
 			}
 			
 			foreach my $lc ($main_lc, sort keys %{$translations_to{$tagtype}{$tagid}}) {
