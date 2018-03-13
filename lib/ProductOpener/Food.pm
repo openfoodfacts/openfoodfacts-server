@@ -3221,6 +3221,14 @@ sub compute_nutrition_score($) {
 			$product_ref->{nutrition_score_debug} = "no score for coffees, teas, alcoholic-beverages etc.";
 			return;
 	}
+	
+	# do not compute a score if there are multiple nutrition facts tables
+	# except if the category is en:breakfast-cereals
+	if ((defined $product_ref->{not_comparable_nutrition_data}) and ($product_ref->{not_comparable_nutrition_data})) {
+			$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+			$product_ref->{nutrition_score_debug} = "no score for products that do not have comparable nutrition data";
+			return;
+	}	
 		
 	
 	# compute the score only if all values are known
@@ -3586,6 +3594,22 @@ sub compute_serving_size_data($) {
 
 	my $product_ref = shift;
 	
+	# identify products that do not have comparable nutrition data
+	# e.g. products with multiple nutrition facts tables
+	# except in some cases like breakfast cereals
+	# bug #1145
+	
+	(defined $product_ref->{not_comparable_nutrition_data}) and delete $product_ref->{not_comparable_nutrition_data};
+	
+	if ((defined $product_ref->{multiple_nutrition_data}) and ($product_ref->{multiple_nutrition_data} eq 'on')) {
+		if (has_tag($product_ref, "categories", "en:breakfast-cereals")) {
+		}
+		else {
+			$product_ref->{not_comparable_nutrition_data} = 1;
+		}
+	}
+	
+	
 	$product_ref->{serving_quantity} = normalize_serving_size($product_ref->{serving_size});
 	
 	#if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{'energy.unit'}) and ($product_ref->{nutriments}{'energy.unit'} eq 'kcal')) {
@@ -3669,6 +3693,9 @@ sub compute_nutrient_levels($) {
 	$product_ref->{nutrient_levels} = {};
 	
 	return if ($product_ref->{categories} eq '');	# need categories hierarchy in order to identify drinks
+	
+	return if ((defined $product_ref->{not_comparable_nutrition_data}) and ($product_ref->{not_comparable_nutrition_data}));
+	
 
 	foreach my $nutrient_level_ref (@nutrient_levels) {
 		my ($nid, $low, $high) = @$nutrient_level_ref;

@@ -379,6 +379,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	# Nutrition data
 	
 	$product_ref->{no_nutrition_data} = remove_tags_and_quote(decode utf8=>param("no_nutrition_data"));	
+	$product_ref->{multiple_nutrition_data} = remove_tags_and_quote(decode utf8=>param("multiple_nutrition_data"));	
 	
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
 
@@ -1404,12 +1405,43 @@ HTML
 	if (\$(this).prop('checked')) {
 		\$('#nutrition_data_table input').prop('disabled', true);
 		\$('#nutrition_data_table select').prop('disabled', true);
+		\$('#multiple_nutrition_data').prop('disabled', true);		
+		\$('#multiple_nutrition_data').prop('checked', false);		
 		\$('#nutrition_data_table input.nutriment_value').val('');
 		\$('#nutrition_data_table').hide();
 	} else {
 		\$('#nutrition_data_table input').prop('disabled', false);
 		\$('#nutrition_data_table select').prop('disabled', false);
+		\$('#multiple_nutrition_data').prop('disabled', false);		
 		\$('#nutrition_data_table').show();
+	}
+
+	\$(document).foundation('equalizer', 'reflow');
+});
+JS
+;
+
+	$checked = '';
+	my $hidden = 'style="display:none"';
+	if ((defined $product_ref->{multiple_nutrition_data}) and ($product_ref->{multiple_nutrition_data} eq 'on')) {
+		$checked = 'checked="checked"';
+		$hidden = '';
+		
+	}
+
+	$html .= <<HTML
+<input type="checkbox" id="multiple_nutrition_data" name="multiple_nutrition_data" $checked />	
+<label for="multiple_nutrition_data" class="checkbox_label">$Lang{multiple_nutrition_data}{$lang}</label><br/>
+<p id="multiple_nutrition_data_instructions" $hidden>$Lang{multiple_nutrition_data_instructions}{$lang}</p>
+HTML
+;
+
+	$initjs .= <<JS
+\$('#multiple_nutrition_data').change(function() {
+	if (\$(this).prop('checked')) {
+		\$('#multiple_nutrition_data_instructions').show();
+	} else {
+		\$('#multiple_nutrition_data_instructions').hide();
 	}
 
 	\$(document).foundation('equalizer', 'reflow');
