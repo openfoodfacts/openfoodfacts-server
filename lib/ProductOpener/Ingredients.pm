@@ -887,10 +887,14 @@ sub extract_ingredients_classes_from_text($) {
 					# For additives, first check if the current class is vitamins or minerals and if the ingredient
 					# exists in the vitamins and minerals taxonomy
 					
-					elsif (($current_additive_class eq "en:vitamins") and (exists_taxonomy_tag("vitamins", $canon_ingredient_vitamins))) {
+					elsif ((($current_additive_class eq "en:vitamins") or ($current_additive_class eq "en:minerals")
+						or ($current_additive_class eq "en:amino-acids") or ($current_additive_class eq "en:nucleotides")
+						or ($current_additive_class eq "en:other-nutritional-substances"))
+					
+					and (exists_taxonomy_tag("vitamins", $canon_ingredient_vitamins))) {
 						$match = 1;
 						$seen{$canon_ingredient} = 1;
-						$product_ref->{$tagtype} .= " -> exists as a vitamin $canon_ingredient_vitamins and current class is en:vitamins ";
+						$product_ref->{$tagtype} .= " -> exists as a vitamin $canon_ingredient_vitamins and current class is $current_additive_class ";
 						if (not exists $seen_tags{$vitamins_tagtype . '_tags' . $canon_ingredient_vitamins}) {
 							push @{$product_ref->{ $vitamins_tagtype . '_tags'}}, $canon_ingredient_vitamins;
 							$seen_tags{$vitamins_tagtype . '_tags' . $canon_ingredient_vitamins} = 1;
@@ -901,7 +905,7 @@ sub extract_ingredients_classes_from_text($) {
 						and not ($just_synonyms{"minerals"}{$canon_ingredient_minerals})) {
 						$match = 1;
 						$seen{$canon_ingredient} = 1;
-						$product_ref->{$tagtype} .= " -> exists as a mineral $canon_ingredient_minerals and current class is en:minerals ";
+						$product_ref->{$tagtype} .= " -> exists as a mineral $canon_ingredient_minerals and current class is $current_additive_class ";
 						if (not exists $seen_tags{$minerals_tagtype . '_tags' . $canon_ingredient_minerals}) {
 							push @{$product_ref->{ $minerals_tagtype . '_tags'}}, $canon_ingredient_minerals;
 							$seen_tags{$minerals_tagtype . '_tags' . $canon_ingredient_minerals} = 1;

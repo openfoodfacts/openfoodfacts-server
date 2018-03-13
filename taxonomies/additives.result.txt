@@ -6542,6 +6542,7 @@ sk:E339, E339 food additive
 sl:E339, E339 food additive
 sv:E339, Natriumfosfat
 e_number:en: 339
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:emulsifier, en:thickener, en:humectant, en:raising-agent
 wikidata:en: Q3249706
 
 < en:E339
@@ -11742,6 +11743,7 @@ sk:E516, Síran vápenatý, Sadra, sadrovec
 sl:E516, Kalcijev sulfat, Gypsum, selenit
 sv:E516, Kalciumsulfat, Gips, selenit
 e_number:en: 516
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:firming-agent, en:flour-treatment-agent
 wikidata:en: Q407258
 
 en:E517, Ammonium sulphate, ammonium sulfate
@@ -11793,7 +11795,7 @@ sk:E518, E518 food additive
 sl:E518, Magnezijev sulfat
 sv:E518, Magnesiumsulfat
 e_number:en: 518
-mandatory_additive_class:en: en:colour-retention-agent, en:preservative
+mandatory_additive_class:en: en:flavour-enhancer, en:firming-agent
 wikidata:en: Q288266
 
 en:E519, Copper sulphate, copperII sulfate
@@ -11819,6 +11821,7 @@ sk:E519, Síran meďnatý, Modrá skalica
 sl:E519, BakrovII sulfat, Modra galica, CuSO4, Bakrov sulfat
 sv:E519, Kopparsulfat, KopparIIsulfat, Kopparvitriol, Blå vitriol, CuSO4
 e_number:en: 519
+mandatory_additive_class:en: en:colour-retention-agent, en:preservative
 wikidata:en: Q107184
 
 en:E520, Aluminium sulphate, Aluminium sulfate
@@ -11969,6 +11972,7 @@ sk:E525, Hydroxid draselný
 sl:E525, Kalijev hidroksid
 sv:E525, Kaliumhydroxid
 e_number:en: 525
+mandatory_additive_class:en: en:acidity-regulator
 wikidata:en: Q132298
 
 en:E526, Calcium hydroxide, Slaked lime
@@ -11995,6 +11999,7 @@ sk:E526, Hydroxid vápenatý, Hasené vápno, Vápenné mlieko
 sl:E526, Kalcijev hidroksid, gašeno apno
 sv:E526, Kalciumhydroxid, Släckt kalk, E 526
 e_number:en: 526
+mandatory_additive_class:en: en:acidity-regulator, en:firming-agent
 wikidata:en: Q182849
 
 en:E527, Ammonium hydroxide, Aqua ammonia, ammonia, household ammonia, ammonia water, ammonical liquor, ammonia liquor, aqueous ammonia
@@ -12020,6 +12025,7 @@ sk:E527, Hydroxid amónny, Čpavková voda, Čpavok
 sl:E527, Amonijev hidroksid, amoniak
 sv:E527, Ammoniumhydroxid, Ammoniaklösning, E 527
 e_number:en: 527
+mandatory_additive_class:en: en:acidity-regulator
 wikidata:en: Q421888
 
 en:E528, Magnesium hydroxide
@@ -12045,6 +12051,7 @@ sk:E528, Hydroxid horečnatý
 sl:E528, Magnezijev hidroksid, Mg(OH)2
 sv:E528, Magnesiumhydroxid, E 528
 e_number:en: 528
+mandatory_additive_class:en: en:acidity-regulator, en:colour-retention-agent
 wikidata:en: Q407548
 
 en:E529, Calcium oxide
@@ -12946,6 +12953,7 @@ sk:E574, Kyselina glukónová, kyselina D-glukónová
 sl:E574, Glukonska kislina, D–glukonska kislina
 sv:E574, Glukonsyra, D-Glukonsyra
 e_number:en: 574
+mandatory_additive_class:en: en:acidity-regulator, en:raising-agent
 wikidata:en: Q407569
 
 en:E575, Glucono-delta-lactone, Gluconolactone, GDL, D-Gluconic acid delta-lactone

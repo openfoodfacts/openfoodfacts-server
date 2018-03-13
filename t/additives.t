@@ -745,7 +745,6 @@ extract_ingredients_classes_from_text($product_ref);
 print STDERR $product_ref->{additives} . "\n";
 
 is_deeply($product_ref->{additives_original_tags}, [
-	"en:e574",
                               ],
 );
 
