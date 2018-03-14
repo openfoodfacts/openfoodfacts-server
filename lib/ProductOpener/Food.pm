@@ -2917,7 +2917,7 @@ sub normalize_serving_size($) {
 	my $q = 0;
 	my $u;
 	
-	if ($serving =~ /((\d+)(\.|,)?(\d+))( )?(kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)( )?oz))/i) {
+	if ($serving =~ /((\d+)(\.|,)?(\d+)?)( )?(kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)( )?oz))/i) {
 		$q = lc($1);
 		$u = $6;
 		$q =~ s/,/\./;

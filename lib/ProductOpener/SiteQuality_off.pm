@@ -176,6 +176,18 @@ sub check_nutrition_data($) {
 		next if has_tag($product_ref, "labels", "fr:informations-nutritionnelles-incorrectes");
 		next if has_tag($product_ref, "labels", "en:incorrect-nutrition-facts-on-label");
 	
+
+		if ((defined $product_ref->{nutrition_data_per}) and ($product_ref->{nutrition_data_per} eq 'serving')) {
+		
+			if ((not defined $product_ref->{serving_size}) or ($product_ref->{serving_size} eq '')) {
+				push $product_ref->{quality_tags}, "nutrition-data-per-serving-missing-serving-size";
+			}
+			elsif ($product_ref->{serving_quantity} == 0) {
+				push $product_ref->{quality_tags}, "nutrition-data-per-serving-missing-serving-quantity-is-zero";
+			}
+		} 
+			
+	
 	
 		my $nid_n = 0;
 		my $nid_zero = 0;
