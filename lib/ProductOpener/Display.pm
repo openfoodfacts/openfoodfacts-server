@@ -59,6 +59,7 @@ BEGIN
 					&search_and_export_products
 					&search_and_graph_products
 					&search_and_map_products
+					&display_recent_changes
 					
 					@search_series
 					
@@ -70,6 +71,7 @@ BEGIN
 					$database
 					$products_collection
 					$emb_codes_collection
+					$recent_changes_collection
 					
 					$debug
 					$scripts
@@ -140,7 +142,7 @@ $connection = MongoDB->connect($mongodb_host);
 $database = $connection->get_database($mongodb);
 $products_collection = $database->get_collection('products');
 $emb_codes_collection = $database->get_collection('emb_codes');
-
+$recent_changes_collection = $database->get_collection('recent_changes');
 
 if (defined $options{other_servers}) {
 
@@ -395,28 +397,34 @@ sub analyze_request($)
 		
 	print STDERR "analyze_request : query_string 1 : $request_ref->{query_string} \n";
 	
+	# Process API parameters: fields, formats, revision
+	
 	# API calls may request JSON, JSONP or XML by appending .json, .jsonp or .xml at the end of the query string
 	# .jqm returns results in HTML specifically formated for the OFF mobile app (which uses jquerymobile)
 	# for calls to /cgi/ actions (e.g. search.pl), the format can also be indicated with a parameter &json=1 &jsonp=1 &xml=1 &jqm=1
 	# (or ?json=1 if it's the first parameter)
 	
-	# first check for the rev parameter (revision of a product)
+	# first check parameters in the query string
+
+	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml') {
 	
-	foreach my $parameter ('rev', 'json', 'jsonp', 'jqm','xml') {
-	
-		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=(\d+)/) {
-			$request_ref->{query_string} =~ s/(\&|\?)$parameter=(\d+)//;
+		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
+			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
 			$request_ref->{$parameter} = $2;
 			print STDERR "analyze_request : $parameter = $request_ref->{$parameter} \n";
 		}	
-		
+	}	
+	
+	# then check suffixes .json etc.
+	
+	foreach my $parameter ('json', 'jsonp', 'jqm','xml') {
+	
 		if ($request_ref->{query_string} =~ /\.$parameter$/) {
 			$request_ref->{query_string} =~ s/\.$parameter$//;
 			$request_ref->{$parameter} = 1;
 			print STDERR "analyze_request : $parameter = 1 (.$parameter) \n";
 		}
-	
-	}
+	}	
 	
 	print STDERR "analyze_request : query_string 2 : $request_ref->{query_string} \n";
 	
@@ -1354,7 +1362,7 @@ sub display_list_of_tags($$) {
 			$html .= "<tr><td>";
 			
 			my $display = '';
-			my $linkeddata;
+			my @sameAs = ();
 			if ($tagtype eq 'nutrition_grades') {
 				if ($tagid =~ /^a|b|c|d|e$/) {
 					my $grade = $tagid;
@@ -1366,7 +1374,12 @@ sub display_list_of_tags($$) {
 			}
 			elsif (defined $taxonomy_fields{$tagtype}) {
 				$display = display_taxonomy_tag($lc, $tagtype, $tagid);
-				$linkeddata = $properties{$tagtype}{$tagid};
+				if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$tagid})) {
+					foreach my $key (keys %weblink_templates) {
+						next if not defined $properties{$tagtype}{$tagid}{$key};
+						push @sameAs, sprintf($weblink_templates{$key}{href}, $properties{$tagtype}{$tagid}{$key});
+					}
+				}
 			}
 			else {
 				$display = canonicalize_tag2($tagtype, $tagid);
@@ -1384,8 +1397,8 @@ sub display_list_of_tags($$) {
 				products => $products + 0, # + 0 to make the value numeric
 			};
 			
-			if (defined $linkeddata) {
-				$tagentry->{linkeddata} = $linkeddata;
+			if (($#sameAs >= 0)) {
+				$tagentry->{sameAs} = \@sameAs;
 			}
 
 			if (defined $tags_images{$lc}{$tagtype}{get_fileid($icid)}) {
@@ -1990,7 +2003,12 @@ sub display_tag($) {
 	
 	if (((defined $newtagid) and ($newtagid ne $tagid)) or ((defined $newtagid2) and ($newtagid2 ne $tagid2))) {
 		$request_ref->{redirect} = $request_ref->{current_link};
-		print STDERR "Display.pm display_tag - redirect - tagid: $tagid - newtagid: $newtagid - tagid2: $tagid2 - newtagid2: $newtagid2 - url: $request_ref->{current_link} \n";
+		# Re-add file suffix, so that the correct response format is kept. https://github.com/openfoodfacts/openfoodfacts-server/issues/894
+		$request_ref->{redirect} .= '.json' if $request_ref->{json};
+		$request_ref->{redirect} .= '.jsonp' if $request_ref->{jsonp};
+		$request_ref->{redirect} .= '.xml' if $request_ref->{xml};
+		$request_ref->{redirect} .= '.jqm' if $request_ref->{jqm};
+		print STDERR "Display.pm display_tag - redirect - tagid: $tagid - newtagid: $newtagid - tagid2: $tagid2 - newtagid2: $newtagid2 - url: $request_ref->{redirect} \n";
 		return 301;
 	}
 	
@@ -2747,6 +2765,24 @@ HTML
 		}
 	
 
+		# If the request specified a value for the fields parameter, return only the fields listed
+		if (defined $request_ref->{fields}) {
+		
+			my $compact_products = [];
+		
+			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
+		
+				my $compact_product_ref = {};
+				foreach my $field (split(/,/, $request_ref->{fields})) {
+					if (defined $product_ref->{$field}) {
+						$compact_product_ref->{$field} = $product_ref->{$field};
+					}
+				}
+				push @$compact_products, $compact_product_ref;
+			}
+			
+			$request_ref->{structured_response}{products} = $compact_products;
+		}	
 	
 		
 		# Pagination
@@ -5231,7 +5267,7 @@ HTML
 		<div class="sidebar">
 		
 <div style="text-align:center">
-<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="Open Food Facts" style="margin-bottom:0.5rem"/></a>
+<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="$Lang{site_name}{$lang}" style="margin-bottom:0.5rem"/></a>
 </div>
 
 <p>$Lang{tagline}{$lc}</p>
@@ -6232,8 +6268,13 @@ JS
 	
 	$html .= display_field($product_ref, 'traces');
 	
+	
+	my $html_ingredients_classes = "";
+	
+	# to compute the number of columns displayed
+	my $html_ingredients_classes_n = 0;
 
-	foreach my $class ('additives', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil') {
+	foreach my $class ('additives', 'vitamins', 'minerals', 'amino_acids', 'nucleotides', 'other_nutritional_substances', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil') {
 	
 		my $tagtype = $class;
 		my $tagtype_field = $tagtype;
@@ -6244,7 +6285,9 @@ JS
 	
 		if ((defined $product_ref->{$tagtype_field . '_tags'}) and (scalar @{$product_ref->{$tagtype_field . '_tags'}} > 0)) {
 
-			$html .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang($class . "_p") . separator_before_colon($lc)) . ":</b><br />";
+			$html_ingredients_classes_n++;
+			
+			$html_ingredients_classes .= "<div class=\"column_class\"><b>" . ucfirst( lang($class . "_p") . separator_before_colon($lc)) . ":</b><br />";
 			
 			if (defined $tags_images{$lc}{$tagtype}{get_fileid($tagtype)}) {
 				my $img = $tags_images{$lc}{$tagtype}{get_fileid($tagtype)};
@@ -6252,13 +6295,13 @@ JS
 				if ($img =~ /\.(\d+)x(\d+)/) {
 					$size = " width=\"$1\" height=\"$2\"";
 				}
-				$html .= <<HTML
+				$html_ingredients_classes .= <<HTML
 <img src="/images/lang/$lc/$tagtype/$img"$size/ style="display:inline"> 
 HTML
 ;
 			}
 			
-			$html .= "<ul style=\"display:block;float:left;\">";
+			$html_ingredients_classes .= "<ul style=\"display:block;float:left;\">";
 			foreach my $tagid (@{$product_ref->{$tagtype_field . '_tags'}}) {
 			
 				my $tag;
@@ -6289,11 +6332,42 @@ HTML
 				}
 
 		
-				$html .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a></li>\n";
+				$html_ingredients_classes .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a></li>\n";
 			}
-			$html .= "</ul></div>";
+			$html_ingredients_classes .= "</ul></div>";
 		}
 	
+	}
+	
+	if ($html_ingredients_classes_n > 0) {
+	
+		my $column_class = "small-12 columns";
+	
+		if ($html_ingredients_classes_n == 2) {
+			$column_class = "medium-6 columns";
+		}
+		elsif ($html_ingredients_classes_n == 3) {
+			$column_class = "medium-6 large-4 columns";
+		}		
+		elsif ($html_ingredients_classes_n == 4) {
+			$column_class = "medium-6 large-3 columns";
+		}
+		elsif ($html_ingredients_classes_n >= 5) {
+			$column_class = "medium-6 large-3 xlarge-2 columns";
+		}			
+	
+		$html_ingredients_classes =~ s/column_class/$column_class/g;
+	
+		$html .= <<HTML
+
+<div class="row">
+
+$html_ingredients_classes
+
+</div>
+	
+HTML
+;
 	}
 	
 	
@@ -7698,9 +7772,22 @@ HTML
 	else {
 		$response{status} = 1;
 		$response{status_verbose} = 'product found';
-		$response{product} = $product_ref;
 		
 		add_images_urls_to_product($product_ref);
+		
+		$response{product} = $product_ref;
+		
+		# If the request specified a value for the fields parameter, return only the fields listed
+		if (defined $request_ref->{fields}) {
+			my $compact_product_ref = {};
+			foreach my $field (split(/,/, $request_ref->{fields})) {
+				if (defined $product_ref->{$field}) {
+					$compact_product_ref->{$field} = $product_ref->{$field};
+				}
+			}
+			$response{product} = $compact_product_ref;
+		}		
+		
 		
 		if ($request_ref->{jqm}) {
 			# return a jquerymobile page for the product
@@ -7914,6 +8001,133 @@ XML
 ;
 	
 	print header( -type => 'application/rss+xml', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $xml;
+
+}
+
+sub display_recent_changes {
+
+	my ($request_ref, $query_ref, $limit, $page) = @_;
+
+	if ((defined $country) and ($country ne 'en:world')) {
+		$query_ref->{countries_tags} = $country;
+	}
+	
+	delete $query_ref->{lc};
+
+	if (defined $limit) {
+	}
+	elsif (defined $request_ref->{page_size}) {
+		$limit = $request_ref->{page_size};
+	}
+	else {
+		$limit = $page_size;
+	}
+
+	my $skip = 0;
+	if (defined $page) {
+		$skip = ($page - 1) * $limit;
+	}
+	elsif (defined $request_ref->{page}) {
+		$page = $request_ref->{page};
+		$skip = ($page - 1) * $limit;
+	}
+	else {
+		$page = 1;
+	}
+
+	# support for returning structured results in json / xml etc.
+
+	$request_ref->{structured_response} = {
+		page => $page,
+		page_size => $limit,
+		skip => $skip,
+		changes => [],
+	};	
+
+	my $sort_ref = Tie::IxHash->new();
+	$sort_ref->Push('$natural' => -1);
+
+	print STDERR "Display.pm - display_recent_changes - query:\n" . Dumper($query_ref) . "\n";
+	my $cursor = $recent_changes_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+	my $count = $cursor->count() + 0;
+	print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - ok, got count: $count\n";
+
+	if ($@) {
+		print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - retrying once\n";
+		
+		# opening new connection
+		eval {
+			$connection = MongoDB->connect($mongodb_host);
+			$database = $connection->get_database($mongodb);
+			$recent_changes_collection = $database->get_collection('recent_changes');
+		};
+		if ($@) {
+			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - reconnecting failed\n";
+			$count = -1;
+		}
+		else {		
+			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - reconnected ok\n";					
+			print STDERR "Display.pm - display_recent_changes - query:\n" . Dumper($query_ref) . "\n";
+			$cursor = $recent_changes_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+			$count = $cursor->count() + 0;
+			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - ok, got count: $count\n";
+		}
+	}
+	
+	my $html .= "<ul>\n";
+	while (my $change_ref = $cursor->next) {
+		# Conversion for JSON, because the $change_ref cannot be passed to encode_json.
+		my $change_hash = {
+			code => $change_ref->{code},
+			countries_tags => $change_ref->{countries_tags},
+			userid => $change_ref->{userid},
+			ip => $change_ref->{ip},
+			t => $change_ref->{t},
+			comment => $change_ref->{comment},
+			rev => $change_ref->{rev},
+			diffs => $change_ref->{diffs}
+		};
+
+		delete $change_hash->{ip} unless $admin; # security: Do not expose IP addresses to non-admin or anonymous users.
+
+		push @{$request_ref->{structured_response}{changes}}, $change_hash;
+
+		my $date = display_date_tag($change_ref->{t});	
+		my $user = "";
+		if (defined $change_ref->{userid}) {
+			$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
+		}
+		
+		my $comment = $change_ref->{comment};
+		$comment = lang($comment) if $comment eq 'product_created';
+		
+		$comment =~ s/^Modification :\s+//;
+		if ($comment eq 'Modification :') {
+			$comment = '';
+		}
+		$comment =~ s/\new image \d+( -)?//;
+		
+		if ($comment ne '') {
+			$comment = "- $comment";
+		}
+		
+		my $change_rev = $change_ref->{rev};
+
+		# Display diffs
+		# [Image upload - add: 1, 2 - delete 2], [Image selection - add: front], [Nutriments... ]
+		
+		my $diffs = compute_changes_diff_text($change_ref);
+		$change_hash->{diffs_text} = $diffs;
+		
+		my $product_url = product_url($change_ref->{code});
+		$html .= "<li><a href=\"" . $product_url . "\">" . $change_ref->{code} . "</a> $date - $user $diffs $comment - <a href=\"" . $product_url . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
+
+	}
+
+	$html .= "</ul>";
+	${$request_ref->{content_ref}} .= $html;
+	$request_ref->{title} = lang("recent_changes");
+	display_new($request_ref);
 
 }
 

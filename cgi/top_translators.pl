@@ -58,7 +58,7 @@ my $js = <<JS
 			header: true,
 			dynamicTyping: true,
 			skipEmptyLines: true,
-			withCredentials: true,
+			withCredentials: false,
 			step: function(results, parser) {
 				dataSource = dataSource.concat(results.data);
 				console.log("Row data:", results.data);

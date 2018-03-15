@@ -142,6 +142,11 @@ sub detect_categories ($) {
 			}
 		}
 	}
+
+	# Plant milks should probably not be dairies https://github.com/openfoodfacts/openfoodfacts-server/issues/73
+	if (has_tag($product_ref, "categories", "en:plant-milks") and has_tag($product_ref, "categories", "en:dairies")) {
+		push $product_ref->{quality_tags}, "plant-milk-also-is-dairy";
+	}
 	
 }
 

@@ -35,6 +35,7 @@ BEGIN
 		&get_ascii_fileid
 		&store
 		&retrieve
+		&unac_string_perl
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);  
 }

@@ -301,7 +301,7 @@ XML
 
 # fields for which we will load taxonomies
 
-@taxonomy_fields = qw(states countries languages labels categories additives additives_classes allergens traces nutrient_levels misc ingredients);
+@taxonomy_fields = qw(states countries languages labels categories additives additives_classes vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces nutrient_levels misc ingredients);
 
 
 # fields in product edit form
@@ -327,6 +327,11 @@ manufacturing_places
 emb_codes
 ingredients
 additives
+vitamins
+minerals
+amino_acids
+nucleotides
+other_nutritional_substances
 allergens
 traces
 nutrition_grades
@@ -360,7 +365,15 @@ last_edit_dates
 
 %weblink_templates = (
 
-	'wikidata:en' => { href => 'https://www.wikidata.org/wiki/%s', text => 'Wikidata' },
+	'wikidata:en' => { href => 'https://www.wikidata.org/wiki/%s', text => 'Wikidata', parse => sub
+	{
+		my ($url) = @_;
+		if ($url =~ /^https?:\/\/www.wikidata.org\/wiki\/(Q\d+)$/) {
+			return $1
+		}
+
+		return;
+	} },
 
 );
 
