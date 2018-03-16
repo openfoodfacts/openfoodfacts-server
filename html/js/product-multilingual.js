@@ -170,7 +170,8 @@ function add_line(event, ui) {
 	newline.find(".nutriment_label").attr("id",newid + "_label").attr("name",newid + "_label");
 	newline.find(".nutriment_unit").attr("id",newid + "_unit").attr("name",newid + "_unit");
 	newline.find(".nutriment_unit_percent").attr("id",newid + "_unit_percent").attr("name",newid + "_unit_percent");
-	newline.find(".nutriment_value").attr("id",newid).attr("name",newid);
+	newline.find("#nutriment_new_0").attr("id",newid).attr("name",newid);
+	newline.find("#nutriment_new_0_prepared").attr("id",newid + "_prepared").attr("name",newid + "_prepared");
 
 	$('#nutrition_data_table > tbody:last').append(newline);
 	newline.show();
@@ -367,6 +368,23 @@ function change_image(imagefield, imgid) {
 }  
 
 
+var first_display = 0;
+
+function update_nutrition_image_copy() {
+	
+	// width big enough to display a copy next to nutrition table?
+	if ($('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
+	
+		//if (! first_display) {		
+			$('#nutrition_image_copy').css("left", $('#nutrition_data_table').width() + 10).show();
+		//}
+	}	
+	else {
+		$('#nutrition_image_copy').hide();
+	}
+}
+
+
 function update_display(imagefield, first_display) {
 
 	var display_url = imagefield_url[imagefield];
@@ -387,7 +405,7 @@ function update_display(imagefield, first_display) {
 			if ((! first_display) || ($('#nutrition_image_copy').html() === '')) {		
 				$('#nutrition_image_copy').html('<img src="' + img_path + display_url + '" />').css("left", $('#nutrition_data_table').width() + 10);
 			}
-		}
+		}	
 	}
 	
 	$('div[id="display_' + imagefield +'"]').html(html);

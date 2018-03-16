@@ -56,6 +56,47 @@ ProductOpener::Display::init();
 
 $debug = 1;
 
+
+sub normalize_nutriment_value_and_modifier($$) {
+		
+	my $value_ref = shift;
+	my $modifier_ref = shift;
+	
+	if ($$value_ref =~ /nan/i) {
+		$$value_ref = '';
+	}		
+	
+	if ($$value_ref =~ /(\&lt;=|<=|\N{U+2264})( )?/) {
+		$$value_ref =~ s/(\&lt;=|<=|\N{U+2264})( )?//;
+		$modifier_ref = "\N{U+2264}";
+	}
+	if ($$value_ref =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less)( )?/) {
+		$$value_ref =~ s/(\&lt;|<|min|minimum|max|maxi|maximum|environ)( )?//;
+		$$modifier_ref = '<';
+	}
+	if ($$value_ref =~ /(\&gt;=|>=|\N{U+2265})/) {
+		$$value_ref =~ s/(\&gt;=|>=|\N{U+2265})( )?//;
+		$modifier_ref = "\N{U+2265}";
+	}
+	if ($$value_ref =~ /(\&gt;|>|min|mini|minimum|greater|more)/) {
+		$$value_ref =~ s/(\&gt;|>|min|mini|minimum|greater|more)( )?//;
+		$$modifier_ref = '>';
+	}
+	if ($$value_ref =~ /(env|environ|about|~|≈)/) {
+		$$value_ref =~ s/(env|environ|about|~|≈)( )?//;
+		$$modifier_ref = '~';
+	}			
+	if ($$value_ref =~ /trace|traces/) {
+		$$value_ref = 0;
+		$$modifier_ref = '~';
+	}
+	if ($$value_ref !~ /\./) {
+		$$value_ref =~ s/,/\./;
+	}
+}
+
+
+
 my $type = param('type') || 'search_or_add';
 my $action = param('action') || 'display';
 
@@ -291,7 +332,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	
 	$product_ref->{"debug_param_sorted_langs"} = \@param_sorted_langs;
 	
-	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang') {
+	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'traces', 'ingredients_text','lang') {
 	
 		if (defined $language_fields{$field}) {
 			foreach my $display_lc (@param_sorted_langs) {
@@ -328,6 +369,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 			print STDERR "product.pl - could not find field $field\n";
 		}
 	}
+	
 	
 	# Food category rules for sweeetened/sugared beverages
 	# French PNNS groups from categories
@@ -379,16 +421,26 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	# Nutrition data
 	
 	$product_ref->{no_nutrition_data} = remove_tags_and_quote(decode utf8=>param("no_nutrition_data"));	
-	$product_ref->{multiple_nutrition_data} = remove_tags_and_quote(decode utf8=>param("multiple_nutrition_data"));	
-	
+	$product_ref->{nutrition_data} = remove_tags_and_quote(decode utf8=>param("nutrition_data"));	
+	$product_ref->{nutrition_data_prepared} = remove_tags_and_quote(decode utf8=>param("nutrition_data_prepared"));	
+		
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
 
 	my @unknown_nutriments = ();
-	foreach my $nid (sort keys %{$product_ref->{nutriments}}) {
-		next if $nid =~ /_/;
-		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})) {
+	my %seen_unknown_nutriments = ();
+	foreach my $nid (keys %{$product_ref->{nutriments}}) {
+	
+		next if (($nid =~ /_/) and ($nid !~ /_prepared$/)) ;
+		
+		$nid =~ s/_prepared$//;
+
+		print STDERR "product.pl - unknown_nutriment: $nid ?\n";
+		
+		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})
+			and (not defined $seen_unknown_nutriments{$nid})) {
 			push @unknown_nutriments, $nid;
-			print STDERR "product.pl - unknown_nutriment: $nid\n";
+			$seen_unknown_nutriments{$nid} = 1;
+			print STDERR "product.pl - unknown_nutriment: $nid !!!\n";
 		}
 	}
 	
@@ -397,7 +449,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	for (my $i = 1; $i <= $new_max; $i++) {
 		push @new_nutriments, "new_$i";
 	}
-	
+		
 	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, @new_nutriments) {
 		next if $nutriment =~ /^\#/;
 		
@@ -409,51 +461,31 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 		my $enid = encodeURIComponent($nid);
 		
+		# for prepared product
+		my $nidp = $nid . "_prepared";
+		my $enidp = encodeURIComponent($nidp);		
+		
 		# do not delete values if the nutriment is not provided
-		next if not defined param("nutriment_${enid}");		
+		next if ((not defined param("nutriment_${enid}")) and (not defined param("nutriment_${enidp}"))) ;		
 		
 		my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}"));
+		my $valuep = remove_tags_and_quote(decode utf8=>param("nutriment_${enidp}"));
 		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_unit"));
 		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_label"));
-		
-		if ($value =~ /nan/i) {
-			$value = '';
-		}
 		
 		if ($nid eq 'alcohol') {
 			$unit = '% vol';
 		}
 		
 		my $modifier = undef;
+		my $modifierp = undef;
 		
-		if ($value =~ /(\&lt;=|<=|\N{U+2264})( )?/) {
-			$value =~ s/(\&lt;=|<=|\N{U+2264})( )?//;
-			$modifier = "\N{U+2264}";
-		}
-		if ($value =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less)( )?/) {
-			$value =~ s/(\&lt;|<|min|minimum|max|maxi|maximum|environ)( )?//;
-			$modifier = '<';
-		}
-		if ($value =~ /(\&gt;=|>=|\N{U+2265})/) {
-			$value =~ s/(\&gt;=|>=|\N{U+2265})( )?//;
-			$modifier = "\N{U+2265}";
-		}
-		if ($value =~ /(\&gt;|>|min|mini|minimum|greater|more)/) {
-			$value =~ s/(\&gt;|>|min|mini|minimum|greater|more)( )?//;
-			$modifier = '>';
-		}
-		if ($value =~ /(env|environ|about|~|≈)/) {
-			$value =~ s/(env|environ|about|~|≈)( )?//;
-			$modifier = '~';
-		}			
-		if ($value =~ /trace|traces/) {
-			$value = 0;
-			$modifier = '~';
-		}
-		if ($value !~ /\./) {
-			$value =~ s/,/\./;
-		}
+		normalize_nutriment_value_and_modifier(\$value, \$modifier);
+		normalize_nutriment_value_and_modifier(\$valuep, \$modifierp);
 		
+		print STDERR "product_multilingual.pl - nid: $nid - value: $value\n";
+		print STDERR "product_multilingual.pl - nidp: $nidp - value: $valuep\n";
+	
 		# New label?
 		my $new_nid = undef;
 		if ((defined $label) and ($label ne '')) {
@@ -463,51 +495,105 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 			if ($new_nid ne $nid) {
 				delete $product_ref->{nutriments}{$nid};
 				delete $product_ref->{nutriments}{$nid . "_unit"};
+				delete $product_ref->{nutriments}{$nid . "_label"};				
 				delete $product_ref->{nutriments}{$nid . "_value"};
 				delete $product_ref->{nutriments}{$nid . "_modifier"};
-				delete $product_ref->{nutriments}{$nid . "_label"};
 				delete $product_ref->{nutriments}{$nid . "_100g"};
-				delete $product_ref->{nutriments}{$nid . "_serving"};			
+				delete $product_ref->{nutriments}{$nid . "_serving"};
+				delete $product_ref->{nutriments}{$nid . "_prepared_value"};
+				delete $product_ref->{nutriments}{$nid . "_prepared_modifier"};
+				delete $product_ref->{nutriments}{$nid . "_prepared_100g"};
+				delete $product_ref->{nutriments}{$nid . "_prepared_serving"};	
 				print STDERR "product_multilingual.pl - unknown nutrient $nid (lc: $lc) -> known $new_nid\n";
 				$nid = $new_nid;
+				$nidp = $new_nid . "_prepared";
 			}
 			$product_ref->{nutriments}{$nid . "_label"} = $label;
 		}
 		
+		if (defined param("nutriment_${enid}")) {
+			if (($nid eq '') or (not defined $value) or ($value eq '')) {
+					delete $product_ref->{nutriments}{$nid};
+					delete $product_ref->{nutriments}{$nid . "_modifier"};
+					delete $product_ref->{nutriments}{$nid . "_100g"};
+					delete $product_ref->{nutriments}{$nid . "_serving"};
+			}
+			else {
+				if ((defined $modifier) and ($modifier ne '')) {
+					$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
+				}
+				else {
+					delete $product_ref->{nutriments}{$nid . "_modifier"};
+				}
+				$product_ref->{nutriments}{$nid . "_unit"} = $unit;		
+				$product_ref->{nutriments}{$nid . "_value"} = $value;
+				
+				if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
+					$value = $value * $Nutriments{$nid}{iu} ;
+					$unit = $Nutriments{$nid}{unit};
+				}
+				elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
+					$value = $value / 100 * $Nutriments{$nid}{dv} ;
+					$unit = $Nutriments{$nid}{unit};
+				}
+				if ($nid eq 'water-hardness') {
+					$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit);
+				}
+				else {
+					$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
+				}
+			}
+		}
+		
+		if (defined param("nutriment_${enidp}")) {
+			if (($nid eq '') or (not defined $valuep) or ($valuep eq '')) {
+					delete $product_ref->{nutriments}{$nidp};
+					delete $product_ref->{nutriments}{$nidp . "_modifier"};
+					delete $product_ref->{nutriments}{$nidp . "_100g"};
+					delete $product_ref->{nutriments}{$nidp . "_serving"};
+			}
+			else {
+				if ((defined $modifierp) and ($modifierp ne '')) {
+					$product_ref->{nutriments}{$nidp . "_modifier"} = $modifierp;
+				}
+				else {
+					delete $product_ref->{nutriments}{$nidp . "_modifier"};
+				}		
+				$product_ref->{nutriments}{$nidp . "_value"} = $valuep;
+				
+				if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
+					$valuep = $valuep * $Nutriments{$nid}{iu} ;
+					$unit = $Nutriments{$nid}{unit};
+				}
+				elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
+					$valuep = $valuep / 100 * $Nutriments{$nid}{dv} ;
+					$unit = $Nutriments{$nid}{unit};
+				}
+				if ($nid eq 'water-hardness') {
+					$product_ref->{nutriments}{$nidp} = unit_to_mmoll($valuep, $unit);
+				}
+				else {
+					$product_ref->{nutriments}{$nidp} = unit_to_g($valuep, $unit);
+				}
+			}
+		}		
+		
 		if (($nid eq '') or (not defined $value) or ($value eq '')) {
-				delete $product_ref->{nutriments}{$nid};
+			delete $product_ref->{nutriments}{$nid . "_value"};	
+			delete $product_ref->{nutriments}{$nid . "_modifier"};	
+		}
+		
+		if (($nid eq '') or (not defined $valuep) or ($valuep eq '')) {
+			delete $product_ref->{nutriments}{$nidp . "_value"};	
+			delete $product_ref->{nutriments}{$nidp . "_modifier"};	
+		}		
+		
+		if (($nid eq '') or
+			(((not defined $value) or ($value eq '')) and ((not defined $valuep) or ($valuep eq ''))))  {
 				delete $product_ref->{nutriments}{$nid . "_unit"};
-				delete $product_ref->{nutriments}{$nid . "_value"};
-				delete $product_ref->{nutriments}{$nid . "_modifier"};
-				delete $product_ref->{nutriments}{$nid . "_label"};
-				delete $product_ref->{nutriments}{$nid . "_100g"};
-				delete $product_ref->{nutriments}{$nid . "_serving"};
+				delete $product_ref->{nutriments}{$nid . "_label"};				
 		}
-		else {
-			if ((defined $modifier) and ($modifier ne '')) {
-				$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
-			}
-			else {
-				delete $product_ref->{nutriments}{$nid . "_modifier"};
-			}
-			$product_ref->{nutriments}{$nid . "_unit"} = $unit;		
-			$product_ref->{nutriments}{$nid . "_value"} = $value;
-			
-			if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
-				$value = $value * $Nutriments{$nid}{iu} ;
-				$unit = $Nutriments{$nid}{unit};
-			}
-			elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
-				$value = $value / 100 * $Nutriments{$nid}{dv} ;
-				$unit = $Nutriments{$nid}{unit};
-			}
-			if ($nid eq 'water-hardness') {
-				$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit);
-			}
-			else {
-				$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
-			}
-		}
+		
 	}
 	
 	# Compute nutrition data per 100g and per serving
@@ -1421,33 +1507,7 @@ HTML
 JS
 ;
 
-	$checked = '';
-	my $hidden = 'style="display:none"';
-	if ((defined $product_ref->{multiple_nutrition_data}) and ($product_ref->{multiple_nutrition_data} eq 'on')) {
-		$checked = 'checked="checked"';
-		$hidden = '';
-		
-	}
 
-	$html .= <<HTML
-<input type="checkbox" id="multiple_nutrition_data" name="multiple_nutrition_data" $checked />	
-<label for="multiple_nutrition_data" class="checkbox_label">$Lang{multiple_nutrition_data}{$lang}</label><br/>
-<p id="multiple_nutrition_data_instructions" $hidden>$Lang{multiple_nutrition_data_instructions}{$lang}</p>
-HTML
-;
-
-	$initjs .= <<JS
-\$('#multiple_nutrition_data').change(function() {
-	if (\$(this).prop('checked')) {
-		\$('#multiple_nutrition_data_instructions').show();
-	} else {
-		\$('#multiple_nutrition_data_instructions').hide();
-	}
-
-	\$(document).foundation('equalizer', 'reflow');
-});
-JS
-;
 
 	$html .= display_tabs($product_ref, $select_add_language, "nutrition_image", $product_ref->{sorted_langs}, \%Langs, ["nutrition_image"]);
 	
@@ -1460,12 +1520,103 @@ JS
 	
 	$html .= display_field($product_ref, "serving_size");
 	
-	my $checked_per_serving = '';
-	my $checked_per_100g = 'checked="checked"';
 	
-	if ($product_ref->{nutrition_data_per} eq 'serving') {
-		$checked_per_serving = 'checked="checked"';
-		$checked_per_100g = '';
+	# Display 2 checkbox to indicate the nutrition values present on the product
+	
+	if (not defined $product_ref->{nutrition_data}) {
+		# by default, display the nutrition data entry column for the product as sold
+		$product_ref->{nutrition_data} = "on";
+	}
+	if (not defined $product_ref->{nutrition_data_prepared}) {
+		# by default, do not display the nutrition data entry column for the prepared product
+		$product_ref->{nutrition_data_prepared} = "";
+	}	
+	
+	my %column_display_style = {};
+	my %nutrition_data_per_display_style = {};
+	
+	# keep existing field ids for the product as sold, and append _prepared_product for the product after it has been prepared
+	foreach my $product_type ("", "_prepared") {
+	
+		my $nutrition_data = "nutrition_data" . $product_type;
+		my $nutrition_data_exists = "nutrition_data" . $product_type . "_exists";
+		my $nutrition_data_instructions = "nutrition_data" . $product_type . "_instructions";
+	
+		my $checked = '';
+		$column_display_style{$nutrition_data} = '';
+		my $hidden = '';
+		if (($product_ref->{$nutrition_data} eq 'on')) {
+			$checked = 'checked="checked"';	
+		}
+		else {
+			$column_display_style{$nutrition_data} = 'style="display:none"';
+			$hidden = 'style="display:none"';		
+		}
+
+		$html .= <<HTML
+<input type="checkbox" id="$nutrition_data" name="$nutrition_data" $checked />	
+<label for="$nutrition_data" class="checkbox_label">$Lang{$nutrition_data_exists}{$lang}</label> &nbsp; 
+HTML
+;
+		my $checked_per_serving = '';
+		my $checked_per_100g = 'checked="checked"';
+		$nutrition_data_per_display_style{$nutrition_data . "_serving"} = ' style="display:none"';
+		$nutrition_data_per_display_style{$nutrition_data . "_100g"} = '';
+		
+	
+		my $nutrition_data_per = "nutrition_data" . $product_type . "_per";
+	
+		if ($product_ref->{$nutrition_data_per} eq 'serving') {
+			$checked_per_serving = 'checked="checked"';
+			$checked_per_100g = '';
+			$nutrition_data_per_display_style{$nutrition_data . "_serving"} = '';
+			$nutrition_data_per_display_style{$nutrition_data . "_100g"} = ' style="display:none"';			
+		}
+	
+		$html .= <<HTML
+<input type="radio" id="${nutrition_data_per}_100g" value="100g" name="${nutrition_data_per}" $checked_per_100g /><label for="${nutrition_data_per}_100g">$Lang{nutrition_data_per_100g}{$lang}</label>
+<input type="radio" id="${nutrition_data_per}_serving" value="serving" name="${nutrition_data_per}" $checked_per_serving /><label for="${nutrition_data_per}_serving">$Lang{nutrition_data_per_serving}{$lang}</label><br/>
+HTML
+;
+
+		if ((exists $Lang{$nutrition_data_instructions}) and ($Lang{$nutrition_data_instructions} ne '')) {
+			$html .= <<HTML
+<p id="$nutrition_data_instructions" $hidden>$Lang{$nutrition_data_instructions}{$lang}</p>
+HTML
+;
+		}
+		
+		my $nutriment_col_class = "nutriment_col" . $product_type;
+
+		$initjs .= <<JS
+\$('#$nutrition_data').change(function() {
+	if (\$(this).prop('checked')) {
+		\$('#$nutrition_data_instructions').show();
+		\$('.$nutriment_col_class').show();
+	} else {
+		\$('#$nutrition_data_instructions').hide();
+		\$('.$nutriment_col_class').hide();
+	}
+	update_nutrition_image_copy();
+	\$(document).foundation('equalizer', 'reflow');
+});
+
+\$('input[name=$nutrition_data_per]').change(function() {
+	if (\$('input[name=$nutrition_data_per]:checked').val() == '100g') {
+		\$('#${nutrition_data}_100g').show();
+		\$('#${nutrition_data}_serving').hide();
+	} else {
+		\$('#${nutrition_data}_100g').hide();
+		\$('#${nutrition_data}_serving').show();
+	}
+	update_nutrition_image_copy();
+	\$(document).foundation('equalizer', 'reflow');
+});
+JS
+;	
+	
+
+		
 	}
 	
 	
@@ -1476,10 +1627,21 @@ JS
 
 <table id="nutrition_data_table" class="data_table" style="$tablestyle">
 <thead class="nutriment_header">
-<th colspan="2">
-$Lang{nutrition_data_table}{$lang}<br/>
-<input type="radio" id="nutrition_data_per_100g" value="100g" name="nutrition_data_per" $checked_per_100g /><label for="nutrition_data_per_100g">$Lang{nutrition_data_per_100g}{$lang}</label>
-<input type="radio" id="nutrition_data_per_serving" value="serving" name="nutrition_data_per" $checked_per_serving /><label for="nutrition_data_per_serving">$Lang{nutrition_data_per_serving}{$lang}</label>
+<th>
+$Lang{nutrition_data_table}{$lang}
+</th>
+<th class="nutriment_col" $column_display_style{"nutrition_data"}>
+$Lang{product_as_sold}{$lang}<br/>
+<span id="nutrition_data_100g" $nutrition_data_per_display_style{"nutrition_data_100g"}>$Lang{nutrition_data_per_100g}{$lang}</span>
+<span id="nutrition_data_serving" $nutrition_data_per_display_style{"nutrition_data_serving"}>$Lang{nutrition_data_per_serving}{$lang}</span>
+</th>
+<th class="nutriment_col_prepared" $column_display_style{"nutrition_data_prepared"}>
+$Lang{prepared_product}{$lang}<br/>
+<span id="nutrition_data_prepared_100g" $nutrition_data_per_display_style{"nutrition_data_prepared_100g"}>$Lang{nutrition_data_per_100g}{$lang}</span>
+<span id="nutrition_data_prepared_serving" $nutrition_data_per_display_style{"nutrition_data_prepared_serving"}>$Lang{nutrition_data_per_serving}{$lang}</span>
+</th>
+<th>
+$Lang{unit}{$lang}
 </th>
 </thead>
 
@@ -1492,14 +1654,19 @@ HTML
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
 
 	my @unknown_nutriments = ();
+	my %seen_unknown_nutriments = ();
 	foreach my $nid (keys %{$product_ref->{nutriments}}) {
 	
-		next if $nid =~ /_/;
+		next if (($nid =~ /_/) and ($nid !~ /_prepared$/)) ;
+		
+		$nid =~ s/_prepared$//;
 
 		print STDERR "product.pl - unknown_nutriment: $nid ?\n";
 		
-		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})) {
+		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})
+			and (not defined $seen_unknown_nutriments{$nid})) {
 			push @unknown_nutriments, $nid;
+			$seen_unknown_nutriments{$nid} = 1;
 			print STDERR "product.pl - unknown_nutriment: $nid !!!\n";
 		}
 	}
@@ -1540,6 +1707,12 @@ HTML
 		}
 		
 		my $enid = encodeURIComponent($nid);
+		
+		# for prepared product
+		my $nidp = $nid . "_prepared";
+		my $enidp = encodeURIComponent($nidp);
+		
+		
 		my $label = '';
 		if ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{$lang})) {
 			$label = <<HTML
@@ -1574,25 +1747,41 @@ HTML
 		elsif ((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{unit})) {
 			$unit = $Nutriments{$nid}{unit};
 		}
-		my $value;
+		my $value; # product as sold
+		my $valuep; # prepared product
+		
 		if ($nid eq 'water-hardness') {
 			$value = mmoll_to_unit($product_ref->{nutriments}{$nid}, $unit);
+			$valuep = mmoll_to_unit($product_ref->{nutriments}{$nidp}, $unit);
 		}
 		else {
 			$value = g_to_unit($product_ref->{nutriments}{$nid}, $unit);
+			$valuep = g_to_unit($product_ref->{nutriments}{$nidp}, $unit);
 		}
 		
 		# user unit and value ? (e.g. DV for vitamins in US)
-		if ((defined $product_ref->{nutriments}{$nid . "_value"}) and (defined $product_ref->{nutriments}{$nid . "_unit"})) {
+		if (defined $product_ref->{nutriments}{$nid . "_unit"}) {
 			$unit = $product_ref->{nutriments}{$nid . "_unit"};
-			$value = $product_ref->{nutriments}{$nid . "_value"};
-			if (defined $product_ref->{nutriments}{$nid . "_modifier"}) {
-				$product_ref->{nutriments}{$nid . "_modifier"} eq '<' and $value = "&lt; $value";
-				$product_ref->{nutriments}{$nid . "_modifier"} eq "\N{U+2264}" and $value = "&le; $value";
-				$product_ref->{nutriments}{$nid . "_modifier"} eq '>' and $value = "&gt; $value";
-				$product_ref->{nutriments}{$nid . "_modifier"} eq "\N{U+2265}" and $value = "&ge; $value";
-				$product_ref->{nutriments}{$nid . "_modifier"} eq '~' and $value = "~ $value";
+			if (defined $product_ref->{nutriments}{$nid . "_value"}) {
+				$value = $product_ref->{nutriments}{$nid . "_value"};
+				if (defined $product_ref->{nutriments}{$nid . "_modifier"}) {
+					$product_ref->{nutriments}{$nid . "_modifier"} eq '<' and $value = "&lt; $value";
+					$product_ref->{nutriments}{$nid . "_modifier"} eq "\N{U+2264}" and $value = "&le; $value";
+					$product_ref->{nutriments}{$nid . "_modifier"} eq '>' and $value = "&gt; $value";
+					$product_ref->{nutriments}{$nid . "_modifier"} eq "\N{U+2265}" and $value = "&ge; $value";
+					$product_ref->{nutriments}{$nid . "_modifier"} eq '~' and $value = "~ $value";
+				}
 			}
+			if (defined $product_ref->{nutriments}{$nidp . "_value"}) {
+				$valuep = $product_ref->{nutriments}{$nidp . "_value"};
+				if (defined $product_ref->{nutriments}{$nidp . "_modifier"}) {
+					$product_ref->{nutriments}{$nidp . "_modifier"} eq '<' and $valuep = "&lt; $valuep";
+					$product_ref->{nutriments}{$nidp . "_modifier"} eq "\N{U+2264}" and $valuep = "&le; $valuep";
+					$product_ref->{nutriments}{$nidp . "_modifier"} eq '>' and $valuep = "&gt; $valuep";
+					$product_ref->{nutriments}{$nidp . "_modifier"} eq "\N{U+2265}" and $valuep = "&ge; $valuep";
+					$product_ref->{nutriments}{$nidp . "_modifier"} eq '~' and $valuep = "~ $valuep";
+				}
+			}			
 		}
 		
 		# print STDERR "nutriment: $nutriment - nid: $nid - shown: $shown - class: $class - prefix: $prefix \n";
@@ -1610,8 +1799,12 @@ HTML
 		$input .= <<HTML
 <tr id="nutriment_${enid}_tr" class="nutriment_$class"$display>
 <td>$label</td>
-<td>
-<input class="nutriment_value" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" $disabled/>
+<td class="nutriment_col" $column_display_style{"nutrition_data"}>
+<input class="nutriment_value" id="nutriment_${enid}" name="nutriment_${enid}" value="$value" $disabled />
+</td>
+<td class="nutriment_col_prepared" $column_display_style{"nutrition_data_prepared"}>
+<input class="nutriment_value" id="nutriment_${enidp}" name="nutriment_${enidp}" value="$valuep" $disabled/>
+</td>
 HTML
 ;
 
@@ -1657,6 +1850,7 @@ HTML
 		}
 
 		$input .= <<HTML
+<td>
 <span class="nutriment_unit_percent" id="nutriment_${enid}_unit_percent"$hide_percent>%</span>
 <select class="nutriment_unit" id="nutriment_${enid}_unit" name="nutriment_${enid}_unit"$hide_select $disabled>
 HTML
@@ -1682,6 +1876,7 @@ HTML
 		else {
 			# alcohol in % vol / °
 			$input .= <<HTML
+<td>
 <span class="nutriment_unit" >% vol / °</span>
 HTML
 ;			
@@ -1813,7 +2008,16 @@ HTML
 	$html .= <<HTML
 <table id="ecological_data_table" class="data_table">
 <thead class="nutriment_header">
-<tr><th colspan="2">$Lang{ecological_data_table}{$lang}</th>
+<tr><th>$Lang{ecological_data_table}{$lang}</th>
+<th class="nutriment_col" $column_display_style{"nutrition_data"}>
+$Lang{product_as_sold}{$lang}
+</th>
+<th class="nutriment_col_prepared" $column_display_style{"nutrition_data_prepared"}>
+$Lang{prepared_product}{$lang}
+</th>
+<th>
+$Lang{unit}{$lang}
+</th>
 </tr>
 </thead>
 <tbody>

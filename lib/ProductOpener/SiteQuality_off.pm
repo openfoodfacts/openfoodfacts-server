@@ -175,6 +175,14 @@ sub check_nutrition_data($) {
 	
 		next if has_tag($product_ref, "labels", "fr:informations-nutritionnelles-incorrectes");
 		next if has_tag($product_ref, "labels", "en:incorrect-nutrition-facts-on-label");
+		
+		if ((defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on')) {
+			push $product_ref->{quality_tags}, "nutrition-data-prepared";
+			
+			if (not has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
+				push $product_ref->{quality_tags}, "nutrition-data-prepared-without-category-dried-products-to-be-rehydrated";			
+			}
+		}
 	
 
 		if ((defined $product_ref->{nutrition_data_per}) and ($product_ref->{nutrition_data_per} eq 'serving')) {

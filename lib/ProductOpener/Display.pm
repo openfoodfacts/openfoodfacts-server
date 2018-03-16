@@ -6991,10 +6991,19 @@ sub display_nutrient_levels($) {
 	}	
 	
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
+	# unless we have nutrition data for the prepared product
+	
+	my $prepared = '';
 	if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
-
-			return "";
+	
+			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
+				$prepared = '_prepared';
+			}
+			else {
+				return "";
+			}
 	}
+
 	
 	
 	# do not compute a score for coffee, tea etc.
@@ -7054,7 +7063,7 @@ HTML
 		if ((defined $product_ref->{nutrient_levels}) and (defined $product_ref->{nutrient_levels}{$nid})) {
 		
 			$html_nutrient_levels .= '<img src="/images/misc/' . $product_ref->{nutrient_levels}{$nid} . '.svg" width="30" height="30" style="vertical-align:middle;margin-right:15px;margin-bottom:4px;" alt="'
-				. lang($product_ref->{nutrient_levels}{$nid} . "_quantity") . '" />' . (sprintf("%.2e", $product_ref->{nutriments}{$nid . "_100g"}) + 0.0) . " g "
+				. lang($product_ref->{nutrient_levels}{$nid} . "_quantity") . '" />' . (sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0) . " g "
 				. sprintf(lang("nutrient_in_quantity"), "<b>" . $Nutriments{$nid}{$lc} . "</b>", lang($product_ref->{nutrient_levels}{$nid} . "_quantity")). "<br />";
 		
 		}
@@ -7193,26 +7202,75 @@ sub display_nutrition_table($$) {
 	
 	my @cols;
 	
-	if (not defined $product_ref->{nutrition_data_per}) {
-		$product_ref->{nutrition_data_per} = '100g';
+	
+	my %col_name = (
+	);
+	
+	my @displayed_product_types = ();
+	my %displayed_product_types = ();
+	
+	if ((not defined $product_ref->{nutrition_data}) or ($product_ref->{nutrition_data})) {
+		# by default, old products did not have a checkbox, display the nutrition data entry column for the product as sold
+		push @displayed_product_types, "";
+		$displayed_product_types{as_sold} = 1;
 	}
+	if ((defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on')) {
+		push @displayed_product_types, "prepared_";
+		$displayed_product_types{prepared} = 1;
+	}	
+		
+		
 	
-	if ($product_ref->{nutrition_data_per} eq 'serving') {
+	foreach my $product_type (@displayed_product_types) {
 	
-		if ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
-			@cols = ('100g','serving');
+		my $nutrition_data_per = "nutrition_data" . "_" . $product_type . "per";
+		
+		my $col_name = $Lang{product_as_sold}{$lang};
+		if ($product_type eq 'prepared_') {
+			$col_name = $Lang{prepared_product}{$lang};
+		}
+		$col_name{$product_type . "100g"} = $col_name . "<br/>" . $Lang{nutrition_data_per_100g}{$lang};
+		$col_name{$product_type . "serving"} = $col_name . "<br/>" . $Lang{nutrition_data_per_serving}{$lang};
+		if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne '')) {
+			$col_name{$product_type . "serving"} .= ' (' . $product_ref->{serving_size} . ')';
+		}
+	
+		if (not defined $product_ref->{$nutrition_data_per}) {
+			$product_ref->{$nutrition_data_per} = '100g';
+		}
+		
+		if ($product_ref->{$nutrition_data_per} eq 'serving') {
+		
+			if ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
+				if (($product_type eq "") and ($displayed_product_types{prepared})) {
+					# do not display non prepared by portion if we have data for the prepared product
+					# -> the portion size is for the prepared product
+					push @cols, $product_type . '100g';
+				}
+				else {
+					push @cols, ($product_type . '100g', $product_type . 'serving');
+				}
+			}
+			else {
+				push @cols, $product_type . 'serving';
+			}
 		}
 		else {
-			@cols = ('serving');
+			if ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
+				if (($product_type eq "") and ($displayed_product_types{prepared})) {
+					# do not display non prepared by portion if we have data for the prepared product
+					# -> the portion size is for the prepared product
+					push @cols, $product_type . '100g';
+				}
+				else {
+					push @cols, ($product_type . '100g', $product_type . 'serving');
+				}
+			}
+			else {
+				push @cols, $product_type . '100g';
+			}	
 		}
-	}
-	else {
-		if ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
-			@cols = ('100g','serving');
-		}
-		else {
-			@cols = ('100g');
-		}	
+	
 	}
 	
 	my %col_class = (
@@ -7223,10 +7281,7 @@ sub display_nutrition_table($$) {
 		'90' => 'stats',
 		'max' => 'stats',
 	);
-	
-	my %col_name = (
-	);
-	
+
 	
 	# Comparisons with other products, categories, recommended daily values etc.
 	
@@ -7389,10 +7444,8 @@ HTML
 			$col_class = ' ' . $col_class{$col} ;
 		}
 		my $col_name = $col_name{$col};
-		if (not defined $col_name) {
-			$col_name = lang("nutrition_data_per_" . $col);
-		}
-		$html .= '<th class="nutriment_value' . ${col_class} . '">' . $col_name . '</th>';
+		
+		$html .= '<th class="nutriment_value' . ${col_class} . ' ' . $col . '">' . $col_name . '</th>';
 		$empty_cols .= "<td></td>";
 	}
 
@@ -7406,10 +7459,17 @@ HTML
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
 
 	my @unknown_nutriments = ();
-	foreach my $nid (sort keys %{$product_ref->{nutriments}}) {
-		next if $nid =~ /_/;
-		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})) {
+	my %seen_unknown_nutriments = ();
+	foreach my $nid (keys %{$product_ref->{nutriments}}) {
+	
+		next if (($nid =~ /_/) and ($nid !~ /_prepared$/)) ;
+		
+		$nid =~ s/_prepared$//;
+		
+		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})
+			and (not defined $seen_unknown_nutriments{$nid})) {
 			push @unknown_nutriments, $nid;
+			$seen_unknown_nutriments{$nid} = 1;
 		}
 	}
 	
@@ -7429,13 +7489,16 @@ HTML
 		
 		if  (($nutriment !~ /-$/)
 			or ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
+			or ((defined $product_ref->{nutriments}{$nid . "_prepared"}) and ($product_ref->{nutriments}{$nid . "_prepared"} ne ''))
 			or ($nid eq 'new_0') or ($nid eq 'new_1')) {
 			$shown = 1;
 		}
 		
 		# Only show important nutriments if the value is not known
 		# Only show known values for search graph results
-		if ((($nutriment !~ /^!/) or ($product_ref->{id} eq 'search')) and not ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))) {
+		if ((($nutriment !~ /^!/) or ($product_ref->{id} eq 'search')) 
+			and not (((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
+					or ((defined $product_ref->{nutriments}{$nid . "_prepared"}) and ($product_ref->{nutriments}{$nid . "_prepared"} ne '')))) {
 			$shown = 0;
 		}
 			
@@ -7447,6 +7510,8 @@ HTML
 			}			
 		}
 
+		print STDERR "nid: $nid - shown: $shown - value: " . $product_ref->{nutriments}{$nid} . " - $nid _prepared: " . $product_ref->{nutriments}{$nid . "_prepared"}  ." \n";
+		
 		my $label = '';
 		
 		# display nutrition score only when the country is matching
