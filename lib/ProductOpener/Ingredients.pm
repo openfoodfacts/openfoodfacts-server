@@ -239,7 +239,7 @@ sub extract_ingredients_from_image($$$) {
 			
 		}
 		else {
-			$log->warn("google cloud vision request not successful", { code => $res->code, response => $message }) if $log->is_warn();
+			$log->warn("google cloud vision request not successful", { code => $res->code, response => $res->message }) if $log->is_warn();
 		}
 
 	
