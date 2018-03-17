@@ -78,6 +78,7 @@ use Crypt::PasswdMD5 qw(unix_md5_crypt);
 use Math::Random::Secure qw(irand);
 use Crypt::ScryptKDF qw(scrypt_hash scrypt_hash_verify);
 use WWW::CSRF qw(generate_csrf_token check_csrf_token CSRF_OK);
+use Log::Any qw($log);
 
 sub generate_token {
 	my $name_length = shift;
@@ -138,7 +139,7 @@ sub create_user($) {
 		# Assign a random password
 		# Send welcome e-mail + password - Might not be ideal, as passwords should not be sent over insecure channels such as e-mail.
 	
-		print STDERR "Users.pm - create_user - creating user $name_id2\n";
+		$log->info("creating new user file", { userid => $name_id2 }) if $log->is_info();
 		store("$data_root/users/$name_id2.sto", $user_ref);
 	}	
 }
@@ -392,7 +393,7 @@ sub init_user()
 		
 		if ($user_id =~ /\@/) {
 			my $emails_ref = retrieve("$data_root/users_emails.sto");
-			print STDERR "Users.pm - init_user - got email: $user_id\n";
+			$log->info("got email while initializing user", { email => $user_id }) if $log->is_info();
 			if (not defined $emails_ref->{$user_id}) {
 				$user_id = undef;
 			}
@@ -400,8 +401,8 @@ sub init_user()
 				my @userids = @{$emails_ref->{$user_id}};
 				$user_id = $userids[0];
 			}
-			print STDERR "Users.pm - init_user - corresponding user_id: $user_id\n";
-			
+
+			$log->info("corresponding user_id", { userid => $user_id }) if $log->is_info();
 		}		
 
 		$debug and print STDERR "ProductOpener::Users::init_user - defined user_id \n" ;
@@ -584,7 +585,7 @@ sub init_user()
 			
 			# Facebook session?
 			if (defined $user_ref->{'user_sessions'}{$user_session}{'facebook'}) {
-				print STDERR "ProductOpener::Users::init_user - session opened through Facebook uid: " . $user_ref->{'user_sessions'}{$user_session}{'facebook'} . "\n";
+				$log->info("session opened through Facebook uid", { Facebook_id => $user_ref->{'user_sessions'}{$user_session}{'facebook'} }) if $log->is_info();
 				$Facebook_id = $user_ref->{'user_sessions'}{$user_session}{'facebook'};
 			}
 		    }
@@ -628,14 +629,14 @@ sub init_user()
 			if (not defined $cookie)
 			{
 			 $cookie = cookie (-name=>'b', -value=>$b, -path=>'/', -expires=>'+86400000s') ;
-			 print STDERR "Users.pm - setting b cookie: $cookie\n";
+			 $log->info("setting b cookie", { bcookie => $cookie }) if $log->is_info();
 			} 
 		}
 		else
 		{
             $Visitor_id = cookie('b');
 			$user_ref = retrieve("$data_root/virtual_users/$Visitor_id.sto");
-			print STDERR "Users.pm - got b cookie: $Visitor_id\n";
+			$log->info("got b cookie", { bcookie => $Visitor_id }) if $log->is_info();
         }
                 
 	}
