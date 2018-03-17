@@ -126,6 +126,7 @@ use MongoDB;
 use Tie::IxHash;
 use JSON::PP;
 use XML::Simple;
+use Log::Any qw($log);
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -173,6 +174,8 @@ $debug = 1 ;	# Set to a non null value to get debug messages
 
 sub init()
 {
+	$log->context->{request} = generate_token(16);
+
 	$styles = '';
 	$scripts = '';
 	$initjs = '';
