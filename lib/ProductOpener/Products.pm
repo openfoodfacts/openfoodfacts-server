@@ -70,6 +70,7 @@ use ProductOpener::URL qw/:all/;
 use CGI qw/:cgi :form escapeHTML/;
 use MongoDB;
 use Encode;
+use Log::Any qw($log);
 
 use Algorithm::CheckDigits;
 my $ean_check = CheckDigits('ean');
@@ -97,7 +98,7 @@ sub product_path($) {
 	$code !~ /^\d+$/ and return "invalid";
 	
 	if (length($code) > 100) {
-		print STDERR "invalid code, too long code: $code\n";
+		$log->info("invalid code, code too long", { code => $code }) if $log->is_info();
 		return "invalid";
 	}
 	
@@ -250,7 +251,7 @@ sub store_product($$) {
 			delete $product_ref->{new_server};
 		}
 		
-		print STDERR "Products::store_product - move from $old_code to $code - $new_data_root \n";
+		$log->info("moving product", { old_code => $old_code, code => $code, new_dat_root => $new_data_root }) if $log->is_info();
 		
 		# Move directory
 		
@@ -260,7 +261,8 @@ sub store_product($$) {
 			# short barcodes with no prefix
 			$prefix_path = '';
 		}
-		print STDERR "Products::store_product - path: $path - prefix_path: $prefix_path\n";
+		
+		$log->debug("creating product directories", { path => $path, prefix_path => $prefix_path }) if $log->is_debug();
 		# Create the directories for the product
 		foreach my $current_dir  ($new_data_root . "/products", $new_www_root . "/images/products") {
 			(-e "$current_dir") or mkdir($current_dir, 0755);
@@ -273,10 +275,12 @@ sub store_product($$) {
 		if ((! -e "$new_data_root/products/$path")
 			and (! -e "$new_www_root/images/products/$path")) {
 			use File::Copy;
-			print STDERR "Products::store_product - move from $data_root/products/$old_path to $data_root/products/$path (new)\n";
-			move("$data_root/products/$old_path", "$new_data_root/products/$path") or print STDERR "error moving data from $data_root/products/$old_path to $new_data_root/products/$path : $!\n";
-			move("$www_root/images/products/$old_path", "$new_www_root/images/products/$path") or print STDERR "error moving html from $www_root/images/products/$old_path to $new_www_root/images/products/$path : $!\n";
-			
+			$log->debug("moving product data", { source => "$data_root/products/$old_path", destination => "$data_root/products/$path" }) if $log->is_debug();
+			move("$data_root/products/$old_path", "$new_data_root/products/$path") or $log->error("could not move product data", { source => "$data_root/products/$old_path", destination => "$data_root/products/$path", error => $! });
+			$log->debug("moving product images", { source => "$www_root/images/products/$old_path", destination => "$new_www_root/images/products/$path" }) if $log->is_debug();
+			move("$www_root/images/products/$old_path", "$new_www_root/images/products/$path") or $log->error("could not move product images", { source => "$www_root/images/products/$old_path", destination => "$new_www_root/images/products/$path", error => $! });
+			$log->debug("images and data moved");
+
 			delete $product_ref->{old_code};
 			
 			$products_collection->remove({"_id" => $product_ref->{_id}});
@@ -284,8 +288,8 @@ sub store_product($$) {
 
 		}
 		else {
-			(-e "$new_data_root/products/$path") and print STDERR "Products::store_product - cannot move from $data_root/products/$old_path to $new_data_root/products/$path (already exists)\n";		
-			(-e "$new_www_root/products/$path") and print STDERR "Products::store_product - cannot move from $www_root/products/$old_path to $new_www_root/products/$path (already exists)\n";		
+			(-e "$new_data_root/products/$path") and $log->error("cannot move product data, because the destination already exists", { source => "$data_root/products/$old_path", destination => "$data_root/products/$path" });
+			(-e "$new_www_root/products/$path") and $log->error("cannot move product images data, because the destination already exists", { source => "$www_root/images/products/$old_path", destination => "$new_www_root/images/products/$path" });
 		}
 		
 		$comment .= " - barcode changed from $old_code to $code by $User_id";
@@ -1341,12 +1345,11 @@ sub process_product_edit_rules($) {
 										my $resp = $ua->request($req);
 										if ($resp->is_success) {
 											my $message = $resp->decoded_content;
-											print STDERR "Received reply: $message\n";
+											$log->info("Notification sent to Slack successfully", { response => $message }) if $log->is_info();
 										}
 										else {
-											print STDERR "HTTP POST error code: " .  $resp->code . "\n";
-											print STDERR "HTTP POST error message: " . $resp->message . "\n";
-										}										
+											$log->warn("Notification could not be sent to Slack", { code => $resp->code, response => $resp->message }) if $log->is_warn();
+										}
 										
 									}
 								}
