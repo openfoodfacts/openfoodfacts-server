@@ -44,7 +44,7 @@ use ProductOpener::SiteQuality qw/:all/;
 use Apache2::RequestRec ();
 use Apache2::Const ();
 
-use CGI qw/:cgi :form escapeHTML/;
+use CGI qw/:cgi :form escapeHTML :cgi-lib/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
@@ -420,9 +420,18 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	
 	# Nutrition data
 	
+	my $params_ref = Vars;
+	
+	# FIXME : there is no way to know if we get an unchecked value because the field was not there, or if the box is unchecked
+	# the browser does not send anything when a box is unchecked... 
+	# this is an issue because we can't have the API check or uncheck a box
+	
 	$product_ref->{no_nutrition_data} = remove_tags_and_quote(decode utf8=>param("no_nutrition_data"));	
+
 	$product_ref->{nutrition_data} = remove_tags_and_quote(decode utf8=>param("nutrition_data"));	
+
 	$product_ref->{nutrition_data_prepared} = remove_tags_and_quote(decode utf8=>param("nutrition_data_prepared"));	
+	
 		
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
 
