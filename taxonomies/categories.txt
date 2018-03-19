@@ -3,6 +3,7 @@ synonyms:en:pasteurised, pasteurized, pasterized
 synonyms:en:unpasteurised, unpasteurized, unpasterized
 synonyms:fr:premier cru, 1er cru
 synonyms:ru:макаронные изделия, изделия макаронные
+synonyms:fr:Cacahuètes, cacahouète
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,base
 stopwords:nl:bevat,en
 stopwords:nl_be:bevat,en
@@ -29,6 +30,7 @@ de:Babynahrung, Säuglingsnahrung
 nl:Babyvoeding
 nl_be:Babyvoeding
 ro:Mâncare pentru bebeluși
+rs:Dečija hrana, Hrana za bebe
 wikidata:en:Q797971
 
 <en:Baby foods
@@ -144,38 +146,65 @@ nl:Babymelk
 ro:Lapte pentru bebeluși, Lapte bebeluși, Lapte bebelusi, Lapte pentru bebelusi
 
 <en:Baby milks
-en:Infant formulas
+en:Infant formulas, Baby start milk up to 6 months
 fr:Laits 1er âge, lait 1er age, lait premier age, laits premier age
 de:Säuglingsanfangsnahrung, Anfangsnahrung, Startmilch, Anfangsmilch, Säuglingsmilch, Säuglingsmilchnahrung
 nl:Baby-startmelk tot 6 maanden
 ro:Formula pentru bebeluși, Formula bebeluși, Formula bebelusi, Formula pentru bebelusi
 
 <en:Infant formulas
-en:Pre-food
+en:Pre-food, Baby start milk from 6 months
 de:Pre-Nahrung, Pre-Milch, Pre
 nl:Baby-startmelk vanaf 6 maanden
 
 <en:Infant formulas
+en:Baby start milk from 10 months
 de:1-Nahrung, 1er-Babymilch
 nl:Baby-startmelk vanaf 10 maanden
 
 <en:Baby milks
-fr:Laits 2ème âge, lait 2eme age, lait deuxieme age, laits deuxieme age
+en:Baby follow-on milk from 5 months
+fr:Laits 2ème âge, lait 2eme age, lait deuxieme age, laits deuxieme age, laits à partir de 5 mois, laits de suite
 de:Folgenahrung, Folgemilch
 nl:Baby-opvolgmelk
 
 <en:Baby milks
+en:Baby follow-on milk from 2 years
+en:Laits de suite à partir de 2 ans
 de:2-Nahrung, 2er-Babymilch
 nl:Baby-opvolgmelk vanaf 2 jaar
 
 <en:Baby milks
+en:Baby follow-on milk from 3 years
+en:Laits de suite à partir de 3 ans
 de:3-Nahrung, 3er-Babymilch
 nl:Baby-opvolgmelk vanaf 3 jaar
 
+en:Baby follow-on powderered milk
+fr:Lait de suite en poudre
+
+en:Baby follow-on liquid milk
+fr:Lait de suite liquide
+
 <en:Baby milks
-fr:Laits de croissance, lait de croissance
+en:Growth milks
+fr:Laits de croissance, lait de croissance, lait destiné aux enfants à partir de 10 mois à 3 ans
 de:Kindermilch
 nl:Peutermelk
+
+<en:Baby milks
+en:Anti-reflux milk
+fr:Lait anti-reflux
+
+<en:Baby milks
+en:Hypoallergenic milks
+fr:Laits hypoallergéniques,Laits HA
+
+<en:Baby milks
+en:Milks for premature babies
+fr:Laits pour bébé prématurés
+
+#fr:Laits maternisés
 
 <en:Baby foods
 en:Evening meals for babies
@@ -279,10 +308,12 @@ fr:Préparations à base de miel
 nl:Bereidingen op basis van honing
 
 <en:Honey-based preparations
+en:Blends of honey and propolis
 fr:Mélanges de miel et propolis
 nl:Mengsels van honing en propolis, Mengelingen van honing en propolis
 
 <en:Honey-based preparations
+en:Honey and royal jelly mixtures
 fr:Mélanges de miel et gelée royale
 nl:Mengsels van honing en koninginnegelei, Mengelingen van koninginnegelei
 
@@ -294,6 +325,7 @@ it:Bevande
 nl:Dranken, Drank
 nl_be:Dranken
 ro:Băuturi, Bauturi
+rs:Pića
 ru:Напитки
 zh:飲品, 饮料
 wikidata:en:Q40050
@@ -348,6 +380,7 @@ it:Bevande alcoliche
 nl:Alcoholische dranken
 nl_be:Alcoholische dranken
 ro:Băuturi alcoolice, Bauturi alcoolice
+rs:Alkoholna pića
 ru:Алкогольные напитки, Спиртные напитки
 pnns_group_2:en:Alcoholic beverages
 wikidata:en:Q154
@@ -396,6 +429,11 @@ en:Artisanal ciders, artisanal cider
 fr:Cidres artisanaux, Cidre artisanal
 nl:Ambachtelijke ciders
 ro:Cidru
+
+<en:Alcoholic beverages
+<en:Mixed drinks
+de:Biermischgetränk
+wikidata:en:Q13527031
 
 <en:Alcoholic beverages
 en:Beers
@@ -467,6 +505,7 @@ ka:ლუდი
 kk:Сыра
 krc:Сыра
 ro:Beri, Bere
+rs:Pivo
 wikidata:en:Q44
 
 <en:Beers
@@ -975,7 +1014,7 @@ nl:Witte Armagnac
 country:en:France
 
 <fr:Eaux-de-vie
-<en:French wines
+<en:Wines from France
 fr:Calvados
 nl:Calvados
 country:en:France
@@ -989,137 +1028,140 @@ ro:Coniacuri, Coniac
 wikidata:en:Q284
 
 <fr:Eaux-de-vie
+en:Swiss Eaux-de-vie
 fr:Eaux-de-vie suisses, Eau-de-vie suisse, Eaux-de-vie de Suisse, Eau-de-vie de Suisse
 nl:Zwitserse eau-de-vies
 
 <fr:Eaux-de-vie
+en:French Eaux-de-vie
 fr:Eaux-de-vie françaises, Eau-de-vie française, Eaux-de-vie de France, Eau-de-vie de France
 nl:Franse eau-de-vies
 
-<fr:Eaux-de-vie françaises
+<en:French Eaux-de-vie
 fr:Eau-de-vie de cidre de Bretagne
 nl:Bretons cider eau-de-vies
 country:en:France
 
-<fr:Eaux-de-vie françaises
+<en:French Eaux-de-vie
 fr:Eau-de-vie de cidre de Normandie
 nl:Normandische cider eau-de-vies
 country:en:France
 
-<fr:Eaux-de-vie françaises
+<en:French Eaux-de-vie
 fr:Eau-de-vie de cidre du Maine
 nl:Eau-de-vies uit de Maine-streek
 country:en:France
 
-<fr:Eaux-de-vie françaises
+<en:French Eaux-de-vie
 fr:Eau-de-vie de Cognac
 nl:Eau-de-vies uit de Cognac-streek
 country:en:France
 
-<fr:Eaux-de-vie françaises
+<en:French Eaux-de-vie
 fr:Eau-de-vie de Jura
 nl:Eau-devies uit de Jura
 country:en:France
 
-<fr:Eaux-de-vie françaises
+<en:French Eaux-de-vie
 fr:Eau-de-vie de poiré de Bretagne
 nl:Peren eau-de-vies uit Bretagne
 country:en:France
 
-<fr:Eaux-de-vie françaises
+<en:French Eaux-de-vie
 fr:Eau-de-vie de poiré de Normandie
 nl:Peren eau-de-vies uit Normandië
 country:en:France
 
-<fr:Eaux-de-vie françaises
+<en:French Eaux-de-vie
 fr:Eau-de-vie de poiré du Maine
 nl:Peren-eau-de-vies uit de Maine-streek
 country:en:France
 
-<fr:Eaux-de-vie françaises
+<en:French Eaux-de-vie
 fr:Eau-de-vie de vin de Bourgogne
 nl:Wijn-eau-de-vies uit de Bourgogne
 country:en:France
 
-<fr:Eaux-de-vie françaises
+<en:French Eaux-de-vie
 fr:Eau-de-vie de vin de la Marne
 nl:Wijn-eau-de-vies uit de Marne
 country:en:France
 
-<fr:Eaux-de-vie françaises
+<en:French Eaux-de-vie
 fr:Eau-de-vie de vin de Savoie
 nl:Wijn eau-de-vies uit de Savoie
 country:en:France
 
-<fr:Eaux-de-vie françaises
+<en:French Eaux-de-vie
 fr:Eau-de-vie de vin des Côtes-du-Rhone
 nl:Wijn-eau-de-vies uit de Côtes-du-Rhône
 country:en:France
 
-<fr:Eaux-de-vie françaises
+<en:French Eaux-de-vie
 fr:Eau-de-vie de vin originaire d'Aquitaine
 nl:Wijn-eau-de-vies uit Aquitaine
 country:en:France
 
-<fr:Eaux-de-vie françaises
+<en:French Eaux-de-vie
 fr:Eau-de-vie de vin originaire de Franche-Comté
 nl:Wijn eau-de-vies uit de Franche-Comté
 country:en:France
 
-<fr:Eaux-de-vie françaises
+<en:French Eaux-de-vie
 fr:Eau-de-vie de vin originaire de Provence
 nl:Wijn-eau-de-vies uit de Provence
 country:en:France
 
-<fr:Eaux-de-vie françaises
+<en:French Eaux-de-vie
 fr:Eau-de-vie de vin originaire des Coteaux de la Loire
 nl:Wijn-eau-de-vies uit de Coteaux de la Loire
 country:en:France
 
-<fr:Eaux-de-vie françaises
+<en:French Eaux-de-vie
 fr:Eau-de-vie de vin originaire du Bugey
 nl:Wijn-eau-de-vies uit de Bugey
 country:en:France
 
-<fr:Eaux-de-vie françaises
+<en:French Eaux-de-vie
 fr:Eau-de-vie de vin originaire du Centre-Est
 nl:Wijn eau-de-vies uit de Centre-Est
 country:en:France
 
-<fr:Eaux-de-vie françaises
+<en:French Eaux-de-vie
 fr:Eau-de-vie de vin originaire du Languedoc
 nl:Wijn eau-de-vies uit de Languedoc
 country:en:France
 
-<fr:Eaux-de-vie françaises
+<en:French Eaux-de-vie
 fr:Eau-de-vie des Charentes
 nl:Eau-de-vies uit de Charante
 country:en:France
 
-<fr:Eaux-de-vie suisses
+<en:Swiss Eaux-de-vie
 fr:Abricotine
 nl:Abricotines, Abricotine
 wikidata:en:Q10216
 
-<fr:Eaux-de-vie suisses
+<en:Swiss Eaux-de-vie
 fr:Damassine
 nl:Damasinnes, Damasinne
 
-<fr:Eaux-de-vie suisses
+<en:Swiss Eaux-de-vie
 fr:Williamine
 nl:Williamines, Williamine
 wikidata:en:Q3569050
 
 <fr:Eaux-de-vie
+en:Tunisian Eaux-de-vie
 fr:Eaux-de-vie tunisiennes, Eau-de-vie tunisienne, Eaux-de-vie de Tunisie, Eau-de-vie de Tunisine
 nl:Tunesische eau-de-vies
 
-<fr:Eaux-de-vie tunisiennes
+<en:Tunisian Eaux-de-vie
 fr:Boukha
 nl:Boukha
 wikidata:en:Q429372
 
-<fr:Eaux-de-vie tunisiennes
+<en:Tunisian Eaux-de-vie
 fr:Thibarine
 nl:Thibarines, Thibarine
 wikidata:en:Q944170
@@ -1357,7 +1399,7 @@ nl:Gins
 ro:Gin
 wikidata:en:Q959362
 
-<fr:Produits AOC
+<fr:AOC Products
 <en:Agricultural rum
 en:AOC Agricultural rums, Agricultural rums AOC, rhum agricole AOC
 fr:Rhums agricoles AOC, rhum agricole AOC
@@ -1400,6 +1442,7 @@ fr:Cidres rosés
 nl:Roséciders
 
 <en:Ciders
+en:Traditional ciders
 fr:Cidres traditionnels, sidra natural, cidre basque, sagarno, Apfelwein
 nl:Traditionele ciders, Appelwijnen
 
@@ -1420,6 +1463,7 @@ wikidata:en:Q178780
 
 <en:Liqueurs
 en:Herbal liqueur, Kräuterlikör
+fr:Liqueur herbale
 de:Kräuterschnäppse, Kräuterliköre, Kräuterschnaps, Kräuterlikör
 wikidata:en:Q1883967
 
@@ -1459,11 +1503,13 @@ wikidata:en:Q3246353
 
 <en:Orange soft drinks
 <fr:Sodas aux fruits light
+en:Light orange soft drinks
 fr:Sodas à l'orange light, soda à l'orange light, soda à la pulpe d'orange light, sodas à la pulpe d'orange light
 nl:Light sinaasappelfrisdranken
 
 <en:Lemon soft drinks
 <fr:Sodas aux fruits light
+en:Light lemon soft drinks
 fr:Sodas au citron light, soda au citron light
 nl:Light citroenfrisdanken
 
@@ -1586,6 +1632,7 @@ nl:Vruchtendranken
 ru:Напитки на основе фруктов
 
 <en:Fruit-based beverages
+en:Beverages with orange
 fr:Boissons à l'orange
 
 <en:Plant-based beverages
@@ -1597,7 +1644,8 @@ nl_be:Smoothies
 wikidata:en:Q13290
 
 <en:Smoothies
-en:Smoothies aux fruits
+en:Fruit smoothies
+fr:Smoothies aux fruits
 
 <en:Fruit-based beverages
 <en:Juices and nectars
@@ -1850,6 +1898,7 @@ wikidata:en:Q1068602
 
 <en:Fruit juices
 en:cranberry juice
+fr:Jus de canneberge, Jus de cramberry
 wikidata:en:Q865448
 
 <en:Fruit juices
@@ -1882,6 +1931,7 @@ fr:Jus de prune, jus de prunes
 nl:Priuimensappen
 
 <en:Fruit juices
+en:Prune juice
 fr:Jus de pruneaux
 
 <en:Plum juices
@@ -2147,6 +2197,9 @@ de:Karottensäfte aus Kartottenkonzentrat
 es:Zumos de zanahoria procedente de concentrado
 fr:Jus de carotte à base de concentré, jus de carottes à base de concentré
 nl:Wortelsappen uit concentraat
+
+en:Vegetable juices
+fr:Jus de betterave
 
 <en:Vegetable juices
 <en:Tomatoes and tomato products
@@ -2646,13 +2699,16 @@ fr:Thés noirs aromatisés
 
 <en:Flavored black teas
 <en:Lemon teas
+en:Lemon flavored black teas
 fr:Thés noirs aromatisés au citron
 
 <en:Flavored teas
+en:Teas with bergamot, Bergamot teas
 fr:Thés à la bergamote
 
 <en:Flavored black teas
-<fr:Thés à la bergamote
+<en:Teas with bergamot
+en:Bergamot flavored black teas
 fr:Thés noirs aromatisés à la bergamote
 
 <en:Teas
@@ -2708,7 +2764,7 @@ en:Roasted Japanese green teas
 de:Geröstete japanische Grüntees
 fr:Thés verts torréfiés japonais
 
-<fr:Thés verts torréfiés japonais
+<en:Roasted Japanese green teas
 fr:Thés Hojicha, Hojicha, Bancha Hojicha
 wikidata:en:Q1652744
 
@@ -2981,6 +3037,10 @@ fr:Café en dosettes compatible Senseo, Dosettes Senseo, Capsules Senseo
 en:Nespresso-compatible coffee capsules
 fr:Café en dosettes compatible Nespresso, Dosettes Nespresso, Capsules Nespresso
 
+<en:Coffee capsules
+en:Tassimo-compatible coffee capsules, T-Disc coffee capsules
+fr:Café en dosettes compatible Tassimo, Dosettes Tassimo, Capsules Tassimo, Dosettes T-Disc, Capsules T-Disc
+
 <en:Coffees
 en:Decaffeinated coffees
 es:Cafés descafeinados
@@ -3005,11 +3065,13 @@ ru:Кофе молотый, Молотый кофе
 <en:Coffees
 en:Coffee beans
 de:Unegmahlene Kaffeebohnen, Kaffeekirschen, Kaffeebohnen
+fr:Grains de café
 wikidata:en:Q153697
 
 <en:Coffee beans
 en:Roasted coffee beans
 de:Geröstete Kaffeebohnen
+fr:Grains de café torréfiés
 
 <en:Coffees
 <en:Instant hot beverages
@@ -3022,6 +3084,7 @@ ru:Растворимый кофе, кофе растворимый
 wikidata:en:Q858049
 
 
+en:Powdered cappucino
 fr:Cappuccino en poudre
 
 <en:Instant coffees
@@ -3145,6 +3208,7 @@ nl:Waters met smaak
 de:Wasser mit Geschmack, Wässer mit Geschmack
 
 <en:Flavored waters
+en:non sugared flavored waters
 fr:eau aromatisée non sucrée
 
 <en:Mountain products
@@ -3190,6 +3254,7 @@ nl:Rode wijnen
 wikidata:en:Q1827
 
 <en:Red wines
+en:Organic red wines
 fr:Vin rouge bio
 
 <en:Wines
@@ -3252,7 +3317,7 @@ fr:Vins sans alcool, vins déalcoolisés
 de:alkoholfreie Weine
 nl:Alcoholvrije wijnen
 
-<en:French wines
+<en:Wines from France
 en:Bordeaux, Bordeaux wines
 fr:Bordeaux, Vins de Bordeaux
 de:Bordeauxweine
@@ -3260,28 +3325,28 @@ nl:Bordeaux
 wikidata:en:Q168461
 
 <en:Wines
-en:French wines, Wines from France
+en:Wines from France, French wines
 fr:Vins français, vin français
 de:französische Weine
 nl:Franse wijnen
 wikidata:en:Q630531
 
-<en:French wines
+<en:Wines from France
 fr:Agenais
 wikidata:en:Q2826539
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Ain
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Ajaccio
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:vin des Allobroges
 wikidata:en:Q21428124
 country:en:France
@@ -3399,25 +3464,25 @@ country:en:France
 instanceof:fr:AOP
 region:fr:Bourgogne
 
-<en:French wines
+<en:Wines from France
 fr:Alpes de Haute Provence
 wikidata:en:Q2839404
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Alpes Maritimes
 wikidata:en:Q2839405
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Alpilles
 wikidata:en:Q2840061
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Alsace Grand Cru
 wikidata:en:Q1596430
 
@@ -3671,43 +3736,43 @@ fr:Alsace Grand Cru preceded by Rosacker
 country:en:France
 wikidata:en:Q3442168
 
-<en:French wines
+<en:Wines from France
 fr:Vin d'Alsace
 instanceof:Alsace
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Anjou, Anjou Val de Loire
 country:en:France
 region:fr:Val de Loire
 
-<en:French wines
+<en:Wines from France
 fr:Anjou Coteaux de la Loire, Anjou Coteaux de la Loire Val de Loire
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Anjou-Villages Brissac, Anjou-Villages Brissac Val de Loire
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Arbois Pupillin mousseux
 country:en:France
 wikidata:en:Q2859682
 region:fr:Jura
 
-<en:French wines
+<en:Wines from France
 fr:Ardèche
 country:en:France
 instanceof:fr:IGP
 wikidata:en:Q16303829
 
-<en:French wines
+<en:Wines from France
 fr:Ariège
 wikidata:en:Q2861466
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Aude
 country:en:France
 instanceof:fr:IGP
@@ -3777,12 +3842,12 @@ country:en:France
 instanceof:fr:AOP
 region:fr:Bourgogne
 
-<en:French wines
+<en:Wines from France
 fr:Aveyron
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Bandol, Vin de Bandol
 country:en:France
 
@@ -3803,23 +3868,23 @@ grapevariety:fr:chardonnay
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Béarn, Béarn Bellocq
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Beaujolais
 country:en:France
 region:fr:Beaujolais
 grapevariety:fr:gamay, chardonnay
 
-<en:French wines
+<en:Wines from France
 fr:Beaujolais Villages
 country:en:France
 region:fr:Beaujolais
 grapevariety:fr:gamay, chardonnay
 
-<en:French wines
+<en:Wines from France
 fr:Beaujolais Supérieur
 country:en:France
 region:fr:Beaujolais
@@ -4095,12 +4160,12 @@ country:en:France
 instanceof:fr:AOP
 region:fr:Bourgogne
 
-<en:French wines
+<en:Wines from France
 fr:Bellet, Vin de Bellet
 country:en:France
 wikidata:en:Q1136605
 
-<en:French wines
+<en:Wines from France
 fr:Bergerac, Bergerac sec
 country:en:France
 wikidata:en:Q2897083
@@ -4196,7 +4261,7 @@ country:en:France
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Bonnezeaux Val de Loire
 country:en:France
 wikidata:en:Q892806
@@ -4232,7 +4297,7 @@ country:en:France
 instanceof:fr:AOP
 wikidata:en:Q2910687
 
-<en:French wines
+<en:Wines from France
 fr:Bouches du Rhône
 country:en:France
 
@@ -4242,7 +4307,7 @@ wikidata:en:Q1150979
 country:en:France
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 en:Burgundy wines, wines from Burgundy
 de:Burgunder
 fr:Bourgogne, vins de Bourgogne, vin de Bourgogne
@@ -4250,7 +4315,7 @@ wikidata:en:Q1016093
 region:fr:Bourgogne
 
 <en:Burgundy wines
-<fr:Produits AOC
+<fr:AOC Products
 fr:Bourgogne AOC
 country:en:France
 region:fr:Bourgogne
@@ -4450,7 +4515,7 @@ fr:Bourgogne Clairet Vézelay, Bourgogne Rosé Vézelay
 country:en:France
 region:fr:Bourgogne
 
-<en:French wines
+<en:Wines from France
 fr:Bourgueil
 wikidata:en:Q2922370
 country:en:France
@@ -4463,31 +4528,31 @@ country:en:France
 region:fr:Bourgogne
 grapevariety:fr:aligoté
 
-<en:French wines
+<en:Wines from France
 fr:Brouilly
 wikidata:en:Q461400
 country:en:France
 region:fr:Beaujolais
 
-<en:French wines
+<en:Wines from France
 fr:Bugey, Vins du Bugey, Mousseux du Bugey, Pétillant du Bugey, Roussette du Bugey, Bugey Mousseux, Bugey Pétillant
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Buzet
 wikidata:en:Q462636
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Cabardès
 wikidata:en:Q844467
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Cabernet d'Anjou, Cabernet d'Anjou Val de Loire
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Cabernet de Saumur, Cabernet de Saumur Val de Loire
 country:en:France
 
@@ -4500,11 +4565,11 @@ country:en:France
 instanceof:fr:AOP
 grapevariety:fr:sémillon, sauvignon, muscadelle
 
-<en:French wines
+<en:Wines from France
 fr:Cahors
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Cassis
 country:en:France
 
@@ -4516,7 +4581,7 @@ country:en:France
 wikidata:en:Q1760220
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Cévennes, Cévennes Mont Bouquet
 wikidata:en:Q3010553
 country:en:France
@@ -5005,7 +5070,7 @@ country:en:France
 region:fr:Bourgogne
 wikidata:en:Q2956528
 
-<en:French wines
+<en:Wines from France
 fr:Charentais
 wikidata:en:Q2957710
 instanceof:fr:IGP
@@ -5403,35 +5468,35 @@ country:en:France
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 <en:White wines
 fr:Château Grillet
 wikidata:en:Q1090303
 country:en:France
 
-<en:French wines
+<en:Wines from France
 <en:White wines
 fr:Château-Chalon
 wikidata:en:Q1090298
 country:en:France
 region:fr:Jura
 
-<en:French wines
+<en:Wines from France
 fr:Châteaumeillant
 wikidata:en:Q2669603
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Châteauneuf-du-Pape
 wikidata:en:Q2914687
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Châtillon-en-Diois
 wikidata:en:Q1090846
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Chenas, Chénas
 wikidata:en:Q1090927
 country:en:France
@@ -5446,44 +5511,44 @@ grapevariety:fr:chardonnay
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Cheverny
 wikidata:en:Q13420375
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Chinon
 wikidata:en:Q2963789
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Chiroubles
 wikidata:en:Q1074779
 country:en:France
 region:fr:Beaujolais
 
-<en:French wines
+<en:Wines from France
 fr:Chorey-les-Beaune Côte de Beaune, Chorey-les-Beaune Côte de Beaune-Villages, Chorey-les-Beaune
 country:en:France
 region:fr:Bourgogne
 
-<en:French wines
+<en:Wines from France
 fr:Cilaos
 wikidata:en:Q2972380
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Cité de Carcassonne
 wikidata:en:Q2974607
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Clairette de Bellegarde
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Clairette de Languedoc
 country:en:France
 
@@ -5527,70 +5592,70 @@ region:fr:Bourgogne
 instanceof:fr:AOP
 wikidata:en:Q1102349
 
-<en:French wines
+<en:Wines from France
 fr:Collines Rhodaniennes
 wikidata:en:Q2983452
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Collioure
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Comté Tolosan
 country:en:France
 wikidata:en:Q2991076
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Comtés Rhodaniens
 wikidata:en:Q18745121
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Condrieu
 wikidata:en:Q2992326
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Corbières
 wikidata:en:Q650077
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Cornas
 wikidata:en:Q2973323
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Corrèze
 wikidata:en:Q18214462
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Corse Calvi, Vin de Corse Calvi, Calvi
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Corse Coteaux du Cap Corse, Vin de Corse Coteaux du Cap Corse, Cap Corse
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Corse Figari, Vin de Corse Figari
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Corse Porto-Vecchio, Vin de Corse Porto-Vecchio, Porto-Vecchio
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Corse Sartène, Vin de Corse Sartène, Sartène
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Corse, Vin de Corse
 country:en:France
 
@@ -5603,7 +5668,7 @@ region:fr:Bourgogne
 wikidata:en:Q1135639
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Costières de Nîmes
 wikidata:en:Q470355
 country:en:France
@@ -5620,7 +5685,7 @@ wikidata:en:Q3010613
 country:en:France
 region:fr:Bourgogne
 
-<en:French wines
+<en:Wines from France
 fr:Côte de Brouilly
 wikidata:en:Q461328
 country:en:France
@@ -5632,23 +5697,23 @@ wikidata:en:Q3010616
 country:en:France
 region:fr:Bourgogne
 
-<en:French wines
+<en:Wines from France
 fr:Côte roannaise
 wikidata:en:Q1150937
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Côte Rôtie
 wikidata:en:Q1150915
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Côte Vermeille
 wikidata:en:Q21427108
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux champenois
 country:en:France
 region:fr:Champagne
@@ -5685,105 +5750,105 @@ fr:francs-côtes-de-bordeaux, francs côtes de bordeaux, francs-cotes-de-bordeau
 country:en:France
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Cotes de la Charité
 country:en:France
 wikidata:en:Q21427117
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux d’Enserune
 wikidata:en:Q18170001
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux d'Aix-en-Provence
 wikidata:en:Q2998538
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux d'Ancenis
 wikidata:en:Q1136610
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux de Coiffy
 wikidata:en:Q2998543
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux de Die
 wikidata:en:Q1136584
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux de l'Ain
 wikidata:en:Q21427110
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux de Glanes
 wikidata:en:Q16544074
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux de l’Auxois
 wikidata:en:Q21427111
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux de l'Aubance Val de Loire
 country:en:France
 wikidata:en:Q1136588
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux de Narbonne
 country:en:France
 wikidata:en:Q21427112
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux de Peyriac
 wikidata:en:Q2998546
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux de Pierrevert
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux de Saumur Val de Loire
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux de Tannay
 wikidata:en:Q21427113
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux des Baronnies
 wikidata:en:Q2998547
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux du Cher et de l’Arnon
 wikidata:en:Q21427114
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux du Giennois
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux du Languedoc
 
 <fr:Coteaux du Languedoc
@@ -5826,56 +5891,56 @@ country:en:France
 fr:Coteaux du Languedoc Saint-Saturnin, Saint-Saturnin
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux du Layon Chaume Val de Loire, Coteaux du Layon Chaume
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux du Layon Val de Loire, Coteaux du Layon
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux du Libron
 wikidata:en:Q21427116
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux du littoral audois
 wikidata:en:Q2998551
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux du Loir Val de Loire, Coteaux du Loir
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux du Lyonnais
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux du Pont du Gard
 wikidata:en:Q18611050
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux du Quercy
 wikidata:en:Q2998552
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux du Tricastin
 wikidata:en:Q458075
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux du Vendômois Val de Loire
 wikidata:en:Q2998556
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Coteaux Varois en Provence
 wikidata:en:Q1136596
 country:en:France
@@ -5887,13 +5952,13 @@ wikidata:en:Q775950
 country:en:France
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Côtes Catalanes
 wikidata:en:Q19952230
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 en:Côtes d'Auvergne
 fr:Côtes d'Auvergne
 wikidata:en:Q1151017
@@ -5918,7 +5983,7 @@ country:en:France
 fr:Côtes d'Auvergne Madargue
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Côtes de Bergerac
 wikidata:en:Q17354353
 country:en:France
@@ -5931,79 +5996,79 @@ wikidata:en:Q1150976
 country:en:France
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Côtes de Duras
 wikidata:en:Q464317
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Côtes de Gascogne, Côtes de Gascogne Condomois
 wikidata:en:Q839207
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Côtes de Meuse
 wikidata:en:Q3010716
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Côtes de Millau
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Côtes de Montravel
 wikidata:en:Q3010718
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Côtes de Provence
 wikidata:en:Q1150990
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Côtes de Thau
 wikidata:en:Q21427118
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Côtes de Thongue
 wikidata:en:Q3010721
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Côtes de Toul
 wikidata:en:Q3010732
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Côtes du Brulhois
 wikidata:en:Q2926548
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Côtes du Forez
 wikidata:en:Q1150991
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Côtes du Jura mousseux
 wikidata:en:Q1150995
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Luberon
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Côtes du Marmandais
 wikidata:en:Q462248
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Côtes du Rhône
 wikidata:en:Q1151005
 country:en:France
@@ -6011,7 +6076,7 @@ country:en:France
 <fr:Côtes du Rhône
 fr:Côtes du Rhône Villages
 
-<en:French wines
+<en:Wines from France
 fr:Côtes du Roussillon
 
 <fr:Côtes du Roussillon
@@ -6023,27 +6088,27 @@ country:en:France
 fr:Côtes du Roussillon Les Aspres
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Côtes du Tarn
 wikidata:en:Q3010726
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Ventoux, AOP Ventoux
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Côtes du Vivarais
 wikidata:en:Q1151015
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Cour-Cheverny Val de Loire
 wikidata:en:Q1137604
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Crémant d'Alsace
 country:en:France
 
@@ -6059,22 +6124,22 @@ country:en:France
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Crémant de Die
 wikidata:en:Q1142484
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Crémant de Limoux
 wikidata:en:Q1142485
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Crémant de Loire
 wikidata:en:Q1142487
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Crémant du Jura
 country:en:France
 
@@ -6087,17 +6152,17 @@ grapevariety:fr:chardonnay
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Crozes-Hermitage, Crozes-Ermitage
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Drôme
 wikidata:en:Q16630143
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Duché d’Uzès
 wikidata:en:Q19952392
 country:en:France
@@ -6120,28 +6185,28 @@ country:en:France
 instanceof:fr:AOP
 grapevariety:fr:sémillon, sauvignon, muscadelle
 
-<en:French wines
+<en:Wines from France
 fr:Faugères
 wikidata:en:Q1398382
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Fiefs Vendéens Brem, Brem
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Fiefs Vendéens Mareuil, Mareuil
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Fiefs Vendéens Pissotte, Pissotte
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Fiefs Vendéens Vix, Vix
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Fitou
 country:en:France
 wikidata:en:Q470974
@@ -6214,12 +6279,12 @@ country:en:France
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Fleurie
 country:en:France
 region:fr:Beaujolais
 
-<en:French wines
+<en:Wines from France
 fr:Franche-Comté
 country:en:France
 instanceof:fr:IGP
@@ -6231,25 +6296,25 @@ wikidata:en:Q489244
 country:en:France
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Fronton
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Gaillac premières côtes
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Gaillac mousseux
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Gard
 wikidata:en:Q3095358
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Gers
 wikidata:en:Q21427337
 country:en:France
@@ -6425,7 +6490,7 @@ country:en:France
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Gigondas
 wikidata:en:Q1332577
 country:en:France
@@ -6601,7 +6666,7 @@ country:en:France
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Grand Roussillon Rancio
 country:en:France
 
@@ -6647,36 +6712,36 @@ country:en:France
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Gros plant du Pays nantais
 wikidata:en:Q1547447
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Haute Vallée de l’Aude
 wikidata:en:Q21427377
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Haute Vallée de l'Orb
 wikidata:en:Q21427378
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Haute-Marne
 country:en:France
 wikidata:en:Q21427376
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Hautes-Alpes
 country:en:France
 wikidata:en:Q3128613
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Haute-Vienne
 country:en:France
 wikidata:en:Q21007648
@@ -6688,19 +6753,19 @@ country:en:France
 instanceof:fr:AOP
 wikidata:en:Q1591387
 
-<en:French wines
+<en:Wines from France
 fr:Haut-Montravel
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Haut-Poitou
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Hermitage, l'Hermitage, Ermitage, l'Ermitage
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Île de Beauté
 country:en:France
 wikidata:en:Q18332002
@@ -6712,26 +6777,26 @@ country:en:France
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Irouléguy
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Isère
 country:en:France
 wikidata:en:Q17630556
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Jasnières Val de Loire
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Juliénas
 country:en:France
 region:fr:Beaujolais
 
-<en:French wines
+<en:Wines from France
 fr:Jurançon sec
 country:en:France
 
@@ -6838,12 +6903,12 @@ wikidata:en:Q669737
 country:en:France
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Landes
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Languedoc
 country:en:France
 
@@ -6855,24 +6920,24 @@ region:fr:Bourgogne
 wikidata:en:Q283167
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Lavilledieu
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Les Baux de Provence
 country:en:France
 wikidata:en:Q1820443
 
-<en:French wines
+<en:Wines from France
 fr:LÉtoile mousseux
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Limoux
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Lirac
 country:en:France
 wikidata:en:Q3242328
@@ -6883,7 +6948,7 @@ country:en:France
 wikidata:en:Q1516318
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Lot
 country:en:France
 
@@ -7165,11 +7230,11 @@ country:en:France
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Madiran
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Malepère
 country:en:France
 
@@ -7236,7 +7301,7 @@ country:en:France
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Marcillac
 country:en:France
 
@@ -7260,7 +7325,7 @@ region:fr:Bourgogne
 grapevariety:fr:pinot noir
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Maures
 wikidata:en:Q17634932
 country:en:France
@@ -7282,7 +7347,7 @@ region:fr:Bourgogne
 wikidata:en:Q3303152
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Méditerranée
 country:en:France
 wikidata:en:Q3332682
@@ -7300,7 +7365,7 @@ country:en:France
 instanceof:fr:AOP
 wikidata:en:Q592785
 
-<en:French wines
+<en:Wines from France
 fr:Menetou-Salon, Menetou-Salon Val de Loire
 country:en:France
 
@@ -7628,15 +7693,15 @@ country:en:France
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Minervois
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Minervois-La-Livinière
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Monbazillac
 country:en:France
 
@@ -7957,7 +8022,7 @@ country:en:France
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Mont-Caume
 wikidata:en:Q17635304
 country:en:France
@@ -8081,7 +8146,7 @@ country:en:France
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Montlouis-sur-Loire, Montlouis-sur-Loire Val de Loire, Montlouis-sur-Loire Val de Loire mousseux, Montlouis-sur-Loire Val de Loire pétillant
 country:en:France
 
@@ -8094,7 +8159,7 @@ grapevariety:fr:chardonnay
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Montravel
 country:en:France
 
@@ -8253,39 +8318,39 @@ country:en:France
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Morgon
 country:en:France
 region:fr:Beaujolais
 
-<en:French wines
+<en:Wines from France
 fr:Moselle
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Moulin-à-Vent
 country:en:France
 region:fr:Beaujolais
 
-<en:French wines
+<en:Wines from France
 fr:Moulis, Moulis en Médoc, Moulis en Medoc, Moulis-en-Médoc, Moulis-en-Medoc
 country:en:France
 instanceof:fr:AOP
 wikidata:en:Q3325895
 
-<en:French wines
+<en:Wines from France
 fr:Muscadet Val de Loire
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Muscadet-Coteaux de la Loire Val de Loire
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Muscadet-Côtes de Grandlieu Val de Loire
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Muscadet-Sèvre et Maine, Muscadet-Sèvre et Maine Val de Loire
 country:en:France
 
@@ -8567,21 +8632,21 @@ country:en:France
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Orléans Cléry
 wikidata:en:Q3356495
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Pacherenc du Vic-Bilh sec, Pacherenc du Vic-Bilh
 wikidata:en:Q462134
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Palette
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Patrimonio
 wikidata:en:Q970926
 country:en:France
@@ -8592,35 +8657,35 @@ country:en:France
 instanceof:fr:AOP
 wikidata:en:Q770230
 
-<en:French wines
+<en:Wines from France
 fr:Pays-cathare
 country:en:France
 wikidata:en:Q21427769
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Pays d'Hérault
 wikidata:en:Q3373278
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Pays d'Oc
 country:en:France
 wikidata:en:Q2404201
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Pécharmant
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Périgord
 country:en:France
 wikidata:en:Q3411923
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Périgord vin de Domme
 country:en:France
 wikidata:en:Q3559359
@@ -8935,7 +9000,7 @@ wikidata:en:Q3400215
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Pouilly-sur-Loire Val de Loire, Blanc Fumé de Pouilly, Pouilly-Fumé
 country:en:France
 
@@ -9087,36 +9152,36 @@ country:en:France
 instanceof:fr:AOP
 region:fr:Bourgogne
 
-<en:French wines
+<en:Wines from France
 fr:Puy de Dôme
 wikidata:en:Q3411072
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Pyrénées orientales
 wikidata:en:Q3411432
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Quarts de Chaume Val de Loire, Quarts de Chaume
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Quincy Val de Loire, Quincy
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Rasteau Rancio
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Régnié
 country:en:France
 region:fr:Beaujolais
 
-<en:French wines
+<en:Wines from France
 fr:Reuilly Val de Loire, Reuilly
 country:en:France
 
@@ -9156,26 +9221,26 @@ grapevariety:fr:pinot noir
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Rosé d'Anjou
 wikidata:en:Q3442913
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Rosé de Loire Val de Loire, Rosé de Loire
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Rosé des Riceys
 wikidata:en:Q2167983
 country:en:France
 region:fr:Champagne
 
-<en:French wines
+<en:Wines from France
 fr:Vin Rosette
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Roussette de Savoie
 wikidata:en:Q2169345
 country:en:France
@@ -9342,18 +9407,18 @@ country:en:France
 instanceof:fr:AOP
 region:fr:Bourgogne
 
-<en:French wines
+<en:Wines from France
 fr:Sable de Camargue
 wikidata:en:Q3460601
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Saint Sardos
 wikidata:en:Q3463560
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Saint-Amour
 country:en:France
 region:fr:Beaujolais
@@ -9560,17 +9625,17 @@ country:en:France
 instanceof:fr:AOP
 region:fr:Bourgogne
 
-<en:French wines
+<en:Wines from France
 fr:Saint-Bris
 wikidata:en:Q3463542
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Saint-Chinian
 wikidata:en:Q1658461
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Sainte Marie la Blanche
 wikidata:en:Q21427938
 country:en:France
@@ -9625,12 +9690,12 @@ country:en:France
 instanceof:fr:AOP
 grapevariety:fr:merlot, cabernet sauvignon, cabernet franc
 
-<en:French wines
+<en:Wines from France
 fr:Saint-Guilhem-le-Désert
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Saint-Joseph
 country:en:France
 
@@ -9640,19 +9705,19 @@ country:en:France
 instanceof:fr:AOP
 wikidata:en:Q382471
 
-<en:French wines
+<en:Wines from France
 fr:Saint-Mont
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Saint-Nicolas-de-Bourgueil Val de Loire, Saint-Nicolas-de-Bourgueil
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Saint-Péray mousseux, Saint-Péray
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Saint-Pourçain
 wikidata:en:Q10214
 country:en:France
@@ -9673,7 +9738,7 @@ country:en:France
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Saint-Sardos
 wikidata:en:Q3463560
 country:en:France
@@ -9686,7 +9751,7 @@ country:en:France
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Sancerre
 wikidata:en:Q282221
 country:en:France
@@ -9786,22 +9851,22 @@ country:en:France
 instanceof:fr:AOP
 region:fr:Bourgogne
 
-<en:French wines
+<en:Wines from France
 fr:Saône et Loire
 country:en:France
 wikidata:en:Q21427967
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Saumur Val de Loire mousseux or pétillant, Saumur Val de Loire mousseux, Saumur Val de Loire pétillant
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Saumur-Champigny, Saumur-Champigny Val de Loire
 wikidata:en:Q3474235
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Saussignac
 wikidata:en:Q1779391
 country:en:France
@@ -9814,15 +9879,15 @@ wikidata:en:Q771636
 country:en:France
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Savennières, Savennières Val de Loire
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Savennières-Coulée de Serrant, Savennières-Coulée de Serrant Val de Loire
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Savennières-Roche-aux-Moines, Savennières-Roche-aux-Moines Val de Loire
 country:en:France
 
@@ -9981,7 +10046,7 @@ country:en:France
 instanceof:fr:AOP
 region:fr:Bourgogne
 
-<en:French wines
+<en:Wines from France
 fr:Seyssel, Seyssel mousseux
 country:en:France
 
@@ -9994,86 +10059,86 @@ grapevariety:fr:pinot noir
 region:fr:Bourgogne
 instanceof:fr:AOP
 
-<en:French wines
+<en:Wines from France
 fr:Tavel
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Thézac-Perricard
 wikidata:en:Q3527398
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Vallée du Torgan
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Touraine Noble Joué, Touraine Noble Joué Val de Loire
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Touraine, Touraine Val de Loire, Touraine Val de Loire mousseux, Touraine Val de Loire pétillant
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Tursan
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Urfé
 wikidata:en:Q3552273
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Vacqueyras
 wikidata:en:Q7888536
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Val de Loire
 country:en:France
 wikidata:en:Q18745529
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Valençay
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Vallée du Paradis
 wikidata:en:Q21428109
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Var
 country:en:France
 wikidata:en:Q3554664
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Vaucluse
 wikidata:en:Q3555049
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Vicomté d'Aumelas
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Vin de Savoie, Vin de Savoie mousseux, Vin de Savoie pétillant
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Vin d'Entraygues et du Fel
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Estaing
 wikidata:en:Q788511
 country:en:France
@@ -10408,16 +10473,16 @@ country:en:France
 instanceof:fr:AOP
 region:fr:Bourgogne
 
-<en:French wines
+<en:Wines from France
 fr:Vouvray, Vouvray Val de Loire, Vouvray Val de Loire mousseux, Vouvray Val de Loire pétillant
 country:en:France
 
-<en:French wines
+<en:Wines from France
 fr:Yonne
 country:en:France
 instanceof:fr:IGP
 
-<en:French wines
+<en:Wines from France
 fr:Vins de pays, vin de pays
 nl:Landwijnen
 wikidata:en:Q2140793
@@ -10443,11 +10508,11 @@ nl:Australische wijnen
 wikidata:en:Q2129654
 
 <en:Wines from Australia
-en:South Australian wine
+en:South Australian wine, Wines from South Australia
 wikidata:en:Q7566214
 
 <en:Wines from Australia
-en:West Australian wine
+en:West Australian wine, Wines from West Australia
 wikidata:en:Q7984365
 
 <en:Wines
@@ -10991,6 +11056,7 @@ country:en:Cyprus
 
 <en:Wines
 en:Wines from Czech Republic
+fr:Vins de République tchèque
 nl:Tsjechische wijnen
 
 <en:Wines from Czech Republic
@@ -11792,6 +11858,7 @@ country:en:Greece
 
 <en:Wines
 en:Wines from Hungary, Hungarian Wines
+fr:Vins de Hongrie, vins hongrois
 nl:Hongaarse wijnen
 country:en:Hungary
 
@@ -12190,7 +12257,11 @@ country:en:Italy
 <en:Wines from Italy
 it:Bianco Capena
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q2900837
+
+<it:Bianco Capena
+it:Bianco Capena superiore
+wikidata:en:Q2900839
 
 <en:Wines from Italy
 it:Bianco del Sillaro, Sillaro
@@ -12307,6 +12378,36 @@ it:Campi Flegrei
 country:en:Italy
 #wikidata:en:
 
+<it:Campi Flegrei
+it:Campi Flegrei Piedirosso riserva
+country:en:Italy
+wikidata:en:Q3651979
+
+<it:Campi Flegrei
+it:Campi Flegrei rosso novello
+country:en:Italy
+wikidata:en:Q3651986
+
+<it:Campi Flegrei
+it:Campi Flegrei Falanghina
+country:en:Italy
+wikidata:en:Q3651975
+
+<it:Campi Flegrei
+it:Campi Flegrei Falanghina spumante
+country:en:Italy
+wikidata:en:Q3651976
+
+<it:Campi Flegrei
+it:Campi Flegrei rosso
+country:en:Italy
+wikidata:en:Q3651983
+
+<it:Campi Flegrei
+it:Campi Flegrei Piedirosso passito
+country:en:Italy
+wikidata:en:Q3651977
+
 <en:Wines from Italy
 it:Campidano di Terralba, Terralba
 country:en:Italy
@@ -12405,7 +12506,7 @@ country:en:Italy
 <en:Wines from Italy
 it:Cerasuolo di Vittoria
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q1054633
 
 <en:Wines from Italy
 it:Cerveteri
@@ -12420,7 +12521,7 @@ country:en:Italy
 <en:Wines from Italy
 it:Cesanese di Affile, Affile
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q738082
 
 <en:Wines from Italy
 it:Cesanese di Olevano Romano, Olevano Romano
@@ -12433,43 +12534,44 @@ country:en:Italy
 #wikidata:en:
 
 <en:Wines from Italy
+en:Chianti
 it:Chianti
 fr:Chianti
 
-<fr:Chianti
+<en:Chianti
 it:Chianti Colli Aretini
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q3667437
 
-<fr:Chianti
+<en:Chianti
 it:Chianti Colli Fiorentini
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q3667438
 
-<fr:Chianti
+<en:Chianti
 it:Chianti Colli Senesi
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q3667441
 
-<fr:Chianti
+<en:Chianti
 it:Chianti Colline Pisane
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q3667442
 
-<fr:Chianti
+<en:Chianti
 it:Chianti Montalbano
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q3667443
 
-<fr:Chianti
+<en:Chianti
 it:Chianti Montespertoli
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q3667444
 
-<fr:Chianti
+<en:Chianti
 it:Chianti Rufina
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q3667446
 
 <en:Wines from Italy
 it:Cilento
@@ -12484,12 +12586,12 @@ country:en:Italy
 <en:Wines from Italy
 it:Cinque Terre Costa de Campu, Cinque Terre Sciacchetrà Costa de Campu
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q3677281
 
 <en:Wines from Italy
 it:Cinque Terre Costa de Sera, Cinque Terre Sciacchetrà Costa de Sera
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q3677284
 
 <en:Wines from Italy
 it:Circeo
@@ -12519,7 +12621,22 @@ country:en:Italy
 <en:Wines from Italy
 it:Colli Altotiberini
 country:en:Italy
-#wikidata:en:
+#wikidata:en:Q1109376
+
+<it:Colli Altotiberini
+it:Colli Altotiberini bianco
+country:en:Italy
+wikidata:en:Q634269
+
+<it:Colli Altotiberini
+it:Colli Altotiberini rosso
+country:en:Italy
+wikidata:en:Q2983031
+
+<it:Colli Altotiberini
+it:Colli Altotiberini rosato
+country:en:Italy
+wikidata:en:Q2983030
 
 <en:Wines from Italy
 it:Colli Amerini
@@ -13129,7 +13246,7 @@ country:en:Italy
 <en:Wines from Italy
 it:Fiano di Avellino
 country:en:Italy
-#wikidata:en:
+wikidata:en:Q457894
 
 <en:Wines from Italy
 it:Fontanarossa di Cerda
@@ -14580,6 +14697,7 @@ country:en:Italy
 
 <en:Wines
 en:Wines from Luxembourg
+fr:Vins du Luxembourg, vins luxembourgeois
 nl:Luxemburgse wijnen
 
 <en:Wines from Luxembourg
@@ -14636,6 +14754,7 @@ country:en:Luxembourg
 
 <en:Wines
 en:Wines from Malta
+fr:Vins de Malte, Vins maltais
 nl:Maltese wijnen
 
 <en:Wines from Malta
@@ -15022,7 +15141,7 @@ nl:Champagnes
 wikidata:en:Q134862
 
 <en:Champagnes
-<en:French wines
+<en:Wines from France
 en:French Champagnes, french Champagne
 fr:Champagnes français, champagne français
 nl:Franse champagnes
@@ -15070,7 +15189,7 @@ fr:Champagne russe, Champagne soviétique
 nl:Russische champagnes
 
 <en:Sparkling wines
-<en:French wines
+<en:Wines from France
 fr:Clairette de Die, Clairettes de Die
 wikidata:en:Q1094848
 
@@ -15141,12 +15260,12 @@ en:Fortified wines such as natural sweet wines, VDN
 fr:vins mutés de type vin doux naturel, VDN
 
 <en:Fortified wines such as natural sweet wines
-<en:French wines
+<en:Wines from France
 fr:Banyuls, Banyuls Grand Cru, Banyuls Rancio, Banyuls Grand Cru Rancio
 country:en:France
 
 <en:Fortified wines such as natural sweet wines
-<en:French wines
+<en:Wines from France
 fr:Maury, Maury Rancio
 country:en:France
 
@@ -15154,22 +15273,22 @@ country:en:France
 fr:Muscats, Muscat
 
 <fr:Muscats
-<en:French wines
+<en:Wines from France
 fr:Muscat de Beaumes-de-Venise, Muscats de Beaumes-de-Venise
 wikidata:en:Q1236939
 
 <fr:Muscats
-<en:French wines
+<en:Wines from France
 fr:Muscat de Frontignan, Muscats de Frontignan
 wikidata:en:Q1954036
 
 <fr:Muscats
-<en:French wines
+<en:Wines from France
 fr:Muscat de Lunel, Muscats de Lunel
 wikidata:en:Q1954038
 
 <fr:Muscats
-<en:French wines
+<en:Wines from France
 fr:Muscat de Mireval, Muscats de Mireval
 wikidata:en:Q1954039
 
@@ -15178,17 +15297,17 @@ fr:Muscat de Rivesaltes, Muscats de Rivesaltes
 wikidata:en:Q474278
 
 <fr:Muscats
-<en:French wines
+<en:Wines from France
 fr:Muscat de Saint-Jean-de-Minervois, Muscats de Saint-Jean-de-Minervois
 wikidata:en:Q18414851
 
 <fr:Muscats
-<en:French wines
+<en:Wines from France
 fr:Muscat du Cap-Corse, Muscats du Cap-Corse
 wikidata:en:Q1626894
 
 <fr:Muscats
-<en:French wines
+<en:Wines from France
 fr:Rivesaltes Rancio, Muscat de Rivesaltes Rancio
 country:en:France
 
@@ -15204,18 +15323,18 @@ wikidata:en:Q455197
 fr:mistelle, vins mutés de types mistelle, vins de liqueur, vin de liqueur
 
 <fr:mistelle
-<en:French wines
+<en:Wines from France
 fr:Floc de Gascogne
 country:en:France
 
 <fr:mistelle
-<en:French wines
+<en:Wines from France
 fr:Macvin du Jura
 country:en:France
 wikidata:en:Q3275065
 
 <fr:mistelle
-<en:French wines
+<en:Wines from France
 fr:Pineau des Charentes, Pineau Charentais
 country:en:France
 
@@ -15233,9 +15352,9 @@ fr:Produits déshydratés, produits lyophilisés, produits séchés, aliments s�
 nl:Gedroogde producten
 
 <en:Dried products
-en:Dried products to be rehydrated
+en:Dried products to be rehydrated 
 es:Productos deshidratados para ser rehidratados
-fr:Produits lyophilisés à reconstituer
+fr:Produits lyophilisés à reconstituer, produits déshydratés à reconstituer, produits à reconstituer
 de:Getrocknete Produkte zur Rehydrierung
 
 <en:Beverages
@@ -15250,9 +15369,19 @@ fr:Purées en flocons, purées instantanées
 nl:Aardappelpuree in gedroogde vorm
 wikidata:en:Q3411001
 
+<en:Dried products to be rehydrated 
+<en:sauces
+en:dehydrated sauces
+fr:sauces déshydratées, sauces lyophilisée, sauces instantanées
+
 <en:Beverages
 fr:Citronnades, citronnade
 wikidata:en:Q13204
+
+<en:Beverages
+en:Mixed drinks, Mixed Beverages
+de:Mischgetränk
+wikidata:en:Q3246609
 
 <en:Beverages
 <en:Syrups
@@ -15314,10 +15443,12 @@ fr:Sirops de cerise
 nl:Kersensiropen, Kersensiroop
 
 <en:Flavoured syrups
+en:Lime syrups
 fr:Sirops de citron vert
 nl:limoensiropen, Limoensiroop
 
 <en:Flavoured syrups
+en:Syrups with anise
 fr:Sirops à l'anis
 nl:Anijssiropen, Anijssiroop
 
@@ -15350,10 +15481,12 @@ fr:Sirops cola
 nl:Cola-siropen, Cola-siroop, Cola siroop, Cola-siropen, Colasiropen, Colasiroop
 
 <en:Flavoured syrups
+en:Mirabelle syrups
 fr:Sirops à la mirabelle
 nl:Mirabelle-siropen
 
 <en:Flavoured syrups
+en:Blueberry syrups
 fr:Sirops de myrtille
 
 <en:Flavoured syrups
@@ -15368,6 +15501,7 @@ fr:Sirops de citron, sirop de citron
 nl:Citroensiropen, Citroensiroop
 
 <en:Flavoured syrups
+en:Raspberry syrups
 fr:Sirops de framboise
 nl:Frambozesiropen, Frambozesiroop
 
@@ -15415,30 +15549,37 @@ fr:Ice-tea light, thés glacés lights, thé glacé light
 nl:Light ice teas, Light ice tea
 
 <en:Iced teas
+en:Peach flavored iced teas
 fr:Thés glacés saveur pêche
 nl:Perzikken Ice Teas, Perzikken Ice Tea, Perzik Ice Tea, Perzik Ice Teas
 
 <en:Iced teas
+en:Iced teas with raspberry flavor
 fr:Thés glacés saveur framboise
 nl:Frambozen Ice Teas, Frambozen Ice Tea
 
 <en:Iced teas
+en:Iced teas with mint flavor
 fr:Thés glacés saveur menthe
 nl:Pepermunt Ice Teas, Pepermunt Ice Tea, Munt Ice Teas
 
 <en:Iced teas
+en:Iced teas with mango flavor
 fr:Thés glacés saveur mangue
 nl:Mango Ice Teas, Mango Ice Tea
 
 <en:Iced teas
+en:Iced teas with mojito flavor
 fr:Thés glacés saveur mojito
 nl:Mojito Ice Teas, Mojito Ice Tea
 
 <en:Iced teas
+en:Lemon flavored iced teas
 fr:Thés glacés saveur citron
 nl:Citroen Ice Teas, Citroen Ice Tea
 
 <en:Iced teas
+en:Iced teas with blueberry flavor
 fr:Thés glacés saveur myrtille
 
 <en:Dried products
@@ -15447,27 +15588,34 @@ fr:Préparations pour thés glacés
 nl:Ice Tea Bereidingen, Ice Tea Bereiding
 
 <en:Iced teas preparations
+en:Preparations for peach flavored iced teas
 fr:Préparations pour thés glacés saveur pêche
 nl:Perzik Ice Tea Bereidingen, Perzik Ice Tea Bereiding
 
 <en:Iced teas preparations
+en:Preparations for raspberry flavored iced tea
 fr:Préparations pour thés glacés saveur framboise
 nl:Frambozen Ice Tea Bereidingen, Frambozen Ice Tea Bereiding
 
 <en:Iced teas preparations
+en:Preparations for mint flavored iced tea
 fr:Préparations pour thés glacés saveur menthe
 nl:Munt Ice Tea Bereidingen, Munt Ice Tea Bereiding
 
 <en:Iced teas preparations
+en:Preparations for iced teas with mango flavor
 fr:Préparations pour thés glacés saveur mangue
 
 <en:Iced teas preparations
+en:Preparations for iced teas with mojito flavor
 fr:Préparations pour thés glacés saveur mojito
 
 <en:Iced teas preparations
+en:Preparations for iced tea with lemon flavor
 fr:Préparations pour thés glacés saveur citron
 
 <en:Iced teas preparations
+en:Preparations for iced teas with blueberry flavor
 fr:Préparations pour thés glacés saveur myrtille
 
 <en:Beverages
@@ -15503,6 +15651,7 @@ en:Gluten-free biscuits
 fr:Biscuits sans gluten
 
 <en:Biscuits
+en:Shortbread cookies
 fr:Biscuits sablés
 
 <en:Biscuits
@@ -15558,6 +15707,7 @@ nl:Amandelkoekjes
 
 <en:Cookies
 en:Oatmeal cookies
+fr:Biscuits à l'avoine
 de:Hafer-Cookies
 ru:Печенье овсяное, овсяное печенье
 
@@ -15585,8 +15735,8 @@ de:Kekse mit weisser Schokolade
 fr:Biscuits au chocolat blanc
 
 <en:Chocolate biscuits
-de:Kekse mit Milchschokolade
 en:Milk chocolate biscuits
+de:Kekse mit Milchschokolade
 fr:Biscuits au chocolat au lait
 
 <en:Chocolate biscuits
@@ -15597,8 +15747,10 @@ fr:Biscuits au chocolat noir
 <en:Biscuits
 en:Diet Biscuits
 de:Diätkekse
-fr:Biscuits diététiques, biscuit diététique
 nl:Volkorenbiscuits
+
+<en:Biscuits
+fr:Biscuits édulcorés, Biscuits avec édulcorants
 
 <en:Biscuits
 en:Flaky biscuits
@@ -15610,6 +15762,7 @@ fr:Palmiers
 wikidata:en:Q2096475
 
 <en:Biscuits
+en:Dry biscuits
 fr:Biscuits secs, biscuit sec
 
 <fr:Biscuits secs
@@ -15755,27 +15908,34 @@ wikidata:en:Q3893120
 <en:Breads
 en:Rye-and-wheat breads, Rye-and-wheat bread
 ru:Хлеб ржано-пшеничный, Ржано-пшеничный хлеб
+fr:Pains de seigle et de blé
 
-<en:Rye-and-wheat breads
+<en:White breads
 en:Wheat breads
 de:Weizenbrote
+fr:Pains de blé
 
 <en:Wheat breads
 <en:Flatbreads
 en:Wheat flatbreads
 de:Soft Bröd, Weizenfladenbrote, Weizenfladenbrot
 sv:Halvtjockkakor, Hällakaka
+fr:Pains plats au blé
 wikidata:en:Q10516678
 
 <en:Rye-and-wheat breads
 en:Darnitsky bread
+fr:Pain Darnitsky
 ru:Хлеб Дарницкий
 
 <en:Breads
+en:Ukrainian bread
 ru:Хлеб украинский
+fr:Pain ukrainien
 
 <en:Breads
 ru:Хлеб украинский новый
+fr:Pain ukrainien nouveau
 
 <en:Breads
 en:Sliced breads
@@ -15787,6 +15947,7 @@ ru:Хлеб нарезанный, Хлеб в нарезке
 wikidata:en:Q134152
 
 <en:Sliced breads
+en:English bread without crust
 fr:Pains de mie sans croûte
 
 <en:Sliced breads
@@ -15796,6 +15957,7 @@ es:Panes de molde con cereales
 nl:Meergranenbroden
 
 <en:Sliced breads
+en:Wholemeal English bread
 fr:Pains de mie complet, Pain de mie complet
 es:Panes de molde integrales
 
@@ -15816,6 +15978,7 @@ de:Toastbrote, Toastbrot
 wikidata:en:Q6128
 
 <en:Toasts
+en:Toasted bread rolls
 es:Panecillos tostados
 fr:Petits pains grillés
 nl:Zweedse toasts
@@ -15850,6 +16013,7 @@ fr:Pains azymes à la farine de froment, Pain azyme à la farine de froment
 fr:Pains azymes à la farine de froment complète T150, Pain azyme à la farine de froment complète T150
 
 <en:Unleavened breads
+en:Unleavened bread with Buckwheat Flour
 fr:Pains azymes à la farine de sarrasin, Pain azyme à la farine de sarrasin
 
 <en:Unleavened breads
@@ -16032,6 +16196,7 @@ nl:Cakes
 wikidata:en:Q13276
 
 <en:Cakes
+en:Preparations for cakes
 fr:Préparations pour gâteaux
 
 <en:Cakes
@@ -16054,6 +16219,7 @@ it:Torta della Foresta Nera
 wikidata:en:Q19028
 
 <en:Cakes
+en:Marble cakes
 fr:Gâteaux Marbrés, gâteau marbré
 
 <en:Cakes
@@ -16065,28 +16231,38 @@ it:Muffins
 wikidata:en:Q207220
 
 <fr:Muffins
+en:Chocolate muffins
 fr:Muffins au chocolat
 
 <fr:Muffins
 fr:Muffins à la fraise
 
 <fr:Muffins
+en:Strawberry muffins
 fr:Muffins à la banane
 
 <fr:Muffins
+en:Raspberry muffins
 fr:Muffins à la framboise
 
 <fr:Muffins
+en:Orange Muffins
 fr:Muffins à l'orange
 
 <fr:Muffins
+en:Vanilla muffins
 fr:Muffins à la vanille
 
 <fr:Muffins
+en:Blueberry muffins
 fr:Muffins à la myrtille
 
 <fr:Muffins
 fr:Muffins aux bleuets
+
+<en:Cakes
+en:Doughnuts, Donuts
+fr:Donuts
 
 <en:Cakes
 en:Breton cakes
@@ -16115,7 +16291,8 @@ fr:Clafoutis, Milliard
 it:Clafoutis
 wikidata:en:Q1094707
 
-<fr:Clafoutis
+<en:Clafoutis
+en:Cherry clafoutis
 fr:Clafoutis aux cerises
 
 <en:Brioches
@@ -16152,6 +16329,10 @@ de:Erdbeerkäsekuchen
 fr:Cheesecakes à la fraise
 
 <en:Cheesecakes
+fr:Cheesecakes à la framboise
+
+<en:Cheesecakes
+en:Cheesecake with red berries
 fr:Cheesecake aux fruits rouges
 
 <en:Cheesecakes
@@ -16196,6 +16377,7 @@ de:Milchreisbrei, Milchreis, Reisbrei
 wikidata:en:Q19029
 
 <en:Rice puddings
+en:Vanilla flavored rice pudding
 fr:Riz au lait saveur vanille
 
 <en:Cakes
@@ -16234,9 +16416,11 @@ fr:Madeleines au raisin
 fr:Madeleines longues
 
 <en:Madeleines
+en:Chocolate madeleines
 fr:Madeleines au chocolat
 
 <en:Cakes
+en:Pound Cake
 fr:Quatre-quarts
 wikidata:en:Q29443
 
@@ -16266,6 +16450,7 @@ nl:Suikerspin
 wikidata:en:Q49737
 
 <en:Confectioneries
+en:Calissons d'Aix, Calissons of Aix
 fr:Calissons d'Aix
 
 <en:Sugary snacks
@@ -16278,6 +16463,7 @@ pnns_group_2:en:Chocolate products
 ru:Шоколад, шоколадные продукты
 
 <en:Chocolates
+en:Assorted chocolates
 fr:Assortiments de chocolats, assortiment de chocolat
 nl:Chocolade-assortimenenten
 
@@ -16297,17 +16483,21 @@ en:Milk chocolates with sweeteners
 fr:Chocolats au lait édulcorés, Chocolats au lait aux édulcorants
 
 <en:Chocolates
+en:Liqueur chocolates
 fr:Chocolats à la liqueur
 
 <en:Milk chocolates
+en:Chocolates with extra fine milk
 fr:Chocolats au lait extra fin, chocolat au lait extra fin
 
 <en:Chocolates with hazelnuts
 <en:Milk chocolates
+en:Milk chocolate with hazelnuts
 fr:Chocolats au lait aux noisettes
 
 <en:Chocolates with almonds
 <en:Milk chocolates
+en:Milk chocolate with almonds
 fr:Chocolats au lait aux amandes
 
 <en:Chocolates
@@ -16336,6 +16526,12 @@ wikidata:en:Q742385
 en:White chocolates with sweeteners
 fr:Chocolats blancs édulcorés, Chocolats blancs aux édulcorants
 
+<en:White chocolates
+fr:Chocolats blancs à la noix de coco
+
+<en:White chocolates
+fr:Chocolats blancs au speculoos
+
 
 <en:Chocolates
 en:Easter chocolates
@@ -16347,7 +16543,7 @@ nl:Paaschocola
 <en:Chocolate eggs
 en:Easter chocolate eggs
 es:Huevos de Pascua de chocolate
-fr:Oeufs de pâques en chocolate, oeuf de pâques en chocolate
+fr:Oeufs de pâques en chocolat, oeuf de pâques en chocolat
 
 <en:Easter chocolates
 <en:Chocolate molds
@@ -16361,20 +16557,40 @@ en:Chocolates with sweeteners
 fr:Chocolats édulcorés, Chocolats aux édulcorants, chocolats diététiques
 
 <en:Chocolates
+en:Flavoured chocolates
+fr:Chocolats aromatisés
+
+<en:Dark chocolates
+<en:Flavoured chocolates
+fr:Chocolats noirs aromatisés
+
+<en:Milk chocolates
+en:Flavoured chocolates
+fr:Chocolats au lait aromatisés
+
+<en:White chocolates
+en:Flavoured chocolates
+fr:Chocolats blancs aromatisés
+
+<en:Chocolates
 fr:Chocolats fourrés
 en:Filled chocolates
 
 <en:Filled chocolates
+en:Chocolates stuffed with praline
 fr:Chocolats fourrés au praliné, chocolat fourré au praliné
 nl:Chocolades gevuld met praliné
 
 <en:Filled chocolates
+en:Filled dark chocolates
 fr:Chocolats noirs fourrés
 
 <en:Filled chocolates
+en:Filled milk chocolates
 fr:Chocolats au lait fourrés
 
 <en:Filled chocolates
+en:Chocolates stuffed with almond paste
 fr:Chocolats fourrés à la pâte d'amande
 
 <en:Chocolates
@@ -16388,6 +16604,7 @@ wikidata:en:Q2366206
 
 # Very dark chocolate, could be similar to fr:Chocolats noirs extra fin, chocolat noir extra fin
 <en:Dark chocolates
+en:Bitter chocolate
 ru:Горький шоколад, Чёрный шоколад
 
 <en:Dark chocolates
@@ -16405,16 +16622,28 @@ ru:Тёмный шоколад с миндалём
 
 <en:Chocolates with hazelnuts
 <en:Dark chocolates
+en:Dark chocolates with hazelnuts
 fr:Chocolats noirs aux noisettes
+
+<en:Dark chocolates
+fr:Chocolats noirs aux pistaches
 
 <en:Dark chocolates
 en:Dark chocolates with orange
 fr:Chocolats noirs à l'orange
 
 <en:Dark chocolates
+en:Dark chocolates with cocoa beans
 fr:Chocolats noirs aux fèves de cacao
 
 <en:Dark chocolates
+fr:Chocolats noirs au quinoa
+
+<en:Dark chocolates
+fr:Chocolats noirs au gingembre
+
+<en:Dark chocolates
+en:Extra fine black chocolates
 fr:Chocolats noirs extra fin, chocolat noir extra fin
 es:Chocolates negros extra finos
 
@@ -16429,6 +16658,7 @@ fr:Chocolats noirs salés
 
 <en:Fleur de sel chocolates
 <en:Salted dark chocolates
+en:Dark chocolates with fleur de sel
 fr:Chocolats noirs à la fleur de sel
 
 <en:Milk chocolates
@@ -16438,6 +16668,7 @@ fr:Chocolats au lait salés
 
 <en:Fleur de sel chocolates
 <en:Salted milk chocolates
+en:Milk chocolates with fleur de sel
 fr:Chocolats au lait à la fleur de sel
 
 <en:Salted chocolates
@@ -16450,10 +16681,12 @@ fr:Chocolats au caramel
 
 <en:Caramel chocolates
 <en:Dark chocolates
+en:Dark chocolate with caramel
 fr:Chocolats noirs au caramel
 
 <en:Caramel chocolates
 <en:Milk chocolates
+en:Milk chocolate with caramel
 fr:Chocolats au lait au caramel
 
 <en:Chocolates
@@ -16480,21 +16713,24 @@ nl:Chocolade eieren
 
 <en:Chocolate molds
 en:Chocolate Scupltures
+fr:Sculptures en chocolat
 
 <en:Chocolate Scupltures
 en:Chocolate Santa Clauses
 de:Schokoladenweihnachtsmänner
+fr:Pères Noël en Chocolat
 
 <en:Chocolate Scupltures
 en:Chocolate Rabbits
 de:Schokoladenhasen
+fr:Lapins en chocolat
 
 <en:Chocolate Scupltures
 en:Chocolate dinosaurs
 fr:Dinosaure en chocolat, dinosaure en chocolat, dinosaures de pâques, dinosaure de pâques
 de:Schokoladen-Dinosaurier
 
-<en:Confectioneries
+<en:Chocolate candies
 <en:Bars
 en:Chocolate bars
 de:Schokoriegel, Schokoladenriegel
@@ -16504,16 +16740,12 @@ nl:Chocorepen
 wikidata:en:Q1361086
 
 <en:Chocolate bars
+en:Non-biscuited chocolate bars
 fr:Barres chocolatées non biscuitées
 
 <en:Chocolate bars
+en:Chocolate biscuity bars
 fr:Barres chocolatées biscuitées
-
-<fr:Barres chocolatées non biscuitées
-fr:barre chocolatée non biscuitée type Mars
-
-<fr:Barres chocolatées biscuitées
-fr:Barres chocolatées biscuitées type Twix, Barre chocolatée biscuitée type Twix, Twix
 
 <fr:Barres chocolatées biscuitées
 fr:Barres chocolatées biscuitées aux noisettes, barre chocolatée biscuitée aux noisettes type Kinder Bueno, Kinder Bueno
@@ -16536,6 +16768,61 @@ fr:Barres chocolatées aux fruits oléagineux, barre chocolatée aux fruits olé
 <en:Chocolate bars
 fr:Barres chocolatées fourrées aux fruits, barre chocolatée fourrée aux fruits
 
+<en:Confectioneries
+en:Chocolate candies
+fr:Confiseries chocolatées
+
+<en:Chocolate candies
+en:Bonbons
+es:Bombones, Bombones de chocolate
+fr:Bonbons de chocolat
+de:Schokoladenbonbons
+nl:Chocolades snoepjes
+wikidata:en:Q3272827
+
+<en:Bonbons
+fr:Assortiments de bonbons de chocolat
+
+<en:Bonbons
+en:Chocolate covered fruits
+es:Frutas recubiertas de chocolate
+fr:Fruits enrobés au chocolat
+nl:Vruchten met een chocolaag
+wikidata:en:Q15985102
+
+<en:Chocolate covered fruits
+fr:Orangettes
+
+<en:Chocolate covered fruits
+en:Chocolate-covered bananas
+fr:Bananes enrobées de chocolat
+
+<en:Chocolate covered fruits
+en:Chocolate-covered prune
+fr:Pruneau recouvert de chocolat
+
+<en:Chocolate covered fruits
+en:Chocolate-covered raisins
+fr:Raisins secs enrobés de chocolat
+
+<en:Chocolate covered fruits
+en:Chocolate covered cherries
+es:Cerezas recubiertas de chocolate
+fr:Cerises enrobées au chocolat
+nl:Kersen met een chocolaag
+wikidata:en:Q16242001
+
+<en:Chocolate covered cherries
+en:Liquor filled chocolate covered cherries
+es:Bombones de chocolate rellenos de cereza y licor, Cerezas al licor recubiertas de chocolate
+fr:Bonbons de chocolat fourrés cerise et liqueur
+nl:Kersen met een chocolaag en gevuld met likeur
+
+<en:Chocolate candies
+en:Chocolate covered peanuts
+fr:Cacahuètes au chocolat, cacahuètes enrobées de chocolat, cacahuètes enrobées de chocolat type M&M's
+nl:Chocopindas
+de:Erdnüsse mit Schokoladenüberzug
 
 
 <en:Confectioneries
@@ -16559,52 +16846,42 @@ fr:Bonbons gélifiés
 
 <en:Gelified candies
 en:Gummy crocodiles
+fr:crocodiles gélifiés
 
 <en:Gelified candies
 en:Gummy bananas
+fr:bananes gélifiées
 
 <en:Gelified candies
 en:Gummy strawberries
+fr:fraises gélifiées
 
 <en:Gelified candies
 en:Gummy cola bottles
+fr:bouteilles de cola gélifiées
 
 <en:Gelified candies
 en:Gummy bears
+fr:ours gélifiés
 
 <en:Gelified candies
 en:Gummy chips
 
 <en:Gelified candies
 en:Gummy eggs
+fr:œufs gélifiés
 
 <en:Gelified candies
 en:Acid gummy candies
+fr:Bonbons acidulés gélifiés
 
 <en:Gelified candies
 en:Acid gummy lassos
+fr:Lassos gélifiés acides
 
 <en:Gelified candies
-en:Jelly Beans
-
-
-<en:Candies
-en:Bonbons
-es:Bombones, Bombones de chocolate
-fr:Bonbons de chocolat
-de:Schokoladenbonbons
-nl:Chocolades snoepjes
-wikidata:en:Q3272827
-
-<en:Bonbons
-en:Chocolate covered fruits
-es:Frutas recubiertas de chocolate
-fr:Fruits enrobés au chocolat
-nl:Vruchten met een chocolaag
-wikidata:en:Q15985102
-
-<en:Chocolate covered fruits
-fr:Orangettes
+en:Jelly beans
+fr:Jelly beans
 
 <en:Candies
 en:Lollipops
@@ -16628,35 +16905,6 @@ ru:Козинаки
 wikidata:en:Q1136488
 
 
-<en:Chocolate covered fruits
-en:Chocolate-covered bananas
-
-<en:Chocolate covered fruits
-en:Chocolate-covered prune
-
-<en:Chocolate covered fruits
-en:Chocolate-covered raisins
-
-<en:Chocolate covered fruits
-en:Chocolate covered cherries
-es:Cerezas recubiertas de chocolate
-fr:Cerises enrobées au chocolat
-nl:Kersen met een chocolaag
-wikidata:en:Q16242001
-
-<en:Chocolate covered cherries
-en:Liquor filled chocolate covered cherries
-es:Bombones de chocolate rellenos de cereza y licor, Cerezas al licor recubiertas de chocolate
-fr:Bonbons de chocolat fourrés cerise et liqueur
-nl:Kersen met een chocolaag en gevuld met likeur
-
-<en:Confectioneries
-en:Chocolate covered peanuts
-fr:Cacahuètes au chocolat, cacahuètes enrobées de chocolat, cacahuètes enrobées de chocolat type M&M's
-nl:Chocopindas
-de:Erdnüsse mit Schokoladenüberzug
-
-
 <en:Confectioneries
 en:Caramels
 es:Caramelos
@@ -16671,6 +16919,7 @@ fr:caramel liquide, caramel liquides
 nl:Vloeibare caramels
 
 <en:Caramels
+en:Salted butter caramels
 fr:Caramels au beurre salé
 nl:Caramels met gezouten boter
 wikidata:en:Q19544049
@@ -16696,6 +16945,7 @@ fr:Confiseries de France
 nl:Franse bonbons
 
 <en:French confectioneries
+en:Confectioneries of Nord-Pas-de-Calais
 fr:Confiseries du Nord-Pas-de-Calais
 
 <en:French confectioneries
@@ -16703,9 +16953,11 @@ fr:Nougats, türkischer Honig, nougat
 nl:Nougats
 
 <fr:Nougats
+en:Coconut nougat
 fr:nougats à la noix de coco, nougat à la noix de coco
 
 <fr:Nougats
+en:Chocolate nougats
 fr:nougats au chocolat, nougat au chocolat
 
 <fr:Nougats
@@ -16717,17 +16969,21 @@ en:Brown nougats
 fr:Nougats bruns, nougat brun
 
 <fr:Nougats
+en:Chinese nougats
 fr:Nougats chinois, nougat chinois
 
 <fr:Nougats
+en:Nougats from Montélimar
 fr:nougats de Montélimar, nougat de Montélimar
 wikidata:en:Q3344838
 
 <fr:Nougats
+en:Nougats from Sault
 fr:Nougats de Sault, nougat de Sault
 wikidata:en:Q3344830
 
 <fr:Nougats
+en:Nougats from Tours
 fr:Nougats de Tours, nougat de Tours
 wikidata:en:Q3344831
 
@@ -16736,6 +16992,7 @@ en:Black nougat
 fr:Nougats noirs, nougat noir
 
 <fr:Nougats
+en:soft and hard nougat
 fr:nougats tendre et dur, nougat tendre et dur
 
 <en:Confectioneries
@@ -16758,10 +17015,12 @@ wikidata:en:Q183599
 <en:Halva
 en:Sesame halva, Tahini halva
 ru:Кунжутная халва, Халва кунжутная, Тахинная халва, Халва тахинная
+fr:Halva au sésame
 
 <en:Halva
 en:Sunflower halva
 ru:Подсолнечная халва, Халва подсолнечная
+fr:Halva de tournesol
 
 en:Christmas foods and drinks
 es:Gastronomía navideña, Gastronomía de Navidad
@@ -16806,11 +17065,13 @@ wikidata:en:Q938682
 <en:Alfajores
 en:Spanish alfajores
 es:Alfajores españoles
+fr:Alfajores espagnols
 wikidata:en:Q5666489
 
 <en:Christmas sweets
 en:Almond creme filled wafers
 es:Almendras rellenas de turrón, Almendras rellenas
+fr:Gaufrettes fourrées à la crème d'amande
 
 <en:Christmas sweets
 <en:Fruits based foods
@@ -16823,10 +17084,12 @@ wikidata:en:Q1163138
 <en:Christmas sweets
 en:Chocolate covered coconut balls, Chocolate coated coconut balls
 es:Bolitas de coco recubiertas de chocolate
+fr:Boules de noix de coco enrobées de chocolat
 
 <en:Christmas sweets
 en:Christmas assorted sweets
 es:Surtidos de Navidad
+fr:Bonbons assortis de Noël
 
 <en:Christmas sweets
 en:Dragées
@@ -16844,11 +17107,13 @@ wikidata:en:Q3817399
 <en:Chocolate covered fruits
 en:Fruits of Aragon
 es:Frutas de Aragón
+fr:Fruits d'Aragon
 wikidata:en:Q8962920
 
 <en:Fruits of Aragon
 <en:Chocolate covered cherries
 en:Chocolate coated maraschino cherries
+fr:Cerises au marasquin enrobées de chocolat
 es:Guindas al marrasquino recubiertas de chocolate, Cerezas al marrasquino recubiertas de chocolate
 
 <en:Christmas sweets
@@ -16894,6 +17159,7 @@ nl:Marsepeinen figuren
 <en:Marzipan
 en:Marzipan of Soto, Mazapanes de Soto
 es:Mazapanes de Soto, Mazapán de Soto
+fr:Massepain de Soto
 wikidata:en:Q6007813
 
 <en:Christmas sweets
@@ -16924,14 +17190,17 @@ wikidata:en:Q159304
 <en:Turrón
 en:Black chocolate turrón filled with fruit praline
 es:Turrones de chocolate negro rellenos de sirope de frutas, Turrones de chocolate rellenos
+fr:Turrón au chocolat noir garni de praliné aux fruits
 
 <en:Turrón
 en:Black chocolate turrón with almonds
 es:Turrones de chocolate negro con almendras
+fr:Turrón au chocolat noir aux amandes
 
 <en:Turrón
 en:Black chocolate turrón with puffed rice
 es:Turrones de chocolate negro con arroz inflado, Turrones de chocolate negro
+fr:Turrón au chocolat noir avec riz soufflé
 
 <en:Turrón
 en:Coconut turrón
@@ -17055,8 +17324,8 @@ en:Semi-preserved foods
 es:Semiconservas, Semi-conservas
 fr:Semi-conserves
 
-en:fish eggs
-fr:oeufs de poisson
+en:Fish eggs
+fr:Œufs de poisson
 
 <en:Semi-preserved foods
 <en:fish eggs
@@ -17079,6 +17348,7 @@ nl:Kant en klaargerechten in blik
 
 <en:Meals
 <en:Dried products
+<en:Dried products to be rehydrated 
 en:Dried meals, Dehydrated meals, Dried prepared dishes, Dehydrated prepared dishes
 es:Comidas preparadas deshidratadas, Platos preparados deshidratados
 fr:Plats préparés déshydratés, Plats cuisinés déshydratés
@@ -17115,39 +17385,46 @@ nl:Kaviaar
 wikidata:en:Q186385
 
 <en:Caviars
+en:Farmed caviars
 fr:Caviars d'élevage
 
-<fr:Caviars d'élevage
+<en:Farmed caviars
+en:Baeri caviars
 fr:Caviar Baeri, Baeri, Caviar d'esturgeon sibérien, Acipenser baerii
 
-<fr:Caviars d'élevage
+<en:Farmed caviars
 fr:Caviar d'esturgeon blanc, Acipenser transmontanus
 
-<fr:Caviars d'élevage
+<en:Farmed caviars
 fr:Caviar de Acipenser gueldenstaedtii, Caviar d'esturgeon russe, Caviar d'esturgeon du Danube, Diamond Sturgeon
 
 <en:Caviars
+en:Wild caviars
 fr:Caviars sauvages
 
 <fr:Caviars sauvages
+en:Beluga caviar
 fr:Caviar béluga, Caviar de béluga, Caviar d'Huso Huso
 wikidata:en:Q4518649
 
 <fr:Caviars sauvages
-en:hackeleback caviars
-fr:caviar de hackeleback
+en:Hackeleback caviars
+fr:Caviar de hackeleback
 
 <fr:Caviars sauvages
-en:paddlefish caviars
-fr:caviar de paddlefish
+en:Paddlefish caviars
+fr:Caviar de paddlefish
 
 <fr:Caviars sauvages
+en:Ossetra caviar
 fr:Caviar osciètre, Caviar d'osciètre, Caviar ossiètre, Caviar d'ossiètre, Acipenser Gueldenstaedtii, Acipenser Persicus
 
 <fr:Caviars sauvages
+en:Sevruga caviar
 fr:Caviar sevruga, Caviar de sevruga, Acipenser stellatus, Caviar d'esturgeon étoilé
 
 <fr:Caviars sauvages
+en:Sterlet caviar
 fr:Caviar sterlet, Acipenser ruthenus
 
 <en:Plant-based foods
@@ -17174,9 +17451,11 @@ it:Gnocchi
 fr:Gnocchi, gnocchis
 
 <en:Gnocchi
+en:Potato gnocchi
 fr:Gnocchi de pommes de terre
 
 <en:Gnocchi
+en:Gnocchi of durum wheat semolina
 fr:Gnocchi de semoule de blé dur
 
 <en:Cereals and potatoes
@@ -17810,9 +18089,9 @@ nl:Wilde rijsten, Wilde rijst
 wikidata:en:Q831681
 
 <en:Cereals and their products
-en:Precooked rices, Instant rices, Rapid cooking rices
+en:Precooked rices, Instant rices, Rapid cooking rices, Pre-cooked rice
 es:Arroces precocidos, Arroces rápidos, Arroces de cocción rápida
-fr:Riz précuits natures, riz précuits, riz précuit, riz pré-cuit, riz pré-cuits
+fr:Riz précuits natures, riz précuits, riz précuit, riz pré-cuit, riz pré-cuits, riz précuits nature, riz précuit nature
 nl:Voorgekookte rijsten, Voorgekookte rijst
 wikidata:en:Q6038850
 
@@ -17849,14 +18128,16 @@ es:Chips fritos
 nl:Chips
 
 <en:Salty snacks
+en:Tapas
 fr:Tapas
 nl:Tapas
 
 <en:Crisps
+en:Cassava crisps
 fr:Chips de manioc
 nl:Kroepoeks cassave, Maniokchips
 
-<fr:Chips de manioc
+<en:Cassava crisps
 fr:Chips de manioc à la crevette, chips de manioc aux crevettes, chips à la crevette au manioc, chips aux crevettes au manioc, chips au manioc à la crevette, chips au manioc aux crevettes
 nl:Garnalenkroepoek
 
@@ -17873,6 +18154,7 @@ nl:Zoete aardappelchips
 <en:Crisps
 en:Quinoa crisps
 nl:Quinoa chips
+fr:Chips au quinoa
 
 <en:Crisps
 <en:Cereals and potatoes
@@ -17885,6 +18167,7 @@ de:Kartoffelchips
 wikidata:en:Q173265
 
 <en:Potato crisps
+en:Light potato crisps
 fr:Chips de pommes de terre allégées
 nl:Light aardappelchips
 
@@ -17904,17 +18187,25 @@ nl:Aardappelchips gebakken in olijfolie
 en:Flavoured potato crisps
 es:Chips de patatas fritas con sabores
 nl:Chips met smaak
+fr:Chips de pommes de terre aromatisées
 
 <en:Flavoured potato crisps
 en:Prawn cocktail crisps
 nl:Garnalen chips
+fr:Chips cocktail de crevettes
+
+<en:Flavoured potato crisps
+en:Ketchup crisps
+fr:Chips au ketchup
 
 <en:Flavoured potato crisps
 en:Salt and pepper crisps
 nl:Zout en peperchips
+fr:Chips au sel et au poivre
 
 <en:Flavoured potato crisps
-fr:Chips poulet rôti et thym
+en:Roasted chicken and thyme crisps
+fr:Chips au poulet, Chips au poulet rôti et thym
 
 <en:Flavoured potato crisps
 en:Paprika crisps
@@ -17927,8 +18218,11 @@ fr:Chips bolognaise
 nl:Bolognese chips
 
 <en:Flavoured potato crisps
+fr:Chips à la moutarde, Chips moutarde
+
+<en:Flavoured potato crisps
 en:Cheese and onion crisps
-fr:Chips fromage et onion
+fr:Chips fromage et onion, Chips fromage et oignon
 nl:Kaas en ui chips
 
 <en:Flavoured potato crisps
@@ -17947,18 +18241,21 @@ en:Salt and vinegar crisps
 fr:Chips au sel et vinaigre
 nl:Zout en azijn chips
 
-<en:Flavoured potato crisps
+<en:Salt and vinegar crisps
 en:Salt and malt vinegar crisps
 fr:Chips au sel et vinaigre de malt
 
 <en:Flavoured potato crisps
 en:Sour cream and sweet chilli crisps
 nl:Zure room en chili chips
+fr:Chips à la crème fraîche et au piment doux
 
 <en:Potato crisps
+en:Old-fashioned crisps
 fr:Chips à l'ancienne
 
 <en:Potato crisps
+en:Farmer's crisps
 fr:Chips paysannes
 
 <en:Potato crisps
@@ -18004,6 +18301,7 @@ wikidata:en:Q185217
 <en:Dairies
 <en:Fermented foods
 en:Fermented milk products, Cultured dairy foods, Cultured dairy products, Cultured milk products
+fr:Produits laitiers fermentés
 nl:Gefermenteerde zuivelproducten
 ru:Кисломолочные продукты
 wikidata:en:Q3506176
@@ -18012,6 +18310,7 @@ wikidata:en:Q3506176
 <en:Dairy drinks
 <en:Fermented drinks
 en:Fermented milk drinks
+fr:Boissons lactées fermentées
 nl: Gefermenteerde zuiveldranken
 ru:Кисломолочные напитки
 
@@ -18025,18 +18324,22 @@ wikidata:en:Q185749
 <en:Kefir
 en:Kefir 1 %
 ru:Кефир 1 %, Кефир 1%, Кефир 1.0 %
+fr:Kéfir 1 %
 
 <en:Kefir
 en:Kefir 2.5 %
 ru:Кефир 2.5 %, Кефир 2.5%
+fr:Kéfir 2,5 %
 
 <en:Kefir
 en:Kefir 3.2 %
 ru:Кефир 3.2 %, Кефир 3.2%, Кефир с массовой долей жира 3.2 %
+fr:Kéfir 3,2 %
 
 <en:Baby foods
 <en:Kefir
 ru:Кефир для детского питания
+fr:Kéfir pour la nourriture pour bébé
 
 <en:Fermented milk drinks
 en:Doogh and ayran
@@ -18061,6 +18364,7 @@ nl:Kazen in blik
 
 <en:Cheeses
 en:Smoked cheeses
+fr:Fromages fumés
 de:Räucherkäse, Geräucherte Käse
 nl:Gerookte kazen, Rookkaas
 wikidata:en:Q2632885
@@ -18145,9 +18449,11 @@ wikidata:en:Q10943
 <en:Cheeses
 en:Brined cheeses
 ru:Рассольные сыры
+fr:Fromages saumurés
 
 <en:Artisan cheeses
 <en:Gouda
+en:Artisan Gouda
 fr:Gouda artisanal
 nl:Ambachtelijke goudse kazen
 
@@ -18283,13 +18589,16 @@ wikidata:en:Q217525
 
 <en:Cheddar cheese
 en:Mature cheddar
+fr:Cheddar mûr
 nl:Rijpe cheddars, Rijpe cheddar
 
 <en:Cheddar cheese
 en:Extra-mature cheddar
+fr:Cheddar extra-mature
 
 <en:Cheddar cheese
 en:Mild cheddar
+fr:Cheddar doux
 
 <en:Cheddar cheese
 <en:Sliced cheeses
@@ -18315,35 +18624,42 @@ wikidata:en:Q4515355
 <en:Chechil
 en:Smoked chechil
 ru:Чечил копчёный
+fr:Chechil fumé
 
 <fr:Mimolettes
+en:Half-aged mimolettes
 fr:Mimolettes demi-vieilles
 
 <fr:Mimolettes
+en:Extra old mimolettes
 fr:Mimolettes extra vieilles
 
 <fr:Mimolettes
+en:Young mimolettes
 fr:Mimolettes jeunes
 
 <fr:Mimolettes
+en:Old mimolettes
 fr:Mimolettes vieilles
 wikidata:en:Q643697
 
 <en:French cheeses
 <en:Cow cheeses
 <en:Soft cheeses with washed rind
+en:Munsters
 fr:Munsters
 
-<fr:Munsters
+<en:Munsters
 <en:Unpasteurised cheeses
+en:Munsters with raw milk
 fr:Munsters au lait cru
 
-<fr:Munsters
+<en:Munsters
 <en:Pasteurized cheeses
 en:Pasteurised milk Munsters
 fr:Munsters au lait pasteurisé
 
-<fr:Munsters
+<en:Munsters
 fr:Petits Munsters, Petit Munster
 
 <en:French cheeses
@@ -18363,6 +18679,7 @@ wikidata:en:Q131480
 
 <en:Camemberts
 <en:Unpasteurised cheeses
+en:Camembert made with raw milk
 fr:Camemberts au lait cru
 de:Camembert aus Rohmilch, Rohmilch-Camembert
 
@@ -18403,6 +18720,7 @@ Country:en:Switzerland
 <en:Cheeses from Switzerland
 <en:Cooked pressed cheeses
 <en:Cow cheeses
+en:Swiss Gruyères
 fr:Gruyères suisses, Gruyères suisses AOP, Gruyères AOP
 Country:en:Switzerland
 wikidata:en:Q2376488
@@ -18436,6 +18754,7 @@ nl:Franse emmentalers
 Country:en:France
 
 <en:French emmentaler
+en:Emmentals of Savoy
 fr:Emmentals de Savoie
 Country:en:France
 
@@ -18572,6 +18891,7 @@ nl:Franse kazen
 wikidata:en:Q2223649
 
 <en:French cheeses
+en:Cheeses from Corsica
 fr:Fromages de Corse
 
 <en:French cheeses
@@ -18659,6 +18979,7 @@ wikidata:en:Q1231414
 <en:French cheeses
 <en:Cooked pressed cheeses
 <en:Cow cheeses
+en:French Gruyères
 fr:Gruyères français, Gruyère français, Gruyères de France, Gruyères IGP
 de:Gruyères français, Gruyère français
 country:en:France
@@ -18803,6 +19124,7 @@ wikidata:en:Q1570052
 
 
 <en:Processed cheese
+fr:cubic appetizer cheese
 fr:fromage apéritif en cube, fromage apéritif en cube type Apéricube
 
 <en:Processed cheese
@@ -18879,6 +19201,7 @@ nl:Goudse Kazen
 wikidata:en:Q593675
 
 <en:Gouda
+en:Goudas with cumin
 fr:Goudas au cumin
 nl:Goudse Komijnenkazen
 
@@ -18901,13 +19224,21 @@ fr:Goudas jaunes
 fr:Goudas mi-vieux
 
 <en:Gouda
+en:Orange goudas
 fr:Goudas oranges
 
 <en:Gouda
+en:Red goudas
 fr:Goudas rouges
 
 <en:Gouda
+en:Old Goudas
 fr:Goudas vieux
+
+<en:Cheeses of the Netherlands
+en:Edam
+de:Edamer
+wikidata:en:Q597473
 
 <en:Cow cheeses
 <en:Uncooked pressed cheeses
@@ -19151,6 +19482,7 @@ wikidata:en:Q3570104
 en:Cheeses from Scotland
 de:Schottischer Käse, Käse aus Schottland
 nl:Schotse kazen
+fr:Fromages d'Ecosse, fromages écossais
 
 <en:Cheeses from Scotland
 en:Bonchester
@@ -19178,6 +19510,7 @@ wikidata:en:Q537897
 
 <en:Cheeses from the United Kingdom
 en:Cheeses from Wales
+fr:Fromages du Pays de Galles, Fromages gallois
 nl:Welshe kazen
 
 <en:Cheeses from Wales
@@ -19198,6 +19531,7 @@ wikidata:en:Q3058285
 
 <en:Cheeses from the United Kingdom
 en:Cheeses from Northern Ireland
+fr:Fromages d'Irlande du Nord, Fromages nord-irlandais
 nl:Noordierse kazen
 
 <en:Cheeses from Northern Ireland
@@ -19317,12 +19651,16 @@ country:en:Italy
 #wikidata:en:
 
 <en:Italian cheeses
+en:Gorgonzola
 it:Gorgonzola
+fr:Gorgonzola
 country:en:Italy
 #wikidata:en:
 
 <en:Italian cheeses
 it:Grana Padano
+en:Grana Padano
+fr:Grana Padano
 country:en:Italy
 #wikidata:en:
 
@@ -19595,6 +19933,7 @@ country:en:Portugal
 
 <en:Cheeses
 en:Slovakian cheeses, cheeses from Slovakia
+fr:Fromages de Slovaquie, Fromages slovaques
 nl:Slowaakse kazen
 
 <en:Slovakian cheeses
@@ -19627,6 +19966,7 @@ country:en:Slovakia
 
 <en:Cheeses
 en:Slovenian cheeses, cheeses from Slovenia
+fr:Fromages slovènes, Fromages de Slovénie
 nl:Sloveense kazen
 
 <en:Slovenian cheeses
@@ -19754,7 +20094,7 @@ wikidata:en:Q585246
 en:Creams
 fr:Crèmes, Crème
 nl:Romen
-de:Rahm
+de:Rahm, Sahne
 pnns_group_2:en:Milk and yogurt
 wikidata:en:Q13228
 
@@ -19809,14 +20149,22 @@ wikidata:ru:Q326061
 <en:Smetana
 en:Smetana with 15.0 % to 34.0 % fat
 ru:Сметана от 15.0 % до 34.0 % жирности, Сметана с массовой долей жира от 15.0 % до 34.0 %
+fr:Smetana avec 15,0% à 34,0% de matières grasses
 
 <en:Smetana with 15.0 % to 34.0 % fat
 en:Smetana with 15.0 % to 19.0 % fat
 ru:Сметана от 15.0 % до 19.0 % жирности, Сметана с массовой долей жира от 15.0 % до 19.0 %
+fr:Smetana avec 15,0% à 19,0% de matières grasses
 
 <en:Smetana with 15.0 % to 19.0 % fat
 en:Smetana with 15 % fat
 ru:Сметана 15 %, Сметана 15%, Сметана 15 % жирности, Сметана с массовой долей жира 15 %
+fr:Smetana avec 15% de matières grasses
+
+<en:Creams
+en:Whipped creams
+de:Schlagsahne
+wikidata:en:Q625957
 
 <en:Plant-based foods
 en:Plant-based creams, Plant creams, Dairy-free creams, Dairy-free cream substitutes
@@ -19925,6 +20273,7 @@ ru:Масло кисло-сливочное, Масло кислосливочн
 <en:Butters
 en:mildly soured butters, mildly soured butter
 de:Mildgesäuerte Butter
+fr:Beurres légèrement aigres
 
 <en:Butters
 en:sweet cream butters, sweet cream butter
@@ -19935,12 +20284,15 @@ ru:Масло сладко-сливочное, Масло сладкосливо
 
 <en:Sweet cream butters
 ru:Масло сливочное сладко-сливочное с массовой долей жира от 80 % до 85 %
+fr:Beurre crémeux sucré-crémeux avec une fraction massique de graisse de 80% à 85%
 wikidata:en:Q26882127
 
 <en:Sweet cream butters
 ru:Масло сливочное сладко-сливочное с массовой долей жира от 50 % до 79 %
+fr:Beurre crémeux sucré-crémeux avec une fraction massique de graisse de 50% à 79%
 
 <en:Butters
+en:Molded butters
 fr:Beurres moulés, Beurre moulé
 
 <en:Butters
@@ -19955,13 +20307,17 @@ de:Salzbutter, gesalzene Butter
 nl:Gezouten roomboters
 
 <en:Butters
+en:Three-quarter-fat butter
 de:Dreiviertelfettbutter
 
 <en:Butters
+en:Dairy spread
 de:Milchstreichfett
+fr:Produit laitier à tartiner
 
 <en:Cheeses
 <en:Labeled products
+en:Labeled cheeses
 fr:Fromages labéllisés
 nl:Merkkazen
 
@@ -19971,8 +20327,8 @@ nl:Merkkazen
 fr:Comté
 country:en:France
 
-<fr:Fromages labéllisés
-<fr:Produits AOC
+<en:Labeled cheeses
+<fr:AOC Products
 en:AOC cheeses
 fr:Fromages AOC
 nl:AOC kazen
@@ -20207,6 +20563,7 @@ wikidata:en:Q2352187
 
 <en:Milks
 <en:Dehydrated beverages
+<en:Dried products to be rehydrated 
 en:Milk powders
 de:Milchpulver, Trockenmilchpulver
 fr:Laits en poudre, farines de lait, laits déshydratés
@@ -20851,7 +21208,6 @@ fr:Yaourts au Bifidus
 <en:Bifidus yogurts
 fr:Yaourts au bifidus nature
 
-
 <en:Bifidus yogurts
 fr:Yaourts au bifidus aromatisé
 
@@ -20992,6 +21348,7 @@ nl:Schapenyoghurts
 ru:Йогурт из овечьего молока, Йогурты из овечьего молока
 
 <en:Yogurts
+en:Goat milk yogurts, Goat yogurts
 fr:Yaourts au lait de chèvre, Yaourts de chèvre
 
 <en:Non-dairy yogurts
@@ -21169,6 +21526,9 @@ fr:Desserts
 nl:Desserts, Nagerechten
 nl_be:Desserts, Nagerechten, Toetjes
 
+<en:Desserts
+fr:Bavarois aux fruits
+
 <en:Compotes
 <en:Snacks and desserts for babies
 fr:Compotes pour bébé, compote pour bébé, compotes pour bébés
@@ -21192,11 +21552,19 @@ en:Coffee desserts
 fr:Desserts au café
 
 <en:Fruits based foods
-en:Fruit sauces
-de:Fruchtsoßen, Fruchtsoße, Fruchtsaucen, Fruchtsauce
+en:Fruit chutneys
+fr:Chutneys de fruit
 
-<en:Fruit sauces
-fr:Chutney de fruit
+<en:Fruit chutneys
+en:Apple chutneys
+fr:Chutneys de pomme
+
+en:Onion chutneys
+fr:Chutneys d'oignons
+
+<en:Fruit chutneys
+en:Fig chutneys
+fr:Chutneys de figues 
 
 <en:Fruits based foods
 en:Fruit pulps
@@ -21729,6 +22097,7 @@ nl:Gebrande pinda's
 <en:Roasted peanuts
 <en:Shelled peanuts
 en:Roasted shelled peanuts
+fr:Cacahuètes grillées décortiquées
 es:Cacahuetes con cascara tostados
 
 <en:Nuts
@@ -21808,6 +22177,7 @@ nl:Walnoten
 wikidata:en:Q208021
 
 <en:Walnuts
+en:Walnut kernels
 fr:Cerneaux de noix
 
 <en:Walnuts
@@ -21867,10 +22237,12 @@ nl_be:Amandelpasta's
 wikidata:en:Q4733896
 
 <en:Almond butters
+en:White almond purees
 fr:Purées d'amande blanche
 nl:Witte amandelpasta's
 
 <en:Almond butters
+en:Whole almond purees
 fr:Purées d'amande complète
 nl:Volkoren amandelpasta's
 
@@ -21956,21 +22328,25 @@ nl:Notensnoep
 
 <en:Nut confectioneries
 en:Caramelized almonds
+fr:Amandes caramélisées
 es:Almendras caramelizadas
 nl:Gecarameliseerde amandelen
 
 <en:Nut confectioneries
 en:Caramelized hazelnuts
+fr:Noisettes caramélisées
 es:Avellanas caramelizadas
 nl:Suikerhazelnoten
 
 <en:Nut confectioneries
 en:Caramelized macadamia nuts
+fr:Noix de macadamia caramélisées
 es:Nueces de macadamia caramelizadas
 nl:Suikermacadamia's
 
 <en:Nut confectioneries
 en:Caramelized mixed nuts
+fr:Noix mélangées caramélisées
 es:Mezclas de frutos de cáscara caramelizados
 nl:Gemengde suikernoten
 
@@ -21982,6 +22358,7 @@ nl:Suikerpinda's, gesuikerde pinda's
 <en:Nut confectioneries
 en:Caramelized walnuts
 es:Nueces caramelizadas
+fr:Noix caramélisées
 nl:Suikerwalnoten
 
 <en:Nut confectioneries
@@ -21994,12 +22371,14 @@ wikidata:en:Q2334489
 <en:Dragées
 <en:Nut confectioneries
 en:Sugar coated almonds
+fr:Amandes enrobées de sucre
 es:Peladillas
 nl:Suikeramandelen
 
 <en:Dragées
 <en:Nut confectioneries
 en:Sugar coated pinenuts
+fr:Pignons de pin enrobés de sucre
 es:Piñones cubiertos de azúcar
 nl:Suikerpijnboompitten
 
@@ -22008,9 +22387,13 @@ es:Almendras garrapiñadas
 wikidata:en:Q1187678
 
 <en:Nut confectioneries
+en:Caramelized hazelnuts
+fr:Noisettes caramélisées
 es:Avellanas garrapiñadas
 
 <en:Nut confectioneries
+en:Caramelized peanuts
+fr:Arachides caramélisées
 es:Cacahuetes garrapiñados, Garrapiñadas de cacahuete, Cacahuetes confitados, Garrapiñadas de maní, Maní confitado
 wikidata:en:Q5875513
 
@@ -22037,11 +22420,13 @@ nl:Franse honingen
 
 <fr:Miels d’acacia
 <fr:Miels d’Alsace
+en:Acacia honeys from Alsace
 fr:Miels d'acacia d'Alsace
 nl:Acaciahoningen ui tde Alsace
 
 <fr:Miels d’acacia
 <fr:Miels du Jura
+en:Acacia honeys from Jura
 fr:Miels d’acacia du Jura
 nl:Acaciahoningen uit de Jura
 
@@ -22188,7 +22573,7 @@ fr:miels de Tamaris
 nl:Tamarishoningen
 
 <fr:Miels blancs
-fr:miels de trèfle
+fr:Miels de trèfle
 nl:Klaverhoningen
 
 <en:Honeys
@@ -22224,7 +22609,7 @@ fr:Miels de mandarinier
 nl:Mandarijnbloesemhoningen
 
 <en:Honeys
-fr:miels d'eucalyptus
+fr:Miels d'eucalyptus
 nl:Eucalyptushoningen
 
 <en:Honeys
@@ -22232,7 +22617,7 @@ fr:Miels d'ulmo, Miels de Eucryphia cordifolia
 nl:Honingen van de Eucryphia cordifolia
 
 <en:Honeys
-fr:miels de bleuet
+fr:Miels de bleuet
 nl:Korenbloemenhoningen
 
 <en:Honeys
@@ -22249,11 +22634,11 @@ nl:Stuikheidehoningen
 
 <en:Honeys
 en:Chestnut honey
-fr:miels de châtaignier
+fr:Miels de châtaignier
 nl:Kastanjebloesemhoningen
 
 <en:Honeys
-fr:miels de colza
+fr:Miels de colza
 nl:Koolzaadbloesemhoningen
 
 <en:Honeys
@@ -22275,7 +22660,7 @@ fr:Miels de fleurs, Miel de fleurs, Miels toutes fleurs
 nl:Bloemenhoningen
 
 <fr:Miels de fleurs
-fr:miels de garrigue
+fr:Miels de garrigue
 nl:Garriguehoningen
 
 <en:Honeys
@@ -22283,13 +22668,14 @@ fr:Miels de forêt
 nl:Boshoningen
 
 <en:Honeys
-fr:miels de framboisier
+en:Raspberry honeys
+fr:Miels de framboisier
 nl:Frambozenbloesemhoningen
 
-<fr:miels de framboisier
+<en:Raspberry honeys
 fr:Miels de framboisiers rouges
 
-<fr:miels de framboisier
+<en:Raspberry honeys
 fr:Miels de framboisiers sauvages
 nl:Wilde frambozenbloesemhoningen
 
@@ -22304,7 +22690,7 @@ nl:Lavendelhoningen
 
 <en:Honeys
 en:lychee honey
-fr:miels de litchi
+fr:Miels de litchi
 nl:Litchibloesemhoningen
 
 <en:Honeys
@@ -22325,19 +22711,19 @@ nl:Insectenhoningen
 fr:Miels de metcalfa, Miels de metcalfa pruinosa, Miel de cicadelle blanche, Miels de cicadelle pruineuse
 
 <en:Honeys
-fr:miels de pissenlit
+fr:Miels de pissenlit
 nl:Paardebloemhoningen
 
 <en:Honeys
-fr:miels de robinier
+fr:Miels de robinier
 nl:Vlinderbloemhoningen
 
 <en:Honeys
-fr:miels de ronce
+fr:Miels de ronce
 nl:Braamstruikhoningen
 
 <en:Honeys
-fr:miels de sarrasin, miels de blé noir
+fr:Miels de sarrasin, miels de blé noir
 nl:Boekweithoningen
 
 <en:Honeys
@@ -22346,12 +22732,12 @@ nl:Lindebloesemhoningen
 
 <en:Honeys
 en:Sunflower honeys
-fr:miels de tournesol
+fr:Miels de tournesol
 nl:Zonnebloemhoningen
 
 <en:Honeys
 en:Honeys from the United Kingdom
-fr:miels du Royaume-Uni
+fr:Miels du Royaume-Uni
 nl:Honingen uit Groot-Britannië
 
 <fr:miels du Royaume-Uni
@@ -22361,7 +22747,7 @@ nl:Pitcairnhoningen
 
 <en:Honeys
 en:Honeys from Yemen
-fr:miels du Yémen
+fr:Miels du Yémen
 nl:Honingen uit Yemen
 
 <en:Honeys
@@ -22693,6 +23079,14 @@ nl:Kokosoliën
 de:Kokosöle, Kokosnussöle, Kokosöl, Kokosnussöl, Kokosfette, Kokosfett
 wikidata:en:Q216235
 
+<en:Coconut oils
+en:Virgin coco oils
+fr:Huiles vierges de coco, huiles de coco vierges
+
+<en:Coconut oils
+en:Refined coco oils
+fr:Huiles de coco raffinées
+
 <en:Fruit and fruit seed oils
 en:Grape seed oils, Grapeseed oils, Grape oils
 es:Aceites de pepitas de uva, Aceites de semillas de uva
@@ -22848,40 +23242,48 @@ de:Native Olivenöle, Natives Olivenöl
 
 <en:Olive oils
 en:Olive oils from France
+fr:Huiles d'olive de France
 nl:Franse olijfoliën
 country:en:France
 
 <en:Olive oils from France
+en:Olive oil from Aix-en-Provence
 fr:Huile d'olive d'Aix-en-Provence
 nl:Olijfoliën uit Aix-en-Provence
 country:en:France
 
 <en:Olive oils from France
+en:Olive oil from Corsica
 fr:Huile d'olive de Corse, Oliu di Corsica
 nl:Corsicaanse olijfoliën
 country:en:France
 
 <en:Olive oils from France
+en:Olive oil from Haute-Provence
 fr:Huile d'olive de Haute-Provence
 nl:Olijfoliën uit de Haute-Provence
 country:en:France
 
 <en:Olive oils from France
+en:Olive oil from Vallée des Baux-de-Provence
 fr:Huile d'olive de la Vallée des Baux-de-Provence
 nl:Olijfoliën uit de vallei van Baux-de-Provence
 country:en:France
 
 <en:Olive oils from France
+en:Olive oil from Nice
 fr:Huile d'olive de Nice
 nl:Olijfoliën uit Nice
 country:en:France
 
 <en:Olive oils from France
+en:Olive oil from Nîmes
 fr:Huile d'olive de Nîmes
 nl:Olijfoliën uit Nîmes
 country:en:France
 
 <en:Olive oils from France
+en:Olive oil from Nyons
 fr:Huile d'olive de Nyons
 nl:Olijfoliën uit Nyons
 country:en:France
@@ -23055,9 +23457,11 @@ en:Chocolate cereals
 fr:Céréales au chocolat
 
 <en:Breakfast cereals
+en:Cereals with caramel
 fr:Céréales au caramel
 
 <en:Breakfast cereals
+en:Cereals with honey
 fr:Céréales au miel
 
 <en:Breakfast cereals
@@ -23408,6 +23812,7 @@ de:Roggenmehle
 nl:Roggemelen
 
 <en:Rye flours
+en:Rye flours Type 130
 fr:Farines de seigle T130, farines complètes de seigle
 nl:Roggemelen T130
 
@@ -23555,6 +23960,7 @@ nl:Eenkoornmelen
 
 <en:Einkorn wheat flours
 <en:Wheat flour T405
+en:Small spelt flour T45
 fr:Farines de petit épeautre T45
 
 <en:Einkorn wheat flours
@@ -23564,10 +23970,12 @@ es:Harinas de trigo escaña cultivada blancas
 
 <en:Einkorn wheat flours
 <fr:Farines de blé type T65
+en:Small spelt flour T65
 fr:Farines de petit épeautre T65
 
 <en:Einkorn wheat flours
 <fr:Farines de blé type T70
+en:Small spelt flour T70
 fr:Farines de petit épeautre T70
 
 <en:Einkorn wheat flours
@@ -23578,6 +23986,7 @@ fr:Farines de petit épeautre T80
 
 <en:Einkorn wheat flours
 <fr:Farines de blé type T110
+en:Small spelt flour T110
 fr:Farines de petit épeautre T110
 
 <en:Einkorn wheat flours
@@ -23651,23 +24060,28 @@ es:Harinas de espelta blancas
 
 <en:Spelt flours
 <fr:Farines de blé type T65
+en:T65 Spelt flours
 fr:Farines d'épeautre T65
 
 <en:Spelt flours
 <fr:Farines de blé type T110
+en:T110 Spelt flours
 fr:Farines d’épeautre T110
 
 <en:Spelt flours
 en:Spelt flours Type 630
 de:Dinkelmehle Type 630
+fr:Farines d’épeautre T630
 
 <en:Spelt flours
 en:Spelt flours Type 812
 de:Dinkelmehle Type 812
+fr:Farines d’épeautre T812
 
 <en:Spelt flours
 en:Spelt flours Type 1050
 de:Dinkelmehle Type 1050
+fr:Farines d’épeautre T1050
 
 <en:Spelt flours
 <en:Whole wheat flours
@@ -23883,6 +24297,7 @@ nl:Seitans
 wikidata:en:Q943935
 
 <en:Flours
+en:Potato flours, Flour of potatoes
 fr:Farines de pommes de terre
 nl:Aardappelmelen
 
@@ -23896,6 +24311,7 @@ fr:Farines de cossettes d'igname
 nl:Yam melen
 
 <en:Flours
+en:Cassava flour
 fr:Farines de manioc
 nl:Maniokmelen
 
@@ -24113,11 +24529,23 @@ nl-BE:Torentjes
 
 <en:Ice cream cones
 en:Chocolate-Pistachio ice cream cones
-fr:Cônes chocolat pistache
+fr:Cônes chocolat pistache,Cônes pistache chocolat
 
 <en:Ice cream cones
 en:Chocolate-Vanilla ice cream cones
-fr:cône chocolat vanille
+fr:Cônes chocolat vanille, Cônes vanille chocolat
+
+<en:Ice cream cones
+en:Strawberry-Vanilla ice cream cones
+fr:Cônes vanille fraise, Cônes fraise vanille
+
+<en:Ice cream cones
+en:Coffee-Vanilla ice cream cones
+fr:Cônes vanille café, Cônes café vanille
+
+<en:Ice cream cones
+en:Chocolate-Mint ice cream cones
+fr:Cônes menthe chocolat, Cônes chocolat menthe
 
 <en:Ice creams
 en:Ice cream tubs
@@ -25313,6 +25741,7 @@ fr:Fruits en conserve
 nl:Fruit in Blik
 
 <en:Canned fruits
+en:Canned pineapples
 fr:Ananas en conserve
 
 <en:Desserts
@@ -25765,7 +26194,6 @@ nl:Groene muntplanten in pot
 pt:Plantas de hortelã-verde
 
 <en:Aromatic herbs
-<en:Herbal teas
 en:Oregano
 es:Orégano
 fr:Origan, Marjolaine sauvage, Marjolaine vivace, Origan commun
@@ -25838,7 +26266,6 @@ fr:Persil en pot
 nl:Peterselieplanten in pot
 
 <en:Aromatic herbs
-<en:Herbal teas
 de:Rosmarin
 en:Rosemary
 es:Romero
@@ -26052,7 +26479,7 @@ nl:Provencaalse kruiden
 wikidata:en:Q913548
 
 <en:Herbes de Provence
-<fr:Produits Label Rouge
+<en:Label Rouge products
 fr:Herbes de Provence Label Rouge
 
 <en:Condiments
@@ -27480,7 +27907,7 @@ fr:Miels AOP
 nl:AOP honingen
 
 <fr:Miels labélisés
-<fr:Produits Label Rouge
+<en:Label Rouge products
 fr:Miels Label Rouge
 nl:Label Rouge honingen
 
@@ -27500,15 +27927,16 @@ en:Labeled eggs
 fr:Oeufs labellisés
 nl:Keurmerkeieren
 
-<fr:Oeufs labellisés
+<en:Labeled eggs
 en:Organic eggs
 fr:Oeufs labellisés biologiques, Oeufs bio
 nl:Biologische keurmerkeieren
 de:Eier aus ökologischer Erzeugung, Eier aus ökologischer Haltung
 wikidata:en:Q7101842
 
-<fr:Oeufs labellisés
-<fr:Produits Label Rouge
+<en:Labeled eggs
+<en:Label Rouge products
+en:Label Rouge eggs
 fr:Oeufs Label Rouge
 nl:Label Rouge eieren
 
@@ -27518,22 +27946,23 @@ en:Labeled flours
 fr:Farines labellisées
 nl:Keurmerkmelen
 
-<fr:Farines labellisées
-<fr:Produits Label Rouge
+<en:Labeled flours
+<en:Label Rouge products
+en:Label Rouge flours
 fr:Farines label rouge
 nl:Label rouge melen
 
 <en:Flours
-<fr:Farines label rouge
+<en:Label Rouge flours
 fr:Farine Usage Spécial, Farine US
 
-<fr:Farines label rouge
+<en:Label Rouge flours
 fr:farines biscuitières, Farines pour biscuits
 
-<fr:Farines label rouge
+<en:Label Rouge flours
 fr:farines pâtissières, Farines pour pâtisseries
 
-<fr:Farines label rouge
+<en:Label Rouge flours
 fr:farines sans grumeaux
 
 <en:Labeled products
@@ -27542,7 +27971,7 @@ fr:Légumes labellisés
 nl:Keurmerkgroenten
 
 <en:Labelized vegetables
-<fr:Produits AOC
+<fr:AOC Products
 en:AOC Vegetables
 fr:Légumes AOC
 
@@ -27562,9 +27991,11 @@ fr:Tomates AOP
 
 <en:AOP Tomatoes
 fr:petite tomate en grappe du Vésuve, petites tomates en grappe du Vésuve, Pomodorino del Piennolo del Vesuvio
+it:Pomodorino del Piennolo del Vesuvio
 
 <en:AOP Tomatoes
 fr:Tomates S.Marzano de l'Agro Sarnese-Nocerino, Pomodoro S.Marzano dell'Agro Sarnese-Nocerino
+it:Pomodoro S.Marzano dell'Agro Sarnese-Nocerino
 
 <en:Cardoons
 <en:AOC Vegetables
@@ -27572,12 +28003,13 @@ fr:Cardon épineux argenté de Plainpalais, cardon genevois
 
 <en:Spanish Asparagus
 <en:IGP Asparagus
+en:PGI Spanish asparagus
 fr:Asperges espagnoles IGP, Asperges d'Espagne IGP
 
-<fr:Asperges espagnoles IGP
+<en:IGP Spanish asparagus
 fr:Espárrago de Huétor-Tájar
 
-<fr:Asperges espagnoles IGP
+<en:IGP Spanish asparagus
 fr:Espárrago de Navarra
 
 <en:Asparagus
@@ -27590,15 +28022,15 @@ fr:Asperges IGP
 en:German PGI asparagus
 fr:Asperges allemandes IGP, asperges d'Allemagne IGP
 
-<fr:Asperges allemandes IGP
+<en:German PGI asparagus
 de:Bornheimer Spargel
 fr:asperge de Bornheimer, Bornheimer Spargel
 
-<fr:Asperges allemandes IGP
+<en:German PGI asparagus
 de:Spargel aus Franken
 fr:asperge de Franconie, Spargel aus Franken
 
-<fr:Asperges allemandes IGP
+<en:German PGI asparagus
 de:Schrobenhausener Spargel
 fr:asperge de Schrobenhausen, Schrobenhausener Spargel
 
@@ -27607,28 +28039,32 @@ fr:asperge de Schrobenhausen, Schrobenhausener Spargel
 en:Austrian IGP Asparagus
 fr:Asperges autrichiennes IGP, asperges d'Autriche IGP
 
-<fr:Asperges autrichiennes IGP
+<en:Austrian IGP Asparagus
 fr:asperges du Marshfeld, Marchfeldspargel
 
 <en:French Asparagus
 <en:IGP Asparagus
+en:French IGP asparagus
 fr:Asperges françaises IGP, asperges de France IGP
 
-<fr:Asperges françaises IGP
+<en:French IGP asparagus
 fr:Asperges des sables des Landes
 
 <en:IGP Asparagus
 <en:Italian Asparagus
+en:Italian IGP asparagus
 fr:Asperges italiennes IGP, asperges d'Italie IGP
 
-<fr:Asperges italiennes IGP
+<en:Italian IGP asparagus
+it:Asparago bianco di Cimadolmo
 fr:Asparago bianco di Cimadolmo
 
-<fr:Asperges italiennes IGP
+<en:Italian IGP asparagus
 it:Asparago di Badoere
 fr:Asparago di Badoere
 
-<fr:Asperges italiennes IGP
+<en:Italian IGP asparagus
+it:Asparago verde di Altedo
 fr:Asparago verde di Altedo
 
 <en:IGP Vegetables
@@ -27651,6 +28087,7 @@ fr:Produits AOP, AOP
 nl:AOP producten
 
 <en:Labeled products
+en:Label Rouge products
 fr:Produits Label Rouge, Label Rouge
 nl:Label Rouge producten
 
@@ -27662,8 +28099,8 @@ nl_be:Kant-en-klaar maaltijden
 pnns_group_2:en:One-dish meals
 
 <en:Meals
+en:Prepared dishes with scallops
 fr:Plats préparés aux noix de Saint-Jacques
-
 
 <en:Meals
 en:Sushi and Maki
@@ -27674,43 +28111,55 @@ fr:Sushi
 nl:Sushis
 
 <en:Sushi
+en:Salmon sushis
 fr:Sushi au saumon
 
 <en:Sushi
+en:Tuna sushis
 fr:Sushi au thon
 
 <en:Sushi
+en:Avocado and salmon sushis
 fr:Sushi saumon avocat
 
 <en:Sushi
+en:Shrimp sushis
 fr:Sushi à la crevette
 
 <en:Sushi
+en:Cucumber sushis
 fr:Sushi au concombre
 
 <en:Sushi
+en:Sushi medley
 fr:Assortiments de sushi
 
 <en:Sushi and Maki
 en:Maki
+fr:Maki
 
 <en:Maki
+en:Californian maki
 fr:Maki californien
 
 
 <en:Meals
+en:Nems
 fr:Nems
 nl:Loempias
 
-<fr:Nems
+<en:Nems
+en:Pork nems
 fr:Nems au porc
 nl:Varkensloempias
 
-<fr:Nems
+<en:Nems
+en:Chicken nems
 fr:Nems au poulet
 nl:Kiploempias
 
 <en:Meals
+en:Spring rolls
 fr:Rouleaux de printemps
 nl:Verse loempias, springrolls
 
@@ -27719,9 +28168,6 @@ nl:Verse loempias, springrolls
 en:Breaded fish
 fr:Poissons panés, Poisson pané
 nl:Gepaneerde vis
-
-<en:Breaded fish
-fr:Batonnets de poisson
 
 <en:Breaded fish
 en:Breaded cod fish
@@ -27734,6 +28180,7 @@ fr:Poissons panés de colin, Poisson pané de colin
 nl:Gepaneerde heek
 
 <en:Breaded fish
+en:Breaded whiting
 fr:Poissons panés de merlan, Poisson pané de merlan
 nl:Gepaneerde wijting
 
@@ -27770,6 +28217,7 @@ nl:Verse kant-en-klaar maaltijden
 
 <en:Fresh meals
 <en:Tabbouleh
+en:Fresh tabbouleh
 fr:Taboulés frais, taboulé frais
 nl:Verse taboulehs
 
@@ -27779,15 +28227,19 @@ fr:Plats à base de poisson, Plats préparés à base de poisson
 nl:Vismaaltijden
 
 <en:Meals with fish
+en:Preparations made from crabs
 fr:Préparations à base de crabes
 
 <en:Meals with fish
+en:Preparations made from fish
 fr:Préparations à base de poissons
 
 <en:Meals with fish
+en:Preparations made from fish meat
 fr:Préparations à base de chair de poisson
 
 <en:Meals with fish
+en:Cod brandade
 fr:Brandade de morue
 
 #fr:Brandades
@@ -27802,6 +28254,7 @@ fr:Plats à base de viande, Plats préparés à base de viande
 nl:Vleesmaaltijden
 
 <en:Meals with meat
+en:Paella
 fr:Paëlla, paëllas
 nl:Paellas
 
@@ -27815,35 +28268,37 @@ fr:Plats à base de lapin ou lièvre, Plats à base de viande de lapin ou lièvr
 nl:Konijn- of Haasmaaltijden
 
 <en:Meals with rabbit or hare
+en:Rabbit dishes
 fr:Plats à base de lapin, Plats à base de viande de lapin, plats préparés à base de lapin
 nl:Konijnmaaltijden
 
 <fr:Civets
-<fr:Plats à base de lapin
+<en:Rabbit dishes
 fr:Civet de lapin
 nl:Gestoofde konijn
 
 <fr:Civet de lapin
 fr:Civet de lapin à la créole
 
-<fr:Plats à base de lapin
+<en:Rabbit dishes
 fr:Lapin à la liégeoise
 wikidata:en:Q3217743
 
-<fr:Plats à base de lapin
+<en:Rabbit dishes
 fr:Lapin à la tournaisienne
 wikidata:en:Q3217745
 
 <en:Meals with rabbit or hare
+en:Hare dishes
 fr:Plats à base de lièvre, Plats à base de viande de lièvre, plats préparés à base de lièvre
 nl:Hazevleesmaaltijden
 
 <fr:Civets
-<fr:Plats à base de lièvre
+<en:Hare dishes
 fr:Civet de lièvre
 nl:Gestoofde haas
 
-<fr:Plats à base de lièvre
+<en:Hare dishes
 fr:Compotée de lièvre
 wikidata:en:Q2990689
 
@@ -27871,19 +28326,31 @@ en:Shepherd's pie
 fr:Hachis parmentier
 
 <en:Beef dishes
+en:Beef tongue
 fr:Langue de bœuf
 
 <fr:Langue de bœuf
+en:Tongue of beef with hot sauce
 fr:Langue de bœuf sauce piquante
 
 <fr:Langue de bœuf
+en:Beef tongue with Madeira Sauce
 fr:Langue de bœuf sauce madère
 
 <en:Beef dishes
+en:Bœufs bourguignons, Burgundian beef
 fr:Bœufs bourguignons
 
 <fr:Bœufs bourguignons
+en:Burgundy beef with tagliatelle, Bœufs bourguignons with tagliatelle
 fr:Bœufs bourguignons aux tagliatelles
+
+<en:Beef dishes
+en:Beef carpaccio
+fr:Carpaccio de boeuf
+
+<en:Beef dishes
+fr:Brochettes de boeuf
 
 <en:Meals with meat
 en:Sheepmeat meals
@@ -27896,12 +28363,16 @@ fr:Plats à base de viande porcine, plats préparés à base de viande porcine, 
 nl:Varkensvleesmaaltijden
 
 <en:Pork meals
+en:Caramel pork
 fr:Porc au caramel
 
 <en:Meals with meat
 en:Poultry meals
 fr:Plats à base de volaille, plats préparés à base de volaille
 nl:Gevogelte maaltijden
+
+<en:Poultry meals
+fr:Brochettes de volailles
 
 <en:Poultry meals
 fr:Coq au vin
@@ -27920,6 +28391,7 @@ fr:Plats à base d’oie, Plats à base d’oies, plats préparés à base d'oie
 nl:Ganzevleesmaaltijden
 
 <fr:Plats à base d’oies
+en:Goose confits
 fr:Confits d’oie, Confit d’oie
 
 <en:Poultry meals
@@ -27939,24 +28411,30 @@ fr:Confits de canard, confit de canard
 fr:Parmentiers de canard, Parmentier de canard
 
 <en:Duck dishes
+en:Duck breasts
 fr:Magrets de canard
 
 <en:Duck dishes
+en:Duck with porcini mushrooms
 fr:Canards aux cèpes
 
 <en:Duck dishes
 fr:Cuisses de canard confites
 
 <en:Duck dishes
+en:Cassoulets with duck confit
 fr:Cassoulets au confit de canard
 
 <en:Duck dishes
+en:Duck sausages
 fr:Saucisses de canard
 
 <en:Duck dishes
+en:Tajines of duck
 fr:Tajines de canard
 
 <en:Duck dishes
+en:Blanquette of duck with fresh cream
 fr:Blanquette de canard à la crème fraiche
 
 <en:Duck dishes
@@ -28020,6 +28498,12 @@ nl:Verse raviolis
 en:Salted pies
 fr:Tartes salées
 nl:Hartige taarten
+
+<en:Salted pies
+fr:Tartes à la morue
+
+<en:Salted pies
+fr:Tartes aux épinards
 
 <en:Salted pies
 fr:Flamiches
@@ -28129,12 +28613,15 @@ en:Carrot soups
 fr:Soupes de carottes
 
 <en:Vegetable soups
+en:Pumpkin soups
 fr:Soupes de potiron
 
 <en:Vegetable soups
+en:Soups of lentils
 fr:Soupes de lentilles
 
 <en:Vegetable soups
+en:Asparagus soups
 fr:Soupes aux asperges
 
 <en:Vegetable soups
@@ -28348,18 +28835,23 @@ fr:Marmites de bouillon de légumes
 nl:Groentebouillons in pot
 
 <en:Broths
+en:Poultry broth
 fr:Bouillons de volaille
 
 <en:Broths
+en:Beef broth
 fr:Bouillons de bœuf
 
 <en:Broths
+en:Mutton broth
 fr:Bouillons de mouton
 
 <en:Meals
+en:Cassoulets
 fr:Cassoulets
 
-<fr:Cassoulets
+<en:Cassoulets
+en:Cassoulets from Toulouse
 fr:Cassoulets toulousains
 
 <en:Meals
@@ -28377,10 +28869,6 @@ es:Arroz frito
 it:Riso cantonese
 ru:Жареный рис
 wikidata:en:Q1076874
-
-<fr:Riz préparés
-fr:Riz précuits nature
-nl:Voorgekookte rijst natuur
 
 <en:Meals
 en:Sauerkrauts
@@ -28406,30 +28894,38 @@ fr:Cordons bleus de poulet
 nl:Kip cordon bleus
 
 <en:Meals
+en:Prepared couscous
 fr:Couscous préparés, couscous préparé
 nl:Kant-en-klaar couscous
+#wikidata:en:
 
 <en:Meals
 en:Starters
 fr:Entrées, Entrée
+#wikidata:en:
 
 <fr:Entrées
 en:Cold starters
 fr:Entrées froides
+#wikidata:en:
 
 <fr:Entrées
 en:Coleslaw
-fr:Coleslaw
+fr:Coleslaw, Salade coleslaw
+wikidata:en:Q945475
 
 <fr:Entrées
+en:St. Jacques shells, Scallops
 fr:Coquilles Saint-Jacques, Coquilles St-Jacques
 
 <en:Salted pies
+en:Flammekueche
 fr:Flammekueche, tarte flambée, flamme-küche, flamms, Flammkuchen, Flamenkuches
 
 <en:Meals
 fr:Fondues, fondue, fondues de fromage, fondue de fromage
 nl:Fondus, Kaasfondus
+#wikidata:en:
 
 <fr:Fondues
 en:Cheese fondue from Savoy
@@ -28441,85 +28937,114 @@ wikidata:en:Q972682
 <en:Meals
 en:Samosas, sambusa, samboksa
 fr:Samoussas, samossas, samosas
+#wikidata:en:
 
 <en:Samosas
 <en:Poultry meals
+en:Samoussas with poultry
 fr:Samoussas à la volaille, samossas à la volaille
+#wikidata:en:
 
 <en:Samosas
 <en:Beef dishes
+en:Beef samosas
 fr:Samoussas au bœuf, samossas au bœuf
+#wikidata:en:
 
 <en:Samosas
+en:Cheese samosas
 fr:Samoussas au fromage, samossas au fromage
+#wikidata:en:
 
 <en:Samosas
 <en:Pork meals
+en:Pork samosas
 fr:Samoussas au porc, samossas au porc
+#wikidata:en:
 
 <en:Samosas
 <en:Meals with fish
+en:Tuna samosas
 fr:Samoussas au thon, samossas au thon
+#wikidata:en:
 
 <en:Samosas
+en:Vegetable samosas
 fr:Samoussas aux légumes, samossas aux légumes
+#wikidata:en:
 
 <en:Meals
 en:Gratins
 fr:Gratins
 nl:Ovenschotels
+#wikidata:en:
 
 <en:Gratins
 en:Vegetable gratins
 fr:Gratins de légumes
 nl:Groente-ovenschotels
+#wikidata:en:
 
 <en:Vegetable gratins
 en:Eggplant Gratin
 fr:Gratins d'aubergine, Gratin d'aubergine
 nl:Aubergine-ovenschotels
+#wikidata:en:
 
 <en:Vegetable gratins
+en:Potato gratin
 fr:Gratins de pomme de terre, Gratin de pomme de terre, Gratin de pommes de terre
 nl:Aardappelovenschotels
+#wikidata:en:
 
-<fr:Gratins de pomme de terre
+<en:Potato gratin
 fr:Gratins dauphinois, Gratin dauphinois, Pommes de terre au gratin 
 wikidata:en:Q1647122
 
 <en:Vegetable gratins
+en:Cauliflower gratins
 fr:Gratins de choux-fleurs, Gratins de chou-fleur
+#wikidata:en:
 
 <en:Gratins
+en:Fish gratin
 fr:Gratins de poisson
 nl:Visovenschotels
+#wikidata:en:
 
 <en:Meals
 en:Risottos
 fr:Risottos
+#wikidata:en:
 
 <en:Risottos
 en:Crab risottos
 fr:Risottos au crabe
+#wikidata:en:
 
 <en:Risottos
 en:Shrimp risottos
 fr:Risottos aux crevettes
+#wikidata:en:
 
 <en:Risottos
 en:Veal risottos
 fr:Risottos de veau
+#wikidata:en:
 
 <en:Risottos
 fr:Risottos aux cèpes
+#wikidata:en:
 
 <en:Risottos
 en:Salmon risottos
 fr:Risottos au saumon
+#wikidata:en:
 
 <en:Risottos
 en:Chicken risottos
 fr:Risottos au poulet
+#wikidata:en:
 
 <en:Meals
 fr:Haricots préparés, Haricots cuisinés
@@ -28529,10 +29054,12 @@ nl:Kant-en-klaar bonen
 en:Prepared lasagne
 fr:Lasagnes préparées
 nl:Kant-en-klaar lasagnas
+#wikidata:en:
 
 <en:Prepared lasagne
 en:Frozen lasagne
 fr:Lasagnes surgelées
+#wikidata:en:
 
 <en:Prepared lasagne
 fr:Lasagnes à la bolognaise, Lasagnes bolognaise, Lasagne à la bolognaise
@@ -28541,30 +29068,39 @@ nl:Kant-en-klaar bolognese lasagnas
 <en:Prepared lasagne
 en:Salmon lasagne
 fr:Lasagnes au saumon
+#wikidata:en:
 
 <en:Prepared lasagne
 en:Vegetarian lasagne
 fr:Lasagnes végétariennes
+#wikidata:en:
 
 <en:Vegetarian lasagne
 en:Vegetable lasagne
 fr:Lasagnes aux légumes
+#wikidata:en:
 
 <en:Vegetarian lasagne
+en:Lasagne with goat cheese and spinach
 fr:Lasagne Chèvre Épinards
+#wikidata:en:
 
 <en:Meals
 en:Prepared vegetables
 fr:Légumes préparés, légume préparé
 nl:Kant-en-klaar groenten
+#wikidata:en:
 
 <en:Prepared vegetables
+en:Rice stuffed tomatoes
 fr:Tomates farcies au riz, Tomate farcie au riz
+#wikidata:en:
 
 <en:Prepared vegetables
 en:Grated carrots
 fr:Carottes râpées
 nl:Geraspte wortelen
+#wikidata:en:
 
 <en:Prepared vegetables
 fr:Haricots à la tomate, haricots à la sauce tomate, haricot à la tomate, haricot à la sauce tomate, haricot aux tomates, haricots aux tomates, haricots blancs à la tomate, haricots blancs aux tomates, haricots blancs à la sauce tomate, haricot blanc à la sauce tomate, haricots blanc aux tomates
@@ -28583,6 +29119,7 @@ en:Prepared lentils
 es:Lentejas preparadas
 fr:Lentilles préparées
 nl:Kant-en-klaar linzen
+#wikidata:en:
 
 <en:Meals with meat
 fr:Petit salé aux lentilles, petits salés aux lentilles
@@ -28592,6 +29129,7 @@ en:Pizzas pies and quiches, Pizza pies and quiches
 fr:Pizzas tartes salées et quiches
 nl:Pizzas hartige taarten en quiches
 pnns_group_2:en:Pizza pies and quiche
+#wikidata:en:
 
 <en:Pizzas pies and quiches
 en:Pizzas
@@ -28607,29 +29145,36 @@ fr:Pizza royale, Pizza reine, Pizza Regina
 <en:Pizzas
 en:Margherita Pizza
 fr:pizza margherita, pizzas marguerite
+#wikidata:en:
 
 <en:Pizzas
 en:Chorizo pizzas
 fr:Pizzas au chorizo, Pizzas chorizo
 nl:Chorizopizzas
+#wikidata:en:
 
 <en:Pizzas
 en:Pepperoni pizzas
 fr:Pizzas au pepperoni, Pizzas avec pepperoni, Pizzas pepperoni
+#wikidata:en:
 
 <en:Pizzas
 en:Tuna pizzas
 fr:Pizzas au thon
 nl:Tonijnpizzas
+#wikidata:en:
 
 <en:Pizzas
 en:Bolognese pizzas
 fr:Pizzas à la bolognaise, Pizzas bolognaise
 nl:Bolognesepizzas
+#wikidata:en:
 
 <en:Pizzas
+en:Goat cheese and bacon pizzas
 fr:Pizzas chèvre-lardons
 nl:Geitenkaas-spekpizzas
+#wikidata:en:
 
 <en:Pizzas
 en:Pizza with truffle
@@ -28644,6 +29189,10 @@ fr:Pizzas au jambon
 en:Pizza with ham and cheese
 fr:Pizzas jambon-fromage
 nl:Ham-kaas pizzas
+
+<en:Pizzas
+en:Kebab pizzas
+fr:Pizzas au kébab, Pizzas kebab
 
 <en:Pizzas
 en:Cheese pizzas
@@ -28673,6 +29222,7 @@ fr:Pizzas ovales, Pizza ovale
 nl:Ovale pizzas
 
 <en:Meals
+en:Low-fat prepared meals
 fr:Plats préparés à faible teneur en matières grasses
 nl:Kant-en-klaarmaaltijden met minder vet
 
@@ -28695,6 +29245,7 @@ en:Ravioli in a box
 fr:Box de raviolis
 
 <en:Pasta in a box
+en:Pasta box with chicken
 fr:Box de pates au poulet
 
 <fr:Box
@@ -28771,65 +29322,172 @@ nl:Quiches
 wikidata:en:Q722595
 
 <en:Quiches
+en:Lorraine quiche
 fr:Quiches lorraines
 
 <en:Quiches
+en:Quiches with bacon
 fr:Quiches aux lardons
 
 <en:Quiches
+en:Quiches with vegetables
 fr:Quiches aux légumes
 
 <en:Quiches
+en:Quiches with fish
 fr:Quiches au poisson
 
 <en:Quiches
+en:Leek quiche
 fr:Quiches au poireaux
 
 <en:Quiches
+en:Chicken Quiches
 fr:Quiches au poulet
 
 <en:Quiches
+en:Beef quiche
 fr:Quiches au bœuf
 
 <en:Meals
+en:Prepared salads
 fr:Salades composées, salade composée
 nl:Opgemaakte salades
 
-<fr:Salades composées
+<en:Prepared salads
 en:Tuna salad
 fr:Salades au thon
 nl:Tonijnsalades
 
-<fr:Salades composées
+<en:Prepared salads
+en:Piemontese salads
 fr:Salades piémontaises
 
-<fr:Salades piémontaises
-Salades piémontaises au jambon, piémontaises au jambon
+<en:Piemontese salads
+en:Piemontese salads with ham
+fr:Salades piémontaises au jambon, piémontaises au jambon
 
-<fr:Salades piémontaises
-Salades piémontaises au poulet, piémontaises au poulet
+<en:Piemontese salads
+en:Piemontese salads with chicken
+fr:Salades piémontaises au poulet, piémontaises au poulet
 
-<fr:Salades composées
+<en:Prepared salads
 fr:Salades nicoises
 
-<fr:Salades composées
+<en:Prepared salads
 fr:Salades catalanes
 
-<fr:Salades composées
+<en:Prepared salads
 en:Mexican salads
 fr:Salades mexicaines
 
-<fr:Salades composées
+<en:Prepared salads
 en:Cucumber salads
 fr:Salades de concombres
 
-<fr:Salades composées
+<en:Prepared salads
 en:Lentil salads
 fr:Salades de lentilles
 
-<fr:Salades composées
+<en:Prepared salads
 en:Beets salads
 fr:Salades de betteraves
+
+<en:Prepared salads
+fr:Salades de gésiers
+
+<en:Prepared salads
+fr:Salades alsaciennes, Salades vosgiennes
+
+<en:Prepared salads
+en:Caesar salads
+fr:Salades caesar, Salades césar
+
+<en:Prepared salads
+fr:Salades composée avec viande ou poisson (supprimé)
+
+<en:Prepared salads
+fr:Salades crétoise / grecque
+
+<en:Prepared salads
+fr:Salades d'endive (chicon), noix et roquefort
+
+<en:Prepared salads
+en:Warm goat cheese salads
+fr:Salades de chèvre chaud
+
+<en:Prepared salads
+en:Fruit salads
+fr:Salades de fruits
+
+<en:Fruit salads
+en:Fruit salads in syrup
+fr:Salades de fruits au sirop
+
+<en:Fruit salads
+en:Fresh fruit salad
+fr:Salades de fruits frais
+
+<en:Prepared salads
+en:Vegetable salads
+fr:Salades de légumes
+
+<en:Prepared salads
+en:Vegetable salads with chicken
+fr:Salades de légumes avec poulet
+
+<en:Prepared salads
+en:Vegetable salads with tuna
+fr:Salades de légumes avec thon
+
+<en:Prepared salads
+en:Pasta salads with vegetables and chicken
+fr:Salades de pâtes aux légumes avec poulet
+
+<en:Prepared salads
+en:Pasta salads with vegetables and tuna
+fr:Salades de pâtes aux légumes avec thon
+
+<en:Prepared salads
+en:Pasta salads with vegetables and meat
+fr:Salades de pâtes aux légumes avec viande
+
+<en:Prepared salads
+en:Vegetarian pasta salads
+fr:Salades de pâtes végétarienne
+
+<en:Prepared salads
+en:Fish and mayo salads
+fr:Salades de poisson mayonnaise
+
+<en:Prepared salads
+fr:Salades de pomme de terre assaisonnée
+
+<en:Prepared salads
+fr:Salades de poulet au curry mayonnaise
+
+<en:Prepared salads
+en:Rice salads
+fr:Salades de riz
+
+<en:Prepared salads
+fr:Salades de taco
+
+<en:Prepared salads
+fr:Salades de taco avec chili con carne
+
+<en:Prepared salads
+fr:Salades landaise
+
+<en:Prepared salads
+fr:Salades liégeoise
+
+<en:Prepared salads
+fr:Salades macédoine et thon
+
+<en:Prepared salads
+en:Thai salads
+fr:Salades thaï
 
 en:Two-crust Pies, 2 crust pies
 fr:Tourtes, Tourte
@@ -28950,13 +29608,14 @@ nl:Zebra, zebravlees
 wikidata:en:Q32789
 
 <en:Meats
+en:Ostrich, ostrich meat
 fr:Autruche, viande d'autruche
 
 <en:Meats
-en:Frogs
+en:Frogs, Frog meat
 fr:Grenouille, viande de grenouille
 
-<fr:Grenouille
+<en:Frogs
 en:Frog legs
 fr:Cuisses de Grenouilles
 
@@ -28997,6 +29656,7 @@ fr:Bœuf du Maine
 country:en:France
 
 <en:Beef
+en:Beef bacon
 fr:Bacon de boeuf
 
 <en:Meats
@@ -29067,14 +29727,17 @@ nl:Verse everzijnvlezen
 <en:Fresh meats
 en:Moufflon fresh meat
 nl:Vers moeflonvlezen
+fr:viande fraîche de mouflon
 
 <en:Fresh meats
 en:Chamois fresh meat
 nl:Verse gemsvlezen
+fr:viande fraîche de Chamois
 
 <en:Fresh meats
 en:Goose fresh meat
 nl:Verse ganzenvlezen
+fr:Viande fraîche d'oie
 
 <en:Fresh meats
 en:Ratites fresh meat
@@ -29107,6 +29770,7 @@ fr:Steaks hachés
 nl:Tartaarsteaks
 
 <en:Steaks
+en:Ham steaks
 fr:Steaks de jambon
 
 <en:Meat preparations
@@ -29124,6 +29788,7 @@ en:Beef preparations
 fr:Préparations de viande bovine, préparation de viande de bœuf
 
 <en:Beef preparations
+en:Meat of the grisons
 fr:Viande des grisons
 
 <en:Beef steaks
@@ -29279,10 +29944,12 @@ fr:Volaille du Gatinais
 country:en:France
 
 <en:Poultries
+en:Poultry from Languedoc
 fr:Volaille du Languedoc
 country:en:France
 
 <en:Poultries
+en:Poultry from Lauragais
 fr:Volaille du Lauragais
 country:en:France
 
@@ -29410,6 +30077,7 @@ nl:Duifvlezen
 
 <en:Turkeys
 <en:Breaded products
+en:Breaded turkey
 fr:Dinde panée
 nl:Gepandeerde kalkoen
 
@@ -29464,6 +30132,7 @@ fr:Blanc de poulet bio
 fr:Blanc de poulet doré au four
 
 <en:Chicken ham
+en:Smoked chicken breast
 fr:Blanc de poulet fumé
 
 <en:Chicken ham
@@ -29473,12 +30142,15 @@ fr:Blanc de poulet rôti à la broche
 fr:Blanc de poulet aux herbes, Blanc de poulet aux fines herbes
 
 <en:Chicken ham
+en:Halal chicken breast
 fr:Blanc de poulet halal
 
 <en:Chickens
+en:Chicken cutlets
 fr:Escalopes de poulet
 
 <fr:Escalopes de poulet
+en:Breaded chicken cutlets
 fr:Escalopes de poulet panée
 
 <en:Chickens
@@ -29608,7 +30280,9 @@ nl:Parmahammen
 wikidata:en:Q13360207
 
 <en:Dried hams
+en:Hams of San Daniele
 fr:Jambons de San Daniele, jambon de san daniele
+it:Prosciutto di San Daniele
 
 <en:Dried hams
 fr:Jambons ibériques, jambon ibérique, jambons pata negra, pata negra, jambon pata negra
@@ -29636,7 +30310,7 @@ fr:Jambons de Westphalie, jambon de Westphalie
 fr:Specks, Speck, Speks, Spek, Speck dell' Alto Adige, Specks dell' Alto Adige
 
 <en:Hams
-<fr:Produits Label Rouge
+<en:Label Rouge products
 fr:Jambons Label Rouge
 
 <en:PGI Products
@@ -30051,6 +30725,7 @@ fr:Grenier médocain
 wikidata:en:Q3116472
 
 <fr:Charcuteries diverses
+
 fr:Allumettes de porc
 
 <fr:Allumettes de porc
@@ -31317,6 +31992,7 @@ fr:Nouilles chinoises aux oeufs
 nl:Chinese eiernoedels
 
 <en:Noodles
+<en:Dried products to be rehydrated 
 en:Instant noodles
 de:Instant-Nudeln
 es:Fideos instantáneos, Noodles instantáneos
@@ -31336,6 +32012,15 @@ ru:Супы быстрого приготовления
 en:Whole Wheat Noodles
 de:Vollkornnudeln
 nl:Volkorennoedels
+
+<en:Meals
+en:Pasta dishes
+de:Nudelgerichte, Nudelgericht
+wikidata:en:Q18679685
+
+<en:Pasta dishes
+de:Maultaschen, Maultasche
+wikidata:en:Q20055
 
 <en:Biscuits and cakes
 en:Pastries, pastry
@@ -31393,6 +32078,9 @@ nl:Chocolade-eclairs
 en:Coffee eclairs
 fr:Éclairs au café
 nl:Koffie-eclairs
+
+<en:Pastries
+fr:Religieuses
 
 <en:King cakes
 fr:Galettes à la frangipane, Galette à la frangipane, Galettes des rois à la frangipane
@@ -31873,6 +32561,9 @@ fr:Crevettes nordiques, Crevette nordique, Crevette nordique du Canada, Pandalus
 nl:Pandalis Borealis
 
 <en:Shrimps
+fr:Brochettes de crevettes
+
+<en:Shrimps
 en:Prawns
 fr:Crevettes roses
 wikidata:en:Q1058410
@@ -31984,8 +32675,9 @@ nl:Visfilets
 <en:Fish fillets
 fr:Filets de harengs
 
-<en:Breaded products
+<en:Breaded fish
 en:Fish fingers
+fr:Batonnets de poisson
 de:Fischstäbchen
 nl:Visvingers
 wikidata:en:Q1420441
@@ -32450,7 +33142,12 @@ fr:Taramas au cabillaud, taramas de cabillaud, taramas aux cabillauds, tarama de
 fr:Taramas au crabe, taramas de crabe, taramas aux crabes, tarama de crabes
 
 <en:Taramasalata
+en:Salmon taramasalata
 fr:Taramas au saumon, taramas de saumon, taramas aux saumons, tarama de saumons
+
+<en:Seafood
+en:Salmon carpaccio
+fr:Carpaccio de saumon
 
 <en:Sauces
 en:Dips, Dipping sauces
@@ -32557,6 +33254,24 @@ es:Mermeladas y confituras de frutas, Mermeladas de frutas, Confituras de frutas
 fr:Confitures de fruits
 de:Fruchtkonfitüren
 nl:Vruchtenjams
+
+<en:Fruits based foods
+<en:Sauces
+en:Fruits coulis
+fr:Coulis de fruits
+
+<en:Fruits coulis
+fr:Coulis de fraise
+
+<en:Fruits coulis
+fr:Coulis de framboise
+
+<en:Fruits coulis
+fr:Coulis de fruits rouges
+
+<en:Fruits coulis
+fr:Coulis d'abricot
+
 
 <en:Fruit jams
 en:Berry jams
@@ -35983,6 +36698,8 @@ es:Salteados de vegetales congelados
 es:Salteados de vegetales asados congelados
 
 <en:Frozen plant-based foods mixes
+en:Frozen stews
+fr:Ragoûts surgelés
 es:Menestras congeladas
 
 <en:Frozen vegetable mixes
@@ -36035,10 +36752,13 @@ nl:Diepvries groentetempuras
 fr:Tempura de légumes congelée
 
 <en:Frozen plant-based foods mixes
+en:Frozen vegetables for paella
 es:Vegetales para paella congelados
 
 <en:Frozen plant-based foods mixes
+en:Breaded onion rings, onion rings
 es:Aros de cebolla empanados
+fr:Rondelles d'oignon panées, Onion rings panés, Onion rings
 
 <en:Frozen plant-based foods
 <en:Cereals and their products
@@ -36561,15 +37281,19 @@ nl:Graanrepen
 wikidata:en:Q2885525
 
 <en:Cereal bars
+en:Apricot cereal bars
 fr:Barre de céréales à l'abricot
 
 <en:Cereal bars
+en:Banana cereal bars
 fr:Barre de céréales à la banane
 
 <en:Cereal bars
+en:Apple cereal bars
 fr:Barre de céréales à la pomme
 
 <en:Cereal bars
+en:Chocolate cereal bars
 fr:Barre de céréales au chocolat
 
 <en:Cereal bars
@@ -36639,6 +37363,7 @@ nl:Croissants
 wikidata:en:Q207832
 
 <en:Croissants
+en:Butter croissants
 fr:Croissants au beurre
 
 <en:Croissants
@@ -36791,13 +37516,15 @@ en:Sugared crêpes
 fr:Crêpes sucrées
 
 <en:Crêpes
-en:Filled Crêpes
+en:Filled crêpes
 fr:Crêpes fourrées
 
-<fr:Crêpes fourrées
+<fr:Filled crêpes
+en:Filled crêpes with chocolate
 fr:Crêpes au chocolat, Crêpes fourrées au chocolat
 
-<fr:Crêpes fourrées
+<fr:Filled crêpes
+en:Filled crêpes with jam
 fr:Crêpes à la confiture, Crêpes fourrées à la confiture
 
 <en:Crêpes and galettes
@@ -36846,10 +37573,11 @@ nl:Pensproducten
 pnns_group_2:en:Tripe dishes
 
 <en:Fish and meat and eggs
+en:Foies gras
 fr:Foies gras, Foie gras
 nl:Foie gras
 
-<fr:Foies gras
+<en:Foies gras
 fr:Bloc de foie gras
 nl:Foie gras blokken
 
@@ -36857,39 +37585,41 @@ nl:Foie gras blokken
 fr:Bloc de foie gras avec morceaux
 nl:Foie de gras blokken met stukjes
 
-<fr:Foies gras
+<en:Foies gras
 fr:Foies gras entiers
 nl:Hele foie gras
 
-<fr:Foies gras
+<en:Foies gras
 fr:Foies gras crus
 nl:Rauwe foie gras
 
-<fr:Foies gras
+<en:Foies gras
 fr:Foies gras cuits, foies gras cuit, foie gras cuit
 nl:Gekookte foie gras
 
-<fr:Foies gras
+<en:Foies gras
+en:Foies gras from ducks, fat liver from ducks
 fr:Foies gras de canard, Foie gras de canard
 nl:Eendenfoie gras
 
-<fr:Foies gras
+<en:Foies gras
+en:Foies gras from gooses, fat liver from gooses
 fr:Foies gras d'oies, Foie gras d'oies
 nl:Ganzen foie gras
 
-<fr:Foies gras
+<en:Foies gras
 fr:Foies gras mi-cuits, foies gras mi-cuit, foie gras mi-cuit
 nl:Halfgekookte foie gras
 
-<fr:Foies gras
+<en:Foies gras
 <en:Savory mousses
 fr:Mousses de foie gras
 nl:Foie gras moussen
 
-<fr:Foies gras
+<en:Foies gras
 fr:Parfaits de foie gras
 
-<fr:Foies gras
+<en:Foies gras
 fr:Pâtés de foie gras
 
 <en:Plant-based foods
@@ -37358,11 +38088,12 @@ fr:Taboulés royaux, Taboulé royal
 en:Terrine
 fr:Terrines
 de:Terrinen
-nl:Terrines,  Vleespotten, Terrine, Vleespo
+nl:Terrines, Vleespotten, Terrine, Vleespo
 nl_be:Vleespottten, Vleespot, Terrines, Terrine
 wikidata:en:Q11175039
 
 <en:Terrine
+en:Terrines from Brittany
 fr:Terrines bretonne, Terrine de Bretagne
 nl:Bretonse terrines, Bretonse vleespotten, Bretonse terrine
 
@@ -37390,10 +38121,11 @@ fr:Terrines de faisan
 nl:Fazantterrines, fazantterrine, Fazantvleespotten
 
 <en:Terrine
+en:Liver terrines
 fr:Terrines de foie, terrine de foie
 nl:Leverterrines, Lverterrine, Levervleespotten
 
-<fr:Terrines de foie
+<en:Liver terrines
 fr:Terrine de foie gras au sauternes
 wikidata:en:Q3518776
 
@@ -37557,14 +38289,16 @@ wikidata:en:Q2511331
 en:Waffer cakes
 de:Waffelkuchen, Waffeltorte
 
+en:Cooking helpers
 fr:Aides culinaires
 ml:Voedselhulpmiddelen
 
-<fr:Aides culinaires
+<en:Cooking helpers
+en:Pastry helpers
 fr:Aides à la pâtisserie
 nl:Banketbakkerhulpmiddelen
 
-<fr:Aides à la pâtisserie
+<en:Pastry helpers
 fr:Pâtes à sucre
 
 en:Food decorations
@@ -37572,7 +38306,7 @@ fr:Décorations alimentaires
 nl:Levensmiddeldecoraties, Levensmiddeldecoratie
 
 <en:Food decorations
-<fr:Aides à la pâtisserie
+<en:Pastry helpers
 fr:Vermicelles en chocolat
 nl:Chocolade hagel
 

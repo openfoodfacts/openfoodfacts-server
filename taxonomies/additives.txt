@@ -4023,7 +4023,7 @@ sk:E301, Askorban sodný, L-askorbát sodný
 sl:E301, Natrijev askorbat, natrijev L-askorbat
 sv:E301, Natriumaskorbat, Natrium-L-askorbat
 e_number:en:301
-mandatory_additive_class:en: en:antioxidant
+mandatory_additive_class:en: en:antioxidant, en:preservative
 wikidata:en:Q424551
 
 en:E302, Calcium ascorbate
@@ -4132,7 +4132,7 @@ e_number:en:304
 wikidata:en:Q424521
 
 <en:E304
-en:E304(i), Ascorbyl palmitate
+en:E304(i), Ascorbyl palmitate, L-Ascorbyl Palmitate
 bg:E304(i), Аскорбил палмитат
 cs:E304(i), Askorbylpalmitát
 da:E304(i), Ascorbylpalmitat
@@ -4141,7 +4141,7 @@ el:E304(i), Παλμιτικο ασκορβυλιο
 es:E304(i), Palmitato ascorbilo, Palmitato de ascorbilo
 et:E304(i), Askorbüülpalmitaat
 fi:E304(i), Askorbyylipalmitaatti
-fr:E304(i), Palmitate d'ascorbyle
+fr:E304(i), Palmitate d'ascorbyle, Palmitate de L-ascorbyle
 hu:E304(i), Aszkorbil-palmitát
 it:E304(i), Palmitato di ascorbile
 lt:E304(i), Askorbilpalmitatas
@@ -5697,7 +5697,7 @@ sk:E341, E341 food additive
 sl:E341, E341 food additive
 sv:E341, E341 food additive
 e_number:en:341
-mandatory_additive_class:en: en:acidity-regulator
+mandatory_additive_class:en: en:acidity-regulator, en:raising-agent
 wikidata:en:Q426664
 
 <en:E341
@@ -5776,6 +5776,7 @@ sk:E341(iii), Fosforečnan trivápenatý
 sl:E341(iii), Trikalcijev fosfat
 sv:E341(iii), Trikalciumfosfat, Kalciumortofosfat, pentakalciumhydroximonofosfat
 e_number:en:341
+mandatory_additive_class:en: en:acidity-regulator, en:anti-caking-agent, en:stabiliser, en:acid
 wikidata:en:Q426664
 
 en:E342, Ammonium phosphates: (i) monoammonium phosphate (ii) diammonium phosphate
@@ -5927,6 +5928,7 @@ ro:E345, E345 food additive
 sk:E345, Citrát horečnatý
 sl:E345, E345 food additive
 sv:E345, E345 food additive
+mandatory_additive_class:en: en:preservative
 e_number:en:345
 wikidata:en:Q45044
 
@@ -10254,6 +10256,7 @@ sk:E500, Uhličitan sodný, Sóda
 sl:E500, Natrijev karbonat
 sv:E500, Natriumkarbonat, E 500
 e_number:en:500
+mandatory_additive_class:en: en:acidity-regulator, en:raising-agent
 wikidata:en:Q190227
 
 <en:E500
@@ -10357,6 +10360,7 @@ sk:E501, Uhličitan draselný, Potaš
 sl:E501, Kalijev karbonat
 sv:E501, Kaliumkarbonat, E 501
 e_number:en:501
+mandatory_additive_class:en: en:acidity-regulator
 wikidata:en:Q379885
 
 <en:E501
@@ -10459,6 +10463,7 @@ sk:E503, E503 food additive
 sl:E503, E503 food additive
 sv:E503, Ammoniumkarbonat
 e_number:en:503
+mandatory_additive_class:en: en:raising-agent
 wikidata:en:Q204873
 
 <en:E503
@@ -11461,9 +11466,6 @@ sv:E539, Natriumtiosulfat, Hyposulfitsoda
 e_number:en:539
 wikidata:en:Q339866
 
-
-
-
 en:E551, Silicon dioxide, Silica, SiO2
 bg:E551, Силициев диоксид
 cs:E551, Oxid křemičitý
@@ -11488,6 +11490,7 @@ sl:E551, Silicijev dioksid, silikagel
 sv:E551, Kiseldioxid, Kvarts
 e_number:en:551
 wikidata:en:Q116269
+mandatory_additive_class:en: en:anti-caking-agent, en:anti-foaming-agent
 colour_index:en:CI 7811
 
 en:E552, Calcium silicate
