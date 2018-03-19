@@ -3234,14 +3234,6 @@ sub compute_nutrition_score($) {
 			$product_ref->{nutrition_score_debug} = "no score for coffees, teas, alcoholic-beverages etc.";
 			return;
 	}
-	
-	# do not compute a score if there are multiple nutrition facts tables
-	# except if the category is en:breakfast-cereals
-	if ((defined $product_ref->{not_comparable_nutrition_data}) and ($product_ref->{not_comparable_nutrition_data})) {
-			$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
-			$product_ref->{nutrition_score_debug} = "no score for products that do not have comparable nutrition data";
-			return;
-	}	
 		
 	
 	# compute the score only if all values are known
@@ -3617,15 +3609,10 @@ sub compute_serving_size_data($) {
 	# bug #1145
 	# old
 	
+	# old fields
 	(defined $product_ref->{not_comparable_nutrition_data}) and delete $product_ref->{not_comparable_nutrition_data};
-	
-	if ((defined $product_ref->{multiple_nutrition_data}) and ($product_ref->{multiple_nutrition_data} eq 'on')) {
-		if (has_tag($product_ref, "categories", "en:breakfast-cereals")) {
-		}
-		else {
-			$product_ref->{not_comparable_nutrition_data} = 1;
-		}
-	}
+	(defined $product_ref->{multiple_nutrition_data}) and delete $product_ref->{multiple_nutrition_data};
+
 	
 	
 	$product_ref->{serving_quantity} = normalize_serving_size($product_ref->{serving_size});
@@ -3730,9 +3717,7 @@ sub compute_nutrient_levels($) {
 	$product_ref->{nutrient_levels} = {};
 	
 	return if ($product_ref->{categories} eq '');	# need categories hierarchy in order to identify drinks
-	
-	return if ((defined $product_ref->{not_comparable_nutrition_data}) and ($product_ref->{not_comparable_nutrition_data}));
-	
+		
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, powder milk)
 	# unless we have nutrition data for the prepared product
 	
@@ -3744,7 +3729,6 @@ sub compute_nutrient_levels($) {
 				$prepared = '_prepared';
 			}
 			else {
-				$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
 				return;
 			}
 	}
