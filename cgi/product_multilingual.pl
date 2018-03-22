@@ -1979,6 +1979,16 @@ HTML
 }
 );
 
+\$("#nutriment_sodium_prepared").change( function () {
+	swapSalt(\$("#nutriment_sodium_prepared"), \$("#nutriment_salt_prepared"), 2.54);
+}
+);
+
+\$("#nutriment_salt_prepared").change( function () {
+	swapSalt(\$("#nutriment_salt_prepared"), \$("#nutriment_sodium_prepared"), 1/2.54);
+}
+);
+
 function swapSalt(from, to, multiplier) {
 	var source = from.val().replace(",", ".");
 	var regex = /^(.*?)([\\d]+(?:\\.[\\d]+)?)(.*?)\$/g;
