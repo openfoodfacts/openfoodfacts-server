@@ -3031,6 +3031,7 @@ sub special_process_product($) {
 				and not has_tag($product_ref,"categories","en:artificially-sweetened-drinks")) {
 				$added_categories .= ", en:artificially-sweetened-drinks";
 			}
+			# fix me: ingredients are now partly taxonomized
 			elsif (has_tag($product_ref, "ingredients", "sucre") or has_tag($product_ref, "ingredients", "sucre-de-canne")
 				or has_tag($product_ref, "ingredients", "sucre-de-canne-roux") or has_tag($product_ref, "ingredients", "sucre-caramelise")
 				or has_tag($product_ref, "ingredients", "sucre-de-canne-bio") or has_tag($product_ref, "ingredients", "sucres")
@@ -3043,11 +3044,13 @@ sub special_process_product($) {
 				or has_tag($product_ref, "ingredients", "sirop-de-fructose") or has_tag($product_ref, "ingredients", "saccharose")
 				or has_tag($product_ref, "ingredients", "sirop-de-fructose-glucose") or has_tag($product_ref, "ingredients", "sirop-de-glucose-fructose-de-ble-et-ou-de-mais")
 				or has_tag($product_ref, "ingredients", "sugar") or has_tag($product_ref, "ingredients", "sugars")
+				
+				or has_tag($product_ref, "ingredients", "ensugar")
 				) {
 				$added_categories .= ", en:sugared-beverages";
 			}
 			else {
-				$added_categories .= ", en:non-sugared-beverages";
+				# $added_categories .= ", en:non-sugared-beverages";
 			}
 		}
 	
@@ -3224,14 +3227,17 @@ sub compute_nutrition_score($) {
 	
 	# do not compute a score for coffee, tea etc.
 	if (	(has_tag($product_ref, "categories", "en:alcoholic-beverages")) 
+		or	(has_tag($product_ref, "categories", "en:waters"))
 		or	(has_tag($product_ref, "categories", "en:coffees"))
 		or	(has_tag($product_ref, "categories", "en:teas"))
 		or	(has_tag($product_ref, "categories", "en:teas"))
 		or	(has_tag($product_ref, "categories", "fr:levure"))
 		or	(has_tag($product_ref, "categories", "fr:levures"))
+		or	(has_tag($product_ref, "categories", "en:honeys"))
+		or	(has_tag($product_ref, "categories", "en:vinegars"))
 		) {
 			$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
-			$product_ref->{nutrition_score_debug} = "no score for coffees, teas, alcoholic-beverages etc.";
+			$product_ref->{nutrition_score_debug} = "no score for waters, coffees, teas, alcoholic-beverages, honey, vinegar etc.";
 			return;
 	}
 		
@@ -3363,9 +3369,24 @@ sub compute_nutrition_score($) {
 		$fruits_points = 1;
 	}
 	
-	my $fiber_points = int(($product_ref->{nutriments}{"fiber" . $prepared . "_100g"} - 0.00001) / 0.7);
-	$fiber_points > 5 and $fiber_points = 5;		
-
+	# changes to the fiber scale
+	my $fiber_points = 0;
+	if ($product_ref->{nutriments}{"fiber" . $prepared . "_100g"} > 4.7) {
+		$fiber_points = 5;
+	}
+	elsif ($product_ref->{nutriments}{"fiber" . $prepared . "_100g"} > 3.7) {
+		$fiber_points = 4;
+	}
+	elsif ($product_ref->{nutriments}{"fiber" . $prepared . "_100g"} > 2.8) {
+		$fiber_points = 3;
+	}
+	elsif ($product_ref->{nutriments}{"fiber" . $prepared . "_100g"} > 1.9) {
+		$fiber_points = 2;
+	}
+	elsif ($product_ref->{nutriments}{"fiber" . $prepared . "_100g"} > 0.9) {
+		$fiber_points = 1;
+	}
+	
 	my $proteins_points = int(($product_ref->{nutriments}{"proteins" . $prepared . "_100g"} - 0.00001) / 1.6);
 	$proteins_points > 5 and $proteins_points = 5;		
 	
@@ -3443,6 +3464,8 @@ COMMENT
 		and not (has_tag($product_ref, "categories", "en:plant-milks")
 			 or has_tag($product_ref, "categories", "en:milks")
 			 or has_tag($product_ref, "categories", "en:dairy-drinks")
+			 or has_tag($product_ref, "categories", "en:meal-replacement")
+			 or has_tag($product_ref, "categories", "en:dairy-drinks-substitutes")
 			)) {
 		$product_ref->{nutrition_score_debug} .= " -- in beverages category - a_points_fr_beverage: $fr_beverages_energy_points (energy) + $saturated_fat_points (sat_fat) + $fr_beverages_sugars_points (sugars) + $sodium_points (sodium) = $a_points_fr_beverages - ";
 		
