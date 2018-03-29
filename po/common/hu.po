@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-16 13:12-0500\n"
+"PO-Revision-Date: 2018-03-29 15:11-0400\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -2412,15 +2412,15 @@ msgstr "Termék neve"
 
 msgctxt "state"
 msgid "State"
-msgstr "Állam"
+msgstr "Állapot"
 
 msgctxt "states_p"
 msgid "states"
-msgstr "államok"
+msgstr "állapotok"
 
 msgctxt "states_s"
 msgid "state"
-msgstr "állam"
+msgstr "állapot"
 
 msgctxt "stores"
 msgid "Stores"
@@ -2716,6 +2716,10 @@ msgctxt "title_separator"
 msgid " — "
 msgstr " — "
 
+msgctxt "recent_changes"
+msgid "Recent Changes"
+msgstr "Legutóbbi módosítások"
+
 msgctxt "translators_title"
 msgid "Our Translators"
 msgstr "Fordítóink"
@@ -2747,4 +2751,44 @@ msgstr "Jóváhagyott (Szavak)"
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
 msgstr "Szavazatok"
+
+msgctxt "minerals_p"
+msgid "added minerals"
+msgstr ""
+
+msgctxt "minerals_s"
+msgid "added mineral"
+msgstr ""
+
+msgctxt "vitamins_p"
+msgid "added vitamins"
+msgstr ""
+
+msgctxt "vitamins_s"
+msgid "added vitamin"
+msgstr ""
+
+msgctxt "amino_acids_p"
+msgid "added amino acids"
+msgstr ""
+
+msgctxt "amino_acids_s"
+msgid "added amino acid"
+msgstr ""
+
+msgctxt "nucleotides_p"
+msgid "added nucleotides"
+msgstr ""
+
+msgctxt "nucleotides_s"
+msgid "added nucleotide"
+msgstr ""
+
+msgctxt "other_nutritional_substances_p"
+msgid "other nutritional substances added"
+msgstr ""
+
+msgctxt "other_nutritional_substances_s"
+msgid "other nutritional substance added"
+msgstr ""
 
