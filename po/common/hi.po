@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-11 13:28-0500\n"
+"PO-Revision-Date: 2018-03-02 12:15-0500\n"
 "Language-Team: Hindi\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -204,7 +204,7 @@ msgstr ""
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
-msgstr ""
+msgstr "मिशन को गले लगाओ"
 
 msgctxt "brands"
 msgid "Brands"
@@ -216,11 +216,11 @@ msgstr ""
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr ""
+msgstr "ब्रांड"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr ""
+msgstr "%s ब्रांड से उत्पाद"
 
 msgctxt "brands_s"
 msgid "brand"
@@ -228,11 +228,11 @@ msgstr ""
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "एक ब्रांड जोड़ें"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr ""
+msgstr "उत्पाद जो कि %s ब्रांड से नहीं हैं"
 
 msgctxt "by"
 msgid "by"
@@ -252,23 +252,23 @@ msgstr ""
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "श्रेणियाँ"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr ""
+msgstr "उत्पाद %s श्रेणी से"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "वर्ग"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr ""
+msgstr "एक श्रेणी जोड़ें"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr ""
+msgstr "%s श्रेणी से नहीं किए गए उत्पाद"
 
 msgctxt "change_fields"
 msgid "Data"
@@ -280,7 +280,7 @@ msgstr ""
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr ""
+msgstr "चयनित चित्र"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
@@ -300,11 +300,11 @@ msgstr ""
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr ""
+msgstr "%s के शहर में पैक किए गए उत्पाद"
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr ""
+msgstr "पैकेजिंग शहर"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
@@ -379,19 +379,19 @@ msgstr ""
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
-msgstr ""
+msgstr "उन देशों में जहां उत्पाद व्यापक रूप से उपलब्ध है (विदेशी उत्पादों में विशेषज्ञता वाला स्टोर भी नहीं है)"
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr ""
+msgstr "देशों"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "%s में बेचे गए उत्पाद"
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "देश"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -411,23 +411,23 @@ msgstr ""
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr ""
+msgstr "निकाले जाने का कारण"
 
 msgctxt "delete_product"
 msgid "Delete a product"
-msgstr ""
+msgstr "किसी उत्पाद को हटाएं"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr ""
+msgstr "पृष्ठ हटाएं"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr ""
+msgstr "चित्र हटाएं"
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr ""
+msgstr "उपयोगकर्ता हटाएं"
 
 msgctxt "diff_add"
 msgid "Added:"
@@ -2048,7 +2048,7 @@ msgstr "ढूंढें"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
-msgstr ""
+msgstr "उत्पाद खोजें"
 
 msgctxt "search_button"
 msgid "Search"
@@ -2662,6 +2662,10 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " — "
+msgstr ""
+
+msgctxt "recent_changes"
+msgid "Recent Changes"
 msgstr ""
 
 msgctxt "translators_title"

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-16 12:57-0500\n"
+"PO-Revision-Date: 2018-03-29 11:23-0400\n"
 "Language-Team: Spanish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -1646,7 +1646,7 @@ msgstr "Noticias"
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr "¡Es <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> en <<site_name>> desde el sábado 21 de febrero de 2015 hasta el domingo 1 de marzo de 2015! A los colaboradores se les otorgan puntos de Explorador por los productos que agregan y Ambassador puntos por los nuevos contribuyentes que reclutan. Los puntos se actualizan cada 30 minutos."
+msgstr "¡<a href=\"/open-food-hunt-2015\">Open Food Hunt</a> en <<site_name>> desde el sábado 21 de febrero de 2015 hasta el domingo 1 de marzo de 2015! Los colaboradores ganan puntos de Explorador por los productos que agregan y puntos Embajador por los nuevos contribuyentes que reclutan. Los puntos se actualizan cada 30 minutos."
 
 msgctxt "or"
 msgid "or:"
@@ -2728,6 +2728,10 @@ msgctxt "title_separator"
 msgid " — "
 msgstr " — "
 
+msgctxt "recent_changes"
+msgid "Recent Changes"
+msgstr "Cambios recientes"
+
 msgctxt "translators_title"
 msgid "Our Translators"
 msgstr "Nuestros traductores"
@@ -2759,4 +2763,44 @@ msgstr "Aprobado (palabras)"
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
 msgstr "Votos hechos"
+
+msgctxt "minerals_p"
+msgid "added minerals"
+msgstr ""
+
+msgctxt "minerals_s"
+msgid "added mineral"
+msgstr ""
+
+msgctxt "vitamins_p"
+msgid "added vitamins"
+msgstr ""
+
+msgctxt "vitamins_s"
+msgid "added vitamin"
+msgstr ""
+
+msgctxt "amino_acids_p"
+msgid "added amino acids"
+msgstr ""
+
+msgctxt "amino_acids_s"
+msgid "added amino acid"
+msgstr ""
+
+msgctxt "nucleotides_p"
+msgid "added nucleotides"
+msgstr ""
+
+msgctxt "nucleotides_s"
+msgid "added nucleotide"
+msgstr ""
+
+msgctxt "other_nutritional_substances_p"
+msgid "other nutritional substances added"
+msgstr ""
+
+msgctxt "other_nutritional_substances_s"
+msgid "other nutritional substance added"
+msgstr ""
 
