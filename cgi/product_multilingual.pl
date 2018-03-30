@@ -652,7 +652,6 @@ JS
 ;
 
 # <link rel="stylesheet" type="text/css" href="/js/jquery.imgareaselect-0.9.10/css/imgareaselect-default.css" />
-# <link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.20150416/jquery.tagsinput.min.css" />
 
 
 	$header .= <<HTML
