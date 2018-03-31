@@ -19,11 +19,4 @@
  You should have received a copy of the GNU Affero General Public License
  along with this program.  If not, see <http:www.gnu.org/licenses/>.
 */
-div.tagsinput input {
-    box-shadow: none;
-}
-
-div.tagsinput input:focus {
-    background: none;
-    border: none;
-}
+@import '~select2/dist/css/select2.css'; /* https://github.com/webpack-contrib/css-loader/issues/683 */

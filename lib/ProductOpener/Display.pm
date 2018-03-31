@@ -2226,10 +2226,7 @@ JS
 
 	if ((scalar @map_layers) > 0) {
 		$header .= <<HTML		
-	<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
-	<script src="/bower_components/leaflet/dist/leaflet.js"></script>
-	<script src="/bower_components/osmtogeojson/osmtogeojson.js"></script>
-	<script src="/js/display-tag.js"></script>
+	<script src="/js/dist/display_tag.js"></script>
 HTML
 ;
 		
@@ -4307,12 +4304,8 @@ JS
 
 		if ($emb_codes > 0) {
 
-			$header .= <<HTML		
-<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
-<script src="/bower_components/leaflet/dist/leaflet.js"></script>
-<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.css" />
-<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css" />
-<script src="/bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+					$header .= <<HTML		
+	<script src="/js/dist/display_map.js"></script>
 HTML
 ;
 
@@ -4709,16 +4702,7 @@ sub display_new($) {
 	if (defined $request_ref->{og_type}) {
 		$og_type = $request_ref->{og_type};
 	}
-	
-# <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-# <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-# <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
 
-
-#<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-#<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-#<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-lightness/jquery-ui.css" />
-	
 	my $html = <<HTML
 <!doctype html>
 <html class="no-js" lang="$lang">
@@ -4732,11 +4716,6 @@ sub display_new($) {
 
 $meta_description
 	
-<script src="/bower_components/foundation/js/vendor/jquery.js"></script>
-<script type="text/javascript" src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="/bower_components/jquery-ui/themes/base/jquery-ui.min.css" />
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
 <link rel="search" href="@{[ format_subdomain($subdomain) ]}/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}" />
 
 <script>
@@ -5432,12 +5411,10 @@ $Lang{footer_follow_us}{$lc}
 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>	
 
+<script async defer src="/js/dist/display.js"></script>
+
 <script src="/bower_components/foundation/js/foundation.min.js"></script>
 <script src="/bower_components/foundation/js/vendor/jquery.cookie.js"></script>
-
-<script async defer src="/bower_components/ManUp.js/manup.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" integrity="sha384-222hzbb8Z8ZKe6pzP18nTSltQM3PdcAwxWKzGOKOIF+Y3bROr5n9zdQ8yTRHgQkQ" crossorigin="anonymous"></script>
 
 $scripts
 

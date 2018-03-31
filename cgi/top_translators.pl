@@ -37,51 +37,13 @@ use Storable qw/dclone/;
 ProductOpener::Display::init();
 
 $scripts .= <<SCRIPTS
-<script src="/js/datatables.min.js"></script>
-<script src="/bower_components/papaparse/papaparse.min.js"></script>
+<script src="/js/dist/top_translators.js"></script>
 SCRIPTS
-;
-
-$header .= <<HEADER
-<link rel="stylesheet" href="/js/datatables.min.css" />
-HEADER
 ;
 
 my $url = format_subdomain('static') . '/data/top_translators.csv';
 my $js = <<JS
-	\$(document).ready(function() {
-		var dataSource = [];
-
-		Papa.parse("$url", {
-			download: true,
-			delimiter: ",",
-			header: true,
-			dynamicTyping: true,
-			skipEmptyLines: true,
-			withCredentials: false,
-			step: function(results, parser) {
-				dataSource = dataSource.concat(results.data);
-				console.log("Row data:", results.data);
-				console.log("Row errors:", results.errors);
-			},
-			complete: function () {
-				\$('#top_translators').DataTable({
-					"data": dataSource,
-					"columns": [
-						{ "data": "Name" },
-						{ "data": "Translated (Words)" },
-						{ "data": "Target Words" },
-						{ "data": "Approved (Words)" },
-						{ "data": "Votes Made" }
-					],
-					"order": [[ 1, "desc" ]],
-					"paging": false,
-					"info": false,
-					"searching": false
-				});
-			}
-		});
-	});
+	initTranslatorTable("$url", '#top_translators');
 JS
 ;
 $initjs .= $js;
