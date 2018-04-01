@@ -1,10 +1,13 @@
+var webpack = require('webpack');
+
 const config = {
     entry: {
         search: './html/js/src/search.js',
         display: './html/js/src/display.js',
         display_map: './html/js/src/display_map.js',
         display_tag: './html/js/src/display_tag.js',
-        top_translators: './html/js/src/top_translators.js'
+        top_translators: './html/js/src/top_translators.js',
+        madenearyou: './html/js/src/madenearyou.js'
     },
     output: {
         filename: '[name].js',
@@ -35,10 +38,19 @@ const config = {
             },
             {
                 test: /\.(ttf|eot|woff|woff2)$/,
-                loader: "file-loader"
+                loader: "file-loader",
+                options: {
+                    publicPath: '/js/dist/'
+                }
             },
         ]
-    }
+    },
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+          })
+    ]
 };
 
 module.exports = config;

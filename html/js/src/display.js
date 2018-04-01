@@ -22,6 +22,7 @@ import 'jquery';
 import './vendor/jquery-ui.js';
 import 'manupjs';
 import 'select2';
-import '../../css/src/display.css';
-
 import './vendor/foundation.js';
+
+import '../../css/src/display.css';
+import '../../../scss/app.scss';
