@@ -18,7 +18,7 @@ server {
 	listen 80;
 	listen [::]:80;
 	server_name cestfabriquepresdechezvous.info www.cestemballepresdechezvous.fr www.cestemballepresdechezvous.info www.cestfabriquepresdechezvous.info;
-	return 301 cestemballepresdechezvous.fr$request_uri;
+	return 301 http://cestemballepresdechezvous.fr$request_uri;
 }
 
 
@@ -65,7 +65,7 @@ server {
 	}
 
 	location ~ ^/images/products/ {
-		add_header Link "<https://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
+		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
 	}
 
 	location ~ ^/(favicon.ico) {
