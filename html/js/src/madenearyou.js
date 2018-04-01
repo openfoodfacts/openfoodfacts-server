@@ -19,5 +19,5 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'jquery';
-import './vendor/jquery-ui.js'
-import './vendor/leaflet.js'
+import './vendor/jquery-ui.js';
+import './vendor/leaflet.js';
