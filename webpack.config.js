@@ -12,7 +12,7 @@ const config = {
     output: {
         filename: '[name].js',
         path: __dirname + '/html/js/dist',
-        publicPath: '/'
+        publicPath: '/js/dist/'
     },
     module: {
         rules: [
@@ -38,10 +38,7 @@ const config = {
             },
             {
                 test: /\.(ttf|eot|woff|woff2)$/,
-                loader: "file-loader",
-                options: {
-                    publicPath: '/js/dist/'
-                }
+                loader: 'file-loader'
             },
         ]
     },
