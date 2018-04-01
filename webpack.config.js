@@ -18,6 +18,10 @@ const config = {
                 use: ['style-loader', 'css-loader']
             },
             {
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader' ]
+            },
+            {
                 test: /\.(gif|png|jpe?g|svg)$/i,
                 use: [
                     'file-loader',
@@ -28,7 +32,11 @@ const config = {
                         },
                     },
                 ],
-            }
+            },
+            {
+                test: /\.(ttf|eot|woff|woff2)$/,
+                loader: "file-loader"
+            },
         ]
     }
 };

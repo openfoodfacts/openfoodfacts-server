@@ -4709,8 +4709,6 @@ sub display_new($) {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/dist/app.css" />
-    <script src="/bower_components/foundation/js/vendor/modernizr.js"></script>
 	
 <title>$title</title>
 
@@ -5412,9 +5410,6 @@ $Lang{footer_follow_us}{$lc}
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>	
 
 <script async defer src="/js/dist/display.js"></script>
-
-<script src="/bower_components/foundation/js/foundation.min.js"></script>
-<script src="/bower_components/foundation/js/vendor/jquery.cookie.js"></script>
 
 $scripts
 

@@ -18,8 +18,7 @@
     "lint:scss": "stylelint scss/app.scss",
     "perlc": "yarn run perlc:startup && yarn run perlc:product",
     "perlc:startup": "perl -c -CS -Ilib lib/startup_apache2.pl",
-    "perlc:product": "perl -c -CS -Ilib cgi/product_multilingual.pl",
-    "postinstall": "node -e \"try { require('fs').symlinkSync(require('path').resolve('node_modules/@bower_components'), 'html/bower_components', 'junction') } catch (e) { }\""
+    "perlc:product": "perl -c -CS -Ilib cgi/product_multilingual.pl"
   },
   "repository": {
     "type": "git",
@@ -36,10 +35,7 @@
     "linux",
     "win32"
   ],
-  "dependencies": {
-    "@bower_components/foundation": "zurb/bower-foundation#^5.5.3",
-    "@bower_components/foundation-icon-fonts": "zurb/foundation-icon-fonts#*"
-  },
+  "dependencies": {},
   "devDependencies": {
     "css-loader": "^0.28.11",
     "datatables.net": "^1.10.16",
@@ -47,6 +43,8 @@
     "datatables.net-scroller-zf": "^1.4.4",
     "datatables.net-zf": "^1.10.16",
     "file-loader": "^1.1.11",
+    "foundation-icon-fonts": "^0.1.1",
+    "foundation-sites": "5.5.3",
     "image-webpack-loader": "^4.2.0",
     "jquery": "^3.3.1",
     "jquery-ui": "^1.12.1",
@@ -54,9 +52,11 @@
     "leaflet": "~1.0.3",
     "leaflet.markercluster": "^1.3.0",
     "manupjs": "^1.0.0",
+    "node-sass": "^4.8.3",
     "osmtogeojson": "^3.0.0-beta.3",
     "papaparse": "^4.3.7",
     "postcss-sass": "^0.3.0",
+    "sass-loader": "^6.0.7",
     "select2": "^4.0.6-rc.1",
     "style-loader": "^0.20.3",
     "stylelint": "^8.3.1",

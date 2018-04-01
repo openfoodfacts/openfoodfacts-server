@@ -1,5 +1,5 @@
 @import "settings";
-@import "foundation";
+@import '~foundation-sites/scss/foundation';
 
 // Or selectively include components
 // @import
@@ -39,5 +39,5 @@
 //   "foundation/components/offcanvas",
 //   "foundation/components/visibility";
 
-$fi-path: "/bower_components/foundation-icon-fonts/";
-@import "../html/bower_components/foundation-icon-fonts/_foundation-icons.scss";
+$fi-path: "~foundation-icon-fonts/";
+@import "~foundation-icon-fonts/_foundation-icons.scss";
