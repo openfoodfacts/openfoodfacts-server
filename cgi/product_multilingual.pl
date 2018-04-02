@@ -56,6 +56,11 @@ ProductOpener::Display::init();
 
 $debug = 1;
 
+if ($User_id eq 'unwanted-user-french') { 
+	display_error("<b>Il y a des problèmes avec les modifications de produits que vous avez effectuées. Ce compte est temporairement bloqué, merci de nous contacter.</b>", 403);
+}
+
+
 
 sub normalize_nutriment_value_and_modifier($$) {
 		
