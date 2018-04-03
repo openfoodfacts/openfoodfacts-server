@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-04-03 13:10-0400\n"
+"PO-Revision-Date: 2018-04-03 13:21-0400\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -1472,7 +1472,7 @@ msgstr "Több tápértékadat van megadva a terméken (például: hozzáadott v�
 
 msgctxt "multiple_nutrition_data_instructions"
 msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
-msgstr ""
+msgstr "Csak az el nem készített termék tápértékadatait írja be, hozzáadott víz vagy tej nélkül. Ha különböznek a termékek, akkor az első felsorolt termékhez tartozó tápértékadatokat írja be."
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
@@ -2802,11 +2802,11 @@ msgstr "hozzáadott egyéb táplálkozási anyag"
 
 msgctxt "product_as_sold"
 msgid "As sold"
-msgstr ""
+msgstr "Eladva"
 
 msgctxt "prepared_product"
 msgid "Prepared"
-msgstr ""
+msgstr "Elkészített"
 
 msgctxt "unit"
 msgid "Unit"
