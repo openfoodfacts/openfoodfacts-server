@@ -404,6 +404,88 @@ sub detect_categories ($) {
 }
 
 
+sub check_nutrition_data($) {
+
+
+	my $product_ref = shift;
+	
+	
+	if ((defined $product_ref->{multiple_nutrition_data}) and ($product_ref->{multiple_nutrition_data} eq 'on')) {
+	
+		push $product_ref->{quality_tags}, "multiple-nutrition-data";
+	
+		if ((defined $product_ref->{not_comparable_nutrition_data}) and $product_ref->{not_comparable_nutrition_data}) {
+			push $product_ref->{quality_tags}, "not-comparable-nutrition-data";
+		}
+	}	
+	
+	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
+	
+		push $product_ref->{quality_tags}, "no-nutrition-data";
+	}		
+
+	
+	if (defined $product_ref->{nutriments}) {
+		
+		if ((defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on')) {
+			push $product_ref->{quality_tags}, "nutrition-data-prepared";
+			
+			if (not has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
+				push $product_ref->{quality_tags}, "nutrition-data-prepared-without-category-dried-products-to-be-rehydrated";			
+			}
+		}
+	
+
+		if ((defined $product_ref->{nutrition_data_per}) and ($product_ref->{nutrition_data_per} eq 'serving')) {
+		
+			if ((not defined $product_ref->{serving_size}) or ($product_ref->{serving_size} eq '')) {
+				push $product_ref->{quality_tags}, "nutrition-data-per-serving-missing-serving-size";
+			}
+			elsif ($product_ref->{serving_quantity} == 0) {
+				push $product_ref->{quality_tags}, "nutrition-data-per-serving-missing-serving-quantity-is-zero";
+			}
+		} 
+			
+	
+	
+		my $nid_n = 0;
+		my $nid_zero = 0;
+	
+		foreach my $nid (keys %{$product_ref->{nutriments}}) {
+			next if $nid =~ /_/;
+			
+			if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid . "_100g"} > 105)) {
+						
+				push $product_ref->{quality_tags}, "nutrition-value-over-105-for-$nid";						
+			}
+			
+			if ($product_ref->{nutriments}{$nid . "_100g"} == 0) {
+				$nid_zero++;
+			}
+			$nid_n++;
+		}
+		
+		if (($nid_n >= 1) and ($nid_zero == $nid_n)) {
+			push $product_ref->{quality_tags}, "nutrition-all-values-zero";
+		}
+		
+		if ((defined $product_ref->{nutriments}{"carbohydrates_100g"}) and (($product_ref->{nutriments}{"sugars_100g"} + $product_ref->{nutriments}{"starch_100g"}) > ($product_ref->{nutriments}{"carbohydrates_100g"}) + 0.001)) {
+		
+				push $product_ref->{quality_tags}, "nutrition-sugars-plus-starch-greater-than-carbohydrates";					
+		
+		}
+		
+		if (($product_ref->{nutriments}{"saturated-fat_100g"} > ($product_ref->{nutriments}{"fat_100g"}) + 0.001)) {
+		
+				push $product_ref->{quality_tags}, "nutrition-saturated-fat-greater-than-fat";	
+		
+		}		
+	}		
+	
+	
+}
+
+
 sub check_ingredients($) {
 
 	my $product_ref = shift;
@@ -608,7 +690,7 @@ sub check_quality($) {
 	$product_ref->{quality_tags} = [];
 	
 	check_ingredients($product_ref);
-	
+	check_nutrition_data($product_ref);
 	check_quantity($product_ref);
 	check_bugs($product_ref);	
 	
