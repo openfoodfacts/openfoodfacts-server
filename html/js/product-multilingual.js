@@ -368,16 +368,13 @@ function change_image(imagefield, imgid) {
 }  
 
 
-var first_display = 0;
 
 function update_nutrition_image_copy() {
 	
 	// width big enough to display a copy next to nutrition table?
 	if ($('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
 	
-		//if (! first_display) {		
-			$('#nutrition_image_copy').css("left", $('#nutrition_data_table').width() + 10).show();
-		//}
+		$('#nutrition_image_copy').css("left", $('#nutrition_data_table').width() + 10).show();
 	}	
 	else {
 		$('#nutrition_image_copy').hide();
