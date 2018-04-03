@@ -19,7 +19,7 @@ my $product_ref = {
 extract_ingredients_classes_from_text($product_ref);
 
 is($product_ref->{additives}, 
-' [ acide-citrique -> en:e330  -> exists  -- ok  ]  [ colorant -> fr:colorant  ]  [ e120 -> en:e120  -> exists  -- ok  ]  [ vitamine-c -> en:e300  -> exists  -- mandatory_additive_class: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant (current: en:colour)  -> exists as a vitamin en:vitamin-c  ]  [ e500 -> en:e500  -> exists  -- ok  ] '
+' [ acide-citrique -> en:e330  -> exists  -- ok  ]  [ colorant -> fr:colorant  ]  [ e120 -> en:e120  -> exists  -- ok  ]  [ vitamine-c -> en:e300  -> exists  -- mandatory_additive_class: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant (current: en:colour)  -> exists as a vitamin en:vitamin-c  ]  [ e500 -> en:e500  -> exists  -- mandatory_additive_class: en:acidity-regulator, en:raising-agent (current: en:vitamins)  ] '
 );
 
 # vitamine C is not used as an additive (no fuction)
@@ -27,7 +27,6 @@ is($product_ref->{additives},
 is_deeply($product_ref->{additives_original_tags}, [
                                 'en:e330',
                                 'en:e120',
-                                'en:e500'
                               ],
 );
 
@@ -88,13 +87,28 @@ extract_ingredients_classes_from_text($product_ref);
 #print STDERR Dumper($product_ref->{additives_original_tags});
 
 is_deeply($product_ref->{additives_original_tags}, [
-                                'en:e500',
-                                'en:e503',
                                 'en:e251',
                                 'en:e252',
 				'en:e541',
                               ],
 );
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text => "poudres à lever : carbonates de sodium et d'ammonium",
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+#use Data::Dumper;
+#print STDERR Dumper($product_ref->{additives_original_tags});
+
+is_deeply($product_ref->{additives_original_tags}, [
+                                'en:e500',
+                                'en:e503',
+				]
+);
+
 
 
 $product_ref = {

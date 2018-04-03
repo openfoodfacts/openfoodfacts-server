@@ -268,6 +268,30 @@ $options{opensearch_image} = <<XML
 XML
 ;
 
+$options{categories_exempted_from_nutriscore} = [qw(
+en:baby-foods
+en:baby-milks
+en:alcoholic-beverages
+en:waters
+en:coffees
+en:teas
+fr:levure
+fr:levures
+en:honeys
+en:vinegars
+)];
+
+$options{categories_exempted_from_nutrient_levels} = [qw(
+en:baby-foods
+en:baby-milks
+en:alcoholic-beverages
+en:coffees
+en:teas
+fr:levure
+fr:levures
+)];
+
+
 %wiki_texts = (
 
 "en/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_English?action=raw",
