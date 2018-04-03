@@ -3045,11 +3045,12 @@ sub special_process_product($) {
 				or has_tag($product_ref, "ingredients", "sirop-de-fructose-glucose") or has_tag($product_ref, "ingredients", "sirop-de-glucose-fructose-de-ble-et-ou-de-mais")
 				or has_tag($product_ref, "ingredients", "sugar") or has_tag($product_ref, "ingredients", "sugars")
 				
-				or has_tag($product_ref, "ingredients", "ensugar")
+				or has_tag($product_ref, "ingredients", "en:sugar")
 				) {
 				$added_categories .= ", en:sugared-beverages";
 			}
 			else {
+				# at this time we can't rely on ingredients detection
 				# $added_categories .= ", en:non-sugared-beverages";
 			}
 		}
@@ -3201,13 +3202,6 @@ sub compute_nutrition_score($) {
 			return;
 	}	
 	
-	# do not compute a score for baby / infant food, drinks and milk
-	if (has_tag($product_ref, "categories", "en:baby-foods") or has_tag($product_ref, "categories", "en:baby-milks")) {
-			$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
-			$product_ref->{nutrition_score_debug} = "no score for en:baby-foods , en:baby-milks";
-			return;
-	}
-		
 	
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, powder milk)
 	# unless we have nutrition data for the prepared product
@@ -3226,21 +3220,18 @@ sub compute_nutrition_score($) {
 	
 	
 	# do not compute a score for coffee, tea etc.
-	if (	(has_tag($product_ref, "categories", "en:alcoholic-beverages")) 
-		or	(has_tag($product_ref, "categories", "en:waters"))
-		or	(has_tag($product_ref, "categories", "en:coffees"))
-		or	(has_tag($product_ref, "categories", "en:teas"))
-		or	(has_tag($product_ref, "categories", "en:teas"))
-		or	(has_tag($product_ref, "categories", "fr:levure"))
-		or	(has_tag($product_ref, "categories", "fr:levures"))
-		or	(has_tag($product_ref, "categories", "en:honeys"))
-		or	(has_tag($product_ref, "categories", "en:vinegars"))
-		) {
-			$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
-			$product_ref->{nutrition_score_debug} = "no score for waters, coffees, teas, alcoholic-beverages, honey, vinegar etc.";
-			return;
-	}
+	
+	if (defined $options{categories_exempted_from_nutriscore}) {
+	
+		foreach my $category_id (@{$options{categories_exempted_from_nutriscore}}) {
 		
+			if (has_tag($product_ref, "categories", $category_id)) {
+				$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+				$product_ref->{nutrition_score_debug} = "no nutriscore for category $category_id";
+				return;
+			}
+		}
+	}	
 	
 	# compute the score only if all values are known
 	# for fiber, compute score without fiber points if the value is not known
@@ -3758,15 +3749,17 @@ sub compute_nutrient_levels($) {
 	
 	
 	# do not compute a score for coffee, tea etc.
-	if (	(has_tag($product_ref, "categories", "en:alcoholic-beverages")) 
-		or	(has_tag($product_ref, "categories", "en:coffees"))
-		or	(has_tag($product_ref, "categories", "en:teas"))
-		or	(has_tag($product_ref, "categories", "en:teas"))
-		or	(has_tag($product_ref, "categories", "fr:levure"))
-		or	(has_tag($product_ref, "categories", "fr:levures"))
-		) {
-			return;
-	}	
+	
+	if (defined $options{categories_exempted_from_nutrient_levels}) {
+	
+		foreach my $category_id (@{$options{categories_exempted_from_nutrient_levels}}) {
+		
+			if (has_tag($product_ref, "categories", $category_id)) {
+				$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+				return;
+			}
+		}
+	}		
 	
 
 	foreach my $nutrient_level_ref (@nutrient_levels) {
