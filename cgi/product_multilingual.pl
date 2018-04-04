@@ -771,13 +771,7 @@ HTML
 <script type="text/javascript" src="/js/jquery.form.js"></script>
 <script type="text/javascript" src="/js/jquery.autoresize.js"></script>
 <script type="text/javascript" src="/js/jquery.rotate.js"></script>
-<script type="text/javascript" src="/js/jquery.iframe-transport.js"></script>
-<script type="text/javascript" src="/js/jquery.fileupload.js"></script>	
-<script type="text/javascript" src="/js/load-image.min.js"></script>
-<script type="text/javascript" src="/js/canvas-to-blob.min.js"></script>
-<script type="text/javascript" src="/js/jquery.fileupload-ip.js"></script>
-<script type="text/javascript" src="/foundation/js/foundation/foundation.tab.js"></script>
-<script type="text/javascript" src="/js/product-multilingual.js"></script>
+<script type="text/javascript" src="/js/dist/product.js"></script>
 HTML
 ;
 

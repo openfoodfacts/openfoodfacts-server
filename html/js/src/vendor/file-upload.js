@@ -18,7 +18,9 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'jquery';
-import './vendor/jquery-ui.js';
-import './vendor/leaflet.js';
-import './images.js';
+import 'blueimp-canvas-to-blob';
+import 'blueimp-load-image';
+import 'blueimp-tmpl';
+import 'blueimp-file-upload';
+import 'blueimp-file-upload/js/jquery.fileupload-image.js';
+import 'blueimp-file-upload/js/jquery.iframe-transport.js';

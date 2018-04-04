@@ -7,7 +7,9 @@ const config = {
         display_map: './html/js/src/display_map.js',
         display_tag: './html/js/src/display_tag.js',
         top_translators: './html/js/src/top_translators.js',
-        madenearyou: './html/js/src/madenearyou.js'
+        madenearyou: './html/js/src/madenearyou.js',
+        images: './html/js/src/images.js',
+        product: './html/js/src/product.js',
     },
     output: {
         filename: '[name].js',
@@ -47,7 +49,17 @@ const config = {
             $: 'jquery',
             jQuery: 'jquery'
           })
-    ]
+    ],
+    resolve: {
+        extensions: ['.js' ],
+        alias: {
+           'load-image': 'blueimp-load-image/js/load-image.js',
+           'load-image-meta': 'blueimp-load-image/js/load-image-meta.js',
+           'load-image-exif': 'blueimp-load-image/js/load-image-exif.js',
+           'load-image-scale': 'blueimp-load-image/js/load-image-scale.js',
+           'canvas-to-blob': 'blueimp-canvas-to-blob/js/canvas-to-blob.js',
+        }
+     }
 };
 
 module.exports = config;

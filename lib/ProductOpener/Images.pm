@@ -284,11 +284,7 @@ HTML
 
 
 	$scripts .= <<JS
-<script src="/js/jquery.iframe-transport.min.js"></script>
-<script src="/js/jquery.fileupload.min.js"></script>	
-<script src="/js/load-image.min.js"></script>
-<script src="/js/canvas-to-blob.min.js"></script>
-<script src="/js/jquery.fileupload-ip.min.js"></script>
+<script src="/js/dist/images.js"></script>
 JS
 ;
 

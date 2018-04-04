@@ -73,12 +73,6 @@ sub display_madenearyou($) {
 
 <script type="text/javascript" src="/js/jquery.cookie.min.js"></script>	
 
-<script src="/js/jquery.iframe-transport.js"></script>
-<script src="/js/jquery.fileupload.js"></script>	
-<script src="/js/load-image.min.js"></script>
-<script src="/js/canvas-to-blob.min.js"></script>
-<script src="/js/jquery.fileupload-ip.js"></script>
-
 $header
 
 <script>

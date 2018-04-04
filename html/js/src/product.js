@@ -18,6 +18,10 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'jquery';
+import './vendor/file-upload.js';
+import 'foundation-sites/js/foundation/foundation.tab.js';
+
 var code;
 var current_cropbox;
 var images = [];
