@@ -1,4 +1,0 @@
-var usersTags = [
-
-"",
-"Sebleouf"];

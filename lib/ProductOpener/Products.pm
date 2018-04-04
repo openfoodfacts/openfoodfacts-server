@@ -174,9 +174,9 @@ sub init_product($) {
 					push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
 				}
 			}
-			# if lc is not defined or is set en, set lc to main language of country
-			if ($lc eq 'en') {
-				$lc = $country_languages{lc($country)}[0];
+			# if lc is not defined or is set to en, set lc to main language of country
+			if (($lc eq 'en') and (defined $country_languages{lc($country)}) and (defined $country_languages{lc($country)}[0]) )  {
+				$product_ref->{lc} = $country_languages{lc($country)}[0];
 			}
 		}
 	}	
