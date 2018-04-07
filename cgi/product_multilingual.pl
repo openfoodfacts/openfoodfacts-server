@@ -451,8 +451,6 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		
 		$nid =~ s/_prepared$//;
 
-		print STDERR "product.pl - unknown_nutriment: $nid ?\n";
-		
 		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})
 			and (not defined $seen_unknown_nutriments{$nid})) {
 			push @unknown_nutriments, $nid;
@@ -499,8 +497,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		normalize_nutriment_value_and_modifier(\$value, \$modifier);
 		normalize_nutriment_value_and_modifier(\$valuep, \$modifierp);
 		
-		print STDERR "product_multilingual.pl - nid: $nid - value: $value\n";
-		print STDERR "product_multilingual.pl - nidp: $nidp - value: $valuep\n";
+		$log->debug("prepared nutrient info", { nid => $nid, value => $value, nidp => $nidp, valuep => $valuep }) if $log->is_debug();
 	
 		# New label?
 		my $new_nid = undef;
