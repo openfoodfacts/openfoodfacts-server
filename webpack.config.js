@@ -59,6 +59,11 @@ const config = {
            'load-image-scale': 'blueimp-load-image/js/load-image-scale.js',
            'canvas-to-blob': 'blueimp-canvas-to-blob/js/canvas-to-blob.js',
         }
+     },
+     optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
      }
 };
 
