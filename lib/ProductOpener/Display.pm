@@ -55,6 +55,7 @@ BEGIN
 					&display_nutrition_table
 					&display_product
 					&display_product_api
+					&display_product_history
 					&search_and_display_products
 					&search_and_export_products
 					&search_and_graph_products
@@ -6532,7 +6533,9 @@ HTML
 	if (defined $User_id) {
 		$html .= display_field($product_ref, 'states');
 	}
-	
+
+	$html .= display_product_history($code, $product_ref) if $admin;
+
 	$html .= <<HTML
 <div class="edit_button right" style="float:right;margin-top:-10px;">
 <a href="/cgi/product.pl?type=edit&code=$code" class="button small">
@@ -6541,7 +6544,7 @@ HTML
 </a></div>
 HTML
 ;
-	
+
 	# Twitter card
 
 	# example:
@@ -7875,7 +7878,66 @@ HTML
 	display_structured_response($request_ref);
 }
 
+sub display_product_history($$) {
 
+	my $code = shift;
+	my $product_ref = shift;
+
+	my $html = '';
+	if ($product_ref->{rev} > 0) {
+	
+		my $path = product_path($code);
+		my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+		if (not defined $changes_ref) {
+			$changes_ref = [];
+		}
+		
+		$html .= "<h2>" . lang("history") . "</h2>\n<ul>\n";
+		
+		my $current_rev = $product_ref->{rev};
+		
+		foreach my $change_ref (reverse @{$changes_ref}) {
+		
+			my $date = display_date_tag($change_ref->{t});	
+			my $user = "";
+			if (defined $change_ref->{userid}) {
+				$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
+			}
+			
+			my $comment = $change_ref->{comment};
+			$comment = lang($comment) if $comment eq 'product_created';
+			
+			$comment =~ s/^Modification :\s+//;
+			if ($comment eq 'Modification :') {
+				$comment = '';
+			}
+			$comment =~ s/\new image \d+( -)?//;
+			
+			if ($comment ne '') {
+				$comment = "- $comment";
+			}
+			
+			my $change_rev = $change_ref->{rev};
+			
+			if (not defined $change_rev) {
+				$change_rev = $current_rev;
+			}
+			$current_rev--;
+			
+			# Display diffs
+			# [Image upload - add: 1, 2 - delete 2], [Image selection - add: front], [Nutriments... ]
+			
+			my $diffs = compute_changes_diff_text($change_ref);
+			$html .= "<li>$date - $user $diffs $comment - <a href=\"" . product_url($product_ref) . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
+		
+		}
+		
+		$html .= "</ul>\n";
+	}
+
+	return $html;
+
+}
 
 sub add_images_urls_to_product($) {
 
