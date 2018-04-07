@@ -4705,7 +4705,7 @@ sub display_new($) {
 
 	my $html = <<HTML
 <!doctype html>
-<html class="no-js" lang="$lang">
+<html class="no-js" lang="$lang" data-serverdomain="$server_domain">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

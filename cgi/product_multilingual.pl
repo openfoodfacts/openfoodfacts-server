@@ -850,27 +850,7 @@ HTML
 HTML
 ;
 	
-	$scripts .= <<JS
-<script type="text/javascript">
-'use strict';
-\$(function() {
-  var alerts = \$('.alert-box.store-state');
-  \$.each(alerts, function( index, value ) {
-    var display = \$.cookie('state_' + value.id);
-    if (display !== undefined) {
-      value.style.display = display;
-    } else {
-      value.style.display = 'block';
-    }
-  });
-  alerts.on('close.fndtn.alert', function(event) {
-    \$.cookie('state_' + \$(this)[0].id, 'none', { path: '/', expires: 365, domain: '$server_domain' });
-  });
-});
-</script>
-JS
-;
-	
+
 	# Main language
 
 	$html .= "<label for=\"lang\">" . $Lang{lang}{$lang} . "</label>";

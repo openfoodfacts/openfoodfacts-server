@@ -739,3 +739,18 @@ function makeTagsInput(field, defaultText, autocompleteUrl) {
 		   }).catch(error => 'An error occurred while loading the jquery-tags-input component');
 		}).catch(error => 'An error occurred while loading the jquery component');
 }
+
+$(function() {
+  var alerts = $('.alert-box.store-state');
+  $.each(alerts, function( index, value ) {
+    var display = $.cookie('state_' + value.id);
+    if (display !== undefined) {
+      value.style.display = display;
+    } else {
+      value.style.display = 'block';
+    }
+  });
+  alerts.on('close.fndtn.alert', function(event) {
+    $.cookie('state_' + $(this)[0].id, 'none', { path: '/', expires: 365, domain: document.documentElement.dataset['serverdomain'] });
+  });
+});
