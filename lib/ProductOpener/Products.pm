@@ -384,10 +384,10 @@ sub store_product($$) {
 	# Update link
 	my $link = "$new_data_root/products/$path/product.sto";
 	if (-l $link) {
-		unlink($link) or print STDERR "Products::store_product could not unlink $link : $! \n";
+		unlink($link) or $log->error("could not unlink old product.sto", { link => $link, error => $! });
 	}
-	#symlink("$new_data_root/products/$path/$rev.sto", $link) or print STDERR "Products::store_product could not symlink $new_data_root/products/$path/$rev.sto to $link : $! \n";
-	symlink("$rev.sto", $link) or print STDERR "Products::store_product could not symlink $new_data_root/products/$path/$rev.sto to $link : $! \n";
+	
+	symlink("$rev.sto", $link) or $log->error("could not symlink to new revision", { source => "$new_data_root/products/$path/$rev.sto", link => $link, error => $! });
 	
 	store("$new_data_root/products/$path/changes.sto", $changes_ref);
 	
@@ -1126,11 +1126,12 @@ sub process_product_edit_rules($) {
 	my $product_ref = shift;
 	my $code = $product_ref->{code};
 	
-	my $debug = 1;
-	
+	local $log->context->{user_id} = $User_id;
+	local $log->context->{code} = $code;
 	foreach my $rule_ref (@edit_rules) {
 	
-		$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name}\n";
+		local $log->context->{rule} = $rule_ref->{name};
+		$log->debug("checking edit rule") if $log->is_debug();
 		
 		# Check the conditions
 		
@@ -1141,14 +1142,14 @@ sub process_product_edit_rules($) {
 				if ($condition_ref->[0] eq 'user_id') {
 					if ($condition_ref->[1] ne $User_id) {
 						$conditions = 0;
-						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - condition $condition_ref->[0] does not match: $condition_ref->[1] (current: $User_id)\n";					
+						$log->debug("condition does not match value", { condition => $condition_ref->[0], expected => $condition_ref->[1], actual => $User_id } ) if $log->is_debug();
 						last;
 					}
 				}
 				elsif ($condition_ref->[0] eq 'user_id_not') {
 					if ($condition_ref->[1] eq $User_id) {
 						$conditions = 0;
-						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - condition $condition_ref->[0] does not match: $condition_ref->[1] (current: $User_id)\n";					
+						$log->debug("condition does not match value", { condition => $condition_ref->[0], expected => $condition_ref->[1], actual => $User_id } ) if $log->is_debug();
 						last;
 					}
 				}
@@ -1165,12 +1166,12 @@ sub process_product_edit_rules($) {
 					}
 					if (not $condition) {
 						$conditions = 0;
-						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - condition $condition_ref->[0] does not match: $condition_ref->[1]\n";					
+						$log->debug("condition does not match value", { condition => $condition_ref->[0], expected => $condition_ref->[1] } ) if $log->is_debug();
 						last;
 					}
 				}				
 				else {
-					$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - unrecognized condition $condition_ref->[0]\n";					
+					$log->debug("unrecognized condition", { condition => $condition_ref->[0] } ) if $log->is_debug();
 				}
 			}
 		}
@@ -1191,7 +1192,9 @@ sub process_product_edit_rules($) {
 					my $value = $action_ref->[1];
 					not defined $value and $value = '';
 					
-					$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - action: $action - value: $value\n";					
+					local $log->context->{action} = $action;
+					local $log->context->{value} = $value;
+					$log->debug("evaluating actions") if $log->is_debug();
 
 					if ($action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match)_)?(.*)$/) {
 						my ($type, $condition, $field) = ($1, $3, $4);
@@ -1201,11 +1204,15 @@ sub process_product_edit_rules($) {
 						
 						my $action_log = "";
 						
+						local $log->context->{type} = $type;
+						local $log->context->{action} = $field;
+						local $log->context->{field} = $field;
+
 						if (defined $condition) {
 						
 							# if field is not passed, skip rule
 							if (not defined param($field)) {
-								$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - no value passed -> skip edit rule\n";
+								$log->debug("no value passed -> skip edit rule") if $log->is_debug();
 								next;
 							}
 							
@@ -1225,11 +1232,14 @@ sub process_product_edit_rules($) {
 								}
 							}
 							
-							$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current(field): " . $current_value . " - param(field): " . $param_field . "\n";	
+							local $log->context->{current_value} = $current_value;
+							local $log->context->{param_field} = $param_field;
+
+							$log->debug("start field comparison") if $log->is_debug();
 							
 							# if there is an existing value equal to the passed value, just skip the rule
 							if  ((defined $current_value) and ($current_value eq $param_field)) {
-								$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current value equals new value -> skip edit rule - current(field): " . $current_value . " - param(field): " . $param_field . "\n";	
+								$log->debug("current value equals new value -> skip edit rule") if $log->is_debug();
 								next;
 							}
 						
@@ -1277,10 +1287,10 @@ sub process_product_edit_rules($) {
 							}							
 							
 							if (not $condition_ok) {
-								$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current(field): " . $current_value . " - param(field): " . $param_field . " -- condition does not match\n";	
+								$log->debug("condition does not match") if $log->is-debug();
 							}
 							else {
-								$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current(field): " . $current_value . " - param(field): " . $param_field . " -- condition matches\n";								
+								$log->debug("condition matches") if $log->is-debug();
 								$action_log = "product code $code - " . format_subdomain($subdomain) . product_url($product_ref) . " - edit rule $rule_ref->{name} - type: $type - condition: $condition - field: $field current(field): " . $current_value . " - param(field): " . $param_field . "\n";
 							}
 						}
@@ -1291,10 +1301,7 @@ sub process_product_edit_rules($) {
 						if ($condition_ok) {
 						
 							# Process action
-							
-							$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - executing action $action\n";
-							
-							
+							$log->debug("executing edit rule action") if $log->is_debug();
 							
 							if ($type eq 'ignore') {
 								Delete($field);
@@ -1358,7 +1365,7 @@ sub process_product_edit_rules($) {
 						
 					}
 					else {
-						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - unrecognized action $action\n";
+						$log->debug("unrecognized action") if $log->is_debug();
 					}
 				}
 			}		
