@@ -658,11 +658,10 @@ sub display_field($$) {
 	if (defined $tags_fields{$fieldtype}) {
 		$tagsinput = ' tagsinput';
 		
-		my $autocomplete = "";
+		my $autocomplete = "undefined";
 		if ((defined $taxonomy_fields{$fieldtype}) or ($fieldtype eq 'emb_codes')) {
 			my $world = format_subdomain('world');
-			$autocomplete = ",
-	'autocomplete_url': '$world/cgi/suggest.pl?lc=$lc&tagtype=$fieldtype&'";
+			$autocomplete = "'	$world/cgi/suggest.pl?lc=$lc&tagtype=$fieldtype&'";
 		}
 		
 		my $default_text = "";
@@ -671,16 +670,9 @@ sub display_field($$) {
 		}
 
 		$initjs .= <<HTML
-\$('#$field').tagsInput({
-	'height':'3rem',
-	'width':'100%',
-	'interactive':true,
-	'minInputWidth':130,
-	'delimiter': [','],
-	'defaultText':"$default_text"$autocomplete
-});
+makeTagsInput($field, '$default_text', $autocomplete);
 HTML
-;					
+;
 	}
 	
 	my $value = $product_ref->{$field};
@@ -754,8 +746,6 @@ JS
 
 	$header .= <<HTML
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css" />
-<link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.css" />
-<link rel="stylesheet" type="text/css" href="/css/product-multilingual.css" />
 
 HTML
 ;
@@ -767,7 +757,6 @@ HTML
 
 	$scripts .= <<HTML
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.js"></script>
-<script type="text/javascript" src="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="/js/jquery.form.js"></script>
 <script type="text/javascript" src="/js/jquery.autoresize.js"></script>
 <script type="text/javascript" src="/js/jquery.rotate.js"></script>

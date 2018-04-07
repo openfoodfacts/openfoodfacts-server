@@ -21,6 +21,7 @@
 import 'jquery';
 import './vendor/file-upload.js';
 import 'foundation-sites/js/foundation/foundation.tab.js';
+import '../../css/src/product.css';
 
 var code;
 var current_cropbox;
@@ -720,3 +721,21 @@ function update_display(imagefield, first_display) {
   };
 
 })( jQuery );
+
+function makeTagsInput(field, defaultText, autocompleteUrl) {
+	return import('jquery').then($ => {
+		import('jquery-tags-input/src/jquery.tagsinput.js').then(ti => {
+			var options = {
+				height: '3rem',
+				width: '100%',
+				interactive: true,
+				minInputWidth: 130,
+				delimiter: [','],
+				defaultText: defaultText,
+				autocomplete_url: autocompleteUrl
+			};
+
+			return $('#' + field).tagsInput(options);
+		   }).catch(error => 'An error occurred while loading the jquery-tags-input component');
+		}).catch(error => 'An error occurred while loading the jquery component');
+}

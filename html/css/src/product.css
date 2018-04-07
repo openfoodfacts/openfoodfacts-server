@@ -19,6 +19,9 @@
  You should have received a copy of the GNU Affero General Public License
  along with this program.  If not, see <http:www.gnu.org/licenses/>.
 */
+
+@import '~jquery-tags-input/src/jquery.tagsinput.css';
+
 div.tagsinput input {
     box-shadow: none;
 }
