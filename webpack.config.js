@@ -16,6 +16,7 @@ const config = {
         path: __dirname + '/html/js/dist',
         publicPath: '/js/dist/'
     },
+    devtool: 'source-map',
     module: {
         rules: [
             {

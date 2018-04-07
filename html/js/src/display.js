@@ -21,8 +21,32 @@
 import 'jquery';
 import './vendor/jquery-ui.js';
 import 'manupjs';
-import 'select2';
 import './vendor/foundation.js';
 
 import '../../css/src/display.css';
 import '../../../scss/app.scss';
+
+function initCountrySelect(placeholder, serverdomain) {
+	return import('jquery').then($ => {
+		import('select2').then(s => {
+            var options = {
+                placeholder: placeholder,
+                allowClear: true
+            };
+
+            $("#select_country").select2(options).on("select2:select", function(e) {
+                var subdomain =  e.params.data.id;
+                if (! subdomain) {
+                    subdomain = 'world';
+                }
+                window.location.href = "http://" + subdomain + "." + serverdomain;
+            }).on("select2:unselect", function(e) {            
+                window.location.href = "http://world." + serverdomain;
+            })
+		   }).catch(error => 'An error occurred while loading the jquery-tags-input component');
+		}).catch(error => 'An error occurred while loading the jquery component');
+}
+
+document.addEventListener('DOMContentLoaded', function(event) {
+    initCountrySelect(document.getElementById('mainscript').dataset['selectcountry'], document.documentElement.dataset['serverdomain']);
+});

@@ -4717,22 +4717,7 @@ $meta_description
 <link rel="search" href="@{[ format_subdomain($subdomain) ]}/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}" />
 
 <script>
-\$(function() {
-\$("#select_country").select2({
-	placeholder: "$Lang{select_country}{$lang}",
-    allowClear: true
-	}
-	).on("select2:select", function(e) {
-	var subdomain =  e.params.data.id;
-	if (! subdomain) {
-		subdomain = 'world';
-	}
-	window.location.href = "http://" + subdomain + ".${server_domain}";
-}).on("select2:unselect", function(e) {
-
-	window.location.href = "http://world.${server_domain}";
-})
-;
+document.addEventListener("DOMContentLoaded", function(event) {
 <initjs>
 });
 </script>
@@ -5409,7 +5394,7 @@ $Lang{footer_follow_us}{$lc}
 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>	
 
-<script src="/js/dist/display.js"></script>
+<script src="/js/dist/display.js" id="mainscript" data-selectcountry="$Lang{select_country}{$lang}"></script>
 
 $scripts
 
