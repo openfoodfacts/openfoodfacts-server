@@ -3,7 +3,8 @@
 * Documentation started on <https://en.wiki.openfoodfacts.org/Project:ProductOpener>
 * Version: 
 
-[![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
+[![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fopenfoodfacts%2Fopenfoodfacts-server.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fopenfoodfacts%2Fopenfoodfacts-server?ref=badge_shield)
+
 [![Build Status](https://travis-ci.org/openfoodfacts/openfoodfacts-server.svg?branch=master)](https://travis-ci.org/openfoodfacts/openfoodfacts-server)
 [![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/openfoodfacts/openfoodfacts-server.svg)](https://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Average time to resolve an issue")
 [![Percentage of issues still open](https://isitmaintained.com/badge/open/openfoodfacts/openfoodfacts-server.svg)](https://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Percentage of issues still open")
@@ -49,6 +50,9 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fopenfoodfacts%2Fopenfoodfacts-server.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fopenfoodfacts%2Fopenfoodfacts-server?ref=badge_large)
 
 # Libraries used #
 
