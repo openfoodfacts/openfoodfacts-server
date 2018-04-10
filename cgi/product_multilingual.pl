@@ -752,12 +752,8 @@ JS
 JS
 ;
 
-# <link rel="stylesheet" type="text/css" href="/js/jquery.imgareaselect-0.9.10/css/imgareaselect-default.css" />
-# <link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.20150416/jquery.tagsinput.min.css" />
-
-
 	$header .= <<HTML
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.2/cropper.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css" />
 <link rel="stylesheet" type="text/css" href="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.css" />
 <link rel="stylesheet" type="text/css" href="/css/product-multilingual.css" />
 
@@ -769,14 +765,8 @@ HTML
 #<script type='text/javascript' src='https://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.min.js'></script>
 #<link rel="stylesheet" type="text/css" href="https://xoxco.com/x/tagsinput/jquery-autocomplete/jquery.autocomplete.css" ></link>
 
-# <script type="text/javascript" src="/js/jquery.imgareaselect-0.9.8/scripts/jquery.imgareaselect.pack.js"></script>
-# <script type="text/javascript" src="/js/jquery.imgareaselect-0.9.11/scripts/jquery.imgareaselect.touch-support.js"></script>
-# <script type="text/javascript" src="/js/imgareaselect-1.0.0/jquery.imgareaselect.min.js"></script> --> seems broken
-  
-
-
 	$scripts .= <<HTML
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.2/cropper.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.js"></script>
 <script type="text/javascript" src="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="/js/jquery.form.js"></script>
 <script type="text/javascript" src="/js/jquery.autoresize.js"></script>
@@ -2086,62 +2076,7 @@ HTML
 HTML
 ;
 
-	# Display history
-	
-	if ($product_ref->{rev} > 0) {
-	
-		my $path = product_path($code);
-		my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
-		if (not defined $changes_ref) {
-			$changes_ref = [];
-		}
-		
-		$html .= "<h2>" . lang("history") . "</h2>\n<ul>\n";
-		
-		my $current_rev = $product_ref->{rev};
-		
-		foreach my $change_ref (reverse @{$changes_ref}) {
-		
-			my $date = display_date_tag($change_ref->{t});	
-			my $user = "";
-			if (defined $change_ref->{userid}) {
-				$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
-			}
-			
-			my $comment = $change_ref->{comment};
-			$comment = lang($comment) if $comment eq 'product_created';
-			
-			$comment =~ s/^Modification :\s+//;
-			if ($comment eq 'Modification :') {
-				$comment = '';
-			}
-			$comment =~ s/\new image \d+( -)?//;
-			
-			if ($comment ne '') {
-				$comment = "- $comment";
-			}
-			
-			my $change_rev = $change_ref->{rev};
-			
-			if (not defined $change_rev) {
-				$change_rev = $current_rev;
-			}
-			$current_rev--;
-			
-			# Display diffs
-			# [Image upload - add: 1, 2 - delete 2], [Image selection - add: front], [Nutriments... ]
-			
-			my $diffs = compute_changes_diff_text($change_ref);
-			$html .= "<li>$date - $user $diffs $comment - <a href=\"" . product_url($product_ref) . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
-		
-		}
-		
-		$html .= "</ul>\n";
-	}
-	
-
-
-
+	$html .= display_product_history($code, $product_ref);
 }
 elsif (($action eq 'display') and ($type eq 'delete')) {
 
