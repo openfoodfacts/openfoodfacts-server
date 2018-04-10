@@ -28,81 +28,76 @@
 
 <p>Wir haben jedoch den Nährwert für Produkte, die auf französischem Boden verkauft werden und in der Datenbank Open Food Facts aufgeführt sind, berechnet und die entsprechenden Noten A bis E ermittelt. Dies ermöglicht insbesondere den Vergleich der Nährwerte und/oder Anmerkungen verschiedener Produkte und die Untersuchung der Verteilung für jede Produktkategorie.</p>
 
-<h2>Formula calculating the nutritional score</h2>
+<h2>Formel zur Berechnung des Nährstoffgehalts</h2>
 
-<p>points are given to the products according to the amount of nutrients they contain per 100 g.</p>
+<p>Punkte werden den Produkten nach der Menge der enthaltenen Nährstoffe je 100 g gegeben.</p>
 
-<p>A Points are given for the nutrients considered "bad" and points C are given for the "good" nutrients and the content in fruits, vegetables and nuts.</p>
+<p>A-Punkte werden für die als „schlecht” geltenden Nährstoffe und C-Punkte für die „guten” Nährstoffe und den Gehalt an Obst, Gemüse und Nüssen vergeben.</p>
 
-<h3>Points A</h3>
+<h3>A-Punkte</h3>
 
-<p>A points are the sum of points for energy, saturated fat, sugars and sodium.</p>
-
-<table class="points">
-<tbody><tr><th> Points</th> <th> Energy (kJ)</th> <th> Saturated Fat (g)</th> <th> Zucker (g)</th> <th > Sodium (mg)</th></tr>
-<tr><td>0</td> <td>≤335</td> <td>≤1</td> <td>≤4.5</td> <td>≤90</td></tr>
-<tr><td>1</td> <td>&gt;335</td> <td>&gt;1</td> <td>&gt;4.5</td> <td>&gt;90</td></tr>
-<tr><td>2</td> <td>&gt;670</td> <td>&gt;2</td> <td>&gt;9</td> <td>&gt;180</td></tr>
-<tr><td>3</td> <td>&gt;1005</td> <td>&gt;3</td> <td>&gt;13.5</td> <td>&gt;270</td></tr>
-<tr><td>4</td> <td>&gt;1340</td> <td>&gt;4</td> <td>&gt;18</td> <td>&gt;360</td></tr>
-<tr><td>5</td> <td>&gt;1675</td> <td>&gt;5</td> <td>&gt;22.5</td> <td>&gt;450</td></tr>
-<tr><td>6</td> <td>&gt;2010</td> <td>&gt;6</td> <td>&gt;27</td> <td>&gt;540</td></tr>
-<tr><td>7</td> <td>&gt;2345</td> <td>&gt;7</td> <td>&gt;31</td> <td>&gt;630</td></tr>
-<tr><td>8</td> <td>&gt;2680</td> <td>&gt;8</td> <td>&gt;36</td> <td>&gt;720</td></tr>
-<tr><td>9</td> <td>&gt;3015</td> <td>&gt;9</td> <td>&gt;40</td> <td>&gt;810</td></tr>
-<tr><td>10</td> <td>&gt;3350</td> <td>&gt;10</td> <td>&gt;45</td> <td>&gt;900</td></tr>
-</tbody></table>
-
-<h3>Points C</h3>
-
-<p>The point C is the sum of points for fruit, vegetables and nuts, for fiber and protein.</p>
+<p>A-Punkte sind die Summe der Punkte für Energie, gesättigte Fettsäuren, Zucker und Natrium.</p>
 
 <table class="points">
-<tbody><tr><th> Points</th> <th> Fruits, vegetables and nuts (%)</th> <th> Fibre (g)</th> <th> Protein (g)</th></tr>
-<tr><td>0</td> <td>≤40</td> <td>≤0.7</td> <td>≤1.6
-</td></tr> <tr><td>1</td> <td>&gt;40</td> <td>&gt;0.7</td> <td>&gt;1.6
-</td></tr> <tr><td>2</td> <td>&gt;60</td> <td>&gt;1.4</td> <td>&gt;3.2
-</td></tr> <tr><td>3</td> <td>-</td> <td>&gt;2.1</td> <td>&gt;4.8
-</td></tr> <tr><td>4</td> <td>-</td> <td>&gt;2.8</td> <td>&gt;6.4
-</td></tr> <tr><td>5</td> <td>&gt;80</td> <td>&gt;3.5</td> <td>&gt;8.0</td> </tr>
+<tbody><tr><th> Punkte</th> <th> Energie (kJ)</th> <th> Gesättigte Fettsäuren (g)</th> <th> Zucker (g)</th> <th > Natrium (mg)</th></tr>
+<tr><td>0</td> <td>≤ 335</td> <td>≤ 1</td> <td>≤ 4,5</td> <td>≤ 90</td></tr>
+<tr><td>1</td> <td>&gt; 335</td> <td>&gt; 1</td> <td>&gt; 4,5</td> <td>&gt; 90</td></tr>
+<tr><td>2</td> <td>&gt; 670</td> <td>&gt; 2</td> <td>&gt; 9</td> <td>&gt;180</td></tr>
+<tr><td>3</td> <td>&gt; 1005</td> <td>&gt; 3</td> <td>&gt; 13,5</td> <td>&gt; 270</td></tr>
+<tr><td>4</td> <td>&gt; 1340</td> <td>&gt; 4</td> <td>&gt; 18</td> <td>&gt; 360</td></tr>
+<tr><td>5</td> <td>&gt; 1675</td> <td>&gt; 5</td> <td>&gt; 22,5</td> <td>&gt; 450</td></tr>
+<tr><td>6</td> <td>&gt; 2010</td> <td>&gt; 6</td> <td>&gt; 27</td> <td>&gt; 540</td></tr>
+<tr><td>7</td> <td>&gt; 2345</td> <td>&gt; 7</td> <td>&gt; 31</td> <td>&gt; 630</td></tr>
+<tr><td>8</td> <td>&gt; 2680</td> <td>&gt; 8</td> <td>&gt; 36</td> <td>&gt; 720</td></tr>
+<tr><td>9</td> <td>&gt; 3015</td> <td>&gt; 9</td> <td>&gt; 40</td> <td>&gt; 810</td></tr>
+<tr><td>10</td> <td>&gt; 3350</td> <td>&gt; 10</td> <td>&gt; 45</td> <td>&gt; 900</td></tr>
 </tbody></table>
 
-<p>Note: potato, sweet potato, taro, cassava and tapioca are not included in fruits,
-vegetables and nuts.</p>
+<h3>C-Punkte</h3>
 
-<h3>nutritional score calculation</h3>
+<p>Der Punkt C ist die Summe der Punkte für Obst, Gemüse und Nüsse, für Ballaststoffe und Eiweiß.</p>
+
+<table class="points">
+<tbody><tr><th> Punkte</th> <th> Obst, Gemüse und Nüsse (%)</th> <th> Ballaststoffe (g)</th> <th> Eiweiß (g)</th></tr>
+<tr><td>0</td> <td>≤ 40</td> <td>≤ 0,7</td> <td>≤ 1,6
+</td></tr> <tr><td>1</td> <td>&gt; 40</td> <td>&gt; 0,7</td> <td>&gt; 1,6
+</td></tr> <tr><td>2</td> <td>&gt; 60</td> <td>&gt; 1,4</td> <td>&gt; 3,2
+</td></tr> <tr><td>3</td> <td>-</td> <td>&gt; 2,1</td> <td>&gt; 4,8
+</td></tr> <tr><td>4</td> <td>-</td> <td>&gt; 2,8</td> <td>&gt; 6,4
+</td></tr> <tr><td>5</td> <td>&gt; 80</td> <td>&gt; 3,5</td> <td>&gt; 8,0</td> </tr>
+</tbody></table>
+
+<p>Hinweis: Kartoffeln, Süßkartoffeln, Taro, Maniok und Tapioka sind nicht in Obst, Gemüse und Nüssen enthalten.</p>
+
+<h3>Nährwertberechnung</h3>
 
 <ul>
-<li>If points A &lt; 11 then score = point A - point C</li>
-<li>If the points A ≥ 11
+<li>Wenn die Punktzahl A &lt; 11 dann = Punkt A − Punkt C</li>
+<li>Wenn die Punktzahl A ≥ 11 ist
 <ul>
-<li>If the points for fruit, vegetables and nuts = 5, then score = point A - point C</li>
-<li>If the points for fruit, vegetables and nuts &lt; 5, then score points A = - (fiber + points for points
-fruits, vegetables and nuts</li>
+<li>Wenn die Punktzahl für Obst, Gemüse und Nüsse = 5, dann Punkt A − Punkt C</li>
+<li>Wenn die Punkte für Obst, Gemüse und Nüsse &lt; 5, dann Punkte A = ➖ (Faser ➕ Punkte für Punkte Obst, Gemüse und Nüsse</li>
 </ul>
 
 </li>
 </ul>
 
-<h3>Adaptations for the French market</h3>
+<h3>Anpassungen für den französischen Markt</h3>
 
-<p>The formula of nutritional score indicated above corresponds to the formula nutritional score of the Food Standards Agency (FSA) in the UK.</p>
+<p>Die oben angegebene Formel für den Nährwert entspricht der Formel für den Nährwert der „Food Standards Agency” (FSA) in Großbritannien.</p>
 
-<p>The team of Professor Hercberg offers adaptations for the French market are implemented
-to calculate the score on Open Food Facts.</p>
+<p>Das Team von Professor Hercberg bietet Anpassungen für den französischen Markt an, um den Wert von Open Food Facts zu berechnen.</p>
 
-<h4>Adaptation for cheese</h4>
+<h4>Käseanpassung</h4>
 
-<p>For cheeses, points to the proteins are cut to score even if the points are A ≥ 11.</p>
+<p>Für Käse werden die Punkte auf die Proteine gekürzt, auch wenn die Punktzahl A ≥ 11 ist.</p>
 
-<h4>Adaptation for fat</h4>
+<h4>Fettanpassung</h4>
 
-<p>To help differentiate between fats (oils, margarines, fresh cream) all of which have rates
-higher saturated fat to the maximum threshold of 10 g, another grid that reflects the ratio of saturated fatty acids
-the total fat is applied:</p>
+<p>Zur Unterscheidung zwischen Fetten (Öle, Margarinen, frische Sahne), die alle einen höheren Anteil an gesättigten Fettsäuren bis zu einem Höchstwert von 10 g aufweisen, wird ein weiteres Schema verwendet, das den Anteil der gesättigten Fettsäuren am Gesamtfett widerspiegelt:</p>
 
 <table class="points">
-<tbody><tr><td>Points</td> <td>ratio Saturated fat / Total Fat</td></tr>
+<tbody><tr><td>Punkte</td> <td>Verhältnis zw. Gesättigten Fettsäuren/Gesamtfettgehalt</td></tr>
 <tr><td>0</td> <td>&lt; 10</td></tr>
 <tr><td>1</td> <td>&lt; 16</td></tr>
 <tr><td>2</td> <td>&lt; 22</td></tr>
@@ -113,96 +108,88 @@ the total fat is applied:</p>
 <tr><td>7</td> <td>&lt; 52</td></tr>
 <tr><td>8</td> <td>&gt;&lt; 58</td></tr>
 <tr><td>9</td> <td>&gt;&lt; 64</td></tr>
-<tr><td>10</td> <td>&gt;64</td></tr>
+<tr><td>10</td> <td>&gt; 64</td></tr>
 </tbody></table>
 
-<h4>Adaptations for fruits and vegetables</h4>
+<h4>Anpassungen für Obst und Gemüse</h4>
 
 <p>The nuts and nuts are not taken into account for the calculation of the content of fruits and vegetables.</p>
 
-<h4>Adaptations for drinks</h4>
+<h4>Anpassungen für Getränke</h4>
 
-<p>Warning: the nutritional score for milk and vegetable milks is calculated with the formula
-not the formula for drinks.</p>
+<p>Achtung: Der Nährwert für Milch- und Gemüsemilche wird mit der Formel berechnet, jedoch nicht mit der Formel für Getränke.</p>
 
-<p>The threshold points for energy and sugars are modified for drinks, and points are doubled for fruits:</p>
+<p>Die Schwellenwerte für Energie und Zucker werden für Getränke angepasst, für Früchte verdoppelt:</p>
 
 <table class="points">
-<tbody><tr><th> Points</th> <th> Energy (kJ)</th> <th> Zucker (g)</th> <th> Fruits, vegetables (%)</th> </tr>
+<tbody><tr><th> Punkte</th> <th> Energie (kJ)</th> <th> Zucker (g)</th> <th> Obst, Gemüse (%)</th> </tr>
 <tr><td>0</td> <td>0</td> <td>0</td> <td>&lt; = 40</td></tr>
-<tr><td>1</td> <td>≤30</td> <td>≤1,5 ​​or sweeteners</td> <td></td></tr>
-<tr><td>2</td> <td>&gt;30</td> <td>&gt;1.5</td> <td>&gt;40</td></tr>
-<tr><td>3</td> <td>&gt;60</td> <td>&gt;3</td> <td></td></tr>
-<tr><td>4</td> <td>&gt;90</td> <td>&gt;4.5</td> <td>&gt;60</td></tr>
-<tr><td>5</td> <td>&gt;120</td> <td>&gt;6</td> <td></td></tr>
-<tr><td>6</td> <td>&gt;150</td> <td>&gt;7.5</td> <td></td></tr>
-<tr><td>7</td> <td>&gt;180</td> <td>&gt;9</td> <td></td></tr>
-<tr><td>8</td> <td>&gt;210</td> <td>&gt;10.5</td> <td></td></tr>
-<tr><td>9</td> <td>&gt;240</td> <td>&gt;12</td> <td></td></tr>
-<tr><td>10</td> <td>&gt;270</td> <td>&gt;13.5</td> <td>&gt;80</td></tr>
+<tr><td>1</td> <td>≤ 30</td> <td>≤ 1,5 oder Süßstoffe</td> <td></td></tr>
+<tr><td>2</td> <td>&gt; 30</td> <td>&gt; 1,5</td> <td>&gt; 40</td></tr>
+<tr><td>3</td> <td>&gt; 60</td> <td>&gt; 3</td> <td></td></tr>
+<tr><td>4</td> <td>&gt; 90</td> <td>&gt; 4,5</td> <td>&gt; 60</td></tr>
+<tr><td>5</td> <td>&gt; 120</td> <td>&gt; 6</td> <td></td></tr>
+<tr><td>6</td> <td>&gt; 150</td> <td>&gt; 7,5</td> <td></td></tr>
+<tr><td>7</td> <td>&gt;180</td> <td>&gt; 9</td> <td></td></tr>
+<tr><td>8</td> <td>&gt; 210</td> <td>&gt; 10,5</td> <td></td></tr>
+<tr><td>9</td> <td>&gt; 240</td> <td>&gt; 12</td> <td></td></tr>
+<tr><td>10</td> <td>&gt; 270</td> <td>&gt; 13,5</td> <td>&gt; 80</td></tr>
 </tbody></table>
 
-<h2>Color notes Thresholds</h2>
+<h2>Schwellenwerte der Farbtöne</h2>
 
-<p>The thresholds used to assign the notes are:</p> <p>
-</p><h3>Solid Foods:</h3>
+<p>Die Schwellenwerte für die Zuordnung der Noten sind:</p> <p>
+</p><h3>Feste Nahrungsmittel:</h3>
 <ul>
-<li>A - Green: to -1</li>
-<li>B - Yellow: 0-2</li>
-<li>C - Orange: from 3 to 10</li>
-<li>D - Rose: 11 to 18</li>
-<li>E - Red: 19 and more</li>
+<li>A - Grün: bis -1</li>
+<li>B - Gelb: 0-2</li>
+<li>C - Orange: von 3 bis 10</li>
+<li>D - Rosa: 11 bis 18</li>
+<li>E - Rot: 19 und mehr</li>
 </ul>
-<h3>Beverages:</h3>
-<p>Only water (mineral and spring, with exclusion of flavored waters) is classified A.</p>
+<h3>Getränke:</h3>
+<p>Nur Wasser (Mineral- und Quellwasser, mit Ausnahme von aromatisiertem Wasser) wird als A eingestuft.</p>
 
 <ul>
-<li>A - Green: mineral waters and spring waters</li>
-<li>B - Yellow: up to 1</li>
-<li>C - Orange: 2 to 5</li>
-<li>D - Rose: from 6 to 9</li>
-<li>E - Red: 10 and more</li>
+<li>A - Grün: Mineralwasser und Quellwasser</li>
+<li>B - Gelb: bis zu 1</li>
+<li>C - Orange: 2 bis 5</li>
+<li>D - Rosa: von 6 bis 9</li>
+<li>E - Rot: 10 und mehr</li>
 </ul>
 
-<p><b> Warning: This score may still not match the recommended score:</b></p>
+<p><b> Warnhinweis: Diese Punktzahl kann immer noch nicht mit der empfohlenen Punktzahl übereinstimmen:</b></p>
 
 <ul>
-<li>The fiber content is not necessarily present in the nutrition table. When the latter is not indicated, any
-positive contribution of the fibers is not taken into account. We encourage all producers to indicate the fiber content of their
-products on the packaging thereof.</li>
-<li>The points corresponding to the levels in fruits and vegetables are not taken into account for all products. The fruit content, vegetables
+<li>Der Ballaststoffgehalt ist nicht unbedingt in der Nährwerttabelle enthalten. Wenn letzteres nicht angegeben ist, wird ein positiver Wert der Ballaststoffe nicht berücksichtigt. Wir ermutigen alle Hersteller, den Ballaststoffgehalt ihrer Produkte auf der Verpackung anzugeben.</li>
+<li>Die Punkte, die den Werten für Obst und Gemüse entsprechen, werden nicht für alle Produkte berücksichtigt. The fruit content, vegetables
 and is indeed not on the package within the nutrition table, and we'll have to determine the
 with other information (such as the words "minimum fruit content", the category of products (eg jams
 contain 50% fruit) and / or the ingredient list.)
 <ul>
-<li>A new field "Fruits, vegetables (minimum)" was created to record the values ​​of the terms "minimum content of fruit / vegetables" etc.</li>
-<li>By default, the products in certain categories are considered to have a minimum content of:
+<li>Ein neues Feld „Obst, Gemüse (mindestens)” wurde geschaffen, um die Werte der Begriffe „Mindestgehalt an Obst/Gemüse” usw. zu erfassen.</li>
+<li>Standardmäßig werden die Produkte in bestimmten Kategorien mit einem Mindestgehalt von:
 <ul>
 <li>100%: <a juice href="http://world.openfoodfacts.org/category/fr:jus-de-fruits"></a></li>
-<li>90%: <a href="http://world.openfoodfacts.org/category/fr:compotes">stewed fruits</a></li>
-<li>85%: <a href="http://world.openfoodfacts.org/category/fr:legumes">vegetables</a></li>
-<li>50%: <a href="http://world.openfoodfacts.org/category/fr:confitures">jams</a></li>
+<li>90%: <a href="http://world.openfoodfacts.org/category/fr:compotes">Früchtekompott</a></li>
+<li>85%: <a href="http://world.openfoodfacts.org/category/fr:legumes">Gemüse</a></li>
+<li>50%: <a href="http://world.openfoodfacts.org/category/fr:confitures">Konfitüren</a></li>
 <li>other categories to define</li>
 </ul>
 
-To calculate the nutritional score, it is important to distinguish levels above 40%, 60% and 80%.
+Um den Nährwert zu berechnen, ist es wichtig, Werte von über 40%, 60% und 80% zu unterscheiden.
 </li>
 </ul>
 
 </li>
 
-<li>For the lyophilized food (packet soups etc.), the score should be calculated for the reconstituted product, not
-the product in the rough as is currently the case.</li>
+<li>Für die lyophilisierten Lebensmittel (Tütensuppen usw.) sollte der Wert für das verbrauchsfertige Produkt berechnet werden, nicht für das Produkt im Rohzustand, wie es derzeit der Fall ist.</li>
 </ul>
 
-<p>You can help us learn the fruit content, vegetables and nuts products. For more information, see 
-<a href="http://fr.wiki.openfoodfacts.org/Projet_de_loi_sur_l%27%C3%A9tiquetage_nutritionnel_:_on_s%27en_m%C3%AAle_%3F">the Nutritional Labeling</a> project wiki.</p>
+<p>Sie können uns helfen, den Gehalt an Obst, Gemüse und Nüssen zu erfahren. Für weitere Informationen siehe <a href="http://fr.wiki.openfoodfacts.org/Projet_de_loi_sur_l%27%C3%A9tiquetage_nutritionnel_:_on_s%27en_m%C3%AAle_%3F">die Nährwertkennzeichnung</a> im Projekt-Wiki.</p>
 
-<p>Note: tubers such as potatoes and sweet potatoes are not considered vegetables to calculate nutritional score</p>.
-<h2>Thank You</h2>
-<p>We thank Professor Serge Hercberg and Dr. Chantal Julia for their help and the data we have
-communicated to calculate the nutritional score. These data come from the work 
-<a href="http://www-smbh.univ-paris13.fr/recherche/laboratoires/69-equipe-de-recherche-en-epidemiologie-nutritionnelle-eren-umr-1153-inserm-u1125-inra-cnam-up13.html ">Research Team Nutritional Epidemiology (EREN)</a>
-University Paris 13 / Avicenne Hospital.</p>
+<p>Anmerkung: Knollen wie Kartoffeln und Süßkartoffeln gelten nicht als Gemüse zur Berechnung des Nährwerts.</p>.
+<h2>Vielen Dank</h2>
+<p>Wir danken Herrn Professor Serge Hercberg und Frau Dr. Chantal Julia für ihre Hilfe und die Daten, die wir zur Berechnung des Ernährungswertes erhalten haben. Diese Daten stammen aus der Arbeit <a href="http://www-smbh.univ-paris13.fr/recherche/laboratoires/69-equipe-de-recherche-en-epidemiologie-nutritionnelle-eren-umr-1153-inserm-u1125-inra-cnam-up13.html ">Research Team Nutritional Epidemiology (EREN)</a> University Paris 13 / Avicenne Hospital.</p>
 
 </div>
