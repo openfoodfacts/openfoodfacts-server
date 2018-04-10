@@ -797,7 +797,7 @@ sub extract_ingredients_classes_from_text($) {
 		my $ingredientid = get_fileid($ingredient);
 		if ((defined $ingredientid) and ($ingredientid ne '')) {
 			push @ingredients_ids, $ingredientid;
-			print STDERR "ingredient 3: $ingredient \n";
+			# print STDERR "ingredient 3: $ingredient \n";
 		}
 	}
 	
@@ -863,7 +863,7 @@ sub extract_ingredients_classes_from_text($) {
 					
 					if (exists_taxonomy_tag("additives_classes", $canon_ingredient_additive_class )) {
 						$current_additive_class = $canon_ingredient_additive_class;
-						print STDERR "current_additive_class : $canon_ingredient_additive_class\n";
+						# print STDERR "current_additive_class : $canon_ingredient_additive_class\n";
 					}
 				
 					# additive?
