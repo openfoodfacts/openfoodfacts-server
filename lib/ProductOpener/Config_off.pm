@@ -92,6 +92,7 @@ bojackhorseman
 hangy
 javichu
 kyzh
+lucaa
 scanparty-franprix-05-2016
 sebleouf
 segundo
@@ -161,8 +162,8 @@ scanparty-franprix-05-2016
 		["warn"]
 	],
 	notifications => [ qw (
-                slack_channel_edit-alert
-        )],
+		slack_channel_edit-alert
+	)],
 },
 
 );
@@ -267,6 +268,30 @@ $options{opensearch_image} = <<XML
 <Image width="16" height="16" type="image/x-icon">https://static.$server_domain/images/favicon/favicon.ico</Image>
 XML
 ;
+
+$options{categories_exempted_from_nutriscore} = [qw(
+en:baby-foods
+en:baby-milks
+en:alcoholic-beverages
+en:waters
+en:coffees
+en:teas
+fr:levure
+fr:levures
+en:honeys
+en:vinegars
+)];
+
+$options{categories_exempted_from_nutrient_levels} = [qw(
+en:baby-foods
+en:baby-milks
+en:alcoholic-beverages
+en:coffees
+en:teas
+fr:levure
+fr:levures
+)];
+
 
 %wiki_texts = (
 
@@ -382,27 +407,35 @@ last_edit_dates
 $options{other_servers} = {
 obf =>
 {
-        name => "Open Beauty Facts",
-        data_root => "/home/obf",
-        www_root => "/home/obf/html",
-        mongodb => "obf",
+	name => "Open Beauty Facts",
+	data_root => "/home/obf",
+	www_root => "/home/obf/html",
+	mongodb => "obf",
 	domain => "openbeautyfacts.org",
 },
 off =>
 {
-        name => "Open Food Facts",
-        data_root => "/home/off",
-        www_root => "/home/off/html",
-        mongodb => "off",
+	name => "Open Food Facts",
+	data_root => "/home/off",
+	www_root => "/home/off/html",
+	mongodb => "off",
 	domain => "openfoodfacts.org",
+},
+opf =>
+{
+	name => "Open Products Facts",
+	data_root => "/home/opf",
+	www_root => "/home/opf/html",
+	mongodb => "opf",
+	domain => "openproductsfacts.org",
 },
 opff =>
 {
-        prefix => "opff",
-        name => "Open Pet Food Facts",
-        data_root => "/home/opff",
-        www_root => "/home/opff/html",
-        mongodb => "opff",
+	prefix => "opff",
+	name => "Open Pet Food Facts",
+	data_root => "/home/opff",
+	www_root => "/home/opff/html",
+	mongodb => "opff",
 	domain => "openpetfoodfacts.org",
 }
 };

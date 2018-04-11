@@ -65,7 +65,7 @@ server {
 	}
 
 	location ~ ^/images/products/ {
-		add_header Link "<https://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
+		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
 	}
 
 	location ~ ^/(favicon.ico) {
