@@ -45,6 +45,8 @@ BEGIN
 					
 					&unit_to_mmoll
 					&mmoll_to_unit
+					
+					&normalize_quantity
 
 					&canonicalize_nutriment
 					
@@ -1168,6 +1170,7 @@ fat => {
 },
 'saturated-fat' => {
 	fr => "Acides gras saturés",
+	fr_synonyms => ["Saturés", "AGS"],
 	en => "Saturated fat",
 	es => "Grasas saturadas",
 	it =>"Acidi Grassi saturi",
@@ -1332,6 +1335,7 @@ fat => {
 },
 'monounsaturated-fat' => {
 	fr => "Acides gras monoinsaturés",
+	fr_synonyms => ["Acides gras mono-insaturés"],
 	en => "Monounsaturated fat",
 	es => "Grasas monoinsaturadas",
 	it=> "Acidi grassi monoinsaturi", 
@@ -1360,6 +1364,7 @@ fat => {
 },
 'omega-9-fat' => {
 	fr => "Acides gras Oméga 9",
+	fr_synonyms => ["Oméga 9"],
 	en => "Omega 9 fatty acids",
 	es => "Ácidos grasos Omega 9",
 	el => 'Ωμέγα-9 λιπαρά',
@@ -1429,6 +1434,7 @@ fat => {
 },
 'polyunsaturated-fat' => {
 	fr => "Acides gras polyinsaturés",
+	fr_synonyms => ["Acides gras poly-insaturés"],
 	en => "Polyunsaturated fat",
 	es => "Grasas poliinsaturadas",
 	it => "Acidi grassi polinsaturi",
@@ -1457,6 +1463,7 @@ fat => {
 },
 'omega-3-fat' => {
 	fr => "Acides gras Oméga 3",
+	fr_synonyms => ["Oméga 3"],
 	en => "Omega 3 fatty acids",
 	es => "Ácidos grasos Omega 3",
 	el => 'Ωμέγα-3 λιπαρά',
@@ -1484,6 +1491,7 @@ fat => {
 	el => 'Εικοσιπεντανοϊκο οξύ / EPA (20:5 n-3)',
 	pt => 'Ácido eicosapentaenóico / EPA (20:5 n-3)',
 	fr => 'Acide eicosapentaénoïque / EPA (20:5 n-3)',
+	fr_synonyms => ["Oméga 3 EPA"],
 	nl => 'Eicosapentaeenzuur / EPA (20:5 n-3)',
 	nl_be => 'Eicosapentaeenzuur / EPA (20:5 n-3)',
 },
@@ -1493,11 +1501,13 @@ fat => {
 	el => 'Δοκοσαεξανοϊκο οξύ / DHA (22:6 n-3)',
 	pt => 'Ácido docosa-hexaenóico / DHA (22:6 n-3)',
 	fr => 'Acide docosahexaénoïque / DHA (22:6 n-3)',
+	fr_synonyms => ["Oméga 3 DHA"],
 	nl => 'Docosahexaeenzuur / DHA (22:6 n-3)',
 	nl_be => 'Docosahexaeenzuur / DHA (22:6 n-3)',
 },
 'omega-6-fat' => {
 	fr => "Acides gras Oméga 6",
+	fr_synonyms => ["Oméga 6"],
 	en => "Omega 6 fatty acids",
 	es => "Ácidos grasos Omega 6",
 	el => "Ωμέγα-6 λιπαρά",
@@ -2924,6 +2934,35 @@ foreach my $nid (keys %Nutriments) {
 }
 
 
+sub normalize_quantity($) {
+
+	# return the size in g or ml for the whole product
+	
+	# 1 barquette de 40g
+	# 20 tranches 500g
+	# 6x90g --> return 540
+
+	my $quantity = shift;
+	
+	my $q = undef;
+	my $u = undef;
+	
+	if ($quantity =~ /(\d+)(\s)?(x|\*)(\s)?((\d+)(\.|,)?(\d+)?)(\s)?(kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz))/i) {
+		my $m = $1;
+		$q = lc($5);
+		$u = $10;
+		$q =~ s/,/\./;
+		$q = unit_to_g($q * $m, $u);
+	}	
+	elsif ($quantity =~ /((\d+)(\.|,)?(\d+)?)(\s)?(kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz))/i) {
+		$q = lc($1);
+		$u = $6;
+		$q =~ s/,/\./;
+		$q = unit_to_g($q,$u);
+	}
+		
+	return $q;
+}
 
 
 sub normalize_serving_size($) {
@@ -3644,7 +3683,13 @@ sub compute_serving_size_data($) {
 	(defined $product_ref->{not_comparable_nutrition_data}) and delete $product_ref->{not_comparable_nutrition_data};
 	(defined $product_ref->{multiple_nutrition_data}) and delete $product_ref->{multiple_nutrition_data};
 
-	
+	(defined $product_ref->{product_quantity}) and delete $product_ref->{product_quantity};
+	if ((defined $product_ref->{quantity}) and ($product_ref->{quantity} ne "")) {
+		my $product_quantity = normalize_quantity($product_ref->{quantity});
+		if (defined $product_quantity) {
+			$product_ref->{product_quantity} = $product_quantity;
+		}
+	}
 	
 	$product_ref->{serving_quantity} = normalize_serving_size($product_ref->{serving_size});
 	
