@@ -637,6 +637,10 @@ sub check_quantity($) {
 		and (not ($product_ref->{quantity} =~ /\N{U+212E}/i))) {
 		push $product_ref->{quality_tags}, "quantity-contains-e";
 	}
+	
+	if ((defined $product_ref->{quantity}) and (not defined $product_ref->{product_quantity})) {
+		push $product_ref->{quality_tags}, "quantity-not-recognized";
+	}
 
 }
 
