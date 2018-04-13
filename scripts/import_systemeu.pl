@@ -68,7 +68,8 @@ $editor_user_id = $editor_user_id;
 
 not defined $photo_user_id and die;
 
-my $csv_file = "/data/off/systemeu/SUYQD_AKENEO_PU_03.csv";
+my $csv_file = "/data/off/systemeu/SUYQD_AKENEO_PU_03-3.csv";
+my $categories_csv_file = "/data/off/systemeu/systeme-u-rubriques.csv";
 
 my $imagedir = "/data/off/systemeu/all_product_images";
 
@@ -86,25 +87,31 @@ print "uploading csv_file: $csv_file, image_dir: $imagedir\n";
 
 my $images_ref = {};
 
+
+my %rubriques = ();
+
 print "Opening image dir $imagedir\n";
 
 if (opendir (DH, "$imagedir")) {
 	foreach my $file (sort { $a cmp $b } readdir(DH)) {
 
-		if ($file =~ /(\d+)(.*)\.jpg/) {
+		if ($file =~ /(\d+)(.*)\.(jpg|jpeg|png)/i) {
 		
 			my $code = $1;
 			my $suffix = $2;
 			my $imagefield = "front";
-			($suffix eq "_0_d") and $imagefield = "ingredients";
-			($suffix eq "_0_e") and $imagefield = "nutrition";
+			($suffix =~ /_\d_d/) and $imagefield = "ingredients";
+			($suffix =~ /_\d_e/) and $imagefield = "nutrition";
 			
-			print STDERR "found image $file for product code $code\n";
+			print "FOUND IMAGE FOR PRODUCT CODE $code - file $file - imagefield: $imagefield\n";
 
 			defined $images_ref->{$code} or $images_ref->{$code} = {};
 			
 			# push @{$images_ref->{$code}}, $file;
-			$images_ref->{$code}{$imagefield} = $file;
+			# keep jpg if there is also a png
+			if (not defined $images_ref->{$code}{$imagefield}) {
+				$images_ref->{$code}{$imagefield} = $file;
+			}
 		}
 	
 	}
@@ -152,9 +159,7 @@ print STDERR "importing labels\n";
 
 print STDERR "importing products\n";
 
-open (my $io2, '<:encoding(UTF-8)', $csv_file) or die("Could not open $csv_file: $!");
-
-$csv->column_names ($csv->getline ($io2));
+my %missing_nids = ();
 
 my %allergens = (
 'UFS' => 'OEUFS',
@@ -195,14 +200,14 @@ my %labels = (
 "MID-D12" => "Absences intentionnelles de substances controverses de PFOA",
 "MID-D13" => "Sans glyphosate",
 "MID-D14" => "95% d'ingrédients d'origine naturelle",
-"ENG-E1" => "Politique DD PLM / MSC volet pêche ",
+"ENG-E1" => "Pêche d'une espèce bien gérée",
 "ENG-E2" => "Alimentation sans OGM",
-"ENG-E3" => "POLITIQUE DD PLM/MSC – volet aquaculture (hors crevettes). ",
+"ENG-E3" => "Elevage avec une alimentation sans OGM",
 "ENG-E4" => "AGRICONFIANCE",
 "ENG-E5" => "DEMARCHE FLEG METIERS",
 "ENG-E6" => "Viticulture Durable",
-"ENG-E7" => "Politique  BLE ",
-"ENG-E8" => "Politique MAIS",
+"ENG-E7" => "Blé issu d'une culture maitrisée",
+"ENG-E8" => "Maïs issu d'une culture maitrisée",
 "ENG-E9" => "RSPO MB/BC",
 "ENG-E10" => "RSPO SG",
 "ENG-E11" => "FSC produit",
@@ -216,18 +221,18 @@ my %labels = (
 "ENG-E19" => "UTZ",
 "ENG-E20" => "Nouvelle Agriculture",
 "ENG-E21" => "Bioplastique",
-"ENG-E22" => "Emballage FSC",
-"ENG-E23" => "Eco conception (suppression suremballage, chasse au vide, modification de matière utilisée)",
+"ENG-E22" => "FSC",
+"ENG-E23" => "Eco conception",
 "ENG-E24" => "Recyclé plastique",
 "ENG-E25" => "Recyclable > 50% ",
-"ENG-E26" => "Recyclable 100% (par rapport à sa catégortie de produit).",
+"ENG-E26" => "Recyclable à 100%",
 "ENG-E27" => "Réduction source ",
 "ENG-E28" => "Recyclé hors plastique",
 "ENG-E29" => "Ecorecharge",
 "ENG-E30" => "Compostable",
-"ENG-E31" => "Mat. 1ère recyclée",
-"ENG-E32" => "Matière Première RENOUVELABLE",
-"ENG-E34" => "Dosettes prêt à l'emploi/Emballage adapté au besoin consommateur",
+"ENG-E31" => "Matière première recyclée",
+"ENG-E32" => "Matière première renouvelable",
+"ENG-E34" => "Dosettes prêt à l'emploi / Emballage adapté au besoin consommateur",
 "ENG-E35" => "Produit rechargeable",
 "ENG-E36" => "Bois issus de forêts  sans risque (Europe du Nord, …) selon analyse de risque définie par TFT.",
 "ENG-E37" => "PEFC produit",
@@ -300,13 +305,25 @@ my %labels = (
 );
 my %labels_count = ();
 
-while (my $labels_ref = $csv->getline_hr ($io2)) {
+my %rubriques_category = ();
 
-	$labels{$labels_ref->{"CODE + VALEUR"}} = $labels_ref->{"Moyens"};
-	$labels_count{$labels_ref->{"CODE + VALEUR"}} = 0;
+open (my $io3, '<:encoding(UTF-8)', $categories_csv_file) or die("Could not open $csv_file: $!");
+
+while (my $line = <$io3>) {
+
+
+	chomp($line);
+	my ($rubriques, $category) = split(/\t/, $line);
+	
+	$rubriques =~ s/\s+\d+$//;
+
+	if ((defined $category) and ($category ne "")) {
+		$rubriques_category{$rubriques} = $category;
+		print STDERR $rubriques . " --> " . $category . "\n";
+	}
 }
 
-close($io2);
+close($io3);
 
 
 print STDERR "importing products\n";
@@ -332,6 +349,10 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
   	
 			$i++;
 
+			
+			# SVE_cdRubriqueN1	SVE_cdRubriqueN2	SVE_cdRubriqueN3
+			$imported_product_ref->{rubriques} = $imported_product_ref->{SVE_cdRubriqueN1} . " - " . $imported_product_ref->{SVE_cdRubriqueN2} . " - " . $imported_product_ref->{SVE_cdRubriqueN3};
+			$rubriques{$imported_product_ref->{rubriques}}++;
 
 			#print $json;
 			
@@ -342,7 +363,23 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			
 			my $code = $imported_product_ref->{UGC_ean};
 			
-			next if not defined ($images_ref->{$code}) or not defined ($images_ref->{$code}{nutrition});
+			if (not defined $images_ref->{$code}) {
+				print "MISSING IMAGES ALL - PRODUCT CODE $code\n";
+			}
+			if (not defined $images_ref->{$code}{front}) {
+				print "MISSING IMAGES FRONT - PRODUCT CODE $code\n";
+			}
+			if (not defined $images_ref->{$code}{ingredients}) {
+				print "MISSING IMAGES INGREDIENTS - PRODUCT CODE $code\n";
+			}			
+			if (not defined $images_ref->{$code}{nutrition}) {
+				print "MISSING IMAGES NUTRITION - PRODUCT CODE $code\n";
+			}			
+			
+			if ((not defined $images_ref->{$code}) or (not defined $images_ref->{$code}{front}) or (not defined $images_ref->{$code}{ingredients})) {
+				print "MISSING IMAGES SOME - PRODUCT CODE $code\n";
+				next;
+			}
 			
 			print "product $i - code: $code\n";
 			
@@ -417,7 +454,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 							print "process_image_upload - file: $file - return code: $return_code - imgid: $imgid\n";	
 							
 							
-							if ($imgid > $current_max_imgid) {
+							if (($imgid > 0) and ($imgid > $current_max_imgid)) {
 
 								print STDERR "assigning image $imgid to $imagefield-fr\n";
 								process_image_crop($code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1);
@@ -449,9 +486,24 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				
 			}
 			
+		
+			
+			if ($imported_product_ref->{UGC_libEcommerce} =~ /\bBIO\b/i) {
+				$params{labels} .= ", " . "Bio";
+			}
+			
 			$params{labels} =~ s/^, //;
 			
 			print STDERR "labels for product code $code : " . $params{labels} . "\n";
+			
+			
+			if ((defined $imported_product_ref->{rubriques}) and ($imported_product_ref->{rubriques} ne "")
+				and (defined $rubriques_category{$imported_product_ref->{rubriques}})) {
+				my $category = $rubriques_category{$imported_product_ref->{rubriques}};
+				$category =~ s/^fr://;
+				$params{categories} = $category;
+				print "assigning category $category from rubriques $imported_product_ref->{rubriques}\n";
+			}
 			
 			# allergens
 			
@@ -510,18 +562,35 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 # U BON ET VEGETARIEN	Produit U
 # U TOUT PETITS	Produit U
 
+# Gourdes allégée en sucres pomme fraise U MAT&LOU 6x90g
+
 
 			my $ugc_libecommerce = $imported_product_ref->{UGC_libEcommerce};
+			
+			# fix typos
+			$ugc_libecommerce =~ s/(emmental|poire|pasteurisé|sucre|paris|passion|fraise|pomme|banane)U/$1 U/ig;
+			$ugc_libecommerce =~ s/ U(x?\d)/ U $1/ig;
+			$ugc_libecommerce =~ s/ "U"/ U /ig;
+			$ugc_libecommerce =~ s/ u / U /ig;
+			
+			# 3256225519576
+			$ugc_libecommerce =~ s/ RAPAZ,/RAPAZ, U,/;
+			
+			#  moutarde de Dijon pot 455gU
+			$ugc_libecommerce =~ s/ (pot (\d+))gU/ U $1 g/i ;
+			
 			# to ease regexp matching
-			$ugc_libecommerce =~ s/U SAVEURS/U_SAVEURS/i;
-			$ugc_libecommerce =~ s/U SANS GLUTEN/U_SANS_GLUTEN/i;
-			$ugc_libecommerce =~ s/U BIO/U_BIO/i;
-			$ugc_libecommerce =~ s/NOR U/NOR_U/i;
-			$ugc_libecommerce =~ s/U OXYGN/U_OXYGN/i;
-			$ugc_libecommerce =~ s/U MAT (ET|&) LOU/U_MAT_ET_LOU/i;
-			$ugc_libecommerce =~ s/U BON (ET|&) VEGETARIEN/U_BON_ET_VEGETARIEN/i;
-			$ugc_libecommerce =~ s/U CUISINES (ET|&) DECOUVERTES/U_CUISINES_ET_DECOUVERTES/i;
-			$ugc_libecommerce =~ s/U TOUT PETITS/U_TOUT_PETITS/i;
+			$ugc_libecommerce =~ s/U( |\.)?SAVEUR(S?)/U_SAVEURS /i;
+			$ugc_libecommerce =~ s/U SANS GLUTEN/U_SANS_GLUTEN /i;
+			$ugc_libecommerce =~ s/U( |\.)?BIO/U_BIO /i;
+			$ugc_libecommerce =~ s/NOR U/NOR_U /i;
+			$ugc_libecommerce =~ s/U OXYGN/U_OXYGN /i;
+			$ugc_libecommerce =~ s/U?( )?MAT( )?(ET|&)( )?LOU/ U_MAT_ET_LOU /i;
+			$ugc_libecommerce =~ s/U BON( )?(ET|&)( )?VEGETARIEN/U_BON_ET_VEGETARIEN /i;
+			$ugc_libecommerce =~ s/U CUISINES( )?(ET|&)( )?DECOUVERTES/U_CUISINES_ET_DECOUVERTES /i;
+			$ugc_libecommerce =~ s/U TOUT PETITS|UTP/U_TOUT_PETITS /i;
+			
+			$ugc_libecommerce =~ s/\.U_/ U_/i;
 
 my %u_brands = (
 U => "U",
@@ -538,8 +607,13 @@ U_CUISINES_ET_DECOUVERTES => "U Cuisines et Découvertes",
 )			;
 			
 			
+			# Fromage double crème au lait pasteurisé U, 30%MG, 200g
+			# Saucisses de Francfort U BIO, 4 pièces, 200g
+			
+			my $alcohol;
+			
 			if ($ugc_libecommerce =~
-				/(.+)( |,)+(U_BIO|U_SAVEURS|NOR_U|U_OXYGN|U_MAT_ET_LOU|U_BON_ET_VEGETARIEN|U_TOUT_PETITS|DANREMONT|U)( |,)+(.*)$/) {
+				/(.+)( |,)+(U_BIO|U_SAVEURS|NOR_U|U_OXYGN|U_MAT_ET_LOU|U_BON_ET_VEGETARIEN|U_TOUT_PETITS|DANREMONT|U_SANS_GLUTEN|U_CUISINES_ET_DECOUVERTES|U)( |,)+(.*)$/i) {
 				
 				
 				my ($name, $brand, $quantity) = ($1, $3, $5);
@@ -550,98 +624,147 @@ U_CUISINES_ET_DECOUVERTES => "U Cuisines et Découvertes",
 				
 my %u_packaging = (
 bte => "boite",
+ble => "bouteille",
 );
 				
+				# Confiture de framboises U 50% de fruits 370g
+				# Crème fraîche épaisse légère U, 15%MG, 20cl
+
+				
 				# pet 1l
-				if ($quantity =~ /(\D+) /) {
+				# 3368953545250 Mini Mont d'Or AOP au lait cru U SAVEURS, 24% de MG
+				
+				if ($quantity =~ /(\d+(\s)?(\%)?(\s)?(de )?(MG|matières grasses|matière grasse|fruits)( |,)*)/i) {
+					$name .= " " . $1;
+					$name =~ s/,\s*$//;
+					
+					$quantity =~ s/(\d+(\s)?(\%)?(\s)?(de )?(MG|matières grasses|matière grasse|fruits)( |,)*)//i;
+				}
+				
+				# Cocktail mojito fraise U , 15°, 70cl
+				# Cocktail mojito U, 15°, 70cl
+				# Cocktail caipirinha U 18% vol. 70cl
+
+				# Bière blonde d'Abbaye des Flandres U SAVEURS, 6,5°, 50cl
+				
+				if ($quantity =~ /((\d+(\.|,)?\d*)(\s)?(\%)?(\s)?(de )?(°|\% vol\.|\% vol)( |,)*)/i) {
+					$name .= " " . $1;
+					$name =~ s/,\s*$//;
+					$alcohol = $2;
+					
+					$quantity =~ s/((\d+(\.|,)?\d*)(\s)?(\%)?(\s)?(de )?(°|\% vol\.|\% vol)( |,)*)//i;
+				}
+				
+				
+				# Pouch Up, U, mojito, bouteille de 1,5L
+				
+				while ($quantity =~ /\b(mojito)(( |,)*)/i) {
+					$name .= " " . $1;
+					$name =~ s/,\s*$//;
+					
+					$quantity =~ s/\b(mojito)(( |,)*)//i;
+				}	
+
+				while ($quantity =~ /\b(film neutre)(( |,)*)/i) {
+					
+					$params{packaging} .= ", " . $1;
+					
+					$quantity =~ s/\b(film neutre)(( |,)*)//i;
+				}	
+				
+				# 2x80g soit 160g
+				
+				
+				if (($quantity !~ /piece|pièce|soit|à/i) and ($quantity =~ /(\D+) /)) {
 					my $packaging = $1;
 					$quantity = $';
+					# 100g -> 100 g
+					$quantity =~ s/(\d)([a-z])/$1 $2/;
 					# boite de
 					$packaging =~ s/ de$//;					
 					if (defined $u_packaging{$packaging}) {
 						$packaging = $u_packaging{$packaging};
 					}
-					
-					$params{packaging} = $packaging;
+					$params{packaging} =~ s/°//g;
+					$params{packaging} =~ s/\%//g;
+					$params{packaging} .= ", " . $packaging;
 				}
 					
+				if ((defined $imported_product_ref->{SVE_cdRubriqueN1}) and ($imported_product_ref->{SVE_cdRubriqueN1} eq "Surgelés")) {
+					$params{packaging} .= ", Surgelés";
+				}
+				
+				if ((defined $imported_product_ref->{SVE_cdRubriqueN1}) and ($imported_product_ref->{SVE_cdRubriqueN1} eq "Produits frais")) {
+					$params{packaging} .= ", Frais";
+				}						
 				
 				$params{product_name} = $name;
 				$params{brands} = $brands;
 				$params{quantity} = $quantity;
+				$params{packaging} =~ s/^, //;
 				
 				
 				print "set product_name to $params{product_name}\n";
 				
 				# copy value to main language
 				$params{"product_name_" . $global_params{lc}} = $params{product_name};				
-			}		
-
-
-
-			
-			
-# <cdonne nom="LIB_FAM_MKT">-- Sans rapprochement --</cdonne>
-# <cdonne nom="COD_PRD_AG2">0483</cdonne>
-# <cdonne nom="LIB_FAM_MKT_4"></cdonne>
-# <cdonne nom="LIB_FAM_MKT_3">-- Sans rapprochement --</cdonne>
-# <cdonne nom="LIB_FAM_MKT_2">Plats cuisinés</cdonne>
-# <cdonne nom="LIB_FAM_MKT_1">Traiteur</cdonne>
-
-#<cdonne nom="LIB_FAM_MKT">Rôti de Dinde cuit 100% filet</cdonne>
-#<cdonne nom="COD_PRD_AG2">7416</cdonne>
-#<cdonne nom="LIB_FAM_MKT_4"></cdonne>
-#<cdonne nom="LIB_FAM_MKT_3">Rôti de Dinde cuit 100% filet</cdonne>
-#<cdonne nom="LIB_FAM_MKT_2">Viandes rôties et cuisinées</cdonne>
-#<cdonne nom="LIB_FAM_MKT_1">Charcuterie</cdonne>
-
-			# skip Fleury Michon categories
-			if (0) {
-			for (my $c = 1; $c <= 4; $c++) {
-			
-				if ((defined $imported_product_ref->{"LIB_FAM_MKT_$c"}) and ($imported_product_ref->{"LIB_FAM_MKT_$c"} ne '')) {
-					next if $imported_product_ref->{"LIB_FAM_MKT_$c"} =~ /Sans rapprochement/;
-					defined $params{categories} or $params{categories} = "";
-					$params{categories} .= ", " . $imported_product_ref->{"LIB_FAM_MKT_$c"};
-				}
 			}	
-			(defined $params{categories}) and $params{categories} =~ s/^, //;
+			elsif ($ugc_libecommerce =~
+				/(.+)( |,)+(U_BIO|U_SAVEURS|NOR_U|U_OXYGN|U_MAT_ET_LOU|U_BON_ET_VEGETARIEN|U_TOUT_PETITS|DANREMONT|U_SANS_GLUTEN|U_CUISINES_ET_DECOUVERTES|U)( |,)*$/) {
+				
+				# 12 Oeufs de plein air U
+				
+				my ($name, $brand) = ($1, $3);
+				my $brands = $u_brands{$brand};
+				if ($brands ne 'U') {
+					$brands .= ", U";
+				}
+
+				$params{product_name} = $name;
+				$params{brands} = $brands;		
+
+				print "set product_name to $params{product_name}\n";
+				
+				# copy value to main language
+				$params{"product_name_" . $global_params{lc}} = $params{product_name};					
+			}
+			else {
 			
-			print STDERR "categories for product code $code : " . $params{categories} . "\n";
+				print STDERR "unrecognized format for ugc_libecommerce: $ugc_libecommerce\n";
+				exit;
+			
 			}
 			
-			# <cdonne nom="PDS_NET">0,3</cdonne>
+				$params{product_name} =~ s/\s+$//;
+				$params{brands} =~ s/\s+$//;
+				$params{quantity} =~ s/\s+$//;
+				$params{packaging} =~ s/\s+$//;	
+				
+				$params{product_name} =~ s/^\s+//;
+				$params{brands} =~ s/^\s+//;
+				$params{quantity} =~ s/^\s+//;
+				$params{packaging} =~ s/^\s+//;					
 			
-			if ((defined $imported_product_ref->{PDS_NET}) and ($imported_product_ref->{PDS_NET} ne '')) {
-				$params{quantity} = $imported_product_ref->{PDS_NET};
-				$params{quantity} =~ s/,/./;
-				$params{quantity} *= 1000;
-				$params{quantity} = $params{quantity} . " g";
-				print "set quantity to $params{quantity}\n";
+
+			# if no quantity was found in the libelle, use the mesure fields
+			# UGC_MesureNette	UGC_uniteMesureNette
+			
+			if ((not defined $params{quantity}) or ($params{quantity} eq "")) {
+				if ((defined $imported_product_ref->{UGC_MesureNette}) and ($imported_product_ref->{UGC_MesureNette} ne "")) {
+					my $quantity = $imported_product_ref->{UGC_MesureNette} . " " . $imported_product_ref->{UGC_uniteMesureNette};
+					$quantity =~ s/_net//ig;
+					$quantity =~ s/litre/l/ig;
+					$quantity =~ s/kilogramme/kg/ig;			
+					# Quantité : 12.0000 UNITE_DE_CONSOMMATION
+					$quantity =~ s/\.(0)+ UNITE_DE_CONSOMMATION/ unités/ig;		
+					$params{quantity} = $quantity;
+					print STDERR "setting quantity from UGC_MesureNette: $quantity\n";
+				}
 			}
-			
-			if ((defined $imported_product_ref->{PDS_POR}) and ($imported_product_ref->{PDS_POR} ne '')) {
-				$params{serving_size} = $imported_product_ref->{PDS_POR};
-				$params{serving_size} =~ s/,/./;
-				$params{serving_size} = $params{serving_size} . " g";
-				
-				# TXT_DEF_POR
-				#if ((defined $imported_product_ref->{PDS_POR}) and ($imported_product_ref->{PDS_POR} ne '')) {
-				#	$params{serving_size} .= " (" . $imported_product_ref->{PDS_POR} . ")"
-				#}
-				
-				
-				print "set serving_size to $params{serving_size}\n";
-			}			
-			
-#<cdonne nom="TXT_LST_ING"><![CDATA[<p>
-# Filet de dinde (88%), bouillons (2%) (eau, os de poulet, sel, &eacute;pices, carotte, <strong><u>c&eacute;leri</u></strong>, oignon, poireau, plantes aromatiques), sel (1.7%), dextrose de ma&iuml;s, jus concentr&eacute; de <u><strong>c&eacute;leri</strong></u> et de betterave jaune, plantes aromatiques (0.2%),&nbsp;poivre, ferments, colorant : caramel ordinaire.</p>]]></cdonne>
-#<cdonne nom="TXT_LST_ING_EN"></cdonne>
-#<cdonne nom="TXT_LST_ING_NL"></cdonne>			
-
-# Riz basmati cuit 39% (eau, riz), saumon Atlantique (<strong>saumon</strong> Atlantique 23.4%, sel), eau, <strong>crème </strong>fraîche (8.2%), huile de colza, oseille (1.8%), vin blanc, <strong>beurre</strong>, farine de <strong>blé</strong>, sel, échalote, jus de citron (0.5%), vinaigre de vin blanc, curcuma, piment.
 
 			
+			
+
 			my %ingredients_fields = (
 				'UGC_ingredientStatement' => 'ingredients_text_fr',
 			);
@@ -649,6 +772,8 @@ bte => "boite",
 			foreach my $field (sort keys %ingredients_fields) {
 			
 				if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} ne '')) {
+					# cleaning
+					$imported_product_ref->{$field} =~ s/(\s|\/|\/)+$//is;
 					$params{$ingredients_fields{$field}} = $imported_product_ref->{$field};
 					print STDERR "setting ingredients, field $field -> $ingredients_fields{$field}, value: " . $imported_product_ref->{$field} . "\n";
 				}
@@ -678,6 +803,8 @@ bte => "boite",
 	
 					
 			foreach my $field (@param_fields) {
+			
+
 				
 				if (defined $params{$field}) {				
 
@@ -699,6 +826,8 @@ bte => "boite",
 						foreach my $tag (split(/,/, $params{$field})) {
 		
 							my $tagid;
+							
+							next if $tag =~ /^\s*$/;
 
 							if (defined $taxonomy_fields{$field}) {
 								$tagid = get_taxonomyid(canonicalize_taxonomy_tag($params{lc}, $field, $tag));
@@ -709,6 +838,9 @@ bte => "boite",
 							if (not exists $existing{$tagid}) {
 								print "- adding $tagid to $field: $product_ref->{$field}\n";
 								$product_ref->{$field} .= ", $tag";
+							}
+							else {
+								#print "- $tagid already in $field\n";
 							}
 							
 						}
@@ -723,10 +855,16 @@ bte => "boite",
 							$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});						
 						}
 						if ($current_field ne $product_ref->{$field}) {
-							print "changed value for product code: $code - field: $field = $product_ref->{$field} - old: $current_field \n";
+							print "changed value for product code: $code - field: $field = $product_ref->{$field} - old: $current_field\n";
 							compute_field_tags($product_ref, $field);
 							push @modified_fields, $field;
 							$modified++;
+						}
+						
+						if (($field eq 'categories') and ($product_ref->{$field} eq "")) {
+							print "rubriques: " . $imported_product_ref->{rubriques} . " -  value for product code: $code - field: $field = $product_ref->{$field} - old: $current_field\n";
+							print "params{categories} $params{categories}\n";
+							#exit;
 						}
 					
 					}
@@ -734,10 +872,16 @@ bte => "boite",
 						# non-tag field
 						my $new_field_value = $params{$field};
 						
+						$new_field_value =~ s/\s+$//;
+						$new_field_value =~ s/^\s+//;
+						
 						if (($field eq 'quantity') or ($field eq 'serving_size')) {
 							
 								# openfood.ch now seems to round values to the 1st decimal, e.g. 28.0 g
 								$new_field_value =~ s/\.0 / /;			
+								
+								# 6x90g
+								$new_field_value =~ s/(\d)(\s*)x(\s*)(\d)/$1 x $4/i;
 
 								$new_field_value =~ s/(\d)( )?(g|gramme|grammes|gr)(\.)?/$1 g/i;
 								$new_field_value =~ s/(\d)( )?(ml|millilitres)(\.)?/$1 ml/i;
@@ -750,7 +894,7 @@ bte => "boite",
 								$new_field_value =~ s/kilogramme|kilogrammes|kgs/kg/i;
 								$new_field_value =~ s/(0)(,|\.)(\d)( )?(kg)(\.)?/${3}00 g/i;
 								$new_field_value =~ s/(\d)(,|\.)(\d)( )?(kg)(\.)?/${1}${3}00 g/i;
-								$new_field_value =~ s/(\d)( )?(kg)(\.)?/${1}000 g/i;
+								#$new_field_value =~ s/(\d)( )?(kg)(\.)?/${1}000 g/i;
 						}
 
 						my $normalized_new_field_value = $new_field_value;
@@ -776,7 +920,7 @@ bte => "boite",
 								$current_value =~ s/kilogramme|kilogrammes|kgs/kg/i;
 								$current_value =~ s/(0)(,|\.)(\d)( )?(kg)(\.)?/${3}00 g/i;
 								$current_value =~ s/(\d)(,|\.)(\d)( )?(kg)(\.)?/${1}${3}00 g/i;
-								$current_value =~ s/(\d)( )?(kg)(\.)?/${1}000 g/i;
+								#$current_value =~ s/(\d)( )?(kg)(\.)?/${1}000 g/i;
 							}
 							
 							if ($field =~ /ingredients/) {
@@ -797,6 +941,12 @@ bte => "boite",
 								$product_ref->{$field} = $new_field_value;
 								push @modified_fields, $field;
 								$modified++;								
+							}
+							elsif (($field eq 'quantity') and ($product_ref->{$field} ne $new_field_value)) {
+								# normalize quantity
+								$product_ref->{$field} = $new_field_value;
+								push @modified_fields, $field;
+								$modified++;
 							}
 							
 
@@ -927,6 +1077,38 @@ Minéraux  0 , Minéraux Calcium (mg) 4.1 , Minéraux Magnésium (mg) 1.7, Miné
 TXT
 ;			
 
+			# fix typos
+			
+			if ((defined $imported_product_ref->{UGC_nutritionalValuesPerPackage})
+				and ($imported_product_ref->{UGC_nutritionalValuesPerPackage} ne "")) {
+			
+				if ($imported_product_ref->{UGC_nutritionalValuesPerPackage} 
+					=~ /^(Pour|à la|a la)?( )?((1|une)?( )?portion( de| d'environ)?)?( )?([^:\n]+)(:|\n)/i) {
+					
+					my $serving = $8;
+					
+					$serving =~ s/^\s+//;
+					$serving =~ s/\s+$//;
+					$serving =~ s/ environ$//i;
+					$serving =~ s/^\((.*)\)$/$1/;
+					($serving =~ /nergie/i) and $serving = "";
+					my $debug = $imported_product_ref->{UGC_nutritionalValuesPerPackage};
+					$debug =~ s/:.*//isg;
+					if ($serving ne "") {
+						print "PORTION -- $serving\t-- $debug\n";
+						$params{serving_size} = $serving;
+					}
+				}
+			
+			}
+			
+			
+			$imported_product_ref->{UGC_nutritionalValues} =~ s/matière grasses/matières grasses/i;
+			$imported_product_ref->{UGC_nutritionalValues} =~ s/matières grasse /matières grasses /i;
+			$imported_product_ref->{UGC_nutritionalValues} =~ s/fibres alimentaire /fibres alimentaires /i;
+			$imported_product_ref->{UGC_nutritionalValues} =~ s/fribre/fibre/i;
+			# Glucides ....................................... 15,8 g
+			$imported_product_ref->{UGC_nutritionalValues} =~ s/ (\.)+ //ig;
 
 
 			if ((defined $imported_product_ref->{UGC_nutritionalValues}) and
@@ -944,11 +1126,13 @@ TXT
 				$modified++;
 			}
 			
-			if ((defined $imported_product_ref->{UGC_nutritionalValues}) and ($imported_product_ref->{UGC_nutritionalValues} ne "")) {
+			if ((defined $imported_product_ref->{UGC_nutritionalValues}) and ($imported_product_ref->{UGC_nutritionalValues} ne "xyz")) {
 			
 			my $nutrients = lc($imported_product_ref->{UGC_nutritionalValues});		
 			
 			my $seen_salt = 0;
+			
+			my %found_nids = ();
 			
 			foreach my $nid (sort keys %Nutriments) {
 			
@@ -956,6 +1140,8 @@ TXT
 				
 				# don't set sodium if we have salt
 				next if (($nid eq 'sodium') and ($seen_salt));
+				# in fact just skip sodium and assume we will get salt
+				next if (($nid eq 'sodium'));
 				next if not defined $Nutriments{$nid}{fr};
 								
 				my $nid_fr = lc($Nutriments{$nid}{fr});
@@ -983,8 +1169,10 @@ TXT
 					# for energy, match only kj, not kcal
 					
 					# print STDERR "nid $nid - synonym $synonym\n";
+					
+					# Vitamine D µg  0.4 soit 8  % des AQR*
 				
-					if ($nutrients =~ /\b$synonym \(?(g|kg|mg|µg|l|dl|cl|ml|kj)\)?(\s|:)*(<|~)?(\s)*(\d+((\.|\,)\d+)?)/i) {
+					if ($nutrients =~ /\b$synonym\s*\(?(g|kg|mg|µg|l|dl|cl|ml|kj)\)?(\s|:)*(<|~)?(\s)*(\d+((\.|\,)\d+)?)/i) {
 						$unit = $1;
 						$value = $5;
 						if ((defined $3) and ($3 ne "")) {
@@ -992,7 +1180,27 @@ TXT
 						}
 						last;
 					}
-					elsif ($nutrients =~ /\b$synonym(\s|:)+(<|~)?(\s)*(\d+((\.|\,)\d+)?)\s*\(?(g|kg|mg|µg|l|dl|cl|ml|kj)\)?/i) {
+					# .36
+					if ($nutrients =~ /\b$synonym\s*\(?(g|kg|mg|µg|l|dl|cl|ml|kj)\)?(\s|:)*(<|~)?(\s)*(((\.|\,)\d+)?)/i) {
+						$unit = $1;
+						$value = "0" . $5;
+						if ((defined $3) and ($3 ne "")) {
+							$modifier = $3;
+						}
+						last;
+					}					
+					elsif ($nutrients =~ /\b$synonym \(?(g|kg|mg|µg|l|dl|cl|ml|kj)\)?(\s|:)*(<|~)?(\s)*(traces)/i) {
+						$unit = $1;
+						$value = 0;
+						$modifier = "~";
+						last;
+					}					
+					elsif ($nutrients =~ /\b$synonym \(?(g|kg|mg|µg|l|dl|cl|ml|kj)\)?(\s|:)*(<|~)?(\s)*(exempt)/i) {
+						$unit = $1;
+						$value = 0;
+						last;
+					}					
+					elsif ($nutrients =~ /\b$synonym(\s|:)*(<|~)?(\s)*(\d+((\.|\,)\d+)?)\s*\(?(g|kg|mg|µg|l|dl|cl|ml|kj)\)?/i) {
 						$value = $4;
 						$unit = $7;
 						if ((defined $2) and ($2 ne "")) {
@@ -1000,10 +1208,38 @@ TXT
 						}
 						last;
 					}
+					elsif ($nutrients =~ /\b$synonym(\s|:)+(<|~)?(\s)*(traces)/i) {
+						$value = 0;
+						$unit = "g";
+						$modifier = "~";
+						last;
+					}					
+					# missing unit... assume g ?
+					elsif ($nutrients =~ /\b$synonym(\s|:)+(<|~)?(\s)*(\d+((\.|\,)\d+)?)\s*\(?(g|kg|mg|µg|l|dl|cl|ml|kj)?\)?/i) {
+						$value = $4;
+						$unit = "g";
+						if ((defined $2) and ($2 ne "")) {
+							$modifier = $2;
+						}
+						last;
+					}					
 				
 				}
 				
+				if (($nid eq 'energy') and (not defined $value)) {
+					if ($nutrients =~ /\b(\d+)(\s?)kJ/i) {
+						$value = $1;
+						$unit = "kJ";
+					}
+				}
+				
+				if (($nid eq 'alcohol') and (defined $alcohol)) {
+					$value = $alcohol;
+				}
+				
 				if (defined $value) {
+				
+					$found_nids{$nid} = 1;
 				
 					# we will skip sodium if we have a value for salt
 					if ($nid eq 'salt') {
@@ -1021,13 +1257,13 @@ TXT
 					my $new_value = unit_to_g($value, $unit);
 					
 					if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{$nid})
-						and ($new_value != $product_ref->{nutriments}{$nid}) ) {
+						and ($new_value ne $product_ref->{nutriments}{$nid})						) {
 						my $current_value = $product_ref->{nutriments}{$nid};
 						print "differing nutrient value for product code $code - nid $nid - existing value: $current_value - new value: $new_value - https://world.openfoodfacts.org/product/$code \n";
 					}
 					
 					if ((not defined $product_ref->{nutriments}) or (not defined $product_ref->{nutriments}{$nid})
-						or ($new_value != $product_ref->{nutriments}{$nid}) ) {
+						or ($new_value ne $product_ref->{nutriments}{$nid}) ) {
 					
 						if ((defined $modifier) and ($modifier ne '')) {
 							$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
@@ -1054,6 +1290,31 @@ TXT
 				
 			}
 			
+			
+			
+			foreach my $nid (sort keys %Nutriments) {
+			
+				next if $nid =~ /^#/;
+				next if $nid eq 'sodium';
+				next if $nid eq 'cocoa';
+				next if $nid =~ /fruits-vegetables-nuts/;
+				
+				if ((defined $product_ref->{nutriments}{$nid . "_value"}) and (not defined $found_nids{$nid})) {
+					next if $code eq "3368952723253";
+					next if $code eq "3256220063371";
+					next if $code eq "3256220064651";
+					next if $code eq "3256224251828";
+					next if $code eq "3256220358026";
+					next if $code eq "3256224252009";
+					next if $code eq "3256220275033";
+					next if $code eq "3256226154851";
+					next if $code eq "3256224406433";
+					print STDERR "product code $code - missing nid $nid\n" . $imported_product_ref->{UGC_nutritionalValues} . "\n";
+					#exit;
+				}
+			}
+			
+			
 			} # if nutrient are not empty in the csv
 			
 			# Skip further processing if we have not modified any of the fields
@@ -1063,6 +1324,7 @@ TXT
 				print STDERR "skipping product code $code - no modifications\n";
 				next;
 			}
+			#exit;
 		
 
 			
@@ -1223,6 +1485,11 @@ foreach my $allergen (sort { $allergens_count{$b} <=> $allergens_count{$a}} keys
 	print $allergen . "\t" . $allergens_count{$allergen} . "\t" .  $taxonomy_tag . "\n";
 }
 
+
+foreach my $rubrique (sort { $rubriques{$b} <=> $rubriques{$a}} keys %rubriques ) {
+
+	print $rubrique . "\t" . $rubriques{$rubrique} . "\n";
+}
 
 
 #print "\n\nlist of nutrient names:\n\n";
