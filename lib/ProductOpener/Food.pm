@@ -45,6 +45,8 @@ BEGIN
 					
 					&unit_to_mmoll
 					&mmoll_to_unit
+					
+					&normalize_quantity
 
 					&canonicalize_nutriment
 					
@@ -773,7 +775,7 @@ carnitine-
 
 
 
-
+# fr_synonyms is used to parse plain text nutrition facts value
 
 %Nutriments = (
 
@@ -809,6 +811,7 @@ alcohol	=> {
 },
 energy	=> {
 	fr => "Énergie",
+	fr_synonyms => ["valeurs énergétique", "valeur énergétique"],
 	en => "Energy",
 	es => "Energía",
 	ar => "الطاقه",
@@ -982,6 +985,7 @@ carbohydrates => {
 },
 sugars => {
 	fr => "Sucres",
+	fr_synonyms => ["sucre"],
 	en => "Sugars",
 	ja => "糖類",
 	es => "Azúcares",
@@ -1134,6 +1138,7 @@ polyols => {
 }, 
 fat => {
 	fr => "Matières grasses / Lipides",
+	fr_synonyms => ["Matières grasses", "Matière grasse", "Lipides", "Graisses", "Graisse"],
 	en => "Fat",
 	ja => "脂質",
 	es => "Grasas",
@@ -1165,6 +1170,7 @@ fat => {
 },
 'saturated-fat' => {
 	fr => "Acides gras saturés",
+	fr_synonyms => ["Saturés", "AGS"],
 	en => "Saturated fat",
 	es => "Grasas saturadas",
 	it =>"Acidi Grassi saturi",
@@ -1329,6 +1335,7 @@ fat => {
 },
 'monounsaturated-fat' => {
 	fr => "Acides gras monoinsaturés",
+	fr_synonyms => ["Acides gras mono-insaturés"],
 	en => "Monounsaturated fat",
 	es => "Grasas monoinsaturadas",
 	it=> "Acidi grassi monoinsaturi", 
@@ -1357,6 +1364,7 @@ fat => {
 },
 'omega-9-fat' => {
 	fr => "Acides gras Oméga 9",
+	fr_synonyms => ["Oméga 9"],
 	en => "Omega 9 fatty acids",
 	es => "Ácidos grasos Omega 9",
 	el => 'Ωμέγα-9 λιπαρά',
@@ -1426,6 +1434,7 @@ fat => {
 },
 'polyunsaturated-fat' => {
 	fr => "Acides gras polyinsaturés",
+	fr_synonyms => ["Acides gras poly-insaturés"],
 	en => "Polyunsaturated fat",
 	es => "Grasas poliinsaturadas",
 	it => "Acidi grassi polinsaturi",
@@ -1454,6 +1463,7 @@ fat => {
 },
 'omega-3-fat' => {
 	fr => "Acides gras Oméga 3",
+	fr_synonyms => ["Oméga 3"],
 	en => "Omega 3 fatty acids",
 	es => "Ácidos grasos Omega 3",
 	el => 'Ωμέγα-3 λιπαρά',
@@ -1481,6 +1491,7 @@ fat => {
 	el => 'Εικοσιπεντανοϊκο οξύ / EPA (20:5 n-3)',
 	pt => 'Ácido eicosapentaenóico / EPA (20:5 n-3)',
 	fr => 'Acide eicosapentaénoïque / EPA (20:5 n-3)',
+	fr_synonyms => ["Oméga 3 EPA"],
 	nl => 'Eicosapentaeenzuur / EPA (20:5 n-3)',
 	nl_be => 'Eicosapentaeenzuur / EPA (20:5 n-3)',
 },
@@ -1490,11 +1501,13 @@ fat => {
 	el => 'Δοκοσαεξανοϊκο οξύ / DHA (22:6 n-3)',
 	pt => 'Ácido docosa-hexaenóico / DHA (22:6 n-3)',
 	fr => 'Acide docosahexaénoïque / DHA (22:6 n-3)',
+	fr_synonyms => ["Oméga 3 DHA"],
 	nl => 'Docosahexaeenzuur / DHA (22:6 n-3)',
 	nl_be => 'Docosahexaeenzuur / DHA (22:6 n-3)',
 },
 'omega-6-fat' => {
 	fr => "Acides gras Oméga 6",
+	fr_synonyms => ["Oméga 6"],
 	en => "Omega 6 fatty acids",
 	es => "Ácidos grasos Omega 6",
 	el => "Ωμέγα-6 λιπαρά",
@@ -1579,6 +1592,7 @@ cholesterol => {
 },
 fiber => {
 	fr => "Fibres alimentaires",
+	fr_synonyms => ["fibres", "fibre", "fibre alimentaire"],
 	en => "Dietary fiber",
 	ja => "食物繊維",
 	es => "Fibra alimentaria",
@@ -1692,6 +1706,7 @@ salt => {
 },
 'vitamin-a' => {
 	fr => "Vitamine A (rétinol)",
+	fr_synonyms => ["Vitamine A", "rétinol"],
 	ja => "ビタミン A",
 	en => "Vitamin A",
 	es => "Vitamina A (Retinol)",
@@ -1724,6 +1739,7 @@ salt => {
 },
 'vitamin-d' => {
 	fr => "Vitamine D / D3 (cholécalciférol)",
+	fr_synonyms => ["Vitamine D", "Vitamine D3", "cholécalciférol"],
 	en => "Vitamin D",
 	es => "Vitamina D",
 
@@ -1755,6 +1771,7 @@ salt => {
 },
 'vitamin-e' => {
 	fr => "Vitamine E (tocophérol)",
+	fr_synonyms => ["Vitamine E", "tocophérol"],	
 	en => "Vitamin E",
 	ja => "ビタミン E",
 	es => "Vitamina E (a-tocoferol)",
@@ -1814,6 +1831,7 @@ salt => {
 },
 'vitamin-c' => {
 	fr => "Vitamine C (acide ascorbique)",
+	fr_synonyms => ["Vitamine C", "acide ascorbique"],	
 	en => "Vitamin C (ascorbic acid)",
 	es => "Vitamina C (Ácido ascórbico)",
 	ja => "ビタミン C",
@@ -1846,6 +1864,7 @@ salt => {
 },
 'vitamin-b1' => {
 	fr => "Vitamine B1 (Thiamine)",
+	fr_synonyms => ["Vitamine B1", "Thiamine"],	
 	en => "Vitamin B1 (Thiamin)",
 	es => "Vitamina B1 (Tiamina)",
 	ja => "ビタミン B1",
@@ -1875,6 +1894,7 @@ salt => {
 },
 'vitamin-b2' => {
 	fr => "Vitamine B2 (Riboflavine)",
+	fr_synonyms => ["Vitamine B2", "Riboflavine"],	
 	en => "Vitamin B2 (Riboflavin)",
 	es => "Vitamina B2 (Riboflavina)",
 	ja => "ビタミン B2",
@@ -1904,6 +1924,7 @@ salt => {
 },
 'vitamin-pp' => {
 	fr => "Vitamine B3 / Vitamine PP (Niacine)",
+	fr_synonyms => ["Vitamine B3", "Vitamine PP", "Niacine"],		
 	en => "Vitamin B3 / Vitamin PP (Niacin)",
 	es => "Vitamina B3 / Vitamina PP (Niacina)",
 	ja => "ビタミン B3",
@@ -1932,6 +1953,7 @@ salt => {
 },	
 'vitamin-b6' => {
 	fr => "Vitamine B6 (Pyridoxine)",
+	fr_synonyms => ["Vitamine B6", "Pyridoxine"],			
 	en => "Vitamin B6 (Pyridoxin)",
 	es => "Vitamina B6 (Piridoxina)",
 	ja => "ビタミン B6",
@@ -1956,6 +1978,7 @@ salt => {
 },
 'vitamin-b9' => {
 	fr => "Vitamine B9 (Acide folique)",
+	fr_synonyms => ["Vitamine B9", "Acide folique"],	
 	en => "Vitamin B9 (Folic acid)",
 	es => "Vitamina B9 (Ácido fólico)",
 	ja => "ビタミン B9 (葉酸)",
@@ -1993,6 +2016,7 @@ salt => {
 },
 'vitamin-b12' => {
 	fr => "Vitamine B12 (cobalamine)",
+	fr_synonyms => ["Vitamine B12", "Cobalamine"],				
 	en => "Vitamin B12 (cobalamin)",
 	es => "Vitamina B12 (Cianocobalamina)",
 	it => "Vitamina B12 (Cobalamina)",
@@ -2021,6 +2045,7 @@ salt => {
 },
 'biotin' => {
 	fr => "Biotine (Vitamine B8 / B7 / H)",
+	fr_synonyms => ["Biotine", "Vitamine B8", "Vitamine B7", "Vitamine H"],				
 	en => "Biotin",
 	es => "Vitamina B7 (Biotina)",
 	it => "Vitamina B8/B7/H/I (Biotina)",
@@ -2048,6 +2073,7 @@ salt => {
 },	
 'pantothenic-acid' => {
 	fr => "Acide pantothénique (Vitamine B5)",
+	fr_synonyms => ["Acide pantothénique", "Vitamine B5"],	
 	en => "Pantothenic acid / Pantothenate (Vitamin B5)",
 	ja => "ビタミン B5",
 	es => "Vitamina B5 (Ácido pantoténico)",
@@ -2908,6 +2934,35 @@ foreach my $nid (keys %Nutriments) {
 }
 
 
+sub normalize_quantity($) {
+
+	# return the size in g or ml for the whole product
+	
+	# 1 barquette de 40g
+	# 20 tranches 500g
+	# 6x90g --> return 540
+
+	my $quantity = shift;
+	
+	my $q = undef;
+	my $u = undef;
+	
+	if ($quantity =~ /(\d+)(\s)?(x|\*)(\s)?((\d+)(\.|,)?(\d+)?)(\s)?(kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz))/i) {
+		my $m = $1;
+		$q = lc($5);
+		$u = $10;
+		$q =~ s/,/\./;
+		$q = unit_to_g($q * $m, $u);
+	}	
+	elsif ($quantity =~ /((\d+)(\.|,)?(\d+)?)(\s)?(kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz))/i) {
+		$q = lc($1);
+		$u = $6;
+		$q =~ s/,/\./;
+		$q = unit_to_g($q,$u);
+	}
+		
+	return $q;
+}
 
 
 sub normalize_serving_size($) {
@@ -3133,13 +3188,14 @@ sub fix_salt_equivalent($) {
 	# salt
 	
 	foreach my $product_type ("", "_prepared") {
-	
-		if ((defined $product_ref->{nutriments}{'sodium' . $product_type}) and ($product_ref->{nutriments}{'sodium' . $product_type} ne '')) {
-			$product_ref->{nutriments}{'salt' . $product_type} = $product_ref->{nutriments}{'sodium' . $product_type} * 2.54;
-		}
-		elsif ((defined $product_ref->{nutriments}{'salt'} . $product_type) and ($product_ref->{nutriments}{'salt' . $product_type} ne '')) {
+		
+		# use the salt value by default
+		if ((defined $product_ref->{nutriments}{'salt'} . $product_type) and ($product_ref->{nutriments}{'salt' . $product_type} ne '')) {
 			$product_ref->{nutriments}{'sodium' . $product_type} = $product_ref->{nutriments}{'salt' . $product_type} / 2.54;
 		}	
+		elsif ((defined $product_ref->{nutriments}{'sodium' . $product_type}) and ($product_ref->{nutriments}{'sodium' . $product_type} ne '')) {
+			$product_ref->{nutriments}{'salt' . $product_type} = $product_ref->{nutriments}{'sodium' . $product_type} * 2.54;
+		}
 	}
 }
 
@@ -3627,7 +3683,13 @@ sub compute_serving_size_data($) {
 	(defined $product_ref->{not_comparable_nutrition_data}) and delete $product_ref->{not_comparable_nutrition_data};
 	(defined $product_ref->{multiple_nutrition_data}) and delete $product_ref->{multiple_nutrition_data};
 
-	
+	(defined $product_ref->{product_quantity}) and delete $product_ref->{product_quantity};
+	if ((defined $product_ref->{quantity}) and ($product_ref->{quantity} ne "")) {
+		my $product_quantity = normalize_quantity($product_ref->{quantity});
+		if (defined $product_quantity) {
+			$product_ref->{product_quantity} = $product_quantity;
+		}
+	}
 	
 	$product_ref->{serving_quantity} = normalize_serving_size($product_ref->{serving_size});
 	
