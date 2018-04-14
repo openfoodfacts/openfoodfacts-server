@@ -13,7 +13,7 @@
     "test:lang:common": "perl scripts/check_po_file.pl po/common/en.po",
     "prove": "prove -l",
     "lint": "yarn run lint:js && yarn run lint:css && yarn run lint:scss",
-    "lint:js": "jshint --show-non-errors html/js/product-multilingual.js html/js/src/",
+    "lint:js": "jshint --show-non-errors html/js/src/",
     "lint:css": "stylelint html/css/src/",
     "lint:scss": "stylelint scss/app.scss",
     "perlc": "yarn run perlc:startup && yarn run perlc:product",
