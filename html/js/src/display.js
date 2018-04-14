@@ -28,25 +28,25 @@ import '../../../scss/app.scss';
 
 function initCountrySelect(placeholder, serverdomain) {
 	return import('jquery').then($ => {
-		import('select2').then(s => {
-            var options = {
-                placeholder: placeholder,
-                allowClear: true
-            };
+		import('select2').then(() => {
+			var options = {
+				placeholder: placeholder,
+				allowClear: true
+			};
 
-            $("#select_country").select2(options).on("select2:select", function(e) {
-                var subdomain =  e.params.data.id;
-                if (! subdomain) {
-                    subdomain = 'world';
-                }
-                window.location.href = "http://" + subdomain + "." + serverdomain;
-            }).on("select2:unselect", function(e) {            
-                window.location.href = "http://world." + serverdomain;
-            })
-		   }).catch(error => 'An error occurred while loading the jquery-tags-input component');
-		}).catch(error => 'An error occurred while loading the jquery component');
+			$('#select_country').select2(options).on('select2:select', function(e) {
+				var subdomain =  e.params.data.id;
+				if (! subdomain) {
+					subdomain = 'world';
+				}
+				window.location.href = 'http://' + subdomain + '.' + serverdomain;
+			}).on('select2:unselect', function() {            
+				window.location.href = 'http://world.' + serverdomain;
+			});
+		}).catch(error => 'An error occurred while loading the jquery-tags-input component: ' + error);
+	}).catch(error => 'An error occurred while loading the jquery component: ' + error);
 }
 
-document.addEventListener('DOMContentLoaded', function(event) {
-    initCountrySelect(document.getElementById('mainscript').dataset['selectcountry'], document.documentElement.dataset['serverdomain']);
+document.addEventListener('DOMContentLoaded', function() {
+	initCountrySelect(document.getElementById('mainscript').dataset['selectcountry'], document.documentElement.dataset['serverdomain']);
 });

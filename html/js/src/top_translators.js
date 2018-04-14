@@ -18,40 +18,38 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'jquery';
+import $ from 'jquery';
 import './vendor/datatables.js';
-import 'papaparse';
+import Papa from 'papaparse';
 
-function initTranslatorTable(url, id) {
-    var dataSource = [];
+export function initTranslatorTable(url, id) {
+	var dataSource = [];
 
-    Papa.parse(url, {
-        download: true,
-        delimiter: ",",
-        header: true,
-        dynamicTyping: true,
-        skipEmptyLines: true,
-        withCredentials: false,
-        step: function(results, parser) {
-            dataSource = dataSource.concat(results.data);
-            console.log("Row data:", results.data);
-            console.log("Row errors:", results.errors);
-        },
-        complete: function () {
-            $(id).DataTable({
-                "data": dataSource,
-                "columns": [
-                    { "data": "Name" },
-                    { "data": "Translated (Words)" },
-                    { "data": "Target Words" },
-                    { "data": "Approved (Words)" },
-                    { "data": "Votes Made" }
-                ],
-                "order": [[ 1, "desc" ]],
-                "paging": false,
-                "info": false,
-                "searching": false
-            });
-        }
-    });
+	Papa.parse(url, {
+		download: true,
+		delimiter: ',',
+		header: true,
+		dynamicTyping: true,
+		skipEmptyLines: true,
+		withCredentials: false,
+		step: function(results) {
+			dataSource = dataSource.concat(results.data);
+		},
+		complete: function () {
+			$(id).DataTable({
+				'data': dataSource,
+				'columns': [
+					{ 'data': 'Name' },
+					{ 'data': 'Translated (Words)' },
+					{ 'data': 'Target Words' },
+					{ 'data': 'Approved (Words)' },
+					{ 'data': 'Votes Made' }
+				],
+				'order': [[ 1, 'desc' ]],
+				'paging': false,
+				'info': false,
+				'searching': false
+			});
+		}
+	});
 }
