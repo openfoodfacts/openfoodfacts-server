@@ -210,20 +210,12 @@ sub decode_html($)
 	if ($string =~ /charset=(.?)utf(-?)8/i) {
 		$encoding = "UTF-8";
 	}
-	else {
-		#from_to($string, "windows-1252", "utf8");
-	}
-	# following doesn't work now that we have use utf8 instead of use bytes;
-	#elsif ($string =~ /é|à|è/) {
-	#	$encoding = "UTF8";
-	#	print STDERR "decode_html : string contains utf8 accents ? \n";
-	#}
+	
 	my $utf8 = $string;
 	if (not utf8::is_utf8($string)) {
 		$utf8 = decode($encoding, $string);
 	}
-	#my $utf8 = decode("UTF8", $string);
-
+	
 	$log->debug("decoding", { encoding => $encoding }) if $log->is_debug();
 	$utf8 = decode_entities($utf8);	
 	

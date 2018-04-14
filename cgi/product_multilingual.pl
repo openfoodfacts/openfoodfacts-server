@@ -1437,14 +1437,6 @@ HTML
 HTML
 ;
 	
-	
-	
-	
-	
-	
-	# print STDERR "product.pl - fields : " . join(", ", @fields) . "\n";
-	
-	
 	$html .= display_tabs($product_ref, $select_add_language, "product", $product_ref->{sorted_langs}, \%Langs, ["product_name", "generic_name"]);
 	
 	
@@ -1784,8 +1776,6 @@ HTML
 				}
 			}			
 		}
-		
-		# print STDERR "nutriment: $nutriment - nid: $nid - shown: $shown - class: $class - prefix: $prefix \n";
 		
 		my $disabled_backup = $disabled;
 		if ($nid eq 'carbon-footprint') {
