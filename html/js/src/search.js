@@ -18,44 +18,44 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'jquery';
+import { $, jQuery } from 'jquery';
 
 function modifySearchCriterion(element, criterion_number){
 	//Type of criterion
-	var typeSelect = $(element).find("#tagtype_0");
-	typeSelect.attr("name", "tagtype_" + criterion_number);
-	typeSelect.attr("id", "tagtype_" + criterion_number);
+	var typeSelect = $(element).find('#tagtype_0');
+	typeSelect.attr('name', 'tagtype_' + criterion_number);
+	typeSelect.attr('id', 'tagtype_' + criterion_number);
 	typeSelect.val();
 
 	//Contains/Does not contain select
-	var containsSelect = $(element).find("#tag_contains_0");
-	containsSelect.attr("name", "tag_contains_" + criterion_number);
-	containsSelect.attr("id", "tag_contains_" + criterion_number);
+	var containsSelect = $(element).find('#tag_contains_0');
+	containsSelect.attr('name', 'tag_contains_' + criterion_number);
+	containsSelect.attr('id', 'tag_contains_' + criterion_number);
 	containsSelect.val();
 
 	//Criterion value
-	var tagContent = $(element).find("#tag_0");
-	tagContent.attr("name", "tag_" + criterion_number);
-	tagContent.attr("id", "tag_" + criterion_number);
-	tagContent.val("");
+	var tagContent = $(element).find('#tag_0');
+	tagContent.attr('name', 'tag_' + criterion_number);
+	tagContent.attr('id', 'tag_' + criterion_number);
+	tagContent.val('');
 
 	return element;
 }
 
 function addSearchCriterion(target, criteria_number) {
-	var criterionRow1 = modifySearchCriterion($(".criterion-row").first().clone(), criteria_number);
-	var criterionRow2 = modifySearchCriterion($(".criterion-row").first().clone(), criteria_number + 1);
+	var criterionRow1 = modifySearchCriterion($('.criterion-row').first().clone(), criteria_number);
+	var criterionRow2 = modifySearchCriterion($('.criterion-row').first().clone(), criteria_number + 1);
 
-	$(".criterion-row").last().after(criterionRow1);
-	$(".criterion-row").last().after(criterionRow2);
+	$('.criterion-row').last().after(criterionRow1);
+	$('.criterion-row').last().after(criterionRow2);
 }
 
 (function( $ ){
 	//On criterion value change
-	$(document).on("change", ".tag-search-criterion > input", function(e){
+	$(document).on('change', '.tag-search-criterion > input', function(e){
 		var criterionNumber = parseInt(e.target.name.substr(e.target.name.length - 1));
 		//If it's the last criterion, add two more
-		if(!isNaN(criterionNumber) && $("#tag_" + (criterionNumber + 1).toString()).length === 0){
+		if(!isNaN(criterionNumber) && $('#tag_' + (criterionNumber + 1).toString()).length === 0){
 			addSearchCriterion(e.target, criterionNumber + 1);
 		}
 	});

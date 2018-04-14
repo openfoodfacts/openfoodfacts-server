@@ -19,8 +19,9 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import './display_map';
-import 'osmtogeojson';
-import 'jquery';
+import L from 'leaflet';
+import osmtogeojson from 'osmtogeojson';
+import $ from 'jquery';
 
 var markers = [];
 var map;
@@ -45,7 +46,7 @@ function fitBoundsToAllLayers(map) {
 	var latlngbounds = new L.latLngBounds();
 
 	map.eachLayer(function (l) {
-		if (typeof l.getBounds === "function") {
+		if (typeof l.getBounds === 'function') {
 			latlngbounds.extend(l.getBounds());
 		}
 	});
@@ -59,7 +60,7 @@ function runCallbackOnJson(callback) {
 	callback(map);
 }
 
-function addWikidataObjectToMap(id){
+export function addWikidataObjectToMap(id) {
 	getOpenStreetMapFromWikidata(id, function(data)
 	{
 		var bindings = data.results.bindings;
@@ -76,7 +77,7 @@ function addWikidataObjectToMap(id){
 		getGeoJsonFromOsmRelation(relationId, function (geoJson) {
 			if (geoJson) {
 				runCallbackOnJson(function (map) {
-					var geoJsonLayer = L.geoJSON(geoJson).addTo(map);
+					L.geoJSON(geoJson).addTo(map);
 					fitBoundsToAllLayers(map);
 				});
 			}
@@ -86,13 +87,13 @@ function addWikidataObjectToMap(id){
 
 function getOpenStreetMapFromWikidata(id, callback) {
 	var endpointUrl = 'https://query.wikidata.org/sparql',
-    sparqlQuery = "SELECT ?OpenStreetMap_Relations_ID WHERE {\n" +
-        "  wd:" + id +" wdt:P402 ?OpenStreetMap_Relations_ID.\n" +
-        "}",
-    settings = {
-        headers: { Accept: 'application/sparql-results+json' },
-        data: { query: sparqlQuery }
-    };
+		sparqlQuery = 'SELECT ?OpenStreetMap_Relations_ID WHERE { ' +
+		'  wd:' + id +' wdt:P402 ?OpenStreetMap_Relations_ID. ' +
+		'}',
+		settings = {
+			headers: { Accept: 'application/sparql-results+json' },
+			data: { query: sparqlQuery }
+		};
 
 	$.ajax( endpointUrl, settings ).then(callback);
 }
