@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-04-10 04:57-0400\n"
+"PO-Revision-Date: 2018-04-18 11:23-0400\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
@@ -2426,7 +2426,7 @@ msgstr "מכיל:"
 
 msgctxt "tag_weblinks"
 msgid "Weblinks"
-msgstr ""
+msgstr "קישורים"
 
 msgctxt "tagstable_filtered"
 msgid "out of _MAX_"
@@ -2627,7 +2627,7 @@ msgstr "המוצר נמחק"
 
 msgctxt "has_deleted_product"
 msgid "has deleted product"
-msgstr ""
+msgstr "מוצר נמחק"
 
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
@@ -2663,15 +2663,15 @@ msgstr ""
 
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
-msgstr ""
+msgstr "חלק מהנתונים והתמונות סופקו ישירות על ידי היצרן Fleury Michon."
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
-msgstr ""
+msgstr "חלק מהנתונים סופקו ישירות על ידי היצרן %s"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgstr "עמוד המוצר לוקה בחסר. ניתן לסייע בהשלמתו על ידי עריכה והוספת עוד נתונים מהתמונות שיש לנו או על ידי צילום באמצעות היישומון עבור <a href=\"https://android.openfoodfacts.org\">Android</a> או <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. תודה רבה לך!"
 
 msgctxt "title_separator"
 msgid " — "
@@ -2767,9 +2767,9 @@ msgstr "יחידה"
 
 msgctxt "nutrition_data_exists"
 msgid "Nutrition facts are specified for the product as sold."
-msgstr ""
+msgstr "העובדות התזונתיות מצוינות עבור המוצר כפי שנמכר."
 
 msgctxt "nutrition_data_prepared_exists"
 msgid "Nutrition facts are specified for the prepared product."
-msgstr ""
+msgstr "העובדות התזונתיות מצוינות עבור המוצר המוגמר."
 
