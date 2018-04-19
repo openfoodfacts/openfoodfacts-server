@@ -73,6 +73,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::URL qw/:all/;
 
+use Log::Any qw($log);
 my $debug = 1;
 
 
@@ -192,12 +193,11 @@ sub scan_code($) {
 	# obtain image data
 	my $magick = Image::Magick->new();
 	my $x = $magick->Read($file);
+	$log->context->{file} = $file;
 	if ("$x") {
-		print STDERR "Images::scan_code - cannot read file $file : $x\n";
+		$log->warn("cannot read file to scan barcode", { error => $x }) if $log->is_warn();
 	}
 	else {
-		
-
 		# wrap image data
 		my $image = Barcode::ZBar::Image->new();
 		$image->set_format('Y800');
@@ -210,14 +210,13 @@ sub scan_code($) {
 
 			# scan the image for barcodes
 			my $n = $scanner->scan_image($image);
-			# print STDERR "Images::scan_code - $n symbols found\n";
 
 			# extract results
 			foreach my $symbol ($image->get_symbols()) {
 
 				$code = $symbol->get_data();
 				my $type = $symbol->get_type();
-				print STDERR "Images::scan_code - found code: $code - type: $type\n";
+				$log->debug("barcode found", { code => $code, type => $type }) if $log->is_debug();
 				if (($code !~ /^[0-9]+$/) or ($type eq 'QR-Code')) {
 					$code = undef;
 					next;
@@ -368,7 +367,7 @@ sub process_search_image_form($) {
 	if ($file = param($imgid)) {
 		if ($file =~ /\.(gif|jpeg|jpg|png)$/i) {
 			
-			print STDERR "Images.pm - process_search_image_form - imgid: $imgid - file: $file\n";
+			$log->debug("processing image search form", { imgid => $imgid, file => $file }) if $log->is_debug();
 		
 			my $extension = lc($1) ;
 			my $filename = get_fileid(remote_addr(). '_' . $`);
@@ -430,11 +429,13 @@ sub process_image_upload($$$$$$) {
 		}
 	}
 	
+	$log->context->{imagefield} = $imagefield;
+	$log->context->{uploader} = $userid;
+	$log->context->{file} = $file;
+	$log->context->{time} = $time;
 
 	if ($file) {
-	
-		print STDERR "Images.pm - process_image_upload - imagefield: $imagefield - file: $file - uploader: $userid - time: $time\n";
-
+		$log->debug("processing uploaded file") if $log->is_debug();
 	
 		if ($file !~ /\.(gif|jpeg|jpg|png)$/i) {
 			# We have a "blob" without file name and extension?
@@ -443,7 +444,7 @@ sub process_image_upload($$$$$$) {
 		}
 		
 		if (1 or ($file =~ /\.(gif|jpeg|jpg|png)$/i)) {
-			print STDERR "Images.pm - process_image_upload - imagefield: $imagefield - file: $file - format ok\n";
+			$log->debug("file type validated") if $log->is_debug();
 			
 			my $extension = 'jpg';
 			if (defined $1) {
@@ -467,15 +468,19 @@ sub process_image_upload($$$$$$) {
 				}
 			}
 			
-			
-			while (-e "$www_root/images/products/$path/$imgid.lock") {
+			my $lock_path = "$www_root/images/products/$path/$imgid.lock";
+			while (-e $lock_path) {
 				$imgid++;
+				$lock_path = "$www_root/images/products/$path/$imgid.lock";
 			}
-			mkdir ("$www_root/images/products/$path/$imgid.lock", 0755) or print STDERR "Images.pm - Error - Could not create lock $www_root/images/products/$path/$imgid.lock : $!\n";
-			
 
+			$log->context->{imgid} = $imgid;
+			$log->debug("new imgid determined") if $log->is_debug();
 
-			open (my $out, ">", "$www_root/images/products/$path/$imgid.$extension") or print STDERR "Images.pm - Error - Could not save $www_root/images/products/$path/$imgid.$extension : $!\n";
+			mkdir ($lock_path, 0755) or $log->warn("could not create lock file for the image", { path => $lock_path, error => $! });
+
+			my $img_path = "$www_root/images/products/$path/$imgid.$extension";
+			open (my $out, ">", $img_path) or $log->warn("could not open image path for saving", { path => $img_path, error => $! });
 			while (my $chunk = <$file>) {
 				print $out $chunk;
 			}
@@ -490,7 +495,7 @@ sub process_image_upload($$$$$$) {
 			# Generate resized versions
 					
 			my $source = Image::Magick->new;			
-			my $x = $source->Read("$www_root/images/products/$path/$imgid.$extension");
+			my $x = $source->Read($img_path);
 			$source->AutoOrient();
 			$source->Strip(); #remove orientation data and all other metadata (EXIF)
 			
@@ -502,12 +507,16 @@ sub process_image_upload($$$$$$) {
 			
 			# Check that we don't already have the image
 
-			my $size = -s "$www_root/images/products/$path/$imgid.$extension";
-			print STDERR "size of $www_root/images/products/$path/$imgid.$extension : $size \n" . (-s "$www_root/images/products/$path/$imgid.$extension") . "\n";
+			my $size = -s $img_path;
+			$log->context->{img_size} = $size;
+
+			$log->debug("comparing existing images with size of new image", { path => $img_path, size => $size }) if $log->is_debug();
 			for (my $i = 0; $i < $imgid; $i++) {
-				print STDERR "existing image $i - size: " . (-s "$www_root/images/products/$path/$i.$extension") . " -- $imgid size: $size\n";
-				if ((-s "$www_root/images/products/$path/$i.$extension") == $size) {
-					print STDERR "image $imgid has same size $size than $www_root/images/products/$path/$i.$extension : deleting $www_root/images/products/$path/$imgid.$extension\n";
+				my $existing_image_path = "$www_root/images/products/$path/$i.$extension";
+				my $existing_image_size = -s $existing_image_path;
+				$log->debug("comparing image", { existing_image_index => $i, existing_image_path => $existing_image_path, existing_image_size => $existing_image_size }) if $log->is_debug();
+				if ($existing_image_size == $size) {
+					$log->debug("image with same size detected", { existing_image_index => $i, existing_image_path => $existing_image_path, existing_image_size => $existing_image_size }) if $log->is_debug();
 					unlink "$www_root/images/products/$path/$imgid.$extension";
 					rmdir ("$www_root/images/products/$path/$imgid.lock");
 					$$imgid_ref = $i;
@@ -515,10 +524,11 @@ sub process_image_upload($$$$$$) {
 				}
 			}			
 			
-			("$x") and print STDERR "Images::generate_image - cannot read $www_root/images/products/$path/$imgid.$extension $x\n";
+			("$x") and $log->error("cannot read image", { path => "$www_root/images/products/$path/$imgid.$extension", error => $x });
 
 			# Check the image is big enough so that we do not get thumbnails from other sites
 			if (($source->Get('width') < 640) and ($source->Get('height') < 160)) {
+				$log->debug("image with inappropriate size detected", { width => $source->Get('width'), height => $source->Get('height') < 160 }) if $log->is_debug();
 				unlink "$www_root/images/products/$path/$imgid.$extension";
 				rmdir ("$www_root/images/products/$path/$imgid.lock");
 				return -4;
@@ -551,10 +561,10 @@ sub process_image_upload($$$$$$) {
 
 				my $x = $img->Write("jpeg:$www_root/images/products/$path/$imgid.$max.jpg");
 				if ("$x") {
-					print STDERR "Images::process_image_upload - could not write jpeg:$www_root/images/products/$path/$imgid.$max.jpg: $x\n";
+					$log->warn("could not write jpeg", { path => "jpeg:$www_root/images/products/$path/$imgid.$max.jpg", error => $x }) if $log->is_warn();
 				}
 				else {
-					print STDERR "Images::process_image_upload - wrote jpeg:$www_root/images/products/$path/$imgid.$max.jpg\n";		
+					$log->info("jpeg written", { path => "jpeg:$www_root/images/products/$path/$imgid.$max.jpg" }) if $log->is_info();
 				}
 				
 				$new_product_ref->{"images.$imgid.$max"} = "$imgid.$max";
@@ -605,15 +615,16 @@ sub process_image_upload($$$$$$) {
 		#close ($file);
 		#unlink($file);
 		my $tmpfilename = tmpFileName($file);
-		print STDERR "product_image_upload.pl -- unlinking $file - $tmpfilename\n";
+		$log->debug("unlinking image", { file => $file, tmpfilename => $tmpfilename }) if $log->is_debug();
 		unlink ($tmpfilename);
 		
 	}
 	else {
-		print STDERR "Images::process_image_upload - field imgupload_$imagefield not set.\n";
+		$log->debug("imgupload field not set", { field => "imgupload_$imagefield" }) if $log->is_debug();
 		$imgid = -2;
 	}
-	print STDERR "Images::process_image_upload - return imgid: $imgid - imagefield: $imagefield\n";
+
+	$log->info("upload processed", { imgid => $imgid, imagefield => $imagefield }) if $log->is_info();
 	
 	$$imgid_ref = $imgid;
 	
