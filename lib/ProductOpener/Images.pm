@@ -904,7 +904,7 @@ sub process_image_crop($$$$$$$$$$) {
 	_set_magickal_options($source, undef);
 	my $full_path = "$www_root/images/products/$path/$filename.full.jpg";
 	local $log->context->{full_path} = $full_path;
-	$x = $source->Write("jpeg:${full_path}"});
+	$x = $source->Write("jpeg:${full_path}");
 	("$x") and $log->error("could not write JPEG file", { path => $full_path, error => $x });
 	
 	# Re-read cropped image
