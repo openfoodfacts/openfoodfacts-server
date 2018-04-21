@@ -63,8 +63,6 @@ $memd = new Cache::Memcached::Fast {
 use vars qw(
 );
 
-my $debug = 0 ;	# Set to a non null value to get debug messages
-
 sub get_multi_objects($)
 {
 	my $keys_ref = shift;

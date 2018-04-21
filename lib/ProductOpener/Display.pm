@@ -74,7 +74,6 @@ BEGIN
 					$emb_codes_collection
 					$recent_changes_collection
 					
-					$debug
 					$scripts
 					$initjs
 					$styles
@@ -169,9 +168,6 @@ page=>1,
 
 use vars qw(
 );
-
-$debug = 1 ;	# Set to a non null value to get debug messages
-
 
 sub init()
 {
@@ -655,7 +651,7 @@ $request_ref->{page} = 1;
 				$request_ref->{canon_rel_url} .= "/points"
 		}
 		elsif (not defined $request_ref->{groupby_tagtype}) {
-			$debug and print STDERR "analyze_request: invalid address, confused by number of components left: $#components \n";
+			print STDERR "analyze_request: invalid address, confused by number of components left: $#components \n";
 			display_error(lang("error_invalid_address"), 404);
 		}
 		
@@ -4589,8 +4585,7 @@ sub display_new($) {
 	
 	my $content_header = '';	
 	
-	$debug = 1;
-	$debug and print STDERR "Display::display - title: $title\n";
+	print STDERR "Display::display - title: $title\n";
 
 	
 	my $object_ref;
@@ -4598,7 +4593,7 @@ sub display_new($) {
 	my $id;
 
 	
-	$debug and print STDERR "Display::display displaying blocks\n";
+	print STDERR "Display::display displaying blocks\n";
 	
 	display_login_register($blocks_ref);
 		
@@ -5856,7 +5851,7 @@ CSS
 	
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 	
-	$debug and print STDERR "display_product - request_code: $request_code - code: $code\n";
+	print STDERR "display_product - request_code: $request_code - code: $code\n";
 	
 	$title = $code;
 	
@@ -6572,7 +6567,7 @@ HTML
 	$request_ref->{description} = $description;
 	$request_ref->{blocks_ref} = $blocks_ref;
 	
-	$debug and print STDERR "display_product.pl - code: $code\n";
+	print STDERR "display_product.pl - code: $code\n";
 	
 	display_new($request_ref);	
 }
@@ -6593,7 +6588,7 @@ sub display_product_jqm ($) # jquerymobile
 	
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 	
-	$debug and print STDERR "display_product - code: $code\n";
+	print STDERR "display_product - code: $code\n";
 	
 	$title = $code;
 	
@@ -6969,7 +6964,7 @@ HTML
 	$request_ref->{title} = $title;
 	$request_ref->{description} = $description;
 	
-	$debug and print STDERR "display_product.pl - code: $code\n";
+	print STDERR "display_product.pl - code: $code\n";
 
 }
 
@@ -7770,7 +7765,7 @@ sub display_product_api($)
 	
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 	
-	$debug and print STDERR "display_product_api - code: $code\n";
+	print STDERR "display_product_api - code: $code\n";
 
 	my %response = ();
 	
@@ -7997,7 +7992,7 @@ sub display_structured_response($)
 	my $request_ref = shift;
 	
 	
-	$debug and print STDERR "display_api - format: json = $request_ref->{json} - jsonp = $request_ref->{jsonp} - xml = $request_ref->{xml} - jqm = $request_ref->{jqm} - rss = $request_ref->{rss}\n";
+	print STDERR "display_api - format: json = $request_ref->{json} - jsonp = $request_ref->{jsonp} - xml = $request_ref->{xml} - jqm = $request_ref->{jqm} - rss = $request_ref->{rss}\n";
 	if ($request_ref->{xml}) {
 	
 		# my $xs = XML::Simple->new(NoAttr => 1, NumericEscape => 2);

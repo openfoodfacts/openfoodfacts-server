@@ -41,8 +41,6 @@ BEGIN
 					$memd
 					%texts
 					
-					$debug
-					
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -123,8 +121,6 @@ closedir(DH2);
 
 use vars qw(
 );
-
-$debug = 1 ;	# Set to a non null value to get debug messages
 
 sub unac_string_stephane($) {
 	my $s = shift;

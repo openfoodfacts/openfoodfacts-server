@@ -123,7 +123,6 @@ use GraphViz2;
 use JSON::PP;
 
 
-my $debug = 0;
 
 
 %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes => 1, allergens => 1, traces => 1, purchase_places => 1, stores => 1, countries => 1, states=>1, codes=>1, debug => 1);

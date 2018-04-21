@@ -74,8 +74,6 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::URL qw/:all/;
 
 use Log::Any qw($log);
-my $debug = 1;
-
 
 sub display_select_manage($) {
 
