@@ -193,7 +193,7 @@ sub scan_code($) {
 	# obtain image data
 	my $magick = Image::Magick->new();
 	my $x = $magick->Read($file);
-	$log->context->{file} = $file;
+	local $log->context->{file} = $file;
 	if ("$x") {
 		$log->warn("cannot read file to scan barcode", { error => $x }) if $log->is_warn();
 	}
@@ -429,10 +429,10 @@ sub process_image_upload($$$$$$) {
 		}
 	}
 	
-	$log->context->{imagefield} = $imagefield;
-	$log->context->{uploader} = $userid;
-	$log->context->{file} = $file;
-	$log->context->{time} = $time;
+	local $log->context->{imagefield} = $imagefield;
+	local $log->context->{uploader} = $userid;
+	local $log->context->{file} = $file;
+	local $log->context->{time} = $time;
 
 	if ($file) {
 		$log->debug("processing uploaded file") if $log->is_debug();
@@ -474,7 +474,7 @@ sub process_image_upload($$$$$$) {
 				$lock_path = "$www_root/images/products/$path/$imgid.lock";
 			}
 
-			$log->context->{imgid} = $imgid;
+			local $log->context->{imgid} = $imgid;
 			$log->debug("new imgid determined") if $log->is_debug();
 
 			mkdir ($lock_path, 0755) or $log->warn("could not create lock file for the image", { path => $lock_path, error => $! });
@@ -508,7 +508,7 @@ sub process_image_upload($$$$$$) {
 			# Check that we don't already have the image
 
 			my $size = -s $img_path;
-			$log->context->{img_size} = $size;
+			local $log->context->{img_size} = $size;
 
 			$log->debug("comparing existing images with size of new image", { path => $img_path, size => $size }) if $log->is_debug();
 			for (my $i = 0; $i < $imgid; $i++) {
@@ -664,7 +664,12 @@ sub process_image_move($$$$) {
 	
 			if ($move_to =~ /^\d+$/) {
 				$ok = process_image_upload($move_to, "$www_root/images/products/$path/$imgid.jpg", $product_ref->{images}{$imgid}{uploader}, $product_ref->{images}{$imgid}{uploaded_t}, "image moved from product $code by $userid -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}", undef);
-				print STDERR "Images.pm - products_image_move - moving $www_root/images/products/$path/$imgid.jpg to $code by $userid - result: $ok (negative: error)\n";
+				if ($ok < 0) {
+					$log->error("could not move image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", new_code => $code, user_id => $userid, result => $ok });
+				}
+				else {
+					$log->info("moved image to other product", { source_path => "$www_root/images/products/$path/$imgid.jpg", new_code => $code, user_id => $userid, result => $ok });
+				}
 			}
 			
 			# Don't delete images to be moved if they weren't moved correctly
@@ -675,7 +680,7 @@ sub process_image_move($$$$) {
 				
 				use File::Copy;
 				
-				print STDERR "Images.pm - products_image_move - deleting  $www_root/images/products/$path/$imgid.jpg --> $data_root/deleted.images/product.$code.$imgid.jpg\n";
+				$log->info("moving source image to deleted images directory", { source_path => "$www_root/images/products/$path/$imgid.jpg", destination_path => "$data_root/deleted.images/product.$code.$imgid.jpg" });
 				
 				move("$www_root/images/products/$path/$imgid.jpg", "$data_root/deleted.images/product.$code.$imgid.jpg");
 				move("$www_root/images/products/$path/$imgid.$thumb_size.jpg", "$data_root/deleted.images/product.$code.$imgid.$thumb_size.jpg");
@@ -713,11 +718,18 @@ sub process_image_crop($$$$$$$$$$) {
 	my $new_product_ref = retrieve_product($code);
 	my $rev = $new_product_ref->{rev} + 1;	# For naming images
 	
-	print STDERR "Images.pm - process_image_crop - code: $code - id: $id - imgid: $imgid\n";
+	my $source_path = "$www_root/images/products/$path/$imgid.jpg";
+
+	local $log->context->{code} = $code;
+	local $log->context->{id} = $id;
+	local $log->context->{imgid} = $imgid;
+	local $log->context->{source_path} = $source_path;	
+
+	$log->trace("cropping image") if $log->is_trace();
 			
 	my $source = Image::Magick->new;			
-	my $x = $source->Read("$www_root/images/products/$path/$imgid.jpg");
-	("$x") and print STDERR "Images::process_image_crop - cannot read $www_root/images/products/$path/$imgid.jpg $x\n";
+	my $x = $source->Read($source_path);
+	("$x") and $log->error("cannot read image", { path => $source_path, error => $x });
 
 	if ($angle != 0) {
 		$source->Rotate($angle);
@@ -744,10 +756,10 @@ sub process_image_crop($$$$$$$$$$) {
 	my $nh = $oy2 - $oy1;
 	
 	my $geometry = "${nw}x${nh}\+${ox1}\+${oy1}";
-	print STDERR "Images::process_image_crop - geometry: $geometry ($ox1,$oy1 - $ox2,$oy2) - w: $w - h: $h \n";
+	$log->debug("geometry calculated", { geometry => $geometry, ox1 => $ox1, oy1 => $oy1, ox2 => $ox2, oy2 => $oy2, w => $w, h => $h }) if $log->is_debug();
 	if ($nw > 0) { # image not cropped
 		my $x = $source->Crop(geometry=>$geometry);
-		("$x") and print STDERR "Images::process_image_crop - could not crop to geometry: $geometry $x\n";
+		("$x") and $log->error("could not crop to geometry", { geometry => $geometry, error => $x });
 	}
 	
 	$nw = $source->Get('width');
@@ -762,7 +774,7 @@ sub process_image_crop($$$$$$$$$$) {
 
 		my $image = $source;
 	
-		print STDERR "magic\n";
+		$log->debug("magic") if $log->is_debug();
 
 		$image->Normalize( channel=>'RGB' );
 
@@ -786,10 +798,11 @@ sub process_image_crop($$$$$$$$$$) {
 		$background->SetPixel(x=>1,y=>1, color=>\@rgb);
 		
 		$background->Resize(geometry=>"${w}x${h}!");
-		print STDERR "width " . $background->Get('width') . "\n";
-		print STDERR "Writing: $www_root/images/products/$path/$imgid.${crop_size}.background.jpg\n";
-		$x = $background->Write("jpeg:$www_root/images/products/$path/$imgid.${crop_size}.background.jpg");
-		$x and print SDTERR "product_image_rotate.pl - could not write image : $x\n";
+
+		my $bg_path = "$www_root/images/products/$path/$imgid.${crop_size}.background.jpg";
+		$log->debug("writing background image to file", { width => $background->Get('width'), path => $bg_path }) if $log->is_debug();
+		$x = $background->Write("jpeg:${bg_path}");
+		$x and $log->error("could write background image", { path => $bg_path, error => $x });
 		
 
 		#$image->Negate();
@@ -800,7 +813,7 @@ sub process_image_crop($$$$$$$$$$) {
 
 		#$background->Modulate(brightness=>130);
 		$x = $image->Composite(image=>$background, compose=>"Minus");
-		$x and print STDERR "product_image_rotate.pl - magic composite failed: $x \n";
+		$x and $log->error("magic composide failed", { error => $x });
 		
 		$image->Negate();
 		#$image->Normalize( channel=>'RGB' );
@@ -847,7 +860,7 @@ sub process_image_crop($$$$$$$$$$) {
 			($distance->(\@rgb, [$original->GetPixel(x=>$x-1,y=>$y+1)]) <= $max_distance) and push @q, [$x-1, $y+1];
 			($distance->(\@rgb, [$original->GetPixel(x=>$x+1,y=>$y-1)]) <= $max_distance) and push @q, [$x+1, $y-1];			
 			$i++;
-			($i % 10000) == 0 and print STDERR "$i - x,y: $x,$y - rgb: $rgb[0],$rgb[1],$rgb[2] - width,height: $w,$h\n";
+			($i % 10000) == 0 and $log->debug("white color detection", { i =>$i, x => $x, y => $y, r => $rgb[0], g => $rgb[1], b => $rgb[2], width => $w, height => $h });
 		}
 		}
 		
@@ -876,7 +889,7 @@ sub process_image_crop($$$$$$$$$$) {
 		}
 		#$image->Deskew();
 		
-		$x and print SDTERR "product_image_rotate.pl - could not floodfill : $x\n";
+		$x and $log->error("could not floodfill", { error => $x });
 
 	}	
 	
@@ -891,13 +904,15 @@ sub process_image_crop($$$$$$$$$$) {
 	$filename = $id . "." . $rev;
 	
 	_set_magickal_options($source, undef);
-	$x = $source->Write("jpeg:$www_root/images/products/$path/$filename.full.jpg");
-	("$x") and print STDERR "Images::process_image_crop - could not write jpeg:$www_root/images/products/$path/$filename.full.jpg $x\n";
+	my $full_path = "$www_root/images/products/$path/$filename.full.jpg";
+	local $log->context->{full_path} = $full_path;
+	$x = $source->Write("jpeg:${full_path}"});
+	("$x") and $log->error("could not write JPEG file", { path => $full_path, error => $x });
 	
 	# Re-read cropped image
 	my $cropped_source = Image::Magick->new;
-	$x = $cropped_source->Read("$www_root/images/products/$path/$filename.full.jpg");
-	("$x") and print STDERR "Images::process_image_crop - cannot read $www_root/images/products/$path/$filename.full.jpg $x\n";
+	$x = $cropped_source->Read($full_path);
+	("$x") and $log->error("could not re-read the cropped image", { path => $full_path, error => $x });
 
 	my $img2 = $cropped_source->Clone();
 	my $window = $nw;
@@ -905,13 +920,13 @@ sub process_image_crop($$$$$$$$$$) {
 	$window = int($window / 3) + 1;
 	
 	if (0) { # too slow, not very effective
-	print STDERR "Images::process_image_crop - AdaptiveThreshold \n";
+	$log->trace("performing adaptive threshold") if $log->is_trace();
 	
 	$img2->AdaptiveThreshold(width=>$window, height=>$window);
 	$img2->Write("jpeg:$www_root/images/products/$path/$filename.full.lat.jpg");
 	}
 	
-	print STDERR "Images::process_image_crop - Generating resized versions\n";	
+	$log->debug("generating resized versions") if $log->is_debug();
 	
 	# Generate resized versions
 					
@@ -937,12 +952,13 @@ sub process_image_crop($$$$$$$$$$) {
 			gravity=>"center");
 		_set_magickal_options($img, $w);
 
-		my $x = $img->Write("jpeg:$www_root/images/products/$path/$filename.$max.jpg");
+		my $final_path = "$www_root/images/products/$path/$filename.$max.jpg";
+		my $x = $img->Write("jpeg:${final_path}");
 		if ("$x") {
-			print STDERR "Index::download_image - could not write jpeg:$www_root/images/products/$path/$filename.$max.jpg: $x\n";
+			$log->error("could not write final cropped image", { path => $final_path, error => $x }) if $log->is_error();
 		}
 		else {
-			print STDERR "Index::download_image - wrote jpeg:$www_root/images/products/$path/$filename.$max.jpg\n";		
+			$log->info("wrote final cropped image", { path => $final_path }) if $log->is_info();
 		}
 		
 		# temporary fields
@@ -978,7 +994,7 @@ sub process_image_crop($$$$$$$$$$) {
 
 	store_product($product_ref, "new image $id : $imgid.$rev");
 
-	print STDERR "Index::process_image_crop done\n";
+	$log->trace("image crop done") if $log->is_trace();
 	return $product_ref;
 }
 
@@ -988,8 +1004,10 @@ sub process_image_unselect($$) {
 	my $id = shift;
 	
 	my $path = product_path($code);
+	local $log->context->{code} = $code;
+	local $log->context->{id} = $id;
 		
-	print STDERR "Images.pm - process_image_unselect - id: $id\n";
+	$log->info("unselecting image") if $log->is_info();
 			
 	# Update the product image data
 	my $product_ref = retrieve_product($code);
@@ -1014,7 +1032,7 @@ sub process_image_unselect($$) {
 
 	store_product($product_ref, "unselected image $id");
 
-	print STDERR "Index::process_image_unselect done\n";
+	$log->debug("unselected image") if $log->is_debug();
 	return $product_ref;
 }
 
