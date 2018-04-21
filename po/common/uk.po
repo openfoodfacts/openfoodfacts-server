@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-04-03 09:29-0400\n"
+"PO-Revision-Date: 2018-04-21 16:41-0400\n"
 "Language-Team: Ukrainian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
@@ -209,7 +209,7 @@ msgstr ""
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "виробник"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
@@ -225,7 +225,7 @@ msgstr ""
 
 msgctxt "categories"
 msgid "Categories"
-msgstr ""
+msgstr "Категорії"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -237,7 +237,7 @@ msgstr ""
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "категорії"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
@@ -245,7 +245,7 @@ msgstr ""
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "категорія"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
@@ -360,7 +360,7 @@ msgstr ""
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr ""
+msgstr "Country"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
@@ -780,7 +780,7 @@ msgstr ""
 
 msgctxt "front_alt"
 msgid "Product"
-msgstr ""
+msgstr "Продукт"
 
 msgctxt "generic_name"
 msgid "Common name"
@@ -821,7 +821,7 @@ msgstr ""
 
 msgctxt "hello"
 msgid "Hello"
-msgstr ""
+msgstr "Вітаємо"
 
 msgctxt "high"
 msgid "high"
@@ -926,7 +926,7 @@ msgstr ""
 
 msgctxt "ingredients_p"
 msgid "ingredients"
-msgstr ""
+msgstr "інгредієнти"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
@@ -1170,7 +1170,7 @@ msgstr ""
 
 msgctxt "languages_s"
 msgid "language"
-msgstr ""
+msgstr "мова"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
@@ -1196,7 +1196,7 @@ msgstr ""
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
-msgstr ""
+msgstr "Посилання на сторінку продукту на офіційному сайті виробника"
 
 msgctxt "list_of_x"
 msgid "List of %s"
@@ -1250,7 +1250,7 @@ msgstr ""
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr ""
+msgstr "Ім’я користувача або адреса ел. пошти:"
 
 msgctxt "low"
 msgid "low"
@@ -1330,7 +1330,7 @@ msgstr "Дізнатись більше"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/дізнатись більше"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1542,7 +1542,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr ""
+msgstr "в одній порції"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
@@ -2033,7 +2033,7 @@ msgstr ""
 
 msgctxt "saving"
 msgid "Saving."
-msgstr ""
+msgstr "Збереження."
 
 msgctxt "search"
 msgid "Search"
@@ -2322,7 +2322,7 @@ msgstr ""
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr ""
+msgstr "Вийти"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -2382,7 +2382,7 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "магазин"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2414,7 +2414,7 @@ msgstr ""
 
 msgctxt "tagstable_search"
 msgid "Search:"
-msgstr ""
+msgstr "Пошук:"
 
 msgctxt "traces"
 msgid "Traces"
@@ -2466,7 +2466,7 @@ msgstr ""
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
-msgstr ""
+msgstr "Ім’я користувача або адреса ел. пошти: "
 
 msgctxt "username"
 msgid "User name"
