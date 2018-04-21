@@ -1054,10 +1054,7 @@ sub display_list_of_tags($$) {
 	
 	#if ($admin) 
 	{
-	
-		use Data::Dumper;
-		print STDERR "Display.pm - display_list_of_tags - query:\n" . Dumper($query_ref) . "\n";
-	
+		$log->debug("MongoDB query built", { query => $query_ref }) if $log->is_debug();	
 	}
 
 	my $worlddom = format_subdomain('world');
@@ -1120,17 +1117,12 @@ sub display_list_of_tags($$) {
 			];
 	}	
 	
-	if ($admin) {
-		use Data::Dumper;
-		print STDERR "Display.pm - display_list_of_tags - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
-	
-	}		
-	
 	eval {
+		$log->debug("Executing MongoDB aggregate query", { query => $aggregate_parameters }) if $log->is_debug();
 		$results = $products_collection->aggregate( $aggregate_parameters );
 	};
 	if ($@) {
-		print STDERR "Display.pm - display_list_of_tags - MongoDB error: $@ - retrying once\n";
+		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
 		# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
 		
 		# opening new connection
@@ -1140,25 +1132,23 @@ sub display_list_of_tags($$) {
 			$products_collection = $database->get_collection('products');
 		};
 		if ($@) {
-			print STDERR "Display.pm - display_list_of_tags - MongoDB error: $@ - reconnecting failed\n";
+			$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
 			$count = -1;
 		}
 		else {		
-			print STDERR "Display.pm - display_list_of_tags - MongoDB error: $@ - reconnected ok\n";					
+			$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
 			eval {
+				$log->debug("Executing MongoDB aggregate query", { query => $aggregate_parameters }) if $log->is_debug();
 				$results = $products_collection->aggregate( $aggregate_parameters);
 			};
-			print STDERR "Display.pm - display_list_of_tags - MongoDB error: $@ - ok\n";	
+			$log->debug("MongoDB query done", { error => $@ }) if $log->is_debug();
 		}
 	}
 		
-
-	print STDERR "Display.pm - display_list_of_tags - aggregate query done\n";
+	$log->trace("aggregate query done") if $log->is_trace();
 	
 	if ($admin) {
-		use Data::Dumper;
-		print STDERR "Display.pm - display_list_of_tags - results:\n" . Dumper($results) . "\n";
-	
+		$log->debug("aggregate query results", { results => $results }) if $log->is_debug();	
 	}	
 	
 	my $html = '';
@@ -2577,14 +2567,14 @@ sub search_and_display_products($$$$$) {
 			$cursor = $products_collection->aggregate($aggregate_parameters);
 		}
 		else {
-			print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
+			$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
 			$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 			$count = $cursor->count() + 0;
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";
+			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 		}
 	};
 	if ($@) {
-		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
+		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
 		# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
 		
 		# opening new connection
@@ -2594,11 +2584,11 @@ sub search_and_display_products($$$$$) {
 			$products_collection = $database->get_collection('products');
 		};
 		if ($@) {
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnecting failed\n";
+			$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
 			$count = -1;
 		}
 		else {		
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
+			$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
 			if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
 				my $aggregate_parameters = [
 					{ "\$match" => $query_ref },
@@ -2608,13 +2598,13 @@ sub search_and_display_products($$$$$) {
 				$cursor = $products_collection->aggregate($aggregate_parameters);
 			}
 			else {
-				print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
+				$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
 				$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 				$count = $cursor->count() + 0;
-				print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";
+				$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 
 			}
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok\n";
+			$log->debug("MongoDB query done", { error => $@ }) if $log->is_debug();
 		}
 	}
 	
@@ -2963,7 +2953,7 @@ sub search_and_export_products($$$$$) {
 		$count = $cursor->count() + 0;
 	};
 	if ($@) {
-		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
+		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
 		# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
 		
 		# opening new connection
@@ -2973,14 +2963,14 @@ sub search_and_export_products($$$$$) {
 			$products_collection = $database->get_collection('products');
 		};
 		if ($@) {
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnecting failed\n";
+			$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
 			$count = -1;
 		}
 		else {		
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
+			$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
 			$cursor = $products_collection->query($query_ref)->sort($sort_ref);
 			$count = $cursor->count() + 0;
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
+			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 		}
 	}
 		
@@ -3993,7 +3983,7 @@ sub search_and_graph_products($$$) {
 	if ($admin) {
 	
 		use Data::Dumper;
-		print STDERR "Display.pm - search_and_graph_products - query:\n" . Dumper($query_ref) . "\n";
+		$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
 	
 	}
 	
@@ -4002,7 +3992,7 @@ sub search_and_graph_products($$$) {
 		$count = $cursor->count() + 0;
 	};
 	if ($@) {
-		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
+		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
 		# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
 		
 		# opening new connection
@@ -4012,14 +4002,14 @@ sub search_and_graph_products($$$) {
 			$products_collection = $database->get_collection('products');
 		};
 		if ($@) {
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnecting failed\n";
+			$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
 			$count = -1;
 		}
 		else {		
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
+			$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
 			$cursor = $products_collection->query($query_ref);
 			$count = $cursor->count() + 0;
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
+			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 		}
 	}
 		
@@ -4157,7 +4147,7 @@ sub search_and_map_products($$$) {
 		$count = $cursor->count() + 0;
 	};
 	if ($@) {
-		print STDERR "Display.pm - search_and_map_products - MongoDB error: $@ - retrying once\n";
+		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
 		# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
 		
 		# opening new connection
@@ -4167,14 +4157,14 @@ sub search_and_map_products($$$) {
 			$products_collection = $database->get_collection('products');
 		};
 		if ($@) {
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnecting failed\n";
+			$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
 			$count = -1;
 		}
 		else {		
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
+			$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
 			$cursor = $products_collection->query($query_ref);
 			$count = $cursor->count() + 0;
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
+			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 		}
 	}
 		
@@ -5585,7 +5575,7 @@ HTML
 	binmode(STDOUT, ":encoding(UTF-8)");
 	print $html;
 	
-	$debug and print STDERR "Display::display done (lc: $lc - lang: $lang - mongodb: $mongodb - data_root: $data_root)\n";
+	$log->debug("display done", { lc => $lc, lang => $lang, mongodb => $mongodb, data_root => $data_root }) if $log->is_debug();
 }
 
 
@@ -8180,13 +8170,13 @@ sub display_recent_changes {
 	my $sort_ref = Tie::IxHash->new();
 	$sort_ref->Push('$natural' => -1);
 
-	print STDERR "Display.pm - display_recent_changes - query:\n" . Dumper($query_ref) . "\n";
+	$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
 	my $cursor = $recent_changes_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 	my $count = $cursor->count() + 0;
-	print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - ok, got count: $count\n";
+	$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 
 	if ($@) {
-		print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - retrying once\n";
+		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
 		
 		# opening new connection
 		eval {
@@ -8195,15 +8185,15 @@ sub display_recent_changes {
 			$recent_changes_collection = $database->get_collection('recent_changes');
 		};
 		if ($@) {
-			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - reconnecting failed\n";
+			$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
 			$count = -1;
 		}
 		else {		
-			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - reconnected ok\n";					
-			print STDERR "Display.pm - display_recent_changes - query:\n" . Dumper($query_ref) . "\n";
+			$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
+			$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
 			$cursor = $recent_changes_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 			$count = $cursor->count() + 0;
-			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - ok, got count: $count\n";
+			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 		}
 	}
 	
