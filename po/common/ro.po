@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ro\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-04-03 08:08-0400\n"
+"PO-Revision-Date: 2018-04-22 13:24-0400\n"
 "Language-Team: Romanian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100>0 && n%100<20)) ? 1 : 2);\n"
@@ -136,7 +136,7 @@ msgstr ""
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk&hl=ro"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
@@ -149,7 +149,8 @@ msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr ""
+msgstr "<p>Acest produs încă nu se află în baza de date <<site_name>>. Puteți face câteva fotografii cu produsul, codul de bare, lista de ingrediente și valorile nutriționale pentru a-l adăuga la <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
+"<p>Vă mulțumim în avans!</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -648,7 +649,7 @@ msgstr "ro_RO"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenFoodFacts&hl=ro"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -674,7 +675,7 @@ msgstr ""
 
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.blog.openfoodfacts.org&hl=ro"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -690,7 +691,7 @@ msgstr "Date"
 
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr ""
+msgstr "/date"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -716,7 +717,9 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
-msgstr ""
+msgstr "Urmăriți-ne pe <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> și\n"
+"<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -736,7 +739,7 @@ msgstr "Mențiuni legale"
 
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr ""
+msgstr "/mențiuni legale"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -744,7 +747,7 @@ msgstr "Presa"
 
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr ""
+msgstr "/presa"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -772,7 +775,7 @@ msgstr ""
 
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.wiki.openfoodfacts.org&hl=ro"
 
 msgctxt "for"
 msgid "for"
@@ -979,7 +982,7 @@ msgstr ""
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
-msgstr ""
+msgstr "https://itunes.apple.com/en/app/open-food-facts/id588797948&hl=ro"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1179,7 +1182,7 @@ msgstr ""
 
 msgctxt "languages_s"
 msgid "language"
-msgstr ""
+msgstr "limbă"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
@@ -1201,7 +1204,8 @@ msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr ""
+msgstr "Adăugând informații, date și/sau imagini, acceptați să vă faceți contribuția disponibilă sub licența pentru informație și date <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a>, și sub licența pentru imagini <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a>.\n"
+"Acceptați să fiți creditat pentru re-utilizări cu un link către produsul la care contribuiți."
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
@@ -1331,7 +1335,7 @@ msgstr "Contribuiți"
 
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/contribuiți"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1339,7 +1343,7 @@ msgstr "Descoperiți"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/descoperiți"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1455,7 +1459,7 @@ msgstr "Valori nutriționale pentru 100g"
 
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/valori-nutritionale"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -1580,7 +1584,7 @@ msgstr ""
 
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png&hl=ro"
 
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
@@ -1598,7 +1602,7 @@ msgstr ""
 
 msgctxt "or"
 msgid "or:"
-msgstr ""
+msgstr "sau:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
@@ -2114,7 +2118,7 @@ msgstr "Grafic pe 2 axe"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p>→ pentru a afla mai multe despre graficele de pe <<site_name>> : <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graficele în 3 click-uri (în franceză)</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2557,7 +2561,7 @@ msgstr ""
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
-msgstr ""
+msgstr "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34&hl=ro"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
