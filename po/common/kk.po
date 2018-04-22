@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: kk\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-04-03 08:11-0400\n"
+"PO-Revision-Date: 2018-04-22 14:33-0400\n"
 "Language-Team: Kazakh\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -92,7 +92,7 @@ msgstr ""
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "қоспалар"
 
 msgctxt "additives_s"
 msgid "additive"
@@ -116,7 +116,7 @@ msgstr ""
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr ""
+msgstr "Аллергия туғызатын немесе көтере алмайтын заттар немесе өнімдер"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -193,7 +193,7 @@ msgstr ""
 
 msgctxt "brands"
 msgid "Brands"
-msgstr ""
+msgstr "Сауда маркалары"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
@@ -201,7 +201,7 @@ msgstr ""
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr ""
+msgstr "сауда маркалары"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
@@ -225,7 +225,7 @@ msgstr ""
 
 msgctxt "categories"
 msgid "Categories"
-msgstr ""
+msgstr "Санаттар"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -237,7 +237,7 @@ msgstr ""
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "санаттар"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
@@ -360,7 +360,7 @@ msgstr ""
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr ""
+msgstr "Country"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
@@ -780,7 +780,7 @@ msgstr ""
 
 msgctxt "front_alt"
 msgid "Product"
-msgstr ""
+msgstr "Өнім"
 
 msgctxt "generic_name"
 msgid "Common name"
@@ -910,7 +910,7 @@ msgstr ""
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr ""
+msgstr "ингредиенттер пальма майынан"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
@@ -926,7 +926,7 @@ msgstr ""
 
 msgctxt "ingredients_p"
 msgid "ingredients"
-msgstr ""
+msgstr "ингредиенттер"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
@@ -954,7 +954,7 @@ msgstr ""
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr ""
+msgstr "ингредиенттер мүмкін пальма майынан"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
@@ -1270,7 +1270,7 @@ msgstr ""
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr ""
+msgstr "Өндіру орны немесе қайта өңдеу"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
@@ -1278,7 +1278,7 @@ msgstr ""
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
-msgstr ""
+msgstr "өндіру орны немесе қайта өңдеу"
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
@@ -1625,7 +1625,7 @@ msgstr ""
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "Қаптама"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -1637,7 +1637,7 @@ msgstr ""
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr ""
+msgstr "қаптама"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
@@ -1645,7 +1645,7 @@ msgstr ""
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr ""
+msgstr "қаптама"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -1921,7 +1921,7 @@ msgstr ""
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr ""
+msgstr "Сатып алатын қала, облыс және ел"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
@@ -1949,7 +1949,7 @@ msgstr ""
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr ""
+msgstr "Сан"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
@@ -2294,7 +2294,7 @@ msgstr ""
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr ""
+msgstr "Порция мөлшері"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2366,7 +2366,7 @@ msgstr ""
 
 msgctxt "stores"
 msgid "Stores"
-msgstr ""
+msgstr "Дүкендер"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2374,7 +2374,7 @@ msgstr ""
 
 msgctxt "stores_p"
 msgid "stores"
-msgstr ""
+msgstr "дүкендер"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
@@ -2382,7 +2382,7 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "дүкен"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2414,11 +2414,11 @@ msgstr ""
 
 msgctxt "tagstable_search"
 msgid "Search:"
-msgstr ""
+msgstr "Іздеу:"
 
 msgctxt "traces"
 msgid "Traces"
-msgstr ""
+msgstr "Қамтуы мүмкін"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
@@ -2430,7 +2430,7 @@ msgstr ""
 
 msgctxt "traces_p"
 msgid "traces"
-msgstr ""
+msgstr "қамтуы мүмкін"
 
 msgctxt "traces_s"
 msgid "trace"
