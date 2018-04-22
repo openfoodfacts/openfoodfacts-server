@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-04-03 08:11-0400\n"
+"PO-Revision-Date: 2018-04-22 13:24-0400\n"
 "Language-Team: Russian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
@@ -1480,11 +1480,11 @@ msgstr "Пищевая ценность не указана на продукт�
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
-msgstr ""
+msgstr "На продукте указываются многочисленные факты о питательной ценностии (например, с добавленной водой или молоком)."
 
 msgctxt "multiple_nutrition_data_instructions"
 msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
-msgstr ""
+msgstr "Укажите питательную ценность только для неподготовленного продукта без добавления воды или молока. Если указаны разные продукты, введите данные о питательной ценности для первого перечисленного продукта."
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
@@ -2778,61 +2778,61 @@ msgstr "Голосов отдано"
 
 msgctxt "minerals_p"
 msgid "added minerals"
-msgstr ""
+msgstr "добавленные минералы"
 
 msgctxt "minerals_s"
 msgid "added mineral"
-msgstr ""
+msgstr "добавленный минерал"
 
 msgctxt "vitamins_p"
 msgid "added vitamins"
-msgstr ""
+msgstr "добавленные витамины"
 
 msgctxt "vitamins_s"
 msgid "added vitamin"
-msgstr ""
+msgstr "добавленный витамин"
 
 msgctxt "amino_acids_p"
 msgid "added amino acids"
-msgstr ""
+msgstr "добавленные аминокислоты"
 
 msgctxt "amino_acids_s"
 msgid "added amino acid"
-msgstr ""
+msgstr "добавленная аминокислота"
 
 msgctxt "nucleotides_p"
 msgid "added nucleotides"
-msgstr ""
+msgstr "добавленные нуклеотиды"
 
 msgctxt "nucleotides_s"
 msgid "added nucleotide"
-msgstr ""
+msgstr "добавленный нуклеотид"
 
 msgctxt "other_nutritional_substances_p"
 msgid "other nutritional substances added"
-msgstr ""
+msgstr "прочие добавленные питательные вещества"
 
 msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
-msgstr ""
+msgstr "прочее добавленное питательное вещество"
 
 msgctxt "product_as_sold"
 msgid "As sold"
-msgstr ""
+msgstr "При продаже"
 
 msgctxt "prepared_product"
 msgid "Prepared"
-msgstr ""
+msgstr "Приготовленный"
 
 msgctxt "unit"
 msgid "Unit"
-msgstr ""
+msgstr "Единица"
 
 msgctxt "nutrition_data_exists"
 msgid "Nutrition facts are specified for the product as sold."
-msgstr ""
+msgstr "Пищевая ценность указана для продукта при продаже."
 
 msgctxt "nutrition_data_prepared_exists"
 msgid "Nutrition facts are specified for the prepared product."
-msgstr ""
+msgstr "Пищевая ценность указана для приготовленного продукта."
 
