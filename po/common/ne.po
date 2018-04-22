@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ne\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-04-11 09:00-0400\n"
+"PO-Revision-Date: 2018-04-22 13:23-0400\n"
 "Language-Team: Nepali\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -132,7 +132,7 @@ msgstr ""
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
@@ -173,7 +173,7 @@ msgstr ""
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr ""
+msgstr "बारकोड"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
@@ -209,7 +209,7 @@ msgstr ""
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "ब्रान्ड"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
@@ -360,7 +360,7 @@ msgstr ""
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr ""
+msgstr "Country"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
@@ -780,7 +780,7 @@ msgstr ""
 
 msgctxt "front_alt"
 msgid "Product"
-msgstr ""
+msgstr "उत्पादन"
 
 msgctxt "generic_name"
 msgid "Common name"
@@ -821,7 +821,7 @@ msgstr ""
 
 msgctxt "hello"
 msgid "Hello"
-msgstr ""
+msgstr "नमस्ते"
 
 msgctxt "high"
 msgid "high"
@@ -926,7 +926,7 @@ msgstr ""
 
 msgctxt "ingredients_p"
 msgid "ingredients"
-msgstr ""
+msgstr "आवश्यक सामग्रीहरू"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
@@ -1042,11 +1042,11 @@ msgstr ""
 
 msgctxt "lang_en"
 msgid "English"
-msgstr ""
+msgstr "अंग्रेजी"
 
 msgctxt "lang_es"
 msgid "Spanish"
-msgstr ""
+msgstr "स्पेनिश"
 
 msgctxt "lang_et"
 msgid "Estonian"
@@ -1058,7 +1058,7 @@ msgstr ""
 
 msgctxt "lang_fr"
 msgid "French"
-msgstr ""
+msgstr "फ्रेन्च"
 
 msgctxt "lang_ga"
 msgid "Irish"
@@ -1237,7 +1237,7 @@ msgstr ""
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "साइन इन"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
@@ -1669,7 +1669,7 @@ msgstr ""
 
 msgctxt "password"
 msgid "Password"
-msgstr ""
+msgstr "पासवर्ड"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
@@ -2302,7 +2302,7 @@ msgstr ""
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "साइन इन"
 
 msgctxt "share"
 msgid "Share"
@@ -2322,7 +2322,7 @@ msgstr ""
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr ""
+msgstr "साइन आउट"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -2382,7 +2382,7 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "स्टोर"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2543,7 +2543,7 @@ msgstr ""
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
