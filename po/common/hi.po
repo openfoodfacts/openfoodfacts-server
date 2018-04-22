@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-04-03 08:09-0400\n"
+"PO-Revision-Date: 2018-04-22 12:24-0400\n"
 "Language-Team: Hindi\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -224,7 +224,7 @@ msgstr "%s ब्रांड से उत्पाद"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "ब्रांड"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
@@ -240,7 +240,7 @@ msgstr "द्वारा"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr ""
+msgstr "श्रेणियाँ"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -375,7 +375,7 @@ msgstr ""
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr ""
+msgstr "Country"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
@@ -447,7 +447,7 @@ msgstr ""
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr ""
+msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -591,7 +591,7 @@ msgstr ""
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
-msgstr ""
+msgstr "पासवर्ड कम से कम 6 अक्षर लंबा होने की जरूरत है।"
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
@@ -663,7 +663,7 @@ msgstr ""
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -689,7 +689,7 @@ msgstr ""
 
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.blog.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -787,7 +787,7 @@ msgstr ""
 
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.wiki.openfoodfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -925,7 +925,7 @@ msgstr ""
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr ""
+msgstr "ताड़ के तेल से सामग्री"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
@@ -941,7 +941,7 @@ msgstr ""
 
 msgctxt "ingredients_p"
 msgid "ingredients"
-msgstr ""
+msgstr "सामग्री"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
@@ -969,7 +969,7 @@ msgstr ""
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr ""
+msgstr "सामग्री जो ताड़ के तेल से हो सकती है"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
@@ -981,11 +981,11 @@ msgstr ""
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
-msgstr ""
+msgstr "https://itunes.apple.com/en/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -997,7 +997,7 @@ msgstr ""
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr ""
+msgstr "लेबल, प्रमाणपत्र, पुरस्कार"
 
 msgctxt "labels_example"
 msgid "Organic"
@@ -1017,7 +1017,7 @@ msgstr ""
 
 msgctxt "labels_s"
 msgid "label"
-msgstr ""
+msgstr "लेबल"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
@@ -1185,7 +1185,7 @@ msgstr ""
 
 msgctxt "languages_s"
 msgid "language"
-msgstr ""
+msgstr "भाषा"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
@@ -1211,7 +1211,7 @@ msgstr ""
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
-msgstr ""
+msgstr "निर्माता की साइट पे इस उत्पाद की लिंक"
 
 msgctxt "list_of_x"
 msgid "List of %s"
@@ -1285,7 +1285,7 @@ msgstr ""
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr ""
+msgstr "विनिर्माण या प्रसंस्करण स्थान"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
@@ -1293,7 +1293,7 @@ msgstr ""
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
-msgstr ""
+msgstr "विनिर्माण या प्रसंस्करण स्थान"
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
@@ -1557,7 +1557,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr ""
+msgstr "प्रत्येक हिस्सा"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
@@ -1586,7 +1586,7 @@ msgstr ""
 
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
@@ -1608,7 +1608,7 @@ msgstr ""
 
 msgctxt "origins"
 msgid "Origin of ingredients"
-msgstr ""
+msgstr "सामग्री की उत्पत्ति"
 
 msgctxt "origins_example"
 msgid "California, USA"
@@ -1628,7 +1628,7 @@ msgstr ""
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr ""
+msgstr "सामग्री की उत्पत्ति"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
@@ -1640,7 +1640,7 @@ msgstr ""
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "पैकेजिंग"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -1652,7 +1652,7 @@ msgstr ""
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr ""
+msgstr "पैकेजिंग"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
@@ -1660,7 +1660,7 @@ msgstr ""
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr ""
+msgstr "पैकेजिंग"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -1936,7 +1936,7 @@ msgstr ""
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr ""
+msgstr "शहर, राज्य और देश जहाँ इसे खरीदा गया"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
@@ -1948,7 +1948,7 @@ msgstr ""
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "%s में बेचे गए उत्पाद"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -1964,7 +1964,7 @@ msgstr ""
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr ""
+msgstr "मात्रा"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
@@ -2289,7 +2289,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "देश"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2309,7 +2309,7 @@ msgstr ""
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr ""
+msgstr "सेवारत माप"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2381,7 +2381,7 @@ msgstr ""
 
 msgctxt "stores"
 msgid "Stores"
-msgstr ""
+msgstr "दुकाने"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2389,7 +2389,7 @@ msgstr ""
 
 msgctxt "stores_p"
 msgid "stores"
-msgstr ""
+msgstr "दुकाने"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
@@ -2397,7 +2397,7 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "दुकान"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2433,7 +2433,7 @@ msgstr ""
 
 msgctxt "traces"
 msgid "Traces"
-msgstr ""
+msgstr "अवशेष"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
@@ -2445,7 +2445,7 @@ msgstr ""
 
 msgctxt "traces_p"
 msgid "traces"
-msgstr ""
+msgstr "अवशेष"
 
 msgctxt "traces_s"
 msgid "trace"
@@ -2521,7 +2521,7 @@ msgstr ""
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr ""
+msgstr "सहयोगी"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
@@ -2558,11 +2558,11 @@ msgstr ""
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
-msgstr ""
+msgstr "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2654,7 +2654,7 @@ msgstr ""
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr ""
+msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
 
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
