@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-04-03 07:59-0400\n"
+"PO-Revision-Date: 2018-04-22 14:34-0400\n"
 "Language-Team: Bulgarian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -136,7 +136,7 @@ msgstr ""
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk&hl=bg"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
@@ -149,7 +149,8 @@ msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr ""
+msgstr "<P> Този продукт все още не е в << SITE_NAME >> базата данни. Бихте ли направили няколко снимки на продукта, баркод, списък съставки и хранителни факти и да го добавите в <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"> << SITE_NAME> > </a>? </p>\n"
+" <P> Благодарим Ви предварително! </p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -360,7 +361,7 @@ msgstr ""
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr ""
+msgstr "Country"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
@@ -648,7 +649,7 @@ msgstr ""
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenFoodFacts&hl=bg"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -674,7 +675,7 @@ msgstr ""
 
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.blog.openfoodfacts.org&hl=bg"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -772,7 +773,7 @@ msgstr ""
 
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.wiki.openfoodfacts.org&hl=bg"
 
 msgctxt "for"
 msgid "for"
@@ -780,7 +781,7 @@ msgstr ""
 
 msgctxt "front_alt"
 msgid "Product"
-msgstr ""
+msgstr "Продукт"
 
 msgctxt "generic_name"
 msgid "Common name"
@@ -886,11 +887,11 @@ msgstr ""
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Съставки"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr ""
+msgstr "Съставки"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -926,7 +927,7 @@ msgstr ""
 
 msgctxt "ingredients_p"
 msgid "ingredients"
-msgstr ""
+msgstr "съставки"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
@@ -970,7 +971,7 @@ msgstr ""
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
-msgstr ""
+msgstr "https://itunes.apple.com/en/app/open-food-facts/id588797948&hl=bg"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1237,7 +1238,7 @@ msgstr ""
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "Вход"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
@@ -1250,7 +1251,7 @@ msgstr ""
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr ""
+msgstr "Потребителско име или имейл адрес:"
 
 msgctxt "low"
 msgid "low"
@@ -1378,7 +1379,7 @@ msgstr ""
 
 msgctxt "name"
 msgid "Name"
-msgstr ""
+msgstr "Име"
 
 msgctxt "names"
 msgid "Names"
@@ -1571,7 +1572,7 @@ msgstr ""
 
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png&hl=bg"
 
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
@@ -1669,7 +1670,7 @@ msgstr ""
 
 msgctxt "password"
 msgid "Password"
-msgstr ""
+msgstr "Парола"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
@@ -2138,7 +2139,7 @@ msgstr ""
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Съставки"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
@@ -2278,7 +2279,7 @@ msgstr ""
 
 msgctxt "select_lang"
 msgid "Language"
-msgstr ""
+msgstr "Език"
 
 msgctxt "send_image"
 msgid "Send a picture..."
@@ -2302,11 +2303,11 @@ msgstr ""
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "Вход"
 
 msgctxt "share"
 msgid "Share"
-msgstr ""
+msgstr "Споделяне"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
@@ -2322,7 +2323,7 @@ msgstr ""
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr ""
+msgstr "Изход"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -2414,7 +2415,7 @@ msgstr ""
 
 msgctxt "tagstable_search"
 msgid "Search:"
-msgstr ""
+msgstr "Търсене:"
 
 msgctxt "traces"
 msgid "Traces"
@@ -2466,7 +2467,7 @@ msgstr ""
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
-msgstr ""
+msgstr "Потребителско име или имейл адрес: "
 
 msgctxt "username"
 msgid "User name"
@@ -2547,7 +2548,7 @@ msgstr ""
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
-msgstr ""
+msgstr "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34&hl=bg"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2675,7 +2676,7 @@ msgstr ""
 
 msgctxt "translators_column_name"
 msgid "Name"
-msgstr ""
+msgstr "Име"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
