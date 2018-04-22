@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-04-03 07:58-0400\n"
+"PO-Revision-Date: 2018-04-22 11:44-0400\n"
 "Language-Team: Finnish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -201,7 +201,7 @@ msgstr ""
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr ""
+msgstr "tuotemerkit"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
@@ -237,7 +237,7 @@ msgstr ""
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "luokat"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
@@ -376,7 +376,7 @@ msgstr ""
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "maa"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -576,7 +576,7 @@ msgstr "Virheellinen sähköpostiosoite"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
-msgstr ""
+msgstr "Salasanan on oltava vähintään 6 merkkiä."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
@@ -736,7 +736,7 @@ msgstr "Oikeudellinen mainitsee"
 
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr ""
+msgstr "/oikeudellinen mainitsee"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -744,7 +744,7 @@ msgstr "Lehdistö"
 
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr ""
+msgstr "/lehdistö"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -926,7 +926,7 @@ msgstr ""
 
 msgctxt "ingredients_p"
 msgid "ingredients"
-msgstr ""
+msgstr "ainekset"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
@@ -1322,7 +1322,7 @@ msgstr "Avusta"
 
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/avusta"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1330,7 +1330,7 @@ msgstr "Löydä"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/löydä"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1458,7 +1458,7 @@ msgstr ""
 
 msgctxt "nutriments_p"
 msgid "nutriments"
-msgstr ""
+msgstr "ravinteet"
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
@@ -1589,7 +1589,7 @@ msgstr ""
 
 msgctxt "or"
 msgid "or:"
-msgstr ""
+msgstr "tai:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
@@ -1613,7 +1613,7 @@ msgstr ""
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr ""
+msgstr "alkuperä ainesosien"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
@@ -1637,7 +1637,7 @@ msgstr ""
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr ""
+msgstr "pakkaus"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
@@ -1645,7 +1645,7 @@ msgstr ""
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr ""
+msgstr "pakkaus"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -2049,7 +2049,7 @@ msgstr "Etsi"
 
 msgctxt "search_contains"
 msgid "contains"
-msgstr ""
+msgstr "sisältää"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
@@ -2382,7 +2382,7 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "kauppa"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2414,7 +2414,7 @@ msgstr ""
 
 msgctxt "tagstable_search"
 msgid "Search:"
-msgstr ""
+msgstr "Etsi:"
 
 msgctxt "traces"
 msgid "Traces"
