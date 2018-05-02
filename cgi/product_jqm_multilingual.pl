@@ -1,4 +1,24 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
+
+# This file is part of Product Opener.
+# 
+# Product Opener
+# Copyright (C) 2011-2018 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# 
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# 
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use Modern::Perl '2012';
 use utf8;
@@ -267,11 +287,20 @@ else {
 			}
 			$product_ref->{nutriments}{$nid . "_unit"} = $unit;		
 			$product_ref->{nutriments}{$nid . "_value"} = $value;
-			if (($unit eq '% DV') and ($Nutriments{$nid}{dv} > 0)) {
+			if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
+				$value = $value * $Nutriments{$nid}{iu} ;
+				$unit = $Nutriments{$nid}{unit};
+			}
+			elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
 				$value = $value / 100 * $Nutriments{$nid}{dv} ;
 				$unit = $Nutriments{$nid}{unit};
 			}
-			$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
+			if ($nid eq 'water-hardness') {
+				$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit);
+			}
+			else {
+				$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
+			}
 		}
 	}
 	

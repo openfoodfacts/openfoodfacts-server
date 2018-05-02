@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 // 
 // Product Opener
-// Copyright (C) 2011-2017 Association Open Food Facts
+// Copyright (C) 2011-2018 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 // 
@@ -61,7 +61,6 @@ $('.new_lc').each(function(i, obj) {
 		
 	});	
 	
-	
 	$clone.find('[for]').each(function() { 
 
 		var $th = $(this);
@@ -82,7 +81,14 @@ $('.new_lc').each(function(i, obj) {
 		var $th = $(this);
 		var newID = $th.attr('href').replace(/new_lc/, lc);
 		$th.attr('href', newID);
-	});	
+	});
+
+	$clone.find('[lang]').each(function() {
+
+		var $th = $(this);
+		var newID = $th.attr('lang').replace(/new_lc/, lc);
+		$th.attr('lang', newID);
+	});
 	
 	$clone.find('.tab_language').each(function() { 
 
@@ -139,6 +145,10 @@ function select_nutriment(event, ui) {
 						domElement.options[domElement.options.length] = new Option(unitValue, unitValue, false, unitValue.toLowerCase() == unit);
 					}
 
+					if (ui.item.iu) {
+						domElement.options[domElement.options.length] = new Option('IU', 'IU', false, 'iu' == unit);
+					}
+
 					return;
 				}
 			}
@@ -160,7 +170,8 @@ function add_line(event, ui) {
 	newline.find(".nutriment_label").attr("id",newid + "_label").attr("name",newid + "_label");
 	newline.find(".nutriment_unit").attr("id",newid + "_unit").attr("name",newid + "_unit");
 	newline.find(".nutriment_unit_percent").attr("id",newid + "_unit_percent").attr("name",newid + "_unit_percent");
-	newline.find(".nutriment_value").attr("id",newid).attr("name",newid);
+	newline.find("#nutriment_new_0").attr("id",newid).attr("name",newid);
+	newline.find("#nutriment_new_0_prepared").attr("id",newid + "_prepared").attr("name",newid + "_prepared");
 
 	$('#nutrition_data_table > tbody:last').append(newline);
 	newline.show();
@@ -357,6 +368,20 @@ function change_image(imagefield, imgid) {
 }  
 
 
+
+function update_nutrition_image_copy() {
+	
+	// width big enough to display a copy next to nutrition table?
+	if ($('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
+	
+		$('#nutrition_image_copy').css("left", $('#nutrition_data_table').width() + 10).show();
+	}	
+	else {
+		$('#nutrition_image_copy').hide();
+	}
+}
+
+
 function update_display(imagefield, first_display) {
 
 	var display_url = imagefield_url[imagefield];
@@ -377,7 +402,7 @@ function update_display(imagefield, first_display) {
 			if ((! first_display) || ($('#nutrition_image_copy').html() === '')) {		
 				$('#nutrition_image_copy').html('<img src="' + img_path + display_url + '" />').css("left", $('#nutrition_data_table').width() + 10);
 			}
-		}
+		}	
 	}
 	
 	$('div[id="display_' + imagefield +'"]').html(html);

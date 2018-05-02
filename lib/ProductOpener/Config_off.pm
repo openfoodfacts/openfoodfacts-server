@@ -1,3 +1,23 @@
+# This file is part of Product Opener.
+#
+# Product Opener
+# Copyright (C) 2011-2018 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+#
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 package ProductOpener::Config;
 
 use utf8;
@@ -26,6 +46,9 @@ BEGIN
 		$csrf_secret
 		
 		$google_cloud_vision_api_key
+		
+		$crowdin_project_identifier
+		$crowdin_project_key
 		
 		$mongodb
 		$mongodb_host
@@ -70,6 +93,7 @@ bojackhorseman
 hangy
 javichu
 kyzh
+lucaa
 scanparty-franprix-05-2016
 sebleouf
 segundo
@@ -139,8 +163,8 @@ scanparty-franprix-05-2016
 		["warn"]
 	],
 	notifications => [ qw (
-                slack_channel_edit-alert
-        )],
+		slack_channel_edit-alert
+	)],
 },
 
 );
@@ -162,6 +186,9 @@ $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 $oidc = $ProductOpener::Config2::oidc;
 $csrf_secret = $ProductOpener::Config2::csrf_secret;
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
+
+$crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
+$crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 
 $reference_timezone = 'Europe/Paris';
 
@@ -244,6 +271,30 @@ $options{opensearch_image} = <<XML
 XML
 ;
 
+$options{categories_exempted_from_nutriscore} = [qw(
+en:baby-foods
+en:baby-milks
+en:alcoholic-beverages
+en:waters
+en:coffees
+en:teas
+fr:levure
+fr:levures
+en:honeys
+en:vinegars
+)];
+
+$options{categories_exempted_from_nutrient_levels} = [qw(
+en:baby-foods
+en:baby-milks
+en:alcoholic-beverages
+en:coffees
+en:teas
+fr:levure
+fr:levures
+)];
+
+
 %wiki_texts = (
 
 "en/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_English?action=raw",
@@ -277,7 +328,7 @@ XML
 
 # fields for which we will load taxonomies
 
-@taxonomy_fields = qw(states countries languages labels categories additives additives_classes allergens traces nutrient_levels misc ingredients);
+@taxonomy_fields = qw(states countries languages labels categories additives additives_classes vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces nutrient_levels misc ingredients);
 
 
 # fields in product edit form
@@ -303,6 +354,11 @@ manufacturing_places
 emb_codes
 ingredients
 additives
+vitamins
+minerals
+amino_acids
+nucleotides
+other_nutritional_substances
 allergens
 traces
 nutrition_grades
@@ -336,7 +392,15 @@ last_edit_dates
 
 %weblink_templates = (
 
-	'wikidata:en' => { href => 'https://www.wikidata.org/wiki/%s', text => 'Wikidata' },
+	'wikidata:en' => { href => 'https://www.wikidata.org/wiki/%s', text => 'Wikidata', parse => sub
+	{
+		my ($url) = @_;
+		if ($url =~ /^https?:\/\/www.wikidata.org\/wiki\/(Q\d+)$/) {
+			return $1
+		}
+
+		return;
+	} },
 
 );
 
@@ -345,27 +409,35 @@ last_edit_dates
 $options{other_servers} = {
 obf =>
 {
-        name => "Open Beauty Facts",
-        data_root => "/home/obf",
-        www_root => "/home/obf/html",
-        mongodb => "obf",
+	name => "Open Beauty Facts",
+	data_root => "/home/obf",
+	www_root => "/home/obf/html",
+	mongodb => "obf",
 	domain => "openbeautyfacts.org",
 },
 off =>
 {
-        name => "Open Food Facts",
-        data_root => "/home/off",
-        www_root => "/home/off/html",
-        mongodb => "off",
+	name => "Open Food Facts",
+	data_root => "/home/off",
+	www_root => "/home/off/html",
+	mongodb => "off",
 	domain => "openfoodfacts.org",
+},
+opf =>
+{
+	name => "Open Products Facts",
+	data_root => "/home/opf",
+	www_root => "/home/opf/html",
+	mongodb => "opf",
+	domain => "openproductsfacts.org",
 },
 opff =>
 {
-        prefix => "opff",
-        name => "Open Pet Food Facts",
-        data_root => "/home/opff",
-        www_root => "/home/opff/html",
-        mongodb => "opff",
+	prefix => "opff",
+	name => "Open Pet Food Facts",
+	data_root => "/home/opff",
+	www_root => "/home/opff/html",
+	mongodb => "opff",
 	domain => "openpetfoodfacts.org",
 }
 };

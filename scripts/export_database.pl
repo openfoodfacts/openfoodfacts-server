@@ -1,4 +1,24 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
+
+# This file is part of Product Opener.
+# 
+# Product Opener
+# Copyright (C) 2011-2018 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# 
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# 
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -19,6 +39,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::Display qw/:all/;
 
 # for RDF export: replace xml_escape() with xml_escape_NFC()
 use Unicode::Normalize;
@@ -66,6 +87,7 @@ ingredients_text
 allergens
 traces
 serving_size
+serving_quantity
 no_nutriments
 additives_n
 additives
@@ -196,6 +218,8 @@ XML
 		$csv .= "main_category\tmain_category_$lc\t";
 		
 		$csv .= "image_url\timage_small_url\t";
+		$csv .= "image_ingredients_url\timage_ingredients_small_url\t";
+		$csv .= "image_nutrition_url\timage_nutrition_small_url\t";
 		
 		
 		
@@ -334,22 +358,12 @@ XML
 		
 		$product_ref->{main_category} = $main_cid;		
 		
-		my $id = 'front';
-		my $size = $display_size;
-		
-		if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
-			and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
-		
-			my $path = product_path($product_ref->{code});
+		ProductOpener::Display::add_images_urls_to_product($product_ref);
 
-			
-			$product_ref->{image_url} = "http://$lc.$server_domain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $display_size . '.jpg';
-			$product_ref->{image_small_url} = "http://$lc.$server_domain/images/products/$path/$id." . $product_ref->{images}{$id}{rev} . '.' . $small_size . '.jpg';
-		
-			
-		}
 		
 		$csv .= $product_ref->{image_url} . "\t" . $product_ref->{image_small_url} . "\t";
+		$csv .= $product_ref->{image_ingredients_url} . "\t" . $product_ref->{image_ingredients_small_url} . "\t";
+		$csv .= $product_ref->{image_nutrition_url} . "\t" . $product_ref->{image_nutrition_small_url} . "\t";
 
 		
 		foreach my $nid (@{$nutriments_tables{"europe"}}) {

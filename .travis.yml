@@ -22,7 +22,7 @@ addons:
     - graphviz
 sudo: false
 before_install:
-  - nvm install 4
+  - nvm install --lts
   - cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH="$HOME/.yarn/bin:$PATH"
@@ -35,7 +35,10 @@ install:
   - ln -s $TRAVIS_BUILD_DIR/lib/ProductOpener/SiteLang_off.pm $TRAVIS_BUILD_DIR/lib/ProductOpener/SiteLang.pm
   - sed -i -e 's|\$server_domain = "openfoodfacts.org";|\$server_domain = "off.travis-ci.org";|g' $TRAVIS_BUILD_DIR/lib/ProductOpener/Config2.pm
   - sed -i -e 's|\/home\/off|'$TRAVIS_BUILD_DIR'|g' $TRAVIS_BUILD_DIR/lib/ProductOpener/Config2.pm
+before_script:
+  - perl -CS -I$TRAVIS_BUILD_DIR/lib $TRAVIS_BUILD_DIR/scripts/build_lang.pl
 script:
   - yarn test
 notifications:
   slack: openfoodfacts:Pre9ZXKFH1CYtix8DeJAaFi2
+  webhooks: https://www.travisbuddy.com/

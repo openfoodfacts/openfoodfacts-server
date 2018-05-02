@@ -1,1 +1,1 @@
-highcharts.js.4.0.4
+highcharts.4.0.4.js

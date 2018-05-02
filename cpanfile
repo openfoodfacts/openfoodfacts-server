@@ -38,7 +38,7 @@ requires 'DateTime::Locale';
 requires 'Math::Random::Secure';
 requires 'Crypt::ScryptKDF';
 requires 'HTTP::AcceptLanguage', '>=0.02';
-requires 'Locale::Maketext::Lexicon::Getcontext', '>= 0.03';
+requires 'Locale::Maketext::Lexicon::Getcontext', '>= 0.05';
 requires 'Email::IsEmail', '>= 3.04.8';
 requires 'CLDR::Number::Format::Percent';
 requires 'CLDR::Number';

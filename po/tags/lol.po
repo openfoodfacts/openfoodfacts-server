@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-11-12 18:46-0500\n"
+"PO-Revision-Date: 2018-02-11 13:23-0500\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -24,6 +24,7 @@ msgctxt ":langname"
 msgid ":langname"
 msgstr "crwdns36780:0crwdne36780:0"
 
+#. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "additives:plural"
 msgid "additives"
 msgstr "crwdns36781:0crwdne36781:0"
@@ -32,30 +33,37 @@ msgctxt "additives:singular"
 msgid "additive"
 msgstr "crwdns36782:0crwdne36782:0"
 
+#. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "allergens:plural"
 msgid "allergens"
 msgstr "crwdns36783:0crwdne36783:0"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "allergens:singular"
 msgid "allergen"
 msgstr "crwdns36784:0crwdne36784:0"
 
+#. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "brands:plural"
 msgid "brands"
 msgstr "crwdns36785:0crwdne36785:0"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "brands:singular"
 msgid "brand"
 msgstr "crwdns36786:0crwdne36786:0"
 
+#. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "categories:plural"
 msgid "categories"
 msgstr "crwdns36787:0crwdne36787:0"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "categories:singular"
 msgid "category"
 msgstr "crwdns36788:0crwdne36788:0"
 
+#. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "checkers:plural"
 msgid "checkers"
 msgstr "crwdns36789:0crwdne36789:0"
@@ -64,6 +72,7 @@ msgctxt "checkers:singular"
 msgid "checker"
 msgstr "crwdns36790:0crwdne36790:0"
 
+#. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "cities:plural"
 msgid "cities"
 msgstr "crwdns36791:0crwdne36791:0"
@@ -72,14 +81,17 @@ msgctxt "cities:singular"
 msgid "city"
 msgstr "crwdns36792:0crwdne36792:0"
 
+#. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "codes:plural"
 msgid "codes"
 msgstr "crwdns36793:0crwdne36793:0"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "codes:singular"
 msgid "code"
 msgstr "crwdns36794:0crwdne36794:0"
 
+#. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "correctors:plural"
 msgid "correctors"
 msgstr "crwdns36795:0crwdne36795:0"
@@ -88,6 +100,7 @@ msgctxt "correctors:singular"
 msgid "corrector"
 msgstr "crwdns36796:0crwdne36796:0"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "countries:plural"
 msgid "countries"
 msgstr "crwdns36797:0crwdne36797:0"
@@ -308,46 +321,57 @@ msgctxt "purchase_places:plural"
 msgid "purchase-places"
 msgstr "crwdns36851:0crwdne36851:0"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "purchase_places:singular"
 msgid "purchase-place"
 msgstr "crwdns36852:0crwdne36852:0"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "states:plural"
 msgid "states"
 msgstr "crwdns36853:0crwdne36853:0"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "states:singular"
 msgid "state"
 msgstr "crwdns36854:0crwdne36854:0"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "stores:plural"
 msgid "stores"
 msgstr "crwdns36855:0crwdne36855:0"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "stores:singular"
 msgid "store"
 msgstr "crwdns36856:0crwdne36856:0"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "traces:plural"
 msgid "traces"
 msgstr "crwdns36857:0crwdne36857:0"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "traces:singular"
 msgid "trace"
 msgstr "crwdns36858:0crwdne36858:0"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "unknown_nutrients:plural"
 msgid "unknown-nutrients"
 msgstr "crwdns36859:0crwdne36859:0"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "unknown_nutrients:singular"
 msgid "unknown-nutrient"
 msgstr "crwdns36860:0crwdne36860:0"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "users:plural"
 msgid "contributors"
 msgstr "crwdns36861:0crwdne36861:0"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "users:singular"
 msgid "contributor"
 msgstr "crwdns36862:0crwdne36862:0"

@@ -7,7 +7,8 @@
 [![Build Status](https://travis-ci.org/openfoodfacts/openfoodfacts-server.svg?branch=master)](https://travis-ci.org/openfoodfacts/openfoodfacts-server)
 [![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/openfoodfacts/openfoodfacts-server.svg)](https://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Average time to resolve an issue")
 [![Percentage of issues still open](https://isitmaintained.com/badge/open/openfoodfacts/openfoodfacts-server.svg)](https://isitmaintained.com/project/openfoodfacts/openfoodfacts-server "Percentage of issues still open")
-[![Crowdin](https://d322cqt584bo4o.cloudfront.net/openfoodfacts/localized.svg)](https://crowdin.com/project/openfoodfacts)
+[![Crowdin](https://d322cqt584bo4o.cloudfront.net/openfoodfacts/localized.svg)](https://translate.openfoodfacts.org/)
+[![Open Source Helpers](https://www.codetriage.com/openfoodfacts/openfoodfacts-server/badges/users.svg)](https://www.codetriage.com/openfoodfacts/openfoodfacts-server)
 
 ## What is Product Opener?
 
@@ -32,7 +33,7 @@ Data about food is of public interest and has to be open. The complete database 
 # Copyright and Licence #
 
 Product Opener
-Copyright (C) 2011-2017 Association Open Food Facts
+Copyright (C) 2011-2018 Association Open Food Facts
 Contact: contact@openfoodfacts.org
 Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 
@@ -65,6 +66,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ### Contribution guidelines ###
 
+If you're new to Open-Source,We recommend you to Checkout our [_Contributing Guidelines_](https://github.com/openfoodfacts/openfoodfacts-server/blob/master/CONTRIBUTING.md).Feel free to fork the project and send us a pull request.
+
 * Writing tests
 * Code review
 * Other guidelines
@@ -79,6 +82,11 @@ https://github.com/openfoodfacts/openfoodfacts-server/issues
 
 You can help translate Open Food Facts and the app at (no technical knowledge required, takes a minute to signup): <br>
 https://crowdin.com/project/openfoodfacts
+
+#### Updating translations for static content
+A number of the translations are maintained externally, see `scripts/update_texts_from_wiki.pl` to sync translation data.
+
+Specific pages are defined in the relevant `Config.pm` `wiki_texts` variables.
 
 ### Who do I talk to? ###
 

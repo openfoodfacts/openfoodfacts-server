@@ -1,20 +1,20 @@
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2016 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -119,6 +119,7 @@ use Clone qw(clone);
 use URI::Escape::XS;
 
 use GraphViz2;
+use JSON::PP;
 
 
 my $debug = 0;
@@ -151,6 +152,7 @@ my %tags_all_parents = ();
 
 my %stopwords = ();
 %just_synonyms = ();
+my %just_tags = ();	# does not include synonyms that are only synonyms
 my %synonyms = ();
 my %synonyms_for = ();
 my %synonyms_for_extended = ();
@@ -392,7 +394,7 @@ sub load_tags_hierarchy($$) {
 		
 		# print STDERR "Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype - compute all parents breadth first\n";		
 		
-		my %longest_parent = {$lc => {}};
+		my %longest_parent = ($lc => {});
 		
 		# foreach my $tagid (keys %{$tags_direct_parents{$lc}{$tagtype}}) {
 		foreach my $tag (values %{$canon_tags{$lc}{$tagtype}}) {
@@ -546,6 +548,7 @@ sub build_tags_taxonomy($$) {
 	$direct_children{$tagtype} = {};
 	$all_parents{$tagtype} = {};	
 	
+	$just_tags{$tagtype} = {};
 	$just_synonyms{$tagtype} = {};
 	$properties{$tagtype} = {};
 	
@@ -942,6 +945,7 @@ sub build_tags_taxonomy($$) {
 				
 				if (not defined $canon_tagid) {
 					$canon_tagid = "$lc:$current_tagid";
+					$just_tags{$tagtype}{$canon_tagid} = 1;
 					foreach my $parentid (keys %parents) {
 						defined $direct_parents{$tagtype}{$canon_tagid} or $direct_parents{$tagtype}{$canon_tagid} = {};
 						$direct_parents{$tagtype}{$canon_tagid}{$parentid} = 1;
@@ -975,7 +979,7 @@ sub build_tags_taxonomy($$) {
 		
 		# print STDERR "Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype - compute all parents breadth first\n";		
 		
-		my %longest_parent = {};
+		my %longest_parent = ();
 		
 		# foreach my $tagid (keys %{$direct_parents{$tagtype}}) {   
 		foreach my $tagid (keys %{$translations_to{$tagtype}}) {   
@@ -1044,6 +1048,10 @@ sub build_tags_taxonomy($$) {
 		
 		open (my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.result.txt");
 		
+		
+		# data structure to export the taxonomy to json format
+		my %taxonomy_json = ();
+		
 		my $errors = '';
 		
 		foreach my $lc (keys %{$stopwords{$tagtype}}) {
@@ -1056,21 +1064,33 @@ sub build_tags_taxonomy($$) {
 				|| ($a cmp $b)
 				}
 				keys %{$level{$tagtype}} ) {
+				
+			$taxonomy_json{$tagid} = {name => {}};
 			
 			# print "taxonomy - compute all children - $tagid - level: $level{$tagtype}{$tagid} - longest: $longest_parent{$tagid} - syn: $just_synonyms{$tagtype}{$tagid} - sort_key: $sort_key_parents{$tagid} \n";
 			if (defined $direct_parents{$tagtype}{$tagid}) {
 				print "taxonomy - direct_parents\n";
+				$taxonomy_json{$tagid}{parents} = [];
 				foreach my $parentid (sort keys %{$direct_parents{$tagtype}{$tagid}}) {
 					my $lc = $parentid;
 					$lc =~ s/^(\w\w):.*/$1/;
 					print $OUT "< $lc:" . $translations_to{$tagtype}{$parentid}{$lc} . "\n";
+					push @{$taxonomy_json{$tagid}{parents}}, $parentid;
 					print "taxonomy - parentid: $parentid > tagid: $tagid\n";
 					if (not exists $translations_to{$tagtype}{$parentid}{$lc}) {
 						$errors .= "ERROR - parent $parentid is not defined for tag $tagid\n";
 					}
 				}
-				
 			}
+			
+			if (defined $direct_children{$tagtype}{$tagid}) {
+				print "taxonomy - direct_children\n";
+				$taxonomy_json{$tagid}{children} = [];
+				foreach my $childid (sort keys %{$direct_children{$tagtype}{$tagid}}) {
+					my $lc = $childid;
+					push @{$taxonomy_json{$tagid}{children}}, $childid;
+				}
+			}			
 			
 			my $main_lc = $tagid;
 			$main_lc =~ s/^(\w\w):.*/$1/;
@@ -1082,23 +1102,46 @@ sub build_tags_taxonomy($$) {
 			my $synonyms = '';
 			if (defined $just_synonyms{$tagtype}{$tagid}) {
 				$synonyms = "synonyms:";
+				
+				# remove synonyms that are also tags from just_synonyms
+				if (defined $just_tags{$tagtype}{$tagid}) {
+					delete $just_synonyms{$tagtype}{$tagid};
+				}
 			}
 			
 			foreach my $lc ($main_lc, sort keys %{$translations_to{$tagtype}{$tagid}}) {
 				$i++;
-				next if (($lc eq $main_lc) and ($i > 1));
+				
+				$taxonomy_json{$tagid}{name}{$lc} = $translations_to{$tagtype}{$tagid}{$lc};
 				
 				my $lc_tagid = get_fileid($translations_to{$tagtype}{$tagid}{$lc});
 				
 				# print "taxonomy - lc: $lc - tagid: $tagid - lc_tagid: $lc_tagid\n";
 				if (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid}) {
-					print $OUT "$synonyms$lc:" . join(", ", @{$synonyms_for{$tagtype}{$lc}{$lc_tagid}}) . "\n";
+					if (not (($lc eq $main_lc) and ($i > 1))) {
+						print $OUT "$synonyms$lc:" . join(", ", @{$synonyms_for{$tagtype}{$lc}{$lc_tagid}}) . "\n";
+					}
+					
+					# additives has e-number as their name, and the first synonym is the additive name
+					if (($tagtype eq 'additives') and (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1])) {
+						$taxonomy_json{$tagid}{name}{$lc} .= " - " . $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1];
+					}
 				}
 			}
 			
 			if (defined $properties{$tagtype}{$tagid}) {
+				
 				foreach my $prop_lc (keys %{$properties{$tagtype}{$tagid}}) {
 					print $OUT "$prop_lc: " . $properties{$tagtype}{$tagid}{$prop_lc} . "\n";
+					if ($prop_lc =~ /^(.*):(\w\w)$/) {
+						my $prop = $1;
+						my $lc = $2;
+						(defined $taxonomy_json{$tagid}{$prop}) or $taxonomy_json{$tagid}{$prop} = {};
+						$taxonomy_json{$tagid}{$prop}{$lc} = $properties{$tagtype}{$tagid}{$prop_lc};
+					}
+					else {
+						$taxonomy_json{$tagid}{$prop_lc} = $properties{$tagtype}{$tagid}{$prop_lc};
+					}
 				}
 			}
 			
@@ -1107,6 +1150,19 @@ sub build_tags_taxonomy($$) {
 		}
 		
 		close $OUT;
+		
+		(-e "$www_root/data/taxonomies") or mkdir("$www_root/data/taxonomies", 0755);
+		
+		{
+		binmode STDOUT, ":encoding(UTF-8)";
+		open (my $OUT_JSON, ">", "$www_root/data/taxonomies/$tagtype.json");
+		print $OUT_JSON encode_json(\%taxonomy_json);
+		close ($OUT_JSON);
+		# to serve pre-compressed files from Apache
+		# nginx : needs nginx_static module
+		# system("cp $www_root/data/taxonomies/$tagtype.json $www_root/data/taxonomies/$tagtype.json.json");
+		# system("gzip $www_root/data/taxonomies/$tagtype.json");
+		}
 		
 		print STDERR $errors;
 		
@@ -2007,6 +2063,53 @@ sub canonicalize_taxonomy_tag($$$)
 	$tag =~ s/^ //g;
 	$tag =~ s/ $//g;		
 	
+	if (($tag =~ /^(\w+:\w\w):(.+)/) and (defined $properties{$tagtype})) {
+		# Test for linked data, ie. wikidata:en:Q1234
+		my $property_key = $1;
+		my $property_value = $2;
+		my $matched_tagid;
+		foreach my $canon_tagid (keys %{$properties{$tagtype}}) {
+			if ((defined $properties{$tagtype}{$canon_tagid}{$property_key}) and ($properties{$tagtype}{$canon_tagid}{$property_key} eq $property_value)) {
+				if (defined $matched_tagid) {
+					# Bail out on multiple matches for a single tag.
+					undef $matched_tagid;
+					last;
+				}
+				
+				$matched_tagid = $canon_tagid;
+			}
+		}
+
+		if (defined $matched_tagid) {
+			return $matched_tagid;
+		}
+	}
+
+	if ($tag =~ /^https?:\/\/.+/) {
+		# Test for linked data URLs, ie. https://www.wikidata.org/wiki/Q1234
+		my $matched_tagid;
+		foreach my $property_key (keys %weblink_templates) {
+			next if not defined $weblink_templates{$property_key}{parse};
+			my $property_value = $weblink_templates{$property_key}{parse}->($tag);
+			if (defined $property_value) {
+				foreach my $canon_tagid (keys %{$properties{$tagtype}}) {
+					if ((defined $properties{$tagtype}{$canon_tagid}{$property_key}) and ($properties{$tagtype}{$canon_tagid}{$property_key} eq $property_value)) {
+						if (defined $matched_tagid) {
+							# Bail out on multiple matches for a single tag.
+							undef $matched_tagid;
+							last;
+						}
+						
+						$matched_tagid = $canon_tagid;
+					}
+				}
+			}
+		}
+
+		if (defined $matched_tagid) {
+			return $matched_tagid;
+		}
+	}
 		
 	if ($tag =~ /^(\w\w):/) {
 		$tag_lc = $1;
@@ -2030,9 +2133,22 @@ sub canonicalize_taxonomy_tag($$$)
 		# try removing stopwords and plurals
 		my $tagid2 = remove_stopwords($tagtype,$tag_lc,$tagid);
 		$tagid2 = remove_plurals($tag_lc,$tagid2);
+		
+		# try to add / remove hyphens (e.g. antioxydant / anti-oxydant)
+		my $tagid3 = $tagid2;
+		my $tagid4 = $tagid2;
+		$tagid3 =~ s/(anti)(-| )/$1/;
+		$tagid4 =~ s/(anti)([a-z])/$1-$2/;
+		
 		if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid2})) {
 			$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid2};
 		}
+		if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid3})) {
+			$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid3};
+		}
+		if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid4})) {
+			$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid4};
+		}		
 		elsif ($tag_lc ne 'en') {
 			# try English
 			# try removing stopwords and plurals

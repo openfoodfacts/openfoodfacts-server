@@ -1,20 +1,20 @@
 ﻿# This file is part of Product Opener.
-# 
+#
 # Product Opener
 # Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -55,10 +55,12 @@ BEGIN
 					&display_nutrition_table
 					&display_product
 					&display_product_api
+					&display_product_history
 					&search_and_display_products
 					&search_and_export_products
 					&search_and_graph_products
 					&search_and_map_products
+					&display_recent_changes
 					
 					@search_series
 					
@@ -70,6 +72,7 @@ BEGIN
 					$database
 					$products_collection
 					$emb_codes_collection
+					$recent_changes_collection
 					
 					$debug
 					$scripts
@@ -141,7 +144,7 @@ $connection = MongoDB->connect($mongodb_host);
 $database = $connection->get_database($mongodb);
 $products_collection = $database->get_collection('products');
 $emb_codes_collection = $database->get_collection('emb_codes');
-
+$recent_changes_collection = $database->get_collection('recent_changes');
 
 if (defined $options{other_servers}) {
 
@@ -427,28 +430,34 @@ sub analyze_request($)
 		
 	print STDERR "analyze_request : query_string 1 : $request_ref->{query_string} \n";
 	
+	# Process API parameters: fields, formats, revision
+	
 	# API calls may request JSON, JSONP or XML by appending .json, .jsonp or .xml at the end of the query string
 	# .jqm returns results in HTML specifically formated for the OFF mobile app (which uses jquerymobile)
 	# for calls to /cgi/ actions (e.g. search.pl), the format can also be indicated with a parameter &json=1 &jsonp=1 &xml=1 &jqm=1
 	# (or ?json=1 if it's the first parameter)
 	
-	# first check for the rev parameter (revision of a product)
+	# first check parameters in the query string
+
+	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml') {
 	
-	foreach my $parameter ('rev', 'json', 'jsonp', 'jqm','xml') {
-	
-		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=(\d+)/) {
-			$request_ref->{query_string} =~ s/(\&|\?)$parameter=(\d+)//;
+		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
+			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
 			$request_ref->{$parameter} = $2;
 			print STDERR "analyze_request : $parameter = $request_ref->{$parameter} \n";
 		}	
-		
+	}	
+	
+	# then check suffixes .json etc.
+	
+	foreach my $parameter ('json', 'jsonp', 'jqm','xml') {
+	
 		if ($request_ref->{query_string} =~ /\.$parameter$/) {
 			$request_ref->{query_string} =~ s/\.$parameter$//;
 			$request_ref->{$parameter} = 1;
 			print STDERR "analyze_request : $parameter = 1 (.$parameter) \n";
 		}
-	
-	}
+	}	
 	
 	print STDERR "analyze_request : query_string 2 : $request_ref->{query_string} \n";
 	
@@ -714,6 +723,9 @@ sub remove_tags_and_quote($) {
 	$s =~ s/>/&gt;/g;
 	$s =~ s/"/&quot;/g;
 
+	# Remove whitespace
+	$s =~ s/^\s+|\s+$//g;
+
 	return $s;
 }
 
@@ -727,6 +739,9 @@ sub xml_escape($) {
 	$s =~ s/</&lt;/g;
 	$s =~ s/>/&gt;/g;
 	$s =~ s/"/&quot;/g;
+
+	# Remove whitespace
+	$s =~ s/^\s+|\s+$//g;
 
 	return $s;
 
@@ -1380,7 +1395,7 @@ sub display_list_of_tags($$) {
 			$html .= "<tr><td>";
 			
 			my $display = '';
-			
+			my @sameAs = ();
 			if ($tagtype eq 'nutrition_grades') {
 				if ($tagid =~ /^a|b|c|d|e$/) {
 					my $grade = $tagid;
@@ -1391,7 +1406,13 @@ sub display_list_of_tags($$) {
 				}
 			}
 			elsif (defined $taxonomy_fields{$tagtype}) {
-				$display = display_taxonomy_tag($lc, $tagtype, $tagid);				 			 
+				$display = display_taxonomy_tag($lc, $tagtype, $tagid);
+				if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$tagid})) {
+					foreach my $key (keys %weblink_templates) {
+						next if not defined $properties{$tagtype}{$tagid}{$key};
+						push @sameAs, sprintf($weblink_templates{$key}{href}, $properties{$tagtype}{$tagid}{$key});
+					}
+				}
 			}
 			else {
 				$display = canonicalize_tag2($tagtype, $tagid);
@@ -1408,6 +1429,10 @@ sub display_list_of_tags($$) {
 				url => format_subdomain($subdomain) . $product_link,
 				products => $products + 0, # + 0 to make the value numeric
 			};
+			
+			if (($#sameAs >= 0)) {
+				$tagentry->{sameAs} = \@sameAs;
+			}
 
 			if (defined $tags_images{$lc}{$tagtype}{get_fileid($icid)}) {
 				my $img = $tags_images{$lc}{$tagtype}{get_fileid($icid)};
@@ -2011,11 +2036,17 @@ sub display_tag($) {
 	
 	if (((defined $newtagid) and ($newtagid ne $tagid)) or ((defined $newtagid2) and ($newtagid2 ne $tagid2))) {
 		$request_ref->{redirect} = $request_ref->{current_link};
-		print STDERR "Display.pm display_tag - redirect - tagid: $tagid - newtagid: $newtagid - tagid2: $tagid2 - newtagid2: $newtagid2 - url: $request_ref->{current_link} \n";
+		# Re-add file suffix, so that the correct response format is kept. https://github.com/openfoodfacts/openfoodfacts-server/issues/894
+		$request_ref->{redirect} .= '.json' if $request_ref->{json};
+		$request_ref->{redirect} .= '.jsonp' if $request_ref->{jsonp};
+		$request_ref->{redirect} .= '.xml' if $request_ref->{xml};
+		$request_ref->{redirect} .= '.jqm' if $request_ref->{jqm};
+		print STDERR "Display.pm display_tag - redirect - tagid: $tagid - newtagid: $newtagid - tagid2: $tagid2 - newtagid2: $newtagid2 - url: $request_ref->{redirect} \n";
 		return 301;
 	}
 	
 	my $weblinks_html = '';
+	my @map_layers = ();
 	if (not defined $request_ref->{groupby_tagtype}) {
 		my @weblinks = ();
 		if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})) {
@@ -2028,6 +2059,10 @@ sub display_tag($) {
 				};
 				$weblink->{title} = sprintf($weblink_templates{$key}{title}, $properties{$tagtype}{$canon_tagid}{$key}) if defined $weblink_templates{$key}{title},
 				push @weblinks, $weblink;
+			}
+
+			if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid}{'wikidata:en'})) {
+				push @map_layers, 'addWikidataObjectToMap("' . $properties{$tagtype}{$canon_tagid}{'wikidata:en'} . '")';
 			}
 		}
 
@@ -2093,6 +2128,7 @@ sub display_tag($) {
 		$description .= $tags_texts{$lc}{$tagtype}{$icid};
 	}	
 	
+	my @markers = ();
 	if ($tagtype eq 'emb_codes') {
 	
 		my $city_code = get_city_code($tagid);
@@ -2111,37 +2147,9 @@ sub display_tag($) {
 			
 			# Generate a map if we have coordinates
 			my ($lat, $lng) = get_packager_code_coordinates($canon_tagid);
-			my $html_map = "";
 			if ((defined $lat) and (defined $lng)) {
 				my $geo = "$lat,$lng";
-			
-				$header .= <<HTML		
-<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
-<script src="/bower_components/leaflet/dist/leaflet.js"></script>
-HTML
-;
-
-
-				my $js = <<JS
-var map = L.map('container').setView([$geo], 11);;	
-		
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	maxZoom: 19,
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);			
-
-L.marker([$geo]).addTo(map)	
-
-$request_ref->{map_options}
-JS
-;		
-				$initjs .= $js;
-				
-				$html_map .= <<HTML
-<div id="container" style="height: 300px"></div>​
-HTML
-;				
-			
+				push @markers, $geo;
 			}
 		
 			if ($packager_codes{$canon_tagid}{cc} eq 'fr') {
@@ -2215,31 +2223,59 @@ HTML
 ;
 				}
 			}	
-			
-			if ($html_map ne '') {
-			
-				$description = <<HTML
+		}
+	}
+
+	$description = <<HTML
 <div class="row">
 
-	<div class="large-3 columns">
+	<div id="tag_description" class="large-12 columns">
 		$description
 	</div>
-	<div class="large-9 columns">
-		$html_map
+	<div id="tag_map" class="large-9 columns" style="display: none;">
+		<div id="container" style="height: 300px"></div>​
 	</div>
 
 </div>			
 
 HTML
 ;
-			
-			}
+
+	if ((scalar @markers) > 0) {
+		my $layer = '';
+		foreach my $geo (@markers) {
+			$layer .= "\nmarkers.push(L.marker([$geo]))\n";
+		}
+
+		$layer .= <<JS
+runCallbackOnJson(function (map) {
+	L.featureGroup(markers).addTo(map)
+	fitBoundsToAllLayers(map)
+})
+JS
+;
+		push @map_layers, $layer;
+	}
+
+	if ((scalar @map_layers) > 0) {
+		$header .= <<HTML		
+	<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
+	<script src="/bower_components/leaflet/dist/leaflet.js"></script>
+	<script src="/bower_components/osmtogeojson/osmtogeojson.js"></script>
+	<script src="/js/display-tag.js"></script>
+HTML
+;
 		
+		my $js = '';
+		foreach my $layer (@map_layers) {
+			$js .= $layer;
 		}
 		
-
+		$js .= $request_ref->{map_options};
+		
+		$initjs .= $js;
 	}
-	
+
 	if ($tagtype eq 'users') {
 		my $user_ref = retrieve("$data_root/users/$tagid.sto");
 		
@@ -2762,6 +2798,24 @@ HTML
 		}
 	
 
+		# If the request specified a value for the fields parameter, return only the fields listed
+		if (defined $request_ref->{fields}) {
+		
+			my $compact_products = [];
+		
+			for my $product_ref (@{$request_ref->{structured_response}{products}}) {
+		
+				my $compact_product_ref = {};
+				foreach my $field (split(/,/, $request_ref->{fields})) {
+					if (defined $product_ref->{$field}) {
+						$compact_product_ref->{$field} = $product_ref->{$field};
+					}
+				}
+				push @$compact_products, $compact_product_ref;
+			}
+			
+			$request_ref->{structured_response}{products} = $compact_products;
+		}	
 	
 		
 		# Pagination
@@ -3134,7 +3188,8 @@ pnns_groups_2
 			
 			my $main_cid = '';
 			
-			if ((defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
+			if ( (not ((defined $product_ref->{not_comparable_nutrition_data}) and ($product_ref->{not_comparable_nutrition_data})))
+			and  (defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
 			
 				$main_cid = $product_ref->{categories_tags}[0];
 				
@@ -5145,7 +5200,11 @@ HTML
 		$torso_color = "#ffe681";
 	}
 	
-	
+	my $search_terms = '';
+	if (defined param('search_terms')) {
+		$search_terms = remove_tags_and_quote(decode utf8=>param('search_terms'))
+	}
+		
 	$html .= <<HTML
 
 	
@@ -5156,7 +5215,7 @@ HTML
 			<div class="row collapse ">
 
 					<div class="small-8 columns">
-						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lang}" name="search_terms" />
+						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lang}" name="search_terms" value="${search_terms}" />
 						<input name="search_simple" value="1" type="hidden" />
 						<input name="action" value="process" type="hidden" />
 					</div>
@@ -5242,7 +5301,7 @@ HTML
 		<div class="sidebar">
 		
 <div style="text-align:center">
-<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="Open Food Facts" style="margin-bottom:0.5rem"/></a>
+<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="$Lang{site_name}{$lang}" style="margin-bottom:0.5rem"/></a>
 </div>
 
 <p>$Lang{tagline}{$lc}</p>
@@ -5340,6 +5399,7 @@ $Lang{android_apk_app_badge}{$lc}
 			<li><a href="$Lang{footer_blog_link}{$lc}">$Lang{footer_blog}{$lc}</a></li>
 			<li><a href="$Lang{footer_press_link}{$lc}">$Lang{footer_press}{$lc}</a></li>
 			<li><a href="$Lang{footer_wiki_link}{$lc}">$Lang{footer_wiki}{$lc}</a></li>
+			<li><a href="$Lang{footer_translators_link}{$lc}">$Lang{footer_translators}{$lc}</a></li>
 		</ul>
 	</div>
 	
@@ -5646,8 +5706,30 @@ HTML
 <div class="button_div unselectbuttondiv_$idlc"><button class="unselectbutton_$idlc" class="small button" type="button">Unselect image</button></div>
 HTML
 ;
-			$img .= $html;
+
+			my $filename = '';
+			my $size = 'full';
+			if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$idlc})
+				and (defined $product_ref->{images}{$idlc}{sizes}) and (defined $product_ref->{images}{$idlc}{sizes}{$size})) {
+				$filename = $idlc . '.' . $product_ref->{images}{$idlc}{rev} ;
+			}
+
+			my $path = product_path($product_ref->{code});
+			if (-e "$www_root/images/products/$path/$filename.full.jpg.google_cloud_vision.json") {
+				$html .= <<HTML
+<a href="/images/products/$path/$filename.full.jpg.google_cloud_vision.json" class="button tiny">Cloud Vision</a>
+HTML
+;
+			}
+
+			if (-e "$www_root/images/products/$path/$filename.full.json") {
+				$html .= <<HTML
+<a href="/images/products/$path/$filename.full.json" class="button tiny">OCR</a>
+HTML
+;
+			}
 			
+			$img .= $html;
 			
 			$initjs .= <<JS
 	\$(".unselectbutton_$idlc").click({imagefield:"$idlc"},function(event) {
@@ -6220,8 +6302,13 @@ JS
 	
 	$html .= display_field($product_ref, 'traces');
 	
+	
+	my $html_ingredients_classes = "";
+	
+	# to compute the number of columns displayed
+	my $html_ingredients_classes_n = 0;
 
-	foreach my $class ('additives', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil') {
+	foreach my $class ('additives', 'vitamins', 'minerals', 'amino_acids', 'nucleotides', 'other_nutritional_substances', 'ingredients_from_palm_oil', 'ingredients_that_may_be_from_palm_oil') {
 	
 		my $tagtype = $class;
 		my $tagtype_field = $tagtype;
@@ -6232,7 +6319,9 @@ JS
 	
 		if ((defined $product_ref->{$tagtype_field . '_tags'}) and (scalar @{$product_ref->{$tagtype_field . '_tags'}} > 0)) {
 
-			$html .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang($class . "_p") . separator_before_colon($lc)) . ":</b><br />";
+			$html_ingredients_classes_n++;
+			
+			$html_ingredients_classes .= "<div class=\"column_class\"><b>" . ucfirst( lang($class . "_p") . separator_before_colon($lc)) . ":</b><br />";
 			
 			if (defined $tags_images{$lc}{$tagtype}{get_fileid($tagtype)}) {
 				my $img = $tags_images{$lc}{$tagtype}{get_fileid($tagtype)};
@@ -6240,13 +6329,13 @@ JS
 				if ($img =~ /\.(\d+)x(\d+)/) {
 					$size = " width=\"$1\" height=\"$2\"";
 				}
-				$html .= <<HTML
+				$html_ingredients_classes .= <<HTML
 <img src="/images/lang/$lc/$tagtype/$img"$size/ style="display:inline"> 
 HTML
 ;
 			}
 			
-			$html .= "<ul style=\"display:block;float:left;\">";
+			$html_ingredients_classes .= "<ul style=\"display:block;float:left;\">";
 			foreach my $tagid (@{$product_ref->{$tagtype_field . '_tags'}}) {
 			
 				my $tag;
@@ -6277,11 +6366,42 @@ HTML
 				}
 
 		
-				$html .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a></li>\n";
+				$html_ingredients_classes .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a></li>\n";
 			}
-			$html .= "</ul></div>";
+			$html_ingredients_classes .= "</ul></div>";
 		}
 	
+	}
+	
+	if ($html_ingredients_classes_n > 0) {
+	
+		my $column_class = "small-12 columns";
+	
+		if ($html_ingredients_classes_n == 2) {
+			$column_class = "medium-6 columns";
+		}
+		elsif ($html_ingredients_classes_n == 3) {
+			$column_class = "medium-6 large-4 columns";
+		}		
+		elsif ($html_ingredients_classes_n == 4) {
+			$column_class = "medium-6 large-3 columns";
+		}
+		elsif ($html_ingredients_classes_n >= 5) {
+			$column_class = "medium-6 large-3 xlarge-2 columns";
+		}			
+	
+		$html_ingredients_classes =~ s/column_class/$column_class/g;
+	
+		$html .= <<HTML
+
+<div class="row">
+
+$html_ingredients_classes
+
+</div>
+	
+HTML
+;
 	}
 	
 	
@@ -6347,7 +6467,8 @@ HTML
 	
 	my @comparisons = ();
 	
-	if ((defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
+	if ( (not ((defined $product_ref->{not_comparable_nutrition_data}) and ($product_ref->{not_comparable_nutrition_data})))
+			and  (defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
 	
 		my $categories_nutriments_ref = retrieve("$data_root/index/categories_nutriments_per_country.$cc.sto");	
 		
@@ -6441,7 +6562,9 @@ HTML
 	if (defined $User_id) {
 		$html .= display_field($product_ref, 'states');
 	}
-	
+
+	$html .= display_product_history($code, $product_ref) if $admin;
+
 	$html .= <<HTML
 <div class="edit_button right" style="float:right;margin-top:-10px;">
 <a href="/cgi/product.pl?type=edit&code=$code" class="button small">
@@ -6450,7 +6573,7 @@ HTML
 </a></div>
 HTML
 ;
-	
+
 	# Twitter card
 
 	# example:
@@ -6903,10 +7026,19 @@ sub display_nutrient_levels($) {
 	}	
 	
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
+	# unless we have nutrition data for the prepared product
+	
+	my $prepared = '';
 	if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
-
-			return "";
+	
+			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
+				$prepared = '_prepared';
+			}
+			else {
+				return "";
+			}
 	}
+
 	
 	
 	# do not compute a score for coffee, tea etc.
@@ -6966,7 +7098,7 @@ HTML
 		if ((defined $product_ref->{nutrient_levels}) and (defined $product_ref->{nutrient_levels}{$nid})) {
 		
 			$html_nutrient_levels .= '<img src="/images/misc/' . $product_ref->{nutrient_levels}{$nid} . '.svg" width="30" height="30" style="vertical-align:middle;margin-right:15px;margin-bottom:4px;" alt="'
-				. lang($product_ref->{nutrient_levels}{$nid} . "_quantity") . '" />' . (sprintf("%.2e", $product_ref->{nutriments}{$nid . "_100g"}) + 0.0) . " g "
+				. lang($product_ref->{nutrient_levels}{$nid} . "_quantity") . '" />' . (sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0) . " g "
 				. sprintf(lang("nutrient_in_quantity"), "<b>" . $Nutriments{$nid}{$lc} . "</b>", lang($product_ref->{nutrient_levels}{$nid} . "_quantity")). "<br />";
 		
 		}
@@ -7105,26 +7237,75 @@ sub display_nutrition_table($$) {
 	
 	my @cols;
 	
-	if (not defined $product_ref->{nutrition_data_per}) {
-		$product_ref->{nutrition_data_per} = '100g';
+	
+	my %col_name = (
+	);
+	
+	my @displayed_product_types = ();
+	my %displayed_product_types = ();
+	
+	if ((not defined $product_ref->{nutrition_data}) or ($product_ref->{nutrition_data})) {
+		# by default, old products did not have a checkbox, display the nutrition data entry column for the product as sold
+		push @displayed_product_types, "";
+		$displayed_product_types{as_sold} = 1;
 	}
+	if ((defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on')) {
+		push @displayed_product_types, "prepared_";
+		$displayed_product_types{prepared} = 1;
+	}	
+		
+		
 	
-	if ($product_ref->{nutrition_data_per} eq 'serving') {
+	foreach my $product_type (@displayed_product_types) {
 	
-		if ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
-			@cols = ('100g','serving');
+		my $nutrition_data_per = "nutrition_data" . "_" . $product_type . "per";
+		
+		my $col_name = $Lang{product_as_sold}{$lang};
+		if ($product_type eq 'prepared_') {
+			$col_name = $Lang{prepared_product}{$lang};
+		}
+		$col_name{$product_type . "100g"} = $col_name . "<br/>" . $Lang{nutrition_data_per_100g}{$lang};
+		$col_name{$product_type . "serving"} = $col_name . "<br/>" . $Lang{nutrition_data_per_serving}{$lang};
+		if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne '')) {
+			$col_name{$product_type . "serving"} .= ' (' . $product_ref->{serving_size} . ')';
+		}
+	
+		if (not defined $product_ref->{$nutrition_data_per}) {
+			$product_ref->{$nutrition_data_per} = '100g';
+		}
+		
+		if ($product_ref->{$nutrition_data_per} eq 'serving') {
+		
+			if ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
+				if (($product_type eq "") and ($displayed_product_types{prepared})) {
+					# do not display non prepared by portion if we have data for the prepared product
+					# -> the portion size is for the prepared product
+					push @cols, $product_type . '100g';
+				}
+				else {
+					push @cols, ($product_type . '100g', $product_type . 'serving');
+				}
+			}
+			else {
+				push @cols, $product_type . 'serving';
+			}
 		}
 		else {
-			@cols = ('serving');
+			if ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
+				if (($product_type eq "") and ($displayed_product_types{prepared})) {
+					# do not display non prepared by portion if we have data for the prepared product
+					# -> the portion size is for the prepared product
+					push @cols, $product_type . '100g';
+				}
+				else {
+					push @cols, ($product_type . '100g', $product_type . 'serving');
+				}
+			}
+			else {
+				push @cols, $product_type . '100g';
+			}	
 		}
-	}
-	else {
-		if ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
-			@cols = ('100g','serving');
-		}
-		else {
-			@cols = ('100g');
-		}	
+	
 	}
 	
 	my %col_class = (
@@ -7135,10 +7316,7 @@ sub display_nutrition_table($$) {
 		'90' => 'stats',
 		'max' => 'stats',
 	);
-	
-	my %col_name = (
-	);
-	
+
 	
 	# Comparisons with other products, categories, recommended daily values etc.
 	
@@ -7301,10 +7479,8 @@ HTML
 			$col_class = ' ' . $col_class{$col} ;
 		}
 		my $col_name = $col_name{$col};
-		if (not defined $col_name) {
-			$col_name = lang("nutrition_data_per_" . $col);
-		}
-		$html .= '<th class="nutriment_value' . ${col_class} . '">' . $col_name . '</th>';
+		
+		$html .= '<th class="nutriment_value' . ${col_class} . ' ' . $col . '">' . $col_name . '</th>';
 		$empty_cols .= "<td></td>";
 	}
 
@@ -7318,10 +7494,17 @@ HTML
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
 
 	my @unknown_nutriments = ();
-	foreach my $nid (sort keys %{$product_ref->{nutriments}}) {
-		next if $nid =~ /_/;
-		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})) {
+	my %seen_unknown_nutriments = ();
+	foreach my $nid (keys %{$product_ref->{nutriments}}) {
+	
+		next if (($nid =~ /_/) and ($nid !~ /_prepared$/)) ;
+		
+		$nid =~ s/_prepared$//;
+		
+		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})
+			and (not defined $seen_unknown_nutriments{$nid})) {
 			push @unknown_nutriments, $nid;
+			$seen_unknown_nutriments{$nid} = 1;
 		}
 	}
 	
@@ -7341,13 +7524,16 @@ HTML
 		
 		if  (($nutriment !~ /-$/)
 			or ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
+			or ((defined $product_ref->{nutriments}{$nid . "_prepared"}) and ($product_ref->{nutriments}{$nid . "_prepared"} ne ''))
 			or ($nid eq 'new_0') or ($nid eq 'new_1')) {
 			$shown = 1;
 		}
 		
 		# Only show important nutriments if the value is not known
 		# Only show known values for search graph results
-		if ((($nutriment !~ /^!/) or ($product_ref->{id} eq 'search')) and not ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))) {
+		if ((($nutriment !~ /^!/) or ($product_ref->{id} eq 'search')) 
+			and not (((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
+					or ((defined $product_ref->{nutriments}{$nid . "_prepared"}) and ($product_ref->{nutriments}{$nid . "_prepared"} ne '')))) {
 			$shown = 0;
 		}
 			
@@ -7359,6 +7545,8 @@ HTML
 			}			
 		}
 
+		print STDERR "nid: $nid - shown: $shown - value: " . $product_ref->{nutriments}{$nid} . " - $nid _prepared: " . $product_ref->{nutriments}{$nid . "_prepared"}  ." \n";
+		
 		my $label = '';
 		
 		# display nutrition score only when the country is matching
@@ -7686,9 +7874,22 @@ HTML
 	else {
 		$response{status} = 1;
 		$response{status_verbose} = 'product found';
-		$response{product} = $product_ref;
 		
 		add_images_urls_to_product($product_ref);
+		
+		$response{product} = $product_ref;
+		
+		# If the request specified a value for the fields parameter, return only the fields listed
+		if (defined $request_ref->{fields}) {
+			my $compact_product_ref = {};
+			foreach my $field (split(/,/, $request_ref->{fields})) {
+				if (defined $product_ref->{$field}) {
+					$compact_product_ref->{$field} = $product_ref->{$field};
+				}
+			}
+			$response{product} = $compact_product_ref;
+		}		
+		
 		
 		if ($request_ref->{jqm}) {
 			# return a jquerymobile page for the product
@@ -7706,7 +7907,66 @@ HTML
 	display_structured_response($request_ref);
 }
 
+sub display_product_history($$) {
 
+	my $code = shift;
+	my $product_ref = shift;
+
+	my $html = '';
+	if ($product_ref->{rev} > 0) {
+	
+		my $path = product_path($code);
+		my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+		if (not defined $changes_ref) {
+			$changes_ref = [];
+		}
+		
+		$html .= "<h2>" . lang("history") . "</h2>\n<ul>\n";
+		
+		my $current_rev = $product_ref->{rev};
+		
+		foreach my $change_ref (reverse @{$changes_ref}) {
+		
+			my $date = display_date_tag($change_ref->{t});	
+			my $user = "";
+			if (defined $change_ref->{userid}) {
+				$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
+			}
+			
+			my $comment = $change_ref->{comment};
+			$comment = lang($comment) if $comment eq 'product_created';
+			
+			$comment =~ s/^Modification :\s+//;
+			if ($comment eq 'Modification :') {
+				$comment = '';
+			}
+			$comment =~ s/\new image \d+( -)?//;
+			
+			if ($comment ne '') {
+				$comment = "- $comment";
+			}
+			
+			my $change_rev = $change_ref->{rev};
+			
+			if (not defined $change_rev) {
+				$change_rev = $current_rev;
+			}
+			$current_rev--;
+			
+			# Display diffs
+			# [Image upload - add: 1, 2 - delete 2], [Image selection - add: front], [Nutriments... ]
+			
+			my $diffs = compute_changes_diff_text($change_ref);
+			$html .= "<li>$date - $user $diffs $comment - <a href=\"" . product_url($product_ref) . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
+		
+		}
+		
+		$html .= "</ul>\n";
+	}
+
+	return $html;
+
+}
 
 sub add_images_urls_to_product($) {
 
@@ -7902,6 +8162,133 @@ XML
 ;
 	
 	print header( -type => 'application/rss+xml', -charset => 'utf-8', -access_control_allow_origin => '*' ) . $xml;
+
+}
+
+sub display_recent_changes {
+
+	my ($request_ref, $query_ref, $limit, $page) = @_;
+
+	if ((defined $country) and ($country ne 'en:world')) {
+		$query_ref->{countries_tags} = $country;
+	}
+	
+	delete $query_ref->{lc};
+
+	if (defined $limit) {
+	}
+	elsif (defined $request_ref->{page_size}) {
+		$limit = $request_ref->{page_size};
+	}
+	else {
+		$limit = $page_size;
+	}
+
+	my $skip = 0;
+	if (defined $page) {
+		$skip = ($page - 1) * $limit;
+	}
+	elsif (defined $request_ref->{page}) {
+		$page = $request_ref->{page};
+		$skip = ($page - 1) * $limit;
+	}
+	else {
+		$page = 1;
+	}
+
+	# support for returning structured results in json / xml etc.
+
+	$request_ref->{structured_response} = {
+		page => $page,
+		page_size => $limit,
+		skip => $skip,
+		changes => [],
+	};	
+
+	my $sort_ref = Tie::IxHash->new();
+	$sort_ref->Push('$natural' => -1);
+
+	print STDERR "Display.pm - display_recent_changes - query:\n" . Dumper($query_ref) . "\n";
+	my $cursor = $recent_changes_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+	my $count = $cursor->count() + 0;
+	print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - ok, got count: $count\n";
+
+	if ($@) {
+		print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - retrying once\n";
+		
+		# opening new connection
+		eval {
+			$connection = MongoDB->connect($mongodb_host);
+			$database = $connection->get_database($mongodb);
+			$recent_changes_collection = $database->get_collection('recent_changes');
+		};
+		if ($@) {
+			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - reconnecting failed\n";
+			$count = -1;
+		}
+		else {		
+			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - reconnected ok\n";					
+			print STDERR "Display.pm - display_recent_changes - query:\n" . Dumper($query_ref) . "\n";
+			$cursor = $recent_changes_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+			$count = $cursor->count() + 0;
+			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - ok, got count: $count\n";
+		}
+	}
+	
+	my $html .= "<ul>\n";
+	while (my $change_ref = $cursor->next) {
+		# Conversion for JSON, because the $change_ref cannot be passed to encode_json.
+		my $change_hash = {
+			code => $change_ref->{code},
+			countries_tags => $change_ref->{countries_tags},
+			userid => $change_ref->{userid},
+			ip => $change_ref->{ip},
+			t => $change_ref->{t},
+			comment => $change_ref->{comment},
+			rev => $change_ref->{rev},
+			diffs => $change_ref->{diffs}
+		};
+
+		delete $change_hash->{ip} unless $admin; # security: Do not expose IP addresses to non-admin or anonymous users.
+
+		push @{$request_ref->{structured_response}{changes}}, $change_hash;
+
+		my $date = display_date_tag($change_ref->{t});	
+		my $user = "";
+		if (defined $change_ref->{userid}) {
+			$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
+		}
+		
+		my $comment = $change_ref->{comment};
+		$comment = lang($comment) if $comment eq 'product_created';
+		
+		$comment =~ s/^Modification :\s+//;
+		if ($comment eq 'Modification :') {
+			$comment = '';
+		}
+		$comment =~ s/\new image \d+( -)?//;
+		
+		if ($comment ne '') {
+			$comment = "- $comment";
+		}
+		
+		my $change_rev = $change_ref->{rev};
+
+		# Display diffs
+		# [Image upload - add: 1, 2 - delete 2], [Image selection - add: front], [Nutriments... ]
+		
+		my $diffs = compute_changes_diff_text($change_ref);
+		$change_hash->{diffs_text} = $diffs;
+		
+		my $product_url = product_url($change_ref->{code});
+		$html .= "<li><a href=\"" . $product_url . "\">" . $change_ref->{code} . "</a> $date - $user $diffs $comment - <a href=\"" . $product_url . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
+
+	}
+
+	$html .= "</ul>";
+	${$request_ref->{content_ref}} .= $html;
+	$request_ref->{title} = lang("recent_changes");
+	display_new($request_ref);
 
 }
 

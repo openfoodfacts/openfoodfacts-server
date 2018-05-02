@@ -1,9 +1,9 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
 
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2017 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -53,7 +53,7 @@ if ((defined param('search_terms')) and (not defined param('action'))) {
 	$action = 'process';
 }
 
-foreach my $parameter ('json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 'rss') {
+foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 'rss') {
 
 	if (defined param($parameter)) {
 		$request_ref->{$parameter} = param($parameter);

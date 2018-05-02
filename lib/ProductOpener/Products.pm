@@ -1,22 +1,22 @@
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2017 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 package ProductOpener::Products;
 
@@ -41,10 +41,12 @@ BEGIN
 		&product_url
 		&normalize_search_terms
 		&index_product
+		&log_change
 		
 		&compute_codes
 		&compute_product_history_and_completeness
 		&compute_languages
+		&compute_changes_diff_text
 					
 		&process_product_edit_rules
 		
@@ -154,6 +156,12 @@ sub init_product($) {
 	# look up IP address '24.24.24.24'
 	# returns undef if country is unallocated, or not defined in our database
 	my $country = $gi->country_code_by_addr(remote_addr());
+	
+	# ugly fix: products added by yuka should have country france, regardless of the server ip
+	if ($creator eq 'kiliweb') {
+		$country = "france";
+	}
+	
 	if (defined $country) {
 		if ($country !~ /a1|a2|o1/i) {
 			$product_ref->{countries} = "en:" . $country;
@@ -165,9 +173,9 @@ sub init_product($) {
 					push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
 				}
 			}
-			# if lc is not defined or is set en, set lc to main language of country
-			if ($lc eq 'en') {
-				$lc = $country_languages{lc($country)}[0];
+			# if lc is not defined or is set to en, set lc to main language of country
+			if (($lc eq 'en') and (defined $country_languages{lc($country)}) and (defined $country_languages{lc($country)}[0]) )  {
+				$product_ref->{lc} = $country_languages{lc($country)}[0];
 			}
 		}
 	}	
@@ -378,6 +386,10 @@ sub store_product($$) {
 	symlink("$rev.sto", $link) or print STDERR "Products::store_product could not symlink $new_data_root/products/$path/$rev.sto to $link : $! \n";
 	
 	store("$new_data_root/products/$path/changes.sto", $changes_ref);
+	
+	my $change_ref = @$changes_ref[-1];
+	log_change($product_ref, $change_ref);
+
 }
 
 
@@ -1351,6 +1363,67 @@ sub process_product_edit_rules($) {
 		}
 	}
 	
+}
+
+sub log_change {
+
+	my ($product_ref, $change_ref) = @_;
+	
+	my $change_document = {
+		code => $product_ref->{code},
+		countries_tags => $product_ref->{countries_tags},
+		userid => $change_ref->{userid},
+		ip => $change_ref->{ip},
+		t => $change_ref->{t},
+		comment => $change_ref->{comment},
+		rev => $change_ref->{rev},
+		diffs => $change_ref->{diffs}
+	};
+	$recent_changes_collection->insert_one($change_document);
+
+}
+
+sub compute_changes_diff_text {
+
+	my $change_ref = shift;
+	
+	my $diffs = '';
+	if (defined $change_ref->{diffs}) {
+		my %diffs = %{$change_ref->{diffs}};
+		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments') {
+			if (defined $diffs{$group}) {
+				$diffs .= lang("change_$group") . " ";
+							
+				foreach my $diff ('add','change','delete') {
+					if (defined $diffs{$group}{$diff}) {
+						$diffs .= "(" . lang("diff_$diff") . ' ' ;
+						my @diffs = @{$diffs{$group}{$diff}};
+						if ($group eq 'fields') {
+							# @diffs = map( lang($_), @diffs);
+						}
+						elsif ($group eq 'nutriments') {
+							# @diffs = map( $Nutriments{$_}{$lc}, @diffs);
+							# Attempt to access disallowed key 'nutrition-score' in a restricted hash at /home/off-fr/cgi/product.pl line 1039.
+							my @lc_diffs = ();
+							foreach my $nid (@diffs) {
+								if (exists $Nutriments{$nid}) {
+									push @lc_diffs, $Nutriments{$nid}{$lc};
+								}
+							}
+						}
+						$diffs .= join(", ", @diffs) ;
+						$diffs .= ") ";
+					}
+				}
+				
+				$diffs .= "-- ";
+			}
+		}
+		$diffs =~  s/-- $//;
+	}
+
+	return $diffs;
+
 }
 
 1;

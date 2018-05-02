@@ -1,0 +1,3 @@
+#ssl_certificate /home/obf/ssl/openbeautyfacts.org.crt;
+ssl_certificate /home/obf/ssl/openbeautyfacts.org-intermediate_domain_ca.crt;
+ssl_certificate_key /home/obf/ssl/openbeautyfacts.org.key;

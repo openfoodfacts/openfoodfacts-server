@@ -195,20 +195,13 @@ msgid "Barcode number:"
 msgstr "Chiffres du code barre :"
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>Contribute to <<site_name>> by adding product and win stars by\n"
-"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
-msgstr "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>Contribuez à <<site_name>> en ajoutant des produits et gagnez\n"
-"des étoiles en remplissant <a href=\"/missions\">les missions</a> !</p>\n"
+msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a>.<br/><b>Thank you!</b></p>"
+msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donner à Open Food Facts\" /></a><p><<site_name>> est développé par une association à but non lucratif indépendante de l'industrie. Open Food Facts est fait pour tous, par tous, et est financé par tous. Vous pouvez soutenir notre travail en <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/\">donnant à Open Food Facts</a>.<br/><b>Merci beaucoup !</b></p>"
 
 msgctxt "bottom_title"
-msgid "Embrace the mission"
-msgstr "Partez en mission"
+msgid "Donate to support our work"
+msgstr "Donnez pour soutenir notre travail"
+
 
 msgctxt "brands"
 msgid "Brands"
@@ -717,7 +710,7 @@ msgstr "Données"
 
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr "/données"
+msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -1450,6 +1443,15 @@ msgstr "Produit sans code barre"
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
 msgstr "Les informations nutritionnelles ne sont pas mentionnées sur le produit."
+
+msgctxt "multiple_nutrition_data"
+msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
+msgstr "Différentes valeurs nutritionnelles sont mentionnées sur le produit (par exemple avec de l'eau ou du lait)"
+
+msgctxt "multiple_nutrition_data_instructions"
+msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
+msgstr "Entrez seulement les valeurs nutritionnelles pour le produit non préparé, sans eau ou lait ajouté. S'il y a des produits différents, entrez les valeurs nutritionnelles pour le premier produit listé."
+
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
@@ -2701,3 +2703,66 @@ msgstr "Certaines des données de ce produit ont été fournies directement par 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "La page de ce produit n'est pas complète. Vous pouvez aider à la compléter en l'éditant et en ajoutant plus de données à partir des photos que nous avons, ou en prenant plus de photos à l'aide de l'application pour <a href=\"https://android.openfoodfacts.org\">Android</a> ou <a href=\"https://ios.openfoodfacts.org\">iPhone / iPad</a>. Merci!"
+
+msgctxt "minerals_p"
+msgid "added minerals"
+msgstr "minéraux ajoutés"
+
+msgctxt "minerals_s"
+msgid "added mineral"
+msgstr "minéral ajouté"
+
+msgctxt "vitamins_p"
+msgid "added vitamins"
+msgstr "vitamines ajoutées"
+
+msgctxt "vitamins_s"
+msgid "added vitamin"
+msgstr "vitamine ajoutée"
+
+msgctxt "amino_acids_p"
+msgid "added amino acids"
+msgstr "acides aminés ajoutés"
+
+msgctxt "amino_acids_s"
+msgid "added amino acid"
+msgstr "acide aminé ajoutés"
+
+msgctxt "nucleotides_p"
+msgid "added nucleotides"
+msgstr "nucléotides ajoutés"
+
+msgctxt "nucleotides_s"
+msgid "added nucleotide"
+msgstr "nucléotide ajouté"
+
+msgctxt "other_nutritional_substances_p"
+msgid "other nutritional substances added"
+msgstr "autres substances nutritives ajoutées"
+
+msgctxt "other_nutritional_substances_s"
+msgid "other nutritional substance added"
+msgstr "autre substance nutritive ajoutée"
+
+msgctxt "product_as_sold"
+msgid "As sold"
+msgstr "Tel que vendu"
+
+msgctxt "prepared_product"
+msgid "Prepared"
+msgstr "Préparé"
+
+
+msgctxt "unit"
+msgid "Unit"
+msgstr "Unité"
+
+
+msgctxt "nutrition_data_exists"
+msgid "Nutrition facts are specified for the product as sold."
+msgstr "Les informations nutritionnelles sont mentionnées pour le produit tel que vendu."
+
+msgctxt "nutrition_data_prepared_exists"
+msgid "Nutrition facts are specified for the prepared product."
+msgstr "Les informations nutritionnelles sont mentionnées pour le produit préparé."
+
