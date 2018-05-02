@@ -47,11 +47,11 @@ requires 'Data::Dumper::AutoEncode';
 requires 'XML::Rules';
 
 # OIDC
-requires 'OAuth::Lite2', '0.11';
-requires 'OIDC::Lite', '0.10';
-requires 'Crypt::OpenSSL::Random';
-requires 'Digest::SHA';
-requires 'CryptX', '>= 0.022';
+requires 'OAuth::Lite2', '>= 0.11';
+requires 'OIDC::Lite', '>= 0.10';
+requires 'Crypt::OpenSSL::Random', '>= 0.15';
+requires 'Digest::SHA', '>= 6.02';
+requires 'CryptX', '>= 0.060';
 
 on 'test' => sub {
   requires 'Test::More', '>= 1.302049, < 2.0';
