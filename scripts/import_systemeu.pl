@@ -68,10 +68,13 @@ $editor_user_id = $editor_user_id;
 
 not defined $photo_user_id and die;
 
-my $csv_file = "/data/off/systemeu/SUYQD_AKENEO_PU_03-3.csv";
+my $csv_file = "/data/off/systemeu/SUYQD_AKENEO_PU_04.csv";
 my $categories_csv_file = "/data/off/systemeu/systeme-u-rubriques.csv";
-
 my $imagedir = "/data/off/systemeu/all_product_images";
+
+#my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_03-3.csv";
+#my $categories_csv_file = "/home/systemeu/systeme-u-rubriques.csv";
+#my $imagedir = "/home/systemeu/all_product_images"; 
 
 print "uploading csv_file: $csv_file, image_dir: $imagedir\n";
 
@@ -83,6 +86,13 @@ print "uploading csv_file: $csv_file, image_dir: $imagedir\n";
 # 3256225094547_0_d.jpg           
 # 3256225094547_0_e.jpg           
 # 3256225094547.jpg  
+
+
+#-rwx------ 1 root root   229339 avril 20 15:44 3256225425105_D.jpg
+#-rwx------ 1 root root   320218 avril 20 15:44 3256225425105_E.jpg
+#-rwx------ 1 root root   410014 avril 20 15:44 3256225425617_a_E.jpg
+#-rwx------ 1 root root   374778 avril 20 15:44 3256225425617_b_E.jpg
+#-rwx------ 1 root root   213484 avril 20 15:45 3256225426560_a_D.jpg
 
 
 my $images_ref = {};
@@ -100,8 +110,8 @@ if (opendir (DH, "$imagedir")) {
 			my $code = $1;
 			my $suffix = $2;
 			my $imagefield = "front";
-			($suffix =~ /_\d_d/) and $imagefield = "ingredients";
-			($suffix =~ /_\d_e/) and $imagefield = "nutrition";
+			($suffix =~ /_d$/i) and $imagefield = "ingredients";
+			($suffix =~ /_e$/i) and $imagefield = "nutrition";
 			
 			print "FOUND IMAGE FOR PRODUCT CODE $code - file $file - imagefield: $imagefield\n";
 
@@ -363,6 +373,8 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			
 			my $code = $imported_product_ref->{UGC_ean};
 			
+			#next if ($code ne "3256223669792");
+			
 			if (not defined $images_ref->{$code}) {
 				print "MISSING IMAGES ALL - PRODUCT CODE $code\n";
 			}
@@ -568,9 +580,10 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			my $ugc_libecommerce = $imported_product_ref->{UGC_libEcommerce};
 			
 			# fix typos
-			$ugc_libecommerce =~ s/(emmental|poire|pasteurisé|sucre|paris|passion|fraise|pomme|banane)U/$1 U/ig;
+			$ugc_libecommerce =~ s/(emmental|poire|pasteurisé|sucre|paris|passion|fraise|pomme|banane|bio|grasses|\"|\.|\))U/$1 U/ig;
+			$ugc_libecommerce =~ s/(che|noir|\))U/$1 U/g;
 			$ugc_libecommerce =~ s/ U(x?\d)/ U $1/ig;
-			$ugc_libecommerce =~ s/ "U"/ U /ig;
+			$ugc_libecommerce =~ s/( )?"( )?U( )?"/ U /ig;
 			$ugc_libecommerce =~ s/ u / U /ig;
 			
 			# 3256225519576
@@ -580,15 +593,15 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			$ugc_libecommerce =~ s/ (pot (\d+))gU/ U $1 g/i ;
 			
 			# to ease regexp matching
-			$ugc_libecommerce =~ s/U( |\.)?SAVEUR(S?)/U_SAVEURS /i;
+			$ugc_libecommerce =~ s/U(LES| |\.)*SAVEUR(S?)/U_SAVEURS /i;
 			$ugc_libecommerce =~ s/U SANS GLUTEN/U_SANS_GLUTEN /i;
-			$ugc_libecommerce =~ s/U( |\.)?BIO/U_BIO /i;
+			$ugc_libecommerce =~ s/U( |\.)?BIO/ U_BIO /i;
 			$ugc_libecommerce =~ s/NOR U/NOR_U /i;
-			$ugc_libecommerce =~ s/U OXYGN/U_OXYGN /i;
+			$ugc_libecommerce =~ s/U?( )?OXYGN/ U_OXYGN /i;
 			$ugc_libecommerce =~ s/U?( )?MAT( )?(ET|&)( )?LOU/ U_MAT_ET_LOU /i;
-			$ugc_libecommerce =~ s/U BON( )?(ET|&)( )?VEGETARIEN/U_BON_ET_VEGETARIEN /i;
-			$ugc_libecommerce =~ s/U CUISINES( )?(ET|&)( )?DECOUVERTES/U_CUISINES_ET_DECOUVERTES /i;
-			$ugc_libecommerce =~ s/U TOUT PETITS|UTP/U_TOUT_PETITS /i;
+			$ugc_libecommerce =~ s/U?( )?BON( )?(ET|&)( )?VEGETARIEN/ U_BON_ET_VEGETARIEN /i;
+			$ugc_libecommerce =~ s/U?( )?CUISINES( )?(ET|&)( )?DECOUVERTES/ U_CUISINES_ET_DECOUVERTES /i;
+			$ugc_libecommerce =~ s/U? (TOUT|TT) PETITS|UTP/ U_TOUT_PETITS /i;
 			
 			$ugc_libecommerce =~ s/\.U_/ U_/i;
 
@@ -634,7 +647,10 @@ ble => "bouteille",
 				# pet 1l
 				# 3368953545250 Mini Mont d'Or AOP au lait cru U SAVEURS, 24% de MG
 				
-				if ($quantity =~ /(\d+(\s)?(\%)?(\s)?(de )?(MG|matières grasses|matière grasse|fruits)( |,)*)/i) {
+				$quantity =~ s/demg/de MG/;
+				$quantity =~ s/(\d)de/$1 de/;
+				
+				if ($quantity =~ /(\d+(\s)?(\%)?(\s)?(de( )?)?(MG|matières grasses|matière grasse|fruits)( |,)*)/i) {
 					$name .= " " . $1;
 					$name =~ s/,\s*$//;
 					
@@ -647,6 +663,10 @@ ble => "bouteille",
 
 				# Bière blonde d'Abbaye des Flandres U SAVEURS, 6,5°, 50cl
 				
+				if ($name =~ /((\d+(\.|,)?\d*)(\s)?(\%)?(\s)?(de )?(°|\% vol\.|\% vol)( |,)*)/i) {
+					$alcohol = $2;
+				}
+				
 				if ($quantity =~ /((\d+(\.|,)?\d*)(\s)?(\%)?(\s)?(de )?(°|\% vol\.|\% vol)( |,)*)/i) {
 					$name .= " " . $1;
 					$name =~ s/,\s*$//;
@@ -654,6 +674,8 @@ ble => "bouteille",
 					
 					$quantity =~ s/((\d+(\.|,)?\d*)(\s)?(\%)?(\s)?(de )?(°|\% vol\.|\% vol)( |,)*)//i;
 				}
+				
+				
 				
 				
 				# Pouch Up, U, mojito, bouteille de 1,5L
@@ -698,6 +720,8 @@ ble => "bouteille",
 					$params{packaging} .= ", Frais";
 				}						
 				
+				$quantity =~ s/^(,|\s)*//;
+				
 				$params{product_name} = $name;
 				$params{brands} = $brands;
 				$params{quantity} = $quantity;
@@ -727,6 +751,22 @@ ble => "bouteille",
 				
 				# copy value to main language
 				$params{"product_name_" . $global_params{lc}} = $params{product_name};					
+			}
+			elsif (($code eq "3256220178334")
+				or ($code eq "3256220879040")
+			) {
+				
+				my $name = $ugc_libecommerce;
+				my $brands = "U";
+
+				$params{product_name} = $name;
+				$params{brands} = $brands;		
+
+				print "no brand - set product_name to $params{product_name}\n";
+				
+				# copy value to main language
+				$params{"product_name_" . $global_params{lc}} = $params{product_name};						
+				
 			}
 			else {
 			
@@ -773,7 +813,7 @@ ble => "bouteille",
 			
 				if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} ne '')) {
 					# cleaning
-					$imported_product_ref->{$field} =~ s/(\s|\/|\/)+$//is;
+					$imported_product_ref->{$field} =~ s/(\s|\/|\/|_|-)+$//is;
 					$params{$ingredients_fields{$field}} = $imported_product_ref->{$field};
 					print STDERR "setting ingredients, field $field -> $ingredients_fields{$field}, value: " . $imported_product_ref->{$field} . "\n";
 				}
@@ -782,6 +822,31 @@ ble => "bouteille",
 			
 			# $params{ingredients_text} = $params{ingredients_text_fr};
 
+			
+			if ((defined $imported_product_ref->{UGC_nutritionalValuesPerPackage})
+				and ($imported_product_ref->{UGC_nutritionalValuesPerPackage} ne "")) {
+			
+				if ($imported_product_ref->{UGC_nutritionalValuesPerPackage} 
+					=~ /^(Pour|à la|a la)?( )?((1|une)?( )?portion( de| d'environ)?)?( )?([^:\n]+)(:|\n)/i) {
+					
+					my $serving = $8;
+					
+					$serving =~ s/^\s+//;
+					$serving =~ s/\s+$//;
+					$serving =~ s/ environ$//i;
+					$serving =~ s/^\((.*)\)$/$1/;
+					if ($serving =~ /nergie/i) {
+						$serving = "";
+					}
+					my $debug = $imported_product_ref->{UGC_nutritionalValuesPerPackage};
+					$debug =~ s/:.*//isg;
+					if ($serving ne "") {
+						print "PORTION -- $serving\t-- $debug\n";
+						$params{serving_size} = $serving;
+					}
+				}
+			
+			}			
 			
 			
 			# Create or update fields
@@ -801,6 +866,7 @@ ble => "bouteille",
 				}
 			}
 	
+				
 					
 			foreach my $field (@param_fields) {
 			
@@ -816,10 +882,18 @@ ble => "bouteille",
 					if (defined $tags_fields{$field}) {
 					
 						my $current_field = $product_ref->{$field};
+						
+						# brands -> remove existing values;
+						if ($field eq 'brands') {
+							$product_ref->{$field} = "";
+							delete $product_ref->{$field . "_tags"};
+						}
 
 						my %existing = ();
-						foreach my $tagid (@{$product_ref->{$field . "_tags"}}) {
-							$existing{$tagid} = 1;
+							if (defined $product_ref->{$field . "_tags"}) {
+							foreach my $tagid (@{$product_ref->{$field . "_tags"}}) {
+								$existing{$tagid} = 1;
+							}
 						}
 						
 						
@@ -827,7 +901,10 @@ ble => "bouteille",
 		
 							my $tagid;
 							
-							next if $tag =~ /^\s*$/;
+							next if $tag =~ /^(\s|,|-|\%|;|_|°)*$/;
+							
+							$tag =~ s/^\s+//;
+							$tag =~ s/\s+$//;
 
 							if (defined $taxonomy_fields{$field}) {
 								$tagid = get_taxonomyid(canonicalize_taxonomy_tag($params{lc}, $field, $tag));
@@ -860,6 +937,9 @@ ble => "bouteille",
 							push @modified_fields, $field;
 							$modified++;
 						}
+						elsif ($field eq "brands") {	# we removed it earlier
+							compute_field_tags($product_ref, $field);
+						}
 						
 						if (($field eq 'categories') and ($product_ref->{$field} eq "")) {
 							print "rubriques: " . $imported_product_ref->{rubriques} . " -  value for product code: $code - field: $field = $product_ref->{$field} - old: $current_field\n";
@@ -885,17 +965,20 @@ ble => "bouteille",
 
 								$new_field_value =~ s/(\d)( )?(g|gramme|grammes|gr)(\.)?/$1 g/i;
 								$new_field_value =~ s/(\d)( )?(ml|millilitres)(\.)?/$1 ml/i;
-								$new_field_value =~ s/(\d)( )?cl/${1}0 ml/i;
-								$new_field_value =~ s/(\d)( )?dl/${1}00 ml/i;
+								#$new_field_value =~ s/(\d)( )?cl/${1}0 ml/i;
+								#$new_field_value =~ s/(\d)( )?dl/${1}00 ml/i;
 								$new_field_value =~ s/litre|litres|liter|liters/l/i;
-								$new_field_value =~ s/(0)(,|\.)(\d)( )?(l)(\.)?/${3}00 ml/i;
-								$new_field_value =~ s/(\d)(,|\.)(\d)( )?(l)(\.)?/${1}${3}00 ml/i;
-								$new_field_value =~ s/(\d)( )?(l)(\.)?/${1}000 ml/i;
+								#$new_field_value =~ s/(0)(,|\.)(\d)( )?(l)(\.)?/${3}00 ml/i;
+								#$new_field_value =~ s/(\d)(,|\.)(\d)( )?(l)(\.)?/${1}${3}00 ml/i;
+								#$new_field_value =~ s/(\d)( )?(l)(\.)?/${1}000 ml/i;
 								$new_field_value =~ s/kilogramme|kilogrammes|kgs/kg/i;
-								$new_field_value =~ s/(0)(,|\.)(\d)( )?(kg)(\.)?/${3}00 g/i;
-								$new_field_value =~ s/(\d)(,|\.)(\d)( )?(kg)(\.)?/${1}${3}00 g/i;
+								#$new_field_value =~ s/(0)(,|\.)(\d)( )?(kg)(\.)?/${3}00 g/i;
+								#$new_field_value =~ s/(\d)(,|\.)(\d)( )?(kg)(\.)?/${1}${3}00 g/i;
 								#$new_field_value =~ s/(\d)( )?(kg)(\.)?/${1}000 g/i;
 						}
+						
+						$new_field_value =~ s/\s+$//g;
+						$new_field_value =~ s/^\s+//g;							
 
 						my $normalized_new_field_value = $new_field_value;
 
@@ -911,15 +994,15 @@ ble => "bouteille",
 							
 								$current_value =~ s/(\d)( )?(g|gramme|grammes|gr)(\.)?/$1 g/i;
 								$current_value =~ s/(\d)( )?(ml|millilitres)(\.)?/$1 ml/i;
-								$current_value =~ s/(\d)( )?cl/${1}0 ml/i;
-								$current_value =~ s/(\d)( )?dl/${1}00 ml/i;
+								#$current_value =~ s/(\d)( )?cl/${1}0 ml/i;
+								#$current_value =~ s/(\d)( )?dl/${1}00 ml/i;
 								$current_value =~ s/litre|litres|liter|liters/l/i;
-								$current_value =~ s/(0)(,|\.)(\d)( )?(l)(\.)?/${3}00 ml/i;
-								$current_value =~ s/(\d)(,|\.)(\d)( )?(l)(\.)?/${1}${3}00 ml/i;
-								$current_value =~ s/(\d)( )?(l)(\.)?/${1}000 ml/i;
+								#$current_value =~ s/(0)(,|\.)(\d)( )?(l)(\.)?/${3}00 ml/i;
+								#$current_value =~ s/(\d)(,|\.)(\d)( )?(l)(\.)?/${1}${3}00 ml/i;
+								#$current_value =~ s/(\d)( )?(l)(\.)?/${1}000 ml/i;
 								$current_value =~ s/kilogramme|kilogrammes|kgs/kg/i;
-								$current_value =~ s/(0)(,|\.)(\d)( )?(kg)(\.)?/${3}00 g/i;
-								$current_value =~ s/(\d)(,|\.)(\d)( )?(kg)(\.)?/${1}${3}00 g/i;
+								#$current_value =~ s/(0)(,|\.)(\d)( )?(kg)(\.)?/${3}00 g/i;
+								#$current_value =~ s/(\d)(,|\.)(\d)( )?(kg)(\.)?/${1}${3}00 g/i;
 								#$current_value =~ s/(\d)( )?(kg)(\.)?/${1}000 g/i;
 							}
 							
@@ -1079,28 +1162,7 @@ TXT
 
 			# fix typos
 			
-			if ((defined $imported_product_ref->{UGC_nutritionalValuesPerPackage})
-				and ($imported_product_ref->{UGC_nutritionalValuesPerPackage} ne "")) {
-			
-				if ($imported_product_ref->{UGC_nutritionalValuesPerPackage} 
-					=~ /^(Pour|à la|a la)?( )?((1|une)?( )?portion( de| d'environ)?)?( )?([^:\n]+)(:|\n)/i) {
-					
-					my $serving = $8;
-					
-					$serving =~ s/^\s+//;
-					$serving =~ s/\s+$//;
-					$serving =~ s/ environ$//i;
-					$serving =~ s/^\((.*)\)$/$1/;
-					($serving =~ /nergie/i) and $serving = "";
-					my $debug = $imported_product_ref->{UGC_nutritionalValuesPerPackage};
-					$debug =~ s/:.*//isg;
-					if ($serving ne "") {
-						print "PORTION -- $serving\t-- $debug\n";
-						$params{serving_size} = $serving;
-					}
-				}
-			
-			}
+
 			
 			
 			$imported_product_ref->{UGC_nutritionalValues} =~ s/matière grasses/matières grasses/i;
@@ -1441,7 +1503,9 @@ TXT
 				push @edited, $code;
 				$edited{$code}++;
 				
-				# $i > 5 and last;
+				$j++;
+				#$j > 200 and last;
+				#last;
 			}
 			
 			# last;
