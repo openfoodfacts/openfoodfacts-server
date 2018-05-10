@@ -1245,15 +1245,17 @@ sub display_list_of_tags($$) {
 		my $main_link = '';
 		my $nofollow = '';
 		if (defined $request_ref->{tagid}) {
-			print STDERR "main_link for " . $request_ref->{tagtype} . " - " . $request_ref->{tagid} . " \n";
+			local $log->context->{tagtype} = $request_ref->{tagtype};
+			local $log->context->{tagid} = $request_ref->{tagid};
+
+			$log->trace("determining main_link for the tag") if $log->is_trace();
 			if (defined $taxonomy_fields{$request_ref->{tagtype}}) {
 				$main_link = canonicalize_taxonomy_tag_link($lc,$request_ref->{tagtype},$request_ref->{tagid}) ;
-				print STDERR "main_link: $main_link - canonicalize_taxonomy_tag_link\n";
+				$log->debug("main_link determined from the taxonomy tag", { main_link => $main_link }) if $log->is_debug();
 			}
 			else {
-				print STDERR "canonicalize_tag_link - tagtype: " . $request_ref->{tagtype} . " - tagid: " . $request_ref->{tagid} . "\n";
 				$main_link = canonicalize_tag_link($request_ref->{tagtype}, $request_ref->{tagid});
-				print STDERR "main_link: $main_link - canonicalize_tag2\n";				
+				$log->debug("main_link determined from the canonical tag", { main_link => $main_link }) if $log->is_debug();
 			}
 			$nofollow = ' rel="nofollow"';
 		}
@@ -1645,7 +1647,10 @@ sub display_points_ranking($$) {
 	my $tagtype = shift;	# users or countries
 	my $tagid = shift;
 	
-	print STDERR "display_points_ranking - tagtype: $tagtype - tagid: $tagid\n";
+	local $log->context->{tagtype} = $tagtype;
+	local $log->context->{tagid} = $tagid;
+
+	$log->info("displaying points ranking") if $log->is_info();
 	
 	my $ranktype = "users";
 	if ($tagtype eq "users") {
@@ -1775,7 +1780,10 @@ sub display_points($) {
 	my $newtagidpath;
 	my $canon_tagid = undef;
 	
-	print STDERR "display_points - tagtype: $tagtype - tagid: $tagid\n";
+	local $log->context->{tagtype} = $tagtype;
+	local $log->context->{tagid} = $tagid;
+
+	$log->info("displaying points") if $log->is_info();
 
 	if (defined $tagid) {
 		if (defined $taxonomy_fields{$tagtype}) {
@@ -1783,7 +1791,7 @@ sub display_points($) {
 			$display_tag = display_taxonomy_tag($lc,$tagtype,$canon_tagid);
 			$title = $display_tag; 
 			$newtagid = get_taxonomyid($display_tag);
-			print STDERR "display_tag - taxonomy - $tagtype - tagid: $tagid - canon_tagid: $canon_tagid - newtagid: $newtagid - title: $title \n";
+			$log->debug("displaying points for a taxonomy tag", { canon_tagid => $canon_tagid, newtagid => $newtagid, title => $title }) if $log->is_debug();
 			if ($newtagid !~ /^(\w\w):/) {
 				$newtagid = $lc . ':' . $newtagid;
 			}
@@ -1808,8 +1816,7 @@ sub display_points($) {
 			$request_ref->{world_current_link} = canonicalize_tag_link($tagtype, $newtagid);
 			$lang = $current_lang;
 			$lc = $current_lc;
-			print STDERR "display_tag - normal - $tagtype - tagid: $tagid - canon_tagid: $canon_tagid - newtagid: $newtagid - title: $title \n";
-			
+			$log->debug("displaying points for a normal tag", { canon_tagid => $canon_tagid, newtagid => $newtagid, title => $title }) if $log->is_debug();			
 		}
 	}
 	
@@ -1817,7 +1824,7 @@ sub display_points($) {
 	
 	if ((defined $tagid) and ($newtagid ne $tagid) ) {
 		$request_ref->{redirect} = $request_ref->{current_link};
-		print STDERR "Display.pm display_tag - redirect - tagid: $tagid - newtagid: $newtagid - url: $request_ref->{current_link} \n";
+		$log->info("newtagid does not equal the original tagid, redirecting", { newtagid => $newtagid, redirect => $request_ref->{redirect} }) if $log->is_info();
 		return 301;
 	}
 	
@@ -1894,6 +1901,9 @@ sub display_tag($) {
 	my $newtagid;
 	my $newtagidpath;
 	my $canon_tagid = undef;
+
+	local $log->context->{tagtype} = $tagtype;
+	local $log->context->{tagid} = $tagid;
 	
 	my $tagtype2 = $request_ref->{tagtype2};
 	my $tagid2 = $request_ref->{tagid2};
@@ -1902,13 +1912,16 @@ sub display_tag($) {
 	my $newtagid2path;
 	my $canon_tagid2 = undef;	
 
+	local $log->context->{tagtype2} = $tagtype2;
+	local $log->context->{tagid2} = $tagid2;
+
 	if (defined $tagid) {
 		if (defined $taxonomy_fields{$tagtype}) {
 			$canon_tagid = canonicalize_taxonomy_tag($lc,$tagtype, $tagid); 
 			$display_tag = display_taxonomy_tag($lc,$tagtype,$canon_tagid);
 			$title = $display_tag; 
 			$newtagid = get_taxonomyid($display_tag);
-			print STDERR "display_tag - taxonomy - $tagtype - tagid: $tagid - canon_tagid: $canon_tagid - newtagid: $newtagid - title: $title \n";
+			$log->info("displaying taxonomy tag", { canon_tagid => $canon_tagid, newtagid => $newtagid, title => $title }) if $log->is_info();
 			if ($newtagid !~ /^(\w\w):/) {
 				$newtagid = $lc . ':' . $newtagid;
 			}
@@ -1933,7 +1946,7 @@ sub display_tag($) {
 			$request_ref->{world_current_link} = canonicalize_tag_link($tagtype, $newtagid);
 			$lang = $current_lang;
 			$lc = $current_lc;
-			print STDERR "display_tag - normal - $tagtype - tagid: $tagid - canon_tagid: $canon_tagid - newtagid: $newtagid - title: $title \n";			
+			$log->info("displaying normal tag", { canon_tagid => $canon_tagid, newtagid => $newtagid, title => $title }) if $log->is_info();
 		}
 		
 		# add back leading dash when a tag is excluded
@@ -1944,7 +1957,7 @@ sub display_tag($) {
 		}		
 	}
 	else {
-		print STDERR "display_tag - no tagid\n";
+		$log->warn("no tagid found") if $log->is_warn();
 	}
 	
 	# 2nd tag?
@@ -1954,7 +1967,7 @@ sub display_tag($) {
 			$display_tag2 = display_taxonomy_tag($lc,$tagtype2,$canon_tagid2);
 			$title .= " / " . $display_tag2; 
 			$newtagid2 = get_taxonomyid($display_tag2);		
-			print STDERR "display_tag - taxonomy - $tagtype2 - tagid2: $tagid2 - canon_tagid2: $canon_tagid2 - newtagid2: $newtagid2 - title: $title \n";
+			$log->info("2nd level tag is a taxonomy tag", { tagtype2 => $tagtype2, tagid2 => $tagid2, canon_tagid2 => $canon_tagid2, newtagid2 => $newtagid2, title => $title }) if $log->is_info();
 			if ($newtagid2 !~ /^(\w\w):/) {
 				$newtagid2 = $lc . ':' . $newtagid2;
 			}
@@ -1989,7 +2002,7 @@ sub display_tag($) {
 		}		
 		
 	}
-	
+
 	if (defined $request_ref->{groupby_tagtype}) {
 		$request_ref->{world_current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{en};
 	}
@@ -2001,7 +2014,7 @@ sub display_tag($) {
 		$request_ref->{redirect} .= '.jsonp' if $request_ref->{jsonp};
 		$request_ref->{redirect} .= '.xml' if $request_ref->{xml};
 		$request_ref->{redirect} .= '.jqm' if $request_ref->{jqm};
-		print STDERR "Display.pm display_tag - redirect - tagid: $tagid - newtagid: $newtagid - tagid2: $tagid2 - newtagid2: $newtagid2 - url: $request_ref->{redirect} \n";
+		$log->info("one or more tagids mismatch, redirecting to correct url", { redirect => $request_ref->{redirect} }) if $log->is_info();
 		return 301;
 	}
 	
@@ -2093,17 +2106,16 @@ sub display_tag($) {
 	
 		my $city_code = get_city_code($tagid);
 		
-		print STDERR "Display.pm - city_code: $city_code \n";
+		local $log->context->{city_code} = $city_code;
+		$log->debug("city code for tag with emb_code type") if $log->debug();
 		
 		if (defined $emb_codes_cities{$city_code}) {
 			$description .= "<p>" . lang("cities_s") . separator_before_colon($lc) . ": " . display_tag_link('cities', $emb_codes_cities{$city_code}) . "</p>";
 		}
 		
-		print STDERR "display_tag packager_codes - canon_tagid: $canon_tagid\n";
-		
+		$log->debug("checking if the canon_tagid is a packager code") if $log->is_debug();		
 		if (exists $packager_codes{$canon_tagid}) {
-		
-			print STDERR "display_tag packager_codes - canon_tagid: $canon_tagid exists, cc : " . $packager_codes{$canon_tagid}{cc} . "\n";
+			$log->debug("packager code found for the canon_tagid", { cc => $packager_codes{$canon_tagid}{cc} }) if $log->is_debug();
 			
 			# Generate a map if we have coordinates
 			my ($lat, $lng) = get_packager_code_coordinates($canon_tagid);
@@ -2278,11 +2290,10 @@ HTML
 	
 		my $categories_nutriments_ref = retrieve("$data_root/index/categories_nutriments_per_country.$cc.sto");
 	
-		print STDERR "stats - cc: $cc - tagtype: $tagtype - tagid: $tagid\n";
-	
+		$log->debug("checking if this category has stored statistics", { cc => $cc, tagtype => $tagtype, tagid => $tagid }) if $log->is_debug();	
 		if ((defined $categories_nutriments_ref) and (defined $categories_nutriments_ref->{$canon_tagid})
 			and (defined $categories_nutriments_ref->{$canon_tagid}{stats})) {
-			print STDERR "stats - cc: $cc - tagtype: $tagtype -tagid: $tagid - adding description\n";
+			$log->debug("statistics found for the tag, addind stats to description", { cc => $cc, tagtype => $tagtype, tagid => $tagid }) if $log->is_debug();
 	
 			$description .= "<h2>" . lang("nutrition_data") . "</h2>"
 				. "<p>"
@@ -2547,25 +2558,17 @@ sub search_and_display_products($$$$$) {
 	my $cursor;
 	my $count;
 	
-	use Data::Dumper;
-	#if ($admin) 
-	{
-		print STDERR "Display.pm - search_and_display_products - sort:\n" . Dumper($sort_ref) . "\n";
-		print STDERR "Display.pm - search_and_display_products - limit:\n" . Dumper($limit) . "\n";
-	
-	}
-	
 	eval {
 		if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
 			my $aggregate_parameters = [
 				{ "\$match" => $query_ref },
 				{ "\$sample" => { "size" => $request_ref->{sample_size} } }
 			];
-			print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
+			$log->debug("Executing MongoDB query", { query => $aggregate_parameters }) if $log->is_debug();
 			$cursor = $products_collection->aggregate($aggregate_parameters);
 		}
 		else {
-			$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
+			$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
 			$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 			$count = $cursor->count() + 0;
 			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
@@ -2592,11 +2595,11 @@ sub search_and_display_products($$$$$) {
 					{ "\$match" => $query_ref },
 					{ "\$sample" => { "size" => $request_ref->{sample_size} } }
 				];
-				print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
+				$log->debug("Executing MongoDB query", { query => $aggregate_parameters }) if $log->is_debug();
 				$cursor = $products_collection->aggregate($aggregate_parameters);
 			}
 			else {
-				$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
+				$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
 				$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 				$count = $cursor->count() + 0;
 				$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
@@ -2653,11 +2656,12 @@ sub search_and_display_products($$$$$) {
 			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_download}\">" . lang("search_download_results") . "</a><br />";
 		}
 		
-		my $debug_log = "search - count: $count";
-		defined $request_ref->{search} and $debug_log .= " - request_ref->{search}: " . $request_ref->{search};
-		defined $request_ref->{tagid2}  and $debug_log .= " - tagid2 " . $request_ref->{tagid2};
-		
-		print STDERR $debug_log . "\n"; 
+		if ($log->is_debug()) {
+			my $debug_log = "search - count: $count";
+			defined $request_ref->{search} and $debug_log .= " - request_ref->{search}: " . $request_ref->{search};
+			defined $request_ref->{tagid2}  and $debug_log .= " - tagid2 " . $request_ref->{tagid2};
+			$log->debug($debug_log);
+		}
 		
 		if ((not defined $request_ref->{search}) and ($count >= 5) 	
 			and (not defined $request_ref->{tagid2}) and (not defined $request_ref->{product_changes_saved})) {
@@ -2879,7 +2883,7 @@ HTML
 	# if cc and/or lc have been overriden, change the relative paths to absolute paths using the new subdomain
 	
 	if ($subdomain ne $original_subdomain) {
-		print STDERR "Display - search_and_display_product - subdomain $subdomain not equal to original_subdomain $original_subdomain, converting relative paths to absolute paths\n";
+		$log->debug("subdomain not equal to original_subdomain, converting relative paths to absolute paths", { subdomain => $subdomain, original_subdomain => $original_subdomain }) if $log->is_debug();
 		my $formated_subdomain = format_subdomain($subdomain);
 		$html =~ s/(href|src)=("\/)/$1="$formated_subdomain\//g;
 	}
@@ -2940,8 +2944,7 @@ sub search_and_export_products($$$$$) {
 	$sort_ref->Push(product_name => 1);
 	$sort_ref->Push(generic_name => 1);
 	
-	use Data::Dumper;
-	print STDERR "search_and_export_products - query - \n" . Dumper($query_ref) . "\nsearch_and_export_products sort - \n" . Dumper($sort_ref) . "\n";
+	$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref }) if $log->is_debug();
 
 	my $cursor;
 	my $count;
@@ -3170,17 +3173,16 @@ pnns_groups_2
 					}
 				}
 				
-				
-				print STDERR "main_cid_orig: $main_cid comparisons: $#comparisons\n";
-				
-				
+				local $log->context->{main_cid_orig} = $main_cid;
+				local $log->context->{comparisons} = $#comparisons;
 				if ($#comparisons > -1) {
 					@comparisons = sort { $a->{count} <=> $b->{count}} @comparisons;
 					$comparisons[0]{show} = 1;
 					$main_cid = $comparisons[0]{id};
-					print STDERR "main_cid: $main_cid\n";
 				}
 				
+				local $log->context->{main_cid} = $main_cid;
+				$log->debug("final main_cid determined") if $log->is_debug();
 			}		
 			
 			if ($main_cid ne '') {
@@ -3978,10 +3980,7 @@ sub search_and_graph_products($$$) {
 	$log->info("retrieving products from MongoDB to display them in a graph", { count => $count }) if $log->is_info();
 
 	if ($admin) {
-	
-		use Data::Dumper;
 		$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
-	
 	}
 	
 	eval {
