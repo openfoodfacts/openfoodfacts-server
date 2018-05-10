@@ -3472,7 +3472,7 @@ JS
 					$s = $s / 10;
 				}		
 				
-				print STDERR "search_and_graph - seriesid: $seriesid - matching_series: $matching_series - s: $s - remainingseriesid: $remainingseriesid - title: $title \n";
+				$log->debug("rendering series colour as JavaScript", { seriesid => $seriesid, matching_series => $matching_series, s => $s, remainingseriesid => $remainingseriesid, title => $title }) if $log->is_debug();
 
 				$r = int ($r / $matching_series);
 				$g = int ($g / $matching_series);
@@ -3756,9 +3756,8 @@ sub display_histogram($$$) {
 				}
 			}
 		}
-		
-		print STDERR "histogram - for all $i values - min:  $min - max:  $max\n";
-		
+
+		$log->debug("hisogram for all 'i' values", { i => $i, min => $min, max => $max }) if $log->is_debug();
 		
 		my %series_intervals = ();
 		my $categories = '';
@@ -3772,7 +3771,7 @@ sub display_histogram($$$) {
 			$series_intervals{$seriesid} = [];
 			for (my $k = 0; $k < $intervals; $k++) {
 				$series_intervals{$seriesid}[$k] = 0;
-				print STDERR "histogram - $k - min:  $intervals[$k][0] - max:  $intervals[$k][1]\n";
+				$log->debug("computing histogram", { k => $k, min =>$intervals[$k][0], max => $intervals[$k][1] }) if $log->is_debug();
 			}
 			foreach my $value (@{$series{$seriesid}}) {
 				for (my $k = 0; $k < $intervals; $k++) {
@@ -3812,7 +3811,7 @@ sub display_histogram($$$) {
 				$s = $s / 10;
 			}		
 			
-			print STDERR "search_and_graph - seriesid: $seriesid - matching_series: $matching_series - s: $s - remainingseriesid: $remainingseriesid - title: $title \n";
+			$log->debug("rendering series as JavaScript", { seriesid => $seriesid, matching_series => $matching_series, s => $s, remainingseriesid => $remainingseriesid, title => $title }) if $log->is_debug();
 
 			$r = int ($r / $matching_series);
 			$g = int ($g / $matching_series);
@@ -3974,8 +3973,8 @@ sub search_and_graph_products($$$) {
 	my $cursor;
 	my $count;
 	
-	print STDERR "Display.pm - search_and_graph_products - start: $count\n";		
-	
+	$log->info("retrieving products from MongoDB to display them in a graph", { count => $count }) if $log->is_info();
+
 	if ($admin) {
 	
 		use Data::Dumper;
@@ -4009,7 +4008,7 @@ sub search_and_graph_products($$$) {
 		}
 	}
 		
-	print STDERR "Display.pm - search_and_graph_products - count: $count\n";				
+	$log->info("retrieved products from MongoDB to display them in a graph", { count => $count }) if $log->is_info();
 		
 	$request_ref->{count} = $count + 0;
 	
@@ -4030,7 +4029,7 @@ sub search_and_graph_products($$$) {
 	
 	if ($count <= 0) {
 		# $request_ref->{content_html} = $html;
-		print STDERR "Display.pm - search_and_graph_products - count <= 0\n";		
+		$log->warn("could not retrieve enough products for a graph", { count => $count }) if $log->is_warn();
 		return $html;
 	}
 		
@@ -4135,8 +4134,7 @@ sub search_and_map_products($$$) {
 	my $cursor;
 	my $count;
 	
-	print STDERR "Display.pm - search_and_map_products - start: $count\n";		
-	
+	$log->info("retrieving products from MongoDB to display them in a map", { count => $count }) if $log->is_info();
 	
 	eval {
 		$cursor = $products_collection->query($query_ref);
@@ -4164,7 +4162,7 @@ sub search_and_map_products($$$) {
 		}
 	}
 		
-	print STDERR "Display.pm - search_and_map_products - count: $count\n";				
+	$log->info("retrieved products from MongoDB to display them in a map", { count => $count }) if $log->is_info();
 		
 	$request_ref->{count} = $count + 0;
 	
@@ -4185,7 +4183,7 @@ sub search_and_map_products($$$) {
 	
 	if ($count <= 0) {
 		# $request_ref->{content_html} = $html;
-		print STDERR "Display.pm - search_and_map_products - count <= 0\n";		
+		$log->warn("could not retrieve enough products for a map", { count => $count }) if $log->is_warn();
 		return $html;
 	}
 		
@@ -4290,9 +4288,7 @@ JS
 			}
 		}	
 
-		print STDERR "Display.pm - search_and_map_products - count: $count - matching_products: $matching_products - products: $products - emb_codes: $emb_codes\n";				
-
-		
+		$log->debug("rendering map for matching products", { count => $count, matching_products => $matching_products, products => $products, emb_codes => $emb_codes }) if $log->is_debug();
 		
 		# Points to display?
 
