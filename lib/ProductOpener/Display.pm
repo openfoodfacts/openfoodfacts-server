@@ -4585,15 +4585,14 @@ sub display_new($) {
 	
 	my $content_header = '';	
 	
-	print STDERR "Display::display - title: $title\n";
-
+	$log->debug("displaying page", { title => $title }) if $log->is_debug();
 	
 	my $object_ref;
 	my $type;
 	my $id;
 
 	
-	print STDERR "Display::display displaying blocks\n";
+	$log->debug("displaying blocks") if $log->is_debug();
 	
 	display_login_register($blocks_ref);
 		
@@ -5809,6 +5808,7 @@ sub display_product($)
 
 	my $request_code = $request_ref->{code};
 	my $code = normalize_code($request_code);
+	local $log->context->{code} = $code;
 
 	my $html = '';
 	my $blocks_ref = [];
@@ -5851,15 +5851,16 @@ CSS
 	
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 	
-	print STDERR "display_product - request_code: $request_code - code: $code\n";
+	$log->info("displaying product", { request_code => $request_code }) if $log->is_info();
 	
 	$title = $code;
 	
 	my $product_ref;
 	
 	my $rev = $request_ref->{rev};
+	local $log->context->{rev} = $rev;
 	if (defined $rev) {
-		print STDERR "display_product : rev $rev\n";
+		$log->info("displaying product revision") if $log->is_info();
 		$product_ref = retrieve_product_rev($code, $rev);
 		$header .= '<meta name="robots" content="noindex,follow">';
 	}
@@ -5889,7 +5890,7 @@ CSS
 	# Old UPC-12 in url? Redirect to EAN-13 url
 	if ($request_code ne $code) {
 		$request_ref->{redirect} = $request_ref->{canon_url};
-		print STDERR "Display.pm display_product - redirect - lc: $lc - request_code: $request_code -> code: $code\n";
+		$log->info("301 redirecting user because request_code does not match code", { redirect => $request_ref->{redirect}, lc => $lc, request_code => $code }) if $log->is_info();
 		return 301;
 	}
 	
@@ -5899,7 +5900,7 @@ CSS
 			(($titleid ne '') and ((not defined $request_ref->{titleid}) or ($request_ref->{titleid} ne $titleid))) or
 			(($titleid eq '') and ((defined $request_ref->{titleid}) and ($request_ref->{titleid} ne ''))) )) {
 		$request_ref->{redirect} = $request_ref->{canon_url};
-		print STDERR "Display.pm display_product - redirect - lc: $lc product_lc: product_ref->{lc} - titleid: $titleid - request_ref->{titleid} : $request_ref->{titleid}\n";
+		$log->info("301 redirecting user because titleid is incorrect", { redirect => $request_ref->{redirect}, lc => $lc, product_lc => $product_ref->{lc}, titleid => $titleid, request_titleid => $request_ref->{titleid} }) if $log->is_info();
 		return 301;
 	}
 
@@ -6567,7 +6568,7 @@ HTML
 	$request_ref->{description} = $description;
 	$request_ref->{blocks_ref} = $blocks_ref;
 	
-	print STDERR "display_product.pl - code: $code\n";
+	$log->trace("displayed product") if $log->is_trace();
 	
 	display_new($request_ref);	
 }
@@ -6578,6 +6579,7 @@ sub display_product_jqm ($) # jquerymobile
 	my $request_ref = shift;
 
 	my $code = normalize_code($request_ref->{code});
+	local $log->context->{code} = $code;
 	
 	
 	my $html = '';
@@ -6588,15 +6590,16 @@ sub display_product_jqm ($) # jquerymobile
 	
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 	
-	print STDERR "display_product - code: $code\n";
+	$log->info("displaying product jquery mobile") if $log->is_info();
 	
 	$title = $code;
 	
 	my $product_ref;
 	
 	my $rev = $request_ref->{rev};
+	local $log->context->{rev} = $rev;
 	if (defined $rev) {
-		print STDERR "display_product : rev $rev\n";
+		$log->info("displaying product revision on jquery mobile") if $log->is_info();
 		$product_ref = retrieve_product_rev($code, $rev);
 	}
 	else {
@@ -6964,7 +6967,7 @@ HTML
 	$request_ref->{title} = $title;
 	$request_ref->{description} = $description;
 	
-	print STDERR "display_product.pl - code: $code\n";
+	$log->trace("displayed product on jquery mobile") if $log->is_trace();
 
 }
 
@@ -7294,7 +7297,7 @@ sub display_nutrition_table($$) {
 			$col_name{$colid} =  sprintf(lang("nutrition_data_compare_with_category"), $comparison_ref->{name});
 			$col_name{$colid} =  $comparison_ref->{name};
 			
-			print STDERR "display_nutrition_table - colid $colid - id: $comparison_ref->{id} - name: $comparison_ref->{name} \n";
+			$log->debug("displaying nutrition table comparison column", { colid => $colid, id => $comparison_ref->{id}, name => $comparison_ref->{name} }) if $log->is_debug();
 		
 			my $checked = 0;
 			if (defined $comparison_ref->{show}) {
@@ -7502,7 +7505,7 @@ HTML
 			}			
 		}
 
-		print STDERR "nid: $nid - shown: $shown - value: " . $product_ref->{nutriments}{$nid} . " - $nid _prepared: " . $product_ref->{nutriments}{$nid . "_prepared"}  ." \n";
+		$log->debug("displaying nutrition table row for a nutrient", { nid => $nid, shown => $shown, value => $product_ref->{nutriments}{$nid}, nid_prepared => $product_ref->{nutriments}{$nid . "_prepared"} }) if $log->is_debug();
 		
 		my $label = '';
 		
@@ -7765,7 +7768,7 @@ sub display_product_api($)
 	
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 	
-	print STDERR "display_product_api - code: $code\n";
+	$log->info("displaying product api", { code => $code }) if $log->is_info();
 
 	my %response = ();
 	
@@ -7992,7 +7995,7 @@ sub display_structured_response($)
 	my $request_ref = shift;
 	
 	
-	print STDERR "display_api - format: json = $request_ref->{json} - jsonp = $request_ref->{jsonp} - xml = $request_ref->{xml} - jqm = $request_ref->{jqm} - rss = $request_ref->{rss}\n";
+	$log->debug("Displaying structured response", { json => $request_ref->{json}, jsonp => $request_ref->{jsonp}, xml => $request_ref->{xml}, jqm => $request_ref->{jqm}, rss => $request_ref->{rss} }) if $log->is_debug();
 	if ($request_ref->{xml}) {
 	
 		# my $xs = XML::Simple->new(NoAttr => 1, NumericEscape => 2);
