@@ -211,6 +211,10 @@ sub init()
 	my $hostname = $r->hostname;
 	$subdomain = lc($hostname);
 	
+	local $log->context->{hostname} = $hostname;
+	local $log->context->{ip} = remote_addr();
+	local $log->context->{query_string} = $ENV{QUERY_STRING};
+
 	$test = 0;
 	if ($subdomain =~ /\.test\./) {
 		$subdomain =~ s/\.test\./\./;
@@ -222,29 +226,30 @@ sub init()
 	$original_subdomain = $subdomain;	# $subdomain can be changed if there are cc and/or lc overrides
 	
 	
-	print STDERR "Display::init - subdomain: $subdomain \n";
+	$log->debug("initializing request", { subdomain => $subdomain }) if $log->is_debug();
 
 	if ($subdomain eq 'world') {
 		($cc, $country, $lc) = ('world','en:world','en');
 	}
 	elsif (defined $country_codes{$subdomain}) {
+		local $log->context->{subdomain_format} = 1;
+
 		$cc = $subdomain;
 		$country = $country_codes{$cc};
 		$lc = $country_languages{$cc}[0]; # first official language
 		
-		print STDERR "Display::init - country_codes($subdomain) - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 1\n";
+		$log->debug("subdomain matches known country code", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country }) if $log->is_debug();
 		
 		if (not exists $Langs{$lc}) {
-			print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc does not exist - cc: $cc - country: $country - lc does not exist\n";
+			$log->debug("current lc does not exist, falling back to lc = en", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country }) if $log->is_debug();
 			$lc = 'en';
 		}
 		
 	}
 	elsif ($subdomain =~ /(.*?)-(.*)/) {
-	
-		print STDERR "Display::init - subdomain 1 cc-lc ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
-	
-	
+		local $log->context->{subdomain_format} = 2;
+		$log->debug("subdomain in cc-lc format - checking values", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country }) if $log->is_debug();
+
 		if (defined $country_codes{$1}) {
 			$cc = $1;
 			$country = $country_codes{$cc};
@@ -254,20 +259,21 @@ sub init()
 				$lc =~ s/-/_/; # pt-pt -> pt_pt
 			}
 			
-			print STDERR "Display::init - subdomain cc-lc ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
+			$log->debug("subdomain matches known country code", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country }) if $log->is_debug();
 		}
 	}
 	elsif (defined $country_names{$subdomain}) {
+		local $log->context->{subdomain_format} = 3;
 		($cc, $country, $lc) = @{$country_names{$subdomain}};
 		
-		print STDERR "Display::init - country_name($subdomain) -  ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
-		
+		$log->debug("subdomain matches known country name", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country }) if $log->is_debug();
 	}
 	elsif ($ENV{QUERY_STRING} !~ /(cgi|api)\//) {
 		# redirect
 		my $worlddom = format_subdomain('world');
-		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $worlddom\n";
-		$r->headers_out->set(Location => "$worlddom/" . $ENV{QUERY_STRING});
+		my $redirect = "$worlddom/" . $ENV{QUERY_STRING};
+		$log->info("request could not be matched to a known format, redirecting", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect }) if $log->is_info();
+		$r->headers_out->set(Location => $redirect);
 		$r->status(301);  
 		return 301;
 	}
@@ -276,7 +282,7 @@ sub init()
 	$lc =~ s/_.*//;     # PT_PT doest not work yet: categories
 	
 	if ((not defined $lc) or (($lc !~ /^\w\w(_|-)\w\w$/) and (length($lc) != 2) )) {
-		print STDERR "Display::init - lc: $lc -> en\n";
+		$log->debug("replacing unknown lc with en",  { lc => $lc }) if $log->debug();
 		$lc = 'en';
 	}
 	
@@ -286,8 +292,9 @@ sub init()
 	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^(ssl-)?api/) and ($r->method() eq 'GET') and ($ENV{QUERY_STRING} !~ /(cgi|api)\//)) {
 		# redirect
 		my $ccdom = format_subdomain($cc);
-		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $ccdom\n";
-		$r->headers_out->set(Location => "$ccdom/" . $ENV{QUERY_STRING});
+		my $redirect = "$ccdom/" . $ENV{QUERY_STRING};
+		$log->info("lc is equal to first lc of the country, redirecting to countries main domain", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect }) if $log->is_info();
+		$r->headers_out->set(Location => $redirect);
 		$r->status(301);
 		return 301;
 	}
@@ -300,13 +307,13 @@ sub init()
 		$cc = param('cc');
 		$country = $country_codes{$cc};
 		$cc_lc_overrides = 1;
-		print STDERR "Display::init - cc override from request parameter: $cc\n";
+		$log->debug("cc override from request parameter", { cc => $cc }) if $log->is_debug();
 	}
 	if ((defined param('lc')) and (defined $language_codes{param('lc')})) {
 		$lc = param('lc');
 		$lang = $lc;
 		$cc_lc_overrides = 1;
-		print STDERR "Display::init - lc override from request parameter: $lc\n";
+		$log->debug("lc override from request parameter", { lc => $lc }) if $log->is_debug();
 	}	
 	# change the subdomain if we have overrides so that links to product pages are properly constructed
 	if ($cc_lc_overrides) {
@@ -327,9 +334,8 @@ sub init()
 		$subdomain =~ s/\.openfoodfacts/.test.openfoodfacts/;
 	}
 	
-	print STDERR "Display::init - r->uri : " . $hostname  . " subdomain: $subdomain - lc: $lc - lang: $lang - cc: $cc - country: $country\n";
+	$log->debug("URI parsed for additional information", { subdomain => $subdomain, original_subdomain => $original_subdomain, lc => $lc, lang => $lang, cc => $cc, country => $country }) if $log->is_debug();
 
-	
 	my $error = ProductOpener::Users::init_user();
 	if ($error) {
 		if (not param('jqm')) { # API
@@ -381,8 +387,7 @@ sub analyze_request($)
 {
 	my $request_ref = shift;
 	
-	print STDERR "analyze_request : query_string 0 : $request_ref->{query_string} \n";
-	
+	$log->debug("analyzing query_string, step 0 - unmodified", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
 	
 	# https://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
 	# https://world.openfoodfacts.org/?ref=producthunt
@@ -394,9 +399,8 @@ sub analyze_request($)
 	# cc and lc query overrides have already been consumed by init(), remove them
 	# so that they do not interfere with the query string analysis after
 	$request_ref->{query_string} =~ s/(\&|\?)(cc|lc)=([^&]*)//g;
-
 		
-	print STDERR "analyze_request : query_string 1 : $request_ref->{query_string} \n";
+	$log->debug("analyzing query_string, step 1 - utm, cc, and lc removed", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
 	
 	# Process API parameters: fields, formats, revision
 	
@@ -412,7 +416,7 @@ sub analyze_request($)
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
 			$request_ref->{$parameter} = $2;
-			print STDERR "analyze_request : $parameter = $request_ref->{$parameter} \n";
+			$log->debug("parameter was set from query string", { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
 		}	
 	}	
 	
@@ -423,20 +427,18 @@ sub analyze_request($)
 		if ($request_ref->{query_string} =~ /\.$parameter$/) {
 			$request_ref->{query_string} =~ s/\.$parameter$//;
 			$request_ref->{$parameter} = 1;
-			print STDERR "analyze_request : $parameter = 1 (.$parameter) \n";
+			$log->debug("parameter was set from extension in URL path", { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
 		}
 	}	
 	
-	print STDERR "analyze_request : query_string 2 : $request_ref->{query_string} \n";
-	
+	$log->debug("analyzing query_string, step 2 - fields, rev, json, jsonp, jqm, and xml removed", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
 	
 	$request_ref->{query_string} =~ s/^\///;
 	$request_ref->{query_string} = decode("utf8",URI::Escape::XS::decodeURIComponent($request_ref->{query_string}));
 	
-	print STDERR "analyze_request : query_string 3 : $request_ref->{query_string} \n";
+	$log->debug("analyzing query_string, step 3 - components UTF8 decoded", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
 	
-	
-$request_ref->{page} = 1;
+	$request_ref->{page} = 1;
 	
 	my @components = split(/\//, $request_ref->{query_string});
 	
@@ -467,7 +469,7 @@ $request_ref->{page} = 1;
 			$request_ref->{json} = 1;
 		 }
 		
-		print STDERR "analyze_request : api = $request_ref->{api} - api_version = $request_ref->{api_version} - api_method = $request_ref->{api_method} - code = $request_ref->{code} - jqm = $request_ref->{jqm} - json = $request_ref->{json} - xml = $request_ref->{xml} \n";
+		$log->debug("request looks like an API request", { api => $request_ref->{api}, api_version => $request_ref->{api_version}, api_method => $request_ref->{api_method}, code => $request_ref->{code}, jqm => $request_ref->{jqm}, json => $request_ref->{json}, xml => $request_ref->{xml} } ) if $log->is_debug();
 	}	
 
 	# or a list
@@ -537,8 +539,7 @@ $request_ref->{page} = 1;
 	
 		# list of tags? (plural of tagtype must be the last field)
 		
-		print STDERR "Display::analyze_request - last component - $components[$#components] - plural? " . $tag_type_from_plural{$lc}{$components[$#components]} . " \n";		
-		
+		$log->debug("checking last component", { last_component => $components[$#components], is_plural => $tag_type_from_plural{$lc}{$components[$#components]} }) if $log->is_debug();
 		
 		# list of (categories) tags with stats for a nutriment 
 		if (($#components == 1) and (defined $tag_type_from_plural{$lc}{$components[0]}) and ($tag_type_from_plural{$lc}{$components[0]} eq "categories")
@@ -550,14 +551,14 @@ $request_ref->{page} = 1;
 			$canon_rel_url_suffix .= "/" . $components[1];
 			pop @components;
 			pop @components;
-			print STDERR "Display::analyze_request - list of tags - categories with nutrients - groupby: $request_ref->{groupby_tagtype} - stats nid: $request_ref->{stats_nid}\n";	
+			$log->debug("request looks like a list of tags - categories with nutrients", { groupby => $request_ref->{groupby_tagtype}, stats_nid => $request_ref->{stats_nid} }) if $log->is_debug();
 		}
 		
 		if (defined $tag_type_from_plural{$lc}{$components[$#components]}) {
 		
 			$request_ref->{groupby_tagtype} = $tag_type_from_plural{$lc}{pop @components};
 			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
-			print STDERR "Display::analyze_request - list of tags - groupby: $request_ref->{groupby_tagtype}\n";
+			$log->debug("request looks like a list of tags", { groupby => $request_ref->{groupby_tagtype}, lc => $lc }) if $log->is_debug();
 		}
 		# also try English tagtype
 		elsif (defined $tag_type_from_plural{"en"}{$components[$#components]}) {
@@ -565,13 +566,13 @@ $request_ref->{page} = 1;
 			$request_ref->{groupby_tagtype} = $tag_type_from_plural{"en"}{pop @components};
 			# use $lc for canon url
 			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
-			print STDERR "Display::analyze_request - list of tags - groupby: $request_ref->{groupby_tagtype}\n";
+			$log->debug("request looks like a list of tags", { groupby => $request_ref->{groupby_tagtype}, lc => "en" }) if $log->is_debug();
 		}
 	
 		if (($#components >= 0) and ((defined $tag_type_from_singular{$lc}{$components[0]})
 			or (defined $tag_type_from_singular{"en"}{$components[0]}))) {
 		
-			print STDERR "Display::analyze_request - tag_type_from_singular $lc : $components[0]\n";
+			$log->debug("request looks like a singular tag", { lc => $lc, tagid => $components[0] }) if $log->is_debug();
 			
 			if (defined $tag_type_from_singular{$lc}{$components[0]}) {
 				$request_ref->{tagtype} = $tag_type_from_singular{$lc}{shift @components};
@@ -651,7 +652,7 @@ $request_ref->{page} = 1;
 				$request_ref->{canon_rel_url} .= "/points"
 		}
 		elsif (not defined $request_ref->{groupby_tagtype}) {
-			print STDERR "analyze_request: invalid address, confused by number of components left: $#components \n";
+			$log->warn("invalid address, confused by number of components left", { left_components => $#components }) if $log->is_warn();
 			display_error(lang("error_invalid_address"), 404);
 		}
 		
@@ -662,15 +663,16 @@ $request_ref->{page} = 1;
 		$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
 	}
 	
-	my $debug_log = "Display::analyze_request - lc: $lc lang: $lang";
-	foreach my $log_field (qw/text product tagtype tagid tagtype2 tagid2 groupby_tagtype points/) {
-		if (defined $request_ref->{$log_field}) {
-			$debug_log .= " - $log_field: $request_ref->{$log_field}";
+	if ($log->is_debug()) {
+		my $debug_log = "";
+		foreach my $log_field (qw/text product tagtype tagid tagtype2 tagid2 groupby_tagtype points/) {
+			if (defined $request_ref->{$log_field}) {
+				$debug_log .= " - $log_field: $request_ref->{$log_field}";
+			}
 		}
-	}
 
-	
-	print STDERR $debug_log . "\n";
+		$log->debug("request analyzed", { lc => $lc, lang => $lang, log_fields => $debug_log });
+	}
 		
 	return 1;
 }
@@ -903,7 +905,7 @@ sub display_text($)
 		$html =~ s/<\/h1>/ - $country_name<\/h1>/;
 	}
 
-	print STDERR "debug_text - cc: $cc - lc: $lc - lang: $lang - textid: $textid - textlang: $text_lang - file: $file \n";
+	$log->info("displaying text from file", { cc => $cc, lc => $lc, lang => $lang, textid => $textid, textlang => $text_lang, file => $file }) if $log->is_info();
 	
 	# if page number is higher than 1, then keep only the h1 header
 	# e.g. index page
