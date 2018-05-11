@@ -1097,14 +1097,14 @@ sub display_list_of_tags($$) {
 	
 	eval {
 		$log->debug("Executing MongoDB aggregate query", { query => $aggregate_parameters }) if $log->is_debug();
-		$results = get_products_collection()->aggregate( $aggregate_parameters );
+		$results = get_products_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 1 } );
 	};
 	if ($@) {
 		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
 
 		eval {
 			$log->debug("Executing MongoDB aggregate query", { query => $aggregate_parameters }) if $log->is_debug();
-			$results = get_products_collection()->aggregate( $aggregate_parameters);
+			$results = get_products_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 1 } );
 		};
 		$log->debug("MongoDB query done", { error => $@ }) if $log->is_debug();
 	}
@@ -2531,7 +2531,7 @@ sub search_and_display_products($$$$$) {
 				{ "\$sample" => { "size" => $request_ref->{sample_size} } }
 			];
 			$log->debug("Executing MongoDB query", { query => $aggregate_parameters }) if $log->is_debug();
-			$cursor = get_products_collection()->aggregate($aggregate_parameters);
+			$cursor = get_products_collection()->aggregate($aggregate_parameters, { allowDiskUse => 1 });
 		}
 		else {
 			$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
@@ -2548,7 +2548,7 @@ sub search_and_display_products($$$$$) {
 				{ "\$sample" => { "size" => $request_ref->{sample_size} } }
 			];
 			$log->debug("Executing MongoDB query", { query => $aggregate_parameters }) if $log->is_debug();
-			$cursor = get_products_collection()->aggregate($aggregate_parameters);
+			$cursor = get_products_collection()->aggregate($aggregate_parameters, { allowDiskUse => 1 });
 		}
 		else {
 			$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
