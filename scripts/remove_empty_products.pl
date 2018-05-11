@@ -56,7 +56,7 @@ my $l = 'en';
 	$lang = $l;
 
 
-my $cursor = $products_collection->query({empty => 1})->fields({ code => 1, empty => 1 });;
+my $cursor = get_products_collection()->query({empty => 1})->fields({ code => 1, empty => 1 });;
 my $count = $cursor->count();
 my $removed = 0;
 	
