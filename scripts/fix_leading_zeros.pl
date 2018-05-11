@@ -105,7 +105,7 @@ my $notfound = 0;
 				my $path = product_path($code);
 				if (1) {
 					if ($product_ref->{deleted}) {
-						get_products_collection()->remove({"_id" => $product_ref->{_id}});
+						get_products_collection()->delete_one({"_id" => $product_ref->{_id}});
 					}
 					else {
 						get_products_collection()->save($product_ref);

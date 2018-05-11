@@ -76,7 +76,7 @@ my $j = 0;
 		
 		print STDERR "code does not exist - updating product _id: $id - hcode $code\n";
 		
-		#get_products_collection()->remove({"code" => $code});
+		#get_products_collection()->delete_one({"code" => $code});
 		
 		# index_product($product_ref);
 

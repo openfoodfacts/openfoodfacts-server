@@ -282,7 +282,7 @@ sub store_product($$) {
 
 			delete $product_ref->{old_code};
 			
-			get_products_collection()->remove({"_id" => $product_ref->{_id}});
+			get_products_collection()->delete_one({"_id" => $product_ref->{_id}});
 			$product_ref->{_id} = $product_ref->{code};
 
 		}
@@ -373,10 +373,10 @@ sub store_product($$) {
 
 	
 	if ($product_ref->{deleted}) {
-		$new_products_collection->remove({"_id" => $product_ref->{_id}});
+		$new_products_collection->delete_one({"_id" => $product_ref->{_id}});
 	}
 	else {
-		$new_products_collection->save($product_ref);
+		$new_products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, { upsert => 1 });
 	}
 	
 	store("$new_data_root/products/$path/$rev.sto", $product_ref);

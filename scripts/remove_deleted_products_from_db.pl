@@ -70,7 +70,7 @@ my $count = $cursor->count();
 			my $product_ref = retrieve("$data_root/products/$path/product.sto");
 			if (defined $product_ref) {
 				print STDERR "deleted : $product_ref->{deleted} - _id : $product_ref->{_id}\n";
-				get_products_collection()->remove({"code" => $code});
+				get_products_collection()->delete_one({"code" => $code});
 						my $err = $database->last_error();
 		use Data::Dumper;
 		print STDERR Dumper($err);

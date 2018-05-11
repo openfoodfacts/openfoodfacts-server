@@ -97,8 +97,8 @@ my $notfound = 0;
 			$notfound++;
 			
 			# try to add 0
-			get_products_collection()->remove({"_id" => $_id . '' });
-			get_products_collection()->remove({"_id" => $_id + 0});
+			get_products_collection()->delete_one({"_id" => $_id . '' });
+			get_products_collection()->delete_one({"_id" => $_id + 0});
 
 		}
 
