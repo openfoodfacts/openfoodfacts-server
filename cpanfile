@@ -24,7 +24,7 @@ requires 'WWW::CSRF'; # libwww-csrf-perl
 requires 'Apache2::Request'; # libapache2-request-perl
 
 # Probably not available as Debian packages
-requires 'MongoDB', '>= 1.4.5'; # libmongodb-perl has an older version
+requires 'MongoDB', '>= 1.8.1'; # libmongodb-perl has an older version
 requires 'URI::Escape::XS';
 requires 'Encode::Punycode';
 requires 'GraphViz2';

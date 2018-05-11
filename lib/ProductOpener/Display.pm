@@ -68,12 +68,6 @@ BEGIN
 					$memd
 					$default_request_ref
 					
-					$connection
-					$database
-					$products_collection
-					$emb_codes_collection
-					$recent_changes_collection
-					
 					$debug
 					$scripts
 					$initjs
@@ -111,6 +105,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Missions qw/:all/;
 use ProductOpener::MissionsConfig qw/:all/;
 use ProductOpener::URL qw/:all/;
+use ProductOpener::Data qw/:all/;
 
 use Cache::Memcached::Fast;
 use Text::Unaccent;
@@ -138,21 +133,6 @@ $memd = new Cache::Memcached::Fast {
 	'servers' => [ "127.0.0.1:11211" ],
 	'utf8' => 1,
 };
-
-$connection = MongoDB->connect($mongodb_host);
-$database = $connection->get_database($mongodb);
-$products_collection = $database->get_collection('products');
-$emb_codes_collection = $database->get_collection('emb_codes');
-$recent_changes_collection = $database->get_collection('recent_changes');
-
-if (defined $options{other_servers}) {
-
-	foreach my $server (keys %{$options{other_servers}}) {
-		$options{other_servers}{$server}{database} = $connection->get_database($options{other_servers}{$server}{mongodb});
-		$options{other_servers}{$server}{products_collection} = $options{other_servers}{$server}{database}->get_collection('products');
-	}
-}
-
 
 $default_request_ref = {
 page=>1,
@@ -1123,7 +1103,7 @@ sub display_list_of_tags($$) {
 	}		
 	
 	eval {
-		$results = $products_collection->aggregate( $aggregate_parameters );
+		$results = get_products_collection()->aggregate( $aggregate_parameters );
 	};
 	if ($@) {
 		print STDERR "Display.pm - display_list_of_tags - MongoDB error: $@ - retrying once\n";
@@ -1131,9 +1111,8 @@ sub display_list_of_tags($$) {
 		
 		# opening new connection
 		eval {
-			$connection = MongoDB->connect($mongodb_host);
-			$database = $connection->get_database($mongodb);
-			$products_collection = $database->get_collection('products');
+			print STDERR "Display.pm - display_list_of_tags - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
+			$results = get_products_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 1 } );
 		};
 		if ($@) {
 			print STDERR "Display.pm - display_list_of_tags - MongoDB error: $@ - reconnecting failed\n";
@@ -1142,7 +1121,7 @@ sub display_list_of_tags($$) {
 		else {		
 			print STDERR "Display.pm - display_list_of_tags - MongoDB error: $@ - reconnected ok\n";					
 			eval {
-				$results = $products_collection->aggregate( $aggregate_parameters);
+				$results = get_products_collection()->aggregate( $aggregate_parameters);
 			};
 			print STDERR "Display.pm - display_list_of_tags - MongoDB error: $@ - ok\n";	
 		}
@@ -2570,48 +2549,33 @@ sub search_and_display_products($$$$$) {
 				{ "\$sample" => { "size" => $request_ref->{sample_size} } }
 			];
 			print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
-			$cursor = $products_collection->aggregate($aggregate_parameters);
+			$cursor = get_products_collection()->aggregate($aggregate_parameters);
 		}
 		else {
 			print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
-			$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+			$cursor = get_products_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 			$count = $cursor->count() + 0;
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";
 		}
 	};
 	if ($@) {
-		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
-		# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
-		
-		# opening new connection
-		eval {
-			$connection = MongoDB->connect($mongodb_host);
-			$database = $connection->get_database($mongodb);
-			$products_collection = $database->get_collection('products');
-		};
-		if ($@) {
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnecting failed\n";
-			$count = -1;
+		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";						
+		if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
+			my $aggregate_parameters = [
+				{ "\$match" => $query_ref },
+				{ "\$sample" => { "size" => $request_ref->{sample_size} } }
+			];
+			print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
+			$cursor = get_products_collection()->aggregate($aggregate_parameters);
 		}
-		else {		
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
-			if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
-				my $aggregate_parameters = [
-					{ "\$match" => $query_ref },
-					{ "\$sample" => { "size" => $request_ref->{sample_size} } }
-				];
-				print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
-				$cursor = $products_collection->aggregate($aggregate_parameters);
-			}
-			else {
-				print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
-				$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-				$count = $cursor->count() + 0;
-				print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";
+		else {
+			print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
+			$cursor = get_products_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+			$count = $cursor->count() + 0;
+			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";
 
-			}
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok\n";
 		}
+		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok\n";
 	}
 	
 	while (my $product_ref = $cursor->next) {
@@ -2955,29 +2919,14 @@ sub search_and_export_products($$$$$) {
 	my $count;
 	
 	eval {
-		$cursor = $products_collection->query($query_ref)->sort($sort_ref);
+		$cursor = get_products_collection()->query($query_ref)->sort($sort_ref);
 		$count = $cursor->count() + 0;
 	};
 	if ($@) {
 		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
-		# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
-		
-		# opening new connection
-		eval {
-			$connection = MongoDB->connect($mongodb_host);
-			$database = $connection->get_database($mongodb);
-			$products_collection = $database->get_collection('products');
-		};
-		if ($@) {
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnecting failed\n";
-			$count = -1;
-		}
-		else {		
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
-			$cursor = $products_collection->query($query_ref)->sort($sort_ref);
-			$count = $cursor->count() + 0;
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
-		}
+		$cursor = get_products_collection()->query($query_ref)->sort($sort_ref);
+		$count = $cursor->count() + 0;
+		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
 	}
 		
 	$request_ref->{count} = $count + 0;
@@ -3994,29 +3943,14 @@ sub search_and_graph_products($$$) {
 	}
 	
 	eval {
-		$cursor = $products_collection->query($query_ref);
+		$cursor = get_products_collection()->query($query_ref);
 		$count = $cursor->count() + 0;
 	};
 	if ($@) {
 		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
-		# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
-		
-		# opening new connection
-		eval {
-			$connection = MongoDB->connect($mongodb_host);
-			$database = $connection->get_database($mongodb);
-			$products_collection = $database->get_collection('products');
-		};
-		if ($@) {
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnecting failed\n";
-			$count = -1;
-		}
-		else {		
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
-			$cursor = $products_collection->query($query_ref);
-			$count = $cursor->count() + 0;
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
-		}
+		$cursor = get_products_collection()->query($query_ref);
+		$count = $cursor->count() + 0;
+		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
 	}
 		
 	print STDERR "Display.pm - search_and_graph_products - count: $count\n";				
@@ -4149,29 +4083,14 @@ sub search_and_map_products($$$) {
 	
 	
 	eval {
-		$cursor = $products_collection->query($query_ref);
+		$cursor = get_products_collection()->query($query_ref);
 		$count = $cursor->count() + 0;
 	};
 	if ($@) {
 		print STDERR "Display.pm - search_and_map_products - MongoDB error: $@ - retrying once\n";
-		# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
-		
-		# opening new connection
-		eval {
-			$connection = MongoDB->connect($mongodb_host);
-			$database = $connection->get_database($mongodb);
-			$products_collection = $database->get_collection('products');
-		};
-		if ($@) {
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnecting failed\n";
-			$count = -1;
-		}
-		else {		
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
-			$cursor = $products_collection->query($query_ref);
-			$count = $cursor->count() + 0;
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
-		}
+		$cursor = get_products_collection()->query($query_ref);
+		$count = $cursor->count() + 0;
+		print STDERR "Display.pm - search_and_map_products - MongoDB error: $@ - ok, got count: $count\n";	
 	}
 		
 	print STDERR "Display.pm - search_and_map_products - count: $count\n";				
@@ -8177,30 +8096,15 @@ sub display_recent_changes {
 	$sort_ref->Push('$natural' => -1);
 
 	print STDERR "Display.pm - display_recent_changes - query:\n" . Dumper($query_ref) . "\n";
-	my $cursor = $recent_changes_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+	my $cursor = get_recent_changes_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 	my $count = $cursor->count() + 0;
 	print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - ok, got count: $count\n";
 
 	if ($@) {
 		print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - retrying once\n";
-		
-		# opening new connection
-		eval {
-			$connection = MongoDB->connect($mongodb_host);
-			$database = $connection->get_database($mongodb);
-			$recent_changes_collection = $database->get_collection('recent_changes');
-		};
-		if ($@) {
-			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - reconnecting failed\n";
-			$count = -1;
-		}
-		else {		
-			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - reconnected ok\n";					
-			print STDERR "Display.pm - display_recent_changes - query:\n" . Dumper($query_ref) . "\n";
-			$cursor = $recent_changes_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-			$count = $cursor->count() + 0;
-			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - ok, got count: $count\n";
-		}
+		$cursor = get_recent_changes_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+		$count = $cursor->count() + 0;
+		print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - ok, got count: $count\n";
 	}
 	
 	my $html .= "<ul>\n";
