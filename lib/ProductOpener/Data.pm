@@ -31,7 +31,7 @@ BEGIN
 	@EXPORT_OK = qw(
 					&get_products_collection
 					&get_emb_codes_collection
-					&recent_changes_collection
+					&get_recent_changes_collection
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -57,7 +57,7 @@ sub get_emb_codes_collection {
 	return get_collection($mongodb, 'emb_codes');
 }
 
-sub recent_changes_collection {
+sub get_recent_changes_collection {
 	return get_collection($mongodb, 'recent_changes');
 }
 
