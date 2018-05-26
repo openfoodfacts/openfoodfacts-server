@@ -243,15 +243,7 @@ last_edit_dates
 
 %weblink_templates = (
 
-	'wikidata:en' => { href => 'https://www.wikidata.org/wiki/%s', text => 'Wikidata', parse => sub
-	{
-		my ($url) = @_;
-		if ($url =~ /^https?:\/\/www.wikidata.org\/wiki\/(Q\d+)$/) {
-			return $1
-		}
-
-		return;
-	} },
+	'wikidata:en' => { href => 'https://www.wikidata.org/wiki/%s', text => 'Wikidata' },
 
 );
 
@@ -283,6 +275,15 @@ opff =>
         mongodb => "opff",
         domain => "openpetfoodfacts.org",
 }
+opf =>
+{
+        name => "Open Products Facts",
+        data_root => "/home/opf",
+        www_root => "/home/opf/html",
+        mongodb => "opf",
+        domain => "openproductsfacts.org",
+},
+
 };
 
 
