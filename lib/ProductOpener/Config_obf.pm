@@ -274,7 +274,7 @@ opff =>
         www_root => "/home/opff/html",
         mongodb => "opff",
         domain => "openpetfoodfacts.org",
-}
+},
 opf =>
 {
         name => "Open Products Facts",
