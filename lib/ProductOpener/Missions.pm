@@ -213,7 +213,9 @@ sub compute_missions_for_user($) {
 				print STDERR "compute_missions: querying condition $i\n";
 
 				
-				my $cursor = get_products_collection()->query($query_ref)->fields({});
+				my $cursor = execute_query(sub {
+					return get_products_collection()->query($query_ref)->fields({});
+				});				
 				my $count = $cursor->count();
 				
 				if ($count < $condition_ref->[0]) {

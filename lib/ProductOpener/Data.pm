@@ -29,6 +29,7 @@ BEGIN
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
+					&execute_query
 					&get_products_collection
 					&get_emb_codes_collection
 					&get_recent_changes_collection
@@ -46,7 +47,21 @@ use ProductOpener::Config qw/:all/;
 use MongoDB;
 use Tie::IxHash;
 
-our $client;
+use Action::CircuitBreaker;
+use Action::Retry;
+
+my $client;
+my $action = Action::CircuitBreaker->new();
+
+sub execute_query {
+	my ($sub) = @_;
+
+	return Action::Retry->new(
+          attempt_code => sub { $action->run($sub) },
+          on_failure_code => sub { my ($error, $h) = @_; die $error; }, # by default Action::Retry would return undef
+		  strategy => { Fibonacci => { max_retries_number => 3, } },
+      )->run();
+}
 
 sub get_products_collection {
 	return get_collection($mongodb, 'products');

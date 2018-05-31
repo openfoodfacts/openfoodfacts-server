@@ -278,7 +278,10 @@ sub store_product($$) {
 			
 			delete $product_ref->{old_code};
 			
-			get_products_collection()->delete_one({"_id" => $product_ref->{_id}});
+			execute_query(sub {
+				return $new_products_collection->delete_one({"_id" => $product_ref->{_id}});
+			});
+			
 			$product_ref->{_id} = $product_ref->{code};
 
 		}
