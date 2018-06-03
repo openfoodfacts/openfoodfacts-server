@@ -7501,8 +7501,6 @@ HTML
 				$prefix = "&nbsp; " . $prefix;
 			}			
 		}
-
-		$log->debug("displaying nutrition table row for a nutrient", { nid => $nid, shown => $shown, value => $product_ref->{nutriments}{$nid}, nid_prepared => $product_ref->{nutriments}{$nid . "_prepared"} }) if $log->is_debug();
 		
 		my $label = '';
 		
