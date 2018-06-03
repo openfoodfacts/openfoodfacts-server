@@ -1,41 +1,17 @@
-FROM httpd:latest
-
-# https://github.com/tianon/docker-brew-ubuntu-core/issues/59
-ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install --assume-yes apt-utils
-
-RUN set -x \
-    && apt-get install -y --no-install-recommends git ca-certificates libfile-spec-native-perl make gcc libperl-dev g++ \
-    libapache2-request-perl \
-	libimage-magick-perl \
-	libbarcode-zbar-perl \
-	tesseract-ocr \
-	graphviz \
-    imagemagick \
-    geoip-database \
-    cpanminus \
-    && ln -s /usr/share/GeoIP /usr/local/share/GeoIP
-
-#  Fetch mod_perl source, build and install it
-#  Note: The fetch URL should be adjusted to point to a local mirror
-ADD http://www.eu.apache.org/dist/perl/mod_perl-2.0.10.tar.gz mod_perl-2.0.10.tar.gz
-RUN set -x \
-    && ln -s /usr/lib/x86_64-linux-gnu/libgdbm.so.3.0.0 /usr/lib/libgdbm.so \
-    && tar -zxvf mod_perl-2.0.10.tar.gz \
-    && rm mod_perl-2.0.10.tar.gz \
-    && cd mod_perl-2.0.10 \
-    && perl Makefile.PL MP_AP_PREFIX=/usr/local/apache2 \
-    && make \ 
-    && make install \
-    && cd .. \
-    && rm -r mod_perl-2.0.10
+FROM hangy/httpd-alpine-perl-modperl
 
 # Prepare Apache to include our custom config
 RUN set -x \
     && mkdir -p /usr/local/apache2/conf/sites-enabled \
     && echo 'IncludeOptional conf/sites-enabled/*.conf' >> /usr/local/apache2/conf/httpd.conf
 
-# Remove mod_perl build dependencies
-RUN set -x \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk add --update alpine-sdk imagemagick6 imagemagick6-dev graphviz graphviz-dev tesseract-ocr tesseract-ocr-dev \
+    && rm -rf /var/cache/apk/*
+
+# As of Alpine 3.7, zbar is only available in testing.
+RUN echo -e '@edge http://dl-cdn.alpinelinux.org/alpine/edge/main\n@edgecommunity http://dl-cdn.alpinelinux.org/alpine/edge/community\n@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories
+RUN apk add -U imagemagick@edge zbar@testing zbar-dev@testing \
+    && rm -rf /var/cache/apk/*
+
+# Dependency of libapreq2-2.13, which is not installed automatically.
+RUN cpm install ExtUtils::XSBuilder::ParseSource -g

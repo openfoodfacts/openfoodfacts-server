@@ -1,17 +1,11 @@
 FROM productopener/backend-base-cpan
 
-# https://github.com/tianon/docker-brew-ubuntu-core/issues/59
-ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install --assume-yes apt-utils
-
 ADD . "/opt/product-opener/"
 WORKDIR "/opt/product-opener"
 
-# Add ProductOpener runtime dependencies cpanm
-RUN cpanm --quiet --installdeps --notest --skip-satisfied .
+# Add ProductOpener runtime dependencies from the local cpanfile
+RUN cpm install -g
 
 # Remove build dependencies
-RUN set -x \
-    && apt-get purge -y --auto-remove make gcc libperl-dev g++ git \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk del -U alpine-sdk imagemagick6-dev graphviz-dev tesseract-ocr-dev zbar-dev \
+    && rm -rf /var/cache/apk/*
