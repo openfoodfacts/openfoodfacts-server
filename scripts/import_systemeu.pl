@@ -72,7 +72,7 @@ my $csv_file = "/data/off/systemeu/SUYQD_AKENEO_PU_04.csv";
 my $categories_csv_file = "/data/off/systemeu/systeme-u-rubriques.csv";
 my $imagedir = "/data/off/systemeu/all_product_images";
 
-#my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_03-3.csv";
+#my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_04.csv";
 #my $categories_csv_file = "/home/systemeu/systeme-u-rubriques.csv";
 #my $imagedir = "/home/systemeu/all_product_images"; 
 
@@ -373,7 +373,9 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			
 			my $code = $imported_product_ref->{UGC_ean};
 			
-			#next if ($code ne "3256223669792");
+			#next if ($code ne "3256226388720");
+			
+			print "PRODUCT LINE NUMBER $i - CODE $code\n";
 			
 			if (not defined $images_ref->{$code}) {
 				print "MISSING IMAGES ALL - PRODUCT CODE $code\n";
@@ -399,7 +401,8 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				print STDERR "empty code\n";
 				use Data::Dumper;
 				print STDERR Dumper($imported_product_ref);
-				exit;
+				print "EMPTY CODE\n";
+				next;
 			}			
 	
 			
@@ -771,7 +774,8 @@ ble => "bouteille",
 			else {
 			
 				print STDERR "unrecognized format for ugc_libecommerce: $ugc_libecommerce\n";
-				exit;
+				print "unrecognized format for ugc_libecommerce: $ugc_libecommerce\n";
+				next;
 			
 			}
 			
