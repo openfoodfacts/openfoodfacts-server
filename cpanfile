@@ -28,7 +28,6 @@ requires 'MongoDB', '>= 1.4.5'; # libmongodb-perl has an older version
 requires 'URI::Escape::XS';
 requires 'Encode::Punycode';
 requires 'GraphViz2';
-requires 'HTML::Defang';
 requires 'Algorithm::CheckDigits';
 requires 'Geo::IP';
 requires 'Image::OCR::Tesseract';
