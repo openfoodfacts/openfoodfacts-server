@@ -8012,7 +8012,7 @@ sub add_images_urls_to_product($) {
 		}
 		
 		if (defined $product_ref->{languages_codes}) {
-			foreach my $key (keys $product_ref->{languages_codes}) {
+			foreach my $key (keys %{$product_ref->{languages_codes}}) {
 				my $id = $imagetype . '_' . $key;
 				if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 					and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
