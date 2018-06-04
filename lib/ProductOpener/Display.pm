@@ -7545,7 +7545,7 @@ HTML
 			}			
 		}
 
-		print STDERR "nid: $nid - shown: $shown - value: " . $product_ref->{nutriments}{$nid} . " - $nid _prepared: " . $product_ref->{nutriments}{$nid . "_prepared"}  ." \n";
+		# print STDERR "nid: $nid - shown: $shown - value: " . $product_ref->{nutriments}{$nid} . " - $nid _prepared: " . $product_ref->{nutriments}{$nid . "_prepared"}  ." \n";
 		
 		my $label = '';
 		
