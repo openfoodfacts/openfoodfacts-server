@@ -417,7 +417,7 @@ sub process_image_upload($$$$$$) {
 		$imagefield = 'search';
 		
 			if ($tmp_filename) {
-				open ($file, q{<}, "$tmp_filename");
+				open ($file, q{<}, "$tmp_filename") or print STDERR "could not read $tmp_filename: $!\n";
 			}		
 	}
 	else {
@@ -518,7 +518,9 @@ sub process_image_upload($$$$$$) {
 			("$x") and print STDERR "Images::generate_image - cannot read $www_root/images/products/$path/$imgid.$extension $x\n";
 
 			# Check the image is big enough so that we do not get thumbnails from other sites
-			if (($source->Get('width') < 640) and ($source->Get('height') < 160)) {
+			if (  (($source->Get('width') < 640) and ($source->Get('height') < 160))
+				and ((not defined $options{users_who_can_upload_small_images})
+					or (not defined $options{users_who_can_upload_small_images}{$userid}))){
 				unlink "$www_root/images/products/$path/$imgid.$extension";
 				rmdir ("$www_root/images/products/$path/$imgid.lock");
 				return -4;

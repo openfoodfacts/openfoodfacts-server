@@ -7545,7 +7545,7 @@ HTML
 			}			
 		}
 
-		print STDERR "nid: $nid - shown: $shown - value: " . $product_ref->{nutriments}{$nid} . " - $nid _prepared: " . $product_ref->{nutriments}{$nid . "_prepared"}  ." \n";
+		# print STDERR "nid: $nid - shown: $shown - value: " . $product_ref->{nutriments}{$nid} . " - $nid _prepared: " . $product_ref->{nutriments}{$nid . "_prepared"}  ." \n";
 		
 		my $label = '';
 		
@@ -8012,7 +8012,7 @@ sub add_images_urls_to_product($) {
 		}
 		
 		if (defined $product_ref->{languages_codes}) {
-			foreach my $key (keys $product_ref->{languages_codes}) {
+			foreach my $key (keys %{$product_ref->{languages_codes}}) {
 				my $id = $imagetype . '_' . $key;
 				if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 					and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {

@@ -1014,7 +1014,8 @@ sub extract_ingredients_classes_from_text($) {
 						# in Hong Kong, the E- can be ommited in E-numbers
 						
 						elsif (($canon_ingredient =~ /^en:(\d+)( |-)?([a-z])??(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?$/i)
-							and (exists_taxonomy_tag($tagtype, $canon_e_ingredient))) {
+							and (exists_taxonomy_tag($tagtype, $canon_e_ingredient))
+							and ($current_additive_class ne "ingredient")) {
 					
 							$seen{$canon_e_ingredient} = 1;
 							$product_ref->{$tagtype} .= " -> e-ingredient exists  ";

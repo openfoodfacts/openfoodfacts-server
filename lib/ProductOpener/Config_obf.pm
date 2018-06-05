@@ -42,9 +42,9 @@ BEGIN
 		$oidc
 		
 		$facebook_app_id
-                $facebook_app_secret
+		$facebook_app_secret
 
-                $csrf_secret
+		$csrf_secret
 
 		$google_cloud_vision_api_key
 		
@@ -259,34 +259,44 @@ last_edit_dates
 
 );
 
+
 # allow moving products to other instances of Product Opener on the same server
 # e.g. OFF -> OBF
 $options{other_servers} = {
 obf =>
 {
-        name => "Open Beauty Facts",
-        data_root => "/home/obf",
-        www_root => "/home/obf/html",
-        mongodb => "obf",
-        domain => "openbeautyfacts.org",
+	name => "Open Beauty Facts",
+	data_root => "/home/obf",
+	www_root => "/home/obf/html",
+	mongodb => "obf",
+	domain => "openbeautyfacts.org",
 },
 off =>
 {
-        name => "Open Food Facts",
-        data_root => "/home/off",
-        www_root => "/home/off/html",
-        mongodb => "off",
-        domain => "openfoodfacts.org",
+	name => "Open Food Facts",
+	data_root => "/home/off",
+	www_root => "/home/off/html",
+	mongodb => "off",
+	domain => "openfoodfacts.org",
 },
 opff =>
 {
-        prefix => "opff",
-        name => "Open Pet Food Facts",
-        data_root => "/home/opff",
-        www_root => "/home/opff/html",
-        mongodb => "opff",
-        domain => "openpetfoodfacts.org",
-}
+	prefix => "opff",
+	name => "Open Pet Food Facts",
+	data_root => "/home/opff",
+	www_root => "/home/opff/html",
+	mongodb => "opff",
+	domain => "openpetfoodfacts.org",
+},
+opf =>
+{
+	name => "Open Products Facts",
+	data_root => "/home/opf",
+	www_root => "/home/opf/html",
+	mongodb => "opf",
+	domain => "openproductsfacts.org",
+},
+
 };
 
 
