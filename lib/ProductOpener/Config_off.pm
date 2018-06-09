@@ -92,6 +92,7 @@ bojackhorseman
 hangy
 javichu
 kyzh
+lucaa
 scanparty-franprix-05-2016
 sebleouf
 segundo
@@ -102,6 +103,12 @@ teolemon
 twoflower
 scanparty-franprix-05-2016
 );
+
+$options{users_who_can_upload_small_images} = {
+map { $_ => 1 } qw(
+systeme-u
+)
+};
 
 @edit_rules = (
 
@@ -161,8 +168,8 @@ scanparty-franprix-05-2016
 		["warn"]
 	],
 	notifications => [ qw (
-                slack_channel_edit-alert
-        )],
+		slack_channel_edit-alert
+	)],
 },
 
 );
@@ -406,27 +413,35 @@ last_edit_dates
 $options{other_servers} = {
 obf =>
 {
-        name => "Open Beauty Facts",
-        data_root => "/home/obf",
-        www_root => "/home/obf/html",
-        mongodb => "obf",
+	name => "Open Beauty Facts",
+	data_root => "/home/obf",
+	www_root => "/home/obf/html",
+	mongodb => "obf",
 	domain => "openbeautyfacts.org",
 },
 off =>
 {
-        name => "Open Food Facts",
-        data_root => "/home/off",
-        www_root => "/home/off/html",
-        mongodb => "off",
+	name => "Open Food Facts",
+	data_root => "/home/off",
+	www_root => "/home/off/html",
+	mongodb => "off",
 	domain => "openfoodfacts.org",
+},
+opf =>
+{
+	name => "Open Products Facts",
+	data_root => "/home/opf",
+	www_root => "/home/opf/html",
+	mongodb => "opf",
+	domain => "openproductsfacts.org",
 },
 opff =>
 {
-        prefix => "opff",
-        name => "Open Pet Food Facts",
-        data_root => "/home/opff",
-        www_root => "/home/opff/html",
-        mongodb => "opff",
+	prefix => "opff",
+	name => "Open Pet Food Facts",
+	data_root => "/home/opff",
+	www_root => "/home/opff/html",
+	mongodb => "opff",
 	domain => "openpetfoodfacts.org",
 }
 };
