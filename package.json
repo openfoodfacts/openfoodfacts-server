@@ -58,15 +58,17 @@
     "node-sass": "^4.8.3",
     "osmtogeojson": "^3.0.0-beta.3",
     "papaparse": "^4.3.7",
+    "postcss": ">=5.0.0",
     "postcss-sass": "^0.3.0",
-    "sass-loader": "^6.0.7",
+    "postcss-syntax": "0.10.0",
+    "sass-loader": "^7.0.3",
     "select2": "^4.0.6-rc.1",
-    "style-loader": "^0.20.3",
-    "stylelint": "^8.3.1",
+    "style-loader": "^0.21.0",
+    "stylelint": "^9.2.1",
     "stylelint-config-recommended-scss": "^3.0.0",
-    "stylelint-scss": "^2.2.0",
+    "stylelint-scss": "^3.1.0",
     "webpack": "^4.4.1",
-    "webpack-cli": "^2.0.13"
+    "webpack-cli": "^3.0.3"
   },
   "engines": {
     "yarn": ">= 1.0.0"
