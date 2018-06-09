@@ -5400,19 +5400,6 @@ $Lang{footer_follow_us}{$lc}
 $scripts
 
 <script>
-	\$(document).foundation(  { equalizer : {
-    // Specify if Equalizer should make elements equal height once they become stacked.
-    equalize_on_stack: true
-	},
-    accordion: {
-      callback : function (accordion) {
-        \$(document).foundation('equalizer', 'reflow');
-      }
-    }	
-  });
-</script>
-
-<script>
   'use strict';
 
   function doWebShare(e) {

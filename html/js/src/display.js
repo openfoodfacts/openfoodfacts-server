@@ -18,10 +18,8 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'jquery';
 import './vendor/jquery-ui.js';
 import 'manupjs';
-import './vendor/foundation.js';
 
 import '../../css/src/display.css';
 import '../../../scss/app.scss';
@@ -47,6 +45,25 @@ function initCountrySelect(placeholder, serverdomain) {
 	}).catch(error => 'An error occurred while loading the jquery component: ' + error);
 }
 
+function initFoundation() {
+	return import('jquery').then($ => {
+		import('foundation-sites').then(() => {
+			$(document).foundation({
+				equalizer : {
+					// Specify if Equalizer should make elements equal height once they become stacked.
+					equalize_on_stack: true
+				},
+				accordion: {
+					callback : function () {
+						$(document).foundation('equalizer', 'reflow');
+					}
+				}
+			});
+		});
+	});
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+	initFoundation();
 	initCountrySelect(document.getElementById('mainscript').dataset['selectcountry'], document.documentElement.dataset['serverdomain']);
 });
