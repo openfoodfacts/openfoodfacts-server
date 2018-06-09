@@ -1916,7 +1916,7 @@ sub display_tags_hierarchy_taxonomy($$$) {
 				$img_lc = 'en';
 			}
 			
-			if ($tag =~ /certified|montagna/) {
+			if ((defined $tag) and ($tag =~ /certified|montagna/)) {
 				print STDERR "labels_logo - lc_imgid: $lc_imgid - en_imgid: $en_imgid - canon_tagid: $canon_tagid - img: $img \n";
 			}
 
@@ -2059,6 +2059,11 @@ sub canonicalize_taxonomy_tag($$$)
 	my $tag_lc = shift;
 	my $tagtype = shift;
 	my $tag = shift;
+
+	if (not defined $tag) {
+		return "";
+	}
+
 	#$tag = lc($tag);
 	$tag =~ s/^ //g;
 	$tag =~ s/ $//g;		
@@ -2173,9 +2178,13 @@ sub canonicalize_taxonomy_tag($$$)
 	if ((defined $translations_from{$tagtype}) and (defined $translations_from{$tagtype}{$tagid})) {
 		$tagid = $translations_from{$tagtype}{$tagid};
 	}
-	else {
+	elsif (defined $tag) {
 		# no translation available, tag is not in known taxonomy
 		$tagid = $tag_lc . ':' . $tag;
+	}
+	else {
+		# If $tag is not defined, we don't want to return "$tag_lc:", but we also cannot return undef, because consumers assume an assigned value.
+		$tagid = "";
 	}
 	
 	return $tagid;
