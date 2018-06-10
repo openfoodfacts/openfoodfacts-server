@@ -6,7 +6,9 @@ RUN set -x \
     && mkdir -p /usr/local/apache2/conf/sites-enabled \
     && echo 'IncludeOptional conf/sites-enabled/*.conf' >> /usr/local/apache2/conf/httpd.conf
 
-RUN apk add --update alpine-sdk imagemagick6 imagemagick6-dev graphviz graphviz-dev tesseract-ocr tesseract-ocr-dev \
+RUN apk add --update alpine-sdk imagemagick6 imagemagick6-dev graphviz graphviz-dev tesseract-ocr tesseract-ocr-dev geoip \
+    && /etc/periodic/monthly/geoip \
+    && ln -s /usr/share/GeoIP /usr/local/share/GeoIP \
     && rm -rf /var/cache/apk/*
 
 # As of Alpine 3.7, zbar is only available in testing.
@@ -34,5 +36,5 @@ WORKDIR "/opt/product-opener"
 RUN cpm install -g
 
 # Remove build dependencies
-RUN apk del -U alpine-sdk imagemagick6-dev graphviz-dev tesseract-ocr-dev zbar-dev \
+RUN apk del -U alpine-sdk imagemagick6-dev graphviz-dev tesseract-ocr-dev zbar-dev geoip \
     && rm -rf /var/cache/apk/*
