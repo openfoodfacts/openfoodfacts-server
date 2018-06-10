@@ -20,6 +20,7 @@ diag explain \$product_ref;
 is($product_ref->{ingredients_n}, 17);
 
 my $expected_product_ref = {
+  'code' => '123456',
 	'lc' => 'fr',
           'ingredients_n_tags' => [
                                     '17',
@@ -161,7 +162,6 @@ is_deeply($product_ref, $expected_product_ref);
 
 $product_ref = {
   'code' => '123456',
-  'lc' => 'zh',
   'ingredients_text' => "\N{U+94A0}\N{U+FF0C}\N{U+94A1}"
 };
 extract_ingredients_from_text($product_ref);
@@ -173,7 +173,6 @@ is_deeply($product_ref->{ingredients_tags}, \@expected_ingredients_tags, 'FULLWI
 
 $product_ref = {
   'code' => '123456',
-  'lc' => 'zh',
   'ingredients_text' => "\N{U+94A0}\N{U+3002}"
 };
 extract_ingredients_from_text($product_ref);
