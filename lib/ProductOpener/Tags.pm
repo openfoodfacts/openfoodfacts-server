@@ -2577,6 +2577,13 @@ sub canonicalize_taxonomy_tag($$$)
 		}
 	}
 
+	if ($tag =~ m/^($uuid_pattern)$/ia) {
+		my $uuid = Data::GUID->from_string($1);
+		if ((defined $uuid) and (defined $uuid_to_tagid{$tagtype}) and (defined $uuid_to_tagid{$tagtype}{$uuid})) {
+			return $uuid_to_tagid{$tagtype}{$uuid};
+		}
+	}
+
 	if ($tag =~ /^https?:\/\/.+/) {
 		# Test for linked data URLs, ie. https://www.wikidata.org/wiki/Q1234
 		my $matched_tagid;
