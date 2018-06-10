@@ -168,7 +168,18 @@ extract_ingredients_from_text($product_ref);
 diag explain \$product_ref;
 my $expected_ingredients_n = 2;
 my @expected_ingredients_tags = ("\N{U+94A0}", "\N{U+94A1}");
-is($product_ref->{ingredients_n}, $expected_ingredients_n, 'FULLWIDTH COMMA should work as a separator - number of ingredients incorrect - Bug #1199');
-is_deeply($product_ref->{ingredients_tags}, \@expected_ingredients_tags, 'FULLWIDTH COMMA should work as a separator - ingredients incorrect - Bug #1199');
+is($product_ref->{ingredients_n}, $expected_ingredients_n, 'FULLWIDTH COMMA should work as a separator - number of ingredients - Bug #1199');
+is_deeply($product_ref->{ingredients_tags}, \@expected_ingredients_tags, 'FULLWIDTH COMMA should work as a separator - ingredients - Bug #1199');
+
+$product_ref = {
+  'code' => '123456',
+  'lc' => 'zh',
+  'ingredients_text' => "\N{U+94A0}\N{U+3002}"
+};
+extract_ingredients_from_text($product_ref);
+$expected_ingredients_n = 1;
+@expected_ingredients_tags = ("\N{U+94A0}");
+is($product_ref->{ingredients_n}, $expected_ingredients_n, 'IDEOGRAPHIC FULL STOP should be ignored as content - number of ingredients - Bug #1199');
+is_deeply($product_ref->{ingredients_tags}, \@expected_ingredients_tags, 'IDEOGRAPHIC FULL STOP should be ignored as content - ingredients - Bug #1199');
 
 done_testing();

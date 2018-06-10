@@ -415,8 +415,8 @@ sub extract_ingredients_from_text($) {
 		# remove percent
 		
 		# remove * and other chars before and after the name of ingredients
-		$ingredient =~ s/(\s|\*|\)|\]|\}|\.|-|')+$//;
-		$ingredient =~ s/^(\s|\*|\)|\]|\}|\.|-|')+//;
+		$ingredient =~ s/(\s|\*|$cbrackets|$stops|$dashes|')+$//;
+		$ingredient =~ s/^(\s|\*|$cbrackets|$stops|$dashes|')+//;
 		
 		$ingredient =~ s/\s*(\d+(\,\.\d+)?)\s*\%\s*$//;
 		
