@@ -1069,7 +1069,7 @@ sub build_tags_taxonomy($$$) {
 		my %parents = ();
 		my @current_uuids = ();
 
-		sub map_uuid_to_tagid {
+		my $map_uuid_to_tagid = sub {
 			my ($tagtype, $tagid, $uuids_ref) = @_;
 
 			if ((not defined $tagtype) or (not defined $tagid)) {
@@ -1086,7 +1086,7 @@ sub build_tags_taxonomy($$$) {
 			}
 
 			$tagid_to_uuid{$tagtype}{$tagid} = \@uuids;
-		}
+		};
 
 		$canon_tagid = undef;
 
@@ -1124,7 +1124,7 @@ sub build_tags_taxonomy($$$) {
 			$line =~ s/\s+$//;
 
 			if ($line =~ /^(\s*)$/) {
-				map_uuid_to_tagid($tagtype, $canon_tagid, \@current_uuids);
+				$map_uuid_to_tagid->($tagtype, $canon_tagid, \@current_uuids);
 				$canon_tagid = undef;
 				%parents = ();
 				@current_uuids = ();
@@ -1228,7 +1228,7 @@ sub build_tags_taxonomy($$$) {
 			}
 		}
 
-		map_uuid_to_tagid($tagtype, $canon_tagid, \@current_uuids);
+		$map_uuid_to_tagid->($tagtype, $canon_tagid, \@current_uuids);
 		close $IN;
 
 
