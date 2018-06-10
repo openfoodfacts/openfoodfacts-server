@@ -643,7 +643,7 @@ sub compute_product_history_and_completeness($$) {
 			# $product_ref->{images}{$id} ($id = front / ingredients / nutrition)
 			
 			if (defined $product_ref->{images}) {
-				foreach my $imgid (keys %{$product_ref->{images}}) {
+				foreach my $imgid (sort keys %{$product_ref->{images}}) {
 					if ($imgid =~ /^\d/) {
 						$current{uploaded_images}{$imgid} = 1;
 					}
