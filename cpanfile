@@ -48,6 +48,7 @@ requires 'Email::Stuffer';
 requires 'Text::CSV', '>= 1.99, < 2.0';
 requires 'Text::Fuzzy';
 requires 'File::Copy::Recursive';
+requires 'Data::GUID';
 
 # Logging
 requires 'Log::Any', '>= 1.705';

@@ -91,6 +91,8 @@ BEGIN
 					%language_fields
 
 					%properties
+					%uuid_to_tagid
+					%tagid_to_uuid
 
 					%language_codes
 					%language_codes_reverse
@@ -115,7 +117,7 @@ BEGIN
 					&load_users_translations
 					&load_users_translations_for_lc
 					&add_users_translations_to_taxonomy
-					
+
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -135,7 +137,7 @@ use Log::Any qw($log);
 
 use GraphViz2;
 use JSON::PP;
-
+use Data::GUID;
 
 binmode STDERR, ":encoding(UTF-8)";
 
@@ -197,7 +199,10 @@ my %all_parents = ();
 
 
 %properties = ();
-
+%uuid_to_tagid = ();
+%tagid_to_uuid = ();
+my $uuid_pattern = qr/(?:[[:xdigit:]]{8}-[[:xdigit:]]{4}-[[:xdigit:]]{4}-[[:xdigit:]]{4}-[[:xdigit:]]{12})/ia; # https://stackoverflow.com/a/17146162/11963
+my $uuid_line_match = qr/^_uuid:(,?\s*($uuid_pattern))/ia;
 
 %tags_images = ();
 %tags_levels = ();
@@ -665,8 +670,11 @@ sub build_tags_taxonomy($$$) {
 	$just_synonyms{$tagtype} = {};
 	$properties{$tagtype} = {};
 
+	$uuid_to_tagid{$tagtype} = ();
+	$tagid_to_uuid{$tagtype} = ();
+
 	my $errors = '';
-	
+
 	if (open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$file")) {
 
 		my $current_tagid;
@@ -863,9 +871,9 @@ sub build_tags_taxonomy($$$) {
 		}
 
 		close ($IN);
-		
+
 		if ($errors ne "") {
-		
+
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
@@ -1059,6 +1067,26 @@ sub build_tags_taxonomy($$$) {
 
 
 		my %parents = ();
+		my @current_uuids = ();
+
+		sub map_uuid_to_tagid {
+			my ($tagtype, $tagid, $uuids_ref) = @_;
+
+			if ((not defined $tagtype) or (not defined $tagid)) {
+				return;
+			}
+
+			my @uuids = @{$uuids_ref};
+			if (not (@uuids)) {
+				push @uuids, Data::GUID->new();
+			}
+
+			foreach my $uuid (@uuids) {
+				$uuid_to_tagid{$tagtype}{$uuid} = $tagid;
+			}
+
+			$tagid_to_uuid{$tagtype}{$tagid} = \@uuids;
+		}
 
 		$canon_tagid = undef;
 
@@ -1096,8 +1124,10 @@ sub build_tags_taxonomy($$$) {
 			$line =~ s/\s+$//;
 
 			if ($line =~ /^(\s*)$/) {
+				map_uuid_to_tagid($tagtype, $canon_tagid, \@current_uuids);
 				$canon_tagid = undef;
 				%parents = ();
+				@current_uuids = ();
 				print STDERR "taxonomy: next tag\n";
 				next;
 			}
@@ -1181,6 +1211,9 @@ sub build_tags_taxonomy($$$) {
 					}
 				}
 			}
+			elsif ($line =~ /$uuid_line_match/i) {
+				@current_uuids = map { Data::GUID->from_string($_) } ($line =~ m/$uuid_pattern/gia);
+			}
 			elsif ($line =~ /^([a-z0-9_\-\.]+):(\w\w):(\s*)/) {
 				my $property = $1;
 				my $lc = $2;
@@ -1195,7 +1228,7 @@ sub build_tags_taxonomy($$$) {
 			}
 		}
 
-
+		map_uuid_to_tagid($tagtype, $canon_tagid, \@current_uuids);
 		close $IN;
 
 
@@ -1473,21 +1506,22 @@ sub build_tags_taxonomy($$$) {
 				}
 			}
 
+			print $OUT '_uuid:' . join(',', @{$tagid_to_uuid{$tagtype}{$tagid}}) . "\n" if defined $tagid_to_uuid{$tagtype}{$tagid};
 			print $OUT "\n" ;
 
 		}
 
 		close $OUT;
-		
+
 		if ($errors ne "") {
-		
+
 			print STDERR "Errors in the $tagtype taxonomy definition:\n";
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
 			unless ($tagtype eq "ingredients") {
 				die("Errors in the $tagtype taxonomy definition");
 			}
-		}		
+		}
 
 		(-e "$www_root/data/taxonomies") or mkdir("$www_root/data/taxonomies", 0755);
 
@@ -1839,7 +1873,7 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 	}
 
 	my @sorted_list = sort { (((defined $level{$tagtype}{$b}) ? $level{$tagtype}{$b} : 0) <=> ((defined $level{$tagtype}{$a}) ? $level{$tagtype}{$a} : 0)) || ($a cmp $b) } keys %tags;
-	
+
 	return @sorted_list;
 }
 
@@ -3305,7 +3339,7 @@ sub compute_field_tags($$$) {
 			$product_ref->{"cities_tags" } = [];
 			$value = normalize_packager_codes($product_ref->{emb_codes});
 		}
-		
+
 		foreach my $tag (split(',', $value)) {
 			if (get_fileid($tag) ne '') {
 				push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
