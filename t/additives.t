@@ -1007,8 +1007,56 @@ is_deeply($product_ref->{minerals_tags}, [
                               ],
 );
 
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"Café instantané 100 % pur arabica"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+                              ],
+);
+
+# 100 % --> no E100 curcumine
+$product_ref = {
+        lc => "en",
+        ingredients_text =>
+"Instant coffee 100 %."
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+                              ],
+);
 
 
+# products in Hong Kong sometimes have no E before E numbers
+# https://hk.openfoodfacts.org/product/4891028164456/vlt-vita
+# "water, sugar, tea, lemon juice, flavouring, acidity regulator (330, 331), vitamin C, antioxidant (304)"
+
+$product_ref = {
+        lc => "en",
+        ingredients_text =>
+"water, sugar, tea, lemon juice, flavouring, acidity regulator (330, 331), vitamin C, antioxidant (304)"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+	"en:e330",
+	"en:e331",
+	"en:e304",
+                              ],
+);
 
 
 done_testing();
