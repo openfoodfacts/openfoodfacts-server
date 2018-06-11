@@ -70,6 +70,8 @@ use ProductOpener::Data qw/:all/;
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 
+use Storable qw(dclone);
+
 use Algorithm::CheckDigits;
 my $ean_check = CheckDigits('ean');
 
@@ -619,8 +621,9 @@ sub compute_product_history_and_completeness($$) {
 		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
 		
 		# if not found, we may be be updating the product, with the latest rev not set yet
-		if (not defined $product_ref) {
+		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
 			$product_ref = $current_product_ref;
+			print STDERR "$rev not found, using the current product ref\n";
 		}
 		
 		if (defined $product_ref) {
@@ -631,7 +634,7 @@ sub compute_product_history_and_completeness($$) {
 				$current_product_ref->{last_modified_t} = $change_ref->{t};
 			}		
 		
-			%current = (lc => $product_ref->{lc}, uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
+			%current = (rev => $rev, lc => $product_ref->{lc}, uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
 			
 			# Uploaded images
 			
@@ -642,7 +645,7 @@ sub compute_product_history_and_completeness($$) {
 			# $product_ref->{images}{$id} ($id = front / ingredients / nutrition)
 			
 			if (defined $product_ref->{images}) {
-				foreach my $imgid (keys %{$product_ref->{images}}) {
+				foreach my $imgid (sort keys %{$product_ref->{images}}) {
 					if ($imgid =~ /^\d/) {
 						$current{uploaded_images}{$imgid} = 1;
 					}
@@ -660,6 +663,8 @@ sub compute_product_history_and_completeness($$) {
 			
 			foreach my $field (@fields) {
 				$current{fields}{$field} = $product_ref->{$field};
+				$current{fields}{$field} =~ s/^\s+//;
+				$current{fields}{$field} =~ s/\s+$//;
 			}
 			
 			# Language specific fields
@@ -669,6 +674,8 @@ sub compute_product_history_and_completeness($$) {
 					foreach my $field (keys %language_fields) {
 						next if $field =~ /_image$/;
 						$current{fields}{$field . '_' . $language_code} = $product_ref->{$field . '_' . $language_code};
+						$current{fields}{$field . '_' . $language_code} =~ s/^\s+//;
+						$current{fields}{$field . '_' . $language_code} =~ s/\s+$//;						
 					}
 				}
 			}
@@ -756,6 +763,7 @@ sub compute_product_history_and_completeness($$) {
 					$diff = 'delete';
 				}
 				elsif ((defined $previous{$group}{$id}) and (defined $current{$group}{$id}) and ($previous{$group}{$id} ne $current{$group}{$id}) ) {
+					print STDERR "DIFF - group: $group - id: $id - previous (rev: $previous{rev}) : $previous{$group}{$id} - current ($current{rev}) : $current{$group}{$id}\n";
 					$diff = 'change';
 				}
 				
@@ -820,19 +828,19 @@ sub compute_product_history_and_completeness($$) {
 								push @correctors, $userid;
 							}
 						}
-					}
-					
-					$change_ref->{diffs} = {%diffs};			
+					}					
 				}
 			}
 		}
+		
+		$change_ref->{diffs} = dclone( \%diffs);
 		
 		$current_product_ref->{last_editor} = $change_ref->{userid};
 
 		compute_completeness_and_missing_tags($product_ref, \%current, \%previous);
 		
-		%last = %previous;
-		%previous = %current;
+		%last = %{ dclone(\%previous)};
+		%previous = %{ dclone(\%current)};
 	}
 	
 	# Populate the last_image_date_tags field

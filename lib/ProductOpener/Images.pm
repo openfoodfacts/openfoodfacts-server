@@ -508,10 +508,20 @@ sub process_image_upload($$$$$$) {
 				print STDERR "existing image $i - size: " . (-s "$www_root/images/products/$path/$i.$extension") . " -- $imgid size: $size\n";
 				if ((-s "$www_root/images/products/$path/$i.$extension") == $size) {
 					print STDERR "image $imgid has same size $size than $www_root/images/products/$path/$i.$extension : deleting $www_root/images/products/$path/$imgid.$extension\n";
+					# check the image was stored inside the
+					# product, it is sometimes missing
+					# (e.g. during crashes)
+					my $product_ref = retrieve_product($code);
+					if ((defined $product_ref) and (defined $product_ref->{images}) and (exists $product_ref->{images}{$i})) {
+					print STDERR "unlinking image $imgid\n";
 					unlink "$www_root/images/products/$path/$imgid.$extension";
 					rmdir ("$www_root/images/products/$path/$imgid.lock");
 					$$imgid_ref = $i;
 					return -3;
+					}
+					else {
+						print STDERR "missing image $i in product.sto, keeping image $imgid\n";
+					}
 				}
 			}			
 			
@@ -725,6 +735,10 @@ sub process_image_crop($$$$$$$$$$) {
 		$w = $h;
 		$h = $z;
 	}
+
+	print STDERR "image_crop.pl - imgid: $imgid - crop_size: $crop_size - x1: $x1, y1: $y1, x2: $x2, y2: $y2, w: $w, h: $h\n";
+
+
 	
 	my $ox1 = int($x1 * $ow / $w);
 	my $oy1 = int($y1 * $oh / $h);
