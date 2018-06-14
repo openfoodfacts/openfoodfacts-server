@@ -355,7 +355,7 @@ else {
 	
 	if ($no_nutrition_data) {
 		# Delete all non-carbon-footprint nids.
-		foreach my $key (keys $product_ref->{nutriments}) {
+		foreach my $key (keys %{$product_ref->{nutriments}}) {
 			next if $key =~ /_/;
 			next if $key eq 'carbon-footprint';
 

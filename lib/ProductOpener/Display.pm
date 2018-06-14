@@ -3130,8 +3130,12 @@ pnns_groups_2
 			foreach my $field (@fields) {
 		
 				my $value = $product_ref->{$field};
-				$value =~ s/(\r|\n|\t)/ /g;
-				$csv .= $value . "\t";
+				if (defined $value) {
+					$value =~ s/(\r|\n|\t)/ /g;
+					$csv .= $value;
+				}
+
+				$csv .= "\t";
 
 				if ($field eq 'code') {
 				
@@ -3220,7 +3224,11 @@ pnns_groups_2
 				$nid =~ s/^-//g;
 				$nid =~ s/-$//g;
 						
-				$csv .= $product_ref->{nutriments}{"${nid}_100g"} . "\t";
+				if (defined $product_ref->{nutriments}{"${nid}_100g"}) {
+					$csv .= $product_ref->{nutriments}{"${nid}_100g"};
+				}
+
+				$csv .= "\t";
 			}
 			
 			# Flattened tags
@@ -7980,7 +7988,7 @@ sub add_images_urls_to_product($) {
 		}
 		
 		if (defined $product_ref->{languages_codes}) {
-			foreach my $key (keys $product_ref->{languages_codes}) {
+			foreach my $key (keys %{$product_ref->{languages_codes}}) {
 				my $id = $imagetype . '_' . $key;
 				if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 					and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {

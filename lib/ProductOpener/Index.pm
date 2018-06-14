@@ -60,7 +60,6 @@ use Cache::Memcached::Fast;
 use Digest::MD5 qw(md5);
 use URI::Escape;
 use URI::Escape::XS;
-use HTML::Defang;
 #use Text::Unaccent::PurePerl "unac_string";
 use Text::Unaccent "unac_string";
 use DateTime;
