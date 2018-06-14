@@ -47,6 +47,8 @@ BEGIN
 		&compute_product_history_and_completeness
 		&compute_languages
 		&compute_changes_diff_text
+		
+		&add_back_field_values_removed_by_user
 					
 		&process_product_edit_rules
 		
@@ -763,6 +765,8 @@ sub compute_product_history_and_completeness($$) {
 				elsif ((defined $previous{$group}{$id}) and (defined $current{$group}{$id}) and ($previous{$group}{$id} ne $current{$group}{$id}) ) {
 					print STDERR "DIFF - group: $group - id: $id - previous (rev: $previous{rev}) : $previous{$group}{$id} - current ($current{rev}) : $current{$group}{$id}\n";
 					$diff = 'change';
+					
+					# identify products where Yuka removed existing countries to put only France
 				}
 				
 				if (defined $diff) {
@@ -864,6 +868,107 @@ sub compute_product_history_and_completeness($$) {
 	
 	compute_completeness_and_missing_tags($current_product_ref, \%current, \%last);
 
+}
+
+
+
+# traverse the history to see if a particular user has removed values for tag fields
+# add back the removed values
+
+sub add_back_field_values_removed_by_user($$$$) {
+
+
+	my $current_product_ref = shift;
+	my $changes_ref = shift;
+	my $field = shift;
+	my $userid = shift;
+	my $code = $current_product_ref->{code};
+	my $path = product_path($code);
+	
+	return if not defined $changes_ref;
+
+
+	# Read all previous versions to see which fields have been added or edited
+	
+	my @fields = qw(lang product_name generic_name quantity packaging brands categories origins manufacturing_places labels emb_codes expiration_date purchase_places stores countries ingredients_text traces no_nutrition_data serving_size nutrition_data_per );
+	
+	my %previous = ();
+	my %last = %previous;
+	my %current;
+	
+	my $previous_tags_ref = {};
+	my $current_tags_ref;
+	
+	my %removed_tags = ();
+	
+	my $revs = 0;
+		
+	foreach my $change_ref (@$changes_ref) {
+		$revs++;
+		my $rev = $change_ref->{rev};
+		if (not defined $rev) {
+			$rev = $revs;	# was not set before June 2012
+		}
+		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
+		
+		# if not found, we may be be updating the product, with the latest rev not set yet
+		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
+			$product_ref = $current_product_ref;
+			if (not defined $product_ref) {
+				print STDERR "$rev not found, using the current product ref - code: $code\n";
+			}
+		}
+		
+		if (defined $product_ref->{$field . "_tags"}) {
+			
+			$current_tags_ref = { map {$_ => 1} @{$product_ref->{$field . "_tags"}} };
+		}
+		else {
+			$current_tags_ref = {  };
+		}
+	
+
+		if ((defined $change_ref->{userid}) and ($change_ref->{userid} eq $userid)) {
+		
+			foreach my $tagid (keys %{$previous_tags_ref}) {
+				if (not exists $current_tags_ref->{$tagid}) {
+					print STDERR "user $userid removed value $tagid for field $field - code: $code\n";
+					$removed_tags{$tagid} = 1;
+				}
+			}		
+		}
+		
+		$previous_tags_ref = $current_tags_ref;
+
+	}
+	
+	my $added = 0;
+	my $added_countries = "";
+
+	foreach my $tagid (sort keys %removed_tags) {
+		if (not exists $current_tags_ref->{$tagid}) {
+			print STDERR "adding back $tagid for field $field - code: $code\n";
+			$current_product_ref->{$field} .= ", $tagid";
+			
+			if ($current_product_ref->{$field} =~ /^, /) {
+				$current_product_ref->{$field} = $';
+			}			
+			
+			$lc = $current_product_ref->{lc};
+			compute_field_tags($current_product_ref, $field);	
+			
+			$added++;
+			$added_countries .= " $tagid";
+		}
+	}
+		
+	if ($added > 0) {
+	
+		$added . $added_countries;
+	}
+	else {
+		return 0;
+	}
 }
 
 
