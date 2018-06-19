@@ -144,6 +144,34 @@ systeme-u
 		slack_channel_edit-alert
 	)],
 },
+{
+        name => "Yuka - systeme-u",
+        conditions => [
+                ["user_id", "kiliweb"],
+                ["in_editors_tags", "systeme-u"],
+        ],
+        actions => [
+                ["ignore"],
+        ],
+        notifications => [ qw (
+                slack_channel_edit-alert
+        )],
+},
+{
+        name => "stephane - systeme-u",
+        conditions => [
+                ["user_id", "stephane"],
+                ["in_editors_tags", "systeme-u"],
+        ],
+        actions => [
+                ["ignore"],
+        ],
+        notifications => [ qw (
+                slack_channel_edit-alert
+        )],
+},
+
+
 
 {
 	name => "Date Limite",

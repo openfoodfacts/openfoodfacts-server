@@ -282,9 +282,18 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Process edit rules
 	
-	process_product_edit_rules($product_ref);
+	$log->debug("phase 0 - checking edit rules", { code => $code, type => $type }) if $log->is_debug();
+	
+	my $proceed_with_edit = process_product_edit_rules($product_ref);
 
-	$log->debug("phase 1", { code => $code }) if $log->is_debug();
+	$log->debug("phase 0", { code => $code, type => $type, proceed_with_edit => $proceed_with_edit }) if $log->is_debug();
+
+	if (not $proceed_with_edit) {
+	
+		display_error("Edit against edit rules", 403);
+	}
+
+	$log->debug("phase 1", { code => $code, type => $type }) if $log->is_debug();
 	
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
 	
@@ -338,7 +347,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	
 	$product_ref->{"debug_param_sorted_langs"} = \@param_sorted_langs;
 	
-	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'traces', 'ingredients_text','lang') {
+	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text','lang') {
 	
 		if (defined $language_fields{$field}) {
 			foreach my $display_lc (@param_sorted_langs) {
@@ -1457,6 +1466,8 @@ HTML
 	# $initjs .= "\$('textarea#ingredients_text').autoResize();";
 	# ! with autoResize, extracting ingredients from image need to update the value of the real textarea
 	# maybe calling $('textarea.growfield').data('AutoResizer').check(); 
+	
+	$html .= display_field($product_ref, "allergens");
 	
 	$html .= display_field($product_ref, "traces");
 

@@ -100,7 +100,56 @@ else {
 	
 	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang') {
 	
-		if (defined param($field)) {
+		# 11/6/2018 --> force add_brands and add_countries for yuka / kiliweb
+		if ((defined $User_id) and ($User_id eq 'kiliweb')
+			and (defined param($field))
+			and (($field eq 'brands') or ($field eq 'countries'))) {
+		
+			param(-name => "add_" . $field, -value => param($field));
+			print STDERR "product_jqm_multilingual.pm - yuka / kiliweb - force $field -> add_$field - code: $code\n";
+		
+		}
+	
+		# add_brands=additional brand : only add if it does not exist yet
+		if ((defined $tags_fields{$field}) and (defined param("add_$field"))) {
+		
+			my $additional_fields = remove_tags_and_quote(decode utf8=>param("add_$field"));
+			
+			print STDERR "product_jqm_multilingual.pl - lc: $lc - adding value to field $field - additional: $additional_fields - existing: $product_ref->{$field}\n";			
+			
+			my $current_field = $product_ref->{$field};
+
+			my %existing = ();
+			foreach my $tagid (@{$product_ref->{$field . "_tags"}}) {
+				$existing{$tagid} = 1;
+			}	
+			
+			foreach my $tag (split(/,/, $additional_fields)) {
+
+				my $tagid;
+
+				if (defined $taxonomy_fields{$field}) {
+					$tagid = get_taxonomyid(canonicalize_taxonomy_tag($lc, $field, $tag));
+				}
+				else {
+					$tagid = get_fileid($tag);
+				}
+				if (not exists $existing{$tagid}) {
+					print STDERR "product_jqm_multilingual.pl - adding $tagid to $field: $product_ref->{$field}\n";
+					$product_ref->{$field} .= ", $tag";
+				}
+				
+			}
+			
+			if ($product_ref->{$field} =~ /^, /) {
+				$product_ref->{$field} = $';
+			}			
+			
+			compute_field_tags($product_ref, $field);			
+			
+		}
+	
+		elsif (defined param($field)) {
 			$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
 			
 			if ((defined $language_fields{$field}) and (defined $product_ref->{lc})) {
@@ -305,7 +354,7 @@ else {
 	
 	if ($no_nutrition_data) {
 		# Delete all non-carbon-footprint nids.
-		foreach my $key (keys $product_ref->{nutriments}) {
+		foreach my $key (keys %{$product_ref->{nutriments}}) {
 			next if $key =~ /_/;
 			next if $key eq 'carbon-footprint';
 

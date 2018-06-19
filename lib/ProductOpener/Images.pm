@@ -74,6 +74,8 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::URL qw/:all/;
 
 use Log::Any qw($log);
+use Encode;
+use JSON::PP;
 
 sub display_select_manage($) {
 
@@ -735,6 +737,23 @@ sub process_image_crop($$$$$$$$$$) {
 	local $log->context->{source_path} = $source_path;	
 
 	$log->trace("cropping image") if $log->is_trace();
+	
+	my $proceed_with_edit = process_product_edit_rules($new_product_ref);
+
+	$log->debug("edit rules processed", { proceed_with_edit => $proceed_with_edit }) if $log->is_debug();
+
+	if (not $proceed_with_edit) {
+	
+		my $data =  encode_json({ status => 'status not ok - edit against edit rules'
+		});
+
+		$log->debug("JSON data output", { data => $data }) if $log->is_debug();
+
+		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+		
+		exit;
+	}	
+	
 			
 	my $source = Image::Magick->new;			
 	my $x = $source->Read($source_path);
@@ -757,8 +776,7 @@ sub process_image_crop($$$$$$$$$$) {
 	}
 
 	print STDERR "image_crop.pl - imgid: $imgid - crop_size: $crop_size - x1: $x1, y1: $y1, x2: $x2, y2: $y2, w: $w, h: $h\n";
-
-
+	$log->trace("calculating geometry", { crop_size => $crop_size, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, w => $w, h => $h }) if $log->is_trace();
 	
 	my $ox1 = int($x1 * $ow / $w);
 	my $oy1 = int($y1 * $oh / $h);
