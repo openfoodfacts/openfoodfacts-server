@@ -1103,30 +1103,16 @@ sub display_list_of_tags($$) {
 	}		
 	
 	eval {
-		$results = get_products_collection()->aggregate( $aggregate_parameters );
+		$results = execute_query(sub {
+			return get_products_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 1 } );
+		});
 	};
 	if ($@) {
-		print STDERR "Display.pm - display_list_of_tags - MongoDB error: $@ - retrying once\n";
-		# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
-		
-		# opening new connection
-		eval {
-			print STDERR "Display.pm - display_list_of_tags - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
-			$results = get_products_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 1 } );
-		};
-		if ($@) {
-			print STDERR "Display.pm - display_list_of_tags - MongoDB error: $@ - reconnecting failed\n";
-			$count = -1;
-		}
-		else {		
-			print STDERR "Display.pm - display_list_of_tags - MongoDB error: $@ - reconnected ok\n";					
-			eval {
-				$results = get_products_collection()->aggregate( $aggregate_parameters);
-			};
-			print STDERR "Display.pm - display_list_of_tags - MongoDB error: $@ - ok\n";	
-		}
+		print STDERR "Display.pm - display_list_of_tags - MongoDB error: $@\n";
 	}
-		
+	else {
+		print STDERR "Display.pm - display_list_of_tags - MongoDB error: $@ - ok\n";
+	}		
 
 	print STDERR "Display.pm - display_list_of_tags - aggregate query done\n";
 	
@@ -2549,32 +2535,24 @@ sub search_and_display_products($$$$$) {
 				{ "\$sample" => { "size" => $request_ref->{sample_size} } }
 			];
 			print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
-			$cursor = get_products_collection()->aggregate($aggregate_parameters);
+			$cursor = execute_query(sub {
+				return get_products_collection()->aggregate($aggregate_parameters);
+			});
 		}
 		else {
 			print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
-			$cursor = get_products_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+			$cursor = execute_query(sub {
+				return get_products_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+			});
 			$count = $cursor->count() + 0;
 			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";
 		}
 	};
 	if ($@) {
-		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";						
-		if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
-			my $aggregate_parameters = [
-				{ "\$match" => $query_ref },
-				{ "\$sample" => { "size" => $request_ref->{sample_size} } }
-			];
-			print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
-			$cursor = get_products_collection()->aggregate($aggregate_parameters);
-		}
-		else {
-			print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
-			$cursor = get_products_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-			$count = $cursor->count() + 0;
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";
-
-		}
+		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@\n";
+	}
+	else
+	{
 		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok\n";
 	}
 	
@@ -2919,13 +2897,16 @@ sub search_and_export_products($$$$$) {
 	my $count;
 	
 	eval {
-		$cursor = get_products_collection()->query($query_ref)->sort($sort_ref);
+		$cursor = execute_query(sub {
+			return get_products_collection()->query($query_ref)->sort($sort_ref);
+		});
 		$count = $cursor->count() + 0;
 	};
 	if ($@) {
-		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
-		$cursor = get_products_collection()->query($query_ref)->sort($sort_ref);
-		$count = $cursor->count() + 0;
+		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@\n";		
+	}
+	else
+	{
 		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
 	}
 		
@@ -3951,13 +3932,15 @@ sub search_and_graph_products($$$) {
 	}
 	
 	eval {
-		$cursor = get_products_collection()->query($query_ref);
+		$cursor = execute_query(sub {
+			return get_products_collection()->query($query_ref);
+		});
 		$count = $cursor->count() + 0;
 	};
 	if ($@) {
-		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
-		$cursor = get_products_collection()->query($query_ref);
-		$count = $cursor->count() + 0;
+		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@\n";		
+	}
+	else {
 		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
 	}
 		
@@ -4091,13 +4074,15 @@ sub search_and_map_products($$$) {
 	
 	
 	eval {
-		$cursor = get_products_collection()->query($query_ref);
+		$cursor = execute_query(sub {
+			return get_products_collection()->query($query_ref);
+		});
 		$count = $cursor->count() + 0;
 	};
 	if ($@) {
-		print STDERR "Display.pm - search_and_map_products - MongoDB error: $@ - retrying once\n";
-		$cursor = get_products_collection()->query($query_ref);
-		$count = $cursor->count() + 0;
+		print STDERR "Display.pm - search_and_map_products - MongoDB error: $@\n";
+	}
+	else {
 		print STDERR "Display.pm - search_and_map_products - MongoDB error: $@ - ok, got count: $count\n";	
 	}
 		
