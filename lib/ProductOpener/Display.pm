@@ -118,6 +118,7 @@ use Encode;
 use URI::Escape::XS;
 use CGI qw/:cgi :form escapeHTML/;
 use HTML::Entities;
+use HTTP::AcceptLanguage;
 use DateTime;
 use DateTime::Format::Mail;
 use DateTime::Format::CLDR;
@@ -263,7 +264,7 @@ sub init()
 		print STDERR "Display::init - country_name($subdomain) -  ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
 		
 	}
-	elsif ($ENV{QUERY_STRING} !~ /(cgi|api)\//) {
+	elsif (($ENV{QUERY_STRING} !~ /(cgi|api)\//) and ($subdomain ne 'accounts')) {
 		# redirect
 		my $worlddom = format_subdomain('world');
 		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $worlddom\n";
@@ -272,7 +273,38 @@ sub init()
 		return 301;
 	}
 	
+	if ($subdomain eq 'accounts') {
+		# For the accounts subdomain, try to use the user's browser locale to display texts.
+		my $headerLang = HTTP::AcceptLanguage->new($ENV{HTTP_ACCEPT_LANGUAGE})->match(@Langs);
+		print STDERR "Display::init - Accept-Language for " . $ENV{HTTP_ACCEPT_LANGUAGE} . " => $headerLang\n";
+		if ($headerLang and not ($headerLang eq $lc)) {
+			$lc = $headerLang;
+		}
 
+		my $ui_locales = url_param('ui_locales');
+		if ($ui_locales) {
+			my @locales = split(/ /, $ui_locales);
+			$ui_locales = '';
+			my $coherence = 1.0;
+			foreach my $l (@locales) {
+				if ($coherence >= 1.0) {
+					$ui_locales .= $l;
+				}
+				else {
+					$ui_locales .= ',' . $l . ';q=' . $coherence;
+				}
+
+				$coherence = $coherence * 0.99;
+			}
+
+			my $paramLang = HTTP::AcceptLanguage->new($ui_locales)->match(@Langs);
+			print STDERR "Display::init - OIDC lc for $ui_locales => $paramLang\n";
+			if ($paramLang and not ($paramLang eq $lc)) {
+				$lc = $paramLang;
+			}
+		}
+	}
+	
 	$lc =~ s/_.*//;     # PT_PT doest not work yet: categories
 	
 	if ((not defined $lc) or (($lc !~ /^\w\w(_|-)\w\w$/) and (length($lc) != 2) )) {
@@ -283,7 +315,7 @@ sub init()
 	$lang = $lc;
 	
 	# If the language is equal to the first language of the country, but we are on a different subdomain, redirect to the main country subdomain. (fr-fr => fr)
-	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^(ssl-)?api/) and ($r->method() eq 'GET') and ($ENV{QUERY_STRING} !~ /(cgi|api)\//)) {
+	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^(ssl-)?api/) and ($subdomain ne 'accounts') and ($r->method() eq 'GET') and ($ENV{QUERY_STRING} !~ /(cgi|api)\//)) {
 		# redirect
 		my $ccdom = format_subdomain($cc);
 		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $ccdom\n";

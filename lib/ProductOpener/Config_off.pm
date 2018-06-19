@@ -42,6 +42,7 @@ BEGIN
 		$facebook_app_id
 		$facebook_app_secret
 		
+		$oidc
 		$csrf_secret
 		
 		$google_cloud_vision_api_key
@@ -216,6 +217,7 @@ $data_root = $ProductOpener::Config2::data_root;
 $facebook_app_id = $ProductOpener::Config2::facebook_app_id;
 $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
+$oidc = $ProductOpener::Config2::oidc;
 $csrf_secret = $ProductOpener::Config2::csrf_secret;
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 

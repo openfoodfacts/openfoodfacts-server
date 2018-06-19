@@ -52,6 +52,7 @@ use Encode ();
 use Cache::Memcached::Fast ();
 use URI::Escape::XS ();
 
+# Preload ProductOpener
 use ProductOpener::Lang qw/:all/;
 
 use ProductOpener::Store qw/:all/;
@@ -64,6 +65,15 @@ use ProductOpener::Index qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Version qw/:all/;
 use ProductOpener::SiteQuality qw/:all/;
+
+# Preload OIDC
+use ProductOpener::OIDC::Server qw/:all/;
+use ProductOpener::OIDC::Server::DataHandler qw/:all/;
+use ProductOpener::OIDC::Server::Request qw/:all/;
+use ProductOpener::OIDC::Server::Web::M::AccessToken qw/:all/;
+use ProductOpener::OIDC::Server::Web::M::AuthInfo qw/:all/;
+use ProductOpener::OIDC::Server::Web::M::Client qw/:all/;
+use ProductOpener::OIDC::Server::Web::M::ResourceOwner qw/:all/;
 
 use Apache2::Const -compile => qw(OK);
 use Apache2::Connection ();

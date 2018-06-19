@@ -38,7 +38,9 @@ BEGIN
 		$reference_timezone
 		$contact_email
 		$admin_email
-
+		
+		$oidc
+		
 		$facebook_app_id
 		$facebook_app_secret
 
@@ -115,6 +117,8 @@ $mongodb_host = $ProductOpener::Config2::mongodb_host;
 # server paths
 $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
+
+$oidc = $ProductOpener::Config2::oidc;
 
 $facebook_app_id = $ProductOpener::Config2::facebook_app_id;
 $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
