@@ -50,6 +50,10 @@ requires 'Log::Any', '>= 1.705';
 requires 'Log::Log4perl', '>= 1.49';
 requires 'Log::Any::Adapter::Log4perl', '>= 0.08';
 
+# Retry
+requires 'Action::CircuitBreaker';
+requires 'Action::Retry';
+
 on 'test' => sub {
   requires 'Test::More', '>= 1.302049, < 2.0';
   requires 'Test::Perl::Critic';
