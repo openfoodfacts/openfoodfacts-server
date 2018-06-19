@@ -52,6 +52,12 @@ use Encode ();
 use Cache::Memcached::Fast ();
 use URI::Escape::XS ();
 
+use Log::Any qw($log);
+use Log::Log4perl;
+Log::Log4perl->init('log.conf'); # Init log4perl from a config file.
+use Log::Any::Adapter;
+Log::Any::Adapter->set('Log4perl'); # Send all logs to Log::Log4perl
+
 use ProductOpener::Lang qw/:all/;
 
 use ProductOpener::Store qw/:all/;
@@ -92,9 +98,10 @@ sub My::ProxyRemoteAddr ($) {
   return Apache2::Const::OK;
 }
 
-print STDERR "version: $ProductOpener::Version::version\n";
+$log->info("product opener started", { version => $ProductOpener::Version::version });
 
 open (*STDERR,'>',"/$data_root/logs/modperl_error_log") or die ($!);
 
+print STDERR $log;
 
 1;

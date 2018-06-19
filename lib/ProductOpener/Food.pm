@@ -82,7 +82,7 @@ use Hash::Util;
 
 use CGI qw/:cgi :form escapeHTML/;
 
-
+use Log::Any qw($log);
 
 sub unit_to_g($$) {
 	my $value = shift;
@@ -2894,13 +2894,15 @@ sub canonicalize_nutriment($$) {
 			}
 		}
 	}
+
+	$log->trace("nutriment canonicalized", { lc => $lc, label => $label, nid => $nid }) if $log->is_trace();
 	return $nid;
-	#print STDERR "canonicalize_nutriment : lc: $lc - label: $label - nid: $nid\n";
+	
 }
 
 
 
-print STDERR "Food.pm - initialize \%nutriments_labels\n";
+$log->info("initialize \%nutriments_labels");
 
 foreach my $nid (keys %Nutriments) {
 	
@@ -2910,7 +2912,7 @@ foreach my $nid (keys %Nutriments) {
 		next if not defined $label;
 		defined $nutriments_labels{$lc} or $nutriments_labels{$lc} = {};
 		$nutriments_labels{$lc}{canonicalize_nutriment($lc,$label)} = $nid;
-		#print STDERR "nutriments_labels : lc: $lc - label: $label - nid: $nid\n";
+		$log->trace("initializing label", { lc => $lc, label => $label, nid => $nid }) if $log->is_trace();
 		
 		my @labels = split(/\(|\/|\)/, $label);
 
@@ -2918,7 +2920,7 @@ foreach my $nid (keys %Nutriments) {
 			$sublabel = canonicalize_nutriment($lc,$sublabel);
 			if (length($sublabel) >= 2) {
 				$nutriments_labels{$lc}{$sublabel} = $nid;
-				#print STDERR "nutriments_labels : lc: $lc - sublabel: $sublabel - nid: $nid\n";
+				$log->trace("initializing sublabel", { lc => $lc, sublabel => $sublabel, nid => $nid }) if $log->is_trace();
 			}
 			if ($sublabel =~ /alpha-/) {
 				$sublabel =~ s/alpha-/a-/;
@@ -2979,8 +2981,7 @@ sub normalize_serving_size($) {
 		$q = unit_to_g($q,$u);
 	}
 	
-	# print STDERR "normalize_serving_size: serving: $serving - q: $q - u: $u \n";
-	
+	$log->trace("serving size normalized", { serving => $serving, q => $q, u => $u }) if $log->is_trace();
 	return $q;
 }
 
@@ -3165,7 +3166,7 @@ CAT
 			$product_ref->{pnns_groups_1_tags} = [get_fileid($product_ref->{pnns_groups_1})];
 		}
 		else {
-			print STDERR "warning, no pnns group 1 for pnns group 2 $product_ref->{pnns_groups_2}\n";
+			$log->warn("no pnns group 1 for pnns group 2", { pnns_group_2 => $product_ref->{pnns_groups_2} }) if $log->is_warn();
 		}
 	}
 	else {
@@ -3913,13 +3914,13 @@ sub compare_nutriments($$) {
 	
 	foreach my $nid (keys %{$b_ref->{nutriments}}) {
 		next if $nid !~ /_100g$/;
-		# print STDERR "Food.pm - compare_nutriments - $nid\n";
+		$log->trace("compare_nutriments", { nid => $nid }) if $log->is_trace();
 		if ($b_ref->{nutriments}{$nid} ne '') {
 			$nutriments{$nid} = $b_ref->{nutriments}{$nid};
 			if (($b_ref->{nutriments}{$nid} > 0) and (defined $a_ref->{nutriments}{$nid}) and ($a_ref->{nutriments}{$nid} ne '')){
 				$nutriments{"${nid}_%"} = ($a_ref->{nutriments}{$nid} - $b_ref->{nutriments}{$nid})/ $b_ref->{nutriments}{$nid} * 100;
 			}
-			# print STDERR "Food.pm - compare_nutriments - $nid : $nutriments{$nid} , " . $nutriments{"$nid.%"} . "%\n";
+			$log->trace("compare_nutriments", { nid => $nid, value => $nutriments{$nid}, percent => $nutriments{"$nid.%"} }) if $log->is_trace();
 		}
 	}
 	

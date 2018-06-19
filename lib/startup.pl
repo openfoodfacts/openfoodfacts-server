@@ -50,6 +50,7 @@ use Encode ();
 use Text::Unaccent ();
 use Cache::Memcached::Fast ();
 use URI::Escape::XS ();
+use Log::Any qw($log);
 
 # Needs to be configured
 use lib "/home/off/lib";
@@ -91,6 +92,6 @@ sub My::ProxyRemoteAddr ($) {
   return Apache2::Const::OK;
 }
 
-print STDERR "version: $ProductOpener::Version::version\n";
+$log->info("product opener started", { version => $ProductOpener::Version::version });
 
 1;

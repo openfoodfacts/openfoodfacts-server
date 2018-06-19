@@ -32,6 +32,7 @@ use ProductOpener::Display qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
+use Log::Any qw($log);
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -43,11 +44,11 @@ my %request = (
 'referer'=>referer()
 );
 
-print STDERR "display.pl : query_string: " . $request{query_string} . "\n"; 
+$log->debug("before analyze_request", { query_string => $request{query_string} });
 
 analyze_request(\%request);
 
-print STDERR "display.pl blogid: $request{blogid} tagid: $request{tagid} urlsdate: $request{urlsdate} urlid: $request{urlid} user: $request{user} query: $request{query} \n";
+$log->debug("after analyze_request", { blogid => $request{blogid}, tagid => $request{tagid}, urlsdate => $request{urlsdate}, urlid => $request{urlid}, user => $request{user}, query => $request{query} });
 
 if (defined $request{api}) {
 	display_product_api(\%request);

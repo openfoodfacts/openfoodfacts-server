@@ -43,6 +43,7 @@ use vars @EXPORT_OK ;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 
+use Log::Any qw($log);
 
 my @baby_food_brands = qw(
 Gallia
@@ -562,7 +563,7 @@ sub check_ingredients($) {
 			
 			if (defined $product_ref->{$ingredients_text_lc}) {
 			
-				#print STDERR "quality:" .  $product_ref->{$ingredients_text_lc} . "\n";
+				$log->debug("ingredients text", { quality => $product_ref->{$ingredients_text_lc} }) if $log->is_debug();
 			
 				if ($product_ref->{$ingredients_text_lc} =~ /,(\s*)$/is) {
 			
