@@ -73,6 +73,10 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::URL qw/:all/;
 
+use Encode;
+use JSON::PP;
+
+
 my $debug = 1;
 
 
@@ -715,6 +719,23 @@ sub process_image_crop($$$$$$$$$$) {
 	my $rev = $new_product_ref->{rev} + 1;	# For naming images
 	
 	print STDERR "Images.pm - process_image_crop - code: $code - id: $id - imgid: $imgid\n";
+	
+	my $proceed_with_edit = process_product_edit_rules($new_product_ref);
+
+	$debug and print STDERR "Images.pm - process_image_crop - code $code - proceed_with_edit: $proceed_with_edit\n";
+
+	if (not $proceed_with_edit) {
+	
+		my $data =  encode_json({ status => 'status not ok - edit against edit rules'
+		});
+
+		print STDERR "product_image_crop - JSON data output: $data\n";
+
+		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+		
+		exit;
+	}	
+	
 			
 	my $source = Image::Magick->new;			
 	my $x = $source->Read("$www_root/images/products/$path/$imgid.jpg");

@@ -1237,6 +1237,9 @@ sub process_product_edit_rules($) {
 	
 	my $debug = 1;
 	
+	# return value to indicate if the edit should proceed
+	my $proceed_with_edit = 1;
+	
 	foreach my $rule_ref (@edit_rules) {
 	
 		$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name}\n";
@@ -1302,13 +1305,18 @@ sub process_product_edit_rules($) {
 					
 					$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - action: $action - value: $value\n";					
 
-					if ($action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match)_)?(.*)$/) {
+					my $condition_ok = 1;	
+					
+					my $action_log = "";					
+									
+						
+					if ($action eq "ignore") {
+						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - ignore --> do not proceed with edits\n";
+						$proceed_with_edit = 0;
+					}
+					elsif ($action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match)_)?(.*)$/) {
 						my ($type, $condition, $field) = ($1, $3, $4);
 						my $default_field = $field;
-						
-						my $condition_ok = 1;	
-						
-						my $action_log = "";
 						
 						if (defined $condition) {
 						
@@ -1342,8 +1350,7 @@ sub process_product_edit_rules($) {
 								next;
 							}
 						
-												
-							
+														
 							$condition_ok = 0;
 							
 
@@ -1404,6 +1411,7 @@ sub process_product_edit_rules($) {
 							$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - executing action $action\n";
 							
 							
+							# Delete the parameters
 							
 							if ($type eq 'ignore') {
 								Delete($field);
@@ -1411,71 +1419,82 @@ sub process_product_edit_rules($) {
 									Delete($default_field);
 								}
 							}
-							
-							if (defined $rule_ref->{notifications}) {
-								foreach my $notification (@{$rule_ref->{notifications}}) {
-									if ($notification =~ /\@/) {
-										# e-mail
-										
-										my $user_ref = { name => $notification, email => $notification};
-										
-										send_email($user_ref, "Edit rule " . $rule_ref->{name} , $action_log );
-									}
-									elsif ($notification =~ /slack_/) {
-										# slack
-										
-										my $channel = $';
-										
-										# we need a slack bot with the Web api to post to multiple channel
-										# use the simpler incoming webhook api, and post only to edit-alerts for now
-										
-										$channel = "edit-alerts";
-										
-										my $emoji = ":lemon:";
-										if ($action eq 'warn') {
-											$emoji = ":pear:";
-										}
-																				
-										use LWP::UserAgent;
-										my $ua = LWP::UserAgent->new;
-										my $server_endpoint = "https://hooks.slack.com/services/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";
-
-										my $msg = $action_log;
-											
-										# set custom HTTP request header fields
-										my $req = HTTP::Request->new(POST => $server_endpoint);
-										$req->header('content-type' => 'application/json');
-										 
-										# add POST data to HTTP request body
-										my $post_data = '{"channel": "#' . $channel . '", "username": "editrules", "text": "' . $msg . '", "icon_emoji": "' . $emoji . '" }';
-										$req->content_type("text/plain; charset='utf8'");
-										$req->content(Encode::encode_utf8($post_data));
-										 
-										my $resp = $ua->request($req);
-										if ($resp->is_success) {
-											my $message = $resp->decoded_content;
-											print STDERR "Received reply: $message\n";
-										}
-										else {
-											print STDERR "HTTP POST error code: " .  $resp->code . "\n";
-											print STDERR "HTTP POST error message: " . $resp->message . "\n";
-										}										
-										
-									}
-								}
-							}
-						}
+						}	
+						
+						
 						
 					}
 					else {
 						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - unrecognized action $action\n";
 					}
+					
+					if ($condition_ok) {
+					
+						print STDERR "condition_ok, rules match - processing notifications\n";
+					
+						if (defined $rule_ref->{notifications}) {
+							foreach my $notification (@{$rule_ref->{notifications}}) {
+							
+								print STDERR "sending notification to $notification\n";
+							
+								if ($notification =~ /\@/) {
+									# e-mail
+									
+									my $user_ref = { name => $notification, email => $notification};
+									
+									send_email($user_ref, "Edit rule " . $rule_ref->{name} , $action_log );
+								}
+								elsif ($notification =~ /slack_/) {
+									# slack
+									
+									my $channel = $';
+									
+									# we need a slack bot with the Web api to post to multiple channel
+									# use the simpler incoming webhook api, and post only to edit-alerts for now
+									
+									$channel = "edit-alerts";
+									
+									my $emoji = ":lemon:";
+									if ($action eq 'warn') {
+										$emoji = ":pear:";
+									}
+																			
+									use LWP::UserAgent;
+									my $ua = LWP::UserAgent->new;
+									my $server_endpoint = "https://hooks.slack.com/services/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";
+
+									my $msg = $action_log;
+										
+									# set custom HTTP request header fields
+									my $req = HTTP::Request->new(POST => $server_endpoint);
+									$req->header('content-type' => 'application/json');
+									 
+									# add POST data to HTTP request body
+									my $post_data = '{"channel": "#' . $channel . '", "username": "editrules", "text": "' . $msg . '", "icon_emoji": "' . $emoji . '" }';
+									$req->content_type("text/plain; charset='utf8'");
+									$req->content(Encode::encode_utf8($post_data));
+									 
+									my $resp = $ua->request($req);
+									if ($resp->is_success) {
+										my $message = $resp->decoded_content;
+										print STDERR "Received reply: $message\n";
+									}
+									else {
+										print STDERR "HTTP POST error code: " .  $resp->code . "\n";
+										print STDERR "HTTP POST error message: " . $resp->message . "\n";
+									}										
+									
+								}
+							}
+						}
+					}					
 				}
 			}		
 		
 		}
 	}
 	
+	return $proceed_with_edit;
 }
 
 sub log_change {
