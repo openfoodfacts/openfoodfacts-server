@@ -135,7 +135,7 @@ else {
 
 print "Update key: $key\n\n";
 
-my $cursor = $products_collection->query($query_ref)->fields({ code => 1 });;
+my $cursor = get_products_collection()->query($query_ref)->fields({ code => 1 });;
 $cursor->immortal(1);
 my $count = $cursor->count();
 
@@ -209,7 +209,7 @@ while (my $product_ref = $cursor->next) {
 			# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077
 			# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
 			$product_ref->{code} = $product_ref->{code} . '';
-			$products_collection->save($product_ref);		
+			get_products_collection()->save($product_ref);		
 		}
 		
 		
