@@ -96,24 +96,26 @@ HTML
 sub display_select_crop($$) {
 
 	my $object_ref = shift;
-	my $id_lc = shift;	#  id_lc = [front|ingredients|nutrition]_[lc] 
+	my $id_lc = shift;	#  id_lc = [front|ingredients|nutrition]_[new_]?[lc] 
 	my $id = $id_lc;
 	
 	my $imagetype = $id_lc;
 	my $display_lc = $lc;
 	
-	if ($id_lc =~ /^(.*)_(.*)$/) {
+	if ($id_lc =~ /^(.*?)_(new_)?(.*)$/) {
 		$imagetype = $1;
-		$display_lc = $2;
+		$display_lc = $3;
 	}
 		
 	my $note = '';
 	if (defined $Lang{"image_" . $imagetype . "_note"}{$lang}) {
 		$note = "<p class=\"note\">&rarr; " . $Lang{"image_" . $imagetype . "_note"}{$lang} . "</p>";
 	}
-		
+
+	my $label = $Lang{"image_" . $imagetype}{$lang};
+	
 	my $html = <<HTML
-<label for="$id">$Lang{"image_" . $imagetype}{$lang}</label>
+<label for="$id">$label</label>
 $note
 <div class=\"select_crop\" id=\"$id\"></div>
 <hr class="floatclear" />
