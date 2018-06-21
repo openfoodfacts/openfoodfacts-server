@@ -81,7 +81,25 @@ else {
 
 	# Process edit rules
 	
-	process_product_edit_rules($product_ref);	
+	$log->debug("phase 0 - checking edit rules", { code => $code}) if $log->is_debug();
+	
+	my $proceed_with_edit = process_product_edit_rules($product_ref);
+
+	$log->debug("phase 0", { code => $code, proceed_with_edit => $proceed_with_edit }) if $log->is_debug();
+
+	if (not $proceed_with_edit) {
+	
+		$response{status} = 0;
+		$response{status_verbose} = 'Edit against edit rules';
+
+
+		my $data =  encode_json(\%response);
+			
+		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+
+		exit(0);		
+		
+	}
 	
 	#my @app_fields = qw(product_name brands quantity);
 	my @app_fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
