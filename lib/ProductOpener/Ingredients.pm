@@ -1302,7 +1302,7 @@ sub replace_allergen_between_separators($$$$$$) {
 	
 	print STDERR "allergen: $allergen\n";
 	
-	my $stopwords = "fabriqué|élaboré|dans|un|atelier|une|usine|qui|utilise|aussi|également|farine|farines|extrait|extraits|graine|graines|traces|possibles|peut|contenir|de|des|du|d'|l'|la|le|les|et|and|of";
+	my $stopwords = "ce|produit|est|fabriqué|élaboré|transformé|emballé|dans|un|atelier|une|usine|qui|utilise|aussi|également|céréale|céréales|farine|farines|extrait|extraits|graine|graines|traces|éventuelle|éventuelles|possible|possibles|peut|pourrait|contenir|contenant|contient|de|des|du|d'|l'|la|le|les|et|and|of";
 	
 	my $before_allergen = "";
 	if ($allergen =~ /^((\s|\b($stopwords)\b)+)/i) {

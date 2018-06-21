@@ -31,6 +31,7 @@ is_deeply($product_ref->{allergens_tags}, [
 'en:fish',
 'en:gluten',
 'en:milk',
+'en:molluscs',
 'en:mustard',
 'en:nuts',
 ] 
@@ -127,5 +128,31 @@ is_deeply($product_ref->{traces_tags},  [
 is($product_ref->{ingredients_text_with_allergens_fr},
 'Garniture 61% : sauce tomate 32% (purée de tomate, eau, farine de <span class="allergen">blé</span>, sel, amidon de maïs), mozzarella 26%, chiffonnade de jambon cuit standard 21% (jambon de porc, eau, sel, dextrose, sirop de glucose, stabilisant : E451, arômes naturels, gélifiant : E407, <span class="allergen">lactose</span>, bouillon de porc, antioxydant : E316, conservateur : E250, ferments), champignons de Paris 15% (champignons, extrait naturel de champignon concentré), olives noires avec noyau (stabilisant : E579), roquette 0,6%, basilic et origan. Pourcentages exprimés sur la garniture. Pâte 39% : farine de blé, eau, levure boulangère, sel, farine de blé malté.'
 );
+
+
+$product_ref = {
+	lc => "fr", lang => "fr",
+	ingredients_text_fr => "Traces éventuelles de céréales contenant du gluten, fruits à coques, arachide, soja et oeuf.",
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+use Data::Dumper;
+#print STDERR Dumper($product_ref);
+
+is_deeply($product_ref->{allergens_tags}, [
+] 
+);
+
+is_deeply($product_ref->{traces_tags},  [
+'en:eggs',
+'en:gluten',
+'en:nuts',
+'en:peanuts',
+'en:soybeans',
+]
+);
+
 
 done_testing();
