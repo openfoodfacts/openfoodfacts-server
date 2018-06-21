@@ -795,6 +795,10 @@ sub process_image_crop($$$$$$$$$$) {
 		("$x") and $log->error("could not crop to geometry", { geometry => $geometry, error => $x });
 	}
 	
+	# add auto trim to remove white borders (e.g. from some producers that send us images with white borders)
+	
+	$source->Trim();
+	
 	$nw = $source->Get('width');
 	$nh = $source->Get('height');	
 	
