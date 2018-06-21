@@ -52,16 +52,17 @@ use Encode ();
 use Cache::Memcached::Fast ();
 use URI::Escape::XS ();
 
+use ProductOpener::Config qw/:all/;
+
 use Log::Any qw($log);
 use Log::Log4perl;
-Log::Log4perl->init('log.conf'); # Init log4perl from a config file.
+Log::Log4perl->init("$data_root/log.conf"); # Init log4perl from a config file.
 use Log::Any::Adapter;
 Log::Any::Adapter->set('Log4perl'); # Send all logs to Log::Log4perl
 
 use ProductOpener::Lang qw/:all/;
 
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
