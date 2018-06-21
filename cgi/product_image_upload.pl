@@ -50,7 +50,7 @@ my $delete = param('delete');
 
 local $log->context->{upload_session} = int(rand(100000000));
 
-$log->debug("start", { ip => remote_addr(), type => $type, action => action, code => $code }) if $log->is_debug();
+$log->debug("start", { ip => remote_addr(), type => $type, action => $action, code => $code }) if $log->is_debug();
 
 my $env = $ENV{QUERY_STRING};
 
