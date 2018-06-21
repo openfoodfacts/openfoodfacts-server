@@ -1239,36 +1239,98 @@ sub extract_ingredients_classes_from_text($) {
 
 
 
-sub replace_allergen($$$) {
+
+sub replace_allergen($$$$) {
 	my $language = shift;
 	my $product_ref = shift;
 	my $allergen = shift;
+	my $before = shift;
+	
+	my $field = "allergens";
+	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|may contain)\b/i) {
+		$field = "traces";
+	}
 	
 	# to build the product allergens list, just use the ingredients in the main language
 	if ($language eq $product_ref->{lc}) {
-		$product_ref->{allergens} .= $allergen . ', ';
+		$product_ref->{$field} .= $allergen . ', ';
 	}
 	
 	return '<span class="allergen">' . $allergen . '</span>';
 }
 
 
-sub replace_caps($$$) {
+sub replace_allergen_in_caps($$$$) {
 	my $language = shift;
 	my $product_ref = shift;
 	my $allergen = shift;
+	my $before = shift;
+	
+	my $field = "allergens";
+	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|may contain)\b/i) {
+		$field = "traces";
+	}
 	
 	my $tagid = canonicalize_taxonomy_tag($language,"allergens", $allergen);
+	
+	print STDERR "allergen: $allergen - tagid: $tagid\n";
+	
 	if (exists_taxonomy_tag("allergens", $tagid)) {
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
 		# to build the product allergens list, just use the ingredients in the main language
 		if ($language eq $product_ref->{lc}) {
-			$product_ref->{allergens} .= $allergen . ', ';
+			$product_ref->{$field} .= $allergen . ', ';
 		}
 		return '<span class="allergen">' . $allergen . '</span>';
 	}
 	else {
 		return $allergen;
+	}		
+}
+
+
+sub replace_allergen_between_separators($$$$$$) {
+	my $language = shift;
+	my $product_ref = shift;
+	my $start_separator = shift;	
+	my $allergen = shift;
+	my $end_separator = shift;
+	my $before = shift;
+	
+	my $field = "allergens";
+	
+	
+	print STDERR "allergen: $allergen\n";
+	
+	my $stopwords = "fabriqué|élaboré|dans|un|atelier|une|usine|qui|utilise|aussi|également|farine|farines|extrait|extraits|graine|graines|traces|possibles|peut|contenir|de|des|du|d'|l'|la|le|les|et|and|of";
+	
+	my $before_allergen = "";
+	if ($allergen =~ /^((\s|\b($stopwords)\b)+)/i) {
+		$before_allergen = $1;
+		$allergen =~ s/^(\s|\b($stopwords)\b)+//i;
+	}
+	
+	if (($before . $before_allergen) =~ /\b(peut contenir|qui utilise aussi|traces|may contain)\b/i) {
+		$field = "traces";
+		print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
+	}	
+	
+	print STDERR "before_allergen: $before_allergen - allergen: $allergen\n";
+	
+	my $tagid = canonicalize_taxonomy_tag($language,"allergens", $allergen);
+	
+	print STDERR "before_allergen: $before_allergen - allergen: $allergen - tagid: $tagid\n";
+	
+	if (exists_taxonomy_tag("allergens", $tagid)) {
+		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
+		# to build the product allergens list, just use the ingredients in the main language
+		if ($language eq $product_ref->{lc}) {
+			$product_ref->{$field} .= $allergen . ', ';
+		}
+		return $start_separator . $before_allergen . '<span class="allergen">' . $allergen . '</span>' . $end_separator;
+	}
+	else {
+		return $start_separator . $before_allergen . $allergen . $end_separator;
 	}		
 }
 
@@ -1279,20 +1341,40 @@ sub detect_allergens_from_text($) {
 	my $path = product_path($product_ref->{code});
 	
 	
-	$product_ref->{allergens} = "";
-
+	# Keep allergens entered by users in the allergens and traces field
 	
+	foreach my $field ("allergens", "traces") {
+	
+		if ((not defined $product_ref->{$field}) or ($product_ref->{$field} eq "")) {
+			$product_ref->{$field} = "";
+		}
+		else {
+			$product_ref->{$field} .= ", ";
+		}
+	}
+
 	if (defined $product_ref->{languages_codes}) {
 	
 		foreach my $language (keys %{$product_ref->{languages_codes}}) {
 		
 			my $text = $product_ref->{"ingredients_text_" . $language };
+			
+			# allergens between underscores
 	
-			$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($language,$product_ref,$1)/iesg;
+			$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
+	
+			# allergens in all caps 
 	
 			if ($text =~ /[a-z]/) {
-				$text =~ s/\b([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß][A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]+))\b/replace_caps($language,$product_ref,$1)/esg;
+				$text =~ s/\b([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß][A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]+))\b/replace_allergen_in_caps($language,$product_ref,$1,$`)/esg;
 			}
+			
+			# allergens between separators
+			print STDERR "current text: $text\n";
+			print STDERR "separators\n";
+			# positive look ahead for the separators so that we can properly match the next word
+			# match at least 3 characters so that we don't match the separator
+			$text =~ s/(^|-|_|\(|\[|\)|\]|,| (d'|de|du|des|l'|la|les|et|and) |;|\.|$)((\s*)\w.+?)(?=(\s*)(^|-|_|\(|\[|\)|\]|,| (et|and) |;|\.|$))/replace_allergen_between_separators($language,$product_ref,$1, $3, "",$`)/iesg; 
 			
 			$product_ref->{"ingredients_text_with_allergens_" . $language} = $text;
 			
@@ -1302,15 +1384,15 @@ sub detect_allergens_from_text($) {
 		
 		}
 	}
-	
-	$product_ref->{allergens} =~ s/, $//;
 
-	my $field = 'allergens';
-	$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($product_ref->{lang}, $field, $product_ref->{$field}) ];
-	$product_ref->{$field . "_tags" } = [];
-	foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-		push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
-	}	
+	foreach my $field ("allergens", "traces") {
+		$product_ref->{$field} =~ s/, $//;
+		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($product_ref->{lang}, $field, $product_ref->{$field}) ];
+		$product_ref->{$field . "_tags" } = [];
+		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
+			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
+		}
+	}
 	
 }
 
