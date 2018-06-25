@@ -673,7 +673,6 @@ sub check_session($$) {
 					
 					) {
 			$log->debug("no matching session for user") if $log->is_debug();
-			$log->
 			$user_id = undef;
 
 		}
