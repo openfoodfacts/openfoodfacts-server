@@ -3967,6 +3967,16 @@ foreach my $key (keys %Nutriments) {
 	}
 }
 
+# export %Nutriment translations etc.
+
+(-e "$www_root/data/taxonomies") or mkdir("$www_root/data/taxonomies", 0755);
+use JSON::PP;		
+binmode STDOUT, ":encoding(UTF-8)";
+open (my $OUT_JSON, ">", "$www_root/data/taxonomies/nutrients.json");
+print $OUT_JSON encode_json(\%Nutriments);
+close ($OUT_JSON);
+
+
 Hash::Util::lock_keys(%Nutriments);
 
 
