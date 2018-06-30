@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-04-23 08:10-0400\n"
+"PO-Revision-Date: 2018-06-30 23:03\n"
 "Language-Team: Portuguese\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -723,7 +723,7 @@ msgstr "/perguntas-frequentes"
 
 msgctxt "footer_translators"
 msgid "Translators"
-msgstr ""
+msgstr "Tradutores"
 
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
@@ -1449,11 +1449,11 @@ msgstr "Informação nutricional não especificada no produto."
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
-msgstr ""
+msgstr "Múltiplos fatos nutricionais são especificados no produto (por exemplo, com água ou leite adicionados)."
 
 msgctxt "multiple_nutrition_data_instructions"
 msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
-msgstr ""
+msgstr "Digite apenas os dados nutricionais para o produto despreparado, sem adição de água ou leite. Se houver produtos diferentes, insira os fatos de nutrição para o primeiro produto listado."
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
@@ -2125,7 +2125,7 @@ msgstr "Transferir os resultados em formato CSV (Excel, OpenOffice)"
 
 msgctxt "search_download_results_description"
 msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr ""
+msgstr "Conjunto de caracteres: Unicode (UTF-8). Separador: tabulação (tab)."
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -2624,15 +2624,15 @@ msgstr "Atenção: a quantidade de fibra não está especificada, a sua eventual
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Atenção: a quantidade de frutas, legumes e nozes não é especificada, a sua possível contribuição positiva para o grau não pode ser tida em conta."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr ""
+msgstr "Atenção: a quantidade de frutas, legumes e nozes não é especificada no rótulo, foi estimado da lista de ingredientes: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr ""
+msgstr "Atenção: a quantidade de frutas, legumes e nozes não é especificada no rótulo, foi estimado da categoria (%s) do produto: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2704,23 +2704,23 @@ msgstr "Esta página de produto não está completa. Você pode ajudar a complet
 
 msgctxt "title_separator"
 msgid " — "
-msgstr ""
+msgstr " — "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
-msgstr ""
+msgstr "Mudanças recentes"
 
 msgctxt "translators_title"
 msgid "Our Translators"
-msgstr ""
+msgstr "Nossos tradutores"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages!"
-msgstr ""
+msgstr "Gostaríamos de AGRADECER aos incríveis tradutores que tornaram possível apresentar o Open Food Facts, o Open Beauty Facts e o Open Pet Food Facts para você em todos esses idiomas!"
 
 msgctxt "translators_renewal_notice"
 msgid "Please note that this table is refreshed nightly and might be out of date."
-msgstr ""
+msgstr "Por favor, note que esta tabela é atualizada todas as noites e pode estar desatualizada."
 
 msgctxt "translators_column_name"
 msgid "Name"
@@ -2728,7 +2728,7 @@ msgstr "Nome"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
-msgstr ""
+msgstr "Traduzido (Palavras)"
 
 msgctxt "translators_column_target_words"
 msgid "Target Words"
@@ -2736,69 +2736,69 @@ msgstr ""
 
 msgctxt "translators_column_approved_words"
 msgid "Approved (Words)"
-msgstr ""
+msgstr "Aprovado (Palavras)"
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
-msgstr ""
+msgstr "Votos feitos"
 
 msgctxt "minerals_p"
 msgid "added minerals"
-msgstr ""
+msgstr "minerais adicionados"
 
 msgctxt "minerals_s"
 msgid "added mineral"
-msgstr ""
+msgstr "mineral adicionado"
 
 msgctxt "vitamins_p"
 msgid "added vitamins"
-msgstr ""
+msgstr "vitaminas adicionadas"
 
 msgctxt "vitamins_s"
 msgid "added vitamin"
-msgstr ""
+msgstr "vitamina adicionada"
 
 msgctxt "amino_acids_p"
 msgid "added amino acids"
-msgstr ""
+msgstr "aminoácidos adicionados"
 
 msgctxt "amino_acids_s"
 msgid "added amino acid"
-msgstr ""
+msgstr "aminoácido adicionado"
 
 msgctxt "nucleotides_p"
 msgid "added nucleotides"
-msgstr ""
+msgstr "nucleótidos adicionados"
 
 msgctxt "nucleotides_s"
 msgid "added nucleotide"
-msgstr ""
+msgstr "nucleotídeo adicionado"
 
 msgctxt "other_nutritional_substances_p"
 msgid "other nutritional substances added"
-msgstr ""
+msgstr "outras substâncias nutritivas adicionadas"
 
 msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
-msgstr ""
+msgstr "outra substância nutricional adicionada"
 
 msgctxt "product_as_sold"
 msgid "As sold"
-msgstr ""
+msgstr "Como vendido"
 
 msgctxt "prepared_product"
 msgid "Prepared"
-msgstr ""
+msgstr "Preparado"
 
 msgctxt "unit"
 msgid "Unit"
-msgstr ""
+msgstr "Unidade"
 
 msgctxt "nutrition_data_exists"
 msgid "Nutrition facts are specified for the product as sold."
-msgstr ""
+msgstr "Os fatos de nutrição são especificados para o produto como vendido."
 
 msgctxt "nutrition_data_prepared_exists"
 msgid "Nutrition facts are specified for the prepared product."
-msgstr ""
+msgstr "Os fatos de nutrição são especificados para o produto preparado."
 
