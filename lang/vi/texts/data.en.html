@@ -16,24 +16,41 @@ with the Open Food Facts community.</p>
 
 <p>Database dumps and exports are generated nightly.</p>
 
-<p>Information on the different fields for the MongoDB dump and CSV exports is available at <a href="https://world.openfoodfacts.org/data/data-fields.txt">https://world.openfoodfacts.org/data/data-fields.txt</a></p>
+<p>Information on the different fields for the MongoDB dump and CSV exports is available at <a href="https://static.openfoodfacts.org/data/data-fields.txt">https://world.openfoodfacts.org/data/data-fields.txt</a></p>
 
 
 <h3>MongoDB dump</h3>
 
 <p>Data for all products is available in a MongoDB database dump.</p>
 
-<p>Link : <a href="https://world.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz">https://world.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz</a>
-<p>sha256sum : <a href="https://world.openfoodfacts.org/data/sha256sum">https://world.openfoodfacts.org/data/sha256sum</a>
-<p>md5sum : <a href="https://world.openfoodfacts.org/data/md5sum">https://world.openfoodfacts.org/data/md5sum</a>
+<dl>
+ <dt>Link</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz">https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz</a></dd>
+ <dt>sha256sum</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/sha256sum">https://static.openfoodfacts.org/data/sha256sum</a></dd>
+ <dt>md5sum</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/md5sum">https://static.openfoodfacts.org/data/md5sum</a></dd>
+</dl>
 
+<h4>Delta Export</h4>
+
+<p>Daily delta exports are provided for the previous 14 days. The list of currently available delta files can be found at
+ <a href="https://static.openfoodfacts.org/data/delta/index.txt">https://static.openfoodfacts.org/data/delta/index.txt</a>.
+ Each line represents a file that is available at <code>https://static.openfoodfacts.org/data/delta/{filename}</code>.
+ The filename contains UNIX timestamp of the first and the last change contained in the JSON file, so that the delta files can
+ be imported (after extraction) with <code>mongoimport</code> in alphabetical order.</p>
+<p>Please note that due to the nature of <code>mongoexport</code>, the delta files cannot tell you about deleted products. To remove
+ deleted products from your database, you will need to import the full MongoDB dump.</p>
+ 
 <h3>CSV Data Export</h3>
 
 <p>Data for all products, or some of the products, can be downloaded in CSV format (readable with OpenOffice, Excel and many other software)
  through the <a href="https://world.openfoodfacts.org/cgi/search.pl">advanced search form</a>.</p>
  
-<p>Link : <a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.csv</a>
-
+<dl>
+ <dt>Link</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv</a></dd>
+</dl>
 
 <p>The file encoding is Unicode UTF-8. The character that separates fields is &lt;tab&gt; (tabulation).</p>
 
@@ -43,7 +60,10 @@ with the Open Food Facts community.</p>
 
 <p>The database is also available in the RDF format. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">announcement in French</a>.</p>
 
-<p>Link: <a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf</a>
+<dl>
+ <dt>Link</dt>
+ <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf</a></dd>
+</dl>
 
 <h2>Experimental JSON API</h2>
 
