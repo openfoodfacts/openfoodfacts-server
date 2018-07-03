@@ -68,13 +68,13 @@ $editor_user_id = $editor_user_id;
 
 not defined $photo_user_id and die;
 
-my $csv_file = "/data/off/systemeu/SUYQD_AKENEO_PU_05.csv";
-my $categories_csv_file = "/data/off/systemeu/systeme-u-rubriques.csv";
-my $imagedir = "/data/off/systemeu/all_product_images";
+#my $csv_file = "/data/off/systemeu/SUYQD_AKENEO_PU_05.csv";
+#my $categories_csv_file = "/data/off/systemeu/systeme-u-rubriques.csv";
+#my $imagedir = "/data/off/systemeu/all_product_images";
 
-#my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_04.csv";
-#my $categories_csv_file = "/home/systemeu/systeme-u-rubriques.csv";
-#my $imagedir = "/home/systemeu/all_product_images"; 
+my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_05.csv";
+my $categories_csv_file = "/home/systemeu/systeme-u-rubriques.csv";
+my $imagedir = "/home/systemeu/all_product_images"; 
 
 print "uploading csv_file: $csv_file, image_dir: $imagedir\n";
 
@@ -820,6 +820,23 @@ ble => "bouteille",
 			
 				if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} ne '')) {
 					# cleaning
+					$imported_product_ref->{$field} =~ s/ ( +)/ /g;
+					$imported_product_ref->{$field} =~ s/ce produits/ce produit/g;
+					$imported_product_ref->{$field} =~ s/proviennen, t/proviennent/g;
+					$imported_product_ref->{$field} =~ s/provienne, nt/proviennent/g;
+					$imported_product_ref->{$field} =~ s/provien, nent/proviennent/g;
+					$imported_product_ref->{$field} =~ s/provie, nnent/proviennent/g;
+					$imported_product_ref->{$field} =~ s/provi, ennent/proviennent/g;
+					$imported_product_ref->{$field} =~ s/prov, iennent/proviennent/g;
+					$imported_product_ref->{$field} =~ s/pro, viennent/proviennent/g;
+					$imported_product_ref->{$field} =~ s/pr, oviennent/proviennent/g;
+					$imported_product_ref->{$field} =~ s/p, roviennent/proviennent/g;
+					$imported_product_ref->{$field} =~ s/provienennt/proviennent/g;					
+					$imported_product_ref->{$field} =~ s/Certaines ingrédients/Certains ingrédients/g;
+					$imported_product_ref->{$field} =~ s/ne provienne pas/ne proviennent pas/g;
+					$imported_product_ref->{$field} =~ s/(Certains ingrédients ne viennent pas de France|Certains ingrédients de ce produit peuvent ne pas provenir de France|Certains des ingrédients de ce produit ne proviennent pas de France|L'ingrédient de ce produit ne provient pas de France|Certains ingrédients de ce produit ne provienne pas de France|Certains ingrédients ne proviennent pas de France.|Les ingrédients de ce produit ne proviennent pas de France|Les ingrédients ne viennent pas tous de France|Certains ingrédients de ce produit ne proviennent pas de France)(\.)?//ig;
+					$imported_product_ref->{$field} =~ s/ ( +)/ /g;
+					
 					$imported_product_ref->{$field} =~ s/(\s|\/|\/|_|-)+$//is;
 					$params{$ingredients_fields{$field}} = $imported_product_ref->{$field};
 					print STDERR "setting ingredients, field $field -> $ingredients_fields{$field}, value: " . $imported_product_ref->{$field} . "\n";
@@ -1511,11 +1528,11 @@ TXT
 				$edited{$code}++;
 				
 				$j++;
-				#$j > 10 and last;
+				#$j > 100 and last;
 				#last;
 			}
 			
-			# last;
+			#last;
 		}  # if $file =~ json
 			
 

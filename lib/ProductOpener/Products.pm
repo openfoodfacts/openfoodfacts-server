@@ -427,7 +427,8 @@ sub compute_completeness_and_missing_tags($$$) {
 		push @states_tags, "en:photos-uploaded";
 	
 		if ((defined $current_ref->{selected_images}{"front_$lc"}) and (defined $current_ref->{selected_images}{"ingredients_$lc"})
-			and ((defined $current_ref->{selected_images}{"nutrition_$lc"}) or ($product_ref->{no_nutrition_data} eq 'on')) ) {
+			and ((defined $current_ref->{selected_images}{"nutrition_$lc"}) or
+				((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on'))) ) {
 			push @states_tags, "en:photos-validated";
 		}
 		else {
@@ -667,8 +668,10 @@ sub compute_product_history_and_completeness($$) {
 			
 			foreach my $field (@fields) {
 				$current{fields}{$field} = $product_ref->{$field};
-				$current{fields}{$field} =~ s/^\s+//;
-				$current{fields}{$field} =~ s/\s+$//;
+				if (defined $current{fields}{$field}) {
+					$current{fields}{$field} =~ s/^\s+//;
+					$current{fields}{$field} =~ s/\s+$//;
+				}
 			}
 			
 			# Language specific fields

@@ -158,10 +158,10 @@ systeme-u
         )],
 },
 {
-        name => "stephane - systeme-u",
+        name => "Yuka - brets",
         conditions => [
-                ["user_id", "stephane"],
-                ["in_editors_tags", "systeme-u"],
+                ["user_id", "kiliweb"],
+                ["in_editors_tags", "altho-brets"],
         ],
         actions => [
                 ["ignore"],
@@ -170,6 +170,33 @@ systeme-u
                 slack_channel_edit-alert
         )],
 },
+{
+        name => "Yuka - fleury-michon",
+        conditions => [
+                ["user_id", "kiliweb"],
+                ["in_editors_tags", "fleury-michon"],
+        ],
+        actions => [
+                ["ignore"],
+        ],
+        notifications => [ qw (
+                slack_channel_edit-alert
+        )],
+},
+{
+        name => "Yuka - sodebo",
+        conditions => [
+                ["user_id", "kiliweb"],
+                ["in_editors_tags", "sodebo"],
+        ],
+        actions => [
+                ["ignore"],
+        ],
+        notifications => [ qw (
+                slack_channel_edit-alert
+        )],
+},
+
 
 
 
