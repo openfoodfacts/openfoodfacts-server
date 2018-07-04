@@ -65,6 +65,8 @@ BEGIN
 					&get_canon_local_authority
 					
 					&special_process_product
+
+					&export_nutrients_taxonomy
 					
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -3969,12 +3971,19 @@ foreach my $key (keys %Nutriments) {
 
 # export %Nutriment translations etc.
 
+# be careful: binmode can't be called in the startup_apache2.pl script
+# or Apache will segfault in encoding.so :-(
+
+sub export_nutrients_taxonomy() {
+
 (-e "$www_root/data/taxonomies") or mkdir("$www_root/data/taxonomies", 0755);
 use JSON::PP;		
 binmode STDOUT, ":encoding(UTF-8)";
 open (my $OUT_JSON, ">", "$www_root/data/taxonomies/nutrients.json");
 print $OUT_JSON encode_json(\%Nutriments);
 close ($OUT_JSON);
+
+}
 
 
 Hash::Util::lock_keys(%Nutriments);
