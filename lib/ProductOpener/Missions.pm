@@ -46,8 +46,10 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::MissionsConfig qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
+
 use MongoDB;
 use Tie::IxHash;
+use Log::Any qw($log);
 
 
 sub gen_missions_html() {
@@ -135,12 +137,11 @@ sub compute_missions() {
 		next if $userid eq "." or $userid eq "..";
 		next if $userid eq 'all';
 
-		print STDERR "userid: $userid\n";
+		$log->debug("userid with extension", { userid => $userid }) if $log->is_debug();
 
-		
 		$userid =~ s/\.sto$//;
 		
-		print STDERR "userid: $userid\n";
+		$log->debug("userid without extension", { userid => $userid }) if $log->is_debug();
 
 		my $user_ref = retrieve("$data_root/users/$userid.sto");
 		
@@ -173,7 +174,7 @@ sub compute_missions_for_user($) {
 			# skip missions already complete
 			next if (defined $user_ref->{missions}{$mission_ref->{id}});
 			
-			print STDERR "compute_missions: user_id: " . $user_ref->{userid} . " mission: $mission_ref->{id} ?\n";
+			$log->debug("computing user mission", { userid => $user_ref->{userid}, missionid => $mission_ref->{id} }) if $log->is_debug();
 
 			
 			# {name=>'Serrés comme des sardines', description=>'Ajouter 2 boîtes de sardines en conserve', thanks=>'Merci pour les sardines !',
@@ -213,7 +214,7 @@ sub compute_missions_for_user($) {
 				}
 				
 				
-				print STDERR "compute_missions: querying condition $i\n";
+				$log->debug("querying condition", { condition => $i }) if $log->is_debug();
 
 				
 				my $cursor = $products_collection->query($query_ref)->fields({});
@@ -229,7 +230,7 @@ sub compute_missions_for_user($) {
 			
 			if ($complete) {
 				$user_ref->{missions}{$mission_ref->{id}} = time();
-				print STDERR "compute_missions: user_id: " . $user_ref->{userid} . " mission: $mission_ref->{id} complete!\n";
+				$log->info("computing user mission completed", { userid => $user_ref->{userid}, missionid => $mission_ref->{id} }) if $log->is_info();
 				$m++;
 				sleep(1);
 			}

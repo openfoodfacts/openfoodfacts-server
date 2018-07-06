@@ -74,7 +74,6 @@ BEGIN
 					$emb_codes_collection
 					$recent_changes_collection
 					
-					$debug
 					$scripts
 					$initjs
 					$styles
@@ -127,6 +126,7 @@ use MongoDB;
 use Tie::IxHash;
 use JSON::PP;
 use XML::Simple;
+use Log::Any qw($log);
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -169,11 +169,10 @@ page=>1,
 use vars qw(
 );
 
-$debug = 1 ;	# Set to a non null value to get debug messages
-
-
 sub init()
 {
+	$log->context->{request} = generate_token(16);
+
 	$styles = '';
 	$scripts = '';
 	$initjs = '';
@@ -199,6 +198,7 @@ sub init()
 	$r->headers_out->set("X-Content-Type-Options" => "nosniff");
 	$r->headers_out->set("X-Download-Options" => "noopen");
 	$r->headers_out->set("X-XSS-Protection" => "1; mode=block");
+	$r->headers_out->set("X-Request-ID" => $log->context->{request});
 	
 	# sub-domain format:
 	#
@@ -211,6 +211,10 @@ sub init()
 	my $hostname = $r->hostname;
 	$subdomain = lc($hostname);
 	
+	local $log->context->{hostname} = $hostname;
+	local $log->context->{ip} = remote_addr();
+	local $log->context->{query_string} = $ENV{QUERY_STRING};
+
 	$test = 0;
 	if ($subdomain =~ /\.test\./) {
 		$subdomain =~ s/\.test\./\./;
@@ -222,29 +226,30 @@ sub init()
 	$original_subdomain = $subdomain;	# $subdomain can be changed if there are cc and/or lc overrides
 	
 	
-	print STDERR "Display::init - subdomain: $subdomain \n";
+	$log->debug("initializing request", { subdomain => $subdomain }) if $log->is_debug();
 
 	if ($subdomain eq 'world') {
 		($cc, $country, $lc) = ('world','en:world','en');
 	}
 	elsif (defined $country_codes{$subdomain}) {
+		local $log->context->{subdomain_format} = 1;
+
 		$cc = $subdomain;
 		$country = $country_codes{$cc};
 		$lc = $country_languages{$cc}[0]; # first official language
 		
-		print STDERR "Display::init - country_codes($subdomain) - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 1\n";
+		$log->debug("subdomain matches known country code", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country }) if $log->is_debug();
 		
 		if (not exists $Langs{$lc}) {
-			print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc does not exist - cc: $cc - country: $country - lc does not exist\n";
+			$log->debug("current lc does not exist, falling back to lc = en", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country }) if $log->is_debug();
 			$lc = 'en';
 		}
 		
 	}
 	elsif ($subdomain =~ /(.*?)-(.*)/) {
-	
-		print STDERR "Display::init - subdomain 1 cc-lc ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
-	
-	
+		local $log->context->{subdomain_format} = 2;
+		$log->debug("subdomain in cc-lc format - checking values", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country }) if $log->is_debug();
+
 		if (defined $country_codes{$1}) {
 			$cc = $1;
 			$country = $country_codes{$cc};
@@ -254,20 +259,21 @@ sub init()
 				$lc =~ s/-/_/; # pt-pt -> pt_pt
 			}
 			
-			print STDERR "Display::init - subdomain cc-lc ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
+			$log->debug("subdomain matches known country code", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country }) if $log->is_debug();
 		}
 	}
 	elsif (defined $country_names{$subdomain}) {
+		local $log->context->{subdomain_format} = 3;
 		($cc, $country, $lc) = @{$country_names{$subdomain}};
 		
-		print STDERR "Display::init - country_name($subdomain) -  ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc  - cc: $cc - country: $country - 2\n";
-		
+		$log->debug("subdomain matches known country name", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country }) if $log->is_debug();
 	}
 	elsif ($ENV{QUERY_STRING} !~ /(cgi|api)\//) {
 		# redirect
 		my $worlddom = format_subdomain('world');
-		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $worlddom\n";
-		$r->headers_out->set(Location => "$worlddom/" . $ENV{QUERY_STRING});
+		my $redirect = "$worlddom/" . $ENV{QUERY_STRING};
+		$log->info("request could not be matched to a known format, redirecting", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect }) if $log->is_info();
+		$r->headers_out->set(Location => $redirect);
 		$r->status(301);  
 		return 301;
 	}
@@ -276,7 +282,7 @@ sub init()
 	$lc =~ s/_.*//;     # PT_PT doest not work yet: categories
 	
 	if ((not defined $lc) or (($lc !~ /^\w\w(_|-)\w\w$/) and (length($lc) != 2) )) {
-		print STDERR "Display::init - lc: $lc -> en\n";
+		$log->debug("replacing unknown lc with en",  { lc => $lc }) if $log->debug();
 		$lc = 'en';
 	}
 	
@@ -286,8 +292,9 @@ sub init()
 	if ((defined $lc) and (defined $cc) and (defined $country_languages{$cc}[0]) and ($country_languages{$cc}[0] eq $lc) and ($subdomain ne $cc) and ($subdomain !~ /^(ssl-)?api/) and ($r->method() eq 'GET') and ($ENV{QUERY_STRING} !~ /(cgi|api)\//)) {
 		# redirect
 		my $ccdom = format_subdomain($cc);
-		print STDERR "Display::init - ip: " . remote_addr() . " - hostname: " . $hostname  . "query_string: " . $ENV{QUERY_STRING} . " subdomain: $subdomain - lc: $lc - cc: $cc - country: $country - redirect to $ccdom\n";
-		$r->headers_out->set(Location => "$ccdom/" . $ENV{QUERY_STRING});
+		my $redirect = "$ccdom/" . $ENV{QUERY_STRING};
+		$log->info("lc is equal to first lc of the country, redirecting to countries main domain", { subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect }) if $log->is_info();
+		$r->headers_out->set(Location => $redirect);
 		$r->status(301);
 		return 301;
 	}
@@ -300,13 +307,13 @@ sub init()
 		$cc = param('cc');
 		$country = $country_codes{$cc};
 		$cc_lc_overrides = 1;
-		print STDERR "Display::init - cc override from request parameter: $cc\n";
+		$log->debug("cc override from request parameter", { cc => $cc }) if $log->is_debug();
 	}
 	if ((defined param('lc')) and (defined $language_codes{param('lc')})) {
 		$lc = param('lc');
 		$lang = $lc;
 		$cc_lc_overrides = 1;
-		print STDERR "Display::init - lc override from request parameter: $lc\n";
+		$log->debug("lc override from request parameter", { lc => $lc }) if $log->is_debug();
 	}	
 	# change the subdomain if we have overrides so that links to product pages are properly constructed
 	if ($cc_lc_overrides) {
@@ -327,9 +334,8 @@ sub init()
 		$subdomain =~ s/\.openfoodfacts/.test.openfoodfacts/;
 	}
 	
-	print STDERR "Display::init - r->uri : " . $hostname  . " subdomain: $subdomain - lc: $lc - lang: $lang - cc: $cc - country: $country\n";
+	$log->debug("URI parsed for additional information", { subdomain => $subdomain, original_subdomain => $original_subdomain, lc => $lc, lang => $lang, cc => $cc, country => $country }) if $log->is_debug();
 
-	
 	my $error = ProductOpener::Users::init_user();
 	if ($error) {
 		if (not param('jqm')) { # API
@@ -381,8 +387,7 @@ sub analyze_request($)
 {
 	my $request_ref = shift;
 	
-	print STDERR "analyze_request : query_string 0 : $request_ref->{query_string} \n";
-	
+	$log->debug("analyzing query_string, step 0 - unmodified", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
 	
 	# https://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
 	# https://world.openfoodfacts.org/?ref=producthunt
@@ -394,9 +399,8 @@ sub analyze_request($)
 	# cc and lc query overrides have already been consumed by init(), remove them
 	# so that they do not interfere with the query string analysis after
 	$request_ref->{query_string} =~ s/(\&|\?)(cc|lc)=([^&]*)//g;
-
 		
-	print STDERR "analyze_request : query_string 1 : $request_ref->{query_string} \n";
+	$log->debug("analyzing query_string, step 1 - utm, cc, and lc removed", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
 	
 	# Process API parameters: fields, formats, revision
 	
@@ -412,7 +416,7 @@ sub analyze_request($)
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
 			$request_ref->{$parameter} = $2;
-			print STDERR "analyze_request : $parameter = $request_ref->{$parameter} \n";
+			$log->debug("parameter was set from query string", { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
 		}	
 	}	
 	
@@ -423,20 +427,18 @@ sub analyze_request($)
 		if ($request_ref->{query_string} =~ /\.$parameter$/) {
 			$request_ref->{query_string} =~ s/\.$parameter$//;
 			$request_ref->{$parameter} = 1;
-			print STDERR "analyze_request : $parameter = 1 (.$parameter) \n";
+			$log->debug("parameter was set from extension in URL path", { parameter => $parameter, value => $request_ref->{$parameter} }) if $log->is_debug();
 		}
 	}	
 	
-	print STDERR "analyze_request : query_string 2 : $request_ref->{query_string} \n";
-	
+	$log->debug("analyzing query_string, step 2 - fields, rev, json, jsonp, jqm, and xml removed", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
 	
 	$request_ref->{query_string} =~ s/^\///;
 	$request_ref->{query_string} = decode("utf8",URI::Escape::XS::decodeURIComponent($request_ref->{query_string}));
 	
-	print STDERR "analyze_request : query_string 3 : $request_ref->{query_string} \n";
+	$log->debug("analyzing query_string, step 3 - components UTF8 decoded", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
 	
-	
-$request_ref->{page} = 1;
+	$request_ref->{page} = 1;
 	
 	my @components = split(/\//, $request_ref->{query_string});
 	
@@ -467,7 +469,7 @@ $request_ref->{page} = 1;
 			$request_ref->{json} = 1;
 		 }
 		
-		print STDERR "analyze_request : api = $request_ref->{api} - api_version = $request_ref->{api_version} - api_method = $request_ref->{api_method} - code = $request_ref->{code} - jqm = $request_ref->{jqm} - json = $request_ref->{json} - xml = $request_ref->{xml} \n";
+		$log->debug("request looks like an API request", { api => $request_ref->{api}, api_version => $request_ref->{api_version}, api_method => $request_ref->{api_method}, code => $request_ref->{code}, jqm => $request_ref->{jqm}, json => $request_ref->{json}, xml => $request_ref->{xml} } ) if $log->is_debug();
 	}	
 
 	# or a list
@@ -537,8 +539,7 @@ $request_ref->{page} = 1;
 	
 		# list of tags? (plural of tagtype must be the last field)
 		
-		print STDERR "Display::analyze_request - last component - $components[$#components] - plural? " . $tag_type_from_plural{$lc}{$components[$#components]} . " \n";		
-		
+		$log->debug("checking last component", { last_component => $components[$#components], is_plural => $tag_type_from_plural{$lc}{$components[$#components]} }) if $log->is_debug();
 		
 		# list of (categories) tags with stats for a nutriment 
 		if (($#components == 1) and (defined $tag_type_from_plural{$lc}{$components[0]}) and ($tag_type_from_plural{$lc}{$components[0]} eq "categories")
@@ -550,14 +551,14 @@ $request_ref->{page} = 1;
 			$canon_rel_url_suffix .= "/" . $components[1];
 			pop @components;
 			pop @components;
-			print STDERR "Display::analyze_request - list of tags - categories with nutrients - groupby: $request_ref->{groupby_tagtype} - stats nid: $request_ref->{stats_nid}\n";	
+			$log->debug("request looks like a list of tags - categories with nutrients", { groupby => $request_ref->{groupby_tagtype}, stats_nid => $request_ref->{stats_nid} }) if $log->is_debug();
 		}
 		
 		if (defined $tag_type_from_plural{$lc}{$components[$#components]}) {
 		
 			$request_ref->{groupby_tagtype} = $tag_type_from_plural{$lc}{pop @components};
 			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
-			print STDERR "Display::analyze_request - list of tags - groupby: $request_ref->{groupby_tagtype}\n";
+			$log->debug("request looks like a list of tags", { groupby => $request_ref->{groupby_tagtype}, lc => $lc }) if $log->is_debug();
 		}
 		# also try English tagtype
 		elsif (defined $tag_type_from_plural{"en"}{$components[$#components]}) {
@@ -565,13 +566,13 @@ $request_ref->{page} = 1;
 			$request_ref->{groupby_tagtype} = $tag_type_from_plural{"en"}{pop @components};
 			# use $lc for canon url
 			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
-			print STDERR "Display::analyze_request - list of tags - groupby: $request_ref->{groupby_tagtype}\n";
+			$log->debug("request looks like a list of tags", { groupby => $request_ref->{groupby_tagtype}, lc => "en" }) if $log->is_debug();
 		}
 	
 		if (($#components >= 0) and ((defined $tag_type_from_singular{$lc}{$components[0]})
 			or (defined $tag_type_from_singular{"en"}{$components[0]}))) {
 		
-			print STDERR "Display::analyze_request - tag_type_from_singular $lc : $components[0]\n";
+			$log->debug("request looks like a singular tag", { lc => $lc, tagid => $components[0] }) if $log->is_debug();
 			
 			if (defined $tag_type_from_singular{$lc}{$components[0]}) {
 				$request_ref->{tagtype} = $tag_type_from_singular{$lc}{shift @components};
@@ -651,7 +652,7 @@ $request_ref->{page} = 1;
 				$request_ref->{canon_rel_url} .= "/points"
 		}
 		elsif (not defined $request_ref->{groupby_tagtype}) {
-			$debug and print STDERR "analyze_request: invalid address, confused by number of components left: $#components \n";
+			$log->warn("invalid address, confused by number of components left", { left_components => $#components }) if $log->is_warn();
 			display_error(lang("error_invalid_address"), 404);
 		}
 		
@@ -662,15 +663,16 @@ $request_ref->{page} = 1;
 		$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
 	}
 	
-	my $debug_log = "Display::analyze_request - lc: $lc lang: $lang";
-	foreach my $log_field (qw/text product tagtype tagid tagtype2 tagid2 groupby_tagtype points/) {
-		if (defined $request_ref->{$log_field}) {
-			$debug_log .= " - $log_field: $request_ref->{$log_field}";
+	if ($log->is_debug()) {
+		my $debug_log = "";
+		foreach my $log_field (qw/text product tagtype tagid tagtype2 tagid2 groupby_tagtype points/) {
+			if (defined $request_ref->{$log_field}) {
+				$debug_log .= " - $log_field: $request_ref->{$log_field}";
+			}
 		}
-	}
 
-	
-	print STDERR $debug_log . "\n";
+		$log->debug("request analyzed", { lc => $lc, lang => $lang, log_fields => $debug_log });
+	}
 		
 	return 1;
 }
@@ -903,7 +905,7 @@ sub display_text($)
 		$html =~ s/<\/h1>/ - $country_name<\/h1>/;
 	}
 
-	print STDERR "debug_text - cc: $cc - lc: $lc - lang: $lang - textid: $textid - textlang: $text_lang - file: $file \n";
+	$log->info("displaying text from file", { cc => $cc, lc => $lc, lang => $lang, textid => $textid, textlang => $text_lang, file => $file }) if $log->is_info();
 	
 	# if page number is higher than 1, then keep only the h1 header
 	# e.g. index page
@@ -1050,10 +1052,7 @@ sub display_list_of_tags($$) {
 	
 	#if ($admin) 
 	{
-	
-		use Data::Dumper;
-		print STDERR "Display.pm - display_list_of_tags - query:\n" . Dumper($query_ref) . "\n";
-	
+		$log->debug("MongoDB query built", { query => $query_ref }) if $log->is_debug();	
 	}
 
 	my $worlddom = format_subdomain('world');
@@ -1116,17 +1115,12 @@ sub display_list_of_tags($$) {
 			];
 	}	
 	
-	if ($admin) {
-		use Data::Dumper;
-		print STDERR "Display.pm - display_list_of_tags - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
-	
-	}		
-	
 	eval {
+		$log->debug("Executing MongoDB aggregate query", { query => $aggregate_parameters }) if $log->is_debug();
 		$results = $products_collection->aggregate( $aggregate_parameters );
 	};
 	if ($@) {
-		print STDERR "Display.pm - display_list_of_tags - MongoDB error: $@ - retrying once\n";
+		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
 		# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
 		
 		# opening new connection
@@ -1136,25 +1130,23 @@ sub display_list_of_tags($$) {
 			$products_collection = $database->get_collection('products');
 		};
 		if ($@) {
-			print STDERR "Display.pm - display_list_of_tags - MongoDB error: $@ - reconnecting failed\n";
+			$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
 			$count = -1;
 		}
 		else {		
-			print STDERR "Display.pm - display_list_of_tags - MongoDB error: $@ - reconnected ok\n";					
+			$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
 			eval {
+				$log->debug("Executing MongoDB aggregate query", { query => $aggregate_parameters }) if $log->is_debug();
 				$results = $products_collection->aggregate( $aggregate_parameters);
 			};
-			print STDERR "Display.pm - display_list_of_tags - MongoDB error: $@ - ok\n";	
+			$log->debug("MongoDB query done", { error => $@ }) if $log->is_debug();
 		}
 	}
 		
-
-	print STDERR "Display.pm - display_list_of_tags - aggregate query done\n";
+	$log->trace("aggregate query done") if $log->is_trace();
 	
 	if ($admin) {
-		use Data::Dumper;
-		print STDERR "Display.pm - display_list_of_tags - results:\n" . Dumper($results) . "\n";
-	
+		$log->debug("aggregate query results", { results => $results }) if $log->is_debug();	
 	}	
 	
 	my $html = '';
@@ -1253,15 +1245,17 @@ sub display_list_of_tags($$) {
 		my $main_link = '';
 		my $nofollow = '';
 		if (defined $request_ref->{tagid}) {
-			print STDERR "main_link for " . $request_ref->{tagtype} . " - " . $request_ref->{tagid} . " \n";
+			local $log->context->{tagtype} = $request_ref->{tagtype};
+			local $log->context->{tagid} = $request_ref->{tagid};
+
+			$log->trace("determining main_link for the tag") if $log->is_trace();
 			if (defined $taxonomy_fields{$request_ref->{tagtype}}) {
 				$main_link = canonicalize_taxonomy_tag_link($lc,$request_ref->{tagtype},$request_ref->{tagid}) ;
-				print STDERR "main_link: $main_link - canonicalize_taxonomy_tag_link\n";
+				$log->debug("main_link determined from the taxonomy tag", { main_link => $main_link }) if $log->is_debug();
 			}
 			else {
-				print STDERR "canonicalize_tag_link - tagtype: " . $request_ref->{tagtype} . " - tagid: " . $request_ref->{tagid} . "\n";
 				$main_link = canonicalize_tag_link($request_ref->{tagtype}, $request_ref->{tagid});
-				print STDERR "main_link: $main_link - canonicalize_tag2\n";				
+				$log->debug("main_link determined from the canonical tag", { main_link => $main_link }) if $log->is_debug();
 			}
 			$nofollow = ' rel="nofollow"';
 		}
@@ -1653,7 +1647,10 @@ sub display_points_ranking($$) {
 	my $tagtype = shift;	# users or countries
 	my $tagid = shift;
 	
-	print STDERR "display_points_ranking - tagtype: $tagtype - tagid: $tagid\n";
+	local $log->context->{tagtype} = $tagtype;
+	local $log->context->{tagid} = $tagid;
+
+	$log->info("displaying points ranking") if $log->is_info();
 	
 	my $ranktype = "users";
 	if ($tagtype eq "users") {
@@ -1783,7 +1780,10 @@ sub display_points($) {
 	my $newtagidpath;
 	my $canon_tagid = undef;
 	
-	print STDERR "display_points - tagtype: $tagtype - tagid: $tagid\n";
+	local $log->context->{tagtype} = $tagtype;
+	local $log->context->{tagid} = $tagid;
+
+	$log->info("displaying points") if $log->is_info();
 
 	if (defined $tagid) {
 		if (defined $taxonomy_fields{$tagtype}) {
@@ -1791,7 +1791,7 @@ sub display_points($) {
 			$display_tag = display_taxonomy_tag($lc,$tagtype,$canon_tagid);
 			$title = $display_tag; 
 			$newtagid = get_taxonomyid($display_tag);
-			print STDERR "display_tag - taxonomy - $tagtype - tagid: $tagid - canon_tagid: $canon_tagid - newtagid: $newtagid - title: $title \n";
+			$log->debug("displaying points for a taxonomy tag", { canon_tagid => $canon_tagid, newtagid => $newtagid, title => $title }) if $log->is_debug();
 			if ($newtagid !~ /^(\w\w):/) {
 				$newtagid = $lc . ':' . $newtagid;
 			}
@@ -1816,8 +1816,7 @@ sub display_points($) {
 			$request_ref->{world_current_link} = canonicalize_tag_link($tagtype, $newtagid);
 			$lang = $current_lang;
 			$lc = $current_lc;
-			print STDERR "display_tag - normal - $tagtype - tagid: $tagid - canon_tagid: $canon_tagid - newtagid: $newtagid - title: $title \n";
-			
+			$log->debug("displaying points for a normal tag", { canon_tagid => $canon_tagid, newtagid => $newtagid, title => $title }) if $log->is_debug();			
 		}
 	}
 	
@@ -1825,7 +1824,7 @@ sub display_points($) {
 	
 	if ((defined $tagid) and ($newtagid ne $tagid) ) {
 		$request_ref->{redirect} = $request_ref->{current_link};
-		print STDERR "Display.pm display_tag - redirect - tagid: $tagid - newtagid: $newtagid - url: $request_ref->{current_link} \n";
+		$log->info("newtagid does not equal the original tagid, redirecting", { newtagid => $newtagid, redirect => $request_ref->{redirect} }) if $log->is_info();
 		return 301;
 	}
 	
@@ -1902,6 +1901,9 @@ sub display_tag($) {
 	my $newtagid;
 	my $newtagidpath;
 	my $canon_tagid = undef;
+
+	local $log->context->{tagtype} = $tagtype;
+	local $log->context->{tagid} = $tagid;
 	
 	my $tagtype2 = $request_ref->{tagtype2};
 	my $tagid2 = $request_ref->{tagid2};
@@ -1910,13 +1912,16 @@ sub display_tag($) {
 	my $newtagid2path;
 	my $canon_tagid2 = undef;	
 
+	local $log->context->{tagtype2} = $tagtype2;
+	local $log->context->{tagid2} = $tagid2;
+
 	if (defined $tagid) {
 		if (defined $taxonomy_fields{$tagtype}) {
 			$canon_tagid = canonicalize_taxonomy_tag($lc,$tagtype, $tagid); 
 			$display_tag = display_taxonomy_tag($lc,$tagtype,$canon_tagid);
 			$title = $display_tag; 
 			$newtagid = get_taxonomyid($display_tag);
-			print STDERR "display_tag - taxonomy - $tagtype - tagid: $tagid - canon_tagid: $canon_tagid - newtagid: $newtagid - title: $title \n";
+			$log->info("displaying taxonomy tag", { canon_tagid => $canon_tagid, newtagid => $newtagid, title => $title }) if $log->is_info();
 			if ($newtagid !~ /^(\w\w):/) {
 				$newtagid = $lc . ':' . $newtagid;
 			}
@@ -1941,7 +1946,7 @@ sub display_tag($) {
 			$request_ref->{world_current_link} = canonicalize_tag_link($tagtype, $newtagid);
 			$lang = $current_lang;
 			$lc = $current_lc;
-			print STDERR "display_tag - normal - $tagtype - tagid: $tagid - canon_tagid: $canon_tagid - newtagid: $newtagid - title: $title \n";			
+			$log->info("displaying normal tag", { canon_tagid => $canon_tagid, newtagid => $newtagid, title => $title }) if $log->is_info();
 		}
 		
 		# add back leading dash when a tag is excluded
@@ -1952,7 +1957,7 @@ sub display_tag($) {
 		}		
 	}
 	else {
-		print STDERR "display_tag - no tagid\n";
+		$log->warn("no tagid found") if $log->is_warn();
 	}
 	
 	# 2nd tag?
@@ -1962,7 +1967,7 @@ sub display_tag($) {
 			$display_tag2 = display_taxonomy_tag($lc,$tagtype2,$canon_tagid2);
 			$title .= " / " . $display_tag2; 
 			$newtagid2 = get_taxonomyid($display_tag2);		
-			print STDERR "display_tag - taxonomy - $tagtype2 - tagid2: $tagid2 - canon_tagid2: $canon_tagid2 - newtagid2: $newtagid2 - title: $title \n";
+			$log->info("2nd level tag is a taxonomy tag", { tagtype2 => $tagtype2, tagid2 => $tagid2, canon_tagid2 => $canon_tagid2, newtagid2 => $newtagid2, title => $title }) if $log->is_info();
 			if ($newtagid2 !~ /^(\w\w):/) {
 				$newtagid2 = $lc . ':' . $newtagid2;
 			}
@@ -1997,7 +2002,7 @@ sub display_tag($) {
 		}		
 		
 	}
-	
+
 	if (defined $request_ref->{groupby_tagtype}) {
 		$request_ref->{world_current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{en};
 	}
@@ -2009,7 +2014,7 @@ sub display_tag($) {
 		$request_ref->{redirect} .= '.jsonp' if $request_ref->{jsonp};
 		$request_ref->{redirect} .= '.xml' if $request_ref->{xml};
 		$request_ref->{redirect} .= '.jqm' if $request_ref->{jqm};
-		print STDERR "Display.pm display_tag - redirect - tagid: $tagid - newtagid: $newtagid - tagid2: $tagid2 - newtagid2: $newtagid2 - url: $request_ref->{redirect} \n";
+		$log->info("one or more tagids mismatch, redirecting to correct url", { redirect => $request_ref->{redirect} }) if $log->is_info();
 		return 301;
 	}
 	
@@ -2101,17 +2106,16 @@ sub display_tag($) {
 	
 		my $city_code = get_city_code($tagid);
 		
-		print STDERR "Display.pm - city_code: $city_code \n";
+		local $log->context->{city_code} = $city_code;
+		$log->debug("city code for tag with emb_code type") if $log->debug();
 		
 		if (defined $emb_codes_cities{$city_code}) {
 			$description .= "<p>" . lang("cities_s") . separator_before_colon($lc) . ": " . display_tag_link('cities', $emb_codes_cities{$city_code}) . "</p>";
 		}
 		
-		print STDERR "display_tag packager_codes - canon_tagid: $canon_tagid\n";
-		
+		$log->debug("checking if the canon_tagid is a packager code") if $log->is_debug();		
 		if (exists $packager_codes{$canon_tagid}) {
-		
-			print STDERR "display_tag packager_codes - canon_tagid: $canon_tagid exists, cc : " . $packager_codes{$canon_tagid}{cc} . "\n";
+			$log->debug("packager code found for the canon_tagid", { cc => $packager_codes{$canon_tagid}{cc} }) if $log->is_debug();
 			
 			# Generate a map if we have coordinates
 			my ($lat, $lng) = get_packager_code_coordinates($canon_tagid);
@@ -2286,11 +2290,10 @@ HTML
 	
 		my $categories_nutriments_ref = retrieve("$data_root/index/categories_nutriments_per_country.$cc.sto");
 	
-		print STDERR "stats - cc: $cc - tagtype: $tagtype - tagid: $tagid\n";
-	
+		$log->debug("checking if this category has stored statistics", { cc => $cc, tagtype => $tagtype, tagid => $tagid }) if $log->is_debug();	
 		if ((defined $categories_nutriments_ref) and (defined $categories_nutriments_ref->{$canon_tagid})
 			and (defined $categories_nutriments_ref->{$canon_tagid}{stats})) {
-			print STDERR "stats - cc: $cc - tagtype: $tagtype -tagid: $tagid - adding description\n";
+			$log->debug("statistics found for the tag, addind stats to description", { cc => $cc, tagtype => $tagtype, tagid => $tagid }) if $log->is_debug();
 	
 			$description .= "<h2>" . lang("nutrition_data") . "</h2>"
 				. "<p>"
@@ -2555,32 +2558,24 @@ sub search_and_display_products($$$$$) {
 	my $cursor;
 	my $count;
 	
-	use Data::Dumper;
-	#if ($admin) 
-	{
-		print STDERR "Display.pm - search_and_display_products - sort:\n" . Dumper($sort_ref) . "\n";
-		print STDERR "Display.pm - search_and_display_products - limit:\n" . Dumper($limit) . "\n";
-	
-	}
-	
 	eval {
 		if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
 			my $aggregate_parameters = [
 				{ "\$match" => $query_ref },
 				{ "\$sample" => { "size" => $request_ref->{sample_size} } }
 			];
-			print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
+			$log->debug("Executing MongoDB query", { query => $aggregate_parameters }) if $log->is_debug();
 			$cursor = $products_collection->aggregate($aggregate_parameters);
 		}
 		else {
-			print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
+			$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
 			$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 			$count = $cursor->count() + 0;
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";
+			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 		}
 	};
 	if ($@) {
-		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
+		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
 		# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
 		
 		# opening new connection
@@ -2590,27 +2585,27 @@ sub search_and_display_products($$$$$) {
 			$products_collection = $database->get_collection('products');
 		};
 		if ($@) {
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnecting failed\n";
+			$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
 			$count = -1;
 		}
 		else {		
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
+			$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
 			if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
 				my $aggregate_parameters = [
 					{ "\$match" => $query_ref },
 					{ "\$sample" => { "size" => $request_ref->{sample_size} } }
 				];
-				print STDERR "Display.pm - search_and_display_products - aggregate_parameters:\n" . Dumper($aggregate_parameters) . "\n";
+				$log->debug("Executing MongoDB query", { query => $aggregate_parameters }) if $log->is_debug();
 				$cursor = $products_collection->aggregate($aggregate_parameters);
 			}
 			else {
-				print STDERR "Display.pm - search_and_display_products - query:\n" . Dumper($query_ref) . "\n";
+				$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
 				$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 				$count = $cursor->count() + 0;
-				print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";
+				$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 
 			}
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok\n";
+			$log->debug("MongoDB query done", { error => $@ }) if $log->is_debug();
 		}
 	}
 	
@@ -2661,11 +2656,12 @@ sub search_and_display_products($$$$$) {
 			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_download}\">" . lang("search_download_results") . "</a><br />";
 		}
 		
-		my $debug_log = "search - count: $count";
-		defined $request_ref->{search} and $debug_log .= " - request_ref->{search}: " . $request_ref->{search};
-		defined $request_ref->{tagid2}  and $debug_log .= " - tagid2 " . $request_ref->{tagid2};
-		
-		print STDERR $debug_log . "\n"; 
+		if ($log->is_debug()) {
+			my $debug_log = "search - count: $count";
+			defined $request_ref->{search} and $debug_log .= " - request_ref->{search}: " . $request_ref->{search};
+			defined $request_ref->{tagid2}  and $debug_log .= " - tagid2 " . $request_ref->{tagid2};
+			$log->debug($debug_log);
+		}
 		
 		if ((not defined $request_ref->{search}) and ($count >= 5) 	
 			and (not defined $request_ref->{tagid2}) and (not defined $request_ref->{product_changes_saved})) {
@@ -2887,7 +2883,7 @@ HTML
 	# if cc and/or lc have been overriden, change the relative paths to absolute paths using the new subdomain
 	
 	if ($subdomain ne $original_subdomain) {
-		print STDERR "Display - search_and_display_product - subdomain $subdomain not equal to original_subdomain $original_subdomain, converting relative paths to absolute paths\n";
+		$log->debug("subdomain not equal to original_subdomain, converting relative paths to absolute paths", { subdomain => $subdomain, original_subdomain => $original_subdomain }) if $log->is_debug();
 		my $formated_subdomain = format_subdomain($subdomain);
 		$html =~ s/(href|src)=("\/)/$1="$formated_subdomain\//g;
 	}
@@ -2948,8 +2944,7 @@ sub search_and_export_products($$$$$) {
 	$sort_ref->Push(product_name => 1);
 	$sort_ref->Push(generic_name => 1);
 	
-	use Data::Dumper;
-	print STDERR "search_and_export_products - query - \n" . Dumper($query_ref) . "\nsearch_and_export_products sort - \n" . Dumper($sort_ref) . "\n";
+	$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref }) if $log->is_debug();
 
 	my $cursor;
 	my $count;
@@ -2959,7 +2954,7 @@ sub search_and_export_products($$$$$) {
 		$count = $cursor->count() + 0;
 	};
 	if ($@) {
-		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
+		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
 		# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
 		
 		# opening new connection
@@ -2969,14 +2964,14 @@ sub search_and_export_products($$$$$) {
 			$products_collection = $database->get_collection('products');
 		};
 		if ($@) {
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnecting failed\n";
+			$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
 			$count = -1;
 		}
 		else {		
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
+			$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
 			$cursor = $products_collection->query($query_ref)->sort($sort_ref);
 			$count = $cursor->count() + 0;
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
+			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 		}
 	}
 		
@@ -3130,8 +3125,12 @@ pnns_groups_2
 			foreach my $field (@fields) {
 		
 				my $value = $product_ref->{$field};
-				$value =~ s/(\r|\n|\t)/ /g;
-				$csv .= $value . "\t";
+				if (defined $value) {
+					$value =~ s/(\r|\n|\t)/ /g;
+					$csv .= $value;
+				}
+
+				$csv .= "\t";
 
 				if ($field eq 'code') {
 				
@@ -3178,17 +3177,16 @@ pnns_groups_2
 					}
 				}
 				
-				
-				print STDERR "main_cid_orig: $main_cid comparisons: $#comparisons\n";
-				
-				
+				local $log->context->{main_cid_orig} = $main_cid;
+				local $log->context->{comparisons} = $#comparisons;
 				if ($#comparisons > -1) {
 					@comparisons = sort { $a->{count} <=> $b->{count}} @comparisons;
 					$comparisons[0]{show} = 1;
 					$main_cid = $comparisons[0]{id};
-					print STDERR "main_cid: $main_cid\n";
 				}
 				
+				local $log->context->{main_cid} = $main_cid;
+				$log->debug("final main_cid determined") if $log->is_debug();
 			}		
 			
 			if ($main_cid ne '') {
@@ -3220,7 +3218,11 @@ pnns_groups_2
 				$nid =~ s/^-//g;
 				$nid =~ s/-$//g;
 						
-				$csv .= $product_ref->{nutriments}{"${nid}_100g"} . "\t";
+				if (defined $product_ref->{nutriments}{"${nid}_100g"}) {
+					$csv .= $product_ref->{nutriments}{"${nid}_100g"};
+				}
+
+				$csv .= "\t";
 			}
 			
 			# Flattened tags
@@ -3482,7 +3484,7 @@ JS
 					$s = $s / 10;
 				}		
 				
-				print STDERR "search_and_graph - seriesid: $seriesid - matching_series: $matching_series - s: $s - remainingseriesid: $remainingseriesid - title: $title \n";
+				$log->debug("rendering series colour as JavaScript", { seriesid => $seriesid, matching_series => $matching_series, s => $s, remainingseriesid => $remainingseriesid, title => $title }) if $log->is_debug();
 
 				$r = int ($r / $matching_series);
 				$g = int ($g / $matching_series);
@@ -3766,9 +3768,8 @@ sub display_histogram($$$) {
 				}
 			}
 		}
-		
-		print STDERR "histogram - for all $i values - min:  $min - max:  $max\n";
-		
+
+		$log->debug("hisogram for all 'i' values", { i => $i, min => $min, max => $max }) if $log->is_debug();
 		
 		my %series_intervals = ();
 		my $categories = '';
@@ -3782,7 +3783,7 @@ sub display_histogram($$$) {
 			$series_intervals{$seriesid} = [];
 			for (my $k = 0; $k < $intervals; $k++) {
 				$series_intervals{$seriesid}[$k] = 0;
-				print STDERR "histogram - $k - min:  $intervals[$k][0] - max:  $intervals[$k][1]\n";
+				$log->debug("computing histogram", { k => $k, min =>$intervals[$k][0], max => $intervals[$k][1] }) if $log->is_debug();
 			}
 			foreach my $value (@{$series{$seriesid}}) {
 				for (my $k = 0; $k < $intervals; $k++) {
@@ -3822,7 +3823,7 @@ sub display_histogram($$$) {
 				$s = $s / 10;
 			}		
 			
-			print STDERR "search_and_graph - seriesid: $seriesid - matching_series: $matching_series - s: $s - remainingseriesid: $remainingseriesid - title: $title \n";
+			$log->debug("rendering series as JavaScript", { seriesid => $seriesid, matching_series => $matching_series, s => $s, remainingseriesid => $remainingseriesid, title => $title }) if $log->is_debug();
 
 			$r = int ($r / $matching_series);
 			$g = int ($g / $matching_series);
@@ -3984,13 +3985,10 @@ sub search_and_graph_products($$$) {
 	my $cursor;
 	my $count;
 	
-	print STDERR "Display.pm - search_and_graph_products - start: $count\n";		
-	
+	$log->info("retrieving products from MongoDB to display them in a graph", { count => $count }) if $log->is_info();
+
 	if ($admin) {
-	
-		use Data::Dumper;
-		print STDERR "Display.pm - search_and_graph_products - query:\n" . Dumper($query_ref) . "\n";
-	
+		$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
 	}
 	
 	eval {
@@ -3998,7 +3996,7 @@ sub search_and_graph_products($$$) {
 		$count = $cursor->count() + 0;
 	};
 	if ($@) {
-		print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - retrying once\n";
+		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
 		# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
 		
 		# opening new connection
@@ -4008,18 +4006,18 @@ sub search_and_graph_products($$$) {
 			$products_collection = $database->get_collection('products');
 		};
 		if ($@) {
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnecting failed\n";
+			$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
 			$count = -1;
 		}
 		else {		
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
+			$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
 			$cursor = $products_collection->query($query_ref);
 			$count = $cursor->count() + 0;
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
+			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 		}
 	}
 		
-	print STDERR "Display.pm - search_and_graph_products - count: $count\n";				
+	$log->info("retrieved products from MongoDB to display them in a graph", { count => $count }) if $log->is_info();
 		
 	$request_ref->{count} = $count + 0;
 	
@@ -4040,7 +4038,7 @@ sub search_and_graph_products($$$) {
 	
 	if ($count <= 0) {
 		# $request_ref->{content_html} = $html;
-		print STDERR "Display.pm - search_and_graph_products - count <= 0\n";		
+		$log->warn("could not retrieve enough products for a graph", { count => $count }) if $log->is_warn();
 		return $html;
 	}
 		
@@ -4145,15 +4143,14 @@ sub search_and_map_products($$$) {
 	my $cursor;
 	my $count;
 	
-	print STDERR "Display.pm - search_and_map_products - start: $count\n";		
-	
+	$log->info("retrieving products from MongoDB to display them in a map", { count => $count }) if $log->is_info();
 	
 	eval {
 		$cursor = $products_collection->query($query_ref);
 		$count = $cursor->count() + 0;
 	};
 	if ($@) {
-		print STDERR "Display.pm - search_and_map_products - MongoDB error: $@ - retrying once\n";
+		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
 		# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
 		
 		# opening new connection
@@ -4163,18 +4160,18 @@ sub search_and_map_products($$$) {
 			$products_collection = $database->get_collection('products');
 		};
 		if ($@) {
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnecting failed\n";
+			$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
 			$count = -1;
 		}
 		else {		
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - reconnected ok\n";					
+			$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
 			$cursor = $products_collection->query($query_ref);
 			$count = $cursor->count() + 0;
-			print STDERR "Display.pm - search_and_display_products - MongoDB error: $@ - ok, got count: $count\n";	
+			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 		}
 	}
 		
-	print STDERR "Display.pm - search_and_map_products - count: $count\n";				
+	$log->info("retrieved products from MongoDB to display them in a map", { count => $count }) if $log->is_info();
 		
 	$request_ref->{count} = $count + 0;
 	
@@ -4195,7 +4192,7 @@ sub search_and_map_products($$$) {
 	
 	if ($count <= 0) {
 		# $request_ref->{content_html} = $html;
-		print STDERR "Display.pm - search_and_map_products - count <= 0\n";		
+		$log->warn("could not retrieve enough products for a map", { count => $count }) if $log->is_warn();
 		return $html;
 	}
 		
@@ -4260,8 +4257,8 @@ JS
 				
 				$origins = $manufacturing_places . $origins;
 					
-				$data_start .= ' product_name:"' . escape_single_quote($product_ref->{product_name}) . '", brands:"' . escape_single_quote($product_ref->{brands}) . '", url: "' . $url . '", img:\''
-					. escape_single_quote(display_image_thumb($product_ref, 'front')) . "', origins:\'" . $origins . "'";	
+				$data_start .= " product_name:'" . escape_single_quote($product_ref->{product_name}) . "', brands:'" . escape_single_quote($product_ref->{brands}) . "', url: '" . $url . "', img:'"
+					. escape_single_quote(display_image_thumb($product_ref, 'front')) . "', origins:'" . $origins . "'";	
 				
 
 				
@@ -4300,9 +4297,7 @@ JS
 			}
 		}	
 
-		print STDERR "Display.pm - search_and_map_products - count: $count - matching_products: $matching_products - products: $products - emb_codes: $emb_codes\n";				
-
-		
+		$log->debug("rendering map for matching products", { count => $count, matching_products => $matching_products, products => $products, emb_codes => $emb_codes }) if $log->is_debug();
 		
 		# Points to display?
 
@@ -4595,16 +4590,14 @@ sub display_new($) {
 	
 	my $content_header = '';	
 	
-	$debug = 1;
-	$debug and print STDERR "Display::display - title: $title\n";
-
+	$log->debug("displaying page", { title => $title }) if $log->is_debug();
 	
 	my $object_ref;
 	my $type;
 	my $id;
 
 	
-	$debug and print STDERR "Display::display displaying blocks\n";
+	$log->debug("displaying blocks") if $log->is_debug();
 	
 	display_login_register($blocks_ref);
 		
@@ -5581,7 +5574,7 @@ HTML
 	binmode(STDOUT, ":encoding(UTF-8)");
 	print $html;
 	
-	$debug and print STDERR "Display::display done (lc: $lc - lang: $lang - mongodb: $mongodb - data_root: $data_root)\n";
+	$log->debug("display done", { lc => $lc, lang => $lang, mongodb => $mongodb, data_root => $data_root }) if $log->is_debug();
 }
 
 
@@ -5820,6 +5813,7 @@ sub display_product($)
 
 	my $request_code = $request_ref->{code};
 	my $code = normalize_code($request_code);
+	local $log->context->{code} = $code;
 
 	my $html = '';
 	my $blocks_ref = [];
@@ -5862,15 +5856,16 @@ CSS
 	
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 	
-	$debug and print STDERR "display_product - request_code: $request_code - code: $code\n";
+	$log->info("displaying product", { request_code => $request_code }) if $log->is_info();
 	
 	$title = $code;
 	
 	my $product_ref;
 	
 	my $rev = $request_ref->{rev};
+	local $log->context->{rev} = $rev;
 	if (defined $rev) {
-		print STDERR "display_product : rev $rev\n";
+		$log->info("displaying product revision") if $log->is_info();
 		$product_ref = retrieve_product_rev($code, $rev);
 		$header .= '<meta name="robots" content="noindex,follow">';
 	}
@@ -5900,7 +5895,7 @@ CSS
 	# Old UPC-12 in url? Redirect to EAN-13 url
 	if ($request_code ne $code) {
 		$request_ref->{redirect} = $request_ref->{canon_url};
-		print STDERR "Display.pm display_product - redirect - lc: $lc - request_code: $request_code -> code: $code\n";
+		$log->info("301 redirecting user because request_code does not match code", { redirect => $request_ref->{redirect}, lc => $lc, request_code => $code }) if $log->is_info();
 		return 301;
 	}
 	
@@ -5910,7 +5905,7 @@ CSS
 			(($titleid ne '') and ((not defined $request_ref->{titleid}) or ($request_ref->{titleid} ne $titleid))) or
 			(($titleid eq '') and ((defined $request_ref->{titleid}) and ($request_ref->{titleid} ne ''))) )) {
 		$request_ref->{redirect} = $request_ref->{canon_url};
-		print STDERR "Display.pm display_product - redirect - lc: $lc product_lc: product_ref->{lc} - titleid: $titleid - request_ref->{titleid} : $request_ref->{titleid}\n";
+		$log->info("301 redirecting user because titleid is incorrect", { redirect => $request_ref->{redirect}, lc => $lc, product_lc => $product_ref->{lc}, titleid => $titleid, request_titleid => $request_ref->{titleid} }) if $log->is_info();
 		return 301;
 	}
 
@@ -6578,7 +6573,7 @@ HTML
 	$request_ref->{description} = $description;
 	$request_ref->{blocks_ref} = $blocks_ref;
 	
-	$debug and print STDERR "display_product.pl - code: $code\n";
+	$log->trace("displayed product") if $log->is_trace();
 	
 	display_new($request_ref);	
 }
@@ -6589,6 +6584,7 @@ sub display_product_jqm ($) # jquerymobile
 	my $request_ref = shift;
 
 	my $code = normalize_code($request_ref->{code});
+	local $log->context->{code} = $code;
 	
 	
 	my $html = '';
@@ -6599,15 +6595,16 @@ sub display_product_jqm ($) # jquerymobile
 	
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 	
-	$debug and print STDERR "display_product - code: $code\n";
+	$log->info("displaying product jquery mobile") if $log->is_info();
 	
 	$title = $code;
 	
 	my $product_ref;
 	
 	my $rev = $request_ref->{rev};
+	local $log->context->{rev} = $rev;
 	if (defined $rev) {
-		print STDERR "display_product : rev $rev\n";
+		$log->info("displaying product revision on jquery mobile") if $log->is_info();
 		$product_ref = retrieve_product_rev($code, $rev);
 	}
 	else {
@@ -6975,7 +6972,7 @@ HTML
 	$request_ref->{title} = $title;
 	$request_ref->{description} = $description;
 	
-	$debug and print STDERR "display_product.pl - code: $code\n";
+	$log->trace("displayed product on jquery mobile") if $log->is_trace();
 
 }
 
@@ -7305,7 +7302,7 @@ sub display_nutrition_table($$) {
 			$col_name{$colid} =  sprintf(lang("nutrition_data_compare_with_category"), $comparison_ref->{name});
 			$col_name{$colid} =  $comparison_ref->{name};
 			
-			print STDERR "display_nutrition_table - colid $colid - id: $comparison_ref->{id} - name: $comparison_ref->{name} \n";
+			$log->debug("displaying nutrition table comparison column", { colid => $colid, id => $comparison_ref->{id}, name => $comparison_ref->{name} }) if $log->is_debug();
 		
 			my $checked = 0;
 			if (defined $comparison_ref->{show}) {
@@ -7512,8 +7509,6 @@ HTML
 				$prefix = "&nbsp; " . $prefix;
 			}			
 		}
-
-		print STDERR "nid: $nid - shown: $shown - value: " . $product_ref->{nutriments}{$nid} . " - $nid _prepared: " . $product_ref->{nutriments}{$nid . "_prepared"}  ." \n";
 		
 		my $label = '';
 		
@@ -7776,7 +7771,7 @@ sub display_product_api($)
 	
 	# Check that the product exist, is published, is not deleted, and has not moved to a new url
 	
-	$debug and print STDERR "display_product_api - code: $code\n";
+	$log->info("displaying product api", { code => $code }) if $log->is_info();
 
 	my %response = ();
 	
@@ -7980,7 +7975,7 @@ sub add_images_urls_to_product($) {
 		}
 		
 		if (defined $product_ref->{languages_codes}) {
-			foreach my $key (keys $product_ref->{languages_codes}) {
+			foreach my $key (keys %{$product_ref->{languages_codes}}) {
 				my $id = $imagetype . '_' . $key;
 				if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$id})
 					and (defined $product_ref->{images}{$id}{sizes}) and (defined $product_ref->{images}{$id}{sizes}{$size})) {
@@ -8003,7 +7998,7 @@ sub display_structured_response($)
 	my $request_ref = shift;
 	
 	
-	$debug and print STDERR "display_api - format: json = $request_ref->{json} - jsonp = $request_ref->{jsonp} - xml = $request_ref->{xml} - jqm = $request_ref->{jqm} - rss = $request_ref->{rss}\n";
+	$log->debug("Displaying structured response", { json => $request_ref->{json}, jsonp => $request_ref->{jsonp}, xml => $request_ref->{xml}, jqm => $request_ref->{jqm}, rss => $request_ref->{rss} }) if $log->is_debug();
 	if ($request_ref->{xml}) {
 	
 		# my $xs = XML::Simple->new(NoAttr => 1, NumericEscape => 2);
@@ -8176,13 +8171,13 @@ sub display_recent_changes {
 	my $sort_ref = Tie::IxHash->new();
 	$sort_ref->Push('$natural' => -1);
 
-	print STDERR "Display.pm - display_recent_changes - query:\n" . Dumper($query_ref) . "\n";
+	$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
 	my $cursor = $recent_changes_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 	my $count = $cursor->count() + 0;
-	print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - ok, got count: $count\n";
+	$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 
 	if ($@) {
-		print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - retrying once\n";
+		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
 		
 		# opening new connection
 		eval {
@@ -8191,15 +8186,15 @@ sub display_recent_changes {
 			$recent_changes_collection = $database->get_collection('recent_changes');
 		};
 		if ($@) {
-			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - reconnecting failed\n";
+			$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
 			$count = -1;
 		}
 		else {		
-			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - reconnected ok\n";					
-			print STDERR "Display.pm - display_recent_changes - query:\n" . Dumper($query_ref) . "\n";
+			$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
+			$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
 			$cursor = $recent_changes_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 			$count = $cursor->count() + 0;
-			print STDERR "Display.pm - display_recent_changes - MongoDB error: $@ - ok, got count: $count\n";
+			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 		}
 	}
 	

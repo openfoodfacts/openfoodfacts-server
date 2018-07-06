@@ -3,22 +3,27 @@ es:sal
 fr:sel
 nl:zout
 de:Salz
+wikidata:en:Q11254
 
 en:sugar
 es:azúcar
 fr:sucre
 nl:suiker
 de:Zucker
+wikidata:en:Q11002
 
 en:water
 es:agua
 fr:eau
 nl:water
 de:Wasser
+wikidata:en:Q283
 
 en:citric acid
 fr:acide citrique
+wikidata:en:Q159683
 
+en:acidifier
 fr:acidifiant
 
 en:capsicum extract
@@ -26,6 +31,7 @@ es:extracto de capsicum
 fr:extrait de capsicum
 nl:capsicum-extract
 de:Capsaicin-Extrakt
+wikidata:en:Q53792073
 
 fr:conservateur
 
@@ -35,6 +41,7 @@ fr:lait
 nl:melk
 de:Milch
 allergens:fr:_lait_
+wikidata:en:Q8495
 
 fr:arôme
 
@@ -46,7 +53,9 @@ fr:dextrose
 nl:dextrose
 de:Dextrose
 
+en:glucose syrup
 fr:sirop de glucose
+wikidata:en:Q14770547
 
 fr:huile de colza
 
@@ -58,6 +67,7 @@ es:manteca de cacao
 fr:beurre de cacao
 nl:cacaoboter
 de:Kakaobutter
+wikidata:en:Q251106
 
 fr:pâte de cacao
 
@@ -76,14 +86,20 @@ fr:arôme naturel
 
 fr:levure
 
+en:thickener
 fr:épaississant
 
 en:onion
 fr:oignon
 
+en:natural aromas
 fr:arômes naturel
 
+en:ascorbic acid
 fr:acide ascorbique
+
+fr:acide l-ascorbique
+
 
 fr:beurre
 allergens:fr:_beurre_
@@ -91,7 +107,21 @@ allergens:fr:_beurre_
 fr:lait écrémé en poudre
 allergens:fr:_lait_ écrémé en poudre
 
+en:stabilizer
 fr:stabilisant
+
+en:e450 stabilizer
+fr:stabilisant e450
+
+en:stabilizers
+fr:stabilisateurs
+
+fr:stabilisateur
+
+fr:stabilisateur
+
+en:e407 stabilizer
+fr:stabilisant e407
 
 fr:lactose
 allergens:fr:_lactose_
@@ -267,6 +297,7 @@ allergens:fr:semoule de _blé_ dur
 
 fr:sorbate de potassium
 
+en:e330
 fr:e330
 
 en:durian
@@ -275,6 +306,7 @@ fr:durian
 nl:doerian
 de:Durian
 
+en:extra virgin olive oil
 fr:huile d'olive vierge extra
 
 fr:cacao maigre en poudre
@@ -503,6 +535,7 @@ es:manzana
 fr:pomme
 nl:appel
 de:Äpfel
+wikidata:en:Q89
 
 fr:lactose et protéines de lait
 allergens:fr:_lactose_ et protéines de _lait_
@@ -523,6 +556,7 @@ es:limón
 fr:citron
 nl:citroen
 de:Zitrone
+wikidata:en:Q1093742
 
 en:kaffir lime leaf
 es:hoja limón
@@ -549,10 +583,13 @@ es:patata
 fr:pomme de terre, pommes de terre
 nl:aardappel
 de:Kartoffeln
-
+wikidata:en:Q16587531
 
 fr:moutarde de dijon
 allergens:fr:_moutarde_ de dijon
+
+fr:moutarde forte de dijon
+allergens:fr:_moutarde_ forte de dijon
 
 fr:humectant
 
@@ -714,6 +751,7 @@ allergens:fr:_sésame_
 fr:amidon transformé
 
 fr:glutamate monosodique
+wikidata:en:Q179678
 
 fr:e621
 
@@ -734,6 +772,7 @@ fr:beurre pâtissier
 allergens:fr:_beurre_ pâtissier
 
 fr:acide malique
+wikidata:en:Q190143
 
 fr:noix de coco
 
@@ -752,6 +791,45 @@ fr:matière grasse, matières grasses
 fr:chocolat noir
 
 fr:e120
+
+fr:e263
+
+fr:e120, colorant e120
+
+fr:e150c
+
+fr:b3
+
+fr:e422
+
+fr:e211
+
+fr:e 330
+
+fr:e224
+
+fr:e282
+
+fr:e270
+
+fr:e252
+
+fr:e202
+
+en:e250
+fr:e250
+
+fr:e262
+
+en:Acidity regulator E262
+es:Corrector de acidez E262
+fr:correcteur d'acidité E262
+nl:Zuurteregelaar E262
+de:Säureregulator E262
+
+fr:e262i
+
+fr:e242
 
 fr:extrait d'épice, extraits d'épices
 
@@ -801,11 +879,7 @@ fr:céréale
 fr:graines de sésame
 allergens:fr:graines de _sésame_
 
-fr:e412
-
 fr:arôme de fumée, arômes de fumée
-
-fr:b1
 
 fr:fruit
 
@@ -832,8 +906,6 @@ de:Kakaopulver
 
 fr:thiamine
 
-fr:e160a
-
 fr:carotène
 
 fr:rocou
@@ -841,8 +913,6 @@ fr:rocou
 fr:poivrons rouge
 
 fr:petits pois, petit pois
-
-fr:e452
 
 fr:poivron
 
@@ -971,8 +1041,6 @@ de:Chiaöl
 
 fr:amidon de tapioca
 
-fr:e472e
-
 fr:protéine de soja, protéines de soja
 allergens:fr:protéines de _soja_
 
@@ -1058,8 +1126,6 @@ fr:lutéine
 
 fr:levain
 
-fr:e476
-
 fr:semoule de mais
 
 fr:salmo salar
@@ -1081,8 +1147,6 @@ fr:poudre de cacao maigre
 
 fr:son de blé
 allergens:fr:son de _blé_
-
-fr:e322
 
 fr:minéraux
 
@@ -1120,10 +1184,6 @@ fr:banane
 nl:banaan
 de:Bananen
 
-fr:e150d
-
-
-
 fr:disulfite de sodium
 allergens:fr:_disulfite_ de sodium
 
@@ -1132,6 +1192,22 @@ fr:extrait d'épice, extraits d'épices
 fr:pépites de chocolat
 
 fr:e160c
+
+fr:e150d
+
+fr:e322
+
+fr:e476
+
+fr:e472e
+
+fr:e452
+
+fr:e160a
+
+fr:b1
+
+fr:e412
 
 fr:foie de porc
 
@@ -1457,10 +1533,7 @@ fr:benzoate de sodium
 
 fr:sulfate de zinc
 
-
-
 fr:poudre d'oignon
-
 
 fr:crème de lait
 allergens:fr:crème de _lait_
@@ -1474,41 +1547,6 @@ allergens:fr:_ricotta_
 fr:glycosides de stéviol
 
 fr:aneth
-
-fr:e150c
-
-fr:b3
-
-fr:e422
-
-fr:e211
-
-fr:e 330
-
-fr:e224
-
-fr:e282
-
-fr:e270
-
-fr:e252
-
-fr:e202
-
-en:e250
-fr:e250
-
-fr:e262
-
-en:Acidity regulator E262
-es:Corrector de acidez E262
-fr:correcteur d'acidité E262
-nl:Zuurteregelaar E262
-de:Säureregulator E262
-
-fr:e262i
-
-fr:e242
 
 fr:yaourt
 allergens:fr:_yaourt_
@@ -2432,8 +2470,6 @@ fr:cire d'abeille blanche et jaune
 
 fr:vinaigre de xérès
 
-fr:stabilisateur
-
 fr:e1422
 
 fr:concentré des minéraux du lait
@@ -2875,8 +2911,6 @@ fr:rhubarbe
 
 fr:e250
 
-fr:stabilisateur
-
 en:tree sorrel
 es:Bilimbi
 fr:bilimbi
@@ -2947,34 +2981,46 @@ es:yodato de calcio
 fr:iodate de calcium
 nl:calciumjodaat
 de:Calciumiodat
+#wikidata:en:
 
 fr:e472c
+#wikidata:en:
 
 fr:nitrate de sodium
+#wikidata:en:
 
 fr:caramel au sulfite d'ammonium
 allergens:fr:caramel au _sulfite_ d'ammonium
+#wikidata:en:
 
 fr:diphosphate ferrique
+#wikidata:en:
 
 fr:natamycine, e235
+#wikidata:en:
 
 fr:h, vitamine h
+#wikidata:en:
 
 en:cauliflower 
 es:coliflor 
 fr:chou-fleur, choux-fleur, choux-fleurs
 nl:bloemkool 
 de:Blumenkohl
+#wikidata:en:
 
 fr:graines de courge
+#wikidata:en:
 
 fr:e518, sulfate de manganèse
+#wikidata:en:
 
 fr:arôme naturel de vanille avec autres arômes naturels
+#wikidata:en:
 
 fr:métabisulfite de potassium
 allergens:fr:_métabisulfite_ de potassium
+#wikidata:en:
 
 fr:graisse de bœuf
 
@@ -3899,12 +3945,9 @@ fr:jus de fruits concentrés
 
 fr:coton, huile de coton
 
-fr:e263
-
 fr:flocons d'épeautre
 allergens:fr:flocons d'_épeautre_
 
-fr:e120, colorant e120
 
 fr:oignons frais
 
@@ -4032,6 +4075,7 @@ fr:monoglutamate de sodium
 
 fr:tomates mi-séchées
 
+fr:red onions
 fr:oignons rouges
 
 fr:bolets
@@ -4118,6 +4162,7 @@ allergens:fr:fromage au _lait_ pasteurisé
 
 fr:farine de graines de caroube et farine de graines de guar
 
+en:zinc
 fr:zinc
 
 fr:cornflakes
@@ -4169,8 +4214,10 @@ fr:raisin blanc
 fr:caramel au beurre salé
 allergens:fr:caramel au _beurre_ salé
 
+en:e222
 fr:e222
 
+en:e535
 fr:e535
 
 fr:jus de fruits de la passion
@@ -4201,6 +4248,7 @@ fr:farine de châtaigne
 
 fr:poivron jaune
 
+fr:vinegars
 fr:vinaigres
 
 fr:colorants naturels
@@ -4219,18 +4267,22 @@ fr:améliorant de cuisson
 
 fr:sel de guérande
 
+fr:coriander
 fr:coriandre
 
 fr:sels de magnésium d'acides gras
 
+fr:carminic acid
 fr:acide carminique
 
 fr:e 101
 
+fr:onions
 fr:oignons
 
 fr:blanc de poulet
 
+en:e460
 fr:e460
 
 fr:baies roses
@@ -4655,10 +4707,13 @@ fr:vin aromatisé
 fr:éclats de noisettes caramélisés
 allergens:fr:éclats de _noisettes_ caramélisés
 
+en:e955
 fr:e955
 
+en:e 476
 fr:e 476
 
+en:e 322
 fr:e 322
 
 fr:poudre de cacao dégraissé
@@ -4671,6 +4726,7 @@ fr:denrées alimentaires colorantes
 
 fr:chlorure de choline
 
+en:algae
 fr:algue
 
 fr:levain de seigle
@@ -4933,6 +4989,7 @@ allergens:fr:levain de _seigle_ dévitalisé
 
 fr:lait de coco en poudre
 
+en:e435
 fr:e435
 
 fr:carottes en rondelles
@@ -4989,6 +5046,7 @@ allergens:fr:chair de _crabe_
 
 fr:coulis de tomates
 
+en:e307
 fr:e307
 
 fr:laitue iceberg
@@ -5425,6 +5483,7 @@ fr:pholiotes
 
 fr:lentilles précuites
 
+en:vitamin b3
 fr:vitamine b3
 
 fr:pétales de blé
@@ -5513,6 +5572,7 @@ allergens:fr:_gruyère_
 fr:moutarde en poudre
 allergens:fr:_moutarde_ en poudre
 
+en:e954
 fr:e954
 
 fr:jus de cassis à base de concentré
@@ -5580,6 +5640,7 @@ fr:jus de grenade
 
 fr:châtaigne
 
+en:e516
 fr:e516
 
 fr:diphosphates de sodium
@@ -5750,9 +5811,6 @@ fr:poisson blanc
 allergens:fr:_poisson_ blanc
 
 fr:arôme naturel de caramel
-
-fr:stabilisateurs
-
 
 en:cooked potato
 es:patata cocida
@@ -6032,6 +6090,7 @@ fr:maltodextrine de tapioca
 
 fr:arôme identique nature
 
+en:e160
 fr:e160
 
 fr:jus de pamplemousse à base de concentré
@@ -6046,7 +6105,7 @@ fr:extrait pur de vanille
 fr:préparation fromagère
 allergens:fr:préparation _fromagère_
 
-
+en:stabilizer e445
 fr:stabilisant e445
 
 fr:pain de mie au son de blé
@@ -6062,10 +6121,12 @@ fr:aromates et épices
 
 fr:salvia hispanica, chia
 
+en:vitamin b8
 fr:vitamine b8
 
 fr:colorants de la croûte
 
+en:e504
 fr:e504
 
 fr:amidons transformés de riz
@@ -6103,8 +6164,6 @@ fr:poudre de chocolat
 
 fr:triphosphates et diphosphates
 
-fr:acide l-ascorbique
-
 fr:morilles
 
 fr:sauce en poudre
@@ -6135,8 +6194,6 @@ fr:e315
 
 
 fr:fibres d'acacia
-
-fr:lecitina de soja
 
 fr:glycérol et sorbitols
 
@@ -6553,6 +6610,7 @@ fr:caramel de sulfite caustique
 fr:merlu blanc
 allergens:fr:_merlu_ blanc
 
+en:e160aii
 fr:e160aii
 
 fr:amidons modifiés de maïs
@@ -6898,6 +6956,7 @@ fr:bigarreaux confits
 
 fr:dicarbonate de dimethyle
 
+en:e 220
 fr:e 220
 
 fr:couscous
@@ -6976,6 +7035,7 @@ fr:fruits des bois
 
 fr:carottes jaunes
 
+en:e1505
 fr:e1505
 
 fr:farine de gonflement de blé
@@ -7579,8 +7639,6 @@ fr:eau purifiée
 
 fr:concentré de carottes
 
-fr:stabilisant e407
-
 fr:protéines de lait en poudre
 allergens:fr:protéines de _lait_ en poudre
 
@@ -8050,8 +8108,11 @@ fr:graisses végétales non hydrogénées
 
 fr:shiitakes
 
+en:GMO-free soy lecithin
 fr:lécithine de soja sans ogm
 
+en:soy lecithin
+es:lecitina de soja
 fr:lécitine de soja
 allergens:fr:lécitine de _soja_
 
@@ -8366,7 +8427,6 @@ fr:cacao dégraissé
 fr:lait en poudre enrichi en matière grasse
 allergens:fr:_lait_ en poudre enrichi en matière grasse
 
-fr:acide ascorbique
 
 fr:arôme naturel de citron et autres arômes naturels
 
@@ -8580,9 +8640,6 @@ fr:salade mélangée
 
 fr:crème stérilisée
 allergens:fr:_crème_ stérilisée
-
-fr:moutarde forte de dijon
-allergens:fr:_moutarde_ forte de dijon
 
 fr:amidons modifiés de maïs et de pomme de terre
 
@@ -8852,8 +8909,6 @@ allergens:fr:_lupins_
 fr:cantharellus cibarius
 
 fr:dés de tomates
-
-fr:stabilisant e450
 
 
 en:Jerusalem artichoke

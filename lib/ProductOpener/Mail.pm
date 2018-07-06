@@ -44,6 +44,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use MIME::Lite;
 use Encode;
+use Log::Any qw($log);
 
 sub send_email($$$)
 {
@@ -95,10 +96,10 @@ sub send_email_to_admin($$)
 	eval { $mime_email->send; };
 	
     if ( $@ ) {
-	    print STDERR "WARNING no email sent to admin: \n" . $mime_email->as_string . "\n";
+		$log->warn("no email sent to admin", { mail => $mime_email->as_string }) if $log->is_warn();
         return 1;
     } else {
-	    print STDERR "sent email to admin: \n" . $mime_email->as_string . "\n";
+		$log->info("sent email to admin", { mail => $mime_email->as_string }) if $log->is_info();
         return 0;
     }
 }

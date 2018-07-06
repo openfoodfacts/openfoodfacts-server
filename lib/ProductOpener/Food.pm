@@ -45,6 +45,8 @@ BEGIN
 					
 					&unit_to_mmoll
 					&mmoll_to_unit
+					
+					&normalize_quantity
 
 					&canonicalize_nutriment
 					
@@ -63,6 +65,8 @@ BEGIN
 					&get_canon_local_authority
 					
 					&special_process_product
+
+					&export_nutrients_taxonomy
 					
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -80,7 +84,7 @@ use Hash::Util;
 
 use CGI qw/:cgi :form escapeHTML/;
 
-
+use Log::Any qw($log);
 
 sub unit_to_g($$) {
 	my $value = shift;
@@ -1168,6 +1172,7 @@ fat => {
 },
 'saturated-fat' => {
 	fr => "Acides gras saturés",
+	fr_synonyms => ["Saturés", "AGS"],
 	en => "Saturated fat",
 	es => "Grasas saturadas",
 	it =>"Acidi Grassi saturi",
@@ -1332,6 +1337,7 @@ fat => {
 },
 'monounsaturated-fat' => {
 	fr => "Acides gras monoinsaturés",
+	fr_synonyms => ["Acides gras mono-insaturés"],
 	en => "Monounsaturated fat",
 	es => "Grasas monoinsaturadas",
 	it=> "Acidi grassi monoinsaturi", 
@@ -1360,6 +1366,7 @@ fat => {
 },
 'omega-9-fat' => {
 	fr => "Acides gras Oméga 9",
+	fr_synonyms => ["Oméga 9"],
 	en => "Omega 9 fatty acids",
 	es => "Ácidos grasos Omega 9",
 	el => 'Ωμέγα-9 λιπαρά',
@@ -1429,6 +1436,7 @@ fat => {
 },
 'polyunsaturated-fat' => {
 	fr => "Acides gras polyinsaturés",
+	fr_synonyms => ["Acides gras poly-insaturés"],
 	en => "Polyunsaturated fat",
 	es => "Grasas poliinsaturadas",
 	it => "Acidi grassi polinsaturi",
@@ -1457,6 +1465,7 @@ fat => {
 },
 'omega-3-fat' => {
 	fr => "Acides gras Oméga 3",
+	fr_synonyms => ["Oméga 3"],
 	en => "Omega 3 fatty acids",
 	es => "Ácidos grasos Omega 3",
 	el => 'Ωμέγα-3 λιπαρά',
@@ -1484,6 +1493,7 @@ fat => {
 	el => 'Εικοσιπεντανοϊκο οξύ / EPA (20:5 n-3)',
 	pt => 'Ácido eicosapentaenóico / EPA (20:5 n-3)',
 	fr => 'Acide eicosapentaénoïque / EPA (20:5 n-3)',
+	fr_synonyms => ["Oméga 3 EPA"],
 	nl => 'Eicosapentaeenzuur / EPA (20:5 n-3)',
 	nl_be => 'Eicosapentaeenzuur / EPA (20:5 n-3)',
 },
@@ -1493,11 +1503,13 @@ fat => {
 	el => 'Δοκοσαεξανοϊκο οξύ / DHA (22:6 n-3)',
 	pt => 'Ácido docosa-hexaenóico / DHA (22:6 n-3)',
 	fr => 'Acide docosahexaénoïque / DHA (22:6 n-3)',
+	fr_synonyms => ["Oméga 3 DHA"],
 	nl => 'Docosahexaeenzuur / DHA (22:6 n-3)',
 	nl_be => 'Docosahexaeenzuur / DHA (22:6 n-3)',
 },
 'omega-6-fat' => {
 	fr => "Acides gras Oméga 6",
+	fr_synonyms => ["Oméga 6"],
 	en => "Omega 6 fatty acids",
 	es => "Ácidos grasos Omega 6",
 	el => "Ωμέγα-6 λιπαρά",
@@ -2884,23 +2896,31 @@ sub canonicalize_nutriment($$) {
 			}
 		}
 	}
+
+	$log->trace("nutriment canonicalized", { lc => $lc, label => $label, nid => $nid }) if $log->is_trace();
 	return $nid;
-	#print STDERR "canonicalize_nutriment : lc: $lc - label: $label - nid: $nid\n";
+	
 }
 
 
 
-print STDERR "Food.pm - initialize \%nutriments_labels\n";
+$log->info("initialize \%nutriments_labels");
 
 foreach my $nid (keys %Nutriments) {
 	
 	foreach my $lc (sort keys %{$Nutriments{$nid}}) {
+	
+		# skip non language codes
+		
+		next if ($lc =~  /^unit/); 
+		next if ($lc =~  /^dv/); 
+		next if ($lc =~  /^iu/); 
 
 		my $label = $Nutriments{$nid}{$lc};
 		next if not defined $label;
 		defined $nutriments_labels{$lc} or $nutriments_labels{$lc} = {};
 		$nutriments_labels{$lc}{canonicalize_nutriment($lc,$label)} = $nid;
-		#print STDERR "nutriments_labels : lc: $lc - label: $label - nid: $nid\n";
+		$log->trace("initializing label", { lc => $lc, label => $label, nid => $nid }) if $log->is_trace();
 		
 		my @labels = split(/\(|\/|\)/, $label);
 
@@ -2908,7 +2928,7 @@ foreach my $nid (keys %Nutriments) {
 			$sublabel = canonicalize_nutriment($lc,$sublabel);
 			if (length($sublabel) >= 2) {
 				$nutriments_labels{$lc}{$sublabel} = $nid;
-				#print STDERR "nutriments_labels : lc: $lc - sublabel: $sublabel - nid: $nid\n";
+				$log->trace("initializing sublabel", { lc => $lc, sublabel => $sublabel, nid => $nid }) if $log->is_trace();
 			}
 			if ($sublabel =~ /alpha-/) {
 				$sublabel =~ s/alpha-/a-/;
@@ -2924,6 +2944,35 @@ foreach my $nid (keys %Nutriments) {
 }
 
 
+sub normalize_quantity($) {
+
+	# return the size in g or ml for the whole product
+	
+	# 1 barquette de 40g
+	# 20 tranches 500g
+	# 6x90g --> return 540
+
+	my $quantity = shift;
+	
+	my $q = undef;
+	my $u = undef;
+	
+	if ($quantity =~ /(\d+)(\s)?(x|\*)(\s)?((\d+)(\.|,)?(\d+)?)(\s)?(kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz))/i) {
+		my $m = $1;
+		$q = lc($5);
+		$u = $10;
+		$q =~ s/,/\./;
+		$q = unit_to_g($q * $m, $u);
+	}	
+	elsif ($quantity =~ /((\d+)(\.|,)?(\d+)?)(\s)?(kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz))/i) {
+		$q = lc($1);
+		$u = $6;
+		$q =~ s/,/\./;
+		$q = unit_to_g($q,$u);
+	}
+		
+	return $q;
+}
 
 
 sub normalize_serving_size($) {
@@ -2940,8 +2989,7 @@ sub normalize_serving_size($) {
 		$q = unit_to_g($q,$u);
 	}
 	
-	# print STDERR "normalize_serving_size: serving: $serving - q: $q - u: $u \n";
-	
+	$log->trace("serving size normalized", { serving => $serving, q => $q, u => $u }) if $log->is_trace();
 	return $q;
 }
 
@@ -3126,7 +3174,7 @@ CAT
 			$product_ref->{pnns_groups_1_tags} = [get_fileid($product_ref->{pnns_groups_1})];
 		}
 		else {
-			print STDERR "warning, no pnns group 1 for pnns group 2 $product_ref->{pnns_groups_2}\n";
+			$log->warn("no pnns group 1 for pnns group 2", { pnns_group_2 => $product_ref->{pnns_groups_2} }) if $log->is_warn();
 		}
 	}
 	else {
@@ -3644,7 +3692,13 @@ sub compute_serving_size_data($) {
 	(defined $product_ref->{not_comparable_nutrition_data}) and delete $product_ref->{not_comparable_nutrition_data};
 	(defined $product_ref->{multiple_nutrition_data}) and delete $product_ref->{multiple_nutrition_data};
 
-	
+	(defined $product_ref->{product_quantity}) and delete $product_ref->{product_quantity};
+	if ((defined $product_ref->{quantity}) and ($product_ref->{quantity} ne "")) {
+		my $product_quantity = normalize_quantity($product_ref->{quantity});
+		if (defined $product_quantity) {
+			$product_ref->{product_quantity} = $product_quantity;
+		}
+	}
 	
 	$product_ref->{serving_quantity} = normalize_serving_size($product_ref->{serving_size});
 	
@@ -3868,13 +3922,13 @@ sub compare_nutriments($$) {
 	
 	foreach my $nid (keys %{$b_ref->{nutriments}}) {
 		next if $nid !~ /_100g$/;
-		# print STDERR "Food.pm - compare_nutriments - $nid\n";
+		$log->trace("compare_nutriments", { nid => $nid }) if $log->is_trace();
 		if ($b_ref->{nutriments}{$nid} ne '') {
 			$nutriments{$nid} = $b_ref->{nutriments}{$nid};
 			if (($b_ref->{nutriments}{$nid} > 0) and (defined $a_ref->{nutriments}{$nid}) and ($a_ref->{nutriments}{$nid} ne '')){
 				$nutriments{"${nid}_%"} = ($a_ref->{nutriments}{$nid} - $b_ref->{nutriments}{$nid})/ $b_ref->{nutriments}{$nid} * 100;
 			}
-			# print STDERR "Food.pm - compare_nutriments - $nid : $nutriments{$nid} , " . $nutriments{"$nid.%"} . "%\n";
+			$log->trace("compare_nutriments", { nid => $nid, value => $nutriments{$nid}, percent => $nutriments{"$nid.%"} }) if $log->is_trace();
 		}
 	}
 	
@@ -3885,12 +3939,17 @@ sub compare_nutriments($$) {
 
 
 foreach my $key (keys %Nutriments) {
+
 	if (not exists $Nutriments{$key}{unit}) {
 		$Nutriments{$key}{unit} = 'g';
 	}
 	if (exists $Nutriments{$key}{fr}) {
-		foreach my $l (@Langs) {
+		foreach my $l (sort @Langs) {
 			next if $l eq 'fr';
+			# we should not use iu and dv as keys for international units and daily values as they are language codes too
+			# FIXME / TODO : change key names in Food.pm
+			next if $l eq 'iu';
+			next if $l eq 'dv';
 			my $short_l = undef;
 			if ($l =~ /_/) {
 				$short_l = $`,  # pt_pt
@@ -3909,6 +3968,23 @@ foreach my $key (keys %Nutriments) {
 		}
 	}
 }
+
+# export %Nutriment translations etc.
+
+# be careful: binmode can't be called in the startup_apache2.pl script
+# or Apache will segfault in encoding.so :-(
+
+sub export_nutrients_taxonomy() {
+
+(-e "$www_root/data/taxonomies") or mkdir("$www_root/data/taxonomies", 0755);
+use JSON::PP;		
+binmode STDOUT, ":encoding(UTF-8)";
+open (my $OUT_JSON, ">", "$www_root/data/taxonomies/nutrients.json");
+print $OUT_JSON encode_json(\%Nutriments);
+close ($OUT_JSON);
+
+}
+
 
 Hash::Util::lock_keys(%Nutriments);
 

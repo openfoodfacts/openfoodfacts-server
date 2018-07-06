@@ -41,8 +41,6 @@ BEGIN
 					$memd
 					%texts
 					
-					$debug
-					
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -60,11 +58,11 @@ use Cache::Memcached::Fast;
 use Digest::MD5 qw(md5);
 use URI::Escape;
 use URI::Escape::XS;
-use HTML::Defang;
 #use Text::Unaccent::PurePerl "unac_string";
 use Text::Unaccent "unac_string";
 use DateTime;
 use Image::Magick;
+use Log::Any qw($log);
 
 use Encode qw/from_to decode encode/;
 require Encode::Detect;
@@ -90,7 +88,7 @@ opendir DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
 foreach my $langid (readdir(DH2)) {
 	next if $langid eq '.';
 	next if $langid eq '..';
-	# print STDERR "reading texts for lang $langid\n";
+	$log->trace("reading texts", { lang => $langid }) if $log->is_trace();
 	next if ((length($langid) ne 2) and not ($langid eq 'other'));
 
 	if (-e "$data_root/lang/$langid/texts") {
@@ -105,7 +103,8 @@ foreach my $langid (readdir(DH2)) {
 			if ((not defined $texts{$textid}{$langid}) or (length($file) > length($texts{$textid}{$langid}))) {
 				$texts{$textid}{$langid} = $file;
 			}
-			# print STDERR "Display : loaded text $langid/$textid\n";
+			
+			$log->trace("text loaded", { langid => $langid, textid => $textid }) if $log->is_trace();
 		}
 		closedir(DH);
 	}
@@ -121,8 +120,6 @@ closedir(DH2);
 
 use vars qw(
 );
-
-$debug = 1 ;	# Set to a non null value to get debug messages
 
 sub unac_string_stephane($) {
 	my $s = shift;
@@ -208,21 +205,13 @@ sub decode_html($)
 	if ($string =~ /charset=(.?)utf(-?)8/i) {
 		$encoding = "UTF-8";
 	}
-	else {
-		#from_to($string, "windows-1252", "utf8");
-	}
-	# following doesn't work now that we have use utf8 instead of use bytes;
-	#elsif ($string =~ /é|à|è/) {
-	#	$encoding = "UTF8";
-	#	print STDERR "decode_html : string contains utf8 accents ? \n";
-	#}
+	
 	my $utf8 = $string;
 	if (not utf8::is_utf8($string)) {
 		$utf8 = decode($encoding, $string);
 	}
-	#my $utf8 = decode("UTF8", $string);
-
-	print STDERR "\n\ndecode_html : encoding: $encoding \n\n";
+	
+	$log->debug("decoding", { encoding => $encoding }) if $log->is_debug();
 	$utf8 = decode_entities($utf8);	
 	
 	return $utf8;

@@ -60,18 +60,26 @@ use Clone qw(clone);
 use LWP::UserAgent;
 use Encode;
 use JSON::PP;
+use Log::Any qw($log);
 
 # MIDDLE DOT with common substitutes (BULLET variants, BULLET OPERATOR and DOT OPERATOR (multiplication))
 my $middle_dot = qr/(?:\N{U+00B7}|\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N{U+204C}|\N{U+204D}|\N{U+2219}|\N{U+22C5})/i;
 # Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
 my $dashes = qr/(?:\p{Pd}|\N{U+2053}|\N{U+2212})/i;
-my $separators = qr/(\.\s|,|;|:|$middle_dot|\[|\{|\(|( $dashes ))|(\/)/i;
-# separators include the dot . followed by a space, but we don't want to separate 1.4 etc.
-my $separators_except_comma = qr/(;|:|$middle_dot|\[|\{|\(|( $dashes ))|(\/)/i;
+# ',' and synonyms - COMMA, SMALL COMMA, FULLWIDTH COMMA, IDEOGRAPHIC COMMA, SMALL IDEOGRAPHIC COMMA, HALFWIDTH IDEOGRAPHIC COMMA
+my $commas = qr/(?:\N{U+002C}|\N{U+FE50}|\N{U+FF0C}|\N{U+3001}|\N{U+FE51}|\N{U+FF64})/i;
+# '.' and synonyms - FULL STOP, SMALL FULL STOP, FULLWIDTH FULL STOP, IDEOGRAPHIC FULL STOP, HALFWIDTH IDEOGRAPHIC FULL STOP
+my $stops = qr/(?:\N{U+002E}|\N{U+FE52}|\N{U+FF0E}|\N{U+3002}|\N{U+FE61})/i;
+# '(' and other opening brackets ('Punctuation, Open' without QUOTEs)
+my $obrackets = qr/^(?![\N{U+201A}|\N{U+201E}|\N{U+276E}|\N{U+2E42}|\N{U+301D}])[\p{Ps}]$/i;
+# ')' and other closing brackets ('Punctuation, Close' without QUOTEs)
+my $cbrackets = qr/^(?![\N{U+276F}|\N{U+301E}|\N{U+301F}])[\p{Pe}]$/i;
+my $separators_except_comma = qr/(;|:|$middle_dot|\[|\{|\(|( $dashes ))|(\/)/i; # separators include the dot . followed by a space, but we don't want to separate 1.4 etc.
+my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 
 # load ingredients classes
 
-opendir(DH, "$data_root/ingredients") or print STDERR "cannot open directory $data_root/ingredients: $!\n";
+opendir(DH, "$data_root/ingredients") or $log->error("cannot open ingredients directory", { path => "$data_root/ingredients", error => $! });
 
 foreach my $f (readdir(DH)) {
 	next if $f eq '.';
@@ -153,7 +161,7 @@ sub extract_ingredients_from_image($$$) {
 	
 	my $text;
 	
-	print STDERR "Ingredients.pm - extracts_ingredients_from_image - id: $id - ocr_engine: $ocr_engine\n";
+	$log->debug("extracing ingredients from image", { id => $id, ocr_engine => $ocr_engine }) if $log->is_debug();
 	
 	if ($ocr_engine eq 'tesseract') {
 	
@@ -169,7 +177,7 @@ sub extract_ingredients_from_image($$$) {
 			$lan = $ProductOpener::Config::tesseract_ocr_available_languages{en};
 		}
 		
-		print STDERR "extract_ingredients_from_image - lc: $lc - lan: $lan - id: $id - image: $image\n";
+		$log->debug("extracting ingredients with tesseract", { lc => $lc, lan => $lan, id => $id, image => $image }) if $log->is_debug();
 		
 		if (defined $lan) {
 			$text =  decode utf8=>get_ocr($image,undef,$lan);
@@ -180,7 +188,7 @@ sub extract_ingredients_from_image($$$) {
 			}
 		}
 		else {
-			print STDERR "extract_ingredients_from_image - lc: $lc - lan: $lan - id: $id - no available tesseract dictionary\n";	
+			$log->warn("no available tesseract dictionary", { lc => $lc, lan => $lan, id => $id }) if $log->is_warn();
 		}
 	
 	}
@@ -211,7 +219,7 @@ sub extract_ingredients_from_image($$$) {
 			
 		if ($res->is_success) {
 		
-			print STDERR "google cloud vision: success\n";
+			$log->info("request to google cloud vision was successful") if $log->is_info();
 		
 			my $json_response = $res->decoded_content;
 			
@@ -219,7 +227,7 @@ sub extract_ingredients_from_image($$$) {
 			
 			my $json_file = "$www_root/images/products/$path/$filename.full.jpg" . ".google_cloud_vision.json";
 			
-			print STDERR "google cloud vision: saving json response to $json_file\n";
+			$log->info("saving google cloud vision json response to file", { path => $json_file }) if $log->is_info();
 			
 			open (my $OUT, ">:encoding(UTF-8)", $json_file);
 			print $OUT $json_response;
@@ -229,7 +237,7 @@ sub extract_ingredients_from_image($$$) {
 				and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation})
 				and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text})) {
 				
-				print STDERR "google cloud vision: found a text response\n";
+				$log->debug("text found in google cloud vision response") if $log->is_debug();
 	
 				
 				$product_ref->{ingredients_text_from_image} = $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text};
@@ -238,7 +246,7 @@ sub extract_ingredients_from_image($$$) {
 			
 		}
 		else {
-			print STDERR "google cloud vision: not ok - code: " . $res->code . " - message: " . $res->message . "\n";
+			$log->warn("google cloud vision request not successful", { code => $res->code, response => $res->message }) if $log->is_warn();
 		}
 
 	
@@ -256,7 +264,7 @@ sub extract_ingredients_from_text($) {
 	my $path = product_path($product_ref->{code});
 	my $text = $product_ref->{ingredients_text};
 	
-	print STDERR "extract_ingredients_from_text - text: $text \n";
+	$log->debug("extracting ingredients from text", { text => $text }) if $log->is_debug();
 	
 	# unify newline feeds to \n
 	$text =~ s/\r\n/\n/g;
@@ -408,8 +416,8 @@ sub extract_ingredients_from_text($) {
 		# remove percent
 		
 		# remove * and other chars before and after the name of ingredients
-		$ingredient =~ s/(\s|\*|\)|\]|\}|\.|-|')+$//;
-		$ingredient =~ s/^(\s|\*|\)|\]|\}|\.|-|')+//;
+		$ingredient =~ s/(\s|\*|\)|\]|\}|$stops|$dashes|')+$//;
+		$ingredient =~ s/^(\s|\*|\)|\]|\}|$stops|$dashes|')+//;
 		
 		$ingredient =~ s/\s*(\d+(\,\.\d+)?)\s*\%\s*$//;
 		
@@ -536,7 +544,7 @@ sub normalize_fr_vitamin($) {
 
 	my $a = shift;
 
-	print STDERR "norm vitamin - ->$a<-\n";
+	$log->debug("normalize vitamin using French rules", { vitamin => $a }) if $log->is_debug();
 	
 	$a =~ s/\s+$//;
 	$a =~ s/^\s+//;
@@ -558,12 +566,13 @@ sub normalize_fr_vitamins_enumeration($) {
 	
 	my @vitamins = split(/\(|\)|\/| \/ | - |, |,| et /, $vitamins_list);
 	
-	print STDERR "split_vitamins input: " . $vitamins_list . "\n";
-	
+	$log->debug("splitting vitamins", { input => $vitamins_list }) if $log->is_debug();	
 	
 	# first output "vitamines," so that the current additive class is set to "vitamins"
 	my $split_vitamins_list = "vitamines," . join(",", map { normalize_fr_vitamin($_)} @vitamins);
-	print STDERR "split_vitamins output: " . $split_vitamins_list . "\n";
+
+	$log->debug("vitamins split", { input => $vitamins_list, output => $split_vitamins_list }) if $log->is_debug();
+
 	return $split_vitamins_list;
 }
 
@@ -782,7 +791,7 @@ sub extract_ingredients_classes_from_text($) {
 		}
 		$vitaminssuffixregexp =~ s/^\|//;		
 		
-		print STDERR "vitamins regexp: s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et ))+/\n";
+		$log->debug("vitamins regexp", { regex => "s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et ))+/" }) if $log->is_debug();
 	
 		$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )*((($vitaminssuffixregexp)( |\/| \/ | - |,|, | et ))+($vitaminssuffixregexp))\b/normalize_fr_vitamins_enumeration($3)/ieg;
 
@@ -797,7 +806,7 @@ sub extract_ingredients_classes_from_text($) {
 		my $ingredientid = get_fileid($ingredient);
 		if ((defined $ingredientid) and ($ingredientid ne '')) {
 			push @ingredients_ids, $ingredientid;
-			# print STDERR "ingredient 3: $ingredient \n";
+			$log->debug("ingredient 3", { ingredient => $ingredient }) if $log->is_debug();
 		}
 	}
 	
@@ -863,7 +872,7 @@ sub extract_ingredients_classes_from_text($) {
 					
 					if (exists_taxonomy_tag("additives_classes", $canon_ingredient_additive_class )) {
 						$current_additive_class = $canon_ingredient_additive_class;
-						# print STDERR "current_additive_class : $canon_ingredient_additive_class\n";
+						$log->debug("current additive class", { current_additive_class => $canon_ingredient_additive_class }) if $log->is_debug();
 					}
 				
 					# additive?
@@ -1014,7 +1023,8 @@ sub extract_ingredients_classes_from_text($) {
 						# in Hong Kong, the E- can be ommited in E-numbers
 						
 						elsif (($canon_ingredient =~ /^en:(\d+)( |-)?([a-z])??(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?$/i)
-							and (exists_taxonomy_tag($tagtype, $canon_e_ingredient))) {
+							and (exists_taxonomy_tag($tagtype, $canon_e_ingredient))
+							and ($current_additive_class ne "ingredient")) {
 					
 							$seen{$canon_e_ingredient} = 1;
 							$product_ref->{$tagtype} .= " -> e-ingredient exists  ";
@@ -1229,36 +1239,98 @@ sub extract_ingredients_classes_from_text($) {
 
 
 
-sub replace_allergen($$$) {
+
+sub replace_allergen($$$$) {
 	my $language = shift;
 	my $product_ref = shift;
 	my $allergen = shift;
+	my $before = shift;
+	
+	my $field = "allergens";
+	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|may contain)\b/i) {
+		$field = "traces";
+	}
 	
 	# to build the product allergens list, just use the ingredients in the main language
 	if ($language eq $product_ref->{lc}) {
-		$product_ref->{allergens} .= $allergen . ', ';
+		$product_ref->{$field} .= $allergen . ', ';
 	}
 	
 	return '<span class="allergen">' . $allergen . '</span>';
 }
 
 
-sub replace_caps($$$) {
+sub replace_allergen_in_caps($$$$) {
 	my $language = shift;
 	my $product_ref = shift;
 	my $allergen = shift;
+	my $before = shift;
+	
+	my $field = "allergens";
+	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|may contain)\b/i) {
+		$field = "traces";
+	}
 	
 	my $tagid = canonicalize_taxonomy_tag($language,"allergens", $allergen);
+	
+	print STDERR "allergen: $allergen - tagid: $tagid\n";
+	
 	if (exists_taxonomy_tag("allergens", $tagid)) {
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
 		# to build the product allergens list, just use the ingredients in the main language
 		if ($language eq $product_ref->{lc}) {
-			$product_ref->{allergens} .= $allergen . ', ';
+			$product_ref->{$field} .= $allergen . ', ';
 		}
 		return '<span class="allergen">' . $allergen . '</span>';
 	}
 	else {
 		return $allergen;
+	}		
+}
+
+
+sub replace_allergen_between_separators($$$$$$) {
+	my $language = shift;
+	my $product_ref = shift;
+	my $start_separator = shift;	
+	my $allergen = shift;
+	my $end_separator = shift;
+	my $before = shift;
+	
+	my $field = "allergens";
+	
+	
+	print STDERR "allergen: $allergen\n";
+	
+	my $stopwords = "d'autres|autre|autres|ce|produit|est|fabriqué|élaboré|transformé|emballé|dans|un|atelier|une|usine|qui|utilise|aussi|également|céréale|céréales|farine|farines|extrait|extraits|graine|graines|traces|éventuelle|éventuelles|possible|possibles|peut|pourrait|contenir|contenant|contient|de|des|du|d'|l'|la|le|les|et|and|of";
+	
+	my $before_allergen = "";
+	if ($allergen =~ /^((\s|\b($stopwords)\b)+)/i) {
+		$before_allergen = $1;
+		$allergen =~ s/^(\s|\b($stopwords)\b)+//i;
+	}
+	
+	if (($before . $before_allergen) =~ /\b(peut contenir|qui utilise aussi|traces|may contain)\b/i) {
+		$field = "traces";
+		print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
+	}	
+	
+	print STDERR "before_allergen: $before_allergen - allergen: $allergen\n";
+	
+	my $tagid = canonicalize_taxonomy_tag($language,"allergens", $allergen);
+	
+	print STDERR "before_allergen: $before_allergen - allergen: $allergen - tagid: $tagid\n";
+	
+	if (exists_taxonomy_tag("allergens", $tagid)) {
+		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
+		# to build the product allergens list, just use the ingredients in the main language
+		if ($language eq $product_ref->{lc}) {
+			$product_ref->{$field} .= $allergen . ', ';
+		}
+		return $start_separator . $before_allergen . '<span class="allergen">' . $allergen . '</span>' . $end_separator;
+	}
+	else {
+		return $start_separator . $before_allergen . $allergen . $end_separator;
 	}		
 }
 
@@ -1269,20 +1341,40 @@ sub detect_allergens_from_text($) {
 	my $path = product_path($product_ref->{code});
 	
 	
-	$product_ref->{allergens} = "";
-
+	# Keep allergens entered by users in the allergens and traces field
 	
+	foreach my $field ("allergens", "traces") {
+	
+		if ((not defined $product_ref->{$field}) or ($product_ref->{$field} eq "")) {
+			$product_ref->{$field} = "";
+		}
+		else {
+			$product_ref->{$field} .= ", ";
+		}
+	}
+
 	if (defined $product_ref->{languages_codes}) {
 	
 		foreach my $language (keys %{$product_ref->{languages_codes}}) {
 		
 			my $text = $product_ref->{"ingredients_text_" . $language };
+			
+			# allergens between underscores
 	
-			$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($language,$product_ref,$1)/iesg;
+			$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
+	
+			# allergens in all caps 
 	
 			if ($text =~ /[a-z]/) {
-				$text =~ s/\b([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß][A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]+))\b/replace_caps($language,$product_ref,$1)/esg;
+				$text =~ s/\b([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß][A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]([A-ZÌÒÁÉÍÓÚÝÂÊÎÔÛÃÑÕÄËÏÖŸÇŒß]+))\b/replace_allergen_in_caps($language,$product_ref,$1,$`)/esg;
 			}
+			
+			# allergens between separators
+			print STDERR "current text: $text\n";
+			print STDERR "separators\n";
+			# positive look ahead for the separators so that we can properly match the next word
+			# match at least 3 characters so that we don't match the separator
+			$text =~ s/(^|-|_|\(|\[|\)|\]|,| (d'|de|du|des|l'|la|les|et|and) |;|\.|$)((\s*)\w.+?)(?=(\s*)(^|-|_|\(|\[|\)|\]|,| (et|and) |;|\.|$))/replace_allergen_between_separators($language,$product_ref,$1, $3, "",$`)/iesg; 
 			
 			$product_ref->{"ingredients_text_with_allergens_" . $language} = $text;
 			
@@ -1292,15 +1384,15 @@ sub detect_allergens_from_text($) {
 		
 		}
 	}
-	
-	$product_ref->{allergens} =~ s/, $//;
 
-	my $field = 'allergens';
-	$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($product_ref->{lang}, $field, $product_ref->{$field}) ];
-	$product_ref->{$field . "_tags" } = [];
-	foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-		push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
-	}	
+	foreach my $field ("allergens", "traces") {
+		$product_ref->{$field} =~ s/, $//;
+		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($product_ref->{lang}, $field, $product_ref->{$field}) ];
+		$product_ref->{$field . "_tags" } = [];
+		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
+			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
+		}
+	}
 	
 }
 

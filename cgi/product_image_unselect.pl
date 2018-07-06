@@ -39,10 +39,9 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+use Log::Any qw($log);
 
 ProductOpener::Display::init();
-
-$debug = 1;
 
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
@@ -51,7 +50,7 @@ my $code = normalize_code(param('code'));
 my $id = param('id');
 
 
-$debug and print STDERR "product_image_unselect.pl - code: $code - id: $id\n";
+$log->debug("start", { code => $code, id => $id }) if $log->is_debug();
 
 if (not defined $code) {
 	
@@ -62,7 +61,7 @@ my $product_ref = process_image_unselect($code, $id);
 
 my $data = encode_json({ status_code => 0, status => 'status ok', imagefield=>$id });
 
-print STDERR "product_image_unselect - JSON data output: $data\n";
+$log->debug("JSON data output", { data => $data }) if $log->is_debug();
 
 print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 

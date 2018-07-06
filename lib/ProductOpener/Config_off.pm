@@ -104,6 +104,12 @@ twoflower
 scanparty-franprix-05-2016
 );
 
+$options{users_who_can_upload_small_images} = {
+map { $_ => 1 } qw(
+systeme-u
+)
+};
+
 @edit_rules = (
 
 {
@@ -138,6 +144,61 @@ scanparty-franprix-05-2016
 		slack_channel_edit-alert
 	)],
 },
+{
+        name => "Yuka - systeme-u",
+        conditions => [
+                ["user_id", "kiliweb"],
+                ["in_editors_tags", "systeme-u"],
+        ],
+        actions => [
+                ["ignore"],
+        ],
+        notifications => [ qw (
+                slack_channel_edit-alert
+        )],
+},
+{
+        name => "Yuka - brets",
+        conditions => [
+                ["user_id", "kiliweb"],
+                ["in_editors_tags", "altho-brets"],
+        ],
+        actions => [
+                ["ignore"],
+        ],
+        notifications => [ qw (
+                slack_channel_edit-alert
+        )],
+},
+{
+        name => "Yuka - fleury-michon",
+        conditions => [
+                ["user_id", "kiliweb"],
+                ["in_editors_tags", "fleury-michon"],
+        ],
+        actions => [
+                ["ignore"],
+        ],
+        notifications => [ qw (
+                slack_channel_edit-alert
+        )],
+},
+{
+        name => "Yuka - sodebo",
+        conditions => [
+                ["user_id", "kiliweb"],
+                ["in_editors_tags", "sodebo"],
+        ],
+        actions => [
+                ["ignore"],
+        ],
+        notifications => [ qw (
+                slack_channel_edit-alert
+        )],
+},
+
+
+
 
 {
 	name => "Date Limite",

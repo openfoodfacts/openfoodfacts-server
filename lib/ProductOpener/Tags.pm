@@ -117,12 +117,12 @@ use ProductOpener::Text qw/:all/;
 use Clone qw(clone);
 
 use URI::Escape::XS;
+use Log::Any qw($log);
 
 use GraphViz2;
 use JSON::PP;
 
 
-my $debug = 0;
 
 
 %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes => 1, allergens => 1, traces => 1, purchase_places => 1, stores => 1, countries => 1, states=>1, codes=>1, debug => 1);
@@ -681,7 +681,7 @@ sub build_tags_taxonomy($$) {
 				
 			}
 			else {
-				print STDERR "unrecognized line in $tagtype taxonomy: $line\n";
+				$log->info("unrecognized line in taxonomy", { tagtype => $tagtype, line => $line }) if $log->is_info();
 			}
 		
 		}
@@ -1164,7 +1164,7 @@ sub build_tags_taxonomy($$) {
 		# system("gzip $www_root/data/taxonomies/$tagtype.json");
 		}
 		
-		print STDERR $errors;
+		$log->error("taxonomy errors", { errors => $errors }) if $log->is_error();
 		
 		my $taxonomy_ref = {
 			stopwords => $stopwords{$tagtype},
@@ -1345,7 +1345,7 @@ foreach my $language (keys %{$properties{languages}}) {
 
 # Build map of local country names in official languages to (country, language)
 
-print STDERR "Build map of local country names in official languages to (country, language)\n";
+$log->info("Building a map of local country names in official languages to (country, language)") if $log->is_info();
 
 %country_names = ();
 %country_codes = ();
@@ -1394,10 +1394,8 @@ sub init_select_country_options($) {
 	#            <option value=""></option>
 	#            <option value="United States">United States</option>
 	#            <option value="United Kingdom">United Kingdom</option>
-	
 
-
-	print STDERR "Build lists of countries and generate select button\n";	
+	$log->info("Buildin lists of countries and generate select button") if $log->is_info();
 
 	foreach my $language (keys %Langs) {
 
@@ -1432,7 +1430,7 @@ sub init_select_country_options($) {
 
 
 
-print STDERR "Tags.pm - 1\n";
+$log->info("Tags.pm - 1") if $log->is_info();
 
 sub gen_tags_hierarchy($$) {
 
@@ -1478,7 +1476,7 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 	my $tags_list = shift;	# comma-separated list of tags, not in a specific order
 	
 	if (not defined $all_parents{$tagtype}) {
-		print STDERR "all_parents{$tagtype} not defined\n";
+		$log->warning("all_parents{\$tagtype} not defined", { tagtype => $tagtype }) if $log->is_warning();
 		return (split(/(\s*),(\s*)/, $tags_list));
 	}
 	
@@ -1502,7 +1500,7 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 		if (defined $all_parents{$tagtype}{$tagid}) {
 			foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
 				if ($parentid eq 'fr:') {
-					print STDERR "taxonomy - empty parentid: $parentid - tagid: $tagid - tag_lc: >$tags_list< \n";
+					$log->info("empty parent id for taxonmy", { parentid => $parentid, tagid => $tagid, tag_lc => $tags_list }) if $log->is_info();
 					next;
 				}			
 				$tags{$parentid} = 1;				
@@ -1526,7 +1524,7 @@ sub gen_ingredients_tags_hierarchy_taxonomy($$) {
 	my $tags_list = shift;	# comma-separated list of tags, not in a specific order
 	
 	if (not defined $all_parents{$tagtype}) {
-		print STDERR "all_parents{$tagtype} not defined\n";
+		$log->warning("all_parents{\$tagtype} not defined", { tagtype => $tagtype }) if $log->is_warning();
 		return (split(/(\s*),(\s*)/, $tags_list));
 	}
 	
@@ -1551,7 +1549,7 @@ sub gen_ingredients_tags_hierarchy_taxonomy($$) {
 		if (defined $all_parents{$tagtype}{$tagid}) {
 			foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
 				if ($parentid eq 'fr:') {
-					print STDERR "taxonomy - empty parentid: $parentid - tagid: $tagid - tag_lc: >$tags_list< \n";
+					$log->info("empty parent id for taxonmy", { parentid => $parentid, tagid => $tagid, tag_lc => $tags_list }) if $log->is_info();
 					next;
 				}			
 				push @tags, $parentid;
@@ -1917,7 +1915,7 @@ sub display_tags_hierarchy_taxonomy($$$) {
 			}
 			
 			if ($tag =~ /certified|montagna/) {
-				print STDERR "labels_logo - lc_imgid: $lc_imgid - en_imgid: $en_imgid - canon_tagid: $canon_tagid - img: $img \n";
+				$log->debug("labels_logo", { lc_imgid => $lc_imgid, en_imgid => $en_imgid, canon_tagid => $canon_tagid, img => $img }) if $log->is_debug();
 			}
 
 			
@@ -2198,7 +2196,7 @@ sub display_taxonomy_tag($$$)
 	my $tag = shift;
 	
 	if (not defined $tag) {
-		print STDERR "Tags.pm - Warning - display_taxonomy_tag() called for undefined \$tag\n";
+		$log->warn("display_taxonomy_tag() called for undefined \$tag") if $log->is_warn();
 		return "";
 	}
 	
@@ -2418,7 +2416,7 @@ GEXF
 
 # Load cities for emb codes
 
-print STDERR "Load cities for packaging codes\n";
+$log->info("Loading cities for packaging codes") if $log->is_info();
 
 # French departements
 
@@ -2559,7 +2557,7 @@ foreach my $l (@Langs) {
 
 # load all tags texts
 
-print STDERR "Tags.pm - loading tags texts\n";
+$log->info("loading tags texts") if $log->is_info();
 opendir DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
 foreach my $langid (readdir(DH2)) {
 	next if $langid eq '.';
@@ -2584,8 +2582,7 @@ foreach my $langid (readdir(DH2)) {
 				foreach my $file (readdir(DH)) {
 					next if $file !~ /(.*)\.html/;
 					my $tagid = $1;
-					# print STDERR "Tags: loading text for $lang/$tagtype/$tagid\n";		
-					open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$langid/$tagtype/$file") or print STDERR "cannot open $data_root/lang/$langid/$tagtype/$file : $!\n";
+					open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$langid/$tagtype/$file") or $log->error("cannot open file", { path => "$data_root/lang/$langid/$tagtype/$file", error => $! });
 
 					my $text = join("",(<$IN>));
 					close $IN;
@@ -2716,6 +2713,6 @@ sub compute_field_tags($$) {
 }
 
 
-print STDERR "Tags.pm - loaded\n";
+$log->info("Tags.pm loaded") if $log->is_info();
 	
 1;

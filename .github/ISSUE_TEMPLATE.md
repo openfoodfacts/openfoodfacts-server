@@ -4,8 +4,6 @@
 
 - [ ] Before reporting, please ensure (if you can) that you have tested it with the latest (dev) version of the software.
 
-- [ ] Don't forget to tag your issue, it makes it easier to discover.
-
 **Summary:** 
 
 Summarize your issue in one sentence (what goes wrong, what did you expect to happen)

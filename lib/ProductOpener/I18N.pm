@@ -22,10 +22,11 @@ package ProductOpener::I18N;
 
 use strict;
 use warnings;
+use File::Basename;
 use File::Find::Rule;
 use Locale::Maketext::Lexicon _auto => 0, _decode => 1, _style => "gettext", _disable_maketext_conversion => 1;
 use Locale::Maketext::Lexicon::Getcontext;
-
+use Log::Any qw($log);
 
 my @metadata_fields = qw<
     __Content-Transfer-Encoding
@@ -51,7 +52,8 @@ my @metadata_fields = qw<
 sub read_po_files {
     my ($dir) = @_;
 
-	print STDERR "Reading po files from dir $dir\n";
+    local $log->context->{directory} = $dir;
+    $log->debug("Reading po files from disk");
 	
     return unless $dir;
 	
@@ -63,8 +65,8 @@ sub read_po_files {
 
     for my $file (sort @files) {
         # read the .po file
-		
-		print STDERR "Reading $file\n";
+		local $log->context->{file} = basename($file);
+        $log->debug("Reading po file");
 		
 		my $lc;
 		
@@ -72,7 +74,7 @@ sub read_po_files {
 			$lc = $1;
 		}
 		else {
-			print STDERR "Skipping $file (not in [2-letter code].po format)\n";
+            $log->debug("Skipping file (not in [2-letter code].po format)");
 			next;
 		}
 		
