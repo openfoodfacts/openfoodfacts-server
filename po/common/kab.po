@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: kab\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-04-23 08:04-0400\n"
+"PO-Revision-Date: 2018-02-11 13:22-0500\n"
 "Language-Team: Kabyle\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -132,11 +132,11 @@ msgstr "Asebter n ufaris yettwabeddel daɣen sɣuṛ"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
+msgstr ""
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
+msgstr ""
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
@@ -144,7 +144,7 @@ msgstr ""
 
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
+msgstr ""
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -180,7 +180,11 @@ msgid "Barcode number:"
 msgstr ""
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a>.<br/><b>Thank you!</b></p>"
+msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
+"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
+"</a>\n"
+"<p>Contribute to <<site_name>> by adding product and win stars by\n"
+"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
 msgstr ""
 
 msgctxt "bottom_title"
@@ -221,7 +225,7 @@ msgstr "sɣur"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr "Taggayin"
+msgstr ""
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -233,7 +237,7 @@ msgstr ""
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr "taggayin"
+msgstr ""
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
@@ -368,7 +372,7 @@ msgstr "timura"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr "Ifarisen yettnuzun deg %s"
+msgstr ""
 
 msgctxt "countries_s"
 msgid "country"
@@ -428,7 +432,7 @@ msgstr ""
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgstr ""
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -644,7 +648,7 @@ msgstr ""
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr "https://www.facebook.com/OpenFoodFacts"
+msgstr ""
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -670,7 +674,7 @@ msgstr ""
 
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.blog.openfoodfacts.org"
+msgstr ""
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -906,7 +910,7 @@ msgstr ""
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr "isufar n zzit n palm"
+msgstr ""
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
@@ -966,7 +970,7 @@ msgstr ""
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
-msgstr "https://itunes.apple.com/en/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -978,7 +982,7 @@ msgstr ""
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr "Tibzimin,tasilkant,tarrazt"
+msgstr ""
 
 msgctxt "labels_example"
 msgid "Organic"
@@ -1266,7 +1270,7 @@ msgstr ""
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr "Amḍiq anda yettwegg neɣ i ttwasmiti"
+msgstr ""
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
@@ -1274,7 +1278,7 @@ msgstr ""
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
-msgstr "amḍiq anda yettwegg neɣ i ttwasmiti"
+msgstr ""
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
@@ -1402,14 +1406,6 @@ msgstr ""
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
-msgstr ""
-
-msgctxt "multiple_nutrition_data"
-msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
-msgstr ""
-
-msgctxt "multiple_nutrition_data_instructions"
-msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
 msgstr ""
 
 msgctxt "no_product_for_barcode"
@@ -1567,7 +1563,7 @@ msgstr ""
 
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+msgstr ""
 
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
@@ -1589,7 +1585,7 @@ msgstr "neɣ:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
-msgstr "Cetla n isufar"
+msgstr ""
 
 msgctxt "origins_example"
 msgid "California, USA"
@@ -1609,7 +1605,7 @@ msgstr ""
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr "cetla n isufar"
+msgstr ""
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
@@ -1621,7 +1617,7 @@ msgstr ""
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr "Asekrud"
+msgstr ""
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -1633,7 +1629,7 @@ msgstr ""
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr "asekrud"
+msgstr ""
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
@@ -1641,7 +1637,7 @@ msgstr ""
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr "asekrud"
+msgstr ""
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -1929,7 +1925,7 @@ msgstr "Aɣ-d imukan"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr "Ifarisen yettnuzun deg %s"
+msgstr ""
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -2174,7 +2170,7 @@ msgstr ""
 
 msgctxt "search_or"
 msgid "or"
-msgstr "neɣ"
+msgstr ""
 
 msgctxt "search_page_size"
 msgid "Results per page"
@@ -2270,7 +2266,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Tamurt"
+msgstr ""
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2290,7 +2286,7 @@ msgstr ""
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr "Tiddi n tunt"
+msgstr ""
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2318,7 +2314,7 @@ msgstr ""
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr "Sens"
+msgstr ""
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -2362,7 +2358,7 @@ msgstr ""
 
 msgctxt "stores"
 msgid "Stores"
-msgstr "Taḥanutt"
+msgstr ""
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2370,7 +2366,7 @@ msgstr ""
 
 msgctxt "stores_p"
 msgid "stores"
-msgstr "taḥanutt"
+msgstr ""
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
@@ -2378,7 +2374,7 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr "taḥanutt"
+msgstr ""
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2398,7 +2394,7 @@ msgstr ""
 
 msgctxt "tag_contains"
 msgid "Contains:"
-msgstr "Igber:"
+msgstr ""
 
 msgctxt "tag_weblinks"
 msgid "Weblinks"
@@ -2410,11 +2406,11 @@ msgstr ""
 
 msgctxt "tagstable_search"
 msgid "Search:"
-msgstr "Nadi:"
+msgstr ""
 
 msgctxt "traces"
 msgid "Traces"
-msgstr "Limaṛat"
+msgstr ""
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
@@ -2426,7 +2422,7 @@ msgstr ""
 
 msgctxt "traces_p"
 msgid "traces"
-msgstr "limaṛat"
+msgstr ""
 
 msgctxt "traces_s"
 msgid "trace"
@@ -2539,11 +2535,11 @@ msgstr ""
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
+msgstr ""
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
-msgstr "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
+msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2635,7 +2631,7 @@ msgstr ""
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgstr ""
 
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
@@ -2651,10 +2647,6 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " — "
-msgstr ""
-
-msgctxt "recent_changes"
-msgid "Recent Changes"
 msgstr ""
 
 msgctxt "translators_title"
@@ -2687,65 +2679,5 @@ msgstr ""
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
-msgstr ""
-
-msgctxt "minerals_p"
-msgid "added minerals"
-msgstr ""
-
-msgctxt "minerals_s"
-msgid "added mineral"
-msgstr ""
-
-msgctxt "vitamins_p"
-msgid "added vitamins"
-msgstr ""
-
-msgctxt "vitamins_s"
-msgid "added vitamin"
-msgstr ""
-
-msgctxt "amino_acids_p"
-msgid "added amino acids"
-msgstr ""
-
-msgctxt "amino_acids_s"
-msgid "added amino acid"
-msgstr ""
-
-msgctxt "nucleotides_p"
-msgid "added nucleotides"
-msgstr ""
-
-msgctxt "nucleotides_s"
-msgid "added nucleotide"
-msgstr ""
-
-msgctxt "other_nutritional_substances_p"
-msgid "other nutritional substances added"
-msgstr ""
-
-msgctxt "other_nutritional_substances_s"
-msgid "other nutritional substance added"
-msgstr ""
-
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr ""
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr ""
-
-msgctxt "unit"
-msgid "Unit"
-msgstr ""
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr ""
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
 msgstr ""
 

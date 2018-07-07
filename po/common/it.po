@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-06-30 23:04\n"
+"PO-Revision-Date: 2018-02-12 05:20-0500\n"
 "Language-Team: Italian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -132,11 +132,11 @@ msgstr "Pagina del prodotto modificata anche da"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" /><br /><p>Open Food Facts raccoglie informazioni e dati sui prodotti alimentari nel mondo in un database libero e aperto.</p>"
+msgstr ""
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
+msgstr ""
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
@@ -144,7 +144,7 @@ msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.
 
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
+msgstr ""
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -180,7 +180,11 @@ msgid "Barcode number:"
 msgstr "Codice a barre"
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a>.<br/><b>Thank you!</b></p>"
+msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
+"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
+"</a>\n"
+"<p>Contribute to <<site_name>> by adding product and win stars by\n"
+"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
 msgstr ""
 
 msgctxt "bottom_title"
@@ -257,7 +261,7 @@ msgstr "Dati"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr "Nutrimenti"
+msgstr ""
 
 msgctxt "change_selected_images"
 msgid "Selected images"
@@ -384,11 +388,11 @@ msgstr "Sorgente dati"
 
 msgctxt "debug_p"
 msgid "debug"
-msgstr "debug"
+msgstr ""
 
 msgctxt "debug_s"
 msgid "debug"
-msgstr "debug"
+msgstr ""
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
@@ -424,7 +428,7 @@ msgstr "Eliminato:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr "Dona a Open Food Facts"
+msgstr ""
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
@@ -564,7 +568,7 @@ msgstr "Indirizzo non valido."
 
 msgctxt "error_invalid_csrf_token"
 msgid "Invalid CSRF token."
-msgstr "Token CSRF invalido."
+msgstr ""
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
@@ -644,7 +648,7 @@ msgstr "it_IT"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr "https://www.facebook.com/OpenFoodFacts"
+msgstr ""
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -698,23 +702,21 @@ msgstr "Domande frequenti"
 
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
-msgstr "Traduttori"
+msgstr ""
 
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr "/cgi/top_translators.pl"
+msgstr ""
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
-msgstr "Seguici su <a href=\"https://twitter.com/openfoodfacts\">Twitter </a>,\n"
-" <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> e\n"
-" <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
+msgstr ""
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -770,7 +772,7 @@ msgstr ""
 
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgstr ""
 
 msgctxt "for"
 msgid "for"
@@ -969,7 +971,7 @@ msgstr "<Img src=\"/ images / misc / Available_on_the_App_Store_Badge_EN_135x40.
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
-msgstr "https://itunes.apple.com/it/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1021,7 +1023,7 @@ msgstr "Arabo"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
-msgstr "Bulgaro"
+msgstr ""
 
 msgctxt "lang_cs"
 msgid "Czech"
@@ -1049,7 +1051,7 @@ msgstr "Spagnolo"
 
 msgctxt "lang_et"
 msgid "Estonian"
-msgstr "Estone"
+msgstr ""
 
 msgctxt "lang_fi"
 msgid "Finnish"
@@ -1061,7 +1063,7 @@ msgstr "Francese"
 
 msgctxt "lang_ga"
 msgid "Irish"
-msgstr "Irlandese"
+msgstr ""
 
 msgctxt "lang_he"
 msgid "Hebrew"
@@ -1069,11 +1071,11 @@ msgstr "Ebraico"
 
 msgctxt "lang_hu"
 msgid "Hungarian"
-msgstr "Ungherese"
+msgstr ""
 
 msgctxt "lang_id"
 msgid "Indonesian"
-msgstr "Indonesiano"
+msgstr ""
 
 msgctxt "lang_it"
 msgid "Italian"
@@ -1089,7 +1091,7 @@ msgstr "Coreano"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
-msgstr "Lituano"
+msgstr ""
 
 msgctxt "lang_lv"
 msgid "Latvian"
@@ -1097,7 +1099,7 @@ msgstr "Lettone"
 
 msgctxt "lang_mt"
 msgid "Maltese"
-msgstr "Maltese"
+msgstr ""
 
 msgctxt "lang_nl"
 msgid "Dutch"
@@ -1137,11 +1139,11 @@ msgstr "Russo"
 
 msgctxt "lang_sk"
 msgid "Slovak"
-msgstr "Slovacco"
+msgstr ""
 
 msgctxt "lang_sl"
 msgid "Slovenian"
-msgstr "Sloveno"
+msgstr ""
 
 msgctxt "lang_sv"
 msgid "Swedish"
@@ -1191,9 +1193,7 @@ msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr "Con l'aggiunta di informazioni, dati e/o immagini, si accetta di inserire irrevocabilmente il proprio contributo sotto licenza <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a>\n"
-"per informazioni e dati, e sotto la licenza <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> per le immagini.\n"
-"Si accetta inoltre di essere accreditato dai riutilizzatori attraverso un link al prodotto a cui si sta contribuendo."
+msgstr ""
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
@@ -1205,7 +1205,7 @@ msgstr "Elenco dei %s"
 
 msgctxt "loadmore"
 msgid "Load more results"
-msgstr "Carica più risultati"
+msgstr ""
 
 msgctxt "login_and_add_product"
 msgid "Sign-in and add the product"
@@ -1323,7 +1323,7 @@ msgstr "Contribuire"
 
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr "/contribuire"
+msgstr ""
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1331,7 +1331,7 @@ msgstr "Scopri"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr "/scopri"
+msgstr ""
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1409,14 +1409,6 @@ msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
 msgstr "I valori nutrizionali non sono specificati sul prodotto."
 
-msgctxt "multiple_nutrition_data"
-msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
-msgstr ""
-
-msgctxt "multiple_nutrition_data_instructions"
-msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
-msgstr ""
-
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
 msgstr "Nessun prodotto elencato per il codice a barre %s ."
@@ -1439,7 +1431,7 @@ msgstr "Numero di prodotti"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr "%s in %s"
+msgstr ""
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
@@ -1515,7 +1507,7 @@ msgstr "per 100 g / 100 ml"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr "5<sup>°</sup> percentile"
+msgstr ""
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
@@ -1523,11 +1515,11 @@ msgstr "Mediana"
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
-msgstr "90° percentile"
+msgstr ""
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
-msgstr "95<sup>°</sup> percentile"
+msgstr ""
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
@@ -1560,7 +1552,7 @@ msgstr ""
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
-msgstr "-"
+msgstr ""
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1590,7 +1582,7 @@ msgstr ""
 
 msgctxt "or"
 msgid "or:"
-msgstr "o:"
+msgstr ""
 
 msgctxt "origins"
 msgid "Origin of ingredients"
@@ -1598,11 +1590,11 @@ msgstr "Origine degli ingredienti"
 
 msgctxt "origins_example"
 msgid "California, USA"
-msgstr "California, USA"
+msgstr ""
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
-msgstr "Indicare l'origine degli ingredienti"
+msgstr ""
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
@@ -1614,7 +1606,7 @@ msgstr ""
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr "origine degli ingredienti"
+msgstr ""
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
@@ -1670,7 +1662,7 @@ msgstr "Pagine:"
 
 msgctxt "password"
 msgid "Password"
-msgstr "Password"
+msgstr ""
 
 msgctxt "password_confirm"
 msgid "Confirm password"
@@ -1754,7 +1746,7 @@ msgstr "Precedente"
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr "Aggiungi un nutriente"
+msgstr ""
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -1762,7 +1754,7 @@ msgstr "Prodotto aggiunto il"
 
 msgctxt "product_changes_saved"
 msgid "Changes saved."
-msgstr "Modifiche salvate."
+msgstr ""
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -1770,7 +1762,7 @@ msgstr "Caratteristiche del prodotto"
 
 msgctxt "product_created"
 msgid "Product created"
-msgstr "Prodotto creato"
+msgstr ""
 
 msgctxt "product_description"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
@@ -1786,7 +1778,7 @@ msgstr "Foto con codice a barre:"
 
 msgctxt "product_js_current_image"
 msgid "Current image:"
-msgstr "Immagini attuale:"
+msgstr ""
 
 msgctxt "product_js_deleting_images"
 msgid "Deleting images"
@@ -1894,7 +1886,7 @@ msgstr "Nome del prodotto"
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
-msgstr "Kinder Bueno White"
+msgstr ""
 
 msgctxt "products"
 msgid "products"
@@ -2002,11 +1994,11 @@ msgstr "Se avete scordato la password, indicate il vostro username o la vostra e
 
 msgctxt "risk_level"
 msgid "Risk"
-msgstr "Rischio"
+msgstr ""
 
 msgctxt "risk_level_0"
 msgid "To be completed"
-msgstr "Da completare"
+msgstr ""
 
 msgctxt "risk_level_1"
 msgid "Low risks"
@@ -2030,7 +2022,7 @@ msgstr "Salva"
 
 msgctxt "saved"
 msgid "Saved."
-msgstr "Salvato."
+msgstr ""
 
 msgctxt "saving"
 msgid "Saving."
@@ -2090,15 +2082,15 @@ msgstr ""
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
-msgstr "Genera grafico"
+msgstr ""
 
 msgctxt "search_generate_map"
 msgid "Generate the map"
-msgstr "Genera la mappa"
+msgstr ""
 
 msgctxt "search_graph"
 msgid "Graph"
-msgstr "Grafico"
+msgstr ""
 
 msgctxt "search_graph_2_axis"
 msgid "Scatter plot"
@@ -2151,7 +2143,7 @@ msgstr "Risultati in un elenco di prodotti"
 
 msgctxt "search_map"
 msgid "Map"
-msgstr "Mappa"
+msgstr ""
 
 msgctxt "search_map_choice"
 msgid "Results on a map"
@@ -2171,27 +2163,27 @@ msgstr ""
 
 msgctxt "search_nutriment"
 msgid "choose a nutriment..."
-msgstr "scegli un nutrimento..."
+msgstr ""
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr "Nutrimenti"
+msgstr ""
 
 msgctxt "search_or"
 msgid "or"
-msgstr "o"
+msgstr ""
 
 msgctxt "search_page_size"
 msgid "Results per page"
-msgstr "Risultati per pagina"
+msgstr ""
 
 msgctxt "search_products"
 msgid "Products search"
-msgstr "Ricerca dei prodotti"
+msgstr ""
 
 msgctxt "search_results"
 msgid "Search results"
-msgstr "Risultati della ricerca"
+msgstr ""
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
@@ -2207,7 +2199,7 @@ msgstr "Commercio Equo"
 
 msgctxt "search_series_fairtrade_label"
 msgid "fair-trade"
-msgstr "commercio equo"
+msgstr ""
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
@@ -2219,23 +2211,23 @@ msgstr "IGP, IGT, DOP, Bio, Ecologico, Non OGM, gluten-free"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
-msgstr "iGP, IGT, DOP, Bio, Ecologico, Non OGM, gluten-free"
+msgstr ""
 
 msgctxt "search_series_with_sweeteners"
 msgid "With sweeteners"
-msgstr "Con dolcificanti"
+msgstr ""
 
 msgctxt "search_tag"
 msgid "choose a criterion..."
-msgstr "scegli un criterio..."
+msgstr ""
 
 msgctxt "search_tags"
 msgid "Criteria"
-msgstr "Criteri"
+msgstr ""
 
 msgctxt "search_terms"
 msgid "Search terms"
-msgstr "Termini di ricerca"
+msgstr ""
 
 msgctxt "search_terms_note"
 msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
@@ -2259,15 +2251,15 @@ msgstr "Strumenti di ricerca"
 
 msgctxt "search_value"
 msgid "value"
-msgstr "valore"
+msgstr ""
 
 msgctxt "search_with"
 msgid "With"
-msgstr "Con"
+msgstr ""
 
 msgctxt "search_without"
 msgid "Without"
-msgstr "Senza"
+msgstr ""
 
 msgctxt "see_product_page"
 msgid "See the product page"
@@ -2287,7 +2279,7 @@ msgstr "Invia una photo..."
 
 msgctxt "send_image_error"
 msgid "Upload error"
-msgstr "Errore di caricamento"
+msgstr ""
 
 msgctxt "sending_image"
 msgid "Sending image"
@@ -2299,7 +2291,7 @@ msgstr "Porzioni"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
-msgstr "60 g, 12 oz, 20cl, 2 fl oz"
+msgstr ""
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2311,7 +2303,7 @@ msgstr "Condividi"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
-msgstr "Mostra statistiche dettagliate"
+msgstr ""
 
 msgctxt "show_category_stats_details"
 msgid "standard deviation, minimum, maximum, 10th and 90th percentiles"
@@ -2331,23 +2323,23 @@ msgstr "Ingredienti, composizione nutrizionale e informazioni sui prodotti alime
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr "Open Food Facts"
+msgstr ""
 
 msgctxt "sort_by"
 msgid "Sort by"
-msgstr "Ordina per"
+msgstr ""
 
 msgctxt "sort_created_t"
 msgid "Add date"
-msgstr "Aggiungi data"
+msgstr ""
 
 msgctxt "sort_modified_t"
 msgid "Edit date"
-msgstr "Modifica data"
+msgstr ""
 
 msgctxt "sort_popularity"
 msgid "Popularity"
-msgstr "Popolarità"
+msgstr ""
 
 msgctxt "sort_product_name"
 msgid "Product name"
@@ -2355,27 +2347,27 @@ msgstr "Nome del prodotto"
 
 msgctxt "state"
 msgid "State"
-msgstr "Stato"
+msgstr ""
 
 msgctxt "states_p"
 msgid "states"
-msgstr "stati"
+msgstr ""
 
 msgctxt "states_s"
 msgid "state"
-msgstr "stato"
+msgstr ""
 
 msgctxt "stores"
 msgid "Stores"
-msgstr "Negozi"
+msgstr ""
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
-msgstr "Nome del negozio o della catena di supermercati"
+msgstr ""
 
 msgctxt "stores_p"
 msgid "stores"
-msgstr "negozi"
+msgstr ""
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
@@ -2415,7 +2407,7 @@ msgstr ""
 
 msgctxt "tagstable_search"
 msgid "Search:"
-msgstr "Cerca:"
+msgstr ""
 
 msgctxt "traces"
 msgid "Traces"
@@ -2423,7 +2415,7 @@ msgstr ""
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
-msgstr "Latte, Glutine, Noci"
+msgstr ""
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
@@ -2544,7 +2536,7 @@ msgstr ""
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /><br /><p>Open Food Facts raccoglie informazioni e dati sui prodotti alimentari nel mondo in un database libero e aperto.</p>"
+msgstr ""
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
@@ -2600,7 +2592,7 @@ msgstr ""
 
 msgctxt "delete_product_page"
 msgid "Delete the product page"
-msgstr "Elimina la pagina del prodotto"
+msgstr ""
 
 msgctxt "deleting_product"
 msgid "Deleting product"
@@ -2640,7 +2632,7 @@ msgstr ""
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgstr ""
 
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
@@ -2656,15 +2648,11 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " — "
-msgstr " — "
-
-msgctxt "recent_changes"
-msgid "Recent Changes"
-msgstr "Modifiche recenti"
+msgstr ""
 
 msgctxt "translators_title"
 msgid "Our Translators"
-msgstr "I nostri traduttori"
+msgstr ""
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages!"
@@ -2692,65 +2680,5 @@ msgstr ""
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
-msgstr ""
-
-msgctxt "minerals_p"
-msgid "added minerals"
-msgstr ""
-
-msgctxt "minerals_s"
-msgid "added mineral"
-msgstr ""
-
-msgctxt "vitamins_p"
-msgid "added vitamins"
-msgstr ""
-
-msgctxt "vitamins_s"
-msgid "added vitamin"
-msgstr ""
-
-msgctxt "amino_acids_p"
-msgid "added amino acids"
-msgstr ""
-
-msgctxt "amino_acids_s"
-msgid "added amino acid"
-msgstr ""
-
-msgctxt "nucleotides_p"
-msgid "added nucleotides"
-msgstr ""
-
-msgctxt "nucleotides_s"
-msgid "added nucleotide"
-msgstr ""
-
-msgctxt "other_nutritional_substances_p"
-msgid "other nutritional substances added"
-msgstr ""
-
-msgctxt "other_nutritional_substances_s"
-msgid "other nutritional substance added"
-msgstr ""
-
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr ""
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr ""
-
-msgctxt "unit"
-msgid "Unit"
-msgstr ""
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr ""
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
 msgstr ""
 

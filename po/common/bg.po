@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-06-02 06:06-0400\n"
+"PO-Revision-Date: 2018-02-11 13:26-0500\n"
 "Language-Team: Bulgarian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -136,7 +136,7 @@ msgstr ""
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk&hl=bg"
+msgstr ""
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
@@ -149,8 +149,7 @@ msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<P> Този продукт все още не е в << SITE_NAME >> базата данни. Бихте ли направили няколко снимки на продукта, баркод, списък съставки и хранителни факти и да го добавите в <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"> << SITE_NAME> > </a>? </p>\n"
-" <P> Благодарим Ви предварително! </p>\n"
+msgstr ""
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -181,7 +180,11 @@ msgid "Barcode number:"
 msgstr "Баркод номер:"
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a>.<br/><b>Thank you!</b></p>"
+msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
+"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
+"</a>\n"
+"<p>Contribute to <<site_name>> by adding product and win stars by\n"
+"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
 msgstr ""
 
 msgctxt "bottom_title"
@@ -357,7 +360,7 @@ msgstr ""
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "Country"
+msgstr ""
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
@@ -645,7 +648,7 @@ msgstr ""
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr "https://www.facebook.com/OpenFoodFacts&hl=bg"
+msgstr ""
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -671,7 +674,7 @@ msgstr ""
 
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.blog.openfoodfacts.org&hl=bg"
+msgstr ""
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -769,7 +772,7 @@ msgstr ""
 
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org&hl=bg"
+msgstr ""
 
 msgctxt "for"
 msgid "for"
@@ -777,7 +780,7 @@ msgstr ""
 
 msgctxt "front_alt"
 msgid "Product"
-msgstr "Продукт"
+msgstr ""
 
 msgctxt "generic_name"
 msgid "Common name"
@@ -883,11 +886,11 @@ msgstr ""
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr "Съставки"
+msgstr ""
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr "Съставки"
+msgstr ""
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -923,7 +926,7 @@ msgstr ""
 
 msgctxt "ingredients_p"
 msgid "ingredients"
-msgstr "съставки"
+msgstr ""
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
@@ -967,7 +970,7 @@ msgstr ""
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
-msgstr "https://itunes.apple.com/en/app/open-food-facts/id588797948&hl=bg"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1234,7 +1237,7 @@ msgstr ""
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr "Вход"
+msgstr ""
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
@@ -1247,7 +1250,7 @@ msgstr ""
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr "Потребителско име или имейл адрес:"
+msgstr ""
 
 msgctxt "low"
 msgid "low"
@@ -1323,7 +1326,7 @@ msgstr ""
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr "Открийте"
+msgstr ""
 
 msgctxt "menu_discover_link"
 msgid "/discover"
@@ -1375,7 +1378,7 @@ msgstr ""
 
 msgctxt "name"
 msgid "Name"
-msgstr "Име"
+msgstr ""
 
 msgctxt "names"
 msgid "Names"
@@ -1403,14 +1406,6 @@ msgstr ""
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
-msgstr ""
-
-msgctxt "multiple_nutrition_data"
-msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
-msgstr ""
-
-msgctxt "multiple_nutrition_data_instructions"
-msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
 msgstr ""
 
 msgctxt "no_product_for_barcode"
@@ -1471,11 +1466,11 @@ msgstr ""
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "Хранителна информация"
+msgstr ""
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "Хранителна информация"
+msgstr ""
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1547,7 +1542,7 @@ msgstr ""
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "Хранителна информация"
+msgstr ""
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1568,7 +1563,7 @@ msgstr ""
 
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png&hl=bg"
+msgstr ""
 
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
@@ -1666,7 +1661,7 @@ msgstr ""
 
 msgctxt "password"
 msgid "Password"
-msgstr "Парола"
+msgstr ""
 
 msgctxt "password_confirm"
 msgid "Confirm password"
@@ -2022,7 +2017,7 @@ msgstr ""
 
 msgctxt "save"
 msgid "Save"
-msgstr "Запис"
+msgstr ""
 
 msgctxt "saved"
 msgid "Saved."
@@ -2038,7 +2033,7 @@ msgstr "Търсене"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
-msgstr "Търсене на продукт"
+msgstr ""
 
 msgctxt "search_button"
 msgid "Search"
@@ -2135,7 +2130,7 @@ msgstr ""
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
-msgstr "Съставки"
+msgstr ""
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
@@ -2275,7 +2270,7 @@ msgstr ""
 
 msgctxt "select_lang"
 msgid "Language"
-msgstr "Език"
+msgstr ""
 
 msgctxt "send_image"
 msgid "Send a picture..."
@@ -2299,11 +2294,11 @@ msgstr ""
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr "Вход"
+msgstr ""
 
 msgctxt "share"
 msgid "Share"
-msgstr "Сподели"
+msgstr ""
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
@@ -2319,7 +2314,7 @@ msgstr ""
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr "Изход"
+msgstr ""
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -2327,7 +2322,7 @@ msgstr ""
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr "Open Food Facts"
+msgstr ""
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2411,7 +2406,7 @@ msgstr ""
 
 msgctxt "tagstable_search"
 msgid "Search:"
-msgstr "Търсене:"
+msgstr ""
 
 msgctxt "traces"
 msgid "Traces"
@@ -2463,7 +2458,7 @@ msgstr ""
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
-msgstr "Потребителско име или имейл адрес: "
+msgstr ""
 
 msgctxt "username"
 msgid "User name"
@@ -2544,7 +2539,7 @@ msgstr ""
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
-msgstr "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34&hl=bg"
+msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2654,10 +2649,6 @@ msgctxt "title_separator"
 msgid " — "
 msgstr ""
 
-msgctxt "recent_changes"
-msgid "Recent Changes"
-msgstr ""
-
 msgctxt "translators_title"
 msgid "Our Translators"
 msgstr ""
@@ -2672,7 +2663,7 @@ msgstr ""
 
 msgctxt "translators_column_name"
 msgid "Name"
-msgstr "Име"
+msgstr ""
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
@@ -2688,65 +2679,5 @@ msgstr ""
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
-msgstr ""
-
-msgctxt "minerals_p"
-msgid "added minerals"
-msgstr ""
-
-msgctxt "minerals_s"
-msgid "added mineral"
-msgstr ""
-
-msgctxt "vitamins_p"
-msgid "added vitamins"
-msgstr ""
-
-msgctxt "vitamins_s"
-msgid "added vitamin"
-msgstr ""
-
-msgctxt "amino_acids_p"
-msgid "added amino acids"
-msgstr ""
-
-msgctxt "amino_acids_s"
-msgid "added amino acid"
-msgstr ""
-
-msgctxt "nucleotides_p"
-msgid "added nucleotides"
-msgstr ""
-
-msgctxt "nucleotides_s"
-msgid "added nucleotide"
-msgstr ""
-
-msgctxt "other_nutritional_substances_p"
-msgid "other nutritional substances added"
-msgstr ""
-
-msgctxt "other_nutritional_substances_s"
-msgid "other nutritional substance added"
-msgstr ""
-
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr ""
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr ""
-
-msgctxt "unit"
-msgid "Unit"
-msgstr ""
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr ""
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
 msgstr ""
 
