@@ -52,7 +52,7 @@ if ($move_to ne 'trash') {
 }
 my $copy_data = param('copy_data_override');
 
-$log->debug("start", { ip => remote_addr(), type => $type, action => action, code => $code => imgids: $imgids, move_to => $move_to, copy_data => $copy_data }) if $log->is_debug();
+$log->debug("start", { ip => remote_addr(), type => $type, action => $action, code => $code, imgids => $imgids, move_to => $move_to, copy_data => $copy_data }) if $log->is_debug();
 
 my $env = $ENV{QUERY_STRING};
 
@@ -111,7 +111,7 @@ my $interface_version = '20150804';
 
 my $path = product_path($code);
 
-$log->info("checking path", { imgids: $imgids, move_to => $move_to });
+$log->info("checking path", { imgids => $imgids, move_to => $move_to });
 
 if ($path eq 'invalid') {
 	# non numeric code was given

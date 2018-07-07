@@ -74,6 +74,8 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::URL qw/:all/;
 
 use Log::Any qw($log);
+use Encode;
+use JSON::PP;
 
 sub display_select_manage($) {
 
@@ -94,24 +96,26 @@ HTML
 sub display_select_crop($$) {
 
 	my $object_ref = shift;
-	my $id_lc = shift;	#  id_lc = [front|ingredients|nutrition]_[lc] 
+	my $id_lc = shift;	#  id_lc = [front|ingredients|nutrition]_[new_]?[lc] 
 	my $id = $id_lc;
 	
 	my $imagetype = $id_lc;
 	my $display_lc = $lc;
 	
-	if ($id_lc =~ /^(.*)_(.*)$/) {
+	if ($id_lc =~ /^(.*?)_(new_)?(.*)$/) {
 		$imagetype = $1;
-		$display_lc = $2;
+		$display_lc = $3;
 	}
 		
 	my $note = '';
 	if (defined $Lang{"image_" . $imagetype . "_note"}{$lang}) {
 		$note = "<p class=\"note\">&rarr; " . $Lang{"image_" . $imagetype . "_note"}{$lang} . "</p>";
 	}
-		
+
+	my $label = $Lang{"image_" . $imagetype}{$lang};
+	
 	my $html = <<HTML
-<label for="$id">$Lang{"image_" . $imagetype}{$lang}</label>
+<label for="$id">$label</label>
 $note
 <div class=\"select_crop\" id=\"$id\"></div>
 <hr class="floatclear" />
@@ -515,10 +519,20 @@ sub process_image_upload($$$$$$) {
 				$log->debug("comparing image", { existing_image_index => $i, existing_image_path => $existing_image_path, existing_image_size => $existing_image_size }) if $log->is_debug();
 				if ($existing_image_size == $size) {
 					$log->debug("image with same size detected", { existing_image_index => $i, existing_image_path => $existing_image_path, existing_image_size => $existing_image_size }) if $log->is_debug();
-					unlink "$www_root/images/products/$path/$imgid.$extension";
-					rmdir ("$www_root/images/products/$path/$imgid.lock");
-					$$imgid_ref = $i;
-					return -3;
+					# check the image was stored inside the
+					# product, it is sometimes missing
+					# (e.g. during crashes)
+					my $product_ref = retrieve_product($code);
+					if ((defined $product_ref) and (defined $product_ref->{images}) and (exists $product_ref->{images}{$i})) {
+						$log->debug("unlinking image", { imgid => $imgid, file => "$www_root/images/products/$path/$imgid.$extension" }) if $log->is_debug();
+						unlink "$www_root/images/products/$path/$imgid.$extension";
+						rmdir ("$www_root/images/products/$path/$imgid.lock");
+						$$imgid_ref = $i;
+						return -3;
+					}
+					else {
+						print STDERR "missing image $i in product.sto, keeping image $imgid\n";
+					}
 				}
 			}			
 			
@@ -725,6 +739,23 @@ sub process_image_crop($$$$$$$$$$) {
 	local $log->context->{source_path} = $source_path;	
 
 	$log->trace("cropping image") if $log->is_trace();
+	
+	my $proceed_with_edit = process_product_edit_rules($new_product_ref);
+
+	$log->debug("edit rules processed", { proceed_with_edit => $proceed_with_edit }) if $log->is_debug();
+
+	if (not $proceed_with_edit) {
+	
+		my $data =  encode_json({ status => 'status not ok - edit against edit rules'
+		});
+
+		$log->debug("JSON data output", { data => $data }) if $log->is_debug();
+
+		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+		
+		exit;
+	}	
+	
 			
 	my $source = Image::Magick->new;			
 	my $x = $source->Read($source_path);
@@ -745,6 +776,9 @@ sub process_image_crop($$$$$$$$$$) {
 		$w = $h;
 		$h = $z;
 	}
+
+	print STDERR "image_crop.pl - imgid: $imgid - crop_size: $crop_size - x1: $x1, y1: $y1, x2: $x2, y2: $y2, w: $w, h: $h\n";
+	$log->trace("calculating geometry", { crop_size => $crop_size, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, w => $w, h => $h }) if $log->is_trace();
 	
 	my $ox1 = int($x1 * $ow / $w);
 	my $oy1 = int($y1 * $oh / $h);
@@ -760,6 +794,10 @@ sub process_image_crop($$$$$$$$$$) {
 		my $x = $source->Crop(geometry=>$geometry);
 		("$x") and $log->error("could not crop to geometry", { geometry => $geometry, error => $x });
 	}
+	
+	# add auto trim to remove white borders (e.g. from some producers that send us images with white borders)
+	
+	$source->Trim();
 	
 	$nw = $source->Get('width');
 	$nh = $source->Get('height');	

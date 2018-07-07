@@ -2907,6 +2907,12 @@ $log->info("initialize \%nutriments_labels");
 foreach my $nid (keys %Nutriments) {
 	
 	foreach my $lc (sort keys %{$Nutriments{$nid}}) {
+	
+		# skip non language codes
+		
+		next if ($lc =~  /^unit/); 
+		next if ($lc =~  /^dv/); 
+		next if ($lc =~  /^iu/); 
 
 		my $label = $Nutriments{$nid}{$lc};
 		next if not defined $label;
@@ -3931,12 +3937,17 @@ sub compare_nutriments($$) {
 
 
 foreach my $key (keys %Nutriments) {
+
 	if (not exists $Nutriments{$key}{unit}) {
 		$Nutriments{$key}{unit} = 'g';
 	}
 	if (exists $Nutriments{$key}{fr}) {
-		foreach my $l (@Langs) {
+		foreach my $l (sort @Langs) {
 			next if $l eq 'fr';
+			# we should not use iu and dv as keys for international units and daily values as they are language codes too
+			# FIXME / TODO : change key names in Food.pm
+			next if $l eq 'iu';
+			next if $l eq 'dv';
 			my $short_l = undef;
 			if ($l =~ /_/) {
 				$short_l = $`,  # pt_pt

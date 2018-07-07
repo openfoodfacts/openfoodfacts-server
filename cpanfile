@@ -28,7 +28,6 @@ requires 'MongoDB', '>= 1.8.1'; # libmongodb-perl has an older version
 requires 'URI::Escape::XS';
 requires 'Encode::Punycode';
 requires 'GraphViz2';
-requires 'HTML::Defang';
 requires 'Algorithm::CheckDigits';
 requires 'Geo::IP';
 requires 'Image::OCR::Tesseract';
@@ -48,7 +47,7 @@ requires 'XML::Rules';
 # Logging
 requires 'Log::Any', '>= 1.705';
 requires 'Log::Log4perl', '>= 1.49';
-requires 'Log::Any::Adapter::Log4perl', '>= 0.08';
+requires 'Log::Any::Adapter::Log4perl', '>= 0.09';
 
 # Retry
 requires 'Action::CircuitBreaker';

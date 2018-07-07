@@ -47,6 +47,8 @@ BEGIN
 		&compute_product_history_and_completeness
 		&compute_languages
 		&compute_changes_diff_text
+		
+		&add_back_field_values_removed_by_user
 					
 		&process_product_edit_rules
 		
@@ -70,6 +72,8 @@ use ProductOpener::Data qw/:all/;
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use Log::Any qw($log);
+
+use Storable qw(dclone);
 
 use Algorithm::CheckDigits;
 my $ean_check = CheckDigits('ean');
@@ -623,8 +627,9 @@ sub compute_product_history_and_completeness($$) {
 		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
 		
 		# if not found, we may be be updating the product, with the latest rev not set yet
-		if (not defined $product_ref) {
+		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
 			$product_ref = $current_product_ref;
+			$log->warn("specified product revision was not found, using current product ref", { revision => $rev }) if $log->is_warn();
 		}
 		
 		if (defined $product_ref) {
@@ -635,7 +640,7 @@ sub compute_product_history_and_completeness($$) {
 				$current_product_ref->{last_modified_t} = $change_ref->{t};
 			}		
 		
-			%current = (lc => $product_ref->{lc}, uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
+			%current = (rev => $rev, lc => $product_ref->{lc}, uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
 			
 			# Uploaded images
 			
@@ -646,7 +651,7 @@ sub compute_product_history_and_completeness($$) {
 			# $product_ref->{images}{$id} ($id = front / ingredients / nutrition)
 			
 			if (defined $product_ref->{images}) {
-				foreach my $imgid (keys %{$product_ref->{images}}) {
+				foreach my $imgid (sort keys %{$product_ref->{images}}) {
 					if ($imgid =~ /^\d/) {
 						$current{uploaded_images}{$imgid} = 1;
 					}
@@ -664,6 +669,8 @@ sub compute_product_history_and_completeness($$) {
 			
 			foreach my $field (@fields) {
 				$current{fields}{$field} = $product_ref->{$field};
+				$current{fields}{$field} =~ s/^\s+//;
+				$current{fields}{$field} =~ s/\s+$//;
 			}
 			
 			# Language specific fields
@@ -673,6 +680,8 @@ sub compute_product_history_and_completeness($$) {
 					foreach my $field (keys %language_fields) {
 						next if $field =~ /_image$/;
 						$current{fields}{$field . '_' . $language_code} = $product_ref->{$field . '_' . $language_code};
+						$current{fields}{$field . '_' . $language_code} =~ s/^\s+//;
+						$current{fields}{$field . '_' . $language_code} =~ s/\s+$//;						
 					}
 				}
 			}
@@ -760,7 +769,10 @@ sub compute_product_history_and_completeness($$) {
 					$diff = 'delete';
 				}
 				elsif ((defined $previous{$group}{$id}) and (defined $current{$group}{$id}) and ($previous{$group}{$id} ne $current{$group}{$id}) ) {
+					$log->info("difference in products detected", { id => $id, previous_rev => $previous{rev}, previous => $previous{$group}{$id}, current_rev => $current{rev}, current => $current{$group}{$id} }) if $log->is_info();
 					$diff = 'change';
+					
+					# identify products where Yuka removed existing countries to put only France
 				}
 				
 				if (defined $diff) {
@@ -824,19 +836,19 @@ sub compute_product_history_and_completeness($$) {
 								push @correctors, $userid;
 							}
 						}
-					}
-					
-					$change_ref->{diffs} = {%diffs};			
+					}					
 				}
 			}
 		}
+		
+		$change_ref->{diffs} = dclone( \%diffs);
 		
 		$current_product_ref->{last_editor} = $change_ref->{userid};
 
 		compute_completeness_and_missing_tags($product_ref, \%current, \%previous);
 		
-		%last = %previous;
-		%previous = %current;
+		%last = %{ dclone(\%previous)};
+		%previous = %{ dclone(\%current)};
 	}
 	
 	# Populate the last_image_date_tags field
@@ -862,6 +874,107 @@ sub compute_product_history_and_completeness($$) {
 	
 	compute_completeness_and_missing_tags($current_product_ref, \%current, \%last);
 
+}
+
+
+
+# traverse the history to see if a particular user has removed values for tag fields
+# add back the removed values
+
+sub add_back_field_values_removed_by_user($$$$) {
+
+
+	my $current_product_ref = shift;
+	my $changes_ref = shift;
+	my $field = shift;
+	my $userid = shift;
+	my $code = $current_product_ref->{code};
+	my $path = product_path($code);
+	
+	return if not defined $changes_ref;
+
+
+	# Read all previous versions to see which fields have been added or edited
+	
+	my @fields = qw(lang product_name generic_name quantity packaging brands categories origins manufacturing_places labels emb_codes expiration_date purchase_places stores countries ingredients_text traces no_nutrition_data serving_size nutrition_data_per );
+	
+	my %previous = ();
+	my %last = %previous;
+	my %current;
+	
+	my $previous_tags_ref = {};
+	my $current_tags_ref;
+	
+	my %removed_tags = ();
+	
+	my $revs = 0;
+		
+	foreach my $change_ref (@$changes_ref) {
+		$revs++;
+		my $rev = $change_ref->{rev};
+		if (not defined $rev) {
+			$rev = $revs;	# was not set before June 2012
+		}
+		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
+		
+		# if not found, we may be be updating the product, with the latest rev not set yet
+		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
+			$product_ref = $current_product_ref;
+			if (not defined $product_ref) {
+				$log->warn("specified product revision was not found, using current product ref", { code => $code, revision => $rev }) if $log->is_warn();
+			}
+		}
+		
+		if (defined $product_ref->{$field . "_tags"}) {
+			
+			$current_tags_ref = { map {$_ => 1} @{$product_ref->{$field . "_tags"}} };
+		}
+		else {
+			$current_tags_ref = {  };
+		}
+	
+
+		if ((defined $change_ref->{userid}) and ($change_ref->{userid} eq $userid)) {
+		
+			foreach my $tagid (keys %{$previous_tags_ref}) {
+				if (not exists $current_tags_ref->{$tagid}) {
+					$log->info("user removed value for a field", { user_id => $userid, tagid => $tagid, field => $field, code => $code }) if $log->is_info();
+					$removed_tags{$tagid} = 1;
+				}
+			}		
+		}
+		
+		$previous_tags_ref = $current_tags_ref;
+
+	}
+	
+	my $added = 0;
+	my $added_countries = "";
+
+	foreach my $tagid (sort keys %removed_tags) {
+		if (not exists $current_tags_ref->{$tagid}) {
+			$log->info("adding back removed tag", { tagid => $tagid, field => $field, code => $code }) if $log->is_info();
+			$current_product_ref->{$field} .= ", $tagid";
+			
+			if ($current_product_ref->{$field} =~ /^, /) {
+				$current_product_ref->{$field} = $';
+			}			
+			
+			$lc = $current_product_ref->{lc};
+			compute_field_tags($current_product_ref, $field);	
+			
+			$added++;
+			$added_countries .= " $tagid";
+		}
+	}
+		
+	if ($added > 0) {
+	
+		$added . $added_countries;
+	}
+	else {
+		return 0;
+	}
 }
 
 
@@ -1130,6 +1243,10 @@ sub process_product_edit_rules($) {
 	
 	local $log->context->{user_id} = $User_id;
 	local $log->context->{code} = $code;
+	
+	# return value to indicate if the edit should proceed
+	my $proceed_with_edit = 1;
+	
 	foreach my $rule_ref (@edit_rules) {
 	
 		local $log->context->{rule} = $rule_ref->{name};
@@ -1198,7 +1315,16 @@ sub process_product_edit_rules($) {
 					local $log->context->{value} = $value;
 					$log->debug("evaluating actions") if $log->is_debug();
 
-					if ($action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match)_)?(.*)$/) {
+					my $condition_ok = 1;	
+					
+					my $action_log = "";					
+									
+						
+					if ($action eq "ignore") {
+						$log->debug("ignore action => do not proceed with edits") if $log->is_debug();
+						$proceed_with_edit = 0;
+					}
+					elsif ($action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match)_)?(.*)$/) {
 						my ($type, $condition, $field) = ($1, $3, $4);
 						my $default_field = $field;
 						
@@ -1245,8 +1371,7 @@ sub process_product_edit_rules($) {
 								next;
 							}
 						
-												
-							
+														
 							$condition_ok = 0;
 							
 
@@ -1303,7 +1428,9 @@ sub process_product_edit_rules($) {
 						if ($condition_ok) {
 						
 							# Process action
-							$log->debug("executing edit rule action") if $log->is_debug();
+							$log->debug("executing edit rule action") if $log->is_debug();							
+							
+							# Delete the parameters
 							
 							if ($type eq 'ignore') {
 								Delete($field);
@@ -1311,70 +1438,81 @@ sub process_product_edit_rules($) {
 									Delete($default_field);
 								}
 							}
-							
-							if (defined $rule_ref->{notifications}) {
-								foreach my $notification (@{$rule_ref->{notifications}}) {
-									if ($notification =~ /\@/) {
-										# e-mail
-										
-										my $user_ref = { name => $notification, email => $notification};
-										
-										send_email($user_ref, "Edit rule " . $rule_ref->{name} , $action_log );
-									}
-									elsif ($notification =~ /slack_/) {
-										# slack
-										
-										my $channel = $';
-										
-										# we need a slack bot with the Web api to post to multiple channel
-										# use the simpler incoming webhook api, and post only to edit-alerts for now
-										
-										$channel = "edit-alerts";
-										
-										my $emoji = ":lemon:";
-										if ($action eq 'warn') {
-											$emoji = ":pear:";
-										}
-																				
-										use LWP::UserAgent;
-										my $ua = LWP::UserAgent->new;
-										my $server_endpoint = "https://hooks.slack.com/services/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";
-
-										my $msg = $action_log;
-											
-										# set custom HTTP request header fields
-										my $req = HTTP::Request->new(POST => $server_endpoint);
-										$req->header('content-type' => 'application/json');
-										 
-										# add POST data to HTTP request body
-										my $post_data = '{"channel": "#' . $channel . '", "username": "editrules", "text": "' . $msg . '", "icon_emoji": "' . $emoji . '" }';
-										$req->content_type("text/plain; charset='utf8'");
-										$req->content(Encode::encode_utf8($post_data));
-										 
-										my $resp = $ua->request($req);
-										if ($resp->is_success) {
-											my $message = $resp->decoded_content;
-											$log->info("Notification sent to Slack successfully", { response => $message }) if $log->is_info();
-										}
-										else {
-											$log->warn("Notification could not be sent to Slack", { code => $resp->code, response => $resp->message }) if $log->is_warn();
-										}
-										
-									}
-								}
-							}
-						}
+						}	
+						
+						
 						
 					}
 					else {
-						$log->debug("unrecognized action") if $log->is_debug();
+						$log->debug("unrecognized action", { action => $action }) if $log->is_debug();
 					}
+					
+					if ($condition_ok) {
+					
+						$log->debug("executing edit rule action") if $log->is_debug();
+					
+						if (defined $rule_ref->{notifications}) {
+							foreach my $notification (@{$rule_ref->{notifications}}) {
+							
+								$log->info("sending notification", { notification_recipient => $notification }) if $log->is_info();
+							
+								if ($notification =~ /\@/) {
+									# e-mail
+									
+									my $user_ref = { name => $notification, email => $notification};
+									
+									send_email($user_ref, "Edit rule " . $rule_ref->{name} , $action_log );
+								}
+								elsif ($notification =~ /slack_/) {
+									# slack
+									
+									my $channel = $';
+									
+									# we need a slack bot with the Web api to post to multiple channel
+									# use the simpler incoming webhook api, and post only to edit-alerts for now
+									
+									$channel = "edit-alerts";
+									
+									my $emoji = ":lemon:";
+									if ($action eq 'warn') {
+										$emoji = ":pear:";
+									}
+																			
+									use LWP::UserAgent;
+									my $ua = LWP::UserAgent->new;
+									my $server_endpoint = "https://hooks.slack.com/services/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";
+
+									my $msg = $action_log;
+										
+									# set custom HTTP request header fields
+									my $req = HTTP::Request->new(POST => $server_endpoint);
+									$req->header('content-type' => 'application/json');
+									 
+									# add POST data to HTTP request body
+									my $post_data = '{"channel": "#' . $channel . '", "username": "editrules", "text": "' . $msg . '", "icon_emoji": "' . $emoji . '" }';
+									$req->content_type("text/plain; charset='utf8'");
+									$req->content(Encode::encode_utf8($post_data));
+									 
+									my $resp = $ua->request($req);
+									if ($resp->is_success) {
+										my $message = $resp->decoded_content;
+										$log->info("Notification sent to Slack successfully", { response => $message }) if $log->is_info();
+									}
+									else {
+										$log->warn("Notification could not be sent to Slack", { code => $resp->code, response => $resp->message }) if $log->is_warn();
+									}										
+									
+								}
+							}
+						}
+					}					
 				}
 			}		
 		
 		}
 	}
 	
+	return $proceed_with_edit;
 }
 
 sub log_change {

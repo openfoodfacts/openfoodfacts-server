@@ -93,7 +93,7 @@ foreach my $l ('fr') {
 
 	
 
-	my $query_ref = {lc=>$lc, states_tags=>'complet'};
+	my $query_ref = {lc=>$lc, states_tags=>'en:complete'};
 	#$query_ref->{"nutriments.sugars_100g"}{ '$gte'}  = 0.01;
 	# -> does not seem to work for sugars, maybe some string values?!
 		
@@ -110,22 +110,6 @@ foreach my $l ('fr') {
 	my $html = '';
 
 			$html .= <<HTML
-<initjs>
-    oTable = \$('#tagstable').DataTable({
-	language: {
-		search: "$Lang{tagstable_search}{$lang}",
-		info: "_TOTAL_ $tagtype_p",
-		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
-	},
-	paging: false
-    });
-</initjs>
-<scripts>
-<script src="/js/datatables.min.js"></script>
-</scripts>
-<header>
-<link rel="stylesheet" href="/js/datatables.min.css" />
-</header>
 HTML
 ;
 
@@ -144,9 +128,12 @@ HTML
 
 		$k++;
 
+		(not defined $product_ref->{"nutriments"}{"sugars_100g"}) and next;
 		($product_ref->{"nutriments"}{"sugars_100g"}) < 0.01 and next;
 
 		$kk++;
+
+		($kk % 1000 == 0) and print STDERR "$kk products kept - $k total\n";
 		
 		my $code = $product_ref->{code};
 		
@@ -183,8 +170,17 @@ HTML
 			$q  = $`;
 			$x = 1000;
 		}			
+
+		if (exists $product_ref->{product_quantity}) {
+			$q = $product_ref->{product_quantity};
+		}
+		else {
+			next;
+		}
 		
-		my $qx = $q * $x;
+		#my $qx = $q * $x;
+
+		my $qx = $q;
 	
 		my $s = $qx * $product_ref->{"nutriments"}{"sugars_100g"} / 100;
 		my $sucres_g = int($s + 0.4999);

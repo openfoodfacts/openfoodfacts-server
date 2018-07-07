@@ -282,9 +282,18 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Process edit rules
 	
-	process_product_edit_rules($product_ref);
+	$log->debug("phase 0 - checking edit rules", { code => $code, type => $type }) if $log->is_debug();
+	
+	my $proceed_with_edit = process_product_edit_rules($product_ref);
 
-	$log->debug("phase 1", { code => $code }) if $log->is_debug();
+	$log->debug("phase 0", { code => $code, type => $type, proceed_with_edit => $proceed_with_edit }) if $log->is_debug();
+
+	if (not $proceed_with_edit) {
+	
+		display_error("Edit against edit rules", 403);
+	}
+
+	$log->debug("phase 1", { code => $code, type => $type }) if $log->is_debug();
 	
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
 	
@@ -338,7 +347,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	
 	$product_ref->{"debug_param_sorted_langs"} = \@param_sorted_langs;
 	
-	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'traces', 'ingredients_text','lang') {
+	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text','lang') {
 	
 		if (defined $language_fields{$field}) {
 			foreach my $display_lc (@param_sorted_langs) {
@@ -643,7 +652,7 @@ sub display_field($$) {
 	my $field = shift;	# can be in %language_fields and suffixed by _[lc]
 	
 	my $fieldtype = $field;
-	my $display_lc = undef;
+	my $display_lc = $lc;
 	
 	if (($field =~ /^(.*?)_(..|new_lc)$/) and (defined $language_fields{$1})) {
 		$fieldtype = $1;
@@ -1370,6 +1379,7 @@ HTML
 				elsif ($field eq 'ingredients_text') {
 				
 					my $value = $product_ref->{"ingredients_text_" . ${display_lc}};
+					not defined $value and $value = "";
 					my $id = "ingredients_text_" . ${display_lc};
 				
 					$html_content_tab .= <<HTML
@@ -1458,6 +1468,8 @@ HTML
 	# ! with autoResize, extracting ingredients from image need to update the value of the real textarea
 	# maybe calling $('textarea.growfield').data('AutoResizer').check(); 
 	
+	$html .= display_field($product_ref, "allergens");
+	
 	$html .= display_field($product_ref, "traces");
 
 $html .= "</div><!-- fieldset -->
@@ -1524,8 +1536,8 @@ JS
 		$product_ref->{nutrition_data_prepared} = "";
 	}	
 	
-	my %column_display_style = {};
-	my %nutrition_data_per_display_style = {};
+	my %column_display_style = ();
+	my %nutrition_data_per_display_style = ();
 	
 	# keep existing field ids for the product as sold, and append _prepared_product for the product after it has been prepared
 	foreach my $product_type ("", "_prepared") {
@@ -1810,7 +1822,7 @@ HTML
 		elsif ($nid eq 'water-hardness') {
 			@units = ('mol/l', 'mmol/l', 'mval/l', 'ppm', "\N{U+00B0}rH", "\N{U+00B0}fH", "\N{U+00B0}e", "\N{U+00B0}dH", 'gpg');
 		}
-		
+
 		if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
 			or ($nid =~ /^new_/)
 			or ($unit eq '% DV')) {
