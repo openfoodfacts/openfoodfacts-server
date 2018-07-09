@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: az\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-07-07 18:42\n"
+"PO-Revision-Date: 2018-02-11 13:27-0500\n"
 "Language-Team: Azerbaijani\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -17,7 +17,7 @@ msgstr ""
 #. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
 msgid ":langtag"
-msgstr "az"
+msgstr ""
 
 #. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
@@ -136,7 +136,7 @@ msgstr ""
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr "https://world.openfoodfacts.org/files/off.apk"
+msgstr ""
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
@@ -144,7 +144,7 @@ msgstr ""
 
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
+msgstr ""
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -180,7 +180,11 @@ msgid "Barcode number:"
 msgstr ""
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a>.<br/><b>Thank you!</b></p>"
+msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
+"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
+"</a>\n"
+"<p>Contribute to <<site_name>> by adding product and win stars by\n"
+"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
 msgstr ""
 
 msgctxt "bottom_title"
@@ -205,7 +209,7 @@ msgstr ""
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr "brend"
+msgstr ""
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
@@ -644,7 +648,7 @@ msgstr ""
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr "https://www.facebook.com/OpenFoodFacts"
+msgstr ""
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -670,7 +674,7 @@ msgstr ""
 
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.blog.openfoodfacts.org"
+msgstr ""
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -768,7 +772,7 @@ msgstr ""
 
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgstr ""
 
 msgctxt "for"
 msgid "for"
@@ -776,7 +780,7 @@ msgstr ""
 
 msgctxt "front_alt"
 msgid "Product"
-msgstr "Məhsul"
+msgstr ""
 
 msgctxt "generic_name"
 msgid "Common name"
@@ -817,7 +821,7 @@ msgstr ""
 
 msgctxt "hello"
 msgid "Hello"
-msgstr "Salam"
+msgstr ""
 
 msgctxt "high"
 msgid "high"
@@ -922,7 +926,7 @@ msgstr ""
 
 msgctxt "ingredients_p"
 msgid "ingredients"
-msgstr "tərkibi"
+msgstr ""
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
@@ -1166,7 +1170,7 @@ msgstr ""
 
 msgctxt "languages_s"
 msgid "language"
-msgstr "dil"
+msgstr ""
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
@@ -1246,7 +1250,7 @@ msgstr ""
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr "İstifadəçi adı və ya e-poçt ünvanı:"
+msgstr ""
 
 msgctxt "low"
 msgid "low"
@@ -1326,7 +1330,7 @@ msgstr "Kəşf et"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr "/kəşf et"
+msgstr ""
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1402,14 +1406,6 @@ msgstr ""
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
-msgstr ""
-
-msgctxt "multiple_nutrition_data"
-msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
-msgstr ""
-
-msgctxt "multiple_nutrition_data_instructions"
-msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
 msgstr ""
 
 msgctxt "no_product_for_barcode"
@@ -1567,7 +1563,7 @@ msgstr ""
 
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+msgstr ""
 
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
@@ -2270,7 +2266,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Ölkə"
+msgstr ""
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2318,7 +2314,7 @@ msgstr ""
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr "Çıx"
+msgstr ""
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -2378,7 +2374,7 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr "mağaza"
+msgstr ""
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2410,7 +2406,7 @@ msgstr ""
 
 msgctxt "tagstable_search"
 msgid "Search:"
-msgstr "Axtar:"
+msgstr ""
 
 msgctxt "traces"
 msgid "Traces"
@@ -2462,7 +2458,7 @@ msgstr ""
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
-msgstr "İstifadəçi adı və ya e-poçt ünvanı: "
+msgstr ""
 
 msgctxt "username"
 msgid "User name"
@@ -2653,10 +2649,6 @@ msgctxt "title_separator"
 msgid " — "
 msgstr ""
 
-msgctxt "recent_changes"
-msgid "Recent Changes"
-msgstr ""
-
 msgctxt "translators_title"
 msgid "Our Translators"
 msgstr ""
@@ -2687,65 +2679,5 @@ msgstr ""
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
-msgstr ""
-
-msgctxt "minerals_p"
-msgid "added minerals"
-msgstr ""
-
-msgctxt "minerals_s"
-msgid "added mineral"
-msgstr ""
-
-msgctxt "vitamins_p"
-msgid "added vitamins"
-msgstr ""
-
-msgctxt "vitamins_s"
-msgid "added vitamin"
-msgstr ""
-
-msgctxt "amino_acids_p"
-msgid "added amino acids"
-msgstr ""
-
-msgctxt "amino_acids_s"
-msgid "added amino acid"
-msgstr ""
-
-msgctxt "nucleotides_p"
-msgid "added nucleotides"
-msgstr ""
-
-msgctxt "nucleotides_s"
-msgid "added nucleotide"
-msgstr ""
-
-msgctxt "other_nutritional_substances_p"
-msgid "other nutritional substances added"
-msgstr ""
-
-msgctxt "other_nutritional_substances_s"
-msgid "other nutritional substance added"
-msgstr ""
-
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr ""
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr ""
-
-msgctxt "unit"
-msgid "Unit"
-msgstr ""
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr ""
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
 msgstr ""
 

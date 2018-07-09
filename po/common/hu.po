@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-07-07 18:46\n"
+"PO-Revision-Date: 2018-02-16 13:12-0500\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -93,15 +93,15 @@ msgstr "Köszönjük, hogy csatlakozott a(z) <<site_name>>-hoz!"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr "Potenciálisan veszélyes élelmiszeradalék. Korlátozza a használatát."
+msgstr "Feltehetően veszélyes élelmiszeradalék. Korlátozd a használatát."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr "Veszélyes élelmiszeradalék. Kerülje."
+msgstr "Veszélyes élelmiszeradalék. Kerüld."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr "Tiltott élelmiszeradalék Európában. Mindenképpen kerülje."
+msgstr "Az EFSA által az EU-ban betiltott élelmiszeradalék. Mindenképpen kerüld."
 
 msgctxt "additives_p"
 msgid "additives"
@@ -121,7 +121,7 @@ msgstr "Bővített keresés és grafikonok"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr "A túlzott ivás káros az egészségre."
+msgstr "A túlzott fogyasztás veszélyes az egészségre."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -129,7 +129,7 @@ msgstr "Minden küldetés"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "Allergiát vagy intoleranciát okozó anyagok vagy termékek"
+msgstr "Allergiás vagy intoleranciás reakciót okozó anyagok, termékek"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -171,7 +171,7 @@ msgstr "Készítsen képet"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr "Megjegyzés: a képek amelyeket elküld a Creative Commons Attribution-ShareAlike (CC BY-SA) szabad licenc alatt lesznek közzétéve."
+msgstr "Megjegyzés: a képek amiket beküldesz a Creative Commons Attribution ShareAlike (CC-BY-SA) szabad licensz alatt lesznek közzétéve."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
@@ -194,8 +194,12 @@ msgid "Barcode number:"
 msgstr "Vonalkód szám:"
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p>A(z) <<site_name>> nonprofit egyesület által készült, független az ipartól. Mindenkinek készült, sokak által, a közösség támogatásával. Ön is támogathatja a munkánkat <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">az Open Food Facts-nek szánt adománnyal</a>.<br/><b>Köszönjük!</b></p>"
+msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
+"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
+"</a>\n"
+"<p>Contribute to <<site_name>> by adding product and win stars by\n"
+"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
+msgstr "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\"> <img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" /> </a> <p>Segítsd a(z) <<site_name>> bővítését termék hozzáadásával és nyerj csillagokat a <a href=\"/missions\">küldetések</a> teljesítésével!</p>\n"
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
@@ -393,7 +397,7 @@ msgstr "javító"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "Országok, ahol árulják"
+msgstr "Országok, ahol kapható"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
@@ -699,11 +703,11 @@ msgstr "<a href=\"https://world.openfoodfacts.org/legal\">Jogi nyilatkozat</a> -
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook group for contributors</a>"
-msgstr "és a <a href=\"https://www.facebook.com/groups/374350705955208/\">hozzájárulók Facebook csoportjához</a>"
+msgstr "és a <a href=\"https://www.facebook.com/groups/374350705955208/\">segítők Facebook-csoportjában</a> (angolul)"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr "<<site_name>> blog"
+msgstr "<<site_name>>-blog"
 
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
@@ -711,7 +715,7 @@ msgstr "https://en.blog.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
-msgstr "Magatartási kódex"
+msgstr "Illemszabályok (angolul)"
 
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
@@ -727,7 +731,7 @@ msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr "Fedezze fel a programot"
+msgstr "Fedezd fel a projektet"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
@@ -765,7 +769,7 @@ msgstr "Csatlakozzon hozzánk a %s-en:"
 
 msgctxt "footer_legal"
 msgid "Legal"
-msgstr "Jogi nyilatkozat"
+msgstr "Jogi nyilatkozat (angolul)"
 
 msgctxt "footer_legal_link"
 msgid "/legal"
@@ -773,7 +777,7 @@ msgstr "/legal"
 
 msgctxt "footer_press"
 msgid "Press"
-msgstr "Sajtó"
+msgstr "Sajtó (angolul)"
 
 msgctxt "footer_press_link"
 msgid "/press"
@@ -793,7 +797,7 @@ msgstr "/terms-of-use"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
-msgstr "Kik vagyunk"
+msgstr "Kik vagyunk? (angolul)"
 
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
@@ -1462,14 +1466,6 @@ msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
 msgstr "Nincsenek megadva tápértékadatok a termékhez."
 
-msgctxt "multiple_nutrition_data"
-msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
-msgstr "Több tápértékadat van megadva a terméken (például: hozzáadott víz vagy tej)."
-
-msgctxt "multiple_nutrition_data_instructions"
-msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
-msgstr "Csak az el nem készített termék tápértékadatait írja be, hozzáadott víz vagy tej nélkül. Ha különböznek a termékek, akkor az első felsorolt termékhez tartozó tápértékadatokat írja be."
-
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
 msgstr "Nincs %s vonalkódú termék."
@@ -2067,7 +2063,7 @@ msgstr "Kockázat"
 
 msgctxt "risk_level_0"
 msgid "To be completed"
-msgstr "Ki kell egészíteni"
+msgstr "Ki kell tölteni"
 
 msgctxt "risk_level_1"
 msgid "Low risks"
@@ -2416,15 +2412,15 @@ msgstr "Termék neve"
 
 msgctxt "state"
 msgid "State"
-msgstr "Állapot"
+msgstr "Állam"
 
 msgctxt "states_p"
 msgid "states"
-msgstr "állapotok"
+msgstr "államok"
 
 msgctxt "states_s"
 msgid "state"
-msgstr "állapot"
+msgstr "állam"
 
 msgctxt "stores"
 msgid "Stores"
@@ -2720,10 +2716,6 @@ msgctxt "title_separator"
 msgid " — "
 msgstr " — "
 
-msgctxt "recent_changes"
-msgid "Recent Changes"
-msgstr "Legutóbbi módosítások"
-
 msgctxt "translators_title"
 msgid "Our Translators"
 msgstr "Fordítóink"
@@ -2755,64 +2747,4 @@ msgstr "Jóváhagyott (Szavak)"
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
 msgstr "Szavazatok"
-
-msgctxt "minerals_p"
-msgid "added minerals"
-msgstr "hozzáadott ásványi anyagok"
-
-msgctxt "minerals_s"
-msgid "added mineral"
-msgstr "hozzáadott ásványi anyag"
-
-msgctxt "vitamins_p"
-msgid "added vitamins"
-msgstr "hozzáadott vitaminok"
-
-msgctxt "vitamins_s"
-msgid "added vitamin"
-msgstr "hozzáadott vitamin"
-
-msgctxt "amino_acids_p"
-msgid "added amino acids"
-msgstr "hozzáadott aminosavak"
-
-msgctxt "amino_acids_s"
-msgid "added amino acid"
-msgstr "hozzáadott aminosav"
-
-msgctxt "nucleotides_p"
-msgid "added nucleotides"
-msgstr "hozzáadott nukleotidok"
-
-msgctxt "nucleotides_s"
-msgid "added nucleotide"
-msgstr "hozzáadott nukleotid"
-
-msgctxt "other_nutritional_substances_p"
-msgid "other nutritional substances added"
-msgstr "hozzáadott egyéb táplálkozási anyagok"
-
-msgctxt "other_nutritional_substances_s"
-msgid "other nutritional substance added"
-msgstr "hozzáadott egyéb táplálkozási anyag"
-
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "Eladott"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "Elkészített"
-
-msgctxt "unit"
-msgid "Unit"
-msgstr "Mértékegység"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "Tápértékadatok az eladott termékre vonatkozóan."
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "Tápértékadatok az elkészített termékre vonatkozóan."
 
