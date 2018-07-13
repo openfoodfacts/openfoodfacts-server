@@ -68,13 +68,13 @@ $editor_user_id = $editor_user_id;
 
 not defined $photo_user_id and die;
 
-#my $csv_file = "/data/off/systemeu/SUYQD_AKENEO_PU_05.csv";
-#my $categories_csv_file = "/data/off/systemeu/systeme-u-rubriques.csv";
-#my $imagedir = "/data/off/systemeu/all_product_images";
+my $csv_file = "/data/off/systemeu/SUYQD_AKENEO_PU_05.csv";
+my $categories_csv_file = "/data/off/systemeu/systeme-u-rubriques.csv";
+my $imagedir = "/data/off/systemeu/all_product_images";
 
-my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_05.csv";
-my $categories_csv_file = "/home/systemeu/systeme-u-rubriques.csv";
-my $imagedir = "/home/systemeu/all_product_images"; 
+#my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_05.csv";
+#my $categories_csv_file = "/home/systemeu/systeme-u-rubriques.csv";
+#my $imagedir = "/home/systemeu/all_product_images"; 
 
 print "uploading csv_file: $csv_file, image_dir: $imagedir\n";
 
@@ -374,7 +374,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			
 			my $code = $imported_product_ref->{UGC_ean};
 			
-			#next if ($code ne "3256226388720");
+			# next if ($code ne "3256220126366");
 			
 			# next if ($i < 2665);
 			
@@ -878,7 +878,7 @@ ble => "bouteille",
 			my @param_fields = ();
 			
 			my @fields = @ProductOpener::Config::product_fields;
-			foreach my $field ('product_name', 'generic_name', @fields, 'serving_size', 'traces', 'ingredients_text','lang') {
+			foreach my $field ('product_name', 'generic_name', @fields, 'serving_size', 'allergens', 'traces', 'ingredients_text','lang') {
 			
 				if (defined $language_fields{$field}) {
 					foreach my $display_lc (@param_sorted_langs) {
