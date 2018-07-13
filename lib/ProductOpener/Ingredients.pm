@@ -1374,7 +1374,7 @@ sub detect_allergens_from_text($) {
 			print STDERR "separators\n";
 			# positive look ahead for the separators so that we can properly match the next word
 			# match at least 3 characters so that we don't match the separator
-			$text =~ s/(^|-|_|\(|\[|\)|\]|,| (d'|de|du|des|l'|la|les|et|and) |;|\.|$)((\s*)\w.+?)(?=(\s*)(^|-|_|\(|\[|\)|\]|,| (et|and) |;|\.|$))/replace_allergen_between_separators($language,$product_ref,$1, $3, "",$`)/iesg; 
+			$text =~ s/(^| - |_|\(|\[|\)|\]|,| (d'|de|du|des|l'|la|les|et|and) |;|\.|$)((\s*)\w.+?)(?=(\s*)(^| - |_|\(|\[|\)|\]|,| (et|and) |;|\.|$))/replace_allergen_between_separators($language,$product_ref,$1, $3, "",$`)/iesg; 
 			
 			$product_ref->{"ingredients_text_with_allergens_" . $language} = $text;
 			
