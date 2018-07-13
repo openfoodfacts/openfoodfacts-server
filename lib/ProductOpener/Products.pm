@@ -1415,10 +1415,10 @@ sub process_product_edit_rules($) {
 							}							
 							
 							if (not $condition_ok) {
-								$log->debug("condition does not match") if $log->is-debug();
+								$log->debug("condition does not match") if $log->is_debug();
 							}
 							else {
-								$log->debug("condition matches") if $log->is-debug();
+								$log->debug("condition matches") if $log->is_debug();
 								$action_log = "product code $code - " . format_subdomain($subdomain) . product_url($product_ref) . " - edit rule $rule_ref->{name} - type: $type - condition: $condition - field: $field current(field): " . $current_value . " - param(field): " . $param_field . "\n";
 							}
 						}

@@ -2060,6 +2060,67 @@ sub display_tag($) {
 	(defined $icid) and $icid =~ s/^.*://;
 	
 	if (defined $tagtype) {
+	
+	# check if there is a template to display additional fields from the taxonomy
+	
+	if (exists $options{"display_tag_" . $tagtype}) {
+	
+		print STDERR "option display_tag_$tagtype\n";
+	
+		foreach my $field (@{$options{"display_tag_" . $tagtype}}) {
+		
+			my $array = 0;
+			if ($field =~ /^\@/) {
+				$field = $';
+				$array = 1;
+			}
+			
+			my $fieldid = get_fileid($field);
+			
+			
+			my $propertyid = $fieldid;
+			
+			if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})
+				and (defined $properties{$tagtype}{$canon_tagid}{$fieldid. ":" . $lc}) ) {
+				$propertyid = $fieldid. ":" . $lc;
+			}
+			elsif ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})
+				and (defined $properties{$tagtype}{$canon_tagid}{$fieldid. ":" . "en"}) ) {
+				$propertyid = $fieldid. ":" . "en";
+			}			
+			
+			print STDERR "option display_tag_$tagtype - field: $field - fieldid: $fieldid propertyid: - $propertyid - array: $array\n";
+			
+	
+			if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})
+				and (defined $properties{$tagtype}{$canon_tagid}{$propertyid}) ) {
+			
+				my $title = $field;
+				my $tagtype_field = $tagtype . '_' . $fieldid;
+				$tagtype_field =~ s/_/-/g;
+				if (exists $Lang{$tagtype_field}{$lc}) {
+					$title = $Lang{$tagtype_field}{$lc};
+				}
+			
+				$description .= "<p><b>" . $title . "</b>" . separator_before_colon($lc) . ": ";
+				
+				if ($array) {
+					foreach my $value (split(/,(\s)?/, $properties{$tagtype}{$canon_tagid}{$propertyid})) {
+						$description .= join("," , $value);
+					}
+				}
+				else {
+					$description .= $properties{$tagtype}{$canon_tagid}{$propertyid};
+				}
+				
+				$description .= "</p>\n";
+				
+			}
+	
+		}
+	
+	}
+	
 		
 	if (defined $ingredients_classes{$tagtype}) {
 		my $class = $tagtype;
