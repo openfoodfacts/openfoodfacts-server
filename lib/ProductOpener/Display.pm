@@ -2067,7 +2067,9 @@ sub display_tag($) {
 	
 		print STDERR "option display_tag_$tagtype\n";
 	
-		foreach my $field (@{$options{"display_tag_" . $tagtype}}) {
+		foreach my $field_orig (@{$options{"display_tag_" . $tagtype}}) {
+		
+			my $field = $field_orig;
 		
 			my $array = 0;
 			if ($field =~ /^\@/) {
@@ -2089,7 +2091,7 @@ sub display_tag($) {
 				$propertyid = $fieldid. ":" . "en";
 			}			
 			
-			print STDERR "option display_tag_$tagtype - field: $field - fieldid: $fieldid propertyid: - $propertyid - array: $array\n";
+			print STDERR "option display_tag_$tagtype - field_orig: $field_orig - field: $field - fieldid: $fieldid propertyid: - $propertyid - array: $array\n";
 			
 	
 			if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})
@@ -2105,9 +2107,62 @@ sub display_tag($) {
 				$description .= "<p><b>" . $title . "</b>" . separator_before_colon($lc) . ": ";
 				
 				if ($array) {
-					foreach my $value (split(/,(\s)?/, $properties{$tagtype}{$canon_tagid}{$propertyid})) {
-						$description .= join("," , $value);
+					foreach my $value (split(/,/, $properties{$tagtype}{$canon_tagid}{$propertyid})) {
+					
+						next if $value =~ /^\s*$/;
+						
+						$value =~ s/^\s+//;
+						$value =~ s/\s+$//;
+					
+						my $property_tagtype = $fieldid;
+						
+						$property_tagtype =~ s/-/_/g;
+						
+						if (not exists $taxonomy_fields{$property_tagtype}) {
+							# try with an additional s
+							$property_tagtype .= "s";
+						}
+						
+						print STDERR "OBF - lc: $lc - property_tagtype: $property_tagtype - value: $value\n";
+						
+						my $display = $value;
+						
+						if (exists $taxonomy_fields{$property_tagtype}) {
+						
+							$display = display_taxonomy_tag($lc, $property_tagtype, $value);
+							
+							print STDERR "OBF - property_tagtype: $property_tagtype - exists - value: $value - display: $display \n";
+						
+							if ((defined $properties{$property_tagtype}) and (defined $properties{$property_tagtype}{$value}) ) {
+							
+								my $tooltip;
+								
+								if (defined $properties{$property_tagtype}{$value}{"description:$lc"})  {
+									$tooltip = $properties{$property_tagtype}{$value}{"description:$lc"};
+								}
+								elsif (defined $properties{$property_tagtype}{$value}{"description:en"})  {
+									$tooltip = $properties{$property_tagtype}{$value}{"description:en"}
+								}
+								
+								if (defined $tooltip) {
+									$display = '<span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" tabindex="2" title="'
+									. $tooltip . '">' . $display . '</span>';
+								}
+								else {
+									print STDERR "OBF - no description for $value\n";
+								}
+							}
+							else {
+								print STDERR "OBF - no properties for $value\n";
+							}
+						}
+						else {
+							print STDERR "OBF - property_tagtype: $property_tagtype is not a loaded taxonomy\n";
+						}
+					
+						$description .=  $display . ", ";
 					}
+					$description =~ s/, $//;
 				}
 				else {
 					$description .= $properties{$tagtype}{$canon_tagid}{$propertyid};
@@ -6195,7 +6250,7 @@ HTML
 	# try to display ingredients in the local language if available
 	
 	my $ingredients_text = $product_ref->{ingredients_text};
-	my $ingredients_text_lang = $product_ref->{lang};
+	my $ingredients_text_lang = $product_ref->{lc};
 	
 	if (defined $product_ref->{ingredients_text_with_allergens}) {
 		$ingredients_text = $product_ref->{ingredients_text_with_allergens};
