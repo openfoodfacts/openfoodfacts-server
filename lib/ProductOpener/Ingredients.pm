@@ -1253,7 +1253,7 @@ sub replace_allergen($$$$) {
 	
 	# to build the product allergens list, just use the ingredients in the main language
 	if ($language eq $product_ref->{lc}) {
-		$product_ref->{$field} .= $allergen . ', ';
+		$product_ref->{$field . "_from_ingredients"} .= $allergen . ', ';
 	}
 	
 	return '<span class="allergen">' . $allergen . '</span>';
@@ -1279,7 +1279,7 @@ sub replace_allergen_in_caps($$$$) {
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
 		# to build the product allergens list, just use the ingredients in the main language
 		if ($language eq $product_ref->{lc}) {
-			$product_ref->{$field} .= $allergen . ', ';
+			$product_ref->{$field . "_from_ingredients"} .= $allergen . ', ';
 		}
 		return '<span class="allergen">' . $allergen . '</span>';
 	}
@@ -1315,6 +1315,12 @@ sub replace_allergen_between_separators($$$$$$) {
 		print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
 	}	
 	
+	# Farine de blé 97%
+	if ($allergen =~ /( \d)/) {
+		$allergen = $`;
+		$end_separator = $1 . $' . $end_separator;
+	}
+	
 	print STDERR "before_allergen: $before_allergen - allergen: $allergen\n";
 	
 	my $tagid = canonicalize_taxonomy_tag($language,"allergens", $allergen);
@@ -1325,7 +1331,7 @@ sub replace_allergen_between_separators($$$$$$) {
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
 		# to build the product allergens list, just use the ingredients in the main language
 		if ($language eq $product_ref->{lc}) {
-			$product_ref->{$field} .= $allergen . ', ';
+			$product_ref->{$field . "_from_ingredients"} .= $allergen . ', ';
 		}
 		return $start_separator . $before_allergen . '<span class="allergen">' . $allergen . '</span>' . $end_separator;
 	}
@@ -1344,13 +1350,10 @@ sub detect_allergens_from_text($) {
 	# Keep allergens entered by users in the allergens and traces field
 	
 	foreach my $field ("allergens", "traces") {
-	
-		if ((not defined $product_ref->{$field}) or ($product_ref->{$field} eq "")) {
-			$product_ref->{$field} = "";
-		}
-		else {
-			$product_ref->{$field} .= ", ";
-		}
+		
+		# new fields for allergens detected from ingredient list
+		
+		$product_ref->{$field . "_from_ingredients"} = "";
 	}
 
 	if (defined $product_ref->{languages_codes}) {
@@ -1360,6 +1363,8 @@ sub detect_allergens_from_text($) {
 			my $text = $product_ref->{"ingredients_text_" . $language };
 			
 			# allergens between underscores
+			
+			print STDERR "current text 1: $text\n";
 	
 			$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
 	
@@ -1370,10 +1375,11 @@ sub detect_allergens_from_text($) {
 			}
 			
 			# allergens between separators
-			print STDERR "current text: $text\n";
+			print STDERR "current text 2: $text\n";
 			print STDERR "separators\n";
 			# positive look ahead for the separators so that we can properly match the next word
 			# match at least 3 characters so that we don't match the separator
+			# Farine de blé 97% -> make numbers be separators
 			$text =~ s/(^| - |_|\(|\[|\)|\]|,| (d'|de|du|des|l'|la|les|et|and) |;|\.|$)((\s*)\w.+?)(?=(\s*)(^| - |_|\(|\[|\)|\]|,| (et|and) |;|\.|$))/replace_allergen_between_separators($language,$product_ref,$1, $3, "",$`)/iesg; 
 			
 			$product_ref->{"ingredients_text_with_allergens_" . $language} = $text;
@@ -1386,12 +1392,25 @@ sub detect_allergens_from_text($) {
 	}
 
 	foreach my $field ("allergens", "traces") {
-		$product_ref->{$field} =~ s/, $//;
-		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($product_ref->{lang}, $field, $product_ref->{$field}) ];
+	
+		# concatenate allergens and traces fiels from ingredients and entered by users
+		
+		$product_ref->{$field . "_from_ingredients"} =~ s/, $//;
+		
+		my $allergens = $product_ref->{$field . "_from_ingredients"};		
+		
+		if ((defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
+			$allergens .= ", " . $product_ref->{$field};
+		}
+
+		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($product_ref->{lc}, $field, $allergens) ];
 		$product_ref->{$field . "_tags" } = [];
+		print STDERR "result for $field : ";
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
 			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
+			print STDERR " - $tag";
 		}
+		print STDERR "\n";
 	}
 	
 }
