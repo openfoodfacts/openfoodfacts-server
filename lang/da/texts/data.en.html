@@ -34,25 +34,23 @@ med Open Food Facts-fællesskabet.</p>
 
 <h4>Deltaeksport</h4>
 
-<p>Daglig deltaeksporter er tilgængelige for de foregående 14 dage. The list of currently available delta files can be found at
+<p>Daglig deltaeksporter er tilgængelige for de foregående 14 dage. Listen over de aktuelt tilgængelige deltafiler fremgår via
  <a href="https://static.openfoodfacts.org/data/delta/index.txt">https://static.openfoodfacts.org/data/delta/index.txt</a>.
- Each line represents a file that is available at <code>https://static.openfoodfacts.org/data/delta/{filename}</code>.
- The filename contains UNIX timestamp of the first and the last change contained in the JSON file, so that the delta files can
- be imported (after extraction) with <code>mongoimport</code> in alphabetical order.</p>
-<p>Please note that due to the nature of <code>mongoexport</code>, the delta files cannot tell you about deleted products. To remove
- deleted products from your database, you will need to import the full MongoDB dump.</p>
+ Hver linje repræsenterer en fil, der er tilgængelig via <code>https://static.openfoodfacts.org/data/delta/{filename}</code>.
+ Filnavnet indeholder UNIX-tidsstempler for den første og den sidste ændring i JSON-filen, så deltafilerne kan importeres (efter ekstraktion) med <code> mongoimport </code> i alfabetisk rækkefølge.</p>
+<p>Bemærk, at grundet funktionaliteten af ​​<code>mongoexport</code> kan deltafilerne ikke oplyse dig om slettede produkter. For at fjerne
+ slettede produkter fra din database skal du importere et komplet MongoDB-udtræk.</p>
  
-<h3>CSV Data Export</h3>
+<h3>CSV-dataeksport</h3>
 
-<p>Data for all products, or some of the products, can be downloaded in CSV format (readable with OpenOffice, Excel and many other software)
- through the <a href="https://world.openfoodfacts.org/cgi/search.pl">advanced search form</a>.</p>
+<p>Data til alle produkter, eller til visse af produkterne, kan downloades i CSV-format (læsbare med OpenOffice, Excel og megen anden software) via <a href="https://world.openfoodfacts.org/cgi/search.pl">avanceret søgeformular</a>.</p>
  
 <dl>
  <dt>Link</dt>
  <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv</a></dd>
 </dl>
 
-<p>The file encoding is Unicode UTF-8. The character that separates fields is &lt;tab&gt; (tabulation).</p>
+<p>Filkodningen er Unicode UTF-8. Feltseparatortegnet er &lt;tab&gt;(tabulering).</p>
 
 
 
