@@ -46,7 +46,10 @@ use ProductOpener::Lang qw/:all/;
 my $html = '';
 
 if (defined $User_id) {
-	$html = $Lang{hello}{$lang} . ' ' . $User{name} . separator_before_colon($lc) . "!";
+	$html = "<p>" . $Lang{hello}{$lang} . ' ' . $User{name} . separator_before_colon($lc) . "!" . "</p>";
+	
+	$html .= "<h3>" . lang("you_can_also_help_us") . "</h3>\n";
+	$html .= "<p>" . lang("bottom_content") . "</p>\n";	
 	
 	my $next_action = param('next_action');
 	my $code = param('code');
