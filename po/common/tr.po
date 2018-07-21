@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-19 06:53-0500\n"
+"PO-Revision-Date: 2018-07-21 08:46\n"
 "Language-Team: Turkish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -193,17 +193,13 @@ msgctxt "barcode_number"
 msgid "Barcode number:"
 msgstr "Barkod numarası:"
 
+msgctxt "you_can_also_help_us"
+msgid "You can also help to fund the Open Food Facts project"
+msgstr ""
+
 msgctxt "bottom_content"
-msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>Contribute to <<site_name>> by adding product and win stars by\n"
-"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
-msgstr "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src = \"/ images / misc / misyon-releveur-d-empreintes.png\" width = \"265\" height = \"222\" />\n"
-"</a>\n"
-"<p> Ürün ekleyerek ve << yıldızları kazanarak << site_name >> e katkıda bulunun\n"
-"<a href=\"/missions\"> görevlerini yerine getirme </a>! </ p>\n"
+msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr ""
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
@@ -753,7 +749,7 @@ msgstr "/Sss"
 
 msgctxt "footer_translators"
 msgid "Translators"
-msgstr ""
+msgstr "Çevirmenler"
 
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
@@ -1477,6 +1473,14 @@ msgstr "Barkodsuz ürün"
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
 msgstr "Besin değerleri ürün üzerinde belirtilmemiştir."
+
+msgctxt "multiple_nutrition_data"
+msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
+msgstr "Çeşitli besin değerleri ürün üzerinde belirtilmiştir. (örneğin süt ya da su eklendi)."
+
+msgctxt "multiple_nutrition_data_instructions"
+msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
+msgstr "Su ya da süt ilave edilmeksizin hazırlanmamış ürün için sadece besin değerlerini girin. Eğer farklı ürünler varsa, listelenecek ilk ürün için besin değerlerini girin."
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
@@ -2733,17 +2737,21 @@ msgctxt "title_separator"
 msgid " — "
 msgstr " — "
 
+msgctxt "recent_changes"
+msgid "Recent Changes"
+msgstr "Son değişiklikler"
+
 msgctxt "translators_title"
 msgid "Our Translators"
-msgstr ""
+msgstr "Tercümanlarımız"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages!"
-msgstr ""
+msgstr "Open Food Facts, Open Beauty Facts, ve Open Pet Food Facts'leri sizlere bütün bu farklı dillerde sunmamıza imkan sağlayan müthiş tercümanlarımıza TEŞEKKÜR EDERİZ!"
 
 msgctxt "translators_renewal_notice"
 msgid "Please note that this table is refreshed nightly and might be out of date."
-msgstr ""
+msgstr "Bu tablonun her gece yenileneceğini ve güncelliğini yitirebileceğini lütfen unutmayınız."
 
 msgctxt "translators_column_name"
 msgid "Name"
@@ -2751,17 +2759,77 @@ msgstr "İsim"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
-msgstr ""
+msgstr "Çevrilmiş (Kelimeler)"
 
 msgctxt "translators_column_target_words"
 msgid "Target Words"
-msgstr ""
+msgstr "Hedef Kelimeler"
 
 msgctxt "translators_column_approved_words"
 msgid "Approved (Words)"
-msgstr ""
+msgstr "Onaylanmış (Kelimeler)"
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
+msgstr ""
+
+msgctxt "minerals_p"
+msgid "added minerals"
+msgstr ""
+
+msgctxt "minerals_s"
+msgid "added mineral"
+msgstr ""
+
+msgctxt "vitamins_p"
+msgid "added vitamins"
+msgstr ""
+
+msgctxt "vitamins_s"
+msgid "added vitamin"
+msgstr ""
+
+msgctxt "amino_acids_p"
+msgid "added amino acids"
+msgstr ""
+
+msgctxt "amino_acids_s"
+msgid "added amino acid"
+msgstr ""
+
+msgctxt "nucleotides_p"
+msgid "added nucleotides"
+msgstr ""
+
+msgctxt "nucleotides_s"
+msgid "added nucleotide"
+msgstr ""
+
+msgctxt "other_nutritional_substances_p"
+msgid "other nutritional substances added"
+msgstr ""
+
+msgctxt "other_nutritional_substances_s"
+msgid "other nutritional substance added"
+msgstr ""
+
+msgctxt "product_as_sold"
+msgid "As sold"
+msgstr ""
+
+msgctxt "prepared_product"
+msgid "Prepared"
+msgstr ""
+
+msgctxt "unit"
+msgid "Unit"
+msgstr ""
+
+msgctxt "nutrition_data_exists"
+msgid "Nutrition facts are specified for the product as sold."
+msgstr ""
+
+msgctxt "nutrition_data_prepared_exists"
+msgid "Nutrition facts are specified for the prepared product."
 msgstr ""
 
