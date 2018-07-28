@@ -33,7 +33,8 @@ nl:capsicum-extract
 de:Capsaicin-Extrakt
 wikidata:en:Q53792073
 
-fr:conservateur
+en:preservative, preservatives
+fr:conservateur, conservateurs
 
 en:milk
 es:leche
@@ -43,7 +44,8 @@ de:Milch
 allergens:fr:_lait_
 wikidata:en:Q8495
 
-fr:arôme
+en:flavour, flavor, flavouring, flavoring, aroma, flavours, flavors, flavourings, flavorings, aromas
+fr:arôme, arômes
 
 fr:antioxydant
 
@@ -57,9 +59,11 @@ en:glucose syrup
 fr:sirop de glucose
 wikidata:en:Q14770547
 
+<en:vegetal oil
 fr:huile de colza
 
-fr:colorant
+en:colour, color, colours, colors
+fr:colorant, colorants
 
 <en:cocoa
 en:cocoa butter
@@ -69,6 +73,7 @@ nl:cacaoboter
 de:Kakaobutter
 wikidata:en:Q251106
 
+en:cocoa paste
 fr:pâte de cacao
 
 en:garlic
@@ -77,12 +82,16 @@ fr:ail
 nl:knoflook
 de:Knoblauch
 
-fr:épice
+en:spice, spices
+fr:épice, épices
 
+en:soy lecithin
 fr:lécithine de soja, lécithines de soja
 allergens:fr:lécithine de _soja_
 
-fr:arôme naturel
+<en:flavour
+en:natural flavour, natural flavor, natural flavouring, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
+fr:arôme naturel, arômes naturels
 
 fr:levure
 
@@ -92,15 +101,12 @@ fr:épaississant
 en:onion
 fr:oignon
 
-en:natural aromas
-fr:arômes naturel
-
 en:ascorbic acid
 fr:acide ascorbique
 
 fr:acide l-ascorbique
 
-
+en:butter
 fr:beurre
 allergens:fr:_beurre_
 
@@ -113,22 +119,21 @@ fr:stabilisant
 en:e450 stabilizer
 fr:stabilisant e450
 
-en:stabilizers
-fr:stabilisateurs
+en:stabilizer, stabilizers
+fr:stabilisateur, stabilisateurs
 
-fr:stabilisateur
-
-fr:stabilisateur
 
 en:e407 stabilizer
 fr:stabilisant e407
 
+en:lactose
 fr:lactose
 allergens:fr:_lactose_
 
 fr:ferments lactique
 allergens:fr:ferments _lactiques_
 
+en:soy
 fr:soja
 allergens:fr:_soja_
 
@@ -141,6 +146,7 @@ fr:sirop de glucose-fructose
 
 fr:poudre à lever, poudres à lever
 
+en:gluten
 fr:gluten
 allergens:fr:_gluten_
 
@@ -153,8 +159,10 @@ fr:gomme xanthane, gomme de xanthane
 
 fr:nitrite de sodium
 
+en:palm
 fr:palme
 
+en:cane sugar
 fr:sucre de canne
 
 fr:carotte
@@ -297,6 +305,7 @@ fr:vinaigre de table
 
 fr:vinaigre de vin rouge
 
+en:vinegar
 fr:vinaigre
 
 fr:blé
@@ -336,7 +345,8 @@ allergens:fr:_lactosérum_ en poudre
 
 fr:carbonates de sodium
 
-fr:huiles végétale
+en:vegetal oil, vegetal oils
+fr:huile végétale, huiles végétales
 
 fr:gomme guar, gomme de guar
 
@@ -349,12 +359,15 @@ fr:curcuma
 nl:kurkuma
 de:Kurkuma
 
+en:mustard
 fr:moutarde
 allergens:fr:_moutarde_
 
 fr:pommes de terre
 
-fr:sel marin
+<en:salt
+en:sea salt
+fr:sel marin, sel de mer
 
 en:tomato
 fr:tomate
@@ -492,6 +505,7 @@ fr:carbonate acide de sodium
 
 fr:amidon
 
+en:rice
 fr:riz
 
 fr:pectine
@@ -505,10 +519,12 @@ fr:jus de citron
 
 fr:diphosphate
 
+en:thyme
 fr:thym
 
 fr:sirop de sucre inverti
 
+en:olive oil
 fr:huile d'olive
 
 fr:poudre de lait entier
@@ -527,6 +543,7 @@ fr:mais
 fr:sulfite
 allergens:fr:_sulfites_
 
+en:caramel
 fr:caramel
 
 
@@ -557,7 +574,8 @@ wikidata:en:Q89
 fr:lactose et protéines de lait
 allergens:fr:_lactose_ et protéines de _lait_
 
-fr:édulcorant
+en:sweetener, sweeteners
+fr:édulcorant, édulcorants
 
 fr:chapelure
 
@@ -615,8 +633,6 @@ fr:sorbitol
 fr:e407
 
 fr:gingembre
-
-fr:sel de mer
 
 en:fructose
 es:fructosa
