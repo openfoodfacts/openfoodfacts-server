@@ -1,6 +1,6 @@
-en:salt
+en:salt, cooking salt
 es:sal
-fr:sel
+fr:sel, sel de cuisine
 nl:zout
 de:Salz
 wikidata:en:Q11254
@@ -55,11 +55,14 @@ fr:dextrose
 nl:dextrose
 de:Dextrose
 
+
+<en:glucose
 en:glucose syrup
 fr:sirop de glucose
 wikidata:en:Q14770547
 
 <en:vegetal oil
+en:colza oil, rapeseed oil
 fr:huile de colza
 
 en:colour, color, colours, colors
@@ -148,7 +151,9 @@ allergens:fr:_crème_
 
 fr:gélifiant
 
-fr:sirop de glucose-fructose
+<en:glucose syrup
+en:glucose and fructose syrup, glucose-fructose syrup, fructose-glutose syrup
+fr:sirop de glucose et de fructose, sirop de fructose-glucose, sirop de glucose-fructose
 
 fr:poudre à lever, poudres à lever
 
@@ -168,6 +173,7 @@ fr:nitrite de sodium
 en:palm
 fr:palme
 
+<en:sugar
 en:cane sugar
 fr:sucre de canne
 
@@ -248,8 +254,6 @@ fr:filet de porc
 fr:céleri
 allergens:fr:_céleri_
 
-fr:sel de cuisine
-
 fr:amidon de mais
 
 fr:gluten de blé
@@ -315,6 +319,7 @@ fr:durian
 nl:doerian
 de:Durian
 
+<en:olive oil
 en:extra virgin olive oil
 fr:huile d'olive vierge extra
 
@@ -502,8 +507,15 @@ fr:diphosphate
 en:thyme
 fr:thym
 
+<en:sugar
+en:inverted sugar
+fr:sucre inverti
+
+<en:inverted sugar
+en:inverted sugar syrup
 fr:sirop de sucre inverti
 
+<en:vegetal oil
 en:olive oil
 fr:huile d'olive
 
@@ -642,8 +654,14 @@ fr:e415
 
 fr:amidon de riz
 
-fr:sel de cuisine iodé
+<en:salt
+en:iodised salt, iodized salt
+fr:sel iodé, sel de cuisine iodé
+es:sal yodada
+nl:gejodeerd zout
+de:jodiertes Speisesalz
 
+en:leek
 fr:poireau, poireaux
 
 fr:e500
@@ -695,6 +713,7 @@ fr:graisse de palme
 
 fr:citrate de sodium, citrates de sodium
 
+en:glucose
 fr:glucose
 
 fr:crustacé
@@ -941,7 +960,9 @@ fr:alcool
 nl:alcohol 
 de:Alkohol
 
-fr:sel de guérande
+<en:salt
+en:salt from Guérande
+fr:sel de Guérande
 
 fr:margarine
 
@@ -1046,6 +1067,7 @@ fr:vitamine d
 en:mango
 fr:mangue
 
+<en:vegetal oil
 en:chia oil
 es:aceite de chía
 fr:huile de chia
@@ -1060,6 +1082,7 @@ allergens:fr:protéines de _soja_
 fr:protéine de lait
 allergens:fr:protéine de _lait_
 
+<en:sugar
 en:caramelised sugar
 es:azúcar caramelizado
 fr:sucre caramélisé
@@ -1133,7 +1156,9 @@ allergens:fr:farine de malt d'_orge_
 fr:lait pasteurisé
 allergens:fr:_lait_ pasteurisé
 
-fr:sucre de canne roux
+<en:sugar
+en:brown cane sugar
+fr:sucre de canne roux, sucre roux de canne
 
 fr:lutéine
 
@@ -1247,6 +1272,8 @@ fr:rhum
 fr:crème pasteurisée
 allergens:fr:_crème_ pasteurisée
 
+<en:glucose syrup
+en:wheat glucose syrup
 fr:sirop de glucose de blé
 
 fr:olive
@@ -1320,8 +1347,6 @@ fr:carbonate de sodium
 fr:matière grasse de lait anhydre
 allergens:fr:matière grasse de _lait_ anhydre
 
-fr:sucre inverti
-
 fr:sardine
 allergens:fr:_sardines_
 
@@ -1338,7 +1363,9 @@ fr:triphosphate
 
 fr:lactate de potassium
 
-fr:sucre de canne brut
+<en:cane sugar
+en:raw cane sugar, unrefined cane sugar
+fr:sucre de canne brut, sucre de canne non raffiné, sucre brut de canne, sucre non raffiné de canne
 
 fr:fromage blanc
 allergens:fr:_fromage_ blanc
@@ -1362,7 +1389,9 @@ fr:k
 
 fr:clou de girofle
 
-fr:sel nitrité
+<en:salt
+en:nitrite salt, nitrite curing salt, nitrite pickling salt
+fr:sel nitrité, sel de salaison, sels de salaison, sel nitrité pour saumure
 
 fr:arôme naturel de citron
 
@@ -1417,8 +1446,6 @@ fr:mélasse
 
 fr:câpre
 
-fr:sucre de canne non raffiné
-
 fr:lait partiellement écrémé
 allergens:fr:_lait_ partiellement écrémé
 
@@ -1460,8 +1487,6 @@ fr:levure boulangère
 
 fr:graine de moutarde
 allergens:fr:graine de _moutarde_
-
-fr:sucre roux de canne
 
 fr:phosphate de calcium
 
@@ -1735,12 +1760,8 @@ fr:farine de fève, farine de fèves
 fr:chair de poisson
 allergens:fr:chair de _poisson_
 
-en:iodised salt
-es:sal yodada
-fr:sel iodé
-nl:gejodeerd zout
-de:jodiertes Speisesalz
-
+<en:glucose syrup
+en:dehydrated glucose syrup
 fr:sirop de glucose déshydraté
 
 fr:fibres, fibre
@@ -1803,6 +1824,8 @@ fr:fibres végétales, fibre végétale
 
 fr:farine de sarrasin
 
+<en:sugar
+en:brown sugar
 fr:sucre roux
 
 fr:tomate séchée, tomates séchées
@@ -1834,8 +1857,12 @@ allergens:fr:semoule de _blé_
 
 fr:acide phosphorique
 
+<en:sugar
+en:sugar syrup
 fr:sirop de sucre
 
+<en:sugar
+en:icing sugar
 fr:sucre glace
 
 fr:e385
@@ -1926,6 +1953,8 @@ fr:carbonate de magnésium
 
 fr:cacao en pâte
 
+<en:sugar
+en:blonde cane sugar
 fr:sucre de canne blond
 
 fr:gomme guar et gomme xanthane
@@ -2031,6 +2060,8 @@ fr:oignons préfrits, oignon préfrit
 
 fr:inosinate disodique
 
+<en:salt
+en:unrefined sea salt
 fr:sel marin non raffiné
 
 fr:millet
@@ -2170,8 +2201,6 @@ fr:carbonate d'ammonium
 
 fr:flocons d'orge, flocon d'orge
 allergens:fr:flocons d'_orge_
-
-fr:sel nitrité pour saumure
 
 fr:concentré de fruits et de plantes, concentrés de fruits et de plantes
 
@@ -2574,6 +2603,8 @@ fr:rouge de betterave
 
 fr:poudre de betterave
 
+<en:sugar
+en:beet sugar
 fr:sucre de betterave
 
 fr:jus de betterave concentré
@@ -2648,6 +2679,8 @@ fr:graisses et huiles végétales
 fr:fromage en poudre
 allergens:fr:_fromage_ en poudre
 
+<en:sugar
+en:liquid sugar
 fr:sucre liquide
 
 fr:pois
@@ -2838,6 +2871,8 @@ allergens:fr:sérum de _lait_
 
 fr:surimi
 
+<en:glucose syrup
+en:corn glucose syrup
 fr:sirop de glucose de maïs
 
 fr:dioxyde de titane
@@ -2931,8 +2966,6 @@ nl:blimbing
 de:Gurkenbaumfrucht
 
 fr:gélatine de boeuf
-
-fr:sucre liquide
 
 fr:purée de bananes
 
@@ -3055,8 +3088,6 @@ fr:gelée
 fr:acésulfame k 
 
 fr:sucralose
-
-fr:sirop de fructose-glucose
 
 fr:flocons de céréales
 
@@ -3266,6 +3297,8 @@ fr:jaune d'oeuf
 
 fr:fructo-oligosaccharides
 
+<en:cane sugar
+en:unrefined brown cane sugar
 fr:sucre de canne roux non raffiné
 
 fr:raisins sultanines
@@ -3415,8 +3448,6 @@ fr:écorces d'orange confites
 fr:chicorée rouge
 
 fr:e524
-
-fr:sirop de glucose et fructose
 
 fr:marinade
 
@@ -3888,6 +3919,8 @@ fr:gousses de vanille épuisées broyées
 
 fr:levure de boulanger
 
+<en:sugar
+en:grape sugar
 fr:sucre de raisin
 
 fr:figue
@@ -3950,6 +3983,7 @@ fr:arôme naturel d'oignon
 
 fr:pantothénate de calcium
 
+<en:sugar
 fr:sirop de sucre mélassé
 
 fr:vinaigre de malt
@@ -4215,7 +4249,6 @@ fr:acide malique
 
 fr:pignons
 
-fr:sucre brut de canne
 
 fr:poudre d'acérola avec fécule de manioc
 
@@ -4416,8 +4449,6 @@ fr:fibres d'ananas
 fr:framboise
 
 fr:cynorrhodon
-
-fr:sirop de glucose et de fructose, sirop de fructose-glucose, sirop de glucose-fructose
 
 fr:farine de pomme de terre, farine de pommes de terre
 
@@ -4875,8 +4906,6 @@ nl:zwarte kers
 de:Schwarzkirsche
 
 fr:griottes, cerises griottes
-
-fr:glucose-fructose
 
 fr:e901
 
@@ -5533,7 +5562,14 @@ fr:épices et extrait d'épices
 
 fr:e920
 
-fr:arôme artificiel
+<en:flavour
+en:artificial flavour, artificial flavor, artificial flavouring, artificial flavoring
+fr:arôme artificiel, arômes artificiels
+
+<en:artificial flavour
+<en:natural flavour
+en:natural and artificial flavours, natural and artificial flavors, natural and artificial flavouring, natural and artificial flavoring
+fr:arômes naturels et artificiels
 
 en:hydrolysed milk protein
 es:proteína de leche hidrolizada
@@ -6430,8 +6466,6 @@ allergens:fr:produit à base de _lactosérum_
 
 fr:fructooligosaccharides
 
-fr:sels de salaison, sel nitrité
-
 fr:pousses de haricots mungo
 
 fr:colorant bêta-carotène
@@ -6749,23 +6783,32 @@ fr:fond de sauce
 fr:érythrosine
 
 <en:sunflower
+<en:vegetal oil
 en:sunflower oil
 fr:huile de tournesol
 
+<en:sunflower oil
 fr:huile de tournesol raffinée
 
+<en:sunflower oil
 fr:huile de tournesol à haute teneur en acide oléique
 
+<en:sunflower oil
 fr:huile de tournesol pressée à froid
 
+<en:sunflower oil
 fr:huile de tournesol bio
 
+<en:sunflower oil
 fr:huile de toumesol
 
+<en:sunflower oil
 fr:huile de tournesol oléique
 
+<en:sunflower oil
 fr:huile de tournesol vierge
 
+<en:sunflower oil
 fr:huile de tournesol non hydrogénée
 
 <en:sunflower oil
@@ -6789,6 +6832,7 @@ fr:huile de tournesol non hydrogénée
 nl:zonnebloemolie ongehard
 de:ungehärtetes Sonnenblumenöl
 
+<en:sunflower oil
 fr:huile de graines de tournesol
 
 en:sunflower seeds
@@ -7636,7 +7680,10 @@ fr:jus d’açaï
 nl:acaisap
 de:Acai-Saft
 
-fr:sel nitrité iodé
+<en:iodised salt
+<en:nitrite salt
+en:iodised nitrite salt, nitrite iodised salt, iodized nitrite salt, nitrite iodized salt
+fr:sel nitrité iodé, sel iodé nitrité
 
 fr:colorant e133
 
@@ -7881,8 +7928,6 @@ fr:poisson déshydraté
 allergens:fr:_poisson_ déshydraté
 
 fr:colorant e142
-
-fr:sels
 
 fr:fromage mascarpone
 allergens:fr:_fromage_ mascarpone
@@ -8579,8 +8624,6 @@ allergens:fr:_lactoprotéines_
 
 fr:pâtes fraîches
 
-fr:sel nitrité pour saumure
-
 fr:produit à base de viande de poulet
 
 fr:olives vertes et noires
@@ -8607,8 +8650,6 @@ allergens:fr:_feta_
 
 fr:calmars
 allergens:fr:_calmars_
-
-fr:sel
 
 fr:coeurs de palmier
 
