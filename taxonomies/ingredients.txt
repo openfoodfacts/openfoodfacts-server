@@ -126,12 +126,6 @@ fr:stabilisant e407
 fr:lactose
 allergens:fr:_lactose_
 
-en:spirit vinegar
-es:vinagre de alcohol
-fr:vinaigre d’alcool
-nl:alcoholazijn
-de:Branntweinessig
-
 fr:ferments lactique
 allergens:fr:ferments _lactiques_
 
@@ -211,12 +205,6 @@ fr:poitrine de porc fumée
 
 fr:filet mignon de porc
 
-en:hydrolyzed pork protein
-es:proteína de cerdo hidrolizada
-fr:protéine de porc hydrolysée
-nl:gehydroliseerd varkenseiwit
-de:hydrolysiertes Schweineprotein
-
 fr:sang de porc
 
 fr:échine de porc
@@ -247,7 +235,20 @@ fr:amidon de mais
 fr:gluten de blé
 allergens:fr:gluten de _blé_
 
+en:maltodextrin
 fr:maltodextrine
+
+<en:maltodextrin
+en:tapioca maltodextrin
+fr:maltodextrine de tapioca
+
+<en:maltodextrin
+en:potato maltodextrin
+fr:maltodextrine de pomme de terre
+
+<en:maltodextrin
+en:corn maltodextrin
+fr:maltodextrine de maïs
 
 fr:colza
 
@@ -259,6 +260,7 @@ allergens:fr:poudre de _lait_ écrémé
 fr:amidon de blé
 allergens:fr:amidon de _blé_
 
+en:palm oil
 fr:huile de palme
 
 en:rice flour
@@ -276,6 +278,26 @@ de:dextriniertes Reismehl
 fr:farine de riz blanc
 
 fr:farine de riz complet
+
+fr:vinaigre balsamique de modène
+
+fr:vinaigres d'alcool et de vin blanc
+
+fr:vinaigre de malt
+
+fr:vinaigre dialcool
+
+fr:vinaigre de riz
+
+fr:vinaigre dialcool
+
+fr:vinaigre de xérès
+
+fr:vinaigre balsamique
+
+fr:vinaigre de table
+
+fr:vinaigre de vin rouge
 
 fr:vinaigre
 
@@ -509,9 +531,6 @@ allergens:fr:_sulfites_
 
 fr:caramel
 
-
-
-fr:huile végétale
 
 fr:acide lactique
 
@@ -1437,12 +1456,6 @@ fr:diphosphate et carbonate de calcium, diphosphates et carbonates de sodium
 fr:protéine de blé
 allergens:fr:protéine de _blé_
 
-en:hydrolyzed wheat protein
-es:proteína hidrolizada de trigo
-fr:protéine de blé hydrolysée 
-nl:gehydroliseerd tarwe-eiwit
-de:hydrolisiertes Weizenprotein
-
 fr:levure boulangère
 
 fr:graine de moutarde
@@ -1620,6 +1633,15 @@ fr:cognac
 nl:cognac
 de:Cognac
 
+fr:vinegars
+fr:vinaigres
+
+en:spirit vinegar
+es:vinagre de alcohol
+fr:vinaigre d’alcool
+nl:alcoholazijn
+de:Branntweinessig
+
 en:cider vinegar
 es:vinagre de sidra
 fr:vinaigre de cidre
@@ -1710,8 +1732,6 @@ es:cardamomo
 fr:cardamome
 nl:cardamon
 de:Kardamom
-
-fr:vinaigre de vin rouge
 
 fr:girofle
 
@@ -1890,8 +1910,6 @@ fr:concentré de jus de citron
 
 fr:jus d'ananas
 
-fr:vinaigre de table
-
 fr:salade
 
 fr:épeautre
@@ -2025,6 +2043,9 @@ fr:millet
 fr:sirop de blé
 allergens:fr:sirop de _blé_
 
+sirop de maïs à haute teneur en fructose (SGHF, ou HFCS selon le signe anglais de high-fructose corn syrup
+
+
 fr:gorge de porc
 
 fr:pomme de terre déshydratée
@@ -2117,8 +2138,6 @@ fr:clous de girofle
 fr:huile d'olive vierge
 
 fr:bleu patenté v
-
-fr:maltodextrine de maïs
 
 fr:sarrasin
 
@@ -2353,8 +2372,6 @@ fr:poivron vert, poivrons verts
 
 fr:maigre et gras de porc
 
-fr:vinaigre balsamique
-
 fr:matière grasse de lait
 allergens:fr:matière grasse de _lait_
 
@@ -2468,8 +2485,6 @@ fr:caramel aromatique
 
 fr:cire d'abeille blanche et jaune
 
-fr:vinaigre de xérès
-
 fr:e1422
 
 fr:concentré des minéraux du lait
@@ -2532,8 +2547,6 @@ allergens:fr:_moules_
 fr:fruits rouges
 
 fr:enrobage
-
-fr:vinaigre dialcool
 
 fr:céréales contenant du gluten
 
@@ -2668,14 +2681,10 @@ de:Bimi
 fr:son d'avoine
 allergens:fr:son d'_avoine_
 
-fr:protéines végétales hydrolysées, protéine végétale hydrolysée
-
 fr:lait écrémé à base de poudre de lait
 allergens:fr:_lait_ écrémé à base de poudre de _lait_
 
 fr:lentille, lentilles
-
-fr:maltodextrine de pomme de terre
 
 fr:sauge
 
@@ -2961,8 +2970,6 @@ fr:farines
 fr:sels minéraux
 
 fr:dioxyde de carbone
-
-fr:vinaigre de riz
 
 en:red currant
 es:grosella
@@ -3657,8 +3664,6 @@ fr:purée de tomates reconstituée
 
 fr:écorces d'oranges
 
-fr:protéines de pois hydrolysées
-
 fr:ferments sélectionnés
 
 fr:e904
@@ -3815,8 +3820,6 @@ fr:bigarreaux
 
 fr:agents levants
 
-fr:vinaigre dialcool
-
 fr:pulpe de citron
 
 fr:céréales extrudées
@@ -3919,8 +3922,6 @@ fr:huile de maïs
 
 fr:extraits de thé
 
-fr:huile végétale non hydrogénée
-
 fr:e508
 
 fr:citrons
@@ -3938,8 +3939,6 @@ fr:arôme naturel d'oignon
 fr:pantothénate de calcium
 
 fr:sirop de sucre mélassé
-
-fr:vinaigre de malt
 
 fr:jus de fruits concentrés
 
@@ -4169,7 +4168,6 @@ fr:cornflakes
 
 fr:iceberg
 
-fr:maltodextrine
 
 fr:huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques
 
@@ -4191,8 +4189,6 @@ fr:amidon de pomme de terre modifié
 fr:talc
 
 fr:folacine
-
-fr:graisse végétale hydrogénée
 
 fr:salade composée
 
@@ -4247,9 +4243,6 @@ fr:amidon de pommes de terre modifié
 fr:farine de châtaigne
 
 fr:poivron jaune
-
-fr:vinegars
-fr:vinaigres
 
 fr:colorants naturels
 
@@ -4394,8 +4387,6 @@ fr:e451i
 
 fr:ferments lactique
 
-fr:vinaigres d'alcool et de vin blanc
-
 fr:extraits naturels
 
 fr:fibres d'ananas
@@ -4440,8 +4431,6 @@ fr:riz basmati cuit
 fr:diphosphate de sodium
 
 fr:éclats de caramel
-
-fr:matières grasses végétales non hydrogénées
 
 fr:sauce de poisson
 allergens:fr:sauce de _poisson_
@@ -4545,8 +4534,6 @@ allergens:fr:_lait_ écrémé en poudre réhydraté
 
 fr:boyau naturel
 
-fr:matière grasse végétale non hydrogénée
-
 fr:mayonnaise allégée en matière grasse
 
 fr:quinoa blanc
@@ -4588,8 +4575,6 @@ fr:préparation aromatique
 fr:tartrate de potassium
 
 fr:jambon cru
-
-fr:vinaigre balsamique de modène
 
 fr:colorant e171
 
@@ -4804,8 +4789,6 @@ fr:sodium bicarbonate
 
 fr:oignons séchés
 
-fr:huile végétale hydrogénée
-
 fr:ferments de maturation
 
 fr:polyphosphates de sodium
@@ -4827,8 +4810,6 @@ fr:lait écrémé caillé
 allergens:fr:_lait_ écrémé caillé
 
 fr:poivre noir concassé
-
-fr:matière grasse végétale hydrogénée
 
 fr:pâtes précuites
 
@@ -5522,6 +5503,13 @@ fr:e920
 
 fr:arôme artificiel
 
+en:hydrolysed proteins
+es:proteína hidrolizada
+fr:protéine hydrolysée
+nl:gehydroliseerd eiwit
+de:Proteinhydrolysat
+
+<en:hydrolysed proteins
 en:hydrolysed milk protein
 es:proteína de leche hidrolizada
 fr:protéine de lait hydrolysée
@@ -5529,8 +5517,49 @@ nl:gehydroliseerd melkeiwit
 de:Milchproteinhydrolysat
 allergens:fr:protéine de _lait_ hydrolysée
 
+<en:hydrolysed proteins
+fr:protéines de pois hydrolysées
+
+<en:hydrolysed proteins
+en:vegetal hydrolysed proteins
+fr:protéines végétales hydrolysées, protéine végétale hydrolysée
+
+<en:hydrolysed proteins
+en:animal hydrolysed proteins
+fr:protéines animales hydrolysées, protéine animale hydrolysée
+
+<en:vegetal hydrolysed proteins
+en:hydrolyzed wheat protein
+es:proteína hidrolizada de trigo
+fr:protéine de blé hydrolysée 
+nl:gehydroliseerd tarwe-eiwit
+de:hydrolisiertes Weizenprotein
+
+<en:vegetal hydrolysed proteins
+en:hydrolysed soya protein
+es:proteína de soja hidrolizada
+fr:protéine de soja hydrolysée
+nl:gehydroliseerd soja-eiwit
+de:Sojaproteinhydrolysat
+allergens:fr:protéine de _soja_ hydrolysée
+
+<en:vegetal hydrolysed proteins
 fr:protéines de blé hydrolysées
 allergens:fr:protéines de _blé_ hydrolysées
+
+<en:animal hydrolysed proteins
+en:hydrolyzed pork protein
+es:proteína de cerdo hidrolizada
+fr:protéine de porc hydrolysée
+nl:gehydroliseerd varkenseiwit
+de:hydrolysiertes Schweineprotein
+
+<en:vegetal hydrolysed proteins
+en:hydrolysed corn protein
+es:proteína de maíz hidrolizada
+fr:protéine de maïs hydrolysée
+nl:gehydroliseerd maïseiwit
+de:Maisproteinhydrolysat
 
 fr:bouillon de boeuf
 
@@ -5965,10 +5994,6 @@ fr:sel fumé
 
 fr:feuilles de menthe
 
-
-
-fr:huile de noix de coco totalement hydrogénée
-
 fr:acide de sodium
 
 fr:fibres de pommes de terre
@@ -6086,7 +6111,8 @@ de:gegrillte Tomaten
 
 fr:sucre caramel
 
-fr:maltodextrine de tapioca
+
+
 
 fr:arôme identique nature
 
@@ -6304,12 +6330,6 @@ fr:base aromatisante barbecue
 
 fr:protéines de froment
 allergens:fr:protéines de _froment_
-
-en:hydrolysed corn protein
-es:proteína de maíz hidrolizada
-fr:protéine de maïs hydrolysée
-nl:gehydroliseerd maïseiwit
-de:Maisproteinhydrolysat
 
 fr:e952
 
@@ -6574,8 +6594,6 @@ fr:os de veau
 
 fr:paprika doux
 
-fr:huile de palme hydrogénée
-
 fr:arôme naturel de fraise
 
 en:eau de vie
@@ -6734,6 +6752,27 @@ fr:sauce bolognaise
 fr:fond de sauce
 
 fr:érythrosine
+
+en:vegetal oil
+fr:huile végétale
+
+en:non hydrogenated vegetal oil
+fr:huile végétale non hydrogénée
+
+fr:graisse végétale hydrogénée
+
+fr:matières grasses végétales non hydrogénées
+
+fr:matière grasse végétale non hydrogénée
+
+fr:huile végétale hydrogénée
+
+fr:matière grasse végétale hydrogénée
+
+fr:huile de noix de coco totalement hydrogénée
+
+fr:huile de palme hydrogénée
+
 
 <en:sunflower
 en:sunflower oil
@@ -8216,13 +8255,6 @@ fr:mélasses
 fr:huiles végétales hydrogénées et non hydrogénées
 
 fr:levure fraîche
-
-en:hydrolysed soya protein
-es:proteína de soja hidrolizada
-fr:protéine de soja hydrolysée
-nl:gehydroliseerd soja-eiwit
-de:Sojaproteinhydrolysat
-allergens:fr:protéine de _soja_ hydrolysée
 
 fr:sirop de glucose de blé en poudre
 
