@@ -158,10 +158,10 @@ systeme-u
         )],
 },
 {
-        name => "Yuka - brets",
+        name => "stephane - systeme-u",
         conditions => [
-                ["user_id", "kiliweb"],
-                ["in_editors_tags", "altho-brets"],
+                ["user_id", "stephane2"],
+                ["in_editors_tags", "systeme-u"],
         ],
         actions => [
                 ["ignore"],
@@ -170,33 +170,6 @@ systeme-u
                 slack_channel_edit-alert
         )],
 },
-{
-        name => "Yuka - fleury-michon",
-        conditions => [
-                ["user_id", "kiliweb"],
-                ["in_editors_tags", "fleury-michon"],
-        ],
-        actions => [
-                ["ignore"],
-        ],
-        notifications => [ qw (
-                slack_channel_edit-alert
-        )],
-},
-{
-        name => "Yuka - sodebo",
-        conditions => [
-                ["user_id", "kiliweb"],
-                ["in_editors_tags", "sodebo"],
-        ],
-        actions => [
-                ["ignore"],
-        ],
-        notifications => [ qw (
-                slack_channel_edit-alert
-        )],
-},
-
 
 
 
@@ -354,6 +327,73 @@ fr:levures
 )];
 
 
+$options{nova_groups_tags} = {
+
+# start by assigning group 1
+
+# 1st try to identify group 2 processed culinary ingredients
+
+"categories/en:fats" => 2,
+"categories/en:salts" => 2,
+"categories/en:vinegars" => 2,
+"categories/en:sugars" => 2,
+"categories/en:honeys" => 2,
+"categories/en:maple-syrups" => 2,
+
+# group 3 tags will not be applied to food identified as group 2
+
+"ingredients/en:preservative" => 3,
+
+"ingredients/en:salt" => 3,
+"ingredients/en:sugar" => 3,
+"ingredients/en:vegetal-oil" => 3,
+"ingredients/en:butter" => 3,
+"ingredients/en:honey" => 3,
+"ingredients/en:maple-syrup" => 3,
+
+# tags only found in group 4
+
+"ingredients/en:colour" => 4,
+"ingredients/en:colour-stabilizer" => 4,
+"ingredients/en:flavour-enhancer" => 4,
+"ingredients/en:sweetener" => 4,
+"ingredients/en:carbonating-agent" => 4,
+"ingredients/en:firming-agent" => 4,
+"ingredients/en:bulking-agent" => 4,
+"ingredients/en:anti-bulking-agent" => 4,
+"ingredients/en:de-foaming-agent" => 4,
+"ingredients/en:anti-caking-agent" => 4,
+"ingredients/en:glazing-agent" => 4,
+"ingredients/en:emulsifier" => 4,
+"ingredients/en:sequestrant" => 4,
+"ingredients/en:humectant" => 4,
+
+"ingredients/en:flavour" => 4,
+"ingredients/en:casein" => 4,
+"ingredients/en:lactose" => 4,
+"ingredients/en:whey" => 4,
+"ingredients/en:hydrogenated-oil" => 4,
+"ingredients/en:hydrolysed-proteins" => 4,
+"ingredients/en:maltodextrin" => 4,
+"ingredients/en:invert-sugar" => 4,
+"ingredients/en:high-fructose-corn-syrup" => 4,
+
+"categories/en:sodas" => 4,
+"categories/en:ice-creams" => 4,
+"categories/en:chocolates" => 4,
+"categories/en:candies" => 4,
+"categories/en:meals" => 4,
+"categories/en:sugary-snacks" => 4,
+"categories/en:salty-snacks" => 4,
+"categories/en:baby-milks" => 4,
+"categories/en:sausages" => 4,
+
+
+
+};
+
+
+
 %wiki_texts = (
 
 "en/discover" => "https://en.wiki.openfoodfacts.org/Translations_-_Discover_page_-_English?action=raw",
@@ -387,7 +427,7 @@ fr:levures
 
 # fields for which we will load taxonomies
 
-@taxonomy_fields = qw(states countries languages labels categories additives additives_classes vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces nutrient_levels misc ingredients);
+@taxonomy_fields = qw(states countries languages labels categories additives additives_classes vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces nutrient_levels misc ingredients nova_groups);
 
 
 # fields in product edit form
@@ -420,6 +460,7 @@ nucleotides
 other_nutritional_substances
 allergens
 traces
+nova_groups
 nutrition_grades
 misc
 languages

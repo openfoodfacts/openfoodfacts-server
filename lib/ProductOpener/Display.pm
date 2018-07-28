@@ -126,7 +126,8 @@ use MongoDB;
 use Tie::IxHash;
 use JSON::PP;
 use XML::Simple;
-use Log::Any qw($log);
+
+use Log::Any '$log', default_adapter => 'Stderr';
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -1106,7 +1107,7 @@ sub display_list_of_tags($$) {
 			];
 	}
 
-	if ($groupby_tagtype eq 'nutrition_grades') {
+	if (($groupby_tagtype eq 'nutrition_grades') or ($groupby_tagtype eq 'nova_groups') ){
 		$aggregate_parameters = [
 			{ "\$match" => $query_ref },
 			{ "\$unwind" => ("\$" . $groupby_tagtype . "_tags")},
@@ -1362,6 +1363,15 @@ sub display_list_of_tags($$) {
 				if ($tagid =~ /^a|b|c|d|e$/) {
 					my $grade = $tagid;
 					$display = "<img src=\"/images/misc/nutriscore-$grade.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} " . uc($grade) . "\" style=\"margin-bottom:1rem;max-width:100%\" />" ;
+				}
+				else {
+					$display = lang("unknown");
+				}
+			}
+			elsif ($tagtype eq 'nova_groups') {
+				if ($tagid =~ /^en:(1|2|3|4)/) {
+					my $group = $1;
+					$display = display_taxonomy_tag($lc, $tagtype, $tagid);
 				}
 				else {
 					$display = lang("unknown");
@@ -6511,6 +6521,26 @@ HTML
 		}
 	
 	}
+	
+	
+	# NOVA groups
+	
+	if ((exists $product_ref->{nova_group})) {
+		my $group = $product_ref->{nova_group};
+			
+# <a href="https://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}">
+# <i class="fi-info"></i></a>
+
+		my $display = display_taxonomy_tag($lc, "nova_groups", $product_ref->{nova_groups_tags}[0]);
+		
+		$html .= <<HTML
+<h4>$Lang{nova_groups_s}{$lc}
+</h4>
+<img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%" /><br/>
+$display
+HTML
+;
+	}	
 	
 	
 	$html .= <<HTML
