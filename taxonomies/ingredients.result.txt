@@ -2,6 +2,10 @@
 
 
 < :
+en:non hydrogenated vegetal fat
+fr:matières grasses végétales non hydrogénées
+
+< :
 en:sunflower fat
 
 < en:Sunflower fat
@@ -231,6 +235,9 @@ es:aroma de anís
 fr:arôme anis
 nl:anijs aroma
 
+en:antioxidant, anti-oxidant
+fr:antioxydant, anti-oxydant
+
 en:apple
 de:Äpfel
 es:manzana
@@ -417,6 +424,29 @@ allergens:fr: _lait_ de buffle
 en:butter
 fr:beurre
 allergens:fr: _beurre_
+
+< en:Butter
+en:concentrated butter
+fr:beurre concentré
+allergens:fr: _beurre_ concentré
+
+< en:Butter
+en:melted butter
+fr:beurre fondu
+
+< en:Butter
+en:pastry butter
+fr:beurre pâtissier
+allergens:fr: _beurre_ pâtissier
+
+< en:Butter
+en:salted butter
+fr:beurre salé
+allergens:fr: _beurre_ salé
+
+< en:Butter
+fr:beurre laitier concentré
+allergens:fr: beurre _laitier_ concentré
 
 en:cactus fig
 de:Kaktusfeigen
@@ -749,6 +779,9 @@ es:patata cocida
 fr:pomme de terre cuite, pommes de terre cuites
 nl:gegaarde aardappel
 
+en:corn
+fr:mais
+
 en:cucumber juice
 de:Gurkensaft
 es:zumo de pepino
@@ -826,12 +859,6 @@ de:dextriniertes Weizenmehl
 es:harina de trigo dextrinada
 fr:farine de blé dextrinée
 nl:gedextrineerd tarwemeel
-
-en:dextrose
-de:Dextrose
-es:dextrosa
-fr:dextrose
-nl:dextrose
 
 en:dried apple
 de:getrocknete Äpfel
@@ -982,6 +1009,10 @@ es:escarola
 fr:chicorée
 nl:andijvie
 
+en:fish
+fr:poisson
+allergens:fr: _poisson_
+
 en:flavour, flavor, flavouring, flavoring, aroma, flavours, flavors, flavourings, flavorings, aromas
 de:Aromen
 es:aromas
@@ -1033,6 +1064,13 @@ nl:augurken
 
 en:glucose
 fr:glucose
+
+< en:Glucose
+en:dextrose
+de:Dextrose
+es:dextrosa
+fr:dextrose
+nl:dextrose
 
 < en:Glucose
 en:glucose syrup
@@ -1145,18 +1183,46 @@ allergens:fr: _noisettes_ moulues
 fr:noisettes torréfiées
 allergens:fr: _noisettes_ torréfiées
 
+en:high-fructose corn syrup
+fr:sirop de maïs à haute teneur en fructose
+
 en:honey
 de:Honig
 es:miel
 fr:miel
 nl:honing
 
-en:hydrolysed corn protein
-de:Maisproteinhydrolysat
-es:proteína de maíz hidrolizada
-fr:protéine de maïs hydrolysée
-nl:gehydroliseerd maïseiwit
+en:hydrogenated oil, hydrogenated fat
+fr:huile hydrogénée, matière grasse hydrogénée, matières grasses hydrogénées
 
+< en:Hydrogenated oil
+en:hydrogenated palm oil
+fr:huile de palme hydrogénée
+
+< en:Hydrogenated oil
+fr:huile de noix de coco totalement hydrogénée
+
+< en:Hydrogenated oil
+fr:matière grasse végétale hydrogénée
+
+en:hydrolysed proteins
+de:Proteinhydrolysat
+es:proteína hidrolizada
+fr:protéine hydrolysée
+nl:gehydroliseerd eiwit
+
+< en:Hydrolysed proteins
+en:animal hydrolysed proteins
+fr:protéines animales hydrolysées, protéine animale hydrolysée
+
+< en:Animal hydrolysed proteins
+en:hydrolyzed pork protein
+de:hydrolysiertes Schweineprotein
+es:proteína de cerdo hidrolizada
+fr:protéine de porc hydrolysée
+nl:gehydroliseerd varkenseiwit
+
+< en:Hydrolysed proteins
 en:hydrolysed milk protein
 de:Milchproteinhydrolysat
 es:proteína de leche hidrolizada
@@ -1164,24 +1230,34 @@ fr:protéine de lait hydrolysée
 nl:gehydroliseerd melkeiwit
 allergens:fr: protéine de _lait_ hydrolysée
 
+< en:Hydrolysed proteins
+en:vegetal hydrolysed proteins
+fr:protéines végétales hydrolysées, protéine végétale hydrolysée
+
+< en:Vegetal hydrolysed proteins
+en:hydrolysed corn protein
+de:Maisproteinhydrolysat
+es:proteína de maíz hidrolizada
+fr:protéine de maïs hydrolysée
+nl:gehydroliseerd maïseiwit
+
+< en:Vegetal hydrolysed proteins
 en:hydrolysed soya protein
 de:Sojaproteinhydrolysat
 es:proteína de soja hidrolizada
-fr:protéine de soja hydrolysée
+fr:protéine de soja hydrolysée, protéines de soja hydrolysées
 nl:gehydroliseerd soja-eiwit
 allergens:fr: protéine de _soja_ hydrolysée
 
-en:hydrolyzed pork protein
-de:hydrolysiertes Schweineprotein
-es:proteína de cerdo hidrolizada
-fr:protéine de porc hydrolysée
-nl:gehydroliseerd varkenseiwit
-
+< en:Vegetal hydrolysed proteins
 en:hydrolyzed wheat protein
 de:hydrolisiertes Weizenprotein
 es:proteína hidrolizada de trigo
 fr:protéine de blé hydrolysée, protéines de blé hydrolysées
 nl:gehydroliseerd tarwe-eiwit
+
+< en:Hydrolysed proteins
+fr:protéines de pois hydrolysées
 
 en:Jerusalem artichoke
 de:Topinambur
@@ -1258,6 +1334,21 @@ fr:farine de lupin
 nl:lupinemeel
 allergens:fr: farine de _lupin_
 
+en:maltodextrin
+fr:maltodextrine
+
+< en:Maltodextrin
+en:corn maltodextrin
+fr:maltodextrine de maïs
+
+< en:Maltodextrin
+en:potato maltodextrin
+fr:maltodextrine de pomme de terre
+
+< en:Maltodextrin
+en:tapioca maltodextrin
+fr:maltodextrine de tapioca
+
 en:mango
 fr:mangue, mangues
 
@@ -1274,6 +1365,11 @@ fr:lait
 nl:melk
 allergens:fr: _lait_
 wikidata:en: Q8495
+
+< en:Milk
+en:raw milk
+fr:lait cru
+allergens:fr: _lait_ cru
 
 en:mint
 fr:menthe
@@ -1303,6 +1399,9 @@ fr:jus d'orange, jus d'oranges
 
 en:palm
 fr:palme
+
+en:palm oil
+fr:huile de palme
 
 en:Pantothenic acid
 de:Pantothensäure
@@ -1481,10 +1580,10 @@ es:harina de arroz
 fr:farine de riz
 nl:rijstebloem
 
-en:salt, cooking salt
+en:salt, cooking salt, dry salt
 de:Salz
 es:sal
-fr:sel, sel de cuisine
+fr:sel, sel de cuisine, sel sec
 nl:zout
 wikidata:en: Q11254
 
@@ -1626,12 +1725,15 @@ en:icing sugar
 fr:sucre glace
 
 < en:Sugar
-en:inverted sugar
+en:invert sugar, inverted sugar
 fr:sucre inverti
 
-< en:Inverted sugar
-en:inverted sugar syrup
+< en:Invert sugar
+en:invert sugar syrup, invert syrup, liquid invert syrup
 fr:sirop de sucre inverti
+
+< en:Invert sugar syrup
+en:cane invert syrup, invert cane syrup
 
 < en:Sugar
 en:liquid sugar
@@ -1770,6 +1872,27 @@ nl:chia-olie
 en:colza oil, rapeseed oil
 fr:huile de colza
 
+< en:Colza oil
+en:refined colza oil
+fr:huile de colza raffinée
+
+< en:Colza oil
+en:virgin colza oil
+fr:huile de colza vierge
+
+< en:Hydrogenated oil
+< en:Vegetal oil
+en:hydrogenated vegetal oil
+fr:graisse végétale hydrogénée, graisses végétales hydrogénées
+
+< en:Hydrogenated oil
+< en:Vegetal oil
+fr:huile végétale hydrogénée
+
+< en:Vegetal oil
+en:non hydrogenated vegetal oil
+fr:huile végétale non hydrogénée, huiles végétales non hydrogénées
+
 < en:Vegetal oil
 en:olive oil
 fr:huile d'olive
@@ -1830,6 +1953,9 @@ es:harina de espelta integral
 fr:farine complète d'épeautre
 nl:volkoren speltmeel
 allergens:fr: farine complète d'_épeautre_
+
+en:wine
+fr:vin
 
 en:zinc
 fr:zinc
@@ -2088,13 +2214,10 @@ fr:anthocyane
 
 fr:anti-agglomérant, anti-agglomérants
 
-fr:anti-oxydant
-
 fr:antiagglomérant, antiagglomérants
 
 fr:antioxidant
 
-fr:antioxydant
 
 fr:antioxydant bha
 
@@ -2376,9 +2499,6 @@ fr:betterave rouge en poudre
 fr:beurre clarifié
 allergens:fr: _beurre_ clarifié
 
-fr:beurre concentré
-allergens:fr: _beurre_ concentré
-
 fr:beurre concentré reconstitué
 allergens:fr: _beurre_ concentré reconstitué
 
@@ -2400,22 +2520,11 @@ allergens:fr: _beurre_ demi-sel
 fr:beurre doux
 allergens:fr: _beurre_ doux
 
-fr:beurre fondu
-
 fr:beurre frais
 allergens:fr: _beurre_ frais
 
-fr:beurre laitier concentré
-allergens:fr: beurre _laitier_ concentré
-
 fr:beurre pasteurisé
 allergens:fr: _beurre_ pasteurisé
-
-fr:beurre pâtissier
-allergens:fr: _beurre_ pâtissier
-
-fr:beurre salé
-allergens:fr: _beurre_ salé
 
 fr:bicarbonate d'ammonium
 
@@ -4992,7 +5101,6 @@ fr:graisse végétale de coprah
 
 fr:graisse végétale de palme
 
-fr:graisse végétale hydrogénée, graisses végétales hydrogénées
 
 fr:graisse végétale totalement hydrogénée
 
@@ -5132,8 +5240,6 @@ fr:huile de coco
 
 fr:huile de coco non hydrogénée
 
-fr:huile de colza
-
 fr:huile de colza non hydrogénée
 
 fr:huile de colza raffinée
@@ -5160,13 +5266,7 @@ allergens:fr: huile de _noix_
 
 fr:huile de noix de coco
 
-fr:huile de noix de coco totalement hydrogénée
-
-fr:huile de palme
-
 fr:huile de palme et de palmiste
-
-fr:huile de palme hydrogénée
 
 fr:huile de palme non hydrogénée
 
@@ -5217,9 +5317,6 @@ fr:huile végétale de tournesol
 
 fr:huile végétale de tournesol non hydrogénée
 
-fr:huile végétale hydrogénée
-
-fr:huile végétale non hydrogénée
 
 fr:huiles de tournesol et de colza
 
@@ -5230,8 +5327,6 @@ fr:huiles et matières grasses végétales
 fr:huiles végétales de tournesol et de colza
 
 fr:huiles végétales hydrogénées et non hydrogénées
-
-fr:huiles végétales non hydrogénées
 
 fr:humectant
 
@@ -5626,9 +5721,6 @@ allergens:fr: _lait_ concentré sucré écrémé
 fr:lait condensé sucré
 allergens:fr: _lait_ condensé sucré
 
-fr:lait cru
-allergens:fr: _lait_ cru
-
 fr:lait cru de brebis
 allergens:fr: _lait_ cru de brebis
 
@@ -5987,8 +6079,6 @@ fr:maigre de tête de porc
 
 fr:maigre et gras de porc
 
-fr:mais
-
 fr:maïs cireux
 
 fr:maïs doux
@@ -6019,14 +6109,6 @@ allergens:fr: malt de _froment_
 fr:maltitol
 
 fr:malto-dextrine
-
-fr:maltodextrine
-
-fr:maltodextrine de maïs
-
-fr:maltodextrine de pomme de terre
-
-fr:maltodextrine de tapioca
 
 fr:maltose
 
@@ -6114,11 +6196,7 @@ fr:matière grasse végétale de coprah
 
 fr:matière grasse végétale de palme
 
-fr:matière grasse végétale hydrogénée
-
 fr:matière grasse végétale non hydrogénée
-
-fr:matières grasses végétales non hydrogénées
 
 fr:mayonnaise
 
@@ -6839,9 +6917,6 @@ fr:pois doux
 
 fr:pois mange-tout
 
-fr:poisson
-allergens:fr: _poisson_
-
 fr:poisson blanc
 allergens:fr: _poisson_ blanc
 
@@ -7113,6 +7188,7 @@ allergens:fr: protéine de _lait_
 fr:protéine de soja, protéines de soja
 allergens:fr: protéine de _soja_
 
+
 fr:protéine végétale
 
 fr:protéines de blé
@@ -7137,14 +7213,9 @@ fr:protéines de petit-lait
 
 fr:protéines de pois, protéine de pois
 
-fr:protéines de pois hydrolysées
-
 fr:protéines de sang
 
 fr:protéines de sang de porc
-
-fr:protéines de soja hydrolysées
-allergens:fr: protéines de _soja_ hydrolysées
 
 fr:protéines de soja i.p
 allergens:fr: protéines de _soja_ i.p
@@ -7168,7 +7239,6 @@ fr:protéines végétales
 fr:protéines végétales de soja réhydratées
 allergens:fr: protéines végétales de _soja_ réhydratées
 
-fr:protéines végétales hydrolysées, protéine végétale hydrolysée
 
 fr:protéines végétales réhydratées
 
@@ -7605,8 +7675,6 @@ fr:sel marin de guérande
 fr:sel marin non raffiné de l'atlantique
 
 fr:sel marin non traité
-
-fr:sel sec
 
 fr:sélénate de sodium
 
@@ -8057,8 +8125,6 @@ fr:viande séparée mécaniquement de dinde
 
 fr:viande séparée mécaniquement de porc
 
-fr:vin
-
 fr:vin aromatisé
 
 fr:vin blanc
@@ -8076,6 +8142,8 @@ fr:vinaigre balsamique
 fr:vinaigre balsamique de modène
 
 fr:vinaigre blanc
+
+fr:vinaigre d'alcool
 
 fr:vinaigre d'eau-de-vie
 
@@ -8097,8 +8165,6 @@ fr:vinaigre de vin blanc
 fr:vinaigre de vin rouge
 
 fr:vinaigre de xérès
-
-fr:vinaigre dialcool
 
 fr:vinaigres d'alcool et de vin blanc
 

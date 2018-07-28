@@ -1,6 +1,6 @@
-en:salt, cooking salt
+en:salt, cooking salt, dry salt
 es:sal
-fr:sel, sel de cuisine
+fr:sel, sel de cuisine, sel sec
 nl:zout
 de:Salz
 wikidata:en:Q11254
@@ -47,14 +47,15 @@ wikidata:en:Q8495
 en:flavour, flavor, flavouring, flavoring, aroma, flavours, flavors, flavourings, flavorings, aromas
 fr:arôme, arômes
 
-fr:antioxydant
+en:antioxidant, anti-oxidant
+fr:antioxydant, anti-oxydant
 
+<en:glucose
 en:dextrose
 es:dextrosa
 fr:dextrose
 nl:dextrose
 de:Dextrose
-
 
 <en:glucose
 en:glucose syrup
@@ -65,23 +66,44 @@ wikidata:en:Q14770547
 en:colza oil, rapeseed oil
 fr:huile de colza
 
+<en:colza oil
+en:refined colza oil
+fr:huile de colza raffinée
+
+<en:colza oil
+en:virgin colza oil
+fr:huile de colza vierge
+
+en:hydrogenated oil, hydrogenated fat
+fr:huile hydrogénée, matière grasse hydrogénée, matières grasses hydrogénées
+
 <en:vegetal oil
 en:non hydrogenated vegetal oil
 fr:huile végétale non hydrogénée
 
+<en:vegetal oil
+<en:hydrogenated oil
+en:hydrogenated vegetal oil
 fr:graisse végétale hydrogénée
 
+<en:vegetal fat
+en:non hydrogenated vegetal fat
 fr:matières grasses végétales non hydrogénées
 
 fr:matière grasse végétale non hydrogénée
 
 <en:vegetal oil
+<en:hydrogenated oil
 fr:huile végétale hydrogénée
 
+<en:hydrogenated oil
 fr:matière grasse végétale hydrogénée
 
+<en:hydrogenated oil
 fr:huile de noix de coco totalement hydrogénée
 
+<en:hydrogenated oil
+en:hydrogenated palm oil
 fr:huile de palme hydrogénée
 
 en:colour, color, colours, colors
@@ -374,6 +396,8 @@ fr:huile végétale, huiles végétales
 
 fr:gomme guar, gomme de guar
 
+<en:butter
+en:concentrated butter
 fr:beurre concentré
 allergens:fr:_beurre_ concentré
 
@@ -547,12 +571,19 @@ en:thyme
 fr:thym
 
 <en:sugar
-en:inverted sugar
+en:invert sugar, inverted sugar
 fr:sucre inverti
 
-<en:inverted sugar
-en:inverted sugar syrup
+<en:invert sugar
+en:invert sugar syrup, invert syrup, liquid invert syrup
 fr:sirop de sucre inverti
+
+<en:invert sugar syrup
+en:cane invert syrup, invert cane syrup
+
+<en:invert sugar
+<en:invert cane sugar, inverted cane sugar
+
 
 <en:vegetal oil
 en:olive oil
@@ -569,6 +600,7 @@ fr:jambon de porc
 
 fr:e450
 
+en:corn
 fr:mais
 
 fr:sulfite
@@ -582,6 +614,7 @@ fr:acide lactique
 
 fr:vin blanc
 
+en:fish
 fr:poisson
 allergens:fr:_poisson_
 
@@ -839,6 +872,8 @@ allergens:fr:_orge_
 fr:disulfite de potassium
 allergens:fr:_disulfite_ de potassium
 
+<en:butter
+en:pastry butter
 fr:beurre pâtissier
 allergens:fr:_beurre_ pâtissier
 
@@ -1529,6 +1564,7 @@ fr:sirop de sucre caramélisé
 nl:gekarameliseerde suikerstroop 
 de:Karamell-Zuckersirup
 
+<en:butter
 fr:beurre laitier concentré
 allergens:fr:beurre _laitier_ concentré
 
@@ -1654,6 +1690,7 @@ fr:matière grasse de palme
 
 fr:e339
 
+en:wine
 fr:vin
 
 fr:purée de pomme
@@ -1674,6 +1711,8 @@ fr:agent de charge
 
 fr:calcium
 
+<en:butter
+en:melted butter
 fr:beurre fondu
 
 fr:os de porc
@@ -2030,6 +2069,8 @@ de:Tomatenpulver
 fr:noix de pécan
 allergens:fr:_noix de pécan_
 
+<en:butter
+en:salted butter
 fr:beurre salé
 allergens:fr:_beurre_ salé
 
@@ -2050,6 +2091,8 @@ fr:fines herbes, fine herbe
 
 fr:tofu
 
+<en:milk
+en:raw milk
 fr:lait cru
 allergens:fr:_lait_ cru
 
@@ -5637,10 +5680,6 @@ fr:patates douces
 fr:vergeoise
 
 fr:nougatine
-
-fr:huile de colza
-
-fr:sel sec
 
 fr:e 150d
 
