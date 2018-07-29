@@ -6988,6 +6988,29 @@ HTML
 	
 	}	
 	
+	# NOVA groups
+	
+	if (($lc eq 'fr') and (exists $product_ref->{nova_group})) {
+		my $group = $product_ref->{nova_group};
+			
+# <a href="https://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}">
+# <i class="fi-info"></i></a>
+
+		my $display = display_taxonomy_tag($lc, "nova_groups", $product_ref->{nova_groups_tags}[0]);
+		
+		$html .= <<HTML
+<h4>$Lang{nova_groups_s}{$lc}
+<a href="https://world.openfoodfacts.org/nova-groups-for-food-processing" title="NOVA groups for food processing">
+<i class="fi-info"></i></a>
+</h4>
+
+
+<a href="https://world.openfoodfacts.org/nova-groups-for-food-processing" title="NOVA groups for food processing"><img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%" /></a><br/>
+$display
+HTML
+;
+	}		
+	
 	$html_image = display_image_box($product_ref, 'nutrition', \$minheight);	
 	
 	$html .= "</div>";
