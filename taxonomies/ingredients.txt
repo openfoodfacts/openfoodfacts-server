@@ -701,6 +701,10 @@ fr:beurre
 allergens:fr:_beurre_
 
 <en:butter
+fr:beurre clarifié
+allergens:fr:_beurre_ clarifié
+
+<en:butter
 en:unsalted butter
 fr:beurre doux
 allergens:fr:_beurre_ doux
@@ -912,6 +916,13 @@ en:lactose
 fr:lactose
 allergens:fr:_lactose_
 
+fr:matière grasse lactique
+
+fr:perméat de lactosérum
+
+fr:poudre de lactose
+allergens:fr:poudre de _lactose_
+
 # VITAMINES
 
 en:vitamins, vitamin
@@ -1059,13 +1070,44 @@ fr:fleur de sel
 en:mineral salts
 fr:sels minéraux
 
+fr:sel
 
+fr:sels de salaison, sel nitrité
+
+fr:sels minéraux de mer
+
+fr:sel fumé
+
+fr:sel marin non traité
+
+fr:sel sec
+
+fr:sel émulsifiant, sels émulsifiants
+
+fr:sel de camargue
+
+fr:fleur de sel
+
+fr:sels de magnésium d'acides gras
+
+fr:sel de guérande
+
+fr:sel marin de guérande
+
+fr:sel dextrose
+
+fr:sel nitrité iodé
 
 
 # VIANDE
+fr:viande
+
 
 <en:meat
 fr:viande de porc
+
+en:pork
+fr:porc
 
 <fr:viande de porc
 fr:pièces de tête de porc
@@ -1116,28 +1158,132 @@ fr:protéines de sang de porc
 
 fr:longe de porc
 
+<fr:viande de porc
 fr:viande séparée mécaniquement de porc
+
+fr:jarret de porc
+
+fr:cuisse de porc
+
+fr:jambon frais de porc
+
+fr:gorge de porc
+
+fr:maigre et gras de porc
+
+fr:couenne de porc, couennes de porc
+
+fr:bouillon de porc
+
+fr:os et viande de porc
+
+fr:plasma de porc
+
+fr:os de porc
+
+fr:boyau naturel de porc
+
+fr:couenne de porc
+
+fr:foie de porc
+
+fr:gélatine de porc
+
+fr:gras de porc
+
+fr:poitrine de porc
+
+<fr:viande de porc
+fr:viande et gras de porc
 
 fr:viande de poule
 
 fr:viande de volaille
 
-fr:viande
-
-fr:os et viande de porc
-
 fr:viande de canard
+
+fr:cuisses de canard
+
+fr:manchons de canard
+
+en:duck egg
+es:huevo de pato
+fr:œuf de canard
+nl:eendenei
+de:Enteneier
+
+en:duck liver
+es:hígado de pato
+fr:foie de canard
+nl:eendenlever
+de:Entenleber
 
 fr:viande de veau
 
-fr:viande et gras de porc
+fr:veau
 
+fr:présure de veau
+
+fr:os de veau
+
+<en:meat
 fr:viande bovine
 
 fr:viande de dinde
 
 fr:viande de poulet
 
+#Poulet
+
+<fr:viande de poulet
+fr:produit à base de viande de poulet
+
+<fr:viande de poulet
+fr:poitrine de poulet
+
+<fr:viande de poulet
+fr:cuisse de poulet
+
+<fr:viande de poulet
+fr:poulet rôti
+
+fr:gras de poulet
+
+fr:fond de poulet
+
+<fr:viande de poulet
+fr:aiguillette de poulet
+
+<fr:viande de poulet
+fr:filet de poulet halal
+
+<fr:viande de poulet
+fr:os et viande de poulet
+
+<fr:viande de poulet
+fr:aiguillettes de poulet
+
+<fr:viande de poulet
+fr:manchons de poulet
+
+<fr:viande de poulet
+fr:haut de cuisse de poulet
+
+<fr:viande de poulet
+fr:poulet rôti traité en salaison
+
+<fr:viande de poulet
+fr:blanc de poulet
+
+fr:bouillon de poulet
+
+fr:extrait de poulet
+
+fr:poulet traité en salaison
+
+fr:filets de poulet
+
+<en:meat
 fr:viande de bœuf
 
 fr:boyau de porc
@@ -1149,6 +1295,7 @@ fr:bouillon de porc déshydraté
 
 fr:couenne et gras de porc
 
+<fr:viande de porc
 fr:barde de porc
 
 <fr:viande de porc
@@ -1177,7 +1324,8 @@ fr:amidon de blé
 allergens:fr:amidon de _blé_
 
 <en:starch
-fr:amidon de mais
+en:corn starch, maize starch
+fr:amidon de mais, amidon de maïs
 
 <en:starch
 en:modified starch
@@ -1195,14 +1343,11 @@ fr:amidon transformé de tapioca
 <en:modified starch
 fr:amidon transformé de pomme de terre
 
-<en:modified starch
+<en:corn starch
 fr:amidon transformé de mais
 
 <en:modified starch
 fr:amidon transformé de riz
-
-<en:starch
-fr:amidon de maïs
 
 <en:corn starch
 fr:amidon de maïs modifié
@@ -1220,19 +1365,22 @@ fr:amidon de pois
 fr:amidon de manioc
 
 <en:starch
-fr:amidon de pommes de terre
+en:potato starch
+fr:amidon de pommes de terre, amidon de pomme de terre
 
 <en:starch
 fr:amidon de froment
 allergens:fr:amidon de _froment_
 
 <en:starch
+en:tapioca starch
 fr:amidon de tapioca
 
 <en:starch
 fr:amidon de riz
 
 <en:starch
+en:modified starch
 fr:amidon modifié
 
 <en:modified starch
@@ -1240,22 +1388,23 @@ fr:amidon modifié
 fr:amidon modifié de mais
 
 <en:modified starch
+<en:potato starch
 fr:amidon modifié de pomme de terre, amidon modifié de pommes de terre
 
 <en:modified starch
+<en:tapioca starch
 fr:amidon modifié de tapioca
 
 <en:modified starch
 fr:amidon modifié de manioc
 
 <en:modified starch
+<en:corn starch
 fr:amidon modifié de maïs cireux
 
 <en:modified starch
+<en:potato starch
 fr:amidon modifié de pommes de terre, amidon modifié de pomme de terre
-
-<en:starch
-fr:amidon de pomme de terre
 
 <en:starch
 fr:fécule de tapioca
@@ -1299,6 +1448,7 @@ en:palm
 fr:palme
 
 <en:palm oil
+en:palm olein
 fr:oléine de palme
 
 <en:palm oil
@@ -1329,6 +1479,8 @@ fr:graisse végétale de coprah
 en:copra oil, coconut oil
 fr:huile de coco, huile de noix de coco, huile de coprah
 
+fr:matière grasse de coco
+
 <en:copra oil
 fr:graisse de coprah
 
@@ -1338,30 +1490,38 @@ fr:graisse de coprah
 <en:copra oil
 fr:coprah
 
+fr:graisse végétale de coco
+
 # AUTRES MATIERES GRASSES VEGETALES
 
-en:vegetal oil, vegetal oils, vegetable oil
+en:vegetable oil, vegetal oil, vegetal oils
 fr:huile végétale, huiles végétales
 
 en:vegetal fat, vegetable fat
 fr:matière grasse végétale, matières grasses végétales
 
-<en:vegetal oil
+fr:matière graisse végétale
+
+fr:graisse végétale, graisses végétales
+
+fr:graisse végétale totalement hydrogénée
+
+<en:vegetable oil
 en:olive oil
 fr:huile d'olive
 
-<en:vegetal oil
+<en:vegetable oil
 fr:huile de noix
 allergens:fr:huile de _noix_
 
-<en:vegetal oil
+<en:vegetable oil
 fr:huile de coton
 
-<en:vegetal oil
+<en:vegetable oil
 fr:huile de maïs
 
-<en:vegetal oil
-fr:huile
+#<en:vegetable oil
+#fr:huile
 
 <en:olive oil
 fr:huile d'olive vierge extra
@@ -1376,62 +1536,66 @@ fr:huile d'olive extra vierge
 en:extra virgin olive oil
 fr:huile d'olive vierge extra
 
-<en:vegetal oil
+<en:vegetable oil
 en:canola oil, rapeseed oil
 fr:huile de colza, huile de canola, huile végétale de colza
 
-<en:vegetal oil
+<en:vegetable oil
 fr:huile d'arachide
 allergens:fr:huile d'_arachide_
 
 <en:vegetal oil
 fr:graisses et huiles végétales
 
-<en:vegetal oil
+<en:vegetable oil
 en:sesame oil
 fr:huile de sésame
 allergens:fr:huile de _sésame_
 
-<en:vegetal oil
+<en:vegetable oil
 fr:huile et graisse végétale, huiles et graisses végétales
 
-<en:vegetal oil
+<en:vegetable oil
 en:soy oil
 fr:huile de soja
 allergens:fr:huile de _soja_
 
-<en:vegetal oil
+<en:vegetable oil
 en:chia oil
 es:aceite de chía
 fr:huile de chia
 nl:chia-olie
 de:Chiaöl
 
-<en:vegetal oil
+<en:vegetable oil
+en:non-hydrogenated vegetable oils
 fr:huiles végétales non hydrogénées
 
-<en:vegetal oil
+<en:vegetable oil
 fr:huiles et graisses végétales non hydrogénées
 
-<en:vegetal oil
-en:non hydrogenated vegetal oil
+<en:vegetable oil
+en:non hydrogenated vegetable oil
 fr:huile végétale non hydrogénée
 
-<en:vegetal oil
+<en:vegetable oil
 en:hydrogenated vegetable fat
 fr:graisse végétale hydrogénée, matière grasse végétale hydrogénée
 
-<en:vegetal oil
+<en:hydrogenated vegetable fat
+fr:palmiste totalement hydrogénée
+
+<en:vegetable oil
 en:non-hydrogenated vegetable fats, non-hydrogenated vegetable fat
 fr:matières grasses végétales non hydrogénées, matière grasse végétale non hydrogénée
 
-<en:vegetal oil
+<en:vegetable oil
 fr:huile végétale hydrogénée
 
-<en:vegetal oil
+<en:vegetable oil
 fr:huile de noix de coco totalement hydrogénée
 
-<en:vegetal oil
+<en:vegetable oil
 fr:huile de colza non hydrogénée
 
 fr:huile essentielle de citron
@@ -1498,6 +1662,64 @@ fr:vinaigre de table
 en:red wine vinegar
 fr:vinaigre de vin rouge
 
+<en:vinegar
+fr:vinaigre d'eau-de-vie
+
+# Alcools
+
+en:alcohol 
+es:alcohol 
+fr:alcool
+nl:alcohol 
+de:Alkohol
+
+en:alcohols
+fr:alcools
+
+fr:porto
+
+en:wine
+fr:vin
+
+en:white wine
+fr:vin blanc
+
+fr:vin rouge
+
+en:vermouth
+fr:vermouth
+
+en:whiskey
+fr:whisky
+
+en:cognac
+es:coñac
+fr:cognac
+nl:cognac
+de:Cognac
+
+en:Cointreau
+es:Cointreau
+fr:Cointreau
+nl:Cointreau
+de:Cointreau
+
+en:calvados
+es:calvados
+fr:calvados
+nl:calvados
+de:Calvados
+
+fr:rhum
+
+en:armagnac
+es:Armagnac
+fr:armagnac
+nl:armagnac
+de:Armagnac
+
+fr:alcool éthylique
+
 # AROMES
 
 en:flavourings 
@@ -1532,6 +1754,7 @@ fr:arômes naturels de citron avec autres arômes naturels
 fr:arômes naturels d'agrumes avec autres arômes naturels
 
 <en:natural flavour
+en:natural pepper flavors
 fr:arômes naturels de poivre
 
 <en:natural flavour
@@ -1547,9 +1770,11 @@ fr:arôme naturel de pamplemousse
 fr:arôme naturel poivre
 
 <en:natural flavour
+en:natural carrot flavor
 fr:arôme naturel de carotte
 
 <en:natural flavour
+en:natural apricot flavor
 fr:arôme naturel d'abricot
 
 <en:natural flavour
@@ -1586,15 +1811,13 @@ fr:autres arômes naturels
 fr:autres arômes naturels
 
 <en:natural flavour
-fr:arôme naturel de vanille
-
-<en:natural flavour
 fr:arôme naturel de basilic
 
 <en:natural flavour
-fr:arômes naturels de vanille
+natural flavourfr:arômes naturels de vanille
 
 <en:natural flavour
+en:natural onion flavour
 fr:arôme naturel d'oignon
 
 <en:natural flavour
@@ -1604,43 +1827,49 @@ fr:arôme naturel de framboise
 fr:arômes naturels d'orange, arôme naturel d'orange
 
 <en:natural flavour
-fr:arôme naturel de vanille de madagascar
+en:natural vanilla flavour
+fr:arôme naturel de vanille
 
 <en:natural flavour
-fr:arôme naturel de vanille
+en:natural vanilla flavor
+fr:arôme naturel de vanille, arôme naturel vanille
+
+<en:natural flavour
+fr:arôme naturel de vanille de madagascar
 
 <en:natural flavour
 fr:arôme naturel de porc
 
 <en:natural flavour
 fr:arôme naturel de vanille avec autres arômes naturels
-#wikidata:en:
 
 <en:natural flavour
 fr:arôme naturel de citron avec autres arômes naturels
 
 <en:natural flavour
+en:natural garlic flavor
 fr:arôme naturel d'ail
 
 <en:natural flavour
-fr:arôme naturel vanille
-
-<en:natural flavour
+en:natural mint flavor
 fr:arôme naturel de menthe
 
 <en:natural flavour
+en:natural orange flavor
 fr:arôme naturel d'orange
 
 <en:natural flavour
 fr:arôme naturel de citron
 
 <en:natural flavour
+en:natural pepper flavor
 fr:arôme naturel de poivre
 
 <en:natural flavour
 fr:arôme naturel de citron-citron vert
 
 <en:natural flavour
+en:natural paprika flavor
 fr:arôme naturel de paprika
 
 <en:natural flavour
@@ -1672,15 +1901,18 @@ fr:arôme naturel de café
 fr:arômes naturels d'orange avec autres arômes naturels
 
 <en:natural flavour
+en:natural mints flavor
 fr:arôme naturel de menthes
 
 <en:natural flavour
 fr:arôme naturel d'agrumes, arômes naturels d'agrumes
 
 <en:natural flavour
+en:natural apple flavor
 fr:arôme naturel de pomme
 
 <en:natural flavour
+en:natural caramel flavor
 fr:arôme naturel de caramel
 
 <en:natural flavour
@@ -1691,6 +1923,7 @@ allergens:fr:arôme naturel de _céleri_
 fr:arôme naturel de cassis
 
 <en:natural flavour
+en:natural strawberry flavor
 fr:arôme naturel de fraise
 
 <en:natural flavour
@@ -1711,17 +1944,24 @@ fr:arôme naturel de noix de coco
 <en:natural flavour
 fr:autres arômes naturels
 
-<en:flavour
-fr:arôme de fumée, arôme fumé
+<en:natural flavour
+fr:arômes naturels de menthe
 
 <en:flavour
+en:smoke flavour
+fr:arôme de fumée, arôme fumé, arôme fumée
+
+<en:flavour
+fr:strawberry flavour
 fr:arôme fraise
 
 <en:flavour
+en:caramel flavour
 fr:arôme caramel
 
 <en:flavour
-fr:arôme de vanille
+en:vanilla flavour
+fr:arôme de vanille, arôme vanille
 
 <en:flavour
 fr:arôme de citron, arôme citron
@@ -1729,9 +1969,6 @@ fr:arôme de citron, arôme citron
 <en:flavour
 fr:arôme de malt d'orge
 allergens:fr:arôme de malt d'_orge_
-
-<en:flavour
-fr:arôme vanille
 
 <en:flavour
 fr:arôme vanilline
@@ -1747,9 +1984,6 @@ allergens:fr:arôme _crabe_
 fr:arôme identique nature
 
 <en:flavour
-fr:arômes naturels de menthe
-
-<en:flavour
 en:aniseed aroma
 es:aroma de anís
 fr:arôme anis
@@ -1763,9 +1997,6 @@ fr:arôme framboise
 fr:arôme fleur d'oranger
 
 <en:flavour
-fr:arôme fumée
-
-<en:flavour
 fr:arôme vanille
 
 <en:flavour
@@ -1773,6 +2004,12 @@ fr:arôme noix de coco
 
 # FARINES
 
+en:flours
+fr:farines
+
+fr:farine
+
+en:tapioca flour
 fr:farine de tapioca
 
 fr:farines de blé
@@ -1804,8 +2041,6 @@ fr:farine complète de seigle
 nl:volkoren roggemeel
 de:Roggenvollkornmehl
 allergens:fr:farine complète de _seigle_
-
-fr:farines
 
 en:dextrinated barley flour
 es:harina de cebada dextrinada
@@ -1862,8 +2097,6 @@ fr:farine d’avoine dextrinée
 nl:gedextrineerd havermeel
 de:dextriniertes Hafermehl
 
-fr:farine
-
 fr:farine complète de blé
 allergens:fr:farine complète de _blé_
 
@@ -1901,8 +2134,6 @@ fr:farine de riz blanc
 fr:farine de riz complet
 
 # SUCRE
-
-fr:sucre roux
 
 en:sugar
 es:azúcar
@@ -1983,8 +2214,10 @@ fr:sirop d’érable
 nl:ahornsiroop
 de:Ahornsirup
 
+en:sugar syrup
 fr:sirop de sucre
 
+en:liquid sugar
 fr:sucre liquide
 
 fr:sirop de sucre candi
@@ -1997,7 +2230,7 @@ en:glucose syrup
 fr:sirop de glucose
 wikidata:en:Q14770547
 
-
+fr:glucose-fructose
 
 <en:glucose syrup
 en:glucose and fructose syrup, glucose-fructose syrup, fructose-glutose syrup
@@ -2017,8 +2250,10 @@ fr:sirop de glucose déshydraté
 en:wheat glucose syrup
 fr:sirop de glucose de blé
 
+en:caramel syrup
 fr:sirop de caramel
 
+en:corn syrup
 fr:sirop de maïs
 
 en:agave syrup
@@ -2038,13 +2273,16 @@ fr:sirop de maïs à haute teneur en fructose
 fr:sirop de blé
 allergens:fr:sirop de _blé_
 
+en:maltitol syrup
 fr:sirop de maltitol
 
+en:sorbitol syrup
 fr:sirop de sorbitol
 
+en:rice syrup
 fr:sirop de riz
 
-<en:sugar
+<en:sugar syrup
 fr:sirop de sucre inverti
 
 <en:sugar
@@ -2055,12 +2293,15 @@ nl:gekarameliseerde suikerstroop
 de:Karamell-Zuckersirup
 
 # PROTEINES
+fr:protéines végétales
+
+fr:protéine végétale
 
 fr:protéine de pois, protéines de pois
 
 fr:protéines de pois, protéine de pois
 
-fr:protéines végétales
+fr:protéine végétale hydrolysée
 
 fr:protéines de soja réhydratées
 allergens:fr:protéines de _soja_ réhydratées
@@ -2069,10 +2310,13 @@ en:milk proteins
 fr:protéines de lait
 allergens:fr:protéines de _lait_
 
+fr:protéines de lait en poudre
+allergens:fr:protéines de _lait_ en poudre
+
 fr:protéines laitières
 allergens:fr:protéines _laitières_
 
-fr:proteine
+fr:protéine, proteine
 
 fr:protéine de soja, protéines de soja
 allergens:fr:protéines de _soja_
@@ -2096,27 +2340,34 @@ fr:protéines lactiques, protéine lactique
 
 # CHOCOLAT
 
-fr:pépites de chocolat au lait
-allergens:fr:pépites de chocolat au _lait_
+en:chocolate
+fr:chocolat
 
-fr:pépites de chocolat noir
-
-fr:chocolat supérieur au lait
-allergens:fr:chocolat supérieur au _lait_
-
+en:white chocolate
 fr:chocolat blanc
 
 fr:chocolat en poudre
 
+en:chocolate chips
 fr:pépites de chocolat
 
+en:dark chocolate, black chocolate
 fr:chocolat noir
 
+<en:dark chocolate
+fr:pépites de chocolat noir
+
+en:milk chocolate
 fr:chocolat au lait
 allergens:fr:chocolat au _lait_
 
-en:chocolate
-fr:chocolat
+<en:milk chocolate
+fr:pépites de chocolat au lait
+allergens:fr:pépites de chocolat au _lait_
+
+<en: milk chocolate
+fr:chocolat supérieur au lait
+allergens:fr:chocolat supérieur au _lait_
 
 # A TRIER
 
@@ -2173,12 +2424,6 @@ wikidata:en:Q251106
 en:cocoa paste
 fr:pâte de cacao
 
-en:garlic
-es:ajo
-fr:ail
-nl:knoflook
-de:Knoblauch
-
 en:spice, spices
 fr:épice, épices
 
@@ -2190,9 +2435,6 @@ fr:levure
 
 en:thickener
 fr:épaississant
-
-en:onion
-fr:oignon
 
 en:ascorbic acid
 fr:acide ascorbique
@@ -2242,19 +2484,19 @@ fr:gluten de blé
 allergens:fr:gluten de _blé_
 
 en:maltodextrin
-fr:maltodextrine
+fr:maltodextrine, malto-dextrine
 
 <en:maltodextrin
 en:tapioca maltodextrin
-fr:maltodextrine de tapioca
+fr:maltodextrine de tapioca, malto-dextrine de tapioca
 
 <en:maltodextrin
 en:potato maltodextrin
-fr:maltodextrine de pomme de terre
+fr:maltodextrine de pomme de terre, malto-dextrine de pomme de terre
 
 <en:maltodextrin
 en:corn maltodextrin
-fr:maltodextrine de maïs
+fr:maltodextrine de maïs, malto-dextrine de maïs
 
 fr:colza
 
@@ -2298,12 +2540,11 @@ en:mustard
 fr:moutarde
 allergens:fr:_moutarde_
 
+en:potatoes
 fr:pommes de terre
 
+en:cooking salt
 fr:sel de cuisine
-
-en:tomato
-fr:tomate
 
 fr:lécithine, lécithines
 
@@ -2316,6 +2557,7 @@ fr:miel
 nl:honing
 de:Honig
 
+en:sodium ascorbate
 fr:ascorbate de sodium
 
 fr:légume
@@ -2408,12 +2650,7 @@ fr:ferment
 
 fr:présure
 
-fr:jus de citron concentré
-
 fr:carbonate acide de sodium
-
-en:rice
-fr:riz
 
 fr:pectine
 
@@ -2427,8 +2664,6 @@ fr:diphosphate
 en:thyme
 fr:thym
 
-fr:agent de traitement de la farine
-
 fr:glycérol
 
 fr:jambon de porc
@@ -2440,13 +2675,6 @@ allergens:fr:_sulfites_
 
 en:lactic acid
 fr:acide lactique
-
-en:white wine
-fr:vin blanc
-
-en:fish
-fr:poisson
-allergens:fr:_poisson_
 
 fr:plante aromatique, plantes aromatiques
 
@@ -2495,16 +2723,7 @@ allergens:fr:malt d'_orge_
 en:ingredient
 fr:ingrédient
 
-fr:gras de porc
-
 fr:érythorbate de sodium
-
-en:potato
-es:patata
-fr:pomme de terre, pommes de terre
-nl:aardappel
-de:Kartoffeln
-wikidata:en:Q16587531
 
 fr:moutarde de dijon
 allergens:fr:_moutarde_ de dijon
@@ -2533,12 +2752,6 @@ nl:cacao
 de:Kakao
 
 fr:cacao en poudre
-
-en:tomato concentrate
-es:concentrado de tomate
-fr:concentré de tomate, concentré de tomates
-nl:tomatenconcentraat
-de:Tomatenkonzentrat
 
 fr:cannelle
 
@@ -2583,9 +2796,8 @@ fr:citrate de sodium, citrates de sodium
 fr:crustacé
 allergens:fr:_crustacés_
 
+en:orange
 fr:orange
-
-fr:piment
 
 fr:fromage
 allergens:fr:_fromage_
@@ -2630,8 +2842,6 @@ wikidata:en:Q179678
 
 fr:nitrate de potassium
 
-fr:raisins sec
-
 fr:orge
 allergens:fr:_orge_
 
@@ -2654,8 +2864,6 @@ de:Schnittlauch
 fr:matière grasse, matières grasses
 
 fr:extrait d'épice, extraits d'épices
-
-fr:ail en poudre
 
 fr:échalote
 
@@ -2683,8 +2891,6 @@ de:Erdbeeren
 
 fr:cacao maigre
 
-fr:graisse végétale, graisses végétales
-
 fr:dextrose de blé
 allergens:fr:dextrose de _blé_
 
@@ -2694,9 +2900,6 @@ fr:graines de sésame
 allergens:fr:graines de _sésame_
 
 fr:fruit
-
-
-fr:poitrine de porc
 
 fr:vanilline
 
@@ -2728,27 +2931,35 @@ fr:bêta-carotène
 
 fr:épice et aromate, épices et aromates
 
-en:alcohol 
-es:alcohol 
-fr:alcool
-nl:alcohol 
-de:Alkohol
-
 fr:margarine
 
+en:aspartam
 fr:aspartame
-
-fr:purée de tomate
 
 fr:cire de carnauba
 
 fr:coagulant
 
-fr:oignon en poudre, oignons en poudre
-
 fr:extrait de romarin
 
 fr:bouillon
+
+fr:café
+
+fr:café arabica fraîchement préparé
+fr:café en poudre
+
+fr:café arabica
+
+fr:café torréfié moulu
+
+fr:café moulu pur arabica
+
+fr:café torréfié
+
+fr:extrait de café, extraits de café
+
+fr:café soluble
 
 en:calcium chloride
 es:cloruro cálcico
@@ -2798,10 +3009,12 @@ fr:jus concentré de citron
 
 fr:pectine de fruit, pectines de fruits
 
+en:paste
 fr:pâte
 
 fr:coco
 
+en:carmine
 fr:carmin
 
 fr:b9
@@ -2815,20 +3028,46 @@ fr:antioxygène
 en:vanilla
 fr:vanille
 
-fr:riboflavine
-
-fr:gélatine de porc
-
-fr:raisin
-
 en:lemon juice
-fr:jus de citron
+fr:jus de citron, jus de citrons
 
+<en:lemon juice
+fr:jus de citron vert
+
+<en:lemon juice
 en:lemon juice from concentrate
 es:zumo de limón a partir de concentrado
 fr:jus de citron à base de concentré 
 nl:citroensap uit concentraat
 de:Zitronensaft aus Zitronensaftkonzentrat
+
+<en:lemon juice
+fr:jus de citron concentré, jus de citrons concentré
+
+<fr:jus de citron concentré
+<fr:jus de citron vert
+fr:jus de citron vert concentré
+
+<fr:jus de citron vert
+fr:jus de citron vert à base de concentré
+
+<en:lemon juice
+fr:jus de citron reconstitué
+
+<en:lemon juice
+fr:jus de citron à partir de concentré, jus de citron à base de jus concentré
+
+<en:lemon juice
+fr:jus de citron bio concentré
+
+<en:lemon juice
+fr:jus de citron déshydraté
+
+<en:lemon juice
+fr:jus de citron en poudre
+
+<en:lemon juice
+fr:concentré de jus de citron
 
 fr:houblon
 
@@ -2880,11 +3119,6 @@ fr:levain
 
 fr:semoule de mais
 
-fr:salmo salar
-
-fr:thon
-allergens:fr:_thon_
-
 fr:noix
 allergens:fr:_noix_
 
@@ -2926,12 +3160,16 @@ fr:banane
 nl:banaan
 de:Bananen
 
+en:banana flakes
+fr:flocons de banane
+
+en:banana puree
+fr:purée de banane
+
 fr:disulfite de sodium
 allergens:fr:_disulfite_ de sodium
 
 fr:extrait d'épice, extraits d'épices
-
-fr:foie de porc
 
 fr:acétate de sodium
 
@@ -2939,10 +3177,101 @@ fr:pp
 
 fr:fenouil
 
+#Fish
+
+en:fish
+fr:poisson
+allergens:fr:_poisson_
+
+fr:extrait de poisson
+allergens:fr:extrait de _poisson_
+
+fr:chair de poisson
+allergens:fr:chair de _poisson_
+
+en:Swordfish
+es:pez espada
+fr:espadon
+nl:Zwaardvis
+de:Schwertfisch
+
+fr:saumon
+allergens:fr:_saumon_
+
 fr:saumon atlantique
 allergens:fr:_saumon_ atlantique
 
-fr:rhum
+fr:saumon salmo salar
+allergens:fr:_saumon_ salmo salar
+
+fr:saumon cuit
+allergens:fr:_saumon_ cuit
+
+fr:saumon rose du pacifique
+allergens:fr:_saumon_ rose du pacifique
+
+fr:saumon fumé
+allergens:fr:_saumon_ fumé
+
+en:cod
+es:bacalao
+fr:cabillaud
+nl:kabeljauw
+de:Kabeljau
+allergens:fr:_cabillaud_
+
+fr:filets de cabillaud
+allergens:fr:filets de _cabillaud_
+
+fr:filet de cabillaud
+allergens:fr:filet de _cabillaud_
+
+fr:œufs de cabillaud fumés et salés
+allergens:fr:œufs de _cabillaud_ fumés et salés
+
+fr:œufs de cabillaud
+allergens:fr:œufs de _cabillaud_
+
+fr:lieu
+allergens:fr:_lieu_
+
+fr:truite
+allergens:fr:_truite_
+
+fr:thon blanc germon
+allergens:fr:_thon_ blanc germon
+
+fr:salmo salar
+
+fr:thon
+allergens:fr:_thon_
+
+fr:thon au naturel
+allergens:fr:_thon_ au naturel
+
+fr:filets de thon
+allergens:fr:filets de _thon_
+
+fr:thon précuit
+allergens:fr:_thon_ précuit
+
+fr:thon blanc
+allergens:fr:_thon_ blanc
+
+fr:thon listao
+allergens:fr:_thon_ listao
+
+fr:fumet de poisson
+allergens:fr:fumet de _poisson_
+
+fr:thon albacore
+allergens:fr:_thon_ albacore
+
+fr:truite arc-en-ciel
+allergens:fr:_truite_ arc-en-ciel
+
+fr:poulpes
+allergens:fr:_poulpes_
 
 fr:olive
 
@@ -2956,8 +3285,6 @@ fr:polyphosphate
 
 fr:herbe de provence, herbes de provence
 
-fr:pêche
-
 fr:froment
 allergens:fr:_froment_
 
@@ -2970,6 +3297,18 @@ fr:inuline
 
 en:apple juice
 fr:jus de pomme
+
+<en:apple juice
+fr:pur jus de pomme
+
+fr:jus de pomme, jus de pommes
+
+<en:apple juice
+fr:concentré de jus de pomme
+
+fr:jus de pomme à base de concentré, jus de pomme à base de jus concentré
+
+fr:jus de pommes concentré
 
 fr:crevette
 allergens:fr:_crevettes_
@@ -3028,8 +3367,6 @@ fr:clou de girofle
 
 fr:fibres alimentaires, fibre alimentaire
 
-fr:jus de tomate
-
 en:black olive
 es:aceituna negra
 fr:olive noire, olives noires
@@ -3044,11 +3381,7 @@ fr:noix de muscade
 
 fr:iodure de potassium
 
-fr:extrait naturel de vanille
-
 fr:noix de coco râpée
-
-fr:couenne de porc
 
 en:aubergine
 es:berenjena
@@ -3072,14 +3405,6 @@ nl:ansjovis
 de:Sardellen
 allergens:fr:_anchois_
 
-en:armagnac
-es:Armagnac
-fr:armagnac
-nl:armagnac
-de:Armagnac
-
-fr:flocons de pomme de terre, flocon de pomme de terre
-
 fr:diphosphate et carbonate de calcium, diphosphates et carbonates de sodium
 
 fr:levure boulangère
@@ -3089,21 +3414,12 @@ allergens:fr:graine de _moutarde_
 
 fr:phosphate de calcium
 
+en:acetic acid
 fr:acide acétique
 
 fr:pois chiche, pois chiches
 
-fr:pulpe d'ail
-
 fr:maltitol
-
-fr:ail déshydraté
-
-en:duck liver
-es:hígado de pato
-fr:foie de canard
-nl:eendenlever
-de:Entenleber
 
 fr:foie gras de canard
 
@@ -3113,6 +3429,7 @@ allergens:fr:ferments _lactiques_ et d'affinage
 fr:fromage frais
 allergens:fr:_fromage_ frais
 
+en:curry
 fr:curry
 
 fr:eau de cuisson
@@ -3120,8 +3437,6 @@ fr:eau de cuisson
 fr:antioxidant
 
 fr:farce
-
-fr:boyau naturel de porc
 
 fr:crème liquide
 allergens:fr:_crème_ liquide
@@ -3139,13 +3454,8 @@ fr:benzoate de sodium
 
 fr:sulfate de zinc
 
-fr:poudre d'oignon
-
 fr:crème de lait
 allergens:fr:crème de _lait_
-
-fr:saumon
-allergens:fr:_saumon_
 
 fr:ricotta
 allergens:fr:_ricotta_
@@ -3185,8 +3495,6 @@ fr:extrait de poivre noir
 nl:zwarte peperextract
 de:schwarzer Pfefferextrakt
 
-fr:vin
-
 fr:purée de pomme
 
 fr:herbe, herbes
@@ -3197,31 +3505,34 @@ fr:agent de charge
 
 fr:calcium
 
-fr:os de porc
-
 fr:graines de lin
 
 fr:acide sorbique
 
-en:cognac
-es:coñac
-fr:cognac
-nl:cognac
-de:Cognac
-
 fr:contient blé
 allergens:fr:contient _blé_
 
+enea:pear
 fr:poire
 
-<fr:poire
+<en:pear
 en:conference pear
 es:pera conferencia
 fr:poire conférence
 nl:conference peer
 de:Conference-Birne
 
-fr:pomme de terre déshydratée, pommes de terre déshydratées
+fr:jus de poire à base de concentré
+
+fr:jus de poire concentré
+
+fr:purée de poire
+
+fr:purée de poires
+
+fr:jus de poire
+
+fr:poires en cubes
 
 fr:caféine
 
@@ -3230,12 +3541,8 @@ fr:citrate de calcium
 fr:malt de blé
 allergens:fr:malt de _blé_
 
-fr:plasma de porc
-
 fr:pistache
 allergens:fr:_pistaches_
-
-fr:poudre d'ail
 
 fr:fumée
 
@@ -3269,6 +3576,12 @@ fr:glutamate de sodium
 
 fr:marjolaine
 
+fr:agents de traitement de la farine
+
+fr:agent de traitement de la farine
+
+fr:agent de traitement de la farine e300
+
 fr:acide tartrique
 
 en:cardamon
@@ -3279,10 +3592,8 @@ de:Kardamom
 
 fr:girofle
 
+en:green tea
 fr:thé vert
-
-fr:chair de poisson
-allergens:fr:chair de _poisson_
 
 fr:fibres, fibre
 
@@ -3291,8 +3602,6 @@ fr:anti-agglomérant
 fr:lactate de sodium
 
 fr:agar
-
-fr:purée d'ail
 
 fr:extrait de romarin, extraits de romarin
 
@@ -3303,22 +3612,7 @@ fr:purée de mangue
 
 fr:cranberries, cranberry, cranberrys
 
-en:cayenne pepper                       
-es:pimienta de cayena
-fr:piment de Cayenne
-nl:cayennepeper
-de:Cayennepfeffer
-
-<en:cayenne pepper
-en:dried cayenne pepper
-es:pimienta de cayena seca
-fr:piment de Cayenne séché
-nl:cayennepeper gedroogd
-de:getrockneter Cayennepfeffer
-
 fr:panais
-
-fr:oignon déshydraté
 
 fr:graisse de poulet
 
@@ -3333,8 +3627,6 @@ fr:saindoux
 fr:écorces d'orange
 
 fr:fibres végétales, fibre végétale
-
-fr:tomate séchée, tomates séchées
 
 fr:sureau
 
@@ -3362,18 +3654,11 @@ allergens:fr:semoule de _blé_
 en:phosphoric acid
 fr:acide phosphorique
 
-en:pork
-fr:porc
-
 fr:enzyme
-
-fr:purée de banane
 
 fr:spiruline
 
 fr:méthylcellulose
-
-fr:flocons de pommes de terre, flocons de pomme de terre, flocon de pomme de terre,
 
 fr:lard
 
@@ -3383,11 +3668,7 @@ fr:lactate de calcium
 nl:calciumlactaat
 de:Calciumlactat
 
-fr:vin rouge
-
 fr:fruit de la passion
-
-fr:concentré de jus de citron
 
 fr:jus d'ananas
 
@@ -3398,13 +3679,9 @@ allergens:fr:_épeautre_
 
 fr:kiwi
 
-fr:café
-
 fr:hibiscus
 
 fr:bicarbonate d'ammonium
-
-fr:jus d'orange à base de concentré
 
 fr:carbonate de magnésium
 
@@ -3425,12 +3702,6 @@ fr:lait de chèvre pasteurisé
 allergens:fr:_lait_ de chèvre pasteurisé
 
 fr:panure
-
-en:powdered tomato
-es:tomate en polvo
-fr:tomate en poudre,tomates en poudre
-nl:tomatenpoeder
-de:Tomatenpulver
 
 fr:noix de pécan
 allergens:fr:_noix de pécan_
@@ -3456,44 +3727,228 @@ fr:magnésium
 
 fr:glycérine
 
-fr:figue
-
-en:cactus fig
-es:higo chumbo
-fr:figue de Barbarie
-nl:cactusvijg
-de:Kaktusfeigen
-
 fr:mandarine
 
 fr:condiment
 
 fr:citronnelle
 
+#Tomato derivatives
+
+en:tomato
+fr:tomate
+
+fr:tomates en dés
+
+en:fresh tomatoes
+fr:tomates fraîches
+
+fr:tomates semi-séchées
+
+fr:tomate mi-séchée
+
+fr:dés de tomate
+
+fr:sauce tomate cuite
+
+fr:tomates cubées
+
+fr:concassé de tomates
+
+fr:dés de tomates
+
+en:tomato concentrate
+es:concentrado de tomate
+fr:concentré de tomate, concentré de tomates
+nl:tomatenconcentraat
+de:Tomatenkonzentrat
+
+fr:jus de tomate
+
+fr:tomate séchée, tomates séchées
+
+en:powdered tomato
+es:tomate en polvo
+fr:tomate en poudre,tomates en poudre
+nl:tomatenpoeder
+de:Tomatenpulver
+
 fr:poudre de tomate
+
+fr:coulis de tomates
+
+fr:jus de tomate à partir de concentré
+
+fr:tomate concassée
+
+fr:jus de tomates à base de concentré
+
+fr:tomates pelées
+
+fr:tomates mi-séchées
+
+fr:tomates déshydratées
+
+fr:coulis de tomate
+
+fr:tomate pelée concassée
+
+fr:pâte de tomate
+
+fr:tomates séchées réhydratées
+
+fr:tomates pelées concassées au jus
+
+fr:tomates en morceaux
+
+fr:préparation à base de tomates
+
+fr:purée et pulpe de tomates
+
+fr:tomate séchée
+
+fr:tomates entières pelées
+
+fr:tomate pelée
+
+fr:poudre de tomates
+
+fr:tomates cerise
+
+fr:purée de tomates double concentré
+
+fr:purée de tomate double concentrée
+
+fr:purée de tomates à base de concentré
+
+fr:purée de tomates reconstituée
+
+fr:purée de tomate mi-réduite
+
+fr:purée de tomate
+
+fr:pulpe de tomates avec morceaux et purée de tomates
+
+fr:purée de tomate à base de concentré
+
+fr:purée de tomates mi-concentrée
+
+fr:purée de tomates mi-réduites
+
+en:concentrated tomato puree
+fr:purée de tomates concentrée
+
+en:grilled tomato
+es:tomate asado
+fr:tomate grillée
+nl:gegrilde tomaat
+de:gegrillte Tomaten
+
+fr:tomate cerise, tomates cerise, tomates cerises
+
+fr:tomates en poudre, tomate en poudre
+
+fr:tomate déshydratée
+
+fr:double concentré de tomate
+
+en:cherry tomato
+es:tomate cherry
+fr:tomate cerise, tomates cerises
+nl:cherry tomaat
+de:Kirschtomaten
+
+fr:sauce tomate
+
+fr:pulpe de tomate
+
+fr:double concentré de tomate
+
+fr:tomate concassée, tomates concassées
+
+fr:tomates concassées
+
+fr:tomates pelées concassées
 
 fr:jus de soja
 allergens:fr:jus de _soja_
 
 fr:riz cuit
 
+en:rice
+fr:riz
+
+fr:galette de riz
+
+fr:riz basmati cuit
+
+fr:riz long grain étuvé
+
+fr:riz blanc
+
+fr:riz précuit
+
+fr:crème de riz
+
+fr:riz basmati
+
+fr:riz soufflé
+
+fr:riz basmati
+
+fr:riz complet
+
+fr:semoule de riz
+
+en:cooked white rice
+fr:riz blanc cuit
+
+fr:riz moulu
+
+fr:riz long
+
+en:Italian rice
+fr:riz italien
+
+fr:extraits de riz
+
+fr:riz basmati précuit
+
+fr:riz long grain précuit à la vapeur
+
+fr:riz croustillant
+
+fr:riz complet précuit
+
+fr:son de riz
+
+fr:riz cuisiné
+
+fr:extrait de riz
+
+fr:riz long étuvé
+
+fr:flocons de riz
+
+fr:riz extrudé
+
+fr:riz gluant
+
+fr:riz long grain
+
+fr:riz rouge
+
+fr:riz sauvage
+
+fr:riz long grain étuvé de qualité supérieure
+
 fr:extrait de malt
 
-fr:piment fort
-
-fr:porto
-
 fr:sélénite de sodium
-
-fr:oignons préfrits, oignon préfrit
 
 fr:inosinate disodique
 
 fr:millet
-
-fr:gorge de porc
-
-fr:pomme de terre déshydratée
 
 fr:stéaroyl-2-lactylate de sodium
 
@@ -3503,16 +3958,10 @@ fr:gomme de cellulose
 
 fr:b8
 
-fr:sauce tomate
-
-fr:semoule de riz
-
 fr:filets de maquereaux
 allergens:fr:filets de _maquereaux_
 
 fr:bicarbonate de soude
-
-fr:riz complet
 
 en:dates
 es:dátiles
@@ -3545,10 +3994,6 @@ fr:chlorure de magnésium
 
 fr:assaisonnement
 
-fr:alcool éthylique
-
-fr:oignons déshydratés, oignon déshydraté
-
 fr:eau minérale naturelle
 
 fr:matière grasse du lait
@@ -3557,8 +4002,6 @@ allergens:fr:matière grasse du _lait_
 fr:sarriette
 
 fr:nigari
-
-fr:piment doux
 
 fr:clous de girofle
 
@@ -3607,12 +4050,6 @@ fr:concentré de fruits et de plantes, concentrés de fruits et de plantes
 en:carot juice
 fr:jus de carotte
 
-fr:café soluble
-
-fr:chili
-
-fr:piment rouge
-
 en:xylitol
 fr:xylitol
 
@@ -3620,13 +4057,9 @@ fr:livèche
 
 fr:chou
 
-fr:pulpe de tomate
-
 fr:extraits végétaux
 
 fr:hydroxyde de sodium
-
-fr:double concentré de tomate
 
 fr:coagulant microbien
 
@@ -3641,20 +4074,11 @@ fr:patate douce, patates douces
 
 fr:chlorure de sodium
 
-en:cod
-es:bacalao
-fr:cabillaud
-nl:kabeljauw
-de:Kabeljau
-allergens:fr:_cabillaud_
-
 fr:praliné
 
 fr:sulfate de cuivre
 
 fr:cire d'abeille
-
-fr:moût de raisin
 
 fr:graisse de coco
 
@@ -3703,6 +4127,10 @@ fr:caramel
 
 fr:caramel ordinaire
 
+fr:caramel e150a
+
+fr:caramel e150c, e150c
+
 fr:caramel e150d
 
 fr:caramel aromatique
@@ -3711,11 +4139,7 @@ fr:caramel au sulfite d'ammonium
 allergens:fr:caramel au _sulfite_ d'ammonium
 #wikidata:en:
 
-fr:caramel e150c, e150c
-
 fr:caramel ammoniacal
-
-fr:caramel e150a
 
 fr:mascarpone
 allergens:fr:_mascarpone_
@@ -3729,8 +4153,6 @@ nl:eekhoorntjesbrood
 de:Steinpilze
 
 fr:charbon végétal
-
-fr:oignon frit, oignons frits
 
 fr:acide
 
@@ -3746,8 +4168,6 @@ fr:graines, graine
 
 fr:légume déshydraté, légumes déshydratés
 
-fr:jambon frais de porc
-
 fr:mûre, mûres
 
 fr:gomme tara
@@ -3756,12 +4176,8 @@ fr:concentré
 
 fr:poivron vert, poivrons verts
 
-fr:maigre et gras de porc
-
 fr:matière grasse de lait
 allergens:fr:matière grasse de _lait_
-
-fr:jus de raisin
 
 fr:gomme xanthane et gomme guar
 
@@ -3772,18 +4188,12 @@ fr:purée de fraise, purée de fraises
 fr:flocons d'avoine complète, flocon d'avoine complète
 allergens:fr:flocons d'_avoine_ complète
 
-fr:couenne de porc, couennes de porc
-
 fr:bouillon de volaille
-
-fr:oignon en poudre, oignons en poudre
 
 fr:phosphate de sodium, phosphates de sodium
 
 fr:germe de blé, germes de blé
 allergens:fr:germe de _blé_
-
-fr:poivre de cayenne
 
 fr:pétales de maïs, pétale de maïs
 
@@ -3799,8 +4209,6 @@ fr:crème de lait pasteurisée
 allergens:fr:crème de _lait_ pasteurisée
 
 fr:sodium
-
-fr:jus de pomme à base de concentré
 
 fr:fond de volaille
 
@@ -3830,8 +4238,6 @@ fr:pousses de brocoli
 nl:broccili cress
 de:Brokkolikresse
 
-fr:moût de raisin concentré
-
 fr:cire d'abeille blanche et jaune
 
 fr:concentré des minéraux du lait
@@ -3840,12 +4246,6 @@ allergens:fr:concentré des minéraux du _lait_
 fr:haricot rouge, haricots rouges
 
 fr:cassonade
-
-fr:fumet de poisson
-allergens:fr:fumet de _poisson_
-
-fr:thon albacore
-allergens:fr:_thon_ albacore
 
 fr:purée de framboise, purée de framboises
 
@@ -3930,10 +4330,6 @@ fr:foie de poulet
 
 fr:concentré de carotte
 
-fr:riz basmati
-
-fr:bouillon de porc
-
 fr:invertase
 
 fr:jus concentré de sureau
@@ -3963,16 +4359,13 @@ fr:kirsch
 
 fr:mono et diglycérides d'acide gras
 
-fr:jus de citron vert
-
 en:calcium sulphate
 es:sulfato de calcio
 fr:sulfate de calcium
 nl:calciumsulfaat
 de:Calciumsulfat
 
-fr:poivre vert
-
+en:beer
 fr:bière
 
 en:bimi
@@ -4002,11 +4395,6 @@ allergens:fr:_edam_
 fr:sérum de lait
 allergens:fr:sérum de _lait_
 
-fr:riz soufflé
-
-fr:saumon fumé
-allergens:fr:_saumon_ fumé
-
 fr:poivron vert
 
 fr:dioxyde de carbone
@@ -4027,15 +4415,7 @@ allergens:fr:poudre de _babeurre_
 fr:grana padano
 allergens:fr:_grana padano_
 
-en:cherry tomato
-es:tomate cherry
-fr:tomate cerise, tomates cerises
-nl:cherry tomaat
-de:Kirschtomaten
-
 fr:os de poulet
-
-fr:extrait de café, extraits de café
 
 fr:pulpe
 
@@ -4046,8 +4426,6 @@ fr:chou blanc
 
 fr:frisée
 
-fr:bleu brillant fcf
-
 fr:mélange de condiments
 
 fr:ferments lactiques dont bifidobacterium
@@ -4056,18 +4434,7 @@ fr:lysozyme
 
 fr:potassium
 
-fr:piment d'espelette
-
-en:Swordfish
-es:pez espada
-fr:espadon
-nl:Zwaardvis
-de:Schwertfisch
-
 fr:tocophérol
-
-
-fr:tomate concassée, tomates concassées
 
 fr:morue
 allergens:fr:_morue_
@@ -4081,8 +4448,6 @@ allergens:fr:_cheddar_
 
 fr:nouilles
 
-fr:jus de citron vert
-
 fr:tocophérol
 
 fr:sulfate de fer
@@ -4094,8 +4459,6 @@ fr:maïs doux
 fr:lait de brebis
 allergens:fr:_lait_ de brebis
 
-fr:riz basmati
-
 en:sodium chlorure
 fr:chlorure de sodium
 
@@ -4104,8 +4467,6 @@ fr:surimi
 fr:dioxyde de titane
 
 fr:gras
-
-fr:tomates concassées
 
 en:lemon rind
 es:cáscara de limón
@@ -4136,8 +4497,6 @@ nl:zwarte thee extract
 de:Schwarztee-Extrakt
 
 fr:ferments lactiques dont bifidobacterium
-
-fr:double concentré de tomate
 
 fr:concentré de carotte
 
@@ -4176,8 +4535,6 @@ fr:peau de poulet
 fr:couenne
 
 fr:tonyu
-
-fr:tomate déshydratée
 
 fr:extrait de réglisse
 
@@ -4268,12 +4625,8 @@ fr:alpha-tocophérol, e307
 
 fr:couenne
 
-fr:tomates en poudre, tomate en poudre
-
 fr:semoule de blé dur réhydratée
 allergens:fr:semoule de _blé_ dur réhydratée
-
-fr:poivres, poivre
 
 fr:jambon cuit supérieur
 
@@ -4301,8 +4654,6 @@ fr:gomme de caroube
 fr:fibres d'avoine
 allergens:fr:fibres d'_avoine_
 
-fr:tomate cerise, tomates cerise, tomates cerises
-
 fr:graines de coriandre
 
 fr:verveine
@@ -4310,8 +4661,6 @@ fr:verveine
 fr:haricots blancs
 
 fr:polyricinoléate de polyglycérol
-
-fr:raisin sec
 
 fr:babeurre déshydraté
 allergens:fr:_babeurre_ déshydraté
@@ -4335,8 +4684,6 @@ fr:oncorhynchus mykiss
 fr:lysozyme
 
 fr:lutéine
-
-fr:purée de tomate mi-réduite
 
 fr:comté
 allergens:fr:_comté_
@@ -4366,12 +4713,12 @@ fr:xanthane
 fr:filets de sardines
 allergens:fr:filets de _sardines_
 
-fr:crème de riz
+en:orange juice
+fr:jus d'orange, jus 'd'
 
 fr:jus d'orange à base de jus concentré
 
-en:orange juice
-fr:jus d'orange
+fr:jus d'orange à base de concentré
 
 fr:concentré de jus d'orange
 
@@ -4396,6 +4743,18 @@ de:pascalisierter Orangensaft aus Orangensaftkonzentrat
 
 fr:fructo-oligosaccharides
 
+fr:raisin
+
+fr:raisins sec
+
+fr:moût de raisin
+
+fr:jus de raisin
+
+fr:moût de raisin concentré
+
+fr:raisin sec
+
 fr:raisins sultanines
 
 fr:penicillium roqueforti
@@ -4410,36 +4769,21 @@ fr:tilleul
 fr:protéines de lait et lactose
 allergens:fr:protéines de _lait_ et _lactose_
 
-fr:purée de poire
-
 fr:safran
 
 fr:diphosphate, e450
 
 fr:conservateur du fruit
 
-fr:oignons
-
 fr:paprika en poudre
 
-fr:filets de poulet
-
 fr:salpêtre
-
-fr:riz précuit
-
-fr:thon listao
-allergens:fr:_thon_ listao
 
 fr:extrait de vanille bourbon
 
 fr:sauce cuisinée
 
-fr:bœuf
-
 fr:carotènes
-
-fr:purée de pêche
 
 fr:fruits à coques
 allergens:fr:_fruits à coques_
@@ -4556,8 +4900,6 @@ fr:citrate de magnésium
 fr:bisulfite de sodium
 allergens:fr:_bisulfite_ de sodium
 
-fr:jus de citron concentré
-
 fr:écorce d'orange, écorces d'orange
 
 fr:mayonnaise
@@ -4593,12 +4935,7 @@ fr:poivrons jaunes
 
 fr:sardina pilchardus
 
-fr:pommes de terre préfrites
-
 fr:quinine
-
-fr:extrait de poisson
-allergens:fr:extrait de _poisson_
 
 fr:thym
 
@@ -4618,11 +4955,7 @@ fr:menthe poivrée
 
 fr:levure sèche
 
-fr:poulet traité en salaison
-
 fr:potassium
-
-fr:poivre noir moulu
 
 fr:bêtacarotène
 
@@ -4641,11 +4974,7 @@ fr:concentré d'algues
 nl:algenconcentraat
 de:Algenkonzentrat
 
-fr:purée de poires
-
 fr:extrait de carotte
-
-fr:oignons grillés
 
 fr:galanga
 
@@ -4662,8 +4991,6 @@ fr:blé dur
 nl:durum tarwe
 de:Hartweizen
 allergens:fr:_blé_ dur
-
-fr:piments rouges
 
 fr:flocons de seigle
 allergens:fr:flocons de _seigle_
@@ -4688,8 +5015,6 @@ fr:semoule de blé dur précuite
 allergens:fr:semoule de _blé_ dur précuite
 
 fr:fibres de chicorée
-
-fr:purée de tomates reconstituée
 
 fr:écorces d'oranges
 
@@ -4726,8 +5051,6 @@ fr:jus d'orange concentré
 
 fr:olives vertes dénoyautées
 
-fr:jus de citron en poudre
-
 fr:pur beurre de cacao
 
 fr:fromage fondu en poudre
@@ -4742,8 +5065,6 @@ fr:jus de pamplemousse rose
 fr:carottes râpées
 
 fr:extrait de boeuf
-
-fr:oignon frit
 
 fr:fer élémentaire
 
@@ -4782,18 +5103,10 @@ fr:fibre végétale
 
 fr:baie de sureau
 
-fr:extrait naturel de poivre
-
-fr:extrait d'oignon
+fr:extrait naturel de vanille
 
 fr:flocons de soja
 allergens:fr:flocons de _soja_
-
-fr:riz blanc
-
-fr:tomates pelées concassées
-
-fr:jus de citron concentré, jus de citrons concentré
 
 en:citric acid e330
 fr:acide citrique e330
@@ -4818,8 +5131,6 @@ de:Spargel
 
 fr:jus de cassis
 
-fr:whisky
-
 en:black truffle
 es:trufa negra
 fr:truffe noire
@@ -4839,6 +5150,7 @@ allergens:fr:_emmental_ fondu
 
 fr:energy
 
+en:corn flakes
 fr:corn flakes
 
 fr:dorure
@@ -4851,11 +5163,18 @@ fr:gousses de vanille épuisées broyées
 
 fr:levure de boulanger
 
+en:fig
 fr:figue
 
-fr:piment en poudre
+fr:figues séchées
 
-fr:riboflavine, riboflavines
+fr:figues sèches
+
+en:cactus fig
+es:higo chumbo
+fr:figue de Barbarie
+nl:cactusvijg
+de:Kaktusfeigen
 
 fr:foie maigre de canard
 
@@ -4866,20 +5185,10 @@ fr:moût de raisin cuit
 
 fr:carmin de cochenille
 
-fr:extrait de poulet
-
-en:calvados
-es:calvados
-fr:calvados
-nl:calvados
-de:Calvados
-
 fr:perméat de petit lait
 allergens:fr:perméat de petit _lait_
 
 fr:diphosphate disodique et carbonate acide de sodium
-
-fr:flocon de pomme de terre
 
 fr:curry
 
@@ -4889,8 +5198,6 @@ fr:citrons
 
 fr:jus de raisin blanc
 
-fr:jus de tomates à base de concentré
-
 fr:pantothénate de calcium
 
 fr:jus de fruits concentrés
@@ -4898,9 +5205,7 @@ fr:jus de fruits concentrés
 fr:flocons d'épeautre
 allergens:fr:flocons d'_épeautre_
 
-fr:oignons frais
-
-fr:cranberry
+:ifr:cranberry
 
 fr:fruits secs
 
@@ -4967,8 +5272,6 @@ fr:tamarin
 
 fr:mélange de légumes
 
-fr:tomates pelées
-
 fr:lactase
 
 fr:collagène
@@ -4978,15 +5281,7 @@ allergens:fr:flocons d'_avoine_ complet
 
 fr:fibre de pois
 
-fr:thon blanc germon
-allergens:fr:_thon_ blanc germon
-
 fr:poudre de vanille
-
-fr:truite arc-en-ciel
-allergens:fr:_truite_ arc-en-ciel
-
-fr:purée de pommes de terre
 
 fr:gras de bœuf
 
@@ -4999,11 +5294,6 @@ fr:maïs doux en grains
 fr:jus concentré de carotte pourpre
 
 fr:monoglutamate de sodium
-
-fr:tomates mi-séchées
-
-fr:red onions
-fr:oignons rouges
 
 fr:bolets
 
@@ -5046,8 +5336,6 @@ allergens:fr:_crabe_
 
 fr:haricots blancs secs trempés
 
-fr:café torréfié
-
 en:stabilizer
 fr:stabilisant
 
@@ -5066,450 +5354,434 @@ fr:correcteur d'acidité E262
 nl:Zuurteregelaar E262
 de:Säureregulator E262
 
-fr:e472b
+fr:antioxydant e300
 
-fr:e401
+fr:b3
+
+fr:colorant e171
+
+fr:e 120
+
+fr:e 120
+
+fr:e 160a
+
+fr:e 202
+
+fr:e 250
+
+fr:e 262
+
+fr:e 270
+
+fr:e 300
+
+fr:e 301
+
+fr:e 330
+
+fr:e 331
+
+fr:e 407
+
+fr:e 410
+
+fr:e 412
+
+fr:e 415
+
+fr:e 440
+
+
+fr:e 475
+
+fr:e 500
+
+fr:e-252
+
+fr:e100
+
+fr:e100
 
 fr:e101
 
-fr:e472e
+fr:e101
 
-en:e476
-fr:e476
+fr:e102
 
-fr:e420
+fr:e104
 
-en:e322
-fr:e322
+fr:e110
 
-fr:e339
+fr:e1105
 
-fr:e341
+fr:e120
 
-fr:e306
+fr:e120, colorant e120
 
-fr:e222
-en:e222
+fr:e122
 
-fr:e535
-en:e535
-
-fr:e327
-
-fr:e460
-en:e460
-
-fr:e509
-
-fr:e392
-
-fr:e492
-
-fr:e451i
+fr:e124
 
 fr:e127
 
 fr:e129
 
-fr:e150d, colorant e150d
-
-fr:e261
-
-fr:e332
-
-fr:e406
-
-fr:e955
-en:e95
-
-fr:e331iii
-
-fr:e901
-
-fr:e435
-en:e435
-
-fr:antioxydant e300
-
-fr:e307
-en:e307
-
-fr:e1105
-
-fr:e951
-
-fr:e122
-
-fr:colorant e171
-
-fr:e450 et e500
-
-fr:e491
-
-fr:e124
-
-fr:e920
-
-fr:e422
-
-fr:e954
-en:e954
-
-fr:e516
-en:e516
-
-fr:e418
-
-fr:e452i
-
-fr:e640
-
-fr:e482
-
-fr:e310
-
-fr:e160
-en:e160
-
-fr:e504
-en:e504
-
-fr:e315
-
-fr:e100
-
-fr:e150d
-
-fr:e450iii
-
-fr:e952
-
-fr:e433
-
-fr:e151
-
-fr:e472
-
-fr:e160aii
-en:e160aii
-
-fr:e104
-
-fr:e1505
-en:e1505
-
-fr:e141ii
-
-fr:e417
-
-fr:e420ii
-
-fr:e142
-
-fr:e1450
-
-fr:e140
-
-fr:e281
-
-fr:e304i
-
-fr:e470b
-
-fr:e336
-
-fr:e333
-
-fr:e322 de soja
-
-fr:e477
-
-fr:e464
-
-fr:e508
-
-fr:e251
-
-fr:e110
+fr:e131
 
 fr:e132
 
-fr:e904
+fr:e133
 
-fr:e472a
+fr:e140
 
-fr:e950
+fr:e141
 
-fr:e524
+fr:e141ii
 
-fr:e621
+fr:e142
+
+fr:e150a
+
+fr:e150b
+
+fr:e150c
+
+fr:e150d
+
+fr:e150d
+
+fr:e150d, colorant e150d
+
+fr:e151
+
+fr:e153
+
+fr:e153
+
+fr:e160
+
+fr:e160a
+
+fr:e160aii
+
+fr:e160b
+
+fr:e160c
+
+fr:e161b
+
+fr:e162
+
+fr:e162
+
+fr:e163
+
+fr:e170
+
+fr:e171
+
+fr:e172
+
+fr:e200
+
+fr:e202
+
+fr:e202
+
+fr:e211
+
+fr:e220
+
+fr:e222
+
+fr:e223
+
+fr:e224
+
+fr:e235
+
+fr:e242
+
+fr:e250
+
+fr:e250
+
+fr:e251
+
+fr:e252
+
+fr:e260
+
+fr:e261
+
+fr:e262
+
+fr:e262i
+
+fr:e263
+
+fr:e270
+
+fr:e281
+
+fr:e282
+
+fr:e296
+
+fr:e300
+
+fr:e301
+
+fr:e304
+
+fr:e304i
+
+fr:e306
+
+fr:e306
+
+fr:e307
+
+fr:e310
+
+fr:e315
+
+fr:e316
+
+fr:e320
+
+fr:e321
+
+fr:e322
+
+fr:e322
+
+fr:e322 de soja
+
+fr:e325
+
+fr:e326
+
+fr:e327
+
+fr:e330
+
+fr:e331
+
+fr:e331iii
+
+fr:e332
+
+fr:e333
+
+fr:e334
+
+fr:e336
 
 fr:e338
 
 fr:e339
 
-fr:e579
-
-fr:e170
-
-fr:e442
-
-fr:e320
-
-fr:e621
-
-fr:e304
-
-fr:e501
-
-fr:e202
-
-fr:e472c
-#wikidata:en:
-
-fr:e172
-
-fr:e101
-
-fr:e250
-
-fr:e153
-
-fr:e162
-
-fr:e150b
-
-fr:e501
-
-fr:e509
-
-fr:e503ii
-
-en:e330
-fr:e330
-
-fr:e471
-
-fr:e407
-
-fr:e300
-
-fr:e450
-
-fr:e120
-
-fr:e263
-
-fr:e120, colorant e120
-
-fr:e150c
-
-fr:b3
-
-fr:e422
-
-fr:e211
-
-fr:e 330
-
-fr:e224
-
-fr:e282
-
-fr:e270
-
-fr:e252
-
-fr:e202
-
-en:e250
-fr:e250
-
-fr:e262
-
-fr:e 452
-
-fr:e 270
-
-fr:e 1442
-
-fr:e 451
-
-fr:e473
-
-fr:e 1422
-
-fr:e 475
-
-fr:e 262
-
-fr:e 160a
-
-fr:e334
-
-fr:e 120
-
-fr:e 410
-
-fr:e 407
-
-fr:e162
-
-fr:e153
-
-fr:e 120
-
-fr:e 331
-
-fr:e131
-
-fr:e 412
-
-fr:e 440
-
-fr:e444
-
-fr:e 415
+fr:e339
 
 fr:e340
 
-fr:e575
-
-fr:e 300
-
-fr:e 500
-
-fr:e 202
-
-fr:e 450
-
-fr:e296
-
-fr:e 301
+fr:e341
 
 fr:e341
 
-fr:e401
-
-fr:e161b
-
-fr:e160b
-
-fr:e 250
-
-fr:e621
-
-fr:e301
-
-fr:e316
-
-fr:e331
-
-fr:e415
-
-fr:e500
-
-fr:e451
-
-fr:e262i
-
-fr:e242
-
-fr:e551
-
-fr:e-252
-
-fr:e321
-
-fr:e306
-
-fr:e475
-
-fr:e635
-
-fr:e420
-
-fr:e260
-
-fr:e325
-
-fr:e200
-
-fr:e220
-
-fr:e1442
-
-fr:e1422
-
-fr:e903
-
-fr:e235
-
-fr:e102
-
-fr:e461
-
 fr:e385
 
-fr:e141
+fr:e392
 
-fr:e163
+fr:e401
 
-fr:e445
+fr:e401
 
-fr:e466
+fr:e406
 
-fr:e410
-
-fr:e503
-
-fr:e133
-
-fr:e100
-
-fr:e171
-
-fr:e223
-
-fr:e627
-
-fr:e414
-
-fr:e450i
+fr:e407
 
 fr:e407a
 
-fr:e500ii
+fr:e410
 
-fr:e631
+fr:e412
+
+fr:e414
+
+fr:e415
+
+fr:e417
+
+fr:e418
+
+fr:e420
+
+fr:e420
+
+fr:e420ii
+
+fr:e422
+
+fr:e422
+
+fr:e433
+
+fr:e435
 
 fr:e440
 
-fr:e481
+fr:e442
 
-fr:e472b
+fr:e444
 
-fr:e326
+fr:e445
 
-fr:e150a
+fr:e450, e 450
 
-fr:e160c
+fr:e450 et e500
 
-fr:e150d
+fr:e450i
 
-fr:e322
+fr:e450iii
 
-fr:e476
+fr:e451
 
-fr:e472e
+fr:e 451
+
+fr:e451i
 
 fr:e452
 
-fr:e160a
+fr:e 452
+
+fr:e452i
+
+fr:e460
+
+fr:e461
+
+fr:e464
+
+fr:e466
+
+fr:e470b
+
+fr:e471
+
+fr:e472
+
+fr:e472a
+
+fr:e472b
+
+fr:e472b
+
+fr:e472c
+
+fr:e472e
+
+fr:e472e
+
+fr:e473
+
+fr:e475
+
+fr:e476
+
+fr:e476
+
+fr:e477
+
+fr:e481
+
+fr:e482
+
+fr:e491
+
+fr:e492
+
+fr:e500
+
+fr:e500ii
+
+fr:e501
+
+fr:e501
+
+fr:e503
+
+fr:e503ii
+
+fr:e504
+
+fr:e508
+
+fr:e509
+
+fr:e509
+
+fr:e516
+
+fr:e524
+
+fr:e535
+
+fr:e551
+
+fr:e575
+
+fr:e579
+
+fr:e621
+
+fr:e621
+
+fr:e621
+
+fr:e627
+
+fr:e631
+
+fr:e635
+
+fr:e640
+
+fr:e901
+
+fr:e903
+
+fr:e904
+
+fr:e920
+
+fr:e950
+
+fr:e951
+
+fr:e952
+
+fr:e954
+
+fr:e955
+
+fr:e 1422
+
+fr:e 1442
+
+fr:e1422
+
+fr:e1442
+
+fr:e1450
+
+fr:e1505
+
+fr:sel d'aspartame-acésulfame, e962
 
 fr:b1
-
-fr:e412
 
 fr:colorant e160a
 
@@ -5598,6 +5870,7 @@ fr:viande de cuisse de poulet
 fr:viande de chèvre
 
 <en:meat
+en:cooked beaf meat
 fr:viande de bœuf cuite
 
 <en:meat
@@ -5620,6 +5893,8 @@ fr:viande de poitrine de poulet
 
 <en:meat
 fr:viande bovine
+
+fr:bœuf
 
 <en:meat
 fr:viande de poulet séparée mécaniquement
@@ -5648,6 +5923,7 @@ fr:beurre de baratte
 allergens:fr:_beurre_ de baratte
 
 <en:butter
+en:pasteurized butter
 fr:beurre pasteurisé
 allergens:fr:_beurre_ pasteurisé
 
@@ -5662,6 +5938,13 @@ allergens:fr:_beurre_ concentré reconstitué
 
 <en:Sunflower
 en:sunflower oil
+fr:huile de tournesol
+
+#<en:vegetable oils
+#<en:sunflower oils
+#en:sunflower oil
+#fr:huile de tournesol
+
 
 <en:Sunflower oil
 en:partially hydrogenated sunflower oil
@@ -5727,10 +6010,6 @@ fr:huile colza
 <en:vegetable oils
 <en:olive oils
 fr:huile d'olive extra
-
-<en:vegetable oils
-<en:sunflower oils
-fr:huile de tournesol
 
 <en:vegetable oils
 <en:sunflower oils
@@ -6062,28 +6341,38 @@ de:nproteinhydrolysat
 
 # SIROPS
 
+en:syrup
 fr:sirop
 
 fr:sirop de glucose
 de:Glukosesirup
 
+<fr:sirop de glucose
 fr:sirop de glucose en poudre
+
+<fr:sirop de glucose en poudre
+fr:sirop de glucose de blé en poudre
 
 fr:sirop de sucre de canne
 
+fr:sirop de sucre caramel
+
+fr:sirop de glucose-fructose
+
+<fr:sirop de glucose-fructose
 fr:sirop de glucose-fructose de maïs
 
-fr:sirop de sucre caramel
+<fr:sirop de glucose-fructose
+fr:sirop de glucose-fructose de blé
 
 fr:sirop de sorbitol de blé
 allergens:fr:sirop de sorbitol de _blé_
 
 fr:sirop d'oligofructose
 
-fr:sirop de glucose-fructose de blé
+fr:sirop d'amidon
 
-fr:sirop de glucose de blé en poudre
-
+<fr:sirop d'amidon
 fr:sirop d'amidon de maïs
 
 # SUCRE
@@ -6095,6 +6384,7 @@ fr:sirop de sucre partiellement inverti
 fr:sucre perlé
 
 <en:sugar
+en:organic sugar
 fr:sucre bio
 
 <en:sugar
@@ -6110,6 +6400,7 @@ fr:sucre de raisin
 fr:sucre caramélisé en poudre
 
 <en:sugar
+en:white sugar
 fr:sucre blanc
 
 <en:sugar
@@ -6207,7 +6498,9 @@ fr:amidon transformé de maïs
 fr:amidons modifiés de maïs et de pomme de terre
 
 # A TRIER
-
+en:parmigiano reggiano
+de:parmigiano reggiano
+it:parmigiano reggiano
 fr:parmigiano reggiano
 allergens:fr:_parmigiano reggiano_
 
@@ -6224,15 +6517,11 @@ fr:cornflakes
 
 fr:iceberg
 
-fr:oignon préfrit à l'huile de tournesol
-
 fr:k1
 
 fr:graisse
 
 fr:ferments lactiques, ferment lactique
-
-fr:amidon de pomme de terre modifié
 
 fr:talc
 
@@ -6260,6 +6549,124 @@ fr:haricots lingots
 
 fr:cidre
 
+#Garlic
+en:garlic
+es:ajo
+fr:ail
+nl:knoflook
+de:Knoblauch
+
+en:garlic puree
+fr:purée d'ail
+
+fr:poudre d'ail
+
+fr:ail déshydraté
+
+fr:pulpe d'ail
+
+fr:ail en poudre
+
+en:garlic paste
+fr:pâte d'ail
+
+fr:ail des ours
+
+<en:garlic
+en:rehydrated garlic
+fr:ail réhydraté
+
+#Onions
+
+en:onions
+fr:oignons
+de:Zwiebeln
+
+<en:onions
+fr:red onions
+fr:oignons rouges
+
+<en:onions
+en:fresh onions
+fr:oignons frais
+
+<en:onions
+fr:oignons grillés
+
+<en:onions
+fr:oignons
+
+<en:onions
+fr:oignon en poudre, oignons en poudre
+
+<en:onions
+fr:oignon frit, oignons frits
+
+<en:onions
+fr:oignons déshydratés, oignon déshydraté
+
+<en:onions
+fr:oignons préfrits, oignon préfrit
+
+<en:onions
+fr:oignon en poudre, oignons en poudre
+
+<en:onions
+fr:petits oignons blancs
+
+<en:onions
+fr:oignons coupés
+
+<en:onions
+fr:jus concentré d'oignons
+
+<en:onions
+fr:oignons émincés
+
+<en:onions
+fr:oignons grelots
+
+<en:onions
+fr:oignons de printemps
+
+<en:onions
+fr:oignons en morceaux
+
+<en:onions
+fr:oignons blancs
+
+<en:onions
+fr:oignons séchés
+
+<en:onions
+fr:petits oignons
+
+<en:onions
+fr:oignons rissolés
+
+<en:onions
+fr:oignons réhydratés
+
+<en:onions
+fr:poudre d'oignons
+
+fr:oignon préfrit à l'huile de tournesol
+
+fr:extrait d'oignon
+
+fr:oignon frit
+
+fr:oignon déshydraté
+
+fr:poudre d'oignon
+
+en:onion
+fr:oignon
+
+fr:oignon vert
+
+fr:oignon réhydraté
+
 fr:graines de céleri
 allergens:fr:graines de _céleri_
 
@@ -6267,8 +6674,6 @@ fr:dextrine de blé
 allergens:fr:dextrine de _blé_
 
 fr:haricots verts coupés
-
-fr:tomates déshydratées
 
 fr:farine de châtaigne
 
@@ -6286,25 +6691,15 @@ fr:améliorant de cuisson
 fr:coriander
 fr:coriandre
 
-en:onions
-fr:oignons
-de:Zwiebeln
-
-fr:blanc de poulet
-
 fr:baies roses
 
 fr:gouda
 allergens:fr:_gouda_
 
-fr:coulis de tomate
-
 fr:graisse d'oie
 
 fr:homard
 allergens:fr:_homard_
-
-fr:pâte et beurre de cacao
 
 fr:antiagglomérants
 
@@ -6321,9 +6716,8 @@ fr:d2
 en:mango
 fr:mangue
 
+en:tea
 fr:thé
-
-fr:pomme de terre en poudre
 
 fr:semoule complète de blé dur
 allergens:fr:semoule complète de _blé_ dur
@@ -6333,24 +6727,58 @@ fr:pain de mie
 fr:noix du brésil
 allergens:fr:_noix du brésil_
 
-fr:piment
-
-fr:jus de citron à base de jus concentré
-
-fr:purée de tomates à base de concentré
-
 fr:sérum de lait en poudre
 allergens:fr:sérum de _lait_ en poudre
 
+en:watermelon
 fr:pastèque
+
+fr:piment
+
+fr:piments rouges
+
+fr:piment d'espelette
+
+fr:chili
+
+fr:piment rouge
+
+fr:piment doux
+
+fr:piment fort
+
+en:cayenne pepper                       
+es:pimienta de cayena
+fr:piment de Cayenne
+nl:cayennepeper
+de:Cayennepfeffer
+
+<en:cayenne pepper
+en:dried cayenne pepper
+es:pimienta de cayena seca
+fr:piment de Cayenne séché
+nl:cayennepeper gedroogd
+de:getrockneter Cayennepfeffer
+
+fr:piment
+
+fr:piments jalapeño, piment jalapeño
+
+fr:piments verts, piment vert
+
+fr:extrait de piment
+
+fr:purée de piments
+
+fr:poudre de piment, piment en poudre
+
+fr:piment de la jamaïque, piment de Jamaïque, piment de jamaïque
 
 en:lemon extract
 es:extracto de limón
 fr:extrait de citron
 nl:citroenextract
 de:Zitronenextrakt
-
-fr:poulet rôti traité en salaison
 
 fr:flageolets
 
@@ -6364,8 +6792,6 @@ fr:fumée de bois de hêtre
 
 fr:maltose
 
-fr:malto-dextrine
-
 fr:purée de gingembre
 
 fr:pleurotes
@@ -6375,10 +6801,6 @@ fr:caséinate de sodium
 fr:aronie, aronia
 
 fr:chicorée soluble
-
-fr:riz long grain étuvé
-
-fr:tomate pelée concassée
 
 fr:carbonates de sodium
 
@@ -6394,8 +6816,6 @@ fr:cynorrhodon
 
 fr:sirop de glucose et de fructose, sirop de fructose-glucose, sirop de glucose-fructose
 
-fr:farine de pomme de terre, farine de pommes de terre
-
 fr:lardons cuits fumés
 
 fr:concentré de carthame
@@ -6405,15 +6825,11 @@ allergens:fr:levain de _blé_
 
 fr:pain
 
-fr:poudre d'oignons
-
 fr:purée de goyave
 
 fr:levure naturelle
 
 fr:croûte
-
-fr:riz basmati cuit
 
 fr:diphosphate de sodium
 
@@ -6437,8 +6853,6 @@ allergens:fr:sirop de malt d'_orge_ déshydraté
 
 fr:feuilles d'oranger
 
-fr:figues séchées
-
 fr:carbonate acide de potassium
 
 fr:cresson
@@ -6451,40 +6865,25 @@ fr:glucono-delta-lactone
 
 fr:épices moulues
 
-fr:purée de tomate double concentrée
-
-en:vermouth
-fr:vermouth
-
 fr:ail et fines herbes
 
 fr:esters lactiques des mono et diglycérides d'acides gras
 
 fr:extrait de fruit
 
-fr:oignons réhydratés
-
 fr:poivre blanc moulu
 
 fr:pulpe de mangue
 
-fr:oignons rissolés
-
 en:quinoa flour
 fr:farine de quinoa
-
-fr:petits oignons
 
 fr:cacahuètes grillées moulues
 allergens:fr:_cacahuètes_ grillées moulues
 
-fr:galette de riz
-
 fr:asperges vertes
 
 fr:psyllium
-
-fr:café moulu pur arabica
 
 fr:gorgonzola
 allergens:fr:_gorgonzola_
@@ -6495,8 +6894,6 @@ fr:crème uht
 allergens:fr:_crème_ uht
 
 fr:gaufrette
-
-fr:agents de traitement de la farine
 
 fr:agent conservateur
 
@@ -6515,17 +6912,11 @@ fr:anis étoilé
 
 fr:esters citriques des mono- et diglycérides d'acides gras, esters citriques des monoglycérides et diglycérides d'acides gras
 
-fr:tomate concassée
-
-fr:purée de pomme de terre
-
 fr:purée de mangues
 
 fr:graine de coriandre
 
 fr:diphosphates et triphosphates
-
-fr:concentré de jus de pomme
 
 fr:préparation aromatique
 
@@ -6576,15 +6967,11 @@ allergens:fr:jus concentré de _céleri_
 
 fr:jus de raisin concentré
 
-fr:jus de tomate à partir de concentré
-
 fr:jus de mandarine
 
 fr:jus et purées de fruits
 
 fr:jus de sureau
-
-fr:jus de citron déshydraté
 
 fr:jus de clémentine
 
@@ -6621,8 +7008,6 @@ fr:vin aromatisé
 fr:éclats de noisettes caramélisés
 allergens:fr:éclats de _noisettes_ caramélisés
 
-fr:poudre de cacao dégraissé
-
 fr:poivrons rouges grillés
 
 fr:palme et colza
@@ -6635,15 +7020,9 @@ fr:algue
 fr:levain de seigle
 allergens:fr:levain de _seigle_
 
-fr:piment de la jamaïque, piment de Jamaïque
-
 fr:pyrophosphate de fer
 
-fr:jus de pomme, jus de pommes
-
 fr:jus de potiron
-
-fr:jus de citrons concentré
 
 fr:jus de carotte concentré
 
@@ -6670,16 +7049,15 @@ allergens:fr:jaunes d'_oeufs_ frais
 
 fr:vinaigre de pomme
 
-fr:haut de cuisse de poulet
+fr:extrait naturel de poivre
 
-fr:extrait de cacao
+fr:poivre noir moulu
 
-fr:riz sauvage
+fr:poivres, poivre
 
-fr:ail
+fr:poivre vert
 
-fr:riz long grain étuvé de qualité supérieure
-
+fr:poivre de cayenne
 fr:chlorophylles
 
 en:mozzarella cheese
@@ -6694,14 +7072,9 @@ fr:chanterelles
 
 fr:extraits riches en tocophérols
 
-fr:thon blanc
-allergens:fr:_thon_ blanc
-
 fr:acétate de calcium
 
 fr:sodium bicarbonate
-
-fr:oignons séchés
 
 fr:ferments de maturation
 
@@ -6751,8 +7124,6 @@ de:Schwarzkirsche
 
 fr:griottes, cerises griottes
 
-fr:glucose-fructose
-
 fr:érythritol
 
 fr:salsifis
@@ -6791,8 +7162,6 @@ fr:légumes verts
 
 fr:airelles
 
-fr:piment vert
-
 fr:pommes séchées
 
 en:dried apple
@@ -6803,8 +7172,6 @@ de:getrocknete Äpfel
 
 fr:farine complète de froment
 allergens:fr:farine complète de _froment_
-
-fr:cacao en poudre dégraissé
 
 fr:coagulant enzymatique
 
@@ -6903,15 +7270,11 @@ allergens:fr:_calamars_
 fr:chair de crabe
 allergens:fr:chair de _crabe_
 
-fr:coulis de tomates
-
 fr:laitue iceberg
 
 fr:assaisonnement aromatisé
 
 fr:sauce béchamel
-
-fr:jus de poire
 
 fr:farine mi-blanche
 
@@ -6966,23 +7329,18 @@ fr:bitartrate de potassium
 
 fr:colin
 
-fr:vinaigre d'eau-de-vie
-
 en:riboflavin
-fr:riboflavine
+fr:riboflavine, riboflavines
 
 fr:persil
 
 fr:fibre d'avoine
 allergens:fr:fibre d'_avoine_
 
+en:egg pastas
 fr:pâtes aux oeufs
 
-fr:manchons de poulet
-
 fr:zeste d'orange
-
-fr:eau pétillante
 
 fr:ciboulette déshydratée
 
@@ -6998,8 +7356,6 @@ fr:yaourt au lait entier
 allergens:fr:yaourt au _lait_ entier
 
 fr:pois cassés
-
-fr:oignons blancs
 
 fr:pyrophosphate ferrique
 
@@ -7020,12 +7376,8 @@ fr:baies de goji
 
 fr:genièvre
 
-fr:riz rouge
-
 fr:orge malté
 allergens:fr:_orge_ malté
-
-fr:poudre de piment
 
 fr:zygochlamys patagonica, Saint-Jacques Zygochlamys patagonica
 
@@ -7058,8 +7410,6 @@ fr:cumin moulu
 
 fr:fibres d'agave
 
-fr:purée de tomates double concentré
-
 fr:fèves de soja décortiquées
 allergens:fr:fèves de _soja_ décortiquées
 
@@ -7074,13 +7424,9 @@ fr:copeaux de chocolat noir
 
 fr:extrait de guarana
 
-fr:flocons de pomme de terre réhydratés
-
 fr:humectant glycérol
 
 fr:morceaux de pomme
-
-fr:protéine, proteine
 
 fr:gluconate de zinc
 
@@ -7096,8 +7442,6 @@ fr:condiment balsamique blanc
 
 fr:flocons de millet
 
-fr:fécule modifiée de pommes de terre
-
 fr:oxyde de zinc
 
 fr:agent moussant
@@ -7109,30 +7453,28 @@ allergens:fr:gélatine de _poisson_
 
 fr:datte
 
-fr:saumon rose du pacifique
-allergens:fr:_saumon_ rose du pacifique
-
-fr:tomates cerise
-
 fr:courgette
 
+<fr:courgette
 en:grilled courgette
 es:calabacín asado
-fr:courgette grillée
+fr:courgette grillée, courgettes grillées, courgette grillée
 nl:gegrilde courgette
 de:gegrillte Zucchini
-
-fr:courgettes grillées
-
-fr:courgette grillée
 
 fr:marc de bourgogne
 
 fr:cépages
 
-fr:jus de citron à partir de concentré
-
 fr:éclats de fèves de cacao
+
+fr:cacao en poudre dégraissé
+
+fr:extrait de cacao
+
+fr:poudre de cacao dégraissé
+
+fr:pâte et beurre de cacao
 
 fr:jus de raisin à base de concentré
 
@@ -7226,29 +7568,14 @@ fr:grenache
 fr:fructose de blé
 allergens:fr:fructose de _blé_
 
-fr:purée de piments
-
-fr:piment jalapeño
-
 fr:persil séché
 
 en:lavender
 fr:lavande
 
-fr:œufs de cabillaud
-allergens:fr:œufs de _cabillaud_
-
-fr:lieu
-allergens:fr:_lieu_
-
 fr:clupea harengus
 
 fr:endives
-
-fr:blancs d'oeufs en poudre
-allergens:fr:blancs d'_oeufs_ en poudre
-
-fr:piment de jamaïque
 
 fr:graine de sésame, graines de sésame
 allergens:fr:_graine de sésame_, _graines de sésame_
@@ -7262,8 +7589,6 @@ fr:son de froment
 
 fr:reblochon
 allergens:fr:_reblochon_
-
-fr:jus de citron vert à base de concentré
 
 fr:fibres de carotte
 
@@ -7321,6 +7646,8 @@ fr:colorant, colorants
 fr:aliments colorants
 
 fr:colorants alimentaires
+
+fr:bleu brillant fcf
 
 fr:colorant e142
 
@@ -7403,15 +7730,11 @@ fr:nougatine
 
 fr:levain naturel
 
-fr:poudre de tomates
-
 fr:thunnus albacares
 
 fr:carbonate de calcium
 
 fr:carbonate de fer
-
-fr:riz long grain
 
 fr:mélange de graines
 
@@ -7485,11 +7808,7 @@ fr:farine de pois chiche
 
 fr:épice et aromate
 
-fr:fibres de pomme de terre
-
 fr:gousse de vanille
-
-fr:tomate pelée
 
 fr:fondant
 
@@ -7529,19 +7848,15 @@ fr:cellulose microcristalline
 
 fr:purée de pêches
 
-fr:piments verts
+fr:purée de pêche
 
-fr:thon précuit
-allergens:fr:_thon_ précuit
+en:peach
+fr:pêche
 
 fr:préparation à base de lactosérum
 allergens:fr:préparation à base de _lactosérum_
 
-fr:extrait de piment
-
 fr:sorbitols et glycérol
-
-fr:aiguillettes de poulet
 
 fr:bacon
 
@@ -7584,12 +7899,7 @@ fr:fleur de carthame
 
 fr:wakamé
 
-fr:jus d'oranges, jus d'orange
-
 fr:maïs moulu
-
-fr:blanc d'oeufs frais
-allergens:fr:blanc d'_oeufs_ frais
 
 fr:épices et aromate, épice et aromates, épices et aromates
 
@@ -7605,9 +7915,6 @@ fr:wasabi
 nl:wasabi
 de:Wasabi
 
-en:sodium ascorbate
-fr:ascorbate de sodium
-
 fr:vermicelle
 
 fr:glycérol d'origine végétale
@@ -7616,14 +7923,6 @@ fr:jus concentré de carotte noire
 
 fr:poisson blanc
 allergens:fr:_poisson_ blanc
-
-en:cooked potato
-es:patata cocida
-fr:pomme de terre cuite
-nl:gegaarde aardappel
-de:gegarte Kartoffeln
-
-fr:protéine végétale
 
 fr:concentré de légumes
 
@@ -7640,8 +7939,6 @@ fr:omelette
 fr:esters d'acides gras de l'acide ascorbique
 
 fr:légumes frais
-
-fr:jus de pommes concentré
 
 fr:écorces d'oranges confites
 
@@ -7681,15 +7978,11 @@ fr:mononitrate de thiamine
 fr:calamar
 allergens:fr:_calamar_
 
-fr:os et viande de poulet
-
 fr:volaille
 
 fr:jus de cuisson
 
 fr:basilic déshydraté
-
-fr:basilic
 
 fr:basilic
 
@@ -7720,8 +8013,6 @@ fr:acide lactique et acide citrique
 fr:carminic acid
 fr:acide carminique
 
-fr:fibres de pommes de terre
-
 fr:poivrons grillés
 
 en:grilled pepper
@@ -7751,19 +8042,7 @@ fr:condiments en poudre
 
 fr:cannelle en poudre
 
-en:potato fibre
-es:fibra de patata
-fr:fibres de pomme de terre, fibre de pomme de terre
-nl:aardappelvezel
-de:Kartoffelfasern
-
 fr:fond de volaille aromatisé
-
-en:rehydrated garlic
-fr:ail réhydraté
-
-fr:truite
-allergens:fr:_truite_
 
 fr:zestes de citron
 
@@ -7782,14 +8061,9 @@ fr:caramel en poudre
 
 fr:bha, e320
 
-fr:œufs de lompe
-allergens:fr:_œufs de lompe_
-
 fr:guanylate de sodium
 
 fr:minéraux
-
-fr:perméat de lactosérum
 
 fr:cuivre
 
@@ -7799,18 +8073,11 @@ fr:semoule de maïs précuite
 
 fr:bifidobactérium
 
-fr:tomates entières pelées
-
-en:grilled tomato
-es:tomate asado
-fr:tomate grillée
-nl:gegrilde tomaat
-de:gegrillte Tomaten
-
 fr:jus de pamplemousse à base de concentré
 
 fr:agent d'enrobage cire de carnauba
 
+en:concentrated carrot juice
 fr:jus concentré de carottes
 
 fr:préparation fromagère
@@ -7826,18 +8093,12 @@ fr:aromates et épices
 
 fr:salvia hispanica, chia
 
-fr:riz gluant
-
 fr:acidulant
-
-fr:café torréfié moulu
 
 fr:sésame complet
 allergens:fr:_sésame_ complet
 
 fr:grenade
-
-fr:ail des ours
 
 fr:sulfates de fer
 
@@ -7846,7 +8107,7 @@ fr:améliorant
 fr:orthophosphates de calcium
 
 en:sparkling water
-fr:eau gazeuse
+fr:eau gazeuse, eau pétillante
 
 fr:plantes aromatiques déshydratées
 
@@ -7860,15 +8121,9 @@ fr:sauce en poudre
 
 fr:conservateur e 202
 
-fr:purée de tomates concentrée
-
-fr:cuisse de porc
-
 fr:cyclamate
 
 fr:choux
-
-fr:agents épaississants
 
 fr:fibres d'acacia
 
@@ -7888,9 +8143,6 @@ fr:vinaigrette
 fr:cacahuètes grillées
 allergens:fr:_cacahuètes_ grillées
 
-fr:maquereau
-allergens:fr:_maquereau_
-
 fr:pelamis, Katsuwonus pelamis
 
 fr:crème de noix de coco
@@ -7908,15 +8160,8 @@ fr:oignon rouge
 
 fr:disphosphates
 
-fr:crevettes décortiquées
-allergens:fr:_crevettes_ décortiquées
-
 fr:lait bio
 allergens:fr:_lait_ bio
-
-fr:agent de traitement de la farine e300
-
-fr:tomate séchée
 
 en:potassium phosphate
 fr:phosphate de potassium
@@ -7927,8 +8172,6 @@ fr:vanille moulue
 
 fr:disulfites de sodium
 allergens:fr:_disulfites_ de sodium
-
-fr:bouillon de poulet
 
 fr:lardons
 
@@ -7943,22 +8186,14 @@ fr:pyrophosphate de sodium
 
 fr:épaississant gomme arabique
 
-fr:oignons en morceaux
-
-fr:filet de poulet halal
-
 fr:potimarron
 
 fr:séré maigre
-
-fr:figues sèches
 
 fr:sauce au soja
 allergens:fr:sauce au _soja_
 
 fr:litchi
-
-fr:café arabica
 
 fr:base aromatisante barbecue
 
@@ -7980,10 +8215,6 @@ fr:châtaigne d'eau
 
 fr:pruneau
 
-fr:purée de tomates mi-réduites
-
-fr:aiguillette de poulet
-
 fr:oreilles de judas
 
 fr:triphosphate pentasodique
@@ -7997,16 +8228,10 @@ allergens:fr:_emmental_ français râpé
 
 fr:oignon préfrit
 
-fr:flocons de riz
-
-fr:riz extrudé
-
 fr:levain sec
 fr:katsuwonus
 
 fr:poudre d'acérola
-
-fr:fond de poulet
 
 fr:eau minérale
 
@@ -8017,8 +8242,6 @@ fr:oncorhynchus nerka
 fr:nuoc mâm
 
 fr:jus d'ananas concentré
-
-fr:riz long étuvé
 
 fr:galacto-oligosaccharides
 
@@ -8033,14 +8256,9 @@ fr:fumet
 
 fr:aubergine grillée
 
-fr:purée et pulpe de tomates
-
 fr:isomaltulose
 
 fr:vin blanc réduit
-
-fr:œufs de cabillaud fumés et salés
-allergens:fr:œufs de _cabillaud_ fumés et salés
 
 fr:stéarate de magnésium
 
@@ -8073,13 +8291,13 @@ fr:antioxydant e316
 
 fr:agent épaississant
 
+fr:agents épaississants
+
 fr:jus de raisin rouge
 
 fr:mirin
 
 fr:gras de mouton
-
-fr:gras de poulet
 
 fr:graisse de volaille
 
@@ -8087,16 +8305,7 @@ fr:guar
 
 fr:spéculoos
 
-en:potato powder
-es:patata en polvo
-fr:poudre de pommes de terre, poudre de pomme de terre
-nl:aardappelpoeder
-de:Kartoffelpulver
-
 fr:légumes en proportion variable
-
-fr:saumon cuit
-allergens:fr:_saumon_ cuit
 
 fr:copeaux de chocolat
 
@@ -8150,8 +8359,6 @@ fr:gélatine non porcine
 
 fr:250
 
-fr:poires en cubes
-
 fr:bouillon déshydraté
 
 fr:céréales soufflées
@@ -8183,8 +8390,6 @@ fr:pandalus borealis
 
 fr:cranberries séchées
 
-fr:os de veau
-
 fr:paprika doux
 
 en:eau de vie
@@ -8193,16 +8398,7 @@ fr:eau-de-vie, eau de vie
 nl:eau de vie
 de:Obstbrand
 
-fr:préparation à base de tomates
-
 fr:graines de potiron
-
-fr:saumon salmo salar
-allergens:fr:_saumon_ salmo salar
-
-fr:protéine végétale hydrolysée
-
-fr:piments jalapeño
 
 fr:plantain
 
@@ -8210,12 +8406,7 @@ fr:graines de courges
 
 fr:caramel de sulfite caustique
 
-fr:merlu blanc
-allergens:fr:_merlu_ blanc
-
 fr:jus de carottes
-
-fr:tomates en morceaux
 
 fr:oignon et ail en poudre
 
@@ -8230,8 +8421,6 @@ allergens:fr:_fromage_ blanc frais
 
 fr:complexes cuivre
 
-fr:présure de veau
-
 fr:bière blonde
 
 en:precooked chicken
@@ -8243,8 +8432,6 @@ fr:fins finots de blé dur
 allergens:fr:fins finots de _blé_ dur
 
 fr:poudre de fleurage
-
-fr:jeunes carottes
 
 fr:farine de pois
 
@@ -8278,8 +8465,6 @@ fr:extrait de levure en poudre
 fr:extrait naturel de citron
 
 fr:extraits d'épice
-
-fr:extrait de riz
 
 fr:extrait naturel de curcuma
 
@@ -8332,11 +8517,10 @@ fr:lécithine de tournesol, lécithines de tournesol
 nl:zonnebloemlecithine
 de:Sonnenblumenlecithin
 
+en:sunflower
 fr:tournesol
 
 fr:tournesol oléique
-
-fr:cacao dégraissé en poudre
 
 fr:levain de blé dévitalisé
 allergens:fr:levain de _blé_ dévitalisé
@@ -8355,12 +8539,7 @@ allergens:fr:jaune d'_oeuf_ frais
 
 fr:gluconate de fer
 
-fr:filets de thon
-allergens:fr:filets de _thon_
-
 fr:châtaignes d'eau
-
-fr:éclats de fèves de cacao caramélisés
 
 fr:yaourt brassé sucré
 allergens:fr:_yaourt_ brassé sucré
@@ -8372,8 +8551,6 @@ fr:sélénium
 fr:sucrose
 
 fr:betteraves
-
-fr:tomates pelées concassées au jus
 
 fr:pecorino
 allergens:fr:_pecorino_
@@ -8391,30 +8568,15 @@ fr:extrait de coco
 
 fr:morceaux de foie gras de canard du sud-ouest
 
-fr:thon au naturel
-allergens:fr:_thon_ au naturel
-
-fr:noix de st jacques
-allergens:fr:_noix de st jacques_
-
 fr:quinoa cuit
 
-fr:riz cuisiné
-
 fr:fond de pâte précuit
-
-fr:flocons de pomme de terre déshydratés
-
-en:alcohols
-fr:alcools
-
-fr:chlamys opercularis
-allergens:fr:_chlamys opercularis_
 
 fr:ferment lactiques
 
 fr:muscadet, vin blanc muscadet
 
+en:thyme extract
 fr:extrait de thym
 
 fr:fromage de brebis
@@ -8439,6 +8601,7 @@ fr:dicarbonate de dimethyle
 
 fr:couscous
 
+en:apple fiber
 fr:fibre de pomme
 
 fr:graisse de palmiste
@@ -8455,10 +8618,6 @@ fr:éclats de caramel au beurre salé
 
 fr:conservateur e 250
 
-fr:jus de citron reconstitué
-
-fr:poulet rôti
-
 fr:origan déshydraté
 
 fr:purée de châtaignes
@@ -8472,10 +8631,6 @@ fr:pulpes de citron
 
 fr:concentrés de fruits et de légumes
 
-fr:graisse végétale totalement hydrogénée
-
-fr:cuisse de poulet
-
 fr:disphosphate disodique
 
 fr:pousses de haricot mungo
@@ -8486,12 +8641,68 @@ allergens:fr:_arachides_ grillées moulues
 fr:fromage cheddar
 allergens:fr:_fromage_ cheddar
 
-fr:foie de morue
-allergens:fr:foie de _morue_
-
-fr:jus de pomme à base de jus concentré
-
 fr:pommes de terre cuites
+
+fr:flocons de pomme de terre déshydratés
+
+en:potato powder
+es:patata en polvo
+fr:poudre de pommes de terre, poudre de pomme de terre
+nl:aardappelpoeder
+de:Kartoffelpulver
+
+en:potato fibre
+es:fibra de patata
+fr:fibres de pomme de terre, fibre de pomme de terre
+nl:aardappelvezel
+de:Kartoffelfasern
+
+fr:fibres de pommes de terre
+
+en:cooked potato
+es:patata cocida
+fr:pomme de terre cuite
+nl:gegaarde aardappel
+de:gegarte Kartoffeln
+
+fr:fibres de pomme de terre
+
+fr:fécule modifiée de pommes de terre
+
+fr:flocons de pomme de terre réhydratés
+
+fr:purée de pomme de terre
+
+fr:farine de pomme de terre, farine de pommes de terre
+
+fr:pomme de terre en poudre
+
+fr:amidon de pomme de terre modifié
+
+fr:purée de pommes de terre
+
+fr:flocon de pomme de terre
+
+fr:pommes de terre préfrites
+
+fr:pomme de terre déshydratée
+
+fr:flocons de pommes de terre, flocons de pomme de terre, flocon de pomme de terre,
+
+fr:pomme de terre déshydratée, pommes de terre déshydratées
+
+fr:flocons de pomme de terre, flocon de pomme de terre
+
+en:potato
+es:patata
+fr:pomme de terre, pommes de terre
+nl:aardappel
+de:Kartoffeln
+wikidata:en:Q16587531
+
+fr:fécule de pomme de terre modifiée
+
+fr:pommes de terre en poudre
 
 fr:coriandre en poudre
 
@@ -8501,11 +8712,7 @@ fr:farine de graines de caroubes
 
 fr:protéines de petit-lait
 
-fr:cacao minimum
-
 fr:fruits des bois
-
-fr:carottes jaunes
 
 fr:farine de gonflement de blé
 
@@ -8520,13 +8727,12 @@ fr:épinards en branches
 fr:orge maltée
 allergens:fr:_orge_ maltée
 
-fr:carottes déshydratées
-
 fr:pommes déshydratées
 
 fr:engraulis encrasicolus
 allergens:fr:_engraulis encrasicolus_
 
+en:rose petals
 fr:pétales de rose
 
 fr:enrobant
@@ -8553,8 +8759,6 @@ fr:morceaux de pommes
 
 fr:a. oryzae
 
-fr:graisse végétale de coco
-
 fr:génoise
 
 fr:flocon d'avoine
@@ -8579,10 +8783,30 @@ allergens:fr:farine d'_épeautre_ complet
 
 fr:haricots rouges réhydratés
 
-fr:sel marin de guérande
-
 fr:filets de maquereaux cuits au court-bouillon
 allergens:fr:filets de _maquereaux_ cuits au court-bouillon
+
+fr:foie de morue
+allergens:fr:foie de _morue_
+
+fr:chlamys opercularis
+allergens:fr:_chlamys opercularis_
+
+fr:noix de st jacques
+allergens:fr:_noix de st jacques_
+
+fr:merlu blanc
+allergens:fr:_merlu_ blanc
+
+fr:crevettes décortiquées
+allergens:fr:_crevettes_ décortiquées
+
+fr:maquereau
+allergens:fr:_maquereau_
+
+fr:œufs de lompe
+allergens:fr:_œufs de lompe_
+
 
 fr:fraises lyophilisées
 
@@ -8608,10 +8832,6 @@ allergens:fr:flocons d'_épeautre_ complet
 
 fr:farine de millet
 
-fr:son de riz
-
-fr:jus de carotte pourpre concentré
-
 en:calcium hydroxide
 es:hidróxido de calcio
 fr:hydroxyde de calcium
@@ -8634,8 +8854,6 @@ fr:fibre d'agrume
 
 fr:produits laitiers
 
-fr:riz complet précuit
-
 fr:fromage frais à 0% de matière grasse
 allergens:fr:_fromage_ frais à 0% de matière grasse
 
@@ -8646,9 +8864,8 @@ fr:jus concentré de fruits
 
 fr:fève
 
+en:ravioli
 fr:ravioli
-
-fr:éclats de fèves de cacao torréfiés
 
 fr:moût de raisin concentré et cuit
 
@@ -8684,6 +8901,12 @@ allergens:fr:jaune d’_œuf_ liquide
 
 fr:œufs pasteurisés
 allergens:fr:_oeufs_ pasteurisés
+
+fr:blanc d'oeufs frais
+allergens:fr:blanc d'_oeufs_ frais
+
+fr:blancs d'oeufs en poudre
+allergens:fr:blancs d'_oeufs_ en poudre
 
 fr:œufs frais entiers
 allergens:fr:_œufs_ frais entiers
@@ -8789,12 +9012,15 @@ allergens:fr:_œufs_ de poules élevées au sol
 fr:jaune d'oeuf de poules élevées en plein air
 allergens:fr:jaune d'_œuf_ de poules élevées en plein air
 
+en:dehydrated egg white
 fr:blanc d'oeuf déshydraté
 allergens:fr:blanc d'_œuf_ déshydraté
 
+en:fresh egg
 fr:œuf frais
 allergens:fr:_œuf_ frais
 
+en:llwiquid whole egg
 fr:œuf entier liquide
 allergens:fr:_œuf_ entier liquide
 
@@ -8816,14 +9042,25 @@ allergens:fr:_œufs_ de poules élevées en plein air
 fr:œuf de poules élevées en plein air, œufs de poules élevées en plein air
 allergens:fr:_œufs_ de poules élevées en plein air
 
+en:rehydrated egg white
 fr:blanc d'œuf réhydraté
 allergens:fr:blanc d'_œuf_ réhydraté
 
+fr:blanc d'_oeuf_ poudre réhydraté
+
+fr:blancs d'oeufs pasteurisés
+allergens:fr:blancs d'_oeufs_ pasteurisés
+
 fr:œufs d'élevage au sol
 
+en:whole powdered egg
 fr:œufs entiers en poudre
 allergens:fr:_œufs_ entiers en poudre
 
+fr:œuf entier en poudre
+allergens:fr:_œuf_ entier en poudre
+
+en:powdered egg
 fr:œuf en poudre
 allergens:fr:_œuf_ en poudre
 
@@ -8845,9 +9082,6 @@ allergens:fr:jaune d'_œuf_ en poudre
 
 fr:œufs entiers frais
 allergens:fr:_œufs_ entiers frais
-
-fr:œuf entier en poudre
-allergens:fr:_œuf_ entier en poudre
 
 fr:jaunes d'oeuf
 allergens:fr:jaunes d'_œufs_
@@ -8879,12 +9113,6 @@ fr:jaune d’œuf
 nl:eigeel
 de:Eigelb
 
-en:duck egg
-es:huevo de pato
-fr:œuf de canard
-nl:eendenei
-de:Enteneier
-
 fr:margarine végétale non hydrogénée
 
 fr:tagliatelles cuites
@@ -8893,11 +9121,7 @@ fr:limonade
 
 fr:coings
 
-fr:jus de citron bio concentré
-
 fr:poivrons verts et rouges
-
-fr:tomates séchées réhydratées
 
 fr:bleu
 allergens:fr:_bleu_
@@ -8906,21 +9130,9 @@ fr:agent de traitement de farine
 
 fr:l-leucine
 
-fr:purée de tomates mi-concentrée
-
 fr:phosphate de magnésium
 
 fr:fibres de légume
-
-fr:purée de carotte
-
-en:Cointreau
-es:Cointreau
-fr:Cointreau
-nl:Cointreau
-de:Cointreau
-
-fr:oignons de printemps
 
 fr:antioxydant bha
 
@@ -8932,17 +9144,9 @@ fr:reines-claudes
 
 fr:combava
 
-fr:chair de brochet
-allergens:fr:chair de _brochet_
-
 fr:cholécalciférol
 
-fr:poitrine de poulet
-
 fr:sauce worcestershire
-
-fr:préparation à base de surimi
-allergens:fr:préparation à base de _surimi_
 
 fr:culture de bactéries lactiques
 
@@ -8962,18 +9166,9 @@ fr:autres fruits à coque
 
 fr:sauce vinaigrette
 
-fr:pâte de tomate
-
 fr:extrait concentré
 
-fr:sardines sélectionnées
-allergens:fr:_sardines_ sélectionnées
-
-fr:tomates semi-séchées
-
 fr:extraits de plantes
-
-fr:jus de pomme
 
 fr:jus concentré d'acérola
 
@@ -8983,8 +9178,6 @@ fr:jus d’acérola
 nl:acerolasap
 de:Acerolasaft
 
-fr:sel dextrose
-
 fr:haricots rouges précuits
 
 fr:sariette
@@ -8992,8 +9185,6 @@ fr:sariette
 fr:glaçage
 
 fr:jus de betterave rouge
-
-fr:pommes de terre en poudre
 
 fr:blé dur concassé
 allergens:fr:_blé_ dur concassé
@@ -9010,9 +9201,6 @@ allergens:fr:_lait_ de buffle
 
 fr:cannelle de ceylan
 
-fr:filets de harengs
-allergens:fr:filets de _harengs_
-
 fr:marsala
 
 en:acai juice
@@ -9020,8 +9208,6 @@ es:zumo de acai
 fr:jus d’açaï
 nl:acaisap
 de:Acai-Saft
-
-fr:sel nitrité iodé
 
 fr:boyau collagénique
 
@@ -9031,8 +9217,15 @@ fr:eau purifiée
 
 fr:concentré de carottes
 
-fr:protéines de lait en poudre
-allergens:fr:protéines de _lait_ en poudre
+fr:purée de carotte
+
+fr:jus de carotte pourpre concentré
+
+fr:carottes déshydratées
+
+fr:carottes jaunes
+
+fr:jeunes carottes
 
 fr:merlot
 
@@ -9042,12 +9235,7 @@ fr:artichaut
 nl:artisjok
 de:Artischocke
 
-fr:manchons de canard
-
 fr:vermicelle de pois
-
-fr:poudre de lactose
-allergens:fr:poudre de _lactose_
 
 fr:koji
 
@@ -9064,8 +9252,6 @@ es:harina de amaranto
 fr:farine d’amarante
 nl:amaranthmeel
 de:Amarantmehl
-
-fr:flocons de banane
 
 fr:pruneaux
 
@@ -9109,24 +9295,12 @@ fr:mélasse de sucre de canne
 
 fr:jus concentré de betterave
 
-fr:riz croustillant
-
-fr:filet de cabillaud
-allergens:fr:filet de _cabillaud_
-
 fr:amandes amères
 allergens:fr:_amandes_ amères
 
 fr:pinot noir
 
-fr:langoustines
-allergens:fr:_langoustines_
-
-fr:tomates fraîches
-
 fr:eau gazéifié
-
-fr:veau
 
 fr:extrait de sureau
 
@@ -9200,6 +9374,7 @@ fr:levure alimentaire
 fr:farine d'orge malté torréfié
 allergens:fr:farine d'_orge_ malté torréfié
 
+en:tequila
 fr:tequila
 
 fr:prune
@@ -9211,20 +9386,12 @@ fr:purée de pomme concentrée
 
 fr:raisins secs sultanines
 
-fr:jus de poire concentré
-
 fr:dulse
-
-fr:oignons grelots
 
 fr:co2
 
-fr:tomate mi-séchée
-
 fr:blé entier
 allergens:fr:_blé_ entier
-
-fr:riz long grain précuit à la vapeur
 
 fr:poudre de curcuma
 
@@ -9236,9 +9403,6 @@ allergens:fr:_dosidicus gigas_
 fr:yogourt au lait pasteurisé
 
 fr:sauternes
-
-fr:poisson déshydraté
-allergens:fr:_poisson_ déshydraté
 
 fr:sels
 
@@ -9252,6 +9416,8 @@ fr:pousse de bambou
 fr:encornets
 allergens:fr:_encornets_
 
+<en:alcohols
+en:Scottish whiskey
 fr:whisky écossais
 
 fr:ail semoule
@@ -9265,8 +9431,6 @@ allergens:fr:fromage au _lait_ de vache pasteurisé
 
 fr:grana padano dop
 allergens:fr:_grana padano_ dop
-
-fr:jus de poire à base de concentré
 
 fr:pâte crue
 
@@ -9315,14 +9479,6 @@ fr:cultures
 
 fr:pois mange-tout
 
-fr:riz basmati précuit
-
-fr:filets de cabillaud
-allergens:fr:filets de _cabillaud_
-
-fr:poulpes
-allergens:fr:_poulpes_
-
 fr:purée d'ananas
 
 fr:lait demi-écrémé stérilisé u.h.t
@@ -9354,14 +9510,9 @@ fr:jus de carotte noire concentré
 
 fr:haricots noirs
 
-fr:dés de tomate
-
 fr:boyau de mouton
 
 fr:chlorure d'ammonium
-
-fr:blancs d'oeufs pasteurisés
-allergens:fr:blancs d'_oeufs_ pasteurisés
 
 fr:feuilles de vigne
 
@@ -9397,15 +9548,11 @@ fr:algue marine lithothamnium calcareum
 fr:praliné aux amandes et aux noisettes
 allergens:fr:praliné aux _amandes_ et aux _noisettes_
 
-fr:sauce tomate cuite
-
 fr:céréales biscuitées
 
 fr:sol
 
 fr:citron en poudre
-
-fr:chocolat pur beurre de cacao
 
 fr:concentré de jus de raisin
 
@@ -9425,14 +9572,10 @@ fr:vin marsala
 
 fr:phosphate dicalcique
 
-fr:oignons émincés
-
 fr:épinards en poudre
 
 fr:crème pasteurisé
 allergens:fr:_crème_ pasteurisé
-
-fr:matière grasse lactique
 
 fr:seitan
 
@@ -9497,8 +9640,6 @@ fr:tartrazine
 
 fr:levure inactivée
 
-fr:fécule de pomme de terre modifiée
-
 fr:glucuronolactone
 
 en:blueberry
@@ -9521,8 +9662,6 @@ fr:purée de myrtille rouge
 
 fr:fumarate de fer
 
-fr:extraits de riz
-
 fr:céleri rave râpé
 allergens:fr:_céleri_ rave râpé
 
@@ -9542,8 +9681,6 @@ allergens:fr:protéines végétales de _soja_ réhydratées
 fr:jus concentré
 
 fr:poudre d'épinard
-
-fr:palmiste totalement hydrogénée
 
 fr:canneberges séchées
 
@@ -9583,11 +9720,7 @@ fr:flocons de maïs
 
 fr:aubergine préfrite
 
-fr:tomates en dés
-
 fr:agents de coagulation
-
-fr:pur jus de pomme
 
 fr:petits pois doux
 
@@ -9604,9 +9737,7 @@ allergens:fr:_sulfite_ de sodium
 
 fr:lentille
 
-fr:maquereaux
-allergens:fr:_maquereaux_
-
+en:organic carrots
 fr:carottes bio
 
 fr:dérivés de lait
@@ -9639,13 +9770,6 @@ fr:steak haché
 
 fr:pulpe de noix de coco
 
-fr:pâte d'ail
-
-fr:calmar
-allergens:fr:_calmar_
-
-fr:sel d'aspartame-acésulfame, e962
-
 fr:jus de sureau à base de concentré
 
 fr:tuber aestivum
@@ -9656,12 +9780,20 @@ fr:cognac modifié
 
 fr:beurre de cacao émulsifiant
 
+fr:chocolat pur beurre de cacao
+
+fr:éclats de fèves de cacao torréfiés
+
+fr:cacao minimum
+
+fr:éclats de fèves de cacao caramélisés
+
+fr:cacao dégraissé en poudre
+
 fr:jus concentré de céleri et de carotte
 allergens:fr:jus concentré de _céleri_ et de carotte
 
 fr:transglutaminase
-
-fr:blanc d'_oeuf_ poudre réhydraté
 
 fr:yogourt maigre
 
@@ -9688,13 +9820,9 @@ fr:muesli
 
 fr:euthynnus
 
-fr:café en poudre
-
 fr:extrait de tamarin
 
 fr:algue marine
-
-fr:tomates cubées
 
 fr:fumarate ferreux
 
@@ -9718,9 +9846,6 @@ allergens:fr:_lait_ en poudre enrichi en matière grasse
 
 fr:farine de graine de guar
 
-fr:beurre clarifié
-allergens:fr:_beurre_ clarifié
-
 fr:oléisol®
 
 fr:farine d'orge complète
@@ -9732,14 +9857,9 @@ fr:pois croquants
 
 fr:extrait de vin rouge
 
-en:Italian rice
-fr:riz italien
-
 fr:épice et plante aromatique
 
 fr:spirulina
-
-fr:concassé de tomates
 
 fr:ferments d'affinage
 
@@ -9763,8 +9883,6 @@ allergens:fr:_caséinate_
 fr:éclats de noisettes et noisettes moulues
 
 fr:lardon fumé
-
-fr:café arabica fraîchement préparé
 
 fr:fourrage au chocolat
 
@@ -9790,13 +9908,8 @@ fr:liant
 
 fr:colza
 
-fr:brochet
-allergens:fr:_brochet_
-
 fr:semoule de blé tendre
 allergens:fr:semoule de _blé_ tendre
-
-fr:jus concentré d'oignons
 
 fr:poudre de citron
 
@@ -9835,13 +9948,9 @@ fr:pâtes fraîches
 
 fr:sel nitrité pour saumure
 
-fr:produit à base de viande de poulet
-
 fr:olives vertes et noires
 
 fr:culture de bifidus
-
-fr:jus de citrons
 
 fr:pousse de haricot mungo
 
@@ -9857,63 +9966,61 @@ allergens:fr:fourrage _lait_
 fr:feta
 allergens:fr:_feta_
 
-fr:calmars
-allergens:fr:_calmars_
-
-fr:sel
-
-fr:sels de salaison, sel nitrité
-
-fr:sels minéraux de mer
-
-fr:sel fumé
-
-fr:sel marin non traité
-
-fr:sel sec
-
-fr:sel émulsifiant, sels émulsifiants
-
-fr:sel de camargue
-
-fr:fleur de sel
-
-fr:sels de magnésium d'acides gras
-
-fr:sel de guérande
-
 fr:coeurs de palmier
 
 fr:lécithine de soja et de tournesol
 allergens:fr:lécithine de _soja_ et de tournesol
-
-fr:purée de tomate à base de concentré
 
 fr:chlorophyllines
 
 fr:farine d'orge maltée torréfiée
 allergens:fr:farine d'_orge_ maltée torréfiée
 
-fr:oignons coupés
-
 fr:chou frisé
 
 fr:mourvèdre
 
+fr:calmars
+allergens:fr:_calmars_
+
+fr:brochet
+allergens:fr:_brochet_
+
+fr:calmar
+allergens:fr:_calmar_
+
+fr:maquereaux
+allergens:fr:_maquereaux_
+
+fr:poisson déshydraté
+allergens:fr:_poisson_ déshydraté
+
+fr:langoustines
+allergens:fr:_langoustines_
+
+fr:filets de harengs
+allergens:fr:filets de _harengs_
+
+fr:sardines sélectionnées
+allergens:fr:_sardines_ sélectionnées
+
+fr:préparation à base de surimi
+allergens:fr:préparation à base de _surimi_
+
+fr:chair de brochet
+allergens:fr:chair de _brochet_
+
 fr:poudre de poisson
 allergens:fr:poudre de _poisson_
-
-fr:lait de bufflonne pasteurisé
-allergens:fr:_lait_ de bufflonne pasteurisé
-
-fr:matière graisse végétale
-
-fr:oignon réhydraté
 
 fr:poudre de crevette
 allergens:fr:poudre de _crevette_
 
-fr:riz long
+fr:crevettes roses
+allergens:fr:_crevettes_ roses
+
+fr:lait de bufflonne pasteurisé
+allergens:fr:_lait_ de bufflonne pasteurisé
 
 fr:salade mélangée
 
@@ -9938,8 +10045,6 @@ fr:saccharinate de sodium
 
 fr:cerises confites
 
-fr:riz moulu
-
 fr:monostéarate de sorbitane
 
 fr:edta
@@ -9950,8 +10055,6 @@ fr:chartreuse
 nl:chartreuse
 de:Chartreuse
 
-fr:jarret de porc
-
 en:lemongrass
 es:hierbalimón
 fr:citronnelle
@@ -9959,8 +10062,6 @@ nl:citroengras
 de:Zitronengras
 
 fr:mélange de salades
-
-fr:pulpe de tomates avec morceaux et purée de tomates
 
 fr:malts
 
@@ -9996,11 +10097,6 @@ fr:brioche
 fr:bambou
 
 fr:concentrés de légumes
-
-fr:matière grasse de coco
-
-fr:crevettes roses
-allergens:fr:_crevettes_ roses
 
 fr:manganèse
 
@@ -10075,9 +10171,6 @@ nl:tarwebloem
 de:Weizenmehl
 allergens:fr:farine de _blé_
 
-en:cooked white rice
-fr:riz blanc cuit
-
 en:whole milk yogurt
 fr:yogourt au lait entier
 
@@ -10085,8 +10178,6 @@ fr:fèves de soja sans ogm décortiquées
 allergens:fr:fèves de _soja_ sans ogm décortiquées
 
 fr:jus de fruits à base de jus concentrés
-
-fr:oignon vert
 
 fr:betterave rouge en poudre
 
@@ -10109,8 +10200,6 @@ fr:fleurs de carcadé
 
 fr:boyau de boeuf
 
-fr:cuisses de canard
-
 fr:fromage suisse
 
 fr:lactate de fer
@@ -10120,8 +10209,6 @@ allergens:fr:jaunes d'_oeufs_ salés
 
 fr:comté aop
 allergens:fr:_comté_ aop
-
-fr:jus de citron vert concentré
 
 fr:blé dur précuit concassé
 allergens:fr:_blé_ dur précuit concassé
@@ -10143,14 +10230,10 @@ allergens:fr:_blé_ soufflé
 
 fr:dextrine de tapioca
 
-fr:petits oignons blancs
-
 fr:lupins
 allergens:fr:_lupins_
 
 fr:cantharellus cibarius
-
-fr:dés de tomates
 
 en:Jerusalem artichoke
 es:tupinambo
