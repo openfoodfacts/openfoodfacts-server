@@ -6525,7 +6525,7 @@ HTML
 	
 	# NOVA groups
 	
-	if ((exists $product_ref->{nova_group})) {
+	if (($lc eq 'fr') and (exists $product_ref->{nova_group})) {
 		my $group = $product_ref->{nova_group};
 			
 # <a href="https://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}">
@@ -6535,8 +6535,12 @@ HTML
 		
 		$html .= <<HTML
 <h4>$Lang{nova_groups_s}{$lc}
+<a href="https://world.openfoodfacts.org/nova-groups-for-food-processing" title="NOVA groups for food processing">
+<i class="fi-info"></i></a>
 </h4>
-<img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%" /><br/>
+
+
+<a href="https://world.openfoodfacts.org/nova-groups-for-food-processing" title="NOVA groups for food processing"><img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%" /></a><br/>
 $display
 HTML
 ;
@@ -7197,7 +7201,7 @@ sub display_nutrient_levels($) {
 <a href="https://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}">
 <i class="fi-info"></i></a>
 </h4>
-<img src="/images/misc/nutriscore-$grade.svg" alt="$Lang{nutrition_grade_fr_alt}{$lc} $uc_grade" style="margin-bottom:1rem;max-width:100%" /><br/>
+<a href="https://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}"><img src="/images/misc/nutriscore-$grade.svg" alt="$Lang{nutrition_grade_fr_alt}{$lc} $uc_grade" style="margin-bottom:1rem;max-width:100%" /></a><br/>
 $warning
 HTML
 ;
