@@ -351,6 +351,12 @@ $options{nova_groups_tags} = {
 "ingredients/en:honey" => 3,
 "ingredients/en:maple-syrup" => 3,
 
+"categories/en:wines" => 3,
+"categories/en:beers" => 3,
+"categories/en:ciders" => 3,
+"categories/en:cheeses" => 3,
+
+
 # tags only found in group 4
 
 "ingredients/en:colour" => 4,
@@ -388,6 +394,7 @@ $options{nova_groups_tags} = {
 "categories/en:salty-snacks" => 4,
 "categories/en:baby-milks" => 4,
 "categories/en:sausages" => 4,
+"categories/en:hard-liquors" => 4,
 
 
 
