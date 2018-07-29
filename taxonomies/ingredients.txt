@@ -5,7 +5,6 @@ stopwords:nl:bevat,en
 stopwords:nl_be:bevat,en
 stopwords:de:und,mit,von
 
-
 # additive classes
 
 en: Acid
@@ -1990,22 +1989,32 @@ fr:sucre liquide
 
 fr:sirop de sucre candi
 
+en:glucose
+fr:glucose
+
+<en:glucose
 en:glucose syrup
 fr:sirop de glucose
 wikidata:en:Q14770547
 
-fr:sirop de glucose et fructose
 
+
+<en:glucose syrup
+en:glucose and fructose syrup, glucose-fructose syrup, fructose-glutose syrup
+fr:sirop de glucose et de fructose, sirop de fructose-glucose, sirop de glucose-fructose
+
+<en:glucose syrup
 fr:sirop de glucose-fructose de blé
 
-fr:sirop de fructose-glucose
-
-fr:sirop de glucose-fructose
-
+<en:glucose syrup
 fr:sirop de glucose de maïs
 
+<en:glucose syrup
+en:dehydrated glucose syrup
 fr:sirop de glucose déshydraté
 
+<en:glucose syrup
+en:wheat glucose syrup
 fr:sirop de glucose de blé
 
 fr:sirop de caramel
@@ -2018,8 +2027,11 @@ fr:sirop d’agave
 nl:agavesiroop
 de:Agavensirup
 
+<en:glucose syrup
+en:fructose syrup
 fr:sirop de fructose
 
+<en:fructose syrup
 en:high-fructose corn syrup
 fr:sirop de maïs à haute teneur en fructose
 
@@ -2567,8 +2579,6 @@ de:Kreuzkümmel
 fr:eau gazéifiée
 
 fr:citrate de sodium, citrates de sodium
-
-fr:glucose
 
 fr:crustacé
 allergens:fr:_crustacés_
