@@ -377,6 +377,7 @@ $options{nova_groups_tags} = {
 "ingredients/en:maltodextrin" => 4,
 "ingredients/en:invert-sugar" => 4,
 "ingredients/en:high-fructose-corn-syrup" => 4,
+"ingredients/en:glucose" => 4,
 
 "categories/en:sodas" => 4,
 "categories/en:ice-creams" => 4,
