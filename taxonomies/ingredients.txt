@@ -1,4 +1,3 @@
-
 en:vitamins, vitamin
 fr:vitamine
 
@@ -56,9 +55,9 @@ fr:vitamine d
 <en:vitamins
 fr:vitamine c
 
-en:salt
+en:salt, cooking salt, dry salt
 es:sal
-fr:sel
+fr:sel, sel de cuisine, sel sec
 nl:zout
 de:Salz
 wikidata:en:Q11254
@@ -149,37 +148,63 @@ de:Milch
 allergens:fr:_lait_
 wikidata:en:Q8495
 
-fr:antioxydant
+en:flavour, flavor, flavouring, flavoring, aroma, flavours, flavors, flavourings, flavorings, aromas
+fr:arôme, arômes
 
+en:antioxidant, anti-oxidant
+fr:antioxydant, anti-oxydant
+
+<en:glucose
 en:dextrose
 es:dextrosa
 fr:dextrose
 nl:dextrose
 de:Dextrose
 
+<en:glucose
 en:glucose syrup
 fr:sirop de glucose
 wikidata:en:Q14770547
 
 <en:vegetal oil
-en:colza oil
+en:colza oil, rapeseed oil
 fr:huile de colza
+
+<en:colza oil
+en:refined colza oil
+fr:huile de colza raffinée
+
+<en:colza oil
+en:virgin colza oil
+fr:huile de colza vierge
+
+en:hydrogenated oil, hydrogenated fat
+fr:huile hydrogénée, matière grasse hydrogénée, matières grasses hydrogénées
 
 <en:vegetal oil
 en:non hydrogenated vegetal oil
 fr:huile végétale non hydrogénée
 
+<en:vegetal oil
 en:hydrogenated vegetable fat
-fr:graisse végétale hydrogénée, matière grasse végétale hydrogénée
-
-en:non-hydrogenated vegetable fats, non-hydrogenated vegetable fat
-fr:matières grasses végétales non hydrogénées, matière grasse végétale non hydrogénée
+fr:matière grasse végétale hydrogénée, graisse végétale hydrogénée
 
 <en:vegetal oil
+<en:non-hydrogenated fat
+en:non-hydrogenated vegetable fat, non-hydrogenated vegetable fats
+fr:matière grasse végétale non hydrogénée, matières grasses végétales non hydrogénées, graisse végétale non hydrogéné
+
+<en:vegetal oil
+<en:hydrogenated oil
 fr:huile végétale hydrogénée
 
+<en:hydrogenated oil
+fr:matière grasse végétale hydrogénée
+
+<en:hydrogenated oil
 fr:huile de noix de coco totalement hydrogénée
 
+<en:hydrogenated oil
 en:hydrogenated palm oil
 fr:huile de palme hydrogénée
 
@@ -247,7 +272,9 @@ allergens:fr:_crème_
 en:gelifier
 fr:gélifiant
 
-fr:sirop de glucose-fructose
+<en:glucose syrup
+en:glucose and fructose syrup, glucose-fructose syrup, fructose-glutose syrup
+fr:sirop de glucose et de fructose, sirop de fructose-glucose, sirop de glucose-fructose
 
 en:raising powder
 fr:poudre à lever, poudres à lever
@@ -270,7 +297,11 @@ fr:nitrite de sodium
 en:palm
 fr:palme
 
-en:carot
+<en:sugar
+en:cane sugar
+fr:sucre de canne
+
+en:carrot
 fr:carotte
 
 fr:viande de porc
@@ -337,6 +368,8 @@ fr:filet de porc
 
 fr:céleri
 allergens:fr:_céleri_
+
+fr:amidon de mais
 
 fr:gluten de blé
 allergens:fr:gluten de _blé_
@@ -541,6 +574,7 @@ fr:durian
 nl:doerian
 de:Durian
 
+<en:olive oil
 en:extra virgin olive oil
 fr:huile d'olive vierge extra
 
@@ -556,6 +590,8 @@ fr:huile végétale, huiles végétales
 
 fr:gomme guar, gomme de guar
 
+<en:butter
+en:concentrated butter
 fr:beurre concentré
 allergens:fr:_beurre_ concentré
 
@@ -798,6 +834,22 @@ fr:diphosphate
 en:thyme
 fr:thym
 
+<en:sugar
+en:invert sugar, inverted sugar
+fr:sucre inverti
+
+<en:invert sugar
+en:invert sugar syrup, invert syrup, liquid invert syrup
+fr:sirop de sucre inverti
+
+<en:invert sugar syrup
+en:cane invert syrup, invert cane syrup
+
+<en:invert sugar
+<en:invert cane sugar, inverted cane sugar
+
+
+<en:vegetal oil
 en:olive oil
 fr:huile d'olive
 
@@ -810,6 +862,10 @@ fr:glycérol
 
 fr:jambon de porc
 
+
+fr:e450
+
+en:corn
 fr:mais
 
 fr:sulfite
@@ -821,6 +877,7 @@ fr:acide lactique
 en:white wine
 fr:vin blanc
 
+en:fish
 fr:poisson
 allergens:fr:_poisson_
 
@@ -923,6 +980,18 @@ de:Tomatenkonzentrat
 
 fr:cannelle
 
+fr:e415
+
+fr:amidon de riz
+
+<en:salt
+en:iodised salt, iodized salt
+fr:sel iodé, sel de cuisine iodé
+es:sal yodada
+nl:gejodeerd zout
+de:jodiertes Speisesalz
+
+en:leek
 fr:poireau, poireaux
 
 fr:proteine
@@ -968,6 +1037,7 @@ fr:graisse de palme
 
 fr:citrate de sodium, citrates de sodium
 
+en:glucose
 fr:glucose
 
 fr:crustacé
@@ -1042,6 +1112,8 @@ allergens:fr:_orge_
 fr:disulfite de potassium
 allergens:fr:_disulfite_ de potassium
 
+<en:butter
+en:pastry butter
 fr:beurre pâtissier
 allergens:fr:_beurre_ pâtissier
 
@@ -1151,6 +1223,10 @@ fr:alcool
 nl:alcohol 
 de:Alkohol
 
+<en:salt
+en:salt from Guérande
+fr:sel de Guérande
+
 fr:margarine
 
 fr:aspartame
@@ -1252,6 +1328,7 @@ fr:huile de coco
 en:mango
 fr:mangue
 
+<en:vegetal oil
 en:chia oil
 es:aceite de chía
 fr:huile de chia
@@ -1263,6 +1340,14 @@ allergens:fr:protéines de _soja_
 
 fr:protéine de lait
 allergens:fr:protéine de _lait_
+
+
+<en:sugar
+en:caramelised sugar
+es:azúcar caramelizado
+fr:sucre caramélisé
+nl:gekarameliseerde suiker
+de:Karamellzucker
 
 fr:petit-lait en poudre
 allergens:fr:petit-_lait_ en poudre
@@ -1324,6 +1409,10 @@ allergens:fr:farine de malt d'_orge_
 
 fr:lait pasteurisé
 allergens:fr:_lait_ pasteurisé
+
+<en:sugar
+en:brown cane sugar
+fr:sucre de canne roux, sucre roux de canne
 
 fr:lutéine
 
@@ -1413,6 +1502,8 @@ fr:rhum
 fr:crème pasteurisée
 allergens:fr:_crème_ pasteurisée
 
+<en:glucose syrup
+en:wheat glucose syrup
 fr:sirop de glucose de blé
 
 fr:olive
@@ -1492,6 +1583,10 @@ fr:triphosphate
 
 fr:lactate de potassium
 
+<en:cane sugar
+en:raw cane sugar, unrefined cane sugar
+fr:sucre de canne brut, sucre de canne non raffiné, sucre brut de canne, sucre non raffiné de canne
+
 fr:fromage blanc
 allergens:fr:_fromage_ blanc
 
@@ -1511,6 +1606,13 @@ fr:viande bovine
 fr:k
 
 fr:clou de girofle
+
+
+<en:salt
+en:nitrite salt, nitrite curing salt, nitrite pickling salt
+fr:sel nitrité, sel de salaison, sels de salaison, sel nitrité pour saumure
+
+fr:arôme naturel de citron
 
 fr:protéines de blé
 allergens:fr:protéines de _blé_
@@ -1595,6 +1697,14 @@ allergens:fr:graine de _moutarde_
 
 fr:phosphate de calcium
 
+
+en:caramelised sugar syrup 
+es:jarabe de azúcar caramelizado 
+fr:sirop de sucre caramélisé 
+nl:gekarameliseerde suikerstroop 
+de:Karamell-Zuckersirup
+
+<en:butter
 fr:beurre laitier concentré
 allergens:fr:beurre _laitier_ concentré
 
@@ -1718,6 +1828,7 @@ fr:matière grasse de palme
 
 fr:e339
 
+en:wine
 fr:vin
 
 fr:purée de pomme
@@ -1738,6 +1849,8 @@ fr:agent de charge
 
 fr:calcium
 
+<en:butter
+en:melted butter
 fr:beurre fondu
 
 fr:os de porc
@@ -1845,6 +1958,8 @@ fr:farine de fève, farine de fèves
 fr:chair de poisson
 allergens:fr:chair de _poisson_
 
+<en:glucose syrup
+en:dehydrated glucose syrup
 fr:sirop de glucose déshydraté
 
 fr:fibres, fibre
@@ -1901,6 +2016,8 @@ fr:fibres végétales, fibre végétale
 
 fr:farine de sarrasin
 
+<en:sugar
+en:brown sugar
 fr:sucre roux
 
 en:sugar
@@ -1974,6 +2091,16 @@ allergens:fr:semoule de _blé_
 en:phosphoric acid
 fr:acide phosphorique
 
+<en:sugar
+en:sugar syrup
+fr:sirop de sucre
+
+<en:sugar
+en:icing sugar
+fr:sucre glace
+
+fr:e385
+
 en:pork
 fr:porc
 
@@ -2030,6 +2157,10 @@ fr:carbonate de magnésium
 
 fr:cacao en pâte
 
+<en:sugar
+en:blonde cane sugar
+fr:sucre de canne blond
+
 fr:gomme guar et gomme xanthane
 
 fr:cellulose
@@ -2055,6 +2186,8 @@ de:Tomatenpulver
 fr:noix de pécan
 allergens:fr:_noix de pécan_
 
+<en:butter
+en:salted butter
 fr:beurre salé
 allergens:fr:_beurre_ salé
 
@@ -2075,6 +2208,8 @@ fr:fines herbes, fine herbe
 
 fr:tofu
 
+<en:milk
+en:raw milk
 fr:lait cru
 allergens:fr:_lait_ cru
 
@@ -2114,6 +2249,10 @@ fr:sélénite de sodium
 fr:oignons préfrits, oignon préfrit
 
 fr:inosinate disodique
+
+<en:salt
+en:unrefined sea salt
+fr:sel marin non raffiné
 
 fr:millet
 
@@ -2593,6 +2732,10 @@ fr:rouge de betterave
 
 fr:poudre de betterave
 
+<en:sugar
+en:beet sugar
+fr:sucre de betterave
+
 fr:jus de betterave concentré
 
 fr:betterave rouge déshydratée
@@ -2658,6 +2801,10 @@ fr:graisses et huiles végétales
 
 fr:fromage en poudre
 allergens:fr:_fromage_ en poudre
+
+<en:sugar
+en:liquid sugar
+fr:sucre liquide
 
 fr:pois
 
@@ -2825,6 +2972,8 @@ allergens:fr:sérum de _lait_
 
 fr:surimi
 
+<en:glucose syrup
+en:corn glucose syrup
 fr:sirop de glucose de maïs
 
 fr:dioxyde de titane
@@ -3002,8 +3151,6 @@ fr:gelée
 fr:acésulfame k 
 
 fr:sucralose
-
-fr:sirop de fructose-glucose
 
 fr:flocons de céréales
 
@@ -3186,6 +3333,10 @@ fr:jaune d'oeuf
 
 fr:fructo-oligosaccharides
 
+<en:cane sugar
+en:unrefined brown cane sugar
+fr:sucre de canne roux non raffiné
+
 fr:raisins sultanines
 
 fr:penicillium roqueforti
@@ -3317,7 +3468,10 @@ fr:écorces d'orange confites
 
 fr:chicorée rouge
 
+
 fr:sirop de glucose et fructose
+
+fr:e524
 
 fr:marinade
 
@@ -3377,7 +3531,6 @@ fr:sodium
 fr:caroube
 
 fr:épices
-
 
 fr:gadus morhua
 
@@ -3738,6 +3891,10 @@ fr:gousses de vanille épuisées broyées
 
 fr:levure de boulanger
 
+<en:sugar
+en:grape sugar
+fr:sucre de raisin
+
 fr:figue
 
 fr:piment en poudre
@@ -3781,6 +3938,9 @@ fr:jus de raisin blanc
 fr:jus de tomates à base de concentré
 
 fr:pantothénate de calcium
+
+<en:sugar
+fr:sirop de sucre mélassé
 
 fr:jus de fruits concentrés
 
@@ -5262,8 +5422,6 @@ fr:framboise
 
 fr:cynorrhodon
 
-fr:sirop de glucose et de fructose, sirop de fructose-glucose, sirop de glucose-fructose
-
 fr:farine de pomme de terre, farine de pommes de terre
 
 fr:lardons cuits fumés
@@ -5629,8 +5787,6 @@ nl:zwarte kers
 de:Schwarzkirsche
 
 fr:griottes, cerises griottes
-
-fr:glucose-fructose
 
 fr:érythritol
 
@@ -6186,6 +6342,75 @@ fr:5'-ribonucléotide disodique
 fr:tartrate monopotassique
 
 fr:épices et extrait d'épices
+
+fr:e920
+
+<en:flavour
+en:artificial flavour, artificial flavor, artificial flavouring, artificial flavoring
+fr:arôme artificiel, arômes artificiels
+
+<en:artificial flavour
+<en:natural flavour
+en:natural and artificial flavours, natural and artificial flavors, natural and artificial flavouring, natural and artificial flavoring
+fr:arômes naturels et artificiels
+
+en:hydrolysed proteins
+es:proteína hidrolizada
+fr:protéine hydrolysée
+nl:gehydroliseerd eiwit
+de:Proteinhydrolysat
+
+<en:hydrolysed proteins
+en:hydrolysed milk protein
+es:proteína de leche hidrolizada
+fr:protéine de lait hydrolysée
+nl:gehydroliseerd melkeiwit
+de:Milchproteinhydrolysat
+allergens:fr:protéine de _lait_ hydrolysée
+
+<en:hydrolysed proteins
+fr:protéines de pois hydrolysées
+
+<en:hydrolysed proteins
+en:vegetal hydrolysed proteins
+fr:protéines végétales hydrolysées, protéine végétale hydrolysée
+
+<en:hydrolysed proteins
+en:animal hydrolysed proteins
+fr:protéines animales hydrolysées, protéine animale hydrolysée
+
+<en:vegetal hydrolysed proteins
+en:hydrolyzed wheat protein
+es:proteína hidrolizada de trigo
+fr:protéine de blé hydrolysée 
+nl:gehydroliseerd tarwe-eiwit
+de:hydrolisiertes Weizenprotein
+
+<en:vegetal hydrolysed proteins
+en:hydrolysed soya protein
+es:proteína de soja hidrolizada
+fr:protéine de soja hydrolysée
+nl:gehydroliseerd soja-eiwit
+de:Sojaproteinhydrolysat
+allergens:fr:protéine de _soja_ hydrolysée
+
+<en:vegetal hydrolysed proteins
+fr:protéines de blé hydrolysées
+allergens:fr:protéines de _blé_ hydrolysées
+
+<en:animal hydrolysed proteins
+en:hydrolyzed pork protein
+es:proteína de cerdo hidrolizada
+fr:protéine de porc hydrolysée
+nl:gehydroliseerd varkenseiwit
+de:hydrolysiertes Schweineprotein
+
+<en:vegetal hydrolysed proteins
+en:hydrolysed corn protein
+es:proteína de maíz hidrolizada
+fr:protéine de maïs hydrolysée
+nl:gehydroliseerd maïseiwit
+de:Maisproteinhydrolysat
 
 fr:bouillon de boeuf
 
@@ -7291,6 +7516,59 @@ fr:fond de sauce
 
 fr:érythrosine
 
+<en:sunflower
+<en:vegetal oil
+en:sunflower oil
+fr:huile de tournesol
+
+<en:sunflower oil
+fr:huile de tournesol raffinée
+
+<en:sunflower oil
+fr:huile de tournesol à haute teneur en acide oléique
+
+<en:sunflower oil
+fr:huile de tournesol pressée à froid
+
+<en:sunflower oil
+fr:huile de tournesol bio
+
+<en:sunflower oil
+fr:huile de toumesol
+
+<en:sunflower oil
+fr:huile de tournesol oléique
+
+<en:sunflower oil
+fr:huile de tournesol vierge
+
+<en:sunflower oil
+fr:huile de tournesol non hydrogénée
+
+<en:sunflower oil
+en:partially hydrogenated sunflower oil
+es:aceite de girasol parcialmente hidrogenado
+fr:huile de tournesol partiellement hydrogénée
+nl:zonnebloemolie gedeeltelijk gehard
+de:teilweise gehärtetes Sonnenblumenöl 
+
+<en:sunflower oil
+en:fully hydrogenated sunflower oil
+es:aceite de girasol totalmente hidrogenado
+fr:huile de tournesol entièrement hydrogénée
+nl:zonnebloemolie geheel gehard
+de:ganz gehärtetes Sonnenblumenöl
+
+<en:sunflower oil
+en:non-hydrogenated sunflower oil 
+es:aceite de girasol no hidrogenado
+fr:huile de tournesol non hydrogénée
+nl:zonnebloemolie ongehard
+de:ungehärtetes Sonnenblumenöl
+
+<en:sunflower oil
+fr:huile de graines de tournesol
+
 en:sunflower seeds
 es:pipas de girasol
 fr:graines de tournesol
@@ -8015,7 +8293,10 @@ fr:jus d’açaï
 nl:acaisap
 de:Acai-Saft
 
-fr:sel nitrité iodé
+<en:iodised salt
+<en:nitrite salt
+en:iodised nitrite salt, nitrite iodised salt, iodized nitrite salt, nitrite iodized salt
+fr:sel nitrité iodé, sel iodé nitrité
 
 fr:colorant e133
 
@@ -8243,8 +8524,6 @@ fr:poisson déshydraté
 allergens:fr:_poisson_ déshydraté
 
 fr:colorant e142
-
-fr:sels
 
 fr:fromage mascarpone
 allergens:fr:_fromage_ mascarpone
@@ -8856,8 +9135,6 @@ fr:lactoprotéines
 allergens:fr:_lactoprotéines_
 
 fr:pâtes fraîches
-
-fr:sel nitrité pour saumure
 
 fr:produit à base de viande de poulet
 
