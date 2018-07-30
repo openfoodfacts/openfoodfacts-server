@@ -5,11 +5,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-16 13:14-0500\n"
+"PO-Revision-Date: 2018-07-30 07:31\n"
 "Language-Team: German\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: \n"
 "X-Generator: crowdin.com\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: de\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
@@ -54,7 +55,7 @@ msgstr "Registrieren"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr "<p>Vielen Dank für Ihre Registrierung. Sie können sich jetzt auf der Seite anmelden um Produkte hinzuzufügen oder bearbeiten.</p>"
+msgstr "<p>Vielen Dank für Ihre Registrierung. Sie können sich jetzt auf der Seite anmelden um Produkte hinzuzufügen oder zu bearbeiten.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -126,7 +127,7 @@ msgstr "Übermäßiger Genuss von Alkohol schadet Ihrer Gesundheit."
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr "Alle Missionen"
+msgstr "Alle Aufgaben"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
@@ -154,7 +155,7 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Bei Google Play verfügbar\" width=\"135\" height=\"47\" />"
+msgstr "<img src=\"/images/misc/android-app-on-google-play-de_app_rgb_wo_135x47.png\" alt=\"Bei Google Play verfügbar\" width=\"135\" height=\"47\" />"
 
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
@@ -163,12 +164,12 @@ msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Dieses Produkt ist bisher noch nicht in der <<site_name>>-Datenbank eingetragen. Können Sie bitte Fotos des Produkts, des Strichcodes, der Zutatenliste und der Nährwertangaben machen und auf <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>ergänzen?</p>\n"
+msgstr "<p>Dieses Produkt ist bisher noch nicht in der <<site_name>>-Datenbank eingetragen. Können Sie bitte Fotos des Produkts, des Strichcodes, der Liste der Inhaltsstoffe und der Nährwertangaben machen und auf <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>ergänzen?</p>\n"
 "<p>Vielen Dank im Voraus!</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr "Machen Sie ein Foto"
+msgstr "Foto aufnehmen"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
@@ -176,7 +177,7 @@ msgstr "Anmerkung: Die Bilder, die Sie gesendet haben, werden mit der freien Liz
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr "Sie können Bilder hinzufügen:"
+msgstr "Sie können Fotos hinzufügen:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
@@ -194,13 +195,13 @@ msgctxt "barcode_number"
 msgid "Barcode number:"
 msgstr "Strichcode-Nummer:"
 
+msgctxt "you_can_also_help_us"
+msgid "You can also help to fund the Open Food Facts project"
+msgstr "Sie können außerdem helfen, das Projekt Open Food Facts mitzufinanzieren."
+
 msgctxt "bottom_content"
-msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>Contribute to <<site_name>> by adding product and win stars by\n"
-"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
-msgstr "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\"> <img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" /> </a> <p>Tragen Sie zu <<site_name>> bei indem Sie Produkte hinzufügen und Sterne gewinnen durch die Erfüllung von <a href=\"/missions\">Missionen</a>!</p>\n"
+msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Für Open Food Facts spenden\" /></a><p>„site_name” wird von einem gemeinnützigen, branchenunabhängigen Verein geführt. Sie ist für alle gemacht, von allen, und sie wird von allen finanziert. Sie können unsere Arbeit unterstützen, <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">indem Sie an Open Food Facts spenden</a> und auch die <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">Lilo-Suchmaschine nutzen</a>.<br/><b>Vielen Dank!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
@@ -232,7 +233,7 @@ msgstr "Marke hinzufügen"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr "Produkte, die nicht von der Marke %s sind"
+msgstr "Produkte, die nicht zur Marke %s gehören"
 
 msgctxt "by"
 msgid "by"
@@ -248,7 +249,7 @@ msgstr "Sardinen in Olivenöl, Orangensaft aus Orangensaftkonzentrat"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr "Geben Sie nur die zutreffendste Kategorie an, die Überkategorien werden automatisch hinzugefügt."
+msgstr "Geben Sie nur die zutreffendste Kategorie an. Die „übergeordneten” Kategorien werden automatisch hinzugefügt."
 
 msgctxt "categories_p"
 msgid "categories"
@@ -296,15 +297,15 @@ msgstr "Prüfer"
 
 msgctxt "cities_p"
 msgid "packaging cities"
-msgstr "Verpackungsorte"
+msgstr "Verpackt in"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr "Produkte verpackt in der Stadt %s"
+msgstr "Produkte, die in %s verpackt wurden"
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr "Verpackungsort"
+msgstr "Verpackt in"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
@@ -347,17 +348,17 @@ msgstr "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-de.
 "<p><<site_name>> erfasst Nahrungsmittel aus der ganzen Welt.</p>\n\n"
 "<select_country>\n\n"
 "<p>\n"
-"→ <a href=\"/marken\">Marken</a><br />\n"
-"→ <a href=\"/kategorien\">Kategorien</a><br/>\n"
+"➜ <a href=\"/marken\">Marken</a><br />\n"
+"➜ <a href=\"/kategorien\">Kategorien</a><br/>\n"
 "</p>\n\n"
 "<p>\n"
 "Die Informationen über die Produkte (Fotos, Inhaltsstoffe, Zusammensetzung, etc.) werden gemeinsam gesammelt, für alle frei zugänglich gemacht und können danach für jegliche Nutzung verwendet werden. Die Datenbank ist offen, frei und gratis.</p>\n\n\n"
 "<p>Wir sind auch zu finden auf:</p>\n\n"
 "<p>\n"
-"→ <a href=\"http://en.wiki.openfoodfacts.org\">Unser Wiki</a><br />\n"
-"→ <a href=\"http://twitter.com/openfoodfactsde\">Twitter</a><br/>\n"
-"→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a><br />\n"
-"→ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
+"➜ <a href=\"http://en.wiki.openfoodfacts.org\">Unser Wiki</a><br />\n"
+"➜ <a href=\"http://twitter.com/openfoodfactsde\">Twitter</a><br/>\n"
+"➜ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a><br />\n"
+"➜ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
 "+ <a href=\"https://www.facebook.com/groups/488163711199190/\">Gruppe der Unterstützer</a><br />\n"
 "</p>\n\n\n"
 "<p>iPhone- und iPad-App im App-Store:</p>\n\n"
@@ -370,7 +371,7 @@ msgstr "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-de.
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr "hat %d Missionen erfüllt:"
+msgstr "hat %d Aufgaben abgeschlossen:"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
@@ -390,11 +391,11 @@ msgstr "Bitte korrigieren Sie die folgenden Fehler:"
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr "Korrektoren"
+msgstr "Korrekturleser"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr "Korrektor"
+msgstr "Korrekturleser"
 
 msgctxt "countries"
 msgid "Countries where sold"
@@ -446,7 +447,7 @@ msgstr "Formular löschen"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr "Bilder löschen"
+msgstr "Fotos löschen"
 
 msgctxt "delete_user"
 msgid "Delete an user"
@@ -486,7 +487,7 @@ msgstr "bearbeiten"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr "Bearbeitung begründen"
+msgstr "Zusammenfassung"
 
 msgctxt "edit_product"
 msgid "Edit a product"
@@ -502,7 +503,7 @@ msgstr "Öffentliches Profil bearbeiten"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
-msgstr "Die Änderungen an Ihrem öffentlichen Profil wurden gespeichert."
+msgstr "Die Änderungen Ihres öffentlichen Profil wurden gespeichert."
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
@@ -522,7 +523,7 @@ msgstr "<p>Ihre Benutzereinstellungen wurden geändert.</p>"
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr "Editoren"
+msgstr "Bearbeiter"
 
 msgctxt "editors_s"
 msgid "editor"
@@ -534,19 +535,19 @@ msgstr "E-Mail-Adresse"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr "Produzenten-Codes"
+msgstr "Produzenten-Schlüssel"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
-msgstr "Produkte vom Unternehmen mit Produzenten-Code %s verpackt"
+msgstr "Produkte vom Unternehmen mit Produzenten-Schlüssel %s verpackt"
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr "Produzenten-Code"
+msgstr "Produzenten-Schlüssel"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr "Produzenten-Code"
+msgstr "Produzenten-Schlüssel"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
@@ -562,15 +563,15 @@ msgstr "Produzenten-Codes"
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
-msgstr "Die Produkte mit Produzenten-Code %s"
+msgstr "Die Produkte mit Produzenten-Schlüssel %s"
 
 msgctxt "emb_codes_s"
 msgid "packager code"
-msgstr "Produzenten-Code"
+msgstr "Produzenten-Schlüssel"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the emb code %s"
-msgstr "Produkte ohne Produzenten-Code %s"
+msgstr "Produkte ohne Produzenten-Schlüssel %s"
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
@@ -586,7 +587,7 @@ msgstr "Fehler"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr "Ungültiger Benutzername oder Passwort. <a href=\"/cgi/reset_password.pl\">Passwort vergessen?</a>"
+msgstr "Benutzername oder Passwort ungültig. <a href=\"/cgi/reset_password.pl\">Passwort vergessen?</a>"
 
 msgctxt "error_database"
 msgid "An error occured while reading the data, try to refresh the page."
@@ -598,7 +599,7 @@ msgstr "Die Passwörter müssen übereinstimmen."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr "Die angegebene E-Mail-Adresse ist bereits in Verwendung. Möglicherweise haben Sie schon ein Konto? Sie können das Passwort ihres Kontos <a href=\"/cgi/reset_password.pl\">zurücksetzen</a>."
+msgstr "Die angegebene E-Mail-Adresse wird bereits verwendet. Möglicherweise haben Sie schon ein Konto? Sie können das Passwort ihres Kontos <a href=\"/cgi/reset_password.pl\">zurücksetzen</a>."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -622,7 +623,7 @@ msgstr "Ungültiger Benutzer"
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr "Der Benutzername darf nur Buchstaben ohne Umlaute, Zahlen und Bindestriche enthalten."
+msgstr "Der Benutzername darf nur aus (nicht akzentuierten) Buchstaben, Ziffern und Bindestrichen bestehen."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -650,15 +651,15 @@ msgstr "Der Link zum Zurücksetzen Ihres Passworts ist entweder ungültig oder a
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr "Mit dieser E-Mail-Adresse ist kein Benutzerkonto vorhanden"
+msgstr "Kein Konto mit dieser E-Mail-Adresse vorhanden"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr "Dieser Benutzername ist nicht gültig."
+msgstr "Dieser Benutzername ist nicht vorhanden."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr "Dieser Benutzername wird bereits benutzt, bitte wählen Sie einen anderen."
+msgstr "Dieser Benutzername wird bereits verwendet. Bitte wählen Sie einen anderen."
 
 msgctxt "example"
 msgid "Example:"
@@ -674,11 +675,11 @@ msgstr "Mindesthaltbarkeitsdatum"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr "Das Ablaufdatum ist eine Möglichkeit, um Produktänderungen zu verfolgen und die aktuellste Version zu identifizieren."
+msgstr "Das Ablaufdatum ist eine Möglichkeit, um Produktänderungen zu verfolgen und die neueste Version zu identifizieren."
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
-msgstr "Produkte nach Kriterien anzeigen..."
+msgstr "Produkte nach Kriterien anzeigen …"
 
 msgctxt "facebook_locale"
 msgid "en_US"
@@ -690,7 +691,7 @@ msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr "Sollten die die Informationen auf diese Seite unvollständig oder falsch sein, dann können Sie diese vervollständigen oder korrigieren."
+msgstr "Sollten die Informationen auf diese Seite unvollständig oder falsch sein, dann können Sie diese vervollständigen oder korrigieren."
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
@@ -840,7 +841,7 @@ msgstr "Bis bald!"
 
 msgctxt "graph_count"
 msgid "%d products match the search criterias, of which %i products have defined values for the graph's axis."
-msgstr "%d Produkte entsprechen Ihren Suchkriterien, davon %i Produkte, für welche Werte für die Diagramm-Achsen definiert wurden."
+msgstr "%d Produkte entsprechen Ihren Suchkriterien, von denen %i Produkte definierte Werte der Diagramm-Achse enthalten."
 
 msgctxt "graph_title"
 msgid "Graph title"
@@ -886,19 +887,19 @@ msgstr "großen Mengen"
 
 msgctxt "history"
 msgid "Changes history"
-msgstr "Versionsgeschichte"
+msgstr "Versionsverlauf"
 
 msgctxt "image_front"
 msgid "Front picture"
-msgstr "Foto des Produkts (Vorderseite)"
+msgstr "Produktfoto (Vorderseite)"
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
-msgstr "Foto der Zutatenliste"
+msgstr "Foto der Inhaltsstoffe"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
-msgstr "Ist das Foto klar und genau, dann können die Zutaten automatisch extrahiert werden."
+msgstr "Sind Details des Foto klar erkennbar, können die Inhaltsstoffe automatisch erfasst werden."
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
@@ -915,16 +916,16 @@ msgstr "Das Foto ist zu klein. Bitte beachten Sie, dass Sie kein Foto aus dem In
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
 "You can try with another image, or directly enter the barcode."
-msgstr "Der Strichcode im Bild konnte nicht gelesen werden oder das Bild enthielt keinen Strichcode.\n"
-"Sie können es mit einem anderen Bild versuchen oder den Strichcode direkt eingeben."
+msgstr "Der Strichcode im Foto konnte nicht eingelesen werden oder das Foto enthielt keinen Strichcode.\n"
+"Sie können ein weiteres Foto versuchen oder den Strichcode manuell eingeben."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
-msgstr "Kein Strichcode im Bild gefunden."
+msgstr "Kein Strichcode im Foto gefunden."
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
-msgstr "Sie müssen die Zeichen des Strichcodes eingeben oder ein Bild hochladen, wo der Strichcode sichtbar ist."
+msgstr "Sie müssen die Zeichen des Strichcodes eingeben oder ein Foto hochladen, auf dem der Strichcode sichtbar ist."
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -932,43 +933,43 @@ msgstr "Von Ihnen hinzugefügte Produkte, die noch fertiggestellt werden müssen
 
 msgctxt "informers_p"
 msgid "informers"
-msgstr "Informanten"
+msgstr "Hinweisgeber"
 
 msgctxt "informers_s"
 msgid "informers"
-msgstr "Informanten"
+msgstr "Hinweisgeber"
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr "Zutaten"
+msgstr "Inhaltsstoffe"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr "Zutaten"
+msgstr "Inhaltsstoffe"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
-msgstr "Analyse der Zutaten"
+msgstr "Analyse der Inhaltsstoffe"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
-msgstr "Anmerkung: Inhaltsstoffe können mit vielen verschiedenen Namen angegeben werden. Bitte teilen Sie uns mit, wenn Sie denken, dass die obige Analyse falsch ist."
+msgstr "Hinweis: Inhaltsstoffe können mit vielen verschiedenen Namen aufgeführt werden. Bitte teilen Sie uns mit, wenn Sie der Meinung sind, dass die oben genannte Analyse fehlerhaft ist."
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
-msgstr "Zutaten, die aus oder die möglicherweise aus Palmöl hergestellt werden"
+msgstr "Inhaltsstoffe, die aus oder möglicherweise aus Palmöl hergestellt werden"
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_s"
 msgid "ingredient from or that may be from palm oil"
-msgstr "Zutat, die aus oder die möglicherweise aus Palmöl hergestellt wird"
+msgstr "Inhaltsstoff, der aus oder möglicherweise aus Palmöl hergestellt wird"
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr "aus Palmöl hergestellte Zutaten"
+msgstr "aus Palmöl hergestellte Inhaltsstoffe"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
-msgstr "aus Palmöl hergestellte Zutat"
+msgstr "aus Palmöl hergestellter Inhaltsstoff"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
@@ -980,7 +981,7 @@ msgstr "Anzahl der Inhaltsstoffe"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
-msgstr "Zutaten"
+msgstr "Inhaltsstoffe"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
@@ -992,31 +993,31 @@ msgstr "Zutat"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
-msgstr "Zutatenliste"
+msgstr "Liste der Inhaltsstoffe"
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
-msgstr "Die Zutaten werden nach ihrer Wichtigkeit (Menge) gereiht."
+msgstr "Die Inhaltsstoffe werden nach ihrer Wichtigkeit (Menge) sortiert."
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr "Getreide 85,5% (_Weizenmehl_, _Vollkornmehl_ 11%), Malzextrakt (Gerste), Kakao 4,8%, Vitamin C"
+msgstr "Getreide 85,5% (_Weizen_mehl, _Weizen_vollkornmehl 11%), Malzextrakt (Gerste), Kakao 4,8%, Ascorbinsäure (Vitamin C)"
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
-msgstr "Reihung beibehalten, % angeben falls vorhanden, mit Komma oder - trennen, für die Bestandteile eines Inhaltsstoffs ( ) verwenden, Allergene mit _ markieren: z. B. _Milch_"
+msgstr "Sortierung beibehalten, % angeben falls vorhanden, mit Komma oder - trennen, für die Bestandteile eines Inhaltsstoffs ( ) verwenden, Allergene mit _ markieren: z. B. _Milch_"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr "Zutaten, die möglicherweise aus Palmöl hergestellt werden"
+msgstr "Inhaltsstoffe, die möglicherweise aus Palmöl hergestellt werden"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
-msgstr "Zutat, die möglicherweise aus Palmöl hergestellt wird"
+msgstr "Inhaltsstoff, der möglicherweise aus Palmöl hergestellt wird"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr "Produkte, die nicht den Inhaltsstoff %s enthalten"
+msgstr "Produkte, die den Inhaltsstoff %s nicht enthalten"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
@@ -1036,7 +1037,7 @@ msgstr "bekannter Nährstoff"
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr "Labels, Zertifizierungen, Preise"
+msgstr "Kennzeichnung, Zertifizierungen, Preise"
 
 msgctxt "labels_example"
 msgid "Organic"
@@ -1044,27 +1045,27 @@ msgstr "Bio"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
-msgstr "Geben Sie nur die am besten zutreffenden Labels an, die Label-Gruppen werden automatisch hinzugefügt."
+msgstr "Geben Sie nur die zutreffendste Kategorie an. Die „übergeordneten” Kategorien werden automatisch hinzugefügt."
 
 msgctxt "labels_p"
 msgid "labels"
-msgstr "Labels"
+msgstr "Kennzeichnungen"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
-msgstr "Produkte mit Label %s"
+msgstr "Produkte mit der Kennzeichnung %s"
 
 msgctxt "labels_s"
 msgid "label"
-msgstr "Label"
+msgstr "Kennzeichnung"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
-msgstr "Label hinzufügen"
+msgstr "Kennzeichnung hinzufügen"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
-msgstr "Produkte ohne Label %s"
+msgstr "Produkte ohne die Kennzeichnung %s"
 
 msgctxt "lang"
 msgid "Main language"
@@ -1168,7 +1169,7 @@ msgstr "Lieblingssprache für dieses Produkt"
 
 msgctxt "lang_other"
 msgid "other language"
-msgstr "andere Sprache"
+msgstr "Weitere Sprache"
 
 msgctxt "lang_pl"
 msgid "Polish"
@@ -1236,11 +1237,11 @@ msgstr "Datum der letzten Bearbeitung"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
-msgstr "Datum der letzten Bilder"
+msgstr "Datum der letzten Fotos"
 
 msgctxt "last_image_dates_s"
 msgid "Last picture date"
-msgstr "Datum des letzten Bildes"
+msgstr "Datum der letzten Fotos"
 
 msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
@@ -1252,7 +1253,7 @@ msgstr "Durch das Eingeben von Daten und Hinzufügen von Fotos erklären Sie sic
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
-msgstr "Link zur Produktseite auf der offiziellen Seite des Herstellers"
+msgstr "Link zur offiziellen Produktseite des Herstellers"
 
 msgctxt "list_of_x"
 msgid "List of %s"
@@ -1289,7 +1290,7 @@ msgid "<p>Sign-in to add or edit products.</p>\n\n"
 "<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Sign-in\" class=\"button small\" />\n"
 "</form>\n"
 "<p>Not registered yet? <a href=\"/cgi/user.pl\">Create your account</a>.</p>\n"
-msgstr "<p>Melde dich an, um ein Produkt hinzuzufügen oder zu bearbeiten.</p>\n\n"
+msgstr "<p>Melden Sie sich, um Produkte hinzufügen oder bearbeiten zu können.</p>\n\n"
 "<form method=\"post\" action=\"/cgi/session.pl\">\n"
 "Benutzername oder E-Mail-Adresse:<br />\n"
 "<input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\" /><br />\n"
@@ -1311,7 +1312,7 @@ msgstr "Melden Sie sich an, um Produkte hinzuzufügen oder zu bearbeiten."
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
-msgstr "<p>Bitte melden Sie sich an, um ein Produkt hinzuzufügen oder zu bearbeiten.</p>\n\n"
+msgstr "<p>Bitte Melden Sie sich, um Produkte hinzufügen oder bearbeiten zu können.</p>\n\n"
 "<p>Wenn Sie noch kein Benutzerkonto auf <<site_name>> haben, dann können Sie sich <a href=\"/cgi/user.pl\">innerhalb von 30 Sekunden anmelden</a>.</p>\n"
 
 msgctxt "login_username_email"
@@ -1328,15 +1329,15 @@ msgstr "geringen Mengen"
 
 msgctxt "manage_images"
 msgid "Manage images"
-msgstr "Bilder verwalten"
+msgstr "Fotos verwalten"
 
 msgctxt "manage_images_info"
 msgid "You can select one or more images and then:"
-msgstr "Sie können eines oder mehrere Bilder auswählen und dann:"
+msgstr "Sie können eines oder mehrere Fotos auswählen und dann:"
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr "Herstellungs- oder Verarbeitungsorte"
+msgstr "Herstellungs- oder Verarbeitungsstätten"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
@@ -1344,15 +1345,15 @@ msgstr "Allgäu, Deutschland"
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
-msgstr "Herstellungs- oder Verarbeitungsorte"
+msgstr "Herstellungs- oder Verarbeitungsstätten"
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
-msgstr "Produkte hergestellt oder verarbeitet in %s"
+msgstr "Produkte wurden in %s hergestellt oder verarbeitet"
 
 msgctxt "manufacturing_places_s"
 msgid "manufacturing or processing place"
-msgstr "Herstellungs- oder Verarbeitungsort"
+msgstr "Herstellungs- oder Verarbeitungsstätte"
 
 msgctxt "manufacturing_places_tagsinput"
 msgid "add a place"
@@ -1364,7 +1365,7 @@ msgstr "Produkte, die nicht in %s hergestellt oder verarbeitet wurden"
 
 msgctxt "map_count"
 msgid "%d products match the search criterias, of which %i products have a known production place."
-msgstr "%d Produkte entsprechen Ihren Suchkriterien, davon %i Produkte, wofür der Herstellungs- oder Verarbeitungsort bekannt ist."
+msgstr "%d Produkte entsprechen Ihren Suchkriterien, davon %i Produkte, wofür die Herstellungs- oder Verarbeitungsstätte bekannt ist."
 
 msgctxt "map_title"
 msgid "Map title"
@@ -1384,11 +1385,11 @@ msgstr "/produkt-hinzufuegen"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
-msgstr "Beitragen"
+msgstr "Mitwirken"
 
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr "/mitmachen"
+msgstr "/mitwirken"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1400,19 +1401,19 @@ msgstr "/entdecken"
 
 msgctxt "mission_"
 msgid "Mission: "
-msgstr "Mission: "
+msgstr "Aufgabe: "
 
 msgctxt "mission_accomplished_by"
 msgid "This mission has been completed by:"
-msgstr "Diese Mission wurde erfüllt von:"
+msgstr "Diese Aufgaben wurden abgeschlossen durch:"
 
 msgctxt "mission_accomplished_by_n"
 msgid "Completed by %d persons."
-msgstr "wurde von %d Personen erfüllt."
+msgstr "Wurde von %d Personen abgeschlossen."
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
-msgstr "Seien Sie der/die Erste, der/die diese Mission erfüllt!"
+msgstr "Seien Sie der/die Erste, der/die diese Aufgabe erfüllt!"
 
 msgctxt "mission_goal"
 msgid "Goal:"
@@ -1420,7 +1421,7 @@ msgstr "Ziel:"
 
 msgctxt "missions"
 msgid "Missions"
-msgstr "Missionen"
+msgstr "Aufgaben"
 
 msgctxt "moderate"
 msgid "moderate"
@@ -1432,11 +1433,11 @@ msgstr "moderaten Mengen"
 
 msgctxt "months"
 msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr "['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']"
+msgstr "[„Januar”, „Februar”, „März”, „April”, „Mai”, „Juni”, „Juli”, „August”, „September”, „Oktober”, „November”, „Dezember”]"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
-msgstr "Verschieben Sie die Bilder zu einem anderen Produkt"
+msgstr "Fotos in ein anderes Produkt verschieben"
 
 msgctxt "n_products"
 msgid "%d products"
@@ -1460,7 +1461,7 @@ msgstr "Produkte ohne Strichcode werden automatisch mit einem internen Code vers
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr "Newsletter abonnieren (maximum 2 E-Mails pro Monat)"
+msgstr "Newsletter abonnieren (Höchstens 2 E-Mails pro Monat)"
 
 msgctxt "next"
 msgid "Next"
@@ -1474,9 +1475,17 @@ msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
 msgstr "Die Nährwertinformationen sind nicht auf dem Produkt angegeben."
 
+msgctxt "multiple_nutrition_data"
+msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
+msgstr "Auf dem Produkt sind mehrere Nährwerte angegeben (z.B. mit Zusatz von Wasser oder Milch)."
+
+msgctxt "multiple_nutrition_data_instructions"
+msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
+msgstr "Geben Sie nur die Nährwertangaben für das nicht zubereitete Produkt ein, ohne Zusatz von Wasser oder Milch. Wenn es verschiedene Produkte gibt, geben Sie die Nährwertangaben für das erste gelistete Produkt ein."
+
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
-msgstr "Mit dem Strichcode %s ist kein Produkt vorhanden."
+msgstr "Kein Produkt für den Strichcode %s aufgeführt."
 
 msgctxt "no_products"
 msgid "No products."
@@ -1484,7 +1493,7 @@ msgstr "Keine Produkte."
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
-msgstr "Fehler beim Speichern, bitte versuchen Sie es erneut."
+msgstr "Fehler beim Speichern. Bitte erneut versuchen."
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
@@ -1504,7 +1513,7 @@ msgstr "Nährstoffmengen für 100 g"
 
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr "/naehrwertstufen"
+msgstr "/naehrwertwerte"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -1528,7 +1537,7 @@ msgstr "Nährstoff"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
-msgstr "Produkte ohne Nährstoff %s"
+msgstr "Produkte, die den Nährstoff %s nicht enthalten"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
@@ -1560,7 +1569,7 @@ msgstr "Anmerkung: Der Durchschnitt für jeden Nährstoff wird anhand derjenigen
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr "Ist das Foto klar und genau, dann können die Nährwertinformationen automatisch extrahiert werden."
+msgstr "Sind Details des Foto klar erkennbar, dann können die Nährwertinformationen automatisch erfasst werden."
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
@@ -1592,7 +1601,7 @@ msgstr "Maximum"
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
-msgstr "Durchschnitt"
+msgstr "Mittelwert"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
@@ -1613,7 +1622,7 @@ msgstr "Nährwertangaben"
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr "Die Tabelle listet häufige Nährstoffe. Das Feld einfach leer lassen, falls Nährstoffe auf der Verpackung nicht gelistet sind.<br />Weitere Nährstoffe (Vitamine, Mineralstoffe, Cholesterin, Omega-3, Omega-6, usw.) können beim Eintippen ihrer ersten Zeichen in der letzten Zeile der Tabelle einfach hinzugefügt werden."
+msgstr "Die Tabelle listet standardmäßig Nährstoffe auf, die häufig angegeben werden. Lassen Sie das Feld leer, wenn es nicht auf dem Etikett steht.<br/>Sie können zusätzliche Nährstoffe (Vitamine, Mineralien, Cholesterin usw.) hinzufügen, indem Sie die Anfangsbuchstaben des Namens in die letzte Zeile der Tabelle eingeben."
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
@@ -1621,11 +1630,11 @@ msgstr "-"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
-msgstr "Nährwertgüte"
+msgstr "Nährwertangaben"
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr "Nährwertgüte"
+msgstr "Nährwertangaben"
 
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
@@ -1649,7 +1658,7 @@ msgstr "Es ist <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> auf <<site_na
 
 msgctxt "or"
 msgid "or:"
-msgstr "oder :"
+msgstr "oder:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
@@ -1661,7 +1670,7 @@ msgstr "Bayerisch, Allgäu, Schwäbisch-Hällisch"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
-msgstr "Geben die Herkunft der Inhaltsstoffe an"
+msgstr "Angabe der Herkunft der Inhaltsstoffe"
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
@@ -1669,7 +1678,7 @@ msgstr "Herkunft der Inhaltsstoffe"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr "Produkte, mit Herkunft ihrer Inhaltsstoffe aus %s"
+msgstr "Produkte mit Inhaltsstoffe, die aus %s stammen"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
@@ -1681,11 +1690,11 @@ msgstr "Herkunft hinzufügen"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
-msgstr "Produkte ohne Inhaltsstoffe aus %s"
+msgstr "Produkte mit Inhaltsstoffe, die nicht aus %s stammen"
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr "Verpackung"
+msgstr "Verpackungsart"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -1697,15 +1706,15 @@ msgstr "Verpackungsart, Format, Material"
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr "verpackung"
+msgstr "Verpackungsart"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
-msgstr "Produkte mit der Verpackung %s"
+msgstr "Produkte mit einer Verpackung aus %s"
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr "verpackung"
+msgstr "Verpackungsart"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -1713,7 +1722,7 @@ msgstr "Art, Form oder Material hinzufügen"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
-msgstr "Produkte ohne %s Verpackung"
+msgstr "Produkte ohne einer Verpackung aus %s"
 
 msgctxt "page_x"
 msgid "Page %d"
@@ -1721,7 +1730,7 @@ msgstr "Seite %d"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
-msgstr "Seite %d von %d"
+msgstr "Seite %d von %d."
 
 msgctxt "pages"
 msgid "Pages:"
@@ -1737,19 +1746,19 @@ msgstr "Passwort bestätigen"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
-msgstr "Zeitraum nach dem Öffnen"
+msgstr "Nach dem Öffnen zu verbrauchen bis"
 
 msgctxt "periods_after_opening_note"
 msgid "Found in an open container logo with a number of months: e.g. 12 M"
-msgstr "Angegeben in einem Offenen-Behälter-Logo mit einer Anzahl von Monaten: zB 12 M"
+msgstr "Angegeben in einer geöffneten Behälterkennzeichnung mit einer Anzahl von Monaten: z.B. 12 Mon."
 
 msgctxt "periods_after_opening_p"
 msgid "Periods after opening"
-msgstr "Zeiträume nach dem Öffnen"
+msgstr "Nach dem Öffnen zu verbrauchen bis"
 
 msgctxt "periods_after_opening_s"
 msgid "Period after opening"
-msgstr "Zeitraum nach dem Öffnen"
+msgstr "Nach dem Öffnen zu verbrauchen bis"
 
 msgctxt "photographers_p"
 msgid "photographers"
@@ -1761,43 +1770,43 @@ msgstr "fotograf"
 
 msgctxt "pnns_groups_1"
 msgid "PNNS groups 1"
-msgstr "PNNS Gruppen 1"
+msgstr "Franz. Nationales Gesundheitsernährungsprogramm - Gruppen 1"
 
 msgctxt "pnns_groups_1_p"
 msgid "PNNS groups 1"
-msgstr "PNNS Gruppen 1"
+msgstr "Franz. Nationales Gesundheitsernährungsprogramm - Gruppen 1"
 
 msgctxt "pnns_groups_1_s"
 msgid "PNNS group 1"
-msgstr "PNNS Gruppe 1"
+msgstr "Franz. Nationales Gesundheitsernährungsprogramm - Gruppe 1"
 
 msgctxt "pnns_groups_2"
 msgid "PNNS groups 2"
-msgstr "PNNS Gruppen 2"
+msgstr "Franz. Nationales Gesundheitsernährungsprogramm - Gruppen 2"
 
 msgctxt "pnns_groups_2_p"
 msgid "PNNS groups 2"
-msgstr "PNNS Gruppen 2"
+msgstr "Franz. Nationales Gesundheitsernährungsprogramm - Gruppen 2"
 
 msgctxt "pnns_groups_2_s"
 msgid "PNNS group 2"
-msgstr "PNNS Gruppe 2"
+msgstr "Franz. Nationales Gesundheitsernährungsprogramm - Gruppe 2"
 
 msgctxt "points_all_countries"
 msgid "There are %d Explorers and %d Ambassadors."
-msgstr "Es gibt %d Forscher und %d Botschafter."
+msgstr "Es gibt %d Forschende und %d Repräsentanten."
 
 msgctxt "points_all_users"
 msgid "There are Explorers for %d countries and Ambassadors for %d countries."
-msgstr "Es gibt Forscher für %d Länder und Botschafter für %d Länder."
+msgstr "Es gibt Forschende in %d Länder und Repräsentanten in %d Länder."
 
 msgctxt "points_country"
 msgid "%s has %d Explorers and %d Ambassadors."
-msgstr "%s hat %d Forscher und %d Botschafter."
+msgstr "%s hat %d Forschende und %d Repräsentanten."
 
 msgctxt "points_ranking"
 msgid "Ranking"
-msgstr "Rang"
+msgstr "Rangordnung"
 
 msgctxt "points_ranking_users_and_countries"
 msgid "Ranking of contributors and countries"
@@ -1833,7 +1842,7 @@ msgstr "Produkt wurde erstellt"
 
 msgctxt "product_description"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
-msgstr "Zutaten, Allergene, Zusatzstoffe, Nährwerte, Etiketten, Herkunft der Inhaltsstoffe und Informationen über das Produkt %s"
+msgstr "Inhaltsstoffe, Allergene, Zusatzstoffe, Nährwerte, Kennzeichnungen, Herkunft der Inhaltsstoffe und Informationen über das Produkt %s"
 
 msgctxt "product_image"
 msgid "Product picture"
@@ -1841,31 +1850,31 @@ msgstr "Foto des Produkts"
 
 msgctxt "product_image_with_barcode"
 msgid "Picture with barcode:"
-msgstr "Bild mit Strichcode:"
+msgstr "Foto mit Strichcode:"
 
 msgctxt "product_js_current_image"
 msgid "Current image:"
-msgstr "Aktuelles Bild:"
+msgstr "Aktuelles Foto:"
 
 msgctxt "product_js_deleting_images"
 msgid "Deleting images"
-msgstr "Löschen von Bildern"
+msgstr "Fotos werden gelöscht"
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
-msgstr "Extrahieren Sie die Inhaltsstoffe aus dem Bild"
+msgstr "Inhaltsstoffe aus dem Foto auslesen"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr "Die Angaben der Zutaten konnten nicht extrahiert werden. Sie können es mit einem schärferen Bild, mit höherer Auflösung, oder durch eine bessere Bildeinstellung erneut probieren."
+msgstr "Die Angaben der Inhaltsstoffe konnte nicht ausgelesen werden. Versuchen Sie es mit einem schärferen Foto, einer höheren Auflösung oder einer besseren Einpassung des Textes."
 
 msgctxt "product_js_extracted_ingredients_ok"
 msgid "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr "Die Zutaten wurden extrahiert. Da die Texterkennung nicht perfekt ist, bitten wir Sie, den unten stehenden Text zu überprüfen und wenn nötig Fehler zu korrigieren."
+msgstr "Die Inhaltsstoffe wurden ausgelesen. Da die Texterkennung nicht perfekt ist, bitten wir Sie, den unten stehenden Text zu überprüfen und wenn nötig Fehler zu korrigieren."
 
 msgctxt "product_js_extracting_ingredients"
 msgid "Extracting ingredients"
-msgstr "Inhaltsstoffe werden extrahiert"
+msgstr "Inhaltsstoffe werden ausgelesen"
 
 msgctxt "product_js_image_normalize"
 msgid "Normalize colors"
@@ -1873,39 +1882,39 @@ msgstr "Farbwiedergabe korrigieren"
 
 msgctxt "product_js_image_open_full_size_image"
 msgid "Open the picture in original size in a new windows"
-msgstr "Öffnen Sie das Bild in Originalgröße in einem neuen Fenster"
+msgstr "Foto in Originalgröße in einem neuen Fenster öffnen"
 
 msgctxt "product_js_image_received"
 msgid "Image received"
-msgstr "Bild erfolgreich hochgeladen"
+msgstr "Foto erfolgreich hochgeladen"
 
 msgctxt "product_js_image_rotate_and_crop"
 msgid "Rotate the image if necessary, then click and drag to select the interesting zone:"
-msgstr "Drehen Sie das Bild, falls notwendig. Anschließend können Sie das Bild durch Klicken und Ziehen mit der Maus zuschneiden:"
+msgstr "Foto (falls notwendig) drehen. Anschließend können Sie das Foto durch Klicken und Ziehen mit der Maus zuschneiden:"
 
 msgctxt "product_js_image_rotate_left"
 msgid "Rotate left"
-msgstr "Nach Links drehen"
+msgstr "↶ Nach Links drehen"
 
 msgctxt "product_js_image_rotate_right"
 msgid "Rotate right"
-msgstr "Nach Rechts drehen"
+msgstr "↷ Nach Rechts drehen"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
-msgstr "Das Bild überprüfen und/oder ausrichten"
+msgstr "Foto überprüfen und/oder Größe anpassen"
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
-msgstr "Bild gespeichert"
+msgstr "Foto gespeichert"
 
 msgctxt "product_js_image_saving"
 msgid "Saving image"
-msgstr "Das Bild wird gespeichert"
+msgstr "Foto wird gespeichert"
 
 msgctxt "product_js_image_upload_error"
 msgid "Error while uploading image"
-msgstr "Ein Fehler ist während des Hochladens des Bildes aufgetreten"
+msgstr "Fehler beim Hochladen von Fotos"
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
@@ -1913,35 +1922,35 @@ msgstr "Foto auf weißem Hintergrund: Versuchen Sie den Hintergrund zu entfernen
 
 msgctxt "product_js_images_delete_error"
 msgid "Errors while deleting images"
-msgstr "Fehler beim Löschen von Bildern"
+msgstr "Fehler beim Löschen der Fotos"
 
 msgctxt "product_js_images_deleted"
 msgid "Images deleted"
-msgstr "Bilder gelöscht"
+msgstr "Fotos gelöscht"
 
 msgctxt "product_js_images_move_error"
 msgid "Errors while moving images"
-msgstr "Fehler beim Verschieben von Bildern"
+msgstr "Fehler beim Verschieben der Fotos"
 
 msgctxt "product_js_images_moved"
 msgid "Images moved"
-msgstr "Bider verschoben"
+msgstr "Fotos verschoben"
 
 msgctxt "product_js_moving_images"
 msgid "Moving images"
-msgstr "Bilder verschieben"
+msgstr "Fotos werden verschoben"
 
 msgctxt "product_js_upload_image"
 msgid "Add a picture"
-msgstr "Bild hinzufügen"
+msgstr "Foto hinzufügen"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr "→ Mit Chrome, Firefox und Safari können Sie einfach durch die Benutzung der Strg-Taste mehrere Fotos auswählen (Produkt, Zutaten, Nährwertinformationen, usw.), um diese einmalig hochzuladen."
+msgstr "➜ Mit Chrome, Firefox und Safari können Sie einfach durch die Verwendung der Strg-Taste mehrere Fotos auswählen (Produkt, Inhaltsstoffe, Nährwertinformationen, usw.), um diese einmalig hochzuladen."
 
 msgctxt "product_js_uploading_image"
 msgid "Uploading image"
-msgstr "Das Bild wird hochgeladen"
+msgstr "Foto wird hochgeladen"
 
 msgctxt "product_last_edited"
 msgid "Last edit of product page on"
@@ -1961,7 +1970,7 @@ msgstr "Produkte"
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
-msgstr "Entwicklung der Zahl von Produkten auf <<site_name>>"
+msgstr "Entwicklung der Anzahl der Produkte auf der Seite <<<site_name>>>"
 
 msgctxt "products_stats_completed_t"
 msgid "Products with complete information"
@@ -1977,7 +1986,7 @@ msgstr "mit Nährwertinformationen"
 
 msgctxt "products_you_edited"
 msgid "Products you added or edited"
-msgstr "Produkte, die Sie hinzugefûgt oder bearbeitet haben"
+msgstr "Produkte, die Sie hinzugefügt oder bearbeitet haben"
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
@@ -1985,11 +1994,11 @@ msgstr "Stadt, Bundesland und Land des Kaufs"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
-msgstr "Bitte geben Sie an wo Sie das Produkt gekauft oder gesehen haben (wenigstens das Land)"
+msgstr "Angeben, wo Sie das Produkt gekauft oder gesehen haben (zumindest das Land)"
 
 msgctxt "purchase_places_p"
 msgid "purchase places"
-msgstr "Verkaufsorte"
+msgstr "Verkaufsstelle"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
@@ -1997,7 +2006,7 @@ msgstr "Produkte verkauft in %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
-msgstr "Verkaufsort"
+msgstr "Verkaufsstellen"
 
 msgctxt "purchase_places_tagsinput"
 msgid "add a place"
@@ -2009,7 +2018,7 @@ msgstr "Produkte, die nicht in %s verkauft werden"
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr "Menge"
+msgstr "Mengenangabe"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
@@ -2021,7 +2030,7 @@ msgstr "Angemeldet bleiben"
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
-msgstr "Verkaufsort und Laden für die nächsten Produkte speichern"
+msgstr "Verkaufsstelle und Laden für die nächsten Produkte speichern"
 
 msgctxt "reset_password"
 msgid "Reset password"
@@ -2038,10 +2047,10 @@ msgid "Hello <NAME>,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
 msgstr "Hallo <NAME>,\n\n"
-"Sie haben eine Passwort-Zurücksetzung auf http://openfoodfacts.org\n\n"
+"Sie haben das Zurücksetzen des Passworts auf http://openfoodfacts.org\n\n"
 "für folgenden Benutzer angefordert: <USERID>\n\n"
-"Um die Passwort-Zurücksetzung abzuschließen, klicken Sie auf den Link unten.\n"
-"Falls Sie keine Zurücksetzung angefordert haben, ignorieren Sie diese E-Mail einfach.\n\n"
+"Um das Zurücksetzen des Passworts abzuschließen, klicken Sie auf den Link unten.\n"
+"Falls Sie das Zurücksetzen nicht angefordert haben, ignorieren Sie einfach diese E-Mail.\n\n"
 "<RESET_URL>\n\n"
 "Mit freundlichen Grüßen,\n\n"
 "Stephane\n"
@@ -2061,11 +2070,11 @@ msgstr "Geben Sie ein neues Kennwort ein."
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
-msgstr "Eine E-Mail mit einem Zurücksetzungslink für Ihr Passwort wurde zu der von Ihnen angegebenen E-Mail-Adresse verschickt."
+msgstr "Eine E-Mail mit einem Link zum Zurücksetzen des Passworts wurde zu der von Ihnen angegebenen E-Mail-Adresse gesendet."
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
-msgstr "Falls Sie Ihr Passwort vergessen haben, geben Sie bitte Ihren Benutzernamen oder Ihre E-Mail-Adresse ein, um die Anweisungen für das Zurücksetzen Ihres Passworts zu erhalten."
+msgstr "Falls Sie Ihr Passwort vergessen haben, geben Sie bitte Ihren Benutzernamen oder Ihre E-Mail-Adresse ein, um Anweisungen für das Zurücksetzen Ihres Passworts zu erhalten."
 
 msgctxt "risk_level"
 msgid "Risk"
@@ -2073,7 +2082,7 @@ msgstr "Risiko"
 
 msgctxt "risk_level_0"
 msgid "To be completed"
-msgstr "Zu vervollständigen"
+msgstr "Noch zu vervollständigen"
 
 msgctxt "risk_level_1"
 msgid "Low risks"
@@ -2125,7 +2134,7 @@ msgstr "Wählen Sie Produkte mit spezifischen Marken, Kategorien, Etiketten, Her
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
-msgstr "Open Food Facts Produktsuche"
+msgstr "Open Food Facts - Produktsuche"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -2145,7 +2154,7 @@ msgstr "Ergebnisse im CSV-Format herunterladen (Excel, OpenOffice)"
 
 msgctxt "search_download_results_description"
 msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr "Zeichensatz: Unicode (UTF-8). Trennzeichen: Tabulator (tab-Taste)."
+msgstr "Zeichensatz: Unicode (UTF-8). Trennzeichen: Tabulator (Tab-Taste)."
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -2173,7 +2182,7 @@ msgstr "Streudiagramm"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr "<p>→ mehr über <<site_name>> Diagramme erfahren: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Diagramme in 3 Klicks</a> (blog).</p>"
+msgstr "<p>➜ Mehr über „<site_name>”-Diagramme erfahren: <a href=\"http://fr.blog.openfoodfacts.org/news/des-graphiques-de-3-clics\">Diagramme mit nur 3 Klicks</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2182,8 +2191,7 @@ msgstr "Ergebnisse in einem Diagramm"
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
 "get a cloud of products (scatter plot)."
-msgstr "Wählen Sie, was Sie auf der horizontalen Achse darstellen wollen, um ein Histogramm zu erhalten, oder wählen Sie zwei Achsen\n"
-"für ein Streudiagramm von Produkten."
+msgstr "Wählen Sie, was Sie auf der horizontalen Achse grafisch darstellen möchten, um ein Histogramm zu erhalten, oder wählen Sie zwei Achsen, um eine Produktwolke zu erhalten (Punktwolke)."
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
@@ -2207,7 +2215,7 @@ msgstr "Egal"
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
-msgstr "Zutaten"
+msgstr "Inhaltsstoffe"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
@@ -2239,7 +2247,7 @@ msgstr "Ergebnisse auf einer Karte anzeigen"
 
 msgctxt "search_nutriment"
 msgid "choose a nutriment..."
-msgstr "Nährstoff auswählen..."
+msgstr "Nährstoff auswählen …"
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
@@ -2255,7 +2263,7 @@ msgstr "Ergebnisse pro Seite"
 
 msgctxt "search_products"
 msgid "Products search"
-msgstr "Produkt-Suche"
+msgstr "Produkte suchen"
 
 msgctxt "search_results"
 msgid "Search results"
@@ -2267,19 +2275,19 @@ msgstr "Unterschiedliche Farben für die folgenden Produkte verwenden:"
 
 msgctxt "search_series_default"
 msgid "Other products"
-msgstr "Andere Produkte"
+msgstr "Weitere Produkte"
 
 msgctxt "search_series_fairtrade"
 msgid "Fair trade"
-msgstr "Fair Trade"
+msgstr "Fair Trade (Fair gehandelt)"
 
 msgctxt "search_series_fairtrade_label"
 msgid "fair-trade"
-msgstr "Fair Trade"
+msgstr "Fair Trade (Fair gehandelt)"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
-msgstr "Farben für die Nährwertgüte verwenden"
+msgstr "Farben für die Nährwertangaben verwenden"
 
 msgctxt "search_series_organic"
 msgid "Organic"
@@ -2307,7 +2315,7 @@ msgstr "Suchkriterien"
 
 msgctxt "search_terms_note"
 msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
-msgstr "Suchen Sie nach Wörtern im Produktname, in Gattungsnamen, Marken, Kategorien, Herkunft und Etiketten"
+msgstr "Suchen Sie nach Wörtern im Produktname, in Gattungsnamen, Marken, Kategorien, Herkunft und Kennzeichnungen"
 
 msgctxt "search_title"
 msgid "Search a product, brand, ingredient, nutriment etc."
@@ -2339,7 +2347,7 @@ msgstr "Ohne"
 
 msgctxt "see_product_page"
 msgid "See the product page"
-msgstr "Produktdetails ansehen"
+msgstr "Produktinformationen anzeigen"
 
 msgctxt "select_country"
 msgid "Country"
@@ -2351,7 +2359,7 @@ msgstr "Sprache"
 
 msgctxt "send_image"
 msgid "Send a picture..."
-msgstr "Foto hochladen..."
+msgstr "Foto hochladen …"
 
 msgctxt "send_image_error"
 msgid "Upload error"
@@ -2395,7 +2403,7 @@ msgstr "Abmelden"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "Zutaten, Nährwertangaben und weitere Informationen über Nahrungsmittel aus der ganzen Welt in einer offenen und freien Datenbank"
+msgstr "Inhaltsstoffe, Nährwertangaben und weitere Informationen über Nahrungsmittel aus der ganzen Welt in einer offenen und freien Datenbank"
 
 msgctxt "site_name"
 msgid "Open Food Facts"
@@ -2435,7 +2443,7 @@ msgstr "Stand"
 
 msgctxt "stores"
 msgid "Stores"
-msgstr "Läden"
+msgstr "Geschäfte"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2443,7 +2451,7 @@ msgstr "Name des Ladens oder Supermarkt-Kette"
 
 msgctxt "stores_p"
 msgid "stores"
-msgstr "geschaefte"
+msgstr "Geschäfte"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
@@ -2451,7 +2459,7 @@ msgstr "Produkte verkauft bei %s"
 
 msgctxt "stores_s"
 msgid "store"
-msgstr "geschaeft"
+msgstr "Geschäft"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2467,7 +2475,7 @@ msgstr "Abonnieren"
 
 msgctxt "tag_belongs_to"
 msgid "Belongs to:"
-msgstr "Gehört:"
+msgstr "Gehört zu:"
 
 msgctxt "tag_contains"
 msgid "Contains:"
@@ -2483,7 +2491,7 @@ msgstr "aus _MAX_"
 
 msgctxt "tagstable_search"
 msgid "Search:"
-msgstr "Suche:"
+msgstr "Suchen:"
 
 msgctxt "traces"
 msgid "Traces"
@@ -2499,11 +2507,11 @@ msgstr "Geben Sie Inhaltsstoffe von Erwähnungen wie \"Kann Spuren von ... entha
 
 msgctxt "traces_p"
 msgid "traces"
-msgstr "spuren"
+msgstr "Spuren"
 
 msgctxt "traces_s"
 msgid "trace"
-msgstr "spur"
+msgstr "Spur"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
@@ -2587,29 +2595,29 @@ msgstr "anzeigen"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
-msgstr "Die Liste von entsprechenden Produkten aus der ganzen Welt ansehen"
+msgstr "Die Liste von entsprechenden Produkten aus der ganzen Welt anzeigen"
 
 msgctxt "view_products_from_the_entire_world"
 msgid "View matching products from the entire world"
-msgstr "Entsprechende Produkte aus der ganzen Welt ansehen"
+msgstr "Entsprechende Produkte aus der ganzen Welt anzeigen"
 
 msgctxt "view_results_from_the_entire_world"
 msgid "View results from the entire world"
-msgstr "Weltweite Ergebnisse ansehen"
+msgstr "Weltweite Ergebnisse anzeigen"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"\">Why it matters</a>"
-msgstr "Die Informationen müssen von der Produktverpackung stammen (nicht von anderen Webseiten oder der Webseite des Herstellers) und die Fotos müssen von Ihnen selbst gemacht worden sein.<br/>\n"
-"→ <a href=\"https://openfoodfactsfr.uservoice.com/knowledgebase/articles/59183\" target=\"_blank\" hreflang=\"fr\">Warum ist das wichtig?</a>"
+msgstr "Die Informationen müssen von der Produktverpackung stammen (nicht von anderen Webseiten oder der Webseite des Herstellers) und die Fotos müssen von Ihnen selbst aufgenommen worden sein.<br/>\n"
+"➜ <a href=\"https://openfoodfactsfr.uservoice.com/knowledgebase/articles/59183\" target=\"_blank\" hreflang=\"fr\">Warum es wichtig ist</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
-msgstr "Webseiten- oder Blogadresse"
+msgstr "Webseiten- oder Blog-Adresse"
 
 msgctxt "weekdays"
 msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
-msgstr "['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag']"
+msgstr "[„Sonntag”, „Montag”, „Dienstag”, „Mittwoch”, „Donnerstag”, „Freitag”, „Samstag”]"
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
@@ -2625,47 +2633,47 @@ msgstr "Sie sind verbunden als %s"
 
 msgctxt "product_js_unselect_image"
 msgid "Unselect image"
-msgstr "Bild deselektieren"
+msgstr "Foto abwählen"
 
 msgctxt "product_js_unselecting_image"
 msgid "Unselecting image."
-msgstr "Bild wird deselektiert."
+msgstr "Foto wurde abgewählt"
 
 msgctxt "product_js_unselected_image_ok"
 msgid "Unselected image."
-msgstr "Bild wurde deselektiert."
+msgstr "Abgewähltes Foto"
 
 msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
-msgstr "Fehler beim Deselktieren des Bildes."
+msgstr "Fehler beim Abwählen des Fotos."
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr "Warnung: die Menge an Ballaststoffen ist nicht angegeben, ihr möglicher positiver Beitrag zur Güte konnte nicht berücksichtigt werden."
+msgstr "Warnhinweis: Die Menge an Ballaststoffen wurde nicht angegeben, ihr möglicher positiver Beitrag zur Güte konnte nicht berücksichtigt werden."
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr "Warnung: die Menge an Früchten, Gemüsen und Nüssen ist nicht angegeben. Der mögliche positive Beitrag zu der Sortierung konnte nicht berücksichtigt werden."
+msgstr "Warnhinweis: Die Menge an Früchten, Gemüse und Nüssen ist nicht angegeben. Der mögliche positive Beitrag zu der Sortierung konnte nicht berücksichtigt werden."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "Warnung: die Menge an Früchten, Gemüsen und Nüssen ist nicht auf dem Etikett angegeben, sie wurde aus der Liste der Zutaten geschätzt: %d%"
+msgstr "Warnhinweis: Die Menge an Früchten, Gemüse und Nüssen ist nicht auf dem Etikett angegeben, sie wurde aus der Liste der Inhaltsstoffe geschätzt: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr "Warnung: Die Menge an Obst, Gemüse und Nüssen ist nicht auf dem Etikett angegeben, sie wurde aus der Kategorie (%s) des Produktes geschätzt: %d%"
+msgstr "Warnhinweis. Die Menge an Obst, Gemüse und Nüssen ist auf dem Etikett nicht angegeben und wurde anhand der Kategorie (%s) des Produkts geschätzt: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
-msgstr "NutriScore-Farbe nach Nährwertgüte"
+msgstr "NutriScore-Farbe nach Nährstoffgehalt"
 
 msgctxt "nutrition_grade_fr_formula"
 msgid "How the color nutrition grade is computed"
-msgstr "Wie die Farben für die Nährwertgüte berechnet werden"
+msgstr "Wie die Farben für den Nährstoffgehalt berechnet werden"
 
 msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
-msgstr "NutriScore Nährwertgüte"
+msgstr "NutriScore Nährstoffgehalt"
 
 msgctxt "delete_product_page"
 msgid "Delete the product page"
@@ -2677,11 +2685,11 @@ msgstr "Produktlöschung"
 
 msgctxt "has_deleted_product"
 msgid "has deleted product"
-msgstr "Produkt gelöscht"
+msgstr "hat das Produkt gelöscht"
 
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
-msgstr "Sind Sie sicher, dass Sie die Seite für dieses Produkt löschen möchten?"
+msgstr "Möchten Sie die Seite für dieses Produkt wirklich löschen?"
 
 msgctxt "delete_user"
 msgid "Delete the user"
@@ -2689,7 +2697,7 @@ msgstr "Benutzer löschen"
 
 msgctxt "sources_openfood_ch"
 msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
-msgstr "Einige der Daten und/oder Bilder stammen von der OpenFood.ch-Datenbank (die genaue Liste ist im Produktbearbeitungsverlauf verfügbar). Diese Elemente sind unter der <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a> lizenziert."
+msgstr "Einige der Daten und/oder Fotos stammen von der OpenFood.ch-Datenbank (die genaue Liste ist im Produktbearbeitungsverlauf verfügbar). Diese Elemente sind unter der <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a> lizenziert."
 
 msgctxt "sources_openfood_ch_product_page"
 msgid "Product page on openfood.ch"
@@ -2703,17 +2711,9 @@ msgctxt "sources_usda_ndb_product_page"
 msgid "Product page on USDA NDB"
 msgstr "Produktseite auf USDA NDB"
 
-msgctxt "donate"
-msgid "Donate to Open Food Facts"
-msgstr "An Open Food Facts spenden"
-
-msgctxt "donate_link"
-msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
-msgstr "Einige der Daten und Bilder wurden direkt vom Hersteller Fleury Michon zur Verfügung gestellt."
+msgstr "Einige der Daten und Fotos wurden direkt vom Hersteller Fleury Michon zur Verfügung gestellt."
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
@@ -2737,7 +2737,7 @@ msgstr "Unsere Übersetzer"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages!"
-msgstr "Wir möchten DANKE an die großartigen Übersetzer sagen, die es uns ermöglichen, Open Food Facts, Open Beauty Facts und Open Pet Food Facts in all diesen verschiedenen Sprachen zu präsentieren!"
+msgstr "Wir möchten DANKE an die großartigen Übersetzer sagen, die es uns ermöglichen, „Open Food Facts”, „Open Beauty Facts” und „Open Pet Food Facts” in all diesen verschiedenen Sprachen zu anzubieten!"
 
 msgctxt "translators_renewal_notice"
 msgid "Please note that this table is refreshed nightly and might be out of date."
@@ -2761,4 +2761,73 @@ msgstr "Überprüft (Wörter)"
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
-msgstr "Stimmen"
+msgstr "Abstimmungsergebnisse"
+
+msgctxt "minerals_p"
+msgid "added minerals"
+msgstr "zugesetzte Mineralien"
+
+msgctxt "minerals_s"
+msgid "added mineral"
+msgstr "zugesetztes Mineral"
+
+msgctxt "vitamins_p"
+msgid "added vitamins"
+msgstr "zugesetzte Vitamine"
+
+msgctxt "vitamins_s"
+msgid "added vitamin"
+msgstr "zugesetztes Vitamin"
+
+msgctxt "amino_acids_p"
+msgid "added amino acids"
+msgstr "zugesetzte Aminosäuren"
+
+msgctxt "amino_acids_s"
+msgid "added amino acid"
+msgstr "zugesetzte Aminosäure"
+
+msgctxt "nucleotides_p"
+msgid "added nucleotides"
+msgstr "zugesetzte Nukleotide"
+
+msgctxt "nucleotides_s"
+msgid "added nucleotide"
+msgstr "zugesetztes Nukleotid"
+
+msgctxt "other_nutritional_substances_p"
+msgid "other nutritional substances added"
+msgstr "weitere zugesetzte Nährstoffe"
+
+msgctxt "other_nutritional_substances_s"
+msgid "other nutritional substance added"
+msgstr "weiterer zugesetzter Nährstoff"
+
+msgctxt "product_as_sold"
+msgid "As sold"
+msgstr "So wie verkauft"
+
+msgctxt "prepared_product"
+msgid "Prepared"
+msgstr "Gebrauchsfertig"
+
+msgctxt "unit"
+msgid "Unit"
+msgstr "Einheit"
+
+msgctxt "nutrition_data_exists"
+msgid "Nutrition facts are specified for the product as sold."
+msgstr "Nährwertangaben werden für das verkaufte Produkt angegeben."
+
+msgctxt "nutrition_data_prepared_exists"
+msgid "Nutrition facts are specified for the prepared product."
+msgstr "Nährwertangaben werden für das gebrauchsfertige Produkt angegeben."
+
+msgctxt "nova_groups_s"
+msgid "NOVA group"
+msgstr ""
+
+msgctxt "nova_groups_p"
+msgid "NOVA groups"
+msgstr ""
+
