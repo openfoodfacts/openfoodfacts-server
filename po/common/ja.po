@@ -5,11 +5,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-11 21:30-0500\n"
+"PO-Revision-Date: 2018-07-30 10:41\n"
 "Language-Team: Japanese\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"POT-Creation-Date: \n"
 "X-Generator: crowdin.com\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: ja\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
@@ -195,17 +196,13 @@ msgctxt "barcode_number"
 msgid "Barcode number:"
 msgstr "バーコード番号:"
 
+msgctxt "you_can_also_help_us"
+msgid "You can also help to fund the Open Food Facts project"
+msgstr ""
+
 msgctxt "bottom_content"
-msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>Contribute to <<site_name>> by adding product and win stars by\n"
-"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
-msgstr "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>製品を追加することで <<site_name>> に貢献し、\n"
-"<a href=\"/missions\">ミッション</a> を遂行してスターを獲得しましょう!</p>\n"
+msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr ""
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
@@ -1480,6 +1477,14 @@ msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
 msgstr "栄養成分表が製品に指定されていません。"
 
+msgctxt "multiple_nutrition_data"
+msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
+msgstr "製品に複数の栄養成分が指定されています (例えば、水や牛乳を加えた)。"
+
+msgctxt "multiple_nutrition_data_instructions"
+msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
+msgstr "水やミルクを加えずに、調整されていない製品の栄養成分のみを入力してください。異なる製品がある場合は、一覧の最初の製品の栄養成分を入力してください。"
+
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
 msgstr "バーコード %s の製品はリストされていません。"
@@ -2709,14 +2714,6 @@ msgctxt "sources_usda_ndb_product_page"
 msgid "Product page on USDA NDB"
 msgstr "米国農務省 NDB の製品ページ"
 
-msgctxt "donate"
-msgid "Donate to Open Food Facts"
-msgstr "Open Food Facts に寄付する"
-
-msgctxt "donate_link"
-msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
 msgstr "一部のデータおよび画像は、作成者 Fleury Michon によって直接提供されています。"
@@ -2732,6 +2729,10 @@ msgstr "この商品ページは完成していません。既存の写真から
 msgctxt "title_separator"
 msgid " — "
 msgstr " — "
+
+msgctxt "recent_changes"
+msgid "Recent Changes"
+msgstr "最近の変更"
 
 msgctxt "translators_title"
 msgid "Our Translators"
@@ -2764,4 +2765,72 @@ msgstr "承認済 (語数)"
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
 msgstr "投票済"
+
+msgctxt "minerals_p"
+msgid "added minerals"
+msgstr "ミネラルを追加"
+
+msgctxt "minerals_s"
+msgid "added mineral"
+msgstr "ミネラルを追加"
+
+msgctxt "vitamins_p"
+msgid "added vitamins"
+msgstr "ビタミンを追加"
+
+msgctxt "vitamins_s"
+msgid "added vitamin"
+msgstr "ビタミンを追加"
+
+msgctxt "amino_acids_p"
+msgid "added amino acids"
+msgstr "アミノ酸を追加"
+
+msgctxt "amino_acids_s"
+msgid "added amino acid"
+msgstr "アミノ酸を追加"
+
+msgctxt "nucleotides_p"
+msgid "added nucleotides"
+msgstr "ヌクレオチドを追加"
+
+msgctxt "nucleotides_s"
+msgid "added nucleotide"
+msgstr "ヌクレオチドを追加"
+
+msgctxt "other_nutritional_substances_p"
+msgid "other nutritional substances added"
+msgstr "その他栄養物質を追加"
+
+msgctxt "other_nutritional_substances_s"
+msgid "other nutritional substance added"
+msgstr "その他栄養物質を追加"
+
+msgctxt "product_as_sold"
+msgid "As sold"
+msgstr "販売"
+
+msgctxt "prepared_product"
+msgid "Prepared"
+msgstr "調整済"
+
+msgctxt "unit"
+msgid "Unit"
+msgstr "単位"
+
+msgctxt "nutrition_data_exists"
+msgid "Nutrition facts are specified for the product as sold."
+msgstr "販売された製品について栄養成分が指定されています。"
+
+msgctxt "nutrition_data_prepared_exists"
+msgid "Nutrition facts are specified for the prepared product."
+msgstr "調整された製品について栄養成分が指定されています。"
+
+msgctxt "nova_groups_s"
+msgid "NOVA group"
+msgstr ""
+
+msgctxt "nova_groups_p"
+msgid "NOVA groups"
+msgstr ""
 
