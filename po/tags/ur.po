@@ -5,13 +5,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ur\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-07-21 08:46\n"
-"Language-Team: Urdu (India)\n"
+"PO-Revision-Date: 2018-08-01 13:23\n"
+"Language-Team: Urdu (Pakistan)\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
-"X-Crowdin-Language: ur-IN\n"
+"X-Crowdin-Language: ur-PK\n"
 "X-Crowdin-File: /master/po/tags/tags.pot\n"
 
 #. put here the language tag ("fr" for French, "ja" for Japanese, etc)
@@ -416,11 +416,11 @@ msgctxt "vitamins:plural"
 msgid "vitamins"
 msgstr ""
 
-msgctxt "amino-acids:singular"
+msgctxt "amino_acids:singular"
 msgid "amino-acid"
 msgstr ""
 
-msgctxt "amino-acid:plural"
+msgctxt "amino_acid:plural"
 msgid "amino-acids"
 msgstr ""
 
@@ -432,11 +432,19 @@ msgctxt "nucleotides:plural"
 msgid "nucleotides"
 msgstr ""
 
-msgctxt "other-nutritional-substances:singular"
+msgctxt "other_nutritional_substances:singular"
 msgid "other-nutritional-substance"
 msgstr ""
 
-msgctxt "other-nutritional-substances:plural"
+msgctxt "other_nutritional_substances:plural"
 msgid "other-nutritional-substances"
+msgstr ""
+
+msgctxt "nova_groups:singular"
+msgid "nova-group"
+msgstr ""
+
+msgctxt "nova_groups:plural"
+msgid "nova-groups"
 msgstr ""
 
