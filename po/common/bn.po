@@ -5,11 +5,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bn\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-11 13:25-0500\n"
+"PO-Revision-Date: 2018-08-01 09:18\n"
 "Language-Team: Bengali\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: \n"
 "X-Generator: crowdin.com\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: bn\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
@@ -189,17 +190,13 @@ msgctxt "barcode_number"
 msgid "Barcode number:"
 msgstr "বারকোড সংখ্যা"
 
+msgctxt "you_can_also_help_us"
+msgid "You can also help to fund the Open Food Facts project"
+msgstr ""
+
 msgctxt "bottom_content"
-msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>Contribute to <<site_name>> by adding product and win stars by\n"
-"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
-msgstr "Copy text \t\n"
-"<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>অবদানের জন্য <<site_name>> পণ্য সংযুক্ত ও সম্পুন্ন করলে স্টার জিতুন <a href=\"/missions\">কাজ</a>!</p>\n"
+msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr ""
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
@@ -685,7 +682,7 @@ msgstr ""
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -711,7 +708,7 @@ msgstr ""
 
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.blog.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -723,11 +720,11 @@ msgstr ""
 
 msgctxt "footer_data"
 msgid "Data"
-msgstr ""
+msgstr "তথ্য"
 
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr ""
+msgstr "/তথ্য"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -809,7 +806,7 @@ msgstr ""
 
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.wiki.openfoodfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -821,7 +818,7 @@ msgstr ""
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr ""
+msgstr "প্রচলিত নাম"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
@@ -915,11 +912,11 @@ msgstr ""
 
 msgctxt "informers_p"
 msgid "informers"
-msgstr ""
+msgstr "সংবাদদাতাবৃন্দ"
 
 msgctxt "informers_s"
 msgid "informers"
-msgstr ""
+msgstr "সংবাদদাতাবৃন্দ"
 
 msgctxt "ingredients"
 msgid "Ingredients"
@@ -963,7 +960,7 @@ msgstr ""
 
 msgctxt "ingredients_p"
 msgid "ingredients"
-msgstr ""
+msgstr "উপকরণসমূহ"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
@@ -971,7 +968,7 @@ msgstr ""
 
 msgctxt "ingredients_s"
 msgid "ingredient"
-msgstr ""
+msgstr "উপাদান"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
@@ -1003,11 +1000,11 @@ msgstr ""
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
-msgstr ""
+msgstr "https://itunes.apple.com/en/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1207,7 +1204,7 @@ msgstr ""
 
 msgctxt "languages_s"
 msgid "language"
-msgstr ""
+msgstr "ভাষা"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
@@ -1287,7 +1284,7 @@ msgstr ""
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr ""
+msgstr "ইউজার-নেম অথবা ইমেইল অ্যাডরেস"
 
 msgctxt "low"
 msgid "low"
@@ -1367,7 +1364,7 @@ msgstr "খুঁজুন"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/খুঁজুন"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1445,6 +1442,14 @@ msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
 msgstr ""
 
+msgctxt "multiple_nutrition_data"
+msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
+msgstr ""
+
+msgctxt "multiple_nutrition_data_instructions"
+msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
+msgstr ""
+
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
 msgstr ""
@@ -1487,7 +1492,7 @@ msgstr ""
 
 msgctxt "nutriments_p"
 msgid "nutriments"
-msgstr ""
+msgstr "পুষ্টিসাধকতা"
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
@@ -1571,7 +1576,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr ""
+msgstr "প্রতি পরিবেশনে"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
@@ -1600,7 +1605,7 @@ msgstr ""
 
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
@@ -1622,7 +1627,7 @@ msgstr ""
 
 msgctxt "origins"
 msgid "Origin of ingredients"
-msgstr ""
+msgstr "প্রধান উপাদানসমূহ"
 
 msgctxt "origins_example"
 msgid "California, USA"
@@ -1642,7 +1647,7 @@ msgstr ""
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr ""
+msgstr "প্রধান উপাদানসমূহ"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
@@ -1950,7 +1955,7 @@ msgstr ""
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr ""
+msgstr "ক্রয়কৃত শহর, রাজ্য এবং দেশ"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
@@ -1962,7 +1967,7 @@ msgstr ""
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "পণ্য বিক্রি হয়েছে এখানে %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -1974,11 +1979,11 @@ msgstr ""
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "পণ্যগুলি %s এ বিক্রি হয়নি"
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr ""
+msgstr "পরিমান"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
@@ -2203,7 +2208,7 @@ msgstr ""
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "পুষ্টিসাধকতা"
 
 msgctxt "search_or"
 msgid "or"
@@ -2303,7 +2308,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "দেশ"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2323,7 +2328,7 @@ msgstr ""
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr ""
+msgstr "পরিবেশন পরিমাপ"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2351,7 +2356,7 @@ msgstr ""
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr ""
+msgstr "সাইন আউট"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -2395,7 +2400,7 @@ msgstr ""
 
 msgctxt "stores"
 msgid "Stores"
-msgstr ""
+msgstr "দোকান সমূহ"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2403,7 +2408,7 @@ msgstr ""
 
 msgctxt "stores_p"
 msgid "stores"
-msgstr ""
+msgstr "দোকান সমূহ"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
@@ -2411,7 +2416,7 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "দোকান"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2443,7 +2448,7 @@ msgstr ""
 
 msgctxt "tagstable_search"
 msgid "Search:"
-msgstr ""
+msgstr "অনুসন্ধান:"
 
 msgctxt "traces"
 msgid "Traces"
@@ -2572,11 +2577,11 @@ msgstr ""
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
-msgstr ""
+msgstr "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2662,14 +2667,6 @@ msgctxt "sources_usda_ndb_product_page"
 msgid "Product page on USDA NDB"
 msgstr ""
 
-msgctxt "donate"
-msgid "Donate to Open Food Facts"
-msgstr ""
-
-msgctxt "donate_link"
-msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr ""
-
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
 msgstr ""
@@ -2684,6 +2681,10 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " — "
+msgstr ""
+
+msgctxt "recent_changes"
+msgid "Recent Changes"
 msgstr ""
 
 msgctxt "translators_title"
@@ -2716,5 +2717,73 @@ msgstr ""
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
+msgstr ""
+
+msgctxt "minerals_p"
+msgid "added minerals"
+msgstr ""
+
+msgctxt "minerals_s"
+msgid "added mineral"
+msgstr ""
+
+msgctxt "vitamins_p"
+msgid "added vitamins"
+msgstr ""
+
+msgctxt "vitamins_s"
+msgid "added vitamin"
+msgstr ""
+
+msgctxt "amino_acids_p"
+msgid "added amino acids"
+msgstr ""
+
+msgctxt "amino_acids_s"
+msgid "added amino acid"
+msgstr ""
+
+msgctxt "nucleotides_p"
+msgid "added nucleotides"
+msgstr ""
+
+msgctxt "nucleotides_s"
+msgid "added nucleotide"
+msgstr ""
+
+msgctxt "other_nutritional_substances_p"
+msgid "other nutritional substances added"
+msgstr ""
+
+msgctxt "other_nutritional_substances_s"
+msgid "other nutritional substance added"
+msgstr ""
+
+msgctxt "product_as_sold"
+msgid "As sold"
+msgstr ""
+
+msgctxt "prepared_product"
+msgid "Prepared"
+msgstr ""
+
+msgctxt "unit"
+msgid "Unit"
+msgstr ""
+
+msgctxt "nutrition_data_exists"
+msgid "Nutrition facts are specified for the product as sold."
+msgstr ""
+
+msgctxt "nutrition_data_prepared_exists"
+msgid "Nutrition facts are specified for the prepared product."
+msgstr ""
+
+msgctxt "nova_groups_s"
+msgid "NOVA group"
+msgstr ""
+
+msgctxt "nova_groups_p"
+msgid "NOVA groups"
 msgstr ""
 
