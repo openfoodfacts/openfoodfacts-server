@@ -422,7 +422,7 @@ sub extract_ingredients_from_text($) {
 		$ingredient =~ s/\s*(\d+(\,\.\d+)?)\s*\%\s*$//;
 		
 		my %ingredient = (
-			id => get_fileid($ingredient),
+			id => canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient),
 			text => $ingredient
 		);
 		if (defined $percent) {
@@ -468,8 +468,11 @@ sub extract_ingredients_from_text($) {
 	}
 	
 	my $field = "ingredients";
+	
+	$product_ref->{ingredients_original_tags} = $product_ref->{ingredients_tags};
+	
 	if (defined $taxonomy_fields{$field}) {
-		$product_ref->{$field . "_hierarchy" } = [ gen_ingredients_tags_hierarchy_taxonomy($product_ref->{lc}, join(", ", @{$product_ref->{ingredients_tags}} )) ];
+		$product_ref->{$field . "_hierarchy" } = [ gen_ingredients_tags_hierarchy_taxonomy($product_ref->{lc}, join(", ", @{$product_ref->{ingredients_original_tags}} )) ];
 		$product_ref->{$field . "_tags" } = [];
 		my $unknown = 0;
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
@@ -485,7 +488,7 @@ sub extract_ingredients_from_text($) {
 	
 	if ($product_ref->{ingredients_text} ne "") {
 	
-		$product_ref->{ingredients_n} = scalar @{$product_ref->{ingredients_tags}};
+		$product_ref->{ingredients_n} = scalar @{$product_ref->{ingredients_original_tags}};
 	
 		my $d = int(($product_ref->{ingredients_n} - 1 ) / 10);
 		my $start = $d * 10 + 1;

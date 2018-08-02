@@ -396,6 +396,8 @@ else {
 	
 	compute_nutrition_score($product_ref);
 	
+	compute_nova_group($product_ref);
+	
 	compute_nutrient_levels($product_ref);
 	
 	compute_unknown_nutrients($product_ref);

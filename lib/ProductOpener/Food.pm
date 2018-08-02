@@ -52,6 +52,7 @@ BEGIN
 					
 					&fix_salt_equivalent
 					&compute_nutrition_score
+					&compute_nova_group
 					&compute_serving_size_data
 					&compute_unknown_nutrients
 					&compute_nutrient_levels
@@ -65,8 +66,6 @@ BEGIN
 					&get_canon_local_authority
 					
 					&special_process_product
-
-					&export_nutrients_taxonomy
 					
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -3969,23 +3968,6 @@ foreach my $key (keys %Nutriments) {
 	}
 }
 
-# export %Nutriment translations etc.
-
-# be careful: binmode can't be called in the startup_apache2.pl script
-# or Apache will segfault in encoding.so :-(
-
-sub export_nutrients_taxonomy() {
-
-(-e "$www_root/data/taxonomies") or mkdir("$www_root/data/taxonomies", 0755);
-use JSON::PP;		
-binmode STDOUT, ":encoding(UTF-8)";
-open (my $OUT_JSON, ">", "$www_root/data/taxonomies/nutrients.json");
-print $OUT_JSON encode_json(\%Nutriments);
-close ($OUT_JSON);
-
-}
-
-
 Hash::Util::lock_keys(%Nutriments);
 
 
@@ -4104,6 +4086,216 @@ if (-e "$data_root/packager-codes/geocode_addresses.sto") {
 	my $geocode_addresses_ref = retrieve("$data_root/packager-codes/geocode_addresses.sto");
 	%geocode_addresses = %{$geocode_addresses_ref};
 }
+
+
+
+sub compute_nova_group($) {
+
+	# compute Nova group
+	# http://archive.wphna.org/wp-content/uploads/2016/01/WN-2016-7-1-3-28-38-Monteiro-Cannon-Levy-et-al-NOVA.pdf
+
+	my $product_ref = shift;
+	
+	delete $product_ref->{nova_group_debug};
+	delete $product_ref->{nutriments}{"nova-group"};
+	delete $product_ref->{nutriments}{"nova-group_100g"};
+	delete $product_ref->{nutriments}{"nova-group_serving"};
+	delete $product_ref->{nova_group};
+	delete $product_ref->{nova_group_tags};
+	
+	$product_ref->{nova_group_debug} = "";
+		
+	# do not compute a score when we don't have ingredients
+	if ((not defined $product_ref->{ingredients_text}) or ($product_ref->{ingredients_text} eq '')) {
+			$product_ref->{nova_group_tags} = [ "not-applicable" ];
+			$product_ref->{nova_group_debug} = "no nova group when the product does not have ingredients";
+			return;
+	}		
+	
+	# do not compute a score when we don't have a category
+	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
+			$product_ref->{nova_group_tags} = [ "not-applicable" ];
+			$product_ref->{nova_group_debug} = "no nova group when the product does not have a category";
+			return;
+	}	
+	
+	# determination process:
+	# - start by assigning group 1
+	# - see if the group needs to be increased based on category, ingredients and additives
+
+	$product_ref->{nova_group} = 1;	
+	
+	
+# $options{nova_groups_tags} = {
+# 
+# # start by assigning group 1
+#
+# # 1st try to identify group 2 processed culinary ingredients
+# 
+# "categories/en:fats" => 2,	
+	
+
+	if (defined $options{nova_groups_tags}) {
+	
+		foreach my $tag (sort {$options{nova_groups_tags}{$a} <=> $options{nova_groups_tags}{$b}} keys %{$options{nova_groups_tags}}) {
+		
+			if ($tag =~ /\//) {
+			
+				my $tagtype = $`;
+				my $tagid = $';
+						
+				if (has_tag($product_ref, $tagtype, $tagid)) {
+				
+					if ($options{nova_groups_tags}{$tag} > $product_ref->{nova_group}) {
+				
+						# only move group 1 product to group 3, not group 2
+						if (not (($product_ref->{nova_group} == 2) and ($options{nova_groups_tags}{$tag} == 3))) {
+							$product_ref->{nova_group_debug} .= " -- $tag : " . $options{nova_groups_tags}{$tag} ;
+							$product_ref->{nova_group} = $options{nova_groups_tags}{$tag};
+						}
+					}
+				}
+			
+			}
+		}
+	}		
+	
+	
+
+
+# Group 1
+# Unprocessed or minimally processed foods
+# The first NOVA group is of unprocessed or minimally processed foods. Unprocessed (or 
+# natural) foods are edible parts of plants (seeds, fruits, leaves, stems, roots) or of animals 
+# (muscle, offal, eggs, milk), and also fungi, algae and water, after separation from nature.
+# Minimally processed foods are natural foods altered by processes such as removal of 
+# inedible or unwanted parts, drying, crushing, grinding, fractioning, filtering, roasting, boiling, 
+# pasteurisation, refrigeration, freezing, placing in containers, vac uum packaging, or non-alcoholic
+# fermentation. None of these processes adds substances such as salt, sugar, oils
+# or fats to the original food.
+# The main purpose of the processes used in the production of group 1 foods is to extend the 
+# life of unprocessed foods, allowing their storage for longer use, such as chilling, freezing, 
+# drying, and pasteurising. Other purposes include facilitating or diversifying food preparation, 
+# such as in the removal of inedible parts and fractioning of vegetables, the crushing or 
+# grinding of seeds, the roasting of coffee beans or tea leaves, and the fermentation of milk 
+# to make yoghurt.
+# 
+# Group 1 foods include fresh, squeezed, chilled, frozen, or dried fruits and leafy and root 
+# vegetables; grains such as brown, parboiled or white rice, corn cob or kernel, wheat berry or 
+# grain; legumes such as beans of all types, lentils, chickpeas; starchy roots and tubers such 
+# as potatoes and cassava, in bulk or packaged; fungi such as fresh or dried mushrooms; 
+# meat, poultry, fish and seafood, whole or in the form of steaks, fillets and other cuts, or 
+# chilled or frozen; eggs; milk, pasteurised or powdered; fresh or pasteurised fruit or vegetable 
+# juices without added sugar, sweeteners or flavours; grits, flakes or flour made from corn, 
+# wheat, oats, or cassava; pasta, couscous and polenta made with flours, flakes or grits and 
+# water; tree and ground nuts and other oil seeds without added salt or sugar; spices such as 
+# pepper, cloves and cinnamon; and herbs such as thyme and mint, fresh or dried;
+# plain yoghurt with no added sugar or artificial sweeteners added; tea, coffee, drinking water.
+# Group 1 also includes foods made up from two or more items in this group, such as dried 
+# mixed fruits, granola made from cereals, nuts and dried fruits with no added sugar, honey or 
+# oil; and foods with vitamins and minerals added generally to replace nutrients lost during 
+# processing, such as wheat or corn flour fortified with iron or folic acid.
+# Group 1 items may infrequently contain additives used to preserve the properties of the 
+# original food. Examples are vacuum-packed vegetables with added anti-oxidants, and ultra
+# -pasteurised milk with added stabilisers. 
+
+	
+# Group 2
+# Processed culinary ingredients
+# The second NOVA group is of processed culinary ingredients. These are substances 
+# obtained directly from group 1 foods or from nature by processes such as pressing, refining, 
+# grinding, milling, and spray drying.
+# The purpose of processing here is to make products used in home and restaurant kitchens 
+# to prepare, season and cook group 1 foods and to make with them varied and enjoyable 
+# hand-made dishes, soups and broths, breads, preserves, salads, drinks, desserts 
+# and other culinary preparations.
+# Group 2 items are rarely consumed in the absence of group 1 foods. Examples are salt 
+# mined or from seawater; sugar and molasses obtained from cane or beet; honey extracted 
+# from combs and syrup from maple trees; vegetable oils crushed from olives or seeds; butter 
+# and lard obtained from milk and pork; and starches extracted from corn and other plants.
+# Products consisting of two group 2 items, such as salted butter, group 2 items
+# with added vitamins or minerals, such as iodised salt, and vinegar made by acetic fermentation of wine 
+# or other alcoholic drinks, remain in this group.
+# Group 2 items may contain additives used to preserve the product’s original properties. 
+# Examples are vegetable oils with added anti-oxidants, cooking salt with added anti-humectants, 
+# and vinegar with added preservatives that prevent microorganism proliferation.
+
+ 
+# Group 3
+# Processed foods
+# The third NOVA group is of processed foods. These are relatively simple products made by 
+# adding sugar, oil, salt or other group 2 substances to group 1 foods. 
+# Most processed foods have two or three ingredients. Processes include various preservation or cooking methods, 
+# and, in the case of breads and cheese, non-alcoholic fermentation.
+# The main purpose of the manufacture of processed foods is to increase the durability of 
+# group 1 foods,or to modify or enhance their sensory qualities. 
+# Typical examples of processed foods are canned or bottled vegetables, fruits and legumes; 
+# salted or sugared nuts and seeds; salted, cured, or smoked meats; canned fish; fruits in 
+# syrup; cheeses and unpackaged freshly made breads
+# Processed foods may contain additives used to preserve their original properties or to resist 
+# microbial contamination. Examples are fruits in syrup with added anti-oxidants, and dried
+# salted meats with added preservatives.
+# When alcoholic drinks are identified as foods, those produced by fermentation of group 1 
+# foods such as beer, cider and wine, are classified here in Group 3.
+
+
+# Group 4
+# Ultra-processed food and drink products
+# The fourth NOVA group is of ultra-processed food and drink products. These are industrial 
+# formulations typically with five or more and usually many ingredients. Such ingredients often 
+# include those also used in processed foods, such as sugar, oils, fats, salt, anti-oxidants, 
+# stabilisers, and preservatives. Ingredients only found in ultra-processed products include 
+# substances not commonly used in culinary preparations, and additives whose purpose is to 
+# imitate sensory qualities of group 1 foods or of culinary preparations of these foods, or to 
+# disguise undesirable sensory qualities of the final product. Group 1 foods are a small 
+# proportion of or are even absent from ultra-processed products. 
+# Substances only found in ultra-processed products include some directly extracted from 
+# foods, such as casein, lactose, whey, and gluten, and some derived from further processing
+# of food constituents, such as hydrogenated or interesterified oils, hydrolysed proteins, soy 
+# protein isolate, maltodextrin, invert sugar and high fructose corn syrup.
+# Classes of additive only found in ultra-processed products include dyes and other colours
+# , colour stabilisers, flavours, flavour enhancers, non-sugar sweeteners, and processing aids such as 
+# carbonating, firming, bulking and anti-bulking, de-foaming, anti-caking and glazing agents, 
+# emulsifiers, sequestrants and humectants.
+# Several industrial processes with no domestic equivalents are used in the manufacture of 
+# ultra-processed products, such as extrusion and moulding, and pre-processing for frying.
+# The main purpose of industrial ultra-processing is to create products that are ready to eat, to 
+# drink or to heat, liable to replace both unprocessed or minimally processed foods that are 
+# naturally ready to consume, such as fruits and nuts, milk and water, and freshly prepared 
+# drinks, dishes, desserts and meals. Common attributes of ultra-processed products are
+# hyper-palatability, sophisticated and attractive packaging, multi-media and other aggressive 
+# marketing to children and adolescents, health claims, high profitability, and branding and 
+# ownership by transnational corporations. 
+# Examples of typical ultra-processed products are: carbonated drinks; sweet or savoury 
+# packaged snacks; ice-cream, chocolate, candies (confectionery); mass-produced packaged 
+# breads and buns; margarines and spreads; cookies (biscuits), pastries, cakes, and cake 
+# mixes; breakfast ‘cereals’, ‘cereal’and ‘energy’ bars; ‘energy’ drinks; milk drinks, ‘fruit’ 
+# yoghurts and ‘fruit’ drinks; cocoa drinks; meat and chicken extracts and ‘instant’ sauces; 
+# infant formulas, follow-on milks, other baby products; ‘health’ and ‘slimmin
+# g’ products such as powdered or ‘fortified’ meal and dish substitutes; and many ready to 
+# heat products including pre-prepared pies and pasta and pizza dishes; poultry and fish ‘nuggets’ and 
+# ‘sticks’, sausages, burgers, hot dogs, and other reconstituted mea
+# t products, and powdered and packaged ‘instant’ soups, noodles and desserts.
+# When products made solely of group 1 or group 3 foods also contain cosmetic or sensory 
+# intensifying additives, such as plain yoghurt with added artificialsweeteners, and brea
+# ds with added emulsifiers, they are classified here in group 4. When alcoholic drinks are 
+# identified as foods, those produced by fermentation of group 1 foods followed by distillation 
+# of the resulting alcohol, such as whisky, gin, rum, vodka, are classified in group 4.
+	
+	
+	
+	$product_ref->{nutriments}{"nova-group"} = $product_ref->{nova_group};
+	$product_ref->{nutriments}{"nova-group_100g"} = $product_ref->{nova_group};
+	$product_ref->{nutriments}{"nova-group_serving"} = $product_ref->{nova_group};
+	
+	$product_ref->{nova_groups} = $product_ref->{nova_group};	
+	$product_ref->{nova_groups_tags} = [ canonicalize_taxonomy_tag("en", "nova_groups", $product_ref->{nova_group}) ];
+	
+
+}
+
+
+
 
 
 1;
