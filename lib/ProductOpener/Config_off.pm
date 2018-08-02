@@ -294,7 +294,7 @@ $options{favicons} = <<HTML
 <meta name="msapplication-TileImage" content="/images/favicon/mstile-144x144.png">
 <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
 <meta name="_globalsign-domain-verification" content="2ku73dDL0bAPTj_s1aylm6vxvrBZFK59SfbH_RdUya" />
-
+<meta name=“flattr:id” content=“dw637l”> 
 HTML
 ;
 
@@ -351,11 +351,24 @@ $options{nova_groups_tags} = {
 "ingredients/en:honey" => 3,
 "ingredients/en:maple-syrup" => 3,
 
+# categories from nova paper
+
 "categories/en:wines" => 3,
 "categories/en:beers" => 3,
 "categories/en:ciders" => 3,
 "categories/en:cheeses" => 3,
 
+# other categories that we can consider to be at least group 3
+
+"categories/en:prepared-meats" => 3,
+
+
+# group 3 additives
+
+"additives/en:e249" => 3, # potassium nitrite
+"additives/en:e250" => 3, # sodium nitrite
+"additives/en:e251" => 3, # potassium nitrate
+"additives/en:e252" => 3, # sodium nitrite
 
 # tags only found in group 4
 
@@ -374,6 +387,8 @@ $options{nova_groups_tags} = {
 "ingredients/en:sequestrant" => 4,
 "ingredients/en:humectant" => 4,
 
+# ingredients from nova paper
+
 "ingredients/en:flavour" => 4,
 "ingredients/en:casein" => 4,
 "ingredients/en:lactose" => 4,
@@ -385,20 +400,169 @@ $options{nova_groups_tags} = {
 "ingredients/en:high-fructose-corn-syrup" => 4,
 "ingredients/en:glucose" => 4,
 
+# other ingredients that we can consider as ultra-processed
+
+"ingredients/en:dextrose" => 4,
+"ingredients/en:milk-powder" => 4,
+"ingredients/en:milk-proteins" => 4,
+
+
+# categories from nova paper
+
 "categories/en:sodas" => 4,
 "categories/en:ice-creams" => 4,
 "categories/en:chocolates" => 4,
 "categories/en:candies" => 4,
-"categories/en:meals" => 4,
 "categories/en:sugary-snacks" => 4,
 "categories/en:salty-snacks" => 4,
 "categories/en:baby-milks" => 4,
 "categories/en:sausages" => 4,
 "categories/en:hard-liquors" => 4,
 
+# additives that we can consider as ultra-processed (or a sufficient marker of ultra-processed food)
 
+# all colors (should already be detected by the "color" class if it is specified in the ingredient list (e.g. "color: some additive")
+
+"additives/en:e100", #Curcumin", #Turmeric extract", #curcuma extract
+"additives/en:e106", #flavin mononucleotide", #phosphate lactoflavina
+"additives/en:e101", #Riboflavin", #Vitamin B2", #Flavaxin", #Vitamin B 2", #Vitamin G", #Riboflavine", #Lactoflavine", #6\,7-Dimethyl-9-D-ribitylisoalloxazine", #7\,8-Dimethyl-10-ribitylisoalloxazine", #Lactoflavin", #7\,8-Dimethyl-10-(D-ribo-2\,3\,4\,5-tetrahydroxypentyl)isoalloxazine", #7\,8-Dimethyl-10-(D-ribo-2\,3\,4\,5-tetrahydroxypentyl)benzo[g]pteridine-2\,4(3H\,10H)-dione", #1-Deoxy-1-(7\,8-dimethyl-2\,4-dioxo-3\,4-dihydrobenzo[g]pteridin-10(2H)-yl)pentitol
+"additives/en:e101a", #Riboflavin-5'-Phosphate
+"additives/en:e102", #Tartrazine", #Yellow 5", #Yellow number 5", #Yellow no 5", #Yellow no5", #FD&C Yellow 5", #FD&C Yellow no 5", #FD&C Yellow no5", #FD and C Yellow no. 5", #FD and C Yellow 5
+"additives/en:e103", #Alkannin
+"additives/en:e104", #Quinoline yellow", #Quinoline Yellow WS", #C.I. 47005", #Food Yellow 13
+"additives/en:e105", #E105 food additive
+"additives/en:e107", #Yellow 2G
+"additives/en:e110", #Sunset yellow FCF", #CI Food Yellow 3", #Orange Yellow S", #FD&C Yellow 6", #FD & C Yellow No.6", #FD and C Yellow No. 6", #Yellow No.6", #Yellow 6", #FD and C Yellow 6", #C.I. 15985
+"additives/en:e111", #Orange GGN", #Alpha-naphthol", #Alpha-naphtol", #alpha-naphthol orange
+"additives/en:e120", #Cochineal", #carminic acid", #carmines", #Natural Red 4", #Cochineal Red
+"additives/en:e121", #Citrus Red 2
+"additives/en:e122", #Azorubine", #carmoisine", #Food Red 3", #Brillantcarmoisin O", #Acid Red 14", #Azorubin S", #C.I. 14720
+"additives/en:e123", #Amaranth", #FD&C Red 2
+"additives/en:e124", #Ponceau 4r", #cochineal red a", #CI Food Red 7", #Brilliant Scarlet 4R
+"additives/en:e125", #Scarlet GN", #C.I. Food Red 1", #Ponceau SX", #FD&C Red No. 4", #C.I. 14700
+"additives/en:e126", #Ponceau 6R
+"additives/en:e127", #Erythrosine", #FD&C Red 3", #FD & C Red No.3", #Red No. 3", #FD&C Red no3", #FD and C Red 3
+"additives/en:e128", #Red 2G
+"additives/en:e129", #Allura red ac", #Allura Red AC", #FD&C Red 40", #FD and C Red 40", #Red 40", #Red no40", #Red no. 40", #FD and C Red no. 40", #Food Red 17", #C.I. 16035
+"additives/en:e130", #Indanthrene blue RS", #Indanthrone blue", #indanthrene
+"additives/en:e131", #Patent blue v", #Food Blue 5", #Sulphan Blue", #Acid Blue 3", #L-Blau 3", #C-Blau 20", #Patentblau V", #Sky Blue", #C.I. 42051
+"additives/en:e132", #Indigotine", #indigo carmine", #FD&C Blue 2", #FD and C Blue 2
+"additives/en:e133", #Brilliant blue FCF", #FD&C Blue 1", #FD and C Blue 1", #Blue 1", #fd&c blue no. 1.
+"additives/en:e140", #Chlorophylls and Chlorophyllins", #Chlorophyll c1
+"additives/en:e141", #Copper complexes of chlorophylls and chlorophyllins", #Copper complexes of chlorophyll and chlorophyllins
+"additives/en:e142", #Green s", #CI Food Green 4
+"additives/en:e143", #Fast Green FCF", #Food green 3", #C.I. 42053", #Solid Green FCF", #Green 1724", #FD&C Green No. 3
+"additives/en:e150", #Caramel
+"additives/en:e150a", #Plain caramel", #caramel color", #caramel coloring
+"additives/en:e150b", #Caustic sulphite caramel
+"additives/en:e150c", #Ammonia caramel
+"additives/en:e150d", #Sulphite ammonia caramel", #Sulfite ammonia caramel
+"additives/en:e151", #Brilliant black bn", #black pn", #E 151", #C.I. 28440", #Brilliant Black PN", #Food Black 1", #Naphthol Black", #C.I. Food Brown 1", #Brilliant Black A
+"additives/en:e152", #Black 7984", #Food Black 2", #carbon black
+"additives/en:e153", #Vegetable carbon
+"additives/en:e154", #Brown FK", #Kipper Brown 
+"additives/en:e155", #Brown ht", #Chocolate brown HT
+"additives/en:e15x", #E15x food additive
+"additives/en:e160", #carotene
+"additives/en:e160a", #Alpha-carotene", #Beta-carotene", #Gamma-carotene", #carotene
+"additives/en:e160b", #Annatto", #bixin", #norbixin", #roucou", #achiote
+"additives/en:e160c", #Paprika extract", #capsanthin", #capsorubin", #Paprika oleoresin
+"additives/en:e160d", #Lycopene
+"additives/en:e160e", #Beta-apo-8′-carotenal (c30)", #Apocarotenal", #Beta-apo-8'-carotenal", #C.I. Food orange 6", #E number 160E", #Trans-beta-apo-8'-carotenal", #C30H40O
+"additives/en:e160f", #Ethyl ester of beta-apo-8'-carotenic acid (C 30)", #Ethyl ester of beta-apo-8'-carotenic acid ", #Food orange 7
+"additives/en:e161", #Xanthophylls
+"additives/en:e161a", #Flavoxanthin
+"additives/en:e161b", #Lutein", #Mixed Carotenoids", #Xanthophyll", #SID548587
+"additives/en:e161c", #Cryptoaxanthin", #Cryptoxanthin
+"additives/en:e161d", #Rubixanthin
+"additives/en:e161e", #Violaxanthin
+"additives/en:e161f", #Rhodoxanthin
+"additives/en:e161g", #Canthaxanthin
+"additives/en:e161h", #Zeaxanthin
+"additives/en:e161i", #Citranaxanthin
+"additives/en:e161j", #Astaxanthin
+"additives/en:e162", #Beetroot red", #betanin
+"additives/en:e163", #Anthocyanins", #Anthocyanin
+"additives/en:e163a", #Cyanidin
+"additives/en:e163b", #Delphinidin
+"additives/en:e163c", #Malvidin
+"additives/en:e163d", #Pelargonidin
+"additives/en:e163e", #Peonidin
+"additives/en:e163f", #Petunidin
+"additives/en:e164", #E164 food additive
+"additives/en:e165", #E165 food additive
+"additives/en:e166", #E166 food additive
+"additives/en:e170", #Calcium carbonate", #CI Pigment White 18", #Chalk
+"additives/en:e171", #Titanium dioxide
+"additives/en:e172", #Iron oxides and iron hydroxides
+"additives/en:e173", #Aluminium", #Aluminum", #element 13
+"additives/en:e174", #Silver", #element 47
+"additives/en:e175", #Gold", #Pigment Metal 3", #element 79
+"additives/en:e180", #Litholrubine bk", #CI Pigment Red 57", #Rubinpigment", #Pigment Rubine", #Lithol rubine bk
+"additives/en:e181", #Tannin
+"additives/en:e182", #Orcein
+
+# flavour enhancers
+
+"additives/en:e421" => 4, #Mannitol
+"additives/en:e620" => 4, #Glutamic acid, L(+)-
+"additives/en:e621" => 4, #Monosodium L-glutamate
+"additives/en:e622" => 4, #Monopotassium L-glutamate
+"additives/en:e623" => 4, #Calcium di-L-glutamate
+"additives/en:e624" => 4, #Monoammonium L-glutamate
+"additives/en:e625" => 4, #Magnesium di-L-glutamate
+"additives/en:e626" => 4, #Guanylic acid, 5'-
+"additives/en:e627" => 4, #Disodium 5'-guanylate
+"additives/en:e628" => 4, #Dipotassium 5'-guanylate
+"additives/en:e629" => 4, #Calcium 5'-guanylate
+"additives/en:e630" => 4, #Inosinic acid, 5'-
+"additives/en:e631" => 4, #Disodium 5'-inosinate
+"additives/en:e632" => 4, #Potassium 5’-inosinate
+"additives/en:e633" => 4, #Calcium 5'-inosinate
+"additives/en:e634" => 4, #Calcium 5'-ribonucleotides
+"additives/en:e635" => 4, #Disodium 5'-ribonucleotides
+"additives/en:e636" => 4, #Maltol
+"additives/en:e637" => 4, #Ethyl maltol
+
+# sweeteners
+
+"additives/en:e420" => 4, #Sorbitol
+
+"additives/en:e950" => 4, #Acesulfame potassium
+"additives/en:e951" => 4, #Aspartame
+"additives/en:e952" => 4, #Calcium cyclamate
+"additives/en:e953" => 4, #Isomalt (Hydrogenated isomaltulose)
+"additives/en:e954" => 4, #Calcium saccharin
+"additives/en:e955" => 4, #Sucralose (Trichlorogalactosucrose)
+"additives/en:e956" => 4, #Alitame
+"additives/en:e957" => 4, #Thaumatin
+"additives/en:e960" => 4, #Steviol glycosides
+"additives/en:e961" => 4, #Neotame
+"additives/en:e962" => 4, #Aspartame-acesulfame salt
+"additives/en:e964" => 4, #Polyglycitol syrup
+"additives/en:e965" => 4, #Maltitol
+"additives/en:e966" => 4, #Lactitol
+"additives/en:e967" => 4, #Xylitol
+"additives/en:e968" => 4, #Erythritol
+"additives/en:e969" => 4, #Advantame
+
+
+
+"additives/en:e330" => 4,
+"additives/en:e338" => 4,
+"additives/en:e339" => 4,
+"additives/en:e340" => 4,
+"additives/en:e341" => 4,
+"additives/en:e343" => 4,
+"additives/en:e450" => 4,
+"additives/en:e451" => 4,
+"additives/en:e452" => 4,
+"additives/en:e471" => 4,
+"additives/en:e14xx" => 4,
 
 };
+
+
 
 
 
