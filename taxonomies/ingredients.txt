@@ -5,6 +5,10 @@ stopwords:nl:bevat,en
 stopwords:nl_be:bevat,en
 stopwords:de:und,mit,von
 
+#
+en:ingredient
+fr:ingrédient
+
 # additive classes (from Global_additives_classes_taxonomy)
 
 en: Acid
@@ -703,6 +707,30 @@ fr:beurre
 allergens:fr:_beurre_
 
 <en:butter
+fr:huile de beurre
+allergens:fr:_huile de beurre_
+
+<en:butter
+fr:beurre demi-sel
+allergens:fr:_beurre_ demi-sel
+
+<en:butter
+fr:beurre de baratte
+allergens:fr:_beurre_ de baratte
+
+<en:butter
+en:pasteurized butter, pasteurised butter
+fr:beurre pasteurisé
+allergens:fr:_beurre_ pasteurisé
+
+<en:butter
+fr:_beurre_ d'isigny aop
+
+<en:butter
+fr:beurre concentré reconstitué
+allergens:fr:_beurre_ concentré reconstitué
+
+<en:butter
 en:clarified butter
 fr:beurre clarifié
 de:butterschmalz
@@ -987,22 +1015,49 @@ allergens:fr:_lait_ entier reconstitué
 fr:lait concentré sucré écrémé
 allergens:fr:_lait_ concentré sucré écrémé
 
-<en:milk
-fr:lait demi-écrémé stérilisé uht
-
 en:lactose
 fr:lactose
 allergens:fr:_lactose_
 
-fr:matière grasse lactique
-
-fr:perméat de lactosérum
-
+<en:lactose
+en:lactose powder, powdered lactose
 fr:poudre de lactose
 allergens:fr:poudre de _lactose_
 
-# VITAMINS
 
+fr:matière grasse lactique
+
+en:whey
+fr:lactosérum
+
+<fr:lactosérum
+fr:perméat de lactosérum
+
+<en:whey
+en:whey powder, powdered whey
+fr:lactosérum en poudre
+allergens:fr:_lactosérum_ en poudre
+
+<en:whey
+fr:lactosérum doux en poudre
+allergens:fr:_lactosérum_ doux en poudre
+
+<en:whey
+fr:lactosérum déminéralisé
+allergens:fr:_lactosérum_ déminéralisé
+
+<en:whey
+fr:lactosérum concentré
+allergens:fr:_lactosérum_ concentré
+
+<enn:whey
+en:whey proteins
+fr:protéines de lactosérum
+allergens:fr:protéines de _lactosérum_
+
+
+
+# VITAMINS
 
 en:vitamins, vitamin
 fr:vitamines, vitamine
@@ -1160,8 +1215,6 @@ fr:sels minéraux de mer
 
 fr:sel fumé
 
-fr:sel émulsifiant, sels émulsifiants
-
 fr:sel de camargue
 
 fr:sels de magnésium d'acides gras
@@ -1173,7 +1226,6 @@ fr:sel marin de guérande
 fr:sel dextrose
 
 fr:sel nitrité iodé
-
 
 # MEATS
 
@@ -1278,8 +1330,6 @@ fr:plasma de porc
 
 fr:os de porc
 
-fr:boyau naturel de porc
-
 fr:couenne de porc
 
 fr:foie de porc
@@ -1358,9 +1408,6 @@ fr:présure de veau
 
 fr:os de veau
 
-<en:meat
-fr:viande bovine
-
 fr:viande de dinde
 
 fr:viande de poulet
@@ -1434,8 +1481,8 @@ en:corn starch, maize starch
 fr:amidon de mais, amidon de maïs
 
 <en:starch
-en:modified starch
-fr:amidon transformé
+en:modified starch, modified starches
+fr:amidon transformé, amidon modifié, amidons modifiés, amidons transformés
 
 <en:modified starch
 fr:amidon transformé de pommes de terre
@@ -1472,7 +1519,10 @@ fr:amidon de manioc
 
 <en:starch
 en:potato starch
-fr:amidon de pommes de terre, amidon de pomme de terre
+es:fécula de patata
+nl:aardappelzetmeel
+de:Kartoffelstärke
+fr:amidon de pommes de terre, amidon de pomme de terre, fécule de pommes de terre
 
 <en:starch
 fr:amidon de froment
@@ -1485,17 +1535,13 @@ fr:amidon de tapioca
 <en:starch
 fr:amidon de riz
 
-<en:starch
-en:modified starch
-fr:amidon modifié
-
 <en:modified starch
 <en:corn starch
 fr:amidon modifié de mais
 
 <en:modified starch
 <en:potato starch
-fr:amidon modifié de pomme de terre, amidon modifié de pommes de terre
+fr:amidon modifié de pomme de terre, amidon modifié de pommes de terre, amidon de pomme de terre modifié
 
 <en:modified starch
 <en:tapioca starch
@@ -1525,11 +1571,48 @@ fr:fécule de pomme de terre, fécule de pommes de terre
 fr:fécule de manioc
 
 <en:starch
-en:potato starch
-es:fécula de patata
-fr:fécule de pommes de terre, fécule de pomme de terre
-nl:aardappelzetmeel
-de:Kartoffelstärke
+<en:potato starch
+en:modified potato starch
+fr:amidon de pommes de terre modifié
+
+<en:starch
+fr:amidons de blé et de pomme de terre
+allergens:fr:amidons de _blé_ et de pomme de terre
+
+<en:starch
+fr:amidon modifié de blé
+allergens:fr:amidon modifié de _blé_
+
+<en:starch
+fr:amidon transformé de blé
+allergens:fr:amidon transformé de _blé_
+
+<en:starch
+en:modified tapioca starch
+fr:amidon de tapioca modifié
+
+<en:starch
+fr:amidon modifié de maïs visqueux
+
+<en:starch
+fr:amidon de blé partiellement modifié
+
+<en:starch
+fr:amidon natif de maïs
+
+<en:starch
+fr:amidons modifiés de maïs
+
+<en:starch
+en:modified rice starch
+fr:amidon de riz modifié, amidon transformé de riz, amidons transformés de riz, amidon modifié de riz
+
+<en:starch
+en:modified corn starch, modified corn starches
+fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de maïs, amidon de maïs modifié, amidons modifié de maïs
+
+<en:starch
+fr:amidons modifiés de maïs et de pomme de terre
 
 # Huile de palme
 
@@ -1586,9 +1669,6 @@ en:copra oil, coconut oil
 fr:huile de coco, huile de noix de coco, huile de coprah
 
 fr:matière grasse de coco
-
-<en:copra oil
-fr:graisse de coprah
 
 <en:copra oil
 fr:graisse de coprah
@@ -1795,6 +1875,8 @@ fr:vin blanc
 en:red wine
 fr:vin rouge
 
+fr:pinot noir
+
 <en:alcohol
 fr:brandy
 
@@ -1840,6 +1922,9 @@ es:coñac
 fr:cognac
 nl:cognac
 de:Cognac
+
+<en:cognac
+fr:cognac modifié
 
 <en:alcohol
 en:Cointreau
@@ -1893,18 +1978,16 @@ fr:alcool éthylique
 
 <en:alcohol
 en:beer
+de:Bier
 fr:bière
 
 # AROMES
 
-en:flavourings 
+en:flavour, flavor, flavouring, flavoring, aroma, flavours, flavors, flavourings, flavorings, aromas
 es:aromas
-fr:arômes
+fr:arôme, arômes
 nl:aroma's 
 de:Aromen
-
-en:flavour, flavor, flavouring, flavoring, aroma, flavours, flavors, flavourings, flavorings, aromas
-fr:arôme, arômes
 
 <en:flavour
 en:natural flavour, natural flavor, natural flavouring, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
@@ -1942,10 +2025,6 @@ fr:arôme naturel d'anis étoilé
 fr:arôme naturel de pamplemousse
 
 <en:natural flavour
-en:natural pepper flavor
-fr:arôme naturel poivre
-
-<en:natural flavour
 en:natural carrot flavor
 fr:arôme naturel de carotte
 
@@ -1981,9 +2060,6 @@ fr:avec autres arômes naturels
 
 <en:natural flavour
 en:other natural flavours
-fr:autres arômes naturels
-
-<en:natural flavour
 fr:autres arômes naturels
 
 <en:natural flavour
@@ -2039,7 +2115,7 @@ fr:arôme naturel de citron
 
 <en:natural flavour
 en:natural pepper flavor
-fr:arôme naturel de poivre
+fr:arôme naturel de poivre, arôme naturel poivre
 
 <en:natural flavour
 fr:arôme naturel de citron-citron vert
@@ -2118,9 +2194,6 @@ fr:arôme naturel de muscade
 
 <en:natural flavour
 fr:arôme naturel de noix de coco
-
-<en:natural flavour
-fr:autres arômes naturels
 
 <en:natural flavour
 en:natural mint flavours
@@ -2214,13 +2287,6 @@ allergens:fr:farine complète d'_épeautre_
 
 fr:farine de guar
 
-en:wholemeal rye flour
-es:harina de centeno integral
-fr:farine complète de seigle
-nl:volkoren roggemeel
-de:Roggenvollkornmehl
-allergens:fr:farine complète de _seigle_
-
 en:dextrinated barley flour
 es:harina de cebada dextrinada
 fr:farine d’orge dextrinée
@@ -2269,12 +2335,6 @@ allergens:fr:farine d'_avoine_
 
 fr:farine d'avoine complète
 allergens:fr:farine d'_avoine_ complète
-
-en:dextrinated oatmeal
-es:harina de avena dextrinada
-fr:farine d’avoine dextrinée
-nl:gedextrineerd havermeel
-de:dextriniertes Hafermehl
 
 fr:farine complète de blé
 allergens:fr:farine complète de _blé_
@@ -2326,6 +2386,7 @@ en:invert sugar, inverted sugar
 fr:sucre inverti
 
 <en:invert sugar
+<en:sugar syrup
 en:invert sugar syrup, invert syrup, liquid invert syrup
 fr:sirop de sucre inverti
 
@@ -2378,7 +2439,7 @@ en:liquid sugar
 fr:sucre liquide
 
 <en:sugar
-en:grape sugar
+en:grape sugar, raisin sugar
 fr:sucre de raisin
 
 <en:sugar
@@ -2396,18 +2457,10 @@ de:Ahornsirup
 en:sugar syrup
 fr:sirop de sucre
 
-en:liquid sugar
-fr:sucre liquide
-
 fr:sirop de sucre candi
 
 en:glucose
 fr:glucose
-
-<en:glucose
-en:glucose syrup
-fr:sirop de glucose
-wikidata:en:Q14770547
 
 fr:glucose-fructose
 
@@ -2465,9 +2518,6 @@ fr:sirop de sorbitol
 en:rice syrup
 fr:sirop de riz
 
-<en:sugar syrup
-fr:sirop de sucre inverti
-
 <en:sugar
 en:caramelised sugar syrup 
 es:jarabe de azúcar caramelizado 
@@ -2487,6 +2537,13 @@ fr:protéine végétale hydrolysée
 fr:protéines de soja réhydratées
 allergens:fr:protéines de _soja_ réhydratées
 
+en:milk protein
+es:proteína de leche
+fr:protéine de lait
+nl:melkeiwit
+de:Milcheiweiß
+allergens:fr:protéine de _lait_
+
 en:milk proteins
 fr:protéines de lait
 allergens:fr:protéines de _lait_
@@ -2504,10 +2561,6 @@ fr:protéines lactiques, protéine lactique
 
 fr:protéines du lait, protéines du lait
 allergens:fr:protéines du _lait_
-
-fr:protéine de lait
-allergens:fr:protéine de _lait_
-
 
 fr:protéine de soja, protéines de soja
 allergens:fr:protéines de _soja_
@@ -2631,13 +2684,14 @@ nl:cacaoboter
 de:Kakaobutter
 wikidata:en:Q251106
 
+<en:cocoa butter
+fr:beurre de cacao émulsifiant
+
 en:cocoa paste
 fr:pâte de cacao
 
-en:spice, spices
-fr:épice, épices
-
 en:soy lecithin
+es:lecitina de soja
 fr:lécithine de soja, lécithines de soja
 allergens:fr:lécithine de _soja_
 
@@ -2658,9 +2712,6 @@ en:soy
 fr:soja
 allergens:fr:_soja_
 
-fr:crème
-allergens:fr:_crème_
-
 en:gelifier
 fr:gélifiant
 
@@ -2675,8 +2726,6 @@ fr:persil
 
 en:xanthan gum
 fr:gomme xanthane, gomme de xanthane
-
-fr:nitrite de sodium
 
 en:carot
 fr:carotte
@@ -2724,11 +2773,6 @@ fr:sorbate de potassium
 
 fr:cacao maigre en poudre
 
-fr:lactosérum en poudre
-allergens:fr:_lactosérum_ en poudre
-
-fr:carbonates de sodium
-
 fr:gomme guar, gomme de guar
 
 en:turmeric
@@ -2748,9 +2792,6 @@ en:cooking salt
 fr:sel de cuisine
 
 fr:lécithine, lécithines
-
-fr:noisette
-allergens:fr:_noisettes_
 
 en:sodium ascorbate
 fr:ascorbate de sodium
@@ -2857,6 +2898,7 @@ fr:présure
 
 fr:carbonate acide de sodium
 
+en:pectin
 fr:pectine
 
 fr:mono et diglycérides d'acides gras
@@ -2865,9 +2907,6 @@ fr:extrait de malt d'orge
 allergens:fr:extrait de malt d'_orge_
 
 fr:diphosphate
-
-en:thyme
-fr:thym
 
 fr:glycérol
 
@@ -2884,8 +2923,6 @@ fr:plante aromatique, plantes aromatiques
 
 fr:paprika
 
-fr:coriandre
-
 fr:origan
 
 en:apple
@@ -2894,17 +2931,6 @@ fr:pomme
 nl:appel
 de:Äpfel
 wikidata:en:Q89
-
-fr:lactose et protéines de lait
-allergens:fr:_lactose_ et protéines de _lait_
-
-en:sweetener, sweeteners
-fr:édulcorant, édulcorants
-
-fr:chapelure
-
-en:flavour enhancer
-fr:exhausteur de goût, exhausteurs de goût
 
 en:lemon
 es:limón
@@ -2924,8 +2950,16 @@ fr:caroténoïde
 fr:malt d'orge
 allergens:fr:malt d'_orge_
 
-en:ingredient
-fr:ingrédient
+fr:lactose et protéines de lait
+allergens:fr:_lactose_ et protéines de _lait_
+
+en:sweetener, sweeteners
+fr:édulcorant, édulcorants
+
+fr:chapelure
+
+en:flavour enhancer
+fr:exhausteur de goût, exhausteurs de goût
 
 fr:érythorbate de sodium
 
@@ -2961,12 +2995,7 @@ fr:cannelle
 
 fr:poireau, poireaux
 
-fr:carbonates d'ammonium
-
 fr:energie
-
-fr:lactosérum
-allergens:fr:_lactosérum_
 
 fr:muscade
 
@@ -3075,9 +3104,6 @@ fr:agent d'enrobage
 
 fr:carbonate acide d'ammonium
 
-fr:romarin
-
-fr:extrait naturel de romarin
 en:iron
 fr:fer
 
@@ -3204,13 +3230,6 @@ de:Himbeeren
 fr:avoine
 allergens:fr:_avoine_
 
-en:cashew nuts
-es:anacardos
-fr:noix de cajou
-nl:cashewnoten
-de:Cashewkerne
-allergens:fr:_noix de cajou_
-
 fr:jus concentré de citron
 
 fr:pectine de fruit, pectines de fruits
@@ -3312,9 +3331,6 @@ fr:cornichon, cornichons
 nl:augurken
 de:Gurken
 
-fr:cacahuète
-allergens:fr:_cacahuètes_
-
 fr:anthocyane
 
 fr:chlorure de potassium
@@ -3347,16 +3363,8 @@ fr:alginate de sodium
 
 fr:b5
 
-fr:poudre de lactosérum
-allergens:fr:poudre de _lactosérum_
 
-fr:haricot vert, haricots verts
-
-en:brown beans
-es:habichuela parda
-fr:haricots bruns
-nl:bruine bonen
-de:braune Bohnen
+# Random
 
 en:Pantothenic acid
 es:ácido pantoténico
@@ -3651,8 +3659,6 @@ fr:inuline
 fr:disulfite de sodium
 allergens:fr:_disulfite_ de sodium
 
-fr:extrait d'épice, extraits d'épices
-
 fr:acétate de sodium
 
 fr:pp
@@ -3660,9 +3666,6 @@ fr:pp
 fr:fenouil
 
 fr:eau de source
-
-fr:arachide
-allergens:fr:_arachides_
 
 fr:phosphate de calcium, phosphates de calcium
 
@@ -3696,9 +3699,6 @@ fr:lactate de potassium
 fr:fromage blanc
 allergens:fr:_fromage_ blanc
 
-en:mint
-fr:menthe
-
 en:blackcurrant
 es:grosella negra
 fr:cassis
@@ -3730,8 +3730,6 @@ fr:noix de coco râpée
 fr:fibres de blé
 allergens:fr:fibres de _blé_
 
-fr:mélasse
-
 fr:câpre
 
 fr:poulet
@@ -3747,15 +3745,17 @@ fr:diphosphate et carbonate de calcium, diphosphates et carbonates de sodium
 
 fr:levure boulangère
 
+en:mustard seed
+es:grano de mostaza
 fr:graine de moutarde
+nl:mosterdzaad
+de:Senfsaaten
 allergens:fr:graine de _moutarde_
 
 fr:phosphate de calcium
 
 en:acetic acid
 fr:acide acétique
-
-fr:pois chiche, pois chiches
 
 fr:maltitol
 
@@ -3805,6 +3805,9 @@ allergens:fr:_yaourt_
 fr:gomme d'acacia
 
 # Pepper
+
+en:spice, spices
+fr:épice, épices
 
 en:pepper
 fr:poivre
@@ -4029,7 +4032,11 @@ fr:taurine
 fr:flocons de blé, flocon de blé
 allergens:fr:flocons de _blé_
 
+en:turnip
+es:naba
 fr:navet
+nl:meiraap
+de:Mairüben
 
 fr:lait de chèvre pasteurisé
 allergens:fr:_lait_ de chèvre pasteurisé
@@ -4065,7 +4072,11 @@ fr:mandarine
 
 fr:condiment
 
+en:lemongrass
+es:hierbalimón
 fr:citronnelle
+nl:citroengras
+de:Zitronengras
 
 # Tomato derivatives
 
@@ -4180,8 +4191,6 @@ fr:tomates en poudre, tomate en poudre
 
 fr:tomate déshydratée
 
-fr:double concentré de tomate
-
 en:cherry tomato
 es:tomate cherry
 fr:tomate cerise, tomates cerises
@@ -4231,9 +4240,6 @@ fr:riz blanc
 fr:riz précuit
 
 fr:crème de riz
-
-<en:rice
-fr:riz basmati
 
 <en:rice
 fr:riz soufflé
@@ -4427,8 +4433,6 @@ fr:lin
 
 fr:patate douce, patates douces
 
-fr:chlorure de sodium
-
 fr:praliné
 
 fr:sulfate de cuivre
@@ -4437,8 +4441,6 @@ fr:sulfate de cuivre
 
 en:beewax
 fr:cire d'abeille
-
-fr:cire d'abeille blanche et jaune
 
 fr:cire d'abeille blanche et jaune
 
@@ -4469,8 +4471,6 @@ es:extracto de cúrcuma
 fr:extrait de curcuma 
 nl:kurkuma extract
 de:Kurkumaextrakt
-
-fr:canneberge
 
 en:caramel
 fr:caramel
@@ -4607,8 +4607,6 @@ de:Blumenkohl
 fr:concentré des minéraux du lait
 allergens:fr:concentré des minéraux du _lait_
 
-fr:haricot rouge, haricots rouges
-
 fr:cassonade
 
 fr:purée de framboise, purée de framboises
@@ -4623,6 +4621,8 @@ allergens:fr:concentré de minéraux du _lait_
 fr:nouilles, nouille
 
 fr:réglisse
+
+fr:purée de marrons
 
 fr:marron
 
@@ -4678,8 +4678,6 @@ fr:betterave rouge déshydratée
 
 fr:concentré de jus de betterave rouge
 
-fr:betterave rouge, betteraves rouges
-
 # Random
 
 fr:dioxyde de silicium
@@ -4696,13 +4694,11 @@ allergens:fr:_sulfite_ acide de sodium
 
 fr:foie de poulet
 
-fr:concentré de carotte
+fr:concentré de carotte, concentré de carottes
 
 fr:invertase
 
 fr:jus concentré de sureau
-
-fr:lupin
 
 fr:sauce de soja
 allergens:fr:sauce de _soja_
@@ -4796,18 +4792,17 @@ fr:tocophérol
 fr:morue
 allergens:fr:_morue_
 
+en:menthol
+es:mentol
 fr:menthol
+nl:menthol
+de:Menthol
 
 en:cheddar
-allergens:fr:_cheddar_
 fr:cheddar
 allergens:fr:_cheddar_
 
 fr:nouilles
-
-fr:tocophérol
-
-fr:sulfate de fer
 
 fr:maïs doux
 
@@ -4818,8 +4813,6 @@ en:sodium chlorure
 fr:chlorure de sodium
 
 fr:surimi
-
-fr:dioxyde de titane
 
 fr:gras
 
@@ -4851,21 +4844,13 @@ fr:extrait de thé noir
 nl:zwarte thee extract
 de:Schwarztee-Extrakt
 
-fr:ferments lactiques dont bifidobacterium
-
-fr:concentré de carotte
-
 fr:mayonnaise allégée en matières grasses
-
-fr:tapioca
 
 fr:concentré de citron
 
 fr:pulpe d'orange
 
 fr:algues euchema transformées
-
-fr:poudre levante
 
 fr:rhubarbe
 
@@ -4881,8 +4866,6 @@ fr:purée de bananes
 
 fr:bleu brillant fcf
 
-fr:aubergine
-
 fr:peau de poulet
 
 fr:couenne
@@ -4895,8 +4878,6 @@ fr:pâtes cuites
 
 fr:métabisulfite de sodium
 allergens:fr:_métabisulfite_ de sodium
-
-fr:dioxyde de carbone
 
 en:red currant
 es:grosella
@@ -4942,9 +4923,7 @@ fr:ferments lactiques sélectionnés
 
 fr:gelée
 
-fr:acésulfame k 
-
-fr:sucralose
+fr:acésulfame k
 
 fr:flocons de céréales
 
@@ -4959,20 +4938,12 @@ allergens:fr:_noix de saint-jacques_
 
 fr:ortie
 
-fr:enzyme
-
 fr:malate acide de sodium, e350ii
-
-fr:dioxyde de silicium
 
 fr:alpha-tocophérol, e307
 
-fr:couenne
-
 fr:semoule de blé dur réhydratée
 allergens:fr:semoule de _blé_ dur réhydratée
-
-fr:ciboulette
 
 fr:châtaignes
 
@@ -4988,8 +4959,6 @@ es:zumo de choucroute
 fr:jus de choucroute
 nl:zuurkoolsap
 de:Sauerkrautsaft
-
-fr:purée et purée concentrée
 
 fr:gomme de caroube
 
@@ -5014,18 +4983,10 @@ fr:pain spécial
 fr:morue
 allergens:fr:_morue_
 
-fr:pois
-
 fr:oncorhynchus mykiss
-
-fr:lysozyme
-
-fr:lutéine
 
 fr:comté
 allergens:fr:_comté_
-
-fr:aromate
 
 fr:foie gras de canard du sud-ouest
 
@@ -5039,8 +5000,6 @@ allergens:fr:filets de _sardines_
 fr:fructo-oligosaccharides
 
 fr:penicillium roqueforti
-
-fr:extrait de paprika
 
 fr:avoine complète
 allergens:fr:_avoine_ complète
@@ -5102,8 +5061,6 @@ de:Endivien
 
 fr:pignons de pin
 
-fr:pain azyme
-
 fr:gomme gellane
 
 fr:diacétate de sodium
@@ -5149,8 +5106,6 @@ fr:pulpes de fruits
 fr:badiane
 
 fr:herbes de provence
-
-fr:sodium
 
 fr:caroube
 
@@ -5231,18 +5186,11 @@ fr:jus d'ananas à base de concentré
 
 fr:sucroesters d'acides gras
 
-fr:menthe poivrée
-
 fr:levure sèche
-
-fr:potassium
 
 fr:bêtacarotène
 
-
 fr:poudre de paprika
-
-fr:fruit
 
 fr:aubergines grillées
 treatment:en: en:gril
@@ -5463,8 +5411,6 @@ allergens:fr:perméat de petit _lait_
 
 fr:diphosphate disodique et carbonate acide de sodium
 
-fr:curry
-
 fr:extraits de thé
 
 fr:citrons
@@ -5474,7 +5420,7 @@ fr:pantothénate de calcium
 fr:flocons d'épeautre
 allergens:fr:flocons d'_épeautre_
 
-:ifr:cranberry
+fr:cranberry
 
 fr:fruits secs
 
@@ -5564,18 +5510,11 @@ allergens:fr:extrait de _céleri_
 
 fr:jus d'orange et autres agrumes à base de concentrés
 
-fr:basilic
-
-fr:origan
-
 fr:maïs doux en grains sans ogm
 
 fr:condiments
 
 fr:matière grasse de karité
-
-fr:lactosérum doux en poudre
-allergens:fr:_lactosérum_ doux en poudre
 
 fr:aronia
 
@@ -6187,32 +6126,6 @@ fr:olive verte, olives verte
 <fr:olive verte
 fr:olives vertes dénoyautées
 
-# BEURRE (LAITIER)
-
-<en:butter
-fr:huile de beurre
-allergens:fr:_huile de beurre_
-
-<en:butter
-fr:beurre demi-sel
-allergens:fr:_beurre_ demi-sel
-
-<en:butter
-fr:beurre de baratte
-allergens:fr:_beurre_ de baratte
-
-<en:butter
-en:pasteurized butter, pasteurised butter
-fr:beurre pasteurisé
-allergens:fr:_beurre_ pasteurisé
-
-<en:butter
-fr:_beurre_ d'isigny aop
-
-<en:butter
-fr:beurre concentré reconstitué
-allergens:fr:_beurre_ concentré reconstitué
-
 # HUILE VEGETALE
 
 <en:Sunflower
@@ -6329,10 +6242,6 @@ fr:huile de tournesol partiellement hydrogénée
 <en:vegetable oils
 <en:sunflower oils
 fr:huile de tournesol entièrement hydrogénée
-
-<en:vegetable oils
-<en:sunflower oils
-fr:huile de tournesol non hydrogénée
 
 <en:vegetable oils
 <en:sunflower oils
@@ -6453,7 +6362,6 @@ de:teilweise gehärtetes Sonnenblumenfett
 
 <en:sunflower fat
 en:fully hydrogenated sunflower fat
-es:grasa de girasol parcialmente hidrogenada
 fr:graisse de tournesol entièrement hydrogénée
 nl:zonnebloemvet geheel gehard
 de:ganz gehärtetes Sonnenblumenfett
@@ -6496,15 +6404,13 @@ es:leche desnatada condensada
 fr:lait écrémé condensé
 nl:gecondenseerde magere melk
 de:Kondensmagermilch
+allergens:fr:_lait_ écrémé condensé
 
 fr:lait écrémé condensé sucré
 allergens:fr:_lait_ écrémé condensé sucré
 
 fr:lait condensé sucré
 allergens:fr:_lait_ condensé sucré
-
-fr:lait écrémé condensé
-allergens:fr:_lait_ écrémé condensé
 
 en:condensed semi-skimmed milk
 es:leche semidesnatada condensada
@@ -6626,8 +6532,9 @@ en:syrup
 fr:sirop
 
 <en:syrup
+en:glucose syrup
 fr:sirop de glucose
-de:Glukosesirup
+wikidata:en:Q14770547
 
 <fr:sirop de glucose
 fr:sirop de glucose en poudre
@@ -6646,9 +6553,6 @@ fr:sirop de glucose-fructose
 
 <fr:sirop de glucose-fructose
 fr:sirop de glucose-fructose de maïs
-
-<fr:sirop de glucose-fructose
-fr:sirop de glucose-fructose de blé
 
 <en:syrup
 fr:sirop de sorbitol de blé
@@ -6682,9 +6586,11 @@ fr:sucre brut de canne
 <en:sugar
 fr:sirop de sucre mélassé
 
-<en:sugar
-en:raisin sugar
-fr:sucre de raisin
+en:molasses
+es:melaza
+fr:mélasse
+nl:melasse
+de:Melasse
 
 <en:sugar
 fr:sucre caramélisé en poudre
@@ -6723,76 +6629,6 @@ fr:sucre de canne blanc
 
 <en:sugar
 fr:mélasse de canne, mélasse de sucre de canne
-
-# AMIDONS
-
-<en:starches
-<en:potato starch
-en:modified potato starch
-fr:amidon de pommes de terre modifié
-
-<en:starches
-fr:amidons de blé et de pomme de terre
-allergens:fr:amidons de _blé_ et de pomme de terre
-
-<en:starches
-fr:amidon modifié de blé
-allergens:fr:amidon modifié de _blé_
-
-<en:starches
-fr:amidon transformé de blé
-allergens:fr:amidon transformé de _blé_
-
-<en:starches
-en:modified rice starch
-fr:amidon modifié de riz
-
-<en:starches
-en:modified tapioca starch
-fr:amidon de tapioca modifié
-
-<en:starches
-en:modified starches
-fr:amidons transformés, amidon transformé
-
-<en:starches
-en:modified starch
-fr:amidon modiﬁé
-
-<en:starches
-fr:amidon modifié de maïs visqueux
-
-<en:starches
-en:modified rice starch
-fr:amidons transformés de riz
-
-<en:starches
-en:modified corn starch
-fr:amidon modiﬁé de maïs
-
-<en:starches
-fr:amidon de blé partiellement modifié
-
-<en:starches
-en:modified corn starches
-fr:amidons transformés de maïs
-
-<en:starches
-fr:amidon natif de maïs
-
-<en:starches
-fr:amidons modifiés de maïs
-
-<en:starches
-en:modified rice starch
-fr:amidon de riz modifié
-
-<en:starches
-en:modified corn starch
-fr:amidon transformé de maïs, amidon de maïs transformé
-
-<en:starches
-fr:amidons modifiés de maïs et de pomme de terre
 
 # A TRIER
 
@@ -6876,12 +6712,6 @@ fr:oignons frais
 
 <en:onions
 fr:oignons grillés
-
-<en:onions
-fr:oignons
-
-<en:onions
-fr:oignon en poudre, oignons en poudre
 
 <en:onions
 fr:oignon frit, oignons frits
@@ -7082,7 +6912,30 @@ fr:carbonates de potassium
 
 fr:phosphate trisodique
 
+# MENTHE
+
+en:mint
+es:menta
+fr:menthe
+nl:munt
+de:Minze
+
+<en:mint
+en:peppermint
+de:Pfefferminz
+fr:menthe poivrée
+
+<en:peppermint
+en:peppermint oil
+es:aceite de menta
+fr:huile de menthe poivrée
+nl:pepermuntolie
+de:Pfefferminzöl
+
+<en:mint
 fr:menthe douce
+
+# RANDOM
 
 fr:fumée de bois de hêtre
 
@@ -7098,19 +6951,11 @@ fr:aronie, aronia
 
 fr:chicorée soluble
 
-fr:carbonates de sodium
-
-fr:ferments lactique
-
 fr:extraits naturels
 
 fr:fibres d'ananas
 
-fr:framboise
-
 fr:cynorrhodon
-
-fr:sirop de glucose et de fructose, sirop de fructose-glucose, sirop de glucose-fructose
 
 fr:lardons cuits fumés
 
@@ -7181,8 +7026,6 @@ fr:psyllium
 fr:gorgonzola
 allergens:fr:_gorgonzola_
 
-fr:aneth
-
 fr:crème uht
 allergens:fr:_crème_ uht
 
@@ -7239,8 +7082,6 @@ allergens:fr:farine de _seigle_ complet
 fr:purée de citron
 
 fr:galette
-
-fr:érythorbate de sodium
 
 fr:enzymes coagulantes
 
@@ -7446,9 +7287,6 @@ fr:charbon végétal médicinal
 
 fr:phosphatides d'ammonium
 
-fr:protéines de lactosérum
-allergens:fr:protéines de _lactosérum_
-
 fr:vanille bourbon naturelle en gousse
 
 fr:purées de fruits
@@ -7465,12 +7303,6 @@ fr:graines de cumin
 
 fr:lécithine de soja e322
 allergens:fr:lécithine de _soja_ e322
-
-fr:cerneaux de noix
-allergens:fr:cerneaux de _noix_
-
-fr:pistache
-allergens:fr:_pistache_
 
 fr:légumes verts
 
@@ -7595,8 +7427,6 @@ fr:gomme xanthane et gomme de guar
 
 fr:extraits de houblon
 
-fr:extrait de vanille
-
 fr:semoule de blé dur complète
 allergens:fr:semoule de _blé_ dur complète
 
@@ -7621,8 +7451,6 @@ fr:colin
 
 en:riboflavin
 fr:riboflavine, riboflavines
-
-fr:persil
 
 fr:fibre d'avoine
 allergens:fr:fibre d'_avoine_
@@ -7671,8 +7499,6 @@ fr:zygochlamys patagonica, Saint-Jacques Zygochlamys patagonica
 
 fr:fumet de poisson aromatisé
 allergens:fr:fumet de _poisson_ aromatisé
-
-fr:gingembre
 
 fr:extraits de légumes
 
@@ -7728,8 +7554,6 @@ fr:flocons de millet
 fr:oxyde de zinc
 
 fr:agent moussant
-
-fr:graines de moutarde
 
 fr:gélatine de poisson
 allergens:fr:gélatine de _poisson_
@@ -7995,8 +7819,6 @@ fr:monostéarate de glycérol
 
 fr:extraits naturels et aromates
 
-fr:lactosérum déminéralisé
-allergens:fr:_lactosérum_ déminéralisé
 
 # Additifs
 
@@ -8106,13 +7928,9 @@ fr:patates douces
 
 fr:vergeoise
 
-fr:nougatine
-
 fr:levain naturel
 
 fr:thunnus albacares
-
-fr:carbonate de calcium
 
 fr:carbonate de fer
 
@@ -8437,8 +8255,6 @@ fr:caramel en poudre
 fr:bha, e320
 
 fr:guanylate de sodium
-
-fr:minéraux
 
 fr:cuivre
 
@@ -9049,8 +8865,6 @@ fr:farine de pomme de terre, farine de pommes de terre
 
 fr:pomme de terre en poudre
 
-fr:amidon de pomme de terre modifié
-
 fr:purée de pommes de terre
 
 fr:flocon de pomme de terre
@@ -9244,9 +9058,6 @@ fr:agent crémeux
 
 fr:fruits séchés
 
-fr:lactosérum concentré
-allergens:fr:_lactosérum_ concentré
-
 fr:fromage grana padano
 
 en:egg
@@ -9324,7 +9135,7 @@ allergens:fr:poudre d'_oeufs_ entiers
 
 en:powdered egg
 es:huevo en polvo
-fr:poudre d'œuf, poudre d'oeuf
+fr:poudre d'œuf, poudre d'oeuf, oeuf en poudre, œuf en poudre
 nl:eipoeder
 de:Eipulver
 allergens:fr:poudre d'_oeuf_
@@ -9424,10 +9235,6 @@ allergens:fr:_œufs_ entiers en poudre
 
 fr:œuf entier en poudre
 allergens:fr:_œuf_ entier en poudre
-
-en:powdered egg
-fr:œuf en poudre
-allergens:fr:_œuf_ en poudre
 
 en:powdered egg white 
 es:clara de huevo en polvo 
@@ -9573,8 +9380,6 @@ fr:fleurs d'hibiscus
 
 fr:eau purifiée
 
-fr:concentré de carottes
-
 fr:purée de carotte
 
 fr:jus de carotte pourpre concentré
@@ -9647,11 +9452,27 @@ fr:mélasse de sucre de canne
 
 fr:jus concentré de betterave
 
-fr:pinot noir
-
 fr:eau gazéifié
 
 fr:extrait de sureau
+
+# Nuts
+
+fr:arachide
+allergens:fr:_arachides_
+
+en:cashew nuts
+es:anacardos
+fr:noix de cajou
+nl:cashewnoten
+de:Cashewkerne
+allergens:fr:_noix de cajou_
+
+fr:noisette
+allergens:fr:_noisettes_
+
+fr:cerneaux de noix
+allergens:fr:cerneaux de _noix_
 
 en:hazelnuts
 fr:noisettes
@@ -9754,39 +9575,7 @@ fr:sauternes
 
 fr:sels
 
-fr:haricot mungo
-
-fr:haricots rouges précuits
-
-fr:haricots verts très fins
-
-fr:haricots rouges réhydratés
-
-fr:pousses de haricot mungo
-
-fr:germe de haricot mungo
-
-fr:pousses de haricots mungo
-
-fr:germes de haricot mungo
-
-fr:haricots beurre
-
-fr:haricots rouges secs trempés
-
-fr:haricots verts coupés
-
-fr:haricots lingots
-
-fr:haricots blancs secs trempés
-
-fr:haricots
-
-fr:haricots verts extra-fins
-
-fr:haricots blancs
-
-fr:haricot vert
+# Random
 
 fr:pousse de bambou
 
@@ -9837,10 +9626,6 @@ fr:champignons, champignon
 
 fr:champignon de paris, champignons de paris
 
-fr:champignons noirs
-
-fr:champignon de paris, champignons de paris
-
 fr:champignon noir réhydraté
 
 fr:champignons noirs réhydratés
@@ -9878,8 +9663,6 @@ fr:crispies de céréales
 
 fr:jus de carotte noire concentré
 
-fr:haricots noirs
-
 fr:boyau de mouton
 
 fr:chlorure d'ammonium
@@ -9889,10 +9672,6 @@ fr:feuilles de vigne
 fr:gélatine de volaille
 
 fr:lentilles rouges
-
-fr:nitrite de sodium
-
-fr:jus de soja
 
 fr:poudre de lactosérum sucré
 
@@ -9906,10 +9685,6 @@ fr:malt de froment
 allergens:fr:malt de _froment_
 
 fr:marc de champagne
-
-fr:purée de marrons
-
-fr:marron
 
 fr:sucre liquide inverti
 
@@ -9968,19 +9743,12 @@ fr:shiitakes
 en:GMO-free soy lecithin
 fr:lécithine de soja sans ogm
 
-en:soy lecithin
-es:lecitina de soja
-fr:lécitine de soja
-allergens:fr:lécitine de _soja_
-
-fr:crème fraîche
-allergens:fr:_crème_ fraîche
-
 en:sour cream
 es:nata agria
 fr:crème fraîche
 nl:zure room
 de:saure Sahne
+allergens:fr:_crème_ fraîche
 
 fr:crème fraîche liquide
 allergens:fr:_crème_ fraîche liquide
@@ -9993,9 +9761,6 @@ allergens:fr:_crème_ fraîche légère
 
 fr:crème fraîche de normandie
 allergens:fr:_crème_ fraîche de normandie
-
-fr:crème fraîche 5‚
-allergens:fr:_crème_ fraîche 5‚
 
 fr:crème fraîche épaisse
 allergens:fr:_crème_ fraîche épaisse
@@ -10064,7 +9829,10 @@ fr:crevette décortiquée
 
 fr:épis de maïs
 
+en:nougat
 fr:nougat
+
+fr:nougatine
 
 fr:crème de marrons
 
@@ -10075,8 +9843,6 @@ fr:pain de mie au blé malté
 allergens:fr:pain de mie au _blé_ malté
 
 fr:sauce aigre-douce
-
-fr:polyphosphate
 
 fr:monodiglycérides de colza
 
@@ -10113,8 +9879,6 @@ fr:noyaux d'abricots, noyau d'abricot
 nl:abrikozenpitten
 de:Aprikosenkerne
 
-fr:caroténoïde
-
 fr:graine d'anis vert
 
 fr:farine de manioc
@@ -10137,10 +9901,6 @@ fr:jus de sureau à base de concentré
 fr:tuber aestivum
 
 fr:sauce caramel
-
-fr:cognac modifié
-
-fr:beurre de cacao émulsifiant
 
 fr:éclats de fèves de cacao torréfiés
 
@@ -10174,8 +9934,6 @@ allergens:fr:produit de _lactosérum_
 
 fr:lentilles vertes cuites
 
-fr:anthocyane
-
 fr:muesli
 
 fr:euthynnus
@@ -10189,8 +9947,6 @@ fr:fumarate ferreux
 fr:sauce rémoulade
 
 fr:gâteau
-
-fr:triphosphate
 
 fr:pétales de blé complet
 allergens:fr:pétales de _blé_ complet
@@ -10249,8 +10005,6 @@ allergens:fr:_orge_ complète
 
 fr:boulghour
 
-fr:épices
-
 fr:anhydride carbonique
 
 fr:chlorhydrate de pyridoxine
@@ -10258,8 +10012,6 @@ fr:chlorhydrate de pyridoxine
 fr:fruits exotiques
 
 fr:liant
-
-fr:colza
 
 fr:semoule de blé tendre
 allergens:fr:semoule de _blé_ tendre
@@ -10304,6 +10056,55 @@ fr:sel nitrité pour saumure
 fr:olives vertes et noires
 
 fr:culture de bifidus
+
+
+# Haricots
+
+fr:haricot vert, haricots verts
+
+en:brown beans
+es:habichuela parda
+fr:haricots bruns
+nl:bruine bonen
+de:braune Bohnen
+
+fr:haricot rouge, haricots rouges
+
+fr:haricot mungo
+
+fr:haricots rouges précuits
+
+fr:haricots verts très fins
+
+fr:haricots rouges réhydratés
+
+fr:pousses de haricot mungo
+
+fr:germe de haricot mungo
+
+fr:pousses de haricots mungo
+
+fr:germes de haricot mungo
+
+fr:haricots beurre
+
+fr:haricots rouges secs trempés
+
+fr:haricots verts coupés
+
+fr:haricots lingots
+
+fr:haricots blancs secs trempés
+
+fr:haricots
+
+fr:haricots verts extra-fins
+
+fr:haricots blancs
+
+fr:haricot vert
+
+fr:haricots noirs
 
 fr:pousse de haricot mungo
 
@@ -10409,12 +10210,6 @@ fr:chartreuse
 nl:chartreuse
 de:Chartreuse
 
-en:lemongrass
-es:hierbalimón
-fr:citronnelle
-nl:citroengras
-de:Zitronengras
-
 fr:mélange de salades
 
 fr:malts
@@ -10496,9 +10291,6 @@ allergens:fr:farine de _blé_ fermenté
 
 fr:farine de blé type 45
 allergens:fr:farine de _blé_ type 45
-
-fr:farine de blé malté
-allergens:fr:de _blé_ malté et de _seigle_
 
 fr:farine de blé enrichie
 allergens:fr:farine de _blé_ enrichie
