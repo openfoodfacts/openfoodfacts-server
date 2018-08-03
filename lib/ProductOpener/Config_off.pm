@@ -294,7 +294,7 @@ $options{favicons} = <<HTML
 <meta name="msapplication-TileImage" content="/images/favicon/mstile-144x144.png">
 <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
 <meta name="_globalsign-domain-verification" content="2ku73dDL0bAPTj_s1aylm6vxvrBZFK59SfbH_RdUya" />
-<meta name=“flattr:id” content=“dw637l”> 
+<meta name="flattr:id" content="dw637l"> 
 HTML
 ;
 
