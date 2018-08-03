@@ -342,6 +342,8 @@ $options{nova_groups_tags} = {
 
 # group 3 tags will not be applied to food identified as group 2
 
+# group 3 ingredients from nova paper
+
 "ingredients/en:preservative" => 3,
 
 "ingredients/en:salt" => 3,
@@ -351,7 +353,14 @@ $options{nova_groups_tags} = {
 "ingredients/en:honey" => 3,
 "ingredients/en:maple-syrup" => 3,
 
-# categories from nova paper
+# other ingredients that we can consider to be at least group 3
+
+"ingredients/en:starch" => 3,
+"ingredients/en:whey" => 4,
+
+
+
+# group 3 categories from nova paper
 
 "categories/en:wines" => 3,
 "categories/en:beers" => 3,
@@ -387,7 +396,7 @@ $options{nova_groups_tags} = {
 "ingredients/en:sequestrant" => 4,
 "ingredients/en:humectant" => 4,
 
-# ingredients from nova paper
+# group 4 ingredients from nova paper
 
 "ingredients/en:flavour" => 4,
 "ingredients/en:casein" => 4,
@@ -405,9 +414,10 @@ $options{nova_groups_tags} = {
 "ingredients/en:dextrose" => 4,
 "ingredients/en:milk-powder" => 4,
 "ingredients/en:milk-proteins" => 4,
+"ingredients/en:whey-proteins" => 4,
 
 
-# categories from nova paper
+# group 4 categories from nova paper
 
 "categories/en:sodas" => 4,
 "categories/en:ice-creams" => 4,
@@ -561,7 +571,6 @@ $options{nova_groups_tags} = {
 "additives/en:e14xx" => 4,
 
 };
-
 
 
 
