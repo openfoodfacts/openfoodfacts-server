@@ -638,28 +638,66 @@ sub build_tags_taxonomy($$) {
 				$line = $';
 				$line =~ s/^\s+//;
 				my @tags = split(/( )?,( )?/, $line);
+				
 				$current_tag = $tags[0];
 				$current_tag = ucfirst($current_tag);
 				$current_tagid = get_fileid($current_tag);
 				
+				# check if we already have an entry listed for one of the synonyms
+				# this is useful for taxonomies that need to be merged, and that are concatenated
+				
+				foreach my $tag (@tags) {
+
+					$tag =~ s/^\s+//;
+					$tag = normalize_percentages($tag, $lc);
+					my $tagid = get_fileid($tag);
+					my $possible_canon_tagid = $synonyms{$tagtype}{$lc}{$tagid};
+					if (not defined $possible_canon_tagid) {
+						my $stopped_tagid = $tagid;
+						$stopped_tagid = remove_stopwords($tagtype,$lc,$tagid);
+						$stopped_tagid = remove_plurals($lc,$stopped_tagid);
+						$possible_canon_tagid = $synonyms{$tagtype}{$lc}{$stopped_tagid};
+					}
+					if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
+						$canon_tagid = "$lc:" . $possible_canon_tagid;
+						$current_tagid = $possible_canon_tagid;
+						print "taxonomy - we already have a canon_tagid $canon_tagid for the tag $tag\n";
+						last;
+					}
+				}
+				
+				# do we already have a translation from a previous definition?
+				if (defined $translations_to{$tagtype}{$canon_tagid}{$lc}) {
+					$current_tag = $translations_to{$tagtype}{$canon_tagid}{$lc};
+					$current_tagid = get_fileid($current_tag);
+				}
+				
+				
 				if (not defined $canon_tagid) {
 					$canon_tagid = "$lc:$current_tagid";
+					print STDERR "new canon_tagid: $canon_tagid\n";
 					if ($synonyms eq 'synonyms:') {
 						$just_synonyms{$tagtype}{$canon_tagid} = 1;
 					}
 				}
 
-				$translations_from{$tagtype}{"$lc:$current_tagid"} = $canon_tagid;
-				print "taxonomy - translation_from{$tagtype}{$lc:$current_tagid} = $canon_tagid \n";
-				print "taxonomy - translations_to{$tagtype}{$canon_tagid}{$lc} = $current_tag \n";
+				if (not defined $translations_from{$tagtype}{"$lc:$current_tagid"}) {
+					$translations_from{$tagtype}{"$lc:$current_tagid"} = $canon_tagid;
+					print "taxonomy - translation_from{$tagtype}{$lc:$current_tagid} = $canon_tagid \n";
+				}
 				
 				defined $translations_to{$tagtype}{$canon_tagid} or $translations_to{$tagtype}{$canon_tagid} = {};
-				$translations_to{$tagtype}{$canon_tagid}{$lc} = $current_tag;
+				
+				if (not defined $translations_to{$tagtype}{$canon_tagid}{$lc}) {
+					$translations_to{$tagtype}{$canon_tagid}{$lc} = $current_tag;
+					print "taxonomy - translations_to{$tagtype}{$canon_tagid}{$lc} = $current_tag \n";
+				}
+								
 				
 				# Include the main tag as a synonym of itself, useful later to compute other synonyms
 				
 				(defined $synonyms_for{$tagtype}{$lc}) or $synonyms_for{$tagtype}{$lc} = {};
-				$synonyms_for{$tagtype}{$lc}{$current_tagid} = [];
+				defined $synonyms_for{$tagtype}{$lc}{$current_tagid} or $synonyms_for{$tagtype}{$lc}{$current_tagid} = [];
 				
 				foreach my $tag (@tags) {
 					my $tagid = get_fileid($tag);
@@ -873,6 +911,8 @@ sub build_tags_taxonomy($$) {
 
 		my %parents = ();
 		
+		$canon_tagid = undef;
+		
 		while (<$IN>) {
 		
 			my $line = $_;
@@ -944,7 +984,31 @@ sub build_tags_taxonomy($$) {
 				$current_tagid = get_fileid($current_tag);
 				
 				if (not defined $canon_tagid) {
+				
 					$canon_tagid = "$lc:$current_tagid";
+				
+				foreach my $tag (@tags) {
+
+					$tag =~ s/^\s+//;
+					$tag = normalize_percentages($tag, $lc);
+					my $tagid = get_fileid($tag);
+					my $possible_canon_tagid = $synonyms{$tagtype}{$lc}{$tagid};
+					if (not defined $possible_canon_tagid) {
+						my $stopped_tagid = $tagid;
+						$stopped_tagid = remove_stopwords($tagtype,$lc,$tagid);
+						$stopped_tagid = remove_plurals($lc,$stopped_tagid);
+						$possible_canon_tagid = $synonyms{$tagtype}{$lc}{$stopped_tagid};
+					}
+					if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
+						$canon_tagid = "$lc:" . $possible_canon_tagid;
+						print "taxonomy - we already have a canon_tagid $canon_tagid for the tag $tag\n";
+						last;
+					}
+				}	
+
+			
+				
+					
 					$just_tags{$tagtype}{$canon_tagid} = 1;
 					foreach my $parentid (keys %parents) {
 						defined $direct_parents{$tagtype}{$canon_tagid} or $direct_parents{$tagtype}{$canon_tagid} = {};
@@ -1131,7 +1195,7 @@ sub build_tags_taxonomy($$) {
 			
 			if (defined $properties{$tagtype}{$tagid}) {
 				
-				foreach my $prop_lc (keys %{$properties{$tagtype}{$tagid}}) {
+				foreach my $prop_lc (sort keys %{$properties{$tagtype}{$tagid}}) {
 					print $OUT "$prop_lc: " . $properties{$tagtype}{$tagid}{$prop_lc} . "\n";
 					if ($prop_lc =~ /^(.*):(\w\w)$/) {
 						my $prop = $1;
@@ -2628,7 +2692,7 @@ sub compute_field_tags($$) {
 	}	
 	
 	# generate the hierarchy of tags from the field values
-		
+				
 	if (defined $taxonomy_fields{$field}) {
 		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
 		$product_ref->{$field . "_tags" } = [];
@@ -2644,6 +2708,16 @@ sub compute_field_tags($$) {
 				push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
 			}
 		}
+	}
+	
+	# special handling for allergens and traces: 
+	# the allergens_tags and traces_tags fields will be overwritten by Ingredients::detect_allergens_from_text
+	# regenerate allergens and traces from the allergens_tags field so that it is prefixed with the values in the
+	# main language of the product (which may be different than the $lc language of the interface)
+	
+	if (($field eq 'allergens') or ($field eq 'traces')) {
+		$product_ref->{$field . "_from_user"} = "($lc)" . $product_ref->{$field};
+		$product_ref->{$field} = join(',', @{$product_ref->{$field . "_hierarchy" }});
 	}
 	
 	# check if we have a previous or a next version and compute differences
