@@ -646,30 +646,37 @@ sub build_tags_taxonomy($$) {
 				# check if we already have an entry listed for one of the synonyms
 				# this is useful for taxonomies that need to be merged, and that are concatenated
 				
-				foreach my $tag (@tags) {
-
-					$tag =~ s/^\s+//;
-					$tag = normalize_percentages($tag, $lc);
-					my $tagid = get_fileid($tag);
-					my $possible_canon_tagid = $synonyms{$tagtype}{$lc}{$tagid};
-					if (not defined $possible_canon_tagid) {
-						my $stopped_tagid = $tagid;
-						$stopped_tagid = remove_stopwords($tagtype,$lc,$tagid);
-						$stopped_tagid = remove_plurals($lc,$stopped_tagid);
-						$possible_canon_tagid = $synonyms{$tagtype}{$lc}{$stopped_tagid};
-					}
-					if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
-						$canon_tagid = "$lc:" . $possible_canon_tagid;
-						$current_tagid = $possible_canon_tagid;
-						print "taxonomy - we already have a canon_tagid $canon_tagid for the tag $tag\n";
-						last;
-					}
-				}
+				# should only be applied to ingredients (and not to additives)
 				
-				# do we already have a translation from a previous definition?
-				if (defined $translations_to{$tagtype}{$canon_tagid}{$lc}) {
-					$current_tag = $translations_to{$tagtype}{$canon_tagid}{$lc};
-					$current_tagid = get_fileid($current_tag);
+				if ($tagtype eq 'ingredients') {
+				
+					foreach my $tag (@tags) {
+
+						$tag =~ s/^\s+//;
+						$tag = normalize_percentages($tag, $lc);
+						my $tagid = get_fileid($tag);
+						my $possible_canon_tagid = $synonyms{$tagtype}{$lc}{$tagid};
+						if (not defined $possible_canon_tagid) {
+							my $stopped_tagid = $tagid;
+							$stopped_tagid = remove_stopwords($tagtype,$lc,$tagid);
+							$stopped_tagid = remove_plurals($lc,$stopped_tagid);
+							$possible_canon_tagid = $synonyms{$tagtype}{$lc}{$stopped_tagid};
+						}
+						if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
+							$canon_tagid = "$lc:" . $possible_canon_tagid;
+							$current_tagid = $possible_canon_tagid;
+							print "taxonomy - we already have a canon_tagid $canon_tagid for the tag $tag\n";
+							last;
+						}
+					}
+									
+				
+					# do we already have a translation from a previous definition?
+					if (defined $translations_to{$tagtype}{$canon_tagid}{$lc}) {
+						$current_tag = $translations_to{$tagtype}{$canon_tagid}{$lc};
+						$current_tagid = get_fileid($current_tag);
+					}
+				
 				}
 				
 				
@@ -986,25 +993,36 @@ sub build_tags_taxonomy($$) {
 				if (not defined $canon_tagid) {
 				
 					$canon_tagid = "$lc:$current_tagid";
-				
-				foreach my $tag (@tags) {
+					
+					
+					# check if we already have an entry listed for one of the synonyms
+					# this is useful for taxonomies that need to be merged, and that are concatenated
+					
+					# should only be applied to ingredients (and not to additives)
+					
+					if ($tagtype eq 'ingredients') {
+										
+					
+					foreach my $tag (@tags) {
 
-					$tag =~ s/^\s+//;
-					$tag = normalize_percentages($tag, $lc);
-					my $tagid = get_fileid($tag);
-					my $possible_canon_tagid = $synonyms{$tagtype}{$lc}{$tagid};
-					if (not defined $possible_canon_tagid) {
-						my $stopped_tagid = $tagid;
-						$stopped_tagid = remove_stopwords($tagtype,$lc,$tagid);
-						$stopped_tagid = remove_plurals($lc,$stopped_tagid);
-						$possible_canon_tagid = $synonyms{$tagtype}{$lc}{$stopped_tagid};
+						$tag =~ s/^\s+//;
+						$tag = normalize_percentages($tag, $lc);
+						my $tagid = get_fileid($tag);
+						my $possible_canon_tagid = $synonyms{$tagtype}{$lc}{$tagid};
+						if (not defined $possible_canon_tagid) {
+							my $stopped_tagid = $tagid;
+							$stopped_tagid = remove_stopwords($tagtype,$lc,$tagid);
+							$stopped_tagid = remove_plurals($lc,$stopped_tagid);
+							$possible_canon_tagid = $synonyms{$tagtype}{$lc}{$stopped_tagid};
+						}
+						if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
+							$canon_tagid = "$lc:" . $possible_canon_tagid;
+							print "taxonomy - we already have a canon_tagid $canon_tagid for the tag $tag\n";
+							last;
+						}
+					}	
+					
 					}
-					if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
-						$canon_tagid = "$lc:" . $possible_canon_tagid;
-						print "taxonomy - we already have a canon_tagid $canon_tagid for the tag $tag\n";
-						last;
-					}
-				}	
 
 			
 				

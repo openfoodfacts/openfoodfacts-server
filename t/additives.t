@@ -1059,4 +1059,70 @@ is_deeply($product_ref->{additives_original_tags}, [
 );
 
 
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"Sucre (France), OEUF entier (reconstitué à partir de poudre d OEUF), huile de colza, farine de riz, amidon de pomme de terre, stabilisants : glycérol et gomme xanthane, amidon de maïs, poudres à lever : diphosphates et carbonates de sodium, arôme naturel de citron, émulsifiant : mono- et diglycérides d'acides gras, conservateur : sorbate de potassium, sel, colorant : riboflavine. Traces éventuelles de soja."
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+	"en:e422",
+	"en:e415",
+	"en:e450i",
+	"en:e500",
+	"en:e471",
+	"en:e202",
+	"en:e101i",
+                              ],
+);
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"farine de seigle, sel, poudre à lever : carbonates de sodium,carbonates dlammonium,diphosphates,tartrates d potassium, amidon de blé, poudre de lait écrémé, extrait de malt dlorge, noix de coco 0,1 % arômes, jaune d'œuf en poudre, fécule de pomme de terre, farine dorge, amidon de maïs colorants : caramel ordinaire et curcumine, lactose et protéine de lait en poudre. Colorant: Sels de sodium et de potassium de complexes cupriques de chlorophyllines, Complexe cuivrique des chlorophyllines avec sels de sodium et de potassium, oxyde et hydroxyde de fer rouge, oxyde et hydroxyde de fer jaune et rouge, Tartrate double de sodium et de potassium, Éthylènediaminetétraacétate de calcium et de disodium, Phosphate d'aluminium et de sodium, Diphosphate de potassium et de sodium, Tripoliphosphates de sodium et de potassium, Sels de sodium de potassium et de calcium d'acides gras, Mono- et diglycérides d'acides gras, Esters acétiques des mono- et diglycérides, Esters glycéroliques de l'acide acétique et d'acides gras, Esters glycéroliques de l'acide citrique et d'acides gras, Esters monoacétyltartriques et diacétyltartriques, Esters mixtes acétiques et tartriques des mono- et diglycérides d'acides gras, Esters lactyles d'acides gras du glycérol et du propane-1, Silicate double d'aluminium et de calcium, Silicate d'aluminium et calcium, Silicate d'aluminium et de calcium, Silicate double de calcium et d'aluminium,  Glycine et son sel de sodium, Cire d'abeille blanche et jaune, Acide cyclamique et ses sels, Saccharine et ses sels, Acide glycyrrhizique et sels, Sels et esters de choline, Octénylesuccinate d'amidon et d'aluminium, "
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+          'en:e500',
+          'en:e502',
+          'en:e450',
+          'en:e334',
+          'en:e150a',
+          'en:e100',
+          'en:e141ii',
+          'en:e172ii',
+          'en:e172iii',
+          'en:e337',
+          'en:e385',
+          'en:e541',
+	  'en:e450i',
+	  'en:e340',
+          'en:e470a',
+          'en:e471',
+          'en:e472a',
+          'en:e472c',
+          'en:e472f',
+          'en:e478',
+          'en:e556',
+          'en:e640',
+          'en:e901',
+          'en:e952',
+          'en:e954',
+          'en:e958',
+          'en:e1452'
+],
+);
+
+#print STDERR Dumper($product_ref->{additives_original_tags});
+
 done_testing();

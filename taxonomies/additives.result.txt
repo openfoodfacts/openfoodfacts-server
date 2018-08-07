@@ -2,7 +2,7 @@
 
 synonyms:en:colour, color
 
-synonyms:en:no12, n12, 12
+synonyms:en:FD&C, FC and C, FDC, FFDCA, FDCA
 
 en:E100, Curcumin, Turmeric extract, curcuma extract
 bg:E100, Куркумин
@@ -5061,8 +5061,8 @@ ru:E300, Аскорбиновая кислота, Витамин С, Аскор�
 sk:E300, Kyselina askorbová, kyselina l-askorbová, Vitamín C, E 300
 sl:E300, Askorbinska kislina, l-askorbinska kislina
 sv:E300, Askorbinsyra, l-askorbinsyra, Vitamin C, Hexuronsyra, E 300, C-Vitamin, Askorbat, Askobinsyror, Askorbin
-e_number:en: 300
 default_additive_class:en: en:vitamin
+e_number:en: 300
 mandatory_additive_class:en: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant
 wikidata:en: Q193598
 
@@ -9284,7 +9284,7 @@ el:E450i, Δισοξινο πυροφωσφορικο νατριο
 es:E450i, Difosfato disódico, Pirofosfato ácido de sodio
 et:E450i, Dinaatriumdifosfaat, Dinaatriumdivesinikdifosfaat
 fi:E450i, Dinatriumdifosfaatti, Dinatriumdivetydifosfaatti, Dinatriumdivetypyrofosfaatti, Hapan natriumpyrofosfaatti
-fr:E450i, Pyrophosphate de sodium acide, Pyrophosphate acide de sodium, Diphosphate disodique, Di-sodium di-phosphate, di-sodium pyrophosphate, CAS 7758-16-9, Dihydrogéno-diphosphate disodique, Dihydrogéno-pyrophosphate disodique, Pyrophosphate disodique, Disodium pyrophosphate, sodium acid pyrophosphate, SAPP, Diphosphoric acid disodium salt, Disodium dihydrogen pyrophosphate, Disodium diphosphate, Disodium dihydrogen diphosphate, E450a
+fr:E450i, Pyrophosphate de sodium acide, Pyrophosphate acide de sodium, Diphosphate disodique, diphosphate de sodium, Di-sodium di-phosphate, di-sodium pyrophosphate, CAS 7758-16-9, Dihydrogéno-diphosphate disodique, Dihydrogéno-pyrophosphate disodique, Pyrophosphate disodique, Disodium pyrophosphate, sodium acid pyrophosphate, SAPP, Diphosphoric acid disodium salt, Disodium dihydrogen pyrophosphate, Disodium diphosphate, Disodium dihydrogen diphosphate, E450a
 hu:E450i, Dinátrium-difoszfát
 it:E450i, Difosfato disodico
 lt:E450i, Dinatrio difosfatas
@@ -9310,7 +9310,7 @@ el:E450ii, Οξινο πυροφωσφορικο νατριο
 es:E450ii, Difosfato trisódico
 et:E450ii, Trinaatriumdifosfaat, Trinaatriumvesinikdifosfaat, trinaatriumpürofosfaat
 fi:E450ii, Trinatriumdifosfaatti, Trinatriumpyrofosfaatti
-fr:E450ii, Pyrophosphate de sodium, Pyrophosphate de sodium alimentaire, Diphosphate trisodique, Pyrophosphate trisodique acide, Hydrogéno-diphosphate trisodique, Tri-sodium di-phosphate, CAS 14691-80-6, CAS 26573-04-6
+fr:E450ii, Diphosphate trisodique, Pyrophosphate trisodique acide, Hydrogéno-diphosphate trisodique, Tri-sodium di-phosphate, CAS 14691-80-6, CAS 26573-04-6
 hu:E450ii, Trinátrium-difoszfát
 it:E450ii, Difosfato trisodico
 lt:E450ii, Trinatrio difosfatas
@@ -11209,6 +11209,7 @@ sk:E502, E502 food additive
 sl:E502, E502 food additive
 sv:E502, E502 food additive
 e_number:en: 502
+mandatory_additive_class:en: en:raising-agent
 
 en:E503, Ammonium carbonates, ammonium carbonate, Baker's ammonia, Sal volatile, Salt of hartshorn
 bg:E503, Амониев карбонат

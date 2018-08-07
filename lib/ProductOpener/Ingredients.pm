@@ -676,6 +676,7 @@ sub extract_ingredients_classes_from_text($) {
 "citrate",
 "iodure",
 "nitrate",
+"diphosphate",
 "phosphate",
 "sélénite",
 "sulfate",
@@ -736,9 +737,48 @@ sub extract_ingredients_classes_from_text($) {
 		$text =~ s/($prefixregexp) (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9)/ieg;
 		$text =~ s/($prefixregexp) (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9, $11)/ieg;
 		
+		# Caramel ordinaire et curcumine
+		# $text =~ s/ et /, /ig;
+		# --> too dangerous, too many exceptions
+		
+		# Some additives have "et" in their name: need to recombine them
+		
+		# Sels de sodium et de potassium de complexes cupriques de chlorophyllines,
+		my $info = <<INFO
+		Complexe cuivrique des chlorophyllines avec sels de sodium et de potassium,
+		oxyde et hydroxyde de fer rouge,
+		oxyde et hydroxyde de fer jaune et rouge,
+		Tartrate double de sodium et de potassium,
+		Éthylènediaminetétraacétate de calcium et de disodium,
+		Phosphate d'aluminium et de sodium,
+		Diphosphate de potassium et de sodium,
+		Tripoliphosphates de sodium et de potassium,
+		Sels de sodium de potassium et de calcium d'acides gras,
+		Mono- et diglycérides d'acides gras,
+		Esters acétiques des mono- et diglycérides,
+		Esters glycéroliques de l'acide acétique et d'acides gras,
+		Esters glycéroliques de l'acide citrique et d'acides gras,
+		Esters monoacétyltartriques et diacétyltartriques,
+		Esters mixtes acétiques et tartriques des mono- et diglycérides d'acides gras,
+		Esters lactyles d'acides gras du glycérol et du propane-1,
+		Silicate double d'aluminium et de calcium,
+		Silicate d'aluminium et calcium,
+		Silicate d'aluminium et de calcium,
+		Silicate double de calcium et d'aluminium,
+		Glycine et son sel de sodium,
+		Cire d'abeille blanche et jaune,
+		Acide cyclamique et ses sels,
+		Saccharine et ses sels,
+		Acide glycyrrhizique et sels,
+		Sels et esters de choline,
+		Octénylesuccinate d'amidon et d'aluminium,		
+INFO
+;		
+		
+		
 		# Phosphate d'aluminium et de sodium --> E541. Should not be split.
 		
-		$text =~ s/(phosphate|phosphates) d'aluminium,?(phosphate|phosphates) de sodium/phosphate d'aluminium et de sodium/ig;
+		$text =~ s/(di|tri|tripoli)?(phosphate|phosphates) d'aluminium,?(di|tri|tripoli)?(phosphate|phosphates) de sodium/$1phosphate d'aluminium et de sodium/ig;
 		
 		# Sels de sodium et de potassium de complexes cupriques de chlorophyllines -> should not be split... 
 		$text =~ s/(sel|sels) de sodium,(sel|sels) de potassium/sels de sodium et de potassium/ig;
@@ -767,6 +807,7 @@ sub extract_ingredients_classes_from_text($) {
 "p", "pp"
 
 );		
+
 		
 		my $vitaminsprefixregexp = "vitamine|vitamines";
 		
@@ -808,6 +849,32 @@ sub extract_ingredients_classes_from_text($) {
 			
 		my $ingredientid = get_fileid($ingredient);
 		if ((defined $ingredientid) and ($ingredientid ne '')) {
+		
+			# split additives
+			# caramel ordinaire et curcumine
+			if (($lc eq 'fr') and ($ingredientid =~ /-et-/)) {
+			
+				my $ingredientid1 = $`;
+				my $ingredientid2 = $';
+				
+				# check if the whole ingredient is an additive
+				my $canon_ingredient_additive = canonicalize_taxonomy_tag($product_ref->{lc}, "additives", $ingredientid);
+					
+				if (not exists_taxonomy_tag("additives", $canon_ingredient_additive)) {
+				
+					# otherwise check the 2 sub ingredients
+					my $canon_ingredient_additive1 = canonicalize_taxonomy_tag($product_ref->{lc}, "additives", $ingredientid1);
+					my $canon_ingredient_additive2 = canonicalize_taxonomy_tag($product_ref->{lc}, "additives", $ingredientid2);
+					
+					if ( (exists_taxonomy_tag("additives", $canon_ingredient_additive1))
+						and (exists_taxonomy_tag("additives", $canon_ingredient_additive2)) ) {
+							push @ingredients_ids, $ingredientid1;
+							$ingredientid = $ingredientid2;
+					}				
+				}
+			
+			}
+		
 			push @ingredients_ids, $ingredientid;
 			$log->debug("ingredient 3", { ingredient => $ingredient }) if $log->is_debug();
 		}
