@@ -1125,4 +1125,79 @@ is_deeply($product_ref->{additives_original_tags}, [
 
 #print STDERR Dumper($product_ref->{additives_original_tags});
 
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"Liste des ingrédients : viande de porc, sel, lactose, épices, sucre, dextrose, ail, conservateurs : nitrate de potassium et nitrite de sodium, ferments, boyau naturel de porc. Poudre de fleurage : talc et carbonate de calcium. 164 g de viande de porc utilisée poudre 100 g de produit fini. 
+"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+	"en:e252",
+	"en:e250",
+	"en:e553b",
+	"en:e170",
+                              ],
+);
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"Fruits* 43,8% (bigarreaux confits 19,3% (bigarreaux, sirop de glucose- fructose, colorant anthocyanes, correcteur d'acidité: acide citrique, conservateur: anhydride sulfureux), raisins secs 11%, raisins secs macérés dans l'extrait aromatique rhum orange 10% (raisins secs, rhum, infusion d'écorces d'oranges douces), écorces d'orange confites 3,5% (écorces d'orange. sirop de glucose-fructose, saccharose, correcteur d'acidité: acide citrique, conservateur: anhydride sulfureux)), farine de blé, eufs entiers, sucre, beurre 14%, sirop de glucose, stabilisant:glycérol, arôme naturel de vanille (contient alcool) et autre arôme, sel, poudres à lever : diphosphates et carbonates de sodium (dont céréales contenant du gluten), émulsifiant mono-et diglycérides d'acides gras, épaississant gommexanthane. *fruits confits, fruits secs et fruits secs macérés.
+"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+	"en:e163",
+	"en:e330",
+	"en:e220",
+	"en:e422",
+	"en:e450i",
+	"en:e500",
+	"en:e471",
+                              ],
+);
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"Farine de BLE, sucre, chocolat au lait 13% (sucre, beurre de cacao, pâte de cacao, LAIT écrémé en poudre, LACTOSE, matière grasse LAITIERE anhydre, LACTOSERUM en poudre, émulsifiant : lécithines de tournesol), chocolat blanc 8% (sucre, beurre de cacao, LAIT entier en poudre, émulsifiant : lécithines de tournesol), BEURRE pâtissier, chocolat noir 6% (pâte de cacao, sucre, beurre de cacao, matière grasse LAITIERE, émulsifiant : lécithines de tournesol), blancs d'OEUFS, fourrage à la purée de framboise 3.5% (sirop de glucose- fructose, stabilisant : glycérol, purée et brisures de framboise, purée de framboise concentrée, purée de pomme, BEURRE, arômes, acidifiant : acide citrique, gélifiant : pectines de fruits, correcteur d'acidité : citrates de sodium, jus concentré de sureau), huile de tournesol, OEUFS entiers, AMANDES 1.3%, poudre de NOIX DE CAJOU 1.2%, sucre de canne roux, NOISETTES, poudre de florentin 0.6% (sucre, sirop de glucose, BEURRE, émulsifiant : lécithines de SOJA, poudre de LAIT écrémé), sirop de sucre inverti et partiellement inverti, grains de riz soufflés 0.5% (farine de riz, gluten de BLE, malt de BLE, saccharose, sel, dextrose), nougatine 0.4% (sucre, AMANDES et NOISETTES torréfiées), éclat de caramel 0.4% (sucre, sirop de glucose, CREME et BEURRE caramélisés), farine de SEIGLE, sel, poudres à lever : carbonates de sodium - carbonates d'ammonium- diphosphates- tartrates de potassium, amidon de BLE, poudre de LAIT écrémé, extrait de malt d'ORGE, noix de coco 0.1%, arômes, jaune d'OEUF en poudre, fécule de pomme de terre, farine d'ORGE, amidon de maïs, colorants : caramel ordinaire et curcumine, LACTOSERUM en poudre et protéines de LAIT, cannelle en poudre, émulsifiant : lécithines de tournesol, antioxydant : acide ascorbique. Traces éventuelles de graines de sésame et autres fruits à coques.
+"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+          'en:e322',
+          'en:e422',
+          'en:e330',
+          'en:e440',
+          'en:e331',
+          'en:e500',
+          'en:e503',
+          'en:e450',
+          'en:e336',
+          'en:e150a',
+          'en:e100',
+          'en:e300'
+
+                              ],
+);
+
+
+print STDERR Dumper($product_ref->{additives_original_tags});
+
 done_testing();

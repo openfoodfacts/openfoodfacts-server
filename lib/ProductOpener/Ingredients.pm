@@ -629,13 +629,22 @@ sub extract_ingredients_classes_from_text($) {
 	$text =~ s/ - et / - /ig;
 	
 	# stabilisant e420 (sans : )
+	# FIXME : should use additives classes
 	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement)(s)?(\s)?(:)?/$1$2 : /ig;
 	# citric acid natural flavor (may be a typo)
 	$text =~ s/(natural flavor)(s)?(\s)?(:)?/: $1$2 : /ig;
 	
+	# dash with 1 missing space
+	$text =~ s/(\w)- /$1 - /ig;
+	$text =~ s/ -(\w)/ - $1/ig;
+	
 	# mono-glycéride -> monoglycérides
 	$text =~ s/(mono|di)-([a-z])/$1$2/ig;
+	$text =~ s/\bmono - /mono- /ig;
 	$text =~ s/\bmono /mono- /ig;
+	#  émulsifiant mono-et diglycérides d'acides gras
+	$text =~ s/(monoet )/mono- et /ig;
+	
 	# acide gras -> acides gras
 	$text =~ s/acide gras/acides gras/ig;
 	$text =~ s/glycéride /glycérides /ig;
@@ -676,6 +685,7 @@ sub extract_ingredients_classes_from_text($) {
 "citrate",
 "iodure",
 "nitrate",
+"diphosphate",
 "diphosphate",
 "phosphate",
 "sélénite",
