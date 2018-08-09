@@ -19,7 +19,7 @@ my $product_ref = {
 extract_ingredients_classes_from_text($product_ref);
 
 is($product_ref->{additives}, 
-' [ acide-citrique -> en:e330  -> exists  -- ok  ]  [ colorant -> fr:colorant  ]  [ e120 -> en:e120  -> exists  -- ok  ]  [ vitamine-c -> en:e300  -> exists  -- mandatory_additive_class: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant (current: en:colour)  -> exists as a vitamin en:vitamin-c  ]  [ e500 -> en:e500  -> exists  -- mandatory_additive_class: en:acidity-regulator, en:raising-agent (current: en:vitamins)  ] '
+' [ acide-citrique -> en:e330  -> exists  -- ok  ]  [ colorant -> fr:colorant  ]  [ e120 -> en:e120  -> exists  -- ok  ]  [ vitamine-c -> en:e300  -> exists  -- mandatory_additive_class: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant,en:acid (current: en:colour)  -> exists as a vitamin en:vitamin-c  ]  [ e500 -> en:e500  -> exists  -- mandatory_additive_class: en:acidity-regulator, en:raising-agent (current: en:vitamins)  ] '
 );
 
 # vitamine C is not used as an additive (no fuction)
@@ -86,9 +86,11 @@ extract_ingredients_classes_from_text($product_ref);
 #use Data::Dumper;
 #print STDERR Dumper($product_ref->{additives_original_tags});
 
+print STDERR $product_ref->{additives} . "\n";
+
 is_deeply($product_ref->{additives_original_tags}, [
-                                'en:e251',
-                                'en:e252',
+				'en:e502',
+				'en:e251',
 				'en:e541',
                               ],
 );
@@ -1094,9 +1096,9 @@ print STDERR $product_ref->{additives} . "\n";
 
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e500',
-          'en:e502',
+          'en:e503',
           'en:e450',
-          'en:e334',
+          'en:e336',
           'en:e150a',
           'en:e100',
           'en:e141ii',
@@ -1106,6 +1108,7 @@ is_deeply($product_ref->{additives_original_tags}, [
           'en:e385',
           'en:e541',
 	  'en:e450i',
+	  'en:e451',
 	  'en:e340',
           'en:e470a',
           'en:e471',
@@ -1165,6 +1168,7 @@ is_deeply($product_ref->{additives_original_tags}, [
 	"en:e450i",
 	"en:e500",
 	"en:e471",
+	"en:e415",
                               ],
 );
 
@@ -1197,7 +1201,33 @@ is_deeply($product_ref->{additives_original_tags}, [
                               ],
 );
 
+#print STDERR Dumper($product_ref->{additives_original_tags});
 
-print STDERR Dumper($product_ref->{additives_original_tags});
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"Ac1de citrique; or; ar; amidon modfié, carbonate dlammonium, carmims, glycoside de steviol, sel ntrite, vltamine c
+"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+          'en:e330',
+          'en:e175',
+          'en:e14xx',
+          'en:e503i',
+          'en:e120',
+          'en:e960',
+          'en:e250',
+	
+                              ],
+);
+
+#print STDERR Dumper($product_ref->{additives_original_tags});
 
 done_testing();
