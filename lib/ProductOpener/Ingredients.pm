@@ -630,7 +630,7 @@ sub extract_ingredients_classes_from_text($) {
 	
 	# stabilisant e420 (sans : )
 	# FIXME : should use additives classes
-	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement)(s)?(\s)?(:)?/$1$2 : /ig;
+	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement)(s|)(\s)?(:)?/$1$2 : /ig;
 	# citric acid natural flavor (may be a typo)
 	$text =~ s/(natural flavor)(s)?(\s)?(:)?/: $1$2 : /ig;
 	
@@ -1117,10 +1117,28 @@ INFO
 							$match = 1;
 							$product_ref->{$tagtype} .= " -- ok ";	
 						}
+					}
+					
+					# spellcheck
+					my $spellcheck = 0;
+					if ((not $match) and ($tagtype eq 'additives')) {
+						my ($corrected_canon_tagid, $corrected_tagid, $corrected_tag) = spellcheck_taxonomy_tag($product_ref->{lc}, $tagtype, $ingredient_id_copy);
+						if ((defined $corrected_canon_tagid) 
+							and ($corrected_tag ne $ingredient_id_copy)
+							and (exists_taxonomy_tag($tagtype, $corrected_canon_tagid))) {
+							$ingredient_id_copy = $corrected_tag;
+							$product_ref->{$tagtype} .= " -- spell correction: $ingredient_id_copy -> $corrected_tag";
+							print STDERR "spell correction: $ingredient_id_copy -> $corrected_tag - code: $product_ref->{code}\n";
+							$spellcheck = 1;
+						}
+					}
+					
+					
+					if ((not $match) and (not $spellcheck)) {
 						
 						# try to shorten the ingredient to make it less specific, to see if it matches then
 						
-						elsif (($lc eq 'en') and ($ingredient_id_copy =~ /^([^-]+)-/)) {
+						if (($lc eq 'en') and ($ingredient_id_copy =~ /^([^-]+)-/)) {
 							# soy lecithin -> lecithin
 							$ingredient_id_copy = $';
 						}

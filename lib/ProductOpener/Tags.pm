@@ -60,6 +60,8 @@ BEGIN
 					&display_taxonomy_tag
 					&display_taxonomy_tag_link
 					
+					&spellcheck_taxonomy_tag
+					
 					&get_tag_css_class
 					
 					&display_tag_link
@@ -2261,6 +2263,148 @@ sub canonicalize_taxonomy_tag($$$)
 	return $tagid;
 	
 }
+
+
+sub generate_spellcheck_candidates($) {
+
+	my $tagid = shift;
+	
+	my @candidates = [$tagid];
+	
+	# https://norvig.com/spell-correct.html
+	# "All edits that are one edit away from `word`."
+    # letters    = 'abcdefghijklmnopqrstuvwxyz'
+    # splits     = [(word[:i], word[i:])    for i in range(len(word) + 1)]
+    # deletes    = [L + R[1:]               for L, R in splits if R]
+    # transposes = [L + R[1] + R[0] + R[2:] for L, R in splits if len(R)>1]
+    # replaces   = [L + c + R[1:]           for L, R in splits if R for c in letters]
+    # inserts    = [L + c + R               for L, R in splits for c in letters]
+	
+	my $l = length($tagid);
+	
+	for (my $i = 0; $i <= $l; $i++) {
+	
+		my $left = substr($tagid, 0, $i);
+		my $right = substr($tagid, $i);
+		
+		# delete
+		if ($i < $l) {
+			push @candidates, $left . substr($right, 1);
+		}
+		
+		foreach my $c ("a".."z") {
+		
+			# insert
+			push @candidates, $left . $c . $right;
+			
+			# replace
+			if ($i < $l) {
+				push @candidates, $left . $c . substr($right, 1);
+			}
+		}
+		
+		if (($i > 0) and ($i < $l)) {
+			push @candidates, $left . "-" . $right;
+			if ($i < ($l - 1)) {
+				push @candidates, $left . "-" . substr($right, 1);
+			}
+		}		
+	}
+	
+	return @candidates;
+}
+
+
+sub spellcheck_taxonomy_tag($$$)
+{
+	my $tag_lc = shift;
+	my $tagtype = shift;
+	my $tag = shift;
+	#$tag = lc($tag);
+	$tag =~ s/^ //g;
+	$tag =~ s/ $//g;		
+
+		
+	if ($tag =~ /^(\w\w):/) {
+		$tag_lc = $1;
+		$tag = $';
+	}
+
+	$tag = normalize_percentages($tag, $tag_lc);
+	my $tagid = get_fileid($tag);
+	
+	if ($tagtype =~ /^additives/) {
+		# convert the E-number + name into just E-number (we get those in urls like /additives/e330-citric-acid)
+		# check E + 1 digit in order to not convert Erythorbate-de-sodium to Erythorbate
+		$tagid =~ s/^e(\d.*?)-(.*)$/e$1/i;
+	}	
+
+	my @candidates = ($tag);
+
+	if (length($tag) > 5) {
+		@candidates = generate_spellcheck_candidates($tag);
+	}
+	
+	my $result;
+	my $resultid;
+	my $canon_resultid;
+	my $correction;
+	my $last_candidate;
+	
+	foreach my $candidate (@candidates) {
+	
+		$last_candidate = $candidate;
+		$tagid = get_fileid($candidate);
+	
+		if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid})) {
+			$result = $synonyms{$tagtype}{$tag_lc}{$tagid};
+			last;
+		}
+		else {
+			# try removing stopwords and plurals
+			my $tagid2 = remove_stopwords($tagtype,$tag_lc,$tagid);
+			$tagid2 = remove_plurals($tag_lc,$tagid2);
+			
+			# try to add / remove hyphens (e.g. antioxydant / anti-oxydant)
+			my $tagid3 = $tagid2;
+			my $tagid4 = $tagid2;
+			$tagid3 =~ s/(anti)(-| )/$1/;
+			$tagid4 =~ s/(anti)([a-z])/$1-$2/;
+			
+			if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid2})) {
+				$result = $synonyms{$tagtype}{$tag_lc}{$tagid2};
+				last;
+			}
+			if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid3})) {
+				$result = $synonyms{$tagtype}{$tag_lc}{$tagid3};
+				last;
+			}
+			if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid4})) {
+				$result = $synonyms{$tagtype}{$tag_lc}{$tagid4};
+				last;
+			}		
+		}	
+	}
+	
+	
+	if (defined $result) {
+	
+		$correction = $last_candidate;
+		$tagid = $tag_lc . ':' . $result;
+		$resultid = $tagid;
+		
+		if ((defined $translations_from{$tagtype}) and (defined $translations_from{$tagtype}{$tagid})) {
+			$canon_resultid = $translations_from{$tagtype}{$tagid};
+		}
+	}
+
+	return ($canon_resultid, $resultid, $correction);
+	
+}
+
+
+
+
 
 sub exists_taxonomy_tag($$) {
 
