@@ -12,6 +12,11 @@ allergens:fr: huile de _poisson_
 < :
 fr:huile essentielle de menthe
 
+< :
+fr:lait entier frais
+nl:verse volle melk
+allergens:fr: _lait_ entier frais
+
 en:absinth
 de:Absinth
 es:absenta
@@ -372,6 +377,7 @@ it:Amminoacidi
 lt:Aminorūgštys
 lv:Aminoskābes
 mt:Aċidi amminiċi
+nl:Aminozuur, Aminozuren
 pl:Aminokwasy
 pt:Aminoácidos
 ro:Aminoacizi
@@ -462,6 +468,7 @@ it:Antiossidanti
 lt:Antioksidantas
 lv:Antioksidants
 mt:Antiossidant
+nl:Antioxydant, Antioxydanten
 pl:Przeciwutleniacz
 pt:Antioxidante
 sl:Antioksidant
@@ -681,91 +688,13 @@ it:Agenti di carica
 lt:Užpildas
 lv:Apjoma palielinātājs
 mt:Aġent li jżid il-volum
-nl:Vulstof
+nl:Vulstof, Vulstoffen
 pl:Substancja wypełniająca
 pt:Agente de volume
 ro:Agent de încărcare
 sk:Objemové činidlo
 sl:Sredstvo za povečanje prostornine
 sv:Fyllnadsmedel
-
-en:butter
-fr:beurre
-allergens:fr: _beurre_
-
-< en:Butter
-en:clarified butter
-de:butterschmalz
-fr:beurre clarifié
-allergens:fr: _beurre_ clarifié
-
-< en:Butter
-en:concentrated butter
-fr:beurre concentré
-allergens:fr: _beurre_ concentré
-
-< en:Butter
-en:fresh butter
-fr:beurre frais
-allergens:fr: _beurre_ frais
-
-< en:Butter
-en:melted butter
-de:butterreinfett
-fr:beurre fondu
-treatment:en: en:melting
-
-< en:Butter
-en:pasteurized butter, pasteurised butter
-fr:beurre pasteurisé
-allergens:fr: _beurre_ pasteurisé
-
-< en:Butter
-en:pastry butter, concentrated pastry butter
-fr:beurre pâtissier
-it:burro di pasticceria
-allergens:fr: _beurre_ pâtissier
-
-< en:Butter
-en:salted butter
-de:gesalzene Butter, gesalzenes Butter
-fr:beurre salé
-ja:塩バター
-nl:gezouten boter
-allergens:fr: _beurre_ salé
-
-< en:Butter
-en:unsalted butter
-fr:beurre doux
-allergens:fr: _beurre_ doux
-
-< en:Butter
-fr:beurre concentré reconstitué
-allergens:fr: _beurre_ concentré reconstitué
-
-< en:Butter
-fr:_beurre_ d'isigny aop
-
-< en:Butter
-fr:beurre de baratte
-allergens:fr: _beurre_ de baratte
-
-< en:Butter
-fr:beurre de cuisine
-allergens:fr: _beurre_ de cuisine
-
-< en:Butter
-fr:beurre demi-sel
-allergens:fr: _beurre_ demi-sel
-
-< en:Butter
-fr:beurre laitier concentré
-nl:geconcentreerde melkerijboter
-allergens:fr: beurre _laitier_ concentré
-
-< en:Butter
-fr:huile de beurre
-allergens:fr: _huile de beurre_
 
 en:cactus fig
 de:Kaktusfeigen
@@ -1069,7 +998,7 @@ it:Coloranti
 lt:Dažiklis
 lv:Krāsa
 mt:Kulur
-nl:Kleuren
+nl:Kleurstof, kleurstoffen
 pl:Barwnik
 pt:Corante
 ro:Colorant
@@ -1100,22 +1029,6 @@ nl:frambozendiksap concentraat
 en:concentrated tomato puree
 fr:purée de tomates concentrée
 
-en:condensed milk
-de:Kondensmilch
-es:leche condensada
-fr:lait condensé
-nl:gecondenseerde melk
-
-< en:Condensed milk
-en:condensed whole milk
-de:kondensierte Vollmilch
-es:leche entera condensada
-fr:lait entier condensé
-nl:gecondenseerde volle melk
-
-< en:Condensed whole milk
-fr:lait entier condensé sucré
-
 en:condensed semi-skimmed milk
 de:teilentrahmte Kondensmilch
 es:leche semidesnatada condensada
@@ -1137,15 +1050,6 @@ nl:gegaarde aardappel
 
 en:cooked white rice
 fr:riz blanc cuit
-
-en:copra oil, coconut oil
-fr:huile de coco, huile de noix de coco
-
-< en:Copra oil
-fr:coprah
-
-< en:Copra oil
-fr:graisse de coprah
 
 en:corkflakes
 fr:cornflakes
@@ -1258,12 +1162,6 @@ es:harina de espelta dextrinada
 fr:farine d'épeautre dextrinée
 nl:gedextrineerd speltmeel
 
-en:dextrinated wheat flour
-de:dextriniertes Weizenmehl
-es:harina de trigo dextrinada
-fr:farine de blé dextrinée
-nl:gedextrineerd tarwemeel
-
 en:dextrose
 de:Dextrose
 es:dextrosa
@@ -1346,13 +1244,6 @@ fr:blé dur
 nl:durum tarwe
 allergens:fr: _blé_ dur
 
-en:durum wheat flour
-de:Hartweizenmehl
-es:harina de trigo duro
-fr:farine de blé dur
-nl:durum tarwemeel
-allergens:fr: farine de _blé_ dur
-
 en:e 220
 fr:e220
 
@@ -1396,7 +1287,7 @@ it:Emulsionanti
 lt:Emulsiklis
 lv:Emulgators
 mt:Emulsifikant
-nl:Emulgator
+nl:Emulgator, Emulgatoren
 pl:Emulgator
 pt:Emulsionante
 ro:Emulsifiant
@@ -1421,7 +1312,7 @@ it:Sali di fusione
 lt:Emulsinimo druskos
 lv:Emulģējošie sāļi
 mt:Melħ emulsifikat
-nl:Smeltzout
+nl:Smeltzout, Smeltzouten
 pl:Sole emulgujące
 pt:Sais de fusão
 ro:Săruri de topire
@@ -1455,7 +1346,7 @@ it:Agenti di resistenza
 lt:Kietiklis
 lv:Cietinātājs
 mt:Aġent li jissoda
-nl:Verstevigingsmiddel
+nl:Verstevigingsmiddel, Verstevigingsmiddelen
 pl:Substancja wiążąca
 pt:Agente de endurecimento
 ro:Agent de întărire
@@ -1841,7 +1732,7 @@ it:Esaltatori di sapidità
 lt:Aromato ir skonio stipriklis
 lv:Garšas pastiprinātājs
 mt:Tejjieb il-ħwawar
-nl:Smaakversterker
+nl:Smaakversterker, Smaakversterkers
 pl:Wzmacniacz smaku
 pt:Intensificador de sabor
 ro:Potențiator de aromă
@@ -1866,7 +1757,7 @@ it:Agenti di trattamento della farina
 lt:Miltų apdorojimo medžiaga
 lv:Miltu apstrādes līdzeklis
 mt:Aġent għat-trattament tad-dqiq
-nl:Meelverbeteraar
+nl:Meelverbeteraar, Meelverbeteraars
 pl:Środek do przetwarzania mąki (polepszacz)
 pt:Agente de tratamento da farinha
 ro:Agent de tratare a făinii
@@ -1894,7 +1785,7 @@ it:Agenti schiumogeni
 lt:Putojimą sukelianti medžiaga
 lv:Putu veidotājs
 mt:Aġent li jagħmel ir-ragħwa
-nl:Schuimmiddel
+nl:Schuimmiddel, Schuimmiddelen
 pl:Substancja pianotwórcza
 pt:Agente espumante
 ro:Agenți de spumare
@@ -1960,7 +1851,7 @@ it:Gelificanti
 lt:Stingdiklis
 lv:Recinātājs
 mt:Aġent li jgħaqqad f'ġel
-nl:Geleermiddel
+nl:Geleermiddel, Geleermiddelen, Verdikkingsmiddel, Verdikkingsmiddelen
 pl:Substancja żelująca
 pt:Gelificante
 ro:Agent gelatinizant
@@ -1990,7 +1881,7 @@ it:Agenti di rivestimento
 lt:Glajinė medžiaga
 lv:Glazētājviela
 mt:Aġent li jagħmel l-ikel ileqq
-nl:Glansmiddel
+nl:Glansmiddel, Glansmiddelen
 pl:Substancja glazurująca
 pt:Agente de revestimento
 ro:Agent de glazurare
@@ -2218,6 +2109,7 @@ fr:protéines de pois hydrolysées
 
 en:ingredient
 fr:ingrédient
+nl:ingrediënt
 
 en:iron
 fr:fer
@@ -2240,17 +2132,22 @@ es:zumo de kiwi
 fr:jus de kiwi
 nl:kiwisap
 
+en:Lactase
+es:Lactasa
+fi:Laktaasi
+fr:Lactase
+he:לקטאז
+hu:Laktáz
+it:Lattasi
+ja:ラクターゼ
+ko:락테이스
+pl:Laktaza
+ru:Лактаза
+zh:乳糖酶
+wikidata:en: Q379764
+
 en:lactic acid
 fr:acide lactique
-
-en:lactose
-fr:lactose
-allergens:fr: _lactose_
-
-< en:Lactose
-en:lactose powder, powdered lactose
-fr:poudre de lactose
-allergens:fr: poudre de _lactose_
 
 en:lavender
 fr:lavande
@@ -2527,19 +2424,282 @@ fr:menthol
 nl:menthol
 
 en:milk
+br:Laezh
+ca:llet
 de:Milch
 es:leche
 fr:lait
+hr:mlijeko
+it:latte
+ku:Şîr
 nl:melk
+oc:lach
+pt:leite
 allergens:fr: _lait_
 wikidata:en: Q8495
 
+< :
 < en:Milk
+fr:lait écrémé
+nl:magere melk
+allergens:fr: _lait_ écrémé
+
+< en:Milk
+en:butter
+am:ቅቤ
+an:manteca
+ar:زبدة
+az:kərə yağı
+ba:aҡ май
+be:cметанковае масла
+bg:kраве масло
+bn:মাখন
+br:amanenn
+bs:maslac
+ca:mantega
+cs:máslo
+cv:Çу
+cy:menyn
+da:smør
+de:Butter
+el:βούτυρο
+eo:butero
+es:mantequilla
+et:või
+eu:gurin
+fa:کره
+fi:voi
+fo:smør
+fr:beurre
+fy:bûter
+ga:im
+gl:manteiga
+gu:માખણ
+he:חמאה
+hi:मक्खन
+hr:maslac
+ht:bè
+hu:vaj
+hy:Կարագ
+id:mentega
+io:butro
+is:smjör
+it:burro
+ja:バター
+jv:mertéga
+ka:კარაქი
+kn:ಬೆಣ್ಣೆ
+ko:버터
+ku:nivîşk
+la:butyrum
+lb:botter
+li:bótter
+lo:ເນີຍ
+lt:sviestas
+lv:sviests
+mk:Путер
+ml:വെണ്ണ
+mr:लोणी
+ms:mentega
+my:ထောပတ်
+ne:नौनी
+nl:boter
+nn:smør
+no:smør
+oc:burre
+os:hæлхæ
+pa:ਮੱਖਣ
+pl:masło
+pt:manteiga
+qu:mantikilla
+ro:unt
+ru:cли́вочное ма́сло
+sa:नवनीतम्
+sc:butiru
+sd:مکڻ
+sh:maslac
+si:බටර්
+sk:maslo
+sl:maslo
+so:subag
+sq:gjalpa
+sr:mаслац
+su:mentéga
+sv:smör
+sw:siagi
+ta:வெண்ணெய்
+te:వెన్న
+tg:Равғани зард
+th:เนย
+tl:mantekilya, mantikilya
+tr:tereyağı
+tt:atlan may, aq may
+uk:mасло вершкове
+ur:مکھن
+uz:sariyogʻ
+vi:bơ
+vo:bör
+wa:boure
+yi:פוטער
+zh:黄油
+allergens:fr: _beurre_
+allergens:nl: _boter_
+
+< en:Butter
+en:clarified butter
+ca:mantega clarificada
+cs:přepuštěné máslo
+de:Butterschmalz
+es:mantequilla clarificada
+fr:beurre clarifié
+he:חמאה מזוקקת
+it:burro chiarificato
+ja:澄ましバター
+kk:Сары май
+ko:버터기름
+ky:Сары май
+lt:lydytas sviestas
+ms:mentega jernihan
+nl:boterolie
+os:Царв
+pl:masło klarowane
+ru:Топлёное масло
+sq:gjalpi i kthjelluar
+th:เนยใส
+uk:Пряжене масло
+zh:无水黄油
+allergens:fr: huile de _beurre_
+allergens:nl: _boterolie_
+
+< en:Butter
+en:concentrated butter
+fr:beurre concentré
+nl:geconcentreerde boter
+allergens:fr: _beurre_ concentré
+
+< en:Butter
+en:fresh butter
+fr:beurre frais
+nl:verse boter
+allergens:fr: _beurre_ frais
+
+< en:Butter
+en:melted butter
+de:butterreinfett
+fr:beurre fondu
+nl:gesmolten boter
+treatment:en: en:melting
+
+< en:Butter
+en:pasteurized butter, pasteurised butter
+fr:beurre pasteurisé
+nl:gepasteuriseerde boter
+allergens:fr: _beurre_ pasteurisé
+
+< en:Butter
+en:pastry butter, concentrated pastry butter
+fr:beurre pâtissier
+it:burro di pasticceria
+allergens:fr: _beurre_ pâtissier
+
+< en:Butter
+en:PGI butter
+
+< en:PGI butter
+fr:beurre d'isigny
+
+< en:Butter
+en:salted butter
+de:gesalzene Butter, gesalzenes Butter
+fr:beurre salé
+ja:塩バター
+nl:gezouten boter
+allergens:fr: _beurre_ salé
+
+< en:Butter
+en:sweet cream butter
+
+< en:Butter
+en:unsalted butter
+fr:beurre doux
+nl:ongezouten boter
+allergens:fr: _beurre_ doux
+
+< en:Butter
+fr:beurre concentré reconstitué
+allergens:fr: _beurre_ concentré reconstitué
+
+< en:Butter
+fr:beurre de baratte
+nl:gekarnde boter
+allergens:fr: _beurre_ de baratte
+
+< en:Butter
+fr:beurre de cuisine
+allergens:fr: _beurre_ de cuisine
+
+< en:Butter
+fr:beurre demi-sel
+nl:halfgezouten boter
+allergens:fr: _beurre_ demi-sel
+
+< en:Butter
+fr:beurre laitier concentré
+nl:geconcentreerde melkerijboter
+allergens:fr: beurre _laitier_ concentré
+
+< en:Butter
+nl:grasboter
+
+< en:Milk
+en:condensed milk
+ca:llet condensada
+de:Kondensmilch, evaporierte Kondensmilch, Dosenmilch, Büchsenmilch
+es:leche condensada
+et:kondenspiim
+eu:esne lurrundua
+fr:lait concentré, lait condensé
+id:susu evaporasi
+nl:gecondenseerde melk
+pt:leite evaporado
+zh:淡奶
+allergens:fr: _lait_ concentré
+
+< :
+< en:Condensed milk
+fr:lait concentré sucré écrémé
+nl:gesuikerde gecondenseerde magere melk
+allergens:fr: _lait_ concentré sucré écrémé
+
+< en:Condensed milk
 en:concentrated skim milk, concentrated skimmed milk
 de:kondensierte Magermilch, konzentrierte Magermilch, Kondensmagermilch
-fr:lait écrémé concentré
+fr:lait écrémé concentré, lactose et protéine de lait
 it:latte scremato concentrato, latte magro concentrato
-allergens:fr: _lait_ écrémé concentré
+allergens:fr: _lactose_ et protéine de _lait_
+
+< en:Condensed milk
+en:condensed whole milk
+de:kondensierte Vollmilch
+es:leche entera condensada
+fr:lait entier condensé
+nl:gecondenseerde volle melk
+
+< en:Condensed whole milk
+fr:lait entier condensé sucré
+
+< en:Condensed milk
+< en:Milk powder
+fr:lait écrémé concentré ou en poudre
+nl:gecondenseerde magere (poeder-)melk
+allergens:fr: _lait_ écrémé concentré ou en poudre
+
+< en:Condensed milk
+en:sweetened condensed milk
+de:gezuckerte Kondensmilch
+fr:lait concentré sucré
+nl:gecondenseerde gesuikerde melk, gecondenseerde volle melk met suiker
+allergens:fr: _lait_ concentré sucré
 
 < en:Milk
 en:cow's milk, cows' milk, cow milk
@@ -2551,23 +2711,42 @@ nl:koemelk
 allergens:fr: _lait_ de vache
 
 < en:Milk
-< en:Milk powder
-en:whole milk powder, powdered whole milk, whole powdered milk, dried whole milk
-cs:sušené plnotučné mléko
-de:vollmilchpulver
-el:γάλα σε σκόνη
-es:leche entera en polvo
-fr:lait en poudre entier, lait entier en poudre
-it:latte intero in polvere
-nl:volle melkpoeder
-pl:pelne mleko w proszku
-pt:leite entero em pó, leite em pó gordo
-sk:sušené plnotučné mlieko
-allergens:fr: _lait_ entier en poudre
+en:cream
+br:dienn
+ca:nata, crema de la llet, crespell, cresp de la llet, doga
+de:Rahm, Sahne, Obers, Nidel, Nidle
+eo:kremo
+es:crema de leche, nata
+eu:esne-gaina
+fr:crème
+it:panna, crema di latte
+nl:room
+pt:nata, creme de leite
+
+< en:Cream
+fr:crème en poudre
+allergens:fr: _crème_ en poudre
+
+< en:Cream
+fr:crème pasteurisée
+nl:gepasteuriseerde room
+allergens:fr: _crème_ pasteurisée
+
+< en:Milk
+en:lactose
+fr:lactose
+nl:lactose
+allergens:fr: _lactose_
+
+< en:Lactose
+en:lactose powder, powdered lactose
+fr:poudre de lactose
+allergens:fr: poudre de _lactose_
 
 < en:Milk
 en:pasteurized whole milk, pasteurised whole milk
 fr:lait entier pasteurisé
+nl:volle gepasteuriseerde melk
 allergens:fr: _lait_ entier pasteurisé
 
 < en:Milk
@@ -2575,7 +2754,15 @@ en:raw milk
 de:rohmilch
 fr:lait cru
 it:latte crudo
+nl:rauwe melk
 allergens:fr: _lait_ cru
+
+< en:Cow's milk
+< en:Raw milk
+fr:lait cru de vache
+es:leche cruda de vaca
+nl:rauwe koemelk
+allergens:fr: _lait_ cru de vache
 
 < en:Milk
 en:semi-skimmed milk
@@ -2586,39 +2773,72 @@ nl:gedeeltelijk afgeroomde melk
 allergens:fr: _lait_ partiellement écrémé
 
 < en:Milk
-en:sweetened condensed milk
-de:gezukerte kondensmilch
-fr:lait concentré sucré
-nl:gecondenseerde gesuikerde melk, gecondenseerde volle melk met suiker
-allergens:fr: _lait_ concentré sucré
+en:whey
+ca:sèrum de llet
+de:Molke
+eo:selakto, laktosero
+es:suero de leche
+et:vadak
+fr:petit-lait, lactosérum
+io:selakto
+it:siero di latte
+nl:wei
+oc:lactoserum, leiton, gaspa, lachada
+pt:soro de leite, lacto-soro
+allergens:fr: _petit-lait_
 
-< en:Milk
-fr:lait concentré
-allergens:fr: _lait_ concentré
+< en:Whey
+en:whey powder, powdered whey
+fr:lactosérum en poudre, petit-lait en poudre
+nl:weipoeder
+allergens:fr: _lactosérum_ en poudre
+
+< en:Whey powder
+en:filtered whey powder
+de:molkenerzeugnis
+es:suero de leche en polvo
+fr:petit-lait filtré en poudre, lactosérum filtré en poudre
+it:filtrato di siero di latte in polvere
+nl:weifiltraatpoeder
+allergens:fr: _petit-lait_ filtré en poudre
+
+< en:Whey
+en:whey proteins
+fr:protéines de lactosérum
+nl:weiproteïnen
+allergens:fr: protéines de _lactosérum_
+
+< en:Whey
+fr:lactosérum concentré
+allergens:fr: _lactosérum_ concentré
+
+< en:Whey
+fr:lactosérum déminéralisé
+allergens:fr: _lactosérum_ déminéralisé
+
+< en:Whey
+fr:lactosérum doux en poudre
+allergens:fr: _lactosérum_ doux en poudre
+
+< en:Whey
+fr:perméat de lactosérum
 
 < en:Milk
 fr:lait concentré écrémé
 allergens:fr: _lait_ concentré écrémé
 
 < en:Milk
-fr:lait concentré sucré écrémé
-allergens:fr: _lait_ concentré sucré écrémé
-
-< en:Milk
 fr:lait cru de brebis
 allergens:fr: _lait_ cru de brebis
 
 < en:Milk
-fr:lait cru de vache
-es:leche cruda de vaca
-allergens:fr: _lait_ cru de vache
-
-< en:Milk
 fr:lait de vache pasteurisé
+nl:gepasteuriseerde koemelk
 allergens:fr: _lait_ de vache pasteurisé
 
 < en:Milk
 fr:lait demi-écrémé
+nl:halfvolle melk
 allergens:fr: _lait_ demi-écrémé
 
 < en:Milk
@@ -2626,19 +2846,12 @@ fr:lait demi-écrémé stérilisé uht
 allergens:fr: _lait_ demi-écrémé stérilisé uht
 
 < en:Milk
-fr:lait écrémé
-allergens:fr: _lait_ écrémé
-
-< en:Milk
 fr:lait écrémé à base de poudre de lait
 allergens:fr: _lait_ écrémé à base de poudre de _lait_
 
 < en:Milk
-fr:lait écrémé concentré ou en poudre
-allergens:fr: _lait_ écrémé concentré ou en poudre
-
-< en:Milk
 fr:lait écrémé concentré sucré
+nl:gecondenseerde gesuikerde volle melk
 allergens:fr: _lait_ écrémé concentré sucré
 
 < en:Milk
@@ -2648,11 +2861,12 @@ allergens:fr: _lait_ écrémé en poudre reconstitué
 < en:Milk
 fr:lait écrémé pasteurisé
 de:pasteurisierte magermilch
-nl:gepasteuriseerde magere melk
+nl:gepasteuriseerde volle melk
 allergens:fr: _lait_ écrémé pasteurisé
 
 < en:Milk
 fr:lait écrémé reconstitué
+nl:gereconstitueerde melk
 allergens:fr: _lait_ écrémé reconstitué
 
 < en:Milk
@@ -2660,16 +2874,18 @@ fr:lait écrémé réhydraté
 allergens:fr: _lait_ écrémé réhydraté
 
 < en:Milk
+fr:lait en poudre enrichi en matière grasse
+allergens:fr: _lait_ en poudre enrichi en matière grasse
+
+< en:Milk
 fr:lait en poudre partiellement écrémé
+nl:halfvolle poedermelk
 allergens:fr: _lait_ en poudre partiellement écrémé
 
 < en:Milk
 fr:lait entier
+nl:volle melk
 allergens:fr: _lait_ entier
-
-< en:Milk
-fr:lait entier frais
-allergens:fr: _lait_ entier frais
 
 < en:Milk
 fr:lait entier reconstitué
@@ -2681,6 +2897,7 @@ allergens:fr: _lait_ et _crème_ pasteurisés
 
 < en:Milk
 fr:lait fermenté
+nl:gefermenteerde melk
 allergens:fr: _lait_ fermenté
 
 < en:Milk
@@ -2689,19 +2906,12 @@ allergens:fr: _lait_ frais entier
 
 < en:Milk
 fr:lait pasteurisé
+nl:gepasteuriseerde melk
 allergens:fr: _lait_ pasteurisé
 
 < en:Milk
 fr:lait pasteurisé de vache
 allergens:fr: _lait_ pasteurisé de vache
-
-< en:Milk
-fr:petit-lait filtré en poudre
-de:molkenerzeugnis
-es:suero de leche en polvo
-it:filtrato di siero di latte in polvere
-nl:weifiltraatpoeder
-allergens:fr: _petit-lait_ filtré en poudre
 
 en:milk chocolate
 fr:chocolat au lait
@@ -2718,6 +2928,7 @@ allergens:fr: chocolat supérieur au _lait_
 
 en:milk powder, powdered milk
 fr:lait en poudre, poudre de lait
+nl:melkpoeder
 allergens:fr: _lait_ en poudre
 nova:en: 4
 
@@ -2731,15 +2942,26 @@ nl:magere melkpoeder
 allergens:fr: _lait_ en poudre écrémé
 
 < en:Milk powder
+en:whole milk powder, dried whole milk, powdered whole milk, whole powdered milk
+cs:sušené plnotučné mléko
+de:vollmilchpulver
+el:γάλα σε σκόνη
+es:leche entera en polvo
+fr:lait entier en poudre
+it:latte intero in polvere
+nl:volle melkpoeder
+pl:pelne mleko w proszku
+pt:leite entero em pó, leite em pó gordo
+sk:sušené plnotučné mlieko
+allergens:fr: _lait_ entier en poudre
+
+< en:Milk powder
 fr:lait écrémé en poudre
 allergens:fr: _lait_ écrémé en poudre
 
 < en:Milk powder
-fr:poudre de lait écrémé
-allergens:fr: poudre de _lait_ écrémé
-
-< en:Milk powder
 fr:poudre de lait entier
+nl:volle melkpoeder
 allergens:fr: poudre de _lait_ entier
 
 en:milk protein, milk proteins
@@ -2771,7 +2993,7 @@ it:Minerali
 lt:Mineralinės medžiagos
 lv:Minerālvielas
 mt:Minerali
-nl:Mineralen
+nl:Mineraal, Mineralen
 pl:Składniki mineralne
 pt:Minerais
 ro:Minerale
@@ -2857,7 +3079,7 @@ it:Nucleotidi
 lt:Nukleotidai
 lv:Nukleotīdi
 mt:Nukleotidi
-nl:Nucleotiden
+nl:Nucleotide, Nucleotiden
 pl:Nukleotydy
 pt:Nucleótidos
 ro:Nucleotide
@@ -2993,6 +3215,7 @@ en:Other nutritional substances
 es:Otras sustancias nutricionales
 fr:Autres substances nutritives
 hu:Egyéb táplálkozási anyagok
+nl:Andere voedingsmiddelen
 
 en:Pantothenic acid
 de:Pantothensäure
@@ -3172,7 +3395,7 @@ it:Conservanti
 lt:Konservantas
 lv:Konservants
 mt:Preservattiv
-nl:Conserveermiddel
+nl:Conserveermiddel, Conserveermiddelen
 pl:Substancja konserwująca
 pt:Conservante
 ro:Conservant
@@ -3197,7 +3420,7 @@ it:Gas propulsore
 lt:Suslėgtosios dujos
 lv:Propelents
 mt:Gass propellent
-nl:Drijfgas
+nl:Drijfgas, Drijfgassen
 pl:Gaz nośny
 pt:Gás propulsor
 ro:Agent de propulsare
@@ -3260,7 +3483,7 @@ it:Agenti lievitanti
 lt:Tešlos kildymo medžiaga
 lv:Irdinātājs
 mt:Aġent li jgħolli l-ikel
-nl:Rijsmiddel
+nl:Rijsmiddel, Rijsmiddelen
 pl:Substancja spulchniająca
 pt:Levedante
 ro:Agent de afânare
@@ -3472,7 +3695,7 @@ it:Sequestranti
 lt:Atskyriklis
 lv:Sekvestrants
 mt:Aġenti sekwestranti
-nl:Complexvormer
+nl:Complexvormer, Complexvormers
 pl:Sekwestranty
 pt:Sequestrante
 ro:Agenți de sechestrare
@@ -3521,7 +3744,7 @@ fr:eau gazeuse, eau pétillante
 en:spice, spices
 fr:épice, épices
 
-en:Stabiliser
+en:Stabiliser, Stabilizer, stabilizers
 bg:Стабилизатор
 cs:Stabilizátor
 da:Kompleksdannere
@@ -3537,7 +3760,7 @@ it:Stabilizzanti
 lt:Stabilizatorius
 lv:Stabilizētājs
 mt:Stabbilizzatur
-nl:Stabilisator
+nl:Stabilisator, Stabilisatoren
 pl:Stabilizator
 pt:Estabilizador
 ro:Stabilizator
@@ -3545,9 +3768,6 @@ sk:Stabilizátor
 sl:Vezivo
 sv:Komplexbildare
 wikidata:en: Q7595716
-
-en:stabilizer, stabilizers
-fr:Stabilisant, stabilisateur, stabilisateurs
 
 en:stabilizer e445
 fr:stabilisant e445
@@ -3604,7 +3824,7 @@ it:Amidi modificati
 lt:Modifikuotas krakmolas
 lv:Modificēta ciete
 mt:Lamtu mmodifikat
-nl:Gemodificeerd zetmeel
+nl:Gemodificeerd zetmeel, Gemodificeerde zetmelen
 pl:Skrobia modyfikowana
 pt:Amido modificado
 ro:Amidon modificat
@@ -3991,7 +4211,7 @@ it:Edulcoranti
 lt:Saldiklis
 lv:Saldinātājs
 mt:Dolċifikant
-nl:Zoetstof
+nl:Zoetstof., Zoetstoffen
 pl:Substancja słodząca
 pt:Edulcorante
 ro:Îndulcitor
@@ -4097,7 +4317,7 @@ it:Addensanti
 lt:Tirštiklis
 lv:Biezinātājs
 mt:Aġent li jgħaqqad
-nl:Verdikkingsmiddel
+nl:
 pl:Substancja zagęszczająca
 pt:Espessante
 ro:Agent de îngroșare
@@ -4168,10 +4388,6 @@ es:aceite de chía
 fr:huile de chia
 nl:chia-olie
 
-< en:Copra oil
-< en:Vegetable oil
-fr:huile de coco non hydrogénée
-
 < en:Vegetable oil
 en:hydrogenated vegetable fat
 fr:graisse végétale hydrogénée, matière grasse végétale hydrogénée, graisses végétales hydrogénées
@@ -4184,12 +4400,8 @@ en:non-hydrogenated vegetable fats, non-hydrogenated vegetable fat
 fr:matières grasses végétales non hydrogénées, matière grasse végétale non hydrogénée
 
 < en:Vegetable oil
-en:non hydrogenated vegetable oil
-fr:huile végétale non hydrogénée
-
-< en:Vegetable oil
-en:non-hydrogenated vegetable oils
-fr:huiles végétales non hydrogénées
+en:non-hydrogenated vegetable oils, non hydrogenated vegetable oil
+fr:huiles végétales non hydrogénées, huile végétale non hydrogénée
 
 < en:Vegetable oil
 en:olive oil
@@ -4216,52 +4428,63 @@ fr:huile d'olive vierge extra extraite à froid
 
 < en:Vegetable oil
 en:palm oil
-fr:huile de palme
+es:aceite de palma
+fr:huile de palme, huile végétale de palme
+wikidata:en: Q231458
+
+< en:Palm oil
+en:coconut fat
+fr:graisse de coprah, matière grasse de coco, graisse végétale de coprah, graisse végétale de coco
+
+< en:Palm oil
+en:coconut oil, copra oil
+fr:huile de coco, huile de noix de coco, huile de coprah
+
+< en:Coconut oil
+fr:coprah
+
+< en:Coconut oil
+fr:huile de coco non hydrogénée
 
 < en:Palm oil
 en:hydrogenated palm oil
 fr:huile de palme hydrogénée
 
 < en:Palm oil
+en:non-hydrogenated palm oil
+de:ungehärtetes Palmöl
+es:aceite de palma no hidrogenado
+fr:huile de palme non hydrogénée
+nl:niet gehydrogeneerde palmolie, niet-gehydrogeneerde palm
+
+< en:Palm oil
 en:palm
 fr:palme
 
 < en:Palm oil
-en:palm olein
+en:palm kernel oil
+fr:huile de palmiste
+
+< en:Palm oil
+en:palmoleil, palm olein
 fr:Oléïne de palme
 
 < en:Palm oil
 fr:Acides gras de palme
 
 < en:Palm oil
-fr:graisse de palme
+fr:graisse végétale de palme, graisse de palme, matière grasse de palme, matière grasse végétale de palme
 
 < en:Palm oil
-fr:graisse végétale de coprah
+fr:huile de palme et de palmiste
 
 < en:Palm oil
-fr:graisse végétale de palme
-
-< en:Palm oil
-fr:huile de coprah
-
-< en:Palm oil
-fr:huile de palme non hydrogénée
-
-< en:Palm oil
-fr:huile de palmiste
-
-< en:Palm oil
-fr:matière grasse de palme
-
-< en:Palm oil
-fr:matière grasse végétale de palme
-
-< en:Palm oil
-fr:Oléïne de palme
+fr:huile de palme partiellement hydrogénée
 
 < en:Palm oil
 fr:Stéarine de palme
+de:Palmstearin
+it:Stearina di palma
 
 < en:Vegetable oil
 en:sesame oil
@@ -4337,12 +4560,6 @@ allergens:fr: huile de _noix_
 fr:huile de noix de coco totalement hydrogénée
 
 < en:Vegetable oil
-fr:huile de palme et de palmiste
-
-< en:Vegetable oil
-fr:huile de palme partiellement hydrogénée
-
-< en:Vegetable oil
 fr:huile de pépins de raisin
 
 < en:Vegetable oil
@@ -4368,9 +4585,6 @@ fr:huile et graisses végétales
 
 < en:Vegetable oil
 fr:huile végétale de coco
-
-< en:Vegetable oil
-fr:huile végétale de palme
 
 < en:Vegetable oil
 fr:huile végétale hydrogénée
@@ -4472,7 +4686,7 @@ it:Vitamine
 lt:Vitaminai
 lv:Vitamīni
 mt:Vitamini
-nl:Vitaminen
+nl:Vitamine, Vitaminen
 pl:Witaminy
 pt:Vitaminas
 ro:Vitamine
@@ -4570,32 +4784,71 @@ fr:farine de blé
 nl:tarwebloem
 allergens:fr: farine de _blé_
 
-en:whey
-fr:lactosérum
+< en:Wheat flour
+en:dextrinated wheat flour
+de:dextriniertes Weizenmehl
+es:harina de trigo dextrinada
+fr:farine de blé dextrinée
+nl:gedextrineerd tarwemeel
 
-< en:Whey
-en:whey powder, powdered whey
-fr:lactosérum en poudre
-allergens:fr: _lactosérum_ en poudre
+< en:Wheat flour
+en:durum wheat flour
+de:Hartweizenmehl
+es:harina de trigo duro
+fr:farine de blé dur
+nl:durum tarwemeel
+allergens:fr: farine de _blé_ dur
 
-< en:Whey
-fr:lactosérum concentré
-allergens:fr: _lactosérum_ concentré
+< en:Wheat flour
+fr:farine de blé bio
+allergens:fr: farine de _blé_ bio
 
-< en:Whey
-fr:lactosérum déminéralisé
-allergens:fr: _lactosérum_ déminéralisé
+< en:Wheat flour
+fr:farine de blé complet
+allergens:fr: farine de _blé_ complet
 
-< en:Whey
-fr:lactosérum doux en poudre
-allergens:fr: _lactosérum_ doux en poudre
+< en:Wheat flour
+fr:farine de blé complète
+allergens:fr: farine de _blé_ complète
 
-< en:Whey
-fr:perméat de lactosérum
+< en:Wheat flour
+fr:farine de blé enrichie
+allergens:fr: farine de _blé_ enrichie
 
-en:whey proteins
-fr:protéines de lactosérum
-allergens:fr: protéines de _lactosérum_
+< en:Wheat flour
+fr:farine de blé fermenté
+allergens:fr: farine de _blé_ fermenté
+
+< en:Wheat flour
+fr:farine de blé malté
+allergens:fr: farine de _blé_ malté
+
+< en:Wheat flour
+fr:farine de blé malté torréfié
+
+< en:Wheat flour
+fr:farine de blé maltée
+allergens:fr: farine de _blé_ maltée
+
+< en:Wheat flour
+fr:farine de blé noir
+allergens:fr: farine de _blé_ noir
+
+< en:Wheat flour
+fr:farine de blé t65
+allergens:fr: farine de _blé_ t65
+
+< en:Wheat flour
+fr:farine de blé t80
+allergens:fr: farine de _blé_ t80
+
+< en:Wheat flour
+fr:farine de blé tendre
+allergens:fr: farine de _blé_ tendre
+
+< en:Wheat flour
+fr:farine de blé type 45
+allergens:fr: farine de _blé_ type 45
 
 en:white chocolate
 fr:chocolat blanc
@@ -5589,16 +5842,6 @@ fr:cranberries, cranberry, cranberrys
 
 fr:cranberries séchées
 
-fr:crème
-
-< fr:Crème
-fr:crème en poudre
-allergens:fr: _crème_ en poudre
-
-< fr:Crème
-fr:crème pasteurisée
-allergens:fr: _crème_ pasteurisée
-
 fr:crème acidulée
 
 fr:crème de coco
@@ -6552,44 +6795,6 @@ allergens:fr: farine d'_orge_ maltée
 fr:farine d'orge maltée torréfiée
 allergens:fr: farine d'_orge_ maltée torréfiée
 
-fr:farine de blé bio
-allergens:fr: farine de _blé_ bio
-
-fr:farine de blé complet
-allergens:fr: farine de _blé_ complet
-
-fr:farine de blé complète
-allergens:fr: farine de _blé_ complète
-
-fr:farine de blé enrichie
-allergens:fr: farine de _blé_ enrichie
-
-fr:farine de blé fermenté
-allergens:fr: farine de _blé_ fermenté
-
-fr:farine de blé malté
-allergens:fr: farine de _blé_ malté
-
-fr:farine de blé malté torréfié
-
-fr:farine de blé maltée
-allergens:fr: farine de _blé_ maltée
-
-fr:farine de blé noir
-allergens:fr: farine de _blé_ noir
-
-fr:farine de blé t65
-allergens:fr: farine de _blé_ t65
-
-fr:farine de blé t80
-allergens:fr: farine de _blé_ t80
-
-fr:farine de blé tendre
-allergens:fr: farine de _blé_ tendre
-
-fr:farine de blé type 45
-allergens:fr: farine de _blé_ type 45
-
 fr:farine de caroube
 
 fr:farine de céréales
@@ -7327,8 +7532,6 @@ fr:graisse de volaille
 
 fr:graisse végétale, graisses végétales
 
-fr:graisse végétale de coco
-
 
 fr:graisse végétale totalement hydrogénée
 
@@ -7699,7 +7902,7 @@ fr:l-tryptophane
 
 fr:lactaires
 
-fr:lactase
+fr:Lactase
 
 fr:lactate de fer
 
@@ -7712,9 +7915,6 @@ allergens:fr: _lactoprotéines_
 
 fr:lactose et minéraux du lait
 allergens:fr: _lactose_ et minéraux du _lait_
-
-fr:lactose et protéine de lait
-allergens:fr: _lactose_ et protéine de _lait_
 
 fr:lactose et protéines de lait
 allergens:fr: _lactose_ et protéines de _lait_
@@ -7780,8 +7980,7 @@ allergens:fr: _lait_ écrémé en poudre réhydraté
 fr:lait écrémé et crème pasteurisés
 allergens:fr: _lait_ écrémé et crème pasteurisés
 
-fr:lait en poudre enrichi en matière grasse
-allergens:fr: _lait_ en poudre enrichi en matière grasse
+nl:melkpoeder
 
 fr:lait entier concentré
 allergens:fr: _lait_ entier concentré
@@ -8055,8 +8254,6 @@ fr:matière graisse végétale
 fr:matière grasse, matières grasses
 
 fr:matière grasse butyrique
-
-fr:matière grasse de coco
 
 fr:matière grasse de coprah
 
@@ -8568,13 +8765,7 @@ fr:pétales de maïs, pétale de maïs
 fr:petit beurre
 allergens:fr: petit _beurre_
 
-fr:petit-lait
-allergens:fr: _petit-lait_
-
 fr:petit-lait doux en poudre
-
-fr:petit-lait en poudre
-allergens:fr: petit-_lait_ en poudre
 
 fr:petits pois, petit pois
 
@@ -8823,6 +9014,9 @@ fr:poudre de jaunes d'oeufs
 allergens:fr: poudre de jaunes d'_oeufs_
 
 fr:poudre de lactosérum sucré
+
+fr:poudre de lait écrémé
+allergens:fr: poudre de _lait_ écrémé
 
 fr:poudre de levure
 
