@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-07-30 21:52\n"
+"PO-Revision-Date: 2018-08-10 20:33\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -550,7 +550,7 @@ msgstr "Código EMB"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr ""
+msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLANTES 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
@@ -2155,7 +2155,7 @@ msgstr "Resultado do download em formato CSV (Excel, OpenOffice)"
 
 msgctxt "search_download_results_description"
 msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr ""
+msgstr "Mapa de caracteres: Unicode (UTF-8). Separador: tabulação (tab)."
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -2654,15 +2654,15 @@ msgstr "Atenção: a quantidade de fibra não está especificada, a sua eventual
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Atenção: a quantidade de frutas, legumes e nozes não é especificada, a sua possível contribuição positiva para o grau não pode ser tida em conta."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr ""
+msgstr "Atenção: a quantidade de frutas, legumes e nozes não é especificada no rótulo, foi estimado da lista de ingredientes: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr ""
+msgstr "Atenção: a quantidade de frutas, legumes e nozes não é especificada no rótulo, foi estimado da categoria (%s) do produto: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
