@@ -1186,10 +1186,10 @@ extract_ingredients_classes_from_text($product_ref);
 print STDERR $product_ref->{additives} . "\n";
 
 is_deeply($product_ref->{additives_original_tags}, [
-          'en:e322',
+          'en:e322i',
           'en:e422',
           'en:e330',
-          'en:e440',
+          'en:e440i',
           'en:e331',
           'en:e500',
           'en:e503',
@@ -1290,7 +1290,7 @@ print STDERR $product_ref->{additives} . "\n";
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e414',
           'en:e412',
-          'en:e334',
+          'en:e336',
           'en:e500',
           'en:e440i',
           'en:e330',
@@ -1300,6 +1300,26 @@ is_deeply($product_ref->{additives_original_tags}, [
 
 #print STDERR Dumper($product_ref->{additives_original_tags});
 
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"dioxyde titane, le glutamate de sodium, 
+",
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+          'en:e171',
+          'en:e621',
+	
+                              ],
+);
+
+#print STDERR Dumper($product_ref->{additives_original_tags});
 
 
 

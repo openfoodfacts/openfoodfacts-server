@@ -12,6 +12,9 @@
 # Codex Alimentarius:
 # http://www.fao.org/gsfaonline/additives/details.html?id=322
 
+stopwords:fr:aux,au,de,le,du,la,a,et,avec
+stopwords:en:of,with
+
 synonyms:en:FD&C, FC and C, FDC, FFDCA, FDCA
 synonyms:en:n°, no, number, nb, #
 synonyms:en:no1, n1, 1
@@ -325,7 +328,7 @@ e_number:en:107
 wikidata:en:Q424528
 colour_index:en:CI 18965
 
-en:E110, Sunset yellow FCF, CI Food Yellow 3, Orange Yellow S, FD&C Yellow 6, FD & C Yellow No.6, FD and C Yellow No. 6, Yellow No.6, Yellow 6, FD and C Yellow 6, C.I. 15985
+en:E110, Sunset yellow FCF, CI Food Yellow 3, Orange Yellow S, FD&C Yellow 6, FD & C Yellow No.6, FD and C Yellow No. 6, Yellow No.6, Yellow 6, FD and C Yellow 6, C.I. 15985, Sunset Yellow
 bg:E110, Сънсет жълто FCF, CI хранително жълто 3, Yellow 6
 cs:E110, Sunset yellow FCF, Yellow 6, Žluť SY, E 110
 da:E110, Sunset yellow FCF, Yellow 6
