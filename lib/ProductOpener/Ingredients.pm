@@ -654,6 +654,10 @@ sub extract_ingredients_classes_from_text($) {
 	
 	# print STDERR "additives: $text\n\n";
 	
+	#  remove % / percent
+	$text =~ s/(\d+((\,|\.)\d+)?)\s*\%$//g;
+	
+	
 	$product_ref->{ingredients_text_debug} = $text;	
 	
 
@@ -945,6 +949,8 @@ INFO
 				my $ingredient_id_copy = $ingredient_id; # can be modified later: soy-lecithin -> lecithin, but we don't change values of @ingredients_ids
 			
 				my $match = 0;
+				my $match_without_mandatory_class = 0;
+				
 				while (not $match) {
 				
 					# additive class?
@@ -1025,6 +1031,20 @@ INFO
 								# success!
 								$match = 1;		
 								$product_ref->{$tagtype} .= " -- ok ";								
+							}
+							elsif ($ingredient_id_copy =~ /^e( |-)?\d/) {
+								# id the additive is mentioned with an E number, tag it even if we haven't detected a mandatory class
+								if (not exists $seen_tags{$tagtype . '_tags' . $canon_ingredient}) {
+									push @{$product_ref->{ $tagtype . '_tags'}}, $canon_ingredient;
+									$seen_tags{$tagtype . '_tags' . $canon_ingredient} = 1;
+								}
+								# success!
+								$match = 1;		
+								$product_ref->{$tagtype} .= " -- e-number ";								
+							
+							}
+							else {
+								$match_without_mandatory_class = 1;
 							}
 						}
 						else {
@@ -1121,20 +1141,37 @@ INFO
 					
 					# spellcheck
 					my $spellcheck = 0;
-					if ((not $match) and ($tagtype eq 'additives')) {
+					if ((not $match) and ($tagtype eq 'additives')
+						and not $match_without_mandatory_class
+						# do not correct words that are existing ingredients in the taxonomy
+						and (not exists_taxonomy_tag("ingredients", canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient_id_copy) ) ) ) {
+						
 						my ($corrected_canon_tagid, $corrected_tagid, $corrected_tag) = spellcheck_taxonomy_tag($product_ref->{lc}, $tagtype, $ingredient_id_copy);
 						if ((defined $corrected_canon_tagid) 
 							and ($corrected_tag ne $ingredient_id_copy)
-							and (exists_taxonomy_tag($tagtype, $corrected_canon_tagid))) {
+							and (exists_taxonomy_tag($tagtype, $corrected_canon_tagid))
+							
+							# false positives
+							# proteinas -> proteinase
+							# vitamine z -> vitamine c
+							
+							and (not $corrected_tag eq "proteinase")
+							and (not $corrected_tag eq "vitamine-c")
+							and (not $corrected_tag eq "argent")
+							
+							) {
+							
+							$product_ref->{$tagtype} .= " -- spell correction (lc: " . $product_ref->{lc} . "): $ingredient_id_copy -> $corrected_tag";
+							print STDERR "spell correction (lc: " . $product_ref->{lc} . "): $ingredient_id_copy -> $corrected_tag - code: $product_ref->{code}\n";
+							
 							$ingredient_id_copy = $corrected_tag;
-							$product_ref->{$tagtype} .= " -- spell correction: $ingredient_id_copy -> $corrected_tag";
-							print STDERR "spell correction: $ingredient_id_copy -> $corrected_tag - code: $product_ref->{code}\n";
 							$spellcheck = 1;
 						}
 					}
 					
 					
-					if ((not $match) and (not $spellcheck)) {
+					if ((not $match)
+						and (not $spellcheck)) {
 						
 						# try to shorten the ingredient to make it less specific, to see if it matches then
 						
@@ -1146,12 +1183,13 @@ INFO
 							# lécithine de soja -> lécithine de -> lécithine
 							$ingredient_id_copy = $`;
 						}
-						
 						else {
 							# give up
-							$match = 1;
+							$match = 1;							
 						}
 					}
+					
+		
 					$product_ref->{$tagtype} .= " ] ";
 				}
 			}

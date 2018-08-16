@@ -64,7 +64,7 @@ wikidata:en:Q898753
 
 en: Anti-caking agent
 ga: Oibreán frithstolptha
-de: Backtriebmittel
+de: Rieselhilfe, Antiagglomerationsmittel
 da: Antiklumpningsmiddel
 el: Αντισυσσωματωτικό
 es: Antiaglomerante
@@ -89,7 +89,7 @@ wikidata:en:Q726460
 
 en: Anti-foaming agent
 ga: Oibreán frithchúrtha
-de: Emulgator Farbstoffe
+de: Schaumverhüter
 da: Skumdæmpningsmiddel
 el: Αντιαφριστικό
 es: Antiespumante
@@ -114,7 +114,7 @@ wikidata:en:Q904035
 
 en: Antioxidant
 ga: Frithocsaídeoir
-de: Festigungsmittel
+de: Antioxidant
 el: Αντιοξειδωτικό
 es: Antioxidante
 fi: Hapettumisenestoaine
@@ -135,7 +135,7 @@ wikidata:en:Q133948
 
 en: Bulking agent
 ga: Toirteoir
-de: Feuchthaltemittel
+de: Füllstoff
 da: Fyldemiddel
 el: Διογκωτικό
 es: Incrementador de volumen
@@ -160,7 +160,7 @@ bg: Пълнител
 
 en: Colour, color, colouring, coloring
 ga: Dath
-de: Füllstoff
+de: Farbstoff
 da: Farve
 el: Χρωστική ουσία
 es: Colorante, color
@@ -190,7 +190,7 @@ wikidata:en:
 
 en: Emulsifier
 ga: Eiblitheoir
-de: Geliermittel
+de: Emulgator
 da: Emulgator
 el: Γαλακτωματοποιητής
 es: Emulgente, Emulsificante
@@ -213,14 +213,17 @@ ro: Emulsifiant
 bg: Емулгатор
 wikidata:en:Q907356
 
-en: Emulsifying salts
+# Emulsifying salts are used in the production of processed cheeses to disperse proteins and lipids and obtain a homogeneous product. 
+
+<en:Salt (chemistry)
+en: Emulsifying salt, Emulsifying salts, Melting salt
 ga: Salainn eiblithe
-de: Geschmacksverstärker
+de: Schmelzsalze
 da: Smeltesalt
 el: Γαλακτωματοποιητικά άλατα
 es: Sales fundentes, Sales emulsionantes
 fi: Sulatesuola
-fr: Sels émulsifiants
+fr: Sels émulsifiants, sel émulsifiant, sel de fonte, sels de fonte
 it: Sali di fusione
 nl: Smeltzout, Smeltzouten
 pt: Sais de fusão
@@ -237,10 +240,30 @@ sk: Emulgujúce (taviace) soli
 ro: Săruri de topire
 bg: Емулгаторни соли
 wikidata:en:Q50419202
+wikipedia:https://nl.wikipedia.org/wiki/Smeltzout
+
+# Magnesium stearate is the chemical compound with the formula Mg(C18H35O2)2
+<en: Emulsifying salt
+en:Magnesium stearate, E470b
+ar:ستيرات المغنسيوم
+cs:Stearan hořečnatý
+de:Magnesiumstearat
+fa:منیزیم استارات
+fr:Stéarate de magnésium, sels de magnésium d'acides gras
+hu:Magnézium-sztearát
+it:stearato di magnesio, sale di magnesio dell'acido stearico
+nl:Magnesiumstearaat
+pl:Stearynian magnezu
+pt:Estearato de magnésio
+ro:Stearat de magneziu
+ru:Стеарат магния
+sh:Magnezijum stearat
+zh:硬脂酸镁
+wikipedia:https://en.wikipedia.org/wiki/Magnesium_stearate
 
 en: Firming agent
 ga: Oibreán teannta
-de: Komplexbildner
+de: Festigungsmittel
 da: Konsistensmiddel
 el: Σκληρυντικό
 es: Endurecedor
@@ -265,7 +288,7 @@ wikidata:en:Q1408496
 
 en: Flavour enhancer
 ga: Méadaitheoir blais
-de: Konservierungsstoff
+de: Geschmacksverstärker
 da: Smagsforstærker
 el: Ενισχυτικό γεύσης
 es: Potenciador del sabor
@@ -315,7 +338,7 @@ wikidata:en:Q469842
 
 en: Foaming agent
 ga: Oibreáin chúrtha
-de: Modifizierte Stärke
+de: Schaummittel
 da: Skumdannende middel
 el: Αφριστικοί παράγοντες
 es: Espumante
@@ -340,7 +363,7 @@ wikidata:en:Q759922
 
 en: Gelling agent
 ga: Oibreán glóthúcháin
-de: Säuerungsmittel
+de: Geliermittel
 da: Geleringsmiddel
 el: Πηκτωματογόνο
 es: Gelificante
@@ -365,7 +388,7 @@ wikidata:en:Q27862636
 
 en: Glazing agent
 ga: Oibreán glónrúcháin
-de: Säureregulator
+de: Überzugsmittel
 el: Υλικό για γλασάρισμα
 es: Agente de recubrimiento
 fi: Pintakäsittelyaine
@@ -388,7 +411,7 @@ wikidata:en:Q334582
 
 en: Humectant
 ga: Taisleán
-de: Schaummittel
+de: Feuchthaltemittel
 el: Υγροσκοπικό μέσο
 es: Humectante
 fi: Kosteudensäilyttäjä
@@ -408,7 +431,7 @@ wikidata:en:Q911854
 
 en: Modified starch
 ga: Stáirse modhnaithe
-de: Schaumverhüter
+de: Modifizierte Stärke
 da: Fugtighedsbevarende middel
 el: Τροποποιημένο άμυλο
 es: Almidón modificado
@@ -432,7 +455,7 @@ wikidata:en:Q415766
 
 en: Preservative
 ga: Leasaitheach
-de: Schmelzsalze
+de: Konservierungsstoff
 da: Modificeret stivelse
 el: Συντηρητικό
 es: Conservante, Conservador
@@ -457,8 +480,8 @@ wikidata:en:Q274579
 
 en: Propellent gas
 ga: Gás tiomána
-de: Stabilisator
 da: Konserveringsmiddel
+de: Treibgas
 el: Προωστικό αέριο
 es: Gas propulsor
 fi: Ponneaine
@@ -482,7 +505,7 @@ wikidata:en:Q50419221
 
 en: Raising agent
 ga: Oibreán éiritheach
-de: Süßungsmittel
+de: Backtriebmittel
 da: Drivgas
 el: Διογκωτικό αρτοποιίας
 es: Gasificante
@@ -507,7 +530,7 @@ wikidata:en:Q908833
 
 en: Sequestrant
 ga: Leithliseoir
-de: Treibgas
+de: Komplexbildner
 da: Hævemiddel
 el: Συμπλοκοποιητές
 es: Secuestrante
@@ -532,7 +555,7 @@ wikidata:en:Q905648
 
 en: Stabiliser, Stabilizer
 ga: Cobhsaitheoir
-de: Trennmittel
+de: Stabilisator
 da: Kompleksdannere
 el: Σταθεροποιητής
 es: Estabilizador
@@ -557,7 +580,7 @@ wikidata:en:Q7595716
 
 en: Sweetener
 ga: Milseoir
-de: Überzugsmittel
+de: Süßungsmittel
 da: Kompleksdannere
 el: Γλυκαντικό
 es: Edulcorante, Endulzante
@@ -629,28 +652,129 @@ sl:Vitamini
 sv:Vitaminer
 #wikidata:en:
 
-en:Minerals
-bg:Минерали
-cs:Minerální látky
-de:Mineralstoffe
-el:Ανόργανα συστατικά
-es:Minerales
-et:Mineraalained
-fi:Kivennäiset
-fr:Minéraux, Substances d'apport minéral, Apport minéral
-hu:Ásványi anyagok
-it:Minerali
-lt:Mineralinės medžiagos
-lv:Minerālvielas
+# MINERAL - is a naturally occurring chemical compound,[1] usually of crystalline form and not produced by life processes.
+
+en:Mineral, Minerals
+af:Mineraal
+# als:Mineral
+an:Mineral
+ar:معدن
+as:খনিজ পদাৰ্থ
+ast:Mineral
+az:Mineral
+ba:Минерал, Минера́л
+be:Мінерал
+bg:Минерал, Минерали
+bh:खनिज
+bn:খনিজ
+bs:Mineral
+ca:Mineral
+# chr:ᎦᏙ ᏂᏓᏳᏓᎴᏅ
+cs:Minerál, Minerální látky
+cy:Mwyn
+da:Mineral
+de:Mineral, Mineralstoffe
+el:Ορυκτό, Ανόργανα συστατικά
+eo:Mineralo
+es:Mineral, Minerales
+et:Mineraal, Mineraalained
+eu:Mineral
+# ext:Mineral
+fa:کانی
+fi:Mineraali, Kivennäiset
+# fiu-vro:Mineraal
+fr:Minéral, Minéraux, Substances d'apport minéral, Apport minéral
+# frr:Mineraal
+fy:Mineraal
+ga:Mianra
+gl:Mineral
+he:מינרל
+hi:खनिज
+hr:Minerali
+ht:Mineral
+hu:Ásvány (anyag), Ásványi anyagok
+hy:Միներալ
+ia:Mineral
+id:Mineral
+# ilo:Mineral
+io:Mineralo
+is:Steind, steinefni, steintegund
+it:Minerale, Minerali
+ja:鉱物
+# jam:Minaral
+jv:Mineral
+ka:მინერალები
+# kaa:Mineral
+# kbp:Ñɩɣlɩm tɛtʊ
+kk:Минерал
+kn:ಖನಿಜ
+ko:광물
+ky:Минерал
+la:Minerale
+# lfn:Mineral
+# lmo:Mineraj
+lo:ແຮ່ທາດ
+lt:Mineralas, Mineralinės medžiagos
+lv:Minerāls, Minerālvielas
+# mai:खनिज
+mk:Минерал
+ml:ധാതു
+mn:Эрдэс
+mr:खनिज
+ms:Mineral
 mt:Minerali
+# mwl:Mineral
+my:တွင်းထွက်ပစ္စည်း
+# nds:Mineral
+ne:खनिज
+# new:खनिज
 nl:Mineraal, Mineralen
-pl:Składniki mineralne
-pt:Minerais
-ro:Minerale
-sk:Minerálne látky
-sl:Minerali
-sv:Mineraler
+nn:Mineral
+no:Mineral
+oc:Minerau
+pa:ਖਣਿਜ
+pl:Minerał, Składniki mineralne
+# pnb:معدنیات
+pt:Mineral, Minerais
+qu:Qiqlla
+ro:Mineral, Minerale
+# roa-rup:Mineralu
+ru:Минерал
+# rue:Мінералы
+sa:खानिजः
+# scn:Minirali
+sh:Minerali
+si:ඛනිජ
+sk:Minerál, Minerálne látky
+sl:Mineral, Minerali
+sn:Muchegwa
+so:Macdan
+sq:Minerali
+sr:Минерал
+# sco:Meeneral
+su:Mineral
+sv:Mineral, Mineraler
+sw:Madini
+ta:கனிமம்
+# tcy:ಕನಿಜೊ
+te:మినరల్
+th:แร่
+tl:Mineral
+tr:Mineral
+uk:Мінерал, Мінера́л
+ur:معدن
+uz:Mineral
+vi:Khoáng vật
+# war:Mineral
+# wuu:礦物
+yi:מינעראל
+za:Gvangvuz
+zh:礦物
+# zh-min-nan:Khòng-bu̍t
+# zh-yue:礦物
 #wikidata:en:
+wikipedia:https://en.wikipedia.org/wiki/Mineral
+openFoodFacts:https://world.openfoodfacts.org/ingredient/minerals
 
 en:Amino acids
 bg:Аминокиселини
@@ -704,67 +828,237 @@ fr:Autres substances nutritives
 hu:Egyéb táplálkozási anyagok
 nl:Andere voedingsmiddelen
 
+#
+# ENZYME - is a macromolecular biological catalysts. Enzymes accelerate chemical reactions. 
+#
+
+en:enzyme
+af:ensiem
+# als:Enzym
+an:enzima
+ar:ئەنزیم
+as:উৎসেচক
+# ast:enzima
+az:fermentlər
+# azb:آنزیم
+ba:Ферменттар
+# bat-smg:ferments
+be:Ферменты
+# be-tarask:Фэрмэнты
+bg:Ензим
+bn:উৎসেচক
+br:enzim
+bs:enzim
+ca:enzim
+# ckb:ئەنزیم
+cs:enzym
+cy:ensym
+da:enzym
+de:Enzym
+el:Ένζυμο
+eo:enzimo
+es:enzima
+et:ensüüm
+eu:entzima
+# ext:enzima
+fa:آنزیم
+fi:entsyymi
+fo:kveiki
+ga:einsím
+gl:enzima
+he:אנזים
+hi:प्रकिण्व
+# hif:enzyme
+hr:enzim
+ht:anzim
+hu:enzim
+hy:Ֆերմենտ
+ia:enzyma
+id:enzim
+ilo:ensima
+io:enzimo
+is:ensím
+it:enzima
+ja:酵素
+jv:Ènzim
+ka:ფერმენტები
+kk:Ферменттер
+ko:효소
+# ksh:enzym
+ku:enzîm
+ky:Фермент
+la:enzymum
+# lez:Ферментар
+# lfn:enzimolojia
+li:enzym
+# lmo:enzima
+lt:fermentas
+lv:ferments
+mk:Ензим
+ml:രാസാഗ്നി
+mn:Фермент
+mr:उत्प्रेरक
+ms:eEnzim
+my:အင်န်ဇိုင်း
+# new:इन्जाइम
+nl:enzym
+nn:enzym
+no:enzym
+# nov:ensime
+oc:enzim
+pa:ਐੱਨਜ਼ਾਈਮ
+# pam:enzyme
+pl:enzymy
+# pnb:انزائم
+ps:انزايم
+pt:enzima
+qu:huptana
+ro:enzimă
+ru:Ферменты
+# rue:Ензім
+# sah:Энзим
+# sco:enzyme
+se:entsyma
+sh:enzim
+si:එන්සයිම
+sk:enzým
+sl:encim
+so:Ensiim
+sq:enzima
+sr:Ензим
+# stq:enzyme
+su:Énzim
+sv:enzym
+sw:kimeng'enya
+ta:நொதியம்
+te:ఎంజైము
+th:เอนไซม์
+tl:ensaym
+tr:enzim
+tt:Фермент
+# tyv:Ферментилер
+uk:Ферменти
+ur:خامرہ
+uz:fermentlar
+vi:enzym
+# war:ensaym
+# wuu:酶
+# xal:Фермент
+yi:ענזים
+zh:酶
+# zh-min-nan:Kàⁿ-sò͘
+# zh-yue:酵素
+wikipedia:https://en.wikipedia.org/wiki/Enzyme
+openFoodFacts:https://world.openfoodfacts.org/ingredient/enzyme
+
+<en:enzyme
+en:coagulating enzyme
+fr:enzyme coagulante, enzymes coagulantes
+nl:stremmingsenzymen
+openFoodFacts:https://world.openfoodfacts.org/ingredient/fr:enzyme%20coagulante
+relation:isa:en:enzyme
+
+<en:coagulating enzyme
+en:microbial coagulating enzyme
+fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne
+nl:microbiële stremmingsenzymen
+relation:isa:en:coagulating enzyme
+openFoodFacts:https://world.openfoodfacts.org/ingredient/fr:enzyme%20coagulante%20microbienne
+
+# LACTASE - is an enzyme produced by many organisms.
+
+<en:enzyme
 en:Lactase
-es:Lactasa
-fi:Laktaasi
-fr:Lactase
+ar:لكتاز
+bn:ল্যাকটেজ
+ca:lactasa
+cs:laktáza
+de:Lactase, Laktase
+el:Λακτάση
+eo:laktazo, β-galaktozidazo
+es:lactasa
+eu:laktasa
+fa:لاکتاز
+fi:laktaasi
+fr:lactase
+gl:lactase
 he:לקטאז
-hu:Laktáz
-it:Lattasi
+hr:laktaza
+hu:laktáz
+io:laktazo
+is:laktasi
+it:lattasi
 ja:ラクターゼ
 ko:락테이스
-pl:Laktaza
+mk:Лактаза
+nl:lactase
+oc:lactasa
+pl:laktaza
+pt:lactase
 ru:Лактаза
+sh:laktaza
+sk:laktáza
+sl:laktaza
+sr:laktaza
+sv:laktas
+tl:lactase
+uk:Лактаза
+uz:laktaza
+vi:lactase
 zh:乳糖酶
+# zh-yue:乳糖水解酶
 wikidata:en:Q379764
+openFoodFacts:https://world.openfoodfacts.org/ingredient/lactase
+relation:isa:en:enzyme
 
-# BUTTER - a dairy product containing up to 80% en:butterfat.
+#
+# BUTTER - a dairy product containing at least 80% en:butterfat.
+#
 
-<en:milk
 en:butter
-als:Anke, Butter
+# als:Anke, Butter
 am:ቅቤ
 an:manteca
 ar:زبدة
 arc:ܚܐܘܬܐ
-ast:mantega
-atj:manawan, wemotaci
+# ast:mantega
+# atj:manawan, wemotaci
 az:kərə yağı
 ba:aҡ май
-bar:budan
-bat-smg:svėists
+# bar:budan
+# bat-smg:svėists
 be:cметанковае масла
-be-tarask:mасла
+# be-tarask:mасла
 bg:kраве масло
-bjn:mantéga
+# bjn:mantéga
 bn:মাখন
 br:amanenn
 bs:maslac
-bxr:cагаан тоһон, ᠴᠠᠭᠠᠨ ᠲᠣᠰᠤ
+# bxr:cагаан тоһон, ᠴᠠᠭᠠᠨ ᠲᠣᠰᠤ
 ca:mantega
-chr:ᎪᏢᏅ
-chy:heóveamêške
+# chr:ᎪᏢᏅ
+# chy:heóveamêške
 cs:máslo
 cv:Çу
 cy:menyn
 da:smør
 de:Butter
 el:βούτυρο
-eml:butér
+# eml:butér
 eo:butero
 es:mantequilla
 et:või
 eu:gurin
 fa:کره
 fi:voi
-fiu-vro:võid
+# fiu-vro:võid
 fo:smør
 fr:beurre
 fy:bûter
 ga:im
 gl:manteiga
 gu:માખણ
-hak:nen-yù
+# hak:nen-yù
 he:חמאה
 hi:मक्खन
 hr:maslac
@@ -784,40 +1078,40 @@ ku:nivîşk
 la:butyrum
 lb:botter
 li:bótter
-lmo:butter
+# lmo:butter
 lo:ເນີຍ
 lt:sviestas
 lv:sviests
 ml:വെണ്ണ
 mk:Путер
 mr:लोणी
-mrj:Ӱ
+# mrj:Ӱ
 ms:mentega
 my:ထောပတ်
-myv:oй
-nds:Botter, Bodder
-nds-nl:botter
+# myv:oй
+# nds:Botter, Bodder
+# nds-nl:botter
 ne:नौनी
 nl:boter
 nn:smør
 no:smør
-nrm:buure
+# nrm:buure
 oc:burre
-olo:argivoi
+# olo:argivoi
 os:hæлхæ
 pa:ਮੱਖਣ
 pl:masło
-pnb:مکھݨ
+# pnb:مکھݨ
 pt:manteiga
 qu:mantikilla
 ro:unt
-roa-rup:umtlu
+# roa-rup:umtlu
 ru:cли́вочное ма́сло
 sa:नवनीतम्
-sah:aрыы
+# sah:aрыы
 sc:butiru
-scn:butirru
-sco:butter
+# scn:butirru
+# sco:butter
 sd:مکڻ
 sh:maslac
 si:බටර්
@@ -826,7 +1120,7 @@ sl:maslo
 so:subag
 sq:gjalpa
 sr:mаслац
-stq:buutere
+# stq:buutere
 su:mentéga
 sv:smör
 sw:siagi
@@ -840,30 +1134,192 @@ tt:atlan may, aq may
 uk:mасло вершкове
 ur:مکھن
 uz:sariyogʻ
-vec:buro, butiro
+# vec:buro, butiro
 vi:bơ
-vis:beuter
+# vis:beuter
 vo:bör
 wa:boure
-war:mantikilya
-wuu:白脱
+# war:mantikilya
+# wuu:白脱
 yi:פוטער
 zh:黄油
-zh-min-nan:bá-tah
-zh-yue:牛油
+# zh-min-nan:bá-tah
+# zh-yue:牛油
 allergens:fr:_beurre_
 allergens:nl:_boter_
+wikipedia:https://en.wikipedia.org/wiki/Butter
+openFoodFacts:https://world.openfoodfacts.org/ingredient/butter
+relation:contains:en:butter fat:fraction:0.8 max
+relation:contains:en:milk protein
+relation:contains:en:water
+relation:contains:en:casein
+relation:transformedFrom:en:milk:byProcess:en:churning
+
+# BEURRE DOUX - en:Butter avec une salinité moins de 0,5 %
+
+<en:butter
+en:unsalted butter
+fr:beurre doux
+nl:ongezouten boter
+allergens:fr:_beurre_ doux
+wikipedia:https://fr.wikipedia.org/wiki/Beurre_doux
+openFoodFacts:https://world.openfoodfacts.org/ingredient/unsalted-butter
+relation:isa:en:butter
+relation:contains:en:salt:fractionRange:0.5maximum
+
+# BEURRE DEMI-SEL - en:Butter avec une salinité moyenne de 0,5 % à 3 %
+
+<en:butter
+fr:beurre demi-sel
+nl:halfgezouten boter
+allergens:fr:_beurre_ demi-sel
+wikipedia:https://fr.wikipedia.org/wiki/Beurre_demi-sel
+openFoodFacts:https://world.openfoodfacts.org/ingredient/fr:beurre-demi-sel
+relation:isa:en:butter
+relation:contains:en:salt:fractionRange:0.5-3.0
+relation:transformedFrom:en:butter:byProcess:en:adding:en:salt
+
+# BEURRE SALÉ - en:Butter avec un taux de sel supérieur à 3%
+
+<en:butter
+en:salted butter
+fr:beurre salé
+de:gesalzene Butter, gesalzenes Butter
+nl:gezouten boter
+ja:塩バター
+allergens:fr:_beurre_ salé
+wikipedia:https://fr.wikipedia.org/wiki/Beurre_salé
+openFoodFacts:https://world.openfoodfacts.org/ingredient/salted-butter
+relation:contains:en:salt:fraction:3.0minimal
+relation:transformedFrom:en:butter:byProcess:en:adding:en:salt
+
+# CHURNED BUTTER - A butter churn is a device used to convert cream into butter. Is this traditional butter?
+
+<en:butter
+en:churned butter
+es:manteca batida
+fr:beurre de baratte
+nl:gekarnde boter
+openFoodFacts:https://world.openfoodfacts.org/ingredient/fr:beurre-de-baratte
+allergens:fr:_beurre_ de baratte
+relation:contains:en:butter fat:fraction:0.8 max
+
+# PASTEURIZED BUTTER - butter created from pasteurized milk
+
+<en:butter
+en:pasteurized butter, pasteurised butter
+fr:beurre pasteurisé
+nl:gepasteuriseerde boter
+openFoodFacts:https://world.openfoodfacts.org/ingredient/pasteurized-butter
+allergens:fr:_beurre_ pasteurisé
+relation:contains:en:butter fat:fraction:0.8 max
+
+# BEURRE D'ISIGNY - butter produced in Europe with protected geographical indications
+
+<en:butter
+en:Butter from Isigny AOP
+fr:beurre d'isigny AOP
+nl:boter uit Isigny
+openFoodFacts:https://world.openfoodfacts.org/ingredient/fr:beurre-d-isigny-aop
+
+# BEURRE DE CUISINE - beurre pasteurisé déshydraté, contenant environ 95% de matières grasses laitières
+
+<en:butter
+fr:beurre de cuisine, beurre cuisinier
+allergens:fr:_beurre_ de cuisine
+openFoodFacts:https://world.openfoodfacts.org/ingredient/fr:beurre-de-cuisine
+relation:contains:en:butter fat:fraction:0.95
+relation:contains:en:milk protein
+relation:contains:en:water
+relation:transformedFrom:en:pasteurised milk:byProcess:en:churning
+
+# FRESH BUTTER - Not sure what the definition is. It is normally homemade butter. Maybe products use it to indicated not reconstituted butter.
+
+<en:butter
+en:fresh butter
+fr:beurre frais
+nl:verse boter
+allergens:fr:_beurre_ frais
+relation:contains:en:butter fat:fraction:0.8 maximum
+
+# MELTED BUTTER - #butter made fluid
+
+<en:butter
+en:melted butter
+fr:beurre fondu
+nl:gesmolten boter
+treatment:en: en:melting
+
+# BEURRE LAITIER - is a French term used to describe butter made in a creamery or small dairy, as opposed to on a farm or in a factory
+
+<en:butter
+fr:beurre laitier
+allergens:fr:beurre _laitier_
+
+# BEURRE LAITIER CONCENTRÉ - is a French term used to describe butter made in a creamery or small dairy, as opposed to on a farm or in a factory
+
+<fr:beurre laitier
+fr:beurre laitier concentré
+allergens:fr:beurre _laitier_ concentré
+relation:contains:en:butter fat:fraction:0.8 max
+
+# CONCENTRATED BUTTER - is an industrially-made “clarified butter.” 
+# https://www.cooksinfo.com/concentrated-butter
+# It depends on the locale what can be called concentrated butter (99.8% (France), 96% (UK), 90% (Luxemburg) butterfat). 
+
+<en:butter
+en:concentrated butter
+fr:beurre concentré
+nl:geconcentreerde boter
+allergens:fr:_beurre_ concentré
+relation:contains:en:butter fat:fraction:en:France:0.998
+relation:contains:en:butter fat:fraction:en:United Kingdom:0.96
+relation:contains:en:butter fat:fraction:en:Luxemburg:0.9
+relation:transformedFrom:en:butter:byProcess:en:removing:water
+
+# PASTRY BUTTER - "Beurre Pâtissier” is butter that is 99.8% butterfat
+
+<en:concentrated butter
+en:pastry butter
+fr:beurre pâtissier
+it:burro di pasticceria
+allergens:fr:_beurre_ pâtissier
+relation:contains:en:butter fat:fraction:0.998
+relation:transformedFrom:en:butter:byProcess:en:removing:water
+
+
+# RECONSTITUTED BUTTER - When combined with the correct ratio of water to restore a normal water / butterfat balance for butter, Concentrated Butter is called “reconstituted butter.”
+
+<en:concentrated butter
+en:reconstituted butter
+fr:beurre concentré reconstitué, beurre déshydraté reconstitué
+nl:gereconstitueerde boter
+allergens:fr:_beurre_ concentré reconstitué
+relation:contains:en:butter fat:fraction:0.8
+relation:transformedFrom:en:concentrated butter:byProcess:en:adding:water
+
+
+# GRASBOTER - boter, bereid uit room uit de weideperiode, dus van koeien die vers gras hebben gegraasd.
+
+<en:butter
+nl:grasboter
+
+# SWEET CREAM BUTTER - Butter made from pasteurized fresh cream is called sweet cream butter. 
+
+<en:butter
+en:sweet cream butter
 
 # CLARIFIED BUTTER - en:milk fat rendered from butter to separate the en:milk solids and water from the en:butterfat
 
 <en:butter
-en:clarified butter
-bxr:Шара тоһон
+en:clarified butter, milk fat
+ar:عدل
+# bxr:Шара тоһон
 ca:mantega clarificada
 cs:přepuštěné máslo
 de:Butterschmalz
 es:mantequilla clarificada
-fr:beurre clarifié
+fr:beurre clarifié, beurre purifié
 he:חמאה מזוקקת
 it:burro chiarificato
 ja:澄ましバター
@@ -882,106 +1338,95 @@ uk:Пряжене масло
 zh:无水黄油
 allergens:fr:huile de _beurre_
 allergens:nl:_boterolie_
+relation:contains:en:butter fat:fraction:0.9988 min
+relation:transformedFrom:en:milk:byProcess:en:rendering
 
-# BEURRE DEMI-SEL - en:Butter avec une salinité moyenne de 0,5 % à 3 %
+# GHEE - a class of clarified butter that originated from the Indian subcontinent. This is probably a synomy of #clarified butter
 
-<en:butter
-fr:beurre demi-sel
-nl:halfgezouten boter
-allergens:fr:_beurre_ demi-sel
+<en:clarified butter
+en:ghee
+ar:سمن حيواني
+az:sarı yağ
+bn:ঘি
+cs:ghí
+da:ghee
+de:ghee
+dv:ދަހީ
+eo:gio
+es:ghee
+fa:روغن کرمانشاهی
+fi:ghi, ghee
+fr:ghi, ghee
+ga:gí
+gu:ઘી
+he:גהי
+hi:घी
+hr:ghee
+hu:ghi
+id:minyak samin
+is:skírt smjör
+it:ghi
+ja:ギー
+ka:ერბო
+kn:ತುಪ್ಪ
+ko:기
+lt:ghi
+mai:घी
+ml:നെയ്യ്
+mr:तूप
+ms:minyak sapi
+ne:घिउ
+nl:ghee, ghi
+nn:ghi, ghee
+no:ghi, ghee
+pa:ਘਿਉ
+pl:ghi, ghee
+# pnb:گھیؤ
+pt:ghi, ghee
+# sco:ghee
+ru:Гхи, ги 
+sa:घृतम्
+si:ගිතෙල්
+sl:ghee
+sv:ghee
+ru:Гхи
+ta:நெய்
+te:నెయ్యి
+uk:Ґгі, Гхі, Ґі
+ur:گھی
+zh:酥油
+relation:synonym:en:clarified butter
 
-<en:butter
-fr:beurre de baratte
-nl:gekarnde boter
-allergens:fr:_beurre_ de baratte
+# BUTTERFAT - the fatty portion of milk.
 
-<en:butter
-en:pasteurized butter, pasteurised butter
-fr:beurre pasteurisé
-nl:gepasteuriseerde boter
-allergens:fr:_beurre_ pasteurisé
+<en:clarified butter
+en:butterfat, milkfat
+bs:mliječna mast
+cy:braster menyn
+de:Milchfett
+es:grasa butírica
+id:lemak susu
+ja:乳脂肪
+ko:유지방
+ms:lemak mentega, lemak susu
+nl:melkvet
+ru:Молочный жир
+sl:mlečna maščoba
+sv:mjölkfett
+th:ไขมันเนย
+tl:taba ng gatas
+uk:Молочний жир
+zh:乳脂
+relation:synonym:en:clarified butter
 
-# PGI Butter - butters produced in Europe with protected geographical indications
 
-<en:butter
-en:PGI butter
-
-<en:PGI butter
-fr:beurre d'isigny
-
-<en:butter
-fr:beurre concentré reconstitué
-allergens:fr:_beurre_ concentré reconstitué
-
-# BEURRE DOUX - en:Butter avec une salinité moins de 0,5 %
-
-<en:butter
-en:unsalted butter
-fr:beurre doux
-nl:ongezouten boter
-allergens:fr:_beurre_ doux
-
-<en:butter
-fr:beurre de cuisine
-allergens:fr:_beurre_ de cuisine
-
-# BEURRE SALÉ - en:Butter avec un taux de sel supérieur à 3%
-
-<en:butter
-en:salted butter
-fr:beurre salé
-de:gesalzene Butter, gesalzenes Butter
-nl:gezouten boter
-ja:塩バター
-allergens:fr:_beurre_ salé
-
-<en:butter
-en:fresh butter
-fr:beurre frais
-nl:verse boter
-allergens:fr:_beurre_ frais
-
-<en:butter
-en:melted butter
-de:butterreinfett
-fr:beurre fondu
-nl:gesmolten boter
-treatment:en: en:melting
-
-<en:butter
-fr:beurre laitier concentré
-nl:geconcentreerde melkerijboter
-allergens:fr:beurre _laitier_ concentré
-
-<en:butter
-en:pastry butter, concentrated pastry butter
-fr:beurre pâtissier
-it:burro di pasticceria
-allergens:fr:_beurre_ pâtissier
-
-<en:butter
-en:concentrated butter
-fr:beurre concentré
-nl:geconcentreerde boter
-allergens:fr:_beurre_ concentré
-
-# GRASBOTER - boter, bereid uit room uit de weideperiode, dus van koeien die vers gras hebben gegraasd.
-
-<en:butter
-nl:grasboter
-
-# SWEET CREAM BUTTER - Butter made from pasteurized fresh cream is called sweet cream butter. 
-
-<en:butter
-en:sweet cream butter
-
-# MILK - produced from or containing the en:milk of mammals
+# MILK - a white liquid nutrient-rich food produced by the mammary glands of mammals.
 
 en:milk
 als:Milch
 br:Laezh
 ca:llet
-ckb:شیر
+# ckb:شیر
 de:Milch
 es:leche
 fr:lait
@@ -990,7 +1435,7 @@ it:latte
 ku:Şîr
 nl:melk
 oc:lach
-pcd:lait
+# pcd:lait
 pt:leite
 allergens:fr:_lait_
 wikidata:en:Q8495
@@ -1280,22 +1725,31 @@ nl:weifiltraatpoeder
 it:filtrato di siero di latte in polvere
 allergens:fr:_petit-lait_ filtré en poudre
 
-<en:whey
+<en:Whey
 fr:lactosérum doux en poudre
 allergens:fr:_lactosérum_ doux en poudre
 
-<en:whey
+<en:Whey
 fr:lactosérum déminéralisé
 allergens:fr:_lactosérum_ déminéralisé
 
-<en:whey
+<en:Whey
 fr:lactosérum concentré
 allergens:fr:_lactosérum_ concentré
 
-<en:whey
-en:whey proteins
-fr:protéines de lactosérum
-nl:weiproteïnen
+        # Whey protein is a mixture of globular proteins isolated from whey, the liquid material created as a by-product of cheese production.
+
+
+<en:Whey
+<en:Milk protein
+en:Whey protein
+ar:
+de:Molkenprotein
+es:Proteína de suero de leche
+fr:protéine de lactosérum
+hi:मट्ठा प्रोटीन
+nl:weiproteïne
+wikipedia:https://en.wikipedia.org/wiki/Whey_protein
 allergens:fr:protéines de _lactosérum_
 
 # CREAM
@@ -1409,87 +1863,374 @@ fr:vitamine d3
 en:vitamin k
 fr:vitamine k
 
-# SALT
+en:Salt (chemistry)
+wikipedia:https://en.wikipedia.org/wiki/Salt_(chemistry)
 
-en:salt, cooking salt, dry salt
-es:sal
-fr:sel, sel de cuisine, sel sec, sel de table, sel comestible
-nl:zout
-de:Salz
+# SALT - is a mineral composed primarily of sodium chloride (NaCl), a chemical compound belonging to the larger class of salts
+
+<en:Halite
+en:salt, table salt, common salt, cooking salt, dry salt
+# ace:Sira
+af:Tafelsout, Sout
+# als:Spiissalz, Chochsalz, Salz
+an:Sal, sal de cocina
+ar:ملح الطعام
+arc:(ܡܠܚܐ (ܐܨܪܐ
+arz:ملح الاكل
+# atj:Ciwotakan
+av:ЦӀам
+ay:Jayu
+az:Duz, Xörək duzu
+# azb:دوز
+ba:Аш тоҙо
+# bar:Soiz
+# bat-smg:Droska
+be:Павараная соль
+bjn:Uyah padu
+bn:লবণ
+bo:ཚྭ།
+br:Holen
+bs:So
+# bxr:Хоолой дабһан
+ca:Sal comuna, sal de cuina
+# ceb:Alasinon
+# cdo:Sièng
+# chy:Vóhpoma'ôhtse
+cy:Halen
+da:Husholdningssalt, køkkensalt, bordsalt, salt
+de:Speisesalz, Kochsalz, Tafelsalz, Salz
+el:Αλάτι
+eo:Salo, Komuna salo
+es:Sal, sal común, sal de mesa
+et:Söögisool, keedusool
+eu:Gatz arrunt, mahaiko gatza
+fa:نمک
+fi:Ruokasuola
+fr:Sel alimentaire, sel de table, sel de cuisine, sel, sel sec, sel comestible
+ga:Salann
+gd:Salann
+gl:Sal común
+gn:Juky
+gu:મીઠું
+# hak:Yàm
+hi:साधारण नमक
+hr:Kuhinjska sol
+hu:Konyhasó
+id:Garam dapur
+ig:Ńnú
+# inh:Тух
+io:Manjebla salo
+is:Borðsalt, matarsalt
+it:Cloruro di sodio, sale da cucina, sale
+ja:塩
+jv:Uyah
+ka:სუფრის მარილი
+# kbp:Ɖɔm
+kk:Ас тұзы
+kn:ಉಪ್ಪು (ಖಾದ್ಯ)
+ko:소금
+ku:Xwê
+lv:Sāls
+# mai:नून
+# mdf:Сал
+# min:Garam dapua
+ml:ഉപ്പ്
+mn:Хоолны давс
+mr:मीठ
+ms:Garam
+my:ဆား
+# nah:Iztatl
+ne:नून
+nl:Keukenzout, zout
+nv:Áshįįh
+oc:Sal alimentària
+# olo:Einehsuolu
+or:ଲୁଣ
+pa:ਲੂਣ
+# pap:Salu
+pl:Sól kuchenna
+pnb:لوݨ
+ps:مالگه
+pt:Sal de cozinha, sal de cosina, sal de taula
+ro:Sare de bucătărie
+ru:Поваренная соль
+rw:Umunyu
+sa:लवणम्
+# sah:Туус
+# sco:Saut
+sd:لوڻ
+sh:So (začin)
+si:ලුණු
+sl:Sol, Kuhinjska sol
+sn:Munyu
+so:Milix, Cusbo
+sq:Kripa
+sr:Со (зачин)
+su:Uyah
+sv:Salt
+ta:உப்பு
+te:ఉప్పు
+tg:Намак
+th:เกลือ
+tl:Asin
+tr:Yemek tuzu
+tyz:Туз
+ug:تۇز
+uk:Кухонна сіль
+ur:نمک
+# vep:Sol
+vi:Muối ăn
+wa:Sé d' coujhene
+# war:Asin
+yi:זאלץ
+yo:Iyọ̀
+xh:Ityiwa
+zh:食盐
+# zh-classical:食鹽
+# zh-min-nan:Iâm
+# zh-yue:食鹽
 wikidata:en:Q11254
+wikipedia:https://en.wikipedia.org/wiki/Salt
+openFoodFacts:https://world.openfoodfacts.org/ingredient/en:salt
 
-<en:salt
-en:sea salt
-fr:sel marin, sel de mer
+<en:Salt
+en:finegrained salt
+fr:Sel fin
+nl:Fijn zout
 
-<en:salt
-en:unrefined sea salt
+# SMOKED SALT is an aromatic salt smoked with any number of select bark free woods for up to 14 days. 
+
+<en:Salt
+en:Smoked salt
+de:Rauchsalz, Hickorysalz, Smoked Salt
+es:Sal ahumada
+fr:Sel fumé
+wikipedia:https://en.wikipedia.org/wiki/Smoked_salt
+
+# Halite commonly known as rock salt, is a type of salt, the mineral (natural) form of sodium chloride (NaCl).
+
+<en:Salt (chemistry)
+en:Halite, Mineral salt, mineral salts
+af:Haliet
+ar:هاليت
+# ast:Halita
+az:Halit
+be:Галіт
+bg:Халит
+bn:হ্যালাইট
+ca:Halita
+cs:Halit
+de:Halit
+el:Αλίτης
+es:Halita
+et:Haliit
+eu:Halita
+fa:سنگ نمک
+fi:Vuorisuola, haliitti
+fr:Halite, sels minéraux
+ga:Hailít
+gl:Halita
+gu:સિંધવ
+he:הליט
+hi:सेंधा नमक
+hr:Halit
+hu:Kősó
+hy:Հալիտ
+id:Halit
+is:Halít, steinsalt
+it:Halite
+ja:岩塩
+kk:Галит
+kn:ಕಲ್ಲುಪ್ಪು
+ko:암염
+ky:Таш туз
+lt:Halitas, valgomoji druska, akmens druska
+mr:सैंधव मीठ
+ms:Halit, garam batu
+# nds:Halit, Steensolt
+nl:Haliet, steenzout
+nn:Halitt, steinsalt
+no:Halitt, stensalt
+oc:Sau gemma
+pl:Halit
+pt:Halita
+ru:Галит
+# sco:Halite, rock saut
+sh:Halit
+sk:Halit
+sl:Halit
+sr:Халит
+sv:Halit, bergsalt, stensalt
+ta:பாறை உப்பு
+te:రాతి ఉప్పు
+th:เกลือหิน
+tr:Kaya tuzu
+uk:Галіт
+vi:Halit
+zh:石鹽
+wikipedia:https://en.wikipedia.org/wiki/Halite
+
+# Kosher salt or kitchen salt[1] is edible salt with a larger grain size than typical table salt and without common additives such as iodine. 
+
+<en:Halite
+en:Kosher salt
+ar:ملح كوشير
+eo:Koŝera salo
+es:Sal kosher
+id:Garam kosher
+ms:Garam kosher
+sv:Koshersalt
+wikipedia:en:https://en.wikipedia.org/wiki/Kosher_salt
+openFoodFacts:https://world.openfoodfacts.org/ingredient/kosher-salt
+
+# SEA SALT - is salt that is produced by the evaporation of seawater
+
+<en:Salt (chemistry)
+en:Sea salt, bay salt, solar salt
+ar:ملح البحر
+ca:Sal marina
+cs:Mořská sůl
+de:Meersalz
+es:Sal marina
+eu:Marsalo
+fa:نمک دریایی
+fi:Merisuola
+fr:sel marin, sel de mer, sels minéraux de mer
+gl:Sal mariño
+hr:Morska sol
+id:Garam laut
+is:Sjávarsalt
+ko:천일염
+ms:Garam laut
+nl:zeezout
+pl:Sól morska
+pt:Sal marinho
+ro:Sare de mare
+ru:Морская соль
+sd:سامونڊي لوڻ
+sv:Havssalt
+th:เกลือสมุทร
+uk:Морська сіль
+ur:سمندری نمک
+zh:海盐
+# zh-yue:海鹽
+# zh-min-nan:Hái-iâm
+relation:transformedFrom:en:sea water:byProcess:Evaporation
+wikipedia:https://en.wikipedia.org/wiki/Sea_salt
+openFoodFacts:https://world.openfoodfacts.org/ingredient/salt
+
+<en:Sea salt
+en:Unrefined sea salt
 fr:sel marin non raffiné, sel marin non traité
+nl:ongeraffineerd zeezout
+openFoodFacts:https://world.openfoodfacts.org/ingredient/sea-salt
 
-fr:sel émulsifiant, sels émulsifiants
+<en:Unrefined sea salt
+en:Unrefined sea salt from the Atlantic
+fr:Sel marin non raffiné de l'atlantique
+nl:Ongeraffineerd zeezout uit de Atlantische Oceaan
 
-<en:salt
-en:nitrite salt, nitrite curing salt, nitrite pickling salt
-fr:sel nitrité, sel de salaison, sels de salaison, sel nitrité pour saumure
+<en:Sea salt
+en:Salt from Guérande
+fr:Sel de Guérande, sel de guérande, sel marin de guérande
+nl:Zout uit Guérande
 
-<en:iodised salt
-<en:nitrite salt
-en:iodised nitrite salt, nitrite iodised salt, iodized nitrite salt, nitrite iodized salt
-fr:sel nitrité iodé, sel iodé nitrité
+<en:Sea salt
+en:Salt from Camargue
+fr:Sel de camargue
+nl:Zout uit de Camargue
+
+# FLEUR DE SEL - is a salt that forms as a thin, delicate crust on the surface of seawater as it evaporates.
+
+<en:sea salt
+en:Fleur de sel
+ca:Flor de sal
+eo:Salfloro
+es:Flor de sal
+fi:Suolankukka
+fr:fleur de sel
+ja:フルール・ド・セル
+nl:Fleur de sel
+pt:Flor de sal
+wikipedia:https://en.wikipedia.org/wiki/Fleur_de_sel
+
+<en:Salt from Guérande
+<en:Fleur de sel
+en:Fleur de sel from Guérand
+fr:fleur de sel de Guérande
+nl:Fleur de sel uit Guérande
+
+
+# IODISED SALT - is #salt mixed with a minute amount of various salts of the element iodine. 
 
 <en:salt
 en:iodised salt, iodized salt
-fr:sel iodé, sel de cuisine iodé
-es:sal yodada
+ar:ملح معالج باليود
+cs:Jodidovaná sůl
+de:Jodsalz, Iodsalz,jodiertes Speisesalz
+fa:نمک یددار
+fr:Sel iodé, sel de cuisine iodé
+es:Sal yodada
+id:Garam beryodium
 nl:gejodeerd zout
-de:jodiertes Speisesalz
+pl:Jodowanie soli
+pt:Sal iodado
+ru:Йодированная поваренная соль
+th:เกลือเสริมไอโอดีน
+uk:Йодована сіль
+vi:Muối iốt
+zh:碘盐
+wikipedia:https://en.wikipedia.org/wiki/Iodised_salt
 
-<en:salt
-fr:sel de fonte, sels de fonte
+# Sodium nitrite is the inorganic compound with the chemical formula NaNO2.
 
-<en:salt
-en:salt from Guérande
-fr:sel de Guérande
+<en:Salt (chemistry)
+en:Sodium nitrite, nitrite salt, nitrite curing salt, nitrite pickling salt, E250
+ar:نتريت الصوديوم
+azb:سودیوم نیتریت
+bs:Natrij-nitrit
+ca:Nitrit de sodi
+cs:Dusitan sodný
+# sco:Sodium nitrite
+de:Natriumnitrit
+el:Νιτρώδες νάτριο
+eo:Natria nitrito
+es:Nitrito de sodio
+et:Naatriumnitrit
+fa:سدیم نیتریت
+fi:Natriumnitriitti
+fr:sel nitrité, sel de salaison, sels de salaison, sel nitrité pour saumure
+he:נתרן חנקיתי
+hu:Nátrium-nitrit
+ja:亜硝酸ナトリウム
+ko:아질산 나트륨
+ky:Натрий нитрити
+id:Natrium nitrit
+it:Nitrito di sodio
+lt:Natrio nitritas
+nl:Natriumnitriet
+no:Natriumnitritt
+pl:Azotyn sodu
+pt:Nitrito de sódio
+ro:Azotit de sodiu
+ru:Нитрит натрия
+sh:Natrijum nitrit
+sk:Dusitan sodný
+sl:Natrijev nitrit
+sr:Natrijum nitrit
+sv:Natriumnitrit
+tr:Sodyum nitrit
+uk:Нітрит натрію
+vi:Natri nitrit
+zh:亚硝酸钠
+wikipedia:https://en.wikipedia.org/wiki/Sodium_nitrite
 
-<en:salt
-<en:salt from Guérande
-fr:fleur de sel de guérande
+<en:Sodium nitrite
+en:iodised nitrite salt, nitrite iodised salt, iodized nitrite salt, nitrite iodized salt
+fr:sel nitrité iodé, sel iodé nitrité, sel nitrité iodé
+nl:Gejodeerd natriumnitriet
 
-<en:salt
-fr:sel de cuisine iodé
-
-<en:unrefined sea salt
-en:unrefined sea salt from the Atlantic
-fr:sel marin non raffiné de l'atlantique
-
-<en:salt
-en:fine salt
-fr:sel fin
-
-<en:salt
-fr:fleur de sel
-
-<en:salt
-en:mineral salts
-fr:sels minéraux
-
-fr:sels de salaison, sel nitrité
-
-fr:sels minéraux de mer
-
-fr:sel fumé
-
-fr:sel de camargue
-
-fr:sels de magnésium d'acides gras
-
-fr:sel de guérande
-
-fr:sel marin de guérande
-
-fr:sel dextrose
-
-fr:sel nitrité iodé
+# fr:sel dextrose forgot a comma?
 
 # MEATS
 
@@ -2785,62 +3526,275 @@ fr:sirop de sucre caramélisé
 nl:gekarameliseerde suikerstroop 
 de:Karamell-Zuckersirup
 
-# PROTEINES
-fr:protéine, proteine
+# PROTEINES - are large biomolecules, or macromolecules, consisting of one or more long chains of amino acid residues
 
+en:protein, proteins
+af:Proteïen
+als:Protein, Äiwiss, Äiwissstoff
+an:Proteína
+ar:البروتين
+arz:بروتين
+as:মাংসসাৰ
+ast:Proteína
+az:Zülallar
+azb:پروتئین
+ba:Аҡһымдар
+bat-smg:Baltīms
+be:Бялкі
+be-tarask:Бялкі
+bg:Белтъци
+bjn:Parotéin
+bn:প্রোটিন
+br:protein
+bs:Bjelančevine
+bxr:Уураг
+ca:proteïna
+cdo:Lâung-băh-cék
+chr:ᎠᏓᎵᏥᏍᏗᏍᎩ
+ckb:پرۆتین
+cs:Bílkoviny
+cv:Шуррисем
+cy:protein
+da:Protein
+de:Protein, Eiweiß, Eiweißstoff
+dty:प्रोटिन
+dv:ޕްރޮޓީން
+el:Πρωτεΐνη
+eo:proteino
+es:proteína, proteínas
+et:valgud, proteiinid
+eu:proteina
+fa:پروتئین
+fi:Proteiini
+fo:Protein
+fr:protéine, proteine, Protéine brute
+frr:Protein, aiwitj
+fy:Aaiwyt
+ga:Próitéin
+gv:Proteen
+hak:Thàn-pha̍k-chṳt
+he:חלבונים
+hi:प्रोटीन
+hif:Protein
+hr:Bjelančevine
+ht:pwoteyin
+hu:Fehérje
+hy:Սպիտակուցներ
+ia:proteina
+id:Protein
+ilo:Protina
+io:proteino
+is:Prótín, prótein
+it:proteine, protidi
+ja:たんぱく質
+jv:Protéin
+ka:ცილები
+kk:Ақуыз
+kn:ಪ್ರೋಟೀನ್
+ko:단백질
+ku:Proteîn
+ky:Белок
+la:Proteinum
+lb:Protein, Eewäiss
+lez:Ладзар
+lmo:Pruteina
+lo:ປະໂລເຕອິນ
+lt:Baltymai
+lv:Olbaltumvielas
+mk:Белковина
+ml:മാംസ്യം
+mn:Уураг
+mr:प्रथिने
+ms:Protein
+mt:Proteini
+my:ပရိုတိန်း
+myv:Ашовт
+nb:Protein
+nds:Proteine, Eiwitte, Eiwittstoffe
+ne:प्रोटिन
+new:प्रोटिन
+nl:eiwitten, proteïnen
+nn:Protein
+no:Protein
+nov:proteine
+oc:proteïna
+om:Pirootiinii
+or:ପୁଷ୍ଟିସାର
+pa:ਪ੍ਰੋਟੀਨ
+pam:Protina
+pl:Białko
+pnb:پروٹین
+pt:proteína, proteínas
+qu:prutina
+ro:Proteine
+rs:Proteini
+ru:Белки
+rue:Протеін
+sah:Протеин
+sco:Protein
+sh:Protein
+si:ප්‍රෝටීන්
+sk:Bielkoviny
+sl:Beljakovine
+so:Borotiin
+sq:Proteina
+sr:Протеин
+stq:Oaiwiete
+su:Protéin
+sv:Protein
+sw:Protini
+ta:புரதம்
+te:మాంసకృత్తులు
+tg:Протеинҳо дар реҷаи ғизо
+th:โปรตีน
+tl:Protina
+tr:Protein
+tt:Аксым
+tyv:Белок
+uk:Білки
+ur:پروٹین
+uz:Proteinlar
+vec:Proteine
+vls:proteïne, eiwit
+wa:Proteyene
+war:Protina
+wuu:蛋白质
+yi:פראטעאין
+xal:Ууруг
+xmf:ცილეფი
+zh:蛋白质
+zh-classical:朊
+zh-min-nan:Nn̄g-pe̍h-chit
+zh-yue:蛋白質
+
+<en:protein
+en:vegetable protein
 fr:protéines végétales, protéine végétale
+nl:plantaardige eiwit
+relation:isa:en:protein
 
+<en:vegetable protein
+en:pea protein
 fr:protéines de pois, protéine de pois
+nl:boneneiwit
+relation:isa:en:vegetable protein
 
+# HYDROLYZED VEGETABLE PROTEIN -  products are foodstuffs obtained by protein hydrolysis
+
+<en:vegetable protein
+en:Hydrolyzed vegetable protein, HVP
 fr:protéine végétale hydrolysée
+nl:gehydroliseerde plantaardige eiwit
+zh:酸水解植物蛋白
+relation:isa:en:vegetable protein
 
+<en:pea protein
+en:soy protein
+fr:protéine de soja, protéines de soja
+nl:soja-eiwit
+allergens:fr:protéines de _soja_
+allergens:fr:protéine de _soja_
+relation:isa:en:pea protein
+
+<en:soy protein
+en:rehydrated soy protein
 fr:protéines de soja réhydratées
+nl:gerehydrateerde soja-eiwit
 allergens:fr:protéines de _soja_ réhydratées
+relation:isa:en:soy protein
 
+<en:protein
 en:milk protein
 es:proteína de leche
-fr:protéine de lait
+fr:protéine de lait, protéines de lait, protéines du lait, protéines du lait, protéines laitières, protéines lactiques, protéine lactique
 nl:melkeiwit
 de:Milcheiweiß
 allergens:fr:protéine de _lait_
-
-en:milk proteins
-fr:protéines de lait
 allergens:fr:protéines de _lait_
-nova:en:4
-
-<en:milk proteins
-fr:protéines de lait en poudre
-allergens:fr:protéines de _lait_ en poudre
-
-<en:milk proteins
-fr:protéines laitières
 allergens:fr:protéines _laitières_
+nova:en:4
+openFoodFacts:https://world.openfoodfacts.org/ingredient/milk-protein
+relation:isa:en:protein
 
-fr:protéines lactiques, protéine lactique
+<en:milk protein
+fr:protéines de lait en poudre
+nl:melkeiwitpoeder
+allergens:fr:protéines de _lait_ en poudre
+relation:isa:en:milk protein
 
-fr:protéines du lait, protéines du lait
-allergens:fr:protéines du _lait_
+# Casein is a family of related phosphoproteins. These proteins are commonly found in mammalian milk, comprising c. 80% of the proteins in cow's milk and between 20% and 45% of the proteins in human milk.
 
-fr:protéine de soja, protéines de soja
-allergens:fr:protéines de _soja_
+<en:Milk protein
+en:Casein
+# als:Casein, Kasein
+ar:كازين
+be:Казеін
+bg:Казеин
+bs:Kazein
+ca:Caseïna
+cs:Kasein
+cy:Casein
+da:Kasein
+de:Casein, Kasein
+ee:Kaseiin
+el:Καζεΐνη
+eo:Kazeino
+es:Caseína
+eu:Kaseina
+fa:کازئین
+fi:Kaseiini
+fr:Caséine
+ga:Cáiséin
+gl:Caseína
+he:קזאין
+hi:केसीन
+hu:Kazein
+hy:Կազեին
+id:Kasein
+io:Kazeino
+it:Caseina
+ja:カゼイン
+kk:Казеин
+ko:카세인
+ky:Казеин
+lv:Kazeīns
+ms:Kasein
+nl:Caseïne
+nn:Kasein, ostestoff
+no:Kasein
+pl:Kazeina
+pt:Caseína
+ro:Cazeină
+ru:Казеин
+# scn:Caseina
+# sco:Casein
+sh:Kazein
+sl:Kazein
+sr:Казеин
+sv:Kasein
+th:เคซีน
+tr:Kazein
+uk:Казеїн
+zh:酪蛋白
+novagroup:en:4
+wikipedia:https://en.wikipedia.org/wiki/Casein
+openFoodFacts:https://world.openfoodfacts.org/ingredient/casein
 
-fr:protéines de blé
+<en:protein
+en:wheat protein
+fr:protéine de blé, protéines de blé
+nl:graneneiwit
 allergens:fr:protéines de _blé_
-
-fr:protéine de blé
-allergens:fr:protéine de _blé_
-
-fr:protéine de soja
-allergens:fr:protéine de _soja_
 
 # CHOCOLAT
 
 en:chocolate
 fr:chocolat
+nl:chocolade
 
 en:white chocolate
 fr:chocolat blanc
+nl:witte chocolade
 
 fr:chocolat en poudre
 
@@ -2887,14 +3841,389 @@ fr:poudre de chocolat
 fr:chocolat au lait du pays alpin
 allergens:fr:chocolat au _lait_ du pays alpin
 
-# A TRIER
+
+# Water is a transparent, tasteless, odorless, and nearly colorless chemical substance that is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms. 
 
 en:water
-es:agua
-fr:eau
-nl:water
+ab:Аӡы
+af:Water
+# als:Wasser
+am:ውሃ
+an:Augua
+# ang:Wæter
+ar:ماء
+# arc:ܡܝܐ
+as:পানী
+# ast:Agua
+# atj:Nipi
+av:Лъим
+ay:Uma
+az:Su
+# azb:سو
+ba:Һыу
+# bar:Wossa
+# bat-smg:Ondou
+# bcl:Tubig
+be:Вада
+# be-tarask:Вада
+bg:Вода
+bh:पानी
+bi:Wota
+# bjn:Banyu
+bm:Ji
+bn:পানি
+bo:ཆུ།
+br:Dour
+bs:Voda
+# bxr:Уһан
+ca:Aigua
+# cbk-zam:Agwa
+# cdo:Cūi
+ce:Хи
+# ceb:Tubig
+ch:Hånom
+# chr:ᎠᎹ
+# chy:Mahpe
+ckb:ئاو
+co:Acqua
+cr:ᓃᐲᔾ
+cs:Voda
+cv:Шыв
+cy:Dŵr
+da:Vand
 de:Wasser
+# diq:Awe
+# dsb:Wóda
+# dty:पानी
+dv:ފެން
+el:Νερό
+# eml:Aqua
+eo:Akvo
+es:agua
+et:Vesi
+eu:Ur
+# ext:Áugua
+fa:آب
+ff:Ndiyam
+fi:Vesi
+# fiu-vro:Vesi
+fo:Vatn
+fr:eau
+# frr:Weeder
+# fur:Aghe
+fy:Wetter
+ga:Uisce
+# gan:水
+gd:Uisge
+gl:Auga
+gn:Y
+# gom:उदक
+gu:પાણી
+gv:Ushtey
+ha:Ruwa
+# hak:Súi
+he:מים
+hi:जल
+# hif:Paani
+hr:Voda
+# hsb:Woda
+ht:Dlo
+hu:Víz
+hy:Ջուր
+ia:Aqua
+id:Air
+ie:Aqua
+ig:Mmiri
+# ilo:Danum
+# inh:Хий
+io:Aquo
+is:Vatn
+it:Acqua
+iu:ᐃᒪᖅ
+ja:水
+# jam:Waata
+# jbo:djacu
+jv:Banyu
+ka:წყალი
+# kaa:Suw
+# kab:Aman
+kbp:Lɩm
+kg:Maza
+ki:Mai
+kk:Су
+km:ទឹក
+kn:ನೀರು
+ko:물
+# ksh:Wasser
+ku:Av
+ky:Суу
+la:Aqua
+lad:Agua
+lb:Waasser
+# lad:Agua
+# lez:Яд
+# lfn:Acua
+lg:Amazzi
+li:Water
+# lij:Ægoa
+# lmo:Aqua
+ln:Mái
+lt:Vanduo
+# ltg:Iudiņs
+lv:Ūdens
+# mai:पानी
+# mdf:Ведь
+mg:Rano
+mi:Wai
+# min:Aia
+mk:Вода
+ml:ജലം
+mn:Ус
+mr:पाणी
+ms:Air
+# mwl:Auga
+my:ရေ
+# myv:Ведь
+# mzn:ئو
+na:Ebok
+# nah:Atl
+# nap:Acqua
+# nds:Water
+# nds-nl:Woater
+ne:पानी
+# new:लः
+nl:Water
+nn:Vatn
+no:Vann
+# nrm:Ieau
+nv:Tó
+oc:Aiga
+om:Bishaan
+or:ଜଳ
+os:Дон
+pa:ਪਾਣੀ
+# pam:Danum
+# pap:Awa
+# pcd:Ieu
+# pdc:Wasser
+# pfl:Wassa
+# pih:Wata
+# pms:Eva
+# pnb:پاݨی
+pl:Woda
+ps:اوبه
+pt:Água
+qu:Yaku
+ro:Apă
+# roa-rup:Apâ
+ru:Вода
+# rue:Вода
+sa:जलम्
+# sah:Уу
+sc:Aba
+# scn:Acqua (vìppita), Acqua
+si:ජලය
+# sco:Watter
+sd:پاڻي
+se:Čáhci
+sh:Voda
+sk:Voda
+sl:Voda
+sm:Vai
+sn:Mvura
+so:Biyo
+sq:Uji
+sr:Вода
+# stq:Woater
+su:Cai
+sv:Vatten
+sw:Maji
+szl:Woda
+ta:நீர்
+# tcy:ನೀರ್
+te:నీరు
+tg:Об
+th:น้ำ
+tk:Suw
+tl:Tubig
+tr:Su
+ts:Mati
+tt:Су
+uk:Вода́
+ur:پانی
+uz:Suv
+# vec:Aqua
+# vep:Vezi
+vi:Nước
+# vls:Woater
+vo:Vat
+# war:Tubig
+wo:Ndox
+wuu:水
+xh:Amanzi
+# xmf:წყარი
+yi:וואסער
+yo:Omi
+za:Raemx
+zh:水
+# zh-classical:水
+# zh-min-nan:Chúi
+zu:Amanzi
+wikipedia:en.wikipedia.org/wiki/Water
 wikidata:en:Q283
+
+# BREWING WATER - Brauwasser ist speziell für das Brauen von Bier aufbereitetes Wasser
+
+<en:Water
+en:Brewing water
+de:Brauwasser
+fr:Eau de brassage
+relation:contains:en:Mineral
+wikipedia:https://de.wikipedia.org/wiki/Brauwasser
+openFoodFacts:https://world.openfoodfacts.org/ingredient/de:brauwasser
+
+# MINERAL WATER is water from a mineral spring that contains various minerals, such as salts and sulfur compounds. 
+
+<en:Water
+en:Mineral water
+af:Mineraalwater
+ar:مياه معدنية
+# ast: Agua mineral
+az:Mineral su
+be:Мінеральная вада
+bg:Минерална вода
+bo:གཏེར་ཆུ།
+br:Dour melar
+ca:Aigua mineral
+cs:Minerální voda, minerálka
+cy:Dŵr mwyn
+da:Mineralvand
+de:Mineralwasser
+el:Μεταλλικό νερό
+et:Mineraalvesi
+eo:Mineralakvo
+es:Agua mineral
+fa:آب معدنی
+fi:Kivennäisvesi
+fr:Eau minérale
+ga:Uiscí mianraí
+gl:Auga mineral
+he:מים מינרליים
+hi:खनिज जल
+hr:Mineralna voda
+hu:Ásványvíz
+hy:Հանքային ջուր
+id:Air mineral
+it:Acqua minerale
+ja:ミネラルウォーター
+ka:მინერალური წყალი
+kk:Минерал су
+ky:Минералдуу суулар
+lt:Mineralinis vanduo
+lv:Minerālūdens
+mk:Минерална вода
+ms:Air galian
+nl:Mineraalwater
+nn:Mineralvatn
+no:Naturlig mineralvann
+or:ଖଣିଜ ଜଳ
+pl:Woda mineralna
+ps:کاني اوبه
+pt:Água mineral
+ro:Apă minerală
+ru:Минеральная вода
+sc:Aba minerale
+sh:Mineralna voda
+sk:Minerálna voda
+sl:Mineralna voda
+sr:Минерална вода
+sv:Mineralvatten
+ta:கனிம நீர்
+th:น้ำแร่
+tr:Maden suyu
+tt:Минераль су
+uk:Мінеральні води
+uz:Mineral suvlar
+vi:Nước khoáng
+zh:礦泉水
+# zh-yue:礦泉水
+relation:contains:en:Mineral
+wikipedia:https://en.wikipedia.org/wiki/Mineral_water
+openFoodFacts:https://world.openfoodfacts.org/ingredient/mineral-water
+
+# CARBONATED WATER (bubbly water, fizzy water) is water into which carbon dioxide gas under pressure has been dissolved
+<en:Water
+en:Carbonated water
+af:Sodawater, klubsoda, bruiswater, vonkelwater, seltzerwater
+ar:ماء مكربن
+# ast:Agua carbonatao, soda
+az:Qazlı su
+bs:Soda voda
+ca:Aigua carbonatada
+cs:Sodovka, Sodová voda, sodovka, sifon, sycená, perlivá voda
+da:Danskvand
+de:Tafelwasser
+ee:Gaseeritud vesi, karboniseeritud vesi, mulliga vesi
+el:Σόδα (ποτό), σόδα
+eo:Karbonata akvo
+es:Agua carbonatada
+# eu:Soda probably incorrect on wikipedia. Disambiguation issue
+fa:سودا (نوشیدنی)i
+fi:Soodavesi
+fr:Eau gazeuse, eau acidulée, eau effervescente, eau pétillante, eau gazéifiée, soda club, soda nature
+he:מי סודה
+# hi:वातिल जल this needs to be checked
+hr:Gazirana voda
+hu:Szódavíz
+id:Air soda, air berkarbonasi
+is:Sódavatn, kolsýrt vatn
+it:acqua gasata, acqua frizzante
+ja:炭酸水
+ka:კარბონატული წყალი
+kn:ಇಂಗಾಲಾಮ್ಲಮಿಶ್ರಿತ ನೀರು
+ko:탄산수
+lt:Gazuotas vanduo
+lv:Gāzēts ūdens
+mk:Сода-вода
+ml:സോഡാജലം
+mr:सोडा
+ms:Air berkarbonat, Air bergas, air seltzer, seltzer, air soda
+nl:Sodawater, gazeuse, bruiswater, spuitwater
+no:Kullsyreholdig vann
+pl:Woda gazowana
+pt:Água gaseificada
+ro:Sifon, Apa carbonatată, apa gazoasă, sifonul
+ru:Газированная вода
+si:Sifon, Apa carbonatată, apa gazoasă, sifonul
+sr:Сода вода
+sv:Bordsvatten
+uk:Газована вода, підкислена вода, шипуча вода, содова вода
+ta:சோடா நீர்
+th:โซดา
+tr:Soda (içecek), Soda, sodalı su, karbonatlı su
+# wuu:汽水
+yi:סאדע וואסער
+zh:碳酸水
+# zh-yue:荷蘭水
+relation:contains:en:Carbon dioxide gas
+wikipedia:https://en.wikipedia.org/wiki/Carbonated_water
+openFoodFacts:https://world.openfoodfacts.org/ingredient/carbonated-water
+
+<en:Carbonated water
+en:Sparkling water
+relation:synonym:en:Carbonated water
+relation:transFormedFrom:enMineral water:process:add:en:carbon dioxide gas
+wikipedia:https://en.wikipedia.org/wiki/Carbonated_water
+openFoodFacts:https://world.openfoodfacts.org/ingredient/sparkling-water
+
+<en:Mineral water
+en:Carbonated mineral water
+nl:Bruisend mineraalwater
+relation:contains:en:Carbon dioxide gas
+relation:transFormedFrom:enMineral water:process:add:en:carbon dioxide gas
+openFoodFacts:https://world.openfoodfacts.org/ingredient/carbonated-mineral-water
+
+# A TRIER
 
 en:citric acid
 fr:acide citrique
@@ -4243,8 +5572,6 @@ allergens:fr:semoule de _blé_
 en:phosphoric acid
 fr:acide phosphorique
 
-fr:enzyme
-
 fr:spiruline
 
 fr:méthylcellulose
@@ -4589,8 +5916,6 @@ es:daikor cress
 fr:pousse de daikon
 nl:daikon cress
 de:Daikonkresse
-
-fr:enzyme coagulante
 
 fr:guanylate disodique
 
@@ -5089,6 +6414,8 @@ allergens:fr:graine de _soja_
 
 fr:mono- et diglycérides d'acides gras d'origine végétale
 
+<en:Carbon Dioxide
+en:Carbon Dioxide Gas
 fr:gaz carbonique
 
 en:black tea extract
@@ -7297,7 +8624,6 @@ fr:diglycérides d'acides gras
 
 fr:lait de noix de coco
 
-fr:enzyme coagulante microbienne
 
 fr:flocons de noix de coco
 
@@ -7318,7 +8644,6 @@ fr:purée de citron
 
 fr:galette
 
-fr:enzymes coagulantes
 
 fr:sauce poisson
 allergens:fr:sauce _poisson_
@@ -8260,12 +9585,6 @@ fr:épaississant e415
 fr:blé malté
 allergens:fr:_blé_ malté
 
-en:casein
-es:caseína
-fr:caséine
-nl:caseine
-de:Casein
-novagroup:en:4
 
 # Eggs
 
@@ -8522,9 +9841,6 @@ fr:sulfates de fer
 fr:améliorant
 
 fr:orthophosphates de calcium
-
-en:sparkling water
-fr:eau gazeuse, eau pétillante
 
 fr:plantes aromatiques déshydratées
 
@@ -10459,7 +11775,6 @@ de:Aloe-vera-Fasern
 
 fr:filets d'anchois
 
-fr:enzyme coagulante d'origine microbienne
 
 fr:jus concentré pulpé de citron
 
@@ -10627,3 +11942,20 @@ es:absenta
 fr:absinthe
 nl:absinth
 de:Absinth
+
+
+
+# words that can be part of ingredients
+# in particular, words that would be auto-corrected to additives
+
+# additives spell correction: agent -> argent
+fr:agent, agents
+
+# additives spell correction: olives (vertes) -> vert s
+fr:verte, vertes
+
+# nitrate -> citrate
+fr:nitrate, nitrates
+
+
+

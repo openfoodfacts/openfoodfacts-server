@@ -19,7 +19,7 @@ my $product_ref = {
 extract_ingredients_classes_from_text($product_ref);
 
 is($product_ref->{additives}, 
-' [ acide-citrique -> en:e330  -> exists  -- ok  ]  [ colorant -> fr:colorant  ]  [ e120 -> en:e120  -> exists  -- ok  ]  [ vitamine-c -> en:e300  -> exists  -- mandatory_additive_class: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant,en:acid (current: en:colour)  -> exists as a vitamin en:vitamin-c  ]  [ e500 -> en:e500  -> exists  -- mandatory_additive_class: en:acidity-regulator, en:raising-agent (current: en:vitamins)  ] '
+' [ acide-citrique -> en:e330  -> exists  -- ok  ]  [ colorant -> fr:colorant  ]  [ e120 -> en:e120  -> exists  -- ok  ]  [ vitamine-c -> en:e300  -> exists  -- mandatory_additive_class: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant,en:acid (current: en:colour)  -> exists as a vitamin en:vitamin-c  ]  [ e500 -> en:e500  -> exists  -- mandatory_additive_class: en:acidity-regulator, en:raising-agent (current: en:vitamins)  -- e-number  ] '
 );
 
 # vitamine C is not used as an additive (no fuction)
@@ -27,6 +27,7 @@ is($product_ref->{additives},
 is_deeply($product_ref->{additives_original_tags}, [
                                 'en:e330',
                                 'en:e120',
+                                'en:e500',
                               ],
 );
 
@@ -1229,5 +1230,80 @@ is_deeply($product_ref->{additives_original_tags}, [
 );
 
 #print STDERR Dumper($product_ref->{additives_original_tags});
+
+
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"Eau, E501
+"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+          'en:e501',
+	
+                              ],
+);
+
+#print STDERR Dumper($product_ref->{additives_original_tags});
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"Olives d'import 80 % (vertes, tournantes, noires), poivron et piment, sel, oignon, huile de tournesol, ail, acidifiants (E330, vinaigre), conservateur : sulfites.
+"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+          'en:e330',
+	
+                              ],
+);
+
+#print STDERR Dumper($product_ref->{additives_original_tags});
+
+
+
+
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"Biscuit 65 % :farine de riz blanche*, amidon de pomme de terre*, huile de palme non hydrogénée, sucre de canne blond, amidon de riz*, œufs*, sirop de glucose de r|z*, farine de pois chiche*, épaississants (gomme d’acacia*, gomme de guar), agents levants (tartrates potassium, carbonates de sodium), sel. Fourrage 35% : sirop de glucose de riz*, purée de pomme*, purée d’abricot* 08%), purée de pêche (7%), gélifiant: pectine, régulateur d’acidité : acide citrique, arôme naturel*. *issus de agriculture biologique. **Ingrédient biologique issu du Commerce Équitable.
+",
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+          'en:e414',
+          'en:e412',
+          'en:e334',
+          'en:e500',
+          'en:e440i',
+          'en:e330',
+	
+                              ],
+);
+
+#print STDERR Dumper($product_ref->{additives_original_tags});
+
+
+
+
+
+
 
 done_testing();
