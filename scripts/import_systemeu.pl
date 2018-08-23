@@ -68,13 +68,13 @@ $editor_user_id = $editor_user_id;
 
 not defined $photo_user_id and die;
 
-my $csv_file = "/data/off/systemeu/SUYQD_AKENEO_PU_06.csv";
-my $categories_csv_file = "/data/off/systemeu/systeme-u-rubriques.csv";
-my $imagedir = "/data/off/systemeu/all_product_images";
+#my $csv_file = "/data/off/systemeu/SUYQD_AKENEO_PU_08.csv";
+#my $categories_csv_file = "/data/off/systemeu/systeme-u-rubriques.csv";
+#my $imagedir = "/data/off/systemeu/all_product_images";
 
-#my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_06.csv";
-#my $categories_csv_file = "/home/systemeu/systeme-u-rubriques.csv";
-#my $imagedir = "/home/systemeu/all_product_images"; 
+my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_08.csv";
+my $categories_csv_file = "/home/systemeu/systeme-u-rubriques.csv";
+my $imagedir = "/home/systemeu/all_product_images"; 
 
 print "uploading csv_file: $csv_file, image_dir: $imagedir\n";
 
@@ -114,6 +114,8 @@ if (opendir (DH, "$imagedir")) {
 			($suffix =~ /_e$/i) and $imagefield = "nutrition";
 			
 			print "FOUND IMAGE FOR PRODUCT CODE $code - file $file - imagefield: $imagefield\n";
+			
+			# skip jpg and keep png for front product image
 
 			defined $images_ref->{$code} or $images_ref->{$code} = {};
 			
@@ -491,12 +493,24 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 							
 							if (($imgid > 0) and ($imgid > $current_max_imgid)) {
 
-								print STDERR "assigning image $imgid to $imagefield-fr\n";
+								print STDERR "assigning image $imgid to ${imagefield}_fr\n";
 								eval { process_image_crop($code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1); };
+								$modified++;
 					
 							}
 							else {
 								print STDERR "returned imgid $imgid not greater than the previous max imgid: $current_max_imgid\n";
+								
+								# overwrite already selected images
+								if (($imgid > 0) 
+									and (exists $product_ref->{images})
+									and (exists $product_ref->{images}{$imagefield . "_fr"})
+									and ($product_ref->{images}{$imagefield . "_fr"}{imgid} != $imgid)) {
+									print STDERR "re-assigning image $imgid to ${imagefield}_fr\n";
+									eval { process_image_crop($code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1); };
+									$modified++;
+								}
+								
 							}
 						}
 						else {
@@ -909,7 +923,7 @@ ble => "bouteille",
 			my @param_fields = ();
 			
 			my @fields = @ProductOpener::Config::product_fields;
-			foreach my $field ('product_name', 'generic_name', @fields, 'serving_size', 'allergens', 'traces', 'ingredients_text','lang') {
+			foreach my $field ('lc', 'product_name', 'generic_name', @fields, 'serving_size', 'allergens', 'traces', 'ingredients_text','lang') {
 			
 				if (defined $language_fields{$field}) {
 					foreach my $display_lc (@param_sorted_langs) {
@@ -1493,6 +1507,10 @@ TXT
 				$product_ref->{allergens} = "";
 				$product_ref->{traces} = "";
 			}
+			
+			if ($server_domain =~ /openfoodfacts/) {
+				ProductOpener::Food::special_process_product($product_ref);
+			}			
 					
 			if (($testing_allergens) or (not $testing)) {
 				# Ingredients classes
@@ -1582,15 +1600,17 @@ TXT
 			if ((not $testing) and (not $testing_allergens)) {
 			
 				fix_salt_equivalent($product_ref);
-					
+			
 				compute_serving_size_data($product_ref);
-				
+	
 				compute_nutrition_score($product_ref);
-				
+	
+				compute_nova_group($product_ref);
+	
 				compute_nutrient_levels($product_ref);
 				
 				compute_unknown_nutrients($product_ref);
-				
+		
 				ProductOpener::SiteQuality::check_quality($product_ref);
 			
 			
@@ -1608,7 +1628,7 @@ TXT
 				
 				$j++;
 				#$j > 100 and last;
-				#last;
+				last;
 			}
 			
 			#last;
