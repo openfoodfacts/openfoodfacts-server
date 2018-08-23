@@ -503,6 +503,8 @@ sub process_image_upload($$$$$$) {
 			
 			# Save a .jpg if we were sent something else (always re-save as the image can be rotated)
 			#if ($extension ne 'jpg') {
+				# make sure we don't have an alpha channel if we were given a transparent PNG
+				$source->Set(alpha => 'Off');
 				$source->Set('quality',95);
 				$x = $source->Write("jpeg:$www_root/images/products/$path/$imgid.jpg");
 			#}
@@ -517,7 +519,7 @@ sub process_image_upload($$$$$$) {
 				my $existing_image_path = "$www_root/images/products/$path/$i.$extension";
 				my $existing_image_size = -s $existing_image_path;
 				$log->debug("comparing image", { existing_image_index => $i, existing_image_path => $existing_image_path, existing_image_size => $existing_image_size }) if $log->is_debug();
-				if ($existing_image_size == $size) {
+				if ((defined $existing_image_size) and ($existing_image_size == $size)) {
 					$log->debug("image with same size detected", { existing_image_index => $i, existing_image_path => $existing_image_path, existing_image_size => $existing_image_size }) if $log->is_debug();
 					# check the image was stored inside the
 					# product, it is sometimes missing
