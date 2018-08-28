@@ -2341,7 +2341,7 @@ sub spellcheck_taxonomy_tag($$$)
 
 	my @candidates = ($tag);
 
-	if (length($tag) > 5) {
+	if (length($tag) > 6) {
 		@candidates = generate_spellcheck_candidates($tag);
 	}
 	

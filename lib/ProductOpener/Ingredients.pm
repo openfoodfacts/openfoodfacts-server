@@ -1154,10 +1154,13 @@ INFO
 							# false positives
 							# proteinas -> proteinase
 							# vitamine z -> vitamine c
+							# coloré -> chlore
+							# chlorela -> chlore 
 							
 							and (not $corrected_tag eq "proteinase")
-							and (not $corrected_tag eq "vitamine-c")
+							and (not $corrected_tag =~ /^vitamin/)
 							and (not $corrected_tag eq "argent")
+							and (not $corrected_tag =~ /^chlore-/)
 							
 							) {
 							

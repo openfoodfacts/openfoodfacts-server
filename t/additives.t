@@ -1323,6 +1323,23 @@ is_deeply($product_ref->{additives_original_tags}, [
 
 
 
+$product_ref = {
+        lc => "fr",
+        ingredients_text =>
+"boyau, coloré, chlorela, chlorelle, chlorele bio
+",
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+is_deeply($product_ref->{additives_original_tags}, [
+
+                              ],
+);
+
+
 
 
 
