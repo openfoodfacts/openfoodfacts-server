@@ -680,6 +680,7 @@ sub compute_product_history_and_completeness($$) {
 				foreach my $language_code (@{$current{languages_codes}}) {
 					foreach my $field (keys %language_fields) {
 						next if $field =~ /_image$/;
+						next if not exists $product_ref->{$field . '_' . $language_code};
 						$current{fields}{$field . '_' . $language_code} = $product_ref->{$field . '_' . $language_code};
 						$current{fields}{$field . '_' . $language_code} =~ s/^\s+//;
 						$current{fields}{$field . '_' . $language_code} =~ s/\s+$//;						
