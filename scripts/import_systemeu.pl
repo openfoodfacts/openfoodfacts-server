@@ -71,12 +71,30 @@ not defined $photo_user_id and die;
 #my $csv_file = "/data/off/systemeu/SUYQD_AKENEO_PU_08.csv";
 #my $categories_csv_file = "/data/off/systemeu/systeme-u-rubriques.csv";
 #my $imagedir = "/data/off/systemeu/all_product_images";
+#my $products_without_ingredients_lists = "/data/off/systemeu/systeme-u-products-without-ingredients-lists.txt";
 
 my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_08.csv";
 my $categories_csv_file = "/home/systemeu/systeme-u-rubriques.csv";
 my $imagedir = "/home/systemeu/all_product_images"; 
+my $products_without_ingredients_lists = "/home/systemeu/systeme-u-products-without-ingredients-lists.txt";
+
 
 print "uploading csv_file: $csv_file, image_dir: $imagedir\n";
+
+my %products_without_ingredients_lists = ();
+
+open (my $fh, '<:encoding(UTF-8)', $products_without_ingredients_lists) or die("Could not open $products_without_ingredients_lists: $!");
+while (<$fh>) {
+	my $code = $_;
+	chomp($code);
+	$code =~ s/\D//;
+	$code += 0;
+	$products_without_ingredients_lists{$code} = 1;
+}
+
+
+
+
 
 # Images
 
@@ -110,8 +128,8 @@ if (opendir (DH, "$imagedir")) {
 			my $code = $1;
 			my $suffix = $2;
 			my $imagefield = "front";
-			($suffix =~ /_d$/i) and $imagefield = "ingredients";
-			($suffix =~ /_e$/i) and $imagefield = "nutrition";
+			($suffix =~ /_d(.*)$/i) and $imagefield = "ingredients";
+			($suffix =~ /_e(.*)$/i) and $imagefield = "nutrition";
 			
 			print "FOUND IMAGE FOR PRODUCT CODE $code - file $file - imagefield: $imagefield\n";
 			
@@ -387,7 +405,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			my $code = $imported_product_ref->{UGC_ean};
 			
 
-			# next if $code ne "3256220363105";				
+			# next if $code ne "3256226790691";				
 	
 			if ($code eq '') {
 				print STDERR "empty code\n";
@@ -419,7 +437,8 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				print "MISSING IMAGES NUTRITION - PRODUCT CODE $code\n";
 			}			
 			
-			if ((not defined $images_ref->{$code}) or (not defined $images_ref->{$code}{front}) or (not defined $images_ref->{$code}{ingredients})) {
+			if ((not defined $images_ref->{$code}) or (not defined $images_ref->{$code}{front})
+				or ((not defined $images_ref->{$code}{ingredients}) and (not exists $products_without_ingredients_lists{$code}))) {
 				print "MISSING IMAGES SOME - PRODUCT CODE $code\n";
 				next;
 			}
@@ -495,7 +514,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 								print STDERR "assigning image $imgid to ${imagefield}_fr\n";
 								eval { process_image_crop($code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1); };
-								$modified++;
+								# $modified++;
 					
 							}
 							else {
@@ -508,7 +527,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 									and ($product_ref->{images}{$imagefield . "_fr"}{imgid} != $imgid)) {
 									print STDERR "re-assigning image $imgid to ${imagefield}_fr\n";
 									eval { process_image_crop($code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1); };
-									$modified++;
+									# $modified++;
 								}
 								
 							}
@@ -1628,7 +1647,7 @@ TXT
 				
 				$j++;
 				#$j > 100 and last;
-				last;
+				#last;
 			}
 			
 			#last;
