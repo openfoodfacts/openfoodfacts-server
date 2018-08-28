@@ -449,7 +449,7 @@ sub process_image_upload($$$$$$) {
 			$log->debug("file type validated") if $log->is_debug();
 			
 			my $extension = 'jpg';
-			if (defined $1) {
+			if ($file =~ /\.(gif|jpeg|jpg|png)$/i) {
 				$extension = lc($1) ;
 			}
 			$extension eq 'jpeg' and $extension = 'jpg';
@@ -503,11 +503,40 @@ sub process_image_upload($$$$$$) {
 			
 			# Save a .jpg if we were sent something else (always re-save as the image can be rotated)
 			#if ($extension ne 'jpg') {
-				# make sure we don't have an alpha channel if we were given a transparent PNG
-				$source->Set(alpha => 'Off');
-				$source->Set('quality',95);
-				$x = $source->Write("jpeg:$www_root/images/products/$path/$imgid.jpg");
+			# make sure we don't have an alpha channel if we were given a transparent PNG
+			$source->Set(background => 'white'); 
+			$source->Set(alpha => 'Off');
+			$source->Flatten();			
+			
+			# above does not work on the production server, it creates colored vertical and horizontal lines
+			
+			if ($extension eq "png") {
+			
+				print STDERR "png file, trying to remove the alpha background\n";
+			
+			sub dims {
+				my ($image) = @_;
+				return $image->Get('width') . 'x' . $image->Get('height');
+			}
+			
+
+			# Then, create a white image with the same size.
+			my $bg = Image::Magick->new(size => dims($source));
+			$bg->Read('xc:#ffffff');
+
+			# And overlay the original on top of it to fill the transparent pixels
+			# with white.
+			$bg->Composite(compose => 'Over', image => $source);
+				
+
 			#}
+			
+			$source = $bg;	
+			
+			}
+			
+			$source->Set('quality',95);
+			$x = $source->Write("jpeg:$www_root/images/products/$path/$imgid.jpg");			
 			
 			# Check that we don't already have the image
 
