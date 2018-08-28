@@ -1,9 +1,8 @@
 # stopwords
 
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,base
-stopwords:nl:bevat,en
-stopwords:nl_be:bevat,en
-stopwords:de:und,mit,von
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou
+stopwords:nl:bevat
+stopwords:de:und, mit, von, aus
 
 #
 en:ingredient
@@ -12,7 +11,7 @@ nl:ingrediënt
 
 # additive classes (from Global_additives_classes_taxonomy)
 
-en: Acid
+en: Acid, Acidifier
 ga: Aigéad
 da: Syre
 el: Μέσο οξίνισης
@@ -215,7 +214,6 @@ wikidata:en:Q907356
 
 # Emulsifying salts are used in the production of processed cheeses to disperse proteins and lipids and obtain a homogeneous product. 
 
-<en:Salt (chemistry)
 en: Emulsifying salt, Emulsifying salts, Melting salt
 ga: Salainn eiblithe
 de: Schmelzsalze
@@ -240,9 +238,10 @@ sk: Emulgujúce (taviace) soli
 ro: Săruri de topire
 bg: Емулгаторни соли
 wikidata:en:Q50419202
-wikipedia:https://nl.wikipedia.org/wiki/Smeltzout
+wikipedia:en:https://nl.wikipedia.org/wiki/Smeltzout
 
 # Magnesium stearate is the chemical compound with the formula Mg(C18H35O2)2
+
 <en: Emulsifying salt
 en:Magnesium stearate, E470b
 ar:ستيرات المغنسيوم
@@ -259,7 +258,7 @@ ro:Stearat de magneziu
 ru:Стеарат магния
 sh:Magnezijum stearat
 zh:硬脂酸镁
-wikipedia:https://en.wikipedia.org/wiki/Magnesium_stearate
+wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_stearate
 
 en: Firming agent
 ga: Oibreán teannta
@@ -327,7 +326,7 @@ lv: Miltu apstrādes līdzeklis
 cs: Látka zlepšující mouku
 et: Jahu parendaja
 hu: Lisztkezelő szer
-pl: Środek do przetwarzania mąki (polepszacz)
+pl: Środek do przetwarzania mąki
 sl: Sredstvo za obdelavo moke
 lt: Miltų apdorojimo medžiaga
 mt: Aġent għat-trattament tad-dqiq
@@ -404,7 +403,7 @@ pl: Substancja glazurująca
 sl: Sredstvo za glaziranje
 lt: Glajinė medžiaga
 mt: Aġent li jagħmel l-ikel ileqq
-sk: Povlaková látka (poleva, leštiaca látka)
+sk: Povlaková látka, poleva, leštiaca látka
 ro: Agent de glazurare
 bg: Глазиращ агент
 wikidata:en:Q334582
@@ -548,7 +547,7 @@ pl: Sekwestranty
 sl: Sredstvo za vzhajanje
 lt: Atskyriklis
 mt: Aġenti sekwestranti
-sk: Komplexotvorné látky (sekvestranty)
+sk: Komplexotvorné látky
 ro: Agenți de sechestrare
 bg: Комплексообразуватели
 wikidata:en:Q905648
@@ -692,7 +691,7 @@ he:מינרל
 hi:खनिज
 hr:Minerali
 ht:Mineral
-hu:Ásvány (anyag), Ásványi anyagok
+hu:Ásvány, Ásványi anyagok
 hy:Միներալ
 ia:Mineral
 id:Mineral
@@ -773,8 +772,7 @@ zh:礦物
 # zh-min-nan:Khòng-bu̍t
 # zh-yue:礦物
 #wikidata:en:
-wikipedia:https://en.wikipedia.org/wiki/Mineral
-openFoodFacts:https://world.openfoodfacts.org/ingredient/minerals
+wikipedia:en:https://en.wikipedia.org/wiki/Mineral
 
 en:Amino acids
 bg:Аминокиселини
@@ -948,22 +946,17 @@ yi:ענזים
 zh:酶
 # zh-min-nan:Kàⁿ-sò͘
 # zh-yue:酵素
-wikipedia:https://en.wikipedia.org/wiki/Enzyme
-openFoodFacts:https://world.openfoodfacts.org/ingredient/enzyme
+wikipedia:en:https://en.wikipedia.org/wiki/Enzyme
 
 <en:enzyme
 en:coagulating enzyme
 fr:enzyme coagulante, enzymes coagulantes
 nl:stremmingsenzymen
-openFoodFacts:https://world.openfoodfacts.org/ingredient/fr:enzyme%20coagulante
-relation:isa:en:enzyme
 
 <en:coagulating enzyme
 en:microbial coagulating enzyme
 fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne
 nl:microbiële stremmingsenzymen
-relation:isa:en:coagulating enzyme
-openFoodFacts:https://world.openfoodfacts.org/ingredient/fr:enzyme%20coagulante%20microbienne
 
 # LACTASE - is an enzyme produced by many organisms.
 
@@ -1008,11 +1001,10 @@ vi:lactase
 zh:乳糖酶
 # zh-yue:乳糖水解酶
 wikidata:en:Q379764
-openFoodFacts:https://world.openfoodfacts.org/ingredient/lactase
-relation:isa:en:enzyme
+wikipedia:en:https://en.wikipedia.org/wiki/Lactase
 
 #
-# BUTTER - a dairy product containing at least 80% en:butterfat.
+# BUTTER - a dairy product containing at least 80% butterfat.
 #
 
 en:butter
@@ -1092,7 +1084,7 @@ my:ထောပတ်
 # nds:Botter, Bodder
 # nds-nl:botter
 ne:नौनी
-nl:boter
+nl:Boter, boter
 nn:smør
 no:smør
 # nrm:buure
@@ -1147,13 +1139,10 @@ zh:黄油
 # zh-yue:牛油
 allergens:fr:_beurre_
 allergens:nl:_boter_
-wikipedia:https://en.wikipedia.org/wiki/Butter
-openFoodFacts:https://world.openfoodfacts.org/ingredient/butter
-relation:contains:en:butter fat:fraction:0.8 max
-relation:contains:en:milk protein
-relation:contains:en:water
-relation:contains:en:casein
-relation:transformedFrom:en:milk:byProcess:en:churning
+#owl:objectproperty:contains:en:Butterfat
+#owl:objectproperty:contains:en:Water
+#owl:datapropery:hasPercentageOfButterfat:>=80&<=99
+#owl:objectproperty:isDerivedFrom:en:Cream
 
 # BEURRE DOUX - en:Butter avec une salinité moins de 0,5 %
 
@@ -1162,10 +1151,13 @@ en:unsalted butter
 fr:beurre doux
 nl:ongezouten boter
 allergens:fr:_beurre_ doux
-wikipedia:https://fr.wikipedia.org/wiki/Beurre_doux
-openFoodFacts:https://world.openfoodfacts.org/ingredient/unsalted-butter
-relation:isa:en:butter
-relation:contains:en:salt:fractionRange:0.5maximum
+wikipedia:en:https://fr.wikipedia.org/wiki/Beurre_doux
+#owl:objectproperty:isAssumedToBeTheSameAsButter:en:butter
+#owl:dataproperty:contains:en:Butterfat
+#owl:datapropery:hasPercentageOfButterfat:>=80&<=95
+#owl:objectproperty:contains:en:Salt
+#owl:dataproperty:hasPercentageMaximumOfSalt:0.5
+#owl:objectproperty:isDerivedFrom:en:Cream
 
 # BEURRE DEMI-SEL - en:Butter avec une salinité moyenne de 0,5 % à 3 %
 
@@ -1173,11 +1165,12 @@ relation:contains:en:salt:fractionRange:0.5maximum
 fr:beurre demi-sel
 nl:halfgezouten boter
 allergens:fr:_beurre_ demi-sel
-wikipedia:https://fr.wikipedia.org/wiki/Beurre_demi-sel
-openFoodFacts:https://world.openfoodfacts.org/ingredient/fr:beurre-demi-sel
-relation:isa:en:butter
-relation:contains:en:salt:fractionRange:0.5-3.0
-relation:transformedFrom:en:butter:byProcess:en:adding:en:salt
+wikipedia:en:https://fr.wikipedia.org/wiki/Beurre_demi-sel
+#owl:dataproperty:contains:en:Butterfat
+#owl:datapropery:hasPercentageOfButterfat:>=80&<=95
+#owl:objectproperty:contains:en:Salt
+#owl:dataproperty:hasPercentageOfSalt:>=0.5&<=3
+#owl:objectproperty:isDerivedByAddingSaltToButter:en:Salt
 
 # BEURRE SALÉ - en:Butter avec un taux de sel supérieur à 3%
 
@@ -1188,10 +1181,13 @@ de:gesalzene Butter, gesalzenes Butter
 nl:gezouten boter
 ja:塩バター
 allergens:fr:_beurre_ salé
-wikipedia:https://fr.wikipedia.org/wiki/Beurre_salé
-openFoodFacts:https://world.openfoodfacts.org/ingredient/salted-butter
-relation:contains:en:salt:fraction:3.0minimal
-relation:transformedFrom:en:butter:byProcess:en:adding:en:salt
+wikipedia:en:https://fr.wikipedia.org/wiki/Beurre_salé
+#owl:dataproperty:contains:en:Butterfat
+#owl:datapropery:hasPercentageOfButterfat:>=80&<=95
+#owl:objectproperty:contains:en:Salt
+#owl:dataproperty:hasPercentageMinimumOfSalt:3.0
+#owl:objectproperty:isDerivedFrom:en:Cream
+#owl:objectproperty:isDerivedByAddingSalt:en:Salt
 
 # CHURNED BUTTER - A butter churn is a device used to convert cream into butter. Is this traditional butter?
 
@@ -1200,9 +1196,10 @@ en:churned butter
 es:manteca batida
 fr:beurre de baratte
 nl:gekarnde boter
-openFoodFacts:https://world.openfoodfacts.org/ingredient/fr:beurre-de-baratte
 allergens:fr:_beurre_ de baratte
-relation:contains:en:butter fat:fraction:0.8 max
+#owl:objectproperty:contains:en:Butterfat
+#owl:datapropery:hasPercentageOfButterfat:>=80&<=95
+#owl:objectproperty:isDerivedByChurningFrom:en:Cream
 
 # PASTEURIZED BUTTER - butter created from pasteurized milk
 
@@ -1210,83 +1207,62 @@ relation:contains:en:butter fat:fraction:0.8 max
 en:pasteurized butter, pasteurised butter
 fr:beurre pasteurisé
 nl:gepasteuriseerde boter
-openFoodFacts:https://world.openfoodfacts.org/ingredient/pasteurized-butter
 allergens:fr:_beurre_ pasteurisé
-relation:contains:en:butter fat:fraction:0.8 max
+#owl:objectproperty:contains:en:Butterfat
+#owl:objectproperty:contains:en:Water
+#owl:datapropery:hasPercentageOfButterfat:>=80&<=95
+#owl:objectproperty:isDerivedFrom:en:Pasteurized cream
+#owl:objectproperty:isAssumedToBeTheSameAs:en:Butter
 
 # BEURRE D'ISIGNY - butter produced in Europe with protected geographical indications
 
 <en:butter
-en:Butter from Isigny AOP
 fr:beurre d'isigny AOP
-nl:boter uit Isigny
-openFoodFacts:https://world.openfoodfacts.org/ingredient/fr:beurre-d-isigny-aop
+#owl:objectproperty:contains:en:Butterfat
+#owl:objectproperty:contains:en:Water
+#owl:objectproperty:hasPercentageOfButterfat:>=80&<=95
+#owl:objectproperty:isDerivedFrom:en:Cream
+#owl:objectproperty:hasLabel:en:AOP
+#owl:objectproperty:isManufacturedIn:fr:Isigny
 
 # BEURRE DE CUISINE - beurre pasteurisé déshydraté, contenant environ 95% de matières grasses laitières
 
 <en:butter
 fr:beurre de cuisine, beurre cuisinier
 allergens:fr:_beurre_ de cuisine
-openFoodFacts:https://world.openfoodfacts.org/ingredient/fr:beurre-de-cuisine
-relation:contains:en:butter fat:fraction:0.95
-relation:contains:en:milk protein
-relation:contains:en:water
-relation:transformedFrom:en:pasteurised milk:byProcess:en:churning
+#owl:objectproperty:contains:en:Butterfat
+#owl:objectproperty:contains:en:Water
+#owl:objectproperty:isDerivedFrom:en:Cream
+#owl:datapropery:hasPercentageOfButterfat:>=95&<=95
+
 
 # FRESH BUTTER - Not sure what the definition is. It is normally homemade butter. Maybe products use it to indicated not reconstituted butter.
 
 <en:butter
 en:fresh butter
+de:frische Butter
+es:mantequilla fresca
 fr:beurre frais
 nl:verse boter
+pt:manteiga fresca
 allergens:fr:_beurre_ frais
-relation:contains:en:butter fat:fraction:0.8 maximum
-
-# MELTED BUTTER - #butter made fluid
-
-<en:butter
-en:melted butter
-fr:beurre fondu
-nl:gesmolten boter
-treatment:en: en:melting
+#owl:objectproperty:contains:en:Butterfat
+#owl:objectproperty:contains:en:Water
+#owl:datapropery:hasPercentageOfButterfat:>=80&<=95
+#owl:objectproperty:isDerivedFrom:en:Cream
+#owl:objectproperty:isAssumedToBeTheSameAs:en:Butter
 
 # BEURRE LAITIER - is a French term used to describe butter made in a creamery or small dairy, as opposed to on a farm or in a factory
 
 <en:butter
 fr:beurre laitier
+nl:melkerijboter
 allergens:fr:beurre _laitier_
-
-# BEURRE LAITIER CONCENTRÉ - is a French term used to describe butter made in a creamery or small dairy, as opposed to on a farm or in a factory
-
-<fr:beurre laitier
-fr:beurre laitier concentré
-allergens:fr:beurre _laitier_ concentré
-relation:contains:en:butter fat:fraction:0.8 max
-
-# CONCENTRATED BUTTER - is an industrially-made “clarified butter.” 
-# https://www.cooksinfo.com/concentrated-butter
-# It depends on the locale what can be called concentrated butter (99.8% (France), 96% (UK), 90% (Luxemburg) butterfat). 
-
-<en:butter
-en:concentrated butter
-fr:beurre concentré
-nl:geconcentreerde boter
-allergens:fr:_beurre_ concentré
-relation:contains:en:butter fat:fraction:en:France:0.998
-relation:contains:en:butter fat:fraction:en:United Kingdom:0.96
-relation:contains:en:butter fat:fraction:en:Luxemburg:0.9
-relation:transformedFrom:en:butter:byProcess:en:removing:water
-
-# PASTRY BUTTER - "Beurre Pâtissier” is butter that is 99.8% butterfat
-
-<en:concentrated butter
-en:pastry butter
-fr:beurre pâtissier
-it:burro di pasticceria
-allergens:fr:_beurre_ pâtissier
-relation:contains:en:butter fat:fraction:0.998
-relation:transformedFrom:en:butter:byProcess:en:removing:water
-
+#owl:objectproperty:contains:en:Butterfat
+#owl:objectproperty:contains:en:Water
+#owl:datapropery:hasPercentageOfButterfat:>=80&<=95
+#owl:objectproperty:isDerivedFrom:en:Cream
+#owl:objectproperty:isAssumedToBeTheSameAs:en:Butter
 
 # RECONSTITUTED BUTTER - When combined with the correct ratio of water to restore a normal water / butterfat balance for butter, Concentrated Butter is called “reconstituted butter.”
 
@@ -1295,33 +1271,30 @@ en:reconstituted butter
 fr:beurre concentré reconstitué, beurre déshydraté reconstitué
 nl:gereconstitueerde boter
 allergens:fr:_beurre_ concentré reconstitué
-relation:contains:en:butter fat:fraction:0.8
-relation:transformedFrom:en:concentrated butter:byProcess:en:adding:water
-
-
-# GRASBOTER - boter, bereid uit room uit de weideperiode, dus van koeien die vers gras hebben gegraasd.
-
-<en:butter
-nl:grasboter
 
 # SWEET CREAM BUTTER - Butter made from pasteurized fresh cream is called sweet cream butter. 
 
 <en:butter
 en:sweet cream butter
+wikidata:en:Q26882140
+#owl:objectproperty:contains:en:Butterfat
+#owl:objectproperty:contains:en:Water
+#owl:datapropery:hasPercentageOfButterfat:>=90&<=99
+#owl:objectproperty:isDerivedFrom:en:Pasteurized Cream
 
-# CLARIFIED BUTTER - en:milk fat rendered from butter to separate the en:milk solids and water from the en:butterfat
+# CLARIFIED BUTTER - milk fat rendered from butter to separate the milk solids and water from the butterfat
 
-<en:butter
-en:clarified butter, milk fat
+<en:butterfat
+en:clarified butter
 ar:عدل
 # bxr:Шара тоһон
 ca:mantega clarificada
 cs:přepuštěné máslo
 de:Butterschmalz
-es:mantequilla clarificada
-fr:beurre clarifié, beurre purifié
+es:mantequilla clarificada, mantequilla concentrada
+fr:beurre clarifié, beurre purifié, beurre fondu, beurre pâtissier
 he:חמאה מזוקקת
-it:burro chiarificato
+it:burro chiarificato, burro fuso
 ja:澄ましバター
 kk:Сары май
 ko:버터기름
@@ -1338,12 +1311,15 @@ uk:Пряжене масло
 zh:无水黄油
 allergens:fr:huile de _beurre_
 allergens:nl:_boterolie_
-relation:contains:en:butter fat:fraction:0.9988 min
-relation:transformedFrom:en:milk:byProcess:en:rendering
+wikidata:en:Q909729
+wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
+#owl:objectproperty:isDerivedByRemovingWaterFromButter:en:Butter
+#owl:dataproperty:hasPercentageOfButterFat:>=99.8
+#owl:subClassOf:en:Butterfat
 
-# GHEE - a class of clarified butter that originated from the Indian subcontinent. This is probably a synomy of #clarified butter
+# GHEE - a class of butterfat that originated from the Indian subcontinent.
 
-<en:clarified butter
+<en:butterfat
 en:ghee
 ar:سمن حيواني
 az:sarı yağ
@@ -1395,65 +1371,392 @@ te:నెయ్యి
 uk:Ґгі, Гхі, Ґі
 ur:گھی
 zh:酥油
-relation:synonym:en:clarified butter
+wikidata:en:https://www.wikidata.org/wiki/Q323225
+#owl:objectproperty:isDerivedByRemovingWaterFromButter:en:Butter
+#owl:dataproperty:hasPercentageOfButterFat:>=99.8
+
+# CONCENTRATED BUTTER - is an industrially-made “clarified butter.” 
+
+<en:butterfat
+en:concentrated butter
+fr:beurre concentré
+nl:geconcentreerde boter
+allergens:fr:_beurre_ concentré
+#owl:objectproperty:contains:en:Butterfat
+#owl:objectproperty:contains:en:Water
+#owl:datapropery:hasPercentageOfButterfat:>=99.8
+#owl:datapropery:hasPercentageOfWater:<=0.1
+#owl:objectproperty:isDerivedByRemovingWaterFromButter:en:Butter
 
 # BUTTERFAT - the fatty portion of milk.
 
-<en:clarified butter
-en:butterfat, milkfat
+en:butterfat, milkfat, pastry butter
 bs:mliječna mast
 cy:braster menyn
-de:Milchfett
+da:mjölkfett
+de:Butterreinfett, Milchfett
+dk:smørolie
 es:grasa butírica
+fr:matière grasse lactique, matière grasse laitière anhydre, beurre laitier concentré
 id:lemak susu
+it:burro anidro, burro di pasticceria
 ja:乳脂肪
 ko:유지방
 ms:lemak mentega, lemak susu
-nl:melkvet
+nl:melkvet, boterconcentraat
+no:melkefett
+pt:gordura de leite anhidra, manteiga concentrada
 ru:Молочный жир
 sl:mlečna maščoba
-sv:mjölkfett
+sv:mølkfett
 th:ไขมันเนย
 tl:taba ng gatas
 uk:Молочний жир
 zh:乳脂
-relation:synonym:en:clarified butter
-
+allergens:fr:matière grasse _laitière_ anhydre
+allergens:fr:_beurre_ pâtissier
+wikidata:en:Q909729
+wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
+#owl:objectproperty:isDerivedByRemovingWaterFromButter:en:Butter
+#owl:dataproperty:hasPercentageOfButterFat:>=99.8
 
 # MILK - a white liquid nutrient-rich food produced by the mammary glands of mammals.
 
-en:milk
-als:Milch
+en:Milk, milk
+af:Melk
+# als:Milch
+am:ወተት
+an:Leit
+# ang:Meolc
+ar:حليب
+# arc:ܚܠܒܐ 
+# arz:لبن البز
+as:গাখীৰ
+# ast:Lleche
+# atj:Manawan
+ay:Millk'i
+az:Süd
+# azb:سود
+ba:Һөт
+# bar:Muich, Mülli, Milli, Mil
+# bat-smg:Pėins
+be:Малако
+bg:Мляко
+bH:दूध
+# bjn:Banyu susu
+bm:Nɔnɔ
+bn:দুধ
 br:Laezh
+bs:Mlijeko
+# bxr:Һүн, ᠰᠦᠨ
 ca:llet
+# cdo:Nèng
+ce:Шура
+# chy:Matana
 # ckb:شیر
+co:Latti
+cs:Mléko
+# csb:Mlékò
+cv:Сĕт
+cy:Llaeth
+da:Mælk
 de:Milch
-es:leche
-fr:lait
-hr:mlijeko
-it:latte
+# dty:दूध
+el:Γάλα
+es:Leche
+et:Piim
+eu:Esne
+# ext:Lechi
+fa:شیر
+fi:Maito
+# fiu-vro:Piim
+fo:Mjólk
+fr:Lait, lait
+# frr:Moolk
+# fur:Lat
+fy:Molke
+ga:Bainne
+# gan:奶
+gd:Bainne
+gl:Leite
+gn:Kamby
+# got:𐌼𐌹𐌻𐌿𐌺𐍃
+gu:દૂધ
+gv:Bainney
+# hak:Ngiù-nen
+he:חלב
+# hif:Duudh
+hr:Mlijeko, mlijeko
+ht:Lèt
+hu:Tej
+hy:Կաթ
+ia:Lacte
+id:Susu
+ik:Immuk
+# ilo:Gatas
+# inh:Шура
+is:Mjólk
+it:Latte
+iu:ᐃᒻᒧᒃ
+ja:乳
+# jam:Milk
+jv:Susu
+ka:რძე
+# kbp:Naalɩm
+kk:Сүт
+ko:젖
+# krc:Сют
+# ksh:Milesch
 ku:Şîr
+ky:Сүт
+la:Lac
+# lad:Leche
+lb:Mëllech
+li:Mèlk
+# lij:Læte
+# lmo:Lat
+ln:Míliki
+lo:ນົມ
+lt:Pienas
+lv:Piens
+# mai:दूध
+# map-bms:Susu
+# mdf:Лофца
+mg:Ronono
+# min:Susu
+mk:Млеко
+ml:പാൽ
+mn:Сүү
+mr:दूध
+ms:Susu
+# mwl:Lheite
+my:နို့
+# myv:Ловсо
+# nah:Chichihualatl
+# nds:Melk
+ne:दूध
+# nds-nl:Melk
+# new:दुरु
 nl:melk
-oc:lach
-# pcd:lait
-pt:leite
+nn:Mjølk
+no:Melk
+# nrm:Lait
+nv:Abeʼ
+oc:Lach, lach, lait, lèit
+# olo:Maido
+or:କ୍ଷୀର
+pa:ਦੁੱਧ
+# pcd:Lait, lait
+# pdc:Millich
+# pfl:Milch, Milich, Milsch
+pl:Mleko
+# pnb:دد
+ps:شيدې
+pt:Leite
+qu:Lichi, Pilli
+ro:Lapte
+# roa-rup:Lapti
+ru:Молоко
+# rue:Молоко
+sa:क्षीरम्
+# sah:Үүт
+# sat:ᱛᱚᱣᱟ
+# scn:Latti
+# sco:Milk
+sd:کير
+sh:Mlijeko
+si:සත්ත්‍ව කිරි
+sk:Mlieko
+sl:Mleko
+sn:Mukaka
+so:Caano
+sq:Qumështi
+sr:Млеко
+su:Susu
+sv:Mjölk
+sw:Maziwa
+ta:பால், பால்
+# tcy:ಪೇರ್
+te:పాలు
+tg:Шир
+th:นม
+tl:Gatas
+tr:Süt
+tt:Сөт
+# tyv:Сүт
+uk:Молоко
+ur:دودھ
+# vec:Lat
+# ved:Maid
+vi:Sữa
+wa:Laecea
+# war:Gatas
+# wuu:乳
+# xmf:ბჟა
+yi:מילך
+zh:乳
+# zh-classical:乳
+# zh-min-nan:Leng
+# zh-yue:奶
+zu:Ubisi
 allergens:fr:_lait_
-wikidata:en:Q8495
+wikipedia:en:https://en.wikipedia.org/wiki/Milk
+#owl:objectproperty:isAssumedToBeTheSameAs:en:Skimmed milk
+
+# Skim milk (American English), is made when all the cream is removed from whole milk. It tends to contain around 0% fat.
+
+<en:milk
+en:skim milk, fat-free milk
+nl:vetvrije melk
+wikidata:en:Q2352187
+#owl:dataproperty:hasPercentageButterfat:0
+#owl:objectproperty:isDerivedFrom:en:raw milk
+#owl:objectproperty:isAssumedToBeTheSameAs:en:skimmed milk
+
+# Skimmed milk (British English) is made when all the cream (also called milkfat) is removed from whole milk. It tends to contain around 0.1% fat.
+
+<en:milk
+en:skimmed milk
+ar:حليب منزوع الدسم
+es:Leche descremada, Leche desnatada
+et:Lõss
+fa:شیر خشک بدون چربی
+fi:Kuorittu maito
+fr:lait écrémé
+gl:Leite desnatado
+id:Susu skim
+is:Undanrenna
+ja:脱脂粉乳
+lt:Nugriebtas pienas
+ms:Susu skim
+nl:Taptemelk, ondermelk, afgeroomde melk, magere melk
+no:Skummet melk
+pa:ਸਪਰੇਟਾ
+pt:Leite desnatado
+ru:Обезжиренное молоко
+sv:Skummjölk
+uk:Знежирене молоко
+vi:Sữa gầy
+# zh-yue:脫脂奶
+allergens:fr:_lait_ écrémé
+wikidata:en:Q2352187
+wikipedia:en:https://en.wikipedia.org/wiki/Skimmed_milk
+#owl:dataproperty:hasPercentageButterfat:0.1
+#owl:objectproperty:isDerivedFrom:en:raw milk
+#owl:objectproperty:isAssumedToBeTheSameAs:en:skim milk
+
+# LOW-FAT MILK is a 1% fat milk, sold in the United States
+
+<en:milk
+en:low-fat milk, 1% fat milk
+nl:melk met 1% vetgehalte
+#owl:dataproperty:hasPercentageButterfat:1.0
+#owl:objectproperty:isDerivedFrom:en:skimmed milk
+#owl:objectproperty:isDerivedByAdding:en:Butterfat
+
+# LAIT DEMI-ECREME has a butterfat percentage of 1.5-1.8% fat by regulation
+
+<en:milk
+fr:lait demi-écrémé, lait partiellement écrémé
+de:teilentrahmte milch
+en:milk with 1.5-1.8% fat
+it:latte parzialmente scremato
+nl:halfvolle melk, gedeeltelijk afgeroomde melk
+no:Ekstra lett melk
+sv:Lättmjölk
+allergens:fr:_lait_ partiellement écrémé
+wikidata:en:Q10572454
+wikipedia:en:https://fr.wikipedia.org/wiki/Lait_demi-écrémé
+#owl:dataproperty:hasPercentageButterfat:1.5-1.8
+#owl:objectproperty:isDerivedFrom:en:skimmed milk
+#owl:objectproperty:isDerivedByAdding:en:Butterfat
+
+# SEMI-SKIMMED MILK has a butterfat percentage of 2.5% fat by regulation
 
 <en:milk
 en:semi-skimmed milk
-fr:lait partiellement écrémé
-de:teilentrahmte milch
-nl:gedeeltelijk afgeroomde melk
-it:latte parzialmente scremato
-allergens:fr:_lait_ partiellement écrémé
+#owl:dataproperty:hasPercentageButterfat:2.5
+#owl:objectproperty:isDerivedFrom:en:skimmed milk
+#owl:objectproperty:isDerivedByAdding:en:Butterfat
 
+# PASTEURIZED SEMI-SKIMMED MILK has a butterfat percentage of 1.5-1.8% AND is pasteurised
 
 <en:milk
-fr:lait écrémé pasteurisé
+<fr:lait demi-écrémé
+fr:lait demi-écrémé pasteurisé
 de:pasteurisierte magermilch
 nl:gepasteuriseerde volle melk
 allergens:fr:_lait_ écrémé pasteurisé
+#owl:dataproperty:hasPercentageButterfat:1.5-1.8
+#owl:dataproperty:isPasteurised:yes
+#owl:objectproperty:isDerivedFrom:en:skimmed milk
+#owl:objectproperty:isDerivedByAdding:en:Butterfat
+#owl:objectproperty:isAssumedToBeThesameAs:en:Semi-skimmed milk
+
+# In the United States, milk is marketed primarily by fat content and available in these varieties: 2% Reduced-fat milk
+
+<en:milk
+en:reduced-fat milk
+#owl:objectproperty:contains:en:water
+#owl:objectproperty:contains:en:butterfat
+#owl:objectproperty:isDerivedByPasteurizationFromMammalMilk:en: milk
+#owl:dataproperty:hasPercentageButterfat:=2.0
+#owl:objectproperty:isDerivedFrom:en:skimmed milk
+#owl:objectproperty:isDerivedByAddingButterfatTo:en:Skimmed milk
+#owl:objectproperty:isAssumedToBeThesameAs:en:Semi-skimmed milk
+
+
+# Whole milk (around 3.5–4% fat), dans l'Union européenne, le lait entier doit contenir au minimum 3,50 % en masse de matière grasse.
+
+<en:milk
+en:whole milk
+da:sødmaelk
+de:Vollmilch
+fi:täysmalto
+fr:lait entier, lait entier frais
+it:latte intero
+nl:volle melk
+allergens:fr:_lait_ entier
+allergens:fr:_lait_ entier frais
+#owl:objectproperty:isSourcedFromMammal:en:Mammal
+#owl:class:TreatedCowMilks
+#owl:objectproperty:contains:en:water
+#owl:objectproperty:contains:en:butterfat
+#owl:objectproperty:isDerivedByPasteurizationFromMammalMilk:en: milk
+#owl:objectproperty:isAssumedToBeTheSameAsCowMilk:en:cow's milk
+#owl:objectproperty:isDerivedByAddingButterfatTo:en:Skimmed milk
+#owl:dataproperty:hasPercentageOfButterfat:>=3.5&<=80
+
+# RAW MILK - milk produced by female mammals (probably cow) before any treatment
+
+<en:milk
+en:raw milk
+fr:lait cru
+de:rohmilch
+it:latte crudo
+nl:rauwe melk
+allergens:fr:_lait_ cru
+wikipedia:en:https://en.wikipedia.org/wiki/Raw_milk
+#owl:objectproperty:isSourcedFromMammal:en:Mammal
+#owl:class:MammalMilks
+#owl:objectproperty:contains:en:water
+#owl:objectproperty:contains:en:butterfat
+#owl:objectproperty:isAssumedToBeTheSameAsMammalCowMilk:en:raw cow's milk
+
+# RAW COW MILK - milk produced by female cows before any treatment
+
+<en:milk
+en:raw cow's milk
+fr:lait cru de vache
+es:leche cruda de vaca
+nl:rauwe koemelk
+allergens:fr:_lait_ cru de vache
+#owl:objectproperty:isSourcedFromMammalCow:en:Cow
+#owl:class:MammalMilks
+#owl:objectproperty:contains:en:water
+#owl:objectproperty:contains:en:butterfat
+
+# COW MILK - raw cow milk that probably has been treated (pasteurisation)
 
 <en:milk
 en:cow's milk, cows' milk, cow milk
@@ -1463,22 +1766,130 @@ es:leche de vaca
 it:latte di mucca
 nl:koemelk
 allergens:fr:_lait_ de vache
+wikipedia:en:https://fr.wikipedia.org/wiki/Lait_de_vache
+#owl:objectproperty:isSourcedFromMammalCow:en:Cow
+#owl:class:TreatedCowMilks
+#owl:objectproperty:contains:en:water
+#owl:objectproperty:contains:en:butterfat
+#owl:objectproperty:isDerivedByPasteurizationFromRawCowMilk:en:raw cow's milk
+
+# WHOLE COWS MILK (around 3.5–4% fat), dans l'Union européenne, le lait entier doit contenir au minimum 3,50 % en masse de matière grasse.
+
+<en:whole milk
+<en:Cow's milk
+en:Whole cow's milk
+es:Leche entera de vaca
+#owl:objectproperty:isSourcedFromMammalCow:en:Cow
+#owl:class:TreatedCowMilks
+#owl:objectproperty:contains:en:water
+#owl:objectproperty:contains:en:butterfat
+#owl:objectproperty:isDerivedByPasteurizationFromRawCowMilk:en:raw cow's milk
+#owl:objectproperty:isAssumedToBeTheSameAsCowMilk:en:cow's milk
+#owl:objectproperty:isDerivedByAddingButterfatTo:en:Skimmed milk
+#owl:dataproperty:hasPercentageOfButterfat:>=3.5&<=80
+
+# PASTEURISED COW MILK - raw cow milk that has been treated (pasteurisation)
+
+<en:cow's milk
+en:pasteurized cow's milk
+fr:lait de vache pasteurisé, lait pasteurisé de vache
+nl:gepasteuriseerde koemelk
+allergens:fr:_lait_ de vache pasteurisé
+allergens:fr:_lait_ pasteurisé de vache
+#owl:objectproperty:isSourcedFromMammalCow:en:Cow
+#owl:class:TreatedCowMilks
+#owl:objectproperty:contains:en:water
+#owl:objectproperty:contains:en:butterfat
+#owl:objectproperty:isDerivedByPasteurizationFromRawCowMilk:en:raw cow's milk
+#owl:objectproperty:isAssumedToBeTheSameAsCowMilk:en:cow's milk
+
+# RAW GOAT MILK - milk produced by female goats before any treatment
+
+<en:goat's milk
+en:raw goat's milk
+fr:lait cru de chèvre
+allergens:fr:_lait_ cru de chèvre
+#owl:objectproperty:isSourcedFromMammalGoat:en:Goat
+#owl:class:MammalMilks
+#owl:objectproperty:contains:en:water
+#owl:objectproperty:contains:en:butterfat
+
+# GOATS MILK - goat milk that probably has been treated (pasteurisation)
 
 <en:milk
-en:raw milk
-fr:lait cru
-de:rohmilch
-it:latte crudo
-nl:rauwe melk
-allergens:fr:_lait_ cru
+en:goat's milk
+es:leche de cabra
+fr:lait de chèvre
+nl:geitenmelk
+de:Ziegenmilch
+allergens:fr:_lait_ de chèvre
+wikidata:en:Q1418287
+#owl:objectproperty:isSourcedFromMammalGoat:en:Goat
+#owl:objectproperty:isDerivedByPasteurizationFromRawGoatMilk:en:raw goat's milk
+#owl:class:TreatedGoatMilks
+#owl:objectproperty:contains:en:water
+#owl:objectproperty:contains:en:butterfat
 
-<en:raw milk
-<en:cow's milk
-fr:lait cru de vache
-es:leche cruda de vaca
-nl:rauwe koemelk
-allergens:fr:_lait_ cru de vache
+# GOATS MILK - raw goat milk that has been treated (pasteurisation)
 
+<en:goat's milk
+en:pasteurized goat milk, pasteurised goat milk, pasteurised goatmilk
+es:leche de cabra pasteurizada
+fr:lait de chèvre pasteurisé, lait pasteurisé de chèvre
+it:latte di capra pastorizzato
+allergens:fr:_lait_ pasteurisé de chèvre
+allergens:fr:_lait_ de chèvre pasteurisé
+#owl:objectproperty:isSourcedFromMammalGoat:en:Goat
+#owl:objectproperty:isDerivedByPasteurizationFromRawGoatMilk:en:raw goat's milk
+#owl:class:TreatedGoatMilks
+#owl:objectproperty:isAssumedToBeTheSameAsGoatMilk:en:goat's milk
+#owl:objectproperty:contains:en:water
+#owl:objectproperty:contains:en:butterfat
+
+# RAW SHEEPS MILK - milk produced by female sheep before any treatment
+
+<en:milk
+en:raw sheep's milk
+de:roher Schafmilch
+el:ακατέργαστο πρόβειο γάλα
+fr:lait cru de brebis
+nl:rauwe schapenmelk
+allergens:fr:_lait_ cru de brebis
+#owl:objectproperty:isSourcedFromMammalSheep:en:Sheep
+#owl:class:MammalMilks
+#owl:objectproperty:contains:en:water
+#owl:objectproperty:contains:en:butterfat
+
+# SHEEPS MILK - raw sheeps milk that probably has been treated (pasteurisation)
+
+<en:raw sheep's milk
+en:scheep's milk, sheep milk
+de:Schafsmilch
+fr:lait de brebis
+it:latte di pecora
+nl:schapenmelk
+wikidata:en:Q2736146
+allergens:fr:_lait_ de brebis
+#owl:objectproperty:isSourcedFromMammalSheep:en:Sheep
+#owl:class:TreatedSheepMilks
+#owl:objectproperty:isDerivedByPasteurizationFromMammalMilkSheep
+#owl:objectproperty:contains:en:water
+#owl:objectproperty:contains:en:butterfat
+
+# PASTEURIZED SHEEPS MILK - raw sheeps milk that has been treated (pasteurisation)
+
+<en:sheep's milk
+en:pasteurized sheep's milk, pasteurised sheep's milk
+fr:lait de brebis pasteurisé, lait pasteurisé de brebis
+de:pasteurisierter Schafsmilch
+nl:gepasteuriseerde schapenmelk
+allergens:fr:_lait_ pasteurisé de brebis
+#owl:objectproperty:isSourcedFromMammalSheep:en:Sheep
+#owl:class:TreatedSheepMilks
+#owl:objectproperty:isDerivedByPasteurizationFromMammalMilkSheep
+#owl:objectproperty::isAssumedToBeTheSameAsSheepsMilk:en:sheep's milk
+#owl:objectproperty:contains:en:water
+#owl:objectproperty:contains:en:butterfat
 
 <en:milk
 fr:lait écrémé concentré sucré
@@ -1515,29 +1926,64 @@ allergens:fr:sérum de _lait_
 fr:lait concentré écrémé
 allergens:fr:_lait_ concentré écrémé
 
-
 <en:milk
 fr:lait demi-écrémé stérilisé uht
 allergens:fr:_lait_ demi-écrémé stérilisé uht
 
-<en:milk
-fr:lait cru de brebis
-allergens:fr:_lait_ cru de brebis
 
 <en:milk
 fr:lait frais entier
 allergens:fr:_lait_ frais entier
 
 <en:milk
-<en:skimmed milk
-fr:lait écrémé
-nl:magere melk
-allergens:fr:_lait_ écrémé
-
-<en:milk
 fr:lait fermenté
 nl:gefermenteerde melk
 allergens:fr:_lait_ fermenté
+
+<en:milk
+fr:produits laitiers
+
+<en:milk
+fr:produits laitiers en poudre
+
+
+
+fr:poudre de lait écrémé
+allergens:fr:poudre de _lait_ écrémé
+
+fr:crème de lait pasteurisé
+allergens:fr:crème de _lait_ pasteurisé
+
+fr:lait de vache thermisé
+allergens:fr:_lait_ de vache thermisé
+
+
+fr:lait frais pasteurisé
+allergens:fr:_lait_ frais pasteurisé
+
+fr:lait thermisé
+allergens:fr:_lait_ thermisé
+
+fr:lait frais demi-écrémé pasteurisé
+allergens:fr:_lait_ frais demi-écrémé pasteurisé
+
+fr:lait de vache cru
+allergens:fr:_lait_ de vache cru
+
+fr:lait écrémé en poudre réhydraté
+allergens:fr:_lait_ écrémé en poudre réhydraté
+
+
+fr:lait entier concentré sucré
+allergens:fr:_lait_ entier concentré sucré
+
+fr:lait écrémé caillé
+allergens:fr:_lait_ écrémé caillé
+
+fr:lait entier concentré
+allergens:fr:_lait_ entier concentré
+
+fr:lait maigre
 
 # CONDENSED MILK
 
@@ -1557,7 +2003,7 @@ allergens:fr:_lait_ concentré
 <en:condensed milk
 <en:powdered milk
 fr:lait écrémé concentré ou en poudre
-nl:gecondenseerde magere (poeder-)melk
+nl:gecondenseerde magere poedermelk
 allergens:fr:_lait_ écrémé concentré ou en poudre
 
 <en:condensed milk
@@ -1579,24 +2025,9 @@ fr:lait écrémé concentré
 de:kondensierte Magermilch, konzentrierte Magermilch, Kondensmagermilch
 it:latte scremato concentrato, latte magro concentrato
 allergens:fr:_lait_ écrémé concentré
+
 fr:lactose et protéine de lait
 allergens:fr:_lactose_ et protéine de _lait_
-
-
-<en:whole milk
-fr:lait entier frais
-nl:verse volle melk
-allergens:fr:_lait_ entier frais
-
-<en:milk
-fr:lait entier
-nl:volle melk
-allergens:fr:_lait_ entier
-
-<en:milk
-fr:lait de vache pasteurisé
-nl:gepasteuriseerde koemelk
-allergens:fr:_lait_ de vache pasteurisé
 
 en:milk powder, powdered milk
 fr:lait en poudre, poudre de lait
@@ -1604,10 +2035,6 @@ nl:melkpoeder
 allergens:fr:_lait_ en poudre
 nova:en:4
 
-<en:milk powder
-fr:poudre de lait entier
-nl:volle melkpoeder
-allergens:fr:poudre de _lait_ entier
 
 <en:milk powder
 fr:poudre de lait
@@ -1627,7 +2054,7 @@ allergens:fr:_lait_ en poudre écrémé
 <en:milk powder
 en:whole milk powder, dried whole milk, powdered whole milk, whole powdered milk
 cs:sušené plnotučné mléko
-fr:lait entier en poudre
+fr:lait entier en poudre, poudre de lait entier
 de:vollmilchpulver
 es:leche entera en polvo
 it:latte intero in polvere
@@ -1637,11 +2064,7 @@ pt:leite entero em pó, leite em pó gordo
 el:γάλα σε σκόνη
 sk:sušené plnotučné mlieko
 allergens:fr:_lait_ entier en poudre
-
-<en:milk
-fr:lait demi-écrémé
-nl:halfvolle melk
-allergens:fr:_lait_ demi-écrémé
+allergens:fr:poudre de _lait_ entier
 
 <en:milk
 fr:lait pasteurisé
@@ -1656,10 +2079,6 @@ allergens:fr:_lait_ écrémé reconstitué
 <en:milk
 fr:lait écrémé réhydraté
 allergens:fr:_lait_ écrémé réhydraté
-
-<en:milk
-fr:lait pasteurisé de vache
-allergens:fr:_lait_ pasteurisé de vache
 
 fr:matière grasse de lait anhydre
 allergens:fr:matière grasse de _lait_ anhydre
@@ -1677,38 +2096,149 @@ fr:lait entier reconstitué
 allergens:fr:_lait_ entier reconstitué
 
 
-<en:milk
-en:lactose
-fr:lactose
-nl:lactose
-allergens:fr:_lactose_
+# LACTOSE is a disaccharide. It is a sugar composed of galactose and glucose. 
 
-<en:lactose
-en:lactose powder, powdered lactose
+<en:Disaccharide
+en:Lactose
+ar:لاكتوز
+# ast:Lactosa
+# azb:لاکتوز
+be:Лактоза
+bg:Лактоза
+bn:ল্যাকটোজ
+bs:Laktoza
+ca:Lactosa
+# ckb:لاکتۆز
+cs:Laktóza
+cy:Lactos
+da:Laktose
+de:Lactose, Milchzucker, Laktose
+el:Λακτόζη
+eo:Laktozo, laktosukero
+es:Lactosa
+et:Laktoos, piimasuhkur
+eu:Laktosa
+fa:لاکتوز
+fi:Laktoosi, maitosokeri
+fr:Lactose
+ga:Lachtós
+gl:Lactosa
+he:לקטוז
+hr:Laktoza
+hu:Laktóz, tejcukor
+hy:Լակտոզ
+ia:Lactosa
+id:Laktosa
+is:Laktósi, mjólkursykur
+it:Lattosio
+ja:ラクトース
+ka:ლაქტოზა
+ko:락토스
+ky:Лактоза
+la:Lactosum
+lt:Laktozė
+lv:Laktoze
+mg:Laktôzy
+mk:Лактоза
+ms:Laktosa
+nl:Lactose, Melksuiker
+nn:Laktose, mjølkesukker
+no:Laktose, melkesukker
+oc:Lactòsa
+pl:Laktoza
+pt:Lactose
+ro:Lactoză
+ru:Лактоза
+# sco:Lactose
+sh:Laktoza
+sk:Laktóza
+sl:Laktoza, mlečni sladkor
+sq:Laktoza
+sr:Лактоза
+su:Laktosa
+sv:Laktos
+ta:லாக்டோசு
+th:แล็กโทส
+tr:Laktoz
+uk:Лактоза
+uz:Laktoza
+vi:Lactose
+zh:乳糖
+# zh-yue:乳醣
+allergens:fr:_lactose_
+wikipedia:en:https://en.wikipedia.org/wiki/Lactose
+
+<en:Lactose
+en:Lactose powder, powdered lactose
 fr:poudre de lactose
+nl:Lactosepoeder
 allergens:fr:poudre de _lactose_
 
-fr:matière grasse lactique
+# no products in OFF
+# <en:Whey
+# en:Filtrated whey
+# fr:Perméat de lactosérum
 
-<fr:lactosérum
-fr:perméat de lactosérum
+# WHEY is the liquid remaining after milk has been curdled and strained. 
 
-# WHEY
-
-<en:milk
+<en:Milk protein
 en:whey
-ca:sèrum de llet
-de:Molke
+# als:Schotte, Sirte, Sirmende, Chääsmilch
+an:Siero de leit
+ar:مصل اللبن
+be:Сыроватка
+bg:Суроватка
+bn:ঘোল
+ca:Sèrum de llet, xerigot
+# ckb:پاڵاوتەی شیر
+cs:Syrovátka
+cy:Maidd
+da:Valle
+de:Molke, Molken, Käsemilch, Schotte, Sirte, Waddike, Wedicke, Zieger
+el:Τυρόγαλα
 eo:selakto, laktosero
-es:suero de leche
-et:vadak
+es:Suero de leche, lactosuero, suero lácteo
+et:Vadak
+eu:Esne-gazur
+fa:آب‌پنیر
+fi:Hera
 fr:petit-lait, lactosérum
+fy:Waai
+gl:Soro de leite, lactosoro
+he:מי גבינה
+id:Whey, laktoserum
 io:selakto
+is:Mysa
 it:siero di latte
-nl:wei
-oc:lactoserum, leiton, gaspa, lachada
+ja:乳清
+ko:유청
+lb:Wässeg
+lt:Išrūgos
+lv:Sūkalas
+ms:Whey
+# nds-nl:Wui
+nl:Wei, Melkwei
+nn:Myse
+no:Myse, valle
+oc:Lactoserum, leiton, gaspa, lachada
+pa:ਪਨੀਰ ਦਾ ਪਾਣੀ
 pt:soro de leite, lacto-soro
+ro:Zer
+ru:Молочная сыворотка
+# sco:Whey, milk serum
+sh:Surutka
+sk:Srvátka
+sl:Sirotka
+sr:Сурутка
+sv:Vassle, vassla
+te:పాల విరుగుడు
+th:หางนม
+tl:Lagnaw
+tr:Peynir altı suyu
+uk:Сироватка, Сиро́ватка моло́чна
+zh:乳清
 allergens:fr:_petit-lait_
+wikipedia:en:https://en.wikipedia.org/wiki/Whey
 
 <en:whey
 en:whey powder, powdered whey
@@ -1726,55 +2256,153 @@ it:filtrato di siero di latte in polvere
 allergens:fr:_petit-lait_ filtré en poudre
 
 <en:Whey
+en:Powdered sweet whey
 fr:lactosérum doux en poudre
+nl:Zoete weipoeder
 allergens:fr:_lactosérum_ doux en poudre
 
 <en:Whey
+en:Demineralised whey
 fr:lactosérum déminéralisé
+nl:Gedemineraliseerde wei
 allergens:fr:_lactosérum_ déminéralisé
 
 <en:Whey
+en:Concentrated whey
 fr:lactosérum concentré
+nl:Geconcentreerde wei
 allergens:fr:_lactosérum_ concentré
 
-        # Whey protein is a mixture of globular proteins isolated from whey, the liquid material created as a by-product of cheese production.
+# WHEY PROTEIN is a mixture of globular proteins isolated from whey, the liquid material created as a by-product of cheese production.
 
-
-<en:Whey
 <en:Milk protein
 en:Whey protein
-ar:
+ar:بروتين مصل اللبن
+# ckb:پڕۆتینی پاڵاوتەی شیر
 de:Molkenprotein
 es:Proteína de suero de leche
+fa:پروتیین وی
 fr:protéine de lactosérum
 hi:मट्ठा प्रोटीन
-nl:weiproteïne
-wikipedia:https://en.wikipedia.org/wiki/Whey_protein
+id:Protein susu
+it:Proteine del siero del latte, WP
+ja:乳清タンパク質
+nl:Weiproteïnepreparaat, Weiproteïne
+pt:Proteína do soro do leite
+sv:Vassleprotein
+th:โปรตีนหางนม
+uk:Сироватковий білок
+vi:Đạm váng sữa
+zh:乳清蛋白
+wikipedia:en:https://en.wikipedia.org/wiki/Whey_protein
 allergens:fr:protéines de _lactosérum_
 
-# CREAM
+# CREAM is a dairy product composed of the higher-butterfat layer skimmed from the top of milk before homogenization.
 
 <en:milk
 en:cream
+af:Room
+ar:قشدة
+# ast:Crema de lleche
+ba:Ҡаймаҡ
+# bar:Rahm
+be:Вяршкі
+bg:Сметана
 br:dienn
+# bxr:Сүсэгы, ᠴᠦᠴᠦᠭᠡᠢ
 ca:nata, crema de la llet, crespell, cresp de la llet, doga
+cs:Smetana
+cy:Hufen
+da:Fløde
 de:Rahm, Sahne, Obers, Nidel, Nidle
+el:Κρέμα γάλακτος
 eo:kremo
 es:crema de leche, nata
 eu:esne-gaina
-fr:crème
+fa:خامه
+fi:Kerma
+fr:Crème, Crème fraîche, Crème fraîche liquide, crème de lait
+# wikipedia defines crème fraîche as non-sterilisee. Probably makes no sense in the context of OFF
+ga:Uachtar
+gd:Bàrr a' bhainne
+gl:Crema de leite
+he:שמנת
+hr:Vrhnje
+io:Kremo
+is:Rjómi
 it:panna, crema di latte
+ja:クリーム, クリーム
+kk:Кілегей
+ko:크림, 크림
+ky:Каймак
+la:Cramum
+lb:Rahm, Ram, Schmant
+# lmo:Panera
+lt:Grietinėlė
+lv:Krējums
+mr:साय
+ms:Krim
+# nds-nl:Vlödde, flödde, vlodde, room
 nl:room
-pt:nata, creme de leite 
+nn:Kremfløyte
+no:Fløte
+# pdc:Raahm
+pl:Śmietanka
+pt:nata, creme de leite
+qu:Nata
+ro:Smântână
+# roa-rup:Tearâ
+ru:Сливки
+# sah:Сүөгэй
+# sco:Cream
+sh:Krem
+sk:Smotana
+sl:Smetana
+sn:Ruomba
+so:Labeen
+sq:Pana
+sv:Grädde
+sw:Samli
+ta:பாலாடை, பாலாடை
+te:మీగడ
+th:ครีม
+tr:Krema
+# tyv:Өреме
+uk:Вершки
+ur:ملائی
+uz:Qaymoq
+vi:Kem, Kem
+# war:Krema
+zh:鮮奶油
+# zh-yue:忌廉
+wikipedia:en:https://en.wikipedia.org/wiki/Cream
+allergens:fr:_crème_ fraîche liquide
+allergens:fr:crème de _lait_
 
-<fr:crème
-fr:crème pasteurisée
+<en:Cream
+en:Light Cream
+fr:Crème fraîche légère
+nl:Lichte room
+allergens:fr:_crème_ fraîche légère
+
+<en:Cream
+en:Pasteurized cream
+fr:crème pasteurisée, crème fraîche pasteurisée
 nl:gepasteuriseerde room
 allergens:fr:_crème_ pasteurisée
 
-<fr:crème
-fr:crème en poudre
+<en:Cream
+en:Powdered cream, Cream powder
+fr:Crème en poudre, crème en poudre
+nl:Poederroom, poederroom
 allergens:fr:_crème_ en poudre
+
+<en:Cream
+en:Cream from Normandy
+fr:Crème fraîche de normandie
+nl:Room uit Normandië
+allergens:fr:_crème_ fraîche de normandie
+
 
 # VITAMINS
 
@@ -1863,19 +2491,15 @@ fr:vitamine d3
 en:vitamin k
 fr:vitamine k
 
-en:Salt (chemistry)
-wikipedia:https://en.wikipedia.org/wiki/Salt_(chemistry)
-
 # SALT - is a mineral composed primarily of sodium chloride (NaCl), a chemical compound belonging to the larger class of salts
 
-<en:Halite
 en:salt, table salt, common salt, cooking salt, dry salt
 # ace:Sira
-af:Tafelsout, Sout
+af:tafelsout, Sout
 # als:Spiissalz, Chochsalz, Salz
 an:Sal, sal de cocina
 ar:ملح الطعام
-arc:(ܡܠܚܐ (ܐܨܪܐ
+arc:ܡܠܚܐ
 arz:ملح الاكل
 # atj:Ciwotakan
 av:ЦӀам
@@ -1927,7 +2551,7 @@ jv:Uyah
 ka:სუფრის მარილი
 # kbp:Ɖɔm
 kk:Ас тұзы
-kn:ಉಪ್ಪು (ಖಾದ್ಯ)
+kn:ಉಪ್ಪು
 ko:소금
 ku:Xwê
 lv:Sāls
@@ -1959,13 +2583,13 @@ sa:लवणम्
 # sah:Туус
 # sco:Saut
 sd:لوڻ
-sh:So (začin)
+sh:So
 si:ලුණු
 sl:Sol, Kuhinjska sol
 sn:Munyu
 so:Milix, Cusbo
 sq:Kripa
-sr:Со (зачин)
+sr:Со
 su:Uyah
 sv:Salt
 ta:உப்பு
@@ -1990,8 +2614,7 @@ zh:食盐
 # zh-min-nan:Iâm
 # zh-yue:食鹽
 wikidata:en:Q11254
-wikipedia:https://en.wikipedia.org/wiki/Salt
-openFoodFacts:https://world.openfoodfacts.org/ingredient/en:salt
+wikipedia:en:https://en.wikipedia.org/wiki/Salt
 
 <en:Salt
 en:finegrained salt
@@ -2005,12 +2628,11 @@ en:Smoked salt
 de:Rauchsalz, Hickorysalz, Smoked Salt
 es:Sal ahumada
 fr:Sel fumé
-wikipedia:https://en.wikipedia.org/wiki/Smoked_salt
+wikipedia:en:https://en.wikipedia.org/wiki/Smoked_salt
 
 # Halite commonly known as rock salt, is a type of salt, the mineral (natural) form of sodium chloride (NaCl).
 
-<en:Salt (chemistry)
-en:Halite, Mineral salt, mineral salts
+en:Halite
 af:Haliet
 ar:هاليت
 # ast:Halita
@@ -2027,7 +2649,7 @@ et:Haliit
 eu:Halita
 fa:سنگ نمک
 fi:Vuorisuola, haliitti
-fr:Halite, sels minéraux
+fr:Halite
 ga:Hailít
 gl:Halita
 gu:સિંધવ
@@ -2037,7 +2659,7 @@ hr:Halit
 hu:Kősó
 hy:Հալիտ
 id:Halit
-is:Halít, steinsalt
+is:Halít
 it:Halite
 ja:岩塩
 kk:Галит
@@ -2046,11 +2668,11 @@ ko:암염
 ky:Таш туз
 lt:Halitas, valgomoji druska, akmens druska
 mr:सैंधव मीठ
-ms:Halit, garam batu
-# nds:Halit, Steensolt
-nl:Haliet, steenzout
-nn:Halitt, steinsalt
-no:Halitt, stensalt
+ms:Halit
+# nds:Halit
+nl:Haliet
+nn:Halitt
+no:Halitt
 oc:Sau gemma
 pl:Halit
 pt:Halita
@@ -2068,7 +2690,7 @@ tr:Kaya tuzu
 uk:Галіт
 vi:Halit
 zh:石鹽
-wikipedia:https://en.wikipedia.org/wiki/Halite
+wikipedia:en:https://en.wikipedia.org/wiki/Halite
 
 # Kosher salt or kitchen salt[1] is edible salt with a larger grain size than typical table salt and without common additives such as iodine. 
 
@@ -2081,11 +2703,11 @@ id:Garam kosher
 ms:Garam kosher
 sv:Koshersalt
 wikipedia:en:https://en.wikipedia.org/wiki/Kosher_salt
-openFoodFacts:https://world.openfoodfacts.org/ingredient/kosher-salt
+
 
 # SEA SALT - is salt that is produced by the evaporation of seawater
 
-<en:Salt (chemistry)
+<en:Salt
 en:Sea salt, bay salt, solar salt
 ar:ملح البحر
 ca:Sal marina
@@ -2115,15 +2737,13 @@ ur:سمندری نمک
 zh:海盐
 # zh-yue:海鹽
 # zh-min-nan:Hái-iâm
-relation:transformedFrom:en:sea water:byProcess:Evaporation
-wikipedia:https://en.wikipedia.org/wiki/Sea_salt
-openFoodFacts:https://world.openfoodfacts.org/ingredient/salt
+wikipedia:en:https://en.wikipedia.org/wiki/Sea_salt
+
 
 <en:Sea salt
 en:Unrefined sea salt
 fr:sel marin non raffiné, sel marin non traité
 nl:ongeraffineerd zeezout
-openFoodFacts:https://world.openfoodfacts.org/ingredient/sea-salt
 
 <en:Unrefined sea salt
 en:Unrefined sea salt from the Atlantic
@@ -2152,7 +2772,7 @@ fr:fleur de sel
 ja:フルール・ド・セル
 nl:Fleur de sel
 pt:Flor de sal
-wikipedia:https://en.wikipedia.org/wiki/Fleur_de_sel
+wikipedia:en:https://en.wikipedia.org/wiki/Fleur_de_sel
 
 <en:Salt from Guérande
 <en:Fleur de sel
@@ -2180,11 +2800,11 @@ th:เกลือเสริมไอโอดีน
 uk:Йодована сіль
 vi:Muối iốt
 zh:碘盐
-wikipedia:https://en.wikipedia.org/wiki/Iodised_salt
+wikipedia:en:https://en.wikipedia.org/wiki/Iodised_salt
 
 # Sodium nitrite is the inorganic compound with the chemical formula NaNO2.
 
-<en:Salt (chemistry)
+<en:Salt
 en:Sodium nitrite, nitrite salt, nitrite curing salt, nitrite pickling salt, E250
 ar:نتريت الصوديوم
 azb:سودیوم نیتریت
@@ -2223,14 +2843,13 @@ tr:Sodyum nitrit
 uk:Нітрит натрію
 vi:Natri nitrit
 zh:亚硝酸钠
-wikipedia:https://en.wikipedia.org/wiki/Sodium_nitrite
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_nitrite
 
 <en:Sodium nitrite
 en:iodised nitrite salt, nitrite iodised salt, iodized nitrite salt, nitrite iodized salt
 fr:sel nitrité iodé, sel iodé nitrité, sel nitrité iodé
 nl:Gejodeerd natriumnitriet
 
-# fr:sel dextrose forgot a comma?
 
 # MEATS
 
@@ -3671,13 +4290,11 @@ zh-yue:蛋白質
 en:vegetable protein
 fr:protéines végétales, protéine végétale
 nl:plantaardige eiwit
-relation:isa:en:protein
 
 <en:vegetable protein
 en:pea protein
 fr:protéines de pois, protéine de pois
 nl:boneneiwit
-relation:isa:en:vegetable protein
 
 # HYDROLYZED VEGETABLE PROTEIN -  products are foodstuffs obtained by protein hydrolysis
 
@@ -3686,7 +4303,6 @@ en:Hydrolyzed vegetable protein, HVP
 fr:protéine végétale hydrolysée
 nl:gehydroliseerde plantaardige eiwit
 zh:酸水解植物蛋白
-relation:isa:en:vegetable protein
 
 <en:pea protein
 en:soy protein
@@ -3694,14 +4310,12 @@ fr:protéine de soja, protéines de soja
 nl:soja-eiwit
 allergens:fr:protéines de _soja_
 allergens:fr:protéine de _soja_
-relation:isa:en:pea protein
 
 <en:soy protein
 en:rehydrated soy protein
 fr:protéines de soja réhydratées
 nl:gerehydrateerde soja-eiwit
 allergens:fr:protéines de _soja_ réhydratées
-relation:isa:en:soy protein
 
 <en:protein
 en:milk protein
@@ -3713,14 +4327,11 @@ allergens:fr:protéine de _lait_
 allergens:fr:protéines de _lait_
 allergens:fr:protéines _laitières_
 nova:en:4
-openFoodFacts:https://world.openfoodfacts.org/ingredient/milk-protein
-relation:isa:en:protein
 
 <en:milk protein
 fr:protéines de lait en poudre
 nl:melkeiwitpoeder
 allergens:fr:protéines de _lait_ en poudre
-relation:isa:en:milk protein
 
 # Casein is a family of related phosphoproteins. These proteins are commonly found in mammalian milk, comprising c. 80% of the proteins in cow's milk and between 20% and 45% of the proteins in human milk.
 
@@ -3776,9 +4387,8 @@ th:เคซีน
 tr:Kazein
 uk:Казеїн
 zh:酪蛋白
-novagroup:en:4
-wikipedia:https://en.wikipedia.org/wiki/Casein
-openFoodFacts:https://world.openfoodfacts.org/ingredient/casein
+nova:en:4
+wikipedia:en:https://en.wikipedia.org/wiki/Casein
 
 <en:protein
 en:wheat protein
@@ -4021,7 +4631,7 @@ ru:Вода
 sa:जलम्
 # sah:Уу
 sc:Aba
-# scn:Acqua (vìppita), Acqua
+# scn:Acqua, Acqua
 si:ජලය
 # sco:Watter
 sd:پاڻي
@@ -4078,9 +4688,7 @@ wikidata:en:Q283
 en:Brewing water
 de:Brauwasser
 fr:Eau de brassage
-relation:contains:en:Mineral
-wikipedia:https://de.wikipedia.org/wiki/Brauwasser
-openFoodFacts:https://world.openfoodfacts.org/ingredient/de:brauwasser
+wikipedia:en:https://de.wikipedia.org/wiki/Brauwasser
 
 # MINERAL WATER is water from a mineral spring that contains various minerals, such as salts and sulfur compounds. 
 
@@ -4147,9 +4755,7 @@ uz:Mineral suvlar
 vi:Nước khoáng
 zh:礦泉水
 # zh-yue:礦泉水
-relation:contains:en:Mineral
-wikipedia:https://en.wikipedia.org/wiki/Mineral_water
-openFoodFacts:https://world.openfoodfacts.org/ingredient/mineral-water
+wikipedia:en:https://en.wikipedia.org/wiki/Mineral_water
 
 # CARBONATED WATER (bubbly water, fizzy water) is water into which carbon dioxide gas under pressure has been dissolved
 <en:Water
@@ -4164,11 +4770,11 @@ cs:Sodovka, Sodová voda, sodovka, sifon, sycená, perlivá voda
 da:Danskvand
 de:Tafelwasser
 ee:Gaseeritud vesi, karboniseeritud vesi, mulliga vesi
-el:Σόδα (ποτό), σόδα
+el:Σόδα, σόδα
 eo:Karbonata akvo
 es:Agua carbonatada
 # eu:Soda probably incorrect on wikipedia. Disambiguation issue
-fa:سودا (نوشیدنی)i
+# fa:سودا (نوشیدنی)i
 fi:Soodavesi
 fr:Eau gazeuse, eau acidulée, eau effervescente, eau pétillante, eau gazéifiée, soda club, soda nature
 he:מי סודה
@@ -4200,28 +4806,24 @@ sv:Bordsvatten
 uk:Газована вода, підкислена вода, шипуча вода, содова вода
 ta:சோடா நீர்
 th:โซดา
-tr:Soda (içecek), Soda, sodalı su, karbonatlı su
+tr:Soda, sodalı su, karbonatlı su
 # wuu:汽水
 yi:סאדע וואסער
 zh:碳酸水
 # zh-yue:荷蘭水
-relation:contains:en:Carbon dioxide gas
-wikipedia:https://en.wikipedia.org/wiki/Carbonated_water
-openFoodFacts:https://world.openfoodfacts.org/ingredient/carbonated-water
+wikipedia:en:https://en.wikipedia.org/wiki/Carbonated_water
 
 <en:Carbonated water
 en:Sparkling water
-relation:synonym:en:Carbonated water
-relation:transFormedFrom:enMineral water:process:add:en:carbon dioxide gas
-wikipedia:https://en.wikipedia.org/wiki/Carbonated_water
-openFoodFacts:https://world.openfoodfacts.org/ingredient/sparkling-water
+#relation:synonym:en:Carbonated water
+#relation:transFormedFrom:enMineral water:process:add:en:carbon dioxide gas
+wikipedia:en:https://en.wikipedia.org/wiki/Carbonated_water
 
 <en:Mineral water
 en:Carbonated mineral water
 nl:Bruisend mineraalwater
-relation:contains:en:Carbon dioxide gas
-relation:transFormedFrom:enMineral water:process:add:en:carbon dioxide gas
-openFoodFacts:https://world.openfoodfacts.org/ingredient/carbonated-mineral-water
+#relation:contains:en:Carbon dioxide gas
+#relation:transFormedFrom:enMineral water:process:add:en:carbon dioxide gas
 
 # A TRIER
 
@@ -4229,18 +4831,12 @@ en:citric acid
 fr:acide citrique
 wikidata:en:Q159683
 
-en:acidifier
-fr:acidifiant
-
 en:capsicum extract
 es:extracto de capsicum
 fr:extrait de capsicum
 nl:capsicum-extract
 de:Capsaicin-Extrakt
 wikidata:en:Q53792073
-
-en:preservative, preservatives
-fr:conservateur, conservateurs
 
 en:dextrose
 es:dextrosa
@@ -5360,9 +5956,6 @@ allergens:fr:_crème_ liquide
 
 fr:levure désactivée
 
-fr:matière grasse laitière anhydre
-allergens:fr:matière grasse _laitière_ anhydre
-
 fr:gomme base
 
 fr:dextrine
@@ -5371,8 +5964,6 @@ fr:benzoate de sodium
 
 fr:sulfate de zinc
 
-fr:crème de lait
-allergens:fr:crème de _lait_
 
 fr:ricotta
 allergens:fr:_ricotta_
@@ -5617,9 +6208,6 @@ es:naba
 fr:navet
 nl:meiraap
 de:Mairüben
-
-fr:lait de chèvre pasteurisé
-allergens:fr:_lait_ de chèvre pasteurisé
 
 fr:panure
 
@@ -6384,8 +6972,6 @@ fr:nouilles
 
 fr:maïs doux
 
-fr:lait de brebis
-allergens:fr:_lait_ de brebis
 
 en:sodium chlorure
 fr:chlorure de sodium
@@ -6804,12 +7390,6 @@ fr:graines de fenouil
 
 fr:extrait de carthame
 
-en:goat's milk
-es:leche de cabra
-fr:lait de chèvre
-nl:geitenmelk
-de:Ziegenmilch
-allergens:fr:_lait_ de chèvre
 
 fr:noix de macadamia
 allergens:fr:_noix de macadamia_
@@ -7984,50 +8564,6 @@ de:teilentrahmte Kondensmilch
 fr:lait demi-écrémé pasteurisé
 allergens:fr:_lait_ demi-écrémé pasteurisé
 
-fr:lait cru de chèvre
-allergens:fr:_lait_ cru de chèvre
-
-fr:poudre de lait écrémé
-allergens:fr:poudre de _lait_ écrémé
-
-fr:crème de lait pasteurisé
-allergens:fr:crème de _lait_ pasteurisé
-
-fr:lait de vache thermisé
-allergens:fr:_lait_ de vache thermisé
-
-fr:lait pasteurisé de brebis
-allergens:fr:_lait_ pasteurisé de brebis
-
-fr:lait frais pasteurisé
-allergens:fr:_lait_ frais pasteurisé
-
-fr:lait thermisé
-allergens:fr:_lait_ thermisé
-
-fr:lait frais demi-écrémé pasteurisé
-allergens:fr:_lait_ frais demi-écrémé pasteurisé
-
-fr:lait de vache cru
-allergens:fr:_lait_ de vache cru
-
-fr:lait écrémé en poudre réhydraté
-allergens:fr:_lait_ écrémé en poudre réhydraté
-
-en:pasteurized goat milk, pasteurised goat milk
-fr:lait pasteurisé de chèvre
-allergens:fr:_lait_ pasteurisé de chèvre
-
-fr:lait entier concentré sucré
-allergens:fr:_lait_ entier concentré sucré
-
-fr:lait écrémé caillé
-allergens:fr:_lait_ écrémé caillé
-
-fr:lait entier concentré
-allergens:fr:_lait_ entier concentré
-
-fr:lait maigre
 
 # PROTEINES
 
@@ -10097,8 +10633,6 @@ fr:orangeat
 
 fr:verveine odorante
 
-fr:produits laitiers en poudre
-
 fr:racine de réglisse
 
 fr:litopenaeus vannamei
@@ -10576,7 +11110,6 @@ fr:feuilles de coriandre
 
 fr:fibre d'agrume
 
-fr:produits laitiers
 
 fr:fromage frais à 0% de matière grasse
 allergens:fr:_fromage_ frais à 0% de matière grasse
@@ -11288,27 +11821,103 @@ fr:shiitakes
 en:GMO-free soy lecithin
 fr:lécithine de soja sans ogm
 
-en:sour cream
-es:nata agria
-fr:crème fraîche
-nl:zure room
-de:saure Sahne
+<en:Cream
+en:Sour cream
+ar:كريمة حامضة
+# bxr:Зөөхэй, ᠵᠦᠭᠡᠭᠡᠢ
+ca:Crema agra, crema àcida
+de:saure Sahne, Sauerrahm
+eo:Acidkremo
+es:Crema agria, nata agria
+fa:خامه ترش
+fi:Hapankerma
+fr:Crème aigre, crème sure, crème acidulée
+he:שמנת חמוצה
+hu:Tejföl
+id:Krim asam
+is:Sýrður rjómi
+it:Panna acida
+ko:사워크림
+ms:Krim masam
+nl:Zure room
+pt:Creme azedo
+sk:Kyslá smotana
+vi:Kem chua
+zh:酸忌廉
+# zh-yue:酸忌廉
+wikipedia:en:https://en.wikipedia.org/wiki/Sour_cream
 allergens:fr:_crème_ fraîche
 
-fr:crème fraîche liquide
-allergens:fr:_crème_ fraîche liquide
+<en:Cream
+en:Smetana
+az:Xama
+# bat-smg:Smetuona
+be:Смятана
+bs:Pavlaka
+ca:Smetana
+cs:Zakysaná smetana
+cv:Хăйма
+da:Smetana
+de:Schmand, Schmant, Schmetten
+es:Smetana
+et:Hapukoor
+eu:Smetana
+fi:Smetana
+fr:Smetana
+gl:Smetana
+hy:Թթվասեր
+it:Smetana
+ja:スメタナ
+ka:არაჟანი
+kk:Қаймақ
+ko:스메타나
+lt:Grietinė
+lv:Skābais krējums
+mk:Павлака
+ms:Smetana
+nl:Smetana
+no:Smetana
+# olo:Kannates
+pl:Śmietana
+ru:Сметана
+sl:Kisla smetana
+sr:Павлака
+sv:Smetana
+# szl:Zana
+uk:Сметана
+uz:Smetana
+# vep:Kandatez
+vi:Smetana
+zh:斯美塔那酸奶油
+wikipedia:en:https://en.wikipedia.org/wiki/Smetana_(dairy_product)
 
-fr:crème fraîche pasteurisée
-allergens:fr:_crème_ fraîche pasteurisée
+<en:Cream
+en:Crème fraîche
+af:Crème fraîche
+cs:Crème fraîche
+da:Cremefraiche
+de:Crème fraîche
+es:Crème fraîche
+eu:Esne-gain gordina, esne-gain freskoa
+fr:crème fraîche épaisse, crème fraîche fermentée
+he:קרם פרש
+hy:Կրեմ-ֆրեշ
+is:Crème fraîche
+it:Crème fraîche
+ja:クレームフレーシュ
+ko:크렘 프레슈
+ms:Crème fraîche
+nl:Crème fraîche
+no:Crème fraîche
+pl:Crème fraîche, świeża śmietana
+pt:Crème fraîche
+ru:Крем-фреш
+uk:Крем-фреш
+vi:Kem fraîche
+sv:Crème fraîche
+zh:法式酸奶油
+wikipedia:en:https://en.wikipedia.org/wiki/Crème_fraîche
 
-fr:crème fraîche légère
-allergens:fr:_crème_ fraîche légère
-
-fr:crème fraîche de normandie
-allergens:fr:_crème_ fraîche de normandie
-
-fr:crème fraîche épaisse
-allergens:fr:_crème_ fraîche épaisse
 
 fr:purée de framboise concentrée
 
@@ -11954,8 +12563,9 @@ fr:agent, agents
 # additives spell correction: olives (vertes) -> vert s
 fr:verte, vertes
 
+
 # nitrate -> citrate
 fr:nitrate, nitrates
 
-
-
+en:chlorella
+fr:chlorella, chlorelle

@@ -1,6 +1,6 @@
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,base
-stopwords:de:und,mit,von
-stopwords:nl:bevat,en
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou
+stopwords:de:und, mit, von, aus
+stopwords:nl:bevat
 
 
 
@@ -14,12 +14,85 @@ fr:huile de poisson
 allergens:fr: huile de _poisson_
 
 < :
-fr:huile essentielle de menthe
+en:Lactose
+ar:لاكتوز
+be:Лактоза
+bg:Лактоза
+bn:ল্যাকটোজ
+bs:Laktoza
+ca:Lactosa
+cs:Laktóza
+cy:Lactos
+da:Laktose
+de:Lactose, Milchzucker, Laktose
+el:Λακτόζη
+eo:Laktozo, laktosukero
+es:Lactosa
+et:Laktoos, piimasuhkur
+eu:Laktosa
+fa:لاکتوز
+fi:Laktoosi, maitosokeri
+fr:Lactose
+ga:Lachtós
+gl:Lactosa
+he:לקטוז
+hr:Laktoza
+hu:Laktóz, tejcukor
+hy:Լակտոզ
+ia:Lactosa
+id:Laktosa
+is:Laktósi, mjólkursykur
+it:Lattosio
+ja:ラクトース
+ka:ლაქტოზა
+ko:락토스
+ky:Лактоза
+la:Lactosum
+lt:Laktozė
+lv:Laktoze
+mg:Laktôzy
+mk:Лактоза
+ms:Laktosa
+nl:Lactose, Melksuiker
+nn:Laktose, mjølkesukker
+no:Laktose, melkesukker
+oc:Lactòsa
+pl:Laktoza
+pt:Lactose
+ro:Lactoză
+ru:Лактоза
+sh:Laktoza
+sk:Laktóza
+sl:Laktoza, mlečni sladkor
+sq:Laktoza
+sr:Лактоза
+su:Laktosa
+sv:Laktos
+ta:லாக்டோசு
+th:แล็กโทส
+tr:Laktoz
+uk:Лактоза
+uz:Laktoza
+vi:Lactose
+zh:乳糖
+allergens:fr: _lactose_
+wikipedia:en: https://en.wikipedia.org/wiki/Lactose
+
+< en:Lactose
+en:Lactose powder, powdered lactose
+fr:poudre de lactose
+nl:Lactosepoeder
+allergens:fr: poudre de _lactose_
 
 < :
-fr:lait entier frais
-nl:verse volle melk
-allergens:fr: _lait_ entier frais
+en:pasteurized sheep's milk, pasteurised sheep's milk
+de:pasteurisierter Schafsmilch
+fr:lait de brebis pasteurisé, lait pasteurisé de brebis
+nl:gepasteuriseerde schapenmelk
+allergens:fr: _lait_ pasteurisé de brebis
+
+< :
+fr:huile essentielle de menthe
 
 en:absinth
 de:Absinth
@@ -48,7 +121,7 @@ nl:acerolasap
 en:acetic acid
 fr:acide acétique
 
-en:Acid
+en:Acid, Acidifier
 bg:Киселина
 cs:Kyselina
 da:Syre
@@ -72,9 +145,6 @@ sk:Kyselina
 sl:Kislina
 sv:Syra
 wikidata:en: Q337038
-
-en:acidifier
-fr:Acidifiant
 
 en:acidity corrector
 fr:Correcteur d'acidité, correcteurs d'acidité
@@ -758,7 +828,7 @@ mr:लोणी
 ms:mentega
 my:ထောပတ်
 ne:नौनी
-nl:boter
+nl:Boter
 nn:smør
 no:smør
 oc:burre
@@ -801,11 +871,6 @@ allergens:fr: _beurre_
 allergens:nl: _boter_
 
 < en:Butter
-en:Butter from Isigny AOP
-fr:beurre d'isigny AOP
-nl:boter uit Isigny
-
-< en:Butter
 en:churned butter
 es:manteca batida
 fr:beurre de baratte
@@ -813,15 +878,95 @@ nl:gekarnde boter
 allergens:fr: _beurre_ de baratte
 
 < en:Butter
-en:clarified butter, milk fat
+en:fresh butter
+de:frische Butter
+es:mantequilla fresca
+fr:beurre frais
+nl:verse boter
+pt:manteiga fresca
+allergens:fr: _beurre_ frais
+
+< en:Butter
+en:pasteurized butter, pasteurised butter
+fr:beurre pasteurisé
+nl:gepasteuriseerde boter
+allergens:fr: _beurre_ pasteurisé
+
+< en:Butter
+en:salted butter
+de:gesalzene Butter, gesalzenes Butter
+fr:beurre salé
+ja:塩バター
+nl:gezouten boter
+allergens:fr: _beurre_ salé
+wikipedia:en: https://fr.wikipedia.org/wiki/Beurre_salé
+
+< en:Butter
+en:sweet cream butter
+wikidata:en: Q26882140
+
+< en:Butter
+en:unsalted butter
+fr:beurre doux
+nl:ongezouten boter
+allergens:fr: _beurre_ doux
+wikipedia:en: https://fr.wikipedia.org/wiki/Beurre_doux
+
+< en:Butter
+fr:beurre d'isigny AOP
+
+< en:Butter
+fr:beurre de cuisine, beurre cuisinier
+allergens:fr: _beurre_ de cuisine
+
+< en:Butter
+fr:beurre demi-sel
+nl:halfgezouten boter
+allergens:fr: _beurre_ demi-sel
+wikipedia:en: https://fr.wikipedia.org/wiki/Beurre_demi-sel
+
+< en:Butter
+fr:beurre laitier
+nl:melkerijboter
+allergens:fr: beurre _laitier_
+
+en:butterfat, milkfat, pastry butter
+bs:mliječna mast
+cy:braster menyn
+da:mjölkfett
+de:Butterreinfett, Milchfett
+dk:smørolie
+es:grasa butírica
+fr:matière grasse lactique, matière grasse laitière anhydre, beurre laitier concentré
+id:lemak susu
+it:burro anidro, burro di pasticceria
+ja:乳脂肪
+ko:유지방
+ms:lemak mentega, lemak susu
+nl:melkvet, boterconcentraat
+no:melkefett
+pt:gordura de leite anhidra, manteiga concentrada
+ru:Молочный жир
+sl:mlečna maščoba
+sv:mølkfett
+th:ไขมันเนย
+tl:taba ng gatas
+uk:Молочний жир
+zh:乳脂
+allergens:fr: _beurre_ pâtissier
+wikidata:en: Q909729
+wikipedia:en: https://en.wikipedia.org/wiki/Butterfat
+
+< en:Butterfat
+en:clarified butter
 ar:عدل
 ca:mantega clarificada
 cs:přepuštěné máslo
 de:Butterschmalz
-es:mantequilla clarificada
-fr:beurre clarifié, beurre purifié
+es:mantequilla clarificada, mantequilla concentrada
+fr:beurre clarifié, beurre purifié, beurre fondu, beurre pâtissier
 he:חמאה מזוקקת
-it:burro chiarificato
+it:burro chiarificato, burro fuso
 ja:澄ましバター
 kk:Сары май
 ko:버터기름
@@ -838,27 +983,22 @@ uk:Пряжене масло
 zh:无水黄油
 allergens:fr: huile de _beurre_
 allergens:nl: _boterolie_
+wikidata:en: Q909729
+wikipedia:en: https://en.wikipedia.org/wiki/Butterfat
 
-< en:Clarified butter
-en:butterfat, milkfat
-bs:mliječna mast
-cy:braster menyn
-de:Milchfett
-es:grasa butírica
-id:lemak susu
-ja:乳脂肪
-ko:유지방
-ms:lemak mentega, lemak susu
-nl:melkvet
-ru:Молочный жир
-sl:mlečna maščoba
-sv:mjölkfett
-th:ไขมันเนย
-tl:taba ng gatas
-uk:Молочний жир
-zh:乳脂
+< en:Butterfat
+en:concentrated butter
+fr:beurre concentré
+nl:geconcentreerde boter
+allergens:fr: _beurre_ concentré
 
-< en:Clarified butter
+< en:Concentrated butter
+en:reconstituted butter
+fr:beurre concentré reconstitué, beurre déshydraté reconstitué
+nl:gereconstitueerde boter
+allergens:fr: _beurre_ concentré reconstitué
+
+< en:Butterfat
 en:ghee
 ar:سمن حيواني
 az:sarı yağ
@@ -906,79 +1046,7 @@ te:నెయ్యి
 uk:Ґгі, Гхі, Ґі
 ur:گھی
 zh:酥油
-
-< en:Butter
-en:concentrated butter
-fr:beurre concentré
-nl:geconcentreerde boter
-allergens:fr: _beurre_ concentré
-
-< en:Concentrated butter
-en:pastry butter
-fr:beurre pâtissier
-it:burro di pasticceria
-allergens:fr: _beurre_ pâtissier
-
-< en:Concentrated butter
-en:reconstituted butter
-fr:beurre concentré reconstitué, beurre déshydraté reconstitué
-nl:gereconstitueerde boter
-allergens:fr: _beurre_ concentré reconstitué
-
-< en:Butter
-en:fresh butter
-fr:beurre frais
-nl:verse boter
-allergens:fr: _beurre_ frais
-
-< en:Butter
-en:melted butter
-fr:beurre fondu
-nl:gesmolten boter
-treatment:en: en:melting
-
-< en:Butter
-en:pasteurized butter, pasteurised butter
-fr:beurre pasteurisé
-nl:gepasteuriseerde boter
-allergens:fr: _beurre_ pasteurisé
-
-< en:Butter
-en:salted butter
-de:gesalzene Butter, gesalzenes Butter
-fr:beurre salé
-ja:塩バター
-nl:gezouten boter
-allergens:fr: _beurre_ salé
-
-< en:Butter
-en:sweet cream butter
-
-< en:Butter
-en:unsalted butter
-fr:beurre doux
-nl:ongezouten boter
-allergens:fr: _beurre_ doux
-
-< en:Butter
-fr:beurre de cuisine, beurre cuisinier
-allergens:fr: _beurre_ de cuisine
-
-< en:Butter
-fr:beurre demi-sel
-nl:halfgezouten boter
-allergens:fr: _beurre_ demi-sel
-
-< en:Butter
-fr:beurre laitier
-allergens:fr: beurre _laitier_
-
-< fr:Beurre laitier
-fr:beurre laitier concentré
-allergens:fr: beurre _laitier_ concentré
-
-< en:Butter
-nl:grasboter
+wikidata:en: https://www.wikidata.org/wiki/Q323225
 
 en:cactus fig
 de:Kaktusfeigen
@@ -1185,6 +1253,9 @@ de:Schnittlauch
 es:cebollino francés
 fr:ciboulette
 nl:bieslook
+
+en:chlorella
+fr:chlorella, chlorelle
 
 en:chocolate
 fr:chocolat
@@ -1574,6 +1645,50 @@ sl:Emulgator
 sv:Emulgeringsmedel
 wikidata:en: Q907356
 
+en:Emulsifying salt, Emulsifying salts, Melting salt
+bg:Емулгаторни соли
+cs:Tavicí soli
+da:Smeltesalt
+de:Schmelzsalze
+el:Γαλακτωματοποιητικά άλατα
+es:Sales fundentes, Sales emulsionantes
+et:Emulgeeriv sool
+fi:Sulatesuola
+fr:Sels émulsifiants, sel émulsifiant, sel de fonte, sels de fonte
+ga:Salainn eiblithe
+hu:Emulgeálósók
+it:Sali di fusione
+lt:Emulsinimo druskos
+lv:Emulģējošie sāļi
+mt:Melħ emulsifikat
+nl:Smeltzout, Smeltzouten
+pl:Sole emulgujące
+pt:Sais de fusão
+ro:Săruri de topire
+sk:Emulgujúce (taviace) soli
+sl:Emulgirne soli
+sv:Smältsalter
+wikidata:en: Q50419202
+wikipedia:en: https://nl.wikipedia.org/wiki/Smeltzout
+
+< en:Emulsifying salt
+en:Magnesium stearate, E470b
+ar:ستيرات المغنسيوم
+cs:Stearan hořečnatý
+de:Magnesiumstearat
+fa:منیزیم استارات
+fr:Stéarate de magnésium, sels de magnésium d'acides gras
+hu:Magnézium-sztearát
+it:stearato di magnesio, sale di magnesio dell'acido stearico
+nl:Magnesiumstearaat
+pl:Stearynian magnezu
+pt:Estearato de magnésio
+ro:Stearat de magneziu
+ru:Стеарат магния
+sh:Magnezijum stearat
+zh:硬脂酸镁
+wikipedia:en: https://en.wikipedia.org/wiki/Magnesium_stearate
+
 en:endive
 de:Endivien
 es:escarola
@@ -1669,6 +1784,7 @@ uz:fermentlar
 vi:enzym
 yi:ענזים
 zh:酶
+wikipedia:en: https://en.wikipedia.org/wiki/Enzyme
 
 < en:Enzyme
 en:coagulating enzyme
@@ -1720,6 +1836,7 @@ uz:laktaza
 vi:lactase
 zh:乳糖酶
 wikidata:en: Q379764
+wikipedia:en: https://en.wikipedia.org/wiki/Lactase
 
 en:fig
 fr:figue
@@ -2152,7 +2269,7 @@ lt:Miltų apdorojimo medžiaga
 lv:Miltu apstrādes līdzeklis
 mt:Aġent għat-trattament tad-dqiq
 nl:Meelverbeteraar, Meelverbeteraars
-pl:Środek do przetwarzania mąki (polepszacz)
+pl:Środek do przetwarzania mąki
 pt:Agente de tratamento da farinha
 ro:Agent de tratare a făinii
 sk:Múku upravujúca látka
@@ -2279,7 +2396,7 @@ nl:Glansmiddel, Glansmiddelen
 pl:Substancja glazurująca
 pt:Agente de revestimento
 ro:Agent de glazurare
-sk:Povlaková látka (poleva, leštiaca látka)
+sk:Povlaková látka, poleva, leštiaca látka
 sl:Sredstvo za glaziranje
 wikidata:en: Q334582
 
@@ -2297,13 +2414,6 @@ en:goat
 de:Ziegenfleisch
 es:carne de cabra
 nl:geitenvlees
-
-en:goat's milk
-de:Ziegenmilch
-es:leche de cabra
-fr:lait de chèvre
-nl:geitenmelk
-allergens:fr: _lait_ de chèvre
 
 en:grape juice
 fr:jus de raisin
@@ -2346,6 +2456,73 @@ es:tomate asado
 fr:tomate grillée
 nl:gegrilde tomaat
 treatment:en: en:gril
+
+en:Halite
+af:Haliet
+ar:هاليت
+az:Halit
+be:Галіт
+bg:Халит
+bn:হ্যালাইট
+ca:Halita
+cs:Halit
+de:Halit
+el:Αλίτης
+es:Halita
+et:Haliit
+eu:Halita
+fa:سنگ نمک
+fi:Vuorisuola, haliitti
+fr:Halite
+ga:Hailít
+gl:Halita
+gu:સિંધવ
+he:הליט
+hi:सेंधा नमक
+hr:Halit
+hu:Kősó
+hy:Հալիտ
+id:Halit
+is:Halít
+it:Halite
+ja:岩塩
+kk:Галит
+kn:ಕಲ್ಲುಪ್ಪು
+ko:암염
+ky:Таш туз
+lt:Halitas, valgomoji druska, akmens druska
+mr:सैंधव मीठ
+ms:Halit
+nl:Haliet
+nn:Halitt
+no:Halitt
+oc:Sau gemma
+pl:Halit
+pt:Halita
+ru:Галит
+sh:Halit
+sk:Halit
+sl:Halit
+sr:Халит
+sv:Halit, bergsalt, stensalt
+ta:பாறை உப்பு
+te:రాతి ఉప్పు
+th:เกลือหิน
+tr:Kaya tuzu
+uk:Галіт
+vi:Halit
+zh:石鹽
+wikipedia:en: https://en.wikipedia.org/wiki/Halite
+
+< en:Halite
+en:Kosher salt
+ar:ملح كوشير
+eo:Koŝera salo
+es:Sal kosher
+id:Garam kosher
+ms:Garam kosher
+sv:Koshersalt
+wikipedia:en: https://en.wikipedia.org/wiki/Kosher_salt
 
 en:hazelnut paste
 fr:pâte de noisette
@@ -2803,26 +2980,120 @@ es:mentol
 fr:menthol
 nl:menthol
 
-en:milk
+en:Milk
+af:Melk
+am:ወተት
+an:Leit
+ar:حليب
+as:গাখীৰ
+ay:Millk'i
+az:Süd
+bH:दूध
+ba:Һөт
+be:Малако
+bg:Мляко
+bm:Nɔnɔ
+bn:দুধ
 br:Laezh
+bs:Mlijeko
 ca:llet
+ce:Шура
+co:Latti
+cs:Mléko
+cv:Сĕт
+cy:Llaeth
+da:Mælk
 de:Milch
-es:leche
-fr:lait
-hr:mlijeko
-it:latte
+el:Γάλα
+es:Leche
+et:Piim
+eu:Esne
+fa:شیر
+fi:Maito
+fo:Mjólk
+fr:Lait
+fy:Molke
+ga:Bainne
+gd:Bainne
+gl:Leite
+gn:Kamby
+gu:દૂધ
+gv:Bainney
+he:חלב
+hr:Mlijeko
+ht:Lèt
+hu:Tej
+hy:Կաթ
+ia:Lacte
+id:Susu
+ik:Immuk
+is:Mjólk
+it:Latte
+iu:ᐃᒻᒧᒃ
+ja:乳
+jv:Susu
+ka:რძე
+kk:Сүт
+ko:젖
 ku:Şîr
+ky:Сүт
+la:Lac
+lb:Mëllech
+li:Mèlk
+ln:Míliki
+lo:ນົມ
+lt:Pienas
+lv:Piens
+mg:Ronono
+mk:Млеко
+ml:പാൽ
+mn:Сүү
+mr:दूध
+ms:Susu
+my:နို့
+ne:दूध
 nl:melk
-oc:lach
-pt:leite
+nn:Mjølk
+no:Melk
+nv:Abeʼ
+oc:Lach, lait, lèit
+or:କ୍ଷୀର
+pa:ਦੁੱਧ
+pl:Mleko
+ps:شيدې
+pt:Leite
+qu:Lichi, Pilli
+ro:Lapte
+ru:Молоко
+sa:क्षीरम्
+sd:کير
+sh:Mlijeko
+si:සත්ත්‍ව කිරි
+sk:Mlieko
+sl:Mleko
+sn:Mukaka
+so:Caano
+sq:Qumështi
+sr:Млеко
+su:Susu
+sv:Mjölk
+sw:Maziwa
+ta:பால்
+te:పాలు
+tg:Шир
+th:นม
+tl:Gatas
+tr:Süt
+tt:Сөт
+uk:Молоко
+ur:دودھ
+vi:Sữa
+wa:Laecea
+yi:מילך
+zh:乳
+zu:Ubisi
 allergens:fr: _lait_
-wikidata:en: Q8495
-
-< :
-< en:Milk
-fr:lait écrémé
-nl:magere melk
-allergens:fr: _lait_ écrémé
+wikipedia:en: https://en.wikipedia.org/wiki/Milk
 
 < en:Milk
 en:condensed milk
@@ -2838,18 +3109,12 @@ pt:leite evaporado
 zh:淡奶
 allergens:fr: _lait_ concentré
 
-< :
-< en:Condensed milk
-fr:lait concentré sucré écrémé
-nl:gesuikerde gecondenseerde magere melk
-allergens:fr: _lait_ concentré sucré écrémé
-
 < en:Condensed milk
 en:concentrated skim milk, concentrated skimmed milk
 de:kondensierte Magermilch, konzentrierte Magermilch, Kondensmagermilch
-fr:lait écrémé concentré, lactose et protéine de lait
+fr:lait écrémé concentré
 it:latte scremato concentrato, latte magro concentrato
-allergens:fr: _lactose_ et protéine de _lait_
+allergens:fr: _lait_ écrémé concentré
 
 < en:Condensed milk
 en:condensed whole milk
@@ -2864,8 +3129,14 @@ fr:lait entier condensé sucré
 < en:Condensed milk
 < en:Milk powder
 fr:lait écrémé concentré ou en poudre
-nl:gecondenseerde magere (poeder-)melk
+nl:gecondenseerde magere poedermelk
 allergens:fr: _lait_ écrémé concentré ou en poudre
+
+< en:Condensed milk
+< en:Skimmed milk
+fr:lait concentré sucré écrémé
+nl:gesuikerde gecondenseerde magere melk
+allergens:fr: _lait_ concentré sucré écrémé
 
 < en:Condensed milk
 en:sweetened condensed milk
@@ -2882,39 +3153,224 @@ fr:lait de vache
 it:latte di mucca
 nl:koemelk
 allergens:fr: _lait_ de vache
+wikipedia:en: https://fr.wikipedia.org/wiki/Lait_de_vache
+
+< en:Cow's milk
+en:pasteurized cow's milk
+fr:lait de vache pasteurisé, lait pasteurisé de vache
+nl:gepasteuriseerde koemelk
+allergens:fr: _lait_ pasteurisé de vache
+
+< en:Cow's milk
+< en:Whole milk
+en:Whole cow's milk
+es:Leche entera de vaca
 
 < en:Milk
 en:cream
+af:Room
+ar:قشدة
+ba:Ҡаймаҡ
+be:Вяршкі
+bg:Сметана
 br:dienn
 ca:nata, crema de la llet, crespell, cresp de la llet, doga
+cs:Smetana
+cy:Hufen
+da:Fløde
 de:Rahm, Sahne, Obers, Nidel, Nidle
+el:Κρέμα γάλακτος
 eo:kremo
 es:crema de leche, nata
 eu:esne-gaina
-fr:crème
+fa:خامه
+fi:Kerma
+fr:Crème, Crème fraîche, Crème fraîche liquide, crème de lait
+ga:Uachtar
+gd:Bàrr a' bhainne
+gl:Crema de leite
+he:שמנת
+hr:Vrhnje
+io:Kremo
+is:Rjómi
 it:panna, crema di latte
+ja:クリーム
+kk:Кілегей
+ko:크림
+ky:Каймак
+la:Cramum
+lb:Rahm, Ram, Schmant
+lt:Grietinėlė
+lv:Krējums
+mr:साय
+ms:Krim
 nl:room
+nn:Kremfløyte
+no:Fløte
+pl:Śmietanka
 pt:nata, creme de leite
+qu:Nata
+ro:Smântână
+ru:Сливки
+sh:Krem
+sk:Smotana
+sl:Smetana
+sn:Ruomba
+so:Labeen
+sq:Pana
+sv:Grädde
+sw:Samli
+ta:பாலாடை
+te:మీగడ
+th:ครีม
+tr:Krema
+uk:Вершки
+ur:ملائی
+uz:Qaymoq
+vi:Kem
+zh:鮮奶油
+allergens:fr: crème de _lait_
+wikipedia:en: https://en.wikipedia.org/wiki/Cream
 
 < en:Cream
-fr:crème en poudre
-allergens:fr: _crème_ en poudre
+en:Cream from Normandy
+fr:Crème fraîche de normandie
+nl:Room uit Normandië
+allergens:fr: _crème_ fraîche de normandie
 
 < en:Cream
-fr:crème pasteurisée
+en:Crème fraîche
+af:Crème fraîche
+cs:Crème fraîche
+da:Cremefraiche
+de:Crème fraîche
+es:Crème fraîche
+eu:Esne-gain gordina, esne-gain freskoa
+fr:crème fraîche épaisse, crème fraîche fermentée
+he:קרם פרש
+hy:Կրեմ-ֆրեշ
+is:Crème fraîche
+it:Crème fraîche
+ja:クレームフレーシュ
+ko:크렘 프레슈
+ms:Crème fraîche
+nl:Crème fraîche
+no:Crème fraîche
+pl:Crème fraîche, świeża śmietana
+pt:Crème fraîche
+ru:Крем-фреш
+sv:Crème fraîche
+uk:Крем-фреш
+vi:Kem fraîche
+zh:法式酸奶油
+wikipedia:en: https://en.wikipedia.org/wiki/Crème_fraîche
+
+< en:Cream
+en:Light Cream
+fr:Crème fraîche légère
+nl:Lichte room
+allergens:fr: _crème_ fraîche légère
+
+< en:Cream
+en:Pasteurized cream
+fr:crème pasteurisée, crème fraîche pasteurisée
 nl:gepasteuriseerde room
 allergens:fr: _crème_ pasteurisée
 
-< en:Milk
-en:lactose
-fr:lactose
-nl:lactose
-allergens:fr: _lactose_
+< en:Cream
+en:Powdered cream, Cream powder
+fr:Crème en poudre
+nl:Poederroom
+allergens:fr: _crème_ en poudre
 
-< en:Lactose
-en:lactose powder, powdered lactose
-fr:poudre de lactose
-allergens:fr: poudre de _lactose_
+< en:Cream
+en:Smetana
+az:Xama
+be:Смятана
+bs:Pavlaka
+ca:Smetana
+cs:Zakysaná smetana
+cv:Хăйма
+da:Smetana
+de:Schmand, Schmant, Schmetten
+es:Smetana
+et:Hapukoor
+eu:Smetana
+fi:Smetana
+fr:Smetana
+gl:Smetana
+hy:Թթվասեր
+it:Smetana
+ja:スメタナ
+ka:არაჟანი
+kk:Қаймақ
+ko:스메타나
+lt:Grietinė
+lv:Skābais krējums
+mk:Павлака
+ms:Smetana
+nl:Smetana
+no:Smetana
+pl:Śmietana
+ru:Сметана
+sl:Kisla smetana
+sr:Павлака
+sv:Smetana
+uk:Сметана
+uz:Smetana
+vi:Smetana
+zh:斯美塔那酸奶油
+wikipedia:en: https://en.wikipedia.org/wiki/Smetana_-dairy_product-
+
+< en:Cream
+en:Sour cream
+ar:كريمة حامضة
+ca:Crema agra, crema àcida
+de:saure Sahne, Sauerrahm
+eo:Acidkremo
+es:Crema agria, nata agria
+fa:خامه ترش
+fi:Hapankerma
+fr:Crème aigre, crème sure
+he:שמנת חמוצה
+hu:Tejföl
+id:Krim asam
+is:Sýrður rjómi
+it:Panna acida
+ko:사워크림
+ms:Krim masam
+nl:Zure room
+pt:Creme azedo
+sk:Kyslá smotana
+vi:Kem chua
+zh:酸忌廉
+allergens:fr: _crème_ fraîche
+wikipedia:en: https://en.wikipedia.org/wiki/Sour_cream
+
+< en:Milk
+en:goat's milk
+de:Ziegenmilch
+es:leche de cabra
+fr:lait de chèvre
+nl:geitenmelk
+allergens:fr: _lait_ de chèvre
+wikidata:en: Q1418287
+
+< en:Goat's milk
+en:pasteurized goat milk, pasteurised goat milk, pasteurised goatmilk
+es:leche de cabra pasteurizada
+fr:lait de chèvre pasteurisé, lait pasteurisé de chèvre
+it:latte di capra pastorizzato
+allergens:fr: _lait_ de chèvre pasteurisé
+
+< en:Goat's milk
+en:raw goat's milk
+fr:lait cru de chèvre
+allergens:fr: _lait_ cru de chèvre
+
+< en:Milk
+en:low-fat milk, 1% fat milk
+nl:melk met 1% vetgehalte
 
 < en:Milk
 en:pasteurized whole milk, pasteurised whole milk
@@ -2923,90 +3379,107 @@ nl:volle gepasteuriseerde melk
 allergens:fr: _lait_ entier pasteurisé
 
 < en:Milk
+en:raw cow's milk
+es:leche cruda de vaca
+fr:lait cru de vache
+nl:rauwe koemelk
+allergens:fr: _lait_ cru de vache
+
+< en:Milk
 en:raw milk
 de:rohmilch
 fr:lait cru
 it:latte crudo
 nl:rauwe melk
 allergens:fr: _lait_ cru
+wikipedia:en: https://en.wikipedia.org/wiki/Raw_milk
 
-< en:Cow's milk
-< en:Raw milk
-fr:lait cru de vache
-es:leche cruda de vaca
-nl:rauwe koemelk
-allergens:fr: _lait_ cru de vache
+< en:Milk
+en:raw sheep's milk
+de:roher Schafmilch
+el:ακατέργαστο πρόβειο γάλα
+fr:lait cru de brebis
+nl:rauwe schapenmelk
+allergens:fr: _lait_ cru de brebis
+
+< en:Raw sheep's milk
+en:scheep's milk, sheep milk
+de:Schafsmilch
+fr:lait de brebis
+it:latte di pecora
+nl:schapenmelk
+allergens:fr: _lait_ de brebis
+wikidata:en: Q2736146
+
+< en:Milk
+en:reduced-fat milk
 
 < en:Milk
 en:semi-skimmed milk
-de:teilentrahmte milch
-fr:lait partiellement écrémé
-it:latte parzialmente scremato
-nl:gedeeltelijk afgeroomde melk
-allergens:fr: _lait_ partiellement écrémé
 
 < en:Milk
-en:whey
-ca:sèrum de llet
-de:Molke
-eo:selakto, laktosero
-es:suero de leche
-et:vadak
-fr:petit-lait, lactosérum
-io:selakto
-it:siero di latte
-nl:wei
-oc:lactoserum, leiton, gaspa, lachada
-pt:soro de leite, lacto-soro
-allergens:fr: _petit-lait_
+en:skim milk, fat-free milk
+nl:vetvrije melk
+wikidata:en: Q2352187
 
-< en:Whey
-en:whey powder, powdered whey
-fr:lactosérum en poudre, petit-lait en poudre
-nl:weipoeder
-allergens:fr: _lactosérum_ en poudre
+< en:Milk
+en:skimmed milk
+ar:حليب منزوع الدسم
+es:Leche descremada, Leche desnatada
+et:Lõss
+fa:شیر خشک بدون چربی
+fi:Kuorittu maito
+fr:lait écrémé
+gl:Leite desnatado
+id:Susu skim
+is:Undanrenna
+ja:脱脂粉乳
+lt:Nugriebtas pienas
+ms:Susu skim
+nl:Taptemelk, ondermelk, afgeroomde melk, magere melk
+no:Skummet melk
+pa:ਸਪਰੇਟਾ
+pt:Leite desnatado
+ru:Обезжиренное молоко
+sv:Skummjölk
+uk:Знежирене молоко
+vi:Sữa gầy
+allergens:fr: _lait_ écrémé
+wikidata:en: Q2352187
+wikipedia:en: https://en.wikipedia.org/wiki/Skimmed_milk
 
-< en:Whey powder
-en:filtered whey powder
-de:molkenerzeugnis
-es:suero de leche en polvo
-fr:petit-lait filtré en poudre, lactosérum filtré en poudre
-it:filtrato di siero di latte in polvere
-nl:weifiltraatpoeder
-allergens:fr: _petit-lait_ filtré en poudre
-
-< en:Whey
-fr:lactosérum concentré
-allergens:fr: _lactosérum_ concentré
-
-< en:Whey
-fr:lactosérum déminéralisé
-allergens:fr: _lactosérum_ déminéralisé
-
-< en:Whey
-fr:lactosérum doux en poudre
-allergens:fr: _lactosérum_ doux en poudre
-
-< en:Whey
-fr:perméat de lactosérum
+< en:Milk
+en:whole milk
+da:sødmaelk
+de:Vollmilch
+fi:täysmalto
+fr:lait entier, lait entier frais
+it:latte intero
+nl:volle melk
+allergens:fr: _lait_ entier frais
 
 < en:Milk
 fr:lait concentré écrémé
 allergens:fr: _lait_ concentré écrémé
 
 < en:Milk
-fr:lait cru de brebis
-allergens:fr: _lait_ cru de brebis
+fr:lait demi-écrémé, lait partiellement écrémé
+de:teilentrahmte milch
+en:milk with 1.5-1.8% fat
+it:latte parzialmente scremato
+nl:halfvolle melk, gedeeltelijk afgeroomde melk
+no:Ekstra lett melk
+sv:Lättmjölk
+allergens:fr: _lait_ partiellement écrémé
+wikidata:en: Q10572454
+wikipedia:en: https://fr.wikipedia.org/wiki/Lait_demi-écrémé
 
 < en:Milk
-fr:lait de vache pasteurisé
-nl:gepasteuriseerde koemelk
-allergens:fr: _lait_ de vache pasteurisé
-
-< en:Milk
-fr:lait demi-écrémé
-nl:halfvolle melk
-allergens:fr: _lait_ demi-écrémé
+< fr:Lait demi-écrémé
+fr:lait demi-écrémé pasteurisé
+de:pasteurisierte magermilch
+nl:gepasteuriseerde volle melk
+allergens:fr: _lait_ demi-écrémé pasteurisé
 
 < en:Milk
 fr:lait demi-écrémé stérilisé uht
@@ -3026,12 +3499,6 @@ fr:lait écrémé en poudre reconstitué
 allergens:fr: _lait_ écrémé en poudre reconstitué
 
 < en:Milk
-fr:lait écrémé pasteurisé
-de:pasteurisierte magermilch
-nl:gepasteuriseerde volle melk
-allergens:fr: _lait_ écrémé pasteurisé
-
-< en:Milk
 fr:lait écrémé reconstitué
 nl:gereconstitueerde melk
 allergens:fr: _lait_ écrémé reconstitué
@@ -3048,11 +3515,6 @@ allergens:fr: _lait_ en poudre enrichi en matière grasse
 fr:lait en poudre partiellement écrémé
 nl:halfvolle poedermelk
 allergens:fr: _lait_ en poudre partiellement écrémé
-
-< en:Milk
-fr:lait entier
-nl:volle melk
-allergens:fr: _lait_ entier
 
 < en:Milk
 fr:lait entier reconstitué
@@ -3077,8 +3539,10 @@ nl:gepasteuriseerde melk
 allergens:fr: _lait_ pasteurisé
 
 < en:Milk
-fr:lait pasteurisé de vache
-allergens:fr: _lait_ pasteurisé de vache
+fr:produits laitiers
+
+< en:Milk
+fr:produits laitiers en poudre
 
 en:milk chocolate
 fr:chocolat au lait
@@ -3114,22 +3578,17 @@ cs:sušené plnotučné mléko
 de:vollmilchpulver
 el:γάλα σε σκόνη
 es:leche entera en polvo
-fr:lait entier en poudre
+fr:lait entier en poudre, poudre de lait entier
 it:latte intero in polvere
 nl:volle melkpoeder
 pl:pelne mleko w proszku
 pt:leite entero em pó, leite em pó gordo
 sk:sušené plnotučné mlieko
-allergens:fr: _lait_ entier en poudre
+allergens:fr: poudre de _lait_ entier
 
 < en:Milk powder
 fr:lait écrémé en poudre
 allergens:fr: _lait_ écrémé en poudre
-
-< en:Milk powder
-fr:poudre de lait entier
-nl:volle melkpoeder
-allergens:fr: poudre de _lait_ entier
 
 en:Mineral, Minerals
 af:Mineraal
@@ -3163,7 +3622,7 @@ he:מינרל
 hi:खनिज
 hr:Minerali
 ht:Mineral
-hu:Ásvány (anyag), Ásványi anyagok
+hu:Ásvány, Ásványi anyagok
 hy:Միներալ
 ia:Mineral
 id:Mineral
@@ -3223,6 +3682,7 @@ vi:Khoáng vật
 yi:מינעראל
 za:Gvangvuz
 zh:礦物
+wikipedia:en: https://en.wikipedia.org/wiki/Mineral
 
 en:mint
 de:Minze
@@ -3465,10 +3925,6 @@ treatment:en: en:pascalization
 en:paste
 fr:pâte
 
-en:pasteurized goat milk, pasteurised goat milk
-fr:lait pasteurisé de chèvre
-allergens:fr: _lait_ pasteurisé de chèvre
-
 en:peach
 fr:pêche
 
@@ -3602,7 +4058,7 @@ de:vorgegartes Hühnerfleisch
 es:carne de pollo precocida
 nl:voorgegaard kippenvlees
 
-en:Preservative, preservatives
+en:Preservative
 bg:Консервант
 cs:Konzervant
 da:Modificeret stivelse
@@ -3611,7 +4067,7 @@ el:Συντηρητικό
 es:Conservante, Conservador
 et:Säilitusaine
 fi:Säilöntäaine
-fr:Conservateur, conservateurs
+fr:Conservateur
 ga:Leasaitheach
 hu:Tartósítószer
 it:Conservanti
@@ -3788,17 +4244,6 @@ wa:Proteyene
 yi:פראטעאין
 zh:蛋白质
 
-< en:Milk protein
-< en:Whey
-en:Whey protein
-ar:
-de:Molkenprotein
-es:Proteína de suero de leche
-fr:protéine de lactosérum
-hi:मट्ठा प्रोटीन
-nl:weiproteïne
-allergens:fr: protéines de _lactosérum_
-
 < en:Protein
 en:milk protein
 de:Milcheiweiß
@@ -3857,7 +4302,117 @@ th:เคซีน
 tr:Kazein
 uk:Казеїн
 zh:酪蛋白
-novagroup:en: 4
+nova:en: 4
+wikipedia:en: https://en.wikipedia.org/wiki/Casein
+
+< en:Milk protein
+en:whey
+an:Siero de leit
+ar:مصل اللبن
+be:Сыроватка
+bg:Суроватка
+bn:ঘোল
+ca:Sèrum de llet, xerigot
+cs:Syrovátka
+cy:Maidd
+da:Valle
+de:Molke, Molken, Käsemilch, Schotte, Sirte, Waddike, Wedicke, Zieger
+el:Τυρόγαλα
+eo:selakto, laktosero
+es:Suero de leche, lactosuero, suero lácteo
+et:Vadak
+eu:Esne-gazur
+fa:آب‌پنیر
+fi:Hera
+fr:petit-lait, lactosérum
+fy:Waai
+gl:Soro de leite, lactosoro
+he:מי גבינה
+id:Whey, laktoserum
+io:selakto
+is:Mysa
+it:siero di latte
+ja:乳清
+ko:유청
+lb:Wässeg
+lt:Išrūgos
+lv:Sūkalas
+ms:Whey
+nl:Wei, Melkwei
+nn:Myse
+no:Myse, valle
+oc:Lactoserum, leiton, gaspa, lachada
+pa:ਪਨੀਰ ਦਾ ਪਾਣੀ
+pt:soro de leite, lacto-soro
+ro:Zer
+ru:Молочная сыворотка
+sh:Surutka
+sk:Srvátka
+sl:Sirotka
+sr:Сурутка
+sv:Vassle, vassla
+te:పాల విరుగుడు
+th:หางนม
+tl:Lagnaw
+tr:Peynir altı suyu
+uk:Сироватка, Сиро́ватка моло́чна
+zh:乳清
+allergens:fr: _petit-lait_
+wikipedia:en: https://en.wikipedia.org/wiki/Whey
+
+< en:Whey
+en:Concentrated whey
+fr:lactosérum concentré
+nl:Geconcentreerde wei
+allergens:fr: _lactosérum_ concentré
+
+< en:Whey
+en:Demineralised whey
+fr:lactosérum déminéralisé
+nl:Gedemineraliseerde wei
+allergens:fr: _lactosérum_ déminéralisé
+
+< en:Whey
+en:Powdered sweet whey
+fr:lactosérum doux en poudre
+nl:Zoete weipoeder
+allergens:fr: _lactosérum_ doux en poudre
+
+< en:Whey
+en:whey powder, powdered whey
+fr:lactosérum en poudre, petit-lait en poudre
+nl:weipoeder
+allergens:fr: _lactosérum_ en poudre
+
+< en:Whey powder
+en:filtered whey powder
+de:molkenerzeugnis
+es:suero de leche en polvo
+fr:petit-lait filtré en poudre, lactosérum filtré en poudre
+it:filtrato di siero di latte in polvere
+nl:weifiltraatpoeder
+allergens:fr: _petit-lait_ filtré en poudre
+
+< en:Milk protein
+en:Whey protein
+ar:بروتين مصل اللبن
+de:Molkenprotein
+es:Proteína de suero de leche
+fa:پروتیین وی
+fr:protéine de lactosérum
+hi:मट्ठा प्रोटीन
+id:Protein susu
+it:Proteine del siero del latte, WP
+ja:乳清タンパク質
+nl:Weiproteïnepreparaat, Weiproteïne
+pt:Proteína do soro do leite
+sv:Vassleprotein
+th:โปรตีนหางนม
+uk:Сироватковий білок
+vi:Đạm váng sữa
+zh:乳清蛋白
+allergens:fr: protéines de _lactosérum_
+wikipedia:en: https://en.wikipedia.org/wiki/Whey_protein
 
 < en:Milk protein
 fr:protéines de lait en poudre
@@ -4036,121 +4591,8 @@ fr:sirop de riz
 en:rose petals
 fr:pétales de rose
 
-en:Salt (chemistry)
-
-< en:Salt (chemistry)
-en:Emulsifying salt, Emulsifying salts, Melting salt
-bg:Емулгаторни соли
-cs:Tavicí soli
-da:Smeltesalt
-de:Schmelzsalze
-el:Γαλακτωματοποιητικά άλατα
-es:Sales fundentes, Sales emulsionantes
-et:Emulgeeriv sool
-fi:Sulatesuola
-fr:Sels émulsifiants, sel émulsifiant, sel de fonte, sels de fonte
-ga:Salainn eiblithe
-hu:Emulgeálósók
-it:Sali di fusione
-lt:Emulsinimo druskos
-lv:Emulģējošie sāļi
-mt:Melħ emulsifikat
-nl:Smeltzout, Smeltzouten
-pl:Sole emulgujące
-pt:Sais de fusão
-ro:Săruri de topire
-sk:Emulgujúce (taviace) soli
-sl:Emulgirne soli
-sv:Smältsalter
-wikidata:en: Q50419202
-
-< en:Emulsifying salt
-en:Magnesium stearate, E470b
-ar:ستيرات المغنسيوم
-cs:Stearan hořečnatý
-de:Magnesiumstearat
-fa:منیزیم استارات
-fr:Stéarate de magnésium, sels de magnésium d'acides gras
-hu:Magnézium-sztearát
-it:stearato di magnesio, sale di magnesio dell'acido stearico
-nl:Magnesiumstearaat
-pl:Stearynian magnezu
-pt:Estearato de magnésio
-ro:Stearat de magneziu
-ru:Стеарат магния
-sh:Magnezijum stearat
-zh:硬脂酸镁
-
-< en:Salt (chemistry)
-en:Halite, Mineral salt, mineral salts
-af:Haliet
-ar:هاليت
-az:Halit
-be:Галіт
-bg:Халит
-bn:হ্যালাইট
-ca:Halita
-cs:Halit
-de:Halit
-el:Αλίτης
-es:Halita
-et:Haliit
-eu:Halita
-fa:سنگ نمک
-fi:Vuorisuola, haliitti
-fr:Halite, sels minéraux
-ga:Hailít
-gl:Halita
-gu:સિંધવ
-he:הליט
-hi:सेंधा नमक
-hr:Halit
-hu:Kősó
-hy:Հալիտ
-id:Halit
-is:Halít, steinsalt
-it:Halite
-ja:岩塩
-kk:Галит
-kn:ಕಲ್ಲುಪ್ಪು
-ko:암염
-ky:Таш туз
-lt:Halitas, valgomoji druska, akmens druska
-mr:सैंधव मीठ
-ms:Halit, garam batu
-nl:Haliet, steenzout
-nn:Halitt, steinsalt
-no:Halitt, stensalt
-oc:Sau gemma
-pl:Halit
-pt:Halita
-ru:Галит
-sh:Halit
-sk:Halit
-sl:Halit
-sr:Халит
-sv:Halit, bergsalt, stensalt
-ta:பாறை உப்பு
-te:రాతి ఉప్పు
-th:เกลือหิน
-tr:Kaya tuzu
-uk:Галіт
-vi:Halit
-zh:石鹽
-
-< en:Halite
-en:Kosher salt
-ar:ملح كوشير
-eo:Koŝera salo
-es:Sal kosher
-id:Garam kosher
-ms:Garam kosher
-sv:Koshersalt
-wikipedia:en: https://en.wikipedia.org/wiki/Kosher_salt
-
-< en:Halite
 en:salt, table salt, common salt, cooking salt, dry salt
-af:Tafelsout, Sout
+af:tafelsout, Sout
 an:Sal, sal de cocina
 ar:ملح الطعام
 av:ЦӀам
@@ -4191,7 +4633,7 @@ ja:塩
 jv:Uyah
 ka:სუფრის მარილი
 kk:Ас тұзы
-kn:ಉಪ್ಪು (ಖಾದ್ಯ)
+kn:ಉಪ್ಪು
 ko:소금
 ku:Xwê
 lv:Sāls
@@ -4214,13 +4656,13 @@ ru:Поваренная соль
 rw:Umunyu
 sa:लवणम्
 sd:لوڻ
-sh:So (začin)
+sh:So
 si:ලුණු
 sl:Sol, Kuhinjska sol
 sn:Munyu
 so:Milix, Cusbo
 sq:Kripa
-sr:Со (зачин)
+sr:Со
 su:Uyah
 sv:Salt
 ta:உப்பு
@@ -4239,6 +4681,7 @@ yi:זאלץ
 yo:Iyọ̀
 zh:食盐
 wikidata:en: Q11254
+wikipedia:en: https://en.wikipedia.org/wiki/Salt
 
 < en:Salt
 en:finegrained salt
@@ -4262,14 +4705,9 @@ th:เกลือเสริมไอโอดีน
 uk:Йодована сіль
 vi:Muối iốt
 zh:碘盐
+wikipedia:en: https://en.wikipedia.org/wiki/Iodised_salt
 
 < en:Salt
-en:Smoked salt
-de:Rauchsalz, Hickorysalz, Smoked Salt
-es:Sal ahumada
-fr:Sel fumé
-
-< en:Salt (chemistry)
 en:Sea salt, bay salt, solar salt
 ar:ملح البحر
 ca:Sal marina
@@ -4297,6 +4735,7 @@ th:เกลือสมุทร
 uk:Морська сіль
 ur:سمندری نمک
 zh:海盐
+wikipedia:en: https://en.wikipedia.org/wiki/Sea_salt
 
 < en:Sea salt
 en:Fleur de sel
@@ -4308,6 +4747,7 @@ fr:fleur de sel
 ja:フルール・ド・セル
 nl:Fleur de sel
 pt:Flor de sal
+wikipedia:en: https://en.wikipedia.org/wiki/Fleur_de_sel
 
 < en:Sea salt
 en:Salt from Camargue
@@ -4335,7 +4775,14 @@ en:Unrefined sea salt from the Atlantic
 fr:Sel marin non raffiné de l'atlantique
 nl:Ongeraffineerd zeezout uit de Atlantische Oceaan
 
-< en:Salt (chemistry)
+< en:Salt
+en:Smoked salt
+de:Rauchsalz, Hickorysalz, Smoked Salt
+es:Sal ahumada
+fr:Sel fumé
+wikipedia:en: https://en.wikipedia.org/wiki/Smoked_salt
+
+< en:Salt
 en:Sodium nitrite, nitrite salt, nitrite curing salt, nitrite pickling salt, E250
 ar:نتريت الصوديوم
 bs:Natrij-nitrit
@@ -4372,6 +4819,7 @@ tr:Sodyum nitrit
 uk:Нітрит натрію
 vi:Natri nitrit
 zh:亚硝酸钠
+wikipedia:en: https://en.wikipedia.org/wiki/Sodium_nitrite
 
 < en:Sodium nitrite
 en:iodised nitrite salt, nitrite iodised salt, iodized nitrite salt, nitrite iodized salt
@@ -4418,7 +4866,7 @@ nl:Complexvormer, Complexvormers
 pl:Sekwestranty
 pt:Sequestrante
 ro:Agenți de sechestrare
-sk:Komplexotvorné látky (sekvestranty)
+sk:Komplexotvorné látky
 sl:Sredstvo za vzhajanje
 sv:Bakpulver
 wikidata:en: Q905648
@@ -4440,13 +4888,6 @@ fr:
 
 en:sorbitol syrup
 fr:sirop de sorbitol
-
-en:sour cream
-de:saure Sahne
-es:nata agria
-fr:crème fraîche
-nl:zure room
-allergens:fr: _crème_ fraîche
 
 en:soy
 fr:soja
@@ -5632,6 +6073,7 @@ wikidata:en: Q283
 en:Brewing water
 de:Brauwasser
 fr:Eau de brassage
+wikipedia:en: https://de.wikipedia.org/wiki/Brauwasser
 
 < en:Water
 en:Carbonated water
@@ -5644,10 +6086,9 @@ cs:Sodovka, Sodová voda, sifon, sycená, perlivá voda
 da:Danskvand
 de:Tafelwasser
 ee:Gaseeritud vesi, karboniseeritud vesi, mulliga vesi
-el:Σόδα (ποτό), σόδα
+el:Σόδα
 eo:Karbonata akvo
 es:Agua carbonatada
-fa:سودا (نوشیدنی)i
 fi:Soodavesi
 fr:Eau gazeuse, eau acidulée, eau effervescente, eau pétillante, eau gazéifiée, soda club, soda nature
 he:מי סודה
@@ -5677,13 +6118,15 @@ sr:Сода вода
 sv:Bordsvatten
 ta:சோடா நீர்
 th:โซดา
-tr:Soda (içecek), Soda, sodalı su, karbonatlı su
+tr:Soda, sodalı su, karbonatlı su
 uk:Газована вода, підкислена вода, шипуча вода, содова вода
 yi:סאדע וואסער
 zh:碳酸水
+wikipedia:en: https://en.wikipedia.org/wiki/Carbonated_water
 
 < en:Carbonated water
 en:Sparkling water
+wikipedia:en: https://en.wikipedia.org/wiki/Carbonated_water
 
 < en:Water
 en:Mineral water
@@ -5746,6 +6189,7 @@ uk:Мінеральні води
 uz:Mineral suvlar
 vi:Nước khoáng
 zh:礦泉水
+wikipedia:en: https://en.wikipedia.org/wiki/Mineral_water
 
 < en:Mineral water
 en:Carbonated mineral water
@@ -6826,9 +7270,6 @@ fr:crème acidulée
 
 fr:crème de coco
 
-fr:crème de lait
-allergens:fr: crème de _lait_
-
 fr:crème de lait pasteurisé
 allergens:fr: crème de _lait_ pasteurisé
 
@@ -6842,21 +7283,6 @@ fr:crème de noix de coco
 fr:crème de riz
 
 fr:crème entière
-
-fr:crème fraîche de normandie
-allergens:fr: _crème_ fraîche de normandie
-
-fr:crème fraîche épaisse
-allergens:fr: _crème_ fraîche épaisse
-
-fr:crème fraîche légère
-allergens:fr: _crème_ fraîche légère
-
-fr:crème fraîche liquide
-allergens:fr: _crème_ fraîche liquide
-
-fr:crème fraîche pasteurisée
-allergens:fr: _crème_ fraîche pasteurisée
 
 fr:crème légère
 allergens:fr: _crème_ légère
@@ -8885,6 +9311,9 @@ allergens:fr: _lactoprotéines_
 fr:lactose et minéraux du lait
 allergens:fr: _lactose_ et minéraux du _lait_
 
+fr:lactose et protéine de lait
+allergens:fr: _lactose_ et protéine de _lait_
+
 fr:lactose et protéines de lait
 allergens:fr: _lactose_ et protéines de _lait_
 
@@ -8896,20 +9325,11 @@ allergens:fr: _lait_ bio
 fr:lait condensé sucré
 allergens:fr: _lait_ condensé sucré
 
-fr:lait cru de chèvre
-allergens:fr: _lait_ cru de chèvre
-
-fr:lait de brebis
-allergens:fr: _lait_ de brebis
-
 fr:lait de bufflonne
 allergens:fr: _lait_ de bufflonne
 
 fr:lait de bufflonne pasteurisé
 allergens:fr: _lait_ de bufflonne pasteurisé
-
-fr:lait de chèvre pasteurisé
-allergens:fr: _lait_ de chèvre pasteurisé
 
 fr:lait de coco
 
@@ -8928,11 +9348,11 @@ allergens:fr: _lait_ de suite
 fr:lait de vache cru
 allergens:fr: _lait_ de vache cru
 
+fr:lait de vache pasteurisé, lait pasteurisé de vache
+allergens:fr: _lait_ de vache pasteurisé
+
 fr:lait de vache thermisé
 allergens:fr: _lait_ de vache thermisé
-
-fr:lait demi-écrémé pasteurisé
-allergens:fr: _lait_ demi-écrémé pasteurisé
 
 fr:lait demi-écrémé stérilisé u.h.t
 allergens:fr: _lait_ demi-écrémé stérilisé u.h.t
@@ -8975,9 +9395,6 @@ fr:lait maigre en poudre
 
 fr:lait partiellement écrémé pasteurisé
 allergens:fr: _lait_ partiellement écrémé pasteurisé
-
-fr:lait pasteurisé de brebis
-allergens:fr: _lait_ pasteurisé de brebis
 
 fr:lait stérilisé uht demi-écrémé
 
@@ -9239,13 +9656,8 @@ fr:matière grasse de noix de coco
 fr:matière grasse du lait
 allergens:fr: matière grasse du _lait_
 
-fr:matière grasse lactique
-
 fr:matière grasse laitière
 allergens:fr: matière grasse _laitière_
-
-fr:matière grasse laitière anhydre
-allergens:fr: matière grasse _laitière_ anhydre
 
 
 fr:matière grasse végétale de coprah
@@ -10072,10 +10484,6 @@ fr:produit champignon quorn
 
 fr:produit de lactosérum
 allergens:fr: produit de _lactosérum_
-
-fr:produits laitiers
-
-fr:produits laitiers en poudre
 
 fr:propionate de calcium
 

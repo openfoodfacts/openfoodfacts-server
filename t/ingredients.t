@@ -38,13 +38,13 @@ my $expected_product_ref = {
                                            'fr:E432 et E472',
                                            'fr:correcteurs d\'acidité',
                                            'fr:e475',
-                                           'en:acidifier',
+                                           'en:acid',
                                            'en:salt',
                                            'en:cocoa-butter',
                                            'fr:e322',
                                            'fr:E333 E474',
                                            'en:citric-acid',
-                                           'fr:acide-phosphorique'
+                                           'en:phosphoric-acid'
                                          ],
           'ingredients_hierarchy' => [
                                        'fr:farine',
@@ -57,14 +57,14 @@ my $expected_product_ref = {
                                        'fr:E432 et E472',
                                        "fr:correcteurs d'acidit\x{c3}\x{a9}",
                                        'fr:e475',
-                                       'en:acidifier',
+                                       'en:acid',
                                        'en:salt',
                                        'en:cocoa-butter',
                                        'en:cocoa',
                                        'fr:e322',
                                        'fr:E333 E474',
                                        'en:citric-acid',
-                                       'fr:acide-phosphorique'
+                                       'en:phosphoric-acid'
                                      ],
           'ingredients_tags' => [
                                   'fr:farine',
@@ -77,14 +77,14 @@ my $expected_product_ref = {
                                   'fr:e432-et-e472',
                                   'fr:correcteurs-d-acidita',
                                   'fr:e475',
-                                  'en:acidifier',
+                                  'en:acid',
                                   'en:salt',
                                   'en:cocoa-butter',
                                   'en:cocoa',
                                   'fr:e322',
                                   'fr:e333-e474',
                                   'en:citric-acid',
-                                  'fr:acide-phosphorique'
+                                  'en:phosphoric-acid'
                                 ],
           'ingredients_text' => 'farine (12%), chocolat (beurre de cacao (15%), sucre [10%], protéines de lait, oeuf 1%) - émulsifiants : E463, E432 et E472 - correcteurs d\'acidité : E322/E333 E474-E475, acidifiant (acide citrique, acide phosphorique) - sel',
           'lc' => 'fr',
@@ -143,7 +143,7 @@ my $expected_product_ref = {
                              },
                              {
                                'text' => 'acidifiant',
-                               'id' => 'en:acidifier',
+                               'id' => 'en:acid',
                                'rank' => 11
                              },
                              {
@@ -170,7 +170,7 @@ my $expected_product_ref = {
                              },
                              {
                                'text' => 'acide phosphorique',
-                               'id' => 'fr:acide-phosphorique'
+                               'id' => 'en:phosphoric-acid'
                              }
                            ],
           'unknown_ingredients_n' => 6,
