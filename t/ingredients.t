@@ -5,6 +5,8 @@ use warnings;
 
 use Test::More;
 
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 
 # dummy product for testing
@@ -179,7 +181,159 @@ my $expected_product_ref = {
         };
 
 
+is_deeply($product_ref, $expected_product_ref);
+
+
+
+
+my $product_ref = {
+        lc => "fr",
+        ingredients_text => "graisse de palmiste"
+};
+
+extract_ingredients_from_text($product_ref);
+extract_ingredients_classes_from_text($product_ref);
+
+
+#ingredients_from_palm_oil_tags: [
+#"huile-de-palme"
+#],
+
+use Data::Dumper;
+print STDERR Dumper($product_ref);
+
+
+my $expected_product_ref = 
+{
+          'additives_prev_original_tags' => [],
+          'ingredients_hierarchy' => [
+                                       'en:palm-kernel-fat',
+                                       'en:palm-kernel-oil',
+                                       'en:palm-or-palm-kernel-oil'
+                                     ],
+          'ingredients_from_or_that_may_be_from_palm_oil_n' => 1,
+          'additives_prev_tags' => [],
+          'additives_original_tags' => [],
+          'additives_prev' => ' [ graisse-de-palmiste -> fr:graisse-de-palmiste  ]  [ graisse-de -> fr:graisse-de  ]  [ graisse -> fr:graisse  ] ',
+          'amino_acids_tags' => [],
+          'ingredients_original_tags' => [
+                                           'en:palm-kernel-fat'
+                                         ],
+          'ingredients_that_may_be_from_palm_oil_tags' => [],
+          'additives_prev_n' => 0,
+          'nucleotides_tags' => [],
+          'additives_tags' => [],
+          'ingredients_n_tags' => [
+                                    '1',
+                                    '1-10'
+                                  ],
+          'ingredients_tags' => [
+                                  'en:palm-kernel-fat',
+                                  'en:palm-kernel-oil',
+                                  'en:palm-or-palm-kernel-oil'
+                                ],
+          'vitamins_prev_tags' => [],
+          'additives_n' => 0,
+          'nucleotides_prev_tags' => [],
+          'ingredients_n' => 1,
+          'vitamins_tags' => [],
+          'minerals_prev_tags' => [],
+          'ingredients_from_palm_oil_tags' => [
+                                                'huile-de-palme'
+                                              ],
+          'additives_old_tags' => [],
+          'ingredients_text_debug' => 'graisse de palmiste',
+          'ingredients_that_may_be_from_palm_oil_n' => 0,
+          'ingredients_text' => 'graisse de palmiste',
+          'amino_acids_prev_tags' => [],
+          'ingredients_from_palm_oil_n' => 1,
+          'minerals_tags' => [],
+          'ingredients_debug' => [
+                                   'graisse de palmiste'
+                                 ],
+          'lc' => 'fr',
+          'ingredients' => [
+                             {
+                               'text' => 'graisse de palmiste',
+                               'id' => 'en:palm-kernel-fat',
+                               'rank' => 1
+                             }
+                           ],
+          'unknown_ingredients_n' => 0,
+          'additives' => ' [ graisse-de-palmiste -> fr:graisse-de-palmiste  ]  [ graisse-de -> fr:graisse-de  ]  [ graisse -> fr:graisse  ] ',
+          'additives_old_n' => 0,
+          'additives_debug_tags' => [],
+          'ingredients_ids_debug' => [
+                                       'graisse-de-palmiste'
+                                     ]
+        };{
+          'additives_prev_original_tags' => [],
+          'ingredients_hierarchy' => [
+                                       'en:palm-kernel-fat',
+                                       'en:palm-kernel-oil',
+                                       'en:palm-or-palm-kernel-oil'
+                                     ],
+          'ingredients_from_or_that_may_be_from_palm_oil_n' => 1,
+          'additives_prev_tags' => [],
+          'additives_original_tags' => [],
+          'additives_prev' => ' [ graisse-de-palmiste -> fr:graisse-de-palmiste  ]  [ graisse-de -> fr:graisse-de  ]  [ graisse -> fr:graisse  ] ',
+          'amino_acids_tags' => [],
+          'ingredients_original_tags' => [
+                                           'en:palm-kernel-fat'
+                                         ],
+          'ingredients_that_may_be_from_palm_oil_tags' => [],
+          'additives_prev_n' => 0,
+          'nucleotides_tags' => [],
+          'additives_tags' => [],
+          'ingredients_n_tags' => [
+                                    '1',
+                                    '1-10'
+                                  ],
+          'ingredients_tags' => [
+                                  'en:palm-kernel-fat',
+                                  'en:palm-kernel-oil',
+                                  'en:palm-or-palm-kernel-oil'
+                                ],
+          'vitamins_prev_tags' => [],
+          'additives_n' => 0,
+          'nucleotides_prev_tags' => [],
+          'ingredients_n' => 1,
+          'vitamins_tags' => [],
+          'minerals_prev_tags' => [],
+          'ingredients_from_palm_oil_tags' => [
+                                                'huile-de-palme'
+                                              ],
+          'additives_old_tags' => [],
+          'ingredients_text_debug' => 'graisse de palmiste',
+          'ingredients_that_may_be_from_palm_oil_n' => 0,
+          'ingredients_text' => 'graisse de palmiste',
+          'amino_acids_prev_tags' => [],
+          'ingredients_from_palm_oil_n' => 1,
+          'minerals_tags' => [],
+          'ingredients_debug' => [
+                                   'graisse de palmiste'
+                                 ],
+          'lc' => 'fr',
+          'ingredients' => [
+                             {
+                               'text' => 'graisse de palmiste',
+                               'id' => 'en:palm-kernel-fat',
+                               'rank' => 1
+                             }
+                           ],
+          'unknown_ingredients_n' => 0,
+          'additives' => ' [ graisse-de-palmiste -> fr:graisse-de-palmiste  ]  [ graisse-de -> fr:graisse-de  ]  [ graisse -> fr:graisse  ] ',
+          'additives_old_n' => 0,
+          'additives_debug_tags' => [],
+          'ingredients_ids_debug' => [
+                                       'graisse-de-palmiste'
+                                     ]
+        };
+
+
 
 is_deeply($product_ref, $expected_product_ref);
+
+
 
 done_testing();
