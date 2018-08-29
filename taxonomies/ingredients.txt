@@ -1,6 +1,6 @@
 # stopwords
 
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable
 stopwords:nl:bevat
 stopwords:de:und, mit, von, aus
 
@@ -1394,8 +1394,8 @@ en:butterfat, milkfat, pastry butter
 bs:mliječna mast
 cy:braster menyn
 da:mjölkfett
-de:Butterreinfett, Milchfett
-dk:smørolie
+de:Butterreinfett, Milchfett, wasserfreiesMilchfett
+da:smørolie
 es:grasa butírica
 fr:matière grasse lactique, matière grasse laitière anhydre, beurre laitier concentré
 id:lemak susu
@@ -1916,6 +1916,9 @@ fr:lait en poudre enrichi en matière grasse
 allergens:fr:_lait_ en poudre enrichi en matière grasse
 
 <en:milk
+fr:lait maigre en poudre
+
+<en:milk
 fr:lait écrémé à base de poudre de lait
 allergens:fr:_lait_ écrémé à base de poudre de _lait_
 
@@ -2035,17 +2038,11 @@ nl:melkpoeder
 allergens:fr:_lait_ en poudre
 nova:en:4
 
-
-<en:milk powder
-fr:poudre de lait
-nl:melkpoeder
-allergens:fr:poudre de _lait_ écrémé
-
 <en:milk powder
 en:pasteurized skim milk, pasteurised skim milk
 en:skimmed milk powder
-fr:lait en poudre écrémé
-de:magermilchpulver
+fr:lait en poudre écrémé, lait écrémé en poudre
+de:Magermilchpulver
 nl:magere melkpoeder
 es:leche desnatada en polvo
 it:latte scremato in polvere
@@ -2054,15 +2051,18 @@ allergens:fr:_lait_ en poudre écrémé
 <en:milk powder
 en:whole milk powder, dried whole milk, powdered whole milk, whole powdered milk
 cs:sušené plnotučné mléko
-fr:lait entier en poudre, poudre de lait entier
+fr:lait entier en poudre, poudre de lait entier, lait en poudre entier
+da:sødmælkspulver
 de:vollmilchpulver
 es:leche entera en polvo
+hu:zsiros tejpor
 it:latte intero in polvere
 nl:volle melkpoeder
 pl:pelne mleko w proszku
 pt:leite entero em pó, leite em pó gordo
 el:γάλα σε σκόνη
 sk:sušené plnotučné mlieko
+sv:helmjölkspulver
 allergens:fr:_lait_ entier en poudre
 allergens:fr:poudre de _lait_ entier
 
@@ -2077,15 +2077,15 @@ nl:gereconstitueerde melk
 allergens:fr:_lait_ écrémé reconstitué
 
 <en:milk
+en:reconstituted skimmed milk
 fr:lait écrémé réhydraté
+hu:visszaállított sovány tej
+it:latte scremato reidratato
+nl:gerehydrateerde magere melk
 allergens:fr:_lait_ écrémé réhydraté
 
 fr:matière grasse de lait anhydre
 allergens:fr:matière grasse de _lait_ anhydre
-
-<en:milk powder
-fr:lait écrémé en poudre
-allergens:fr:_lait_ écrémé en poudre
 
 <en:milk
 fr:lait écrémé en poudre reconstitué
@@ -2245,6 +2245,8 @@ en:whey powder, powdered whey
 fr:lactosérum en poudre, petit-lait en poudre
 nl:weipoeder
 allergens:fr:_lactosérum_ en poudre
+
+fr:petit-lait doux en poudre
 
 <en:whey powder
 en:filtered whey powder
@@ -2850,6 +2852,8 @@ en:iodised nitrite salt, nitrite iodised salt, iodized nitrite salt, nitrite iod
 fr:sel nitrité iodé, sel iodé nitrité, sel nitrité iodé
 nl:Gejodeerd natriumnitriet
 
+fr:conservateur e 250
+
 
 # MEATS
 
@@ -3072,6 +3076,9 @@ fr:manchons de poulet
 fr:haut de cuisse de poulet
 
 <fr:viande de poulet
+fr:poulet traité en salaison
+
+<fr:poulet traité en salaison
 fr:poulet rôti traité en salaison
 
 <fr:viande de poulet
@@ -3081,8 +3088,7 @@ fr:bouillon de poulet
 
 fr:extrait de poulet
 
-fr:poulet traité en salaison
-
+<fr:viande de poulet
 fr:filets de poulet
 
 <en:meat
@@ -3119,14 +3125,8 @@ fr:amidon transformé de tapioca
 <en:modified starch
 fr:amidon transformé de pomme de terre
 
-<en:corn starch
-fr:amidon transformé de mais
-
 <en:modified starch
 fr:amidon transformé de riz
-
-<en:corn starch
-fr:amidon de maïs modifié
 
 <en:corn starch
 fr:amidon de maïs cireux
@@ -3157,10 +3157,6 @@ fr:amidon de tapioca
 
 <en:starch
 fr:amidon de riz
-
-<en:modified starch
-<en:corn starch
-fr:amidon modifié de mais
 
 <en:modified starch
 <en:potato starch
@@ -3224,37 +3220,41 @@ fr:amidon de blé partiellement modifié
 fr:amidon natif de maïs
 
 <en:starch
-fr:amidons modifiés de maïs
-
-<en:starch
 en:modified rice starch
 fr:amidon de riz modifié, amidon transformé de riz, amidons transformés de riz, amidon modifié de riz
 
-<en:starch
+<en:corn starch
+<en:modified starch
 en:modified corn starch, modified corn starches
-fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de maïs, amidon de maïs modifié, amidons modifié de maïs
+fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de maïs, amidon de maïs modifié, amidons modifié de maïs, amidon de maïs modifié, amidons modifiés de maïs
 
 <en:starch
 fr:amidons modifiés de maïs et de pomme de terre
 
-# Huile de palme
+# Palm oil, palm kernel oil
 
+en:palm or palm kernel oil, palm oil or palm kernel oil
+fr:huile de palme ou de palmiste, huile de palme ou huile de palmiste
+
+<en:palm or palm kernel oil
 <en:vegetable oil
 en:palm oil
 es:aceite de palma
 fr:huile de palme, huile végétale de palme
 wikidata:en:Q231458
 
-<en:palm oil
-en:palm kernel oil
-fr:huile de palmiste
-
-fr:palmiste
+<en:palm or palm kernel oil
+en:palm kernel oil, palm kernel
+fr:huile de palmiste, huile végétale de palmiste, palmiste
 
 <en:palm oil
+<en:palm kernel oil
+en:palm and palm kernel oil
 fr:huile de palme et de palmiste
 
-fr:graisse de palmiste
+<en:palm kernel oil
+en:palm kernel fat
+fr:graisse de palmiste, matière grasse de palmiste
 
 <en:palm oil
 en:palmoleil, palm olein
@@ -3273,6 +3273,7 @@ en:palm
 fr:palme
 
 <en:palm oil
+en:palm fat
 fr:graisse végétale de palme, graisse de palme, matière grasse de palme, matière grasse végétale de palme
 
 <en:palm oil
@@ -3289,31 +3290,26 @@ fr:huile de palme hydrogénée
 <en:palm oil
 fr:huile de palme partiellement hydrogénée
 
-<en:palm oil
-en:coconut oil, copra oil
-fr:huile de coco, huile de noix de coco, huile de coprah
+<en:vegetable oil
+en:coconut oil, copra oil, copra
+fr:huile de coco, huile de noix de coco, huile de coprah, coprah
 
 <en:coconut oil
 fr:huile de coco non hydrogénée
 
-<en:palm oil
+<en:coconut oil
 en:coconut fat
 fr:graisse de coprah, matière grasse de coco, graisse végétale de coprah, graisse végétale de coco
 
-<en:copra oil
-fr:coprah
 
 # AUTRES MATIERES GRASSES VEGETALES
 
-en:vegetable oil, vegetal oil, vegetal oils
-fr:huile végétale, huiles végétales
+en:vegetable oil, vegetal oil, vegetal oils, vegetable oils
+fr:huiles végétales, huile végétale
 
+<en:vegetable oil
 en:vegetal fat, vegetable fat
-fr:matière grasse végétale, matières grasses végétales
-
-fr:matière graisse végétale
-
-fr:graisse végétale, graisses végétales
+fr:matière grasse végétale, matières grasses végétales, graisse végétale, graisses végétales
 
 fr:graisse végétale totalement hydrogénée
 
@@ -3496,6 +3492,7 @@ fr:vin blanc
 en:red wine
 fr:vin rouge
 
+<en:wine
 fr:pinot noir
 
 <en:alcohol
@@ -4032,6 +4029,12 @@ fr:sucre de canne blond
 en:unrefined cane sugar, raw cane sugar
 fr:sucre de canne non raffiné, sucre de canne brut
 
+<en:brown cane sugar
+fr:sucre de canne roux non raffiné
+
+<en:cane sugar
+fr:sucre de canne complet
+
 <en:sugar
 en:caramelised sugar
 es:azúcar caramelizado
@@ -4045,13 +4048,8 @@ en:brown sugar
 fr:sucre roux
 
 <en:sugar
-fr:sucre de canne roux non raffiné
-
-<en:sugar
-fr:sucre de canne complet
-
-<en:sugar
 en:beet sugar
+de:Rübenzucker
 fr:sucre de betterave
 
 <en:sugar
@@ -4328,6 +4326,8 @@ allergens:fr:protéines de _lait_
 allergens:fr:protéines _laitières_
 nova:en:4
 
+fr:protéines de petit-lait
+
 <en:milk protein
 fr:protéines de lait en poudre
 nl:melkeiwitpoeder
@@ -4450,6 +4450,75 @@ fr:poudre de chocolat
 
 fr:chocolat au lait du pays alpin
 allergens:fr:chocolat au _lait_ du pays alpin
+
+# CACAO
+
+fr:cacao en poudre
+
+fr:cacao maigre en poudre
+
+fr:cacao dégraissé
+
+fr:éclats de fèves de cacao torréfiés
+
+fr:cacao minimum
+
+fr:éclats de fèves de cacao caramélisés
+
+fr:cacao dégraissé en poudre
+
+fr:éclats de fèves de cacao
+
+fr:cacao en poudre dégraissé
+
+fr:extrait de cacao
+
+fr:poudre de cacao dégraissé
+
+fr:pâte et beurre de cacao
+
+fr:cacao fortement dégraissé en poudre
+
+fr:pur beurre de cacao
+
+fr:fèves de cacao
+
+fr:cacao en poudre fortement dégraissé
+
+fr:cacao en pâte
+
+fr:masse de cacao
+
+fr:poudre de cacao maigre
+
+fr:cacao maigre
+
+en:cocoa
+es:cacao
+fr:cacao
+nl:cacao
+de:Kakao
+
+<en:cocoa
+en:cocoa butter
+es:manteca de cacao 
+fr:beurre de cacao
+nl:cacaoboter
+de:Kakaobutter
+wikidata:en:Q251106
+
+<en:cocoa butter
+fr:beurre de cacao émulsifiant
+
+en:cocoa paste
+fr:pâte de cacao
+
+<en:cocoa
+en:cocoa powder
+es:cacao en polvo
+fr:poudre de cacao
+nl:cacaopoeder
+de:Kakaopulver
 
 
 # Water is a transparent, tasteless, odorless, and nearly colorless chemical substance that is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms. 
@@ -4859,20 +4928,6 @@ fr:dextrose de blé ou de maïs, dextrose de maïs ou de blé
 <en:dextrose
 fr:polydextrose
 
-<en:cocoa
-en:cocoa butter
-es:manteca de cacao 
-fr:beurre de cacao
-nl:cacaoboter
-de:Kakaobutter
-wikidata:en:Q251106
-
-<en:cocoa butter
-fr:beurre de cacao émulsifiant
-
-en:cocoa paste
-fr:pâte de cacao
-
 en:soy lecithin
 es:lecitina de soja
 fr:lécithine de soja, lécithines de soja
@@ -4920,7 +4975,10 @@ fr:gluten de blé
 allergens:fr:gluten de _blé_
 
 en:maltodextrin
-fr:maltodextrine, malto-dextrine
+el:μαλτοδεξτρίνη
+fr:maltodextrine, malto-dextrine, maltodextrines
+it:maltodestrina
+pt:maltodextrina
 
 <en:maltodextrin
 en:tapioca maltodextrin
@@ -4952,8 +5010,6 @@ fr:semoule de blé dur
 allergens:fr:semoule de _blé_ dur
 
 fr:sorbate de potassium
-
-fr:cacao maigre en poudre
 
 fr:gomme guar, gomme de guar
 
@@ -5021,9 +5077,6 @@ allergens:fr:_amandes_ blanchies
 fr:amandes entières
 allergens:fr:_amandes_ entières
 
-fr:pâte d'amande
-allergens:fr:pâte d'_amande_
-
 <en:almonds
 fr:amande en poudre
 allergens:fr:_amande_ en poudre
@@ -5040,6 +5093,7 @@ allergens:fr:_amandes_ décortiquées
 fr:éclats d'amandes
 allergens:fr:éclats d'_amandes_
 
+<en:almonds
 fr:amandes grillées
 allergens:fr:_amandes_ grillées
 treatment:en: en:gril
@@ -5056,9 +5110,6 @@ allergens:fr:_amandes_ en poudre
 fr:poudre d'amandes
 allergens:fr:poudre d'_amandes_
 
-fr:pâte d'amandes
-allergens:fr:pâte d'_amandes_
-
 <en:almonds
 en:flaked almonds
 es:almendras laminadas
@@ -5067,10 +5118,19 @@ nl:amandelschaafsel
 de:Mandelblättchen
 allergens:fr:_amandes_ effilées
 
+<en:almonds
 fr:amandes amères
 allergens:fr:_amandes_ amères
 
+<en:almonds
 fr:amandes moulues
+
+fr:pâte d'amande
+allergens:fr:pâte d'_amande_
+
+fr:pâte d'amandes
+allergens:fr:pâte d'_amandes_
+
 
 # Random
 
@@ -5083,7 +5143,8 @@ fr:carbonate acide de sodium
 en:pectin
 fr:pectine
 
-fr:mono et diglycérides d'acides gras
+en:mono- and diglycerides of fatty acids
+fr:mono- et diglycérides d'acides gras
 
 fr:extrait de malt d'orge
 allergens:fr:extrait de malt d'_orge_
@@ -5107,6 +5168,9 @@ fr:paprika
 
 fr:origan
 
+
+# Fruits
+
 en:apple
 es:manzana
 fr:pomme
@@ -5126,6 +5190,20 @@ es:hoja limón
 fr:feuille de citron
 nl:citroenblad
 de:Zitronenblatt
+
+en:pineapple
+es:piña
+fr:ananas
+nl:ananas
+de:Ananas
+
+en:strawberry
+es:fresa
+fr:fraise
+nl:aardbei
+de:Erdbeeren
+
+# RANDOM
 
 fr:caroténoïde
 
@@ -5157,24 +5235,9 @@ fr:sorbitol
 
 fr:gingembre
 
-en:fructose
-es:fructosa
-fr:fructose
-nl:fructose
-de:Fructose
-
-fr:glucide
-
-en:cocoa
-es:cacao
-fr:cacao
-nl:cacao
-de:Kakao
-
-fr:cacao en poudre
-
 fr:cannelle
 
+en:leek
 fr:poireau, poireaux
 
 fr:energie
@@ -5189,6 +5252,7 @@ fr:diphosphate disodique
 
 fr:b6
 
+en:niacin
 fr:niacine
 
 fr:emmental
@@ -5212,8 +5276,6 @@ allergens:fr:_crustacés_
 en:orange
 fr:orange
 
-fr:épices et plantes aromatique
-
 fr:semoule de blé dur de qualité supérieure
 allergens:fr:semoule de _blé_ dur de qualité supérieure
 
@@ -5232,14 +5294,20 @@ fr:saccharose
 
 fr:sucralose
 
-en:pineapple
-es:piña
-fr:ananas
-nl:ananas
-de:Ananas
+en:fructose
+es:fructosa
+fr:fructose
+nl:fructose
+de:Fructose
+
+fr:glucide
 
 en:vanilla extract
 fr:extrait de vanille
+
+fr:extrait de vanille bourbon, extrait de vanille de Bourbon
+de:Bourbon-Vanille-Extrakt
+it:estratto di vaniglia Bourbon
 
 fr:laurier
 
@@ -5272,8 +5340,6 @@ de:Schnittlauch
 
 fr:matière grasse, matières grasses
 
-fr:extrait d'épice, extraits d'épices
-
 fr:échalote
 
 fr:curcumine
@@ -5293,19 +5359,12 @@ fr:acide folique
 en:sodium bicarbonate
 fr:bicarbonate de sodium
 
-en:strawberry
-es:fresa
-fr:fraise
-nl:aardbei
-de:Erdbeeren
-
-fr:cacao maigre
-
 fr:céréale
 
 fr:graines de sésame
 allergens:fr:graines de _sésame_
 
+en:fruit
 fr:fruit
 
 fr:vanilline
@@ -5314,13 +5373,6 @@ fr:mollusque
 allergens:fr:_mollusques_
 
 fr:b12
-
-<en:cocoa
-en:cocoa powder
-es:cacao en polvo
-fr:poudre de cacao
-nl:cacaopoeder
-de:Kakaopulver
 
 fr:thiamine
 
@@ -5335,8 +5387,6 @@ fr:petits pois, petit pois
 fr:poivron
 
 fr:bêta-carotène
-
-fr:épice et aromate, épices et aromates
 
 fr:margarine
 
@@ -5410,8 +5460,6 @@ de:Himbeeren
 fr:avoine
 allergens:fr:_avoine_
 
-fr:jus concentré de citron
-
 fr:pectine de fruit, pectines de fruits
 
 en:paste
@@ -5437,6 +5485,9 @@ fr:vanille
 
 en:lemon juice
 fr:jus de citron, jus de citrons
+
+en:concentrated lemon juice
+fr:jus concentré de citron
 
 <en:lemon juice
 fr:jus de citron vert
@@ -5528,8 +5579,6 @@ fr:semoule de mais
 fr:noix
 allergens:fr:_noix_
 
-fr:poudre de cacao maigre
-
 fr:son de blé
 allergens:fr:son de _blé_
 
@@ -5596,6 +5645,7 @@ fr:saumon atlantique
 allergens:fr:_saumon_ atlantique
 
 <en:salmon
+en:salmo salar salmon
 fr:saumon salmo salar
 allergens:fr:_saumon_ salmo salar
 
@@ -5608,6 +5658,7 @@ fr:saumon rose du pacifique
 allergens:fr:_saumon_ rose du pacifique
 
 <en:salmon
+en:smoked salmon
 fr:saumon fumé
 allergens:fr:_saumon_ fumé
 
@@ -5712,14 +5763,17 @@ allergens:fr:filets de _maquereaux_
 
 fr:jus de fruits
 
+<fr:jus de fruits
 fr:jus de fruits à base de concentré
 
+<fr:jus de fruits
 en:kiwi juice
 es:zumo de kiwi
 fr:jus de kiwi
 nl:kiwisap
 de:Kiwisaft
 
+<en:kiwi juice
 en:pascalised kiwi juice
 es:zumo de kiwi pascalizado
 fr:jus de kiwi pascalisé
@@ -5731,22 +5785,22 @@ fr:jus de fruits concentrés
 
 fr:jus de cranberry à base de concentré
 
-fr:jus de fruits de la passion
-
 fr:jus de fruits à base de jus concentrés
 
 fr:jus de fruit de la passion
 
+fr:jus de fruits de la passion
+
+<fr:jus de fruit de la passion
 fr:jus de fruit de la passion à base de concentré
 
+<fr:jus de fruits
 en:apple juice
-fr:jus de pomme
+fr:jus de pomme, jus de pommes
 
 <en:apple juice
 en:pure apple juice
 fr:pur jus de pomme
-
-fr:jus de pomme, jus de pommes
 
 <en:apple juice
 en:concentrated apple juice
@@ -5829,8 +5883,6 @@ allergens:fr:_froment_
 en:hazelnut paste
 fr:pâte de noisette
 allergens:fr:pâte de _noisettes_
-
-fr:masse de cacao
 
 fr:inuline
 
@@ -5964,10 +6016,6 @@ fr:benzoate de sodium
 
 fr:sulfate de zinc
 
-
-fr:ricotta
-allergens:fr:_ricotta_
-
 fr:glycosides de stéviol
 
 fr:aneth
@@ -5981,6 +6029,36 @@ fr:gomme d'acacia
 
 en:spice, spices
 fr:épice, épices
+
+fr:épices et plantes aromatique, épice et plante aromatique, épice et plantes aromatiques, épices et plantes aromatiques, épices et plante aromatique
+
+fr:épice et aromate, épices et aromates, épices et aromate, épice et aromates
+
+fr:extraits d'épices et d'aromates
+
+fr:aromates et épices
+
+fr:plantes aromatiques et épices
+
+fr:extrait d'épice, extraits d'épices
+
+fr:herbe et épice, herbes et épices
+
+fr:épices et herbes
+
+fr:épices et herbes aromatiques
+
+fr:épices et extrait d'épices
+
+fr:extraits d'épices et d'herbes
+
+fr:mélange d'épices
+
+fr:épices moulues
+
+fr:épices et extraits d'épices
+
+fr:épices et arômes
 
 en:pepper
 fr:poivre
@@ -6191,8 +6269,6 @@ fr:hibiscus
 fr:bicarbonate d'ammonium
 
 fr:carbonate de magnésium
-
-fr:cacao en pâte
 
 fr:gomme guar et gomme xanthane
 
@@ -6853,8 +6929,6 @@ fr:palmitate d'ascorbyle
 fr:chapelure de blé
 allergens:fr:chapelure de _blé_
 
-fr:herbe et épice, herbes et épices
-
 fr:sulfite acide de sodium
 allergens:fr:_sulfite_ acide de sodium
 
@@ -7142,8 +7216,6 @@ allergens:fr:_babeurre_ déshydraté
 
 fr:éthanol
 
-fr:mélange d'épices
-
 fr:pain spécial
 
 fr:morue
@@ -7184,8 +7256,6 @@ fr:conservateur du fruit
 fr:paprika en poudre
 
 fr:salpêtre
-
-fr:extrait de vanille bourbon
 
 fr:sauce cuisinée
 
@@ -7274,8 +7344,6 @@ fr:herbes de provence
 
 fr:caroube
 
-fr:épices
-
 fr:gadus morhua
 
 fr:extrait de thé
@@ -7305,8 +7373,6 @@ fr:madère
 
 fr:poivrons rouges et verts
 
-fr:cacao en poudre fortement dégraissé
-
 fr:vanille bourbon
 
 fr:flocons de blé complet
@@ -7317,8 +7383,6 @@ es:levadura de cerveza
 fr:levure de bière
 nl:biergist
 de:Bierhefe
-
-fr:épices et extraits d'épices
 
 fr:passion, fruit de la passion, fruits de la passion
 
@@ -7371,8 +7435,6 @@ treatment:en: en:concentration
 
 fr:galanga
 
-fr:fèves de cacao
-
 fr:blé dur précuit
 allergens:fr:_blé_ dur précuit
 
@@ -7405,11 +7467,7 @@ fr:écorces d'oranges
 
 fr:ferments sélectionnés
 
-fr:plantes aromatiques et épices
-
 fr:oxyde de magnésium
-
-fr:épices et plante aromatique
 
 fr:champignon noir
 
@@ -7433,8 +7491,6 @@ fr:artichauts
 fr:hydroxyde de potassium
 
 fr:jus d'orange concentré
-
-fr:pur beurre de cacao
 
 fr:graines de lin brun
 
@@ -8287,9 +8343,13 @@ fr:olives vertes dénoyautées
 
 <en:Sunflower
 en:sunflower oil
+de:Sonnenblumenöl
+es:aceite de girasol
 fr:huile de tournesol
+it:olio di girasole
+nl:zonnebloemolie
 
-#<en:vegetable oils
+#<en:vegetable oil
 #<en:sunflower oils
 #en:sunflower oil
 #fr:huile de tournesol
@@ -8315,172 +8375,171 @@ de:ungehärtetes Sonnenblumenöl
 <en:oils
 fr:huile essentielle de menthe
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huile de pépins de raisin
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huile de riz
 
-<en:vegetable oils
+<en:vegetable oil
 fr:illipé, huile d'illipé, graisse d'illipé
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huile végétale de coco
 
-<en:vegetable oils
+<en:vegetable oil
 fr:graisse et huile végétales
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huile de carthame
 
-<en:vegetable oils
-fr:huile de colza
-
-<en:vegetable oils
+<en:vegetable oil
 fr:huile essentielle de poivre
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huile de coprah totalement hydrogénée
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huile de navette
 
 fr:huile végétales
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huiles de tournesol et de colza
 
 fr:huiles
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huile colza
 
-<en:vegetable oils
+<en:vegetable oil
 <en:olive oils
 fr:huile d'olive extra
 
-<en:vegetable oils
+<en:vegetable oil
 <en:sunflower oils
 fr:huile de tournesol raffinée
 
-<en:vegetable oils
+<en:vegetable oil
 <en:sunflower oils
-fr:huile de tournesol à haute teneur en acide oléique
+en:high oleic sunflower oil
+fr:huile de tournesol à haute teneur en acide oléique, huile de tournesol à teneur élevée en acide oléique
+nl:high oleic zonnebloemolie
 
-<en:vegetable oils
+<en:vegetable oil
 <en:sunflower oils
 fr:huile de tournesol pressée à froid
 
-<en:vegetable oils
+<en:vegetable oil
 <en:sunflower oils
 fr:huile de tournesol bio
 
-<en:vegetable oils
+<en:vegetable oil
 <en:sunflower oils
 fr:huile de toumesol
 
-<en:vegetable oils
+<en:vegetable oil
 <en:sunflower oils
 fr:huile de tournesol oléique
 
-<en:vegetable oils
+<en:vegetable oil
 <en:sunflower oils
 fr:huile de tournesol vierge
 
-<en:vegetable oils
+<en:vegetable oil
 <en:sunflower oils
 fr:huile de tournesol non hydrogénée
 
-<en:vegetable oils
+<en:vegetable oil
 <en:sunflower oils
 fr:huile de tournesol partiellement hydrogénée
 
-<en:vegetable oils
+<en:vegetable oil
 <en:sunflower oils
 fr:huile de tournesol entièrement hydrogénée
 
-<en:vegetable oils
+<en:vegetable oil
 <en:sunflower oils
 fr:huile de graines de tournesol
 
-<en:vegetable oils
+<en:vegetable oil
 <en:sunflower oils
 fr:huile végétale de tournesol non hydrogénée
 
-<en:vegetable oils
+<en:vegetable oil
 <en:sunflower oils
 fr:huile tournesol
 
-<en:vegetable oils
+<en:vegetable oil
 <en:sunflower oils
 fr:huile de tournesol oléique désodorisée
 
-<en:vegetable oils
+<en:vegetable oil
 <en:sunflower oils
 fr:huile de tournesol désodorisée
 
-<en:vegetable oils
+<en:vegetable oil
 <en:sunflower oils
 fr:huile végétale de tournesol
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huile d'olive vierge extra bio
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huile et graisses végétales
 
 fr:huiles végétale
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huile de noisette
 allergens:fr:huile de _noisette_
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huile essentielle de coriandre
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huiles et matières grasses végétales
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huile de lin
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huiles végétales hydrogénées et non hydrogénées
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huile de colza raffinée
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huile de colza vierge
 
-<en:vegetable oils
+<en:vegetable oil
 <en:olive oils
 fr:huile d'olive vierge extra
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huile et graisse végétale
 
-<en:vegetable oils
+<en:vegetable oil
 fr:graisse et huiles végétales
 
-<en:vegetable oils
+<en:vegetable oil
 fr:graisses et huile végétales
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huile de son de riz
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huiles végétales de tournesol et de colza
 
-<en:vegetable oils
+<en:vegetable oil
 <en:olive oils
 fr:huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques
 
-<en:vegetable oils
+<en:vegetable oil
 <en:olive oils
 fr:huile d'olive vierge extra extraite à froid
 
-<en:vegetable oils
+<en:vegetable oil
 fr:huile et graisse végétales
 
 en:lemon oil
@@ -8765,8 +8824,6 @@ fr:raisin blanc
 fr:caramel au beurre salé
 allergens:fr:caramel au _beurre_ salé
 
-fr:cacao fortement dégraissé en poudre
-
 # Garlic
 en:garlic
 es:ajo
@@ -8777,7 +8834,13 @@ de:Knoblauch
 en:garlic puree
 fr:purée d'ail
 
-fr:poudre d'ail
+fr:poudre d'ail, ail en poudre
+de:Knoblauchpulver
+el:σκόρδο σκόνη
+es:ajo en polvo
+it:aglio in polvere
+nl:knoflookpoeder
+pt:alho em pó
 
 fr:ail déshydraté
 
@@ -8860,7 +8923,13 @@ fr:oignons rissolés
 fr:oignons réhydratés
 
 <en:onions
-fr:poudre d'oignons
+fr:poudre d'oignons, poudre d'oignon
+de:Zwiebelpulver
+el:κρεμμύδι σκόνη
+es:cebolla en polvo
+it:cipolla in polvere
+nl:uipoeder
+pt:cebola em pó
 
 fr:oignon préfrit à l'huile de tournesol
 
@@ -9101,8 +9170,6 @@ fr:eau minérale naturelle volvic
 fr:graines de millet
 
 fr:glucono-delta-lactone
-
-fr:épices moulues
 
 fr:ail et fines herbes
 
@@ -9419,6 +9486,8 @@ fr:lait frais
 allergens:fr:_lait_ frais
 
 fr:lait de suite
+de:Folgemilch
+it:latte di proseguimento
 allergens:fr:_lait_ de suite
 
 en:calcium salts
@@ -9536,8 +9605,6 @@ fr:calcium carbonate
 
 fr:églantier
 
-fr:épice et aromates, épices et aromates
-
 fr:baies de sureau
 
 fr:bitartrate de potassium
@@ -9622,8 +9689,6 @@ fr:fibres d'agave
 fr:fèves de soja décortiquées
 allergens:fr:fèves de _soja_ décortiquées
 
-fr:épice et plantes aromatiques, épices et plantes aromatiques
-
 fr:graisses
 
 fr:copeaux de chocolat noir
@@ -9669,16 +9734,6 @@ fr:marc de bourgogne
 
 fr:cépages
 
-fr:éclats de fèves de cacao
-
-fr:cacao en poudre dégraissé
-
-fr:extrait de cacao
-
-fr:poudre de cacao dégraissé
-
-fr:pâte et beurre de cacao
-
 fr:peau de volaille
 
 fr:matière grasse de noix de coco
@@ -9722,35 +9777,7 @@ fr:b. lactis, Bifidobacterium lactis
 
 fr:concentré de fruits et de plantes
 
-fr:émulsiﬁants
-
-<fr:émulsiﬁants
-fr:émulsifiant lécithines de soja
-
-<fr:émulsiﬁants
-fr:émulsifiants lécithines
-
-<fr:émulsiﬁants
-fr:émulsifiant lécithines
-
-fr:émulsifiant, émulsiﬁant
-
-<fr:émulsiﬁants
-fr:émulsifiant e472e
-
-<fr:émulsiﬁants
-fr:émulsifiant e471
-
-fr:pectine amidée, e440ii
-
-fr:gélifiant e407
-
-fr:gomme adragante, e413
-
-fr:antioxydant e306
-
-en:stabilizer e445
-fr:stabilisant e445
+# RANDOM
 
 fr:extrait de baie de sureau
 
@@ -9782,6 +9809,9 @@ allergens:fr:_graine de sésame_, _graines de sésame_
 # Cheeses
 
 fr:fromage suisse
+
+fr:ricotta
+allergens:fr:_ricotta_
 
 fr:fromage de chèvre au lait pasteurisé
 allergens:fr:fromage de chèvre au _lait_ pasteurisé
@@ -10004,17 +10034,45 @@ fr:e951
 
 fr:e950
 
+# EMULSIFIERS and ADDITIVES
+
+fr:émulsiﬁants
+
+<fr:émulsiﬁants
+fr:émulsifiant lécithines de soja
+
+<fr:émulsiﬁants
+fr:émulsifiants lécithines
+
+<fr:émulsiﬁants
+fr:émulsifiant lécithines
+
+fr:émulsifiant, émulsiﬁant
+
+<fr:émulsiﬁants
+fr:émulsifiant e472e
+
+<fr:émulsiﬁants
+fr:émulsifiant e471
+
+fr:pectine amidée, e440ii
+
+fr:gélifiant e407
+
+fr:gomme adragante, e413
+
+fr:antioxydant e306
+
+en:stabilizer e445
+fr:stabilisant e445
+
 # Random
 
 fr:merguez
 
-fr:extraits d'épices et d'herbes
-
 fr:5'-ribonucléotide disodique
 
 fr:tartrate monopotassique
-
-fr:épices et extrait d'épices
 
 fr:bouillon de boeuf
 
@@ -10049,8 +10107,6 @@ de:Sardellenextrakt
 fr:blette
 
 fr:carbonates de magnésium
-
-fr:ail poudre, ail en poudre, poudre d'ail
 
 fr:câpre, câpres
 
@@ -10095,8 +10151,6 @@ fr:diphosphates de sodium
 
 fr:farine de pois chiche
 
-fr:épice et aromate
-
 fr:gousse de vanille
 
 fr:fondant
@@ -10124,8 +10178,13 @@ allergens:fr:_blé_ malté
 
 # Eggs
 
+en:egg protein
 fr:protéine d'oeuf
 allergens:fr:protéine d'_oeuf_
+
+en:egg yolk
+fr:jaune d'oeuf
+allergens:fr:jaune d'_oeuf_
 
 en:powdered egg yolk
 es:yema de huevo en polvo
@@ -10134,8 +10193,7 @@ nl:eigeelpoeder
 de:Eigelbpulver
 allergens:fr:poudre de jaune d'_oeuf_
 
-fr:jaune d'oeuf
-
+en:eggs yolk
 fr:jaune d'oeufs
 allergens:fr:jaune d'_oeufs_
 
@@ -10157,8 +10215,6 @@ fr:citrique
 fr:anis vert
 
 fr:gluconate de cuivre
-
-fr:épices et herbes aromatiques
 
 fr:nicotinamide
 
@@ -10187,8 +10243,6 @@ fr:wakamé
 
 fr:maïs moulu
 
-fr:épices et aromate, épice et aromates, épices et aromates
-
 fr:gomme cellulosique
 
 fr:iodure de sodium
@@ -10200,6 +10254,7 @@ es:wasabi
 fr:wasabi
 nl:wasabi
 de:Wasabi
+#Q12378304
 
 fr:vermicelle
 
@@ -10343,6 +10398,7 @@ fr:bha, e320
 
 fr:guanylate de sodium
 
+en:copper
 fr:cuivre
 
 fr:lait de noix de coco en poudre
@@ -10360,8 +10416,6 @@ fr:jus concentré de carottes
 
 fr:pain de mie au son de blé
 allergens:fr:pain de mie au son de _blé_
-
-fr:aromates et épices
 
 fr:salvia hispanica, chia
 
@@ -10625,8 +10679,6 @@ fr:culture bactérienne
 
 fr:affermissants
 
-fr:épices et herbes
-
 fr:nori
 
 fr:orangeat
@@ -10677,8 +10729,6 @@ fr:poudre de fleurage
 
 fr:farine de pois
 
-fr:lait maigre en poudre
-
 fr:coriandre moulue
 
 fr:180c
@@ -10703,6 +10753,7 @@ fr:mangues
 
 fr:airelles
 
+en:dried apples
 fr:pommes séchées
 
 en:dried apple
@@ -10726,6 +10777,7 @@ fr:purée de pommes françaises
 fr:flocons de pomme
 
 fr:fibres de pomme
+de:Apfelfaser
 
 fr:framboises lyophilisées
 
@@ -10845,11 +10897,13 @@ fr:ferment lactiques
 
 fr:quinoa
 
+en:red quinoa
 fr:quinoa rouge
 
 en:quinoa flour
 fr:farine de quinoa
 
+en:white quinoa
 fr:quinoa blanc
 
 fr:quinoa cuit
@@ -10887,8 +10941,6 @@ fr:sardines fraîches
 allergens:fr:_sardines_ fraîches
 
 fr:éclats de caramel au beurre salé
-
-fr:conservateur e 250
 
 fr:origan déshydraté
 
@@ -10975,8 +11027,6 @@ fr:coriandre en poudre
 fr:e-316
 
 fr:farine de graines de caroubes
-
-fr:protéines de petit-lait
 
 fr:fruits des bois
 
@@ -11388,8 +11438,6 @@ fr:antioxydant bha
 
 fr:maïs cireux
 
-fr:épices et arômes
-
 fr:reines-claudes
 
 fr:combava
@@ -11620,6 +11668,8 @@ fr:feuille de coriandre
 fr:pois chiches réhydratés
 
 fr:levure alimentaire
+de:Nährhefe
+it:lievito alimentare
 
 fr:farine d'orge malté torréfié
 allergens:fr:farine d'_orge_ malté torréfié
@@ -12056,14 +12106,6 @@ fr:tuber aestivum
 
 fr:sauce caramel
 
-fr:éclats de fèves de cacao torréfiés
-
-fr:cacao minimum
-
-fr:éclats de fèves de cacao caramélisés
-
-fr:cacao dégraissé en poudre
-
 fr:jus concentré de céleri et de carotte
 allergens:fr:jus concentré de _céleri_ et de carotte
 
@@ -12109,8 +12151,6 @@ fr:extrait de malt en poudre
 
 fr:algue lithothamnium calcareum
 
-fr:cacao dégraissé
-
 fr:farine de graine de guar
 
 fr:oléisol®
@@ -12121,8 +12161,6 @@ allergens:fr:farine d'_orge_ complète
 fr:mono et di glycérides d'acides gras
 
 fr:pois croquants
-
-fr:épice et plante aromatique
 
 fr:spirulina
 
@@ -12489,8 +12527,6 @@ allergens:fr:fèves de _soja_ sans ogm décortiquées
 
 fr:betterave rouge en poudre
 
-fr:petit-lait doux en poudre
-
 fr:fruits confits
 
 fr:fibres de betterave
@@ -12528,8 +12564,6 @@ fr:purée de fruit de la passion
 
 fr:légumes et jus de cuisson de légumes
 
-fr:extraits d'épices et d'aromates
-
 fr:blé soufflé
 allergens:fr:_blé_ soufflé
 
@@ -12552,8 +12586,6 @@ fr:absinthe
 nl:absinth
 de:Absinth
 
-
-
 # words that can be part of ingredients
 # in particular, words that would be auto-corrected to additives
 
@@ -12562,7 +12594,6 @@ fr:agent, agents
 
 # additives spell correction: olives (vertes) -> vert s
 fr:verte, vertes
-
 
 # nitrate -> citrate
 fr:nitrate, nitrates

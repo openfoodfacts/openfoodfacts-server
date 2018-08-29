@@ -1,4 +1,4 @@
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable
 stopwords:de:und, mit, von, aus
 stopwords:nl:bevat
 
@@ -301,6 +301,9 @@ fr:vin blanc
 fr:muscadet, vin blanc muscadet
 
 < en:Wine
+fr:pinot noir
+
+< en:Wine
 fr:vin aromatisé
 
 < en:Wine
@@ -374,8 +377,12 @@ nl:amandelschaafsel
 allergens:fr: _amandes_ effilées
 
 < en:Almonds
-fr:amande en poudre, amandes en poudre
+fr:amande en poudre
 allergens:fr: _amande_ en poudre
+
+< en:Almonds
+fr:amandes amères
+allergens:fr: _amandes_ amères
 
 < en:Almonds
 fr:amandes blanchies
@@ -386,12 +393,24 @@ fr:amandes décortiquées
 allergens:fr: _amandes_ décortiquées
 
 < en:Almonds
+fr:amandes en poudre
+allergens:fr: _amandes_ en poudre
+
+< en:Almonds
 fr:amandes entières
 allergens:fr: _amandes_ entières
 
 < en:Almonds
+fr:amandes grillées
+allergens:fr: _amandes_ grillées
+treatment:en: en:gril
+
+< en:Almonds
 fr:amandes hachées
 allergens:fr: _amandes_ hachées
+
+< en:Almonds
+fr:amandes moulues
 
 < en:Almonds
 fr:éclats d'amandes
@@ -567,20 +586,6 @@ nl:appelextract
 
 en:apple fiber
 fr:fibre de pomme
-
-en:apple juice
-fr:jus de pomme, jus de pommes
-
-< en:Apple juice
-en:concentrated apple juice
-de:Apfeldicksaft
-es:jarabe de manzana
-fr:concentré de jus de pomme, jus de pomme concentré
-nl:appeldiksap
-
-< en:Apple juice
-en:pure apple juice
-fr:pur jus de pomme
 
 en:apricot
 de:Aprikosen
@@ -933,9 +938,8 @@ allergens:fr: beurre _laitier_
 en:butterfat, milkfat, pastry butter
 bs:mliječna mast
 cy:braster menyn
-da:mjölkfett
-de:Butterreinfett, Milchfett
-dk:smørolie
+da:mjölkfett, smørolie
+de:Butterreinfett, Milchfett, wasserfreiesMilchfett
 es:grasa butírica
 fr:matière grasse lactique, matière grasse laitière anhydre, beurre laitier concentré
 id:lemak susu
@@ -1363,6 +1367,9 @@ wikidata:en:
 en:concentrated carrot juice
 fr:jus concentré de carottes
 
+en:concentrated lemon juice
+fr:jus concentré de citron
+
 en:concentrated raspberry juice
 de:Himbeerdicksaft
 es:jarabe de frambuesas
@@ -1399,6 +1406,9 @@ nl:gegaarde aardappel
 
 en:cooked white rice
 fr:riz blanc cuit
+
+en:copper
+fr:cuivre
 
 en:corkflakes
 fr:cornflakes
@@ -1538,6 +1548,9 @@ es:manzana deshidratada
 fr:pomme séchée
 nl:gedroogde appel
 
+en:dried apples
+fr:pommes séchées
+
 en:dried apricots
 de:getrocknete Aprikosen
 es:albaricoques deshidratados
@@ -1614,11 +1627,16 @@ nl:ei
 en:egg pastas
 fr:pâtes aux oeufs
 
-en:egg yolk
+en:egg protein
+fr:protéine d'oeuf
+allergens:fr: protéine d'_oeuf_
+
+en:egg yolk, eggs yolk
 de:Eigelb
 es:yema de huevo
 fr:jaune d'oeuf, jaune d'oeufs, jaunes d'oeuf
 nl:eigeel
+allergens:fr: jaune d'_oeuf_
 
 en:Emulsifier
 bg:Емулгатор
@@ -1892,6 +1910,16 @@ fr:saumon
 allergens:fr: _saumon_
 
 < en:Salmon
+en:salmo salar salmon
+fr:saumon salmo salar
+allergens:fr: _saumon_ salmo salar
+
+< en:Salmon
+en:smoked salmon
+fr:saumon fumé
+allergens:fr: _saumon_ fumé
+
+< en:Salmon
 fr:salmo salar
 
 < en:Salmon
@@ -1903,16 +1931,8 @@ fr:saumon cuit
 allergens:fr: _saumon_ cuit
 
 < en:Salmon
-fr:saumon fumé
-allergens:fr: _saumon_ fumé
-
-< en:Salmon
 fr:saumon rose du pacifique
 allergens:fr: _saumon_ rose du pacifique
-
-< en:Salmon
-fr:saumon salmo salar
-allergens:fr: _saumon_ salmo salar
 
 < en:Fish
 en:Swordfish
@@ -2321,6 +2341,9 @@ es:fructosa
 fr:fructose
 nl:fructose
 
+en:fruit
+fr:fruit
+
 en:galia melon
 de:Galiamelone
 es:melón galia
@@ -2697,17 +2720,14 @@ es:hoja limón
 fr:feuille de citron
 nl:citroenblad
 
-en:kiwi juice
-de:Kiwisaft
-es:zumo de kiwi
-fr:jus de kiwi
-nl:kiwisap
-
 en:lactic acid
 fr:acide lactique
 
 en:lavender
 fr:lavande
+
+en:leek
+fr:poireau, poireaux
 
 en:lemon
 de:Zitrone
@@ -2814,7 +2834,10 @@ en:maltitol syrup
 fr:sirop de maltitol
 
 en:maltodextrin
-fr:maltodextrine, malto-dextrine
+el:μαλτοδεξτρίνη
+fr:maltodextrine, malto-dextrine, maltodextrines
+it:maltodestrina
+pt:maltodextrina
 
 < en:Maltodextrin
 en:corn maltodextrin
@@ -3412,6 +3435,14 @@ allergens:fr: _lait_ de brebis
 wikidata:en: Q2736146
 
 < en:Milk
+en:reconstituted skimmed milk
+fr:lait écrémé réhydraté
+hu:visszaállított sovány tej
+it:latte scremato reidratato
+nl:gerehydrateerde magere melk
+allergens:fr: _lait_ écrémé réhydraté
+
+< en:Milk
 en:reduced-fat milk
 
 < en:Milk
@@ -3504,10 +3535,6 @@ nl:gereconstitueerde melk
 allergens:fr: _lait_ écrémé reconstitué
 
 < en:Milk
-fr:lait écrémé réhydraté
-allergens:fr: _lait_ écrémé réhydraté
-
-< en:Milk
 fr:lait en poudre enrichi en matière grasse
 allergens:fr: _lait_ en poudre enrichi en matière grasse
 
@@ -3532,6 +3559,9 @@ allergens:fr: _lait_ fermenté
 < en:Milk
 fr:lait frais entier
 allergens:fr: _lait_ frais entier
+
+< en:Milk
+fr:lait maigre en poudre
 
 < en:Milk
 fr:lait pasteurisé
@@ -3565,9 +3595,9 @@ nova:en: 4
 
 < en:Milk powder
 en:pasteurized skim milk, pasteurised skim milk, skimmed milk powder
-de:magermilchpulver
+de:Magermilchpulver
 es:leche desnatada en polvo
-fr:lait en poudre écrémé
+fr:lait en poudre écrémé, lait écrémé en poudre
 it:latte scremato in polvere
 nl:magere melkpoeder
 allergens:fr: _lait_ en poudre écrémé
@@ -3575,20 +3605,19 @@ allergens:fr: _lait_ en poudre écrémé
 < en:Milk powder
 en:whole milk powder, dried whole milk, powdered whole milk, whole powdered milk
 cs:sušené plnotučné mléko
+da:sødmælkspulver
 de:vollmilchpulver
 el:γάλα σε σκόνη
 es:leche entera en polvo
-fr:lait entier en poudre, poudre de lait entier
+fr:lait entier en poudre, poudre de lait entier, lait en poudre entier
+hu:zsiros tejpor
 it:latte intero in polvere
 nl:volle melkpoeder
 pl:pelne mleko w proszku
 pt:leite entero em pó, leite em pó gordo
 sk:sušené plnotučné mlieko
+sv:helmjölkspulver
 allergens:fr: poudre de _lait_ entier
-
-< en:Milk powder
-fr:lait écrémé en poudre
-allergens:fr: _lait_ écrémé en poudre
 
 en:Mineral, Minerals
 af:Mineraal
@@ -3714,6 +3743,9 @@ es:melaza
 fr:mélasse, mélasses
 nl:melasse
 
+en:mono- and diglycerides of fatty acids
+fr:mono- et diglycérides d'acides gras
+
 en:mozzarella cheese
 fr:fromage mozzarella
 allergens:fr: _fromage mozzarella_
@@ -3741,6 +3773,9 @@ es:grano de mostaza
 fr:graine de moutarde
 nl:mosterdzaad
 allergens:fr: graine de _moutarde_
+
+en:niacin
+fr:niacine
 
 en:niacinamide
 fr:niacinamide
@@ -3849,7 +3884,13 @@ fr:petits oignons
 fr:petits oignons blancs
 
 < en:Onions
-fr:poudre d'oignons
+fr:poudre d'oignons, poudre d'oignon
+de:Zwiebelpulver
+el:κρεμμύδι σκόνη
+es:cebolla en polvo
+it:cipolla in polvere
+nl:uipoeder
+pt:cebola em pó
 
 < en:Onions
 fr:red onions, oignons rouges
@@ -3900,6 +3941,63 @@ fr:Autres substances nutritives
 hu:Egyéb táplálkozási anyagok
 nl:Andere voedingsmiddelen
 
+en:palm or palm kernel oil, palm oil or palm kernel oil
+fr:huile de palme ou de palmiste, huile de palme ou huile de palmiste
+
+< en:Palm or palm kernel oil
+en:palm kernel oil, palm kernel
+fr:huile de palmiste, huile végétale de palmiste, palmiste
+
+< en:Palm kernel oil
+en:palm kernel fat
+fr:graisse de palmiste, matière grasse de palmiste
+
+< en:Palm kernel oil
+< en:Palm oil
+en:palm and palm kernel oil
+fr:huile de palme et de palmiste
+
+< en:Palm or palm kernel oil
+< en:Vegetable oil
+en:palm oil
+es:aceite de palma
+fr:huile de palme, huile végétale de palme
+wikidata:en: Q231458
+
+< en:Palm oil
+en:hydrogenated palm oil
+fr:huile de palme hydrogénée
+
+< en:Palm oil
+en:non-hydrogenated palm oil
+de:ungehärtetes Palmöl
+es:aceite de palma no hidrogenado
+fr:huile de palme non hydrogénée
+nl:niet gehydrogeneerde palmolie, niet-gehydrogeneerde palm
+
+< en:Palm oil
+en:palm
+fr:palme
+
+< en:Palm oil
+en:palm fat
+fr:graisse végétale de palme, graisse de palme, matière grasse de palme, matière grasse végétale de palme
+
+< en:Palm oil
+en:palmoleil, palm olein
+fr:Oléïne de palme
+
+< en:Palm oil
+fr:Acides gras de palme
+
+< en:Palm oil
+fr:huile de palme partiellement hydrogénée
+
+< en:Palm oil
+fr:Stéarine de palme
+de:Palmstearin
+it:Stearina di palma
+
 en:Pantothenic acid
 de:Pantothensäure
 es:ácido pantoténico
@@ -3914,13 +4012,6 @@ de:parmigiano reggiano
 fr:parmigiano reggiano
 it:parmigiano reggiano
 allergens:fr: _parmigiano reggiano_
-
-en:pascalised kiwi juice
-de:pascalisierter Kiwisaft
-es:zumo de kiwi pascalizado
-fr:jus de kiwi pascalisé
-nl:gepascaliseerd kiwisap
-treatment:en: en:pascalization
 
 en:paste
 fr:pâte
@@ -4506,6 +4597,9 @@ fr:groseille, groseilles
 nl:aalbes
 wikidata:en: Q18078629
 
+en:red quinoa
+fr:quinoa rouge
+
 en:rehydrated egg white
 fr:blanc d'œuf réhydraté
 allergens:fr: blanc d'_œuf_ réhydraté
@@ -4938,10 +5032,6 @@ fr:amidon de mais
 
 < en:Corn starch
 < en:Modified starch
-fr:amidon modifié de mais
-
-< en:Corn starch
-< en:Modified starch
 fr:amidon modifié de maïs cireux
 
 < en:Corn starch
@@ -4949,16 +5039,6 @@ fr:amidon de maïs cireux
 
 < en:Corn starch
 fr:amidon de maïs cireux modifié
-
-< en:Corn starch
-fr:amidon de maïs modifié
-
-< en:Corn starch
-fr:amidon transformé de mais, amidon de maïs transformé, amidons modifié de maïs
-
-< en:Starch
-en:modified corn starch, modified corn starches
-fr:amidon transformé de mais, amidon de maïs transformé, amidons modifié de maïs
 
 < en:Starch
 en:modified rice starch
@@ -4988,6 +5068,11 @@ ro:Amidon modificat
 sk:Modifikovaný škrob
 sv:Fuktighetsbevarande medel
 wikidata:en: Q415766
+
+< en:Corn starch
+< en:Modified starch
+en:modified corn starch, modified corn starches
+fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de maïs, amidon de maïs modifié, amidons modifié de maïs, amidons modifiés de maïs
 
 < en:Modified starch
 < en:Potato starch
@@ -5074,9 +5159,6 @@ fr:amidons de blé et de pomme de terre
 allergens:fr: amidons de _blé_ et de pomme de terre
 
 < en:Starch
-fr:amidons modifiés de maïs
-
-< en:Starch
 fr:amidons modifiés de maïs et de pomme de terre
 
 < en:Starch
@@ -5103,6 +5185,7 @@ wikidata:en: Q11002
 
 < en:Sugar
 en:beet sugar
+de:Rübenzucker
 fr:sucre de betterave
 
 < en:Sugar
@@ -5121,9 +5204,15 @@ fr:sucre de canne blond
 en:brown cane sugar
 fr:sucre de canne roux, sucre roux de canne
 
+< en:Brown cane sugar
+fr:sucre de canne roux non raffiné
+
 < en:Cane sugar
 en:unrefined cane sugar, raw cane sugar
 fr:sucre de canne non raffiné, sucre de canne brut
+
+< en:Cane sugar
+fr:sucre de canne complet
 
 < en:Sugar
 en:caramelised sugar
@@ -5203,12 +5292,6 @@ fr:sucre de canne blanc
 fr:sucre de canne brun
 
 < en:Sugar
-fr:sucre de canne complet
-
-< en:Sugar
-fr:sucre de canne roux non raffiné
-
-< en:Sugar
 fr:sucre du lait
 allergens:fr: sucre du _lait_
 
@@ -5262,7 +5345,11 @@ nl:zonnebloemlecithine
 
 < en:Sunflower
 en:sunflower oil
+de:Sonnenblumenöl
+es:aceite de girasol
 fr:huile de tournesol
+it:olio di girasole
+nl:zonnebloemolie
 
 < en:Sunflower oil
 en:fully hydrogenated sunflower oil
@@ -5284,15 +5371,17 @@ nl:zonnebloemolie gedeeltelijk gehard
 
 < en:Sunflower oil
 < en:Vegetable oil
+en:high oleic sunflower oil
+fr:huile de tournesol à haute teneur en acide oléique, huile de tournesol à teneur élevée en acide oléique
+nl:high oleic zonnebloemolie
+
+< en:Sunflower oil
+< en:Vegetable oil
 fr:huile de graines de tournesol
 
 < en:Sunflower oil
 < en:Vegetable oil
 fr:huile de toumesol
-
-< en:Sunflower oil
-< en:Vegetable oil
-fr:huile de tournesol à haute teneur en acide oléique
 
 < en:Sunflower oil
 < en:Vegetable oil
@@ -5531,8 +5620,8 @@ fr:vanille
 en:vanilla extract
 fr:extrait de vanille
 
-en:vegetable oil, vegetal oil, vegetal oils
-fr:huile végétale, huiles végétales, huile végétales
+en:vegetable oil, vegetal oil, vegetal oils, vegetable oils
+fr:huiles végétales, huile végétale, huile végétales
 
 < en:Vegetable oil
 en:canola oil, rapeseed oil
@@ -5544,6 +5633,17 @@ de:Chiaöl
 es:aceite de chía
 fr:huile de chia
 nl:chia-olie
+
+< en:Vegetable oil
+en:coconut oil, copra oil, copra
+fr:huile de coco, huile de noix de coco, huile de coprah, coprah
+
+< en:Coconut oil
+en:coconut fat
+fr:graisse de coprah, matière grasse de coco, graisse végétale de coprah, graisse végétale de coco
+
+< en:Coconut oil
+fr:huile de coco non hydrogénée
 
 < en:Vegetable oil
 en:hydrogenated vegetable fat
@@ -5584,66 +5684,6 @@ fr:huile d'olive vierge
 fr:huile d'olive vierge extra extraite à froid
 
 < en:Vegetable oil
-en:palm oil
-es:aceite de palma
-fr:huile de palme, huile végétale de palme
-wikidata:en: Q231458
-
-< en:Palm oil
-en:coconut fat
-fr:graisse de coprah, matière grasse de coco, graisse végétale de coprah, graisse végétale de coco
-
-< en:Palm oil
-en:coconut oil, copra oil
-fr:huile de coco, huile de noix de coco, huile de coprah
-
-< en:Coconut oil
-fr:coprah
-
-< en:Coconut oil
-fr:huile de coco non hydrogénée
-
-< en:Palm oil
-en:hydrogenated palm oil
-fr:huile de palme hydrogénée
-
-< en:Palm oil
-en:non-hydrogenated palm oil
-de:ungehärtetes Palmöl
-es:aceite de palma no hidrogenado
-fr:huile de palme non hydrogénée
-nl:niet gehydrogeneerde palmolie, niet-gehydrogeneerde palm
-
-< en:Palm oil
-en:palm
-fr:palme
-
-< en:Palm oil
-en:palm kernel oil
-fr:huile de palmiste
-
-< en:Palm oil
-en:palmoleil, palm olein
-fr:Oléïne de palme
-
-< en:Palm oil
-fr:Acides gras de palme
-
-< en:Palm oil
-fr:graisse végétale de palme, graisse de palme, matière grasse de palme, matière grasse végétale de palme
-
-< en:Palm oil
-fr:huile de palme et de palmiste
-
-< en:Palm oil
-fr:huile de palme partiellement hydrogénée
-
-< en:Palm oil
-fr:Stéarine de palme
-de:Palmstearin
-it:Stearina di palma
-
-< en:Vegetable oil
 en:sesame oil
 fr:huile de sésame
 allergens:fr: huile de _sésame_
@@ -5652,6 +5692,10 @@ allergens:fr: huile de _sésame_
 en:soy oil
 fr:huile de soja
 allergens:fr: huile de _soja_
+
+< en:Vegetable oil
+en:vegetal fat, vegetable fat
+fr:matière grasse végétale, matières grasses végétales, graisse végétale, graisses végétales, matières grasses végétale
 
 < en:Vegetable oil
 fr:graisse et huile végétales
@@ -5677,9 +5721,6 @@ fr:huile d'olive vierge extra bio
 
 < en:Vegetable oil
 fr:huile de carthame
-
-< en:Vegetable oil
-fr:huile de colza, huile de canola, huile végétale de colza
 
 < en:Vegetable oil
 fr:huile de colza non hydrogénée
@@ -5763,9 +5804,6 @@ fr:huiles végétales hydrogénées et non hydrogénées
 
 < en:Vegetable oil
 fr:illipé, huile d'illipé, graisse d'illipé
-
-en:vegetal fat, vegetable fat
-fr:matière grasse végétale, matières grasses végétales, matières grasses végétale
 
 en:vinegar
 fr:vinaigre
@@ -6275,6 +6313,9 @@ en:white chocolate
 fr:chocolat blanc
 nl:witte chocolade
 
+en:white quinoa
+fr:quinoa blanc
+
 en:whole milk yogurt
 fr:yogourt au lait entier
 
@@ -6396,8 +6437,6 @@ fr:ail des ours
 
 fr:ail déshydraté
 
-fr:ail en poudre, ail poudre
-
 fr:ail et fines herbes
 
 fr:ail frais
@@ -6424,15 +6463,6 @@ fr:algues euchema transformées
 fr:aliments colorants
 
 fr:alpha-tocophérol, e307
-
-fr:amandes amères
-allergens:fr: _amandes_ amères
-
-fr:amandes grillées
-allergens:fr: _amandes_ grillées
-treatment:en: en:gril
-
-fr:amandes moulues
 
 fr:améliorant
 
@@ -7196,7 +7226,9 @@ fr:condiment, condiments
 
 fr:condiment balsamique blanc
 
-fr:condiment en poudre, condiments en poudre
+fr:condiment en poudre
+
+fr:condiments en poudre
 
 fr:conservateur de fruit
 
@@ -7328,8 +7360,6 @@ fr:crustacé
 allergens:fr: _crustacés_
 
 fr:cuisse de porc
-
-fr:cuivre
 
 fr:culture bactérienne
 
@@ -7939,12 +7969,7 @@ fr:épaississant gomme arabique
 fr:épeautre
 allergens:fr: _épeautre_
 
-
-fr:épice et aromate, épices et aromates, épice et aromates, épices et aromate
-
-fr:épice et plante aromatique
-
-fr:épice et plantes aromatiques, épices et plantes aromatiques
+fr:épice et aromate, épices et aromates, épices et aromate, épice et aromates
 
 fr:épices et arômes
 
@@ -7956,17 +7981,17 @@ fr:épices et herbes
 
 fr:épices et herbes aromatiques
 
-fr:épices et plante aromatique
-
-fr:épices et plantes aromatique
+fr:épices et plantes aromatique, épice et plante aromatique, épice et plantes aromatiques, épices et plantes aromatiques, épices et plante aromatique
 
 fr:épices moulues
 
 fr:épinard
 
-fr:épinard en poudre, épinards en poudre
+fr:épinard en poudre
 
 fr:épinards en branches
+
+fr:épinards en poudre
 
 fr:épis de maïs
 
@@ -8083,7 +8108,9 @@ fr:extrait de thé
 
 fr:extrait de thé vert
 
-fr:extrait de vanille bourbon
+fr:extrait de vanille bourbon, extrait de vanille de Bourbon
+de:Bourbon-Vanille-Extrakt
+it:estratto di vaniglia Bourbon
 
 fr:extrait de viande de bœuf
 
@@ -8107,7 +8134,7 @@ fr:extrait naturel de vanille
 
 fr:extrait pur de vanille
 
-fr:extrait riche en tocophérol, extraits riches en tocophérol, extraits riches en tocophérols
+fr:extrait riche en tocophérol, extraits riches en tocophérol
 
 fr:extraits d'épices et d'aromates
 
@@ -8136,6 +8163,8 @@ fr:extraits naturels d'orange
 fr:extraits naturels de citron
 
 fr:extraits naturels et aromates
+
+fr:extraits riches en tocophérols
 
 fr:extraits végétaux
 
@@ -8387,6 +8416,7 @@ fr:fibres de légume
 fr:fibres de pois
 
 fr:fibres de pomme
+de:Apfelfaser
 
 fr:fibres de pomme de terre, fibre de pomme de terre
 
@@ -8424,8 +8454,6 @@ allergens:fr: filets de _maquereaux_
 
 fr:filets de maquereaux cuits au court-bouillon
 allergens:fr: filets de _maquereaux_ cuits au court-bouillon
-
-fr:filets de poulet
 
 fr:filets de sardines
 allergens:fr: filets de _sardines_
@@ -8641,8 +8669,6 @@ fr:fructooligosaccharides
 
 fr:fructose de blé
 allergens:fr: fructose de _blé_
-
-fr:fruit
 
 fr:fruit à coque
 allergens:fr: _fruit à coque_
@@ -8917,15 +8943,11 @@ fr:graisse de coco
 
 fr:graisse de noix de coco
 
-fr:graisse de palmiste
-
 fr:graisse de poule
 
 fr:graisse de poulet
 
 fr:graisse de volaille
-
-fr:graisse végétale, graisses végétales
 
 
 fr:graisse végétale totalement hydrogénée
@@ -9029,9 +9051,9 @@ fr:huile essentielle d'orange
 
 fr:huile essentielle de citron
 
-fr:huiles végétale
-
 fr:huiles
+
+fr:huiles végétale
 
 fr:humectant
 
@@ -9090,7 +9112,7 @@ fr:jambon frais de porc
 
 fr:jarret de porc
 
-fr:jaune d'oeuf, jaune d'oeufs, jaunes d'oeuf
+fr:
 allergens:fr: jaune d'_œuf_
 
 fr:jaune d'oeuf de poules élevées en plein air
@@ -9114,7 +9136,7 @@ allergens:fr: jaune d'_oeuf_ salé
 fr:jaune d'œufs de poules élevées en plein air pasteurisés
 allergens:fr: jaune d'_œufs_ de poules élevées en plein air pasteurisés
 
-fr:jaune d'oeufs en poudre, jaune d'oeuf en poudre, jaunes d'oeufs en poudre
+fr:jaune d'oeufs en poudre, jaune d'oeuf en poudre
 allergens:fr: jaune d'_oeufs_ en poudre, jaune d'_oeuf_ en poudre
 
 fr:jaune d'oeufs frais
@@ -9122,6 +9144,9 @@ allergens:fr: jaune d'_œufs_ frais
 
 fr:jaunes d'oeufs de poules élevées en plein air
 allergens:fr: jaunes d'_oeufs_ de poules élevées en plein air
+
+fr:jaunes d'oeufs en poudre
+allergens:fr: jaunes d'_œufs_ en poudre
 
 fr:jaunes d'oeufs frais
 allergens:fr: jaunes d'_oeufs_ frais
@@ -9153,8 +9178,6 @@ allergens:fr: jus concentré de _céleri_
 
 fr:jus concentré de céleri et de carotte
 allergens:fr: jus concentré de _céleri_ et de carotte
-
-fr:jus concentré de citron
 
 fr:jus concentré de fruits
 
@@ -9220,10 +9243,42 @@ fr:jus de framboise à base de concentré
 
 fr:jus de fruit de la passion
 
+< fr:Jus de fruit de la passion
 fr:jus de fruit de la passion à base de concentré
 
 fr:jus de fruits
 
+< fr:Jus de fruits
+en:apple juice
+fr:jus de pomme, jus de pommes
+
+< en:Apple juice
+en:concentrated apple juice
+de:Apfeldicksaft
+es:jarabe de manzana
+fr:concentré de jus de pomme, jus de pomme concentré
+nl:appeldiksap
+
+< en:Apple juice
+en:pure apple juice
+fr:pur jus de pomme
+
+< fr:Jus de fruits
+en:kiwi juice
+de:Kiwisaft
+es:zumo de kiwi
+fr:jus de kiwi
+nl:kiwisap
+
+< en:Kiwi juice
+en:pascalised kiwi juice
+de:pascalisierter Kiwisaft
+es:zumo de kiwi pascalizado
+fr:jus de kiwi pascalisé
+nl:gepascaliseerd kiwisap
+treatment:en: en:pascalization
+
+< fr:Jus de fruits
 fr:jus de fruits à base de concentré
 
 fr:jus de fruits à base de jus concentrés
@@ -9245,8 +9300,6 @@ fr:jus de pamplemousse à base de concentré
 fr:jus de pamplemousse rose
 
 fr:jus de pamplemousse rose à base de concentré
-
-fr:jus de pomme, jus de pommes
 
 fr:jus de pomme à base de concentré, jus de pomme à base de jus concentré
 
@@ -9343,6 +9396,8 @@ fr:lait de noix de coco
 fr:lait de noix de coco en poudre
 
 fr:lait de suite
+de:Folgemilch
+it:latte di proseguimento
 allergens:fr: _lait_ de suite
 
 fr:lait de vache cru
@@ -9369,8 +9424,6 @@ allergens:fr: _lait_ écrémé en poudre réhydraté
 fr:lait écrémé et crème pasteurisés
 allergens:fr: _lait_ écrémé et crème pasteurisés
 
-nl:melkpoeder
-
 fr:lait entier concentré
 allergens:fr: _lait_ entier concentré
 
@@ -9390,8 +9443,6 @@ fr:lait frais pasteurisé
 allergens:fr: _lait_ frais pasteurisé
 
 fr:lait maigre
-
-fr:lait maigre en poudre
 
 fr:lait partiellement écrémé pasteurisé
 allergens:fr: _lait_ partiellement écrémé pasteurisé
@@ -9434,13 +9485,11 @@ allergens:fr: lécithine de _soja_ et de tournesol
 
 fr:lécithines de colza
 
-fr:légume
+fr:légume, légumes en proportion variable
 
 fr:légume déshydraté, légumes déshydratés
 
 fr:légumes en poudre
-
-fr:légumes en proportion variable
 
 fr:légumes en proportions variables
 
@@ -9499,6 +9548,8 @@ fr:levain sec, katsuwonus
 fr:levure
 
 fr:levure alimentaire
+de:Nährhefe
+it:lievito alimentare
 
 fr:levure boulangère
 
@@ -9635,8 +9686,6 @@ fr:masse de cacao
 
 fr:massepain
 
-fr:matière graisse végétale
-
 fr:matière grasse, matières grasses
 
 fr:matière grasse butyrique
@@ -9727,8 +9776,6 @@ fr:mono et di glycérides d'acides gras
 
 fr:mono et diglycérides d'acide gras
 
-fr:mono et diglycérides d'acides gras
-
 fr:mono- et diglycérides d'acides gras d'origine végétale
 
 fr:monodiglycérides de colza
@@ -9805,8 +9852,6 @@ fr:nappage à la fraise
 fr:natamycine, e235
 
 fr:néohespéridine dc, e959
-
-fr:niacine
 
 fr:nicotinamide
 
@@ -10039,8 +10084,6 @@ fr:pain spécial
 
 fr:palme et colza
 
-fr:palmiste
-
 fr:palmitate d'ascorbyle
 
 fr:pamplemousse
@@ -10224,8 +10267,6 @@ fr:poudre de piment, piment en poudre
 < fr:Piment
 fr:purée de piments
 
-fr:pinot noir
-
 fr:pistache
 allergens:fr: _pistaches_
 
@@ -10244,8 +10285,6 @@ fr:plasma déshydraté
 fr:pleurotes
 
 fr:pleurotus ostreatus
-
-fr:poireau, poireaux
 
 fr:pois
 
@@ -10335,8 +10374,6 @@ fr:pommes de terre préfrites
 
 fr:pommes déshydratées
 
-fr:pommes séchées
-
 fr:potassium
 
 fr:potassium sorbate
@@ -10354,15 +10391,19 @@ fr:poudre d'acérola
 
 fr:poudre d'acérola avec fécule de manioc
 
-fr:poudre d'ail
+fr:poudre d'ail, ail en poudre
+de:Knoblauchpulver
+el:σκόρδο σκόνη
+es:ajo en polvo
+it:aglio in polvere
+nl:knoflookpoeder
+pt:alho em pó
 
 fr:poudre d'épinard
 
 
 fr:poudre d'oeuf entier, poudre d'oeufs entiers
 allergens:fr: poudre d'_oeuf_ entier
-
-fr:poudre d'oignon
 
 fr:poudre de babeurre
 allergens:fr: poudre de _babeurre_
@@ -10423,8 +10464,6 @@ fr:poudre parfois un ingrédient
 fr:poule
 
 fr:poulet
-
-fr:poulet traité en salaison
 
 fr:poulpes
 allergens:fr: _poulpes_
@@ -10488,9 +10527,6 @@ allergens:fr: produit de _lactosérum_
 fr:propionate de calcium
 
 fr:protéase
-
-fr:protéine d'oeuf
-allergens:fr: protéine d'_oeuf_
 
 fr:protéines de froment
 allergens:fr: protéines de _froment_
@@ -10648,11 +10684,7 @@ fr:quinine
 
 fr:quinoa
 
-fr:quinoa blanc
-
 fr:quinoa cuit
-
-fr:quinoa rouge
 
 fr:racine de réglisse
 
@@ -11137,6 +11169,9 @@ fr:cuisse de poulet
 fr:filet de poulet halal
 
 < fr:Viande de poulet
+fr:filets de poulet
+
+< fr:Viande de poulet
 fr:haut de cuisse de poulet
 
 < fr:Viande de poulet
@@ -11152,6 +11187,9 @@ fr:poitrine de poulet
 fr:poulet rôti
 
 < fr:Viande de poulet
+fr:poulet traité en salaison
+
+< fr:Poulet traité en salaison
 fr:poulet rôti traité en salaison
 
 < fr:Viande de poulet
