@@ -126,6 +126,9 @@ use MongoDB;
 use Tie::IxHash;
 use JSON::PP;
 use XML::Simple;
+use CLDR::Number;
+use CLDR::Number::Format::Decimal;
+use CLDR::Number::Format::Percent;
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
@@ -7707,7 +7710,9 @@ HTML
 		
 		my $values2 = '';
 		
-		
+		my $cldr = CLDR::Number->new(locale => $lc);
+		my $decf = $cldr->decimal_formatter;
+		my $perf = $cldr->percent_formatter( maximum_fraction_digits => 0 );
 		foreach my $col (@cols) {
 		
 			my $col_class = '';
@@ -7721,7 +7726,7 @@ HTML
 
 				my $value = "";
 				if (defined $comparison_ref->{nutriments}{$nid . "_100g"}) {
-					$value = sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit)) + 0.0;
+					$value = $decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit));
 				}
 				# too small values are converted to e notation: 7.18e-05
 				if (($value . ' ') =~ /e/) {
@@ -7741,11 +7746,11 @@ HTML
 				
 				my $percent = $comparison_ref->{nutriments}{"${nid}_100g_%"};
 				if ((defined $percent) and ($percent ne '')) {
-					$percent = sprintf("%.0f", $percent);
+					$percent = $perf->format($percent);
 					if ($percent > 0) {
 						$percent = "+" . $percent;
 					}
-					$value_unit = '<span class="compare_percent">' . $percent . '%</span><span class="compare_value" style="display:none">' . $value_unit . '</span>';
+					$value_unit = '<span class="compare_percent">' . $percent . '</span><span class="compare_value" style="display:none">' . $value_unit . '</span>';
 				}
 				
 				$values .= "<td class=\"nutriment_value${col_class}\">$value_unit</td>";
