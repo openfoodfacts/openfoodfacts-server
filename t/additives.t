@@ -9,7 +9,34 @@ use Test::More;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 
+use Log::Any::Adapter ('Stderr');
+
 # dummy product for testing
+
+my $product_ref = {
+	lc => "es",
+	ingredients_text => "Agua, vitaminas (B1, C y E), Vitamina B2"
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+print STDERR $product_ref->{additives} . "\n";
+
+# vitamine C is not used as an additive (no fuction)
+
+is_deeply($product_ref->{additives_original_tags}, [
+                              ],
+);
+
+is_deeply($product_ref->{vitamins_tags}, [
+        "en:thiamin",
+        "en:vitamin-c",
+        "en:vitamin-e",
+        "en:riboflavin",
+                              ],
+);
+
+
 
 my $product_ref = {
 	lc => "fr",

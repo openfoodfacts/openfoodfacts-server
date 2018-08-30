@@ -543,11 +543,12 @@ sub normalize_fr_a_et_b_de_c($$$) {
 }
 
 
-sub normalize_fr_vitamin($) {
+sub normalize_vitamin($$) {
 
+	my $lc = shift;
 	my $a = shift;
 
-	$log->debug("normalize vitamin using French rules", { vitamin => $a }) if $log->is_debug();
+	$log->debug("normalize vitamin", { vitamin => $a }) if $log->is_debug();
 	
 	$a =~ s/\s+$//;
 	$a =~ s/^\s+//;
@@ -556,23 +557,32 @@ sub normalize_fr_vitamin($) {
 	
 	# does it look like a vitamin code?
 	if ($a =~ /^[a-z][a-z]?-? ?\d?\d?$/i) {
-		return "vitamine $a";
+		($lc eq 'es') and return "vitamina $a";
+		($lc eq 'fr') and return "vitamine $a";
+		return "vitamin $a";		
 	}
 	else {
 		return $a;
 	}
 }
 
-sub normalize_fr_vitamins_enumeration($) {
+sub normalize_vitamins_enumeration($$) {
 	
+	my $lc = shift;
 	my $vitamins_list = shift;
 	
-	my @vitamins = split(/\(|\)|\/| \/ | - |, |,| et /, $vitamins_list);
+	my @vitamins = split(/\(|\)|\/| \/ | - |, |,| et | and | y /, $vitamins_list);
 	
 	$log->debug("splitting vitamins", { input => $vitamins_list }) if $log->is_debug();	
 	
 	# first output "vitamines," so that the current additive class is set to "vitamins"
-	my $split_vitamins_list = "vitamines," . join(",", map { normalize_fr_vitamin($_)} @vitamins);
+	my $split_vitamins_list;
+	
+	if ($lc eq 'es') { $split_vitamins_list = "vitaminas" }
+	elsif ($lc eq 'fr') { $split_vitamins_list = "vitamines" }
+	else { $split_vitamins_list = "vitamine" }
+
+	$split_vitamins_list .= "," . join(",", map { normalize_vitamin($lc,$_)} @vitamins);
 
 	$log->debug("vitamins split", { input => $vitamins_list, output => $split_vitamins_list }) if $log->is_debug();
 
@@ -800,7 +810,9 @@ INFO
 		# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E
 		# vitamines (A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E)
 
-		
+	}
+
+	
 		my @vitaminssuffixes = (
 "a", "rétinol",
 "b", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b10", "b11", "b12",
@@ -823,7 +835,7 @@ INFO
 );		
 
 		
-		my $vitaminsprefixregexp = "vitamine|vitamines";
+		my $vitaminsprefixregexp = "vitamine|vitamines|vitamin|vitamins|vitamina|vitaminas";
 		
 		my $vitaminssuffixregexp = "";
 		foreach my $suffix (@vitaminssuffixes) {
@@ -849,11 +861,11 @@ INFO
 		}
 		$vitaminssuffixregexp =~ s/^\|//;		
 		
-		$log->debug("vitamins regexp", { regex => "s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et ))+/" }) if $log->is_debug();
+		$log->debug("vitamins regexp", { regex => "s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et | and | y ))+/" }) if $log->is_debug();
 	
-		$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )*((($vitaminssuffixregexp)( |\/| \/ | - |,|, | et ))+($vitaminssuffixregexp))\b/normalize_fr_vitamins_enumeration($3)/ieg;
+		$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, | et | and | y ))+($vitaminssuffixregexp))\b/normalize_vitamins_enumeration($lc,$3)/ieg;
 
-	}
+	
 	
 	my @ingredients = split($separators, $text);
 	
@@ -1157,10 +1169,10 @@ INFO
 							# coloré -> chlore
 							# chlorela -> chlore 
 							
-							and (not $corrected_tag eq "proteinase")
+							and (not $corrected_tag =~ /^proteinase/)
 							and (not $corrected_tag =~ /^vitamin/)
-							and (not $corrected_tag eq "argent")
-							and (not $corrected_tag =~ /^chlore-/)
+							and (not $corrected_tag =~ /^argent/)
+							and (not $corrected_tag =~ /^chlore/)
 							
 							) {
 							
