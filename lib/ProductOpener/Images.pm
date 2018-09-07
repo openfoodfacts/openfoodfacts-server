@@ -391,6 +391,12 @@ sub process_search_image_form($) {
 }
 
 
+sub dims {
+	my ($image) = @_;
+	return $image->Get('width') . 'x' . $image->Get('height');
+}
+
+
 sub process_image_upload($$$$$$) {
 
 	my $code = shift;
@@ -514,24 +520,18 @@ sub process_image_upload($$$$$$) {
 			
 				print STDERR "png file, trying to remove the alpha background\n";
 			
-			sub dims {
-				my ($image) = @_;
-				return $image->Get('width') . 'x' . $image->Get('height');
-			}
-			
+				# Then, create a white image with the same size.
+				my $bg = Image::Magick->new(size => dims($source));
+				$bg->Read('xc:#ffffff');
 
-			# Then, create a white image with the same size.
-			my $bg = Image::Magick->new(size => dims($source));
-			$bg->Read('xc:#ffffff');
+				# And overlay the original on top of it to fill the transparent pixels
+				# with white.
+				$bg->Composite(compose => 'Over', image => $source);
+					
 
-			# And overlay the original on top of it to fill the transparent pixels
-			# with white.
-			$bg->Composite(compose => 'Over', image => $source);
+				#}
 				
-
-			#}
-			
-			$source = $bg;	
+				$source = $bg;	
 			
 			}
 			
