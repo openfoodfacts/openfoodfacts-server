@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-08-22 00:12\n"
+"PO-Revision-Date: 2018-09-07 08:10\n"
 "Language-Team: Italian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -198,15 +198,15 @@ msgstr "Marche"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr "Kinder Bueno, Kinder, Ferrero"
+msgstr "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr "marcas"
+msgstr "marche"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr "Prodotto della marca %s"
+msgstr "Prodotti della marca %s"
 
 msgctxt "brands_s"
 msgid "brand"
@@ -230,7 +230,7 @@ msgstr "Categorie"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr "Sardine in olio di oliva, Succo d'arancia a base di concentrato"
+msgstr "Sardine in olio di oliva, succo d'arancia a base di concentrato"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
@@ -238,7 +238,7 @@ msgstr "Indicare solo la categoria più specifica, le categorie \"Principali\" s
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr "categorias"
+msgstr "categorie"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
@@ -1312,7 +1312,7 @@ msgstr "Titolo della mappa"
 
 msgctxt "menu"
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
@@ -1536,15 +1536,15 @@ msgstr "95<sup>°</sup> percentile"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
-msgstr ""
+msgstr "Massimo"
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
-msgstr ""
+msgstr "Medio"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
-msgstr ""
+msgstr "Minimo"
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
@@ -1611,7 +1611,7 @@ msgstr "Indicare l'origine degli ingredienti"
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
-msgstr ""
+msgstr "origine degli ingredienti"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
@@ -1623,7 +1623,7 @@ msgstr "origine degli ingredienti"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
-msgstr ""
+msgstr "aggiungi un'origine"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
@@ -1699,11 +1699,11 @@ msgstr ""
 
 msgctxt "photographers_p"
 msgid "photographers"
-msgstr ""
+msgstr "fotografi"
 
 msgctxt "photographers_s"
 msgid "photographer"
-msgstr ""
+msgstr "fotografo"
 
 msgctxt "pnns_groups_1"
 msgid "PNNS groups 1"
@@ -1783,7 +1783,7 @@ msgstr ""
 
 msgctxt "product_image"
 msgid "Product picture"
-msgstr ""
+msgstr "Foto del prodotto"
 
 msgctxt "product_image_with_barcode"
 msgid "Picture with barcode:"
@@ -1795,7 +1795,7 @@ msgstr "Immagini attuale:"
 
 msgctxt "product_js_deleting_images"
 msgid "Deleting images"
-msgstr ""
+msgstr "Eliminazione immagini"
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
@@ -1811,15 +1811,15 @@ msgstr ""
 
 msgctxt "product_js_extracting_ingredients"
 msgid "Extracting ingredients"
-msgstr ""
+msgstr "Estrazione degli ingredienti"
 
 msgctxt "product_js_image_normalize"
 msgid "Normalize colors"
-msgstr ""
+msgstr "Normalizza i colori"
 
 msgctxt "product_js_image_open_full_size_image"
 msgid "Open the picture in original size in a new windows"
-msgstr ""
+msgstr "Apri la foto nella dimensione originale in una nuova finestra"
 
 msgctxt "product_js_image_received"
 msgid "Image received"
@@ -1847,7 +1847,7 @@ msgstr "Immagine salvata"
 
 msgctxt "product_js_image_saving"
 msgid "Saving image"
-msgstr ""
+msgstr "Salvataggio immagine"
 
 msgctxt "product_js_image_upload_error"
 msgid "Error while uploading image"
@@ -1863,7 +1863,7 @@ msgstr "Errori durante l'eliminazione delle immagini"
 
 msgctxt "product_js_images_deleted"
 msgid "Images deleted"
-msgstr ""
+msgstr "Immagini cancellate"
 
 msgctxt "product_js_images_move_error"
 msgid "Errors while moving images"
@@ -1871,11 +1871,11 @@ msgstr ""
 
 msgctxt "product_js_images_moved"
 msgid "Images moved"
-msgstr ""
+msgstr "Immagini spostate"
 
 msgctxt "product_js_moving_images"
 msgid "Moving images"
-msgstr ""
+msgstr "Spostamento immagini"
 
 msgctxt "product_js_upload_image"
 msgid "Add a picture"
@@ -2055,7 +2055,7 @@ msgstr "Cerca"
 
 msgctxt "search_contains"
 msgid "contains"
-msgstr ""
+msgstr "contiene"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
@@ -2063,7 +2063,7 @@ msgstr "Scegli prodotti con marche specifiche, categorie, etichette, le origini 
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
-msgstr ""
+msgstr "Ricerca prodotti Open Food Facts"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -2079,19 +2079,19 @@ msgstr "Scarica i risultati"
 
 msgctxt "search_download_results"
 msgid "Download results in CSV format (Excel, OpenOffice)"
-msgstr ""
+msgstr "Scarica i risultati in formato CSV (Excel, OpenOffice)"
 
 msgctxt "search_download_results_description"
 msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr ""
+msgstr "Set di caratteri: Unicode (UTF-8). Separatore: tabulazione (tab)."
 
 msgctxt "search_edit"
 msgid "Change search criteria"
-msgstr ""
+msgstr "Cambia i criteri di ricerca"
 
 msgctxt "search_flatten_tags"
 msgid "(Optional) - Create a column for every:"
-msgstr ""
+msgstr "(Opzionale) - Crea una colonna per ogni:"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
@@ -2132,7 +2132,7 @@ msgstr ""
 
 msgctxt "search_graph_title"
 msgid "Display results on a graph"
-msgstr ""
+msgstr "Visualizza i risultati su un grafico"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
@@ -2296,7 +2296,7 @@ msgstr "Errore di caricamento"
 
 msgctxt "sending_image"
 msgid "Sending image"
-msgstr ""
+msgstr "Invio immagine"
 
 msgctxt "serving_size"
 msgid "Serving size"
@@ -2412,7 +2412,7 @@ msgstr "Contiene:"
 
 msgctxt "tag_weblinks"
 msgid "Weblinks"
-msgstr ""
+msgstr "Collegamenti"
 
 msgctxt "tagstable_filtered"
 msgid "out of _MAX_"
@@ -2424,7 +2424,7 @@ msgstr "Cerca:"
 
 msgctxt "traces"
 msgid "Traces"
-msgstr ""
+msgstr "Tracce"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
@@ -2436,7 +2436,7 @@ msgstr ""
 
 msgctxt "traces_p"
 msgid "traces"
-msgstr ""
+msgstr "tracce"
 
 msgctxt "traces_s"
 msgid "trace"
@@ -2741,7 +2741,7 @@ msgstr "Preparato"
 
 msgctxt "unit"
 msgid "Unit"
-msgstr ""
+msgstr "Unità"
 
 msgctxt "nutrition_data_exists"
 msgid "Nutrition facts are specified for the product as sold."
