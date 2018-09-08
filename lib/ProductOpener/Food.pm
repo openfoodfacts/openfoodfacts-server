@@ -4101,7 +4101,8 @@ sub compute_nova_group($) {
 	delete $product_ref->{nutriments}{"nova-group_100g"};
 	delete $product_ref->{nutriments}{"nova-group_serving"};
 	delete $product_ref->{nova_group};
-	delete $product_ref->{nova_group_tags};
+	delete $product_ref->{nova_groups};
+	delete $product_ref->{nova_groups_tags};
 	
 	$product_ref->{nova_group_debug} = "";
 		
