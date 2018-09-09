@@ -2306,7 +2306,7 @@ HTML
 					}
 					$description .= <<HTML
 <div>
-<a href="http://ratings.food.gov.uk/">Food Hygiene Rating</a> from the Food Standards Agency (FSA):
+<a href="https://ratings.food.gov.uk/">Food Hygiene Rating</a> from the Food Standards Agency (FSA):
 <p>
 Business name: $packager_codes{$canon_tagid}{fsa_rating_business_name}<br/>
 Business type: $packager_codes{$canon_tagid}{fsa_rating_business_type}<br/>
@@ -2567,7 +2567,7 @@ HTML
 			$request_ref->{title} = $title;
 		}
 
-		$html = "<div itemscope itemtype=\"http://schema.org/Thing\"><h1 itemprop=\"name\">" . $title ."</h1>" . $html . "</div>";
+		$html = "<div itemscope itemtype=\"https://schema.org/Thing\"><h1 itemprop=\"name\">" . $title ."</h1>" . $html . "</div>";
 		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
 	}
 
@@ -4870,10 +4870,10 @@ $meta_description
 	if (! subdomain) {
 		subdomain = 'world';
 	}
-	window.location.href = "http://" + subdomain + ".${server_domain}";
+	window.location.href = "https://" + subdomain + ".${server_domain}";
 }).on("select2:unselect", function(e) {
 
-	window.location.href = "http://world.${server_domain}";
+	window.location.href = "https://world.${server_domain}";
 })
 ;
 <initjs>
@@ -5611,7 +5611,7 @@ $scripts
 
 <script type="application/ld+json">
 {
-	"\@context" : "http://schema.org",
+	"\@context" : "https://schema.org",
 	"\@type" : "WebSite",
 	"name" : "$Lang{site_name}{$lc}",
 	"url" : "@{[ format_subdomain($subdomain) ]}",
@@ -5625,7 +5625,7 @@ $scripts
 
 <script type="application/ld+json">
 {
-	"\@context": "http://schema.org/",
+	"\@context": "https://schema.org/",
 	"\@type": "Organization",
 	"url": "@{[ format_subdomain($subdomain) ]}",
 	"logo": "/images/misc/$Lang{logo}{$lang}",
@@ -5765,7 +5765,7 @@ sub display_image_box($$$) {
 		}
 	
 		$img = <<HTML
-<div id="image_box_$id" class="image_box" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+<div id="image_box_$id" class="image_box" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
 $img
 </div>			
 HTML
@@ -6095,7 +6095,7 @@ HTML
 #   based on <span itemprop="reviewCount">11</span> customer reviews
 #  </div>	
 
-	$html .= '<div itemscope itemtype="http://schema.org/Product">' . "\n";
+	$html .= '<div itemscope itemtype="https://schema.org/Product">' . "\n";
 	
 	$html .= "<h1 property=\"food:name\" itemprop=\"name\">$title</h1>";	
 	
@@ -8032,7 +8032,7 @@ HTML
 			
 			display_product_jqm($request_ref);
 			$response{jqm} = $request_ref->{jqm_content};
-			$response{jqm} =~ s/(href|src)=("\/)/$1="http:\/\/$cc.${server_domain}\//g;
+			$response{jqm} =~ s/(href|src)=("\/)/$1="https:\/\/$cc.${server_domain}\//g;
 			$response{title} = $request_ref->{title};
 			
 		}
@@ -8258,8 +8258,8 @@ sub display_structured_response_opensearch_rss {
 	my $xml = <<XML
 <?xml version="1.0" encoding="UTF-8"?>
  <rss version="2.0" 
-      xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"
-      xmlns:atom="http://www.w3.org/2005/Atom">
+      xmlns:opensearch="https://a9.com/-/spec/opensearch/1.1/"
+      xmlns:atom="https://www.w3.org/2005/Atom">
    <channel>
      <title>$long_name</title>
      <link>$query_link</link>
