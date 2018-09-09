@@ -5,11 +5,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-11 13:23-0500\n"
+"PO-Revision-Date: 2018-08-01 13:06\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: \n"
 "X-Generator: crowdin.com\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: lol\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
@@ -179,13 +180,13 @@ msgctxt "barcode_number"
 msgid "Barcode number:"
 msgstr "crwdns36155:0crwdne36155:0"
 
+msgctxt "you_can_also_help_us"
+msgid "You can also help to fund the Open Food Facts project"
+msgstr "crwdns93484:0crwdne93484:0"
+
 msgctxt "bottom_content"
-msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>Contribute to <<site_name>> by adding product and win stars by\n"
-"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
-msgstr "crwdns36156:0crwdne36156:0"
+msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr "crwdns93364:0crwdne93364:0"
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
@@ -1408,6 +1409,14 @@ msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
 msgstr "crwdns36428:0crwdne36428:0"
 
+msgctxt "multiple_nutrition_data"
+msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
+msgstr "crwdns46670:0crwdne46670:0"
+
+msgctxt "multiple_nutrition_data_instructions"
+msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
+msgstr "crwdns46671:0crwdne46671:0"
+
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
 msgstr "crwdns36429:0%scrwdne36429:0"
@@ -2625,14 +2634,6 @@ msgctxt "sources_usda_ndb_product_page"
 msgid "Product page on USDA NDB"
 msgstr "crwdns36773:0crwdne36773:0"
 
-msgctxt "donate"
-msgid "Donate to Open Food Facts"
-msgstr "crwdns36865:0crwdne36865:0"
-
-msgctxt "donate_link"
-msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr "crwdns36866:0crwdne36866:0"
-
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
 msgstr "crwdns36776:0crwdne36776:0"
@@ -2648,6 +2649,10 @@ msgstr "crwdns36778:0crwdne36778:0"
 msgctxt "title_separator"
 msgid " — "
 msgstr "crwdns36867:0crwdne36867:0"
+
+msgctxt "recent_changes"
+msgid "Recent Changes"
+msgstr "crwdns37214:0crwdne37214:0"
 
 msgctxt "translators_title"
 msgid "Our Translators"
@@ -2680,4 +2685,72 @@ msgstr "crwdns37048:0crwdne37048:0"
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
 msgstr "crwdns37049:0crwdne37049:0"
+
+msgctxt "minerals_p"
+msgid "added minerals"
+msgstr "crwdns37856:0crwdne37856:0"
+
+msgctxt "minerals_s"
+msgid "added mineral"
+msgstr "crwdns37857:0crwdne37857:0"
+
+msgctxt "vitamins_p"
+msgid "added vitamins"
+msgstr "crwdns37858:0crwdne37858:0"
+
+msgctxt "vitamins_s"
+msgid "added vitamin"
+msgstr "crwdns37859:0crwdne37859:0"
+
+msgctxt "amino_acids_p"
+msgid "added amino acids"
+msgstr "crwdns37860:0crwdne37860:0"
+
+msgctxt "amino_acids_s"
+msgid "added amino acid"
+msgstr "crwdns37861:0crwdne37861:0"
+
+msgctxt "nucleotides_p"
+msgid "added nucleotides"
+msgstr "crwdns37862:0crwdne37862:0"
+
+msgctxt "nucleotides_s"
+msgid "added nucleotide"
+msgstr "crwdns37863:0crwdne37863:0"
+
+msgctxt "other_nutritional_substances_p"
+msgid "other nutritional substances added"
+msgstr "crwdns37864:0crwdne37864:0"
+
+msgctxt "other_nutritional_substances_s"
+msgid "other nutritional substance added"
+msgstr "crwdns37865:0crwdne37865:0"
+
+msgctxt "product_as_sold"
+msgid "As sold"
+msgstr "crwdns46672:0crwdne46672:0"
+
+msgctxt "prepared_product"
+msgid "Prepared"
+msgstr "crwdns46673:0crwdne46673:0"
+
+msgctxt "unit"
+msgid "Unit"
+msgstr "crwdns46674:0crwdne46674:0"
+
+msgctxt "nutrition_data_exists"
+msgid "Nutrition facts are specified for the product as sold."
+msgstr "crwdns46675:0crwdne46675:0"
+
+msgctxt "nutrition_data_prepared_exists"
+msgid "Nutrition facts are specified for the prepared product."
+msgstr "crwdns46676:0crwdne46676:0"
+
+msgctxt "nova_groups_s"
+msgid "NOVA group"
+msgstr "crwdns93699:0crwdne93699:0"
+
+msgctxt "nova_groups_p"
+msgid "NOVA groups"
+msgstr "crwdns93700:0crwdne93700:0"
 
