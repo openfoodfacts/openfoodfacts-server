@@ -43,6 +43,7 @@ requires 'CLDR::Number';
 requires 'Modern::Perl', '>= 1.20150127';
 requires 'Data::Dumper::AutoEncode';
 requires 'XML::Rules';
+requires 'Email::Stuffer';
 
 # Logging
 requires 'Log::Any', '>= 1.705';

@@ -31,7 +31,6 @@ BEGIN
 	@EXPORT_OK = qw(
 					&send_email
 					&send_email_to_admin
-					&send_email_to_admin_from_user
 
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -42,8 +41,7 @@ use vars @EXPORT_OK ;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use MIME::Lite;
-use Encode;
+use Email::Stuffer;
 use Log::Any qw($log);
 
 sub send_email($$$)
@@ -56,24 +54,16 @@ sub send_email($$$)
 	my $name = $user_ref->{name};
 	
 	$text =~ s/<NAME>/$name/g;
-
-	my %msg = (
-		'From' => encode("MIME-B", "\"" . lang("site_name") . "\" <$contact_email>"),
-		'To' => encode("MIME-B", "\"$name\" <$email>"),
-		'Encoding' => 'quoted-printable',
-		'Subject' => encode("MIME-B", $subject),
-		'Data' => encode("utf8", $text),
-	);
+ 
+	eval {
+	Email::Stuffer
+    ->from(lang("site_name") . " <$contact_email>")
+    ->to($name . " <$email>")
+    ->subject($subject)	
+    ->text_body($text)	
+    ->send;	
+	};
 	
-	#$msg->attach(
-	#Type => 'text/plain; charset=UTF-8',
-	#Data => encode("utf8", $text),
-	#);
-
-		
-	my $mime_email = MIME::Lite->new(%msg);
-	$mime_email->attr('content-type.charset' => 'UTF-8');
-	eval { $mime_email->send; };
     return $@ ? 1 : 0;
     
 }
@@ -83,52 +73,19 @@ sub send_email_to_admin($$)
 	my $subject = shift;
 	my $text = shift;
 
-	my %msg = (
-		'From' => encode("MIME-B","\"" . lang("site_name") . "\" <$contact_email>"),
-		'To' => encode("MIME-B","\"" . lang("site_name") . "\" <$admin_email>"),
-		'Encoding' => 'quoted-printable',
-		'Subject' => encode("MIME-B",$subject),
-		'Data' =>  encode("utf8", $text),
-	);
-		
-	my $mime_email = MIME::Lite->new(%msg);
-	$mime_email->attr('content-type.charset' => 'UTF-8');
-	eval { $mime_email->send; };
+	eval {
+	Email::Stuffer
+    ->from(lang("site_name") . " <$contact_email>")
+    ->to(lang("site_name") . " <$admin_email>")
+    ->subject($subject)	
+    ->text_body($text)	
+    ->send;	
+	};
 	
-    if ( $@ ) {
-		$log->warn("no email sent to admin", { mail => $mime_email->as_string }) if $log->is_warn();
-        return 1;
-    } else {
-		$log->info("sent email to admin", { mail => $mime_email->as_string }) if $log->is_info();
-        return 0;
-    }
-}
-
-sub send_email_to_admin_from_user($$$) # useful so that the admin can do a reply to
-{
-	my $user_ref = shift;
-	my $subject = shift;
-	my $text = shift;
-	
-	my $email = $user_ref->{email};
-	my $name = $user_ref->{name};
-	
-	$text =~ s/<NAME>/$name/g;
-
-	my %msg = (
-		'To' => encode("MIME-B","\"" . lang("site_name") . "\" <$contact_email>"),
-		'From' => encode("MIME-B","\"$name\" <$email>"),
-		'Reply-to' => encode("MIME-B","\"$name\" <$email>"),
-		'Encoding' => 'quoted-printable',
-		'Subject' => encode("MIME-B",$subject),
-		'Data' => encode("utf8", $text),
-	);
-		
-	my $mime_email = MIME::Lite->new(%msg);
-	$mime_email->attr('content-type.charset' => 'UTF-8');
-	eval { $mime_email->send; };
     return $@ ? 1 : 0;
 }
+
+
 
 
 
