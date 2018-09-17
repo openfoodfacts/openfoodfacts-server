@@ -264,6 +264,7 @@ sub check_user_form($$) {
 		$user_ref->{ip} = remote_addr();
 		$user_ref->{initial_lc} = $lc;
 		$user_ref->{initial_cc} = $cc;
+		$user_ref->{initial_user_agent} = user_agent();
 		
 	}
 	
