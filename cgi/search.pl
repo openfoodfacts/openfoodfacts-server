@@ -43,6 +43,28 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
+if (0) {
+if (param('jqm')) {
+
+                        print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . '{"jqm":"<p>Suite &agrave; l\'&eacute;mission Envoy&eacute; Sp&eacute;cial vous &ecirc;tes extr&egrave;mement nombreuses et nombreux &agrave; essayer l\'app Open Food Facts et le serveur est surcharg&eacute;. Nous avons du temporairement d&eacute;sactiver la recherche de produit (mais le scan est toujours possible). La situation devrait revenir &agrave; la normale bient&ocirc;t.</p> <p>Merci de votre compr&eacute;hension !</p> <p>St&eacute;phane et toute l\'&eacute;quipe b&eacute;n&eacute;vole d\'Open Food Facts</p>"}';
+
+
+return "";
+}
+elsif (param('json')) {
+
+print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" .
+
+<<JSON
+{ "page_size": "20", "products": [ { "image_small_url": "https://static.openfoodfacts.org/images/misc/yeswescan-313x222.png", "product_name": "Le serveur est surcharge !", "brands": "Merci de votre comprehension", "quantity": "1", "code": "3554748001005", "nutrition_grade_fr": "A" } ], "page": 1, "skip": 0, "count": 1 }
+JSON
+;
+
+	return "";
+
+}
+}
+
 ProductOpener::Display::init();
 use ProductOpener::Lang qw/:all/;
 
@@ -61,7 +83,7 @@ foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 
 	}
 }
 
-my @search_fields = qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries additives allergens traces nutrition_grades languages creator editors states );
+my @search_fields = qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries ingredients additives allergens traces nutrition_grades nova_groups languages creator editors states );
 
 $admin and push @search_fields, "lang";
 
