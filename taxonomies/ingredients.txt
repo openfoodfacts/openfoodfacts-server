@@ -317,7 +317,7 @@ da: Melbehandlingsmiddel
 el: Βελτιωτικό αλεύρων
 es: Agente de tratamiento de la harina
 fi: Jauhonparanne
-fr: Agent de traitement de la farine
+fr: agent de traitement de la farine, agents de traitement de la farine, agent de traitement de farine, agent de traitement de la farine e300, E300
 it: Agenti di trattamento della farina
 nl: Meelverbeteraar, Meelverbeteraars
 pt: Agente de tratamento da farinha
@@ -428,29 +428,7 @@ ro: Agent de umezire
 bg: Влагозадържащ агент
 wikidata:en:Q911854
 
-en: Modified starch
-ga: Stáirse modhnaithe
-de: Modifizierte Stärke
-da: Fugtighedsbevarende middel
-el: Τροποποιημένο άμυλο
-es: Almidón modificado
-fi: Muunnettu tärkkelys
-fr: Amidon modifié
-it: Amidi modificati
-nl: Gemodificeerd zetmeel, Gemodificeerde zetmelen
-pt: Amido modificado
-sv: Fuktighetsbevarande medel
-lv: Modificēta ciete
-cs: Modifikovaný škrob
-et: Modifitseeritud tärklis
-hu: Módosított keményítő
-pl: Skrobia modyfikowana
-lt: Modifikuotas krakmolas
-mt: Lamtu mmodifikat
-sk: Modifikovaný škrob
-ro: Amidon modificat
-bg: Модифицирано нишесте
-wikidata:en:Q415766
+
 
 en: Preservative
 ga: Leasaitheach
@@ -502,30 +480,7 @@ ro: Agent de propulsare
 bg: Опаковъчен газ
 wikidata:en:Q50419221
 
-en: Raising agent
-ga: Oibreán éiritheach
-de: Backtriebmittel
-da: Drivgas
-el: Διογκωτικό αρτοποιίας
-es: Gasificante
-fi: Nostatusaine
-fr: Poudre à lever, Agent levant, agent de levuration
-it: Agenti lievitanti
-nl: Rijsmiddel, Rijsmiddelen
-pt: Levedante
-sv: Drivgas
-lv: Irdinātājs
-cs: Kypřicí látka
-et: Kergitusaine
-hu: Térfogatnövelő szer
-pl: Substancja spulchniająca
-sl: Potisni plin
-lt: Tešlos kildymo medžiaga
-mt: Aġent li jgħolli l-ikel
-sk: Kypriaca látka
-ro: Agent de afânare
-bg: Набухвател
-wikidata:en:Q908833
+
 
 en: Sequestrant
 ga: Leithliseoir
@@ -588,13 +543,13 @@ fr: Édulcorant
 it: Edulcoranti
 nl: Zoetstof., Zoetstoffen
 pt: Edulcorante
-sv: Stabiliseringsmedel
+# sv: Stabiliseringsmedel
 lv: Saldinātājs
 cs: Sladidlo
 et: Magusaine
 hu: Édesítőszer
 pl: Substancja słodząca
-sl: Stabilizator
+# sl: Stabilizator
 lt: Saldiklis
 mt: Dolċifikant
 sk: Sladidlo
@@ -603,14 +558,14 @@ bg: Подсладител
 wikidata:en:Q626292
 #wikidata:en:Q4368298
 
-en: Thickener
+en:thickener
 ga: Tiúsóir
 de: Verdickungsmittel
 da: Sødestof
 el: Πυκνωτικό μέσο
 es: Espesante
 fi: Sakeuttamisaine
-fr: Épaississant
+fr:épaississant, Épaississant
 it: Addensanti
 nl: Verdikkingsmiddel, Verdikkingsmiddelen
 pt: Espessante
@@ -1139,10 +1094,6 @@ zh:黄油
 # zh-yue:牛油
 allergens:fr:_beurre_
 allergens:nl:_boter_
-#owl:objectproperty:contains:en:Butterfat
-#owl:objectproperty:contains:en:Water
-#owl:datapropery:hasPercentageOfButterfat:>=80&<=99
-#owl:objectproperty:isDerivedFrom:en:Cream
 
 # BEURRE DOUX - en:Butter avec une salinité moins de 0,5 %
 
@@ -1152,12 +1103,6 @@ fr:beurre doux
 nl:ongezouten boter
 allergens:fr:_beurre_ doux
 wikipedia:en:https://fr.wikipedia.org/wiki/Beurre_doux
-#owl:objectproperty:isAssumedToBeTheSameAsButter:en:butter
-#owl:dataproperty:contains:en:Butterfat
-#owl:datapropery:hasPercentageOfButterfat:>=80&<=95
-#owl:objectproperty:contains:en:Salt
-#owl:dataproperty:hasPercentageMaximumOfSalt:0.5
-#owl:objectproperty:isDerivedFrom:en:Cream
 
 # BEURRE DEMI-SEL - en:Butter avec une salinité moyenne de 0,5 % à 3 %
 
@@ -1166,11 +1111,6 @@ fr:beurre demi-sel
 nl:halfgezouten boter
 allergens:fr:_beurre_ demi-sel
 wikipedia:en:https://fr.wikipedia.org/wiki/Beurre_demi-sel
-#owl:dataproperty:contains:en:Butterfat
-#owl:datapropery:hasPercentageOfButterfat:>=80&<=95
-#owl:objectproperty:contains:en:Salt
-#owl:dataproperty:hasPercentageOfSalt:>=0.5&<=3
-#owl:objectproperty:isDerivedByAddingSaltToButter:en:Salt
 
 # BEURRE SALÉ - en:Butter avec un taux de sel supérieur à 3%
 
@@ -1182,12 +1122,6 @@ nl:gezouten boter
 ja:塩バター
 allergens:fr:_beurre_ salé
 wikipedia:en:https://fr.wikipedia.org/wiki/Beurre_salé
-#owl:dataproperty:contains:en:Butterfat
-#owl:datapropery:hasPercentageOfButterfat:>=80&<=95
-#owl:objectproperty:contains:en:Salt
-#owl:dataproperty:hasPercentageMinimumOfSalt:3.0
-#owl:objectproperty:isDerivedFrom:en:Cream
-#owl:objectproperty:isDerivedByAddingSalt:en:Salt
 
 # CHURNED BUTTER - A butter churn is a device used to convert cream into butter. Is this traditional butter?
 
@@ -1197,9 +1131,6 @@ es:manteca batida
 fr:beurre de baratte
 nl:gekarnde boter
 allergens:fr:_beurre_ de baratte
-#owl:objectproperty:contains:en:Butterfat
-#owl:datapropery:hasPercentageOfButterfat:>=80&<=95
-#owl:objectproperty:isDerivedByChurningFrom:en:Cream
 
 # PASTEURIZED BUTTER - butter created from pasteurized milk
 
@@ -1208,32 +1139,17 @@ en:pasteurized butter, pasteurised butter
 fr:beurre pasteurisé
 nl:gepasteuriseerde boter
 allergens:fr:_beurre_ pasteurisé
-#owl:objectproperty:contains:en:Butterfat
-#owl:objectproperty:contains:en:Water
-#owl:datapropery:hasPercentageOfButterfat:>=80&<=95
-#owl:objectproperty:isDerivedFrom:en:Pasteurized cream
-#owl:objectproperty:isAssumedToBeTheSameAs:en:Butter
 
 # BEURRE D'ISIGNY - butter produced in Europe with protected geographical indications
 
 <en:butter
 fr:beurre d'isigny AOP
-#owl:objectproperty:contains:en:Butterfat
-#owl:objectproperty:contains:en:Water
-#owl:objectproperty:hasPercentageOfButterfat:>=80&<=95
-#owl:objectproperty:isDerivedFrom:en:Cream
-#owl:objectproperty:hasLabel:en:AOP
-#owl:objectproperty:isManufacturedIn:fr:Isigny
 
 # BEURRE DE CUISINE - beurre pasteurisé déshydraté, contenant environ 95% de matières grasses laitières
 
 <en:butter
 fr:beurre de cuisine, beurre cuisinier
 allergens:fr:_beurre_ de cuisine
-#owl:objectproperty:contains:en:Butterfat
-#owl:objectproperty:contains:en:Water
-#owl:objectproperty:isDerivedFrom:en:Cream
-#owl:datapropery:hasPercentageOfButterfat:>=95&<=95
 
 
 # FRESH BUTTER - Not sure what the definition is. It is normally homemade butter. Maybe products use it to indicated not reconstituted butter.
@@ -1246,11 +1162,6 @@ fr:beurre frais
 nl:verse boter
 pt:manteiga fresca
 allergens:fr:_beurre_ frais
-#owl:objectproperty:contains:en:Butterfat
-#owl:objectproperty:contains:en:Water
-#owl:datapropery:hasPercentageOfButterfat:>=80&<=95
-#owl:objectproperty:isDerivedFrom:en:Cream
-#owl:objectproperty:isAssumedToBeTheSameAs:en:Butter
 
 # BEURRE LAITIER - is a French term used to describe butter made in a creamery or small dairy, as opposed to on a farm or in a factory
 
@@ -1258,11 +1169,6 @@ allergens:fr:_beurre_ frais
 fr:beurre laitier
 nl:melkerijboter
 allergens:fr:beurre _laitier_
-#owl:objectproperty:contains:en:Butterfat
-#owl:objectproperty:contains:en:Water
-#owl:datapropery:hasPercentageOfButterfat:>=80&<=95
-#owl:objectproperty:isDerivedFrom:en:Cream
-#owl:objectproperty:isAssumedToBeTheSameAs:en:Butter
 
 # RECONSTITUTED BUTTER - When combined with the correct ratio of water to restore a normal water / butterfat balance for butter, Concentrated Butter is called “reconstituted butter.”
 
@@ -1277,10 +1183,6 @@ allergens:fr:_beurre_ concentré reconstitué
 <en:butter
 en:sweet cream butter
 wikidata:en:Q26882140
-#owl:objectproperty:contains:en:Butterfat
-#owl:objectproperty:contains:en:Water
-#owl:datapropery:hasPercentageOfButterfat:>=90&<=99
-#owl:objectproperty:isDerivedFrom:en:Pasteurized Cream
 
 # CLARIFIED BUTTER - milk fat rendered from butter to separate the milk solids and water from the butterfat
 
@@ -1313,9 +1215,6 @@ allergens:fr:huile de _beurre_
 allergens:nl:_boterolie_
 wikidata:en:Q909729
 wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
-#owl:objectproperty:isDerivedByRemovingWaterFromButter:en:Butter
-#owl:dataproperty:hasPercentageOfButterFat:>=99.8
-#owl:subClassOf:en:Butterfat
 
 # GHEE - a class of butterfat that originated from the Indian subcontinent.
 
@@ -1372,8 +1271,6 @@ uk:Ґгі, Гхі, Ґі
 ur:گھی
 zh:酥油
 wikidata:en:https://www.wikidata.org/wiki/Q323225
-#owl:objectproperty:isDerivedByRemovingWaterFromButter:en:Butter
-#owl:dataproperty:hasPercentageOfButterFat:>=99.8
 
 # CONCENTRATED BUTTER - is an industrially-made “clarified butter.” 
 
@@ -1382,11 +1279,6 @@ en:concentrated butter
 fr:beurre concentré
 nl:geconcentreerde boter
 allergens:fr:_beurre_ concentré
-#owl:objectproperty:contains:en:Butterfat
-#owl:objectproperty:contains:en:Water
-#owl:datapropery:hasPercentageOfButterfat:>=99.8
-#owl:datapropery:hasPercentageOfWater:<=0.1
-#owl:objectproperty:isDerivedByRemovingWaterFromButter:en:Butter
 
 # BUTTERFAT - the fatty portion of milk.
 
@@ -1417,8 +1309,6 @@ allergens:fr:matière grasse _laitière_ anhydre
 allergens:fr:_beurre_ pâtissier
 wikidata:en:Q909729
 wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
-#owl:objectproperty:isDerivedByRemovingWaterFromButter:en:Butter
-#owl:dataproperty:hasPercentageOfButterFat:>=99.8
 
 # MILK - a white liquid nutrient-rich food produced by the mammary glands of mammals.
 
@@ -1601,7 +1491,6 @@ zh:乳
 zu:Ubisi
 allergens:fr:_lait_
 wikipedia:en:https://en.wikipedia.org/wiki/Milk
-#owl:objectproperty:isAssumedToBeTheSameAs:en:Skimmed milk
 
 # Skim milk (American English), is made when all the cream is removed from whole milk. It tends to contain around 0% fat.
 
@@ -1609,9 +1498,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Milk
 en:skim milk, fat-free milk
 nl:vetvrije melk
 wikidata:en:Q2352187
-#owl:dataproperty:hasPercentageButterfat:0
-#owl:objectproperty:isDerivedFrom:en:raw milk
-#owl:objectproperty:isAssumedToBeTheSameAs:en:skimmed milk
 
 # Skimmed milk (British English) is made when all the cream (also called milkfat) is removed from whole milk. It tends to contain around 0.1% fat.
 
@@ -1641,18 +1527,12 @@ vi:Sữa gầy
 allergens:fr:_lait_ écrémé
 wikidata:en:Q2352187
 wikipedia:en:https://en.wikipedia.org/wiki/Skimmed_milk
-#owl:dataproperty:hasPercentageButterfat:0.1
-#owl:objectproperty:isDerivedFrom:en:raw milk
-#owl:objectproperty:isAssumedToBeTheSameAs:en:skim milk
 
 # LOW-FAT MILK is a 1% fat milk, sold in the United States
 
 <en:milk
 en:low-fat milk, 1% fat milk
 nl:melk met 1% vetgehalte
-#owl:dataproperty:hasPercentageButterfat:1.0
-#owl:objectproperty:isDerivedFrom:en:skimmed milk
-#owl:objectproperty:isDerivedByAdding:en:Butterfat
 
 # LAIT DEMI-ECREME has a butterfat percentage of 1.5-1.8% fat by regulation
 
@@ -1667,17 +1547,11 @@ sv:Lättmjölk
 allergens:fr:_lait_ partiellement écrémé
 wikidata:en:Q10572454
 wikipedia:en:https://fr.wikipedia.org/wiki/Lait_demi-écrémé
-#owl:dataproperty:hasPercentageButterfat:1.5-1.8
-#owl:objectproperty:isDerivedFrom:en:skimmed milk
-#owl:objectproperty:isDerivedByAdding:en:Butterfat
 
 # SEMI-SKIMMED MILK has a butterfat percentage of 2.5% fat by regulation
 
 <en:milk
 en:semi-skimmed milk
-#owl:dataproperty:hasPercentageButterfat:2.5
-#owl:objectproperty:isDerivedFrom:en:skimmed milk
-#owl:objectproperty:isDerivedByAdding:en:Butterfat
 
 # PASTEURIZED SEMI-SKIMMED MILK has a butterfat percentage of 1.5-1.8% AND is pasteurised
 
@@ -1687,23 +1561,11 @@ fr:lait demi-écrémé pasteurisé
 de:pasteurisierte magermilch
 nl:gepasteuriseerde volle melk
 allergens:fr:_lait_ écrémé pasteurisé
-#owl:dataproperty:hasPercentageButterfat:1.5-1.8
-#owl:dataproperty:isPasteurised:yes
-#owl:objectproperty:isDerivedFrom:en:skimmed milk
-#owl:objectproperty:isDerivedByAdding:en:Butterfat
-#owl:objectproperty:isAssumedToBeThesameAs:en:Semi-skimmed milk
 
 # In the United States, milk is marketed primarily by fat content and available in these varieties: 2% Reduced-fat milk
 
 <en:milk
 en:reduced-fat milk
-#owl:objectproperty:contains:en:water
-#owl:objectproperty:contains:en:butterfat
-#owl:objectproperty:isDerivedByPasteurizationFromMammalMilk:en: milk
-#owl:dataproperty:hasPercentageButterfat:=2.0
-#owl:objectproperty:isDerivedFrom:en:skimmed milk
-#owl:objectproperty:isDerivedByAddingButterfatTo:en:Skimmed milk
-#owl:objectproperty:isAssumedToBeThesameAs:en:Semi-skimmed milk
 
 
 # Whole milk (around 3.5–4% fat), dans l'Union européenne, le lait entier doit contenir au minimum 3,50 % en masse de matière grasse.
@@ -1718,14 +1580,6 @@ it:latte intero
 nl:volle melk
 allergens:fr:_lait_ entier
 allergens:fr:_lait_ entier frais
-#owl:objectproperty:isSourcedFromMammal:en:Mammal
-#owl:class:TreatedCowMilks
-#owl:objectproperty:contains:en:water
-#owl:objectproperty:contains:en:butterfat
-#owl:objectproperty:isDerivedByPasteurizationFromMammalMilk:en: milk
-#owl:objectproperty:isAssumedToBeTheSameAsCowMilk:en:cow's milk
-#owl:objectproperty:isDerivedByAddingButterfatTo:en:Skimmed milk
-#owl:dataproperty:hasPercentageOfButterfat:>=3.5&<=80
 
 # RAW MILK - milk produced by female mammals (probably cow) before any treatment
 
@@ -1737,11 +1591,6 @@ it:latte crudo
 nl:rauwe melk
 allergens:fr:_lait_ cru
 wikipedia:en:https://en.wikipedia.org/wiki/Raw_milk
-#owl:objectproperty:isSourcedFromMammal:en:Mammal
-#owl:class:MammalMilks
-#owl:objectproperty:contains:en:water
-#owl:objectproperty:contains:en:butterfat
-#owl:objectproperty:isAssumedToBeTheSameAsMammalCowMilk:en:raw cow's milk
 
 # RAW COW MILK - milk produced by female cows before any treatment
 
@@ -1751,10 +1600,6 @@ fr:lait cru de vache
 es:leche cruda de vaca
 nl:rauwe koemelk
 allergens:fr:_lait_ cru de vache
-#owl:objectproperty:isSourcedFromMammalCow:en:Cow
-#owl:class:MammalMilks
-#owl:objectproperty:contains:en:water
-#owl:objectproperty:contains:en:butterfat
 
 # COW MILK - raw cow milk that probably has been treated (pasteurisation)
 
@@ -1767,11 +1612,6 @@ it:latte di mucca
 nl:koemelk
 allergens:fr:_lait_ de vache
 wikipedia:en:https://fr.wikipedia.org/wiki/Lait_de_vache
-#owl:objectproperty:isSourcedFromMammalCow:en:Cow
-#owl:class:TreatedCowMilks
-#owl:objectproperty:contains:en:water
-#owl:objectproperty:contains:en:butterfat
-#owl:objectproperty:isDerivedByPasteurizationFromRawCowMilk:en:raw cow's milk
 
 # WHOLE COWS MILK (around 3.5–4% fat), dans l'Union européenne, le lait entier doit contenir au minimum 3,50 % en masse de matière grasse.
 
@@ -1779,14 +1619,6 @@ wikipedia:en:https://fr.wikipedia.org/wiki/Lait_de_vache
 <en:Cow's milk
 en:Whole cow's milk
 es:Leche entera de vaca
-#owl:objectproperty:isSourcedFromMammalCow:en:Cow
-#owl:class:TreatedCowMilks
-#owl:objectproperty:contains:en:water
-#owl:objectproperty:contains:en:butterfat
-#owl:objectproperty:isDerivedByPasteurizationFromRawCowMilk:en:raw cow's milk
-#owl:objectproperty:isAssumedToBeTheSameAsCowMilk:en:cow's milk
-#owl:objectproperty:isDerivedByAddingButterfatTo:en:Skimmed milk
-#owl:dataproperty:hasPercentageOfButterfat:>=3.5&<=80
 
 # PASTEURISED COW MILK - raw cow milk that has been treated (pasteurisation)
 
@@ -1796,12 +1628,6 @@ fr:lait de vache pasteurisé, lait pasteurisé de vache
 nl:gepasteuriseerde koemelk
 allergens:fr:_lait_ de vache pasteurisé
 allergens:fr:_lait_ pasteurisé de vache
-#owl:objectproperty:isSourcedFromMammalCow:en:Cow
-#owl:class:TreatedCowMilks
-#owl:objectproperty:contains:en:water
-#owl:objectproperty:contains:en:butterfat
-#owl:objectproperty:isDerivedByPasteurizationFromRawCowMilk:en:raw cow's milk
-#owl:objectproperty:isAssumedToBeTheSameAsCowMilk:en:cow's milk
 
 # RAW GOAT MILK - milk produced by female goats before any treatment
 
@@ -1809,10 +1635,6 @@ allergens:fr:_lait_ pasteurisé de vache
 en:raw goat's milk
 fr:lait cru de chèvre
 allergens:fr:_lait_ cru de chèvre
-#owl:objectproperty:isSourcedFromMammalGoat:en:Goat
-#owl:class:MammalMilks
-#owl:objectproperty:contains:en:water
-#owl:objectproperty:contains:en:butterfat
 
 # GOATS MILK - goat milk that probably has been treated (pasteurisation)
 
@@ -1824,11 +1646,6 @@ nl:geitenmelk
 de:Ziegenmilch
 allergens:fr:_lait_ de chèvre
 wikidata:en:Q1418287
-#owl:objectproperty:isSourcedFromMammalGoat:en:Goat
-#owl:objectproperty:isDerivedByPasteurizationFromRawGoatMilk:en:raw goat's milk
-#owl:class:TreatedGoatMilks
-#owl:objectproperty:contains:en:water
-#owl:objectproperty:contains:en:butterfat
 
 # GOATS MILK - raw goat milk that has been treated (pasteurisation)
 
@@ -1839,12 +1656,6 @@ fr:lait de chèvre pasteurisé, lait pasteurisé de chèvre
 it:latte di capra pastorizzato
 allergens:fr:_lait_ pasteurisé de chèvre
 allergens:fr:_lait_ de chèvre pasteurisé
-#owl:objectproperty:isSourcedFromMammalGoat:en:Goat
-#owl:objectproperty:isDerivedByPasteurizationFromRawGoatMilk:en:raw goat's milk
-#owl:class:TreatedGoatMilks
-#owl:objectproperty:isAssumedToBeTheSameAsGoatMilk:en:goat's milk
-#owl:objectproperty:contains:en:water
-#owl:objectproperty:contains:en:butterfat
 
 # RAW SHEEPS MILK - milk produced by female sheep before any treatment
 
@@ -1855,10 +1666,6 @@ el:ακατέργαστο πρόβειο γάλα
 fr:lait cru de brebis
 nl:rauwe schapenmelk
 allergens:fr:_lait_ cru de brebis
-#owl:objectproperty:isSourcedFromMammalSheep:en:Sheep
-#owl:class:MammalMilks
-#owl:objectproperty:contains:en:water
-#owl:objectproperty:contains:en:butterfat
 
 # SHEEPS MILK - raw sheeps milk that probably has been treated (pasteurisation)
 
@@ -1870,11 +1677,6 @@ it:latte di pecora
 nl:schapenmelk
 wikidata:en:Q2736146
 allergens:fr:_lait_ de brebis
-#owl:objectproperty:isSourcedFromMammalSheep:en:Sheep
-#owl:class:TreatedSheepMilks
-#owl:objectproperty:isDerivedByPasteurizationFromMammalMilkSheep
-#owl:objectproperty:contains:en:water
-#owl:objectproperty:contains:en:butterfat
 
 # PASTEURIZED SHEEPS MILK - raw sheeps milk that has been treated (pasteurisation)
 
@@ -1884,12 +1686,6 @@ fr:lait de brebis pasteurisé, lait pasteurisé de brebis
 de:pasteurisierter Schafsmilch
 nl:gepasteuriseerde schapenmelk
 allergens:fr:_lait_ pasteurisé de brebis
-#owl:objectproperty:isSourcedFromMammalSheep:en:Sheep
-#owl:class:TreatedSheepMilks
-#owl:objectproperty:isDerivedByPasteurizationFromMammalMilkSheep
-#owl:objectproperty::isAssumedToBeTheSameAsSheepsMilk:en:sheep's milk
-#owl:objectproperty:contains:en:water
-#owl:objectproperty:contains:en:butterfat
 
 <en:milk
 fr:lait écrémé concentré sucré
@@ -1907,18 +1703,22 @@ fr:_lait_ et _crème_ pasteurisé
 allergens:fr:_lait_ et _crème_ pasteurisés
 
 <en:milk
+<en:milk powder
 fr:lait en poudre partiellement écrémé
 nl:halfvolle poedermelk
 allergens:fr:_lait_ en poudre partiellement écrémé
 
 <en:milk
+<en:milk powder
 fr:lait en poudre enrichi en matière grasse
 allergens:fr:_lait_ en poudre enrichi en matière grasse
 
 <en:milk
+<en:milk powder
 fr:lait maigre en poudre
 
 <en:milk
+<en:milk powder
 fr:lait écrémé à base de poudre de lait
 allergens:fr:_lait_ écrémé à base de poudre de _lait_
 
@@ -2181,7 +1981,7 @@ allergens:fr:poudre de _lactose_
 
 # WHEY is the liquid remaining after milk has been curdled and strained. 
 
-<en:Milk protein
+<en:milk
 en:whey
 # als:Schotte, Sirte, Sirmende, Chääsmilch
 an:Siero de leit
@@ -2274,30 +2074,6 @@ en:Concentrated whey
 fr:lactosérum concentré
 nl:Geconcentreerde wei
 allergens:fr:_lactosérum_ concentré
-
-# WHEY PROTEIN is a mixture of globular proteins isolated from whey, the liquid material created as a by-product of cheese production.
-
-<en:Milk protein
-en:Whey protein
-ar:بروتين مصل اللبن
-# ckb:پڕۆتینی پاڵاوتەی شیر
-de:Molkenprotein
-es:Proteína de suero de leche
-fa:پروتیین وی
-fr:protéine de lactosérum
-hi:मट्ठा प्रोटीन
-id:Protein susu
-it:Proteine del siero del latte, WP
-ja:乳清タンパク質
-nl:Weiproteïnepreparaat, Weiproteïne
-pt:Proteína do soro do leite
-sv:Vassleprotein
-th:โปรตีนหางนม
-uk:Сироватковий білок
-vi:Đạm váng sữa
-zh:乳清蛋白
-wikipedia:en:https://en.wikipedia.org/wiki/Whey_protein
-allergens:fr:protéines de _lactosérum_
 
 # CREAM is a dairy product composed of the higher-butterfat layer skimmed from the top of milk before homogenization.
 
@@ -3096,270 +2872,1081 @@ fr:viande de bœuf
 
 fr:extrait de viande de bœuf
 
-# STARCHES / AMIDON
+# STARCH is a polymeric carbohydrate consisting of a large number of glucose units joined by glycosidic bonds. 
 
 en:starch
+# als:Stärchi
+an:Amelón
+ar:نشا
+# ast:Almidón
+# azb:نشاسته
+az:Nişasta
+ba:Крахмал
+be:Крухмал
+bn:স্টার্চ
+bs:Škrob
+ca:Midó
+cs:Škrob
+da:stivelse
+de:Stärke
+el:άμυλο
+es:almidón
+et:Tärklis
+eu:Almidoi
+fa:نشاسته
+fi:Tärkkelys
 fr:amidon
-
-<en:starch
-fr:amidon de blé
-allergens:fr:amidon de _blé_
-
-<en:starch
-en:corn starch, maize starch
-fr:amidon de mais, amidon de maïs
+fy:Stiselmoal
+ga:Stáirse
+he:עמילן
+hi:मंड
+hr:Škrob
+hu:Keményítő
+hy:Օսլա
+id:Amilum
+io:Amilo
+is:Sterkja
+it:Amido
+ja:デンプン
+ka:სახამებელი
+kk:Крахмал
+ko:녹말
+la:Amylum
+li:Zètmael
+lt:Krakmolas
+lv:Ciete
+mk:Скроб
+ml:അന്നജം
+mn:Цардуул
+ms:Kanji
+# nap:Posema
+nl:zetmeel
+nn:Stive
+no:stivelse
+oc:Amidon
+pa:ਸਟਾਰਚ
+pl:Skrobia
+pt:amido
+qu:Miqu
+ro:Amidon
+ru:Крахмал
+# sco:Stairch
+sv:stärkelse
+sh:Škrob
+sk:Škrob
+sl:Škrob
+sq:Amidoni
+sr:Скроб
+su:Aci
+sw:Wanga
+ta:மாப்பொருள்
+th:แป้ง
+tl:Gawgaw
+tr:Nişasta
+tt:Kraxmal
+uk:Крохмаль
+ur:نشاستہ
+uz:Kraxmal
+vi:Tinh bột
+yi:קראכמל
+zh:淀粉
+# zh-yue:澱粉
+wikidata:en:Q41534
+wikipedia:https://en.wikipedia.org/wiki/Starch
 
 <en:starch
 en:modified starch, modified starches
+ar:نشا معدل
+bg: Модифицирано нишесте
+cs: Modifikovaný škrob
+da:modificeret stivelse, Fugtighedsbevarende middel
+de:modifizierte Stärke
+el:τροποποιημένο άμυλο
+es:almidón modificado
+et:modifitseeritud tärklis
+fi:modifiotu tärkkelys
 fr:amidon transformé, amidon modifié, amidons modifiés, amidons transformés
+ga: Stáirse modhnaithe
+hu: Módosított keményítő
+is:umbreytt sterkja
+it:amido modificato, Amidi modificati
+ja:加工デンプン
+lt:modifikuotas krakmolas
+lv: Modificēta ciete
+mt: Lamtu mmodifikat
+nl:gemodificeerd zetmeel, Gemodificeerde zetmelen
+no:modifisert stivelse
+pl:modyfikowana skrobia, Skrobia modyfikowana
+pt:amido modificado
+ro:amidon modificat
+sk: Modifikovaný škrob
+sl:modificiran skrob
+sv:modifierad stärkelse, Fuktighetsbevarande medel
+zh:化製澱粉
+wikidata:en:Q415766
+wikipedia:https://en.wikipedia.org/wiki/Modified_starch
 
-<en:modified starch
-fr:amidon transformé de pommes de terre
+# Corn starch or maize starch is the starch derived from the corn (maize) grain.
 
-<en:modified starch
-fr:amidon transformé de manioc
-
-<en:modified starch
-fr:amidon transformé de tapioca
-
-<en:modified starch
-fr:amidon transformé de pomme de terre
-
-<en:modified starch
-fr:amidon transformé de riz
+<en:starch
+en:corn starch, corn starch, maize starch
+ar:نشا الذرة
+ca:Midó de blat de moro
+da:majsstivelse
+eo:Maizamelo
+es:almidón de maíz, Maicena
+eu:Maizena
+de:Maisstärke
+fa:نشاسته ذرت
+fi:Maissitärkkelys
+fr:amidon de mais, amidon de maïs, fécule de mais, amidon natif de maïs
+he:עמילן תירס
+id:Tepung jagung
+it:Amido di mais
+ko:옥수수 녹말
+lt:Kukurūzų krakmolas
+ms:Tepung jagung
+nl:maïszetmeel
+no:maisstivelse, Maisenna
+pt:amido de milho
+sv:stärkelse av majs, Majsstärkelse
+th:แป้งข้าวโพด
+tr:Mısır nişastası
+uk:Кукурудзяний крохмаль
+# war:Gawgaw
+zh:玉米澱粉
+# zh-yue:粟粉
+wikipedia:https://en.wikipedia.org/wiki/Corn_starch
 
 <en:corn starch
 fr:amidon de maïs cireux
-
-<en:corn starch
-fr:amidon de maïs cireux modifié
-
-<en:starch
-fr:amidon de pois
-
-<en:starch
-fr:amidon de manioc
-
-<en:starch
-en:potato starch
-es:fécula de patata
-nl:aardappelzetmeel
-de:Kartoffelstärke
-fr:amidon de pommes de terre, amidon de pomme de terre, fécule de pommes de terre
-
-<en:starch
-fr:amidon de froment
-allergens:fr:amidon de _froment_
-
-<en:starch
-en:tapioca starch
-fr:amidon de tapioca
-
-<en:starch
-fr:amidon de riz
-
-<en:modified starch
-<en:potato starch
-fr:amidon modifié de pomme de terre, amidon modifié de pommes de terre, amidon de pomme de terre modifié
-
-<en:modified starch
-<en:tapioca starch
-fr:amidon modifié de tapioca
-
-<en:modified starch
-fr:amidon modifié de manioc
-
-<en:modified starch
-<en:corn starch
-fr:amidon modifié de maïs cireux
-
-<en:modified starch
-<en:potato starch
-fr:amidon modifié de pommes de terre, amidon modifié de pomme de terre
-
-<en:starch
-fr:fécule de tapioca
-
-<en:starch
-fr:fécule de mais
-
-<en:starch
-fr:fécule de pomme de terre, fécule de pommes de terre
-
-<en:starch
-fr:fécule de manioc
-
-<en:starch
-<en:potato starch
-en:modified potato starch
-fr:amidon de pommes de terre modifié
-
-<en:starch
-fr:amidons de blé et de pomme de terre
-allergens:fr:amidons de _blé_ et de pomme de terre
-
-<en:starch
-fr:amidon modifié de blé
-allergens:fr:amidon modifié de _blé_
-
-<en:starch
-fr:amidon transformé de blé
-allergens:fr:amidon transformé de _blé_
-
-<en:starch
-en:modified tapioca starch
-fr:amidon de tapioca modifié
-
-<en:starch
-fr:amidon modifié de maïs visqueux
-
-<en:starch
-fr:amidon de blé partiellement modifié
-
-<en:starch
-fr:amidon natif de maïs
-
-<en:starch
-en:modified rice starch
-fr:amidon de riz modifié, amidon transformé de riz, amidons transformés de riz, amidon modifié de riz
 
 <en:corn starch
 <en:modified starch
 en:modified corn starch, modified corn starches
 fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de maïs, amidon de maïs modifié, amidons modifié de maïs, amidon de maïs modifié, amidons modifiés de maïs
 
+<en:modified starch
+<fr:amidon de maïs cireux
+fr:amidon modifié de maïs cireux, amidon de maïs cireux modifié
+
 <en:starch
+<en:corn starch
+fr:amidon modifié de maïs visqueux
+
+# Potato starch is starch extracted from potatoes.
+
+<en:starch
+en:potato starch
+ar:نشا البطاطا
+ca:Fècula de patata
+da:kartoffelstivelse, Kartoffelmel
+de:Kartoffelstärke, Kartoffelmehl
+es:fécula de patata, Almidón de papa
+et:Kartulitärklis
+fi:Perunajauho
+fr:amidon de pommes de terre, amidon de pomme de terre, fécule de pommes de terre, fécule de pomme de terre
+id:Tepung kentang
+it:Fecola di patate
+ja:片栗粉
+ko:감자 녹말
+ms:Kanji kentang
+nl:aardappelzetmeel, Aardappelmeel
+nn:Potetmjøl
+no:potetstivelse, Potetmel
+pl:Mąka ziemniaczana
+pt:fecula de batata
+ru:Картофельный крахмал
+sv:potatismjöl
+uk:Картопляний крохмаль
+zh:太白粉
+wikipedia:https://en.wikipedia.org/wiki/Potato_starch
+wikidata:en:Q715160
+
+<en:modified starch
+<en:potato starch
+en:modified potato starch
+de:modifizierte Kartoffelstärke
+fr:amidon modifié de pomme de terre, amidon modifié de pommes de terre, amidon de pomme de terre modifié, amidon transformé de pommes de terre, amidon de pommes de terre modifié, amidon transformé de pomme de terre
+
+<en:modified starch
+fr:amidon transformé de manioc
+
+<en:starch
+fr:amidon de pois
+de:Erbsenstärke
+nl:erwtenzetmeel
+
+# Tapioca is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
+
+<en:starch
+en:tapioca starch, tapioca
+da:tapiokastivelse
+de:Tapiocastärke
+el:άμυλο ταπιόκαζ, Ταπιόκα
+es:almidón de tapioca
+fr:amidon de tapioca, fécule de tapioca, tapioca, amidon de manioc, fécule de manioc, manioc
+it:amido di tapioca
+nl:tapioca zetmeel
+sv:tapiokastärkelse
+wikipedia:https://en.wikipedia.org/wiki/Tapioca
+
+<en:modified starch
+<en:tapioca starch
+en:modified tapioca starch
+de:modifizierte Tapiokastärke
+fi:muunnettu tapiokatärkkelys
+fr:amidon modifié de tapioca, amidon transformé de tapioca, amidon de tapioca modifié, amidon modifié de manioc
+nl:gemodificeerd tapiocazetmeel
+pt:amido modificado de tapioca
+
+<en:starch
+en:wheat starch
+fr:amidon de froment, amidon de blé
+de:Weizenstärke
+el:άμυλο σιταριού
+es:almidón de trigo
+it:amido di frumento, 
+nl:tarwezetmeel
+pt:amido de trigo
+se:pšenični skrob
+sv:vetestärkelse
+allergens:fr:amidon de _froment_
+
+<en:modified starch
+<en:wheat starch
+en:modified wheat starch
+de:modifizierte Weizenstärke
+fr:amidon modifié de blé, amidon transformé de blé
+it:amido modificato de fromento
+nl:gemodificeerd tarwezetmeel
+allergens:fr:amidon modifié de _blé_
+allergens:fr:amidon transformé de _blé_
+
+<en:modified starch
+<en:wheat starch
+fr:amidon de blé partiellement modifié
+
+<en:starch
+<en:rice
+en:rice starch
+es:amido de arroz
+fr:amidon de riz
+it:amido di riso
+nl:rijstzetmeel
+pt:amido de arroz
+sv:risstärkelse
+
+<en:modified starch
+<en:rice
+<en:rice starch
+en:modified rice starch
+fr:amidon de riz modifié, amidon transformé de riz, amidons transformés de riz, amidon modifié de riz
+it:amido modificato di riso
+nl:gemodificeerd rijstzetmeel, getransformeerd rijst zetmeel
+pt:amido de arroz modificado
+sv:modifierad risstärkelse
+
+<en:modified starch
+<en:corn starch
+<en:potato starch
 fr:amidons modifiés de maïs et de pomme de terre
 
-# Palm oil, palm kernel oil
+<en:starch
+<en:potato starch
+fr:amidons de blé et de pomme de terre
+allergens:fr:amidons de _blé_ et de pomme de terre
 
-en:palm or palm kernel oil, palm oil or palm kernel oil
-fr:huile de palme ou de palmiste, huile de palme ou huile de palmiste
+# Cooking oil is plant, animal, or synthetic fat used in frying, baking, and other types of cooking
 
-<en:palm or palm kernel oil
+en:oil, cooking oil
+fr:huiles
+
+# Vegetable oils, or vegetable fats, are fats extracted from seeds, or less often, from other parts of fruits.
+# In some languages one distinghuishes between edible and non-edible oils
+
+<en:oil
+en:oil and vegetable fat
+de:pflanzliche Öle und Fette
+es:aceites y grasas vegetales
+fr:huile et graisse végétale, huiles et graisses végétales, graisses et huiles végétales, graisse et huile végétales, huiles et matières grasses végétales, huile et graisses végétales, huile et graisse végétale, graisse et huiles végétales, huile et graisse végétales, graisses et huile végétales, huiles végétales hydrogénées et non hydrogénées
+nl:plantaardige vetten en olie
+pl:tłuszcz olej roślinne
+pt:gordura e óleo vegetais
+
+# In common usage, vegetable oil may refer exclusively to vegetable fats which are liquid at room temperature
+
+<en:oil and vegetable fat
+en:vegetable oil, vegetal oil, vegetal oils, vegetable oils
+af:Plantaardige olie
+ar:زيت نباتي
+az:Bitki yağı
+be:Алеі
+bg:Растително масло
+ca:Oli vegetal
+da:vegetabilisk olie
+de:Pflanzenöle
+eo:Legoma oleo
+es:Aceite vegetal
+et:Taimeõli
+eu:Landare-olio
+fa:دانه‌های روغنی
+fi:Kasviöljy
+fr:huile végétale, huiles végétales, huiles végétale, huile végétales
+gl:Aceite vexetal
+hi:वनस्पति तेल
+id:Minyak nabati
+is:Grænmetisolía
+it:Olio vegetale
+ja:植物油
+ko:식물성 기름
+ky:Өсүмдүк майлары
+ml:സസ്യ എണ്ണകൾ
+mr:वनस्पती तूप
+ms:Minyak sayur
+nl:plantaardige olie, Spijsolie
+nn:vegetabilisk olie
+pl:Oleje roślinne
+pt:Óleo vegetal
+ro:Ulei vegetal
+# roa-rup:Untulemnu
+ru:Растительное масло
+# sco:Vegetable ile
+sh:Biljno ulje
+sr:Биљно уље
+sv:vegetabilisk olja
+th:น้ำมันพืช
+tr:Bitkisel yağ
+uk:Рослинні жири й олії
+vi:Dầu thực vật
+zh:植物油
+wikipedia:https://en.wikipedia.org/wiki/Vegetable_oil
+
+<en:oil and vegetable fat
+en:vegetable fat, vegetal fat, vegetable fats
+da:vegetabilsk fedt
+de:pflanzliche Fette
+el:φυτικά λίπη
+es:grasas vegetales
+fi:kasvirasva
+fr:matière grasse végétale, matières grasses végétales, matière graisse végétale, graisse végétale, graisses végétales
+is:jurtafeiti
+nl:plantaardige vetten
+nn:vegetabilisk fett
+pt:gorduras vegetais
+sv:vegetabiliska fetter
+
+<en:oil and vegetable fat
+en:vegetable fat/oil non hydrogenated
+de:Pflanzenfett/-öl ungehärtet
+fr:graisse/huile végétale non hydrogénée, huiles et graisses végétales non hydrogénées
+
+<en:vegetable fat
+en:hydrogenated vegetable fat
+fr:graisse végétale hydrogénée, matière grasse végétale hydrogénée
+
+<en:hydrogenated vegetable fat
+en:fully hydrogenated vegetable fat
+de:komplett hydriertes Pflanzenfett
+es:grasa vegetal totalmente hidrogenada
+fr:graisse végétale totalement hydrogénée
+it:grassi vegetali totalmente idrogenati
+nl:volledig gehydrogeneerde plantaardig vet
+
+<en:vegetable fat
+en:non-hydrogenated vegetable fats, non-hydrogenated vegetable fat
+fr:matières grasses végétales non hydrogénées, matière grasse végétale non hydrogénée
+
+<en:vegetable oil
+en:non-hydrogenated vegetable oils, non hydrogenated vegetable oil
+es:aceite vegetales no hidrogenados
+fr:huiles végétales non hydrogénées, huile végétale non hydrogénée
+it:oli vegetali non idrogenati
+
+<en:vegetable oil
+fr:huile végétale hydrogénée
+de:pflanzliches Öl gehärtet
+
+# Palm oil is an edible vegetable oil derived from the mesocarp (reddish pulp) of the fruit of the oil palms
+
+<en:palm or palm kernel oil, palm oil or palm kernel oil
 <en:vegetable oil
 en:palm oil
-es:aceite de palma
+ar:زيت النخيل
+# ast:Aceite de palma
+# azb:پالم یاغی
+be:Пальмавы алей
+bg:Палмово масло
+ca:Oli de palma
+cs:Palmový olej
+cz:palmu olejovou
+de:Palmöl
+eo:Palmoleo
+es:aceite de palma, grasa de palma
+et:Palmiõli
+eu:Palmondo olio
+fa:روغن نخل
+fi:Palmuöljy
 fr:huile de palme, huile végétale de palme
+gl:Aceite de palma
+ga:Ola phailme
+he:שמן דקלים
+hi:ताड़ का तेल
+hr:Palmino ulje
+hu:Pálmaolaj
+id:Minyak sawit
+it:olio di palma
+ja:パーム油
+ka:პალმის ზეთი
+kg:Muamba
+ko:팜유
+ln:Mafúta ma mbíla
+lt:Alyvpalmių aliejus
+mk:Палмино масло
+ml:പാമോയിൽ
+ms:Minyak kelapa sawit
+nl:palmolie
+nn:Palmeolje
+no:Palmeolje
+oc:Òli de palma
+pl:Olej palmowy
+pt:óleo de palma, óleo de palmeira
+ro:Ulei de palmier
+ru:Пальмовое масло
+# sco:Paum ile
+sk:Palmový olej
+sr:Палмино уље
+sv:Palmolja
+sw:Mawese
+ta:செம்பனை எண்ணெய்
+te:పామాయిల్
+th:น้ำมันปาล์ม
+tr:Palm yağı
+tt:Пальма мае
+uk:Пальмова олія
+vi:Dầu cọ
+zh:棕榈油
+# zh-yue:棕櫚油
 wikidata:en:Q231458
+wikipedia:https://en.wikipedia.org/wiki/Palm_oil
 
-<en:palm or palm kernel oil
-en:palm kernel oil, palm kernel
-fr:huile de palmiste, huile végétale de palmiste, palmiste
-
-<en:palm oil
-<en:palm kernel oil
-en:palm and palm kernel oil
-fr:huile de palme et de palmiste
-
-<en:palm kernel oil
-en:palm kernel fat
-fr:graisse de palmiste, matière grasse de palmiste
+# palm olein, the liquid fraction of palm oil
 
 <en:palm oil
-en:palmoleil, palm olein
+en:palm olein, palmoleil
 fr:Oléïne de palme
 
+# Palm stearin is the solid fraction of palm oil that is produced by partial crystallization at controlled temperature
+
 <en:palm oil
+en:Palm stearin
 fr:Stéarine de palme
 de:Palmstearin
 it:Stearina di palma
+wikipedia:https://en.wikipedia.org/wiki/Palm_stearin
+wikidata:en:Q7128109
 
-<en:palm oil
-fr:Acides gras de palme
+# Seems we can merge these into palm oil
 
 <en:palm oil
 en:palm
+es:palma
 fr:palme
+it:palma
+nl:palm
+pl:palma
+sk:palma
+
+# This is the same as palm oil. Merge?
 
 <en:palm oil
 en:palm fat
-fr:graisse végétale de palme, graisse de palme, matière grasse de palme, matière grasse végétale de palme
+fr:graisse végétale de palme, graisse de palme, matière grasse de palme, matière grasse végétale de palme, Acides gras de palme
+da:palmfedtstof
+de:Palmfett
+es:grasa de palma
+fi:palmurasva
+it:grasso di palma
+nl:palmvet
+pt:gordura de palma
+se:palmina mast
+sv:palmfett
 
 <en:palm oil
 en:non-hydrogenated palm oil
 nl:niet gehydrogeneerde palmolie, niet-gehydrogeneerde palm
-de:ungehärtetes Palmöl
+de:ungehärtetes Palmöl, nicht-hydriertes Palm
 es:aceite de palma no hidrogenado
 fr:huile de palme non hydrogénée
+nl:niet-gehydrogeneerde palm, niet gehydrogeneerde palmolie
 
 <en:palm oil
 en:hydrogenated palm oil
+de:teilweise gehärtetes Palmöl
+es:aceite de palma no hidrogenado
 fr:huile de palme hydrogénée
+nl:gehydrogeneerde palmolie
 
 <en:palm oil
 fr:huile de palme partiellement hydrogénée
+de:teilweise hydriertes Palmöl
+nl:gedeeltelijk geharde palmolie
+
+# Palm kernel oil is an edible plant oil derived from the kernel of the oil palm Elaeis guineensis.[1] It should not be confused with the other two edible oils derived from palm fruits: palm oil, extracted from the pulp of the oil palm fruit, and coconut oil, extracted from the kernel of the coconut.
+
+<en:palm or palm kernel oil, palm oil or palm kernel oil
+en:palm kernel oil, palm kernel
+bs:Ulje palminog jezgra
+ca:Oli de palmist
+cs:Palmojádrový olej
+de:Palmkernöl
+es:palmiste
+eu:Palmiste olio
+fa:روغن هسته پالم
+fr:huile de palmiste, huile végétale de palmiste, palmiste, graisse de palmiste
+id:Minyak inti kelapa sawit
+kn:ಪಾಮ್ ಕೆರ್ನಲ್ ಎಣ್ಣೆ
+ln:Mafúta ma ndiká
+lt:Alyvpalmių sėklų aliejus
+ms:Minyak isirong sawit
+pt:palmiste
+ru:Пальмоядровое масло
+sv:Palmkärnolja
+te:పామ్‌కెర్నల్‌ నూనె
+uk:Пальмоядрова олія
+wikidata:en:Q1960534
+wikipedia: https://en.wikipedia.org/wiki/Palm_kernel_oil
+
+<en:palm kernel oil
+fr:palmiste totalement hydrogénée
+
+# The and/or ingredients, also used as a container
+
+<en:palm kernel oil
+<en:palm oil
+en:palm and palm kernel oil
+fr:huile de palme et de palmiste
+nl:palmolie en palmkernolie
+
+<en:palm kernel oil
+<en:palm oil
+en:palm or palm kernel oil, palm oil or palm kernel oil
+fr:huile de palme ou de palmiste, huile de palme ou huile de palmiste
+nl:palmolie of palmkernolie
+
+# Coconut oil, or copra oil, is an edible oil extracted from the kernel or meat of mature coconuts harvested from the coconut palm (Cocos nucifera). 
 
 <en:vegetable oil
-en:coconut oil, copra oil, copra
-fr:huile de coco, huile de noix de coco, huile de coprah, coprah
+en:coconut oil, copra oil, copra, coconut fat
+ar:زيت جوز الهند
+bg:Кокосово масло
+bn:নারিকেল তেল
+cs:Kokosový olej
+da:kokosolie
+de:Kokosfett
+es:aceite de coco
+et:Kookosõli
+eu:Koko olio
+fa:روغن نارگیل
+fi:Kookosöljy
+fr:huile de coco, huile de noix de coco, huile de coprah, coprah, graisse de coprah, matière grasse de coco, graisse végétale de coprah, graisse végétale de coco, huile végétale de coco
+ga:Aceite de coco
+he:שמן קוקוס
+hi:नारियल तेल
+hr:Kokosovo ulje
+hu:kókuszolaj
+id:Minyak kelapa
+it:olio di cocco
+ja:ヤシ油
+kn:ಕೊಬ್ಬರಿ ಎಣ್ಣೆ
+ko:야자유
+ml:വെളിച്ചെണ്ണ
+mr:खोबरेल तेल
+ms:Minyak kelapa
+my:အုန်းဆီ
+nl:kokosolie
+nn:Kokosfeitt
+no:Kokosolje
+os:Кокосы зети
+pl:Olej kokosowy
+pt:óleo de coco
+ro:Ulei de cocos
+ru:Кокосовое масло
+sa:नारिकेलतैलम्
+# sco:coconut ile
+si:පොල් තෙල්
+sl:Kokosovo olje
+sv:kokosolja
+ta:தேங்காயெண்ணெய்
+te:కొబ్బరి నూనె
+tr:Hindistan cevizi yağı
+uk:Кокосове масло
+vi:Dầu dừa
+zh:椰子油
+# zh-yue:椰油
+wikipedia:https://en.wikipedia.org/wiki/Coconut_oil
+wikidata:Q216235
 
 <en:coconut oil
 fr:huile de coco non hydrogénée
 
 <en:coconut oil
-en:coconut fat
-fr:graisse de coprah, matière grasse de coco, graisse végétale de coprah, graisse végétale de coco
+fr:huile de noix de coco totalement hydrogénée, huile de coprah totalement hydrogénée
 
-
-# AUTRES MATIERES GRASSES VEGETALES
-
-en:vegetable oil, vegetal oil, vegetal oils, vegetable oils
-fr:huiles végétales, huile végétale
-
-<en:vegetable oil
-en:vegetal fat, vegetable fat
-fr:matière grasse végétale, matières grasses végétales, graisse végétale, graisses végétales
-
-fr:graisse végétale totalement hydrogénée
+# Olive oil is a liquid fat obtained from olives (the fruit of Olea europaea; family Oleaceae).
 
 <en:vegetable oil
 en:olive oil
+ar:زيت زيتون
+# arz:زيت زيتون
+# ast:Aceite d'oliva
+az:Zeytun yağı
+ba:Зәйтүн майы
+be:Аліўкавы алей
+bg:Зехтин
+bs:Maslinovo ulje
+ca:Oli d'oliva
+# ceb:Lana sa oliba
+cs:Olivový olej
+da:olivenolie
+de:Olivenöl
+el:Ελαιόλαδο
+eo:Oliv-oleo
+es:aceite de oliva
+et:Oliiviõli
+eu:Oliba olio
+# ext:Aceiti d'oliva
+fa:روغن زیتون
+fi:oliiviöljy
 fr:huile d'olive
-
-<en:vegetable oil
-fr:huile de noix
-allergens:fr:huile de _noix_
-
-<en:vegetable oil
-fr:huile de coton
-
-<en:vegetable oil
-fr:huile de maïs
-
-#<en:vegetable oil
-#fr:huile
+gl:Aceite de oliva
+# hak:Kám-lám-yù
+he:שמן זית
+hi:जैतून का तेल
+hr:Maslinovo ulje
+hu:Olívaolaj
+id:Minyak zaitun
+is:Ólífuolía
+it:olio d'oliva
+ja:オリーブ・オイル
+ka:ზეითუნის ზეთი
+kk:Зәйтүн майы
+kn:ಆಲಿವ್ ಎಣ್ಣೆ
+ko:올리브유
+la:Oleum
+# lfn:Olio de oliva
+lt:Alyvuogių aliejus
+lv:Olīveļļa
+mk:Маслиново масло
+ml:ഒലിവെണ്ണ
+mr:ऑलिव्ह तेल
+ms:Minyak zaitun
+my:သံလွင်ဆီ
+# nap:Uoglio 'e auliva
+# nds:Olivenööl
+nl:olijfolie
+nn:Olivenolje
+no:Olivenolje
+oc:Òli d'oliva
+# olo:Oliivuvoi
+pl:Olej oliwkowy
+pt:Azeite
+ro:Ulei de măsline
+# roa-rup:Untulemnu di masinu
+ru:Оливковое масло
+sa:जिततैलम्
+sc:Ozu de olìa
+# sco:Olive ile
+sh:Maslinovo ulje
+sk:Olivový olej
+sl:Oljčno olje
+sq:Vaji i ullirit
+sr:Маслиново уље
+sv:olivolja
+ta:ஆலிவ் எண்ணெய்
+te:ఆలివ్ నూనె
+th:น้ำมันมะกอก
+tl:Langis ng oliba
+tr:Zeytinyağı
+tt:Зәйтүн мае
+uk:Оливкова олія
+vi:Dầu ô liu
+yi:שמן־זית
+zh:橄欖油
+# zh-yue: 橄欖油
+wikipedia:https://en.wikipedia.org/wiki/Olive_oil
+wikidata:en:Q93165
 
 <en:olive oil
+en:virgin olive oil
+da:jomfruolivenolie
+de:natives Olivenöl
+es:aceite de oliva virgen
 fr:huile d'olive vierge
+it:olio d'oliva vergine
+nl:olijfolie van de eerste persing
 
 <en:olive oil
+fr:huile d'olive extra
+
+<en:virgin olive oil
 en:extra virgin olive oil
-fr:huile d'olive extra vierge, huile d'olive vierge extra
+da:ekstra jomfruolivenolie
+es:aceite de oliva virgen extra
+fr:huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge extra extraite à froid, huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques
+it:olio d'oliva extra vergine, olio extravergine di oliva
+nl:extra olijfolie van de eerste persing
+
+<en:olive oil
+en:organic extra virgin olive oil
+fr:huile d'olive vierge extra bio
+nl:biologische extra olijfolie van de eerste persing
+
+# Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed that is low in erucic acid, as opposed to colza oil.
+# The confusion between colza and rapeseed is also present in the wikipedia translations. It seems to be a us/eu difference.
 
 <en:vegetable oil
-en:canola oil, rapeseed oil
-fr:huile de colza, huile de canola, huile végétale de colza
+en:canola oil
+de:Ölrübsenöl
+fi:Rypsiöljy
+fr:huile de navette, huile de canola
+nl:raapolie, canola olie
+wikipedia:https://en.wikipedia.org/wiki/Canola_oil
+
+# Colza oil or colza is a non-drying oil obtained from the seeds of rapeseed (Brassica napus subsp. napus). Note that this a single rapeseed variety
 
 <en:vegetable oil
+en:colza oil
+bg:рапично олио
+cs:řepkový olej
+de:Rapsöl
+el:κραμβέλαιο
+es:aceite de colza, aceite de nabina
+fi:rapsiöljy, rypsiöljy
+fr:huile de colza, huile végétale de colza, huile colza
+hr:repičino ulje
+hu:repceolaj
+it:olio di colza
+lt:rapšu ella
+lv:rapsų aliejus
+nl:koolzaadolie, plantaardige koolzaadolie, raapolie
+pl:olej rzepakowy, olej roślinny rzepakowy
+pt:óleo de colza
+ro:ulei de rapiță
+ru:рапсове масло
+sk:repkový olej
+sv:rapsolja
+wikipedia:https://en.wikipedia.org/wiki/Colza_oil
+wikidata:en:Q697248
+
+<en:colza oil
+fr:huile de colza non hydrogénée
+
+<en:colza oil
+fr:huile de colza raffinée
+
+<en:colza oil
+fr:huile de colza vierge
+
+# WALNUT OIL is oil extracted from walnuts, Juglans regia
+
+<en:vegetable oil
+en:walnut oil
+ca:Oli de nou de noguer
+de:Walnussöl, Baumnussöl
+es:aceite de nuez
+fr:huile de noix
+gl:Aceite de noz
+hu:Dióolaj
+it:olio di noci, olio di noci comuni
+ja:綿実油
+ko:호두기름
+lt:Graikinių riešutų aliejus
+nl:walnootolie
+no:Valnøttolje
+pl:Olej z orzecha włoskiego
+ru:Ореховое масло
+sr:Орахово уље
+sv:Valnötsolja, Bomullsfröolja
+th:น้ำมันวอลนัต
+zh:核桃油
+allergens:fr:huile de _noix_
+wikipedia:https://en.wikipedia.org/wiki/Walnut_oil
+wikidata:en:Q1434098
+
+# COTTONSEED OIL is a cooking oil extracted from the seeds of cotton plants of various species
+
+<en:vegetable oil
+en:Cottonseed oil
+ar:زيت بذرة القطن
+az:Pambıq yağı
+be:Баваўняны алей
+ca:Oli de llavors de cotó
+de:Baumwollsaatöl, Baumwollsamenöl
+es:aceite de algodón
+fa:روغن پنبه‌دانه
+fr:huile de coton
+id:Minyak biji kapas
+it:olio di semi di cotone
+kn:ಹತ್ತಿಬೀಜದ ಎಣ್ಣೆ
+nl:katoenzaadolie
+pt:Óleo de algodão
+ta:பருத்தி விதை எண்ணெய்
+te:పత్తిగింజల నూనె
+uk:Бавовняна олія
+uz:Paxta moyi
+zh:棉籽油
+wikipedia:https://en.wikipedia.org/wiki/Cottonseed_oil
+wikidata:en:Q811663
+
+# CORN OIL (maize oil) is oil extracted from the germ of corn (maize).
+
+<en:vegetable oil
+en:corn oil, maize oil
+ar:زيت الذرة
+be:Кукурузны алей
+ca:Oli de blat de moro
+de:Maiskeimöl
+el:Αραβοσιτέλαιο
+eo:Maizoleo
+es:Aceite de maíz
+eu:Arto olio
+fa:روغن ذرت
+fi:Maissiöljy
+fr:huile de maïs
+gl:Aceite de millo
+he:שמן תירס
+hu:Kukoricaolaj
+id:Minyak jagung
+it:Olio di semi di mais
+ja:コーン油
+kk:Жүгері майы
+ko:옥수수기름
+lt:Kukurūzų aliejus
+no:Maisolje
+pt:Óleo de milho
+ru:Кукурузное масло
+uk:Кукурудзяна олія
+zh:粟米油
+# zh-yue:粟米油
+wikipedia:https://en.wikipedia.org/wiki/Corn_oil
+wikidata:en:Q856775
+
+# PEANUT OIL, also known as groundnut oil or arachis oil, is a mild-tasting vegetable oil derived from peanuts.
+
+<en:vegetable oil
+en:peanut oil
+ar:زيت فول سوداني
+bg:Фъстъчено олио
+be:Арахісавы алей
+ca:Oli de cacauet
+de:Erdnussöl
+eo:Arakida oleo
+es:Aceite de cacahuete
+eu:Kakahuete olio
+fa:روغن بادام زمینی
+fi:Maapähkinäöljy
 fr:huile d'arachide
+gl:Aceite de cacahuete
+hr:Ulje od kikirikija
+hu:Mogyoróolaj
+id:Minyak kacang
+it:Olio di semi di arachide
+ja:ピーナッツオイル
+kn:ಶೇಂಗಾ ಎಣ್ಣೆ
+ko:땅콩기름
+lt:Žemės riešutų aliejus
+mr:शेंगदाणा तेल
+ms:Minyak kacang
+nl:Pindaolie
+nn:Jordnøttolje
+no:Peanøttolje
+pl:Olej arachidowy
+pt:Óleo de amendoim
+sv:Jordnötsolja
+ta:கடலையெண்ணெய்
+te:వేరుశనగ నూనె
+# wuu:花生油
+zh:花生油
+# zh-min-nam:Thô͘-tāu-iû
+# zh-yue:花生油
 allergens:fr:huile d'_arachide_
+wikidata:en:Q265878
+wikipedia:https://en.wikipedia.org/wiki/Peanut_oil
+openfoodfacts:https://world.openfoodfacts.org/ingredient/peanut-oil/
 
-<en:vegetal oil
-fr:graisses et huiles végétales
+# SESAME OIL is an edible vegetable oil derived from sesame seeds.
 
 <en:vegetable oil
 en:sesame oil
+ar:زيت السمسم
+be:Кунжутавы алей
+bg:Сусамово олио
+ca:Oli de sèsam
+cs:Sezamový olej
+de:Sesamöl
+dv:ތިލެޔޮ
+el:Σησαμέλαιο
+es:aceite de sésamo
+et:Seesamiõli
+eu:Sesamo olio
+fa:روغن کنجد
+fi:Seesamiöljy
 fr:huile de sésame
+hi:तिल का तेल
+hr:Sezamovo ulje
+hu:Szezámolaj
+hy:Քունջութի ձեթ
+id:Minyak wijen
+is:Sesamolía
+it:Olio di sesamo, Olio di semi di sesamo
+ja:ごま油
+kk:Күнжіт майы
+kn:ಎಳ್ಳೆಣ್ಣೆ
+ko:참기름
+lt:Sezamų aliejus
+ml:നല്ലെണ്ണ
+ms:Minyak bijan
+nl:Sesamolie
+nn:Sesamolje
+no:Sesamolje
+os:Кунжуты зети
+pl:Olej sezamowy
+ro:Ulei de susan
+ru:Кунжутное масло
+sl:Sezamovo olje
+so:Saliid Macsaro
+sv:Sesamolja
+ta:நல்லெண்ணெய்
+te:నువ్వుల నూనె
+tr:Susam yağı
+uk:Кунжутна олія
+vi:Dầu mè
+zh:芝麻油
+# zh-yue:麻油
 allergens:fr:huile de _sésame_
+wikipedia:https://en.wikipedia.org/wiki/Sesame_oil
+wikidata:en:Q212317
+
+# SOYBEAN OIL is a vegetable oil extracted from the seeds of the soybean (Glycine max). 
 
 <en:vegetable oil
-fr:huile et graisse végétale, huiles et graisses végétales
-
-<en:vegetable oil
-en:soy oil
+<en:soy
+en:soy oil, Soybean oil
+ar:زيت فول الصويا
+bg:Соево олио
+be:Соевы алей
+ca:oli de soia
+cs:sójový olej
+da:Sojaolie
+de:Sojaöl
+eo:Sojoleo
+es:aceite de soja
+eu:soja-olio
+fa:روغن سویا
+fi:Soijaöljy
 fr:huile de soja
+gl:Aceite de soia
+he:שמן סויה
+id:Minyak kedelai
+it:Olio di semi di soia
+ja:大豆油
+ko:콩기름
+lt:Sojų aliejus
+ms:Minyak kacang soya
+nl:sojaolie
+no:soyaolje
+pl:olej sojowy
+pt:óleo de soja
+ru:Соевое масло
+sv:Sojaolja
+uk:Соєва олія
+zh:大豆油
+# zh-min-nan:Toā-tāu-iû
+# zh-yue:豆油
 allergens:fr:huile de _soja_
+wikipedia:https://en.wikipedia.org/wiki/Soybean_oil
+wikidata:en:Q926892
+
+# GRAPE SEED OIL (also called grapeseed oil or grape oil) is pressed from the seeds of grapes, and is thus an abundant by-product of winemaking.
+
+<en:vegetable oil
+en:Grape seed oil
+bg:Олио от гроздови семки
+ca:oli de llavors de raïm
+cs:Hroznový olej
+de:Traubenkernöl
+es:Aceite de pepitas de uva
+eu:Mahats-pipiten olio
+fa:روغن هسته انگور
+fr:huile de pépins de raisin
+he:תרכובת
+hu:Szőlőmagolaj
+id:grape seed oil
+it:Olio di vinaccioli
+ja:グレープシードオイル
+ko:포도씨유
+lt:Vynuogių sėklų aliejus
+nl:druivenpitolie, druivepitolie
+no:Druekjerneolje
+pl:olej z pestek winogron
+pt:Óleo de uva
+ru:Масло виноградных косточек
+zh:葡萄籽油
+wikipedia:https://en.wikipedia.org/wiki/Grape_seed_oil
+wikidata:en:Q898982
+
+# RICE BRAN OIL is the oil extracted from the hard outer brown layer of rice called chaff (rice husk). 
+
+<en:vegetable oil
+<en:rice
+en:Rice bran oil
+ar:زيت نخالة الرز
+bn:চাল তুষ তেল
+ca:Oli de segó d'arròs
+de:Reisöl
+fa:روغن سبوس برنج
+fr:huile de riz, huile de son de riz
+he:שמן סובין אורז
+hi:धान की भूसी का तेल
+it:olio di riso
+ja:こめ油
+kn:ಅಕ್ಕಿತವುಡು ಎಣ್ಣೆ
+ko:겨기름
+lt:Ryžių sėlenų aliejus
+ml:തവിടെണ്ണ
+nl:Rijstolie
+ta:அரிசித் தவிட்டு எண்ணெய்
+te:తవుడు నూనె
+th:น้ำมันรำข้าว
+uk:Рисова олія
+zh:米糠油
+wikidata:en:Q175933
+wikipedia:https://en.wikipedia.org/wiki/Rice_bran_oil
+
+# ILLIPE butter is a vegetable fat from the nut of the Shorea stenoptera tree
+
+<en:vegetable fat
+en:illipe
+de:Illipebutter
+fr:illipé, huile d'illipé, graisse d'illipé
+uk:Ілліпе
+wikidata:en:Q6000160
+wikipedia:https://en.wikipedia.org/wiki/Illipe
+
+# Safflower (Carthamus tinctorius) is a highly branched, herbaceous, thistle-like annual plant. It is commercially cultivated for vegetable oil extracted from the seeds.
+
+<en:vegetable oil
+en:safflower oil
+de:Färberdistelöl
+es:aceite ce cártamo
+fr:huile de carthame
+hu:pórsáfrány olaj
+it:olio di semi di cartamo
+nl:saffloerolie
+pl:olej z krokosza bawierskiego
+ro:ulei de șofrănel
+wikidata:en:Q16642513
 
 <en:vegetable oil
 en:chia oil
@@ -3369,102 +3956,581 @@ nl:chia-olie
 de:Chiaöl
 
 <en:vegetable oil
-en:non-hydrogenated vegetable oils, non hydrogenated vegetable oil
-fr:huiles végétales non hydrogénées, huile végétale non hydrogénée
+en:hazelnut oil
+de:Haselnussöl
+el:λάδι φουντουκιού
+fr:huile de noisette
+it:Olio di nocciole
+nl:hazelnotenolie, hazelnootolie
+allergens:fr:huile de _noisette_
+wikidata:en:Q1112606
+
+# LINSEED OIL, also known as flaxseed oil or flax oil, is a colourless to yellowish oil obtained from the dried, ripened seeds of the flax plant (Linum usitatissimum).
 
 <en:vegetable oil
-fr:huiles et graisses végétales non hydrogénées
+en:linseed oil
+ar:زيت بذر الكتان
+be:Ільняны алей
+ca:oli de llinosa
+cs:Lněný olej
+da:Linolie
+de:Leinöl
+el:Λινέλαιο
+eo:Linoleo
+es:aceite de linaza
+et:Linaõli
+fa:روغن بزرک
+fi:Pellavaöljy
+fr:huile de lin
+fy:Lynoalje
+hu:Lenmagolaj
+it:olio di lino
+ja:亜麻仁油
+kn:ಅಗಸೆ ಎಣ್ಣೆ
+ko:아마인유
+lt:Sėmenų aliejus
+# nap:Uoglio 'e lino
+nl:lijnzaadolie
+nn:Linolje
+no:linolje
+oc:Òli de lin
+pl:olej lniany
+pt:óleo de linhaça
+ro:Ulei de in
+ru:Льняное масло
+sl:Laneno olje
+sv:Linolja
+te:అవిసె నూనె
+th:น้ำมันเมล็ดฝ้าย
+tr:Keten yağı
+tt:Җитен мае
+uk:Лляна олія
+uz:Zigʻir moyi
+vi:Dầu lanh
+zh:亞麻子油
+# zh-yue:亞麻籽油
+wikidata:en:Q818405
+
+# SUNFLOWER OIL is the non-volatile oil pressed from the seeds of sunflower (Helianthus annuus).
 
 <en:vegetable oil
-en:hydrogenated vegetable fat
-fr:graisse végétale hydrogénée, matière grasse végétale hydrogénée
+en:sunflower oil
+ar:زيت زهرة الشمس
+az:Günəbaxan yağı
+be:Сланечнікавы алей
+bg:Слънчогледово олио
+ca:oli de gira-sol
+cs:Slunečnicový olej
+da:solsikkeolie
+de:Sonnenblumenöl
+el:ηλιέλαιο, Ηλιέλαιο
+es:aceite de girasol
+et:Päevalilleõli
+eu:ekilore-olio
+fa:روغن آفتاب‌گردان
+fi:auringokukkaöljy, Auringonkukkaöljy
+fr:huile de tournesol, huile de graines de tournesol, huile tournesol, huile végétale de tournesol
+gl:Aceite de xirasol
+he:שמן חמניות
+hu:napraforgóolaj
+id:Minyak biji bunga matahari
+is:Sólblómaolía
+it:olio di girasole, Olio di semi di girasole
+ja:ひまわり油
+kk:Күнбағыс майы
+kn:ಸೂರ್ಯಕಾಂತಿ ಎಣ್ಣೆ
+ko:해바라기 기름
+lt:Saulėgrąžų aliejus
+mk:Сончогледово масло
+mr:Minyak bunga matahari
+nl:zonnebloemolie
+no:solsikkeolje
+pl:Olej słonecznikowy
+pt:óleo de girassol
+ro:ulei de floarea soarelui, Ulei de floarea-soarelui
+ru:подсолнечное масло
+sa:सूर्यकान्तितैलम्
+sh:Suncokretovo ulje
+sk:Slnečnicový olej
+sl:Sončnično olje
+sq:Vaji i lulediellit
+sr:сунцокретово уље
+sv:solrosolja
+te:పొద్దుతిరుగుడు నూనె
+th:น้ำมันดอกทานตะวัน
+tr:Ayçiçek yağı
+tt:Көнбагыш мае
+uk:Соняшникова олія
+vi:Dầu hướng dương
+zh:葵花籽植物油
+wikipedia:https://en.wikipedia.org/wiki/Sunflower_oil
+wikidata:en:Q94787
 
-<en:hydrogenated vegetable fat
-fr:palmiste totalement hydrogénée
+# Hydrogenation is a chemical process by adding hydrogen to liquid vegetable oils, so it would remain solid at room temperature
+
+<en:sunflower oil
+en:partially hydrogenated sunflower oil
+es:aceite de girasol parcialmente hidrogenado
+fr:huile de tournesol partiellement hydrogénée
+nl:zonnebloemolie gedeeltelijk gehard
+de:teilweise gehärtetes Sonnenblumenöl 
+
+<en:sunflower oil
+en:fully hydrogenated sunflower oil
+es:aceite de girasol totalmente hidrogenado
+fr:huile de tournesol entièrement hydrogénée
+nl:zonnebloemolie geheel gehard
+de:ganz gehärtetes Sonnenblumenöl
+
+<en:sunflower oil
+en:non-hydrogenated sunflower oil 
+es:aceite de girasol no hidrogenado
+fr:huile de tournesol non hydrogénée, huile végétale de tournesol non hydrogénée
+nl:zonnebloemolie ongehard
+de:ungehärtetes Sonnenblumenöl
+
+<en:sunflower oil
+en:refined sunflower oil
+fr:huile de tournesol raffinée
+de:Raffiniertes Sonnenblumenöl
+it:oleo di girasole raffinato
+
+# has a higher oleic oil fraction
+
+<en:sunflower oil
+en:high oleic sunflower oil
+fr:huile de tournesol à haute teneur en acide oléique, huile de tournesol à teneur élevée en acide oléique, huile de tournesol oléique
+nl:high oleic zonnebloemolie
+
+# cold pressed in contrast to chemically treated
+
+<en:sunflower oil
+en:cold pressed sunflower oil
+es:aceite de girasol prensado en frio
+fr:huile de tournesol pressée à froid
+nl:koudgeperste zonnebloemolie
+pt:óleo de girassol prensado a frio
+
+<en:sunflower oil
+<en:organic
+en:organic sunflower oil
+de:biologische Sonnenblumöl
+fr:huile de tournesol bio
+nl:biozonnebloemolie, bio zonnebloemolie
 
 <en:vegetable oil
-en:non-hydrogenated vegetable fats, non-hydrogenated vegetable fat
-fr:matières grasses végétales non hydrogénées, matière grasse végétale non hydrogénée
+<en:sunflower oils
+fr:huile de tournesol vierge
+
+# high oleic fraction
+
+<en:sunflower oil
+fr:huile de tournesol oléique désodorisée
+
+# In current edible oil refining, deodorization is also the process in which free (nonesterifed) fatty acids (in the case of physical refining) and volatile contaminants are stripped and unwanted color pigments are degraded (heat bleaching).
+
+<en:sunflower oil
+en:deodorized sunflower oil
+fr:huile de tournesol désodorisée
+de:desodoriertes Sonnenblumenöl
+es:aceite de girasol desodorizado
+it:deodorato olio di semi di girasole
+nl:ontgeurde zonnebloemolie
+
+# mix of oils
+
+<en:colza oil
+<en:sunflower oil
+fr:huiles végétales de tournesol et de colza, huiles de tournesol et de colza
 
 <en:vegetable oil
-fr:huile végétale hydrogénée
+en:lemon oil
+fr:huile de citron
+
+# ESSENTIAL OIL is a concentrated hydrophobic liquid containing volatile aroma compounds from plants.
 
 <en:vegetable oil
-fr:huile de noix de coco totalement hydrogénée
+en:essential oil
+af:Eteriese olie
+ar:زيت عطري
+# ast:Aceite esencial
+az:Efir yağı
+be:Эфірныя алеі
+bg:Bulgarian	
+bs:Eterično ulje
+ca:Oli essencial
+cs:Czech	
+da:Æterisk olie
+de:Ätherische Öle
+el:Αιθέριο έλαιο
+eo:volatila oleo
+es:aceite esencial
+et:Eeterlikud õlid
+fa:اسانس
+fi:Eteerinen öljy
+fr:huile essentielle
+ga:Bláthola
+gl:Aceite esencial
+he:שמן אתרי
+hi:वाष्पशील तेल
+hr:Eterična ulja
+hu:Hungarian	
+hy:Եթերային յուղ
+id:Minyak atsiri
+io:Esencala oleo
+it:olio essenziale
+ja:精油
+jv:Lenga Atsiri
+kk:Эфир майлары
+ko:방향유
+# lmo:Òi esensiài
+lt:Eterinis aliejus
+lv:Ēteriskās eļļas
+mk:етерично масло
+ml:സുഗന്ധ എണ്ണകൾ
+no:eteriske oljer
+nl:etherische olie
+nn:Norwegian Nynorsk	
+pl:Olejek eteryczny
+pt:óleo essencial
+ro:Ulei esențial
+ru:Эфирные масла
+# sco:essential ile
+sh:Eterično ulje
+si:සගන්ධ තෙල්
+sk:Éterický olej
+sl:Dišavno olje
+sb:Serbian	
+sv:Eterisk olja
+ta:ஆவி எண்ணை
+te:ఆవశ్యక నూనె
+th:น้ำมันหอมระเหย
+tr:Organik hidrosol
+# tyv:Эфирлиг үстер
+uk:Ефірні олії
+uz:Efir moylari
+vi:Tinh dầu
+zh:精油
+wikipedia:https://en.wikipedia.org/wiki/Essential_oil
+wikidata:en:Q170885
 
-<en:vegetable oil
-fr:huile de colza non hydrogénée
-
+<en:essential oil
+en:Lemon Oil
+de:Zitronenöl
 fr:huile essentielle de citron
+it:olio essenziale di limone
+nl:citroenolie
 
+<en:essential oil
+en:orange essential oil
+de:Orangenöl
+es:aceite esencial de naranja
 fr:huile essentielle d'orange
+it:olio essenziale di arancio
+nl:sinaasappelolie
 
-# VINAIGRE
+<en:essential oil
+de:Pfefferminzöl
+fr:huile essentielle de menthe
+it:olio di menta
+nl:pepermuntolie
+sv:pebermynteolie
+
+<en:essential oil
+fr:huile essentielle de coriandre
+nl:korianderolie
+
+<en:essential oil
+fr:huile essentielle de poivre
+nl:peperolie
+
+# FISH OIL is oil derived from the tissues of oily fish
+
+<en:oil
+en:fish oil
+ar:زيت السمك
+az:Balıq yağı
+cs:Rybí tuk
+da:Fiskeolie
+de:Fischöl
+eo:fiŝoleo
+es:Aceite de pescado
+fa:روغن ماهی
+fi:Kalaöljy
+fr:huile de poisson
+he:שמן דגים
+hi:मछली का तेल
+hr:Riblje ulje
+hy:Ձկան յուղ
+id:Minyak ikan
+is:Lýsi
+ja:魚油
+kk:Балық майы
+ko:생선기름
+lt:zivju eļļa
+mk:Рибино масло
+ml:മീനെണ്ണ
+ms:my:ငါးကြီးဆီ
+nl:Visolie
+no:Fiskeolje
+pl:Tran
+sq:Vaji i peshkut
+sv:Fiskolja
+tr:Balık yağı
+uk:Риб'ячий жир
+vi:Dầu cá
+zh:魚油
+allergens:fr:huile de _poisson_
+wikidata:en:Q1786125
+
+# VINAIGRE is a liquid consisting of about 5–20% acetic acid (CH3COOH)[citation needed], water (H2O), and trace chemicals that may include flavorings. 
 
 en:vinegar
-fr:vinaigre
-
-fr:vinegars
-fr:vinaigres
+af:Asyn
+an:Vinagre
+ar:خل
+# arc:ܚܠܐ
+# ast:Vinagre
+az:Sirkə
+be:Воцат
+bg:Оцет
+bn:ভিনেগার
+br:Gwinegr
+ca:Vinagre
+# cdo:Chó
+cs:ocet
+cy:Finegr
+da:Eddike
+de:Essig
+el:Ξίδι
+# eml:Asé
+eo:vinagro
+es:vinagre
+et:Äädikas
+eu:Ozpin
+fa:سرکه
+fi:Etikka
+fr:vinaigre, vinaigres, vinaigre blanc
+# frp:Vinégro
+fy:Jittik
+ga:Fínéagar
+gl:Vinagre
+he:חומץ
+hi:सिरका
+hr:Ocat
+hy:Քացախ
+id:vinegar
+io:Vinagro
+is:Edik
+it:aceto
+ja:酢
+kk:Сірке суы
+kn:ವಿನಿಗರ್
+ko:식초
+la:Acetum
+li:Aek
+# lmo:Asee
+lt:Actas
+lv:Etiķis
+ml:വിനാഗിരി
+ms:Cuka
+# nap:Acito
+no:eddik
+# neds-nl:Edik
+ne:भिनेगर
+nl:azijn
+nn:eddik
+oc:Vinagre
+pa:ਸਿਰਕਾ
+pl:Ocet
+# pnb:سرکہ
+pt:vinagre
+qu:Mama aqha
+ro:Oțet
+ru:уксус
+# rup:Puscâ
+rw:Vinegre
+# sah:Уксуус
+scn:Acitu
+# sco:veenegar
+# sgs:Uksosos
+sh:sirće, Ocat
+si:විනාකිරි
+sk:Ocot
+sl:Kis
+so:Khal
+sr:sirće, Сирће
+sv:Vinäger
+ta:புளிங்காடி
+th:น้ำส้มสายชู
+tg:Suka
+tr:Sirke
+uk:Оцет
+ur:سرکہ
+uz:Sirka
+vec:Axedo
+vi:giấm
+vls:Azyn
+# war:Suoy
+yi:עסיג
+zh:醋
+wikipedia:https://en.wikipedia.org/wiki/Vinegar
 
 <en:vinegar
 en:wine vinegar
+de:Weinessig
+es:vinagre de vino
 fr:vinaigre de vin
+it:aceto di vino
+nl:wijnazijn
 
 <en:wine vinegar
 en:white wine vinegar
+de:Weissweinessig
 fr:vinaigre de vin blanc
-
-<en:vinegar
-en:spirit vinegar
-es:vinagre de alcohol
-fr:vinaigre d’alcool
-nl:alcoholazijn
-de:Branntweinessig
-
-<en:vinegar
-en:cider vinegar
-es:vinagre de sidra
-fr:vinaigre de cidre
-nl:cider azijn
-de:Apfelessig
-
-<en:vinegar
-fr:vinaigre balsamique de modène
-
-<en:vinegar
-fr:vinaigres d'alcool et de vin blanc
-
-<en:vinegar
-en:malt vinegar
-fr:vinaigre de malt
+it:aceto di vino bianco
+nl:witte wijnazijn
 
 <en:vinegar
 en:alcohol vinegar
-fr:vinaigre d'alcool
+dk:lagereddike
+es:vinagre de alcohol
+fi:väkiviinaetikka
+fr:vinaigre d’alcool
+nl:alcoholazijn
+pt:vinagre de álcool
+sv:ättiksprit
+
+# CIDER VINEGAR, a vinegar made from apples, sugar and yeast,
 
 <en:vinegar
-en:rice vinegar
-fr:vinaigre de riz
+en:cider vinegar, apple cider vinegar
+ar:خل التفاح
+bg:Ябълков оцет
+de:Apfelessig
+es:vinagre de sidra, vinagre de sidra de manzana
+fa:سرکه سیب
+fr:vinaigre de cidre, vinaigre de cidre de pomme, vinaigre de pomme
+he:חומץ תפוחים
+it:aceto sidro
+ko:사과식초
+nl:ciderazijn, appelazijn
+pl:Ocet jabłkowy
+ru:Яблочный уксус
+sr:Јабуково сирће
+ta:Apple Cider vinikar
+uk:Яблучний оцет
+vi:Giấm táo
+zh:苹果醋片
+wikidata:en:Q618322
+wikipedia:https://en.wikipedia.org/wiki/Apple_cider_vinegar
 
-<en:vinegar
-en:xeres vinegar
-fr:vinaigre de xérès
+<en:cider vinegar
+en:cider vinegar powder
+es:vinagre de sidra en polvo
+fr:poudre de vinaigre de cidre
+de:Apfelessigpulver
+it:aceto sidro en polvo
+nl:appelazijnpoeder
+
+# Balsamic vinegar is a very dark, concentrated, and intensely flavoured vinegar originating in Italy, made wholly or partially from grape must, grape juice with all the skins, seeds and stems.
 
 <en:vinegar
 en:balsamic vinegar
+ar:خل بلسميك
+bs:Balzamovo sirće
+ca:Vinagre balsàmic
+cs:Balzámový ocet
+de:Aceto balsamico
+eo:Balzamvinagro
+es:Aceto balsámico
+eu:Ozpin baltsamiko
+fa:سرکه بالزامیک
+fi:balsamietikka
 fr:vinaigre balsamique
+it:aceto balsamico
+ja:バルサミコ酢
+ko:발사믹 식초
+lt:Balzaminis actas
+no:balsamico
+nl:balsamico
+pl:Ocet balsamiczny
+pt:Vinagre balsâmico
+ru:Бальзамический уксус
+sv:Balsamvinäger
+uk:Бальзамічний оцет
+zh:意大利香醋
+wikidata:en:Q618322
+wikipedia:https://en.wikipedia.org/wiki/Balsamic_vinegar
+
+<en:balsamic vinegar
+fr:vinaigre balsamique de modène
+
+<en:vinegar
+en:malt vinegar
+de:Malzessig
+fr:vinaigre de malt
+
+<en:malt vinegar
+fr:vinaigre de malt d'orge
+allergens:fr:vinaigre de malt d'_orge_
+
+<en:spirit vinegar
+<en:white whine vinegar
+de:Alkohol- und Weisweinessig
+fr:vinaigres d'alcool et de vin blanc
+it:aceti d'alcool e di vino bianco
+nl:alcohol- en witte wijnazijn
+
+# RICE VINEGAR is a vinegar made from fermented rice
+
+<en:vinegar
+<en:rice
+en:rice vinegar
+de:Reisessig
+ca:vinagre d'arròs
+el:ξύδι ρυζιού
+eo:rizvinagro
+es:vinagre de arroz
+fr:vinaigre de riz
+gl:Vinagre de arroz
+he:חומץ אורז
+id:Cuka beras
+it:Aceto di riso
+ja:米酢
+ko:쌀식초
+nl:rijstazijn
+pl:Ocet ryżowy
+ru:Рисовый уксус
+uk:Рисовий оцет
+zh:米醋
+wikipedia:https://en.wikipedia.org/wiki/Rice_vinegar
+wikidata:en:Q1849012
+
+<en:vinegar
+en:xeres vinegar
+de:Sherry Wein Essig
+fr:vinaigre de xérès
 
 <en:vinegar
 en:table vinegar
+de:Tafelessig
 fr:vinaigre de table
+it:aceto da tavola
+nl:tafelazijn
 
 <en:vinegar
 en:red wine vinegar
+de:Rotweinessig
 fr:vinaigre de vin rouge
+it:aceto di vino rosso
+nl:rode wijnazijn
 
 <en:vinegar
+en:spirit vinegar
+de:Branntweinessig
 fr:vinaigre d'eau-de-vie
+it:aceto di acqua-vite
 
 # Alcools
 
@@ -3601,331 +4667,841 @@ fr:bière
 
 # AROMES
 
-en:flavour, flavor, flavouring, flavoring, aroma, flavours, flavors, flavourings, flavorings, aromas
+en:flavouring, flavour, flavor, flavoring, aroma, flavours, flavors, flavourings, flavorings, aromas
 es:aromas
 fr:arôme, arômes
 nl:aroma's 
 de:Aromen
 
-<en:flavour
-en:natural flavour, natural flavor, natural flavouring, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
+<en:flavouring
+en:natural flavouring, natural flavour, natural flavor, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
 fr:arôme naturel, arômes naturels
 
-<en:flavour
-en:artificial flavour, artificial flavor, artificial flavouring, artificial flavoring
+<en:flavouring
+en:artificial flavouring, artificial flavour, artificial flavor, artificial flavoring
 fr:arôme artificiel, arômes artificiels
 
-<en:artificial flavour
-<en:natural flavour
-en:natural and artificial flavours, natural and artificial flavors, natural and artificial flavouring, natural and artificial flavoring
+<en:artificial flavouring
+<en:natural flavouring
+en:natural and artificial flavouring, natural and artificial flavours, natural and artificial flavors, natural and artificial flavoring
 fr:arômes naturels et artificiels
 
-<en:natural flavour
-fr:arôme naturel de pomme avec autres arômes naturels
+<en:natural flavouring
+en:with other natural flavouring, other natural flavours
+fr:avec autres arômes naturels, autres arômes naturels
 
-<en:natural flavour
-fr:arômes naturels de citron avec autres arômes naturels
+<en:natural flavouring
+fr:arôme naturel d'agrumes, arômes naturels d'agrumes
+de:natürliche Zitrusfruchtaromen
+nl:natuurlijke aroma's van citrusvruchten
 
-<en:natural flavour
+<fr:arôme naturel d'agrumes
+<en:with other natural flavouring
 fr:arômes naturels d'agrumes avec autres arômes naturels
+da:naturlig citrusaroma med andre naturlige aromaer
+de:natürliches Citrus Aroma mit anderen natürlichen Aromen
+fi:luontainen sitrusaromi ja muita luontaisia aromeja
+nl:natuurlijke aroma's van citrusvruchten met andere natuurlijke aroma's
+nn:naturlig sitrusaroma med andre naturlige aromaer
+sv:naturlig citrusarom med andra naturliga aromer
 
-<en:natural flavour
-en:natural pepper flavors
-fr:arômes naturels de poivre
+<en:natural flavouring
+en:natural orange flavouring, natural orange flavor
+de:natürlichen Orangenaroma
+es:aroma de naranja natural
+et:apelsini aroomaine
+fr:arôme naturel d'orange, arômes naturels d'orange
+it:aroma naturale di arancia
+lt:natūralios apelsino kvapiosios medžiagos
+lv:apelsīnu dabīgs aromatizētājs
+nl:natuurlijk sinaasappelaroma
+pt:aroma de laranja natural
 
-<en:natural flavour
-fr:arômes naturels de citron
+<en:natural orange flavouring
+<en:with other natural flavouring
+fr:arômes naturels d'orange avec autres arômes naturels, arôme naturel d'orange avec autres arômes naturels
+de:natürliches Orangenaroma mit anderen natürlichen Aromen
+nl:natuurlijk sinaasappelaroma met andere natuurlijke aroma's
+pl:naturalny aromat pomarańczowy z innymi naturalnymi aromatami
 
-<en:natural flavour
-fr:arôme naturel d'anis étoilé
+<en:flavouring
+en:lemon flavouring
+de:ZitronenAroma
+fr:arôme de citron, arôme citron
+it:aroma di limone
+nl:citroenaroma
 
-<en:natural flavour
-fr:arôme naturel de pamplemousse
+<en:natural flavouring
+<en:lemon flavouring
+en:natural lemon flavouring
+de:natürliches Zitronenaroma
+fr:arôme naturel de citron, arômes naturels de citron
+it:aroma naturale di limone
+nl:natuurlijk citroenaroma
+pt:aroma natural de limão
+ru:натуральный ароматизатор лимон
 
-<en:natural flavour
-en:natural carrot flavor
-fr:arôme naturel de carotte
+<en:with other natural flavouring
+<en:natural flavouring
+<en:natural lemon flavouring
+fr:arôme naturel de citron avec autres arômes naturels, arômes naturels de citron avec autres arômes naturels, arôme naturel de citron et autres arômes naturels
+de:natürliches Zitronenaroma mit anderen natürliche Aromen
+it:aroma naturale di limone con altri aromi naturali
 
-<en:natural flavour
-en:natural apricot flavor
-fr:arôme naturel d'abricot
+<en:natural flavouring
+en:natural lime flavouring
+de:natürliches Limettenaroma
+fr:arôme naturel de citron vert
+it:aroma naturale di lime
+nl:natuurlijk aroma van limoen
 
-<en:natural flavour
-fr:arôme naturel de noisette
-
-<en:natural flavour
-fr:arôme naturel de poivre avec autres arômes naturels
-
-<en:natural flavour
-fr:arôme naturel de curcuma
-
-<en:natural flavour
-fr:arômes naturels d'agrumes
-
-<en:natural flavour
-fr:arôme naturel d'amande amère
-
-<en:natural flavour
-fr:arôme naturel de citron et autres arômes naturels
-
-<en:natural flavour
-fr:arôme naturel d'amande
-allergens:fr:arôme naturel d'_amande_
-
-<en:natural flavour
-en:with other natural flavours
-fr:avec autres arômes naturels
-
-<en:natural flavour
-en:other natural flavours
-fr:autres arômes naturels
-
-<en:natural flavour
-fr:arôme naturel de basilic
-
-<en:natural flavour
-natural flavourfr:arômes naturels de vanille
-
-<en:natural flavour
-en:natural onion flavour
-fr:arôme naturel d'oignon
-
-<en:natural flavour
-fr:arôme naturel de framboise
-
-<en:natural flavour
-fr:arômes naturels d'orange, arôme naturel d'orange
-
-<en:natural flavour
-en:natural vanilla flavour
-fr:arôme naturel de vanille
-
-<en:natural flavour
-en:natural vanilla flavor
-fr:arôme naturel de vanille, arôme naturel vanille
-
-<en:natural flavour
-fr:arôme naturel de vanille de madagascar
-
-<en:natural flavour
-fr:arôme naturel de porc
-
-<en:natural flavour
-fr:arôme naturel de vanille avec autres arômes naturels
-
-<en:natural flavour
-fr:arôme naturel de citron avec autres arômes naturels
-
-<en:natural flavour
-en:natural garlic flavor
-fr:arôme naturel d'ail
-
-<en:natural flavour
-en:natural mint flavor
-fr:arôme naturel de menthe
-
-<en:natural flavour
-en:natural orange flavor
-fr:arôme naturel d'orange
-
-<en:natural flavour
-fr:arôme naturel de citron
-
-<en:natural flavour
-en:natural pepper flavor
-fr:arôme naturel de poivre, arôme naturel poivre
-
-<en:natural flavour
+<en:natural lemon flavouring
+<en:natural lime flavouring
 fr:arôme naturel de citron-citron vert
 
-<en:natural flavour
-en:natural paprika flavor
+<en:natural flavouring
+fr:arôme naturel de pamplemousse
+
+<en:natural flavouring
+en:natural apple flavouring
+fr:arôme naturel de pomme
+nl:natuurlijk appelaroma
+
+<en:natural apple flavouring
+<en:with other natural flavouring
+fr:arôme naturel de pomme avec autres arômes naturels
+
+<en:natural flavouring
+fr:arôme naturel de cassis
+de:natürliches Cassisaroma
+nl:natuurlijk cassisaroma
+
+<en:natural flavouring
+en:natural apricot flavouring, natural apricot flavor
+fr:arôme naturel d'abricot
+
+<en:flavouring
+en:strawberry flavour
+fr:arôme flavouring
+nl:aardbeienaroma
+
+<en:strawberry flavouring
+<en:natural flavouring
+en:natural strawberry flavouring
+fr:arôme naturel de fraise
+nl:natuurlijk aardbeienaroma
+
+<en:natural flavouring
+en:natural raspberry flavouring
+fr:arôme naturel de framboise
+de:natürliches Himbeeraroma
+
+<en:natural flavouring
+en:natural pepper flavouring, natural pepper flavor, natural pepper flavors
+de:natürliches Pfefferaroma
+fr:arôme naturel de poivre, arôme naturel poivre, arômes naturels de poivre
+it:aroma naturale di pepe
+
+<en:natural flavouring
+<en:natural pepper flavouring
+fr:arôme naturel de poivre avec autres arômes naturels
+
+<en:natural flavouring
+en:natural paprika flavor, natural flavor of paprika
 fr:arôme naturel de paprika
 
-<en:natural flavour
-en:natural spice flavour
+<en:natural flavouring
+en:natural spice flavouring
 fr:arôme naturel d'épices
 
-<en:natural flavour
-en:natural cocoa flavour
-fr:arôme naturel de cacao
+<en:natural flavouring
+en:natural flavor of turmeric
+fr:arôme naturel de curcuma
 
-<en:natural flavour
+<en:natural flavouring
+en:natural cocoa flavouring, natural cocoa flavour
+de:natürliches Kakaoaroma
+el:φυσικό άρωμα κακάο
+es:aroma natural de cacao
+fr:arôme naturel de cacao
+it:aroma naturale di cacao
+nl:natuurlijk cacao-aroma
+
+<en:natural flavouring
 fr:arôme naturel de moutarde
 allergens:fr:arôme naturel de _moutarde_
 
-<en:natural flavour
+<en:natural flavouring
 fr:arôme naturel de romarin
 
-<en:natural flavour
-fr:arôme naturel de vanille bourbon
+<en:natural flavouring
+en:natural basil flavouring
+de:natürliches Basilikumaroma
+fr:arôme naturel de basilic
+it:aroma naturale del basilico
 
-<en:natural flavour
-fr:arôme naturel de citron vert
-
-<en:natural flavour
-fr:arôme naturel d'orange avec autres arômes naturels
-
-<en:natural flavour
+<en:natural flavouring
 fr:arôme naturel de café
+nl:natuurlijk koffie aroma
 
-<en:natural flavour
-fr:arômes naturels d'orange avec autres arômes naturels
-
-<en:natural flavour
-en:natural mints flavor
-fr:arôme naturel de menthes
-
-<en:natural flavour
-fr:arôme naturel d'agrumes, arômes naturels d'agrumes
-
-<en:natural flavour
-en:natural apple flavor
-fr:arôme naturel de pomme
-
-<en:natural flavour
-en:natural caramel flavor
+<en:natural flavouring
+en:natural caramel flavouring
+de:natürliches Karamellaroma
 fr:arôme naturel de caramel
+nl:natuurlijk caramelaroma
 
-<en:natural flavour
+<en:natural flavouring
 fr:arôme naturel de céleri
+de:natürliches Selleriearoma
+nl:natuurlijk selderijaroma
 allergens:fr:arôme naturel de _céleri_
 
-<en:natural flavour
-fr:arôme naturel de cassis
+<en:natural flavouring
+en:natural carrot flavouring
+fr:arôme naturel de carotte
 
-<en:natural flavour
-en:natural strawberry flavor
-fr:arôme naturel de fraise
+<en:natural flavouring
+en:natural onion flavouring
+fr:arôme naturel d'oignon
 
-<en:natural flavour
-fr:arôme naturel de vanille avec d'autres arômes naturels
+<en:flavouring
+en:vanilla flavouring
+es:aroma de vainilla
+da:vanilijaroma
+de:VanilleAroma
+fr:arôme vanille, arôme de vanille
+it:aroma di vaniglia
+nl:vanillearoma
+pt:aroma baunilha
 
-<en:natural flavour
+<en:natural flavouring
+en:natural vanilla flavouring
+da:naturlig vanillearoma
+de:natürliches Vanillearoma
+fr:arôme naturel de vanille, arôme naturel vanille, arômes naturels de vanille
+nl:natuurlijk vanillearoma
+no:naturlig vanilijarom
+pl:naturalny aromat wanilii
+sv:naturlig vanilijarom
+
+<en:natural vanilla flavouring
+en:natural organic vanilla flavouring
+da:økologisk naturlig vanillearoma
+de:natürliches biologisches Vanillearoma
+es:aroma natural de vainilla ecólogica
+it:aroma naturale di vaniglia biologica
+nl:natuurlijk aroma van bio vanille
+pt:aroma natural de baunilha biológica
+
+<en:vanilla flavouring
+<en:natural vanilla flavouring
+en:Bourbon vanilla natural flavouring
+fr:arôme naturel de vanille bourbon
+de:natürliches Bourbon Vanille-Aroma, naturliches Bourbon Vanille Aroma
+it:aroma naturale di vaniglia Bourbon
+sv:naturlig vaniljarom
+
+<en:with other natural flavouring
+<en:natural vanilla flavouring
+<en:natural flavouring
+en:natural vanilla flavouring with other natural flavourings
+de:natürliches Vanillearoma mit anderen natürlichen Aromen
+es:aroma natural de vainilla con otros aromas naturales
+fr:arôme naturel de vanille avec d'autres arômes naturels, arôme naturel de vanille avec autres arômes naturels
+nl:natuurlijk vanillearoma met andere natuurlijke aroma's, natuurlijk vanille aroma en andere natuurlijke aroma's
+
+<en:natural flavouring
+<en:natural vanilla flavouring
+fr:arôme naturel de vanille de madagascar
+pt:aroma natural de baunilha de Madagascar
+
+<en:with other natural flavouring
+<en:natural mint flavouring
 fr:arôme naturel de menthe avec autres arômes naturels
+de:natürliches Pfefferminzaroma mit anderen natürlichen Aromen
 
-<en:natural flavour
+<en:natural flavouring
 fr:arôme naturel de thym
 
-<en:natural flavour
+<en:natural flavouring
 fr:arôme naturel de muscade
 
-<en:natural flavour
-fr:arôme naturel de noix de coco
+<en:natural flavouring
+en:natural mint flavouring, natural mint flavours, natural mints flavor
+de:natürliches Minzaroma
+es:aroma natural de menta
+fr:arômes naturels de menthe, arôme naturel de menthe, arôme naturel de menthes
+nl:natuurlijk muntaroma
 
-<en:natural flavour
-en:natural mint flavours
-fr:arômes naturels de menthe
-
-<en:flavour
-en:smoke flavour
+<en:flavouring
+en:smoke flavouring, smoke flavour
+da:røgaroma
+de:Raucharoma
+es:aroma de humo
 fr:arôme de fumée, arôme fumé, arôme fumée
+it:aroma di affumicato
+nl:rookaroma
 
-<en:flavour
-fr:strawberry flavour
-fr:arôme fraise
+<en:natural flavouring
+fr:arôme naturel de noisette
 
-<en:flavour
-en:caramel flavour
+<en:natural flavouring
+fr:arôme naturel d'amande
+de:natürliches Mandelaroma
+it:aroma naturale di mandorle
+allergens:fr:arôme naturel d'_amande_
+
+<en:natural flavouring
+fr:arôme naturel d'amande amère
+
+<en:flavouring
+en:caramel flavouring
 fr:arôme caramel
+nl:caramelaroma
 
-<en:flavour
-en:vanilla flavour
-fr:arôme de vanille, arôme vanille
+<en:natural flavouring
+fr:arôme naturel de porc
 
-<en:flavour
-fr:arôme de citron, arôme citron
+<en:natural flavouring
+en:natural garlic flavouring, natural garlic aroma
+de:natürliches Knoblaucharoma
+fr:arôme naturel d'ail
+ml:natuurlijk knoflookaroma
 
-<en:flavour
+# this is not translated as a flavour in other languages.
+
+<en:flavouring
 fr:arôme de malt d'orge
 allergens:fr:arôme de malt d'_orge_
 
-<en:flavour
+<en:flavouring
+de:Aroma Vanillin
 fr:arôme vanilline
+it:aroma vanillina
 
-<en:flavour
+<en:flavouring
 fr:arôme caféine
 
-<en:flavour
+<en:flavouring
 fr:arôme crabe
+nl:krabaroma
 allergens:fr:arôme _crabe_
 
-<en:flavour
+<en:flavouring
 fr:arôme identique nature
 
-<en:flavour
+<en:flavouring
 en:aniseed aroma
+de:Anisaroma
 es:aroma de anís
 fr:arôme anis
-nl:anijs aroma
-de:Anisaroma
+nl:anijsaroma
 
-<en:flavour
+<en:aniseed aroma
+fr:arôme naturel d'anis étoilé
+de:natürliches Sternanisaroma
+
+<en:flavouring
 fr:arôme framboise
+nl:frambozenaroma
 
-<en:flavour
+<en:flavouring
 fr:arôme fleur d'oranger
+nl:sinaasappelbloemaroma
 
-<en:flavour
-fr:arôme vanille
+<en:flavouring
+en:coconut flavouring
+de:Kokosaroma
+fr:arôme de noix de coco
+it:aroma di cocco
+nl:kokosaroma, kokosnoot-aroma
 
-<en:flavour
-fr:arôme noix de coco
+<en:coconut flavouring
+<en:natural flavouring
+en:natural coconut flavouring
+de:natürliches Kokosaroma
+el:φυσικο άρωμα καρύδας
+es:aroma natural de coco
+fr:arôme naturel de noix de coco
+it:aroma naturale di cocco
+nl:natuurlijk kokosnoot-aroma
 
-# FARINES
+en:cereal
+de:Getreide
+es:cereales
+fr:céréale, céréales
+it:cereali
+nl:granen
+pl:płatki zbożewe
+pt:cereais
 
-en:flours
-fr:farines
+<en:cereal
+en:wholemeal cereal
+fr:céréale complète, céréales complètes
 
-fr:farine
+<en:cereal
+fr:céréales contenant du gluten
 
-en:tapioca flour
-fr:farine de tapioca
+<en:cereal
+fr:céréales biscuitées
 
-fr:farines de blé
+<en:cereal
+fr:crispies de céréales
+
+<en:cereal
+fr:céréales soufflées
+
+<en:cereal
+fr:billettes de céréales
+
+<en:cereal
+fr:céréales extrudées
+
+
+
+
+fr:flocons de céréales
+
+# FLOUR is a powder made by grinding raw grains or roots and used to make many different foods.
+
+en:flour
+fr:farine, farines
+es:harina
+de:Mehl
+af:meel
+ak:Esam
+ar:طحين
+# arc:ܩܡܚܐ
+# ast:fariña
+ay:Aku
+az:un
+# azb:اون
+ba:он
+bar:Mej
+be:мука
+bg:брашно
+# bho:आटा
+# bjn:Galapung
+bm:farinimugu
+bn:আটা
+br:bleud
+ca:farina
+# chr:ᎤᏣᎴᏍᏓ
+co:farina
+cs:mouka
+cv:çăнăх
+cy:blawd
+da:mel
+# dsb:muka
+el:αλεύρι
+eo:faruno
+et:jahu
+eu:irin
+fa:آرد
+fi:jauho
+fo:mjøl
+fur:farine
+fy:moal
+ga:plúr
+gla:flùr
+gl:fariña
+# gsw:Mehl
+gu:આટો
+he:קמח
+hi:आटा
+hr:brašno
+# hsb:muka
+ht:farin
+hu:liszt
+hy:ալյուր
+id:tepung
+ik:Palauvak
+# inh:Хьоар
+io:farino
+is:mjöl
+it:farina
+iu:ᐸᓚᐅᒑᖅ
+ja:穀粉
+jv:glepung
+ka:ფქვილი
+kab:An
+kk:ұн
+km:ម្សៅ
+kn:ಹಿಟ್ಟು
+ko:밀가루
+ku:ar
+ky:ун
+la:Farina
+lb:Miel
+# lez:Гъуьр
+li:mael
+# Lombard:farina
+ln:falíni
+lo:ແປ້ງ
+lt:miltai
+lv:milti
+# mdf:Почф
+mg:koba
+mk:брашно
+ml:മാവു
+mo:гурил
+mr:पीठ
+ms:tepung
+mt:dqiq
+my:မှုန့်
+# nah:Yōltextli
+no:mel
+# nds:mael
+ne:पिठो
+nl:meel
+nn:mjøl
+nv:Akʼáán
+oc:farina
+or:ଅଟା
+os:Ссад
+pa:ਆਟਾ
+# pap:ariña
+pl:mąka
+# lah:آٹا
+pt:farinha
+qu:Hak'u
+rm:farina
+ro:făină
+ru:мука
+# rup:Fârinâ
+rw:fu
+sk:िष्टानि
+# sah:Бурдук
+# scn:farina
+# sco:floor
+# sgs:Miltā
+si:පිටි
+sk:múka
+sl:moka
+so:Bur
+sq:mielli
+sr:брашно
+# srn:bron
+sv:mjöl
+sw:unga
+ta:மாவு
+te:పిండి
+tg:орд
+th:แป้งประกอบอาหาร
+tk:un
+tl:arina
+tr:un
+tt:он
+ug:ئۇن
+uk:борошно
+ur:آٹا
+uz:Un
+No description defined
+# vec:farina
+# vep:Jauh
+vi:bột
+wa:farene
+# war:harina
+wo:sunguf
+yi:מעל
+zh:麵粉
+wikidata:en:Q36465
+wikipedia:https://en.wikipedia.org/wiki/Flour
+
+en:cereal flour
+de:Getreidemehl, Getreidemehle
+fi:jauhot
+fr:farine de céréales, farines de céréales
+it:farine di cereali
+nl:granenmeel
+
+# WHEAT FLOUR is a powder made from the grinding of wheat used for human consumption
+
+<en:cereal flour
+en:wheat flour
+ar:طحين القمح
+bg:пшенично брашно
+bs:pšenično brašno
+cs:pšeničná mouka
+de:Weizenmehl
+el:αλεύρι σίτου
+es:harina de trigo
+et:nisujahu
+eu:Gari-irin
+fa:آرد گندم
+fi:vehnäjauho
+fr:farine de blé, farines de blé, farine de froment
+hr:pšenično brašno
+hu:búzaliszt
+is:hveiti
+it:farina di frumento
+ja:小麦粉
+ko:밀가루
+lt:kviešu milti
+lv:kvietiniai miltai
+mr:कणीक
+ms:Tepung gandum
+nl:tarwemeel, tarwebloem
+nn:hvetemel
+pl:mąka pszenna
+pt:farinha de trigo
+ro:făină de grâu
+ru:Пшеничная мука
+sa:गोधूमपिष्टम्
+sk:pšeničná múka
+sl:psenicna moka
+sq:pšenično brašno
+sv:vetemjöl
+th:แป้งสาลี
+tr:buğday unu
+uk:Борошно пшеничне
+vi:Bột mì
+zh:小麥麵粉
+# zh-min-nan:Mī-hún
+allergens:fr:farine de _blé_
 allergens:fr:farines de _blé_
+allergens:fr:farine de _froment_
+wikipedia:https://en.wikipedia.org/wiki/Wheat_flour
+wikidata:en:Q2249305
 
+<en:wheat flour
+fr:farine de blé malté torréfié
+
+<en:wheat flour
+en:malted wheat flour
+fr:farine de blé maltée
+de:gemaltzen Weizenmehl
+it:farina di grano maltato
+allergens:fr:farine de _blé_ maltée
+
+# the t** is not translated in the ingredients
+
+<en:wheat flour
+fr:farine de blé type 45
+allergens:fr:farine de _blé_ type 45
+
+<en:wheat flour
+fr:farine de blé t65
+nl:tarwemeel T65
+allergens:fr:farine de _blé_ t65
+
+<en:wheat flour
+fr:farine de blé t80
+allergens:fr:farine de _blé_ t80
+
+<en:wheat flour
+fr:farine de blé bio
+nl:biologische tarwemeel
+allergens:fr:farine de _blé_ bio
+
+<en:wheat flour
+en:durum wheat flour
+de:Hartweizenmehl
+es:harina de trigo duro
+fr:farine de blé dur
+it:farina di grano duro
+nl:durum tarwemeel
+de:Hartweizenmehl
+allergens:fr:farine de _blé_ dur
+
+<en:wheat flour
+<en:wholemeal flour
+de:Vollkornweizenmehl
+fr:farine de blé complète, farine de blé complet, farine complète de blé, farine intégrale de blé, farine complète de froment
+it:farina integrale di frumento
+allergens:fr:farine de _blé_ complète
+allergens:fr:farine de _blé_ complet
+allergens:fr:farine complète de _blé_
+allergens:fr:farine intégrale de _blé_
+allergens:fr:farine complète de _froment_
+
+<en:wheat flour
+fr:farine de blé noir
+allergens:fr:farine de _blé_ noir
+
+<en:wheat flour
+en:dextrinated wheat flour
+es:harina de trigo dextrinada
+fr:farine de blé dextrinée
+nl:gedextrineerd tarwemeel
+de:dextriniertes Weizenmehl
+
+<en:wheat flour
+fr:farine de blé fermenté, farine de blé malté, farine de malt, farine de malt de froment
+allergens:fr:farine de _blé_ fermenté
+allergens:fr:farine de _blé_ malté
+allergens:fr:farine de _malt_
+
+<en:wheat flour
+fr:farine mi-blanche
+
+<en:wheat flour
+fr:farine de gonflement de blé
+
+<en:wheat flour
+en:fortified wheat flour
+de:angereichertes Weizenmehl
+fr:farine de blé enrichie
+it:farina di frumento fortificada
+allergens:fr:farine de _blé_ enrichie
+
+<en:wheat flour
+de:Weichweizenmehl
+fr:farine de blé tendre
+it:farina di grano tenero
+allergens:fr:farine de _blé_ tendre
+
+<en:wheat flour
+de:Weissmehl
+fr:farine blanche
+it:farina bianca
+
+<en:cereal flours
+en:wholemeal flour
+fr:farine complète
+de:Vollkornmehl
+it:farina integrale
+nl:volkorenmeel
+
+<en:cereal flour
+en:barley flour
+de:Gerstenmehl
+es:harina de cebada
+fr:farine d'orge
+it:farina d'avena
+nl:gerstemeel
+pt:farinha de cevada
+allergens:fr:farine d'_orge_
+
+<en:wholemeal flour
+<en:barley flour
 en:wholemeal barley flour
 es:harina de cebada integral
-fr:farine complète d’orge
-nl:volkoren gerstmeel
+fr:farine complète d’orge, farine d'orge complète
+nl:volkoren gerstemeel
 de:Gerstenvollkornmehl
 allergens:fr:farine complète d'_orge_
+allergens:fr:farine d'_orge_ complète
 
-fr:farine de caroube
+<en:barley flour
+fr:farine de malt d'orge, farine d'orge malté
+allergens:fr:farine d'_orge_ malté
+allergens:fr:farine de malt d'_orge_
 
-fr:farine de graines de caroube
+<en:barley flour
+fr:farine d'orge malté toasté, farine d'orge maltée torréfiée, farine d'orge malté torréfié
+allergens:fr:farine d'_orge_ malté toasté
+allergens:fr:farine d'_orge_ maltée torréfiée
+allergens:fr:farine d'_orge_ malté torréfié
 
-en:wholemeal spelt flour
-es:harina de espelta integral
-fr:farine complète d’épeautre 
-nl:volkoren speltmeel
-de:Dinkelvollkornmehl
-allergens:fr:farine complète d'_épeautre_
-
-fr:farine de guar
-
+<en:barley flour
 en:dextrinated barley flour
 es:harina de cebada dextrinada
 fr:farine d’orge dextrinée
-nl:gedextrineerd gerstemeel
+nl:gedextrineerd gerstemeel, gedextrineerd gerstmeel
 de:dextriniertes Gerstenmehl 
 
-fr:farine d'orge malté
-allergens:fr:farine d'_orge_ malté
+<en:cereal flour
+en:spelt flour
+de:Dinkelmehl
+es:harina de espelta
+fr:farine d'épeautre
+it:farina di spelta
+nl:speltmeel
+allergens:fr:farine d'_épeautre_
+
+<en:wholemeal flour
+<en:spelt flour
+en:wholemeal spelt flour
+de:Dinkelvollkornmehl
+es:harina de espelta integral
+fr:farine complète d’épeautre
+it:farina integrale di spelta
+nl:volkoren speltmeel
+allergens:fr:farine complète d'_épeautre_
+
+<en:spelt flour
+fr:farine de petit épeautre
+allergens:fr:farine de petit _épeautre_
+
+<en:spelt flour
+en:dextrinated spelt flour
+es:harina de espelta dextrinada
+fr:farine d'épeautre dextrinée
+nl:gedextrineerd speltmeel
+de:dextriniertes Dinkelmehl
+
+<en:spelt flour
+<en:wholemeal flour
+en:wholemeal spelt flour
+fr:farine d'épeautre complète, farine d'épeautre complet
+allergens:fr:farine d'_épeautre_ complète
+allergens:fr:farine d'_épeautre_ complet
+
+<en:cereal flour
+<fr:avoine
+fr:farine d'avoine
+allergens:fr:farine d'_avoine_
+
+<fr:farine d'avoine
+<en:wholemeal flour
+fr:farine d'avoine complète, farine complète d'avoine
+allergens:fr:farine d'_avoine_ complète
+allergens:fr:farine complète d'_avoine_
+
+<en:cereal flour
+fr:farine de sarrasin
+
+<en:cereal flour
+en:rye flour
+fr:farine de seigle
+allergens:fr:farine de _seigle_
+
+<en:rye flour
+<en:wholemeal flour
+en:wholemeal rye flour
+es:flor de harina integral de centeno 
+fr:farine de seigle complet
+nl:volkoren roggemeel
+de:Roggenvollkornmehl
+allergens:fr:farine de _seigle_ complet
+
+<en:rye flour
+en:dextrinated rye flour
+es:harina de centeno dextrinada
+fr:farine de seigle dextrinée
+nl:gedextrineerd roggemeel
+de:dextriniertes Roggenmehl
+
+<en:rye flour
+fr:farine de seigle maltée
+allergens:fr:farine de _seigle_ maltée
+
+<en:cereal flour
+fr:farine de millet
+
+en:amaranth flour
+es:harina de amaranto
+fr:farine d’amarante
+nl:amaranthmeel
+de:Amarantmehl
 
 fr:farine de moutarde
 allergens:fr:farine de _moutarde_
 
-fr:farine complète
 
-fr:farine de lupin
-allergens:fr:farine de _lupin_
+# Is this the same as tapioca starch?
 
-fr:farines de céréales
+<en:flour
+en:tapioca flour
+de:Tapiokamehl
+fr:farine de tapioca, farine de manioc
+it:farina di tapioca
+nl:Tapiokameel, tapioca bloem
+sv:Tapiokamjöl
 
-fr:farine blanche
-
+<en:flour
+<fr:lupin
 en:lupin flour
 es:harina de altramuz
 fr:farine de lupin
@@ -3933,74 +5509,277 @@ nl:lupinemeel
 de:Lupinenmehl
 allergens:fr:farine de _lupin_
 
-fr:farine de graine de guar, farine de graines de guar
-
-fr:farine d'orge maltée
-allergens:fr:farine d'_orge_ maltée
-
-fr:farine d'orge
-allergens:fr:farine d'_orge_
-
-fr:farine de graine de caroube
-
-fr:farine de sarrasin
-
+<en:flour
 fr:farine de fève, farine de fèves
 
-fr:farine d'avoine
-allergens:fr:farine d'_avoine_
-
-fr:farine d'avoine complète
-allergens:fr:farine d'_avoine_ complète
-
-fr:farine complète de blé
-allergens:fr:farine complète de _blé_
-
-fr:farine de malt d'orge
-allergens:fr:farine de malt d'_orge_
-
+<en:flour
+<en:soy
 fr:farine de soja
 allergens:fr:farine de _soja_
 
+<en:flour
 fr:farine de mais
 
+<fr:farine de mais
 en:dextrinated cornmeal
 es:harina de maíz dextrinada
 fr:farine de maïs dextrinée
 nl:gedextrineerd maïsmeel
 de:dextriniertes Maismehl
 
-fr:farine de froment
-allergens:fr:farine de _froment_
-
+<en:flour
+<en:rice
 en:rice flour
 es:harina de arroz
 fr:farine de riz
 nl:rijstebloem
 de:Reismehl
 
+<en:rice flour
 en:dextrinated rice flour
 es:harina de arroz dextrinada
 fr:farine de riz dextrinée
 nl:gedextrineerd rijstmeel
 de:dextriniertes Reismehl
 
+<en:rice flour
 fr:farine de riz blanc
 
+<en:rice flour
 fr:farine de riz complet
 
-# SUCRE
+<en:flour
+en:quinoa flour
+fr:farine de quinoa
+
+<en:flour
+fr:farine de pois
+
+<en:flour
+fr:farine de pois chiche, farine de pois chiches
+
+<en:flour
+fr:farine de châtaigne
+
+<en:flour
+fr:farine de pomme de terre, farine de pommes de terre, pomme de terre en poudre
+
+# THICKENER
+
+<en:thickener
+en:carob
+cs:carubin
+fr:caroube
+nl:johannesbrood
+
+<en:thickener
+<en:flour
+<en:carob
+en:carob flour
+de:Johannisbrotkernmehl, Carobpulver
+fi:johanneksenleipäpuujauhe
+fr:farine de graines de caroube, farine de caroube, farine de graine de caroube, farine de graines de caroubes
+it:farina di semi di carrube
+nl:johannesbroodpitmeel
+pt:farinha de semente de alfarroba
+sv:fruktkärnmjöl
+
+<en:thickener
+<en:flour
+<en:guar gum
+en:guar flour
+de:Guarkernmehl
+fr:farine de graines de guar, farine de guar, farine de graine de guar
+nl:guarpitmeel
+sv:guarkärnmjöl
+
+# This identical the the flour variant
+
+<en:thickener
+en:guar gum
+fr:gomme guar, gomme de guar, gomme guar, guar
+el:κομμι χαρουτιων
+es:goma guar
+fi:guarkumi
+it:gomma di guar
+nl:guargom
+pt:goma de guar
+
+<en:thickener
+<en:guar flour
+<en:carob flour
+fr:farine de graines de caroube et farine de graines de guar
+
+<en:thickener
+<en:carob
+en:locust bean gum
+fr:gomme de caroube
+el:κόμμι γκουάρ
+
+<en:thickener
+<en:Stabiliser
+en:xanthan gum
+es:goma xantana
+de:Xanthan
+fr:gomme xanthane, gomme de xanthane, xanthane
+hu:xanthan gumi
+nl:xanthaangom
+nn:xanthan gum
+pt:goma xanthano
+
+<en:thickener
+<en:guar gum
+<en:xanthan gum
+en:xanthan gum and guar gum
+fr:gomme xanthane et gomme guar, gomme xanthane et gomme de guar
+de:Xanthan und Guarkernmehl
+
+# SUGAR is the generic name for sweet-tasting, soluble carbohydrates, 
 
 en:sugar
-es:azúcar
-fr:sucre
-nl:suiker
+af:Suikers
+# als: Zucker
+am:ስኳር
+an:Zucre
+ar:سكر
+# arc:ܫܟܪ
+# arz:سكر
+as:চেনী
+# ast:Zucre
+az:Şəkər
+# azb:شکر
+ba:Шәкәр
+# bar:Zugga
+be:Цукар
+bg:Захар
+bh:चीनी
+bn:চিনি
+br:Sukr
+bs:Šećer
+ca:Sucre
+# cdo:Tòng
+ce:Шекар
+# chy:Vé'keemahpe
+# ckb:شەکر
+cs:Cukr
+cv:Сахăр
+cy:Siwgr
+da:Sukker
 de:Zucker
+el:Ζάχαρη
+eo:Sukero
+es:azúcar
+et:Suhkrud
+eu:Azukre
+fa:شکر
+fi:Sokerit
+fr:sucre
+fy:sûker
+ga:Siúcra
+gd:Siùcar
+gl:Azucre
+gn:Eiratã
+# hak:Thòng
+he:סוכר
+hi:शर्करा
+hr:Šećeri
+ht:Sik
+hu:Cukor
+hy:Շաքար
+ia:Sucro
+id:Gula
+ig:Ńnú odẹne
+ik:Avu
+# ilo:Asukar
+io:Sukro
+is:Matarsykur
+iu:ᓱᑲᒃ
+ja:砂糖
+# jbo:sakta
+jv:Gula
+ka:შაქარი
+kk:Қант
+kn:ಸಕ್ಕರೆ
+ko:설탕
+ku:Şekir
+ky:Кант
+la:Saccharum
+# lad:Asukar
+# lfn:Zucar
+li:Sókker
+# lmo:Zuqer
+ln:Sukáli
+lt:Cukrus
+lv:Cukurs
+# mdf:Захар
+mk:Шеќер
+ml:പഞ്ചസാര
+mn:Элсэн чихэр
+ms:Gula
+my:သကြား
+# nah:Caxtillan chiyancaca
+ne:चिनी
+# new:चिनी
+nl:suiker, Tafelsuiker
+nn:Sukker
+no:Sukker
+# nrm:Chucre
+nv:Áshįįh łikan
+oc:Sucre
+or:ଚିନି
+pa:ਸ਼ੱਕਰ
+pl:Cukier spożywczy
+# pnb:شکر
+ps:بوره
+pt:Açúcar
+qu:Asukar
+ro:Zahăr
+# roa-rup:Zahari
+ru:Сахар
+rw:Isukari
+sa:शर्करा
+# sah:Саахар
+# sat:ᱪᱤᱱᱤ
+# scn:Zùccaru
+# sco:Succar
+sd:کنڊ
+sh:Šećer
+si:සීනි
+sk:Cukor
+sl:Sladkor
+sn:Shuga
+so:Sonkor
+sq:Sheqeri
+sr:Шећер
+su:Gula
+sv:Socker
+sw:Sukari
+ta:சீனி
+te:చక్కెర
+tg:Қанд
+th:น้ำตาล
+tl:Asukal
+tr:Şeker
+tt:Шикәр
+ug:شېكەر
+uk:Цукор
+ur:شکّر
+uz:Qand
+# vec:Sùcaro
+# vep:Sahar
+vi:Đường
+wa:Souke
+# war:Asukar
+zh:食糖
+# zhmin-nan:Thn̂g
+# zh-yue:糖
 wikidata:en:Q11002
+wikipedia:https://en.wikipedia.org/wiki/Sugar
 
 <en:sugar
 en:invert sugar, inverted sugar
 fr:sucre inverti
+wikipedia:https://en.wikipedia.org/wiki/Inverted_sugar_syrup
 
 <en:invert sugar
 <en:sugar syrup
@@ -4018,8 +5797,15 @@ en:cane sugar
 fr:sucre de canne
 
 <en:cane sugar
+fr:sucre brut de canne
+
+<en:cane sugar
 en:brown cane sugar
 fr:sucre de canne roux, sucre roux de canne
+wikipedia:https://fr.wikipedia.org/wiki/Sucre_roux_de_canne
+
+<en:sugar
+fr:sucre de canne blanc
 
 <en:cane sugar
 en:blonde cane sugar
@@ -4035,13 +5821,23 @@ fr:sucre de canne roux non raffiné
 <en:cane sugar
 fr:sucre de canne complet
 
+<en:cane sugar
+fr:sucre de canne brun
+
+<en:sugar
+fr:pur sucre de canne
+
 <en:sugar
 en:caramelised sugar
 es:azúcar caramelizado
 fr:sucre caramélisé
 nl:gekarameliseerde suiker
 de:Karamellzucker
-fr:sucre brun
+fr:sucre brun, sucre caramel
+
+<en:sugar
+en:white sugar
+fr:sucre blanc
 
 <en:sugar
 en:brown sugar
@@ -4064,6 +5860,46 @@ fr:sucre de raisin
 en:icing sugar
 fr:sucre glace
 
+<en:sugar
+fr:sucre caramélisé en poudre
+
+<en:sugar
+fr:sucre en poudre
+
+<en:sugar
+fr:sucre candi
+
+<en:sugar
+fr:sucre vanillé
+
+<en:sugar
+fr:sucre perlé
+
+<en:sugar
+en:organic sugar
+fr:sucre bio
+
+<en:sugar
+fr:sucre du lait
+allergens:fr:sucre du _lait_
+
+<en:sugar
+fr:sucre semoule
+
+en:molasses
+es:melaza
+fr:mélasse
+nl:melasse
+de:Melasse
+
+fr:sucre liquide inverti
+
+fr:mélasse de sucre de canne
+
+<en:sugar
+fr:mélasse de canne, mélasse de sucre de canne
+
+
 # SIROPS
 
 en:maple syrup
@@ -4080,6 +5916,7 @@ fr:sirop de sucre candi
 en:glucose
 fr:glucose
 
+en:glucose-fructose
 fr:glucose-fructose
 
 <en:glucose syrup
@@ -4100,6 +5937,10 @@ fr:sirop de glucose déshydraté
 en:wheat glucose syrup
 fr:sirop de glucose de blé
 
+<en:glucose
+fr:glucose de blé
+allergens:fr:glucose de _blé_
+
 en:caramel syrup
 fr:sirop de caramel
 
@@ -4118,7 +5959,6 @@ en:fructose syrup
 fr:sirop de fructose
 
 <en:fructose syrup
-
 en:high-fructose corn syrup
 fr:sirop de maïs à haute teneur en fructose
 es:Jarabe de maíz de alta fructosa
@@ -4127,11 +5967,31 @@ wikidata:en:Q11422173
 fr:sirop de blé
 allergens:fr:sirop de _blé_
 
+fr:sirop de sucre de canne
+
+fr:sirop de sucre caramel
+
+fr:sirop de sucre partiellement inverti
+
+<en:sugar
+fr:sirop de sucre mélassé
+
 en:maltitol syrup
 fr:sirop de maltitol
 
+en:sorbitol
+fr:sorbitol
+
+<en:sorbitol
 en:sorbitol syrup
 fr:sirop de sorbitol
+
+<en:sorbitol
+fr:sorbitols et glycérol, glycérol et sorbitols
+
+<en:sorbitol
+fr:sirop de sorbitol de blé
+allergens:fr:sirop de sorbitol de _blé_
 
 en:rice syrup
 fr:sirop de riz
@@ -4142,6 +6002,28 @@ es:jarabe de azúcar caramelizado
 fr:sirop de sucre caramélisé 
 nl:gekarameliseerde suikerstroop 
 de:Karamell-Zuckersirup
+
+
+en:dextrose
+es:dextrosa
+fr:dextrose
+nl:dextrose
+de:Dextrose
+
+<en:dextrose
+en:corn dextrose, dextrose from corn
+fr:dextrose de maïs
+
+<en:dextrose
+en:wheat dextrose, dextrose from wheat
+fr:dextrose de blé
+
+<en:dextrose
+en:wheat or corn dextrose, corn or wheat dextrose
+fr:dextrose de blé ou de maïs, dextrose de maïs ou de blé
+
+<en:dextrose
+fr:polydextrose
 
 # PROTEINES - are large biomolecules, or macromolecules, consisting of one or more long chains of amino acid residues
 
@@ -4285,6 +6167,14 @@ zh-min-nan:Nn̄g-pe̍h-chit
 zh-yue:蛋白質
 
 <en:protein
+en:hydrolysed protein
+es:proteína hidrolizada
+fr:protéine hydrolysée
+nl:gehydroliseerd eiwit
+de:Proteinhydrolysat
+
+
+<en:protein
 en:vegetable protein
 fr:protéines végétales, protéine végétale
 nl:plantaardige eiwit
@@ -4297,12 +6187,18 @@ nl:boneneiwit
 # HYDROLYZED VEGETABLE PROTEIN -  products are foodstuffs obtained by protein hydrolysis
 
 <en:vegetable protein
-en:Hydrolyzed vegetable protein, HVP
-fr:protéine végétale hydrolysée
+en:hydrolyzed vegetable protein, HVP, vegetable hydrolysed proteins
+fr:protéine végétale hydrolysée, protéines végétales hydrolysées, protéine végétale hydrolysée
 nl:gehydroliseerde plantaardige eiwit
 zh:酸水解植物蛋白
 
+<en:hydrolysed protein
 <en:pea protein
+fr:protéines de pois hydrolysées
+
+<en:pea protein
+<en:vegetable hydrolysed protein
+<en:soy
 en:soy protein
 fr:protéine de soja, protéines de soja
 nl:soja-eiwit
@@ -4311,11 +6207,66 @@ allergens:fr:protéine de _soja_
 
 <en:soy protein
 en:rehydrated soy protein
-fr:protéines de soja réhydratées
+fr:protéines de soja réhydratées, protéines végétales de soja réhydratées
 nl:gerehydrateerde soja-eiwit
 allergens:fr:protéines de _soja_ réhydratées
+allergens:fr:protéines végétales de _soja_ réhydratées
+
+<en:soy protein
+fr:isolat de protéine de soja
+allergens:fr:isolat de protéine de _soja_
+
+<en:soy protein
+en:hydrolysed soy protein
+de:Sojaproteinhydrolysat
+es:proteína de soja hidrolizada
+fr:protéine de soja hydrolysée, protéines de soja hydrolysées
+nl:gehydroliseerd soja-eiwit
+allergens:fr:protéine de _soja_ hydrolysée
+allergens:fr:protéines de _soja_ hydrolysées
+
+<en:soy protein
+fr:protéines de soja i.p
+allergens:fr:protéines de _soja_ i.p
+
+
+<en:vegetable protein
+en:wheat protein
+fr:protéine de blé, protéines de blé
+nl:graneneiwit
+allergens:fr:protéines de _blé_
+
+<en:vegetable hydrolysed protein
+en:hydrolyzed wheat protein
+es:proteína hidrolizada de trigo
+fr:protéine de blé hydrolysée, protéines de blé hydrolysées
+nl:gehydroliseerd tarwe-eiwit
+de:hydrolisiertes Weizenprotein
+allergens:fr:protéines de _blé_ hydrolysées
+
+<en:vegetable hydrolysed protein
+en:hydrolysed corn protein
+es:proteína de maíz hidrolizada
+fr:protéine de maïs hydrolysée
+nl:gehydroliseerd maïseiwit
+de:proteinhydrolysat
 
 <en:protein
+<en:animal protein
+         
+<en:hydrolysed protein
+<en:animal protein
+en:hydrolised animal protein, animal hydrolysed proteins
+fr:protéines animales hydrolysées, protéine animale hydrolysée
+
+<en:hydrolised animal protein
+de:hydrolysiertes Schweineprotein
+en:hydrolyzed pork protein
+es:proteína de cerdo hidrolizada
+fr:protéine de porc hydrolysée
+nl:gehydroliseerd varkenseiwit
+
+<en:animal protein
 en:milk protein
 es:proteína de leche
 fr:protéine de lait, protéines de lait, protéines du lait, protéines du lait, protéines laitières, protéines lactiques, protéine lactique
@@ -4326,6 +6277,16 @@ allergens:fr:protéines de _lait_
 allergens:fr:protéines _laitières_
 nova:en:4
 
+<en:hydrolysed protein
+<en:milk protein
+en:hydrolysed milk protein
+es:proteína de leche hidrolizada
+fr:protéine de lait hydrolysée
+nl:gehydroliseerd melkeiwit
+de:Milchproteinhydrolysat
+allergens:fr:protéine de _lait_ hydrolysée
+
+<en:milk protein
 fr:protéines de petit-lait
 
 <en:milk protein
@@ -4333,9 +6294,33 @@ fr:protéines de lait en poudre
 nl:melkeiwitpoeder
 allergens:fr:protéines de _lait_ en poudre
 
+# WHEY PROTEIN is a mixture of globular proteins isolated from whey, the liquid material created as a by-product of cheese production.
+
+<en:milk protein
+en:whey protein
+ar:بروتين مصل اللبن
+# ckb:پڕۆتینی پاڵاوتەی شیر
+de:Molkenprotein
+es:Proteína de suero de leche
+fa:پروتیین وی
+fr:protéine de lactosérum
+hi:मट्ठा प्रोटीन
+id:Protein susu
+it:Proteine del siero del latte, WP
+ja:乳清タンパク質
+nl:Weiproteïnepreparaat, Weiproteïne
+pt:Proteína do soro do leite
+sv:Vassleprotein
+th:โปรตีนหางนม
+uk:Сироватковий білок
+vi:Đạm váng sữa
+zh:乳清蛋白
+wikipedia:en:https://en.wikipedia.org/wiki/Whey_protein
+allergens:fr:protéines de _lactosérum_
+
 # Casein is a family of related phosphoproteins. These proteins are commonly found in mammalian milk, comprising c. 80% of the proteins in cow's milk and between 20% and 45% of the proteins in human milk.
 
-<en:Milk protein
+<en:milk protein
 en:Casein
 # als:Casein, Kasein
 ar:كازين
@@ -4389,12 +6374,6 @@ uk:Казеїн
 zh:酪蛋白
 nova:en:4
 wikipedia:en:https://en.wikipedia.org/wiki/Casein
-
-<en:protein
-en:wheat protein
-fr:protéine de blé, protéines de blé
-nl:graneneiwit
-allergens:fr:protéines de _blé_
 
 # CHOCOLAT
 
@@ -4782,7 +6761,7 @@ eo:Mineralakvo
 es:Agua mineral
 fa:آب معدنی
 fi:Kivennäisvesi
-fr:Eau minérale
+fr:eau minérale, eau minérale naturelle, eau de source
 ga:Uiscí mianraí
 gl:Auga mineral
 he:מים מינרליים
@@ -4826,8 +6805,12 @@ zh:礦泉水
 # zh-yue:礦泉水
 wikipedia:en:https://en.wikipedia.org/wiki/Mineral_water
 
+<en:mineral water
+fr:eau minérale naturelle volvic
+
 # CARBONATED WATER (bubbly water, fizzy water) is water into which carbon dioxide gas under pressure has been dissolved
-<en:Water
+
+<en:water
 en:Carbonated water
 af:Sodawater, klubsoda, bruiswater, vonkelwater, seltzerwater
 ar:ماء مكربن
@@ -4845,7 +6828,7 @@ es:Agua carbonatada
 # eu:Soda probably incorrect on wikipedia. Disambiguation issue
 # fa:سودا (نوشیدنی)i
 fi:Soodavesi
-fr:Eau gazeuse, eau acidulée, eau effervescente, eau pétillante, eau gazéifiée, soda club, soda nature
+fr:Eau gazeuse, eau acidulée, eau effervescente, eau pétillante, eau gazéifiée, soda club, soda nature, eau gazéifié, eau gazéfiée
 he:מי סודה
 # hi:वातिल जल this needs to be checked
 hr:Gazirana voda
@@ -4884,21 +6867,101 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carbonated_water
 
 <en:Carbonated water
 en:Sparkling water
-#relation:synonym:en:Carbonated water
-#relation:transFormedFrom:enMineral water:process:add:en:carbon dioxide gas
 wikipedia:en:https://en.wikipedia.org/wiki/Carbonated_water
 
 <en:Mineral water
 en:Carbonated mineral water
+fr:eau de source gazéifiée
 nl:Bruisend mineraalwater
-#relation:contains:en:Carbon dioxide gas
-#relation:transFormedFrom:enMineral water:process:add:en:carbon dioxide gas
+
+<en:water
+fr:eau purifiée
 
 # A TRIER
 
 en:citric acid
 fr:acide citrique
 wikidata:en:Q159683
+
+en:ascorbic acid
+fr:acide ascorbique
+
+fr:acide l-ascorbique
+
+
+# Acides
+
+fr:acide de sodium
+
+en:malic acid
+fr:acide malique 
+
+en:citric acid
+fr:acide citrique
+
+fr:acide L-ascorbique
+
+en:lactic acid
+fr:acide lactique
+
+fr:acide lactique et acide citrique
+
+fr:carminic acid
+fr:acide carminique
+
+
+en:acidity corrector
+fr:correcteur d'acidité
+
+en:e330 acidity corrector
+fr:correcteur d'acidité e330
+
+fr:correcteur d'acidité acide citrique
+
+fr:corrécteur d'acidité, correcteur dacidité
+
+en:Acidity regulator E262
+es:Corrector de acidez E262
+fr:correcteur d'acidité E262
+nl:Zuurteregelaar E262
+de:Säureregulator E262
+
+fr:acide orthophosphorique
+
+en:citric acid e330
+fr:acide citrique e330
+
+fr:acide
+
+en:phosphoric acid
+fr:acide phosphorique
+
+en:tartric acid
+fr:acide tartrique
+
+fr:acide sorbique
+
+en:acetic acid
+fr:acide acétique
+
+fr:régulateur d'acidité
+
+en:Pantothenic acid
+es:ácido pantoténico
+fr:acide pantothénique
+nl:Pantotheenzuur
+de:Pantothensäure
+
+en:folic acid
+fr:acide folique
+
+fr:acide malique
+wikidata:en:Q190143
+
+fr:correcteurs d'acidité
+
+en:lactic acid
+fr:acide lactique
 
 en:capsicum extract
 es:extracto de capsicum
@@ -4907,41 +6970,11 @@ nl:capsicum-extract
 de:Capsaicin-Extrakt
 wikidata:en:Q53792073
 
-en:dextrose
-es:dextrosa
-fr:dextrose
-nl:dextrose
-de:Dextrose
 
-<en:dextrose
-en:corn dextrose, dextrose from corn
-fr:dextrose de maïs
+en:corn
+fr:mais
 
-<en:dextrose
-en:wheat dextrose, dextrose from wheat
-fr:dextrose de blé
-
-<en:dextrose
-en:wheat or corn dextrose, corn or wheat dextrose
-fr:dextrose de blé ou de maïs, dextrose de maïs ou de blé
-
-<en:dextrose
-fr:polydextrose
-
-en:soy lecithin
-es:lecitina de soja
-fr:lécithine de soja, lécithines de soja
-allergens:fr:lécithine de _soja_
-
-fr:levure
-
-en:thickener
-fr:épaississant
-
-en:ascorbic acid
-fr:acide ascorbique
-
-fr:acide l-ascorbique
+fr:semoule de mais
 
 fr:ferments lactique
 allergens:fr:ferments _lactiques_
@@ -4949,6 +6982,45 @@ allergens:fr:ferments _lactiques_
 en:soy
 fr:soja
 allergens:fr:_soja_
+
+<en:soy
+en:soy beans
+fr:fève de soja, fèves de soja, soja entier, graine de soja, graines de soja
+allergens:fr:_soja_ entier
+allergens:fr:graine de _soja_
+allergens:fr:fève de _soja_
+allergens:fr:fèves de _soja_
+allergens:fr:graines de _soja_
+
+<en:soy beans
+fr:fèves de soja sans ogm décortiquées
+allergens:fr:fèves de _soja_ sans ogm décortiquées
+
+<en:soy beans
+fr:soja dépelliculé, graines de soja dépelliculées, fèves de soja décortiquées
+allergens:fr:graines de _soja_ dépelliculées
+allergens:fr:fèves de _soja_ décortiquées
+
+<en:soy
+fr:flocons de soja
+allergens:fr:flocons de _soja_
+
+<en:soy
+fr:pousses de soja
+
+<en:soy
+fr:jus de soja
+allergens:fr:jus de _soja_
+
+<en:soy
+fr:sauce au soja, sauce de soja, sauce soja
+allergens:fr:sauce au _soja_
+allergens:fr:sauce de _soja_
+allergens:fr:sauce _soja_
+
+<fr:sauce au soja
+fr:sauce soja en poudre, sauce de soja en poudre
+allergens:fr:sauce _soja_ en poudre
 
 en:gelifier
 fr:gélifiant
@@ -4961,9 +7033,6 @@ fr:gluten
 allergens:fr:_gluten_
 
 fr:persil
-
-en:xanthan gum
-fr:gomme xanthane, gomme de xanthane
 
 en:carot
 fr:carotte
@@ -5001,7 +7070,244 @@ fr:carraghénane
 fr:blé
 allergens:fr:_blé_
 
-fr:extrait de levure
+
+# a raising agent is any one of a number of substances used in doughs and batters that cause a foaming action (gas bubbles) that lightens and softens the mixture.
+# This contains chemical and biological raising agents. Often a raising agent is synonymous to chemical.
+
+en:raising agent, Raising agent, leavening agent
+ar:عامل نفاشية
+bg: Набухвател
+cs: Kypřicí látka, Kypřidlo
+cy:Lefain
+ga: Oibreán éiritheach
+da:Hævemiddel
+de:Backpulver, Backtriebmittel, Triebmittel
+da: Drivgas
+el: Διογκωτικό αρτοποιίας
+es:Gasificante, Agente leudante, agentes gasificantes
+et: Kergitusaine
+fa:عامل ورآورنده
+fi: Nostatusaine
+fr:Agent levant, agent de levuration
+he:התפחה
+hu: Térfogatnövelő szer
+id:Bahan pengembang
+it: Agenti lievitanti
+ja:膨張剤
+ko:팽창제
+lt: Tešlos kildymo medžiaga, Puriklis
+lv: Irdinātājs
+ms:Agen penaik
+mt: Aġent li jgħolli l-ikel
+nl:Rijsmiddel, Rijsmiddelen
+no:Hevemiddel
+pl: Substancja spulchniająca
+pt: Levedante
+ro:Agent de afânare
+ru:Разрыхлитель
+sk: Kypriaca látka
+sl: Potisni plin, Kvas
+sv: Drivgas, Jäsmedel
+tl:Pampaalsa
+tr:Kabartma ajanı
+uk:Розпушувач харчовий
+zh:膨松剂
+# zh-min-nan:Hoat-hún
+wikidata:en:Q908833
+wikipedia:https://en.wikipedia.org/wiki/Leavening_agent
+
+# Yeasts are eukaryotic, single-celled microorganisms classified as members of the fungus kingdom. 
+
+<en:raising agent
+en:yeast
+af:Gis
+am:እርሾ
+an:Levaduras
+ar:خميرة
+# ast:Lleldu
+# bar:Germ
+be:Дрожджы
+bg:Дрожди
+bn:ইস্ট
+br:Goell
+bs:Kvasci
+ca:Rent
+cs:Kvasinky
+cy:Burum
+da:Gærsvamp
+de:Hefe, Hefen
+el:Ζυμομύκητες
+eo:Gisto
+es:lavadura, Levadura
+et:Pärmseened
+eu:Legamia
+# ext:Lua
+fa:مخمر
+fi:hiiva, Hiivat
+fr:levure
+fy:Gêst
+ga:Giosta
+gd:Beirm
+gl:Lévedo
+he:שמרים
+hi:खमीर
+hr:Kvasac
+hu:élesztő, Élesztő
+hy:Խմորասնկեր
+id:Khamir
+io:Hefo
+is:Ger
+it:lievito, Lievito
+ja:酵母
+jv:Khamir
+ka:საფუარები
+kk:Ашытқылар
+ko:효모
+ku:Meya
+# lmo:Leàt
+lt:Mielės
+lv:Raugs
+mk:Квасец
+ml:യീസ്റ്റ്
+ms:Yis
+nl:gist, Gist
+nn:Gjær
+no:Gjær
+pa:ਖ਼ਮੀਰ
+pl:Drożdże
+pt:Levedura
+qu:Qunchu
+ro:Drojdie
+ru:Дрожжи
+# scn:Lèvitu
+# sco:Baurm
+sh:Kvasac
+sk:Kvasinka
+sl:Kvasovka
+sn:Mbiriso
+sr:kvasac, Квасац
+sv:Jäst
+sw:Hamira
+ug:ئېچىتقۇ
+uk:Дріжджі
+ta:மதுவம்
+th:ยีสต์
+tr:Maya
+ur:خمیر
+vi:Nấm men
+wa:Yesse
+yi:הייוון
+zh:酵母
+# zh-yue:依士
+# zh-min-nan:Kàⁿ-bú
+wikidata:en:Q45422
+wikipedia:https://en.wikipedia.org/wiki/Yeast
+
+<en:Baker's yeast
+en:fresh yeast
+fr:levure fraîche
+
+<en:yeast
+fr:levure inactivée
+de:inaktivierte Hefe, inaktiveirte Hefe
+it:lievito inattivo
+
+<en:yeast
+fr:levure alimentaire
+de:Nährhefe
+it:lievito alimentare
+
+<en:yeast
+en:yeast powder
+de:Hefepulver
+el:μαγιά σκόνη
+es:levadura en polvo
+fr:poudre de levure, levure en poudre
+it:lievito in polvere
+nl:gistpoeder
+pt:levedura em pó
+
+<en:raising agent
+en:baking powder
+fr:levure chimique
+nl:bakpoeder
+ro:praf de copt
+
+<en:yeast
+en:natural yeast
+de:natürliche Hefe
+fr:levure naturelle
+it:lievito naturale
+
+# Baker's yeast is the common name for the strains of yeast commonly used as a leavening agent in baking bread and bakery products,
+
+<en:yeast
+en:Baker's yeast
+bg:Мая
+ca:Llevat de forner
+de:Backhefe
+el:Μαγιά αρτοποιίας
+es:levadura de panadería, Levadura de panadería
+et:Pärm
+fa:مخمر نان
+fr:levure de boulanger, levure de boulangerie, levure de panification
+is:Pressuger
+nl:bakkersgist
+pt:levedura para panificação
+ru:Хлебопекарные дрожжи
+sk:Pekárske droždie
+wikipedia:https://en.wikipedia.org/wiki/Baker%27s_yeast
+
+<en:yeast
+de:Trockenhefe
+fr:levure sèche
+it:lievito secco
+
+<en:yeast
+en:brewer's yeast
+cs:pekarské drozdi
+de:Bierhefe
+es:levadura de cerveza
+fr:levure de bière
+it:lievito di birra
+nl:biergist
+pt:levedura de cerveja
+
+# Yeast extract is the common name for yeast products made by extracting the cell contents
+
+<en:yeast
+en:yeast extract
+da:gærekstrakt
+de:Hefeextrakt
+el:εκχύλισμα μαιάς
+es:extracto de levadura
+et:pärmiekstrakt
+bs:ekstrakt kvasca
+fr:extrait de levure, extrait de levures, extraits de levure
+hr:Ekstrakt kvasca
+hu:élesztőkivonat
+it:estratto di lievito
+ja:酵母エキス
+lt:mieliu ekstraktas
+nl:gistextract
+nn:gjærekstrakt
+pl:ekstrakt drożdżowy
+pt:extrato de levedura
+ro:extract de drojdie
+ru:Дрожжевой экстракт
+sk:extrakt z droždia
+sl:izvlecek kvasa, kvasni ekstrakt
+sv:jästextrakt
+tr:maya özütü
+uk:Екстракт дріжджів
+zh:酵母抽提物
+wikipedia:https://en.wikipedia.org/wiki/Yeast_extract
+
+<en:extrait de levure
+en:yeast extract powder
+de:Hefeextraktpulver
+fr:extrait de levure en poudre
+it:estratto di lievito in polvere
 
 fr:graines de moutarde
 allergens:fr:graines de _moutarde_
@@ -5010,8 +7316,6 @@ fr:semoule de blé dur
 allergens:fr:semoule de _blé_ dur
 
 fr:sorbate de potassium
-
-fr:gomme guar, gomme de guar
 
 en:turmeric
 es:cúrcuma
@@ -5153,14 +7457,10 @@ fr:diphosphate
 
 fr:glycérol
 
-en:corn
-fr:mais
 
 fr:sulfite
 allergens:fr:_sulfites_
 
-en:lactic acid
-fr:acide lactique
 
 fr:plante aromatique, plantes aromatiques
 
@@ -5231,7 +7531,6 @@ allergens:fr:_moutarde_ forte de dijon
 
 fr:humectant
 
-fr:sorbitol
 
 fr:gingembre
 
@@ -5244,7 +7543,7 @@ fr:energie
 
 fr:muscade
 
-fr:correcteurs d'acidité
+
 
 fr:gélatine
 
@@ -5266,7 +7565,6 @@ fr:cumin
 nl:komijn
 de:Kreuzkümmel
 
-fr:eau gazéifiée
 
 fr:citrate de sodium, citrates de sodium
 
@@ -5281,8 +7579,6 @@ allergens:fr:semoule de _blé_ dur de qualité supérieure
 
 fr:fruits à coque
 
-fr:flocons d'avoine
-allergens:fr:flocons d'_avoine_
 
 en:calcium carbonate
 es:carbonato de calcio
@@ -5325,8 +7621,8 @@ allergens:fr:_orge_
 fr:disulfite de potassium
 allergens:fr:_disulfite_ de potassium
 
-fr:acide malique
-wikidata:en:Q190143
+
+
 
 fr:noix de coco
 
@@ -5353,13 +7649,10 @@ fr:carbonate acide d'ammonium
 en:iron
 fr:fer
 
-en:folic acid
-fr:acide folique
 
 en:sodium bicarbonate
 fr:bicarbonate de sodium
 
-fr:céréale
 
 fr:graines de sésame
 allergens:fr:graines de _sésame_
@@ -5459,6 +7752,31 @@ de:Himbeeren
 
 fr:avoine
 allergens:fr:_avoine_
+
+<fr:avoine
+fr:flocons d'avoine, flocon d'avoine
+allergens:fr:flocons d'_avoine_
+allergens:fr:flocon d'_avoine_
+
+<fr:flocons d'avoine
+fr:flocons d'avoine complète, flocon d'avoine complète, flocons d'avoine complet, flocons d'avoine complets
+allergens:fr:flocons d'_avoine_ complète
+allergens:fr:flocons d'_avoine_ complet
+allergens:fr:flocons d'_avoine_ complets
+
+<fr:avoine
+fr:fibre d'avoine, fibres d'avoine
+allergens:fr:fibre d'_avoine_
+allergens:fr:fibres d'_avoine_
+
+<fr:avoine
+fr:avoine complète
+allergens:fr:_avoine_ complète
+
+<fr:avoine
+fr:son d'avoine
+allergens:fr:son d'_avoine_
+
 
 fr:pectine de fruit, pectines de fruits
 
@@ -5574,7 +7892,6 @@ fr:lutéine
 
 fr:levain
 
-fr:semoule de mais
 
 fr:noix
 allergens:fr:_noix_
@@ -5593,12 +7910,6 @@ fr:alginate de sodium
 fr:b5
 
 # Random
-
-en:Pantothenic acid
-es:ácido pantoténico
-fr:acide pantothénique
-nl:Pantotheenzuur
-de:Pantothensäure
 
 # Banana
 
@@ -5895,8 +8206,6 @@ fr:pp
 
 fr:fenouil
 
-fr:eau de source
-
 fr:phosphate de calcium, phosphates de calcium
 
 fr:fibre de blé
@@ -5905,20 +8214,17 @@ allergens:fr:fibre de _blé_
 fr:seigle
 allergens:fr:_seigle_
 
-fr:sauce soja
-allergens:fr:sauce _soja_
 
 fr:filet de poulet
 
-fr:régulateur d'acidité
+
+
 
 fr:carbonate de sodium
 
 fr:sardine
 allergens:fr:_sardines_
 
-fr:graines de soja
-allergens:fr:graines de _soja_
 
 fr:karité
 
@@ -5983,9 +8289,6 @@ de:Senfsaaten
 allergens:fr:graine de _moutarde_
 
 fr:phosphate de calcium
-
-en:acetic acid
-fr:acide acétique
 
 fr:maltitol
 
@@ -6101,7 +8404,8 @@ fr:calcium
 
 fr:graines de lin
 
-fr:acide sorbique
+
+
 
 fr:contient blé
 allergens:fr:contient _blé_
@@ -6158,18 +8462,8 @@ fr:glutamate de sodium
 
 fr:marjolaine
 
-# Agents de traitement de la farine
-
-fr:agents de traitement de la farine
-
-fr:agent de traitement de la farine
-
-fr:agent de traitement de la farine e300
-
 # Random
 
-en:tartric acid
-fr:acide tartrique
 
 en:cardamon
 es:cardamomo
@@ -6192,8 +8486,7 @@ fr:agar
 
 fr:extrait de romarin, extraits de romarin
 
-fr:fève de soja, fèves de soja
-allergens:fr:fèves de _soja_
+
 
 fr:purée de mangue
 
@@ -6238,8 +8531,6 @@ nl:tarwegries
 de:Weizengrieß
 allergens:fr:semoule de _blé_
 
-en:phosphoric acid
-fr:acide phosphorique
 
 fr:spiruline
 
@@ -6269,8 +8560,6 @@ fr:hibiscus
 fr:bicarbonate d'ammonium
 
 fr:carbonate de magnésium
-
-fr:gomme guar et gomme xanthane
 
 fr:cellulose
 
@@ -6453,11 +8742,6 @@ fr:tomates concassées
 
 fr:tomates pelées concassées
 
-# Random
-
-fr:jus de soja
-allergens:fr:jus de _soja_
-
 # Rices
 
 fr:riz cuit
@@ -6592,8 +8876,6 @@ de:Agar-Agar
 fr:chlorure de magnésium
 
 fr:assaisonnement
-
-fr:eau minérale naturelle
 
 fr:matière grasse du lait
 allergens:fr:matière grasse du _lait_
@@ -6745,7 +9027,6 @@ de:Steinpilze
 
 fr:charbon végétal
 
-fr:acide
 
 en:concentrated apple juice 
 es:jarabe de manzana
@@ -6770,14 +9051,10 @@ fr:poivron vert, poivrons verts
 fr:matière grasse de lait
 allergens:fr:matière grasse de _lait_
 
-fr:gomme xanthane et gomme guar
-
 fr:graisse de poule
 
 fr:purée de fraise, purée de fraises
 
-fr:flocons d'avoine complète, flocon d'avoine complète
-allergens:fr:flocons d'_avoine_ complète
 
 fr:bouillon de volaille
 
@@ -6794,7 +9071,6 @@ fr:gélatine bovine
 
 fr:cystéine
 
-fr:tapioca
 
 fr:crème de lait pasteurisée
 allergens:fr:crème de _lait_ pasteurisée
@@ -6823,6 +9099,7 @@ es:brécol
 fr:brocoli
 nl:broccoli
 de:Brokkoli
+#wikidata:en:Q47722
 
 <en:broccoli
 en:broccoli cress
@@ -6877,7 +9154,40 @@ fr:lentille verte, lentilles vertes
 fr:babeurre
 allergens:fr:_babeurre_
 
-fr:sulfate de manganèse
+fr:manganèse
+
+# MANGANESE(II) SULFATE usually refers to the inorganic compound with the formula MnSO4·H2O.
+
+<fr:manganèse
+en:manganese sulfate
+ar:كبريتات المنغنيز الثنائي
+# azb:سولفات منقنز (II)
+bs:Mangan(II) sulfat
+cs:Síran manganatý
+de:Mangan(II)-sulfat
+es:Sulfato de manganeso
+fa:سولفات منگنز (II)
+fi:Mangaanisulfaatti
+fr:sulfate de manganèse, e518, Sulfate de manganèse(II)
+hu:Mangán(II)-szulfát
+it:Solfato manganoso
+ja:硫酸マンガン(II)
+nl:Mangaan(II)sulfaat
+pl:Siarczan manganu(II)
+pt:Sulfato de manganês(II)
+ru:Сульфат марганца(II)
+sh:Mangan(II) sulfat
+sr:Mangan(II) sulfat
+sv:Mangan(II)sulfat
+tr:Manganez(II) sülfat
+uk:Сульфат марганцю(II)
+vi:Mangan(II) sulfat
+# wuu:硫酸锰
+zh:硫酸锰
+wikidata:en:Q409393
+
+<fr:manganèse
+fr:gluconate de manganèse
 
 fr:gélatine de bœuf
 
@@ -6887,8 +9197,6 @@ allergens:fr:_moules_
 fr:fruits rouges
 
 fr:enrobage
-
-fr:céréales contenant du gluten
 
 fr:anti-oxydant
 
@@ -6940,8 +9248,6 @@ fr:invertase
 
 fr:jus concentré de sureau
 
-fr:sauce de soja
-allergens:fr:sauce de _soja_
 
 fr:dioxyde de titane
 
@@ -6969,16 +9275,13 @@ fr:bimi
 nl:bimi
 de:Bimi
 
-fr:son d'avoine
-allergens:fr:son d'_avoine_
-
 fr:lentille, lentilles
 
 fr:sauge
 
 fr:lardon fumé, lardons fumés
 
-fr:céréale complète, céréales complètes
+
 
 fr:roquette
 
@@ -7069,8 +9372,6 @@ allergens:fr:_babeurre_ en poudre
 
 fr:mâche
 
-fr:graine de soja
-allergens:fr:graine de _soja_
 
 fr:mono- et diglycérides d'acides gras d'origine végétale
 
@@ -7150,8 +9451,6 @@ fr:natamycine, e235
 fr:graines de courge
 #wikidata:en:
 
-fr:e518, sulfate de manganèse
-#wikidata:en:
 
 fr:métabisulfite de potassium
 allergens:fr:_métabisulfite_ de potassium
@@ -7164,8 +9463,6 @@ fr:ferments lactiques sélectionnés
 fr:gelée
 
 fr:acésulfame k
-
-fr:flocons de céréales
 
 fr:nitrate de potassium 
 
@@ -7200,10 +9497,7 @@ fr:jus de choucroute
 nl:zuurkoolsap
 de:Sauerkrautsaft
 
-fr:gomme de caroube
 
-fr:fibres d'avoine
-allergens:fr:fibres d'_avoine_
 
 fr:graines de coriandre
 
@@ -7230,7 +9524,6 @@ fr:foie gras de canard du sud-ouest
 
 fr:saumure
 
-fr:xanthane
 
 fr:filets de sardines
 allergens:fr:filets de _sardines_
@@ -7239,8 +9532,6 @@ fr:fructo-oligosaccharides
 
 fr:penicillium roqueforti
 
-fr:avoine complète
-allergens:fr:_avoine_ complète
 
 fr:tilleul
 
@@ -7300,8 +9591,6 @@ fr:gomme gellane
 
 fr:diacétate de sodium
 
-fr:levure de boulangerie
-
 fr:courge
 
 fr:phosphate de sodium
@@ -7312,9 +9601,7 @@ fr:cyclamate de sodium
 
 fr:laitue
 
-fr:levure en poudre
 
-fr:extraits de levure
 
 fr:écorces d'orange confites
 
@@ -7342,7 +9629,6 @@ fr:badiane
 
 fr:herbes de provence
 
-fr:caroube
 
 fr:gadus morhua
 
@@ -7378,11 +9664,6 @@ fr:vanille bourbon
 fr:flocons de blé complet
 allergens:fr:flocons de _blé_ complet
 
-en:brewer's yeast
-es:levadura de cerveza
-fr:levure de bière
-nl:biergist
-de:Bierhefe
 
 fr:passion, fruit de la passion, fruits de la passion
 
@@ -7414,8 +9695,6 @@ fr:os
 fr:jus d'ananas à base de concentré
 
 fr:sucroesters d'acides gras
-
-fr:levure sèche
 
 fr:bêtacarotène
 
@@ -7479,8 +9758,7 @@ fr:citrate monosodique
 
 fr:groseilles, groseille
 
-fr:flocons d'avoine complets, flocons d'avoine complet
-allergens:fr:flocons d'_avoine_ complets
+
 
 fr:chorizo
 
@@ -7537,12 +9815,6 @@ fr:baie de sureau
 
 fr:extrait naturel de vanille
 
-fr:flocons de soja
-allergens:fr:flocons de _soja_
-
-en:citric acid e330
-fr:acide citrique e330
-
 fr:raisins noirs
 
 fr:bigarreaux
@@ -7551,7 +9823,7 @@ fr:agents levants
 
 fr:pulpe de citron
 
-fr:céréales extrudées
+
 
 fr:purée de framboises
 
@@ -7594,7 +9866,7 @@ fr:citrate de potassium, citrates de potassium
 
 fr:gousses de vanille épuisées broyées
 
-fr:levure de boulanger
+
 
 en:fig
 fr:figue
@@ -7691,8 +9963,6 @@ fr:amaretto
 nl:amaretto
 de:Amaretto
 
-fr:acide orthophosphorique
-
 fr:tamarin
 
 fr:mélange de légumes
@@ -7701,8 +9971,6 @@ fr:lactase
 
 fr:collagène
 
-fr:flocons d'avoine complet
-allergens:fr:flocons d'_avoine_ complet
 
 fr:fibre de pois
 
@@ -7761,11 +10029,6 @@ fr:stabilisant e450
 en:e407 stabilizer
 fr:stabilisant e407
 
-en:Acidity regulator E262
-es:Corrector de acidez E262
-fr:correcteur d'acidité E262
-nl:Zuurteregelaar E262
-de:Säureregulator E262
 
 fr:antioxydant e300
 
@@ -7959,7 +10222,6 @@ fr:e310
 
 fr:e315
 
-fr:e316
 
 fr:e320
 
@@ -8189,8 +10451,6 @@ fr:e1442
 
 fr:e1450
 
-fr:e1505
-
 fr:sel d'aspartame-acésulfame, e962
 
 fr:b1
@@ -8339,217 +10599,6 @@ fr:olive verte, olives verte
 <fr:olive verte
 fr:olives vertes dénoyautées
 
-# HUILE VEGETALE
-
-<en:Sunflower
-en:sunflower oil
-de:Sonnenblumenöl
-es:aceite de girasol
-fr:huile de tournesol
-it:olio di girasole
-nl:zonnebloemolie
-
-#<en:vegetable oil
-#<en:sunflower oils
-#en:sunflower oil
-#fr:huile de tournesol
-
-<en:Sunflower oil
-en:partially hydrogenated sunflower oil
-es:aceite de girasol parcialmente hidrogenado
-nl:zonnebloemolie gedeeltelijk gehard
-de:teilweise gehärtetes Sonnenblumenöl 
-
-<en:Sunflower oil
-en:fully hydrogenated sunflower oil
-es:aceite de girasol totalmente hidrogenado
-nl:zonnebloemolie geheel gehard
-de:ganz gehärtetes Sonnenblumenöl
-
-<en:Sunflower oil
-en:non-hydrogenated sunflower oil 
-es:aceite de girasol no hidrogenado
-nl:zonnebloemolie ongehard
-de:ungehärtetes Sonnenblumenöl
-
-<en:oils
-fr:huile essentielle de menthe
-
-<en:vegetable oil
-fr:huile de pépins de raisin
-
-<en:vegetable oil
-fr:huile de riz
-
-<en:vegetable oil
-fr:illipé, huile d'illipé, graisse d'illipé
-
-<en:vegetable oil
-fr:huile végétale de coco
-
-<en:vegetable oil
-fr:graisse et huile végétales
-
-<en:vegetable oil
-fr:huile de carthame
-
-<en:vegetable oil
-fr:huile essentielle de poivre
-
-<en:vegetable oil
-fr:huile de coprah totalement hydrogénée
-
-<en:vegetable oil
-fr:huile de navette
-
-fr:huile végétales
-
-<en:vegetable oil
-fr:huiles de tournesol et de colza
-
-fr:huiles
-
-<en:vegetable oil
-fr:huile colza
-
-<en:vegetable oil
-<en:olive oils
-fr:huile d'olive extra
-
-<en:vegetable oil
-<en:sunflower oils
-fr:huile de tournesol raffinée
-
-<en:vegetable oil
-<en:sunflower oils
-en:high oleic sunflower oil
-fr:huile de tournesol à haute teneur en acide oléique, huile de tournesol à teneur élevée en acide oléique
-nl:high oleic zonnebloemolie
-
-<en:vegetable oil
-<en:sunflower oils
-fr:huile de tournesol pressée à froid
-
-<en:vegetable oil
-<en:sunflower oils
-fr:huile de tournesol bio
-
-<en:vegetable oil
-<en:sunflower oils
-fr:huile de toumesol
-
-<en:vegetable oil
-<en:sunflower oils
-fr:huile de tournesol oléique
-
-<en:vegetable oil
-<en:sunflower oils
-fr:huile de tournesol vierge
-
-<en:vegetable oil
-<en:sunflower oils
-fr:huile de tournesol non hydrogénée
-
-<en:vegetable oil
-<en:sunflower oils
-fr:huile de tournesol partiellement hydrogénée
-
-<en:vegetable oil
-<en:sunflower oils
-fr:huile de tournesol entièrement hydrogénée
-
-<en:vegetable oil
-<en:sunflower oils
-fr:huile de graines de tournesol
-
-<en:vegetable oil
-<en:sunflower oils
-fr:huile végétale de tournesol non hydrogénée
-
-<en:vegetable oil
-<en:sunflower oils
-fr:huile tournesol
-
-<en:vegetable oil
-<en:sunflower oils
-fr:huile de tournesol oléique désodorisée
-
-<en:vegetable oil
-<en:sunflower oils
-fr:huile de tournesol désodorisée
-
-<en:vegetable oil
-<en:sunflower oils
-fr:huile végétale de tournesol
-
-<en:vegetable oil
-fr:huile d'olive vierge extra bio
-
-<en:vegetable oil
-fr:huile et graisses végétales
-
-fr:huiles végétale
-
-<en:vegetable oil
-fr:huile de noisette
-allergens:fr:huile de _noisette_
-
-<en:vegetable oil
-fr:huile essentielle de coriandre
-
-<en:vegetable oil
-fr:huiles et matières grasses végétales
-
-<en:vegetable oil
-fr:huile de lin
-
-<en:vegetable oil
-fr:huiles végétales hydrogénées et non hydrogénées
-
-<en:vegetable oil
-fr:huile de colza raffinée
-
-<en:vegetable oil
-fr:huile de colza vierge
-
-<en:vegetable oil
-<en:olive oils
-fr:huile d'olive vierge extra
-
-<en:vegetable oil
-fr:huile et graisse végétale
-
-<en:vegetable oil
-fr:graisse et huiles végétales
-
-<en:vegetable oil
-fr:graisses et huile végétales
-
-<en:vegetable oil
-fr:huile de son de riz
-
-<en:vegetable oil
-fr:huiles végétales de tournesol et de colza
-
-<en:vegetable oil
-<en:olive oils
-fr:huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques
-
-<en:vegetable oil
-<en:olive oils
-fr:huile d'olive vierge extra extraite à froid
-
-<en:vegetable oil
-fr:huile et graisse végétales
-
-en:lemon oil
-fr:huile de citron
-
-<en:oils
-en:fish oil
-fr:huile de poisson
-allergens:fr:huile de _poisson_
-
 # GRAISSE VEGETALE
 
 <en:sunflower
@@ -8624,173 +10673,40 @@ fr:lait demi-écrémé pasteurisé
 allergens:fr:_lait_ demi-écrémé pasteurisé
 
 
-# PROTEINES
-
-en:hydrolysed proteins
-es:proteína hidrolizada
-fr:protéine hydrolysée
-nl:gehydroliseerd eiwit
-de:Proteinhydrolysat
-
-<en:hydrolysed proteins
-en:hydrolysed milk protein
-es:proteína de leche hidrolizada
-fr:protéine de lait hydrolysée
-nl:gehydroliseerd melkeiwit
-de:Milchproteinhydrolysat
-allergens:fr:protéine de _lait_ hydrolysée
-
-<en:hydrolysed proteins
-fr:protéines de pois hydrolysées
-
-<en:hydrolysed proteins
-en:vegetal hydrolysed proteins
-fr:protéines végétales hydrolysées, protéine végétale hydrolysée
-
-<en:hydrolysed proteins
-en:animal hydrolysed proteins
-fr:protéines animales hydrolysées, protéine animale hydrolysée
-
-<en:vegetal hydrolysed proteins
-en:hydrolyzed wheat protein
-es:proteína hidrolizada de trigo
-fr:protéine de blé hydrolysée 
-nl:gehydroliseerd tarwe-eiwit
-de:hydrolisiertes Weizenprotein
-
-<en:vegetal hydrolysed proteins
-en:hydrolysed soya protein
-es:proteína de soja hidrolizada
-fr:protéine de soja hydrolysée
-nl:gehydroliseerd soja-eiwit
-de:Sojaproteinhydrolysat
-allergens:fr:protéine de _soja_ hydrolysée
-
-<en:vegetal hydrolysed proteins
-fr:protéines de blé hydrolysées
-allergens:fr:protéines de _blé_ hydrolysées
-
-<en:animal hydrolysed proteins
-en:hydrolyzed pork protein
-es:proteína de cerdo hidrolizada
-fr:protéine de porc hydrolysée
-nl:gehydroliseerd varkenseiwit
-de:hydrolysiertes Schweineprotein
-
-<en:vegetal hydrolysed proteins
-en:hydrolysed corn protein
-es:proteína de maíz hidrolizada
-fr:protéine de maïs hydrolysée
-nl:gehydroliseerd maïseiwit
-de:nproteinhydrolysat
 
 # SIROPS
 
 en:syrup
 fr:sirop
 
-<en:syrup
+<en:glucose
 en:glucose syrup
 fr:sirop de glucose
 wikidata:en:Q14770547
 
-<fr:sirop de glucose
+<en:sirop de glucose
+en:powdered glucose syrup
 fr:sirop de glucose en poudre
 
 <fr:sirop de glucose en poudre
 fr:sirop de glucose de blé en poudre
 
-<en:syrup
-fr:sirop de sucre de canne
 
-<en:syrup
-fr:sirop de sucre caramel
-
-<en:syrup
 fr:sirop de glucose-fructose
 
 <fr:sirop de glucose-fructose
 fr:sirop de glucose-fructose de maïs
 
-<en:syrup
-fr:sirop de sorbitol de blé
-allergens:fr:sirop de sorbitol de _blé_
-
-<en:syrup
 fr:sirop d'oligofructose
 
-<en:syrup
 fr:sirop d'amidon
 
 <fr:sirop d'amidon
 fr:sirop d'amidon de maïs
 
-# SUCRE
-
-<en:sugar
-fr:sirop de sucre partiellement inverti
-
-<en:sugar
-fr:sucre perlé
-
-<en:sugar
-en:organic sugar
-fr:sucre bio
-blabel:en:organ
-
-<en:sugar
-fr:sucre brut de canne
-
-<en:sugar
-fr:sirop de sucre mélassé
-
-en:molasses
-es:melaza
-fr:mélasse
-nl:melasse
-de:Melasse
-
-<en:sugar
-fr:sucre caramélisé en poudre
-
-<en:sugar
-en:white sugar
-fr:sucre blanc
-
-<en:sugar
-fr:sucre en poudre
-
-<en:sugar
-fr:sucre de canne brun
-
-<en:sugar
-fr:sucre candi
-
-<en:sugar
-fr:sucre vanillé
-
-<en:sugar
-fr:sucre caramel
-
-<en:sugar
-fr:sucre du lait
-allergens:fr:sucre du _lait_
-
-<en:sugar
-fr:sucre semoule
-
-<en:sugar
-fr:pur sucre de canne
-
-<en:sugar
-fr:sucre de canne blanc
-
-<en:sugar
-fr:mélasse de canne, mélasse de sucre de canne
 
 # A TRIER
 
-fr:farine de graines de caroube et farine de graines de guar
 
 en:zinc
 fr:zinc
@@ -8953,8 +10869,6 @@ allergens:fr:graines de _céleri_
 
 fr:dextrine de blé
 allergens:fr:dextrine de _blé_
-
-fr:farine de châtaigne
 
 fr:poivron jaune
 
@@ -9135,7 +11049,8 @@ fr:pain
 
 fr:purée de goyave
 
-fr:levure naturelle
+
+
 
 fr:croûte
 
@@ -9164,8 +11079,6 @@ fr:feuilles d'oranger
 fr:carbonate acide de potassium
 
 fr:cresson
-
-fr:eau minérale naturelle volvic
 
 fr:graines de millet
 
@@ -9202,8 +11115,10 @@ fr:boyau naturel
 
 fr:mayonnaise allégée en matière grasse
 
-fr:lupin
+fr:lupin, lupins
 allergens:fr:_lupin_
+allergens:fr:_lupins_
+
 
 fr:vermicelles
 
@@ -9230,23 +11145,9 @@ fr:lait de noix de coco
 
 fr:flocons de noix de coco
 
-fr:farine de seigle
-allergens:fr:farine de _seigle_
-
-fr:farine de seigle
-allergens:fr:farine de _seigle_
-
-en:wholemeal rye flour
-es:flor de harina integral de centeno 
-fr:farine de seigle complet
-nl:volkoren roggemeel
-de:Roggenvollkornmehl
-allergens:fr:farine de _seigle_ complet
-
 fr:purée de citron
 
 fr:galette
-
 
 fr:sauce poisson
 allergens:fr:sauce _poisson_
@@ -9298,8 +11199,6 @@ fr:jus de clémentine
 fr:extrait d'ail
 
 fr:tamari
-
-fr:billettes de céréales
 
 fr:pois chiches secs trempés
 
@@ -9426,9 +11325,6 @@ allergens:fr:sirop d'_orge_ malté
 
 fr:aspergillus oryzae
 
-fr:graines de soja dépelliculées
-allergens:fr:graines de _soja_ dépelliculées
-
 en:cherry
 fr:cerise
 
@@ -9463,13 +11359,7 @@ fr:olive noire
 
 fr:graines de cumin
 
-fr:lécithine de soja e322
-allergens:fr:lécithine de _soja_ e322
-
 fr:légumes verts
-
-fr:farine complète de froment
-allergens:fr:farine complète de _froment_
 
 fr:coagulant enzymatique
 
@@ -9562,16 +11452,8 @@ fr:assaisonnement aromatisé
 
 fr:sauce béchamel
 
-fr:farine mi-blanche
-
 fr:raisins de corinthe
 
-fr:levure chimique
-
-fr:levain de seigle déshydraté et dévitalisé
-allergens:fr:levain de _seigle_ déshydraté et dévitalisé
-
-fr:farine de céréales
 
 fr:coeurs d'artichauts
 
@@ -9579,15 +11461,10 @@ fr:l-carnitine
 
 fr:lard fumé
 
-fr:farine de malt
-allergens:fr:farine de _malt_
-
 fr:nappage
 
 fr:roquefort
 allergens:fr:_roquefort_
-
-fr:gomme xanthane et gomme de guar
 
 fr:extraits de houblon
 
@@ -9613,9 +11490,6 @@ fr:colin
 
 en:riboflavin
 fr:riboflavine, riboflavines
-
-fr:fibre d'avoine
-allergens:fr:fibre d'_avoine_
 
 en:egg pastas
 fr:pâtes aux oeufs
@@ -9643,12 +11517,7 @@ fr:tréhalose
 
 fr:bœuf cuit
 
-fr:farine de seigle maltée
-allergens:fr:farine de _seigle_ maltée
-
 fr:scomber scombrus, maquereau scomber scombrus
-
-fr:eau de source gazéifiée
 
 fr:baies de goji
 
@@ -9685,9 +11554,6 @@ fr:jus de légumes concentrés
 fr:cumin moulu
 
 fr:fibres d'agave
-
-fr:fèves de soja décortiquées
-allergens:fr:fèves de _soja_ décortiquées
 
 fr:graisses
 
@@ -9740,14 +11606,6 @@ fr:matière grasse de noix de coco
 
 fr:purée de citron sucrée
 
-fr:farine de seigle
-allergens:fr:farine de _seigle_
-
-en:dextrinated rye flour
-es:harina de centeno dextrinada
-fr:farine de seigle dextrinée
-nl:gedextrineerd roggemeel
-de:dextriniertes Roggenmehl
 
 fr:géliﬁant
 
@@ -9783,7 +11641,9 @@ fr:extrait de baie de sureau
 
 fr:fèves
 
-fr:extrait de levures
+
+fr:levain de seigle déshydraté et dévitalisé
+allergens:fr:levain de _seigle_ déshydraté et dévitalisé
 
 fr:chou rouge
 
@@ -9791,6 +11651,7 @@ fr:crudités
 
 fr:grenache
 
+<en:fructose
 fr:fructose de blé
 allergens:fr:fructose de _blé_
 
@@ -10010,15 +11871,6 @@ fr:e220
 
 fr:e281
 
-en:acidity corrector
-fr:correcteur d'acidité
-
-en:e330 acidity corrector
-fr:correcteur d'acidité e330
-
-fr:correcteur d'acidité acide citrique
-
-fr:corrécteur d'acidité, correcteur dacidité
 
 fr:e461
 
@@ -10039,7 +11891,26 @@ fr:e950
 fr:émulsiﬁants
 
 <fr:émulsiﬁants
-fr:émulsifiant lécithines de soja
+<en:soy
+<en:lecithin
+en:soy lecithin
+es:lecitina de soja
+fr:lécithine de soja, lécithines de soja, émulsifiant lécithines de soja, lécithine de soja e322
+allergens:fr:lécithine de _soja_ e322
+allergens:fr:lécithine de _soja_
+
+<en:soy lecithin
+en:GMO-free soy lecithin
+fr:lécithine de soja sans ogm
+
+<en:soy lecithin
+fr:lécithine de soja et de tournesol
+allergens:fr:lécithine de _soja_ et de tournesol
+
+<en:lecithin
+en:sunflower lecithin
+fr:lécithine de tournesol
+
 
 <fr:émulsiﬁants
 fr:émulsifiants lécithines
@@ -10114,8 +11985,6 @@ fr:gras de veau
 
 fr:pyrophosphate de soude
 
-fr:farine intégrale de blé
-allergens:fr:farine intégrale de _blé_
 
 fr:iode
 
@@ -10149,20 +12018,11 @@ fr:châtaigne
 
 fr:diphosphates de sodium
 
-fr:farine de pois chiche
 
 fr:gousse de vanille
 
 fr:fondant
 
-fr:soja dépelliculé
-
-fr:cannelle moulue
-
-fr:manioc
-
-fr:fève de soja
-allergens:fr:fève de _soja_
 
 fr:magret de canard
 
@@ -10202,7 +12062,6 @@ fr:cellulose microcristalline
 fr:préparation à base de lactosérum
 allergens:fr:préparation à base de _lactosérum_
 
-fr:sorbitols et glycérol
 
 fr:bacon
 
@@ -10299,10 +12158,6 @@ fr:morceaux de chocolat
 
 fr:carotte jaune
 
-fr:sauce de soja en poudre
-
-fr:farine de pois chiches
-
 fr:morceaux de foie gras de canard
 
 fr:phosphates de potassium
@@ -10329,25 +12184,6 @@ de:getrocknetes Basilikum
 en:mint leaves
 fr:feuilles de menthe
 
-# Acides
-
-fr:acide de sodium
-
-en:malic acid
-fr:acide malique 
-
-en:citric acid
-fr:acide citrique
-
-fr:acide L-ascorbique
-
-en:lactic acid
-fr:acide lactique
-
-fr:acide lactique et acide citrique
-
-fr:carminic acid
-fr:acide carminique
 
 # Random
 
@@ -10448,10 +12284,8 @@ fr:choux
 
 fr:fibres d'acacia
 
-fr:glycérol et sorbitols
 
-fr:sauce soja en poudre
-allergens:fr:sauce _soja_ en poudre
+
 
 en:dried onion
 es:cebolla deshidratada
@@ -10474,9 +12308,6 @@ fr:préparation aromatisante
 fr:concentré de carotte et de citrouille
 
 fr:légumes séchés
-
-fr:farine d'orge malté toasté
-allergens:fr:farine d'_orge_ malté toasté
 
 fr:oignon rouge
 
@@ -10512,9 +12343,6 @@ fr:potimarron
 
 fr:séré maigre
 
-fr:sauce au soja
-allergens:fr:sauce au _soja_
-
 fr:litchi
 
 fr:base aromatisante barbecue
@@ -10543,7 +12371,6 @@ fr:triphosphate pentasodique
 
 fr:carraghénanes
 
-fr:gomme xanthane
 
 fr:emmental français râpé
 allergens:fr:_emmental_ français râpé
@@ -10554,8 +12381,6 @@ fr:levain sec
 fr:katsuwonus
 
 fr:poudre d'acérola
-
-fr:eau minérale
 
 fr:téguments
 
@@ -10596,8 +12421,6 @@ fr:graines de lin jaune
 
 fr:gousses de vanille moulues
 
-fr:protéines de soja i.p
-allergens:fr:protéines de _soja_ i.p
 
 fr:segments d'ananas
 
@@ -10606,7 +12429,9 @@ allergens:fr:_céleri_ branche
 
 fr:légumes en poudre
 
-fr:antioxydant e316
+fr:antioxydant e316, e-316, e316
+
+
 
 fr:agent épaississant
 
@@ -10618,7 +12443,6 @@ fr:gras de mouton
 
 fr:graisse de volaille
 
-fr:guar
 
 fr:spéculoos
 
@@ -10626,7 +12450,20 @@ fr:légumes en proportion variable
 
 fr:exhausteur de saveur
 
-fr:citrate de triéthyle
+# Triethyl citrate is an ester of citric acid. 
+
+en:Triethyl citrate, E1505
+# azb: تری‌اتیل سیترات
+de:Citronensäuretriethylester, E1505
+fa:تری‌اتیل سیترات
+fr:citrate de triéthyle, E1505
+nl:Tri-ethylcitraat, E1505
+sh:Trietil citrat, E1505
+sk:Trietylcitrát, E1505
+sr:Trietil citrat, E1505
+sv:Trietylcitrat, E1505
+wikipedia:https://en.wikipedia.org/wiki/Triethyl_citrate
+wikidta:en:Q418057
 
 fr:sucroesters d'acide gras
 
@@ -10648,8 +12485,6 @@ fr:jus d'oignon concentré
 
 fr:clémentines
 
-fr:protéines de soja hydrolysées
-allergens:fr:protéines de _soja_ hydrolysées
 
 fr:jus concentré de cassis
 
@@ -10671,9 +12506,6 @@ fr:250
 
 fr:bouillon déshydraté
 
-fr:céréales soufflées
-
-fr:levure de panification
 
 fr:culture bactérienne
 
@@ -10727,7 +12559,6 @@ allergens:fr:fins finots de _blé_ dur
 
 fr:poudre de fleurage
 
-fr:farine de pois
 
 fr:coriandre moulue
 
@@ -10783,7 +12614,6 @@ fr:framboises lyophilisées
 
 fr:crème acidulée
 
-fr:extrait de levure en poudre
 
 fr:extrait naturel de citron
 
@@ -10799,13 +12629,6 @@ fr:extraits naturels d'épices
 
 fr:aubergines frites
 
-fr:vinaigre de malt d'orge
-allergens:fr:vinaigre de malt d'_orge_
-
-fr:vinaigre blanc
-
-fr:vinaigre de pomme
-
 fr:mirabelle
 
 fr:poudre au beurre
@@ -10815,7 +12638,6 @@ fr:seigle broyé
 
 fr:curcumin
 
-fr:poudre de levure
 
 fr:sauce bolognaise
 
@@ -10900,8 +12722,7 @@ fr:quinoa
 en:red quinoa
 fr:quinoa rouge
 
-en:quinoa flour
-fr:farine de quinoa
+
 
 en:white quinoa
 fr:quinoa blanc
@@ -10918,8 +12739,6 @@ fr:jus de sureau concentré
 
 fr:jus de cuisson de viande de boeuf
 
-fr:isolat de protéine de soja
-allergens:fr:isolat de protéine de _soja_
 
 fr:oléorésine de paprika
 
@@ -10932,10 +12751,22 @@ fr:couscous
 en:apple fiber
 fr:fibre de pomme
 
-fr:orthophosphate de calcium
+# CALCIUM PHOSPHATE is a family of materials and minerals containing calcium ions (Ca2+) together with inorganic phosphate anions. 
 
-fr:farine de petit épeautre
-allergens:fr:farine de petit _épeautre_
+en:calcium phosphate
+wikipedia:https://en.wikipedia.org/wiki/Calcium_phosphate
+wikidata:en:Q426664
+
+<en:calcium phosphate
+fr:orthophosphate de calcium, E339
+
+
+# TETRASODIUM PYROPHOSPHATE, also called sodium pyrophosphate, tetrasodium phosphate or TSPP, is a colorless transparent crystalline chemical compound with the formula Na4P2O7. 
+
+en:Tetrasodium pyrophosphate
+fr:diphosphate tétrasodique, Pyrophosphate de sodium
+wikipedia:https://en.wikipedia.org/wiki/Tetrasodium_pyrophosphate
+
 
 fr:sardines fraîches
 allergens:fr:_sardines_ fraîches
@@ -10946,16 +12777,14 @@ fr:origan déshydraté
 
 fr:purée de châtaignes
 
-fr:soja entier
-allergens:fr:_soja_ entier
 
-fr:diphosphate tétrasodique
+fr:cannelle moulue
 
 fr:pulpes de citron
 
 fr:concentrés de fruits et de légumes
 
-fr:disphosphate disodique
+fr:disphosphate disodique, Pyrophosphate acide de soude, pyrophosphate de sodium
 
 fr:arachides grillées moulues
 allergens:fr:_arachides_ grillées moulues
@@ -10991,13 +12820,8 @@ fr:fécule modifiée de pommes de terre
 
 fr:flocons de pomme de terre réhydratés
 
-fr:purée de pomme de terre
+fr:purée de pomme de terre, purée de pommes de terre
 
-fr:farine de pomme de terre, farine de pommes de terre
-
-fr:pomme de terre en poudre
-
-fr:purée de pommes de terre
 
 fr:flocon de pomme de terre
 
@@ -11024,13 +12848,12 @@ fr:pommes de terre en poudre
 
 fr:coriandre en poudre
 
-fr:e-316
 
-fr:farine de graines de caroubes
+
 
 fr:fruits des bois
 
-fr:farine de gonflement de blé
+
 
 fr:fleurs de sureau
 
@@ -11077,25 +12900,9 @@ fr:a. oryzae
 
 fr:génoise
 
-fr:flocon d'avoine
-allergens:fr:flocon d'_avoine_
 
 fr:protoxyde d'azote
 
-fr:farine d'épeautre
-allergens:fr:farine d'_épeautre_
-
-en:dextrinated spelt flour
-es:harina de espelta dextrinada
-fr:farine d'épeautre dextrinée
-nl:gedextrineerd speltmeel
-de:dextriniertes Dinkelmehl
-
-fr:farine d'épeautre complète
-allergens:fr:farine d'_épeautre_ complète
-
-fr:farine d'épeautre complet
-allergens:fr:farine d'_épeautre_ complet
 
 fr:filets de maquereaux cuits au court-bouillon
 allergens:fr:filets de _maquereaux_ cuits au court-bouillon
@@ -11129,8 +12936,6 @@ fr:pâte cuite
 
 fr:protéase
 
-fr:eau gazéfiée
-
 fr:complexes cuivre-chlorophylles
 
 fr:vermicelles de pois réhydratés
@@ -11138,7 +12943,9 @@ fr:vermicelles de pois réhydratés
 fr:flocons d'épeautre complet
 allergens:fr:flocons d'_épeautre_ complet
 
-fr:farine de millet
+
+
+
 
 en:calcium hydroxide
 es:hidróxido de calcio
@@ -11426,8 +13233,6 @@ fr:poivrons verts et rouges
 fr:bleu
 allergens:fr:_bleu_
 
-fr:agent de traitement de farine
-
 fr:l-leucine
 
 fr:phosphate de magnésium
@@ -11504,8 +13309,6 @@ fr:boyau collagénique
 
 fr:fleurs d'hibiscus
 
-fr:eau purifiée
-
 fr:purée de carotte
 
 fr:jus de carotte pourpre concentré
@@ -11536,11 +13339,6 @@ fr:amarante
 nl:amaranth
 de:Amarant
 
-en:amaranth flour
-es:harina de amaranto
-fr:farine d’amarante
-nl:amaranthmeel
-de:Amarantmehl
 
 fr:pruneaux
 
@@ -11555,7 +13353,6 @@ fr:purée de pruneaux
 
 fr:jus de fraise à base de concentré
 
-fr:pousses de soja
 
 fr:extraits naturels d'orange
 
@@ -11574,11 +13371,8 @@ de:Cassis-Likör
 
 fr:antioxygène bha
 
-fr:mélasse de sucre de canne
 
 fr:jus concentré de betterave
-
-fr:eau gazéifié
 
 fr:extrait de sureau
 
@@ -11666,13 +13460,6 @@ fr:trévise, salade trévise
 fr:feuille de coriandre
 
 fr:pois chiches réhydratés
-
-fr:levure alimentaire
-de:Nährhefe
-it:lievito alimentare
-
-fr:farine d'orge malté torréfié
-allergens:fr:farine d'_orge_ malté torréfié
 
 en:tequila
 fr:tequila
@@ -11787,8 +13574,6 @@ fr:lactosérum partiellement déminéralisé
 
 fr:lait stérilisé uht demi-écrémé
 
-fr:crispies de céréales
-
 fr:jus de carotte noire concentré
 
 fr:boyau de mouton
@@ -11803,9 +13588,6 @@ fr:lentilles rouges
 
 fr:poudre de lactosérum sucré
 
-fr:farine complète d'avoine
-allergens:fr:farine complète d'_avoine_
-
 fr:pecorino romano
 allergens:fr:_pecorino romano_
 
@@ -11814,14 +13596,11 @@ allergens:fr:malt de _froment_
 
 fr:marc de champagne
 
-fr:sucre liquide inverti
 
 fr:algue marine lithothamnium calcareum
 
 fr:praliné aux amandes et aux noisettes
 allergens:fr:praliné aux _amandes_ et aux _noisettes_
-
-fr:céréales biscuitées
 
 fr:sol
 
@@ -11854,7 +13633,6 @@ fr:gousse de vanille épuisée
 
 fr:carottes en morceaux
 
-fr:farine de malt de froment
 
 fr:galette de blé
 allergens:fr:galette de _blé_
@@ -11862,14 +13640,11 @@ allergens:fr:galette de _blé_
 fr:moutarde forte
 allergens:fr:_moutarde_ forte
 
-fr:gluconate de manganèse
 
 fr:graisses végétales non hydrogénées
 
 fr:shiitakes
 
-en:GMO-free soy lecithin
-fr:lécithine de soja sans ogm
 
 <en:Cream
 en:Sour cream
@@ -11973,8 +13748,6 @@ fr:purée de framboise concentrée
 
 fr:tartrazine
 
-fr:levure inactivée
-
 fr:glucuronolactone
 
 en:blueberry
@@ -12010,8 +13783,6 @@ allergens:fr:petit _beurre_
 en:niacinamide
 fr:niacinamide
 
-fr:protéines végétales de soja réhydratées
-allergens:fr:protéines végétales de _soja_ réhydratées
 
 fr:jus concentré
 
@@ -12023,7 +13794,7 @@ fr:esters citriques des mono- et diglycérides d'acides gras
 
 fr:mélasses
 
-fr:levure fraîche
+
 
 fr:concombres au vinaigre
 
@@ -12058,8 +13829,6 @@ fr:agents de coagulation
 
 fr:petits pois doux
 
-fr:glucose de blé
-allergens:fr:glucose de _blé_
 
 fr:flocons de coco
 
@@ -12084,8 +13853,6 @@ nl:abrikozenpitten
 de:Aprikosenkerne
 
 fr:graine d'anis vert
-
-fr:farine de manioc
 
 fr:praliné amandes
 allergens:fr:praliné _amandes_
@@ -12151,12 +13918,7 @@ fr:extrait de malt en poudre
 
 fr:algue lithothamnium calcareum
 
-fr:farine de graine de guar
-
 fr:oléisol®
-
-fr:farine d'orge complète
-allergens:fr:farine d'_orge_ complète
 
 fr:mono et di glycérides d'acides gras
 
@@ -12246,6 +14008,91 @@ fr:olives vertes et noires
 
 fr:culture de bifidus
 
+fr:encornet
+allergens:fr:_encornet_
+
+fr:poudre de jaunes d'oeufs
+allergens:fr:poudre de jaunes d'_oeufs_
+
+fr:fourrage lait
+allergens:fr:fourrage _lait_
+
+fr:feta
+allergens:fr:_feta_
+
+fr:chlorophyllines
+
+
+
+
+fr:concentrés de légumes
+
+fr:légumes et jus de cuisson de légumes
+
+fr:pois doux
+
+fr:bambou
+
+# BEETROOT is the taproot portion of the beet plant
+
+en:beetroot
+fr:betterave
+wikipedia:https://en.wikipedia.org/wiki/Beetroot
+
+<en:beetroot
+fr:fibres de betterave
+
+<en:beetroot
+fr:betterave rouge en poudre
+
+# JERUSALEM ARTICHOKE (Helianthus tuberosus), also called sunroot, sunchoke, earth apple, or topinambour, is a species of sunflower 
+
+en:Jerusalem artichoke
+es:tupinambo
+fr:topinambour
+nl:aardpeer
+de:Topinambur
+wikipedia:https://en.wikipedia.org/wiki/Jerusalem_artichoke
+
+# ALOE VERA is a succulent plant species of the genus Aloe.
+
+en:aloe vera
+es:aloe vera
+fr:aloe vera
+nl:aloe vera
+de:Aloe vera
+wikipedia:https://en.wikipedia.org/wiki/Aloe_vera
+
+<en:aloe vera
+en:Aloe vera juice
+es:zumo de aloe vera
+fr:jus d’aloe vera
+nl:aloe vera sap
+de:Aloe-vera-Saft
+
+<en:aloe vera
+en:Aloe vera fibre
+es:fibras de aloe vera
+fr:fibres d’aloe vera
+nl:aloe vera vezels
+de:Aloe-vera-Fasern
+
+# Chinese cabbage (Brassica rapa, subspecies pekinensis and chinensis) can refer to two groups of Chinese leaf vegetables often used in Chinese cuisine: the Pekinensis Group (napa cabbage) and the Chinensis Group (bok choy).
+
+en:Chinese cabbage
+es:col china
+fr:chou chinois
+nl:Chinese kool
+de:Chinakohl
+wikipedia:https://en.wikipedia.org/wiki/Chinese_cabbage
+
+fr:poivrons jaunes grillés
+treatment:en: en:gril
+
+fr:coeurs de palmier
+
+fr:chou frisé
+
 # Haricots
 
 fr:haricot vert, haricots verts
@@ -12296,30 +14143,6 @@ fr:haricots noirs
 
 fr:pousse de haricot mungo
 
-fr:encornet
-allergens:fr:_encornet_
-
-fr:poudre de jaunes d'oeufs
-allergens:fr:poudre de jaunes d'_oeufs_
-
-fr:fourrage lait
-allergens:fr:fourrage _lait_
-
-fr:feta
-allergens:fr:_feta_
-
-fr:coeurs de palmier
-
-fr:lécithine de soja et de tournesol
-allergens:fr:lécithine de _soja_ et de tournesol
-
-fr:chlorophyllines
-
-fr:farine d'orge maltée torréfiée
-allergens:fr:farine d'_orge_ maltée torréfiée
-
-fr:chou frisé
-
 fr:mourvèdre
 
 fr:calmars
@@ -12369,18 +14192,11 @@ fr:salade mélangée
 fr:crème stérilisée
 allergens:fr:_crème_ stérilisée
 
-fr:poivrons jaunes grillés
-treatment:en: en:gril
 
 fr:conservateur sorbate de potassium
 
 fr:amylase
 
-en:Chinese cabbage
-es:col china
-fr:chou chinois
-nl:Chinese kool
-de:Chinakohl
 
 fr:penicillium
 
@@ -12402,134 +14218,26 @@ fr:mélange de salades
 
 fr:malts
 
-en:Aloe vera
-es:aloe vera
-fr:aloe vera
-nl:aloe vera
-de:Aloe vera
 
-en:Aloe vera juice
-es:zumo de aloe vera
-fr:jus d’aloe vera
-nl:aloe vera sap
-de:Aloe-vera-Saft
-
-en:Aloe vera fibre
-es:fibras de aloe vera
-fr:fibres d’aloe vera
-nl:aloe vera vezels
-de:Aloe-vera-Fasern
 
 fr:filets d'anchois
-
 
 fr:jus concentré pulpé de citron
 
 fr:brioche
 
-fr:bambou
-
-fr:concentrés de légumes
-
-fr:manganèse
-
-fr:pois doux
 
 fr:gruyère aop
 
 fr:yaourt en poudre
 allergens:fr:_yaourt_ en poudre
 
-# Wheat flours
-
-en:wheat flour
-es:harina de trigo
-fr:farine de blé
-nl:tarwebloem
-de:Weizenmehl
-allergens:fr:farine de _blé_
-
-<en:wheat flour
-fr:farine de blé malté torréfié
-
-<en:wheat flour
-fr:farine de blé maltée
-allergens:fr:farine de _blé_ maltée
-
-<en:wheat flour
-fr:farine de blé t80
-allergens:fr:farine de _blé_ t80
-
-<en:wheat flour
-fr:farine de blé bio
-allergens:fr:farine de _blé_ bio
-
-<en:wheat flour
-en:durum wheat flour
-es:harina de trigo duro
-fr:farine de blé dur
-nl:durum tarwemeel
-de:Hartweizenmehl
-allergens:fr:farine de _blé_ dur
-
-<en:wheat flour
-fr:farine de blé complète
-allergens:fr:farine de _blé_ complète
-
-<en:wheat flour
-fr:farine de blé noir
-allergens:fr:farine de _blé_ noir
-
-<en:wheat flour
-fr:farine de blé noir
-allergens:fr:farine de _blé_ noir
-
-<en:wheat flour
-en:dextrinated wheat flour
-es:harina de trigo dextrinada
-fr:farine de blé dextrinée
-nl:gedextrineerd tarwemeel
-de:dextriniertes Weizenmehl
-
-<en:wheat flour
-fr:farine de blé fermenté
-allergens:fr:farine de _blé_ fermenté
-
-<en:wheat flour
-fr:farine de blé type 45
-allergens:fr:farine de _blé_ type 45
-
-<en:wheat flour
-fr:farine de blé enrichie
-allergens:fr:farine de _blé_ enrichie
-
-<en:wheat flour
-fr:farine de blé t65
-allergens:fr:farine de _blé_ t65
-
-<en:wheat flour
-fr:farine de blé complet
-allergens:fr:farine de _blé_ complet
-
-<en:wheat flour
-fr:farine de blé tendre
-allergens:fr:farine de _blé_ tendre
-
-<en:wheat flour
-fr:farine de blé malté
-allergens:fr:farine de _blé_ malté
 
 en:whole milk yogurt
 fr:yogourt au lait entier
 
-fr:fèves de soja sans ogm décortiquées
-allergens:fr:fèves de _soja_ sans ogm décortiquées
-
-fr:betterave rouge en poudre
-
 fr:fruits confits
 
-fr:fibres de betterave
 
 fr:purée de noisettes
 allergens:fr:purée de _noisettes_
@@ -12539,6 +14247,8 @@ fr:diphosphates disodique
 fr:guarana
 
 fr:monosodium glutamate
+
+
 
 fr:fleurs de carcadé
 
@@ -12562,23 +14272,13 @@ treatment:en: en:gril
 
 fr:purée de fruit de la passion
 
-fr:légumes et jus de cuisson de légumes
 
 fr:blé soufflé
 allergens:fr:_blé_ soufflé
 
 fr:dextrine de tapioca
 
-fr:lupins
-allergens:fr:_lupins_
-
 fr:cantharellus cibarius
-
-en:Jerusalem artichoke
-es:tupinambo
-fr:topinambour
-nl:aardpeer
-de:Topinambur
 
 en:absinth
 es:absenta
