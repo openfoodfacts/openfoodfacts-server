@@ -348,7 +348,9 @@ $options{nova_groups_tags} = {
 
 "ingredients/en:salt" => 3,
 "ingredients/en:sugar" => 3,
+"ingredients/en:vegetable-oil" => 3,
 "ingredients/en:vegetal-oil" => 3,
+"categories/en:fats" => 2,
 "ingredients/en:butter" => 3,
 "ingredients/en:honey" => 3,
 "ingredients/en:maple-syrup" => 3,
@@ -357,6 +359,7 @@ $options{nova_groups_tags} = {
 
 "ingredients/en:starch" => 3,
 "ingredients/en:whey" => 4,
+"ingredients/en:milk-powder" => 4,
 
 
 
@@ -399,6 +402,7 @@ $options{nova_groups_tags} = {
 # group 4 ingredients from nova paper
 
 "ingredients/en:flavour" => 4,
+"ingredients/en:flavouring" => 4,
 "ingredients/en:casein" => 4,
 "ingredients/en:lactose" => 4,
 "ingredients/en:whey" => 4,
@@ -408,6 +412,8 @@ $options{nova_groups_tags} = {
 "ingredients/en:invert-sugar" => 4,
 "ingredients/en:high-fructose-corn-syrup" => 4,
 "ingredients/en:glucose" => 4,
+"ingredients/en:glucose-syrup" => 4,
+
 
 # other ingredients that we can consider as ultra-processed
 
@@ -415,6 +421,7 @@ $options{nova_groups_tags} = {
 "ingredients/en:milk-powder" => 4,
 "ingredients/en:milk-proteins" => 4,
 "ingredients/en:whey-proteins" => 4,
+"ingredients/en:lecithin" => 4,
 
 
 # group 4 categories from nova paper
