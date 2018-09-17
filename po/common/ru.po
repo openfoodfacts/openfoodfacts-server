@@ -5,11 +5,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-16 12:58-0500\n"
+"PO-Revision-Date: 2018-07-31 07:40\n"
 "Language-Team: Russian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"POT-Creation-Date: \n"
 "X-Generator: crowdin.com\n"
+"Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: ru\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
@@ -193,17 +194,13 @@ msgctxt "barcode_number"
 msgid "Barcode number:"
 msgstr "Номер штрих-кода:"
 
+msgctxt "you_can_also_help_us"
+msgid "You can also help to fund the Open Food Facts project"
+msgstr "Вы также можете помочь финансировать проект Open Food Facts"
+
 msgctxt "bottom_content"
-msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>Contribute to <<site_name>> by adding product and win stars by\n"
-"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
-msgstr "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>Помогайте <<site_name>> добавляя продукты и выигрывайте звёздочки\n"
-"выполняя <a href=\"/missions\">задания</a>!</p>\n"
+msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Поддержать Open Food Facts\" /></a><p><<site_name>> создан некоммерческой ассоциацией, независимой от индустрии. Он создан для всех, и он финансируется всеми. Вы можете поддержать нашу работу <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">пожертвованием на Open Food Facts</a>, а также<a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">используя поисковый сервис Lilo</a>.<br/><b>Спасибо!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
@@ -420,7 +417,7 @@ msgstr "страна"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr "Продукт не продаётся в %s"
+msgstr "Продукты, не проданные в %s"
 
 msgctxt "data_source"
 msgid "Data source"
@@ -1478,6 +1475,14 @@ msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
 msgstr "Пищевая ценность не указана на продукте."
 
+msgctxt "multiple_nutrition_data"
+msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
+msgstr "На продукте указываются многочисленные факты о питательной ценностии (например, с добавленной водой или молоком)."
+
+msgctxt "multiple_nutrition_data_instructions"
+msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
+msgstr "Укажите питательную ценность только для неподготовленного продукта без добавления воды или молока. Если указаны разные продукты, введите данные о питательной ценности для первого перечисленного продукта."
+
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
 msgstr "Нет продуктов со штрихкодом %s."
@@ -2010,7 +2015,7 @@ msgstr "добавить место"
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr "Продукт не продаётся в %s"
+msgstr "Продукты, не продававшиеся в %s"
 
 msgctxt "quantity"
 msgid "Quantity"
@@ -2452,7 +2457,7 @@ msgstr "магазины"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
-msgstr "Продукты продаются в %s"
+msgstr "Продукты, продававшиеся в %s"
 
 msgctxt "stores_s"
 msgid "store"
@@ -2708,14 +2713,6 @@ msgctxt "sources_usda_ndb_product_page"
 msgid "Product page on USDA NDB"
 msgstr "Страница продукта на USDA NDB"
 
-msgctxt "donate"
-msgid "Donate to Open Food Facts"
-msgstr "Пожертвовать Open Food Facts"
-
-msgctxt "donate_link"
-msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
 msgstr "Некоторые данные и изображения были предоставлены непосредственно производителем Fleury Michon."
@@ -2731,6 +2728,10 @@ msgstr "Эта страница продукта не завершена. Вы �
 msgctxt "title_separator"
 msgid " — "
 msgstr " — "
+
+msgctxt "recent_changes"
+msgid "Recent Changes"
+msgstr "Недавние изменения"
 
 msgctxt "translators_title"
 msgid "Our Translators"
@@ -2763,4 +2764,72 @@ msgstr "Подтверждено (слов)"
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
 msgstr "Голосов отдано"
+
+msgctxt "minerals_p"
+msgid "added minerals"
+msgstr "добавленные минералы"
+
+msgctxt "minerals_s"
+msgid "added mineral"
+msgstr "добавленный минерал"
+
+msgctxt "vitamins_p"
+msgid "added vitamins"
+msgstr "добавленные витамины"
+
+msgctxt "vitamins_s"
+msgid "added vitamin"
+msgstr "добавленный витамин"
+
+msgctxt "amino_acids_p"
+msgid "added amino acids"
+msgstr "добавленные аминокислоты"
+
+msgctxt "amino_acids_s"
+msgid "added amino acid"
+msgstr "добавленная аминокислота"
+
+msgctxt "nucleotides_p"
+msgid "added nucleotides"
+msgstr "добавленные нуклеотиды"
+
+msgctxt "nucleotides_s"
+msgid "added nucleotide"
+msgstr "добавленный нуклеотид"
+
+msgctxt "other_nutritional_substances_p"
+msgid "other nutritional substances added"
+msgstr "прочие добавленные питательные вещества"
+
+msgctxt "other_nutritional_substances_s"
+msgid "other nutritional substance added"
+msgstr "прочее добавленное питательное вещество"
+
+msgctxt "product_as_sold"
+msgid "As sold"
+msgstr "При продаже"
+
+msgctxt "prepared_product"
+msgid "Prepared"
+msgstr "Приготовленный"
+
+msgctxt "unit"
+msgid "Unit"
+msgstr "Единица"
+
+msgctxt "nutrition_data_exists"
+msgid "Nutrition facts are specified for the product as sold."
+msgstr "Пищевая ценность указана для продукта при продаже."
+
+msgctxt "nutrition_data_prepared_exists"
+msgid "Nutrition facts are specified for the prepared product."
+msgstr "Пищевая ценность указана для приготовленного продукта."
+
+msgctxt "nova_groups_s"
+msgid "NOVA group"
+msgstr "Группа NOVA"
+
+msgctxt "nova_groups_p"
+msgid "NOVA groups"
+msgstr "Группы NOVA"
 
