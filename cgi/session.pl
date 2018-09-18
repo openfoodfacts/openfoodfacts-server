@@ -36,6 +36,7 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+use Log::Any qw($log);
 
 ProductOpener::Display::init();
 use ProductOpener::Lang qw/:all/;
@@ -45,7 +46,10 @@ use ProductOpener::Lang qw/:all/;
 my $html = '';
 
 if (defined $User_id) {
-	$html = $Lang{hello}{$lang} . ' ' . $User{name} . separator_before_colon($lc) . "!";
+	$html = "<p>" . $Lang{hello}{$lang} . ' ' . $User{name} . separator_before_colon($lc) . "!" . "</p>";
+	
+	$html .= "<h3>" . lang("you_can_also_help_us") . "</h3>\n";
+	$html .= "<p>" . lang("bottom_content") . "</p>\n";	
 	
 	my $next_action = param('next_action');
 	my $code = param('code');
@@ -67,7 +71,7 @@ if (defined $User_id) {
 	
 	if (defined $url) {
 		
-		print STDERR "session.pl - redirection to $url\n";
+		$log->info("redirecting after login", { url => $url }) if $log->is_info();
 	
         $r->err_headers_out->add('Set-Cookie' => $cookie);
 		$r->headers_out->set(Location =>"$url");

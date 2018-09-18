@@ -255,6 +255,19 @@ last_edit_dates
 
 );
 
+$options{display_tag_ingredients} = [
+
+	'COSING',
+	'CAS',
+	'EINECS',
+	'INN Name',
+	'Ph Eur Name',
+	'@INCI Function',
+	'INCI Description',
+	'INCI Restriction',
+
+];
+
 
 # allow moving products to other instances of Product Opener on the same server
 # e.g. OFF -> OBF

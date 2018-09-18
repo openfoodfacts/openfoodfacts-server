@@ -43,6 +43,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 
 use Cache::Memcached::Fast;
+use Log::Any qw($log);
 
 
 # Initialize exported variables
@@ -62,8 +63,6 @@ $memd = new Cache::Memcached::Fast {
 use vars qw(
 );
 
-my $debug = 0 ;	# Set to a non null value to get debug messages
-
 sub get_multi_objects($)
 {
 	my $keys_ref = shift;
@@ -79,7 +78,7 @@ sub get_multi_objects($)
 						color => $blog_ref->{color2},
 						url => $blog_ref->{url}
 					};
-					$debug and print STDERR "Cache::get_multi_objects - $key - retrieved from disk\n";
+					$log->debug("Cache::get_multi_objects - retrieved from disk", { key => $key }) if $log->is_debug();
 					$memd->set($key, $values_ref->{$key});
 				}
 			}
@@ -90,13 +89,13 @@ sub get_multi_objects($)
 						canon_tag => $tag_ref->{canon_tag},
 						color => $tag_ref->{color2},					
 					};
-					$debug and print STDERR "Cache::get_multi_objects - $key - retrieved from disk\n";
+					$log->debug("Cache::get_multi_objects - retrieved from disk", { key => $key }) if $log->is_debug();
 					$memd->set($key, $values_ref->{$key});
 				}			
 			}
 		}
 		else {
-			$debug and print STDERR "Cache::get_multi_objects - $key - in cache\n";
+			$log->debug("Cache::get_multi_objects - in cache", { key => $key }) if $log->is_debug();
 		}
 	}
 	

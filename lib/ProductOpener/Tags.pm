@@ -60,6 +60,8 @@ BEGIN
 					&display_taxonomy_tag
 					&display_taxonomy_tag_link
 					
+					&spellcheck_taxonomy_tag
+					
 					&get_tag_css_class
 					
 					&display_tag_link
@@ -117,12 +119,12 @@ use ProductOpener::Text qw/:all/;
 use Clone qw(clone);
 
 use URI::Escape::XS;
+use Log::Any qw($log);
 
 use GraphViz2;
 use JSON::PP;
 
 
-my $debug = 0;
 
 
 %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes => 1, allergens => 1, traces => 1, purchase_places => 1, stores => 1, countries => 1, states=>1, codes=>1, debug => 1);
@@ -638,28 +640,75 @@ sub build_tags_taxonomy($$) {
 				$line = $';
 				$line =~ s/^\s+//;
 				my @tags = split(/( )?,( )?/, $line);
+				
 				$current_tag = $tags[0];
 				$current_tag = ucfirst($current_tag);
 				$current_tagid = get_fileid($current_tag);
 				
+				# check if we already have an entry listed for one of the synonyms
+				# this is useful for taxonomies that need to be merged, and that are concatenated
+				
+				# should only be applied to ingredients (and not to additives)
+				
+				if ($tagtype eq 'ingredients') {
+				
+					foreach my $tag2 (@tags) {
+
+						my $tag = $tag2;
+					
+						$tag =~ s/^\s+//;
+						$tag = normalize_percentages($tag, $lc);
+						my $tagid = get_fileid($tag);
+						my $possible_canon_tagid = $synonyms{$tagtype}{$lc}{$tagid};
+						if (not defined $possible_canon_tagid) {
+							my $stopped_tagid = $tagid;
+							$stopped_tagid = remove_stopwords($tagtype,$lc,$tagid);
+							$stopped_tagid = remove_plurals($lc,$stopped_tagid);
+							$possible_canon_tagid = $synonyms{$tagtype}{$lc}{$stopped_tagid};
+						}
+						if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
+							$canon_tagid = "$lc:" . $possible_canon_tagid;
+							$current_tagid = $possible_canon_tagid;
+							print "taxonomy - we already have a canon_tagid $canon_tagid for the tag $tag\n";
+							last;
+						}
+					}
+									
+				
+					# do we already have a translation from a previous definition?
+					if (defined $translations_to{$tagtype}{$canon_tagid}{$lc}) {
+						$current_tag = $translations_to{$tagtype}{$canon_tagid}{$lc};
+						$current_tagid = get_fileid($current_tag);
+					}
+				
+				}
+				
+				
 				if (not defined $canon_tagid) {
 					$canon_tagid = "$lc:$current_tagid";
+					print STDERR "new canon_tagid: $canon_tagid\n";
 					if ($synonyms eq 'synonyms:') {
 						$just_synonyms{$tagtype}{$canon_tagid} = 1;
 					}
 				}
 
-				$translations_from{$tagtype}{"$lc:$current_tagid"} = $canon_tagid;
-				print "taxonomy - translation_from{$tagtype}{$lc:$current_tagid} = $canon_tagid \n";
-				print "taxonomy - translations_to{$tagtype}{$canon_tagid}{$lc} = $current_tag \n";
+				if (not defined $translations_from{$tagtype}{"$lc:$current_tagid"}) {
+					$translations_from{$tagtype}{"$lc:$current_tagid"} = $canon_tagid;
+					print "taxonomy - translation_from{$tagtype}{$lc:$current_tagid} = $canon_tagid \n";
+				}
 				
 				defined $translations_to{$tagtype}{$canon_tagid} or $translations_to{$tagtype}{$canon_tagid} = {};
-				$translations_to{$tagtype}{$canon_tagid}{$lc} = $current_tag;
+				
+				if (not defined $translations_to{$tagtype}{$canon_tagid}{$lc}) {
+					$translations_to{$tagtype}{$canon_tagid}{$lc} = $current_tag;
+					print "taxonomy - translations_to{$tagtype}{$canon_tagid}{$lc} = $current_tag \n";
+				}
+								
 				
 				# Include the main tag as a synonym of itself, useful later to compute other synonyms
 				
 				(defined $synonyms_for{$tagtype}{$lc}) or $synonyms_for{$tagtype}{$lc} = {};
-				$synonyms_for{$tagtype}{$lc}{$current_tagid} = [];
+				defined $synonyms_for{$tagtype}{$lc}{$current_tagid} or $synonyms_for{$tagtype}{$lc}{$current_tagid} = [];
 				
 				foreach my $tag (@tags) {
 					my $tagid = get_fileid($tag);
@@ -681,7 +730,7 @@ sub build_tags_taxonomy($$) {
 				
 			}
 			else {
-				print STDERR "unrecognized line in $tagtype taxonomy: $line\n";
+				$log->info("unrecognized line in taxonomy", { tagtype => $tagtype, line => $line }) if $log->is_info();
 			}
 		
 		}
@@ -873,6 +922,8 @@ sub build_tags_taxonomy($$) {
 
 		my %parents = ();
 		
+		$canon_tagid = undef;
+		
 		while (<$IN>) {
 		
 			my $line = $_;
@@ -944,7 +995,44 @@ sub build_tags_taxonomy($$) {
 				$current_tagid = get_fileid($current_tag);
 				
 				if (not defined $canon_tagid) {
+				
 					$canon_tagid = "$lc:$current_tagid";
+					
+					
+					# check if we already have an entry listed for one of the synonyms
+					# this is useful for taxonomies that need to be merged, and that are concatenated
+					
+					# should only be applied to ingredients (and not to additives)
+					
+					if ($tagtype eq 'ingredients') {
+										
+					
+					foreach my $tag2 (@tags) {
+					
+						my $tag = $tag2;
+
+						$tag =~ s/^\s+//;
+						$tag = normalize_percentages($tag, $lc);
+						my $tagid = get_fileid($tag);
+						my $possible_canon_tagid = $synonyms{$tagtype}{$lc}{$tagid};
+						if (not defined $possible_canon_tagid) {
+							my $stopped_tagid = $tagid;
+							$stopped_tagid = remove_stopwords($tagtype,$lc,$tagid);
+							$stopped_tagid = remove_plurals($lc,$stopped_tagid);
+							$possible_canon_tagid = $synonyms{$tagtype}{$lc}{$stopped_tagid};
+						}
+						if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
+							$canon_tagid = "$lc:" . $possible_canon_tagid;
+							print "taxonomy - we already have a canon_tagid $canon_tagid for the tag $tag\n";
+							last;
+						}
+					}	
+					
+					}
+
+			
+				
+					
 					$just_tags{$tagtype}{$canon_tagid} = 1;
 					foreach my $parentid (keys %parents) {
 						defined $direct_parents{$tagtype}{$canon_tagid} or $direct_parents{$tagtype}{$canon_tagid} = {};
@@ -1131,7 +1219,7 @@ sub build_tags_taxonomy($$) {
 			
 			if (defined $properties{$tagtype}{$tagid}) {
 				
-				foreach my $prop_lc (keys %{$properties{$tagtype}{$tagid}}) {
+				foreach my $prop_lc (sort keys %{$properties{$tagtype}{$tagid}}) {
 					print $OUT "$prop_lc: " . $properties{$tagtype}{$tagid}{$prop_lc} . "\n";
 					if ($prop_lc =~ /^(.*):(\w\w)$/) {
 						my $prop = $1;
@@ -1164,7 +1252,7 @@ sub build_tags_taxonomy($$) {
 		# system("gzip $www_root/data/taxonomies/$tagtype.json");
 		}
 		
-		print STDERR $errors;
+		$log->error("taxonomy errors", { errors => $errors }) if $log->is_error();
 		
 		my $taxonomy_ref = {
 			stopwords => $stopwords{$tagtype},
@@ -1282,20 +1370,6 @@ foreach my $langid (readdir(DH2)) {
 	next if $langid eq '..';
 	# print STDERR "Tags.pm - reading tagtypes for lang $langid\n";
 	next if ((length($langid) ne 2) and not ($langid eq 'other'));
-
-	if (0) {
-	if (-e "$data_root/lang/$langid/tags") {
-		opendir DH, "$data_root/lang/$langid/tags" or die "Couldn't open the current directory: $!";
-		foreach my $tagtype (readdir(DH)) {
-			next if $tagtype !~ /(.*)\.txt/;
-			$tagtype = $1;
-			# print STDERR "Tags: loading tagtype $langid/$tagtype\n";			
-			# print "Tags: loading tagtype $langid/$tagtype\n";			
-			load_tags_hierarchy($langid, $tagtype);
-		}
-		closedir(DH);
-	}
-	}
 	
 	if (-e "$www_root/images/lang/$langid") {
 		opendir DH, "$www_root/images/lang/$langid" or die "Couldn't open the current directory: $!";
@@ -1345,7 +1419,7 @@ foreach my $language (keys %{$properties{languages}}) {
 
 # Build map of local country names in official languages to (country, language)
 
-print STDERR "Build map of local country names in official languages to (country, language)\n";
+$log->info("Building a map of local country names in official languages to (country, language)") if $log->is_info();
 
 %country_names = ();
 %country_codes = ();
@@ -1394,10 +1468,8 @@ sub init_select_country_options($) {
 	#            <option value=""></option>
 	#            <option value="United States">United States</option>
 	#            <option value="United Kingdom">United Kingdom</option>
-	
 
-
-	print STDERR "Build lists of countries and generate select button\n";	
+	$log->info("Buildin lists of countries and generate select button") if $log->is_info();
 
 	foreach my $language (keys %Langs) {
 
@@ -1432,7 +1504,7 @@ sub init_select_country_options($) {
 
 
 
-print STDERR "Tags.pm - 1\n";
+$log->info("Tags.pm - 1") if $log->is_info();
 
 sub gen_tags_hierarchy($$) {
 
@@ -1445,7 +1517,8 @@ sub gen_tags_hierarchy($$) {
 	
 	my %tags = ();
 	
-	foreach my $tag (split(/(\s*),(\s*)/, $tags_list)) {
+	foreach my $tag2 (split(/(\s*),(\s*)/, $tags_list)) {
+		my $tag = $tag2;
 		$tag = canonicalize_tag2($tagtype, $tag);
 		my $tagid = get_fileid($tag);
 		next if $tagid eq '';
@@ -1478,13 +1551,14 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 	my $tags_list = shift;	# comma-separated list of tags, not in a specific order
 	
 	if (not defined $all_parents{$tagtype}) {
-		print STDERR "all_parents{$tagtype} not defined\n";
+		$log->warning("all_parents{\$tagtype} not defined", { tagtype => $tagtype }) if $log->is_warning();
 		return (split(/(\s*),(\s*)/, $tags_list));
 	}
 	
 	my %tags = ();
 	
-	foreach my $tag (split(/(\s*),(\s*)/, $tags_list)) {
+	foreach my $tag2 (split(/(\s*),(\s*)/, $tags_list)) {
+		my $tag = $tag2;
 		my $l = $tag_lc;
 		if ($tag =~ /^(\w\w):/) {
 			$l = $1;
@@ -1502,7 +1576,7 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 		if (defined $all_parents{$tagtype}{$tagid}) {
 			foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
 				if ($parentid eq 'fr:') {
-					print STDERR "taxonomy - empty parentid: $parentid - tagid: $tagid - tag_lc: >$tags_list< \n";
+					$log->info("empty parent id for taxonmy", { parentid => $parentid, tagid => $tagid, tag_lc => $tags_list }) if $log->is_info();
 					next;
 				}			
 				$tags{$parentid} = 1;				
@@ -1526,13 +1600,14 @@ sub gen_ingredients_tags_hierarchy_taxonomy($$) {
 	my $tags_list = shift;	# comma-separated list of tags, not in a specific order
 	
 	if (not defined $all_parents{$tagtype}) {
-		print STDERR "all_parents{$tagtype} not defined\n";
+		$log->warning("all_parents{\$tagtype} not defined", { tagtype => $tagtype }) if $log->is_warning();
 		return (split(/(\s*),(\s*)/, $tags_list));
 	}
 	
 	my @tags = ();
 	
-	foreach my $tag (split(/(\s*),(\s*)/, $tags_list)) {
+	foreach my $tag2 (split(/(\s*),(\s*)/, $tags_list)) {
+		my $tag = $tag2;
 		my $l = $tag_lc;
 		if ($tag =~ /^(\w\w):/) {
 			$l = $1;
@@ -1551,7 +1626,7 @@ sub gen_ingredients_tags_hierarchy_taxonomy($$) {
 		if (defined $all_parents{$tagtype}{$tagid}) {
 			foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
 				if ($parentid eq 'fr:') {
-					print STDERR "taxonomy - empty parentid: $parentid - tagid: $tagid - tag_lc: >$tags_list< \n";
+					$log->info("empty parent id for taxonmy", { parentid => $parentid, tagid => $tagid, tag_lc => $tags_list }) if $log->is_info();
 					next;
 				}			
 				push @tags, $parentid;
@@ -1917,7 +1992,7 @@ sub display_tags_hierarchy_taxonomy($$$) {
 			}
 			
 			if ((defined $tag) and ($tag =~ /certified|montagna/)) {
-				print STDERR "labels_logo - lc_imgid: $lc_imgid - en_imgid: $en_imgid - canon_tagid: $canon_tagid - img: $img \n";
+				$log->debug("labels_logo", { lc_imgid => $lc_imgid, en_imgid => $en_imgid, canon_tagid => $canon_tagid, img => $img }) if $log->is_debug();
 			}
 
 			
@@ -2191,6 +2266,148 @@ sub canonicalize_taxonomy_tag($$$)
 	
 }
 
+
+sub generate_spellcheck_candidates($) {
+
+	my $tagid = shift;
+	
+	my @candidates = [$tagid];
+	
+	# https://norvig.com/spell-correct.html
+	# "All edits that are one edit away from `word`."
+    # letters    = 'abcdefghijklmnopqrstuvwxyz'
+    # splits     = [(word[:i], word[i:])    for i in range(len(word) + 1)]
+    # deletes    = [L + R[1:]               for L, R in splits if R]
+    # transposes = [L + R[1] + R[0] + R[2:] for L, R in splits if len(R)>1]
+    # replaces   = [L + c + R[1:]           for L, R in splits if R for c in letters]
+    # inserts    = [L + c + R               for L, R in splits for c in letters]
+	
+	my $l = length($tagid);
+	
+	for (my $i = 0; $i <= $l; $i++) {
+	
+		my $left = substr($tagid, 0, $i);
+		my $right = substr($tagid, $i);
+		
+		# delete
+		if ($i < $l) {
+			push @candidates, $left . substr($right, 1);
+		}
+		
+		foreach my $c ("a".."z") {
+		
+			# insert
+			push @candidates, $left . $c . $right;
+			
+			# replace
+			if ($i < $l) {
+				push @candidates, $left . $c . substr($right, 1);
+			}
+		}
+		
+		if (($i > 0) and ($i < $l)) {
+			push @candidates, $left . "-" . $right;
+			if ($i < ($l - 1)) {
+				push @candidates, $left . "-" . substr($right, 1);
+			}
+		}		
+	}
+	
+	return @candidates;
+}
+
+
+sub spellcheck_taxonomy_tag($$$)
+{
+	my $tag_lc = shift;
+	my $tagtype = shift;
+	my $tag = shift;
+	#$tag = lc($tag);
+	$tag =~ s/^ //g;
+	$tag =~ s/ $//g;		
+
+		
+	if ($tag =~ /^(\w\w):/) {
+		$tag_lc = $1;
+		$tag = $';
+	}
+
+	$tag = normalize_percentages($tag, $tag_lc);
+	my $tagid = get_fileid($tag);
+	
+	if ($tagtype =~ /^additives/) {
+		# convert the E-number + name into just E-number (we get those in urls like /additives/e330-citric-acid)
+		# check E + 1 digit in order to not convert Erythorbate-de-sodium to Erythorbate
+		$tagid =~ s/^e(\d.*?)-(.*)$/e$1/i;
+	}	
+
+	my @candidates = ($tag);
+
+	if (length($tag) > 6) {
+		@candidates = generate_spellcheck_candidates($tag);
+	}
+	
+	my $result;
+	my $resultid;
+	my $canon_resultid;
+	my $correction;
+	my $last_candidate;
+	
+	foreach my $candidate (@candidates) {
+	
+		$last_candidate = $candidate;
+		$tagid = get_fileid($candidate);
+	
+		if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid})) {
+			$result = $synonyms{$tagtype}{$tag_lc}{$tagid};
+			last;
+		}
+		else {
+			# try removing stopwords and plurals
+			my $tagid2 = remove_stopwords($tagtype,$tag_lc,$tagid);
+			$tagid2 = remove_plurals($tag_lc,$tagid2);
+			
+			# try to add / remove hyphens (e.g. antioxydant / anti-oxydant)
+			my $tagid3 = $tagid2;
+			my $tagid4 = $tagid2;
+			$tagid3 =~ s/(anti)(-| )/$1/;
+			$tagid4 =~ s/(anti)([a-z])/$1-$2/;
+			
+			if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid2})) {
+				$result = $synonyms{$tagtype}{$tag_lc}{$tagid2};
+				last;
+			}
+			if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid3})) {
+				$result = $synonyms{$tagtype}{$tag_lc}{$tagid3};
+				last;
+			}
+			if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid4})) {
+				$result = $synonyms{$tagtype}{$tag_lc}{$tagid4};
+				last;
+			}		
+		}	
+	}
+	
+	
+	if (defined $result) {
+	
+		$correction = $last_candidate;
+		$tagid = $tag_lc . ':' . $result;
+		$resultid = $tagid;
+		
+		if ((defined $translations_from{$tagtype}) and (defined $translations_from{$tagtype}{$tagid})) {
+			$canon_resultid = $translations_from{$tagtype}{$tagid};
+		}
+	}
+
+	return ($canon_resultid, $resultid, $correction);
+	
+}
+
+
+
+
+
 sub exists_taxonomy_tag($$) {
 
 	my $tagtype = shift;
@@ -2207,7 +2424,7 @@ sub display_taxonomy_tag($$$)
 	my $tag = shift;
 	
 	if (not defined $tag) {
-		print STDERR "Tags.pm - Warning - display_taxonomy_tag() called for undefined \$tag\n";
+		$log->warn("display_taxonomy_tag() called for undefined \$tag") if $log->is_warn();
 		return "";
 	}
 	
@@ -2427,7 +2644,7 @@ GEXF
 
 # Load cities for emb codes
 
-print STDERR "Load cities for packaging codes\n";
+$log->info("Loading cities for packaging codes") if $log->is_info();
 
 # French departements
 
@@ -2568,7 +2785,7 @@ foreach my $l (@Langs) {
 
 # load all tags texts
 
-print STDERR "Tags.pm - loading tags texts\n";
+$log->info("loading tags texts") if $log->is_info();
 opendir DH2, "$data_root/lang" or die "Couldn't open $data_root/lang : $!";
 foreach my $langid (readdir(DH2)) {
 	next if $langid eq '.';
@@ -2593,8 +2810,7 @@ foreach my $langid (readdir(DH2)) {
 				foreach my $file (readdir(DH)) {
 					next if $file !~ /(.*)\.html/;
 					my $tagid = $1;
-					# print STDERR "Tags: loading text for $lang/$tagtype/$tagid\n";		
-					open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$langid/$tagtype/$file") or print STDERR "cannot open $data_root/lang/$langid/$tagtype/$file : $!\n";
+					open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$langid/$tagtype/$file") or $log->error("cannot open file", { path => "$data_root/lang/$langid/$tagtype/$file", error => $! });
 
 					my $text = join("",(<$IN>));
 					close $IN;
@@ -2640,7 +2856,7 @@ sub compute_field_tags($$) {
 	}	
 	
 	# generate the hierarchy of tags from the field values
-		
+				
 	if (defined $taxonomy_fields{$field}) {
 		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
 		$product_ref->{$field . "_tags" } = [];
@@ -2656,6 +2872,16 @@ sub compute_field_tags($$) {
 				push @{$product_ref->{$field . "_tags" }}, get_fileid($tag);
 			}
 		}
+	}
+	
+	# special handling for allergens and traces: 
+	# the allergens_tags and traces_tags fields will be overwritten by Ingredients::detect_allergens_from_text
+	# regenerate allergens and traces from the allergens_tags field so that it is prefixed with the values in the
+	# main language of the product (which may be different than the $lc language of the interface)
+	
+	if (($field eq 'allergens') or ($field eq 'traces')) {
+		$product_ref->{$field . "_from_user"} = "($lc)" . $product_ref->{$field};
+		$product_ref->{$field} = join(',', @{$product_ref->{$field . "_hierarchy" }});
 	}
 	
 	# check if we have a previous or a next version and compute differences
@@ -2725,6 +2951,6 @@ sub compute_field_tags($$) {
 }
 
 
-print STDERR "Tags.pm - loaded\n";
+$log->info("Tags.pm loaded") if $log->is_info();
 	
 1;

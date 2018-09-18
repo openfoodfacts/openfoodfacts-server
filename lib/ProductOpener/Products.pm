@@ -47,6 +47,8 @@ BEGIN
 		&compute_product_history_and_completeness
 		&compute_languages
 		&compute_changes_diff_text
+		
+		&add_back_field_values_removed_by_user
 					
 		&process_product_edit_rules
 		
@@ -70,6 +72,7 @@ use ProductOpener::URL qw/:all/;
 use CGI qw/:cgi :form escapeHTML/;
 use MongoDB;
 use Encode;
+use Log::Any qw($log);
 
 use Storable qw(dclone);
 
@@ -99,7 +102,7 @@ sub product_path($) {
 	$code !~ /^\d+$/ and return "invalid";
 	
 	if (length($code) > 100) {
-		print STDERR "invalid code, too long code: $code\n";
+		$log->info("invalid code, code too long", { code => $code }) if $log->is_info();
 		return "invalid";
 	}
 	
@@ -252,7 +255,7 @@ sub store_product($$) {
 			delete $product_ref->{new_server};
 		}
 		
-		print STDERR "Products::store_product - move from $old_code to $code - $new_data_root \n";
+		$log->info("moving product", { old_code => $old_code, code => $code, new_dat_root => $new_data_root }) if $log->is_info();
 		
 		# Move directory
 		
@@ -262,7 +265,8 @@ sub store_product($$) {
 			# short barcodes with no prefix
 			$prefix_path = '';
 		}
-		print STDERR "Products::store_product - path: $path - prefix_path: $prefix_path\n";
+		
+		$log->debug("creating product directories", { path => $path, prefix_path => $prefix_path }) if $log->is_debug();
 		# Create the directories for the product
 		foreach my $current_dir  ($new_data_root . "/products", $new_www_root . "/images/products") {
 			(-e "$current_dir") or mkdir($current_dir, 0755);
@@ -275,10 +279,12 @@ sub store_product($$) {
 		if ((! -e "$new_data_root/products/$path")
 			and (! -e "$new_www_root/images/products/$path")) {
 			use File::Copy;
-			print STDERR "Products::store_product - move from $data_root/products/$old_path to $data_root/products/$path (new)\n";
-			move("$data_root/products/$old_path", "$new_data_root/products/$path") or print STDERR "error moving data from $data_root/products/$old_path to $new_data_root/products/$path : $!\n";
-			move("$www_root/images/products/$old_path", "$new_www_root/images/products/$path") or print STDERR "error moving html from $www_root/images/products/$old_path to $new_www_root/images/products/$path : $!\n";
-			
+			$log->debug("moving product data", { source => "$data_root/products/$old_path", destination => "$data_root/products/$path" }) if $log->is_debug();
+			move("$data_root/products/$old_path", "$new_data_root/products/$path") or $log->error("could not move product data", { source => "$data_root/products/$old_path", destination => "$data_root/products/$path", error => $! });
+			$log->debug("moving product images", { source => "$www_root/images/products/$old_path", destination => "$new_www_root/images/products/$path" }) if $log->is_debug();
+			move("$www_root/images/products/$old_path", "$new_www_root/images/products/$path") or $log->error("could not move product images", { source => "$www_root/images/products/$old_path", destination => "$new_www_root/images/products/$path", error => $! });
+			$log->debug("images and data moved");
+
 			delete $product_ref->{old_code};
 			
 			$products_collection->remove({"_id" => $product_ref->{_id}});
@@ -286,8 +292,8 @@ sub store_product($$) {
 
 		}
 		else {
-			(-e "$new_data_root/products/$path") and print STDERR "Products::store_product - cannot move from $data_root/products/$old_path to $new_data_root/products/$path (already exists)\n";		
-			(-e "$new_www_root/products/$path") and print STDERR "Products::store_product - cannot move from $www_root/products/$old_path to $new_www_root/products/$path (already exists)\n";		
+			(-e "$new_data_root/products/$path") and $log->error("cannot move product data, because the destination already exists", { source => "$data_root/products/$old_path", destination => "$data_root/products/$path" });
+			(-e "$new_www_root/products/$path") and $log->error("cannot move product images data, because the destination already exists", { source => "$www_root/images/products/$old_path", destination => "$new_www_root/images/products/$path" });
 		}
 		
 		$comment .= " - barcode changed from $old_code to $code by $User_id";
@@ -382,10 +388,10 @@ sub store_product($$) {
 	# Update link
 	my $link = "$new_data_root/products/$path/product.sto";
 	if (-l $link) {
-		unlink($link) or print STDERR "Products::store_product could not unlink $link : $! \n";
+		unlink($link) or $log->error("could not unlink old product.sto", { link => $link, error => $! });
 	}
-	#symlink("$new_data_root/products/$path/$rev.sto", $link) or print STDERR "Products::store_product could not symlink $new_data_root/products/$path/$rev.sto to $link : $! \n";
-	symlink("$rev.sto", $link) or print STDERR "Products::store_product could not symlink $new_data_root/products/$path/$rev.sto to $link : $! \n";
+	
+	symlink("$rev.sto", $link) or $log->error("could not symlink to new revision", { source => "$new_data_root/products/$path/$rev.sto", link => $link, error => $! });
 	
 	store("$new_data_root/products/$path/changes.sto", $changes_ref);
 	
@@ -421,7 +427,8 @@ sub compute_completeness_and_missing_tags($$$) {
 		push @states_tags, "en:photos-uploaded";
 	
 		if ((defined $current_ref->{selected_images}{"front_$lc"}) and (defined $current_ref->{selected_images}{"ingredients_$lc"})
-			and ((defined $current_ref->{selected_images}{"nutrition_$lc"}) or ($product_ref->{no_nutrition_data} eq 'on')) ) {
+			and ((defined $current_ref->{selected_images}{"nutrition_$lc"}) or
+				((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on'))) ) {
 			push @states_tags, "en:photos-validated";
 		}
 		else {
@@ -621,7 +628,7 @@ sub compute_product_history_and_completeness($$) {
 		# if not found, we may be be updating the product, with the latest rev not set yet
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
 			$product_ref = $current_product_ref;
-			print STDERR "$rev not found, using the current product ref\n";
+			$log->warn("specified product revision was not found, using current product ref", { revision => $rev }) if $log->is_warn();
 		}
 		
 		if (defined $product_ref) {
@@ -661,8 +668,10 @@ sub compute_product_history_and_completeness($$) {
 			
 			foreach my $field (@fields) {
 				$current{fields}{$field} = $product_ref->{$field};
-				$current{fields}{$field} =~ s/^\s+//;
-				$current{fields}{$field} =~ s/\s+$//;
+				if (defined $current{fields}{$field}) {
+					$current{fields}{$field} =~ s/^\s+//;
+					$current{fields}{$field} =~ s/\s+$//;
+				}
 			}
 			
 			# Language specific fields
@@ -671,6 +680,7 @@ sub compute_product_history_and_completeness($$) {
 				foreach my $language_code (@{$current{languages_codes}}) {
 					foreach my $field (keys %language_fields) {
 						next if $field =~ /_image$/;
+						next if not exists $product_ref->{$field . '_' . $language_code};
 						$current{fields}{$field . '_' . $language_code} = $product_ref->{$field . '_' . $language_code};
 						$current{fields}{$field . '_' . $language_code} =~ s/^\s+//;
 						$current{fields}{$field . '_' . $language_code} =~ s/\s+$//;						
@@ -761,8 +771,10 @@ sub compute_product_history_and_completeness($$) {
 					$diff = 'delete';
 				}
 				elsif ((defined $previous{$group}{$id}) and (defined $current{$group}{$id}) and ($previous{$group}{$id} ne $current{$group}{$id}) ) {
-					print STDERR "DIFF - group: $group - id: $id - previous (rev: $previous{rev}) : $previous{$group}{$id} - current ($current{rev}) : $current{$group}{$id}\n";
+					$log->info("difference in products detected", { id => $id, previous_rev => $previous{rev}, previous => $previous{$group}{$id}, current_rev => $current{rev}, current => $current{$group}{$id} }) if $log->is_info();
 					$diff = 'change';
+					
+					# identify products where Yuka removed existing countries to put only France
 				}
 				
 				if (defined $diff) {
@@ -864,6 +876,107 @@ sub compute_product_history_and_completeness($$) {
 	
 	compute_completeness_and_missing_tags($current_product_ref, \%current, \%last);
 
+}
+
+
+
+# traverse the history to see if a particular user has removed values for tag fields
+# add back the removed values
+
+sub add_back_field_values_removed_by_user($$$$) {
+
+
+	my $current_product_ref = shift;
+	my $changes_ref = shift;
+	my $field = shift;
+	my $userid = shift;
+	my $code = $current_product_ref->{code};
+	my $path = product_path($code);
+	
+	return if not defined $changes_ref;
+
+
+	# Read all previous versions to see which fields have been added or edited
+	
+	my @fields = qw(lang product_name generic_name quantity packaging brands categories origins manufacturing_places labels emb_codes expiration_date purchase_places stores countries ingredients_text traces no_nutrition_data serving_size nutrition_data_per );
+	
+	my %previous = ();
+	my %last = %previous;
+	my %current;
+	
+	my $previous_tags_ref = {};
+	my $current_tags_ref;
+	
+	my %removed_tags = ();
+	
+	my $revs = 0;
+		
+	foreach my $change_ref (@$changes_ref) {
+		$revs++;
+		my $rev = $change_ref->{rev};
+		if (not defined $rev) {
+			$rev = $revs;	# was not set before June 2012
+		}
+		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
+		
+		# if not found, we may be be updating the product, with the latest rev not set yet
+		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
+			$product_ref = $current_product_ref;
+			if (not defined $product_ref) {
+				$log->warn("specified product revision was not found, using current product ref", { code => $code, revision => $rev }) if $log->is_warn();
+			}
+		}
+		
+		if (defined $product_ref->{$field . "_tags"}) {
+			
+			$current_tags_ref = { map {$_ => 1} @{$product_ref->{$field . "_tags"}} };
+		}
+		else {
+			$current_tags_ref = {  };
+		}
+	
+
+		if ((defined $change_ref->{userid}) and ($change_ref->{userid} eq $userid)) {
+		
+			foreach my $tagid (keys %{$previous_tags_ref}) {
+				if (not exists $current_tags_ref->{$tagid}) {
+					$log->info("user removed value for a field", { user_id => $userid, tagid => $tagid, field => $field, code => $code }) if $log->is_info();
+					$removed_tags{$tagid} = 1;
+				}
+			}		
+		}
+		
+		$previous_tags_ref = $current_tags_ref;
+
+	}
+	
+	my $added = 0;
+	my $added_countries = "";
+
+	foreach my $tagid (sort keys %removed_tags) {
+		if (not exists $current_tags_ref->{$tagid}) {
+			$log->info("adding back removed tag", { tagid => $tagid, field => $field, code => $code }) if $log->is_info();
+			$current_product_ref->{$field} .= ", $tagid";
+			
+			if ($current_product_ref->{$field} =~ /^, /) {
+				$current_product_ref->{$field} = $';
+			}			
+			
+			$lc = $current_product_ref->{lc};
+			compute_field_tags($current_product_ref, $field);	
+			
+			$added++;
+			$added_countries .= " $tagid";
+		}
+	}
+		
+	if ($added > 0) {
+	
+		$added . $added_countries;
+	}
+	else {
+		return 0;
+	}
 }
 
 
@@ -1130,11 +1243,16 @@ sub process_product_edit_rules($) {
 	my $product_ref = shift;
 	my $code = $product_ref->{code};
 	
-	my $debug = 1;
+	local $log->context->{user_id} = $User_id;
+	local $log->context->{code} = $code;
+	
+	# return value to indicate if the edit should proceed
+	my $proceed_with_edit = 1;
 	
 	foreach my $rule_ref (@edit_rules) {
 	
-		$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name}\n";
+		local $log->context->{rule} = $rule_ref->{name};
+		$log->debug("checking edit rule") if $log->is_debug();
 		
 		# Check the conditions
 		
@@ -1145,14 +1263,14 @@ sub process_product_edit_rules($) {
 				if ($condition_ref->[0] eq 'user_id') {
 					if ($condition_ref->[1] ne $User_id) {
 						$conditions = 0;
-						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - condition $condition_ref->[0] does not match: $condition_ref->[1] (current: $User_id)\n";					
+						$log->debug("condition does not match value", { condition => $condition_ref->[0], expected => $condition_ref->[1], actual => $User_id } ) if $log->is_debug();
 						last;
 					}
 				}
 				elsif ($condition_ref->[0] eq 'user_id_not') {
 					if ($condition_ref->[1] eq $User_id) {
 						$conditions = 0;
-						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - condition $condition_ref->[0] does not match: $condition_ref->[1] (current: $User_id)\n";					
+						$log->debug("condition does not match value", { condition => $condition_ref->[0], expected => $condition_ref->[1], actual => $User_id } ) if $log->is_debug();
 						last;
 					}
 				}
@@ -1169,12 +1287,12 @@ sub process_product_edit_rules($) {
 					}
 					if (not $condition) {
 						$conditions = 0;
-						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - condition $condition_ref->[0] does not match: $condition_ref->[1]\n";					
+						$log->debug("condition does not match value", { condition => $condition_ref->[0], expected => $condition_ref->[1] } ) if $log->is_debug();
 						last;
 					}
 				}				
 				else {
-					$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - unrecognized condition $condition_ref->[0]\n";					
+					$log->debug("unrecognized condition", { condition => $condition_ref->[0] } ) if $log->is_debug();
 				}
 			}
 		}
@@ -1195,9 +1313,20 @@ sub process_product_edit_rules($) {
 					my $value = $action_ref->[1];
 					not defined $value and $value = '';
 					
-					$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - action: $action - value: $value\n";					
+					local $log->context->{action} = $action;
+					local $log->context->{value} = $value;
+					$log->debug("evaluating actions") if $log->is_debug();
 
-					if ($action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match)_)?(.*)$/) {
+					my $condition_ok = 1;	
+					
+					my $action_log = "";					
+									
+						
+					if ($action eq "ignore") {
+						$log->debug("ignore action => do not proceed with edits") if $log->is_debug();
+						$proceed_with_edit = 0;
+					}
+					elsif ($action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match)_)?(.*)$/) {
 						my ($type, $condition, $field) = ($1, $3, $4);
 						my $default_field = $field;
 						
@@ -1205,11 +1334,15 @@ sub process_product_edit_rules($) {
 						
 						my $action_log = "";
 						
+						local $log->context->{type} = $type;
+						local $log->context->{action} = $field;
+						local $log->context->{field} = $field;
+
 						if (defined $condition) {
 						
 							# if field is not passed, skip rule
 							if (not defined param($field)) {
-								$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - no value passed -> skip edit rule\n";
+								$log->debug("no value passed -> skip edit rule") if $log->is_debug();
 								next;
 							}
 							
@@ -1229,16 +1362,18 @@ sub process_product_edit_rules($) {
 								}
 							}
 							
-							$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current(field): " . $current_value . " - param(field): " . $param_field . "\n";	
+							local $log->context->{current_value} = $current_value;
+							local $log->context->{param_field} = $param_field;
+
+							$log->debug("start field comparison") if $log->is_debug();
 							
 							# if there is an existing value equal to the passed value, just skip the rule
 							if  ((defined $current_value) and ($current_value eq $param_field)) {
-								$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current value equals new value -> skip edit rule - current(field): " . $current_value . " - param(field): " . $param_field . "\n";	
+								$log->debug("current value equals new value -> skip edit rule") if $log->is_debug();
 								next;
 							}
 						
-												
-							
+														
 							$condition_ok = 0;
 							
 
@@ -1281,10 +1416,10 @@ sub process_product_edit_rules($) {
 							}							
 							
 							if (not $condition_ok) {
-								$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current(field): " . $current_value . " - param(field): " . $param_field . " -- condition does not match\n";	
+								$log->debug("condition does not match") if $log->is_debug();
 							}
 							else {
-								$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - type: $type - condition: $condition - field: $field - current(field): " . $current_value . " - param(field): " . $param_field . " -- condition matches\n";								
+								$log->debug("condition matches") if $log->is_debug();
 								$action_log = "product code $code - " . format_subdomain($subdomain) . product_url($product_ref) . " - edit rule $rule_ref->{name} - type: $type - condition: $condition - field: $field current(field): " . $current_value . " - param(field): " . $param_field . "\n";
 							}
 						}
@@ -1295,10 +1430,9 @@ sub process_product_edit_rules($) {
 						if ($condition_ok) {
 						
 							# Process action
+							$log->debug("executing edit rule action") if $log->is_debug();							
 							
-							$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - executing action $action\n";
-							
-							
+							# Delete the parameters
 							
 							if ($type eq 'ignore') {
 								Delete($field);
@@ -1306,71 +1440,81 @@ sub process_product_edit_rules($) {
 									Delete($default_field);
 								}
 							}
-							
-							if (defined $rule_ref->{notifications}) {
-								foreach my $notification (@{$rule_ref->{notifications}}) {
-									if ($notification =~ /\@/) {
-										# e-mail
-										
-										my $user_ref = { name => $notification, email => $notification};
-										
-										send_email($user_ref, "Edit rule " . $rule_ref->{name} , $action_log );
-									}
-									elsif ($notification =~ /slack_/) {
-										# slack
-										
-										my $channel = $';
-										
-										# we need a slack bot with the Web api to post to multiple channel
-										# use the simpler incoming webhook api, and post only to edit-alerts for now
-										
-										$channel = "edit-alerts";
-										
-										my $emoji = ":lemon:";
-										if ($action eq 'warn') {
-											$emoji = ":pear:";
-										}
-																				
-										use LWP::UserAgent;
-										my $ua = LWP::UserAgent->new;
-										my $server_endpoint = "https://hooks.slack.com/services/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";
-
-										my $msg = $action_log;
-											
-										# set custom HTTP request header fields
-										my $req = HTTP::Request->new(POST => $server_endpoint);
-										$req->header('content-type' => 'application/json');
-										 
-										# add POST data to HTTP request body
-										my $post_data = '{"channel": "#' . $channel . '", "username": "editrules", "text": "' . $msg . '", "icon_emoji": "' . $emoji . '" }';
-										$req->content_type("text/plain; charset='utf8'");
-										$req->content(Encode::encode_utf8($post_data));
-										 
-										my $resp = $ua->request($req);
-										if ($resp->is_success) {
-											my $message = $resp->decoded_content;
-											print STDERR "Received reply: $message\n";
-										}
-										else {
-											print STDERR "HTTP POST error code: " .  $resp->code . "\n";
-											print STDERR "HTTP POST error message: " . $resp->message . "\n";
-										}										
-										
-									}
-								}
-							}
-						}
+						}	
+						
+						
 						
 					}
 					else {
-						$debug and print STDERR "edit_rules - user_id: $User_id - code: $code - rule: $rule_ref->{name} - unrecognized action $action\n";
+						$log->debug("unrecognized action", { action => $action }) if $log->is_debug();
 					}
+					
+					if ($condition_ok) {
+					
+						$log->debug("executing edit rule action") if $log->is_debug();
+					
+						if (defined $rule_ref->{notifications}) {
+							foreach my $notification (@{$rule_ref->{notifications}}) {
+							
+								$log->info("sending notification", { notification_recipient => $notification }) if $log->is_info();
+							
+								if ($notification =~ /\@/) {
+									# e-mail
+									
+									my $user_ref = { name => $notification, email => $notification};
+									
+									send_email($user_ref, "Edit rule " . $rule_ref->{name} , $action_log );
+								}
+								elsif ($notification =~ /slack_/) {
+									# slack
+									
+									my $channel = $';
+									
+									# we need a slack bot with the Web api to post to multiple channel
+									# use the simpler incoming webhook api, and post only to edit-alerts for now
+									
+									$channel = "edit-alerts";
+									
+									my $emoji = ":lemon:";
+									if ($action eq 'warn') {
+										$emoji = ":pear:";
+									}
+																			
+									use LWP::UserAgent;
+									my $ua = LWP::UserAgent->new;
+									my $server_endpoint = "https://hooks.slack.com/services/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";
+
+									my $msg = $action_log;
+										
+									# set custom HTTP request header fields
+									my $req = HTTP::Request->new(POST => $server_endpoint);
+									$req->header('content-type' => 'application/json');
+									 
+									# add POST data to HTTP request body
+									my $post_data = '{"channel": "#' . $channel . '", "username": "editrules", "text": "' . $msg . '", "icon_emoji": "' . $emoji . '" }';
+									$req->content_type("text/plain; charset='utf8'");
+									$req->content(Encode::encode_utf8($post_data));
+									 
+									my $resp = $ua->request($req);
+									if ($resp->is_success) {
+										my $message = $resp->decoded_content;
+										$log->info("Notification sent to Slack successfully", { response => $message }) if $log->is_info();
+									}
+									else {
+										$log->warn("Notification could not be sent to Slack", { code => $resp->code, response => $resp->message }) if $log->is_warn();
+									}										
+									
+								}
+							}
+						}
+					}					
 				}
 			}		
 		
 		}
 	}
 	
+	return $proceed_with_edit;
 }
 
 sub log_change {

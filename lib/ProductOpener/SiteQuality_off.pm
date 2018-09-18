@@ -43,6 +43,7 @@ use vars @EXPORT_OK ;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 
+use Log::Any qw($log);
 
 my @baby_food_brands = qw(
 Gallia
@@ -374,14 +375,14 @@ sub detect_categories ($) {
 	
 	if ($match_fr =~ /lait ([^,-]* )?(suite|croissance|infantile|bébé|bebe|nourrisson|nourisson|age|maternise|maternisé)/i) {
 		if (not has_tag($product_ref, "categories", "en:baby-milks")) {
-			push $product_ref->{quality_tags}, "detected-category-from-name-ingredients-en-baby-milks";
+			push @{$product_ref->{quality_tags}}, "detected-category-from-name-ingredients-en-baby-milks";
 		}
 	}
 	
 	if (defined $product_ref->{brands_tags}) {
 		foreach my $brandid (@{$product_ref->{brands_tags}}) {
 			if (defined $baby_food_brands{$brandid}) {
-				push $product_ref->{quality_tags}, "detected-category-from-brand-en-baby-foods";
+				push @{$product_ref->{quality_tags}}, "detected-category-from-brand-en-baby-foods";
 				last;
 			}
 		}
@@ -390,7 +391,7 @@ sub detect_categories ($) {
 	if (defined $product_ref->{brands_tags}) {
 		foreach my $brandid (@{$product_ref->{brands_tags}}) {
 			if (defined $cigarette_brands{$brandid}) {
-				push $product_ref->{quality_tags}, "detected-category-from-brand-en-cigarettes";
+				push @{$product_ref->{quality_tags}}, "detected-category-from-brand-en-cigarettes";
 				last;
 			}
 		}
@@ -398,7 +399,7 @@ sub detect_categories ($) {
 
 	# Plant milks should probably not be dairies https://github.com/openfoodfacts/openfoodfacts-server/issues/73
 	if (has_tag($product_ref, "categories", "en:plant-milks") and has_tag($product_ref, "categories", "en:dairies")) {
-		push $product_ref->{quality_tags}, "plant-milk-also-is-dairy";
+		push @{$product_ref->{quality_tags}}, "plant-milk-also-is-dairy";
 	}
 	
 }
@@ -412,26 +413,26 @@ sub check_nutrition_data($) {
 	
 	if ((defined $product_ref->{multiple_nutrition_data}) and ($product_ref->{multiple_nutrition_data} eq 'on')) {
 	
-		push $product_ref->{quality_tags}, "multiple-nutrition-data";
+		push @{$product_ref->{quality_tags}}, "multiple-nutrition-data";
 	
 		if ((defined $product_ref->{not_comparable_nutrition_data}) and $product_ref->{not_comparable_nutrition_data}) {
-			push $product_ref->{quality_tags}, "not-comparable-nutrition-data";
+			push @{$product_ref->{quality_tags}}, "not-comparable-nutrition-data";
 		}
 	}	
 	
 	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
 	
-		push $product_ref->{quality_tags}, "no-nutrition-data";
+		push @{$product_ref->{quality_tags}}, "no-nutrition-data";
 	}		
 
 	
 	if (defined $product_ref->{nutriments}) {
 		
 		if ((defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on')) {
-			push $product_ref->{quality_tags}, "nutrition-data-prepared";
+			push @{$product_ref->{quality_tags}}, "nutrition-data-prepared";
 			
 			if (not has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
-				push $product_ref->{quality_tags}, "nutrition-data-prepared-without-category-dried-products-to-be-rehydrated";			
+				push @{$product_ref->{quality_tags}}, "nutrition-data-prepared-without-category-dried-products-to-be-rehydrated";			
 			}
 		}
 	
@@ -439,10 +440,10 @@ sub check_nutrition_data($) {
 		if ((defined $product_ref->{nutrition_data_per}) and ($product_ref->{nutrition_data_per} eq 'serving')) {
 		
 			if ((not defined $product_ref->{serving_size}) or ($product_ref->{serving_size} eq '')) {
-				push $product_ref->{quality_tags}, "nutrition-data-per-serving-missing-serving-size";
+				push @{$product_ref->{quality_tags}}, "nutrition-data-per-serving-missing-serving-size";
 			}
 			elsif ($product_ref->{serving_quantity} == 0) {
-				push $product_ref->{quality_tags}, "nutrition-data-per-serving-missing-serving-quantity-is-zero";
+				push @{$product_ref->{quality_tags}}, "nutrition-data-per-serving-missing-serving-quantity-is-zero";
 			}
 		} 
 			
@@ -456,7 +457,7 @@ sub check_nutrition_data($) {
 			
 			if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid . "_100g"} > 105)) {
 						
-				push $product_ref->{quality_tags}, "nutrition-value-over-105-for-$nid";						
+				push @{$product_ref->{quality_tags}}, "nutrition-value-over-105-for-$nid";						
 			}
 			
 			if ($product_ref->{nutriments}{$nid . "_100g"} == 0) {
@@ -466,18 +467,18 @@ sub check_nutrition_data($) {
 		}
 		
 		if (($nid_n >= 1) and ($nid_zero == $nid_n)) {
-			push $product_ref->{quality_tags}, "nutrition-all-values-zero";
+			push @{$product_ref->{quality_tags}}, "nutrition-all-values-zero";
 		}
 		
 		if ((defined $product_ref->{nutriments}{"carbohydrates_100g"}) and (($product_ref->{nutriments}{"sugars_100g"} + $product_ref->{nutriments}{"starch_100g"}) > ($product_ref->{nutriments}{"carbohydrates_100g"}) + 0.001)) {
 		
-				push $product_ref->{quality_tags}, "nutrition-sugars-plus-starch-greater-than-carbohydrates";					
+				push @{$product_ref->{quality_tags}}, "nutrition-sugars-plus-starch-greater-than-carbohydrates";					
 		
 		}
 		
 		if (($product_ref->{nutriments}{"saturated-fat_100g"} > ($product_ref->{nutriments}{"fat_100g"}) + 0.001)) {
 		
-				push $product_ref->{quality_tags}, "nutrition-saturated-fat-greater-than-fat";	
+				push @{$product_ref->{quality_tags}}, "nutrition-saturated-fat-greater-than-fat";	
 		
 		}		
 	}		
@@ -507,10 +508,10 @@ sub check_ingredients($) {
 	if ($nb_languages > 1) {
 			foreach my $max (5, 4, 3, 2, 1) {
 				if ($nb_languages > $max) {
-					push $product_ref->{quality_tags}, "ingredients-number-of-languages-above-$max";
+					push @{$product_ref->{quality_tags}}, "ingredients-number-of-languages-above-$max";
 				}
 			}		
-		push $product_ref->{quality_tags}, "ingredients-number-of-languages-$nb_languages";
+		push @{$product_ref->{quality_tags}}, "ingredients-number-of-languages-$nb_languages";
 	}
 	
 	if ((defined $product_ref->{ingredients_n}) and ( $product_ref->{ingredients_n} > 0)) {	
@@ -519,14 +520,14 @@ sub check_ingredients($) {
 			
 			foreach my $max (50, 40, 30, 20, 10, 5, 0) {
 				if ($score > $max) {
-					push $product_ref->{quality_tags}, "ingredients-unknown-score-above-$max";
+					push @{$product_ref->{quality_tags}}, "ingredients-unknown-score-above-$max";
 					last;
 				}
 			}			
 	
 			foreach my $max (100, 90, 80, 70, 60, 50) {
 				if (($product_ref->{unknown_ingredients_n} / $product_ref->{ingredients_n}) >= ($max / 100)) {
-					push $product_ref->{quality_tags}, "ingredients-$max-percent-unknown";
+					push @{$product_ref->{quality_tags}}, "ingredients-$max-percent-unknown";
 					last;
 				}
 			}
@@ -547,7 +548,7 @@ sub check_ingredients($) {
 		
 			if ($max_length > $max_length_threshold) {
 			
-				push $product_ref->{quality_tags}, "ingredients-ingredient-tag-length-greater-than-" . $max_length_threshold;
+				push @{$product_ref->{quality_tags}}, "ingredients-ingredient-tag-length-greater-than-" . $max_length_threshold;
 			
 			}
 		}
@@ -562,46 +563,46 @@ sub check_ingredients($) {
 			
 			if (defined $product_ref->{$ingredients_text_lc}) {
 			
-				#print STDERR "quality:" .  $product_ref->{$ingredients_text_lc} . "\n";
+				$log->debug("ingredients text", { quality => $product_ref->{$ingredients_text_lc} }) if $log->is_debug();
 			
 				if ($product_ref->{$ingredients_text_lc} =~ /,(\s*)$/is) {
 			
-					push $product_ref->{quality_tags}, "ingredients-" . $display_lc . "-ending-comma";
+					push @{$product_ref->{quality_tags}}, "ingredients-" . $display_lc . "-ending-comma";
 				}
 				
 				if ($product_ref->{$ingredients_text_lc} =~ /[aeiouy]{5}/is) {
 			
-					push $product_ref->{quality_tags}, "ingredients-" . $display_lc . "-5-vowels";
+					push @{$product_ref->{quality_tags}}, "ingredients-" . $display_lc . "-5-vowels";
 				}
 				
 				if ($product_ref->{$ingredients_text_lc} =~ /[bcdfghjklmnpqrstvwxz]{4}/is) {
 			
-					push $product_ref->{quality_tags}, "ingredients-" . $display_lc . "-4-consonants";
+					push @{$product_ref->{quality_tags}}, "ingredients-" . $display_lc . "-4-consonants";
 				}				
 
 				if ($product_ref->{$ingredients_text_lc} =~ /(.)\1{4,}/is) {
 			
-					push $product_ref->{quality_tags}, "ingredients-" . $display_lc . "-4-repeated-chars";
+					push @{$product_ref->{quality_tags}}, "ingredients-" . $display_lc . "-4-repeated-chars";
 				}	
 
 				if ($product_ref->{$ingredients_text_lc} =~ /[\$\€\£\¥\₩]/is) {
 			
-					push $product_ref->{quality_tags}, "ingredients-" . $display_lc . "-unexpected-chars-currencies";
+					push @{$product_ref->{quality_tags}}, "ingredients-" . $display_lc . "-unexpected-chars-currencies";
 				}		
 
 				if ($product_ref->{$ingredients_text_lc} =~ /[\@]/is) {
 			
-					push $product_ref->{quality_tags}, "ingredients-" . $display_lc . "-unexpected-chars-arobase";
+					push @{$product_ref->{quality_tags}}, "ingredients-" . $display_lc . "-unexpected-chars-arobase";
 				}
 
 				if ($product_ref->{$ingredients_text_lc} =~ /[\!]/is) {
 			
-					push $product_ref->{quality_tags}, "ingredients-" . $display_lc . "-unexpected-chars-exclamation-mark";
+					push @{$product_ref->{quality_tags}}, "ingredients-" . $display_lc . "-unexpected-chars-exclamation-mark";
 				}					
 				
 				if ($product_ref->{$ingredients_text_lc} =~ /[\?]/is) {
 			
-					push $product_ref->{quality_tags}, "ingredients-" . $display_lc . "-unexpected-chars-question-mark";
+					push @{$product_ref->{quality_tags}}, "ingredients-" . $display_lc . "-unexpected-chars-question-mark";
 				}					
 				
 				
@@ -610,12 +611,12 @@ sub check_ingredients($) {
 				
 					if ($product_ref->{$ingredients_text_lc} =~ /kcal|glucides|(dont sucres)|(dont acides gras)|(valeurs nutri)/is) {
 			
-						push $product_ref->{quality_tags}, "ingredients-" . $display_lc . "-includes-fr-nutrition-facts";
+						push @{$product_ref->{quality_tags}}, "ingredients-" . $display_lc . "-includes-fr-nutrition-facts";
 					}			
 
 					if ($product_ref->{$ingredients_text_lc} =~ /(à conserver)|(conditions de )|(à consommer )|(plus d'info)|consigne/is) {
 			
-						push $product_ref->{quality_tags}, "ingredients-" . $display_lc . "-includes-fr-instructions";
+						push @{$product_ref->{quality_tags}}, "ingredients-" . $display_lc . "-includes-fr-instructions";
 					}					
 				#}
 			}
@@ -635,11 +636,11 @@ sub check_quantity($) {
 	if ((defined $product_ref->{quantity})
 		and ($product_ref->{quantity} =~ /(?:.*e$)|(?:[0-9]+\s*[kmc]?[gl]?\s*e)/i)
 		and (not ($product_ref->{quantity} =~ /\N{U+212E}/i))) {
-		push $product_ref->{quality_tags}, "quantity-contains-e";
+		push @{$product_ref->{quality_tags}}, "quantity-contains-e";
 	}
 	
 	if ((defined $product_ref->{quantity}) and (not defined $product_ref->{product_quantity})) {
-		push $product_ref->{quality_tags}, "quantity-not-recognized";
+		push @{$product_ref->{quality_tags}}, "quantity-not-recognized";
 	}
 
 }
@@ -659,13 +660,13 @@ sub check_bug_code_missing($) {
 	
 	# https://github.com/openfoodfacts/openfoodfacts-server/issues/185#issuecomment-364653043
 	if ((not (defined $product_ref->{code}))) {
-		push $product_ref->{quality_tags}, "code-missing";
+		push @{$product_ref->{quality_tags}}, "code-missing";
 	}
 	elsif ($product_ref->{code} eq '') {
-		push $product_ref->{quality_tags}, "code-empty";
+		push @{$product_ref->{quality_tags}}, "code-empty";
 	}
 	elsif ($product_ref->{code} == 0) {
-		push $product_ref->{quality_tags}, "code-zero";
+		push @{$product_ref->{quality_tags}}, "code-zero";
 	}
 
 }
@@ -676,10 +677,10 @@ sub check_bug_created_t_missing($) {
 	
 	# https://github.com/openfoodfacts/openfoodfacts-server/issues/185
 	if ((not (defined $product_ref->{created_t}))) {
-		push $product_ref->{quality_tags}, "created-missing";
+		push @{$product_ref->{quality_tags}}, "created-missing";
 	}
 	elsif ($product_ref->{created_t} == 0) {
-		push $product_ref->{quality_tags}, "created-zero";
+		push @{$product_ref->{quality_tags}}, "created-zero";
 	}
 
 }

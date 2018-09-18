@@ -68,15 +68,33 @@ $editor_user_id = $editor_user_id;
 
 not defined $photo_user_id and die;
 
-my $csv_file = "/data/off/systemeu/SUYQD_AKENEO_PU_04.csv";
-my $categories_csv_file = "/data/off/systemeu/systeme-u-rubriques.csv";
-my $imagedir = "/data/off/systemeu/all_product_images";
+#my $csv_file = "/data/off/systemeu/SUYQD_AKENEO_PU_08.csv";
+#my $categories_csv_file = "/data/off/systemeu/systeme-u-rubriques.csv";
+#my $imagedir = "/data/off/systemeu/all_product_images";
+#my $products_without_ingredients_lists = "/data/off/systemeu/systeme-u-products-without-ingredients-lists.txt";
 
-#my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_04.csv";
-#my $categories_csv_file = "/home/systemeu/systeme-u-rubriques.csv";
-#my $imagedir = "/home/systemeu/all_product_images"; 
+my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_08.csv";
+my $categories_csv_file = "/home/systemeu/systeme-u-rubriques.csv";
+my $imagedir = "/home/systemeu/all_product_images"; 
+my $products_without_ingredients_lists = "/home/systemeu/systeme-u-products-without-ingredients-lists.txt";
+
 
 print "uploading csv_file: $csv_file, image_dir: $imagedir\n";
+
+my %products_without_ingredients_lists = ();
+
+open (my $fh, '<:encoding(UTF-8)', $products_without_ingredients_lists) or die("Could not open $products_without_ingredients_lists: $!");
+while (<$fh>) {
+	my $code = $_;
+	chomp($code);
+	$code =~ s/\D//;
+	$code += 0;
+	$products_without_ingredients_lists{$code} = 1;
+}
+
+
+
+
 
 # Images
 
@@ -110,10 +128,12 @@ if (opendir (DH, "$imagedir")) {
 			my $code = $1;
 			my $suffix = $2;
 			my $imagefield = "front";
-			($suffix =~ /_d$/i) and $imagefield = "ingredients";
-			($suffix =~ /_e$/i) and $imagefield = "nutrition";
+			($suffix =~ /_d(.*)$/i) and $imagefield = "ingredients";
+			($suffix =~ /_e(.*)$/i) and $imagefield = "nutrition";
 			
 			print "FOUND IMAGE FOR PRODUCT CODE $code - file $file - imagefield: $imagefield\n";
+			
+			# skip jpg and keep png for front product image
 
 			defined $images_ref->{$code} or $images_ref->{$code} = {};
 			
@@ -139,14 +159,13 @@ my $last_imgid = undef;
 
 my $current_product_ref = undef;
 
-my @fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
-
 my @param_sorted_langs = qw(fr);
 
 my %global_params = (
 	lc => 'fr',
 	countries => "France",
 	brands => "U",
+	stores => "Magasins U",
 );
 
 $lc = 'fr';
@@ -163,6 +182,7 @@ my @edited = ();
 my %edited = ();
 
 my $testing = 0;
+my $testing_allergens = 0;
 # my $testing = 1;
 
 print STDERR "importing labels\n";
@@ -173,7 +193,18 @@ my %missing_nids = ();
 
 my %allergens = (
 'UFS' => 'OEUFS',
+'UF' => 'OEUFS',
 'CACAHU' => 'CACAHUETTE',
+'DISULFITE' => 'SULFITES',
+'DISULFITES' => 'SULFITES',
+'Sulfites et SO2 > 10ppm' => 'SULFITES',
+'Produits laitiers et dérivées' => 'Lait',
+'Céréales contenant du gluten' => 'Gluten',
+'Céréale contenant du gluten' => 'Gluten',
+'CRUSTAC' => 'CRUSTACES',
+'LACTOS' => 'LAIT',
+'LAITI' => 'LAIT',
+'LERI' => 'CELERI',
 );
 my %allergens_count = ();
 my %allergens_codes = ();
@@ -373,7 +404,23 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			
 			my $code = $imported_product_ref->{UGC_ean};
 			
-			#next if ($code ne "3256226388720");
+
+			# next if $code ne "3256226790691";				
+	
+			if ($code eq '') {
+				print STDERR "empty code\n";
+				use Data::Dumper;
+				print STDERR Dumper($imported_product_ref);
+				print "EMPTY CODE\n";
+				next;
+			}			
+	
+			
+		
+			
+			# next if ($code ne "3256220126366");
+			
+			# next if ($i < 2665);
 			
 			print "PRODUCT LINE NUMBER $i - CODE $code\n";
 			
@@ -390,23 +437,17 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				print "MISSING IMAGES NUTRITION - PRODUCT CODE $code\n";
 			}			
 			
-			if ((not defined $images_ref->{$code}) or (not defined $images_ref->{$code}{front}) or (not defined $images_ref->{$code}{ingredients})) {
+			if ((not defined $images_ref->{$code}) or (not defined $images_ref->{$code}{front})
+				or ((not defined $images_ref->{$code}{ingredients}) and (not exists $products_without_ingredients_lists{$code}))) {
 				print "MISSING IMAGES SOME - PRODUCT CODE $code\n";
 				next;
 			}
 			
+
+			
+
+			
 			print "product $i - code: $code\n";
-			
-			if ($code eq '') {
-				print STDERR "empty code\n";
-				use Data::Dumper;
-				print STDERR Dumper($imported_product_ref);
-				print "EMPTY CODE\n";
-				next;
-			}			
-	
-			
-			# next if $code ne "3302741714107";
 			
 			my $product_ref = product_exists($code); # returns 0 if not
 			
@@ -471,12 +512,24 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 							
 							if (($imgid > 0) and ($imgid > $current_max_imgid)) {
 
-								print STDERR "assigning image $imgid to $imagefield-fr\n";
-								process_image_crop($code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1);
+								print STDERR "assigning image $imgid to ${imagefield}_fr\n";
+								eval { process_image_crop($code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1); };
+								# $modified++;
 					
 							}
 							else {
 								print STDERR "returned imgid $imgid not greater than the previous max imgid: $current_max_imgid\n";
+								
+								# overwrite already selected images
+								if (($imgid > 0) 
+									and (exists $product_ref->{images})
+									and (exists $product_ref->{images}{$imagefield . "_fr"})
+									and ($product_ref->{images}{$imagefield . "_fr"}{imgid} != $imgid)) {
+									print STDERR "re-assigning image $imgid to ${imagefield}_fr\n";
+									eval { process_image_crop($code, $imagefield . "_fr", $imgid, 0, undef, undef, -1, -1, -1, -1); };
+									# $modified++;
+								}
+								
 							}
 						}
 						else {
@@ -531,6 +584,8 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 # AMANDES, CREME, LACTOSE, LAIT, NOISETTES, OEUF, PISTACHES, SULFITES
 # BEURRE, CREME, LAIT, NOISETTE, OEUF, OEUFS
 # CREME, LAIT
+
+			my $allergens_import = "";
 			
 			
 			foreach my $ugc_allergen (split (/,|;/, $imported_product_ref->{UGC_allergenStatement})) {
@@ -538,21 +593,33 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				$ugc_allergen =~ s/^\s+//;
 				$ugc_allergen =~ s/(\.|\s)+$//;
 			
-				$allergens_count{$ugc_allergen}++;
-				$allergens_codes{$ugc_allergen} .= "$code ";
+				next if $ugc_allergen eq "FAO";
+				next if $ugc_allergen eq "MSC";
 				
 				if (defined $allergens{$ugc_allergen} ) {
 					$params{allergens} .= ", " . $allergens{$ugc_allergen};
+					print "new known allergen for product code $code : " . $allergens{$ugc_allergen} . "\n";
+					
+					$allergens_count{$allergens{$ugc_allergen}}++;
+					$allergens_codes{$allergens{$ugc_allergen}} .= "$code ";
+					
 				}
 				else {
 					$params{allergens} .= ", " . $ugc_allergen;
+					print "new unknown allergen for product code $code : " . $ugc_allergen . "\n";
+					
+					$allergens_count{$ugc_allergen}++;
+					$allergens_codes{$ugc_allergen} .= "$code ";
+
 				}
 				
 			}
 			
 			$params{allergens} =~ s/^, //;
 			
-			print STDERR "allergens for product code $code : " . $params{allergens} . "\n";
+			$allergens_import = $params{allergens};
+			
+			print "allergens for product code $code : " . $params{allergens} . "\n";
 
 # Vinaigre de vin de Xérès U SAVEURS bouteille 25cl
 # Pur jus de grenade U BIO bocal 75cl
@@ -817,6 +884,23 @@ ble => "bouteille",
 			
 				if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} ne '')) {
 					# cleaning
+					$imported_product_ref->{$field} =~ s/ ( +)/ /g;
+					$imported_product_ref->{$field} =~ s/ce produits/ce produit/g;
+					$imported_product_ref->{$field} =~ s/proviennen, t/proviennent/g;
+					$imported_product_ref->{$field} =~ s/provienne, nt/proviennent/g;
+					$imported_product_ref->{$field} =~ s/provien, nent/proviennent/g;
+					$imported_product_ref->{$field} =~ s/provie, nnent/proviennent/g;
+					$imported_product_ref->{$field} =~ s/provi, ennent/proviennent/g;
+					$imported_product_ref->{$field} =~ s/prov, iennent/proviennent/g;
+					$imported_product_ref->{$field} =~ s/pro, viennent/proviennent/g;
+					$imported_product_ref->{$field} =~ s/pr, oviennent/proviennent/g;
+					$imported_product_ref->{$field} =~ s/p, roviennent/proviennent/g;
+					$imported_product_ref->{$field} =~ s/provienennt/proviennent/g;					
+					$imported_product_ref->{$field} =~ s/Certaines ingrédients/Certains ingrédients/g;
+					$imported_product_ref->{$field} =~ s/ne provienne pas/ne proviennent pas/g;
+					$imported_product_ref->{$field} =~ s/(Certains ingrédients ne viennent pas de France|Certains ingrédients de ce produit peuvent ne pas provenir de France|Certains des ingrédients de ce produit ne proviennent pas de France|L'ingrédient de ce produit ne provient pas de France|Certains ingrédients de ce produit ne provienne pas de France|Certains ingrédients ne proviennent pas de France.|Les ingrédients de ce produit ne proviennent pas de France|Les ingrédients ne viennent pas tous de France|Certains ingrédients de ce produit ne proviennent pas de France)(\.)?//ig;
+					$imported_product_ref->{$field} =~ s/ ( +)/ /g;
+					
 					$imported_product_ref->{$field} =~ s/(\s|\/|\/|_|-)+$//is;
 					$params{$ingredients_fields{$field}} = $imported_product_ref->{$field};
 					print STDERR "setting ingredients, field $field -> $ingredients_fields{$field}, value: " . $imported_product_ref->{$field} . "\n";
@@ -858,7 +942,7 @@ ble => "bouteille",
 			my @param_fields = ();
 			
 			my @fields = @ProductOpener::Config::product_fields;
-			foreach my $field ('product_name', 'generic_name', @fields, 'serving_size', 'traces', 'ingredients_text','lang') {
+			foreach my $field ('lc', 'product_name', 'generic_name', @fields, 'serving_size', 'allergens', 'traces', 'ingredients_text','lang') {
 			
 				if (defined $language_fields{$field}) {
 					foreach my $display_lc (@param_sorted_langs) {
@@ -888,7 +972,8 @@ ble => "bouteille",
 						my $current_field = $product_ref->{$field};
 						
 						# brands -> remove existing values;
-						if ($field eq 'brands') {
+						# allergens -> remove existing values;
+						if (($field eq 'brands') or ($field eq 'allergens')) {
 							$product_ref->{$field} = "";
 							delete $product_ref->{$field . "_tags"};
 						}
@@ -1435,16 +1520,67 @@ TXT
 					}
 				}
 			}
-							
-			if (not $testing) {
+					
+			if ($testing_allergens) {
+			
+				$product_ref->{allergens} = "";
+				$product_ref->{traces} = "";
+			}
+			
+			if ($server_domain =~ /openfoodfacts/) {
+				ProductOpener::Food::special_process_product($product_ref);
+			}			
+					
+			if (($testing_allergens) or (not $testing)) {
 				# Ingredients classes
+				print STDERR "computing allergens etc.\n";
+				
 				extract_ingredients_from_text($product_ref);
 				extract_ingredients_classes_from_text($product_ref);
 
 				compute_languages($product_ref); # need languages for allergens detection
 				detect_allergens_from_text($product_ref);			
+	
+			}
+			
+			
+			
+			# allergens diffs;
+			
+			if ($testing_allergens) {
+			
+			my @allergens_import_tags = gen_tags_hierarchy_taxonomy("fr", "allergens", $allergens_import);
+			
+			my @allergens_tags = ();
+			
+			if (defined $product_ref->{"allergens" . "_hierarchy"}) {
+				@allergens_tags = @{$product_ref->{"allergens" . "_hierarchy"}};
 
 			}
+			else {
+				print STDERR "allergens_hierarchy field not set\n";
+
+			}
+			
+			my $allergens_import_tags_string = join(", ", @allergens_import_tags);
+			my $allergens_tags_string = join(", ", @allergens_tags);
+			
+			if ($allergens_tags_string ne $allergens_import_tags_string) {
+				print "ALLERGENS DIFF, code: $code, import: $allergens_import_tags_string\n";
+				print "ALLERGENS DIFF, code: $code, detect: $allergens_tags_string\n";
+				print "ALLERGENS DIFF 2\t$code\t$allergens_import_tags_string\t$allergens_tags_string\n";
+				next if $code eq "3368954600477"; # erreur u
+				next if $code eq "3256222240480"; # vinegar
+				next if $code eq "3256226385569";
+				next if $code eq "3256220514583";
+				next if $code eq "3256222645162"; # weird, to be checked
+				next if $code eq "3256225051106";
+				next if $allergens_import_tags_string =~ /sulphur/;
+				#exit;
+			}
+			
+			}
+			
 			
 #"sources": [
 #{
@@ -1480,18 +1616,20 @@ TXT
 				
 			$User_id = $editor_user_id;
 			
-			if (not $testing) {
+			if ((not $testing) and (not $testing_allergens)) {
 			
 				fix_salt_equivalent($product_ref);
-					
+			
 				compute_serving_size_data($product_ref);
-				
+	
 				compute_nutrition_score($product_ref);
-				
+	
+				compute_nova_group($product_ref);
+	
 				compute_nutrient_levels($product_ref);
 				
 				compute_unknown_nutrients($product_ref);
-				
+		
 				ProductOpener::SiteQuality::check_quality($product_ref);
 			
 			
@@ -1508,11 +1646,11 @@ TXT
 				$edited{$code}++;
 				
 				$j++;
-				#$j > 200 and last;
+				#$j > 100 and last;
 				#last;
 			}
 			
-			# last;
+			#last;
 		}  # if $file =~ json
 			
 
@@ -1531,11 +1669,11 @@ foreach my $field (sort keys %differing_fields) {
 
 print "\n\nlabels:\n";
 
-foreach my $label (sort { $labels_count{$b} <=> $labels_count{$a}} keys %labels_count ) {
+#foreach my $label (sort { $labels_count{$b} <=> $labels_count{$a}} keys %labels_count ) {
 
-	defined $labels{$label} or $labels{$label} = "";
-	print $label . "\t" . $labels_count{$label} . "\t" .  $labels{$label} . "\n";
-}
+	#defined $labels{$label} or $labels{$label} = "";
+	#print $label . "\t" . $labels_count{$label} . "\t" .  $labels{$label} . "\n";
+#}
 
 print "\n\nallergens:\n";
 
@@ -1554,10 +1692,10 @@ foreach my $allergen (sort { $allergens_count{$b} <=> $allergens_count{$a}} keys
 }
 
 
-foreach my $rubrique (sort { $rubriques{$b} <=> $rubriques{$a}} keys %rubriques ) {
-
-	print $rubrique . "\t" . $rubriques{$rubrique} . "\n";
-}
+#foreach my $rubrique (sort { $rubriques{$b} <=> $rubriques{$a}} keys %rubriques ) {
+#
+#	print $rubrique . "\t" . $rubriques{$rubrique} . "\n";
+#}
 
 
 #print "\n\nlist of nutrient names:\n\n";
