@@ -489,14 +489,14 @@ sub init_user()
 			    {
 					# Set a persistent cookie
 					$log->debug("setting persistent cookie") if $log->is_debug();
-					$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>".$server_domain",
+					$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>".$server_domain", -samesite=>'Lax',
 							-expires=>'+' . $length . 's');
 			    }
 			    else
 			    {
 				# Set a session cookie
 					$log->debug("setting session cookie") if $log->is_debug();
-					$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>".$server_domain");
+					$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>".$server_domain", -samesite=>'Lax');
 			    }
 			}
 		    }
@@ -615,7 +615,7 @@ sub init_user()
 			# Set a cookie
 			if (not defined $cookie)
 			{
-			 $cookie = cookie (-name=>'b', -value=>$b, -path=>'/', -expires=>'+86400000s') ;
+			 $cookie = cookie (-name=>'b', -value=>$b, -path=>'/', -expires=>'+86400000s', -samesite=>'Lax') ;
 			 $log->info("setting b cookie", { bcookie => $cookie }) if $log->is_info();
 			} 
 		}
