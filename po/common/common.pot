@@ -157,8 +157,9 @@ msgid ""
 "\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
 msgstr ""
 
+# Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
+msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
 msgstr ""
 
 msgctxt "app_please_take_pictures"
@@ -364,7 +365,7 @@ msgid ""
 "→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</"
 "a><br />\n"
 "→ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
-"+ <a href=\"https://www.facebook.com/groups/374350705955208/\">contributors "
+"+ <a href=\"https://www.facebook.com/groups/openfoodfacts/\">contributors "
 "group</a><br />\n"
 "</p>\n"
 "\n"
@@ -578,6 +579,7 @@ msgctxt "emb_codes"
 msgid "EMB code"
 msgstr ""
 
+# Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 msgstr ""
@@ -748,7 +750,7 @@ msgstr ""
 
 msgctxt "footer_and_the_facebook_group"
 msgid ""
-"and the <a href=\"https://www.facebook.com/groups/374350705955208/"
+"and the <a href=\"https://www.facebook.com/groups/openfoodfacts/"
 "\">Facebook group for contributors</a>"
 msgstr ""
 
@@ -1082,7 +1084,7 @@ msgid ""
 msgstr ""
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
+msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
 msgstr ""
 
 msgctxt "known_nutrients_p"
@@ -2755,9 +2757,7 @@ msgid ""
 msgstr ""
 
 msgctxt "windows_phone_app_link"
-msgid ""
-"https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-"
-"cfd9-4ac0-86d7-91b946f4df34"
+msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
 msgstr ""
 
 msgctxt "you_are_connected_as_x"
