@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-07-30 06:32\n"
+"PO-Revision-Date: 2018-09-19 19:35\n"
 "Language-Team: Danish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -17,21 +17,21 @@ msgstr ""
 #. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
 msgid ":langtag"
-msgstr "da"
+msgstr "nb"
 
 #. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
 msgid ":langname"
-msgstr "Dansk"
+msgstr "Danish"
 
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "additives:plural"
 msgid "additives"
-msgstr "tilsætningsstoffer"
+msgstr "tilsetningsstoffer"
 
 msgctxt "additives:singular"
 msgid "additive"
-msgstr "tilsætningsstof"
+msgstr "tilsetningsstoff"
 
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "allergens:plural"
@@ -46,12 +46,12 @@ msgstr "allergen"
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "brands:plural"
 msgid "brands"
-msgstr "mærker"
+msgstr "merker"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "brands:singular"
 msgid "brand"
-msgstr "mærke"
+msgstr "merke"
 
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "categories:plural"
@@ -143,7 +143,7 @@ msgstr "indførselsdato"
 
 msgctxt "informers:plural"
 msgid "informers"
-msgstr "bidragsydere"
+msgstr ""
 
 msgctxt "informers:singular"
 msgid "informer"
@@ -239,11 +239,11 @@ msgstr "opgave"
 
 msgctxt "nutrient_levels:plural"
 msgid "nutrient-levels"
-msgstr "næringsstofniveauer"
+msgstr "næringsstof-niveauer"
 
 msgctxt "nutrient_levels:singular"
 msgid "nutrient-level"
-msgstr "næringsstofniveau"
+msgstr "næringsstof-niveau"
 
 msgctxt "nutriments:plural"
 msgid "nutrients"
@@ -319,12 +319,12 @@ msgstr "produkt"
 
 msgctxt "purchase_places:plural"
 msgid "purchase-places"
-msgstr "købssteder"
+msgstr "køb-steder"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "purchase_places:singular"
 msgid "purchase-place"
-msgstr "købsted"
+msgstr "køb-sted"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "states:plural"
