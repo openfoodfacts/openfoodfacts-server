@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ro\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-09-17 22:50\n"
+"PO-Revision-Date: 2018-09-19 20:08\n"
 "Language-Team: Romanian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -140,7 +140,7 @@ msgstr "alergen"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr "Pagina produsului a fost, de asemenea, editată de"
+msgstr ""
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
@@ -154,9 +154,10 @@ msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
 msgstr ""
 
+# Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=ro"
+msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
+msgstr ""
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -230,7 +231,7 @@ msgstr "adăugați o marcă"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr "Produsele nu sunt marca %s"
+msgstr ""
 
 msgctxt "by"
 msgid "by"
@@ -266,7 +267,7 @@ msgstr "adugați o categorie"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr "Produsele nu sunt din categoria %s"
+msgstr ""
 
 msgctxt "change_fields"
 msgid "Data"
@@ -306,15 +307,15 @@ msgstr "orașul de împachetare"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr "Produsele nu sunt împachetate în orașul %s"
+msgstr ""
 
 msgctxt "codes_p"
 msgid "Codes"
-msgstr "Coduri"
+msgstr ""
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr "Cod"
+msgstr ""
 
 msgctxt "column_obsolete_do_not_translate_for_reference_only"
 msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.png\" width=\"178\" height=\"144\" alt=\"<<site_name>>\" /></a>\n\n"
@@ -332,7 +333,7 @@ msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.p
 "→ <a href=\"https://twitter.com/openfoodfacts\">Twitter</a><br/>\n"
 "→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a><br />\n"
 "→ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
-"+ <a href=\"https://www.facebook.com/groups/374350705955208/\">contributors group</a><br />\n"
+"+ <a href=\"https://www.facebook.com/groups/openfoodfacts/\">contributors group</a><br />\n"
 "</p>\n\n"
 "<p>iPhone and iPad app on the App Store:</p>\n\n"
 "<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
@@ -353,11 +354,11 @@ msgstr "Sunteți conectat cu contul de Facebook."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr "Contribuitor din"
+msgstr ""
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr "Copiați datele de la produsul curent la produsul nou"
+msgstr ""
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
@@ -393,7 +394,7 @@ msgstr "tara"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr "Produse care nu sunt vândute în %s"
+msgstr ""
 
 msgctxt "data_source"
 msgid "Data source"
@@ -401,11 +402,11 @@ msgstr "Sursa de date"
 
 msgctxt "debug_p"
 msgid "debug"
-msgstr "depanare"
+msgstr ""
 
 msgctxt "debug_s"
 msgid "debug"
-msgstr "depanare"
+msgstr ""
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
@@ -421,7 +422,7 @@ msgstr "Ștergere pagină"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr "Ștergeți imaginile"
+msgstr ""
 
 msgctxt "delete_user"
 msgid "Delete an user"
@@ -441,11 +442,11 @@ msgstr "Șterse:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr "Donați pentru Open Food Facts"
+msgstr ""
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgstr ""
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -497,11 +498,11 @@ msgstr "<p>Parametrii contului dumneavoastră au fost schimbați.</p>"
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr "editori"
+msgstr ""
 
 msgctxt "editors_s"
 msgid "editor"
-msgstr "editor"
+msgstr ""
 
 msgctxt "email"
 msgid "e-mail address"
@@ -509,27 +510,28 @@ msgstr "adresa de e-mail"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr "Coduri EMB"
+msgstr ""
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
-msgstr "Produse ambalate de companiea cu codul emb %s"
+msgstr ""
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr "Codul EMB"
+msgstr ""
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr "Codul EMB"
+msgstr ""
 
+# Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr "EMB 53062, FR 62.448.034 CE, 84R20, 33 RECOLTANT 522"
+msgstr ""
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
-msgstr "În Europa, codul este într-un semicerc cu cele două inițiale ale țării, urmate de un număr și CE."
+msgstr ""
 
 msgctxt "emb_codes_p"
 msgid "packager codes"
@@ -537,7 +539,7 @@ msgstr "codurile ambalatorului"
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
-msgstr "Produse cu codul emb %s"
+msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "packager code"
@@ -545,7 +547,7 @@ msgstr "codul ambalatorului"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the emb code %s"
-msgstr "Produse fără codul emb %s"
+msgstr ""
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
@@ -557,7 +559,7 @@ msgstr ""
 
 msgctxt "error"
 msgid "Error"
-msgstr "Eroare"
+msgstr ""
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
@@ -581,7 +583,7 @@ msgstr "Adresă invalidă."
 
 msgctxt "error_invalid_csrf_token"
 msgid "Invalid CSRF token."
-msgstr "Token CSRF invalid."
+msgstr ""
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
@@ -678,12 +680,12 @@ msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
 msgstr ""
 
 msgctxt "footer_and_the_facebook_group"
-msgid "and the <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook group for contributors</a>"
-msgstr "și <a href=\"https://www.facebook.com/groups/374350705955208/\">grupul de Facebook pentru contribuitori</a>"
+msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
+msgstr ""
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr "Blog <<site_name>>"
+msgstr ""
 
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
@@ -691,7 +693,7 @@ msgstr "https://en.blog.openfoodfacts.org&hl=ro"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
-msgstr "Cod de conduită"
+msgstr ""
 
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
@@ -703,7 +705,7 @@ msgstr "Date"
 
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr "/data"
+msgstr "/date"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -751,7 +753,7 @@ msgstr "Mențiuni legale"
 
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr "/legal"
+msgstr "/mențiuni legale"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -819,7 +821,7 @@ msgstr "Titlul graficului"
 
 msgctxt "graphs_and_maps"
 msgid "Graphs and maps"
-msgstr "Grafice și hărți"
+msgstr ""
 
 msgctxt "header"
 msgid "<meta property=\"fb:admins\" content=\"706410516\" />\n"
@@ -881,20 +883,20 @@ msgstr "Această imagine a fost deja trimis."
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
-msgstr "Imaginea este prea mică. Nu încărcați poze găsite pe Internet, ci trimiteți doar fotografiile pe care le-ați facut personal."
+msgstr ""
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
 "You can try with another image, or directly enter the barcode."
-msgstr "Codul de bare din imagine nu a putut fi citit sau imaginea nu conține cod de bare. Puteți încerca cu o altă imagine sau puteți introduce direct codul de bare."
+msgstr ""
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
-msgstr "Nu a fost găsit niciun cod de bare în imagine."
+msgstr ""
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
-msgstr "Trebuie să introduceți cifrele codului de bare sau să trimiteți o imagine a produsului în care este vizibil codul de bare."
+msgstr ""
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -918,7 +920,7 @@ msgstr "Ingrediente"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
-msgstr "Analiza ingredientelor"
+msgstr ""
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -993,8 +995,8 @@ msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" 
 msgstr ""
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
-msgstr "https://itunes.apple.com/en/app/open-food-facts/id588797948&hl=ro"
+msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1389,6 +1391,7 @@ msgctxt "moderate_quantity"
 msgid "moderate quantity"
 msgstr "cantitate moderată"
 
+# Please keep the same syntax and translate only the months
 msgctxt "months"
 msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
 msgstr "['Ianuarie', 'Februarie', 'Martie', 'Aprilie', 'Mai', 'Iunie', 'Iulie', 'August', 'Septembrie', 'Octombrie', 'Noiembrie', 'Decembrie']"
@@ -1469,6 +1472,7 @@ msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
 msgstr "Valori nutriționale pentru 100g"
 
+# Ensure it is the same translation as in the translation in the tag file. If unsure, DO NOT TRANSLATE, otherwise it will break the site
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
 msgstr "/valori-nutritionale"
@@ -1539,11 +1543,11 @@ msgstr "pentru 100 g / 100 ml"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr "Percentila a 5-a"
+msgstr ""
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
-msgstr "Mediana"
+msgstr ""
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
@@ -1551,11 +1555,11 @@ msgstr "Al 90-lea procent"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
-msgstr "Percentila a 95-a"
+msgstr ""
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
-msgstr "Maxim"
+msgstr ""
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
@@ -1563,7 +1567,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
-msgstr "Minim"
+msgstr ""
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
@@ -1584,25 +1588,26 @@ msgstr "Tabelul listează implicit nutrienții care sunt specificați mai des. L
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
-msgstr "-"
+msgstr ""
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
-msgstr "Scoruri nutrițional"
+msgstr ""
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr "Scor nutrițional"
+msgstr ""
 
+# Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png&hl=ro"
 
+# Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>Pentru a afla mai multe despre <<site_name>>, vizitați <a href=\"https://ro.blog.openfoodfacts.org\">blogul nostru</a>!</p>\n"
-"<p>Știri recente:</p>\n"
+msgstr ""
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -1623,7 +1628,7 @@ msgstr "Originea ingredientelor"
 
 msgctxt "origins_example"
 msgid "California, USA"
-msgstr "California, SUA"
+msgstr ""
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
@@ -1647,7 +1652,7 @@ msgstr "adăugați o origine"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
-msgstr "Produse fără ingrediente originare din %s"
+msgstr ""
 
 msgctxt "packaging"
 msgid "Packaging"
@@ -1679,7 +1684,7 @@ msgstr "adăugați un tip, formă sau material"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
-msgstr "Produse fără ambalaj de tip %s"
+msgstr ""
 
 msgctxt "page_x"
 msgid "Page %d"
@@ -1703,7 +1708,7 @@ msgstr "Confirmare parolă"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
-msgstr "Perioadă de timp după deschidere"
+msgstr ""
 
 msgctxt "periods_after_opening_note"
 msgid "Found in an open container logo with a number of months: e.g. 12 M"
@@ -1899,7 +1904,7 @@ msgstr ""
 
 msgctxt "product_js_upload_image"
 msgid "Add a picture"
-msgstr "Adaugă o imagine"
+msgstr "Agaugă o imagine"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
@@ -2573,8 +2578,8 @@ msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Sto
 msgstr ""
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
-msgstr "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34&hl=ro"
+msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
