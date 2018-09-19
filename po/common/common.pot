@@ -1497,6 +1497,7 @@ msgctxt "moderate_quantity"
 msgid "moderate quantity"
 msgstr ""
 
+# Please keep the same syntax and translate only the months
 msgctxt "months"
 msgid ""
 "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', "
@@ -1584,6 +1585,7 @@ msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
 msgstr ""
 
+# Ensure it is the same translation as in the translation in the tag file. If unsure, DO NOT TRANSLATE, otherwise it will break the site
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
 msgstr ""
@@ -1718,11 +1720,13 @@ msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr ""
 
+# Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid ""
 "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 msgstr ""
 
+# Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid ""
 "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog."
