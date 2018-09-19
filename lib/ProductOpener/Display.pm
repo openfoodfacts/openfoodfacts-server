@@ -1122,12 +1122,12 @@ sub display_list_of_tags($$) {
 	
 	my $key = $server_domain . "/" . freeze($mongodb_query_ref);
 	
-	$log->debug("MongoDB aggregate query key", { "key" => $key}) if $log->is_debug();
+	$log->debug("MongoDB aggregate query key", { key => $key }) if $log->is_debug();
 
 	use Digest::MD5 qw(md5_hex);
 	$key = md5_hex($key);
 	
-	$log->debug("MongoDB crypted aggregate query key", { "key" => $key}) if $log->is_debug();
+	$log->debug("MongoDB crypted aggregate query key", { key => $key }) if $log->is_debug();
 	
 	$results = $memd->get($key);	
 	
@@ -1135,7 +1135,7 @@ sub display_list_of_tags($$) {
 	
 		$results = undef;
 	
-		$log->debug("Did not find a value for aggregate MongoDB query key", { "key" => $key}) if $log->is_debug();
+		$log->debug("Did not find a value for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
 	
 	
 		eval {
@@ -1178,19 +1178,19 @@ sub display_list_of_tags($$) {
 			$results = [$results->all];
 				
 			if (defined $results->[0]) {
-				$log->debug("Setting value for aggregate MongoDB query key", { "key" => $key}) if $log->is_debug();
+				$log->debug("Setting value for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
 
-				$memd->set($key, $results, 3600) or $log->debug("Could not set value for MongoDB query key", { "key" => $key});
+				$memd->set($key, $results, 3600) or $log->debug("Could not set value for MongoDB query key", { key => $key });
 			}
 		
 		}
 		else {
-			$log->debug("No results for aggregate MongoDB query key", { "key" => $key}) if $log->is_debug();
+			$log->debug("No results for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
 		
 		}
 	}
 	else {
-		$log->debug("Found a value for aggregate MongoDB query key", { "key" => $key}) if $log->is_debug();
+		$log->debug("Found a value for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
 	}		
 		
 	
@@ -2719,20 +2719,20 @@ sub search_and_display_products($$$$$) {
 	
 	my $key = $server_domain . "/" . freeze($mongodb_query_ref);
 	
-	$log->debug("MongoDB query key", { "key" => $key}) if $log->is_debug();
+	$log->debug("MongoDB query key", { key => $key }) if $log->is_debug();
 	
 	use Digest::MD5 qw(md5_hex);
 	$key = md5_hex($key);
 	
-	$log->debug("MongoDB crypted query key", { "key" => $key}) if $log->is_debug();
+	$log->debug("MongoDB crypted query key", { key => $key }) if $log->is_debug();
 	
 	$request_ref->{structured_response} = $memd->get($key);
 	
-	$log->debug("Retrieving value for MongoDB query key", { "key" => $key}) if $log->is_debug();
+	$log->debug("Retrieving value for MongoDB query key", { key => $key }) if $log->is_debug();
 	
 	if (not defined $request_ref->{structured_response}) {
 	
-		$log->debug("Did not find value for MongoDB query key", { "key" => $key}) if $log->is_debug();
+		$log->debug("Did not find value for MongoDB query key", { key => $key }) if $log->is_debug();
 		
 		$request_ref->{structured_response} = {
 			page => $page,
@@ -2798,13 +2798,13 @@ sub search_and_display_products($$$$$) {
 	
 		$request_ref->{structured_response}{count} = $count + 0;
 		
-		$log->debug("Setting value for MongoDB query key", { "key" => $key}) if $log->is_debug();
+		$log->debug("Setting value for MongoDB query key", { key => $key }) if $log->is_debug();
 
-		$memd->set($key, $request_ref->{structured_response}, 3600) or $log->debug("Could not set value for MongoDB query key", { "key" => $key});
+		$memd->set($key, $request_ref->{structured_response}, 3600) or $log->debug("Could not set value for MongoDB query key", { key => $key });
 		
 	}
 	else {
-		$log->debug("Found a value for MongoDB query key", { "key" => $key}) if $log->is_debug();
+		$log->debug("Found a value for MongoDB query key", { key => $key }) if $log->is_debug();
 	}
 	
 	
