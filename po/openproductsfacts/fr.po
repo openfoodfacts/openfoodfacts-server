@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-09-12 16:08\n"
+"PO-Revision-Date: 2018-09-19 19:31\n"
 "Language-Team: French\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -27,12 +27,12 @@ msgstr "French"
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openproductsfacts.org/images/apps/off.apk"
-msgstr ""
+msgstr "https://world.openproductsfacts.org/images/apps/off.apk"
 
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=en"
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/en/app/open-beauty-facts/id1122926380"
@@ -41,12 +41,12 @@ msgstr "https://itunes.apple.com/en/app/open-beauty-facts/id1122926380"
 #. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo"
 msgid "openproductsfacts-logo-en-178x150.png"
-msgstr ""
+msgstr "openproductsfacts-logo-en-178x150.png"
 
 #. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
 msgctxt "logo2x"
 msgid "openproductsfacts-logo-en-356x300.png"
-msgstr ""
+msgstr "openproductsfacts-logo-en-356x300.png"
 
 msgctxt "site_name"
 msgid "Open Products Facts"
@@ -93,11 +93,11 @@ msgstr ""
 
 msgctxt "brands_example"
 msgid "Nike, Apple"
-msgstr ""
+msgstr "Nike, Apple"
 
 msgctxt "categories_example"
 msgid "Mobile phone, Washing machine powder"
-msgstr ""
+msgstr "Téléphone portable, poudre pour la machine a laver"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
@@ -121,7 +121,7 @@ msgstr "https://fr.wiki.openfoodfacts.org"
 
 msgctxt "generic_name_example"
 msgid "Android smartphone"
-msgstr ""
+msgstr "Smartphone android"
 
 msgctxt "header"
 msgid "<meta property=\"fb:admins\" content=\"706410516\" />\n"
