@@ -37,7 +37,6 @@ BEGIN
 		$mongodb_host
 		$facebook_app_id
 	    $facebook_app_secret
-		$csrf_secret
 		
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -58,7 +57,5 @@ $mongodb_host = "mongodb://mongodb:27017";
 
 $facebook_app_id = "";
 $facebook_app_secret = "";
-
-$csrf_secret = "EYvfj3GDJnc2UPVqTwTGPgWC";
 
 1;

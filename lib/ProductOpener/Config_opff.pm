@@ -42,8 +42,6 @@ BEGIN
 		$facebook_app_id
 		$facebook_app_secret
 		
-		$csrf_secret
-		
 		$crowdin_project_identifier
 		$crowdin_project_key
 				
@@ -113,8 +111,6 @@ $data_root = $ProductOpener::Config2::data_root;
 
 $facebook_app_id = $ProductOpener::Config2::facebook_app_id;
 $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
-
-$csrf_secret = $Blogs::Config2::csrf_secret;
 
 $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
 $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;

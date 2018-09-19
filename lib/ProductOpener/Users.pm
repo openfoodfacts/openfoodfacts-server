@@ -53,8 +53,6 @@ BEGIN
 					
 					&check_session
 
-					&generate_po_csrf_token
-					&check_po_csrf_token
 					&generate_token
 
 					);	# symbols to export on request
@@ -77,7 +75,6 @@ use Email::IsEmail qw/IsEmail/;
 use Crypt::PasswdMD5 qw(unix_md5_crypt);
 use Math::Random::Secure qw(irand);
 use Crypt::ScryptKDF qw(scrypt_hash scrypt_hash_verify);
-use WWW::CSRF qw(generate_csrf_token check_csrf_token CSRF_OK);
 use Log::Any qw($log);
 
 sub generate_token {
@@ -715,16 +712,6 @@ sub save_user() {
 	elsif (defined $Visitor_id) {
 		store("$data_root/virtual_users/$Visitor_id.sto", \%User);
 	}
-}
-
-sub generate_po_csrf_token($) {
-	my ( $user_id ) = @_;
-	generate_csrf_token($user_id, $csrf_secret);
-}
-
-sub check_po_csrf_token($$) {
-	my ( $user_id, $csrf_token) = @_;
-	check_csrf_token($user_id, $csrf_secret, $csrf_token);
 }
 
 1;

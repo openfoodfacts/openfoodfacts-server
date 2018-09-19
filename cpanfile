@@ -20,7 +20,6 @@ requires 'XML::FeedPP'; # libxml-feedpp-perl
 requires 'URI::Find'; # liburi-find-perl
 requires 'XML::Simple'; # libxml-simple-perl
 requires 'experimental'; # libexperimental-perl
-requires 'WWW::CSRF'; # libwww-csrf-perl
 requires 'Apache2::Request'; # libapache2-request-perl
 requires 'Digest::MD5'; # libdigest-md5-perl
 

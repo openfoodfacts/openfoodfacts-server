@@ -51,8 +51,6 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
-use WWW::CSRF qw(CSRF_OK);
-
 ProductOpener::Display::init();
 
 if ($User_id eq 'unwanted-user-french') { 
@@ -2096,7 +2094,6 @@ HTML
 <label for="comment" style="margin-left:10px">$Lang{delete_comment}{$lang}</label>
 <input type="text" id="comment" name="comment" value="" />
 HTML
-	. hidden(-name=>'csrf', -value=>generate_po_csrf_token($User_id), -override=>1)
 	. submit(-name=>'save', -label=>lang("delete_product_page"), -class=>"button small")
 	. end_form();
 
@@ -2108,12 +2105,6 @@ elsif ($action eq 'process') {
 	$product_ref->{interface_version_modified} = $interface_version;
 	
 	if ($type eq 'delete') {
-		my $csrf_token_status = check_po_csrf_token($User_id, param('csrf'));
-		if (not ($csrf_token_status eq CSRF_OK)) {
-			$log->warn("User tried product deletion with invalid CSRF", { user_id => $User_id, code => $code }) if $log->is_warn();
-			display_error(lang("error_invalid_csrf_token"), 403);
-		}
-
 		$product_ref->{deleted} = 'on';
 		$comment = lang("deleting_product") . separator_before_colon($lc) . ":";
 	}
