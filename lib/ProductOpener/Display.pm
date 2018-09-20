@@ -127,6 +127,7 @@ use Tie::IxHash;
 use JSON::PP;
 use XML::Simple;
 use Storable qw(freeze);
+use Digest::MD5 qw(md5_hex);
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
@@ -1124,10 +1125,9 @@ sub display_list_of_tags($$) {
 	
 	$log->debug("MongoDB aggregate query key", { key => $key }) if $log->is_debug();
 
-	use Digest::MD5 qw(md5_hex);
 	$key = md5_hex($key);
 	
-	$log->debug("MongoDB crypted aggregate query key", { key => $key }) if $log->is_debug();
+	$log->debug("MongoDB hashed aggregate query key", { key => $key }) if $log->is_debug();
 	
 	$results = $memd->get($key);	
 	
@@ -2721,10 +2721,9 @@ sub search_and_display_products($$$$$) {
 	
 	$log->debug("MongoDB query key", { key => $key }) if $log->is_debug();
 	
-	use Digest::MD5 qw(md5_hex);
 	$key = md5_hex($key);
 	
-	$log->debug("MongoDB crypted query key", { key => $key }) if $log->is_debug();
+	$log->debug("MongoDB hashed query key", { key => $key }) if $log->is_debug();
 	
 	$request_ref->{structured_response} = $memd->get($key);
 	
