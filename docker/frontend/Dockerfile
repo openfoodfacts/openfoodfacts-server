@@ -16,6 +16,9 @@ WORKDIR "/opt/product-opener"
 # Add ProductOpener runtime dependencies from yarn
 RUN yarn install
 
+# Run gulp
+RUN yarn run build
+
 FROM nginx:mainline-alpine
 WORKDIR "/opt/product-opener"
-COPY --from=builder /opt/product-opener .
+COPY --from=builder /opt/product-opener/html/ /opt/product-opener/html/
