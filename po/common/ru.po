@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-09-19 20:08\n"
+"PO-Revision-Date: 2018-09-20 06:51\n"
 "Language-Team: Russian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -55,7 +55,7 @@ msgstr "Зарегистрироваться"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr "<p>Спасибо что присоединились! Теперь вы можете войти на сайт чтобы добавить или изменить продукты.</p>"
+msgstr "<p>Спасибо, что присоединились! Теперь вы можете войти на сайт, чтобы,добавить или изменить продукты.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -142,7 +142,7 @@ msgstr "аллерген"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr "Страницу продукта также редактировали:"
+msgstr "Страницу продукта также редактировал"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
@@ -213,7 +213,7 @@ msgstr "Бренды"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr "Простоквашино"
+msgstr "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
 
 msgctxt "brands_p"
 msgid "brands"
@@ -657,7 +657,7 @@ msgstr "Дата окончания срока годности — для от�
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
-msgstr "Сортировка продуктов..."
+msgstr "Развернутый в продукты с..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
@@ -1547,7 +1547,7 @@ msgstr "Сравнение со средними значениями проду
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr "Примечание: для каждого питательного вещества, среднее вычисляется по продуктам, у которых его количество указано, а не по всем продуктам категории."
+msgstr "Обратите внимание: для каждого питательного вещества, среднее вычисляется по продуктам  в которых его количество известно, а не по всем продуктам категории."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
@@ -1947,7 +1947,7 @@ msgstr "Название продукта"
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
-msgstr "Молоко 2,5%"
+msgstr "Kinder Bueno White"
 
 msgctxt "products"
 msgid "products"
