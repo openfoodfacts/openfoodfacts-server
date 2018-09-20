@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tt\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-11 13:25-0500\n"
+"PO-Revision-Date: 2018-08-01 11:16\n"
 "Language-Team: Tatar\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -67,5 +67,99 @@ msgstr ""
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, ascorbic acid"
+msgstr ""
+
+#. do not translate
+msgctxt "android_apk_app_link"
+msgid "https://world.openfoodfacts.org/images/apps/off.apk"
+msgstr ""
+
+msgctxt "ios_app_link"
+msgid "https://itunes.apple.com/en/app/open-beauty-facts/id1122926380"
+msgstr ""
+
+msgctxt "windows_phone_app_link"
+msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
+msgstr ""
+
+#. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
+msgctxt "twitter_account"
+msgid "OpenFoodFacts"
+msgstr ""
+
+msgctxt "warning_not_complete"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner\">Android</a> or <a href=\"https://itunes.apple.com/us/app/open-beauty-facts/id1122926380?mt=8\">iPhone/iPad</a>. Thank you!"
+msgstr ""
+
+msgctxt "bottom_content"
+msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Beauty Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr ""
+
+msgctxt "donate"
+msgid "Donate to Open Pet Food Facts"
+msgstr ""
+
+msgctxt "facebook_page"
+msgid "https://www.facebook.com/OpenPetFoodFacts"
+msgstr ""
+
+msgctxt "footer"
+msgid "<a href=\"https://world.openpetfoodfacts.org/legal\">Legal</a> -\n"
+"<a href=\"https://world.openpetfoodfacts.org/terms-of-use\">Terms of Use</a> -\n"
+"<a href=\"https://world.openpetfoodfacts.org/who-we-are\">Who we are</a> -\n"
+"<a href=\"https://world.openpetfoodfacts.org/faq\">Frequently Asked Questions</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
+"<a href=\"https://en.blog.openpetfoodfacts.org\">Blog</a> -\n"
+"<a href=\"https://world.openpetfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
+msgstr ""
+
+msgctxt "emb_codes_example"
+msgid "EMB 53062"
+msgstr ""
+
+msgctxt "site_description"
+msgid "A collaborative, free and open database of ingredients, nutrition facts and information on pet food products from around the world"
+msgstr ""
+
+msgctxt "footer_and_the_facebook_group"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">Facebook group for contributors</a>"
+msgstr ""
+
+msgctxt "footer_tagline"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr ""
+
+msgctxt "footer_wiki_link"
+msgid "https://en.wiki.openfoodfacts.org"
+msgstr ""
+
+msgctxt "header"
+msgid "<meta property=\"fb:admins\" content=\"706410516\" />\n"
+"<meta property=\"og:site_name\" content=\"<<site_name>> - the free and open pet food products information database\"/>\n\n"
+"<script type=\"text/javascript\">\n"
+"  var uvOptions = {};\n"
+"  (function() {\n"
+"\tvar uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;\n"
+"\tuv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/jQrwafQ94nbEbRWsznm6Q.js';\n"
+"\tvar s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);\n"
+"  })();\n"
+"</script>\n\n\n"
+msgstr ""
+
+msgctxt "og_image_url"
+msgid "https://world.openpetfoodfacts.org/images/misc/openpetfoodfacts-logo-en.png"
+msgstr ""
+
+msgctxt "openfoodhunt_points"
+msgid "It's <a href=\"/open-beauty-hunt\">Open Pet Food Hunt</a> on <<site_name>> from Saturday February 21st 2019 to Sunday March 1st 2019! Contributors are awarded\n"
+"Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
+msgstr ""
+
+msgctxt "product_js_upload_image_note"
+msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
+msgstr ""
+
+msgctxt "search_description_opensearch"
+msgid "Open Pet Food Facts product search"
 msgstr ""
 
