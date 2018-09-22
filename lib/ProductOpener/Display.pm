@@ -129,6 +129,8 @@ use XML::Simple;
 use CLDR::Number;
 use CLDR::Number::Format::Decimal;
 use CLDR::Number::Format::Percent;
+use Storable qw(freeze);
+use Digest::MD5 qw(md5_hex);
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
@@ -1119,39 +1121,80 @@ sub display_list_of_tags($$) {
 			];
 	}	
 	
-	eval {
-		$log->debug("Executing MongoDB aggregate query", { query => $aggregate_parameters }) if $log->is_debug();
-		$results = $products_collection->aggregate( $aggregate_parameters );
-	};
-	if ($@) {
-		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
-		# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
-		
-		# opening new connection
+	my $mongodb_query_ref = $aggregate_parameters;
+	
+	my $key = $server_domain . "/" . freeze($mongodb_query_ref);
+	
+	$log->debug("MongoDB aggregate query key", { key => $key }) if $log->is_debug();
+
+	$key = md5_hex($key);
+	
+	$log->debug("MongoDB hashed aggregate query key", { key => $key }) if $log->is_debug();
+	
+	$results = $memd->get($key);	
+	
+	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
+	
+		$results = undef;
+	
+		$log->debug("Did not find a value for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
+	
+	
 		eval {
-			$connection = MongoDB->connect($mongodb_host);
-			$database = $connection->get_database($mongodb);
-			$products_collection = $database->get_collection('products');
+			$log->debug("Executing MongoDB aggregate query", { query => $aggregate_parameters }) if $log->is_debug();
+			$results = $products_collection->aggregate( $aggregate_parameters );
 		};
 		if ($@) {
-			$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
-			$count = -1;
-		}
-		else {		
-			$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
+			$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
+			# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
+			
+			# opening new connection
 			eval {
-				$log->debug("Executing MongoDB aggregate query", { query => $aggregate_parameters }) if $log->is_debug();
-				$results = $products_collection->aggregate( $aggregate_parameters);
+				$connection = MongoDB->connect($mongodb_host);
+				$database = $connection->get_database($mongodb);
+				$products_collection = $database->get_collection('products');
 			};
-			$log->debug("MongoDB query done", { error => $@ }) if $log->is_debug();
+			if ($@) {
+				$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
+				$count = -1;
+			}
+			else {		
+				$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
+				eval {
+					$log->debug("Executing MongoDB aggregate query", { query => $aggregate_parameters }) if $log->is_debug();
+					$results = $products_collection->aggregate( $aggregate_parameters);
+				};
+				$log->debug("MongoDB query done", { error => $@ }) if $log->is_debug();
+			}
+		}
+			
+		$log->trace("aggregate query done") if $log->is_trace();
+		
+		if ($admin) {
+			$log->debug("aggregate query results", { results => $results }) if $log->is_debug();	
+		}	
+		
+		# the return value of aggregate has changed from version 0.702
+		# and v1.4.5 of the perl MongoDB module
+		if (defined $results) {
+			$results = [$results->all];
+				
+			if (defined $results->[0]) {
+				$log->debug("Setting value for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
+
+				$memd->set($key, $results, 3600) or $log->debug("Could not set value for MongoDB query key", { key => $key });
+			}
+		
+		}
+		else {
+			$log->debug("No results for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
+		
 		}
 	}
+	else {
+		$log->debug("Found a value for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
+	}		
 		
-	$log->trace("aggregate query done") if $log->is_trace();
-	
-	if ($admin) {
-		$log->debug("aggregate query results", { results => $results }) if $log->is_debug();	
-	}	
 	
 	my $html = '';
 	my $html_pages = '';	
@@ -1159,15 +1202,10 @@ sub display_list_of_tags($$) {
 	my $countries_map_links = '';
 	my $countries_map_names = '';
 	my $countries_map_data = '';
-
-	# the return value of aggregate has changed from version 0.702
-	# and v1.4.5 of the perl MongoDB module
-	if (defined $results) {
-		$results = [$results->all];
-	}
 	
-	if ((not defined $results) or (not defined $results->[0])) {
+	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
 	
+		$log->debug("results for aggregate MongoDB query key", { "results" => $results}) if $log->is_debug();
 		$html .= "<p>" . lang("no_products") . "</p>";
 		$request_ref->{structured_response}{count} = 0;
 	
@@ -2309,7 +2347,7 @@ HTML
 					}
 					$description .= <<HTML
 <div>
-<a href="http://ratings.food.gov.uk/">Food Hygiene Rating</a> from the Food Standards Agency (FSA):
+<a href="https://ratings.food.gov.uk/">Food Hygiene Rating</a> from the Food Standards Agency (FSA):
 <p>
 Business name: $packager_codes{$canon_tagid}{fsa_rating_business_name}<br/>
 Business type: $packager_codes{$canon_tagid}{fsa_rating_business_type}<br/>
@@ -2570,7 +2608,7 @@ HTML
 			$request_ref->{title} = $title;
 		}
 
-		$html = "<div itemscope itemtype=\"http://schema.org/Thing\"><h1 itemprop=\"name\">" . $title ."</h1>" . $html . "</div>";
+		$html = "<div itemscope itemtype=\"https://schema.org/Thing\"><h1 itemprop=\"name\">" . $title ."</h1>" . $html . "</div>";
 		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
 	}
 
@@ -2645,14 +2683,6 @@ sub search_and_display_products($$$$$) {
 	
 	# support for returning structured results in json / xml etc.
 	
-	$request_ref->{structured_response} = {
-		page => $page,
-		page_size => $limit,
-		skip => $skip,
-		products => [],
-	};	
-	
-
 	my $sort_ref = Tie::IxHash->new();
 	
 	if (defined $sort_by) {
@@ -2687,38 +2717,32 @@ sub search_and_display_products($$$$$) {
 	my $cursor;
 	my $count;
 	
-	eval {
-		if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
-			my $aggregate_parameters = [
-				{ "\$match" => $query_ref },
-				{ "\$sample" => { "size" => $request_ref->{sample_size} } }
-			];
-			$log->debug("Executing MongoDB query", { query => $aggregate_parameters }) if $log->is_debug();
-			$cursor = $products_collection->aggregate($aggregate_parameters);
-		}
-		else {
-			$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
-			$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-			$count = $cursor->count() + 0;
-			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
-		}
-	};
-	if ($@) {
-		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
-		# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
+	my $mongodb_query_ref = [ lc => $lc, query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip ];
+	
+	my $key = $server_domain . "/" . freeze($mongodb_query_ref);
+	
+	$log->debug("MongoDB query key", { key => $key }) if $log->is_debug();
+	
+	$key = md5_hex($key);
+	
+	$log->debug("MongoDB hashed query key", { key => $key }) if $log->is_debug();
+	
+	$request_ref->{structured_response} = $memd->get($key);
+	
+	$log->debug("Retrieving value for MongoDB query key", { key => $key }) if $log->is_debug();
+	
+	if (not defined $request_ref->{structured_response}) {
+	
+		$log->debug("Did not find value for MongoDB query key", { key => $key }) if $log->is_debug();
 		
-		# opening new connection
+		$request_ref->{structured_response} = {
+			page => $page,
+			page_size => $limit,
+			skip => $skip,
+			products => [],
+		};	
+		
 		eval {
-			$connection = MongoDB->connect($mongodb_host);
-			$database = $connection->get_database($mongodb);
-			$products_collection = $database->get_collection('products');
-		};
-		if ($@) {
-			$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
-			$count = -1;
-		}
-		else {		
-			$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
 			if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
 				my $aggregate_parameters = [
 					{ "\$match" => $query_ref },
@@ -2728,21 +2752,65 @@ sub search_and_display_products($$$$$) {
 				$cursor = $products_collection->aggregate($aggregate_parameters);
 			}
 			else {
-				$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
+				$log->debug("Executing MongoDB query", { query => $mongodb_query_ref }) if $log->is_debug();
 				$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 				$count = $cursor->count() + 0;
 				$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
-
 			}
-			$log->debug("MongoDB query done", { error => $@ }) if $log->is_debug();
+		};
+		if ($@) {
+			$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
+			# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
+			
+			# opening new connection
+			eval {
+				$connection = MongoDB->connect($mongodb_host);
+				$database = $connection->get_database($mongodb);
+				$products_collection = $database->get_collection('products');
+			};
+			if ($@) {
+				$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
+				$count = -1;
+			}
+			else {		
+				$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
+				if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
+					my $aggregate_parameters = [
+						{ "\$match" => $query_ref },
+						{ "\$sample" => { "size" => $request_ref->{sample_size} } }
+					];
+					$log->debug("Executing MongoDB query", { query => $aggregate_parameters }) if $log->is_debug();
+					$cursor = $products_collection->aggregate($aggregate_parameters);
+				}
+				else {
+					$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
+					$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+					$count = $cursor->count() + 0;
+					$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
+
+				}
+				$log->debug("MongoDB query done", { error => $@ }) if $log->is_debug();
+			}
 		}
+		
+		while (my $product_ref = $cursor->next) {
+			push @{$request_ref->{structured_response}{products}}, $product_ref;
+		}
+	
+		$request_ref->{structured_response}{count} = $count + 0;
+		
+		$log->debug("Setting value for MongoDB query key", { key => $key }) if $log->is_debug();
+
+		$memd->set($key, $request_ref->{structured_response}, 3600) or $log->debug("Could not set value for MongoDB query key", { key => $key });
+		
+	}
+	else {
+		$log->debug("Found a value for MongoDB query key", { key => $key }) if $log->is_debug();
 	}
 	
-	while (my $product_ref = $cursor->next) {
-		push @{$request_ref->{structured_response}{products}}, $product_ref;
-	}
 	
-	$request_ref->{structured_response}{count} = $count + 0;
+	
+	$count = $request_ref->{structured_response}{count};
 	
 	my $html = '';
 	my $html_pages = '';
@@ -4873,10 +4941,10 @@ $meta_description
 	if (! subdomain) {
 		subdomain = 'world';
 	}
-	window.location.href = "http://" + subdomain + ".${server_domain}";
+	window.location.href = "https://" + subdomain + ".${server_domain}";
 }).on("select2:unselect", function(e) {
 
-	window.location.href = "http://world.${server_domain}";
+	window.location.href = "https://world.${server_domain}";
 })
 ;
 <initjs>
@@ -5490,6 +5558,7 @@ $Lang{android_apk_app_badge}{$lc}
 			<li><a href="$Lang{footer_press_link}{$lc}">$Lang{footer_press}{$lc}</a></li>
 			<li><a href="$Lang{footer_wiki_link}{$lc}">$Lang{footer_wiki}{$lc}</a></li>
 			<li><a href="$Lang{footer_translators_link}{$lc}">$Lang{footer_translators}{$lc}</a></li>
+			<li><a href="$Lang{footer_partners_link}{$lc}">$Lang{footer_partners}{$lc}</a></li>
 		</ul>
 	</div>
 	
@@ -5614,7 +5683,7 @@ $scripts
 
 <script type="application/ld+json">
 {
-	"\@context" : "http://schema.org",
+	"\@context" : "https://schema.org",
 	"\@type" : "WebSite",
 	"name" : "$Lang{site_name}{$lc}",
 	"url" : "@{[ format_subdomain($subdomain) ]}",
@@ -5628,7 +5697,7 @@ $scripts
 
 <script type="application/ld+json">
 {
-	"\@context": "http://schema.org/",
+	"\@context": "https://schema.org/",
 	"\@type": "Organization",
 	"url": "@{[ format_subdomain($subdomain) ]}",
 	"logo": "/images/misc/$Lang{logo}{$lang}",
@@ -5768,7 +5837,7 @@ sub display_image_box($$$) {
 		}
 	
 		$img = <<HTML
-<div id="image_box_$id" class="image_box" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+<div id="image_box_$id" class="image_box" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
 $img
 </div>			
 HTML
@@ -6098,7 +6167,7 @@ HTML
 #   based on <span itemprop="reviewCount">11</span> customer reviews
 #  </div>	
 
-	$html .= '<div itemscope itemtype="http://schema.org/Product">' . "\n";
+	$html .= '<div itemscope itemtype="https://schema.org/Product">' . "\n";
 	
 	$html .= "<h1 property=\"food:name\" itemprop=\"name\">$title</h1>";	
 	
@@ -6113,7 +6182,7 @@ HTML
 				$html_upc .= " " . $' . " (UPC / UPC-A)";
 			}
 		}
-		$html .= "<p>" . lang("barcode") . separator_before_colon($lc) . ": <span property=\"food:code\" itemprop=\"gtin13\">$code</span> $html_upc</p>
+		$html .= "<p>" . lang("barcode") . separator_before_colon($lc) . ": <span property=\"food:code\" itemprop=\"gtin13\" style=\"speak-as:digits;\">$code</span> $html_upc</p>
 <div property=\"gr:hasEAN_UCC-13\" content=\"$code\" datatype=\"xsd:string\"></div>\n";
 	}
 	
@@ -6528,7 +6597,7 @@ HTML
 	
 	# NOVA groups
 	
-	if ((exists $product_ref->{nova_group})) {
+	if (($lc eq 'fr') and (exists $product_ref->{nova_group})) {
 		my $group = $product_ref->{nova_group};
 			
 # <a href="https://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}">
@@ -6538,8 +6607,12 @@ HTML
 		
 		$html .= <<HTML
 <h4>$Lang{nova_groups_s}{$lc}
+<a href="https://fr.openfoodfacts.org/classification-nova-pour-la-transformation-des-aliments" title="Classification NOVA des aliments transformés">
+<i class="fi-info"></i></a>
 </h4>
-<img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%" /><br/>
+
+
+<a href="https://fr.openfoodfacts.org/classification-nova-pour-la-transformation-des-aliments" title="Classification NOVA des aliments transformés"><img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%" /></a><br/>
 $display
 HTML
 ;
@@ -6852,12 +6925,37 @@ HTML
 	
 	$html .= display_nutrient_levels($product_ref);
 	
+	
+	# NOVA groups
+	
+	if (($lc eq 'fr') and (exists $product_ref->{nova_group})) {
+		my $group = $product_ref->{nova_group};
+			
+# <a href="https://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}">
+# <i class="fi-info"></i></a>
+
+		my $display = display_taxonomy_tag($lc, "nova_groups", $product_ref->{nova_groups_tags}[0]);
+		
+		$html .= <<HTML
+<h4>$Lang{nova_groups_s}{$lc}
+<a href="https://world.openfoodfacts.org/nova-groups-for-food-processing" title="NOVA groups for food processing">
+<i class="fi-info"></i></a>
+</h4>
+
+
+<a href="https://world.openfoodfacts.org/nova-groups-for-food-processing" title="NOVA groups for food processing"><img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%" /></a><br/>
+$display
+HTML
+;
+	}	
+	
+	
 	my $minheight = 0;
 	$product_ref->{jqm} = 1;
 	my $html_image = display_image_box($product_ref, 'front', \$minheight);
 	$html .= <<HTML
-        <div data-role="collapsible-set" data-theme="" data-content-theme="">
-            <div data-role="collapsible">	
+        <div data-role="deactivated-collapsible-set" data-theme="" data-content-theme="">
+            <div data-role="deactivated-collapsible">	
 HTML
 ;
 	$html .= "<h2>" . lang("product_characteristics") . "</h2>
@@ -6894,8 +6992,8 @@ HTML
 	$html .= <<HTML
 			</div>
 		</div>
-        <div data-role="collapsible-set" data-theme="" data-content-theme="">
-            <div data-role="collapsible" data-collapsed="true">	
+        <div data-role="deactivated-collapsible-set" data-theme="" data-content-theme="">
+            <div data-role="deactivated-collapsible" data-collapsed="true">	
 HTML
 ;	
 	
@@ -6987,6 +7085,8 @@ HTML
 	
 	}	
 	
+		
+	
 	$html_image = display_image_box($product_ref, 'nutrition', \$minheight);	
 	
 	$html .= "</div>";
@@ -7001,8 +7101,8 @@ HTML
 
 		
 	$html .= <<HTML	
-        <div data-role="collapsible-set" data-theme="" data-content-theme="">
-            <div data-role="collapsible" data-collapsed="true">	
+        <div data-role="deactivated-collapsible-set" data-theme="" data-content-theme="">
+            <div data-role="deactivated-collapsible" data-collapsed="true">	
 HTML
 ;	
 	
@@ -7200,7 +7300,7 @@ sub display_nutrient_levels($) {
 <a href="https://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}">
 <i class="fi-info"></i></a>
 </h4>
-<img src="/images/misc/nutriscore-$grade.svg" alt="$Lang{nutrition_grade_fr_alt}{$lc} $uc_grade" style="margin-bottom:1rem;max-width:100%" /><br/>
+<a href="https://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}"><img src="/images/misc/nutriscore-$grade.svg" alt="$Lang{nutrition_grade_fr_alt}{$lc} $uc_grade" style="margin-bottom:1rem;max-width:100%" /></a><br/>
 $warning
 HTML
 ;
@@ -8010,7 +8110,7 @@ HTML
 			
 			display_product_jqm($request_ref);
 			$response{jqm} = $request_ref->{jqm_content};
-			$response{jqm} =~ s/(href|src)=("\/)/$1="http:\/\/$cc.${server_domain}\//g;
+			$response{jqm} =~ s/(href|src)=("\/)/$1="https:\/\/$cc.${server_domain}\//g;
 			$response{title} = $request_ref->{title};
 			
 		}
@@ -8236,8 +8336,8 @@ sub display_structured_response_opensearch_rss {
 	my $xml = <<XML
 <?xml version="1.0" encoding="UTF-8"?>
  <rss version="2.0" 
-      xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"
-      xmlns:atom="http://www.w3.org/2005/Atom">
+      xmlns:opensearch="https://a9.com/-/spec/opensearch/1.1/"
+      xmlns:atom="https://www.w3.org/2005/Atom">
    <channel>
      <title>$long_name</title>
      <link>$query_link</link>
