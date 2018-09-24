@@ -425,15 +425,17 @@ $options{nova_groups_tags} = {
 
 
 # group 4 categories from nova paper
+# some categories are mainly examples of products that are generally group 4
+# -> assign them to group 3, and then ingredient detection can classify individual products in group 4
 
 "categories/en:sodas" => 4,
-"categories/en:ice-creams" => 4,
-"categories/en:chocolates" => 4,
+"categories/en:ice-creams" => 3,
+"categories/en:chocolates" => 3,
 "categories/en:candies" => 4,
-"categories/en:sugary-snacks" => 4,
-"categories/en:salty-snacks" => 4,
-"categories/en:baby-milks" => 4,
-"categories/en:sausages" => 4,
+"categories/en:sugary-snacks" => 3,
+"categories/en:salty-snacks" => 3,
+"categories/en:baby-milks" => 3,
+"categories/en:sausages" => 3,
 "categories/en:hard-liquors" => 4,
 
 # additives that we can consider as ultra-processed (or a sufficient marker of ultra-processed food)
@@ -729,5 +731,20 @@ opff =>
 	domain => "openpetfoodfacts.org",
 }
 };
+
+
+$options{display_tag_additives} = [
+
+	'@additives_classes',
+	'wikipedia',
+	'title:efsa_evaluation_overexposure_risk',
+	'efsa_evaluation',
+	'efsa_evaluation_exposure_table',
+#	'@efsa_evaluation_exposure_mean_greater_than_noael',
+#	'@efsa_evaluation_exposure_95th_greater_than_noael',
+#	'@efsa_evaluation_exposure_mean_greater_than_adi',
+#	'@efsa_evaluation_exposure_95th_greater_than_adi',
+
+];
 
 1;
