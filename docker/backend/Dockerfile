@@ -1,5 +1,4 @@
-ARG BRANCH=master
-FROM hangy/httpd-alpine-perl-modperl as builder
+FROM hangy/httpd-alpine-perl-modperl AS builder
 
 # Remove APK cache
 RUN set -x \
@@ -21,18 +20,12 @@ RUN apk add imagemagick@edge zbar@testing zbar-dev@testing
 # Dependency of libapreq2-2.13, which is not installed automatically.
 RUN cpm install ExtUtils::XSBuilder::ParseSource -g
 
-# Builder image stage
-ARG BRANCH
-ADD https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-server/${BRANCH}/cpanfile /tmp/cpanfile-git
+# Install Product Opener from the workdir.
+ADD ./cpanfile /tmp/cpanfile
+WORKDIR /tmp
 
-# Add ProductOpener runtime dependencies from the git repositories' cpanfile (speeds up builds if stuff up to here has not changed)
-RUN cpm install -g --cpanfile=/tmp/cpanfile-git
-
-# Install cpanfile from the workdir.
-ADD ./cpanfile "/tmp/cpanfile-workdir"
-
-# Add ProductOpener runtime dependencies from the local cpanfile
-RUN cpm install -g --cpanfile=/tmp/cpanfile-workdir
+# Add ProductOpener runtime dependencies from cpan
+RUN cpm install -g
 
 FROM hangy/httpd-alpine-perl-modperl
 
