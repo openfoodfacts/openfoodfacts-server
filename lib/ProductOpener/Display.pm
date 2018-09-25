@@ -119,7 +119,6 @@ use CGI qw/:cgi :form escapeHTML/;
 use HTML::Entities;
 use DateTime;
 use DateTime::Format::Mail;
-use DateTime::Format::CLDR;
 use DateTime::Locale;
 use experimental 'smartmatch';
 use MongoDB;
@@ -799,12 +798,7 @@ sub display_date($) {
 			locale => $locale,
 			time_zone => $reference_timezone,
 			epoch => $t );
-		my $formatter = DateTime::Format::CLDR->new(
-		    pattern => $locale->datetime_format_long,
-		    locale => $locale
-		);
-		$dt->set_formatter($formatter);
-		return $dt;
+		return $dt->format_cldr($locale->datetime_format_long);
 	}
 	else {
 		return;
@@ -830,12 +824,7 @@ sub display_date_without_time($) {
 			locale => $locale,
 			time_zone => $reference_timezone,
 			epoch => $t );
-		my $formatter = DateTime::Format::CLDR->new(
-		    pattern => $locale->date_format_long,
-		    locale => $locale
-		);
-		$dt->set_formatter($formatter);
-		return $dt;
+		return $dt->format_cldr($locale->date_format_long);
 	}
 	else {
 		return;
