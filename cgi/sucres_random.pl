@@ -34,7 +34,7 @@ use Apache2::Const ();
 use List::Util qw(shuffle);
 use Log::Any qw($log);
 
-my $ids_ref = lock_retrieve("/home/sucres/data/products_ids.sto");
+my $ids_ref = lock_retrieve("/srv/sucres/data/products_ids.sto");
 my @ids = @$ids_ref;
 
 srand();
