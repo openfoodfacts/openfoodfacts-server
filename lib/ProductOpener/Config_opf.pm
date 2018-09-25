@@ -40,9 +40,9 @@ BEGIN
 		$admin_email
 
 		$facebook_app_id
-		$facebook_app_secret
+                $facebook_app_secret
 
-		$csrf_secret
+                $csrf_secret
 
 		$google_cloud_vision_api_key
 		
@@ -127,7 +127,7 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 
 $reference_timezone = 'Europe/Paris';
 
-$contact_email = 'contact@openbeautyfacts.org';
+$contact_email = 'contact@openproductsfacts.org';
 $admin_email = 'biz@joueb.com';
 
 
@@ -158,25 +158,25 @@ HTML
 
 %wiki_texts = (
 
-"en/whatsinmyshampoo" => "http://en.wiki.openbeautyfacts.org/Translations/whatsinmyshampoo.com/English?action=raw",
+"en/whatsinmyshampoo" => "http://en.wiki.openproductsfacts.org/Translations/whatsinmyshampoo.com/English?action=raw",
 
-"en/index.foundation" => "http://en.wiki.openbeautyfacts.org/Translations/Index_page/English?action=raw",
-"fr/index.foundation" => "http://en.wiki.openbeautyfacts.org/Translations/Index_page/French?action=raw",
+"en/index.foundation" => "http://en.wiki.openproductsfacts.org/Translations/Index_page/English?action=raw",
+"fr/index.foundation" => "http://en.wiki.openproductsfacts.org/Translations/Index_page/French?action=raw",
 
-"en/contribute.foundation" => "http://en.wiki.openbeautyfacts.org/Translations/Contribute_page/English?action=raw",
-"fr/contribute.foundation" => "http://en.wiki.openbeautyfacts.org/Translations/Contribute_page/French?action=raw",
+"en/contribute.foundation" => "http://en.wiki.openproductsfacts.org/Translations/Contribute_page/English?action=raw",
+"fr/contribute.foundation" => "http://en.wiki.openproductsfacts.org/Translations/Contribute_page/French?action=raw",
 
-"en/discover.foundation" => "http://en.wiki.openbeautyfacts.org/Translations/Discover_page/English?action=raw",
-"fr/discover.foundation" => "http://en.wiki.openbeautyfacts.org/Translations/Discover_page/French?action=raw",
+"en/discover.foundation" => "http://en.wiki.openproductsfacts.org/Translations/Discover_page/English?action=raw",
+"fr/discover.foundation" => "http://en.wiki.openproductsfacts.org/Translations/Discover_page/French?action=raw",
 
-"en/press" => "http://en.wiki.openbeautyfacts.org/Translations_-_Press_-_English?action=raw",
-"fr/presse" => "http://en.wiki.openbeautyfacts.org/Translations_-_Press_-_French?action=raw",
+"en/press" => "http://en.wiki.openproductsfacts.org/Translations_-_Press_-_English?action=raw",
+"fr/presse" => "http://en.wiki.openproductsfacts.org/Translations_-_Press_-_French?action=raw",
 
-"en/code-of-conduct" => "http://en.wiki.openbeautyfacts.org/Translations_-_Code_of_conduct_-_English?action=raw",
-"fr/code-de-conduite" => "http://en.wiki.openbeautyfacts.org/Translations_-_Code_of_conduct_-_French?action=raw",
+"en/code-of-conduct" => "http://en.wiki.openproductsfacts.org/Translations_-_Code_of_conduct_-_English?action=raw",
+"fr/code-de-conduite" => "http://en.wiki.openproductsfacts.org/Translations_-_Code_of_conduct_-_French?action=raw",
 
-"en/data" => "http://en.wiki.openbeautyfacts.org/Translations/Data/English?action=raw",
-"fr/data" => "http://en.wiki.openbeautyfacts.org/Translations/Data/French?action=raw",
+"en/data" => "http://en.wiki.openproductsfacts.org/Translations/Data/English?action=raw",
+"fr/data" => "http://en.wiki.openproductsfacts.org/Translations/Data/French?action=raw",
 
 );
 
@@ -255,57 +255,34 @@ last_edit_dates
 
 );
 
-$options{display_tag_ingredients} = [
-
-	'COSING',
-	'CAS',
-	'EINECS',
-	'INN Name',
-	'Ph Eur Name',
-	'@INCI Function',
-	'INCI Description',
-	'INCI Restriction',
-
-];
-
-
 # allow moving products to other instances of Product Opener on the same server
 # e.g. OFF -> OBF
 $options{other_servers} = {
-obf =>
+opf =>
 {
-	name => "Open Beauty Facts",
-	data_root => "/srv/obf",
-	www_root => "/srv/obf/html",
-	mongodb => "obf",
-	domain => "openbeautyfacts.org",
+        name => "Open Products Facts",
+        data_root => "/srv/opf",
+        www_root => "/srv/opf/html",
+        mongodb => "opf",
+        domain => "openproductsfacts.org",
 },
 off =>
 {
-	name => "Open Food Facts",
-	data_root => "/srv/off",
-	www_root => "/srv/off/html",
-	mongodb => "off",
-	domain => "openfoodfacts.org",
+        name => "Open Food Facts",
+        data_root => "/srv/off",
+        www_root => "/srv/off/html",
+        mongodb => "off",
+        domain => "openfoodfacts.org",
 },
 opff =>
 {
-	prefix => "opff",
-	name => "Open Pet Food Facts",
-	data_root => "/srv/opff",
-	www_root => "/srv/opff/html",
-	mongodb => "opff",
-	domain => "openpetfoodfacts.org",
-},
-opf =>
-{
-	name => "Open Products Facts",
-	data_root => "/srv/opf",
-	www_root => "/srv/opf/html",
-	mongodb => "opf",
-	domain => "openproductsfacts.org",
-},
-
+        prefix => "opff",
+        name => "Open Pet Food Facts",
+        data_root => "/srv/opff",
+        www_root => "/srv/opff/html",
+        mongodb => "opff",
+        domain => "openpetfoodfacts.org",
+}
 };
 
 

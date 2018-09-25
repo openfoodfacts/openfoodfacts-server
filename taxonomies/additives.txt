@@ -12,9 +12,6 @@
 # Codex Alimentarius:
 # http://www.fao.org/gsfaonline/additives/details.html?id=322
 
-stopwords:fr:aux,au,de,le,du,la,a,et,avec
-stopwords:en:of,with
-
 synonyms:en:FD&C, FC and C, FDC, FFDCA, FDCA
 synonyms:en:n°, no, number, nb, #
 synonyms:en:no1, n1, 1
@@ -328,7 +325,7 @@ e_number:en:107
 wikidata:en:Q424528
 colour_index:en:CI 18965
 
-en:E110, Sunset yellow FCF, CI Food Yellow 3, Orange Yellow S, FD&C Yellow 6, FD & C Yellow No.6, FD and C Yellow No. 6, Yellow No.6, Yellow 6, FD and C Yellow 6, C.I. 15985, Sunset Yellow
+en:E110, Sunset yellow FCF, CI Food Yellow 3, Orange Yellow S, FD&C Yellow 6, FD & C Yellow No.6, FD and C Yellow No. 6, Yellow No.6, Yellow 6, FD and C Yellow 6, C.I. 15985
 bg:E110, Сънсет жълто FCF, CI хранително жълто 3, Yellow 6
 cs:E110, Sunset yellow FCF, Yellow 6, Žluť SY, E 110
 da:E110, Sunset yellow FCF, Yellow 6
@@ -495,8 +492,11 @@ e_number:en:123
 mandatory_additive_class:en: en:colour
 wikidata:en:Q421074
 colour_index:en:CI 16185
-efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/1649.pdf
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/3442.pdf
+efsa_evaluation_url:en:http://www.efsa.europa.eu/fr/efsajournal/doc/1649.pdf
+efsa_evaluation_date:en:2010/07/26
+efsa_evaluation:en:Scientific Opinion on the re‐evaluation of Amaranth (E 123) as a food additive
+efsa_evaluation_overexposure_risk:en: en:no
 
 # adding Ponceau as a synonym, as E124 is the only authorized food additive with the Ponceau name
 
@@ -663,6 +663,11 @@ wikidata:en:Q419895
 colour_index:en:CI 16035
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/1327.pdf
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/3234.pdf
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2015.4007
+efsa_evaluation_date:en: 2015/02/13
+efsa_evaluation:en: Refined exposure assessment for Allura Red AC (E 129)
+efsa_evaluation_overexposure_risk:en: en:no
+
 
 en:E130, Indanthrene blue RS, Indanthrone blue, indanthrene
 bg:E130, E130 food additive
@@ -717,6 +722,12 @@ e_number:en:131
 wikidata:en:Q420087
 colour_index:en:CI 42051
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/2818.pdf
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2013.2818
+efsa_evaluation_date:en: 2013/03/01
+efsa_evaluation:en: Scientific Opinion on the re‐evaluation of Patent Blue V (E 131) as a food additive
+efsa_evaluation_overexposure_risk:en: en:moderate
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:children, en:toddlers
 
 en:E132, Indigotine, indigo carmine, FD&C Blue 2, FD and C Blue 2
 bg:E132, Индиготин, индиго кармин
@@ -743,6 +754,14 @@ sl:E132, Indigotin, indigo karmin
 sv:E132, Indigotin, indigokarmin
 e_number:en:132
 wikidata:en:Q410120
+efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/2818.pdf
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2014.3768
+efsa_evaluation_date:en: 2014/07/25
+efsa_evaluation:en: Scientific Opinion on the re‐evaluation of Indigo Carmine (E 132) as a food additive
+efsa_evaluation_overexposure_risk:en: en:moderate
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:children, en:toddlers
+
 
 en:E133, Brilliant blue FCF, FD&C Blue 1, FD and C Blue 1, Blue 1, fd&c blue no. 1.
 bg:E133, Брилянтно синьо FCF
@@ -1110,7 +1129,7 @@ cs:E150d, Amoniak-sulfitový karamel
 da:E150d, Ammonieret sulfiteret karamel
 de:E150d, Ammoniumsulfit-zuckerkulör
 el:E150d, Εναμμωνιο θειωδες καραμελοχρωμα
-es:E150d, Caramelo de sulfito amónico, Caramelo sulfito de amoníaco
+es:E150d, Caramelo de sulfito amónico, Caramelo sulfito de amoníaco, caramelo clase iv
 et:E150d, Ammooniumsulfitkaramell
 fi:E150d, Ammoniumsulfiittimenetelmän sokerikulööri
 fr:E150d, Caramel au sulfite d'ammonium, Caramel E150d, E150d (caramel), E150d caramel, Caramel IV - procédé au sulfite ammoniacal, Caramel IV, C.I. Natural Brown 10, FEMA no. 2235, Caramel Colour Ammonium Sulphite Process, Colour Sulphite Ammonia Caramel, Sulfite ammonia caramel, Colour E150d, Food Colour 150d, CAS 8028-89-5, acid-proof caramel, soft-drink caramel, Caramelo sulfito de amoníaco, caramelo a prueba de ácidos, caramelo, de bebidas gaseosas
@@ -1267,6 +1286,12 @@ e_number:en:155
 wikidata:en:Q424541
 colour_index:en:CI 20285
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/1536.pdf
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/epdf/10.2903/j.efsa.2014.3719
+efsa_evaluation_date:en: 2014/05/28
+efsa_evaluation:en: Refined exposure assessment of Brown HT (E 155)
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:adolescents, en:children, en:toddlers
 
 en:E15x, E15x food additive
 bg:E15x, E15x food additive
@@ -2154,7 +2179,10 @@ sv:E170, Kalciumkarbonat, CI Pigment White 18
 e_number:en:170
 mandatory_additive_class:en: en:acidity-regulator, en:anti-caking-agent, en:stabiliser, en:firming-agent, en:flour-treatment-agent, en:glazing-agent, en:colour
 wikidata:en:Q23767
-efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/2318.pdf
+efsa_evaluation_url:en:http://www.efsa.europa.eu/fr/efsajournal/doc/2318.pdf
+efsa_evaluation_date:en:2011/07/26
+efsa_evaluation:en:Scientific Opinion on re‐evaluation of calcium carbonate (E 170) as a food additive
+efsa_evaluation_overexposure_risk:en: en:no
 
 en:E171, Titanium dioxide
 bg:E171, Титанов диоксид, Титанов двуокис, Титаниев двуокис, Титаниев диоксид
@@ -3442,6 +3470,16 @@ sl:E250, Natrijev nitrit
 sv:E250, Natriumnitrit
 e_number:en:250
 wikidata:en:Q339975
+# Mean>ADI adults	95th>ADI adults	Mean>ADI elderly	95th>ADI elderly	Mean>ADI adolescent	95>ADI adolescent	Mean>ADI children	95th>ADI children	Mean>ADI toddlers	95th>ADI toddlers	Mean>ADI infants	95th>ADI infants
+# 0	1	0	1			1	1	1	1	1	1
+efsa_evaluation_url:en: https://zenodo.org/record/1252752/files/EFSAOutputs_KJ_2018.xlsx
+efsa_evaluation_date:en: 2017/06/15
+efsa_evaluation:en: Re-evaluation of potassium nitrite (E 249) and sodium nitrite (E 250) as food additives
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+
+
 
 en:E251, Sodium nitrate
 bg:E251, Натриев нитрат i.
@@ -4446,13 +4484,13 @@ sv:E312, Dodecylgallat
 e_number:en:312
 wikidata:en:Q418209
 
-en:E313, E313 food additive
+en:E313, Ethyl gallate
 bg:E313, E313 food additive
 cs:E313, E313 food additive
 da:E313, E313 food additive
 de:E313, E313 food additive
 el:E313, E313 food additive
-es:E313, E313 food additive
+es:E313, Galato de etilo
 et:E313, E313 food additive
 fi:E313, E313 food additive
 fr:E313, Gallate d'éthyle
@@ -4470,7 +4508,7 @@ sl:E313, E313 food additive
 sv:E313, E313 food additive
 e_number:en:313
 
-en:E314, E314 food additive
+en:E314, Guaiacum
 bg:E314, E314 food additive
 cs:E314, E314 food additive
 da:E314, E314 food additive
@@ -12194,7 +12232,23 @@ sk:E621, Glutaman sodný, Glutaman sodný, E 621
 sl:E621, Mononatrijev glutamat, natrijev glutamat, mononatrijevgluamat
 sv:E621, Mononatriumglutamat, Natriumglutamat, Monosodiumglutamat, E 621, Smaksalt, Weijing
 e_number:en:621
+additives_classes:en: en:flavour-enhancer
 wikidata:en:Q179678
+wikipedia_url:en: https://en.wikipedia.org/wiki/Monosodium_glutamate
+wikipedia_url:fr: https://fr.wikipedia.org/wiki/Glutamate_monosodique
+wikipedia_title:en: Monosodium glutamate
+wikipedia_title:fr: Glutamate monosodique
+wikipedia_abstract:en: Monosodium glutamate (MSG, also known as sodium glutamate) is the sodium salt of glutamic acid, one of the most abundant naturally occurring non-essential amino acids. Glutamic acid is found naturally in tomatoes, grapes, cheese, mushrooms and other foods.MSG is used in the food industry as a flavor enhancer with an umami taste that intensifies the meaty, savory flavor of food, as naturally occurring glutamate does in foods such as stews and meat soups. It was first prepared in 1908 by Japanese biochemist Kikunae Ikeda, who was trying to isolate and duplicate the savory taste of kombu, an edible seaweed used as a base for many Japanese soups. MSG as a flavor enhancer balances, blends, and rounds the perception of other tastes.The U.S. Food and Drug Administration has given MSG its generally recognized as safe (GRAS) designation. A popular belief is that large doses of MSG can cause headaches and other feelings of discomfort, known as "Chinese restaurant syndrome," but double-blind tests fail to find evidence of such a reaction. The European Union classifies it as a food additive permitted in certain foods and subject to quantitative limits. MSG has the HS code 29224220 and the E number E621.
+wikipedia_abstract:fr: Le glutamate monosodique, également connu sous le nom de glutamate de sodium, monosodium glutamate, GMS ou MSG, est le sel sodique de l'acide glutamique, l’un des acides aminés non essentiels les plus abondants dans la nature. La FDA (organisme américain de surveillance des aliments et des médicaments) a classé le GMS comme « GRAS », généralement reconnu inoffensif, et l'Union européenne l'a classé comme additif alimentaire mais l'ajout de glutamates n'y est pas autorisé dans le lait, les huiles et les émulsions de graisse, les pâtes, le cacao et les produits chocolatés, les jus de fruits. Le GMS possède le numéro E621. Le glutamate du GMS confère le même goût umami que le glutamate issu d'autres aliments. Les fabricants de produits alimentaires commercialisent et utilisent le GMS comme exhausteur de goût car il équilibre, mélange et arrondit la perception globale des autres goûts,. Les dénominations commerciales du glutamate monosodique comprennent AJI-NO-MOTO®, Vetsin et Ac'cent.
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2017.4910
+efsa_evaluation_date:en: 2017/07/12
+efsa_evaluation:en: Re‐evaluation of glutamic acid (E 620), sodium glutamate (E 621), potassium glutamate (E 622), calcium glutamate (E 623), ammonium glutamate (E 624) and magnesium glutamate (E 625) as food additives
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:adults, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_exposure_mean_greater_than_noael:en: en:children, en:toddlers
+efsa_evaluation_exposure_95th_greater_than_noael:en: en:adolescents, en:children, en:toddlers, en:infants
+
 
 en:E622, Monopotassium glutamate, Potassium glutamate
 bg:E622, Монокалиев глутамат, Калиев глутамат

@@ -700,24 +700,24 @@ $options{other_servers} = {
 obf =>
 {
 	name => "Open Beauty Facts",
-	data_root => "/home/obf",
-	www_root => "/home/obf/html",
+	data_root => "/srv/obf",
+	www_root => "/srv/obf/html",
 	mongodb => "obf",
 	domain => "openbeautyfacts.org",
 },
 off =>
 {
 	name => "Open Food Facts",
-	data_root => "/home/off",
-	www_root => "/home/off/html",
+	data_root => "/srv/off",
+	www_root => "/srv/off/html",
 	mongodb => "off",
 	domain => "openfoodfacts.org",
 },
 opf =>
 {
 	name => "Open Products Facts",
-	data_root => "/home/opf",
-	www_root => "/home/opf/html",
+	data_root => "/srv/opf",
+	www_root => "/srv/opf/html",
 	mongodb => "opf",
 	domain => "openproductsfacts.org",
 },
@@ -725,11 +725,27 @@ opff =>
 {
 	prefix => "opff",
 	name => "Open Pet Food Facts",
-	data_root => "/home/opff",
-	www_root => "/home/opff/html",
+	data_root => "/srv/opff",
+	www_root => "/srv/opff/html",
 	mongodb => "opff",
 	domain => "openpetfoodfacts.org",
 }
 };
+
+
+$options{display_tag_additives} = [
+
+	'@additives_classes',
+	'wikipedia',
+	'title:efsa_evaluation_overexposure_risk_title',
+	'efsa_evaluation',
+	'efsa_evaluation_overexposure_risk',	
+	'efsa_evaluation_exposure_table',
+#	'@efsa_evaluation_exposure_mean_greater_than_noael',
+#	'@efsa_evaluation_exposure_95th_greater_than_noael',
+#	'@efsa_evaluation_exposure_mean_greater_than_adi',
+#	'@efsa_evaluation_exposure_95th_greater_than_adi',
+
+];
 
 1;
