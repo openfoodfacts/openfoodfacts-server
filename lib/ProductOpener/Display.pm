@@ -118,7 +118,6 @@ use URI::Escape::XS;
 use CGI qw/:cgi :form escapeHTML/;
 use HTML::Entities;
 use DateTime;
-use DateTime::Format::Mail;
 use DateTime::Locale;
 use experimental 'smartmatch';
 use MongoDB;

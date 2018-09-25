@@ -33,7 +33,6 @@ requires 'Algorithm::CheckDigits';
 requires 'Geo::IP';
 requires 'Image::OCR::Tesseract';
 requires 'DateTime', '>= 1.50';
-requires 'DateTime::Format::Mail';
 requires 'DateTime::Locale', '>= 1.22';
 requires 'Math::Random::Secure';
 requires 'Crypt::ScryptKDF';
