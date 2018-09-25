@@ -2892,13 +2892,17 @@ msgctxt "additives_efsa_evaluation"
 msgid "EFSA evaluation"
 msgstr "EFSA evaluation"
 
-msgctxt "additives_efsa_evaluation_overexposure_risk"
+msgctxt "additives_efsa_evaluation_overexposure_risk_title"
 msgid "Risk of overexposure"
 msgstr "Risk of overexposure"
 
-msgctxt "additives_efsa_evaluation_overexposure_risk_yes"
-msgid "The European Food Safety Authority (EFSA) has determined that some population groups are at risk of consuming too much of the <tag> food additive."
-msgstr "The European Food Safety Authority (EFSA) has determined that some population groups are at risk of consuming too much of the <tag> food additive."
+msgctxt "additives_efsa_evaluation_overexposure_risk_high"
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
+msgstr "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
+msgstr "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
@@ -2909,8 +2913,24 @@ msgid "%d products with %s"
 msgstr "%d products with %s"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_no"
-msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of the <tag> food additive."
-msgstr "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of the <tag> food additive."
+msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
+msgstr "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
+msgid "High risk of over exposure"
+msgstr "High risk of over exposure"
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
+msgid "Moderate risk of over exposure"
+msgstr "Moderate risk of over exposure"
+
+msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
+msgid "Risk of exceeding the acceptable daily intake (ADI)"
+msgstr "Risk of exceeding the acceptable daily intake (ADI)"
+
+msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
+msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"

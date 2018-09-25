@@ -2149,13 +2149,14 @@ sub display_tag($) {
 			
 				if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})
 					and (defined $properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"})
-					and ($properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"} eq 'en:yes')) {
+					and ($properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"} ne 'en:no')) {
 					
 					$log->debug("display_tag - efsa_evaluation_exposure_table - yes", {  }) if $log->is_debug();
 			
 					my @groups = qw(infants toddlers children adolescents adults elderly);
 					my @percentiles = qw(mean 95th);
 					my @doses = qw(noael adi);
+					my %doses = ();
 					
 					my %exposure = (mean => {}, '95th' => {});
 					
@@ -2174,6 +2175,7 @@ sub display_tag($) {
 									# NOAEL has priority over ADI
 									if (not exists $exposure{$percentile}{$group}) {
 										$exposure{$percentile}{$group} = $dose;
+										$doses{$dose} = 1; # to display legend for the dose
 										$log->debug("display_tag - exposure_table ", { group => $group, percentile => $percentile, dose => $dose }) if $log->is_debug();
 									}
 								}
@@ -2196,6 +2198,7 @@ CSS
 ;
 			
 					my $table = <<HTML
+<div style="overflow-x:auto;">
 <table class="exposure_table">
 <thead>
 <tr>
@@ -2217,6 +2220,11 @@ HTML
 			
 					$table .= "</tr>\n";
 								
+					my %icons = (
+						adi => 'moderate',
+						noael => 'high',
+					);
+								
 					foreach my $percentile (@percentiles) {
 					
 						$table .= "<tr><th>" . lang("exposure_title_" . $percentile) . "<br/>("
@@ -2225,15 +2233,16 @@ HTML
 						foreach my $group (@groups) {
 					
 							$table .= "<td>";
+							
+							my $dose = $exposure{$percentile}{$group};
 
-							if (not defined $exposure{$percentile}{$group}) {
+							if (not defined $dose ) {
 								$table .= "&nbsp;";
 							}
-							elsif ($exposure{$percentile}{$group} eq 'adi') {
-								$table .= '<img src="https://static.openfoodfacts.org/images/misc/moderate.svg" alt="" />';
-							}
-							elsif ($exposure{$percentile}{$group} eq 'noael') {
-								$table .= '<img src="https://static.openfoodfacts.org/images/misc/high.svg" alt="" />';
+							else {
+								$table .= '<img src="/images/misc/' . $icons{$dose} . '.svg" alt="'
+									. lang("additives_efsa_evaluation_exposure_" . $percentile . "_greater_than_" . $dose) 
+									. '" />';
 							}							
 							
 							$table .= "</td>";
@@ -2242,9 +2251,17 @@ HTML
 						$table .= "</tr>\n";
 					}
 			
-					$table .= "</tbody>\n</table>";
+					$table .= "</tbody>\n</table>\n</div>";
 			
 					$description .= $table;
+					
+					foreach my $dose (@doses) {
+						if (exists $doses{$dose}) {
+							$description .= "<p>" . '<img src="/images/misc/' . $icons{$dose} . '.svg" width="30" height="30" style="vertical-align:middle" alt="'
+									. lang("additives_efsa_evaluation_exposure_greater_than_" . $dose) . '" /> <span>: '
+									. lang("additives_efsa_evaluation_exposure_greater_than_" . $dose) . "</span></p>\n";
+						}
+					}
 				}
 				next;
 			}
@@ -2314,7 +2331,7 @@ HTML
 				}
 			
 			
-				my $title = $field;
+				my $title;
 				my $tagtype_field = $tagtype . '_' . $fieldid;
 				# $tagtype_field =~ s/_/-/g;
 				if (exists $Lang{$tagtype_field}{$lc}) {
@@ -2326,8 +2343,11 @@ HTML
 			
 				$log->debug("display_tag - title", { tagtype => $tagtype, title => $title }) if $log->is_debug();
 			
-			
-				$description .= "<p><b>" . $title . "</b>" . separator_before_colon($lc) . ": ";
+				$description .= "<p>";
+				
+				if (defined $title) {
+					$description .= "<b>" . $title . "</b>" . separator_before_colon($lc) . ": ";
+				}
 				
 				my @values = ( $properties{$tagtype}{$canon_tagid}{$propertyid{property}} );
 				
@@ -2405,6 +2425,25 @@ HTML
 							$display = $Lang{$tagtype_field . "_" . $valueid }{$lc};
 						}
 						
+						# check if we have an icon
+						if (exists $Lang{$tagtype_field . "_icon_alt_" . $valueid}{$lc}) {
+							my $alt = $Lang{$tagtype_field . "_icon_alt_" . $valueid }{$lc};
+							my $iconid = $tagtype_field . "_icon_" . $valueid;
+							$iconid =~ s/_/-/g;
+							$display = <<HTML
+<div class="row">
+<div class="small-2 large-1 columns">
+<img src="/images/misc/$iconid.svg" alt="$alt" /> 
+</div>
+<div class="small-10 large-11 columns">
+$display
+</div>
+</div>
+HTML
+;
+						}
+
+						
 						# otherwise check if we have a general value
 						
 						elsif (exists $Lang{$valueid}{$lc}) {
@@ -2476,7 +2515,8 @@ HTML
 		
 		# Remove titles without content
 		
-		# $description =~ s/<h3>([^<]+)<\/h3>\s*(<h3>)/<h3>/isg;
+		$description =~ s/<h3>([^<]+)<\/h3>\s*(<h3>)/<h3>/isg;
+		$description =~ s/<h3>([^<]+)<\/h3>\s*$//isg;
 		
 	
 	}
@@ -6756,6 +6796,16 @@ HTML
 ;
 			}
 			
+			if ($tagtype eq 'additives') {
+			
+				$styles .= <<CSS
+a.additives_efsa_evaluation_overexposure_risk_high { color:red }
+a.additives_efsa_evaluation_overexposure_risk_moderate { color:#ff6600 }
+CSS
+;				
+			
+			}
+			
 			$html_ingredients_classes .= "<ul style=\"display:block;float:left;\">";
 			foreach my $tagid (@{$product_ref->{$tagtype_field . '_tags'}}) {
 			
@@ -6773,13 +6823,42 @@ HTML
 				}
 				
 				my $info = '';
+				my $more_info = '';
 
 				if ($class eq 'additives') {
+				
+					my $canon_tagid = $tagid;
 					$tagid =~ s/.*://; # levels are defined only in old French list
 
 					if ($ingredients_classes{$class}{$tagid}{level} > 0) {
 						$info = ' class="additives_' . $ingredients_classes{$class}{$tagid}{level} . '" title="' . $ingredients_classes{$class}{$tagid}{warning} . '" ';
 					}
+					
+					if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})
+						and (defined $properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"})
+						and ($properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"} ne 'en:no')) {
+						
+						my $tagtype_field = "additives_efsa_evaluation_overexposure_risk";
+						my $valueid = $properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"};
+						$valueid =~ s/^en://;
+						
+						# check if we have an icon
+						if (exists $Lang{$tagtype_field . "_icon_alt_" . $valueid}{$lc}) {
+							my $alt = $Lang{$tagtype_field . "_icon_alt_" . $valueid }{$lc};
+							my $iconid = $tagtype_field . "_icon_" . $valueid;
+							$iconid =~ s/_/-/g;
+							$more_info = <<HTML
+<a href="$link">						
+<img src="/images/misc/$iconid.svg" alt="$alt" width="45" height="45" /> 
+</a>
+<a href="$link" class="additives_efsa_evaluation_overexposure_risk_$valueid">
+$alt
+</a>
+HTML
+;
+						}						
+						
+					}						
 				}			
 				
 				if ((defined $tags_levels{$lc}{$tagtype}) and (defined $tags_levels{$lc}{$tagtype}{$tagid})) {
@@ -6787,7 +6866,7 @@ HTML
 				}
 
 		
-				$html_ingredients_classes .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a></li>\n";
+				$html_ingredients_classes .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a>$more_info</li>\n";
 			}
 			$html_ingredients_classes .= "</ul></div>";
 		}
