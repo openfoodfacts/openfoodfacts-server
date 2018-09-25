@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-09-25 11:24\n"
+"PO-Revision-Date: 2018-09-25 13:20\n"
 "Language-Team: Danish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -23,7 +23,7 @@ msgstr "da"
 #. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
 msgid ":langname"
-msgstr "Danish"
+msgstr "Dansk"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -47,15 +47,15 @@ msgstr "Tilføj sprog"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr "Tilføj produkt"
+msgstr "Tilføj et produkt"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr "Registrer bruger"
+msgstr "Tilmeld"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr "<p>Tak for indmeldingen. Du kan nu logge på webstedet for at tilføje og redigere produkter.</p>"
+msgstr "<p>Tak for tilmeldingen. Du kan nu logge på på webstedet for at tilføje og redigere produkter.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -95,31 +95,31 @@ msgstr "Tak fordi du vil være med i <site_name>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr "Potentielt farligt tilsætningsstof. Begræns brugen."
+msgstr "Potensielt farlig tilsetningsstoff. Begrens bruk."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr "Farlig tilsætningsstof. Undgå."
+msgstr "Farlig tilsetningsstoff. Unngå."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr "Tilsætningsstof som er forbudt i Europa. Undgå for enhver pris."
+msgstr "Tilsetningsstoff som er forbudt i Europa. Unngå for enhver pris."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr "tilsætningsstoffer"
+msgstr "tilsetningsstoffer"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr "tilsætningsstof"
+msgstr "tilsetningsstoff"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr "Avanceret søgning"
+msgstr "Avansert søk"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr "Avanceret søgning og grafer"
+msgstr "Avansert søk og grafer"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
@@ -131,7 +131,7 @@ msgstr "Alle missioner"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "Stoffer eller produkter som forårsager allergi eller intolerance"
+msgstr "Stoffer eller produkter som forårsaker allergi eller intoleranse"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -143,7 +143,7 @@ msgstr "allergen"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr "Produktside også redigeret af"
+msgstr "Produktside også redigert av"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
@@ -155,7 +155,7 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr "<img src=\"/images/misc/android-app-på-google-play-en_app_rgb_wo_135x47.png \" alt=\"Tilgængelig på Google Play \" width=\"135 \" height=\"47 \" />"
+msgstr "<img src=\"/images/misc/android-app-på-google-play-en_app_rgb_wo_135x47.png \" alt=\"tilgjengelig på Google Play \" width=\"135 \" height=\"47 \" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -169,15 +169,15 @@ msgstr "<p>Dette produkt er endnu ikke i <site_name>-databasen. Vil du være så
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr "Tag et billede"
+msgstr "Ta et bilde"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr "Bemærk: billederne du sender, bliver offentliggjort under den frie licens Creative Commons Attribution ShareAlike."
+msgstr "Merk: bildene du sender, blir utgitt under gratislisensen Creative Commons Attribution og Sharealike."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr "Du kan tilføje billeder:"
+msgstr "Du kan legge til bilder:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
@@ -189,7 +189,7 @@ msgstr "Vertikal akse"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr "Strekkode"
+msgstr "Stregkode"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
@@ -209,27 +209,27 @@ msgstr "Kast dig ud på mission"
 
 msgctxt "brands"
 msgid "Brands"
-msgstr "Varemærker"
+msgstr "Merker"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr "Kinder Bueno hvid, Kinder Bueno, Kinder, Ferrero"
+msgstr "Kinder Bueno hvit, Kinder Bueno, Kinder, Ferrero"
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr "varemærker"
+msgstr "merker"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr "Produkter fra %s-varemærket"
+msgstr "Produkter fra %s merkevaren"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr "varemærke"
+msgstr "merke"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr "tilføj et varemærke"
+msgstr "legge til en merkevare"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
@@ -245,11 +245,11 @@ msgstr "Kategorier"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr "Sardiner i olivenolie, appelsinjuice af koncentrat"
+msgstr "Sardiner i olivenolje, appelsinjuice fra konsentrat"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr "Indikerer kun den mest specifikke kategori. Overordnede kategorier vil automatisk blive tilføjet."
+msgstr "Indikerer bare den mest spesifikke kategorien.\"foreldre \"-kategorier vil automatisk bli lagt til."
 
 msgctxt "categories_p"
 msgid "categories"
@@ -257,7 +257,7 @@ msgstr "kategorier"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr "Produkter fra %s-kategorien"
+msgstr "Produkter fra %s kategori"
 
 msgctxt "categories_s"
 msgid "category"
@@ -265,11 +265,11 @@ msgstr "kategori"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr "tilføj en kategori"
+msgstr "legg til en kategori"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr "Produkter ikke fra %s-kategorien"
+msgstr "Produkter ikke fra %s kategori"
 
 msgctxt "change_fields"
 msgid "Data"
@@ -285,7 +285,7 @@ msgstr "Valgte billeder"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr "Uploadede billeder"
+msgstr "opplastede bilder"
 
 msgctxt "checkers_p"
 msgid "checkers"
@@ -301,7 +301,7 @@ msgstr "pakkebyer"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr "Produkter pakket i byen %s"
+msgstr "By der produktene ble emballert: %s"
 
 msgctxt "cities_s"
 msgid "packaging city"
@@ -371,23 +371,23 @@ msgstr "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr "fuldført %d missioner:"
+msgstr "fullført %d oppdrag:"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr "Du er forbundet med din Facebook-konto."
+msgstr "Du er tilkoblet med Facebook-kontoen din."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr "Bidragsyder siden"
+msgstr "Bidragsyter siden"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr "Kopier data fra aktuelle produkt til nyt produkt"
+msgstr "Kopier data fra aktuelle produktet til nytt produkt"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
-msgstr "Ret venligst disse fejl:"
+msgstr "Vennligst korriger følgende feil:"
 
 msgctxt "correctors_p"
 msgid "correctors"
@@ -399,19 +399,19 @@ msgstr "redaktør"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "Produktet sælges i disse lande"
+msgstr "Land hvor produktet selges"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
-msgstr "Lande hvor produktet er almindeligt tilgængeligt (udover butikker som specialiserer sig i udenlandske produkter)"
+msgstr "Land hvor produktet er allment tilgjengelig (ikke inkludert butikker som spesialiserer seg på utenlandske produkter)"
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr "lande"
+msgstr "land"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr "Produkter som sælges i %s"
+msgstr "Produkter selges i %s"
 
 msgctxt "countries_s"
 msgid "country"
@@ -419,7 +419,7 @@ msgstr "land"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr "Produkter som ikke sælges i %s"
+msgstr "Produkter selges ikke i %s"
 
 msgctxt "data_source"
 msgid "Data source"
@@ -439,27 +439,27 @@ msgstr "Årsag til fjernelse"
 
 msgctxt "delete_product"
 msgid "Delete a product"
-msgstr "Slet et produkt"
+msgstr "Slett et produkt"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr "Slet side"
+msgstr "Slett side"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr "Slet billederne"
+msgstr "Slett bildene"
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr "Slet bruger"
+msgstr "Slett bruker"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr "Tilføjet:"
+msgstr "Lagt til:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr "Ændret:"
+msgstr "Endret:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
@@ -475,11 +475,11 @@ msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/wid
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
-msgstr "Økologisk fodaftryk"
+msgstr "Økologisk fotavtrykk"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
-msgstr "Hvis CO2-udslip eller CO2-fodaftryk er angivet på etiketten (endnu sjældent set), skal det angives for den samme mængde som ernæringsindholdet opgives for."
+msgstr "Hvis karbonutslipp eller karbon-fottavtrykk er angitt på etiketten (dette er sjeldent foreløpig), indikerer karbonutslipp for samme mengde som ernæringsinnholdet oppgis for."
 
 msgctxt "edit"
 msgid "edit"
@@ -487,7 +487,7 @@ msgstr "rediger"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr "Ændringsoversigt"
+msgstr "sammendrag av endringer"
 
 msgctxt "edit_product"
 msgid "Edit a product"
@@ -503,11 +503,11 @@ msgstr "Rediger din offentlige profil"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
-msgstr "Ændringerne i din offentlige profil er gemt."
+msgstr "Endringer i den offentlige profilen er lagret."
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
-msgstr "Informationen nedenfor er synlig i din offentlige profil."
+msgstr "Informasjonen nedenfor er synlig i din offentlige profil."
 
 msgctxt "edit_settings"
 msgid "Change your account parameters"
@@ -515,11 +515,11 @@ msgstr "Ændr konto-instillinger"
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr "Kontoparametre"
+msgstr "Konto parametre"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr "<p>Dine kontoparametre er blevet ændret.</p>"
+msgstr "<p>Dine konto parametre er blevet ændret.</p>"
 
 msgctxt "editors_p"
 msgid "editors"
@@ -531,7 +531,7 @@ msgstr "redaktør"
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr "email-adresse"
+msgstr "epostadresse"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
@@ -584,23 +584,23 @@ msgstr "Tilføjelsesdato"
 
 msgctxt "error"
 msgid "Error"
-msgstr "Fejlmelding"
+msgstr "Feilmelding"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr "Fejl i brugernavn eller adgangskode. <a href=\"/cgi/reset_password.pl\">Glemt adgangskode?</a>"
+msgstr "Feil brukernavn eller passord. <a href=\"/cgi/reset_password.pl\">Glemt passord?</a>"
 
 msgctxt "error_database"
 msgid "An error occured while reading the data, try to refresh the page."
-msgstr "Der opstod en fejl under læsning af data, prøv at genindlæse siden."
+msgstr "Det oppsto en feil under lesing av data, vennligst prøv å oppdatere siden."
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr "Adgangskoderne er forskellige."
+msgstr "Passordene er forskjellige."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr "Denne email-adresse er allerede i brug af en eksisterende bruger. Måske du allerede har en konto? Du kan <a href=\"/cgi/reset_password.pl\">nulstille adgangskoden</a> på den eksisterende konto."
+msgstr "Denne e-postadressen er allerede i bruk av en annen bruker. Kanskje du allerede har en konto? Du kan <a href=\"/cgi/reset_password.pl\">tilbakestille passordet</a> til den eksisterende kontoen."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -612,15 +612,15 @@ msgstr "Ugyldigt CSRF-tegn."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr "Ugyldig email-adresse"
+msgstr "Ugyldig epostadresse"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
-msgstr "Adgangskoden skal være mindst 6 tegn langt."
+msgstr "Passordet må være minst 6 tegn langt"
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr "Ugyldig bruger."
+msgstr "Ugyldig bruker."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
@@ -628,19 +628,19 @@ msgstr "Brugernavn må kun indeholde versaler, minuskler, cifre og streger."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
-msgstr "Det findes allerede et produkt med den nye kode"
+msgstr "Et produkt finnes allerede med den nye koden"
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
-msgstr "Du skal skrive et navn eller kaldenavn."
+msgstr "Du må skrive inn et navn eller kallenavn."
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
-msgstr "Adgang nægtet."
+msgstr "Tilgang nektet."
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr "Du skal opgive et brugernavn"
+msgstr "Du må oppgi et brukernavn"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
@@ -648,19 +648,19 @@ msgstr "Du er allerede logget på."
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
-msgstr "Linket til nulstilling af adgangskoden er ugyldigt eller udløbet."
+msgstr "Lenken for tilbakestilling av passordet er ugyldig eller utløpt."
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr "Der findes ingen konto tilhørende denne email-adresse"
+msgstr "Det finnes ingen konto tilhørende denne e-postadressen"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr "Dette brugernavn eksisterer ikke."
+msgstr "Brukernavnet eksisterer ikke."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr "Dette brugernavn er allerede anvendt, vælg et andet."
+msgstr "Dette brukernavnet er allerede tatt, velg et annet."
 
 msgctxt "example"
 msgid "Example:"
@@ -672,11 +672,11 @@ msgstr "Eksempler:"
 
 msgctxt "expiration_date"
 msgid "Best before date"
-msgstr "Bedst før dato"
+msgstr "Best før dato"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr "Udløbsdatoen er en måde at spore produktændringer over tid, og for at identificere den nyeste udgaver af et produkt."
+msgstr "Utløpsdatoen er en måte å spore produktendringer over tid, og for å identifisere den nyeste versjonen av produktet."
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
@@ -692,7 +692,7 @@ msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr "Hvis dataene er ufuldstændige eller forkerte, kan du tilføje eller korrigere dem ved at ændre denne side."
+msgstr "Hvis dataene er ufullstendig eller feil, kan du fullføre eller korrigere dem ved å endre denne siden."
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
@@ -716,7 +716,7 @@ msgstr "og <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook-g
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr "<< site_name >>-blog"
+msgstr "<< site_name >> blogg"
 
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
@@ -740,11 +740,11 @@ msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr "Gå på opdagelse i projektet"
+msgstr "Oppdag prosjektet"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
-msgstr "Ofte Stillede Spørgsmål"
+msgstr "Ofte stilte spørsmål"
 
 msgctxt "footer_faq_link"
 msgid "/faq"
@@ -772,11 +772,11 @@ msgstr "Installer appen"
 
 msgctxt "footer_join_the_community"
 msgid "Join the community"
-msgstr "Deltag i fællesskabet"
+msgstr "Bli med i fellesskapet"
 
 msgctxt "footer_join_us_on"
 msgid "Join us on %s:"
-msgstr "Deltag på %s:"
+msgstr "Bli med oss på %s :"
 
 msgctxt "footer_legal"
 msgid "Legal"
@@ -800,7 +800,7 @@ msgstr "En fællesskabsdrevet, gratis og åben database med fødevareprodukter f
 
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr "Brugsvilkår"
+msgstr "Bruksvilkår"
 
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
@@ -812,7 +812,7 @@ msgstr "Hvem vi er"
 
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr "/hvem-vi-er"
+msgstr "/hvem vi er"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -832,11 +832,11 @@ msgstr "Produkt"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr "Almindeligt navn"
+msgstr "Vanlig navn"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
-msgstr "Chokolade-bar med mælk og hasselnødder"
+msgstr "Sjokoladeplate med melk og hasselnøtter"
 
 msgctxt "goodbye"
 msgid "See you soon!"
@@ -902,19 +902,19 @@ msgstr "Bilde av ingredienser"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
-msgstr "Hvis billedet er skarpt nok, kan ingredienserne detekteres automatiskt"
+msgstr "Hvis bildet er klart nok, kan vi hente ut ingrediensene automatisk!"
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
-msgstr "Billede af angivelsen af ernæringsindhold"
+msgstr "Bilde av ernæringsinnholdet"
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
-msgstr "Dette billede er allerede uploadet."
+msgstr "Dette bildet er allerede sendt."
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
-msgstr "Billedet er ikke stort nok! Upload venligst ikke billeder fundet på internettet og kun billeder du selv har taget."
+msgstr "Bildet er for lite! Vennligst ikke last opp bilder funnet på internett, send bare bilder du har tatt selv."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
@@ -952,35 +952,35 @@ msgstr "Ingredienser"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
-msgstr "Analyse af ingredienser"
+msgstr "Analyse av ingredienser:"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
-msgstr "Bemærk: ingredienser kan være opført med mange forskellige navne, giv os venligst besked hvis du mener der er fejl i analysen ovenfor."
+msgstr "Merk: ingredienser kan være oppført med mange forskjellige navn, vennligst gi oss beskjed hvis du tror analysen ovenfor er feil."
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
-msgstr "ingredienser som er, eller som kan stamme fra, palmeolie"
+msgstr "ingredienser som er, eller som kan stamme fra, palmeolje"
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_s"
 msgid "ingredient from or that may be from palm oil"
-msgstr "ingrediens som er, eller som kan stamme fra, palmeolie"
+msgstr "ingredienser som er, eller som kan stamme fra, palmeolje"
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr "ingredienser fra palmeolie"
+msgstr "ingredienser fra palmeolje"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
-msgstr "ingrediens fra palmeolie"
+msgstr "ingrediens fra palmeolje"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
-msgstr "Antal ingredienser"
+msgstr "Antall ingredienser"
 
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
-msgstr "Antal ingredienser"
+msgstr "Antall ingredienser"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -1012,19 +1012,19 @@ msgstr "-,Bevar rækkefølgen, angiv %-forholdet, når det er tilgængeligt, ads
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr "ingredienser som kan være fra palmeolie"
+msgstr "ingredienser som kan være fra palmeolje"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
-msgstr "ingrediens som kan være fra palmeolie"
+msgstr "ingrediens som kan være fra palmeolje"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr "Produkter som ikke indeholder ingrediensen %s"
+msgstr "Produkter som ikke inneholder ingrediensen %s"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png \" alt=\"Tilgængelig på App Store\" width=\"135 \" height=\"40 \" />"
+msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png \" alt=\"tilgjengelig på App Store \" width=\"135 \" height=\"40 \" />"
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
@@ -1032,15 +1032,15 @@ msgstr "https://itunes.apple.com/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
-msgstr "kendte næringsstoffer"
+msgstr "kjente næringsstoffer"
 
 msgctxt "known_nutrients_s"
 msgid "known nutrient"
-msgstr "kendt næringsstof"
+msgstr "kjent næringsstoff"
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr "Etiketter, certificeringer, udmærkelser"
+msgstr "Etiketter, sertifiseringer, priser"
 
 msgctxt "labels_example"
 msgid "Organic"
@@ -1064,7 +1064,7 @@ msgstr "etiket"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
-msgstr "tilføj en etiket"
+msgstr "tilføje en etiket"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
@@ -1072,7 +1072,7 @@ msgstr "Produkter som ikke har etiketten %s"
 
 msgctxt "lang"
 msgid "Main language"
-msgstr "Hovedsprog"
+msgstr "Hovedspråk"
 
 msgctxt "lang_ar"
 msgid "Arabic"
@@ -1172,7 +1172,7 @@ msgstr "Hovedsprog - og mest fremhævede - på produktet"
 
 msgctxt "lang_other"
 msgid "other language"
-msgstr "andet sprog"
+msgstr "annet språk"
 
 msgctxt "lang_pl"
 msgid "Polish"
@@ -1188,7 +1188,7 @@ msgstr "Portugal/portugisisk"
 
 msgctxt "lang_ro"
 msgid "Romanian"
-msgstr "Rumænsk"
+msgstr "Rumensk"
 
 msgctxt "lang_ru"
 msgid "Russian"
@@ -1224,11 +1224,11 @@ msgstr "da-DK"
 
 msgctxt "languages_p"
 msgid "languages"
-msgstr "sprog"
+msgstr "språk"
 
 msgctxt "languages_s"
 msgid "language"
-msgstr "sprog"
+msgstr "språk"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
@@ -1236,7 +1236,7 @@ msgstr "Seneste redigeringsdatoer"
 
 msgctxt "last_edit_dates_s"
 msgid "Last edit date"
-msgstr "Dato for seneste ændring"
+msgstr "Sist endret dato"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
@@ -1268,19 +1268,19 @@ msgstr "Se flere resultater"
 
 msgctxt "login_and_add_product"
 msgid "Sign-in and add the product"
-msgstr "Log ind og tilføj produktet"
+msgstr "Logg deg inn og legg til produktet"
 
 msgctxt "login_and_edit_product"
 msgid "Sign-in and edit the product"
-msgstr "Log ind og rediger produktet"
+msgstr "Logg inn og redigere produktet"
 
 msgctxt "login_create_your_account"
 msgid "Create your account."
-msgstr "Opret konto."
+msgstr "Opprett konto"
 
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
-msgstr "Ikke oprettet endnu?"
+msgstr "Ikke registrert ennå?"
 
 msgctxt "login_register_content"
 msgid "<p>Sign-in to add or edit products.</p>\n\n"
@@ -1306,7 +1306,7 @@ msgstr "<p>Log ind for at tilføje eller redigere produkter.</p>\n\n"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr "Log ind"
+msgstr "Logg inn"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
@@ -1320,7 +1320,7 @@ msgstr "<p>Log venligst ind for at tilføje eller redigere et produkt.</p>\n\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr "Brugernavn eller email-adresse:"
+msgstr "Brukernavn eller e-post adresse:"
 
 msgctxt "low"
 msgid "low"
@@ -1388,15 +1388,15 @@ msgstr "/tilføj-et-produkt"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
-msgstr "Bidrag"
+msgstr "Bidra"
 
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr "/bidrag"
+msgstr "/bidra"
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr "Opdag"
+msgstr "Find"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
@@ -1408,15 +1408,15 @@ msgstr "Oppdrag: "
 
 msgctxt "mission_accomplished_by"
 msgid "This mission has been completed by:"
-msgstr "Denne mission er fuldført af:"
+msgstr "Dette oppdraget har blitt fullført av:"
 
 msgctxt "mission_accomplished_by_n"
 msgid "Completed by %d persons."
-msgstr "Fuldført af %d personer."
+msgstr "Fullført av %d personer."
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
-msgstr "Bliv den første til at fuldføre denne mission!"
+msgstr "Bli den første til å fullføre dette oppdraget!"
 
 msgctxt "mission_goal"
 msgid "Goal:"
@@ -1424,7 +1424,7 @@ msgstr "Mål:"
 
 msgctxt "missions"
 msgid "Missions"
-msgstr "Missioner"
+msgstr "Oppdrag:"
 
 msgctxt "moderate"
 msgid "moderate"
@@ -1437,11 +1437,11 @@ msgstr "moderat mængde"
 # Please keep the same syntax and translate only the months
 msgctxt "months"
 msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr "[ 'Januar', 'Februar', 'Marts', 'April', 'Maj', 'Juni', 'Juli', 'August', 'September','Oktober','November','December']"
+msgstr "[ 'Januar', 'Februar', 'Mars', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September','Oktober','November','Desember']"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
-msgstr "Flyt billederne til et andet produkt"
+msgstr "Flytt bildene til et annet produkt"
 
 msgctxt "n_products"
 msgid "%d products"
@@ -1453,31 +1453,31 @@ msgstr "Navn"
 
 msgctxt "names"
 msgid "Names"
-msgstr "Navne"
+msgstr "Navn"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr "Hvis stregkoden ikke er rigtig, kan du korrigere det her:"
+msgstr "Hvis strekkoden ikke er riktig, kan du rette det opp her:"
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
-msgstr "For produkter uden stregkode, genereres en intern kode automatiskt."
+msgstr "For produkter uten strekkode, blir en intern kode automatisk gitt."
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr "Abonner på vores nyhedsbrev (maksimalt to emails pr. måned)"
+msgstr "Abonner på vårt nyhetsbrev (Maks to e-poster per måned)"
 
 msgctxt "next"
 msgid "Next"
-msgstr "Næste"
+msgstr "Neste"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
-msgstr "Produkt uden stregkode"
+msgstr "Produkt uten strekkode"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
-msgstr "Ernæringsindhold er ikke specificeret på produktet."
+msgstr "Ernæringsinnhold er ikke spesifisert på produktet."
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
@@ -1489,7 +1489,7 @@ msgstr "Angiv kun næringsoplysninger for det uklargjorte produkt, uden tilsat v
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
-msgstr "Ingen produkter fundet med stregkode %s."
+msgstr "Ingen produkter oppført for strekkode %s ."
 
 msgctxt "no_products"
 msgid "No products."
@@ -1497,15 +1497,15 @@ msgstr "Ingen produkter."
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
-msgstr "Fejl under gemning, prøv igen."
+msgstr "Feil under lagring, vennligst prøv igjen."
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
-msgstr "Antal tilsætningsstoffer"
+msgstr "Antall tilsetningsstoffer"
 
 msgctxt "number_of_products"
 msgid "Number of products"
-msgstr "Antal produkter"
+msgstr "Antall produkter"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
@@ -1546,11 +1546,11 @@ msgstr "Produkter som ikke indeholder næringssmidlet %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "Ernæringsindhold"
+msgstr "Ernæringsinnhold"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "Ernæringsindhold"
+msgstr "Ernæringsinnhold"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1622,7 +1622,7 @@ msgstr "Standardafvigelse"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "Ernæringsindhold"
+msgstr "Ernæringsinnhold"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1693,7 +1693,7 @@ msgstr "ingrediensoprindelse"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
-msgstr "tilføj en oprindelse"
+msgstr "tilføje en oprindelse"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
@@ -1909,7 +1909,7 @@ msgstr "Rotér højre om"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
-msgstr "Valider og/eller ændr størrelsen på billedet"
+msgstr "Validere og/eller ændre størrelsen på billedet"
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
@@ -2009,7 +2009,7 @@ msgstr "købssteder"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr "Produkter sælges i %s"
+msgstr "Produkter selges i %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -2021,7 +2021,7 @@ msgstr "tilføj et sted"
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr "Produkter sælges ikke i %s"
+msgstr "Produkter selges ikke i %s"
 
 msgctxt "quantity"
 msgid "Quantity"
@@ -2387,7 +2387,7 @@ msgstr "60 g, 12 oz, 20 cl, 2 fl oz"
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr "Log ind"
+msgstr "Logg inn"
 
 msgctxt "share"
 msgid "Share"
@@ -2471,7 +2471,7 @@ msgstr "butik"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
-msgstr "tilføj en butik"
+msgstr "tilføje en butik"
 
 msgctxt "stores_without_products"
 msgid "Products not bought at %s"
@@ -2603,7 +2603,7 @@ msgstr "se"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
-msgstr "Vis listen for matchende produkter fra hele verden"
+msgstr "Vis listen over matchede produkter fra hele verden"
 
 msgctxt "view_products_from_the_entire_world"
 msgid "View matching products from the entire world"
