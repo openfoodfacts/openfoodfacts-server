@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-09-25 11:02\n"
+"PO-Revision-Date: 2018-09-25 13:05\n"
 "Language-Team: Chinese Traditional\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -698,7 +698,7 @@ msgstr "<<site_name>> 部落格"
 
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgstr "http://en.wiki.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -1607,7 +1607,7 @@ msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.pn
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>要了解有關<<site_name>>的更多資訊，請造訪<a href=\"https://en.blog.openfoodfacts.org\">我的部落格</a>！</p> <p>最近新聞：</p>\n"
+msgstr "<p>要了解有關<<site_name>>的更多信息，請訪問<a href=\"https://en.blog.openfoodfacts.org\">我的博客</a>！</p> <p>最近新聞：</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -2618,11 +2618,11 @@ msgstr "警告: 水果，蔬菜和果仁的數量沒有被指定, 他們可能�
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "警告: 水果、蔬菜和堅果的數量沒有在標籤上注明, 它是從配料清單上估計的: %d%"
+msgstr "警告: 水果、蔬菜和堅果的數量沒有在標籤上註明, 它是從成份清單上估計的: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr "警告: 水果, 蔬菜和堅果的數量沒有在標籤上注明, 它是從產品類別 (%s) 估計: %d%"
+msgstr "警告: 水果, 蔬菜和堅果的數量沒有在標籤上註明，它是從產品類別 (%s) 估計: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
