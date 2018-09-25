@@ -37,7 +37,7 @@ my $answer = decode utf8=>param('answer');
 my $actual = decode utf8=>param('actual');
 my $points = decode utf8=>param('points');
 
-open (my $OUT, ">>" , "/home/sucres/logs/sugar_log");
+open (my $OUT, ">>" , "/srv/sucres/logs/sugar_log");
 print $OUT remote_addr() . "\t" . time() . "\t" . $product . "\t" . $code . "\t" . $actual . "\t" . $answer . "\t" . $points . "\n";
 close $OUT;
 

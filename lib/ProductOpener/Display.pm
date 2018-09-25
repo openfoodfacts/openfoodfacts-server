@@ -140,7 +140,6 @@ use Apache2::Const ();
 $memd = new Cache::Memcached::Fast {
 	'servers' => [ "127.0.0.1:11211" ],
 	'utf8' => 1,
-	'debug' => 1,
 };
 
 $connection = MongoDB->connect($mongodb_host);
@@ -3048,7 +3047,7 @@ sub search_and_display_products($$$$$) {
 				$cursor = $products_collection->aggregate($aggregate_parameters);
 			}
 			else {
-				$log->debug("Executing MongoDB query", $mongodb_query_ref) if $log->is_debug();
+				$log->debug("Executing MongoDB query", { query => $mongodb_query_ref }) if $log->is_debug();
 				$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 				$count = $cursor->count() + 0;
 				$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
