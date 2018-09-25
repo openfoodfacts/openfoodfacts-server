@@ -60,6 +60,10 @@ use ProductOpener::I18N;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 
+use DateTime;
+use DateTime::Locale;
+use JSON::PP;
+
 use Log::Any qw($log);
 
 sub separator_before_colon($) {
@@ -449,6 +453,32 @@ sub build_lang($) {
 				$Lang{$key}{$l} =~ s/\<\<$special_field\>\>/$value/g;
 			}
 		}
+	}
+
+	my $en_locale = DateTime::Locale->load('en');
+	my @locale_codes = DateTime::Locale->codes;
+	foreach my $l (@Langs) {
+		my $locale;
+		if ( $lc ~~ @locale_codes ) {
+			$locale = DateTime::Locale->load($l);
+		}
+		else {
+			$locale = $en_locale;
+		}
+
+		my @months = ();
+		foreach my $month (1..12) {
+			push @months, DateTime->new( year => 2000, time_zone => 'UTC', month => $month, locale => $locale )->month_name;
+		}
+
+		$Lang{months}{$l} = encode_json(\@months);
+
+		my @weekdays = ();
+		foreach my $weekday (0..6) {
+			push @weekdays, DateTime->new( year => 2000, month => 1, day => (2 + $weekday), time_zone => 'UTC', locale => $locale )->day_name;
+		}
+
+		$Lang{weekdays}{$l} = encode_json(\@weekdays);
 	}
 } # build_lang
 
