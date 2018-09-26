@@ -5,11 +5,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-19 06:56-0500\n"
+"PO-Revision-Date: 2018-09-26 10:50\n"
 "Language-Team: Indonesian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"POT-Creation-Date: \n"
 "X-Generator: crowdin.com\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: id\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
@@ -17,12 +18,12 @@ msgstr ""
 #. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
 msgid ":langtag"
-msgstr "id"
+msgstr ": langtag"
 
 #. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
 msgid ":langname"
-msgstr "Indonesian"
+msgstr ": langname"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -38,15 +39,15 @@ msgstr "Tentang saya"
 
 msgctxt "add"
 msgid "Add"
-msgstr "Menambahkan"
+msgstr "Tambahkan"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr "Tambahkan bahasa"
+msgstr "menambahkan bahasa"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr "Tambahkan produk"
+msgstr "Menambahkan produk"
 
 msgctxt "add_user"
 msgid "Register"
@@ -142,9 +143,10 @@ msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
 msgstr "<img src = \"/ images / misc / android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt = \"Tersedia di Google Play\" width = \"135\" height = \"47\" />"
 
+# Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
+msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
+msgstr ""
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -180,16 +182,13 @@ msgctxt "barcode_number"
 msgid "Barcode number:"
 msgstr "Nomor kode batang:"
 
+msgctxt "you_can_also_help_us"
+msgid "You can also help to fund the Open Food Facts project"
+msgstr ""
+
 msgctxt "bottom_content"
-msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>Contribute to <<site_name>> by adding product and win stars by\n"
-"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
-msgstr "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\"> \n"
-"<img src = \"/ images / misc / mission-releveur-d-empreintes.png\" width = \"265\" tinggi = \"222\" /> \n"
-"</a> \n"
-"<p> Berkontribusi pada <<site_name >> dengan menambahkan produk dan memenangkan bintang dengan memenuhi <a href=\"/missions\"> misi </a> ! </ p>\n"
+msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr ""
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
@@ -323,7 +322,7 @@ msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.p
 "→ <a href=\"https://twitter.com/openfoodfacts\">Twitter</a><br/>\n"
 "→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a><br />\n"
 "→ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
-"+ <a href=\"https://www.facebook.com/groups/374350705955208/\">contributors group</a><br />\n"
+"+ <a href=\"https://www.facebook.com/groups/openfoodfacts/\">contributors group</a><br />\n"
 "</p>\n\n"
 "<p>iPhone and iPad app on the App Store:</p>\n\n"
 "<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
@@ -332,7 +331,7 @@ msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.p
 "<a href=\"https://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
 "<p>Windows Phone app:</p>\n\n"
 "<a href=\"https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
-msgstr "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.png\" width=\"178\" height=\"144\" alt=\"<<site_name>>\"/> </a> <p> <<site_name>> mengumpulkan informasi dan data tentang produk makanan dari seluruh world.</p> yang <select_country> <p> → <a href=\"/brands\">Brands</a><br /> → <a href=\"/categories\">Categories</a><br/> </p> <p>Food informasi produk (foto, bahan, fakta nutrisi dll) dikumpulkan dengan cara kolaboratif dan dibuat tersedia untuk semua orang dan untuk semua penggunaan dalam bebas dan terbuka database.</p> <p>Find kami juga di: </p> <p> → <a href=\"https://en.wiki.openfoodfacts.org\">our wiki</a><br /> → <a href=\"https://twitter.com/openfoodfacts\">Twitter</a><br/> → <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google + </a><br /> → <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br /> + <a href=\"https://www.facebook.com/groups/374350705955208/\">contributors group</a><br /> </p> <p>iPhone dan iPad aplikasi di App Store: </p> <a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/> <p>Adroid Android di Google Play: </p> <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner\">123_1 33_45_321</a><br/> <a href=\"https://world.openfoodfacts.org/files/off.apk\">apk</a> <p>Windows Phone app: </p> <a href=\"https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>"
+msgstr ""
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
@@ -514,6 +513,7 @@ msgctxt "emb_codes"
 msgid "EMB code"
 msgstr "Kode EMB"
 
+# Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
@@ -669,8 +669,8 @@ msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
 msgstr "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> - <a href=\"https://world.openfoodfacts.org/terms-of-use\">Persyaratan Penggunaan</a> - <a href=\"https://world.openfoodfacts.org/who-we-are\">Who we are</a> - <a href=\"https://world.openfoodfacts.org/faq\">Pertanyaan yang Sering Diajukan</a> - <a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> - <a href=\"https://en.blog.openfoodfacts.org\">Blog</a> - <a href=\"https://world.openfoodfacts.org/press-and-blogs\">Tekan dan Blog</a>"
 
 msgctxt "footer_and_the_facebook_group"
-msgid "and the <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook group for contributors</a>"
-msgstr "dan grup <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook untuk kontributor</a>"
+msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
+msgstr ""
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -686,7 +686,7 @@ msgstr "Kode etik"
 
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr "/kode-etik"
+msgstr "/Kode etik"
 
 msgctxt "footer_data"
 msgid "Data"
@@ -706,7 +706,7 @@ msgstr "Pertanyaan yang sering diajukan"
 
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr "/ faq"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -740,7 +740,7 @@ msgstr "Legal"
 
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr "/legal"
+msgstr "/hukum"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -752,7 +752,7 @@ msgstr "/tekan"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
-msgstr "Sebuah database produk makanan kolaboratif, bebas dan terbuka dari seluruh dunia."
+msgstr "Sebuah basis data bahan, fakta nutrisi dan informasi pada makanan dari seluruh dunia, yang kolaboratif, bebas dan terbuka"
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -760,7 +760,7 @@ msgstr "Syarat Penggunaan"
 
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr "/terms-of-use"
+msgstr "/syarat Penggunaan"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -768,7 +768,7 @@ msgstr "Siapa kita"
 
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr "/siapa-kita"
+msgstr "/siapa kita"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -896,11 +896,11 @@ msgstr "informan"
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr "Bahan"
+msgstr "bahan"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr "Bahan"
+msgstr "bahan"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -979,8 +979,8 @@ msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" 
 msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
-msgstr "https://itunes.apple.com/en/app/open-food-facts/id588797948"
+msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1028,7 +1028,7 @@ msgstr "Bahasa utama"
 
 msgctxt "lang_ar"
 msgid "Arabic"
-msgstr "Arab"
+msgstr "Arabb"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
@@ -1036,27 +1036,27 @@ msgstr "Bahasa Bulgaria"
 
 msgctxt "lang_cs"
 msgid "Czech"
-msgstr "Ceko"
+msgstr "Cekoo"
 
 msgctxt "lang_da"
 msgid "Danish"
-msgstr "Denmark"
+msgstr "Denmarkk"
 
 msgctxt "lang_de"
 msgid "German"
-msgstr "Jerman"
+msgstr "jerrman"
 
 msgctxt "lang_el"
 msgid "Greek"
-msgstr "Yunani"
+msgstr "Yunanii"
 
 msgctxt "lang_en"
 msgid "English"
-msgstr "Inggris"
+msgstr "Inggriss"
 
 msgctxt "lang_es"
 msgid "Spanish"
-msgstr "Spanyol"
+msgstr "Sepanyol"
 
 msgctxt "lang_et"
 msgid "Estonian"
@@ -1064,11 +1064,11 @@ msgstr "Estonia"
 
 msgctxt "lang_fi"
 msgid "Finnish"
-msgstr "Finlandia"
+msgstr "Finlandiaa"
 
 msgctxt "lang_fr"
 msgid "French"
-msgstr "Perancis"
+msgstr "bahasa,Perancis"
 
 msgctxt "lang_ga"
 msgid "Irish"
@@ -1076,7 +1076,7 @@ msgstr "orang Irlandia"
 
 msgctxt "lang_he"
 msgid "Hebrew"
-msgstr "Ibrani"
+msgstr "Ibranii"
 
 msgctxt "lang_hu"
 msgid "Hungarian"
@@ -1088,11 +1088,11 @@ msgstr "bahasa Indonesia"
 
 msgctxt "lang_it"
 msgid "Italian"
-msgstr "Italia"
+msgstr "Italiaa"
 
 msgctxt "lang_ja"
 msgid "Japanese"
-msgstr "Jepang"
+msgstr "Jepange"
 
 msgctxt "lang_ko"
 msgid "Korean"
@@ -1104,7 +1104,7 @@ msgstr "Lithuania"
 
 msgctxt "lang_lv"
 msgid "Latvian"
-msgstr "Latvia"
+msgstr "Latviaa"
 
 msgctxt "lang_mt"
 msgid "Maltese"
@@ -1112,11 +1112,11 @@ msgstr "Malta"
 
 msgctxt "lang_nl"
 msgid "Dutch"
-msgstr "Belanda"
+msgstr "Belandaa"
 
 msgctxt "lang_nl_be"
 msgid "Dutch"
-msgstr "Belanda"
+msgstr "Belandaa"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
@@ -1132,7 +1132,7 @@ msgstr "Polandia"
 
 msgctxt "lang_pt"
 msgid "Portuguese"
-msgstr "Portugis"
+msgstr "Portugiss"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
@@ -1144,7 +1144,7 @@ msgstr "Romania"
 
 msgctxt "lang_ru"
 msgid "Russian"
-msgstr "Rusia"
+msgstr "Rusiaan"
 
 msgctxt "lang_sk"
 msgid "Slovak"
@@ -1156,7 +1156,7 @@ msgstr "Orang Slovenia"
 
 msgctxt "lang_sv"
 msgid "Swedish"
-msgstr "Swedia"
+msgstr "Swediaa"
 
 msgctxt "lang_th"
 msgid "Thai"
@@ -1247,7 +1247,7 @@ msgstr "<p>Sign-in untuk menambah atau mengedit products.</p> <form method=\"pos
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr "memasuki"
+msgstr "Masuk"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
@@ -1325,7 +1325,7 @@ msgstr "Menambahkan produk"
 
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr "/add-a-product"
+msgstr "/ add-a-product"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -1337,7 +1337,7 @@ msgstr "/menyumbang"
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr "mendapatkan"
+msgstr "Menemukan"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
@@ -1375,6 +1375,7 @@ msgctxt "moderate_quantity"
 msgid "moderate quantity"
 msgstr "kuantitas moderat"
 
+# Please keep the same syntax and translate only the months
 msgctxt "months"
 msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
 msgstr "['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']"
@@ -1419,6 +1420,14 @@ msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
 msgstr "Fakta nutrisi tidak ditentukan pada produk."
 
+msgctxt "multiple_nutrition_data"
+msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
+msgstr ""
+
+msgctxt "multiple_nutrition_data_instructions"
+msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
+msgstr ""
+
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
 msgstr "Tidak ada produk yang tercantum untuk kode batang %s."
@@ -1447,9 +1456,10 @@ msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
 msgstr "Tingkat hara untuk 100 g"
 
+# Ensure it is the same translation as in the translation in the tag file. If unsure, DO NOT TRANSLATE, otherwise it will break the site
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr "/-tingkat-hara"
+msgstr "/ tingkat hara"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -1473,7 +1483,7 @@ msgstr "makanan bergizi"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
-msgstr "Produk yang tidak mengandung nutrisi %s"
+msgstr "Produk yang tidak mengandung nutrisi % s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
@@ -1485,7 +1495,7 @@ msgstr "tabel nutrisi"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr "Fakta nutrisi rata-rata untuk %d produk dari %s kategori fakta gizi yang diketahui (dari %d produk)."
+msgstr "Fakta gizi rata-rata untuk % d produk dari kategori % s dimana fakta gizi diketahui (dari % d produk)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -1517,7 +1527,7 @@ msgstr "untuk 100 g / 100 ml"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr "5<sup>th</sup> sentil"
+msgstr "5 <sup> th </ sup> centile"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
@@ -1529,7 +1539,7 @@ msgstr "Sentil ke 90"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
-msgstr "95<sup>th</sup> sentil"
+msgstr "95 <sup> th </ sup> centile"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
@@ -1558,7 +1568,7 @@ msgstr "tabel nutrisi"
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr "Tabel daftar secara default nutrisi yang sering ditentukan. Biarkan bidang kosong jika tidak ada dalam label.<br/>Anda dapat menambahkan makanan tambahan (vitamin, mineral, kolesterol, dll.) Dengan mengetik huruf pertama dari namanya di baris terakhir tabel."
+msgstr "Tabel daftar secara default nutrisi yang sering ditentukan. Biarkan bidang kosong jika tidak ada labelnya. <br/> Anda dapat menambahkan nutrisi tambahan (vitamin, mineral, kolesterol dll.) dengan mengetik huruf pertama dari namanya di baris terakhir tabel."
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
@@ -1572,14 +1582,17 @@ msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Kelas gizi"
 
+# Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 
+# Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>Untuk mempelajari lebih lanjut tentang <<site_name>>, kunjungi <a href=\"https://en.blog.openfoodfacts.org\"> blog kami</a>! </p> <p>Recent news: </p>"
+msgstr "<p> Untuk mempelajari lebih lanjut tentang <<site_name >>, kunjungi <a href=\"https://en.blog.openfoodfacts.org\"> blog kami </a> ! </ p> \n"
+"<p> Berita terbaru: </ p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -1588,7 +1601,7 @@ msgstr "Berita"
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr "Ini <a href=\"/open-food-hunt-2015\">Buka Makanan Hunt</a> di <<site_name>> mulai hari Sabtu 21 Februari 2015 sampai Minggu 1 Maret 2015! Kontributor diberikan poin Explorer untuk produk yang mereka tambahkan dan poin Ambassador untuk kontributor baru yang mereka rekrut. Poin diperbarui setiap 30 menit."
+msgstr "Ini <a href=\"/open-food-hunt-2015\"> Membuka Makanan Berburu </a> di <<site_name >> mulai hari Sabtu 21 Februari 2015 sampai Minggu 1 Maret 2015! Kontributor diberikan poin Explorer untuk produk yang mereka tambahkan dan poin Ambassador untuk kontributor baru yang mereka rekrut. Poin diperbarui setiap 30 menit."
 
 msgctxt "or"
 msgid "or:"
@@ -1612,7 +1625,7 @@ msgstr "asal bahan"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr "Produk dengan bahan yang berasal dari %s"
+msgstr "Produk dengan bahan yang berasal dari % s"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
@@ -1624,7 +1637,7 @@ msgstr "tambahkan asal"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
-msgstr "Produk tanpa bahan yang berasal dari %s"
+msgstr "Produk tanpa bahan yang berasal dari % s"
 
 msgctxt "packaging"
 msgid "Packaging"
@@ -1644,7 +1657,7 @@ msgstr "pengemasan"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
-msgstr "Produk dengan kemasan %s"
+msgstr "Produk dengan kemasan % s"
 
 msgctxt "packaging_s"
 msgid "packaging"
@@ -1656,11 +1669,11 @@ msgstr "tambahkan tipe, bentuk atau bahan"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
-msgstr "Produk tanpa kemasan %s"
+msgstr "Produk tanpa kemasan % s"
 
 msgctxt "page_x"
 msgid "Page %d"
-msgstr "Halaman %d"
+msgstr "Halaman % d"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
@@ -1672,7 +1685,7 @@ msgstr "Halaman:"
 
 msgctxt "password"
 msgid "Password"
-msgstr "kata sandi anda"
+msgstr "Kata Sandi"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
@@ -2031,7 +2044,7 @@ msgstr "setara garam"
 
 msgctxt "save"
 msgid "Save"
-msgstr "menyimpan "
+msgstr "Simpan"
 
 msgctxt "saved"
 msgid "Saved."
@@ -2308,11 +2321,11 @@ msgstr "60 g, 12 oz, 20cl, 2 fl oz"
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr "memasuki"
+msgstr "Masuk"
 
 msgctxt "share"
 msgid "Share"
-msgstr "membagikan"
+msgstr "Bagikan"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
@@ -2324,7 +2337,7 @@ msgstr "standar deviasi, minimum, maksimum, 10 dan 90th persentil"
 
 msgctxt "signin_before_submit"
 msgid "If you already have an account on <SITE>, please sign-in before filling this form."
-msgstr "Jika Anda sudah memiliki akun di <SITE>, masuklah sebelum mengisi formulir ini."
+msgstr "Jika Anda sudah memiliki akun di <SITE> , masuklah sebelum mengisi formulir ini."
 
 msgctxt "signout"
 msgid "Sign-out"
@@ -2552,12 +2565,12 @@ msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Sto
 msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
-msgstr "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
+msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
-msgstr "Anda terhubung sebagai %s."
+msgstr "Anda terhubung sebagai % s ."
 
 msgctxt "product_js_unselect_image"
 msgid "Unselect image"
@@ -2565,7 +2578,7 @@ msgstr "Batalkan pilihan gambar"
 
 msgctxt "product_js_unselecting_image"
 msgid "Unselecting image."
-msgstr "Batalkan pilihan gambar."
+msgstr "Tidak memilih gambar"
 
 msgctxt "product_js_unselected_image_ok"
 msgid "Unselected image."
@@ -2585,11 +2598,11 @@ msgstr "Peringatan: jumlah buah, sayuran dan kacang-kacangan tidak ditentukan, k
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "Peringatan: jumlah buah, sayuran dan kacang-kacangan tidak ditentukan pada label, diperkirakan dari daftar bahan: %d%"
+msgstr "Peringatan: jumlah buah, sayuran dan kacang-kacangan tidak ditentukan pada label, diperkirakan dari daftar bahan: % d %"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr "Peringatan: jumlah buah, sayuran dan kacang-kacangan tidak ditentukan pada label, diperkirakan dari kategori (%s) produk: %d%"
+msgstr "Peringatan: jumlah buah, sayuran dan kacang-kacangan tidak ditentukan pada label, diperkirakan dari kategori ( % s ) produk: % d %"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2625,7 +2638,7 @@ msgstr "Hapus pengguna"
 
 msgctxt "sources_openfood_ch"
 msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
-msgstr "Beberapa data dan / atau gambar berasal dari database OpenFood.ch (daftar yang tepat tersedia dalam riwayat penyuntingan produk). Elemen tersebut dilisensikan berdasarkan Lisensi Internasional Attribution 4.088_55_0_321Creative Commons</a>."
+msgstr "Beberapa data dan / atau gambar berasal dari database OpenFood.ch (daftar yang tepat tersedia dalam riwayat penyuntingan produk). Elemen tersebut dilisensikan di bawah <a href=\"https://creativecommons.org/licenses/by/4.0/\"> Lisensi Internasional Creative Commons Attribution 4.0 </a> ."
 
 msgctxt "sources_openfood_ch_product_page"
 msgid "Product page on openfood.ch"
@@ -2639,29 +2652,25 @@ msgctxt "sources_usda_ndb_product_page"
 msgid "Product page on USDA NDB"
 msgstr "Halaman produk di USDA NDB"
 
-msgctxt "donate"
-msgid "Donate to Open Food Facts"
-msgstr "Donasi untuk Membuka Fakta Pangan"
-
-msgctxt "donate_link"
-msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
 msgstr "Beberapa data dan gambar telah disediakan langsung oleh pabrikan Fleury Michon."
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
-msgstr "Beberapa data untuk produk ini telah disediakan langsung oleh pabrikan %s"
+msgstr "Beberapa data untuk produk ini telah disediakan langsung oleh produsen % s"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "Halaman produk ini tidak lengkap. Anda dapat membantu menyelesaikannya dengan mengeditnya dan menambahkan lebih banyak data dari foto yang kami miliki, atau dengan mengambil lebih banyak foto menggunakan aplikasi ini untuk <a href=\"https://android.openfoodfacts.org\">Android</a> atau <a href=\"https://ios.openfoodfacts.org\">iPhone / iPad</a>. Terima kasih!"
+msgstr "Halaman produk ini tidak lengkap. Anda dapat membantu menyelesaikannya dengan mengeditnya dan menambahkan lebih banyak data dari foto yang kami miliki, atau dengan mengambil lebih banyak foto menggunakan aplikasi ini untuk <a href=\"https://android.openfoodfacts.org\"> Android </a> atau <a href=\"https://ios.openfoodfacts.org\"> iPhone / iPad </a> . Terima kasih!"
 
 msgctxt "title_separator"
 msgid " — "
 msgstr "-"
+
+msgctxt "recent_changes"
+msgid "Recent Changes"
+msgstr ""
 
 msgctxt "translators_title"
 msgid "Our Translators"
@@ -2693,5 +2702,237 @@ msgstr ""
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
+msgstr ""
+
+msgctxt "minerals_p"
+msgid "added minerals"
+msgstr ""
+
+msgctxt "minerals_s"
+msgid "added mineral"
+msgstr ""
+
+msgctxt "vitamins_p"
+msgid "added vitamins"
+msgstr ""
+
+msgctxt "vitamins_s"
+msgid "added vitamin"
+msgstr ""
+
+msgctxt "amino_acids_p"
+msgid "added amino acids"
+msgstr ""
+
+msgctxt "amino_acids_s"
+msgid "added amino acid"
+msgstr ""
+
+msgctxt "nucleotides_p"
+msgid "added nucleotides"
+msgstr ""
+
+msgctxt "nucleotides_s"
+msgid "added nucleotide"
+msgstr ""
+
+msgctxt "other_nutritional_substances_p"
+msgid "other nutritional substances added"
+msgstr ""
+
+msgctxt "other_nutritional_substances_s"
+msgid "other nutritional substance added"
+msgstr ""
+
+msgctxt "product_as_sold"
+msgid "As sold"
+msgstr ""
+
+msgctxt "prepared_product"
+msgid "Prepared"
+msgstr ""
+
+msgctxt "unit"
+msgid "Unit"
+msgstr ""
+
+msgctxt "nutrition_data_exists"
+msgid "Nutrition facts are specified for the product as sold."
+msgstr ""
+
+msgctxt "nutrition_data_prepared_exists"
+msgid "Nutrition facts are specified for the prepared product."
+msgstr ""
+
+msgctxt "nova_groups_s"
+msgid "NOVA group"
+msgstr ""
+
+msgctxt "nova_groups_p"
+msgid "NOVA groups"
+msgstr ""
+
+msgctxt "footer_partners"
+msgid "Partners"
+msgstr ""
+
+msgctxt "footer_partners_link"
+msgid "/partners"
+msgstr ""
+
+msgctxt "adults"
+msgid "Adults"
+msgstr ""
+
+msgctxt "adults_age"
+msgid "18 to 64"
+msgstr ""
+
+msgctxt "adults_description"
+msgid "From 18 years up to and including 64 years of age"
+msgstr ""
+
+msgctxt "elderly"
+msgid "Elderly"
+msgstr ""
+
+msgctxt "elderly_age"
+msgid "65+"
+msgstr ""
+
+msgctxt "elderly_description"
+msgid "From 65 years of age and older"
+msgstr ""
+
+msgctxt "adolescents"
+msgid "Adolescents"
+msgstr ""
+
+msgctxt "adolescents_age"
+msgid "10 to 17"
+msgstr ""
+
+msgctxt "adolescents_description"
+msgid "From 10 years up to and including 17 years of age"
+msgstr ""
+
+msgctxt "children"
+msgid "Children"
+msgstr ""
+
+msgctxt "children_age"
+msgid "3 to 9"
+msgstr ""
+
+msgctxt "children_description"
+msgid "From 36 months up to and including 9 years of age"
+msgstr ""
+
+msgctxt "toddlers"
+msgid "Toddlers"
+msgstr ""
+
+msgctxt "toddlers_age"
+msgid "1 to 2"
+msgstr ""
+
+msgctxt "toddlers_description"
+msgid "From 12 months up to and including 35 months of age"
+msgstr ""
+
+msgctxt "infants"
+msgid "Infants"
+msgstr ""
+
+msgctxt "infants_age"
+msgid "< 1"
+msgstr ""
+
+msgctxt "infants_description"
+msgid "From more than 12 weeks up to and including 11 months of age"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation"
+msgid "EFSA evaluation"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_title"
+msgid "Risk of overexposure"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_high"
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_description"
+msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
+msgid "%d products with %s"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_no"
+msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
+msgid "High risk of over exposure"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
+msgid "Moderate risk of over exposure"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
+msgid "Risk of exceeding the acceptable daily intake (ADI)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
+msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
+msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
+msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
+msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_noael"
+msgid "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr ""
+
+msgctxt "exposure_title_95th"
+msgid "Some people"
+msgstr ""
+
+msgctxt "exposure_description_95th"
+msgid "over 5%"
+msgstr ""
+
+msgctxt "exposure_title_mean"
+msgid "Most people"
+msgstr ""
+
+msgctxt "exposure_description_mean"
+msgid "over 50%"
+msgstr ""
+
+msgctxt "wikipedia"
+msgid "Wikipedia"
+msgstr ""
+
+msgctxt "additives_classes"
+msgid "Functions"
 msgstr ""
 
