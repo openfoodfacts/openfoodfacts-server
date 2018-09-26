@@ -1,0 +1,80 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: po-backend
+  labels:
+    app: po
+    component: backend
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: po
+        component: backend
+    spec:
+      initContainers:
+        - name: init-podata
+          image: openfoodfacts/productopener-backend
+          command: ['sh', '-c', 'mkdir -p /mnt/podata/products && mkdir -p /mnt/podata/logs && mkdir -p /mnt/podata/users && ln -sf /opt/product-opener/lang /mnt/podata/lang && ln -sf /opt/product-opener/po /mnt/podata/po && ln -sf /opt/product-opener/po/openfoodfacts /opt/product-opener/po/site-specific && ln -sf /opt/product-opener/taxonomies /mnt/podata/taxonomies && ln -sf /opt/product-opener/ingredients /mnt/podata/ingredients && ln -sf /opt/product-opener/emb_codes /mnt/podata/emb_codes && cp /opt/product-opener/log.conf /mnt/podata/log.conf && chown -R daemon:daemon /mnt/podata && chown -R daemon:daemon /opt/product-opener/html/images/products && perl -I/opt/product-opener/lib -I/opt/product-opener/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl']
+          volumeMounts:
+            - name: backend-config
+              mountPath: "/usr/local/apache2/conf/sites-enabled/product-opener.conf"
+              subPath: apache.conf
+            - name: backend-config
+              mountPath: "/opt/product-opener/lib/ProductOpener/Config.pm"
+              subPath: Config.pm
+            - name: backend-config
+              mountPath: "/opt/product-opener/lib/ProductOpener/Config2.pm"
+              subPath: Config2.pm
+            - name: backend-config
+              mountPath: "/opt/product-opener/log.conf"
+              subPath: log.conf
+            - name: product-images
+              mountPath: "/opt/product-opener/html/images/products/"
+            - name: data
+              mountPath: "/mnt/podata/"
+            - name: varlog
+              mountPath: "/var/log"
+      containers:
+        - name: po-backend
+          image: openfoodfacts/productopener-backend
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: backend-config
+              mountPath: "/usr/local/apache2/conf/sites-enabled/product-opener.conf"
+              subPath: apache.conf
+            - name: backend-config
+              mountPath: "/opt/product-opener/lib/ProductOpener/Config.pm"
+              subPath: Config.pm
+            - name: backend-config
+              mountPath: "/opt/product-opener/lib/ProductOpener/Config2.pm"
+              subPath: Config2.pm
+            - name: backend-config
+              mountPath: "/opt/product-opener/log.conf"
+              subPath: log.conf
+            - name: product-images
+              mountPath: "/opt/product-opener/html/images/products/"
+            - name: data
+              mountPath: "/mnt/podata/"
+            - name: varlog
+              mountPath: "/var/log"
+        - name: po-backend-log4perl
+          image: busybox
+          volumeMounts:
+            - name: varlog
+              mountPath: "/var/log"
+          args: [/bin/sh, -c, 'tail -n+1 -f /var/log/log4perl.log']
+      volumes:
+        - name: backend-config
+          configMap:
+            name: po-backend-config
+        - name: product-images
+          persistentVolumeClaim:
+            claimName: po-images
+        - name: data
+          persistentVolumeClaim:
+            claimName: po-data
+        - name: varlog
+          emptyDir: {}
