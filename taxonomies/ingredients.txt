@@ -1,13 +1,22 @@
 # stopwords
 
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable
-stopwords:nl:bevat
-stopwords:de:und, mit, von, aus
+stopwords:da:indeholder
+stopwords:de:und, mit, von, aus, enthält
+stopwords:el:περιέχει
+stopwords:en:contains, contain, with
+stopwords:es:contiene
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient
+stopwords:hu:tartalmaz
+stopwords:it:contiene
+stopwords:nl:bevat, met
+stopwords:sk:obsahuje
+stopwords:sl:vsebuje
+stopwords:sv:innehåller
 
 #
 en:ingredient
 fr:ingrédient
-nl:ingrediënt
+nl:ingrediënt, ingrediënten
 
 # additive classes (from Global_additives_classes_taxonomy)
 
@@ -1130,7 +1139,6 @@ en:churned butter
 es:manteca batida
 fr:beurre de baratte
 nl:gekarnde boter
-allergens:fr:_beurre_ de baratte
 
 # PASTEURIZED BUTTER - butter created from pasteurized milk
 
@@ -1138,7 +1146,6 @@ allergens:fr:_beurre_ de baratte
 en:pasteurized butter, pasteurised butter
 fr:beurre pasteurisé
 nl:gepasteuriseerde boter
-allergens:fr:_beurre_ pasteurisé
 
 # BEURRE D'ISIGNY - butter produced in Europe with protected geographical indications
 
@@ -1149,7 +1156,6 @@ fr:beurre d'isigny AOP
 
 <en:butter
 fr:beurre de cuisine, beurre cuisinier
-allergens:fr:_beurre_ de cuisine
 
 
 # FRESH BUTTER - Not sure what the definition is. It is normally homemade butter. Maybe products use it to indicated not reconstituted butter.
@@ -1161,14 +1167,12 @@ es:mantequilla fresca
 fr:beurre frais
 nl:verse boter
 pt:manteiga fresca
-allergens:fr:_beurre_ frais
 
 # BEURRE LAITIER - is a French term used to describe butter made in a creamery or small dairy, as opposed to on a farm or in a factory
 
 <en:butter
 fr:beurre laitier
 nl:melkerijboter
-allergens:fr:beurre _laitier_
 
 # RECONSTITUTED BUTTER - When combined with the correct ratio of water to restore a normal water / butterfat balance for butter, Concentrated Butter is called “reconstituted butter.”
 
@@ -1176,7 +1180,6 @@ allergens:fr:beurre _laitier_
 en:reconstituted butter
 fr:beurre concentré reconstitué, beurre déshydraté reconstitué
 nl:gereconstitueerde boter
-allergens:fr:_beurre_ concentré reconstitué
 
 # SWEET CREAM BUTTER - Butter made from pasteurized fresh cream is called sweet cream butter. 
 
@@ -1211,8 +1214,6 @@ sq:gjalpi i kthjelluar
 th:เนยใส
 uk:Пряжене масло
 zh:无水黄油
-allergens:fr:huile de _beurre_
-allergens:nl:_boterolie_
 wikidata:en:Q909729
 wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
 
@@ -2399,6 +2400,8 @@ en:finegrained salt
 fr:Sel fin
 nl:Fijn zout
 
+fr:sel nitrité pour saumure
+
 # SMOKED SALT is an aromatic salt smoked with any number of select bark free woods for up to 14 days. 
 
 <en:Salt
@@ -3030,7 +3033,6 @@ fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de 
 <fr:amidon de maïs cireux
 fr:amidon modifié de maïs cireux, amidon de maïs cireux modifié
 
-<en:starch
 <en:corn starch
 fr:amidon modifié de maïs visqueux
 
@@ -3101,12 +3103,13 @@ nl:gemodificeerd tapiocazetmeel
 pt:amido modificado de tapioca
 
 <en:starch
+<en:wheat
 en:wheat starch
 fr:amidon de froment, amidon de blé
 de:Weizenstärke
 el:άμυλο σιταριού
 es:almidón de trigo
-it:amido di frumento, 
+it:amido di frumento
 nl:tarwezetmeel
 pt:amido de trigo
 se:pšenični skrob
@@ -3269,7 +3272,7 @@ de:pflanzliches Öl gehärtet
 
 # Palm oil is an edible vegetable oil derived from the mesocarp (reddish pulp) of the fruit of the oil palms
 
-<en:palm or palm kernel oil, palm oil or palm kernel oil
+
 <en:vegetable oil
 en:palm oil
 ar:زيت النخيل
@@ -3358,6 +3361,7 @@ pl:palma
 sk:palma
 
 # This is the same as palm oil. Merge?
+# is it really the same? (Stéphane)
 
 <en:palm oil
 en:palm fat
@@ -3394,7 +3398,6 @@ nl:gedeeltelijk geharde palmolie
 
 # Palm kernel oil is an edible plant oil derived from the kernel of the oil palm Elaeis guineensis.[1] It should not be confused with the other two edible oils derived from palm fruits: palm oil, extracted from the pulp of the oil palm fruit, and coconut oil, extracted from the kernel of the coconut.
 
-<en:palm or palm kernel oil, palm oil or palm kernel oil
 en:palm kernel oil, palm kernel
 bs:Ulje palminog jezgra
 ca:Oli de palmist
@@ -3403,7 +3406,7 @@ de:Palmkernöl
 es:palmiste
 eu:Palmiste olio
 fa:روغن هسته پالم
-fr:huile de palmiste, huile végétale de palmiste, palmiste, graisse de palmiste
+fr:huile de palmiste, huile végétale de palmiste, palmiste
 id:Minyak inti kelapa sawit
 kn:ಪಾಮ್ ಕೆರ್ನಲ್ ಎಣ್ಣೆ
 ln:Mafúta ma ndiká
@@ -3418,6 +3421,10 @@ wikidata:en:Q1960534
 wikipedia: https://en.wikipedia.org/wiki/Palm_kernel_oil
 
 <en:palm kernel oil
+en:palm kernel fat
+fr:graisse de palmiste, matière grasse de palmiste, acides gras de palmiste, graisse végétale de palmiste, matière grasse végétale de palmiste
+
+<en:palm kernel oil
 fr:palmiste totalement hydrogénée
 
 # The and/or ingredients, also used as a container
@@ -3430,8 +3437,8 @@ nl:palmolie en palmkernolie
 
 <en:palm kernel oil
 <en:palm oil
-en:palm or palm kernel oil, palm oil or palm kernel oil
-fr:huile de palme ou de palmiste, huile de palme ou huile de palmiste
+en:palm or palm kernel oil, palm oil or palm kernel oil, palm or palm kernel
+fr:huile de palme ou de palmiste, huile de palme ou huile de palmiste, palme ou palmiste
 nl:palmolie of palmkernolie
 
 # Coconut oil, or copra oil, is an edible oil extracted from the kernel or meat of mature coconuts harvested from the coconut palm (Cocos nucifera). 
@@ -3623,7 +3630,7 @@ de:Rapsöl
 el:κραμβέλαιο
 es:aceite de colza, aceite de nabina
 fi:rapsiöljy, rypsiöljy
-fr:huile de colza, huile végétale de colza, huile colza
+fr:huile de colza, huile végétale de colza, huile colza, colza
 hr:repičino ulje
 hu:repceolaj
 it:olio di colza
@@ -3831,8 +3838,7 @@ wikidata:en:Q212317
 # SOYBEAN OIL is a vegetable oil extracted from the seeds of the soybean (Glycine max). 
 
 <en:vegetable oil
-<en:soy
-en:soy oil, Soybean oil
+en:soy oil, Soybean oil, soya oil
 ar:زيت فول الصويا
 bg:Соево олио
 be:Соевы алей
@@ -4200,7 +4206,6 @@ sh:Eterično ulje
 si:සගන්ධ තෙල්
 sk:Éterický olej
 sl:Dišavno olje
-sb:Serbian	
 sv:Eterisk olja
 ta:ஆவி எண்ணை
 te:ఆవశ్యక నూనె
@@ -4467,11 +4472,13 @@ wikipedia:https://en.wikipedia.org/wiki/Balsamic_vinegar
 fr:vinaigre balsamique de modène
 
 <en:vinegar
+<en:malt
 en:malt vinegar
 de:Malzessig
 fr:vinaigre de malt
 
 <en:malt vinegar
+<en:barley malt
 fr:vinaigre de malt d'orge
 allergens:fr:vinaigre de malt d'_orge_
 
@@ -4671,11 +4678,12 @@ en:flavouring, flavour, flavor, flavoring, aroma, flavours, flavors, flavourings
 es:aromas
 fr:arôme, arômes
 nl:aroma's 
-de:Aromen
+de:Aroma, Aromen
 
 <en:flavouring
 en:natural flavouring, natural flavour, natural flavor, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
 fr:arôme naturel, arômes naturels
+de:natürliches Aroma
 
 <en:flavouring
 en:artificial flavouring, artificial flavour, artificial flavor, artificial flavoring
@@ -5045,22 +5053,1245 @@ fr:céréales contenant du gluten
 <en:cereal
 fr:céréales biscuitées
 
-<en:cereal
-fr:crispies de céréales
+# note this is a subproduct, which contains other ingredients
 
 <en:cereal
+en:cereal crispies
+de:Getreide Crispies
+fr:crispies de céréales
+it:crispies di cereali
+
+<en:cereal
+en:puffed cereal
 fr:céréales soufflées
 
 <en:cereal
 fr:billettes de céréales
 
-<en:cereal
+<en:puffed cereal
+en:extruded cereals
+de:extrudiertes Getreide
 fr:céréales extrudées
+it:cereali croccanti
+nl:geëxtrudeerde granen
 
-
-
-
+<en:cereal
+de:Getreideflocken
 fr:flocons de céréales
+it:fiocchi di cereali
+
+# Wheat is a grass widely cultivated for its seed, 
+
+<en:cereal
+en:wheat
+af:Koring
+# als:Weisse
+am:ስንዴ
+an:trigo
+ar:قمح
+# arc:ܚܛܬܐ
+# arz:قمح
+as:গম
+ast:Trigu
+az:Buğda
+# azb:بۇغدا
+ba:Бойҙай
+# bat-smg:Kvėitē
+be:Пшаніца
+bg:Пшеница
+bh:गोहूँ
+bn:গম
+bo:གྲོ།
+br:Gwinizh
+bs:Pšenica
+# bxr:Улаан буудай
+ca:Blat
+ce:КӀа
+cv:Тулă
+cy:Gwenith
+da:hvede
+de:Weizen
+# diq:Ğele
+# dty:गहुँ
+dv:ގޮދަން
+el:Σιτάρι
+es:trigo
+et:nisu
+eu:Gari
+fa:گندم
+fi:vehnä, Vehnät
+# fiu-vro:Nisu
+fo:Hveiti
+fr:blé, froment, blé entier
+# frr:Wiaten
+# gan:小麥
+gl:Trigo
+gn:Avati mirĩ
+gu:ઘઉં
+he:חיטה
+hi:गेहूँ
+# hsb:Pšeńca
+ht:Ble
+hu:Búza
+hy:Ցորեն
+id:Gandum
+ii:ꅪ
+ik:Palauvakstrat
+# ilo:Trigo
+io:Frumento
+it:frumento
+ja:コムギ
+# jam:Wiit
+# kbd:Гуэдз
+# kbp:Pilee
+kk:Бидай
+ko:밀
+ky:Буудай
+lb:Weess
+# lbe:ЛачӀа
+# lfn:Trigo
+li:Weit
+# lij:Gran
+# lmo:Formét
+lt:kvieciu, Kvietys
+lv:Kvieši
+# mai:गहूँ
+mk:Пченица
+ml:ഗോതമ്പ്
+mn:Улаан буудай
+mr:गहू
+# mrj:Шӓдӓнгӹ
+ms:Pokok Gandum
+# mwl:Trigo
+my:ဂျုံ
+# mzn:گندم
+# nap:Rano
+ne:गहुँ
+# new:छ्व
+nl:tarwe
+nn:Kveite
+no:Hvete
+nv:Tłʼoh naadą́ą́ʼ
+oc:Blat
+os:Мæнæу
+pa:ਕਣਕ
+# pam:Trigu
+# pcd:Blèi
+# pdc:Weeze
+pl:pszenica, pszenicy
+# pnb:کݨک
+ps:غنم
+pt:trigo
+# rmy:Giv
+ro:Grâu, grau
+# roa-rup:Grânu
+ru:Пшеница
+sa:ऋचेयुः
+# sat:ᱜᱩᱦᱩᱢ
+# scn:Furmentu
+# sco:Wheat
+sd:ڪڻڪ
+sh:Pšenica
+si:තිරිඟු
+sk:pšenica
+sl:Pšenica, psenicni
+sn:Gorosi
+so:Qamadi
+sq:Gruri
+sr:Пшеница
+# stq:Weete
+su:Tarigu
+sv:vete
+sw:Ngano
+ta:கோதுமை
+# tcy:ಗೋಧಿ
+te:గోధుమ
+tg:Гандум
+th:ข้าวสาลี
+tl:Trigo
+tr:Buğday, bugday
+tt:Бодай
+# tyv:Кызыл-тас
+ug:بۇغداي
+uk:Пшениця
+ur:گندم
+uz:Bugʻdoy
+# vec:Formento
+# vep:Nižu
+vi:Lúa mì
+wa:Frumint
+# war: Trigo
+# wuu:小麦
+yi:ווייץ
+zh:小麦
+# zh-classical:麥
+# zh-min-nan:Be̍h-á
+# zh-yue:小麥
+allergens:fr:_blé_
+wikipedia:https://en.wikipedia.org/wiki/Wheat
+wikidata:en:Q15645384
+
+<en:puffed cereal
+<en:wheat
+de:Weizenpops
+fr:blé soufflé
+it:frumento soffiato
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé%20soufflé
+# 15 products in 3 languages @2018-09-22
+
+<en:wheat
+en:whole wheat
+de:Vollkornweizen
+el:Σίτος ολικής αλέσεως
+es:trigo integral
+fr:blé complet
+it:frumento integrale
+nl:volkorentarwe
+pl:pszenica z pełnego przemiału
+pt:trigo integral
+zh:全麥小麥
+allergens:fr:_blé_ complet
+
+<en:wheat
+fr:pétales de blé
+pl:chrupki pszenno-żytnie
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pétales%20de%20blé
+# 57 products in 2 languages @2018-09-22
+
+<fr:pétales de blé
+en:whole wheat flakes
+es:copos de trigo integral
+fr:pétales de blé complet
+pt:flocos de trigo integral
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pétales%20de%20blé%20complet
+# 22 products in 5 languages @2018-09-22
+
+# Durum wheat (Triticum durum or Triticum turgidum subsp. durum) is a tetraploid species of wheat.
+
+<en:wheat
+en:durum wheat
+af:Durum
+ar:قمح صلب
+ca:Blat dur
+# ceb:Triticum durum
+cs:Semolina
+cy:Gwenith barfog
+da:Durumhvede
+de:Hartweizen
+eo:Durum-tritiko
+es:trigo duro, Triticum durum
+eu:Gari gogor
+fa:گندم الجزایری
+fi:Durumvehnä
+fr:blé dur
+ga:Dúram
+gl:trigo duro
+he:דורום
+hu:Durumbúza
+it:grano duro
+ja:デュラムコムギ
+ka:მაგარი ხორბალი
+ko:듀럼밀
+ky:Катуу буудай
+# lmo:Triticum durum
+lt:Kietasis kvietys
+ms:Durum
+nl:durum tarwe, Durumtarwe
+no:Durumhvete
+oc:Blat dur
+pl:Pszenica twarda
+ru:Пшеница твёрдая
+sl:Trda pšenica
+sv:Durumvete
+tr:Durum buğdayı
+vi:Lúa mì cứng
+# xmf:კიჭიბე ქობალკაკალი
+zh:硬粒小麦
+wikipedia:https://en.wikipedia.org/wiki/Durum
+wikidata:en:Q618324
+
+<en:durum wheat
+fr:blé dur précuit
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé%20dur%20précuit/
+
+<en:durum wheat
+fr:blé dur concassé
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé%20dur%20concassé/
+
+<fr:blé dur précuit
+fr:blé dur précuit concassé
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:blé%20dur%20précuit%20concassé/
+
+<en:durum wheat
+de:Hartweizendunst
+fr:fins finots de blé dur
+it:friscello di grano duro
+https://world.openfoodfacts.org/ingredient/fr:fins%20finots%20de%20blé%20dur/
+# 17 products in 3 languages @20180922
+
+ 
+# Semolina is the coarse, purified wheat middlings of durum wheat mainly used in making pasta and couscous. 
+# Be careful that in some languages semolina is also used for coarse grinded rice, maize, etc. Wikipedia is not very consistent.
+
+de:Grieß
+ca:Sèmola
+el:Σιμιγδάλι
+es:Sémola
+et:Manna
+fr:Semoule
+nl:gries
+oc:Semola
+
+<en:wheat
+<de:Grieß
+en:semolina
+ar:سميد
+de:Weizengrieß, Weizengriess
+es:sémola de trigo
+fr:semoule de blé
+it:semolino di frumento
+nl:tarwegries
+pt:sêmola de trigo
+wikipedia:https://en.wikipedia.org/wiki/Semolina
+wikidata:en:Q381350
+
+<en:semolina
+fr:semoule de blé tendre
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20blé%20tendre/
+# 20 products in 1 language @20180922
+
+<en:semolina
+<en:durum wheat
+en:durum wheat semolina
+de:Hartweizengries
+el:σιμιγδάλισκληρού σιταριού
+es:sémola de trigo duro
+fi:durumvehnäjauho
+fr:semoule de blé dur
+hr:krupica durum pšenice
+hu:durum búzaliszt
+it:semola di grano duro
+nl:harde tarwe griesmeel
+pt:sêmola de trigo duro
+ro:griș din grâu
+ru:борошно з пшеннци тверднх сортив
+sl:pšenični zdrob durum
+tr:durum buğdayı ırmığı
+zh:硬质粗粒小麦粉
+
+<en:durum wheat semolina
+fr:semoule semi-complète de blé dur
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20semi-complète%20de%20blé%20dur/
+# 18 products in 1 language @2018-09-22
+
+<en:durum wheat semolina
+fr:semoule de blé dur réhydratée
+
+<en:durum wheat semolina
+en:high quality durum wheat semolina
+es:sémola de trigo duro de calidad superior 
+fr:semoule de blé dur de qualité supérieure
+pt:sêmola de trigo rijo de qualidade superior
+
+<en:durum wheat semolina
+en:whole durum wheat semolina
+bs:integralna krupica durum pšenice
+de:Vollkorn-Hartweizengriß
+el:σιμιγδάλι αλέσεως σκληρού σιταριού
+fr:semoule de blé dur complète, semoule complète de blé dur
+hr:integralna krupica durum pšenice
+hu:teljes kiőrlésű búzaliszt
+nl:volkoren griesmeel van harde tarwe
+sr:integralna krupica durum pšenice
+sl:polnozrnati pšenični zdrob durum
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20blé%20dur%20complète/
+# 33+49 products in 11 languages @20180922
+
+<en:durum wheat semolina
+fr:semoule de blé dur précuite
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20blé%20dur%20précuite/
+# 75 products in 1 language @20180922
+
+# BULGUR is a cereal food made from the parboiled groats of several different wheat species, most often from durum wheat. 
+
+<en:durum wheat
+en:bulgur
+ar:برغل
+az:Bulqur
+# azb:یارما
+be:Булгур
+bg:Булгур
+ca:Bulgur
+# ckb:ساوار
+cs:Bulgur
+da:Bulgur
+de:Bulgur
+el:Πλιγούρι
+eo:Bulguro
+es:Bulgur
+et:Bulgur
+eu:Bulgur
+fa:بلغور
+fi:Bulgur
+fr:boulghour, boulgour
+gl:Bulgur
+he:בורגול
+hi:दलिया
+hu:Bulgur
+hy:Բլղուր
+id:Bulgur
+it:bulgur
+ja:ブルグル
+ko:불구르
+ku:Savar
+la:Purgurium
+nl:Bulgur
+no:Bulgur
+pl:Bulgur
+pt:Triguilho
+ru:Булгур
+sv:Bulgur
+tr:Bulgur
+uk:Булгур
+zh:布格麦
+wikipedia:https://en.wikipedia.org/wiki/Bulgur
+wikidata:en:Q250432
+
+<en:wheat
+en:wheat flakes
+de:Weizenflocken
+es:copos de trigo
+fr:flocons de blé, flocon de blé
+it:fiocchi di frumento
+nl:tarwevlokken
+pl:płatki pszenne
+allergens:fr:flocons de _blé_
+
+<en:wheat flakes
+de:Weizenvollkornflocken
+fr:flocons de blé complet
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20blé%20complet/languages
+
+<en:wheat
+en:wheat fiber
+de:Weizenfasern
+es:fibras de trigo
+fr:fibre de blé, fibres de blé
+it:fibre di frumento
+nl:tarwevezel
+pt:fibras de trigo
+allergens:fr:fibres de _blé_
+allergens:fr:fibre de _blé_
+
+<en:wheat
+en:wheat bran
+de:Weizenkleie
+es:salvado de trigo
+fr:son de blé, son de froment
+it:crusca di frumento
+nl:tarwezemelen
+pt:farelo de trigo
+allergens:fr:son de _blé_
+
+# Barley (Hordeum vulgare), a member of the grass family, is a major cereal grain grown in temperate climates globally
+# The translations taken from wikipedia need to be checked. They can refer to the plant species.
+
+<en:cereal
+en:barley
+# als:Gärste
+am:ገብስ
+an:hordio
+# arc:ܣܥܪܬܐ
+# ast:cebada
+ar:شعير
+# arz:شعير
+ay:Siwara
+az:Adi arpa
+# azb:آرپا
+ba:Арпа
+# bar:Geaschtn
+# bat-smg:Mėižē
+be:Ячмень звычайны
+bg:ечемик, Ечемик
+# bjn:Jawawut
+bn:যব
+bo:ནས།
+br:Heiz
+bs:Ječam
+# bxr:Арбай
+ca:Ordi
+# cdo:Duâi-măk
+ce:Мукх
+# ceb:Hordeum
+# ckb:جۆ
+cs:Ječmen, jecmen
+cv:Урпа
+cy:Haidd
+da:byg
+de:Gerste
+# dty:जौ
+dv:ހިމަ ގޮދަން
+el:Κριθάρι
+eo:hordeo
+es:cebada
+et:Oder
+eu:Garagar
+# ext:cevá
+fa:جو
+fi:Ohra, Ohraa
+# fiu-vro:Kesev
+fr:orge
+# frr:Bere
+ga:Eorna
+gl:Cebada
+gv:Oarn
+# hak:Thai-ma̍k
+he:שעורה תרבותית
+hi:जौ
+hr:Ječam
+# hsb:ječmjeń
+hu:Árpa
+ht:Òj
+hy:Սովորական գարի
+id:Jelai
+# ilo:Sebada
+io:Hordeo
+is:Bygg
+it:orzo
+ja:オオムギ
+jv:Juwawut
+ka:სათესი ქერი
+# kbd:Хьэ
+# kbp:Ɔrɩgɩ
+kk:Кәдімгі арпа
+kn:ಬಾರ್ಲಿ
+ko:보리
+# ksh:Jääch
+ky:Арпа
+li:Gaes
+# lij:Òrzio
+# lmo:Órs
+lv:Mieži
+# mai:जौ
+mk:Јачмен
+ml:യവം
+mn:Арвай
+ms:Barli
+my:မုယော
+# myv:Алкуксонь шуж
+# nap:Uorgio
+ne:जौ
+# new:तछ्व
+nl:gerst
+nn:Bygg
+no:Bygg
+oc:Òrdi
+or:ଯଅ
+os:Сиск
+pa:ਜੌਂ
+pl:Jęczmień, Jeczmien
+# pnb:جؤ
+pt:Cevada
+qu:Siwara
+ro:Orz
+# roa-rup:Ordzu
+ru:Ячмень
+sa:यवः
+# sah:Нэчимиэн
+# scn:Oriu
+# sco:Baurley
+sh:Ječam
+sk:Jačmeň
+sl:Ječmen
+sn:Bhari
+so:Heed
+sq:Elbi
+sr:Јечам
+sv:korn
+sw:Shayiri
+ta:வாற்கோதுமை
+te:బార్లీ
+tg:Ҷав
+th:ข้าวบาร์เลย์
+tl:Sebada
+tr:Arpa
+tt:Арпа
+# tyv:Арбай
+ug:ئارپا
+uk:Ячмінь
+ur:جو
+uz:Arpa
+# vec:Órxo
+# vep:Ozr
+vi:Đại mạch
+wa:Oidje
+# war:Sebeda
+# wuu:大麦
+yi:גערשט
+za:Mienhhaeux
+zh:大麦
+# zh-min-nan:Tōa-be̍h
+# zh-yue:大麥
+allergens:fr:_orge_
+wikidata:en:796
+wikipedia:https://en.wikipedia.org/wiki/Barley
+
+<en:barley
+en:wholemeal barley
+es:cebada integral
+fr:orge complète
+nl:volkorengerst
+pl:jeçzmien z pełnego przemiału
+pt:cevada integral
+allergens:fr:_orge_ complète
+
+<en:barley
+de:Gerstenflocken
+fr:flocons d'orge, flocon d'orge
+it:fiocchi d'orzo
+nl:gerstvlokken
+pl:płatki jęczmienne
+
+# RYE (Secale cereale) is a grass grown extensively as a grain, a cover crop and a forage crop.
+
+<en:cereal
+en:rye
+af:Rog
+# als:Rogge
+am:ኣጃ
+an:Secale cereale
+ar:شيلم مزروع
+# arz:زوؤان
+# ast:Secale cereale
+az:Əkin çovdarı
+ba:Арыш
+# bar:Koan
+# bat-smg:Rogē
+be:Жыта пасяўное
+bg:Ръж
+bn:রাই
+bo:གྲོ་ནག
+br:Segal
+bs:Raž
+# bxr:Хара таряан
+ca:Sègol
+ce:Ӏаьржа кӀа
+# ceb:Secale cereale
+# ckb:چاودار
+cs:Žito seté
+# csb:Żëto
+cv:Ыраш
+cy:Rhyg
+da:Rug
+de:Roggen
+el:Σίκαλη
+eo:Sekalo
+es:Centeno
+et:Rukis
+eu:Zekale
+fa:چاودار
+fi:Ruis
+fr:seigle
+# frr:Roog
+fy:Rogge
+ga:Seagal
+gl:Centeo
+he:שיפון
+hi:नीवारिका
+# hsb:Sywna rožka
+hr:Usjevna raž
+hu:Rozs
+hy:Աշորա
+ia:Secale
+id:Gandum hitam
+# ilo:Senteno
+io:Sekalo
+is:Rúgur
+it:segale, Secale cereale
+ja:ライムギ
+ko:호밀
+ku:Şilêl
+la:Secale cereale
+lb:Kar
+# lbe:Сус
+li:Rogke
+# lmo:Secale cereale
+lt:Sėjamasis rugys
+ka:ჭვავი
+# kbd:ХьэпцӀий
+kk:Мәдени қарабидай
+# koi:Рудзӧг
+ky:Кара буудай
+# lfn:Segal
+lv:Rudzi
+mk:’Рж
+ml:വരക്
+mn:Таримал хөх тариа
+ms:Rai
+# myv:Розь
+# nap:Sécena
+# nds-nl:Raai
+nl:rogge
+nn:Rug
+no:Rug
+oc:Segal
+os:Сылмæнæу
+pl:Żyto zwyczajne
+# pnb:رائی
+pt:Centeio
+qu:Sintinu
+ro:Secară
+# roa-rup:Sicarâ
+ru:Рожь
+# sah:Оруос
+# sco:Rye
+sh:Raž
+sk:Raž siata
+sl:Rž
+sq:Thekra
+sr:Раж
+sv:Råg
+sw:Ngano nyekundu
+ta:புல்லரிசி
+th:ข้าวไรย์
+tr:Çavdar
+tt:Арыш
+# udm:Ӟег
+uk:Жито посівне
+ur:تلخہ
+uz:Javdar
+# vep:Rugiž
+vi:Lúa mạch đen
+wa:Swele
+# war:Secale cereale
+# wuu:裸麦
+yi:קארן
+zh:裸麥
+# zh-min-nan:Thǹg-theh-be̍h
+# zh-yue:黑麥
+wikipedia:https://en.wikipedia.org/wiki/Rye
+wikidata:en:Q12099
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:seigle/
+# 560 entries @ 2018-09-22
+
+<en:rye
+de:Roggenschrot
+fr:seigle broyé
+it:faricello di segale
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:seigle%20broyé/
+# 16 entries @ 2018-09-22
+
+<en:rye
+fr:flocons de seigle
+de:Roggenflocken
+it:fiocchi di frumento
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20seigle/
+# 87 entries @ 2018-09-22
+
+<fr:flocons de seigle
+<en:malt
+fr:flocons de seigle malté
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20seigle%20malté/
+# 71 entries @ 2018-09-22
+
+<en:rye
+de:Vollkornhafer
+fr:seigle complet
+nl:volkorenrogge
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:seigle%20complet/
+# 37 entries @ 2018-09-22
+
+# Malt is germinated cereal grains that have been dried in a process known as "malting".
+
+en:malt
+ar:ملت
+# bat-smg:Salīkla
+be:Солад
+bg:Малц
+ca:Maltatge
+cs:Slad
+cv:Салат
+da:Malt
+de:Malz
+eo:Malto
+es:Malta
+et:Linnased
+eu:Malta
+fa:مالت
+fi:Mallas
+fr:malt, malts
+gd:Braich
+gl:Malte
+he:לתת
+hi:माल्ट
+hr:Slad
+hu:Maláta
+hy:Ածիկ
+id:Malt
+io:Malto
+is:Malt
+it:malto
+ja:麦芽
+ko:엿기름
+# ksh:Malz
+lb:Malz
+# lbe:КӀут
+# lij:Malto
+lt:Salyklas
+lv:Iesals
+# mdf:Ламбафтома
+mk:Слад
+ms:Malt
+# myv:Ламбавтома
+# nds-nl:Malt
+nl:mout
+nn:Malt
+no:Malt
+pl:Słód
+pt:Malte
+ro:Malț
+ru:Солод
+# sco:Maut
+sh:Slad
+sl:Slad
+sq:Malto
+sr:Слад
+sv:Malt
+th:มอลต์
+tr:Malt
+uk:Солод
+vi:Mạch nha
+wa:Brå
+zh:麦芽
+wikipedia:https://en.wikipedia.org/wiki/Malt
+wikidata:en:Q152024
+openfoodfacts:https://world.openfoodfacts.org/ingredient/malt/
+# 707 entries @ 2018-09-22
+
+<en:malt
+en:malt extract
+de:Malzextrakt
+fr:extrait de malt
+it:estratto di malto
+openfoodfacts:https://world.openfoodfacts.org/ingredient/malt-extract/
+# 484 entries @ 2018-09-22
+
+<en:malt extract
+en:dried malt extract
+de:Malzextraktpulver
+fr:extrait de malt en poudre
+it:estratto di malto in polvere
+openfoodfacts:https://world.openfoodfacts.org/ingredient/dried-malt-extract/
+
+<en:wheat
+<en:malt
+en:wheat malt
+de:Weizenmalz
+es:malta de trigo
+fi:vehnämallas
+fr:malt de blé, malt de froment, blé malté
+it:malto di frumento, malto di grano
+nl:tarwemout
+
+<en:malt
+en:malted barley
+bg:яачменныи солод
+cs:ječmenný slad
+da:bygmalt
+el:βυνοποιημένο κιθάρι
+es:malta de cebada
+fi:ohramallas, ohramallasta
+fr:malt d'orge, malts d'orge, orge malté, orge maltée
+hu:árpamálata
+it:malto d'orzo
+nl:gerstemout
+nn:bygg malt
+pt:malte de cevada
+sk:jechyi slad
+sv:korn malt
+zh:含大麥芽片
+
+<en:malted barley
+en:barley malt extract
+fr:extrait de malte d'orge, extrait d'orge malté, extrait d'orge maltée, extrait de malt d'orge
+zh:大麥芽精
+
+
+# BUCKWHEAT (Fagopyrum esculentum) is a plant cultivated for its grain-like seeds and as a cover crop. 
+
+<en:cereal
+en:buckwheat
+ar:حنطة سوداء
+de:Buchweizen
+es:sarraceno
+fr:sarrasin
+it:grano saraceno
+nl:boekweit
+pt:trigo mourisco
+sr:Heljda
+wikipedia:https://en.wikipedia.org/wiki/Buckwheat
+wikidata:en:Q132734
+
+# The OAT (Avena sativa) is a species of cereal grain grown for its seed.
+
+en:oat
+# als:Haaber
+am:ገረማ
+an:Avena sativa
+ar:شوفان
+# arz:شوفان
+# ast:Avena sativa
+az:Əkin yulafı
+# azb:اکین یولافی
+ba:Һоло
+# bar:Howan
+# bat-smg:Avėža
+# bcl:Avena sativa
+be:Авёс пасяўны
+bg:Овес
+bn:জই
+bo:ཡུག་པོ།
+br:Kerc'h
+bs:Zob
+# bxr:Обёос
+ca:Civada
+# ceb:Avena sativa
+# ckb:کاڕان
+cs:Oves setý
+cy:Ceirch
+da:Havre
+de:Hafer
+# dsb:Rolny wows
+el:Βρώμη
+eo:Kutima aveno
+es:avena
+et:Kaer
+eu:Olo
+fa:جو دوسر
+fi:Kaura
+# fiu-vro:Kaar
+fr:avoine
+# frr:Heewer
+ga:Coirce
+# gan:燕麥
+gd:Coirce
+gl:Avea común
+he:שיבולת-שועל
+hi:जई
+hr:Obična zob
+# hsb:Rólny wows
+ht:Avwàn
+hu:Abrakzab
+ia:Avena sativa
+id:Haver
+# ilo:Avena sativa
+is:Hafrar
+it:avena
+ja:エンバク
+# jam:Uots
+jv:Haver
+ka:ჩვეულებრივი შვრია
+# kbd:Зэнтхъ
+# kbp:Afʊwanɩ
+kk:Екпе сұлы
+ko:귀리
+kn:ತೋಕೆ ಗೋಧಿ
+ku:Gîhagulî
+ky:Сулу
+la:Avena sativa
+# lfn:Avena
+li:Haver
+lt:Sėjamoji aviža
+lv:Sējas auzas
+# mai:जई
+mk:Овес
+ml:ഓട്സ്
+mn:Таримал хошуу будаа
+mr:ओट
+ms:Oat
+# new:ओट
+nl:haver
+nn:Havre
+no:Havre
+oc:Civada
+pa:ਜਵੀ
+# pcd:Avin·ne
+# pdc:Hawwer
+pl:owsiana, Owies zwyczajny
+# pnb:جوی
+pt:aveia
+qu:Tarpuy awina
+ro:Ovăz
+# roa-rup:Uvedzu
+ru:Овёс посевной
+# sah:Эбиэс
+sc:Avena
+# sco:Ait
+sh:Zob
+si:යව
+sl:Oves
+so:Sareen
+sq:Tërshëra
+sr:Овас
+sv:Havre
+sw:Oti
+ta:காடைக்கண்ணி
+te:వోట్
+th:ข้าวโอ๊ต
+tl:Obena
+tr:Beyaz yulaf
+tt:Игүле солы
+uk:Овес посівний
+ur:جئی
+uz:Suli
+vi:Yến mạch
+wa:Avoenne
+# war:Avena sativa
+# wuu:燕麦
+yi:האבער
+zh:燕麦
+# zh-min-nan:Iàn-be̍h
+# zh-yue:燕麥
+wikipedia:https://en.wikipedia.org/wiki/Oat
+
+<en:oat
+en:oat flakes
+da:havreflager
+de:Haferflocken
+el:νιφάφες βρώμης
+es:copos de avena
+fi:kaurahiutaleet
+fr:flocons d'avoine, flocon d'avoine
+it:fiocchi d’avena
+lt:avižiniai dribsniai
+nl:havervlokken
+pl:płatki owsiane
+pt:flocos de aveia
+sv:havreflager
+
+<en:oat flakes
+en:whole oat flakes
+de:Vollkorn haferflocken
+fr:flocons d'avoine complète, flocon d'avoine complète, flocons d'avoine complet, flocons d'avoine complets
+it:fiocchi di avena integrale
+nl:volkoren havervlokken, volkorenhavervlokken
+pl:płatki owsiane z pełnego przemiału
+pt:flocos de aveia integral
+
+<en:oat
+en:oat fibre
+de:Haferfasern
+el:εδώδιμες ινες βρώμης
+es:fibra de avena
+fr:fibre d'avoine, fibres d'avoine
+it:fibra d'avena
+nl:havervezel
+pt:fibra de aveia
+
+<en:oat
+en:whole grain rolled oats
+da:fullkornshavregryn
+de:Vollkorn-Haferflocken
+fr:avoine complète
+nl:volkoren havermout
+nn:fullkornshavregryn
+sv:fullkornshavregryn
+
+<en:oat
+en:oat bran
+de:Haferkleie
+fr:son d'avoine
+it:crusca d'avena
+
+<en:cereal
+en:millet
+de:Hirse
+es:mijo
+fr:millet
+it:miglio
+nl:gierst
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:millet/
+# 293 products in 8 languages @2018-09-22
+
+<en:millet
+de:Hirseflocken
+fr:flocons de millet
+it:fiocchi di miglio
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20millet/
+# 46 products in 3 languages @2018-09-22
+
+<en:millet
+fr:graines de millet
+https://world.openfoodfacts.org/ingredient/fr:graines%20de%20millet/
+# 111 products in 1 languages @1018-09-22
+
+# Amaranthus, collectively known as amaranth is a cosmopolitan genus of annual or short-lived perennial plants. 
+
+<en:cereal
+en:amaranth
+de:Amaranth
+es:amaranto
+fr:amarante
+nl:amaranth
+de:Amarant
+wikipedia:https://en.wikipedia.org/wiki/Amaranth
+wikidata:en:Q156344
+openfoodfacts:https://world.openfoodfacts.org/ingredient/amaranth
+# 266 products in 4 languages @2018-09-22
+
+# QUINOA (Chenopodium quinoa) is a flowering plant in the amaranth family. 
+
+<en:amaranth
+en:quinoa
+ar:كينوا
+# ast:quinua
+ay:Jiwra
+az:Kinoa
+bg:Киноа
+ca:Quinoa
+# ceb:Chenopodium quinoa
+cs:Merlík čilský
+da:Quinoa
+de:Quinoa
+el:Κινόα
+eo:Kvinoo
+es:quinua
+et:kinoa, Tšiili hanemalts
+eu:Kinoa
+fa:کینوآ
+fi:Kvinoa
+fr:quinoa
+# frr:Kinoa
+gl:Quinoa
+he:קינואה
+hi:क्विन्वा
+hr:Kvinoja
+hu:Kinoa
+id:Kinoa
+is:Kínóa
+it:Quinoa
+ja:キヌア
+kn:ಕೀನೋವಾ
+ko:퀴노아
+la:Chenopodium quinoa
+lt:Bolivinė balanda
+ms:Kuinoa
+nl:Quinoa
+nn:Quinoa
+no:Quinoa
+# pam:Quinoa
+pl:Komosa ryżowa
+pt:Quinoa
+qu:Kinwa
+ro:Quinoa
+ru:Киноа
+# sco:Quinoa
+sh:Kinoa
+sl:Kvinoja
+sv:Quinoa
+th:กีนัว
+tl:Quinoa
+tr:Kinoa
+uk:Кіноа
+vi:Diêm mạch
+# war:Chenopodium quinoa
+# zh-yue:藜麥
+wikipedia:https://en.wikipedia.org/wiki/Quinoa
+wikidata:en:Q139925
+openfoodfacts:https://world.openfoodfacts.org/ingredient/quinoa
+# 425 products in 6 languages @2018-09-22
+
+<en:quinoa
+en:red quinoa
+fr:quinoa rouge
+openfoodfacts:https://world.openfoodfacts.org/ingredient/red-quinoa
+# 115 products in 2 languages @2018-09-22
+
+<en:quinoa
+en:white quinoa
+es:quinoa blanco
+fr:quinoa blanc
+pt:quinoa branco
+openfoodfacts:https://world.openfoodfacts.org/ingredient/white-quinoa
+# 63 products in 4 languages @2018-09-22
+
+<en:quinoa
+fr:quinoa cuit
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:quinoa%20cuit
+# 49 products in 1 language @2018-09-22
+
+# SPELT (Triticum spelta; Triticum dicoccum) is a species of wheat.
+
+<en:cereal
+en:spelt
+# als:Schwobakorn
+ar:حنطة
+# ast:espelta
+bg:Спелта
+br:Yell
+ca:Espelta
+# ceb:Triticum spelta
+cs:Pšenice špalda
+da:Spelt
+de:Dinkel
+el:σιτάρι, Όλυρα
+eo:Spelto
+et:Speltanisu
+eu:Espelta
+fa:گندم آلمانی
+fi:Spelttivehnä
+fr:épeautre
+gl:Espelta
+he:כוסמין
+hr:Pravi pir
+# hsb:Krupnik
+hu:Tönkölybúza
+io:Spelto
+is:Spelt
+it:farro, farro spelta
+ko:스펠트밀
+la:Spelta
+lb:Spelz
+# lmo:Triticum spelta
+ms:Spelt
+# myv:Виш
+# nds-nl:Dinkelweite
+nl:spelt
+nn:Spelt
+no:Spelt
+oc:Espeuta
+pl:Pszenica orkisz
+pt:Espelta
+ru:Спельта
+# sco:Spelt
+sl:Pira
+sr:Крупник
+sv:Speltvete
+ta:ஸ்பெல்ட்
+tr:Kavuzlu buğday
+tt:Борай
+uk:Спельта
+vi:Triticum spelta
+wa:Speate
+# war:Triticum spelta
+zh:斯佩耳特小麦
+wikipedia:https://en.wikipedia.org/wiki/Spelt
+wikidata:en:Q158767
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:épeautre
+# 278 products in 6 languages @2018-09-22
+
+<en:spelt
+fr:flocons d'épeautre
+de:Quinoa-Fakes
+it:fiocchi di quinoa
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-d'épeautre
+# 69 products in 3 languages @2018-09-22
+
+<fr:flocons d'épeautre
+de:Dinkelvollkornflocken
+fr:flocons d'épeautre complet
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20d'épeautre%20complet
+# 23 products in 2 languages @2018-09-22
 
 # FLOUR is a powder made by grinding raw grains or roots and used to make many different foods.
 
@@ -5196,7 +6427,6 @@ ug:ئۇن
 uk:борошно
 ur:آٹا
 uz:Un
-No description defined
 # vec:farina
 # vep:Jauh
 vi:bột
@@ -5258,41 +6488,35 @@ uk:Борошно пшеничне
 vi:Bột mì
 zh:小麥麵粉
 # zh-min-nan:Mī-hún
-allergens:fr:farine de _blé_
-allergens:fr:farines de _blé_
-allergens:fr:farine de _froment_
 wikipedia:https://en.wikipedia.org/wiki/Wheat_flour
 wikidata:en:Q2249305
 
 <en:wheat flour
 fr:farine de blé malté torréfié
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine%20de%20blé%20malté%20torréfié
+# 33 products in 3 languages @2018-09-22 (has translation issues)
 
 <en:wheat flour
 en:malted wheat flour
 fr:farine de blé maltée
 de:gemaltzen Weizenmehl
 it:farina di grano maltato
-allergens:fr:farine de _blé_ maltée
 
 # the t** is not translated in the ingredients
 
 <en:wheat flour
 fr:farine de blé type 45
-allergens:fr:farine de _blé_ type 45
 
 <en:wheat flour
 fr:farine de blé t65
 nl:tarwemeel T65
-allergens:fr:farine de _blé_ t65
 
 <en:wheat flour
 fr:farine de blé t80
-allergens:fr:farine de _blé_ t80
 
 <en:wheat flour
 fr:farine de blé bio
 nl:biologische tarwemeel
-allergens:fr:farine de _blé_ bio
 
 <en:wheat flour
 en:durum wheat flour
@@ -5302,22 +6526,12 @@ fr:farine de blé dur
 it:farina di grano duro
 nl:durum tarwemeel
 de:Hartweizenmehl
-allergens:fr:farine de _blé_ dur
 
 <en:wheat flour
 <en:wholemeal flour
 de:Vollkornweizenmehl
 fr:farine de blé complète, farine de blé complet, farine complète de blé, farine intégrale de blé, farine complète de froment
 it:farina integrale di frumento
-allergens:fr:farine de _blé_ complète
-allergens:fr:farine de _blé_ complet
-allergens:fr:farine complète de _blé_
-allergens:fr:farine intégrale de _blé_
-allergens:fr:farine complète de _froment_
-
-<en:wheat flour
-fr:farine de blé noir
-allergens:fr:farine de _blé_ noir
 
 <en:wheat flour
 en:dextrinated wheat flour
@@ -5328,9 +6542,6 @@ de:dextriniertes Weizenmehl
 
 <en:wheat flour
 fr:farine de blé fermenté, farine de blé malté, farine de malt, farine de malt de froment
-allergens:fr:farine de _blé_ fermenté
-allergens:fr:farine de _blé_ malté
-allergens:fr:farine de _malt_
 
 <en:wheat flour
 fr:farine mi-blanche
@@ -5343,13 +6554,11 @@ en:fortified wheat flour
 de:angereichertes Weizenmehl
 fr:farine de blé enrichie
 it:farina di frumento fortificada
-allergens:fr:farine de _blé_ enrichie
 
 <en:wheat flour
 de:Weichweizenmehl
 fr:farine de blé tendre
 it:farina di grano tenero
-allergens:fr:farine de _blé_ tendre
 
 <en:wheat flour
 de:Weissmehl
@@ -5371,7 +6580,6 @@ fr:farine d'orge
 it:farina d'avena
 nl:gerstemeel
 pt:farinha de cevada
-allergens:fr:farine d'_orge_
 
 <en:wholemeal flour
 <en:barley flour
@@ -5380,19 +6588,12 @@ es:harina de cebada integral
 fr:farine complète d’orge, farine d'orge complète
 nl:volkoren gerstemeel
 de:Gerstenvollkornmehl
-allergens:fr:farine complète d'_orge_
-allergens:fr:farine d'_orge_ complète
 
 <en:barley flour
 fr:farine de malt d'orge, farine d'orge malté
-allergens:fr:farine d'_orge_ malté
-allergens:fr:farine de malt d'_orge_
 
 <en:barley flour
 fr:farine d'orge malté toasté, farine d'orge maltée torréfiée, farine d'orge malté torréfié
-allergens:fr:farine d'_orge_ malté toasté
-allergens:fr:farine d'_orge_ maltée torréfiée
-allergens:fr:farine d'_orge_ malté torréfié
 
 <en:barley flour
 en:dextrinated barley flour
@@ -5408,7 +6609,6 @@ es:harina de espelta
 fr:farine d'épeautre
 it:farina di spelta
 nl:speltmeel
-allergens:fr:farine d'_épeautre_
 
 <en:wholemeal flour
 <en:spelt flour
@@ -5418,11 +6618,9 @@ es:harina de espelta integral
 fr:farine complète d’épeautre
 it:farina integrale di spelta
 nl:volkoren speltmeel
-allergens:fr:farine complète d'_épeautre_
 
 <en:spelt flour
 fr:farine de petit épeautre
-allergens:fr:farine de petit _épeautre_
 
 <en:spelt flour
 en:dextrinated spelt flour
@@ -5435,27 +6633,44 @@ de:dextriniertes Dinkelmehl
 <en:wholemeal flour
 en:wholemeal spelt flour
 fr:farine d'épeautre complète, farine d'épeautre complet
-allergens:fr:farine d'_épeautre_ complète
-allergens:fr:farine d'_épeautre_ complet
 
 <en:cereal flour
-<fr:avoine
+en:oat flour
+de:Hafermehl
+es:farina de avena
 fr:farine d'avoine
-allergens:fr:farine d'_avoine_
+it: farina d'avena
+nl:havermeel
+pl:mąka owsiana
+pt:farinha de aveia
 
 <fr:farine d'avoine
 <en:wholemeal flour
 fr:farine d'avoine complète, farine complète d'avoine
-allergens:fr:farine d'_avoine_ complète
-allergens:fr:farine complète d'_avoine_
+nl:volkorenhavermeel
+pl:mąka owsiana pełnoziarnista
+pt:farinha de aveia integral
 
 <en:cereal flour
-fr:farine de sarrasin
+en:buckwheat flour
+de:Buchweizenmehl
+es:harina de sarraceno
+fr:farine de sarrasin, farine de blé noir
+it:farina di grano saraceno
+nl:boekweitmeel
+pt:farinha de trigo mourisco
 
 <en:cereal flour
 en:rye flour
+es:harina de centeno
+de:Roggenmehl
 fr:farine de seigle
-allergens:fr:farine de _seigle_
+it:farina di segala
+nl:roggebloem
+pl:mąka żytnia
+pt:farinha de centeio
+openfoodfacts:https://world.openfoodfacts.org/ingredient/rye-flour
+# 1039 products in 11 languages @2018-09-22
 
 <en:rye flour
 <en:wholemeal flour
@@ -5464,7 +6679,6 @@ es:flor de harina integral de centeno
 fr:farine de seigle complet
 nl:volkoren roggemeel
 de:Roggenvollkornmehl
-allergens:fr:farine de _seigle_ complet
 
 <en:rye flour
 en:dextrinated rye flour
@@ -5475,19 +6689,26 @@ de:dextriniertes Roggenmehl
 
 <en:rye flour
 fr:farine de seigle maltée
-allergens:fr:farine de _seigle_ maltée
+nl:gemoute roggemeel
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine%20de%20seigle%20maltée
+# 44 products in 2 languages @2018-09-22
 
 <en:cereal flour
+en:millet flour
+de:Hirsemehl
 fr:farine de millet
+it:farina di miglio
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine%20de%20millet
+# 40 products in 4 languages @2018-09-22
 
+<en:cereal flour
 en:amaranth flour
 es:harina de amaranto
 fr:farine d’amarante
-nl:amaranthmeel
+nl:amaranthmeel, amarant gemalen
 de:Amarantmehl
-
-fr:farine de moutarde
-allergens:fr:farine de _moutarde_
+openfoodfacts:https://world.openfoodfacts.org/ingredient/amaranth-flour
+# 80 products in 3 languages @201809-22
 
 
 # Is this the same as tapioca starch?
@@ -5501,34 +6722,49 @@ nl:Tapiokameel, tapioca bloem
 sv:Tapiokamjöl
 
 <en:flour
-<fr:lupin
 en:lupin flour
 es:harina de altramuz
 fr:farine de lupin
 nl:lupinemeel
 de:Lupinenmehl
-allergens:fr:farine de _lupin_
 
 <en:flour
+en:broad bean flour
+de:Bohnenmehl
 fr:farine de fève, farine de fèves
+it:farina di fave
+nl:bonenmeel
 
 <en:flour
-<en:soy
+en:soy flour, soya flour
+de:Sojamehl
+es:harina de soja
 fr:farine de soja
-allergens:fr:farine de _soja_
+it:farina di soia
+nl:sojabloem, sojameel
+sr:sojino brašno
 
 <en:flour
+en:corn flour, maize flour
+da:majsmel
+de:Maismehl
+el:αλεύρι καλαμποκιού
+es:harina de maíz
+fi:maissijauho
 fr:farine de mais
+hu:kukoricaliszt
+nl:maïsmeel
+pl:mąka kukurydziana
+pt:farinha de milho
+sk:kukuričná múka
+sl:koruzna moka
+sv:majsmjöl
+zh:玉米淀粉
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine%20de%20mais
+# 1291 products in 19 languages @2018-09-23
 
-<fr:farine de mais
-en:dextrinated cornmeal
-es:harina de maíz dextrinada
-fr:farine de maïs dextrinée
-nl:gedextrineerd maïsmeel
-de:dextriniertes Maismehl
 
 <en:flour
-<en:rice
 en:rice flour
 es:harina de arroz
 fr:farine de riz
@@ -5549,11 +6785,22 @@ fr:farine de riz blanc
 fr:farine de riz complet
 
 <en:flour
+<en:quinoa
 en:quinoa flour
+de:Quinoa-Mehl
+es:Harina de quinoa
 fr:farine de quinoa
+it:Farina di Quinoa
+openfoodfacts:https://world.openfoodfacts.org/ingredient/quinoa-flour
+# 173 products in 5 languages @2018-09-22
 
 <en:flour
+en:pea flour
+de:Erbsenmehl
 fr:farine de pois
+it:farina di piselli
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine%20de%20pois
+# 36 products in 4 languages @2018-09-22
 
 <en:flour
 fr:farine de pois chiche, farine de pois chiches
@@ -5563,6 +6810,306 @@ fr:farine de châtaigne
 
 <en:flour
 fr:farine de pomme de terre, farine de pommes de terre, pomme de terre en poudre
+
+# Maize, also known as corn, is a cereal grain first domesticated by indigenous peoples in southern Mexico about 10,000 years ago.
+# On ingredient lists it is known as corn (english/american issue?). Some translations refer to the latin name of the plant.
+
+en:corn, maize
+af:Mielie
+# als:Mais
+am:በቆሎ
+an:Zea mays
+ar:ذرة
+# arz:دره
+# ast:maíz, Zea mays
+av:ЦIоросаролъ
+ay:Tunqu
+az:Qarğıdalı
+# azb:قارغیدالی
+ba:Шәкәр кукурузы
+# bar:Gugaruz
+# bcl:Mais
+be:Кукуруза
+bg:царевица, Царевица
+bi:Corn
+bm:Kaba
+bn:ভুট্টা
+bo:ཨ་ཤོམ།
+br:Maiz
+bs:Kukuruz
+# bxr:Кукуруза
+ca:Dacsa
+# cdo:Iù-diĕng-báu
+ce:ХьаьжкӀа
+# ceb:Zea mays
+# chr:ᏎᎷ
+# chy:Ová'kemâhaemenôtse
+# ckb:گەنمەشامی
+cs:Kukuřice setá
+cv:Чакан тулă
+cy:Indrawn
+da:majs
+de:Mais
+# din:Anyuɔl
+# diq:Lazut
+# dsb:Majs
+dv:ޒުވާރި
+el:αραβόσιτος, Καλαμπόκι
+# eml:Furmintòun
+eo:Maizo
+es:maíz, Zea mays
+et:Mais
+eu:Arto
+# ext:millu, maís
+fa:ذرت
+ff:Masarji
+fi:maissi
+# fiu-vro:Mais
+fj:Sila
+fo:Mais
+fr:maïs, mais
+# frr:Meis
+# fur:Blave
+fy:Stynske weet
+ga:Arbhar Indiach
+# gan:粟米
+gd:Cruithneachd-Innseanach
+gl:Millo
+gn:Avati
+# gor:Binte
+gu:મકાઈ
+ha:Masara
+# hak:Pâu-siuk
+he:תירס
+hi:मक्का
+hr:Kukuruz
+# hsb:Prawa kukurica
+hu:Kukorica
+ht:Mayi
+hy:Եգիպտացորեն
+ia:Zea mays
+id:Jagung
+# ilo:Mais
+# inh:ХьажкӀа
+io:Maizo
+is:Maís
+it:mais
+ja:トウモロコシ
+# jam:Kaan
+# jbo:zumri
+jv:Jagung
+ka:სიმინდი
+# kbd:Нартыху
+# kbp:Saamɩɖɛ
+kg:Disângu
+kk:Жүгері
+kn:ಮೆಕ್ಕೆ ಜೋಳ
+ko:옥수수
+# krc:Нартюх
+ku:Garis, گارس
+ky:Жүгөрү
+la:Zea mays
+# lad:Mais
+lb:Mais
+# lbe:Шагьнал лачӀа
+# lfn:Mais
+li:Meis
+# lij:Granon
+# lmo:Zea mays
+ln:Lisángú
+lt:kukurūzai, Paprastasis kukurūzas
+lv:kukurūza, Kukurūza
+# mai:मकै
+# map-bms:Jagung
+mg:Katsaka
+mk:Пченка
+ml:ചോളം
+mr:मका
+ms:Jagung
+my:ပြောင်းဖူး
+# mzn:کوگندم
+# nah:Cintli
+# nap:Granone
+ne:मकै
+# new:कःनि
+nl:maïs
+nn:mais
+no:Mais
+nv:Naadą́ą́ʼ
+oc:Milh
+or:ମକା
+os:Нартхор
+pa:ਮੱਕੀ
+# pam:Mais
+# pdc:Welschkann
+pl:kukurydziana, Kukurydza zwyczajna
+# pms:Melia
+# pnb:مکی
+# pnt:Λαζούδ
+ps:جوار
+pt:milho
+qu:Sara
+ro:Porumb
+# roa-rup:Câlâmbuchiu
+ru:Кукуруза
+rw:Ikigori
+# sah:Кукурууза
+# sat:ᱡᱚᱱᱚᱲᱟ
+sc:Trigumoriscu
+# scn:Zea mays
+# sco:Maize
+sd:مڪئي
+sh:Kukuruz
+si:බඩ ඉරිඟු
+sk:korua, Kukurica siata
+sl:Koruza
+sn:Chibage
+so:Galley
+sq:Misri
+sr:Кукуруз
+# stq:Turske Weete
+su:Jagong
+sv:majs
+sw:Muhindi
+ta:மக்காச்சோளம்
+te:మొక్కజొన్న
+tg:Ҷуворимакка
+th:ข้าวโพด
+tl:Mais
+tn:Mmidi, Mmopo
+to:Koane
+tr:Mısır
+tt:Кукуруз
+# tum:Chingoma
+ug:كۆممىقوناق
+uk:Кукурудза
+ur:مکئی
+uz:Makkajoʻxori
+# vec:Formenton
+# vep:Kukuruz
+vi:Ngô
+vo:Mait
+wa:Dinrêye d' awousse
+# war:Maís
+# wuu:玉米
+# xmf:ლაიტი
+yi:קוקורוזע
+za:Haeuxyangz
+zh:玉米
+# zh-min-nan:Hoan-be̍h
+# zh-yue:粟米
+wikipedia:https://en.wikipedia.org/wiki/Maize
+wikidata:en:Q11575
+openfoodfacts:https://world.openfoodfacts.org/ingredient/corn
+# 6846 products in 16 languages @201809-23
+
+
+# CORN MEAL is a meal (coarse flour) ground from dried maize (corn). 
+# Is wongly translated in wikipedia as a flour
+
+<en:corn
+en:cornmeal, corn grits, corn semolina
+da:groftmalet majs
+de:Maisgrieß, Maiskörner, Maisgriess
+el:σιμιγδάλι αραβοσίτου
+es:granos de maíz
+fi:maissirouhe
+fr:semoule de mais
+hu:kukoricadara
+it:spezzato di mais, semolino di granoturco
+nl:Maïsgrits
+pt:grãos de milho
+ro:porumb boabe
+sk:kukuričná krupic
+sl:koruzni zdrob
+sv:majsgryn
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20mais
+# 597 products in 15 languages @2018-09-23
+wikipedia:https://en.wikipedia.org/wiki/Cornmeal
+openfoodfacts:https://world.openfoodfacts.org/ingredient/cornmeal
+# 281 products in 1 language @201809-23
+
+<en:cornmeal
+fr:semoule de maïs précuite
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20maïs%20précuite
+# 27 products in 1 language @2018-09-24
+
+<en:cornmeal
+en:dextrinated cornmeal
+es:harina de maíz dextrinada
+fr:farine de maïs dextrinée
+nl:gedextrineerd maïsmeel
+de:dextriniertes Maismehl
+openfoodfacts:https://world.openfoodfacts.org/ingredient/dextrinated-cornmeal
+# NO products @2018-09-23
+
+<en:corn
+en:corn flakes, cornflakes
+de:Maisflakes, Cornflakes
+fr:pétales de maïs, pétale de maïs, cornflakes, corn flakes, flocons de maïs
+es:copos de maíz, corn flakes
+it:fiocchi di mais, cornflakes
+nl:maïsvlokken
+pl:płatki kukurydziane
+pt:flocos de milho
+openfoodfacts:https://world.openfoodfacts.org/ingredient/cornflakes
+# 11 products in 2 languages @2018-09-23
+openfoodfacts:https://world.openfoodfacts.org/ingredient/corn%20flakes
+# 82 products in 5 languages @2018-09-23
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20maïs
+# 22 products in 5 languages @2018-09-23
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pétales%20de%20maïs
+# 180 products in 8 languages @2018-09-24
+
+<en:corn
+de:Maiskölbchen
+fr:épis de maïs
+it:pannocchiette di granoturco
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:épis%20de%20maïs
+# 19 products in 4 languages @2018-09-23
+
+<en:corn
+de:Wachmais
+fr:maïs cireux
+it:maïs ceroso
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:maïs%20cireux
+# 24 products in 3 languages @2018-09-24
+
+<en:corn
+fr:grains de maïs
+de:Maiskörner
+sr:kukuruzni griz
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:grains%20de%20maïs
+# 41 products in 3 languages @2018-09-24
+
+<fr:grains de maïs
+<en:sweetcorn
+fr:maïs doux en grains
+nl:zoete maïskorrels
+pt:milho doce em grão
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:maïs%20doux%20en%20grains
+# 66 products in 1 language @2018-09-24
+
+<fr:maïs doux en grains
+fr:maïs doux en grains sans ogm
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:maïs%20doux%20en%20grains%20sans%20ogm
+# 65 products in 4 languages @2018-09-24
+
+<en:corn
+en:sweetcorn
+de:Süssmais
+es:maíz dulce
+fr:maïs doux
+it:mais dolce
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:maïs%20doux
+# 103 products in 5 languages @2018-09-24
+
+<en:cornmeal
+fr:maïs moulu
+nl:gemalen maïs
+pt:milho moído
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:maïs%20moulu
+# 28 products in 3 languages @2018-09-24
 
 # THICKENER
 
@@ -5781,13 +7328,7 @@ en:invert sugar, inverted sugar
 fr:sucre inverti
 wikipedia:https://en.wikipedia.org/wiki/Inverted_sugar_syrup
 
-<en:invert sugar
-<en:sugar syrup
-en:invert sugar syrup, invert syrup, liquid invert syrup
-fr:sirop de sucre inverti
 
-<en:invert sugar syrup
-en:cane invert syrup, invert cane syrup
 
 <en:invert sugar
 <en:invert cane sugar, inverted cane sugar
@@ -5881,7 +7422,6 @@ fr:sucre bio
 
 <en:sugar
 fr:sucre du lait
-allergens:fr:sucre du _lait_
 
 <en:sugar
 fr:sucre semoule
@@ -5899,8 +7439,453 @@ fr:mélasse de sucre de canne
 <en:sugar
 fr:mélasse de canne, mélasse de sucre de canne
 
+# SYRUP is a condiment that is a thick, viscous liquid consisting primarily of a solution of sugar in water, containing a large amount of dissolved sugars but showing little tendency to deposit crystals.
+# Warning: the wikipedia translations mixes syrup and glucose syrup
 
-# SIROPS
+en:syrup
+ar:شراب
+# ast:Almíbar
+be:Сіроп
+bg:Сироп
+bs:Agda
+ca:Xarop
+# chy:Pano'êhasëö'o
+cs:sirup
+cy:Surop
+da:sirup
+de:Sirup
+el:σιρόπι
+eo:Siropo
+es:jarabe
+fa:شیره
+fi:siirappi
+fr:sirop
+fy:Sjerp
+gl:Xarope
+he:סירופ
+hr:Sirup
+hu:Szirup
+id:Sirup
+io:Siropo
+is:siróp
+it:sciroppo
+ja:シロップ
+jv:Sirup
+ko:시럽
+la:Sirupus
+li:Sjroap
+lt:Sirupas
+# mwl:Xarope
+# nah:Neucpahtli
+nl:stroop, siroop
+nn:sirup
+pl:syrop
+pt:xarope
+ru:Сироп
+sh:Sirup
+sk:sirup
+sl:sirup
+so:Sharoobo
+sv:sirap, Sockerlag
+sw:Shira
+th:ยาน้ำเชื่อม
+tr:Şurup
+uk:Сироп
+vi:Xi rô
+zh:糖漿
+# zh-yue:糖漿
+wikipedia:https://en.wikipedia.org/wiki/Syrup
+wikidata:en:Q6584340
+openfoodfacts:https://world.openfoodfacts.org/ingredient/syrup
+# 9746 products in 24 languages @2018-09-24
+
+# GLUCOSE (synonymous Dextrose) is a simple sugar with the molecular formula C6H12O6. 
+
+en:glucose
+af:Glukose
+ar:جلوكوز
+as:গ্লুক'জ
+# ast:Glucosa
+az:Qlükoza
+# azb:گلوکوز
+be:Глюкоза
+bg:Глюкоза
+bn:গ্লুকোজ
+bs:Glukoza
+ca:Glucosa
+# cdo:Buò-dò̤-tòng
+# ckb:گلووکۆز
+cs:Glukóza
+da:glukose
+de:Glukose
+el:Γλυκόζη
+eo:Glukozo
+es:glucosa
+et:glükoos
+eu:Glukosa
+fa:گلوکز
+fi:Glukoosi
+fr:glucose
+# frr:Glukoos
+fy:glukoaze, Druvesûker
+ga:Glúcós
+gl:Glicosa
+he:גלוקוז
+hi:ग्लूकोज़
+hr:Glukoza
+hu:Glükóz
+hy:Գլյուկոզ
+ia:Glucosa
+id:Glukosa
+io:Glikoso
+is:Glúkósi
+it:Glucosio
+ja:グルコース
+jv:Glukosa
+ka:გლუკოზა
+kk:Глюкоза
+kn:ಗ್ಲುಕೋಸ್
+ko:글루코스
+ku:Glukoz
+ky:Глюкоза
+la:Glucosum
+# lmo:Glucosa
+lt:gliukozė
+lv:glikoze
+mk:Глукоза
+ml:ഗ്ലൂക്കോസ്
+mn:Глюкоз
+ms:Glukosa
+my:ဂလူးကို့သကြား
+nl:glucose
+nn:Glukose
+no:Glukose
+oc:Glucòsa
+om:Giluukoosii
+pa:ਗੁਲੂਕੋਸ
+# pam:Glucose
+# pnb:گلوکوز
+pt:Glicose, glucose
+qu:Uwas misk'i
+ro:Glucoză
+ru:Глюкоза
+# sco:Glucose
+sh:Glukoza
+si:ග්ලූකෝස්
+sk:Glukóza
+sl:Glukoza
+sq:Glukoza
+sr:Глукоза
+su:Glukosa
+sv:Glukos
+sw:Glukosi
+ta:குளுக்கோசு
+te:గ్లూకోస్
+th:กลูโคส
+tl:Glukosa
+tr:Glukoz
+tt:Глюкоза
+ug:گلۇكوزا
+uk:Глюкоза
+ur:گلوکوز
+uz:Glukoza
+vi:Glucose
+# war:Glukosa
+# xmf:გლუკოზა
+zh:葡萄糖
+# zh-min-nan:Phû-tô-thn̂g
+# zh-yue:葡萄醣
+wikipedia:https://en.wikipedia.org/wiki/Glucose
+wikidata:en:Q37525
+openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose
+# 24682 products in 24 languages @2018-09-24
+
+<en:glucose
+<en:syrup
+en:glucose syrup
+# ast:Almíbar
+bg:глюкозе сироп
+ca:Almívar
+cs:glukózový sirup
+da:glukosesirup
+de:Glukosesirup
+el:σιρόπι γλυκόζης
+es:jarabe de glucosa
+et:glükoosisiirup
+eu:Almibar
+fi:glukoosisiirappi
+fr:sirop de glucose
+gl:Almibre
+hr:glukozni sirup
+is:glukósasiróp
+it:sciroppo di glucosio
+ja:글루코스 시럽
+lt:gliukozės sirupas
+lv:glikozes sīrups, giikozes sirups
+nl:glucosestroop
+nn:glukosesirup
+pl:syrop glukozowy
+pt:xarope de glicose
+ro:sirop de glucoză
+sr:glukozni sirup
+sk:glukózový sirup
+sv:Glukossirap
+openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose-syrup
+# 32467 products in 29 languages @2018-09-24
+wikipedia:https://en.wikipedia.org/wiki/Glucose_syrup
+wikidata:en:Q14770547
+
+<en:glucose syrup
+en:dehydrated glucose syrup, powdered glucose syrup, dried glucose syrup
+da:tørret glukosesirup
+fi:kuivattu glukoosisiirappi
+fr:sirop de glucose déshydraté, sirop de glucose en poudre
+it:sciroppo di glucosio disidratato, sciroppo di glucosio in polvere
+nl:gedroogde glucosestroop
+sv:torkad glukossirap
+openfoodfacts:https://world.openfoodfacts.org/ingredient/powdered-glucose-syrup
+# 60 products in 4 languages @2018-09-24
+openfoodfacts:https://world.openfoodfacts.org/ingredient/dehydrated-glucose-syrup
+# 350 products in 8 languages
+
+<en:powdered glucose syrup
+fr:sirop de glucose de blé en poudre
+nl:tarweglucosestrooppoeder
+sv:glukossirap från vetemjöl
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop%20de%20glucose%20de%20blé%20en%20poudre
+# 49 products in 3 languages @2018-09-24
+
+<en:corn syrup
+<en:glucose
+fr:sirop de glucose de maïs
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop%20de%20glucose%20de%20maïs
+# 148 products in 1 language @2018-09-24
+
+<en:wheat
+<en:glucose
+fr:glucose de blé
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:glucose%20de%20blé
+# 30 products in 1 language @2018-09-24
+
+<en:glucose syrup
+<en:wheat
+en:wheat glucose syrup
+de:Weizenglukosesirup
+fr:sirop de glucose de blé
+it:sciroppo di glucosio di frumento
+nl:tarweglucosestroop
+pl:syrop glukozowy z pszenicy
+pt:xarope de glucose de trigo
+openfoodfacts:https://world.openfoodfacts.org/ingredient/wheat-glucose-syrup
+# 661 products in 7 languages @2018-09-24
+
+# FRUCTOSE, or fruit sugar, is a simple ketonic monosaccharide found in many plants, where it is often bonded to glucose to form the disaccharide sucrose.
+
+en:fructose
+af:Fruktose
+ar:فركتوز
+# ast:Fructosa
+# azb:فروکتوز
+be:Фруктоза
+bg:Фруктоза
+bn:ফ্রুক্টোজ
+bs:Fruktoza
+ca:Fructosa
+cs:Fruktóza
+da:Fruktose
+de:Fructose
+el:Φρουκτόζη
+eo:Fruktozo
+es:fructosa
+et:Fruktoos
+eu:Fruktosa
+fa:فروکتوز
+fi:Fruktoosi
+fr:fructose
+fy:Fruktoaze
+gl:Frutosa
+he:פרוקטוז
+hr:Fruktoza
+hu:Fruktóz
+hy:Լևուլոզ
+id:Fruktosa
+it:fruttosio
+ja:フルクトース
+kk:Фруктоза
+ko:프럭토스
+ku:Fruktoz
+la:Fructosum
+lb:Fruktos
+lo:ນ້ຳຕານໝາກໄມ້
+lt:Fruktozė
+lv:Fruktoze
+mg:Froktôzy
+mk:Фруктоза
+ms:Fruktosa
+nl:fructose
+nn:Fruktose
+no:fruktose, Fruktsukker
+oc:Fructòsa
+pl:fruktoza
+pt:frutosa
+qu:Wayu misk'i
+ro:Fructoză
+ru:Фруктоза
+# sco:Fructose
+sh:Fruktoza
+sl:Fruktóza
+sq:Fruktoza
+sr:fruktoza
+sv:Fruktos
+ta:புருக்டோசு
+tg:Фруктоза
+th:ฟรักโทส
+tl:Pruktosa
+tr:Fruktoz
+tt:Fruktoza
+uk:Фруктоза
+ur:فرکٹوس
+vi:Fructose
+# war:Fructose
+zh:果糖
+# zh-yue:菓醣
+wikipedia:https://en.wikipedia.org/wiki/Fructose
+wikidata:en:Q122043
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fructose
+# 3267 products in 11 languages @2018-09-24
+
+<en:fructose
+<en:wheat
+fr:fructose de blé
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fructose%20de%20blé
+# 39 products in 4 languages @2018-09-24
+
+<en:syrup
+en:fructose syrup
+de:Fruktose Sirup
+fr:sirop de fructose
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fructose-syrup
+# 11561 products in 5 languages @2018-09-24
+
+<en:fructose syrup
+de:Fruktosepulver
+it:Fruttosio in polvere
+
+<en:fructose syrup
+en:oligofructose syrup
+fr:sirop d'oligofructose
+it:sciroppo di oligofruttosio
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop%20d'oligofructose
+# 29 products in 3 languages @2018-09-24
+
+<en:glucose
+<en:fructose
+en:glucose-fructose
+fr:glucose-fructose
+openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose-fructose
+# 19 products in 3 languages @2018-09-24
+
+<en:syrup
+<en:glucose
+<en:fructose
+en:glucose-fructose syrup, fructose-glutose syrup, glucose and fructose syrup
+cs:glukózový-fruktózový sirup
+da:glukos-fruktossirap
+de:Glukose-Fruktose-Sirup, Glukose-Fruktosesirup, Glukose Fruktose sirup
+el:σιρόπι γλυκόζης-φρουκτόζης
+es:jarabe de glucosa y fructosa
+fi:glukoosi-fruktoosi siirappi
+fr:sirop de glucose-fructose, sirop de glucose et de fructose, sirop de fructose-glucose
+hu:glükóz-fruktózszörp, glükóz-fruktózszőrp
+it:sciroppo di glucosio-fruttosio
+nl:glucose-fructosestroop
+nn:glukos-fruktossirap
+pl:syrop glukozowo-fruktozowy
+pt:xarope de glucose-frutose
+ru:глюкозно-фруктозный сироп
+sr:glukozno-fruktozni sirup
+sk:glukózový-fruktózový sirup
+sv:glukos-fruktossirap
+openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose-and-fructose-syrup
+# 5775 products in 21 languages @2018-09-24
+
+<en:wheat
+<en:fructose syrup
+<en:glucose syrup
+fr:sirop de glucose-fructose de blé
+de:Glukose-und Fruktosesirup (Weizen)
+nl:glucose-fructosestroop van tarwe
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop%20de%20glucose-fructose%20de%20blé
+# 271 products in 4 languages @2018-09-24
+
+# High-fructose corn syrup (HFCS) (also called glucose-fructose, isoglucose and glucose-fructose syrup) is a sweetener made from corn starch
+# This is probably the same as glucose-fructose syrup, but as long as it not made explicit, nothing is assumed.
+
+<en:glucose-fructose syrup
+<en:corn syrup
+en:high fructose corn syrup, isoglucose
+bg:Високо-фруктозен сироп от царевица
+ca:Xarop de blat de moro alt en fructosa
+es:Jarabe de maíz de alta fructosa
+fr:sirop de maïs à haute teneur en fructose, sirop de glucose-fructose de maïs
+hu:Izocukor
+ja:異性化糖
+ko:고과당 옥수수 시럽
+nl:maïsglucose-fructosestroop
+sr:Високофруктозни кукурузни сируп
+sv:Isoglukos
+zh:高果糖浆
+# wikipedia:https://en.wikipedia.org/wiki/High-fructose_corn_syrup
+# wikidata:en:Q11422173
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop%20de%20glucose-fructose%20de%20maïs
+# 28 products in 2 languages @2018-09-24
+
+<en:invert sugar
+<en:sugar syrup
+en:invert sugar syrup, invert syrup, liquid invert syrup
+fr:sirop de sucre inverti
+de:Invertzuckersirup
+
+<en:invert sugar syrup
+en:cane invert syrup, invert cane syrup
+
+<en:syrup
+en:corn syrup
+ar:شراب الذرة
+be:Кукурузны сіроп
+ca:Xarop de blat de moro
+da:majssirup
+de:Maissirup
+eo:Maiza siropo
+es:Jarabe de maíz, sirope de maíz
+fi:maissisiirappi
+fr:sirop de maïs
+it:sciroppo di mais
+ja:コーンシロップ
+ko:옥수수 시럽
+pt:Xarope de milho
+ru:Кукурузный сироп
+sv:majssirap
+tr:Mısır şurubu
+uk:Кукурудзяний сироп
+zh:玉米糖漿
+wikidata:en:Q618739
+wikipedia:https://en.wikipedia.org/wiki/Corn_syrup
+openfoodfacts:https://world.openfoodfacts.org/ingredient/corn-syrup
+# 19402 products in 7 languages @2018-09-24
+
+fr:sirop d'amidon
+
+<fr:sirop d'amidon
+fr:sirop d'amidon de maïs
+
+<en:malted barley
+fr:sirop d'orge malté
+
+<fr:sirop d'orge malté
+fr:sirop de malt d'orge déshydraté
+
+fr:sirop de candi, sirop de scucre candi
 
 en:maple syrup
 es:jarabe de arce
@@ -5913,40 +7898,9 @@ fr:sirop de sucre
 
 fr:sirop de sucre candi
 
-en:glucose
-fr:glucose
-
-en:glucose-fructose
-fr:glucose-fructose
-
-<en:glucose syrup
-en:glucose and fructose syrup, glucose-fructose syrup, fructose-glutose syrup
-fr:sirop de glucose et de fructose, sirop de fructose-glucose, sirop de glucose-fructose
-
-<en:glucose syrup
-fr:sirop de glucose-fructose de blé
-
-<en:glucose syrup
-fr:sirop de glucose de maïs
-
-<en:glucose syrup
-en:dehydrated glucose syrup
-fr:sirop de glucose déshydraté
-
-<en:glucose syrup
-en:wheat glucose syrup
-fr:sirop de glucose de blé
-
-<en:glucose
-fr:glucose de blé
-allergens:fr:glucose de _blé_
-
 en:caramel syrup
 fr:sirop de caramel
 
-en:corn syrup
-fr:sirop de maïs
-wikidata:en:Q618739
 
 en:agave syrup
 es:jarabe de agave
@@ -5954,18 +7908,7 @@ fr:sirop d’agave
 nl:agavesiroop
 de:Agavensirup
 
-<en:glucose syrup
-en:fructose syrup
-fr:sirop de fructose
-
-<en:fructose syrup
-en:high-fructose corn syrup
-fr:sirop de maïs à haute teneur en fructose
-es:Jarabe de maíz de alta fructosa
-wikidata:en:Q11422173
-
 fr:sirop de blé
-allergens:fr:sirop de _blé_
 
 fr:sirop de sucre de canne
 
@@ -5991,7 +7934,6 @@ fr:sorbitols et glycérol, glycérol et sorbitols
 
 <en:sorbitol
 fr:sirop de sorbitol de blé
-allergens:fr:sirop de sorbitol de _blé_
 
 en:rice syrup
 fr:sirop de riz
@@ -6003,27 +7945,94 @@ fr:sirop de sucre caramélisé
 nl:gekarameliseerde suikerstroop 
 de:Karamell-Zuckersirup
 
+# Glucose (synonymous Dextrose) is a simple sugar with the molecular formula C6H12O6
 
+<en:glucose
 en:dextrose
-es:dextrosa
-fr:dextrose
-nl:dextrose
+bs:dekstroza
+cs:dextróza
+da:dextrose
 de:Dextrose
+el:δεξτροζη
+es:dextrosa
+et:dekstroos
+fr:dextrose
+hu:dextróz
+it:destrosio
+nl:dextrose
+nn:dekstrose
+pl:dekstroza
+ro:dextroza
+sk:dextróza
+sl:dekstroza
+openfoodfacts:https://world.openfoodfacts.org/ingredient/dextrose
+# 29818 products in 30 languages @2018-09-24
 
 <en:dextrose
 en:corn dextrose, dextrose from corn
+bs:kukuruzna dekstroza
+es:dextrosa de maíz
+et:maisidekstroos
 fr:dextrose de maïs
+it:destrosio di mais
+lt:kukuruzu dekstrose
+nl:maïsdextrose
+nn:maisdekstrose
+pl:dekstroza kukurydziana
+ro:dextroza din porumb
+sl:dekstroza iz koruze
+sv:majssocker
+tr:misir dekstrozu
+openfoodfacts:https://world.openfoodfacts.org/ingredient/corn-dextrose
+# 868 products in 18 languages @2018-09-24
 
 <en:dextrose
 en:wheat dextrose, dextrose from wheat
+de:Weizendextrose
 fr:dextrose de blé
+it:destrosio di frumento
+nl:tarwedextrose
+pl:dekstroza pszenna
+pt:dextrose de trigo
+openfoodfacts:https://world.openfoodfacts.org/ingredient/wheat-dextrose
+# 992 products in 9 languages @2018-09-25
 
-<en:dextrose
+<en:wheat dextrose
+<en:corn dextrose
 en:wheat or corn dextrose, corn or wheat dextrose
 fr:dextrose de blé ou de maïs, dextrose de maïs ou de blé
+nl:dextrose van tarwe of maïs
+openfoodfacts:https://world.openfoodfacts.org/ingredient/wheat-or-corn-dextrose
+# 64 products in 3 languages @2018-09-25
+
+# POLYDEXTROSE is a synthetic polymer of glucose.
 
 <en:dextrose
-fr:polydextrose
+en:polydextrose, E1200
+fr:polydextrose, E1200
+de:Polydextrose, E1200
+es:Polidextrosa, E1200
+fi:Polydekstroosi, E1200
+gl:Polidextrosa, E1200
+it:polidestrosio, E1200
+ja:ポリデキストロース, E1200
+nl:Polydextrose, E1200
+pt:Polidextrose, E1200
+wikipedia:https://en.wikipedia.org/wiki/Polydextrose
+wikidata:en:Q424616
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:polydextrose
+# 265 products in 4 languages @2018-09-25
+
+<en:wheat dextrose
+<fr:dextrose de tapioca
+nl:tarwe- of tapiocadextrose
+sv:dextros av vete eller tapioka
+
+<en:dextrose
+fr:dextrose de tapioca
+nl:tapiocadextrose
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:dextrose%20de%20tapioca
+# 26 products @2018-09-25
 
 # PROTEINES - are large biomolecules, or macromolecules, consisting of one or more long chains of amino acid residues
 
@@ -6173,7 +8182,6 @@ fr:protéine hydrolysée
 nl:gehydroliseerd eiwit
 de:Proteinhydrolysat
 
-
 <en:protein
 en:vegetable protein
 fr:protéines végétales, protéine végétale
@@ -6198,23 +8206,17 @@ fr:protéines de pois hydrolysées
 
 <en:pea protein
 <en:vegetable hydrolysed protein
-<en:soy
 en:soy protein
 fr:protéine de soja, protéines de soja
 nl:soja-eiwit
-allergens:fr:protéines de _soja_
-allergens:fr:protéine de _soja_
 
 <en:soy protein
 en:rehydrated soy protein
 fr:protéines de soja réhydratées, protéines végétales de soja réhydratées
 nl:gerehydrateerde soja-eiwit
-allergens:fr:protéines de _soja_ réhydratées
-allergens:fr:protéines végétales de _soja_ réhydratées
 
 <en:soy protein
 fr:isolat de protéine de soja
-allergens:fr:isolat de protéine de _soja_
 
 <en:soy protein
 en:hydrolysed soy protein
@@ -6222,19 +8224,15 @@ de:Sojaproteinhydrolysat
 es:proteína de soja hidrolizada
 fr:protéine de soja hydrolysée, protéines de soja hydrolysées
 nl:gehydroliseerd soja-eiwit
-allergens:fr:protéine de _soja_ hydrolysée
-allergens:fr:protéines de _soja_ hydrolysées
 
 <en:soy protein
 fr:protéines de soja i.p
-allergens:fr:protéines de _soja_ i.p
 
 
 <en:vegetable protein
 en:wheat protein
 fr:protéine de blé, protéines de blé
 nl:graneneiwit
-allergens:fr:protéines de _blé_
 
 <en:vegetable hydrolysed protein
 en:hydrolyzed wheat protein
@@ -6242,7 +8240,6 @@ es:proteína hidrolizada de trigo
 fr:protéine de blé hydrolysée, protéines de blé hydrolysées
 nl:gehydroliseerd tarwe-eiwit
 de:hydrolisiertes Weizenprotein
-allergens:fr:protéines de _blé_ hydrolysées
 
 <en:vegetable hydrolysed protein
 en:hydrolysed corn protein
@@ -6272,9 +8269,6 @@ es:proteína de leche
 fr:protéine de lait, protéines de lait, protéines du lait, protéines du lait, protéines laitières, protéines lactiques, protéine lactique
 nl:melkeiwit
 de:Milcheiweiß
-allergens:fr:protéine de _lait_
-allergens:fr:protéines de _lait_
-allergens:fr:protéines _laitières_
 nova:en:4
 
 <en:hydrolysed protein
@@ -6284,7 +8278,6 @@ es:proteína de leche hidrolizada
 fr:protéine de lait hydrolysée
 nl:gehydroliseerd melkeiwit
 de:Milchproteinhydrolysat
-allergens:fr:protéine de _lait_ hydrolysée
 
 <en:milk protein
 fr:protéines de petit-lait
@@ -6292,7 +8285,6 @@ fr:protéines de petit-lait
 <en:milk protein
 fr:protéines de lait en poudre
 nl:melkeiwitpoeder
-allergens:fr:protéines de _lait_ en poudre
 
 # WHEY PROTEIN is a mixture of globular proteins isolated from whey, the liquid material created as a by-product of cheese production.
 
@@ -6316,7 +8308,6 @@ uk:Сироватковий білок
 vi:Đạm váng sữa
 zh:乳清蛋白
 wikipedia:en:https://en.wikipedia.org/wiki/Whey_protein
-allergens:fr:protéines de _lactosérum_
 
 # Casein is a family of related phosphoproteins. These proteins are commonly found in mammalian milk, comprising c. 80% of the proteins in cow's milk and between 20% and 45% of the proteins in human milk.
 
@@ -6400,16 +8391,13 @@ fr:pépites de chocolat noir
 
 en:milk chocolate
 fr:chocolat au lait
-allergens:fr:chocolat au _lait_
 
 <en:milk chocolate
 <en:chocolate chips
 fr:pépites de chocolat au lait
-allergens:fr:pépites de chocolat au _lait_
 
 <en:milk chocolate
 fr:chocolat supérieur au lait
-allergens:fr:chocolat supérieur au _lait_
 
 fr:fourrage au chocolat
 
@@ -6428,7 +8416,6 @@ fr:copeaux de chocolat
 fr:poudre de chocolat
 
 fr:chocolat au lait du pays alpin
-allergens:fr:chocolat au _lait_ du pays alpin
 
 # CACAO
 
@@ -6438,15 +8425,20 @@ fr:cacao maigre en poudre
 
 fr:cacao dégraissé
 
+fr:fèves de cacao
+
+<fr:fèves de cacao
+fr:éclats de fèves de cacao, éclats de fèves de cacao
+
+<fr:éclats de fèves de cacao
 fr:éclats de fèves de cacao torréfiés
 
 fr:cacao minimum
 
+<fr:éclats de fèves de cacao
 fr:éclats de fèves de cacao caramélisés
 
 fr:cacao dégraissé en poudre
-
-fr:éclats de fèves de cacao
 
 fr:cacao en poudre dégraissé
 
@@ -6460,7 +8452,7 @@ fr:cacao fortement dégraissé en poudre
 
 fr:pur beurre de cacao
 
-fr:fèves de cacao
+
 
 fr:cacao en poudre fortement dégraissé
 
@@ -6491,6 +8483,8 @@ fr:beurre de cacao émulsifiant
 
 en:cocoa paste
 fr:pâte de cacao
+de:Kakaomasse
+es:Pasta de cacao
 
 <en:cocoa
 en:cocoa powder
@@ -6881,10 +8875,13 @@ fr:eau purifiée
 
 en:citric acid
 fr:acide citrique
+de:Citronensäure
+es:Acido citrico
 wikidata:en:Q159683
 
 en:ascorbic acid
 fr:acide ascorbique
+de:Ascorbinsäure
 
 fr:acide l-ascorbique
 
@@ -6970,67 +8967,161 @@ nl:capsicum-extract
 de:Capsaicin-Extrakt
 wikidata:en:Q53792073
 
-
-en:corn
-fr:mais
-
-fr:semoule de mais
-
 fr:ferments lactique
-allergens:fr:ferments _lactiques_
 
-en:soy
+# SOYA is used as a generic word to indicate it is made from soybeans
+# Using wikipedia as translation is difficult, sometimes it is translated as soya, soybean or glycine max
+# note that soya is english and soy is american
+
+en:soya, soy
+an:soya
+# ast:soya
+az:Soya
+ba:Соя
+be:Соя
+bg:Соя
+br:Soja
+bs:Soja
+ca:Soia
+cy:Soia
+da:soja
+de:Soja
+el:Σόγια
+es:soja
+eu:Soja
+et:soja
+fi:soija
 fr:soja
-allergens:fr:_soja_
+gl:Soia
+gn:Sóha
+hr:Soja
+# hsb:Soja
+ia:soya
+id:Kedelai
+# ilo:Soya
+io:Soyo
+it:soia
+jv:Dhelé
+# kbp:Soojaa
+ku:Soya
+# lfn:Soia
+lt:Soja
+lv:Soja
+mk:Соја
+ms:soya
+nl:soja
+oc:Sòja
+pl:Soja
+pt:Soja
+os:Сойæ
+qu:Suya
+ro:soia
+ru:Соя
+rw:Soya
+sh:Soja
+sl:Soja
+sr:Соја
+sv:soja
+sw:Soya
+tr:Soya
+tt:Соя
+uk:Соя
+uz:Soya
+# war:Soya
+openfoodfacts:https://world.openfoodfacts.org/ingredient/soy
+# 39698 products in 23 languages @2018-09-25
 
-<en:soy
-en:soy beans
-fr:fève de soja, fèves de soja, soja entier, graine de soja, graines de soja
-allergens:fr:_soja_ entier
-allergens:fr:graine de _soja_
-allergens:fr:fève de _soja_
-allergens:fr:fèves de _soja_
-allergens:fr:graines de _soja_
+# SOYBEAN (Glycine max), or soya bean is a species of legume native to East Asia, 
 
-<en:soy beans
+<en:soya
+en:soya bean, soy beans, soya beans, soybean
+# als:Sojabohne
+# bar:Sojaboanl
+cs:Sója luštinatá
+da:Sojabønne
+de:Sojabohne, Sojabohnen, Sojakerne
+eo:Sojfabo
+es:granos de soja, habas de soja
+et:Sojauba
+fi:Soijapapu
+# fiu-vro:Sojauba
+fr:fève de soja, fèves de soja, soja entier, graine de soja, graines de soja, graines soja
+# frr:Soojabuan
+hu:Szójabab
+id:kacang kedelai
+# ilo:bukel ti soya
+is:Sojabaun
+it:semi di soia
+# jam:Sayabiin
+ku:fasulyeya soyayê
+lt:Gauruotoji soja
+ms:Kacang soya
+nl:Sojaboon, sojabonen
+nn:Soyabønne
+no:Soyabønne
+pl:Soja warzywna
+pt:grão de soja, grãos de soja
+# sco:Soya bean
+sk:Sója fazuľová
+wkipedia:https://en.wikipedia.org/wiki/Soybean
+wikidata:en:Q11006
+openfoodfacts:https://world.openfoodfacts.org/ingredient/soy-beans
+# 872 products in 9 languages @2018-09-25
+
+<en:soya bean
 fr:fèves de soja sans ogm décortiquées
-allergens:fr:fèves de _soja_ sans ogm décortiquées
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fèves%20de%20soja%20sans%20ogm%20décortiquées
+# 31 products in 5 languages @2018-09-25
 
-<en:soy beans
+<en:soya bean
 fr:soja dépelliculé, graines de soja dépelliculées, fèves de soja décortiquées
-allergens:fr:graines de _soja_ dépelliculées
-allergens:fr:fèves de _soja_ décortiquées
+de:geschälte Sojabohnen
+es:habas de soja descascarilladas
+it:semi di soia decorticati
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:soja%20dépelliculé
+# 95 products in 4 languages @2018-09-25
 
-<en:soy
+<en:soya
+en:soy flakes
+de:Sojaflocken
 fr:flocons de soja
-allergens:fr:flocons de _soja_
+it:fiocchi di soia
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20soja
+# 77 products in 4 languages @2018-09-25
 
-<en:soy
+
+<en:soya
 fr:pousses de soja
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pousses%20de%20soja
+# 24 products in 1 language @2018-09-25
 
-<en:soy
+# fr:Jus de soja is a compound ingredient: soybean + water
+
+<en:soya
 fr:jus de soja
-allergens:fr:jus de _soja_
+it:salsa di soia
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20soja
+# 253 products in 7 languages @2018-09-25
 
-<en:soy
+<en:sauce
+en:soy sauce
+de:Sojasauce
 fr:sauce au soja, sauce de soja, sauce soja
-allergens:fr:sauce au _soja_
-allergens:fr:sauce de _soja_
-allergens:fr:sauce _soja_
+it:salsa di soia
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce%20au%20soja
+# 449 products in 5 languages @2018-09-25
 
 <fr:sauce au soja
+en:soy sauce powder
+de:Soja Sosse Pulver
 fr:sauce soja en poudre, sauce de soja en poudre
-allergens:fr:sauce _soja_ en poudre
+nl:soja saus poeder
 
 en:gelifier
 fr:gélifiant
 
-en:raising powder
-fr:poudre à lever, poudres à lever
-
 en:gluten
 fr:gluten
-allergens:fr:_gluten_
 
 fr:persil
 
@@ -7038,10 +9129,8 @@ en:carot
 fr:carotte
 
 fr:céleri
-allergens:fr:_céleri_
 
 fr:gluten de blé
-allergens:fr:gluten de _blé_
 
 en:maltodextrin
 el:μαλτοδεξτρίνη
@@ -7061,14 +9150,18 @@ fr:maltodextrine de pomme de terre, malto-dextrine de pomme de terre
 en:corn maltodextrin
 fr:maltodextrine de maïs, malto-dextrine de maïs
 
+
+<en:mustard
+en:mustard powder
+fr:farine de moutarde
+nl:mosterdpoeder
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine%20de%20moutarde
+# 127 products in 5 languages @2018-09-22
+
 # Random
 
-fr:colza
 
 fr:carraghénane
-
-fr:blé
-allergens:fr:_blé_
 
 
 # a raising agent is any one of a number of substances used in doughs and batters that cause a foaming action (gas bubbles) that lightens and softens the mixture.
@@ -7088,7 +9181,7 @@ es:Gasificante, Agente leudante, agentes gasificantes
 et: Kergitusaine
 fa:عامل ورآورنده
 fi: Nostatusaine
-fr:Agent levant, agent de levuration
+fr:Agent levant, agent de levuration, agent levant, agents levants
 he:התפחה
 hu: Térfogatnövelő szer
 id:Bahan pengembang
@@ -7117,6 +9210,7 @@ wikidata:en:Q908833
 wikipedia:https://en.wikipedia.org/wiki/Leavening_agent
 
 # Yeasts are eukaryotic, single-celled microorganisms classified as members of the fungus kingdom. 
+
 
 <en:raising agent
 en:yeast
@@ -7208,7 +9302,7 @@ en:fresh yeast
 fr:levure fraîche
 
 <en:yeast
-fr:levure inactivée
+fr:levure inactivée, levure désactivée
 de:inaktivierte Hefe, inaktiveirte Hefe
 it:lievito inattivo
 
@@ -7218,11 +9312,11 @@ de:Nährhefe
 it:lievito alimentare
 
 <en:yeast
-en:yeast powder
+en:yeast powder, raising powder
 de:Hefepulver
 el:μαγιά σκόνη
 es:levadura en polvo
-fr:poudre de levure, levure en poudre
+fr:poudre de levure, levure en poudre, poudres levantes, poudre à lever, poudres à lever, poudre levante
 it:lievito in polvere
 nl:gistpoeder
 pt:levedura em pó
@@ -7250,7 +9344,7 @@ el:Μαγιά αρτοποιίας
 es:levadura de panadería, Levadura de panadería
 et:Pärm
 fa:مخمر نان
-fr:levure de boulanger, levure de boulangerie, levure de panification
+fr:levure de boulanger, levure de boulangerie, levure de panification, levure boulangère
 is:Pressuger
 nl:bakkersgist
 pt:levedura para panificação
@@ -7309,11 +9403,73 @@ de:Hefeextraktpulver
 fr:extrait de levure en poudre
 it:estratto di lievito in polvere
 
-fr:graines de moutarde
-allergens:fr:graines de _moutarde_
+# Sourdough bread is made by the fermentation of dough using naturally occurring lactobacilli and yeast.
 
-fr:semoule de blé dur
-allergens:fr:semoule de _blé_ dur
+<en:raising agent
+en:sourdough
+an:Emprenyatuera
+ar:خبز عجينة متخمرة
+bg:Квас
+ca:Massa mare
+cs:Kvásek
+da:Surdej
+de:Sauerteig
+eo:Acidpasto
+es:Masa madre
+fa:نان خمیر ترش
+fi:Taikinajuuri
+fr:levain, levain naturel
+he:מחמצת שאור
+hu:Kovász
+id:Adonan asam
+is:Súrdeig
+it:Lievito naturale
+ja:サワードウ
+ko:사워도
+# nap:Criscito
+nl:Zuurdesem
+nn:Surdeig
+no:Surdeig
+pl:Zakwas chlebowy
+pt:Massa lêveda
+ru:Хлебная закваска
+sh:Кисело тесто
+sk:Kvások
+sr:Кисело тесто
+sv:Surdeg
+zh:老麵
+wikipedia:https://en.wikipedia.org/wiki/Sourdough
+
+<en:sourdough
+de:Sauerteig getrocknet
+fr:levain sec, levain déshydraté
+it:lievito naturale secco
+
+<en:sourdough
+fr:levain de blé
+de:Weizensauerteig
+it:lievito madre di frumento
+
+<fr:levain de blé
+fr:levain de blé déshydraté
+es:masa madre deshidratada de trigo
+
+<fr:levain de blé
+fr:levain de blé dévitalisé
+
+<en:sourdough
+de:Roggensauerteig
+fr:levain de seigle
+nl:roggezuurdesem
+ 
+<en:sourdough
+fr:levain de seigle dévitalisé
+
+<en:sourdough
+fr:levain de seigle déshydraté et dévitalisé
+
+
+fr:graines de moutarde
 
 fr:sorbate de potassium
 
@@ -7325,7 +9481,6 @@ de:Kurkuma
 
 en:mustard
 fr:moutarde
-allergens:fr:_moutarde_
 
 en:potatoes
 fr:pommes de terre
@@ -7333,7 +9488,9 @@ fr:pommes de terre
 en:cooking salt
 fr:sel de cuisine
 
+en:lecithins
 fr:lécithine, lécithines
+de:Lecithine
 
 en:sodium ascorbate
 fr:ascorbate de sodium
@@ -7350,7 +9507,6 @@ es:almendras
 fr:amande, amandes
 nl:amandelen
 de:Mandeln
-allergens:fr:_amandes_
 
 <en:almonds
 en:almond with skin
@@ -7375,44 +9531,25 @@ de:Mandelpulpe
 
 <en:almonds
 fr:amandes blanchies
-allergens:fr:_amandes_ blanchies
 
 <en:almonds
 fr:amandes entières
-allergens:fr:_amandes_ entières
 
 <en:almonds
-fr:amande en poudre
-allergens:fr:_amande_ en poudre
+fr:amande en poudre, poudre d'amande, amandes en poudre, poudre d'amandes
 
 <en:almonds
 fr:amandes hachées
-allergens:fr:_amandes_ hachées
 
 <en:almonds
 fr:amandes décortiquées
-allergens:fr:_amandes_ décortiquées
 
 <en:almonds
 fr:éclats d'amandes
-allergens:fr:éclats d'_amandes_
 
 <en:almonds
 fr:amandes grillées
-allergens:fr:_amandes_ grillées
 treatment:en: en:gril
-
-<en:almonds
-fr:poudre d'amande
-allergens:fr:poudre d'_amande_
-
-<en:almonds
-fr:amandes en poudre
-allergens:fr:_amandes_ en poudre
-
-<en:almonds
-fr:poudre d'amandes
-allergens:fr:poudre d'_amandes_
 
 <en:almonds
 en:flaked almonds
@@ -7420,20 +9557,14 @@ es:almendras laminadas
 fr:amandes effilées
 nl:amandelschaafsel
 de:Mandelblättchen
-allergens:fr:_amandes_ effilées
 
 <en:almonds
 fr:amandes amères
-allergens:fr:_amandes_ amères
 
 <en:almonds
 fr:amandes moulues
 
-fr:pâte d'amande
-allergens:fr:pâte d'_amande_
-
-fr:pâte d'amandes
-allergens:fr:pâte d'_amandes_
+fr:pâte d'amande, pâte d'amandes
 
 
 # Random
@@ -7450,8 +9581,6 @@ fr:pectine
 en:mono- and diglycerides of fatty acids
 fr:mono- et diglycérides d'acides gras
 
-fr:extrait de malt d'orge
-allergens:fr:extrait de malt d'_orge_
 
 fr:diphosphate
 
@@ -7459,7 +9588,6 @@ fr:glycérol
 
 
 fr:sulfite
-allergens:fr:_sulfites_
 
 
 fr:plante aromatique, plantes aromatiques
@@ -7507,11 +9635,8 @@ de:Erdbeeren
 
 fr:caroténoïde
 
-fr:malt d'orge
-allergens:fr:malt d'_orge_
 
 fr:lactose et protéines de lait
-allergens:fr:_lactose_ et protéines de _lait_
 
 en:sweetener, sweeteners
 fr:édulcorant, édulcorants
@@ -7524,10 +9649,8 @@ fr:exhausteur de goût, exhausteurs de goût
 fr:érythorbate de sodium
 
 fr:moutarde de dijon
-allergens:fr:_moutarde_ de dijon
 
 fr:moutarde forte de dijon
-allergens:fr:_moutarde_ forte de dijon
 
 fr:humectant
 
@@ -7555,7 +9678,6 @@ en:niacin
 fr:niacine
 
 fr:emmental
-allergens:fr:_emmental_
 
 fr:b2
 
@@ -7569,13 +9691,11 @@ de:Kreuzkümmel
 fr:citrate de sodium, citrates de sodium
 
 fr:crustacé
-allergens:fr:_crustacés_
 
 en:orange
 fr:orange
 
-fr:semoule de blé dur de qualité supérieure
-allergens:fr:semoule de _blé_ dur de qualité supérieure
+
 
 fr:fruits à coque
 
@@ -7590,12 +9710,6 @@ fr:saccharose
 
 fr:sucralose
 
-en:fructose
-es:fructosa
-fr:fructose
-nl:fructose
-de:Fructose
-
 fr:glucide
 
 en:vanilla extract
@@ -7608,18 +9722,14 @@ it:estratto di vaniglia Bourbon
 fr:laurier
 
 fr:sésame
-allergens:fr:_sésame_
 
 fr:glutamate monosodique
 wikidata:en:Q179678
 
 fr:nitrate de potassium
 
-fr:orge
-allergens:fr:_orge_
 
 fr:disulfite de potassium
-allergens:fr:_disulfite_ de potassium
 
 
 
@@ -7655,15 +9765,11 @@ fr:bicarbonate de sodium
 
 
 fr:graines de sésame
-allergens:fr:graines de _sésame_
 
-en:fruit
-fr:fruit
 
 fr:vanilline
 
 fr:mollusque
-allergens:fr:_mollusques_
 
 fr:b12
 
@@ -7750,34 +9856,6 @@ fr:framboise
 nl:framboos
 de:Himbeeren
 
-fr:avoine
-allergens:fr:_avoine_
-
-<fr:avoine
-fr:flocons d'avoine, flocon d'avoine
-allergens:fr:flocons d'_avoine_
-allergens:fr:flocon d'_avoine_
-
-<fr:flocons d'avoine
-fr:flocons d'avoine complète, flocon d'avoine complète, flocons d'avoine complet, flocons d'avoine complets
-allergens:fr:flocons d'_avoine_ complète
-allergens:fr:flocons d'_avoine_ complet
-allergens:fr:flocons d'_avoine_ complets
-
-<fr:avoine
-fr:fibre d'avoine, fibres d'avoine
-allergens:fr:fibre d'_avoine_
-allergens:fr:fibres d'_avoine_
-
-<fr:avoine
-fr:avoine complète
-allergens:fr:_avoine_ complète
-
-<fr:avoine
-fr:son d'avoine
-allergens:fr:son d'_avoine_
-
-
 fr:pectine de fruit, pectines de fruits
 
 en:paste
@@ -7790,8 +9868,6 @@ fr:carmin
 
 fr:b9
 
-fr:mozzarella
-allergens:fr:_mozzarella_
 
 en:antioxygen
 fr:antioxygène
@@ -7852,7 +9928,6 @@ fr:houblon
 fr:graisse de canard
 
 fr:anhydride sulfureux
-allergens:fr:_anhydride sulfureux_
 
 fr:propionate de calcium
 
@@ -7886,18 +9961,13 @@ fr:chlorure de potassium
 
 fr:épinard
 
-fr:sauce
 
 fr:lutéine
 
-fr:levain
-
-
 fr:noix
-allergens:fr:_noix_
 
-fr:son de blé
-allergens:fr:son de _blé_
+
+fr:mozzarella
 
 fr:minéraux
 
@@ -7909,35 +9979,368 @@ fr:alginate de sodium
 
 fr:b5
 
-# Random
+# FRUIT is the seed-bearing structure in flowering plants (also known as angiosperms) formed from the ovary after flowering.
 
-# Banana
+en:fruit
+de:Früchte, Frucht
+es:frutas
+it:frutta
+fr:fruit
+nl:vruchten
+pt:frutos
+wikipedia:https://en.wikipedia.org/wiki/Fruit
+wikidata:en:Q1364
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fruit
+# 963 products in 9 languages @2018-09-26
 
+# BANANA is an edible fruit – botanically a berry – produced by several kinds of large herbaceous flowering plants in the genus Musa
+
+<en:fruit
 en:banana
-es:plátano
-fr:banane
-nl:banaan
+af:Piesang
+# als:Banane
+am:ሙዝ
+an:Banana
+ar:موز
+# arz:موز
+as:কল
+# ast:Plátanu
+# atj:Pananis
+ay:Puquta
+az:Banan
+# azb:موز
+ba:Банан
+# bcl:Batag
+be:Банан
+bg:Банан
+bh:केला
+bi:Banana
+# bjn:Pisang
+bn:কলা
+bo:ངང་ལག
+br:Bananez
+bs:Banana
+# bxr:Гадил
+ca:Banana
+# cdo:Bă-ciĕu
+ce:Банан
+# chr:ᏆᏁᎾ
+# chy:Vóhka'émene
+# ckb:مۆز
+co:Banana
+cs:Banán
+# csb:Banan
+cy:Banana
+da:Banan
 de:Bananen
+dv:ދޮންކެޔޮ
+ee:Akɔɖu
+el:μπανάνες, Μπανάνα
+eo:Banano
+es:plátano
+et:Banaan
+eu:Banana
+fa:موز
+fi:Banaani
+fr:banane, bananes
+ga:Banana
+# gan:香蕉
+gd:Banana
+gl:Banana
+gu:કેળાં
+gv:Bananey
+# hak:Khiûng-chiâu
+he:בננה
+hi:केला
+# hif:Jaina
+# hsb:Banana
+ht:Bannann
+hu:Banán
+hy:Բանան
+ia:Banana
+id:Pisang
+# ilo:Saba
+io:Banano
+is:Banani
+it:banana
+ja:バナナ
+# jbo:badna
+jv:Gedhang
+kk:Банан
+km:ចេក
+kn:ಬಾಳೆ ಹಣ್ಣು
+ko:바나나
+ks:کیل
+ku:Mûz
+ky:Банан
+la:Musa
+# lmo:Musa
+ln:Etabé
+lv:Banāni
+# map-bms:Gedhang
+mg:Akondro
+# min:Pisang
+mk:Банана
+ml:വാഴ
+mn:Гадил
+mr:केळ
+ms:Pisang
+my:ငှက်ပျော
+ne:केरा
+# new:म्वाय्
+nl:banaan, bananen
+nn:Banan
+no:Bananer
+# nso:Panana
+nv:Hashkʼaan
+oc:Banana
+or:କଦଳୀ
+pa:ਕੇਲਾ
+# pam:Sagin
+# pcd:Banade
+pl:banan, banany
+# pnb:کیلا
+ps:كيله
+pt:bananas
+ru:Банан
+# rue:Банан
+rw:Umuneke
+sa:कदलीफलम्
+# sat:ᱠᱟᱭᱨᱟ
+sc:Banana
+# scn:Banana
+# sco:Bananae
+sd:ڪيلو
+sh:Banana
+si:කෙසෙල්
+sk:Banán
+sl:Banana
+sm:Fa'i
+so:Moos
+sq:Bananja
+sr:Банана
+su:Cau
+sv:Banan
+sw:Ndizi
+ta:வாழைப்பழம்
+te:అరటి
+tg:Банан
+th:กล้วย
+tl:Saging
+tn:Banana
+# tpi:Banana
+tr:Muz
+# tum:Ntochi
+ty:Meià
+uk:Банан
+ur:کیلا
+uz:Banan
+vi:Chuối
+# vls:Bananne
+# war:Saging
+# wuu:香蕉
+yi:באנאן
+yo:Ọ̀gẹ̀dẹ̀
+za:Gyoijhom
+zh:香蕉
+# zh-min-nan:Kin-chio
+# zh-yue:香蕉
+wikipedia:https://en.wikipedia.org/wiki/Banana
+wikidata:en:Q503
+openfoodfacts:https://world.openfoodfacts.org/ingredient/banana
+# 1538 products in 10 languages @2018-09-26
 
+<en:banana
 en:banana flakes
+de:Bananenflocken
 fr:flocons de banane
+it:fiocchi di banane
+openfoodfacts:https://world.openfoodfacts.org/ingredient/banana-flakes
+# 38 products in 4 languages @2018-09-26
 
+<en:banana
 en:banana puree
-fr:purée de banane
+de:Bananenpüree
+fr:purée de banane, purée de bananes
+openfoodfacts:https://world.openfoodfacts.org/ingredient/banana-puree
+# 612 products in 6 languages @2018-09-26
+
+<en:fruit
+en:blackcurrant
+es:grosella negra
+fr:cassis
+nl:zwarte bes
+de:schwarze Johannisbeere
+
+<en:fruit
+en:durian
+es:durión
+fr:durian
+nl:doerian
+de:Durian
+
+<en:fruit
+en:pear
+fr:poire
+
+<en:fruit
+<en:pear
+en:conference pear
+es:pera conferencia
+fr:poire conférence
+nl:conference peer
+de:Conference-Birne
+
+<en:fruit
+en:pears in cubes
+fr:poires en cubes
+
+<en:fruit
+fr:purée de mangue
+
+# Cranberries are a group of evergreen dwarf shrubs or trailing vines in the subgenus Oxycoccus of the genus Vaccinium.
+# It is possible that a subgroup needs to be created for the different species. The european and american varieties are mixed here.
+# In Britain, cranberry may refer to the native species Vaccinium oxycoccos, while in North America, cranberry may refer to Vaccinium macrocarpon.
+
+<en:fruit
+en:cranberry
+ar:عنبية حادة الخباء
+#s ast:Arándanu coloráu
+# atj:Mickekominan
+az:Mərcanı
+ba:Мүк еләге
+# bat-smg:Spangoulė
+be:Журавіны
+ca:Nabiu de grua
+cs:Klikva
+# csb:Kwasnica
+cy:Llugaeron
+de:Moosbeeren, Cranberry, Cranberrys
+# dsb:Žorawina
+eo:Oksikoko
+es:arándano rojo
+et:Jõhvikas, Harilik jõhvikas
+fa:کرنبری
+fo:Tranuber
+fr:airelles, cranberries, cranberry, cranberrys, Canneberge
+ga:Mónóg
+gl:Arandeira vermella
+gv:Smeyr churree
+he:חמוצית
+hr:Brusnica
+# hsb:Tymjenka
+hy:Լոռամրգի
+id:Kranberi
+ja:クランベリー
+it:cranberries
+kk:Мүкжидек
+kv:Турипув
+lt:Spanguolė
+mk:Брусница
+mn:Цангис
+mr:क्रॅनबेरी
+nl:veenbessen, cranberry
+nn:Tranebær
+no:Tranebær
+# olo:Garbalo
+os:Сырхнæмыг
+# pam:Cranberry
+pl:żurawina
+pt:arandos, oxicocos
+ru:Клюква
+# scn:Milucuccu
+sh:Brusnica
+sr:Брусница
+sv:Tranbär
+th:แครนเบอร์รี
+tl:Kranberya
+# udm:Нюрмульы
+uk:Журавлина
+# vep:Garbol
+vi:Mạn việt quất
+wa:Bicoine
+zh:小紅莓
+# zh-yue:金啤梨
+wikipedia:https://en.wikipedia.org/wiki/Cranberry
+wikidata:en:Q13181
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cranberries
+# 429 products in 8 languages @2018-09-26
+
+
+<en:fruit
+en:peach
+fr:pêche
+it:pesche
+nl:perziken
+pt:pêssegos
+wikipedia:https://en.wikipedia.org/wiki/Peach
+wikidata:en:Q13189
+openfoodfacts:https://world.openfoodfacts.org/ingredient/peach
+# 1065 products in 7 languages @2018-09-26
+
+<en:peach
+en:peach puree
+de:Pfirsichpurée
+fr:purée de pêches, purée de pêche
+it:purea di pesche
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20pêches
+# 147 products in 4 languages @2018-09-26
+
+<en:fruit
+fr:mangues
+
+<en:fruit
+en:dried apples
+fr:pommes séchées
+
+<en:fruit
+en:dried apple
+es:manzana deshidratada
+fr:pomme séchée
+nl:gedroogde appel
+de:getrocknete Äpfel
+
+<en:fruit
+fr:morceaux de pomme
+
+<en:fruit
+fr:purée de pommes concentrée
+
+<en:fruit
+en:apple extract
+es:extracto de manzana 
+fr:extrait de pomme 
+nl:appelextract 
+de:Apfelextrakt
+
+<en:fruit
+fr:purée de pommes françaises
+
+<en:fruit
+fr:flocons de pomme
+
+<en:fruit
+fr:fibres de pomme
+de:Apfelfaser
+
+<en:fruit
+fr:framboises lyophilisées
+
 
 # Fish
 
 en:fish
 fr:poisson
-allergens:fr:_poisson_
 
 <en:fish
 fr:extrait de poisson
-allergens:fr:extrait de _poisson_
 
 <en:fish
 fr:chair de poisson
-allergens:fr:chair de _poisson_
+
+<en:fish
+fr:chair de poissons
+allergens:fr:chair de _poissons_
 
 <en:fish
 en:Swordfish
@@ -7949,29 +10352,23 @@ de:Schwertfisch
 <en:fish
 en:salmon
 fr:saumon
-allergens:fr:_saumon_
 
 <en:salmon
 fr:saumon atlantique
-allergens:fr:_saumon_ atlantique
 
 <en:salmon
 en:salmo salar salmon
 fr:saumon salmo salar
-allergens:fr:_saumon_ salmo salar
 
 <en:salmon
 fr:saumon cuit
-allergens:fr:_saumon_ cuit
 
 <en:salmon
 fr:saumon rose du pacifique
-allergens:fr:_saumon_ rose du pacifique
 
 <en:salmon
 en:smoked salmon
 fr:saumon fumé
-allergens:fr:_saumon_ fumé
 
 <en:salmon
 fr:salmo salar
@@ -7982,93 +10379,73 @@ es:bacalao
 fr:cabillaud
 nl:kabeljauw
 de:Kabeljau
-allergens:fr:_cabillaud_
 
 <en:cod
 fr:filets de cabillaud
-allergens:fr:filets de _cabillaud_
 
 <en:cod
 fr:filet de cabillaud
-allergens:fr:filet de _cabillaud_
 
 fr:œufs de cabillaud fumés et salés
-allergens:fr:œufs de _cabillaud_ fumés et salés
 
 fr:œufs de cabillaud
-allergens:fr:œufs de _cabillaud_
 
 <en:fish
 fr:lieu
-allergens:fr:_lieu_
 
 <en:fish
 fr:truite
-allergens:fr:_truite_
 
 <en:fish
-en:tuna
-fr:thon
-allergens:fr:_thon_
+en:tuna, katsuwonus pelamis
+fr:thon, katsuwonus pelamis
 
 <en:tuna
 fr:thon blanc germon
-allergens:fr:_thon_ blanc germon
 
 <en:tuna
 fr:thon au naturel
-allergens:fr:_thon_ au naturel
 
 <en:tuna
 fr:filets de thon
-allergens:fr:filets de _thon_
 
 <en:tuna
 fr:thon précuit
-allergens:fr:_thon_ précuit
 
 <en:tuna
 fr:thon blanc
-allergens:fr:_thon_ blanc
 
 <en:tuna
 fr:thon listao
-allergens:fr:_thon_ listao
 
 <en:tuna
 fr:thon albacore
-allergens:fr:_thon_ albacore
 
 fr:fumet de poisson
-allergens:fr:fumet de _poisson_
 
 fr:truite arc-en-ciel
-allergens:fr:_truite_ arc-en-ciel
 
 fr:poulpes
-allergens:fr:_poulpes_
 
 fr:calamars
-allergens:fr:_calamars_
 
 fr:crabe
-allergens:fr:_crabe_
 
 fr:chair de crabe
-allergens:fr:chair de _crabe_
 
 en:Alaskan pollock
 es:colín de Alaska
 fr:colin d’Alaska
 nl:Alaska koolvis
 de:Alaska-Seelachs
-allergens:fr:_colin_ d'alaska
 
 fr:crevette
-allergens:fr:_crevettes_
 
 fr:filets de maquereaux
-allergens:fr:filets de _maquereaux_
+
+<en:fish
+fr:hareng
+allergens:fr:_hareng_
 
 # Fruit juices
 
@@ -8168,13 +10545,6 @@ nl:gepascaliseerd sinaasappelsap uit concentraat
 de:pascalisierter Orangensaft aus Orangensaftkonzentrat
 treatment:en: en:pascalization
 
-# Fruits
-
-en:durian
-es:durión
-fr:durian
-nl:doerian
-de:Durian
 
 # Random
 
@@ -8188,17 +10558,13 @@ fr:polyphosphate
 
 fr:herbe de provence, herbes de provence
 
-fr:froment
-allergens:fr:_froment_
 
 en:hazelnut paste
 fr:pâte de noisette
-allergens:fr:pâte de _noisettes_
 
 fr:inuline
 
 fr:disulfite de sodium
-allergens:fr:_disulfite_ de sodium
 
 fr:acétate de sodium
 
@@ -8207,12 +10573,6 @@ fr:pp
 fr:fenouil
 
 fr:phosphate de calcium, phosphates de calcium
-
-fr:fibre de blé
-allergens:fr:fibre de _blé_
-
-fr:seigle
-allergens:fr:_seigle_
 
 
 fr:filet de poulet
@@ -8223,7 +10583,6 @@ fr:filet de poulet
 fr:carbonate de sodium
 
 fr:sardine
-allergens:fr:_sardines_
 
 
 fr:karité
@@ -8233,13 +10592,7 @@ fr:triphosphate
 fr:lactate de potassium
 
 fr:fromage blanc
-allergens:fr:_fromage_ blanc
 
-en:blackcurrant
-es:grosella negra
-fr:cassis
-nl:zwarte bes
-de:schwarze Johannisbeere
 
 fr:matières grasses végétale
 
@@ -8263,8 +10616,6 @@ fr:iodure de potassium
 
 fr:noix de coco râpée
 
-fr:fibres de blé
-allergens:fr:fibres de _blé_
 
 fr:câpre
 
@@ -8275,18 +10626,15 @@ es:anchoas
 fr:anchois
 nl:ansjovis
 de:Sardellen
-allergens:fr:_anchois_
 
 fr:diphosphate et carbonate de calcium, diphosphates et carbonates de sodium
 
-fr:levure boulangère
 
 en:mustard seed
 es:grano de mostaza
 fr:graine de moutarde
 nl:mosterdzaad
 de:Senfsaaten
-allergens:fr:graine de _moutarde_
 
 fr:phosphate de calcium
 
@@ -8295,7 +10643,6 @@ fr:maltitol
 fr:foie gras de canard
 
 fr:ferments lactiques et d'affinage
-allergens:fr:ferments _lactiques_ et d'affinage
 
 en:curry
 fr:curry
@@ -8307,9 +10654,7 @@ fr:antioxidant
 fr:farce
 
 fr:crème liquide
-allergens:fr:_crème_ liquide
 
-fr:levure désactivée
 
 fr:gomme base
 
@@ -8324,7 +10669,6 @@ fr:glycosides de stéviol
 fr:aneth
 
 fr:yaourt
-allergens:fr:_yaourt_
 
 fr:gomme d'acacia
 
@@ -8332,6 +10676,7 @@ fr:gomme d'acacia
 
 en:spice, spices
 fr:épice, épices
+de:Gewürze
 
 fr:épices et plantes aromatique, épice et plante aromatique, épice et plantes aromatiques, épices et plantes aromatiques, épices et plante aromatique
 
@@ -8407,31 +10752,12 @@ fr:graines de lin
 
 
 
-fr:contient blé
-allergens:fr:contient _blé_
-
-en:pear
-fr:poire
-
-<en:pear
-en:conference pear
-es:pera conferencia
-fr:poire conférence
-nl:conference peer
-de:Conference-Birne
-
-en:pears in cubes
-fr:poires en cubes
-
 fr:caféine
 
 fr:citrate de calcium
 
-fr:malt de blé
-allergens:fr:malt de _blé_
 
 fr:pistache
-allergens:fr:_pistaches_
 
 fr:fumée
 
@@ -8487,11 +10813,6 @@ fr:agar
 fr:extrait de romarin, extraits de romarin
 
 
-
-fr:purée de mangue
-
-fr:cranberries, cranberry, cranberrys
-
 fr:panais
 
 fr:graisse de poulet
@@ -8511,10 +10832,7 @@ fr:fibres végétales, fibre végétale
 fr:sureau
 
 fr:céleri-rave
-allergens:fr:_céleri_-rave
 
-fr:blé complet
-allergens:fr:_blé_ complet
 
 en:black tea
 es:té negro
@@ -8523,13 +10841,6 @@ nl:zwarte thee
 de:Schwarztee
 
 fr:acétates de sodium
-
-en:semolina
-es:sémola de trigo
-fr:semoule de blé
-nl:tarwegries
-de:Weizengrieß
-allergens:fr:semoule de _blé_
 
 
 fr:spiruline
@@ -8550,8 +10861,6 @@ fr:jus d'ananas
 
 fr:salade
 
-fr:épeautre
-allergens:fr:_épeautre_
 
 fr:kiwi
 
@@ -8565,8 +10874,6 @@ fr:cellulose
 
 fr:taurine
 
-fr:flocons de blé, flocon de blé
-allergens:fr:flocons de _blé_
 
 en:turnip
 es:naba
@@ -8577,7 +10884,6 @@ de:Mairüben
 fr:panure
 
 fr:noix de pécan
-allergens:fr:_noix de pécan_
 
 en:tarragon
 es:dragón
@@ -8627,7 +10933,6 @@ fr:tomate mi-séchée
 
 fr:dés de tomate
 
-fr:sauce tomate cuite
 
 fr:tomates cubées
 
@@ -8730,6 +11035,9 @@ fr:tomate cerise, tomates cerises
 nl:cherry tomaat
 de:Kirschtomaten
 
+
+
+fr:sauce tomate cuite
 fr:sauce tomate
 
 fr:pulpe de tomate
@@ -8835,13 +11143,11 @@ fr:riz long grain étuvé de qualité supérieure
 
 # Random
 
-fr:extrait de malt
 
 fr:sélénite de sodium
 
 fr:inosinate disodique
 
-fr:millet
 
 fr:stéaroyl-2-lactylate de sodium
 
@@ -8878,7 +11184,6 @@ fr:chlorure de magnésium
 fr:assaisonnement
 
 fr:matière grasse du lait
-allergens:fr:matière grasse du _lait_
 
 fr:sarriette
 
@@ -8888,7 +11193,6 @@ fr:clous de girofle
 
 fr:bleu patenté v
 
-fr:sarrasin
 
 fr:concombre
 
@@ -8927,9 +11231,6 @@ fr:goyave
 
 fr:carbonate d'ammonium
 
-fr:flocons d'orge, flocon d'orge
-allergens:fr:flocons d'_orge_
-
 fr:concentré de fruits et de plantes, concentrés de fruits et de plantes
 
 en:carot juice
@@ -8949,7 +11250,6 @@ fr:hydroxyde de sodium
 fr:coagulant microbien
 
 fr:emmental râpé
-allergens:fr:_emmental_ râpé
 
 fr:inositol
 
@@ -8973,11 +11273,9 @@ fr:graisse de coco
 fr:lécithines de colza
 
 fr:crème légère
-allergens:fr:_crème_ légère
 
 fr:citrates de calcium
 
-fr:malt
 
 fr:carvi
 
@@ -8986,7 +11284,6 @@ fr:cerfeuil
 fr:extrait de vin blanc
 
 fr:germes de blé
-allergens:fr:germes de _blé_
 
 fr:phosphate tricalcique
 
@@ -9010,12 +11307,10 @@ fr:caramel e150d
 fr:caramel aromatique
 
 fr:caramel au sulfite d'ammonium
-allergens:fr:caramel au _sulfite_ d'ammonium
 
 fr:caramel ammoniacal
 
 fr:mascarpone
-allergens:fr:_mascarpone_
 
 fr:cèpe
 
@@ -9049,7 +11344,6 @@ fr:concentré
 fr:poivron vert, poivrons verts
 
 fr:matière grasse de lait
-allergens:fr:matière grasse de _lait_
 
 fr:graisse de poule
 
@@ -9061,9 +11355,7 @@ fr:bouillon de volaille
 fr:phosphate de sodium, phosphates de sodium
 
 fr:germe de blé, germes de blé
-allergens:fr:germe de _blé_
 
-fr:pétales de maïs, pétale de maïs
 
 fr:graines de pavot
 
@@ -9073,7 +11365,6 @@ fr:cystéine
 
 
 fr:crème de lait pasteurisée
-allergens:fr:crème de _lait_ pasteurisée
 
 fr:sodium
 
@@ -9088,7 +11379,6 @@ fr:extrait d'acérola
 fr:extrait de noix de coco
 
 fr:matière grasse laitière
-allergens:fr:matière grasse _laitière_
 
 fr:citron vert
 
@@ -9124,7 +11414,6 @@ de:Blumenkohl
 # Random
 
 fr:concentré des minéraux du lait
-allergens:fr:concentré des minéraux du _lait_
 
 fr:cassonade
 
@@ -9135,7 +11424,6 @@ fr:d3
 fr:mannitol
 
 fr:concentré de minéraux du lait
-allergens:fr:concentré de minéraux du _lait_
 
 fr:nouilles, nouille
 
@@ -9152,7 +11440,6 @@ fr:persil déshydraté
 fr:lentille verte, lentilles vertes
 
 fr:babeurre
-allergens:fr:_babeurre_
 
 fr:manganèse
 
@@ -9192,7 +11479,6 @@ fr:gluconate de manganèse
 fr:gélatine de bœuf
 
 fr:moule, moules
-allergens:fr:_moules_
 
 fr:fruits rouges
 
@@ -9235,10 +11521,8 @@ fr:dioxyde de silicium
 fr:palmitate d'ascorbyle
 
 fr:chapelure de blé
-allergens:fr:chapelure de _blé_
 
 fr:sulfite acide de sodium
-allergens:fr:_sulfite_ acide de sodium
 
 fr:foie de poulet
 
@@ -9288,10 +11572,8 @@ fr:roquette
 fr:pain azyme
 
 fr:edam
-allergens:fr:_edam_
 
 fr:sérum de lait
-allergens:fr:sérum de _lait_
 
 fr:poivron vert
 
@@ -9299,24 +11581,22 @@ fr:dioxyde de carbone
 
 fr:extrait de houblon
 
-fr:poudre levante
+
+
 
 fr:cochenille
 
 fr:purée et purée concentrée
 
 fr:poudre de babeurre
-allergens:fr:poudre de _babeurre_
 
 fr:grana padano
-allergens:fr:_grana padano_
 
 fr:os de poulet
 
 fr:pulpe
 
 fr:fruit à coque
-allergens:fr:_fruit à coque_
 
 fr:chou blanc
 
@@ -9333,7 +11613,6 @@ fr:potassium
 fr:tocophérol
 
 fr:morue
-allergens:fr:_morue_
 
 en:menthol
 es:mentol
@@ -9343,11 +11622,8 @@ de:Menthol
 
 en:cheddar
 fr:cheddar
-allergens:fr:_cheddar_
 
 fr:nouilles
-
-fr:maïs doux
 
 
 en:sodium chlorure
@@ -9368,7 +11644,6 @@ fr:noix de coco séchée
 fr:flageolets verts
 
 fr:babeurre en poudre
-allergens:fr:_babeurre_ en poudre
 
 fr:mâche
 
@@ -9403,7 +11678,6 @@ de:Gurkenbaumfrucht
 
 fr:gélatine de boeuf
 
-fr:purée de bananes
 
 fr:bleu brillant fcf
 
@@ -9418,7 +11692,6 @@ fr:extrait de réglisse
 fr:pâtes cuites
 
 fr:métabisulfite de sodium
-allergens:fr:_métabisulfite_ de sodium
 
 en:red currant
 es:grosella
@@ -9428,7 +11701,6 @@ de:rote Johannisbeeren
 wikidata:en:Q18078629
 
 fr:éclats de noisettes
-allergens:fr:éclats de _noisettes_
 
 fr:iodate de potassium
 
@@ -9453,8 +11725,6 @@ fr:graines de courge
 
 
 fr:métabisulfite de potassium
-allergens:fr:_métabisulfite_ de potassium
-#wikidata:en:
 
 fr:graisse de bœuf
 
@@ -9471,16 +11741,12 @@ fr:nitrite de sodium
 fr:esters glycériques de résine de bois
 
 fr:noix de saint-jacques
-allergens:fr:_noix de saint-jacques_
 
 fr:ortie
 
 fr:malate acide de sodium, e350ii
 
 fr:alpha-tocophérol, e307
-
-fr:semoule de blé dur réhydratée
-allergens:fr:semoule de _blé_ dur réhydratée
 
 fr:châtaignes
 
@@ -9506,19 +11772,16 @@ fr:verveine
 fr:polyricinoléate de polyglycérol
 
 fr:babeurre déshydraté
-allergens:fr:_babeurre_ déshydraté
 
 fr:éthanol
 
 fr:pain spécial
 
 fr:morue
-allergens:fr:_morue_
 
 fr:oncorhynchus mykiss
 
 fr:comté
-allergens:fr:_comté_
 
 fr:foie gras de canard du sud-ouest
 
@@ -9526,7 +11789,6 @@ fr:saumure
 
 
 fr:filets de sardines
-allergens:fr:filets de _sardines_
 
 fr:fructo-oligosaccharides
 
@@ -9536,7 +11798,6 @@ fr:penicillium roqueforti
 fr:tilleul
 
 fr:protéines de lait et lactose
-allergens:fr:protéines de _lait_ et _lactose_
 
 fr:safran
 
@@ -9548,12 +11809,24 @@ fr:paprika en poudre
 
 fr:salpêtre
 
+# This is a compound ingredient
+
+en:sauce
+fr:sauce
+de:Sauce
+it:salsa
+nl:Saus
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce
+# 917 products in 6 languages @2018-09-26
+
+<en:sauce
 fr:sauce cuisinée
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce%20cuisinée
+# 135 products in 1 language @2018-09-26
 
 fr:carotènes
 
 fr:fruits à coques
-allergens:fr:_fruits à coques_
 
 en:breadfruit
 es:fruto del pan
@@ -9561,7 +11834,7 @@ fr:fruit à pain
 nl:broodvrucht
 de:Brotfrucht
 
-fr:katsuwonus pelamis
+
 
 fr:carotte noire
 
@@ -9645,7 +11918,6 @@ fr:pâte feuilletée
 fr:citrate de magnésium
 
 fr:bisulfite de sodium
-allergens:fr:_bisulfite_ de sodium
 
 fr:écorce d'orange, écorces d'orange
 
@@ -9661,8 +11933,6 @@ fr:poivrons rouges et verts
 
 fr:vanille bourbon
 
-fr:flocons de blé complet
-allergens:fr:flocons de _blé_ complet
 
 
 fr:passion, fruit de la passion, fruits de la passion
@@ -9714,18 +11984,7 @@ treatment:en: en:concentration
 
 fr:galanga
 
-fr:blé dur précuit
-allergens:fr:_blé_ dur précuit
 
-en:durum wheat
-es:trigo duro
-fr:blé dur
-nl:durum tarwe
-de:Hartweizen
-allergens:fr:_blé_ dur
-
-fr:flocons de seigle
-allergens:fr:flocons de _seigle_
 
 fr:graines de fenouil
 
@@ -9737,8 +11996,6 @@ allergens:fr:_noix de macadamia_
 
 fr:ferments lactiques du yaourt
 
-fr:semoule de blé dur précuite
-allergens:fr:semoule de _blé_ dur précuite
 
 fr:fibres de chicorée
 
@@ -9794,7 +12051,8 @@ fr:canard
 
 fr:rooibos
 
-fr:levain déshydraté
+
+
 
 fr:extrait de zeste d'orange
 
@@ -9806,9 +12064,6 @@ fr:diglycérides d'acide gras
 
 fr:acésulfame k, acésulfame de potassium
 
-fr:malts d'orge
-allergens:fr:malts d'_orge_
-
 fr:fibre végétale
 
 fr:baie de sureau
@@ -9819,7 +12074,6 @@ fr:raisins noirs
 
 fr:bigarreaux
 
-fr:agents levants
 
 fr:pulpe de citron
 
@@ -9855,8 +12109,6 @@ treatment:en: en:melting
 
 fr:energy
 
-en:corn flakes
-fr:corn flakes
 
 fr:dorure
 
@@ -9904,8 +12156,6 @@ fr:citrons
 
 fr:pantothénate de calcium
 
-fr:flocons d'épeautre
-allergens:fr:flocons d'_épeautre_
 
 fr:cranberry
 
@@ -9926,7 +12176,6 @@ fr:sélénate de sodium
 
 fr:ketchup
 
-fr:agent levant
 
 fr:aubergines préfrites
 
@@ -9982,7 +12231,6 @@ fr:tocophérols
 
 fr:eau de coco
 
-fr:maïs doux en grains
 
 fr:monoglutamate de sodium
 
@@ -9992,8 +12240,6 @@ fr:extrait de céleri
 allergens:fr:extrait de _céleri_
 
 fr:jus d'orange et autres agrumes à base de concentrés
-
-fr:maïs doux en grains sans ogm
 
 fr:condiments
 
@@ -10673,46 +12919,14 @@ fr:lait demi-écrémé pasteurisé
 allergens:fr:_lait_ demi-écrémé pasteurisé
 
 
-
-# SIROPS
-
-en:syrup
-fr:sirop
-
-<en:glucose
-en:glucose syrup
-fr:sirop de glucose
-wikidata:en:Q14770547
-
-<en:sirop de glucose
-en:powdered glucose syrup
-fr:sirop de glucose en poudre
-
-<fr:sirop de glucose en poudre
-fr:sirop de glucose de blé en poudre
-
-
-fr:sirop de glucose-fructose
-
-<fr:sirop de glucose-fructose
-fr:sirop de glucose-fructose de maïs
-
-fr:sirop d'oligofructose
-
-fr:sirop d'amidon
-
-<fr:sirop d'amidon
-fr:sirop d'amidon de maïs
-
-
 # A TRIER
 
 
 en:zinc
 fr:zinc
 
-en:corkflakes
-fr:cornflakes
+
+
 
 fr:iceberg
 
@@ -10874,10 +13088,6 @@ fr:poivron jaune
 
 fr:ciboule
 
-fr:boulgour
-allergens:fr:_boulgour_
-
-fr:poudres levantes
 
 fr:améliorant de cuisson
 
@@ -10912,8 +13122,6 @@ fr:mangue
 en:tea
 fr:thé
 
-fr:semoule complète de blé dur
-allergens:fr:semoule complète de _blé_ dur
 
 fr:pain de mie
 
@@ -11042,9 +13250,6 @@ fr:lardons cuits fumés
 
 fr:concentré de carthame
 
-fr:levain de blé
-allergens:fr:levain de _blé_
-
 fr:pain
 
 fr:purée de goyave
@@ -11059,7 +13264,6 @@ fr:diphosphate de sodium
 fr:éclats de caramel
 
 fr:sauce de poisson
-allergens:fr:sauce de _poisson_
 
 fr:lentilles corail
 
@@ -11071,8 +13275,7 @@ de:Tellerlinsen
 
 fr:présure microbienne
 
-fr:sirop de malt d'orge déshydraté
-allergens:fr:sirop de malt d'_orge_ déshydraté
+
 
 fr:feuilles d'oranger
 
@@ -11080,7 +13283,6 @@ fr:carbonate acide de potassium
 
 fr:cresson
 
-fr:graines de millet
 
 fr:glucono-delta-lactone
 
@@ -11150,7 +13352,6 @@ fr:purée de citron
 fr:galette
 
 fr:sauce poisson
-allergens:fr:sauce _poisson_
 
 fr:raisin
 
@@ -11232,8 +13433,7 @@ fr:chlorure de choline
 en:algae
 fr:algue
 
-fr:levain de seigle
-allergens:fr:levain de _seigle_
+
 
 fr:pyrophosphate de fer
 
@@ -11320,8 +13520,7 @@ fr:cheddar fondu
 allergens:fr:_cheddar_ fondu
 treatment:en: en:melting
 
-fr:sirop d'orge malté
-allergens:fr:sirop d'_orge_ malté
+
 
 fr:aspergillus oryzae
 
@@ -11349,7 +13548,7 @@ fr:vanille bourbon naturelle en gousse
 
 fr:purées de fruits
 
-fr:sirop de candi, sirop de scucre candi
+
 
 fr:pulpe de fruits
 
@@ -11400,8 +13599,6 @@ fr:sels de calcium de l'acide orthophosphorique
 nl:calciumzouten van orthofosforzuur
 de:Calciumcitrat aus Orthophosphorsäure
 
-fr:levain de seigle dévitalisé
-allergens:fr:levain de _seigle_ dévitalisé
 
 fr:lait de coco en poudre
 
@@ -11468,12 +13665,6 @@ allergens:fr:_roquefort_
 
 fr:extraits de houblon
 
-fr:semoule de blé dur complète
-allergens:fr:semoule de _blé_ dur complète
-
-fr:chair de poissons
-allergens:fr:chair de _poissons_
-
 fr:oignon grillé
 
 fr:poivre gris
@@ -11523,8 +13714,7 @@ fr:baies de goji
 
 fr:genièvre
 
-fr:orge malté
-allergens:fr:_orge_ malté
+
 
 fr:zygochlamys patagonica, Saint-Jacques Zygochlamys patagonica
 
@@ -11575,8 +13765,6 @@ fr:chou de Bruxelles, choux de bruxelles
 
 fr:condiment balsamique blanc
 
-fr:flocons de millet
-
 fr:oxyde de zinc
 
 fr:agent moussant
@@ -11611,8 +13799,7 @@ fr:géliﬁant
 
 fr:jus cuisiné
 
-fr:flocons de seigle malté
-allergens:fr:flocons de _seigle_ malté
+
 
 fr:petits pois extra fins
 
@@ -11642,18 +13829,13 @@ fr:extrait de baie de sureau
 fr:fèves
 
 
-fr:levain de seigle déshydraté et dévitalisé
-allergens:fr:levain de _seigle_ déshydraté et dévitalisé
-
 fr:chou rouge
 
 fr:crudités
 
 fr:grenache
 
-<en:fructose
-fr:fructose de blé
-allergens:fr:fructose de _blé_
+
 
 fr:persil séché
 
@@ -11767,7 +13949,7 @@ allergens:fr:_gruyère_
 
 # Random
 
-fr:son de froment
+
 
 fr:reblochon
 allergens:fr:_reblochon_
@@ -11796,8 +13978,8 @@ fr:pholiotes
 
 fr:lentilles précuites
 
-fr:pétales de blé
-allergens:fr:pétales de _blé_
+
+
 
 fr:crème pâtissière
 
@@ -11888,22 +14070,20 @@ fr:e950
 
 # EMULSIFIERS and ADDITIVES
 
-fr:émulsiﬁants
 
-<fr:émulsiﬁants
-<en:soy
 <en:lecithin
-en:soy lecithin
+en:soya lecithin, soy lecithin
 es:lecitina de soja
 fr:lécithine de soja, lécithines de soja, émulsifiant lécithines de soja, lécithine de soja e322
+de:Sojalecithine
 allergens:fr:lécithine de _soja_ e322
 allergens:fr:lécithine de _soja_
 
-<en:soy lecithin
+<en:soya lecithin
 en:GMO-free soy lecithin
 fr:lécithine de soja sans ogm
 
-<en:soy lecithin
+<en:soya lecithin
 fr:lécithine de soja et de tournesol
 allergens:fr:lécithine de _soja_ et de tournesol
 
@@ -11951,16 +14131,11 @@ fr:patates douces
 
 fr:vergeoise
 
-fr:levain naturel
-
 fr:thunnus albacares
 
 fr:carbonate de fer
 
 fr:mélange de graines
-
-fr:hareng
-allergens:fr:_hareng_
 
 fr:moutarde en poudre
 allergens:fr:_moutarde_ en poudre
@@ -12032,8 +14207,8 @@ fr:ferments lactiques dont lactobacillus casei
 
 fr:épaississant e415
 
-fr:blé malté
-allergens:fr:_blé_ malté
+
+
 
 
 # Eggs
@@ -12099,8 +14274,6 @@ fr:carotènes mélangés
 fr:fleur de carthame
 
 fr:wakamé
-
-fr:maïs moulu
 
 fr:gomme cellulosique
 
@@ -12239,7 +14412,6 @@ fr:cuivre
 
 fr:lait de noix de coco en poudre
 
-fr:semoule de maïs précuite
 
 fr:bifidobactérium
 
@@ -12274,7 +14446,6 @@ fr:triphosphates et diphosphates
 
 fr:morilles
 
-fr:sauce en poudre
 
 fr:conservateur e 202
 
@@ -12356,8 +14527,6 @@ fr:dextrine de maïs
 
 fr:peau de dinde
 
-fr:dextrose de blé ou de maïs
-allergens:fr:dextrose de _blé_ ou de maïs
 
 fr:bifidus
 
@@ -12377,7 +14546,7 @@ allergens:fr:_emmental_ français râpé
 
 fr:oignon préfrit
 
-fr:levain sec
+
 fr:katsuwonus
 
 fr:poudre d'acérola
@@ -12396,8 +14565,6 @@ fr:noyaux de mangue
 
 fr:jus concentré d'oignon
 
-fr:seigle complet
-allergens:fr:_seigle_ complet
 
 fr:fumet
 
@@ -12554,8 +14721,6 @@ es:carne de pollo precocida
 nl:voorgegaard kippenvlees
 de:vorgegartes Hühnerfleisch
 
-fr:fins finots de blé dur
-allergens:fr:fins finots de _blé_ dur
 
 fr:poudre de fleurage
 
@@ -12564,53 +14729,13 @@ fr:coriandre moulue
 
 fr:180c
 
-fr:grains de maïs
+
 
 fr:biscuits
 
 fr:esters mono- et diacétyltartriques des mono- et diglycérides d'acides gras
 
 fr:nucléotides
-
-# Fruits
-
-en:peach
-fr:pêche
-
-<en:peach
-fr:purée de pêches, purée de pêche
-
-fr:mangues
-
-fr:airelles
-
-en:dried apples
-fr:pommes séchées
-
-en:dried apple
-es:manzana deshidratada
-fr:pomme séchée
-nl:gedroogde appel
-de:getrocknete Äpfel
-
-fr:morceaux de pomme
-
-fr:purée de pommes concentrée
-
-en:apple extract
-es:extracto de manzana 
-fr:extrait de pomme 
-nl:appelextract 
-de:Apfelextrakt
-
-fr:purée de pommes françaises
-
-fr:flocons de pomme
-
-fr:fibres de pomme
-de:Apfelfaser
-
-fr:framboises lyophilisées
 
 fr:crème acidulée
 
@@ -12634,14 +14759,14 @@ fr:mirabelle
 fr:poudre au beurre
 allergens:fr:poudre au _beurre_
 
-fr:seigle broyé
+
+
 
 fr:curcumin
 
 
 fr:sauce bolognaise
 
-fr:fond de sauce
 
 fr:érythrosine
 
@@ -12665,8 +14790,6 @@ fr:tournesol
 
 fr:tournesol oléique
 
-fr:levain de blé dévitalisé
-allergens:fr:levain de _blé_ dévitalisé
 
 fr:protéines solubles de lait
 allergens:fr:protéines solubles de _lait_
@@ -12715,19 +14838,6 @@ fr:fond de pâte précuit
 
 fr:ferment lactiques
 
-# Quinoa
-
-fr:quinoa
-
-en:red quinoa
-fr:quinoa rouge
-
-
-
-en:white quinoa
-fr:quinoa blanc
-
-fr:quinoa cuit
 
 en:thyme extract
 fr:extrait de thym
@@ -12863,8 +14973,6 @@ fr:zestes d'orange
 
 fr:épinards en branches
 
-fr:orge maltée
-allergens:fr:_orge_ maltée
 
 fr:pommes déshydratées
 
@@ -12878,8 +14986,6 @@ fr:enrobant
 
 fr:fibre alimentaire
 
-fr:extrait d'orge maltée
-allergens:fr:extrait d'_orge_ maltée
 
 fr:substitut du sel
 
@@ -12888,8 +14994,6 @@ allergens:fr:garniture de _céleri_
 
 fr:exhausteurs de saveur
 
-fr:semoule semi-complète de blé dur
-allergens:fr:semoule semi-complète de _blé_ dur
 
 fr:lait partiellement écrémé pasteurisé
 allergens:fr:_lait_ partiellement écrémé pasteurisé
@@ -12940,8 +15044,7 @@ fr:complexes cuivre-chlorophylles
 
 fr:vermicelles de pois réhydratés
 
-fr:flocons d'épeautre complet
-allergens:fr:flocons d'_épeautre_ complet
+
 
 
 
@@ -13241,7 +15344,7 @@ fr:fibres de légume
 
 fr:antioxydant bha
 
-fr:maïs cireux
+
 
 fr:reines-claudes
 
@@ -13282,8 +15385,6 @@ fr:glaçage
 
 fr:jus de betterave rouge
 
-fr:blé dur concassé
-allergens:fr:_blé_ dur concassé
 
 fr:lait de bufflonne
 allergens:fr:_lait_ de bufflonne
@@ -13333,11 +15434,6 @@ fr:koji
 
 fr:l. bulgaricus
 
-en:amaranth
-es:amaranto
-fr:amarante
-nl:amaranth
-de:Amarant
 
 
 fr:pruneaux
@@ -13357,9 +15453,6 @@ fr:jus de fraise à base de concentré
 fr:extraits naturels d'orange
 
 fr:concentrés de fruits
-
-fr:extrait de malte d'orge
-allergens:fr:extrait de malte d'_orge_
 
 fr:liqueur
 
@@ -13452,8 +15545,7 @@ fr:fruits et légumes concentrés
 
 fr:carbonates de calcium
 
-fr:extrait d'orge malté
-allergens:fr:extrait d'_orge_ malté
+
 
 fr:trévise, salade trévise
 
@@ -13474,8 +15566,6 @@ fr:dulse
 
 fr:co2
 
-fr:blé entier
-allergens:fr:_blé_ entier
 
 fr:poudre de curcuma
 
@@ -13591,8 +15681,7 @@ fr:poudre de lactosérum sucré
 fr:pecorino romano
 allergens:fr:_pecorino romano_
 
-fr:malt de froment
-allergens:fr:malt de _froment_
+
 
 fr:marc de champagne
 
@@ -13798,11 +15887,8 @@ fr:mélasses
 
 fr:concombres au vinaigre
 
-fr:dextrose de tapioca
 
 fr:crevette décortiquée
-
-fr:épis de maïs
 
 en:nougat
 fr:nougat
@@ -13811,8 +15897,6 @@ fr:nougatine
 
 fr:crème de marrons
 
-fr:levain de blé déshydraté
-allergens:fr:levain de _blé_ déshydraté
 
 fr:pain de mie au blé malté
 allergens:fr:pain de mie au _blé_ malté
@@ -13821,7 +15905,6 @@ fr:sauce aigre-douce
 
 fr:monodiglycérides de colza
 
-fr:flocons de maïs
 
 fr:aubergine préfrite
 
@@ -13911,10 +15994,6 @@ fr:sauce rémoulade
 
 fr:gâteau
 
-fr:pétales de blé complet
-allergens:fr:pétales de _blé_ complet
-
-fr:extrait de malt en poudre
 
 fr:algue lithothamnium calcareum
 
@@ -13935,8 +16014,6 @@ fr:argopecten purpuratus
 fr:lait de montagne
 allergens:fr:_lait_ de montagne
 
-fr:semoule de blé dur de qualité supérieure
-allergens:fr:semoule de _blé_ dur de qualité supérieure
 
 fr:paprika fumé
 
@@ -13951,10 +16028,6 @@ fr:lardon fumé
 
 fr:ail séché
 
-fr:orge complète
-allergens:fr:_orge_ complète
-
-fr:boulghour
 
 fr:anhydride carbonique
 
@@ -13964,8 +16037,6 @@ fr:fruits exotiques
 
 fr:liant
 
-fr:semoule de blé tendre
-allergens:fr:semoule de _blé_ tendre
 
 fr:poudre de citron
 
@@ -14001,8 +16072,6 @@ fr:lactoprotéines
 allergens:fr:_lactoprotéines_
 
 fr:pâtes fraîches
-
-fr:sel nitrité pour saumure
 
 fr:olives vertes et noires
 
@@ -14216,10 +16285,6 @@ de:Chartreuse
 
 fr:mélange de salades
 
-fr:malts
-
-
-
 fr:filets d'anchois
 
 fr:jus concentré pulpé de citron
@@ -14262,9 +16327,6 @@ allergens:fr:jaunes d'_oeufs_ salés
 fr:comté aop
 allergens:fr:_comté_ aop
 
-fr:blé dur précuit concassé
-allergens:fr:_blé_ dur précuit concassé
-
 fr:extrait de basilic
 
 fr:saucisses de toulouse grillées
@@ -14273,8 +16335,7 @@ treatment:en: en:gril
 fr:purée de fruit de la passion
 
 
-fr:blé soufflé
-allergens:fr:_blé_ soufflé
+
 
 fr:dextrine de tapioca
 

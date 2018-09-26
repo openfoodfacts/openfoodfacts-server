@@ -30,7 +30,7 @@ my $expected_product_ref = {
                                     '11-20'
                                   ],
           'ingredients_original_tags' => [
-                                           'fr:farine',
+                                           'en:flour',
                                            'en:chocolate',
                                            'en:sugar',
                                            'fr:protéines de lait',
@@ -49,7 +49,7 @@ my $expected_product_ref = {
                                            'en:phosphoric-acid'
                                          ],
           'ingredients_hierarchy' => [
-                                       'fr:farine',
+                                       'en:flour',
                                        'en:chocolate',
                                        'en:sugar',
                                        "fr:prot\x{c3}\x{a9}ines de lait",
@@ -69,7 +69,7 @@ my $expected_product_ref = {
                                        'en:phosphoric-acid'
                                      ],
           'ingredients_tags' => [
-                                  'fr:farine',
+                                  'en:flour',
                                   'en:chocolate',
                                   'en:sugar',
                                   'fr:prota-ines-de-lait',
@@ -94,7 +94,7 @@ my $expected_product_ref = {
                              {
                                'percent' => '12',
                                'text' => 'farine',
-                               'id' => 'fr:farine',
+                               'id' => 'en:flour',
                                'rank' => 1
                              },
                              {
@@ -208,7 +208,6 @@ my $expected_product_ref =
           'ingredients_hierarchy' => [
                                        'en:palm-kernel-fat',
                                        'en:palm-kernel-oil',
-                                       'en:palm-or-palm-kernel-oil'
                                      ],
           'ingredients_from_or_that_may_be_from_palm_oil_n' => 1,
           'additives_original_tags' => [],
@@ -226,7 +225,6 @@ my $expected_product_ref =
           'ingredients_tags' => [
                                   'en:palm-kernel-fat',
                                   'en:palm-kernel-oil',
-                                  'en:palm-or-palm-kernel-oil'
                                 ],
           'additives_n' => 0,
           'ingredients_n' => 1,
@@ -262,7 +260,6 @@ my $expected_product_ref =
           'ingredients_hierarchy' => [
                                        'en:palm-kernel-fat',
                                        'en:palm-kernel-oil',
-                                       'en:palm-or-palm-kernel-oil'
                                      ],
           'ingredients_from_or_that_may_be_from_palm_oil_n' => 1,
           'additives_original_tags' => [],
@@ -280,7 +277,6 @@ my $expected_product_ref =
           'ingredients_tags' => [
                                   'en:palm-kernel-fat',
                                   'en:palm-kernel-oil',
-                                  'en:palm-or-palm-kernel-oil'
                                 ],
           'additives_n' => 0,
           'ingredients_n' => 1,
@@ -315,6 +311,16 @@ my $expected_product_ref =
         };
 
 
+delete $product_ref->{additives_prev_original_tags};
+delete $product_ref->{additives_prev_tags};
+delete $product_ref->{additives_prev};
+delete $product_ref->{additives_prev_n};
+delete $product_ref->{minerals_prev_original_tags};
+delete $product_ref->{vitamins_prev_tags};
+delete $product_ref->{nucleotides_prev_tags};
+delete $product_ref->{amino_acids_prev_tags};
+delete $product_ref->{minerals_prev_tags};
+delete $product_ref->{minerals_prev};
 
 is_deeply($product_ref, $expected_product_ref);
 
