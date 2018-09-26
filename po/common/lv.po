@@ -5,11 +5,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lv\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-11 13:20-0500\n"
+"PO-Revision-Date: 2018-09-25 17:23\n"
 "Language-Team: Latvian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
-"Plural-Forms: nplurals=3; plural=(n==0 ? 0 : n%10==1 && n%100!=11 ? 1 : 2);\n"
+"POT-Creation-Date: \n"
 "X-Generator: crowdin.com\n"
+"Plural-Forms: nplurals=3; plural=(n==0 ? 0 : n%10==1 && n%100!=11 ? 1 : 2);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: lv\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
@@ -26,35 +27,35 @@ msgstr "Latvian"
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "1 produkts"
 
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr " un "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "Par mani"
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "Pievienot"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "Pievienot valodu"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Pievienot produktu"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr ""
+msgstr "Reģistrēties"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr ""
+msgstr "<p>Paldies, ka pievienojies. Tagad varat pierakstīties vietnē, lai pievienotu un rediģētu produktus.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -72,47 +73,62 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr ""
+msgstr "Sveiki <°NAME>\n\n"
+"Paldies, ka pievienojāties https://openfoodfacts.org\n"
+"Jusu lietotājvārds ir:\n\n"
+"Lietotājvārds <USERID>\n\n"
+"Jūs varat ielogoties addresē un pievienot, rediģēt produktus.\n\n"
+"<<site_name>> ir pretīmnākošs projekts kurā tu vari pievienot ne tikai jaunus produktus bet arī savu enerģiju, entuziasmu un idejas!\n"
+"Lai diskutētu ar projekta dalībniekiem un palīdzētu projektam virzīties uz priekšu mēs izmantojam comunicēšanas sistēmu ar nosaukumu \"Slack\" https://slack.openfoodfacts.org\n\n"
+"Jūs varat ari pievienoties mūsu dalībnieku Facebook grupai \n"
+"https://www.facebook.com/groups/OpenFoodFacts/\n\n"
+"mēs arī veidojam Open Beauty Facts datu bāzi ar kosmētikas produktiem: ziepēm, zobu pastām, utt.\n\n"
+"https://openbeautyfacts.org\n\n"
+"Liels jums paldies!\n\n"
+"Stéphane un visa Open Food Facts komanda\n"
+"https://openfoodfacts.org\n"
+"https://twitter.com/OpenFoodFacts\n"
+" \n"
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "Paldies par pievienošanos <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "Potenciāli bīstama pārtikas piedeva. Ierobežot izmantošanu."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "Bīstama pārtikas piedeva. Izvairīties."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "Pārtikas piedeva aizliegta Eiropā. Jebkādā gadījumā to nelietot."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "piedevas"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "piedeva"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr ""
+msgstr "Izvērstā meklēšana"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "Izvērstā meklēšana un grafiki"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "Pārmērīgs alkohola patēriņš ir kaitīgs veselībai."
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "Visas misijas"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
@@ -120,56 +136,58 @@ msgstr "Vielas vai produkti, kas izraisa alerģiju vai nepanesamību"
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr ""
+msgstr "alergēni"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "alergēnu"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr ""
+msgstr "Produkta lapa ir arī rediģējis"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
 
+# Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
+msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
 msgstr ""
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr ""
+msgstr "<p>Šis produkts vēl nav <<site_name>> datu bāzē. Vai, lūdzu, uzziniet dažus attēlus par produktu, svītrkodu, sastāvdaļu sarakstu un uztura faktu, lai to pievienotu <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
+"<p>Paldies jau iepriekš!</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr ""
+msgstr "Fotografēt"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr ""
+msgstr "Attēli, kurus jūs sūtāt, ir publicēti saskaņā ar bezmaksas licenci Creative Commons Attribution / Share-Alike."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr ""
+msgstr "Jūs varat pievienot attēlus:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "Horizontālā ass"
 
 msgctxt "axis_y"
 msgid "Vertical axis"
-msgstr ""
+msgstr "Vertikālā ass"
 
 msgctxt "barcode"
 msgid "Barcode"
@@ -177,131 +195,131 @@ msgstr "Svītrkods"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
+msgstr "Svītru koda numurs:"
+
+msgctxt "you_can_also_help_us"
+msgid "You can also help to fund the Open Food Facts project"
 msgstr ""
 
 msgctxt "bottom_content"
-msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>Contribute to <<site_name>> by adding product and win stars by\n"
-"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
+msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
 msgstr ""
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
-msgstr ""
+msgstr "Uzņemiet misiju"
 
 msgctxt "brands"
 msgid "Brands"
-msgstr ""
+msgstr "Zīmoli"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr ""
+msgstr "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr ""
+msgstr "zīmoli"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr ""
+msgstr "Preces no %s zīmola"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "Zīmols"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "pievienot zīmolu"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr ""
+msgstr "Produkti, kas nav no %s zīmola"
 
 msgctxt "by"
 msgid "by"
-msgstr ""
+msgstr "ar"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr ""
+msgstr "Kategorijas"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr ""
+msgstr "Sardīnes olīveļļā, apelsīnu sula no koncentrāta"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr ""
+msgstr "Norādiet tikai visatkarīgāko kategoriju. Kategorijas \"Vecāki\" tiks automātiski pievienotas."
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "kategorijas"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr ""
+msgstr "Preces no %s zīmola"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "kategorija"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr ""
+msgstr "pievienot sadaļu"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr ""
+msgstr "Produkti, kas nav no kategorijas %s"
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr ""
+msgstr "Dati"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Nutriments"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr ""
+msgstr "Atlasītie attēli"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr ""
+msgstr "Augšupielādētie attēli"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr ""
+msgstr "pārbaudītāji"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr ""
+msgstr "pārbaudītājs"
 
 msgctxt "cities_p"
 msgid "packaging cities"
-msgstr ""
+msgstr "iepakošanas pilsētas"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr ""
+msgstr "Produkti iepakoti pilsētā %s"
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr ""
+msgstr "iepakošanas pilsēta"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr ""
+msgstr "Produkti, kas nav iesaiņoti pilsētā %s"
 
 msgctxt "codes_p"
 msgid "Codes"
-msgstr ""
+msgstr "Kodi"
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr ""
+msgstr "Kods"
 
 msgctxt "column_obsolete_do_not_translate_for_reference_only"
 msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.png\" width=\"178\" height=\"144\" alt=\"<<site_name>>\" /></a>\n\n"
@@ -319,7 +337,7 @@ msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.p
 "→ <a href=\"https://twitter.com/openfoodfacts\">Twitter</a><br/>\n"
 "→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a><br />\n"
 "→ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
-"+ <a href=\"https://www.facebook.com/groups/374350705955208/\">contributors group</a><br />\n"
+"+ <a href=\"https://www.facebook.com/groups/openfoodfacts/\">contributors group</a><br />\n"
 "</p>\n\n"
 "<p>iPhone and iPad app on the App Store:</p>\n\n"
 "<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
@@ -332,15 +350,15 @@ msgstr ""
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr ""
+msgstr "pabeigti %d komandējumi:"
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr ""
+msgstr "Jūs esat saistīts ar savu Facebook kontu."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr ""
+msgstr "Atbalstītāji"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
@@ -372,7 +390,7 @@ msgstr ""
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Produkti, kas tiek pārdoti %s"
 
 msgctxt "countries_s"
 msgid "country"
@@ -380,7 +398,7 @@ msgstr ""
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "Produkti, kas nav pārdoti %s"
 
 msgctxt "data_source"
 msgid "Data source"
@@ -432,7 +450,7 @@ msgstr ""
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr ""
+msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -488,7 +506,7 @@ msgstr ""
 
 msgctxt "editors_s"
 msgid "editor"
-msgstr ""
+msgstr "redaktors"
 
 msgctxt "email"
 msgid "e-mail address"
@@ -510,6 +528,7 @@ msgctxt "emb_codes"
 msgid "EMB code"
 msgstr ""
 
+# Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 msgstr ""
@@ -544,115 +563,115 @@ msgstr ""
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "Kļūda"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr ""
+msgstr "Nepareizs lietotājvārds vai parole. <a href=\"/cgi/reset_password.pl\">Aizmirsāt paroli?</a>"
 
 msgctxt "error_database"
 msgid "An error occured while reading the data, try to refresh the page."
-msgstr ""
+msgstr "Lasot datus, radās kļūda, mēģiniet atsvaidzināt lapu."
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr ""
+msgstr "Parole un apstiprinājuma parole atšķiras."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "E-pasta adresi jau izmanto cits lietotājs. Varbūt jums jau ir konts? Jūs varat  <a href=\"/cgi/reset_password.pl\">atiestatīt sava cita konta paroli</a>."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr ""
+msgstr "Kļūda! Adrese ir tikusi kļūdaini ievadīta"
 
 msgctxt "error_invalid_csrf_token"
 msgid "Invalid CSRF token."
-msgstr ""
+msgstr "Nederīgs CSRF marķieris."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr ""
+msgstr "Nederīga e-pasta adrese"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
-msgstr ""
+msgstr "Parolei jābūt vismaz 6 rakstzīmēm."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr ""
+msgstr "Nederīgs lietotāja ID."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr ""
+msgstr "Lietotājvārdam ir jābūt tikai neapstiprinātiem burtiem, cipariem un defisēm."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
-msgstr ""
+msgstr "Produkts jau pastāv ar jauno kodu"
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
-msgstr ""
+msgstr "Jums jāievada vārds vai segvārds."
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
-msgstr ""
+msgstr "Atļauja liegta!"
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr ""
+msgstr "Jums jāievada vārds vai segvārds"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
-msgstr ""
+msgstr "Jūs jau esat pierakstījies."
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
-msgstr ""
+msgstr "Atjaunošanas paroles saite ir nederīga vai derīguma termiņš ir beidzies."
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr ""
+msgstr "Ar šo e-pastu nav neviena konta"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr ""
+msgstr "Šāds turnīrs neeksistē."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr ""
+msgstr "Šis lietotājvārds jau pastāv, lūdzu, izvēlieties citu."
 
 msgctxt "example"
 msgid "Example:"
-msgstr ""
+msgstr "Piemērs:"
 
 msgctxt "examples"
 msgid "Examples:"
-msgstr ""
+msgstr "Piemēri:"
 
 msgctxt "expiration_date"
 msgid "Best before date"
-msgstr ""
+msgstr "Labākais pirms datuma"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr ""
+msgstr "Derīguma termiņš ir veids, kā laika gaitā izsekot produkta izmaiņām un noteikt jaunāko versiju."
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
-msgstr ""
+msgstr "Drilldown uz produktiem līdz ..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
-msgstr ""
+msgstr "en_US"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr ""
+msgstr "Ja dati ir nepilnīgi vai nepareizi, varat to aizpildīt vai labot, rediģējot šo lapu."
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
@@ -662,93 +681,101 @@ msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/terms-of-use\">Lietošanas noteikumi</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/who-we-are\">Kas mēs esam</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/faq\">Biežāk uzdotie jautājumi</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">Ideju forums</a> -\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Preses un žurnāli</a>\n"
 
 msgctxt "footer_and_the_facebook_group"
-msgid "and the <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook group for contributors</a>"
+msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
 msgstr ""
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr ""
+msgstr "<<site_name>> emuārs"
 
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.blog.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
-msgstr ""
+msgstr "Rīcības kodekss"
 
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data"
-msgstr ""
+msgstr "Dati"
 
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr ""
+msgstr "/ dati"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr ""
+msgstr "Atklājiet projektu"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
-msgstr ""
+msgstr "Bieži uzdotie jautājumi"
 
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr ""
+msgstr "/ faq"
 
 msgctxt "footer_translators"
 msgid "Translators"
-msgstr ""
+msgstr "Tulkotāji"
 
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr ""
+msgstr "/cgi/top_translators.pl"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
-msgstr ""
+msgstr "Sekojiet mums <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> un\n"
+"<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
-msgstr ""
+msgstr "Instalējiet lietotni"
 
 msgctxt "footer_join_the_community"
 msgid "Join the community"
-msgstr ""
+msgstr "Pievienojies kopienai"
 
 msgctxt "footer_join_us_on"
 msgid "Join us on %s:"
-msgstr ""
+msgstr "Pievienojieties mums %s:"
 
 msgctxt "footer_legal"
 msgid "Legal"
-msgstr ""
+msgstr "Juridiski"
 
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr ""
+msgstr "/ legal"
 
 msgctxt "footer_press"
 msgid "Press"
-msgstr ""
+msgstr "Nospiediet"
 
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr ""
+msgstr "/nospiediet"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
-msgstr ""
+msgstr "Kopīga, bezmaksas un atvērta pārtikas produktu datu bāze no visas pasaules."
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -772,7 +799,7 @@ msgstr ""
 
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.wiki.openfoodfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -780,7 +807,7 @@ msgstr ""
 
 msgctxt "front_alt"
 msgid "Product"
-msgstr ""
+msgstr "Produkts"
 
 msgctxt "generic_name"
 msgid "Common name"
@@ -821,7 +848,7 @@ msgstr ""
 
 msgctxt "hello"
 msgid "Hello"
-msgstr ""
+msgstr "Čau"
 
 msgctxt "high"
 msgid "high"
@@ -926,7 +953,7 @@ msgstr ""
 
 msgctxt "ingredients_p"
 msgid "ingredients"
-msgstr ""
+msgstr "sastāvdaļas"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
@@ -966,63 +993,63 @@ msgstr ""
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
+msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
 msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
-msgstr ""
+msgstr "zināmas uzturvielas"
 
 msgctxt "known_nutrients_s"
 msgid "known nutrient"
-msgstr ""
+msgstr "zināma barības viela"
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr ""
+msgstr "Etiķetes, sertifikāti, apbalvojumi"
 
 msgctxt "labels_example"
 msgid "Organic"
-msgstr ""
+msgstr "Organisks"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
-msgstr ""
+msgstr "Norādiet tikai visatbilstošākās etiķetes. Etiķetes \"Vecāki\" tiks pievienoti automātiski."
 
 msgctxt "labels_p"
 msgid "labels"
-msgstr ""
+msgstr "etiķetes"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
-msgstr ""
+msgstr "Produkti ar marķējumu %s"
 
 msgctxt "labels_s"
 msgid "label"
-msgstr ""
+msgstr "etiķete"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
-msgstr ""
+msgstr "pievienot etiķeti"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
-msgstr ""
+msgstr "Produkti, kuriem nav marķējuma %s"
 
 msgctxt "lang"
 msgid "Main language"
-msgstr ""
+msgstr "Galvenā valoda"
 
 msgctxt "lang_ar"
 msgid "Arabic"
-msgstr ""
+msgstr "Arābu valoda"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bulgāru valoda"
 
 msgctxt "lang_cs"
 msgid "Czech"
@@ -1030,7 +1057,7 @@ msgstr "Čehu"
 
 msgctxt "lang_da"
 msgid "Danish"
-msgstr ""
+msgstr "Dāņu valoda"
 
 msgctxt "lang_de"
 msgid "German"
@@ -1050,11 +1077,11 @@ msgstr "Spāņu"
 
 msgctxt "lang_et"
 msgid "Estonian"
-msgstr ""
+msgstr "Igauņu valoda"
 
 msgctxt "lang_fi"
 msgid "Finnish"
-msgstr ""
+msgstr "Somu valoda"
 
 msgctxt "lang_fr"
 msgid "French"
@@ -1062,19 +1089,19 @@ msgstr "Franču"
 
 msgctxt "lang_ga"
 msgid "Irish"
-msgstr ""
+msgstr "Īru valoda"
 
 msgctxt "lang_he"
 msgid "Hebrew"
-msgstr ""
+msgstr "Ivrits"
 
 msgctxt "lang_hu"
 msgid "Hungarian"
-msgstr ""
+msgstr "Ungāru valoda"
 
 msgctxt "lang_id"
 msgid "Indonesian"
-msgstr ""
+msgstr "Indonēziešu valoda"
 
 msgctxt "lang_it"
 msgid "Italian"
@@ -1086,39 +1113,39 @@ msgstr "Japāņu"
 
 msgctxt "lang_ko"
 msgid "Korean"
-msgstr ""
+msgstr "Korejiešu valoda"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
-msgstr ""
+msgstr "Lietuviešu valoda"
 
 msgctxt "lang_lv"
 msgid "Latvian"
-msgstr ""
+msgstr "Latviešu"
 
 msgctxt "lang_mt"
 msgid "Maltese"
-msgstr ""
+msgstr "Maltiešu"
 
 msgctxt "lang_nl"
 msgid "Dutch"
-msgstr ""
+msgstr "Holandiešu valodā"
 
 msgctxt "lang_nl_be"
 msgid "Dutch"
-msgstr ""
+msgstr "Holandiešu valodā"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr ""
+msgstr "Valoda, kas ir visizcilākā un visvairāk uzsvērta uz produktu"
 
 msgctxt "lang_other"
 msgid "other language"
-msgstr ""
+msgstr "cita valoda"
 
 msgctxt "lang_pl"
 msgid "Polish"
-msgstr ""
+msgstr "Poļu valoda"
 
 msgctxt "lang_pt"
 msgid "Portuguese"
@@ -1126,11 +1153,11 @@ msgstr "Portugāļu"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
-msgstr ""
+msgstr "Portugāļu"
 
 msgctxt "lang_ro"
 msgid "Romanian"
-msgstr ""
+msgstr "Rumāņu valoda"
 
 msgctxt "lang_ru"
 msgid "Russian"
@@ -1138,11 +1165,11 @@ msgstr "Krievu"
 
 msgctxt "lang_sk"
 msgid "Slovak"
-msgstr ""
+msgstr "Slovāku valoda"
 
 msgctxt "lang_sl"
 msgid "Slovenian"
-msgstr ""
+msgstr "Slovēņu valoda"
 
 msgctxt "lang_sv"
 msgid "Swedish"
@@ -1150,69 +1177,69 @@ msgstr "Zviedru"
 
 msgctxt "lang_th"
 msgid "Thai"
-msgstr ""
+msgstr "Taju"
 
 msgctxt "lang_vi"
 msgid "Vietnamese"
-msgstr ""
+msgstr "Vjetnamiešu valoda"
 
 msgctxt "lang_zh"
 msgid "Chinese"
-msgstr ""
+msgstr "Ķīniešu valoda"
 
 msgctxt "language"
 msgid "en-US"
-msgstr ""
+msgstr "lv-LV"
 
 msgctxt "languages_p"
 msgid "languages"
-msgstr ""
+msgstr "valodas"
 
 msgctxt "languages_s"
 msgid "language"
-msgstr ""
+msgstr "valoda"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
-msgstr ""
+msgstr "Pēdējie rediģēšanas datumi"
 
 msgctxt "last_edit_dates_s"
 msgid "Last edit date"
-msgstr ""
+msgstr "Pēdējais rediģēšanas datums"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
-msgstr ""
+msgstr "Pēdējie attēla datumi"
 
 msgctxt "last_image_dates_s"
 msgid "Last picture date"
-msgstr ""
+msgstr "Pēdējais attēla datums"
 
 msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr ""
+msgstr "Pievienojot informāciju, datus un / vai fotogrāfijas, ieguldītāji piekrīt neatgriezeniski ievietot savus ieguldījumus saskaņā ar <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\"> Datubāzes satura licenci 1.0 </a> informācijai un datiem un saskaņā ar Creative Commons Attribution-ShareAlike licenci </a> fotogrāfijām."
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
-msgstr ""
+msgstr "Saite uz ražojuma lapu ražotāja oficiālajā vietnē"
 
 msgctxt "list_of_x"
 msgid "List of %s"
-msgstr ""
+msgstr "Publicēts %s"
 
 msgctxt "loadmore"
 msgid "Load more results"
-msgstr ""
+msgstr "Ielādējiet vairāk rezultātu"
 
 msgctxt "login_and_add_product"
 msgid "Sign-in and add the product"
-msgstr ""
+msgstr "Pierakstieties un pievienojiet produktu"
 
 msgctxt "login_and_edit_product"
 msgid "Sign-in and edit the product"
-msgstr ""
+msgstr "Pierakstieties un rediģējiet produktu"
 
 msgctxt "login_create_your_account"
 msgid "Create your account."
@@ -1250,7 +1277,7 @@ msgstr ""
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr ""
+msgstr "Lietotājvārds vai epasta adresi:"
 
 msgctxt "low"
 msgid "low"
@@ -1290,7 +1317,7 @@ msgstr ""
 
 msgctxt "manufacturing_places_tagsinput"
 msgid "add a place"
-msgstr ""
+msgstr "pievienojiet vietu"
 
 msgctxt "manufacturing_places_without_products"
 msgid "Products not manufactured or processed in %s"
@@ -1310,7 +1337,7 @@ msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Pievienot produktu"
 
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
@@ -1318,11 +1345,11 @@ msgstr ""
 
 msgctxt "menu_contribute"
 msgid "Contribute"
-msgstr ""
+msgstr "Veicināt / atbalstīt"
 
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/veicināt / atbalstīt"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1330,7 +1357,7 @@ msgstr "Atklāj"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/atklāj"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1364,6 +1391,7 @@ msgctxt "moderate_quantity"
 msgid "moderate quantity"
 msgstr ""
 
+# Please keep the same syntax and translate only the months
 msgctxt "months"
 msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
 msgstr ""
@@ -1408,6 +1436,14 @@ msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
 msgstr ""
 
+msgctxt "multiple_nutrition_data"
+msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
+msgstr "Uz produkta ir norādīti vairāki uztura fakti (piemēram, pievienojot ūdeni vai pienu)."
+
+msgctxt "multiple_nutrition_data_instructions"
+msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
+msgstr "Ievadiet tikai neapstrādāta produkta uzturvērtības faktus bez ūdens vai piena pievienošanas. Ja ir dažādi produkti, ierakstiet uztura faktus pirmajam uzskaitītajam produktam."
+
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
 msgstr ""
@@ -1426,128 +1462,129 @@ msgstr ""
 
 msgctxt "number_of_products"
 msgid "Number of products"
-msgstr ""
+msgstr "Produktu skaits"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr ""
+msgstr "%s %s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
-msgstr ""
+msgstr "Uzturvielu līmenis uz 100 g:"
 
+# Ensure it is the same translation as in the translation in the tag file. If unsure, DO NOT TRANSLATE, otherwise it will break the site
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/ uzturvielu līmeņi"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
-msgstr ""
+msgstr "uzturvielu līmeņi"
 
 msgctxt "nutrient_levels_s"
 msgid "nutrient level"
-msgstr ""
+msgstr "uzturvielu līmenis"
 
 msgctxt "nutriments_p"
 msgid "nutriments"
-msgstr ""
+msgstr "ēdieni"
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
-msgstr ""
+msgstr "Produkti, kas satur barību %s"
 
 msgctxt "nutriments_s"
 msgid "nutriment"
-msgstr ""
+msgstr "ēdamais"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
-msgstr ""
+msgstr "Produkti, kas nesatur barību %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Uztura fakti"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Uztura fakti"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr ""
+msgstr "Vidējie uztura fakti %d produktiem kategorijā %s , kuriem ir zināmi uztura fakti (no %d produktiem)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr ""
+msgstr "% no starpības"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
-msgstr ""
+msgstr "vērtība 100 g / 100 ml"
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
-msgstr ""
+msgstr "Salīdzinājums ar vidējās vērtības produktiem vienā kategorijā:"
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr ""
+msgstr "Lūdzu, ņemiet vērā: par katru barības piedevu vidējo aprēķina par produktiem, par kuriem ir zināms barības daudzums, nevis uz visiem šīs kategorijas produktiem."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr ""
+msgstr "Ja attēls ir pietiekami asa un līdzena, uzņemšanas faktus var automātiski iegūt no attēla."
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
-msgstr ""
+msgstr "10 centile"
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
-msgstr ""
+msgstr "par 100 g / 100 ml"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr ""
+msgstr "5<sup>th</sup> centile"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
-msgstr ""
+msgstr "Mediāna"
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
-msgstr ""
+msgstr "90. centile"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
-msgstr ""
+msgstr "95<sup>th</sup> centile"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
-msgstr ""
+msgstr "Maksimums"
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
-msgstr ""
+msgstr "Vidējais"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
-msgstr ""
+msgstr "Minimums"
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr ""
+msgstr "uz porciju"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
-msgstr ""
+msgstr "Standarta novirze"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Uztura fakti"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr ""
+msgstr "Tabulā pēc noklusējuma tiek parādīti bieži lietotie ēdieni, kurus bieži norāda. Atstājiet lauku tukšu, ja tas nav uz etiķetes.<br/>Jūs varat pievienot papildu ēdienreisi (vitamīnus, minerālvielas, holesterīnu uc), ierakstot vārda pirmos burtus pēdējā tabulas rindā."
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
@@ -1555,93 +1592,96 @@ msgstr ""
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
-msgstr ""
+msgstr "Uztura pakāpes"
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
+msgstr "Uztura pakāpe"
 
+# Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 
+# Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr ""
+msgstr "<p>Lai uzzinātu vairāk par <<site_name>>, apmeklējiet <a href=\"https://en.blog.openfoodfacts.org\">mūsu emuāru</a>!</p>\n"
+"<p>Jaunākās ziņas:</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
-msgstr ""
+msgstr "Jaunumi"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr ""
+msgstr "Tas ir <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> <<site_name>> no sestdienas 2015. gada februāra 21 līdz 2015. gada 1. marta svētdienai! Līdzautoriem tiek piešķirti Explorer punkti par produktiem, kurus viņi pievieno, un vēstnieks norāda uz jauniem ieguldītājiem, kurus viņi pieņem darbā. Punkti tiek atjaunināti ik pēc 30 minūtēm."
 
 msgctxt "or"
 msgid "or:"
-msgstr ""
+msgstr "vai:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
-msgstr ""
+msgstr "Sastāvdaļu izcelsme"
 
 msgctxt "origins_example"
 msgid "California, USA"
-msgstr ""
+msgstr "Kalifornija, ASV"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
-msgstr ""
+msgstr "Norādiet sastāvdaļu izcelsmi"
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
-msgstr ""
+msgstr "sastāvdaļu izcelsme"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr ""
+msgstr "Produkti ar sastāvdaļām, kuru izcelsme ir %s"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr ""
+msgstr "sastāvdaļu izcelsme"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
-msgstr ""
+msgstr "pievienot izcelsmi"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
-msgstr ""
+msgstr "Produkti bez sastāvdaļām, kuru izcelsme ir %s"
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "Iepakojums"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
-msgstr ""
+msgstr "Svaigi, konservēti, saldēti, pudele, kaste, stikls, plastmasa ..."
 
 msgctxt "packaging_note"
 msgid "Packaging type, format, material"
-msgstr ""
+msgstr "Iepakojuma veids, formāts, materiāls"
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr ""
+msgstr "iepakojums"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
-msgstr ""
+msgstr "Produkti ar %s iepakojumu"
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr ""
+msgstr "iepakojums"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
-msgstr ""
+msgstr "pievienojiet tipu, formu vai materiālu"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
@@ -1729,7 +1769,7 @@ msgstr ""
 
 msgctxt "points_ranking"
 msgid "Ranking"
-msgstr ""
+msgstr "Rangs"
 
 msgctxt "points_ranking_users_and_countries"
 msgid "Ranking of contributors and countries"
@@ -1849,99 +1889,99 @@ msgstr ""
 
 msgctxt "product_js_images_deleted"
 msgid "Images deleted"
-msgstr ""
+msgstr "Attēli dzēsti"
 
 msgctxt "product_js_images_move_error"
 msgid "Errors while moving images"
-msgstr ""
+msgstr "Kļūdas, pārvietojot attēlus"
 
 msgctxt "product_js_images_moved"
 msgid "Images moved"
-msgstr ""
+msgstr "Attēli pārvietoti"
 
 msgctxt "product_js_moving_images"
 msgid "Moving images"
-msgstr ""
+msgstr "Attēlu pārvietošana"
 
 msgctxt "product_js_upload_image"
 msgid "Add a picture"
-msgstr ""
+msgstr "Pievienot attēlu"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr ""
+msgstr "→ Ar Chrome, Firefox un Safari varat atlasīt vairākus attēlus (produktu, sastāvdaļas, uztura faktus utt.), Noklikšķinot uz tām, turot nospiestu Ctrl taustiņu, lai tos visus pievienotu vienā šāvienā."
 
 msgctxt "product_js_uploading_image"
 msgid "Uploading image"
-msgstr ""
+msgstr "Augšupielādējot attēlu"
 
 msgctxt "product_last_edited"
 msgid "Last edit of product page on"
-msgstr ""
+msgstr "Pēdējais produkta lapas rediģējums ir pieejams"
 
 msgctxt "product_name"
 msgid "Product name"
-msgstr ""
+msgstr "Produkta nosaukums"
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
-msgstr ""
+msgstr "Kinder Bueno White"
 
 msgctxt "products"
 msgid "products"
-msgstr ""
+msgstr "produkti"
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
-msgstr ""
+msgstr "Produktu skaita attīstība <<site_name>>"
 
 msgctxt "products_stats_completed_t"
 msgid "Products with complete information"
-msgstr ""
+msgstr "Produkti ar pilnīgu informāciju"
 
 msgctxt "products_stats_created_t"
 msgid "Products"
-msgstr ""
+msgstr "Produkti"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
-msgstr ""
+msgstr "ar uztura faktiem"
 
 msgctxt "products_you_edited"
 msgid "Products you added or edited"
-msgstr ""
+msgstr "Produkti, kurus pievienojāt vai rediģējat"
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr ""
+msgstr "Pilsēta, valsts un valsts, kur tas tiek nopirkts"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
-msgstr ""
+msgstr "Norādiet, kur jūs iegādājāties vai redzējāt produktu (vismaz valsts)"
 
 msgctxt "purchase_places_p"
 msgid "purchase places"
-msgstr ""
+msgstr "iegādes vietas"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Produkti, kas tiek pārdoti %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
-msgstr ""
+msgstr "pirkuma vieta"
 
 msgctxt "purchase_places_tagsinput"
 msgid "add a place"
-msgstr ""
+msgstr "pievienojiet vietu"
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "Produkti, kas nav pārdoti %s"
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr ""
+msgstr "Daudzums"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
@@ -2017,7 +2057,7 @@ msgstr ""
 
 msgctxt "save"
 msgid "Save"
-msgstr ""
+msgstr "Saglabāt"
 
 msgctxt "saved"
 msgid "Saved."
@@ -2025,7 +2065,7 @@ msgstr ""
 
 msgctxt "saving"
 msgid "Saving."
-msgstr ""
+msgstr "Saglabā."
 
 msgctxt "search"
 msgid "Search"
@@ -2033,7 +2073,7 @@ msgstr "Meklēt"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
-msgstr ""
+msgstr "Meklēt produktus"
 
 msgctxt "search_button"
 msgid "Search"
@@ -2166,11 +2206,11 @@ msgstr ""
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
-msgstr ""
+msgstr "Nutriments"
 
 msgctxt "search_or"
 msgid "or"
-msgstr ""
+msgstr "vai"
 
 msgctxt "search_page_size"
 msgid "Results per page"
@@ -2206,11 +2246,11 @@ msgstr ""
 
 msgctxt "search_series_organic"
 msgid "Organic"
-msgstr ""
+msgstr "Organisks"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
-msgstr ""
+msgstr "organisks"
 
 msgctxt "search_series_with_sweeteners"
 msgid "With sweeteners"
@@ -2286,7 +2326,7 @@ msgstr ""
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr ""
+msgstr "Porcijas lielums"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2314,7 +2354,7 @@ msgstr ""
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr ""
+msgstr "Izrakstīties"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -2322,7 +2362,7 @@ msgstr ""
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr ""
+msgstr "Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2342,7 +2382,7 @@ msgstr ""
 
 msgctxt "sort_product_name"
 msgid "Product name"
-msgstr ""
+msgstr "Produkta nosaukums"
 
 msgctxt "state"
 msgid "State"
@@ -2374,7 +2414,7 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "veikals"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2406,7 +2446,7 @@ msgstr ""
 
 msgctxt "tagstable_search"
 msgid "Search:"
-msgstr ""
+msgstr "Meklēt:"
 
 msgctxt "traces"
 msgid "Traces"
@@ -2458,7 +2498,7 @@ msgstr ""
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
-msgstr ""
+msgstr "Lietotājvārds vai epasta adresi: "
 
 msgctxt "username"
 msgid "User name"
@@ -2490,7 +2530,7 @@ msgstr ""
 
 msgctxt "users_p"
 msgid "contributors"
-msgstr ""
+msgstr "atbalstītāji"
 
 msgctxt "users_products"
 msgid "Products added by %s"
@@ -2498,7 +2538,7 @@ msgstr ""
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr ""
+msgstr "atbalstītājs"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
@@ -2535,10 +2575,10 @@ msgstr ""
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
+msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
 msgstr ""
 
 msgctxt "you_are_connected_as_x"
@@ -2625,14 +2665,6 @@ msgctxt "sources_usda_ndb_product_page"
 msgid "Product page on USDA NDB"
 msgstr ""
 
-msgctxt "donate"
-msgid "Donate to Open Food Facts"
-msgstr ""
-
-msgctxt "donate_link"
-msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr ""
-
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
 msgstr ""
@@ -2647,19 +2679,23 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " — "
-msgstr ""
+msgstr " - "
+
+msgctxt "recent_changes"
+msgid "Recent Changes"
+msgstr "Nesenās izmaiņas"
 
 msgctxt "translators_title"
 msgid "Our Translators"
-msgstr ""
+msgstr "Mūsu tulkotāji"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages!"
-msgstr ""
+msgstr "Mēs vēlētos teikt, ka paldies teicamiem tulkotājiem, kas ļauj jums iepazīstināt jūs ar atvērtā pārtikas faktiem, atklātajiem skaistuma faktiem un atvērtām dzīvnieku barības faktiem visās šajās dažādās valodās!"
 
 msgctxt "translators_renewal_notice"
 msgid "Please note that this table is refreshed nightly and might be out of date."
-msgstr ""
+msgstr "Lūdzu, ņemiet vērā, ka šī tabula tiek atjaunota nakts laikā un var būt novecojusi."
 
 msgctxt "translators_column_name"
 msgid "Name"
@@ -2667,17 +2703,249 @@ msgstr "Nosaukums"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
-msgstr ""
+msgstr "Tulkots (vārdi)"
 
 msgctxt "translators_column_target_words"
 msgid "Target Words"
-msgstr ""
+msgstr "Mērķvārdi"
 
 msgctxt "translators_column_approved_words"
 msgid "Approved (Words)"
-msgstr ""
+msgstr "Apstiprināts (vārdi)"
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
+msgstr "Balsojumi veikti"
+
+msgctxt "minerals_p"
+msgid "added minerals"
+msgstr "pievienotas minerālvielas"
+
+msgctxt "minerals_s"
+msgid "added mineral"
+msgstr "pievienots minerāls"
+
+msgctxt "vitamins_p"
+msgid "added vitamins"
+msgstr "pievienoti vitamīni"
+
+msgctxt "vitamins_s"
+msgid "added vitamin"
+msgstr "pievienots vitamīns"
+
+msgctxt "amino_acids_p"
+msgid "added amino acids"
+msgstr "pievienotas aminoskābes"
+
+msgctxt "amino_acids_s"
+msgid "added amino acid"
+msgstr "pievienota aminoskābe"
+
+msgctxt "nucleotides_p"
+msgid "added nucleotides"
+msgstr "pievienoti nukleotīdi"
+
+msgctxt "nucleotides_s"
+msgid "added nucleotide"
+msgstr "pievienots nukleotīds"
+
+msgctxt "other_nutritional_substances_p"
+msgid "other nutritional substances added"
+msgstr "citas pievienotās uzturvielas"
+
+msgctxt "other_nutritional_substances_s"
+msgid "other nutritional substance added"
+msgstr "pievienota cita uzturviela"
+
+msgctxt "product_as_sold"
+msgid "As sold"
+msgstr ""
+
+msgctxt "prepared_product"
+msgid "Prepared"
+msgstr ""
+
+msgctxt "unit"
+msgid "Unit"
+msgstr ""
+
+msgctxt "nutrition_data_exists"
+msgid "Nutrition facts are specified for the product as sold."
+msgstr ""
+
+msgctxt "nutrition_data_prepared_exists"
+msgid "Nutrition facts are specified for the prepared product."
+msgstr ""
+
+msgctxt "nova_groups_s"
+msgid "NOVA group"
+msgstr ""
+
+msgctxt "nova_groups_p"
+msgid "NOVA groups"
+msgstr ""
+
+msgctxt "footer_partners"
+msgid "Partners"
+msgstr ""
+
+msgctxt "footer_partners_link"
+msgid "/partners"
+msgstr ""
+
+msgctxt "adults"
+msgid "Adults"
+msgstr ""
+
+msgctxt "adults_age"
+msgid "18 to 64"
+msgstr ""
+
+msgctxt "adults_description"
+msgid "From 18 years up to and including 64 years of age"
+msgstr ""
+
+msgctxt "elderly"
+msgid "Elderly"
+msgstr ""
+
+msgctxt "elderly_age"
+msgid "65+"
+msgstr ""
+
+msgctxt "elderly_description"
+msgid "From 65 years of age and older"
+msgstr ""
+
+msgctxt "adolescents"
+msgid "Adolescents"
+msgstr ""
+
+msgctxt "adolescents_age"
+msgid "10 to 17"
+msgstr ""
+
+msgctxt "adolescents_description"
+msgid "From 10 years up to and including 17 years of age"
+msgstr ""
+
+msgctxt "children"
+msgid "Children"
+msgstr ""
+
+msgctxt "children_age"
+msgid "3 to 9"
+msgstr ""
+
+msgctxt "children_description"
+msgid "From 36 months up to and including 9 years of age"
+msgstr ""
+
+msgctxt "toddlers"
+msgid "Toddlers"
+msgstr ""
+
+msgctxt "toddlers_age"
+msgid "1 to 2"
+msgstr ""
+
+msgctxt "toddlers_description"
+msgid "From 12 months up to and including 35 months of age"
+msgstr ""
+
+msgctxt "infants"
+msgid "Infants"
+msgstr ""
+
+msgctxt "infants_age"
+msgid "< 1"
+msgstr ""
+
+msgctxt "infants_description"
+msgid "From more than 12 weeks up to and including 11 months of age"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation"
+msgid "EFSA evaluation"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_title"
+msgid "Risk of overexposure"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_high"
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_description"
+msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
+msgid "%d products with %s"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_no"
+msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
+msgid "High risk of over exposure"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
+msgid "Moderate risk of over exposure"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
+msgid "Risk of exceeding the acceptable daily intake (ADI)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
+msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
+msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
+msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
+msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_noael"
+msgid "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr ""
+
+msgctxt "exposure_title_95th"
+msgid "Some people"
+msgstr ""
+
+msgctxt "exposure_description_95th"
+msgid "over 5%"
+msgstr ""
+
+msgctxt "exposure_title_mean"
+msgid "Most people"
+msgstr ""
+
+msgctxt "exposure_description_mean"
+msgid "over 50%"
+msgstr ""
+
+msgctxt "wikipedia"
+msgid "Wikipedia"
+msgstr ""
+
+msgctxt "additives_classes"
+msgid "Functions"
 msgstr ""
 

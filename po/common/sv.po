@@ -5,11 +5,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-11 13:24-0500\n"
+"PO-Revision-Date: 2018-09-25 18:12\n"
 "Language-Team: Swedish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: \n"
 "X-Generator: crowdin.com\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: sv-SE\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
@@ -136,15 +137,16 @@ msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
 
+# Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
+msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
+msgstr ""
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -179,12 +181,12 @@ msgctxt "barcode_number"
 msgid "Barcode number:"
 msgstr "Streckkodsnummer:"
 
+msgctxt "you_can_also_help_us"
+msgid "You can also help to fund the Open Food Facts project"
+msgstr ""
+
 msgctxt "bottom_content"
-msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>Contribute to <<site_name>> by adding product and win stars by\n"
-"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
+msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
 msgstr ""
 
 msgctxt "bottom_title"
@@ -319,7 +321,7 @@ msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.p
 "→ <a href=\"https://twitter.com/openfoodfacts\">Twitter</a><br/>\n"
 "→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a><br />\n"
 "→ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
-"+ <a href=\"https://www.facebook.com/groups/374350705955208/\">contributors group</a><br />\n"
+"+ <a href=\"https://www.facebook.com/groups/openfoodfacts/\">contributors group</a><br />\n"
 "</p>\n\n"
 "<p>iPhone and iPad app on the App Store:</p>\n\n"
 "<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
@@ -484,7 +486,7 @@ msgstr ""
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr ""
+msgstr "redaktörer"
 
 msgctxt "editors_s"
 msgid "editor"
@@ -510,9 +512,10 @@ msgctxt "emb_codes"
 msgid "EMB code"
 msgstr "EMB-kod"
 
+# Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr ""
+msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
@@ -548,7 +551,7 @@ msgstr "Fel"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr ""
+msgstr "Felaktigt användarnamn eller lösenord. <a href=\"/cgi/reset_password.pl\">Glömt lösenord?</a>"
 
 msgctxt "error_database"
 msgid "An error occured while reading the data, try to refresh the page."
@@ -665,7 +668,7 @@ msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
 msgstr ""
 
 msgctxt "footer_and_the_facebook_group"
-msgid "and the <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook group for contributors</a>"
+msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
 msgstr ""
 
 msgctxt "footer_blog"
@@ -706,17 +709,19 @@ msgstr "/faq"
 
 msgctxt "footer_translators"
 msgid "Translators"
-msgstr ""
+msgstr "Översättare"
 
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr ""
+msgstr "/cgi/top_translators.pl"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
-msgstr ""
+msgstr "Följ oss på <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> och\n"
+"<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -724,7 +729,7 @@ msgstr "Installera appen"
 
 msgctxt "footer_join_the_community"
 msgid "Join the community"
-msgstr ""
+msgstr "Gå med i communityt"
 
 msgctxt "footer_join_us_on"
 msgid "Join us on %s:"
@@ -817,7 +822,16 @@ msgid "<meta property=\"fb:admins\" content=\"706410516\" />\n"
 "\tvar s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);\n"
 "  })();\n"
 "</script>\n\n\n"
-msgstr ""
+msgstr "<meta property=\"fb:admins\" content=\"706410516\" />\n"
+"<meta property=\"og:site_name\" content=\"<<site_name>> - the free and open food products information database\"/>\n\n"
+"<script type=\"text/javascript\">\n"
+"  var uvOptions = {};\n"
+"  (function() {\n"
+"\tvar uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;\n"
+"\tuv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/jQrwafQ94nbEbRWsznm6Q.js';\n"
+"\tvar s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);\n"
+"  })();\n"
+"</script>\n"
 
 msgctxt "hello"
 msgid "Hello"
@@ -833,7 +847,7 @@ msgstr "hög kvantitet"
 
 msgctxt "history"
 msgid "Changes history"
-msgstr ""
+msgstr "Ändringshistorik"
 
 msgctxt "image_front"
 msgid "Front picture"
@@ -841,7 +855,7 @@ msgstr ""
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
-msgstr ""
+msgstr "Ingrediensbild"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
@@ -966,11 +980,11 @@ msgstr "Produkter som inte innehåller ingrediensen %s"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
-msgstr "https://itunes.apple.com/en/app/open-food-facts/id588797948"
+msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1150,7 +1164,7 @@ msgstr "Svenska"
 
 msgctxt "lang_th"
 msgid "Thai"
-msgstr ""
+msgstr "Thai"
 
 msgctxt "lang_vi"
 msgid "Vietnamese"
@@ -1364,6 +1378,7 @@ msgctxt "moderate_quantity"
 msgid "moderate quantity"
 msgstr "måttlig kvantitet"
 
+# Please keep the same syntax and translate only the months
 msgctxt "months"
 msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
 msgstr ""
@@ -1408,6 +1423,14 @@ msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
 msgstr "Näringsfakta anges inte på produkten."
 
+msgctxt "multiple_nutrition_data"
+msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
+msgstr ""
+
+msgctxt "multiple_nutrition_data_instructions"
+msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
+msgstr ""
+
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
 msgstr "Ingen produkt listad för streckkod %s."
@@ -1436,13 +1459,14 @@ msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
 msgstr ""
 
+# Ensure it is the same translation as in the translation in the tag file. If unsure, DO NOT TRANSLATE, otherwise it will break the site
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
 msgstr "/nutrient-levels"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
-msgstr ""
+msgstr "näringsämnesnivåer"
 
 msgctxt "nutrient_levels_s"
 msgid "nutrient level"
@@ -1482,7 +1506,7 @@ msgstr "% av skillnad"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
-msgstr ""
+msgstr "värde för 100 g / 100 ml"
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
@@ -1494,7 +1518,7 @@ msgstr ""
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr ""
+msgstr "Om bilden är tillräckligt skarp och jämn kan näringsfakta extraheras automatiskt från bilden."
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
@@ -1502,7 +1526,7 @@ msgstr "10:e centilen"
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
-msgstr ""
+msgstr "för 100 g / 100 ml"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
@@ -1561,10 +1585,12 @@ msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr ""
 
+# Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 
+# Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
@@ -1785,7 +1811,7 @@ msgstr "Raderar bilder"
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
-msgstr ""
+msgstr "Extrahera ingredienserna från bilden"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
@@ -1893,7 +1919,7 @@ msgstr "produkter"
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
-msgstr ""
+msgstr "Utveckling av antalet produkter på <<site_name>>"
 
 msgctxt "products_stats_completed_t"
 msgid "Products with complete information"
@@ -2021,7 +2047,7 @@ msgstr "Spara"
 
 msgctxt "saved"
 msgid "Saved."
-msgstr ""
+msgstr "Sparad."
 
 msgctxt "saving"
 msgid "Saving."
@@ -2198,7 +2224,7 @@ msgstr "Rättvis handel"
 
 msgctxt "search_series_fairtrade_label"
 msgid "fair-trade"
-msgstr ""
+msgstr "fair-trade"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
@@ -2374,7 +2400,7 @@ msgstr "Produkter sålda på %s"
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "butik"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2410,7 +2436,7 @@ msgstr "Sök:"
 
 msgctxt "traces"
 msgid "Traces"
-msgstr ""
+msgstr "Spår"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
@@ -2422,11 +2448,11 @@ msgstr ""
 
 msgctxt "traces_p"
 msgid "traces"
-msgstr ""
+msgstr "spår"
 
 msgctxt "traces_s"
 msgid "trace"
-msgstr ""
+msgstr "spår"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
@@ -2518,7 +2544,7 @@ msgstr "Visa matchande produkter från hela världen"
 
 msgctxt "view_results_from_the_entire_world"
 msgid "View results from the entire world"
-msgstr ""
+msgstr "Visa resultat från hela världen"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
@@ -2535,10 +2561,10 @@ msgstr ""
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
+msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
 msgstr ""
 
 msgctxt "you_are_connected_as_x"
@@ -2625,14 +2651,6 @@ msgctxt "sources_usda_ndb_product_page"
 msgid "Product page on USDA NDB"
 msgstr "Produktsida på USDA NDB"
 
-msgctxt "donate"
-msgid "Donate to Open Food Facts"
-msgstr "Donera till Open Food Facts"
-
-msgctxt "donate_link"
-msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
 msgstr ""
@@ -2647,11 +2665,15 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " — "
-msgstr ""
+msgstr " — "
+
+msgctxt "recent_changes"
+msgid "Recent Changes"
+msgstr "Senaste ändringar"
 
 msgctxt "translators_title"
 msgid "Our Translators"
-msgstr ""
+msgstr "Våra översättare"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages!"
@@ -2667,17 +2689,249 @@ msgstr "Namn"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
-msgstr ""
+msgstr "Översatta (ord)"
 
 msgctxt "translators_column_target_words"
 msgid "Target Words"
-msgstr ""
+msgstr "Målord"
 
 msgctxt "translators_column_approved_words"
 msgid "Approved (Words)"
-msgstr ""
+msgstr "Godkända (Ord)"
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
+msgstr "Röster gjorda"
+
+msgctxt "minerals_p"
+msgid "added minerals"
+msgstr ""
+
+msgctxt "minerals_s"
+msgid "added mineral"
+msgstr ""
+
+msgctxt "vitamins_p"
+msgid "added vitamins"
+msgstr ""
+
+msgctxt "vitamins_s"
+msgid "added vitamin"
+msgstr ""
+
+msgctxt "amino_acids_p"
+msgid "added amino acids"
+msgstr ""
+
+msgctxt "amino_acids_s"
+msgid "added amino acid"
+msgstr ""
+
+msgctxt "nucleotides_p"
+msgid "added nucleotides"
+msgstr ""
+
+msgctxt "nucleotides_s"
+msgid "added nucleotide"
+msgstr ""
+
+msgctxt "other_nutritional_substances_p"
+msgid "other nutritional substances added"
+msgstr ""
+
+msgctxt "other_nutritional_substances_s"
+msgid "other nutritional substance added"
+msgstr ""
+
+msgctxt "product_as_sold"
+msgid "As sold"
+msgstr ""
+
+msgctxt "prepared_product"
+msgid "Prepared"
+msgstr ""
+
+msgctxt "unit"
+msgid "Unit"
+msgstr "Enhet"
+
+msgctxt "nutrition_data_exists"
+msgid "Nutrition facts are specified for the product as sold."
+msgstr ""
+
+msgctxt "nutrition_data_prepared_exists"
+msgid "Nutrition facts are specified for the prepared product."
+msgstr ""
+
+msgctxt "nova_groups_s"
+msgid "NOVA group"
+msgstr ""
+
+msgctxt "nova_groups_p"
+msgid "NOVA groups"
+msgstr ""
+
+msgctxt "footer_partners"
+msgid "Partners"
+msgstr ""
+
+msgctxt "footer_partners_link"
+msgid "/partners"
+msgstr ""
+
+msgctxt "adults"
+msgid "Adults"
+msgstr ""
+
+msgctxt "adults_age"
+msgid "18 to 64"
+msgstr ""
+
+msgctxt "adults_description"
+msgid "From 18 years up to and including 64 years of age"
+msgstr ""
+
+msgctxt "elderly"
+msgid "Elderly"
+msgstr ""
+
+msgctxt "elderly_age"
+msgid "65+"
+msgstr ""
+
+msgctxt "elderly_description"
+msgid "From 65 years of age and older"
+msgstr ""
+
+msgctxt "adolescents"
+msgid "Adolescents"
+msgstr ""
+
+msgctxt "adolescents_age"
+msgid "10 to 17"
+msgstr ""
+
+msgctxt "adolescents_description"
+msgid "From 10 years up to and including 17 years of age"
+msgstr ""
+
+msgctxt "children"
+msgid "Children"
+msgstr ""
+
+msgctxt "children_age"
+msgid "3 to 9"
+msgstr ""
+
+msgctxt "children_description"
+msgid "From 36 months up to and including 9 years of age"
+msgstr ""
+
+msgctxt "toddlers"
+msgid "Toddlers"
+msgstr ""
+
+msgctxt "toddlers_age"
+msgid "1 to 2"
+msgstr ""
+
+msgctxt "toddlers_description"
+msgid "From 12 months up to and including 35 months of age"
+msgstr ""
+
+msgctxt "infants"
+msgid "Infants"
+msgstr ""
+
+msgctxt "infants_age"
+msgid "< 1"
+msgstr ""
+
+msgctxt "infants_description"
+msgid "From more than 12 weeks up to and including 11 months of age"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation"
+msgid "EFSA evaluation"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_title"
+msgid "Risk of overexposure"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_high"
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_description"
+msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
+msgid "%d products with %s"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_no"
+msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
+msgid "High risk of over exposure"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
+msgid "Moderate risk of over exposure"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
+msgid "Risk of exceeding the acceptable daily intake (ADI)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
+msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
+msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
+msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
+msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_noael"
+msgid "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr ""
+
+msgctxt "exposure_title_95th"
+msgid "Some people"
+msgstr ""
+
+msgctxt "exposure_description_95th"
+msgid "over 5%"
+msgstr ""
+
+msgctxt "exposure_title_mean"
+msgid "Most people"
+msgstr ""
+
+msgctxt "exposure_description_mean"
+msgid "over 50%"
+msgstr ""
+
+msgctxt "wikipedia"
+msgid "Wikipedia"
+msgstr ""
+
+msgctxt "additives_classes"
+msgid "Functions"
 msgstr ""
 
