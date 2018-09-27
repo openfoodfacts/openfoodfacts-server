@@ -1,14 +1,17 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: po-backend-config
+  name: {{ include "productopener.backend.fullname" . }}-config
   labels:
-    app: po
-    component: backend
+    app: {{ include "productopener.name" . }}
+    chart: {{ include "productopener.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    component: {{ include "productopener.backend.fullname" . }}
 data:
   apache.conf: |  
     LoadModule perl_module modules/mod_perl.so
-    ServerAdmin contact@po.992d6328c7ec48169146.westeurope.aksapp.io
+    ServerAdmin contact@{{ .Values.host }}
     PerlSwitches -I/opt/product-opener/lib -I/opt/product-opener/local/lib/perl5
 
     PerlWarn On
@@ -27,7 +30,7 @@ data:
 
     <VirtualHost *>
       DocumentRoot /opt/product-opener/html
-      ServerName po.992d6328c7ec48169146.westeurope.aksapp.io
+      ServerName {{ .Values.host }}
       LogLevel warn
       ScriptAlias /cgi/ "/opt/product-opener/cgi/"
 
@@ -377,7 +380,7 @@ data:
     use vars @EXPORT_OK ; # no 'my' keyword for these
 
     # server constants
-    $server_domain = "po.992d6328c7ec48169146.westeurope.aksapp.io";
+    $server_domain = "{{ .Values.host }}";
 
     @ssl_subdomains = qw();
 
@@ -386,7 +389,7 @@ data:
     $data_root = "/mnt/podata";
 
     $mongodb = "off";
-    $mongodb_host = "mongodb://mongodb:27017";
+    $mongodb_host = "mongodb://{{ template "mongodb.fullname" . }}:27017";
 
     $facebook_app_id = "";
     $facebook_app_secret = "";
