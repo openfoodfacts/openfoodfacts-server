@@ -184,7 +184,7 @@ HTML
 
 #fields that have a taxonomy
 
-@taxonomy_fields = qw(states countries languages labels categories additives allergens traces nutrient_levels ingredients periods_after_opening);
+@taxonomy_fields = qw(states countries languages labels categories additives allergens traces nutrient_levels ingredients periods_after_opening inci_functions);
 
 # fields in product edit form
 
@@ -262,7 +262,7 @@ $options{display_tag_ingredients} = [
 	'EINECS',
 	'INN Name',
 	'Ph Eur Name',
-	'@INCI Function',
+	'@inci_functions',
 	'INCI Description',
 	'INCI Restriction',
 

@@ -68,15 +68,15 @@ $editor_user_id = $editor_user_id;
 
 not defined $photo_user_id and die;
 
-#my $csv_file = "/data/off/systemeu/SUYQD_AKENEO_PU_08.csv";
-#my $categories_csv_file = "/data/off/systemeu/systeme-u-rubriques.csv";
-#my $imagedir = "/data/off/systemeu/all_product_images";
-#my $products_without_ingredients_lists = "/data/off/systemeu/systeme-u-products-without-ingredients-lists.txt";
+my $csv_file = "/data/off/systemeu/SUYQD_AKENEO_PU_09b.csv";
+my $categories_csv_file = "/data/off/systemeu/systeme-u-rubriques.csv";
+my $imagedir = "/data/off/systemeu/all_product_images";
+my $products_without_ingredients_lists = "/data/off/systemeu/systeme-u-products-without-ingredients-lists.txt";
 
-my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_08.csv";
-my $categories_csv_file = "/home/systemeu/systeme-u-rubriques.csv";
-my $imagedir = "/home/systemeu/all_product_images"; 
-my $products_without_ingredients_lists = "/home/systemeu/systeme-u-products-without-ingredients-lists.txt";
+#my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_08.csv";
+#my $categories_csv_file = "/home/systemeu/systeme-u-rubriques.csv";
+#my $imagedir = "/home/systemeu/all_product_images"; 
+#my $products_without_ingredients_lists = "/home/systemeu/systeme-u-products-without-ingredients-lists.txt";
 
 
 print "uploading csv_file: $csv_file, image_dir: $imagedir\n";
@@ -942,7 +942,7 @@ ble => "bouteille",
 			my @param_fields = ();
 			
 			my @fields = @ProductOpener::Config::product_fields;
-			foreach my $field ('lc', 'product_name', 'generic_name', @fields, 'serving_size', 'allergens', 'traces', 'ingredients_text','lang') {
+			foreach my $field ('lc', 'lang', 'product_name', 'generic_name', @fields, 'serving_size', 'ingredients_text', 'allergens', 'traces') {
 			
 				if (defined $language_fields{$field}) {
 					foreach my $display_lc (@param_sorted_langs) {
@@ -1019,6 +1019,11 @@ ble => "bouteille",
 							# French emb codes
 							$product_ref->{emb_codes_orig} = $product_ref->{emb_codes};
 							$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});						
+						}
+
+						# special handling for allergens and traces
+						if (($field eq 'allergens') or ($field eq 'traces')) {
+							compute_field_tags($product_ref, $field);
 						}
 						if ($current_field ne $product_ref->{$field}) {
 							print "changed value for product code: $code - field: $field = $product_ref->{$field} - old: $current_field\n";

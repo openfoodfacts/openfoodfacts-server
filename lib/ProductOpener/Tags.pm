@@ -491,8 +491,19 @@ sub remove_stopwords($$$) {
 	if (defined $stopwords{$tagtype}{$lc}) { 
 		foreach my $stopword (@{$stopwords{$tagtype}{$lc}}) {
 			$tagid =~ s/-${stopword}-/-/g;
+			
+			# some stopwords should not be removed at the start or end
+			# this can cause issues with spellchecking tags like ingredients
+			# e.g. purée d'abricot -> puree d' -> urée
+			# ingredients: stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient
+
 			$tagid =~ s/^${stopword}-//g;
-			$tagid =~ s/-${stopword}$//g;
+
+			if (not 
+				(($lc eq 'fr') and not ($stopword =~ /^(en|proportion|proportions|variable|variables)$/))	# don't remove French stopwords at the end
+				) {
+				$tagid =~ s/-${stopword}$//g;
+			}
 		}
 	}
 	return $tagid;
@@ -2355,8 +2366,9 @@ sub spellcheck_taxonomy_tag($$$)
 		}
 		else {
 			# try removing stopwords and plurals
-			my $tagid2 = remove_stopwords($tagtype,$tag_lc,$tagid);
-			$tagid2 = remove_plurals($tag_lc,$tagid2);
+			# my $tagid2 = remove_stopwords($tagtype,$tag_lc,$tagid);
+			# $tagid2 = remove_plurals($tag_lc,$tagid2);
+			my $tagid2 = remove_plurals($tag_lc,$tagid);
 			
 			# try to add / remove hyphens (e.g. antioxydant / anti-oxydant)
 			my $tagid3 = $tagid2;

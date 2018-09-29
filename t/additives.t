@@ -1213,10 +1213,10 @@ extract_ingredients_classes_from_text($product_ref);
 print STDERR $product_ref->{additives} . "\n";
 
 is_deeply($product_ref->{additives_original_tags}, [
-          'en:e322i',
+          'en:e322',
           'en:e422',
           'en:e330',
-          'en:e440i',
+          'en:e440',
           'en:e331',
           'en:e500',
           'en:e503',
