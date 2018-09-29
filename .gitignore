@@ -27,3 +27,5 @@ local
 html/css/dist
 html/js/dist
 
+# Don't store helm dependencies in our git repo
+docker/productopener/charts

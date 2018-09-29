@@ -49,12 +49,13 @@ spec:
             - name: {{ include "productopener.frontend.fullname" . }}-config
               mountPath: "/tmp/nginx.conf"
               subPath: nginx.conf
-            - name: {{ include "productopener.name" . }}-images
+            - name: {{ include "productopener.fullname" . }}-images
               mountPath: "/opt/product-opener/html/images/products/"
+              readOnly: true
       volumes:
         - name: {{ include "productopener.frontend.fullname" . }}-config
           configMap:
             name: {{ include "productopener.frontend.fullname" . }}-config
-        - name: {{ include "productopener.name" . }}-images
+        - name: {{ include "productopener.fullname" . }}-images
           persistentVolumeClaim:
-            claimName: {{ include "productopener.name" . }}-images
+            claimName: {{ include "productopener.fullname" . }}-images

@@ -1,7 +1,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ include "productopener.name" . }}-images
+  name: {{ include "productopener.fullname" . }}-images
   labels:
     app: {{ include "productopener.name" . }}
     chart: {{ include "productopener.chart" . }}
