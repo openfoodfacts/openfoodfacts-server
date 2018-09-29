@@ -926,7 +926,7 @@ sub build_tags_taxonomy($$) {
 # > Nectars d'abricot, nectar d'abricot, nectars d'abricots, nectar 
 
 
-		open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.txt");
+		open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.txt") or die ;
 	
 		# print STDERR "Tags.pm - load_tags_taxonomy - tagtype: $tagtype - phase 3, computing hierarchy\n";
 	
@@ -1072,7 +1072,89 @@ sub build_tags_taxonomy($$) {
 		close $IN;
 		
 	
+		# allow a second file for wikipedia abstracts -> too big, so don't include it in the main file
+		# only process properties
 		
+		if (-e "$data_root/taxonomies/${tagtype}.properties.txt") {
+		
+		
+		open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/${tagtype}.properties.txt");
+	
+		# print STDERR "Tags.pm - load_tags_taxonomy - tagtype: $tagtype - phase 3, computing hierarchy\n";
+	
+		
+		$canon_tagid = undef;
+		
+		while (<$IN>) {
+		
+			my $line = $_;
+			chomp($line);
+			$line =~ s/\s+$//;
+			
+			$line =~ s/’/'/g;
+			
+			# assume commas between numbers are part of the name
+			# e.g. en:2-Bromo-2-Nitropropane-1,3-Diol, Bronopol
+			# replace by a lower comma ‚
+
+			$line =~ s/(\d),(\d)/$1‚$2/g;
+						
+			
+			# replace escaped comma \, by a lower comma ‚
+			$line =~ s/\\,/‚/g;
+			
+			# fr:E333(iii), Citrate tricalcique
+			# -> E333iii
+			
+			$line =~ s/\(((i|v|x)+)\)/$1/i;
+			
+			# just remove everything between parenthesis
+			#$line =~ s/\([^\)]*\)/ /g;
+			#$line =~ s/\([^\)]*\)/ /g;
+			#$line =~ s/\([^\)]*\)/ /g;
+			# 3 times for embedded parenthesis
+			
+			$line =~ s/\(|\)/-/g;
+			
+			$line =~ s/\s+$//;				
+			
+			if ($line =~ /^(\s*)$/) {
+				$canon_tagid = undef;
+				next;
+			}
+			
+			next if ($line =~ /^\#/);
+				
+			if ($line =~ /^(\w\w):/) {
+				my $lc = $1;
+				$line = $';
+				$line =~ s/^\s+//;
+				my @tags = split(/( )?,( )?/, $line);
+				$current_tag = normalize_percentages($tags[0], $lc);
+				$current_tagid = get_fileid($current_tag);
+				
+				if (not defined $canon_tagid) {
+				
+					$canon_tagid = "$lc:$current_tagid";
+				}
+			}			
+			elsif ($line =~ /^([a-z0-9_\-\.]+):(\w\w):(\s*)/) {
+				my $property = $1;
+				my $lc = $2;
+				$line = $';
+				$line =~ s/^\s+//;
+				next if $property eq 'synonyms';
+				next if $property eq 'stopwords';
+				
+				print "taxonomy - property - tagtype: $tagtype - canon_tagid: $canon_tagid - lc: $lc - property: $property\n";
+				defined $properties{$tagtype}{$canon_tagid} or $properties{$tagtype}{$canon_tagid} = {};
+				$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = $line;
+			}
+		}
+		
+	
+		close $IN;
+		} # wikipedia file		
 		
 		# Compute all parents, breadth first
 		
