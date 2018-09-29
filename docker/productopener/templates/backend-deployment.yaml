@@ -39,7 +39,7 @@ spec:
             - name: {{ include "productopener.backend.fullname" . }}-config
               mountPath: "/opt/product-opener/log.conf"
               subPath: log.conf
-            - name: {{ include "productopener.name" . }}-images
+            - name: {{ include "productopener.fullname" . }}-images
               mountPath: "/opt/product-opener/html/images/products/"
             - name: data
               mountPath: "/mnt/podata/"
@@ -75,7 +75,7 @@ spec:
             - name: {{ include "productopener.backend.fullname" . }}-config
               mountPath: "/opt/product-opener/log.conf"
               subPath: log.conf
-            - name: {{ include "productopener.name" . }}-images
+            - name: {{ include "productopener.fullname" . }}-images
               mountPath: "/opt/product-opener/html/images/products/"
             - name: data
               mountPath: "/mnt/podata/"
@@ -91,11 +91,11 @@ spec:
         - name: {{ include "productopener.backend.fullname" . }}-config
           configMap:
             name: {{ include "productopener.backend.fullname" . }}-config
-        - name: {{ include "productopener.name" . }}-images
+        - name: {{ include "productopener.fullname" . }}-images
           persistentVolumeClaim:
-            claimName: {{ include "productopener.name" . }}-images
+            claimName: {{ include "productopener.fullname" . }}-images
         - name: data
           persistentVolumeClaim:
-            claimName: {{ include "productopener.name" . }}-data
+            claimName: {{ include "productopener.fullname" . }}-data
         - name: varlog
           emptyDir: {}

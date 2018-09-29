@@ -84,16 +84,17 @@ while (my $line_ref = $csv->getline_hr ($io)) {
 	
 	$line_ref->{PUBLICATION_DATE} =~ s/^(....)(..)(..)/$1-$2-$3/;
 	
-	while ($title =~ /\bE(-| |)(\d\d\d(\d?)(abcdefgh)?)/i) {
+	while ($title =~ /\bE(-| |)?(\d\d\d(\d?)( )?([abcdefgh])?)/i) {
 	
 		my $e_number = lc($2);
+		$e_number =~ s/\s//g;
 		$title = $';
 		
 		$studies{$e_number} = { title => $line_ref->{TITLE}, url => $line_ref->{URL}, date => $line_ref->{PUBLICATION_DATE} };
 		
 		
 		
-		# print "found additive $e_number : " . $line_ref->{TITLE} . "\n";
+		print STDERR "found additive $e_number : " . $line_ref->{TITLE} . "\n";
 		$i++;
 	}
 	
@@ -101,10 +102,10 @@ while (my $line_ref = $csv->getline_hr ($io)) {
 	$title2 =~ s/Opinion of the Scientific Panel on food additives//i;
 	$title2 =~ s/Scientific Opinion of the Panel on Food Additives//i;
 	if (($i == 0) and ($title2 =~ /food additive/i)) {
-		print STDERR "\n";		
-		print STDERR "efsa_evaluation_url:en: " . $line_ref->{URL} . "\n";
-		print STDERR "efsa_evaluation_date:en: " . $line_ref->{PUBLICATION_DATE} . "\n";
-		print STDERR "efsa_evaluation:en: " . $line_ref->{TITLE} . "\n";		
+		#print STDERR "\n";		
+		#print STDERR "efsa_evaluation_url:en: " . $line_ref->{URL} . "\n";
+		#print STDERR "efsa_evaluation_date:en: " . $line_ref->{PUBLICATION_DATE} . "\n";
+		#print STDERR "efsa_evaluation:en: " . $line_ref->{TITLE} . "\n";		
 		
 	}
 }
@@ -118,20 +119,37 @@ binmode(STDERR, ":encoding(UTF-8)");
 
 my $e;
 
+my $e2;
+
 require Encode;
 
 my %properties = ();
 
 my $j = 0;
+my $override_existing_efsa_evaluation = 0;
 
 while (<STDIN>) {
 
 	my $line = $_;
 	
+	if ($line =~ /^en:E(\d\d\d(\d)?([abcdefgh])?)/i) {
+		$e2 = lc ($1);
+	}
+	
 	if ($line =~ /e_number:en:(.*)$/) {
 		$e = lc($1);
 		chomp($e);
 		print STDERR "-> e_number: $e\n";
+		if ((defined $e2) and ($e ne $e2)) {
+			print STDERR "-> changing e_number from $e to $e2\n";
+			$e = $e2;
+			$override_existing_efsa_evaluation = 1;
+			next;
+		}
+	}
+	
+	if (($line =~ /^efsa_evaluation(|_url|_date):en/) and ($override_existing_efsa_evaluation) and (defined $studies{$e})) {
+		next;
 	}
 	
 	if ($line =~ /^([^:]+):/) {
@@ -148,8 +166,12 @@ while (<STDIN>) {
 #efsa_evaluation_url:en:http://www.efsa.europa.eu/fr/efsajournal/doc/1649.pdf
 #efsa_evaluation_date:en:2010/07/26
 #efsa_evaluation:en:Scientific Opinion on the re‐evaluation of Amaranth (E 123) as a food additive		
+
+			if ((not defined $properties{e_number}) and (defined $e)) {
+				print "e_number:en:$e\n";
+			}
 		
-			if ((not defined $properties{efsa_evaluation}) and (defined $studies{$e})) {
+			if (((not defined $properties{efsa_evaluation}) or ($override_existing_efsa_evaluation)) and (defined $studies{$e})) {
 			
 				print "efsa_evaluation_url:en: " . $studies{$e}{url} . "\n";
 				print "efsa_evaluation_date:en: " . $studies{$e}{date} . "\n";
@@ -164,11 +186,11 @@ while (<STDIN>) {
 				# exit;
 			}
 			
-
-			$e = undef;
-			
 		}
 		
+		$e = undef;
+		$e2 = undef;		
+		$override_existing_efsa_evaluation = 0;
 		%properties = ();
 	}
 	
