@@ -851,7 +851,7 @@ efsa_evaluation_date:en: 2010/11/22
 efsa_evaluation:en: Scientific Opinion on the re‐evaluation of Brilliant Blue FCF (E 133) as a food additive
 efsa_evaluation_overexposure_risk:en: en:moderate
 efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
-efsa_evaluation_exposure_95th_greater_than_adi:en: en:children
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:children, en:toddlers
 #Toddlers are counted as children in this study
 additives_classes:en: en:colour
 
@@ -1082,7 +1082,7 @@ efsa_evaluation_date:en: 2010/11/22
 efsa_evaluation:en: Scientific Opinion on the re‐evaluation of Green S (E 142) as a food additive
 efsa_evaluation_overexposure_risk:en: en:moderate
 efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
-efsa_evaluation_exposure_95th_greater_than_adi:en: en:children
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:children, en:toddlers
 #Toddlers are counted as children in this study
 
 en:E143, Fast Green FCF, Food green 3, C.I. 42053, Solid Green FCF, Green 1724, FD&C Green No. 3
@@ -1168,8 +1168,9 @@ sv:E150a, Sockerkulör
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/2004.pdf
 efsa:en:http://www.efsa.europa.eu/fr/efsajournal/doc/3030.pdf
 efsa_evaluation_overexposure_risk:en: en:high
-efsa_evaluation_exposure_mean_greater_than_adi:en: en:children #Toddlers are considered as children in this study
-efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:children
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
+#Toddlers are considered as children in this study
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:children, en:toddlers
 efsa_evaluation_adi:en: 300 #not the ADI of E150a alone but an ADI shared by the four E150(a,b,c,d)
 e_number:en:150a
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2011.2004
@@ -1238,8 +1239,9 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2011.2004
 efsa_evaluation_date:en: 2011-03-08
 efsa_evaluation:en: Scientific opinion on the re-evaluation of caramel colours (E 150 a,b,c,d) as food additives
 efsa_evaluation_overexposure_risk:en: en:high
-efsa_evaluation_exposure_mean_greater_than_adi:en: en:children #Toddlers are considered as children in this study
-efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:children
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
+#Toddlers are considered as children in this study
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:children, en:toddlers
 efsa_evaluation_adi:en: 100
 e_number:en:150c
 additives_classes:en: en:colour
@@ -1273,8 +1275,9 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2011.2004
 efsa_evaluation_date:en: 2011-03-08
 efsa_evaluation:en: Scientific opinion on the re-evaluation of caramel colours (E 150 a,b,c,d) as food additives
 efsa_evaluation_overexposure_risk:en: en:high
-efsa_evaluation_exposure_mean_greater_than_adi:en: en:children #Toddlers are considered as children in this study
-efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:children
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
+#Toddlers are considered as children in this study
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:children, en:toddlers
 efsa_evaluation_adi:en: 300
 e_number:en:150d
 additives_classes:en: en:colour
@@ -15527,6 +15530,10 @@ wikidata:en:Q2805600
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4146
 efsa_evaluation_date:en: 2015-06-30
 efsa_evaluation:en: Scientific opinion on the safety of the extension of use of steviol glycosides (E 960) as a food additive
+efsa_evaluation_overexposure_risk:en: en:moderate
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:toddlers
+efsa_evaluation_adi:en: 4
 additives_classes:en: en:sweetener
 
 en:E961, Neotame
