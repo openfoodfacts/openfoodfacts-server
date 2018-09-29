@@ -58,13 +58,13 @@ data:
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_pass http://po-backend/cgi/display.pl?;
+        proxy_pass http://{{ include "productopener.backend.fullname" . }}/cgi/display.pl?;
       }
 
       location /cgi/ {
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_pass http://po-backend;
+        proxy_pass http://{{ include "productopener.backend.fullname" . }};
       }
     }
