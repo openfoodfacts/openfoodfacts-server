@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-09-26 10:47\n"
+"PO-Revision-Date: 2018-09-30 09:08\n"
 "Language-Team: Chinese Simplified\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -23,7 +23,7 @@ msgstr "zh_CN"
 #. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
 msgid ":langname"
-msgstr "Chinese"
+msgstr "Simplified Chinese"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -73,21 +73,21 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr "你好 <NAME>，\n"
-"非常感谢加入 https://openfoodfacts.org\n"
+msgstr "你好<NAME>，\n"
+"非常感谢加入https://openfoodfacts.org\n"
 "这是你的用户名：\n\n"
 "用户名：<USERID>\n\n"
-"您现在可以登陆至网站添加和编辑产品。\n\n"
-"<site_name> 是一个合作项目，你可以带来更多的新产品：你的精力，热情和想法！\n"
-"为了在贡献者之间进行讨论并使项目继续下去，我们使用一个非常方便的消息系统叫做 Slack：https://slack.openfoodfacts.org\n\n"
-"您也可以加入 Facebook 贡献者小组：\n"
+"您现在可以在网站上登录来添加和编辑产品。\n\n"
+"<site_name>是一个合作项目，你可以带来更多的新产品：你的精力，热情和想法！\n"
+"为了在贡献者之间进行讨论并使项目继续下去，我们使用一个非常方便的消息系统Slack：https：//slack.openfoodfacts.org\n\n"
+"您也可以加入Facebook小组：\n"
 "https://www.facebook.com/groups/OpenFoodFacts/\n\n"
-"新闻：我们也开始启动 Open Food Facts 创建一个化妆品数据库：例如肥皂，牙膏，化妆品等。\n"
+"新闻：我们也开始打开“Open Food Facts“创建一个化妆品数据库：例如肥皂，牙膏，化妆品等\n"
 "https://openbeautyfacts.org\n\n"
-"非常感谢你的加入！\n\n"
-"Stéphane 和 Open Food Facts 团队\n"
+"非常感谢你！\n\n"
+"Stéphane和公开的食物事实小组\n"
 "https://openfoodfacts.org\n"
-"https://twitter.com/OpenFoodFacts"
+"https://twitter.com/OpenFoodFacts\n"
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
@@ -95,7 +95,7 @@ msgstr "感谢您加入<<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr "潜在有危害食品的添加剂，限制使用"
+msgstr "潜在有危害的食品添加剂，限制使用"
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
@@ -165,23 +165,25 @@ msgstr ""
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>本产品没有在<site_name>数据库中，您可以把商品的条形码，成分列表和营养成分列表添加到<a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><site_name></a></p></p>非常感谢您</p>\n"
+msgstr "<p>本产品尚未在<site_name>数据库中。 你可以把产品，条形码，成分列表和营养成分的照片添加到<a href=\"https://world.openfoodfacts.org\" target=\"_blank\">\n"
+"<p>预先感谢！</p>\n"
+" \n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr "拍照"
+msgstr "请拍照"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr "注意：您发送的图片是经过 Creative Commons Attribution and ShareAlike许可的"
+msgstr "注意：仅发送的图片是经过Creative Commons Attribution and ShareAlike. 许可的"
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr "你可以添加图片"
+msgstr "你可以添加图片："
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
-msgstr "水瓶坐标"
+msgstr "水平坐标"
 
 msgctxt "axis_y"
 msgid "Vertical axis"
@@ -213,7 +215,7 @@ msgstr "品牌"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr "健达缤纷乐白巧克力，健达缤纷乐，健达巧克力，费列罗"
+msgstr "金德布埃诺白，仁德布埃诺，金德，费列罗"
 
 msgctxt "brands_p"
 msgid "brands"
@@ -221,7 +223,7 @@ msgstr "品牌"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr "商品来自%s品牌"
+msgstr "%s商品的品牌"
 
 msgctxt "brands_s"
 msgid "brand"
@@ -233,7 +235,7 @@ msgstr "添加一个品牌"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr "商品没有来自%s品牌"
+msgstr "不实来自%s的品牌"
 
 msgctxt "by"
 msgid "by"
@@ -257,7 +259,7 @@ msgstr "类别"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr "商品来自%s类别"
+msgstr "%s的商品种类"
 
 msgctxt "categories_s"
 msgid "category"
@@ -269,7 +271,7 @@ msgstr "添加种类"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr "商品不是来自%s类别"
+msgstr "非%s类别的产品"
 
 msgctxt "change_fields"
 msgid "Data"
@@ -281,7 +283,7 @@ msgstr "营养素"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr "已选图片"
+msgstr "已选定图片"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
@@ -348,11 +350,11 @@ msgstr ""
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr "完成%d的任务"
+msgstr "完成了%d任务："
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr "您已经链接到你脸书账号上"
+msgstr "已经与您的脸书账目链接"
 
 msgctxt "contributor_since"
 msgid "Contributor since"
@@ -360,7 +362,7 @@ msgstr "贡献者"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr "将当前产品数据复制到新的产品"
+msgstr "将当前产品的数据复制到新的产品"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
@@ -376,11 +378,11 @@ msgstr "校正"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "售卖此商品的国家"
+msgstr "能出售的国家"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
-msgstr "广泛使用此商品的国家（不包括专门从事国外产品的商店）"
+msgstr "产品广泛使用的国家（不包括专门从事外国产品的商店）"
 
 msgctxt "countries_p"
 msgid "countries"
@@ -396,7 +398,7 @@ msgstr "国家"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr "商品没有出售%s"
+msgstr "%s的商品没有出售"
 
 msgctxt "data_source"
 msgid "Data source"
@@ -404,15 +406,15 @@ msgstr "数据来源"
 
 msgctxt "debug_p"
 msgid "debug"
-msgstr "测试"
+msgstr "调试"
 
 msgctxt "debug_s"
 msgid "debug"
-msgstr "测试"
+msgstr "调试"
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr "卸载原因"
+msgstr "卸除原因"
 
 msgctxt "delete_product"
 msgid "Delete a product"
@@ -424,7 +426,7 @@ msgstr "删除页面"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr "删除图片"
+msgstr "要删除此图片么？"
 
 msgctxt "delete_user"
 msgid "Delete an user"
@@ -436,7 +438,7 @@ msgstr "添加："
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr "改变："
+msgstr "更改："
 
 msgctxt "diff_delete"
 msgid "Deleted:"
@@ -464,7 +466,7 @@ msgstr "编辑"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr "更改摘要"
+msgstr "变更摘要"
 
 msgctxt "edit_product"
 msgid "Edit a product"
@@ -472,15 +474,15 @@ msgstr "编辑产品"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr "编辑网页"
+msgstr "编辑页面"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
-msgstr "编辑您的个人资料"
+msgstr "编辑个人资料"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
-msgstr "您公开的个人资料已经被保存"
+msgstr "您公开的个人资料已被保存"
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
@@ -496,7 +498,7 @@ msgstr "错误的参数"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr "<p>您的账户数据已经更改</p>"
+msgstr "<p>您的账户数据已更改</p>"
 
 msgctxt "editors_p"
 msgid "editors"
@@ -537,11 +539,11 @@ msgstr ""
 
 msgctxt "emb_codes_p"
 msgid "packager codes"
-msgstr "包装代码"
+msgstr "打包代码"
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
-msgstr "含EMB代码%s的产品"
+msgstr "Emb代码为%s的产品"
 
 msgctxt "emb_codes_s"
 msgid "packager code"
@@ -549,15 +551,15 @@ msgstr "包装代码"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the emb code %s"
-msgstr "不含EMB代码%s的产品"
+msgstr "不含Emb代码%s的产品"
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
-msgstr "记录日期"
+msgstr "加入日期"
 
 msgctxt "entry_dates_s"
 msgid "Entry date"
-msgstr "记录日期"
+msgstr "加入日期"
 
 msgctxt "error"
 msgid "Error"
@@ -565,19 +567,19 @@ msgstr "错误"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr "用户名或者密码错误<a href=\"/cgi/reset_password.pl\">忘记密码？</a>"
+msgstr "用户名或密码错误<a href=\"/cgi/reset_password.pl\">忘记密码？</a>"
 
 msgctxt "error_database"
 msgid "An error occured while reading the data, try to refresh the page."
-msgstr "读取数据时发生错误，请尝试刷新页面"
+msgstr "读取数据时候发生错误，请尝试刷新页面"
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr "新密码和确认后的密码不匹配"
+msgstr "新密码和确认密码不匹配"
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr "电子邮件的地址已经被其他用户使用，也许您曾经注册过账户？您可以<a href=\"/cgi/reset_password.pl\">重置密码</a>为您的账户"
+msgstr "电子邮件地址已经被其他用户使用 ，也许你曾经注册过账号？您可以<a href=\"/cgi/reset_password.pl\">重新设置密码</a>"
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -585,7 +587,7 @@ msgstr "地址无效"
 
 msgctxt "error_invalid_csrf_token"
 msgid "Invalid CSRF token."
-msgstr "无效的CSRF 指令"
+msgstr "无效的CSRF验证令牌"
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
@@ -597,7 +599,7 @@ msgstr "密码至少6个特殊字符"
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr "用户无效"
+msgstr "无效用户"
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
@@ -621,15 +623,15 @@ msgstr "您需要输入一个用户名"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
-msgstr "您已经登录"
+msgstr "您已经登陆"
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
-msgstr "重置的密码链接无效或者已经过期"
+msgstr "重置的密码连接无效或已经过期"
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr "没有根据此电子邮件申请账户"
+msgstr "没有根据此电子邮件申请的账户"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
@@ -637,7 +639,7 @@ msgstr "此用户不存在"
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr "这个名称已经存在，请另选一个"
+msgstr "这个名称已经存在，请另选一个！"
 
 msgctxt "example"
 msgid "Example:"
@@ -649,7 +651,7 @@ msgstr "例如："
 
 msgctxt "expiration_date"
 msgid "Best before date"
-msgstr "最佳日期"
+msgstr "最佳日期："
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
@@ -657,7 +659,7 @@ msgstr "”到期日期“是跟踪产品变化的一种方法，可以识别最
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
-msgstr "深入研究产品"
+msgstr "深入到产品研究"
 
 msgctxt "facebook_locale"
 msgid "en_US"
@@ -779,7 +781,7 @@ msgstr "使用条款"
 
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr "/使用条款"
+msgstr "使用条件"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -787,7 +789,7 @@ msgstr "我们是谁"
 
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr "/我们是谁"
+msgstr "我们是谁"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -807,15 +809,15 @@ msgstr "产品"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr "通用姓名"
+msgstr "通用名"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
-msgstr "巧克力牛奶和榛子棒"
+msgstr "巧克力牛奶和榛子"
 
 msgctxt "goodbye"
 msgid "See you soon!"
-msgstr "一会见！"
+msgstr "一回见！"
 
 msgctxt "graph_count"
 msgid "%d products match the search criterias, of which %i products have defined values for the graph's axis."
@@ -823,11 +825,11 @@ msgstr ""
 
 msgctxt "graph_title"
 msgid "Graph title"
-msgstr "图片标题"
+msgstr "图标标题"
 
 msgctxt "graphs_and_maps"
 msgid "Graphs and maps"
-msgstr "图片与地图"
+msgstr "图表和地图"
 
 msgctxt "header"
 msgid "<meta property=\"fb:admins\" content=\"706410516\" />\n"
@@ -844,7 +846,7 @@ msgstr ""
 
 msgctxt "hello"
 msgid "Hello"
-msgstr "您好"
+msgstr "你好"
 
 msgctxt "high"
 msgid "high"
@@ -860,23 +862,23 @@ msgstr "更改历史记录"
 
 msgctxt "image_front"
 msgid "Front picture"
-msgstr "图片正面"
+msgstr "正面图片"
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
-msgstr "成分列表"
+msgstr "成分列表："
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
-msgstr "如果图片充足，可以自动提取配料成分"
+msgstr "如果图片充足，可以自动提取配料"
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
-msgstr "营养成分图像"
+msgstr "实际营养图"
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
-msgstr "图片已经发送"
+msgstr "照片已经发送"
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
@@ -885,7 +887,7 @@ msgstr "这个图片太小了，请不要上传网络图片，请上传自己拍
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
 "You can try with another image, or directly enter the barcode."
-msgstr "图像中的条形码无法读取，或者图片中没有条形码，您可以尝试扫描另外一个图片或者直接输入条形码号码"
+msgstr "图像中的条形码无法读取，或者图片中没有条形码。您可以尝试另外一个图片或者直接输入条形码。"
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
@@ -893,11 +895,11 @@ msgstr "图片中没有条形码"
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
-msgstr "当条形码可见时，您必须输入条形码字符或者商品的图片"
+msgstr "当条形码可见时，您必须输入条形码的字符或者发送产品图像"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
-msgstr "您添加的产品需求已经完成"
+msgstr "您添加的产品需要完成"
 
 msgctxt "informers_p"
 msgid "informers"
@@ -909,11 +911,11 @@ msgstr "信息"
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr "配料"
+msgstr "成分"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr "配料"
+msgstr "成分"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -921,23 +923,23 @@ msgstr "分析成分"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
-msgstr "注意：成分可能有不同的名称，如果您认为上述分析是不正确的，请您让我们知道"
+msgstr "注意：成分可以有不同的名称，如果您认为上述分析是不正确的，请让我们知道"
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
-msgstr "可能来自棕榈油成分"
+msgstr "可能来自棕榈油的成分："
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_s"
 msgid "ingredient from or that may be from palm oil"
-msgstr "可能来自棕榈油成分"
+msgstr "啃根来自棕榈油的成分："
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr "棕榈油成分"
+msgstr "棕榈油成分："
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
-msgstr "棕榈油成分"
+msgstr "棕榈油成分："
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
@@ -945,7 +947,7 @@ msgstr "配料数量"
 
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
-msgstr "配料数量"
+msgstr "陈分数量"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -953,15 +955,15 @@ msgstr "成分"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
-msgstr "产品含有%s成分"
+msgstr "含有%s成分的产品"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
-msgstr "车给你发呢"
+msgstr "成分"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
-msgstr "成分列表"
+msgstr "成分列表："
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
@@ -969,7 +971,7 @@ msgstr "成分按照重要性排列（数量）"
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr "谷物85.5％（荞麦粉，全麦粉11％），麦芽汁，可可粉4.8％，抗坏血酸"
+msgstr "谷物 85.5% (_荞麦粉, 全麦粉 11%), 麦芽汁, 可可粉 4,8%, 抗坏血酸"
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
@@ -977,11 +979,11 @@ msgstr "保持顺序，在指定具体成分％，用逗号分开或 - ，用（
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr "可能来自棕榈油的成分"
+msgstr "可能来自棕榈油的成分："
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
-msgstr "可能来自棕榈油的成分"
+msgstr "可能来自棕榈油的成分："
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
@@ -1033,11 +1035,11 @@ msgstr "添加标签"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
-msgstr "没有%s标签的产品"
+msgstr "没有标签的%s产品"
 
 msgctxt "lang"
 msgid "Main language"
-msgstr "主要使用语言"
+msgstr "主要语言"
 
 msgctxt "lang_ar"
 msgid "Arabic"
@@ -1121,7 +1123,7 @@ msgstr "拉脱维亚语"
 
 msgctxt "lang_mt"
 msgid "Maltese"
-msgstr "马耳他文"
+msgstr "马耳它文"
 
 msgctxt "lang_nl"
 msgid "Dutch"
@@ -1165,7 +1167,7 @@ msgstr "斯洛伐克语"
 
 msgctxt "lang_sl"
 msgid "Slovenian"
-msgstr "斯洛文尼亚"
+msgstr "斯洛文尼亚语"
 
 msgctxt "lang_sv"
 msgid "Swedish"
@@ -1177,7 +1179,7 @@ msgstr "泰语"
 
 msgctxt "lang_vi"
 msgid "Vietnamese"
-msgstr "越难越"
+msgstr "越南语"
 
 msgctxt "lang_zh"
 msgid "Chinese"
@@ -1197,11 +1199,11 @@ msgstr "语言"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
-msgstr "最后编辑的日期"
+msgstr "最后编辑日期"
 
 msgctxt "last_edit_dates_s"
 msgid "Last edit date"
-msgstr "最后编辑的日期"
+msgstr "最后编辑日期"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
@@ -1223,7 +1225,7 @@ msgstr "链接到制作人的官方网站上的产品页面"
 
 msgctxt "list_of_x"
 msgid "List of %s"
-msgstr "列表%s"
+msgstr "%s列表"
 
 msgctxt "loadmore"
 msgid "Load more results"
@@ -1231,11 +1233,11 @@ msgstr "加载更多结果"
 
 msgctxt "login_and_add_product"
 msgid "Sign-in and add the product"
-msgstr "登录并添加产品"
+msgstr "登录并添加商品"
 
 msgctxt "login_and_edit_product"
 msgid "Sign-in and edit the product"
-msgstr "登录并编辑产品"
+msgstr "登录并编辑商品"
 
 msgctxt "login_create_your_account"
 msgid "Create your account."
@@ -1243,7 +1245,7 @@ msgstr "创建您的账户"
 
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
-msgstr "没有注册？"
+msgstr "尚未注册？"
 
 msgctxt "login_register_content"
 msgid "<p>Sign-in to add or edit products.</p>\n\n"
@@ -1273,14 +1275,13 @@ msgstr "登录"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
-msgstr "登录并添加或者编辑商品"
+msgstr "登录并添加或编辑商品"
 
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
-msgstr "<p>请登录并添加或者编辑产品</p>\n"
-"<p>如果您还没有账户在<site_name>您可以<a href=\"/cgi/user.pl\">\n"
-"在30秒中注册</a></p>\n"
+msgstr "<p>请登录以添加或者编辑产品</p>\n"
+"<p>如果您还没有账户在<site_name>，您可以<a href=\"/cgi/user.pl\">注册30秒</a></p>\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
@@ -1324,7 +1325,7 @@ msgstr "制造或者加工场所"
 
 msgctxt "manufacturing_places_tagsinput"
 msgid "add a place"
-msgstr "添加地址"
+msgstr "添加地点"
 
 msgctxt "manufacturing_places_without_products"
 msgid "Products not manufactured or processed in %s"
@@ -1332,7 +1333,7 @@ msgstr "产品没有在%s中制作加工"
 
 msgctxt "map_count"
 msgid "%d products match the search criterias, of which %i products have a known production place."
-msgstr "%d产品符号搜索条件，其中%i的商品已知生产地点"
+msgstr "%d产品匹配的搜索标准，其中%i的产品已知生产地点"
 
 msgctxt "map_title"
 msgid "Map title"
@@ -1372,11 +1373,11 @@ msgstr "任务： "
 
 msgctxt "mission_accomplished_by"
 msgid "This mission has been completed by:"
-msgstr "这个项目已经完成"
+msgstr "这项任务已经完成"
 
 msgctxt "mission_accomplished_by_n"
 msgid "Completed by %d persons."
-msgstr "由%d（人）完成"
+msgstr "由%d人完成"
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
@@ -1384,7 +1385,7 @@ msgstr "第一个完成这项任务！"
 
 msgctxt "mission_goal"
 msgid "Goal:"
-msgstr "目标"
+msgstr "目标："
 
 msgctxt "missions"
 msgid "Missions"
@@ -1401,15 +1402,15 @@ msgstr "中等数量"
 # Please keep the same syntax and translate only the months
 msgctxt "months"
 msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr "一月，二月，三月，四月，五月，六月，七月，八月，九月，十月，十一月，十二月"
+msgstr "['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月r', '十一月, '十二月']"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
-msgstr "将图像移动到另一个产品上"
+msgstr "将图片移动到另外一个产品上"
 
 msgctxt "n_products"
 msgid "%d products"
-msgstr "%d产品"
+msgstr "%d件商品"
 
 msgctxt "name"
 msgid "Name"
@@ -1417,15 +1418,15 @@ msgstr "名称"
 
 msgctxt "names"
 msgid "Names"
-msgstr "姓名"
+msgstr "名称"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr "如果条形码不正确，请更正："
+msgstr "如果条形码不正确，请在此更正"
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
-msgstr "对于没有条形码的产品，会自动设置内部代码"
+msgstr "对于没有条形码的产品，会自动设置内部代码。"
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
@@ -1441,7 +1442,7 @@ msgstr "没有条形码的产品"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
-msgstr "营养成分没有在产品上注明"
+msgstr "营养成分没有在产品傻姑娘注明"
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
@@ -1453,7 +1454,7 @@ msgstr "仅输入未准备产品的营养成分，而不添加水或牛奶。如
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
-msgstr "没有列出条形码的产品%s"
+msgstr "没有列出条形码的%s商品"
 
 msgctxt "no_products"
 msgid "No products."
@@ -1461,7 +1462,7 @@ msgstr "暂无产品"
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
-msgstr "保存错误，请重新尝试"
+msgstr "保存错误，请重试"
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
@@ -1473,7 +1474,7 @@ msgstr "产品数量"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr "%s在%s"
+msgstr "%s在%s中"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
@@ -1498,7 +1499,7 @@ msgstr "营养素"
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
-msgstr "还有%s成分的商品"
+msgstr "含有%s成分的产品"
 
 msgctxt "nutriments_s"
 msgid "nutriment"
@@ -1506,7 +1507,7 @@ msgstr "营养素"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
-msgstr "不含%s成分的商品"
+msgstr "不含%s成分的产品"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
@@ -1522,7 +1523,7 @@ msgstr ""
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr "% 的不同的地方"
+msgstr "％的不同之处"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
@@ -1538,23 +1539,23 @@ msgstr "请注意：对于每种营养素，平均值是针对已知营养素数
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr "如果图片有较高的清晰度，可以自动从图片中自动提取营养成分列表"
+msgstr "如果图片有较高的清晰度，可以用图片中自动提取营养成分列表"
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
-msgstr "百分之10"
+msgstr "百分之十"
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
-msgstr "100 克 / 100 毫升"
+msgstr "对于 100 克 / 100 毫升"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr "5<sup>百分之</sup>"
+msgstr "5<sup>th</sup>百分之"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
-msgstr "中间"
+msgstr "中间值"
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
@@ -1562,7 +1563,7 @@ msgstr "百分之九十"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
-msgstr "95<sup></sup>百分之"
+msgstr "百分之九十五"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
@@ -1582,7 +1583,7 @@ msgstr "每份"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
-msgstr "标准偏差"
+msgstr "标准方差"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
@@ -1628,7 +1629,7 @@ msgstr "这是<a href=\"/open-food-hunt-2015\">打开Open Food Hunt</a>在<site_
 
 msgctxt "or"
 msgid "or:"
-msgstr "或者："
+msgstr "或："
 
 msgctxt "origins"
 msgid "Origin of ingredients"
@@ -1700,7 +1701,7 @@ msgstr "第%d页"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
-msgstr "页面%d除去%d"
+msgstr "%d中的第%d页"
 
 msgctxt "pages"
 msgid "Pages:"
@@ -1724,11 +1725,11 @@ msgstr "在打开的容器中带有几个月标记的logo：例如12M"
 
 msgctxt "periods_after_opening_p"
 msgid "Periods after opening"
-msgstr "开起后保质期"
+msgstr "开启后保质期"
 
 msgctxt "periods_after_opening_s"
 msgid "Period after opening"
-msgstr "开起后保质期"
+msgstr "开启后保质期"
 
 msgctxt "photographers_p"
 msgid "photographers"
@@ -1796,7 +1797,7 @@ msgstr "添加营养"
 
 msgctxt "product_added"
 msgid "Product added on"
-msgstr "添加商品在"
+msgstr "添加产品"
 
 msgctxt "product_changes_saved"
 msgid "Changes saved."
@@ -1820,7 +1821,7 @@ msgstr "图片正面"
 
 msgctxt "product_image_with_barcode"
 msgid "Picture with barcode:"
-msgstr "带有条形码图片"
+msgstr "带条形码的图片"
 
 msgctxt "product_js_current_image"
 msgid "Current image:"
@@ -1836,11 +1837,11 @@ msgstr "从图片中提取成分"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr "成分信息无法提取，尝试使用更加清晰的图片，用更高的分辨率图片或者更好文本信息"
+msgstr "成分文本无法提取。 尝试使用更清晰的图像，用更高的分辨率或更好的文本。"
 
 msgctxt "product_js_extracted_ingredients_ok"
 msgid "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr "成分文本信息已经被提取，成分文本信息并不完美，所以请检查下面的文字，并更正错误。"
+msgstr "成分文本已被提取。成分文本并不完美，所以请检查下面的文字，并更正错误。"
 
 msgctxt "product_js_extracting_ingredients"
 msgid "Extracting ingredients"
@@ -1848,11 +1849,11 @@ msgstr "提取成分"
 
 msgctxt "product_js_image_normalize"
 msgid "Normalize colors"
-msgstr "普通的颜色"
+msgstr "普通颜色"
 
 msgctxt "product_js_image_open_full_size_image"
 msgid "Open the picture in original size in a new windows"
-msgstr "在新窗口页面下打开原始尺寸的图片"
+msgstr "在新窗口页面中打开原始尺寸的图片"
 
 msgctxt "product_js_image_received"
 msgid "Image received"
@@ -1860,7 +1861,7 @@ msgstr "截图"
 
 msgctxt "product_js_image_rotate_and_crop"
 msgid "Rotate the image if necessary, then click and drag to select the interesting zone:"
-msgstr "如果需要，旋转图像，然后点击并拖动用来选择感兴趣的区域："
+msgstr "如果需要，旋转图像，然后单击并拖动以选择感兴趣的区域："
 
 msgctxt "product_js_image_rotate_left"
 msgid "Rotate left"
@@ -1872,7 +1873,7 @@ msgstr "右边旋转"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
-msgstr "验证/调整图片大小"
+msgstr "验证和调整图片大小"
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
@@ -1880,7 +1881,7 @@ msgstr "图片已经保存"
 
 msgctxt "product_js_image_saving"
 msgid "Saving image"
-msgstr "保存图片中"
+msgstr "保存图片中。。。。"
 
 msgctxt "product_js_image_upload_error"
 msgid "Error while uploading image"
@@ -1888,7 +1889,7 @@ msgstr "上传图片出错"
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
-msgstr "白色背景的照片：请尝试删除背景"
+msgstr "照片在白色背景上：请删除背景"
 
 msgctxt "product_js_images_delete_error"
 msgid "Errors while deleting images"
@@ -1900,11 +1901,11 @@ msgstr "图片已经删除"
 
 msgctxt "product_js_images_move_error"
 msgid "Errors while moving images"
-msgstr "移动图片时候出错"
+msgstr "移动图片时出错"
 
 msgctxt "product_js_images_moved"
 msgid "Images moved"
-msgstr "图片已经移动"
+msgstr "图片移动"
 
 msgctxt "product_js_moving_images"
 msgid "Moving images"
@@ -1916,7 +1917,7 @@ msgstr "添加图片"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr "→使用Chrome浏览器，Firefox浏览器和Safari浏览器，您可以按住Ctrl键同时点击多个图片（产品，配料，营养成分等）"
+msgstr "→使用Chrome浏览器，Firefox浏览器和Safari浏览器，您可以点击多个图像，同时按下Ctrl键将它们全部添加到一起。"
 
 msgctxt "product_js_uploading_image"
 msgid "Uploading image"
@@ -1924,7 +1925,7 @@ msgstr "正在上传中"
 
 msgctxt "product_last_edited"
 msgid "Last edit of product page on"
-msgstr "最近一次修改产品页面在..."
+msgstr "上次修改产品页面时间"
 
 msgctxt "product_name"
 msgid "Product name"
@@ -1940,7 +1941,7 @@ msgstr "产品"
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
-msgstr "产品数量的演变在<site_name>上"
+msgstr "在<site_name>上的产品数量的变化"
 
 msgctxt "products_stats_completed_t"
 msgid "Products with complete information"
@@ -1956,15 +1957,15 @@ msgstr "营养成分"
 
 msgctxt "products_you_edited"
 msgid "Products you added or edited"
-msgstr "您所编辑和添加的产品"
+msgstr "你所添加或编辑的产品"
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr "购买产品的城市，州和国家"
+msgstr "购买产品的城市，州或国家"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
-msgstr "注明您在哪里购买或者看到此产品（请至少写明国家）"
+msgstr "注明你在哪里购买或者看到此产品（至少写明国家）"
 
 msgctxt "purchase_places_p"
 msgid "purchase places"
@@ -1972,7 +1973,7 @@ msgstr "购买地点"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr "商品已经出售%s"
+msgstr "在%s出售的产品"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -1980,11 +1981,11 @@ msgstr "购买地点"
 
 msgctxt "purchase_places_tagsinput"
 msgid "add a place"
-msgstr "添加地址"
+msgstr "添加地点"
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr "商品没有出售%s"
+msgstr "不在%s销售的产品"
 
 msgctxt "quantity"
 msgid "Quantity"
@@ -1992,7 +1993,7 @@ msgstr "数量"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
-msgstr "2升，250克，1千克，25升，6盎司，1磅"
+msgstr "2 升, 250 克, 1 千克, 250 毫升, 6 盎司, 1 pound"
 
 msgctxt "remember_me"
 msgid "Remember me"
@@ -2000,7 +2001,7 @@ msgstr "记住我"
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
-msgstr "记住购买地点和添加下一个商品"
+msgstr "记住购买地点和添加下一个产品"
 
 msgctxt "reset_password"
 msgid "Reset password"
@@ -2024,23 +2025,23 @@ msgstr "你好<NAME>\n"
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
-msgstr "在<site_name>上重置您的密码。"
+msgstr "重设您在<<site_name>>上的密码"
 
 msgctxt "reset_password_reset"
 msgid "Your password has been changed. You can now log-in with this password."
-msgstr "您的密码已经被更改，您现在可以使用此密码进行登录"
+msgstr "您的密码已经被更改，您现在可以使用新的密码"
 
 msgctxt "reset_password_reset_msg"
 msgid "Enter a new password."
-msgstr "输入新的密码"
+msgstr "输入新密码"
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
-msgstr "包含重置密码链接的电子邮件已发送至与您的帐户关联的电子邮件地址中。"
+msgstr "带有重置密码链接的电子邮件已发送至与您的帐户关联的电子邮件地址。"
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
-msgstr "如果您忘记了密码，请填写您的用户名或者电子邮箱地址来获取重置密码。"
+msgstr "如果您忘记了密码，请填写您的用户名或电子邮件地址以获取重置密码。"
 
 msgctxt "risk_level"
 msgid "Risk"
@@ -2048,7 +2049,7 @@ msgstr "风险"
 
 msgctxt "risk_level_0"
 msgid "To be completed"
-msgstr "完成"
+msgstr "即便完成"
 
 msgctxt "risk_level_1"
 msgid "Low risks"
@@ -2076,7 +2077,7 @@ msgstr "保存"
 
 msgctxt "saving"
 msgid "Saving."
-msgstr "正在保存"
+msgstr "存储"
 
 msgctxt "search"
 msgid "Search"
@@ -2092,7 +2093,7 @@ msgstr "搜索"
 
 msgctxt "search_contains"
 msgid "contains"
-msgstr "包涵"
+msgstr "包含"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
@@ -2104,7 +2105,7 @@ msgstr "Open Food Facts 产品搜索"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
-msgstr "不包涵"
+msgstr "不包括"
 
 msgctxt "search_download_button"
 msgid "Download"
@@ -2132,7 +2133,7 @@ msgstr "(可选) - 每隔多少单位创建一列："
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
-msgstr "生成图片"
+msgstr "生成图像"
 
 msgctxt "search_generate_map"
 msgid "Generate the map"
@@ -2152,7 +2153,7 @@ msgstr "<p>→要了解更多信息<site_name>请访问<a href=\"https://fr.blog
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
-msgstr "在地图中的结果"
+msgstr "地图中的结果"
 
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
@@ -2181,7 +2182,7 @@ msgstr "无差别"
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
-msgstr "配料"
+msgstr "成分"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
@@ -2189,7 +2190,7 @@ msgstr "这些结果内容的永久链接可以通过电子邮件发送或者网
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
-msgstr "结果在产品列表中"
+msgstr "在产品列表中的结果"
 
 msgctxt "search_map"
 msgid "Map"
@@ -2213,7 +2214,7 @@ msgstr "在地图上显示结果"
 
 msgctxt "search_nutriment"
 msgid "choose a nutriment..."
-msgstr "选择一种营养成分...."
+msgstr "选择一种营养..."
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
@@ -2221,7 +2222,7 @@ msgstr "营养素"
 
 msgctxt "search_or"
 msgid "or"
-msgstr "或者"
+msgstr "或"
 
 msgctxt "search_page_size"
 msgid "Results per page"
@@ -2237,7 +2238,7 @@ msgstr "搜索结果"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
-msgstr "对下列产品使用不同的颜色"
+msgstr "为以下产品应用不同的颜色"
 
 msgctxt "search_series_default"
 msgid "Other products"
@@ -2253,11 +2254,11 @@ msgstr "公平交易"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
-msgstr "使用营养等级的颜色"
+msgstr "使用营养等级颜色"
 
 msgctxt "search_series_organic"
 msgid "Organic"
-msgstr "有机产品"
+msgstr "有机"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
@@ -2265,7 +2266,7 @@ msgstr "有机"
 
 msgctxt "search_series_with_sweeteners"
 msgid "With sweeteners"
-msgstr "含有甜味剂"
+msgstr "含甜味剂"
 
 msgctxt "search_tag"
 msgid "choose a criterion..."
@@ -2281,11 +2282,11 @@ msgstr "搜索产品"
 
 msgctxt "search_terms_note"
 msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
-msgstr "搜索产品的名称，通用名称，品牌，种类，来源和标签中的关键词"
+msgstr "搜索产品的名称，通用名称，品牌，类别，来源和标签。"
 
 msgctxt "search_title"
 msgid "Search a product, brand, ingredient, nutriment etc."
-msgstr "搜索商品，品牌，成分，营养成分等"
+msgstr "搜索产品，品牌，成分，营养成分等"
 
 msgctxt "search_title_graph"
 msgid "Results graph"
@@ -2301,7 +2302,7 @@ msgstr "搜索工具"
 
 msgctxt "search_value"
 msgid "value"
-msgstr "价值"
+msgstr "值"
 
 msgctxt "search_with"
 msgid "With"
@@ -2313,7 +2314,7 @@ msgstr "不含"
 
 msgctxt "see_product_page"
 msgid "See the product page"
-msgstr "查看页面信息"
+msgstr "查看产品页面"
 
 msgctxt "select_country"
 msgid "Country"
@@ -2341,7 +2342,7 @@ msgstr "份量"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
-msgstr "60克，12盎司，20厘升，2盎司"
+msgstr "60 克, 12 盎司, 200毫升, 2 盎司"
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2349,7 +2350,7 @@ msgstr "登录"
 
 msgctxt "share"
 msgid "Share"
-msgstr "分享"
+msgstr "推荐给好友"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
@@ -2365,7 +2366,7 @@ msgstr "如果您在<SITE>上已经有账户，请在填表之前登录。"
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr "登录"
+msgstr "登出"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -2373,11 +2374,11 @@ msgstr "是一个免费开放的合作数据库，包含世界各地食品的营
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr "Open Food Facts"
+msgstr "查找食品"
 
 msgctxt "sort_by"
 msgid "Sort by"
-msgstr "排序"
+msgstr "排序方式"
 
 msgctxt "sort_created_t"
 msgid "Add date"
@@ -2389,7 +2390,7 @@ msgstr "编辑日期"
 
 msgctxt "sort_popularity"
 msgid "Popularity"
-msgstr "受欢迎"
+msgstr "受欢迎度"
 
 msgctxt "sort_product_name"
 msgid "Product name"
@@ -2397,15 +2398,15 @@ msgstr "产品名称"
 
 msgctxt "state"
 msgid "State"
-msgstr "国家"
+msgstr "状态"
 
 msgctxt "states_p"
 msgid "states"
-msgstr "国家"
+msgstr "状态"
 
 msgctxt "states_s"
 msgid "state"
-msgstr "国家"
+msgstr "状态"
 
 msgctxt "stores"
 msgid "Stores"
@@ -2413,7 +2414,7 @@ msgstr "商店"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
-msgstr "商店或者连锁超市的名称"
+msgstr "商店或连锁超市的名称"
 
 msgctxt "stores_p"
 msgid "stores"
@@ -2421,7 +2422,7 @@ msgstr "商店"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
-msgstr "商品在%s里出售"
+msgstr "已在%s出售的商品"
 
 msgctxt "stores_s"
 msgid "store"
@@ -2457,11 +2458,11 @@ msgstr "超出 _MAX_"
 
 msgctxt "tagstable_search"
 msgid "Search:"
-msgstr "搜索"
+msgstr "搜索："
 
 msgctxt "traces"
 msgid "Traces"
-msgstr "痕迹"
+msgstr "跟踪"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
@@ -2481,7 +2482,7 @@ msgstr "跟踪"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
-msgstr "推特用户（可选）"
+msgstr "Twitter用户(可选)"
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
@@ -2493,11 +2494,11 @@ msgstr "未知"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
-msgstr "未知的营养成分"
+msgstr "未知的营养成份"
 
 msgctxt "unknown_nutrients_s"
 msgid "unknown nutrient"
-msgstr "未知的营养成分"
+msgstr "未知的营养成份"
 
 msgctxt "unsubscribe"
 msgid "Unsubscribe"
@@ -2505,11 +2506,11 @@ msgstr "取消订阅"
 
 msgctxt "unsubscribe_info"
 msgid "You can unsubscribe from the lists at any time."
-msgstr "您可以随时取消订阅。"
+msgstr "任何时候您都可以在列表中取消订阅。"
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
-msgstr "用户名或者电子邮件地址： "
+msgstr "用户名或电子邮件地址： "
 
 msgctxt "username"
 msgid "User name"
@@ -2525,19 +2526,19 @@ msgstr "用户名或电子邮件地址："
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
-msgstr "改产品被用户%s添加。"
+msgstr "由用户%s添加的商品"
 
 msgctxt "users_add_without_products"
 msgid "Products that were not added by the user %s"
-msgstr "该产品没有被用户%s添加。"
+msgstr "没有被%s用户添加的商品"
 
 msgctxt "users_edit_products"
 msgid "Products that were edited by the user %s"
-msgstr "该产品被用户%s编辑"
+msgstr "由用户%s编辑的商品"
 
 msgctxt "users_edit_without_products"
 msgid "Products that were not edited by the user %s"
-msgstr "该产品没有被用户%s编辑"
+msgstr "没有被用户%s编辑的商品"
 
 msgctxt "users_p"
 msgid "contributors"
@@ -2545,7 +2546,7 @@ msgstr "贡献者"
 
 msgctxt "users_products"
 msgid "Products added by %s"
-msgstr "%s添加的商品"
+msgstr "由%s添加的产品"
 
 msgctxt "users_s"
 msgid "contributor"
@@ -2553,11 +2554,11 @@ msgstr "贡献者"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
-msgstr "产品没有添加%s"
+msgstr "不是由%s添加的产品"
 
 msgctxt "view"
 msgid "view"
-msgstr "查看"
+msgstr "视图"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -2565,7 +2566,7 @@ msgstr "查看来自全球的匹配商品列表"
 
 msgctxt "view_products_from_the_entire_world"
 msgid "View matching products from the entire world"
-msgstr "查看来自全球的匹配商品"
+msgstr "查看来自全球的匹配产品"
 
 msgctxt "view_results_from_the_entire_world"
 msgid "View results from the entire world"
@@ -2574,16 +2575,15 @@ msgstr "查看来自全球的匹配商品"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"\">Why it matters</a>"
-msgstr "信息和数据必须来自产品包装和标签（不能来自其他网站或制造商的网站），您必须自己拍摄照片。<br/> \n"
-"→<a href=\"\">重要原因</a>"
+msgstr "信息和数据必须来自产品包装和标签（而不是来自其他网站或制造商的网站），您必须亲自拍照<br/><a href=\"\">重要原因</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
-msgstr "网站或者博客地址"
+msgstr "网站或博客地址"
 
 msgctxt "weekdays"
 msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
-msgstr "[“星期天”，“星期一”，“星期二”，“星期三”，“星期四”，“星期五”，“星期六”]"
+msgstr "['周日', '周一', '周二', '周三', '周四', '周五', '周六']"
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
@@ -2603,15 +2603,15 @@ msgstr "取消选择图片"
 
 msgctxt "product_js_unselecting_image"
 msgid "Unselecting image."
-msgstr "取消选择图片"
+msgstr "取消选择图片。"
 
 msgctxt "product_js_unselected_image_ok"
 msgid "Unselected image."
-msgstr "取消选择图片"
+msgstr "取消选择图片。"
 
 msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
-msgstr "在取消图像时发生错误"
+msgstr "取消选择图片时出错。"
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2623,7 +2623,7 @@ msgstr "注意：水果，蔬菜和坚果的数量没有规定，他们对该等
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
-msgstr "警告：标签上没有标明水果，蔬菜和坚果的数量，从成分列表中估算：％d％"
+msgstr "注意：标签上没有标明水果，蔬菜和坚果的数量，从成分列表中进行估算：%d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
@@ -2639,7 +2639,7 @@ msgstr "颜色营养等级是如何计算的"
 
 msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
-msgstr "NutriScore 营养等级"
+msgstr "NutriScore营养等级"
 
 msgctxt "delete_product_page"
 msgid "Delete the product page"
@@ -2647,11 +2647,11 @@ msgstr "删除产品页面"
 
 msgctxt "deleting_product"
 msgid "Deleting product"
-msgstr "正在删除商品中"
+msgstr "删除商品"
 
 msgctxt "has_deleted_product"
 msgid "has deleted product"
-msgstr "已经删除商品"
+msgstr "已删除产品"
 
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
@@ -2667,7 +2667,7 @@ msgstr ""
 
 msgctxt "sources_openfood_ch_product_page"
 msgid "Product page on openfood.ch"
-msgstr "商品图片在openfood.ch中"
+msgstr "在openfood.ch中的产品页面"
 
 msgctxt "sources_usda_ndb"
 msgid "Some of the data comes from the USDA National Nutrients Database for Branded Foods (the exact list is available in the product edit history)."
