@@ -1,3 +1,67 @@
+[[Category:Food additives]]
+=== How it works ===
+[[Category:Global_Taxonomies]]
+This page contains the definition of the hierarchy of categories used in Open Food Facts.
+
+The definition contains:
+* stopwords (words that can be ignored when matching category names)
+* word synonyms (words that can be exchanged when matching category names)
+* category synonyms (the synonyms are then matched also in other category names that contains those synonyms)
+
+For more details, see [[Global taxonomies]]
+
+== Current status ==
+
+* Already live. 
+* Last push to production:
+
+== Done ==
+
+* 2014/11/14 - Merge from http://fr.wiki.openfoodfacts.org/Liste_des_additifs_reconnus and http://en.wiki.openfoodfacts.org/Additives_taxonomy
+* 2015 - * Match with Wikidata and Wikipedia at http://tools.wmflabs.org/mix-n-match/?mode=catalog&catalog=24&offset=0&show_noq=1&show_autoq=0&show_userq=0&show_na=0
+
+== Issues ==
+
+* The French list treated all variants (i), (ii) etc. as one single additive entry.
+* The other list [[Additives taxonomy]] does the reverse: there is one entry for each variant (e.g. E101(i) ) but no entry for E101.
+
+== To do ==
+
+* Change the "EXXX Food Additive" to the correct name (at least in English)
+** Those are the additives that existed in the French list but not in the global list
+
+* Add more synonyms for each language other than French (synonyms can be found in the EU directives)
+* Then remove the English synonyms from the the French entries
+
+* There are some synonyms in (parenthesis) for some entries, they should be converted to a comma separated list. But all parenthesis are not synonyms, so be careful.
+
+
+== Properties to be added ==
+<pre>
+vegetarian_level:
+gmo_level:
+risk_level:
+family:
+description:fr:
+origin:fr:
+risks:fr:
+from_palm_oil:
+efsa_authorized:
+fda_authorized:
+jecfa_authorized:
+fsanz_authorized:
+</pre>
+
+yes/no/unsure
+
+==Ruling bodies==
+* Joint Food and Agricultural Organization/World Health Organization Expert Committee on Food Additives (JECFA)
+* European Food Safety Authority (EFSA)
+* FSANZ
+* US FDA
+
+== Taxonomy definition ==
+<pre>
 # For reference:
 #
 # EU list of additives:
@@ -11,6 +75,10 @@
 #
 # Codex Alimentarius:
 # http://www.fao.org/gsfaonline/additives/details.html?id=322
+
+# stopwords for matching more additives
+stopwords:en: of
+stopwords:fr: de,d,des,du,le,la,les,a,aux
 
 synonyms:en:FD&C, FC and C, FDC, FFDCA, FDCA
 synonyms:en:n°, no, number, nb, #
@@ -3890,6 +3958,13 @@ sv:E251, Natriumnitrat, Chilesalpeter, Natronsalpeter, E 251
 e_number:en:251
 wikidata:en:Q184373
 additives_classes:en: en:preservative
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/epdf/10.2903/j.efsa.2017.4787
+efsa_evaluation_date:en: 2017/06/15
+efsa_evaluation:en: Re‐evaluation of sodium nitrate (E 251) and potassium nitrate (E 252) as food additives
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_adi:en: 3.7
 
 en:E252, Potassium nitrate
 bg:E252, Калиев нитрат, Калиева селитра
@@ -3917,6 +3992,13 @@ e_number:en:252
 mandatory_additive_class:en: en:preservative
 wikidata:en:Q177836
 additives_classes:en: en:preservative
+efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/epdf/10.2903/j.efsa.2017.4787
+efsa_evaluation_date:en: 2017/06/15
+efsa_evaluation:en: Re‐evaluation of sodium nitrate (E 251) and potassium nitrate (E 252) as food additives
+efsa_evaluation_overexposure_risk:en: en:high
+efsa_evaluation_exposure_mean_greater_than_adi:en: en:children, en:toddlers
+efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+efsa_evaluation_adi:en: 3.7
 
 en:E260, Acetic acid, ethanoic acid
 bg:E260, Оцетна киселина, Оцетна киселина, Е260, Етанова киселина
@@ -15289,6 +15371,8 @@ wikidata:en:Q182040
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3496
 efsa_evaluation_date:en: 2013-12-10
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of aspartame (E 951) as a food additive.
+efsa_evaluation_overexposure_risk:en: en:no
+efsa_evaluation_adi:en: 40
 additives_classes:en: en:sweetener
 
 en:E952, Cyclamic acid and its Na and Ca salts, Cyclamic acid
@@ -17081,3 +17165,4 @@ wikidata:en:Q410083
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2018.5293
 efsa_evaluation_date:en: 2018/06/22
 efsa_evaluation:en: Refined exposure assessment of polyethylene glycol (E 1521) from its use as a food additive
+</pre>
