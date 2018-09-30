@@ -1232,6 +1232,7 @@ sub build_tags_taxonomy($$) {
 		
 		# data structure to export the taxonomy to json format
 		my %taxonomy_json = ();
+		my %taxonomy_full_json = (); # including wikipedia abstracts
 		
 		my $errors = '';
 		
@@ -1247,16 +1248,19 @@ sub build_tags_taxonomy($$) {
 				keys %{$level{$tagtype}} ) {
 				
 			$taxonomy_json{$tagid} = {name => {}};
+			$taxonomy_full_json{$tagid} = {name => {}};
 			
 			# print "taxonomy - compute all children - $tagid - level: $level{$tagtype}{$tagid} - longest: $longest_parent{$tagid} - syn: $just_synonyms{$tagtype}{$tagid} - sort_key: $sort_key_parents{$tagid} \n";
 			if (defined $direct_parents{$tagtype}{$tagid}) {
 				print "taxonomy - direct_parents\n";
 				$taxonomy_json{$tagid}{parents} = [];
+				$taxonomy_full_json{$tagid}{parents} = [];
 				foreach my $parentid (sort keys %{$direct_parents{$tagtype}{$tagid}}) {
 					my $lc = $parentid;
 					$lc =~ s/^(\w\w):.*/$1/;
 					print $OUT "< $lc:" . $translations_to{$tagtype}{$parentid}{$lc} . "\n";
 					push @{$taxonomy_json{$tagid}{parents}}, $parentid;
+					push @{$taxonomy_full_json{$tagid}{parents}}, $parentid;
 					print "taxonomy - parentid: $parentid > tagid: $tagid\n";
 					if (not exists $translations_to{$tagtype}{$parentid}{$lc}) {
 						$errors .= "ERROR - parent $parentid is not defined for tag $tagid\n";
@@ -1267,9 +1271,11 @@ sub build_tags_taxonomy($$) {
 			if (defined $direct_children{$tagtype}{$tagid}) {
 				print "taxonomy - direct_children\n";
 				$taxonomy_json{$tagid}{children} = [];
+				$taxonomy_full_json{$tagid}{children} = [];
 				foreach my $childid (sort keys %{$direct_children{$tagtype}{$tagid}}) {
 					my $lc = $childid;
 					push @{$taxonomy_json{$tagid}{children}}, $childid;
+					push @{$taxonomy_full_json{$tagid}{children}}, $childid;
 				}
 			}			
 			
@@ -1294,6 +1300,7 @@ sub build_tags_taxonomy($$) {
 				$i++;
 				
 				$taxonomy_json{$tagid}{name}{$lc} = $translations_to{$tagtype}{$tagid}{$lc};
+				$taxonomy_full_json{$tagid}{name}{$lc} = $translations_to{$tagtype}{$tagid}{$lc};
 				
 				my $lc_tagid = get_fileid($translations_to{$tagtype}{$tagid}{$lc});
 				
@@ -1306,6 +1313,7 @@ sub build_tags_taxonomy($$) {
 					# additives has e-number as their name, and the first synonym is the additive name
 					if (($tagtype eq 'additives') and (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1])) {
 						$taxonomy_json{$tagid}{name}{$lc} .= " - " . $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1];
+						$taxonomy_full_json{$tagid}{name}{$lc} .= " - " . $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1];
 					}
 				}
 			}
@@ -1317,11 +1325,19 @@ sub build_tags_taxonomy($$) {
 					if ($prop_lc =~ /^(.*):(\w\w)$/) {
 						my $prop = $1;
 						my $lc = $2;
-						(defined $taxonomy_json{$tagid}{$prop}) or $taxonomy_json{$tagid}{$prop} = {};
-						$taxonomy_json{$tagid}{$prop}{$lc} = $properties{$tagtype}{$tagid}{$prop_lc};
+						
+						(defined $taxonomy_full_json{$tagid}{$prop}) or $taxonomy_full_json{$tagid}{$prop} = {};
+						$taxonomy_full_json{$tagid}{$prop}{$lc} = $properties{$tagtype}{$tagid}{$prop_lc};
+						
+						if ($prop_lc !~ /^wikipedia/) {
+							(defined $taxonomy_json{$tagid}{$prop}) or $taxonomy_json{$tagid}{$prop} = {};
+							$taxonomy_json{$tagid}{$prop}{$lc} = $properties{$tagtype}{$tagid}{$prop_lc};
+						}
+
 					}
 					else {
 						$taxonomy_json{$tagid}{$prop_lc} = $properties{$tagtype}{$tagid}{$prop_lc};
+						$taxonomy_full_json{$tagid}{$prop_lc} = $properties{$tagtype}{$tagid}{$prop_lc};
 					}
 				}
 			}
@@ -1339,6 +1355,10 @@ sub build_tags_taxonomy($$) {
 		open (my $OUT_JSON, ">", "$www_root/data/taxonomies/$tagtype.json");
 		print $OUT_JSON encode_json(\%taxonomy_json);
 		close ($OUT_JSON);
+		
+		open (my $OUT_JSON, ">", "$www_root/data/taxonomies/$tagtype.full.json");
+		print $OUT_JSON encode_json(\%taxonomy_full_json);
+		close ($OUT_JSON);		
 		# to serve pre-compressed files from Apache
 		# nginx : needs nginx_static module
 		# system("cp $www_root/data/taxonomies/$tagtype.json $www_root/data/taxonomies/$tagtype.json.json");
