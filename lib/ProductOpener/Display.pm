@@ -5301,6 +5301,8 @@ sub display_new($) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/dist/app.css" />
     <script src="/bower_components/foundation/js/vendor/modernizr.js"></script>
+	<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
+    <script src="/bower_components/iolazy/dist/js/iolazy.min.js" defer></script>
 	
 <title>$title</title>
 
@@ -6047,6 +6049,8 @@ $scripts
   }
 
   function onLoad() {
+    new IOlazy();
+
     var buttons = document.getElementsByClassName('share_button');
     var shareAvailable = window.isSecureContext && navigator.share !== undefined;
     [].forEach.call(buttons, function(button) {
