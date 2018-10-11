@@ -964,17 +964,101 @@ sub display_text($)
 		$initjs .= $1;
 	}		
 	
-	# wikipedia style links [url text] not supported, just display the text
-	$html =~ s/\[(\S*?) ([^\]]+)\]/$2/eg;
+	# wikipedia style links [url text] 
+	$html =~ s/\[(http\S*?) ([^\]]+)\]/<a href="$1">$2<\/a>/g;
 	
 	
 	if ($html =~ /<h1>(.*)<\/h1>/) {
 		$title = $1;
 		#$html =~ s/<h1>(.*)<\/h1>//;
 	}
-	
 
+	# Generate a table of content
 	
+	if ($html =~ /<toc>/) {
+	
+		my $toc = '';
+		my $text = $html;
+		my $new_text = '';
+
+		my $current_root_level = -1;
+		my $current_level = -1;
+		my $nb_headers = 0;
+
+		while ($text =~ /<h(\d)([^<]*)>(.*?)<\/h(\d)>/si )
+		{
+			my $level = $1;
+			my $h_attributes = $2;
+			my $header = $3;
+
+			$text = $';
+			$new_text .= $`;
+			my $match = $&;
+
+			# Skip h1
+			if ($level == 1) {
+				$new_text .= $match;
+				next;
+			}
+
+			$nb_headers++;
+
+			my $header_id = $header;
+			# Remove tags
+			$header_id =~ s/<(([^>]|\n)*)>//g;
+			$header_id = get_fileid($header_id);
+			$header_id =~ s/-/_/g;
+
+			my $header_id_html = " id=\"$header_id\"";
+
+			if ($h_attributes =~ /id="([^<]+)"/)
+			{
+				$header_id = $1;
+				$header_id_html = '';
+				}
+
+			$new_text .= "<h$level${header_id_html}${h_attributes}>$header</h$level>";
+
+			if ($current_root_level == -1)
+			{
+				$current_root_level = $level;
+				$current_level = $level;
+				}
+
+				for (my $i = $current_level; $i < $level; $i++)
+				{
+					$toc .= "<ul>\n";
+				}
+
+				for (my $i = $level; $i < $current_level; $i++)
+				{
+					$toc .= "</ul>\n";
+				}
+
+			for ( ; $current_level < $current_root_level ; $current_root_level--)
+			{
+				$toc = "<ul>\n" . $toc;
+				}
+
+				$current_level = $level;
+				
+				$header =~ s/<br>//sig;
+
+				$toc .= "<li><a href=\"#$header_id\">$header</a></li>\n" ;
+		}
+
+		for (my $i = $current_root_level; $i < $current_level; $i++)
+		{
+			$toc .= "</ul>\n";
+		}
+		
+		$new_text .= $text;
+		
+		$new_text =~ s/<toc>/<ul>$toc<\/ul>/;
+		
+		$html = $new_text;
+	
+	}	
 	
 	if ($html =~ /<styles>(.*)<\/styles>/s) {
 		$html = $` . $';
