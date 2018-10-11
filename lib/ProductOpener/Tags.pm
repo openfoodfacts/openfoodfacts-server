@@ -577,11 +577,15 @@ sub build_tags_taxonomy($$) {
 
 		# 1st phase: read translations and synonyms
 		
+		my $line_number = 0;
+		
 		while (<$IN>) {
 		
 			my $line = $_;
 			chomp($line);
 
+			$line_number++;
+			
 			$line =~ s/’/'/g;
 			
 			# assume commas between numbers are part of the name
@@ -650,6 +654,12 @@ sub build_tags_taxonomy($$) {
 				my $lc = $2;
 				$line = $';
 				$line =~ s/^\s+//;
+				
+				# Make sure we don't have empty entries
+				if ($line eq "") {
+					die ("Empty entry at line $line_number in $data_root/taxonomies/$tagtype.txt\n");
+				}
+				
 				my @tags = split(/( )?,( )?/, $line);
 				
 				$current_tag = $tags[0];
