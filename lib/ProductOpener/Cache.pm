@@ -49,7 +49,7 @@ use Log::Any qw($log);
 # Initialize exported variables
 
 $memd = new Cache::Memcached::Fast {
-	'servers' => [ "127.0.0.1:11211" ],
+	'servers' => $memd_servers,
 	'utf8' => 1,
 };
 
