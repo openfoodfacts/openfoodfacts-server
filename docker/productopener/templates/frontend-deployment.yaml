@@ -39,11 +39,11 @@ spec:
               name: http
           livenessProbe:
             httpGet:
-              path: /
+              path: /css/product-multilingual.css
               port: http
           readinessProbe:
             httpGet:
-              path: /
+              path: /css/product-multilingual.css
               port: http
           volumeMounts:
             - name: {{ include "productopener.frontend.fullname" . }}-config
