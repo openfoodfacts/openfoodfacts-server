@@ -389,7 +389,7 @@ data:
     $data_root = "/mnt/podata";
 
     $mongodb = "off";
-    $mongodb_host = "mongodb://{{ template "mongodb.fullname" . }}:27017";
+    $mongodb_host = "mongodb://{{ .Release.Name }}-mongodb:27017";
 
     $facebook_app_id = "";
     $facebook_app_secret = "";
