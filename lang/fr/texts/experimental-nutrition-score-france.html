@@ -184,11 +184,11 @@
 <h3>Calcul du score nutritionnel</h3>
 
 <ul>
-<li>If A points &lt; 11 then score = A points - C points</li>
-<li>If A points ≥ 11
+<li>Si les points A < 11, alors score = points A - points C</li>
+<li>Si les points A sont ≥ 11
 <ul>
-<li>If the points for fruit, vegetables and nuts = 5, then score = A points - C points</li>
-<li>If the points for fruit, vegetables and nuts &lt; 5, then score = A points - (fiber points + points for points fruits, vegetables and nuts)</li>
+<li>Si les points pour les fruits, légumes et noix = 5, alors score = points A - points C</li>
+<li>Si les points pour les fruits, légumes et noix < 5, alors score = points A - (points pour les fibres + points pour les fruits, légumes et noix)</li>
 </ul>
 
 </li>
@@ -196,27 +196,23 @@
 
 <h3>Adaptations pour le marché français</h3>
 
-<p>The formula of nutritional score indicated above corresponds to the formula of the 
-  nutritional score of the Food Standards Agency (FSA) in the UK.</p>
+<p>La formule du score nutritionnel indiquée ci-dessus correspond à celle de la Food Standards Agency (agence des normes alimentaires) du Royaume-Uni.</p>
 
-<p>The team of Professor Hercberg offers adaptations for the French market that 
-  are implemented to calculate the score on Open Food Facts.</p>
+<p>L'équipe du professeur Hercberg a effectué des adaptations pour le marché français qui sont mises en œuvre pour calculer le score sur Open Food Facts.</p>
 
 <h4>Adaptation pour le fromage</h4>
 
-<p>For cheeses, points for the proteins are substracted from the score even if the A points are ≥ 11.</p>
+<p>Pour les fromages, les points pour les protéines sont retranchés au score même si les points A sont supérieurs ou égaux à 11.</p>
 
 <h4>Adaptation pour la graisse</h4>
 
-<p>To help differentiate between fats (oils, margarines, crèmes fraîches), all of which have rates of
-  saturated fat higher than the maximum threshold of 10 g, 
-  another grid that takes into account the ratio of saturated fatty acids on the total fat is applied:</p>
+<p>Afin de permettre de différencier les matières grasses (huiles, margarines, crèmes fraîches) qui ont toutes des taux de graisses saturées supérieurs au seuil maximal de 10 g, une autre grille qui tient compte du rapport des acides gras saturés sur les lipides totaux est appliquée :</p>
 
 <table class="points">
 <tbody>
   <tr>
     <td>Points</td>
-    <td>Ratio Saturated Fat / Total Fat</td>
+    <td>Ratio Graisse Saturée / Graisse Totale</td>
   </tr>
 <tr>
   <td>0</td> 
@@ -271,10 +267,9 @@
 
 <h4>Adaptations pour les boissons</h4>
 
-<p>Warning: the nutritional score for milk and vegetable milks is calculated with the general formula and 
-  not the formula for drinks.</p>
+<p>Attention : le score nutritionnel pour le lait et les laits végétaux est calculé avec la formule générale et non la formule pour les boissons.</p>
 
-<p>The threshold of points for energy and for sugars are modified for drinks, and points are doubled for fruits:</p>
+<p>Les seuils des points pour l'énergie et les sucres sont modifiés pour les boissons, et les points pour les fruits sont doublés :</p>
 
 <table class="points">
 <tbody>
@@ -355,14 +350,14 @@
 <p>Les seuils utilisés pour attribuer les nuances de couleur sont:</p> <p>
 </p><h3>Aliments solides :</h3>
 <ul>
-<li>A - Green: up to -1</li>
-<li>B - Yellow: from 0 to 2</li>
-<li>C - Orange: from 3 to 10</li>
-<li>D - Rose: from 11 to 18</li>
-<li>E - Red: 19 and more</li>
+<li>A - Vert: jusqu'à -1</li>
+<li>B - Jaune: de 0 à 2</li>
+<li>C - Orange: de 3 à 10</li>
+<li>D - Rose: de 11 à 18</li>
+<li>E - Rouge: 19 et plus</li>
 </ul>
 <h3>Boissons :</h3>
-<p>Only water (mineral and spring, with the exclusion of flavored waters) is graded A.</p>
+<p>Seule l'eau (minérale et de source, à l'exclusion des eaux aromatisées) est classée A.</p>
 
 <ul>
 <li>A - Vert: eaux minérales et eaux de source</li>
@@ -375,36 +370,31 @@
 <p><b>Attention: Ce score peut ne pas correspondre au score recommandé :</b></p>
 
 <ul>
-<li>The fiber content is not necessarily present in the nutrition table. When the latter is not indicated, any
-positive contribution of the fibers is not taken into account. We encourage all producers to indicate 
-  the fiber content of their products on the packaging thereof.</li>
+<li>La teneur en fibre n'est pas obligatoirement présente dans le tableau nutritionnel. Lorsque celle-ci n'est pas indiquée, l'éventuelle contribution positive des fibres n'est pas prise en compte. Nous encourageons tous les producteurs a indiquer la teneur en fibre de leurs produits sur leurs emballages.</li>
   
   <--end of current proofread -->
-<li>The points corresponding to the levels in fruits and vegetables are not taken into account for all products. The fruit , vegetables content
-  is indeed not on the package within the nutrition table, and we'll have to determine it
-with other information (such as the words "minimum fruit content", the category of products (eg. jams contain 50% fruit) and/or the ingredient list.)
+<li>Les points correspondants aux teneurs en fruits et légumes ne sont pas pris en compte pour tous les produits. La teneur en fruits, légumes et n'est en effet pas indiquée sur l'emballage dans le tableau nutritionnel, et nous allons devoir la déterminer grâce à d'autres informations, comme les mentions "teneur minimum en fruits", la catégorie des produits (par exemple les confitures contiennent 50% de fruits) , et/ou la liste des ingrédients
 <ul>
-<li>A new field "Fruits, vegetables (minimum)" was created to record the values of the terms "minimum content of fruit / vegetables" etc.</li>
+<li>Un nouveau champ "Fruits, légumes (minimum)" a été créé pour noter les valeurs des mentions "teneur minimum en fruits/légumes", etc.</li>
 <li>Par défaut, les produits de certaines catégories sont considérés comme ayant un contenu minimum de:
 <ul>
-<li>100%: <a href="https://world.openfoodfacts.org/category/fr:jus-de-fruits">juice</a></li>
-<li>90%: <a href="https://world.openfoodfacts.org/category/fr:compotes">stewed fruits</a></li>
-<li>85%: <a href="https://world.openfoodfacts.org/category/fr:legumes">vegetables</a></li>
-<li>50%: <a href="https://world.openfoodfacts.org/category/fr:confitures">jams</a></li>
+<li>100%: <a href="https://world.openfoodfacts.org/category/fr:jus-de-fruits"> jus </a></li>
+<li>90 % : <a href="https://world.openfoodfacts.org/category/fr:compotes">compote de fruits</a></li>
+<li>85 % : <a href="https://world.openfoodfacts.org/category/fr:legumes">légumes</a></li>
+<li>50 % : <a href="https://world.openfoodfacts.org/category/fr:confitures">confitures</a></li>
 <li>d'autres catégories à définir</li>
 </ul>
 
-To calculate the nutritional score, it is important to distinguish levels above 40%, 60% and 80%.
+Pour le calcul du score nutritionnel, l'important est de distinguer les teneurs au-dessus de 40%, 60%, et 80%.
 </li>
 </ul>
   
 </li>
 
-<li>For the lyophilized food (packaged soups, etc.), the score should be calculated for the reconstituted product, not the raw product as is currently the case.</li>
+<li>Pour les aliments lyophilisées (soupes en sachet, etc.), le score devra être calculé pour le produit reconstitué, et non le produit à l'état brut comme c'est le cas actuellement.</li>
 </ul>
 
-<p>You can help us learn the fruit content, vegetables and nuts products. For more information, see 
-<a href="https://fr.wiki.openfoodfacts.org/Projet_de_loi_sur_l%27%C3%A9tiquetage_nutritionnel_:_on_s%27en_m%C3%AAle_%3F">the Nutritional Labeling</a> project on the wiki.</p>
+<p>Vous pouvez nous aider à renseigner la teneur en fruits, légumes et noix des produits. Pour plus d'informations, voir le projet <a href="https://fr.wiki.openfoodfacts.org/Projet_de_loi_sur_l%27%C3%A9tiquetage_nutritionnel_:_on_s%27en_m%C3%AAle_%3F"> Étiquetage nutritionnel. </a> sur le wiki.</p>
 
 <p>Remarque: les tubercules comme les pommes de terre et les patates douces ne sont pas considérés comme des légumes pour calculer le score nutritionnel.</p>
 <h2>Remerciements</h2>
