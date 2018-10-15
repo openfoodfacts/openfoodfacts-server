@@ -5,10 +5,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-11 13:30-0500\n"
+"PO-Revision-Date: 2018-10-11 19:22\n"
 "Language-Team: Czech\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 3;\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: cs\n"
@@ -27,41 +27,41 @@ msgstr "Czech"
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "additives:plural"
 msgid "additives"
-msgstr ""
+msgstr "přísady"
 
 msgctxt "additives:singular"
 msgid "additive"
-msgstr ""
+msgstr "přísada"
 
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "allergens:plural"
 msgid "allergens"
-msgstr ""
+msgstr "alergeny"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "allergens:singular"
 msgid "allergen"
-msgstr ""
+msgstr "alergen"
 
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "brands:plural"
 msgid "brands"
-msgstr ""
+msgstr "značky"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "brands:singular"
 msgid "brand"
-msgstr ""
+msgstr "značka"
 
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "categories:plural"
 msgid "categories"
-msgstr ""
+msgstr "kategorie"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "categories:singular"
 msgid "category"
-msgstr ""
+msgstr "kategorie"
 
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "checkers:plural"
@@ -107,7 +107,7 @@ msgstr ""
 
 msgctxt "countries:singular"
 msgid "country"
-msgstr ""
+msgstr "země"
 
 msgctxt "debug:plural"
 msgid "debug"
@@ -151,7 +151,7 @@ msgstr ""
 
 msgctxt "ingredients:plural"
 msgid "ingredients"
-msgstr ""
+msgstr "složení"
 
 msgctxt "ingredients:singular"
 msgid "ingredient"
@@ -199,11 +199,11 @@ msgstr ""
 
 msgctxt "languages:plural"
 msgid "languages"
-msgstr ""
+msgstr "jazyky"
 
 msgctxt "languages:singular"
 msgid "language"
-msgstr ""
+msgstr "jazyk"
 
 msgctxt "last_edit_dates:plural"
 msgid "last-edit-dates"
@@ -235,7 +235,7 @@ msgstr ""
 
 msgctxt "missions:singular"
 msgid "mission"
-msgstr ""
+msgstr "mise"
 
 msgctxt "nutrient_levels:plural"
 msgid "nutrient-levels"
@@ -271,11 +271,11 @@ msgstr ""
 
 msgctxt "packaging:plural"
 msgid "packaging"
-msgstr ""
+msgstr "balení"
 
 msgctxt "packaging:singular"
 msgid "packaging"
-msgstr ""
+msgstr "balení"
 
 msgctxt "periods_after_opening:plural"
 msgid "periods-after-opening"
@@ -287,11 +287,11 @@ msgstr ""
 
 msgctxt "photographers:plural"
 msgid "photographers"
-msgstr ""
+msgstr "fotografové"
 
 msgctxt "photographers:singular"
 msgid "photographer"
-msgstr ""
+msgstr "fotograf"
 
 msgctxt "pnns_groups_1:plural"
 msgid "pnns-groups-1"
@@ -315,7 +315,7 @@ msgstr "Výrobky"
 
 msgctxt "products:singular"
 msgid "product"
-msgstr ""
+msgstr "produkt"
 
 msgctxt "purchase_places:plural"
 msgid "purchase-places"
@@ -339,17 +339,17 @@ msgstr ""
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "stores:plural"
 msgid "stores"
-msgstr ""
+msgstr "prodejny"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "stores:singular"
 msgid "store"
-msgstr ""
+msgstr "prodejna"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "traces:plural"
 msgid "traces"
-msgstr ""
+msgstr "stopy"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "traces:singular"
@@ -404,7 +404,7 @@ msgstr ""
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "minerals:plural"
 msgid "minerals"
-msgstr ""
+msgstr "minerály"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "vitamins:singular"
@@ -430,7 +430,7 @@ msgstr ""
 
 msgctxt "nucleotides:plural"
 msgid "nucleotides"
-msgstr ""
+msgstr "nukleotidy"
 
 msgctxt "other_nutritional_substances:singular"
 msgid "other-nutritional-substance"
@@ -447,3 +447,4 @@ msgstr ""
 msgctxt "nova_groups:plural"
 msgid "nova-groups"
 msgstr ""
+

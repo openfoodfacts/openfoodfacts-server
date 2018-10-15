@@ -5,10 +5,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-11 13:06-0500\n"
+"PO-Revision-Date: 2018-10-11 19:39\n"
 "Language-Team: Polish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: pl\n"
@@ -379,74 +379,72 @@ msgstr "współtwórca"
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "misc:plural"
 msgid "misc"
-msgstr ""
+msgstr "różne"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "misc:singular"
 msgid "misc"
-msgstr ""
+msgstr "różne"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "quality:plural"
 msgid "quality"
-msgstr ""
+msgstr "jakość"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "quality:singular"
 msgid "quality"
-msgstr ""
+msgstr "jakość"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "minerals:singular"
 msgid "mineral"
-msgstr ""
+msgstr "minerał"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "minerals:plural"
 msgid "minerals"
-msgstr ""
+msgstr "minerały"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "vitamins:singular"
 msgid "vitamin"
-msgstr ""
+msgstr "witamina"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "vitamins:plural"
 msgid "vitamins"
-msgstr ""
+msgstr "witaminy"
 
 msgctxt "amino_acids:singular"
 msgid "amino-acid"
-msgstr ""
+msgstr "aminokwas"
 
 msgctxt "amino_acid:plural"
 msgid "amino-acids"
-msgstr ""
+msgstr "aminokwasy"
 
 msgctxt "nucleotide:singular"
 msgid "nucleotide"
-msgstr ""
+msgstr "nukleotyd"
 
 msgctxt "nucleotides:plural"
 msgid "nucleotides"
-msgstr ""
+msgstr "nukleotydy"
 
 msgctxt "other_nutritional_substances:singular"
 msgid "other-nutritional-substance"
-msgstr ""
+msgstr "inna-substancja-odżywcza"
 
 msgctxt "other_nutritional_substances:plural"
 msgid "other-nutritional-substances"
-msgstr ""
+msgstr "inne-substancje-odżywcze"
 
 msgctxt "nova_groups:singular"
 msgid "nova-group"
-msgstr ""
+msgstr "nova-group"
 
 msgctxt "nova_groups:plural"
 msgid "nova-groups"
-msgstr ""
-
-
+msgstr "grupy Nova"
 
