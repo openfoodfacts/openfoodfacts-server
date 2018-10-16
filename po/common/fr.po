@@ -3,13 +3,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR\n"
+"Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-09-04 03:54-0400\n"
+"PO-Revision-Date: 2018-10-15 16:30\n"
 "Language-Team: French\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
 "X-Generator: crowdin.com\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
@@ -65,35 +66,26 @@ msgid "Hello <NAME>,\n\n"
 "<<site_name>> is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!\n"
 "To discuss between contributors and make the project go forward, we use a very convenient messaging system called Slack: https://slack.openfoodfacts.org\n\n"
 "You can also join the Facebook group for contributors:\n"
-"https://www.facebook.com/groups/openfoodfacts/\n\n"
+"https://www.facebook.com/groups/OpenFoodFacts/\n\n"
 "New: we are also starting Open Beauty Facts to create a database of cosmetics: soap, toothpaste, makeup etc.\n"
 "https://openbeautyfacts.org\n\n"
 "Thank you very much!\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr "Bonjour <NAME>,\n"
-"\n"
-"Merci beaucoup pour votre inscription sur https://openfoodfacts.org\n"
-"\n"
-"Vous pouvez à présent vous connecter sur le site pour ajouter ou modifier des produits.\n"
-"\n"
-"Open Food Facts est un projet collaboratif auquel vous pouvez apporter bien plus que des nouveaux produits: votre énergie, votre enthousiasme, et vos idées!\n"
-"Afin de discuter entre contributeurs et aider le projet à avancer, nous utilisons un système de messagerie très pratique appelé Slack: https://slack.openfoodfacts.org\n"
-"\n"
-"Vous pouvez aussi nous témoigner votre soutien sur les réseaux sociaux, et rejoindre le groupe Facebook des contributeurs:\n"
-"https://www.facebook.com/groups/openfoodfacts.fr/\n"
-"\n"
-"Nous avons aussi lancé Open Beauty Facts afin de créer une base de données de cosmétiques: savons, dentifrice, maquillage, etc...\n"
-"https://fr.openbeautyfacts.org\n"
-"\n"
-"Open Food Facts est une association à but non lucratif composée de bénévoles. Vous pouvez nous soutenir financièrement en faisant un don via HelloAsso (déductible à 66% de vos impôts, un don de 10 euros vous reviendra à 3,40 euros) : https://www.helloasso.com/associations/open-food-facts/collectes/aidez-open-food-facts-a-ameliorer-l-alimentation-de-tous\n"
-"et un utilisant le moteur de recherche Lilo et en nous faisant don de vos gouttes : https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\n"
-"\n"
-"Merci beaucoup !\n"
-"\n"
-"Stéphane et toute l'équipe d’Open Food Facts\n"
-"https://fr.openfoodfacts.org\n"
+msgstr "Bonjour <NAME>, \n\n"
+"Merci pour votre inscription sur https://openfoodfacts.org\\n\"\n"
+"Voici votre nom d'utilisateur: <USERID>\n\n"
+" Vous pouvez à présent vous connecter sur le site pour ajouter ou modifier des produits.\n\n"
+" <<site_name>> est un projet collaboratif auquel vous pouvez apporter bien plus que des nouveaux produits: votre énergie, votre enthousiasme, et vos idées!\n"
+"Afin de discuter entre contributeurs et aider le projet à avancer, nous utilisons un système de messagerie très pratique appelé Slack: https://slack.openfoodfacts.org\n\n"
+"Vous pouvez aussi joindre le groupe Facebook des contributeurs:\n"
+"https://www.facebook.com/groups/OpenFoodFacts.fr/\n\n"
+"Nouveauté: nous avons aussi lancé Open Beauty Facts afin de créer une base de données de cosmétiques: savons, dentifrice, maquillage, etc...\n"
+"https://fr.openbeautyfacts.org\n\n"
+"Merci beaucoup !\n\n"
+"Stéphane et l'équipe de Open Food Facts\n"
+"https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
 
 msgctxt "add_user_email_subject"
@@ -164,8 +156,9 @@ msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
 msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Disponible sur Google Play\" width=\"135\" height=\"47\" />"
 
+# Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
+msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
 msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=fr"
 
 msgctxt "app_please_take_pictures"
@@ -212,9 +205,8 @@ msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulai
 msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/collectes/aidez-open-food-facts-a-ameliorer-l-alimentation-de-tous\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donner à Open Food Facts\" /></a><p><<site_name>> est développé par une association à but non lucratif indépendante de l'industrie. Open Food Facts est fait pour tous, par tous, et est financé par tous. Vous pouvez soutenir notre travail en <a href=\"https://www.helloasso.com/associations/open-food-facts/collectes/aidez-open-food-facts-a-ameliorer-l-alimentation-de-tous\">donnant à Open Food Facts</a> et également en <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">utilisant le moteur de recherche Lilo</a>.<br/><b>Merci beaucoup !</b></p>"
 
 msgctxt "bottom_title"
-msgid "Donate to support our work"
-msgstr "Donnez pour soutenir notre travail"
-
+msgid "Embrace the mission"
+msgstr "Partez en mission"
 
 msgctxt "brands"
 msgid "Brands"
@@ -457,9 +449,7 @@ msgstr "Faire un don à l'association Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget"
-
-
+msgstr "https://www.helloasso.com/associations/open-food-facts/collectes/aidez-open-food-facts-a-ameliorer-l-alimentation-de-tous"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -537,6 +527,7 @@ msgctxt "emb_codes"
 msgid "EMB code"
 msgstr "Code emballeur"
 
+# Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
@@ -739,14 +730,13 @@ msgctxt "footer_faq_link"
 msgid "/faq"
 msgstr "/questions-frequentes"
 
-msgctxt "footer_partners"
-msgid "Partners"
-msgstr "Partenaires"
+msgctxt "footer_translators"
+msgid "Translators"
+msgstr "Traducteurs"
 
-msgctxt "footer_partners_link"
-msgid "/partners"
-msgstr "/partenaires"
-
+msgctxt "footer_translators_link"
+msgid "/cgi/top_translators.pl"
+msgstr "/cgi/top_translators.pl"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
@@ -1017,8 +1007,8 @@ msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" 
 msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_FR_135x40.png\" alt=\"Disponible sur l'App Store\" width=\"135\" height=\"40\" />"
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
-msgstr "https://itunes.apple.com/fr/app/open-food-facts/id588797948"
+msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
+msgstr "https://itunes.apple.com/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1237,11 +1227,11 @@ msgid "Last picture date"
 msgstr "Date de dernière photo"
 
 msgctxt "licence_accept"
-msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"http://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
-"for information and data, and under the <a href=\"http://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
+msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
+"for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr "En ajoutant des informations et/ou des photographies, vous acceptez de placer irrévocablement votre contribution sous licence <a href=\"http://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a>\n"
-"pour les informations et sous licence <a href=\"http://creativecommons.org/licenses/by-sa/3.0/deed.fr\">Creative Commons Paternité - Partage des conditions initiales à l'identique 3.0</a> pour les photos.\n"
+msgstr "En ajoutant des informations et/ou des photographies, vous acceptez de placer irrévocablement votre contribution sous licence <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a>\n"
+"pour les informations et sous licence <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.fr\">Creative Commons Paternité - Partage des conditions initiales à l'identique 3.0</a> pour les photos.\n"
 "Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le produit auquel vous contribuez."
 
 msgctxt "link"
@@ -1424,6 +1414,7 @@ msgctxt "moderate_quantity"
 msgid "moderate quantity"
 msgstr "quantité modérée"
 
+# Please keep the same syntax and translate only the months
 msgctxt "months"
 msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
 msgstr "['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']"
@@ -1476,7 +1467,6 @@ msgctxt "multiple_nutrition_data_instructions"
 msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
 msgstr "Entrez seulement les valeurs nutritionnelles pour le produit non préparé, sans eau ou lait ajouté. S'il y a des produits différents, entrez les valeurs nutritionnelles pour le premier produit listé."
 
-
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
 msgstr "Il n'y a pas de produit référencé pour le code barre %s."
@@ -1505,6 +1495,7 @@ msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
 msgstr "Repères nutritionnels pour 100 g"
 
+# Ensure it is the same translation as in the translation in the tag file. If unsure, DO NOT TRANSLATE, otherwise it will break the site
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
 msgstr "/reperes-nutritionnels"
@@ -1631,10 +1622,12 @@ msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Note nutritionnelle"
 
+# Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 msgstr "https://fr.openfoodfacts.org/images/misc/openfoodfacts-logo-fr-356.png"
 
+# Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
@@ -2621,8 +2614,8 @@ msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Sto
 msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
-msgstr "https://www.windowsphone.com/fr-fr/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
+msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2708,14 +2701,6 @@ msgctxt "sources_usda_ndb_product_page"
 msgid "Product page on USDA NDB"
 msgstr "Page produit sur USDA NDB"
 
-msgctxt "donate"
-msgid "Donate to Open Food Facts"
-msgstr "Faire un don à l'association Open Food Facts"
-
-msgctxt "donate_link"
-msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr "https://www.helloasso.com/associations/open-food-facts/collectes/aidez-open-food-facts-a-ameliorer-l-alimentation-de-tous"
-
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
 msgstr "Certaines des données et des images ont été fournies directement par le fabricant Fleury Michon."
@@ -2727,6 +2712,46 @@ msgstr "Certaines des données de ce produit ont été fournies directement par 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "La page de ce produit n'est pas complète. Vous pouvez aider à la compléter en l'éditant et en ajoutant plus de données à partir des photos que nous avons, ou en prenant plus de photos à l'aide de l'application pour <a href=\"https://android.openfoodfacts.org\">Android</a> ou <a href=\"https://ios.openfoodfacts.org\">iPhone / iPad</a>. Merci!"
+
+msgctxt "title_separator"
+msgid " — "
+msgstr " — "
+
+msgctxt "recent_changes"
+msgid "Recent Changes"
+msgstr "Changements récents"
+
+msgctxt "translators_title"
+msgid "Our Translators"
+msgstr "Nos Traducteurs"
+
+msgctxt "translators_lead"
+msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
+msgstr "Nous voudrions dire MERCI aux formidables traducteurs qui permettent de vous présenter Open Food Facts, Open Beauty Facts et Open Pet Food Facts dans toutes ces langues! <a href=\"https://translate.openfoodfacts.org/\">Vous pouvez nous rejoindre dans cet effort mondial : il ne nécessite aucune connaissance technique.</a>"
+
+msgctxt "translators_renewal_notice"
+msgid "Please note that this table is refreshed nightly and might be out of date."
+msgstr "Veuillez noter que cette table est actualisée tous les soirs et pourrait être périmée."
+
+msgctxt "translators_column_name"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "translators_column_translated_words"
+msgid "Translated (Words)"
+msgstr "Mots traduits"
+
+msgctxt "translators_column_target_words"
+msgid "Target Words"
+msgstr "Mots cibles"
+
+msgctxt "translators_column_approved_words"
+msgid "Approved (Words)"
+msgstr "Mots approuvés"
+
+msgctxt "translators_column_votes_made"
+msgid "Votes Made"
+msgstr "Votes effectués"
 
 msgctxt "minerals_p"
 msgid "added minerals"
@@ -2752,15 +2777,6 @@ msgctxt "amino_acids_s"
 msgid "added amino acid"
 msgstr "acide aminé ajoutés"
 
-msgctxt "nova_groups_s"
-msgid "NOVA group"
-msgstr "Groupe NOVA"
-
-msgctxt "nova_groups_p"
-msgid "NOVA groups"
-msgstr "Groupe NOVA"
-
-
 msgctxt "nucleotides_p"
 msgid "added nucleotides"
 msgstr "nucléotides ajoutés"
@@ -2785,11 +2801,9 @@ msgctxt "prepared_product"
 msgid "Prepared"
 msgstr "Préparé"
 
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "Unité"
-
 
 msgctxt "nutrition_data_exists"
 msgid "Nutrition facts are specified for the product as sold."
@@ -2798,6 +2812,22 @@ msgstr "Les informations nutritionnelles sont mentionnées pour le produit tel q
 msgctxt "nutrition_data_prepared_exists"
 msgid "Nutrition facts are specified for the prepared product."
 msgstr "Les informations nutritionnelles sont mentionnées pour le produit préparé."
+
+msgctxt "nova_groups_s"
+msgid "NOVA group"
+msgstr "Groupe NOVA"
+
+msgctxt "nova_groups_p"
+msgid "NOVA groups"
+msgstr "Groupe NOVA"
+
+msgctxt "footer_partners"
+msgid "Partners"
+msgstr "Partenaires"
+
+msgctxt "footer_partners_link"
+msgid "/partners"
+msgstr "/partenaires"
 
 msgctxt "adults"
 msgid "Adults"
@@ -2817,8 +2847,7 @@ msgstr "Personnes âgées"
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr ""
-
+msgstr "65+"
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
@@ -2866,7 +2895,7 @@ msgstr "Nourrissons"
 
 msgctxt "infants_age"
 msgid "< 1"
-msgstr ""
+msgstr "< 1"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
@@ -2899,7 +2928,6 @@ msgstr "%d produits avec %s"
 msgctxt "additives_efsa_evaluation_overexposure_risk_no"
 msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
 msgstr "L'Autorité Européenne de Sécurité des Aliments (AESA/EFSA) a déterminé qu'aucun groupe de population a plus de 5% de membres à risque de consommer plus que la dose journalière admissible de <tag>."
-
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
