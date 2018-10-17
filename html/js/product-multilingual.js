@@ -18,6 +18,11 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+/*eslint no-console: "off"*/
+/*global Lang admin otherNutriments*/
+/*global toggle_manage_images_buttons ocr_button_div_original_html*/ // These are weird.
+/*exported add_language_tab add_line upload_image update_image update_nutrition_image_copy*/
+
 var code;
 var current_cropbox;
 var images = [];
@@ -39,12 +44,12 @@ function stringStartsWith (string, prefix) {
 
 function add_language_tab (lc, language) {
 	
-$('.tabs').each(function(i, obj) {
+$('.tabs').each(function() {
 	$(this).removeClass('active');
 });
 	
-$('.new_lc').each(function(i, obj) {
-    	
+$('.new_lc').each(function() {
+
 	var $clone = $(this).clone();
 	
 	var $th = $clone;
@@ -109,7 +114,7 @@ $('.new_lc').each(function(i, obj) {
 $(document).foundation('tab', 'reflow');
 }
 
-function select_nutriment(event, ui) {
+function select_nutriment(ui) {
 
 
 	//alert(ui.item.id + ' = ' + ui.item.value);
@@ -156,7 +161,7 @@ function select_nutriment(event, ui) {
 	}
 }
 
-function add_line(event, ui) {
+function add_line() {
 
 	$(this).unbind("change");
 	$(this).unbind("autocompletechange");
@@ -200,7 +205,7 @@ function upload_image (imagefield) {
   url: "/cgi/product_image_upload.pl",
   data: { imagefield: imagefield },
   dataType: 'json',
-  beforeSubmit: function(a,f,o) {
+  beforeSubmit: function() {
    //o.dataType = 'json';
   },
   success: function(data) {
@@ -215,10 +220,10 @@ function upload_image (imagefield) {
 	change_image(imagefield, data.image.imgid);	
 	
   },
-  error : function(jqXHR, textStatus, errorThrown) {
+  error : function() {
 	$('div[id="uploadimagemsg_' + imagefield +'"]').html(Lang.image_upload_error);
   },
-  complete: function(XMLHttpRequest, textStatus) {
+  complete: function() {
 	$('.img_input').prop("disabled", false).show();
   }
  });
@@ -324,7 +329,7 @@ function change_image(imagefield, imgid) {
 	$('div[id="cropbox_' + imagefield +'"]').html(html);
 	$('div[id="cropimgdiv_' + imagefield +'"]').height($('div[id="cropimgdiv_' + imagefield +'"]').width());
 	
-	$("#white_magic_" + imagefield).change(function(event) {
+	$("#white_magic_" + imagefield).change(function() {
 			$('div[id="cropbuttonmsg_' + imagefield +'"]').hide();
 	} );
 	
@@ -522,10 +527,10 @@ function update_display(imagefield, first_display) {
            */
 
            $(this).data('selectcrop', {
-			  init_id : $this.attr('id'),
-              target : $this
+               init_id : $this.attr('id'),
+            target : $this
            });
-		   imagefield_url[$this.attr('id')] = $("#" + $this.attr('id') + '_display_url').val();
+           imagefield_url[$this.attr('id')] = $("#" + $this.attr('id') + '_display_url').val();
 
          }
        }); 
@@ -543,9 +548,7 @@ function update_display(imagefield, first_display) {
 		
 		this.each(function(){
          
-			var $this = $(this),
-				data = $this.data('selectcrop')
-			;
+			var $this = $(this);
 			var id = $this.attr('id');			
 			
 			var html = '<ul class="ui-selectable single-selectable">';
@@ -558,7 +561,7 @@ function update_display(imagefield, first_display) {
 					selected = ' ui-selected';
 					imgid = image.imgid;
 				}
-				html += '<li id="' + id + '_' + image.imgid + '" class="ui-state-default ui-selectee' + selected + '">';
+				html += '<li id="' + id + '_' + imgid + '" class="ui-state-default ui-selectee' + selected + '">';
 				html += '<img src="' + settings.img_path + image.thumb_url +'" title="'  + image.uploaded + ' - ' + image.uploader + '"/>';
 				
 				if ((stringStartsWith(id, 'manage')) && (admin)) {
@@ -633,16 +636,16 @@ function update_display(imagefield, first_display) {
 			}
 			}
         },
-		fail : function (e, data) {
+		fail : function () {
 			$("#imgsearcherror_" + imagefield).show();
         },
-		always : function (e, data) {
+		always : function () {
 			$("#progressbar_" + imagefield).hide();
 			$("#imgsearchbutton_" + imagefield).show();
 			$("#imgsearchmsg_" + imagefield).hide();
 			$('.img_input').prop("disabled", false);			
         },
-		start: function (e, data) {
+		start: function () {
 			$("#imgsearchbutton_" + imagefield).hide();
 			$("#imgsearcherror_" + imagefield).hide();
 			$("#imgsearchmsg_" + imagefield).html('<img src="/images/misc/loading2.gif" /> ' + Lang.uploading_image).show();			

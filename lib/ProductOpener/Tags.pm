@@ -491,8 +491,19 @@ sub remove_stopwords($$$) {
 	if (defined $stopwords{$tagtype}{$lc}) { 
 		foreach my $stopword (@{$stopwords{$tagtype}{$lc}}) {
 			$tagid =~ s/-${stopword}-/-/g;
+			
+			# some stopwords should not be removed at the start or end
+			# this can cause issues with spellchecking tags like ingredients
+			# e.g. purée d'abricot -> puree d' -> urée
+			# ingredients: stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient
+
 			$tagid =~ s/^${stopword}-//g;
-			$tagid =~ s/-${stopword}$//g;
+
+			if (not 
+				(($lc eq 'fr') and not ($stopword =~ /^(en|proportion|proportions|variable|variables)$/))	# don't remove French stopwords at the end
+				) {
+				$tagid =~ s/-${stopword}$//g;
+			}
 		}
 	}
 	return $tagid;
@@ -566,11 +577,15 @@ sub build_tags_taxonomy($$) {
 
 		# 1st phase: read translations and synonyms
 		
+		my $line_number = 0;
+		
 		while (<$IN>) {
 		
 			my $line = $_;
 			chomp($line);
 
+			$line_number++;
+			
 			$line =~ s/’/'/g;
 			
 			# assume commas between numbers are part of the name
@@ -639,6 +654,12 @@ sub build_tags_taxonomy($$) {
 				my $lc = $2;
 				$line = $';
 				$line =~ s/^\s+//;
+				
+				# Make sure we don't have empty entries
+				if ($line eq "") {
+					die ("Empty entry at line $line_number in $data_root/taxonomies/$tagtype.txt\n");
+				}
+				
 				my @tags = split(/( )?,( )?/, $line);
 				
 				$current_tag = $tags[0];
@@ -915,7 +936,7 @@ sub build_tags_taxonomy($$) {
 # > Nectars d'abricot, nectar d'abricot, nectars d'abricots, nectar 
 
 
-		open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.txt");
+		open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/$tagtype.txt") or die ;
 	
 		# print STDERR "Tags.pm - load_tags_taxonomy - tagtype: $tagtype - phase 3, computing hierarchy\n";
 	
@@ -1061,7 +1082,89 @@ sub build_tags_taxonomy($$) {
 		close $IN;
 		
 	
+		# allow a second file for wikipedia abstracts -> too big, so don't include it in the main file
+		# only process properties
 		
+		if (-e "$data_root/taxonomies/${tagtype}.properties.txt") {
+		
+		
+		open (my $IN, "<:encoding(UTF-8)", "$data_root/taxonomies/${tagtype}.properties.txt");
+	
+		# print STDERR "Tags.pm - load_tags_taxonomy - tagtype: $tagtype - phase 3, computing hierarchy\n";
+	
+		
+		$canon_tagid = undef;
+		
+		while (<$IN>) {
+		
+			my $line = $_;
+			chomp($line);
+			$line =~ s/\s+$//;
+			
+			$line =~ s/’/'/g;
+			
+			# assume commas between numbers are part of the name
+			# e.g. en:2-Bromo-2-Nitropropane-1,3-Diol, Bronopol
+			# replace by a lower comma ‚
+
+			$line =~ s/(\d),(\d)/$1‚$2/g;
+						
+			
+			# replace escaped comma \, by a lower comma ‚
+			$line =~ s/\\,/‚/g;
+			
+			# fr:E333(iii), Citrate tricalcique
+			# -> E333iii
+			
+			$line =~ s/\(((i|v|x)+)\)/$1/i;
+			
+			# just remove everything between parenthesis
+			#$line =~ s/\([^\)]*\)/ /g;
+			#$line =~ s/\([^\)]*\)/ /g;
+			#$line =~ s/\([^\)]*\)/ /g;
+			# 3 times for embedded parenthesis
+			
+			$line =~ s/\(|\)/-/g;
+			
+			$line =~ s/\s+$//;				
+			
+			if ($line =~ /^(\s*)$/) {
+				$canon_tagid = undef;
+				next;
+			}
+			
+			next if ($line =~ /^\#/);
+				
+			if ($line =~ /^(\w\w):/) {
+				my $lc = $1;
+				$line = $';
+				$line =~ s/^\s+//;
+				my @tags = split(/( )?,( )?/, $line);
+				$current_tag = normalize_percentages($tags[0], $lc);
+				$current_tagid = get_fileid($current_tag);
+				
+				if (not defined $canon_tagid) {
+				
+					$canon_tagid = "$lc:$current_tagid";
+				}
+			}			
+			elsif ($line =~ /^([a-z0-9_\-\.]+):(\w\w):(\s*)/) {
+				my $property = $1;
+				my $lc = $2;
+				$line = $';
+				$line =~ s/^\s+//;
+				next if $property eq 'synonyms';
+				next if $property eq 'stopwords';
+				
+				print "taxonomy - property - tagtype: $tagtype - canon_tagid: $canon_tagid - lc: $lc - property: $property\n";
+				defined $properties{$tagtype}{$canon_tagid} or $properties{$tagtype}{$canon_tagid} = {};
+				$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = $line;
+			}
+		}
+		
+	
+		close $IN;
+		} # wikipedia file		
 		
 		# Compute all parents, breadth first
 		
@@ -1139,6 +1242,7 @@ sub build_tags_taxonomy($$) {
 		
 		# data structure to export the taxonomy to json format
 		my %taxonomy_json = ();
+		my %taxonomy_full_json = (); # including wikipedia abstracts
 		
 		my $errors = '';
 		
@@ -1154,16 +1258,19 @@ sub build_tags_taxonomy($$) {
 				keys %{$level{$tagtype}} ) {
 				
 			$taxonomy_json{$tagid} = {name => {}};
+			$taxonomy_full_json{$tagid} = {name => {}};
 			
 			# print "taxonomy - compute all children - $tagid - level: $level{$tagtype}{$tagid} - longest: $longest_parent{$tagid} - syn: $just_synonyms{$tagtype}{$tagid} - sort_key: $sort_key_parents{$tagid} \n";
 			if (defined $direct_parents{$tagtype}{$tagid}) {
 				print "taxonomy - direct_parents\n";
 				$taxonomy_json{$tagid}{parents} = [];
+				$taxonomy_full_json{$tagid}{parents} = [];
 				foreach my $parentid (sort keys %{$direct_parents{$tagtype}{$tagid}}) {
 					my $lc = $parentid;
 					$lc =~ s/^(\w\w):.*/$1/;
 					print $OUT "< $lc:" . $translations_to{$tagtype}{$parentid}{$lc} . "\n";
 					push @{$taxonomy_json{$tagid}{parents}}, $parentid;
+					push @{$taxonomy_full_json{$tagid}{parents}}, $parentid;
 					print "taxonomy - parentid: $parentid > tagid: $tagid\n";
 					if (not exists $translations_to{$tagtype}{$parentid}{$lc}) {
 						$errors .= "ERROR - parent $parentid is not defined for tag $tagid\n";
@@ -1174,9 +1281,11 @@ sub build_tags_taxonomy($$) {
 			if (defined $direct_children{$tagtype}{$tagid}) {
 				print "taxonomy - direct_children\n";
 				$taxonomy_json{$tagid}{children} = [];
+				$taxonomy_full_json{$tagid}{children} = [];
 				foreach my $childid (sort keys %{$direct_children{$tagtype}{$tagid}}) {
 					my $lc = $childid;
 					push @{$taxonomy_json{$tagid}{children}}, $childid;
+					push @{$taxonomy_full_json{$tagid}{children}}, $childid;
 				}
 			}			
 			
@@ -1201,6 +1310,7 @@ sub build_tags_taxonomy($$) {
 				$i++;
 				
 				$taxonomy_json{$tagid}{name}{$lc} = $translations_to{$tagtype}{$tagid}{$lc};
+				$taxonomy_full_json{$tagid}{name}{$lc} = $translations_to{$tagtype}{$tagid}{$lc};
 				
 				my $lc_tagid = get_fileid($translations_to{$tagtype}{$tagid}{$lc});
 				
@@ -1213,6 +1323,7 @@ sub build_tags_taxonomy($$) {
 					# additives has e-number as their name, and the first synonym is the additive name
 					if (($tagtype eq 'additives') and (defined $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1])) {
 						$taxonomy_json{$tagid}{name}{$lc} .= " - " . $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1];
+						$taxonomy_full_json{$tagid}{name}{$lc} .= " - " . $synonyms_for{$tagtype}{$lc}{$lc_tagid}[1];
 					}
 				}
 			}
@@ -1224,11 +1335,19 @@ sub build_tags_taxonomy($$) {
 					if ($prop_lc =~ /^(.*):(\w\w)$/) {
 						my $prop = $1;
 						my $lc = $2;
-						(defined $taxonomy_json{$tagid}{$prop}) or $taxonomy_json{$tagid}{$prop} = {};
-						$taxonomy_json{$tagid}{$prop}{$lc} = $properties{$tagtype}{$tagid}{$prop_lc};
+						
+						(defined $taxonomy_full_json{$tagid}{$prop}) or $taxonomy_full_json{$tagid}{$prop} = {};
+						$taxonomy_full_json{$tagid}{$prop}{$lc} = $properties{$tagtype}{$tagid}{$prop_lc};
+						
+						if ($prop_lc !~ /^wikipedia/) {
+							(defined $taxonomy_json{$tagid}{$prop}) or $taxonomy_json{$tagid}{$prop} = {};
+							$taxonomy_json{$tagid}{$prop}{$lc} = $properties{$tagtype}{$tagid}{$prop_lc};
+						}
+
 					}
 					else {
 						$taxonomy_json{$tagid}{$prop_lc} = $properties{$tagtype}{$tagid}{$prop_lc};
+						$taxonomy_full_json{$tagid}{$prop_lc} = $properties{$tagtype}{$tagid}{$prop_lc};
 					}
 				}
 			}
@@ -1246,6 +1365,10 @@ sub build_tags_taxonomy($$) {
 		open (my $OUT_JSON, ">", "$www_root/data/taxonomies/$tagtype.json");
 		print $OUT_JSON encode_json(\%taxonomy_json);
 		close ($OUT_JSON);
+		
+		open (my $OUT_JSON, ">", "$www_root/data/taxonomies/$tagtype.full.json");
+		print $OUT_JSON encode_json(\%taxonomy_full_json);
+		close ($OUT_JSON);		
 		# to serve pre-compressed files from Apache
 		# nginx : needs nginx_static module
 		# system("cp $www_root/data/taxonomies/$tagtype.json $www_root/data/taxonomies/$tagtype.json.json");
@@ -2355,8 +2478,9 @@ sub spellcheck_taxonomy_tag($$$)
 		}
 		else {
 			# try removing stopwords and plurals
-			my $tagid2 = remove_stopwords($tagtype,$tag_lc,$tagid);
-			$tagid2 = remove_plurals($tag_lc,$tagid2);
+			# my $tagid2 = remove_stopwords($tagtype,$tag_lc,$tagid);
+			# $tagid2 = remove_plurals($tag_lc,$tagid2);
+			my $tagid2 = remove_plurals($tag_lc,$tagid);
 			
 			# try to add / remove hyphens (e.g. antioxydant / anti-oxydant)
 			my $tagid3 = $tagid2;

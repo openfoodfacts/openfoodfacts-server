@@ -36,8 +36,7 @@
 <p>תוצרי ייצוא של הפרשים יומיים מסופקים ל־14 הימים שחלפו. ניתן למצוא את רשימת קובצי ההבדלים הזמינים כעת תחת
  <a href="https://static.openfoodfacts.org/data/delta/index.txt">https://static.openfoodfacts.org/data/delta/index.txt</a>.
  כל שורה מייצגת קובץ שקיים תחת <code>https://static.openfoodfacts.org/data/delta/{filename}</code>.
- The filename contains UNIX timestamp of the first and the last change contained in the JSON file, so that the delta files can
- be imported (after extraction) with <code>mongoimport</code> in alphabetical order.</p>
+ שם הקובץ מכיל חותמת זמן יוניקס של השינוי הראשון והאחרון שבקובץ ה־JSON, כדי שניתן יהיה לייבא את קובצי ההפרש (לאחר החילוץ) בעזרת <code>mongoimport</code> בסדר אלפביתי.</p>
 <p>נא לשים לב שעקב אופן ההתנהלות של <code>mongoexport</code>, בקובצי ההפרשים לא מתועדים מוצרים שנמחקו. כדי להסיר מוצרים שהוסרו ממסד הנתונים שלך, יהיה עליך לייבא את אוסף ה־MongoDB המלא.</p>
  
 <h3>יצוא נתונים ב־CSV</h3>

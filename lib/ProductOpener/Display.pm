@@ -967,17 +967,101 @@ sub display_text($)
 		$initjs .= $1;
 	}		
 	
-	# wikipedia style links [url text] not supported, just display the text
-	$html =~ s/\[(\S*?) ([^\]]+)\]/$2/eg;
+	# wikipedia style links [url text] 
+	$html =~ s/\[(http\S*?) ([^\]]+)\]/<a href="$1">$2<\/a>/g;
 	
 	
 	if ($html =~ /<h1>(.*)<\/h1>/) {
 		$title = $1;
 		#$html =~ s/<h1>(.*)<\/h1>//;
 	}
-	
 
+	# Generate a table of content
 	
+	if ($html =~ /<toc>/) {
+	
+		my $toc = '';
+		my $text = $html;
+		my $new_text = '';
+
+		my $current_root_level = -1;
+		my $current_level = -1;
+		my $nb_headers = 0;
+
+		while ($text =~ /<h(\d)([^<]*)>(.*?)<\/h(\d)>/si )
+		{
+			my $level = $1;
+			my $h_attributes = $2;
+			my $header = $3;
+
+			$text = $';
+			$new_text .= $`;
+			my $match = $&;
+
+			# Skip h1
+			if ($level == 1) {
+				$new_text .= $match;
+				next;
+			}
+
+			$nb_headers++;
+
+			my $header_id = $header;
+			# Remove tags
+			$header_id =~ s/<(([^>]|\n)*)>//g;
+			$header_id = get_fileid($header_id);
+			$header_id =~ s/-/_/g;
+
+			my $header_id_html = " id=\"$header_id\"";
+
+			if ($h_attributes =~ /id="([^<]+)"/)
+			{
+				$header_id = $1;
+				$header_id_html = '';
+				}
+
+			$new_text .= "<h$level${header_id_html}${h_attributes}>$header</h$level>";
+
+			if ($current_root_level == -1)
+			{
+				$current_root_level = $level;
+				$current_level = $level;
+				}
+
+				for (my $i = $current_level; $i < $level; $i++)
+				{
+					$toc .= "<ul>\n";
+				}
+
+				for (my $i = $level; $i < $current_level; $i++)
+				{
+					$toc .= "</ul>\n";
+				}
+
+			for ( ; $current_level < $current_root_level ; $current_root_level--)
+			{
+				$toc = "<ul>\n" . $toc;
+				}
+
+				$current_level = $level;
+				
+				$header =~ s/<br>//sig;
+
+				$toc .= "<li><a href=\"#$header_id\">$header</a></li>\n" ;
+		}
+
+		for (my $i = $current_root_level; $i < $current_level; $i++)
+		{
+			$toc .= "</ul>\n";
+		}
+		
+		$new_text .= $text;
+		
+		$new_text =~ s/<toc>/<ul>$toc<\/ul>/;
+		
+		$html = $new_text;
+	
+	}	
 	
 	if ($html =~ /<styles>(.*)<\/styles>/s) {
 		$html = $` . $';
@@ -2071,7 +2155,8 @@ sub display_tag($) {
 	
 	my $weblinks_html = '';
 	my @map_layers = ();
-	if (not defined $request_ref->{groupby_tagtype}) {
+	if ( ($tagtype ne 'additives')
+		and (not defined $request_ref->{groupby_tagtype})) {
 		my @weblinks = ();
 		if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})) {
 			foreach my $key (keys %weblink_templates) {
@@ -2121,6 +2206,8 @@ sub display_tag($) {
 		foreach my $field_orig (@{$options{"display_tag_" . $tagtype}}) {
 		
 			my $field = $field_orig;
+			
+			$log->debug("display_tag - field", { field => $field }) if $log->is_debug();
 		
 			my $array = 0;
 			if ($field =~ /^\@/) {
@@ -2128,104 +2215,399 @@ sub display_tag($) {
 				$array = 1;
 			}
 			
-			my $fieldid = get_fileid($field);
+			# Section title?
 			
-			
-			my $propertyid = $fieldid;
-			
-			if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})
-				and (defined $properties{$tagtype}{$canon_tagid}{$fieldid. ":" . $lc}) ) {
-				$propertyid = $fieldid. ":" . $lc;
+			if ($field =~ /^title:/) {
+				$field = $';
+				my $title = lang($tagtype . "_" . $field);
+				($title eq "") and $title = lang($field);
+				$description .= "<h3>" . $title . "</h3>\n";		
+				$log->debug("display_tag - section title", { field => $field }) if $log->is_debug();
+				next;
 			}
-			elsif ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})
-				and (defined $properties{$tagtype}{$canon_tagid}{$fieldid. ":" . "en"}) ) {
-				$propertyid = $fieldid. ":" . "en";
-			}			
 			
-			print STDERR "option display_tag_$tagtype - field_orig: $field_orig - field: $field - fieldid: $fieldid propertyid: - $propertyid - array: $array\n";
 			
+			# Special processing
+			
+			if ($field eq 'efsa_evaluation_exposure_table') {
+			
+				$log->debug("display_tag - efsa_evaluation_exposure_table", { efsa_evaluation_overexposure_risk => $properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en:"} }) if $log->is_debug();
+			
+				if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})
+					and (defined $properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"})
+					and ($properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"} ne 'en:no')) {
+					
+					$log->debug("display_tag - efsa_evaluation_exposure_table - yes", {  }) if $log->is_debug();
+			
+					my @groups = qw(infants toddlers children adolescents adults elderly);
+					my @percentiles = qw(mean 95th);
+					my @doses = qw(noael adi);
+					my %doses = ();
+					
+					my %exposure = (mean => {}, '95th' => {});
+					
+					# in taxonomy:
+					# efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+
+					foreach my $dose (@doses) {
+						foreach my $percentile (@percentiles) {
+							my $exposure_property = "efsa_evaluation_exposure_" . $percentile . "_greater_than_" . $dose . ":en";
+							if (defined $properties{$tagtype}{$canon_tagid}{$exposure_property}) {
+								foreach my $groupid (split(/,/, $properties{$tagtype}{$canon_tagid}{$exposure_property})) {
+									my $group = $groupid;
+									$group =~ s/^\s*en://;
+									$group =~ s/\s+$//;
+									
+									# NOAEL has priority over ADI
+									if (not exists $exposure{$percentile}{$group}) {
+										$exposure{$percentile}{$group} = $dose;
+										$doses{$dose} = 1; # to display legend for the dose
+										$log->debug("display_tag - exposure_table ", { group => $group, percentile => $percentile, dose => $dose }) if $log->is_debug();
+									}
+								}
+							}
+						}
+					}
+					
+					$styles .= <<CSS
+.exposure_table { 
+
+}
+
+.exposure_table td,th { 
+	text-align: center;
+	background-color:white;
+	color:black;
+}
+
+CSS
+;
+			
+					my $table = <<HTML
+<div style="overflow-x:auto;">
+<table class="exposure_table">
+<thead>
+<tr>
+<th>&nbsp;</th>
+HTML
+;
+
+					foreach my $group (@groups) {
+					
+						$table .= "<th>" . lang($group) . "</th>";					
+					}
+					
+					$table .= "</tr>\n</thead>\n<tbody>\n<tr>\n<td>&nbsp;</td>\n";
+
+					foreach my $group (@groups) {
+					
+						$table .= '<td style="background-color:black;color:white;">' . lang($group . "_age") . "</td>";					
+					}					
+			
+					$table .= "</tr>\n";
+								
+					my %icons = (
+						adi => 'moderate',
+						noael => 'high',
+					);
+								
+					foreach my $percentile (@percentiles) {
+					
+						$table .= "<tr><th>" . lang("exposure_title_" . $percentile) . "<br/>("
+							. lang("exposure_description_" . $percentile) . ")</th>";
+							
+						foreach my $group (@groups) {
+					
+							$table .= "<td>";
+							
+							my $dose = $exposure{$percentile}{$group};
+
+							if (not defined $dose ) {
+								$table .= "&nbsp;";
+							}
+							else {
+								$table .= '<img src="/images/misc/' . $icons{$dose} . '.svg" alt="'
+									. lang("additives_efsa_evaluation_exposure_" . $percentile . "_greater_than_" . $dose) 
+									. '" />';
+							}							
+							
+							$table .= "</td>";
+						}	
+						
+						$table .= "</tr>\n";
+					}
+			
+					$table .= "</tbody>\n</table>\n</div>";
+			
+					$description .= $table;
+					
+					foreach my $dose (@doses) {
+						if (exists $doses{$dose}) {
+							$description .= "<p>" . '<img src="/images/misc/' . $icons{$dose} . '.svg" width="30" height="30" style="vertical-align:middle" alt="'
+									. lang("additives_efsa_evaluation_exposure_greater_than_" . $dose) . '" /> <span>: '
+									. lang("additives_efsa_evaluation_exposure_greater_than_" . $dose) . "</span></p>\n";
+						}
+					}
+				}
+				next;
+			}
+			
+			
+			my $fieldid = get_fileid($field);
+			$fieldid =~ s/-/_/g;
+			
+			my %propertyid = ();
+			
+			
+			# Check if we have properties in the interface language, otherwise use English
+			
+			
+			if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid}) ) {
+			
+				$log->debug("display_tag - checking properties", { tagtype => $tagtype, canon_tagid => $canon_tagid, field => $field}) if $log->is_debug();
+			
+			
+				foreach my $key ('property', 'description', 'abstract', 'url', 'date') {			
+				
+					my $suffix = "_" . $key;
+					if ($key eq 'property') {
+						$suffix = '';
+					}
+				
+					if (defined $properties{$tagtype}{$canon_tagid}{$fieldid . $suffix . ":" . $lc})  {
+						$propertyid{$key} = $fieldid . $suffix . ":" . $lc;
+						$log->debug("display_tag - property key is defined for lc $lc", { tagtype => $tagtype, canon_tagid => $canon_tagid, field => $field, key => $key, propertyid => $propertyid{$key} }) if $log->is_debug();						
+						}
+					elsif (defined $properties{$tagtype}{$canon_tagid}{$fieldid . $suffix . ":" . "en"})  {
+						$propertyid{$key} = $fieldid . $suffix .":" . "en";
+						$log->debug("display_tag - property key is defined for en", { tagtype => $tagtype, canon_tagid => $canon_tagid, field => $field, key => $key, propertyid => $propertyid{$key} }) if $log->is_debug();						
+					}
+					else {
+						$log->debug("display_tag - property key is not defined", { tagtype => $tagtype, canon_tagid => $canon_tagid, field => $field, key => $key, propertyid => $propertyid{$key} }) if $log->is_debug();
+					}					
+				}
+			}
+			
+			$log->debug("display_tag", { tagtype => $tagtype, canon_tagid => $canon_tagid, field_orig => $field_orig, field => $field, propertyid => $propertyid{property}, array => $array }) if $log->is_debug();
 	
-			if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})
-				and (defined $properties{$tagtype}{$canon_tagid}{$propertyid}) ) {
+			if ((defined $propertyid{property}) or (defined $propertyid{abstract})) {
 			
-				my $title = $field;
+				# abstract?
+				
+				if (defined $propertyid{abstract}) {
+								
+					my $site = $fieldid;
+					
+					$log->debug("display_tag - showing abstract", { site => $site }) if $log->is_debug();
+				
+					$description .= "<p>" . $properties{$tagtype}{$canon_tagid}{$propertyid{abstract}} ;
+					
+					if (defined $propertyid{url}) {
+					
+						my $lang_site = lang($site);
+						if ((defined $lang_site) and ($lang_site ne "")) {
+							$site = $lang_site;
+						}
+						$description .= ' - <a href="' . $properties{$tagtype}{$canon_tagid}{$propertyid{url}} . '">' . $site . '</a>';
+					}
+					
+					$description .= "</p>";
+					
+					next;
+				}
+			
+			
+				my $title;
 				my $tagtype_field = $tagtype . '_' . $fieldid;
-				$tagtype_field =~ s/_/-/g;
+				# $tagtype_field =~ s/_/-/g;
 				if (exists $Lang{$tagtype_field}{$lc}) {
 					$title = $Lang{$tagtype_field}{$lc};
 				}
+				elsif (exists $Lang{$fieldid}{$lc}) {
+					$title = $Lang{$fieldid}{$lc};
+				}
 			
-				$description .= "<p><b>" . $title . "</b>" . separator_before_colon($lc) . ": ";
+				$log->debug("display_tag - title", { tagtype => $tagtype, title => $title }) if $log->is_debug();
+			
+				$description .= "<p>";
+				
+				if (defined $title) {
+					$description .= "<b>" . $title . "</b>" . separator_before_colon($lc) . ": ";
+				}
+				
+				my @values = ( $properties{$tagtype}{$canon_tagid}{$propertyid{property}} );
 				
 				if ($array) {
-					foreach my $value (split(/,/, $properties{$tagtype}{$canon_tagid}{$propertyid})) {
+					@values = split(/,/, $properties{$tagtype}{$canon_tagid}{$propertyid{property}});
+				}
+				
+				my $values_display = "";
 					
-						next if $value =~ /^\s*$/;
-						
-						$value =~ s/^\s+//;
-						$value =~ s/\s+$//;
+				foreach my $value_orig (@values) {
+				
+					my $value = $value_orig; # make a copy so that we can modify it inside the foreach loop
 					
-						my $property_tagtype = $fieldid;
+					next if $value =~ /^\s*$/;
+					
+					$value =~ s/^\s+//;
+					$value =~ s/\s+$//;
+				
+					my $property_tagtype = $fieldid;
+					
+					$property_tagtype =~ s/-/_/g;
+					
+					if (not exists $taxonomy_fields{$property_tagtype}) {
+						# try with an additional s
+						$property_tagtype .= "s";
+					}
+											
+					$log->debug("display_tag", { property_tagtype => $property_tagtype, lc => $lc, value => $value }) if $log->is_debug();
+					
+					my $display = $value;
+					
+					if (exists $taxonomy_fields{$property_tagtype}) {
+					
+						$display = display_taxonomy_tag($lc, $property_tagtype, $value);
 						
-						$property_tagtype =~ s/-/_/g;
+						$log->debug("display_tag - $property_tagtype is a taxonomy", { display => $display }) if $log->is_debug();
+					
+						if ((defined $properties{$property_tagtype}) and (defined $properties{$property_tagtype}{$value}) ) {
 						
-						if (not exists $taxonomy_fields{$property_tagtype}) {
-							# try with an additional s
-							$property_tagtype .= "s";
-						}
+							# tooltip
 						
-						print STDERR "OBF - lc: $lc - property_tagtype: $property_tagtype - value: $value\n";
-						
-						my $display = $value;
-						
-						if (exists $taxonomy_fields{$property_tagtype}) {
-						
-							$display = display_taxonomy_tag($lc, $property_tagtype, $value);
+							my $tooltip;
 							
-							print STDERR "OBF - property_tagtype: $property_tagtype - exists - value: $value - display: $display \n";
-						
-							if ((defined $properties{$property_tagtype}) and (defined $properties{$property_tagtype}{$value}) ) {
+							if (defined $properties{$property_tagtype}{$value}{"description:$lc"})  {
+								$tooltip = $properties{$property_tagtype}{$value}{"description:$lc"};
+							}
+							elsif (defined $properties{$property_tagtype}{$value}{"description:en"})  {
+								$tooltip = $properties{$property_tagtype}{$value}{"description:en"}
+							}
 							
-								my $tooltip;
-								
-								if (defined $properties{$property_tagtype}{$value}{"description:$lc"})  {
-									$tooltip = $properties{$property_tagtype}{$value}{"description:$lc"};
-								}
-								elsif (defined $properties{$property_tagtype}{$value}{"description:en"})  {
-									$tooltip = $properties{$property_tagtype}{$value}{"description:en"}
-								}
-								
-								if (defined $tooltip) {
-									$display = '<span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" tabindex="2" title="'
-									. $tooltip . '">' . $display . '</span>';
-								}
-								else {
-									print STDERR "OBF - no description for $value\n";
-								}
+							if (defined $tooltip) {
+								$display = '<span data-tooltip aria-haspopup="true" class="has-tip top" style="font-weight:normal" data-disable-hover="false" tabindex="2" title="'
+								. $tooltip . '">' . $display . '</span>';
 							}
 							else {
-								print STDERR "OBF - no properties for $value\n";
+								$log->debug("display_tag - no tooltip", { property_tagtype => $property_tagtype, value => $value }) if $log->is_debug();
 							}
+							
 						}
 						else {
-							print STDERR "OBF - property_tagtype: $property_tagtype is not a loaded taxonomy\n";
+							$log->debug("display_tag - no property found", { property_tagtype => $property_tagtype, value => $value }) if $log->is_debug();
 						}
-					
-						$description .=  $display . ", ";
 					}
-					$description =~ s/, $//;
+					else {
+						$log->debug("display_tag - not a taxonomy", { property_tagtype => $property_tagtype, value => $value }) if $log->is_debug();
+						
+						# Do we have a translation for the field?
+						
+						my $valueid = $value;
+						$valueid =~ s/^en://;
+						
+						# check if the value translate to a field specific value
+						
+						if (exists $Lang{$tagtype_field . "_" . $valueid}{$lc}) {
+							$display = $Lang{$tagtype_field . "_" . $valueid }{$lc};
+						}
+						
+						# check if we have an icon
+						if (exists $Lang{$tagtype_field . "_icon_alt_" . $valueid}{$lc}) {
+							my $alt = $Lang{$tagtype_field . "_icon_alt_" . $valueid }{$lc};
+							my $iconid = $tagtype_field . "_icon_" . $valueid;
+							$iconid =~ s/_/-/g;
+							$display = <<HTML
+<div class="row">
+<div class="small-2 large-1 columns">
+<img src="/images/misc/$iconid.svg" alt="$alt" /> 
+</div>
+<div class="small-10 large-11 columns">
+$display
+</div>
+</div>
+HTML
+;
+						}
+
+						
+						# otherwise check if we have a general value
+						
+						elsif (exists $Lang{$valueid}{$lc}) {
+							$display = $Lang{$valueid}{$lc};
+						}			
+						
+						$log->debug("display_tag - display value", { display => $display }) if $log->is_debug();
+						
+						# tooltip
+						
+						if (exists $Lang{$valueid . "_description"}{$lc}) {
+
+							my $tooltip = $Lang{$valueid . "_description"}{$lc};
+							
+							$display = '<span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" tabindex="2" title="'
+								. $tooltip . '">' . $display . '</span>';
+							
+						}
+						else {
+							$log->debug("display_tag - no description", { valueid => $valueid }) if $log->is_debug();
+						}					
+
+						# link
+						
+						if (exists $propertyid{url}) {
+							$display = '<a href="' . $properties{$tagtype}{$canon_tagid}{$propertyid{url}} . '">'
+									. $display . "</a>";
+						}
+						if (exists $Lang{$valueid . "_url"}{$lc}) {
+							$display = '<a href="' . $Lang{$valueid . "_url"}{$lc} . '">'
+									. $display . "</a>";
+						}
+						else {
+							$log->debug("display_tag - no url", { valueid => $valueid }) if $log->is_debug();
+						}
+						
+						# date
+						
+						if (exists $propertyid{date}) {
+							$display .= " (" . $properties{$tagtype}{$canon_tagid}{$propertyid{date}} . ")";
+						}	
+						if (exists $Lang{$valueid . "_date"}{$lc}) {
+							$display .= " (" . $Lang{$valueid . "_date"}{$lc} . ")";
+						}						
+						else {
+							$log->debug("display_tag - no date", { valueid => $valueid }) if $log->is_debug();
+						}
+						
+					}
+								
+					$values_display .=  $display . ", ";
 				}
-				else {
-					$description .= $properties{$tagtype}{$canon_tagid}{$propertyid};
+				$values_display =~ s/, $//;				
+				
+				$description .= $values_display . "</p>\n";
+				
+				# Display an optional description of the property
+				
+				if (exists $Lang{$tagtype_field . "_description"}{$lc}) {
+					$description .= "<p>" . $Lang{$tagtype_field . "_description"}{$lc} . "</p>";
 				}
 				
-				$description .= "</p>\n";
-				
+			}
+			else {
+					$log->debug("display_tag - property not defined", { tagtype => $tagtype, property_id => $propertyid{property}, canon_tagid => $canon_tagid }) if $log->is_debug();
 			}
 	
 		}
+		
+		# Remove titles without content
+		
+		$description =~ s/<h3>([^<]+)<\/h3>\s*(<h3>)/<h3>/isg;
+		$description =~ s/<h3>([^<]+)<\/h3>\s*$//isg;
+		
 	
 	}
+	
+	$description =~ s/<tag>/$title/g;
 	
 		
 	if (defined $ingredients_classes{$tagtype}) {
@@ -2811,6 +3193,10 @@ sub search_and_display_products($$$$$) {
 	
 	
 	$count = $request_ref->{structured_response}{count};
+	
+	if (defined $request_ref->{description}) {
+		$request_ref->{description} =~ s/<nb_products>/$count/g;
+	}
 	
 	my $html = '';
 	my $html_pages = '';
@@ -6496,6 +6882,16 @@ HTML
 ;
 			}
 			
+			if ($tagtype eq 'additives') {
+			
+				$styles .= <<CSS
+a.additives_efsa_evaluation_overexposure_risk_high { color:red }
+a.additives_efsa_evaluation_overexposure_risk_moderate { color:#ff6600 }
+CSS
+;				
+			
+			}
+			
 			$html_ingredients_classes .= "<ul style=\"display:block;float:left;\">";
 			foreach my $tagid (@{$product_ref->{$tagtype_field . '_tags'}}) {
 			
@@ -6513,13 +6909,42 @@ HTML
 				}
 				
 				my $info = '';
+				my $more_info = '';
 
 				if ($class eq 'additives') {
+				
+					my $canon_tagid = $tagid;
 					$tagid =~ s/.*://; # levels are defined only in old French list
 
 					if ($ingredients_classes{$class}{$tagid}{level} > 0) {
 						$info = ' class="additives_' . $ingredients_classes{$class}{$tagid}{level} . '" title="' . $ingredients_classes{$class}{$tagid}{warning} . '" ';
 					}
+					
+					if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})
+						and (defined $properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"})
+						and ($properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"} ne 'en:no')) {
+						
+						my $tagtype_field = "additives_efsa_evaluation_overexposure_risk";
+						my $valueid = $properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"};
+						$valueid =~ s/^en://;
+						
+						# check if we have an icon
+						if (exists $Lang{$tagtype_field . "_icon_alt_" . $valueid}{$lc}) {
+							my $alt = $Lang{$tagtype_field . "_icon_alt_" . $valueid }{$lc};
+							my $iconid = $tagtype_field . "_icon_" . $valueid;
+							$iconid =~ s/_/-/g;
+							$more_info = <<HTML
+<a href="$link">						
+<img src="/images/misc/$iconid.svg" alt="$alt" width="45" height="45" /> 
+</a>
+<a href="$link" class="additives_efsa_evaluation_overexposure_risk_$valueid">
+$alt
+</a>
+HTML
+;
+						}						
+						
+					}						
 				}			
 				
 				if ((defined $tags_levels{$lc}{$tagtype}) and (defined $tags_levels{$lc}{$tagtype}{$tagid})) {
@@ -6527,7 +6952,7 @@ HTML
 				}
 
 		
-				$html_ingredients_classes .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a></li>\n";
+				$html_ingredients_classes .= "<li><a href=\"" . $link . "\"$info>" . $tag . "</a>$more_info</li>\n";
 			}
 			$html_ingredients_classes .= "</ul></div>";
 		}
@@ -7631,7 +8056,10 @@ JS
 	
 	if (defined $product_ref->{stats}) {
 	
-		push @cols, 'std', 'min', '10', '50', '90', 'max';
+		foreach my $col ('std', 'min', '10', '50', '90', 'max') {
+			push @cols, $col; 
+			$col_name{$col} = lang("nutrition_data_per_$col");
+		}
 		
 		if ($product_ref->{id} ne 'search') {
 		
@@ -7764,7 +8192,8 @@ HTML
 		# display nutrition score only when the country is matching
 		
 		if ($nid =~ /^nutrition-score-(.*)$/) {
-			if ($cc ne $1) {
+			# Always show the FR score and Nutri-Score
+			if (($cc ne $1) and (not ($1 eq 'fr'))) {
 				$shown = 0;
 			}
 			else {
@@ -7875,11 +8304,38 @@ HTML
 						. '<span class="compare_value" style="display:none">' . (sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} / 2.54, $unit)) + 0.0) . " " . $unit . '</span>' . "</td>";
 					}
 				}				
+				
+				if ($nid eq 'nutrition-score-fr') {
+					# We need to know the category in order to select the right thresholds for the nutrition grades
+					# as it depends on whether it is food or drink
+					
+					# if it is a category stats, the category id is the id field
+					if ((not defined $product_ref->{categories_tags})
+						and (defined $product_ref->{id}) 
+						and ($product_ref->{id} =~ /^en:/) 
+							) {
+						$product_ref->{categories} = $product_ref->{id};
+						compute_field_tags($product_ref, "categories");
+					}
+					
+					if (defined $product_ref->{categories_tags}) {
+					
+						$values2 .= "<td class=\"nutriment_value${col_class}\">"
+							. uc (compute_nutrition_grade($product_ref, $comparison_ref->{nutriments}{$nid . "_100g"}))
+							. "</td>";
+					}
+				}
+				
 			}
 			else {
 			
 				my $value_unit = "";
 				my $rdfa = '';
+				
+				# Nutriscore: per serving = per 100g
+				if (($nid =~ /nutrition-score/) and ($col eq "serving")) {
+					$product_ref->{nutriments}{$nid . "_$col"} = $product_ref->{nutriments}{$nid . "_100g"};
+				}
 				
 				if ((not defined $product_ref->{nutriments}{$nid . "_$col"}) or ($product_ref->{nutriments}{$nid . "_$col"} eq '')) {
 					$value_unit = '?';
@@ -7928,13 +8384,37 @@ HTML
 						}
 						$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $sodium . " " . $unit . "</td>";
 					}				
+					elsif ($nid eq 'nutrition-score-fr') {
+						# We need to know the category in order to select the right thresholds for the nutrition grades
+						# as it depends on whether it is food or drink
+						
+						# if it is a category stats, the category id is the id field
+						if ((not defined $product_ref->{categories_tags})
+							and (defined $product_ref->{id}) 
+							and ($product_ref->{id} =~ /^en:/) 
+								) {
+							$product_ref->{categories} = $product_ref->{id};
+							compute_field_tags($product_ref, "categories");
+						}
+						
+						if (defined $product_ref->{categories_tags}) {
+						
+							if ($col eq "std") {
+								$values2 .= "<td class=\"nutriment_value${col_class}\"></td>";
+							}
+							else {
+								$values2 .= "<td class=\"nutriment_value${col_class}\">"
+								. uc (compute_nutrition_grade($product_ref, $product_ref->{nutriments}{$nid . "_$col"}))
+								. "</td>";
+							}
+						}
+					}					
 					elsif ($col eq $product_ref->{nutrition_data_per}) {
 						# % DV ?
 						if ((defined $product_ref->{nutriments}{$nid . "_value"}) and (defined $product_ref->{nutriments}{$nid . "_unit"}) and ($product_ref->{nutriments}{$nid . "_unit"} eq '% DV')) {
 							$value_unit .= ' (' . $product_ref->{nutriments}{$nid . "_value"} . ' ' . $product_ref->{nutriments}{$nid . "_unit"} . ')';
 						}
-					}
-					
+					}					
 					
 					if ($col eq '100g') {
 						my $property = $nid;
@@ -7982,6 +8462,20 @@ $values2
 HTML
 ;
 		}		
+		
+		if (($nid eq 'nutrition-score-fr') and ($values2 ne '')) {
+			$input .= <<HTML
+<tr id="nutriment_nutriscore_tr" class="nutriment_sub">
+<td class="nutriment_label">
+HTML
+. "Nutri-Score" . <<HTML
+</td>
+$values2
+</tr>			
+HTML
+;
+		}		
+		
 		
 		#print STDERR "nutrition_table - nid: $nid - shown: $shown \n";
 
