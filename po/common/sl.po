@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-17 12:21\n"
+"PO-Revision-Date: 2018-10-17 12:35\n"
 "Language-Team: Slovenian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -1446,23 +1446,23 @@ msgstr "Ni izdelkov."
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
-msgstr ""
+msgstr "Napaka med shranjevanjem, poskusite znova."
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
-msgstr ""
+msgstr "Število aditivov"
 
 msgctxt "number_of_products"
 msgid "Number of products"
-msgstr ""
+msgstr "Število izdelkov"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr ""
+msgstr "%s v %s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
-msgstr ""
+msgstr "Vsebnost hranil za 100 g"
 
 # Ensure it is the same translation as in the translation in the tag file. If unsure, DO NOT TRANSLATE, otherwise it will break the site
 msgctxt "nutrient_levels_link"
@@ -1483,15 +1483,15 @@ msgstr "hranila"
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
-msgstr ""
+msgstr "Proizvodi, ki vsebujejo hranilo %s"
 
 msgctxt "nutriments_s"
 msgid "nutriment"
-msgstr ""
+msgstr "hranilo"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
-msgstr ""
+msgstr "Proizvodi, ki ne vsebujejo hranila %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
@@ -1503,35 +1503,35 @@ msgstr "Dejstva o hranilni vrednosti"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr ""
+msgstr "Povprečna prehranska dejstva za %d izdelkov iz kategorije %s za katere so znana prehranska dejstva (od %d izdelkov)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr ""
+msgstr "% razlike"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
-msgstr ""
+msgstr "vrednost za 100g / 100ml"
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
-msgstr ""
+msgstr "Primerjava s povprečnimi vrednostmi izdelkov v isti kategoriji:"
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr ""
+msgstr "Prosim upoštevajte: za vsako hranilno vrednost se povprečje izračuna za izdelke, za katere je znana količina hranil, ne za vse izdelke v kategoriji."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr ""
+msgstr "Če je slika dovolj ostra in ravna, se lahko prehranski podatki samodejno izvlečejo iz slike."
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
-msgstr ""
+msgstr "10. centilitrov"
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
-msgstr ""
+msgstr "za 100g / 100ml"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
@@ -1539,7 +1539,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
-msgstr ""
+msgstr "Mediana"
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
@@ -1551,15 +1551,15 @@ msgstr ""
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
-msgstr ""
+msgstr "Največ"
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
-msgstr ""
+msgstr "Pomeni"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
-msgstr ""
+msgstr "Najmanj"
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
@@ -1567,7 +1567,7 @@ msgstr "na porcijo"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
-msgstr ""
+msgstr "Standardni odklon"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
@@ -1584,11 +1584,11 @@ msgstr ""
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
-msgstr ""
+msgstr "Prehranske stopnje"
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
+msgstr "Prehranska stopnja"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
@@ -1599,11 +1599,12 @@ msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.pn
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr ""
+msgstr "<p>Če želite izvedeti več o <<site_name>>, obiščite <a href=\"https://en.blog.openfoodfacts.org\">spletni dnevnik</a>!</p>\n"
+"<p>Zadnje novice:</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
-msgstr ""
+msgstr "Novice"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
@@ -1612,7 +1613,7 @@ msgstr ""
 
 msgctxt "or"
 msgid "or:"
-msgstr ""
+msgstr "ali:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
@@ -1620,11 +1621,11 @@ msgstr "Poreklo sestavin"
 
 msgctxt "origins_example"
 msgid "California, USA"
-msgstr ""
+msgstr "Kalifornija, ZDA"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
-msgstr ""
+msgstr "Navedite izvor sestavin"
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
