@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-17 12:35\n"
+"PO-Revision-Date: 2018-10-17 12:40\n"
 "Language-Team: Slovenian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -1629,11 +1629,11 @@ msgstr "Navedite izvor sestavin"
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
-msgstr ""
+msgstr "poreklo sestavin"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr ""
+msgstr "Izdelki s sestavinami, ki izvirajo iz %s"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
@@ -1641,11 +1641,11 @@ msgstr "poreklo sestavin"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
-msgstr ""
+msgstr "dodaj porekla"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
-msgstr ""
+msgstr "Proizvodi brez sestavin, ki izvirajo iz %s"
 
 msgctxt "packaging"
 msgid "Packaging"
@@ -1653,7 +1653,7 @@ msgstr "Pakiranje"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
-msgstr ""
+msgstr "Sveže, konzervirano, zamrznjeno, steklenica, škatla, stekla, plastike..."
 
 msgctxt "packaging_note"
 msgid "Packaging type, format, material"
@@ -1837,7 +1837,7 @@ msgstr ""
 
 msgctxt "product_js_image_open_full_size_image"
 msgid "Open the picture in original size in a new windows"
-msgstr ""
+msgstr "Odprite sliko v originalni velikosti v novem oknu"
 
 msgctxt "product_js_image_received"
 msgid "Image received"
@@ -1849,11 +1849,11 @@ msgstr ""
 
 msgctxt "product_js_image_rotate_left"
 msgid "Rotate left"
-msgstr ""
+msgstr "Zavrti levo"
 
 msgctxt "product_js_image_rotate_right"
 msgid "Rotate right"
-msgstr ""
+msgstr "Zavrti desno"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
@@ -1861,27 +1861,27 @@ msgstr ""
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
-msgstr ""
+msgstr "Slika je shranjena"
 
 msgctxt "product_js_image_saving"
 msgid "Saving image"
-msgstr ""
+msgstr "Shranjevanje slike"
 
 msgctxt "product_js_image_upload_error"
 msgid "Error while uploading image"
-msgstr ""
+msgstr "Napaka med nalaganjem slike"
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
-msgstr ""
+msgstr "Fotografija na belem ozadju: poskusite odstraniti ozadje"
 
 msgctxt "product_js_images_delete_error"
 msgid "Errors while deleting images"
-msgstr ""
+msgstr "Napake pri brisanju slik"
 
 msgctxt "product_js_images_deleted"
 msgid "Images deleted"
-msgstr ""
+msgstr "Slike so bile izbrisane"
 
 msgctxt "product_js_images_move_error"
 msgid "Errors while moving images"
