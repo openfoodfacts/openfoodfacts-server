@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-17 12:40\n"
+"PO-Revision-Date: 2018-10-17 12:51\n"
 "Language-Team: Slovenian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -1885,11 +1885,11 @@ msgstr "Slike so bile izbrisane"
 
 msgctxt "product_js_images_move_error"
 msgid "Errors while moving images"
-msgstr ""
+msgstr "Napake med premikanjem slik"
 
 msgctxt "product_js_images_moved"
 msgid "Images moved"
-msgstr ""
+msgstr "Slike so se premaknile"
 
 msgctxt "product_js_moving_images"
 msgid "Moving images"
@@ -1897,7 +1897,7 @@ msgstr ""
 
 msgctxt "product_js_upload_image"
 msgid "Add a picture"
-msgstr ""
+msgstr "Dodaj sliko"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
@@ -1981,7 +1981,7 @@ msgstr ""
 
 msgctxt "remember_me"
 msgid "Remember me"
-msgstr ""
+msgstr "Zapomni se me"
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
@@ -1989,7 +1989,7 @@ msgstr ""
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr ""
+msgstr "Ponastavi geslo"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -2001,19 +2001,27 @@ msgid "Hello <NAME>,\n\n"
 "See you soon,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
-msgstr ""
+msgstr "Pozdravljeni <NAME>,\n\n"
+"Zahtevali ste, da se geslo ponastavi na https://openfoodfacts.org\n\n"
+"za uporabniško ime: <USERID>\n\n"
+"Če želite nadaljevati ponastavitev gesla, kliknite spodnjo povezavo.\n"
+"Če niste zahtevali ponastavitve gesla, lahko to sporočilo prezrete.\n\n"
+"<RESET_URL>\n\n"
+"Se vidimo kmalu,\n\n"
+"Stephane\n"
+"https://openfoodfacts.org\n"
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
-msgstr ""
+msgstr "Ponastavite geslo na <<site_name>>"
 
 msgctxt "reset_password_reset"
 msgid "Your password has been changed. You can now log-in with this password."
-msgstr ""
+msgstr "Vaše geslo je bilo spremenjeno. Zdaj se lahko prijavite s tem geslom."
 
 msgctxt "reset_password_reset_msg"
 msgid "Enter a new password."
-msgstr ""
+msgstr "Vnesi novo geslo."
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
@@ -2025,7 +2033,7 @@ msgstr ""
 
 msgctxt "risk_level"
 msgid "Risk"
-msgstr ""
+msgstr "Tveganje"
 
 msgctxt "risk_level_0"
 msgid "To be completed"
@@ -2033,7 +2041,7 @@ msgstr ""
 
 msgctxt "risk_level_1"
 msgid "Low risks"
-msgstr ""
+msgstr "Nizko tveganje"
 
 msgctxt "risk_level_2"
 msgid "Moderate risks"
@@ -2041,11 +2049,11 @@ msgstr ""
 
 msgctxt "risk_level_3"
 msgid "High risks"
-msgstr ""
+msgstr "Veliko tveganje"
 
 msgctxt "salt_equivalent"
 msgid "salt equivalent"
-msgstr ""
+msgstr "soli, ki so enakovredne"
 
 msgctxt "save"
 msgid "Save"
@@ -2053,7 +2061,7 @@ msgstr "Shrani"
 
 msgctxt "saved"
 msgid "Saved."
-msgstr ""
+msgstr "Shranjeno."
 
 msgctxt "saving"
 msgid "Saving."
@@ -2174,11 +2182,11 @@ msgstr ""
 
 msgctxt "search_map"
 msgid "Map"
-msgstr ""
+msgstr "Zemljevid"
 
 msgctxt "search_map_choice"
 msgid "Results on a map"
-msgstr ""
+msgstr "Rezultati na zemljevidu"
 
 msgctxt "search_map_link"
 msgid "Permanent link to this map, shareable by e-mail and on social networks"
@@ -2202,7 +2210,7 @@ msgstr "Hranila"
 
 msgctxt "search_or"
 msgid "or"
-msgstr ""
+msgstr "ali"
 
 msgctxt "search_page_size"
 msgid "Results per page"
@@ -2418,7 +2426,7 @@ msgstr ""
 
 msgctxt "subscribe"
 msgid "Subscribe"
-msgstr ""
+msgstr "Naročite se"
 
 msgctxt "tag_belongs_to"
 msgid "Belongs to:"
@@ -2458,7 +2466,7 @@ msgstr "sledi"
 
 msgctxt "traces_s"
 msgid "trace"
-msgstr ""
+msgstr "sledi"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
@@ -2494,7 +2502,7 @@ msgstr ""
 
 msgctxt "username"
 msgid "User name"
-msgstr ""
+msgstr "Uporabniško ime"
 
 msgctxt "username_info"
 msgid "(non-accented letters, digits and/or dashes)"
@@ -2522,7 +2530,7 @@ msgstr ""
 
 msgctxt "users_p"
 msgid "contributors"
-msgstr ""
+msgstr "sodelavci"
 
 msgctxt "users_products"
 msgid "Products added by %s"
@@ -2530,7 +2538,7 @@ msgstr ""
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr ""
+msgstr "sodelavec"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
@@ -2563,7 +2571,7 @@ msgstr ""
 
 msgctxt "weekdays"
 msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
-msgstr ""
+msgstr "['nedelja', 'ponedeljek', 'torek', 'sreda', 'četrtek', 'petek, 'sobota]"
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
@@ -2571,11 +2579,11 @@ msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone St
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr ""
+msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
-msgstr ""
+msgstr "Povezani ste kot %s."
 
 msgctxt "product_js_unselect_image"
 msgid "Unselect image"
