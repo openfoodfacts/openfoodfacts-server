@@ -217,7 +217,7 @@ else {
 		display_error($Lang{no_barcode}{$lang}, 403);
 	}
 	else {
-		$product_ref = retrieve_product($code);
+		$product_ref = retrieve_product_or_deleted_product($code, $admin);
 		if (not defined $product_ref) {
 			display_error(sprintf(lang("no_product_for_barcode"), $code), 404);
 		}
@@ -2116,6 +2116,9 @@ elsif ($action eq 'process') {
 
 		$product_ref->{deleted} = 'on';
 		$comment = lang("deleting_product") . separator_before_colon($lc) . ":";
+	}
+	elsif (($admin) and (exists $product_ref->{deleted})) {
+		delete $product_ref->{deleted};	
 	}
 	
 	my $time = time();

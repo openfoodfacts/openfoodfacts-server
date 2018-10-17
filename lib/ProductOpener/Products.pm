@@ -34,6 +34,7 @@ BEGIN
 		&product_exists
 		&init_product
 		&retrieve_product
+		&retrieve_product_or_deleted_product
 		&retrieve_product_rev
 		&store_product
 		&product_name_brand
@@ -199,6 +200,22 @@ sub retrieve_product($) {
 	
 	return $product_ref;
 }
+
+sub retrieve_product_or_deleted_product($$) {
+
+        my $code = shift;
+	my $deleted_ok = shift;
+        my $path = product_path($code);
+        my $product_ref = retrieve("$data_root/products/$path/product.sto");
+
+        if ((defined $product_ref) and ($product_ref->{deleted})
+		and (not $deleted_ok)) {
+                return;
+        }
+
+        return $product_ref;
+}
+
 
 sub retrieve_product_rev($$) {
 

@@ -1,38 +1,45 @@
 stopwords:en:ingredients, from, with, of, by, the, verified, certified, approved, 100%, pure, product, guaranty, guaranteed, standard
-stopwords:es:por, la, las, los, el, apto, para, certificado, controlado, registrado, 100%
+stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, estándar
 stopwords:fr:ingrédients, issus, de, l', convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit, sas
 stopwords:ru:ингредиенты, из, с, проверено, сертифицировано, подтверждено, 100%, чистый, продукт, гарантия, гарантировано, стандарт
 
 synonyms:en:coloring, colouring, color, colour
 synonyms:ru:окраска, цвет
+synonyms:es:color, colorante
 
 synonyms:en:flavor, flavour, flavoring, flavouring
 synonyms:ru:вкус, запах, сдабривать, приправлять, ароматизировать
+synonyms:es:sabor, saborizante
 
-synonyms:en:GMOs, Genetically Modified Organisms
+synonyms:en:GMOs, Genetically Modified Organisms, GMO
 synonyms:ru:ГМО, Генетически Модифицированные Организмы
-synonyms:OGMs, Organismes génétiquement modifiés
+synonyms:OGMs, Organismes génétiquement modifiés, OGM
+synonyms:es:OGMs, Organismos genéticamente modificados, transgénicos, OGM
 
 synonyms:en:Rich in, High in
 synonyms:es:Rico en, Alto contenido de, Alto contenido en
+synonyms:pt:Rico em, Alto conteúdo de
 synonyms:ru:Обогащено
 
 synonyms:en:MSG, glutamate
 synonyms:fr:GMS, glutamate monosodique, glutamate mono-sodique, glutamate, msg
 synonyms:ru:глутамат, глютамат, глутаминат натрия
+synonyms:es:GMS, glutamato, glutamato monosódico
 
 synonyms:en:preservatives, conservatives
 synonyms:ru:консерванты, консервантов
+synonyms:es:conservador, conservadores, preservador
 
 synonyms:en:seafood, sea food
 synonyms:ru:дары моря, морепродукты
 
 synonyms:en:without, 0%, free
-synonyms:es:sin, 0%
+synonyms:es:sin, 0%, libre de
 synonyms:fr:sans, 0%
 synonyms:de:ohne, 0%
 synonyms:it:senza, 0%
 synonyms:nl:zonder, 0%
+synonyms:pt:dem, 0%
 synonyms:ru:без, 0%, 0 %
 
 synonyms:fr:ajout, adjonction
@@ -40,7 +47,9 @@ synonyms:ru:дополнение, добавка
 
 synonyms:en:carbon, co2
 synonyms:fr:carbone, co2
+synonyms:pt:carbono, co2
 synonyms:ru:углерод, CO<sub>2</sub>, CO2
+synonyms:es:carbono, co2, CO<sub>2</sub>, CO2
 
 synonyms:en:durable, soutenable, responsable
 synonyms:fr:durable, reliable, responsable
@@ -49,43 +58,51 @@ synonyms:ru:долговечно, надежно, ответственно
 synonyms:en:fabrication, production
 synonyms:fr:fabrique, fabriqué
 synonyms:ru:изготовление, производство
+synonyms:es:fabricación, producción, elaborado
 
 synonyms:fr:matières grasses, MG, gras
 synonyms:ru:жир
 
 synonyms:fr:naturel, d'origine naturelle, origine naturelle
+synonyms:es:natural, de origen natural, origen natural
 
 en:1% for the planet, 1 percent for the planet, one percent for the planet
-es:1% para el planeta
+es:1% para el planeta, uno por ciento para el planeta
 fr:1% pour la planète
 nl:1% voor de planeet
 
-de:100% natürlich
 en:100% natural
+de:100% natürlich
 es:100% natural
 fr:100% naturel
+hu:100% természetes
 it:100% naturale
 nl:100% natuurlijk
+pt:100% natural
 ru:100% натуральное, 100% натуральный, 100% натуральная, 100% натуральные, 100% натуральный продукт, натуральный продукт
-hu:100% természetes
 
-de:100% pflanzlich
 en:100% vegetable
-fr:100% végétal, 100% végétale
-nl:100% plantaardig
-ru:100% овощной
-hu:100%-ban növényi
+de:100% pflanzlich
 es:100% vegetal
+fr:100% végétal, 100% végétale
+hu:100%-ban növényi
+nl:100% plantaardig
+pt:100% vegetal
+ru:100% овощной
 
 en:Not hardened
+de:ungehärtet
 fr:Non durci
 nl:Ongehard
+pt:Não endurecido
 ru:Не закаленный
+es:No endurecido
 
 en:Assured Food Standards, assured food standard, Red Tractor
 ru:гарантированный пищевой стандарт
 wikidata:en:Q4810404
 
+de:Nach traditioneller Art, Hausmacher Art
 fr:À l'ancienne
 
 en:Authentic Trappist Product
@@ -99,26 +116,34 @@ en:British Lion Quality, Lion Quality, British Lion Eggs, Lion Eggs, The Lion Ma
 wikidata:en:Q4969906
 
 en:Free range
-ru:свободный выгул, открытый воздух
+de:Freiland
 fr:Plein air
 hu:Szabad tartású
+pt:Criação em liberdade
+ru:свободный выгул, открытый воздух
 
 en:French eggs, Eggs from France
 fr:Oeufs de France, Oeufs français
 
 <en:Free range
 en:Free range eggs
+de:Freilandeier
 fr:Œufs de poules élevées en plein air, Œufs de plein air, Œufs plein air, Œufs de poules élevées en plein air, Œufs de poule élevée en plein air, Œufs de poules élevées en plein air, Œuf de poule fermière élevée en liberté
+pt:Ovos criados em liberdade
 
 <en:Free range eggs
 en:Made with free range eggs, Baked with free range eggs
-fr:Fait avec des œufs de poule en liberté, Cuisiné avec des œufs de plein air
+de:Aus Freilandeiern, Enhält Freilandeier, Mit Freilandeiern gebacken
+fr:Fait avec des œufs de poule élevées en plein air, Fait avec des œufs de poule en liberté, Cuisiné avec des œufs de plein air
+pt:Feito com ovos criados em liberdade
 
 <en:Free range
 fr:Cultivé en plein air
 
 <en:Free range
 en:Free range pork
+de:Fleisch von Freilandschweinen
+pt:Porcos criados em liberdade
 
 <en:Free range pork
 fr:Porc élevé sur paille ou en plein air
@@ -128,22 +153,26 @@ fr:Porc fermier élevé en plein air
 
 <en:Free range
 en:Free range chicken
+de:Freilandhühnchen
+pt:Galinhas criadas em liberdade
 
 <en:Free range
 en:Free range poultry
+de:Freilandgeflügel
+pt:Aves criadas em liberdade
 
 <en:Free range poultry
 fr:Volailles fermières de Loué élevées en liberté
 
-
 en:Carbon compensated product, carbon neutral
-ru:углерод компенсирующий продукт, углерод нейтральный
+de:Kohlenstoffneutral hergestelltes Produkt, Kohlenstoff-kompensiertes Produkt, kohlenstoffneutral
 fr:Produit compensé carbone, Carbone neutre, neutre en carbone, carbone compensé
-de:Kohlenstoff-kompensiertes Produkt, kohlenstoffneutral
 nl:Kooldioxide neutraal
+pt:Produto produzido em neutralidade de carbono, Produto neutral de carbono
+ru:углерод компенсирующий продукт, углерод нейтральный
 
-de:CO2-Emissionen
 en:Carbon footprint, carbon emissions, product that specifies the carbon footprint
+de:CO2-Emissionen
 es:Huella de carbono, Emisiones de CO2
 fr:Empreinte carbone, émissions de carbone
 it:Emissioni di CO2, impronta climatica
@@ -210,13 +239,13 @@ fr:Produit en coopérative, produit de coopérative
 ru:кооперативный продукт
 wikidata:en:Q4539
 
+en:HACCP,Hazard analysis and critical control points
 ar:HACCP,تحليل المخاطر ونقاط التحكم الحرجة
 bg:HACCP
 ca:HACCP,Anàlisi de Perills i Punts de Control Crítics
 cs:HACCP
 de:HACCP,Hazard Analysis and Critical Control Points
 el:HACCP
-en:HACCP,Hazard analysis and critical control points
 es:HACCP, Análisis de Peligros y Puntos de Control Críticos
 fa:HACCP,تحلیل زیان و کنترل نقاط بحرانی
 fr:HACCP, Système d'analyse des dangers et points critiques pour leur maîtrise, Système HACCP
@@ -246,23 +275,26 @@ zh:HACCP,危害分析重要管制點
 wikidata:en:Q279454
 
 en:ISO 9001
-it:Iso 9001, Uni en iso 9001, Sistema di qualita certificato iso 9001
-fr:Iso 9001, Certifie iso 9001, La certification qualite iso 9001
+it:ISO 9001, Uni en iso 9001, Sistema di qualita certificato iso 9001
+fr:ISO 9001, Certifie iso 9001, La certification qualite iso 9001
 nl:ISO 9001
 ru:ISO 9001, ИСО 9001
+es:ISO 9001, ISO 9001, Certificación de calidad ISO 9001
 wikidata:en:Q1060682
 
 <en:ISO 9001
 en:ISO 9001-2000
 nl:ISO 9001-2000
 ru:ИСО 9001-2000, ГОСТ Р ИСО 9001
+es:ISO 9001-2000
 wikidata:en:Q4130719
 
 <en:ISO 9001
 en:ISO-9001-2008, ISO 9001 2008 certified qms
-it:Iso-9001-2008
-fr:Iso-9001-2008
+it:ISO-9001-2008
+fr:ISO-9001-2008
 nl:ISO 9001-2008
+es:ISO 9001-2008
 
 <en:ISO 9001
 <ru:ГОСТ
@@ -274,38 +306,41 @@ ru:ГОСТ Р ИСО 9001-2015
 
 en:ISO 22000
 nl:ISO 22000
+es:ISO 22000
 wikidata:en:Q524143
 
 <en:ISO 22000
 en:ISO 22000:2005
 nl:ISO 22000-2005
+es:ISO 22000:2005
 
 <en:ISO 22000
 <ru:ГОСТ
 ru:ГОСТ Р ИСО 22000-2007
 
 en:Designated Origin Denomination
+de:Ausgewiesene Herkunftsbezeichnung
 es:DO, D.O., Denominación de Origen
 wikidata:en:Q3139487
 
 es:DOCa, D.O.Ca., Denominación de Origen Calificada
 ru: Обозначение происхождения
 
-de:EU-/Nicht-EU-Landwirtschaft
 en:EU/non-EU Agriculture, EU and non EU Agriculture
+de:EU-/Nicht-EU-Landwirtschaft
 fr:Agriculture UE/Non UE
 nl:EU/Non EU landbouw
 ru:EU/не-EU агрокультура
 
-de:Nicht EU-Landwirtschaft
 en:non-EU Agriculture
+de:Nicht EU-Landwirtschaft
 es:Agricultura no UE
 fr:Agriculture non UE
 nl:Non EU landbouw
 ru:не-EU агрокультура
 
-de:EU-Landwirtschaft
 en:EU Agriculture, European Union agriculture
+de:EU-Landwirtschaft
 es:Agricultura UE, Agricultura Unión Europea, Agricultura de la UE
 fr:Agriculture UE, Agriculture Union Européeenne
 nl:EU landbouw
@@ -315,6 +350,11 @@ en:EAC
 nl:EAC
 ru:EAC
 wikidata:en:Q18407253
+
+fr:Entrepreneurs + Engagés, E+, Entrepreneurs Engagés
+
+fr:Entreprise du Patrimoine Vivant, EPV
+wikidata:en:Q3214304
 
 en:Fair trade
 es:Comercio justo, Fairtrade-Comercio Justo
@@ -455,12 +495,13 @@ en:FSC-C117156
 en:FSC-C123652
 
 en:without nano-particles
+de:ohne Nanopartikel
 fr:sans nano-particules
 
 en:Gluten-free, Without gluten, No gluten, Gluten-free-food, free of gluten, Naturally gluten free, Gluten free
 cs:Bez lepku
 de:Glutenfrei
-es:Sin gluten
+es:Sin gluten, Libre de gluten
 fr:Sans gluten
 it:Senza glutine
 pl: Bezglutenomy
@@ -482,24 +523,28 @@ fr:Contient du gluten
 pt:Contem gluten
 de:Enthält Gluten
 nl:Bevat gluten
+es:Contiene gluten
 
-
-de:Ohne Verdickungsmittel
 en:No thickening agent, No thickeners
+de:Ohne Verdickungsmittel
 fr:Sans épaississant, Sans épaississants, Sans épaissisant, Sans épaissisants
 nl:Verdikkingsmiddelvrij, Zonder verdikkingsmiddel
+pt:Sem espessante
 ru:Без загустителя
 
-
-de:Ohne Zusatz von Verdickungsmittel
 en:No added thickener
+de:Ohne Zusatz von Verdickungsmitteln
 fr:Sans épaississant ajouté, Sans epaissisant ajoute
+pt:Sem adição de espessantes
 ru:Без добавления загустителя
 
-
+de:Ohne Polyphosphate
 fr:Sans polyphosphates
+pt:Sem polifosfatos
 ru:Полифосфаты
+es:Sin polifosfatos
 
+de:Ohne Zusatz von Polyphosphaten
 fr:Sans addition de polyphosphates, Sans addition de polyphosphate, Sans polyphosphates ajoutés
 ru:Без добавления полифосфатов
 
@@ -509,10 +554,11 @@ es:Punto Verde, El Punto Verde
 fr:Point Vert, Le Point Vert
 it:Punto Verde, Il Punto Verde
 nl:Groene Punt
+pt:Ponto Verde
 wikidata:en:Q975485
 
-de:Halal
 en:Halal
+de:Halal
 es:Halal
 fr:Halal, hallal
 nl:Halal
@@ -585,9 +631,11 @@ en:First grade TIS 3-1983, Thai Industrial Standard Institute
 wikidata:en:Q15613582
 
 en:High fibres, high fibers, Rich in fiber
-es:Rico en fibra, Rico en fibras, Fuente de Fibra
+de:ballaststoffreich
+es:Rico en fibra, Rico en fibras, Fuente de Fibra, Alto en Fibra
 fr:Riche en fibres
 nl:Vezelrijk, Rijk aan vezels
+pt:Rico em fibras
 ru:Обогащено клетчаткой
 
 en:Omega-3
@@ -595,44 +643,50 @@ fr:Omega-3
 de:Omega-3
 nl:Omega 3
 ru:омега-3 жиры, омега-3
+es:Omega-3
 wikidata:en:Q191756
 
 <en:Omega-3
-de:Hoher Omega-3-Gehalt
 en:High in Omega 3, Rich in Omega 3
-es:Rico en Omega 3
+de:Hoher Omega-3-Gehalt
+es:Rico en Omega 3, Alto en Omega 3
 fr:Riche en Oméga-3, Riche en omega 3, Riche en acide gras omega 3
 nl:Rijk aan Omega 3
+pt:Rico em Omega 3
 ru:Обогащено омега-3 жирами
 
-de:Reich an mehrfach ungesättigten Fettsäuren
 en:Rich in polyunsaturated fatty acids
-es:Con valiosos acidos grasos poliinsaturados
+de:Reich an mehrfach ungesättigten Fettsäuren
+es:Con valiosos ácidos grasos poliinsaturados, Rico en ácidos grasos poliinsaturados, Alto en ácidos grasos poliinsaturados
 fr:Riche en acides gras polyinsaturés
 it:Ricca di acidi grassi polinsaturi
 nl:Rijk aan poly-onverzadigde vetzuren
 
-de:Proteinreich
 en:High proteins, Source of proteins
-es:Fuente de proteínas
+de:Proteinreich
+es:Fuente de proteínas, Alto en proteinas, Rico en Proteinas
 fr:Riche en protéines, Source de protéines
 nl:Rijk aan protéines
+fr:Rico em protéinas
 ru:Обогащено протеинами
 
 fr:Riche en fibres, source de fibres
+es:Rico en fibra, Fuente de fibra 
 
 fr:Source de Vitamine C
+es:Fuente de Vitamina C
 
 <en:High proteins
-de:Reich an pflanzlichem Eiweiß
 en:Rich in vegetable protein
-es:Rica en proteínas vegetal
+de:Reich an pflanzlichem Eiweiß
+es:Rico en proteínas vegetal
 fr:Riche en protéines végétales
 it:Ricca di proteini vegetali
 nl:Rijk aan plantaardige eiwitten
+pt:Rico em proteinas vegetais
 
-de:Kalziumquelle
 en:Calcium source, Source of calcium
+de:Kalziumquelle
 es:Fuente de calcio
 fr:Source de calcium
 nl:Bron van Calcium, Rijk aan Calcium
@@ -642,105 +696,131 @@ ru:Обогащено кальцием, источник кальция
 en:Phosphore source
 fr:Source de phosphore
 nl:Bron van fosfor
+pt:Fonte de fosforo
+es:Fuente de fósforo
 
 en:Vitamin A source, Source of vitamin A
+de:Vitamin A-Quelle
 es:Fuente de vitamina A
 fr:Source de vitamine A
 nl:bron van Vitamine A
+pt:Fonte de vitamina A
 ru:Источник витамина A
 
 en:Vitamin B source, Source of vitamin B
+de:Vitamin B-Quelle
 ru:Источник витамина B
 es:Fuente de vitamina B
 fr:Source de vitamine B
 nl:Bron van Vitamine B
+pt:Fonte de vitamina B
 
 en:Vitamin B1 source, Source of vitamin B1
+de:Vitamin B1-Quelle
 es:Fuente de vitamina B1
 fr:Source de vitamine B1
 nl:Bron van Vitamine B1
+pt:Fonte de vitamina B1
 ru:Источник витамина B1
 
 en:Vitamin B6 source, Source of vitamin B6
+de:Vitamin B6-Quelle
 es:Fuente de vitamina B6
 fr:Source de vitamine B6
 nl:Bron van Vitamine B6
+pt:Fonte de vitamina B6
 ru:Источник витамина B6
 
 en:Vitamin B9 source, Source of vitamin B9
+de:Vitamin B9-Quelle
 es:Fuente de vitamina B9
 fr:Source de vitamine B9
 nl:Bron van Vitamine B9
+pt:Fonte de vitamina B9
 ru:Источник витамина B9
 
 en:Vitamin B12 source, Source of vitamin B12
+de:Vitamin B12-Quelle
 es:Fuente de vitamina B12
 fr:Source de vitamine B12
 nl:Bron van Vitamine B12
+pt:Fonte de vitamina B12
 ru:Источник витамина B12
 
 en:Vitamin C source, Source of vitamin C
+de:Vitamin C-Quelle
 es:Fuente de vitamina C
 fr:Source de vitamine C
 nl:Bron van Vitamine C
+pt:Fonte de vitamina C
 ru:Источник витамина C
 
 en:Vitamin D source, Source of vitamin D
+de:Vitamin D-Quelle
 es:Fuente de vitamina D
 fr:Source de vitamine D
 nl:Bron van Vitamine D
+pt:Fonte de vitamina D
 ru:Источник витамина D
 
 en:Vitamin E source, Source of vitamin E
+de:Vitamin E-Quelle
 es:Fuente de vitamina E
 fr:Source de vitamine E
 nl:Bron van Vitamine E
+pt:Fonte de vitamina 
 ru:Источник витамина E
 
 en:Source of iron
+de:Eisenquelle
 fr:Source de fer
 nl:Bron van IJzer
+pt:Fonte de ferro
+es:Fuente de hierro
 
-de:Natürliche Quelle von Kalzium
 en:Natural source of calcium, Natural calcium source
+de:Natürliche Kalziumquelle
 es:Fuente de calcio natural
 fr:Source naturelle de calcium
 nl:Bron van natuurlijke Calcium
 ru:Источник натурального кальция
 
-de:Reich an Kalzium, Kalziumreiche
 en:High in calcium
-es:Alto contenido de calcio
+de:Reich an Kalzium, Kalziumreiche
+es:Alto contenido de calcio, Rico en calcio, Alto en calcio
 fr:Riche en calcium
 nl:Rijk aan Calcium
+pt:Rico em cálcio
 ru:Обогащено кальцием
 
-de:In Blindenschrift
 en:In braille
+de:In Blindenschrift, In Brailleschrift
 es:En braille, Producto en braille
 fr:Produit en braille
 nl:Product in Braille
+pt:Em braille
 ru:В шрифте брайля
 wikidata:en:Q79894
 
-de:Falsche Angaben auf der Verpackung
 en:Incorrect data on label, Incorrect data
+de:Falsche Angaben auf der Verpackung
 es:Datos incorrectos en la etiqueta
 fr:Informations incorrectes sur l'emballage, Informations incorrectes
 nl:Productgegevens incorrect
 ru:Неверные данные на этикетке
 
 <en:Incorrect data on label
-de:Falsche Ernährung Fakten auf dem Etikett
 en:Incorrect nutrition facts on label, Incorrect nutrition facts, Informations nutritionnelles incorrectes
+de:Falsche Nährwertangaben auf dem Etikett
 fr:Informations nutritionnelles incorrectes sur l'emballage, Informations nutritionnelles incorrectes
 nl:Incorrecte gegevens op het etiket
 ru:Неверные данные о составе на этикетке
+es:Información nutricional en la etiqueta incorrecta, Información nutricional incorrecta 
 
 en:Integrated production
-ru:Интегрированное производство
 es:Producción Integrada
 fr:Production intégrée
+ru:Интегрированное производство
 wikidata:en:Q1665511
 
 en:Kosher, kasher
@@ -811,8 +891,11 @@ fr:Kosher under supervision of Rabbi Weitman Tnuva
 <en:Kosher
 en:Sephardi Kashrut Autority, sKa, Sephardi Beth Din
 
-de:Labels von Distributoren
+<en:Kosher
+en:Union of Orthodox Synagogues of South Africa
+
 en:Distributor labels, Labels of distributors
+de:Handelsmarken
 es:Etiquetas de distribuidores
 fr:Labels de distributeurs
 ru:Этикетки дистрибьюторов
@@ -837,15 +920,17 @@ en:Charte LU Harmony, Charte Harmony, LU Harmony, Charte LU
 en:LEAF, Linking Environment and Farming, LEAF Linking Environment and Farming
 ru:Связанные окружающая среда и сельское хозяйство
 
-de:Niedrig oder kein Fett
 en:Low or no fat
+de:Niedrig oder kein Fett
 fr:Peu ou pas de matière grasse, peu ou pas gras
 nl:Geen vet of vetarm
+pt:Com pouca ou sem gordura
 ru:Низкожирный или обезжиренный
+es:Bajo o sin grasas
 
 <en:Low or no fat
-de:Fettarm
 en:Low fat, low in fat
+de:Fettarm
 es:Bajo en grasas, Bajo contenido en grasas
 fr:Peu de matière grasse, Peu gras, faible teneur en matière grasse, pauvre en matière grasse, pauvre en matières grasses
 it:Basso contenuto di grassi
@@ -853,18 +938,19 @@ nl:Vetarm
 ru:Низкожирный или обезжиренный
 
 <en:Low fat
-de:Fettreduziert
 en:Reduced fat, Less fat
+de:Fettreduziert
 fr:Allégé en matière grasse, Allégée en matière grasse, Teneur en matière grasse réduite, teneur réduite en matière grasse, Moins de matière grasse, Moins gras, matière grasse réduit
 ru:Низкожирный
 
 <en:Reduced fat
-de:10% weniger Fett
 en:10% less fat
+de:10% weniger Fett
 es:10% menos de grasa
 fr:Moins 10% de matière grasse, -10% de matière grasse, 10% de matière grasse en moins
 it:10% in meno di grassi
 nl:10% minder vet
+pt:10% menos de gordura
 
 <en:Reduced fat
 en:15% less fat
@@ -873,6 +959,7 @@ de:15% weniger Fett
 es:15% menos de grasa
 it:15% in meno di grassi
 nl:15% minder vet
+pt:15% menos de gordura
 
 <en:Reduced fat
 en:20% less fat
@@ -881,6 +968,7 @@ de:20% weniger Fett
 es:20% menos de grasa
 it:20% in meno di grassi
 nl:20% minder vet
+pt:20% menos de gordura
 
 <en:Reduced fat
 en:25% less fat
@@ -889,6 +977,7 @@ de:25% weniger Fett
 es:25% menos de grasa
 it:25% in meno di grassi
 nl:25% minder vet
+pt:25% menos de gordura
 
 <en:Reduced fat
 en:30% less fat
@@ -897,6 +986,7 @@ de:30% weniger Fett
 es:30% menos de grasa
 it:30% in meno di grassi
 nl:30% minder vet
+pt:30% menos de gordura
 
 <en:Reduced fat
 en:35% less fat
@@ -905,6 +995,7 @@ de:35% weniger Fett
 es:35% menos de grasa
 it:35% in meno di grassi
 nl:35% minder vet
+pt:35% menos de gordura
 
 <en:Reduced fat
 en:40% less fat
@@ -913,6 +1004,7 @@ de:40% weniger Fett
 es:40% menos de grasa
 it:40% in meno di grassi
 nl:40% minder vet
+pt:40% menos de gordura
 
 <en:Reduced fat
 en:45% less fat
@@ -921,6 +1013,7 @@ de:45% weniger Fett
 es:45% menos de grasa
 it:45% in meno di grassi
 nl:45% minder vet
+pt:45% menos de gordura
 
 <en:Reduced fat
 en:50% less fat
@@ -929,6 +1022,7 @@ de:50% weniger Fet
 es:50% menos de grasa
 it:50% in meno di grassi
 nl:50% minder vet
+pt:50% menos de gordura
 
 <en:Reduced fat
 en:55% less fat
@@ -937,6 +1031,7 @@ de:55% weniger Fet
 es:55% menos de grasa
 it:55% in meno di grassi
 nl:55% minder vet
+pt:55% menos de gordura
 
 <en:Reduced fat
 en:60% less fat
@@ -945,6 +1040,7 @@ de:60% weniger Fett
 es:60% menos de grasa
 it:60% in meno di grassi
 nl:60% minder vet
+pt:60% menos de gordura
 
 <en:Reduced fat
 en:65% less fat
@@ -953,31 +1049,35 @@ de:65% weniger Fet
 es:65% menos de grasa
 it:65% in meno di grassi
 nl:65% minder vet
+pt:65% menos de gordura
 
 <en:Low or no fat
 en:No added fat
+de:Ohne zugesetztes Fett, Ohne beigesetztes Fett
 es:Sin grasas añadidas, 0% grasas añadidas
 fr:Sans matière grasse ajoutée, sans matières grasses ajoutées, sans ajout de matière grasse, sans matière grasse ajouté, sans matières grasses ajoutés
 nl:Geen toegevoegd vet
+pt:Sem gordura adicionada
 
 <en:Low or no fat
 en:No fat, fat-free, 0% fat
-ru:Обезжиренный, 0% жира
+de:ohne Fett, fettfrei, 0% Fett
 es:Sin grasas
 fr:Sans matière grasse, 0% de matière grasse, sans matières grasses, 0% de matières grasses
-de:ohne Fett, fettfrei, 0% Fett
 nl:Vetvrij, Zonder vet
+ru:Обезжиренный, 0% жира
 
 en:Low Sodium
 de:Natriumarm
 fr:Faible teneur en sodium,Pauvre en sodium
 ru:Низкое содержание натрия
 nl:Natriumarm
-
+es:Bajo en sodio, Bajo contenido de sodio
 
 en:Low or no salt
 fr:Peu ou pas de sel, peu ou pas salé
 nl:Geen of weinig zout
+es:Bajo en sal o sin sal, Bajo o sin sal
 
 <en:Low or no salt
 en:Low salt
@@ -1079,7 +1179,9 @@ de:ohne Salz, salzfrei, 0% Salz
 nl:Zoutloos, Zonder zout, Zoutvrij
 ru:Без соли, 0% соли
 
+
 en:Low or no sugar
+de:zuckerarm oder zuckerfrei
 es:Bajo o sin azúcar
 fr:Peu ou pas de sucre, peu ou pas sucré
 nl:Zonder of weinig suiker
@@ -1090,11 +1192,13 @@ en:Low sugar
 fr:Peu de sucre, peu sucré, faible teneur en sucre
 nl:Weinig suiker
 ru:Низкое содержание сахара
+es:Bajo contenido de azúcar
 
 <en:Low sugar
 en:Reduced sugar, Less sugar
 fr:Allégé en sucre, Allégé en sucres, Allégés en sucre, Allégés en suces, Allégées en sucre, Allégées en sucres, Allégée en sucre, Allégée en sucres, Teneur en sucre réduite, teneur réduite en sucre, Moins de sucre, Moins sucré, Sucre réduit
 nl:Minder suiker
+es:Menos azúcar, Azúcar reducido, Contenido de azúcar reducido
 
 <en:Reduced sugar
 en:10% less sugar
@@ -1181,8 +1285,8 @@ de:60% weniger Zucker
 es:60% menos de azúcar
 it:60% in meno di zucchero
 
-de:Ohne Zuckerzusatz, Ohne zugesetzten Zucker
 en:No added sugar, no sugar added, no added sugars
+de:Ohne Zuckerzusatz, Ohne zugesetzten Zucker
 es:Sin azúcares añadidos, 0% Azúcares añadidos, Sin azúcar añadido
 fr:Sans sucre ajouté, sans sucres ajoutés, sans ajout de sucre
 it:Senza zuccheri aggiunti
@@ -1191,75 +1295,101 @@ pt:Sem açúcares adicionados, Sem adição de açúcares
 
 <en:Low or no sugar
 en:No sugar, sugar-free
-es:Sin azúcar
+es:Sin azúcar, Libre de azúcar, Cero azúcar
 fr:Sans sucre, Zero sucre
 de:Ohne Zucker
 nl:Zonder suiker, sukervrij
 ru:Без сахара
 
 en:Lowers cholesterol
+de:Cholesterinsenkend
 es:Reduce el colesterol
 fr:Réduit le cholesterol
 it:Abbassa il colesterolo
 nl:Weinig cholesterol
-pt:Reduzem o Colesterol
+pt:Reduz o Colesterol
 
 en:Australian made
 fr:Fabriqué en Australie
 nl:Geproduceerd in Australië
+es:Fabricado en Australia
 wikidata:en:Q17000991
 
 en:Made in Germany
+de:Hergestellt in Deutschland
 fr:Fabriqué en Allemagne
 nl:Geproduceerd in Duitsland
+es:Hecho en Alemania
 
 en:Made in Belgium
+de:Hergestellt in Belgien
 fr:Fabriqué en Belgique
 nl:Geproduceerd in België
+es:Hecho en Bélgica
 
 en:made in France
+de:Hergestellt in Frankreich
 es:Fabricado en Francia
 fr:Fabriqué en France, production française, produit de France, fabrication française
 nl:Geproduceerd in Frankrijk
+es:Hecho en Francia
 
 en:Cooked in France
 fr:Cuisiné en France
 
 en:Transformed in France
 fr:Transformé en France
+es:Transformado en Francia
 
 en:Packaged in France
 fr:Conditionné en France
+es:Empacado en Francia
 
 en:Made in Italy
+de:Hergestellt in Italien
 fr:Fabriqué en Italie
 it:Fatto in Italia
 nl:Geproduceerd in Italië
+es:Fabricado en Italia, Producido en Italia
 
 en:Made in Portugal
+de:Hergestellt in Portugal
 fr:Fabriqué au Portugal
 nl:Geproduceerd in Portugal
+es:Hecho en Portugal
 
 en:Made in Russia
+de:Hergestellt in Russland
 fr:Fabriqué en Russie
 nl:Geproduceerd in Rusland
 ru:Сделано в России
+es:Hecho en Rusia
 
 en:Made in Spain
+de:Hergestellt in Spanien
 fr:Fabriqué en Espagne
 nl:Geproduceerd in Spanje
+es:Hecho en España
 
 en:Made in Swiss
+de:Hergestellt in der Schweiz
 fr:Fabriqué en Suisse
 nl:Geproduceerd in Zwitserland
+es:Hecho en Suiza
+
+en:Made in Mexico
+es:Hecho en México
 
 en:Made in the EU, Made in the European Union
+de:Hergestellt in der EU, Hergestellt in der Europäischen Union
 fr:Fabriqué dans l'UE, Fabriqué dans l'Union Européenne
 nl:Geproduceerd in de EU
+es:Hecho en la UE, Hecho en la Unión Europea
 
 en:Limited edition
 fr:Edition limitée
 ru:Лимитированное издание
+es:Edición limitada
 
 en:Egg laid in France
 fr:Pondu en France, Pondue en France, Pondues en France, Pondus en France
@@ -1268,24 +1398,35 @@ fr:Origine France, Origine France Garantie, 100% origine France
 
 fr:Farine de sarrasin français, Farine de blé noir français
 
-fr:Saveurs en Or, Saveurs en'Or
-wikidata:en:Q3474531
+fr:Nou la fé, NOU LA FE
+
+fr:PIL, Produit de l'Industrie Locale
 
 fr:Produit en Gourmandie
 
-fr:Fabriqué en Gourmandie
+fr:Fabriqué en Gourmandie, Produit en Gourmandie
 
 fr:Fabrication artisanale
+es:Fabricación artesanal, Producción artesanal
+
+fr:La Lorraine notre signature
+
+fr:Saveurs en Or, Saveurs en'Or
+wikidata:en:Q3474531
 
 fr:Savourez l'Alsace
 nl:Proef de Elzas
 
+fr:Sud de France
+
 en:natural colorings
+de:natürliche Farbstoffe
 es:Colorantes naturales
 fr:colorants naturels, colorant naturel, colorant d'origine naturelle, colorants d'origine naturelle
 nl:Natuurlijke kleurstoffen
 
 en:natural flavors
+de:natürliche Aromen
 es:Aromas naturales
 fr:arômes naturels, arôme naturel, Aux arômes naturels
 nl:Natuurlijke aromas
@@ -1296,15 +1437,20 @@ fr:Jamais congelé, Garanti jamais congelé
 nl:Nooit bevroren
 
 en:Unfrozen
+de:Aufgetaut
 fr:Décongelé
 
 en:Do not freeze
+de:Nicht einfrieren
 fr:Ne pas congeler
 nl:Niet invriezen
+es:No congelar
 
 en:Do not freeze again
+de:Nicht wieder einfrieren
 fr:Ne pas recongeler
 nl:Niet opnieuw invriezen
+es:No volver a congelar, No congelar de nuevo
 
 en:Without gelatin, Gelatinfree, Gelatin-free
 fr:Sans gélatine
@@ -1313,11 +1459,13 @@ nl:Zonder gelatine, Gelatinevrij
 es:Sin gelatina
 
 en:No additives
+de:Ohne Zusätze
 es:Sin aditivos
 fr:Sans additifs, Sans additif, aucun additif
 nl:Zonder toevoegingen
 
 en:No artificial additives
+de:Ohne künstliche Zusätze
 fr:Sans additifs artificiels
 es:Sin aditivos artificiales
 nl:Zonder kunstmatige toevoegingen
@@ -1347,13 +1495,15 @@ nl:Vrij van kunstmatige smaakstoffen, Zonder kunstmatige smaakstoffen
 ru:без искусственных ароматизаторов, без добавления искусственных ароматизаторов
 
 en:No artificial sweeteners
+de:Ohne künsztliche Süßungsmittel
 fr:Sans édulcorant artificiel
-es:Sin edulcorantes artificiales
+es:Sin edulcorantes artificiales, Sin endulzantes artificiales
 nl:Zonder kunstmatige suikers, Zonder suikervervangers
 
 en:No artificial preservatives
+de:Ohne künstliche Konservierungsstoffe
 fr:Sans conservateur artificiel
-es:Sin conservantes artificiales
+es:Sin conservantes artificiales, Sin conservadores artificiales
 nl:Zonder kunstmatige bewaarstoffen
 
 <en:No artificial flavors
@@ -1362,8 +1512,10 @@ en:No artificial colours or flavours
 fr:Sans colorants ni arômes artificiels
 nl:Zonder kunstmatige kleurstoffen
 pt:Sem corantes nem aromas artificiais
+es:Sin colorantes o saborizantes artificiales
 
 en:No artificial flavour enhancer
+de:Ohne künstliche Geschmaksverstärker
 fr:Sans exhausteurs de goût artificiels
 es:Sin potenciador artificial del sabor
 nl:Zonder smaakversterkers
@@ -1375,6 +1527,7 @@ de:ohne Aspartam, aspartamfrei
 nl:Zonder Aspartaam
 
 en:No Bisphenol-A, No BPA, BPA free, Bisphenol-A free
+de:Ohne Bisphenol-A
 es:Sin bisfenol A, Sin BPA
 fr:Sans bisphénol-A, Sans BPA
 nl:Zonder bisfenol A
@@ -1388,7 +1541,7 @@ nl:Cafeinevrij, Vrij van cafeine, Zonder cafeine
 en:No cholesterol, cholesterol-free
 es:Sin colesterol
 fr:sans cholestérol
-de:ohne Cholesterin, cholesterinfrei
+de:cholesterinfrei, ohne Cholesteri
 nl:Cholesterolvrij, Zonder cholesterol
 ru:без холестерина
 
@@ -1401,6 +1554,7 @@ nl:Zonder kleurstoffen
 ru:без красителей
 
 en:No eggs, egg free
+de:Ohne Ei
 es:Sin huevo, Sin huevos
 fr:Sans œufs
 nl:Zonder eieren
@@ -1419,9 +1573,11 @@ de:Ohne Geschmacksverstärker, Ohne Zusatzstoff Geschmacksverstärker
 nl:Geen toegevoegde smaakstoffen
 
 en:No Trans Fat, 0% Trans Fat, 0 g trans fat, 0g trans fat
+de:Ohne Transfette
 fr:Sans acides gras trans, sans graisses trans
 nl:Geen transvetten
 ru:без трансжиров
+es:Sin ácidos grasos trans, Sin grasas trans, Libre de grasas trans, 0g grasas trans 
 
 en:No hydrogenated fats
 es:Sin grasas hidrogenadas
@@ -1430,15 +1586,18 @@ de:Keine gehärtete Fette, Ohne gehärtete Fette
 it:Senza grassi idrogenati
 
 en:Without vegetable oils, without vegetable fats
+de:Ohne pfalnzliche Öle
 fr:Sans huiles végétales, sans matières grasses végétales
 nl:Zonder plantaardige olieën
 ru:без растительных жиров
+
 
 <en:Natural product
 <en:Without vegetable oils
 en:Natural product without vegetable oils, Natural product without vegetable fats
 nl:Zonder plantaardige vetten
 ru:натуральный продукт без растительных жиров
+es:Producto natural sin aceites vegetales, Producto natural sin grasas vegetales
 
 <en:No flavour enhancer
 en:No MSG, MSG free
@@ -1450,10 +1609,13 @@ fr:Sans glutamate ajouté, sans GMS ajouté
 nl:Geen mononatriumglutamaat toegevoegd, Geen vetsin toegevoegd
 
 en:No GMOs, Non GMO, GMO-free, GMOs-free, Without GMO, Without GMOs, No Genetically Modified Organisms, Without Genetically Modified Organisms, No GMO
-de:Ohne Gentechnik
+de:gentechnikfrei, Ohne Gentechnik
 es:Sin OMG, Sin transgénicos, Sin OMGs, Sin Organismos Modificados Genéticamente
 fr:Sans OGM, Sans utilisation d'OGM
 ru:Без ГМО, Без использования ГМО, Не содержит ГМО
+
+en:Contains GMOs, with GMOs
+fr:Contient des OGMs, Avec des OGMs
 
 en:Non GMO project
 wikidata:en:Q7754286
@@ -1480,6 +1642,7 @@ ru:Без лецитина
 en:No soja lecithine, Without soja lecithine
 fr:Sans lécithine de soja
 ru:Без соевого лецитина
+es:Sin lecitina de soya, Sin lecitina de soja
 
 en:No milk, milk-free, dairy-free, no dairy
 es:Sin leche
@@ -1497,13 +1660,15 @@ de:Ohne Zusatz von Milchprodukten
 ru:Без добавления молочных продуктов
 
 en:Contains milk
+de:Enthält Milch
 pt:Contem leite
 fr:Contient du lait
 nl:Bevat melk
 ru:Содержит молоко
+es:Contiene leche
 
 en:No preservatives, no added preservatives, free of artificial preservative
-es:Sin conservantes, Sin conservantes añadidos
+es:Sin conservantes, Sin conservantes añadidos, Sin conservadores, Sin conservadores añadidos
 fr:Sans conservateurs, sans conservateur ajouté, sans ajout de conservateur
 it:Senza conservanti, Senza aggiunta di conservanti, Senza conservanti aggiunti
 de:Ohne Konservierungsstoffe, Ohne Zusatz von Konservierungsstoffen
@@ -1517,18 +1682,21 @@ en:Without dyes or preservatives
 de:Ohne Farb- oder Konservierungsstoffe
 fr:Sans colorants ou conservateurs
 ru:Без красителей и консервантов
+es:Sin colorantes o conservadores, Sin colorantes o conservantes
 
 en:No soy, soy free
-es:Sin soja
+es:Sin soja, Sin soya, Libre de soja, Libre de soya
 fr:sans soja, sans soya
 de:Sojafrei
 nl:Sojavrij
 ru:Не содержит сои
 
 en:Contains soy
+de:Enthält Soja
 pt:Contem soja
 fr:Contient du soja
-es:Contiene soja
+es:Contiene soja, Contiene soya
+
 
 en:Certified by Ecocert, Ecocert
 fr:Ecocert, Distribution certifiée par Ecocert
@@ -1589,7 +1757,10 @@ fr:Déconseillé à certaines catégories de personnes
 
 <en:Not advised for specific people
 en:Not advised for pregnant women, not recommended for pregnant women
-es:Desaconsejado para embarazadas, No aconsejado para embarazadas, No aconsejado para mujeres embarazadas, Desaconsejado para mujeres embarazadas
+de:Für Schwangere ungeeignet
+es:Desaconsejado para embarazadas, No aconsejado para embarazadas, No aconsejado para mujeres embarazadas, Desaconsejado para mujeres embarazadas, No recomendado para embarazadas, No recomendado para mujeres embarazadas, No recomendado para mujeres embarazadas
+
+
 fr:Déconseillé aux femmes enceintes
 nl:Niet aanbevolen voor zwangere vrouwen
 se:Recommanderas ej till gravida
@@ -1597,12 +1768,15 @@ ru:Не рекомендовано для беременных женщин
 
 <en:Not advised for specific people
 en:Not advised for children and pregnant women
+de:Für Schwangere und Kinder nicht empfohlen
 se:Rekommenderas ej till barn samt gravida
 fr:Déconseillé aux enfants et aux femmes enceintes
 ru:Не рекомендовано для детей и беременных женщин
+es:No recomendado para niños o mujeres embarazadas
 
 <en:Not advised for specific people
 en:Not recommended for children under 3 years
+de:Für Kinder unter 3 Jahren nicht empfohlen
 es:No recomendado a niños menores de 3 años, No recomendado consumo a menores de 3 años
 fr:Déconseillé aux enfants de moins de 3 ans
 ru:Не рекомендовано для детей младше 3 лет
@@ -1625,6 +1799,7 @@ wikidata:en:Q847611
 en:Demeter
 fr:Demeter, Association Demeter, Demeter France, Association Demeter France
 de:Demeter
+es:Demeter
 wikidata:en:Q939877
 
 <en:Biodynamic agriculture
@@ -2688,8 +2863,8 @@ de:Klasse II
 
 ru:высший сорт, сорт высший
 
-de:Ohne Palmöl
 en:Palm oil free, Without palm oil, No palm oil
+de:Ohne Palmöl
 es:Sin aceite de palma
 fr:Sans huile de palme
 it:Senza olio di palma
@@ -2759,18 +2934,22 @@ en:Real California Cheese
 country:United States
 
 en:Pure beef
+de:100% Rindfleisch
 fr:Pur bœuf
 
 en:Pure butter
+de:100% Butter
 fr:Pur beurre
 
 en:pure cocoa butter, pure cocoa butter chocolate
 fr:pur beurre de cacao, chocolat pur beurre de cacao
 
 en:Pure juice
+de:100% Saft
 fr:Pur jus
 
 en:Pure pork
+de:100% Schweinefleisch
 fr:Pur porc
 
 en:Rainforest Alliance
@@ -2785,46 +2964,55 @@ fr:Décret sur la pureté de la bière, Reinheitsgebot
 wikidata:en:Q167255
 
 en:Rich in vitamin A
+de:Reich an Vitamin A
 es:Rico en vitamina A
 fr:Riche en vitamine A
 it:Ricco di vitamina A
 
 en:Rich in vitamin B
+de:Reich an Vitamin B
 es:Rico en vitamina B
 fr:Riche en vitamine B
 it:Ricco di vitamina B
 
 en:Rich in vitamin B1
+de:Reich an Vitamin B1
 es:Rico en vitamina B1
 fr:Riche en vitamine B1
 it:Ricco di vitamina B1
 
 en:Rich in vitamin B6
+de:Reich an Vitamin B6
 es:Rico en vitamina B6
 fr:Riche en vitamine B6
 it:Ricco di vitamina B6
 
 en:Rich in vitamin B9
+de:Reich an Vitamin B9
 es:Rico en vitamina B9
 fr:Riche en vitamine B9
 it:Ricco di vitamina B9
 
 en:Rich in vitamin B12
+de:Reich an Vitamin B12
 es:Rico en vitamina B12
 fr:Riche en vitamine B12
 it:Ricco di vitamina B12
 
 en:Rich in vitamin C
+de:Reich an Vitamin C
 es:Rico en vitamina C
 fr:Riche en vitamine C
 it:Ricco di vitamina C
 
 en:Rich in vitamin D
+de:Reich an Vitamin D
 es:Rico en vitamina D
 fr:Riche en vitamine D
 it:Ricco di vitamina D
 
 en:Rich in vitamin E
+de:Reich an Vitamin E
 es:Rico en vitamina E
 fr:Riche en vitamine E
 it:Ricco di vitamina E
@@ -2837,7 +3025,7 @@ wikidata:en:Q686421
 
 <en:Sustainable Palm Oil
 en:Roundtable on Sustainable Palm Oil, RSPO
-de:Runden Tisch für nachhaltiges Palmöl, RSPO
+de:Runder Tisch für nachhaltiges Palmöl, RSPO
 fr:RSPO, Huile de palme RSPO, Huile de palme durable RSPO, Huile de palme durable certifiée RSPO
 wikidata:en:Q686421
 
@@ -2847,7 +3035,7 @@ fr:RSPO Identité Préservée
 
 <en:Roundtable on Sustainable Palm Oil
 en:RSPO Segregated, RSPO SG
-fr:RSPO 
+fr:RSPO Séparé
 
 <en:Roundtable on Sustainable Palm Oil
 en:RSPO Mass Balance, RSPO MB
@@ -2859,6 +3047,7 @@ en:RSPO Book and Claim, RSPO BC, GreenPalm
 en:RSPO Mass Balance or Book and Claim, RSPO MB/BC
 
 en:Spanish protected product
+de:Geschütztes spanisches Produkt
 es:Producto protegido de España
 fr:Produit protégé espagnol
 
@@ -3107,6 +3296,7 @@ en:Tierra de Sabor
 es:Tierra de Sabor
 
 en:Suitable for diabetics
+de:Für Diabetiker geeignet
 fr:Convient aux diabétiques
 it:Adatto per i diabetici
 
@@ -3129,7 +3319,6 @@ wikidata:en:Q600580
 
 en:Angled fish
 fr:Pêché à la ligne, Pêchés à la ligne, Pêché à la ligne à main, Pêchés à la ligne à main, Pêché à la ligne et hameçon, Pêchés à la ligne et hameçon, Pêché à la ligne et hameçons, Pêchés à la ligne et hameçons, Pêché à la canne, Pêchés à la canne, Pêche de ligne, Pêche de lignes, Pêchée à la ligne, Pêchées à la ligne
-de:Gewinkelter
 
 en:Trap Fishing
 fr:Pêché au casier, Pêchés au casier, Pêché aux casiers, Pêchés aux casiers, Pêchée au casier, Pêchées aux casiers
@@ -3165,11 +3354,11 @@ de:Lift Netz Fischerei
 
 en:Hand fishing
 fr:Pêché à la main, Pêchés à la main, Pêchée à la main, Pêchées à la main
-de: Handfischen
+de:Handfischen
 
 en:Blast fished, blast fishing
 fr:Pêché à la dynamite
-de:Fischen mit Dynamit
+de:Dynamitfischen
 
 en:Pair trawling
 fr:Pêché à deux chaluts
@@ -3178,8 +3367,8 @@ fr:Pêché au poison
 
 fr:Pêché au toc
 
-de:Kormoranfischerei
 en:cormorant fishing
+de:Kormoranfischerei
 eo:Kormorana fiŝkaptado
 fr:pêche au cormoran,peche au cormoran
 ja:鵜飼い
@@ -3204,6 +3393,7 @@ wikidata:en:Q1891246
 
 en:Responsible aquaculture
 fr:Aquaculture responsable
+es:Aquicultura responsable
 
 <en:Responsible aquaculture
 en:Responsible aquaculture ASC, ASC, Aquaculture Stewardship Council
@@ -3250,7 +3440,9 @@ sv:garanterad traditionell specialitet, GTS
 wikidata:en:Q2751813
 
 en:Sustainable farming
+de:Nachhaltige Agrikultur
 fr:Agriculture durable
+es:Agricultura sustentable
 
 <en:Sustainable farming
 en:UTZ Certified, UTZ
@@ -3318,6 +3510,7 @@ wikidata:en:Q443112
 en:Ovo-vegetarian
 de:Ovo-vegetarisch
 fr:Ovo-végétarien
+es:Ovo-vegetariano
 wikidata:en:Q3543760
 
 <en:Ovo-vegetarian
@@ -3325,11 +3518,13 @@ wikidata:en:Q3543760
 en:Ovo-lacto-vegetarian
 de:Ovo-lacto-vegetarisch
 fr:Ovo-lacto-végétarien
+es:Ovo-lacto-vegetariano
 wikidata:en:Q3544800
 
 en:Lacto-vegetarian
 de:Lacto-vegetarisch
 fr:Lacto-végétarien
+es:Lacto-vegetariano
 wikidata:en:Q3496076
 
 <en:European Vegetarian Union
@@ -3368,11 +3563,13 @@ fr:Contient des sulfites, Présence de sulfites
 
 <en:With sulfites
 en:Sulfites and SO2 > 10ppm
+de:Sulfite und SO2 > 10ppm
 fr:Sulfites et SO2 > 10ppm
 
 en:Without sulfites
 fr:Sans sulfites, sans sulfite
 de:Ohne Sulfite
+es:Sin sulfitos, Sin sulfito
 
 en:Without sulfur
 fr:Sans soufre
@@ -3395,7 +3592,7 @@ it:Con dolcificanti
 en:Without sweeteners
 fr:Sans édulcorants
 de:Ohne Süßungsmittel
-es:Sin edulcorantes
+es:Sin edulcorantes, Sin endulzantes
 it:Senza dolcificanti
 
 en:100% muscle
@@ -3454,7 +3651,7 @@ fr:Lait Français, Lait de France, Lait Origine France
 
 en:Produced in Bretagne
 fr:Produit en Bretagne
-de:Produziert in Britannien
+de:Produziert in der Bretagne
 
 en:Qualité France (French quality)
 fr:Qualité France
@@ -4247,9 +4444,11 @@ fr:Fruits et Légumes de France
 <fr:Fruits et Légumes de France
 fr:Légumes de France, Légumes français
 
-fr:Mais de France
+fr:Maïs de France
 
 fr:Soja de France
+
+fr:Tomates de France
 
 <fr:Fruits et Légumes de France
 fr:Fruits de France, fruits français

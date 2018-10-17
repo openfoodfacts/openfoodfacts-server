@@ -1,0 +1,101 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ include "productopener.backend.fullname" . }}
+  labels:
+    app: {{ include "productopener.name" . }}
+    chart: {{ include "productopener.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    component: {{ include "productopener.backend.fullname" . }}
+spec:
+  replicas: {{ .Values.backend.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "productopener.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "productopener.name" . }}
+        release: {{ .Release.Name }}
+        component: {{ include "productopener.backend.fullname" . }}
+    spec:
+      initContainers:
+        - name: {{ include "productopener.backend.fullname" . }}-init
+          image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}"
+          imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
+          command: ['sh', '-c', 'mkdir -p /mnt/podata/products && mkdir -p /mnt/podata/logs && mkdir -p /mnt/podata/users && ln -sf /opt/product-opener/lang /mnt/podata/lang && ln -sf /opt/product-opener/po /mnt/podata/po && ln -sf /opt/product-opener/po/openfoodfacts /opt/product-opener/po/site-specific && ln -sf /opt/product-opener/taxonomies /mnt/podata/taxonomies && ln -sf /opt/product-opener/ingredients /mnt/podata/ingredients && ln -sf /opt/product-opener/emb_codes /mnt/podata/emb_codes && cp /opt/product-opener/log.conf /mnt/podata/log.conf && chown -R daemon:daemon /mnt/podata && chown -R daemon:daemon /opt/product-opener/html/images/products && perl -I/opt/product-opener/lib -I/opt/product-opener/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl']
+          volumeMounts:
+            - name: {{ include "productopener.backend.fullname" . }}-config
+              mountPath: "/usr/local/apache2/conf/sites-enabled/product-opener.conf"
+              subPath: apache.conf
+            - name: {{ include "productopener.backend.fullname" . }}-config
+              mountPath: "/opt/product-opener/lib/ProductOpener/Config.pm"
+              subPath: Config.pm
+            - name: {{ include "productopener.backend.fullname" . }}-config
+              mountPath: "/opt/product-opener/lib/ProductOpener/Config2.pm"
+              subPath: Config2.pm
+            - name: {{ include "productopener.backend.fullname" . }}-config
+              mountPath: "/opt/product-opener/log.conf"
+              subPath: log.conf
+            - name: {{ include "productopener.fullname" . }}-images
+              mountPath: "/opt/product-opener/html/images/products/"
+            - name: data
+              mountPath: "/mnt/podata/"
+            - name: varlog
+              mountPath: "/var/log"
+      containers:
+        - name: {{ include "productopener.backend.fullname" . }}
+          image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}"
+          imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
+          ports:
+            - containerPort: 80
+              name: http
+          livenessProbe:
+            timeoutSeconds: 120
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            timeoutSeconds: 120
+            httpGet:
+              path: /
+              port: http
+          volumeMounts:
+            - name: {{ include "productopener.backend.fullname" . }}-config
+              mountPath: "/usr/local/apache2/conf/sites-enabled/product-opener.conf"
+              subPath: apache.conf
+            - name: {{ include "productopener.backend.fullname" . }}-config
+              mountPath: "/opt/product-opener/lib/ProductOpener/Config.pm"
+              subPath: Config.pm
+            - name: {{ include "productopener.backend.fullname" . }}-config
+              mountPath: "/opt/product-opener/lib/ProductOpener/Config2.pm"
+              subPath: Config2.pm
+            - name: {{ include "productopener.backend.fullname" . }}-config
+              mountPath: "/opt/product-opener/log.conf"
+              subPath: log.conf
+            - name: {{ include "productopener.fullname" . }}-images
+              mountPath: "/opt/product-opener/html/images/products/"
+            - name: data
+              mountPath: "/mnt/podata/"
+            - name: varlog
+              mountPath: "/var/log"
+        - name: {{ include "productopener.backend.fullname" . }}-log4perl
+          image: busybox
+          volumeMounts:
+            - name: varlog
+              mountPath: "/var/log"
+          args: [/bin/sh, -c, 'tail -n+1 -f /var/log/log4perl.log']
+      volumes:
+        - name: {{ include "productopener.backend.fullname" . }}-config
+          configMap:
+            name: {{ include "productopener.backend.fullname" . }}-config
+        - name: {{ include "productopener.fullname" . }}-images
+          persistentVolumeClaim:
+            claimName: {{ include "productopener.fullname" . }}-images
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ include "productopener.fullname" . }}-data
+        - name: varlog
+          emptyDir: {}

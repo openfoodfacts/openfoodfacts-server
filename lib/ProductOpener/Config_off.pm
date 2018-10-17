@@ -386,12 +386,15 @@ $options{nova_groups_tags} = {
 
 "ingredients/en:colour" => 4,
 "ingredients/en:colour-stabilizer" => 4,
+# colour-stabilizer is not yet in the taxonomy. Is there a synonym>? aleene@2018-10-09
 "ingredients/en:flavour-enhancer" => 4,
 "ingredients/en:sweetener" => 4,
 "ingredients/en:carbonating-agent" => 4,
+# carbonating-agent is not yet in the taxonomy. Is there a synonym>? aleene@2018-10-09
 "ingredients/en:firming-agent" => 4,
 "ingredients/en:bulking-agent" => 4,
 "ingredients/en:anti-bulking-agent" => 4,
+# anti-bulking-agent is not yet in the taxonomy Is there a synonym>? aleene@2018-10-09
 "ingredients/en:de-foaming-agent" => 4,
 "ingredients/en:anti-caking-agent" => 4,
 "ingredients/en:glazing-agent" => 4,
@@ -402,39 +405,49 @@ $options{nova_groups_tags} = {
 # group 4 ingredients from nova paper
 
 "ingredients/en:flavour" => 4,
+# is a synonym of en:flavour in the taxo aleene@2018-10-09
 "ingredients/en:flavouring" => 4,
 "ingredients/en:casein" => 4,
+# this is a milk protein, so covered by the taxo aleene@2018-10-09
 "ingredients/en:lactose" => 4,
 "ingredients/en:whey" => 4,
+# is already entered above aleene@2018-10-09
 "ingredients/en:hydrogenated-oil" => 4,
+"ingredients/en:hydrogenated-fat" => 4,
 "ingredients/en:hydrolysed-proteins" => 4,
 "ingredients/en:maltodextrin" => 4,
 "ingredients/en:invert-sugar" => 4,
 "ingredients/en:high-fructose-corn-syrup" => 4,
 "ingredients/en:glucose" => 4,
 "ingredients/en:glucose-syrup" => 4,
-
+# has glucose as parent, so can be removed aleene@2018-10-09
 
 # other ingredients that we can consider as ultra-processed
 
 "ingredients/en:dextrose" => 4,
+# This can be deleted, it is a synonym of en:glucose in the ingredients taxo aleene@2018-10-09 
 "ingredients/en:milk-powder" => 4,
+# This can be deleted, was already entered above aleene@2018-10-09
 "ingredients/en:milk-proteins" => 4,
+# could be changed to singular aleene@2018-10-09
 "ingredients/en:whey-proteins" => 4,
+# could be changed to singular aleene@2018-10-09
+# as whey is from milk, it is also part of milk-proteins aleene@2018-10-09
 "ingredients/en:lecithin" => 4,
 
 
 # group 4 categories from nova paper
+# categories are just examples, consider it is group 3 unless a specific ingredient makes them group 4
 
-"categories/en:sodas" => 4,
-"categories/en:ice-creams" => 4,
-"categories/en:chocolates" => 4,
-"categories/en:candies" => 4,
-"categories/en:sugary-snacks" => 4,
-"categories/en:salty-snacks" => 4,
-"categories/en:baby-milks" => 4,
-"categories/en:sausages" => 4,
-"categories/en:hard-liquors" => 4,
+"categories/en:sodas" => 3,
+"categories/en:ice-creams" => 3,
+"categories/en:chocolates" => 3,
+"categories/en:candies" => 3,
+"categories/en:sugary-snacks" => 3,
+"categories/en:salty-snacks" => 3,
+"categories/en:baby-milks" => 3,
+"categories/en:sausages" => 3,
+"categories/en:hard-liquors" => 3,
 
 # additives that we can consider as ultra-processed (or a sufficient marker of ultra-processed food)
 
@@ -698,24 +711,24 @@ $options{other_servers} = {
 obf =>
 {
 	name => "Open Beauty Facts",
-	data_root => "/home/obf",
-	www_root => "/home/obf/html",
+	data_root => "/srv/obf",
+	www_root => "/srv/obf/html",
 	mongodb => "obf",
 	domain => "openbeautyfacts.org",
 },
 off =>
 {
 	name => "Open Food Facts",
-	data_root => "/home/off",
-	www_root => "/home/off/html",
+	data_root => "/srv/off",
+	www_root => "/srv/off/html",
 	mongodb => "off",
 	domain => "openfoodfacts.org",
 },
 opf =>
 {
 	name => "Open Products Facts",
-	data_root => "/home/opf",
-	www_root => "/home/opf/html",
+	data_root => "/srv/opf",
+	www_root => "/srv/opf/html",
 	mongodb => "opf",
 	domain => "openproductsfacts.org",
 },
@@ -723,11 +736,27 @@ opff =>
 {
 	prefix => "opff",
 	name => "Open Pet Food Facts",
-	data_root => "/home/opff",
-	www_root => "/home/opff/html",
+	data_root => "/srv/opff",
+	www_root => "/srv/opff/html",
 	mongodb => "opff",
 	domain => "openpetfoodfacts.org",
 }
 };
+
+
+$options{display_tag_additives} = [
+
+	'@additives_classes',
+	'wikipedia',
+	'title:efsa_evaluation_overexposure_risk_title',
+	'efsa_evaluation',
+	'efsa_evaluation_overexposure_risk',	
+	'efsa_evaluation_exposure_table',
+#	'@efsa_evaluation_exposure_mean_greater_than_noael',
+#	'@efsa_evaluation_exposure_95th_greater_than_noael',
+#	'@efsa_evaluation_exposure_mean_greater_than_adi',
+#	'@efsa_evaluation_exposure_95th_greater_than_adi',
+
+];
 
 1;

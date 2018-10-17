@@ -1,0 +1,61 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ include "productopener.frontend.fullname" . }}
+  labels:
+    app: {{ include "productopener.name" . }}
+    chart: {{ include "productopener.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    component: {{ include "productopener.frontend.fullname" . }}
+spec:
+  replicas: {{ .Values.frontend.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "productopener.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "productopener.name" . }}
+        release: {{ .Release.Name }}
+        component: {{ include "productopener.frontend.fullname" . }}
+    spec:
+      containers:
+        - name: {{ include "productopener.frontend.fullname" . }}
+          image: "{{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}"
+          imagePullPolicy: {{ .Values.frontend.image.pullPolicy }}
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                - '/bin/sh'
+                - '-c'
+                - >
+                  cp -Lrf /tmp/nginx.conf /etc/nginx/conf.d/default.conf;
+                  nginx -s reload; touch /var/log/nginx/conf.done
+          ports:
+            - containerPort: 80
+              name: http
+          livenessProbe:
+            httpGet:
+              path: /css/product-multilingual.css
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /css/product-multilingual.css
+              port: http
+          volumeMounts:
+            - name: {{ include "productopener.frontend.fullname" . }}-config
+              mountPath: "/tmp/nginx.conf"
+              subPath: nginx.conf
+            - name: {{ include "productopener.fullname" . }}-images
+              mountPath: "/opt/product-opener/html/images/products/"
+              readOnly: true
+      volumes:
+        - name: {{ include "productopener.frontend.fullname" . }}-config
+          configMap:
+            name: {{ include "productopener.frontend.fullname" . }}-config
+        - name: {{ include "productopener.fullname" . }}-images
+          persistentVolumeClaim:
+            claimName: {{ include "productopener.fullname" . }}-images

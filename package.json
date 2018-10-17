@@ -12,7 +12,7 @@
     "test:lang:common": "perl scripts/check_po_file.pl po/common/en.po",
     "prove": "prove -l",
     "lint": "yarn run lint:js && yarn run lint:css && yarn run lint:scss",
-    "lint:js": "jshint --show-non-errors html/js/product-multilingual.js html/js/search.js html/js/display-tag.js",
+    "lint:js": "eslint html/js/product-multilingual.js html/js/search.js html/js/display-tag.js",
     "lint:css": "stylelint html/css/product-multilingual.css",
     "lint:scss": "stylelint scss/app.scss",
     "perlc": "yarn run perlc:startup && yarn run perlc:product",
@@ -39,10 +39,10 @@
     "@bower_components/ManUp.js": "git://github.com/boyofgreen/ManUp.js.git#*",
     "@bower_components/foundation": "zurb/bower-foundation#^5.5.3",
     "@bower_components/foundation-icon-fonts": "zurb/foundation-icon-fonts#*",
+    "@bower_components/jquery-ui": "components/jqueryui#^1.12.1",
     "@bower_components/leaflet": "Leaflet/Leaflet#>=1.0.0",
     "@bower_components/leaflet.markercluster": "Leaflet/Leaflet.markercluster#>=1.0.0",
     "@bower_components/osmtogeojson": "tyrasd/osmtogeojson#^2.2.12",
-    "@bower_components/jquery-ui": "components/jqueryui#^1.12.1",
     "@bower_components/papaparse": "mholt/papaparse#^4.3.6",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.3.2",
@@ -51,10 +51,10 @@
     "yarn": "^1.2.1"
   },
   "devDependencies": {
-    "jshint": "^2.9.4",
-    "stylelint": "^8.3.1",
-    "stylelint-scss": "^2.2.0",
-    "stylelint-config-recommended-scss": "^3.0.0"
+    "eslint": "^5.6.1",
+    "stylelint": "^9.6.0",
+    "stylelint-config-recommended-scss": "^3.2.0",
+    "stylelint-scss": "^3.3.1"
   },
   "engines": {
     "yarn": ">= 1.0.0"

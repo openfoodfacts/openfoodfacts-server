@@ -5,11 +5,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-11 13:24-0500\n"
+"PO-Revision-Date: 2018-10-17 08:36\n"
 "Language-Team: Tagalog\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"POT-Creation-Date: \n"
 "X-Generator: crowdin.com\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: tl\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
@@ -54,7 +55,7 @@ msgstr "Rehistro"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr "<p>Salamat sa pagsali. Pwede ka ng mag sign-in ngayon sa site para magdagdag at magedit ng produkto</p>"
+msgstr "<p>Salamat sa pagsali. Pwede ka ng mag sign-in ngayon sa site para magdagdag at mag-edit ng produkto.</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -93,15 +94,15 @@ msgstr "Salamat sa pagsali <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr "Mga potensyal na mapanganib na sangkap. Katamtaman na paggamit."
+msgstr "Mga potensiyal ng mapanganib na pagkaing sangkap. Katamtaman na paggamit."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr "Mapanganib na sangkap. Iwasan."
+msgstr "Mapanganib na pagkaing sangkap. Iwasan."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr "Pinagbabawal na sangkap sa Europa. Iwasan kahit anong mangyari."
+msgstr "Pinagbabawal na pagkaing sangkap sa Europa. Iwasan kahit anong mangyari."
 
 msgctxt "additives_p"
 msgid "additives"
@@ -121,11 +122,11 @@ msgstr "Advanced na pagsasaliksik at mga grap"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr "Sobrang paginom ay nakakasama sa ating kalusugan."
+msgstr "Sobrang paginom ay nakakasama sa kalusugan."
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr "Lahat na misyon"
+msgstr "Lahat na tungkulin"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
@@ -133,7 +134,7 @@ msgstr "Mga sangkap o mga produktong sanhi ng alerdyis o intolerans"
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr "allergens"
+msgstr "mga allergen"
 
 msgctxt "allergens_s"
 msgid "allergen"
@@ -155,14 +156,16 @@ msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
 msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Makukuha sa Google Play\" width=\"135\" height=\"47\" />"
 
+# Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
+msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
+msgstr ""
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Ang produktong ito ay wala pa sa datos ng <<site_name>>. Puwede ba kayong kumuha ng ilang mga larawan ng produkto, barcode, listahan ng sangkap at nutrisyon ng mga katotohanan upang idagdag ito sa <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"> <<site_name>> </a>? </p> <p>Nagpapasalamat </p>\n"
+msgstr "<p>Ang produktong ito ay wala pa sa datos ng <<site_name>>. Puwede ba kayong kumuha ng ilang larawan ng produkto, barcode, listahan ng mga sangkap at nutrisiyon facts upang idagdag ito sa <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
+"<p>Paunang salamat</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -170,11 +173,11 @@ msgstr "Kumuha ng larawan"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr "Paalala: Mga larawan na ipinadala ay ipinapahayag sa kapangyarihan ng may pahintulot ng Creative Commons Attributions and ShareLike."
+msgstr "Paalala: Mga larawan na ipinapadala ay ipinapahayag sa kapangyarihan ng may pahintulot ng Creative Commons Attribution and ShareAlike."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr "Maaari kang magdagdag ng mga larawan:"
+msgstr "Maari kang magdagdag ng larawan:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
@@ -192,16 +195,13 @@ msgctxt "barcode_number"
 msgid "Barcode number:"
 msgstr "Numero ng barcode:"
 
+msgctxt "you_can_also_help_us"
+msgid "You can also help to fund the Open Food Facts project"
+msgstr ""
+
 msgctxt "bottom_content"
-msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>Contribute to <<site_name>> by adding product and win stars by\n"
-"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
-msgstr "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>Makapagbigay sa <<site_name>> sa pamamagitan ng pagdaragdag ng produkto at manalo ng bituin sa pamamagitan ng pagtupad sa <a href=\"/missions\">misyon</a>!</p>\n"
+msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr ""
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
@@ -221,11 +221,11 @@ msgstr "mga tatak"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr "Mga produkto mula sa %s na tatak"
+msgstr "Produkto mula sa %s brand"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr "mga tatak"
+msgstr "tatak"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
@@ -233,11 +233,11 @@ msgstr "magdagdag ng tatak"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr "Mga produkto hindi mula sa %s na tatak"
+msgstr "Produkto na hindi mula sa %s tatak"
 
 msgctxt "by"
 msgid "by"
-msgstr "sa pamamagitan ng"
+msgstr "ni"
 
 msgctxt "categories"
 msgid "Categories"
@@ -245,7 +245,7 @@ msgstr "Mga kategorya"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr "Sardinas sa mantikang olive, orange juice mula sa concentrate"
+msgstr "Sardinas sa mantikang olive, Orange juice mula sa concentrate"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
@@ -257,7 +257,7 @@ msgstr "mga kategorya"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr "Mga produkto mula sa %s na kategorya"
+msgstr "Mga produktong mula sa %s kategorya"
 
 msgctxt "categories_s"
 msgid "category"
@@ -269,7 +269,7 @@ msgstr "magdagdag ng kategorya"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr "Mga produkto hindi mula sa %s na kategorya"
+msgstr "Mga produkto na hindi mula sa %s kategorya"
 
 msgctxt "change_fields"
 msgid "Data"
@@ -297,7 +297,7 @@ msgstr "taga-suri"
 
 msgctxt "cities_p"
 msgid "packaging cities"
-msgstr "mga lungsod na tagabalot"
+msgstr "mga lungsod ng tagabalot"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
@@ -305,7 +305,7 @@ msgstr "Mga produkto na nakabalot sa lungsod ng %s"
 
 msgctxt "cities_s"
 msgid "packaging city"
-msgstr "mga lungsod na tagabalot"
+msgstr "mga lungsod ng tagabalot"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
@@ -335,7 +335,7 @@ msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.p
 "→ <a href=\"https://twitter.com/openfoodfacts\">Twitter</a><br/>\n"
 "→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a><br />\n"
 "→ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
-"+ <a href=\"https://www.facebook.com/groups/374350705955208/\">contributors group</a><br />\n"
+"+ <a href=\"https://www.facebook.com/groups/openfoodfacts/\">contributors group</a><br />\n"
 "</p>\n\n"
 "<p>iPhone and iPad app on the App Store:</p>\n\n"
 "<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
@@ -344,29 +344,7 @@ msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.p
 "<a href=\"https://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
 "<p>Windows Phone app:</p>\n\n"
 "<a href=\"https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
-msgstr "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.png\" width=\"178\" height=\"144\" alt=\"<<site_name>>\" /></a>\n\n"
-"<p><<site_name>> namumulot nga mga impormasyon at datos sa mga produktong pagkain mula sa buong mundo.</p>\n\n"
-"<select_country>\n\n"
-"<p>\n"
-"→ <a href=\"/brands\">Tatak</a><br />\n"
-"→ <a href=\"/categories\">Mga kategorya</a><br/>\n"
-"</p>\n\n"
-"<p>Impormasyon sa produktong pagkain (larawan, sangkap, nutrisyon facts atbp.) ay isang collection sa paraan ng pagtutulongan at ginawa para magagamit sa lahat at libre sa lahat ng tao at bukas na datos.</p>\n\n\n"
-"<p>Hanapin nyo kami sa:</p>\n\n"
-"<p>\n"
-"→ <a href=\"https://en.wiki.openfoodfacts.org\">our wiki</a><br />\n"
-"→ <a href=\"https://twitter.com/openfoodfacts\">Twitter</a><br/>\n"
-"→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a><br />\n"
-"→ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
-"+ <a href=\"https://www.facebook.com/groups/374350705955208/\">contributors group</a><br />\n"
-"</p>\n\n"
-"<p>iPhone at iPad app sa App Store:</p>\n\n"
-"<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
-"<p>Android app sa Google Play:</p>\n\n"
-"<a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner\"><img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" /></a><br/>\n"
-"<a href=\"https://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
-"<p>Windows Phone app:</p>\n\n"
-"<a href=\"https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
+msgstr ""
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
@@ -378,11 +356,11 @@ msgstr "Ikaw ay konektado sa iyong Facebook account."
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr "Nag-abuloy noon"
+msgstr "Nag-abuloy noong"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr "Kopyahin ang datos mula sa kasalukuyang produkto sa bagong produkto"
+msgstr "Kopyahin ang datos mula sa kasulukuyang produkto sa bagong produkto"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
@@ -410,7 +388,7 @@ msgstr "mga bansa"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr "Mga produkto na ibinebenta sa %s"
+msgstr "Mga produkto na naibenta sa %s"
 
 msgctxt "countries_s"
 msgid "country"
@@ -418,7 +396,7 @@ msgstr "bansa"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr "Mga produkto na hindi ibinibenta sa %s"
+msgstr "Mga produkto na hindi naibenta sa %s"
 
 msgctxt "data_source"
 msgid "Data source"
@@ -434,7 +412,7 @@ msgstr "debug"
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr "Dahilan ng pag-alis"
+msgstr "Dahilan sa pag-alis"
 
 msgctxt "delete_product"
 msgid "Delete a product"
@@ -442,11 +420,11 @@ msgstr "Magtanggal ng produkto"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr "Taggalin ang pahina"
+msgstr "Tanggalin ang pahina"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr "Tanggalin ang mga larawan"
+msgstr "Tanggalin ang mga imahe"
 
 msgctxt "delete_user"
 msgid "Delete an user"
@@ -462,7 +440,7 @@ msgstr "Binago:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr "Binura:"
+msgstr "Tinanggal:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
@@ -478,7 +456,7 @@ msgstr "Ecological footprint"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
-msgstr "Kung ang carbon footprint ay tinukoy sa tanda (bihira sa oras na ito), ipahiwatig ito sa parehong kandidad kaysa sa nutritional na komposisyon."
+msgstr "Kung ang carbon footprint ay tinukoy sa tanda (bihira lang sa oras na ito), isaad ito sa parehong kandidad kaysa sa nutrisyonal na komposisyon."
 
 msgctxt "edit"
 msgid "edit"
@@ -494,7 +472,7 @@ msgstr "I-edit ang produkto"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr "I-edit ang page"
+msgstr "I-edit ang pahina"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -502,15 +480,15 @@ msgstr "I-edit ang iyong pampublikong katauhan"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
-msgstr "Na-save na iyong binagong pampublikong katauhan."
+msgstr "Na-save ang mga pagbabago sa iyong pampublikong katauhan."
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
-msgstr "Mga impormasiyon sa ibaba ay makikita sa iyong pampublikong profile."
+msgstr "Ang impormasyon sa ibaba ay makikita sa iyong pampublikong profile."
 
 msgctxt "edit_settings"
 msgid "Change your account parameters"
-msgstr "Baguhin ang mga parameters ng iyong account"
+msgstr "Baguhin ang mga parameter ng iyong account"
 
 msgctxt "edit_user"
 msgid "Account parameters"
@@ -518,7 +496,7 @@ msgstr "Mga parameter ng account"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr "<p>Ang mga parameters ng iyong account ay nabago.</p>"
+msgstr "<p>Ang mga parameter ng iyong account ay binago.</p>"
 
 msgctxt "editors_p"
 msgid "editors"
@@ -538,7 +516,7 @@ msgstr "EMB codes"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
-msgstr "Mga produkto na nakabalot sa kumpanya na may emb code %s"
+msgstr "Mga produkto na nakabalot sa kompanya na may emb code %s"
 
 msgctxt "emb_code_s"
 msgid "EMB code"
@@ -548,6 +526,7 @@ msgctxt "emb_codes"
 msgid "EMB code"
 msgstr "EMB code"
 
+# Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
@@ -574,11 +553,11 @@ msgstr "Mga produkto na walang emb code %s"
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
-msgstr "Mga petsa ng pagpasok"
+msgstr "Mga petsang tala"
 
 msgctxt "entry_dates_s"
 msgid "Entry date"
-msgstr "Petsa ng pagpasok"
+msgstr "Petsang tala"
 
 msgctxt "error"
 msgid "Error"
@@ -590,31 +569,31 @@ msgstr "Maling user name o password. <a href=\"/cgi/reset_password.pl\">Nakalimu
 
 msgctxt "error_database"
 msgid "An error occured while reading the data, try to refresh the page."
-msgstr "May naganap na mali habang binabasa ang data, subukan i-refresh ang pahina."
+msgstr "May naganap na error habang binabasa ang datos, subukan i-refresh ang pahina."
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr "Ang password at confirm password ay magkaiba."
+msgstr "Ang password at confirmation password ay magkaiba."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr "Ang email address ay ginamit na ng ibang user. Baka mayron kanang account? Maari mong <a href=\"/cgi/reset_password.pl\">bagohin ang password</a> ng iyong ibang account."
+msgstr "Ang e-mial address ay nagamit na ng ibang user. Baka meron kanang account? Maari mong <a href=\"/cgi/reset_password.pl\">i-reset ang password</a> ng iyong ibang account."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr "Hindi wastong address."
+msgstr "Imbalidong address."
 
 msgctxt "error_invalid_csrf_token"
 msgid "Invalid CSRF token."
-msgstr "Hindi wastong CSRF token."
+msgstr "Imbalidong CSRF token."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr "Hindi wastong e-mail address"
+msgstr "Imbalidong e-mail address"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
-msgstr "Ang password ay dapat hindi bababa sa 6 na titik ang haba."
+msgstr "Ang password ay dapat hindi bababa sa 6 titik ang haba."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
@@ -670,11 +649,11 @@ msgstr "Mga halimbawa:"
 
 msgctxt "expiration_date"
 msgid "Best before date"
-msgstr "Pinakamahusay na bago"
+msgstr "Pinakamahusay na ang petsa"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr "Ang petsa ng pagkawalang bisa ay isang paraan upang subaybayan ang mga binagong produkto sa paglipas ng panahon at upang makilala ang pinakabagong bersyon."
+msgstr "Ang petsa ng pag-expire ay isang paraan upang subaybayan ang mga binagong produkto sa paglipas ng panahon at upang makilala ang pinakabagong bersyon."
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
@@ -690,7 +669,7 @@ msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr "Kung ang data ay hindi kompleto o mali, maari mong kompletohin o iwasto ito sa pamamagitan ng pag-edit ng pahinang ito."
+msgstr "Kung ang datos ay hindi kompleto o mali, maari mong kompletohin o iwasto ito sa pamamagitan ng pag-edit ng pahinang ito."
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
@@ -704,13 +683,13 @@ msgstr "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/terms-of-use\">Mga tuntunin sa paggamit</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/who-we-are\">Sino kami</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/faq\">Mga madalas na katanungan</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Kaalaman sa Forum</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">Kaalaman na Forum</a> -\n"
 "<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Pahayag at Blogs</a>\n"
 
 msgctxt "footer_and_the_facebook_group"
-msgid "and the <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook group for contributors</a>"
-msgstr "at ang<a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook group para sa mga nag-aambag</a>"
+msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
+msgstr ""
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -761,7 +740,7 @@ msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
 msgstr "Sundan kami sa <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
-"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> at\n"
 "<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
 
 msgctxt "footer_install_the_app"
@@ -794,7 +773,7 @@ msgstr "/press"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
-msgstr "Isang pagtutulungan, libre at bukas na datos ng mga produktong pagkain mula sa buong mundo."
+msgstr "Isang pagtutulungan, libre at bukas na datos ng mga produkto ng pagkain mula sa buong mundo."
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -842,7 +821,7 @@ msgstr "Hanggang sa muli!"
 
 msgctxt "graph_count"
 msgid "%d products match the search criterias, of which %i products have defined values for the graph's axis."
-msgstr "%d produktong tumugma sa mga kritirya sa paghahanap, na kung saan %i mga produkto ay may halaga para sa aksis ng graph."
+msgstr "%d produktong tumugma sa mga kritirya sa paghahanap, na kung saan %i mga produkto ay may halaga para sa aksis ng grap."
 
 msgctxt "graph_title"
 msgid "Graph title"
@@ -864,7 +843,7 @@ msgid "<meta property=\"fb:admins\" content=\"706410516\" />\n"
 "  })();\n"
 "</script>\n\n\n"
 msgstr "<meta property=\"fb:admins\" content=\"706410516\" />\n"
-"<meta property=\"og:site_name\" content=\"<<site_name>> - Ang libre at bukas na impormasyong datos ng produktong pagkain\"/>\n\n"
+"<meta property=\"og:site_name\" content=\"<<site_name>> - libre and open food products imporsyong datos\"/>\n\n"
 "<script type=\"text/javascript\">\n"
 "  var uvOptions = {};\n"
 "  (function() {\n"
@@ -900,7 +879,7 @@ msgstr "Larawan ng mga sangkap"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
-msgstr "Kung ang larawan ay sapat ng malinis, ang mga sangkap ay maaring awtomatikong makuna"
+msgstr "Kung ang larawan ay husto na, ang mga sangkap ay maaring awtomatikong kunin"
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
@@ -929,7 +908,7 @@ msgstr "Dapat mong lagyan ng mga titik ang barcode o magpadala ng imahe ng produ
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
-msgstr "Mga produkto na iyong idinagdag na kailangang makumpleto"
+msgstr "Mga produkto na iyong dinagdag na kailangang kumpletohin"
 
 msgctxt "informers_p"
 msgid "informers"
@@ -949,19 +928,19 @@ msgstr "Mga Sangkap"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
-msgstr "Pagsusuri ng sangkap"
+msgstr "Pagsusuri ng mga sangkap"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
-msgstr "Paalala: ang mga nakalistang sangkap ay maaring mayrong maraming ibat ibang pangalan, ipaalam sa amin kung sa tingin mo ang pagsusuri sa taas ay mali."
+msgstr "Paalala: Ang mga sangkap ay maaaring nakalista na may ibat ibang pangalan, ipaalam sa amin kung sa palagay mo ay hindi wasto ang pagsusuri sa itaas."
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
-msgstr "mga sangkap mula o maaaring magmula sa palm oil"
+msgstr "mga sangkap sa o maaring magmula sa palm oil"
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_s"
 msgid "ingredient from or that may be from palm oil"
-msgstr "sangkap mula o maaaring magmula sa palm oil"
+msgstr "mga sangkap mula o maaring magmula sa palm oil"
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
@@ -973,7 +952,7 @@ msgstr "sangkap mula sa palm oil"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
-msgstr "Bilang ng mga sangkap"
+msgstr "Mga bilang ng mga sangkap"
 
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
@@ -985,7 +964,7 @@ msgstr "mga sangkap"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
-msgstr "Mga produkto na naglalaman ng sangkap %s"
+msgstr "Mga produkto na nglalaman ng sangkap %s"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
@@ -997,7 +976,7 @@ msgstr "Listahan ng mga sangkap"
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
-msgstr "Mga sangkap na nakalista ay ayon sa importansya (kandidad)."
+msgstr "Mga sangkap na nakalista ay ayon sa pinakamahalaga (kandidad)."
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
@@ -1005,15 +984,15 @@ msgstr "Mga butil 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, 
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
-msgstr "Panatilihan sa wastong ayos, ipahiwatig ang % kapag tinukoy, ihiwalay ng kuwit o -, gumamit () para sa mga sangkap ng isang sangkap, palibutan ang allergens ng _e.g. _milk_"
+msgstr "Panatailihiin sa wastong ayos, isaad ang % kapag tinukoy, ihiwalay ng kuwit o -, gumamit ng () para sa mga sangkap ng isang sangkap, palibutan ang allergens ng _ e.g. _milk_"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr "mga sangkap na maaaring magmula sa palm oil"
+msgstr "mga sangkap na maaring mula sa palm oil"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
-msgstr "sangkap na maaaring magmula sa palm oil"
+msgstr "sangkap na maaring mula sa palm oil"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
@@ -1024,16 +1003,16 @@ msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" 
 msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
-msgstr "https://itunes.apple.com/en/app/open-food-facts/id588797948"
+msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
-msgstr "mga naglalaman na sustansya"
+msgstr "mga naglalaman ng sustansya"
 
 msgctxt "known_nutrients_s"
 msgid "known nutrient"
-msgstr "naglalaman na sustansya"
+msgstr "naglalaman ng sustansya"
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
@@ -1045,11 +1024,11 @@ msgstr "Organiko"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
-msgstr "Ituro lamang ang pinka-tiyak na mga tanda. \"Mga magulang\" na mga tanda ay awtomatikong maidagdag."
+msgstr "Isaad lamanag ang pinakatiyak na tanda. \"Mga magulang\" na mga tanda ay awtomatikong maidagdag."
 
 msgctxt "labels_p"
 msgid "labels"
-msgstr "mga tanda"
+msgstr "tanda"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
@@ -1073,7 +1052,7 @@ msgstr "Pangunahing wika"
 
 msgctxt "lang_ar"
 msgid "Arabic"
-msgstr "Arabe"
+msgstr "Wikang Arabo"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
@@ -1165,11 +1144,11 @@ msgstr "Dutch"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr "Ang pinaka-kasulukuyang wika at pinaka-highlight ng produkto"
+msgstr "Ang pinaka-kasalukuyang wika at pinka-highlight sa produkto"
 
 msgctxt "lang_other"
 msgid "other language"
-msgstr "mga ibang wika"
+msgstr "ibang wika"
 
 msgctxt "lang_pl"
 msgid "Polish"
@@ -1252,7 +1231,7 @@ msgstr "Sa pamamagitan ng pagdaragdag ng impormasyon, datos at/o imahe, tinatang
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
-msgstr "Ang link patungo sa pahina ng produkto sa opistal site ng gumawa"
+msgstr "Ang link patungo sa pahina ng produkto sa gumawa ng opisyal site"
 
 msgctxt "list_of_x"
 msgid "List of %s"
@@ -1264,11 +1243,11 @@ msgstr "Mag-load ng higit pang mga resulta"
 
 msgctxt "login_and_add_product"
 msgid "Sign-in and add the product"
-msgstr "Mag-sign-in at magdagdag ng produkto"
+msgstr "Mag-sign-in at idagdag ang produkto"
 
 msgctxt "login_and_edit_product"
 msgid "Sign-in and edit the product"
-msgstr "Mag-sign-in at mag-edit ng produkto"
+msgstr "Mag-sign-in at i-edit ang produkto"
 
 msgctxt "login_create_your_account"
 msgid "Create your account."
@@ -1289,16 +1268,16 @@ msgid "<p>Sign-in to add or edit products.</p>\n\n"
 "<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Sign-in\" class=\"button small\" />\n"
 "</form>\n"
 "<p>Not registered yet? <a href=\"/cgi/user.pl\">Create your account</a>.</p>\n"
-msgstr "<p>Sign-in upang magdagdag o mag-edit ng mga produkto.</p>\n\n"
+msgstr "<p>Sign-in upang magdagdag o magedit ng mga produkto.</p>\n\n"
 "<form method=\"post\" action=\"/cgi/session.pl\">\n"
-"Username or e-mail address:<br />\n"
+"Username o e-mail address:<br />\n"
 "<input type=\"text\" name=\"user_id\" tabindex=\"1\" style=\"width:220px;\" autocomplete=\"username\" /><br />\n"
 "Password<br />\n"
 "<input type=\"password\" name=\"password\" tabindex=\"2\" style=\"width:220px;\" autocomplete=\"current-password\" /><br />\n"
-"<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>Tandaab ako</label><br />\n"
+"<input type=\"checkbox\" name=\"remember_me\" value=\"on\" tabindex=\"3\" /><label>Tandaan ako</label><br />\n"
 "<input type=\"submit\" tabindex=\"4\" name=\".submit\" value=\"Sign-in\" class=\"button small\" />\n"
 "</form>\n"
-"<p>Hindi pa rehistrado<a href=\"/cgi/user.pl\">Gumawa ng account</a>.</p>\n"
+"<p>Not registered yet? <a href=\"/cgi/user.pl\">Gumawa ng account</a>.</p>\n"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
@@ -1306,13 +1285,13 @@ msgstr "Mag-sign-in"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
-msgstr "Mag-sign-in para magdagdag at mag-edit ng produkto."
+msgstr "Mag-sign in para magdagdag o mag-edit ng produkto."
 
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
-msgstr "<p>Pakisign-in para makadagdag o makaedit ng produkto.</p>\n\n"
-"<p>Kung wala kapang account sa <<site_name>>, maari mong <a href=\"/cgi/user.pl\">rehistro sa loob ng 30 segundo</a>.</p>\n"
+msgstr "<p>Pakisign-in para magdagdag o magedit ng produkto.</p>\n\n"
+"<p>Kung wala ka pang account sa <<site_name>>, Maari kang <a href=\"/cgi/user.pl\">rehistro sa loob ng 30 segundos</a>.</p>\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
@@ -1328,7 +1307,7 @@ msgstr "kaunting kandidad"
 
 msgctxt "manage_images"
 msgid "Manage images"
-msgstr "Pamahala ng mga larawan"
+msgstr "Mamahala ng mga imahe"
 
 msgctxt "manage_images_info"
 msgid "You can select one or more images and then:"
@@ -1344,15 +1323,15 @@ msgstr "Montana, USA"
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
-msgstr "mga lugar ng paggawa o pagproseso"
+msgstr "mga lugar sa paggawa o pagproseso"
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
-msgstr "Mga produkto na ginawa at naproseso sa %s"
+msgstr "Mga produkto na ginawa o naproseso sa %s"
 
 msgctxt "manufacturing_places_s"
 msgid "manufacturing or processing place"
-msgstr "mga lugar ng paggawa o pagproseso"
+msgstr "lugar ng paggawa o pagproseso"
 
 msgctxt "manufacturing_places_tagsinput"
 msgid "add a place"
@@ -1364,7 +1343,7 @@ msgstr "Mga produkto na hindi ginawa o naproseso sa %s"
 
 msgctxt "map_count"
 msgid "%d products match the search criterias, of which %i products have a known production place."
-msgstr "%d produktong tumugma sa mga kritirya sa paghahanap, na kung saan %i mga produkto ay may kilalang lugar ng produksiyon."
+msgstr "%d mga produkto na tumugma sa kriterya ng paghahanap, na kung saan %i mga produkto ay may kilalang lugar ng produksyon."
 
 msgctxt "map_title"
 msgid "Map title"
@@ -1430,9 +1409,10 @@ msgctxt "moderate_quantity"
 msgid "moderate quantity"
 msgstr "katamtaman ang dami"
 
+# Please keep the same syntax and translate only the months
 msgctxt "months"
 msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr "['Enero ', 'Pebrero', 'Marso', 'Abril', 'Mayo', 'Hunyo', 'Hulyo', 'Agosto', 'Setyembre', 'Oktubre', 'Nobyembre', 'Disyembre']"
+msgstr "['Enero', 'Pebrero', 'Marso', 'Abril', 'Mayo', 'Hunyo', 'Hulyo', 'Agosto', 'Setymebre', 'Oktubre', 'Nobyembre', 'Disyembre']"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
@@ -1452,15 +1432,15 @@ msgstr "Mga pangalan"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr "Kung hindi tama ang barcode, pakitima dito:"
+msgstr "Kung hindi tama ang barcode, iwasto ito dito:"
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
-msgstr "Para sa mga produktong walang barcode, panloob na code ay awtomatikong itatakda."
+msgstr "Para sa mga produktong walang barcode, isang internal code ay awtomatikang itatakda."
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr "Mag-subscribe sa pangpahayagang kasulatan (2 emails bawat buwan maximum)"
+msgstr "Mag-subscribe sa pangpapahayagang kasulatan (2 emails bawat buwan ang maximum)"
 
 msgctxt "next"
 msgid "Next"
@@ -1468,11 +1448,19 @@ msgstr "Susunod"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
-msgstr "Mga produktong walang barcode"
+msgstr "Produkto na walang barcode"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
-msgstr "Mga nutrisyon facts not hindi tinukoy sa produkto."
+msgstr "Nutrisyon facts ay hindi nakasaad sa produkto."
+
+msgctxt "multiple_nutrition_data"
+msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
+msgstr ""
+
+msgctxt "multiple_nutrition_data_instructions"
+msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
+msgstr ""
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
@@ -1484,7 +1472,7 @@ msgstr "Walang mga produkto."
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
-msgstr "Error habang nagse-save, pakiulit uli."
+msgstr "Error habang nagse-save, subukan ulit."
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
@@ -1500,8 +1488,9 @@ msgstr "%s sa %s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
-msgstr "Antas ng sustansya para sa 100 g"
+msgstr "Mga antas ng sustansya sa 100 g"
 
+# Ensure it is the same translation as in the translation in the tag file. If unsure, DO NOT TRANSLATE, otherwise it will break the site
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
 msgstr "/nutrient-levels"
@@ -1540,15 +1529,15 @@ msgstr "Mga katotohanan ng Nutrisyon"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr "Katamtaman na nutrisyon facts para sa %d mga produkto sa kategorya %s kung saan ang nutrisyon facts ay kilala (mula sa %d mga produkto)."
+msgstr "Katamtaman na nutrisyon facts para sa %d mga produkto sa %s kategorya kung saan ang nutrisyon facts ay kilala (mula sa %d mga produkto)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr "% ng pagkakaiba"
+msgstr "% ang pagkakaiba"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
-msgstr "halaga para sa 100 g / 100 ml"
+msgstr "halaga ng 100 g/ 100ml"
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
@@ -1556,11 +1545,11 @@ msgstr "Paghahambing sa mga karaniwang halaga ng mga produkto sa parehong katego
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr "Pakitandaan: bawat isang nutrimento, ang average ay nakalkula sa mga produkto kung saan ay ang kandidad ng nutrimento ay kilala, hindi sa lahat ng mga produkto ng kategorya."
+msgstr "Pakitandaan: bawat isang nutrimento, ang average ay nakalkula sa mga produkto kung saan alam ang kandidad ng nutrimento, hindi sa lahat ng mga produkto ng kategorya."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr "Kung ang larawan ay sapat na hasa at antas, nutrisyon facts ay maaring awtomatikong kunin mula sa larawan."
+msgstr "Kung ang larawan ay sapat ng maayos at antas, nutrisyon facts ay maaaring awtomatikong kunin mula sa mga larawan."
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
@@ -1592,7 +1581,7 @@ msgstr "Pinakamataas"
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
-msgstr "Mean"
+msgstr "Ibig sabihin"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
@@ -1604,7 +1593,7 @@ msgstr "bawat serving"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
-msgstr "Karaniwang paglihis"
+msgstr "Karaniwang lihis"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
@@ -1613,7 +1602,7 @@ msgstr "Mga katotohanan ng Nutrisyon"
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr "Ang talaan ay naglilista sa pamamagitan ng default na nutrimento na madalas tinukoy. Iwanan ang patlang blangko kung ito ay walang takda.<br/>Maari kang magdagdag ng nutrimento(bitamina, minerals, kolesterol atbp.) sa pamamagitan ng unang letra ng kanilag pangalan sa huling hilera ng talahanayan."
+msgstr "Ang talaan ay naglilista sa pamamgitan ng default na nutrimento na madalas tinutukoy. Iwanan ang patlang blangko kung ito ay walang takda.<br/>Maaari kang magdagdag ng nutrimento (mga bitamina, mga mineral, kolesterol atbp.) sa pamamgitan ng pag-type ng unang titik ng kanilang pangalan sa huling hilera ng talahanayan."
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
@@ -1621,21 +1610,23 @@ msgstr "-"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
-msgstr "Ang mga marka ng nutrisyon"
+msgstr "Mga marka ng nutrisyon"
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Marka ng nutrisyon"
 
+# Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 
+# Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>Para maunawaan ng maigi tungkol sa <<site_name>>, bisitahin <a href=\"https://en.blog.openfoodfacts.org\">aming blog</a>!</p>\n"
-"<p>Kamakailang balita:</p>\n"
+msgstr "<p>Para maunawaan ng maigi <<site_name>>, bisitahin <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
+"<p>Huling balita:</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -1644,11 +1635,11 @@ msgstr "Balita"
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr "Ito ay <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> sa<<site_name>> mula Sabado Perbrero 21st 2015 hanggang Linggo Marso 1st 2015! Mga nag-aambag ay ginawaran ng Explorer na puntos sa mga produktong idinagdag nila at ang mga embahador na puntos para sa bagong nakuhang mga taga-ambag. Puntos ay magbabago bawat 30 minutos."
+msgstr "Ito ay <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> sa<<site_name>> mula Sabado ng Pebrero 21st 2015 hanggang Lingo ng Marso 1st 2015! Mga nag-aambag ay may ginawaran Explorer puntos sa mga produktong idinagdag nila at ang emahador na puntos para sa mga bagong nakuhang mga taga-ambag. Puntos ay magbabago bawat 30 minutos."
 
 msgctxt "or"
 msgid "or:"
-msgstr "or:"
+msgstr "o:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
@@ -1664,15 +1655,15 @@ msgstr "Ipahiwatig kung saan nagmula ang mga sangkap"
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
-msgstr "pinagmulan ng mga sangkap"
+msgstr "pinagmulan ng mga sankap"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
-msgstr "Mga produkto na may mga sangkap na nagmumula sa %s"
+msgstr "Mga produkto na may sangkap na nagmula sa %s"
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr "pinagmulan ng sangkap"
+msgstr "pinagmulan ng mga sangkap"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
@@ -1680,7 +1671,7 @@ msgstr "magdagdag ng pinagmulan"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
-msgstr "Mga produkto na may sangkap na nagmumula sa %s"
+msgstr "Mga produkto na walang sangkap na nagmula sa %s"
 
 msgctxt "packaging"
 msgid "Packaging"
@@ -1688,7 +1679,7 @@ msgstr "Balot"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
-msgstr "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
+msgstr "Sariwa, Canned, Frozen, Bote, Box, Glass, Plastic..."
 
 msgctxt "packaging_note"
 msgid "Packaging type, format, material"
@@ -1708,7 +1699,7 @@ msgstr "balot"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
-msgstr "magdagdag ng uri, hugis o materyal"
+msgstr "magdagdag na uri, hugis o materyal"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
@@ -1740,7 +1731,7 @@ msgstr "Tagal ng oras pagkatapos ng pagbukas"
 
 msgctxt "periods_after_opening_note"
 msgid "Found in an open container logo with a number of months: e.g. 12 M"
-msgstr "Makikita sa isang bukas na logo kinalalagyan na may ilang buwan: e.g. 12M"
+msgstr "Makikita sa isang bukas na logo ng lalagyan na may ilang buwan: e.g. 12 M"
 
 msgctxt "periods_after_opening_p"
 msgid "Periods after opening"
@@ -1748,7 +1739,7 @@ msgstr "Mga panahon pagkatapos ng pagbukas"
 
 msgctxt "periods_after_opening_s"
 msgid "Period after opening"
-msgstr "Mga panahon pagkatapos ng pagbukas"
+msgstr "Panahon pagkatapos ng pagbukas"
 
 msgctxt "photographers_p"
 msgid "photographers"
@@ -1784,15 +1775,15 @@ msgstr "PNNS grupo 2"
 
 msgctxt "points_all_countries"
 msgid "There are %d Explorers and %d Ambassadors."
-msgstr "May mga %d explorers at %d mga embahador."
+msgstr "May mga %d Explorers at %d mga Embahador."
 
 msgctxt "points_all_users"
 msgid "There are Explorers for %d countries and Ambassadors for %d countries."
-msgstr "May mga explorers sa %d mga bansa at mga embahador sa %d mga bansa."
+msgstr "May mga Explorer sa %d na bansa at mga Emabahador sa %d mga bansa."
 
 msgctxt "points_country"
 msgid "%s has %d Explorers and %d Ambassadors."
-msgstr "%s ay may %d Explorers at %d na mga Embahador."
+msgstr "%s ay may %d Explorers at %d mga Embahador."
 
 msgctxt "points_ranking"
 msgid "Ranking"
@@ -1800,11 +1791,11 @@ msgstr "Ranggo"
 
 msgctxt "points_ranking_users_and_countries"
 msgid "Ranking of contributors and countries"
-msgstr "Ranggo ng mga nag-ambag at mga bansa"
+msgstr "Ranggo ng mga nag-ambag at bansa"
 
 msgctxt "points_user"
 msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
-msgstr "%s ay isang Explorer ng %d mga bansa at isang ambasador ng %d mga bansa."
+msgstr "%s ay isang Explorer sa %d mga bansa at isang Emabahador sa %d na bansa."
 
 msgctxt "previous"
 msgid "Previous"
@@ -1816,11 +1807,11 @@ msgstr "Magdagdag ng sustansya"
 
 msgctxt "product_added"
 msgid "Product added on"
-msgstr "Produkto idinagdag sa"
+msgstr "Mga produkto na idinagdag sa"
 
 msgctxt "product_changes_saved"
 msgid "Changes saved."
-msgstr "Nai-save ang mga binago."
+msgstr "Nai-save ang mga pagbabago."
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -1832,7 +1823,7 @@ msgstr "Nailikha ang produkto"
 
 msgctxt "product_description"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
-msgstr "Mga sangkap, allergens, additives, nutrisyon facts, tanda, pinagmulan ng mga sangkap at impormasyon sa produkto %s"
+msgstr "Mga sangkap, allergens, additives, nutrisyon facts, takda, pinagmulan ng sangkap at impormasyon sa produkto %s"
 
 msgctxt "product_image"
 msgid "Product picture"
@@ -1852,11 +1843,11 @@ msgstr "Tinatanggal ang mga imahe"
 
 msgctxt "product_js_extract_ingredients"
 msgid "Extract the ingredients from the picture"
-msgstr "Kunin ang mga sangkap mula sa larawan"
+msgstr "Kunin ang sangkap mula sa larawan"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr "Hindi maaring makuha ang mga tekstong sangkap. Subukan sa isang pantasa na imahe, na may mataas na resolusyon o maganda na pag-frame ng teksto."
+msgstr "Ang mga tekstong sangkap ay hindi maaring makuha. Subukan ng isang matalas na imahe, na may mataas na resolusyon o maganda pag-frame ng teksto."
 
 msgctxt "product_js_extracted_ingredients_ok"
 msgid "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
@@ -1872,35 +1863,35 @@ msgstr "I-normalize ang mga kulay"
 
 msgctxt "product_js_image_open_full_size_image"
 msgid "Open the picture in original size in a new windows"
-msgstr "Buksan ang larawan sa orihinal na laki sa isang bagong windows"
+msgstr "Buksan ang larawan sa orihinal na laki sa isang bagong window"
 
 msgctxt "product_js_image_received"
 msgid "Image received"
-msgstr "Natanggap na larawan"
+msgstr "Nakatanggap ng larawan"
 
 msgctxt "product_js_image_rotate_and_crop"
 msgid "Rotate the image if necessary, then click and drag to select the interesting zone:"
-msgstr "Iikot ang imahe kung kinakailangan, pagkatapos ay pindotin at hilahin upang makapili ng kagiliw-giliw na zone:"
+msgstr "Iikot ang imahe kung kailangan, pagkatapos ay pindotin at hilahin upang makapili ng kagiliw-giliw na zone:"
 
 msgctxt "product_js_image_rotate_left"
 msgid "Rotate left"
-msgstr "Iikot sa kaliwa"
+msgstr "Ikot sa kaliwa"
 
 msgctxt "product_js_image_rotate_right"
 msgid "Rotate right"
-msgstr "Iikot sa kanan"
+msgstr "Ikot sa kanan"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
-msgstr "Patunayan at/o bagohin ang lakin ng imahe"
+msgstr "Patunayan at/o bagohin ang laki ng imahe"
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
-msgstr "Ang imahe ay nai-save"
+msgstr "Na-save ang imahe"
 
 msgctxt "product_js_image_saving"
 msgid "Saving image"
-msgstr "Nag-save ng imahe"
+msgstr "Pag-save ng imahe"
 
 msgctxt "product_js_image_upload_error"
 msgid "Error while uploading image"
@@ -1912,19 +1903,19 @@ msgstr "Larawan sa puting background: subukang alisin ang background"
 
 msgctxt "product_js_images_delete_error"
 msgid "Errors while deleting images"
-msgstr "Error habang tinatanggal ang mga imahe"
+msgstr "Mga error habang tinatanggal ang mga imahe"
 
 msgctxt "product_js_images_deleted"
 msgid "Images deleted"
-msgstr "Natanggal na mga imahe"
+msgstr "Tinanggal na mga imahe"
 
 msgctxt "product_js_images_move_error"
 msgid "Errors while moving images"
-msgstr "Error habang tinatanggal ang mga imahe"
+msgstr "Mga error habang nililipat ang mga imahe"
 
 msgctxt "product_js_images_moved"
 msgid "Images moved"
-msgstr "Mga imahe na nilipat"
+msgstr "Nilipat na mga imahe"
 
 msgctxt "product_js_moving_images"
 msgid "Moving images"
@@ -1936,7 +1927,7 @@ msgstr "Magdagdag ng larawan"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr "→ Sa Chrome, Firefox and Safari, maari kang pumili ng maramihang mga larawan (produkto, mga sangkap, nutrisyon facts atbp.) sa pamamagitan ng pagpindot nito habang hawak ang Ctrl key na pinindot upang idagdag lahat sa isang shot."
+msgstr "→ Sa Chrome, Firefox and Safari, maari kang pumili ng maramihang mga larawan (produkto, mga sangkap, nutrisyon facts atbp.) sa pamamagitan ng pagpindot nito habang hawak ang Ctrl key upang idagdag lahat sa isang shot."
 
 msgctxt "product_js_uploading_image"
 msgid "Uploading image"
@@ -1964,7 +1955,7 @@ msgstr "Ebolusyon ng mga bilang ng produkto sa <<site_name>>"
 
 msgctxt "products_stats_completed_t"
 msgid "Products with complete information"
-msgstr "Mga produktong na may kumpletong impormasyon"
+msgstr "Mga produkto na may kumpletong impormasyon"
 
 msgctxt "products_stats_created_t"
 msgid "Products"
@@ -1972,7 +1963,7 @@ msgstr "Mga produkto"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
-msgstr "mga mga nutrisyon facts"
+msgstr "may mga nutrisyon facts"
 
 msgctxt "products_you_edited"
 msgid "Products you added or edited"
@@ -1984,11 +1975,11 @@ msgstr "Lungsod, estado at bansa kung saan binili"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
-msgstr "Ipahiwatig kung saan mo nabili o nakita ang produkto (sa maliit na bansa)"
+msgstr "Isaad kung saan mo binili o nakita ang produkto (sa maliit na bansa)"
 
 msgctxt "purchase_places_p"
 msgid "purchase places"
-msgstr "mga lugar na nabili"
+msgstr "mga lugar na binili"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
@@ -1996,7 +1987,7 @@ msgstr "Mga produkto na naibenta sa %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
-msgstr "lugar na nabili"
+msgstr "lugar na binili"
 
 msgctxt "purchase_places_tagsinput"
 msgid "add a place"
@@ -2020,7 +2011,7 @@ msgstr "Tandaan ako"
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
-msgstr "Tandaan ang lugar sa pagbili at tindahan para sa susunod na produktong madagdag"
+msgstr "Tandaan ang lugar at tindahan para sa susunod na produktong madagdag"
 
 msgctxt "reset_password"
 msgid "Reset password"
@@ -2060,11 +2051,11 @@ msgstr "Ilagay ang bagong password."
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
-msgstr "Ang email na may link para i-reset ang pasword ay naipadala na sa iyong e-mail address kaugnay sa iyong account."
+msgstr "Naipadala na ang email na may link para i-reset ang iyong password sa e-mail address na nauugnay sa iyong account."
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
-msgstr "Kung nakalimutan mo ang iyong password, ilagda ang iyong username o e-mail address upang makatanggap ng mga direkayon para sa pag-reset ng iyong password."
+msgstr "Kung nakalimutan mo ang iyong password, ilagda ang iyong username o e-mail address upang makatanggap ng mga direksyon sa pag-reset ng iyong password."
 
 msgctxt "risk_level"
 msgid "Risk"
@@ -2116,11 +2107,11 @@ msgstr "Maghanap"
 
 msgctxt "search_contains"
 msgid "contains"
-msgstr "naglalaman ng mga"
+msgstr "naglalaman"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
-msgstr "Pumili ng mga produkto na may partikular na mga tatak, kategorya, tanda, pinagmulan ng mga sangkap, lugar sa paggawaan atbp."
+msgstr "Pumili ng mga produkto na may partikular na tatak, kategorya, tanda, pinagmulan ng mga sangkap, lugar sa paggawaan atbp."
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
@@ -2164,7 +2155,7 @@ msgstr "Buohin ang mapa"
 
 msgctxt "search_graph"
 msgid "Graph"
-msgstr "Graph"
+msgstr "Grap"
 
 msgctxt "search_graph_2_axis"
 msgid "Scatter plot"
@@ -2172,32 +2163,32 @@ msgstr "Scatter plot"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr "<p>→ maunawaan ng maigi tungkol sa <<site_name>>mga graph: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Mga grap sa 3 pindot</a> (blog).</p>"
+msgstr "<p>→ maunawaan ng maigi tungkol sa <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Mga grap sa 3 pindot</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
-msgstr "Mga resulta sa graph"
+msgstr "Mga resulta sa grap"
 
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
 "get a cloud of products (scatter plot)."
-msgstr "Piliin kung ano ang gusto mong i-graph sa pahalang na aksis para makakuha ng isang histogram, o piliin ang dalawang aksis para makakuha ng madaming produkto (mgkahiwalay na balangkas)."
+msgstr "Pumili kung ano ang gusto mong i-grap sa pahalang na aksis para makakuha ng isang histogram, o piliin ang dalawang aksis para makakuha ng madaming produkto (scatter plot)."
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
-msgstr "Permanenting link para sa graph na ito, ay maibabahagi sa pamamagitan ng e-mail at social networks"
+msgstr "Permanenting link para sa grap na ito, ay maibabahagi sa pamamagitan ng e-mail at social networks"
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
-msgstr "Ang graph ay magpapakita lamang ng mga produkto para kung saan kilala ang mga nakitang halaga."
+msgstr "Ang graph ay magpapakita lamang ng mga produkto kung saan kilala ang mga nakitang halaga."
 
 msgctxt "search_graph_title"
 msgid "Display results on a graph"
-msgstr "Ipakita ang mga resulta sa graph"
+msgstr "Ipakita ang mga resulta sa grap"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr "Tandaan: ito ay isang user graph na binuo. Ang pamagat, kinakatawan ng mga produkto at aksis ng biswalisasyon ay pinili ng may-akda ng graph."
+msgstr "Tandaan: ito binuo ng user grap. Ang pamagat, kinakatawan ng mga produkto at aksis ng biswalisasyon ay pinili ng may-akda ng grap."
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
@@ -2253,15 +2244,15 @@ msgstr "Mga resulta sa bawat pahina"
 
 msgctxt "search_products"
 msgid "Products search"
-msgstr "Paghahanap ng produkto"
+msgstr "Paghahanap ng mga produkto"
 
 msgctxt "search_results"
 msgid "Search results"
-msgstr "Resulta ng pagsaliksik"
+msgstr "Mga result sa paghahanap"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
-msgstr "Gumamit ng ibang kulay para sa sumusunod na produkto:"
+msgstr "Gumamit ng ibang kulay para sa mga sumusunod ng produkto:"
 
 msgctxt "search_series_default"
 msgid "Other products"
@@ -2277,7 +2268,7 @@ msgstr "fair-trade"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
-msgstr "Gumamit nga mga kulay sa sustansyang marka"
+msgstr "Gumamit ng mga kulay sa sustansyang marka"
 
 msgctxt "search_series_organic"
 msgid "Organic"
@@ -2301,19 +2292,19 @@ msgstr "Kriterya"
 
 msgctxt "search_terms"
 msgid "Search terms"
-msgstr "Mga termino para sa paghahanap"
+msgstr "Mga termino sa paghahanap"
 
 msgctxt "search_terms_note"
 msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
-msgstr "Maghanap ng mga salitang mayroon sa pangalan ng produkto, pagnkaraniwang pangalan, mga tatak, mga kategorya, pinanggalingan at mga label"
+msgstr "Pagsuri ng mga salitang mayron sa pangalan ng produkto, pagkaraniwang pangalan, mga tatak, mga kategorya, pinanggalingan at mga tanda"
 
 msgctxt "search_title"
 msgid "Search a product, brand, ingredient, nutriment etc."
-msgstr "Magsaliksik ng produkto, tatak, sangkap, nutrimento atbp."
+msgstr "Magsaliksik ng produkto, tatak, sangkap at nutrimento atbp."
 
 msgctxt "search_title_graph"
 msgid "Results graph"
-msgstr "Mga resulta ng grap"
+msgstr "Mga resulta ng graph"
 
 msgctxt "search_title_map"
 msgid "Results map"
@@ -2353,7 +2344,7 @@ msgstr "Magpadala ng larawan..."
 
 msgctxt "send_image_error"
 msgid "Upload error"
-msgstr "Error ang pag-upload"
+msgstr "Error sa pag-upload"
 
 msgctxt "sending_image"
 msgid "Sending image"
@@ -2385,7 +2376,7 @@ msgstr "standard deviation, minimum, maximum, 10th and 90th percentiles"
 
 msgctxt "signin_before_submit"
 msgid "If you already have an account on <SITE>, please sign-in before filling this form."
-msgstr "Kung mayroon ka nang account sa <SITE>, singn-in bago lagyan ang form na ito."
+msgstr "Kung meron ka nang account sa <SITE>, sign-in bago lagyan ang form na ito."
 
 msgctxt "signout"
 msgid "Sign-out"
@@ -2393,7 +2384,7 @@ msgstr "Mag-sing out"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "Isang pakikitulong, libre at bukas na datos ng mga sangkap, nutrisyon facts at impormasyon tungkol sa mga pagkaing produkto mula sa buong mundo"
+msgstr "Isang pagtutulungan, libre at bukas na datos ng mga sangkap, mga nutrisyon fact at impormasyon sa mga pagkaing produkto mula sa buong mundo"
 
 msgctxt "site_name"
 msgid "Open Food Facts"
@@ -2413,7 +2404,7 @@ msgstr "Baguhin ang petsa"
 
 msgctxt "sort_popularity"
 msgid "Popularity"
-msgstr "Tanyag"
+msgstr "Katanyagan"
 
 msgctxt "sort_product_name"
 msgid "Product name"
@@ -2421,15 +2412,15 @@ msgstr "Pangalan ng produkto"
 
 msgctxt "state"
 msgid "State"
-msgstr "Bansa"
+msgstr "Estado"
 
 msgctxt "states_p"
 msgid "states"
-msgstr "mga bansa"
+msgstr "mga estado"
 
 msgctxt "states_s"
 msgid "state"
-msgstr "bansa"
+msgstr "estado"
 
 msgctxt "stores"
 msgid "Stores"
@@ -2445,7 +2436,7 @@ msgstr "mga tindahan"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
-msgstr "Mga produkto na ibibenta sa %s"
+msgstr "Mga produkto na naibenta sa %s"
 
 msgctxt "stores_s"
 msgid "store"
@@ -2453,7 +2444,7 @@ msgstr "tindahan"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
-msgstr "magdagdag ng tindahan"
+msgstr "magdagdag ng isang tindahan"
 
 msgctxt "stores_without_products"
 msgid "Products not bought at %s"
@@ -2461,15 +2452,15 @@ msgstr "Mga produkto na hindi naibenta sa %s"
 
 msgctxt "subscribe"
 msgid "Subscribe"
-msgstr "Sumali"
+msgstr "Mag-subscribe"
 
 msgctxt "tag_belongs_to"
 msgid "Belongs to:"
-msgstr "Pag-aari ni:"
+msgstr "Nabibilang sa:"
 
 msgctxt "tag_contains"
 msgid "Contains:"
-msgstr "Naglalaman:"
+msgstr "Naglalaman ng mga:"
 
 msgctxt "tag_weblinks"
 msgid "Weblinks"
@@ -2477,7 +2468,7 @@ msgstr "Weblinks"
 
 msgctxt "tagstable_filtered"
 msgid "out of _MAX_"
-msgstr "mula of _MAX_"
+msgstr "mula sa _MAX_"
 
 msgctxt "tagstable_search"
 msgid "Search:"
@@ -2493,7 +2484,7 @@ msgstr "Gatas, Gluten, Mani"
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
-msgstr "Isaad ang mga sangkap mula sa pagbanggit tulad ng \"Maaring maglalaman ng mga bakas ng\",\"Ginawa sa isang pabrika na gumagamit din ng\" atbp."
+msgstr "Isaad ang mga sangkap mula sa binanggit tulad ng \"Maaaring maglalaman ng mga bakas ng\",\"Ginawa sa isang pabrika ng gumagamit din ng: atbp."
 
 msgctxt "traces_p"
 msgid "traces"
@@ -2513,15 +2504,15 @@ msgstr "OpenFoodFacts"
 
 msgctxt "unknown"
 msgid "Unknown"
-msgstr "Hindi alam"
+msgstr "Hindi kilala"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
-msgstr "mga nutrisyon na hindi alam"
+msgstr "hindi alam na mga sustansya"
 
 msgctxt "unknown_nutrients_s"
 msgid "unknown nutrient"
-msgstr "hindi tiyak na nutrisyon"
+msgstr "hindi alam na sustansya"
 
 msgctxt "unsubscribe"
 msgid "Unsubscribe"
@@ -2541,7 +2532,7 @@ msgstr "User name"
 
 msgctxt "username_info"
 msgid "(non-accented letters, digits and/or dashes)"
-msgstr "(di-accented na mga titik, tambilang at/o mga gitling)"
+msgstr "(di-accented na mga titik, mga bilang at/o mga gitling)"
 
 msgctxt "username_or_email"
 msgid "Username or email address"
@@ -2585,11 +2576,11 @@ msgstr "tingnan"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
-msgstr "Tingnan ang mga nakatugma na produkto sa listahan mula sa buong mundo"
+msgstr "Tingnan ang listahan ng mga produktong tumugma mula sa buong mundo"
 
 msgctxt "view_products_from_the_entire_world"
 msgid "View matching products from the entire world"
-msgstr "Tingnan ang mga tugma na produkto mula sa buong mundo"
+msgstr "Tingnan ang mga produktong tumugma mula sa buong mundo"
 
 msgctxt "view_results_from_the_entire_world"
 msgid "View results from the entire world"
@@ -2598,12 +2589,12 @@ msgstr "Tingnan ang mga resulta mula sa buong mundo"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"\">Why it matters</a>"
-msgstr "Impormasyon at datos ay dapat magmula sa pakete ng produkto at tanda (at hindi mula sa ibang site o site ng gumawa), at dapat mong kunan ng larawan ang iyong sarili. <br/>\n"
+msgstr "Impormasyon at datos ay dapat magmula sa pakete ng produkto at tanda (at hindi mula sa ibang site o site ng gumawa), at dapat mong kunan ang larawan sa iyong sarili.<br/>\n"
 "→ <a href=\"\">Bakit mahalaga</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
-msgstr "Site or blog address"
+msgstr "Site o blog address"
 
 msgctxt "weekdays"
 msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
@@ -2614,8 +2605,8 @@ msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Sto
 msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
-msgstr "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
+msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2635,15 +2626,15 @@ msgstr "Di-piniling larawan."
 
 msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
-msgstr "Error hanang tinatanggal ang imahe."
+msgstr "Error habang tinatanggal ang imahe."
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr "Babala: ang halaga ng hibla ay hindi tinukoy, ang posibleng positibong kontribusyon sa grado ay hindi maituturing na account."
+msgstr "Babala: ang halaga ng hibla ay hindi tinukoy, ang posibleng positibong kontribusyon sa marka ay hindi maituturing na account."
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr "Babala: ang halaga ng mga prutas, gulay at mani ay hindi tinukoy, ang posibleng positibong kontribusyon sa grado ay hindi maituturing na account."
+msgstr "Babala: ang halaga ng mga prutas, gulay at mani ay hindi tinukoy, ang posibleng positibong kontribusyon sa marka ay hindi maituturing na account."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
@@ -2655,7 +2646,7 @@ msgstr "Babala: Ang halaga ng mga prutas, gulay at mani ay hindi tinukoy sa tand
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
-msgstr "NutriScore color nutrisyon grade"
+msgstr "NutriScore color nutrisyon na marka"
 
 msgctxt "nutrition_grade_fr_formula"
 msgid "How the color nutrition grade is computed"
@@ -2663,7 +2654,7 @@ msgstr "Paano pagkalkula sa color nutrisyon grade"
 
 msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
-msgstr "NutriScore nutrisyon grade"
+msgstr "NutriScore nutrisyon na marka"
 
 msgctxt "delete_product_page"
 msgid "Delete the product page"
@@ -2671,7 +2662,7 @@ msgstr "Tanggalin ang pahina ng produkto"
 
 msgctxt "deleting_product"
 msgid "Deleting product"
-msgstr "Magtanggal ng produkto"
+msgstr "Tinatanggal ang produkto"
 
 msgctxt "has_deleted_product"
 msgid "has deleted product"
@@ -2679,7 +2670,7 @@ msgstr "tinanggal na produkto"
 
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
-msgstr "Sigurado ka ba na gusto mong tanggalin ang pahina para sa produktong ito?"
+msgstr "Sigurado ka ba na nais mong tanggalin ang pahina sa produktong ito?"
 
 msgctxt "delete_user"
 msgid "Delete the user"
@@ -2687,7 +2678,7 @@ msgstr "Tanggalin ang user"
 
 msgctxt "sources_openfood_ch"
 msgid "Some of the data and/or images comes from the OpenFood.ch database (the exact list is available in the product edit history). Those elements are licenced under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
-msgstr "Ilan sa mga data at o mga imahe ay nagmula sa OpenFood.ch datos (ang eksaktong listahan ay makukuha sa produkto edit history). Mga elementong ito ay lisensyado sa kapangyarihan ng <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
+msgstr "Ilan sa mga datos at/o imahe ay nagmula sa OpenFood.ch datos (ang eksaktong listahan ay makukuha sa edit history ng produkto). Mga elementong ito ay lisinsyado sa kapangyarihan ng <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>."
 
 msgctxt "sources_openfood_ch_product_page"
 msgid "Product page on openfood.ch"
@@ -2695,42 +2686,38 @@ msgstr "Pahina ng produkto sa openfood.ch"
 
 msgctxt "sources_usda_ndb"
 msgid "Some of the data comes from the USDA National Nutrients Database for Branded Foods (the exact list is available in the product edit history)."
-msgstr "Ilan sa mga data ay nagmumula sa USDA National Nutrients Database for Branded Foods (ang eksaktong listahan ay makukuha sa produkto edit history)."
+msgstr "Ilan sa mga datos ay nagmula sa USDA National Nutrients Database for Branded Foods (ang eksaktong listahan ay makukuha sa edit history ng produkto)."
 
 msgctxt "sources_usda_ndb_product_page"
 msgid "Product page on USDA NDB"
-msgstr "Pahin ng produkto sa USDA NDB"
-
-msgctxt "donate"
-msgid "Donate to Open Food Facts"
-msgstr "Magbigay sa Open Food Facts"
-
-msgctxt "donate_link"
-msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
+msgstr "Pahina ng produkto sa USDA NDB"
 
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
-msgstr "Ilang mga data at mga imahe ay direktang ipinagkaloob sa tagagawa Fleury Michon."
+msgstr "Ilang mga datos at imahe ay direktang ipinagkaloob ni Fleury Michon na tagagawa."
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
-msgstr "Ilang mga data para sa produktong ito ay direktang ipinagkaloob sa tagagawa %s"
+msgstr "Ilan sa mga datos para sa produkto ay direktang ipinagkaloob sa tagagawa %s"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "Ang pahina ng produkto ay hindi kumpleto. Makakatulong ka sa pagkompleto nito sa pamamagitan ng pag-edit at pagdagdag ng higit pang data mula sa mga larawan na mayroon kami, o sa pamamagitan ng pagkuha ng larawan gamit ang app sa <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Salamat!"
+msgstr "Ang pahina ng produkto ay hindi kumpleto. Makakatulong ka sa pamamagitan ng pag-edit at pagdagdag ng maraming datos mula sa larawan na mayroon kami, o sa pamamagitan ng pagkuha na larawan gamit ang app sa <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Salamat po!"
 
 msgctxt "title_separator"
 msgid " — "
 msgstr " — "
+
+msgctxt "recent_changes"
+msgid "Recent Changes"
+msgstr ""
 
 msgctxt "translators_title"
 msgid "Our Translators"
 msgstr ""
 
 msgctxt "translators_lead"
-msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages!"
+msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
 msgstr ""
 
 msgctxt "translators_renewal_notice"
@@ -2755,5 +2742,237 @@ msgstr ""
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
+msgstr ""
+
+msgctxt "minerals_p"
+msgid "added minerals"
+msgstr ""
+
+msgctxt "minerals_s"
+msgid "added mineral"
+msgstr ""
+
+msgctxt "vitamins_p"
+msgid "added vitamins"
+msgstr ""
+
+msgctxt "vitamins_s"
+msgid "added vitamin"
+msgstr ""
+
+msgctxt "amino_acids_p"
+msgid "added amino acids"
+msgstr ""
+
+msgctxt "amino_acids_s"
+msgid "added amino acid"
+msgstr ""
+
+msgctxt "nucleotides_p"
+msgid "added nucleotides"
+msgstr ""
+
+msgctxt "nucleotides_s"
+msgid "added nucleotide"
+msgstr ""
+
+msgctxt "other_nutritional_substances_p"
+msgid "other nutritional substances added"
+msgstr ""
+
+msgctxt "other_nutritional_substances_s"
+msgid "other nutritional substance added"
+msgstr ""
+
+msgctxt "product_as_sold"
+msgid "As sold"
+msgstr ""
+
+msgctxt "prepared_product"
+msgid "Prepared"
+msgstr ""
+
+msgctxt "unit"
+msgid "Unit"
+msgstr ""
+
+msgctxt "nutrition_data_exists"
+msgid "Nutrition facts are specified for the product as sold."
+msgstr ""
+
+msgctxt "nutrition_data_prepared_exists"
+msgid "Nutrition facts are specified for the prepared product."
+msgstr ""
+
+msgctxt "nova_groups_s"
+msgid "NOVA group"
+msgstr ""
+
+msgctxt "nova_groups_p"
+msgid "NOVA groups"
+msgstr ""
+
+msgctxt "footer_partners"
+msgid "Partners"
+msgstr ""
+
+msgctxt "footer_partners_link"
+msgid "/partners"
+msgstr ""
+
+msgctxt "adults"
+msgid "Adults"
+msgstr ""
+
+msgctxt "adults_age"
+msgid "18 to 64"
+msgstr ""
+
+msgctxt "adults_description"
+msgid "From 18 years up to and including 64 years of age"
+msgstr ""
+
+msgctxt "elderly"
+msgid "Elderly"
+msgstr ""
+
+msgctxt "elderly_age"
+msgid "65+"
+msgstr ""
+
+msgctxt "elderly_description"
+msgid "From 65 years of age and older"
+msgstr ""
+
+msgctxt "adolescents"
+msgid "Adolescents"
+msgstr ""
+
+msgctxt "adolescents_age"
+msgid "10 to 17"
+msgstr ""
+
+msgctxt "adolescents_description"
+msgid "From 10 years up to and including 17 years of age"
+msgstr ""
+
+msgctxt "children"
+msgid "Children"
+msgstr ""
+
+msgctxt "children_age"
+msgid "3 to 9"
+msgstr ""
+
+msgctxt "children_description"
+msgid "From 36 months up to and including 9 years of age"
+msgstr ""
+
+msgctxt "toddlers"
+msgid "Toddlers"
+msgstr ""
+
+msgctxt "toddlers_age"
+msgid "1 to 2"
+msgstr ""
+
+msgctxt "toddlers_description"
+msgid "From 12 months up to and including 35 months of age"
+msgstr ""
+
+msgctxt "infants"
+msgid "Infants"
+msgstr ""
+
+msgctxt "infants_age"
+msgid "< 1"
+msgstr ""
+
+msgctxt "infants_description"
+msgid "From more than 12 weeks up to and including 11 months of age"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation"
+msgid "EFSA evaluation"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_title"
+msgid "Risk of overexposure"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_high"
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_description"
+msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
+msgid "%d products with %s"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_no"
+msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
+msgid "High risk of over exposure"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
+msgid "Moderate risk of over exposure"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
+msgid "Risk of exceeding the acceptable daily intake (ADI)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
+msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
+msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
+msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
+msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_noael"
+msgid "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr ""
+
+msgctxt "exposure_title_95th"
+msgid "Some people"
+msgstr ""
+
+msgctxt "exposure_description_95th"
+msgid "over 5%"
+msgstr ""
+
+msgctxt "exposure_title_mean"
+msgid "Most people"
+msgstr ""
+
+msgctxt "exposure_description_mean"
+msgid "over 50%"
+msgstr ""
+
+msgctxt "wikipedia"
+msgid "Wikipedia"
+msgstr ""
+
+msgctxt "additives_classes"
+msgid "Functions"
 msgstr ""
 

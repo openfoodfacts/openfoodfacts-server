@@ -22,6 +22,7 @@ requires 'XML::Simple'; # libxml-simple-perl
 requires 'experimental'; # libexperimental-perl
 requires 'WWW::CSRF'; # libwww-csrf-perl
 requires 'Apache2::Request'; # libapache2-request-perl
+requires 'Digest::MD5'; # libdigest-md5-perl
 
 # Probably not available as Debian packages
 requires 'MongoDB', '>= 1.4.5'; # libmongodb-perl has an older version
