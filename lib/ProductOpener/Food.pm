@@ -52,6 +52,7 @@ BEGIN
 					
 					&fix_salt_equivalent
 					&compute_nutrition_score
+					&compute_nutrition_grade
 					&compute_nova_group
 					&compute_serving_size_data
 					&compute_unknown_nutrients
@@ -2724,16 +2725,15 @@ cocoa => {
 },
 "nutrition-score-uk" => {
 	en => "Nutrition score - UK",
-	nl => "Voedingsgraad",
+	nl => "Voedingsscore - UK",
 	nl_be => "Voedingsgraad",
 	el => "Bαθμολογία θρεπτικής αξίας-UK",
 	unit => '',
 },
 "nutrition-score-fr" => {
-	fr => "Score nutritionnel expérimental - France",
-	en => "Experimental nutrition score",
-	nl => "Experimentele voedingsscore",
-	nl_be => "Experimentele voedingsscore",
+	fr => "Score nutritionnel - France",
+	en => "Nutrition score - France",
+	nl => "Voedingsscore - FR",
 	el => "Βαθμολογία θρεπτικής αξίας-FR",
 	unit => '',
 },
@@ -3609,8 +3609,23 @@ COMMENT
 	delete $product_ref->{"nutrition_grade_fr"};
 	
 	shift @{$product_ref->{misc_tags}};
-	push @{$product_ref->{misc_tags}}, "en:nutriscore-computed";	
+	push @{$product_ref->{misc_tags}}, "en:nutriscore-computed";
 	
+	$product_ref->{"nutrition_grade_fr"} = compute_nutrition_grade($product_ref, $fr_score);
+	
+	$product_ref->{"nutrition_grades_tags"} = [$product_ref->{"nutrition_grade_fr"}];
+	$product_ref->{"nutrition_grades"} = $product_ref->{"nutrition_grade_fr"};  # needed for the /nutrition-grade/unknown query
+
+}
+
+
+sub compute_nutrition_grade($$) {
+
+	my $product_ref = shift;
+	my $fr_score = shift;
+	
+	my $grade = "";
+
 	if (has_tag($product_ref, "categories", "en:beverages")
 		and not (has_tag($product_ref, "categories", "en:plant-milks")
 		 or has_tag($product_ref, "categories", "en:milks")
@@ -3627,19 +3642,19 @@ COMMENT
 # E/Rouge 10 – Max		
 		
 		if (has_tag($product_ref, "categories", "en:mineral-waters")) {  
-			$product_ref->{"nutrition_grade_fr"} = 'a';
+			$grade = 'a';
 		}
 		elsif ($fr_score <= 1) {
-			$product_ref->{"nutrition_grade_fr"} = 'b';
+			$grade = 'b';
 		}
 		elsif ($fr_score <= 5) {
-			$product_ref->{"nutrition_grade_fr"} = 'c';
+			$grade = 'c';
 		}
 		elsif ($fr_score <= 9) {
-			$product_ref->{"nutrition_grade_fr"} = 'd';
+			$grade = 'd';
 		}	
 		else {
-			$product_ref->{"nutrition_grade_fr"} = 'e';
+			$grade = 'e';
 		}	
 	}
 	else {
@@ -3655,25 +3670,21 @@ COMMENT
 # E/Rouge 19 – Max	
 	
 		if ($fr_score <= -1) {
-			$product_ref->{"nutrition_grade_fr"} = 'a';
+			$grade = 'a';
 		}
 		elsif ($fr_score <= 2) {
-			$product_ref->{"nutrition_grade_fr"} = 'b';
+			$grade = 'b';
 		}
 		elsif ($fr_score <= 10) {
-			$product_ref->{"nutrition_grade_fr"} = 'c';
+			$grade = 'c';
 		}
 		elsif ($fr_score <= 18) {
-			$product_ref->{"nutrition_grade_fr"} = 'd';
+			$grade = 'd';
 		}	
 		else {
-			$product_ref->{"nutrition_grade_fr"} = 'e';
+			$grade = 'e';
 		}
 	}
-	
-	$product_ref->{"nutrition_grades_tags"} = [$product_ref->{"nutrition_grade_fr"}];
-	$product_ref->{"nutrition_grades"} = $product_ref->{"nutrition_grade_fr"};  # needed for the /nutrition-grade/unknown query
-
 }
 
 
