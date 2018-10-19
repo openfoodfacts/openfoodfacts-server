@@ -64,8 +64,8 @@ foreach my $link (@links) {
 
 }
 
-# https://github.com/openfoodfacts/openfoodfacts-server/issues/771
-is( $Lang{months}{en}, "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']" );
+is( $Lang{months}{en}, "[\"January\",\"February\",\"March\",\"April\",\"May\",\"June\",\"July\",\"August\",\"September\",\"October\",\"November\",\"December\"]" );
+is( $Lang{weekdays}{en}, "[\"Sunday\",\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"]" );
 
 # https://github.com/openfoodfacts/openfoodfacts-server/issues/1116
 sub test_logo_exists {

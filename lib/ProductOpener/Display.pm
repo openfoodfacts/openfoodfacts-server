@@ -118,8 +118,6 @@ use URI::Escape::XS;
 use CGI qw/:cgi :form escapeHTML/;
 use HTML::Entities;
 use DateTime;
-use DateTime::Format::Mail;
-use DateTime::Format::CLDR;
 use DateTime::Locale;
 use experimental 'smartmatch';
 use MongoDB;
@@ -781,7 +779,7 @@ sub display_form($) {
 	return "<p>$s</p>";
 }
 
-sub display_date($) {
+sub _get_date($) {
 
 	my $t = shift;
 
@@ -799,12 +797,22 @@ sub display_date($) {
 			locale => $locale,
 			time_zone => $reference_timezone,
 			epoch => $t );
-		my $formatter = DateTime::Format::CLDR->new(
-		    pattern => $locale->datetime_format_long,
-		    locale => $locale
-		);
-		$dt->set_formatter($formatter);
 		return $dt;
+	}
+	else {
+		return;
+	}
+
+}
+
+
+sub display_date($) {
+
+	my $t = shift;
+	my $dt = _get_date($t);
+
+	if (defined $dt) {
+		return $dt->format_cldr($dt->locale()->datetime_format_long);
 	}
 	else {
 		return;
@@ -815,27 +823,10 @@ sub display_date($) {
 sub display_date_without_time($) {
 
 	my $t = shift;
+	my $dt = _get_date($t);
 
-	if (defined $t) {
-		my @codes = DateTime::Locale->codes;
-		my $locale;
-		if ( $lc ~~ @codes ) {
-			$locale = DateTime::Locale->load($lc);
-		}
-		else {
-			$locale = DateTime::Locale->load('en');
-		}
-	
-		my $dt = DateTime->from_epoch(
-			locale => $locale,
-			time_zone => $reference_timezone,
-			epoch => $t );
-		my $formatter = DateTime::Format::CLDR->new(
-		    pattern => $locale->date_format_long,
-		    locale => $locale
-		);
-		$dt->set_formatter($formatter);
-		return $dt;
+	if (defined $dt) {
+		return $dt->format_cldr($dt->locale()->date_format_long);
 	}
 	else {
 		return;
@@ -846,10 +837,11 @@ sub display_date_without_time($) {
 sub display_date_tag($) {
 
 	my $t = shift;
-	my $dt = display_date($t);
+	my $dt = _get_date($t);
 	if (defined $dt) {
-		my $iso = $dt->iso8601;;
-		return "<time datetime=\"$iso\">$dt</time>";
+		my $iso = $dt->iso8601;
+		my $dts = $dt->format_cldr($dt->locale()->datetime_format_long);
+		return "<time datetime=\"$iso\">$dts</time>";
 	}
 	else {
 		return;
