@@ -3,3 +3,7 @@ dependencies:
       version: ~4.3.5
       repository: https://kubernetes-charts.storage.googleapis.com/
       condition: mongodb.enabled
+    - name: memcached
+      version: ~2.3.1
+      repository: https://kubernetes-charts.storage.googleapis.com/
+      condition: memcached.enabled
