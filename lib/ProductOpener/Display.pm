@@ -8275,7 +8275,7 @@ HTML
 				
 				my $percent = $comparison_ref->{nutriments}{"${nid}_100g_%"};
 				if ((defined $percent) and ($percent ne '')) {
-					$percent = $perf->format($percent);
+					$percent = $perf->format($percent / 100.0);
 					if ($percent > 0) {
 						$percent = "+" . $percent;
 					}
