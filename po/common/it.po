@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-21 15:58\n"
+"PO-Revision-Date: 2018-10-21 21:15\n"
 "Language-Team: Italian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -1373,6 +1373,11 @@ msgctxt "moderate_quantity"
 msgid "moderate quantity"
 msgstr "modica quantità"
 
+# Please keep the same syntax and translate only the months
+msgctxt "months"
+msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
+msgstr "[ 'Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'giu', 'Luglio', 'Agosto', 'Settembre', 'ottobre', 'Novembre', 'Dicembre']"
+
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
 msgstr "Spostare le immagini a un altro prodotto"
@@ -2553,6 +2558,10 @@ msgstr "Le informazioni e i dati devono provenire dalla confezione e dall’etic
 msgctxt "website"
 msgid "Site or blog address"
 msgstr "Indirizzo del blog o del sito web"
+
+msgctxt "weekdays"
+msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
+msgstr "['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato']"
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
