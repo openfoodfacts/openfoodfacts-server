@@ -6,7 +6,7 @@ RUN set -x \
 		git \
         python2 \
         build-base
-    
+
 # yarn needs git for retrieving packages and python, make, and so on to build node-sass.
 RUN apk add git python2 build-base
 
@@ -23,3 +23,4 @@ RUN yarn run build
 FROM nginx:mainline-alpine
 WORKDIR /opt/product-opener
 COPY --from=builder /opt/product-opener/html/ /opt/product-opener/html/
+COPY --from=builder /opt/product-opener/node_modules/@bower_components/ /opt/product-opener/node_modules/@bower_components/
