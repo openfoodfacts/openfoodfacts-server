@@ -459,7 +459,7 @@ sub build_lang($) {
 	my @locale_codes = DateTime::Locale->codes;
 	foreach my $l (@Langs) {
 		my $locale;
-		if ( $lc ~~ @locale_codes ) {
+		if ( $l ~~ @locale_codes ) {
 			$locale = DateTime::Locale->load($l);
 		}
 		else {
