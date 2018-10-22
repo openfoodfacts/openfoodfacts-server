@@ -32,6 +32,8 @@ BEGIN
 					&extract_ingredients_from_image
 					&extract_ingredients_from_text
 					
+					&clean_ingredients_text
+					
 					&extract_ingredients_classes_from_text
 					
 					&detect_allergens_from_text
@@ -262,6 +264,7 @@ sub extract_ingredients_from_text($) {
 
 	my $product_ref = shift;
 	my $path = product_path($product_ref->{code});
+	
 	my $text = $product_ref->{ingredients_text};
 	
 	$log->debug("extracting ingredients from text", { text => $text }) if $log->is_debug();
@@ -588,6 +591,67 @@ sub normalize_vitamins_enumeration($$) {
 
 	return $split_vitamins_list;
 }
+
+
+my %phrases_at_end_of_ingredients_list = (
+
+fr => [
+
+"(valeurs|informations|déclaration|analyse) nutritionnelle",
+"nutritionnelles moyennes", 	# in case of ocr issue on the first word "valeurs"
+"(a|à) consommer de préférence",
+"conseils de pr(e|é)paration",
+"(a|à) protéger de ", # humidité, chaleur, lumière etc.
+"conditionn(e|é) sous atmosph(e|è)re protectrice",
+"la pr(e|é)sence de vide",	# La présence de vide au fond du pot est due au procédé de fabrication.
+"(a|à) consommer (cuit|rapidement|dans|jusqu)",
+"apr(e|è)s ouverture",
+
+],
+
+
+);
+
+
+
+sub clean_ingredients_text($) {
+
+	my $product_ref = shift;
+
+	if (defined $product_ref->{languages_codes}) {
+	
+		foreach my $language (keys %{$product_ref->{languages_codes}}) {
+		
+			if ((defined $product_ref->{"ingredients_text_" . $language })
+				and (defined $phrases_at_end_of_ingredients_list{$language})) {
+				
+				my $text = $product_ref->{"ingredients_text_" . $language };
+				
+				my $time = time();
+				
+				foreach my $regexp (@{$phrases_at_end_of_ingredients_list{$language}}) {
+					$text =~ s/\s*$regexp(.*)//ies;
+				}			
+				
+				if ($text ne $product_ref->{"ingredients_text_" . $language }) {
+				
+					# Keep a copy of the original ingredients list just in case
+					if (not defined $product_ref->{"ingredients_text_" . $language . "_ocr_" . $time}) {
+						$product_ref->{"ingredients_text_" . $language . "_ocr_" . $time} = $product_ref->{"ingredients_text_" . $language };
+					}
+					$product_ref->{"ingredients_text_" . $language . "_ocr_" . $time . "_result"} = $text;
+					$product_ref->{"ingredients_text_" . $language } = $text;
+					
+					if ($language eq $product_ref->{lc}) {
+						$product_ref->{"ingredients_text"} = $product_ref->{"ingredients_text_" . $language };
+					}		
+				}
+			}		
+		}	
+	}
+}
+	
+	
 
 
 sub extract_ingredients_classes_from_text($) {
