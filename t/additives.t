@@ -37,6 +37,19 @@ is_deeply($product_ref->{vitamins_tags}, [
 );
 
 
+# Make sure 100% is not recognized as E-100
+my $product_ref = {
+	lc => "fr",
+	ingredients_text => "pâte de cacao* de Madagascar 75%, sucre de canne*, beurre de cacao*. * issus du commerce équitable et de l'agriculture biologique (100% du poids total)."
+};
+
+extract_ingredients_classes_from_text($product_ref);
+
+is_deeply($product_ref->{additives_original_tags}, [
+                              ],
+);
+
+
 
 my $product_ref = {
 	lc => "fr",
