@@ -651,6 +651,22 @@ en => [
 
 ],
 
+es => [
+'valores nutricionales'
+],
+
+de => [
+'Ernährungswerte',
+],
+
+nl => [
+'voedingswaarden',
+],
+
+it => [
+'valori nutrizionali',
+],
+
 
 );
 
