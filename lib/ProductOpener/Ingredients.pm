@@ -642,6 +642,15 @@ fr => [
 
 ],
 
+en => [
+
+'nutritional values',
+'after opening',
+'nutrition values',
+'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
+
+],
+
 
 );
 
