@@ -89,10 +89,26 @@ clean_ingredients_text($product_ref);
 use Data::Dumper;
 print STDERR Dumper($product_ref);
 
-is($product_ref->{ingredients_text_fr}, "Ingrédients: viande de porc 72 %. gras de porc, eau, farine (BLE), conservateur E325, épices et arornales, sel cle Guérarandes 1.1%. lactose (LAIT), acidifiant :E 262, conservateurs:E250 E316, arormes, arome naturel.");
+is($product_ref->{ingredients_text_fr}, "viande de porc 72 %. gras de porc, eau, farine (BLE), conservateur E325, épices et arornales, sel cle Guérarandes 1.1%. lactose (LAIT), acidifiant :E 262, conservateurs:E250 E316, arormes, arome naturel.");
 
 
+my $ingredients = "CERVITA NATURE VOUS APPORTE Valeurs nutritionnelles moyennes pour 100 g en % des RNJ* par pot INGRÉDIENTS: fromage blanc à 3,6% de matière grasse (75,3%), crème fouettée stérilisée (24,6%), gélatine, ferments lactiques. Valeur énergétique Proteines 561 k] 135 kcal 6,9g 3,8 g 3,7 9 10,3g 14 Glucides dont Sucres Lipides 15 35 dont Acides gras satures Fibres 6,9 g 0 9 0,03g allimentaires Sodium Repères Nutritionnels Journaliers pour un adulte avec un apport moyen de 2000 kcal. Ces valeurs et les portions peuvent varier vius ";
 
+$ingredients = clean_ingredients_text_for_lang($ingredients, 'fr');
+
+is($ingredients, "fromage blanc à 3,6% de matière grasse (75,3%), crème fouettée stérilisée (24,6%), gélatine, ferments lactiques.");
+
+$ingredients = "INGREDIENTS lait entier (55,4%), crème (lait), sucre (9,7%), myrtille (8%), lait écrémé concentré, épaississants : amidon transformé, farine de graines de caroube, protéines de lait, extrait de carotte pourpre et d'hibiscus, correcteurs d'acidité : citrates de sodium, acide citrique, arôme naturel, ferments lactiques (lait). ";
+
+$ingredients = clean_ingredients_text_for_lang($ingredients, 'fr');
+
+is($ingredients, "lait entier (55,4%), crème (lait), sucre (9,7%), myrtille (8%), lait écrémé concentré, épaississants : amidon transformé, farine de graines de caroube, protéines de lait, extrait de carotte pourpre et d'hibiscus, correcteurs d'acidité : citrates de sodium, acide citrique, arôme naturel, ferments lactiques (lait). ");
+
+$ingredients = "Pomme*, fraise*. *: ingrédients issus de l'agriculture biologique";
+
+$ingredients = clean_ingredients_text_for_lang($ingredients, 'fr');
+
+is($ingredients, "Pomme*, fraise*. *: ingrédients issus de l'agriculture biologique");
 
 
 done_testing();
