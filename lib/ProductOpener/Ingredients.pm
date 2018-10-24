@@ -626,6 +626,8 @@ fr => [
 
 my %phrases_after_ingredients_list = (
 
+# TODO: Introduce a common list for kcal
+
 fr => [
 
 '(valeurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)',
@@ -638,8 +640,37 @@ fr => [
 'conditionn(e|é) sous atmosph(e|è)re protectrice',
 'la pr(e|é)sence de vide',	# La présence de vide au fond du pot est due au procédé de fabrication.
 '(a|à) consommer (cuit|rapidement|dans|jusqu)',
+'(a|à) conserver (dans|de|a|à)',
 'apr(e|è)s ouverture',
 
+],
+
+en => [
+
+'nutritional values',
+'after opening',
+'nutrition values',
+'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
+
+],
+
+es => [
+'valores nutricionales'
+],
+
+de => [
+'Ernährungswerte',
+'Vorbereitung Tipps',
+],
+
+nl => [
+'voedingswaarden',
+'voorbereidingstips',
+],
+
+it => [
+'valori nutrizionali',
+'consigli per la preparazione',
 ],
 
 
