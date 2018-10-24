@@ -5586,6 +5586,11 @@ line-height:1.2;
 
 .tag.user_defined { font-style: italic; }
 
+.button-group ul {
+  height: 400px;
+  overflow: auto;
+}
+
 HTML
 ;
 
