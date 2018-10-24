@@ -626,6 +626,8 @@ fr => [
 
 my %phrases_after_ingredients_list = (
 
+# TODO: Introduce a common list for kcal
+
 fr => [
 
 '(valeurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)',
@@ -640,6 +642,34 @@ fr => [
 '(a|à) consommer (cuit|rapidement|dans|jusqu)',
 'apr(e|è)s ouverture',
 
+],
+
+en => [
+
+'nutritional values',
+'after opening',
+'nutrition values',
+'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
+
+],
+
+es => [
+'valores nutricionales'
+],
+
+de => [
+'Ernährungswerte',
+'Vorbereitung Tipps',
+],
+
+nl => [
+'voedingswaarden',
+'voorbereidingstips',
+],
+
+it => [
+'valori nutrizionali',
+'consigli per la preparazione',
 ],
 
 
