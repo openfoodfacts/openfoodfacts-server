@@ -124,6 +124,9 @@ use MongoDB;
 use Tie::IxHash;
 use JSON::PP;
 use XML::Simple;
+use CLDR::Number;
+use CLDR::Number::Format::Decimal;
+use CLDR::Number::Format::Percent;
 use Storable qw(freeze);
 use Digest::MD5 qw(md5_hex);
 
@@ -8226,7 +8229,9 @@ HTML
 		
 		my $values2 = '';
 		
-		
+		my $cldr = CLDR::Number->new(locale => $lc);
+		my $decf = $cldr->decimal_formatter;
+		my $perf = $cldr->percent_formatter( maximum_fraction_digits => 0 );
 		foreach my $col (@cols) {
 		
 			my $col_class = '';
@@ -8240,7 +8245,7 @@ HTML
 
 				my $value = "";
 				if (defined $comparison_ref->{nutriments}{$nid . "_100g"}) {
-					$value = sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit)) + 0.0;
+					$value = $decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit));
 				}
 				# too small values are converted to e notation: 7.18e-05
 				if (($value . ' ') =~ /e/) {
@@ -8260,11 +8265,11 @@ HTML
 				
 				my $percent = $comparison_ref->{nutriments}{"${nid}_100g_%"};
 				if ((defined $percent) and ($percent ne '')) {
-					$percent = sprintf("%.0f", $percent);
+					$percent = $perf->format($percent / 100.0);
 					if ($percent > 0) {
 						$percent = "+" . $percent;
 					}
-					$value_unit = '<span class="compare_percent">' . $percent . '%</span><span class="compare_value" style="display:none">' . $value_unit . '</span>';
+					$value_unit = '<span class="compare_percent">' . $percent . '</span><span class="compare_value" style="display:none">' . $value_unit . '</span>';
 				}
 				
 				$values .= "<td class=\"nutriment_value${col_class}\">$value_unit</td>";
@@ -8275,8 +8280,8 @@ HTML
 					}
 					else {
 						$values2 .= "<td class=\"nutriment_value${col_class}\">"
-						. '<span class="compare_percent">' . $percent . '%</span>'
-						. '<span class="compare_value" style="display:none">' . (sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} * 2.54, $unit)) + 0.0) . " " . $unit . '</span>' . "</td>";
+						. '<span class="compare_percent">' . $percent . '</span>'
+						. '<span class="compare_value" style="display:none">' . ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} * 2.54, $unit))) . " " . $unit . '</span>' . "</td>";
 					}
 				}
 				if ($nid eq 'salt') {
@@ -8285,8 +8290,8 @@ HTML
 					}
 					else {
 						$values2 .= "<td class=\"nutriment_value${col_class}\">"
-						. '<span class="compare_percent">' . $percent . '%</span>'
-						. '<span class="compare_value" style="display:none">' . (sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} / 2.54, $unit)) + 0.0) . " " . $unit . '</span>' . "</td>";
+						. '<span class="compare_percent">' . $percent . '</span>'
+						. '<span class="compare_value" style="display:none">' . ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} / 2.54, $unit))) . " " . $unit . '</span>' . "</td>";
 					}
 				}				
 				
@@ -8328,7 +8333,7 @@ HTML
 				else {
 
 					# this is the actual value on the package, not a computed average. do not try to round to 2 decimals.
-					my $value = g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit);
+					my $value = $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit));
 				
 					# too small values are converted to e notation: 7.18e-05
 					if (($value . ' ') =~ /e/) {
@@ -8350,7 +8355,7 @@ HTML
 						if (exists $product_ref->{nutriments}{"salt" . "_$col"}) {
 							$salt = $product_ref->{nutriments}{"salt" . "_$col"};
 						}
-						$salt = sprintf("%.2e", g_to_unit($salt, $unit)) + 0.0;
+						$salt = $decf->format(g_to_unit($salt, $unit));
 						my $property = '';
 						if ($col eq '100g') {
 							$property = "property=\"food:saltEquivalentPer100g\" content=\"$salt\"";
@@ -8362,7 +8367,7 @@ HTML
 						if (exists $product_ref->{nutriments}{"sodium". "_$col"}) {
 							$sodium = $product_ref->{nutriments}{"sodium". "_$col"};
 						}
-						$sodium = sprintf("%.2e", g_to_unit($sodium, $unit)) + 0.0;
+						$sodium = $decf->format(g_to_unit($sodium, $unit));
 						my $property = '';
 						if ($col eq '100g') {
 							$property = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";

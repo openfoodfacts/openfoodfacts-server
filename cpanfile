@@ -37,6 +37,7 @@ requires 'Math::Random::Secure';
 requires 'Crypt::ScryptKDF';
 requires 'Locale::Maketext::Lexicon::Getcontext', '>= 0.05';
 requires 'Email::IsEmail', '>= 3.04.8';
+requires 'CLDR::Number::Format::Decimal';
 requires 'CLDR::Number::Format::Percent';
 requires 'CLDR::Number';
 requires 'Modern::Perl', '>= 1.20150127';
