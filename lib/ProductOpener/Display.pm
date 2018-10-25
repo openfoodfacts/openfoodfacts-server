@@ -5279,8 +5279,8 @@ sub display_new($) {
 		$og_type = $request_ref->{og_type};
 	}
 	
-# <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-# <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+# <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+# <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 # <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css">
 
 
@@ -5293,16 +5293,25 @@ sub display_new($) {
 <html class="no-js" lang="$lang">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/css/dist/app.css">
-<script src="/bower_components/foundation/js/vendor/modernizr.js"></script>
 <title>$title</title>
 $meta_description
-<script src="/bower_components/foundation/js/vendor/jquery.js"></script>
-<script type="text/javascript" src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+$header
+<meta property="fb:app_id" content="219331381518041">
+<meta property="og:type" content="$og_type">
+<meta property="og:title" content="$canon_title">
+<meta property="og:url" content="$canon_url">
+$og_images
+$og_images2
+<meta property="og:description" content="$canon_description">
+$options{favicons}
+<link rel="stylesheet" href="/css/dist/app.css">
 <link rel="stylesheet" href="/bower_components/jquery-ui/themes/base/jquery-ui.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
 <link rel="search" href="@{[ format_subdomain($subdomain) ]}/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
+<script src="/bower_components/foundation/js/vendor/modernizr.js"></script>
+<script src="/bower_components/foundation/js/vendor/jquery.js"></script>
+<script src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
 <script>
 \$(function() {
 \$("#select_country").select2({
@@ -5322,18 +5331,6 @@ $meta_description
 <initjs>
 });
 </script>
-
-$header
-
-<meta property="fb:app_id" content="219331381518041">
-<meta property="og:type" content="$og_type">
-<meta property="og:title" content="$canon_title">
-<meta property="og:url" content="$canon_url">
-$og_images
-$og_images2
-<meta property="og:description" content="$canon_description">
-
-$options{favicons}
 
 <style type="text/css" media="all">
 
@@ -6007,7 +6004,7 @@ $Lang{footer_follow_us}{$lc}
 
 <div id="fb-root"></div>
 
-    <script type="text/javascript">
+    <script>
       window.fbAsyncInit = function() {
         FB.init({appId: '219331381518041', status: true, cookie: true,
                  xfbml: true});
@@ -6025,7 +6022,7 @@ $Lang{footer_follow_us}{$lc}
 
     </script>	
 
-<script type="text/javascript">
+<script>
   window.___gcfg = {
     lang: '$Lang{facebook_locale}{$lang}'
   };
