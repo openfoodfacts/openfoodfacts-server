@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: vi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-25 20:00\n"
+"PO-Revision-Date: 2018-10-25 20:10\n"
 "Language-Team: Vietnamese\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -1592,13 +1592,14 @@ msgstr ""
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-vi-356.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr ""
+msgstr "<p>Để tìm hiểu thêm về <<site_name>>, hãy truy cập <a href=\"https://en.blog.openfoodfacts.org\">blog của chúng tôi</a>!</p>\n"
+"<p>Tin mới nhất:</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -1679,15 +1680,15 @@ msgstr ""
 
 msgctxt "page_x"
 msgid "Page %d"
-msgstr ""
+msgstr "Trang %d"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
-msgstr ""
+msgstr "Trang %d trong số %d."
 
 msgctxt "pages"
 msgid "Pages:"
-msgstr ""
+msgstr "Trang:"
 
 msgctxt "password"
 msgid "Password"
@@ -1695,23 +1696,23 @@ msgstr "Mật khẩu"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
-msgstr ""
+msgstr "Xác nhận mật khẩu"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
-msgstr ""
+msgstr "Khoảng thời gian sau khi mở"
 
 msgctxt "periods_after_opening_note"
 msgid "Found in an open container logo with a number of months: e.g. 12 M"
-msgstr ""
+msgstr "Tìm thấy trong một logo chứa mở với một số tháng: ví dụ: 12 M"
 
 msgctxt "periods_after_opening_p"
 msgid "Periods after opening"
-msgstr ""
+msgstr "Khoảng thời gian sau khi mở"
 
 msgctxt "periods_after_opening_s"
 msgid "Period after opening"
-msgstr ""
+msgstr "Khoảng thời gian sau khi mở"
 
 msgctxt "photographers_p"
 msgid "photographers"
@@ -1823,11 +1824,11 @@ msgstr "Không thể trích xuất văn bản thành phần. Hãy thử với h�
 
 msgctxt "product_js_extracted_ingredients_ok"
 msgid "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr ""
+msgstr "Văn bản thành phần đã được trích xuất. Nhận dạng văn bản không hoàn hảo, vì vậy hãy kiểm tra văn bản bên dưới và sửa lỗi nếu cần."
 
 msgctxt "product_js_extracting_ingredients"
 msgid "Extracting ingredients"
-msgstr ""
+msgstr "Trích xuất nguyên liệu"
 
 msgctxt "product_js_image_normalize"
 msgid "Normalize colors"
@@ -1871,7 +1872,7 @@ msgstr "Lỗi khi tải lên hình ảnh"
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
-msgstr ""
+msgstr "Ảnh trên nền trắng: cố gắng xóa nền"
 
 msgctxt "product_js_images_delete_error"
 msgid "Errors while deleting images"
@@ -2156,7 +2157,7 @@ msgstr ""
 
 msgctxt "search_graph_title"
 msgid "Display results on a graph"
-msgstr ""
+msgstr "Hiển thị kết quả trên biểu đồ"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
@@ -2188,7 +2189,7 @@ msgstr "Kết quả trên bản đồ"
 
 msgctxt "search_map_link"
 msgid "Permanent link to this map, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Liên kết vĩnh viễn với bản đồ này, có thể chia sẻ qua email và trên các mạng xã hội"
 
 msgctxt "search_map_note"
 msgid "The map will show only products for which the production place is known."
@@ -2196,7 +2197,7 @@ msgstr "Bản đồ sẽ chỉ hiển thị các sản phẩm mà nơi sản xu�
 
 msgctxt "search_map_title"
 msgid "Display results on a map"
-msgstr ""
+msgstr "Hiển thị kết quả trên bản đồ"
 
 msgctxt "search_nutriment"
 msgid "choose a nutriment..."
@@ -2408,7 +2409,7 @@ msgstr ""
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
-msgstr ""
+msgstr "Sản phẩm được bán tại %s"
 
 msgctxt "stores_s"
 msgid "store"
@@ -2577,7 +2578,7 @@ msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
-msgstr ""
+msgstr "Bạn được kết nối là %s."
 
 msgctxt "product_js_unselect_image"
 msgid "Unselect image"
@@ -2609,7 +2610,7 @@ msgstr "Cảnh báo: lượng trái cây, rau và quả hạch không được g
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr ""
+msgstr "Cảnh báo: số lượng trái cây, rau và quả hạch không được ghi trên nhãn, được ước tính từ loại (%s) của sản phẩm: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2625,7 +2626,7 @@ msgstr "NutriScore cấp dinh dưỡng"
 
 msgctxt "delete_product_page"
 msgid "Delete the product page"
-msgstr ""
+msgstr "Xóa trang sản phẩm"
 
 msgctxt "deleting_product"
 msgid "Deleting product"
@@ -2653,7 +2654,7 @@ msgstr "Trang sản phẩm trên openfood.ch"
 
 msgctxt "sources_usda_ndb"
 msgid "Some of the data comes from the USDA National Nutrients Database for Branded Foods (the exact list is available in the product edit history)."
-msgstr ""
+msgstr "Một số dữ liệu đến từ Cơ sở dữ liệu dinh dưỡng quốc gia của USDA cho thực phẩm có thương hiệu (danh sách chính xác có sẵn trong lịch sử chỉnh sửa sản phẩm)."
 
 msgctxt "sources_usda_ndb_product_page"
 msgid "Product page on USDA NDB"
@@ -2661,11 +2662,11 @@ msgstr "Trang sản phẩm trên USDA NDB"
 
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
-msgstr ""
+msgstr "Một số dữ liệu và hình ảnh đã được cung cấp trực tiếp bởi nhà sản xuất Fleury Michon."
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s"
-msgstr ""
+msgstr "Một số dữ liệu cho sản phẩm này đã được nhà sản xuất cung cấp trực tiếp %s"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
@@ -2769,7 +2770,7 @@ msgstr ""
 
 msgctxt "nutrition_data_prepared_exists"
 msgid "Nutrition facts are specified for the prepared product."
-msgstr ""
+msgstr "Thành phần dinh dưỡng được chỉ định cho sản phẩm đã chuẩn bị."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
