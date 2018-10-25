@@ -38,7 +38,6 @@ BEGIN
 		$memd_servers
 		$facebook_app_id
 	    $facebook_app_secret
-		$csrf_secret
 		$crowdin_project_identifier
 		$crowdin_project_key
 		
@@ -65,8 +64,6 @@ $memd_servers = [ "127.0.0.1:11211" ];
 
 $facebook_app_id = "";
 $facebook_app_secret = "";
-
-$csrf_secret = "SWMAqq4znqqaHN9q7UWM5xQ5aJqKqPsekcwSuvjkkTmTtTXvPpyZxXkY25kqgaXQbLFVEaqZ";
 
 $crowdin_project_identifier = '';
 $crowdin_project_key = '';

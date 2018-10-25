@@ -38,7 +38,6 @@ BEGIN
 		$memd_servers
 		$facebook_app_id
 	    $facebook_app_secret
-		$csrf_secret
 		
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -61,7 +60,5 @@ $memd_servers = [ "127.0.0.1:11211" ];
 
 $facebook_app_id = "";
 $facebook_app_secret = "";
-
-$csrf_secret = "EYvfj3GDJnc2UPVqTwTGPgWC";
 
 1;
