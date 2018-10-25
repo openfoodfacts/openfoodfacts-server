@@ -621,6 +621,9 @@ sub compute_product_history_and_completeness($$) {
 		push @{$current_product_ref->{last_check_dates_tags}}, sprintf("%04d-%02d", $year + 1900, $mon + 1);
 		push @{$current_product_ref->{last_check_dates_tags}}, sprintf("%04d", $year + 1900);	
 	}
+	else {
+		delete $current_product_ref->{last_check_dates_tags};
+	}
 
 	# Read all previous versions to see which fields have been added or edited
 	
