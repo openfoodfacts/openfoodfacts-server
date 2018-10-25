@@ -8290,8 +8290,8 @@ HTML
 					}
 					else {
 						$values2 .= "<td class=\"nutriment_value${col_class}\">"
-						. '<span class="compare_percent">' . $percent . '%</span>'
-						. '<span class="compare_value" style="display:none">' . (sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} * 2.54, $unit)) + 0.0) . " " . $unit . '</span>' . "</td>";
+						. '<span class="compare_percent">' . $percent . '</span>'
+						. '<span class="compare_value" style="display:none">' . ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} * 2.54, $unit))) . " " . $unit . '</span>' . "</td>";
 					}
 				}
 				if ($nid eq 'salt') {
@@ -8300,8 +8300,8 @@ HTML
 					}
 					else {
 						$values2 .= "<td class=\"nutriment_value${col_class}\">"
-						. '<span class="compare_percent">' . $percent . '%</span>'
-						. '<span class="compare_value" style="display:none">' . (sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} / 2.54, $unit)) + 0.0) . " " . $unit . '</span>' . "</td>";
+						. '<span class="compare_percent">' . $percent . '</span>'
+						. '<span class="compare_value" style="display:none">' . ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} / 2.54, $unit))) . " " . $unit . '</span>' . "</td>";
 					}
 				}				
 				
@@ -8343,7 +8343,7 @@ HTML
 				else {
 
 					# this is the actual value on the package, not a computed average. do not try to round to 2 decimals.
-					my $value = g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit);
+					my $value = $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit));
 				
 					# too small values are converted to e notation: 7.18e-05
 					if (($value . ' ') =~ /e/) {
@@ -8365,7 +8365,7 @@ HTML
 						if (exists $product_ref->{nutriments}{"salt" . "_$col"}) {
 							$salt = $product_ref->{nutriments}{"salt" . "_$col"};
 						}
-						$salt = sprintf("%.2e", g_to_unit($salt, $unit)) + 0.0;
+						$salt = $decf->format(g_to_unit($salt, $unit));
 						my $property = '';
 						if ($col eq '100g') {
 							$property = "property=\"food:saltEquivalentPer100g\" content=\"$salt\"";
@@ -8377,7 +8377,7 @@ HTML
 						if (exists $product_ref->{nutriments}{"sodium". "_$col"}) {
 							$sodium = $product_ref->{nutriments}{"sodium". "_$col"};
 						}
-						$sodium = sprintf("%.2e", g_to_unit($sodium, $unit)) + 0.0;
+						$sodium = $decf->format(g_to_unit($sodium, $unit));
 						my $property = '';
 						if ($col eq '100g') {
 							$property = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";
