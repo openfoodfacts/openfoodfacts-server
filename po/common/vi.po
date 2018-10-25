@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: vi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-25 19:50\n"
+"PO-Revision-Date: 2018-10-25 20:00\n"
 "Language-Team: Vietnamese\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -464,7 +464,7 @@ msgstr ""
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr ""
+msgstr "Tóm tắt thay đổi"
 
 msgctxt "edit_product"
 msgid "Edit a product"
@@ -488,11 +488,11 @@ msgstr ""
 
 msgctxt "edit_settings"
 msgid "Change your account parameters"
-msgstr ""
+msgstr "Thay đổi thông số tài khoản của bạn"
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr ""
+msgstr "Thông số tài khoản"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
@@ -529,11 +529,11 @@ msgstr ""
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr ""
+msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
-msgstr ""
+msgstr "Ở châu Âu, mã trong một hình elip với 2 chữ cái đầu tiên theo sau là số và CE."
 
 msgctxt "emb_codes_p"
 msgid "packager codes"
@@ -565,7 +565,7 @@ msgstr ""
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr ""
+msgstr "Tên đăng nhập hoặc mật khẩu không chính xác. <a href=\"/cgi/reset_password.pl\">Quên mật khẩu?</a>"
 
 msgctxt "error_database"
 msgid "An error occured while reading the data, try to refresh the page."
@@ -577,7 +577,7 @@ msgstr "Mật khẩu và mật khẩu xác nhận khác nhau."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can  <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "Địa chỉ e-mail đã được một người dùng khác sử dụng. Có thể bạn đã có tài khoản? Bạn có thể  <a href=\"/cgi/reset_password.pl\">đặt lại mật khẩu</a> tài khoản khác của bạn."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -585,7 +585,7 @@ msgstr ""
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr ""
+msgstr "Địa chỉ email không hợp lệ"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
@@ -675,7 +675,13 @@ msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
+msgstr "<a href=\"https://world-vi.openfoodfacts.org/legal\">Pháp lý</a> -\n"
+"<a href=\"https://world-vi.openfoodfacts.org/terms-of-use\">Điều khoản sử dụng</a> -\n"
+"<a href=\"https://world-vi.openfoodfacts.org/who-we-are\">Chúng tôi là ai</a> -\n"
+"<a href=\"https://world-vi.openfoodfacts.org/faq\">Câu hỏi thường gặp</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">Ý tưởng diễn đàn</a> -\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
+"<a href=\"https://world-vi.openfoodfacts.org/press-and-blogs\">Báo chí và Blog</a>\n"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
@@ -864,7 +870,7 @@ msgstr "Nếu hình ảnh đủ gọn gàng, các thành phần có thể đư�
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
-msgstr ""
+msgstr "Hình ảnh sự kiện dinh dưỡng"
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
@@ -881,11 +887,11 @@ msgstr ""
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
-msgstr ""
+msgstr "Không tìm thấy mã vạch trong hình ảnh."
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
-msgstr ""
+msgstr "Bạn phải nhập các ký tự của mã vạch hoặc gửi hình ảnh sản phẩm khi có thể nhìn thấy mã vạch."
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -945,7 +951,7 @@ msgstr "thành phần"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
-msgstr ""
+msgstr "Các sản phẩm có chứa thành phần %s"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
@@ -1125,11 +1131,11 @@ msgstr ""
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr ""
+msgstr "Ngôn ngữ được trình bày nhiều nhất và nổi bật nhất trên sản phẩm"
 
 msgctxt "lang_other"
 msgid "other language"
-msgstr ""
+msgstr "ngôn ngữ khác"
 
 msgctxt "lang_pl"
 msgid "Polish"
@@ -1282,7 +1288,7 @@ msgstr ""
 
 msgctxt "manage_images_info"
 msgid "You can select one or more images and then:"
-msgstr ""
+msgstr "Bạn có thể chọn một hoặc nhiều hình ảnh và sau đó:"
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
@@ -1318,7 +1324,7 @@ msgstr ""
 
 msgctxt "map_title"
 msgid "Map title"
-msgstr ""
+msgstr "Tiêu đề bản đồ"
 
 msgctxt "menu"
 msgid "Menu"
@@ -1422,7 +1428,7 @@ msgstr ""
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
-msgstr ""
+msgstr "Nhiều sự kiện dinh dưỡng được chỉ định trên sản phẩm (ví dụ như với nước hoặc sữa thêm vào)."
 
 msgctxt "multiple_nutrition_data_instructions"
 msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
@@ -1434,7 +1440,7 @@ msgstr "Không có sản phẩm nào được liệt kê cho mã vạch %s."
 
 msgctxt "no_products"
 msgid "No products."
-msgstr ""
+msgstr "Không có sản phẩm."
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
@@ -1450,7 +1456,7 @@ msgstr "Số lượng sản phẩm"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr ""
+msgstr "%s trong %s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
@@ -1495,7 +1501,7 @@ msgstr "Giá trị dinh dưỡng"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr ""
+msgstr "Sự kiện dinh dưỡng trung bình cho %d sản phẩm thuộc loại %s mà thông tin dinh dưỡng được biết (trong số %d sản phẩm)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -1507,7 +1513,7 @@ msgstr ""
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
-msgstr ""
+msgstr "So sánh với giá trị trung bình của sản phẩm trong cùng một danh mục:"
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
@@ -1568,11 +1574,12 @@ msgstr "Giá trị dinh dưỡng"
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr ""
+msgstr "Bảng liệt kê các nutriments mặc định thường được chỉ định. Để trống trường nếu nó không nằm trên nhãn.<br/>Bạn có thể thêm các chất dinh dưỡng phụ (vitamin, khoáng chất, cholesterol, vv)\n"
+"bằng cách gõ các chữ cái đầu tiên của tên của chúng trong hàng cuối cùng của bảng."
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
