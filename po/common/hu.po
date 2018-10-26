@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-25 12:01\n"
+"PO-Revision-Date: 2018-10-26 14:47\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -94,15 +94,15 @@ msgstr "Köszönjük, hogy csatlakozott a(z) <<site_name>>-hoz!"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr "Feltehetően veszélyes élelmiszeradalék. Korlátozd a használatát."
+msgstr "Potenciálisan veszélyes élelmiszeradalék. Korlátozza a használatát."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr "Veszélyes élelmiszeradalék. Kerüld."
+msgstr "Veszélyes élelmiszeradalék. Kerülje."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr "Az EFSA által az EU-ban betiltott élelmiszeradalék. Mindenképpen kerüld."
+msgstr "Tiltott élelmiszeradalék Európában. Mindenképpen kerülje."
 
 msgctxt "additives_p"
 msgid "additives"
@@ -122,7 +122,7 @@ msgstr "Bővített keresés és grafikonok"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr "A túlzott fogyasztás veszélyes az egészségre."
+msgstr "A túlzott ivás káros az egészségre."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -173,7 +173,7 @@ msgstr "Készítsen képet"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr "Megjegyzés: a képek amiket beküldesz a Creative Commons Attribution ShareAlike (CC-BY-SA) szabad licensz alatt lesznek közzétéve."
+msgstr "Megjegyzés: a képek amelyeket elküld a Creative Commons Attribution-ShareAlike (CC BY-SA) szabad licenc alatt lesznek közzétéve."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
@@ -683,7 +683,7 @@ msgstr ""
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr "<<site_name>>-blog"
+msgstr "<<site_name>> blog"
 
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
@@ -691,7 +691,7 @@ msgstr "https://en.blog.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
-msgstr "Illemszabályok (angolul)"
+msgstr "Magatartási kódex"
 
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
@@ -707,7 +707,7 @@ msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr "Fedezd fel a projektet"
+msgstr "Fedezze fel a programot"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
@@ -745,7 +745,7 @@ msgstr "Csatlakozzon hozzánk a %s-en:"
 
 msgctxt "footer_legal"
 msgid "Legal"
-msgstr "Jogi nyilatkozat (angolul)"
+msgstr "Jogi nyilatkozat"
 
 msgctxt "footer_legal_link"
 msgid "/legal"
@@ -753,7 +753,7 @@ msgstr "/legal"
 
 msgctxt "footer_press"
 msgid "Press"
-msgstr "Sajtó (angolul)"
+msgstr "Sajtó"
 
 msgctxt "footer_press_link"
 msgid "/press"
@@ -773,7 +773,7 @@ msgstr "/terms-of-use"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
-msgstr "Kik vagyunk? (angolul)"
+msgstr "Kik vagyunk"
 
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
@@ -1884,7 +1884,7 @@ msgstr "Hiba történt a kép(ek) feltöltése közben"
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
-msgstr "Fénykép fehér háttérrel: meg próbálja eltávolítani a hátteret"
+msgstr "Fénykép fehér háttérrel: megpróbálja eltávolítani a hátteret"
 
 msgctxt "product_js_images_delete_error"
 msgid "Errors while deleting images"
@@ -2046,7 +2046,7 @@ msgstr "Kockázat"
 
 msgctxt "risk_level_0"
 msgid "To be completed"
-msgstr "Ki kell tölteni"
+msgstr "Ki kell egészíteni"
 
 msgctxt "risk_level_1"
 msgid "Low risks"
@@ -2395,7 +2395,7 @@ msgstr "Termék neve"
 
 msgctxt "state"
 msgid "State"
-msgstr "Állam"
+msgstr "Állapot"
 
 msgctxt "states_p"
 msgid "states"
@@ -2403,7 +2403,7 @@ msgstr "állapotok"
 
 msgctxt "states_s"
 msgid "state"
-msgstr "állam"
+msgstr "állapot"
 
 msgctxt "stores"
 msgid "Stores"
