@@ -340,6 +340,7 @@ $options{nova_groups_tags} = {
 "categories/en:sugars" => 2,
 "categories/en:honeys" => 2,
 "categories/en:maple-syrups" => 2,
+"categories/en:spices" => 2,
 
 # group 3 tags will not be applied to food identified as group 2
 
@@ -348,10 +349,12 @@ $options{nova_groups_tags} = {
 "ingredients/en:preservative" => 3,
 
 "ingredients/en:salt" => 3,
+"ingredients/en:spice" => 3,
+"ingredients/en:pepper" => 3,
 "ingredients/en:sugar" => 3,
 "ingredients/en:vegetable-oil" => 3,
 "ingredients/en:vegetal-oil" => 3,
-"categories/en:fats" => 2,
+"ingredients/en:vegetable-fat" => 3,
 "ingredients/en:butter" => 3,
 "ingredients/en:honey" => 3,
 "ingredients/en:maple-syrup" => 3,
@@ -374,6 +377,14 @@ $options{nova_groups_tags} = {
 # other categories that we can consider to be at least group 3
 
 "categories/en:prepared-meats" => 3,
+"categories/en:terrines" => 3,
+"categories/en:pates" => 3,
+"categories/en:pastas" => 3,
+"categories/en:wines" => 3,
+"categories/en:beers" => 3,
+"categories/en:breakfast-cereals" => 3,
+"categories/en:tofu" => 3,
+"categories/en:alcoholic-beverages" => 3,
 
 
 # group 3 additives
@@ -588,6 +599,7 @@ $options{nova_groups_tags} = {
 "additives/en:e450" => 4,
 "additives/en:e451" => 4,
 "additives/en:e452" => 4,
+"additives/en:e461" => 4,
 "additives/en:e471" => 4,
 "additives/en:e14xx" => 4,
 
