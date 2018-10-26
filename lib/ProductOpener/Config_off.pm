@@ -570,6 +570,7 @@ $options{nova_groups_tags} = {
 "categories/en:beers" => 3,
 "categories/en:breakfast-cereals" => 3,
 "categories/en:tofu" => 3,
+"categories/en:alcoholic-beverages" => 3,
 
 
 # group 3 additives
@@ -784,6 +785,7 @@ $options{nova_groups_tags} = {
 "additives/en:e450" => 4,
 "additives/en:e451" => 4,
 "additives/en:e452" => 4,
+"additives/en:e461" => 4,
 "additives/en:e471" => 4,
 "additives/en:e14xx" => 4,
 

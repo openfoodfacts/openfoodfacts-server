@@ -5738,6 +5738,39 @@ HTML
 	if (defined param('search_terms')) {
 		$search_terms = remove_tags_and_quote(decode utf8=>param('search_terms'))
 	}
+	
+	my $top_banner = "--";
+	
+	if ($lc eq 'fr') {
+	
+	
+		$top_banner = <<HTML
+<div class="row full-width" style="max-width: 100% !important;" >	
+
+<div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
+Pour améliorer l'alimentation de tous, c'est le moment de <a href="https://www.helloasso.com/associations/open-food-facts/collectes/aidez-open-food-facts-a-ameliorer-l-alimentation-de-tous">soutenir notre action en faisant un don</a> à l'association Open Food Facts !
+<span style="color:red">❤</span>
+</div>
+</div>
+HTML
+;
+	
+	}
+	if ($lc eq 'en') {
+	
+		$top_banner = <<HTML
+<div class="row full-width" style="max-width: 100% !important;" >	
+
+<div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
+To improve food for everyone, it's time to <a href="https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en">support our work by making a donation</a> to the Open Food Facts non-profit association !
+<span style="color:red">❤</span>
+</div>
+</div>
+HTML
+;
+	
+	}	
+	
 		
 	$html .= <<HTML
 
@@ -5807,7 +5840,7 @@ HTML
   </div>
  </nav>
 
- 
+
  
  
 <div class="off-canvas-wrap" data-offcanvas>
@@ -5828,9 +5861,14 @@ HTML
   <!-- close the off-canvas menu -->
   <a class="exit-off-canvas"></a>
 
+<!-- top banner -->
+$top_banner
   
 <!-- main row - comment used to remove left column and center content on some pages -->  
 <div class="row full-width" style="max-width: 100% !important;" data-equalizer>
+
+
+
 	<div class="xxlarge-1 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
 		<div class="sidebar">
 		
