@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-25 12:18\n"
+"PO-Revision-Date: 2018-10-26 15:05\n"
 "Language-Team: Italian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -156,11 +156,11 @@ msgstr "<p> Questo prodotto non è ancora presente in < < site_name > > database
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr "Scattare una foto"
+msgstr "Scatta una foto"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr "Nota: le foto che inviate sono pubblicate sotto libera licenza Creative Commons Attribution e ShareAlike."
+msgstr "Nota: le foto che invii sono pubblicate sotto licenza libera Creative Commons Attribution e ShareAlike."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
@@ -180,7 +180,7 @@ msgstr "Codice a Barre"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr "Codice a barre"
+msgstr "Numero di codice a barre:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
@@ -192,7 +192,7 @@ msgstr ""
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
-msgstr "Partite in missione"
+msgstr "Parti in missione"
 
 msgctxt "brands"
 msgid "Brands"
@@ -200,15 +200,15 @@ msgstr "Marche"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr "Kinder Bueno, Kinder, Ferrero"
+msgstr "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr "marcas"
+msgstr "marche"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr "Prodotto della marca %s"
+msgstr "Prodotti della marca %s"
 
 msgctxt "brands_s"
 msgid "brand"
@@ -232,7 +232,7 @@ msgstr "Categorie"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr "Sardine in olio di oliva, Succo d'arancia a base di concentrato"
+msgstr "Sardine in olio di oliva, succo d'arancia a base di concentrato"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
@@ -240,7 +240,7 @@ msgstr "Indicare solo la categoria più specifica, le categorie \"Principali\" s
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr "categorias"
+msgstr "categorie"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
@@ -969,7 +969,7 @@ msgstr "Prodotti che non contengono l'ingrediente %s"
 
 msgctxt "ios_app_badge"
 msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
-msgstr "<Img src=\"/ images / misc / Available_on_the_App_Store_Badge_EN_135x40.png \" alt=\"Disponibile su App Store\" width=\"135 \" height=\"40 \" />"
+msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
@@ -2556,7 +2556,7 @@ msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone St
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr ""
+msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2788,7 +2788,7 @@ msgstr ""
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr ""
+msgstr "65+"
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
@@ -2804,7 +2804,7 @@ msgstr ""
 
 msgctxt "adolescents_description"
 msgid "From 10 years up to and including 17 years of age"
-msgstr ""
+msgstr "Da 10 anni fino a 17 anni inclusi"
 
 msgctxt "children"
 msgid "Children"
@@ -2816,7 +2816,7 @@ msgstr ""
 
 msgctxt "children_description"
 msgid "From 36 months up to and including 9 years of age"
-msgstr ""
+msgstr "Da 36 mesi fino a 9 anni inclusi"
 
 msgctxt "toddlers"
 msgid "Toddlers"
@@ -2828,7 +2828,7 @@ msgstr ""
 
 msgctxt "toddlers_description"
 msgid "From 12 months up to and including 35 months of age"
-msgstr ""
+msgstr "Da 12 mesi fino a 35 mesi inclusi"
 
 msgctxt "infants"
 msgid "Infants"
@@ -2844,7 +2844,7 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation"
 msgid "EFSA evaluation"
-msgstr ""
+msgstr "Valutazione dell'EFSA"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_title"
 msgid "Risk of overexposure"
@@ -2852,7 +2852,7 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
-msgstr ""
+msgstr "L'Autorità europea per la sicurezza alimentare (EFSA) ha determinato che alcuni gruppi di popolazione hanno un rischio elevato di consumare troppo <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
@@ -2872,11 +2872,11 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
-msgstr ""
+msgstr "Alto rischio di sovraesposizione"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
-msgstr ""
+msgstr "Moderato rischio di sovraesposizione"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
@@ -2904,7 +2904,7 @@ msgstr ""
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
-msgstr ""
+msgstr "Alcune persone"
 
 msgctxt "exposure_description_95th"
 msgid "over 5%"
@@ -2912,7 +2912,7 @@ msgstr ""
 
 msgctxt "exposure_title_mean"
 msgid "Most people"
-msgstr ""
+msgstr "Maggior parte delle persone"
 
 msgctxt "exposure_description_mean"
 msgid "over 50%"
@@ -2920,7 +2920,7 @@ msgstr ""
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
-msgstr ""
+msgstr "Wikipedia"
 
 msgctxt "additives_classes"
 msgid "Functions"
