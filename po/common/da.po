@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-25 12:05\n"
+"PO-Revision-Date: 2018-10-26 14:50\n"
 "Language-Team: Danish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -131,7 +131,7 @@ msgstr "Alle missioner"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "Stoffer eller produkter som forårsager allergi eller intolerance"
+msgstr "Stoffer, eller produkter, som forårsager allergi eller overfølsomhed"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -189,7 +189,7 @@ msgstr "Vertikal akse"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr "Strekkode"
+msgstr "Stregkode"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
@@ -209,7 +209,7 @@ msgstr "Kast dig ud på mission"
 
 msgctxt "brands"
 msgid "Brands"
-msgstr "Varemærker"
+msgstr "Mærker"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
@@ -221,11 +221,11 @@ msgstr "varemærker"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr "Produkter af %s-mærket"
+msgstr "Produkter fra %s-varemærket"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr "mærke"
+msgstr "varemærke"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
@@ -399,7 +399,7 @@ msgstr "redaktør"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "Produktet sælges i disse lande"
+msgstr "Lande, hvorfra der sælges"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
@@ -620,7 +620,7 @@ msgstr "Ugyldig bruger."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr "Brugernavn må kun indeholde minuskler, versaler, cifre og streger."
+msgstr "Brugernavn må kun indeholde versaler, minuskler, cifre og streger."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -758,7 +758,7 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
-msgstr "Følg os via <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
+msgstr "Følg oss på <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 " <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> og\n"
 " <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
 
@@ -792,7 +792,7 @@ msgstr "/presse"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
-msgstr "En kollaborativ, gratis og åben database med fødevareprodukter fra hele verden."
+msgstr "En fællesskabsdrevet, gratis og åben database med fødevareprodukter for hele verden."
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -800,7 +800,7 @@ msgstr "Brugsvilkår"
 
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr "/betingelser-for-brug"
+msgstr "/terms-of-use"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -820,7 +820,7 @@ msgstr "https://en.wiki.openfoodfacts.org"
 
 msgctxt "for"
 msgid "for"
-msgstr "for"
+msgstr "til"
 
 msgctxt "front_alt"
 msgid "Product"
@@ -1036,7 +1036,7 @@ msgstr "kendt næringsstof"
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr "Etiketter, certificeringer, udmærkelser"
+msgstr "Etiketter, certificeringer, priser"
 
 msgctxt "labels_example"
 msgid "Organic"
@@ -1376,7 +1376,7 @@ msgstr "Menu"
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr "Tilføj et produkt"
+msgstr "Tilføj produkt"
 
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
@@ -1537,11 +1537,11 @@ msgstr "Produkter som ikke indeholder næringsstoffet %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "Ernæringsindhold"
+msgstr "Ernæringsfakta"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "Ernæringsindhold"
+msgstr "Ernæringsfakta"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1613,7 +1613,7 @@ msgstr "Standardafvigelse"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "Ernæringsindhold"
+msgstr "Ernæringsfakta"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -2000,7 +2000,7 @@ msgstr "salgssteder"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr "Produkter sælges i %s"
+msgstr "Produkter som sælges i %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -2012,11 +2012,11 @@ msgstr "tilføj et sted"
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr "Produkter sælges ikke i %s"
+msgstr "Produkter som ikke sælges i %s"
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr "Mængde"
+msgstr "Kvantitet"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
