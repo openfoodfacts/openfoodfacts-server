@@ -20,7 +20,6 @@ requires 'XML::FeedPP'; # libxml-feedpp-perl
 requires 'URI::Find'; # liburi-find-perl
 requires 'XML::Simple'; # libxml-simple-perl
 requires 'experimental'; # libexperimental-perl
-requires 'WWW::CSRF'; # libwww-csrf-perl
 requires 'Apache2::Request'; # libapache2-request-perl
 requires 'Digest::MD5'; # libdigest-md5-perl
 
@@ -38,6 +37,7 @@ requires 'Math::Random::Secure';
 requires 'Crypt::ScryptKDF';
 requires 'Locale::Maketext::Lexicon::Getcontext', '>= 0.05';
 requires 'Email::IsEmail', '>= 3.04.8';
+requires 'CLDR::Number::Format::Decimal';
 requires 'CLDR::Number::Format::Percent';
 requires 'CLDR::Number';
 requires 'Modern::Perl', '>= 1.20150127';
