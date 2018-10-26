@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_HK\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-25 11:50\n"
+"PO-Revision-Date: 2018-10-26 15:26\n"
 "Language-Team: Chinese Traditional, Hong Kong\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -131,7 +131,7 @@ msgstr "所有的任務"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "物品造成過敏"
+msgstr "成分或产品可能导致过敏或不耐受"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -190,7 +190,7 @@ msgstr "縱軸"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr "條碼"
+msgstr "条形码"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
@@ -242,7 +242,7 @@ msgstr "由"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr "類別"
+msgstr "类别"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -377,7 +377,7 @@ msgstr "校正者"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "販售國"
+msgstr "可出售的国家"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
@@ -1005,7 +1005,7 @@ msgstr "已知營養成分"
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr "標籤，認證，獎項"
+msgstr "标签，认证，奖励"
 
 msgctxt "labels_example"
 msgid "Organic"
@@ -1293,7 +1293,7 @@ msgstr "你可以選擇一張或多張圖片:"
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr "生產地點"
+msgstr "制造或者加工场所"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
@@ -1494,11 +1494,11 @@ msgstr "產品不包含營養 %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "營養成分"
+msgstr "营养成分"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "營養成分"
+msgstr "营养成分"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1570,7 +1570,7 @@ msgstr "標準差"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "營養成分"
+msgstr "营养成分"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1615,7 +1615,7 @@ msgstr "或:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
-msgstr "配料來源"
+msgstr "成分来源"
 
 msgctxt "origins_example"
 msgid "California, USA"
@@ -1647,7 +1647,7 @@ msgstr "產品的原料非來自於 %s"
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr "包裝套件"
+msgstr "包装"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -1943,7 +1943,7 @@ msgstr "您新增或編輯的產品"
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr "購的買城市, 州及城鎮"
+msgstr "购买的城市、省份和国家"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
@@ -1971,7 +1971,7 @@ msgstr "產品未販售於 %s"
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr "數量"
+msgstr "数量"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
@@ -2324,7 +2324,7 @@ msgstr "送出照片中"
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr "份量"
+msgstr "分量"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2448,7 +2448,7 @@ msgstr "搜尋："
 
 msgctxt "traces"
 msgid "Traces"
-msgstr "追蹤"
+msgstr "痕迹"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
