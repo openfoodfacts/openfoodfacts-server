@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en_AU\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-16 21:05\n"
+"PO-Revision-Date: 2018-10-25 12:09\n"
 "Language-Team: English, Australia\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -583,10 +583,6 @@ msgstr "The e-mail address is already used by another user. Maybe you already ha
 msgctxt "error_invalid_address"
 msgid "Invalid address."
 msgstr "Invalid address."
-
-msgctxt "error_invalid_csrf_token"
-msgid "Invalid CSRF token."
-msgstr "Invalid CSRF token."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
@@ -1411,11 +1407,6 @@ msgstr "moderate"
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
 msgstr "moderate quantity"
-
-# Please keep the same syntax and translate only the months
-msgctxt "months"
-msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
@@ -2601,10 +2592,6 @@ msgstr "Information and data must come from the product package and label (and n
 msgctxt "website"
 msgid "Site or blog address"
 msgstr "Site or blog address"
-
-msgctxt "weekdays"
-msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
-msgstr "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"

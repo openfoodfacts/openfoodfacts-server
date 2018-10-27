@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lv\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-16 19:35\n"
+"PO-Revision-Date: 2018-10-25 12:12\n"
 "Language-Team: Latvian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -584,10 +584,6 @@ msgstr "E-pasta adresi jau izmanto cits lietotājs. Varbūt jums jau ir konts? J
 msgctxt "error_invalid_address"
 msgid "Invalid address."
 msgstr "Kļūda! Adrese ir tikusi kļūdaini ievadīta"
-
-msgctxt "error_invalid_csrf_token"
-msgid "Invalid CSRF token."
-msgstr "Nederīgs CSRF marķieris."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
@@ -1390,11 +1386,6 @@ msgstr "moderate"
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
 msgstr "mērens daudzums"
-
-# Please keep the same syntax and translate only the months
-msgctxt "months"
-msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr "[\"Janvāris\", \"Februāris\", \"Marts\", \"Aprīlis\", \"Maijs\", \"Jūnijs\", \"Jūlijs\", \"Augusts\", \"Septembris\", \"Oktobris\", \"Novembris\", \"Decembris\"]"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
@@ -2569,10 +2560,6 @@ msgstr "Informācijai un datiem jābūt no produktu iepakojuma un etiķetes (nev
 msgctxt "website"
 msgid "Site or blog address"
 msgstr "Vietnes vai emuāra adrese"
-
-msgctxt "weekdays"
-msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
-msgstr "['Svētdiena Pirmdiena Otrdiena Trešdiena Ceturtdiena Piektdiena Sestdiena']"
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
