@@ -1,4 +1,24 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
+
+# This file is part of Product Opener.
+# 
+# Product Opener
+# Copyright (C) 2011-2018 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# 
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# 
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -72,7 +92,7 @@ foreach my $l ('fr') {
 
 	
 
-	my $query_ref = {lc=>$lc, states_tags=>'complet'};
+	my $query_ref = {lc=>$lc, states_tags=>'en:complete'};
 	#$query_ref->{"nutriments.sugars_100g"}{ '$gte'}  = 0.01;
 	# -> does not seem to work for sugars, maybe some string values?!
 		
@@ -89,22 +109,6 @@ foreach my $l ('fr') {
 	my $html = '';
 
 			$html .= <<HTML
-<initjs>
-    oTable = \$('#tagstable').DataTable({
-	language: {
-		search: "$Lang{tagstable_search}{$lang}",
-		info: "_TOTAL_ $tagtype_p",
-		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
-	},
-	paging: false
-    });
-</initjs>
-<scripts>
-<script src="/js/datatables.min.js"></script>
-</scripts>
-<header>
-<link rel="stylesheet" href="/js/datatables.min.css" />
-</header>
 HTML
 ;
 
@@ -123,9 +127,12 @@ HTML
 
 		$k++;
 
+		(not defined $product_ref->{"nutriments"}{"sugars_100g"}) and next;
 		($product_ref->{"nutriments"}{"sugars_100g"}) < 0.01 and next;
 
 		$kk++;
+
+		($kk % 1000 == 0) and print STDERR "$kk products kept - $k total\n";
 		
 		my $code = $product_ref->{code};
 		
@@ -162,8 +169,17 @@ HTML
 			$q  = $`;
 			$x = 1000;
 		}			
+
+		if (exists $product_ref->{product_quantity}) {
+			$q = $product_ref->{product_quantity};
+		}
+		else {
+			next;
+		}
 		
-		my $qx = $q * $x;
+		#my $qx = $q * $x;
+
+		my $qx = $q;
 	
 		my $s = $qx * $product_ref->{"nutriments"}{"sugars_100g"} / 100;
 		my $sucres_g = int($s + 0.4999);
@@ -174,7 +190,7 @@ HTML
 		my $cubes_small = sprintf("%.1f", $sc);
 		my $cubes_big = sprintf("%.1f", $big);
 		my $producturl = product_url($product_ref);
-		$producturl =~ s/^\//http:\/\/fr.openfoodfacts.org\//;
+		$producturl =~ s/^\//https:\/\/fr.openfoodfacts.org\//;
 		
 		my $code = $product_ref->{"code"};
 		
@@ -227,7 +243,7 @@ HTML
 		
 		$product_ref->{jqm} = 1;
 		my $img = display_image($product_ref, 'front', 200);
-		$img =~ s/src="\//src="http:\/\/fr.openfoodfacts.org\//;
+		$img =~ s/src="\//src="https:\/\/fr.openfoodfacts.org\//;
 		my $img_url = '';
 		my $zoom = '';
 		if ($img =~ /src="(.*?)"/) {
@@ -466,7 +482,7 @@ var big = $cubes_big;
 
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
@@ -591,7 +607,7 @@ Si vous constatez une erreur, <a href="mailto:stephane\@combiendesucres.fr">merc
 HTML
 ;
 
-		open (my $OUT, ">:encoding(UTF-8)", "/home/sucres/html/$id.html");
+		open (my $OUT, ">:encoding(UTF-8)", "/srv/sucres/html/$id.html");
 		print $OUT $page;
 		close $OUT;
 			
@@ -608,7 +624,7 @@ HTML
 	print $OUT $html;
 	close $OUT;
 	
-	store("/home/sucres/data/products_ids.sto", \@ids);
+	store("/srv/sucres/data/products_ids.sto", \@ids);
 	
 	print "$k products, $kk products kept\n";
 }

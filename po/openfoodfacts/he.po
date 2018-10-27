@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-11-12 18:46-0500\n"
+"PO-Revision-Date: 2018-02-11 13:28-0500\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
@@ -24,10 +24,12 @@ msgctxt ":langname"
 msgid ":langname"
 msgstr "Hebrew"
 
+#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
 msgctxt "logo"
 msgid "openfoodfacts-logo-en-178x150.png"
 msgstr "openfoodfacts-logo-he-178x150.png"
 
+#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
 msgctxt "logo2x"
 msgid "openfoodfacts-logo-en-356x300.png"
 msgstr "openfoodfacts-logo-he-356x300.png"

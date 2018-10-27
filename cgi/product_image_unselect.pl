@@ -1,4 +1,24 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
+
+# This file is part of Product Opener.
+# 
+# Product Opener
+# Copyright (C) 2011-2018 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# 
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# 
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use Modern::Perl '2012';
 use utf8;
@@ -19,10 +39,9 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+use Log::Any qw($log);
 
 ProductOpener::Display::init();
-
-$debug = 1;
 
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
@@ -31,7 +50,7 @@ my $code = normalize_code(param('code'));
 my $id = param('id');
 
 
-$debug and print STDERR "product_image_unselect.pl - code: $code - id: $id\n";
+$log->debug("start", { code => $code, id => $id }) if $log->is_debug();
 
 if (not defined $code) {
 	
@@ -42,7 +61,7 @@ my $product_ref = process_image_unselect($code, $id);
 
 my $data = encode_json({ status_code => 0, status => 'status ok', imagefield=>$id });
 
-print STDERR "product_image_unselect - JSON data output: $data\n";
+$log->debug("JSON data output", { data => $data }) if $log->is_debug();
 
 print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 

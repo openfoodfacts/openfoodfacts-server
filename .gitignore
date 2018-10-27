@@ -10,6 +10,7 @@ lib/ProductOpener/SiteLang.pm
 .Trashes
 ehthumbs.db
 Thumbs.db
+.vstags
 
 # Logs
 Store.debug.txt
@@ -21,7 +22,11 @@ data/mongodb
 # Libraries
 node_modules
 html/bower_components
+local
 
 # Front build
 html/css/dist
 html/js/dist
+
+# Don't store helm dependencies in our git repo
+docker/productopener/charts

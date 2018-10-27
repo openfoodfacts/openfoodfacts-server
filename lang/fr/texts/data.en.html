@@ -1,0 +1,84 @@
+
+<h1>Données</h1>
+
+<p>La base de données Open Food Facts est disponible sous <a href="https://opendatacommons.org/licenses/odbl/1.0/">licence "Open Database Licence (Odbl)</a>.<br/>Les contenus individuels de la base de données sous disponibles sous licence <a href="https://opendatacommons.org/licenses/dbcl/1.0/">Database Contents License (DbCL)</a>.<br/>Les images de produits sont disponibles sous licence <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike - CC BY-SA</a>.
+Certaines données peuvent contenir des éléments graphiques soumis à copyright ou autorisation, qui peuvent dans certains cas être contaminants (droits de citation, usage réglementé).</p>
+
+<p>Nous vous invitons à lire les <a href="https://world.openfoodfacts.org/terms-of-use">Conditions d'utilisation et de ré-utilisation</a> avant de ré-utiliser les données.</p> 
+
+
+<p>Nous sommes vraiment très intéressé par la façon dont vous allez utiliser les données Open Food Facts. Ce n'est pas obligation, mais c'est un vrai plus pour nous si vous nous partagez vos réutilisations. Nous pourrons les diffuser au sein de la communauté Open Food Facts.</p>
+
+<h2>Export de données Open Food Facts</h2>
+
+<p>Les exports de base de données et fichiers de données sont réalisés quotidiennement, chaque nuit.</p>
+
+<p>Les informations sur les différents champs et colonnes des exports CSV et MongoDB sont disponibles au lien suivant : <a href="https://static.openfoodfacts.org/data/data-fields.txt">https://world.openfoodfacts.org/data/data-fields.tx</a></p>
+
+
+<h3>Export MongoDB</h3>
+
+<p>Les données concernant tous les produits sont disponibles à travers l'export MongoDB.</p>
+
+<dl>
+ <dt>Lien</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz">https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz</a></dd>
+ <dt>sha256sum</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/sha256sum">https://static.openfoodfacts.org/data/sha256sum</a></dd>
+ <dt>md5sum</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/md5sum">https://static.openfoodfacts.org/data/md5sum</a></dd>
+</dl>
+
+<h4>Export Delta</h4>
+
+<p>Des exports Delta journaliers sont fournis pour les 14 jours précédents. La liste des fichiers delta actuellement disponibles peut être trouvée dans <a href="https://static.openfoodfacts.org/data/delta/index.txt"> https://static.openfoodfacts.org/data/delta/index.txt </a> .
+ Chaque ligne représente un fichier disponible à <code> https://static.openfoodfacts.org/data/delta/{filename}</code> .
+ Le nom du fichier contient un horodatage UNIX du premier et du dernier changement apporté au fichier JSON, afin que les fichiers delta puissent être importés (après extraction) avec <code>mongoimport</code> par ordre alphabétique.</p>
+<p>Veuillez noter qu'en raison de la nature de <code> Mongoexport </code> , les fichiers delta ne peuvent pas vous renseigner sur les produits supprimés. Pour effacer les produits supprimés de votre base de données, vous devez importer l'entièreté du dépôt / dump MongoDB.</p>
+ 
+<h3>Export CSV</h3>
+
+<p>Les données pour tous les produits, ou une sélection de produits, peuvent être téléchargés au format CSV (utilisable avec les logiciels OpenOffice, Excel par exemple parmi l'offre importante de logiciels de tableur existants) en utilisant le <a href="https://world.openfoodfacts.org/cgi/search.pl">formulaire de recherche avancé</a>.</p>
+ 
+<dl>
+ <dt>Lien</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv</a></dd>
+</dl>
+
+<p>Le fichier utilise l'encodage Unicode UTF-8. Le caractère de séparation des champs est &lt;tab&gt; (tabulation).</p>
+
+
+
+<h3>Export RDF</h3>
+
+<p>Les données sont également disponibles au format RDF. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">Voir l'annonce</a>.</p>
+
+<dl>
+ <dt>Lien</dt>
+ <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf</a></dd>
+</dl>
+
+<h2>API JSON (Bêta)</h2>
+
+<p>Une API JSON est également disponible pour accéder aux données d'un produit. Cette API est notamment utilisée au sein des applications Open Food Facts Android et iPhone.</p>
+
+<p>Cette API est en bêta et peut subir plusieurs modifications ou changements. N'hésitez pas à nous contacter si vous souhaitez certaines améliorations pour faciliter vos usages.</p>
+
+<p>URL à utiliser pour accéder aux données d'un produit : https://world.openfoodfacts.org/api/v0/product/<i>[barcode]</i>.json</p>
+
+<p>Exemple : <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
+
+<h2>Application Android et iPhone </h2>
+
+<p>Le code source des applications mobile Open Food Facts est accessible sur <a href="https://github.com/openfoodfacts/openfoodfacts-android/tree/master/phonegap/Open%20Food%20Facts">github</a>.
+L'application permet aux utilisateurs de scanner le code-barre d'un produit pour pour accéder à ses informations mais aussi de compléter les informations et les photos pour des produits manquants.</p>
+
+<p>L'application est développée en HTML et en Javascript en utilisant le logiciel Phonegap (Cordova), ce qui nous permet d'utiliser le même code pour toutes les plateformes mobiles.</p>
+
+<h2>Liste de diffusion pour les données, l'API et les différents exports</h2>
+
+<p>Vous pouvez vous joindre à la liste de diffusion de l'API et des exports. Partagez nous vos réutilisations et soyez informés lorsque des améliorations ou des changements sont effectués sur l'API. Envoyer un email vide à l'adresse mail <a href="mailto:api-subscribe@openfoodfacts.org">api-subscribe@openfoodfacts.org</a> pour vous inscrire.</p>
+
+<h2>Contact</h2>
+
+<p>Pour toute question sur les données, vous pouvez nous contacter à l'adresse email <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>

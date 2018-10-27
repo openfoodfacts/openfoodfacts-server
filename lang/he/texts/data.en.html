@@ -1,0 +1,87 @@
+
+<h1>נתונים</h1>
+
+<p>מסד הנתונים של Open Food Facts database זמין תחת <a href="https://opendatacommons.org/licenses/odbl/1.0/">רישיון מסדי נתונים פתוחים</a>.<br/>
+תכני מסד הנתונים לכשעצמם מוגנים תחת <a href="https://opendatacommons.org/licenses/dbcl/1.0/">רישיון תוכן מסדי נתונים</a>.<br/>
+תמונות המוצרים זמינות תחת <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">הרישיון Creative Commons Attribution ShareAlike</a>.
+כל אלו עשויים להכיל רכיבים גרפיים שכפופים לזכויות יוצרים או זכויות אחרות, שבמקרים אחרים מאפשרים יצירה מחדש (זכויות ציטוט או שימוש הוגן).</p>
+
+<p>נא לקרוא את <a href="https://world.openfoodfacts.org/terms-of-use">תנאי השימוש והגזירה</a> לפני גזירת הנתונים.</p> 
+
+
+<p>אנו מאוד מעוניינים ללמוד למה משמשים אותך הנתונים של Open Food Facts. אמנם אין חובה לכך, אך נעריך מאוד אם נוכל לשמוע ממך על הנגזרות שיצרת כדי שנוכל לשתף אותן עם קהילת Open Food Facts.</p>
+
+<h2>ייצוא הנתונים של Open Food Facts</h2>
+
+<p>אוספים ותוצרים מיוצאים של מסד הנתונים נוצרים מדי לילה.</p>
+
+<p>ניתן למצוא מידע על השדות השונים של אוספי ה־MongoDB ותוצרי ה־CSV בכתובת <a href="https://static.openfoodfacts.org/data/data-fields.txt">https://world.openfoodfacts.org/data/data-fields.txt</a></p>
+
+
+<h3>יצוא נתונים של MongoDB</h3>
+
+<p>נתוני כל המוצרים שלנו זמינים במאגר ייצור נתונים של MongoDB.</p>
+
+<dl>
+ <dt>קישור</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz">https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz</a></dd>
+ <dt>sha256sum</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/sha256sum">https://static.openfoodfacts.org/data/sha256sum</a></dd>
+ <dt>md5sum</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/md5sum">https://static.openfoodfacts.org/data/md5sum</a></dd>
+</dl>
+
+<h4>ייצוא הבדלים</h4>
+
+<p>תוצרי ייצוא של הפרשים יומיים מסופקים ל־14 הימים שחלפו. ניתן למצוא את רשימת קובצי ההבדלים הזמינים כעת תחת
+ <a href="https://static.openfoodfacts.org/data/delta/index.txt">https://static.openfoodfacts.org/data/delta/index.txt</a>.
+ כל שורה מייצגת קובץ שקיים תחת <code>https://static.openfoodfacts.org/data/delta/{filename}</code>.
+ שם הקובץ מכיל חותמת זמן יוניקס של השינוי הראשון והאחרון שבקובץ ה־JSON, כדי שניתן יהיה לייבא את קובצי ההפרש (לאחר החילוץ) בעזרת <code>mongoimport</code> בסדר אלפביתי.</p>
+<p>נא לשים לב שעקב אופן ההתנהלות של <code>mongoexport</code>, בקובצי ההפרשים לא מתועדים מוצרים שנמחקו. כדי להסיר מוצרים שהוסרו ממסד הנתונים שלך, יהיה עליך לייבא את אוסף ה־MongoDB המלא.</p>
+ 
+<h3>יצוא נתונים ב־CSV</h3>
+
+<p>הנתונים של כל המוצרים או חלקם, ניתנים להורדה בתבנית CSV (נתמכת על ידי OpenOffice, Excel ועוד) דרך <a href="https://world.openfoodfacts.org/cgi/search.pl">טופס החיפוש המתקדם</a>.</p>
+ 
+<dl>
+ <dt>קישור</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv</a></dd>
+</dl>
+
+<p>קידוד הקובץ הוא יוניקוד UTF-8. התו שמפריד את השדות הוא &lt;tab&gt; (טאב).</p>
+
+
+
+<h3>יצוא נתונים ב־RDF</h3>
+
+<p>מסד הנתונים זמין גם בתצורת RDF. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">הכרזה בצרפתית</a>.</p>
+
+<dl>
+ <dt>קישור</dt>
+ <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf</a></dd>
+</dl>
+
+<h2>API ניסיוני בתצורת JSON</h2>
+
+<p>יש גם API בתצורת JSON לקריאת נתוני המוצרים. ב־API הזה במיוחד נעשה שימוש ביישומון לנייד של Open Food Facts עבור iPhone ועבור Android.</p>
+
+<p>ה־API הזה הוא ניסיוני ועשוי להשתנות. נא לספר לנו אם נעזרת בו כדי שנוכל לספר לך על שינויים שעשויים לקרות.</p>
+
+<p>הכתובת לקריאת נתוני מוצר היא: https://world.openfoodfacts.org/api/v0/product/<i>[barcode]</i>.json</p>
+
+<p>לדוגמה: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
+
+<h2>יישומים לניידים מסוג Android ו־iPhone </h2>
+
+<p>קוד המקור של היישומון לנייד של Open Food Facts זמין ב־<a href="https://github.com/openfoodfacts/openfoodfacts-android/tree/master/phonegap/Open%20Food%20Facts">github</a>.
+היישומון מאפשר לסרוק את הברקוד של המוצרים, לצפות בפרטי המוצרים ולצלם ולשלוח תמונות ונתונים של מוצרים חסרים.</p>
+
+<p>היישומון מפותח ב־HTML וב־Javascript תודות ל־Phonegap ‏(Cordova) שמאפשר להשתמש באותו הקוד לכל הפלטפורמות הניידות.</p>
+
+<h2>רשימת דיוור לנתונים, API ותוצרי ייצוא</h2>
+
+<p>ניתן גם להצטרף לרשימות הדיונים כדי לדון ב־API ובתוצרים המיוצאים, לספר לנו על נגזרות ולקבל התרעות כשמוצגים שיפורים או שינויים ב־API. עליך לשלוח הודעת דוא״ל ריקה אל <a href="mailto:api-subscribe@openfoodfacts.org">api-subscribe@openfoodfacts.org</a> כדי להירשם.</p>
+
+<h2>יצירת קשר</h2>
+
+<p>לכל שאלה בנוגע לנתונים, ניתן ליצור אתנו קשר בכתובת <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>

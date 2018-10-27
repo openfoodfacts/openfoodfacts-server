@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -16,7 +16,7 @@
 # GNU Affero General Public License for more details.
 #
 # You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 package ProductOpener::Lang;
 
@@ -60,6 +60,11 @@ use ProductOpener::I18N;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 
+use DateTime;
+use DateTime::Locale;
+use JSON::PP;
+
+use Log::Any qw($log);
 
 sub separator_before_colon($) {
 
@@ -104,7 +109,7 @@ sub lang($) {
 	}
 }
 
-print STDERR "Lang.pm - data_root: $data_root\n";
+$log->info("initialize", { data_root => $data_root }) if $log->is_info();
 
 # generate po files from %Lang or %Site_lang
 # 18/01/2017: this function is used to generate .po files
@@ -179,7 +184,7 @@ PO
 		
 		my $langname = $Lang{"lang_$l"}{en};
 		
-		not defined $langname and print STDERR "lang_$l not defined\n";
+		$log->warn("lang_$l not defined") if $log->is_warn();
 
 		$po{$l} =~ s/\n$//;
 		
@@ -220,13 +225,13 @@ PO
 
 # Load stored %Lang from Lang.sto
 
+my $path = "$data_root/Lang.${server_domain}.sto";
+if (-e $path) {
 
-if (-e "$data_root/Lang.${server_domain}.sto") {
-
-	print STDERR "Loading \%Lang from $data_root/Lang.${server_domain}.sto\n";
+	$log->info("Loading \%Lang", { path => $path }) if $log->is_info();
 	my $lang_ref = retrieve("$data_root/Lang.${server_domain}.sto");
 	%Lang = %{$lang_ref};
-	print STDERR "Loaded \%Lang from $data_root/Lang.${server_domain}.sto\n";
+	$log->info("Loaded \%Lang", { path => $path }) if $log->is_info();
 	
 	# Initialize @Langs and $lang_lc
 	@Langs = sort keys %{$Lang{site_name}};	# any existing key can be used, as %Lang should contain values for all languages for all keys
@@ -236,13 +241,12 @@ if (-e "$data_root/Lang.${server_domain}.sto") {
 		$lang_lc{$lc} = $lc;
 		$Langs{$lc} = $Lang{"language_" . $lc}{$lc};	# Name of the language in the language itself
 	}
-	print STDERR "Loaded " . (scalar @Langs) . " languages.\n";
+	
+	$log->info("Loaded languaged", { langs => (scalar @Langs) }) if $log->is_info();
 	sleep(1);
 }
 else {
-	print STDERR "Warning - Lang.pm - $data_root/Lang.${server_domain}.sto does not exist, and %Lang will be empty.\nRun scripts/build_lang.pm\n";
-	print STDERR "Sleeping for 5 seconds so that this message is seen.\n\n";
-	sleep(5);
+	$log->warn("File does not exist, \%Lang will be empty. Run scripts/build_lang.pm to fix this.", { path => $path }) if $log->is_warn();
 }
 
 
@@ -336,8 +340,9 @@ sub build_lang($) {
 		
 	# Load the strings from the .po files
 	# UI strings, non-Roman characters can be used
-	print STDERR "Load %Lang from $data_root/po/common/\n";
-	%Lang = %{ ProductOpener::I18N::read_po_files("$data_root/po/common/") };	
+	my $path = "$data_root/po/common/";
+	$log->info("Loading common \%Lang", { path => $path });
+	%Lang = %{ ProductOpener::I18N::read_po_files($path) };	
 	
 	# Initialize %Langs and @Langs and add language names to %Lang
 	
@@ -384,18 +389,19 @@ sub build_lang($) {
 
 	# Load site specific overrides
 	# the site-specific directory can be a symlink to openfoodfacts or openbeautyfacts
-	if (-e "$data_root/po/site-specific/") {
+	my $overrides_path = "$data_root/po/site-specific/";
+	if (-e $overrides_path) {
 	
 		# Load overrides from %SiteLang
 		# %SiteLang overrides the general %Lang in Lang.pm
 
-		print STDERR "build_lang() - Load override strings from $data_root/po/site-specific/ \n";
+		$log->info("Loading site-specific overrides", { path => $overrides_path });
 				
 		my %SiteLang = %{ ProductOpener::I18N::read_po_files("$data_root/po/site-specific/") };
 
 		foreach my $key (keys %SiteLang) {
 			next if $key =~ /^:/;  # :langname, :langtag
-			print STDERR "Site specific string: $key\n";
+			$log->debug("Using site specific string", { key => $key }) if $log->is_debug();
 
 			$Lang{$key} = {};
 			foreach my $l (keys %{$SiteLang{$key}}) {
@@ -447,6 +453,32 @@ sub build_lang($) {
 				$Lang{$key}{$l} =~ s/\<\<$special_field\>\>/$value/g;
 			}
 		}
+	}
+
+	my $en_locale = DateTime::Locale->load('en');
+	my @locale_codes = DateTime::Locale->codes;
+	foreach my $l (@Langs) {
+		my $locale;
+		if ( $l ~~ @locale_codes ) {
+			$locale = DateTime::Locale->load($l);
+		}
+		else {
+			$locale = $en_locale;
+		}
+
+		my @months = ();
+		foreach my $month (1..12) {
+			push @months, DateTime->new( year => 2000, time_zone => 'UTC', month => $month, locale => $locale )->month_name;
+		}
+
+		$Lang{months}{$l} = encode_json(\@months);
+
+		my @weekdays = ();
+		foreach my $weekday (0..6) {
+			push @weekdays, DateTime->new( year => 2000, month => 1, day => (2 + $weekday), time_zone => 'UTC', locale => $locale )->day_name;
+		}
+
+		$Lang{weekdays}{$l} = encode_json(\@weekdays);
 	}
 } # build_lang
 

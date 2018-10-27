@@ -1,13 +1,24 @@
-package ProductOpener::MissionsConfig;
+# This file is part of Product Opener.
+#
+# Product Opener
+# Copyright (C) 2011-2018 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+#
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-######################################################################
-#
-#	Package	Missions
-#
-#	Author:	Stephane Gigandet
-#	Date:	05/04/12
-#
-######################################################################
+package ProductOpener::MissionsConfig;
 
 use utf8;
 use Modern::Perl '2012';
@@ -122,7 +133,7 @@ description=>"Les additifs peuvent être indiqué par leur nom, leur nom chimiqu
 conditions=>[[5,{additives_n=>{ '$gte' => 6 }}]]},
 
 {name=>'Releveur d\'empreintes', goal=>'Ajouter 3 produits avec mention de l\'empreinte carbone', thanks=>'Merci pour les empreintes !',
-description=>"Le suspect a les doigts près de charbon, à vous de mener l'enquête et de relever ses empreintes ! Des informateurs l\'auraient aperçus dernièrement dans des magasins bio et dans le rayon commerce équitable des grandes surfaces.",
+description=>"Le suspect a les doigts près de charbon, à vous de mener l'enquête et de relever ses empreintes ! Des informateurs l\'auraient aperçu dernièrement dans des magasins bio et dans le rayon commerce équitable des grandes surfaces.",
 image=>"mission-releveur-d-empreintes.png",
 conditions=>[[3,{"nutriments.carbon-footprint"=>{ '$gt' => 0 }}]]},
 

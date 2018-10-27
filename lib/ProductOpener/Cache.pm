@@ -1,13 +1,24 @@
-﻿package ProductOpener::Cache;
+﻿# This file is part of Product Opener.
+#
+# Product Opener
+# Copyright (C) 2011-2018 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+#
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-######################################################################
-#
-#	Package		Cache
-#
-#	Author:	Stephane Gigandet
-#	Date:	06/08/10
-#
-######################################################################
+package ProductOpener::Cache;
 
 use utf8;
 use Modern::Perl '2012';
@@ -32,12 +43,13 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 
 use Cache::Memcached::Fast;
+use Log::Any qw($log);
 
 
 # Initialize exported variables
 
 $memd = new Cache::Memcached::Fast {
-	'servers' => [ "127.0.0.1:11211" ],
+	'servers' => $memd_servers,
 	'utf8' => 1,
 };
 
@@ -50,8 +62,6 @@ $memd = new Cache::Memcached::Fast {
 
 use vars qw(
 );
-
-my $debug = 0 ;	# Set to a non null value to get debug messages
 
 sub get_multi_objects($)
 {
@@ -68,7 +78,7 @@ sub get_multi_objects($)
 						color => $blog_ref->{color2},
 						url => $blog_ref->{url}
 					};
-					$debug and print STDERR "Cache::get_multi_objects - $key - retrieved from disk\n";
+					$log->debug("Cache::get_multi_objects - retrieved from disk", { key => $key }) if $log->is_debug();
 					$memd->set($key, $values_ref->{$key});
 				}
 			}
@@ -79,13 +89,13 @@ sub get_multi_objects($)
 						canon_tag => $tag_ref->{canon_tag},
 						color => $tag_ref->{color2},					
 					};
-					$debug and print STDERR "Cache::get_multi_objects - $key - retrieved from disk\n";
+					$log->debug("Cache::get_multi_objects - retrieved from disk", { key => $key }) if $log->is_debug();
 					$memd->set($key, $values_ref->{$key});
 				}			
 			}
 		}
 		else {
-			$debug and print STDERR "Cache::get_multi_objects - $key - in cache\n";
+			$log->debug("Cache::get_multi_objects - in cache", { key => $key }) if $log->is_debug();
 		}
 	}
 	

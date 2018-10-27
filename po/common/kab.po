@@ -5,11 +5,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: kab\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-11-12 18:44-0500\n"
+"PO-Revision-Date: 2018-10-25 12:17\n"
 "Language-Team: Kabyle\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: \n"
 "X-Generator: crowdin.com\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: kab\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
@@ -92,11 +93,11 @@ msgstr ""
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "Imerna"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "Amernu"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
@@ -108,7 +109,7 @@ msgstr "Anadi leqqayen akked idlifen"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "Aḥiwel n ccṛab yessedram tazmert"
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -128,22 +129,23 @@ msgstr ""
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr ""
+msgstr "Asebter n ufaris yettwabeddel daɣen sɣuṛ"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
 msgstr ""
 
+# Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
+msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
 msgstr ""
 
 msgctxt "app_please_take_pictures"
@@ -153,38 +155,38 @@ msgstr ""
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr ""
+msgstr "Ṭṭef tawlaft"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr ""
+msgstr "Tazmilt: tiwlafin i d-tceyyɛeḍ ttwasiẓergent-d s turagt n Creative Commons Attribution akked ShareAlike."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr ""
+msgstr "Tzemreḍ ad ternuḍ tiwlafin"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "Igim ibedden"
 
 msgctxt "axis_y"
 msgid "Vertical axis"
-msgstr ""
+msgstr "Igim yegnen"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr ""
+msgstr "Tangalt s yifeggagen"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
 msgstr ""
 
+msgctxt "you_can_also_help_us"
+msgid "You can also help to fund the Open Food Facts project"
+msgstr ""
+
 msgctxt "bottom_content"
-msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>Contribute to <<site_name>> by adding product and win stars by\n"
-"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
+msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
 msgstr ""
 
 msgctxt "bottom_title"
@@ -193,7 +195,7 @@ msgstr ""
 
 msgctxt "brands"
 msgid "Brands"
-msgstr ""
+msgstr "Ticraḍ"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
@@ -201,7 +203,7 @@ msgstr ""
 
 msgctxt "brands_p"
 msgid "brands"
-msgstr ""
+msgstr "ticraḍ"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
@@ -209,11 +211,11 @@ msgstr ""
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "tacreḍt"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "rn u tacreḍt"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
@@ -221,11 +223,11 @@ msgstr ""
 
 msgctxt "by"
 msgid "by"
-msgstr ""
+msgstr "sɣur"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr ""
+msgstr "Taggayin"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -237,7 +239,7 @@ msgstr ""
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "taggayin"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
@@ -245,7 +247,7 @@ msgstr ""
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "taggayt"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
@@ -257,7 +259,7 @@ msgstr ""
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr ""
+msgstr "Isefka"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
@@ -319,7 +321,7 @@ msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.p
 "→ <a href=\"https://twitter.com/openfoodfacts\">Twitter</a><br/>\n"
 "→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a><br />\n"
 "→ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
-"+ <a href=\"https://www.facebook.com/groups/374350705955208/\">contributors group</a><br />\n"
+"+ <a href=\"https://www.facebook.com/groups/openfoodfacts/\">contributors group</a><br />\n"
 "</p>\n\n"
 "<p>iPhone and iPad app on the App Store:</p>\n\n"
 "<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
@@ -336,11 +338,11 @@ msgstr ""
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr ""
+msgstr "Aql-ik tettwaqneḍ-d s umiḍan-inek n Facebook"
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr ""
+msgstr "D iwiziw seg"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
@@ -352,15 +354,15 @@ msgstr ""
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr ""
+msgstr "imseɣtiyen"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr ""
+msgstr "imseɣti"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr ""
+msgstr "Timura anida yettnuzu"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
@@ -368,31 +370,31 @@ msgstr ""
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr ""
+msgstr "timura"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Ifarisen yettnuzun deg %s"
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "tamurt"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "Ifarisen yettnuzun deg %s"
 
 msgctxt "data_source"
 msgid "Data source"
-msgstr ""
+msgstr "Aɣbalu n yisefka"
 
 msgctxt "debug_p"
 msgid "debug"
-msgstr ""
+msgstr "tamseɣtayt"
 
 msgctxt "debug_s"
 msgid "debug"
-msgstr ""
+msgstr "tamseɣtayt"
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
@@ -400,31 +402,31 @@ msgstr ""
 
 msgctxt "delete_product"
 msgid "Delete a product"
-msgstr ""
+msgstr "Kkes afaris"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr ""
+msgstr "Kkes asebter"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr ""
+msgstr "Kkes tugniwin"
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr ""
+msgstr "Kkes amseqdec"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr ""
+msgstr "Yettwarna"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr ""
+msgstr "Yettwabeddel"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr ""
+msgstr "Yettwakkes"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
@@ -432,7 +434,7 @@ msgstr ""
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr ""
+msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -444,19 +446,19 @@ msgstr ""
 
 msgctxt "edit"
 msgid "edit"
-msgstr ""
+msgstr "Ẓreg"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
-msgstr ""
+msgstr "Agzul n yibeddilen"
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr ""
+msgstr "Beddel afaris"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr ""
+msgstr "Beddel asebter"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -476,27 +478,27 @@ msgstr ""
 
 msgctxt "edit_user"
 msgid "Account parameters"
-msgstr ""
+msgstr "Iɣewwaṛen n umiḍan"
 
 msgctxt "edit_user_confirm"
 msgid "<p>Your account parameters have been changed.</p>"
-msgstr ""
+msgstr "Iɣewwaṛen n umiḍan-ik ttwabeddlen"
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr ""
+msgstr "imaẓragen"
 
 msgctxt "editors_s"
 msgid "editor"
-msgstr ""
+msgstr "amaẓrag"
 
 msgctxt "email"
 msgid "e-mail address"
-msgstr ""
+msgstr "tansa n yimayl"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr ""
+msgstr "Tangalt EMB"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
@@ -504,15 +506,16 @@ msgstr ""
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr ""
+msgstr "Tangalt EMB"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr ""
+msgstr "Tangalt EMB"
 
+# Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr ""
+msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
@@ -536,15 +539,15 @@ msgstr ""
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
-msgstr ""
+msgstr "Izemzen n unekcum"
 
 msgctxt "entry_dates_s"
 msgid "Entry date"
-msgstr ""
+msgstr "Azemz n unekcum"
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "Tuccḍa"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
@@ -564,27 +567,23 @@ msgstr ""
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr ""
-
-msgctxt "error_invalid_csrf_token"
-msgid "Invalid CSRF token."
-msgstr ""
+msgstr "Ur tettwaqbal ara tansa-ya"
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr ""
+msgstr "Ur tettwaqbal ara tansa-k n Imayl"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
-msgstr ""
+msgstr "Awal uffir ilaq ad yesɛu nnig n 6 n yisekkilen"
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr ""
+msgstr "Ur yettwaqbal ara umseqdec-a"
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr ""
+msgstr "Isem n umseqdec ilaq kan ad isɛu isekkilen, uṭṭunen akked tezdit."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -648,7 +647,7 @@ msgstr ""
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
@@ -665,7 +664,7 @@ msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
 msgstr ""
 
 msgctxt "footer_and_the_facebook_group"
-msgid "and the <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook group for contributors</a>"
+msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
 msgstr ""
 
 msgctxt "footer_blog"
@@ -674,7 +673,7 @@ msgstr ""
 
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.blog.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -682,33 +681,41 @@ msgstr ""
 
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "Ttwaceyyɛen yifarisen"
 
 msgctxt "footer_data"
 msgid "Data"
-msgstr ""
+msgstr "Isefka"
 
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr ""
+msgstr "/Isefka"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr ""
+msgstr "Issin asenfaṛ"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
-msgstr ""
+msgstr "Isteqsiyen yezgan"
 
 msgctxt "footer_faq_link"
 msgid "/faq"
+msgstr ""
+
+msgctxt "footer_translators"
+msgid "Translators"
+msgstr ""
+
+msgctxt "footer_translators_link"
+msgid "/cgi/top_translators.pl"
 msgstr ""
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
-msgstr ""
+msgstr "Ḍefṛet-aɣ-d deg <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>, <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -724,19 +731,19 @@ msgstr ""
 
 msgctxt "footer_legal"
 msgid "Legal"
-msgstr ""
+msgstr "Usḍif"
 
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr ""
+msgstr "/usḍif"
 
 msgctxt "footer_press"
 msgid "Press"
-msgstr ""
+msgstr "Taɣamsa"
 
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr ""
+msgstr "/taɣamsa"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -744,47 +751,47 @@ msgstr ""
 
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr ""
+msgstr "Tiwtilin n useqdec"
 
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/tiwtilin n useqdec"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
-msgstr ""
+msgstr "Anwa- ɣ"
 
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "/anwa- ɣ"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
-msgstr ""
+msgstr "<site_name> wiki (kab)"
 
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://en.wiki.openfoodfacts.org"
 
 msgctxt "for"
 msgid "for"
-msgstr ""
+msgstr "i"
 
 msgctxt "front_alt"
 msgid "Product"
-msgstr ""
+msgstr "Afaris"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr ""
+msgstr "Isem amezdi"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
-msgstr ""
+msgstr "Taplakt n ccakula yettwaxedmen s uyefki akked ubelluḍ fransis"
 
 msgctxt "goodbye"
 msgid "See you soon!"
-msgstr ""
+msgstr "Ar tikkelt-nniḍen!"
 
 msgctxt "graph_count"
 msgid "%d products match the search criterias, of which %i products have defined values for the graph's axis."
@@ -813,31 +820,31 @@ msgstr ""
 
 msgctxt "hello"
 msgid "Hello"
-msgstr ""
+msgstr "Azul"
 
 msgctxt "high"
 msgid "high"
-msgstr ""
+msgstr "Aṭas"
 
 msgctxt "high_quantity"
 msgid "high quantity"
-msgstr ""
+msgstr "S waṭas"
 
 msgctxt "history"
 msgid "Changes history"
-msgstr ""
+msgstr "Tasmektit n yibeddilen"
 
 msgctxt "image_front"
 msgid "Front picture"
-msgstr ""
+msgstr "Tawlaft n deffir"
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
-msgstr ""
+msgstr "Tawlaft n yisufar"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
-msgstr ""
+msgstr "Ma yella teṣfa tewlaft, isufar zemren ad ttwakksen s ttawil awurman"
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
@@ -845,11 +852,11 @@ msgstr ""
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
-msgstr ""
+msgstr "Tettwaceyyeɛ-d yakkan tewlaft-a"
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
-msgstr ""
+msgstr "Bezzaf i meẓẓiyet tewlaft-a. Ma ulac aɣilif, ur d-ggar ara tiwlafin yellan deg Internet, meɛna ceyyeɛ-d kan tiwlafin i tṣewṛeḍ."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
@@ -866,15 +873,15 @@ msgstr ""
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
-msgstr ""
+msgstr "Ifarisen i d-terniḍ, widak ilaqen ad ttwakemlen"
 
 msgctxt "informers_p"
 msgid "informers"
-msgstr ""
+msgstr "Imsulɣa"
 
 msgctxt "informers_s"
 msgid "informers"
-msgstr ""
+msgstr "Imsulɣa"
 
 msgctxt "ingredients"
 msgid "Ingredients"
@@ -886,11 +893,11 @@ msgstr "Isufar"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
-msgstr ""
+msgstr "Tasleḍt n yisufar"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
-msgstr ""
+msgstr "Tazmilt: isufar zemren ad sɛun aṭas n yismawen yemgaraden, di leɛya-nwen sɛelmet-aɣ-d ma yella twalam belli ur tṣeḥḥi ara tesleḍt-a."
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
@@ -902,7 +909,7 @@ msgstr ""
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr ""
+msgstr "isufar n zzit n palm"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
@@ -910,7 +917,7 @@ msgstr ""
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
-msgstr ""
+msgstr "Amḍan n yisufar"
 
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
@@ -918,7 +925,7 @@ msgstr ""
 
 msgctxt "ingredients_p"
 msgid "ingredients"
-msgstr ""
+msgstr "isufar"
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
@@ -926,15 +933,15 @@ msgstr ""
 
 msgctxt "ingredients_s"
 msgid "ingredient"
-msgstr ""
+msgstr "Asufer"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
-msgstr ""
+msgstr "Umuɣ n yisufar"
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
-msgstr ""
+msgstr "Ttwasizewren yisufar seg win yesɛan azal meqqṛen ar umeẓẓyan"
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
@@ -961,7 +968,7 @@ msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" 
 msgstr ""
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
+msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
 msgstr ""
 
 msgctxt "known_nutrients_p"
@@ -974,7 +981,7 @@ msgstr ""
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr ""
+msgstr "Tibzimin,tasilkant,tarrazt"
 
 msgctxt "labels_example"
 msgid "Organic"
@@ -986,7 +993,7 @@ msgstr ""
 
 msgctxt "labels_p"
 msgid "labels"
-msgstr ""
+msgstr "tibzimin"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
@@ -994,11 +1001,11 @@ msgstr ""
 
 msgctxt "labels_s"
 msgid "label"
-msgstr ""
+msgstr "tabzimt"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
-msgstr ""
+msgstr "rnu tabzimt"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
@@ -1006,7 +1013,7 @@ msgstr ""
 
 msgctxt "lang"
 msgid "Main language"
-msgstr ""
+msgstr "Tutlayt tagejdant"
 
 msgctxt "lang_ar"
 msgid "Arabic"
@@ -1014,7 +1021,7 @@ msgstr "Taɛrabt"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
-msgstr ""
+msgstr "Tabulgarit"
 
 msgctxt "lang_cs"
 msgid "Czech"
@@ -1042,7 +1049,7 @@ msgstr "Taspanit"
 
 msgctxt "lang_et"
 msgid "Estonian"
-msgstr ""
+msgstr "Tasṭunit"
 
 msgctxt "lang_fi"
 msgid "Finnish"
@@ -1054,7 +1061,7 @@ msgstr "Tafransist"
 
 msgctxt "lang_ga"
 msgid "Irish"
-msgstr ""
+msgstr "Tirlandit"
 
 msgctxt "lang_he"
 msgid "Hebrew"
@@ -1062,11 +1069,11 @@ msgstr "Taɛebrit"
 
 msgctxt "lang_hu"
 msgid "Hungarian"
-msgstr ""
+msgstr "Tahungarit"
 
 msgctxt "lang_id"
 msgid "Indonesian"
-msgstr ""
+msgstr "Tandunizit"
 
 msgctxt "lang_it"
 msgid "Italian"
@@ -1082,7 +1089,7 @@ msgstr "Takurit"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
-msgstr ""
+msgstr "Taliṭunit"
 
 msgctxt "lang_lv"
 msgid "Latvian"
@@ -1090,7 +1097,7 @@ msgstr "Taliṭunit"
 
 msgctxt "lang_mt"
 msgid "Maltese"
-msgstr ""
+msgstr "Tamaltit"
 
 msgctxt "lang_nl"
 msgid "Dutch"
@@ -1110,7 +1117,7 @@ msgstr ""
 
 msgctxt "lang_pl"
 msgid "Polish"
-msgstr ""
+msgstr "Tapulandit"
 
 msgctxt "lang_pt"
 msgid "Portuguese"
@@ -1118,7 +1125,7 @@ msgstr "Tapurtugit"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
-msgstr ""
+msgstr "Tapurtugit n Purtugal"
 
 msgctxt "lang_ro"
 msgid "Romanian"
@@ -1130,11 +1137,11 @@ msgstr "Tarusit"
 
 msgctxt "lang_sk"
 msgid "Slovak"
-msgstr ""
+msgstr "Tasluvakt"
 
 msgctxt "lang_sl"
 msgid "Slovenian"
-msgstr ""
+msgstr "Tasluvinit"
 
 msgctxt "lang_sv"
 msgid "Swedish"
@@ -1142,11 +1149,11 @@ msgstr "Taswidit"
 
 msgctxt "lang_th"
 msgid "Thai"
-msgstr ""
+msgstr "Taṭaylandit"
 
 msgctxt "lang_vi"
 msgid "Vietnamese"
-msgstr ""
+msgstr "Tavyitnamit"
 
 msgctxt "lang_zh"
 msgid "Chinese"
@@ -1154,15 +1161,15 @@ msgstr "Tacinwat"
 
 msgctxt "language"
 msgid "en-US"
-msgstr ""
+msgstr "en-US"
 
 msgctxt "languages_p"
 msgid "languages"
-msgstr ""
+msgstr "tutlayin"
 
 msgctxt "languages_s"
 msgid "language"
-msgstr ""
+msgstr "tutlayt"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
@@ -1229,7 +1236,7 @@ msgstr ""
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "Qqen"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
@@ -1262,7 +1269,7 @@ msgstr ""
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr ""
+msgstr "Amḍiq anda yettwegg neɣ i ttwasmiti"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
@@ -1270,7 +1277,7 @@ msgstr ""
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
-msgstr ""
+msgstr "amḍiq anda yettwegg neɣ i ttwasmiti"
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
@@ -1294,11 +1301,11 @@ msgstr ""
 
 msgctxt "map_title"
 msgid "Map title"
-msgstr ""
+msgstr "Azwel n tkerḍa"
 
 msgctxt "menu"
 msgid "Menu"
-msgstr ""
+msgstr "Umuɣ"
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
@@ -1306,7 +1313,7 @@ msgstr "Rnu afaris"
 
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr ""
+msgstr "/ Rnu afaris"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -1314,7 +1321,7 @@ msgstr "Ttekki"
 
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/Ttekki"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1322,31 +1329,31 @@ msgstr "Wali"
 
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/Issin-d"
 
 msgctxt "mission_"
 msgid "Mission: "
-msgstr ""
+msgstr "Leqdic"
 
 msgctxt "mission_accomplished_by"
 msgid "This mission has been completed by:"
-msgstr ""
+msgstr "Ifukk leqdic-a sɣuṛ"
 
 msgctxt "mission_accomplished_by_n"
 msgid "Completed by %d persons."
-msgstr ""
+msgstr "Ifukk leqdic-a sɣur %d n yimdanen"
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
-msgstr ""
+msgstr "Ili-k d amenzu ara ifakken leqdic-a!"
 
 msgctxt "mission_goal"
 msgid "Goal:"
-msgstr ""
+msgstr "Iswi:"
 
 msgctxt "missions"
 msgid "Missions"
-msgstr ""
+msgstr "Leqdicat"
 
 msgctxt "moderate"
 msgid "moderate"
@@ -1354,10 +1361,6 @@ msgstr ""
 
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
-msgstr ""
-
-msgctxt "months"
-msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
 msgstr ""
 
 msgctxt "move_images_to_another_product"
@@ -1370,11 +1373,11 @@ msgstr ""
 
 msgctxt "name"
 msgid "Name"
-msgstr ""
+msgstr "Isem"
 
 msgctxt "names"
 msgid "Names"
-msgstr ""
+msgstr "Ismawen"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
@@ -1390,7 +1393,7 @@ msgstr ""
 
 msgctxt "next"
 msgid "Next"
-msgstr ""
+msgstr "Ɣer sdat"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
@@ -1400,13 +1403,21 @@ msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
 msgstr ""
 
+msgctxt "multiple_nutrition_data"
+msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
+msgstr ""
+
+msgctxt "multiple_nutrition_data_instructions"
+msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
+msgstr ""
+
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
 msgstr ""
 
 msgctxt "no_products"
 msgid "No products."
-msgstr ""
+msgstr "Ulac ifarisen."
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
@@ -1414,20 +1425,21 @@ msgstr ""
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
-msgstr ""
+msgstr "Amḍan n yimerna"
 
 msgctxt "number_of_products"
 msgid "Number of products"
-msgstr ""
+msgstr "Amḍan n yifarisen"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr ""
+msgstr "%s di %s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
 msgstr ""
 
+# Ensure it is the same translation as in the translation in the tag file. If unsure, DO NOT TRANSLATE, otherwise it will break the site
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
 msgstr ""
@@ -1553,10 +1565,12 @@ msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr ""
 
+# Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 
+# Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
@@ -1564,7 +1578,7 @@ msgstr ""
 
 msgctxt "on_the_blog_title"
 msgid "News"
-msgstr ""
+msgstr "Isallen"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
@@ -1573,15 +1587,15 @@ msgstr ""
 
 msgctxt "or"
 msgid "or:"
-msgstr ""
+msgstr "neɣ:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
-msgstr ""
+msgstr "Cetla n isufar"
 
 msgctxt "origins_example"
 msgid "California, USA"
-msgstr ""
+msgstr "Kalifurnya, USA"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
@@ -1597,7 +1611,7 @@ msgstr ""
 
 msgctxt "origins_s"
 msgid "origin of ingredients"
-msgstr ""
+msgstr "cetla n isufar"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
@@ -1609,7 +1623,7 @@ msgstr ""
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "Asekrud"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -1621,7 +1635,7 @@ msgstr ""
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr ""
+msgstr "asekrud"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
@@ -1629,7 +1643,7 @@ msgstr ""
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr ""
+msgstr "asekrud"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -1641,23 +1655,23 @@ msgstr ""
 
 msgctxt "page_x"
 msgid "Page %d"
-msgstr ""
+msgstr "Asebter %d"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
-msgstr ""
+msgstr "Asebter %d seg %d."
 
 msgctxt "pages"
 msgid "Pages:"
-msgstr ""
+msgstr "Isebtar:"
 
 msgctxt "password"
 msgid "Password"
-msgstr ""
+msgstr "Tasarut"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
-msgstr ""
+msgstr "Sentem awal uffir"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
@@ -1685,27 +1699,27 @@ msgstr ""
 
 msgctxt "pnns_groups_1"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "Igrawen PNNS 1"
 
 msgctxt "pnns_groups_1_p"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "Igrawen PNNS 1"
 
 msgctxt "pnns_groups_1_s"
 msgid "PNNS group 1"
-msgstr ""
+msgstr "Igrawen PNNS 1"
 
 msgctxt "pnns_groups_2"
 msgid "PNNS groups 2"
-msgstr ""
+msgstr "Igrawen PNNS 2"
 
 msgctxt "pnns_groups_2_p"
 msgid "PNNS groups 2"
-msgstr ""
+msgstr "Igrawen PNNS 2"
 
 msgctxt "pnns_groups_2_s"
 msgid "PNNS group 2"
-msgstr ""
+msgstr "Igrawen PNNS 2"
 
 msgctxt "points_all_countries"
 msgid "There are %d Explorers and %d Ambassadors."
@@ -1733,7 +1747,7 @@ msgstr ""
 
 msgctxt "previous"
 msgid "Previous"
-msgstr ""
+msgstr "Γer deffir"
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
@@ -1825,39 +1839,39 @@ msgstr ""
 
 msgctxt "product_js_image_saving"
 msgid "Saving image"
-msgstr ""
+msgstr "Asekles n tugna"
 
 msgctxt "product_js_image_upload_error"
 msgid "Error while uploading image"
-msgstr ""
+msgstr "Tella-d tuccḍa i mi d nessidir tugna"
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
-msgstr ""
+msgstr "Tawlaft tres ɣef udeffir amella: ɛreḍ ad tekkseḍ adeffir-nni"
 
 msgctxt "product_js_images_delete_error"
 msgid "Errors while deleting images"
-msgstr ""
+msgstr "Tella tuccḍa i mi nettekkes tugniwin-nni"
 
 msgctxt "product_js_images_deleted"
 msgid "Images deleted"
-msgstr ""
+msgstr "Ttwakksent tugniwin-nni"
 
 msgctxt "product_js_images_move_error"
 msgid "Errors while moving images"
-msgstr ""
+msgstr "Tella-d tuccḍa i mi nettbeddil adeg n tugniwin-nni"
 
 msgctxt "product_js_images_moved"
 msgid "Images moved"
-msgstr ""
+msgstr "Yettwabeddel wadeg n tugniwin"
 
 msgctxt "product_js_moving_images"
 msgid "Moving images"
-msgstr ""
+msgstr "Abeddel n wadeg n tugniwin"
 
 msgctxt "product_js_upload_image"
 msgid "Add a picture"
-msgstr ""
+msgstr "Rnu tawlaft"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
@@ -1865,15 +1879,15 @@ msgstr ""
 
 msgctxt "product_js_uploading_image"
 msgid "Uploading image"
-msgstr ""
+msgstr "Asider n tugniwin"
 
 msgctxt "product_last_edited"
 msgid "Last edit of product page on"
-msgstr ""
+msgstr "Abeddel aneggaru n usebter n ufaris deg "
 
 msgctxt "product_name"
 msgid "Product name"
-msgstr ""
+msgstr "Isem n ufaris"
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
@@ -1881,19 +1895,19 @@ msgstr ""
 
 msgctxt "products"
 msgid "products"
-msgstr ""
+msgstr "Ifarisen"
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
-msgstr ""
+msgstr "Anerni n umḍan n yifarisen deg <<site_name>>"
 
 msgctxt "products_stats_completed_t"
 msgid "Products with complete information"
-msgstr ""
+msgstr "Ifarisen s yisallen yennekmalen"
 
 msgctxt "products_stats_created_t"
 msgid "Products"
-msgstr ""
+msgstr "Ifarisen"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
@@ -1901,27 +1915,27 @@ msgstr ""
 
 msgctxt "products_you_edited"
 msgid "Products you added or edited"
-msgstr ""
+msgstr "Iafrisen i terniḍ neɣ i tbeddleḍ"
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr ""
+msgstr "Aɣrem,awanak d tamurt n tiɣin"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
-msgstr ""
+msgstr "Sken-d anida i d-tuɣeḍ neɣ anda i twalaḍ afaris (xeṛṣum isem n tmurt)"
 
 msgctxt "purchase_places_p"
 msgid "purchase places"
-msgstr ""
+msgstr "Aɣ-d imukan"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr ""
+msgstr "Ifarisen yettnuzun deg %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
-msgstr ""
+msgstr "Aɣ-d amkan"
 
 msgctxt "purchase_places_tagsinput"
 msgid "add a place"
@@ -1929,7 +1943,7 @@ msgstr ""
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr ""
+msgstr "Ifarisen yettnuzun deg %s"
 
 msgctxt "quantity"
 msgid "Quantity"
@@ -1941,15 +1955,15 @@ msgstr ""
 
 msgctxt "remember_me"
 msgid "Remember me"
-msgstr ""
+msgstr "Cfu fell-i"
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
-msgstr ""
+msgstr "Cfu ɣef umkan n tiɣin akked tḥanutt i ufaris i d-iteddun"
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr ""
+msgstr "Beddel tasarutt"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -1969,19 +1983,19 @@ msgstr ""
 
 msgctxt "reset_password_reset"
 msgid "Your password has been changed. You can now log-in with this password."
-msgstr ""
+msgstr "Ttettwabeddel tsarutt-inek. Tzemreḍ tura ad tkecmeḍ s tsarutt-ik tamaynutt"
 
 msgctxt "reset_password_reset_msg"
 msgid "Enter a new password."
-msgstr ""
+msgstr "Ger tasarutt tamaynutt"
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
-msgstr ""
+msgstr "Nceyyeɛ-ak-d yiwen n lmayl yesɛa aseqqen swayes ara tbeddleḍ tasarutt-inek. Annect-a yettwaceyyeɛ-ak-d ar tansa-k yeqqnen ar umiḍan-inek"
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
-msgstr ""
+msgstr "Ma yella ur tecfiḍ ara ɣef tsarutt-inek, ger isem n useqdec neɣ lmayl-inek, nekni ad ak-d-nceyyeɛ amwelleh ara k-yawin ad tbeddleḍ tasarutt-inek"
 
 msgctxt "risk_level"
 msgid "Risk"
@@ -1989,7 +2003,7 @@ msgstr ""
 
 msgctxt "risk_level_0"
 msgid "To be completed"
-msgstr ""
+msgstr "Ilad ad yemmed"
 
 msgctxt "risk_level_1"
 msgid "Low risks"
@@ -2009,15 +2023,15 @@ msgstr ""
 
 msgctxt "save"
 msgid "Save"
-msgstr ""
+msgstr "Sekles"
 
 msgctxt "saved"
 msgid "Saved."
-msgstr ""
+msgstr "Yettwasekles"
 
 msgctxt "saving"
 msgid "Saving."
-msgstr ""
+msgstr "Asekles"
 
 msgctxt "search"
 msgid "Search"
@@ -2025,7 +2039,7 @@ msgstr "Nadi"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
-msgstr ""
+msgstr "Nadi afaris"
 
 msgctxt "search_button"
 msgid "Search"
@@ -2033,7 +2047,7 @@ msgstr "Nadi"
 
 msgctxt "search_contains"
 msgid "contains"
-msgstr ""
+msgstr "igber"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
@@ -2045,15 +2059,15 @@ msgstr ""
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
-msgstr ""
+msgstr "ur igbir ara"
 
 msgctxt "search_download_button"
 msgid "Download"
-msgstr ""
+msgstr "Asider"
 
 msgctxt "search_download_choice"
 msgid "Download results"
-msgstr ""
+msgstr "Asider n yigemmaḍ"
 
 msgctxt "search_download_results"
 msgid "Download results in CSV format (Excel, OpenOffice)"
@@ -2162,7 +2176,7 @@ msgstr ""
 
 msgctxt "search_or"
 msgid "or"
-msgstr ""
+msgstr "neɣ"
 
 msgctxt "search_page_size"
 msgid "Results per page"
@@ -2258,15 +2272,15 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Tamurt"
 
 msgctxt "select_lang"
 msgid "Language"
-msgstr ""
+msgstr "Tutlayt"
 
 msgctxt "send_image"
 msgid "Send a picture..."
-msgstr ""
+msgstr "Azen tawlaft..."
 
 msgctxt "send_image_error"
 msgid "Upload error"
@@ -2278,7 +2292,7 @@ msgstr ""
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr ""
+msgstr "Tiddi n tunt"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2286,11 +2300,11 @@ msgstr ""
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "Qqen"
 
 msgctxt "share"
 msgid "Share"
-msgstr ""
+msgstr "Bḍu"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
@@ -2306,7 +2320,7 @@ msgstr ""
 
 msgctxt "signout"
 msgid "Sign-out"
-msgstr ""
+msgstr "Sens"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
@@ -2314,7 +2328,7 @@ msgstr ""
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr ""
+msgstr "Ldi Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
@@ -2334,7 +2348,7 @@ msgstr ""
 
 msgctxt "sort_product_name"
 msgid "Product name"
-msgstr ""
+msgstr "Isem n ufaris"
 
 msgctxt "state"
 msgid "State"
@@ -2350,7 +2364,7 @@ msgstr ""
 
 msgctxt "stores"
 msgid "Stores"
-msgstr ""
+msgstr "Taḥanutt"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2358,7 +2372,7 @@ msgstr ""
 
 msgctxt "stores_p"
 msgid "stores"
-msgstr ""
+msgstr "taḥanutt"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
@@ -2366,7 +2380,7 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "taḥanutt"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2386,7 +2400,7 @@ msgstr ""
 
 msgctxt "tag_contains"
 msgid "Contains:"
-msgstr ""
+msgstr "Igber:"
 
 msgctxt "tag_weblinks"
 msgid "Weblinks"
@@ -2398,11 +2412,11 @@ msgstr ""
 
 msgctxt "tagstable_search"
 msgid "Search:"
-msgstr ""
+msgstr "Nadi:"
 
 msgctxt "traces"
 msgid "Traces"
-msgstr ""
+msgstr "Limaṛat"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
@@ -2414,7 +2428,7 @@ msgstr ""
 
 msgctxt "traces_p"
 msgid "traces"
-msgstr ""
+msgstr "limaṛat"
 
 msgctxt "traces_s"
 msgid "trace"
@@ -2521,16 +2535,12 @@ msgctxt "website"
 msgid "Site or blog address"
 msgstr ""
 
-msgctxt "weekdays"
-msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
-msgstr ""
-
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
+msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
 msgstr ""
 
 msgctxt "you_are_connected_as_x"
@@ -2617,14 +2627,6 @@ msgctxt "sources_usda_ndb_product_page"
 msgid "Product page on USDA NDB"
 msgstr ""
 
-msgctxt "donate"
-msgid "Donate to Open Food Facts"
-msgstr ""
-
-msgctxt "donate_link"
-msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr ""
-
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
 msgstr ""
@@ -2639,5 +2641,273 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " — "
+msgstr ""
+
+msgctxt "recent_changes"
+msgid "Recent Changes"
+msgstr ""
+
+msgctxt "translators_title"
+msgid "Our Translators"
+msgstr ""
+
+msgctxt "translators_lead"
+msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
+msgstr ""
+
+msgctxt "translators_renewal_notice"
+msgid "Please note that this table is refreshed nightly and might be out of date."
+msgstr ""
+
+msgctxt "translators_column_name"
+msgid "Name"
+msgstr "Isem"
+
+msgctxt "translators_column_translated_words"
+msgid "Translated (Words)"
+msgstr ""
+
+msgctxt "translators_column_target_words"
+msgid "Target Words"
+msgstr ""
+
+msgctxt "translators_column_approved_words"
+msgid "Approved (Words)"
+msgstr ""
+
+msgctxt "translators_column_votes_made"
+msgid "Votes Made"
+msgstr ""
+
+msgctxt "minerals_p"
+msgid "added minerals"
+msgstr ""
+
+msgctxt "minerals_s"
+msgid "added mineral"
+msgstr ""
+
+msgctxt "vitamins_p"
+msgid "added vitamins"
+msgstr ""
+
+msgctxt "vitamins_s"
+msgid "added vitamin"
+msgstr ""
+
+msgctxt "amino_acids_p"
+msgid "added amino acids"
+msgstr ""
+
+msgctxt "amino_acids_s"
+msgid "added amino acid"
+msgstr ""
+
+msgctxt "nucleotides_p"
+msgid "added nucleotides"
+msgstr ""
+
+msgctxt "nucleotides_s"
+msgid "added nucleotide"
+msgstr ""
+
+msgctxt "other_nutritional_substances_p"
+msgid "other nutritional substances added"
+msgstr ""
+
+msgctxt "other_nutritional_substances_s"
+msgid "other nutritional substance added"
+msgstr ""
+
+msgctxt "product_as_sold"
+msgid "As sold"
+msgstr ""
+
+msgctxt "prepared_product"
+msgid "Prepared"
+msgstr ""
+
+msgctxt "unit"
+msgid "Unit"
+msgstr ""
+
+msgctxt "nutrition_data_exists"
+msgid "Nutrition facts are specified for the product as sold."
+msgstr ""
+
+msgctxt "nutrition_data_prepared_exists"
+msgid "Nutrition facts are specified for the prepared product."
+msgstr ""
+
+msgctxt "nova_groups_s"
+msgid "NOVA group"
+msgstr ""
+
+msgctxt "nova_groups_p"
+msgid "NOVA groups"
+msgstr ""
+
+msgctxt "footer_partners"
+msgid "Partners"
+msgstr ""
+
+msgctxt "footer_partners_link"
+msgid "/partners"
+msgstr ""
+
+msgctxt "adults"
+msgid "Adults"
+msgstr ""
+
+msgctxt "adults_age"
+msgid "18 to 64"
+msgstr ""
+
+msgctxt "adults_description"
+msgid "From 18 years up to and including 64 years of age"
+msgstr ""
+
+msgctxt "elderly"
+msgid "Elderly"
+msgstr ""
+
+msgctxt "elderly_age"
+msgid "65+"
+msgstr ""
+
+msgctxt "elderly_description"
+msgid "From 65 years of age and older"
+msgstr ""
+
+msgctxt "adolescents"
+msgid "Adolescents"
+msgstr ""
+
+msgctxt "adolescents_age"
+msgid "10 to 17"
+msgstr ""
+
+msgctxt "adolescents_description"
+msgid "From 10 years up to and including 17 years of age"
+msgstr ""
+
+msgctxt "children"
+msgid "Children"
+msgstr ""
+
+msgctxt "children_age"
+msgid "3 to 9"
+msgstr ""
+
+msgctxt "children_description"
+msgid "From 36 months up to and including 9 years of age"
+msgstr ""
+
+msgctxt "toddlers"
+msgid "Toddlers"
+msgstr ""
+
+msgctxt "toddlers_age"
+msgid "1 to 2"
+msgstr ""
+
+msgctxt "toddlers_description"
+msgid "From 12 months up to and including 35 months of age"
+msgstr ""
+
+msgctxt "infants"
+msgid "Infants"
+msgstr ""
+
+msgctxt "infants_age"
+msgid "< 1"
+msgstr ""
+
+msgctxt "infants_description"
+msgid "From more than 12 weeks up to and including 11 months of age"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation"
+msgid "EFSA evaluation"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_title"
+msgid "Risk of overexposure"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_high"
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_description"
+msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
+msgid "%d products with %s"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_no"
+msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
+msgid "High risk of over exposure"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
+msgid "Moderate risk of over exposure"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
+msgid "Risk of exceeding the acceptable daily intake (ADI)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
+msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
+msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
+msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
+msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_noael"
+msgid "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr ""
+
+msgctxt "exposure_title_95th"
+msgid "Some people"
+msgstr ""
+
+msgctxt "exposure_description_95th"
+msgid "over 5%"
+msgstr ""
+
+msgctxt "exposure_title_mean"
+msgid "Most people"
+msgstr ""
+
+msgctxt "exposure_description_mean"
+msgid "over 50%"
+msgstr ""
+
+msgctxt "wikipedia"
+msgid "Wikipedia"
+msgstr ""
+
+msgctxt "additives_classes"
+msgid "Functions"
 msgstr ""
 

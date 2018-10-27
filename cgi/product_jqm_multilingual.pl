@@ -1,4 +1,24 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
+
+# This file is part of Product Opener.
+# 
+# Product Opener
+# Copyright (C) 2011-2018 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# 
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# 
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use Modern::Perl '2012';
 use utf8;
@@ -29,10 +49,9 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+use Log::Any qw($log);
 
 ProductOpener::Display::init();
-
-$debug = 1;
 
 my $comment = '(app)';
 
@@ -42,11 +61,11 @@ my %response = ();
 
 my $code = normalize_code(param('code'));
 
-$debug and print STDERR "product_jqm2.pl - code $code - lc $lc\n";
+$log->debug("start", { code => $code, lc => $lc }) if $log->is_debug();
 
 if ($code !~ /^\d+$/) {
 
-	$debug and print STDERR "product_jqm2.pl - invalid code $code \n";
+	$log->info("invalid code", { code => $code }) if $log->is_info();
 	$response{status} = 0;
 	$response{status_verbose} = 'no code or invalid code';
 
@@ -62,7 +81,25 @@ else {
 
 	# Process edit rules
 	
-	process_product_edit_rules($product_ref);	
+	$log->debug("phase 0 - checking edit rules", { code => $code}) if $log->is_debug();
+	
+	my $proceed_with_edit = process_product_edit_rules($product_ref);
+
+	$log->debug("phase 0", { code => $code, proceed_with_edit => $proceed_with_edit }) if $log->is_debug();
+
+	if (not $proceed_with_edit) {
+	
+		$response{status} = 0;
+		$response{status_verbose} = 'Edit against edit rules';
+
+
+		my $data =  encode_json(\%response);
+			
+		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+
+		exit(0);		
+		
+	}
 	
 	#my @app_fields = qw(product_name brands quantity);
 	my @app_fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
@@ -81,7 +118,56 @@ else {
 	
 	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text','lang') {
 	
-		if (defined param($field)) {
+		# 11/6/2018 --> force add_brands and add_countries for yuka / kiliweb
+		if ((defined $User_id) and ($User_id eq 'kiliweb')
+			and (defined param($field))
+			and (($field eq 'brands') or ($field eq 'countries'))) {
+		
+			param(-name => "add_" . $field, -value => param($field));
+			print STDERR "product_jqm_multilingual.pm - yuka / kiliweb - force $field -> add_$field - code: $code\n";
+		
+		}
+	
+		# add_brands=additional brand : only add if it does not exist yet
+		if ((defined $tags_fields{$field}) and (defined param("add_$field"))) {
+		
+			my $additional_fields = remove_tags_and_quote(decode utf8=>param("add_$field"));
+			
+			print STDERR "product_jqm_multilingual.pl - lc: $lc - adding value to field $field - additional: $additional_fields - existing: $product_ref->{$field}\n";			
+			
+			my $current_field = $product_ref->{$field};
+
+			my %existing = ();
+			foreach my $tagid (@{$product_ref->{$field . "_tags"}}) {
+				$existing{$tagid} = 1;
+			}	
+			
+			foreach my $tag (split(/,/, $additional_fields)) {
+
+				my $tagid;
+
+				if (defined $taxonomy_fields{$field}) {
+					$tagid = get_taxonomyid(canonicalize_taxonomy_tag($lc, $field, $tag));
+				}
+				else {
+					$tagid = get_fileid($tag);
+				}
+				if (not exists $existing{$tagid}) {
+					print STDERR "product_jqm_multilingual.pl - adding $tagid to $field: $product_ref->{$field}\n";
+					$product_ref->{$field} .= ", $tag";
+				}
+				
+			}
+			
+			if ($product_ref->{$field} =~ /^, /) {
+				$product_ref->{$field} = $';
+			}			
+			
+			compute_field_tags($product_ref, $field);			
+			
+		}
+	
+		elsif (defined param($field)) {
 			$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
 			
 			if ((defined $language_fields{$field}) and (defined $product_ref->{lc})) {
@@ -139,12 +225,12 @@ else {
 		}
 	}	
 	
+	compute_languages($product_ref); # need languages for allergens detection and cleaning ingredients
 	
 	# Ingredients classes
+	clean_ingredients_text($product_ref);
 	extract_ingredients_from_text($product_ref);
 	extract_ingredients_classes_from_text($product_ref);
-
-	compute_languages($product_ref); # need languages for allergens detection
 	detect_allergens_from_text($product_ref);
 	
 	# Nutrition data
@@ -163,7 +249,7 @@ else {
 		next if $nid =~ /_/;
 		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})) {
 			push @unknown_nutriments, $nid;
-			print STDERR "product.pl - unknown_nutriment: $nid\n";
+			$log->debug("unknown nutrient", { nid => $nid }) if $log->is_debug();
 		}
 	}
 	
@@ -233,7 +319,7 @@ else {
 		my $new_nid = undef;
 		if ((defined $label) and ($label ne '')) {
 			$new_nid = canonicalize_nutriment($lc,$label);
-			print STDERR "product_multilingual.pl - unknown nutrient $nid (lc: $lc) -> canonicalize_nutriment: $new_nid\n";
+			$log->debug("unknown nutrient", { nid => $nid, lc => $lc, canonicalize_nutriment => $new_nid }) if $log->is_debug();
 			
 			if ($new_nid ne $nid) {
 				delete $product_ref->{nutriments}{$nid};
@@ -243,7 +329,7 @@ else {
 				delete $product_ref->{nutriments}{$nid . "_label"};
 				delete $product_ref->{nutriments}{$nid . "_100g"};
 				delete $product_ref->{nutriments}{$nid . "_serving"};			
-				print STDERR "product_multilingual.pl - unknown nutrient $nid (lc: $lc) -> known $new_nid\n";
+				$log->debug("unknown nutrient, but known canonical new id", { nid => $nid, lc => $lc, canonicalize_nutriment => $new_nid }) if $log->is_debug();
 				$nid = $new_nid;
 			}
 			$product_ref->{nutriments}{$nid . "_label"} = $label;
@@ -286,7 +372,7 @@ else {
 	
 	if ($no_nutrition_data) {
 		# Delete all non-carbon-footprint nids.
-		foreach my $key (keys $product_ref->{nutriments}) {
+		foreach my $key (keys %{$product_ref->{nutriments}}) {
 			next if $key =~ /_/;
 			next if $key eq 'carbon-footprint';
 
@@ -302,13 +388,15 @@ else {
 
 	# Compute nutrition data per 100g and per serving
 	
-	$admin and print STDERR "compute_serving_size_date\n";
+	$log->trace("compute_serving_size_date") if ($admin and $log->is_trace());
 	
 	fix_salt_equivalent($product_ref);
 		
 	compute_serving_size_data($product_ref);
 	
 	compute_nutrition_score($product_ref);
+	
+	compute_nova_group($product_ref);
 	
 	compute_nutrient_levels($product_ref);
 	
@@ -317,9 +405,8 @@ else {
 	ProductOpener::SiteQuality::check_quality($product_ref);	
 	
 
-	$debug and print STDERR "product_jqm.pl - code $code - saving\n";
-	#use Data::Dumper;
-	#print STDERR Dumper($product_ref);
+	$log->info("saving product", { code => $code }) if ($log->is_info() and not $log->is_debug());
+	$log->debug("saving product", { code => $code, product => $product_ref }) if ($log->is_debug() and not $log->is_info());
 	
 	$product_ref->{interface_version_modified} = $interface_version;
 	

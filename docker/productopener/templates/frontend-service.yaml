@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "productopener.frontend.fullname" . }}
+  labels:
+    app: {{ include "productopener.name" . }}
+    chart: {{ include "productopener.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    component: {{ include "productopener.frontend.fullname" . }}
+spec:
+  type: {{ .Values.frontend.service.type }}
+  ports:
+    - port: {{ .Values.frontend.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ include "productopener.name" . }}
+    release: {{ .Release.Name }}
+    component: {{ include "productopener.frontend.fullname" . }}

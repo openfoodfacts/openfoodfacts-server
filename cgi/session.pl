@@ -1,4 +1,24 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
+
+# This file is part of Product Opener.
+# 
+# Product Opener
+# Copyright (C) 2011-2018 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# 
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# 
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use Modern::Perl '2012';
 use utf8;
@@ -16,6 +36,7 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+use Log::Any qw($log);
 
 ProductOpener::Display::init();
 use ProductOpener::Lang qw/:all/;
@@ -25,7 +46,10 @@ use ProductOpener::Lang qw/:all/;
 my $html = '';
 
 if (defined $User_id) {
-	$html = $Lang{hello}{$lang} . ' ' . $User{name} . separator_before_colon($lc) . "!";
+	$html = "<p>" . $Lang{hello}{$lang} . ' ' . $User{name} . separator_before_colon($lc) . "!" . "</p>";
+	
+	$html .= "<h3>" . lang("you_can_also_help_us") . "</h3>\n";
+	$html .= "<p>" . lang("bottom_content") . "</p>\n";	
 	
 	my $next_action = param('next_action');
 	my $code = param('code');
@@ -47,7 +71,7 @@ if (defined $User_id) {
 	
 	if (defined $url) {
 		
-		print STDERR "session.pl - redirection to $url\n";
+		$log->info("redirecting after login", { url => $url }) if $log->is_info();
 	
         $r->err_headers_out->add('Set-Cookie' => $cookie);
 		$r->headers_out->set(Location =>"$url");

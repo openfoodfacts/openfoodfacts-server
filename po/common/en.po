@@ -194,21 +194,18 @@ msgctxt "barcode_number"
 msgid "Barcode number:"
 msgstr "Barcode number:"
 
+msgctxt "you_can_also_help_us"
+msgid "You can also help to fund the Open Food Facts project"
+msgstr "You can also help to fund the Open Food Facts project"
+
 msgctxt "bottom_content"
-msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>Contribute to <<site_name>> by adding product and win stars by\n"
-"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
-msgstr "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>Contribute to <<site_name>> by adding product and win stars by\n"
-"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
+msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href="https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href="https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+
 
 msgctxt "bottom_title"
-msgid "Embrace the mission"
-msgstr "Embrace the mission"
+msgid "Donate to support our work"
+msgstr "Donate to support our work"
 
 msgctxt "brands"
 msgid "Brands"
@@ -699,6 +696,15 @@ msgctxt "footer_data_link"
 msgid "/data"
 msgstr "/data"
 
+msgctxt "footer_partners"
+msgid "Partners"
+msgstr "Partners"
+
+msgctxt "footer_partners_link"
+msgid "/partners"
+msgstr "/partners"
+
+
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
 msgstr "Discover the project"
@@ -710,6 +716,14 @@ msgstr "Frequently asked questions"
 msgctxt "footer_faq_link"
 msgid "/faq"
 msgstr "/faq"
+
+msgctxt "footer_translators"
+msgid "Translators"
+msgstr "Translators"
+
+msgctxt "footer_translators_link"
+msgid "/cgi/top_translators.pl"
+msgstr "/cgi/top_translators.pl"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
@@ -981,7 +995,7 @@ msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\"
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
-msgstr "https://itunes.apple.com/en/app/open-food-facts/id588797948"
+msgstr "https://itunes.apple.com/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1430,6 +1444,16 @@ msgstr "Product without barcode"
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
 msgstr "Nutrition facts are not specified on the product."
+
+msgctxt "multiple_nutrition_data"
+msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
+msgstr "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
+
+msgctxt "multiple_nutrition_data_instructions"
+msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
+msgstr "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
+
+
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
@@ -2684,3 +2708,267 @@ msgstr "This product page is not complete. You can help to complete it by editin
 msgctxt "title_separator"
 msgid " — "
 msgstr " - "
+
+msgctxt "recent_changes"
+msgid "Recent Changes"
+msgstr "Recent Changes"
+
+msgctxt "translators_title"
+msgid "Our Translators"
+msgstr "Our Translators"
+
+msgctxt "translators_lead"
+msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages!"
+msgstr "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages!"
+
+msgctxt "translators_renewal_notice"
+msgid "Please note that this table is refreshed nightly and might be out of date."
+msgstr "Please note that this table is refreshed nightly and might be out of date."
+
+msgctxt "translators_column_name"
+msgid "Name"
+msgstr "Name"
+
+msgctxt "translators_column_translated_words"
+msgid "Translated (Words)"
+msgstr "Translated (Words)"
+
+msgctxt "translators_column_target_words"
+msgid "Target Words"
+msgstr "Target Words"
+
+msgctxt "translators_column_approved_words"
+msgid "Approved (Words)"
+msgstr "Approved (Words)"
+
+msgctxt "translators_column_votes_made"
+msgid "Votes Made"
+msgstr "Votes Made"
+
+msgctxt "minerals_p"
+msgid "minerals"
+msgstr "minerals"
+
+msgctxt "minerals_s"
+msgid "mineral"
+msgstr "mineral"
+
+msgctxt "vitamins_p"
+msgid "added vitamins"
+msgstr "added vitamins"
+
+msgctxt "vitamins_s"
+msgid "added vitamin"
+msgstr "added vitamin"
+
+msgctxt "amino_acids_p"
+msgid "added amino acids"
+msgstr "added amino acids"
+
+msgctxt "amino_acids_s"
+msgid "added amino acid"
+msgstr "added amino acid"
+
+msgctxt "nova_groups_s"
+msgid "NOVA group"
+msgstr "NOVA group"
+
+msgctxt "nova_groups_p"
+msgid "NOVA groups"
+msgstr "NOVA groups"
+
+msgctxt "nucleotides_p"
+msgid "added nucleotides"
+msgstr "added nucleotides"
+
+msgctxt "nucleotides_s"
+msgid "added nucleotide"
+msgstr "added nucleotide"
+
+msgctxt "other_nutritional_substances_p"
+msgid "other nutritional substances added"
+msgstr "other nutritional substances added"
+
+msgctxt "other_nutritional_substances_s"
+msgid "other nutritional substance added"
+msgstr "other nutritional substance added"
+
+msgctxt "product_as_sold"
+msgid "As sold"
+msgstr "As sold"
+
+msgctxt "prepared_product"
+msgid "Prepared"
+msgstr "Prepared"
+
+
+msgctxt "unit"
+msgid "Unit"
+msgstr "Unit"
+
+
+msgctxt "nutrition_data_exists"
+msgid "Nutrition facts are specified for the product as sold."
+msgstr "Nutrition facts are specified for the product as sold."
+
+msgctxt "nutrition_data_prepared_exists"
+msgid "Nutrition facts are specified for the prepared product."
+msgstr "Nutrition facts are specified for the prepared product."
+
+msgctxt "adults"
+msgid "Adults"
+msgstr "Adults"
+
+msgctxt "adults_age"
+msgid "18 to 64"
+msgstr "18 to 64"
+
+msgctxt "adults_description"
+msgid "From 18 years up to and including 64 years of age"
+msgstr "From 18 years up to and including 64 years of age"
+
+msgctxt "elderly"
+msgid "Elderly"
+msgstr "Elderly"
+
+msgctxt "elderly_age"
+msgid "65+"
+msgstr "65+"
+
+
+msgctxt "elderly_description"
+msgid "From 65 years of age and older"
+msgstr "From 65 years of age and older"
+
+msgctxt "adolescents"
+msgid "Adolescents"
+msgstr "Adolescents"
+
+msgctxt "adolescents_age"
+msgid "10 to 17"
+msgstr "10 to 17"
+
+msgctxt "adolescents_description"
+msgid "From 10 years up to and including 17 years of age"
+msgstr "From 10 years up to and including 17 years of age"
+
+msgctxt "children"
+msgid "Children"
+msgstr "Children"
+
+msgctxt "children_age"
+msgid "3 to 9"
+msgstr "3 to 9"
+
+msgctxt "children_description"
+msgid "From 36 months up to and including 9 years of age"
+msgstr "From 36 months up to and including 9 years of age"
+
+msgctxt "toddlers"
+msgid "Toddlers"
+msgstr "Toddlers"
+
+msgctxt "toddlers_age"
+msgid "1 to 2"
+msgstr "1 to 2"
+
+msgctxt "toddlers_description"
+msgid "From 12 months up to and including 35 months of age"
+msgstr "From 12 months up to and including 35 months of age"
+
+msgctxt "infants"
+msgid "Infants"
+msgstr "Infants"
+
+msgctxt "infants_age"
+msgid "< 1"
+msgstr "< 1"
+
+msgctxt "infants_description"
+msgid "From more than 12 weeks up to and including 11 months of age"
+msgstr "From more than 12 weeks up to and including 11 months of age"
+
+msgctxt "additives_efsa_evaluation"
+msgid "EFSA evaluation"
+msgstr "EFSA evaluation"
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_title"
+msgid "Risk of overexposure"
+msgstr "Risk of overexposure"
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_high"
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
+msgstr "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
+msgstr "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_description"
+msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
+msgstr "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
+msgid "%d products with %s"
+msgstr "%d products with %s"
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_no"
+msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
+msgstr "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
+msgid "High risk of over exposure"
+msgstr "High risk of over exposure"
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
+msgid "Moderate risk of over exposure"
+msgstr "Moderate risk of over exposure"
+
+msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
+msgid "Risk of exceeding the acceptable daily intake (ADI)"
+msgstr "Risk of exceeding the acceptable daily intake (ADI)"
+
+msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
+msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+
+msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
+msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
+msgstr "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
+
+msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
+msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
+msgstr "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
+
+msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
+msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+
+msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_noael"
+msgid "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+
+msgctxt "exposure_title_95th"
+msgid "Some people"
+msgstr "Some people"
+
+msgctxt "exposure_description_95th"
+msgid "over 5%"
+msgstr "over 5%"
+
+msgctxt "exposure_title_mean"
+msgid "Most people"
+msgstr "Most people"
+
+msgctxt "exposure_description_mean"
+msgid "over 50%"
+msgstr "over 50%"
+
+msgctxt "wikipedia"
+msgid "Wikipedia"
+msgstr "Wikipedia"
+
+msgctxt "additives_classes"
+msgid "Functions"
+msgstr "Functions"
+

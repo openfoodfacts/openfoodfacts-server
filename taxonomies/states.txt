@@ -4,10 +4,17 @@ es:Vacío
 fr:Vide
 he:ריק
 it:Vuoto
+ja:空
 nl:Leeg
 nl_be:Leeg
 pt:Vazio
 ro:Gol
+ru:Пустые
+sv:Tom
+zh:空
+zh-CN:空
+zh-TW:空
+zh-HK:空
 
 en:Checked
 es:Comprobado
@@ -15,10 +22,16 @@ fr:Vérifié
 he:נבדק
 it:Verificato
 de:Geprüft
+ja:確認済
 nl:Gecontroleerd
 nl_be:Geverifieerd
 pt:Verificado
 ro:Verificat
+sv:Kontrollerat
+zh:已确认
+zh-CN:已确认
+zh-TW:已確認
+zh-HK:已確認
 
 en:To be checked
 de:Zu prüfen
@@ -26,10 +39,16 @@ es:Pendiente de comprobación
 fr:A vérifier
 he:לבדיקה
 it:Da verificare
+ja:要確認
 nl:Te controleren
 nl_be:Nog te verifiëren
 pt:Pendente de verificação
 ro:De verificat
+sv:Att kontrolleras
+zh:需确认
+zh-CN:需确认
+zh-TW:需確認
+zh-HK:需確認
 
 en:Complete
 es:Completado
@@ -37,10 +56,17 @@ fr:Complet
 he:הושלם
 it:Complet
 de:Ausgefüllt
+ja:完了
 nl:Volledig
 nl_be:Volledig
 pt:Completo
 ro:Complet
+ru:Заполненные
+sv:Fullständig
+zh:完成
+zh-CN:完成
+zh-TW:完成
+zh-HK:完成
 
 en:To be completed
 de:Auszufüllen
@@ -48,10 +74,17 @@ es:A completar
 fr:A compléter
 he:להשלמה
 it:Da completare
+ja:未完了
 nl:Aan te vullen
 nl_be:Te vervolledigen
 pt:A completar
 ro:De completat
+ru:Не заполненные
+sv:Ofullständing
+zh:应完成
+zh-CN:应完成
+zh-TW:應完成
+zh-HK:應完成
 
 en:Expiration date to be completed
 de:Verbrauchsdatum ausfüllen
@@ -59,10 +92,17 @@ es:Fecha límite de consumo a completar
 fr:Date limite à compléter
 he:תאריך תפוגה להשלמה
 it:Data di scadenza da completare
+ja:期限未完了
 nl:Houdbaarheidsdatum invullen
 nl_be:Houdbaarheidsdatum invullen
 pt:Data de validade a completar
 ro:De completat data de expirare
+ru:Окончание срока годности надо указать
+sv:Saknar utgångsdatum
+zh:应完成期限
+zh-CN:应完成期限
+zh-TW:應完成期限
+zh-HK:應完成期限
 
 en:Expiration date completed
 de:Verbrauchsdatum ausgefüllt
@@ -70,10 +110,17 @@ es:Fecha límite de consumo agregada
 fr:Date limite complétée
 he:תאריך התפוגה הושלם
 it:Data di scadenza completata
+ja:期限完了
 nl:Houdbaarheidsdatum ingevuld
 nl_be:Houdbaarheidsdatum ingevuld
 pt:Data de validade completada
 ro:Data de expirare completată
+ru:Окончание срока годности указано
+sv:Utgångsdatum fullständingt
+zh:完成期限
+zh-CN:完成期限
+zh-TW:完成期限
+zh-HK:完成期限
 
 en:Product name to be completed
 de:Produktname ausfüllen
@@ -81,10 +128,17 @@ es:Nombre de producto a completar
 fr:Nom du produit à compléter
 he:שם המוצר להשלמה
 it:Nome prodotto da completare
+ja:製品名未完了
 nl:Productnaam invullen
 nl_be:Productnaam invullen
 pt:Nome do produto a completar
 ro:De completat numele produsului
+ru:Название надо указать
+sv:Saknar produktnamn
+zh:应完成品名
+zh-CN:应完成品名
+zh-TW:應完成品名
+zh-HK:應完成品名
 
 en:Quantity to be completed
 de:Menge ausfüllen
@@ -92,11 +146,17 @@ es:Cantidad a completar
 fr:Quantité à compléter
 he:כמות להשלמה
 it:Quantità da completare
+ja:数量未完了
 nl:Hoeveelheid invullen
 nl_be:Hoeveelheid invullen
 pt:Quantidade a completar
 ro:Cantitatea de completat
-
+ru:Количество надо указать
+sv:Saknar mängd
+zh:应完成数量
+zh-CN:应完成数量
+zh-TW:應完成數量
+zh-HK:應完成數量
 
 en:Packaging to be completed
 de:Verpackung ausfüllen
@@ -104,11 +164,17 @@ es:Envase a completar
 fr:Emballage à compléter
 he:אריזה להשלמה
 it:Imballaggio da completare
+ja:包装未完了
 nl:Verpakking invullen
 nl_be:Verpakking invullen
 pt:Embalagem a completar
 ro:De completat ambalarea
-
+ru:Упаковку надо описать
+sv:Saknar förpackning
+zh:应完成包装
+zh-CN:应完成包装
+zh-TW:應完成包裝
+zh-HK:應完成包裝
 
 en:Brands to be completed
 de:Marken ausfüllen
@@ -116,20 +182,33 @@ es:Marcas a completar
 fr:Marques à compléter
 he:מותגים להשלמה
 it:Marca da completare
+ja:ブランド未完了
 nl:Merken invullen
 pt:Marcas a completar
 ro:Mărci de completat
+ru:Марки надо указать
+sv:Saknar varumärken
+zh:应完成商标
+zh-CN:应完成商标
+zh-TW:應完成商標
+zh-HK:應完成商標
 
 en:Categories to be completed
 es:Categorías a completar
 fr:Catégories à compléter
 he:קטגוריות להשלמה
 it:Categorie da completare
+ja:カテゴリー未完了
 de:Kategorien ausfüllen
 nl:Categorieën invullen
 pt:Categorias a completar
 ro:Categorii de completat
-
+ru:Категории надо указать
+sv:Saknar kategorier
+zh:应完成分类
+zh-CN:应完成分类
+zh-TW:應完成分類
+zh-HK:應完成分類
 
 en:Characteristics completed
 de:Merkmale ausgefüllt
@@ -137,11 +216,17 @@ fr:Caractéristiques complétées
 es:Características completadas
 he:מאפיינים הושלמו
 it:Caratteristiche completate
+ja:特徴完了
 nl:Eigenschappen klaar
 nl_be:Eigenschappen ingevuld
 pt:Características completadas
 ro:Caracteristici completate
-
+ru:Характеристики заполнены
+sv:Egenskaper fulllständigt
+zh:完成特征
+zh-CN:完成特征
+zh-TW:完成特徵
+zh-HK:完成特徵
 
 en:Characteristics to be completed
 de:Merkmale ausfüllen
@@ -149,10 +234,17 @@ es:Características a completar
 fr:Caractéristiques à compléter
 he:מאפיינים להשלמה
 it:Caratteristiche da completare
+ja:特徴未完了
 nl:Eigenschappen invullen
 nl_be:Eigenschappen invullen
 pt:Características a completar
 ro:Caracteristici de completat
+ru:Характеристики не заполнены
+sv:Saknar egenskaper
+zh:应完成特征
+zh-CN:应完成特征
+zh-TW:應完成特徵
+zh-HK:應完成特徵
 
 en:Ingredients completed
 es:Ingredientes completados
@@ -160,9 +252,16 @@ fr:Ingrédients complétés
 he:הרכיבים הושלמו
 it:Ingredienti completati
 de:Zutaten ausgefüllt
+ja:原材料完了
 nl:Ingrediënten klaar
 pt:Ingredientes completados
 ro:Ingrediente completate
+ru:Состав указан
+sv:Ingredienser fullständigt
+zh:完成成分
+zh-CN:完成成分
+zh-TW:完成成分
+zh-HK:完成成分
 
 en:Ingredients to be completed
 de:Zutaten ausfüllen
@@ -170,10 +269,17 @@ es:Ingredientes a completar
 fr:Ingrédients à compléter
 he:רכיבים להשלמה
 it:Ingredienti da completare
+ja:原材料未完了
 nl:Ingrediënten invullen
 nl_be:Ingrediënten invullen
 pt:Ingredientes completados
 ro:Ingrediente completate
+ru:Состав надо указать
+sv:Saknar ingredienser
+zh:应完成成分
+zh-CN:应完成成分
+zh-TW:應完成成分
+zh-HK:應完成成分
 
 en:Nutrition facts completed
 de:Nährwertinformationen ausgefüllt
@@ -181,10 +287,17 @@ es:Valores nutricionales completados
 fr:Informations nutritionnelles complétées
 he:מפרט תזונתי הושלם
 it:Valori nutrizionali completati
+ja:栄養成分表完了
 nl:Voedingswaarden klaar
 nl_be:Nutritionele informatie ingevuld
 pt:Valores nutricionais completados
 ro:Valori nutriționale completate
+ru:Пищевая и энергетическая ценность указаны
+sv:Näringsinnehåll fullständigt
+zh:完成营养成分
+zh-CN:完成营养成分
+zh-TW:完成營養成分
+zh-HK:完成營養成分
 
 en:Nutrition facts to be completed
 de:Nährwertinformationen ausfüllen
@@ -192,11 +305,17 @@ es:Valores nutricionales a completar
 fr:Informations nutritionnelles à compléter
 he:מפרט תזונתי להשלמה
 it:Valori nutrizionali da completare
+ja:栄養成分表未完了
 nl:Voedingswaarden invullen
 nl_be:Nutritionele informatie invullen
 pt:Valores nutricionais a completar
 ro:Valori nutriționale de completat
-
+ru:Пищевую и энергетическую ценность надо указать
+sv:Saknar näringsinnehåll
+zh:应完成营养成分
+zh-CN:应完成营养成分
+zh-TW:應完成營養成分
+zh-HK:應完成營養成分
 
 en:Photos validated
 de:Bilder geprüft
@@ -204,10 +323,17 @@ es:Imágenes validadas
 fr:Photos validées
 he:התמונות אומתו
 it:Foto validate
+ja:写真検証済
 nl:Foto's gecontroleerd
 nl_be:Foto's gevalideerd
 pt:Imagens validadas
 ro:Fotografii validate
+ru:Фотографии выбраны
+sv:Bilder godkända
+zh:已验证照片
+zh-CN:已验证照片
+zh-TW:已驗證照片
+zh-HK:已驗證照片
 
 en:Photos to be validated
 de:Bilder in Prüfung
@@ -215,10 +341,17 @@ es:Imágenes a validar
 fr:Photos à valider
 he:תמונות לאימות
 it:Foto da validare
+ja:写真未検証
 nl:Te controleren foto's
 nl_be:Te controleren foto's
 pt:Imagens a validar
 ro:Fotografii de validat
+ru:Фотографии не выбраны
+sv:Bilder som ska godkännas
+zh:应验证照片
+zh-CN:应验证照片
+zh-TW:應驗證照片
+zh-HK:應驗證照片
 
 en:Photos uploaded
 de:Bilder hochgeladen
@@ -226,10 +359,17 @@ es:Imágenes agregadas
 fr:Photos envoyées
 he:התמונות הועלו
 it:Foto caricate
+ja:写真のアップロード完了
 nl:Geüploade foto's
 nl_be:Geüploade foto's
 pt:Imagens enviadas
 ro:Fotografii încărcate
+ru:Фотографии загружены
+sv:Bilder uppladdade
+zh:已上传照片
+zh-CN:已上传照片
+zh-TW:已上傳照片
+zh-HK:已上傳照片
 
 en:Photos to be uploaded
 de:Bilder hochladen
@@ -237,37 +377,79 @@ es:Imágenes a agregar
 fr:Photos à envoyer
 he:תמונות להעלאה
 it:Foto da caricare
+ja:写真のアップロード未完了
 nl:Foto's uploaden
 nl_be:Foto's uploaden
 pt:Imagens a enviar
 ro:Fotografii de încărcat
+ru:Фотографии надо загрузить
+sv:Saknar bilder
+zh:应上传照片
+zh-CN:应上传照片
+zh-TW:應上傳照片
+zh-HK:應上傳照片
 
 en:Categories completed
 fr:Catégories complétées
+ja:カテゴリー完了
 nl:Categorieën klaar
 es:Categorías completadas
 de:Kategorien ausgefüllt
+ru:Категории указаны
+sv:Kategorier fullständigt
+zh:完成分类
+zh-CN:完成分类
+zh-TW:完成分類
+zh-HK:完成分類
 
 en:Brands completed
 fr:Marques complétées
+ja:ブランド完了
 nl:Merken klaar
 es:Marcas completadas
 de:Marken ausgefüllt
+ru:Марки указаны
+sv:Varumärken fullständigt
+zh:完成商标
+zh-CN:完成商标
+zh-TW:完成商標
+zh-HK:完成商標
 
 en:Packaging completed
 fr:Emballage complété
+ja:包装完了
 nl:Verpakking klaar
 es:Paquetes completados
 de:Verpackung ausgefüllt
+ru:Упаковка описана
+sv:Förpackning fullständigt
+zh:完成包装
+zh-CN:完成包装
+zh-TW:完成包裝
+zh-HK:完成包裝
 
 en:Quantity completed
 fr:Quantité complétée
+ja:数量完了
 nl:Hoeveelheid klaar
 es:Cantidad Completada
 de:Menge ausgefüllt
+ru:Количество указано
+sv:Mängd fullständigt
+zh:完成数量
+zh-CN:完成数量
+zh-TW:完成數量
+zh-HK:完成數量
 
 en:Product name completed
-fr:Nom du produit complété
+fr:Nom du produit complete
+ja:製品名完了
 nl:Productnaam klaar
 es:Nombre de producto completado
 de:Produktname ausgefüllt
+ru:Название указано
+sv:Produktnamn fullständigt
+zh:完成品名
+zh-CN:完成品名
+zh-TW:完成品名
+zh-HK:完成品名

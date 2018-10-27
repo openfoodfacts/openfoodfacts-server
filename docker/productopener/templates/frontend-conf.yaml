@@ -1,0 +1,70 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "productopener.frontend.fullname" . }}-config
+  labels:
+    app: {{ include "productopener.name" . }}
+    chart: {{ include "productopener.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    component: {{ include "productopener.frontend.fullname" . }}
+data:
+  nginx.conf: |  
+    server {
+      listen 80;
+      listen [::]:80;
+
+      # Product Opener needs a root domain + a wildcard for all subdomains
+      server_name {{ .Values.host }} *.{{ .Values.host }};
+
+      root /opt/product-opener/html/;
+
+      gzip on;
+      gzip_min_length 1000;
+
+      # Add index.php to the list if you are using PHP
+      index index.html index.htm index.nginx-debian.html;
+
+      location ~* \.(eot|ttf|woff|woff2)$ {
+        add_header Access-Control-Allow-Origin *;
+      }
+
+      location ~ ^/images/products/ {
+        add_header Link "<https://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
+      }
+
+      location ~ ^/(favicon.ico) {
+        # First attempt to serve request as file, then
+        # as directory, then fall back to displaying a 404.
+        try_files $uri $uri/ =404;
+      }
+
+      # Static files are served directly by NGINX
+
+      location ~ ^/(.well-known|images|js|css|rss|data|files|resources|foundation|bower_components)/ {
+        # First attempt to serve request as file, then
+        # as directory, then fall back to displaying a 404.
+        try_files $uri $uri/ =404;
+      }
+
+      location = /robots.txt {
+        try_files $uri $uri/ =404;
+      }
+
+      # Dynamically generated files and CGI scripts are passed
+      # to the Apache + mod_perl server running on the backend container
+
+      location / {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass http://{{ include "productopener.backend.fullname" . }}/cgi/display.pl?;
+      }
+
+      location /cgi/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass http://{{ include "productopener.backend.fullname" . }};
+      }
+    }

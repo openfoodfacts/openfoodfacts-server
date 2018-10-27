@@ -1,4 +1,24 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
+
+# This file is part of Product Opener.
+# 
+# Product Opener
+# Copyright (C) 2011-2018 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# 
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# 
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -6,6 +26,8 @@ use strict;
 use utf8;
 
 binmode(STDOUT, ":encoding(UTF-8)");
+
+my $debug = 1;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -139,6 +161,8 @@ use Data::Dumper;
 
 my $fleury_michon_images_ref = {};
 
+if (not $dir =~ /skip/) {
+
 print "Opening image dir $dir\n";
 
 if (opendir (DH, "$dir")) {
@@ -159,6 +183,8 @@ if (opendir (DH, "$dir")) {
 }
 
 closedir (DH);
+
+}
 
 
 my $i = 0;
@@ -184,6 +210,13 @@ $lc = 'fr';
 
 my $comment = "Fleury Michon direct data import";
 
+# SITE_INTERNET_1507576761012.xml
+
+if ($xmlfile =~ /SITE_INTERNET_(\d+)/) {
+	# save file timestamp
+	$comment .= " - $1";
+}
+
 my $time = time();
 
 my $i = 0;
@@ -208,6 +241,8 @@ print STDERR "importing products\n";
 			
 			my @modified_fields;
 			my @images_ids;
+			
+			my $modified = 0;
 			
 			my $fleurymichon_product_ref = $fleury_michon_products_ref->{$fleurymichon_id};
 			my $code = $fleurymichon_product_ref->{GTIN_UC};
@@ -268,6 +303,16 @@ print STDERR "importing products\n";
 				
 				my $images = 0;
 				
+						my $current_max_imgid = -1;
+				
+						if (defined $product_ref->{images}) {
+							foreach my $imgid (keys %{$product_ref->{images}}) {
+								if (($imgid =~ /^\d/) and ($imgid > $current_max_imgid)) {
+									$current_max_imgid = $imgid;
+								}
+							}
+						}				
+				
 				foreach my $fleury_michon_image_file (@{$fleury_michon_images_ref}) {
 				
 					# upload the image
@@ -282,7 +327,7 @@ print STDERR "importing products\n";
 						print "process_image_upload - file: $file - return code: $return_code - imgid: $imgid\n";	
 						
 						
-						if ($imgid > 0) {
+						if (($imgid > 0) and ($imgid > $current_max_imgid)) {
 							$images++;
 							push @images_ids, $imgid;
 							if ($images == 1) {
@@ -343,6 +388,8 @@ BOO_BIO => "Bio",
 BOO_BIO_EUR=> "Agriculture Biologique",
 BOO_BLE_BLA_COE => "Bleu Blanc Coeur",
 BOO_BOE_FRA => "Boeuf Français",
+BOO_POR_FRA => "Porc Français",
+BOO_VEA_FRA => "Veau Français",
 BOO_HAL => "Halal",
 BOO_LBL_RGE => "Label Rouge",
 BOO_POR_FRA => "Porc Français",
@@ -391,7 +438,7 @@ BOO_JOE_ROB => "Joël Robuchon"
 			
 			if ((defined $fleurymichon_product_ref->{LIB_PAC}) and ($fleurymichon_product_ref->{LIB_PAC} ne '')) {
 				$params{product_name} = $fleurymichon_product_ref->{LIB_PAC};
-				$params{product_name} =~ s/(\d) tr /$1 tranches /; # 4 tr fines
+				$params{product_name} =~ s/(\d)(\.| )*tr(\.)? /$1 tranches /; # 4 tr fines
 				
 				print "set product_name to $params{product_name}\n";
 				
@@ -599,12 +646,16 @@ BOO_JOE_ROB => "Joël Robuchon"
 							print "changed value for product code: $code - field: $field = $product_ref->{$field} - old: $current_field \n";
 							compute_field_tags($product_ref, $field);
 							push @modified_fields, $field;
+							$modified++;
 						}
 					
 					}
 					else {
 						# non-tag field
 						my $new_field_value = $params{$field};
+						
+						$new_field_value =~ s/\s+$//;
+						$new_field_value =~ s/^\s+//;						
 						
 						if (($field eq 'quantity') or ($field eq 'serving_size')) {
 							
@@ -648,13 +699,14 @@ BOO_JOE_ROB => "Joël Robuchon"
 							}
 							
 							if (lc($current_value) ne lc($normalized_new_field_value)) {
-								print "differing value for product code $code - field $field - existing value: $product_ref->{$field} (normalized: $current_value) - new value: $new_field_value - https://world.fleurymichonfacts.org/product/$code \n";
+								print "differing value for product code $code - field $field - existing value: $product_ref->{$field} - normalized:\n$current_value)\nnew value:\n$normalized_new_field_value\n - https://world.fleurymichonfacts.org/product/$code \n";
 								$differing++;
 								$differing_fields{$field}++;		
 
 								print "setting changing previously existing value for product code $code - field $field - value: $new_field_value\n";
 								$product_ref->{$field} = $new_field_value;
-								push @modified_fields, $field;								
+								push @modified_fields, $field;		
+								$modified++;								
 							}
 							
 
@@ -663,6 +715,7 @@ BOO_JOE_ROB => "Joël Robuchon"
 							print "setting previously unexisting value for product code $code - field $field - value: $new_field_value\n";
 							$product_ref->{$field} = $new_field_value;
 							push @modified_fields, $field;
+							$modified++;
 						}
 					}					
 				}
@@ -764,7 +817,11 @@ QTE_SUCRE => "sugars",
 					$value += 0;
 					
 					if ((defined $modifier) and ($modifier ne '')) {
-						$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
+						if ((not defined $product_ref->{nutriments}{$nid . "_modifier"}) or ($product_ref->{nutriments}{$nid . "_modifier"} ne $modifier)) {
+							$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
+						
+							$modified++;
+						}
 					}
 					else {
 						delete $product_ref->{nutriments}{$nid . "_modifier"};
@@ -777,12 +834,17 @@ QTE_SUCRE => "sugars",
 					}
 					$product_ref->{nutriments}{$nid . "_value"} = $value;
 					
-					my $new_value = $modifier . unit_to_g($value, $product_ref->{nutriments}{$nid . "_unit"});
+					my $new_value = unit_to_g($value, $product_ref->{nutriments}{$nid . "_unit"});
 					
-					if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{$nid})
-						and ($new_value != $product_ref->{nutriments}{$nid}) ) {
+					if ((not defined $product_ref->{nutriments}) or (not defined $product_ref->{nutriments}{$nid})
+						or ($new_value ne $product_ref->{nutriments}{$nid}) ) {
+						
 						my $current_value = $product_ref->{nutriments}{$nid};
 						print "differing nutrient value for product code $code - nid $nid - existing value: $current_value - new value: $new_value - https://world.openfoodfacts.org/product/$code \n";
+						
+						print STDERR "Setting $nid to $value\n";
+						
+						$modified++;
 					}
 					
 					$product_ref->{nutriments}{$nid} = $new_value;
@@ -791,6 +853,15 @@ QTE_SUCRE => "sugars",
 				}
 			}
 
+
+			# Skip further processing if we have not modified any of the fields
+			
+			print STDERR "product code $code - number of modifications - $modified\n";
+			if ($modified == 0) {
+				print STDERR "skipping product code $code - no modifications\n";
+				next;
+			}
+			#exit;
 			
 			
 			# Process the fields
@@ -798,7 +869,7 @@ QTE_SUCRE => "sugars",
 			# Food category rules for sweeetened/sugared beverages
 			# French PNNS groups from categories
 			
-			if ($server_domain =~ /fleurymichonfacts/) {
+			if ($server_domain =~ /openfoodfacts/) {
 				ProductOpener::Food::special_process_product($product_ref);
 			}
 			
@@ -902,7 +973,9 @@ QTE_SUCRE => "sugars",
 				push @edited, $code;
 				$edited{$code}++;
 				
-				$i > 10000000 and last;
+				# $j > 10 and last;
+				
+				$j++;
 			}
 			
 			#last;

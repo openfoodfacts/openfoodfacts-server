@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2017-12-25 00:20-0500\n"
+"PO-Revision-Date: 2018-02-11 13:06-0500\n"
 "Language-Team: Polish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -24,6 +24,7 @@ msgctxt ":langname"
 msgid ":langname"
 msgstr "Polish"
 
+#. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "additives:plural"
 msgid "additives"
 msgstr "dodatki"
@@ -32,30 +33,37 @@ msgctxt "additives:singular"
 msgid "additive"
 msgstr "dodatek"
 
+#. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "allergens:plural"
 msgid "allergens"
 msgstr "alergeny"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "allergens:singular"
 msgid "allergen"
 msgstr "alergen"
 
+#. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "brands:plural"
 msgid "brands"
 msgstr "marki"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "brands:singular"
 msgid "brand"
 msgstr "marka"
 
+#. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "categories:plural"
 msgid "categories"
 msgstr "kategorie"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "categories:singular"
 msgid "category"
 msgstr "kategoria"
 
+#. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "checkers:plural"
 msgid "checkers"
 msgstr "warcaby"
@@ -64,6 +72,7 @@ msgctxt "checkers:singular"
 msgid "checker"
 msgstr "warcab"
 
+#. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "cities:plural"
 msgid "cities"
 msgstr "miasta"
@@ -72,14 +81,17 @@ msgctxt "cities:singular"
 msgid "city"
 msgstr "miasto"
 
+#. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "codes:plural"
 msgid "codes"
 msgstr "kody"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "codes:singular"
 msgid "code"
 msgstr "kod"
 
+#. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "correctors:plural"
 msgid "correctors"
 msgstr "korektory"
@@ -88,6 +100,7 @@ msgctxt "correctors:singular"
 msgid "corrector"
 msgstr "korektor"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "countries:plural"
 msgid "countries"
 msgstr "kraje"
@@ -126,175 +139,175 @@ msgstr "daty-wejścia"
 
 msgctxt "entry_dates:singular"
 msgid "entry-date"
-msgstr ""
+msgstr "data-wprowadzenia"
 
 msgctxt "informers:plural"
 msgid "informers"
-msgstr ""
+msgstr "informatorzy"
 
 msgctxt "informers:singular"
 msgid "informer"
-msgstr ""
+msgstr "informator"
 
 msgctxt "ingredients:plural"
 msgid "ingredients"
-msgstr ""
+msgstr "składniki"
 
 msgctxt "ingredients:singular"
 msgid "ingredient"
-msgstr ""
+msgstr "składnik"
 
 msgctxt "ingredients_from_palm_oil:plural"
 msgid "ingredients-from-palm-oil"
-msgstr ""
+msgstr "składniki z oleju palmowego"
 
 msgctxt "ingredients_from_palm_oil:singular"
 msgid "ingredients-from-palm-oil"
-msgstr ""
+msgstr "składniki z oleju palmowego"
 
 msgctxt "ingredients_n:plural"
 msgid "numbers-of-ingredients"
-msgstr ""
+msgstr "liczba składników"
 
 msgctxt "ingredients_n:singular"
 msgid "number-of-ingredients"
-msgstr ""
+msgstr "liczba składników"
 
 msgctxt "ingredients_that_may_be_from_palm_oil:plural"
 msgid "ingredients-that-may-be-from-palm-oil"
-msgstr ""
+msgstr "składniki które mogą pochodzić z oleju palmowego"
 
 msgctxt "ingredients_that_may_be_from_palm_oil:singular"
 msgid "ingredients-that-may-be-from-palm-oil"
-msgstr ""
+msgstr "składniki które mogą pochodzić z oleju palmowego"
 
 msgctxt "known_nutrients:plural"
 msgid "known-nutrients"
-msgstr ""
+msgstr "znane składniki odżywcze"
 
 msgctxt "known_nutrients:singular"
 msgid "known-nutrient"
-msgstr ""
+msgstr "znany składnik odżywczy"
 
 msgctxt "labels:plural"
 msgid "labels"
-msgstr ""
+msgstr "etykieta"
 
 msgctxt "labels:singular"
 msgid "label"
-msgstr ""
+msgstr "etykieta"
 
 msgctxt "languages:plural"
 msgid "languages"
-msgstr ""
+msgstr "języki"
 
 msgctxt "languages:singular"
 msgid "language"
-msgstr ""
+msgstr "język"
 
 msgctxt "last_edit_dates:plural"
 msgid "last-edit-dates"
-msgstr ""
+msgstr "daty ostatnich edycji"
 
 msgctxt "last_edit_dates:singular"
 msgid "last-edit-date"
-msgstr ""
+msgstr "data ostatniej edycji"
 
 msgctxt "last_image_dates:plural"
 msgid "last-image-dates"
-msgstr ""
+msgstr "daty ostatniego obrazu"
 
 msgctxt "last_image_dates:singular"
 msgid "last-image-date"
-msgstr ""
+msgstr "lata ostatniego zdjęcia"
 
 msgctxt "manufacturing_places:plural"
 msgid "manufacturing-places"
-msgstr ""
+msgstr "miejsca produkcji"
 
 msgctxt "manufacturing_places:singular"
 msgid "manufacturing-place"
-msgstr ""
+msgstr "miejsce produkcji"
 
 msgctxt "missions:plural"
 msgid "missions"
-msgstr ""
+msgstr "misje"
 
 msgctxt "missions:singular"
 msgid "mission"
-msgstr ""
+msgstr "misja"
 
 msgctxt "nutrient_levels:plural"
 msgid "nutrient-levels"
-msgstr ""
+msgstr "poziom składników odżywczych"
 
 msgctxt "nutrient_levels:singular"
 msgid "nutrient-level"
-msgstr ""
+msgstr "poziom składników odżywczych"
 
 msgctxt "nutriments:plural"
 msgid "nutrients"
-msgstr ""
+msgstr "składniki odżywcze"
 
 msgctxt "nutriments:singular"
 msgid "nutrient"
-msgstr ""
+msgstr "składnik odżywczy"
 
 msgctxt "nutrition_grades:plural"
 msgid "nutrition-grades"
-msgstr ""
+msgstr "stopnie odżywienia"
 
 msgctxt "nutrition_grades:singular"
 msgid "nutrition-grade"
-msgstr ""
+msgstr "stopień odżywienia"
 
 msgctxt "origins:plural"
 msgid "origins"
-msgstr ""
+msgstr "pochodzenie"
 
 msgctxt "origins:singular"
 msgid "origin"
-msgstr ""
+msgstr "początek"
 
 msgctxt "packaging:plural"
 msgid "packaging"
-msgstr ""
+msgstr "opakowanie"
 
 msgctxt "packaging:singular"
 msgid "packaging"
-msgstr ""
+msgstr "opakowanie"
 
 msgctxt "periods_after_opening:plural"
 msgid "periods-after-opening"
-msgstr ""
+msgstr "czas po otwarciu"
 
 msgctxt "periods_after_opening:singular"
 msgid "period-after-opening"
-msgstr ""
+msgstr "czas po otwarciu"
 
 msgctxt "photographers:plural"
 msgid "photographers"
-msgstr ""
+msgstr "fotografowie"
 
 msgctxt "photographers:singular"
 msgid "photographer"
-msgstr ""
+msgstr "fotograf"
 
 msgctxt "pnns_groups_1:plural"
 msgid "pnns-groups-1"
-msgstr ""
+msgstr "grupy pnns"
 
 msgctxt "pnns_groups_1:singular"
 msgid "pnns-group-1"
-msgstr ""
+msgstr "1 grupa pnns"
 
 msgctxt "pnns_groups_2:plural"
 msgid "pnns-groups-2"
-msgstr ""
+msgstr "2 grupa pnns"
 
 msgctxt "pnns_groups_2:singular"
 msgid "pnns-group-2"
-msgstr ""
+msgstr "2 grupa pnns"
 
 msgctxt "products:plural"
 msgid "products"
@@ -302,53 +315,138 @@ msgstr "produkty"
 
 msgctxt "products:singular"
 msgid "product"
-msgstr ""
+msgstr "produkt"
 
 msgctxt "purchase_places:plural"
 msgid "purchase-places"
-msgstr ""
+msgstr "miejsca nabycia"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "purchase_places:singular"
 msgid "purchase-place"
-msgstr ""
+msgstr "miejsce nabycia"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "states:plural"
 msgid "states"
 msgstr "stany"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "states:singular"
 msgid "state"
 msgstr "stan"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "stores:plural"
 msgid "stores"
 msgstr "sklepy"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "stores:singular"
 msgid "store"
 msgstr "sklep"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "traces:plural"
 msgid "traces"
 msgstr "ślady"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "traces:singular"
 msgid "trace"
 msgstr "ślad"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "unknown_nutrients:plural"
 msgid "unknown-nutrients"
 msgstr "nieznane składniki odżywcze"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "unknown_nutrients:singular"
 msgid "unknown-nutrient"
 msgstr "nieznany składnik odżywczy"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "users:plural"
 msgid "contributors"
 msgstr "współtwórcy"
 
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "users:singular"
 msgid "contributor"
 msgstr "współtwórca"
+
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
+msgctxt "misc:plural"
+msgid "misc"
+msgstr ""
+
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
+msgctxt "misc:singular"
+msgid "misc"
+msgstr ""
+
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
+msgctxt "quality:plural"
+msgid "quality"
+msgstr ""
+
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
+msgctxt "quality:singular"
+msgid "quality"
+msgstr ""
+
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
+msgctxt "minerals:singular"
+msgid "mineral"
+msgstr ""
+
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
+msgctxt "minerals:plural"
+msgid "minerals"
+msgstr ""
+
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
+msgctxt "vitamins:singular"
+msgid "vitamin"
+msgstr ""
+
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
+msgctxt "vitamins:plural"
+msgid "vitamins"
+msgstr ""
+
+msgctxt "amino_acids:singular"
+msgid "amino-acid"
+msgstr ""
+
+msgctxt "amino_acid:plural"
+msgid "amino-acids"
+msgstr ""
+
+msgctxt "nucleotide:singular"
+msgid "nucleotide"
+msgstr ""
+
+msgctxt "nucleotides:plural"
+msgid "nucleotides"
+msgstr ""
+
+msgctxt "other_nutritional_substances:singular"
+msgid "other-nutritional-substance"
+msgstr ""
+
+msgctxt "other_nutritional_substances:plural"
+msgid "other-nutritional-substances"
+msgstr ""
+
+msgctxt "nova_groups:singular"
+msgid "nova-group"
+msgstr ""
+
+msgctxt "nova_groups:plural"
+msgid "nova-groups"
+msgstr ""
+
+
 

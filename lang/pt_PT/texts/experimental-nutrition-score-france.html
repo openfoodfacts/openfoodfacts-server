@@ -1,0 +1,402 @@
+<div id="main_column" class="XXLarge-11 xlarge-10 wide-9 medium-8 columns" style="padding-top: 1REM; height: 4313px;" data-equalizer-watch="">
+
+<!-- Hand column content - how used to remove left column and center glad On Some pages -->  
+
+<h1>Pontuação Nutricional - Notas Coloridas - França</h1>
+
+<h2>Um sistema de notas de A a E para simplificar a rotulagem nutricional</h2>
+
+<p>No relatório "Propostas para um novo ímpeto à política francesa de nutrição em saúde pública no âmbito da Estratégia Nacional de Saúde" (<a href="http://www.sante.gouv.fr/IMG/pdf/rapport_Hercberg_15_11_2013.pdf"> pdf </a>), o professor Serge Hercberg defende a adoção de um sistema de notas de A a E na frente dos alimentos para permitir simplesmente comparar a qualidade nutricional dos produtos.</p>
+
+<img src="https://static.openfoodfacts.org/images/misc/nutriscore-a.png">
+
+<p>Esses acentos coloridos são definidos calculando-se uma pontuação nutricional que reflete para a 1ª parte da energia, gordura saturada, açúcares, sódio (altos níveis são considerados insalubres) e para a 2ª parte da proporção de frutas, vegetais e nozes, fibras e proteínas (altos níveis são considerados bons para a saúde).</p>
+
+<p>Aprender mais:</p>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=GAwTyEEHnOs">Um vídeo de 2 minutos: que rotulagem de produtos alimentares?</a></li>
+<li><a href="https://www.sfsp.fr/petitions/petition.php?cid=7">Solicite um rótulo nutricional na frente de pacotes de alimentos simples, intuitivo e compreensível para todos</a>
+</li>
+</ul>
+
+<h2>A pontuação nutricional no Open Food Facts</h2>
+
+<p>A fórmula para calcular a pontuação nutricional, os limiares das notas e as várias propostas de ajustes foram transmitidas pela equipe do professor Hercberg. Esta fórmula foi objecto de estudos e adaptações para o mercado francês.</p>
+
+<p>A versão adotada oficialmente e implementada no Open Food Facts é a do relatório <a href="/files/hcspa20150625_infoqualnutprodalim.pdf"> NOTIFICAÇÃO do Alto Conselho de Saúde Pública referente à informação sobre a qualidade nutricional de produtos alimentícios publicada em 25 de junho de 2015 </a>.</p>
+
+<p>No entanto, calculamos a pontuação nutricional para produtos comercializados em solo francês e referenciados na base de dados Open Food Facts, e determinamos os correspondentes graus A a E. Isto permite, em particular, comparar a pontuação nutricional e / ou notas de diferentes produtos e estudar a distribuição para cada categoria de produto.</p>
+
+<h2>Fórmula para calcular a pontuação nutricional</h2>
+
+<p>São dados pontos aos produtos de acordo com a quantidade de nutrientes que eles contêm por 100 g.</p>
+
+<p>São dados pontos A para os nutrientes considerados "ruins" e pontos C são dados para os nutrientes "bons" e o conteúdo em frutas, vegetais e nozes.</p>
+
+<h3>Pontos A</h3>
+
+<p>Pontos A são a soma de pontos para energia, gordura saturada, açúcar e sódio.</p>
+
+<table class="points">
+<tbody>
+  <tr>
+    <th>Pontos</th>
+    <th>Energia (kJ)</th>
+    <th>Gorduras saturadas (g)</th>
+    <th>Açúcares (g)</th>
+    <th>Sódio (mg)</th>
+  </tr>
+<tr>
+  <td>0</td>
+  <td>≤335</td>
+  <td>≤1</td>
+  <td>≤4,5</td>
+  <td>≤90</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>&gt;335</td>
+  <td>&gt;1</td>
+  <td>&gt;4.5</td>
+  <td>&gt;90</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>&gt;670</td>
+  <td>&gt;2</td>
+  <td>&gt;9</td>
+  <td>&gt;180</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>&gt;1005</td>
+  <td>&gt;3</td>
+  <td>&gt;13.5</td>
+  <td>&gt;270</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>&gt;1340</td>
+  <td>&gt;4</td>
+  <td>&gt;18</td>
+  <td>&gt;360</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>&gt;1675</td>
+  <td>&gt;5</td>
+  <td>&gt;22.5</td>
+  <td>&gt;450</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td>&gt;2010</td>
+  <td>&gt;6</td>
+  <td>&gt;27</td>
+  <td>&gt;540</td>
+  </tr>
+<tr>
+  <td>7</td>
+  <td>&gt;2345</td>
+  <td>&gt;7</td>
+  <td>&gt;31</td>
+  <td>&gt;630</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td>&gt;2680</td>
+  <td>&gt;8</td>
+  <td>&gt;36</td>
+  <td>&gt;720</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td>&gt;3015</td>
+  <td>&gt;9</td>
+  <td>&gt;40</td>
+  <td>&gt;810</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td>&gt;3350</td>
+  <td>&gt;10</td>
+  <td>&gt;45</td>
+  <td>&gt;900</td>
+</tr>
+</tbody>
+  </table>
+
+<h3>Pontos C</h3>
+
+<p>Os pontos C são a soma de pontos para frutas, legumes e nozes, para fibra e proteína.</p>
+
+<table class="points">
+<tbody>
+  <tr>
+    <th>Pontos</th>
+    <th>Frutas, legumes e nozes (%)</th>
+    <th>Fibra (g)</th>
+    <th>Proteínas (g)</th>
+  </tr>
+<tr>
+  <td>0</td>
+  <td>≤40</td>
+  <td>≤0.7</td>
+  <td>≤1.6</td>
+</tr> 
+<tr>
+    <td>1</td>
+    <td>&gt;40</td>
+    <td>&gt;0.7</td>
+    <td>&gt;1.6</td>
+</tr> 
+<tr>
+  <td>2</td>
+  <td>&gt;60</td>
+  <td>&gt;1.4</td>
+  <td>&gt;3.2</td>
+</tr> 
+<tr>
+  <td>3</td>
+  <td>-</td>
+  <td>&gt;2.1</td>
+  <td>&gt;4.8</td>
+</tr> 
+<tr>
+  <td>4</td>
+  <td>-</td>
+  <td>&gt;2.8</td>
+  <td>&gt;6.4</td>
+  </tr> 
+<tr>
+  <td>5</td>
+  <td>&gt;80</td>
+  <td>&gt;3.5</td>
+  <td>&gt;8.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>Nota: batatas, batata doce, taro, mandioca e tapioca não estão incluídas nas frutas, legumes e nozes.</p>
+
+<h3>Cálculo da pontuação nutricional</h3>
+
+<ul>
+<li>Se pontos A &lt; 11, pontuação = pontos A - pontos C</li>
+<li>Se pontos A ≥ 11
+<ul>
+<li>Se os pontos para frutas, legumes e nozes = 5, pontuação = pontos A - pontos C</li>
+<li>Se os pontos para frutas, legumes e nozes &lt; 5, pontuação = pontos A - (pontos de fibra + pontos para pontos de frutas, legumes e nozes)</li>
+</ul>
+
+</li>
+</ul>
+
+<h3>Adaptações para o mercado francês</h3>
+
+<p>A fórmula da pontuação nutricional indicada acima corresponde à fórmula da pontuação nutricional da Food Standards Agency (FSA) no Reino Unido.</p>
+
+<p>A equipe do professor Hercberg oferece adaptações para o mercado francês que são implementadas para calcular a pontuação no Open Food Facts.</p>
+
+<h4>Adaptação para queijo</h4>
+
+<p>Para os queijos, os pontos para as proteínas são subtraídos da pontuação, mesmo que os pontos A sejam ≥ 11.</p>
+
+<h4>Adaptação para gordura</h4>
+
+<p>Para ajudar na diferenciação entre gorduras (óleos, margarinas, crèmes fraîches), todas com taxas de gordura saturada acima do limite máximo de 10 g, aplica-se outra grade que leva em conta a proporção de ácidos graxos saturados na gordura total:</p>
+
+<table class="points">
+<tbody>
+  <tr>
+    <td>Pontos</td>
+    <td>Relação Gordura Saturada / Gordura Total</td>
+  </tr>
+<tr>
+  <td>0</td> 
+  <td>&lt; 10</td>
+</tr>
+<tr>
+  <td>1</td> 
+  <td>&lt; 16</td>
+</tr>
+<tr>
+  <td>2</td> 
+  <td>&lt; 22</td>
+</tr>
+<tr>
+  <td>3</td> 
+  <td>&lt; 28</td>
+</tr>
+<tr>
+  <td>4</td> 
+  <td>&lt; 34</td>
+</tr>
+<tr>
+  <td>5</td> 
+  <td>&lt; 40</td>
+</tr>
+<tr>
+  <td>6</td> 
+  <td>&lt; 46</td>
+</tr>
+<tr>
+  <td>7</td> 
+  <td>&lt; 52</td>
+</tr>
+<tr>
+  <td>8</td> 
+  <td>&gt;&lt; 58</td>
+</tr>
+<tr>
+  <td>9</td> 
+  <td>&gt;&lt; 64</td>
+</tr>
+<tr>
+  <td>10</td> 
+  <td>&gt;64</td>
+</tr>
+</tbody>
+</table>
+
+<h4>Adaptações para frutas e legumes</h4>
+
+<p>As nozes não são levadas em consideração para o cálculo do conteúdo de frutas e vegetais.</p>
+
+<h4>Adaptações para bebidas</h4>
+
+<p>Atenção: a pontuação nutricional do leite e dos leites vegetais é calculada com a fórmula geral e não com a fórmula das bebidas.</p>
+
+<p>O limiar de pontos para energia e para açúcares é modificado para bebidas e os pontos são duplicados para frutas:</p>
+
+<table class="points">
+<tbody>
+<tr>
+  <th>Pontos</th>
+  <th>Energia (kJ)</th>
+  <th>Açúcares (g)</th>
+  <th>Frutas, legumes (%)</th>
+</tr>
+<tr>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td> 
+  <td>&lt; = 40</td>
+</tr>
+<tr>
+  <td>1</td> <td>≤30</td> 
+  <td>≤1,5 or sweeteners</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>2</td> <td>&gt;30</td> 
+  <td>&gt;1.5</td> 
+  <td>&gt;40</td>
+</tr>
+<tr>
+  <td>3</td> <td>&gt;60</td> 
+  <td>&gt;3</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>&gt;90</td> 
+  <td>&gt;4.5</td> 
+  <td>&gt;60</td>
+</tr>
+<tr>
+  <td>5</td> 
+  <td>&gt;120</td> 
+  <td>&gt;6</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>6</td> 
+  <td>&gt;150</td> 
+  <td>&gt;7.5</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>7</td> 
+  <td>&gt;180</td> 
+  <td>&gt;9</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>8</td> 
+  <td>&gt;210</td> 
+  <td>&gt;10.5</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>9</td> 
+  <td>&gt;240</td> 
+  <td>&gt;12</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>10</td> 
+  <td>&gt;270</td> 
+  <td>&gt;13.5</td> 
+  <td>&gt;80</td>
+  </tr>
+</tbody>
+</table>
+
+<h2>Limites de classificações de cores</h2>
+
+<p>Os limites usados ​​para atribuir as classificações de cores são:</p> <p>
+</p><h3>Alimentos Sólidos:</h3>
+<ul>
+<li>A - Verde: até -1</li>
+<li>B - Amarelo: de 0 a 2</li>
+<li>C - Laranja: de 3 a 10</li>
+<li>D - Rose: de 11 a 18</li>
+<li>E - Vermelho: 19 e mais</li>
+</ul>
+<h3>Bebidas:</h3>
+<p>Apenas a água (mineral e de nascente, com exclusão das águas aromatizadas) é classificada como A.</p>
+
+<ul>
+<li>A - Verde: águas minerais e águas de nascente</li>
+<li>B - Amarelo: até 1</li>
+<li>C - Laranja: de 2 a 5</li>
+<li>D - Rose: de 6 a 9</li>
+<li>E - Vermelho: 10 e mais</li>
+</ul>
+
+<p><b>Aviso: esta pontuação ainda pode não corresponder à pontuação recomendada:</b></p>
+
+<ul>
+<li>O teor de fibra não está necessariamente presente na tabela de nutrição. Quando este último não é indicado, qualquer contribuição positiva das fibras não é levada em conta. Encorajamos todos os produtores a indicar o teor de fibra de seus produtos na embalagem dos mesmos.</li>
+  
+  <--end of current proofread -->
+<li>Os pontos correspondentes aos níveis em frutas e legumes não são levados em consideração para todos os produtos. O conteúdo de frutas e legumes não está na embalagem da tabela nutricional, e teremos que determiná-lo com outras informações (como as palavras "teor mínimo de fruta", a categoria de produtos (por exemplo compotas contêm 50% de fruta) e / ou a lista de ingredientes.)
+<ul>
+<li>Um novo campo "Frutas, vegetais (mínimo)" foi criado para registrar os valores dos termos "teor mínimo de frutas / vegetais" etc.</li>
+<li>Por padrão, os produtos em determinadas categorias são considerados como tendo um conteúdo mínimo de:
+<ul>
+<li>100%: <a href="https://world.openfoodfacts.org/category/fr:jus-de-fruits">sumo</a></li>
+<li>90%: <a href="https://world.openfoodfacts.org/category/fr:compotes"> frutas cozidas </a></li>
+<li>85%: <a href="https://world.openfoodfacts.org/category/fr:legumes">legumes</a></li>
+<li>50%: <a href="https://world.openfoodfacts.org/category/fr:confitures">compotas</a></li>
+<li>outras categorias para definir</li>
+</ul>
+
+Para calcular a pontuação nutricional é importante distinguir níveis acima de 40%, 60% e 80%.
+</li>
+</ul>
+  
+</li>
+
+<li>Para o alimento liofilizado (sopas embaladas, etc.), a pontuação deve ser calculada para o produto reconstituído, não o produto bruto, como é atualmente o caso.</li>
+</ul>
+
+<p>Você pode nos ajudar a aprender o conteúdo de frutas, vegetais e nozes. Para mais informações, consulte o projeto <a href="https://fr.wiki.openfoodfacts.org/Projet_de_loi_sur_l%27%C3%A9tiquetage_nutritionnel_:_on_s%27en_m%C3%AAle_%3F">a Rotulagem Nutricional</a> no wiki.</p>
+
+<p>Nota: tubérculos como batata e batata doce não são considerados vegetais para calcular a pontuação nutricional.</p>
+<h2>Obrigado</h2>
+<p>Agradecemos ao professor Serge Hercberg e ao Dr. Chantal Julia por sua ajuda e os dados que nos comunicaram para calcular a pontuação nutricional. Estes dados provêm do trabalho do <a href="http://www-smbh.univ-paris13.fr/recherche/laboratoires/69-equipe-de-recherche-en-epidemiologie-nutritionnelle-eren-umr-1153-inserm-u1125-inra-cnam-up13.html"> Equipa de Investigação em Epidemiologia Nutricional (EREN) </a> da Universidade Paris 13 / Hospital Avicenne.</p>
+
+</div>

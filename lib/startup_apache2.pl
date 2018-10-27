@@ -1,7 +1,9 @@
+#!/usr/bin/perl -w
+
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -16,7 +18,9 @@
 # GNU Affero General Public License for more details.
 # 
 # You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
 
 # startup file for preloading modules into Apache/mod_perl when the server starts
 # (instead of when each httpd child starts)
@@ -48,10 +52,17 @@ use Encode ();
 use Cache::Memcached::Fast ();
 use URI::Escape::XS ();
 
+use ProductOpener::Config qw/:all/;
+
+use Log::Any qw($log);
+use Log::Log4perl;
+Log::Log4perl->init("$data_root/log.conf"); # Init log4perl from a config file.
+use Log::Any::Adapter;
+Log::Any::Adapter->set('Log4perl'); # Send all logs to Log::Log4perl
+
 use ProductOpener::Lang qw/:all/;
 
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
@@ -59,6 +70,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Version qw/:all/;
+use ProductOpener::SiteQuality qw/:all/;
 
 use Apache2::Const -compile => qw(OK);
 use Apache2::Connection ();
@@ -87,9 +99,10 @@ sub My::ProxyRemoteAddr ($) {
   return Apache2::Const::OK;
 }
 
-print STDERR "version: $ProductOpener::Version::version\n";
+$log->info("product opener started", { version => $ProductOpener::Version::version });
 
 open (*STDERR,'>',"/$data_root/logs/modperl_error_log") or die ($!);
 
+print STDERR $log;
 
 1;

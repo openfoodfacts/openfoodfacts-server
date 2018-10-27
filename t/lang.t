@@ -7,6 +7,7 @@ use utf8;
 use Test::More;
 
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::Config qw/:all/;
 
 sub test_links {
 
@@ -14,8 +15,8 @@ sub test_links {
     my @links = shift;
 
     foreach my $key (@links) {
-        foreach my $lang (keys $Lang{$key}) {
-            like($Lang{$key}{$lang}, $regex);
+	foreach my $lang (keys %{$Lang{$key}}) {
+            like($Lang{$key}{$lang}, $regex, "'$key' in '$lang' should be a link");
         }
     }
 
@@ -30,5 +31,52 @@ test_links($abs_regex, @full_links);
 my $slug_regex = qr/^\/[a-z0-9]+(?:-[a-z0-9]+)*$/i;
 my @slug_links = qw(footer_code_of_conduct_link footer_data_link footer_faq_link footer_legal_link footer_press_link footer_terms_link footer_who_we_are_link menu_add_a_product_link menu_contribute_link menu_discover_link nutrient_levels_link);
 test_links($slug_regex, @slug_links);
+
+# check that footer links exist
+#			<li><a href="$Lang{footer_legal_link}{$lc}">$Lang{footer_legal}{$lc}</a></li>
+#			<li><a href="$Lang{footer_terms_link}{$lc}">$Lang{footer_terms}{$lc}</a></li>
+#			<li><a href="$Lang{footer_data_link}{$lc}">$Lang{footer_data}{$lc}</a></li>
+
+binmode(STDOUT, "encoding(UTF-8)");
+binmode(STDERR, "encoding(UTF-8)");
+
+
+my @links = ("legal", "terms", "data");
+my %en_links = ("legal" => "legal", "terms" => "terms-of-use", "data" => "data");
+
+foreach my $link (@links) {
+
+	my $field = "footer_" . $link . "_link";
+	foreach my $lang (keys %{$Lang{$field}}) {
+		my $textid = $Lang{$field}{$lang};
+		$textid =~ s/.*\///;
+		
+		if ($textid ne $en_links{$link} ) {
+
+		#	print "$link - $lang - $textid\n";
+
+			ok ( -e "$data_root/lang/$lang/texts/$textid.html",
+				"$field link - lang: $lang - textid: $textid -- file /lang/$lang/texts/$textid.html does not exist");
+		}
+
+		
+	}
+
+}
+
+is( $Lang{months}{en}, "[\"January\",\"February\",\"March\",\"April\",\"May\",\"June\",\"July\",\"August\",\"September\",\"October\",\"November\",\"December\"]" );
+is( $Lang{weekdays}{en}, "[\"Sunday\",\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"]" );
+
+# https://github.com/openfoodfacts/openfoodfacts-server/issues/1116
+sub test_logo_exists {
+	my $logo = shift;
+	foreach my $lang (keys %{$Lang{$logo}}) {
+		my $path = "$www_root/images/misc/$Lang{$logo}{$lang}";
+		ok( -e $path, "file '$path' exists");
+	}
+}
+
+test_logo_exists('logo');
+test_logo_exists('logo2x');
 
 done_testing();

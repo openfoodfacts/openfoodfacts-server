@@ -1,8 +1,10 @@
+stopwords:en:of,with
+stopwords:fr:aux,au,de,le,du,la,a,et,avec
 
 
 synonyms:en:colour, color
 
-synonyms:en:no12, n12, 12
+synonyms:en:FD&C, FC and C, FDC, FFDCA, FDCA
 
 en:E100, Curcumin, Turmeric extract, curcuma extract
 bg:E100, Куркумин
@@ -78,6 +80,7 @@ sk:E1001, E1001 food additive
 sl:E1001, E1001 food additive
 sv:E1001, E1001 food additive
 e_number:en: 1001
+mandatory_additive_class:en: en:emulsifier
 wikidata:en: Q18668392
 
 en:E101, Riboflavin, Vitamin B2, Flavaxin, Vitamin B 2, Vitamin G, Riboflavine, Lactoflavine, 6‚7-Dimethyl-9-D-ribitylisoalloxazine, 7‚8-Dimethyl-10-ribitylisoalloxazine, Lactoflavin, 7‚8-Dimethyl-10-(D-ribo-2‚3‚4‚5-tetrahydroxypentyl)isoalloxazine, 7‚8-Dimethyl-10-(D-ribo-2‚3‚4‚5-tetrahydroxypentyl)benzo[g]pteridine-2‚4(3H‚10H)-dione, 1-Deoxy-1-(7‚8-dimethyl-2‚4-dioxo-3‚4-dihydrobenzo[g]pteridin-10(2H)-yl)pentitol
@@ -90,7 +93,7 @@ es:E101, Riboflavina, Vitamina B2, Lactoflavina
 et:E101, Vitamiin B2, B2-vitamiin, Laktoflaviin, Riboflaviin
 fi:E101, Riboflaviini, B2-vitamiini, Laktoflaviini, E 101
 fr:E101, Riboflavine, vitamine B2, Bacillus subtilis, CAS 83-88-5, E101i, 83-88-5, C17H20N4O6
-hu:E101, Riboflavin
+hu:E101, Riboflavin, Laktoflavin
 it:E101, Riboflavina, E101a, Vitamina G, Vitamina B2, C17H20N4O6
 lt:E101, Riboflavinas, Vitaminas G
 lv:E101, B2 vitamīns, Riboflavīns
@@ -142,7 +145,7 @@ es:E101ii, Riboflavina-5′-fosfato, Fosfato de lactoflavina
 et:E101ii, Riboflaviin-5′-fosfaat
 fi:E101ii, Riboflaviini-5′-fosfaatti
 fr:E101ii, Riboflavine-5′-phosphate
-hu:E101ii, Riboflavin-5′-foszfát
+hu:E101ii, Riboflavin-5'-foszfát
 it:E101ii, Riboflavina-5′-fosfato
 lt:E101ii, Riboflavin-5′-fosfatas
 lv:E101ii, Riboflavīn-5′-fosfāts
@@ -167,7 +170,7 @@ es:E101a, E101a food additive
 et:E101a, E101a food additive
 fi:E101a, E101a food additive
 fr:E101a, 5'-phosphate sodique de riboflavine, phosphate-5' de riboflavine de sodium, sel monosodique de l'ester du phosphate-5' de riboflavine, sel monosodique de l'ester de phosphate de la vitamine B2, CAS 130-40-5, sel de l'ester monosodique de la riboflavine 5-monophosphatée
-hu:E101a, E101a food additive
+hu:E101a, Riboflavin-5'-foszfát
 it:E101a, E101a food additive
 lt:E101a, E101a food additive
 lv:E101a, E101a food additive
@@ -207,7 +210,7 @@ sl:E102, Tartrazin
 sv:E102, Tartrazin, E 102, Tartrasin
 colour_index:en: CI 19140
 e_number:en: 102
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/1331.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/1331.pdf
 wikidata:en: Q407158
 
 en:E103, Alkannin
@@ -220,7 +223,7 @@ es:E103, E103 food additive
 et:E103, E103 food additive
 fi:E103, E103 food additive
 fr:E103, Jaune chrysoïne, Alkannine, jaune chrysoïne S, Chrysoïne S, Orcanette, Orcanete, CI rouge naturel 20, extrait d'Alkannet, crisoine, Alkannin, CI Natural Red 20, Alkanet extract, Chrysoineresorcinol, jaune de résorcinol, jaune d'or, T jaune, orange acide 6, CI 14270, résorcinol de Chrysoine
-hu:E103, E103 food additive
+hu:E103, Alkannin, Krizoin
 it:E103, Alcannina
 lt:E103, E103 food additive
 lv:E103, E103 food additive
@@ -246,7 +249,7 @@ es:E104, Amarillo de quinoleína, E 104, Amarillo de quinolina
 et:E104, Kinoliinkollane
 fi:E104, Kinoliinikeltainen
 fr:E104, Jaune de quinoléine, colorant alimentaire jaune CI n°13, CI 47005
-hu:E104, Quinoline yellow, Kinolinsárga
+hu:E104, Kinolinsárga
 it:E104, Giallo chinolina
 lt:E104, Chinolino geltonasis
 lv:E104, Hinolīna dzeltenais
@@ -260,7 +263,7 @@ sl:E104, Kinolinsko rumeno
 sv:E104, Kinolingult, E 104
 colour_index:en: CI 47005
 e_number:en: 104
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/1329.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/1329.pdf
 wikidata:en: Q420123
 
 en:E105, E105 food additive
@@ -273,7 +276,7 @@ es:E105, E105 food additive
 et:E105, E105 food additive
 fi:E105, E105 food additive
 fr:E105, Jaune solide
-hu:E105, E105 food additive
+hu:E105, Fast Yellow AB
 it:E105, E105 food additive
 lt:E105, E105 food additive
 lv:E105, E105 food additive
@@ -338,7 +341,7 @@ colour_index:en: CI 18965
 e_number:en: 107
 wikidata:en: Q424528
 
-en:E110, Sunset yellow FCF, CI Food Yellow 3, Orange Yellow S, FD&C Yellow 6, FD & C Yellow No.6, FD and C Yellow No. 6, Yellow No.6, Yellow 6, FD and C Yellow 6, C.I. 15985
+en:E110, Sunset yellow FCF, CI Food Yellow 3, Orange Yellow S, FD&C Yellow 6, FD & C Yellow No.6, FD and C Yellow No. 6, Yellow No.6, Yellow 6, FD and C Yellow 6, C.I. 15985, Sunset Yellow
 bg:E110, Сънсет жълто FCF, CI хранително жълто 3, Yellow 6
 cs:E110, Sunset yellow FCF, Yellow 6, Žluť SY, E 110
 da:E110, Sunset yellow FCF, Yellow 6
@@ -347,7 +350,7 @@ el:E110, Κιτρινο sunset FCF, Κίτρινο CI food 3, Yellow 6
 es:E110, Amarillo anaranjado s, CI food yellow 3, Yellow 6, Amarillo crepúsculo, C.I. 15985, Amarillo ocaso, E 110
 et:E110, Päikeseloojangukollane FCF, CI kollane toiduvärv 3, Yellow 6
 fi:E110, Sunset yellow FCF, Yellow 6, Paraoranssi, E 110, CI 15985
-fr:E110, Jaune orangé S, Jaune soleil FCF, Sunset yellow FCF, C16H10N2Na2O7S2, C16H10N2Ca2O7S2, C16H10N2K2O7S2, CI 15985, C.I. 15985, 6-hydroxy-5-[(4-sulfonatophényl)azo]naphtalène-2-sulfonate de disodium, C.I. Food Yellow 3, CAS 2783-94-0, SEL DISODIQUE DE L'ACIDE HYDROXY-6 ((SULFOPHENYL-4)AZO)-5 NAPHTALENE SULFONIQUE-2, Gelborange S, 2-Hydroxy-1-(4-Sulfonato-Phenylazo)-6-Naphthalin-Sulfonat, Sunset Yellow, FD & C Yellow No.6, FD and C Yellow No. 6, 6-hydroxy-5-((p-sulfophenyl)azo)-2-naphthalenesulfonic acid disodium salt, 6-Hydroxy-5-(4-sulfophenylazo)-2-naphthalenesulfonic acid trisodium salt, Sunsetgelb FCF, 6-Hydroxy-5-(4-sulfophenylazo)-naphthalin- 2-sulfonsäure-Dinatriumsalz, Amarillo crepúsculo, Amarillo ocaso, Amarillo n° 6, Zonnegeel FCF, Oranjegeel S, Crelborange S, Colorant alimentaire jaune CI n°3, Yellow No.6, Yellow 6, 2783-94-0
+fr:E110, Jaune orangé S, Jaune soleil FCF, Sunset yellow FCF, C16H10N2Na2O7S2, C16H10N2Ca2O7S2, C16H10N2K2O7S2, CI 15985, C.I. 15985, 6-hydroxy-5-[(4-sulfonatophényl)azo]naphtalène-2-sulfonate de disodium, C.I. Food Yellow 3, CAS 2783-94-0, SEL DISODIQUE DE L'ACIDE HYDROXY-6 ((SULFOPHENYL-4)AZO)-5 NAPHTALENE SULFONIQUE-2, Gelborange S, 2-Hydroxy-1-(4-Sulfonato-Phenylazo)-6-Naphthalin-Sulfonat, Sunset Yellow, FD & C Yellow No.6, FD and C Yellow No. 6, 6-hydroxy-5-((p-sulfophenyl)azo)-2-naphthalenesulfonic acid disodium salt, 6-Hydroxy-5-(4-sulfophenylazo)-2-naphthalenesulfonic acid trisodium salt, Sunsetgelb FCF, 6-Hydroxy-5-(4-sulfophenylazo)-naphthalin- 2-sulfonsäure-Dinatriumsalz, Amarillo crepúsculo, Amarillo ocaso, Amarillo n° 6, Zonnegeel FCF, Oranjegeel S, Crelborange S, Colorant alimentaire jaune CI n°3, Yellow No.6, Yellow 6, 2783-94-0, Jaune orangé
 hu:E110, Sunset yellow FCF, Narancssárga FCF, CI Food Yellow 3, Yellow 6
 it:E110, Giallo tramonto FCF, CI giallo per alimenti 3, Yellow 6, Giallo arancio S
 lt:E110, Saulėlydžio geltonasis FCF, Maistinis geltonasis CI Nr. 3, Yellow 6
@@ -362,7 +365,7 @@ sl:E110, Sončno rumeno FCF, CI Food Yellow 3, Yellow 6
 sv:E110, Para-orange, CI Food Yellow 3, Yellow 6, E 110
 colour_index:en: CI 15985
 e_number:en: 110
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/1330.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/1330.pdf
 wikidata:en: Q410095
 
 en:E1100, Alpha-Amylase, Diastase, Glycogenase, Ptyalin, amylase
@@ -729,7 +732,7 @@ es:E121, Rojo cítrico 2, E 121
 et:E121, E121 food additive
 fi:E121, E121 food additive
 fr:E121, Rouge citrus no.2, Rouge citrus n°2
-hu:E121, E121 food additive
+hu:E121, Orcein, Citrus Red 2
 it:E121, E121 food additive
 lt:E121, Citrusinių raudonasis 2
 lv:E121, E121 food additive
@@ -768,7 +771,7 @@ sl:E122, Azorubin, karmoizin
 sv:E122, Azorubin, karmosin, E 122
 colour_index:en: CI 14720
 e_number:en: 122
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/1332.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/1332.pdf
 wikidata:en: Q409676
 
 en:E123, Amaranth, FD&C Red 2
@@ -795,11 +798,11 @@ sl:E123, Amarant
 sv:E123, Amarant
 colour_index:en: CI 16185
 e_number:en: 123
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/3442.pdf
-mandatory_additive_class:en: colour
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/3442.pdf
+mandatory_additive_class:en: en:colour
 wikidata:en: Q421074
 
-en:E124, Ponceau 4r, cochineal red a, CI Food Red 7, Brilliant Scarlet 4R
+en:E124, Ponceau 4r, cochineal red a, CI Food Red 7, Brilliant Scarlet 4R, Ponceau
 bg:E124, Понсо 4r, кохинил червено а, CI хранително червено 7
 cs:E124, Ponceau 4r, košenilová červeň a, CI potravinářská červeň 7
 da:E124, Ponceau 4r (cochenillerød a), CI Food Red 7, Ponceau 4R
@@ -808,8 +811,8 @@ el:E124, Πονσω 4r, ερυθρο της κοχενιλης α, Κόκκιν�
 es:E124, Ponceau 4r, rojo cochinilla a
 et:E124, Erkpunane 4r, košenillpunane a, CI punane toiduvärv 7, erkpunane
 fi:E124, Ponceau 4r, kokkeniilipunainen a, CI Food Red 7, Uuskokkiini
-fr:E124, Ponceau 4R, Rouge cochenille A, cochenille nouvelle, CI No. 16255, CI Food Red 7, CAS 2611-28-7
-hu:E124, Ponceau 4r, cochineal red a, Kosnilvörös A, CI Food Red 7
+fr:E124, Ponceau 4R, Rouge cochenille A, cochenille nouvelle, CI No. 16255, CI Food Red 7, CAS 2611-28-7, rouge ponceau
+hu:E124, Ponceau 4R, Kosnilvörös A, CI Food Red 7, Neukokcin
 it:E124, Ponceau 4r, rosso cocciniglia a, CI rosso per alimenti 7
 lt:E124, Ponso 4r, košenilis raudonasis a, Maistinis raudonasis CI Nr. 7, Raudonasis ponso
 lv:E124, Kumačs 4r, košinela sarkanais a, CI Pārtikas sarkanais 7
@@ -823,7 +826,7 @@ sl:E124, Rdeče 4r, košenil rdeče a
 sv:E124, Nykockin, CI Food Red 7, ponceau 4R
 colour_index:en: CI 16255
 e_number:en: 124
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/1328.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/1328.pdf
 wikidata:en: Q384709
 
 en:E125, Scarlet GN, C.I. Food Red 1, Ponceau SX, FD&C Red No. 4, C.I. 14700
@@ -899,7 +902,7 @@ sk:E127, Erytrozín
 sl:E127, Eritrozin
 sv:E127, Erytrosin, E 127
 e_number:en: 127
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/1854.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/1854.pdf
 wikidata:en: Q420101
 
 en:E128, Red 2G
@@ -926,7 +929,7 @@ sl:E128, E128 food additive
 sv:E128, Röd 2G, E 128
 colour_index:en: CI 18050
 e_number:en: 128
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/515.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/515.pdf
 wikidata:en: Q417819
 
 en:E129, Allura red ac, FD&C Red 40, FD and C Red 40, Red 40, Red no40, Red no. 40, FD and C Red no. 40, Food Red 17, C.I. 16035
@@ -939,7 +942,7 @@ es:E129, Rojo allura ac, E 129, Rojo Allura 2C
 et:E129, Võlupunane ac
 fi:E129, Allurapunainen ac, Alluranpunainen, E 129, CI 16035
 fr:E129, Rouge allura AC, Rouge Allura, Rouge alimentaire 17, FD&C Rouge 40, Allura Red, Food Red 17, C.I. 16035, FD&C Red 40, Red 40 lake, Red 40, 2-naphthalenesulfonic acid disodium salt, Allura Red AC, C18H14N2Na2O8S2
-hu:E129, Allura red ac, Alluravörös AC
+hu:E129, Alluravörös AC
 it:E129, Rosso allura ac
 lt:E129, Alura raudonasis ac
 lv:E129, Alūra sarkanais ac
@@ -953,7 +956,7 @@ sl:E129, Alura rdeče ac
 sv:E129, Allurarött ac, E 129
 colour_index:en: CI 16035
 e_number:en: 129
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/3234.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/3234.pdf
 wikidata:en: Q419895
 
 en:E130, Indanthrene blue RS, Indanthrone blue, indanthrene
@@ -991,7 +994,7 @@ es:E131, Azul patentado V, Azul patente v, Azul sulfán
 et:E131, Patentsinine v
 fi:E131, Patenttisininen v, Patenttisininen
 fr:E131, Bleu patenté V, C54H62CaN4O14S4, 3536-49-0, C27H31N2NaO7S2, 20262-76-4, bleu CI n°5
-hu:E131, Patent blue v, Patentkék V
+hu:E131, Patentkék V
 it:E131, Blu patentato v, C54H62CaN4O14S4, C27H31N2NaO7S2
 lt:E131, Mėlynasis patentuotas v
 lv:E131, Patentzilais v
@@ -1005,7 +1008,7 @@ sl:E131, Patentno modro v
 sv:E131, Patentblått v, E 131
 colour_index:en: CI 42051
 e_number:en: 131
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/2818.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/2818.pdf
 wikidata:en: Q420087
 
 en:E132, Indigotine, indigo carmine, FD&C Blue 2, FD and C Blue 2
@@ -1043,7 +1046,7 @@ es:E133, Azul brillante FCF, Azul brillante FCP, E 133, Brilliant Blue FCF
 et:E133, Briljantsinine FCF
 fi:E133, Briljanttisininen FCF
 fr:E133, Bleu brillant FCF, C.I. Acid Blue 9, C.I. Food Blue 2, Blue 2 lake, Blue 2, CI 42090, C-Blau 21, Erioglaucin A, Blue 1, Brilliant Blue FCF, bleu brillant, FD&C Blue No.1, FD&C Blue #1, BB FCF, Acid Blue 9, D&C Blue No. 4, Alzen Food Blue No. 1, Atracid Blue FG, Erioglaucine, Eriosky blue, Patent Blue AR, Xylene Blue VSG, CAS 25305-78-6, CAS 2650-18-2, CAS 3844-45-9, CAS 71701-18-3, CAS 15792-67-3, 2650-18-2, 15792-67-3, 71701-18-3, 25305-78-6, C37H34N2Na2O9S3, 3844-45-9
-hu:E133, Brilliant blue FCF, Brillantkék FCF
+hu:E133, Brilliánskék FCF
 it:E133, Blu brillante FCF, C37H34N2Na2O9S3
 lt:E133, Briliantinis mėlinasis FCF, Briliantinis mėlynasis FCF
 lv:E133, Briljantzilais FCF
@@ -1057,7 +1060,7 @@ sl:E133, Briljantno modro FCF
 sv:E133, Briljantblått FCF
 colour_index:en: CI 42090
 e_number:en: 133
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/1853.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/1853.pdf
 wikidata:en: Q420093
 
 en:E140, Chlorophylls and Chlorophyllins, Chlorophyll c1
@@ -1070,7 +1073,7 @@ es:E140, Clorofilas
 et:E140, E140 food additive
 fi:E140, E140 food additive
 fr:E140, Chlorophylles, Chlorophyllines, Phéophytine au magnésium, Chlorophylle, Chlorophylles magnésium, CI 75810, Vert naturel CI n°3, chlorophylle α, chlorophylle β, chlorophylle alpha, chlorophylle beta, E140a, sels basiques des chlorophyllines, Vert naturel CI no5, CI 75815, Vert naturel CI n°5, chlorophylline sodique, chlorophylline potassique, E140b, chlorophylle c1, C54H70MgN4O6, C55H72MgN4O5, C55H70MgN4O6, C35H28MgN4O5, C35H32MgN4O5
-hu:E140, E140 food additive
+hu:E140, Klorofillok és klorofillinek
 it:E140, E140 food additive
 lt:E140, E140 food additive
 lv:E140, E140 food additive
@@ -1224,7 +1227,7 @@ el:E1403, E1403 food additive
 es:E1403, E1403 food additive
 et:E1403, E1403 food additive
 fi:E1403, E1403 food additive
-fr:E1403, Amidon blanchi
+fr:E1403, Amidon blanchi, amidon transformé, amidon modifié
 hu:E1403, E1403 food additive
 it:E1403, E1403 food additive
 lt:E1403, E1403 food additive
@@ -1300,7 +1303,7 @@ es:E141, Complejos cúpricos de clorofilas, Complejos cúpricos de clorofilas y 
 et:E141, E141 food additive
 fi:E141, E141 food additive
 fr:E141, Complexe cuivrique des chlorophylles, Vert naturel C.I. no 3, Chlorophylle cuivrique, Phéophytine cuivrique, C.I. 75810, Vert naturel C.I. no 5, Complexe cuivrique de la chlorophilline sodique, Complexe cuivrique de la chlorophilline potassique, C.I. 75815, Sels de sodium et de potassium de complexes cupriques de chlorophyllines, Complexe cuivrique des chlorophyllines avec sels de sodium et de potassium, Complexes cuivriques de chlorophyllines,  Cuivre phaeophytin a, C55H72CuN4O5, Cuivre phaeophytin b, C55H70CuN4O6, complexes cuivre-chlorophyllines, laque aluminique de chlorophylline, complexes cuivre-chlorophylles
-hu:E141, E141 food additive
+hu:E141, Klorofillok és klorofillinek rézkomplexei
 it:E141, E141 food additive
 lt:E141, E141 food additive
 lv:E141, E141 food additive
@@ -1326,7 +1329,7 @@ es:E141i, Complejos cúpricos de clorofilas, CI Natural Green 3, clorofila cúpr
 et:E141i, Klorofüllide vasekompleksid, CI looduslik roheline 3, vaskklorofüll
 fi:E141i, Klorofyllikuparikompleksit, CI Natural Green 3, Kupariklorofylli
 fr:E141i, Complexes cuivriques de chlorophylles, Vert naturel C. I. no 3, chlorophylle cuivrique
-hu:E141i, Klorofill-rézkomplexek, CI Natural Green 3, Réz-klorofill
+hu:E141i, Klorofillok rézkomplexei, CI Natural Green 3, Réz-klorofill
 it:E141i, Complessi rameici delle clorofille, CI verde naturale 3, clorofilla rameica
 lt:E141i, Chlorofilų vario kompleksiniai junginiai, Natūralus žaliasis CI Nr. 3, vario chlorofilas
 lv:E141i, Hlorofilu vara kompleksi, CI dabīgais zaļais 3, vara hlorofils
@@ -1353,7 +1356,7 @@ es:E141ii, Complejos cúpricos de clorofilinas, Clorofilina cúprica de sodio, c
 et:E141ii, Klorofülliinide vasekompleksid, Naatriumvaskklorofülliin, kaaliumvaskklorofülliin
 fi:E141ii, Klorofylliinikuparikompleksit, Natriumkupariklorofylliini, Kaliumkupariklorofylliini
 fr:E141ii, Sels de sodium et de potassium de complexes cupriques de chlorophyllines, Complexe cuivrique des chlorophyllines avec sels de sodium et de potassium, Cuivre phaeophytin a, C55H72CuN4O5, Cuivre phaeophytin b, C55H70CuN4O6, complexes cuivre-chlorophyllines, laque aluminique de chlorophylline
-hu:E141ii, Klorofillin-rézkomplexek, Nátrium-réz-klorofillin, Kálium-réz-klorofillin
+hu:E141ii, Klorofillinek rézkomplexei, Nátrium-réz-klorofillin, Kálium-réz-klorofillin
 it:E141ii, Complessi rameici delle clorofilline
 lt:E141ii, Chlorofilinų vario kompleksiniai junginiai, Natrio-vario chlorofilinas, kalio-vario chlorofilinas
 lv:E141ii, Hlorofilīnu vara kompleksi, Nātrija vara hlorofilīns, kālija vara hlorofilīns
@@ -1503,7 +1506,7 @@ es:E142, Verde s, CI Food Green 4, Green S, E 142, Verde ácido brillante BS, Ve
 et:E142, Roheline s, CI roheline toiduvärv 4
 fi:E142, Vihreä s, CI Food Green 4
 fr:E142, Vert acide brillant BS, Vert lissamine, Vert s
-hu:E142, Green s, Zöld S, CI Food Green 4
+hu:E142, Zöld S, CI Food Green 4
 it:E142, Verde s, CI verde per alimenti 4, C27H25N2O7S2Na, Verde Brillante BS
 lt:E142, Žaliasis s, Maistinis žaliasis CI Nr. 4, Maisto žaliasis S
 lv:E142, Zaļais s, CI Pārtikas zaļais 4
@@ -1517,7 +1520,7 @@ sl:E142, Zeleno s, CI Food Green 4
 sv:E142, Grön s, CI Food Green 4, E 142
 colour_index:en: CI 5
 e_number:en: 142
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/1851.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/1851.pdf
 wikidata:en: Q420143
 
 en:E1420, Acetylated starch
@@ -1854,7 +1857,7 @@ el:E14XX, E14XX food additive
 es:E14XX, E14XX food additive
 et:E14XX, E14XX food additive
 fi:E14XX, E14XX food additive
-fr:E14XX, Amidons modifiés, amidon modifié, catégorie d'additifs de 1401 à 1452, almidón modificado
+fr:E14XX, Amidons modifiés, amidon modifié, amidons transformés, amidon transformé, catégorie d'additifs de 1401 à 1452, almidón modificado
 hu:E14XX, E14XX food additive
 it:E14XX, E14XX food additive
 lt:E14XX, E14XX food additive
@@ -1879,7 +1882,7 @@ es:E150, Caramelo, Caramelina, Caramelo líquido
 et:E150, E150 food additive
 fi:E150, E150 food additive
 fr:E150, Caramel
-hu:E150, E150 food additive
+hu:E150, Karamell
 it:E150, E150 food additive
 lt:E150, E150 food additive
 lv:E150, E150 food additive
@@ -1892,7 +1895,7 @@ sk:E150, E150 food additive
 sl:E150, E150 food additive
 sv:E150, E150 food additive
 e_number:en: 150
-mandatory_additive_class:en: colour
+mandatory_additive_class:en: en:colour
 
 en:E1503, Castor oil
 bg:E1503, E1503 food additive
@@ -1980,7 +1983,7 @@ es:E150a, Caramelo natural, color caramelo, colorante «Color Caramelo», carame
 et:E150a, Karamell
 fi:E150a, Plain caramel, Sokerikulööri
 fr:E150a, Caramel E150a, caramel ordinaire, Plain caramel, caustic caramel, spirit caramel, Caramelo simple, caramelo cáustico, caramelo para licores, caramelo natural, E-150 a, Color Caramelo, caramel colorant
-hu:E150a, Egyszerű égetett cukor
+hu:E150a, Karamell, Tömény karamell
 it:E150a, Caramello semplice
 lt:E150a, Paprastoji karamelė
 lv:E150a, Karamele
@@ -1993,7 +1996,7 @@ sk:E150a, Obyčajný karamel
 sl:E150a, Karamel
 sv:E150a, Sockerkulör
 e_number:en: 150
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/3030.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/3030.pdf
 
 en:E150b, Caustic sulphite caramel
 bg:E150b, Карамел (основен сулфит)
@@ -2005,7 +2008,7 @@ es:E150b, Caramelo de sulfito cáustico
 et:E150b, Leeliseline sulfitkaramell
 fi:E150b, Emäksinen sulfiittisokerikulööri
 fr:E150b, Caramel de sulfite caustique, Caramel au sulfite de soude, Caramel E150b, E150b (caramel), Caramel II, Caustic sulfite caramel, Caramelo cáustico de sulfito, Caramel au sulfite caustique, Caramel sulfité
-hu:E150b, Szulfitos égetett cukor
+hu:E150b, Szulfitos karamell
 it:E150b, Caramello solfito-caustico
 lt:E150b, Šarminė sulfitinė karamelė
 lv:E150b, Sulfīta karamele
@@ -2018,7 +2021,7 @@ sk:E150b, Kaustický sulfitový karamel
 sl:E150b, Alkalni sulfitni karamel
 sv:E150b, kaustiksulfitprocessen
 e_number:en: 150
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/2004.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/2004.pdf
 
 en:E150c, Ammonia caramel
 bg:E150c, Амониев карамел
@@ -2030,7 +2033,7 @@ es:E150c, Caramelo amónico
 et:E150c, Ammooniumkaramell
 fi:E150c, Ammoniummenetelmän sokerikulööri
 fr:E150c, Caramel ammoniacal, Caramel E150c, E150c (caramel), Caramel Color, Color Added, Caramel Color Ammonia, Ammonia caramel, baker's caramel, confectioner's caramel, beer caramel, El caramelo amónico, caramelo de panadería, caramelo de confitería, caramelo de cerveza
-hu:E150c, Ammóniás égetett cukor
+hu:E150c, Ammóniás karamell
 it:E150c, Caramello ammoniacale
 lt:E150c, Amoniakinė karamelė
 lv:E150c, Amonija karamele
@@ -2043,7 +2046,7 @@ sk:E150c, Amoniakový karamel
 sl:E150c, Amonijev karamel
 sv:E150c, ammoniakprocessen
 e_number:en: 150
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/3030.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/3030.pdf
 
 en:E150d, Sulphite ammonia caramel, Sulfite ammonia caramel
 bg:E150d, Карамел (амониев сулфит)
@@ -2055,7 +2058,7 @@ es:E150d, Caramelo de sulfito amónico, Caramelo sulfito de amoníaco
 et:E150d, Ammooniumsulfitkaramell
 fi:E150d, Ammoniumsulfiittimenetelmän sokerikulööri
 fr:E150d, Caramel au sulfite d'ammonium, Caramel E150d, E150d (caramel), Caramel IV - procédé au sulfite ammoniacal, Caramel IV, C.I. Natural Brown 10, FEMA no. 2235, Caramel Colour Ammonium Sulphite Process, Colour Sulphite Ammonia Caramel, Sulfite ammonia caramel, Colour E150d, Food Colour 150d, CAS 8028-89-5, acid-proof caramel, soft-drink caramel, Caramelo sulfito de amoníaco, caramelo a prueba de ácidos, caramelo, de bebidas gaseosas
-hu:E150d, Szulfitos ammóniás égetett cukor
+hu:E150d, Szulfitos ammóniás karamell
 it:E150d, Caramello solfito-ammoniacale
 lt:E150d, Sulfitinė amoniakinė karamelė
 lv:E150d, Amonija sulfīta karamele
@@ -2068,7 +2071,7 @@ sk:E150d, Amoniak-sulfitový karamel
 sl:E150d, Amonijev sulfitni karamel
 sv:E150d, ammoniaksulfitprocessen
 e_number:en: 150
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/3030.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/3030.pdf
 
 en:E151, Brilliant black bn, black pn, E 151, C.I. 28440, Brilliant Black PN, Food Black 1, Naphthol Black, C.I. Food Brown 1, Brilliant Black A
 bg:E151, Брилянтно черно bn, черно pn
@@ -2080,7 +2083,7 @@ es:E151, Negro brillante bn, negro pn, E 151
 et:E151, Briljantmust bn, must pn
 fi:E151, Briljanttimusta bn, musta pn, Briljanttimusta, E 151
 fr:E151, Noir brillant BN, Noir PN, noir n°1, noir numéro 1, noir numéro un, Noir alimentaire 1, Naphtol black, CI 28440, CI Food Black 1, Food Black 1, CI Food Brown 1, Brillant Black BN, Brillant Black, Black PN, Noir brillant, Xylene Black F
-hu:E151, Brilliant black bn, black pn, Brillantfekete BN, Fekete PN
+hu:E151, Fekete PN, Brilliant Black PN
 it:E151, Nero brillante bn, nero pn, C28H17N5Na4O14S4
 lt:E151, Briliantinis juodasis bn, juodasis dažiklis pn, Juodasis PN
 lv:E151, Briljanta melnais bn, melnais pn
@@ -2094,7 +2097,7 @@ sl:E151, Briljantno črno bn, črno pn
 sv:E151, Briljantsvart bn, svart pn, E 151
 colour_index:en: CI 28440
 e_number:en: 151
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/1540.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/1540.pdf
 wikidata:en: Q420079
 
 en:E1510, Ethanon, ethanol, ethyl alcohol, spirits, drinking alcohol, pure alcohol, grain alcohol, ethyl, alcohol, Methylcarbinol, Ethyl hydroxide, Ethyl hydrate, Algrain, Anhydrol, Tecsol
@@ -2207,7 +2210,7 @@ es:E152, negro de carbón, carbono negro, carbón negro
 et:E152, Tahm
 fi:E152, Kimrööki
 fr:E152, Noir de carbone, Hydrocarbure, Noir 7984, Black 7984, Food Black 2, C.I. 27755
-hu:E152, E152 food additive
+hu:E152, Fekete 7984
 it:E152, nero di carbone
 lt:E152, E152 food additive
 lv:E152, E152 food additive
@@ -2297,7 +2300,7 @@ sk:E153, Rastlinné uhlie
 sl:E153, Rastlinsko oglje
 sv:E153, Vegetabiliskt kol
 e_number:en: 153
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/2592.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/2592.pdf
 wikidata:en: Q18944671
 
 en:E154, Brown FK, Kipper Brown
@@ -2323,7 +2326,7 @@ sk:E154, E154 food additive
 sl:E154, E154 food additive
 sv:E154, Brun FK, E 154
 e_number:en: 154
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/1535.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/1535.pdf
 wikidata:en: Q425437
 
 en:E155, Brown ht, Chocolate brown HT
@@ -2336,7 +2339,7 @@ es:E155, Marrón ht, E 155, Pardo HT, Marrón chocolate HT
 et:E155, Pruun ht
 fi:E155, Ruskea ht, E 155, CI 20285
 fr:E155, Brun chocolat HT, Brun ht
-hu:E155, Brown ht, Barna HT, Csokoládébarna HT
+hu:E155, Barna HT, Csokoládébarna HT
 it:E155, Bruno ht, Marrone HT, C27H18N4Na2O9S2
 lt:E155, Rudasis ht, Maisto rudasis 3, Šokolado rudasis HT
 lv:E155, Brūnais ht
@@ -2350,7 +2353,7 @@ sl:E155, Rjavo ht
 sv:E155, Brun ht, E 155
 colour_index:en: CI 20285
 e_number:en: 155
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/1536.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/1536.pdf
 wikidata:en: Q424541
 
 en:E15x, E15x food additive
@@ -2363,7 +2366,7 @@ es:E15x, E15x food additive
 et:E15x, E15x food additive
 fi:E15x, E15x food additive
 fr:E15x, CI 77266, Black carbon, catégorie d'additifs de 152 à 153
-hu:E15x, E15x food additive
+hu:E15x, CI 77266, Carbon Black
 it:E15x, E15x food additive
 lt:E15x, E15x food additive
 lv:E15x, E15x food additive
@@ -2388,7 +2391,7 @@ es:E160, Carotenoides, Caroteno
 et:E160, E160 food additive
 fi:E160, E160 food additive
 fr:E160, Caroténoïdes, carotène, carotènes, Caroténoïde, caroténoïdes mélangés, carotènes mélangés
-hu:E160, E160 food additive
+hu:E160, Karotin
 it:E160, E160 food additive
 lt:E160, E160 food additive
 lv:E160, E160 food additive
@@ -2426,6 +2429,7 @@ sk:E160a, Karotén
 sl:E160a, E160a food additive
 sv:E160a, Karoten, E 160, Karotener, Karotin, E 160a, Alfakaroten, E 160 a, E160
 e_number:en: 160
+mandatory_additive_class:en: en:colour
 wikidata:en: Q190156
 
 < en:E160a
@@ -2452,7 +2456,7 @@ sk:E160ai, Beta-karotén
 sl:E160ai, Beta karoten
 sv:E160ai, Betakaroten
 e_number:en: 160
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/2593.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/2593.pdf
 wikidata:en: Q306135
 
 < en:E160a
@@ -2479,7 +2483,7 @@ sk:E160aii, Rastlinné karotény
 sl:E160aii, Rastlinski karoteni
 sv:E160aii, Karotener från växter
 e_number:en: 160
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/2593.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/2593.pdf
 
 < en:E160a
 en:E160aiii, Beta-carotene from blakeslea trispora
@@ -2566,7 +2570,7 @@ es:E160c, Extracto de pimentón, capsantina, capsorrubina, Oleorresina de piment
 et:E160c, Paprikaekstrakt, kapsantiin, kapsorubiin
 fi:E160c, Paprikauute, kapsantiini, kapsorubiini
 fr:E160c, Extrait de paprika, capsanthéine et capsorubine, Oléorésine de paprika, Capsanthine, Capsanthéine, 465-42-9, C40H56O3
-hu:E160c, Paprikakivonat, kapszantin, kapszorubin, Paprika oleoresin
+hu:E160c, Paprikakivonat, kapszantin, kapszorubin, Paprika-oleorezin
 it:E160c, Estratto di paprica, capsantina, capsorubina
 lt:E160c, Paprikų ekstraktas, kapsantinas, kapsorubinas, Paprikos ekstraktas
 lv:E160c, Paprikas ekstrakts, kapsantīns, kapsorubīns
@@ -2604,7 +2608,7 @@ sk:E160d, Lykopén
 sl:E160d, Likopen
 sv:E160d, Lykopen, E 160 d, E 160d
 e_number:en: 160
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/674.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/674.pdf
 wikidata:en: Q208130
 
 en:E160e, Beta-apo-8′-carotenal (c30), Apocarotenal, Beta-apo-8'-carotenal, C.I. Food orange 6, E number 160E, Trans-beta-apo-8'-carotenal, C30H40O
@@ -2617,7 +2621,7 @@ es:E160e, Beta-apo-8′-carotenal (c30), Apocarotenal, Beta-apo-8'-carotenal, E 
 et:E160e, Beeta-apo-8′-karotenaal (c30)
 fi:E160e, Beta-apo-8′-karotenaali (c30)
 fr:E160e, Apocaroténal 8', bêta-apocaroténal-8, bêta-apocaroténal-8' (C 30), β-apocaroténal-8', CI food orange 6, C 30, C30, colorant alimentaire orange CI 6, Β-apo-8′-caroténal (c30), bêta-apocaroténal, Apocaroténal, 1107-26-2, C30H40O
-hu:E160e, Béta-apo-8′-karotinal (c30), Béta-apo-8'-karotenal
+hu:E160e, Béta-apo-8′-karotinal (c30)
 it:E160e, Beta-apo-8′-carotenale (c30)
 lt:E160e, Beta-apo-8′-karotenalis (c30), Beta apo-8'-karotenalis
 lv:E160e, Βeta-apo-8′-karotenāls (c30)
@@ -2630,7 +2634,7 @@ sk:E160e, Beta-apo-8′-karotenal (c 30)
 sl:E160e, Beta-apo-8'-karotenal (c30)
 sv:E160e, Beta-apo-8′-karotenal (c 30), Beta-apo-8'-karotenal, E 160e
 e_number:en: 160
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/2499.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/2499.pdf
 
 en:E160f, Ethyl ester of beta-apo-8'-carotenic acid (C 30), Ethyl ester of beta-apo-8'-carotenic acid, Food orange 7
 bg:E160f, E160f food additive
@@ -2666,7 +2670,7 @@ es:E161, E161 food additive
 et:E161, E161 food additive
 fi:E161, E161 food additive
 fr:E161, Xanthophylles
-hu:E161, E161 food additive
+hu:E161, Xantofillek
 it:E161, E161 food additive
 lt:E161, E161 food additive
 lv:E161, E161 food additive
@@ -2762,7 +2766,7 @@ es:E161d, Rubixantina
 et:E161d, E161d food additive
 fi:E161d, E161d food additive
 fr:E161d, Rubixanthine, Natural yellow 27, C.I. 75135, CI 75135
-hu:E161d, E161d food additive
+hu:E161d, Rubixantin
 it:E161d, Rubixantina
 lt:E161d, Rubiksantinas
 lv:E161d, E161d food additive
@@ -2849,7 +2853,7 @@ sl:E161g, Kantaksantin
 sv:E161g, Kantaxantin
 colour_index:en: CI 40850
 e_number:en: 161
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/1852.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/1852.pdf
 
 en:E161h, Zeaxanthin
 bg:E161h, Зеаксантин
@@ -2861,7 +2865,7 @@ es:E161h, Zeaxantina
 et:E161h, E161h food additive
 fi:E161h, E161h food additive
 fr:E161h, Zéaxanthine, Zéaxanthine riche en extrait de Tagetes erecta
-hu:E161h, E161h food additive
+hu:E161h, Zeaxantin
 it:E161h, Zeaxantina
 lt:E161h, E161h food additive
 lv:E161h, E161h food additive
@@ -2885,7 +2889,7 @@ es:E161i, E161i food additive
 et:E161i, E161i food additive
 fi:E161i, E161i food additive
 fr:E161i, Citranaxanthine
-hu:E161i, E161i food additive
+hu:E161i, Citranaxantin
 it:E161i, E161i food additive
 lt:E161i, Citranaksantinas
 lv:E161i, E161i food additive
@@ -2909,7 +2913,7 @@ es:E161j, Astaxantina
 et:E161j, E161j food additive
 fi:E161j, Astaksantiini
 fr:E161j, Astaxanthine, 472-61-7, C40H52O4
-hu:E161j, E161j food additive
+hu:E161j, Asztaxantin
 it:E161j, Astaxantina, C40H52O4
 lt:E161j, E161j food additive
 lv:E161j, E161j food additive
@@ -2933,7 +2937,7 @@ es:E162, Rojo de remolacha, Betanina, Betacianina, E 162, Rojo remolacha
 et:E162, Peedipunane, betaniin
 fi:E162, Punajuuriväri, betalaiini
 fr:E162, Rouge de betterave, bétanine, rouge betterave, E 162, 7659-95-2, C24H27N2O13
-hu:E162, Beetroot red, betanin
+hu:E162, Céklavörös, betanin
 it:E162, Rosso di radice di barbabietola, betanina, C24H27N2O13
 lt:E162, Burokėlių raudonasis, betaninas
 lv:E162, Biešu sarkanais, betanīns
@@ -2983,7 +2987,7 @@ es:E163a, E163a food additive
 et:E163a, E163a food additive
 fi:E163a, E163a food additive
 fr:E163a, Cyanidine
-hu:E163a, E163a food additive
+hu:E163a, Cianidin
 it:E163a, E163a food additive
 lt:E163a, E163a food additive
 lv:E163a, E163a food additive
@@ -3008,7 +3012,7 @@ es:E163b, E163b food additive
 et:E163b, E163b food additive
 fi:E163b, E163b food additive
 fr:E163b, Delphinidine
-hu:E163b, E163b food additive
+hu:E163b, Delfinidin
 it:E163b, E163b food additive
 lt:E163b, E163b food additive
 lv:E163b, E163b food additive
@@ -3033,7 +3037,7 @@ es:E163c, E163c food additive
 et:E163c, E163c food additive
 fi:E163c, E163c food additive
 fr:E163c, Malvidine
-hu:E163c, E163c food additive
+hu:E163c, Malvidin
 it:E163c, E163c food additive
 lt:E163c, E163c food additive
 lv:E163c, E163c food additive
@@ -3058,7 +3062,7 @@ es:E163d, E163d food additive
 et:E163d, E163d food additive
 fi:E163d, E163d food additive
 fr:E163d, Pélargonidine
-hu:E163d, E163d food additive
+hu:E163d, Pelargonidin
 it:E163d, E163d food additive
 lt:E163d, E163d food additive
 lv:E163d, E163d food additive
@@ -3083,7 +3087,7 @@ es:E163e, E163e food additive
 et:E163e, E163e food additive
 fi:E163e, E163e food additive
 fr:E163e, Péonidine
-hu:E163e, E163e food additive
+hu:E163e, Peonidin
 it:E163e, E163e food additive
 lt:E163e, E163e food additive
 lv:E163e, E163e food additive
@@ -3108,7 +3112,7 @@ es:E163f, E163f food additive
 et:E163f, E163f food additive
 fi:E163f, E163f food additive
 fr:E163f, Pétunidine
-hu:E163f, E163f food additive
+hu:E163f, Petunidin
 it:E163f, E163f food additive
 lt:E163f, E163f food additive
 lv:E163f, E163f food additive
@@ -3133,7 +3137,7 @@ es:E164, E164 food additive
 et:E164, E164 food additive
 fi:E164, E164 food additive
 fr:E164, Jaune de gardénia
-hu:E164, E164 food additive
+hu:E164, Gardénia sárga
 it:E164, E164 food additive
 lt:E164, E164 food additive
 lv:E164, E164 food additive
@@ -3157,7 +3161,7 @@ es:E165, E165 food additive
 et:E165, E165 food additive
 fi:E165, E165 food additive
 fr:E165, Bleu de gardénia
-hu:E165, E165 food additive
+hu:E165, Gardénia kék
 it:E165, E165 food additive
 lt:E165, E165 food additive
 lv:E165, E165 food additive
@@ -3182,7 +3186,7 @@ es:E166, E166 food additive
 et:E166, E166 food additive
 fi:E166, E166 food additive
 fr:E166, Bois de santal, extrait de bois de santal rouge, extrait de bois de santal
-hu:E166, E166 food additive
+hu:E166, Szantálfa, vörös szantálfa kivonat, szantálfa kivonat
 it:E166, E166 food additive
 lt:E166, E166 food additive
 lv:E166, E166 food additive
@@ -3219,7 +3223,8 @@ sk:E170, Uhličitan vápenatý, CI pigment biely 18
 sl:E170, Kalcijev karbonat, CI Pigment White 18
 sv:E170, Kalciumkarbonat, CI Pigment White 18
 e_number:en: 170
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/2318.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/2318.pdf
+mandatory_additive_class:en: en:acidity-regulator, en:anti-caking-agent, en:stabiliser, en:firming-agent, en:flour-treatment-agent, en:glazing-agent, en:colour
 wikidata:en: Q23767
 
 en:E171, Titanium dioxide
@@ -3285,7 +3290,7 @@ es:E172i, E172(i) food additive
 et:E172i, E172(i) food additive
 fi:E172i, E172(i) food additive
 fr:E172i, Oxyde de fer noir
-hu:E172i, E172(i) food additive
+hu:E172i, Fekete vas-oxid
 it:E172i, E172(i) food additive
 lt:E172i, E172(i) food additive
 lv:E172i, E172(i) food additive
@@ -3311,7 +3316,7 @@ es:E172ii, E172(ii) food additive, óxido férrico, Fe2O3, herrumbre, óxido de 
 et:E172ii, E172(ii) food additive, Raud(III)oksiid
 fi:E172ii, E172(ii) food additive, Rauta(III)oksidi, Dirautatrioksidi, Ferrioksidi
 fr:E172ii, Oxyde de fer rouge, oxyde et hydroxyde de fer rouge, oxyde de fer(III), Oxyde ferrique, Trioxide de difer, Oxyde de fer
-hu:E172ii, E172(ii) food additive, Vas(III)-oxid
+hu:E172ii, Vas(III)-oxid
 it:E172ii, E172(ii) food additive, ossido ferrico, Sesquiossido di ferro, Fe2O3
 lt:E172ii, E172(ii) food additive
 lv:E172ii, E172(ii) food additive
@@ -3438,7 +3443,7 @@ es:E180, Litolrubina bk, CI Pigment Red 57, rubinpigment, Litol-rubina BK
 et:E180, Litoolrubiin bk, CI punane pigment 57, rubiinpigment
 fi:E180, Litolirubiini bk, CI Pigment Red 57, Rubiinipigmentti
 fr:E180, Lithol-rubine BK, Litholrubine BK, Pigment Rubine, Carmin 6B, TANNIC ACID, Fuchsine lithol BK, D&C Red No. 7, D et C Red No. 7, Carmine 6B, Brilliant Carmine 6B, Permanent Rubin L6B, Litholrubine, Latolrubine, C.I. Pigment Red 57, C.I. Pigment Red 57:1, C.I. 15850:1, Rubinpigment BK, Rubinpigment, 4B-Toner, pigmento rubí, CI 15850, D&C red 7 (USA), Lithol rubin toner BKL, Pigment rouge C. I. no 57, pigment rubis
-hu:E180, Litolrubin bk, CI Pigment Red 57, Rubinpigment, Rubin pigment
+hu:E180, Litolrubin BK, CI Pigment Red 57, Rubinpigment
 it:E180, Litolrubino bk, CI pigmento rosso 57, pigmento rubino
 lt:E180, Litolrubinas bk, Raudonasis pigmentas CI Nr. 57, rubino pigmentas
 lv:E180, Litolrubīns bk, CI Sarkanais pigments 57, rubīnpigments
@@ -3452,7 +3457,7 @@ sl:E180, Litolrubin bk, CI Pigment Red 57, rubinpigment
 sv:E180, Litolrubin bk, CI Pigment Red 57, rubinpigment, E 180
 colour_index:en: CI 15850
 e_number:en: 180
-efsa:en: https://www.efsa.europa.eu/fr/efsajournal/doc/1586.pdf
+efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/1586.pdf
 wikidata:en: Q427230
 
 en:E181, Tannin
@@ -3465,7 +3470,7 @@ es:E181, Tanino, E 181, Taninos
 et:E181, E181 food additive
 fi:E181, Tanniinit, Tanniini, Parkkihappo
 fr:E181, Tannin, acide tannique, Tanin, Tannins, 1401-55-4, Tanins
-hu:E181, Csersav
+hu:E181, Tannin, Csersav
 it:E181, Tannino, Tannini
 lt:E181, Taninas, Taninai
 lv:E181, E181 food additive
@@ -3940,7 +3945,7 @@ es:E222, Sulfito ácido de sodio, Bisulfito de sodio, Bisulfito sódico, Hidroge
 et:E222, Naatriumvesiniksulfit
 fi:E222, Natriumbisulfiitti, Natriumvetysulfiitti
 fr:E222, Bisulfite de sodium, Sulfite acide de sodium, NaHSO3, Bisulfite de soude, Hydrogénosulfite de sodium
-hu:E222, Nátrium-biszulfit szinonimák, Nátrium-biszulfit, Nátrium-hidrogénszulfit
+hu:E222, Nátrium-hidrogén-szulfit, Nátrium-biszulfit
 it:E222, Sodio bisolfito, Bisolfito di sodio, Idrogenosolfito di sodio
 lt:E222, Natrio bisulfitas
 lv:E222, Nātrija bisulfīts
@@ -3999,6 +4004,7 @@ nl:E224, Kaliumdisulfiet, Kaliummetabisulfiet
 pl:E224, Pirosiarczyn potasu, Metadisiarczek potasu
 pt:E224, Metabissulfito de potássio
 ro:E224, Metabisulfit de potasiu
+rs:E224, Kalijum-metabisulfit
 ru:E224, Пиросульфит калия, дисульфит калия
 sk:E224, Disiričitan draselný
 sl:E224, Kalijev metabisulfit
@@ -4066,7 +4072,7 @@ es:E227, Sulfito ácido de calcio, Bisulfito de calcio, E 227, Bisulfito cálcic
 et:E227, Kaltsiumvesiniksulfit
 fi:E227, Kalsiumbisulfiitti
 fr:E227, Sulfite acide de calcium, Bisulfite de calcium
-hu:E227, Kalcium-biszulfit szinonimák, Kalcium-biszulfit, Kalcium-hidrogénszulfit
+hu:E227, Kalcium-hidrogén-szulfit, Kalcium-biszulfit
 it:E227, Calcio bisolfito, Bisolfito di calcio
 lt:E227, Kalcio bisulfitas
 lv:E227, Kalcija bisulfīts
@@ -4091,7 +4097,7 @@ es:E228, Sulfito ácido de potasio, Bisulfito de potasio, Bisulfito potásico, E
 et:E228, Kaaliumvesiniksulfit
 fi:E228, Kaliumbisulfiitti
 fr:E228, Sulfite acide de potassium, Bisulfite de potassium, HKSO3
-hu:E228, Kálium-biszulfit szinonimák, Kálium-biszulfit, Kálium-hidrogénszulfit
+hu:E228, Kálium-hidrogén-szulfit, Kálium-biszulfit
 it:E228, Potassio solfito acido, Bisolfito di potassio
 lt:E228, Kalio bisulfitas
 lv:E228, Kālija bisulfīts
@@ -4141,7 +4147,7 @@ es:E231, E231 food additive
 et:E231, E231 food additive
 fi:E231, E231 food additive
 fr:E231, Orthophénylphénol, 2-hydroxybiphényle
-hu:E231, E231 food additive
+hu:E231, Ortofenil-fenol
 it:E231, E231 food additive
 lt:E231, E231 food additive
 lv:E231, E231 food additive
@@ -4165,7 +4171,7 @@ es:E232, Ortofenilfenato sódico, Orto-fenilfenato sódico, Ortofenilfenato de s
 et:E232, E232 food additive
 fi:E232, E232 food additive
 fr:E232, Orthophénylphénate de sodium, Sodium diphényl 2 yl
-hu:E232, E232 food additive
+hu:E232, Nátrium-ortofenil-fenol
 it:E232, E232 food additive
 lt:E232, E232 food additive
 lv:E232, E232 food additive
@@ -4190,7 +4196,7 @@ es:E233, Tiabendazol
 et:E233, E233 food additive
 fi:E233, E233 food additive
 fr:E233, Thiabendazole, 4-thiazolyl, benzimidazole
-hu:E233, E233 food additive
+hu:E233, Tiabendazol
 it:E233, E233 food additive
 lt:E233, E233 food additive
 lv:E233, E233 food additive
@@ -4439,7 +4445,7 @@ es:E243, E243 food additive
 et:E243, E243 food additive
 fi:E243, E243 food additive
 fr:E243, Arginate d'éthyle laurique
-hu:E243, E243 food additive
+hu:E243, Etil-lauroil-arginát
 it:E243, E243 food additive
 lt:E243, E243 food additive
 lv:E243, E243 food additive
@@ -4452,7 +4458,7 @@ sk:E243, E243 food additive
 sl:E243, E243 food additive
 sv:E243, E243 food additive
 e_number:en: 243
-efsa:en: https://www.efsa.europa.eu/en/efsajournal/doc/3294.pdf
+efsa:en: http://www.efsa.europa.eu/en/efsajournal/doc/3294.pdf
 wikidata:en: Q18608852
 
 en:E249, Potassium nitrite
@@ -4480,18 +4486,18 @@ sv:E249, Kaliumnitrit
 e_number:en: 249
 wikidata:en: Q409179
 
-en:E250, Sodium nitrite
+en:E250, Sodium nitrite, NaNO2
 bg:E250, Натриев нитрит
-cs:E250, Dusitan sodný, E 250, NaNO2
+cs:E250, Dusitan sodný
 da:E250, Natriumnitrit
-de:E250, Natriumnitrit, NaNO2, E 250
+de:E250, Natriumnitrit
 el:E250, Νιτρωδες νατριο
-es:E250, Nitrito sódico, Nitrito de sodio, E 250
+es:E250, Nitrito sódico, Nitrito de sodio
 et:E250, Naatriumnitrit
 fi:E250, Natriumnitriitti, E 250
-fr:E250, Nitrite de sodium, Azotite, Nitrite de soude, 7632-00-0, NaNO2
+fr:E250, Nitrite de sodium, Azotite, Nitrite de soude, Nitrite sodique, Sel nitrité
 hu:E250, Nátrium-nitrit
-it:E250, Nitrito di sodio, NaNO2
+it:E250, Nitrito di sodio
 lt:E250, Natrio nitritas
 lv:E250, Nātrija nitrīts
 mt:E250, Nitrit tas-sodju
@@ -4500,10 +4506,10 @@ pl:E250, Azotyn sodu, AzotanIII sodu
 pt:E250, Nitrito de sódio
 ro:E250, Nitrit de sodiu, Azotit de sodiu
 rs:E250, natrijum nitrit
-ru:E250, Нитрит натрия, Е 250, Е250, Натрия нитрит, Натрий азотокислый
+ru:E250, Нитрит натрия, Натрия нитрит, Натрий азотокислый
 sk:E250, Dusitan sodný
 sl:E250, Natrijev nitrit
-sv:E250, Natriumnitrit, E 250
+sv:E250, Natriumnitrit
 e_number:en: 250
 wikidata:en: Q339975
 
@@ -4555,6 +4561,7 @@ sk:E252, Dusičnan draselný
 sl:E252, Kalijev nitrat
 sv:E252, Kaliumnitrat, KNO3, E 252, Kalisalpeter
 e_number:en: 252
+mandatory_additive_class:en: en:preservative
 wikidata:en: Q177836
 
 en:E260, Acetic acid, ethanoic acid
@@ -4611,7 +4618,7 @@ en:E262, Sodium acetates, sodium acetate
 bg:E262, Натриев ацетат
 cs:E262, Octan sodný, Etanoát sodný, Metylkarboxát sodný, Metylkarboxylát sodný, Sodná sůl kyseliny ethanové, CH3COONa, Methylkarboxylát sodný, Sodná sůl kyseliny octové, Ethanoát sodný, Sodná sůl kyseliny etanové, E 262, Methylkarboxát sodný
 da:E262, CH_3 COONa
-de:E262, Natriumacetat, Natrium aceticum, Natriumethanoat, Sodiumacetat, NaOAc, CH3COONa, Natriumacetat-Trihydrat, NaAc, E 262
+de:E262, Natriumacetat, Natriumacetate, Natrium aceticum, Natriumethanoat, Sodiumacetat, NaOAc, CH3COONa, Natriumacetat-Trihydrat, NaAc, E 262
 el:E262, E262 food additive
 es:E262, Acetato de sodio, Acetato sódico, E 262
 et:E262, Naatriumetanoaat, Naatriumatsetaat
@@ -5057,7 +5064,9 @@ ru:E300, Аскорбиновая кислота, Витамин С, Аскор�
 sk:E300, Kyselina askorbová, kyselina l-askorbová, Vitamín C, E 300
 sl:E300, Askorbinska kislina, l-askorbinska kislina
 sv:E300, Askorbinsyra, l-askorbinsyra, Vitamin C, Hexuronsyra, E 300, C-Vitamin, Askorbat, Askobinsyror, Askorbin
+default_additive_class:en: en:vitamin
 e_number:en: 300
+mandatory_additive_class:en: en:acidity-regulator,en:antioxidant,en:flour-treatment-agent,en:sequestrant,en:acid
 wikidata:en: Q193598
 
 en:E301, Sodium ascorbate, Sodium L-ascorbate
@@ -5085,6 +5094,7 @@ sk:E301, Askorban sodný, L-askorbát sodný
 sl:E301, Natrijev askorbat, natrijev L-askorbat
 sv:E301, Natriumaskorbat, Natrium-L-askorbat
 e_number:en: 301
+mandatory_additive_class:en: en:antioxidant, en:preservative
 wikidata:en: Q424551
 
 en:E302, Calcium ascorbate
@@ -5163,7 +5173,7 @@ e_number:en: 304
 wikidata:en: Q424521
 
 < en:E304
-en:E304i, Ascorbyl palmitate
+en:E304i, Ascorbyl palmitate, L-Ascorbyl Palmitate
 bg:E304i, Аскорбил палмитат
 cs:E304i, Askorbylpalmitát
 da:E304i, Ascorbylpalmitat
@@ -5172,7 +5182,7 @@ el:E304i, Παλμιτικο ασκορβυλιο
 es:E304i, Palmitato ascorbilo, Palmitato de ascorbilo
 et:E304i, Askorbüülpalmitaat
 fi:E304i, Askorbyylipalmitaatti
-fr:E304i, Palmitate d'ascorbyle
+fr:E304i, Palmitate d'ascorbyle, Palmitate de L-ascorbyle
 hu:E304i, Aszkorbil-palmitát
 it:E304i, Palmitato di ascorbile
 lt:E304i, Askorbilpalmitatas
@@ -5582,6 +5592,7 @@ nl:E316, Natriumerythorbaat
 pl:E316, Izoaskorbinian sodu
 pt:E316, Eritorbato de sódio
 ro:E316, Eritorbat de sodiu
+rs:E316, natrijum-eritorbat
 ru:E316, Эриторбат натрия
 sk:E316, Erytorban sodný (izoaskorban sodný)
 sl:E316, Natrijev eritorbat
@@ -6100,7 +6111,7 @@ en:E332, Potassium citrates, Potassium citrate
 bg:E332, E332 food additive
 cs:E332, E332 food additive
 da:E332, E332 food additive
-de:E332, Kaliumcitrat, Trikaliumcitrat, E 332
+de:E332, Kaliumcitrat, Kaliumcitrate, Trikaliumcitrat, E 332
 el:E332, E332 food additive
 es:E332, Citratos de potasio, Citrato de potasio, Citrato potásico, E 332
 et:E332, E332 food additive
@@ -6120,6 +6131,7 @@ sk:E332, E332 food additive
 sl:E332, E332 food additive
 sv:E332, Kaliumcitrat, Kaliumcitrater, E 332
 e_number:en: 332
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
 wikidata:en: Q419921
 
 < en:E332
@@ -6146,6 +6158,7 @@ sk:E332i, Citran draselný, Kálium-citrát
 sl:E332i, Monokalijev citrat
 sv:E332i, Monokaliumcitrat
 e_number:en: 332
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
 wikidata:en: Q419921
 
 < en:E332
@@ -6172,6 +6185,7 @@ sk:E332ii, Citran tridraselný, Kálium-citrát
 sl:E332ii, Trikalijev citrat
 sv:E332ii, Trikaliumcitrat
 e_number:en: 332
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
 wikidata:en: Q419921
 
 en:E333, Calcium citrates, Calcium citrate
@@ -6197,6 +6211,7 @@ sk:E333, Citrát trivápenatý
 sl:E333, E333 food additive
 sv:E333, E333 food additive
 e_number:en: 333
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:firming-agent
 wikidata:en: Q420280
 
 < en:E333
@@ -6223,6 +6238,7 @@ sk:E333i, Citran monovápenatý, Kalcium-citrát
 sl:E333i, Monokalcijev citrat
 sv:E333i, Monokalciumcitrat
 e_number:en: 333
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:firming-agent
 wikidata:en: Q420280
 
 < en:E333
@@ -6275,6 +6291,7 @@ sk:E333iii, Citran trivápenatý (dicitran trivápenatý), Kalcium-citrát
 sl:E333iii, Trikalcijev citrat
 sv:E333iii, Trikalciumcitrat
 e_number:en: 333
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:firming-agent
 wikidata:en: Q420280
 
 en:E334, L(+)-tartaric acid, tartaric acid, 2‚3-dihydroxybutanedioic acid, 2‚3-dihydroxysuccinic acid, threaric acid, racemic acid, uvic acid, paratartaric acid
@@ -6529,6 +6546,7 @@ sk:E339, E339 food additive
 sl:E339, E339 food additive
 sv:E339, Natriumfosfat
 e_number:en: 339
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:emulsifier, en:thickener, en:humectant, en:raising-agent
 wikidata:en: Q3249706
 
 < en:E339
@@ -6735,6 +6753,7 @@ sk:E341, E341 food additive
 sl:E341, E341 food additive
 sv:E341, E341 food additive
 e_number:en: 341
+mandatory_additive_class:en: en:acidity-regulator, en:raising-agent
 wikidata:en: Q426664
 
 < en:E341
@@ -6813,6 +6832,7 @@ sk:E341iii, Fosforečnan trivápenatý
 sl:E341iii, Trikalcijev fosfat
 sv:E341iii, Trikalciumfosfat, Kalciumortofosfat, pentakalciumhydroximonofosfat
 e_number:en: 341
+mandatory_additive_class:en: en:acidity-regulator, en:anti-caking-agent, en:stabiliser, en:acid
 wikidata:en: Q426664
 
 en:E342, Ammonium phosphates: i monoammonium phosphate (ii) diammonium phosphate
@@ -6965,6 +6985,7 @@ sk:E345, Citrát horečnatý
 sl:E345, E345 food additive
 sv:E345, E345 food additive
 e_number:en: 345
+mandatory_additive_class:en: en:preservative
 wikidata:en: Q45044
 
 en:E349, ammonium malate
@@ -7516,6 +7537,7 @@ sk:E375, E375 food additive
 sl:E375, E375 food additive
 sv:E375, E375 food additive
 e_number:en: 375
+mandatory_additive_class:en: en:colour-retention-agent
 
 en:E380, Triammonium citrate
 bg:E380, Триамониев цитрат
@@ -8675,7 +8697,7 @@ en:E428, Gelatine, gelatin
 bg:E428, Желатин
 cs:E428, želatina
 da:E428, gelatine, Husblas
-de:E428, Gelatine, Speisegelatine, Gelatinpulver, Gelatinieren
+de:E428, Gelatine, Speisegelatine, Gelatinpulver, Gelatinieren, Rindergelatine
 el:E428, ζελατίνη
 es:E428, Gelatina, Gelatinosa, Grenetina, Gelatinoso
 et:E428, želatiin
@@ -9266,7 +9288,7 @@ el:E450i, Δισοξινο πυροφωσφορικο νατριο
 es:E450i, Difosfato disódico, Pirofosfato ácido de sodio
 et:E450i, Dinaatriumdifosfaat, Dinaatriumdivesinikdifosfaat
 fi:E450i, Dinatriumdifosfaatti, Dinatriumdivetydifosfaatti, Dinatriumdivetypyrofosfaatti, Hapan natriumpyrofosfaatti
-fr:E450i, Pyrophosphate de sodium acide, Pyrophosphate acide de sodium, Diphosphate disodique, Di-sodium di-phosphate, di-sodium pyrophosphate, CAS 7758-16-9, Dihydrogéno-diphosphate disodique, Dihydrogéno-pyrophosphate disodique, Pyrophosphate disodique, Disodium pyrophosphate, sodium acid pyrophosphate, SAPP, Diphosphoric acid disodium salt, Disodium dihydrogen pyrophosphate, Disodium diphosphate, Disodium dihydrogen diphosphate, E450a
+fr:E450i, Pyrophosphate de sodium acide, Pyrophosphate acide de sodium, Diphosphate disodique, diphosphate de sodium, Di-sodium di-phosphate, di-sodium pyrophosphate, CAS 7758-16-9, Dihydrogéno-diphosphate disodique, Dihydrogéno-pyrophosphate disodique, Pyrophosphate disodique, Disodium pyrophosphate, sodium acid pyrophosphate, SAPP, Diphosphoric acid disodium salt, Disodium dihydrogen pyrophosphate, Disodium diphosphate, Disodium dihydrogen diphosphate, E450a
 hu:E450i, Dinátrium-difoszfát
 it:E450i, Difosfato disodico
 lt:E450i, Dinatrio difosfatas
@@ -9292,7 +9314,7 @@ el:E450ii, Οξινο πυροφωσφορικο νατριο
 es:E450ii, Difosfato trisódico
 et:E450ii, Trinaatriumdifosfaat, Trinaatriumvesinikdifosfaat, trinaatriumpürofosfaat
 fi:E450ii, Trinatriumdifosfaatti, Trinatriumpyrofosfaatti
-fr:E450ii, Pyrophosphate de sodium, Pyrophosphate de sodium alimentaire, Diphosphate trisodique, Pyrophosphate trisodique acide, Hydrogéno-diphosphate trisodique, Tri-sodium di-phosphate, CAS 14691-80-6, CAS 26573-04-6
+fr:E450ii, Diphosphate trisodique, Pyrophosphate trisodique acide, Hydrogéno-diphosphate trisodique, Tri-sodium di-phosphate, CAS 14691-80-6, CAS 26573-04-6
 hu:E450ii, Trinátrium-difoszfát
 it:E450ii, Difosfato trisodico
 lt:E450ii, Trinatrio difosfatas
@@ -10989,7 +11011,7 @@ en:E500, Sodium carbonates, sodium carbonate
 bg:E500, Натриев карбонат, Калцинирана сода, Динатриев карбонат
 cs:E500, Uhličitan sodný, Na2CO3, Soda na praní
 da:E500, Soda, Natriumcarbonat
-de:E500, Natriumcarbonat, Natriumkarbonat, Calciniertes Soda, Calcinierte Soda, Waschsoda, Kalzinierte Soda, Na2CO3, Kalziniertes Soda
+de:E500, Natriumcarbonat, Natriumcarbonate, Natriumkarbonat, Calciniertes Soda, Calcinierte Soda, Waschsoda, Kalzinierte Soda, Na2CO3, Kalziniertes Soda
 el:E500, E500 food additive
 es:E500, Carbonatos de sodio, Carbonato de sodio, Sosa comercial, Na2CO3, Carbonato sódico
 et:E500, Naatriumkarbonaat, Sooda, Pesusooda, Kristalne sooda, Kaltsineeritud sooda
@@ -11009,6 +11031,7 @@ sk:E500, Uhličitan sodný, Sóda
 sl:E500, Natrijev karbonat
 sv:E500, Natriumkarbonat, E 500
 e_number:en: 500
+mandatory_additive_class:en: en:acidity-regulator, en:raising-agent
 wikidata:en: Q190227
 
 < en:E500
@@ -11112,6 +11135,7 @@ sk:E501, Uhličitan draselný, Potaš
 sl:E501, Kalijev karbonat
 sv:E501, Kaliumkarbonat, E 501
 e_number:en: 501
+mandatory_additive_class:en: en:acidity-regulator
 wikidata:en: Q379885
 
 < en:E501
@@ -11214,6 +11238,7 @@ sk:E503, E503 food additive
 sl:E503, E503 food additive
 sv:E503, Ammoniumkarbonat
 e_number:en: 503
+mandatory_additive_class:en: en:raising-agent
 wikidata:en: Q204873
 
 < en:E503
@@ -11317,6 +11342,7 @@ sk:E504i, Uhličitan horečnatý
 sl:E504i, Magnezijev karbonat
 sv:E504i, Magnesiumkarbonat
 e_number:en: 504
+mandatory_additive_class:en: en:acidity-regulator,en:anticaking-agent
 wikidata:en: Q407931
 
 < en:E504
@@ -11418,6 +11444,7 @@ sk:E508, Chlorid draselný, Sylvín
 sl:E508, Kalijev klorid
 sv:E508, Kaliumklorid, Sylvin, E 508
 e_number:en: 508
+mandatory_additive_class:en: en:flavour-enhancer, en:stabiliser, en:thickener
 wikidata:en: Q184630
 
 en:E509, Calcium chloride
@@ -11444,6 +11471,7 @@ sk:E509, Chlorid vápenatý
 sl:E509, Kalcijev klorid
 sv:E509, Kalciumklorid, E 509
 e_number:en: 509
+mandatory_additive_class:en: en:firming-agent, en:stabiliser, en:thickener
 wikidata:en: Q208451
 
 en:E510, Ammonium chloride, ammonia solution
@@ -11493,6 +11521,7 @@ sk:E511, Chlorid horečnatý
 sl:E511, Magnezijev klorid
 sv:E511, Magnesiumklorid
 e_number:en: 511
+mandatory_additive_class:en: en:acidity-regulator, en:firming-agent, en:sequestrant, en:colour-retention-agent
 wikidata:en: Q265414
 
 en:E512, Stannous chloride, Tin chloride, TinII chloride
@@ -11723,6 +11752,7 @@ sk:E516, Síran vápenatý, Sadra, sadrovec
 sl:E516, Kalcijev sulfat, Gypsum, selenit
 sv:E516, Kalciumsulfat, Gips, selenit
 e_number:en: 516
+mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser, en:firming-agent, en:flour-treatment-agent
 wikidata:en: Q407258
 
 en:E517, Ammonium sulphate, ammonium sulfate
@@ -11774,6 +11804,7 @@ sk:E518, E518 food additive
 sl:E518, Magnezijev sulfat
 sv:E518, Magnesiumsulfat
 e_number:en: 518
+mandatory_additive_class:en: en:flavour-enhancer, en:firming-agent
 wikidata:en: Q288266
 
 en:E519, Copper sulphate, copperII sulfate
@@ -11799,6 +11830,7 @@ sk:E519, Síran meďnatý, Modrá skalica
 sl:E519, BakrovII sulfat, Modra galica, CuSO4, Bakrov sulfat
 sv:E519, Kopparsulfat, KopparIIsulfat, Kopparvitriol, Blå vitriol, CuSO4
 e_number:en: 519
+mandatory_additive_class:en: en:colour-retention-agent, en:preservative
 wikidata:en: Q107184
 
 en:E520, Aluminium sulphate, Aluminium sulfate
@@ -11949,6 +11981,7 @@ sk:E525, Hydroxid draselný
 sl:E525, Kalijev hidroksid
 sv:E525, Kaliumhydroxid
 e_number:en: 525
+mandatory_additive_class:en: en:acidity-regulator
 wikidata:en: Q132298
 
 en:E526, Calcium hydroxide, Slaked lime
@@ -11975,6 +12008,7 @@ sk:E526, Hydroxid vápenatý, Hasené vápno, Vápenné mlieko
 sl:E526, Kalcijev hidroksid, gašeno apno
 sv:E526, Kalciumhydroxid, Släckt kalk, E 526
 e_number:en: 526
+mandatory_additive_class:en: en:acidity-regulator, en:firming-agent
 wikidata:en: Q182849
 
 en:E527, Ammonium hydroxide, Aqua ammonia, ammonia, household ammonia, ammonia water, ammonical liquor, ammonia liquor, aqueous ammonia
@@ -12000,6 +12034,7 @@ sk:E527, Hydroxid amónny, Čpavková voda, Čpavok
 sl:E527, Amonijev hidroksid, amoniak
 sv:E527, Ammoniumhydroxid, Ammoniaklösning, E 527
 e_number:en: 527
+mandatory_additive_class:en: en:acidity-regulator
 wikidata:en: Q421888
 
 en:E528, Magnesium hydroxide
@@ -12025,6 +12060,7 @@ sk:E528, Hydroxid horečnatý
 sl:E528, Magnezijev hidroksid, Mg(OH)2
 sv:E528, Magnesiumhydroxid, E 528
 e_number:en: 528
+mandatory_additive_class:en: en:acidity-regulator, en:colour-retention-agent
 wikidata:en: Q407548
 
 en:E529, Calcium oxide
@@ -12076,6 +12112,7 @@ sk:E530, Oxid horečnatý
 sl:E530, Magnezijev oksid
 sv:E530, Magnesiumoxid
 e_number:en: 530
+mandatory_additive_class:en: en:acidity-regulator, en:anticaking-agent
 wikidata:en: Q214769
 
 en:E535, Sodium ferrocyanide, Yellow prussiate of soda
@@ -12478,6 +12515,7 @@ sl:E551, Silicijev dioksid, silikagel
 sv:E551, Kiseldioxid, Kvarts
 colour_index:en: CI 7811
 e_number:en: 551
+mandatory_additive_class:en: en:anti-caking-agent, en:anti-foaming-agent, en:stabiliser
 wikidata:en: Q116269
 
 en:E552, Calcium silicate
@@ -12925,6 +12963,7 @@ sk:E574, Kyselina glukónová, kyselina D-glukónová
 sl:E574, Glukonska kislina, D–glukonska kislina
 sv:E574, Glukonsyra, D-Glukonsyra
 e_number:en: 574
+mandatory_additive_class:en: en:acidity-regulator, en:raising-agent
 wikidata:en: Q407569
 
 en:E575, Glucono-delta-lactone, Gluconolactone, GDL, D-Gluconic acid delta-lactone
@@ -13025,13 +13064,14 @@ sk:E578, Glukonan vápenatý
 sl:E578, Kalcijev glukonat
 sv:E578, Kalciumglukonat
 e_number:en: 578
+mandatory_additive_class:en: en:acidity-regulator, en:firming-agent, en:sequestrant
 wikidata:en: Q413739
 
 en:E579, Ferrous gluconate, IronII gluconate
 bg:E579, Феро глюконат, Феро-ди-D-глюконат дихидрат
 cs:E579, Glukonan železnatý
 da:E579, Ferrogluconat, Ferrodi-D-gluconatdihydrat
-de:E579, Eisenii-gluconat, Eisengluconat, E 579
+de:E579, Eisenii-gluconat, Eisengluconat, E 579, Eisen(II)Gluconat
 el:E579, Γλυκονικος σιδηρος
 es:E579, Gluconato ferroso
 et:E579, Ferroglükonaat
@@ -13126,16 +13166,15 @@ sl:E586, 4-heksilresorcinol, 4-heksil-1‚3-benzendiol
 sv:E586, 4-hexylresorcinol, 4-Hexyl-1‚3-bensendiol
 e_number:en: 586
 
-en:E620, Glutamic acid, L-Glutamic acid, glutamate
+en:E620, Glutamic acid, L-Glutamic acid
 bg:E620, Глутаминова киселина, L-глутаминова киселина, Глутамат
-cs:E620, Kyselina glutamová, Kyselina L-glutamová, kyselina 2-aminoglutarová, E 620, L-glutamát, Glutamát
-da:E620, Glutaminsyre, L-Glutaminsyre, Glutamat, E-620
+cs:E620, Kyselina glutamová, Kyselina L-glutamová, kyselina 2-aminoglutarová, E 620, L-glutamát
 de:E620, Glutaminsäure, L-Glutaminsäure, E 620
 el:E620, Γλουταμινικο οξυ, L-γλουταμινικό οξύ
-es:E620, Ácido glutámico, Ácido L-glutámico, E 620, Glutamato
+es:E620, Ácido glutámico, Ácido L-glutámico, E 620
 et:E620, Glutamiinhape, L-glutamiinhape
 fi:E620, Glutamiinihappo, L-glutamiinihappo, E 620, 2-aminopentaanidihappo, Glutamaatti
-fr:E620, Acide glutamique, Acide L-glutamique, Acide (S)-2-aminopentanedioïque, 6893-26-1, 617-65-2, Acide 2-aminopentanedioïque, Glutamatergique, 56-86-0, Glutamate, Acide glumatique
+fr:E620, Acide glutamique, Acide L-glutamique, Acide (S)-2-aminopentanedioïque, 6893-26-1, 617-65-2, Acide 2-aminopentanedioïque, Glutamatergique, 56-86-0, Acide glumatique
 hu:E620, Glutaminsav, L-Glutaminsav
 it:E620, Acido glutammico, L-acido glutammico, Acido L-glutammico, Acido L-α-amminoglutarico, C5H9NO4
 lt:E620, Glutamo rūgštis, L-glutamo rūgštis, Gliutamatas, Gliutamininė rūgštis, Glutamininė rūgštis, Glutamatas
@@ -13143,7 +13182,7 @@ lv:E620, Glutamīnskābe, L-glutamīnskābe, C5h9no4, Glutamāti
 mt:E620, Aċidu glutamiku, Aċidu L-glutamiku
 nl:E620, Glutaminezuur, L-Glutaminezuur
 pl:E620, Kwas glutaminowy, Kwas L-glutaminowy, Glutaminian
-pt:E620, Ácido glutâmico, Ácido L-glutâmico, Glutamato
+pt:E620, Ácido glutâmico, Ácido L-glutâmico
 ro:E620, Acid glutamic, Acid L-glutamic, Glutamat
 sk:E620, Kyselina glutamová, Kyselina L-glutamová, E 620, L-glutamát, Glutamát
 sl:E620, Glutaminska kislina, L-glutaminska kislina, Glutamat
@@ -13151,16 +13190,16 @@ sv:E620, Glutaminsyra, L-glutaminsyra, Glutamat, E 620
 e_number:en: 620
 wikidata:en: Q181136
 
-en:E621, Monosodium glutamate, Sodium glutamate, L-Glutamic acid‚ monosodium salt
+en:E621, Monosodium glutamate, Sodium glutamate, L-Glutamic acid‚ monosodium salt, Glutamate, MSG
 bg:E621, Мононатриев глутамат, Натриев глутамат, Е621, Мононатриев глутаминат, Натриев глутаминат
-cs:E621, Glutaman sodný, Glutamát sodný, L-glutamát sodný monohydrát, E 621, Glutasol, L-glutaman sodný, L-Glutaman sodný monohydrát, L-glutamát sodný, Glutaman
-da:E621, Mononatriumglutamat, Tredje krydderi, E-621, Mononatriumglutaminat, 3. krydderi, Det tredje krydderi, Det 3. krydderi
+cs:E621, Glutaman sodný, Glutamát sodný, L-glutamát sodný monohydrát, E 621, Glutasol, L-glutaman sodný, L-Glutaman sodný monohydrát, L-glutamát sodný, Glutaman, Glutamát
+da:E620, Glutaminsyre, L-Glutaminsyre, Glutamat, E-620
 de:E621, Mononatriumglutamat, Natriumglutamat, E 621
 el:E621, Οξινο γλουταμινικο νατριο, Γλουταμινικό νάτριο
-es:E621, Glutamato monosódico, Glutamato de monosodio, Glutamato de sodio, E 621
+es:E621, Glutamato monosódico, Glutamato de monosodio, Glutamato de sodio, E 621, Glutamato
 et:E621, Naatriumvesinikglutamaat
 fi:E621, Mononatriumglutamaatti, Natriumglutamaatti, E 621
-fr:E621, Glutamate monosodique, glutamate de sodium, monoglutamate de sodium, monosodium glutamate, sodium glutamate, GMS, MSG, E 621, C5H8NNaO4, 6106-04-3, 142-47-2
+fr:E621, Glutamate monosodique, glutamate de sodium, monoglutamate de sodium, monosodium glutamate, sodium glutamate, GMS, MSG, E 621, C5H8NNaO4, 6106-04-3, 142-47-2, Glutamate
 hu:E621, Mononátrium-glutamát, Nátrium-glutamát
 it:E621, Glutammato di monosodio, Glutammato di sodio, Glutammato monosodico, NaC5NO4H8
 lt:E621, Mononatrio glutamatas, Natrio glutamatas
@@ -13168,9 +13207,9 @@ lv:E621, Mononātrija glutamāts, Nātrija glutamāts
 mt:E621, Glutamat monosodiku, Glutamat tas-sodju
 nl:E621, Mononatriumglutamaat, Natriumglutamaat, MSG, Vetsin, Ve tsin
 pl:E621, Glutaminian monosodowy, Glutaminian sodu
-pt:E621, Glutamato monossódico, Glutamato de sódio
+pt:E621, Glutamato monossódico, Glutamato de sódio, Glutamato
 ro:E621, Glutamat monosodic, Glutamat de sodiu, Glumat de monosodiu
-rs:E621, mononatrijum glutamat
+rs:E621, mononatrijum glutamat, mononatrijum-glutaminat
 ru:E621, Глутамат натрия, Вэйцзин, Фе-цзин, Вейцзин, Глютамат натрия, Адзи-но-мото, Глутаминат натрия, Е621, Е-621
 sk:E621, Glutaman sodný, E 621
 sl:E621, Mononatrijev glutamat, natrijev glutamat, mononatrijevgluamat
@@ -14497,6 +14536,7 @@ sk:E917, E917 food additive
 sl:E917, E917 food additive
 sv:E917, E917 food additive
 e_number:en: 917
+mandatory_additive_class:en: en:flour-treatment-agent
 wikidata:en: Q414599
 
 en:E918, Nitrogen oxides
@@ -14572,6 +14612,7 @@ sk:E920, L-cysteín, Cysteín
 sl:E920, L-cistein, Cistein
 sv:E920, L-cystein, Cystein, E 910, Cysteiner, E 920
 e_number:en: 920
+mandatory_additive_class:en: en:flour-treatment-agent
 wikidata:en: Q186474
 
 en:E921, L-cysteine hydrochloride monohydrate
@@ -15282,7 +15323,7 @@ cs:E950, Acesulfam k, Acesulfam draselný
 da:E950, Acesulfamkalium, Acesulfam K
 de:E950, Acesulfam k, Acesulfam
 el:E950, Ακεσουλφαμη κ, Ακεσουλφάμη (άλας με Κ)
-es:E950, Acesulfamo K, Acesulfamo potásico
+es:E950, Acesulfamo K, Acesulfamo potásico, acesulfame potásico
 et:E950, Kaaliumatsesulfaam, Atsesulfaamkaalium, atsesulfaam-K
 fi:E950, Asesulfaami k, Asesulfaamikalium
 fr:E950, Acésulfame K, acésulfame de potassium, Acésulfame potassium, sel de potassium de l'acésulfame, Ace K, Acesulfamo-k
@@ -15310,7 +15351,7 @@ el:E951, Ασπαρταμη
 es:E951, Aspartamo, E 951, Espartame, Aspartame
 et:E951, Aspartaam
 fi:E951, Aspartaami, E 951, Aspartamiini
-fr:E951, Aspartame, APM, Aspartyl phenylalanine methyl ester, L-Aspartyl-L-phenylalaninemethyl ester, E 951, 22839-47-0, Aspartam
+fr:E951, Aspartame, APM, Aspartyl phenylalanine methyl ester, L-Aspartyl-L-phenylalaninemethyl ester, E 951, 22839-47-0, Aspartam, sirop d'aspartame, sirop aspartame
 hu:E951, Aszpartám
 it:E951, Aspartame, C14H18N2O5
 lt:E951, Aspartamas

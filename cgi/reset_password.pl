@@ -1,4 +1,24 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
+
+# This file is part of Product Opener.
+# 
+# Product Opener
+# Copyright (C) 2011-2018 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# 
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# 
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use Modern::Perl '2012';
 use utf8;
@@ -18,8 +38,7 @@ use ProductOpener::URL qw/:all/;
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Encode;
-
-use WWW::CSRF qw(CSRF_OK);
+use Log::Any qw($log);
 
 ProductOpener::Display::init();
 
@@ -28,7 +47,7 @@ my $action = param('action') || 'display';
 
 my $id = param('userid_or_email');
 
-print STDERR "password.pl - type: $type - action: $action - userid_or_email: $id\n";
+$log->info("start", { type => $type, action => $action, userid_or_email => $id }) if $log->is_info();
 
 my @errors = ();
 
@@ -107,8 +126,7 @@ if ($action eq 'display') {
 	if ($type eq 'send_email') {
 	
 		$html .= "\n$Lang{userid_or_email}{$lang}"
-		. textfield(-name=>'userid_or_email', -value=>'', -size=>40, -override=>1) . "<br>"
-		. hidden(-name=>'csrf', -value=>generate_po_csrf_token(cookie('b')), -override=>1);
+		. textfield(-name=>'userid_or_email', -value=>'', -size=>40, -override=>1) . "<br>";
 	}
 	elsif ($type eq 'reset') {
 		$html .= "<table>"
@@ -119,7 +137,6 @@ if ($action eq 'display') {
 		. "</table>"
 		. hidden(-name=>'resetid', -value=>param('resetid'), -override=>1)
 		. hidden(-name=>'token', -value=>param('token'), -override=>1)
-		. hidden(-name=>'csrf', -value=>generate_po_csrf_token(param('resetid')), -override=>1)
 	}
 	
 
@@ -133,11 +150,6 @@ if ($action eq 'display') {
 elsif ($action eq 'process') {
 
 if ($type eq 'send_email') {
-
-	my $csrf_token_status = check_po_csrf_token(cookie('b'), param('csrf'));
-	if (not ($csrf_token_status eq CSRF_OK)) {
-		display_error(lang("error_invalid_csrf_token"), 403);
-	}
 
 	my @userids = ();
 	if (defined $email_ref) {
@@ -177,11 +189,6 @@ if ($type eq 'send_email') {
 
 }
 elsif ($type eq 'reset') {
-	my $csrf_token_status = check_po_csrf_token(param('resetid'), param('csrf'));
-	if (not ($csrf_token_status eq CSRF_OK)) {
-		display_error(lang("error_invalid_csrf_token"), 403);
-	}
-	
 	my $userid = get_fileid(param('resetid'));
 	my $user_ref = retrieve("$data_root/users/$userid.sto");
 	if (defined $user_ref) {

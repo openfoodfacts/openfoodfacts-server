@@ -1,4 +1,24 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
+
+# This file is part of Product Opener.
+# 
+# Product Opener
+# Copyright (C) 2011-2018 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# 
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# 
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use Modern::Perl '2012';
 use utf8;
@@ -20,6 +40,7 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+use Log::Any qw($log);
 
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
@@ -27,26 +48,21 @@ my $code = normalize_code(param('code'));
 my $imagefield = param('imagefield');
 my $delete = param('delete');
 
-my $upload_session = int(rand(100000000));
+local $log->context->{upload_session} = int(rand(100000000));
 
-print STDERR "product_image_upload.pl - upload_session: $upload_session - ip: " . remote_addr() . " - type: $type - action: $action - code: $code\n";
+$log->debug("start", { ip => remote_addr(), type => $type, action => $action, code => $code }) if $log->is_debug();
 
 my $env = $ENV{QUERY_STRING};
 
-print STDERR "product_image_upload.pl - upload_session: $upload_session - query string : $env - calling init()\n";
-
+$log->debug("calling init()", { query_string => $env });
 
 ProductOpener::Display::init();
 
-$debug = 1;
-
-
-
-print STDERR "product_image_upload.pl - subdomain: $subdomain - original_subdomain: $original_subdomain - upload_session: $upload_session - user: $User_id - code: $code - cc: $cc - lc: $lc - imagefield: $imagefield - ip: " . remote_addr() . "\n";
+$log->debug("parsing code", { subdomain => $subdomain, original_subdomain => $original_subdomain, user => $User_id, code => $code, cc => $cc, lc => $lc, imagefield => $imagefield, ip => remote_addr() }) if $log->is_debug();
 
 if ((not defined $code) or ($code eq '')) {
 	
-	print STDERR "product_image_upload.pl - no code\n";
+	$log->warn("no code");
 	my %response = ( status => 'status not ok');
 	$response{error} = "error - missing product code";
 	my $data =  encode_json(\%response);		
@@ -68,11 +84,11 @@ if ($imagefield) {
 
 	my $path = product_path($code);
 	
-	print STDERR "product_image_upload - upload_session: $upload_session- imagefield: $imagefield - delete: $delete\n";
+	$log->debug("path determined", { imagefield => $imagefield, path => $path, delete => $delete });
 	
 	if ($path eq 'invalid') {
 		# non numeric code was given
-		print STDERR "product_image_upload.pl - invalid code\n";
+		$log->warn("no code", { code => $code });
 		my %response = ( status => 'status not ok');
 		$response{error} = "error - invalid product code: $code";
 		my $data =  encode_json(\%response);		
@@ -85,14 +101,14 @@ if ($imagefield) {
 		my $product_ref = product_exists($code); # returns 0 if not
 		
 		if (not $product_ref) {
-			print STDERR "product_image_upload.pl - upload_session: $upload_session - product code $code does not exist yet, creating product\n";
+			$log->info("product code does not exist yet, creating product", { code => $code });
 			$product_ref = init_product($code);
 			$product_ref->{interface_version_created} = $interface_version;
 			$product_ref->{lc} = $lc;
 			store_product($product_ref, "Creating product (image upload)");
 		}
 		else {
-			print STDERR "product_image_upload.pl - upload_session: $upload_session - product code $code already exists\n";
+			$log->info("product code already exists", { code => $code });
 		}
 		
 		# For apps that do not specify the language associated with the image, try to assign one
@@ -106,7 +122,7 @@ if ($imagefield) {
 	
 		my $imgid_returncode = process_image_upload($code, $imagefield, $User_id, time(), "image upload", \$imgid);
 		
-			print STDERR "product_image_upload.pl - upload_session: $upload_session - imgid from process_image_upload: $imgid\n";
+		$log->info("imgid created", { imgid => $imgid });
 		
 		
 		my $data;
@@ -148,14 +164,14 @@ if ($imagefield) {
 			}
 		}
 		
-		print STDERR "product_image_upload - upload_session: $upload_session - JSON data output: $data\n";
+		$log->debug("JSON data output", { data => $data }) if $log->is_debug();
 
 		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 
 	}
 	else {
 
-			print STDERR "product_image_upload - upload_session: $upload_session - no imagefield\n";
+			$log->warn("no image field defined");
 			my %response = ( status => 'status not ok');
 			$response{error} = "error - imagefield not defined";
 			my $data =  encode_json(\%response);		
@@ -165,7 +181,7 @@ if ($imagefield) {
 
 }
 else {
-	print STDERR "product_image - upload_session: $upload_session - no imgid defined\n";
+	$log->warn("no image field defined");
 }
 
 

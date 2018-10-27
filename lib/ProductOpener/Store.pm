@@ -1,22 +1,22 @@
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 package ProductOpener::Store;
 
@@ -35,6 +35,7 @@ BEGIN
 		&get_ascii_fileid
 		&store
 		&retrieve
+		&unac_string_perl
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);  
 }
@@ -45,6 +46,7 @@ use Storable qw(lock_store lock_nstore lock_retrieve);
 use Encode;
 use Encode::Punycode;
 use URI::Escape::XS;
+use Log::Any qw($log);
 
 # Text::Unaccent unac_string causes Apache core dumps with Apache 2.4 and mod_perl 2.0.9 on jessie
 
@@ -111,14 +113,16 @@ sub get_fileid($) {
 
 sub get_urlid($) {
 
-	my $file = shift;
+	my $input = shift;
+	my $file = $input;
 	
 	$file = get_fileid($file);
 	
 	if ($file =~ /[^a-zA-Z0-9-]/) {
 		$file = URI::Escape::XS::encodeURIComponent($file);
 	}
-	# print STDERR "get_urlid : $file \n";
+	
+	$log->trace("get_urlid", { in => $input, out => $file }) if $log->is_trace();
 	
 	return $file;
 }
@@ -134,8 +138,8 @@ sub get_ascii_fileid($) {
 		$file = "xn--" .  encode('Punycode',$file);
 	}
 	
-	print STDERR "get_ascii_fileid : $file \n";
-	
+	$log->debug("get_ascii_fileid", { file => $file }) if $log->is_debug();
+
 	return $file;	
 }
 

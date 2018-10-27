@@ -1,7 +1,9 @@
+#!/usr/bin/perl -w
+
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2015 Association Open Food Facts
+# Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -16,7 +18,7 @@
 # GNU Affero General Public License for more details.
 # 
 # You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 # startup file for preloading modules into Apache/mod_perl when the server starts
 # (instead of when each httpd child starts)
@@ -48,6 +50,7 @@ use Encode ();
 use Text::Unaccent ();
 use Cache::Memcached::Fast ();
 use URI::Escape::XS ();
+use Log::Any qw($log);
 
 # Needs to be configured
 use lib "/home/off/lib";
@@ -89,6 +92,6 @@ sub My::ProxyRemoteAddr ($) {
   return Apache2::Const::OK;
 }
 
-print STDERR "version: $ProductOpener::Version::version\n";
+$log->info("product opener started", { version => $ProductOpener::Version::version });
 
 1;

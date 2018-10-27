@@ -1,4 +1,24 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
+
+# This file is part of Product Opener.
+# 
+# Product Opener
+# Copyright (C) 2011-2018 Association Open Food Facts
+# Contact: contact@openfoodfacts.org
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# 
+# Product Opener is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# 
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use Modern::Perl '2012';
 use utf8;
@@ -19,10 +39,9 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+use Log::Any qw($log);
 
 ProductOpener::Display::init();
-
-$debug = 1;
 
 my $type = param('type') || 'add';
 my $action = param('action') || 'display';
@@ -35,7 +54,7 @@ my ($x1,$y1,$x2,$y2) = (param('x1'),param('y1'),param('x2'),param('y2'));
 my $normalize = param('normalize');
 my $white_magic = param('white_magic');
 
-$debug and print STDERR "product_image_crop.pl - code: $code - imgid: $imgid $x1,$y1 $x2,$y2\n";
+$log->debug("start", { code => $code, imgid => $imgid, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2 }) if $log->is_debug();
 
 if (not defined $code) {
 	
@@ -51,7 +70,7 @@ my $data =  encode_json({ status => 'status ok',
 		imagefield=>$id,
 });
 
-print STDERR "product_image_crop - JSON data output: $data\n";
+$log->debug("JSON data output", { data => $data }) if $log->is_debug();
 
 print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 

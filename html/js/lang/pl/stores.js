@@ -1,3 +1,0 @@
-var storesTags = [
-
-"Carrefour"];
