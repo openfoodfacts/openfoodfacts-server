@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: vi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-26 16:08\n"
+"PO-Revision-Date: 2018-10-27 14:54\n"
 "Language-Team: Vietnamese\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: vi\n"
-"X-Crowdin-File: /Web/Web version/common/common.pot\n"
+"X-Crowdin-File: /master/po/common/common.pot\n"
 
 #. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
@@ -302,7 +302,7 @@ msgstr ""
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr ""
+msgstr "Các sản phẩm được đóng gói tại thành phố %s"
 
 msgctxt "cities_s"
 msgid "packaging city"
@@ -310,7 +310,7 @@ msgstr ""
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr ""
+msgstr "Sản phẩm không được đóng gói ở thành phố %s"
 
 msgctxt "codes_p"
 msgid "Codes"
@@ -413,11 +413,11 @@ msgstr ""
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr ""
+msgstr "Lý do xóa"
 
 msgctxt "delete_product"
 msgid "Delete a product"
-msgstr ""
+msgstr "Xóa sản phẩm"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
@@ -437,11 +437,11 @@ msgstr ""
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr ""
+msgstr "Đã thay đổi:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr ""
+msgstr "Đã xóa:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
@@ -461,7 +461,7 @@ msgstr "Nếu lượng khí thải carbon được ghi trên nhãn (hiếm khi v
 
 msgctxt "edit"
 msgid "edit"
-msgstr ""
+msgstr "chỉnh sửa"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
@@ -686,7 +686,7 @@ msgstr "<a href=\"https://world-vi.openfoodfacts.org/legal\">Pháp lý</a> -\n"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr "và nhóm <a href=\"https://www.facebook.com/groups/openfoodfacts.vi/\">Facebook cho cộng tác viên</a>"
+msgstr ""
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -954,7 +954,7 @@ msgstr ""
 
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
-msgstr ""
+msgstr "Số lượng thành phần"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -966,7 +966,7 @@ msgstr "Các sản phẩm có chứa thành phần %s"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
-msgstr ""
+msgstr "thành phần"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
@@ -986,7 +986,7 @@ msgstr ""
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr ""
+msgstr "nguyên liệu có thể từ dầu cọ"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
@@ -1014,7 +1014,7 @@ msgstr ""
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr "Nhãn, chứng nhận, giải thưởng"
+msgstr ""
 
 msgctxt "labels_example"
 msgid "Organic"
@@ -1042,7 +1042,7 @@ msgstr ""
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
-msgstr ""
+msgstr "Các sản phẩm không có nhãn %s"
 
 msgctxt "lang"
 msgid "Main language"
@@ -1050,11 +1050,11 @@ msgstr "Ngôn ngữ chính"
 
 msgctxt "lang_ar"
 msgid "Arabic"
-msgstr ""
+msgstr "Tiếng Ả rập"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
-msgstr ""
+msgstr "Tiếng Bungari"
 
 msgctxt "lang_cs"
 msgid "Czech"
@@ -1062,19 +1062,19 @@ msgstr "Tiếng Séc"
 
 msgctxt "lang_da"
 msgid "Danish"
-msgstr ""
+msgstr "Tiếng Đan Mạch"
 
 msgctxt "lang_de"
 msgid "German"
-msgstr ""
+msgstr "Tiếng Đức"
 
 msgctxt "lang_el"
 msgid "Greek"
-msgstr ""
+msgstr "Tiếng Hy Lạp"
 
 msgctxt "lang_en"
 msgid "English"
-msgstr ""
+msgstr "Tiếng Anh"
 
 msgctxt "lang_es"
 msgid "Spanish"
@@ -1305,7 +1305,7 @@ msgstr "Bạn có thể chọn một hoặc nhiều hình ảnh và sau đó:"
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr "Địa điểm sản xuất hoặc chế biến"
+msgstr ""
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
@@ -1437,7 +1437,7 @@ msgstr "Sản phẩm mà không cần mã vạch"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
-msgstr ""
+msgstr "Thành phần dinh dưỡng không được chỉ định trên sản phẩm."
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
@@ -1641,7 +1641,7 @@ msgstr "Cho biết nguồn gốc của các thành phần"
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
-msgstr ""
+msgstr "nguồn gốc của các thành phần"
 
 msgctxt "origins_products"
 msgid "Products with ingredients originating from %s"
@@ -1805,7 +1805,7 @@ msgstr "Đặc tính sản phẩm"
 
 msgctxt "product_created"
 msgid "Product created"
-msgstr ""
+msgstr "Đã tạo sản phẩm"
 
 msgctxt "product_description"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
@@ -1869,7 +1869,7 @@ msgstr "Xoay phải"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
-msgstr ""
+msgstr "Xác nhận và / hoặc thay đổi kích thước hình ảnh"
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
@@ -2588,7 +2588,7 @@ msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone St
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2800,67 +2800,67 @@ msgstr ""
 
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr "/partners"
+msgstr ""
 
 msgctxt "adults"
 msgid "Adults"
-msgstr "Người lớn"
+msgstr ""
 
 msgctxt "adults_age"
 msgid "18 to 64"
-msgstr "18 đến 64"
+msgstr ""
 
 msgctxt "adults_description"
 msgid "From 18 years up to and including 64 years of age"
-msgstr "Từ 18 tuổi đến và bao gồm 64 tuổi"
+msgstr ""
 
 msgctxt "elderly"
 msgid "Elderly"
-msgstr "Người cao tuổi"
+msgstr ""
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr "65+"
+msgstr ""
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
-msgstr "Từ 65 tuổi trở lên"
+msgstr ""
 
 msgctxt "adolescents"
 msgid "Adolescents"
-msgstr "Thanh thiếu niên"
+msgstr ""
 
 msgctxt "adolescents_age"
 msgid "10 to 17"
-msgstr "10 đến 17"
+msgstr ""
 
 msgctxt "adolescents_description"
 msgid "From 10 years up to and including 17 years of age"
-msgstr "Từ 10 năm đến 17 tuổi"
+msgstr ""
 
 msgctxt "children"
 msgid "Children"
-msgstr "Bọn trẻ"
+msgstr ""
 
 msgctxt "children_age"
 msgid "3 to 9"
-msgstr "3 đến 9"
+msgstr ""
 
 msgctxt "children_description"
 msgid "From 36 months up to and including 9 years of age"
-msgstr "Từ 36 tháng đến và bao gồm 9 tuổi"
+msgstr ""
 
 msgctxt "toddlers"
 msgid "Toddlers"
-msgstr "Trẻ mới biết đi"
+msgstr ""
 
 msgctxt "toddlers_age"
 msgid "1 to 2"
-msgstr "1 đến 2"
+msgstr ""
 
 msgctxt "toddlers_description"
 msgid "From 12 months up to and including 35 months of age"
-msgstr "Từ 12 tháng đến và bao gồm 35 tháng tuổi"
+msgstr ""
 
 msgctxt "infants"
 msgid "Infants"
@@ -2868,15 +2868,15 @@ msgstr ""
 
 msgctxt "infants_age"
 msgid "< 1"
-msgstr "< 1"
+msgstr ""
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
-msgstr "Từ trên 12 tuần đến và bao gồm 11 tháng tuổi"
+msgstr ""
 
 msgctxt "additives_efsa_evaluation"
 msgid "EFSA evaluation"
-msgstr "Đánh giá EFSA"
+msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_title"
 msgid "Risk of overexposure"
@@ -2884,11 +2884,11 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
-msgstr "Cơ quan an toàn thực phẩm châu Âu (EFSA) đã xác định rằng một số nhóm dân số có nguy cơ tiêu thụ quá cao <tag>."
+msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
-msgstr "Cơ quan an toàn thực phẩm châu Âu (EFSA) đã xác định rằng một số nhóm dân số có nguy cơ tiêu thụ quá cao <tag>."
+msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
@@ -2900,15 +2900,15 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_no"
 msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
-msgstr "Cơ quan an toàn thực phẩm châu Âu (EFSA) đã xác định rằng không có nhóm dân số nào có hơn 5% thành viên có nguy cơ tiêu thụ nhiều hơn lượng uống hàng ngày chấp nhận được là <tag>."
+msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
-msgstr "Nguy cơ phơi nhiễm quá mức"
+msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
-msgstr "Nguy cơ vừa phải khi phơi nhiễm quá mức"
+msgstr ""
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
@@ -2920,41 +2920,73 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
-msgstr "Các nhóm có hơn 50% thành viên vượt quá mức tiêu thụ hàng ngày có thể chấp nhận được (ADI)"
+msgstr ""
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
 msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
-msgstr "Các nhóm có hơn 5% thành viên vượt quá mức tiêu thụ hàng ngày có thể chấp nhận được (ADI)"
+msgstr ""
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
 msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr "Các nhóm có hơn 50% thành viên vượt quá liều tối đa mà không có tác dụng phụ (Không thấy mức độ tác động bất lợi được quan sát - NOAEL)"
+msgstr ""
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_noael"
 msgid "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr "Các nhóm có hơn 5% thành viên vượt quá liều tối đa mà không có tác dụng phụ (Không thấy mức độ tác động bất lợi được quan sát - NOAEL)"
+msgstr ""
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
-msgstr "Một số người"
+msgstr ""
 
 msgctxt "exposure_description_95th"
 msgid "over 5%"
-msgstr "trên 5%"
+msgstr ""
 
 msgctxt "exposure_title_mean"
 msgid "Most people"
-msgstr "Hầu hết mọi người"
+msgstr ""
 
 msgctxt "exposure_description_mean"
 msgid "over 50%"
-msgstr "trên 50%"
+msgstr ""
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
-msgstr "Wikipedia"
+msgstr ""
 
 msgctxt "additives_classes"
 msgid "Functions"
-msgstr "Chức năng"
+msgstr ""
+
+msgctxt "photos_and_data_check"
+msgid "Photos and data check"
+msgstr ""
+
+msgctxt "photos_and_data_check_description"
+msgid "Product pages can be marked as checked by experienced contributors who verify that the most recent photos are selected and cropped, and that all the product data that can be inferred from the product photos has been filled and is correct."
+msgstr ""
+
+msgctxt "photos_and_data_checked"
+msgid "Photos and data checked"
+msgstr ""
+
+msgctxt "i_checked_the_photos_and_data"
+msgid "I checked the photos and data."
+msgstr ""
+
+msgctxt "i_checked_the_photos_and_data_again"
+msgid "I checked the photos and data again."
+msgstr ""
+
+msgctxt "last_check_dates_p"
+msgid "Last check dates"
+msgstr ""
+
+msgctxt "last_check_dates_s"
+msgid "Last check date"
+msgstr ""
+
+msgctxt "product_last_checked"
+msgid "Last check of product page on"
+msgstr ""
 
