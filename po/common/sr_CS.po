@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-15 16:53\n"
+"PO-Revision-Date: 2018-10-26 15:09\n"
 "Language-Team: Serbian (Latin)\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -195,7 +195,7 @@ msgstr "Učestvuj u misiji"
 
 msgctxt "brands"
 msgid "Brands"
-msgstr "Brendovi"
+msgstr "Брендови"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
@@ -227,7 +227,7 @@ msgstr "od"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr "Kategorije"
+msgstr "Категорије"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -362,7 +362,7 @@ msgstr ""
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "Države u kojima se prodaje"
+msgstr "Државе у којима се продаје"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
@@ -568,10 +568,6 @@ msgstr "Ova e-mail adresa je već iskorišćena za registraciju drugog naloga. M
 msgctxt "error_invalid_address"
 msgid "Invalid address."
 msgstr "Neispravna adresa."
-
-msgctxt "error_invalid_csrf_token"
-msgid "Invalid CSRF token."
-msgstr "Neispravan token."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
@@ -1369,11 +1365,6 @@ msgstr ""
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
 msgstr ""
-
-# Please keep the same syntax and translate only the months
-msgctxt "months"
-msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr "['Januar', 'Februar', 'Mart', 'April', 'Maj', 'Jun', 'Jul', 'Avgust', 'Septembar', 'Oktobar', 'Novembar', 'Decembar']"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
@@ -2546,10 +2537,6 @@ msgstr ""
 msgctxt "website"
 msgid "Site or blog address"
 msgstr ""
-
-msgctxt "weekdays"
-msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
-msgstr "['Nedelja', 'Ponedeljak', 'Utorak', 'Sreda', 'Četvrtak', 'Petak', 'Subota']"
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"

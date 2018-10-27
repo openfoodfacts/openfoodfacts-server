@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: th\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-15 16:58\n"
+"PO-Revision-Date: 2018-10-26 15:10\n"
 "Language-Team: Thai\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -117,7 +117,7 @@ msgstr ""
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "สารก่อภูมิแพ้อาหาร"
+msgstr "สารหรือผลิตภัณฑ์ที่ก่อให้เกิดอาการแพ้หรือแพ้"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -195,7 +195,7 @@ msgstr ""
 
 msgctxt "brands"
 msgid "Brands"
-msgstr "แบรนด์"
+msgstr "ยี่ห้อสินค้า"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
@@ -362,7 +362,7 @@ msgstr ""
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "ประเทศของการขาย"
+msgstr "ประเทศที่ขาย"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
@@ -567,10 +567,6 @@ msgstr ""
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr ""
-
-msgctxt "error_invalid_csrf_token"
-msgid "Invalid CSRF token."
 msgstr ""
 
 msgctxt "error_invalid_email"
@@ -985,7 +981,7 @@ msgstr ""
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr ""
+msgstr "ป้ายกำกับการรับรองรางวัล"
 
 msgctxt "labels_example"
 msgid "Organic"
@@ -1273,7 +1269,7 @@ msgstr ""
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr ""
+msgstr "สถานที่ผลิตหรือแปรรูป"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
@@ -1366,11 +1362,6 @@ msgstr ""
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
 msgstr "ปริมาณปานกลาง"
-
-# Please keep the same syntax and translate only the months
-msgctxt "months"
-msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr ""
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
@@ -2301,7 +2292,7 @@ msgstr ""
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr "ที่ให้บริการขนาด"
+msgstr "ขนาดให้บริการ"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2373,7 +2364,7 @@ msgstr ""
 
 msgctxt "stores"
 msgid "Stores"
-msgstr ""
+msgstr "ร้านค้า"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2425,7 +2416,7 @@ msgstr "ค้นหา:"
 
 msgctxt "traces"
 msgid "Traces"
-msgstr ""
+msgstr "ร่องรอย"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
@@ -2542,10 +2533,6 @@ msgstr ""
 
 msgctxt "website"
 msgid "Site or blog address"
-msgstr ""
-
-msgctxt "weekdays"
-msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
 msgstr ""
 
 msgctxt "windows_phone_app_badge"
