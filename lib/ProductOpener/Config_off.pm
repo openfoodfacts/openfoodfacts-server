@@ -575,6 +575,7 @@ $options{nova_groups_tags} = {
 "categories/en:breakfast-cereals" => 3,
 "categories/en:tofu" => 3,
 "categories/en:alcoholic-beverages" => 3,
+"categories/en:meals" => 3,
 
 
 # group 3 additives
