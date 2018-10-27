@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: br\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-09-25 10:57\n"
+"PO-Revision-Date: 2018-10-27 14:09\n"
 "Language-Team: Breton\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=5; plural=(n%10==1 && (n%100!=11 || n%100!=71 || n%100!=91) ? 0 : n%10==2 && (n%100!=12 || n%100!=72 || n%100!=92) ? 1 : ((n%10>=3 && n%10<=4) || n%10==9) && ((n%100 < 10 || n%100 > 19) || (n%100 < 70 || n%100 > 79) || (n%100 < 90 || n%100 > 99)) ? 2 : (n!=0 && n%1;\n"
@@ -446,5 +446,13 @@ msgstr ""
 
 msgctxt "nova_groups:plural"
 msgid "nova-groups"
+msgstr ""
+
+msgctxt "last_check_dates:plural"
+msgid "last-check-dates"
+msgstr ""
+
+msgctxt "last_check_dates:singular"
+msgid "last-check-date"
 msgstr ""
 
