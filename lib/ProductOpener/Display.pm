@@ -65,6 +65,7 @@ BEGIN
 					@search_series
 					
 					$admin
+					$moderator
 					$memd
 					$default_request_ref
 					
@@ -183,9 +184,7 @@ sub init()
 	$header = '';
 	$bodyabout = '';
 	$admin = 0;
-	#if ((remote_addr() eq '82.226.239.239') and (user_agent() =~ /Firefox/i)) {
-	#	$admin = 1;
-	#}
+	$moderator = 0;
 	
 	my $r = shift;
 	
@@ -350,6 +349,10 @@ sub init()
 	if ((%admins) and (defined $User_id) and (exists $admins{$User_id})) {
 		$admin = 1;
 	}
+	if ((%moderators) and (defined $User_id) and (exists $moderators{$User_id})) {
+		$moderator = 1;
+	}	
+	
 	
 	if (defined $User_id) {
 		$styles .= <<CSS
@@ -5739,7 +5742,7 @@ HTML
 		$search_terms = remove_tags_and_quote(decode utf8=>param('search_terms'))
 	}
 	
-	my $top_banner = "--";
+	my $top_banner = "";
 	
 	if ($lc eq 'fr') {
 	
@@ -5861,7 +5864,6 @@ HTML
   <!-- close the off-canvas menu -->
   <a class="exit-off-canvas"></a>
 
-<!-- top banner -->
 $top_banner
   
 <!-- main row - comment used to remove left column and center content on some pages -->  
@@ -7181,11 +7183,19 @@ HTML
 		$other_editors = "<br>\n$Lang{also_edited_by}{$lang} ${other_editors}.";
 	}
 
+	my $checked = "";
+	if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
+		my $last_checked_date = display_date_tag($product_ref->{last_checked_t});
+		my $last_checker = "<a href=\"" . canonicalize_tag_link("users", get_fileid($product_ref->{last_checker})) . "\">" . $product_ref->{last_checker} . "</a>";
+		$checked = "<br/>\n$Lang{product_last_checked}{$lang} $last_checked_date $Lang{by}{$lang} $last_checker.";
+	}
+
 	$html .= <<HTML
 	
 <p>$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator.<br>
 $Lang{product_last_edited}{$lang} $last_modified_date $Lang{by}{$lang} $last_editor.
 $other_editors
+$checked
 </p>
 	
 <div class="alert-box info">
