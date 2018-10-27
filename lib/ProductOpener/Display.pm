@@ -5300,27 +5300,6 @@ $options{favicons}
 <link rel="stylesheet" href="/bower_components/jquery-ui/themes/base/jquery-ui.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
 <link rel="search" href="@{[ format_subdomain($subdomain) ]}/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
-<script src="/bower_components/foundation/js/vendor/modernizr.js"></script>
-<script src="/bower_components/foundation/js/vendor/jquery.js"></script>
-<script src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
-<script>
-\$(function() {
-\$("#select_country").select2({
-	placeholder: "$Lang{select_country}{$lang}",
-	allowClear: true
-}).on("select2:select", function(e) {
-	var subdomain =  e.params.data.id;
-	if (! subdomain) {
-		subdomain = 'world';
-	}
-	window.location.href = "https://" + subdomain + ".${server_domain}";
-}).on("select2:unselect", function(e) {
-	window.location.href = "https://world.${server_domain}";
-});
-<initjs>
-});
-</script>
-
 <style media="all">
 HTML
 ;
@@ -5629,6 +5608,26 @@ HTML
 
 <div id="fb-root"></div>
 
+<script src="/bower_components/foundation/js/vendor/modernizr.js"></script>
+<script src="/bower_components/foundation/js/vendor/jquery.js"></script>
+<script src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script>
+\$(function() {
+\$("#select_country").select2({
+	placeholder: "$Lang{select_country}{$lang}",
+	allowClear: true
+}).on("select2:select", function(e) {
+	var subdomain =  e.params.data.id;
+	if (! subdomain) {
+		subdomain = 'world';
+	}
+	window.location.href = "https://" + subdomain + ".${server_domain}";
+}).on("select2:unselect", function(e) {
+	window.location.href = "https://world.${server_domain}";
+});
+<initjs>
+});
+</script>
 <script>
 window.fbAsyncInit = function() {
 	FB.init({appId: '219331381518041', status: true, cookie: true, xfbml: true});
