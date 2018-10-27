@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-15 16:49\n"
+"PO-Revision-Date: 2018-10-27 14:39\n"
 "Language-Team: Japanese\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -199,11 +199,11 @@ msgstr "バーコード番号:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr "Open Food Facts プロジェクトへの資金援助もできます"
+msgstr ""
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Open Food Facts に寄付\" /></a><p><<site_name>> は、業界から独立した非営利団体によって行われています。すべての人によって、すべての人のために行われ、すべての人によって資金援助されます。あなたは <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\"><a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">Open Food Facts に寄付</a> または <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">リロ検索エンジンを使用して</a> 私たちの仕事をサポートすることができます。<br/><b>ありがとうございます!</b></p>"
+msgstr ""
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
@@ -584,10 +584,6 @@ msgstr "メールアドレスは、すでに別のユーザによって使用さ
 msgctxt "error_invalid_address"
 msgid "Invalid address."
 msgstr "アドレスが正しくありません"
-
-msgctxt "error_invalid_csrf_token"
-msgid "Invalid CSRF token."
-msgstr "CSRF トークンが無効です。"
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
@@ -1411,11 +1407,6 @@ msgstr "中"
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
 msgstr "適度な量"
-
-# Please keep the same syntax and translate only the months
-msgctxt "months"
-msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr "['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
@@ -2601,10 +2592,6 @@ msgctxt "website"
 msgid "Site or blog address"
 msgstr "サイトやブログのアドレス"
 
-msgctxt "weekdays"
-msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
-msgstr "['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日']"
-
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
 msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone ストア\" width=\"154\" height=\"40\" />"
@@ -2811,11 +2798,11 @@ msgstr "調整された製品について栄養成分が指定されています
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
-msgstr "NOVA グループ"
+msgstr ""
 
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
-msgstr "NOVA グループ"
+msgstr ""
 
 msgctxt "footer_partners"
 msgid "Partners"
@@ -2979,5 +2966,37 @@ msgstr ""
 
 msgctxt "additives_classes"
 msgid "Functions"
+msgstr ""
+
+msgctxt "photos_and_data_check"
+msgid "Photos and data check"
+msgstr ""
+
+msgctxt "photos_and_data_check_description"
+msgid "Product pages can be marked as checked by experienced contributors who verify that the most recent photos are selected and cropped, and that all the product data that can be inferred from the product photos has been filled and is correct."
+msgstr ""
+
+msgctxt "photos_and_data_checked"
+msgid "Photos and data checked"
+msgstr ""
+
+msgctxt "i_checked_the_photos_and_data"
+msgid "I checked the photos and data."
+msgstr ""
+
+msgctxt "i_checked_the_photos_and_data_again"
+msgid "I checked the photos and data again."
+msgstr ""
+
+msgctxt "last_check_dates_p"
+msgid "Last check dates"
+msgstr ""
+
+msgctxt "last_check_dates_s"
+msgid "Last check date"
+msgstr ""
+
+msgctxt "product_last_checked"
+msgid "Last check of product page on"
 msgstr ""
 
