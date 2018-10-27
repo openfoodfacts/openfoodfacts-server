@@ -5739,7 +5739,7 @@ HTML
 		$search_terms = remove_tags_and_quote(decode utf8=>param('search_terms'))
 	}
 	
-	my $top_banner = "--";
+	my $top_banner = "";
 	
 	if ($lc eq 'fr') {
 	
@@ -5861,7 +5861,6 @@ HTML
   <!-- close the off-canvas menu -->
   <a class="exit-off-canvas"></a>
 
-<!-- top banner -->
 $top_banner
   
 <!-- main row - comment used to remove left column and center content on some pages -->  
