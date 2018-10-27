@@ -618,7 +618,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	
 	# product check
 	
-	if ($admin) {
+	if ($admin or $moderator) {
 	
 		my $checked = remove_tags_and_quote(decode utf8=>param("photos_and_data_checked"));	
 		if ((defined $checked) and ($checked eq 'on')) {
@@ -2076,7 +2076,7 @@ HTML
 
 	# Product check
 	
-	if ($admin) {
+	if ($admin or $moderator) {
 	
 		$html .= "
 <div class=\"fieldset\" id=\"check\"><legend>$Lang{photos_and_data_check}{$lang}</legend>

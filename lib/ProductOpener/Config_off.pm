@@ -30,6 +30,7 @@ BEGIN
 	@EXPORT = qw();
 	@EXPORT_OK = qw(
 		%admins
+		%moderators
 		
 		$server_domain
 		@ssl_subdomains
@@ -96,7 +97,6 @@ kyzh
 lafel
 lucaa
 moon-rabbit
-scanparty-franprix-05-2016
 sebleouf
 segundo
 stephane
@@ -104,7 +104,11 @@ tacinte
 tacite
 teolemon
 twoflower
-scanparty-franprix-05-2016
+
+);
+
+%moderators = map { $_ => 1 } qw(
+
 );
 
 $options{users_who_can_upload_small_images} = {

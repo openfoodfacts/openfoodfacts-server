@@ -65,6 +65,7 @@ BEGIN
 					@search_series
 					
 					$admin
+					$moderator
 					$memd
 					$default_request_ref
 					
@@ -183,9 +184,7 @@ sub init()
 	$header = '';
 	$bodyabout = '';
 	$admin = 0;
-	#if ((remote_addr() eq '82.226.239.239') and (user_agent() =~ /Firefox/i)) {
-	#	$admin = 1;
-	#}
+	$moderator = 0;
 	
 	my $r = shift;
 	
@@ -350,6 +349,10 @@ sub init()
 	if ((%admins) and (defined $User_id) and (exists $admins{$User_id})) {
 		$admin = 1;
 	}
+	if ((%moderators) and (defined $User_id) and (exists $moderators{$User_id})) {
+		$moderator = 1;
+	}	
+	
 	
 	if (defined $User_id) {
 		$styles .= <<CSS
