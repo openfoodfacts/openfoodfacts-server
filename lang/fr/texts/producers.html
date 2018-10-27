@@ -1,4 +1,4 @@
-<div id="main_column" class="xxlarge-11 xlarge-10 large-9 medium-8 columns" style="padding-top:1rem;height:11489px" data-equalizer-watch="">
+﻿<html dir="ltr"><head></head><body dir="ltr"><div id="main_column" class="xxlarge-11 xlarge-10 large-9 medium-8 columns" style="padding-top:1rem;height:11489px" data-equalizer-watch="">
 
 <!-- main column content - comment used to remove left column and center content on some pages -->  
 	
@@ -8,8 +8,7 @@
 
 <p>Ce guide explique pourquoi et comment les producteurs peuvent directement intégrer des photos et des données de leurs produits dans la base de données Open Food Facts.</p>
 
-<ul>
-<li><a href="#introduction">Introduction</a></li>
+<ul><li><a href="#introduction">Introduction</a></li>
 <li><a href="#pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Pourquoi ajouter les données de vos produits à Open Food Facts</a></li>
 <ul>
 <li><a href="#exemples_de_producteurs_qui_transmettent_les_photos_et_donnees_de_leurs_produits_a_open_food_facts">Exemples de producteurs qui envoient des photos et des données sur leurs produits à Open Food Facts</a></li>
@@ -57,12 +56,18 @@
 
 
 <h2 id="pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Pourquoi ajouter les données de vos produits dans Open Food Facts</h2>
+
+  
 <p>Il existe de nombreux avantages à importer les données directement des fabricants :</p>
 
 <ul>
+
 <li>Les données sont complètes, à jour et sans risque d'erreur</li>
+
 <li>Les photos sont de meilleure qualité que celles prises par les contributeurs dans des conditions très variables</li>
+  
 <li>Les données sont alors disponibles dans plus de 100 applications</li>
+
 <li>Vous pouvez facilement obtenir des statistiques sur vos produits et exporter les données de vos produits complétées par des indicateurs calculés par Open Food Facts tels que le Nutri-Score</li>
 </ul>
   
@@ -90,18 +95,25 @@ Nous avons récemment ajouté des champs sur l'empreinte carbone et l'emballage 
 <h4 id="photos_et_donnees">Photos et données</h4>
 
 <p>L'un des principes fondamentaux d'Open Food Facts est que l'utilisateur ou le contributeur doit être en mesure de vérifier les informations à partir d'une photo.</p>
+
 <p>Nous vous demandons donc de nous envoyer des photos du produit et de l'emballage (à plat si possible) pour étayer les données que vous envoyez.</p>
+
 
 <h3 id="ajout_manuel">Ajout manuel</h3>
 
 <p>Si vous avez un petit nombre de produits dont la formulation ne change pas souvent, vous pouvez créer un compte sur Open Food Facts et ajouter vous-même les photos et les données de vos produits.</p>
-<p>Méthode recommandée : ajoutez des photos et entrez les informations depuis le site web <a href="https://world.openfoodfacts.org">Open Food Facts</a>.</p>
+
+<p>Highly recommended method: Add photos and enter information from the <a href="https://fr.openfoodfacts.org">Open Food Facts website</a> .</p>
+  
 <p>Méthode alternative : utilisez l'application mobile Android pour scanner puis photographier et compléter un produit.</p>
+
 <p>Merci d’avance de nous indiquer si vous ajoutez vos produits vous-même afin que nous puissions identifier votre compte en tant que compte producteur et indiquer que les informations proviennent directement de votre entreprise.</p>
+
 
 <h3 id="ajout_automatise">Ajout automatique</h3>
 
 Pour faciliter et accélérer l'importation de données, nous avons défini un format standard pour les images et les données :
+
 <h4 id="format_des_images">Format d'image</h4>
 
 <p>Au moins 3 images sont requises :</p>
@@ -149,186 +161,210 @@ Pour faciliter et accélérer l'importation de données, nous avons défini un f
 <h4 id="format_des_donnees">Format des données</h4>
 
 <p>Les données doivent être fournies dans un tableau au format CSV, avec une tabulation comme séparateur de champs et un encodage de caractères UTF-8.</p>
+
 <p>La première ligne contient les noms de champs et chacun des produits occupe l'une des lignes suivantes. L'ordre des champs n'a pas d'importance et il n'est pas nécessaire que toutes les colonnes soient présentes.</p>
+
 <p>Certains champs sont obligatoires et d'autres sont facultatifs. Nous vous encourageons à remplir autant de champs que possible afin que les données puissent être utilisées par le plus d'applications possible. En cas de doute, ou si vous avez des données pour lesquelles il n'existe pas encore de champs dans la base de données Open Food Facts, vous pouvez nous contacter pour que nous ajoutions des champs afin de les faire correspondre au mieux.</p>
 
   <h5 id="champs_obligatoires">Champs obligatoires</h5>
 
 <ul>  
-  <li>code : code-barres du produit tel qu'il apparaît sur l'emballage (EAN-13, EAN-8 ou autre)</li>
-  <li>lang : code à 2 lettres de la langue principale (la plus présente sur l'emballage) du produit (exemple : fr pour le français)</li>
-  <li>product_name_ [code à 2 lettres de la langue principale] : nom du produit (dans le champ product_name_fr pour le nom en français)</li>
-  <li>nom_générique_ [code à 2 lettres de la langue principale] : nom du produit générique </li>
-  <li>brands : marques (plusieurs valeurs possibles pour les marques et sous-marques, à séparer par des virgules)</li>
-  <li>quantity : quantité, précisez l'unité et éventuellement ajoutez entre parenthèses si le produit contient plusieurs unités (exemple : 120 g (4 x 30 g))</li>
-  <li>categories : catégorie de produit, dans la langue principale du produit (exemple : gâteaux au chocolat)</li>
-  <li>countries : pays dans lequel le produit est vendu, dans la langue principale du produit (plusieurs valeurs possibles, à séparer par une virgule)</li>
-  <li>ingredients_text_ [code à 2 lettres de la langue principale] : liste des ingrédients (dans le champ ingredients_text_fr pour la liste en français). Les allergènes peuvent être indiqués en LETTRES MAJUSCULES ou entre </li>
-  <li>allergens : allergènes, dans la langue principale du produit, séparés par des virgules</li>
-  <li>traces : traces d'allergènes, dans la langue principale du produit, séparées par des virgules</li>
-</ul>
+<li>code : code-barres du produit tel qu'il apparaît sur l'emballage (EAN-13, EAN-8 ou autre)
+</li><li>lang : code à 2 lettres de la langue principale (la plus présente sur l'emballage) du produit (exemple : fr pour le français)
+</li><li>product_name_ [code à 2 lettres de la langue principale] : nom du produit (dans le champ product_name_fr pour le nom en français)
+</li><li>nom_générique_ [code à 2 lettres de la langue principale] : nom du produit générique 
+</li><li>brands: brands (several possible values ​​for brands and sub-brands, to be separated by commas)
+</li><li>quantity : quantité, précisez l'unité et éventuellement ajoutez entre parenthèses si le produit contient plusieurs unités (exemple : 120 g (4 x 30 g))
+</li><li>categories : catégorie de produit, dans la langue principale du produit (exemple : gâteaux au chocolat)
+</li><li>countries : pays dans lequel le produit est vendu, dans la langue principale du produit (plusieurs valeurs possibles, à séparer par une virgule)
 
-<p>Parmi les champs obligatoires figurent les valeurs nutritionnelles qui apparaissent sur l'emballage, par 100 g / 100 ml de produit vendu.</p>
-<p>Aucune valeur ne doit avoir d'unité (l'unité est kJ pour l'énergie et g pour tous les autres champs).</p>
+</li><li>ingredients_text_ [code à 2 lettres de la langue principale] : liste des ingrédients (dans le champ ingredients_text_fr pour la liste en français). Les allergènes peuvent être indiqués en LETTRES MAJUSCULES ou entre 
+</li><li>allergens : allergènes, dans la langue principale du produit, séparés par des virgules
+</li><li>traces : traces d'allergènes, dans la langue principale du produit, séparées par des virgules
+  </li></ul>
+
+<p>Among the mandatory fields are the nutritional values ​​that appear on the package, per 100g / 100ml of product as sold.</p>
+<p>All values ​​must have no unit (the unit is kJ for energy and g for all other fields).</p>
 
 <ul>
-  <li>energy_100g : énergie, en kJ</li>
-  <li>fat_100g : matières grasses</li>
-  <li>satured-fat_100g : gras saturés</li>
-  <li>carbohydrates_100g : glucides</li>
-  <li>sugars_100g : sucres</li>
-  <li>proteins_100g : protéines</li>
-  <li>salt_100g : sel</li>
-</ul>
+<li>energy_100g : énergie, en kJ
+</li><li>fat_100g : matières grasses
+</li><li>satured-fat_100g : gras saturés
+</li><li>carbohydrates_100g : glucides
+</li><li>sugars_100g : sucres
+</li><li>proteins_100g : protéines
+</li><li>salt_100g : sel
+  </li></ul>
 
 <p>Il est fortement recommandé d'indiquer également les fibres et le % de fruits et légumes afin que ces informations puissent être prises en compte dans le calcul du Nutri-Score :</p>
 
   <ul>
-  <li>fiber_100g : fibres</li>
-  <li>fruits-vegetables-nuts_100g</li>
-  </ul>
+<li>fiber_100g : fibres
+</li><li>fruits-vegetables-nuts_100g
+  </li></ul>
   
   <h5 id="champs_optionnels">Champs optionnels</h5>
 
   <ul>
-    <li>labels : labels, dans la langue principale du produit (plusieurs valeurs possibles, à séparer par des virgules) (exemple : AB Bio, MSC, Max Havelaar). Remarque : les labels doivent figurer sur l'emballage du produit.</li>
-    <li>origins : origines des ingrédients, dans la langue principale du produit (plusieurs valeurs possibles, à séparer par une virgule) (exemple : Pérou, Périgord)</li>
-    <li>packaging : matériaux et formes de l'emballage du produit, dans la langue principale du produit (plusieurs valeurs possibles, à séparer par des virgules) (exemple : boîte de conserve, aluminium)</li>
-    <li>manufacturing_places : sites de fabrication, dans la langue principale du produit (plusieurs valeurs possibles, à séparer par une virgule : noms de ville, pays)</li>
-    <li>emb_codes: packager codes and European sanitary stamps (several possible values, to be separated by commas)</li>
-    <li>stores : lieux de vente (plusieurs valeurs possibles, à séparer par une virgule: noms des chaînes de supermarchés)</li>
-    <li>nutri_score : note Nutri-Score de A à E, seulement si elle est indiquée sur l'emballage</li>
-    <li>portion_size : quantité d'une portion, spécifiez l'unité</li>
-  </ul>
+<li>labels : labels, dans la langue principale du produit (plusieurs valeurs possibles, à séparer par des virgules) (exemple : AB Bio, MSC, Max Havelaar). Remarque : les labels doivent figurer sur l'emballage du produit.
+</li><li>origins : origines des ingrédients, dans la langue principale du produit (plusieurs valeurs possibles, à séparer par une virgule) (exemple : Pérou, Périgord)
+</li><li>packaging : matériaux et formes de l'emballage du produit, dans la langue principale du produit (plusieurs valeurs possibles, à séparer par des virgules) (exemple : boîte de conserve, aluminium)
+</li><li>manufacturing_places : sites de fabrication, dans la langue principale du produit (plusieurs valeurs possibles, à séparer par une virgule : noms de ville, pays)
+</li><li>emb_codes: packager codes and European sanitary stamps (several possible values, to be separated by commas)
+</li><li>stores : lieux de vente (plusieurs valeurs possibles, à séparer par une virgule: noms des chaînes de supermarchés)
 
-<p>Des valeurs nutritionnelles peuvent également être indiquées pour les produits préparés (avec de l'eau, du lait, etc.) Ajoutez alors "_prepared" au nom du champ. Par exemple, energy_prepared_100g.</p>
-<p>Il est également possible d'indiquer les valeurs d'autres nutriments :</p>
+</li><li>nutri_score : note Nutri-Score de A à E, seulement si elle est indiquée sur l'emballage
 
-<ul>
-<li>energy-from-fat_100g</li>
-<li>butyric-acid_100g</li>
-<li>caproic-acid_100g</li>
-<li>caprylic-acid_100g</li>
-<li>capric-acid_100g</li>
-<li>lauric-acid_100g</li>
-<li>myristic-acid_100g</li>
-<li>palmitic-acid_100g</li>
-<li>stearic-acid_100g</li>
-<li>arachidic-acid_100g</li>
-<li>behenic-acid_100g</li>
-<li>lignoceric-acid_100g</li>
-<li>cerotic-acid_100g</li>
-<li>montanic-acid_100g</li>
-<li>melissic-acid_100g</li>
-<li>monounsaturated-fat_100g</li>
-<li>polyunsaturated-fat_100g</li>
-<li>omega-3-fat_100g</li>
-<li>alpha-linolenic-acid_100g</li>
-<li>eicosapentaenoic-acid_100g</li>
-<li>docosahexaenoic-acid_100g</li>
-<li>omega-6-fat_100g</li>
-<li>linoleic-acid_100g</li>
-<li>arachidonic-acid_100g</li>
-<li>gamma-linolenic-acid_100g</li>
-<li>dihomo-gamma-linolenic-acid_100g</li>
-<li>omega-9-fat_100g</li>
-<li>oleic-acid_100g</li>
-<li>elaidic-acid_100g</li>
-<li>gondoic-acid_100g</li>
-<li>mead-acid_100g</li>
-<li>erucic-acid_100g</li>
-<li>nervonic-acid_100g</li>
-<li>trans-fat_100g</li>
-<li>cholesterol_100g</li>
+</li><li>portion_size : quantité d'une portion, spécifiez l'unité
+  </li></ul>
 
-<li>sucrose_100g</li>
-<li>glucose_100g</li>
-<li>fructose_100g</li>
-<li>lactose_100g</li>
-<li>maltose_100g</li>
-<li>maltodextrins_100g</li>
-<li>starch_100g</li>
-<li>polyols_100g</li>
+<p>Nutritional values ​​can also be indicated for the prepared product (with water, milk etc.). Ajoutez alors "_prepared" au nom du champ. Par exemple, energy_prepared_100g.</p>
 
-<li>casein_100g</li>
-<li>serum-proteins_100g</li>
-<li>nucleotides_100g</li>
+  <p>It is also possible to indicate the values ​​for other nutrients:</p>
 
-<li>sodium_100g - dans le cas où le sel_100g reste vide</li>
-<li>alcohol_100g</li>
+  <ul>
+<li>Energy-from-fat_100g
+</li><li>butyric-acid_100g
+</li><li>caproic-acid_100g
+</li><li>caprylic-acid_100g
+</li><li>capric-acid_100g
+</li><li>lauric-acid_100g
+</li><li>myristic-acid_100g
+</li><li>palmitic-acid_100g
+</li><li>stearic-acid_100g
+</li><li>arachidic-acid_100g
+</li><li>behenic-acid_100g
+</li><li>lignoceric-acid_100g
+</li><li>cerotic-acid_100g
+</li><li>montanic-acid_100g
+</li><li>melissic-acid_100g
+</li><li>monounsaturated-fat_100g
+</li><li>polyunsaturated-fat_100g
+</li><li>omega-3-fat_100g
+</li><li>alpha-linolenic-acid_100g
+</li><li>eicosapentaenoic-acid_100g
+</li><li>docosahexaenoic-acid_100g
+</li><li>omega-6-fat_100g
+</li><li>linoleic-acid_100g
+</li><li>arachidonic-acid_100g
+</li><li>gamma-linolenic-acid_100g
+</li><li>dihomo-gamma-linolenic-acid_100g
+</li><li>omega-9-fat_100g
+</li><li>oleic-acid_100g
+</li><li>elaidic-acid_100g
+</li><li>gondoic-acid_100g
+</li><li>Mead-acid_100g
+</li><li>erucic-acid_100g
+</li><li>nervonic-acid_100g
+</li><li>trans-fat_100g
+</li><li>cholesterol_100g
 
-<li>vitamin-a_100g</li>
-<li>beta-carotene_100g</li>
-<li>vitamin-d_100g</li>
-<li>vitamin-e_100g</li>
-<li>vitamin-k_100g</li>
-<li>vitamin-c_100g</li>
-<li>vitamin-b1_100g</li>
-<li>vitamin-b2_100g</li>
-<li>vitamin-pp_100g</li>
-<li>vitamin-b6_100g</li>
-<li>vitamin-b9_100g</li>
-<li>folates_100g</li>
-<li>vitamin-b12_100g</li>
-<li>biotin_100g</li>
-<li>pantothenic-acid_100g</li>
+</li><li>sucrose_100g
+</li><li>glucose_100g
+</li><li>fructose_100g
+</li><li>lactose_100g
+</li><li>maltose_100g
+</li><li>maltodextrins_100g
+</li><li>starch_100g
+</li><li>polyols_100g
 
-<li>silica_100g</li>
-<li>bicarbonate_100g</li>
-<li>potassium_100g</li>
-<li>chloride_100g</li>
-<li>calcium_100g</li>
-<li>phosphorus_100g</li>
-<li>iron_100g</li>
-<li>magnesium_100g</li>
-<li>zinc_100g</li>
-<li>copper_100g</li>
-<li>manganese_100g</li>
-<li>fluoride_100g</li>
-<li>selenium_100g</li>
-<li>chromium_100g</li>
-<li>molybdenum_100g</li>
-<li>iodine_100g</li>
-<li>caffeine_100g</li>
-<li>taurine_100g</li>
+</li><li>casein_100g
+</li><li>serum-proteins_100g
+</li><li>nucleotides_100g
 
-<li>ph_100g</li>
-<li>collagen-meat-protein-ratio_100g</li>
-<li>cocoa_100g</li>
-<li>chlorophyl_100g</li>
-<li>carbon-footprint_100g</li>
-<li>glycemic-index_100g</li>
-<li>water-hardness_100g</li>
-<li>choline_100g</li>
-<li>phylloquinone_100g</li>
-<li>beta-glucan_100g</li>
-<li>inositol_100g</li>
-<li>carnitine_100g</li>
+</li><li>sodium_100g - in case the salt_100g field is not filled
+</li><li>alcohol_100g
+
+</li><li>vitamin-a_100g
+</li><li>beta-carotene_100g
+</li><li>vitamin-d_100g
+</li><li>vitamin-e_100g
+</li><li>vitamin-k_100g
+</li><li>vitamin-c_100g
+</li><li>vitamin-b1_100g
+</li><li>vitamin-b2_100g
+</li><li>vitamin-pp_100g
+</li><li>vitamin-b6_100g
+</li><li>vitamin-b9_100g
+</li><li>folates_100g
+</li><li>vitamin-b12_100g
+</li><li>biotin_100g
+</li><li>pantothenic-acid_100g
+
+</li><li>silica_100g
+</li><li>bicarbonate_100g
+</li><li>potassium_100g
+</li><li>chloride_100g
+</li><li>calcium_100g
+</li><li>phosphorus_100g
+</li><li>iron_100g
+</li><li>magnesium_100g
+</li><li>zinc_100g
+</li><li>copper_100g
+</li><li>manganese_100g
+</li><li>fluoride_100g
+</li><li>selenium_100g
+</li><li>chromium_100g
+</li><li>molybdenum_100g
+</li><li>iodine_100g
+</li><li>caffeine_100g
+</li><li>taurine_100g
+
+</li><li>ph_100g
+</li><li>collagen-meat-protein-ratio_100g
+</li><li>cocoa_100g
+</li><li>chlorophyl_100g
+</li><li>Carbon-footprint_100g
+</li><li>glycemic-index_100g
+</li><li>Waterpolo hardness_100g
+</li><li>choline_100g
+</li><li>phylloquinone_100g
+</li><li>beta-glucan_100g
+</li><li>inositol_100g
+</li><li>carnitine_100g
   
-</ul>
+  </li></ul>
 
-<h4 id="envoi_des_photos_et_des_donnees">Envoi de photos et de données</h4>
+
+  <h4 id="envoi_des_photos_et_des_donnees">Envoi de photos et de données</h4>
+
 <p>Si le nombre de produits est relativement faible (moins de 1 000 produits) et que les mises à jour sont peu fréquentes (par exemple tous les 6 mois), il est possible de nous envoyer les photos et le fichier CSV par n'importe quel moyen (par exemple par mail pour le fichier CSV et WeTransfer, Google Drive, DropBox etc. pour les photos).</p>
+
 <p>Pour un plus grand nombre de produits ou une mise à jour plus régulière, nous pouvons créer un espace SFTP où vous pouvez envoyer manuellement ou automatiquement des données et des photos. Contactez-nous afin que nous puissions mettre cela en place.</p>
+
+
 
 <h2 id="questions_frequentes">Foire aux questions</h2>
 
 <h3 id="est_ce_que_le_referencement_des_produits_est_gratuit">La liste des produits est-elle gratuite ?</h3>
+
 <p>L'importation des données est totalement gratuite. Nous n'acceptons aucune rétribution pour l'inclusion de données. Nous sommes très heureux que vous ayez décidé d’intégrer les données de vos produits pour la transparence alimentaire et nous vous en remercions.</p>
   
+
 <h3 id="les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">Les données du producteur écraseront-elles les données saisies par les contributeurs ?</h3>
+
 <p>Les données du producteur sont automatiquement contrôlées par Open Food Facts avec des algorithmes de vérification de cohérence, puis par certains contributeurs. Nous avons une confiance totale dans les données que vous nous envoyez, mais nous savons d'expérience que les erreurs de frappe sont possibles.</p>
+
 <p>Une fois vérifiées, elles remplaceront et/ou compléteront les données saisies par les contributeurs.</p>
 
 <p>Dans le cas d'une importation régulière et automatisée, les données remplaceront à chaque importation les mises à jour des contributeurs, sauf si une erreur manifeste (qui vous sera rapportée) est signalée sur un produit par un contributeur.</p>
+
 
 <h3 id="est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">Est-il possible de supprimer des produits qui ne sont plus vendus ?</h3>
 
 <p>Lorsqu'un produit disparaît des rayons, il est rapidement consommé et nous constatons rapidement qu'il n'est plus scanné.</p>
 <p>Nous archivons ensuite le produit afin qu'il reste disponible comme archive à des fins scientifiques dans le contexte de cohortes alimentaires pouvant durer des décennies. It is indeed essential to be able to obtain the compositions of the product at a precise date, even if it has changed or disappeared.</p>
-<p>Si vous avez des données historiques sur vos anciens produits ou d'anciennes versions de vos produits, nous serions également très intéressés par celles-ci, afin de pouvoir remonter dans le temps pour réaliser des analyses scientifiques sur de longues périodes et permettre ainsi de visualiser l'évolution de certains produits.</p>
+
+  <p>Si vous avez des données historiques sur vos anciens produits ou d'anciennes versions de vos produits, nous serions également très intéressés par celles-ci, afin de pouvoir remonter dans le temps pour réaliser des analyses scientifiques sur de longues périodes et permettre ainsi de visualiser l'évolution de certains produits.</p>
+
 <p>Les producteurs peuvent également nous envoyer les listes de codes-barres retirés de la vente afin que nous puissions étiqueter les produits correctement.</p>
   
+ 
 <h3 id="est_ce_que_les_produits_pour_animaux_les_produits_non_alimentaires_les_cosmetiques_et_les_autres_produits_peuvent_etre_integres_a_open_food_facts">Les produits d'origine animale, les produits non alimentaires, les cosmétiques et d'autres produits peuvent-ils être intégrés dans Open Food Facts ?</h3>
+
 <p>Nous avons créé des projets spécifiques pour les cosmétiques, l'alimentation animale et les autres produits (respectivement Open Beauty Facts, Open Pet Food Facts et Open Products Facts). Nous sommes donc heureux de pouvoir importer vos produits dans le projet qui leur convient.</p>
-</div>
+
+  
+
+
+	</div></body></html>
