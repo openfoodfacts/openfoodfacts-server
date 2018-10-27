@@ -256,15 +256,6 @@ a:hover.level_1 {
   line-height: 1.2;
 }
 
-#sharebuttons li {
-  max-width: 100px;
-  text-align: center;
-}
-
-#footer > div {
-  padding: 1rem;
-}
-
 .dark {
   color: #f0f0f0;
 }
@@ -277,12 +268,6 @@ a:hover.level_1 {
 .dark a:hover,
 .dark a:visited {
   color: #fff;
-}
-
-@media only screen and (max-width: 40em) {
-  #footer h4 {
-    font-size: 1.125rem;
-  }
 }
 
 .top-bar-section .has-dropdown > a:after {

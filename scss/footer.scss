@@ -1,0 +1,43 @@
+@import "variables";
+
+footer {
+  & > div {
+    min-height: 301px;
+    padding: 1rem;
+  }
+
+  .off {
+    border-top: 10px solid $animal;
+  }
+
+  .app {
+    border-top: 10px solid $cereal;
+
+    a {
+      display: block;
+      float: left;
+      height: 70px;
+      width: 160px;
+    }
+  }
+
+  .project {
+    border-top: 10px solid $plant;
+  }
+
+  .community {
+    border-top: 10px solid $dark-fish;
+  }
+
+  .title {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+  }
+}
+
+.sharebuttons {
+  li {
+    text-align: center;
+    width: 100px;
+  }
+}

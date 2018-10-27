@@ -5553,9 +5553,9 @@ HTML
 	</div>
 </div>
 
-<div id="footer" class="row full-width collapse" style="max-width: 100% !important;" data-equalizer>
-	<div class="small-12 medium-6 large-3 columns" style="border-top:10px solid #ff0000" data-equalizer-watch>
-		<h4>Open Food Facts</h4>
+<footer>
+	<div class="small-12 medium-6 large-3 columns">
+		<div class="title">Open Food Facts</div>
 		<p>$Lang{footer_tagline}{$lc}</p>
 		<ul>
 			<li><a href="$Lang{footer_legal_link}{$lc}">$Lang{footer_legal}{$lc}</a></li>
@@ -5564,23 +5564,15 @@ HTML
 			<li><a href="$Lang{donate_link}{$lc}">$Lang{donate}{$lc}</a></li>
 		</ul>
 	</div>
-	<div class="small-12 medium-6 large-3 columns" style="border-top:10px solid #ffcc00" data-equalizer-watch>
-		<h4>$Lang{footer_install_the_app}{$lc}</h4>
-		<div style="float:left;width:160px;height:70px;">
-			<a href="$Lang{ios_app_link}{$lc}">$Lang{ios_app_badge}{$lc}</a>
-		</div>
-		<div style="float:left;width:160px;height:70px;">
-			<a href="$Lang{android_app_link}{$lc}">$Lang{android_app_badge}{$lc}</a>
-		</div>
-		<div style="float:left;width:160px;height:70px;">
-			<a href="$Lang{windows_phone_app_link}{$lc}">$Lang{windows_phone_app_badge}{$lc}</a>
-		</div>
-		<div style="float:left;width:160px;height:70px;">
-			<a href="$Lang{android_apk_app_link}{$lc}">$Lang{android_apk_app_badge}{$lc}</a>
-		</div>
+	<div class="small-12 medium-6 large-3 columns">
+		<div class="title">$Lang{footer_install_the_app}{$lc}</div>
+		<a href="$Lang{ios_app_link}{$lc}">$Lang{ios_app_badge}{$lc}</a>
+		<a href="$Lang{android_app_link}{$lc}">$Lang{android_app_badge}{$lc}</a>
+		<a href="$Lang{windows_phone_app_link}{$lc}">$Lang{windows_phone_app_badge}{$lc}</a>
+		<a href="$Lang{android_apk_app_link}{$lc}">$Lang{android_apk_app_badge}{$lc}</a>
 	</div>
-	<div class="small-12 medium-6 large-3 columns" style="border-top:10px solid #00d400" data-equalizer-watch>
-		<h4>$Lang{footer_discover_the_project}{$lc}</h4>
+	<div class="small-12 medium-6 large-3 columns">
+		<div class="title">$Lang{footer_discover_the_project}{$lc}</div>
 		<ul>
 			<li><a href="$Lang{footer_who_we_are_link}{$lc}">$Lang{footer_who_we_are}{$lc}</a></li>
 			<li><a href="$Lang{footer_faq_link}{$lc}">$Lang{footer_faq}{$lc}</a></li>
@@ -5591,25 +5583,23 @@ HTML
 			<li><a href="$Lang{footer_partners_link}{$lc}">$Lang{footer_partners}{$lc}</a></li>
 		</ul>
 	</div>
-	<div class="small-12 medium-6 large-3 columns" style="border-top:10px solid #0066ff" data-equalizer-watch>
-		<h4>$Lang{footer_join_the_community}{$lc}</h4>
-		<div>
+	<div class="small-12 medium-6 large-3 columns">
+		<div class="title">$Lang{footer_join_the_community}{$lc}</div>
+		<p>
 			<a href="$Lang{footer_code_of_conduct_link}{$lc}">$Lang{footer_code_of_conduct}{$lc}</a>
 			<br><br>
 			$join_us_on_slack <script async defer src="https://slack-ssl-openfoodfacts.herokuapp.com/slackin.js"></script>
 			<br>
 			$Lang{footer_and_the_facebook_group}{$lc}
-		</div>
-		<div>
 			$Lang{footer_follow_us}{$lc}
-			<ul class="small-block-grid-3" id="sharebuttons">
-				<li><a href="https://twitter.com/share" class="twitter-share-button" data-lang="$lc" data-via="$Lang{twitter_account}{$lang}" data-url="@{[ format_subdomain($subdomain) ]}" data-count="vertical">Tweeter</a></li>
-				<li><fb:like href="@{[ format_subdomain($subdomain) ]}" layout="box_count"></fb:like></li>
-				<li><div class="g-plusone" data-size="tall" data-count="true" data-href="@{[ format_subdomain($subdomain) ]}"></div></li>
-			</ul>
-		</div>
+		</p>
+		<ul class="small-block-grid-3 sharebuttons">
+			<li><a href="https://twitter.com/share" class="twitter-share-button" data-lang="$lc" data-via="$Lang{twitter_account}{$lang}" data-url="@{[ format_subdomain($subdomain) ]}" data-count="vertical">Tweeter</a></li>
+			<li><fb:like href="@{[ format_subdomain($subdomain) ]}" layout="box_count"></fb:like></li>
+			<li><div class="g-plusone" data-size="tall" data-count="true" data-href="@{[ format_subdomain($subdomain) ]}"></div></li>
+		</ul>
 	</div>
-</div>
+</footer>
 
 <div id="fb-root"></div>
 
