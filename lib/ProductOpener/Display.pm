@@ -5542,6 +5542,7 @@ HTML
 				</div>
 			</div>
 			<div id="main_column" class="xxlarge-11 xlarge-10 large-9 medium-8 columns" style="padding-top:1rem" data-equalizer-watch>
+			<!-- main column content - comment used to remove left column and center content on some pages -->
 				$h1_title
 				$$content_ref
 			</div>
