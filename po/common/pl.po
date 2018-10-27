@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-16 21:16\n"
+"PO-Revision-Date: 2018-10-26 16:05\n"
 "Language-Team: Polish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -39,7 +39,7 @@ msgstr "O mnie"
 
 msgctxt "add"
 msgid "Add"
-msgstr "Dodać"
+msgstr "Dodaj"
 
 msgctxt "add_language"
 msgid "Add language"
@@ -584,10 +584,6 @@ msgctxt "error_invalid_address"
 msgid "Invalid address."
 msgstr "Błędny adres."
 
-msgctxt "error_invalid_csrf_token"
-msgid "Invalid CSRF token."
-msgstr "Nieprawidłowy kod CSRF."
-
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
 msgstr "Błędny adres e-mail"
@@ -741,7 +737,7 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
-msgstr "Śledź nas na <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
+msgstr "Śledź nas na <a href=\"https://twitter.com/openfoodfactspl\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> i\n"
 "<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
 
@@ -1318,7 +1314,7 @@ msgstr "Można wybrać jeden lub więcej obrazów, a następnie:"
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr "Miejsca produkcji lub przetworzenia"
+msgstr "Miejsce produkcji lub przetwarzania"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
@@ -1411,11 +1407,6 @@ msgstr "umiarkowany"
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
 msgstr "umiarkowana ilość"
-
-# Please keep the same syntax and translate only the months
-msgctxt "months"
-msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr "['Styczeń', 'Luty', 'Marzec', 'Kwieceń', 'Maj', 'Czerwiec', 'Lipiec, 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień']"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
@@ -1758,7 +1749,7 @@ msgstr "Grupy PNNS"
 
 msgctxt "pnns_groups_1_p"
 msgid "PNNS groups 1"
-msgstr "Grupy PNNS 1"
+msgstr "Grupy PNNS"
 
 msgctxt "pnns_groups_1_s"
 msgid "PNNS group 1"
@@ -1986,7 +1977,7 @@ msgstr "miejsca nabycia"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr "Produkt sprzedawany w %s"
+msgstr "Produkty sprzedawane w %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -1998,7 +1989,7 @@ msgstr "dodaj miejsce"
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr "Produkty niesprzedawane w %s"
+msgstr "Produkty niesprzedane w %s"
 
 msgctxt "quantity"
 msgid "Quantity"
@@ -2363,7 +2354,7 @@ msgstr "60 g, 12 oz, 20cl, 2 uncje"
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr "Zaloguj"
+msgstr "Zaloguj się"
 
 msgctxt "share"
 msgid "Share"
@@ -2598,10 +2589,6 @@ msgstr "Infornmacje i dane powinny pochodzić z opakowania i etykiety (nie z inn
 msgctxt "website"
 msgid "Site or blog address"
 msgstr "Adres strony lub bloga"
-
-msgctxt "weekdays"
-msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
-msgstr "['Niedziela','Poniedziałek','Wtorek', 'Środa', 'Czwartek', 'Piątek','Sobota']"
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"

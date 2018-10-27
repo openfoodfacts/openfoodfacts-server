@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-15 16:57\n"
+"PO-Revision-Date: 2018-10-26 15:16\n"
 "Language-Team: Turkish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -130,7 +130,7 @@ msgstr "Tüm görevler"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "Alerjiye veya hoşgörüsüzlüğe neden olan maddeler veya ürünler"
+msgstr "Alerjiye veya toleranssızlığa neden olan maddeler veya ürünler"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -582,10 +582,6 @@ msgstr "E-posta adresi zaten başka bir kullanıcı tarafından kullanılıyor. 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
 msgstr "Geçersiz adres."
-
-msgctxt "error_invalid_csrf_token"
-msgid "Invalid CSRF token."
-msgstr "Geçersiz CSRF belirteci."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
@@ -1316,7 +1312,7 @@ msgstr "Bir veya birden fazla resim seçebilirsiniz ve sonra:"
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr "Üretim veya işleme alanları"
+msgstr "Üretim veya işleme yerleri"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
@@ -1409,11 +1405,6 @@ msgstr "orta"
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
 msgstr "orta miktar"
-
-# Please keep the same syntax and translate only the months
-msgctxt "months"
-msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr "['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık']"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
@@ -1678,7 +1669,7 @@ msgstr "% S kaynaklı içerikli ürünler"
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr "Paketleme"
+msgstr "Ambalaj"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -1994,7 +1985,7 @@ msgstr "satın alma yeri"
 
 msgctxt "purchase_places_tagsinput"
 msgid "add a place"
-msgstr "yer ekle"
+msgstr "mekan ekle"
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
@@ -2480,7 +2471,7 @@ msgstr "Arama:"
 
 msgctxt "traces"
 msgid "Traces"
-msgstr "İzler"
+msgstr "İz"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
@@ -2599,10 +2590,6 @@ msgstr "Bilgi ve veriler ürün paketi veya etiketinden sağlanmalıdır ( Başk
 msgctxt "website"
 msgid "Site or blog address"
 msgstr "Site veya blog adresi"
-
-msgctxt "weekdays"
-msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
-msgstr "['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi']"
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fil\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-15 16:38\n"
+"PO-Revision-Date: 2018-10-26 14:54\n"
 "Language-Team: Filipino\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -130,7 +130,7 @@ msgstr "Lahat na tungkulin"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
-msgstr "Mga sangkap o mga produktong sanhi ng alerdyis o intolerans"
+msgstr "Mga sangkap o mga produkto na nagiging sanhi ng alerdyi o mga intolerance"
 
 msgctxt "allergens_p"
 msgid "allergens"
@@ -208,7 +208,7 @@ msgstr "Tangkilikin ang misyon"
 
 msgctxt "brands"
 msgid "Brands"
-msgstr "Mga tatak"
+msgstr "Mga Tatak"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
@@ -240,7 +240,7 @@ msgstr "sa pamamagitan ng"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr "Mga kategorya"
+msgstr "Mga Kategorya"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -581,10 +581,6 @@ msgstr "Ang email address ay ginamit na ng ibang user. Baka mayron kanang accoun
 msgctxt "error_invalid_address"
 msgid "Invalid address."
 msgstr "Hindi wastong address."
-
-msgctxt "error_invalid_csrf_token"
-msgid "Invalid CSRF token."
-msgstr "Hindi wastong CSRF token."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
@@ -1015,7 +1011,7 @@ msgstr "naglalaman na sustansya"
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr "Mga tanda, mga sertipikasyon, mga parangal"
+msgstr "Mga label, mga sertipiko, mga parangal"
 
 msgctxt "labels_example"
 msgid "Organic"
@@ -1314,7 +1310,7 @@ msgstr "Maaari kang pumili ng isa o marami pang mga imahe at pagkatapos ay:"
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr "Mga lugar sa paggawa o pagproseso"
+msgstr "Mga lugar ng paggawa o pagproseso"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
@@ -1407,11 +1403,6 @@ msgstr "katamtaman"
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
 msgstr "katamtaman ang dami"
-
-# Please keep the same syntax and translate only the months
-msgctxt "months"
-msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr "['Enero ', 'Pebrero', 'Marso', 'Abril', 'Mayo', 'Hunyo', 'Hulyo', 'Agosto', 'Setyembre', 'Oktubre', 'Nobyembre', 'Disyembre']"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
@@ -1674,7 +1665,7 @@ msgstr "Mga produkto na may sangkap na nagmumula sa %s"
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr "Balot"
+msgstr "Packaging"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -1982,7 +1973,7 @@ msgstr "mga lugar na nabili"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr "Mga produkto na naibenta sa %s"
+msgstr "Mga produkto na ibinebenta sa %s"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -1994,11 +1985,11 @@ msgstr "magdagdag ng lugar"
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr "Mga produkto na hindi naibenta sa %s"
+msgstr "Mga produkto na hindi ibinibenta sa %s"
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr "Kandidad"
+msgstr "Dami"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
@@ -2423,7 +2414,7 @@ msgstr "bansa"
 
 msgctxt "stores"
 msgid "Stores"
-msgstr "Mga tindahan"
+msgstr "Mga Tindahan"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2594,10 +2585,6 @@ msgstr "Impormasyon at datos ay dapat magmula sa pakete ng produkto at tanda (at
 msgctxt "website"
 msgid "Site or blog address"
 msgstr "Site or blog address"
-
-msgctxt "weekdays"
-msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
-msgstr "['Linggo', 'Lunes', 'Martes', 'Miyerkules', 'Huwebes', 'Biyernes', 'Sabado']"
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
