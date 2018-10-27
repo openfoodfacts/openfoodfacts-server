@@ -211,18 +211,6 @@ a:hover.level_1 {
   color: green;
 }
 
-.row {
-  &.full-width {
-    max-width: 100% !important;
-
-    .row {
-      margin: 0 auto;
-      max-width: 62.5rem;
-      background: inherit;
-    }
-  }
-}
-
 .select2-container--default .select2-selection--single {
   border-radius: 0;
   font-size: .875rem;
