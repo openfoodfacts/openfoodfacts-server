@@ -37,7 +37,7 @@ use Text::CSV;
 
 use strict;
 
-binmode(STDOUT, ":utf8");
+binmode(STDOUT, ":encoding(UTF-8)");
 
 
 # read the EU translation memory

@@ -338,7 +338,7 @@ files:
         nl: nl_NL
         zh-TW: zh_TW
         sr-CS: sr_CS
-        sr: sr  
+        sr: sr
   - source: /lang/en/texts/rateyourvendingmachine.html
     translation: /lang/%two_letters_code%/texts/rateyourvendingmachine.html
     languages_mapping:
@@ -395,8 +395,8 @@ files:
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr
-  - source: /openfoodfacts-server/madenearme/madenearme-europe.html
-    translation: /openfoodfacts-server/madenearme/madenearme-europe_%two_letters_code%.html
+  - source: /openfoodfacts-server/madenearme/madenearme-world.html
+    translation: /openfoodfacts-server/madenearme/madenearme_%two_letters_code%.html
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK
@@ -509,6 +509,20 @@ files:
         sr: sr
   - source: /lang/en/texts/nova-groups-for-food-processing.html
     translation: /lang/%two_letters_code%/texts/nova-groups-for-food-processing.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr
+  - source: /lang/en/texts/producers.html
+    translation: /lang/%two_letters_code%/texts/producers.html
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK

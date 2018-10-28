@@ -52,16 +52,6 @@ spec:
           ports:
             - containerPort: 80
               name: http
-          livenessProbe:
-            timeoutSeconds: 120
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            timeoutSeconds: 120
-            httpGet:
-              path: /
-              port: http
           volumeMounts:
             - name: {{ include "productopener.backend.fullname" . }}-config
               mountPath: "/usr/local/apache2/conf/sites-enabled/product-opener.conf"

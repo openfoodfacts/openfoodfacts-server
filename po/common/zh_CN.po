@@ -5,11 +5,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-02-16 13:13-0500\n"
+"PO-Revision-Date: 2018-10-27 14:14\n"
 "Language-Team: Chinese Simplified\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"POT-Creation-Date: \n"
 "X-Generator: crowdin.com\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: zh-CN\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
@@ -26,7 +27,7 @@ msgstr "Simplified Chinese"
 
 msgctxt "1_product"
 msgid "1 product"
-msgstr "1个产品"
+msgstr "1 个产品"
 
 msgctxt "_and_"
 msgid " and "
@@ -54,7 +55,7 @@ msgstr "注册"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
-msgstr "<p>感谢您的加盟。现在，您可以登录在网站上添加和编辑产品。</p>"
+msgstr "<p>感谢您的加入。现在，您可以登录在网站上添加和编辑产品。</p>"
 
 msgctxt "add_user_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -72,37 +73,37 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr "你好<NAME>，\n"
-"非常感谢加入https://openfoodfacts.org\n"
+msgstr "你好 <NAME>，\n"
+"非常感谢加入 https://openfoodfacts.org\n"
 "这是你的用户名：\n\n"
 "用户名：<USERID>\n\n"
-"您现在可以在网站上登录来添加和编辑产品。\n\n"
-"<site_name>是一个合作项目，你可以带来更多的新产品：你的精力，热情和想法！\n"
-"为了在贡献者之间进行讨论并使项目继续下去，我们使用一个非常方便的消息系统Slack：https：//slack.openfoodfacts.org\n\n"
-"您也可以加入Facebook小组：\n"
+"您现在可以登陆至网站添加和编辑产品。\n\n"
+"<site_name> 是一个合作项目，你可以带来更多的新产品：你的精力，热情和想法！\n"
+"为了在贡献者之间进行讨论并使项目继续下去，我们使用一个非常方便的消息系统叫做 Slack：https://slack.openfoodfacts.org\n\n"
+"您也可以加入 Facebook 贡献者小组：\n"
 "https://www.facebook.com/groups/OpenFoodFacts/\n\n"
-"新闻：我们也开始打开“Open Food Facts“创建一个化妆品数据库：例如肥皂，牙膏，化妆品等\n"
+"新闻：我们也开始启动 Open Food Facts 创建一个化妆品数据库：例如肥皂，牙膏，化妆品等。\n"
 "https://openbeautyfacts.org\n\n"
-"非常感谢你！\n\n"
-"Stéphane和公开的食物事实小组\n"
+"非常感谢你的加入！\n\n"
+"Stéphane 和 Open Food Facts 团队\n"
 "https://openfoodfacts.org\n"
-"https://twitter.com/OpenFoodFacts\n"
+"https://twitter.com/OpenFoodFacts"
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr "感谢您加入<<site_name>>"
+msgstr "感谢您加入 <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr "潜在有危害的食品添加剂，限制使用"
+msgstr "有潜在危害的食品添加剂，限制使用。"
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr "有害食品添加剂。避免。"
+msgstr "有害食品添加剂，避免。"
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr "在欧洲禁止地食品添加剂。尽量避免。"
+msgstr "在欧洲禁止地食品添加剂，尽量避免。"
 
 msgctxt "additives_p"
 msgid "additives"
@@ -142,7 +143,7 @@ msgstr "过敏原"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr "产品页面也被修改"
+msgstr "产品页面已被修改"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
@@ -156,9 +157,10 @@ msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
 msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
 
+# Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
-msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
-msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=zh"
+msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
+msgstr ""
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -195,15 +197,13 @@ msgctxt "barcode_number"
 msgid "Barcode number:"
 msgstr "条形码"
 
+msgctxt "you_can_also_help_us"
+msgid "You can also help to fund the Open Food Facts project"
+msgstr "您还可以帮助资助Open Food Facts项目"
+
 msgctxt "bottom_content"
-msgid "<a href=\"https://fr.openfoodfacts.org/mission/releveur-d-empreintes\">\n"
-"<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>Contribute to <<site_name>> by adding product and win stars by\n"
-"fulfilling <a href=\"/missions\">missions</a>!</p>\n"
-msgstr "<img src=\"/images/misc/mission-releveur-d-empreintes.png\" width=\"265\" height=\"222\" />\n"
-"</a>\n"
-"<p>通过完成<site_name>添加图片 赢的星星，<a href=\"/missions\">成功</a></p>\n"
+msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
+msgstr ""
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
@@ -215,7 +215,7 @@ msgstr "品牌"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr "金德布埃诺白，仁德布埃诺，金德，费列罗"
+msgstr "金德布埃诺白、仁德布埃诺、金德、费列罗"
 
 msgctxt "brands_p"
 msgid "brands"
@@ -223,7 +223,7 @@ msgstr "品牌"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr "%s商品的品牌"
+msgstr "来自 %s 品牌的商品"
 
 msgctxt "brands_s"
 msgid "brand"
@@ -235,11 +235,11 @@ msgstr "添加一个品牌"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr "不实来自%s的品牌"
+msgstr "并非来自 %s 品牌的商品"
 
 msgctxt "by"
 msgid "by"
-msgstr "来自"
+msgstr "由"
 
 msgctxt "categories"
 msgid "Categories"
@@ -247,31 +247,31 @@ msgstr "类别"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr "橄榄油沙丁鱼，浓缩橙汁"
+msgstr "橄榄油沙丁鱼、浓缩橙汁"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr "仅指出最具体的类别，“父母”类别将自动添加"
+msgstr "仅指出最具体的分类，父分类将自动添加。"
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr "类别"
+msgstr "分类"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr "%s的商品种类"
+msgstr "来自 %s 分类的产品"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr "类型"
+msgstr "分类"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr "添加种类"
+msgstr "添加分类"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
-msgstr "非%s类别的产品"
+msgstr "并非来自 %s 分类的产品"
 
 msgctxt "change_fields"
 msgid "Data"
@@ -303,7 +303,7 @@ msgstr "包装城市"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr "%s的城市有包装"
+msgstr "产品在 %s 城市包装"
 
 msgctxt "cities_s"
 msgid "packaging city"
@@ -311,7 +311,7 @@ msgstr "包装城市"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr "%s的城市没有包装"
+msgstr "产品未在 %s 城市包装"
 
 msgctxt "codes_p"
 msgid "Codes"
@@ -337,7 +337,7 @@ msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.p
 "→ <a href=\"https://twitter.com/openfoodfacts\">Twitter</a><br/>\n"
 "→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a><br />\n"
 "→ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
-"+ <a href=\"https://www.facebook.com/groups/374350705955208/\">contributors group</a><br />\n"
+"+ <a href=\"https://www.facebook.com/groups/openfoodfacts/\">contributors group</a><br />\n"
 "</p>\n\n"
 "<p>iPhone and iPad app on the App Store:</p>\n\n"
 "<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
@@ -350,15 +350,15 @@ msgstr ""
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
-msgstr "完成了%d任务："
+msgstr "完成了 %d 个任务："
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr "已经与您的脸书账目链接"
+msgstr "您已连接到您的 Facebook 帐户。"
 
 msgctxt "contributor_since"
 msgid "Contributor since"
-msgstr "贡献者"
+msgstr "开始贡献自"
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
@@ -366,19 +366,19 @@ msgstr "将当前产品的数据复制到新的产品"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
-msgstr "请更正下面的错误"
+msgstr "请更正下面的错误："
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr "校正"
+msgstr "校正者"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr "校正"
+msgstr "校正者"
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr "能出售的国家"
+msgstr "可出售的国家"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
@@ -390,7 +390,7 @@ msgstr "国家"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
-msgstr "商品已经出售%s"
+msgstr "产品在 %s 出售"
 
 msgctxt "countries_s"
 msgid "country"
@@ -398,7 +398,7 @@ msgstr "国家"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
-msgstr "%s的商品没有出售"
+msgstr "产品未在 %s 出售"
 
 msgctxt "data_source"
 msgid "Data source"
@@ -414,7 +414,7 @@ msgstr "调试"
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr "卸除原因"
+msgstr "移除原因"
 
 msgctxt "delete_product"
 msgid "Delete a product"
@@ -426,7 +426,7 @@ msgstr "删除页面"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr "要删除此图片么？"
+msgstr "删除图片"
 
 msgctxt "delete_user"
 msgid "Delete an user"
@@ -434,11 +434,11 @@ msgstr "删除用户"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr "添加："
+msgstr "已添加："
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr "更改："
+msgstr "已更改："
 
 msgctxt "diff_delete"
 msgid "Deleted:"
@@ -446,7 +446,7 @@ msgstr "删除："
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr "捐助Open Food Facts"
+msgstr "捐助给 Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
@@ -528,13 +528,14 @@ msgctxt "emb_codes"
 msgid "EMB code"
 msgstr "EMB代码"
 
+# Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr ""
+msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
-msgstr ""
+msgstr "在欧洲，代码在一个椭圆形与 2 位国家缩写后跟一个数字和 CE。"
 
 msgctxt "emb_codes_p"
 msgid "packager codes"
@@ -583,10 +584,6 @@ msgstr "电子邮件地址已经被其他用户使用 ，也许你曾经注册�
 msgctxt "error_invalid_address"
 msgid "Invalid address."
 msgstr "地址无效"
-
-msgctxt "error_invalid_csrf_token"
-msgid "Invalid CSRF token."
-msgstr "无效的CSRF验证令牌"
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
@@ -688,8 +685,8 @@ msgstr "<a href=\"https://world.openfoodfacts.org/legal\">规则</a><a href=\"ht
 "<a href=\"https://world.openfoodfacts.org/press-and-blogs\">新闻和博客</a>\n"
 
 msgctxt "footer_and_the_facebook_group"
-msgid "and the <a href=\"https://www.facebook.com/groups/374350705955208/\">Facebook group for contributors</a>"
-msgstr "和<a href=\"https://www.facebook.com/groups/374350705955208/\">脸书的参与组</a>"
+msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
+msgstr ""
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -733,7 +730,7 @@ msgstr "翻译人员"
 
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr ""
+msgstr "/cgi/top_translators.pl"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
@@ -841,7 +838,16 @@ msgid "<meta property=\"fb:admins\" content=\"706410516\" />\n"
 "\tvar s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);\n"
 "  })();\n"
 "</script>\n\n\n"
-msgstr ""
+msgstr "<meta property=\"fb:admins\" content=\"706410516\" />\n"
+"<meta property=\"og:site_name\" content=\"<<site_name>> - 自由和开放食品信息数据库\"/>\n\n"
+"<script type=\"text/javascript\">\n"
+"  var uvOptions = {};\n"
+"  (function() {\n"
+"\tvar uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;\n"
+"\tuv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/jQrwafQ94nbEbRWsznm6Q.js';\n"
+"\tvar s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);\n"
+"  })();\n"
+"</script>\n\n\n"
 
 msgctxt "hello"
 msgid "Hello"
@@ -993,8 +999,8 @@ msgid "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" 
 msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />"
 
 msgctxt "ios_app_link"
-msgid "https://itunes.apple.com/en/app/open-food-facts/id588797948"
-msgstr "https://itunes.apple.com/en/app/open-food-facts/id588797948"
+msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1134,7 +1140,7 @@ msgstr "荷兰语"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr ""
+msgstr "在这个产品上最多和最突出的语言"
 
 msgctxt "lang_other"
 msgid "other language"
@@ -1398,10 +1404,6 @@ msgctxt "moderate_quantity"
 msgid "moderate quantity"
 msgstr "中等数量"
 
-msgctxt "months"
-msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr "['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月r', '十一月, '十二月']"
-
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
 msgstr "将图片移动到另外一个产品上"
@@ -1442,6 +1444,14 @@ msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
 msgstr "营养成分没有在产品傻姑娘注明"
 
+msgctxt "multiple_nutrition_data"
+msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
+msgstr "产品上指定了多种营养成分（例如：添加了水或牛奶）。"
+
+msgctxt "multiple_nutrition_data_instructions"
+msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
+msgstr "仅输入未准备产品的营养成分，而不添加水或牛奶。如果有不同的产品，请输入第一个产品列出的营养成分。"
+
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
 msgstr "没有列出条形码的%s商品"
@@ -1470,6 +1480,7 @@ msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
 msgstr "每一百克含有的营养成分"
 
+# Ensure it is the same translation as in the translation in the tag file. If unsure, DO NOT TRANSLATE, otherwise it will break the site
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
 msgstr "/营养水平"
@@ -1595,10 +1606,12 @@ msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "营养等级"
 
+# Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 
+# Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
@@ -1948,7 +1961,7 @@ msgstr "你所添加或编辑的产品"
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
-msgstr "购买产品的城市，州或国家"
+msgstr "购买的城市、省份和国家"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
@@ -1960,7 +1973,7 @@ msgstr "购买地点"
 
 msgctxt "purchase_places_products"
 msgid "Products sold in %s"
-msgstr "在%s出售的产品"
+msgstr "产品在 %s 出售"
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
@@ -1972,7 +1985,7 @@ msgstr "添加地点"
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
-msgstr "不在%s销售的产品"
+msgstr "产品未在 %s 出售"
 
 msgctxt "quantity"
 msgid "Quantity"
@@ -2108,7 +2121,7 @@ msgstr "下载CSV格式的结果 (Excel, OpenOffice)"
 
 msgctxt "search_download_results_description"
 msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr ""
+msgstr "字符集：Unicode（UTF-8）。分隔符：制表符（Tab）。"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
@@ -2145,7 +2158,7 @@ msgstr "地图中的结果"
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
 "get a cloud of products (scatter plot)."
-msgstr ""
+msgstr "选择您想要在横轴上绘制的图形来获取直方图，或选择两个坐标获得产品云（散点图）。"
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
@@ -2161,7 +2174,7 @@ msgstr "在图表上显示结果"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr ""
+msgstr "注意：这是用户生成的图形。图表的作者已经选择了标题、所展示的产品和可视化坐标轴。"
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
@@ -2245,7 +2258,7 @@ msgstr "使用营养等级颜色"
 
 msgctxt "search_series_organic"
 msgid "Organic"
-msgstr "有机"
+msgstr "有机产品"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
@@ -2325,7 +2338,7 @@ msgstr "发送图片"
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr "份量"
+msgstr "分量"
 
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
@@ -2449,7 +2462,7 @@ msgstr "搜索："
 
 msgctxt "traces"
 msgid "Traces"
-msgstr "跟踪"
+msgstr "痕迹"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
@@ -2568,17 +2581,13 @@ msgctxt "website"
 msgid "Site or blog address"
 msgstr "网站或博客地址"
 
-msgctxt "weekdays"
-msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
-msgstr "['周日', '周一', '周二', '周三', '周四', '周五', '周六']"
-
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
 msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
-msgstr "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
+msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2602,7 +2611,7 @@ msgstr "取消选择图片时出错。"
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "警告：未指定纤维数量，它们对营养等级可能的正向贡献或许不被考虑在内。"
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2614,7 +2623,7 @@ msgstr "注意：标签上没有标明水果，蔬菜和坚果的数量，从成
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
-msgstr ""
+msgstr "警告：标签上没有标明水果、蔬菜或是坚果的数量，它们将从产品 %d% 的分类（%s）进行估算。"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2664,14 +2673,6 @@ msgctxt "sources_usda_ndb_product_page"
 msgid "Product page on USDA NDB"
 msgstr "在USDA NDB中的产品页面"
 
-msgctxt "donate"
-msgid "Donate to Open Food Facts"
-msgstr "捐助Open Food Facts"
-
-msgctxt "donate_link"
-msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-msgstr "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
-
 msgctxt "sources_fleurymichon"
 msgid "Some of the data and images have been provided directly by the manufacturer Fleury Michon."
 msgstr "一些数据和图像由制造商Fleury Michon直接提供。"
@@ -2688,13 +2689,17 @@ msgctxt "title_separator"
 msgid " — "
 msgstr " — "
 
+msgctxt "recent_changes"
+msgid "Recent Changes"
+msgstr ""
+
 msgctxt "translators_title"
 msgid "Our Translators"
 msgstr "翻译人员"
 
 msgctxt "translators_lead"
-msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages!"
-msgstr "感谢伟大的翻译人员们，让我们可以用不同的语言向您展示开放式食品数据，开放式美容数据和开放式宠物食品数据！"
+msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
+msgstr ""
 
 msgctxt "translators_renewal_notice"
 msgid "Please note that this table is refreshed nightly and might be out of date."
@@ -2706,17 +2711,281 @@ msgstr "名称"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
-msgstr ""
+msgstr "已翻译（词语）"
 
 msgctxt "translators_column_target_words"
 msgid "Target Words"
-msgstr ""
+msgstr "目标词语"
 
 msgctxt "translators_column_approved_words"
 msgid "Approved (Words)"
-msgstr ""
+msgstr "已批准（词语）"
 
 msgctxt "translators_column_votes_made"
 msgid "Votes Made"
 msgstr "投票结果"
+
+msgctxt "minerals_p"
+msgid "added minerals"
+msgstr "添加的矿物质"
+
+msgctxt "minerals_s"
+msgid "added mineral"
+msgstr "添加的矿物质"
+
+msgctxt "vitamins_p"
+msgid "added vitamins"
+msgstr "添加的维生素"
+
+msgctxt "vitamins_s"
+msgid "added vitamin"
+msgstr "添加的维生素"
+
+msgctxt "amino_acids_p"
+msgid "added amino acids"
+msgstr "添加的氨基酸"
+
+msgctxt "amino_acids_s"
+msgid "added amino acid"
+msgstr "添加的氨基酸"
+
+msgctxt "nucleotides_p"
+msgid "added nucleotides"
+msgstr "添加的核苷酸"
+
+msgctxt "nucleotides_s"
+msgid "added nucleotide"
+msgstr "添加的核苷酸"
+
+msgctxt "other_nutritional_substances_p"
+msgid "other nutritional substances added"
+msgstr "添加的其他营养物质"
+
+msgctxt "other_nutritional_substances_s"
+msgid "other nutritional substance added"
+msgstr "添加的其他营养物质"
+
+msgctxt "product_as_sold"
+msgid "As sold"
+msgstr ""
+
+msgctxt "prepared_product"
+msgid "Prepared"
+msgstr "已准备"
+
+msgctxt "unit"
+msgid "Unit"
+msgstr "单位"
+
+msgctxt "nutrition_data_exists"
+msgid "Nutrition facts are specified for the product as sold."
+msgstr ""
+
+msgctxt "nutrition_data_prepared_exists"
+msgid "Nutrition facts are specified for the prepared product."
+msgstr ""
+
+msgctxt "nova_groups_s"
+msgid "NOVA group"
+msgstr ""
+
+msgctxt "nova_groups_p"
+msgid "NOVA groups"
+msgstr ""
+
+msgctxt "footer_partners"
+msgid "Partners"
+msgstr ""
+
+msgctxt "footer_partners_link"
+msgid "/partners"
+msgstr ""
+
+msgctxt "adults"
+msgid "Adults"
+msgstr ""
+
+msgctxt "adults_age"
+msgid "18 to 64"
+msgstr ""
+
+msgctxt "adults_description"
+msgid "From 18 years up to and including 64 years of age"
+msgstr ""
+
+msgctxt "elderly"
+msgid "Elderly"
+msgstr ""
+
+msgctxt "elderly_age"
+msgid "65+"
+msgstr ""
+
+msgctxt "elderly_description"
+msgid "From 65 years of age and older"
+msgstr ""
+
+msgctxt "adolescents"
+msgid "Adolescents"
+msgstr ""
+
+msgctxt "adolescents_age"
+msgid "10 to 17"
+msgstr ""
+
+msgctxt "adolescents_description"
+msgid "From 10 years up to and including 17 years of age"
+msgstr ""
+
+msgctxt "children"
+msgid "Children"
+msgstr ""
+
+msgctxt "children_age"
+msgid "3 to 9"
+msgstr ""
+
+msgctxt "children_description"
+msgid "From 36 months up to and including 9 years of age"
+msgstr ""
+
+msgctxt "toddlers"
+msgid "Toddlers"
+msgstr ""
+
+msgctxt "toddlers_age"
+msgid "1 to 2"
+msgstr ""
+
+msgctxt "toddlers_description"
+msgid "From 12 months up to and including 35 months of age"
+msgstr ""
+
+msgctxt "infants"
+msgid "Infants"
+msgstr ""
+
+msgctxt "infants_age"
+msgid "< 1"
+msgstr ""
+
+msgctxt "infants_description"
+msgid "From more than 12 weeks up to and including 11 months of age"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation"
+msgid "EFSA evaluation"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_title"
+msgid "Risk of overexposure"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_high"
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_description"
+msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
+msgid "%d products with %s"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_no"
+msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
+msgid "High risk of over exposure"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
+msgid "Moderate risk of over exposure"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
+msgid "Risk of exceeding the acceptable daily intake (ADI)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
+msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
+msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
+msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
+msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr ""
+
+msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_noael"
+msgid "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr ""
+
+msgctxt "exposure_title_95th"
+msgid "Some people"
+msgstr ""
+
+msgctxt "exposure_description_95th"
+msgid "over 5%"
+msgstr ""
+
+msgctxt "exposure_title_mean"
+msgid "Most people"
+msgstr ""
+
+msgctxt "exposure_description_mean"
+msgid "over 50%"
+msgstr ""
+
+msgctxt "wikipedia"
+msgid "Wikipedia"
+msgstr ""
+
+msgctxt "additives_classes"
+msgid "Functions"
+msgstr ""
+
+msgctxt "photos_and_data_check"
+msgid "Photos and data check"
+msgstr ""
+
+msgctxt "photos_and_data_check_description"
+msgid "Product pages can be marked as checked by experienced contributors who verify that the most recent photos are selected and cropped, and that all the product data that can be inferred from the product photos has been filled and is correct."
+msgstr ""
+
+msgctxt "photos_and_data_checked"
+msgid "Photos and data checked"
+msgstr ""
+
+msgctxt "i_checked_the_photos_and_data"
+msgid "I checked the photos and data."
+msgstr ""
+
+msgctxt "i_checked_the_photos_and_data_again"
+msgid "I checked the photos and data again."
+msgstr ""
+
+msgctxt "last_check_dates_p"
+msgid "Last check dates"
+msgstr ""
+
+msgctxt "last_check_dates_s"
+msgid "Last check date"
+msgstr ""
+
+msgctxt "product_last_checked"
+msgid "Last check of product page on"
+msgstr ""
 

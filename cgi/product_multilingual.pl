@@ -51,8 +51,6 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
-use WWW::CSRF qw(CSRF_OK);
-
 ProductOpener::Display::init();
 
 if ($User_id eq 'unwanted-user-french') { 
@@ -426,11 +424,12 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	}
 					
 	
+	compute_languages($product_ref); # need languages for allergens detection and cleaning ingredients
+	
 	# Ingredients classes
+	clean_ingredients_text($product_ref);
 	extract_ingredients_from_text($product_ref);
 	extract_ingredients_classes_from_text($product_ref);
-
-	compute_languages($product_ref); # need languages for allergens detection
 	detect_allergens_from_text($product_ref);
 	
 	# Nutrition data
@@ -614,6 +613,34 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				delete $product_ref->{nutriments}{$nid . "_label"};				
 		}
 		
+	}
+	
+	
+	# product check
+	
+	if ($admin or $moderator) {
+	
+		my $checked = remove_tags_and_quote(decode utf8=>param("photos_and_data_checked"));	
+		if ((defined $checked) and ($checked eq 'on')) {
+			if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
+				my $rechecked = remove_tags_and_quote(decode utf8=>param("photos_and_data_rechecked"));	
+				if ((defined $rechecked) and ($rechecked eq 'on')) {
+					$product_ref->{last_checker} = $User_id;
+					$product_ref->{last_checked_t} = time();
+				}
+			}
+			else {
+				$product_ref->{checked} = 'on';
+				$product_ref->{last_checker} = $User_id;
+				$product_ref->{last_checked_t} = time();
+			}
+		}
+		else {
+			delete $product_ref->{checked};
+			delete $product_ref->{last_checker};			
+			delete $product_ref->{last_checked_t};
+		}
+	
 	}
 	
 	# Compute nutrition data per 100g and per serving
@@ -2045,6 +2072,44 @@ HTML
 ;	
 
 	$html .= "</div><!-- fieldset -->";
+
+
+	# Product check
+	
+	if ($admin or $moderator) {
+	
+		$html .= "
+<div class=\"fieldset\" id=\"check\"><legend>$Lang{photos_and_data_check}{$lang}</legend>
+<p>$Lang{photos_and_data_check_description}{$lang}</p>
+";
+
+		my $checked = '';
+		my $label = $Lang{i_checked_the_photos_and_data}{$lang};
+		my $recheck_html = "";
+		
+		if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
+			$checked = 'checked="checked"';
+			$label = $Lang{photos_and_data_checked}{$lang};
+			
+			$recheck_html .= <<HTML
+<input type="checkbox" id="photos_and_data_rechecked" name="photos_and_data_rechecked" />	
+<label for="photos_and_data_rechecked" class="checkbox_label">$Lang{i_checked_the_photos_and_data_again}{$lang}</label><br/>
+HTML
+;				
+		}
+
+		$html .= <<HTML
+<input type="checkbox" id="photos_and_data_checked" name="photos_and_data_checked" $checked />	
+<label for="photos_and_data_checked" class="checkbox_label">$label</label><br/>
+HTML
+;	
+	
+		$html .= $recheck_html;
+		
+		$html .= "</div><!-- fieldset -->";
+	
+	}
+	
 	
 	
 	$html .= ''
@@ -2096,7 +2161,6 @@ HTML
 <label for="comment" style="margin-left:10px">$Lang{delete_comment}{$lang}</label>
 <input type="text" id="comment" name="comment" value="" />
 HTML
-	. hidden(-name=>'csrf', -value=>generate_po_csrf_token($User_id), -override=>1)
 	. submit(-name=>'save', -label=>lang("delete_product_page"), -class=>"button small")
 	. end_form();
 
@@ -2108,12 +2172,6 @@ elsif ($action eq 'process') {
 	$product_ref->{interface_version_modified} = $interface_version;
 	
 	if ($type eq 'delete') {
-		my $csrf_token_status = check_po_csrf_token($User_id, param('csrf'));
-		if (not ($csrf_token_status eq CSRF_OK)) {
-			$log->warn("User tried product deletion with invalid CSRF", { user_id => $User_id, code => $code }) if $log->is_warn();
-			display_error(lang("error_invalid_csrf_token"), 403);
-		}
-
 		$product_ref->{deleted} = 'on';
 		$comment = lang("deleting_product") . separator_before_colon($lc) . ":";
 	}

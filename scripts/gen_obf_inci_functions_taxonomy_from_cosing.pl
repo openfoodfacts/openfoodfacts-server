@@ -37,7 +37,7 @@ use Text::CSV;
 
 use strict;
 
-binmode(STDOUT, ":utf8");
+binmode(STDOUT, ":encoding(UTF-8)");
 
 
 # INCI Functions from http://ec.europa.eu/growth/tools-databases/cosing/index.cfm?fuseaction=ref_data.functions

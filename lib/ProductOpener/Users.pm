@@ -53,8 +53,6 @@ BEGIN
 					
 					&check_session
 
-					&generate_po_csrf_token
-					&check_po_csrf_token
 					&generate_token
 
 					);	# symbols to export on request
@@ -77,7 +75,6 @@ use Email::IsEmail qw/IsEmail/;
 use Crypt::PasswdMD5 qw(unix_md5_crypt);
 use Math::Random::Secure qw(irand);
 use Crypt::ScryptKDF qw(scrypt_hash scrypt_hash_verify);
-use WWW::CSRF qw(generate_csrf_token check_csrf_token CSRF_OK);
 use Log::Any qw($log);
 
 sub generate_token {
@@ -492,14 +489,14 @@ sub init_user()
 			    {
 					# Set a persistent cookie
 					$log->debug("setting persistent cookie") if $log->is_debug();
-					$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>".$server_domain",
+					$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>".$server_domain", -samesite=>'Lax',
 							-expires=>'+' . $length . 's');
 			    }
 			    else
 			    {
 				# Set a session cookie
 					$log->debug("setting session cookie") if $log->is_debug();
-					$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>".$server_domain");
+					$cookie = cookie (-name=>$cookie_name, -value=>$session, -path=>'/', -domain=>".$server_domain", -samesite=>'Lax');
 			    }
 			}
 		    }
@@ -618,7 +615,7 @@ sub init_user()
 			# Set a cookie
 			if (not defined $cookie)
 			{
-			 $cookie = cookie (-name=>'b', -value=>$b, -path=>'/', -expires=>'+86400000s') ;
+			 $cookie = cookie (-name=>'b', -value=>$b, -path=>'/', -expires=>'+86400000s', -samesite=>'Lax') ;
 			 $log->info("setting b cookie", { bcookie => $cookie }) if $log->is_info();
 			} 
 		}
@@ -715,16 +712,6 @@ sub save_user() {
 	elsif (defined $Visitor_id) {
 		store("$data_root/virtual_users/$Visitor_id.sto", \%User);
 	}
-}
-
-sub generate_po_csrf_token($) {
-	my ( $user_id ) = @_;
-	generate_csrf_token($user_id, $csrf_secret);
-}
-
-sub check_po_csrf_token($$) {
-	my ( $user_id, $csrf_token) = @_;
-	check_csrf_token($user_id, $csrf_secret, $csrf_token);
 }
 
 1;

@@ -1,3 +1,4 @@
+
 # stopwords
 
 stopwords:da:indeholder
@@ -15,12 +16,33 @@ stopwords:sk:obsahuje
 stopwords:sl:vsebuje
 stopwords:sv:innehåller, från, med
 
-#
+# postfixes
+
+# en
+# *organically grown products
+
+# de
+# Kochsalzgehalt insgesamt: 0,7%.
+# Kochsalzanteil: 1.7% (ohne Jod und ohne Fluor)
+
+# fr
+# *produits issus de l'agriculture biologique.
+# Teneur totale en sel de cuisine: 0,7%.
+# Teneur totale en sel de cuisine: 1.7% (sans fluor et sans iode)
+
+# it
+# Contenuto complessivo di sale da cucina: 1,4%.
+
+# nl
+# Product geproduceerd in een werkruimte waar ook het volgende wordt gebruikt : melk, selderij, sesam, weekdieren.
+
 en:ingredient
+da:indeholder
 de:Zutaten
 fr:ingrédient
 it:ingredienti
 nl:ingrediënt, ingrediënten
+sv:innehåller
 
 # additive classes (from Global_additives_classes_taxonomy)
 
@@ -128,7 +150,7 @@ wikidata:en:Q904035
 
 en:antioxidant, antioxygen
 bg:Антиоксидант
-de:Antioxidant
+de:Antioxidant, Antioxidationsmittel
 el:Αντιοξειδωτικό
 es:Antioxidante
 et:Antioksüdant
@@ -300,14 +322,152 @@ zh:姜黄素
 # zh-my:姜黄素
 # zh-tw:薑黃素
 wikidata:Q312266
-openfoodfacts:https://en.wikipedia.org/wiki/Curcumin
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:curcumin
-# 80 products in 2 languages @2018-10-11
+wikipedia:https://en.wikipedia.org/wiki/Curcumin
+# fr:curcumin 80 products in 2 languages @2018-10-11
 
+<en:colour
+en:E160
+fr:e160
+
+<en:E160
+fr:e160a, e 160a,colorant e160a
+
+<en:E160
+fr:e160aii
+
+<en:E160
+fr:e160b
+
+<en:E160
+en:paprika extract, e160c
+da:paprikaekstrakt, e160c
+de:Paprikaextrakt, e160c
+el:εκχύλισμα πάπρικας, e160c
+es:extracto de pimentón, e160c
+fr:extrait de paprika, extraits de paprika, e160c
+hu:paprikakivonat, e160c
+it:estratto di paprica, e160c
+lt:Paprikos ekstraktas, e160c
+lv:paprikas ekstrakts, e160c
+nl:paprika-extract, e160c
+pt:extrato de pimentão, e160c
+ro:extract de paprika, e160c
+sv:Paprikaextrakt, e160c
+# en:paprika-extract has 3381 products in 16 languages @2018-10-15
+# fr:e160c has 637 products @2018-10-15
+
+# Not sure whether the natural adds anything special, paprika extract seems always to be natural
+
+<fr:paprika extract
+fr:extrait naturel de paprika
+# fr:extrait-naturel-de-paprika 28 products in 1 language @2018-10-15
+
+# PAPRIKA OLEORESIN (also known as PAPRIKA EXTRACT and oleoresin paprika) is an oil-soluble extract from the fruits of Capsicum annuum or Capsicum frutescens, and is primarily used as a colouring and/or flavouring in food products. 
+
+<en:paprika extract
+en:paprika oleoresin, capsanthin
+es:Oleoresina de pimentón
+fr:oléorésine de paprika, capsanthine
+hu:Paprika oleoresin
+wikipedia:https://en.wikipedia.org/wiki/Paprika_oleoresin
+wikidata:Q425431
+# fr:oléorésine-de-paprika 38 products @2018-10-14
+# fr:capsanthine 8 products in 1 language @2018-10-15
+# en:capsanthin 4 products @2018-10-15
 # http://www.fao.org/gsfaonline/additives/results.html?techFunction=10&searchBy=tf
 en:colour retention agent
 fr:agent de rétention de la couleur, fixateur de couleur
-wikidata:en:
+
+<en:paprika extract
+en:capsicum extract
+es:extracto de capsicum
+fr:extrait de capsicum
+nl:capsicum-extract
+de:Capsaicin-Extrakt
+wikidata:en:Q53792073
+# en:capsicum-extract has 16 products in 2 languages @2018-10-15
+
+<en:beetroot
+<en:colour
+en:betanin, E162
+ar:بيتانين
+# azb:بتانین
+cs:Betanin, E162
+de:Betanin, E162
+es:Betanina, E162
+fa:بتانین
+fr:Betanina, E162
+hu:Betanin
+it:Betanina, E162
+ja:ベタニン
+lt:Betaninas, E162
+ml:ബെറ്റാനിൻ
+nl:Betanine, E162
+pl:Betanina, E162
+pt:Betanina, E162
+sh:Betanin, E162
+sr:Betanin, E162
+sv:Betanin, E162
+wikipedia:Q420138
+
+<en:betanin
+en:beetroot red
+es:Rojo remolacha
+it:rosso di barbabietola
+nl:bietenrood
+pl:Czerwień buraczana
+pt:vermelho beterraba
+sv:rödbetsrött
+# fr:rouge-de-betterave has 426 products in 7 languages @2018-10-21
+
+<en:colour
+en:anthocyanin, anthocyanins, E163
+ar:أنثوسيان
+be:Антацыяны, E163
+bg:Антоциани, E163
+ca:Antocianina, E163
+cs:Antokyan, E163
+da:Anthocyanin, E163
+de:Anthocyane, E163
+eo:Antocianino, E163
+es:Antocianina, E163
+eu:Antozianina, E163
+# ext:Antocianina, E163
+fa:آنتوسیانین
+fi:Antosyaanit, E163
+fr:anthocyane, E163
+# gsw:Anthocyane, E163
+he:אנתוציאנין
+hu:Antociánok, E163
+hy:Անտոցիաններ, E163
+id:Antosianin, E163
+is:Antósýanefni, E163
+it:Antociano, E163
+ja:アントシアニン, E163
+jv:Antosianin, E163
+kk:Антоциандар, E163
+o:안토시아닌, E163
+ky:Антоциандар, E163
+ml:ആൻതോസയാനിൻ, E163
+mn:Anthocyanin, E163
+ms:Antosianin, E163
+nb:antocyanin, E163
+nl:anthocyaan, E163
+pl:antocyjany, E163
+pt:antocianina, E163
+ro:Antocianină, E163
+ru:Антоцианы, E163
+sk:Antokyán, E163
+sl:Antocian, E163
+sr:Антоцијан, E163
+sw:Antocyanin, E163
+tg:Антосианҳо, E163
+th:แอนโทไซยานิน, E163
+uk:Антоціани, E163
+uz:Antotsianinlar, E163
+zh:花色素苷, E163
+wikidata:Q262547
+wikipedia:https://en.wikipedia.org/wiki/Anthocyanin
 
 # nova:en:emulsifier
 en:emulsifier
@@ -715,6 +875,21 @@ sk: Zahusťovadlo
 ro: Agent de îngroșare
 bg: Сгъстител
 wikidata:en:Q911138
+
+
+# <en:potato
+<en:thickener
+<en:modified starch
+<en:potato starch
+en:modified potato starch, E1404
+de:modifizierte Kartoffelstärke, E1404
+fr:amidon modifié de pomme de terre, amidon modifié de pommes de terre, amidon de pomme de terre modifié, amidon transformé de pommes de terre, amidon de pommes de terre modifié, amidon transformé de pomme de terre, fécule de pomme de terre modifiée, fécule modifiée de pommes de terre, E1404
+it:amido di patate modificiate, amido modificato di patata, E1404
+nl:gemodificeerd aardappelzetmeel
+pt:amido modificado de batata, E1404
+# fr:fécule-de-pomme-de-terre-modifiée has 40 products in 3 languages @2018-10-15
+# fr:e1404 has 19 products in 4 languages @2018-10-15
+# en:modified-potato-starch has 1862 products in 7 languages @2018-10-15
 
 en:Vitamins
 bg:Витамини
@@ -1701,7 +1876,7 @@ en:reduced-fat milk
 <en:milk
 en:whole milk
 da:sødmaelk
-de:Vollmilch
+de:Vollmilch, Frische Vollmilch
 fi:täysmalto
 fr:lait entier, lait entier frais
 it:latte intero
@@ -1826,6 +2001,10 @@ fr:lait entier pasteurisé
 nl:volle gepasteuriseerde melk
 allergens:fr:_lait_ entier pasteurisé
 
+<en:pasteurized whole milk
+fr:lait entier pasteurisé de vache
+es:Leche entera pasteurizada de vaca
+
 <en:milk
 fr:_lait_ et _crème_ pasteurisé
 allergens:fr:_lait_ et _crème_ pasteurisés
@@ -1894,6 +2073,8 @@ allergens:fr:_lait_ thermisé
 fr:lait frais demi-écrémé pasteurisé
 allergens:fr:_lait_ frais demi-écrémé pasteurisé
 
+fr:Lait frais demi-écrémé microfiltré issu de l'agriculture biologique
+
 fr:lait de vache cru
 allergens:fr:_lait_ de vache cru
 
@@ -1960,6 +2141,7 @@ allergens:fr:_lactose_ et protéine de _lait_
 en:milk powder, powdered milk
 fr:lait en poudre, poudre de lait
 nl:melkpoeder
+es:Leche en polvo
 allergens:fr:_lait_ en poudre
 nova:en:4
 
@@ -2099,6 +2281,53 @@ en:Lactose powder, powdered lactose
 fr:poudre de lactose
 nl:Lactosepoeder
 allergens:fr:poudre de _lactose_
+
+
+# Unsorted milk stuff
+
+fr:lait de montagne
+allergens:fr:_lait_ de montagne
+
+
+fr:lait de vache pasteurisé
+allergens:fr:_lait_ de vache pasteurisé
+
+fr:lait entier standardisé
+allergens:fr:_lait_ entier standardisé
+
+fr:lait de bufflonne pasteurisé
+allergens:fr:_lait_ de bufflonne pasteurisé
+
+# Yogurt related stuff
+
+fr:yogourt maigre
+
+fr:yogourt au lait pasteurisé
+
+fr:yogourt partiellement écrémé
+
+en:whole milk yogurt
+fr:yogourt au lait entier
+
+fr:yaourt en poudre
+allergens:fr:_yaourt_ en poudre
+
+fr:yaourt brassé sucré
+allergens:fr:_yaourt_ brassé sucré
+
+fr:yaourt maigre
+allergens:fr:_yaourt_ maigre
+
+fr:yaourt au lait entier
+allergens:fr:yaourt au _lait_ entier
+
+fr:ferments lactiques du yaourt
+
+fr:yaourt
+
+de:Sahnejoghurt
+
+
 
 # no products in OFF
 # <en:Whey
@@ -2308,6 +2537,578 @@ nl:Room uit Normandië
 allergens:fr:_crème_ fraîche de normandie
 
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                         C H E E S E S     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+en:cheese
+fr:fromage
+nl:kaas
+
+
+
+fr:fromage frais à 0% de matière grasse
+
+
+<en:cheese
+fr:fromage suisse
+de:Schweizer Käse
+it:formaggio svizzero, formaggi svizzeri
+# fr:fromage-suisse has 21 products in 3 languages @2018-10-27
+
+# fr:base-aromatisante-fromage is a compound ingredient
+
+fr:base aromatisante fromage
+nl:kaassmaak
+# fr:base-aromatisante-fromage has 28 products @2018-10-27
+
+
+# CHEDDAR cheese is a relatively hard, off-white (or orange if spices such as annatto are added), sometimes sharp-tasting, natural cheese. 
+
+<en:cheese
+en:cheddar
+af:Cheddarkaas
+ar:جبنة تشيدر
+# ast:Quesu cheddar
+ca:Cheddar
+cs:čedar
+cv:Чеддер
+cy:Caws Cheddar
+da:Cheddarost
+de:Cheddar
+# de-ch:Cheddar
+el:Τσένταρ
+# en-ca:Cheddar cheese
+# en-gb:Cheddar cheese
+eo:Ĉedder
+es:queso Cheddar
+et:Cheddari juust
+eu:Cheddar gazta
+fa:پنیر چدار
+fi:Cheddar
+fr:Cheddar, fromage cheddar
+ga:céadar
+gl:Cheddar
+he:צ'דר
+hu:Cheddar
+hy:Չեդեր
+id:Keju Cheddar
+is:Cheddar-ostur
+ja:チェダーチーズ
+ka:ჩედერი
+kn:ಚೆಡರ್ ಚೀಸ್
+ko:체더 치즈
+la:Cheddar
+lt:Čederis
+lv:Čedars
+ms:Keju Cheddar
+nb:cheddarost
+nl:cheddar, cheddarkaas
+pl:Cheddar
+pt:Cheddar
+# pt-br:Cheddar
+ru:Чеддер
+sk:Čedar
+sl:Čedar
+sv:cheddar
+tr:Cheddar
+uk:Чеддер
+vi:Pho mát Cheddar
+# wuu:切达干酪
+# yue:車打芝士
+zh:車打芝士
+# zh-cn:切达干酪
+# zh-hans:切达干酪
+# zh-hant:切達乾酪
+# zh-hk:車打芝士
+# zh-sg:切达干酪
+# zh-tw:切達起司
+wikidata:Q217525
+wikipedia:https://en.wikipedia.org/wiki/Cheddar_cheese
+# fr:fromage-cheddar has 39 products @2018-10-27
+# en:cheddar has 366 products @2018-10-27
+
+<en:cheddar
+fr:cheddar fondu
+# fr:cheddar-fondu has 75 products in 1 language @2018-10-27
+
+# COMTÉ (or Gruyère de Comté) is a French cheese made from unpasteurized cow's milk in the Franche-Comté region of eastern France. 
+
+<en:cheese
+en:Comté cheese
+ca:comté
+cs:Comté
+de:Comtéeo:Komte
+es:Comté
+fi:Comté
+fr:comté
+he:קונטה
+hy:Կոնտե
+id:Comté
+it:Comté
+ja:コンテチーズ
+ko:콩테
+la:Comté
+nl:Comté
+oc:Comté
+ro:Comté
+ru:Конте
+sw:Comté
+uk:Конте
+zh:孔泰奶酪
+wikidata:Q249310
+wikipedia:https://en.wikipedia.org/wiki/Comté_cheese
+# fr:comté has 201 products in 1 language @2018-10-27
+
+<en:Comté cheese
+fr:comté aop
+nl:Comté AOC
+# fr:comté-aop has 40 products in 1 language @2018-10-27
+
+
+# EMMENTAL (Emmentaler or Emmenthal) is a yellow, medium-hard Swiss cheese that originated in the area around Emmental, Canton Bern. 
+
+<en:cheese
+en:emmental
+af:Emmentaler
+ar:إمنتال
+bg:Ементал
+bs:Ementaler
+ca:emmental
+cs:Ementál
+da:emmental, Emmentaler
+de:Emmentaler
+# de-ch:Emmentaler
+el:Έμενταλ
+# en-ca:Emmental cheese
+# en-gb:Emmental cheese
+eo:Emental
+es:emmenthal, emmental
+eu:Emmental
+fa:پنیر امنتال
+fi:Emmental
+fr:emmental
+gl:Emmental
+# gsw:Ämmedaaler
+he:אמנטל
+hr:Ementaler
+hu:Ementáli
+hy:Էմենտալ
+id:Keju Emmental
+it:Emmental
+ja:エメンタールチーズ
+jv:Kèju Emmental
+ko:에멘탈 치즈
+la:Emmentaler
+lt:Ementalio sūris
+lv:Ementāles siers
+mk:Ементалер
+ms:Keju Emmental
+nb:emmentaler, sveitserost
+nl:emmentaler
+pl:Ementaler
+pt:Emmental
+# pt-br:Emmentaler
+ru:Эмменталь
+sk:Ementálsky syr
+sl:Ementalski sir
+sr:Ementaler
+sw:Emmentaler
+ta:எம்மன்டல்
+tr:Emmental peyniri
+uk:Емменталь
+vi:Pho mát Emmental
+yi:עמענטאל
+# yue:艾文塔勒芝士
+zh:埃文達芝士
+wikidata:Q932214
+wikipedia:https://en.wikipedia.org/wiki/Emmental_cheese
+# fr:emmental has 1931 products in 9 languages @2018-10-27
+
+<en:emmental
+fr:emmental français
+it:Emmental francese
+# fr:emmental-français has 47 products in 3 languages @2018-10-27
+
+<en:emmental
+en:melted Emmental cheese
+es:emmenthal fundido
+fr:emmental fondu
+# fr:emmental-fondu has 92 products in 3 languages @2018-10-27
+
+<fr:fromage
+en:grated cheese emmental
+es:queso emmental rallado
+fr:emmental râpé
+nl:geraspte emmentaler
+# fr:emmental-râpé has 340 products in 4 languages @2018-10-27
+
+<en:emmental râpé
+<fr:emmental français
+fr:emmental français râpé
+# fr:emmental-français-râpé has 43 products in 1 language @2018-10-27
+
+
+# FROMAGE BLANC is a fresh cheese originating from the north of France and the south of Belgium. 
+# This cheese has translation issues as it is very similar to other fresh cheeses
+
+<en:cheese
+en:fromage blanc, cottage cheese
+af:Fromage blanc
+de:Frischkäse
+# en-ca:Fromage blanc
+# en-gb:Fromage blanc
+es:Fromage frais, queso fresco
+fr:fromage blanc
+ga:Fromage frais
+is:Fromage frais
+it:formaggio fresco
+ja:フレッシュチーズ
+ko:프로마주 프레
+ms:Fromage blanc
+nl:verse kaas
+pt:queijo branco
+wikidata:Q15080546
+wikipedia:https://en.wikipedia.org/wiki/Fromage_blanc
+# fr:fromage-blanc has 631 products in 7 languages @2018-10-27
+
+
+
+# GRANA PADANO is a hard, slow-ripened, semi-fat, cow's-milk cheese from Italy, comparable to Parmigiano Reggiano ("Parmesan").
+
+<en:cheese
+en:Grana Padano
+bg:Грана Падано
+ca:grana padano
+cs:Grana Padano
+cv:Грана Падано
+de:Grana Padano
+eo:Грана Падано
+es:Grana Padano
+et:Grana Padano
+fi:Grana Padano
+fr:grana padano, fromage grana padano
+id:Grana Padano
+it:Grana Padano
+ja:グラナ・パダーノ
+jv:Grana Padano
+ko:그라나 파다노
+la:Grana Padano
+# lmo:Grana Padan
+nl:Grana Padano
+pl:Grana padano
+pt:Grana padano
+ru:Грана падано
+sv:Grana Padano
+uk:Грана Падано
+# vec:Grana padano
+zh:格拉娜·帕達諾芝士
+# zh-cn:格拉娜·帕达诺干酪
+# zh-hans:格拉娜·帕达诺芝士
+# zh-hant:格拉娜·帕達諾芝士
+# zh-hk:格拉娜·帕達諾芝士
+# zh-sg:格拉娜·帕达诺干酪
+# zh-tw:格拉娜·帕達諾起司
+wikidata:Q940319
+wikipedia:https://en.wikipedia.org/wiki/Grana_Padano
+# fr:grana-padano has 159 products in 4 languages @2018-10-27
+
+<en:Grana Padano
+en:Grana Padano PDO cheese
+fr:fromage grana padano aop, fr:grana padano dop
+de:Grana Padano g.U. Käse, Grana Padano Käse g.U.
+it:grana padano dop
+pt:queijo Grana Padano DOP
+# fr:fromage-grana-padano-aop has 36 products in 5 languages @2018-10-27
+
+
+# GRUYÈRE is a hard yellow cheese that originated in the cantons of Fribourg, Vaud, Neuchâtel, Jura, and Bern in Switzerland. 
+
+<en:cheese
+en:gruyère
+af:Gruyère
+az:Qruyer
+bg:Грюер
+br:Gruyère
+ca:gruyère
+cs:Gruyère
+da:Gruyère
+de:Gruyère, Greyerzer
+el:Γκρουγιέρ
+es:gruyer
+eu:Gruyère gazta
+fi:Gruyère
+fr:gruyère
+# frp:Gruyère
+gl:Gruyère
+# gsw:Greyerzer
+he:גרוייר
+hu:Gruyère
+id:Gruyère
+it:Gruviera
+ja:グリュイエールチーズ
+jv:Gruyère
+ko:그뤼예르
+la:Gruyère
+lt:Grujer
+ms:Gruyère
+nb:Gruyère
+nl:Gruyère
+pl:Gruyère
+pt:Gruyère
+ru:Грюйер
+# scn:Грюйер
+sl:Grojer
+sr:Grijer
+sw:Gruyère
+th:เนยแข็งกรูว์แยร์
+tr:Gravyer peyniri
+uk:Грюєр
+# yue:格呂耶亞芝士
+# zh:格呂耶爾芝士
+wikidata:Q2376488
+wikipedia:https://en.wikipedia.org/wiki/Gruyère_cheese
+# fr:gruyere has 30 products in 4 languages @2018-10-27
+
+<fr:gruyère
+fr:gruyère aop
+de:Gruyère AOP
+it:Gruyère AOP
+# fr:gruyère-aop has 16 products in 3 languages @2018-10-27
+
+
+# RACLETTE is a semi-hard cow's milk cheese that is usually fashioned into a wheel of about 6 kg.
+
+<en:cheese
+en:Raclette
+ar:راكليتي
+be:Раклет
+ca:formatge de raclet
+cs:Raclette
+de:Raclette
+# en-ca:Raclette
+# en-gb:Raclette
+eo:Rakledo
+es:raclette
+fi:Raclette
+fr:raclette, Raclette
+# gsw:Raclette
+he:רקלט
+hy:Ռակլետ
+id:Raclette
+it:Raclette
+ja:ラクレット
+la:Raclette
+lb:Raclette
+ms:Raclette
+nb:Raclette
+nl:Raclette
+oc:Raclette
+pl:Raclette
+pt:Raclette
+ru:Раклет
+sh:Raklet
+sk:Raclette
+sr:Raklet
+sw:Raclette
+tr:Raclette
+uk:Раклет
+# yue:烘焗瑞士芝士
+zh:拉可雷特芝士
+# zh-cn:拉可雷特芝士
+# zh-hans:拉可雷特芝士
+# zh-hant:拉可雷特芝士
+wikidata:Q20748
+wikipedia:https://en.wikipedia.org/wiki/Raclette
+# fr:raclette has 47 products in 4 languages @2018-10-27
+
+
+# Tilsit cheese or Tilsiter cheese is a light yellow semihard smear-ripened cheese, created in the mid-19th century by Prussian-Swiss settlers, the Westphal family, from the Emmental valley. 
+
+<en:cheese
+en:tilsit
+bg:Тилзитер
+de:Tilsiter
+cs:Tilsiter
+eo:Tilziter
+es:Queso Tilsit
+fr:Tilsit
+# gsw:Tilsiter
+id:Tilsiter
+it:Tilsiter
+ja:ティルジットチーズ
+ko:틸지터
+la:Tilsiter
+lt:Tilžės sūris
+nb:Tilsiter
+pl:Ser tylżycki
+pt:Tilsit
+ru:Тильзитер
+sr:Tilsiter
+sw:Tilsiter
+uk:Тільзитер
+wikidata:Q2433798
+wikipedia:https://en.wikipedia.org/wiki/Tilsit_cheese
+# fr:tilsit has 1 product in 3 languages @2018-10-27
+
+# Tomme, occasionally spelled Tome, is a type of cheese, and is a generic name given to a class of cheese produced mainly in the French Alps and in Switzerland.
+
+<en:cheese
+en:tomme
+br:toma
+ca:Tomme
+de:Tomme
+es:Tomme
+fr:tomme
+he:טום
+la:Toma
+ru:Том
+sw:Tomme
+tr:Tomme
+wikidata:Q2164539
+wikipedia:https://en.wikipedia.org/wiki/Tomme
+# fr:tomme has 13 products in 1 language @2018-10-27
+
+# Le vacherin fribourgeois est un fromage suisse du canton de Fribourg.
+
+<en:cheese
+fr:Vacherin fribourgeois AOP
+de:Vacherin fribourgeois AOP
+ja:ヴァシュラン・フリブール
+ko:바슈랭 프리부르주아
+nl:Vacherin fribourgeois AOP
+wikidata:Q677647
+wikipedia:https://fr.wikipedia.org/wiki/Vacherin_fribourgeois
+# fr:Vacherin-fribourgeois-AOP has 2 products in 3 languages @2018-10-27
+
+# RICOTTA is an Italian whey cheese made from sheep, cow, goat, or Italian water buffalo milk whey left over from the production of other cheeses. 
+
+<en:cheese
+en:ricotta
+af:Ricotta
+ar:ريكوتا
+az:Rikotta
+be:Рыкота
+bo:རི་ཀོ་ཏ།
+bs:Ricotta
+ca:Ricotta
+cs:Ricotta
+cv:Рикота
+da:Ricotta
+de:Ricotta
+eo:Ricotta
+es:Requesón
+et:Ricotta juust
+fa:ریکوتا
+fi:Ricotta
+fr:ricotta, fromage ricotta
+fy:ricotta
+# gsw:Ricotta
+he:ריקוטה
+hr:Ricotta
+hy:Ռիկոտա
+id:Ricotta
+is:Ricotta
+it:ricotta
+ja:リコッタ
+ko:리코타
+ms:Ricotta
+nb:ricotta
+nl:ricotta
+pl:ricotta
+pt:requeijão
+# pt-br:ricota
+ro:Ricotta
+ru:Рикотта
+sv:ricotta
+wikidata:Q216781
+wikipedia:https://en.wikipedia.org/wiki/Ricotta
+# fr:ricotta has 532 products in 6 languages @2018-10-27
+
+fr:fromage de chèvre au lait pasteurisé
+allergens:fr:fromage de chèvre au _lait_ pasteurisé
+
+fr:fromage pecorino
+allergens:fr:_fromage_ pecorino
+
+fr:fromage au lait de vache pasteurisé
+allergens:fr:fromage au _lait_ de vache pasteurisé
+
+fr:fromage mascarpone
+allergens:fr:_fromage_ mascarpone
+
+fr:fromage pecorino romano aop
+allergens:fr:_fromage_ pecorino romano aop
+
+fr:Parmigiano Reggiano AOP
+
+fr:fromage de brebis
+
+fr:fromage blanc frais
+allergens:fr:_fromage_ blanc frais
+
+fr:fromage edam
+allergens:fr:_fromage edam_
+
+fr:préparation fromagère
+allergens:fr:préparation _fromagère_
+
+
+fr:fromage frais au lait demi-écrémé
+
+fr:fromage
+allergens:fr:_fromage_
+
+fr:fromage frais
+allergens:fr:_fromage_ frais
+
+fr:fromage fondu
+allergens:fr:_fromage_ fondu
+treatment:en: en:melting
+
+fr:fromage de chèvre
+allergens:fr:_fromage_ de chèvre
+
+fr:fromage maigre
+allergens:fr:_fromage_ maigre
+
+fr:fromage à pâte pressée cuite
+allergens:fr:_fromage_ à pâte pressée cuite
+
+en:mozzarella cheese
+fr:fromage mozzarella
+allergens:fr:_fromage mozzarella_
+
+en:parmigiano reggiano
+de:parmigiano reggiano
+it:parmigiano reggiano
+fr:parmigiano reggiano
+allergens:fr:_parmigiano reggiano_
+
+fr:fromage au lait pasteurisé
+allergens:fr:fromage au _lait_ pasteurisé
+
+fr:poudre de fromage
+allergens:fr:poudre de _fromage_
+
+fr:fromage fondu en poudre
+allergens:fr:_fromage_ fondu en poudre
+treatment:en: en:melting
+
+fr:fromage à pâte dure
+allergens:fr:_fromage_ à pâte dure
+
+fr:fromage râpé
+allergens:fr:_fromage_ râpé
+
+fr:parmesan
+allergens:fr:_parmesan_
+
+fr:fromage en poudre
+allergens:fr:_fromage_ en poudre
+
 # VITAMINS
 
 en:vitamins, vitamin
@@ -2321,22 +3122,29 @@ nl:vitamine
 <en:vitamins
 en:vitamins a, vitamin a
 fr:vitamines a, vitamine a
+es:vitamina a
 
 <en:vitamins
 en:vitamin b2
 fr:vitamine b2
+es:vitamina b2
 
 <en:vitamins
 en:vitamin b12
 fr:vitamine b12
+es:vitamina b12
+
+fr:b12
 
 <en:vitamins
 en:vitamin b1
 fr:vitamine b1
+es:vitamina b1
 
 <en:vitamins
 en:vitamin b6
 fr:vitamine b6
+es:vitamina b6
 
 <en:vitamins
 fr:provitamine a
@@ -2347,16 +3155,20 @@ fr:vitamine c, vitamines c
 <en:vitamins
 en:vitamin b1
 fr:vitamines b1
+es:vitamina b1
 
 <en:vitamins
 en:vitamin b5
 fr:vitamine b5
+es:vitamina b5
 
 <en:vitamins
 fr:vitamine pp
+es:vitamina pp
 
 <en:vitamins
 fr:vitamine b9
+es:vitamina b9
 
 <en:vitamins
 fr:vitamine h, h
@@ -2364,36 +3176,44 @@ fr:vitamine h, h
 <en:vitamins
 en:vitamin e
 fr:vitamine e
+es:vitamina e
 
 <en:vitamins
 en:vitamin d
 fr:vitamine d
+es:vitamina d
 
 <en:vitamins
 en:vitamin c
 fr:vitamine c
+es:vitamina c
 
 fr:pro-a, provitamine a
 
 <en:vitamins
 en:vitamin e
 fr:vitamines e
+es:vitamina e
 
 <en:vitamins
 en:vitamin b8
 fr:vitamine b8
+es:vitamina b8
 
 <en:vitamins
 en:vitamin b3
 fr:vitamine b3
+es:vitamina b3
 
 <en:vitamins
 en:vitamin d3
 fr:vitamine d3
+es:vitamina d3
 
 <en:vitamins
 en:vitamin k
 fr:vitamine k
+es:vitamina k
 
 # SALT - is a mineral composed primarily of sodium chloride (NaCl), a chemical compound belonging to the larger class of salts
 
@@ -2435,7 +3255,7 @@ et:Söögisool, keedusool
 eu:Gatz arrunt, mahaiko gatza
 fa:نمک
 fi:Ruokasuola
-fr:Sel alimentaire, sel de table, sel de cuisine, sel, sel sec, sel comestible
+fr:Sel, Sel alimentaire, sel de table, sel de cuisine, sel sec, sel comestible
 ga:Salann
 gd:Salann
 gl:Sal común
@@ -2526,7 +3346,7 @@ en:finegrained salt
 fr:Sel fin
 nl:Fijn zout
 
-fr:sel nitrité pour saumure
+
 
 # SMOKED SALT is an aromatic salt smoked with any number of select bark free woods for up to 14 days. 
 
@@ -3192,11 +4012,7 @@ zh:太白粉
 wikipedia:https://en.wikipedia.org/wiki/Potato_starch
 wikidata:en:Q715160
 
-<en:modified starch
-<en:potato starch
-en:modified potato starch
-de:modifizierte Kartoffelstärke
-fr:amidon modifié de pomme de terre, amidon modifié de pommes de terre, amidon de pomme de terre modifié, amidon transformé de pommes de terre, amidon de pommes de terre modifié, amidon transformé de pomme de terre
+# en:modified potato starch is listed under en:thickener
 
 <en:modified starch
 fr:amidon transformé de manioc
@@ -3373,7 +4189,7 @@ en:vegetable fat, vegetal fat, vegetable fats
 da:vegetabilsk fedt
 de:pflanzliche Fette
 el:φυτικά λίπη
-es:grasas vegetales
+es:grasas vegetales, grasa vegetal
 fi:kasvirasva
 fr:matière grasse végétale, matières grasses végétales, matière graisse végétale, graisse végétale, graisses végétales
 is:jurtafeiti
@@ -5094,6 +5910,22 @@ de:natürliches Bourbon Vanille-Aroma, naturliches Bourbon Vanille Aroma
 it:aroma naturale di vaniglia Bourbon
 sv:naturlig vaniljarom
 
+fr:gousses de vanille bourbon
+
+# To make vanilla look like vanilla
+
+fr:gousse de vanille épuisée
+
+fr:grains de vanille épuisés
+
+fr:gousses de vanille épuisées broyées
+
+fr:gousses de vanille épuisées
+
+fr:grains de vanille épuisée
+
+fr:graines de vanille épuisées
+
 # Two parents due to and/or ingredient
 
 <en:natural vanilla flavouring
@@ -5562,7 +6394,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20blé%
 <en:semolina
 <en:durum wheat
 en:durum wheat semolina
-de:Hartweizengries
+de:Hartweizengriess, Hartweizengries
 el:σιμιγδάλισκληρού σιταριού
 es:sémola de trigo duro
 fi:durumvehnäjauho
@@ -6101,6 +6933,7 @@ en:malted barley
 bg:яачменныи солод
 cs:ječmenný slad
 da:bygmalt
+de:Gerstenmalz
 el:βυνοποιημένο κιθάρι
 es:malta de cebada
 fi:ohramallas, ohramallasta
@@ -6118,6 +6951,7 @@ zh:含大麥芽片
 en:barley malt extract
 fr:extrait de malte d'orge, extrait d'orge malté, extrait d'orge maltée, extrait de malt d'orge
 zh:大麥芽精
+de:Gerstenmalzextrakt
 
 
 # BUCKWHEAT (Fagopyrum esculentum) is a plant cultivated for its grain-like seeds and as a cover crop. 
@@ -6578,7 +7412,7 @@ lv:milti
 mg:koba
 mk:брашно
 ml:മാവു
-mo:гурил
+mn:гурил
 mr:पीठ
 ms:tepung
 mt:dqiq
@@ -7585,6 +8419,7 @@ fr:sucre de canne blond
 <en:cane sugar
 en:unrefined cane sugar, raw cane sugar
 fr:sucre de canne non raffiné, sucre de canne brut
+de:Rohrohrzucker
 
 <en:brown cane sugar
 fr:sucre de canne roux non raffiné
@@ -8127,6 +8962,10 @@ fr:sirop d’érable
 nl:ahornsiroop
 de:Ahornsirup
 
+en:canadian maple syrup
+fr:sirop d’érable canadien
+de:Kanadischer Ahornsirup
+
 en:sugar syrup
 fr:sirop de sucre
 
@@ -8444,6 +9283,7 @@ fr:protéines de pois hydrolysées
 en:soy protein
 fr:protéine de soja, protéines de soja
 nl:soja-eiwit
+es:Proteina de soya
 
 <en:soy protein
 en:rehydrated soy protein
@@ -9128,6 +9968,7 @@ wikidata:en:Q159683
 en:ascorbic acid
 fr:acide ascorbique
 de:Ascorbinsäure
+es:Acido ascorbico
 
 fr:acide l-ascorbique
 
@@ -9137,7 +9978,8 @@ fr:acide l-ascorbique
 fr:acide de sodium
 
 en:malic acid
-fr:acide malique 
+fr:acide malique
+es:Acido malico
 
 en:citric acid
 fr:acide citrique
@@ -9176,11 +10018,14 @@ fr:acide phosphorique
 
 en:tartric acid
 fr:acide tartrique
+es:Acido tartrico
 
 fr:acide sorbique
+es:Acido sorbico
 
 en:acetic acid
 fr:acide acétique
+es:Acido acetico
 
 fr:régulateur d'acidité
 
@@ -9192,6 +10037,7 @@ de:Pantothensäure
 
 en:folic acid
 fr:acide folique
+es:acido folico
 
 fr:acide malique
 wikidata:en:Q190143
@@ -9201,12 +10047,6 @@ fr:correcteurs d'acidité
 en:lactic acid
 fr:acide lactique
 
-en:capsicum extract
-es:extracto de capsicum
-fr:extrait de capsicum
-nl:capsicum-extract
-de:Capsaicin-Extrakt
-wikidata:en:Q53792073
 
 fr:ferments lactique
 
@@ -9365,12 +10205,6 @@ fr:gélifiant
 en:gluten
 fr:gluten
 
-
-en:carot
-fr:carotte
-
-fr:céleri
-
 fr:gluten de blé
 
 # nova:en:maltodextrin
@@ -9379,6 +10213,7 @@ el:μαλτοδεξτρίνη
 fr:maltodextrine, malto-dextrine, maltodextrines
 it:maltodestrina
 pt:maltodextrina
+es:maltodextrina
 
 <en:maltodextrin
 en:tapioca maltodextrin
@@ -9393,17 +10228,10 @@ en:corn maltodextrin
 fr:maltodextrine de maïs, malto-dextrine de maïs
 
 
-<en:mustard
-en:mustard powder
-fr:farine de moutarde
-nl:mosterdpoeder
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine%20de%20moutarde
-# 127 products in 5 languages @2018-09-22
-
 # Random
 
 
-fr:carraghénane
+
 
 
 # a raising agent is any one of a number of substances used in doughs and batters that cause a foaming action (gas bubbles) that lightens and softens the mixture.
@@ -10883,7 +11711,7 @@ nn:eple
 nv:Bilasáana
 oc:Poma
 olo:Juablokku
-od:ସେଓ
+or:ସେଓ
 os:Фæткъуы
 pa:ਸੇਬ
 # pam:Mansanas
@@ -11291,7 +12119,7 @@ nl:limoen, lime
 nn:lime
 nv:Chʼil dootłʼizhí díkʼǫ́zhígíí
 oc:lime
-od:ଲେମ୍ବୁ
+or:ଲେମ୍ବୁ
 os:Лайм
 pa:ਗਲਗਲ
 pl:Lima
@@ -11326,7 +12154,7 @@ wikipedia:https://en.wikipedia.org/wiki/Lime_(fruit)
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron%20vert
 # 251 products @2018-10-01
 
-<en:lime
+# <en:lime
 <en:fruit juice
 en:lime juice
 de:Limettensaft
@@ -11420,7 +12248,7 @@ it:essenza di limone
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:essence%20de%20citron
 # 28 products @2018-10-01
 
-<en:lemon
+# <en:lemon
 <en:fruit juice
 en:lemon juice
 da:citronsaft
@@ -11698,8 +12526,7 @@ yi:מאראנצן זאפט
 zh:橙汁
 wikipedia:https://en.wikipedia.org/wiki/Orange_juice
 wikidata:en:Q219059
-openfoodfacts:https://world.openfoodfacts.org/ingredient/orange-juice
-# 1401 products in 9 languages @2018-09-28
+# orange-juice 1401 products in 9 languages @2018-09-28
 
 # This seems a compound ingredient, i.e. concentrated orange juice + water, bt is never described as such.
 
@@ -11709,8 +12536,7 @@ de:Orangensaft aus Konzentrat
 fr:jus d'orange à base de concentré, jus d'orange à base de jus d'orange concentré, jus d'orange à base de jus concentré
 it:succo d'arancia a base di concentrato
 nl:Sinaasappelsap uit sapconcentraat
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20d'orange%20à%20base%20de%20concentré
-# 269 products @2018-09-28
+# fr:jus%20d'orange%20à%20base%20de%20concentré 269 products @2018-09-28
 
 <en:orange juice
 en:concentrated orange juice, Orange juice from Concentrat
@@ -11718,22 +12544,19 @@ de:Orangensaftkonzentrat
 fr:jus d'orange concentré, concentré de jus d'orange
 it:succo d'arancia concentrato
 nl:sinaasappelconcentraat, geconcentreerd sinaasappelsap
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20d'orange%20concentré
-# 144 products in 4 languages @2018-09-28
+# fr:jus%20d'orange%20concentré 144 products in 4 languages @2018-09-28
 
 <en:orange juice
 de:Orangensaft mit Fruchtfleisch
 fr:jus d'orange avec pulpe
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20d'orange%20avec%20pulpe
-# 38 products in 2 languages @2018-09-28
+# fr:jus%20d'orange%20avec%20pulpe 38 products in 2 languages @2018-09-28
 
 <en:orange juice
 de:Blutorangensaft
 it:succo d'arancia sanguigna
 fr:jus d'orange sanguine
 nl:bloedsinaasappelsap
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20d'orange%20sanguine
-# 40 products in 3 languages @2018-09-28
+# fr:jus%20d'orange%20sanguine 40 products in 3 languages @2018-09-28
 
 # no corresponding products
 # <en:orange juice
@@ -13882,8 +14705,8 @@ it:succo d'uva bianca
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20raisin%20blanc
 # 71 products in 4 languages @2018-10-02
 
-<fr:jus de raisin blanc
-<en:concentrated grape juice
+<en:white grape juice
+en:concentrated grape juice
 fr:jus de raisin blanc concentré
 es:zumo de uva blanca concentrado
 
@@ -14343,47 +15166,2575 @@ fr:concentrés de légumes
 <en:vegetable
 fr:légumes et jus de cuisson de légumes
 
+<en:vegetable
+en:vegetable juice
+
+
+# GARLIC (Allium sativum) is a species in the onion genus. 
 
 <en:vegetable
-en:shallots
-fr:échalote
-de:Schalotten
+en:garlic
+# aeb-arab:راس ثوم
+af:Knoffel
+am:ነጭ ሽንኩርት
+# ang:garleac
+
+ar:ثوم
+# arz:ثوم
+ay:Ajusa
+az:Sarımsaq
+# azb:ساریمساق
+ba:һарымһаҡ
+# bar:Knofe
+# bcl:Bawang
+be:часнок
+# be-tarask:xxаснок
+bg:чесън
+bi:Galik
+bm:tumɛ
+bn:রসুন
+bo:སྒོག་ལོག
+br:Kignen
+bs:Bijeli luk
+ca:all
+# cdo:Sáung-tàu
+# ckb:سیر
+co:Aglia
+cs:česnek kuchyňský
+cv:Ыхра
+cy:Garlleg
+da:hvidløg
+de:Knoblauch
+# dsb:Pšawy kobołk
+dv:ލޮނުމެދު
+el:Σκόρδο
+eo:ajlo
+es:ajo
+et:küüslauk
+eu:baratxuri
+fa:سیر
+fi:valkosipuli, valkosipulia
+fo:hvítleykur
+fr:ail
+# fur:Ai
+fy:knyflok
+ga:Gairleog
+# gag:sarmısak
+gd:creamh
+gl:Allo
+gn:Áho
+# gom:लसूण, Losun
+# grc:σκόρδον
+gu:લસણ
+gv:Garleid
+ha:Tafarnuwa
+he:שום
+hi:लहसुन
+hr:Češnjak
+# hsb:Prawy kobołk
+ht:Lay
+hu:Fokhagyma
+hy:Սխտոր
+id:Bawang putih
+# inh:Саьмарсаькх
+io:Alio
+is:Hvítlaukur
+it:aglio
+ja:ニンニク
+jv:Bawang
+ka:ნიორი
+# kaa:sarımsaq
+# kab:tiskart
+kk:Сарымсақ
+km:ខ្ទឹមស
+kn:ಬೆಳ್ಳುಳ್ಳಿ
+ko:마늘
+# krc:сарсмакъ
+ku:sîr
+ky:Сарымсак
+la:Allium sativum
+lb:Knuewelek
+# lbe:Лаччи
+lg:Emisuwa egikaluba
+li:witlouk
+# lij:aggio
+lo:ຜັກທຽມ
+lt:Valgomasis česnakas
+lv:ķiploks
+# lzh:蒜
+# mai:लह्सुन
+mk:Лук
+ml:വെളുത്തുള്ളി
+mn:Саримс
+mr:लसूण
+ms:bawang putih
+mt:tewm
+my:ကြက်သွန်ဖြူ
+# myv:ကြက်သွန်ဖြူ
+# nah:Caxtillān xōnacatl
+# nan:Soàn-thâu
+# nap:àglio
+nb:hvitløk
+ne:लसुन
+nl:knoflook
+nn:hvitløk
+nv:Tłʼohchin díchʼííʼí
+oc:Alh cultivat
+# olo:Čosnokku
+or:ରସୁଣ
+os:Нуры
+pa:ਲਸਣ
+# pam:Bawang
+# pap:konofló
+# pcd:al
+pl:czosnek
+# pms:ai
+# pnb:لسن
+ps:هوږه
+pt:alho
+qu:Ahus
+ro:usturoi
+# roa-tara:aglie
+ru:чеснок
+# ruq:al'
+sa:लशुनम्
+# sah:чочунаах
+sc:Azu
+# scn:Agghia
+# sco:garlic
+sd:ٿوم
+# sgs:Česnags
+sh:Češnjak
+si:සුදු ලූනු
+sk:Cesnak kuchynský
+sl:Česen
+so:Toon
+sq:hudhra
+sr:бели лук
+# sr-ec:бели лук
+# sr-el:beli luk
+# srn:kunofroku
+su:Wortel
+sv:vitlök
+sw:Kitunguu saumu
+ta:பூண்டு
+# tcy:ಬೊಳ್ಳುಳಿ
+te:వెల్లులి
+tg:Сирпиёз
+th:กระเทียม
+tm:sarymsak
+tl:Bawang
+tr:Sarımsak
+tt:сарымсак
+# tyv:Чеснок
+uk:часник
+ur:لہسن
+uz:Sarimsoq
+# vec:ajo
+# vep:Künz'lauk
+vi:Tỏi
+# vls:look
+vo:läl
+wa:A
+# war:Lasona
+wo:laac
+# xal:сәрмсг
+yi:קנאבל
+# yue:蒜頭
+za:suenq
+zh:蒜
+# zh-hans:蒜
+# zh-hant:蒜
+# zh-tw:大蒜
+wikidata:Q21546392
+wikipedia:https://en.wikipedia.org/wiki/Garlic
+# en:garlic has 22470 products in 18 languages @2018-10-23
+
+<en:garlic
+en:garlic puree
+de:Knoblauchpüree
+es:puré de ajo
+fr:purée d'ail
+nl:knoflookpuree
+# en:garlic-puree has 775 products in 5 languages @2018-10-23
+
+<en:garlic
+en:garlic paste
+fr:pâte d'ail
+# en:garlic-paste has 35 products in 2 languages @2018-10-23
+
+<en:garlic
+en:garlic powder
+bs:bijeli luk u prahu
+da:hvidløgspulver
+de:Knoblauchpulver
+el:σκόρδο σκόνη, σκόρδο σε σκόνη
+es:ajo en polvo
+et:küüslaugupulber
+fi:valkosipulijauhe
+fr:poudre d'ail, ail en poudre
+hu:fokhagymapor
+it:aglio in polvere, polvere di aglio
+lt:česnakų milteliai
+nl:knoflookpoeder
+nn:hvitløkspulver
+pl:czosnek sproszkowany
+pt:alho em pó
+ro:pudră de usturoi
+sk:sušený cesnak
+sl:česen v prahu
+sv:vitlökspulver
+tr:sanmsak tozu
+# fr:poudre-d'ail has 161 producs in 25 languages @2018-10-22
+
+<en:garlic
+fr:ail des ours
+de:Bärlauch
+it:aglio orsino
+# fr:ail-des-ours contains 52 products in 3 languages @2018-10-22
+
+<en:garlic
+en:organic garlic
+fr:ail bio
+nl:biologische knoflook
+# fr:ail-bio has 18 products in 2 languages @2018-10-22
+
+<en:garlic
+fr:ail séché, ail déshydraté
+da:tørret hvitløg
+de:getrockneter Knoblauch, Knoblauch getrocknet
+es:ajo deshidratado
+it:aglio essicato, aglio secco
+nl:gedroogde knoflook
+nn:tørket hvitløk
+sv:torkad hvidlök
+# fr:ailséché contains 35 products in 8 languages @2018-10-22
+
+<fr:ail déshydraté
+en:rehydrated garlic
+fr:ail réhydraté
+# en:rehydrated-garlic contains 66 products in 2 languages @2018-10-22
+
+<en:garlic
+fr:ail semoule
+# fr:ail-semoule has 31 products in 1 language @2018-10-22
+
+<en:garlic
+fr:ail frais
+# fr:ail-frais has 31 products in 1 language @2018-10-22
+
+<en:garlic
+<en:herb
+fr:ail et fines herbes
+de:Knoblauch und Kräuter
+es:ajo y finas hierbas
+nl:knoflook en fijne kruiden
+pt:alho e ervas aromáticas
+# fr:ail-et-fines-herbes has 81 products in 7 languages @2018-10-22
+
+<en:garlic
+fr:extrait d'ail
+de:Knoblauchextrakt
+# fr:extrait-d'ail has 71 products in 4 languages @2018-10-22
+
+<en:garlic
+fr:oignon et ail en poudre
+
+
+
+# BEETROOT is the taproot portion of the beet plant
+
+<en:vegetable
+<en:colour
+en:beetroot, beet
+af:Beet
+de:Rüben, Randen
+es:remolacha
+fr:betterave, betteraves
+it:barbabietola
+nl:biet, bieten
+wikidata:Q165437
+wikipedia:https://en.wikipedia.org/wiki/Beetroot
+# en:beetroot has 319 products in 5 languages @2018-10-22
+
+# Sometimes it is indicated as a colour.
+
+<en:beetroot
+<en:colour
+en:beetroot powder
+fr:poudre de betterave
+# fr:poudre-de-betterave has 55 products in 1 language @2018-10-22
+
+<en:beetroot
+fr:jus de betterave
+de:Randensaft
+it:succo di barbabietola
+# fr:jus-de-betterave has 46 products in 3 languages @2018-10-22
+
+<fr:jus de betterave
+en:beetroot juice concentrate
+de:Randensaft aus Konzentrat
+fr:jus de betterave concentré, jus concentré de betterave
+# fr:jus-de-betterave-concentré has 71 products in 4 languages @2018-10-22
+
+<en:beetroot
+fr:fibres de betterave
+#  fr:fibres-de-betterave has 43 products in 1 language @2018-10-22
+
+# As beetroots do not have to be red, the red ones are kept separate
+
+<en:beetroot
+en:red beetroot
+fr:betterave rouge, betteraves rouges
+de:Rote Bete
+it:barbabietole rosse
+nl:rode biet
+pt:beterraba vermelha
+# fr:betterave-rouge has 298 products in 6 languages @2018-10-22
+
+<fr:betterave rouge
+fr:betterave rouge déshydratée, betterave rouge en poudre, poudre de betterave rouge
+de:Randenpulver
+it:barbabietole in polvere
+# fr:betterave-rouge-déshydratée has 55 products in 3 languages @2018-10-22
+# fr:betterave-rouge-en-poudre has 44 products in 3 languages @2018-10-22
+
+<fr:jus de betterave
+fr:jus de betterave rouge
+de:Rote Bete Saft
+es:zumo de remolacha roja
+it:succo di barbabietole rosse
+nl:rodebietensap
+# fr:jus-de-betterave-rouge has 38 products @2018-10-21
+
+<fr:betterave rouge
+fr:jus de betterave rouge concentré, concentré de jus de betterave rouge
+de:Rote Bete-Saftkonzentrat
+nl:geconcentreerd rodebietensap
+# fr:jus-de-betterave-rouge-concentré has 37 products in 4 languages @2018-10-21
+
+<en:beetroot
+en:beetroot sprouts
+es:germen de remolacha
+fr:pousses de betterave
+nl:bietenkiemen
+de:Rote-Bete-Sprossen
+# en:beetroot-sprouts has 1 product in 1 language @2018-10-21
+
+# Fennel (Foeniculum vulgare) is a flowering plant species in the carrot family.
+
+<en:vegetable
+en:fennel
+# aeb-arab:بسباس
+af:Vinkel
+ar:شمرة شائعة
+az:Adi razyana
+# azb:رازیانه
+ba:Фенхель үләне
+be:фенхель звычайны
+bg:Резене
+br:Lost-louarn
+bs:Komorač
+ca:fonoll
+ce:Йиппар
+cs:fenykl
+cy:Ffenigl
+da:Fennikel
+dv:ދަވިއްގަނދު
+de:Fenchel
+el:Μάραθο
+eo:fenkolo
+es:hinojo
+et:Apteegitill
+eu:Mihilu
+fa:رازیانه
+fi:Fenkoli
+fr:fenouil
+ga:Finéal
+gl:Fiúncho
+gu:વરિયાળી
+he:שומר פשוט
+hi:सौंफ
+# hil:inóho
+hr:Komorač
+ht:Anis
+hu:Édeskömény
+id:Adas
+io:Fenikulo
+is:Fennikka
+it:finocchio
+ja:フェンネル
+jv:Adas
+ka:დიდი კამა
+kk:Волош аскөгі
+kn:ಸೊಂಪು
+ko:회향
+ku:Rizyane
+la:Foeniculum vulgare
+lt:Paprastasis pankolis
+lv:fenhelis
+# mai:सुप
+mk:морач
+ml:പെരുംജീരകം
+mr:बडीशेप
+ms:Pokok Adas
+my:စမုန်စပါး
+# nap:စမုန်စပါး
+nb:fennikel
+# nds-nl:Veankel
+ne:सुप
+nl:venkel
+nn:Fennikel
+or:ପାନମଧୁରୀ
+pa:ਮੇਥੀ
+pl:Fenkuł włoski
+pt:Funcho
+qu:Inuhu
+ro:Fenicul
+sc:Fenugu
+# sco:finkle
+sd:وڏڦ
+sh:Komorač
+si:මාදුරු
+sk:Fenikel
+sl:Komarček
+sq:Maraja
+sr:Коморач
+su:Adas
+sv:Fänkål
+ta:பெருஞ்சீரகம்
+te:సోంపు
+th:ผักชีล้อม
+tl:Haras
+tr:Rezene
+uk:фенхель
+ur:سونف
+# yue:茴香
+zh:小茴香
+# zh-tw:茴香
+wikipedia:https://en.wikipedia.org/wiki/Fennel
+# fr:fenouil has 634 products in 6 languages @2018-10-21
+
+# BROCCOLI is an edible green plant in the cabbage family whose large flowering head is eaten as a vegetable
+
+<en:vegetable
+en:broccoli
+af:Broccoli
+ar:قنبيط أخضر
+az:Brokkoli
+bg:Броколи
+# bho:ब्रोकली
+bn:ব্রকলি
+bo:མེ་ཚལ་ལྗང་ཁུ།
+bs:Brokula
+ca:bròcoli
+# ckb:برۆکڵی
+cs:brokolice
+cy:Brocoli
+da:broccoli
+de:Brokkoli
+dv:ބުރޮކޯޅި
+el:Μπρόκολο
+eo:Brokolo
+es:brócoli
+et:spargelkapsas
+eu:Brokoli
+fa:کلم بروکلی
+fi:parsakaali
+fr:brocoli
+ga:Brocailí
+gl:Brócoli
+gv:Callish Rangagh
+he:ברוקולי
+hr:Brokula
+# hsb:Brokoli
+ht:Bwokoli
+hu:Brokkoli
+hy:բրոկկոլի
+id:Brokoli
+# ilo:Broccoli
+is:Spergilkál
+it:broccoli
+ja:ブロッコリー
+jv:Brokoli
+kk:Брокколи
+kn:ಬ್ರಾಕಲಿ
+ko:브로콜리
+la:Brassica oleracea italica
+# lij:Bròccolo
+lo:ດອກກ້ວຍໄມ້ຝະລັ່ງ
+lt:Brokolis
+lv:brokoļi
+mk:Брокула
+ml:ബ്രോക്കൊളി
+mr:ब्रोकली
+ms:Brokoli
+# nan:Chheⁿ-hoe-chhài
+# nap:Vruoccole
+nb:brokkoli
+nl:broccoli
+nn:brokkoli
+nv:Chʼilzooł
+os:Брокколи
+pa:ਬਰੋਕਲੀ
+pl:brokuł
+# pnb:بروکلی
+pt:brócolos
+# pt-br:brócolis
+ro:Broccoli
+ru:брокколи
+sh:Brokula
+sk:Brokolica
+sl:Brokoli
+sr:броколи
+su:Brokoli
+sv:broccoli
+ta:புரோக்கோலி
+te:బ్రొక్కొలి
+th:บรอกโคลี
+tl:Brokoli
+tr:Brokoli
+uk:броколі
+ur:شاخ گوبھی
+vi:Bông cải xanh
+# war:Brokoli
+# yue:西蘭花
+zh:西蘭花
+wikidata:en:Q47722
+wikipedia:https://en.wikipedia.org/wiki/Broccoli
+# en:broccoli has 1167 products in 10 languages @2018-10-16
+
+<en:broccoli
+en:broccoli cress
+es:mastuerzo
+fr:pousses de brocoli
+nl:broccoli cress
+de:Brokkolikresse
+# en:broccoli-cress has 1 product in 1 language @2018-10-16
+
+# Eggplant (Solanum melongena) is a plant species in the nightshade family Solanaceae grown for its often purple edible fruit. Although eggplant is the common name in many countries, in British English, it is called aubergine.
+
+<en:vegetable
+en:aubergine, eggplant
+ab:Абаклаџьан
+# ace:Truëng
+am:ባዚንጀን
+# ang:Ǣȝƿyrt
+ar:باذنجان
+az:Badımcan
+# azb:بادیمجان
+# bcl:Talong
+be:Баклажан
+bg:Патладжан
+# bho:बैगन
+bi:Obesin
+bn:বেগুন
+bo:རྡོ་ལུ་མ།
+br:Berjinez
+bs:Patlidžan
+ca:alberginiera
+# cdo:Giò
+# chr:ᏕᎭᎷᎨ ᎠᏓᏛᏍᎩ
+# ckb:باینجان
+co:Milanzana
+cs:lilek vejcoplodý
+cy:Planhigyn ŵy
+da:aubergine, auberginer
+de:Aubergine, Auberginen
+# de-ch:Aubergine
+# dsb:Oberžina
+dv:ބަށި
+el:Μελιτζάνα
+# en-ca:Eggplant
+# en-gb:aubergine
+eo:melongeno
+es:berenjena
+et:Baklažaan
+eu:Alberjinia
+fa:بادنجان
+fi:Munakoiso, munakoisoa
+fr:aubergine
+# frr:Aubergine
+ga:Ubhthoradh
+gl:Berenxena
+# gom:Vaingim
+# gom-deva:वायंगें
+# gom-latn:Vaingim
+# got:𐌰𐌳𐌳𐌾𐌰𐌺𐍂𐌰𐌽
+gu:રીંગણ
+gv:Lus ny h-oohyn
+# hak:Khiô
+he:חציל
+hi:बैंगन
+hr:Patlidžan
+# hsb:Oberžina
+ht:Berejèn
+hu:padlizsán
+hy:բադրիջան
+id:Terung
+# ilo:Tarong
+# inh:Жакъоп
+io:Berenjeno
+is:Eggaldin
+it:melanzana
+ja:ナス
+jv:Térong
+ka:ბადრიჯანი
+# kaa:Baklajan
+# kbp:Kela
+kg:Kitsukulu
+kk:Кәді
+kn:ಬದನೆ
+ko:가지
+ks:وانٛگُن
+ku:Balîcan
+ky:Баклажан
+la:Solanum melongena
+# lad:Berendjena
+# lbe:Бадуржан
+ln:Sóló
+lt:Baklažanas
+lv:baklažāns
+mk:Модар патлиџан
+ml:വഴുതന
+mr:वांगे
+ms:Terung
+my:ခရမ်းပင်
+# mzn:وینگوم
+# nan:Kiô
+# nap:Mulignana
+nb:aubergine
+ne:भान्टा
+nl:aubergine
+nn:aubergine
+nv:Ayęęzhii yiltʼąąʼí
+oc:Aubergina
+or:ବାଇଗଣ
+pa:ਬੈਂਗਨ
+# pam:Balasenas
+# pcd:Oubàrjine
+pl:psianka podłużna
+# pnb:بتاؤں
+ps:بانجان
+pt:beringela
+# pt-br:berinjela
+ro:Vânătă
+ru:баклажан
+# rup:Vinitâ
+rw:Urutoryi
+sa:वृन्ताकः
+# sat:ᱵᱮᱸᱜᱟᱲ
+# scn:Milinciana
+sd:Milinciana
+sh:Patlidžan
+sk:Ľuľok baklažánový
+sl:Jajčevec
+sq:Patëllxhani
+sr:плави патлиџан
+su:Térong
+sv:aubergine
+sw:Mbiringani
+ta:கத்தரி
+# tcy:ಗುಳ್ಳ
+te:వంకాయ
+tg:Боқлаҷон
+th:มะเขือยาว
+ti:መለንዛና
+tl:Talong
+to:Paingani
+tr:Patlıcan
+uk:баклажан
+ur:بینگن
+uz:Baqlajon
+vi:Cà tím
+# vls:Aubergine
+wa:Åberdjene
+# war:Tarong
+# wuu:落苏
+yi:פאטלעזשאן
+# yue:矮瓜
+za:lwggwz
+zh:茄子
+# zh-tw:茄
+wikidata:Q7540
+wikipedia:https://en.wikipedia.org/wiki/Eggplant
+# en:aubergine has 733 products in 9 languages @2018-10-17
+
+# This can be seen as compound ingredient, i.e.: melanzane grigliate (melanzane, olio di girasole)
+
+<en:aubergine
+en:grilled aubergines
+de:gegrillte Auberginen, grillierte Auberginen
+fr:aubergine grillée, aubergines grillées
+it:melanzane alta griglia, melanzane grigliate
+treatment:en: en:gril
+# fr:aubergine-grillée has 54 products in 1 language @2018-10-17
+# fr:aubergines-grillées has 123 products in 4 languages @2018-10-17
+
+<en:aubergine
+fr:aubergine préfrite, aubergines préfrites
+nl:voorgebakken aubergines
+# fr:aubergine-préfrite has 28 products in 1 language @2018-10-17
+# fr:aubergines-préfrites has 86 products in 2 languages @2018-10-17
+
+<en:aubergine
+fr:aubergines frites
+# fr:aubergines-frites has 41 products in 1 language @2018-10-17
+
+# CAULIFLOWER is one of several vegetables in the species Brassica oleracea in the genus Brassica, 
+
+<en:vegetable
+en:cauliflower 
+de:Blumenkohl
+es:coliflor 
+fr:chou-fleur, choux-fleur, choux-fleurs
+it:cavolfiore
+nl:bloemkool
+pl:kalafior
+ru:цветная капуста
+te:గోబీ పుష్పం
+zh:花椰菜
+wikidata:Q23900272
+wikipedia:https://en.wikipedia.org/wiki/Cauliflower
+# en:cauliflower has 660 products in 5 languages @2018-10-17
+
+# CABBAGE or headed cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads. 
+
+<en:vegetable
+en:cabbage
+de:Kohl
+fr:chou, choux
+it:cavolo
+# ksh:Kappes
+li:Kappes
+# mdf:Капста
+# sco:Cabbitch
+# szl:Kapusta gowjasto
+to:Kāpisi
+tr:Lahana
+wikidata:Q14328596
+wikipedia:https://en.wikipedia.org/wiki/Cabbage
+# fr:chou has 374 products in 4 languages @2018-10-20
+
+# Cabbage or headed cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads. 
+# There is an issue with the wikidata item, it mixes white cabbage and cabbage.
+
+<en:cabbage
+en:white cabbage
+de:Weißkohl, Weisskohl
+fr:chou blanc
+it:cavolo bianco
+nl:witte kool
+wikidata:Q35051
+# fr:chou-blanc has 188 products in 5 languages @2018-10-17
+
+# The red cabbage (purple-leaved varieties of Brassica oleracea Capitata Group) is a kind of cabbage, also known as purple cabbage, red kraut, or blue kraut after preparation.
+
+<en:cabbage
+en:red cabbage
+# bar:Blaukraut
+# bho:लाल पत्ता गोभी
+ca:col llombarda
+da:Rødkål
+de:Rotkohl
+eo:ruĝa brasiko
+es:cacho lombarda
+fa:کلم‌قرمز
+fi:Punakaali
+fr:chou rouge
+# frr:Ruadkual
+gl:Lombarda
+hu:Vörös káposzta
+it:cavolo rosso
+ja:赤キャベツ
+ko:적채
+lg:Emboga
+# nan:Âng ko-lê-chhài
+nb:rødkål
+nl:rode kool, rodekool
+# pcd:Colé'd vaque
+ro:varză roșie
+# szl:Modro kapusta
+th:กะหล่ำปลีม่วง
+tr:Kırmızı lahana
+uk:Капуста червоноголова
+zh:紫甘藍
+wikidata:Q263203
+wikipedia:https://en.wikipedia.org/wiki/Red_cabbage
+# fr:chou-rouge has 47 products in 4 languages @2018-10-17
+
+# CHINESE CABBAGE (Brassica rapa, subspecies pekinensis and chinensis) can refer to two groups of Chinese leaf vegetables often used in Chinese cuisine: the Pekinensis Group (napa cabbage) and the Chinensis Group (bok choy). 
+# IN french chou chinois is used for both varieties. And in other languages as well.
+
+<en:cabbage
+en:Napa cabbage
+ca:col xinesa
+cs:Pekingské zelí
+da:Kinakål
+de:Chinakohl
+eo:Pekina brasiko
+el:Κινέζικο λάχανο
+es:col china
+fa:کاهوی چینی
+fi:Kiinankaali
+fr:chou chinois
+id:Sawi putih
+ja:ハクサイ
+ko:배추
+lt:Pekininis kopūstas
+mk:кинеска зелка
+ms:Kubis Cina
+nb:Napakål
+nl:Chinese kool
+pl:Kapusta właściwa pekińska
+sv:Kinakål
+th:ผักกาดขาว
+tl:Petsay
+uk:капуста пекінська
+vi:Cải thảo
+# yue:紹菜
+zh:大白菜
+wikidata:Q13360268
+wikipedia:https://en.wikipedia.org/wiki/Chinese_cabbage
+# en:chinese-cabbage has 35 products @2018-10-17
+
+# Bok choy, pak choi or pok choi (Chinese: 上海青; pinyin: Shànghǎi qīng; literally: "Shanghai Green"; Brassica rapa subsp. chinensis) is a type of Chinese cabbage. 
+
+<en:cabbage
+en:pak choi, Bok choy, pok choi
+de:Pak Choi
+el:Μποκ τσόι
+nl:Paksoi
+ru:бок-чой
+uk:Бок-чой
+wikipedia:https://en.wikipedia.org/wiki/Bok_choy
+# en:pak-choi has 9 products @2018-10-18
+
+# Brassica oleracea var. sabellica
+# be careful with the translation found on packages.
+
+<en:cabbage
+en:kale
+af:Boerkool
+ar:كرنب أجعد
+bn:পাতাকপি
+ca:col verda
+# ckb:کەیڵ
+cs:kapusta kadeřavá
+da:grønkål
+de:Grünkohl
+eo:Krispa brasiko
+es:col crespa
+et:lehtkapsas
+fa:کلم کالی
+fi:lehtikaali
+fr:chou frisé
+# frr:Greenkual
+ga:Cál
+gv:Caayl jiarg
+he:כרוב על
+hi:एक प्रकार का गोभी
+hr:Kelj
+# hsb:Zeleny kał
+hu:Fodros kel
+is:Grænkál
+ja:ケール
+ka:კალე
+kk:Кале
+kn:ಕೇಲ್
+ko:케일
+# ksh:Kühl
+ky:бакча капустасы
+la:Brassica oleracea convar. acephala var. sabellica
+li:Boerekuuel
+mk:кељ
+ms:kale
+nb:grønnkål
+# nds:Gröönkohl
+# nds-nl:Mous
+nl:boerenkool
+or:ଗୋଟେ ପ୍ରକାରର କୋବି
+pa:ਕਾਲੀ
+# pcd:Chou-crolèi
+pl:Jarmuż
+pt:couve-de-folhas
+# roa-tara:cavole rizze
+ru:кале
+# sco:Kail
+sh:kelj
+sk:kel
+sq:lakër jeshile
+sv:grönkål
+sw:Sukumawiki
+ta:பரட்டைக்கீரை
+tr:kara lahana
+uk:Браунколь
+vi:Cải xoăn
+zh:羽衣甘藍
+wikidata:Q45989
+# fr:chou-frisé 28 products in 13 languages @2018-10-18
+
+<en:cabbage
+en:brussels sprouts
+af:Brusselspruit
+ar:كرنب بروكسل
+br:Kaol-bihan
+ca:Col de Brussel·les
+cs:růžičková kapusta
+cy:Ysgewyll
+da:Rosenkål
+de:Rosenkohl
+eo:Burĝonbrasiko
+es:Col de Bruselas
+et:Rooskapsas
+eu:Bruselaza
+fa:کلم بروکسل
+fi:Ruusukaali
+fr:chou de Bruxelles, choux de bruxelles
+ga:Bachlóg Bhruiséile
+gd:Buinneag Bhruisealach
+gl:Col de Bruxelas
+gv:Caaylag
+he:כרוב ניצנים
+hr:Kelj pupčar
+# hsb:Pupkaty kał
+hu:Bimbós kel
+id:Kubis brussel
+is:Rósakál
+it:cavolini di Bruxelles
+ja:メキャベツ
+ka:ბრიუსელის კომბოსტო
+kk:Брюссель қырыққабаты
+# kk-arab:بريۋسسەل قىرىققاباتى
+# kk-cn:بريۋسسەل قىرىققاباتى
+# kk-cyrl:Брюссель қырыққабаты
+# kk-kz:Брюссель қырыққабаты
+# kk-latn:Bryusselʹ qırıqqabatı
+# kk-tr:Bryusselʹ qırıqqabatı
+ko:방울다다기
+# ksh:Spruut
+la:Cauliculus Bruxellanus
+# lij:Cöo de Bruxelles
+lt:Briuselio kopūstas
+ms:Kubis brussels
+nb:Rosenkål
+# nds-nl:Keulkes
+nl:spruitjes, spruitkool
+nn:Rosenkål
+nv:Atʼééké bijish yázhí
+# pcd:Ésproete
+pl:Kapusta warzywna brukselska
+pt:couve-de-bruxelas
+ro:Varză de Bruxelles
+ru:Брюссельская капуста
+sh:Prokelj
+sk:Kapusta obyčajná ružičková
+sr:Прокељ
+# sr-ec:Прокељ
+# sr-el:Prokelj
+sv:Brysselkål
+ta:கிளைக்கோசு
+tg:Ғужмкарам
+th:กะหล่ำดาว
+tl:Usbong ng bruselas
+tr:Brüksel lahanası
+uk:Брюссельська капуста
+uz:Bryussel karami
+vi:Cải Brussels
+zh:抱子甘藍
+# zh-cn:抱子甘蓝
+# zh-hans:抱子甘蓝
+# zh-hant:抱子甘藍
+# zh-hk:抱子甘藍
+# zh-sg:抱子甘蓝
+# zh-tw:抱子甘藍
+wikidata:Q150463
+# fr:chou-de-Bruxelles has 41 products in 2 languages @2018-10-19
+
+# Savoy cabbage (Brassica oleracea var. sabauda L. or Brassica oleracea Savoy Cabbage Group) is a variety of the plant species Brassica oleracea. 
+# be careful with the translation found on packages.
+
+<en:cabbage
+en:savoy cabbage
+ca:Col de Milà
+cs:Hlávková kapusta
+de:Wirsing
+# de-ch:Wirsing
+el:λαχανίδα
+# en-ca:Savoy cabbage
+# en-gb:Savoy cabbage
+eo:Savoja brasiko
+es:Col de Saboya, col rizada
+fi:Kurttukaali
+fr:chou vert, choux verts, Chou de Milan
+gv:Cabbash chraplit
+hr:Kelj
+# hsb:Krjózkaty kał
+hu:Kelkáposzta
+it:verza
+ja:サボイキャベツ
+ko:사보이양배추
+# ksh:Schavur
+la:Brassica oleracea sabauda
+# lij:Garbuxo
+lt:Savojinis kopūstas, lapiniai kopūstai
+lv:lapu kāposti
+nl:savooikool, groene kool
+pl:Kapusta warzywna włoska
+pt:Couve-lombarda
+# pt-br:Couve-lombarda
+ro:Varza creață
+ru:Савойская капуста
+sk:Kapusta obyčajná kelová
+tr:Milano lahanası
+uk:Капуста савойська
+zh:野甘蓝
+wikidata:Q154013
+wikipedia:https://en.wikipedia.org/wiki/Savoy_cabbage
+# fr:chou-vert has 99 products @2018-10-17
+
+# SAUERKRAUT (lit. 'sour cabbage') is finely cut raw cabbage that has been fermented by various lactic acid bacteria.
+
+# en:sauerkraut can be a compound ingredient, i.e. Sauerkraut (Weißkohl, Salz)
+
+<en:white cabbage
+en:sauerkraut
+af:Suurkool
+ar:ساوركراوت
+az:Kələm turşusu
+# bar:Sauakraut
+be:Капуста квашаная
+# be-tarask:Квашаная капуста
+bg:Кисело зеле
+br:Kaol-go
+ca:xucrut
+cs:kysané zelí
+da:sauerkraut
+de:Sauerkraut
+el:Ξινό λάχανο
+# en-gb:sauerkraut
+eo:Acida brasiko
+es:Chucrut
+et:hapukapsas
+eu:Sauerkraut
+fa:کلم‌ترش
+fi:hapankaali
+fo:súrkál
+fr:choucroute
+# frr:soerkoal
+ga:Cabáiste géaraithe
+# gsw:Sauerkraut
+he:כרוב כבוש
+hr:Kiseli kupus
+hu:Savanyú káposzta
+id:Sauerkraut
+io:Surkruto
+is:súrkál
+it:crauti
+ja:ザワークラウト
+ka:მჟავე კომბოსტო
+ko:자우어크라우트
+# ksh:Suure Kappes
+lb:Sauermous
+li:zoermoos
+lv:skābēti kāposti
+mk:кисела зелја
+nb:sauerkraut
+# nds-nl:zoerkool
+nl:zuurkool
+nn:surkål
+pa:ਜ਼ਾਉਰਕਰੌਟ
+pl:Kapusta kwaszona
+pt:chucrute
+ro:varză acră
+ru:квашеная капуста
+# sco:sauerkraut
+sh:Kiseli kupus
+sk:kyslá kapusta
+sq:Lakër turshi
+sr:кисели купус
+# sr-ec:Кисели купус
+# sr-el:Kiseli kupus
+sv:surkål
+th:เซาเออร์เคราท์
+uk:Квашена капуста
+vi:Dưa cải Đức
+vo:züdöfabrasid
+yi:זויערקרויט
+# yue:德國酸菜
+zh:德国酸菜
+# zh-cn:德国酸菜
+# zh-hans:德国酸菜
+# zh-hant:德國酸菜
+# zh-hk:德國酸菜
+# zh-sg:德国酸菜
+# zh-tw:德國酸菜
+wikidata:Q154166
+# en:sauerkraut has 166 products in 3 languages @2018-10-19
+
+<en:vegetable juice
+<en:sauerkraut
+en:sauerkraut juice
+de:Sauerkrautsaft
+es:zumo de choucroute
+fr:jus de choucroute
+nl:zuurkoolsap
+# en:sauerkraut-juice has 8 products in 3 languages @2018-10-19
+
+# The CARROT (Daucus carota subsp. sativus) is a root vegetable, usually orange in colour, though purple, black, red, white, and yellow cultivars exist
+
+<en:vegetable
+en:carrot
+# aeb-arab:جدر سنّارية
+# aeb-latn:jder sennèrya
+af:Wortel
+am:ካሮት
+# ang:moru
+ar:جَزَر
+# arz:جزر
+# atj:Rikarot
+az:yerkökü
+ba:кишер
+# bar:Gelbe Ruam
+be:морква
+# be-tarask:морква
+bg:морков
+# bho:गाजर
+bi:Karot
+bn:গাজর
+bo:ལབ་སེར།
+br:Karotez
+bs:mrkva
+ca:pastanaga
+# cdo:È̤ng-chái-tàu
+# chy:anonévee'tose
+# ckb:گێزەر
+co:rundonu
+cs:mrkev
+cy:moronen
+da:gulerødder, Have-Gulerod
+de:Karotten
+# de-ch:Karotte
+dv:ކެރެޓް
+# en-ca:carrot
+# en-gb:carrot
+el:καρότο
+eo:karoto
+es:zanahoria
+et:porgand
+eu:azenario
+fa:هویج
+fi:porkkana
+fr:carotte
+# frr:Wochel
+ga:cairéad
+gl:cenoria
+gn:sanaória
+# gsw:sanaória
+gv:carradje
+# hak:Fùng-chhoi-thèu
+he:גזר
+hi:गाजर
+hr:mrkva
+ht:karòt
+hu:sárgarépa
+hy:Գազար
+id:wortel
+io:karoto
+is:gulrót
+it:carote
+ja:ニンジン
+# jbo:najgenja
+jv:wortel
+ka:სტაფილო
+# kaa:geshir
+# kbp:Kaarɔɔtɩ
+kk:сәбіз
+kn:ಗಜ್ಜರಿ
+ko:당근
+# koi:гӧрдкушман
+ku:гӧрдкушман
+ky:Сабиз
+# lad:safanórya
+lb:Muert
+# lbe:къур
+li:Moeër
+lo:ຫົວຜັກກາດເຫຼືອງ
+lt:motkos
+lv:burkāns, burkāni
+# mdf:пурьхкя
+mk:морков
+ml:കാരറ്റ്
+mn:Лууван
+mr:गाजर
+ms:Lobak merah
+my:မုန်လာဥနီ
+# nah:Caxtillān camohtli
+# nan:Âng-chhài-thâu
+# nap:Pastenaca
+nb:gulrot
+ne:गाजर
+nl:wortel, wortels
+nn:gulrot
+nv:Chąąshtʼezhiitsoh
+oc:pastenaga
+or:ଗାଜର
+os:Уырыдзы
+pa:ਗਾਜਰ
+# pcd:Càrote
+# pfl:Gellerieb
+pl:marchew uprawna
+# pnb:گاجر
+pt:cenoura
+# pt-br:cenoura
+qu:Sanurya
+rn:Ikaroti
+ro:morcov
+# rup:morcuvu
+ru:морковь
+rw:Ikaroti
+sa:गृञ्जनकम्
+sc:Fostinaja
+# sco:carrot
+# sgs:Muorks
+sh:mrkva
+si:කැරට්
+sk:mrkva obyčajná
+sl:Navadno korenje
+sm:taloti
+so:kaaroot
+sq:karrotë
+sr:шаргарепа
+# sr-ec:шаргарепа
+su:wortel
+sv:morot
+sw:karoti
+ta:மஞ்சள் முள்ளங்கி
+te:కారెట్
+tg:сабзӣ
+th:แคร์รอต
+ti:ካሮቲ
+tk:Käşir
+tl:karot
+tr:havuç
+ug:سەۋزە
+uk:морква
+ur:گاجر
+uz:sabzi
+vi:Cà rốt
+# vls:karote
+# vro:põrgnas
+wa:raecene
+# war:karot
+# wuu:胡萝卜
+xh:umnqathe
+# yue:紅蘿蔔
+za:lauxbaeghoengz
+zh:胡萝卜
+# zh-cn:胡萝卜
+# zh-hans:胡萝卜
+# zh-hant:胡蘿蔔
+# zh-hk:胡蘿蔔
+# zh-mo:胡蘿蔔
+# zh-my:胡萝卜
+# zh-sg:胡萝卜
+# zh-tw:胡蘿蔔
+wikidata:Q81
+wikipedia:https://en.wikipedia.org/wiki/Carrot
+# en:carot has 8224 products in 15 languages @2018-10-21
+
+<en:carrot
+# <en:organic
+en:organic carrots
+de:Bio Karotten
+fr:carottes bio
+# en:organic-carrots has 580 products in 3 languages @2018-10-20
+
+<en:carrot
+fr:jeunes carottes
+# fr:jeunes-carottes has 34 products in 1 language @2018-10-20
+
+<en:carrot
+fr:carottes en rondelles
+de:Karotten in Scheiben
+it:Carote e lamelle
+# fr:carottes-en-rondelles has 54 products in 3 languages @2018-10-20
+
+<en:carrot
+fr:carottes en morceaux
+# fr:carottes-en-morceaux has 28 products in 1 language @2018-10-20
+
+<en:carrot
+fr:carottes râpées
+nl:geraspte wortelen
+# fr:carottes-râpées has 107 products in 3 languages @2018-10-20
+
+<en:carrot
+en:carrot purée
+fr:purée de carotte
+# fr:purée-de-carotte has 52 products in 2 languages @2018-10-20
+
+# fr:concentré de carotte usage as a colour is not always mentioned
+
+<en:colour
+<en:carrot
+fr:concentré de carotte, concentré de carottes
+de:Karottenkonzentrat
+it:concentrato di carota
+# fr:concentré-de-carotte has 221 products in 4 languages @2018-10-10
+
+<en:carrot
+en:carrot extract
+de:Karottenextrakt
+es:extracto de zanahorias
+fr:extrait de carotte
+it:estratto di carota
+nl:wortelextract
+# fr:extrait-de-carotte has 176 products in 6 languages @0218-10-20
+
+<en:carrot
+fr:fibre de carotte, fibres de carotte
+de:Karottenfasern
+# fr:fibre-de-carotte has 174 products in 2 languages @2018-10-20
+
+<en:carrot
+fr:carottes déshydratées
+de:Karotten getrocknet
+it:carote disidratate
+sl:suseno korenje
+# fr:carottes-déshydratées has 59 products i 4 languages @2018-10-20
+
+<en:carrot
+en:yellow carrot
+fr:carottes jaunes, carotte jaune
+nl:gele wortel
+sv:gul morot
+# fr:carotte-jaune has 132 products in 4 languages @2018-10-20
+
+# This is mainly used as colorant
+
+<en:anthocyanin
+<en:carrot
+en:black carrot, black carrots
+de:schwarze Karotte
+fr:carotte noire
+it:carote nere
+# fr:carotte-noire has 122 products in 4 languages @2018-10-20
+
+<en:black carrot
+fr:jus de carotte noire
+de:schwarzer Karottensaft
+it:succo di carote nere
+# fr:jus-de-carotte-noire has 34 products in 3 languages @2018-10-20
+
+# The french pourpre is translated to black in dutch and german
+
+<fr:jus de carotte noire
+fr:jus de carotte noire concentré, jus concentré de carotte noire, jus de carotte pourpre concentré, jus concentré de carotte pourpre
+de:Schwarzmöhrensaftkonzentrat, konzentrierter Saft aus schwarzer Karotte, konzentrierter Saft aus schwarzer Karotte
+nl:zwarte wortelsapconcentraat
+# fr:jus-de-carotte-noire-concentré has 26 products in 2 languages @2018-10-20
+# fr:jus-de-carotte-pourpre-concentré has 22 products @2018-10-20
+
+# Carrot juice has a particularly high content of β-carotene, a source of vitamin A, but it is also high in B complex vitamins like folate, and many minerals including calcium, copper, magnesium, potassium, phosphorus, and iron. 
+
+<en:vegetable juice
+<en:carrot
+en:carrot juice
+az:Yerkökü şirəsi
+da:Gulerodsjuice
+de:Karottensaft
+el:χυμός καρότου
+eo:karota suko
+es:jugo de zanahoria
+et:Porgandimahl
+fa:آب هویج
+fr:jus de carotte, jus de carottes
+he:מיץ גזר
+id:Jus wortel
+ja:ニンジンジュース
+# jam:Kiarat juus
+ko:당근 주스
+sa:गृञ्जनकरसः
+nl:wortelsap
+ru:морковный сок
+sl:Korenčkov sok
+sq:leng me karrota
+ta:கேரட் சாறு
+th:น้ำแคร์รอต
+# yue:紅蘿蔔汁
+zh:胡萝卜汁
+wikidata:Q1190074
+wikipedia:https://en.wikipedia.org/wiki/Carrot_juice
+# en:carot-juice has 188 products in 4 languages 2018-10-20
+
+# Is used as colour, but always mentioned as such
+
+<en:colour
+<en:carrot juice
+en:concentrated carrot juice
+de:Karottensaftkonzentrat
+fr:jus concentré de carotte, jus concentré de carottes, jus de carotte concentré
+# fr:jus-concentré-de-carotte has 122 products in 1 language @2018-10-20
+
+# CELERY (Apium graveolens) is a marshland plant in the family Apiaceae that has been cultivated as a vegetable since antiquity. 
+
+<en:vegetable
+en:celery
+af:Seldery
+am:ሰለሪ
+ar:كرفس
+# ast:callapazu
+az:İyli kərəviz
+# azb:ایلی کرویز
+bn:পাথুনি শাক
+bo:ལྕ་ཚལ།
+br:Ach
+bs:Celer
+ca:Api
+cs:Miřík celer
+# ckb:کەرەوز
+cy:Seleri
+da:sellerie
+de:Sellerie
+el:Σέλινο
+# eml:Sèlar
+eo:celerio
+es:apio
+et:Aedseller
+eu:Apio
+fa:کرفس
+fi:Selleri
+fr:céleri
+# frr:silere
+ga:Soilire
+gl:Apio
+gv:Smullish
+he:סלרי
+hr:celer
+ht:Sèlri
+hu:Zeller
+id:Seledri
+io:Celerio
+is:Seljurót
+it:sedano
+ja:セロリ
+jv:Slèdri
+ka:ნიახური
+kk:Балдыркөк
+kn:ಸೆಲರಿ
+ko:셀러리
+la:Apium graveolens
+# lij:Séllao
+lt:Valgomasis salieras
+lv:Selerija
+mr:अजमोदा
+ms:Daun Saderi
+my:တရုတ်နံနံပင်
+# nap:Accio
+nb:Selleri
+nl:selderij
+nv:Hazaʼaleehtsoh
+oc:Api
+os:Маламар
+# pcd:Chilri
+pl:Selery zwyczajne
+pt:aipo
+qu:Apiyu
+ro:Țelină
+ru:Сельдерей пахучий
+sa:कुस्तुम्बरीपर्णम्
+sc:Appiu
+# sco:Celery
+sh:Celer
+sk:Zeler voňavý
+sl:Navadna zelena
+sq:Selinoja
+sr:Целер
+su:Salédri
+sv:Selleri
+ta:சிவரிக்கீரை
+tg:Карафс
+th:ขึ้นฉ่าย
+tl:Apyo
+tr:Kereviz
+uk:Селе́ра
+vi:Cần tây
+wa:Celeri
+# xmf:სონა
+yi:סעלערי
+# yue:西芹
+za:Ginzcaiq
+zh:旱芹
+wikidata:Q23012379
+wikipedia:https://en.wikipedia.org/wiki/Celery
+# fr:celeri has 4877 products in 10 languages @2018-10-21
+
+<en:celery
+fr:céleri branche
+de:Stangensellerie
+# fr:céleri-branche has 50 products in 3 languages @2018-10-21
+
+<en:celery
+<en:herb
+fr:feuilles de céleri
+de:Sellerieblätter
+it:foglie di sedano
+nl:selderblad
+# fr:feuilles-de-céleri has 39 products in 4 languages @2018-10-21
+
+<en:celery
+fr:garniture de céleri
+# fr:garniture-de-céleri has 27 products in 1 language @2018-10-20
+
+<en:celery
+fr:jus concentré de céleri
+# fr:jus-concentré-de-céleri has 64 products in 1 language @2018-10-21
+
+<en:celery
+fr:extrait de céleri
+nl:selderextract
+# fr:extrait-de-céleri has 58 products @2018-10-20
+
+<en:carrot juice
+<en:celery
+fr:jus concentré de céleri et de carotte
+# fr:jus-concentré-de-céleri-et-de-carotte has 31 products in 1 language @2018-10-20
+
+# CELERIAC (Apium graveolens var. rapaceum), also called turnip-rooted celery, celery root, or knob celery, is a variety of celery cultivated for its edible stem or hypocotyl, and shoots.
+
+<en:vegetable
+en:celeriac
+ar:الكرفس اللفتي
+ca:Api-rave
+cs:celer bulvový
+da:Knoldselleri
+de:Knollensellerie
+eo:tubercelerio
+es:Apio nabo
+et:Juurseller
+fi:Mukulaselleri
+fr:céleri-rave
+ga:Soiliriac
+it:sedano rapa
+ja:セロリアック
+la:Apium graveolens var. rapaceum
+ms:Akar saderi
+nl:knolselderij
+ru:сельдерей пахучий
+sv:Rotselleri
+wikidata:Q575174
+wikipedia:https://en.wikipedia.org/wiki/Celeriac
+# fr:céleri-rave has 399 products in 4 languages @2018-10-20
+
+<fr:céleri-rave
+fr:céleri rave râpé
+# fr:céleri-rave-râpé has 17 products in 1 language @2018-10-20
+
+<en:carrot juice
+# <en:pumpkin
+fr:concentré de carotte et de citrouille
+
+
+# Heart of palm is a vegetable harvested from the inner core and growing bud of certain palm trees (notably coconut (Cocos nucifera), juçara (Euterpe edulis), Açaí palm (Euterpe oleracea), palmetto (Sabal spp.), and peach palm. 
+
+<en:vegetable
+en:Heart of palm
+ar:جمار
+de:Palmherzen
+eo:Palmomedolo
+fa:پنیر نخل
+fr:coeurs de palmier
+gl:Palmito
+gv:Cabbash phalm
+he:לבבות דקל
+it:cuori di palma, Palmito
+ja:ハート・オブ・パーム
+jv:Pondhoh
+la:Cerebrum palmae
+lt:Palmės šerdis
+nl:palmharten
+pl:Serce palmy
+pt:Palmito
+ru:Сердцевина пальмы
+sv:Palmhjärta
+tl:Ubod
+wikidata:Q743144
+wikipedia:https://en.wikipedia.org/wiki/Heart_of_palm
+# fr:coeurs-de-palmier has 16 products in 3 languages @2018-10-19
+
+
+# The LEEK is a vegetable, a cultivar of Allium ampeloprasum, the broadleaf wild leek. 
+
+<en:vegetable
+en:leek
+# aeb-arab:كرّاث
+ar:كراث
+az:Kəvər soğanı
+bg:Праз
+bo:ཀེའུ་ཙོང་།
+br:Pour
+ca:porro
+co:Porru
+cs:pór zahradní
+cy:Cenhinen
+da:Porre
+de:Lauch
+el:Πράσο
+eo:Poreo
+es:Puerro
+eu:Porru
+fa:تره‌فرنگی
+fi:Purjo
+fr:poireau, poireaux
+# frr:Gäärslook
+ga:Cainneann
+gl:Allo porro
+gv:Cannian
+he:כרישה
+hr:Poriluk
+ht:Powo
+hu:Póréhagyma
+hy:պռսասոխ
+id:Bawang prei
+io:Porelo
+is:Blaðlaukur
+it:porri
+ja:リーキ
+ka:პრასი
+# kbp:Puwaroo
+kk:Порей пиязы
+kn:ಲೀಕ್
+ko:대파
+ku:Pirasa
+la:Allium ampeloprasum var. porrum
+li:Sjpoor
+lt:Daržinis poras
+lv:puravi
+mk:праз
+ms:Bawang perai
+my:ထန်းကြက်သွန်
+# nah:Huēyi Caxtillān xōnacatl
+# nap:Puorr
+nb:purreløk
+# nds:Look
+nl:prei
+nn:purre
+oc:Pòrre
+os:Зæнгджын хъæдындз
+# pcd:Poreau
+pl:por
+# pnb:ہرا پیاز
+pt:alho-porro, alho francês
+# pt-br:Alho poró
+ro:Praz
+ru:Лук-порей
+rw:Igitunguru
+sc:Porru
+# sco:Leek
+se:Boskalávki
+sh:Praziluk
+sl:Por
+sq:Preshi
+sr:Празилук
+sv:Purjolök
+ta:லீக்ஸ்
+th:กระเทียมต้น
+tr:Pırasa
+uk:Цибуля порей
+ur:کراث
+vi:Tỏi tây
+# vls:Pret
+wa:Porea
+yi:פארע-ציבעלע
+# yue:京蔥
+zh:韭葱
+wikidata:Q1807269
+wikipedia:https://en.wikipedia.org/wiki/Leek
+# en:leek has 1922 products in 9 languages @2018-10-15
+
+# The SHALLOT is a type of onion, specifically a botanical variety of the species Allium cepa.
+
+<en:vegetable
+en:shallot, shallots
+am:ቀይ ሽንኩርት
+ar:كراث أندلسي
+br:chalotez
+ca:escalunya
+cs:cibule šalotka
+da:skalotteløg
+de:Schalotte, Schalotten
+# en-gb:shallot
+eo:askalono
 es:chalota
+eu:tipulatx
+fa:موسیر
+fi:salottisipuli
+fr:échalote
+gl:chalota
+he:בצלצל
+ht:echalot
+id:kunir
+io:shaloto
+is:skalottlaukur
+it:scalogno
+ja:エシャロット
+jv:brambang
+ko:셜롯
+la:allium ascalonicum
+lb:schalott
+# mai:छ्यापी
+ml:ചുവന്നുള്ളി
+ms:bawang merah
+my:ကြက်သွန်နီကလေး
+# nan:âng-chhang-thâu
+nb:sjalottløk
+ne:छ्यापी
 nl:sjalot
+nn:Sjalottlauk
+oc:Escaluènha
+pl:czosnek askaloński
 pt:chalota
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:échalote
-# 2126 products in 9 languages @2018-10-03
+ro:hașmă
+ru:Лук-шалот
+# sco:shallot
+su:bawang beureum
+sv:schalottenlök
+ta:சின்ன வெங்காயம்
+th:หอมแดง
+tr:arpacık soğanı
+uk:Цибуля шалот
+ur:قفلوط
+# vec:scarlogna
+vi:Hẹ tây
+# yue:紅蔥頭
+zh:火葱
+# zh-cn:火葱
+# zh-hans:火葱
+# zh-hant:火蔥
+# zh-hk:火蔥
+# zh-sg:火葱
+# zh-tw:分蔥
+wikidata:Q193498
+wikipedia:https://en.wikipedia.org/wiki/Shallot
+# fr:échalote 2126 products in 9 languages @2018-10-03
 
 
 <en:vegetable
+en:spinach
+am:ቆስጣ
+ar:سبانخ
+as:পালেং শাক
+az:Dirrik ispanağı
+# azb:ایسپاناق
+# bar:
+Spinat
+be:Шпінат
+bg:обикновен спанак
+# bho:पालकी
+bn:পালং শাক
+bo:ཚལ་སྣག
+br:pinochez
+bs:Špinat
+ca:espinac
+# cdo:Pŏ̤-lìng-chái
+# chr:ᎢᏤᎢ ᎠᎩᏍᏗ
+# ckb:سپێناخ
+co:spinacciu
+cs:špenát setý
+cy:Sbigoglys
+da:spinat
+de:Spinat
+# dsb:spinat
+dv:ބޯވެލި
+el:Σπανάκι
+eo:spinaco
+es:espinacas
+et:spinat
+eu:Ziazerba
+fa:اسفناج
+fi:pinaatti
+fo:spinat
 fr:épinard
+fy:spinaazje
+ga:Spionáiste
+gd:Bloinigean-gàrraidh
+gl:Espinaca
+gu:પાલક
+# hak:Po-lîn-chhòi
+he:תרד
+hi:पालक
+hr:Špinat
+# hsb:spinat
+ht:Epina
+hu:spenót
+hy:սպանախ
+id:Horenso
+io:Spinato
+is:Spínat
+it:spinaci
+ja:ホウレンソウ
+# kbp:Kpema
+kk:Самалдық
+kn:ಪಾಲಕ್
+ko:시금치
+ku:Siyale
+la:Spinacia oleracea
+lb:Päinetsch
+li:Spinaasj
+lt:Daržinis špinatas
+lv:spināti
+mk:Спанаќ
+ml:ചീര
+mr:पालक
+ms:Bayam
+my:ဟင်းနုနွယ်
+# mzn:اسبناخ
+# nan:Poe-lêng-á
+nb:spinat
+ne:पालुङ्गो
+# new:पलः
+nl:spinazie
+nn:Spinat
+# nrm:Épinoches
+nv:Waaʼ
+oc:espinarc
+or:ପାଳଙ୍ଗ
+os:Голмандзы
+pa:ਪਾਲਕ
+# pap:spinazi
+pl:Szpinak warzywny
+# pnb:پالک
+pt:espinafres
+ro:Spanac
+# roa-tara:spinace
+ru:шпинат огородный
+rw:Epinari
+sd:پالڪ
+se:spináhtta
+sh:Špinat
+sq:spinaqi
+sr:спанаћ
+sv:spenat
+ta:பசலை கீரை
+te:పాల కూర
+th:ปวยเล้ง
+tl:Espinaka
+tr:Ispanak
+uk:Шпинат городній
+ur:پالک
+vi:Rau chân vịt
+wa:Spinasse
+# yue:菠菜
+za:byaekbohcaiq
+zh:菠菜
+# zh-tw:菠菜
+wikidata:Q81464
+wikipedia:https://en.wikipedia.org/wiki/Spinach
+# fr:épinard 1204 in 9 languages products @2018-10-14
+
+<en:spinach
+en:spinach powder
+fr:poudre d'épinard, épinards en poudre, épinard en poudre
+es:polvo de espinaca
+nl:spinaziepoeder
+pt:pó de espinafre
+# fr:poudre-d'épinard 40 products in 4 languages @2018-10-14
+# fr:épinards-en-poudre 17 products in 4 languages @2018-10-14
+
+<en:spinach
+fr:épinards en branches
+de:Blattspinat
+it:foglie di spinaci
+nl:bladspinazie
+# fr:épinards-en-branches in 3 languages 44 products @2018-10-14
+
+# The POTATO is a starchy, tuberous crop from the perennial nightshade Solanum tuberosum.
 
 <en:vegetable
-en:potatoes
-fr:pommes de terre
+en:potato, potatoes
+ab:Акартош
+ar:بطاطس
+# arz:بطاطس
+ay:Ch'uqi
+# bar:Eadäpfe
+be:бульба
+# bho:आलू
+bi:Kumala
+bn:আলু
+bo:ཞོ་ཁོག
+bs:krompir
+ca:patata
+# ceb:Patatas
+# chr:ᏄᎾ
+# chy:Aéstomemésêhestôtse
+cs:brambor
+# csb:Bùlwa
+da:kartoffel, kartofler
+de:Kartoffel, Kartoffeln
+# diq:Kartole
+eo:terpomo
+es:patata, papas
+et:kartul, kartulid
+eu:patata
+ff:Kudaku
+fi:peruna, perunna
+fr:pomme de terre, pommes de terre
+# gan:土豆
+gd:Buntàta
+gl:pataca
+gu:Yvy'a
+hi:आलू
+ht:Pòm tè
+ia:patata
+ik:Asiaġruaq
+io:Terpomo
+it:patata, patate
+ja:ジャガイモ
+ka:კარტოფილი
+# kaa:Kartoshka
+# koi:Картов
+# krc:Гардош
+ks:اولُو
+# ksh:Ääpel
+la:Patata
+# lad:Patata
+# lbe:Нущи
+li:Aerpel
+lt:bulvė, bulvės
+# mai:आलु
+# mdf:Модамарь
+mg:Ovy
+mk:компир
+mr:बटाटा
+# mrj:Тури
+nb:potet
+# nds:Kantüffel
+# nds-nl:Eerpel
+ne:आलु
+nl:aardappel, aardappelen
+nn:potet, poteter
+nv:Nímasii
+or:ଆଳୁ
+os:Картоф
+pa:ਆਲੂ
+pl:ziemniak, ziemniaki
+pt:batata
+rn:Ikiraya
+ro:cartof, cartofi
+ru:картофель, картошка
+# rup:Cartofi
+rw:Ikirayi
+# sco:Tattie
+sl:krompir, zemiak
+sm:Pateta
+sn:Mbatatisi
+so:Barandho
+sq:Patatja
+# stq:Tuffelke
+sv:potatis
+tr:patates
+# tyv:Картофель
+uk:картопля
+uz:Kartoshka
+wa:Crompire
+za:Majlingzsuz
+zh:馬鈴薯
+# zh-cn:马铃薯
+# zh-hans:马铃薯
+# zh-hant:馬鈴薯
+# zh-hk:薯仔
+# zh-mo:馬鈴薯
+# zh-tw:馬鈴薯
+zu:Izambane
+wikidata:Q16587531
+wikipedia:https://en.wikipedia.org/wiki/Potato
+# en:potato has 2269 products in 23 languages @2018-10-15
+
+<en:potato
+en:potato powder
+da:kartoffelpulver
+de:Kartoffelpulver
+el:πατάτα σε σκόνη
+es:patata en polvo
+fr:poudre de pommes de terre, poudre de pomme de terre, pomme de terre déshydratée, pommes de terre déshydratées, pommes de terre en poudre, pomme de terre déshydratée
+hu:burgonyapor
+it:Patate in polvere
+nl:aardappelpoeder
+pt:Patatas en polvo
+sk:sušené zemiaky
+sl:krompir v prahu
+sv:potatispulver
+# en:potato-powder has 67 products in 13 languages @2018-10-15
+
+<en:potato
+en:cooked potato
+es:patata cocida
+fr:pomme de terre cuite, pommes de terre cuites
+nl:gegaarde aardappel
+de:gegarte Kartoffeln
+# en:cooked-potato has 62 productsin 1 language @2018-10-15
+
+<en:potato
+fr:purée de pomme de terre, purée de pommes de terre
+# fr:purée-de-pomme-de-terre has 152 products in 1 language @2018-10-15
+
+<en:potato
+en:potato flakes
+da:kartoffelflager
+de:Kartoffelflocken
+es:copos de patata
+fi:perunahiutaleita
+fr:flocon de pomme de terre, flocons de pommes de terre, flocons de pomme de terre, flocon de pomme de terre
+it:fiocchi di patate
+nl:aardappelvlokken
+ru:картофельние хлопья
+sv:potatisflingor
+# fr:flocon-de-pomme-de-terre has 937 products in 12 languages @2018-10-15
+
+<en:potato flakes
+en:dehydrated potato flakes
+fr:flocons de pomme de terre déshydratés
+# fr:flocons-de-pomme-de-terre-déshydratés has 100 products in 2 languages @2018-10-15
+
+<fr:flocon de pomme de terre
+fr:flocons de pomme de terre réhydratés
+# fr:flocons-de-pomme-de-terre-réhydratés has 71 products in 1 language @2018-10-15
+
+<en:potato
+en:potato fibre
+de:Kartoffelfasern, Kartoffelballaststoffe
+es:fibra de patata
+fr:fibres de pomme de terre, fibre de pomme de terre, fibres de pommes de terre
+nl:aardappelvezel, aardappelvezels
+# en:potato-fibre has 110 products in 4 languages @2018-10-15 
+
+# fr:pommes de terre préfrites is a compound ingredient: Pomme de terre préfrite [pomme de terre, huile de tournesol, dextrose de blé]
+
+<en:potato
+fr:pommes de terre préfrites
+nl:voorgebakken aardappel
+sv:forstekt potatis
+# fr:pommes-de-terre-préfrites has 151 products in 3 languages @2018-10-15
+
+# The bell PEPPER (also known as sweet pepper, pepper or capsicum) is a cultivar group of the species Capsicum annuum.
+
+# in some languages en:bell-pepper and en:parika are not distinguished, but the same word
 
 <en:vegetable
+en:pepper, bell pepper
+af:Soetrissie
+an:Pimiento
+ar:فلفل حلو
+# ast:Pimientu
+ca:Pebrot morro de bou
+cs:kapie
+de:peberfrugt, Paprika
+# en-ca:bell pepper
+# en-gb:bell pepper
+eo:Kapsiko
+es:morrón
+fa:فلفل دلمه‌ای
+fi:paprikaa, paprika
+fr:poivron
+ha:Barkono
+# hak:Chhiâng-chêu
+hu:bell paprika
+id:Paprika
+is:Paprika
+it:peperone
+ja:ピーマン
+# kbp:Pwaavrɔɔ
+kk:Бұрыш
+kn:ದೊಣ್ಣೆ ಮೆಣಸಿನಕಾಯಿ
+ko:단고추
+lt:Saldžioji paprika
+mk:бабура
+mr:ढोबळी मिरची
+nb:Paprika
+nl:paprika
+nn:Paprika
+oc:Pebron
+ps:خواږه مرچ
+pt:pimentão
+# pt-br:pimentão
+ru:перец овощной
+sa:महामरीचिका
+sl:Kapia
+sv:paprika
+ta:குடைமிளகாய்
+te:కూరమిరప
+th:พริกหยวก
+tl:Siling-pula
+tr:Dolma biber
+uk:овочевий перець
+uz:Shirin qalampir
+vi:Ớt chuông
+wa:poevron
+# war:Hulabtog
+yi:פאפריקע
+# yue:甜椒
+zh:菜椒
+# zh-cn:菜椒
+# zh-hans:菜椒
+# zh-hant:菜椒
+# zh-hk:菜椒
+# zh-mo:菜椒
+# zh-my:菜椒
+# zh-sg:菜椒
+# zh-tw:菜椒
+wikidata:Q1548030
+wikipedia:https://en.wikipedia.org/wiki/Bell_pepper
+# fr:poivron has 1581 products in 11 languages @2018-10-15
+
+<en:bell pepper
+en:yellow pepper
+fr:poivron jaune, poivrons jaunes
+nl:gele paprika
+# fr:poivron-jaune has 93 products in 1 language @2018-10-15
+
+<fr:poivron jaune
+en:grilled yellow pepper
+de:Gelbe Peperoni gegrillt
+fr:poivrons jaunes grillés
+it:peperoni gialli grigliati
+# fr:poivrons-jaunes-grillés has 60 products in 4 languages @2018-10-15
+treatment:en: en:gril
+
+<en:pepper
+en:green pepper
+de:grüne Peperoni
+fr:poivron vert, poivrons verts
+it:peperoni verdi
+nl:groene paprika
+pt:pimentos verdes
+# fr:poivron-vert has 480 products in 5 languages @2018-10-15
+
+<en:pepper
+en:red pepper
+da:rød peberfrugt
+de:rote Paprika
+el:κόκκινη πιπεριά
+es:pimiento morrón
+fi:punainen paprika
+fr:poivron rouge, poivrons rouge
+it:peperoni rossi
+lv:sarkanā paprika
+nl:rode paprika
+pt:pimento vermelho
+sv:röd paprika
+# fr:poivron-rouge has 1987 products in 13 languages @2018-10-15
+
+<en:red pepper
+fr:poivrons rouges grillés
+de:Rote Peperoni gegrillt
+it:peperoni rossi grigliati
+# fr:poivrons-rouges-grillés has 124 products in 3 languages @2018-10-15
+
+<en:red pepper
+fr:poivrons rouges déshydratés
+# fr:poivrons-rouges-déshydratés has 45 products in 1 language @2018-10-15
+
+<en:pepper
+en:grilled pepper
+de:gegrillte Paprika
+es:pimiento asado
+fr:poivron grillé, poivrons grillés
+nl:gegrilde paprika
+# en:grilled-pepper has 12 products in 3 languages @2018-10-15
+treatment:en: en:gril
+
+<en:red pepper
+<en:green pepper
+fr:poivrons rouges et verts, poivrons verts et rouges
+de:rote und grüne Peperoni
+nl:rode en groene paprika's
+# fr:poivrons-verts-et-rouges has 32 products in 1 language @2018-10-15
+# fr:poivrons-rouges-et-verts has 143 products in 5 languages @2018-10-15
+
+<en:red pepper
+<en:yellow pepper
+fr:poivrons rouges et jaunes
+de:Peperoni rot und gelb
+it:peperoni rossi e gialli
+# fr:poivrons-rouges-et-jaunes has 54 products in 5 languages @2018-10-15
+
+<fr:poivrons rouges et jaunes
+fr:poivrons rouges et jaunes grillés
+pt:pimentos vermelhos e amarelos grelhados
+# fr:poivrons-rouges-et-jaunes-grillés has 21 products in 2 languages @2018-10-15
+
+# en:paprika is very often indicated as a spice. This is probably the same as en:paprika powder
+
+<en:pepper
+<en:spice
+en:paprika
+ar:بابريكا
+# ast:Pimentón
+az:paprika
+bg:червен пипер
+br:paprika
+bs:paprika
+ca:piment vermell
+# ceb:paprika
+cs:paprika
+cy:Paprica
+da:paprika
+el:πάπρικα
+# en-ca:paprika
+# en-gb:paprika
+eo:papriko
+es:pimentón
+et:paprika
+eu:piperrauts
+fa:پاپریکا
+# fi:paprikaa is already under en:pepper
 fr:paprika
+ga:pemento
+he:פפריקה
+hu:fűszerpaprika-őrlemény
+io:papriko
+it:paprika
+ja:パプリカ
+ko:파프리카
+# lad:Paprika
+lt:paprika
+lv:paprika
+mk:црвен пипер
+ms:paprika
+# nl:paprika is already under en:pepper
+# nn:paprika is already under en:pepper
+# pam:paprika
+pl:papryka
+pt:paprica
+# pt-br:páprica
+ro:boia
+ru:паприка
+# sco:paprika
+sl:paprika
+sr:паприка
+# sv:paprika is already under en:pepper
+tg:паприка
+tl:Paprika
+uk:паприка
+# yue:紅甜椒粉
+zh:辣椒粉
+# zh-cn:烟熏红椒
+# zh-hant:烟熏红椒
+wikidata:Q3127593
+wikipedia:https://en.wikipedia.org/wiki/Paprika
+# fr:paprika 2505 in 24 languages products @2018-10-14
 
-<fr:paprika
-en:paprika extract
-fr:extrait de paprika
+<en:paprika
+fr:paprika doux
+es:pimentón dulce
+# fr:paprika-doux has 44 products in 2 languages @2018-10-15
 
+<en:paprika
+en:paprika powder
+de:Paprikapulver
+es:pimentón en polvo
+fi:paprikajauhe
+fr:paprika en poudre, poudre de paprika
+it:paprica en polvere
+nl:paprikapoeder
+pl:papryka w proszku
+pt:pimentão doce em pó
+sk:paprika v prahu
+sv:paprikapulver
+# fr:paprika-en-poudre has 100 products in 12 languages @2018-10-15
+# fr:poudre-de-paprika has 75 products in 5 languages @2018-10-15
 
+# The paprika extract can be found under the section colour E160c
+
+<en:paprika
+en:smoked paprika
+de:geräucherter Paprika
+fr:paprika fumé
+it:paprica affumicata
+# fr:paprika-fumé 55 products in 4 languages @2018-10-14
+
+# Eleocharis dulcis, the Chinese water chestnut or water chestnut, is a grass-like sedge. It is grown in many countries for its edible corms.
 
 <en:vegetable
+en:water chestnut, water chestnuts
+ar:إيليوكاريس حلو
+as:শিঙৰি
+bg:китайски воден кестен
+cdo:莓薺
+cs:Bahnička jedlá
+da:Vandkastanje
+de:Wasserkastanien
+# de-ch:Wasserkastanie
+el:Κινέζικο νεροκάστανο
+eo:Akvokaŝtano
+fi:Vesikastanja
 fr:châtaigne d'eau, châtaignes d'eau
+ga:Castán uisce
+gu:શિંગોડા
+hi:चीनी सिंघाड़ा
+id:Purun tikus
+it:castagne d'acqua
+ja:シログワイ
+kn:ವಾಟರ್ ಚೆಸ್ನಟ್
+ko:남방개
+la:Eleocharis dulcis
+mr:शिंगाडा
+ms:Sengkuang cina
+nl:waterkastanje, waterkastanjes, Chinese waterkastanje
+pl:Ponikło słodkie
+ru:Болотница сладкая
+sd:سنگھارا
+sv:Vattenkastanj
+th:แห้วทรงกระเทียม
+tl:Apulid
+to:Kuta
+vi:Năn ngọt
+# yue:馬蹄
+zh:荸荠
+# zh-hans:荸荠
+# zh-hant:荸薺
+# zh-hk:荸薺
+wikidata:Q932664
+# fr:châtaigne-d'eau has 87 products in 5 languages @2018-10-15
 
+# A PUMPKIN is a cultivar of a squash plant, most commonly of Cucurbita pepo, that is round, with smooth, slightly ribbed skin, and deep yellow to orange coloration.
 
-en:sunflower
-
-
-
-fr:anis étoilé
-
-
+<en:vegetable
 en:pumpkin
+af:Pampoen
+am:የሰይጣን ዱባ
+ar:قرع
+# atj:Akosamin
+az:Qabaq
+# azb:بورانی
+be:Гарбуз
+bg:тиква
+# bho:कोंहड़ा
+# bjn:Waluh
+bn:মিষ্টিকুমড়া
+bo:ལྷོ་ཀུབ།
+br:Sitrouilhez
+ca:Carbassera de rabequet
+# cdo:Gĭng-guă
+# chr:ᎢᏯ
+cs:dýně
+cy:pwmpen
+da:Græskar
+de:Kürbis, Kürbisse
+# de-ch:Kürbisse
+dv:ބަރަބޯ
+dz:ཀ་ཀུ་རུ
+# eml:Süca
+# en-ca:Pumpkin
+# en-gb:Pumpkin
+eo:kukurbo
+es:calabaza gigante
+et:Kõrvits
+eu:Kuia
+fa:کدو تنبل
+fi:kurpitsa
+fr:courge, citrouille
+ga:Puimcín
+gu:કોળું
+# hak:Kîm-kôa
+he:דלעת
+hi:कुम्हड़ा
+hr:Tikva
+# hsb:Banjowc
+hu:Tök
+id:waluh
+io:Kukurbito
+is:Grasker
+it:zucca
+ja:カボチャ
+jv:Waluh
+# kaa:Qabaq
+# kbp:Siitruwii
+kn:ಕುಂಬಳಕಾಯಿ
+ko:호박
+ku:Kundir
+# ku-arab:کوندر
+# ku-latn:Kundir
+la:Cucurbita
+lb:Kalbass
+lt:Moliūgas
+lv:ķirbis
+mk:Тиква
+mr:भोपळा
+ms:Labu
+# nah:Ayohtli
+# nan:Kim-koe
+nb:gresskar
+ne:फर्सी
+nl:pompoen
+or:କଖାରୁ
+os:Нас
+pa:ਹਲਵਾ ਕੱਦੂ
+# pam:Kulubasa
+# pcd:Chitroule
+pl:Dynia
+ps:کدو
+pt:abóbora
+# pt-br:abóbora
+qu:Kalawasa
+rn:Umwungu
+ru:тыква
+sa:मधुरकूष्माण्डम्
+sd:ڪدو
+sh:Tikva
+si:වට්ටක්කා
+sl:Buča
+sn:Nhanga
+so:Bocor guduud
+sq:Cucurbita
+sv:Pumpa
+sw:Boga
+# szl:Korbol
+ta:பூசணி
+te:గుమ్మడి
+tg:Каду
+# tg-latn:Kadu
+th:ฟักทองอเมริกัน
+tk:Kädi
+tl:Kalabasa
+tr:kabak
+uk:гарбуз
+ur:کدو
+uz:Qovoq
+# vec:Suca
+# vep:tikv
+vi:Bí ngô
+yi:קירבעס
+# yue:南瓜
+za:namzgva
+zh:南瓜
+wikidata:Q165308
+wikipedia:https://en.wikipedia.org/wiki/Pumpkin
+# fr:courge has 88 products in 4 languages @2018-10-26
 
+# The zucchini (American English) or courgette (British English) is a summer squash.
+
+<en:vegetable
+en:Courgette, zucchini
+ar:كوسى
+ba:ҡабаҡ
+be:кабачок
+bg:тиквичка
+ca:carbassó
+# chr:ᎧᏴᏎᏆ
+co:zucchetta
+cs:cuketa
+# csb:zwëczajnô bania
+da:squash
+de:Zucchini
+# de-ch:Zucchetti
+# eml:süchëin
+# en-ca:zucchini
+# en-gb:courgette
+eo:kukurbeto
+es:calabacín, calabacin, cucurbita pepo
+et:puhmik-õlikõrvits
+eu:kuiatxo
+fa:کدو تخم پوست کاغذی
+fi:kesäkurpitsaa
+fr:courgette
+ga:cúirséad
+ha:kabewa
+he:קישוא
+hr:bundeva
+# hsb:zahrodny banjowc
+hy:Դդմիկ
+is:zukini
+# inh:Баьцахаьс
+it:Zucchina, zucchini
+ja:ズッキーニ
+jv:zukini
+# kbp:Kamɩyɛ
+kk:цуккини
+kn:ಜ಼ುಕೀನಿ
+ko:주키니호박
+# lbe:къавахъ
+lt:cukinija
+lv:parastais ķirbis
+mk:Тиквичка
+ms:Zukini
+# mzn:کچلیک
+nb:squash
+ne:लाम्चो फर्सी
+nl:courgette
+nn:zucchini
+nv:naayízítsʼósí
+oc:Corgeta
+pl:cukinia
+pt:curgete
+# pt-br:abobrinha
+ro:Dovlecel
+ru:кабачок
+rw:Igihaza
+sc:corcoriga
+sk:tekvica obyčajná
+sq:tungulli
+sr:тиквица
+sv:squash, Zucchini
+to:sukini
+tr:sakız kabağı
+uk:кабачок
+vi:bí ngòi
+# yue:翠玉瓜
+zh:西葫芦
+wikidata:Q7533
+wikipedia:https://en.wikipedia.org/wiki/Zucchini
+# fr:courgette contains 2098 products in 9 languages @2018-10-26
+
+<fr:courgette
+en:grilled courgette
+de:grillierte Zucchetti, gegrillte Zucchini, Zucchini geröstet
+es:calabacín asado
+fr:courgette grillée, courgettes grillées, courgette grillée
+it:zucchine grigliate
+nl:gegrilde courgette
+# en:grilled-courgette has 238 products in 5 languages @2018-10-26
+
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                     B E A N S     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+fr:petits pois extra fins
+
+fr:lentilles sèches trempées
+
+fr:lentilles corail
+
+en:green lentils
+es:lentejas rubias
+fr:lentilles blondes
+nl:blonde linzen
+de:Tellerlinsen
+
+fr:lentille, lentilles
+
+fr:lentille verte, lentilles vertes
+
+
+
+fr:lentilles précuites
+
+fr:lentilles vertes précuites
+
+
+fr:lentilles rouges
+
+fr:lentilles réhydratées
+
+fr:lentilles vertes cuites
+
+fr:lentille
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -14781,7 +18132,7 @@ bn:হ্যাজেল বাদাম
 ca:avellana
 cs:lískový ořech
 da:Hasselnød
-de:Haselnuss, Haselnüsse
+de:Haselnuss, Haselnüsse, Haselnusse
 el:Hasselnød
 eo:Avelo
 es:avellana, avellanas
@@ -15734,6 +19085,7 @@ fr:extraits d'épices et d'aromates
 fr:plantes aromatiques et épices
 
 fr:extrait d'épice, extraits d'épices
+de:Gewürz Extrakte, Gewürzextrakte, Gewurzextrakte
 
 fr:herbe et épice, herbes et épices, épices et herbes, épices et herbes aromatiques
 
@@ -15753,7 +19105,6 @@ fr:épices et arômes, aromates et épices
 en:herb
 fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques
 
-fr:ail et fines herbes
 
 fr:extraits de plantes
 
@@ -16009,59 +19360,803 @@ fr:extrait de curcuma
 it:estratto di curcuma
 lv:kurkuma ekstrakts
 nl:kurkuma extract, kurkuma-extract
-openfoodfacts:https://world.openfoodfacts.org/ingredient/turmeric-extract
-# 339 products in 12 languages @2018-10-11
+# en:turmeric-extract has 339 products in 12 languages @2018-10-11
 
 <en:turmeric extract
 fr:extrait naturel de curcuma
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20naturel%20de%20curcuma
-# 23 products in 1 language @2018-10-11
+# fr:extrait-naturel-de-curcuma has 23 products in 1 language @2018-10-11
 
+# NUTMEG is the seed or ground spice of several species of the genus Myristica. 
 
-fr:noix de muscade
+<en:spice
+en:nutmeg
+bs:Muskatni oraščić
+ca:nou moscada
+# ceb:Moskada
+cs:Muškátový oříšek
+cv:Мускат мăйăрĕ
+da:Muskatnød
+de:Muskatnuss
+dv:ތަކޫވައް
+el:Μοσχοκαρυδιά
+# en-ca:Nutmeg
+# en-gb:Nutmeg
+eo:Muskato
+es:nuez moscada
+eu:Intxaur muskatu
+fa:جوز هندی
+fi:Muskottipuu
+fr:noix de muscade, muscade
+gd:Cnò-mheannt
+gl:Noz moscada
+gu:જાયફળ
+he:אגוז מוסקט
+hi:जायफल
+hu:Szerecsendió
+hy:Մշկընկույզ
+id:Pala
+io:Muskado
+is:Múskat
+it:Noce moscata
+ja:ニクズク属
+jv:Pala
+ka:ჯავზის ხეkk:Мускат жаңғағы
+kn:ಜಾಪತ್ರೆ
+ko:육두구
+la:Myristica fragrans
+lt:Kvapusis muskatmedis
+lv:muskatrieksti
+mk:морско оревче
+ml:ജാതിക്ക
+mr:जायफळ
+ms:Buah pala
+my:ဇာတိပ္ဖိုလ်
+nb:muskatnøttslekten
+# new:nutmeg
+nl:nootmuskaat
+# nrm:Muscade
+oc:Notz muscada
+pa:ਜਾਇਫਲ
+pl:Muszkatołowiec korzenny
+pt:noz-moscada
+# pt-br:noz-moscada
+ro:Nucșoară
+ru:Мускатный орех
+sa:जातीफलम्# sco:nitmug
+sh:Muškatov oraščić
+si:සාදික්කා
+sl:Muškatovec
+su:Pala
+sv:Muskotsläktet
+sw:Kungumanga
+ta:ஜாதிக்காய்
+te:జాజికాయ
+th:จันทน์เทศ
+tl:Moskada
+to:Kotone
+tr:Muskat
+uk:Мускатник
+ur:جائفل
+vi:Hạt nhục đậu khấu
+# vls:Notevaschoa
+yi:מושקאט נוס
+zh:肉豆蔻
+# zh-cn:肉豆蔻
+# zh-hk:肉豆蔻
+wikidata:Q83165
+wikipedia:https://en.wikipedia.org/wiki/Nutmeg
+# fr:noix-de-muscade has 517 products in 6 languages @2018-10-24
 
+# CARDAMOM, sometimes cardamon or cardamum, is a spice made from the seeds of several plants in the genera Elettaria and Amomum in the family Zingiberaceae. Both
+
+<en:spice
 en:cardamon
-es:cardamomo
-fr:cardamome
-nl:cardamon
+af:Kardamom
+ar:هال
+# arc:ܫܘܫܡܢܝܬܐ
+# arz:حبهان
+# ast:Cardamomo
+bs:Kardamom
+cs:kardamom
+cy:Cardamom
+da:kardemomme
 de:Kardamom
+el:Κακουλέ
+eo:Kardamomo
+es:cardamomo
+et:Kardemon
+fa:هل
+fi:kardemumma
+fr:cardamome, cardamone
+gd:Càrdamon
+gl:Cardamomo
+# gom:वेलची
+gu:ઇલાયચી
+he:הל
+hi:इलायची उपज करने वाले पौधे
+hr:Kardamom
+hy:Հիլ
+id:Kapulaga
+io:Kardamomo
+it:cardamomo
+jv:Kapulaga
+kk:Кардамон
+ko:카다멈
+lv:kardamons
+mk:кардамон
+mr:वेलदोडे
+ms:Buah pelaga
+# nds:Kardamom
+# new:एला
+nl:cardamon
+pl:kardamon
+ps:لاچی
+pt:cardamomo
+ro:cardamon
+ru:кардамон
+sa:एला
+sd:ننڍو ڦوٽو
+sh:Kardamon
+sr:Кардамон
+su:Kapulaga
+sv:kardemumma
+ta:ஏலம்
+# tcy:ಏಲಕ್ಕಿ
+te:ఏలకులు
+th:กระวาน
+tr:Kakule
+uk:кардамон
+yi:קארדעמאן
+wikidata:Q18360378
+wikipedia:https://en.wikipedia.org/wiki/Cardamom
+# en:cardamon has 416 products in 12 languages @2018-10-24
 
-fr:girofle
+# CLOVEs are the aromatic flower buds of a tree in the family Myrtaceae, Syzygium aromaticum. 
 
+<en:spice
+en:clove
+af:Naeltjie
+am:ቅርንፉድ
+ar:قرنفل
+# arz:قرنفل
+as:লং
+az:Mixək
+be:Гваздзік, Гваздзіковае дрэва
+bg:карамфил
+bn:লবঙ্গ
+bo:ལི་ཤི།
+bs:Klinčić
+ca:clavell d'espècia
+# ckb:مێخەک
+co:Viulaccia
+cs:hřebíček
+cv:Гвоздика
+da:Kryddernellike
+de:Nelken, Gewürznelken
+dv:ކަރަންފޫ
+eo:Kariofilo
+es:clavos de olor
+et:Nelk
+eu:Iltze
+fa:میخک صدپر
+fi:Mausteneilikka
+fr:girofle, clou de girofle, clous de girofle
+# frr:Neegelkbuum
+ga:Clóbh
+gd:Clo-mheas
+gl:Craveiro da India
+gu:લવિંગ
+he:ציפורן
+hi:लौंग
+hr:Klinčić
+# hsb:Prawy nalikowc
+ht:Jiwòf
+hu:Szegfűszeg
+id:Cengkih
+io:Kariofilo
+is:Negull
+it:chiodo di garofano, chiodi di garofano
+ja:クローブ
+jv:Cengkèh
+ka:მიხაკის ხე
+# kbd:Къэрмэфибл
+kk:Қалампыр ағашы
+kn:ಲವಂಗ
+ko:정향나무
+# ksh:Jrovvötsnäähl
+ku:Mêxek
+la:Syzygium aromaticum
+lb:Neelcheskapp
+li:Groffelsnagel
+lt:Kvapnusis gvazdikmedis
+lv:Nagliņkoks
+# min:Cangkeh
+mk:Каранфилче
+ml:കരയാമ്പൂ
+mr:लवंग
+ms:Cengkih
+my:လေးညှင်းပင်
+nb:Kryddernellik
+ne:ल्वाङ
+nl:kruidnagel
+nn:Nelliktre
+# nrm:Cliou d'giroufl'ye
+oc:Giròfle
+or:ଲବଙ୍ଗ
+pa:ਲੌਂਗ
+pl:Goździki
+# pnb:لونگ
+ps:لونګ
+pt:Cravo-da-índia
+# pt-br:cravo da índia
+ro:Cuișoare
+ru:Гвоздика
+sa:लवङ्गम्
+sh:Klinčić
+sk:Klinčekovec voňavý
+sl:Nageljnove žbice
+so:Dhaga yare
+sr:Karanfilić
+su:Cengkéh
+sv:Kryddnejlika
+sw:Karafuu, Mkarafuu
+ta:கிராம்பு
+# tcy:ಲವಂಗ
+te:లవంగము
+th:กานพลู
+tr:Karanfil
+uk:Гвоздика
+ur:لونگ
+vi:Đinh hương
+# vls:Kruudnoagel
+wa:Djirofe
+yi:נעגעלע
+# yue:丁香
+zh:丁香
+wikipedia:https://en.wikipedia.org/wiki/Clove
+# fr:girofle has 416 products in 6 languages @2018-10-23
+# fr:clou-de-girofle has 524 products in 5 languages @2018-10-23
+
+<en:spice
 en:fenugreek
 fr:fenugrec
 de:Bockshornklee
 es:fenegreco
 it:fieno greco
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fenugrec
-# 377 products @2018-10-08
+# fr:fenugrec has 171 products in 5 languages @2018-10-23
 
+<en:fenugreek
+en:dried fenugreek leaves
+es:hoja de fenegreco seca
+fr:feuille de fenugrec séchée
+nl:gedroogd fenegriekblad
+de:getrockneter Bockshornklee
+# en:dried-fenugreek-leaves has 6 products in 2 languages @2018-10-23
 
-
+<en:spice
 en:kaffir lime leaf
 es:hoja limón
 fr:feuille de citron
 nl:citroenblad
 de:Zitronenblatt
+wikipedia:https://en.wikipedia.org/wiki/Kaffir_lime
+# kaffir-lime-leaf has 25 products in 2 languages @2018-10-25
 
+<en:spice
+# <en:flavour
 en:mustard
+ar:صلصة الخردل
+# ast:Mostaza
+# bar:Semf
+be:Гарчыца
+bg:Горчица
+bn:সরিষার আচার
+br:sezo
+bs:Senf
+ca:mostassa
+co:mustarda
+cs:hořčice
+da:sennep
+de:Senf
+el:Μουστάρδα
+eo:mustardo
+es:mostaza
+et:sinep
+fa:خردل
+fi:sinappi
+fo:sinoppur
 fr:moutarde
+# frr:Moster
+fy:moster
+gl:Mostaza
+he:חרדל
+hi:सरसों
+hr:Senf
+ht:Moutad
+hu:Mustármag
+hy:Մանանեխ
+id:Moster
+io:Mustardo
+is:Sinnep
+it:Senape
+ja:マスタード
+jv:Mustar
+ka:მდოგვი
+ko:겨자 소스
+ku:Gormiz
+# ku-arab:گۆرمز
+# ku-latn:Gormiz
+li:Sinapi
+lb:Moschter
+lt:Garstyčios, garstyčių
+lv:sinepes
+mk:Сенф
+ms:Mustard
+nb:sennep
+nl:mosterd
+nn:sennep
+or:ଶୋରିଷ ଆଚାର
+pa:ਸਰੋਂ
+pl:Musztarda
+pt:mostarda
+qu:Mustasa
+ro:muștar
+ru:горчица
+sh:Senf
+sk:Horčica
+sl:Gorčica
+sq:mustardë kuzhine
+sr:сенф
+# sr-ec:сенф
+# sr-el:senf
+# szl:Zymft
+sv:senap
+ta:கடுகு
+uk:гірчиця
+vi:Mù tạc
+# yue:芥辣
+zh:芥末醬
+# zh-cn:芥末酱
+# zh-hans:芥末酱
+# zh-hant:芥末醬
+# zh-hk:芥末醬
+# zh-sg:芥末酱
+# zh-tw:芥末醬
+zu:umasitadi
+wikidata:Q131748
+wikipedia:https://en.wikipedia.org/wiki/Mustard_(condiment)
+# en:mustard has 4679 products in 13 languages @2018-10-25
 
-fr:sorbate de potassium
+# MUSTARD is a condiment made from the seeds of a mustard plant 
 
+<en:mustard
+en:mustard powder
+de:Senfpulver
+fr:moutarde en poudre, poudre de moutarde, farine de moutarde
+it:senape in polvere
+nl:mosterdpoeder
+# fr:farine-de-moutarde has 127 products in 5 languages @2018-09-22
+# fr:moutarde-en-poudre has 34 products in 4 languages @2018-10-25
+
+# fr:moutarde-de-dijon is a compound ingredient, i.e: moutarde de Dijon (eau, graines de moutarde, vinaigre d'alcool, sel),
+
+<en:mustard
+fr:moutarde de dijon
+de:Dijon-Senf
+it:senape di Digione
+nl:mosterd van Dijon
+# fr:moutarde-de-dijon has 1819 products in 4 languages 22018-10-25
+
+<fr:moutarde de dijon
+fr:moutarde forte de dijon
+# fr:moutarde-forte-de-dijon has 18 products in 1 language @2018-10-25
+
+<en:mustard
+fr:moutarde forte
+# fr:moutarde-forte has 26 products in 1 language @2018-10-25
+
+# GALANGAL is a common name for several tropical rhizomatous spices
+
+<en:spice
+en:Galangal
+de:Galgant
+es:galangal
+fi:galangal
+fr:galanga
+hu:galangál
+is:galgantrót
+it:galanga
+ja:ガランガル
+ko:고량강
+nl:galanga
+pl:galangal
+pt:galangal
+ru:калган
+sv:galanga
+zh:高良薑
+wikidata:Q734727
+wikipedia:https://en.wikipedia.org/wiki/Galangal
+# fr:galanga has 122 products in 6 languages @2018-10-25
+
+# GINGER (Zingiber officinale) is a flowering plant whose rhizome, ginger root or simply ginger, is widely used as a spice or a folk medicine
+
+<en:spice
+en:ginger, stem ginger
+# ace:Halia
+af:Gemmer
+ak:kakadro, Kakaduro
+am:ዝንጅብል
+# ang:Gingifer
+ar:زنجبيل
+# arc:ܚܡܣܐ
+# arz:جنزبيل
+az:Zəncəfil
+# azb:زنجفیل
+# bcl:Laya
+be:Імбір
+bg:джинджифил
+bi:Giner
+# bjn:Tipakan
+bn:আদা
+bo:བཅའ་ལྒ།
+br:Jinjebr
+bs:Đumbir
+ca:gingebre
+# cdo:Giŏng
+# ckb:زەنجەفیل
+cs:zázvor
+cy:Sinsir
+da:Ingefær
+de:Ingwer
+el:Πιπερόριζα
+eo:zingibro
+es:Gengibre
+et:Ingver
+eu:jengibre
+fa:زنجبیل
+fi:inkivääri
 fr:gingembre
+ga:Sinséar
+gd:Dinnsear
+gl:Sinxebra
+# gom:Alem vo Suntt
+# gom-deva:आलें
+# gom-latn:Alem vo Suntt
+gu:આદુ
+# hak:Kiông
+he:זנגביל
+hi:अदरक
+# hsb:Lěkarski jumbjer
+ht:jenjanm
+hu:gyömbér
+hy:կոճապղպեղ
+id:jahe
+io:Jinjero
+is:Engifer
+it:zenzero
+ja:ショウガ
+jv:Jaé
+ka:ჯანჯაფილი
+kk:Жанжабіл, Зімбір
+kn:ಶುಂಠಿ
+ko:생강
+# koi:Имбирь
+ku:Zencefîl
+kv:Имбирь
+la:Gingiber, Zingiber officinale
+# lez:Сенжефил
+lg:Ennyingo Okuzimba
+li:Geimer
+ln:Ntángawisi
+lt:Tikrasis imbieras
+lv:ingvers
+# mai:आदी
+# min:Sipadeh
+mk:ѓумбир
+ml:ഇഞ്ചി
+mr:आले
+ms:Halia
+my:ချင်းပင်
+# nan:Kiuⁿ
+nb:ingefær
+# nds-nl:Gember
+ne:अदुवा
+nl:gember
+nn:ingefær
+# nrm:Gengivre
+oc:Gengibre
+or:ଅଦା
+pa:ਅਦਰਕ
+# pam:Laya
+pl:Imbir lekarski
+# pnb:ادرک
+ps:سونډی
+pt:Gengibre
+qu:Awirinri
+ro:Ghimbir
+# roa-tara:zenzere
+ru:Имбирь
+sa:आर्द्रकम्
+# scn:Gènciru
+# sco:ginge
+sd:ادرڪ
+sh:Đumbir
+sk:Ďumbier
+sl:Ingver
+sr:ћумбир
+su:Jahé
+sv:ingefära
+sw:Mtangawizi
+ta:இஞ்சி
+# tcy:ಶುಂಠಿ
+te:అల్లం
+tg:Занҷабил
+th:ขิง
+tl:Luya
+tr:zencefil
+ty:Rea tinito
+ug:زەنجىۋىل
+uk:імбир
+ur:ادرک
+uz:Zanjabil
+vi:Gừng
+# vls:Gember
+vo:Ingviir
+# war:Layá
+wo:jinjeer
+# xmf:ginger
+yi:אינגבער
+# yue:薑
+za:hing
+zh:薑
+# zh-tw:薑
+wikipedia:https://en.wikipedia.org/wiki/Ginger
+# en:gingembre has 1506 products in 8 languages @2018-10-25
 
+<en:ginger
+en:ginger powder, ground ginger
+de:gemahlener Ingwer
+fr:gingembre moulu
+it:zenzero macinato
+nl:gemberpoeder, gemalen gember
+# fr:gingembre-moulu has 58 products in 4 languages @2018-10-25
+
+<en:ginger
+en:ginger purée
+fr:purée de gingembre
+de:Ingwerpüree
+it:purea di zenzero
+nl:gemberpuree
+sv:ingefärspuré
+# fr:purée-de-gingembre has 118 products in 6 languages @2018-10-25
+
+<en:spice
+en:Cinnamon
+# aeb-arab:قرفة
+af:Kaneel
+am:ቀረፋ
+# ang:Ofersǣwisc rind
+ar:قرفة
+# arc:ܩܠܦܬܐ ܕܒܣܡܐ
+# arz:قرفه
+az:Darçın
+# bar:Zimt
+be:Карыца
+# be-tarask:Карыца
+bg:Канела
+bn:দারুচিনি
+br:Kanell
+bs:Cimet
+ca:canyella
+# ceb:Kanela
+# ckb:دارچین
+co:cannella
+cs:skořice
+# csb:Cynamón
+cy:sinamon
+da:kanel
+de:Zimt
+# de-ch:Zimt
+# dsb:cymt
+dv:ފޮނި ތޮށި
+el:κανέλλη, Κανέλα
+# en-ca:Cinnamon
+# en-gb:Cinnamon
+eo:cinamo
+es:canela
+et:kaneel
+eu:kanela
+fa:دارچین
+fi:kaneli
 fr:cannelle
+# frr:Kaneel
+fy:kaniel
+ga:Cainéal
+gd:Caineal
+gl:Canela
+# gsw:Zimt
+gu:તજ
+he:קינמון
+hi:दालचीनी
+hr:Cimet
+# hsb:Skoričnik
+hu:fahéj
+hy:դարչին
+id:Kulit kayu manis
+io:Cinamo
+is:kanill
+it:cannella
+ja:シナモン
+jv:Kayu manis
+ka:დარიჩინი
+kn:ದಾಲ್ಚಿನ್ನಿ
+ko:육계나무, 실론계피나무
+ku:darçîn
+la:Cinnamum
+lb:Kanéil
+li:keniel
+lt:Cinamonas
+lv:kanēlis
+# mai:दालचिनी
+mk:цимет
+ml:കറുവ
+mr:दालचिनी
+ms:kayu manis
+my:သစ်ကြံပိုးပင်
+# nan:Ceylon jio̍k-kùi
+nb:kanel
+# nds:Kaneel
+ne:दालचिनी
+# nrm:Cannelle
+nl:kaneel
+nn:kanel, kaneltre
+oc:Canèla
+or:ଡାଳଚିନି
+pa:ਦਾਲਚੀਨੀ
+pl:cynamon
+pt:canela
+qu:Kanila sach'a
+ro:Scorțișoară
+# roa-tara:cannélle
+ru:корица
+sa:वराङ्गम्
+# scn:Cannedda
+# sco:cinnamon
+sd:دالچيني
+sh:Cimet
+si:කුරුඳු
+sk:škorica
+sl:Cimet
+sq:Kanella
+sr:цимет
+su:Ki amis
+sv:kanel
+sw:Mdalasini
+ta:கறுவா
+te:దాల్చిన చెక్క
+th:อบเชย
+tr:Tarçın
+uk:Кориця
+ur:دارچینی
+vi:Quế quan
+# vls:Kanêel
+vo:kirfat
+yi:צימערינג
+# yue:肉桂
+zh:桂皮
+# zh-tw:陰香
+wikidata:Q28165
+# fr:cannelle has 1851 products in 14 languages @2018-10-24
+
+<en:Cinnamon
+en:cinnamon powder
+de:Zimtpulver
+fr:cannelle en poudre, cannelle moulue
+nl:kaneelpoeder
+# fr:cannelle-en-poudre has 73 products in 4 languages @2018-10-24
+
+# Cinnamomum cassia, called Chinese cassia or Chinese cinnamon, is an evergreen tree originating in southern China
+
+<en:Cinnamon
+en:cassia, chinese cinnamon
+am:ብርጕድ
+ar:سليخة
+az:Çin darçın ağacı
+bg:касия
+da:Cassia
+de:Zimtkassie
+et:Hiina kaneelipuu
+el:Κιννάμωμον η Κασσία
+fi:Kassiakaneli
+fr:cannelle de chine, cinnamomum cassia
+id:Kayu Manis Cina
+ja:シナニッケイ
+la:Cinnamomum cassia
+lt:Kininis cinamonas
+# lzh:桂
+ml:ചൈനീസ് പട്ട
+# nan:Jio̍k-kùi
+nb:Kassiakanel
+pl:Cynamonowiec wonny
+pt:Cássia-chinesa
+ru:Коричник китайский
+sk:Kineski cimet
+sl:Kitajski cimet
+sv:Kassiakanel
+th:อบเชยจีน
+uz:Dolchin
+zh:肉桂
+# zh-tw:肉桂
+wikidata:Q204148
+wikipedia:https://en.wikipedia.org/wiki/Cinnamomum_cassia
+# fr:cannelle-de-chine has 21 products @2018-10-24
+
+# Cinnamomum verum, called true cinnamon tree or Ceylon cinnamon tree is a small evergreen tree belonging to the family Lauraceae, native to Sri Lanka.
+
+<en:Cinnamon
+fr:cannelle de ceylan, cinnamomum verum
+de:Ceylon-Zimt
+wikipedia:Q370239
+wikipedia:https://en.wikipedia.org/wiki/Cinnamomum_verum
+# fr:cannelle-de-ceylan has 18 products in 3 languages @2018-10-24
+
+# A spice commonly called star anise, staranise, star anise seed, Chinese star anise, or badian that closely resembles anise in flavor is obtained from the star-shaped pericarps of the fruit of I. verum which are harvested just before ripening. 
+
+<en:spice
+en:star anise
+af:Steranys
+ar:ليسوم حقيقي
+az:Əsl badyan
+be:Бадзян сапраўдны
+bg:звездовиден анасон
+bo:གོ་སྙོད་ཟུར་བརྒྱད།
+ca:Anís estrellat
+cs:Badyáník pravý
+da:Stjerneanis
+de:Sternanis
+et:harilik tähtaniisipuu
+eu:Txinatar anis
+fa:بادیان ختایی
+fi:Rusotähtianis
+fr:anis étoilé
+gl:Anís estrelado
+gu:બાદિયાન
+# hak:Pat-kok
+hi:चक्रफूल
+hu:Csillagánizs
+id:Bunga Lawang
+it:anice stellato
+ja:トウシキミ
+jv:Kembang lawang
+ko:팔각
+la:Illicium verum
+# min:Bungo lawang
+ml:തക്കോലം
+ms:Bunga lawang
+# nan:Peh-kak
+nb:Stjerneanis
+nl:steranijs
+oc:Badiana
+or:ଅନାସି ଫୁଲ
+pl:Cynamonowiec cejloński, Badian właściwy
+pt:Estrela-de-anis
+ru:анис звёздчатый
+sd:باديان خطائي
+sk:Badián
+sr:Звездасти анис
+sv:Stjärnanis
+th:โป๊ยกั้ก
+tl:Sangke
+tr:Yıldız anason
+uk:Бодян справжній
+vi:Đại hồi
+wa:Anisse-sitoele
+# yue:八角
+zh:八角
+wikidata:Q1760637
+# fr:anis-étoilé has 72 products in 4 languages @2018-10-24
 
 
-
-fr:nigari
-
-fr:clous de girofle
-
-fr:cardamone
-
-fr:muscade
 
 # 
 <en:herb
@@ -16149,7 +20244,7 @@ nb:dill
 nl:dille
 nn:dill
 oc:anet
-od:ସୋୟା
+or:ସୋୟା
 os:Хъонтхора
 pa:ਸੋਏ
 # pam:Dill
@@ -16367,7 +20462,7 @@ nb:mynteslekta
 nl:munt
 nn:mynteslekta
 oc:Menta
-od:ପୋଦିନା
+or:ପୋଦିନା
 os:Битъына
 pa:ਪੁਦੀਨਾ
 # pam:Mentha
@@ -16606,32 +20701,165 @@ zh:麝香草
 # zh-hk:麝香草
 wikidata:Q3215980
 wikipedia:https://en.wikipedia.org/wiki/Thyme
-openfoodfacts:https://world.openfoodfacts.org/ingredient/thyme
-# 3188 products in 10 languages @2018-10-10
+# en:thyme has 3188 products in 10 languages @2018-10-10
 
 <en:thyme
 en:thyme extract
 fr:extrait de thym
-openfoodfacts:https://world.openfoodfacts.org/ingredient/thyme-extract
-# 27 products in 1 language @2018-10-10
+# en:thyme-extract has 27 products in 1 language @2018-10-10
+
+# Verbena officinalis, the common vervain or common verbena, is a perennial herb native to Europe.
 
 <en:herb
-en:verbena
+en:verbena, vervain
+ab:Адәыҳәымсаг
+# aeb-arab:طرنجيّة
+ar:رعي الحمام الطبي
+az:Dərman minaçiçəyi
+bg:върбинка
+ca:berbena
+cs:sporýš lékařský
+cy:Y ferfain
+da:Læge-Jernurt
+de:Eisenkraut
+es:verbena
+et:Harilik raudürt
+eu:Berbena
+fa:وربنا آفیسینالیس
+fi:Rohtorautayrtti
+fr:verveine, verveine odorante
+gl:Verxebán
+gv:Vervine
+# hsb:Prawa twjerdźenka
+hu:Közönséges vasfű
+it:verbena
+ja:クマツヅラ
+kk:Дәрілік нарқайсар
+ko:마편초
+lt:Vaistinė verbena
+nl:ijzerhard, verbena
+pl:Werbena pospolita
+ru:Вербена лекарственная
+rw:Umugosora
+sk:železník lekársky
+sw:Järnört
+uk:Вербена лікарська
+zh:马鞭草
+# zh-cn:马鞭草
+# zh-hans:马鞭草
+# zh-hant:馬鞭草
+# zh-hk:馬鞭草
+# zh-sg:马鞭草
+# zh-tw:馬鞭草
+wikidata:Q161417
+wikipedia:https://en.wikipedia.org/wiki/Verbena_officinalis
+# fr:verveine has 106 products in 6 languages @2018-10-15
+
+# PARSLEY or garden parsley (Petroselinum crispum) is a species of flowering plant in the family Apiaceae
 
 <en:herb
-en:parley
-de:Persilie
+en:parsley
+# aeb-arab:معدنوس
+# aeb-latn:ma3dnous
+af:Pietersielie
+ar:بقدونس
+az:Cəfəri
+# azb:جعفری
+ba:Петрушка үләне
+# bar:Petersilie
+# ckb:Parsley
+bg:магданоз
+br:Perisilh
+bs:Peršun
+ca:julivert
+cs:petržel
+# csb:Piotrëszka
+cy:Persli
+da:Persille
+de:Petersilie, Persilie
+el:Μαϊντανός
+eo:Petroselo
+es:Perejil
+et:Aedpetersell
+eu:Perrexil
+fa:جعفری
+fi:Persilja
 fr:persil
+# frr:Pitersile
+ga:Peirsil
+gl:Perexil
+he:פטרוזיליה
+hi:अजमोद
+hr:Peršin
+ht:Pèsi
+hu:Petrezselyem
+hy:մաղադանոս
+id:Peterseli
+ie:Petrosel
+# inh:ДарбаьрхӀ
+io:Petroselo
+is:Steinselja
 it:prezzemolo
+ja:パセリ
+ka:ოხრახუში
+kk:Ақжелкен
+kn:ಅಜಮೋದ
+ko:파슬리
+ku:Gêjnak
+ky:Ашкөк
+la:Petroselinum crispum
+# lbe:Накьлил уртту
+lt:Petražolė
+lv:Pētersīļi
+mk:Магдонос
+ms:Pokok Pasli
+# myv:Алашань тикше
+# nah:Perexil
+# nap:Petrusino
+nb:persille
 nl:peterselie
+nn:persille
+oc:Jolverd
+os:Басгæрдæг
+# pdc:Pederli
+pl:pietruszka zwyczajna
+pt:salsa
+#qu:Qhurita
+ro:Pătrunjel
+ru:Петрушка кудрявая
+sc:Pedrusìmula
+# scn:Pitrusinu
+# sco:Persel
+sd:پارسلي
+# sgs:Petroška
+sh:Peršin
+sk:Petržlen
+sl:peteršilj
+sq:Majdanozi
+sr:першун
+sw:Persilja
+ta:வோக்கோசு
+tl:kinchay
+tr:Maydanoz
+uk:Петрушка
+# vec:Parsémoło
+vi:Mùi tây
+# vls:Perselle
+wa:Pierzin
+# xmf:მაკინდოლი
+yi:פעטרישקע
+# yue:番茜
+zh:香芹
+wikidata:Q25284
+wikipedia:https://en.wikipedia.org/wiki/Parsley
+# en:parley has 191 products in 5 languages @2018-10-15
 
-<fr:persil
+<en:parsley
 en:dehydrated parsley
 de:Petersilie getrocknet
 fr:persil déshydraté, persil séché
 it:prezzemolo essiccato
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:persil%20déshydraté
-# 204 products in 4 languages @2018-10-10
+# fr:persil%20déshydraté has 204 products in 4 languages @2018-10-10
 
 # BASIL (Ocimum basilicum), also called great basil or Saint-Joseph's-wort, is a culinary herb of the family Lamiaceae (mints).
 
@@ -16884,7 +21112,7 @@ wikipedia:https://en.wikipedia.org/wiki/Lovage
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:livèche
 # 241 products in 5 languages @2018-10-10
 
-# In french bleuets are either the cornflower or the blueberries
+# In french bleuets are either en:cornflower or en:blueberry
 <en:cornflower
 <en:blueberry
 fr:bleuets
@@ -17142,7 +21370,7 @@ mr:तमालपत्र
 ms:Daun salam
 my:ကရဝေးပင်
 nl:laurier, laurierblad
-od:ତେଜପତ୍ର
+or:ତେଜପତ୍ର
 # pam:Bay leaf
 pl:liść laurowy
 ru:Лавровый лист
@@ -17255,16 +21483,186 @@ it:erba cipollina essiccata
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:ciboulette%20déshydratée
 # 69 products in 3 languages @2018-10-08
 
-<en:herb
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                     P L A N T S     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+# The plants section contains things other than herbs or vegetables. Tea ingredients can be found here.
+
+
+# Filipendula ulmaria, commonly known as meadowsweet or mead wort, is a perennial herb in the family Rosaceae that grows in damp meadows.
+
+<en:plant
+en:meadowsweet
+ar:إكليلية المروج
+az:Qarağacyarpaq quşqonmaz
+# azb:قار آغاجیارپاق قوشقونماز
+ba:Еркәүек
+bg:обикновено орехче
+ca:reina dels prats
+cs:tužebník jilmový
+cy:Erwain
+da:Almindelig Mjødurt
+de:Echtes Mädesüß
+# de-ch:Echtes Mädesüss
+# dsb:Bagnowa smalanka
+et:Harilik angervaks
+eu:Nasai-lore
+fa:اسپیره
+fi:Mesiangervo
 fr:reine des prés
+ga:Airgead luachra
+gl:Herba ulmeira
+hr:Končara
+# hsb:Bahnowa smjetanka
+hu:Réti legyezőfű
+is:Mjaðjurt
+ja:セイヨウナツユキソウ
+# kbd:Сэтэней
+la:Filipendula ulmaria
+li:Moerasspirea
+lt:Pelkinė vingiorykštė
+lv:Parastā vīgrieze
+mk:медуника
+nb:Mjødurt
+nl:Moerasspirea
+nn:Mjødurt
+pl:Wiązówka błotna
+ro:Crețușcă
+ru:Таволга вязолистная
+sk:túžobník brestový
+sl:Brestovolistni oslad
+sr:Суручица
+sv:Älggräs
+uk:Гадючник в'язолистий
+zh:旋果蚊草子
+wikidata:Q147176
+wikipedia:https://en.wikipedia.org/wiki/Filipendula_ulmaria
+# fr:reine-des-prés has 37 products in 1 language @2018-10-15
 
+# Roselle (Hibiscus sabdariffa) is a species of Hibiscus used for the production of bast fibre and as an infusion, in which it may be known as carcade.
 
-<en:herb
+<en:plant
+en:roselle flower
+ar:كركديه
+# arz:كركديه
+as:টেঙামৰা
+az:Məkkə çayı
+# azb:مکَه چایی
+bg:চুকাই
+ca:rosa de Jamaica
+cs:ibišek súdánský
+de:Karkadeblüten, Roselle
+eo:Sabdarifo
+fa:روزل
+fi:Teehibiskus
 fr:fleurs de carcadé
+gu:અંબાડી
+hu:rozella
+id:Rosela
+it:flori di carcadè
+ja:ローゼル
+jv:Rosela
+ko:로젤
+ln:Ngai ngai
+lt:Jamaikinė kinrožė
+ml:പുളിവെണ്ട
+mr:अंबाडी
+ms:Asam belanda
+my:ချဉ်ပေါင်
+nl:hibiscusbloem, roselle
+pl:Ketmia szczawiowa
+pt:Vinagreira
+ru:Розелла
+sd:کٽنبڙو
+su:Rosella
+sv:Rosellhibiskus
+te:గోంగూర
+th:กระเจี๊ยบเปรี้ยว
+tr:Kerkede
+zh:玫瑰茄
+wikidata:Q319390
+wikipedia:https://en.wikipedia.org/wiki/Roselle_(plant)
+# fr:fleurs-de-carcadé has 12 products in 3 languages @2018-10-15
 
+# Helianthus or SUNFLOWER (/ˌhiːliˈænθəs/)[2] is a genus of plants comprising about 70 species
+# en:sunflower is only found as a specication, i.e. oil (sunflower, ...)
+# This plant is kept outside the section as it is not eaten.
+
+en:sunflower
+af:sonneblom
+ar:دوار الشمس
+az:günəbaxan
+# azb:گۆنه‌باخان
+ba:көнбағыш
+be:Сланечнік
+# be-tarask:сланечнік
+bg:слънчоглед
+cs:slunečnice
+# csb:słuńcownik
+cv:Хĕвелçаврăнăш ретĕнчисем
+da:Solsikke
+de:Sonnenblumen
+# dsb:słyńca
+el:ηλίανθος
+# en-ca:sunflower
+# en-gb:sunflower
+eo:helianto
+et:päevalill
+eu:Helianthus
+fa:گل‌آفتاب‌گردانیان
+fi:Auringon
+fr:tournesol
+# frr:sanruusen
+# gom:सूर्यफूल
+he:חמנית
+hr:suncokret
+hsb:słónčnica
+hy:արևածաղիկ
+# inh:Гидуарг
+is:Sólblóm
+ja:ヒマワリ属
+ka:მზესუმზირა
+kk:күнбағыс
+n:ಸೂರ್ಯಕಾಂತಿ
+ky:Күн карама
+la:Helianthus
+lt:saulėgrąža
+lv:saulespuķes
+mk:сончоглед
+ml:സൂര്യഗായത്രി
+mr:सुर्यफूल
+# myv:Чиньжарамо
+nb:Solsikke
+nl:zonnebloem
+pl:słonecznik
+ru:подсолнечник
+si:සූරියකාන්ත
+sl:slnečnica
+sv:solross
+# szl:Zůnynblůma
+# tcy:ಸೂರ್ಯಕಾ೦ತಿ
+tl:mirasol
+to:siolaʻā
+tt:көнбагыш
+uk:соняшник
+uz:kungaboqar
+vi:chi Hướng dương
+# yue:向日葵屬
+zh:向日葵屬
+wikidata:Q26949
+wikipedia:https://en.wikipedia.org/wiki/Helianthus
+# en:sunflower has 16610 products @2018-10-15
 en:lecithins
 fr:lécithine, lécithines
 de:Lecithine
+
+
 
 en:sodium ascorbate
 fr:ascorbate de sodium
@@ -17279,6 +21677,7 @@ fr:carbonate acide de sodium
 
 en:pectin
 fr:pectine
+es:Pectina
 
 en:mono- and diglycerides of fatty acids
 fr:mono- et diglycérides d'acides gras
@@ -17310,16 +21709,11 @@ fr:chapelure
 fr:chapelure de blé
 
 fr:érythorbate de sodium
-
-fr:moutarde de dijon
-
-fr:moutarde forte de dijon
+es:Eritorbato de sodio
 
 fr:humectant
 
 
-en:leek
-fr:poireau, poireaux
 
 # Should not be in the ingredients
 # fr:energie
@@ -17337,14 +21731,15 @@ fr:b6
 
 en:niacin
 fr:niacine
+es:niacina
 
-fr:emmental
 
 fr:b2
 
 
-
+en:sodium citrate
 fr:citrate de sodium, citrates de sodium
+es:citrato de sodio
 
 fr:crustacé
 
@@ -17399,7 +21794,7 @@ fr:fer
 
 en:sodium bicarbonate
 fr:bicarbonate de sodium
-
+de:Natriumhydrogencarbonat
 
 
 
@@ -17407,19 +21802,14 @@ fr:vanilline
 
 fr:mollusque
 
-fr:b12
-
 fr:thiamine
 
 fr:carotène
 
 fr:rocou
 
-fr:poivrons rouge
 
 fr:petits pois, petit pois
-
-fr:poivron
 
 fr:bêta-carotène
 
@@ -17467,22 +21857,25 @@ fr:café soluble
 # Random
 
 en:calcium chloride
-es:cloruro cálcico
+es:cloruro cálcico, Cloruro de calcio
 fr:chlorure de calcium
 nl:calciumchloride
 de:Calciumchlorid
+#wikidata:en:
 
 en:calcium gluconate
 es:gluconato de calcio
 fr:gluconate de calcium
 nl:calciumgluconaat
 de:Calciumgluconat
+#wikidata:en:
 
 en:calcium glycerophosphate
 es:glicerofosfato de calcio
 fr:glycérophosphate de calcium
 nl:calciumglycerofosfaat
 de:Calciumglycerophosphat
+#wikidata:en:
 
 fr:garniture
 
@@ -17512,6 +21905,7 @@ fr:graisse de canard
 fr:anhydride sulfureux
 
 fr:propionate de calcium
+es:Propionato de calcio
 
 en:gherkin
 es:pepinillos
@@ -17519,7 +21913,6 @@ fr:cornichon, cornichons
 nl:augurken
 de:Gurken
 
-fr:anthocyane
 
 fr:chlorure de potassium
 
@@ -17531,8 +21924,6 @@ fr:mozzarella
 
 fr:minéraux
 
-
-fr:poivron rouge
 
 fr:alginate de sodium
 
@@ -17683,17 +22074,14 @@ fr:acétate de sodium
 
 fr:pp
 
-fr:fenouil
 
 fr:phosphate de calcium, phosphates de calcium
 
 
 fr:filet de poulet
 
-
-
-
 fr:carbonate de sodium
+de:Natriumcarbonate
 
 fr:sardine
 
@@ -17704,10 +22092,6 @@ fr:triphosphate
 
 fr:lactate de potassium
 
-fr:fromage blanc
-
-
-
 
 fr:biotine
 
@@ -17715,7 +22099,6 @@ fr:bouillon de légume
 
 fr:k
 
-fr:clou de girofle
 
 fr:fibres alimentaires, fibre alimentaire
 
@@ -17724,8 +22107,6 @@ fr:présure animale
 fr:carthame
 
 fr:iodure de potassium
-
-
 
 fr:câpre
 
@@ -17761,13 +22142,11 @@ fr:gomme base
 fr:dextrine
 
 fr:benzoate de sodium
+es:Benzoato de sodio
 
 fr:sulfate de zinc
 
 fr:glycosides de stéviol
-
-
-fr:yaourt
 
 fr:gomme d'acacia
 
@@ -17827,8 +22206,6 @@ fr:fibres végétales, fibre végétale
 
 
 
-fr:céleri-rave
-
 
 en:black tea
 es:té negro
@@ -17850,6 +22227,7 @@ es:lactato de calcio
 fr:lactate de calcium
 nl:calciumlactaat
 de:Calciumlactat
+#wikidata:en:
 
 
 
@@ -17859,6 +22237,8 @@ fr:salade
 fr:hibiscus
 
 fr:bicarbonate d'ammonium
+es:Bicarbonato de amonio
+#wikidata:en:
 
 fr:carbonate de magnésium
 
@@ -17895,6 +22275,7 @@ en:magnesium
 fr:magnésium
 
 fr:glycérine
+es:Glicerina
 
 
 fr:condiment
@@ -17991,14 +22372,19 @@ fr:purée de tomate
 <fr:purée de tomate
 fr:purée de tomates double concentré, purée de tomate double concentrée
 
+<fr:purée de tomate
 fr:purée de tomates à base de concentré, purée de tomate à base de concentré
 
+<fr:purée de tomate
 fr:purée de tomates reconstituée
 
+<fr:purée de tomate
 fr:purée de tomate mi-réduite, purée de tomates mi-réduites
 
+<fr:purée de tomate
 fr:pulpe de tomates avec morceaux et purée de tomates
 
+<fr:purée de tomate
 fr:purée de tomates mi-concentrée
 
 en:concentrated tomato puree
@@ -18127,6 +22513,8 @@ fr:riz sauvage
 
 fr:riz long grain étuvé de qualité supérieure
 
+fr:Riz long blanc
+
 # Random
 
 
@@ -18144,6 +22532,7 @@ fr:gomme de cellulose
 fr:b8
 
 fr:bicarbonate de soude
+es:bicarbonato de sodio
 
 
 en:Daikon cress
@@ -18203,14 +22592,6 @@ de:Gurkensaft aus Gurkensaftkonzentrat
 fr:carbonate d'ammonium
 
 
-en:xylitol
-fr:xylitol
-
-
-en:carot juice
-fr:jus de carotte
-
-fr:chou
 
 fr:extraits végétaux
 
@@ -18218,8 +22599,6 @@ fr:hydroxyde de sodium
 
 fr:coagulant microbien
 
-<fr:fromage
-fr:emmental râpé
 
 fr:inositol
 
@@ -18238,9 +22617,6 @@ fr:cire d'abeille
 
 fr:cire d'abeille blanche et jaune
 
-
-
-fr:lécithines de colza
 
 fr:crème légère
 
@@ -18294,8 +22670,6 @@ fr:gomme tara
 
 fr:concentré
 
-fr:poivron vert, poivrons verts
-
 fr:matière grasse de lait
 
 fr:graisse de poule
@@ -18304,16 +22678,9 @@ fr:graisse de poule
 fr:bouillon de volaille
 
 fr:phosphate de sodium, phosphates de sodium
+es:Fosfato de sodio
 
 fr:germe de blé, germes de blé
-
-
-
-en:dried fenugreek leaves
-es:hoja de fenegreco seca
-fr:feuille de fenugrec séchée
-nl:gedroogd fenegriekblad
-de:getrockneter Bockshornklee
 
 
 
@@ -18335,35 +22702,6 @@ fr:gluconate ferreux
 
 fr:matière grasse laitière
 
-# Vegetables
-
-en:broccoli
-es:brécol
-fr:brocoli
-nl:broccoli
-de:Brokkoli
-#wikidata:en:Q47722
-
-<en:broccoli
-en:broccoli cress
-es:mastuerzo
-fr:pousses de brocoli
-nl:broccili cress
-de:Brokkolikresse
-
-en:aubergine
-es:berenjena
-fr:aubergine
-nl:aubergine
-de:Auberginen
-
-en:cauliflower 
-es:coliflor 
-fr:chou-fleur, choux-fleur, choux-fleurs
-nl:bloemkool 
-de:Blumenkohl
-#wikidata:en:
-
 # Random
 
 fr:concentré des minéraux du lait
@@ -18383,7 +22721,6 @@ fr:réglisse
 
 fr:carotènes végétaux
 
-fr:lentille verte, lentilles vertes
 
 fr:babeurre
 
@@ -18430,31 +22767,6 @@ fr:moule, moules
 fr:enrobage
 
 
-# Beetroot
-
-en:beetroot
-es:remolacha
-fr:betterave
-nl:bieten
-de:Rüben
-
-en:beetroot sprouts
-es:germen de remolacha
-fr:pousses de betterave
-nl:bietenkiemen
-de:Rote-Bete-Sprossen
-
-fr:betterave rouge, betteraves rouges
-
-fr:rouge de betterave
-
-fr:poudre de betterave
-
-fr:jus de betterave concentré
-
-fr:betterave rouge déshydratée
-
-fr:concentré de jus de betterave rouge
 
 # Random
 
@@ -18466,8 +22778,6 @@ fr:palmitate d'ascorbyle
 fr:sulfite acide de sodium
 
 fr:foie de poulet
-
-fr:concentré de carotte, concentré de carottes
 
 fr:invertase
 
@@ -18498,8 +22808,6 @@ fr:bimi
 nl:bimi
 de:Bimi
 
-fr:lentille, lentilles
-
 
 fr:lardon fumé, lardons fumés
 
@@ -18512,8 +22820,6 @@ fr:pain azyme
 fr:edam
 
 fr:sérum de lait
-
-fr:poivron vert
 
 fr:dioxyde de carbone
 
@@ -18528,14 +22834,15 @@ fr:purée et purée concentrée
 
 fr:poudre de babeurre
 
-fr:grana padano
 
 fr:os de poulet
 
 fr:pulpe
 
 
-fr:chou blanc
+en:xylitol
+fr:xylitol
+
 
 fr:frisée
 
@@ -18556,21 +22863,15 @@ fr:menthol
 nl:menthol
 de:Menthol
 
-en:cheddar
-fr:cheddar
-
 fr:nouilles
-
 
 en:sodium chlorure
 fr:chlorure de sodium
+es:Cloruro de sodio
 
 fr:surimi
 
 fr:gras
-
-
-
 
 fr:flageolets verts
 
@@ -18594,7 +22895,7 @@ de:Schwarztee-Extrakt
 fr:mayonnaise allégée en matières grasses
 
 
-r:saindoux
+fr:saindoux
 
 
 fr:algues euchema transformées
@@ -18626,6 +22927,7 @@ fr:métabisulfite de sodium
 
 
 fr:iodate de potassium
+de:Kaliumjodat
 
 en:calcium iodate
 es:yodato de calcio
@@ -18668,22 +22970,6 @@ fr:ortie
 fr:malate acide de sodium, e350ii
 
 
-en:sauerkraut
-es:choucroute
-fr:choucroute
-nl:zuurkool
-de:Sauerkraut
-
-<en:sauerkraut
-en:sauerkraut juice
-es:zumo de choucroute
-fr:jus de choucroute
-nl:zuurkoolsap
-de:Sauerkrautsaft
-
-
-
-fr:verveine
 
 fr:polyricinoléate de polyglycérol
 
@@ -18697,7 +22983,6 @@ fr:morue
 
 fr:oncorhynchus mykiss
 
-fr:comté
 
 fr:foie gras de canard du sud-ouest
 
@@ -18721,8 +23006,6 @@ fr:diphosphate, e450
 
 fr:conservateur du fruit
 
-fr:paprika en poudre
-
 fr:salpêtre
 
 # This is a compound ingredient
@@ -18743,15 +23026,18 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce%20cuisinée
 fr:carotènes
 
 
+fr:nigari, E511
+
+
+en:potassium sorbate
+fr:sorbate de potassium
+es:Sorbato de potasio
+
 en:breadfruit
 es:fruto del pan
 fr:fruit à pain
 nl:broodvrucht
 de:Brotfrucht
-
-
-
-fr:carotte noire
 
 fr:glace
 
@@ -18774,7 +23060,6 @@ fr:gomme gellane
 
 fr:diacétate de sodium
 
-fr:courge
 
 fr:phosphate de sodium
 
@@ -18832,20 +23117,16 @@ fr:carbonates d'ammonium et de sodium
 
 fr:madère
 
-fr:poivrons rouges et verts
-
-
 
 
 fr:extrait de thé vert
-
-fr:poivrons jaunes
 
 fr:sardina pilchardus
 
 fr:quinine
 
 fr:citrate de potassium
+es:Citrato de potasio
 
 fr:fibres de pois
 
@@ -18856,9 +23137,6 @@ fr:sucroesters d'acides gras
 
 fr:bêtacarotène
 
-fr:poudre de paprika
-
-fr:aubergines grillées
 
 fr:algues
 
@@ -18869,14 +23147,10 @@ nl:algenconcentraat
 de:Algenkonzentrat
 treatment:en: en:concentration
 
-fr:galanga
 
 
 
 fr:extrait de carthame
-
-
-fr:ferments lactiques du yaourt
 
 
 fr:fibres de chicorée
@@ -18962,9 +23236,6 @@ de:Schwarze Trüffel
 
 fr:concentré de spiruline
 
-fr:emmental fondu
-allergens:fr:_emmental_ fondu
-treatment:en: en:melting
 
 fr:energy
 
@@ -18972,17 +23243,11 @@ fr:energy
 fr:dorure
 
 fr:phosphate monocalcique
+es:fosfato monocalcico
 
 fr:citrate de potassium, citrates de potassium
 
-fr:gousses de vanille épuisées broyées
-
-
 fr:extrait naturel de vanille
-
-
-
-fr:gousses de vanille épuisées
 
 
 fr:vanille bourbon
@@ -19032,7 +23297,6 @@ fr:sélénate de sodium
 fr:ketchup
 
 
-fr:aubergines préfrites
 
 
 fr:fibre
@@ -19083,7 +23347,7 @@ fr:monoglutamate de sodium
 
 fr:bolets
 
-fr:extrait de céleri
+
 
 
 fr:condiments
@@ -19094,7 +23358,7 @@ fr:aronia
 
 fr:baies de genièvre
 
-fr:extraits de paprika
+
 
 fr:esters lactiques des mono- et diglycérides d'acides gras
 
@@ -19128,8 +23392,6 @@ fr:colorant e171
 fr:e 120
 
 fr:e 120
-
-fr:e 160a
 
 fr:e 202
 
@@ -19213,21 +23475,8 @@ fr:e153
 
 fr:e153
 
-fr:e160
-
-fr:e160a
-
-fr:e160aii
-
-fr:e160b
-
-fr:e160c
-
 fr:e161b
 
-fr:e162
-
-fr:e162
 
 fr:e163
 
@@ -19513,7 +23762,6 @@ fr:sel d'aspartame-acésulfame, e962
 
 fr:b1
 
-fr:colorant e160a
 
 fr:colorant naturel
 
@@ -19655,6 +23903,10 @@ fr:olive verte, olives verte
 <fr:olive verte
 fr:olives vertes dénoyautées
 
+fr:olives vertes et noires
+
+fr:olives noires avec noyau
+
 # GRAISSE VEGETALE
 
 <en:sunflower
@@ -19761,38 +24013,6 @@ allergens:fr:_lactose_ et minéraux du _lait_
 fr:caramel au beurre salé
 allergens:fr:caramel au _beurre_ salé
 
-# Garlic
-en:garlic
-es:ajo
-fr:ail
-nl:knoflook
-de:Knoblauch
-
-en:garlic puree
-fr:purée d'ail
-
-fr:poudre d'ail, ail en poudre
-de:Knoblauchpulver
-el:σκόρδο σκόνη
-es:ajo en polvo
-it:aglio in polvere
-nl:knoflookpoeder
-pt:alho em pó
-
-fr:ail déshydraté
-
-fr:pulpe d'ail
-
-fr:ail en poudre
-
-en:garlic paste
-fr:pâte d'ail
-
-fr:ail des ours
-
-<en:garlic
-en:rehydrated garlic
-fr:ail réhydraté
 
 # Onions
 
@@ -19889,8 +24109,6 @@ fr:oignon réhydraté
 fr:dextrine de blé
 allergens:fr:dextrine de _blé_
 
-fr:poivron jaune
-
 fr:ciboule
 
 
@@ -19976,7 +24194,7 @@ fr:piment doux
 <fr:piment
 fr:piment fort
 
-en:cayenne pepper                       
+en:cayenne pepper                       
 es:pimienta de cayena
 fr:piment de Cayenne
 nl:cayennepeper
@@ -20003,8 +24221,6 @@ fr:phosphate trisodique
 fr:fumée de bois de hêtre
 
 fr:maltose
-
-fr:purée de gingembre
 
 fr:pleurotes
 
@@ -20035,13 +24251,6 @@ fr:éclats de caramel
 
 fr:sauce de poisson
 
-fr:lentilles corail
-
-en:green lentils
-es:lentejas rubias
-fr:lentilles blondes
-nl:blonde linzen
-de:Tellerlinsen
 
 fr:présure microbienne
 
@@ -20107,12 +24316,6 @@ fr:galette
 fr:sauce poisson
 
 
-# Juices
-
-fr:jus concentré de céleri
-
-fr:extrait d'ail
-
 fr:tamari
 
 fr:pois chiches secs trempés
@@ -20127,14 +24330,11 @@ fr:sulfate de magnésium
 
 fr:l-cystéine
 
-fr:gingembre moulu
 
 fr:filets de colin d'alaska
 allergens:fr:filets de _colin_ d'alaska
 
 
-
-fr:poivrons rouges grillés
 
 fr:palme et colza
 
@@ -20142,8 +24342,6 @@ fr:chlorure de choline
 
 en:algae
 fr:algue
-
-
 
 fr:pyrophosphate de fer
 
@@ -20174,6 +24372,9 @@ de:Blütenhonig
 fr:miel d'acacia
 
 <en:honey
+fr:Miel de châtaignier
+
+<en:honey
 fr:mélange de miels originaires et non originaires de l'ue
 
 fr:jaunes d'oeufs frais
@@ -20182,8 +24383,6 @@ allergens:fr:jaunes d'_oeufs_ frais
 
 fr:poivre de cayenne
 fr:chlorophylles
-
-fr:olives noires avec noyau
 
 fr:scarole
 
@@ -20215,9 +24414,6 @@ fr:carbonates de sodium
 
 fr:harissa
 
-fr:cheddar fondu
-allergens:fr:_cheddar_ fondu
-treatment:en: en:melting
 
 
 
@@ -20242,10 +24438,6 @@ fr:olive noire
 
 
 fr:coagulant enzymatique
-
-fr:yogourt partiellement écrémé
-
-
 
 fr:oseille
 
@@ -20330,6 +24522,7 @@ fr:colin
 
 en:riboflavin
 fr:riboflavine, riboflavines
+es:Riboflavina
 
 en:egg pastas
 fr:pâtes aux oeufs
@@ -20340,9 +24533,6 @@ fr:vanille en poudre
 fr:fibre d'acacia, fibres d'acacia
 
 fr:lithothamnium calcareum, algue lithothamnium calcareum
-
-fr:yaourt au lait entier
-allergens:fr:yaourt au _lait_ entier
 
 fr:pois cassés
 
@@ -20371,8 +24561,6 @@ fr:caroténoïdes mélangés
 
 fr:fécules
 
-fr:chou vert, choux verts
-
 fr:concentré salin liquide
 
 fr:canelle
@@ -20397,8 +24585,6 @@ fr:morceaux de chocolat noir
 
 fr:suc de réglisse
 
-fr:chou de Bruxelles, choux de bruxelles
-
 fr:condiment balsamique blanc
 
 fr:oxyde de zinc
@@ -20409,16 +24595,6 @@ fr:gélatine de poisson
 allergens:fr:gélatine de _poisson_
 
 
-
-fr:courgette
-
-<fr:courgette
-en:grilled courgette
-es:calabacín asado
-fr:courgette grillée, courgettes grillées, courgette grillée
-nl:gegrilde courgette
-de:gegrillte Zucchini
-treatment:en: en:gril
 
 fr:marc de bourgogne
 
@@ -20431,17 +24607,6 @@ fr:géliﬁant
 
 fr:jus cuisiné
 
-
-
-fr:petits pois extra fins
-
-fr:yaourt maigre
-allergens:fr:_yaourt_ maigre
-
-fr:lentilles sèches trempées
-
-fr:emmental français
-allergens:fr:_emmental_ français
 
 fr:demi-crème
 allergens:fr:_demi-crème_
@@ -20456,9 +24621,6 @@ fr:b. lactis, Bifidobacterium lactis
 
 fr:fèves
 
-
-fr:chou rouge
-
 fr:crudités
 
 fr:grenache
@@ -20472,103 +24634,6 @@ fr:clupea harengus
 fr:endives
 
 
-# Cheeses
-
-fr:fromage suisse
-
-fr:ricotta
-allergens:fr:_ricotta_
-
-fr:fromage de chèvre au lait pasteurisé
-allergens:fr:fromage de chèvre au _lait_ pasteurisé
-
-fr:fromage pecorino
-allergens:fr:_fromage_ pecorino
-
-fr:fromage au lait de vache pasteurisé
-allergens:fr:fromage au _lait_ de vache pasteurisé
-
-fr:fromage mascarpone
-allergens:fr:_fromage_ mascarpone
-
-fr:fromage pecorino romano aop
-allergens:fr:_fromage_ pecorino romano aop
-
-fr:fromage cheddar
-allergens:fr:_fromage_ cheddar
-
-fr:fromage de brebis
-
-fr:fromage blanc frais
-allergens:fr:_fromage_ blanc frais
-
-fr:fromage edam
-allergens:fr:_fromage edam_
-
-fr:préparation fromagère
-allergens:fr:préparation _fromagère_
-
-fr:fromage ricotta
-allergens:fr:_fromage_ ricotta
-
-fr:fromage grana padano aop
-allergens:fr:_fromage_ grana padano aop
-
-fr:fromage frais au lait demi-écrémé
-
-fr:fromage
-allergens:fr:_fromage_
-
-fr:fromage frais
-allergens:fr:_fromage_ frais
-
-fr:fromage fondu
-allergens:fr:_fromage_ fondu
-treatment:en: en:melting
-
-fr:fromage de chèvre
-allergens:fr:_fromage_ de chèvre
-
-fr:fromage maigre
-allergens:fr:_fromage_ maigre
-
-fr:fromage à pâte pressée cuite
-allergens:fr:_fromage_ à pâte pressée cuite
-
-en:mozzarella cheese
-fr:fromage mozzarella
-allergens:fr:_fromage mozzarella_
-
-en:parmigiano reggiano
-de:parmigiano reggiano
-it:parmigiano reggiano
-fr:parmigiano reggiano
-allergens:fr:_parmigiano reggiano_
-
-fr:fromage au lait pasteurisé
-allergens:fr:fromage au _lait_ pasteurisé
-
-fr:poudre de fromage
-allergens:fr:poudre de _fromage_
-
-fr:fromage fondu en poudre
-allergens:fr:_fromage_ fondu en poudre
-treatment:en: en:melting
-
-fr:fromage à pâte dure
-allergens:fr:_fromage_ à pâte dure
-
-fr:fromage râpé
-allergens:fr:_fromage_ râpé
-
-fr:parmesan
-allergens:fr:_parmesan_
-
-fr:fromage en poudre
-allergens:fr:_fromage_ en poudre
-
-fr:gruyère
-allergens:fr:_gruyère_
 
 # Random
 
@@ -20576,20 +24641,6 @@ allergens:fr:_gruyère_
 
 fr:reblochon
 allergens:fr:_reblochon_
-
-fr:fibres de carotte
-
-fr:carottes en rondelles
-
-fr:jus de carotte concentré
-
-fr:jus concentré de carotte pourpre
-
-fr:carottes râpées
-
-fr:extrait de carotte
-
-fr:jus concentré de carotte
 
 fr:saccharomyces cerevisiae
 
@@ -20599,7 +24650,6 @@ fr:coeurs de palmiers
 
 fr:pholiotes
 
-fr:lentilles précuites
 
 fr:crème pâtissière
 
@@ -20618,13 +24668,12 @@ fr:e163
 
 fr:e150c
 
-fr:e160b
 
 fr:e141
 
 fr:complexes cuivre-chlorophylles et cuivre-chlorophyllines, e141
 
-fr:e160c
+
 
 fr:colorants naturels
 
@@ -20693,9 +24742,9 @@ fr:e950
 # nova:en:lecithin
 <en:lecithin
 en:soya lecithin, soy lecithin
-es:lecitina de soja
+es:lecitina de soja, lecitina de soya
 fr:lécithine de soja, lécithines de soja, émulsifiant lécithines de soja, lécithine de soja e322
-de:Sojalecithine
+de:Sojalecithine, Sojalecithin
 allergens:fr:lécithine de _soja_ e322
 allergens:fr:lécithine de _soja_
 
@@ -20711,6 +24760,8 @@ allergens:fr:lécithine de _soja_ et de tournesol
 en:sunflower lecithin
 fr:lécithine de tournesol
 
+<en:lecithin
+fr:lécithines de colza
 
 <fr:émulsiﬁants
 fr:émulsifiants lécithines
@@ -20758,9 +24809,6 @@ fr:carbonate de fer
 
 
 
-fr:moutarde en poudre
-allergens:fr:_moutarde_ en poudre
-
 
 fr:s. thermophilus, Streptococcus thermophilus
 
@@ -20781,8 +24829,6 @@ fr:gras de veau
 fr:pyrophosphate de soude
 
 fr:iode
-
-fr:base aromatisante fromage
 
 
 fr:papier traité
@@ -20841,8 +24887,6 @@ fr:bacon
 
 fr:chlorure de chrome
 
-fr:fibre de carotte
-
 fr:citrique
 
 
@@ -20851,14 +24895,8 @@ fr:gluconate de cuivre
 
 fr:nicotinamide
 
-fr:poudre de betterave rouge
-
-fr:ail frais
-
 fr:canneberge
 
-fr:raclette
-allergens:fr:_raclette_
 
 fr:brisures de crêpe dentelle
 
@@ -20889,16 +24927,12 @@ fr:vermicelle
 
 fr:glycérol d'origine végétale
 
-fr:jus concentré de carotte noire
-
 fr:poisson blanc
 allergens:fr:_poisson_ blanc
 
 
 fr:filets d'anchois salés
 allergens:fr:filets d'_anchois_ salés
-
-fr:poivrons rouges et jaunes
 
 fr:maroilles
 allergens:fr:_maroilles_
@@ -20920,8 +24954,6 @@ fr:protéines végétales réhydratées
 
 fr:morceaux de chocolat
 
-fr:carotte jaune
-
 fr:morceaux de foie gras de canard
 
 fr:phosphates de potassium
@@ -20938,15 +24970,8 @@ fr:jus de cuisson
 
 # Random
 
-fr:poivrons grillés
 treatment:en: en:gril
 
-en:grilled pepper
-es:pimiento asado
-fr:poivron grillé
-nl:gegrilde paprika
-de:gegrillte Paprika
-treatment:en: en:gril
 
 fr:mono et diglycérides d'acides gras d'origine végétale
 
@@ -20959,13 +24984,10 @@ fr:fibres alimentaires végétales
 fr:poule
 
 
-fr:lentilles vertes précuites
-
 fr:syrah
 
 fr:condiments en poudre
 
-fr:cannelle en poudre
 
 fr:fond de volaille aromatisé
 
@@ -20988,8 +25010,7 @@ fr:bifidobactérium
 
 fr:agent d'enrobage cire de carnauba
 
-en:concentrated carrot juice
-fr:jus concentré de carottes
+
 
 fr:pain de mie au son de blé
 allergens:fr:pain de mie au son de _blé_
@@ -21013,7 +25034,7 @@ fr:conservateur e 202
 
 fr:cyclamate
 
-fr:choux
+
 
 fr:fibres d'acacia
 
@@ -21035,15 +25056,14 @@ fr:pelamis, Katsuwonus pelamis
 
 fr:préparation aromatisante
 
-fr:concentré de carotte et de citrouille
 
+
+
+# Random
 
 fr:oignon rouge
 
 fr:disphosphates
-
-fr:lait bio
-allergens:fr:_lait_ bio
 
 en:potassium phosphate
 fr:phosphate de potassium
@@ -21060,8 +25080,6 @@ fr:lardons
 fr:mirabelles
 
 fr:conservateur de surface
-
-fr:jus de carotte noire
 
 en:sodium pyrophosphate
 fr:pyrophosphate de sodium
@@ -21092,12 +25110,6 @@ fr:oreilles de judas
 
 fr:triphosphate pentasodique
 
-fr:carraghénanes
-
-
-fr:emmental français râpé
-allergens:fr:_emmental_ français râpé
-
 fr:oignon préfrit
 
 
@@ -21120,8 +25132,7 @@ fr:jus concentré d'oignon
 
 fr:fumet
 
-fr:aubergine grillée
-treatment:en: en:gril
+
 
 fr:isomaltulose
 
@@ -21140,8 +25151,6 @@ fr:fructooligosaccharides
 fr:gousses de vanille moulues
 
 
-
-fr:céleri branche
 
 
 
@@ -21187,7 +25196,7 @@ fr:champagne
 nl:champagne
 de:Champagner
 
-fr:jus de betterave
+
 
 fr:jus d'oignon concentré
 
@@ -21214,8 +25223,6 @@ fr:nori
 
 fr:orangeat
 
-fr:verveine odorante
-
 fr:racine de réglisse
 
 fr:litopenaeus vannamei
@@ -21224,16 +25231,13 @@ fr:pandalus borealis
 
 fr:cranberries séchées
 
-fr:paprika doux
 
 
 fr:plantain
 
 fr:caramel de sulfite caustique
 
-fr:jus de carottes
 
-fr:oignon et ail en poudre
 
 
 
@@ -21277,7 +25281,7 @@ fr:extrait pur de vanille
 
 fr:extraits naturels d'épices
 
-fr:aubergines frites
+
 
 fr:mirabelle
 
@@ -21301,46 +25305,42 @@ fr:lécithine de tournesol, lécithines de tournesol
 nl:zonnebloemlecithine
 de:Sonnenblumenlecithin
 
-en:sunflower
-fr:tournesol
 
 fr:tournesol oléique
 
+fr:lait bio
+allergens:fr:_lait_ bio
 
 fr:protéines solubles de lait
 allergens:fr:protéines solubles de _lait_
 
-fr:fruits de mer
+fr:concentré de lait écrémé
+allergens:fr:concentré de _lait_ écrémé
 
 fr:substances laitières modifiées
 
 fr:laitue de mer
+
+fr:fruits de mer
 
 fr:jaune d'oeuf frais
 allergens:fr:jaune d'_oeuf_ frais
 
 fr:gluconate de fer
 
-fr:yaourt brassé sucré
-allergens:fr:_yaourt_ brassé sucré
-
 fr:sélénium
 
 fr:sucrose
 
-fr:betteraves
 
+
+
+<en:cheese
 fr:pecorino
 allergens:fr:_pecorino_
 
-fr:concentré de lait écrémé
-allergens:fr:concentré de _lait_ écrémé
-
 fr:phosphates
 
-fr:jus de betterave rouge concentré
-
-fr:poivrons rouges déshydratés
 
 fr:morceaux de foie gras de canard du sud-ouest
 
@@ -21350,17 +25350,9 @@ fr:ferment lactiques
 
 
 
-fr:poudre de moutarde
-allergens:fr:poudre de _moutarde_
-
-
-
 
 
 fr:jus de cuisson de viande de boeuf
-
-
-fr:oléorésine de paprika
 
 fr:bigarreaux confits
 
@@ -21394,75 +25386,10 @@ fr:éclats de caramel au beurre salé
 fr:origan déshydraté
 
 
-fr:cannelle moulue
-
 
 fr:disphosphate disodique, Pyrophosphate acide de soude, pyrophosphate de sodium
 
 
-fr:pommes de terre cuites
-
-fr:flocons de pomme de terre déshydratés
-
-en:potato powder
-es:patata en polvo
-fr:poudre de pommes de terre, poudre de pomme de terre
-nl:aardappelpoeder
-de:Kartoffelpulver
-
-en:potato fibre
-es:fibra de patata
-fr:fibres de pomme de terre, fibre de pomme de terre
-nl:aardappelvezel
-de:Kartoffelfasern
-
-fr:fibres de pommes de terre, fibres de pomme de terre
-
-en:cooked potato
-es:patata cocida
-fr:pomme de terre cuite
-nl:gegaarde aardappel
-de:gegarte Kartoffeln
-
-
-fr:fécule modifiée de pommes de terre
-
-fr:flocons de pomme de terre réhydratés
-
-fr:purée de pomme de terre, purée de pommes de terre
-
-
-fr:flocon de pomme de terre
-
-fr:pommes de terre préfrites
-
-fr:pomme de terre déshydratée
-
-fr:flocons de pommes de terre, flocons de pomme de terre, flocon de pomme de terre,
-
-fr:pomme de terre déshydratée, pommes de terre déshydratées
-
-fr:flocons de pomme de terre, flocon de pomme de terre
-
-en:potato
-es:patata
-fr:pomme de terre, pommes de terre
-nl:aardappel
-de:Kartoffeln
-wikidata:en:Q16587531
-
-fr:fécule de pomme de terre modifiée
-
-fr:pommes de terre en poudre
-
-
-
-
-
-fr:graines de vanille épuisées
-
-
-fr:épinards en branches
 
 
 
@@ -21478,8 +25405,6 @@ fr:fibre alimentaire
 
 
 fr:substitut du sel
-
-fr:garniture de céleri
 
 fr:exhausteurs de saveur
 
@@ -21558,9 +25483,6 @@ fr:feuilles de coriandre
 
 
 
-fr:fromage frais à 0% de matière grasse
-allergens:fr:_fromage_ frais à 0% de matière grasse
-
 fr:poudre de crème
 allergens:fr:poudre de _crème_
 
@@ -21577,8 +25499,6 @@ fr:camembert
 allergens:fr:_camembert_
 
 fr:agent crémeux
-
-fr:fromage grana padano
 
 en:egg
 es:huevo
@@ -21813,8 +25733,6 @@ fr:limonade
 
 fr:coings
 
-fr:poivrons verts et rouges
-
 fr:bleu
 allergens:fr:_bleu_
 
@@ -21849,8 +25767,6 @@ fr:extrait concentré
 
 fr:glaçage
 
-fr:jus de betterave rouge
-
 
 fr:lait de bufflonne
 allergens:fr:_lait_ de bufflonne
@@ -21862,24 +25778,12 @@ nl:buffelmelk
 de:Büffelmilch
 allergens:fr:_lait_ de buffle
 
-fr:cannelle de ceylan
-
 fr:marsala
 
 
 fr:boyau collagénique
 
 fr:fleurs d'hibiscus
-
-fr:purée de carotte
-
-fr:jus de carotte pourpre concentré
-
-fr:carottes déshydratées
-
-fr:carottes jaunes
-
-fr:jeunes carottes
 
 fr:merlot
 
@@ -21900,9 +25804,6 @@ fr:liqueur
 
 
 
-
-
-fr:jus concentré de betterave
 
 
 en:angostura
@@ -21931,12 +25832,9 @@ fr:dulse
 fr:co2
 
 
-fr:cannelle de chine
 
 fr:dosidicus gigas
 allergens:fr:_dosidicus gigas_
-
-fr:yogourt au lait pasteurisé
 
 fr:sauternes
 
@@ -21949,13 +25847,10 @@ fr:pousse de bambou
 fr:encornets
 allergens:fr:_encornets_
 
-fr:ail semoule
-
 
 fr:sel épices
 
-fr:grana padano dop
-allergens:fr:_grana padano_ dop
+
 
 fr:pâte crue
 
@@ -22006,25 +25901,22 @@ allergens:fr:_lait_ demi-écrémé stérilisé u.h.t
 
 fr:cœur de bœuf
 
-fr:potassium sorbate
+
 
 fr:jus concentré d'os et de viande de bœuf
 
 fr:conservateur nitrite de sodium
 
-fr:grains de vanille épuisés
-
 fr:éclats de gaufrettes
 
 fr:massepain
-
-fr:épinard en poudre
 
 fr:lactosérum partiellement déminéralisé
 
 fr:lait stérilisé uht demi-écrémé
 
-fr:jus de carotte noire concentré
+
+
 
 fr:boyau de mouton
 
@@ -22034,14 +25926,16 @@ fr:feuilles de vigne
 
 fr:gélatine de volaille
 
-fr:lentilles rouges
+
 
 fr:poudre de lactosérum sucré
+de:Sussmolkenpulver
 
 fr:pecorino romano
 allergens:fr:_pecorino romano_
 
-
+fr:acide carbonique
+de:Kohlensaure
 
 fr:marc de champagne
 
@@ -22055,7 +25949,6 @@ fr:sol
 
 fr:conservateur de fruit
 
-fr:lentilles réhydratées
 
 fr:cayenne
 
@@ -22067,7 +25960,7 @@ fr:son
 
 fr:phosphate dicalcique
 
-fr:épinards en poudre
+
 
 fr:crème pasteurisé
 allergens:fr:_crème_ pasteurisé
@@ -22076,16 +25969,11 @@ fr:seitan
 
 fr:acétate de potassium
 
-fr:gousse de vanille épuisée
-
-fr:carottes en morceaux
-
 
 fr:galette de blé
 allergens:fr:galette de _blé_
 
-fr:moutarde forte
-allergens:fr:_moutarde_ forte
+
 
 
 fr:graisses végétales non hydrogénées
@@ -22190,15 +26078,13 @@ sv:Crème fraîche
 zh:法式酸奶油
 wikipedia:en:https://en.wikipedia.org/wiki/Crème_fraîche
 
-
-
 fr:tartrazine
+es:Tartrazina
 
 fr:glucuronolactone
 
 fr:fumarate de fer
 
-fr:céleri rave râpé
 
 fr:lactaires
 
@@ -22211,7 +26097,7 @@ fr:niacinamide
 
 fr:jus concentré
 
-fr:poudre d'épinard
+
 
 fr:canneberges séchées
 
@@ -22240,22 +26126,18 @@ fr:sauce aigre-douce
 fr:monodiglycérides de colza
 
 
-fr:aubergine préfrite
 
 fr:agents de coagulation
 
 fr:petits pois doux
 
 
-fr:feuilles de céleri
+
+
 
 fr:sulfite de sodium
 allergens:fr:_sulfite_ de sodium
 
-fr:lentille
-
-en:organic carrots
-fr:carottes bio
 
 fr:dérivés de lait
 allergens:fr:dérivés de _lait_
@@ -22269,16 +26151,10 @@ fr:tuber aestivum
 
 fr:sauce caramel
 
-fr:jus concentré de céleri et de carotte
-allergens:fr:jus concentré de _céleri_ et de carotte
-
 fr:transglutaminase
-
-fr:yogourt maigre
 
 fr:jus d'aronia
 
-fr:gousses de vanille bourbon
 
 
 
@@ -22291,7 +26167,6 @@ fr:pâtes fraîches cuites
 fr:produit de lactosérum
 allergens:fr:produit de _lactosérum_
 
-fr:lentilles vertes cuites
 
 fr:muesli
 
@@ -22323,18 +26198,13 @@ fr:ferments d'affinage
 
 fr:argopecten purpuratus
 
-fr:lait de montagne
-allergens:fr:_lait_ de montagne
-
-
-fr:paprika fumé
 
 fr:caséinate
 allergens:fr:_caséinate_
 
 fr:lardon fumé
 
-fr:ail séché
+
 
 
 fr:anhydride carbonique
@@ -22344,37 +26214,21 @@ fr:chlorhydrate de pyridoxine
 
 fr:liant
 
-
-
-fr:lait de vache pasteurisé
-allergens:fr:_lait_ de vache pasteurisé
-
-
 fr:crêpes
-
-fr:lait entier standardisé
-allergens:fr:_lait_ entier standardisé
-
-
 
 fr:cornichons au vinaigre
 
-fr:ail bio
+
 
 fr:agent d'enrobage carbonate de calcium
 
-fr:extrait naturel de paprika
+fr:carraghénane, carraghénanes, épaississant carraghénane
 
-fr:épaississant carraghénane
-
-fr:grains de vanille épuisée
 
 fr:lactoprotéines
 allergens:fr:_lactoprotéines_
 
 fr:pâtes fraîches
-
-fr:olives vertes et noires
 
 fr:culture de bifidus
 
@@ -22387,6 +26241,7 @@ allergens:fr:poudre de jaunes d'_oeufs_
 fr:fourrage lait
 allergens:fr:fourrage _lait_
 
+<en:cheese
 fr:feta
 allergens:fr:_feta_
 
@@ -22398,17 +26253,6 @@ fr:pois doux
 
 fr:bambou
 
-# BEETROOT is the taproot portion of the beet plant
-
-en:beetroot
-fr:betterave
-wikipedia:https://en.wikipedia.org/wiki/Beetroot
-
-<en:beetroot
-fr:fibres de betterave
-
-<en:beetroot
-fr:betterave rouge en poudre
 
 # JERUSALEM ARTICHOKE (Helianthus tuberosus), also called sunroot, sunchoke, earth apple, or topinambour, is a species of sunflower 
 
@@ -22441,22 +26285,6 @@ es:fibras de aloe vera
 fr:fibres d’aloe vera
 nl:aloe vera vezels
 de:Aloe-vera-Fasern
-
-# Chinese cabbage (Brassica rapa, subspecies pekinensis and chinensis) can refer to two groups of Chinese leaf vegetables often used in Chinese cuisine: the Pekinensis Group (napa cabbage) and the Chinensis Group (bok choy).
-
-en:Chinese cabbage
-es:col china
-fr:chou chinois
-nl:Chinese kool
-de:Chinakohl
-wikipedia:https://en.wikipedia.org/wiki/Chinese_cabbage
-
-fr:poivrons jaunes grillés
-treatment:en: en:gril
-
-fr:coeurs de palmier
-
-fr:chou frisé
 
 # Haricots
 
@@ -22549,9 +26377,6 @@ allergens:fr:poudre de _crevette_
 fr:crevettes roses
 allergens:fr:_crevettes_ roses
 
-fr:lait de bufflonne pasteurisé
-allergens:fr:_lait_ de bufflonne pasteurisé
-
 fr:salade mélangée
 
 fr:crème stérilisée
@@ -22584,18 +26409,6 @@ fr:filets d'anchois
 fr:brioche
 
 
-fr:gruyère aop
-
-fr:yaourt en poudre
-allergens:fr:_yaourt_ en poudre
-
-
-en:whole milk yogurt
-fr:yogourt au lait entier
-
-
-
-
 fr:diphosphates disodique
 
 fr:guarana
@@ -22612,14 +26425,8 @@ fr:lactate de fer
 fr:jaunes d'oeufs salés
 allergens:fr:jaunes d'_oeufs_ salés
 
-fr:comté aop
-allergens:fr:_comté_ aop
-
 fr:saucisses de toulouse grillées
 treatment:en: en:gril
-
-
-
 
 fr:dextrine de tapioca
 

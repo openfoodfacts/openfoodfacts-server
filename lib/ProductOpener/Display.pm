@@ -65,6 +65,7 @@ BEGIN
 					@search_series
 					
 					$admin
+					$moderator
 					$memd
 					$default_request_ref
 					
@@ -118,14 +119,15 @@ use URI::Escape::XS;
 use CGI qw/:cgi :form escapeHTML/;
 use HTML::Entities;
 use DateTime;
-use DateTime::Format::Mail;
-use DateTime::Format::CLDR;
 use DateTime::Locale;
 use experimental 'smartmatch';
 use MongoDB;
 use Tie::IxHash;
 use JSON::PP;
 use XML::Simple;
+use CLDR::Number;
+use CLDR::Number::Format::Decimal;
+use CLDR::Number::Format::Percent;
 use Storable qw(freeze);
 use Digest::MD5 qw(md5_hex);
 
@@ -138,7 +140,7 @@ use Apache2::Const ();
 # Initialize exported variables
 
 $memd = new Cache::Memcached::Fast {
-	'servers' => [ "127.0.0.1:11211" ],
+	'servers' => $memd_servers,
 	'utf8' => 1,
 };
 
@@ -182,9 +184,7 @@ sub init()
 	$header = '';
 	$bodyabout = '';
 	$admin = 0;
-	#if ((remote_addr() eq '82.226.239.239') and (user_agent() =~ /Firefox/i)) {
-	#	$admin = 1;
-	#}
+	$moderator = 0;
 	
 	my $r = shift;
 	
@@ -349,6 +349,10 @@ sub init()
 	if ((%admins) and (defined $User_id) and (exists $admins{$User_id})) {
 		$admin = 1;
 	}
+	if ((%moderators) and (defined $User_id) and (exists $moderators{$User_id})) {
+		$moderator = 1;
+	}	
+	
 	
 	if (defined $User_id) {
 		$styles .= <<CSS
@@ -773,7 +777,7 @@ sub display_form($) {
 	
 	$s =~ s/<a href="protectedh/<a href="h/g;
 
-	# Change line feeds to <br /> and <p>..</p>
+	# Change line feeds to <br> and <p>..</p>
 	
 	$s =~ s/\n(\n+)/<\/p>\n<p>/g;
 	$s =~ s/\n/<br \/>\n/g;
@@ -781,7 +785,7 @@ sub display_form($) {
 	return "<p>$s</p>";
 }
 
-sub display_date($) {
+sub _get_date($) {
 
 	my $t = shift;
 
@@ -799,12 +803,22 @@ sub display_date($) {
 			locale => $locale,
 			time_zone => $reference_timezone,
 			epoch => $t );
-		my $formatter = DateTime::Format::CLDR->new(
-		    pattern => $locale->datetime_format_long,
-		    locale => $locale
-		);
-		$dt->set_formatter($formatter);
 		return $dt;
+	}
+	else {
+		return;
+	}
+
+}
+
+
+sub display_date($) {
+
+	my $t = shift;
+	my $dt = _get_date($t);
+
+	if (defined $dt) {
+		return $dt->format_cldr($dt->locale()->datetime_format_long);
 	}
 	else {
 		return;
@@ -815,27 +829,10 @@ sub display_date($) {
 sub display_date_without_time($) {
 
 	my $t = shift;
+	my $dt = _get_date($t);
 
-	if (defined $t) {
-		my @codes = DateTime::Locale->codes;
-		my $locale;
-		if ( $lc ~~ @codes ) {
-			$locale = DateTime::Locale->load($lc);
-		}
-		else {
-			$locale = DateTime::Locale->load('en');
-		}
-	
-		my $dt = DateTime->from_epoch(
-			locale => $locale,
-			time_zone => $reference_timezone,
-			epoch => $t );
-		my $formatter = DateTime::Format::CLDR->new(
-		    pattern => $locale->date_format_long,
-		    locale => $locale
-		);
-		$dt->set_formatter($formatter);
-		return $dt;
+	if (defined $dt) {
+		return $dt->format_cldr($dt->locale()->date_format_long);
 	}
 	else {
 		return;
@@ -846,10 +843,11 @@ sub display_date_without_time($) {
 sub display_date_tag($) {
 
 	my $t = shift;
-	my $dt = display_date($t);
+	my $dt = _get_date($t);
 	if (defined $dt) {
-		my $iso = $dt->iso8601;;
-		return "<time datetime=\"$iso\">$dt</time>";
+		my $iso = $dt->iso8601;
+		my $dts = $dt->format_cldr($dt->locale()->datetime_format_long);
+		return "<time datetime=\"$iso\">$dts</time>";
 	}
 	else {
 		return;
@@ -1300,16 +1298,16 @@ sub display_list_of_tags($$) {
 			}	
 		
 			$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
-			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_link") . "</a><br />";
+			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_link") . "</a><br>";
 			$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br />";
+			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
 				
 			
 
 			if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm}))  {
 				$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
 				$request_ref->{current_link_query_download} .= "&download=on";
-				$html .= "&rarr; <a href=\"$request_ref->{current_link_query_download}\">" . lang("search_download_results") . "</a><br />";
+				$html .= "&rarr; <a href=\"$request_ref->{current_link_query_download}\">" . lang("search_download_results") . "</a><br>";
 			}
 		}
 	
@@ -1484,7 +1482,7 @@ sub display_list_of_tags($$) {
 			if ($tagtype eq 'nutrition_grades') {
 				if ($tagid =~ /^a|b|c|d|e$/) {
 					my $grade = $tagid;
-					$display = "<img src=\"/images/misc/nutriscore-$grade.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} " . uc($grade) . "\" style=\"margin-bottom:1rem;max-width:100%\" />" ;
+					$display = "<img src=\"/images/misc/nutriscore-$grade.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} " . uc($grade) . "\" style=\"margin-bottom:1rem;max-width:100%\">" ;
 				}
 				else {
 					$display = lang("unknown");
@@ -1712,7 +1710,7 @@ SCRIPTS
 ;
 
 			$header .= <<HEADER
-<link rel="stylesheet" media="all" href="/js/jquery-jvectormap-1.2.2.css"/>
+<link rel="stylesheet" media="all" href="/js/jquery-jvectormap-1.2.2.css">
 HEADER
 ;			
 			my $map_html .= <<HTML
@@ -1759,7 +1757,7 @@ SCRIPTS
 ;
 
 	$header .= <<HEADER
-<link rel="stylesheet" href="/js/datatables.min.css" />
+<link rel="stylesheet" href="/js/datatables.min.css">
 HEADER
 ;
 		
@@ -2007,8 +2005,8 @@ SCRIPTS
 ;
 
 	$header .= <<HEADER
-<link rel="stylesheet" href="/js/datatables.min.css" />
-<meta property="og:image" content="https://world.openfoodfacts.org/images/misc/open-food-hunt-2015.1304x893.png"/>
+<link rel="stylesheet" href="/js/datatables.min.css">
+<meta property="og:image" content="https://world.openfoodfacts.org/images/misc/open-food-hunt-2015.1304x893.png">
 HEADER
 ;	
 			
@@ -2310,7 +2308,7 @@ HTML
 								
 					foreach my $percentile (@percentiles) {
 					
-						$table .= "<tr><th>" . lang("exposure_title_" . $percentile) . "<br/>("
+						$table .= "<tr><th>" . lang("exposure_title_" . $percentile) . "<br>("
 							. lang("exposure_description_" . $percentile) . ")</th>";
 							
 						foreach my $group (@groups) {
@@ -2325,7 +2323,7 @@ HTML
 							else {
 								$table .= '<img src="/images/misc/' . $icons{$dose} . '.svg" alt="'
 									. lang("additives_efsa_evaluation_exposure_" . $percentile . "_greater_than_" . $dose) 
-									. '" />';
+									. '">';
 							}							
 							
 							$table .= "</td>";
@@ -2341,7 +2339,7 @@ HTML
 					foreach my $dose (@doses) {
 						if (exists $doses{$dose}) {
 							$description .= "<p>" . '<img src="/images/misc/' . $icons{$dose} . '.svg" width="30" height="30" style="vertical-align:middle" alt="'
-									. lang("additives_efsa_evaluation_exposure_greater_than_" . $dose) . '" /> <span>: '
+									. lang("additives_efsa_evaluation_exposure_greater_than_" . $dose) . '"> <span>: '
 									. lang("additives_efsa_evaluation_exposure_greater_than_" . $dose) . "</span></p>\n";
 						}
 					}
@@ -2516,7 +2514,7 @@ HTML
 							$display = <<HTML
 <div class="row">
 <div class="small-2 large-1 columns">
-<img src="/images/misc/$iconid.svg" alt="$alt" /> 
+<img src="/images/misc/$iconid.svg" alt="$alt">
 </div>
 <div class="small-10 large-11 columns">
 $display
@@ -2702,10 +2700,10 @@ HTML
 				my $district = '';
 				my $local_authority = '';
 				if ($packager_codes{$canon_tagid}{district} =~ /\w/) {
-					$district = "District: $packager_codes{$canon_tagid}{district}<br/>";
+					$district = "District: $packager_codes{$canon_tagid}{district}<br>";
 				}
 				if ($packager_codes{$canon_tagid}{local_authority} =~ /\w/) {
-					$local_authority = "Local authority: $packager_codes{$canon_tagid}{local_authority}<br/>";
+					$local_authority = "Local authority: $packager_codes{$canon_tagid}{local_authority}<br>";
 				}
 				$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{name}<br>
@@ -2720,7 +2718,7 @@ HTML
 					my $img = "images/countries/uk/ratings/large/72ppi/" . lc($packager_codes{$canon_tagid}{fsa_rating_key}). ".jpg";
 					if (-e "$www_root/$img") {
 						$logo = <<HTML
-<img src="/$img" alt="Rating" />
+<img src="/$img" alt="Rating">
 HTML
 ;
 					}
@@ -2728,12 +2726,12 @@ HTML
 <div>
 <a href="https://ratings.food.gov.uk/">Food Hygiene Rating</a> from the Food Standards Agency (FSA):
 <p>
-Business name: $packager_codes{$canon_tagid}{fsa_rating_business_name}<br/>
-Business type: $packager_codes{$canon_tagid}{fsa_rating_business_type}<br/>
-Address: $packager_codes{$canon_tagid}{fsa_rating_address}<br/>
-Local authority: $packager_codes{$canon_tagid}{fsa_rating_local_authority}<br/>
-Rating: $packager_codes{$canon_tagid}{fsa_rating_value}<br/>
-Rating date: $packager_codes{$canon_tagid}{fsa_rating_date}<br/>
+Business name: $packager_codes{$canon_tagid}{fsa_rating_business_name}<br>
+Business type: $packager_codes{$canon_tagid}{fsa_rating_business_type}<br>
+Address: $packager_codes{$canon_tagid}{fsa_rating_address}<br>
+Local authority: $packager_codes{$canon_tagid}{fsa_rating_local_authority}<br>
+Rating: $packager_codes{$canon_tagid}{fsa_rating_value}<br>
+Rating date: $packager_codes{$canon_tagid}{fsa_rating_date}<br>
 </p>
 $logo
 </div>
@@ -2814,7 +2812,7 @@ HTML
 				my $i = 0;
 			
 				foreach my $missionid (sort { $user_ref->{missions}{$b} <=> $user_ref->{missions}{$a}} keys %{$user_ref->{missions}}) {
-					$missions .= "<li style=\"margin-bottom:10px;clear:left;\"><img src=\"/images/misc/gold-star-32.png\" alt=\"Star\" style=\"float:left;margin-top:-5px;margin-right:20px;\"/> <div>"
+					$missions .= "<li style=\"margin-bottom:10px;clear:left;\"><img src=\"/images/misc/gold-star-32.png\" alt=\"Star\" style=\"float:left;margin-top:-5px;margin-right:20px;\"> <div>"
 					. "<a href=\"" . canonicalize_tag_link("missions", $missionid) . "\" style=\"font-size:1.4em\">"
 					. $Missions{$missionid}{name} . "</a></div></li>\n";
 					$i++;
@@ -2865,7 +2863,7 @@ HTML
 		if (defined $tagid2) {
 			$html .= "<p><a href=\"/" . $tag_type_plural{$tagtype}{$lc} . "\">" . ucfirst(lang($tagtype . '_p')) . "</a>" . separator_before_colon($lc)
 				. ": <a href=\"$newtagidpath\">$display_tag</a>"		
-				. "\n<br /><a href=\"/" . $tag_type_plural{$tagtype2}{$lc} . "\">" . ucfirst(lang($tagtype2 . '_p')) . "</a>" . separator_before_colon($lc)
+				. "\n<br><a href=\"/" . $tag_type_plural{$tagtype2}{$lc} . "\">" . ucfirst(lang($tagtype2 . '_p')) . "</a>" . separator_before_colon($lc)
 				. ": <a href=\"$newtagid2path\">$display_tag2</a></p>";		
 		}
 		else {
@@ -3221,9 +3219,9 @@ sub search_and_display_products($$$$$) {
 		}	
 	
 		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
-		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_link") . "</a><br />";
+		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_link") . "</a><br>";
 		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br />";
+		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
 			
 		
 	}
@@ -3233,7 +3231,7 @@ sub search_and_display_products($$$$$) {
 		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm}))  {
 			$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
 			$request_ref->{current_link_query_download} .= "&download=on";
-			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_download}\">" . lang("search_download_results") . "</a><br />";
+			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_download}\">" . lang("search_download_results") . "</a><br>";
 		}
 		
 		if ($log->is_debug()) {
@@ -3427,7 +3425,7 @@ HTML
 			
 			$html_pages =~ s/(<unavailable>)+/<li class="unavailable">&hellip;<\/li>/g;
 			
-			$html_pages = "\n<hr/>" . '<ul id="pages" class="pagination">'
+			$html_pages = "\n<hr>" . '<ul id="pages" class="pagination">'
 			. "<li class=\"unavailable\">" . lang("pages") . "</li>" 
 			. $prev . $html_pages . $next . "</ul>\n";
 		}		
@@ -3445,7 +3443,7 @@ HTML
 ;
 			}
 			else {
-				$html .= '<br/><br/>';	
+				$html .= '<br><br>';	
 			}
 		}			
 		
@@ -3569,7 +3567,7 @@ sub search_and_export_products($$$$$) {
 	if (defined $request_ref->{current_link_query}) {
 		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
 		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br />";
+		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
 	}
 	
 	if ($count <= 0) {
@@ -4129,11 +4127,11 @@ JS
 				useHTML: true,
 				followPointer : false,
 				formatter: function() { 
-                    return '<a href="' + this.point.url + '">' + this.point.product_name + '<br/>'
-						+ this.point.img + '</a><br/>'
+                    return '<a href="' + this.point.url + '">' + this.point.product_name + '<br>'
+						+ this.point.img + '</a><br>'
 						+ '$Lang{nutrition_data_per_100g}{$lc} :'
-						+ '<br />$x_title$sep: '+ this.x + ' $x_unit2'
-						+ '<br />$y_title$sep: ' + this.y + ' $y_unit2';
+						+ '<br>$x_title$sep: '+ this.x + ' $x_unit2'
+						+ '<br>$y_title$sep: ' + this.y + ' $y_unit2';
                 }
 			},
 		
@@ -4479,14 +4477,14 @@ JS
             }				
             },
         tooltip: {
-            headerFormat: '<b>${x_title} {point.key}</b><br/>${x_unit}<table>',
+            headerFormat: '<b>${x_title} {point.key}</b><br>${x_unit}<table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
                 '<td style="padding:0"><b>{point.y}</b></td></tr>',
             footerFormat: '</table>Total: <b>{point.total}</b>',
             shared: true,
             useHTML: true,
 			formatter: function() {
-            var points='<table class="tip"><caption>${x_title} ' + this.x + '</b><br/>${x_unit}</caption><tbody>';
+            var points='<table class="tip"><caption>${x_title} ' + this.x + '</b><br>${x_unit}</caption><tbody>';
             //loop each point in this.points
             \$.each(this.points,function(i,point){
                 points+='<tr><th style="color: '+point.series.color+'">'+point.series.name+': </th>'
@@ -4613,7 +4611,7 @@ sub search_and_graph_products($$$) {
 	if (defined $request_ref->{current_link_query}) {
 		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
 		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br />";
+		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
 	}
 	
 	if ($count <= 0) {
@@ -4642,7 +4640,7 @@ sub search_and_graph_products($$$) {
 		if (defined $request_ref->{current_link_query}) {
 			$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
 			$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-			$html .= "&rarr; <a href=\"$request_ref->{current_link_query}\">" . lang("search_graph_link") . "</a><br />";
+			$html .= "&rarr; <a href=\"$request_ref->{current_link_query}\">" . lang("search_graph_link") . "</a><br>";
 		}
 		
 		$html .= "<p>" . lang("search_graph_warning") . "</p>";
@@ -4767,7 +4765,7 @@ sub search_and_map_products($$$) {
 	if (defined $request_ref->{current_link_query}) {
 		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
 		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br />";
+		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
 	}
 	
 	if ($count <= 0) {
@@ -4825,14 +4823,14 @@ JS
 				my $manufacturing_places =  escape_single_quote($product_ref->{"manufacturing_places"});
 				$manufacturing_places =~ s/,( )?/, /g;
 				if ($manufacturing_places ne '') {
-					$manufacturing_places = ucfirst(lang("manufacturing_places_p")) . separator_before_colon($lc) . ": " . $manufacturing_places . "<br/>";
+					$manufacturing_places = ucfirst(lang("manufacturing_places_p")) . separator_before_colon($lc) . ": " . $manufacturing_places . "<br>";
 				}	
 				
 				
 				my $origins =  escape_single_quote($product_ref->{origins});
 				$origins =~ s/,( )?/, /g;
 				if ($origins ne '') {
-					$origins = ucfirst(lang("origins_p")) . separator_before_colon($lc) . ": " . $origins . "<br/>";;
+					$origins = ucfirst(lang("origins_p")) . separator_before_colon($lc) . ": " . $origins . "<br>";
 				}				
 				
 				$origins = $manufacturing_places . $origins;
@@ -4886,8 +4884,8 @@ JS
 			$header .= <<HTML		
 <link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
 <script src="/bower_components/leaflet/dist/leaflet.js"></script>
-<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.css" />
-<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.css">
+<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css">
 <script src="/bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
 HTML
 ;
@@ -4925,7 +4923,7 @@ var layers = [];
 for (var i = 0; i < length; i++) {
   pointer = pointers[i];
   var marker = new L.marker(pointer.geo);
-  marker.bindPopup('<a href="' + pointer.url + '">' + pointer.product_name + '</a><br/>' + pointer.brands  + "<br/>" + '<a href="' + pointer.url + '">' + pointer.img + '</a><br/>' + pointer.origins);
+  marker.bindPopup('<a href="' + pointer.url + '">' + pointer.product_name + '</a><br>' + pointer.brands  + "<br>" + '<a href="' + pointer.url + '">' + pointer.img + '</a><br>' + pointer.origins);
   layers.push(marker); 
 }
 
@@ -4952,7 +4950,7 @@ HTML
 		if (defined $request_ref->{current_link_query}) {
 			$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
 			$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-			$html .= "&rarr; <a href=\"$request_ref->{current_link_query}\">" . lang("search_map_link") . "</a><br />";
+			$html .= "&rarr; <a href=\"$request_ref->{current_link_query}\">" . lang("search_map_link") . "</a><br>";
 		}
 		
 		$html .= "<p>" . lang("search_map_warning") . "</p>";
@@ -4982,22 +4980,22 @@ sub display_login_register($)
 <div class="row">
 <div class="small-12 columns">
 	<label>$Lang{login_username_email}{$lc}
-		<input type="text" name="user_id" autocomplete="username" />
+		<input type="text" name="user_id" autocomplete="username">
 	</label>
 </div>
 <div class="small-12 columns">
 	<label>$Lang{password}{$lc}
-		<input type="password" name="password" autocomplete="current-password" />
+		<input type="password" name="password" autocomplete="current-password">
 	</label>
 </div>
 <div class="small-12 columns">
 	<label>
-		<input type="checkbox" name="remember_me" value="on" />
+		<input type="checkbox" name="remember_me" value="on">
 		$Lang{remember_me}{$lc}
 	</label>
 </div>
 </div>
-<input type="submit" name=".submit" value="$Lang{login_register_title}{$lc}" class="button small" />
+<input type="submit" name=".submit" value="$Lang{login_register_title}{$lc}" class="button small">
 </form>
 <p>$Lang{login_not_registered_yet}{$lc}
 <a href="/cgi/user.pl">$Lang{login_create_your_account}{$lc}</a></p>
@@ -5040,8 +5038,8 @@ HTML
 <ul class="button-group">
 <li>
 	<form method="post" action="/cgi/session.pl">
-	<input type="hidden" name="length" value="logout" />
-	<input type="submit" name=".submit" value="$signout" class="button small" />
+	<input type="hidden" name="length" value="logout">
+	<input type="submit" name=".submit" value="$signout" class="button small">
 	</form>
 </li>
 <li>
@@ -5216,7 +5214,7 @@ sub display_new($) {
 	if (defined $description) {
 		$description =~ s/<([^>]*)>//g;
 		$description =~ s/"/'/g;
-		$meta_description = "<meta name=\"description\" content=\"$description\" />";
+		$meta_description = "<meta name=\"description\" content=\"$description\">";
 	}
 	
 
@@ -5256,17 +5254,17 @@ sub display_new($) {
 	# More images?
 	
 	my $og_images = '';
-	my $og_images2 = '<meta property="og:image" content="' . lang("og_image_url") . '"/>';
+	my $og_images2 = '<meta property="og:image" content="' . lang("og_image_url") . '">';
 	my $more_images = 0;
 	
-	# <img id="og_image" src="https://recettes.de/images/misc/recettes-de-cuisine-logo.gif" width="150" height="200" /> 
+	# <img id="og_image" src="https://recettes.de/images/misc/recettes-de-cuisine-logo.gif" width="150" height="200"> 
 	if ($$content_ref =~ /<img id="og_image" src="([^"]+)"/) {
 		my $img_url = $1;
 		$img_url =~ s/\.200\.jpg/\.400\.jpg/;
 		if ($img_url !~ /^http:/) {
 			$img_url = format_subdomain($lc) . $img_url;
 		}
-		$og_images .= '<meta property="og:image" content="' . $img_url . '"/>' . "\n";
+		$og_images .= '<meta property="og:image" content="' . $img_url . '">' . "\n";
 		if ($img_url !~ /misc/) {
 			$og_images2 = '';
 		}
@@ -5286,33 +5284,28 @@ sub display_new($) {
 	
 # <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 # <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-# <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
+# <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css">
 
 
 #<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 #<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-#<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-lightness/jquery-ui.css" />
+#<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-lightness/jquery-ui.css">
 	
 	my $html = <<HTML
 <!doctype html>
 <html class="no-js" lang="$lang">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/dist/app.css" />
-    <script src="/bower_components/foundation/js/vendor/modernizr.js"></script>
-	
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/dist/app.css">
+<script src="/bower_components/foundation/js/vendor/modernizr.js"></script>
 <title>$title</title>
-
 $meta_description
-	
 <script src="/bower_components/foundation/js/vendor/jquery.js"></script>
 <script type="text/javascript" src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="/bower_components/jquery-ui/themes/base/jquery-ui.min.css" />
-
+<link rel="stylesheet" href="/bower_components/jquery-ui/themes/base/jquery-ui.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
-<link rel="search" href="@{[ format_subdomain($subdomain) ]}/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}" />
-
+<link rel="search" href="@{[ format_subdomain($subdomain) ]}/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
 <script>
 \$(function() {
 \$("#select_country").select2({
@@ -5326,7 +5319,6 @@ $meta_description
 	}
 	window.location.href = "https://" + subdomain + ".${server_domain}";
 }).on("select2:unselect", function(e) {
-
 	window.location.href = "https://world.${server_domain}";
 })
 ;
@@ -5336,16 +5328,15 @@ $meta_description
 
 $header
 
-<meta property="fb:app_id" content="219331381518041" />
-<meta property="og:type" content="$og_type"/>
-<meta property="og:title" content="$canon_title"/>
-<meta property="og:url" content="$canon_url"/>
+<meta property="fb:app_id" content="219331381518041">
+<meta property="og:type" content="$og_type">
+<meta property="og:title" content="$canon_title">
+<meta property="og:url" content="$canon_url">
 $og_images
 $og_images2
-<meta property="og:description" content="$canon_description"/>
+<meta property="og:description" content="$canon_description">
 
 $options{favicons}
-
 
 <style type="text/css" media="all">
 
@@ -5594,6 +5585,11 @@ line-height:1.2;
 
 .tag.user_defined { font-style: italic; }
 
+.button-group ul {
+  height: 400px;
+  overflow: auto;
+}
+
 HTML
 ;
 
@@ -5633,7 +5629,7 @@ HTML
 ;
 
 
-# <label for="select_country">$Lang{select_country}{$lang}</label><br/>
+# <label for="select_country">$Lang{select_country}{$lang}</label><br>
 	
 	my $select_country_options = lang("select_country_options");
 	$select_country_options =~ s/value="$cc"/value="$cc" selected/;
@@ -5745,6 +5741,39 @@ HTML
 	if (defined param('search_terms')) {
 		$search_terms = remove_tags_and_quote(decode utf8=>param('search_terms'))
 	}
+	
+	my $top_banner = "";
+	
+	if ($lc eq 'fr') {
+	
+	
+		$top_banner = <<HTML
+<div class="row full-width" style="max-width: 100% !important;" >	
+
+<div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
+Pour améliorer l'alimentation de tous, c'est le moment de <a href="https://www.helloasso.com/associations/open-food-facts/collectes/aidez-open-food-facts-a-ameliorer-l-alimentation-de-tous">soutenir notre action en faisant un don</a> à l'association Open Food Facts !
+<span style="color:red">❤</span>
+</div>
+</div>
+HTML
+;
+	
+	}
+	if ($lc eq 'en') {
+	
+		$top_banner = <<HTML
+<div class="row full-width" style="max-width: 100% !important;" >	
+
+<div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
+To improve food for everyone, it's time to <a href="https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en">support our work by making a donation</a> to the Open Food Facts non-profit association !
+<span style="color:red">❤</span>
+</div>
+</div>
+HTML
+;
+	
+	}	
+	
 		
 	$html .= <<HTML
 
@@ -5756,9 +5785,9 @@ HTML
 			<div class="row collapse ">
 
 					<div class="small-8 columns">
-						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lang}" name="search_terms" value="${search_terms}" />
-						<input name="search_simple" value="1" type="hidden" />
-						<input name="action" value="process" type="hidden" />
+						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lang}" name="search_terms" value="${search_terms}">
+						<input name="search_simple" value="1" type="hidden">
+						<input name="action" value="process" type="hidden">
 					</div>
 					<div class="small-4 columns">
 						 <button type="submit" title="$Lang{search}{$lang}"><i class="fi-magnifying-glass"></i></button>
@@ -5797,8 +5826,8 @@ HTML
 
 					<div class="small-8 columns">
 						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="search_terms">
-						<input name="search_simple" value="1" type="hidden" />
-						<input name="action" value="process" type="hidden" />						
+						<input name="search_simple" value="1" type="hidden">
+						<input name="action" value="process" type="hidden">						
 					</div>
 					<div class="small-2 columns">
 						 <button type="submit" class="button postfix"><i class="fi-magnifying-glass"></i></button>
@@ -5814,7 +5843,7 @@ HTML
   </div>
  </nav>
 
- 
+
  
  
 <div class="off-canvas-wrap" data-offcanvas>
@@ -5835,14 +5864,18 @@ HTML
   <!-- close the off-canvas menu -->
   <a class="exit-off-canvas"></a>
 
+$top_banner
   
 <!-- main row - comment used to remove left column and center content on some pages -->  
 <div class="row full-width" style="max-width: 100% !important;" data-equalizer>
+
+
+
 	<div class="xxlarge-1 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
 		<div class="sidebar">
 		
 <div style="text-align:center">
-<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="$Lang{site_name}{$lang}" style="margin-bottom:0.5rem"/></a>
+<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="$Lang{site_name}{$lang}" style="margin-bottom:0.5rem"></a>
 </div>
 
 <p>$Lang{tagline}{$lc}</p>
@@ -5853,8 +5886,8 @@ HTML
 
 					<div class="small-9 columns">
 						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="search_terms">
-						<input name="search_simple" value="1" type="hidden" />
-						<input name="action" value="process" type="hidden" />
+						<input name="search_simple" value="1" type="hidden">
+						<input name="action" value="process" type="hidden">
 					</div>
 					<div class="small-2 columns">
 						 <button type="submit" class="button postfix"><i class="fi-magnifying-glass"></i></button>
@@ -5949,10 +5982,10 @@ $Lang{android_apk_app_badge}{$lc}
 		<h4>$Lang{footer_join_the_community}{$lc}</h4>
 
 <div>
-<a href="$Lang{footer_code_of_conduct_link}{$lc}">$Lang{footer_code_of_conduct}{$lc}</a><br/><br/>
+<a href="$Lang{footer_code_of_conduct_link}{$lc}">$Lang{footer_code_of_conduct}{$lc}</a><br><br>
 
 $join_us_on_slack <script async defer src="https://slack-ssl-openfoodfacts.herokuapp.com/slackin.js"></script>
-<br/>
+<br>
 $Lang{footer_and_the_facebook_group}{$lc}
 </div>
 
@@ -6137,7 +6170,7 @@ HTML
 			$test = "-test";
 		}
 		my $session = {} ;
-		my $cookie2 = cookie (-name=>'session', -expires=>'-1d',-value=>$session, domain=>".$lc$test.$server_domain", -path=>'/') ;
+		my $cookie2 = cookie (-name=>'session', -expires=>'-1d',-value=>$session, domain=>".$lc$test.$server_domain", -path=>'/', -samesite=>'Lax') ;
 		print header (-cookie=>[$cookie, $cookie2], -expires=>'-1d', -charset=>'UTF-8');
 	}
 	elsif (defined $cookie) {
@@ -6181,11 +6214,11 @@ sub display_product_search_or_add($)
           <input type="text" name="code" placeholder="$or $Lang{barcode}{$lc}">
         </div>
         <div class="small-3 columns">
-           <input type="submit" value="$Lang{add}{$lc}" class="button postfix" />
+           <input type="submit" value="$Lang{add}{$lc}" class="button postfix">
         </div>
       </div>
 	  
-	  <input type="submit" value="$Lang{no_barcode}{$lc}" class="button tiny" />
+	  <input type="submit" value="$Lang{no_barcode}{$lc}" class="button tiny">
 </form>
 HTML
 ;
@@ -6278,7 +6311,7 @@ HTML
 		event.stopPropagation();
 		event.preventDefault();
 		// alert(event.data.imagefield);
-		\$('div.unselectbuttondiv_$idlc').html('<img src="/images/misc/loading2.gif" /> Unselecting image');
+		\$('div.unselectbuttondiv_$idlc').html('<img src="/images/misc/loading2.gif"> Unselecting image');
 		\$.post('/cgi/product_image_unselect.pl',
 				{code: "$code", id: "$idlc" }, function(data) {
 				
@@ -6504,7 +6537,7 @@ HTML
 		
 		my $search_result = search_and_display_products($request_ref, $query_ref, undef, undef, undef);
 		if ($request_ref->{structured_response}{count} > 0) {
-			$html .= $search_result . '<hr/>';
+			$html .= $search_result . '<hr>';
 		}
 	}
 	
@@ -6543,7 +6576,7 @@ HTML
 	
 #<div itemscope itemtype="http://schema.org/Product">
 #  <span itemprop="name">Kenmore White 17" Microwave</span>
-#  <img src="kenmore-microwave-17in.jpg" alt='Kenmore 17" Microwave' />
+#  <img src="kenmore-microwave-17in.jpg" alt='Kenmore 17" Microwave'>
 #  <div itemprop="aggregateRating"
 #    itemscope itemtype="http://schema.org/AggregateRating">
 #   Rated <span itemprop="ratingValue">3.5</span>/5
@@ -6587,7 +6620,7 @@ HTML
 		$html .= <<HTML
 <div data-alert class="alert-box warn" id="warning_lactalis_201712" style="display: block; background:#ffaa33;color:black;">
 Ce produit fait partie d'une liste de produits retirés du marché, et a été étiqueté comme tel par un bénévole d'Open Food Facts.
-<br/><br/>
+<br><br>
 &rarr; <a href="http://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a>.
 <a href="#" class="close">&times;</a>
 </span></div>
@@ -6631,7 +6664,7 @@ HTML
 		$html .= <<HTML
 <div data-alert class="alert-box warn" id="warning_lactalis_201712" style="display: block; background:#ffcc33;color:black;">
 Certains produits de cette marque font partie d'une liste de produits retirés du marché.
-<br/><br/>
+<br><br>
 &rarr; <a href="http://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des produits et lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a>.
 <a href="#" class="close">&times;</a>
 </span></div>
@@ -6800,7 +6833,7 @@ HTML
 		event.preventDefault();
 		
 		\$('div[id="saveingredientsbuttondiv"]').hide();
-		\$('div[id="saveingredientsbuttondiv_status"]').html('<img src="/images/misc/loading2.gif" /> Saving ingredients_texts_$ilc');
+		\$('div[id="saveingredientsbuttondiv_status"]').html('<img src="/images/misc/loading2.gif"> Saving ingredients_texts_$ilc');
 		\$('div[id="saveingredientsbuttondiv_status"]').show();
 
 		\$.post('/cgi/product_jqm_multilingual.pl',
@@ -6823,7 +6856,7 @@ HTML
 		event.stopPropagation();
 		event.preventDefault();
 		// alert(event.data.imagefield);
-		\$('div[id="wipeingredientsbuttondiv"]').html('<img src="/images/misc/loading2.gif" /> Erasing ingredients_texts_$ilc');
+		\$('div[id="wipeingredientsbuttondiv"]').html('<img src="/images/misc/loading2.gif"> Erasing ingredients_texts_$ilc');
 		\$.post('/cgi/product_jqm_multilingual.pl',
 				{code: "$code", ingredients_text_$ilc : "", comment: "Erased ingredients_texts_$ilc: too much bad data" }, function(data) {
 				
@@ -6865,7 +6898,7 @@ JS
 
 			$html_ingredients_classes_n++;
 			
-			$html_ingredients_classes .= "<div class=\"column_class\"><b>" . ucfirst( lang($class . "_p") . separator_before_colon($lc)) . ":</b><br />";
+			$html_ingredients_classes .= "<div class=\"column_class\"><b>" . ucfirst( lang($class . "_p") . separator_before_colon($lc)) . ":</b><br>";
 			
 			if (defined $tags_images{$lc}{$tagtype}{get_fileid($tagtype)}) {
 				my $img = $tags_images{$lc}{$tagtype}{get_fileid($tagtype)};
@@ -6932,7 +6965,7 @@ CSS
 							$iconid =~ s/_/-/g;
 							$more_info = <<HTML
 <a href="$link">						
-<img src="/images/misc/$iconid.svg" alt="$alt" width="45" height="45" /> 
+<img src="/images/misc/$iconid.svg" alt="$alt" width="45" height="45">
 </a>
 <a href="$link" class="additives_efsa_evaluation_overexposure_risk_$valueid">
 $alt
@@ -7009,7 +7042,7 @@ HTML
 		
 		if ($special_html ne "") {
 		
-			$html  .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang("ingredients_analysis") . separator_before_colon($lc)) . ":</b><br />"
+			$html  .= "<br><hr class=\"floatleft\"><div><b>" . ucfirst( lang("ingredients_analysis") . separator_before_colon($lc)) . ":</b><br>"
 			. "<ul id=\"special_ingredients\">\n" . $special_html . "</ul>\n"
 			. "<p>" . lang("ingredients_analysis_note") . "</p></div>\n";
 		}
@@ -7034,7 +7067,7 @@ HTML
 </h4>
 
 
-<a href="https://fr.openfoodfacts.org/classification-nova-pour-la-transformation-des-aliments" title="Classification NOVA des aliments transformés"><img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%" /></a><br/>
+<a href="https://fr.openfoodfacts.org/classification-nova-pour-la-transformation-des-aliments" title="Classification NOVA des aliments transformés"><img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%"></a><br>
 $display
 HTML
 ;
@@ -7150,11 +7183,19 @@ HTML
 		$other_editors = "<br>\n$Lang{also_edited_by}{$lang} ${other_editors}.";
 	}
 
+	my $checked = "";
+	if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
+		my $last_checked_date = display_date_tag($product_ref->{last_checked_t});
+		my $last_checker = "<a href=\"" . canonicalize_tag_link("users", get_fileid($product_ref->{last_checker})) . "\">" . $product_ref->{last_checker} . "</a>";
+		$checked = "<br/>\n$Lang{product_last_checked}{$lang} $last_checked_date $Lang{by}{$lang} $last_checker.";
+	}
+
 	$html .= <<HTML
 	
-<p>$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator.<br/>
+<p>$Lang{product_added}{$lang} $created_date $Lang{by}{$lang} $creator.<br>
 $Lang{product_last_edited}{$lang} $last_modified_date $Lang{by}{$lang} $last_editor.
 $other_editors
+$checked
 </p>
 	
 <div class="alert-box info">
@@ -7293,7 +7334,7 @@ sub display_product_jqm ($) # jquerymobile
 		$html .= <<HTML
 <div id="warning_lactalis_201712" style="display: block; background:#ffaa33;color:black;padding:1em;text-decoration:none;">
 Ce produit fait partie d'une liste de produits retirés du marché, et a été étiqueté comme tel par un bénévole d'Open Food Facts.
-<br/><br/>
+<br><br>
 &rarr; <a href="http://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a>.
 </div>
 HTML
@@ -7336,7 +7377,7 @@ HTML
 		$html .= <<HTML
 <div id="warning_lactalis_201712" style="display: block; background:#ffcc33;color:black;padding:1em;text-decoration:none;">
 Certains produits de cette marque font partie d'une liste de produits retirés du marché.
-<br/><br/>
+<br><br>
 &rarr; <a href="http://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des produits et lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a>.
 </div>
 HTML
@@ -7365,7 +7406,7 @@ HTML
 </h4>
 
 
-<a href="https://world.openfoodfacts.org/nova-groups-for-food-processing" title="NOVA groups for food processing"><img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%" /></a><br/>
+<a href="https://world.openfoodfacts.org/nova-groups-for-food-processing" title="NOVA groups for food processing"><img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%"></a><br>
 $display
 HTML
 ;
@@ -7435,7 +7476,7 @@ HTML
 	
 	if ((defined $product_ref->{$class . '_tags'}) and (scalar @{$product_ref->{$class . '_tags'}} > 0)) {
 
-		$html .= "<br/><hr class=\"floatleft\"><div><b>" . lang("additives_p") . separator_before_colon($lc) . ":</b><br />";		
+		$html .= "<br><hr class=\"floatleft\"><div><b>" . lang("additives_p") . separator_before_colon($lc) . ":</b><br>";		
 		
 		$html .= "<ul>";
 		foreach my $tagid (@{$product_ref->{$class . '_tags'}}) {
@@ -7500,7 +7541,7 @@ HTML
 		
 		if ($special_html ne "") {
 		
-			$html  .= "<br/><hr class=\"floatleft\"><div><b>" . ucfirst( lang("ingredients_analysis") . separator_before_colon($lc)) . ":</b><br />"
+			$html  .= "<br><hr class=\"floatleft\"><div><b>" . ucfirst( lang("ingredients_analysis") . separator_before_colon($lc)) . ":</b><br>"
 			. "<ul id=\"special_ingredients\">\n" . $special_html . "</ul>\n"
 			. "<p>" . lang("ingredients_analysis_note") . "</p></div>\n";
 		}
@@ -7573,7 +7614,7 @@ HTML
 		my $last_image_date = display_date($product_ref->{last_image_t});
 		my $last_image_date_without_time = display_date_without_time($product_ref->{last_image_t});
 		
-		$last_image = "<br/>" . "$Lang{last_image_added}{$lang} $last_image_date";
+		$last_image = "<br>" . "$Lang{last_image_added}{$lang} $last_image_date";
 		
 		# Was the last photo uploaded more than 6 months ago?
 		
@@ -7722,7 +7763,7 @@ sub display_nutrient_levels($) {
 <a href="https://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}">
 <i class="fi-info"></i></a>
 </h4>
-<a href="https://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}"><img src="/images/misc/nutriscore-$grade.svg" alt="$Lang{nutrition_grade_fr_alt}{$lc} $uc_grade" style="margin-bottom:1rem;max-width:100%" /></a><br/>
+<a href="https://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}"><img src="/images/misc/nutriscore-$grade.svg" alt="$Lang{nutrition_grade_fr_alt}{$lc} $uc_grade" style="margin-bottom:1rem;max-width:100%"></a><br>
 $warning
 HTML
 ;
@@ -7734,8 +7775,8 @@ HTML
 		if ((defined $product_ref->{nutrient_levels}) and (defined $product_ref->{nutrient_levels}{$nid})) {
 		
 			$html_nutrient_levels .= '<img src="/images/misc/' . $product_ref->{nutrient_levels}{$nid} . '.svg" width="30" height="30" style="vertical-align:middle;margin-right:15px;margin-bottom:4px;" alt="'
-				. lang($product_ref->{nutrient_levels}{$nid} . "_quantity") . '" />' . (sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0) . " g "
-				. sprintf(lang("nutrient_in_quantity"), "<b>" . $Nutriments{$nid}{$lc} . "</b>", lang($product_ref->{nutrient_levels}{$nid} . "_quantity")). "<br />";
+				. lang($product_ref->{nutrient_levels}{$nid} . "_quantity") . '">' . (sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0) . " g "
+				. sprintf(lang("nutrient_in_quantity"), "<b>" . $Nutriments{$nid}{$lc} . "</b>", lang($product_ref->{nutrient_levels}{$nid} . "_quantity")). "<br>";
 		
 		}
 	}
@@ -7900,8 +7941,8 @@ sub display_nutrition_table($$) {
 		if ($product_type eq 'prepared_') {
 			$col_name = $Lang{prepared_product}{$lang};
 		}
-		$col_name{$product_type . "100g"} = $col_name . "<br/>" . $Lang{nutrition_data_per_100g}{$lang};
-		$col_name{$product_type . "serving"} = $col_name . "<br/>" . $Lang{nutrition_data_per_serving}{$lang};
+		$col_name{$product_type . "100g"} = $col_name . "<br>" . $Lang{nutrition_data_per_100g}{$lang};
+		$col_name{$product_type . "serving"} = $col_name . "<br>" . $Lang{nutrition_data_per_serving}{$lang};
 		if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne '')) {
 			$col_name{$product_type . "serving"} .= ' (' . $product_ref->{serving_size} . ')';
 		}
@@ -7992,7 +8033,7 @@ CSS
 			}
 			
 			$html .= <<HTML
-<label style="display:inline;font-size:1rem;"><input type="checkbox" name="$colid" value="on" $checked_html id="$colid" class="show_comparison" /> $comparison_ref->{name}</label>		
+<label style="display:inline;font-size:1rem;"><input type="checkbox" name="$colid" value="on" $checked_html id="$colid" class="show_comparison"> $comparison_ref->{name}</label>		
 HTML
 ;
 			if (defined $comparison_ref->{count}) {
@@ -8004,10 +8045,10 @@ HTML
 		}
 		
 		$html .= <<HTML
-<br />		
-<input type="radio" id="nutrition_data_compare_percent" value="compare_percent" name="nutrition_data_compare_type" checked />
+<br>		
+<input type="radio" id="nutrition_data_compare_percent" value="compare_percent" name="nutrition_data_compare_type" checked>
 <label for="nutrition_data_compare_percent">$Lang{nutrition_data_compare_percent}{$lang}</label>
-<input type="radio" id="nutrition_data_compare_value" value="compare_value" name="nutrition_data_compare_type" />
+<input type="radio" id="nutrition_data_compare_value" value="compare_value" name="nutrition_data_compare_type">
 <label for="nutrition_data_compare_value">$Lang{nutrition_data_compare_value}{$lang}</label>
 
 HTML
@@ -8053,11 +8094,14 @@ JS
 	
 	if (defined $product_ref->{stats}) {
 	
-		push @cols, 'std', 'min', '10', '50', '90', 'max';
+		foreach my $col ('std', 'min', '10', '50', '90', 'max') {
+			push @cols, $col; 
+			$col_name{$col} = lang("nutrition_data_per_$col");
+		}
 		
 		if ($product_ref->{id} ne 'search') {
 		
-			$html .= "<div><input id=\"show_stats\" type=\"checkbox\" /><label for=\"show_stats\">"
+			$html .= "<div><input id=\"show_stats\" type=\"checkbox\"><label for=\"show_stats\">"
 			. lang("show_category_stats")
 			. '<span class="show-for-xlarge-up">'
 			. separator_before_colon($lc) . ": " . lang("show_category_stats_details") . "</span></label>" . "</div>";
@@ -8186,7 +8230,8 @@ HTML
 		# display nutrition score only when the country is matching
 		
 		if ($nid =~ /^nutrition-score-(.*)$/) {
-			if ($cc ne $1) {
+			# Always show the FR score and Nutri-Score
+			if (($cc ne $1) and (not ($1 eq 'fr'))) {
 				$shown = 0;
 			}
 			else {
@@ -8232,7 +8277,9 @@ HTML
 		
 		my $values2 = '';
 		
-		
+		my $cldr = CLDR::Number->new(locale => $lc);
+		my $decf = $cldr->decimal_formatter;
+		my $perf = $cldr->percent_formatter( maximum_fraction_digits => 0 );
 		foreach my $col (@cols) {
 		
 			my $col_class = '';
@@ -8246,7 +8293,7 @@ HTML
 
 				my $value = "";
 				if (defined $comparison_ref->{nutriments}{$nid . "_100g"}) {
-					$value = sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit)) + 0.0;
+					$value = $decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit));
 				}
 				# too small values are converted to e notation: 7.18e-05
 				if (($value . ' ') =~ /e/) {
@@ -8261,16 +8308,16 @@ HTML
 					$value_unit = '?';
 				}
 				elsif ($nid =~ /^energy/) {
-					$value_unit .= "<br/>(" . sprintf("%d", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, 'kcal')) . ' kcal)';
+					$value_unit .= "<br>(" . sprintf("%d", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, 'kcal')) . ' kcal)';
 				}
 				
 				my $percent = $comparison_ref->{nutriments}{"${nid}_100g_%"};
 				if ((defined $percent) and ($percent ne '')) {
-					$percent = sprintf("%.0f", $percent);
+					$percent = $perf->format($percent / 100.0);
 					if ($percent > 0) {
 						$percent = "+" . $percent;
 					}
-					$value_unit = '<span class="compare_percent">' . $percent . '%</span><span class="compare_value" style="display:none">' . $value_unit . '</span>';
+					$value_unit = '<span class="compare_percent">' . $percent . '</span><span class="compare_value" style="display:none">' . $value_unit . '</span>';
 				}
 				
 				$values .= "<td class=\"nutriment_value${col_class}\">$value_unit</td>";
@@ -8281,8 +8328,8 @@ HTML
 					}
 					else {
 						$values2 .= "<td class=\"nutriment_value${col_class}\">"
-						. '<span class="compare_percent">' . $percent . '%</span>'
-						. '<span class="compare_value" style="display:none">' . (sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} * 2.54, $unit)) + 0.0) . " " . $unit . '</span>' . "</td>";
+						. '<span class="compare_percent">' . $percent . '</span>'
+						. '<span class="compare_value" style="display:none">' . ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} * 2.54, $unit))) . " " . $unit . '</span>' . "</td>";
 					}
 				}
 				if ($nid eq 'salt') {
@@ -8291,15 +8338,42 @@ HTML
 					}
 					else {
 						$values2 .= "<td class=\"nutriment_value${col_class}\">"
-						. '<span class="compare_percent">' . $percent . '%</span>'
-						. '<span class="compare_value" style="display:none">' . (sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} / 2.54, $unit)) + 0.0) . " " . $unit . '</span>' . "</td>";
+						. '<span class="compare_percent">' . $percent . '</span>'
+						. '<span class="compare_value" style="display:none">' . ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} / 2.54, $unit))) . " " . $unit . '</span>' . "</td>";
 					}
 				}				
+				
+				if ($nid eq 'nutrition-score-fr') {
+					# We need to know the category in order to select the right thresholds for the nutrition grades
+					# as it depends on whether it is food or drink
+					
+					# if it is a category stats, the category id is the id field
+					if ((not defined $product_ref->{categories_tags})
+						and (defined $product_ref->{id}) 
+						and ($product_ref->{id} =~ /^en:/) 
+							) {
+						$product_ref->{categories} = $product_ref->{id};
+						compute_field_tags($product_ref, "categories");
+					}
+					
+					if (defined $product_ref->{categories_tags}) {
+					
+						$values2 .= "<td class=\"nutriment_value${col_class}\">"
+							. uc (compute_nutrition_grade($product_ref, $comparison_ref->{nutriments}{$nid . "_100g"}))
+							. "</td>";
+					}
+				}
+				
 			}
 			else {
 			
 				my $value_unit = "";
 				my $rdfa = '';
+				
+				# Nutriscore: per serving = per 100g
+				if (($nid =~ /nutrition-score/) and ($col eq "serving")) {
+					$product_ref->{nutriments}{$nid . "_$col"} = $product_ref->{nutriments}{$nid . "_100g"};
+				}
 				
 				if ((not defined $product_ref->{nutriments}{$nid . "_$col"}) or ($product_ref->{nutriments}{$nid . "_$col"} eq '')) {
 					$value_unit = '?';
@@ -8307,7 +8381,7 @@ HTML
 				else {
 
 					# this is the actual value on the package, not a computed average. do not try to round to 2 decimals.
-					my $value = g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit);
+					my $value = $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, $unit));
 				
 					# too small values are converted to e notation: 7.18e-05
 					if (($value . ' ') =~ /e/) {
@@ -8322,14 +8396,14 @@ HTML
 					}
 					
 					if ($nid =~ /^energy/) {
-						$value_unit .= "<br/>(" . g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, 'kcal') . ' kcal)';
+						$value_unit .= "<br>(" . g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, 'kcal') . ' kcal)';
 					}
 					elsif ($nid eq 'sodium') {
 						my $salt = $product_ref->{nutriments}{$nid . "_$col"} * 2.54;
 						if (exists $product_ref->{nutriments}{"salt" . "_$col"}) {
 							$salt = $product_ref->{nutriments}{"salt" . "_$col"};
 						}
-						$salt = sprintf("%.2e", g_to_unit($salt, $unit)) + 0.0;
+						$salt = $decf->format(g_to_unit($salt, $unit));
 						my $property = '';
 						if ($col eq '100g') {
 							$property = "property=\"food:saltEquivalentPer100g\" content=\"$salt\"";
@@ -8341,20 +8415,44 @@ HTML
 						if (exists $product_ref->{nutriments}{"sodium". "_$col"}) {
 							$sodium = $product_ref->{nutriments}{"sodium". "_$col"};
 						}
-						$sodium = sprintf("%.2e", g_to_unit($sodium, $unit)) + 0.0;
+						$sodium = $decf->format(g_to_unit($sodium, $unit));
 						my $property = '';
 						if ($col eq '100g') {
 							$property = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";
 						}
 						$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $sodium . " " . $unit . "</td>";
 					}				
+					elsif ($nid eq 'nutrition-score-fr') {
+						# We need to know the category in order to select the right thresholds for the nutrition grades
+						# as it depends on whether it is food or drink
+						
+						# if it is a category stats, the category id is the id field
+						if ((not defined $product_ref->{categories_tags})
+							and (defined $product_ref->{id}) 
+							and ($product_ref->{id} =~ /^en:/) 
+								) {
+							$product_ref->{categories} = $product_ref->{id};
+							compute_field_tags($product_ref, "categories");
+						}
+						
+						if (defined $product_ref->{categories_tags}) {
+						
+							if ($col eq "std") {
+								$values2 .= "<td class=\"nutriment_value${col_class}\"></td>";
+							}
+							else {
+								$values2 .= "<td class=\"nutriment_value${col_class}\">"
+								. uc (compute_nutrition_grade($product_ref, $product_ref->{nutriments}{$nid . "_$col"}))
+								. "</td>";
+							}
+						}
+					}					
 					elsif ($col eq $product_ref->{nutrition_data_per}) {
 						# % DV ?
 						if ((defined $product_ref->{nutriments}{$nid . "_value"}) and (defined $product_ref->{nutriments}{$nid . "_unit"}) and ($product_ref->{nutriments}{$nid . "_unit"} eq '% DV')) {
 							$value_unit .= ' (' . $product_ref->{nutriments}{$nid . "_value"} . ' ' . $product_ref->{nutriments}{$nid . "_unit"} . ')';
 						}
-					}
-					
+					}					
 					
 					if ($col eq '100g') {
 						my $property = $nid;
@@ -8402,6 +8500,20 @@ $values2
 HTML
 ;
 		}		
+		
+		if (($nid eq 'nutrition-score-fr') and ($values2 ne '')) {
+			$input .= <<HTML
+<tr id="nutriment_nutriscore_tr" class="nutriment_sub">
+<td class="nutriment_label">
+HTML
+. "Nutri-Score" . <<HTML
+</td>
+$values2
+</tr>			
+HTML
+;
+		}		
+		
 		
 		#print STDERR "nutrition_table - nid: $nid - shown: $shown \n";
 
@@ -8477,7 +8589,7 @@ HTML
 				
 					$html .= <<HTML
 <label for="$field">$Lang{$field}{$lang}</label>
-<input type="text" name="$field" id="$field" value="" placeholder="$value" />
+<input type="text" name="$field" id="$field" value="" placeholder="$value">
 HTML
 ;	
 				}
@@ -8485,10 +8597,10 @@ HTML
 				$html .= <<HTML
 </div>
 <div id="save_button">
-<input type="submit" id="save" name="save" value="$Lang{save}{$lang}" />
+<input type="submit" id="save" name="save" value="$Lang{save}{$lang}">
 </div>
 <div id="saving" style="display:none">
-<img src="loading2.gif" style="margin-right:10px" /> $Lang{saving}{$lang}
+<img src="loading2.gif" style="margin-right:10px"> $Lang{saving}{$lang}
 </div>
 <div id="saved" style="display:none">
 $Lang{saved}{$lang}
