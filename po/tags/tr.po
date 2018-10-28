@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-27 15:15\n"
+"PO-Revision-Date: 2018-10-28 10:06\n"
 "Language-Team: Turkish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -17,12 +17,12 @@ msgstr ""
 #. put here the language tag ("fr" for French, "ja" for Japanese, etc)
 msgctxt ":langtag"
 msgid ":langtag"
-msgstr ":tr"
+msgstr ": diletiketi"
 
 #. put here the language name ("French", "Japanese", etc)
 msgctxt ":langname"
 msgid ":langname"
-msgstr ":turkish"
+msgstr ":diladı"
 
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "additives:plural"
@@ -36,7 +36,7 @@ msgstr "katkı"
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "allergens:plural"
 msgid "allergens"
-msgstr "alerjenler"
+msgstr "alerjen içerikler"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "allergens:singular"
@@ -66,11 +66,11 @@ msgstr "kategori"
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "checkers:plural"
 msgid "checkers"
-msgstr "kontrolörler"
+msgstr "denetleyiciler"
 
 msgctxt "checkers:singular"
 msgid "checker"
-msgstr "kontrolör"
+msgstr "denetleyici"
 
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "cities:plural"
@@ -119,7 +119,7 @@ msgstr "hata ayıklama"
 
 msgctxt "editors:plural"
 msgid "editors"
-msgstr "editörler"
+msgstr "düzenleyiciler"
 
 msgctxt "editors:singular"
 msgid "editor"
@@ -143,7 +143,7 @@ msgstr "giriş tarihi"
 
 msgctxt "informers:plural"
 msgid "informers"
-msgstr "muhbir"
+msgstr "muhbirler"
 
 msgctxt "informers:singular"
 msgid "informer"
@@ -151,7 +151,7 @@ msgstr "muhbir"
 
 msgctxt "ingredients:plural"
 msgid "ingredients"
-msgstr "malzemeler"
+msgstr "içindekiler"
 
 msgctxt "ingredients:singular"
 msgid "ingredient"
@@ -329,7 +329,7 @@ msgstr "alım-yeri"
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "states:plural"
 msgid "states"
-msgstr "eyaletler"
+msgstr "devletler"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "states:singular"
@@ -374,7 +374,7 @@ msgstr "katkıda bulunanlar"
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "users:singular"
 msgid "contributor"
-msgstr "katkı sağlayan"
+msgstr "katkıda bulunan"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "misc:plural"
