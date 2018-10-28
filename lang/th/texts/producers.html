@@ -4,67 +4,67 @@
 	
 
 
-<h1>คู่มือสำหรับผู้ผลิต</h1>
+<h1>Guide for producers</h1>
 
-<p>คู่มือนี้จะอธิบายว่าเหตุใดและอย่างไรผู้ผลิตสามารถรวมภาพถ่ายและข้อมูลผลิตภัณฑ์ไว้ในฐานข้อมูล Open Food Facts ได้โดยตรง</p>
+<p>This guide explains why and how producers can directly integrate photos and product data into the Open Food Facts database.</p>
 
-<ul><li><a href="#introduction">บทนำ</a></li>
-<li><a href="#pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">ทำไมต้องเพิ่มข้อมูลผลิตภัณฑ์ของคุณเพื่อเปิดข้อมูลอาหาร</a></li>
+<ul><li><a href="#introduction">Introduction</a></li>
+<li><a href="#pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Why add your product data to Open Food Facts</a></li>
 <ul>
-<li><a href="#exemples_de_producteurs_qui_transmettent_les_photos_et_donnees_de_leurs_produits_a_open_food_facts">ตัวอย่างของผู้ผลิตที่ส่งรูปภาพและข้อมูลผลิตภัณฑ์ไปยัง Open Food Facts</a></li>
+<li><a href="#exemples_de_producteurs_qui_transmettent_les_photos_et_donnees_de_leurs_produits_a_open_food_facts">Examples of producers who submit photos and product data to Open Food Facts</a></li>
 </ul>
-<li><a href="#comment_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">วิธีการเพิ่มข้อมูลสำหรับผลิตภัณฑ์ของคุณใน Open Food Facts</a></li>
+<li><a href="#comment_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">How to add data for your products in Open Food Facts</a></li>
 <ul>
-<li><a href="#licence">ใบอนุญาต</a></li>
-<li><a href="#quelles_donnees">ข้อมูลอะไร?</a></li>
+<li><a href="#licence">Licence</a></li>
+<li><a href="#quelles_donnees">What data ?</a></li>
 <ul>
-<li><a href="#une_base_dans_toutes_les_langues">ฐานข้อมูลในทุกภาษา</a></li>
-<li><a href="#photos_et_donnees">รูปภาพและข้อมูล</a></li>
+<li><a href="#une_base_dans_toutes_les_langues">A database in all languages</a></li>
+<li><a href="#photos_et_donnees">Photos and Data</a></li>
 </ul>
-<li><a href="#ajout_manuel">เพิ่มด้วยตนเอง</a></li>
-<li><a href="#ajout_automatise">นอกจากนี้อัตโนมัติ</a></li>
+<li><a href="#ajout_manuel">Manual addition</a></li>
+<li><a href="#ajout_automatise">Automated addition</a></li>
 <ul>
-<li><a href="#format_des_images">รูปแบบรูปภาพ</a></li>
+<li><a href="#format_des_images">Picture format</a></li>
 <ul>
-<li><a href="#format_des_fichiers_images">รูปแบบของไฟล์รูปภาพ</a></li>
-<li><a href="#nom_des_fichiers_images">ชื่อของไฟล์รูปภาพ</a></li>
+<li><a href="#format_des_fichiers_images">Format of image files</a></li>
+<li><a href="#nom_des_fichiers_images">Name of the image files</a></li>
 </ul>
-<li><a href="#format_des_donnees">รูปแบบข้อมูล</a></li>
+<li><a href="#format_des_donnees">Data format</a></li>
 <ul>
-<li><a href="#champs_obligatoires">ช่องที่ต้องเติม</a></li>
-<li><a href="#champs_optionnels">ฟิลด์ตัวเลือก</a></li>
+<li><a href="#champs_obligatoires">Required fields</a></li>
+<li><a href="#champs_optionnels">Optional fields</a></li>
 </ul>
-<li><a href="#envoi_des_photos_et_des_donnees">กำลังส่งรูปภาพและข้อมูล</a></li>
-</ul>
-</ul>
-<li><a href="#questions_frequentes">คำถามที่พบบ่อย</a></li>
-<ul>
-<li><a href="#est_ce_que_le_referencement_des_produits_est_gratuit">รายชื่อของผลิตภัณฑ์ฟรีหรือไม่?</a></li>
-<li><a href="#les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">ข้อมูลผู้ผลิตจะเขียนทับข้อมูลที่ป้อนโดยผู้ร่วมให้ข้อมูลหรือไม่?</a></li>
-<li><a href="#est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">เป็นไปได้ไหมที่จะลบผลิตภัณฑ์ที่ไม่มีขายอีกต่อไป</a></li>
-<li><a href="#est_ce_que_les_produits_pour_animaux_les_produits_non_alimentaires_les_cosmetiques_et_les_autres_produits_peuvent_etre_integres_a_open_food_facts">ผลิตภัณฑ์อาหารสัตว์ผลิตภัณฑ์จากอาหารเครื่องสำอางและผลิตภัณฑ์อื่น ๆ สามารถรวมเข้ากับ Open Food Facts ได้หรือไม่?</a></li>
+<li><a href="#envoi_des_photos_et_des_donnees">Sending photos and data</a></li>
 </ul>
 </ul>
-
-<h2 id="introduction">บทนำ</h2>
-
-<p>ภาพถ่ายและข้อมูลเกี่ยวกับผลิตภัณฑ์อาหารที่อ้างถึงในฐานข้อมูล Food Open Food มาจาก 2 แหล่งที่มา:</p>
+<li><a href="#questions_frequentes">Frequently Asked Questions</a></li>
 <ul>
-<li>crowdsourcing ผ่านแอปบนอุปกรณ์เคลื่อนที่และเว็บไซต์ Open Food Facts: ผู้ร่วมวิจัยสแกนบาร์โค้ดส่งภาพถ่ายผลิตภัณฑ์รายการส่วนผสมและแผนภูมิโภชนาการจากนั้นป้อนข้อมูลในรูปแบบที่มีโครงสร้าง</li>
-  <li>การเพิ่มข้อมูลโดยตรงจากผู้ผลิตด้วยตนเองหรือโดยอัตโนมัติ</li>
+<li><a href="#est_ce_que_le_referencement_des_produits_est_gratuit">Is the listing of products free?</a></li>
+<li><a href="#les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">Will producer data overwrite data entered by contributors?</a></li>
+<li><a href="#est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">Is it possible to delete products that are no longer sold?</a></li>
+<li><a href="#est_ce_que_les_produits_pour_animaux_les_produits_non_alimentaires_les_cosmetiques_et_les_autres_produits_peuvent_etre_integres_a_open_food_facts">Can animal products, non-food products, cosmetics and other products be integrated into Open Food Facts?</a></li>
+</ul>
 </ul>
 
+<h2 id="introduction">Introduction</h2>
 
-<h2 id="pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">ทำไมต้องเพิ่มข้อมูลผลิตภัณฑ์ลงใน Open Food Facts</h2>
+<p>The photos and data on the food products referenced in the Open Food Facts database come from 2 sources:</p>
+<ul>
+<li>crowdsourcing through mobile apps and the Open Food Facts website: contributors scan barcodes, send product photos, ingredient lists and nutrition charts and then enter the data in a structured way.</li>
+  <li>the addition of data directly from the producers, either manually or automatically.</li>
+</ul>
+
+
+<h2 id="pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Why add product data to Open Food Facts</h2>
 
   
-<p>มีประโยชน์มากมายสำหรับการนำเข้าวันที่โดยตรงจากผู้ผลิต:</p>
+<p>There are many benefits to importing date directly from manufacturers:</p>
 
 <ul>
 
-<li>ข้อมูลมีความสมบูรณ์ทันสมัยและไม่มีความเสี่ยงในการเกิดข้อผิดพลาด</li>
+<li>The data is complete, up to date, and without risk of error.</li>
 
-<li>ภาพถ่ายมีคุณภาพดีกว่าภาพที่ถ่ายโดยผู้ร่วมให้ข้อมูลในสภาพที่แปรปรวนมาก</li>
+<li>The photos are of better quality than the photos taken by the contributors in very variable conditions.</li>
   
 <li>The data is then available in more than 100 applications.</li>
 
