@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-28 09:28\n"
+"PO-Revision-Date: 2018-10-29 12:56\n"
 "Language-Team: French\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -339,35 +339,13 @@ msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.p
 "+ <a href=\"https://www.facebook.com/groups/openfoodfacts/\">contributors group</a><br />\n"
 "</p>\n\n"
 "<p>iPhone and iPad app on the App Store:</p>\n\n"
-"<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
+"<a href=\"https://itunes.apple.com/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
 "<p>Android app on Google Play:</p>\n\n"
 "<a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner\"><img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" /></a><br/>\n"
 "<a href=\"https://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
 "<p>Windows Phone app:</p>\n\n"
-"<a href=\"https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
-msgstr "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.png\" width=\"178\" height=\"144\" alt=\"<<site_name>> \"/></a>\n\n"
-"<p><<site_name>> rassemble des informations et des données sur les produits alimentaires du monde entier.</p>\n\n"
-"<select_country>\n\n"
-"<p>\n"
-"→ <a href=\"/brands\">Marques</a><br />\n"
-"→ <a href=\"/categories\">Catégories</a><br/>\n"
-"</p>\n\n"
-"<p>Les informations sur les produits alimentaires (photos , ingrédients, informations nutritionnelles, etc.) sont collectées de manière collaborative et sont mises à la disposition de tous, dans une base de données gratuite et ouverte, pour tous les usages.</p>\n\n\n"
-"<p>Retrouvez-nous aussi sur :</p>\n\n"
-"<p>\n"
-"→ <a href=\"https://en.wiki.openfoodfacts.org\">notre wiki</a><br />\n"
-"→ <a href=\"https://twitter.com/openfoodfacts\">Twitter</a><br/>\n"
-"→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a><br />\n"
-"→ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
-"+ <a href=\"https://www.facebook.com/groups/openfoodfacts/\">notre groupe contributeurs</a><br />\n"
-"</p>\n\n"
-"<p>Application iPhone et iPad sur l'App Store :</p>\n\n"
-"<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
-"<p>Application Android sur Google Play :</p>\n\n"
-"<a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner\"><img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" /></a><br/>\n"
-"<a href=\"https://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
-"<p>Application Windows Phone :</p>\n\n"
-"<a href=\"https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
+"<a href=\"https://microsoft.com/p/openfoodfacts/9nblggh0dkqr\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
+msgstr ""
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
@@ -716,6 +694,7 @@ msgctxt "footer_blog"
 msgid "<<site_name>> blog"
 msgstr "Le blog d'<<site_name>>"
 
+# Do not translate
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
 msgstr "https://fr.blog.openfoodfacts.org"
@@ -724,6 +703,7 @@ msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
 msgstr "Code de conduite"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
 msgstr "/code-de-conduite"
@@ -732,6 +712,7 @@ msgctxt "footer_data"
 msgid "Data"
 msgstr "Données"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
 msgstr "/data"
@@ -744,6 +725,7 @@ msgctxt "footer_faq"
 msgid "Frequently asked questions"
 msgstr "Questions fréquentes"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
 msgstr "/questions-frequentes"
@@ -752,6 +734,7 @@ msgctxt "footer_translators"
 msgid "Translators"
 msgstr "Traducteurs"
 
+# Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
 msgstr "/cgi/top_translators.pl"
@@ -780,6 +763,7 @@ msgctxt "footer_legal"
 msgid "Legal"
 msgstr "Mentions légales"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/mentions-legales"
@@ -788,6 +772,7 @@ msgctxt "footer_press"
 msgid "Press"
 msgstr "Presse"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
 msgstr "/presse"
@@ -800,6 +785,7 @@ msgctxt "footer_terms"
 msgid "Terms of use"
 msgstr "Conditions d'utilisation"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
 msgstr "/conditions-d-utilisation"
@@ -808,6 +794,7 @@ msgctxt "footer_who_we_are"
 msgid "Who we are"
 msgstr "Qui sommes nous ?"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
 msgstr "/qui-sommes-nous"
@@ -816,6 +803,7 @@ msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
 msgstr "<<site_name>> wiki (fr)"
 
+# Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
 msgstr "https://fr.wiki.openfoodfacts.org"
@@ -852,6 +840,7 @@ msgctxt "graphs_and_maps"
 msgid "Graphs and maps"
 msgstr "Graphiques et cartes"
 
+# Obsolete. Do not translate
 msgctxt "header"
 msgid "<meta property=\"fb:admins\" content=\"706410516\" />\n"
 "<meta property=\"og:site_name\" content=\"<<site_name>> - the free and open food products information database\"/>\n\n"
@@ -1164,14 +1153,6 @@ msgctxt "lang_nl_be"
 msgid "Dutch"
 msgstr "Néerlandais"
 
-msgctxt "lang_note"
-msgid "Language most present and most highlighted on the product"
-msgstr "Langue la plus utilisée et la plus mise en avant sur le produit"
-
-msgctxt "lang_other"
-msgid "other language"
-msgstr "autre langue"
-
 msgctxt "lang_pl"
 msgid "Polish"
 msgstr "Polonais"
@@ -1215,6 +1196,14 @@ msgstr "Vietnamien"
 msgctxt "lang_zh"
 msgid "Chinese"
 msgstr "Chinois"
+
+msgctxt "lang_other"
+msgid "other language"
+msgstr "autre langue"
+
+msgctxt "lang_note"
+msgid "Language most present and most highlighted on the product"
+msgstr "Langue la plus utilisée et la plus mise en avant sur le produit"
 
 msgctxt "language"
 msgid "en-US"
@@ -1380,6 +1369,7 @@ msgctxt "menu_add_a_product"
 msgid "Add a product"
 msgstr "Ajouter un produit"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
 msgstr "/ajouter-un-produit"
@@ -1388,6 +1378,7 @@ msgctxt "menu_contribute"
 msgid "Contribute"
 msgstr "Contribuer"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
 msgstr "/contribuer"
@@ -1396,6 +1387,7 @@ msgctxt "menu_discover"
 msgid "Discover"
 msgstr "Découvrir"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
 msgstr "/decouvrir"
@@ -1508,7 +1500,7 @@ msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
 msgstr "Repères nutritionnels pour 100 g"
 
-# Ensure it is the same translation as in the translation in the tag file. If unsure, DO NOT TRANSLATE, otherwise it will break the site
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
 msgstr "/reperes-nutritionnels"
@@ -2834,6 +2826,7 @@ msgctxt "footer_partners"
 msgid "Partners"
 msgstr "Partenaires"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
 msgstr "/partenaires"
