@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: vi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-27 14:54\n"
+"PO-Revision-Date: 2018-10-29 16:08\n"
 "Language-Team: Vietnamese\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -262,7 +262,7 @@ msgstr "Các sản phẩm từ danh mục %s"
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "danh mục"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
@@ -282,11 +282,11 @@ msgstr "Nguồn Thực Phẩm"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr ""
+msgstr "Hình ảnh đã chọn"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr ""
+msgstr "Hình ảnh đã tải lên"
 
 msgctxt "checkers_p"
 msgid "checkers"
@@ -339,12 +339,12 @@ msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.p
 "+ <a href=\"https://www.facebook.com/groups/openfoodfacts/\">contributors group</a><br />\n"
 "</p>\n\n"
 "<p>iPhone and iPad app on the App Store:</p>\n\n"
-"<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
+"<a href=\"https://itunes.apple.com/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
 "<p>Android app on Google Play:</p>\n\n"
 "<a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner\"><img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" /></a><br/>\n"
 "<a href=\"https://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
 "<p>Windows Phone app:</p>\n\n"
-"<a href=\"https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
+"<a href=\"https://microsoft.com/p/openfoodfacts/9nblggh0dkqr\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
 msgstr ""
 
 msgctxt "completed_n_missions"
@@ -692,6 +692,7 @@ msgctxt "footer_blog"
 msgid "<<site_name>> blog"
 msgstr "Các <<site_name>> blog"
 
+# Do not translate
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
 msgstr "https://en.blog.openfoodfacts.org"
@@ -700,6 +701,7 @@ msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
 msgstr "Quy tắc ứng xử"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
 msgstr "/code-of-conduct"
@@ -708,6 +710,7 @@ msgctxt "footer_data"
 msgid "Data"
 msgstr "Dữ liệu"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
 msgstr "/data"
@@ -720,6 +723,7 @@ msgctxt "footer_faq"
 msgid "Frequently asked questions"
 msgstr "Câu hỏi thường gặp"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
 msgstr "/faq"
@@ -728,6 +732,7 @@ msgctxt "footer_translators"
 msgid "Translators"
 msgstr "Người dịch"
 
+# Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
 msgstr "/cgi/top_translators.pl"
@@ -756,6 +761,7 @@ msgctxt "footer_legal"
 msgid "Legal"
 msgstr "Pháp đề cập đến"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/legal"
@@ -764,6 +770,7 @@ msgctxt "footer_press"
 msgid "Press"
 msgstr "Báo chí"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
 msgstr "/press"
@@ -776,6 +783,7 @@ msgctxt "footer_terms"
 msgid "Terms of use"
 msgstr "Điều khoản sử dụng"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
 msgstr "/terms-of-use"
@@ -784,6 +792,7 @@ msgctxt "footer_who_we_are"
 msgid "Who we are"
 msgstr "Chúng ta là ai"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
 msgstr "/who-we-are"
@@ -792,6 +801,7 @@ msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
 msgstr "<<site_name>> wiki (vi)"
 
+# Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
 msgstr "https://en.wiki.openfoodfacts.org"
@@ -828,6 +838,7 @@ msgctxt "graphs_and_maps"
 msgid "Graphs and maps"
 msgstr "Đồ thị và bản đồ"
 
+# Obsolete. Do not translate
 msgctxt "header"
 msgid "<meta property=\"fb:admins\" content=\"706410516\" />\n"
 "<meta property=\"og:site_name\" content=\"<<site_name>> - the free and open food products information database\"/>\n\n"
@@ -1078,19 +1089,19 @@ msgstr "Tiếng Anh"
 
 msgctxt "lang_es"
 msgid "Spanish"
-msgstr ""
+msgstr "Người Tây Ban Nha"
 
 msgctxt "lang_et"
 msgid "Estonian"
-msgstr ""
+msgstr "Tiếng Estonia"
 
 msgctxt "lang_fi"
 msgid "Finnish"
-msgstr ""
+msgstr "Tiếng Phần Lan"
 
 msgctxt "lang_fr"
 msgid "French"
-msgstr ""
+msgstr "Người Pháp"
 
 msgctxt "lang_ga"
 msgid "Irish"
@@ -1140,14 +1151,6 @@ msgctxt "lang_nl_be"
 msgid "Dutch"
 msgstr ""
 
-msgctxt "lang_note"
-msgid "Language most present and most highlighted on the product"
-msgstr "Ngôn ngữ được trình bày nhiều nhất và nổi bật nhất trên sản phẩm"
-
-msgctxt "lang_other"
-msgid "other language"
-msgstr "ngôn ngữ khác"
-
 msgctxt "lang_pl"
 msgid "Polish"
 msgstr ""
@@ -1191,6 +1194,14 @@ msgstr "Tiếng Việt"
 msgctxt "lang_zh"
 msgid "Chinese"
 msgstr ""
+
+msgctxt "lang_other"
+msgid "other language"
+msgstr "ngôn ngữ khác"
+
+msgctxt "lang_note"
+msgid "Language most present and most highlighted on the product"
+msgstr "Ngôn ngữ được trình bày nhiều nhất và nổi bật nhất trên sản phẩm"
 
 msgctxt "language"
 msgid "en-US"
@@ -1347,6 +1358,7 @@ msgctxt "menu_add_a_product"
 msgid "Add a product"
 msgstr "Thêm một sản phẩm"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
 msgstr "/add-a-product"
@@ -1355,6 +1367,7 @@ msgctxt "menu_contribute"
 msgid "Contribute"
 msgstr "Góp phần"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
 msgstr "/contribute"
@@ -1363,6 +1376,7 @@ msgctxt "menu_discover"
 msgid "Discover"
 msgstr "Khám phá"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
 msgstr "/discover"
@@ -1475,7 +1489,7 @@ msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
 msgstr "Mức độ dinh dưỡng cho 100 g"
 
-# Ensure it is the same translation as in the translation in the tag file. If unsure, DO NOT TRANSLATE, otherwise it will break the site
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
 msgstr "/nutrient-levels"
@@ -1761,7 +1775,7 @@ msgstr ""
 
 msgctxt "points_all_countries"
 msgid "There are %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "Có %d Explorers và %d Ambassadors."
 
 msgctxt "points_all_users"
 msgid "There are Explorers for %d countries and Ambassadors for %d countries."
@@ -1769,7 +1783,7 @@ msgstr ""
 
 msgctxt "points_country"
 msgid "%s has %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "%s có %d Explorers và %d Ambassadors."
 
 msgctxt "points_ranking"
 msgid "Ranking"
@@ -1889,7 +1903,7 @@ msgstr "Ảnh trên nền trắng: cố gắng xóa nền"
 
 msgctxt "product_js_images_delete_error"
 msgid "Errors while deleting images"
-msgstr ""
+msgstr "Lỗi khi xóa hình ảnh"
 
 msgctxt "product_js_images_deleted"
 msgid "Images deleted"
@@ -2101,11 +2115,11 @@ msgstr "Chọn các sản phẩm có thương hiệu cụ thể, chủng loại,
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
-msgstr ""
+msgstr "Open Food Facts tìm kiếm sản phẩm"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
-msgstr ""
+msgstr "không chứa"
 
 msgctxt "search_download_button"
 msgid "Download"
@@ -2117,39 +2131,39 @@ msgstr "Tải xuống kết quả"
 
 msgctxt "search_download_results"
 msgid "Download results in CSV format (Excel, OpenOffice)"
-msgstr ""
+msgstr "Tải xuống kết quả ở định dạng CSV (Excel, OpenOffice)"
 
 msgctxt "search_download_results_description"
 msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
-msgstr ""
+msgstr "Bộ ký tự: Unicode (UTF-8). Dấu phân cách: tabulation (tab)."
 
 msgctxt "search_edit"
 msgid "Change search criteria"
-msgstr ""
+msgstr "Thay đổi tiêu chí tìm kiếm"
 
 msgctxt "search_flatten_tags"
 msgid "(Optional) - Create a column for every:"
-msgstr ""
+msgstr "(Tùy chọn) - Tạo cột cho mọi:"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
-msgstr ""
+msgstr "Tạo biểu đồ"
 
 msgctxt "search_generate_map"
 msgid "Generate the map"
-msgstr ""
+msgstr "Tạo bản đồ"
 
 msgctxt "search_graph"
 msgid "Graph"
-msgstr ""
+msgstr "Biểu đồ"
 
 msgctxt "search_graph_2_axis"
 msgid "Scatter plot"
-msgstr ""
+msgstr "Âm mưu phân tán"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p>→ tìm hiểu thêm về <<site_name>> biểu đồ: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Đồ thị trong 3 lần nhấp</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2158,7 +2172,8 @@ msgstr "Kết quả trên một đồ thị"
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
 "get a cloud of products (scatter plot)."
-msgstr ""
+msgstr "Chọn những gì bạn muốn vẽ đồ thị trên trục ngang để có được một biểu đồ, hoặc chọn hai trục để\n"
+"có được một đám mây sản phẩm (âm mưu phân tán)."
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
@@ -2226,11 +2241,11 @@ msgstr ""
 
 msgctxt "search_page_size"
 msgid "Results per page"
-msgstr ""
+msgstr "Kết quả mỗi trang"
 
 msgctxt "search_products"
 msgid "Products search"
-msgstr ""
+msgstr "Tìm kiếm sản phẩm"
 
 msgctxt "search_results"
 msgid "Search results"
@@ -2502,7 +2517,7 @@ msgstr ""
 
 msgctxt "unsubscribe"
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Hủy đăng ký"
 
 msgctxt "unsubscribe_info"
 msgid "You can unsubscribe from the lists at any time."
@@ -2526,7 +2541,7 @@ msgstr "Tên người dùng hoặc địa chỉ email"
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
-msgstr ""
+msgstr "Các sản phẩm đã được thêm bởi người dùng %s"
 
 msgctxt "users_add_without_products"
 msgid "Products that were not added by the user %s"
@@ -2798,6 +2813,7 @@ msgctxt "footer_partners"
 msgid "Partners"
 msgstr ""
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
 msgstr ""
