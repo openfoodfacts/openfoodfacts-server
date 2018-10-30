@@ -612,10 +612,22 @@ sub compute_product_history_and_completeness($$) {
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d-%02d", $year + 1900, $mon + 1);
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d", $year + 1900);
+	
+	if (defined $current_product_ref->{last_checked_t}) {
+		my $last_checked_t = $current_product_ref->{last_checked_t} + 0;
+		($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($last_checked_t + 0);
+		$current_product_ref->{last_check_dates_tags} = [];
+		push @{$current_product_ref->{last_check_dates_tags}}, sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
+		push @{$current_product_ref->{last_check_dates_tags}}, sprintf("%04d-%02d", $year + 1900, $mon + 1);
+		push @{$current_product_ref->{last_check_dates_tags}}, sprintf("%04d", $year + 1900);	
+	}
+	else {
+		delete $current_product_ref->{last_check_dates_tags};
+	}
 
 	# Read all previous versions to see which fields have been added or edited
 	
-	my @fields = qw(lang product_name generic_name quantity packaging brands categories origins manufacturing_places labels emb_codes expiration_date purchase_places stores countries ingredients_text traces no_nutrition_data serving_size nutrition_data_per );
+	my @fields = qw(lang product_name generic_name quantity packaging brands categories origins manufacturing_places labels emb_codes expiration_date purchase_places stores countries ingredients_text traces no_nutrition_data serving_size nutrition_data_per);
 	
 	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
 	my %last = %previous;
@@ -716,6 +728,7 @@ sub compute_product_history_and_completeness($$) {
 			}
 		
 			$current{checked} = $product_ref->{checked};
+			$current{last_checked_t} = $product_ref->{last_checked_t};
 		}
 		
 		# Differences and attribution to users
@@ -730,11 +743,11 @@ sub compute_product_history_and_completeness($$) {
 		
 		$changed_by{$userid} = 1;			
 		
-		if (((defined $current{checked}) and ($current{checked} eq 'on')) and ((not defined $previous{checked}) or ($previous{checked} ne 'on'))) {
-			if ((defined $userid) and ($userid ne '')) {
-				if (not defined $checkers{$userid}) {
-					$checkers{$userid} = 1;
-					push @checkers, $userid;
+		if ((defined $current{last_checked_t}) and ((not defined $previous{last_checked_t}) or ($previous{last_checked_t} != $current{last_checked_t}))) {
+			if ((defined $product_ref->{last_checker}) and ($product_ref->{last_checker} ne '')) {
+				if (not defined $checkers{$product_ref->{last_checker}}) {
+					$checkers{$product_ref->{last_checker}} = 1;
+					push @checkers, $product_ref->{last_checker};
 				}
 			}
 		}

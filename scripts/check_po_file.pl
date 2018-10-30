@@ -45,7 +45,7 @@ my $errors = 0;
 
 foreach my $line (@lines) {
 
-	if ($line =~ /^(msgctxt|msgstr|msgid) "(.*)"/) {
+	if ($line =~ /^(msgctxt|msgstr|msgid)\s+"(.*)"/) {
 		$key = $1;
 		my $value = $2;
 		if ($key eq "msgctxt") {

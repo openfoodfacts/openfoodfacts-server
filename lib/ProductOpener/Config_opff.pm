@@ -42,13 +42,13 @@ BEGIN
 		$facebook_app_id
 		$facebook_app_secret
 		
-		$csrf_secret
-		
 		$crowdin_project_identifier
 		$crowdin_project_key
 				
 		$mongodb
 		$mongodb_host
+
+		$memd_servers
 	
 		$google_analytics
 		
@@ -106,6 +106,7 @@ $server_domain = $ProductOpener::Config2::server_domain;
 @ssl_subdomains = @ProductOpener::Config2::ssl_subdomains;
 $mongodb = $ProductOpener::Config2::mongodb;
 $mongodb_host = $ProductOpener::Config2::mongodb_host;
+$memd_servers = $ProductOpener::Config2::memd_servers;
 
 # server paths
 $www_root = $ProductOpener::Config2::www_root;
@@ -113,8 +114,6 @@ $data_root = $ProductOpener::Config2::data_root;
 
 $facebook_app_id = $ProductOpener::Config2::facebook_app_id;
 $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
-
-$csrf_secret = $Blogs::Config2::csrf_secret;
 
 $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
 $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
