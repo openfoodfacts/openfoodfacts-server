@@ -54,6 +54,7 @@ data:
     	@EXPORT = qw();
     	@EXPORT_OK = qw(
     		%admins
+    		%moderators
     		
     		$server_domain
     		@ssl_subdomains
@@ -107,6 +108,10 @@ data:
 
     %admins = map { $_ => 1 } qw(
     admin
+    );
+
+    %moderators = map { $_ => 1 } qw(
+    moderator
     );
 
     @edit_rules = (

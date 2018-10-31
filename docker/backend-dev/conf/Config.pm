@@ -30,6 +30,7 @@ BEGIN
 	@EXPORT = qw();
 	@EXPORT_OK = qw(
 		%admins
+		%moderators
 		
 		$server_domain
 		@ssl_subdomains
@@ -81,6 +82,10 @@ use ProductOpener::Config2;
 
 %admins = map { $_ => 1 } qw(
 admin
+);
+
+%moderators = map { $_ => 1 } qw(
+moderator
 );
 
 @edit_rules = (
