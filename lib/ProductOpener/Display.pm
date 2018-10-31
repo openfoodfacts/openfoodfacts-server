@@ -5554,7 +5554,7 @@ HTML
 </div>
 
 <footer>
-	<div class="small-12 medium-6 large-3 columns">
+	<div class="small-12 medium-6 large-3 columns off">
 		<div class="title">Open Food Facts</div>
 		<p>$Lang{footer_tagline}{$lc}</p>
 		<ul>
@@ -5564,14 +5564,14 @@ HTML
 			<li><a href="$Lang{donate_link}{$lc}">$Lang{donate}{$lc}</a></li>
 		</ul>
 	</div>
-	<div class="small-12 medium-6 large-3 columns">
+	<div class="small-12 medium-6 large-3 columns app">
 		<div class="title">$Lang{footer_install_the_app}{$lc}</div>
 		<a href="$Lang{ios_app_link}{$lc}">$Lang{ios_app_badge}{$lc}</a>
 		<a href="$Lang{android_app_link}{$lc}">$Lang{android_app_badge}{$lc}</a>
 		<a href="$Lang{windows_phone_app_link}{$lc}">$Lang{windows_phone_app_badge}{$lc}</a>
 		<a href="$Lang{android_apk_app_link}{$lc}">$Lang{android_apk_app_badge}{$lc}</a>
 	</div>
-	<div class="small-12 medium-6 large-3 columns">
+	<div class="small-12 medium-6 large-3 columns project">
 		<div class="title">$Lang{footer_discover_the_project}{$lc}</div>
 		<ul>
 			<li><a href="$Lang{footer_who_we_are_link}{$lc}">$Lang{footer_who_we_are}{$lc}</a></li>
@@ -5583,7 +5583,7 @@ HTML
 			<li><a href="$Lang{footer_partners_link}{$lc}">$Lang{footer_partners}{$lc}</a></li>
 		</ul>
 	</div>
-	<div class="small-12 medium-6 large-3 columns">
+	<div class="small-12 medium-6 large-3 columns community">
 		<div class="title">$Lang{footer_join_the_community}{$lc}</div>
 		<p>
 			<a href="$Lang{footer_code_of_conduct_link}{$lc}">$Lang{footer_code_of_conduct}{$lc}</a>
