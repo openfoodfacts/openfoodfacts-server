@@ -1170,6 +1170,9 @@ sub display_image_thumb($$) {
 				
 			$html .= <<HTML
 <img src="$static/images/misc/pacman.svg" data-src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" data-srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" class="lazyload" />
+<noscript>
+<img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" rcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" />
+</noscript>
 HTML
 ;		
 
@@ -1242,25 +1245,38 @@ sub display_image($$$) {
 		my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
 
 		if (not defined $product_ref->{jqm}) {
+			my $noscript = "<noscript>";
 		
 			# add srcset with 2x image only if the 2x image exists
 			my $srcset = '';
+			my $srcsetns = '';
 			if (defined $product_ref->{images}{$id}{sizes}{$display_size}) {
-				$srcset = "data-srcset=\"/images/products/$path/$id.$rev.$display_size.jpg 2x\"";
+				$srcsetns = "srcset=\"/images/products/$path/$id.$rev.$display_size.jpg 2x\"";
+				$srcset = "data-" . $srcsetns;
 			}
 			
 			$html .= <<HTML
 <img class="hide-for-xlarge-up lazyload" src="/images/misc/pacman.svg" data-src="/images/products/$path/$id.$rev.$size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" />
 HTML
 ;
+			$noscript .= <<HTML
+<img class="hide-for-xlarge-up" src="/images/products/$path/$id.$rev.$size.jpg" $srcsetns width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" />
+HTML
+;
 
 			$srcset = '';
+			$srcsetns = '';
 			if (defined $product_ref->{images}{$id}{sizes}{$zoom_size}) {
-				$srcset = "data-srcset=\"/images/products/$path/$id.$rev.$zoom_size.jpg 2x\"";
+				$srcsetns = "srcset=\"/images/products/$path/$id.$rev.$zoom_size.jpg 2x\"";
+				$srcset = "data-" . $srcsetns;
 			}
 
 			$html .= <<HTML
 <img class="show-for-xlarge-up lazyload" src="/images/misc/pacman.svg" data-src="/images/products/$path/$id.$rev.$display_size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" />
+HTML
+;
+			$noscript .= <<HTML
+<img class="show-for-xlarge-up" src="/images/products/$path/$id.$rev.$display_size.jpg" $srcsetns width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" />
 HTML
 ;
 				
@@ -1277,6 +1293,8 @@ HTML
 					$representative_of_page = 'false';
 				}
 				
+				$noscript .= "</noscript>";
+				$html = $html . $noscript;
 				$html = <<HTML
 <a data-reveal-id="drop_$id" class="th">
 $html

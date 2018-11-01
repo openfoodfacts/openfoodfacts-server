@@ -5479,6 +5479,9 @@ a.button:hover {
 	color:green;
 }
 
+.no-js img.lazyload {
+	display: none !important;
+}
 
 <!-- foundation styles -->
 
