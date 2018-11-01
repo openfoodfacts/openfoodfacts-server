@@ -13,7 +13,7 @@ module.exports = {
     "rules": {
         "indent": [
             "error",
-            "tab"
+            2
         ],
         "quotes": [
             "error",

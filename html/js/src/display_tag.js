@@ -26,84 +26,84 @@ import $ from 'jquery';
 var markers = [];
 var map;
 function ensureMapIsDisplayed() {
-	if (map) {
-		return;
-	}
+  if (map) {
+    return;
+  }
 
-	$('#tag_description').removeClass('large-12');
-	$('#tag_description').addClass('large-9');
-	$('#tag_map').show();
+  $('#tag_description').removeClass('large-12');
+  $('#tag_description').addClass('large-9');
+  $('#tag_map').show();
 
-	map = L.map('container');
+  map = L.map('container');
 
-	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		maxZoom: 19,
-		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-	}).addTo(map);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
 }
 
 function fitBoundsToAllLayers(map) {
-	var latlngbounds = new L.latLngBounds();
+  var latlngbounds = new L.latLngBounds();
 
-	map.eachLayer(function (l) {
-		if (typeof l.getBounds === 'function') {
-			latlngbounds.extend(l.getBounds());
-		}
-	});
+  map.eachLayer(function (l) {
+    if (typeof l.getBounds === 'function') {
+      latlngbounds.extend(l.getBounds());
+    }
+  });
 
-	latlngbounds.extend(L.latLngBounds(markers));
-	map.fitBounds(latlngbounds);
+  latlngbounds.extend(L.latLngBounds(markers));
+  map.fitBounds(latlngbounds);
 }
 
 function runCallbackOnJson(callback) {
-	ensureMapIsDisplayed();
-	callback(map);
+  ensureMapIsDisplayed();
+  callback(map);
 }
 
 export function addWikidataObjectToMap(id) {
-	getOpenStreetMapFromWikidata(id, function(data)
-	{
-		var bindings = data.results.bindings;
-		if (bindings.length == 0) {
-			return;
-		}
+  getOpenStreetMapFromWikidata(id, function(data)
+  {
+    var bindings = data.results.bindings;
+    if (bindings.length == 0) {
+      return;
+    }
 
-		var binding = bindings[0];
-		var relationId = binding.OpenStreetMap_Relations_ID.value;
-		if (!relationId) {
-			return;
-		}
+    var binding = bindings[0];
+    var relationId = binding.OpenStreetMap_Relations_ID.value;
+    if (!relationId) {
+      return;
+    }
 
-		getGeoJsonFromOsmRelation(relationId, function (geoJson) {
-			if (geoJson) {
-				runCallbackOnJson(function (map) {
-					L.geoJSON(geoJson).addTo(map);
-					fitBoundsToAllLayers(map);
-				});
-			}
-		});
-	});
+    getGeoJsonFromOsmRelation(relationId, function (geoJson) {
+      if (geoJson) {
+        runCallbackOnJson(function (map) {
+          L.geoJSON(geoJson).addTo(map);
+          fitBoundsToAllLayers(map);
+        });
+      }
+    });
+  });
 }
 
 function getOpenStreetMapFromWikidata(id, callback) {
-	var endpointUrl = 'https://query.wikidata.org/sparql',
-		sparqlQuery = 'SELECT ?OpenStreetMap_Relations_ID WHERE { ' +
-		'  wd:' + id +' wdt:P402 ?OpenStreetMap_Relations_ID. ' +
-		'}',
-		settings = {
-			headers: { Accept: 'application/sparql-results+json' },
-			data: { query: sparqlQuery }
-		};
+  var endpointUrl = 'https://query.wikidata.org/sparql',
+    sparqlQuery = 'SELECT ?OpenStreetMap_Relations_ID WHERE { ' +
+    '  wd:' + id +' wdt:P402 ?OpenStreetMap_Relations_ID. ' +
+    '}',
+    settings = {
+      headers: { Accept: 'application/sparql-results+json' },
+      data: { query: sparqlQuery }
+    };
 
-	$.ajax( endpointUrl, settings ).then(callback);
+  $.ajax( endpointUrl, settings ).then(callback);
 }
 
 function getOsmDataFromOverpassTurbo(id, callback) {
-	$.ajax('https://overpass-api.de/api/interpreter?data=relation%28' + id + '%29%3B%0A%28._%3B%3E%3B%29%3B%0Aout%3B').then(callback);
+  $.ajax('https://overpass-api.de/api/interpreter?data=relation%28' + id + '%29%3B%0A%28._%3B%3E%3B%29%3B%0Aout%3B').then(callback);
 }
 
 function getGeoJsonFromOsmRelation(id, callback) {
-	getOsmDataFromOverpassTurbo(id, function(xml) {
-		callback(osmtogeojson(xml));
-	});
+  getOsmDataFromOverpassTurbo(id, function(xml) {
+    callback(osmtogeojson(xml));
+  });
 }
