@@ -143,11 +143,16 @@ if (opendir (DH, "$data_root/packager-codes")) {
 					$code = $fields[$headers{code}];
 					$code = normalize_packager_codes("DE $code EC");
 				}
+				elsif ($country eq 'it') {
+                                        $code = $fields[$headers{approvalnumber}];
+					$code =~ s/^CE //;
+                                        $code = normalize_packager_codes("$code EC");
+                                }
 				
 				$code = get_fileid($code);
 				$code =~ s/-(eg|ce|ew|we|eec)$/-ec/i;
 				
-				if ($country eq 'de') {
+				if ($country eq 'it') {
 					print STDERR "$code: $code\n";
 				}
 				

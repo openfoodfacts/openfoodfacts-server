@@ -36,8 +36,6 @@ use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 
-use WWW::CSRF qw(CSRF_OK);
-
 ProductOpener::Display::init();
 
 my $type = param('type') || 'add';
@@ -48,19 +46,15 @@ my $userid = get_fileid(param('userid'));
 my $html = '';
 
 my $user_ref = {};
-my $csrf_user_id = '';
 
 if ($type eq 'edit') {
 	$user_ref = retrieve("$data_root/users/$userid.sto");
 	if (not defined $user_ref) {
 		display_error($Lang{error_invalid_user}{$lang}, 404);
 	}
-
-	$csrf_user_id = $User_id;
 }
 else {
 	$type = 'add';
-	$csrf_user_id = cookie('b');
 }
 
 if (($type eq 'edit') and ($User_id ne $userid) and not $admin) {
@@ -119,7 +113,6 @@ SCRIPT
 	. hidden(-name=>'action', -value=>'process', -override=>1)
 	. hidden(-name=>'type', -value=>$type, -override=>1)
 	. hidden(-name=>'userid', -value=>$userid, -override=>1)
-	. hidden(-name=>'csrf', -value=>generate_po_csrf_token($csrf_user_id), -override=>1)
 	. submit()
 	. "</td></tr>\n</table>"
 	. end_form();
@@ -127,12 +120,7 @@ SCRIPT
 }
 elsif ($action eq 'process') {
 
-	my $csrf_token_status = check_po_csrf_token($csrf_user_id, param('csrf'));
-	if (not ($csrf_token_status eq CSRF_OK)) {
-		display_error('Invalid CSRF token', 403);
-	}
-
-    my $dialog = '_user_confirm';
+	my $dialog = '_user_confirm';
 	if (($type eq 'add') or ($type eq 'edit')) {
 		if ( ProductOpener::Users::process_user_form($user_ref) ) {
             $dialog = '_user_confirm_no_mail';
