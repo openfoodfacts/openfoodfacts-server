@@ -46,6 +46,7 @@ use Storable qw(lock_store lock_nstore lock_retrieve);
 use Encode;
 use Encode::Punycode;
 use URI::Escape::XS;
+use Log::Any qw($log);
 
 # Text::Unaccent unac_string causes Apache core dumps with Apache 2.4 and mod_perl 2.0.9 on jessie
 
@@ -112,14 +113,16 @@ sub get_fileid($) {
 
 sub get_urlid($) {
 
-	my $file = shift;
+	my $input = shift;
+	my $file = $input;
 	
 	$file = get_fileid($file);
 	
 	if ($file =~ /[^a-zA-Z0-9-]/) {
 		$file = URI::Escape::XS::encodeURIComponent($file);
 	}
-	# print STDERR "get_urlid : $file \n";
+	
+	$log->trace("get_urlid", { in => $input, out => $file }) if $log->is_trace();
 	
 	return $file;
 }
@@ -135,8 +138,8 @@ sub get_ascii_fileid($) {
 		$file = "xn--" .  encode('Punycode',$file);
 	}
 	
-	print STDERR "get_ascii_fileid : $file \n";
-	
+	$log->debug("get_ascii_fileid", { file => $file }) if $log->is_debug();
+
 	return $file;	
 }
 

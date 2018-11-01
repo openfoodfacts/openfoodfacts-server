@@ -42,8 +42,6 @@ BEGIN
 		$facebook_app_id
 		$facebook_app_secret
 
-		$csrf_secret
-
 		$google_cloud_vision_api_key
 		
 		$crowdin_project_identifier
@@ -51,6 +49,8 @@ BEGIN
 
 		$mongodb
 		$mongodb_host
+
+		$memd_servers
 	
 		$google_analytics
 		
@@ -111,6 +111,7 @@ $server_domain = $ProductOpener::Config2::server_domain;
 @ssl_subdomains = @ProductOpener::Config2::ssl_subdomains;
 $mongodb = $ProductOpener::Config2::mongodb;
 $mongodb_host = $ProductOpener::Config2::mongodb_host;
+$memd_servers = $ProductOpener::Config2::memd_servers;
 
 # server paths
 $www_root = $ProductOpener::Config2::www_root;
@@ -119,7 +120,6 @@ $data_root = $ProductOpener::Config2::data_root;
 $facebook_app_id = $ProductOpener::Config2::facebook_app_id;
 $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
-$csrf_secret = $ProductOpener::Config2::csrf_secret;
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 
 $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
@@ -184,7 +184,7 @@ HTML
 
 #fields that have a taxonomy
 
-@taxonomy_fields = qw(states countries languages labels categories additives allergens traces nutrient_levels ingredients periods_after_opening);
+@taxonomy_fields = qw(states countries languages labels categories additives allergens traces nutrient_levels ingredients periods_after_opening inci_functions);
 
 # fields in product edit form
 
@@ -255,6 +255,19 @@ last_edit_dates
 
 );
 
+$options{display_tag_ingredients} = [
+
+	'COSING',
+	'CAS',
+	'EINECS',
+	'INN Name',
+	'Ph Eur Name',
+	'@inci_functions',
+	'INCI Description',
+	'INCI Restriction',
+
+];
+
 
 # allow moving products to other instances of Product Opener on the same server
 # e.g. OFF -> OBF
@@ -262,16 +275,16 @@ $options{other_servers} = {
 obf =>
 {
 	name => "Open Beauty Facts",
-	data_root => "/home/obf",
-	www_root => "/home/obf/html",
+	data_root => "/srv/obf",
+	www_root => "/srv/obf/html",
 	mongodb => "obf",
 	domain => "openbeautyfacts.org",
 },
 off =>
 {
 	name => "Open Food Facts",
-	data_root => "/home/off",
-	www_root => "/home/off/html",
+	data_root => "/srv/off",
+	www_root => "/srv/off/html",
 	mongodb => "off",
 	domain => "openfoodfacts.org",
 },
@@ -279,16 +292,16 @@ opff =>
 {
 	prefix => "opff",
 	name => "Open Pet Food Facts",
-	data_root => "/home/opff",
-	www_root => "/home/opff/html",
+	data_root => "/srv/opff",
+	www_root => "/srv/opff/html",
 	mongodb => "opff",
 	domain => "openpetfoodfacts.org",
 },
 opf =>
 {
 	name => "Open Products Facts",
-	data_root => "/home/opf",
-	www_root => "/home/opf/html",
+	data_root => "/srv/opf",
+	www_root => "/srv/opf/html",
 	mongodb => "opf",
 	domain => "openproductsfacts.org",
 },

@@ -1,0 +1,403 @@
+<div id="main_column" class="XXLarge-11 xlarge-10 wide-9 medium-8 columns" style="padding-top: 1REM; height: 4313px;" data-equalizer-watch="">
+
+<!-- Hand column content - how used to remove left column and center glad On Some pages -->  
+
+<h1>Score nutritionnel - Notes de couleur - France</h1>
+
+<h2>Un système de notes de A à E pour simplifier l'étiquetage nutritionnel</h2>
+
+<p>Dans le rapport "Propositions pour un nouvel élan de la politique nutritionnelle française de santé publique " (<a href="http://www.sante.gouv.fr/IMG/pdf/rapport_Hercberg_15_11_2013.pdf"> pdf </a> ), Le professeur Serge Hercberg préconise l'adoption d'un système de notes de A à E sur la face avant de la nourriture pour permettre de simplement comparer la qualité nutritionnelle des produits.</p>
+
+<img src="https://static.openfoodfacts.org/images/misc/nutriscore-a.png">
+
+<p>Ces nuances de couleurs sont calculés à partir du score nutritionnel représentant d'un côté les calories, les graisses saturées, le sucre et le sodium (Mauvais pour la santé à haute dose) et de l'autre la proportion de fruits et légumes, les noix, les fibres et protéines.
+(Bon pour la santé à haute dose).</p>
+
+<p>Pour en savoir plus :</p>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=GAwTyEEHnOs">Une vidéo de 2 minutes: Quel étiquetage pour les produits alimentaires?</a></li>
+<li><a href="https://www.sfsp.fr/petitions/petition.php?cid=7">Pétition pour un étiquetage nutritionnel simple, intuitif et compréhensible sur le devant des emballages alimentaires</a>
+</li>
+</ul>
+
+<h2>Le score nutritionnel sur Open Food Facts</h2>
+
+<p>La formule de calcul du score nutritionnel, les seuils des notes et les différentes propositions d'ajustement ont été transmises par l'équipe du professeur Hercberg. Cette formule a fait l'objet d'études et d'adaptations pour le marché français.</p>
+
+<p>La version retenue officiellement et mise en œuvre sur Open Food Facts est celle du rapport <a href="/files/hcspa20150625_infoqualnutprodalim.pdf">AVIS du Conseil Supérieur de la Santé Publique relatif aux informations sur la qualité nutritionnelle des produits alimentaires publié le 25 juin 2015 </a>.</p>
+
+<p>Cependant, nous avons calculé le score nutritionnel des produits vendus sur le sol français et référencés dans la base de données Open Food Facts. De plus, nous avons déterminé les notes A à E correspondantes à ces produits. Cela permet notamment de comparer le score nutritionnel et / ou les notes de différents produits et d'étudier la distribution pour chaque catégorie de produit.</p>
+
+<h2>Formule pour calculer le score nutritionnel</h2>
+
+<p>Des points sont attribués aux produits en fonction de la quantité de nutriments qu'ils contiennent pour 100 g.</p>
+
+<p>Les points A sont donnés pour les nutriments considéré "mauvais" et les points C sont attribués pour les "bons" nutriments contenus dans les fruits, les légumes et les noix.</p>
+
+<h3>Points A</h3>
+
+<p>Les points A sont la somme des points pour l'énergie, les graisses saturées, les sucres et le sodium.</p>
+
+<table class="points">
+<tbody>
+  <tr>
+    <th>Points</th>
+    <th>Énergie (kJ)</th>
+    <th>Graisses saturées (g)</th>
+    <th>Sucres (g)</th>
+    <th>Sodium (mg)</th>
+  </tr>
+<tr>
+  <td>0</td>
+  <td>≤335</td>
+  <td>≤1</td>
+  <td>≤4.5</td>
+  <td>≤90</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>&gt;335</td>
+  <td>&gt;1</td>
+  <td>&gt;4.5</td>
+  <td>&gt;90</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>&gt;670</td>
+  <td>&gt;2</td>
+  <td>&gt;9</td>
+  <td>&gt;180</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>&gt;1005</td>
+  <td>&gt;3</td>
+  <td>&gt;13.5</td>
+  <td>&gt;270</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>&gt;1340</td>
+  <td>&gt;4</td>
+  <td>&gt;18</td>
+  <td>&gt;360</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>&gt;1675</td>
+  <td>&gt;5</td>
+  <td>&gt;22.5</td>
+  <td>&gt;450</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td>&gt;2010</td>
+  <td>&gt;6</td>
+  <td>&gt;27</td>
+  <td>&gt;540</td>
+  </tr>
+<tr>
+  <td>7</td>
+  <td>&gt;2345</td>
+  <td>&gt;7</td>
+  <td>&gt;31</td>
+  <td>&gt;630</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td>&gt;2680</td>
+  <td>&gt;8</td>
+  <td>&gt;36</td>
+  <td>&gt;720</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td>&gt;3015</td>
+  <td>&gt;9</td>
+  <td>&gt;40</td>
+  <td>&gt;810</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td>&gt;3350</td>
+  <td>&gt;10</td>
+  <td>&gt;45</td>
+  <td>&gt;900</td>
+</tr>
+</tbody>
+  </table>
+
+<h3>Points C</h3>
+
+<p>Les points C sont la somme des points des fruits, des légumes, des noix, des fibres et des protéines.</p>
+
+<table class="points">
+<tbody>
+  <tr>
+    <th>Points</th>
+    <th>Fruits, légumes et noix (%)</th>
+    <th>Fibres (g)</th>
+    <th>Protéines (g)</th>
+  </tr>
+<tr>
+  <td>0</td>
+  <td>≤40</td>
+  <td>≤0.7</td>
+  <td>≤ 1,6</td>
+</tr> 
+<tr>
+    <td>1</td>
+    <td>&gt;40</td>
+    <td>&gt;0.7</td>
+    <td>&gt;1.6</td>
+</tr> 
+<tr>
+  <td>2</td>
+  <td>&gt;60</td>
+  <td>&gt;1.4</td>
+  <td>&gt;3.2</td>
+</tr> 
+<tr>
+  <td>3</td>
+  <td>-</td>
+  <td>&gt;2.1</td>
+  <td>&gt;4.8</td>
+</tr> 
+<tr>
+  <td>4</td>
+  <td>-</td>
+  <td>&gt;2.8</td>
+  <td>&gt;6.4</td>
+  </tr> 
+<tr>
+  <td>5</td>
+  <td>&gt;80</td>
+  <td>&gt;3.5</td>
+  <td>&gt;8.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>Remarque : Les pommes de terre, le taro, le manioc et le tapioca ne sont pas considérés comme des fruits, légumes ou noix.</p>
+
+<h3>Calcul du score nutritionnel</h3>
+
+<ul>
+<li>Si les points A < 11, alors score = points A - points C</li>
+<li>Si les points A sont ≥ 11
+<ul>
+<li>Si les points pour les fruits, légumes et noix = 5, alors score = points A - points C</li>
+<li>Si les points pour les fruits, légumes et noix < 5, alors score = points A - (points pour les fibres + points pour les fruits, légumes et noix)</li>
+</ul>
+
+</li>
+</ul>
+
+<h3>Adaptations pour le marché français</h3>
+
+<p>La formule du score nutritionnel indiquée ci-dessus correspond à celle de la Food Standards Agency (agence des normes alimentaires) du Royaume-Uni.</p>
+
+<p>L'équipe du professeur Hercberg a effectué des adaptations pour le marché français qui sont mises en œuvre pour calculer le score sur Open Food Facts.</p>
+
+<h4>Adaptation pour le fromage</h4>
+
+<p>Pour les fromages, les points pour les protéines sont retranchés au score même si les points A sont supérieurs ou égaux à 11.</p>
+
+<h4>Adaptation pour la graisse</h4>
+
+<p>Afin de permettre de différencier les matières grasses (huiles, margarines, crèmes fraîches) qui ont toutes des taux de graisses saturées supérieurs au seuil maximal de 10 g, une autre grille qui tient compte du rapport des acides gras saturés sur les lipides totaux est appliquée :</p>
+
+<table class="points">
+<tbody>
+  <tr>
+    <td>Points</td>
+    <td>Ratio Graisse Saturée / Graisse Totale</td>
+  </tr>
+<tr>
+  <td>0</td> 
+  <td>&lt; 10</td>
+</tr>
+<tr>
+  <td>1</td> 
+  <td>&lt; 16</td>
+</tr>
+<tr>
+  <td>2</td> 
+  <td>&lt; 22</td>
+</tr>
+<tr>
+  <td>3</td> 
+  <td>&lt; 28</td>
+</tr>
+<tr>
+  <td>4</td> 
+  <td>&lt; 34</td>
+</tr>
+<tr>
+  <td>5</td> 
+  <td>&lt; 40</td>
+</tr>
+<tr>
+  <td>6</td> 
+  <td>&lt; 46</td>
+</tr>
+<tr>
+  <td>7</td> 
+  <td>&lt; 52</td>
+</tr>
+<tr>
+  <td>8</td> 
+  <td>&gt;&lt; 58</td>
+</tr>
+<tr>
+  <td>9</td> 
+  <td>&gt;&lt; 64</td>
+</tr>
+<tr>
+  <td>10</td> 
+  <td>&gt;64</td>
+</tr>
+</tbody>
+</table>
+
+<h4>Adaptations pour les fruits et légumes</h4>
+
+<p>Les noix ne sont pas prises en compte pour le calcul de la teneur en fruits et légumes.</p>
+
+<h4>Adaptations pour les boissons</h4>
+
+<p>Attention : le score nutritionnel pour le lait et les laits végétaux est calculé avec la formule générale et non la formule pour les boissons.</p>
+
+<p>Les seuils des points pour l'énergie et les sucres sont modifiés pour les boissons, et les points pour les fruits sont doublés :</p>
+
+<table class="points">
+<tbody>
+<tr>
+  <th>Points</th>
+  <th>Énergie (kJ)</th>
+  <th>Sucres (g)</th>
+  <th>Fruits légumes (%)</th>
+</tr>
+<tr>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td> 
+  <td>&lt; = 40</td>
+</tr>
+<tr>
+  <td>1</td> <td>≤30</td> 
+  <td>≤1,5 ou édulcorants</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>2</td> <td>&gt;30</td> 
+  <td>&gt;1.5</td> 
+  <td>&gt;40</td>
+</tr>
+<tr>
+  <td>3</td> <td>&gt;60</td> 
+  <td>&gt;3</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>&gt;90</td> 
+  <td>&gt;4.5</td> 
+  <td>&gt;60</td>
+</tr>
+<tr>
+  <td>5</td> 
+  <td>&gt;120</td> 
+  <td>&gt;6</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>6</td> 
+  <td>&gt;150</td> 
+  <td>&gt;7.5</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>7</td> 
+  <td>&gt;180</td> 
+  <td>&gt;9</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>8</td> 
+  <td>&gt;210</td> 
+  <td>&gt;10.5</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>9</td> 
+  <td>&gt;240</td> 
+  <td>&gt;12</td> 
+  <td></td>
+</tr>
+<tr>
+  <td>10</td> 
+  <td>&gt;270</td> 
+  <td>&gt;13.5</td> 
+  <td>&gt;80</td>
+  </tr>
+</tbody>
+</table>
+
+<h2>Les seuils des grades de couleur</h2>
+
+<p>Les seuils utilisés pour attribuer les nuances de couleur sont:</p> <p>
+</p><h3>Aliments solides :</h3>
+<ul>
+<li>A - Vert: jusqu'à -1</li>
+<li>B - Jaune: de 0 à 2</li>
+<li>C - Orange: de 3 à 10</li>
+<li>D - Rose: de 11 à 18</li>
+<li>E - Rouge: 19 et plus</li>
+</ul>
+<h3>Boissons :</h3>
+<p>Seule l'eau (minérale et de source, à l'exclusion des eaux aromatisées) est classée A.</p>
+
+<ul>
+<li>A - Vert: eaux minérales et eaux de source</li>
+<li>B - Jaune: jusqu'à 1</li>
+<li>C - Orange: de 2 à 5</li>
+<li>D - Rose: de 6 à 9</li>
+<li>E - Rouge: 10 et plus</li>
+</ul>
+
+<p><b>Attention: Ce score peut ne pas correspondre au score recommandé :</b></p>
+
+<ul>
+<li>La teneur en fibre n'est pas obligatoirement présente dans le tableau nutritionnel. Lorsque celle-ci n'est pas indiquée, l'éventuelle contribution positive des fibres n'est pas prise en compte. Nous encourageons tous les producteurs a indiquer la teneur en fibre de leurs produits sur leurs emballages.</li>
+  
+  <--end of current proofread -->
+<li>Les points correspondants aux teneurs en fruits et légumes ne sont pas pris en compte pour tous les produits. La teneur en fruits, légumes et n'est en effet pas indiquée sur l'emballage dans le tableau nutritionnel, et nous allons devoir la déterminer grâce à d'autres informations, comme les mentions "teneur minimum en fruits", la catégorie des produits (par exemple les confitures contiennent 50% de fruits) , et/ou la liste des ingrédients
+<ul>
+<li>Un nouveau champ "Fruits, légumes (minimum)" a été créé pour noter les valeurs des mentions "teneur minimum en fruits/légumes", etc.</li>
+<li>Par défaut, les produits de certaines catégories sont considérés comme ayant un contenu minimum de:
+<ul>
+<li>100%: <a href="https://world.openfoodfacts.org/category/fr:jus-de-fruits"> jus </a></li>
+<li>90 % : <a href="https://world.openfoodfacts.org/category/fr:compotes">compote de fruits</a></li>
+<li>85 % : <a href="https://world.openfoodfacts.org/category/fr:legumes">légumes</a></li>
+<li>50 % : <a href="https://world.openfoodfacts.org/category/fr:confitures">confitures</a></li>
+<li>d'autres catégories à définir</li>
+</ul>
+
+Pour le calcul du score nutritionnel, l'important est de distinguer les teneurs au-dessus de 40%, 60%, et 80%.
+</li>
+</ul>
+  
+</li>
+
+<li>Pour les aliments lyophilisées (soupes en sachet, etc.), le score devra être calculé pour le produit reconstitué, et non le produit à l'état brut comme c'est le cas actuellement.</li>
+</ul>
+
+<p>Vous pouvez nous aider à renseigner la teneur en fruits, légumes et noix des produits. Pour plus d'informations, voir le projet <a href="https://fr.wiki.openfoodfacts.org/Projet_de_loi_sur_l%27%C3%A9tiquetage_nutritionnel_:_on_s%27en_m%C3%AAle_%3F"> Étiquetage nutritionnel. </a> sur le wiki.</p>
+
+<p>Remarque: les tubercules comme les pommes de terre et les patates douces ne sont pas considérés comme des légumes pour calculer le score nutritionnel.</p>
+<h2>Remerciements</h2>
+<p>Nous remercions le Professeur Serge Hercberg et le Dr. Chantal Julia pour leur aide et les données qu'ils nous ont communiquées pour calculer le score nutritionnel. Ces données proviennent du travail de l'équipe de recherche <a href="http://www-smbh.univ-paris13.fr/recherche/laboratoires/69-equipe-de-recherche-en-epidemiologie-nutritionnelle-eren-umr-1153-inserm-u1125-inra-cnam-up13.html"> en épidémiologie nutritionnelle (EREN) </a> de l'Université Paris 13 / Hôpital Avicenne.</p>
+
+</div>

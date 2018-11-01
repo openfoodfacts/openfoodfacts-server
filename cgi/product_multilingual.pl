@@ -49,12 +49,9 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
-
-use WWW::CSRF qw(CSRF_OK);
+use Log::Any qw($log);
 
 ProductOpener::Display::init();
-
-$debug = 1;
 
 if ($User_id eq 'unwanted-user-french') { 
 	display_error("<b>Il y a des problèmes avec les modifications de produits que vous avez effectuées. Ce compte est temporairement bloqué, merci de nous contacter.</b>", 403);
@@ -116,6 +113,9 @@ my $product_ref = undef;
 
 my $interface_version = '20120622';
 
+local $log->context->{type} = $type;
+local $log->context->{action} = $action;
+
 # Search or add product
 if ($type eq 'search_or_add') {
 
@@ -149,12 +149,12 @@ if ($type eq 'search_or_add') {
 	
 	if (defined $code) {
 		$data{code} = $code;
-		print STDERR "product.pl - search_or_add - we have a code: $code\n";
+		$log->debug("we have a code", { code => $code }) if $log->is_debug();
 		
 		$product_ref = product_exists($code); # returns 0 if not
 		
 		if ($product_ref) {
-			print STDERR "product.pl - product code $code exists, redirecting to product page\n";
+			$log->info("product exists, redirecting to page", { code => $code }) if $log->is_info();
 			$location = product_url($product_ref);
 			
 			# jquery.fileupload ?
@@ -170,7 +170,7 @@ if ($type eq 'search_or_add') {
 			}
 		}
 		else {
-			print STDERR "product.pl - product code $code does not exist yet, creating product\n";
+			$log->info("product does not exist, creating product", { code => $code }) if $log->is_info();
 			$product_ref = init_product($code);
 			$product_ref->{interface_version_created} = $interface_version;
 			store_product($product_ref, 'product_created');
@@ -183,12 +183,12 @@ if ($type eq 'search_or_add') {
 	}
 	else {
 		if (defined param("imgupload_search")) {
-			print STDERR "product.pl - search_or_add - no code found in image\n";
+			$log->info("no code found in image") if $log->is_info();
 			$data{error} = lang("image_upload_error_no_barcode_found_in_image_short");
 			$html .= lang("image_upload_error_no_barcode_found_in_image_long");
 		}
 		else {
-			print STDERR "product.pl - search_or_add - no code found in text\n";		
+			$log->info("no code found in text") if $log->is_info();
 			$html .= lang("image_upload_error_no_barcode_found_in_text");
 		}
 	}
@@ -201,7 +201,7 @@ if ($type eq 'search_or_add') {
 	
 		my $data = encode_json(\%data);
 
-		print STDERR "product.pl - jqueryfileupload - JSON data output: $data\n";
+		$log->debug("jqueryfileupload JSON data output", { data => $data }) if $log->is_debug();
 
 		print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
 		exit();	
@@ -215,7 +215,7 @@ else {
 		display_error($Lang{no_barcode}{$lang}, 403);
 	}
 	else {
-		$product_ref = retrieve_product($code);
+		$product_ref = retrieve_product_or_deleted_product($code, $admin);
 		if (not defined $product_ref) {
 			display_error(sprintf(lang("no_product_for_barcode"), $code), 404);
 		}
@@ -280,10 +280,18 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Process edit rules
 	
-	process_product_edit_rules($product_ref);
+	$log->debug("phase 0 - checking edit rules", { code => $code, type => $type }) if $log->is_debug();
+	
+	my $proceed_with_edit = process_product_edit_rules($product_ref);
 
+	$log->debug("phase 0", { code => $code, type => $type, proceed_with_edit => $proceed_with_edit }) if $log->is_debug();
 
-	$debug and print STDERR "product.pl action: process - phase 1 - type: $type code $code\n";
+	if (not $proceed_with_edit) {
+	
+		display_error("Edit against edit rules", 403);
+	}
+
+	$log->debug("phase 1", { code => $code, type => $type }) if $log->is_debug();
 	
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
 	
@@ -307,7 +315,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		# check that the new code is available
 			if (-e "$new_data_root/products/" . product_path($new_code)) {
 				push @errors, lang("error_new_code_already_exists");
-				print STDERR "product.pl - cannot change code $code to $new_code - $new_server (already exists)\n";
+				$log->warn("cannot change product code, because the new code already exists", { code => $code, new_code => $new_code, new_server => $new_server }) if $log->is_warn();
 			}
 			else {
 				$product_ref->{old_code} = $code;
@@ -316,7 +324,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				if ($new_server ne '') {
 					$product_ref->{new_server} = $new_server;
 				}
-				print STDERR "product.pl - changing code $product_ref->{old_code} to $code - $new_server\n";
+				$log->info("changing code", { old_code => $product_ref->{old_code}, code => $code, new_server => $new_server }) if $log->is_info();
 			}
 		}
 	}
@@ -337,7 +345,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	
 	$product_ref->{"debug_param_sorted_langs"} = \@param_sorted_langs;
 	
-	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'traces', 'ingredients_text','lang') {
+	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'nutrition_data_prepared_per', 'serving_size', 'allergens', 'traces', 'ingredients_text','lang') {
 	
 		if (defined $language_fields{$field}) {
 			foreach my $display_lc (@param_sorted_langs) {
@@ -359,7 +367,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				$product_ref->{emb_codes_orig} = $product_ref->{emb_codes};
 				$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});						
 			}
-			print STDERR "product.pl - code: $code - field: $field = $product_ref->{$field}\n";
+			$log->debug("before compute field_tags", { code => $code, field_name => $field, field_value => $product_ref->{$field}}) if $log->is_debug();
 			if ($field =~ /ingredients_text/) {
 				# the ingredients_text_with_allergens[_$lc] will be recomputed after
 				my $ingredients_text_with_allergens = $field;
@@ -371,7 +379,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 			
 		}
 		else {
-			print STDERR "product.pl - could not find field $field\n";
+			$log->debug("could not find field in params", { field => $field }) if $log->is_debug();
 		}
 	}
 	
@@ -416,11 +424,12 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	}
 					
 	
+	compute_languages($product_ref); # need languages for allergens detection and cleaning ingredients
+	
 	# Ingredients classes
+	clean_ingredients_text($product_ref);
 	extract_ingredients_from_text($product_ref);
 	extract_ingredients_classes_from_text($product_ref);
-
-	compute_languages($product_ref); # need languages for allergens detection
 	detect_allergens_from_text($product_ref);
 	
 	# Nutrition data
@@ -448,13 +457,10 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		
 		$nid =~ s/_prepared$//;
 
-		print STDERR "product.pl - unknown_nutriment: $nid ?\n";
-		
 		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})
 			and (not defined $seen_unknown_nutriments{$nid})) {
 			push @unknown_nutriments, $nid;
-			$seen_unknown_nutriments{$nid} = 1;
-			print STDERR "product.pl - unknown_nutriment: $nid !!!\n";
+			$log->debug("unknown_nutriment", { nid => $nid }) if $log->is_debug();
 		}
 	}
 	
@@ -497,14 +503,13 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		normalize_nutriment_value_and_modifier(\$value, \$modifier);
 		normalize_nutriment_value_and_modifier(\$valuep, \$modifierp);
 		
-		print STDERR "product_multilingual.pl - nid: $nid - value: $value\n";
-		print STDERR "product_multilingual.pl - nidp: $nidp - value: $valuep\n";
+		$log->debug("prepared nutrient info", { nid => $nid, value => $value, nidp => $nidp, valuep => $valuep }) if $log->is_debug();
 	
 		# New label?
 		my $new_nid = undef;
 		if ((defined $label) and ($label ne '')) {
 			$new_nid = canonicalize_nutriment($lc,$label);
-			print STDERR "product_multilingual.pl - unknown nutrient $nid (lc: $lc) -> canonicalize_nutriment: $new_nid\n";
+			$log->debug("unknown nutrient", { nid => $nid, lc => $lc, canonicalize_nutriment => $new_nid }) if $log->is_debug();
 			
 			if ($new_nid ne $nid) {
 				delete $product_ref->{nutriments}{$nid};
@@ -518,7 +523,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				delete $product_ref->{nutriments}{$nid . "_prepared_modifier"};
 				delete $product_ref->{nutriments}{$nid . "_prepared_100g"};
 				delete $product_ref->{nutriments}{$nid . "_prepared_serving"};	
-				print STDERR "product_multilingual.pl - unknown nutrient $nid (lc: $lc) -> known $new_nid\n";
+				$log->debug("unknown nutrient", { nid => $nid, lc => $lc, known_nid => $new_nid }) if $log->is_debug();
 				$nid = $new_nid;
 				$nidp = $new_nid . "_prepared";
 			}
@@ -610,9 +615,37 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		
 	}
 	
+	
+	# product check
+	
+	if ($admin or $moderator) {
+	
+		my $checked = remove_tags_and_quote(decode utf8=>param("photos_and_data_checked"));	
+		if ((defined $checked) and ($checked eq 'on')) {
+			if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
+				my $rechecked = remove_tags_and_quote(decode utf8=>param("photos_and_data_rechecked"));	
+				if ((defined $rechecked) and ($rechecked eq 'on')) {
+					$product_ref->{last_checker} = $User_id;
+					$product_ref->{last_checked_t} = time();
+				}
+			}
+			else {
+				$product_ref->{checked} = 'on';
+				$product_ref->{last_checker} = $User_id;
+				$product_ref->{last_checked_t} = time();
+			}
+		}
+		else {
+			delete $product_ref->{checked};
+			delete $product_ref->{last_checker};			
+			delete $product_ref->{last_checked_t};
+		}
+	
+	}
+	
 	# Compute nutrition data per 100g and per serving
 	
-	$admin and print STDERR "compute_serving_size_date\n";
+	$log->trace("compute_serving_size_date - start") if $log->is_trace();
 	
 	fix_salt_equivalent($product_ref);
 		
@@ -620,14 +653,15 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	
 	compute_nutrition_score($product_ref);
 	
+	compute_nova_group($product_ref);
+	
 	compute_nutrient_levels($product_ref);
 	
 	compute_unknown_nutrients($product_ref);
 	
 	ProductOpener::SiteQuality::check_quality($product_ref);
 	
-	
-	$admin and print STDERR "compute_serving_size_date -- done\n";	
+	$log->trace("end compute_serving_size_date - end") if $log->is_trace();
 	
 	if ($#errors >= 0) {
 		$action = 'display';
@@ -721,7 +755,7 @@ HTML
 
 if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
-	$debug and print STDERR "product.pl action: display type: $type code $code\n";
+	$log->debug("displaying product", { code => $code }) if $log->is_debug();
 	
 	# Lang strings for product.js
 	
@@ -1349,7 +1383,7 @@ HTML
 				
 				}
 				else {
-					print STDERR "product.pl - display_field $field - value $product_ref->{$field}\n";
+					$log->debug("display_field", { field_name => $field, field_value => $product_ref->{$field} }) if $log->is_debug();
 					$html_content_tab .= display_field($product_ref, $field . "_" . $display_lc);
 				}
 			}
@@ -1402,19 +1436,11 @@ HTML
 HTML
 ;
 	
-	
-	
-	
-	
-	
-	# print STDERR "product.pl - fields : " . join(", ", @fields) . "\n";
-	
-	
 	$html .= display_tabs($product_ref, $select_add_language, "product", $product_ref->{sorted_langs}, \%Langs, ["product_name", "generic_name"]);
 	
 	
 	foreach my $field (@fields) {
-		print STDERR "product.pl - display_field $field - value $product_ref->{$field}\n";
+		$log->debug("display_field", { field_name => $field, field_value => $product_ref->{$field} }) if $log->is_debug();
 		$html .= display_field($product_ref, $field);
 	}
 	
@@ -1432,6 +1458,8 @@ HTML
 	# $initjs .= "\$('textarea#ingredients_text').autoResize();";
 	# ! with autoResize, extracting ingredients from image need to update the value of the real textarea
 	# maybe calling $('textarea.growfield').data('AutoResizer').check(); 
+	
+	$html .= display_field($product_ref, "allergens");
 	
 	$html .= display_field($product_ref, "traces");
 
@@ -1628,13 +1656,12 @@ HTML
 		
 		$nid =~ s/_prepared$//;
 
-		print STDERR "product.pl - unknown_nutriment: $nid ?\n";
+		$log->trace("detect unknown nutriment", { nid => $nid }) if $log->is_trace();
 		
 		if ((not exists $Nutriments{$nid}) and (defined $product_ref->{nutriments}{$nid . "_label"})
 			and (not defined $seen_unknown_nutriments{$nid})) {
 			push @unknown_nutriments, $nid;
-			$seen_unknown_nutriments{$nid} = 1;
-			print STDERR "product.pl - unknown_nutriment: $nid !!!\n";
+			$log->debug("unknown nutriment detected", { nid => $nid }) if $log->is_debug();
 		}
 	}
 	
@@ -1751,8 +1778,6 @@ HTML
 			}			
 		}
 		
-		# print STDERR "nutriment: $nutriment - nid: $nid - shown: $shown - class: $class - prefix: $prefix \n";
-		
 		my $disabled_backup = $disabled;
 		if ($nid eq 'carbon-footprint') {
 			# Workaround, so that the carbon footprint, that could be in a location different from actual nutrition facts,
@@ -1788,7 +1813,7 @@ HTML
 		elsif ($nid eq 'water-hardness') {
 			@units = ('mol/l', 'mmol/l', 'mval/l', 'ppm', "\N{U+00B0}rH", "\N{U+00B0}fH", "\N{U+00B0}e", "\N{U+00B0}dH", 'gpg');
 		}
-		
+
 		if (((exists $Nutriments{$nid}) and (exists $Nutriments{$nid}{dv}) and ($Nutriments{$nid}{dv} > 0))
 			or ($nid =~ /^new_/)
 			or ($unit eq '% DV')) {
@@ -2010,6 +2035,44 @@ HTML
 ;	
 
 	$html .= "</div><!-- fieldset -->";
+
+
+	# Product check
+	
+	if ($admin or $moderator) {
+	
+		$html .= "
+<div class=\"fieldset\" id=\"check\"><legend>$Lang{photos_and_data_check}{$lang}</legend>
+<p>$Lang{photos_and_data_check_description}{$lang}</p>
+";
+
+		my $checked = '';
+		my $label = $Lang{i_checked_the_photos_and_data}{$lang};
+		my $recheck_html = "";
+		
+		if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
+			$checked = 'checked="checked"';
+			$label = $Lang{photos_and_data_checked}{$lang};
+			
+			$recheck_html .= <<HTML
+<input type="checkbox" id="photos_and_data_rechecked" name="photos_and_data_rechecked" />	
+<label for="photos_and_data_rechecked" class="checkbox_label">$Lang{i_checked_the_photos_and_data_again}{$lang}</label><br/>
+HTML
+;				
+		}
+
+		$html .= <<HTML
+<input type="checkbox" id="photos_and_data_checked" name="photos_and_data_checked" $checked />	
+<label for="photos_and_data_checked" class="checkbox_label">$label</label><br/>
+HTML
+;	
+	
+		$html .= $recheck_html;
+		
+		$html .= "</div><!-- fieldset -->";
+	
+	}
+	
 	
 	
 	$html .= ''
@@ -2043,7 +2106,7 @@ HTML
 }
 elsif (($action eq 'display') and ($type eq 'delete')) {
 
-	$debug and print STDERR "product.pl action: display type: $type code $code\n";
+	$log->debug("display product", { code => $code }) if $log->is_debug();
 	
 	$html .= start_multipart_form(-id=>"product_form") ;
 		
@@ -2061,27 +2124,22 @@ HTML
 <label for="comment" style="margin-left:10px">$Lang{delete_comment}{$lang}</label>
 <input type="text" id="comment" name="comment" value="" />
 HTML
-	. hidden(-name=>'csrf', -value=>generate_po_csrf_token($User_id), -override=>1)
 	. submit(-name=>'save', -label=>lang("delete_product_page"), -class=>"button small")
 	. end_form();
 
 }
 elsif ($action eq 'process') {
 
-	$debug and print STDERR "product.pl action: process - phase 2 - type: $type code $code\n";
-	#use Data::Dumper;
-	#print STDERR Dumper($product_ref);
+	$log->debug("phase 2", { code => $code }) if $log->is_debug();
 	
 	$product_ref->{interface_version_modified} = $interface_version;
 	
 	if ($type eq 'delete') {
-		my $csrf_token_status = check_po_csrf_token($User_id, param('csrf'));
-		if (not ($csrf_token_status eq CSRF_OK)) {
-			display_error(lang("error_invalid_csrf_token"), 403);
-		}
-
 		$product_ref->{deleted} = 'on';
 		$comment = lang("deleting_product") . separator_before_colon($lc) . ":";
+	}
+	elsif (($admin) and (exists $product_ref->{deleted})) {
+		delete $product_ref->{deleted};	
 	}
 	
 	my $time = time();

@@ -92,7 +92,7 @@ foreach my $l ('en') {
 
 	
 
-	my $query_ref = {lc=>$lc, states_tags=>'complete'};
+	my $query_ref = {lc=>$lc, states_tags=>'en:complete'};
 	#$query_ref->{"nutriments.sugars_100g"}{ '$gte'}  = 0.01;
 	# -> does not seem to work for sugars, maybe some string values?!
 		
@@ -194,7 +194,7 @@ HTML
 		my $cubes_small = sprintf("%.1f", $sc);
 		my $cubes_big = sprintf("%.1f", $big);
 		my $producturl = product_url($product_ref);
-		$producturl =~ s/^\//http:\/\/world.openfoodfacts.org\//;
+		$producturl =~ s/^\//https:\/\/world.openfoodfacts.org\//;
 		
 		my $code = $product_ref->{"code"};
 		
@@ -247,7 +247,7 @@ HTML
 		
 		$product_ref->{jqm} = 1;
 		my $img = display_image($product_ref, 'front', 200);
-		$img =~ s/src="\//src="http:\/\/world.openfoodfacts.org\//;
+		$img =~ s/src="\//src="https:\/\/world.openfoodfacts.org\//;
 		my $img_url = '';
 		my $zoom = '';
 		if ($img =~ /src="(.*?)"/) {
@@ -613,7 +613,7 @@ You can also correct it yourself on Open Food Facts.</p>
 HTML
 ;
 
-		open (my $OUT, ">:encoding(UTF-8)", "/home/sugar/html/$id.html");
+		open (my $OUT, ">:encoding(UTF-8)", "/srv/sugar/html/$id.html");
 		print $OUT $page;
 		close $OUT;
 			
@@ -630,7 +630,7 @@ HTML
 	print $OUT $html;
 	close $OUT;
 	
-	store("/home/sugar/data/products_ids.sto", \@ids);
+	store("/srv/sugar/data/products_ids.sto", \@ids);
 	
 	print "$k products, $kk products kept\n";
 }

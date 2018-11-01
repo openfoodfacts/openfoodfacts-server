@@ -40,11 +40,9 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+use Log::Any qw($log);
 
 ProductOpener::Display::init();
-
-$debug = 1;
-
 
 my $code = normalize_code(param('code'));
 my $id = param('id');
@@ -56,7 +54,7 @@ if (not defined $ocr_engine) {
 	# $ocr_engine = "google_cloud_vision";
 }
 
-$debug and print STDERR "ingredients.pl - code: $code - id: $id\n";
+$log->debug("start", { code => $code, id => $id }) if $log->is_debug();
 
 if (not defined $code) {
 	
@@ -75,7 +73,7 @@ if (($id =~ /^ingredients/) and (param('process_image'))) {
 }
 my $data =  encode_json(\%results);
 
-print STDERR "ingredients.pl - JSON data output: $data\n";
+$log->debug("JSON data output", { data => $data }) if $log->is_debug();
 	
 print header ( -charset=>'UTF-8') . $data;
 

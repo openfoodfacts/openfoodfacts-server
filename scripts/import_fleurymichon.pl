@@ -27,6 +27,8 @@ use utf8;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 
+my $debug = 1;
+
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
@@ -386,6 +388,8 @@ BOO_BIO => "Bio",
 BOO_BIO_EUR=> "Agriculture Biologique",
 BOO_BLE_BLA_COE => "Bleu Blanc Coeur",
 BOO_BOE_FRA => "Boeuf Français",
+BOO_POR_FRA => "Porc Français",
+BOO_VEA_FRA => "Veau Français",
 BOO_HAL => "Halal",
 BOO_LBL_RGE => "Label Rouge",
 BOO_POR_FRA => "Porc Français",
@@ -434,7 +438,7 @@ BOO_JOE_ROB => "Joël Robuchon"
 			
 			if ((defined $fleurymichon_product_ref->{LIB_PAC}) and ($fleurymichon_product_ref->{LIB_PAC} ne '')) {
 				$params{product_name} = $fleurymichon_product_ref->{LIB_PAC};
-				$params{product_name} =~ s/(\d) tr /$1 tranches /; # 4 tr fines
+				$params{product_name} =~ s/(\d)(\.| )*tr(\.)? /$1 tranches /; # 4 tr fines
 				
 				print "set product_name to $params{product_name}\n";
 				
@@ -813,7 +817,11 @@ QTE_SUCRE => "sugars",
 					$value += 0;
 					
 					if ((defined $modifier) and ($modifier ne '')) {
-						$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
+						if ((not defined $product_ref->{nutriments}{$nid . "_modifier"}) or ($product_ref->{nutriments}{$nid . "_modifier"} ne $modifier)) {
+							$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
+						
+							$modified++;
+						}
 					}
 					else {
 						delete $product_ref->{nutriments}{$nid . "_modifier"};
@@ -826,7 +834,7 @@ QTE_SUCRE => "sugars",
 					}
 					$product_ref->{nutriments}{$nid . "_value"} = $value;
 					
-					my $new_value = $modifier . unit_to_g($value, $product_ref->{nutriments}{$nid . "_unit"});
+					my $new_value = unit_to_g($value, $product_ref->{nutriments}{$nid . "_unit"});
 					
 					if ((not defined $product_ref->{nutriments}) or (not defined $product_ref->{nutriments}{$nid})
 						or ($new_value ne $product_ref->{nutriments}{$nid}) ) {
@@ -965,10 +973,12 @@ QTE_SUCRE => "sugars",
 				push @edited, $code;
 				$edited{$code}++;
 				
-				$i > 10000000 and last;
+				# $j > 10 and last;
+				
+				$j++;
 			}
 			
-			last;
+			#last;
 		}  # if $file =~ json
 			
 

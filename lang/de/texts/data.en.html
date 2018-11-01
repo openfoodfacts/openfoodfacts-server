@@ -1,0 +1,86 @@
+
+<h1>Daten</h1>
+
+<p>Die Datenbank von „Open Food Facts” ist unter der <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a> verfügbar.<br/>
+Die einzelnen Inhalte der Datenbank stehen unter dem Menüpunkt <a href="https://opendatacommons.org/licenses/dbcl/1.0/">Database Contents License</a> (Lizenz für Datenbankinhalte) zur Verfügung.<br/>
+Die Produktfotos sind unter der <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike Lizenz</a> verfügbar.
+Sie könnten grafische Elemente enthalten, die dem Urheberrecht oder anderen Rechten unterliegen, die in einigen Fällen vervielfältigt werden können (Zitierrechte oder Fair Use).</p>
+
+<p>Bitte lesen Sie <a href="https://world.openfoodfacts.org/terms-of-use">Nutzungsbedingungen und Wiederverwendung</a> bevor Sie die Daten wiederverwenden.</p> 
+
+
+<p>Wir sind sehr daran interessiert zu erfahren, wofür die Daten von Open Food Facts verwendet werden. Es ist nicht obligatorisch, aber wir würden es sehr begrüßen, wenn Sie uns Ihre Wiederverwendung mitteilen, damit wir sie mit der Open Food Facts Community teilen können.</p>
+
+<h2>Open Food Facts - Datenexporte</h2>
+
+<p>Datenbank-Abbildungen und -Exporte werden nächtlich generiert.</p>
+
+<p>Informationen zu den verschiedenen Feldern für den MongoDB-Abbildung und CSV-Export finden Sie unter <a href="https://static.openfoodfacts.org/data/data-fields.txt">https://world.openfoodfacts.org/data/data-fields.txt</a></p>
+
+
+<h3>MongoDB-Datenbankauszug</h3>
+
+<p>Die Daten für alle Produkte sind in einem MongoDB-Datenbankdump verfügbar.</p>
+
+<dl>
+ <dt>Herunterladen</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz">https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz</a></dd>
+ <dt>SHA-256-Prüfsummen</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/sha256sum">https://static.openfoodfacts.org/data/sha256sum</a></dd>
+ <dt>MD5-Prüfsummen</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/md5sum">https://static.openfoodfacts.org/data/md5sum</a></dd>
+</dl>
+
+<h4>Delta-Export</h4>
+
+<p>Tägliche Delta-Exporte werden für die letzten 14 Tage bereitgestellt. Die Liste der aktuell verfügbaren Delta-Dateien finden Sie unter <a href="https://static.openfoodfacts.org/data/delta/index.txt">https://static.openfoodfacts.org/data/delta/index.txt</a>.
+ Jede Zeile repräsentiert eine Datei, die unter <code>https://static.openfoodfacts.org/data/delta/{filename}</code> verfügbar ist.
+ Der Dateiname enthält den UNIX-Zeitstempel der ersten und letzten in der JSON-Datei enthaltenen Änderung, so dass die Delta-Dateien (nach der Ausleitung) mit <code>mongoimport</code> in alphabetischer Reihenfolge importiert werden können.</p>
+<p>Bitte beachten Sie, dass die Delta-Dateien aufgrund der Natur von <code>mongoexport</code> nicht über gelöschte Produkte informieren können. Um gelöschte Produkte aus Ihrer Datenbank zu entfernen, müssen Sie den gesamten MongoDB-Datenbankauszug importieren.</p>
+ 
+<h3>CSV-Datenexport</h3>
+
+<p>Daten für alle Produkte oder einige der Produkte können im CSV-Format (lesbar mit OpenOffice, Excel und vielen anderen Programmen) über die <a href="https://world.openfoodfacts.org/cgi/search.pl">erweiterte Suchmaske</a> heruntergeladen werden.</p>
+ 
+<dl>
+ <dt>Herunterladen</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv</a></dd>
+</dl>
+
+<p>Als Dateikodierung wird Unicode UTF-8 verwendet. Als Trennzeichen für die Felder wird &lt;tab&gt; (Tabellierung) verwendet.</p>
+
+
+
+<h3>RDF-Datenexport</h3>
+
+<p>Die Datenbank ist außerdem im RDF-Format verfügbar. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">Ankündigung auf Französisch</a>.</p>
+
+<dl>
+ <dt>Herunterladen</dt>
+ <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf</a></dd>
+</dl>
+
+<h2>Experimentelle JSON-API</h2>
+
+<p>Eine JSON-API ist ebenfalls verfügbar, um die Daten für ein Produkt auszulesen. Diese API wird insbesondere in der mobilen App „Open Food Facts” für iPhone und Android verwendet.</p>
+
+<p>Diese API ist experimentell und kann sich ändern. Bitte teilen Sie uns mit, ob Sie sie verwenden, damit wir Sie über mögliche Änderungen informieren können.</p>
+
+<p>Adresse, um Daten für ein Produkt auszulesen: https://world.openfoodfacts.org/api/v0/product/<i>[barcode]</i>.json</p>
+
+<p>Beispiel: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
+
+<h2>Android- und iPhone-App für Mobilgeräte </h2>
+
+<p>Der Code für die Mobilgeräte-App „Open Food Facts” ist unter <a href="https://github.com/openfoodfacts/openfoodfacts-android/tree/master/phonegap/Open%20Food%20Facts">GitHub</a> verfügbar.
+Die App ermöglicht es, den Strichcode von Produkten einzulesen, die Produktinformationen einzusehen und Fotos und Daten für fehlende Produkte aufzunehmen und zu versenden.</p>
+
+<p>Die App wurde von PhoneGap (Cordova), in HTML und Javascript entwickelt, welches es ermöglicht, den gleichen Code für alle mobilen Plattformen zu verwenden.</p>
+
+<h2>Verteilerliste für Daten, API und Exporte</h2>
+
+<p>Sie können sich auch in die Mailingliste eintragen, um die API und den Export zu besprechen, uns über Ihre Wiederverwendung zu informieren und über Verbesserungen oder Änderungen an der API informiert zu werden. Um den Dienst zu abonnieren, senden Sie eine leere E-Mail an <a href="mailto:api-subscribe@openfoodfacts.org">api-subscribe@openfoodfacts.org</a>.</p>
+
+<h2>Kontakt</h2>
+
+<p>For any question regarding the data, you can contact us at <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>

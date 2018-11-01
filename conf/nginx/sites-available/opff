@@ -21,8 +21,8 @@ server {
         listen 80 ;
         listen [::]:80 ;
 
-        listen 443 ssl;
-        listen [::]:443 ssl;
+        listen 443 http2 ssl;
+        listen [::]:443 http2 ssl;
 
         include snippets/ssl.openpetfoodfacts.org;
         include snippets/ssl-params-opff.conf;
@@ -38,8 +38,8 @@ server {
 	listen 80;
 	listen [::]:80;
 
-	listen 443 ssl;
-	listen [::]:443 ssl;
+	listen 443 http2 ssl;
+	listen [::]:443 http2 ssl;
 
 	server_name *.openpetfoodfacts.org openpetfoodfacts.eu *.openpetfoodfacts.eu;
 

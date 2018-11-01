@@ -25,6 +25,8 @@ services:
         target: /opt/product-opener/lib/ProductOpener/Config.pm
       - source: poconfig2
         target: /opt/product-opener/lib/ProductOpener/Config2.pm
+      - source: logconfig
+        target: /opt/product-opener/log.conf
       - source: apacheconfig
         target: /usr/local/apache2/conf/sites-enabled/product-opener.conf
       - source: starthttpd
@@ -63,6 +65,8 @@ configs:
     file: ./backend-dev/conf/Config2.pm
   apacheconfig:
     file: ./backend-dev/conf/apache.conf
+  logconfig:
+    file: ./backend-dev/conf/log.conf
   starthttpd:
     file: ./backend-dev/conf/po-foreground.sh
   nginxconfig:
