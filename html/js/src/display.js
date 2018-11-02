@@ -63,7 +63,39 @@ function initFoundation() {
   });
 }
 
+function initCategoryStats() {
+  return import('jquery').then($ => {
+    return import('js-cookie').then(Cookies => {
+      if (Cookies.get('show_stats') == '1') {
+        $('#show_stats').prop('checked',true);
+      }
+      else {
+        $('#show_stats').prop('checked',false);
+      }
+
+      if ($('#show_stats').prop('checked')) {
+        $('.stats').show();
+      }
+      else {
+        $('.stats').hide();
+      }
+
+      $('#show_stats').change(function () {
+        if ($('#show_stats').prop('checked')) {
+          Cookies.set('show_stats', '1', { expires: 365 });
+          $('.stats').show();
+        }
+        else {
+          Cookies.set('show_stats', null);
+          $('.stats').hide();
+        }
+      });
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   initFoundation();
   initCountrySelect(document.getElementById('mainscript').dataset['selectcountry'], document.documentElement.dataset['serverdomain']);
+  initCategoryStats();
 });

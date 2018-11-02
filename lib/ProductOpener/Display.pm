@@ -8055,37 +8055,6 @@ JS
 			. '<span class="show-for-xlarge-up">'
 			. separator_before_colon($lc) . ": " . lang("show_category_stats_details") . "</span></label>" . "</div>";
 
-			$initjs .= <<JS
-
-if (\$.cookie('show_stats') == '1') {
-	\$('#show_stats').prop('checked',true);
-}
-else {
-	\$('#show_stats').prop('checked',false);
-}
-
-if (\$('#show_stats').prop('checked')) {
-	\$(".stats").show();
-}
-else {
-	\$(".stats").hide();
-}
-
-\$("#show_stats").change(function () {
-	if (\$('#show_stats').prop('checked')) {
-		\$.cookie('show_stats', '1', { expires: 365 });
-		\$(".stats").show();
-	}
-	else {
-		\$.cookie('show_stats', null);
-		\$(".stats").hide();
-	}
-}
-);
-
-JS
-;
-
 		}
 	}
 

@@ -19,6 +19,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { $, jQuery } from 'jquery';
+import * as Cookies from 'js-cookie';
 import './vendor/file-upload.js';
 import 'foundation-sites/js/foundation/foundation.tab.js';
 import '../../css/src/product.css';
@@ -748,7 +749,7 @@ export function makeTagsInput(field, defaultText, autocompleteUrl) {
 $(function() {
   var alerts = $('.alert-box.store-state');
   $.each(alerts, function( index, value ) {
-    var display = $.cookie('state_' + value.id);
+    var display = Cookies.get('state_' + value.id);
     if (display !== undefined) {
       value.style.display = display;
     } else {
@@ -756,6 +757,6 @@ $(function() {
     }
   });
   alerts.on('close.fndtn.alert', function() {
-    $.cookie('state_' + $(this)[0].id, 'none', { path: '/', expires: 365, domain: document.documentElement.dataset['serverdomain'] });
+    Cookies.set('state_' + $(this)[0].id, 'none', { path: '/', expires: 365, domain: document.documentElement.dataset['serverdomain'] });
   });
 });
