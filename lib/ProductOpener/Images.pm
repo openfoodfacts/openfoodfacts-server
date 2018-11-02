@@ -1171,7 +1171,7 @@ sub display_image_thumb($$) {
 			$html .= <<HTML
 <img src="$static/images/misc/pacman.svg" data-src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" data-srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" class="lazyload" />
 <noscript>
-<img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" rcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" />
+<img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" />
 </noscript>
 HTML
 ;		
