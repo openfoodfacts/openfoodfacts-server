@@ -5607,7 +5607,6 @@ HTML
 <script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/vendor/modernizr.js"></script>
 <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
 <script src="@{[ format_subdomain('static') ]}/bower_components/iolazyload/dist/js/iolazy.min.js" defer></script>
-<script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/vendor/modernizr.js"></script>
 <script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/vendor/jquery.js"></script>
 <script src="@{[ format_subdomain('static') ]}/bower_components/jquery-ui/jquery-ui.min.js"></script>
 
