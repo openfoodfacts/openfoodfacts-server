@@ -5300,7 +5300,7 @@ sub display_new($) {
 <link rel="stylesheet" href="@{[ format_subdomain('static') ]}/css/dist/app.css">
 <script src="/bower_components/foundation/js/vendor/modernizr.js"></script>
 <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
-<script src="/bower_components/iolazy/dist/js/iolazy.min.js" defer></script>
+<script src="/bower_components/iolazyload/dist/js/iolazy.min.js" defer></script>
 <title>$title</title>
 $meta_description
 <script src="/bower_components/foundation/js/vendor/jquery.js"></script>
