@@ -5297,8 +5297,10 @@ sub display_new($) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/css/dist/app.css">
+<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/css/dist/app.css">
 <script src="/bower_components/foundation/js/vendor/modernizr.js"></script>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
+<script src="/bower_components/iolazyload/dist/js/iolazy.min.js" defer></script>
 <title>$title</title>
 $meta_description
 <script src="/bower_components/foundation/js/vendor/jquery.js"></script>
@@ -5477,6 +5479,9 @@ a.button:hover {
 	color:green;
 }
 
+.no-js img.lazyload {
+	display: none !important;
+}
 
 <!-- foundation styles -->
 
@@ -6080,6 +6085,8 @@ $scripts
   }
 
   function onLoad() {
+    new IOlazy();
+
     var buttons = document.getElementsByClassName('share_button');
     var shareAvailable = window.isSecureContext && navigator.share !== undefined;
     [].forEach.call(buttons, function(button) {
