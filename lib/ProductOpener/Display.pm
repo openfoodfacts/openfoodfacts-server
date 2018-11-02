@@ -1650,7 +1650,7 @@ JS
 		
 		
 		$html = <<HTML
-<script src="/js/highcharts.4.0.4.js"></script>
+<script src="@{[ format_subdomain('static') ]}/js/highcharts.4.0.4.js"></script>
 <div id="container" style="height: 400px"></div>​
 <p>&nbsp;</p>
 HTML
@@ -1704,8 +1704,8 @@ $countries_map_names
 JS
 ;
 			$scripts .= <<SCRIPTS
-<script src="/js/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="/js/jquery-jvectormap-world-mill-en.js"></script>			
+<script src="@{[ format_subdomain('static') ]}/js/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="@{[ format_subdomain('static') ]}/js/jquery-jvectormap-world-mill-en.js"></script>			
 SCRIPTS
 ;
 
@@ -1752,12 +1752,12 @@ JS
 ;
 
 	$scripts .= <<SCRIPTS
-<script src="/js/datatables.min.js"></script>
+<script src="@{[ format_subdomain('static') ]}/js/datatables.min.js"></script>
 SCRIPTS
 ;
 
 	$header .= <<HEADER
-<link rel="stylesheet" href="/js/datatables.min.css">
+<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/js/datatables.min.css">
 HEADER
 ;
 		
@@ -2000,12 +2000,12 @@ sub display_points($) {
 	
 
 	$scripts .= <<SCRIPTS
-<script src="/js/datatables.min.js"></script>
+<script src="@{[ format_subdomain('static') ]}/js/datatables.min.js"></script>
 SCRIPTS
 ;
 
 	$header .= <<HEADER
-<link rel="stylesheet" href="/js/datatables.min.css">
+<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/js/datatables.min.css">
 <meta property="og:image" content="https://world.openfoodfacts.org/images/misc/open-food-hunt-2015.1304x893.png">
 HEADER
 ;	
@@ -2775,10 +2775,10 @@ JS
 
 	if ((scalar @map_layers) > 0) {
 		$header .= <<HTML		
-	<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
-	<script src="/bower_components/leaflet/dist/leaflet.js"></script>
-	<script src="/bower_components/osmtogeojson/osmtogeojson.js"></script>
-	<script src="/js/display-tag.js"></script>
+	<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/leaflet/dist/leaflet.css">
+	<script src="@{[ format_subdomain('static') ]}/bower_components/leaflet/dist/leaflet.js"></script>
+	<script src="@{[ format_subdomain('static') ]}/bower_components/osmtogeojson/osmtogeojson.js"></script>
+	<script src="@{[ format_subdomain('static') ]}/js/display-tag.js"></script>
 HTML
 ;
 		
@@ -4168,7 +4168,7 @@ JS
 		my $count_string = sprintf(lang("graph_count"), $count, $i);
 		
 		$html .= <<HTML
-<script src="/js/highcharts.4.0.4.js"></script>
+<script src="@{[ format_subdomain('static') ]}/js/highcharts.4.0.4.js"></script>
 <p>$count_string</p>
 <div id="container" style="height: 400px"></div>​
 
@@ -4527,7 +4527,7 @@ JS
 		my $count_string = sprintf(lang("graph_count"), $count, $i);
 		
 		$html .= <<HTML
-<script src="/js/highcharts.4.0.4.js"></script>
+<script src="@{[ format_subdomain('static') ]}/js/highcharts.4.0.4.js"></script>
 <p>$count_string</p>
 <div id="container" style="height: 400px"></div>​
 <p>&nbsp;</p>
@@ -4882,11 +4882,11 @@ JS
 		if ($emb_codes > 0) {
 
 			$header .= <<HTML		
-<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
-<script src="/bower_components/leaflet/dist/leaflet.js"></script>
-<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.css">
-<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css">
-<script src="/bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/leaflet/dist/leaflet.css">
+<script src="@{[ format_subdomain('static') ]}/bower_components/leaflet/dist/leaflet.js"></script>
+<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/leaflet.markercluster/dist/MarkerCluster.css">
+<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css">
+<script src="@{[ format_subdomain('static') ]}/bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
 HTML
 ;
 
@@ -5287,6 +5287,7 @@ sub display_new($) {
 <html class="no-js" lang="$lang">
 <head>
 <meta charset="utf-8">
+
 <title>$title</title>
 $meta_description
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -5299,8 +5300,8 @@ $og_images
 $og_images2
 <meta property="og:description" content="$canon_description">
 $options{favicons}
-<link rel="stylesheet" href="/css/dist/app.css">
-<link rel="stylesheet" href="/bower_components/jquery-ui/themes/base/jquery-ui.min.css">
+<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/css/dist/app.css">
+<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/jquery-ui/themes/base/jquery-ui.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
 <link rel="search" href="@{[ format_subdomain($subdomain) ]}/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
 <style media="all">
@@ -5603,9 +5604,13 @@ HTML
 
 <div id="fb-root"></div>
 
-<script src="/bower_components/foundation/js/vendor/modernizr.js"></script>
-<script src="/bower_components/foundation/js/vendor/jquery.js"></script>
-<script src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/vendor/modernizr.js"></script>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
+<script src="@{[ format_subdomain('static') ]}/bower_components/iolazyload/dist/js/iolazy.min.js" defer></script>
+<script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/vendor/modernizr.js"></script>
+<script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/vendor/jquery.js"></script>
+<script src="@{[ format_subdomain('static') ]}/bower_components/jquery-ui/jquery-ui.min.js"></script>
+
 <script>
 \$(function() {
 \$("#select_country").select2({
@@ -5649,9 +5654,9 @@ window.___gcfg = {
 })();
 </script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>	
-<script src="/bower_components/foundation/js/foundation.min.js"></script>
-<script src="/bower_components/foundation/js/vendor/jquery.cookie.js"></script>
-<script async defer src="/bower_components/ManUp.js/manup.min.js"></script>
+<script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/foundation.min.js"></script>
+<script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/vendor/jquery.cookie.js"></script>
+<script async defer src="@{[ format_subdomain('static') ]}/bower_components/ManUp.js/manup.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" integrity="sha384-222hzbb8Z8ZKe6pzP18nTSltQM3PdcAwxWKzGOKOIF+Y3bROr5n9zdQ8yTRHgQkQ" crossorigin="anonymous"></script>
 $scripts
 <script>
@@ -5667,6 +5672,7 @@ $scripts
 });
 </script>
 <script>
+
 'use strict';
 
 function doWebShare(e) {
@@ -5684,6 +5690,8 @@ function doWebShare(e) {
 }
 
 function onLoad() {
+  new IOlazy();
+
 	var buttons = document.getElementsByClassName('share_button');
 	var shareAvailable = window.isSecureContext && navigator.share !== undefined;
 

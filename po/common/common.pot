@@ -371,7 +371,7 @@ msgid ""
 "\n"
 "<p>iPhone and iPad app on the App Store:</p>\n"
 "\n"
-"<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img "
+"<a href=\"https://itunes.apple.com/app/open-food-facts/id588797948\"><img "
 "src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt="
 "\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n"
 "\n"
@@ -385,8 +385,7 @@ msgid ""
 "\n"
 "<p>Windows Phone app:</p>\n"
 "\n"
-"<a href=\"https://www.windowsphone.com/en-us/store/app/"
-"openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34\"><img src=\"/images/"
+"<a href=\"https://microsoft.com/p/openfoodfacts/9nblggh0dkqr\"><img src=\"/images/"
 "misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" "
 "height=\"40\" /></a><br/>\n"
 "\n"
@@ -496,9 +495,7 @@ msgid "Donate to Open Food Facts"
 msgstr ""
 
 msgctxt "donate_link"
-msgid ""
-"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/"
-"en"
+msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
 msgstr ""
 
 msgctxt "ecological_data_table"
@@ -746,14 +743,14 @@ msgstr ""
 
 msgctxt "footer_and_the_facebook_group"
 msgid ""
-"and the <a href=\"https://www.facebook.com/groups/openfoodfacts/"
-"\">Facebook group for contributors</a>"
+"and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
 msgstr ""
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
 msgstr ""
 
+# Do not translate
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
 msgstr ""
@@ -762,6 +759,7 @@ msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
 msgstr ""
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
 msgstr ""
@@ -770,6 +768,7 @@ msgctxt "footer_data"
 msgid "Data"
 msgstr ""
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
 msgstr ""
@@ -782,6 +781,7 @@ msgctxt "footer_faq"
 msgid "Frequently asked questions"
 msgstr ""
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
 msgstr ""
@@ -790,6 +790,7 @@ msgctxt "footer_translators"
 msgid "Translators"
 msgstr ""
 
+# Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
 msgstr ""
@@ -817,6 +818,7 @@ msgctxt "footer_legal"
 msgid "Legal"
 msgstr ""
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr ""
@@ -825,6 +827,7 @@ msgctxt "footer_press"
 msgid "Press"
 msgstr ""
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
 msgstr ""
@@ -839,6 +842,7 @@ msgctxt "footer_terms"
 msgid "Terms of use"
 msgstr ""
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
 msgstr ""
@@ -847,6 +851,7 @@ msgctxt "footer_who_we_are"
 msgid "Who we are"
 msgstr ""
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
 msgstr ""
@@ -855,6 +860,7 @@ msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
 msgstr ""
 
+# Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
 msgstr ""
@@ -893,6 +899,7 @@ msgctxt "graphs_and_maps"
 msgid "Graphs and maps"
 msgstr ""
 
+# Obsolete. Do not translate
 msgctxt "header"
 msgid ""
 "<meta property=\"fb:admins\" content=\"706410516\" />\n"
@@ -1221,14 +1228,6 @@ msgctxt "lang_nl_be"
 msgid "Dutch"
 msgstr ""
 
-msgctxt "lang_note"
-msgid "Language most present and most highlighted on the product"
-msgstr ""
-
-msgctxt "lang_other"
-msgid "other language"
-msgstr ""
-
 msgctxt "lang_pl"
 msgid "Polish"
 msgstr ""
@@ -1271,6 +1270,14 @@ msgstr ""
 
 msgctxt "lang_zh"
 msgid "Chinese"
+msgstr ""
+
+msgctxt "lang_other"
+msgid "other language"
+msgstr ""
+
+msgctxt "lang_note"
+msgid "Language most present and most highlighted on the product"
 msgstr ""
 
 msgctxt "language"
@@ -1443,6 +1450,7 @@ msgctxt "menu_add_a_product"
 msgid "Add a product"
 msgstr ""
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
 msgstr ""
@@ -1451,6 +1459,7 @@ msgctxt "menu_contribute"
 msgid "Contribute"
 msgstr ""
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
 msgstr ""
@@ -1459,6 +1468,7 @@ msgctxt "menu_discover"
 msgid "Discover"
 msgstr ""
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
 msgstr ""
@@ -1576,7 +1586,7 @@ msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
 msgstr ""
 
-# Ensure it is the same translation as in the translation in the tag file. If unsure, DO NOT TRANSLATE, otherwise it will break the site
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
 msgstr ""
@@ -2973,16 +2983,14 @@ msgctxt "nova_groups_p"
 msgid "NOVA groups"
 msgstr ""
 
-
-
 msgctxt "footer_partners"
 msgid "Partners"
 msgstr ""
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
 msgstr ""
-
 
 msgctxt "adults"
 msgid "Adults"
@@ -3003,7 +3011,6 @@ msgstr ""
 msgctxt "elderly_age"
 msgid "65+"
 msgstr ""
-
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
@@ -3172,4 +3179,3 @@ msgstr ""
 msgctxt "product_last_checked"
 msgid "Last check of product page on"
 msgstr ""
-
