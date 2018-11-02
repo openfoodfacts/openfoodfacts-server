@@ -1668,9 +1668,13 @@ JS
 ;		
 		$initjs .= $js;
 		
+		$scripts .= <<SCRIPTS
+<script src="@{[ format_subdomain('static') ]}/js/highcharts.4.0.4.js"></script>		
+SCRIPTS
+;
+		
 		
 		$html = <<HTML
-<script src="@{[ format_subdomain('static') ]}/js/highcharts.4.0.4.js"></script>
 <div id="container" style="height: 400px"></div>​
 <p>&nbsp;</p>
 HTML
@@ -4187,8 +4191,12 @@ JS
 		
 		my $count_string = sprintf(lang("graph_count"), $count, $i);
 		
+		$scripts .= <<SCRIPTS
+<script src="@{[ format_subdomain('static') ]}/js/highcharts.4.0.4.js"></script>		
+SCRIPTS
+;		
+		
 		$html .= <<HTML
-<script src="@{[ format_subdomain('static') ]}/js/highcharts.4.0.4.js"></script>
 <p>$count_string</p>
 <div id="container" style="height: 400px"></div>​
 
@@ -4546,8 +4554,12 @@ JS
 		
 		my $count_string = sprintf(lang("graph_count"), $count, $i);
 		
+		$scripts .= <<SCRIPTS
+<script src="@{[ format_subdomain('static') ]}/js/highcharts.4.0.4.js"></script>		
+SCRIPTS
+;		
+		
 		$html .= <<HTML
-<script src="@{[ format_subdomain('static') ]}/js/highcharts.4.0.4.js"></script>
 <p>$count_string</p>
 <div id="container" style="height: 400px"></div>​
 <p>&nbsp;</p>
@@ -5320,7 +5332,7 @@ $og_images
 $og_images2
 <meta property="og:description" content="$canon_description">
 $options{favicons}
-<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/css/dist/app.css?v=$file_timestamps{"css/dist/app.css"}">
+<link rel="stylesheet" href="/css/dist/app.css?v=$file_timestamps{"css/dist/app.css"}">
 <link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/jquery-ui/themes/base/jquery-ui.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
 <link rel="search" href="@{[ format_subdomain($subdomain) ]}/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
