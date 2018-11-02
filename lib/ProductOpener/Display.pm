@@ -5589,16 +5589,11 @@ HTML
 		<p>
 			<a href="$Lang{footer_code_of_conduct_link}{$lc}">$Lang{footer_code_of_conduct}{$lc}</a>
 			<br><br>
-			$join_us_on_slack <script async defer src="https://slack-ssl-openfoodfacts.herokuapp.com/slackin.js"></script>
+			$join_us_on_slack
 			<br>
 			$Lang{footer_and_the_facebook_group}{$lc}
 			$Lang{footer_follow_us}{$lc}
 		</p>
-		<ul class="small-block-grid-3 sharebuttons">
-			<li><a href="https://twitter.com/share" class="twitter-share-button" data-lang="$lc" data-via="$Lang{twitter_account}{$lang}" data-url="@{[ format_subdomain($subdomain) ]}" data-count="vertical">Tweeter</a></li>
-			<li><fb:like href="@{[ format_subdomain($subdomain) ]}" layout="box_count"></fb:like></li>
-			<li><div class="g-plusone" data-size="tall" data-count="true" data-href="@{[ format_subdomain($subdomain) ]}"></div></li>
-		</ul>
 	</div>
 </footer>
 
@@ -5627,32 +5622,7 @@ HTML
 <initjs>
 });
 </script>
-<script>
-window.fbAsyncInit = function() {
-	FB.init({appId: '219331381518041', status: true, cookie: true, xfbml: true});
-};
-(function() {
-	var e = document.createElement('script');
-	e.type = 'text/javascript';
-	e.src = document.location.protocol + '//connect.facebook.net/$Lang{facebook_locale}{$lang}/all.js';
-	e.async = true;
-	document.getElementById('fb-root').appendChild(e);
-}());
-</script>
-<script>
-window.___gcfg = {
-	lang: '$Lang{facebook_locale}{$lang}'
-};
-(function() {
-	var po = document.createElement('script');
-	po.type = 'text/javascript';
-	po.async = true;
-	po.src = 'https://apis.google.com/js/plusone.js';
-	var s = document.getElementsByTagName('script')[0];
-	s.parentNode.insertBefore(po, s);
-})();
-</script>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>	
+
 <script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/foundation.min.js"></script>
 <script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/vendor/jquery.cookie.js"></script>
 <script async defer src="@{[ format_subdomain('static') ]}/bower_components/ManUp.js/manup.min.js"></script>
@@ -5689,7 +5659,7 @@ function doWebShare(e) {
 }
 
 function onLoad() {
-  new IOlazy();
+	new IOlazy();
 
 	var buttons = document.getElementsByClassName('share_button');
 	var shareAvailable = window.isSecureContext && navigator.share !== undefined;
