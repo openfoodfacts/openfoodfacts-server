@@ -447,6 +447,14 @@ sub analyze_request($)
 	
 	$request_ref->{page} = 1;
 	
+	# some sites like FB can add query parameters, remove all of them
+	# make sure that all query parameters of interest have already been consumed above
+	
+	$request_ref->{query_string} =~ s/(\&|\?).*//;
+	
+	$log->debug("analyzing query_string, step 3 - components UTF8 decoded", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
+	
+	
 	my @components = split(/\//, $request_ref->{query_string});
 	
 	# Root
