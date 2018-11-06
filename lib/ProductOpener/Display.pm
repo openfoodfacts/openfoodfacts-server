@@ -447,6 +447,14 @@ sub analyze_request($)
 	
 	$request_ref->{page} = 1;
 	
+	# some sites like FB can add query parameters, remove all of them
+	# make sure that all query parameters of interest have already been consumed above
+	
+	$request_ref->{query_string} =~ s/(\&|\?).*//;
+	
+	$log->debug("analyzing query_string, step 3 - components UTF8 decoded", { query_string => $request_ref->{query_string} } ) if $log->is_debug();
+	
+	
 	my @components = split(/\//, $request_ref->{query_string});
 	
 	# Root
@@ -1650,7 +1658,7 @@ JS
 		
 		
 		$html = <<HTML
-<script src="/js/highcharts.4.0.4.js"></script>
+<script src="@{[ format_subdomain('static') ]}/js/highcharts.4.0.4.js"></script>
 <div id="container" style="height: 400px"></div>​
 <p>&nbsp;</p>
 HTML
@@ -1704,8 +1712,8 @@ $countries_map_names
 JS
 ;
 			$scripts .= <<SCRIPTS
-<script src="/js/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="/js/jquery-jvectormap-world-mill-en.js"></script>			
+<script src="@{[ format_subdomain('static') ]}/js/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="@{[ format_subdomain('static') ]}/js/jquery-jvectormap-world-mill-en.js"></script>			
 SCRIPTS
 ;
 
@@ -1752,12 +1760,12 @@ JS
 ;
 
 	$scripts .= <<SCRIPTS
-<script src="/js/datatables.min.js"></script>
+<script src="@{[ format_subdomain('static') ]}/js/datatables.min.js"></script>
 SCRIPTS
 ;
 
 	$header .= <<HEADER
-<link rel="stylesheet" href="/js/datatables.min.css">
+<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/js/datatables.min.css">
 HEADER
 ;
 		
@@ -2000,12 +2008,12 @@ sub display_points($) {
 	
 
 	$scripts .= <<SCRIPTS
-<script src="/js/datatables.min.js"></script>
+<script src="@{[ format_subdomain('static') ]}/js/datatables.min.js"></script>
 SCRIPTS
 ;
 
 	$header .= <<HEADER
-<link rel="stylesheet" href="/js/datatables.min.css">
+<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/js/datatables.min.css">
 <meta property="og:image" content="https://world.openfoodfacts.org/images/misc/open-food-hunt-2015.1304x893.png">
 HEADER
 ;	
@@ -2775,10 +2783,10 @@ JS
 
 	if ((scalar @map_layers) > 0) {
 		$header .= <<HTML		
-	<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
-	<script src="/bower_components/leaflet/dist/leaflet.js"></script>
-	<script src="/bower_components/osmtogeojson/osmtogeojson.js"></script>
-	<script src="/js/display-tag.js"></script>
+	<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/leaflet/dist/leaflet.css">
+	<script src="@{[ format_subdomain('static') ]}/bower_components/leaflet/dist/leaflet.js"></script>
+	<script src="@{[ format_subdomain('static') ]}/bower_components/osmtogeojson/osmtogeojson.js"></script>
+	<script src="@{[ format_subdomain('static') ]}/js/display-tag.js"></script>
 HTML
 ;
 		
@@ -4168,7 +4176,7 @@ JS
 		my $count_string = sprintf(lang("graph_count"), $count, $i);
 		
 		$html .= <<HTML
-<script src="/js/highcharts.4.0.4.js"></script>
+<script src="@{[ format_subdomain('static') ]}/js/highcharts.4.0.4.js"></script>
 <p>$count_string</p>
 <div id="container" style="height: 400px"></div>​
 
@@ -4527,7 +4535,7 @@ JS
 		my $count_string = sprintf(lang("graph_count"), $count, $i);
 		
 		$html .= <<HTML
-<script src="/js/highcharts.4.0.4.js"></script>
+<script src="@{[ format_subdomain('static') ]}/js/highcharts.4.0.4.js"></script>
 <p>$count_string</p>
 <div id="container" style="height: 400px"></div>​
 <p>&nbsp;</p>
@@ -4882,11 +4890,11 @@ JS
 		if ($emb_codes > 0) {
 
 			$header .= <<HTML		
-<link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
-<script src="/bower_components/leaflet/dist/leaflet.js"></script>
-<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.css">
-<link rel="stylesheet" href="/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css">
-<script src="/bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/leaflet/dist/leaflet.css">
+<script src="@{[ format_subdomain('static') ]}/bower_components/leaflet/dist/leaflet.js"></script>
+<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/leaflet.markercluster/dist/MarkerCluster.css">
+<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css">
+<script src="@{[ format_subdomain('static') ]}/bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
 HTML
 ;
 
@@ -5281,53 +5289,17 @@ sub display_new($) {
 	if (defined $request_ref->{og_type}) {
 		$og_type = $request_ref->{og_type};
 	}
-	
-# <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-# <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-# <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css">
 
-
-#<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-#<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-#<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-lightness/jquery-ui.css">
-	
 	my $html = <<HTML
 <!doctype html>
 <html class="no-js" lang="$lang">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/css/dist/app.css">
-<script src="/bower_components/foundation/js/vendor/modernizr.js"></script>
+
 <title>$title</title>
 $meta_description
-<script src="/bower_components/foundation/js/vendor/jquery.js"></script>
-<script type="text/javascript" src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="/bower_components/jquery-ui/themes/base/jquery-ui.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
-<link rel="search" href="@{[ format_subdomain($subdomain) ]}/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
-<script>
-\$(function() {
-\$("#select_country").select2({
-	placeholder: "$Lang{select_country}{$lang}",
-    allowClear: true
-	}
-	).on("select2:select", function(e) {
-	var subdomain =  e.params.data.id;
-	if (! subdomain) {
-		subdomain = 'world';
-	}
-	window.location.href = "https://" + subdomain + ".${server_domain}";
-}).on("select2:unselect", function(e) {
-	window.location.href = "https://world.${server_domain}";
-})
-;
-<initjs>
-});
-</script>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 $header
-
 <meta property="fb:app_id" content="219331381518041">
 <meta property="og:type" content="$og_type">
 <meta property="og:title" content="$canon_title">
@@ -5335,329 +5307,58 @@ $header
 $og_images
 $og_images2
 <meta property="og:description" content="$canon_description">
-
 $options{favicons}
-
-<style type="text/css" media="all">
-
-hr.floatclear {
-background: none;
-border: 0;
-clear: both;
-display: block;
-float: none;
-font-size: 0;
-margin: 0;
-padding: 0;
-overflow: hidden;
-visibility: hidden;
-width: 0;
-height: 0;
-}
-
-hr.floatleft {
-background: none;
-border: 0;
-clear: left;
-display: block;
-float: none;
-font-size: 0;
-margin: 0;
-padding: 0;
-overflow: hidden;
-visibility: hidden;
-width: 0;
-height: 0;
-}
-
-hr.floatright {
-background: none;
-border: 0;
-clear: right;
-display: block;
-float: none;
-font-size: 0;
-margin: 0;
-padding: 0;
-overflow: hidden;
-visibility: hidden;
-width: 0;
-height: 0;
-}
-
-
-
-.data_table label, .data_table input { display: inline}
-.data_table input, .data_table select { font-size: 1em }
-.nutriment_label  { text-align: left; width: 300px; }
-.nutriment_value { text-align: right }
-.nutriment_subx { font-size: 0.9em;}
-.data_table .nutriment_sub .nutriment_label { padding-left:20px;}
-input.nutriment_value { width:5rem; height:2.3125rem;}
-select.nutriment_unit { width:4rem; margin-bottom:0;}
-thead, tbody { margin:0px; padding:0px; }
-
-
-.data_table { margin-top:20px; padding:0px; vertical-align:middle; border-collapse:collapse}
-.data_table td, .data_table th { margin:0px; padding:0.2rem; padding-left:0.5rem;}
-.data_table .nutriment_head { background-color: #8888ff; color: white; }
-.data_table .nutriment_main { border-top:3px solid white; background-color: #ddddff;}
-.data_table .nutriment_sub, .data_table .nutriment_sub td { border-top: 1px solid #ddddff; background-color: #eeeeff; }
-.ui-autocomplete li { font-size: 1em;}
-#nutriment_carbon-footprint_tr { background-color:#ddffdd }
-
-ul.products {
-	list-style:none;
-	padding: 0;
-	margin: 0;	
-}
-
-.products li {
-	text-align:center;
-	display:block;
-	float:left;
-}
-
-.products a {
-	display:block;
-	width:120px;;
-	height:167px;
-	padding:10px;
-	margin:10px;
-	overflow:hidden;	
-}
-
-.products div {
-	width:120px;
-	height:100px;
-	line-height:100px;
-	text-align:center;
-	padding:0px;
-	margin:0px;
-	display: table-cell;
-	vertical-align:middle;
-}
-
-
-
-.products a:hover {
-	background:#f4f4f4;
-}
-
-.products img {
-	vertical-align:middle;
-}
-
-#pages {
-	margin-top:1.5rem;
-}
-
-a { text-decoration: none;}
-a, a:visited, a:hover { color: blue;}
-
-a:hover { text-decoration: underline; }
-
-a.button {
-	color:white;
-}
-
-a.button:hover {
-	text-decoration:none;
-}
-
-.level_3, a.level_3, a:visited.level_3, a:hover.level_3 {
-	color:red;
-}
-
-.level_2, a.level_2, a:visited.level_2, a:hover.level_2 {
-	color:darkorange;
-}
-
-.level_1, a.level_1, a:visited.level_1, a:hover.level_1 {
-	color:green;
-}
-
-
-<!-- foundation styles -->
-
-.row{
-  &.full-width{
-    max-width: 100% !important;
-    .row{
-      margin: 0 auto;
-      max-width: 62.5rem;
-      background: inherit;
-    }  
-  }
-}
-
-.select2-container--default .select2-selection--single {
-border-radius:0;
-font-size: 0.875rem;
-  position: relative;
-  height: 1.75rem;
-  top: 0.53125rem;
-  width:10rem;
-}
-
-.left-small {
-  border-right:0;
-}
-
-.tab-bar-section.middle {
-  right:0;
-}
-
-#aside_column {
-	padding:1rem;
-}
-
-.side-nav li a:not(.button) {
-  margin: 0 -1rem;
-  padding: 0.4375rem 1rem;
-  color:blue;
-}
-
-.side-nav li a:not(.button):hover, .side-nav li a:not(.button):focus {
-	color:blue;
-}
-
-
-\@media only screen and (max-width: 64em) {
-a.button.icon {
-font-size:1rem;
-width:2rem;
-height:2rem;
-padding:0.5rem;
-}
-}
-
-.products {
-line-height:1.2;
-}
-
-#sharebuttons li { text-align:center; max-width:100px; }
-
-#footer > div {
-	padding:1rem;
-}
-
-.dark {
-	color:#f0f0f0;
-}
-
-.dark h4 {
-	color:white;
-}
-
-.dark a, .dark a:hover, .dark a:visited {
-	color:white;
-}
-
-\@media only screen and (max-width: 40em) {
-#footer h4 {
-	font-size:1.125rem;
-}
-}
-
-.top-bar-section .has-dropdown>a:after {
-  border-color: transparent transparent transparent rgba(0,0,0,0.4);
-}
-
-
-\@media only screen and (min-width: 40.063em) {
-.top-bar-section .has-dropdown>a:after {
-  border-color: rgba(0,0,0,0.4) transparent transparent transparent;
-}
-.top-bar-section ul li {
-  background: inherit;
-}
-#select_country_li {padding-left:0;}
-}
-
-#main_column {
-	padding-bottom:2rem;
-}
-
-.example { font-size: 0.8em; color:green; }
-.note { font-size: 0.8em; }
-.example, .note { margin-top:4px;margin-bottom:0px;margin-left:4px; }
-
-.tag.user_defined { font-style: italic; }
-
-.button-group ul {
-  height: 400px;
-  overflow: auto;
-}
-
+<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/css/dist/app.css">
+<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/jquery-ui/themes/base/jquery-ui.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
+<link rel="search" href="@{[ format_subdomain($subdomain) ]}/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
+<style media="all">
 HTML
 ;
 
 	$html .= lang("css");
-	
+
 	$html .= <<HTML
-
 $styles
-
-
-
 </style>
-
 $google_analytics
-	
 </head>
 <body$bodyabout>
-
-
-<nav class="top-bar" data-topbar role="navigation" id="top-bar">
+<nav class="top-bar" data-topbar id="top-bar">
 	<ul class="title-area">
 		<li class="name">
 			<h2><a href="/" style="font-size:1rem;">$Lang{site_name}{$lang}</a></h2>
 		</li>
-		<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-		<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+		<li class="toggle-topbar menu-icon">
+			<a href="#"><span>Menu</span></a>
+		</li>
 	</ul>
-
 	<section class="top-bar-section">
-
-
-	<!-- Left Nav Section -->	
-
-
-
+		<label for="select_country" style="display:none">$Lang{select_country}{$lang}</label>
 HTML
 ;
 
-
-# <label for="select_country">$Lang{select_country}{$lang}</label><br>
-	
 	my $select_country_options = lang("select_country_options");
 	$select_country_options =~ s/value="$cc"/value="$cc" selected/;
 	if ($cc eq 'world') {
 		$select_country_options =~ s/<option value="world"(.*?)<\/option>//;
 	}
-	
+
 	$html .= <<HTML
-	<ul class="left">
-		<li class="has-form has-dropdown" id="select_country_li">
-<select id="select_country" style="width:100%">
-<option></option>
-HTML
-.
-$select_country_options
-.
-<<HTML
-</select>
-		</li>
-		
+		<ul class="left">
+			<li class="has-form has-dropdown" id="select_country_li">
+				<select id="select_country" style="width:100%">
+					<option></option>
+					$select_country_options
+				</select>
+			</li>
 HTML
 ;
 
-	
 	my $en = 0;
 	my $langs = '';
 	my $selected_lang = '';
-	
+
 	foreach my $olc (@{$country_languages{$cc}}, 'en') {
 		if ($olc eq 'en') {
 			if ($en) {
@@ -5680,63 +5381,56 @@ HTML
 			}
 		}
 	}
-	
 
 	if ($langs =~ /<a/) {
 		$html .= <<HTML
-
-      <li class="has-dropdown">
-		$selected_lang
-        <ul class="dropdown">			
-			$langs
-        </ul>
-      </li>
-		
+			<li class="has-dropdown">
+				$selected_lang
+				<ul class="dropdown">
+					$langs
+				</ul>
+			</li>
 HTML
 ;
-	}	
-	
+	}
+
 	$html .= <<HTML
-	</ul>	
+		</ul>
 HTML
 ;
 
-
-
-	
 	my $blocks = display_blocks($request_ref);
 	my $aside_blocks = $blocks;
-	
 	my $aside_initjs = $initjs;
-	
+
 	# keep only the login block for off canvas
 	$aside_blocks =~ s/<!-- end off canvas blocks for small screens -->(.*)//s;
-	
+
 	$aside_initjs =~ s/(.*)\/\/ start off canvas blocks for small screens//s;
 	$aside_initjs =~ s/\/\/ end off canvas blocks for small screens(.*)//s;
-	
+
 	# change ids of the add product image upload form
 	$aside_blocks =~ s/block_side/block_aside/g;
-	
+
 	$aside_initjs =~ s/block_side/block_aside/g;
-	
+
 	$initjs .= $aside_initjs;
-	
+
 	# Join us on Slack <a href="http://slack.openfoodfacts.org">Slack</a>:
 	my $join_us_on_slack = sprintf($Lang{footer_join_us_on}{$lc}, '<a href="https://slack-ssl-openfoodfacts.herokuapp.com/">Slack</a>');
-	
+
 	my $twitter_account = lang("twitter_account");
 	if (defined $Lang{twitter_account_by_country}{$cc}) {
 		$twitter_account = $Lang{twitter_account_by_country}{$cc};
 	}
-	
+
 	my $facebook_page = lang("facebook_page");
-	
+
 	my $torso_color = "white";
 	if (defined $User_id) {
 		$torso_color = "#ffe681";
 	}
-	
+
 	my $search_terms = '';
 	if (defined param('search_terms')) {
 		$search_terms = remove_tags_and_quote(decode utf8=>param('search_terms'))
@@ -5771,166 +5465,106 @@ To improve food for everyone, it's time to <a href="https://www.helloasso.com/as
 </div>
 HTML
 ;
-	
-	}	
-	
-		
+	}
+
 	$html .= <<HTML
-
-	
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li class="show-for-large-up">
-			<form action="/cgi/search.pl">
-			<div class="row collapse ">
-
-					<div class="small-8 columns">
-						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lang}" name="search_terms" value="${search_terms}">
-						<input name="search_simple" value="1" type="hidden">
-						<input name="action" value="process" type="hidden">
+		<ul class="right">
+			<li class="show-for-large-up">
+				<form action="/cgi/search.pl">
+					<div class="row collapse">
+						<div class="small-8 columns">
+							<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lang}" name="search_terms" value="${search_terms}">
+							<input name="search_simple" value="1" type="hidden">
+							<input name="action" value="process" type="hidden">
+						</div>
+						<div class="small-4 columns">
+							<button type="submit" title="$Lang{search}{$lang}"><i class="fi-magnifying-glass"></i></button>
+						</div>
 					</div>
-					<div class="small-4 columns">
-						 <button type="submit" title="$Lang{search}{$lang}"><i class="fi-magnifying-glass"></i></button>
-					</div>
-
-			</div>
-			</form>	
-		</li>
-		
-		<li class="show-for-large-up"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-plus"></i></a></li>
-		
-		<li class="show-for-large-up"><a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}"><i class="fi-graph-bar"></i></a></li>
-		
-		<li class="show-for-large-up divider"></li>
-	
-		<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
-		<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
-
-	</ul>	
-	
+				</form>
+			</li>
+			<li class="show-for-large-up"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-plus"></i></a></li>
+			<li class="show-for-large-up"><a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}"><i class="fi-graph-bar"></i></a></li>
+			<li class="show-for-large-up divider"></li>
+			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
+			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
+		</ul>
 	</section>
-	
-
 </nav>
 
-
 <nav class="tab-bar show-for-small-only">
-
-  <div class="left-small" style="padding-top:4px;">
-    <a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix">
-	<i class="fi-torso" style="color:$torso_color;font-size:1.8rem"></i></a>
-  </div>
-  <div class="middle tab-bar-section" style="padding-top:4px;">
-			<form action="/cgi/search.pl">
-			<div class="row collapse ">
-
-					<div class="small-8 columns">
-						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="search_terms">
-						<input name="search_simple" value="1" type="hidden">
-						<input name="action" value="process" type="hidden">						
-					</div>
-					<div class="small-2 columns">
-						 <button type="submit" class="button postfix"><i class="fi-magnifying-glass"></i></button>
-					</div>
-					
-					<div class="small-2 columns">
-							<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-magnifying-glass"></i> <i class="fi-plus"></i></a>
-					</div>
-
-
+	<div class="left-small" style="padding-top:4px;">
+		<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle button postfix">
+		<i class="fi-torso" style="color:$torso_color;font-size:1.8rem"></i></a>
+	</div>
+	<div class="middle tab-bar-section" style="padding-top:4px;">
+		<form action="/cgi/search.pl">
+			<div class="row collapse">
+				<div class="small-8 columns">
+					<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="search_terms">
+					<input name="search_simple" value="1" type="hidden">
+					<input name="action" value="process" type="hidden">
+				</div>
+				<div class="small-2 columns">
+					<button type="submit" class="button postfix"><i class="fi-magnifying-glass"></i></button>
+				</div>
+				<div class="small-2 columns">
+					<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-magnifying-glass"></i> <i class="fi-plus"></i></a>
+				</div>
 			</div>
-			</form>	  
-  </div>
- </nav>
+		</form>
+	</div>
+</nav>
 
-
- 
- 
 <div class="off-canvas-wrap" data-offcanvas>
-  <div class="inner-wrap">
-
-
-    <!-- Off Canvas Menu -->
-    <aside class="left-off-canvas-menu">
-        <!-- whatever you want goes here -->
-		<div id="aside_column">
-
-	$aside_blocks
-		
+	<div class="inner-wrap">
+		<aside class="left-off-canvas-menu">
+			<div id="aside_column">
+				$aside_blocks
+			</div>
+		</aside>
+		<a class="exit-off-canvas"></a>
+		$top_banner
+		<!-- main row - comment used to remove left column and center content on some pages -->
+		<div class="row full-width" style="max-width: 100% !important;" data-equalizer>
+			<div class="xxlarge-1 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
+				<div class="sidebar">
+					<div style="text-align:center">
+						<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="$Lang{site_name}{$lang}" style="margin-bottom:0.5rem"></a>
+					</div>
+					<p>$Lang{tagline}{$lc}</p>
+					<form action="/cgi/search.pl" class="hide-for-large-up">
+						<div class="row collapse">
+							<div class="small-9 columns">
+								<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="search_terms">
+								<input name="search_simple" value="1" type="hidden">
+								<input name="action" value="process" type="hidden">
+							</div>
+							<div class="small-2 columns">
+								<button type="submit" class="button postfix"><i class="fi-magnifying-glass"></i></button>
+							</div>
+							<div class="small-1 columns">
+								<label class="right inline">
+									<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-plus"></i></a>
+								</label>
+							</div>
+						</div>
+					</form>
+					$blocks
+				</div>
+			</div>
+			<div id="main_column" class="xxlarge-11 xlarge-10 large-9 medium-8 columns" style="padding-top:1rem" data-equalizer-watch>
+			<!-- main column content - comment used to remove left column and center content on some pages -->
+				$h1_title
+				$$content_ref
+			</div>
 		</div>
-    </aside>
-
-
-  <!-- close the off-canvas menu -->
-  <a class="exit-off-canvas"></a>
-
-$top_banner
-  
-<!-- main row - comment used to remove left column and center content on some pages -->  
-<div class="row full-width" style="max-width: 100% !important;" data-equalizer>
-
-
-
-	<div class="xxlarge-1 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
-		<div class="sidebar">
-		
-<div style="text-align:center">
-<a href="/"><img id="logo" src="/images/misc/$Lang{logo}{$lang}" srcset="/images/misc/$Lang{logo2x}{$lang} 2x" width="178" height="150" alt="$Lang{site_name}{$lang}" style="margin-bottom:0.5rem"></a>
+	</div>
 </div>
 
-<p>$Lang{tagline}{$lc}</p>
-
-
-			<form action="/cgi/search.pl" class="hide-for-large-up">
-			<div class="row collapse">
-
-					<div class="small-9 columns">
-						<input type="text" placeholder="$Lang{search_a_product_placeholder}{$lc}" name="search_terms">
-						<input name="search_simple" value="1" type="hidden">
-						<input name="action" value="process" type="hidden">
-					</div>
-					<div class="small-2 columns">
-						 <button type="submit" class="button postfix"><i class="fi-magnifying-glass"></i></button>
-					</div>
-					
-					<div class="small-1 columns">
-						<label class="right inline">
-							<a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-plus"></i></a>
-						</label>
-					</div>
-			
-
-			</div>
-			</form>		
-
-
-$blocks
-	
-		</div> <!-- sidebar -->
-	</div> <!-- left column -->
-		
-	
-	<div id="main_column" class="xxlarge-11 xlarge-10 large-9 medium-8 columns" style="padding-top:1rem" data-equalizer-watch>
-
-<!-- main column content - comment used to remove left column and center content on some pages -->  
-	
-$h1_title
-
-$$content_ref
-
-	</div> <!-- main content column -->
-</div> <!-- row -->
-
-	</div> <!-- inner wrap -->
-</div> <!-- off-content wrap -->
-
-
-<!-- footer -->
-
-<div id="footer" class="row full-width collapse" style="max-width: 100% !important;" data-equalizer>
-
-	<div class="small-12 medium-6 large-3 columns" style="border-top:10px solid #ff0000" data-equalizer-watch>
-		<h4>Open Food Facts</h4>
+<footer>
+	<div class="small-12 medium-6 large-3 columns off">
+		<div class="title">Open Food Facts</div>
 		<p>$Lang{footer_tagline}{$lc}</p>
 		<ul>
 			<li><a href="$Lang{footer_legal_link}{$lc}">$Lang{footer_legal}{$lc}</a></li>
@@ -5939,34 +5573,15 @@ $$content_ref
 			<li><a href="$Lang{donate_link}{$lc}">$Lang{donate}{$lc}</a></li>
 		</ul>
 	</div>
-	
-	<div class="small-12 medium-6 large-3 columns" style="border-top:10px solid #ffcc00" data-equalizer-watch>
-		<h4>$Lang{footer_install_the_app}{$lc}</h4>
-
-<div style="float:left;width:160px;height:70px;">
-<a href="$Lang{ios_app_link}{$lc}">
-$Lang{ios_app_badge}{$lc}</a>
-</div>
-
-<div style="float:left;width:160px;height:70px;">
-<a href="$Lang{android_app_link}{$lc}">
-$Lang{android_app_badge}{$lc}
-</a></div>
-
-<div style="float:left;width:160px;height:70px;">
-<a href="$Lang{windows_phone_app_link}{$lc}">
-$Lang{windows_phone_app_badge}{$lc}
-</a></div>
-
-<div style="float:left;width:160px;height:70px;">
-<a href="$Lang{android_apk_app_link}{$lc}">
-$Lang{android_apk_app_badge}{$lc}
-</a></div>
-		
+	<div class="small-12 medium-6 large-3 columns app">
+		<div class="title">$Lang{footer_install_the_app}{$lc}</div>
+		<a href="$Lang{ios_app_link}{$lc}">$Lang{ios_app_badge}{$lc}</a>
+		<a href="$Lang{android_app_link}{$lc}">$Lang{android_app_badge}{$lc}</a>
+		<a href="$Lang{windows_phone_app_link}{$lc}">$Lang{windows_phone_app_badge}{$lc}</a>
+		<a href="$Lang{android_apk_app_link}{$lc}">$Lang{android_apk_app_badge}{$lc}</a>
 	</div>
-	
-	<div class="small-12 medium-6 large-3 columns" style="border-top:10px solid #00d400" data-equalizer-watch>
-		<h4>$Lang{footer_discover_the_project}{$lc}</h4>
+	<div class="small-12 medium-6 large-3 columns project">
+		<div class="title">$Lang{footer_discover_the_project}{$lc}</div>
 		<ul>
 			<li><a href="$Lang{footer_who_we_are_link}{$lc}">$Lang{footer_who_we_are}{$lc}</a></li>
 			<li><a href="$Lang{footer_faq_link}{$lc}">$Lang{footer_faq}{$lc}</a></li>
@@ -5977,126 +5592,132 @@ $Lang{android_apk_app_badge}{$lc}
 			<li><a href="$Lang{footer_partners_link}{$lc}">$Lang{footer_partners}{$lc}</a></li>
 		</ul>
 	</div>
-	
-	<div class="small-12 medium-6 large-3 columns" style="border-top:10px solid #0066ff" data-equalizer-watch>
-		<h4>$Lang{footer_join_the_community}{$lc}</h4>
-
-<div>
-<a href="$Lang{footer_code_of_conduct_link}{$lc}">$Lang{footer_code_of_conduct}{$lc}</a><br><br>
-
-$join_us_on_slack <script async defer src="https://slack-ssl-openfoodfacts.herokuapp.com/slackin.js"></script>
-<br>
-$Lang{footer_and_the_facebook_group}{$lc}
-</div>
-
-<div>
-$Lang{footer_follow_us}{$lc}
-
-<ul class="small-block-grid-3" id="sharebuttons">
-	<li>
-		<a href="https://twitter.com/share" class="twitter-share-button" data-lang="$lc" data-via="$Lang{twitter_account}{$lang}" data-url="@{[ format_subdomain($subdomain) ]}" data-count="vertical">Tweeter</a>
-	</li>
-	<li><fb:like href="@{[ format_subdomain($subdomain) ]}" layout="box_count"></fb:like></li>
-	<li><div class="g-plusone" data-size="tall" data-count="true" data-href="@{[ format_subdomain($subdomain) ]}"></div></li>
-</ul>
-
-</div>
-	
+	<div class="small-12 medium-6 large-3 columns community">
+		<div class="title">$Lang{footer_join_the_community}{$lc}</div>
+		<p>
+			<a href="$Lang{footer_code_of_conduct_link}{$lc}">$Lang{footer_code_of_conduct}{$lc}</a>
+			<br><br>
+			$join_us_on_slack <script async defer src="https://slack-ssl-openfoodfacts.herokuapp.com/slackin.js"></script>
+			<br>
+			$Lang{footer_and_the_facebook_group}{$lc}
+			$Lang{footer_follow_us}{$lc}
+		</p>
+		<ul class="small-block-grid-3 sharebuttons">
+			<li><a href="https://twitter.com/share" class="twitter-share-button" data-lang="$lc" data-via="$Lang{twitter_account}{$lang}" data-url="@{[ format_subdomain($subdomain) ]}" data-count="vertical">Tweeter</a></li>
+			<li><fb:like href="@{[ format_subdomain($subdomain) ]}" layout="box_count"></fb:like></li>
+			<li><div class="g-plusone" data-size="tall" data-count="true" data-href="@{[ format_subdomain($subdomain) ]}"></div></li>
+		</ul>
 	</div>
-</div>
-
-
+</footer>
 
 <div id="fb-root"></div>
 
-    <script type="text/javascript">
-      window.fbAsyncInit = function() {
-        FB.init({appId: '219331381518041', status: true, cookie: true,
-                 xfbml: true});
-     };
-	 
-      (function() {
-        var e = document.createElement('script');
-        e.type = 'text/javascript';
-        e.src = document.location.protocol +
-          '//connect.facebook.net/$Lang{facebook_locale}{$lang}/all.js';
-        e.async = true;
-        document.getElementById('fb-root').appendChild(e);
-      }());
-	  
+<script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/vendor/modernizr.js"></script>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
+<script src="@{[ format_subdomain('static') ]}/bower_components/iolazyload/dist/js/iolazy.min.js" defer></script>
+<script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/vendor/jquery.js"></script>
+<script src="@{[ format_subdomain('static') ]}/bower_components/jquery-ui/jquery-ui.min.js"></script>
 
-    </script>	
-
-<script type="text/javascript">
-  window.___gcfg = {
-    lang: '$Lang{facebook_locale}{$lang}'
-  };
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
+<script>
+\$(function() {
+\$("#select_country").select2({
+	placeholder: "$Lang{select_country}{$lang}",
+	allowClear: true
+}).on("select2:select", function(e) {
+	var subdomain =  e.params.data.id;
+	if (! subdomain) {
+		subdomain = 'world';
+	}
+	window.location.href = "https://" + subdomain + ".${server_domain}";
+}).on("select2:unselect", function(e) {
+	window.location.href = "https://world.${server_domain}";
+});
+<initjs>
+});
 </script>
-
+<script>
+window.fbAsyncInit = function() {
+	FB.init({appId: '219331381518041', status: true, cookie: true, xfbml: true});
+};
+(function() {
+	var e = document.createElement('script');
+	e.type = 'text/javascript';
+	e.src = document.location.protocol + '//connect.facebook.net/$Lang{facebook_locale}{$lang}/all.js';
+	e.async = true;
+	document.getElementById('fb-root').appendChild(e);
+}());
+</script>
+<script>
+window.___gcfg = {
+	lang: '$Lang{facebook_locale}{$lang}'
+};
+(function() {
+	var po = document.createElement('script');
+	po.type = 'text/javascript';
+	po.async = true;
+	po.src = 'https://apis.google.com/js/plusone.js';
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(po, s);
+})();
+</script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>	
-
-<script src="/bower_components/foundation/js/foundation.min.js"></script>
-<script src="/bower_components/foundation/js/vendor/jquery.cookie.js"></script>
-
-<script async defer src="/bower_components/ManUp.js/manup.min.js"></script>
-
+<script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/foundation.min.js"></script>
+<script src="@{[ format_subdomain('static') ]}/bower_components/foundation/js/vendor/jquery.cookie.js"></script>
+<script async defer src="@{[ format_subdomain('static') ]}/bower_components/ManUp.js/manup.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" integrity="sha384-222hzbb8Z8ZKe6pzP18nTSltQM3PdcAwxWKzGOKOIF+Y3bROr5n9zdQ8yTRHgQkQ" crossorigin="anonymous"></script>
-
 $scripts
-
 <script>
-	\$(document).foundation(  { equalizer : {
-    // Specify if Equalizer should make elements equal height once they become stacked.
-    equalize_on_stack: true
+\$(document).foundation({
+	equalizer : {
+		equalize_on_stack: true
 	},
-    accordion: {
-      callback : function (accordion) {
-        \$(document).foundation('equalizer', 'reflow');
-      }
-    }	
-  });
+	accordion: {
+		callback : function (accordion) {
+			\$(document).foundation('equalizer', 'reflow');
+		}
+	}
+});
 </script>
-
 <script>
-  'use strict';
 
-  function doWebShare(e) {
-    e.preventDefault();
-    if (!window.isSecureContext || navigator.share === undefined) {
-      console.error('Error: Unsupported feature: navigator.share');
-        return;
-      }
+'use strict';
 
-      var title = this.title;
-      var url = this.href;
-      navigator.share({title: title, url: url})
-        .then(() => console.info('Successfully sent share'),
-              error => console.error('Error sharing: ' + error));
-  }
+function doWebShare(e) {
+	e.preventDefault();
 
-  function onLoad() {
-    var buttons = document.getElementsByClassName('share_button');
-    var shareAvailable = window.isSecureContext && navigator.share !== undefined;
-    [].forEach.call(buttons, function(button) {
-      if (shareAvailable) {
-          button.style.display = 'block';
-          [].forEach.call(button.getElementsByTagName('a'), function(a) {
-            a.addEventListener('click', doWebShare);
-          });
-        } else {
-          button.style.display = 'none';
-        }
-    });
-  }
+	if (!window.isSecureContext || navigator.share === undefined) {
+		console.error('Error: Unsupported feature: navigator.share');
+		return;
+	}
 
-  window.addEventListener('load', onLoad);
+	var title = this.title;
+	var url = this.href;
+	navigator.share({title: title, url: url})
+		.then(() => console.info('Successfully sent share'), error => console.error('Error sharing: ' + error));
+}
+
+function onLoad() {
+  new IOlazy();
+
+	var buttons = document.getElementsByClassName('share_button');
+	var shareAvailable = window.isSecureContext && navigator.share !== undefined;
+
+	[].forEach.call(buttons, function(button) {
+		if (shareAvailable) {
+			button.style.display = 'block';
+
+			[].forEach.call(button.getElementsByTagName('a'), function(a) {
+				a.addEventListener('click', doWebShare);
+			});
+		}
+		else {
+			button.style.display = 'none';
+		}
+	});
+}
+
+window.addEventListener('load', onLoad);
 </script>
-
 <script type="application/ld+json">
 {
 	"\@context" : "https://schema.org",
@@ -6107,21 +5728,17 @@ $scripts
 		"\@type": "SearchAction",
 		"target": "@{[ format_subdomain($subdomain) ]}/cgi/search.pl?search_terms=?{search_term_string}",
 		"query-input": "required name=search_term_string"
-	}	
+	}
 }
-</script>
-
-<script type="application/ld+json">
 {
 	"\@context": "https://schema.org/",
 	"\@type": "Organization",
 	"url": "@{[ format_subdomain($subdomain) ]}",
 	"logo": "/images/misc/$Lang{logo}{$lang}",
 	"name": "$Lang{site_name}{$lc}",
-	"sameAs" : [ "$facebook_page", "https://twitter.com/$twitter_account"] 
+	"sameAs" : [ "$facebook_page", "https://twitter.com/$twitter_account"]
 }
 </script>
-
 </body>
 </html>
 HTML
