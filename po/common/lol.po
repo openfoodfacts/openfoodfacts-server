@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-27 14:50\n"
+"PO-Revision-Date: 2018-10-29 17:22\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -324,13 +324,13 @@ msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.p
 "+ <a href=\"https://www.facebook.com/groups/openfoodfacts/\">contributors group</a><br />\n"
 "</p>\n\n"
 "<p>iPhone and iPad app on the App Store:</p>\n\n"
-"<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
+"<a href=\"https://itunes.apple.com/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
 "<p>Android app on Google Play:</p>\n\n"
 "<a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner\"><img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" /></a><br/>\n"
 "<a href=\"https://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
 "<p>Windows Phone app:</p>\n\n"
-"<a href=\"https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
-msgstr "crwdns102236:0crwdne102236:0"
+"<a href=\"https://microsoft.com/p/openfoodfacts/9nblggh0dkqr\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
+msgstr "crwdns109682:0crwdne109682:0"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
@@ -671,6 +671,7 @@ msgctxt "footer_blog"
 msgid "<<site_name>> blog"
 msgstr "crwdns102402:0crwdne102402:0"
 
+# Do not translate
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
 msgstr "crwdns102404:0crwdne102404:0"
@@ -679,6 +680,7 @@ msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
 msgstr "crwdns102406:0crwdne102406:0"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
 msgstr "crwdns102408:0crwdne102408:0"
@@ -687,6 +689,7 @@ msgctxt "footer_data"
 msgid "Data"
 msgstr "crwdns102410:0crwdne102410:0"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
 msgstr "crwdns102412:0crwdne102412:0"
@@ -699,6 +702,7 @@ msgctxt "footer_faq"
 msgid "Frequently asked questions"
 msgstr "crwdns102416:0crwdne102416:0"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
 msgstr "crwdns102418:0crwdne102418:0"
@@ -707,6 +711,7 @@ msgctxt "footer_translators"
 msgid "Translators"
 msgstr "crwdns102420:0crwdne102420:0"
 
+# Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
 msgstr "crwdns102422:0crwdne102422:0"
@@ -733,6 +738,7 @@ msgctxt "footer_legal"
 msgid "Legal"
 msgstr "crwdns102432:0crwdne102432:0"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "crwdns102434:0crwdne102434:0"
@@ -741,6 +747,7 @@ msgctxt "footer_press"
 msgid "Press"
 msgstr "crwdns102436:0crwdne102436:0"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
 msgstr "crwdns102438:0crwdne102438:0"
@@ -753,6 +760,7 @@ msgctxt "footer_terms"
 msgid "Terms of use"
 msgstr "crwdns102442:0crwdne102442:0"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
 msgstr "crwdns102444:0crwdne102444:0"
@@ -761,6 +769,7 @@ msgctxt "footer_who_we_are"
 msgid "Who we are"
 msgstr "crwdns102446:0crwdne102446:0"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
 msgstr "crwdns102448:0crwdne102448:0"
@@ -769,6 +778,7 @@ msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
 msgstr "crwdns102450:0crwdne102450:0"
 
+# Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
 msgstr "crwdns102452:0crwdne102452:0"
@@ -805,6 +815,7 @@ msgctxt "graphs_and_maps"
 msgid "Graphs and maps"
 msgstr "crwdns102468:0crwdne102468:0"
 
+# Obsolete. Do not translate
 msgctxt "header"
 msgid "<meta property=\"fb:admins\" content=\"706410516\" />\n"
 "<meta property=\"og:site_name\" content=\"<<site_name>> - the free and open food products information database\"/>\n\n"
@@ -1107,14 +1118,6 @@ msgctxt "lang_nl_be"
 msgid "Dutch"
 msgstr "crwdns102614:0crwdne102614:0"
 
-msgctxt "lang_note"
-msgid "Language most present and most highlighted on the product"
-msgstr "crwdns102616:0crwdne102616:0"
-
-msgctxt "lang_other"
-msgid "other language"
-msgstr "crwdns102618:0crwdne102618:0"
-
 msgctxt "lang_pl"
 msgid "Polish"
 msgstr "crwdns102620:0crwdne102620:0"
@@ -1158,6 +1161,14 @@ msgstr "crwdns102638:0crwdne102638:0"
 msgctxt "lang_zh"
 msgid "Chinese"
 msgstr "crwdns102640:0crwdne102640:0"
+
+msgctxt "lang_other"
+msgid "other language"
+msgstr "crwdns102618:0crwdne102618:0"
+
+msgctxt "lang_note"
+msgid "Language most present and most highlighted on the product"
+msgstr "crwdns102616:0crwdne102616:0"
 
 msgctxt "language"
 msgid "en-US"
@@ -1311,6 +1322,7 @@ msgctxt "menu_add_a_product"
 msgid "Add a product"
 msgstr "crwdns102710:0crwdne102710:0"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
 msgstr "crwdns102712:0crwdne102712:0"
@@ -1319,6 +1331,7 @@ msgctxt "menu_contribute"
 msgid "Contribute"
 msgstr "crwdns102714:0crwdne102714:0"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
 msgstr "crwdns102716:0crwdne102716:0"
@@ -1327,6 +1340,7 @@ msgctxt "menu_discover"
 msgid "Discover"
 msgstr "crwdns102718:0crwdne102718:0"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
 msgstr "crwdns102720:0crwdne102720:0"
@@ -1439,7 +1453,7 @@ msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
 msgstr "crwdns102774:0crwdne102774:0"
 
-# Ensure it is the same translation as in the translation in the tag file. If unsure, DO NOT TRANSLATE, otherwise it will break the site
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
 msgstr "crwdns102776:0crwdne102776:0"
@@ -2751,6 +2765,7 @@ msgctxt "footer_partners"
 msgid "Partners"
 msgstr "crwdns103422:0crwdne103422:0"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
 msgstr "crwdns103424:0crwdne103424:0"
