@@ -1892,7 +1892,7 @@ sub display_taxonomy_tag_link($$$) {
 
 	my $html;
 	if ((defined $tag_lc) and ($tag_lc ne $lc)) {
-		$html = "<a href=\"/$path/$tagurl\" class=\"$cssclass\" lang=\"$tag_lc\">$tag</a>";
+		$html = "<a href=\"/$path/$tagurl\" class=\"$cssclass\" lang=\"$tag_lc\">$tag_lc:$tag</a>";
 	}
 	else {
 		$html = "<a href=\"/$path/$tagurl\" class=\"$cssclass\">$tag</a>";
@@ -2595,9 +2595,12 @@ sub display_taxonomy_tag($$$)
 		}
 		else {
 			$display = $tag;
-			$display = ucfirst($display);			
+						
 			if ($target_lc ne $tag_lc) {
 				$display = "$tag_lc:$display";
+			}
+			else {
+				$display = ucfirst($display);
 			}
 			# print STDERR "display_taxonomy_tag - no translation available for $tagtype $tagid in target language $lc or tag language $tag_lc - result: $display\n";						
 		}
