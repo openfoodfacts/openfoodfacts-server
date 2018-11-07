@@ -7323,18 +7323,23 @@ sub display_nutrient_levels($) {
 	
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
 	# unless we have nutrition data for the prepared product
+
+	my $prepared = "";
 	
-	my $prepared = '';
-	if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
+	foreach my $category_tag ("en:dried-products-to-be-rehydrated", "en:chocolate-powders", "en:dessert-mixes", "en:flavoured-syrups") {
 	
+		if (has_tag($product_ref, "categories", $category_tag)) {
+		
 			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
 				$prepared = '_prepared';
+				last;
 			}
 			else {
 				return "";
 			}
-	}
-
+		}
+	}		
+	
 	
 	
 	# do not compute a score for coffee, tea etc.
