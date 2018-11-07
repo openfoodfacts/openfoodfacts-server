@@ -7995,8 +7995,9 @@ HTML
 				my $rdfa = '';
 				
 				# Nutriscore: per serving = per 100g
-				if (($nid =~ /nutrition-score/) and ($col eq "serving")) {
-					$product_ref->{nutriments}{$nid . "_$col"} = $product_ref->{nutriments}{$nid . "_100g"};
+				if (($nid =~ /(nutrition-score(-\w\w)?)/)) {
+					# same Nutri-Score for 100g / serving and prepared / as sold
+					$product_ref->{nutriments}{$nid . "_$col"} = $product_ref->{nutriments}{$1 . "_100g"};
 				}
 				
 				if ((not defined $product_ref->{nutriments}{$nid . "_$col"}) or ($product_ref->{nutriments}{$nid . "_$col"} eq '')) {
@@ -8066,9 +8067,12 @@ HTML
 							}
 							else {
 								$values2 .= "<td class=\"nutriment_value${col_class}\">"
-								. uc (compute_nutrition_grade($product_ref, $product_ref->{nutriments}{$nid . "_$col"}))
+								. uc (compute_nutrition_grade($product_ref, $product_ref->{nutriments}{$nid . "_$col"})) # ! prepared 
 								. "</td>";
 							}
+						}
+						else {
+							$values2 .= "<td class=\"nutriment_value${col_class}\"></td>";
 						}
 					}					
 					elsif ($col eq $product_ref->{nutrition_data_per}) {
