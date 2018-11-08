@@ -3269,17 +3269,23 @@ sub compute_nutrition_score($) {
 	
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, powder milk)
 	# unless we have nutrition data for the prepared product
-	if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
+	# same for en:chocolate-powders, en:dessert-mixes and en:flavoured-syrups
 	
+	foreach my $category_tag ("en:dried-products-to-be-rehydrated", "en:chocolate-powders", "en:dessert-mixes", "en:flavoured-syrups") {
+	
+		if (has_tag($product_ref, "categories", $category_tag)) {
+		
 			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
-				$product_ref->{nutrition_score_debug} = "using prepared product data for en:dried-products-to-be-rehydrated without data for prepared product";
+				$product_ref->{nutrition_score_debug} = "using prepared product data for category $category_tag";
 				$prepared = '_prepared';
+				last;
 			}
 			else {
 				$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
-				$product_ref->{nutrition_score_debug} = "no score for en:dried-products-to-be-rehydrated without data for prepared product";
+				$product_ref->{nutrition_score_debug} = "no score for category $category_tag without data for prepared product";
 				return;
 			}
+		}
 	}
 	
 	
@@ -3521,6 +3527,8 @@ COMMENT
 			 or has_tag($product_ref, "categories", "en:dairy-drinks")
 			 or has_tag($product_ref, "categories", "en:meal-replacement")
 			 or has_tag($product_ref, "categories", "en:dairy-drinks-substitutes")
+			 or has_tag($product_ref, "categories", "en:chocolate-powders")
+			 or has_tag($product_ref, "categories", "en:soups")
 			)) {
 		$product_ref->{nutrition_score_debug} .= " -- in beverages category - a_points_fr_beverage: $fr_beverages_energy_points (energy) + $saturated_fat_points (sat_fat) + $fr_beverages_sugars_points (sugars) + $sodium_points (sodium) = $a_points_fr_beverages - ";
 		
