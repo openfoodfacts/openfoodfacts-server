@@ -846,13 +846,22 @@ energy	=> {
 	unit_us => 'kcal',
 	unit_ca => 'kcal',	
 },
-"energy-from-fat"	=> {
-	fr => "Énergie provenant des graisses",
+"energy-from-fat" => {
+	cs => "Energie z tuku",
+	de => "Brennwert aus Fetten",
 	en => "Energy from fat",
-	
+	fr => "Énergie provenant des graisses",
+	hu => "Energia zsírból",
+	ja => "脂質からのエネルギー",
+	pt => "Energia des gorduras",
+	ru => "Энергетическая ценность жиров",
+	zh => "来自脂肪的能量",
+	zh-CN => "来自脂肪的能量",
+	zh-HK => "來自脂肪的能量",
+	zh-TW => "來自脂肪的能量",
 	unit => 'kj',
 	unit_us => 'kcal',
-	unit_ca => 'kcal',	
+	unit_ca => 'kcal',
 },
 proteins => {
 	fr => "Protéines",
