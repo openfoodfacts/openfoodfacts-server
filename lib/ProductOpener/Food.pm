@@ -1630,7 +1630,7 @@ fiber => {
 	zh => "可溶性纤维",
 	zh_CN => "可溶性纤维",
 	zh_HK => "可溶性纖維",
-	zh-TW => "可溶性纖維",
+	zh_TW => "可溶性纖維",
 },
 "insoluble-fiber" => {
         de => 'unlösliche Ballaststoffe',
