@@ -1628,7 +1628,7 @@ fiber => {
 	pt => "Fibra alimentar solúvel",
 	ru => "Растворимые волокна",
 	zh => "可溶性纤维",
-	zh-CN => "可溶性纤维",
+	zh_CN => "可溶性纤维",
 	zh-HK => "可溶性纖維",
 	zh-TW => "可溶性纖維",
 },
