@@ -2792,7 +2792,7 @@ cocoa => {
 	tyv => "Холин",
 	uk => "Холін",
 	zh => "胆碱",
-	zh-CN => "胆碱",
+	zh_CN => "胆碱",
 	unit => "%"
 },
 phylloquinone => {
