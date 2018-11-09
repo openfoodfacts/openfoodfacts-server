@@ -347,12 +347,12 @@ msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.p
 "+ <a href=\"https://www.facebook.com/groups/openfoodfacts/\">contributors group</a><br />\n"
 "</p>\n\n"
 "<p>iPhone and iPad app on the App Store:</p>\n\n"
-"<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
+"<a href=\"https://itunes.apple.com/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
 "<p>Android app on Google Play:</p>\n\n"
 "<a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner\"><img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" /></a><br/>\n"
 "<a href=\"https://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
 "<p>Windows Phone app:</p>\n\n"
-"<a href=\"https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
+"<a href=\"https://microsoft.com/p/openfoodfacts/9nblggh0dkqr\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
 msgstr ""
 
 msgctxt "completed_n_missions"
@@ -537,6 +537,7 @@ msgctxt "emb_codes"
 msgid "EMB code"
 msgstr "Code emballeur"
 
+# Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
@@ -701,7 +702,7 @@ msgstr "<a href=\"https://fr.openfoodfacts.org/mentions-legales\">Mentions léga
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr "et le <a href=\"https://www.facebook.com/groups/356858984359591/\">groupe Facebook des contributeurs</a>"
+msgstr "et le <a href=\"https://www.facebook.com/groups/openfoodfacts.fr/\">groupe Facebook des contributeurs</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -715,6 +716,7 @@ msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
 msgstr "Code de conduite"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
 msgstr "/code-de-conduite"
@@ -723,6 +725,7 @@ msgctxt "footer_data"
 msgid "Data"
 msgstr "Données"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
 msgstr "/data"
@@ -735,18 +738,10 @@ msgctxt "footer_faq"
 msgid "Frequently asked questions"
 msgstr "Questions fréquentes"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
 msgstr "/questions-frequentes"
-
-msgctxt "footer_partners"
-msgid "Partners"
-msgstr "Partenaires"
-
-msgctxt "footer_partners_link"
-msgid "/partners"
-msgstr "/partenaires"
-
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
@@ -772,6 +767,7 @@ msgctxt "footer_legal"
 msgid "Legal"
 msgstr "Mentions légales"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/mentions-legales"
@@ -780,6 +776,7 @@ msgctxt "footer_press"
 msgid "Press"
 msgstr "Presse"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
 msgstr "/presse"
@@ -792,6 +789,7 @@ msgctxt "footer_terms"
 msgid "Terms of use"
 msgstr "Conditions d'utilisation"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
 msgstr "/conditions-d-utilisation"
@@ -800,6 +798,7 @@ msgctxt "footer_who_we_are"
 msgid "Who we are"
 msgstr "Qui sommes nous ?"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
 msgstr "/qui-sommes-nous"
@@ -1237,11 +1236,11 @@ msgid "Last picture date"
 msgstr "Date de dernière photo"
 
 msgctxt "licence_accept"
-msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"http://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
-"for information and data, and under the <a href=\"http://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
+msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
+"for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr "En ajoutant des informations et/ou des photographies, vous acceptez de placer irrévocablement votre contribution sous licence <a href=\"http://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a>\n"
-"pour les informations et sous licence <a href=\"http://creativecommons.org/licenses/by-sa/3.0/deed.fr\">Creative Commons Paternité - Partage des conditions initiales à l'identique 3.0</a> pour les photos.\n"
+msgstr "En ajoutant des informations et/ou des photographies, vous acceptez de placer irrévocablement votre contribution sous licence <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a>\n"
+"pour les informations et sous licence <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.fr\">Creative Commons Paternité - Partage des conditions initiales à l'identique 3.0</a> pour les photos.\n"
 "Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le produit auquel vous contribuez."
 
 msgctxt "link"
@@ -1372,6 +1371,7 @@ msgctxt "menu_add_a_product"
 msgid "Add a product"
 msgstr "Ajouter un produit"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
 msgstr "/ajouter-un-produit"
@@ -1380,6 +1380,7 @@ msgctxt "menu_contribute"
 msgid "Contribute"
 msgstr "Contribuer"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
 msgstr "/contribuer"
@@ -1388,6 +1389,7 @@ msgctxt "menu_discover"
 msgid "Discover"
 msgstr "Découvrir"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
 msgstr "/decouvrir"
@@ -1423,10 +1425,6 @@ msgstr "modéré"
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
 msgstr "quantité modérée"
-
-msgctxt "months"
-msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr "['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
@@ -1476,7 +1474,6 @@ msgctxt "multiple_nutrition_data_instructions"
 msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
 msgstr "Entrez seulement les valeurs nutritionnelles pour le produit non préparé, sans eau ou lait ajouté. S'il y a des produits différents, entrez les valeurs nutritionnelles pour le premier produit listé."
 
-
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
 msgstr "Il n'y a pas de produit référencé pour le code barre %s."
@@ -1505,6 +1502,7 @@ msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
 msgstr "Repères nutritionnels pour 100 g"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
 msgstr "/reperes-nutritionnels"
@@ -1631,10 +1629,12 @@ msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Note nutritionnelle"
 
+# Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
 msgstr "https://fr.openfoodfacts.org/images/misc/openfoodfacts-logo-fr-356.png"
 
+# Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
@@ -2621,17 +2621,13 @@ msgctxt "website"
 msgid "Site or blog address"
 msgstr "Adresse de blog ou de site web"
 
-msgctxt "weekdays"
-msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
-msgstr "['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi']"
-
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
 msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
-msgstr "https://www.windowsphone.com/fr-fr/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34"
+msgstr "https://www.microsoft.com/fr-fr/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2761,15 +2757,6 @@ msgctxt "amino_acids_s"
 msgid "added amino acid"
 msgstr "acide aminé ajoutés"
 
-msgctxt "nova_groups_s"
-msgid "NOVA group"
-msgstr "Groupe NOVA"
-
-msgctxt "nova_groups_p"
-msgid "NOVA groups"
-msgstr "Groupe NOVA"
-
-
 msgctxt "nucleotides_p"
 msgid "added nucleotides"
 msgstr "nucléotides ajoutés"
@@ -2794,11 +2781,9 @@ msgctxt "prepared_product"
 msgid "Prepared"
 msgstr "Préparé"
 
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "Unité"
-
 
 msgctxt "nutrition_data_exists"
 msgid "Nutrition facts are specified for the product as sold."
@@ -2807,6 +2792,22 @@ msgstr "Les informations nutritionnelles sont mentionnées pour le produit tel q
 msgctxt "nutrition_data_prepared_exists"
 msgid "Nutrition facts are specified for the prepared product."
 msgstr "Les informations nutritionnelles sont mentionnées pour le produit préparé."
+
+msgctxt "nova_groups_s"
+msgid "NOVA group"
+msgstr "Groupe NOVA"
+
+msgctxt "nova_groups_p"
+msgid "NOVA groups"
+msgstr "Groupe NOVA"
+
+msgctxt "footer_partners"
+msgid "Partners"
+msgstr "Partenaires"
+
+msgctxt "footer_partners_link"
+msgid "/partners"
+msgstr "/partenaires"
 
 msgctxt "adults"
 msgid "Adults"
@@ -2826,8 +2827,7 @@ msgstr "Personnes âgées"
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr ""
-
+msgstr "65+"
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
@@ -2875,7 +2875,7 @@ msgstr "Nourrissons"
 
 msgctxt "infants_age"
 msgid "< 1"
-msgstr ""
+msgstr "< 1"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
@@ -2908,7 +2908,6 @@ msgstr "%d produits avec %s"
 msgctxt "additives_efsa_evaluation_overexposure_risk_no"
 msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
 msgstr "L'Autorité Européenne de Sécurité des Aliments (AESA/EFSA) a déterminé qu'aucun groupe de population a plus de 5% de membres à risque de consommer plus que la dose journalière admissible de <tag>."
-
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
