@@ -502,6 +502,16 @@ opff =>
 };
 
 
+# used to rename texts and to redirect to the new name
+$options{redirect_texts} = {
+
+	"en/nova-groups-for-food-processing" => "nova",
+	"fr/score-nutritionnel-france" => "nutriscore",
+	"fr/score-nutritionnel-experimental-france" => "nutriscore",
+	"fr/classification-nova-pour-la-transformation-des-aliments" => "nova",
+};
+
+
 $options{display_tag_additives} = [
 
 	'@additives_classes',
