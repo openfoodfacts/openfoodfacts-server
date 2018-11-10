@@ -163,64 +163,64 @@ Per rendere più facile e veloce l'importazione di dati, abbiamo definito un for
   <li>nome_prodotto_[codice di due lettere della lingua principale]: nome del prodotto (nel campo nome_prodotto_en per il nome in inglese)</li>
   <li>nome_generico_[codice di due lettere della lingua principale]: Nome generico del prodotto </li>
   <li>marchi: marchi (diversi valori possibili per marche e sotto marche, da separare con virgole)</li>
-  <li>quantity: quantity, specify the unit, and possibly add in parentheses if the product contains several units (example: 120 g (4 x 30 g))</li>
-  <li>categories: product category, in the main product language (example: chocolate cakes)</li>
-  <li>countries: country where the product is sold, in the main language of the product (several possible values, to be separated by commas)</li>
-  <li>ingredients_text_ [2-letter code of the main language]: list of ingredients (in the ingredients_text_fr field for the list in French). Allergens may be indicated in CAPITAL LETTERS or between </li>
-  <li>allergens: allergens, in the main language of the product, separated by commas</li>
-  <li>traces: traces of allergens, in the main language of the product, separated by commas</li>
+  <li>quantità: quantità, specifica l'unità e possibilmente aggiungi parentesi se il prodotto contiene diverse unità (esempio: 120 g (4 x 30 g))</li>
+  <li>categorie: categoria prodotto, nella lingua principale del prodotto (esempio: torte di cioccolato)</li>
+  <li>paesi: paese dove il prodotto è venduto, nells lingua principale del prodotto (diversi valori possibili, da separsre con virgole)</li>
+  <li>testo_ingredienti_[codice di due lettere della lingua principale]: elenco di ingredienti (nel campo testo_ingredienti_fr per l'elenco in francese). Gli allergeni possono essere indicati in LETTERE MAIUSCOLE o tra </li>
+  <li>allergeni: allergeni, nella lingua principale del prodotto, separati da virgole</li>
+  <li>tracce: tracce di allergeni, nella lingua principale del prodotto, separati da virgole</li>
 </ul>
 
-<p>Among the mandatory fields are the nutritional values that appear on the package, per 100g / 100ml of product as sold.</p>
-<p>All values must have no unit (the unit is kJ for energy and g for all other fields).</p>
+<p>Tra i campi obbligatori vi sono i valori nutrizionali che appaiono sulla confezione, per 100 g / 100 ml di prodotto venduto.</p>
+<p>Tutti i valori non devono avere unità (l'unità è kJ per l'energia e g per tutti gli altri campi).</p>
 
 <ul>
   <!-- Do not translate nutrient field names -->
-  <li>energy_100g: energy, in kJ</li>
-  <li>fat_100g: fat</li>
-  <li>saturated-fat_100g: saturated fat</li>
-  <li>carbohydrates_100g: carbohydrates</li>
-  <li>sugars_100g: sugars</li>
-  <li>proteins_100g: proteins</li>
-  <li>salt_100g: salt</li>
+  <li>energia_100g: energia, in kJ</li>
+  <li>grassi_100g: grassi</li>
+  <li>grassi-saturi_100g: grassi saturi</li>
+  <li>carboidrati_100 g: carboidrati</li>
+  <li>zuccheri_100g: zuccheri</li>
+  <li>proteine_100g: proteine</li>
+  <li>sale_100g: sale</li>
   <!-- Do not translate nutrient field names -->
 </ul>
 
-<p>It is strongly recommended to also indicate the fibers and the % of fruits and vegetables so that this information can be taken into account in the calculation of Nutri-Score:</p>
+<p>Si raccomanda vivamente di indicare anche le fibre e la % di frutta e verdura in modo che queste informazioni possano essere prese in considerazione nel calcolo del Nutri-Score:</p>
 
   <ul>
     <!-- Do not translate nutrient field names -->
-  <li>fiber_100g: fibers</li>
-  <li>fruits-vegetables-nuts_100g</li>
+  <li>fibre_100g: fibre</li>
+  <li>frutta-verdura-noci_100g</li>
     <!-- Do not translate nutrient field names -->
   </ul>
   
-  <h5 id="champs_optionnels">Optional fields</h5>
+  <h5 id="champs_optionnels">Campi opzionali</h5>
 
   <ul>
-    <li>labels: labels, in the main language of the product (several possible values, to be separated by commas) (example: AB Bio, MSC, Max Havelaar). Note: the labels must appear on the packaging of the product.</li>
-    <li>origins: origins of the ingredients, in the main language of the product (several possible values, to be separated by commas) (example: Peru, Périgord)</li>
-    <li>packaging: materials and forms of the product packaging, in the main language of the product (several possible values, to be separated by commas) (example: can, aluminum)</li>
-    <li>manufacturing_places: manufacturing locations, in the main language of the product (several possible values, to be separated by commas: city names, countries)</li>
-    <li>emb_codes: packager codes and European sanitary stamps (several possible values, to be separated by commas)</li>
-    <li>stores: places of sale (several possible values, to be separated by commas: names of supermarket chains)</li>
-    <li>nutri_score: Nutri-Score rating from A to E, only in case it is indicated on the package</li>
-    <li>serving_size: quantity of a serving, specify the unit</li>
+    <li>etichette: etichette, nella lingua principale del prodotto (diversi valori possibili, separati da virgole) (esempio: AB Bio, MSC, Max Havelaar). Nota: le etichette devono apparire sulla confezione del prodotto.</li>
+    <li>origini: origini degli ingredienti, nella lingua principale del prodotto (diversi valori possibili, separati da virgole) (esempio: Perù, Périgord)</li>
+    <li>imballaggio: materiali e forme dell'imballaggio del prodotto, nella lingua principale del prodotto (diversi valori possibili, da essere separati da virgole) (esempio: lattina, in alluminio)</li>
+    <li>luohi_produzione: luoghi di produzione, nella lingua principale del prodotto (diversi valori possibili, da separare da virgole: nomi di città, paesi)</li>
+    <li>codici_imb: codici d'imballaggio e bollini sanitari europei (diversi valori possibili, da separare da virgole)</li>
+    <li>negozi: luoghi di vendita (diversi valori possibili, da essere separati da virgole: nomi delle catene di supermercati)</li>
+    <li>nutri_score: punteggio Nutri-Scord dalla A alla E, solo nel caso in cui sia indicato sulla confezione</li>
+    <li>porzionr: quantità di una porzione, specificare l'unità</li>
   </ul>
 
-<p>Nutritional values can also be indicated for the prepared product (with water, milk etc.). Then add "_prepared" to the name of the field. For example energy_prepared_100g.</p>
-<p>It is also possible to indicate the values for other nutrients:</p>
+<p>I valori nutrizionali possono anche essere indicati per il prodotto preparato (con acqua, latte ecc.). Quindi aggiungere "_preparato" al nome del campo. Ad esempio energi_preparato_100g.</p>
+<p>È anche possibile indicare i valori per altri nutrienti:</p>
 
 <ul>
   <!-- Do not translate nutrient field names -->
   
-<li>energy-from-fat_100g</li>
-<li>butyric-acid_100g</li>
-<li>caproic-acid_100g</li>
-<li>caprylic-acid_100g</li>
-<li>capric-acid_100g</li>
-<li>lauric-acid_100g</li>
-<li>myristic-acid_100g</li>
+<li>energia-da-grassi_100g</li>
+<li>acido-butirrico_100g</li>
+<li>acido-caproico_100g</li>
+<li>acido-caprilico_100g</li>
+<li>acido-caprico_100g</li>
+<li>acido-laurico_100g</li>
+<li>acido-miristico_100g</li>
 <li>palmitic-acid_100g</li>
 <li>stearic-acid_100g</li>
 <li>arachidic-acid_100g</li>
