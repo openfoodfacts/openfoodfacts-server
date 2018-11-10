@@ -513,6 +513,12 @@ sub analyze_request($)
 		$request_ref->{list} = $components[0];
 		$request_ref->{canon_rel_url} = "/" . $components[0];
 	}
+	# Renamed text?
+	elsif ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$lang . "/" . $components[0]})) {
+		$request_ref->{redirect} = format_subdomain($subdomain) . "/" . $options{redirect_texts}{$lang . "/" . $components[0]};
+		$log->info("renamed text, redirecting", { textid => $components[0], redirect => $request_ref->{redirect} }) if $log->is_info();
+		return 301;
+	}
 	# First check if the request is for a text
 	elsif ((defined $texts{$components[0]}) and ((defined $texts{$components[0]}{$lang}) or (defined $texts{$components[0]}{en}))and (not defined $components[1]))  {
 		$request_ref->{text} = $components[0];
@@ -5891,7 +5897,7 @@ HTML
 			
 			# <img src="/images/products/$path/$id.$rev.$size.jpg" 
 			
-			if ($img =~ /src="([^"]*)\/([^\.]+)\./) {
+			if ($img =~ /data-src="([^"]*)\/([^\.]+)\./) {
 				$idlc = $2;
 			}
 					
@@ -6671,22 +6677,19 @@ HTML
 	
 	# NOVA groups
 	
-	if (($lc eq 'fr') and (exists $product_ref->{nova_group})) {
+	if ((exists $product_ref->{nova_group})) {
 		my $group = $product_ref->{nova_group};
-			
-# <a href="https://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}">
-# <i class="fi-info"></i></a>
 
 		my $display = display_taxonomy_tag($lc, "nova_groups", $product_ref->{nova_groups_tags}[0]);
 		
 		$html .= <<HTML
 <h4>$Lang{nova_groups_s}{$lc}
-<a href="https://fr.openfoodfacts.org/classification-nova-pour-la-transformation-des-aliments" title="Classification NOVA des aliments transformés">
+<a href="/nova">
 <i class="fi-info"></i></a>
 </h4>
 
 
-<a href="https://fr.openfoodfacts.org/classification-nova-pour-la-transformation-des-aliments" title="Classification NOVA des aliments transformés"><img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%"></a><br>
+<a href="/nova"><img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%"></a><br>
 $display
 HTML
 ;
@@ -7010,22 +7013,19 @@ HTML
 	
 	# NOVA groups
 	
-	if (($lc eq 'fr') and (exists $product_ref->{nova_group})) {
+	if ((exists $product_ref->{nova_group})) {
 		my $group = $product_ref->{nova_group};
-			
-# <a href="https://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}">
-# <i class="fi-info"></i></a>
 
 		my $display = display_taxonomy_tag($lc, "nova_groups", $product_ref->{nova_groups_tags}[0]);
 		
 		$html .= <<HTML
 <h4>$Lang{nova_groups_s}{$lc}
-<a href="https://world.openfoodfacts.org/nova-groups-for-food-processing" title="NOVA groups for food processing">
+<a href="https://world.openfoodfacts.org/nova" title="NOVA groups for food processing">
 <i class="fi-info"></i></a>
 </h4>
 
 
-<a href="https://world.openfoodfacts.org/nova-groups-for-food-processing" title="NOVA groups for food processing"><img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%"></a><br>
+<a href="https://world.openfoodfacts.org/nova" title="NOVA groups for food processing"><img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%"></a><br>
 $display
 HTML
 ;
@@ -7384,10 +7384,10 @@ sub display_nutrient_levels($) {
 		
 		$html_nutrition_grade .= <<HTML
 <h4>$Lang{nutrition_grade_fr_title}{$lc}
-<a href="https://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}">
+<a href="/nutriscore" title="$Lang{nutrition_grade_fr_formula}{$lc}">
 <i class="fi-info"></i></a>
 </h4>
-<a href="https://fr.openfoodfacts.org/score-nutritionnel-france" title="$Lang{nutrition_grade_fr_formula}{$lc}"><img src="/images/misc/nutriscore-$grade.svg" alt="$Lang{nutrition_grade_fr_alt}{$lc} $uc_grade" style="margin-bottom:1rem;max-width:100%"></a><br>
+<a href="/nutriscore" title="$Lang{nutrition_grade_fr_formula}{$lc}"><img src="/images/misc/nutriscore-$grade.svg" alt="$Lang{nutrition_grade_fr_alt}{$lc} $uc_grade" style="margin-bottom:1rem;max-width:100%"></a><br>
 $warning
 HTML
 ;

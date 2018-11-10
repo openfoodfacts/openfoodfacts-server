@@ -1,4 +1,5 @@
 <h1>Open Food Facts 2019 Roadmap</h1>
+<img src="https://static.openfoodfacts.org/images/misc/open-food-facts-2019-en.1000x500.png" alt="Open Food Facts 2019" />
 <h2>Introduction</h2>
 <p>This draft roadmap shows priorities for the Open Food Facts project and what we could do in 2019. Many of those projects depend not only on volunteers and contributors, but also on putting in place a small permanent team of people to develop infrastructure and tools and to manage projects from end to end. This roadmap is the base for estimating or funding needs for 2019 and beyond and for presenting to potential funders what we could do with their help.</p>
 <p>To discuss this roadmap, you can&#160;<a data-cke-saved-href="https://slack.openfoodfacts.org/" href="https://slack.openfoodfacts.org/">join us on Slack</a>&#160;in the #roadmap channel), or e-mail us at contact@openfoodfacts.org</p>
@@ -38,19 +39,26 @@
 <p>We have built working prototypes to automatically extract data from product pictures (ingredients, nutrition facts, labels logos etc.). We need to increase the accuracy of those algorithms and industrialize them so that we can deploy them on OFF to automatically extract and/or check data in the OFF database.&#160;</p>
 <p>Benefits: more products with complete data, more accurate data, easier and faster entry of new products</p>
 <p>2019 ressources: 1 data scientist for 12 months, 1&#160;backend developper for 3 months</p>
-<h3>2.3 Multiply the number of apps that allow users to contribute to Open Food Facts</h3>
+<h3>2.3 Improve monitoring</h3>
+<p>Create tests and dashboards to measure quality, freshness, quantity and depth in the different countries.</p>
+<p>Improve detection of potential errors and add them to a review queue.</p>
+<p>2019 ressources: 1 backend developer for 3 months, volunteers to create test sets</p>
+<h3>2.4 Create volunteer task forces to complete and correct product pages</h3>
+<p>Assemble teams of experienced contributors and build power contribution tools to allow them to complete and fix product pages in the most efficient possible ways.</p>
+<p>2019 ressources: Volunteers, 1 backend developer for 3 months</p>
+<h3>2.5 Multiply the number of apps that allow users to contribute to Open Food Facts</h3>
 <p>More than 100 apps use the OFF database, but only a few allow their users to send photos and data for products that are not yet in the database. We've had thematic and geographic opportunities that haven't fully materialized yet because of the complexity of the contribution API.</p>
 <p>2019 ressources: 1 ios  + 1 android developer + 1 project manager for 2 months</p>
-<p>2.3.1 Create contribution SDKs to make it easy to integrate Open Food Facts contribution in Android and iOS apps</p>
+<p>2.5.1 Create contribution SDKs to make it easy to integrate Open Food Facts contribution in Android and iOS apps</p>
 <p>Having a SDK reduces integration time in 3rd party apps, and enables us to ensure contribution is consistant and done the right way, with apps quickly adopting the latest API improvements.</p>
-<h3>2.4. Create more multilingual taxonomies to make the data more useful</h3>
+<h3>2.6. Create more multilingual taxonomies to make the data more useful</h3>
 <p>We have created multilingual hierarchies (taxonomies) to make product data more structured and more useful. For instance we have a taxonomy of categories so that we can easily compare products from a specific category, at different levels (e.g. strawberry yogurts, and yogurts). We need to create more of them to allow more uses of the data.</p>
 <p>Ressources: volunteers</p>
-<h4>2.4.1 Create a multilingual taxonomy for ingredients</h4>
+<h4>2.6.1 Create a multilingual taxonomy for ingredients</h4>
 <p>We started to build an ingredients taxonomy in 2018, which is used in particular to compute the NOVA score. A more dense and detailed taxonomy will enable more interesting uses such as determining automatically if a product is suitable for vegetarians or for vegans, to automatically translate ingredients lists etc.</p>
-<h4>2.4.2 Create taxonomies for packaging</h4>
+<h4>2.6.2 Create taxonomies for packaging</h4>
 <p>Distinguish fresh / frozen / canned products, the package shape and materials, recycling instructions etc.</p>
-<h4>2.4.3. Create taxonomies for brands and brands owners</h4>
+<h4>2.6.3. Create taxonomies for brands and brands owners</h4>
 <p>Useful for apps that want to highlight the environmental or social impact of the companies that make the products.</p>
 <h2>3. Grow the number of users, contributors, producers, developers, translators and re-users and empower them</h2>
 <h3>3.1 Improve the OFF mobile apps</h3>
@@ -60,8 +68,8 @@
 <p>We deployed a completely new version of the Android app in 2018 with a much improved experience for users and contributors. The iOS app has not evolved since 2013 and is using outdated technology, we need to create and deploy a new version with continuous scanning and features to contribute photos and data for new products more easily.</p>
 <h4>3.1.2 Create more value for users in the Android and iOS apps</h4>
 <p>The OFF app was originally designed more for contributing than for decrypting. New app users are now more interested at first in the immediate value they get from the app. We need to add features to give them more value (improved user experience, sorting products by user preferences, product exploration etc.) so that they become loyal app users, and then hint that they can contribute too.</p>
-<p>3.1.3 Start unifying the Open Food Facts and Open X Facts apps in one single app</p>
-<p>We will have a hard time maintaining and convincing people to install 4 apps on their phones. We should let people contribute cosmetics, pet food and other products from the Open Food Facts apps and route them to the right project. We should also display products from the right project directly in the app.</p>
+<h4>3.1.3 Unify the Open Food Facts and Open X Facts apps in one single app</h4>
+<p>Let people display and contribute cosmetics, pet food and other products from the Open Food Facts apps and route them to the right project.</p>
 <h3>3.2 Improve the contribution experience</h3>
 <p>People who contribute new product photos and data are vital to OFF.</p>
 <p>Ressources: 1 backend developer + 1&#160;data scientist for 3 months</p>

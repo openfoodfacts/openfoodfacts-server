@@ -20,21 +20,45 @@ stopwords:sv:innehåller, från, med
 
 # en
 # *organically grown products
+# prefried in vegetable oil
 
 # de
+# Hergestellt mit tierischem Lab und mikrobiellem Labaustauschstoff. 
 # Kochsalzgehalt insgesamt: 0,7%.
 # Kochsalzanteil: 1.7% (ohne Jod und ohne Fluor)
+# natürliches Aroma enthält eine Phenylalaninquelle
+# Unter Schutzatmosphäre verpackt.
+
+# es
+# Puede contener trazas de apio. Porcentajes expresados sobre el total de la receta.
+
+# fi
+# Maidoton ja soijaton
 
 # fr
+# Contient une source de phénylalamine.
+# d'élevage au sol
+# Fabriqué dans un atelier qui utilise : céleri, moutarde et oeuf.
 # *produits issus de l'agriculture biologique.
+# Peut contenir des traces de céleri. Pizza préparée à partir de 338 g de pâte et 162 g de garniture. 
+# Pourcentages exprimés sur la pizza garnie.
 # Teneur totale en sel de cuisine: 0,7%.
 # Teneur totale en sel de cuisine: 1.7% (sans fluor et sans iode)
+# Traces possibles de : CEufs, Soja Celeri, Moutarde, Céréales/Gluten
+# Traces de soja, moutarde, crustacés, poisson, mollusques, eufs. Les infor- mations en gras sont destinées aux personnes intolérantes ou allergiques. - amidon
+# Ingrédients laitiers issus de lait pasteurisé. Traces éventuelles de fruits à coque.
+# Traces éventuelles de céleri. Pourcentages exprimés sur le total de la recette.
+
 
 # it
 # Contenuto complessivo di sale da cucina: 1,4%.
+# Contiene latte. Puo contenere trace di uova, glutine, sedano, senape.
 
 # nl
 # Product geproduceerd in een werkruimte waar ook het volgende wordt gebruikt : melk, selderij, sesam, weekdieren.
+
+# pt
+# Pode conter vestigios de aipo. Percentagens expressas sobre o total da receita.
 
 en:ingredient
 da:indeholder
@@ -850,6 +874,35 @@ ro:Îndulcitor
 sk:Sladidlo
 wikidata:en:Q626292
 #wikidata:en:Q4368298
+
+# The mix of ammonium salts of phosphorylated glycerides can be either made synthetically or from mixture of glycerol and partially hardened plant (most often used:rapeseed oil) oils
+
+en:ammonium phosphatide, ammonium phosphatides, E442, E 442, E-442
+bg:Амониеви фосфатиди, E442, E 442, E-442
+cs:Amonné soli fosfatidových kyselin, E442, E 442, E-442
+da:Ammoniumphosphatider, E442, E 442, E-442
+de:Ammoniumphosphatide, E442, E 442, E-442
+el:Φωσφατιδια του αμμωνιου, E442, E 442, E-442
+es:fosfátidos de amonio, E442, E 442, E-442
+et:Fosfatiidhappe ammooniumsoolad, E442, E 442, E-442
+fi:Ammoniumfosfatidit, E442, E 442, E-442
+fr:phosphatides d'ammonium, E442, E 442, E-442
+hu:ammónium-foszfatidok, E442, E 442, E-442
+it:fosfatidi d'ammonio, Fosfatidi di ammonio, E442, E 442, E-442
+lt:Amonio fosfatidai, E442, E 442, E-442
+lv:Amonija fosfatīdi, E442, E 442, E-442
+mt:Fosfatidi tal-ammonju, E442, E 442, E-442
+nl:ammoniumfosfatide, Ammoniumfosfatiden, E442, E 442, E-442
+pl:Fosfatydy amonu, E442, E 442, E-442
+pt:Fosfatidos de amónio, fosfatideos de amónio, E442, E 442, E-442
+ro:fosfatide de amoniu, E442, E 442, E-442
+sk:Fosfatidy amónne, E442, E 442, E-442
+sl:Amonijevi fosfatidi, E442, E 442, E-442
+sv:Ammoniumfosfatider, E442, E 442, E-442
+wikidata:Q695975
+wikipedia:https://en.wikipedia.org/wiki/Mixed_ammonium_salts_of_phosphorylated_glycerides
+# fr:phosphatides-d’ammonium has 56 products in 6 languages @2018-11-06
+# additive/e442-ammonium-phosphatides has 246 products @2018-11-06
 
 en:thickener
 ga: Tiúsóir
@@ -1881,8 +1934,6 @@ fi:täysmalto
 fr:lait entier, lait entier frais
 it:latte intero
 nl:volle melk
-allergens:fr:_lait_ entier
-allergens:fr:_lait_ entier frais
 
 # RAW MILK - milk produced by female mammals (probably cow) before any treatment
 
@@ -1892,7 +1943,6 @@ fr:lait cru
 de:rohmilch
 it:latte crudo
 nl:rauwe melk
-allergens:fr:_lait_ cru
 wikipedia:en:https://en.wikipedia.org/wiki/Raw_milk
 
 # RAW COW MILK - milk produced by female cows before any treatment
@@ -1902,7 +1952,6 @@ en:raw cow's milk
 fr:lait cru de vache
 es:leche cruda de vaca
 nl:rauwe koemelk
-allergens:fr:_lait_ cru de vache
 
 # COW MILK - raw cow milk that probably has been treated (pasteurisation)
 
@@ -1913,7 +1962,6 @@ de:kuhmilch
 es:leche de vaca
 it:latte di mucca
 nl:koemelk
-allergens:fr:_lait_ de vache
 wikipedia:en:https://fr.wikipedia.org/wiki/Lait_de_vache
 
 # WHOLE COWS MILK (around 3.5–4% fat), dans l'Union européenne, le lait entier doit contenir au minimum 3,50 % en masse de matière grasse.
@@ -1929,15 +1977,12 @@ es:Leche entera de vaca
 en:pasteurized cow's milk
 fr:lait de vache pasteurisé, lait pasteurisé de vache
 nl:gepasteuriseerde koemelk
-allergens:fr:_lait_ de vache pasteurisé
-allergens:fr:_lait_ pasteurisé de vache
 
 # RAW GOAT MILK - milk produced by female goats before any treatment
 
 <en:goat's milk
 en:raw goat's milk
 fr:lait cru de chèvre
-allergens:fr:_lait_ cru de chèvre
 
 # GOATS MILK - goat milk that probably has been treated (pasteurisation)
 
@@ -1947,7 +1992,6 @@ es:leche de cabra
 fr:lait de chèvre
 nl:geitenmelk
 de:Ziegenmilch
-allergens:fr:_lait_ de chèvre
 wikidata:en:Q1418287
 
 # GOATS MILK - raw goat milk that has been treated (pasteurisation)
@@ -1957,8 +2001,6 @@ en:pasteurized goat milk, pasteurised goat milk, pasteurised goatmilk
 es:leche de cabra pasteurizada
 fr:lait de chèvre pasteurisé, lait pasteurisé de chèvre
 it:latte di capra pastorizzato
-allergens:fr:_lait_ pasteurisé de chèvre
-allergens:fr:_lait_ de chèvre pasteurisé
 
 # RAW SHEEPS MILK - milk produced by female sheep before any treatment
 
@@ -1968,7 +2010,6 @@ de:roher Schafmilch
 el:ακατέργαστο πρόβειο γάλα
 fr:lait cru de brebis
 nl:rauwe schapenmelk
-allergens:fr:_lait_ cru de brebis
 
 # SHEEPS MILK - raw sheeps milk that probably has been treated (pasteurisation)
 
@@ -1979,7 +2020,6 @@ fr:lait de brebis
 it:latte di pecora
 nl:schapenmelk
 wikidata:en:Q2736146
-allergens:fr:_lait_ de brebis
 
 # PASTEURIZED SHEEPS MILK - raw sheeps milk that has been treated (pasteurisation)
 
@@ -1988,18 +2028,15 @@ en:pasteurized sheep's milk, pasteurised sheep's milk
 fr:lait de brebis pasteurisé, lait pasteurisé de brebis
 de:pasteurisierter Schafsmilch
 nl:gepasteuriseerde schapenmelk
-allergens:fr:_lait_ pasteurisé de brebis
 
 <en:milk
 fr:lait écrémé concentré sucré
 nl:gecondenseerde gesuikerde volle melk
-allergens:fr:_lait_ écrémé concentré sucré
 
 <en:milk
 en:pasteurized whole milk, pasteurised whole milk
 fr:lait entier pasteurisé
 nl:volle gepasteuriseerde melk
-allergens:fr:_lait_ entier pasteurisé
 
 <en:pasteurized whole milk
 fr:lait entier pasteurisé de vache
@@ -2007,7 +2044,6 @@ es:Leche entera pasteurizada de vaca
 
 <en:milk
 fr:_lait_ et _crème_ pasteurisé
-allergens:fr:_lait_ et _crème_ pasteurisés
 
 <en:milk powder
 fr:lait en poudre partiellement écrémé
@@ -2051,8 +2087,6 @@ fr:produits laitiers
 
 <en:milk
 fr:produits laitiers en poudre
-
-
 
 fr:poudre de lait écrémé
 allergens:fr:poudre de _lait_ écrémé
@@ -2543,26 +2577,386 @@ allergens:fr:_crème_ fraîche de normandie
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+
+# CHEESE is a dairy product derived from milk that is produced in a wide range of flavors, textures, and forms by coagulation of the milk protein casein. 
+
+# <en:milk
 en:cheese
+af:Kaas
+am:ፎርማጆ
+an:Queso
+# ang:Cīese
+ar:جبن
+# arc:ܓܒܬܐ
+# ary:فروماج
+# arz:جبنه
+# ast:Quesu
+ay:Kisu
+az:Pendir
+# azb:پنیر
+ba:Сыр
+# bar:Kaas
+be:Сыр
+# be-tarask:Сыр
+bg:Сирене
+bn:চিজ
+bo:ཆུར་བ།
+br:Keuz
+bs:Sir
+# bxr:Бисалаг
+ca:formatge
+ce:Нехча
+# chr:ᎤᏅᏗ ᎦᏚᏅ
+# chy:he'koneame
+# ckb:پەنیر
+co:casgiu
+# crh-latn:penir
+cs:sýr
+cu:сꙑръ
+cv:Чăкăт
+cy:Caws
+da:ost
+de:Käse
+# diq:Penir
+# dsb:twarožk
+dv:ޗީޒު
+ee:notsi babla
+el:τυρί
+# eml:Furmàj
+# en-ca:Cheese
+# en-gb:Cheese
+eo:fromaĝo
+es:queso
+et:juust
+eu:Gazta
+# ext:quesu
+fa:پنیر
+fi:juusto
+fj:jisi
+fo:ostur
 fr:fromage
+# frp:tôma
+# fur:Formadi
+fy:tsiis
+ga:Cáis
+# gag:peynir
+# gan:奶酪
+gd:Càise
+gl:Queixo
+gn:Kesu
+# grc:τυρός
+# gsw:Käse
+gu:ચીઝ
+gv:Caashey
+# haw:waiūpaʻa
+he:גבינה
+hi:चीज़
+hr:Sir
+# hsb:twarožk
+ht:Fromaj
+hu:sajt
+hy:պանիր
+ia:Caseo
+id:keju
+ie:casco
+ig:chiz
+# ilo:keso
+io:Fromajo
+is:Ostur
+it:formaggio
+ja:チーズ
+# jam:Chiiz
+# jbo:cirla
+jv:Kèju
+ka:ყველი
+# kab:takemmart
+# kbp:Waagasɩ
+kk:Ірімшік
+kl:immussuaq
+km:ប្រូម៉ាស
+kn:ಗಿಣ್ಣು
+ko:치즈
+# krc:бышлакъ
+ku:Penîr
+ky:Сыр
+la:Caseus
+# lad:Kézo
+lb:Kéis
+# lfn:Ceso
+li:kieës
+# lmo:Furmai
+lo:ເນີຍແຂງ
+lt:Sūris
+# ltg:sīrs
+lv:siers
+# mai:छुर्पी
+# map-bms:Keju
+mg:frômazy
+# min:Keju
+mk:сирење
+ml:പാൽക്കട്ടി
+mn:Бяслаг
+mr:चीझ
+# mrj:Тара
+ms:keju
+mt:ġobon
+# mwl:Queiso
+my:ဒိန်ခဲ
+# nah:Tlatetzauhtli
+# nan:Chhì-juh
+# nap:Caso
+nb:ost
+# nds:Kees
+# nds-nl:Keze
+ne:पनिर
 nl:kaas
+nn:ost
+# nrm:Fronmage
+nv:Géeso
+ny:tchizi
+oc:Formatge
+# olo:Juusto
+or:ଚିଜ୍
+os:Цыхт
+pa:ਪਨੀਰ
+# pam:Kesu
+# pap:keshi
+# pcd:Froumache
+# pdt:Kjees
+pl:ser
+# pnb:پنیر
+ps:پوڅه
+pt:queijo
+# pt-br:queijo
+qu:Kisu
+# rif:kisu
+rm:chaschiel
+ro:brânză
+# roa-tara:furmagge
+ru:сыр
+# rue:Сыр
+# rup:Cașu
+rw:ifromaje
+sa:दधिकम्
+sc:Casu
+# scn:Furmaggiu
+# sco:Cheese
+sd:پنير
+se:vuostá
+# sgs:Sūris
+sh:Sir
+si:කේජු
+sk:Syr
+si:Sir
+# sma:vuasta
+so:jiss
+sq:djathi
+sr:сир
+# sr-ec:сир
+# sr-el:sir
+# srn:kasi
+st:kase
+# stq:Sies
+su:Kéju
+sv:ost
+sw:Jibini
+ta:பாலாடைக்கட்டி
+te:జున్ను
+tg:Панир
+th:เนยแข็ง
+ti:ጅብና
+tk:Peýnir
+tl:Keso
+# tpi:sis
+tr:peynir
+tt:сырлар
+# tyv:Быштак
+uk:сир
+ur:پنیر
+uz:Pishloq
+# vec:Formai
+# vep:Sagud
+vi:Pho mát
+vo:fromad
+# vot:juusso
+# vro:Juust
+wa:froumadje
+# war:Keso
+wo:formaas
+# wuu:奶酪
+xh:itshizi
+yi:קעז
+yo:wàràkàsì
+# yue:芝士
+zh:乾酪
+# zh-cn:奶酪
+# zh-hans:奶酪
+# zh-hant:乾酪
+# zh-hk:芝士
+# zh-mo:芝士
+# zh-my:起士
+# zh-sg:起士
+# zh-tw:起司
+zu:Ushizi
+wikipedia:Q10943
+wikipedia:https://en.wikipedia.org/wiki/Cheese
+# en:cheese has 579 products in 10 languages @2018-10-28
 
+<en:cheese
+# <en:pasteurized
+en:cheese made from pasteurized milk
+es:queso elaborado con leche pasteurizada
 
+# GOAT CHEESE, goats' cheese, or chèvre, is cheese made from goat's milk.
 
+<en:cheese
+# <en:goat's milk
+en:goat cheese, chèvre cheese
+# ang:gāte cȳse
+ar:جبن الماعز
+# be-tarask:Казіны сыр
+bn:ছাগল পনির
+ca:formatge de llet de cabra
+cs:kozí sýr
+da:gedeost
+de:Ziegenkäse
+el:κατσικίσιο τυρί
+es:queso de cabra
+et:kitsejuust
+eu:Ahuntz gazta
+fi:kutunjuusto
+fr:fromage de chèvre
+# frr:geitetsiis
+# gsw:Ziegenkäse
+he:גבינת עזים
+hu:Kecskesajt
+hy:պանիր այծի կաթից
+is:Geitaostur
+it:formaggio di capra
+ja:シェーブルチーズ
+kn:თხის ყველი
+ko:염소젖 치즈
+li:geitekies
+lt:Ožkos sūris
+ms:keju kambing
+nb:geitost
+nl:geitenkaas
+nn:geitost
+pa:ਬਕਰੀ ਦਾ ਪਨੀਰ
+pt:queijo de cabra
+ro:Brânză de capră
+ru:козий сыр
+sh:Kozji sir
+sq:Djathi i bardhë i deles
+sr:козји сир
+# sr-ec:козји сир
+# sr-el:kozji sir
+sw:getost
+ta:ஆட்டு பாலாடைகட்டி
+zh:契福瑞芝士
+wikidata:Q198815
+wikipedia:https://en.wikipedia.org/wiki/Goat_cheese
+# fr:fromage de chèvre has 391 products in 6 languages @2018-10-27
+
+<fr:fromage de chèvre
+# <en:pasteurized
+fr:fromage de chèvre au lait pasteurisé
+# fr:fromage-de-chèvre-au-lait-pasteurisé has 44 products in 1 language @2018-10-27
+
+<en:cheese
+# <en:cow's milk
+# <en:pasteurized
+fr:fromage au lait de vache pasteurisé
+# fr:fromage-au-lait-de-vache pasteurisé has 39 products in 3 languages @2018-10-27
+
+<en:cheese
+# <en:sheep's milk
+fr:fromage de brebis
+de:Schafkäse
+it:formaggio di pecore
+# fr:fromage-de-brebis has 42 products @2018-10-27
+
+<en:cheese
+en:soft white cheese
+fr:fromage frais
+de:Frischkäse
+it:formaggio fresco
+# fr:fromage-frais has 474 products @2018-10-28
+
+<fr:fromage frais
+fr:fromage frais au lait demi-écrémé
+
+<fr:fromage frais
 fr:fromage frais à 0% de matière grasse
 
+# fr:fromage-fondu is a compound ingredient
+
+<en:cheese
+fr:fromage fondu
+de:Schmelzkäse
+it:formaggio fuso
+nl:smeltkaas
+# fr:fromage-fondu has 420 products in 5 languages 22018-10-28
+
+<fr:fromage fondu
+en:melted powdered cheese
+de:Schmelzkäsepulver
+fr:fromage fondu en poudre
+it:formaggio fuso in polvere
+nl:poeder van gesmolten kazen
+# fr:fromage-fondu-en-poudre has 98 products in 6 languages @2018-10-28
+
+<en:cheese
+fr:fromage maigre
+de:fettarmer Käse
+# fr:fromage maigre has 33 products in 3 languages @2018-10-28
+
+<en:cheese
+fr:fromage à pâte pressée cuite
+# fr:fromage-à-pâte-pressée-cuite has 54 products in 1 language @2018-10-28
+
+# sometimes this is the description of the products
+
+<en:cheese
+fr:fromage au lait pasteurisé
+# fr:fromage-au-lait-pasteurisé has 55 products in 1 language @2018-10-28
+
+<en:cheese
+en:cheese powder
+da:ostepulver, ostpulver
+de:Käsepulver
+el:τυρί σε σκόνη
+es:queso en polvo
+fi:juustojauhe
+fr:fromage en poudre, poudre de fromage
+it:formaggio in polvere
+nl:kaaspoeder
+pl:ser w proszku
+pt:queijo em pó
+sk:sirotka v prahu
+sv:ostpulver
+# fr:fromage en poudre has 200 products in 14 languages @2018-10-28
+
+<en:cheese
+en:hard cheese
+de:Hartkäse
+fr:fromage à pâte dure
+it:formaggio a pasta dura
+pt:queijo de pasta dura
+# fr:fromage-à-pâte-dure has 133 products in 5 languages @2018-10-28
+
+<en:cheese
+fr:fromage râpé
+de:geriebener Käse
+it:formaggio grattugiato
+nl:geraspte kaas
+# fr:fromage-râpé has 185 products in 4 languages @2108-10-28
 
 <en:cheese
 fr:fromage suisse
 de:Schweizer Käse
 it:formaggio svizzero, formaggi svizzeri
 # fr:fromage-suisse has 21 products in 3 languages @2018-10-27
-
-# fr:base-aromatisante-fromage is a compound ingredient
-
-fr:base aromatisante fromage
-nl:kaassmaak
-# fr:base-aromatisante-fromage has 28 products @2018-10-27
 
 
 # CHEDDAR cheese is a relatively hard, off-white (or orange if spices such as annatto are added), sometimes sharp-tasting, natural cheese. 
@@ -2666,6 +3060,60 @@ wikipedia:https://en.wikipedia.org/wiki/Comté_cheese
 fr:comté aop
 nl:Comté AOC
 # fr:comté-aop has 40 products in 1 language @2018-10-27
+
+
+# EDAM (Dutch: Edammer) is a semi-hard cheese that originated in the Netherlands, and is named after the town of Edam in the province of North Holland.
+
+<en:cheese
+en:edam
+af:Edam
+# ast:Quesu edam
+bg:Едамер
+ca:Formatge edam
+cs:Eidam
+cv:Эдам
+cy:Edammer
+da:edam
+de:Edamer
+# de-ch:Edamer
+# en-ca:Edam
+# en-gb:Edam
+eo:edama fromaĝo
+es:edam, queso edam
+eu:Edam gazta
+fa:پنیر ادامر
+fi:Edam, edamjuustoa
+fr:edam, fromage edam
+# gsw:Edamer
+he:אדם
+hu:Edami
+hy:Էդամ
+id:Keju Edam
+io:Edamana fromajo
+it:Edam
+ja:エダムチーズ
+jv:Kèju Edam
+ko:에담 치즈
+mk:Едамер
+ms:Keju Edam
+nb:Edamerost
+nl:edam, edammer, Edammer kaas
+pl:Edam
+pt:Edam, queijo edam
+# pt-br:Edam
+ru:Эдам
+sk:Eidamský syr
+sl:Edamski sir
+sr:Edamer
+sv:edamer, Edamerost
+tl:Keso de bola
+tr:Edam peyniri
+uk:Едам
+# yue:艾登芝士
+zh:埃德姆芝士
+wikidata:Q597473
+wikipedia:https://en.wikipedia.org/wiki/Edam_cheese
+# fr:edam has 206 products in 11 languages @2018-10-28
 
 
 # EMMENTAL (Emmentaler or Emmenthal) is a yellow, medium-hard Swiss cheese that originated in the area around Emmental, Canton Bern. 
@@ -2774,6 +3222,132 @@ wikidata:Q15080546
 wikipedia:https://en.wikipedia.org/wiki/Fromage_blanc
 # fr:fromage-blanc has 631 products in 7 languages @2018-10-27
 
+<en:fromage blanc
+fr:fromage blanc frais
+# fr:fromage blanc frais has 60 products in 1 language @2018-10-28
+
+
+# FETA is a brined curd white cheese made in Greece from sheep's milk or from a mixture of sheep and goat's milk. 
+
+<en:cheese
+en:feta
+af:Feta
+ar:فيتا
+az:Brınza
+be:Фета
+# be-tarask:Фэта
+bg:Бяло саламурено сирене
+ca:feta
+cs:feta
+cy:feta
+da:Feta
+de:Feta, Feta-Käse
+el:Φέτα
+eo:Feta-fromaĝo
+es:Sirene
+et:Feta
+eu:Feta
+fa:پنیر فتا
+fi:Feta
+fr:feta
+gl:Feta
+# gsw:Feta
+he:פטה
+hr:Feta
+hy:Ֆեթա
+id:Keju Sirene
+is:Fetaostur
+it:feta
+ja:フェタチーズ
+kn:ಫ಼ೆಟಾ ಚೀಸ್
+ko:페타
+la:Pheta
+lt:Feta
+lv:Feta
+mk:Бело сирење
+nb:feta
+nl:Feta
+pl:Ser szopski
+pt:Sirene
+ru:Фета
+sc:Feta
+# sco:feta
+sk:feta
+sr:фета
+sw:Fetaost
+tl:Feta
+tr:Beyaz peynir
+uk:Фета
+vi:Feta
+# yue:菲達芝士
+zh:菲達芝士
+wikidata:Q182760
+wikipedia:https://en.wikipedia.org/wiki/Feta
+# fr:feta has 49 products in 3 languages @2018-10-28
+
+
+# GOUDA (Dutch: Goudse kaas, "cheese from Gouda") is a mild, yellow cheese made from cow's milk.
+
+<en:cheese
+en:gouda
+af:Goudakaas
+ar:جودة
+# ast:Quesu gouda
+az:Quda
+bg:Гауда
+ca:gouda
+cs:gouda
+cv:Гауда
+da:Gouda
+de:Gouda
+# de-ch:Gouda
+el:Γκούντα
+# en-ca:Gouda cheese
+# en-gb:Gouda cheese
+eo:Gaŭdo-fromaĝo
+es:gouda, queso gouda
+eu:Gouda gazta
+fa:پنیر گودا
+fi:Gouda
+fr:gouda
+gl:Gouda
+# gsw:Gouda
+he:חאודה
+hu:gouda sajt
+hy:Գաուդա
+id:Keju Gouda
+is:Gouda
+it:gouda
+ja:ゴーダチーズ
+ko:하우다 치즈
+# ksh:Gouda
+# lfn:Gauda
+lt:Gaudos sūris
+lv:gouda
+ms:Keju Gouda
+nb:Goudaost
+nl:gouda
+nn:Goudaost
+pl:Gouda
+pt:gouda
+# pt-br:Gouda
+ru:Гауда
+# sco:Gouda
+sh:Gouda
+sk:Gouda
+sl:Gavda
+sr:Gauda
+sw:Gouda
+tl:Gouda
+tr:Gouda peyniri
+uk:Гауда
+vi:Gouda
+# wuu:高达奶酪
+# yue:高達芝士
+zh:豪达奶酪
+wikidata:Q593675
+wikipedia:https://en.wikipedia.org/wiki/Gouda_cheese
+# fr:gouda has 92 products @2018-10-28
 
 
 # GRANA PADANO is a hard, slow-ripened, semi-fat, cow's-milk cheese from Italy, comparable to Parmigiano Reggiano ("Parmesan").
@@ -2879,6 +3453,349 @@ it:Gruyère AOP
 # fr:gruyère-aop has 16 products in 3 languages @2018-10-27
 
 
+# MAASDAM cheese is a Swiss-style Dutch cheese.
+
+<en:cheese
+en:maasdam cheese, maasdam
+af:Maasdamkaas
+ar:ماسدام
+bg:Маасдам
+da:Maasdammer
+de:Maasdamer
+eo:Maasdam
+es:Queso maasdam
+eu:Maasdam gazta
+fr:maasdam
+id:Maasdam
+nl:maasdammer, Maasdammer kaas
+pl:Mazdamer
+pt:Maasdam
+ru:Маасдам
+uk:Маасдам
+wikidata:Q3273732
+wikipedia:https://en.wikipedia.org/wiki/Maasdam_cheese
+# fr:Maasdam has 29 products in 2 languages @2018-10-28
+
+
+# MASCARPONE is an Italian cream cheese coagulated by the addition of certain acidic substances such as lemon juice, vinegar, citric acid or acetic acid.
+
+<en:cheese
+en:mascarpone, Mascarpone Cheese
+af:Mascarpone
+ar:ماسكربوني
+az:Maskarpone
+be:Маскарпонэ
+bg:Маскарпоне
+bn:ম্যাসকারপোন
+ca:mascarpone
+cs:mascarpone
+cv:Маскарпоне
+da:mascarpone
+de:Mascarpone
+el:μασκαρπόνε
+eo:Maskarpono
+es:mascarpone
+et:mascarpone
+fa:ماسکارپونه
+fi:mascarpone
+fr:mascarpone, fromage mascarpone
+gl:Mascarpone
+he:מסקרפונה
+hu:Mascarpone
+hy:Մասկարպոնե
+id:Mascarpone
+is:Mascarpone
+it:mascarpone
+ja:マスカルポーネ
+ka:მასკარპონე
+kn:마스카르포네
+# lmo:Mascarpon
+lt:Maskarponė
+mk:маскарпоне
+nb:mascarpone
+nl:mascarpone
+nn:mascarpone
+pa:ਮਾਸਕਾਰਪੋਨੀ
+pl:Mascarpone
+pt:Mascarpone
+ro:Mascarpone
+ru:маскарпоне
+# sco:Mascarpone
+sk:Mascarpone
+sr:маскарпоне
+# sr-ec:Маскарпоне
+# sr-el:Mascarpone
+sw:mascarpone
+tr:mascarpone
+uk:Маскарпоне
+vi:Mascarpone
+# yue:意大利軟芝士
+zh:马斯卡邦尼奶酪
+# zh-cn:马斯卡邦尼奶酪
+# zh-hans:马斯卡邦尼奶酪
+# zh-hant:馬斯卡彭乾酪
+# zh-hk:馬斯卡彭芝士
+# zh-sg:马斯卡邦尼奶酪
+# zh-tw:馬斯卡彭起司
+wikidata:Q209889
+wikipedia:https://en.wikipedia.org/wiki/Mascarpone
+# fr:mascarpone has 254 products @2018-10-27
+
+
+# MOZZARELLA is a traditionally southern Italian spun paste dairy made with Italian buffalo's milk by the pasta filata method.
+
+<en:cheese
+en:mozzarella, mozzarella cheese
+af:Mozzarella
+ar:موتزاريلا
+# arz:موتزاريلا
+# ast:Mozzarella
+az:Mozzarella
+be:Мацарэла
+bg:Моцарела
+bn:মজারেলা পনির
+bo:མོ་ཟ་རེལ་ལ།
+br:mozzarella
+bs:mocarela
+ca:mozzarella
+cs:mozzarella, sýr mozzarella
+cv:Моцарелла
+cy:Mosarela
+da:mozzarella
+de:Mozzarella
+el:Μοτσαρέλα, τυρι Μοτσαρέλλα
+eo:Mocarelo
+es:mozzarella, queso mozzarella
+et:mozzarella
+eu:mozzarella
+fa:موزارلا
+fi:mozzarella, mozzarellajuustoa
+fr:mozzarella, fromage mozzarella
+fy:mozzarella
+gl:Mozzarella
+he:מוצרלה
+hi:मोत्ज़ारेला
+hr:mocarela
+hu:mozzarella
+hy:Մոցարելա
+id:Mozzarella
+is:Mozzarella
+it:mozzarella
+ja:モッツァレッラ
+jv:Mozzarella
+ka:მოცარელა
+kk:Моцарелла
+kn:ಮೋಟ್ಸರೆಲ್ಲಾ ಚೀಸ್
+ko:모차렐라
+ku:Mozzarella
+la:Mozzarella
+lb:Mozzarella
+li:Mozzarella
+ln:Mozzarella
+lt:Mocarela
+lv:mocarella
+mk:Моцарела
+mr:मोजारेला
+ms:Mozzarella
+mt:Mozzarella
+# nap:Muzzarella
+nb:mozzarella
+nl:mozzarella
+nn:mozzarella
+oc:Mozzarella
+or:ମୋଜ୍ଜରେଲା
+pa:ਮੋਜ਼ਾਰੇਲਾ
+pl:mozzarella, ser mozzarella
+# pnb:موزاریلا
+pt:mozarela, mozzarella, queijo mozzarella
+ro:mozzarella
+# roa-tara:muzzarelle
+ru:моцарелла
+# scn:Mozzarella
+# sco:mozzarella
+sh:Mocarela
+sk:mozzarella, syr mozzarella
+sl:Mocarela
+sq:mocarela
+sr:моцарела
+sv:mozzarella
+th:มอซซาเรลลา
+tr:Mozzarella
+uk:Моцарела
+ur:موزاریلا
+vi:Mozzarella
+# yue:水牛芝士
+zh:莫薩里拉乾酪
+# zh-hans:莫薩里拉乾酪
+# zh-hant:莫札瑞拉起司
+wikidata:Q14088
+wikipedia:https://en.wikipedia.org/wiki/Mozzarella
+# fr:mozzarella has 1057 products in 15 languages @2018-10-28
+
+<en:mozzarella
+en:firmed mozzarella
+de:schnittfester mozzarella
+sv:skivbar mozzarella
+
+# PARMIGIANO-REGGIANO is an Italian hard, granular cheese. 
+# This is a compound product, i.e.: Parmigiano reggiano (pasteurized cow's milk, rennet, salt, enzymes)
+
+<en:cheese
+en:parmesan, parmigiano reggiano, Parmesan cheese
+af:Parmesaan
+ar:بارميجيانو ريجيانو
+# ast:Quesu parmesano
+az:Parmesan pendiri
+ba:пармезан
+be:Пармезан
+bg:Пармезан
+br:Parmezan, Parmigiano Reggiano
+ca:formatge parmesà
+cs:Parmezán
+cv:Пармиджано Реджано
+cy:Caws Parmesan
+da:Parmesan, Parmigiano-Reggiano
+de:Parmesan, parmigiano reggiano
+el:Παρμεζάνα
+# eml:Grâna
+eo:Parma fromaĝo
+es:queso parmesano
+et:parma juust
+eu:Parmigiano-Reggiano
+fa:پنیر پارمیجانو
+fi:parmesaani
+fr:parmesan, parmigiano reggiano
+gl:Parmesano
+he:פרמזן
+hr:Parmezan
+# hsb:Parmesan
+hu:Parmezán
+hy:Պարմեզան
+id:Parmesan, Parmigiano-Reggiano
+is:Parmesan
+it:parmigiano reggiano
+ja:パルメザン, パルミジャーノ・レッジャーノ
+jv:Parmigiano-Reggiano
+ka:ಪಾರ್ಮಜ಼ಾನ್ ಚೀಸ್
+ko:파르미자노 레자노
+la:Parmensis
+lt:Parmezanas
+lv:Parmezāns
+ms:Parmesan, Parmigiano-Reggiano
+nb:parmesan
+nl:Parmezaanse kaas, Parmigiano reggiano
+pl:Parmezan
+pt:Parmesão
+ro:Parmezan
+ru:Пармезан
+# sco:Parmigiano-Reggiano
+sh:Parmiđano ređano
+sk:Parmezán
+sl:Parmezan
+sr:пармезан
+# sr-ec:пармезан
+# sr-el:parmezan
+sv:parmesan, parmigiano-reggiano
+tl:Parmigiano-Reggiano
+tr:Parmesan peyniri
+uk:Пармезан
+vi:Pho mát Parmesan
+yi:פארמעזאן
+# yue:巴馬臣芝士
+zh:帕馬森乾酪
+# zh-cn:帕马森干酪
+# zh-hans:帕马森干酪
+# zh-hant:帕馬森乾酪
+# zh-hk:帕馬森芝士
+# zh-sg:帕马森干酪
+# zh-tw:帕馬森乾酪
+wikidata:Q155922
+wikipedia:https://en.wikipedia.org/wiki/Parmigiano-Reggiano
+# en:parmigiano-reggiano has 121 products @2018-10-27
+# fr:parmesan has 251 products @2018-10-27
+
+<en:parmigiano reggiano
+fr:Parmigiano Reggiano AOP
+# fr:Parmigiano-Reggiano-AOP has 35 products 22018-10-27
+
+
+# PECORINO is a family of hard Italian cheeses made from sheep's milk. 
+
+<en:cheese
+# <en:sheep's milk
+en:Pecorino
+af:Pecorino
+ca:Pecorino
+cs:Pecorino
+cv:Пекорино
+de:Pecorino
+el:Πεκορίνο
+eo:Pecorino
+es:Pecorino
+eu:Pecorino
+fi:Pecorino
+fr:pecorino, fromage pecorino
+he:פקורינו
+hy:Պեկորինո
+id:Pecorino
+it:Pecorino
+ja:ペコリーノ
+ko:페코리노
+la:Pecorinus
+lb:Pecorino
+nb:Pecorino
+nl:Pecorino
+pl:Pecorino
+pt:Pecorino
+ru:Пекорино
+sk:Pecorino
+sl:Pecorino
+sw:Pecorino
+uk:Пекоріно
+zh:義大利綿羊乾酪
+wikidata:Q677640
+wikipedia:https://en.wikipedia.org/wiki/Pecorino
+# fr:pecorino has 45 products in 3 languages @2018-10-27
+
+<fr:pecorino
+en:pecorino romano, romano
+fr:pecorino romano, romano
+# en:romano has 65 products in 1 language @2018-10-28
+# fr:pecorino-romano has 30 products in 1 language @2018-10-27
+
+<fr:pecorino romano
+fr:fromage pecorino romano aop
+# fr:pecorino-romano-aop has 10 product in 1 language @2018-10-27
+
+
+# PROVOLONE is an Italian cheese. It is an aged pasta filata (stretched-curd) cheese originating in Casilli near Vesuvius.
+
+<en:cheese
+en:provolone
+af:Provolone
+ca:Provolone
+de:provolone
+eo:Provolono
+es:Provolone
+fr:provolone
+he:פרובולונה
+id:Provolone
+it:provolone
+ja:プロヴォローネ
+ko:프로볼로네
+la:Provolone
+nb:Provolone
+nl:Provolone
+pt:Provolone
+ru:Проволоне
+sw:Provolone
+# yue:布旺倫芝士
+zh:波羅伏洛芝士
+wikidata:Q1900114
+wikipedia:https://en.wikipedia.org/wiki/Provolone
+# fr:provolone has 28 products in 4 languages @2018-10-28
+
+
 # RACLETTE is a semi-hard cow's milk cheese that is usually fashioned into a wheel of about 6 kg.
 
 <en:cheese
@@ -2925,64 +3842,6 @@ wikipedia:https://en.wikipedia.org/wiki/Raclette
 # fr:raclette has 47 products in 4 languages @2018-10-27
 
 
-# Tilsit cheese or Tilsiter cheese is a light yellow semihard smear-ripened cheese, created in the mid-19th century by Prussian-Swiss settlers, the Westphal family, from the Emmental valley. 
-
-<en:cheese
-en:tilsit
-bg:Тилзитер
-de:Tilsiter
-cs:Tilsiter
-eo:Tilziter
-es:Queso Tilsit
-fr:Tilsit
-# gsw:Tilsiter
-id:Tilsiter
-it:Tilsiter
-ja:ティルジットチーズ
-ko:틸지터
-la:Tilsiter
-lt:Tilžės sūris
-nb:Tilsiter
-pl:Ser tylżycki
-pt:Tilsit
-ru:Тильзитер
-sr:Tilsiter
-sw:Tilsiter
-uk:Тільзитер
-wikidata:Q2433798
-wikipedia:https://en.wikipedia.org/wiki/Tilsit_cheese
-# fr:tilsit has 1 product in 3 languages @2018-10-27
-
-# Tomme, occasionally spelled Tome, is a type of cheese, and is a generic name given to a class of cheese produced mainly in the French Alps and in Switzerland.
-
-<en:cheese
-en:tomme
-br:toma
-ca:Tomme
-de:Tomme
-es:Tomme
-fr:tomme
-he:טום
-la:Toma
-ru:Том
-sw:Tomme
-tr:Tomme
-wikidata:Q2164539
-wikipedia:https://en.wikipedia.org/wiki/Tomme
-# fr:tomme has 13 products in 1 language @2018-10-27
-
-# Le vacherin fribourgeois est un fromage suisse du canton de Fribourg.
-
-<en:cheese
-fr:Vacherin fribourgeois AOP
-de:Vacherin fribourgeois AOP
-ja:ヴァシュラン・フリブール
-ko:바슈랭 프리부르주아
-nl:Vacherin fribourgeois AOP
-wikidata:Q677647
-wikipedia:https://fr.wikipedia.org/wiki/Vacherin_fribourgeois
-# fr:Vacherin-fribourgeois-AOP has 2 products in 3 languages @2018-10-27
-
 # RICOTTA is an Italian whey cheese made from sheep, cow, goat, or Italian water buffalo milk whey left over from the production of other cheeses. 
 
 <en:cheese
@@ -3022,92 +3881,129 @@ pt:requeijão
 # pt-br:ricota
 ro:Ricotta
 ru:Рикотта
+# scn:Ricotta
+# sco:Ricotta
+sl:Rikota
+sq:Gjiza
 sv:ricotta
+tr:Ricotta
+uk:Рікота
+# vec:Puìna
+# yue:鄉村芝士
+zh:里考塔
+# zh-cn:里考塔
+# zh-hans:里考塔
+# zh-hant:里考塔
+# zh-hk:里考塔
+# zh-sg:里考塔
+# zh-tw:里考塔
 wikidata:Q216781
 wikipedia:https://en.wikipedia.org/wiki/Ricotta
 # fr:ricotta has 532 products in 6 languages @2018-10-27
 
-fr:fromage de chèvre au lait pasteurisé
-allergens:fr:fromage de chèvre au _lait_ pasteurisé
 
-fr:fromage pecorino
-allergens:fr:_fromage_ pecorino
+# TALEGGIO is a semisoft, washed-rind, smear-ripened Italian cheese that is named after Val Taleggio. 
 
-fr:fromage au lait de vache pasteurisé
-allergens:fr:fromage au _lait_ de vache pasteurisé
+<en:cheese
+en:Taleggio
+da:Taleggio
+de:Taleggio, Taleggio Käse
+es:Queso taleggio
+fi:Taleggio
+fr:Taleggio, fromage Taleggio AOP
+he:טלג'יו
+id:Taleggio
+it:Taleggio
+ja:タレッジョ
+ko:탈레조
+la:Taleggio
+nb:Taleggio
+nl:Taleggio
+ru:Таледжо
+sv:Taleggio
+uk:Таледжіо
+wikidata:Q775835
+wikipedia:https://en.wikipedia.org/wiki/Taleggio_cheese
+# fr:fromage Taleggio AOP has 1 product @2018-10-28
 
-fr:fromage mascarpone
-allergens:fr:_fromage_ mascarpone
 
-fr:fromage pecorino romano aop
-allergens:fr:_fromage_ pecorino romano aop
+# TILSIT cheese or Tilsiter cheese is a light yellow semihard smear-ripened cheese, created in the mid-19th century by Prussian-Swiss settlers, the Westphal family, from the Emmental valley. 
 
-fr:Parmigiano Reggiano AOP
+<en:cheese
+en:tilsit
+bg:Тилзитер
+de:Tilsiter
+cs:Tilsiter
+eo:Tilziter
+es:Queso Tilsit
+fr:Tilsit
+# gsw:Tilsiter
+id:Tilsiter
+it:Tilsiter
+ja:ティルジットチーズ
+ko:틸지터
+la:Tilsiter
+lt:Tilžės sūris
+nb:Tilsiter
+pl:Ser tylżycki
+pt:Tilsit
+ru:Тильзитер
+sr:Tilsiter
+sw:Tilsiter
+uk:Тільзитер
+wikidata:Q2433798
+wikipedia:https://en.wikipedia.org/wiki/Tilsit_cheese
+# fr:tilsit has 1 product in 3 languages @2018-10-27
 
-fr:fromage de brebis
 
-fr:fromage blanc frais
-allergens:fr:_fromage_ blanc frais
+# TOMME, occasionally spelled Tome, is a type of cheese, and is a generic name given to a class of cheese produced mainly in the French Alps and in Switzerland.
 
-fr:fromage edam
-allergens:fr:_fromage edam_
+<en:cheese
+en:tomme
+br:toma
+ca:Tomme
+de:Tomme
+es:Tomme
+fr:tomme
+he:טום
+la:Toma
+ru:Том
+sw:Tomme
+tr:Tomme
+wikidata:Q2164539
+wikipedia:https://en.wikipedia.org/wiki/Tomme
+# fr:tomme has 13 products in 1 language @2018-10-27
 
+# Le VACHERIN FRIBOURGEOIS est un fromage suisse du canton de Fribourg.
+
+<en:cheese
+fr:Vacherin fribourgeois AOP
+de:Vacherin fribourgeois AOP
+ja:ヴァシュラン・フリブール
+ko:바슈랭 프리부르주아
+nl:Vacherin fribourgeois AOP
+wikidata:Q677647
+wikipedia:https://fr.wikipedia.org/wiki/Vacherin_fribourgeois
+# fr:Vacherin-fribourgeois-AOP has 2 products in 3 languages @2018-10-27
+queijo mozzarella
+sv:mozzarella
+# fr:mozzarella has 1057 products in 15 languages @2018-10-28
+
+# fr:base-aromatisante-fromage is a compound ingredient
+
+<en:cheese
+fr:base aromatisante fromage
+nl:kaassmaak
+# fr:base-aromatisante-fromage has 28 products @2018-10-27
+
+
+# fr:préparation-fromagère is a compound ingredient
+
+<en:cheese
 fr:préparation fromagère
-allergens:fr:préparation _fromagère_
+# fr:préparation-fromagère has 40 products in 1 language @2018-10-28
 
 
-fr:fromage frais au lait demi-écrémé
-
-fr:fromage
-allergens:fr:_fromage_
-
-fr:fromage frais
-allergens:fr:_fromage_ frais
-
-fr:fromage fondu
-allergens:fr:_fromage_ fondu
-treatment:en: en:melting
-
-fr:fromage de chèvre
-allergens:fr:_fromage_ de chèvre
-
-fr:fromage maigre
-allergens:fr:_fromage_ maigre
-
-fr:fromage à pâte pressée cuite
-allergens:fr:_fromage_ à pâte pressée cuite
-
-en:mozzarella cheese
-fr:fromage mozzarella
-allergens:fr:_fromage mozzarella_
-
-en:parmigiano reggiano
-de:parmigiano reggiano
-it:parmigiano reggiano
-fr:parmigiano reggiano
-allergens:fr:_parmigiano reggiano_
-
-fr:fromage au lait pasteurisé
-allergens:fr:fromage au _lait_ pasteurisé
-
-fr:poudre de fromage
-allergens:fr:poudre de _fromage_
-
-fr:fromage fondu en poudre
-allergens:fr:_fromage_ fondu en poudre
-treatment:en: en:melting
-
-fr:fromage à pâte dure
-allergens:fr:_fromage_ à pâte dure
-
-fr:fromage râpé
-allergens:fr:_fromage_ râpé
-
-fr:parmesan
-allergens:fr:_parmesan_
-
-fr:fromage en poudre
-allergens:fr:_fromage_ en poudre
 
 # VITAMINS
 
@@ -3255,7 +4151,7 @@ et:Söögisool, keedusool
 eu:Gatz arrunt, mahaiko gatza
 fa:نمک
 fi:Ruokasuola
-fr:Sel, Sel alimentaire, sel de table, sel de cuisine, sel sec, sel comestible
+fr:Sel alimentaire, sel de table, sel de cuisine, sel, sel sec, sel comestible
 ga:Salann
 gd:Salann
 gl:Sal común
@@ -3346,7 +4242,7 @@ en:finegrained salt
 fr:Sel fin
 nl:Fijn zout
 
-
+fr:sel nitrité pour saumure
 
 # SMOKED SALT is an aromatic salt smoked with any number of select bark free woods for up to 14 days. 
 
@@ -5522,7 +6418,15 @@ de:Branntweinessig
 fr:vinaigre d'eau-de-vie
 it:aceto di acqua-vite
 
-# Alcools
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                           A L C O H O L     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+
 
 en:alcohol 
 es:alcohol 
@@ -5530,31 +6434,621 @@ fr:alcool
 nl:alcohol 
 de:Alkohol
 
-<en:alcohol
-fr:porto
 
-<fr:porto
+# ETHANOL, also called alcohol, ethyl alcohol, grain alcohol, and drinking alcohol, is a chemical compound, a simple alcohol with the chemical formula C2H5OH. 
+
+<en:alcohol
+en:ethanol
+af:etanol
+ak:Nsa
+an:Etanol
+ar:إيثانول
+as:ইথান'ল
+# ast:Etanol
+az:Etanol
+# azb:اتانول
+ba:Этанол
+# bar:Ethanoi
+be:Этанол
+# be-tarask:Этаноль
+bg:Етанол
+bn:ইথানল
+bo:ཨ་རག་ཉིང་ཁུ།
+br:Etanol
+bs:Etanol
+ca:Etanol
+# ceb:Etanol
+# ckb:ئێتانۆل
+cs:ethanol
+cy:Ethanol
+da:Ethanol
+de:Ethylalkohol, Ethanol
+# de-ch:Ethanol
+el:αιθανόλη
+# en-ca:Ethanol
+# en-gb:Ethanol
+eo:etanolo
+es:etanol
+et:Etanool
+eu:etanol
+fa:اتانول
+fi:etanoli
+fr:alcool éthylique, éthanol
+# frr:Ethanol
+fy:Etanol
+ga:Eatánól
+gl:Etanol
+# gsw:Ethanol
+gu:ઇથેનોલ
+he:אתנול
+hi:इथेनॉल
+# hif:Ethanol
+hr:etanol
+hu:etanol
+hy:Էթիլ սպիրտ
+id:Etanol
+# ilo:Etanol
+is:Etanól
+it:alcol etilico, etanolo
+ja: エタノール
+jv: Etanol
+ka: ეთანოლამიდი
+kk: Этил спирті
+ko: 에탄올
+# ksh: Alkohol
+la: Ethanol
+lb: Ethanol
+# lzh: 乙醇
+# min: Ethanol
+mk: етанол
+ml: എഥനോൾ
+mn: Этанол
+mr: इथेनॉल
+ms: Etanol
+my: အီသနောလ်
+# nan: It-sûn
+nb: etanol
+# nds: Ethanol
+ne: इथानोल
+# new: इथानोल
+nl:ethylalcohol, ethanol
+nn:etanol
+oc: etanòl
+pa: ਈਥੇਨੋਲ
+pl: etanol
+# pnb: ایتھانول
+ps: اتانول
+pt: etanol
+# pt-br: etanol
+qu: Ethanul
+ro: etanol
+ru:этанол
+# sah: Этанол
+# sco: ethanol
+# sgs: Etanuolis
+sh: Alkohol
+si: එතනෝල්
+sk: Etanol
+sl: Etanol
+sq: Etanoli
+sr: етанол
+# sr-ec: етанол
+# sr-el: etanol
+# stq: Ethanol
+sv:Etanol
+sw: Ethanoli
+ta: எத்தனால்
+te: ఇతనోల్
+tg: Итонул
+th: เอทานอล
+tr: Etanol
+tt: Этанол
+uk: етанол
+ur: ایتھنول
+uz: Etanol
+# vep: Etilspirt
+vi: êtanol
+# war: Ethanol
+# wuu: 乙醇
+yi: עטאנאל
+# yue: 乙醇
+zh: 乙醇
+# zh-cn: 乙醇
+# zh-hans: 乙醇
+# zh-hant: 乙醇
+# zh-hk: 乙醇
+# zh-mo: 乙醇
+# zh-sg: 乙醇
+# zh-tw: 乙醇
+
+wikidata:Q153
+wikipedia:https://en.wikipedia.org/wiki/Ethanol
+# fr:alcool-éthylique has 237 products in 5 languages @2018-10-29
+
+# PORT wine (also known as vinho do Porto, Porto, and usually simply port) is a Portuguese fortified wine produced with distilled grape spirits exclusively in the Douro Valley in the northern provinces of Portugal.
+
+<en:alcohol
+en:port, port wine
+an:Vin de Porto
+ar:نبيذ بورت
+az:Portveyn
+be:Партвейн
+bg:Порто
+ca:Vi de Porto
+cs:Portské víno
+cv:Портвейн
+da:Portvin
+de:Portwein
+# de-ch:Portwein
+el:Πόρτο
+# en-ca:Port wine
+# en-gb:Port wine
+eo:Oporto
+es:Oporto
+eu:Porto
+fa:شراب پورت
+fi:Portviini
+fo:Portvín
+fr:porto
+fy:Port
+ga:Pórt
+gl:Viño do Porto
+he:פורט
+hr:Vinho do Porto
+hu:Portói bor
+is:Púrtvín
+it:Porto
+ja:ポートワイン
+ka:პორტვაინი
+ko:포르투 포도주
+li:Port
+lt:Portveinas
+lv:Portvīns
+mk:Порто
+nb:Portvin
+nl:port
+nn:Portvin
+oc:Porto
+pl:Porto
+pt:Vinho do Porto
+# pt-br:Vinho do Porto
+ro:Vin de Porto
+ru:Портвейн
+# sah:Портвейн
+sh:Porto
+sk:Portské víno
+sv:Portvin
+tr:Porto şarabı
+uk:Портвейн
+vi:Rượu vang Port
+# yue:砵酒
+zh:波特酒
+# zh-cn:波特酒
+# zh-hans:波特酒
+# zh-hant:波特酒
+# zh-hk:波特酒
+# zh-sg:波特酒
+# zh-tw:波特酒
+wikidata:Q191034
+wikipedia:https://en.wikipedia.org/wiki/Port_wine
+# fr:porto has 411 products in 5 languages @2018-10-28
+
+<en:port
+en:red port
 fr:porto rouge
+nl:rode port
+wikidata:Q26879196
+# fr:port-rouge has 72 products in 2 languages @2018-10-29
+
+# en:modified-red-port is a compound ingredient, i.e.: modified red port (port, salt, preservatives (sulphur dioxide, potassium acid disulphite))
+<en:red port
+en:modified red port
+fr:porto rouge modifié
+
+# WINE is an alcoholic beverage made from fermented grapes.
 
 <en:alcohol
 en:wine
+af:wyn
+am:የወይን ጠጅ
+an:Vin
+# ang:Ƿīn
+ar:نبيذ
+# arc:ܚܡܪܐ
+# arz:نبيت
+# ast:Vinu
+az:Şərab
+# azb:شراب
+ba:Шарап
+# bar:Wein
+be:віно
+# be-tarask:віно
+bg:вино
+bn:মদ
+br:Gwin
+bs:Vino
+# bxr:Дарһан
+ca:vi
+# cdo:Può-dò̤-ciū
+ce:ЧагӀар
+# ceb:Alak
+# ckb:شەراب
+cs:víno
+cv:Эрех
+cy:gwin
+da:vin
+de:Wein
+# de-ch:Wein
+# diq:Şerab
+# dsb:wino
+# dty:वाइन
+el:κρασί
+# en-ca:Wine
+# en-gb:Wine
+eo:vino
+es:vino
+et:vein
+eu:ardo
+# ext:Vinu
+fa:شراب
+fi:viini
+fo:Vín
 fr:vin
+# frp:Vin
+# fur:Vin
+fy:Wyn
+ga:Fíon
+# gan:葡萄酒
+gd:Fìon
+gl:Viño
+# got:𐍅𐌴𐌹𐌽
+# gsw:Wy
+gv:Feeyn
+he:יין
+hi:शराब
+# hif:Wine
+hr:vino
+# hsb:wino
+ht:Diven
+hu:bor
+hy:գինի
+ia:vino
+id:Anggur
+io:vino
+is:vín
+it:vino
+ja:ワイン
+# jam:Wain
+jv:Anggur
+ka:ღვინო
+# kaa:Vino
+# kbd:Санэ
+# kbp:Ŋvɛɛ sʊlʊm
+kk:Шарап
+km:ស្រា
+ko:포도주
+# krc:Чагъыр
+ku:Şerab
+ky:Шарап
+la:vinum
+# lad:vino
+lb:Wäin
+# lbe:Чахир
+# lfn:Vino
+li:Wien
+# lij:Vin
+# lmo:Vin
+lt:vynas
+lv:vīns
+# mai:वाइन
+mk:вино
+ml:വീഞ്ഞ്
+mn:Дарс
+mr:वाईन
+ms:Wain
+mt:nbid
+# mwl:Bino
+my:ဝိုင်
+# nah:Huino
+# nan:Phô-tô-chiú
+# nap:Vino
+nb:vin
+# nds:Wien
+# nds-nl:Wien
+ne:वाइन
+nl:wijn
+nn:vin
+# nrm:Vîn
+oc:vin
+pa:ਵਾਈਨ
+# pcd:Vin
+# pfl:Woi
+pl:wino
+# pms:Vin
+# pnb:شراب
+pt:vinho
+# pr-br:vinho
+qu:Winu
+ro:vin
+ru:вино
+# rue:Вино
+# sah:Вино
+sc:Binu
+# scn:Vinu
+# sco:Wine
+se:Viidna
+# sgs:Vīns
+sh:Vino
+sk:víno
+sl:vino
+sq:vera
+sr:вино
+su:Anggur
+sv:vin
+sw:divai
+ta:வைன்
+tg:Шароб
+th:ไวน์
+tl:Alak
+tr:şarap
+tt:Шәраб
+# tum:Vinyo
+# tyv:Вино
+ug:ۋىنو
+uk:вино
+ur:شراب
+uz:Sharob
+# vec:Vin
+vi:rượu vang
+# vls:Wyn
+vo:Vein
+wa:Vén
+# war:Bino
+# wuu:葡萄酒
+xh:Iveyn
+# xmf:ღვინი
+yi:וויין
+# yue:葡萄酒
+zh:葡萄酒
+# zh-hans:葡萄酒
+# zh-hant:葡萄酒
+wikidata:Q282
+wikipedia:https://en.wikipedia.org/wiki/Wine
+# en:wine has 4233 products in 6 languages @2018-10-29
+
+
+# WHITE WINE is a wine whose colour can be straw-yellow, yellow-green, or yellow-gold.
 
 <en:wine
 en:white wine
+af:Witwyn
+ar:نبيذ أبيض
+# ast:Vinu blanco
+ba:Аҡ шарап
+bg:Бяло вино
+ca:vi blanc
+cy:Gwin gwyn
+da:Hvidvin
+de:Weißwein, Weisswein
+# en-gb:white wine
+es:vino blanco
+eu:Ardo zuri
+fa:شراب سفید
+fi:valkoviini
+fo:Hvítvín
 fr:vin blanc
+gl:Viño branco
+# gsw:Wysswy
+he:יין לבן
+hr:Bijelo vino
+hu:fehérbor
+it:vino bianco
+ja:白ワイン
+kk:Ақ шарап
+ko:백포도주
+lb:Wäisse Wäin
+mk:Бело вино
+nb:Hvitvin
+nl:witte wijn
+pl:Białe wino
+pt:vinho branco
+ro:vin alb
+ru:Белое вино
+sr:бијело вино
+sv:Vitt vin
+tr:Beyaz şarap
+uk:Біле вино
+vi:Rượu vang trắng
+# yue:白葡萄酒
+zh:白葡萄酒
+wikidata:Q10210
+wikipedia:https://en.wikipedia.org/wiki/White_wine
+# en:white-wine has 2793 products in 5 languages @2018-10-29
+
+<en:white wine
+fr:vin blanc réduit
+# fr:vin-blanc-réduit has 33 products in 1 language @2018-10-29
+
+<en:white wine
+fr:extrait de vin blanc
+de:Weissweinextrakt
+it:estratto di vino bianco
+# fr:extrait-de-vin-blanc has 221 products in 3 languages @2018-10-29
+
+# MUSCADET is a French white wine. 
+
+<en:white wine
+en:Muscadet
+br:Muskadig
+cv:Мюскаде
+de:Muscadet
+fr:muscadet, vin blanc muscadet
+it:Muscadet
+ja:ミュスカデ
+nb:Muscadet
+nl:Muscadet
+ru:Мюскаде
+sv:Muscadet
+wikipedia:https://en.wikipedia.org/wiki/Muscadet
+# fr:muscadet has 82 products in 1 language @2018-10-29
 
 <en:wine
 en:red wine
+de:Rotwein
 fr:vin rouge
+it:vino rosso
+
+<en:red wine
+fr:extrait de vin rouge
+de:Rotwein-Extrakt
+it:estratto di vino rosso
+# fr:extrait-de-vin-rouge has 15 products in 3 languages @2018-10-29
+
+
+# PINOT NOIR is a red wine grape variety of the species Vitis vinifera. 
+
+<en:red wine
+en:pinot noir
+az:Pinot Noir
+bg:Пино ноар
+ca:pinot negre
+cs:Rulandské modré
+cv:Пинă Нуар
+da:Pinot noir
+de:Pinot noir
+es:Pinot noir
+et:Pinot noir
+fa:پینونوآر
+fi:Pinot Noir
+fr:pinot noir
+gl:Pinot Noir
+# gsw:Spätburgunder
+he:פינו נואר
+hr:Pinot crni
+hu:Pinot noir
+id:Pinot noir
+is:Pinot noir
+it:Pinot
+ja:ピノ・ノワール
+ko:피노 누아르
+lb:Pinot noir
+nb:Pinot noir
+nl:pinot noir
+# pcd:Noért pinot
+pl:Pinot noir
+# pms:Pinot noir
+pt:Pinot noir
+ro:Pinot noir
+ru:Пино-нуар
+sh:Pinot noir
+sl:Modri pinot
+sr:Пино ноар
+# sr-ec:Пино ноар
+# sr-el:Pino noar
+sv:Pinot noir
+uk:Піно Нуар
+zh:黑比诺
+# zh-cn:黑比诺
+# zh-hans:黑比诺
+# zh-hant:黑比诺
+# zh-hk:黑比诺
+# zh-sg:黑比诺
+# zh-tw:黑比诺
+wikidata:Q223701
+wikipedia:https://world.openfoodfacts.org/ingredient/fr:pinot%20noir
+# fr:pinot-noir has 20 products in 1 language @2018-10-29
+
+
+# MARSALA is a wine, dry or sweet, produced in the region surrounding the Italian city of Marsala in Sicily. 
 
 <en:wine
-fr:pinot noir
+en:Marsala wine
+ar:نبيذ مارسالا
+be:Марсала
+# be-tarask:Марсала
+bg:Марсала
+da:Marsala
+de:Marsala
+es:Marsala
+fi:Marsala
+fo:Marsalavínfi:Marsala
+fr:vin marsala
+hr:Marsala
+hr:Marsala
+id:Anggur Marsala
+ja:強化ワイン
+lt:Marsala
+nb:Marsala
+nl:Marsala
+pl:Marsala
+pt:Vinho Marsala
+ro:Vin de Marsala
+ru:Марсала
+# scn:Marsala
+sh:Marsala
+sv:Marsalavin
+uk:Марсала
+zh:玛萨拉酒
+# zh-hans:玛萨拉酒
+# zh-hant:瑪薩拉酒
+# zh-hk:瑪薩拉酒
+wikidata:Q842052
+wikipedia:https://en.wikipedia.org/wiki/Marsala_wine
+# fr:vin-marsala has 53 products in 2 languages @2018-10-29
+
+# A ROSÉ is a type of wine that incorporates some of the color from the grape skins, but not enough to qualify it as a red wine.
+
+<en:wine
+en:rosé wine, rosé
+ar:نبيذ وردي
+bg:Розе
+ca:vi rosat
+da:Rosévin
+de:Roséwein
+# en-ca:Rosé
+# en-gb:Rosé
+es:vino rosado
+eu:Ardo gorri
+fa:شراب گلی
+fi:Roseeviini
+fo:Rosévín
+fr:vin rosé
+# gsw:Rosé
+ia:Vino rosate
+it:rosato
+ja:ロゼワイン
+ko:로제 와인
+lt:Rožinis vynas
+mk:Розе вино
+ml:റൊസേ വീഞ്ഞ്
+nb:rosévin
+# nds:Roséwien
+nl:rosé wijn, roséwijn
+nn:rosévin
+pa:ਰੋਜ਼ੇ
+pl:Wino różowe
+pt:Vinho rosé
+ro:vin rose
+ru:Розовое вино
+sv:Rosévin
+uk:Рожеве вино
+# vep:Ruskedvauvaz vin
+vi:Rượu vang hồng
+zh:桃红葡萄酒
+# zh-cn:桃红葡萄酒
+# zh-hans:桃红葡萄酒
+# zh-hant:桃红葡萄酒
+wikidata:Q12979
+wikipedia:https://en.wikipedia.org/wiki/Rosé
+# fr:vin-rosé has 33 products @2018-10-29
+
+<en:wine
+fr:vin aromatisé
+# fr:vin-aromatisé has 67 products in 2 languages @2018-10-29
 
 <en:alcohol
 fr:brandy
 
-fr:extrait de vin rouge
 
 <en:alcohol
 en:eau de vie
@@ -5566,20 +7060,6 @@ de:Obstbrand
 <en:eau de vie
 fr:eau de vie de vin
 
-<en:wine
-fr:vin marsala
-
-<en:wine
-fr:muscadet, vin blanc muscadet
-
-<en:wine
-fr:vin blanc réduit
-
-<en:wine
-fr:vin rosé
-
-<en:wine
-fr:vin aromatisé
 
 <en:alcohol
 en:vermouth
@@ -5591,13 +7071,15 @@ fr:whisky
 
 <en:alcohol
 en:cognac
+de:Cognac
 es:coñac
 fr:cognac
 nl:cognac
-de:Cognac
 
 <en:cognac
+en:modified cognac
 fr:cognac modifié
+# fr:cognac-modifié has 41 products in 3 languages @2018-10-29
 
 <en:alcohol
 en:Cointreau
@@ -5646,13 +7128,33 @@ fr:armagnac
 nl:armagnac
 de:Armagnac
 
-<en:alcohol
-fr:alcool éthylique
 
 <en:alcohol
 en:beer
 de:Bier
 fr:bière
+
+# ABSINTHE is historically described as a distilled, highly alcoholic beverage
+
+<en:alcohol
+en:absinthe, absinth
+de:Absinth
+es:absenta
+fr:absinthe
+it:Assenzio
+nl:absinth
+pt:absinto
+wikidata:Q170210
+wikipedia:https://en.wikipedia.org/wiki/Absinthe
+# en:absinth has 3 products in 7 languages @2018-10-29
+
+# has no products
+# <en:alchohol
+# en:Chartreuse
+# es:chartreuse
+# fr:chartreuse
+# nl:chartreuse
+# de:Chartreuse
 
 # AROMES
 
@@ -10227,13 +11729,6 @@ fr:maltodextrine de pomme de terre, malto-dextrine de pomme de terre
 en:corn maltodextrin
 fr:maltodextrine de maïs, malto-dextrine de maïs
 
-
-# Random
-
-
-
-
-
 # a raising agent is any one of a number of substances used in doughs and batters that cause a foaming action (gas bubbles) that lightens and softens the mixture.
 # This contains chemical and biological raising agents. Often a raising agent is synonymous to chemical.
 
@@ -10537,6 +12032,996 @@ fr:levain de seigle dévitalisé
 
 <en:sourdough
 fr:levain de seigle déshydraté et dévitalisé
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                           E 3 3 9 - E 3 4 0     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+# SODIUM PHOSPHATES is a generic term for a variety of salts of sodium (Na+) and phosphate (PO43−). 
+# Note that the names here must be plural. The singlars are found under E339iii
+
+en:sodium phosphates, E339, E 339, E-339
+ar:فوسفات الصوديوم
+ca:E339, E 339, E-339
+de:Natriumphosphate, E339, E 339, E-339
+es:Fosfatos de sodio, Fosfatos sodicos, Ortofosfatos de sodio, E339, E 339, E-339
+fa:سدیم فسفات 
+fr:phosphates de sodium, Orthophosphates de sodium, E339, E 339, E-339
+it:fosfati di sodio, E339, E 339, E-339
+ja:リン酸塩, E339, E 339, E-339
+nl:natriumfosfaten, Natriumorthofosfaten, E339, E 339, E-339
+nn:E339, E 339, E-339
+pt:fosfatos de sódio
+ru:Натрия фосфаты, E339, E 339, E-339
+sh:E339, E 339, E-339
+sr:E339, E 339, E-339
+sv:E339, E 339, E-339
+wikipedia:https://en.wikipedia.org/wiki/Sodium_phosphates
+# fr:phosphate-de-sodium has 337 products @2018-11-05
+
+# Monosodium phosphate (MSP), also known as monobasic sodium phosphate and sodium dihydrogen phosphate, is an inorganic compound of sodium with a dihydrogen phosphate (H2PO4−) anion. 
+
+<en:sodium phosphates
+en:Monosodium phosphate, Monosodium monophosphate, Acid monosodium monophosphate, Monosodium orthophosphate, Monobasic sodium phosphate, E339i, E 339i, E-339i
+ar:مونوسودیوم فوسفات
+# azb:مونوسودیوم فوسفات
+bg:Мононатриев фосфат, Мононатриев монофосфат, кисел мононатриев монофосфат, мононатриев ортофосфат, едноосновен натриев фосфат, E339i, E 339i, E-339i
+cs:Dihydrogenfosforečnan sodný, Fosforečnan monosodný, kyselý fosforečnan sodný, orthofosforečnan monosodný, E339i, E 339i, E-339i
+da:Mononatriumphosphat, Mononatriummonophosphat, surt mononatriummonophosphat, mononatriumorthophosphat, monobasisk natriumphosphat, E339i, E 339i, E-339i
+de:Mononatriumphosphat, E339i, E 339i, E-339i
+el:Δισοξινο φωσφορικο νατριο, Δισόξινο ορθοφωσφορικό νάτριο, E339i, E 339i, E-339i
+es:fosfato monosódico, Monofosfato monosódico, monofosfato ácido monosódico, ortofosfato monosódico, fosfato monobásico sódico, E339i, E 339i, E-339i
+eo:Natria bifosfato, E339i, E 339i, E-339i
+et:Naatriumdivesinikfosfaat, Naatriumdivesinikfosfaat, E339i, E 339i, E-339i
+fi:Mononatriumfosfaatti, Mononatriummonofosfaatti, Hapan mononatriummonofosfaatti, Mononatriumortofosfaatti, Yhdenarvoinen natriumfosfaatti, E339i, E 339i, E-339i
+fr:phosphate monosodique, E339i, E 339i, E-339i
+hu:Mononátrium-foszfát, E339i, E 339i, E-339i
+it:Fosfato monosodico, Monofosfato monosodico, acido monofosfato monosodico, ortofosfato monosodico, fosfato monobasico di sodio, E339i, E 339i, E-339i
+ja:リン酸二水素ナトリウム, E339i, E 339i, E-339i
+lt:Mononatrio fosfatas, E339i, E 339i, E-339i
+lv:Mononātrija fosfāts, E339i, E 339i, E-339i
+mt:Fosfat monosodiku, E339i, E 339i, E-339i
+nl:Mononatriumfosfaat, Mononatriummonofosfaat, zuur mononatriummonofosfaat, mononatriumorthofosfaat, eenbasisch natriumfosfaat, E339i, E 339i, E-339i
+pl:Fosforan monosodowy, Monofosforan monosodowy, kwaśny monofosforan monosodowy, ortofosforan monosodowy, fosforan sodu, jednozasadowy, E339i, E 339i, E-339i
+pt:fosfato de sódio monobásico, Fosfato monossódico, Monofosfato monossódico, monofosfato ácido monossódico, ortofosfato monossódico, E339i, E 339i, E-339i
+ro:Fosfat monosodic, Monofosfat monosodic, Acid monofosfat monosodic, Ortofosfat monosodic, Fosfat de sodiu monobazic, E339i, E 339i, E-339i
+ru:Дигидрофосфат натрия, E339i, E 339i, E-339i
+sh:Mononatrijum fosfat, E339i, E 339i, E-339i
+sk:Fosforečnan monosodný, E339i, E 339i, E-339i
+sl:Mononatrijev fosfat, mononatrijev monofosfat, kisli mononatrijev monofosfat, mononatrijev ortofosfat, monobazični natrijev fosfat, E339i, E 339i, E-339i
+sr:Mononatrijum fosfat, E339i, E 339i, E-339i
+sv:Mononatriumfosfat, Mononatriummonofosfat, mononatriumortofosfat, natriumdivätefosfat, E339i, E 339i, E-339i
+vi:Natri đihiđrophotphat, E339i, E 339i, E-339i
+zh:磷酸二氢钠, E339i, E 339i, E-339i
+wikidata:Q415877
+wikipedia:https://en.wikipedia.org/wiki/Monosodium_phosphate
+# additive/e339i-monosodium-phosphate has 36 products in 6 languages @2018-11-05
+
+# Disodium phosphate (DSP), or sodium hydrogen phosphate, or sodium phosphate dibasic, is the inorganic compound with the formula Na2HPO4. 
+
+<en:sodium phosphates
+en:disodium phosphate, Disodium monophosphate, Secondary sodium phosphate, E339ii, E 339ii, E-339ii
+# azb:دیسودیوم فوسفات
+bg:Динатриев фосфат, Динатриев монофосфат, вторичен натриев фосфат, E339ii, E 339ii, E-339ii
+cs:Hydrogenfosforečnan disodný, Fosforečnan disodný, sekundární fosforečnan sodný, orthofosforečnan disodný, E339ii, E 339ii, E-339ii
+da:Dinatriumphosphat, Dinatriummonophosphat, sekundært natriumphosphat, E339ii, E 339ii, E-339ii
+de:Dinatriumphosphat, Dinatriummonophosphat, sekundäres Natriumphosphat, E339ii, E 339ii, E-339ii
+el:Οξινο φωσφορικο νατριο , E339ii, E 339ii, E-339ii
+eo:Dunatria fosfato
+es:fosfato disódico, Monofosfato disódico, fosfato sódico secundario, E339ii, E 339ii, E-339ii
+et:Dinaatriumvesinikfosfaat, Dinaatriumvesinikfosfaat , E339ii, E 339ii, E-339ii
+fa:دی‌سدیم فسفات
+fi:Dinatriumfosfaatti, Dinatriummonofosfaatti, Sekundaarinen natriumfosfaatti , E339ii, E 339ii, E-339ii
+fr:phosphate disodique, Monophosphate disodique, phosphate de sodium secondaire, E339ii, E 339ii, E-339ii
+hu:Dinátrium-foszfát, Dinátrium-monofoszfát, Szekunder nátrium-foszfát , E339ii, E 339ii, E-339ii
+it:fosfato disodico, Monofosfato disodico, fosfato secondario di sodio, E339ii, E 339ii, E-339ii
+ja:リン酸水素二ナトリウム
+lt:Dinatrio fosfatas, Dinatrio monofosfatas, antrinis natrio fosfatas, E339ii, E 339ii, E-339ii
+lv:Dinātrija fosfāts, Dinātrija monofosfāts, Otrējais nātrija fosfāts, E339ii, E 339ii, E-339ii
+mt:Fosfat disodiku, Monofosfat disodiku, Fosfat tas-sodju sekondarju, E339ii, E 339ii, E-339ii
+nl:dinatriumfosfaat, Dinatriummonofosfaat, secundair natriumfosfaat, E339ii, E 339ii, E-339ii
+pl:Fosforan disodowy, Monofosforan disodowy, drugorzędowy fosforan sodu, E339ii, E 339ii, E-339ii
+pt:Fosfato dissódico, Monofosfato dissódico, fosfato secundário de sódio, E339ii, E 339ii, E-339ii
+ro:Fosfat disodic, Monofosfat disodic, Fosfat secundar de sodiu, E339ii, E 339ii, E-339ii
+ru:гидрофосфат натрия, E339ii, E 339ii, E-339ii
+sh:Dinatrijum fosfat
+sk:Fosforečnan disodný, Monofosforečnan disodný, sekundárny fosforečnan sodný, E339ii, E 339ii, E-339ii
+sl:Dinatrijev fosfat, dinatrijev monofosfat, sekundarni natrijev fosfat, E339ii, E 339ii, E-339ii
+sr:E339ii, E 339ii, E-339ii
+sv:Dinatriumfosfat, Dinatriummonofosfat, E339ii, E 339ii, E-339ii
+ta:இருசோடியம் பாசுபேட்டு
+vi:Natri hiđrophotphat
+zh:磷酸一氢钠
+# zh-cn:磷酸一氢钠
+# zh-hans:磷酸一氢钠
+# zh-hant:磷酸一氫鈉
+# zh-hk:磷酸一氫鈉
+# zh-sg:磷酸一氢钠
+# zh-tw:磷酸一氫鈉
+wikidata:Q418448
+wikipedia:https://en.wikipedia.org/wiki/Disodium_phosphate
+# fr:phosphate disodique has 54 products in 3 languages @2018-11-04
+# additive/e339ii-disodium-phosphate has 1940 products in 9 languages @2018-11-06
+
+# TRISODIUM PHOSPHATE (TSP) is the inorganic compound with the chemical formula Na3PO4. 
+
+<en:sodium phosphates
+en:trisodium phosphate, Tribasic sodium phosphate, sodium phosphate, E339iii, E 339iii, E-339iii
+# azb:تریسودیوم فوسفات
+bg:Тринатриев фосфат, триосновен натриев фосфат, E339iii, E 339iii, E-339iii, Натриев фосфат
+ca:Fosfat de trisodi, E339iii, E 339iii, E-339iii
+cs:Fosforečnan trisodný, Fosforečnan sodný, E339iii, E 339iii, E-339iii
+da:Trinatriumphosphat, tribasisk natriumphosphat, E339iii, E 339iii, E-339iii, Natriumphosphat
+de:Trinatriumphosphat, dreibasiges Natriumphosphat, Natriumphosphat, E339iii, E 339iii, E-339iii
+el:Ουδέτερο φωσφορικό νάτριο, E339iii, E 339iii, E-339iii, Φωσφορικο νατριο
+eo:Natria fosfato, E339iii, E 339iii, E-339iii
+es:fosfato trisodico, E339iii, E 339iii, E-339iii, Fosfato sódico
+et:Trinaatriumfosfaat, E339iii, E 339iii, E-339iii, Naatriumfosfaat
+fa:تری‌سدیم فسفات
+fi:Trinatriumfosfaatti, Natriumfosfaatti, E339iii, E 339iii, E-339iii
+fr:phosphate trisodique, phosphate de sodium tribasique, E339iii, E 339iii, E-339iii
+hu:Trinátrium-foszfát, Hárombázisú nátrium-foszfát, nátrium-foszfát, E339iii, E 339iii, E-339iii
+it:Fosfato trisodico, fosfato tribasico di sodio, Fosfato di sodio, E339iii, E 339iii, E-339iii
+ja:リン酸三ナトリウム, E339iii, E 339iii, E-339iii
+lt:Trinatrio fosfatas, tribazis natrio fosfatas, E339iii, E 339iii, E-339iii, Natrio fosfatas
+lv:Trinātrija fosfāts, Tribāziskais nātrija fosfāts, E339iii, E 339iii, E-339iii, Nātrija fosfāts
+mt:Fosfat trisodiku, Fosfat tas-sodju tribażiku, E339iii, E 339iii, E-339iii, Fosfat tas-sodju
+nl:trinatriumfosfaat, driebasisch natriumfosfaat, E339iii, E 339iii, E-339iii, Natriumfosfaat
+nn:natriumfosfat, E339iii, E 339iii, E-339iii
+pl:Fosforan trisodowy, E339iii, E 339iii, E-339iii, Fosforan sodu
+pt:fosfato trissódico, fosfato de sódio tribásico, E339iii, E 339iii, E-339iii, Fosfato de sódio
+ro:Fosfat trisodic, Fosfat de sodiu tribazic, E339iii, E 339iii, E-339iii, Fosfat de sodiu
+ru:Фосфат натрия,  Ортофосфат натрия
+sh:Trinatrijum fosfat, E339iii, E 339iii, E-339iii
+sk:Fosforečnan trisodný, trojsýtny fosforečnan sodný, E339iii, E 339iii, E-339iii, Fosforečnan sodný
+sl:Trinatrijev fosfat, tribazični natrijev fosfat, E339iii, E 339iii, E-339iii, natrijev fosfat
+sr:Trinatrijum fosfat, E339iii, E 339iii, E-339iii
+sv:Trinatriumfosfat, Trinatriummonofosfat, E339iii, E 339iii, E-339iii
+vi:Natri phosphat, E339iii, E 339iii, E-339iii
+zh:磷酸钠, E339iii, E 339iii, E-339iii
+wikipedia:https://en.wikipedia.org/wiki/Trisodium_phosphate
+# fr:phosphate-trisodique has 45 products @2018-11-04
+# additive/e339iii-trisodium-phosphate has 398 products in 8 languages @2018-11-06
+
+
+# Potassium phosphate is a generic term for the salts of potassium and phosphate ions
+
+<en:emulsifier
+<en:humectant
+<en:sequestrant
+<en:stabilizer
+<en:thickener
+<en:potassium
+en:potassium phosphates, E340, E 340, E-340
+de:Kaliumphosphate, E340, E 340, E-340
+es:Fosfatos de potasio, Fosfato de potasio, Fosfato potásico, E340, E 340, E-340
+fr:phosphate de potassium, phosphates de potassium, E340, E 340, E-340
+it:fosfati di potassio
+ms:Kalium Fosfat, E340, E 340, E-340
+nl:Kaliumorthofosfaten, E340, E 340, E-340
+sv:kaliumfosfat, E340, E 340, E-340
+wikipedia:https://en.wikipedia.org/wiki/Potassium_phosphate
+# en:potassium phosphate has 260 products in 8 languages @2018-11-06
+# mineral/potassium-phosphate has 123 products @2018-1106
+# additive/e340-potassium-phosphates has 2576 products in 18 languages @2018-11-06
+
+# Monopotassium phosphate, MKP, (also potassium dihydrogenphosphate, KDP, or monobasic potassium phosphate), KH2PO4, is a soluble salt of potassium and the dihydrogen phosphate ion
+
+<en:potassium phosphates
+en:monopotassium phosphate, Monobasic potassium phosphate, Monopotassium monophosphate, E340i, E 340i, E-340i, E340 i
+bg:Монокалиев фосфат, Едноосновен калиев фосфат, монокалиев монофосфат, E340i, E 340i, E-340i, E340 i
+cs:Dihydrogenfosforečnan draselný, E340i, E 340i, E-340i, E340 i
+da:Monokaliumphosphat, Monobasisk kaliumphosphat, monokaliummonophosphat, E340i, E 340i, E-340i, E340 i
+de:Monokaliumphosphat, E340i, E 340i, E-340i, E340 i
+el:Δισοξινο φωσφορικο καλιο, E340i, E 340i, E-340i, E340 i
+es:Fosfato monopotásico, Fosfato monobásico potásico, monofosfato monopotásico, E340i, E 340i, E-340i, E340 i
+et:Kaaliumdivesinikfosfaat, Kaaliumdivesinikfosfaat, E340i, E 340i, E-340i, E340 i
+fi:Monokaliumfosfaatti, Yhdenarvoinen kaliumfosfaatti, Monokaliummonofosfaatti, E340i, E 340i, E-340i, E340 i
+fr:Phosphate monopotassique, E340i, E 340i, E-340i, E340 i
+hu:Monokálium-foszfát, Egybázisú kálium-foszfát, Monokálium-monofoszfát, E340i, E 340i, E-340i, E340 i
+it:fosfato monopotassico, Fosfato monobasico di potassio, monofosfato monopotassico, E340i, E 340i, E-340i, E340 i
+lt:Monokalio fosfatas, Vienbazis kalio fosfatas, monokalio monofosfatas, E340i, E 340i, E-340i, E340 i
+lv:Monokālija fosfāts, Monobāziskais kālija fosfāts, Monokālija monofosfāts, E340i, E 340i, E-340i, E340 i
+mt:Fosfat monopotassiku, Fosfat tal-potassju monobażiku, Monofosfat monopotassiku, E340i, E 340i, E-340i, E340 i
+nl:Monokaliumfosfaat, Eenbasisch kaliumfosfaat, monokaliummonofosfaat, E340i, E 340i, E-340i, E340 i
+pl:Fosforan monopotasowy, Fosforan potasu, monozasadowy, monofosforan monopotasowy, E340i, E 340i, E-340i, E340 i
+pt:fosfato monopotássico, Fosfato monobásico de potássio, monofosfato monopotássico, E340i, E 340i, E-340i, E340 i
+ro:Fosfat monopotasic, Fosfat de potasiu monobazic, Monofosfat monopotasic, E340i, E 340i, E-340i, E340 i
+ru:орто-Фосфат калия 3-замещенный, E340i, E 340i, E-340i, E340 i
+sk:Fosforečnan monodraselný, Monosýtny fosforečnan draselný, monofosforečnan monodraselný, E340i, E 340i, E-340i, E340 i
+sl:Monokalijev fosfat, monobazični kalijev fosfat, monokalijev monofosfat, E340i, E 340i, E-340i, E340 i
+sv:Monokaliumfosfat, Monokaliummonofosfat, kaliumortofosfat, E340i, E 340i, E-340i, E340 i
+wikidata:Q415049
+wikipedia:https://en.wikipedia.org/wiki/Monopotassium_phosphate
+# additive/e340i-monopotassium-phosphate has 241 products in 10 languages @2018-11-7
+
+# Dipotassium phosphate (K2HPO4) (also dipotassium hydrogen orthophosphate; potassium phosphate dibasic) is a highly water-soluble salt
+
+<en:potassium phosphates
+en:dipotassium phosphate, Dipotassium monophosphate, Secondary potassium phosphate, Dipotassium orthophosphate, E340ii, E 340ii, E-340ii, E340 ii
+ar:دیپوتاسیوم فوسفات
+# azb:دیپوتاسیوم فوسفات
+bg:Дикалиев фосфат, Дикалиев монофосфат, вторичен калиев фосфат, дикалиев ортофосфат, E340ii, E 340ii, E-340ii, E340 ii
+cs:Hydrogenfosforečnan draselný, E340ii, E 340ii, E-340ii, E340 ii
+da:Dikaliumphosphat, Dikaliummonophosphat, sekundært kaliumphosphat, dikaliumorthophosphat, E340ii, E 340ii, E-340ii, E340 ii
+de:Dikaliumphosphat, E340ii, E 340ii, E-340ii, E340 ii
+el:Οξινο φωσφορικο καλιο, Όξινο ορθοφωσφορικό κάλιο, E340ii, E 340ii, E-340ii, E340 ii
+eo:Kalia fosfato dubaza, E340ii, E 340ii, E-340ii, E340 ii
+es:Fosfato dipotásico, fosfato dipotásico, E340ii, E 340ii, E-340ii, E340 ii
+et:Dikaaliumvesinikfosfaat, Dikaaliumvesinikfosfaat, E340ii, E 340ii, E-340ii, E340 ii
+fa:دی‌پتاسیم فسفات
+fi:dikaliumfosfaatti, E340ii, E 340ii, E-340ii, E340 ii
+fr:phosphate dipotassique, E340ii, E 340ii, E-340ii, E340 ii
+hu:Dikálium-foszfát, Dikálium-monofoszfát, Szekunder kálium-foszfát, Dikálium-ortofoszfát, E340ii, E 340ii, E-340ii, E340 ii
+it:Fosfato dipotassico, Monofosfato dipotassico, fosfato secondario di potassio, ortofosfato dipotassico, E340ii, E 340ii, E-340ii, E340 ii
+ja:リン酸水素二カリウム, E340ii, E 340ii, E-340ii, E340 ii
+lt:Dikalio fosfatas, Dikalio monofosfatas, antrinis kalio fosfatas, dikalio ortofosfatas, E340ii, E 340ii, E-340ii, E340 ii
+lv:Dikālija fosfāts, Dikālija monofosfāts, Otrējais kālija fosfāts, Dikālija ortofosfāts, E340ii, E 340ii, E-340ii, E340 ii
+mt:Fosfat dipotassiku, Monofosfat dipotassiku, Fosfat tal-potassju sekondarju, Ortofosfat dipotassiku, E340ii, E 340ii, E-340ii, E340 ii
+nl:Dikaliumfosfaat, Dikaliummonofosfaat, secundair kaliumfosfaat, dikaliumorthofosfaat, E340ii, E 340ii, E-340ii, E340 ii
+pl:Fosforan dipotasowy, Monofosforan dipotasowy, drugorzędowy fosforan potasu, ortofosforan dipotasowy, fosforan potasu, E340ii, E 340ii, E-340ii, E340 ii
+pt:fosfato dipotássico, fosfato dipotéssico, E340ii, E 340ii, E-340ii, E340 ii
+ro:Fosfat dipotasic, Monofosfat dipotasic, Fosfat de potasiu secundar, Ortofosfat dipotasic, E340ii, E 340ii, E-340ii, E340 ii
+ru:Гидроортофосфат калия, E340ii, E 340ii, E-340ii, E340 ii
+sh:Dikalijum fosfat, E340ii, E 340ii, E-340ii, E340 ii
+sk:Fosforečnan didraselný, E340ii, E 340ii, E-340ii, E340 ii
+sl:Dikalijev fosfat, dikalijev monofosfat, sekundarni kalijev fosfat, dikalijev ortofosfat, E340ii, E 340ii, E-340ii, E340 ii
+sr:Dikalijum fosfat, E340ii, E 340ii, E-340ii, E340 ii
+sv:Dikaliumfosfat, Dikaliumortofosfat, E340ii, E 340ii, E-340ii, E340 ii
+ta:இருபொட்டாசியம் பாசுபேட்டு, E340ii, E 340ii, E-340ii, E340 ii
+th:ไดโพแทสเซียมฟอสเฟต, E340ii, E 340ii, E-340ii, E340 ii
+vi:Dikali photphat, E340ii, E 340ii, E-340ii, E340 ii
+zh:磷酸氫二鉀, E340ii, E 340ii, E-340ii, E340 ii
+wikipedia:https://en.wikipedia.org/wiki/Dipotassium_phosphate
+wikidata:Q403721
+# additive/e340ii-dipotassium-phosphate has 1620 products in 14 languages @2018-11-07
+
+# Tripotassium phosphate, also called potassium phosphate tribasic,[3] is a water-soluble ionic salt which has the chemical formula K3PO4. 
+<en:potassium phosphates
+en:tripotassium phosphate, E340iii, E 340iii, E340 iii, E-340iii
+# azb:تریپوتاسیوم فوسفات
+bg:Трикалиев фосфат, Триосновен калиев фосфат, E340iii, E 340iii, E340 iii, E-340iii
+cs:Fosforečnan draselný, Fosforečnan tridraselný, E340iii, E 340iii, E340 iii, E-340iii
+da:Trikaliumphosphat, Tribasisk kaliumphosphat, E340iii, E 340iii, E340 iii, E-340iii
+de:Trikaliumphosphat, dreibasiges Kaliumphosphat, E340iii, E 340iii, E340 iii, E-340iii
+el:Φωσφορικο καλιο, Ουδέτερο φωσφορικό κάλιο, E340iii, E 340iii, E340 iii, E-340iii
+eo:Kalia fosfato tribaza, E340iii, E 340iii, E340 iii, E-340iii
+es:fosfato tripotasico, E340iii, E 340iii, E340 iii, E-340iii
+et:Kaaliumfosfaat, Trikaaliumfosfaat, E340iii, E 340iii, E340 iii, E-340iii
+fa:تری‌پتاسیم فسفات
+fi:Trikaliumfosfaatti, Kolmenarvoinen kaliumfosfaatti, E340iii, E 340iii, E340 iii, E-340iii
+fr:Phosphate tripotassique, E340iii, E 340iii, E340 iii, E-340iii
+hu:Trikálium-foszfát, Hárombázisú kálium-foszfát, E340iii, E 340iii, E340 iii, E-340iii
+it:Fosfato tripotassico, Fosfato tribasico di potassio, E340iii, E 340iii, E340 iii, E-340iii
+ja:リン酸三カリウム, E340iii, E 340iii, E340 iii, E-340iii
+lt:Trikalio fosfatas, Tribazis kalio fosfatas, E340iii, E 340iii, E340 iii, E-340iii
+lv:Trikālija fosfāts, Tribāziskais kālija fosfāts, E340iii, E 340iii, E340 iii, E-340iii
+mt:Fosfat tat-tripotassju, Fosfat tal-potassju tribażiku, E340iii, E 340iii, E340 iii, E-340iii
+nl:Trikaliumfosfaat, Driebasisch kaliumfosfaat, E340iii, E 340iii, E340 iii, E-340iii
+pl:Fosforan tripotasowy, Fosforan potasu, trizasadowy, E340iii, E 340iii, E340 iii, E-340iii
+pt:Fosfato tripotássico, Fosfato tribásico de potássio, E340iii, E 340iii, E340 iii, E-340iii
+ro:Fosfat tripotasic, Fosfat de potasiu tribazic, E340iii, E 340iii, E340 iii, E-340iii
+ru:Ортофосфат калия, E340iii, E 340iii, E340 iii, E-340iii
+sh:Trikalijum fosfat, E340iii, E 340iii, E340 iii, E-340iii
+sk:Fosforečnan tridraselný, Trojsýtny fosforečnan draselný, E340iii, E 340iii, E340 iii, E-340iii
+sl:Trikalijev fosfat, tribazični kalijev fosfat, E340iii, E 340iii, E340 iii, E-340iii
+sr:Trikalijum fosfat, E340iii, E 340iii, E340 iii, E-340iii
+sv:Trikaliumfosfat, E340iii, E 340iii, E340 iii, E-340iii
+ta:டிரைபொட்டாசியம் பாசுபேட்டு, E340iii, E 340iii, E340 iii, E-340iii
+zh:磷酸鉀, E340iii, E 340iii, E340 iii, E-340iii
+wikidata:Q423852
+wikipedia:https://en.wikipedia.org/wiki/Tripotassium_phosphate
+# additive/e340iii-tripotassium-phosphate has 157 products in 4 languages @2018-11-07
+
+
+# Magnesium phosphate is a general term for salts of magnesium and phosphate appearing in several forms and several hydrates
+# Note that these ingredients are written in plural as it can be any of the three variants
+
+en:magnesium phosphates, E343, E 343, E-343
+de:Magnesiumphosphaten, E343, E 343, E-343
+it:fosfati di magnesio, E343, E 343, E-343
+fr:phosphates de magnésium, E343, E 343, E-343
+nl:Magnesiumorthofosfaten, E343, E 343, E-343
+wikipedia:https://en.wikipedia.org/wiki/Magnesium_phosphate
+# additive/e343-magnesium-phosphates has 81 products @2018-11-07
+
+# Monomagnesium phosphate is one of the forms of magnesium phosphate.
+
+<en:magnesium phosphates
+en:monomagnesium phosphate, E343i, E 343i, E-343i, E343 i
+bg:Мономагнезиев фосфат, Магнезиев дихидрогенфосфат, магнезиев фосфат едноосновен, E343i, E 343i, E-343i, E343 i
+cs:Dihydrogenfosforečnan hořečnatý, Kyselý fosforečnan hořečnatý, E343i, E 343i, E-343i, E343 i
+da:Monomagnesiumphosphat, Magnesiumdihydrogenphosphat, monobasisk magnesiumphosphat, E343i, E 343i, E-343i, E343 i
+de:Monomagnesiumphosphat, Magnesiumdihydrogenphosphat, einbasiges Magnesiumphosphat, E343i, E 343i, E-343i, E343 i
+el:Δισοξινο φωσφορικο μαγνησιο, Φωσφορικό μαγνήσιο μονοβασικό, E343i, E 343i, E-343i, E343 i
+es:Fosfato de monomagnesio, Dihidrogenofosfato de magnesio, fosfato monobásico de magnesio, E343i, E 343i, E-343i, E343 i
+et:Magneesiumdivesinikfosfaat, E343i, E 343i, E-343i, E343 i
+fi:Monomagnesiumfosfaatti, Magnesiumdivetyfosfaatti, Magnesiumfosfaatti monoemäksinen, E343i, E 343i, E-343i, E343 i
+fr:Phosphate monomagnésique, E343i, E 343i, E-343i, E343 i
+hu:Monomagnézium-foszfát, Magnézium-dihidrogén-foszfát, Magnézium-foszfát egybázisú, E343i, E 343i, E-343i, E343 i
+it:Diidrogeno fosfato di magnesio, fosfato di magnesio monobasico, E343i, E 343i, E-343i, E343 i
+lt:Monomagnio fosfatas, Magnio divandenilio fosfatas, magnio fosfatas vienbazis, E343i, E 343i, E-343i, E343 i
+lv:Monomagnija fosfāts, Magnija dihidrogēnfosfāts, Vienbāziskais magnija fosfāts, E343i, E 343i, E-343i, E343 i
+mt:Fosfat monomanjeżiku, E343i, E 343i, E-343i, E343 i
+nl:Monomagnesiumfosfaat, Magnesiumdiwaterstoffosfaat, monobasisch magnesiumfosfaat, E343i, E 343i, E-343i, E343 i
+pl:Fosforan monomagnezu, Diwodorofosforan magnezu, fosforan magnezu monozasadowy, E343i, E 343i, E-343i, E343 i
+pt:Fosfato de monomagnésio, E343i, E 343i, E-343i, E343 i
+ro:Fosfat monomagnezic, Fosfat diacid de magneziu, Fosfat de magneziu monobazic, E343i, E 343i, E-343i, E343 i
+ru:Дигидроортофосфат магния , E343i, E 343i, E-343i, E343 i
+sk:Fosforečnan horečnatý, E343i, E 343i, E-343i, E343 i
+sl:Monomagnezijev fosfat, magnezijev dihidrogenfosfat, magnezijev fosfat monobazični, E343i, E 343i, E-343i, E343 i
+sv:Monomagnesiumfosfat, Magnesiumdivätefosfat, E343i, E 343i, E-343i, E343 i
+ta:ஒருமக்னீசியம் பாசுபேட்டு, E343i, E 343i, E-343i, E343 i
+zh:磷酸二氢镁, E343i, E 343i, E-343i, E343 i
+wikidata:Q4161317
+wikipedia:https://en.wikipedia.org/wiki/Monomagnesium_phosphate
+# additive/e343i-monomagnesium-phosphate has 1 product in english @2018-11-7
+
+# Dimagnesium phosphate is a compound with formula MgHPO4.
+
+<en:magnesium phosphates
+en:dimagnesium phosphate, E343ii, E 343ii, E-343ii, E343 ii
+bg:Димагнезиев фосфат, Магнезиев хидрогенфосфат, магнезиев фосфат двуосновен, димагнезиев ортофосфат, E343ii, E 343ii, E-343ii, E343 ii
+cs:Hydrogenfosforečnan hořečnatý, Orthofosforečnan dihořečnatý, E343ii, E 343ii, E-343ii, E343 ii
+da:Dimagnesiumphosphat, Magnesiumhydrogenphosphat, dibasisk magnesiumphosphat, dimagnesiumorthophosphat, E343ii, E 343ii, E-343ii, E343 ii
+de:Dimagnesiumphosphat, Magnesiumhydrogenphosphat, zweibasiges Magnesiumphosphat, Dimagnesiumorthophosphat, E343ii, E 343ii, E-343ii, E343 ii
+el:Οξινο φωσφορικο μαγνησιο, Φωσφορικό μαγνήσιο διβασικό, E343ii, E 343ii, E-343ii, E343 ii
+# en-ca:Dimagnesium phosphate, E343ii, E 343ii, E-343ii, E343 ii
+# en-gb:Dimagnesium phosphate, E343ii, E 343ii, E-343ii, E343 ii
+es:Fosfato de dimagnesio, Hidrogenofosfato de magnesio, fosfato dibásico de magnesio, ortofosfato de dimagnesio, E343ii, E 343ii, E-343ii, E343 ii
+et:Magneesiumvesinikfosfaat, E343ii, E 343ii, E-343ii, E343 ii
+fi:Dimagnesiumfosfaatti, Magnesiumvetyfosfaatti, Magnesiumfosfaatti kaksiemäksinen, Dimagnesiumortofosfaatti, E343ii, E 343ii, E-343ii, E343 ii
+fr:dimagnésium phosphate, E343ii, E 343ii, E-343ii, E343 ii
+hu:Dimagnézium-foszfát, Magnézium-hidrogén-foszfát, Magnézium-foszfát kétbázisú, Dimagnézium-ortofoszfát, E343ii, E 343ii, E-343ii, E343 ii
+it:Fosfato di dimagnesio, Idrogeno fosfato di magnesio, fosfato di magnesio dibasico, ortofosfato bimagnesico, E343ii, E 343ii, E-343ii, E343 ii
+lt:Dimagnio fosfatas, Magnio divandenilio fosfatas, magnio fosfatas dvibazis, dimagnio ortofosfatas, E343ii, E 343ii, E-343ii, E343 ii
+lv:Dimagnija fosfāts, Magnija hidrogēnfosfāts, Divbāziskais magnija fosfāts, Dimagnija ortofosfāts, E343ii, E 343ii, E-343ii, E343 ii
+mt:Fosfat dimanjeżiku, Fosfat idroġenat tal-manjeżju, Fosfat idroġenat tal-manjeżju, Ortofosfat dimanjeżiku, E343ii, E 343ii, E-343ii, E343 ii
+nl:Dimagnesiumfosfaat, Magnesiumwaterstoffosfaat, tweebasisch magnesiumfosfaat, dimagnesiumorthofosfaat, E343ii, E 343ii, E-343ii, E343 ii
+pl:Fosforan dimagnezu, Wodorofosforan magnezu, fosforan magnezu dizasadowy, ortofosforan dimagnezu, E343ii, E 343ii, E-343ii, E343 ii
+pt:Fosfato de dimagnésio, Hidrogenofosfato de magnésio, fosfato dibásico de magnésio, ortofosfato de dimagnésio, E343ii, E 343ii, E-343ii, E343 ii
+ro:Fosfat dimagnezic, Fosfat acid de magneziu, Fosfat de magneziu dibazic, Ortofosfat dimagnezic, E343ii, E 343ii, E-343ii, E343 ii
+ru:гидроортофосфат магния, E343ii, E 343ii, E-343ii, E343 ii
+sh:Dimagnezijum fosfat, E343ii, E 343ii, E-343ii, E343 ii
+sk:Fosforečnan dihorečnatý, Hydrogenfosforečnan horečnatý, fosforečnan horečnatý dvojsýtny, ortofosforečnan dihorečnatý, E343ii, E 343ii, E-343ii, E343 ii
+sl:Dimagnezijev fosfat, magnezijev hidrogenfosfat, magnezijev fosfat dibazični, dimagnezijev ortofosfat, E343ii, E 343ii, E-343ii, E343 ii
+sr:Dimagnezijum fosfat, E343ii, E 343ii, E-343ii, E343 ii
+sv:Dimagnesiumfosfat, Magnesiumvätefosfat, E343ii, E 343ii, E-343ii, E343 ii
+ta:இருமக்னீசியம் பாசுபேட்டு, E343ii, E 343ii, E-343ii, E343 ii
+wikipedia:https://en.wikipedia.org/wiki/Dimagnesium_phosphate
+# additive/e343ii-dimagnesium-phosphate has 32 products in 2 languages @2018-11-07
+
+# This is the unspecified magnesium phosphate in singular. Mostly used for the mineral of magnesium
+
+<en:magnesium phosphates
+en:magnesium phosphate
+ar:فوسفات المغنسيوم
+de:Magnesiumphosphat
+it:fosfato di magnesio
+fr:phosphate de magnésium
+hu:Magnézium-foszfát
+it:Fosfato di magnesio
+nl:Magnesiumfosfaat
+sh:Magnezijum fosfat
+sv:Magnesiumfosfat
+ta:மக்னீசியம் பாசுபேட்டு
+wikipedia:https://en.wikipedia.org/wiki/Magnesium_phosphate
+# fr:phosphate-de-magnésium has 26 products in 5 languages @2018-11-07
+# mineral/magnesium-phosphate has 78 products in 4 languages @2018-11-07
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                           E 4 5 0 - E 4 5 2     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+# In chemistry, a pyrophosphate is a phosphorus oxyanion. 
+# On wikidata the ingredient is usually called pyrophosphate, contrary to what is found on packages
+
+<en:raising agent
+# <en:emulsifier
+<en:stabiliser
+# <en:humectant
+# <en:sequestrant
+en:diphosphates, e450 stabilizer, E450, e 450
+bg:Дифосфат, E450
+ca:Difosfat, E450, e 450
+cs:difosforečnany, E450, e 450
+da:E450
+de:Diphosphate, E450, e 450
+el:E450 
+es:difosfatos, E450, e 450
+et:E450
+fa:پیروفسفات
+fi:E450, Pyrofosfaatti 
+fr:diphosphate, diphosphates, stabilisant e450, E450, e 450
+hu:Difoszfátok, E450, e 450
+it:difosfati, E450, e 450
+ja:ピロリン酸塩
+lt:E450
+lv:E450
+mt:E450
+nl:difosfaten, E450, e 450
+pl:difosforan, difosforany, E450, e 450
+pt:difosfato , E450, e 450
+ro:difosfati, E450, e 450
+ru:Пирофосфаты, двузамещенный пирофосфат натрия, трехзамещенный пирофосфат натрия, тетранатрийпирофосфат, двузамещенный пирофосфат калия, тетракалийдифосфат, дикальцийпирофосфат, кальцийдигидропирофосфат, Пирофосфат, E450
+sk:difosforečnany, E450, e 450
+sl:E450, e 450
+sv:E450, e 450
+zh:焦磷酸盐
+wikidata:Q55506489
+wikipedia:https://en.wikipedia.org/wiki/Pyrophosphate
+# fr:diphosphate has 4974 products in 29 languages @2018-11-04
+
+<en:diphosphates
+<en:sodium carbonates
+fr:e450 et e500
+de:E 450 und E 500, E450 und E500
+it:E 450 ed E 500, E450 ed E500
+# fr:e450-et-e500 has 64 products in 4 languages @2018-11-04
+
+<en:diphosphates
+en:disodium diphosphate, e450i
+ar:بيروفوسفات ثنائي الصوديوم
+# azb دیسودیوم پیروفوسفات
+bg:Динатриев дифосфат, e450i
+cs:Dihydrogenfosforečnan sodný, e450i
+da:dinatriumdiphosphat, e450i
+de:Dinatriumdiphosphat, e450i
+el:Δισοξινο πυροφωσφορικο νατριο, e450i
+es:difosfato disódico, e450i
+et:Dinaatriumdifosfaat, Dinaatriumdivesinikdifosfaat, e450i
+fa:دی‌سدیم پیروفسفات
+fi:Dinatriumdifosfaatti, Dinatriumdivetydifosfaatti, Dinatriumdivetypyrofosfaatti, Hapan natriumpyrofosfaatti, e450i
+fr:diphosphate disodique, diphosphates de sodium, diphosphate de sodium, e450i
+hu:Dinátrium-difoszfát, e450i
+it:difosfato disodico, e450i
+ja: 二リン酸二水素二ナトリウム, e450i
+lt: Dinatrio difosfatas , e450i
+lv: Dinātrija difosfāts, e450i
+mt:Difosfat disodiku, Difosfat didroġenat disodiku, Pirofosfat didroġenat disodiku, Pirofosfat tal-aċidu tas-sodju, e450i
+nl:Dinatriumdifosfaat, e450i
+pl:Difosforan disodowy, Difosforan diwodoro-disodowy, pirofosforan diwodoro-disodowy, kwaśny pirofosforan sodu, e450i
+pt:difosfato dissódico, e450i
+ro:Difosfat disodic, Difosfat diacid disodic, Pirofosfat diacid disodic, Pirofosfat acid de sodiu, e450i
+ru:дигидропирофосфат натрия, e450i
+sh:Dinatrijum pirofosfat, e450i
+sk:Difosforečnan disodný, e450i
+sl:Dinatrijev difosfat, e450i
+sr:Dinatrijum pirofosfat, e450i
+sv:Dinatriumdifosfat, Dinatriumdivätedifosfat, dinatriumdivätepyrofosfat, natriumpyrofosfatsyra, e450i
+vi: Natri đihiđropyrophotphat, e450i
+zh:酸式焦磷酸钠, e450i
+# fr:diphosphate-disodique has 1470 products in 8 languages @2018-11-04
+# fr:e450i has 388 products in 4 languages @2018-11-04
+
+
+<en:diphosphates
+en:Trisodium diphosphate, e450ii
+bg:Тринатриев дифосфат, e450ii
+cs:Hydrogendifosforečnan sodný, e450ii
+da:Trinatriumdiphosphat, e450ii
+de:Trinatriumdiphosphat, e450ii
+el:Οξινο πυροφωσφορικο νατριο, e450ii
+es:Difosfato trisódico, e450ii
+et:Trinaatriumdifosfaat, Trinaatriumvesinikdifosfaat, trinaatriumpürofosfaat, e450ii
+fi:Trinatriumdifosfaatti, Trinatriumpyrofosfaatti, e450ii
+fr:Diphosphate trisodique, Pyrophosphate trisodique acide, Hydrogéno-diphosphate trisodique, e450ii
+hu:Trinátrium-difoszfát, e450ii
+it:Difosfato trisodico, e450ii
+lt:Trinatrio difosfatas, e450ii
+lv:Trinātrija difosfāts, e450ii
+mt:Difosfat trisodiku, e450ii
+nl:Trinatriumdifosfaat, e450ii
+pl:Difosforan trisodowy, e450ii
+pt:Difosfato trissódico, e450ii
+ro:Difosfat trisodic, Pirofosfat trisodic, Difosfat monoacid trisodic, Pirofosfat monoacid trisodic, e450ii
+sk:Difosforečnan trisodný, e450ii
+sl:Trinatrijev difosfat, e450ii
+sv:Trinatriumdifosfat, Trinatriumpyrofosfat, trinatriumvätedifosfat, e450ii
+# fr:e450ii has 18 products in 2 languages @2018-11-04
+
+# TETRASODIUM PYROPHOSPHATE, also called sodium pyrophosphate, tetrasodium phosphate or TSPP, is a colorless transparent crystalline chemical compound with the formula Na4P2O7. 
+
+<en:diphosphates
+en:Tetrasodium diphosphate, Tetrasodium pyrophosphate, sodium pyrophosphate, e450iii
+ar: بيروفوسفات صوديوم
+# azb: تتراسدیوم پیروفوسفات
+bg:Тетранатриев дифосфат, Тетранатриев пирофосфат, тетранатриев дифосфат, e450iii
+cs:Difosforečnan sodný, Pyrofosforečnan tetrasodný, e450iii
+da:Tetranatriumdiphosphat, Tetranatriumpyrophosphat, tetranatriumdiphosphat, e450iii
+de:Tetranatriumdiphosphat, Tetranatriumpyrophosphat, Tetranatriumdiphosphat, e450iii
+el:Πυροφωσφορικο νατριο, Πυροφωσφορικό άλας νατρίου, διφωσφορικό νάτριο, e450iii
+eo:Natria pirofosfato, e450iii
+es:Difosfato tetrasódico, Pirofosfato tetrasódico, difosfato de tetrasodio, e450iii
+et:Tetranaatriumdifosfaat, e450iii
+fa:تتراسدیوم پیروفسفات
+fi:Tetranatriumdifosfaatti, Natriumpyrofosfaatti, e450iii
+fr:diphosphate tétrasodique, Pyrophosphate de sodium, pyrophosphate de soude, pyrophosphate acide de sodium, e450iii
+hu:Tetranátrium-difoszfát, Tetranátrium-pirofoszfát, Tetranátrium-difoszfát, e450iii
+it:Difosfato tetrasodico, Pirofosfato tetrasodico, disfosfato tetrasodico, Pirofosfato di sodio, e450iii
+lt:Tetranatrio difosfatas, Tetranatrio pirofosfatas, tetranatrio difosfatas, e450iii
+lv:Tetranātrija difosfāts, Tetranātrija pirofosfāts, Tetranātrija difosfāts, e450iii
+mt:Difosfat tetrasodiku, Pirofosfat tetrasodiku, Disfosfat tetrasodiku, e450iii
+nl:Tetranatriumdifosfaat, Tetranatriumpyrofosfaat, e450iii
+pl:Difosforan tetrasodowy, Pirofosforan czterosodowy, difosforan czterosodowy, e450iii
+pt:Difosfato tetrassódico, Pirofosfato tetrassódico, difosfato de tetrassódio, e450iii
+ro:Difosfat tetrasodic, Pirofosfat tetrasodic, Difosfat tetrasodic, e450iii
+ru:Пирофосфат натрия , e450iii
+sh: etranatrijum pirofosfat, e450iii
+sk:Difosforečnan tetrasodný, Pyrofosforečnan tetrasodný, difosforečnan tetrasodný, e450iii
+sl:Tetranatrijev difosfat, tetranatrijev pirofosfat, tetranatrijev difosfat, e450iii
+sr:Tetranatrijum pirofosfat , e450iii
+sv:Tetranatriumdifosfat, Tetranatriumpyrofosfat, e450iii
+vi:Natri pyrophotphat, e450iii
+zh: 焦磷酸钠, e450iii
+wikipedia:https://en.wikipedia.org/wiki/Tetrasodium_pyrophosphate
+# fr:diphosphate-tétrasodique has 331 products in 2 languages @2018-11-04
+# fr:e450iii has 52 products in 3 languages @2018-11-04
+
+<en:diphosphates
+en:dipotassium dihydrogenpyrophosphate, E450iv, E-450iv
+es:E450iv, E-450iv
+fr:Diphosphate dipotasique, E450iv, E-450iv
+# es:E-450iv has 3 products @2018-11-04
+
+<en:diphosphates
+en:tetrapotassium diphosphate, tetrapotassium pyrophosphate, e450v
+bg:Тетракалиев дифосфат, e450v
+cs:Difosforečnan draselný, Pyrofosforečnan draselný, e450v
+da:Tetrakaliumdiphosphat, e450v
+de:Tetrakaliumdiphosphat, e450v
+el:Πυροφωσφορικο καλιο, e450v
+es:Difosfato tetrapotásico, e450v
+et:Tetrakaaliumdifosfaat, e450v
+fi:Tetrakaliumdifosfaatti, e450v
+fr:diphosphate tétrapotassique, e450v
+hu:Tetrakálium-difoszfát, e450v
+it:Difosfato di tetrapotassio, e450v
+lt:Tetrakalio difosfatas, e450v
+lv:Tetrakālija difosfāts, e450v
+mt:Difosfat tetrapotassiku, e450v
+nl:Tetrakaliumdifosfaat, e450v
+pl:Difosforan tetrapotasowy, e450v
+pt:Difosfato tetrapotássico, e450v
+ro:Difosfat tetrapotasic, e450v
+sk:Difosforečnan tetradraselný, e450v
+sl:Tetrakalijev difosfat, e450v
+sv:Tetrakaliumdifosfat, e450v
+# fr:e450v has 1 product @2018-11-04
+
+<en:diphosphates
+en:dicalcium pyrophosphate, e450vi
+# en:dicalcium-pyrophosphate has 1 product @2018-11-04
+
+<en:diphosphates
+en:calcium dihydrogen diphosphate, e450vii
+bg:Калциев дихидроген дифосфат, Кисел калциев пирофосфат, e450vii
+cs:Dihydrogendifosforečnan vápenatý, e450vii
+da:Calciumdihydrogendiphosphat, Surt calciumpyrophosphat, e450vii
+de:Calciumdihydrogendiphosphat, saures Calciumpyrophosphat, e450vii
+el:Δισοξινο πυροφωσφορικο ασβεστιο, e450vii
+es:Difosfato cálcico de dihidrógeno, Pirofosfato ácido de calcio, e450vii
+et:Kaltsiumdivesinikdifosfaat, Kaltsiumdivesinikpürofosfaat, e450vii
+fi:Kalsiumdivetydifosfaatti, Hapan kalsiumpyrofosfaatti, e450vii
+fr:Diphosphate biacide de calcium, Dihydrogéno-diphosphate de calcium, Pyrophosphate de calcium acide, e450vii
+hu:Kalcium-dihidrogén-difoszfát, Savas kalcium-pirofoszfát, e450vii
+it:Di-idrogenodifosfato di calcio, Pirofosfato acido di calcio, e450vii
+lt:Kalcio divandenilio difosfatas, Rūgštusis kalcio pirofosfatas, e450vii
+lv:Kalcija dihidrogendifosfāts, Skābais kalcija pirofosfāts, e450vii
+mt:Difosfat diidroġenat tal-kalċju, Pirofosfat tal-kalċju aċiduż, e450vii
+nl:Calciumdiwaterstofdifosfaat, Zuur calciumpyrofosfaat, e450vii
+pl:Diwodoro-difosforan wapnia, Kwaśny pirofosforan wapnia, e450vii
+pt:Di-hidrogenodifosfato de cálcio, Pirofosfato ácido de cálcio, e450vii
+ro:Difosfat diacid de calciu, Pirofosfat acid de calciu, e450vii
+sk:Dihydrogendifosforečnan divápenatý, Kyslý pyrofosforečnan vápenatý, e450vii
+sl:Kalcijev dihidrogen difosfat, kisel kalcijev pirofosfat, e450vii
+sv:Kalciumdivätedifosfat, Kalciumpyrofosfatsyra, e450vii
+# e450vii has 3 products @2018-11-04
+
+# <en:diphosphates
+# en:Magnesium pyrophosphate, e450viii
+# has no products @2018-11-04
+
+
+<en:e450i
+fr:diphosphate disodique et carbonate acide de sodium
+# fr:diphosphate-disodique-et-carbonate-acide-de-sodium has 72 products in 2 languages @2018-11-04
+
+
+<en:raising agent
+<en:emulsifier
+<en:stabiliser
+<en:humectant
+<en:sequestrant
+en:triphosphates, triphosphate, E451, e 451, e-451
+de:Triphosphate, E451, e 451, e-451
+fr:triphosphate, triphosphates, E451, e 451, e-451
+it:trifosfat, E451, e 451, e-451
+nl:trifosfaten, E451, e 451, e-451
+ru: Tрифосфаты
+sv:trifosfat
+# fr:triphosphate has 583 products in 5 languages @2018-11-04
+# additive/e451-triphosphates has 3202 products in 18 languages @2018-11-05
+
+# Sodium triphosphate (STP), also sodium tripolyphosphate (STPP), or tripolyphosphate (TPP),[1]) is an inorganic compound with formula Na5P3O10. 
+
+<en:triphosphates
+en:Pentasodium triphosphate, Pentasodium tripolyphosphate
+ar:مالفرق بين
+# azb:سودیوم تریفوسفات
+bg:Пентанатриев трифосфат, Пентанатриев триполифосфат, Натриев триполифосфат , e451i, e 451, e-451i
+ca:trifosfat sòdic, e451i, e 451, e-451i
+cs:Trifosforečnan pentasodný, e451i, e 451, e-451i
+da:Pentanatriumtriphosphat, Pentanatriumtripolyphosphat, e451i, e 451, e-451i
+de:Pentanatriumtriphosphat, Pentanatriumtripolyphosphat, e451i, e 451, e-451i
+el:Τριφωσφορικο νατριο, Τριπολυφωσφορικό νάτριο, e451i, e 451, e-451i
+es:tripolifosfato de sodio, Trifosfato de pentasodio, Tripolifosfato pentasódico, e451i, e 451, e-451i
+et:Pentanaatriumtrifosfaat, Pentanaatriumtripolüfosfaat, e451i, e 451, e-451i
+fa:سدیم تری‌فسفات
+fi:Pentanatriumtrifosfaatti, Pentanatriumtripolyfosfaatti, e451i, e 451, e-451i
+fr:triphosphate pentasodique, e451i, e 451, e-451i
+he:סודיום טריפוספט
+hu:Pentanátrium-trifoszfát, Pentanátrium-tripolifoszfát, e451i, e 451, e-451i
+it:Trifosfato pentasodico, Tripolifosfato pentasodico, e451i, e 451, e-451i
+lt:Pentanatrio trifosfatas, Pentanatrio tripolifosfatas, e451i, e 451, e-451i
+lv:Pentanātrija trifosfāts, Pentanātrija tripolifosfāts, e451i, e 451, e-451i
+# mt:Trifosfat pentasodiku, Tripolifosfat pentasodiku, e451i, e 451, e-451i
+nl:Pentanatriumtrifosfaat, Pentanatriumtripolyfosfaat, e451i, e 451, e-451i
+pl:Trifosforan pentasodowy, Trójpolifosforan pięciosodowy, e451i, e 451, e-451i
+pt:trifosfato pentassódico, tripolifosfato de sódio, e451i, e 451, e-451i
+ro:Trifosfat pentasodic, Tripolifosfat pentasodic, e451i, e 451, e-451i
+ru:трифосфат натрия, e451i, e 451, e-451i
+sh:Natrijum trifosfat, e451i, e 451, e-451i
+sk:Trifosforečnan pentasodný, Tripolyfosforečnan pentasodný, e451i, e 451, e-451i
+sl:Pentanatrijev trifosfat, pentanatrijev tripolifosfat, e451i, e 451, e-451i
+sr:натријум трифосфат, e451i, e 451, e-451i
+# sr-ec:натријум трифосфат, e451i, e 451, e-451i
+# sr-el:natrijum trifosfat, e451i, e 451, e-451i
+sv:Pentanatriumtrifosfat, Pentanatriumtripolyfosfat, e451i, e 451, e-451i
+uk:Трифосфат натрію, e451i, e 451, e-451i
+vi:Natri tripolyphôtphat, e451i, e 451, e-451i
+zh:三聚磷酸钠, e451i, e 451, e-451i
+wikidata:Q29145
+wikipedia:https://en.wikipedia.org/wiki/Sodium_triphosphate
+# additive/e451i-pentasodium-triphosphate has 405 products @2018-11-05
+# fr:triphosphate pentasodique has 38 products in 2 languages @2018-11-05
+
+<en:triphosphates
+en:pentapotassium triphosphate, E451ii, E 451ii, E-451ii
+bg:Пентакалиев трифосфат, Пентакалиев триполифосфат, калиев трифосфат, E451ii, E 451ii, E-451ii
+cs:Trifosforečnan pentadraselný, E451ii, E 451ii, E-451ii
+da:Pentakaliumtriphosphat, Pentakaliumtripolyphosphat, kaliumtriphosphat, E451ii, E 451ii, E-451ii
+de:Pentakaliumtriphosphat, Pentakaliumtripolyphosphat, Kaliumtriphosphat, E451ii, E 451ii, E-451ii
+el:Τριφωσφορικο καλιο, Τριπολυφωσφορικό κάλιο, E451ii, E 451ii, E-451ii
+es:Trifosfato de pentapotasio, Tripolifosfato pentapotásico, trifosfato potásico, E451ii, E 451ii, E-451ii
+et:Pentakaaliumtrifosfaat, Pentakaaliumtripolüfosfaat, kaaliumtripolüfosfaat, E451ii, E 451ii, E-451ii
+fi:Pentakaliumtrifosfaatti, Pentakaliumtripolyfosfaatti, Kaliumtrifosfaatti, E451ii, E 451ii, E-451ii
+fr:triphosphate pentapotassique, E451ii, E 451ii, E-451ii
+hu:Pentakálium-trifoszfát, Pentakálium-tripolifoszfát, Kálium-trifoszfát, E451ii, E 451ii, E-451ii
+it:Trifosfato pentapotassico, Tripolifosfato pentapotassico, trifosfato di potassio, E451ii, E 451ii, E-451ii
+lt:Pentakalio trifosfatas, Pentakalio tripolifosfatas, kalio trifosfatas, E451ii, E 451ii, E-451ii
+lv:Pentakālija trifosfāts, Pentakālija tripolifosfāts, Kālija trifosfāts, E451ii, E 451ii, E-451ii
+mt:Trifosfat pentapotassiku, Tripolifosfat pentapotassiku, Trifosfat tal-potassju, E451ii, E 451ii, E-451ii
+nl:Pentakaliumtrifosfaat, Pentakaliumtripolyfosfaat, kaliumtrifosfaat, E451ii, E 451ii, E-451ii
+pl:Trifosforan pentapotasowy, E451ii, E 451ii, E-451ii
+pt:Trifosfato pentapotássico, Tripolifosfato pentapotássico, trifosfato de potássio, E451ii, E 451ii, E-451ii
+ro:Trifosfat pentapotasic, Tripolifosfat pentapotasic, Trifosfat de potasiu, E451ii, E 451ii, E-451ii
+sk:Trifosforečnan pentadraselný, E451ii, E 451ii, E-451ii
+sl:Pentakalijev trifosfat, pentakalijev tripolifosfat, kalijev trifosfat, E451ii, E 451ii, E-451ii
+sv:Pentakaliumtrifosfat, Pentakaliumtripolyfosfat, kaliumtrifosfat, E451ii, E 451ii, E-451ii
+wikidata: Q15632716
+# additive/e451ii-pentapotassium-triphosphate has 3 products in 1 language @2018-11-05
+
+<en:diphosphates
+<en:triphosphates
+en:di- and triphosphates
+da:di- och triphosphater
+de:Di- und Triphosphate, Stabilisator Di- und Triphosphate
+fi:di- ja trifosfaatit
+fr:diphosphates et triphosphates, triphosphates et diphosphates, di- et triphosphate
+nl:difosfaten en trifosfaten
+sv:di- och trifosfater
+
+<en:Emulsifier
+<en:Humectant
+<en:Sequestrant
+<en:Stabilizer
+<en:Thickener
+en:Polyphosphate, Polyphosphate E452, E452, e 452, e-452
+ar:E452, e 452, e-452
+cs:E452, e 452, e-452
+de:Polyphosphate, E452, e 452, e-452
+es:polifosfatos, E452, e 452, e-452
+it:E452, e 452, e-452
+fr:polyphosphate, polyphosphates, E452, e 452, e-452
+hu:E452, e 452, e-452
+mk:E452, e 452, e-452
+nl:Polyfosfaten, E452, e 452, e-452
+pl:E452, e 452, e-452
+pt:E452, e 452, e-452
+ro:E452, e 452, e-452
+ru:E452, e 452, e-452
+sl:E452, e 452, e-452
+sr:E452, e 452, e-452
+sv:E452, e 452, e-452
+uk:E452, e 452, e-452
+zh:E452, e 452, e-452
+# fr:polyphosphate has 610 products in 6 languages @2018-11-04
+# additive/e452-polyphosphates has 3451 products in 20 languages @2018-11-05
+
+<en:Polyphosphate
+en:Sodium polyphosphate, e452i, e 452i, e-452i
+ar:e452i, e 452i, e-452i
+bg:Натриев полифосфат, e452i, e 452i, e-452i
+cs:Polyfosforečnan sodný, e452i, e 452i, e-452i
+da:Natriumpolyphosphater, e452i, e 452i, e-452i
+de:Natriumpolyphosphat, e452i, e 452i, e-452i
+el:Πολυφωσφορικο νατριο, e452i, e 452i, e-452i
+es:polifosfato de sodio, e452i, e 452i, e-452i
+et:Naatriumpolüfosfaat, e452i, e 452i, e-452i
+fi:Natriumpolyfosfaatti, e452i, e 452i, e-452i
+fr:polyphosphates de sodium, e452i, e 452i, e-452i
+hu:Nátrium-polifoszfát, e452i, e 452i, e-452i
+it:Polifosfato di sodio, e452i, e 452i, e-452i
+lt:Natrio polifosfatas, e452i, e 452i, e-452i
+lv:Nātrija polifosfāts, e452i, e 452i, e-452i
+mt:Polifosfat tas-sodju, e452i, e 452i, e-452i
+nl:Natriumpolyfosfaat, e452i, e 452i, e-452i
+pl:Polifosforan sodu, e452i, e 452i, e-452i
+pt:polifosfato de sódio, Sodium polyphosphate, e452i, e 452i, e-452i
+ro:Polifosfat de sodiu, e452i, e 452i, e-452i
+ru:e452i, e 452i, e-452i
+sk:Polyfosforečnan sodný, e452i, e 452i, e-452i
+sl:Natrijev polifosfat, e452i, e 452i, e-452i
+sv:Natriumpolyfosfat, e452i, e 452i, e-452i
+zh:e452i, e 452i, e-452i
+# fr:polyphosphates de sodium has 93 products in 1 language @2018-11-04
+# fr:e452i has 38 products in 2 languages @2018-11-04
+# additive/e452i-sodium-polyphosphate has 414 products @2018-11-05
+
+<en:Polyphosphate
+en:potassium polyphosphate, E452ii, E 452ii, E-452ii
+bg:Калиев полифосфат, Калиев метафосфат, калиев полиметафосфат, E452ii, E 452ii, E-452ii
+cs:Polyfosforečnan draselný, E452ii, E 452ii, E-452ii
+da:Kaliumpolyphosphater, Kaliummetaphosphat, kaliumpolymetaphosphat, E452ii, E 452ii, E-452ii
+de:Kaliumpolyphosphat, Kaliummetaphosphat, Kaliumpolymetaphosphat, E452ii, E 452ii, E-452ii
+el:Πολυφωσφορικο καλιο, Μεταφωσφορικό κάλιο, πολυμεταφωσφορικό κάλιο, E452ii, E 452ii, E-452ii
+es:Polifosfato de potasio, Metafosfato potásico, polimetafosfato potásico, E452ii, E 452ii, E-452ii
+et:Kaaliumpolüfosfaat, Kaaliummetafosfaat, kaaliumpolümetafosfaat, E452ii, E 452ii, E-452ii
+fi:Kaliumpolyfosfaatti, Kaliummetafosfaatti, Kaliumpolymetafosfaatti, E452ii, E 452ii, E-452ii
+fr:Polyphosphate potassique, Métaphosphate de potassium, polymétaphosphate de potassium, Polyphosphates de potassium, Polyphosphate de potassium, Sel de Kurrol, E452ii, E 452ii, E-452ii
+hu:Kálium-polifoszfát, Kálium-metafoszfát, Kálium-polimetafoszfát, E452ii, E 452ii, E-452ii
+lt:Kalio polifosfatas, Kalio metafosfatas, kalio polimetafosfatas, E452ii, E 452ii, E-452ii
+lv:Kālija polifosfāts, Kālija metafosfāts, Kālija polimetafosfāts, E452ii, E 452ii, E-452ii
+mt:Polifosfat tal-potassju, Metafosfat tal-potassju, Polimetafosfat tal-potassju, E452ii, E 452ii, E-452ii
+nl:Kaliumpolyfosfaat, Kaliummetafosfaat, kaliumpolymetafosfaat, E452ii, E 452ii, E-452ii
+pl:Polifosforan potasu, Metafosforan potasu, polimetafosforan potasu, E452ii, E 452ii, E-452ii
+pt:polifosfato de potássio, E452ii, E 452ii, E-452ii
+ro:Polifosfat de potasiu, Metafosfat de potasiu, Polimetafosfat de potasiu, E452ii, E 452ii, E-452ii
+sk:Polyfosforečnan draselný, Metafosforečnan draselný, polymetafosforečnan draselný, E452ii, E 452ii, E-452ii
+sl:Kalijev polifosfat, kalijev metafosfat, kalijev polimetafosfat, E452ii, E 452ii, E-452ii
+sv:Kaliumpolyfosfat, Kaliummetafosfat, kaliumpolymetafosfat, E452ii, E 452ii, E-452ii
+wikidata:Q42807555
+# additive/e452ii-potassium-polyphosphate has 16 products in 4 languages @2018-11-05
+
+# no products
+# <en:Polyphosphate
+# en:Sodium calcium polyphosphate, E452iii, E 452iii, E-452iii
+
+<en:Polyphosphate
+en:calcium polyphosphate, e452iv, e 452iv, e-452iv
+bg:Калциев полифосфат, Калциев метафосфат, e452iv, e 452iv, e-452iv
+cs:Polyfosforečnan vápenatý, Metafosforečnan vápenatý, e452iv, e 452iv, e-452iv
+da:Calciumpolyphosphater, Calciummetaphosphat, e452iv, e 452iv, e-452iv
+de:Calciumpolyphosphat, Calciummetaphosphat, e452iv, e 452iv, e-452iv
+el:Πολυφωσφορικο ασβεστιο, Μεταφωσφορικό ασβέστιο, e452iv, e 452iv, e-452iv
+es:Polifosfato de calcio, Metafosfato cálcico, e452iv, e 452iv, e-452iv
+et:Kaltsiumpolüfosfaat, Kaltsiummetafosfaat, e452iv, e 452iv, e-452iv
+fi:Kalsiumpolyfosfaatti, Kalsiummetafosfaatti, e452iv, e 452iv, e-452iv
+fr:polyphosphate de calcium, e452iv, e 452iv, e-452iv
+hu:Kalcium-polifoszfát, Kalcium-metafoszfát, e452iv, e 452iv, e-452iv
+it:Polifosfato di calcio, Metafosfato di calcio, e452iv, e 452iv, e-452iv
+lt:Kalcio polifosfatas, Kalcio metafosfatas, e452iv, e 452iv, e-452iv
+lv:Kalcija polifosfāts, Kalcija metafosfāts, e452iv, e 452iv, e-452iv
+mt:Polifosfat tal-kalċju, Metafosfat tal-kalċju, e452iv, e 452iv, e-452iv
+nl:Calciumpolyfosfaat, Calciummetafosfaat, e452iv, e 452iv, e-452iv
+pl:Polifosforan wapnia, Metafosforan wapnia, e452iv, e 452iv, e-452iv
+pt:Polifosfato de cálcio, Metafosfato de cálcio, e452iv, e 452iv, e-452iv
+ro:Polifosfat de calciu, Metafosfat de calciu, e452iv, e 452iv, e-452iv
+sk:Polyfosforečnan vápenatý, Metafosforečnan vápenatý, e452iv, e 452iv, e-452iv
+sl:Kalcijev polifosfat, kalcijev metafosfat, e452iv, e 452iv, e-452iv
+sv:Kalciumpolyfosfat, Kalciummetafosfat, e452iv, e 452iv, e-452iv
+wikidata: Q18967198
+# additive/e452iv-calcium-polyphosphate has 2 products in 1 language @2018-11-05
+
+# <en:Polyphosphate
+# en: Ammonium polyphosphate, E452v, e 452iv, e-452iv
+# has no products
+
+<en:Polyphosphate
+en:Sodium tripolyphosphate, E452vi, E 452vi, E-452vi
+fr:Tripolyphosphate de sodium, E452vi, E 452vi, E-452vi
+# additive/e452vi-sodium-tripolyphosphate has 954 products in english @2018-11-05
+
+# SODIUM CARBONATES is the generic term for a Na and CO3 combination.
+
+<en:raising agent
+en:sodium carbonates, E500, e 500
+fr:E500, e 500
+it:carbonati di sodio, E500, e 500
+nl:natriumcarbonaten, E500, e 500
+nn:natriumkarbonater, E500, e 500
+sv:natriumkarbonater, E500, e 500
+
+# Sodium carbonate, Na2CO3, (also known as washing soda, soda ash and soda crystals, and in the monohydrate form as crystal carbonate) is the water-soluble sodium salt of carbonic acid.
+
+<en:sodium carbonates
+en:Sodium carbonate, E500i
+ar:كربونات الصوديوم
+# ast:Carbonatu de sodiu, E500i
+# azb:سودیوم کربونات
+ba:Кальцирланған сода
+bg:Натриев карбонат
+bn:সোডিয়াম কার্বনেট
+bs:Natrij-karbonat, E500i
+ca:carbonat de sodi, E500i
+cs:Uhličitan sodný, E500i
+da:natriumkarbonater, Soda, E500i
+de:Natriumcarbonat, E500i
+el:Ανθρακικό νάτριο
+eo:natria karbonato, E500i
+es:Carbonato de sodio, E500i
+et:Naatriumkarbonaat, E500i
+fa:سدیم کربنات
+fi:natriumkarbonaatit, Natriumkarbonaatti, Sooda, E500i
+fr:carbonate de sodium, E500i
+gv:Carboanaayt sodjum, E500i
+# hak:Thàn-sôn-na̍p, E500i
+he:נתרן פחמתי
+hi:क्षारातु प्रांगारीय
+hr:Natrijev karbonat, E500i
+hu:Nátrium-karbonát, E500i
+id:Natrium karbonat, E500i
+it:Carbonato di sodio, E500i
+ja:炭酸ナトリウム
+ko:탄산 나트륨
+lt:Natrio karbonatas, E500i
+lv:nātrija karbonāts, E500i
+mk:натриум карбонат
+ml:സോഡിയം കാർബണേറ്റ്
+# nan:Thoàⁿ-sng natrium, E500i
+nb:Natriumkarbonat, E500i
+nl:natriumcarbonaat, E500i
+nn:natriumkarbonat, E500i
+oc:Carbonat de sòdi, E500i
+pl:węglan sodu, E500i
+pt:carbonato de sódio, E500i
+ro:Carbonat de sodiu, E500i
+ru:карбонат натрия
+# sco:sodium carbonate, E500i
+sh:Natrijum karbonat, E500i
+sk:Uhličitan sodný, E500i
+sl:Natrijev karbonat, E500i
+sq:Karbonati i natriumit, E500i
+sr:натријум карбонат
+# sr-ec:натријум карбонат
+# sr-el:Natrijum karbonat, E500i
+sv:Natriumkarbonat, E500i
+ta:சோடியம் காபனேற்று
+te:సోడియమ్ కార్బొనేట్
+th:โซเดียมคาร์บอเนต
+tr:Sodyum karbonat, E500i
+uk:Карбонат натрію
+ur:صودا دردار
+uz:Natriy karbonat, E500i
+vi:Natri carbonat, E500i
+# war:Sodium carbonate, E500i
+# yue:鹼粉
+zh:碳酸钠
+# zh-cn:碳酸钠
+# zh-hans:碳酸钠
+# zh-hant:碳酸钠
+# zh-hk:碳酸钠
+# zh-sg:碳酸钠
+# zh-tw:碳酸钠
+wikipedia:Q190227
+
+# SODIUM BICARBONATE (IUPAC name:sodium hydrogen carbonate), commonly known as baking soda, is a chemical compound with the formula NaHCO3. 
+# On ingredient lists the name with hydrogen in it, seems to be preferred (otherwise it resembles to much the cleaning salt?)
+
+<en:sodium bicarbonate, sodium hydrogen carbonate
+en:sodium hydrogen carbonate, E500ii
+af:Natriumbikarbonaat
+ar:بيكربونات الصوديوم
+# ast:Bicarbonatu de sodiu
+# azb:بیکربونات سودیوم
+bg:Натриев бикарбонат
+bn:সোডিয়াম বাইকার্বনেট
+bs:Natrij-hidrogenkarbonat
+ca:hidrogencarbonat de sodi
+cs:Hydrogenuhličitan sodný
+cy:sodiwm deucarbonad
+da:natriumvätekarbonat, Natron, E500ii
+de:Natriumhydrogencarbonat, E500ii
+el:Όξινο ανθρακικό νάτριο
+# eml:Bicarbonê 'd sodi
+eo:natria bikarbonato
+es:carbonato ácido de sodio, bicarbonato de sodio, E500ii
+et:Naatriumvesinikkarbonaat
+eu:sodio hidrogenokarbonato
+fa:جوش شیرین
+fi:ammoniumvetykarbonaatti, Natriumbikarbonaatti, E500ii
+fr:carbonate acide de sodium, bicarbonate de sodium, E500ii
+# frr:Natriumhydrogencarbonat
+gl:Bicarbonato de sodio
+gu:ખાવાનો સોડા
+he:סודה לשתייה
+hi:सोडियम बाईकार्बोनेट
+hr:Natrijev hidrogenkarbonat
+hu:nátrium-hidrogén-karbonát
+hy:Սոդա
+ia:Bicarbonato de Sodium
+id:Natrium bikarbonat
+is:Matarsódi
+it:carbonato acido di sodio, bicarbonato di sodio, E500ii
+ja:炭酸水素ナトリウム
+kk:Ас содасы
+kn:ಸೋಡಿಯಂ ಬೈ ಕಾರ್ಬೋನೇಟ್
+ko:탄산 수소 나트륨
+lt:Natrio hidrokarbonatas
+lv:nātrija hidrogēnkarbonāts
+ml:സോഡിയം ബൈകാർബണേറ്റ്
+# nan:Thoàⁿ-sng chúi-sò͘ natrium
+nb:Thoàⁿ-sng chúi-sò͘ natrium
+nl:natriumwaterstofcarbonaat, E500ii
+nn:natriumvätekarbonat, natriumhydrogenkarbonat, E500ii
+oc:Idrogenocarbonat de sòdi
+or:ସୋଡ଼ିଅମ ବାଇକାର୍ବୋନେଟ
+pa:ਮਿੱਠਾ ਸੋਡਾ
+pl:wodorowęglan sodu
+# pnb:مٹھا سوڈا
+pt:bicarbonato de sódio, bicarbonato de sódio, E500ii
+ro:Bicarbonat de sodiu
+# sco:sodium bicarbonate
+sh:Natrijum hidrogenkarbonat
+si:සෝඩියම් බයිකාබනේට්
+sk:Hydrogénuhličitan sodný
+sl:Natrijev hidrogenkarbonat
+so:Saadiyom bicarbonate
+sq:Bikarbonati i natriumit
+sr:натријум хидрогенкарбонат
+# sr-ec:натријум хидрогенкарбонат
+# sr-el:natrijum-hidrogenkarbonat, E500ii
+sv:natrumvätekarbonat, E500ii
+sw:Magadi
+ta:சமையல் சோடா
+te:సోడియం బైకార్బొనేట్
+th:โซเดียมไบคาร์บอเนต
+tr:Sodyum bikarbonat
+uk:Гідрокарбонат натрію
+vi:natri bicacbonat
+# war:Sodium bicarbonate
+# yue:梳打粉
+zh:碳酸氢钠
+# zh-cn:碳酸氢钠
+# zh-hans:碳酸氢钠
+# zh-hant:碳酸氫鈉
+# zh-hk:碳酸氫鈉
+# zh-sg:碳酸氢钠
+# zh-tw:碳酸氫鈉
+wikidata:Q179731
+wikipedia:https://en.wikipedia.org/wiki/Sodium_bicarbonate
+# fr:carbonate-acide-de-sodium has 2313 products  in 13 languages @210-11-03
+# fr:500ii has 403 products @2018-11-03
+
 
 # PURÉE (or mash) is cooked food, usually vegetables, fruits or legumes, that has been ground, pressed, blended or sieved to the consistency of a creamy paste or liquid.
 
@@ -17705,6 +20190,58 @@ nl:gegrilde courgette
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
+# Haricots
+
+fr:haricot vert, haricots verts
+
+en:brown beans
+es:habichuela parda
+fr:haricots bruns
+nl:bruine bonen
+de:braune Bohnen
+
+fr:haricot rouge, haricots rouges
+
+fr:haricot mungo
+
+fr:haricots rouges précuits
+
+fr:haricots verts très fins
+
+fr:haricots rouges réhydratés
+
+fr:pousses de haricot mungo
+
+fr:germe de haricot mungo
+
+fr:pousses de haricots mungo
+
+fr:germes de haricot mungo
+
+fr:haricots beurre
+
+fr:haricots rouges secs trempés
+
+fr:haricots verts coupés
+
+fr:haricots lingots
+
+fr:haricots blancs secs trempés
+
+fr:haricots
+
+fr:haricots verts extra-fins
+
+fr:haricots blancs
+
+fr:haricot vert
+
+fr:haricots noirs
+
+fr:pousse de haricot mungo
+
+
+
 fr:petits pois extra fins
 
 fr:lentilles sèches trempées
@@ -21920,7 +24457,6 @@ fr:chlorure de potassium
 
 fr:lutéine
 
-fr:mozzarella
 
 fr:minéraux
 
@@ -22627,7 +25163,6 @@ fr:carvi
 
 fr:cerfeuil
 
-fr:extrait de vin blanc
 
 fr:germes de blé
 
@@ -22651,7 +25186,6 @@ fr:caramel au sulfite d'ammonium
 
 fr:caramel ammoniacal
 
-fr:mascarpone
 
 fr:cèpe
 
@@ -22817,7 +25351,6 @@ fr:roquette
 
 fr:pain azyme
 
-fr:edam
 
 fr:sérum de lait
 
@@ -23002,7 +25535,6 @@ fr:protéines de lait et lactose
 
 fr:safran
 
-fr:diphosphate, e450
 
 fr:conservateur du fruit
 
@@ -23378,8 +25910,6 @@ fr:stabilisant
 en:stabilizer, stabilizers
 fr:stabilisateur, stabilisateurs
 
-en:e450 stabilizer
-fr:stabilisant e450
 
 en:e407 stabilizer
 fr:stabilisant e407
@@ -23560,14 +26090,6 @@ fr:e334
 
 fr:e336
 
-fr:e338
-
-fr:e339
-
-fr:e339
-
-fr:e340
-
 fr:e341
 
 fr:e341
@@ -23614,31 +26136,10 @@ fr:e435
 
 fr:e440
 
-fr:e442
-
 fr:e444
 
 fr:e445
 
-fr:e450, e 450
-
-fr:e450 et e500
-
-fr:e450i
-
-fr:e450iii
-
-fr:e451
-
-fr:e 451
-
-fr:e451i
-
-fr:e452
-
-fr:e 452
-
-fr:e452i
 
 fr:e460
 
@@ -24119,8 +26620,6 @@ fr:coriandre
 
 fr:baies roses
 
-fr:gouda
-allergens:fr:_gouda_
 
 fr:graisse d'oie
 
@@ -25335,10 +27834,6 @@ fr:sucrose
 
 
 
-<en:cheese
-fr:pecorino
-allergens:fr:_pecorino_
-
 fr:phosphates
 
 
@@ -25931,8 +28426,6 @@ fr:gélatine de volaille
 fr:poudre de lactosérum sucré
 de:Sussmolkenpulver
 
-fr:pecorino romano
-allergens:fr:_pecorino romano_
 
 fr:acide carbonique
 de:Kohlensaure
@@ -26241,9 +28734,6 @@ allergens:fr:poudre de jaunes d'_oeufs_
 fr:fourrage lait
 allergens:fr:fourrage _lait_
 
-<en:cheese
-fr:feta
-allergens:fr:_feta_
 
 fr:chlorophyllines
 
@@ -26285,56 +28775,6 @@ es:fibras de aloe vera
 fr:fibres d’aloe vera
 nl:aloe vera vezels
 de:Aloe-vera-Fasern
-
-# Haricots
-
-fr:haricot vert, haricots verts
-
-en:brown beans
-es:habichuela parda
-fr:haricots bruns
-nl:bruine bonen
-de:braune Bohnen
-
-fr:haricot rouge, haricots rouges
-
-fr:haricot mungo
-
-fr:haricots rouges précuits
-
-fr:haricots verts très fins
-
-fr:haricots rouges réhydratés
-
-fr:pousses de haricot mungo
-
-fr:germe de haricot mungo
-
-fr:pousses de haricots mungo
-
-fr:germes de haricot mungo
-
-fr:haricots beurre
-
-fr:haricots rouges secs trempés
-
-fr:haricots verts coupés
-
-fr:haricots lingots
-
-fr:haricots blancs secs trempés
-
-fr:haricots
-
-fr:haricots verts extra-fins
-
-fr:haricots blancs
-
-fr:haricot vert
-
-fr:haricots noirs
-
-fr:pousse de haricot mungo
 
 fr:mourvèdre
 
@@ -26380,13 +28820,11 @@ allergens:fr:_crevettes_ roses
 fr:salade mélangée
 
 fr:crème stérilisée
-allergens:fr:_crème_ stérilisée
 
 
 fr:conservateur sorbate de potassium
 
 fr:amylase
-
 
 fr:penicillium
 
@@ -26396,11 +28834,6 @@ fr:monostéarate de sorbitane
 
 fr:edta
 
-en:Chartreuse
-es:chartreuse
-fr:chartreuse
-nl:chartreuse
-de:Chartreuse
 
 fr:mélange de salades
 
@@ -26408,22 +28841,17 @@ fr:filets d'anchois
 
 fr:brioche
 
-
 fr:diphosphates disodique
 
 fr:guarana
 
 fr:monosodium glutamate
 
-
-
-
 fr:boyau de boeuf
 
 fr:lactate de fer
 
 fr:jaunes d'oeufs salés
-allergens:fr:jaunes d'_oeufs_ salés
 
 fr:saucisses de toulouse grillées
 treatment:en: en:gril
@@ -26432,11 +28860,55 @@ fr:dextrine de tapioca
 
 fr:cantharellus cibarius
 
-en:absinth
-es:absenta
-fr:absinthe
-nl:absinth
-de:Absinth
+
+
+# CHLORELLA is a genus of single-celled green algae belonging to the division Chlorophyta. 
+
+<en:algae
+en:chlorella
+ar:كلوريلا
+be:Хларэла
+bn:Хлорела
+ca:Chlorella
+cs:Chlorella
+da:Chlorella
+de:Chlorella
+eo:Klorelo
+es:Chlorella
+et:Klorella
+eu:Chlorella
+fi:Klorella
+fr:chlorella, chlorelle
+ga:Clóireile
+gl:Chlorella
+he:כלורלה
+hr:Chlorella
+hy:քլորելա
+ia:Chlorella
+id:Chlorella
+it:Chlorella
+ja:クロレラ
+kk:Хлорелла
+ko:클로렐라
+ky:Хлорелла
+la:Chlorella
+nl:Chlorella
+pl:Chlorella
+pt:Chlorella
+# pt-br:Clorela
+ru:Хлорелла
+sh:Chlorella
+sk:Chlorela
+sl:Chlorella
+sw:Chlorella
+tr:Chlorella
+uk:Хлорела
+vi:Chlorella
+wikidata:Q133017
+wikipedia:https://en.wikipedia.org/wiki/Chlorella
+# fr:chlorella has 42 products in 3 languages @2018-10-28
+
+
 
 # words that can be part of ingredients
 # in particular, words that would be auto-corrected to additives
@@ -26449,6 +28921,3 @@ fr:verte, vertes
 
 # nitrate -> citrate
 fr:nitrate, nitrates
-
-en:chlorella
-fr:chlorella, chlorelle
