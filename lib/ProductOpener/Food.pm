@@ -968,7 +968,7 @@ casein => {
 	zh_TW => "酪蛋白",
 },
 nucleotides => {
-        de => 'Nukleotide',
+		de => 'Nukleotide',
 	fa => "نوکلئوتید",
 	fr => 'Nucléotides',
 	en => 'Nucleotides',
@@ -979,14 +979,14 @@ nucleotides => {
 	nl_be => 'Nucleotiden',
 	el => "Νουκλεοτίδια",
 	ja => "ヌクレオチド",
-        pt => "nucleotídeos",
+		pt => "nucleotídeos",
 	zh => "核苷酸",
 	zh_TW => "核苷酸",
 	zh_HK => "核苷酸",
 	zh_CN => "核苷酸",
 },
 "serum-proteins" => {
-        de => 'Serumprotein',
+		de => 'Serumprotein',
 	el => "Πρωτεΐνες ορού",
 	en => "Serum proteins",
 	ru => "Сывороточные белки",
@@ -995,7 +995,7 @@ nucleotides => {
 	ja => "血清たんぱく質",
 	nl => 'Plasmaproteïnen',
 	nl_be => 'Plasmaproteïnen',
-        pt => 'proteína plasmatica',
+		pt => 'proteína plasmatica',
 	zh => "血清蛋白",
 	zh_CN => "血清蛋白",
 	zh_HK => "血清蛋白",
@@ -1183,7 +1183,7 @@ maltose => {
 	zh_TW => "麥芽糖",
 },
 maltodextrins => {
-        de => 'Maltodextrine',
+		de => 'Maltodextrine',
 	el => "Μαλτοδεξτρίνες",
 	en => 'Maltodextrins',
 	es => 'Maltodextrinas',
@@ -1346,7 +1346,7 @@ fat => {
 },
 'butyric-acid' => {
 	en => 'Butyric acid (4:0)',
-    de => 'Buttersäure (4:0)',
+	de => 'Buttersäure (4:0)',
 	el => "Βουτυρικό οξύ (4:0)",
 	es => 'Ácido butírico (4:0)',
 	fr => 'Acide butyrique (4:0)',
@@ -1363,7 +1363,7 @@ fat => {
 },
 'caproic-acid' => {
 	en => 'Caproic acid (6:0)',
-    de => 'Capronsäure (6:0)',
+	de => 'Capronsäure (6:0)',
 	el => "Καπροϊκό οκύ (6:0)",
 	es => 'Ácido caproico (6:0)',
 	fr => 'Acide caproïque (6:0)',
@@ -1380,7 +1380,7 @@ fat => {
 },
 'caprylic-acid' => {
 	en => 'Caprylic acid (8:0)',
-    de => 'Caprylsäure (8:0)',
+	de => 'Caprylsäure (8:0)',
 	el => 'Καπρυλικό οξύ (8:0)',
 	es => 'Ácido caprílico (8:0)',
 	fr => 'Acide caproïque (8:0)',
@@ -1397,7 +1397,7 @@ fat => {
 },
 'capric-acid' => {
 	en => 'Capric acid (10:0)',
-    de => 'Caprinsäure (10:0)',
+	de => 'Caprinsäure (10:0)',
 	el => 'Καπρικό οξύ (10:0)',
 	es => 'Ácido cáprico (10:0)',
 	fr => 'Acide caprique (10:0)',
@@ -1414,7 +1414,7 @@ fat => {
 },
 'lauric-acid' => {
 	en => 'Lauric acid (12:0)',
-    de => 'Laurinsäure',
+	de => 'Laurinsäure',
 	el => "Λαυρικό οξύ/n-δωδεκανοϊκό οξύ (12:0)",
 	es => 'Ácido láurico (12:0)',
 	fr => 'Acide laurique (12:0)',
@@ -1430,7 +1430,7 @@ fat => {
 },
 'myristic-acid' => {
 	en => 'Myristic acid (14:0)',
-    de => 'Myristinsäure (14:0)',
+	de => 'Myristinsäure (14:0)',
 	el => "Μυριστικό οξύ (14:0)",
 	es => 'Ácido mirístico (14:0)',
 	fr => 'Acide myristique (14:0)',
@@ -1445,7 +1445,7 @@ fat => {
 },
 'palmitic-acid' => {
 	en => 'Palmitic acid (16:0)',
-    de => 'Palitinsäure (16:0)',
+	de => 'Palitinsäure (16:0)',
 	el => "Παλμιτικό οξύ (16:0)",
 	es => 'Ácido palmítico (16:0)',
 	fr => 'Acide palmitique (16:0)',
@@ -1461,7 +1461,7 @@ fat => {
 },
 'stearic-acid' => {
 	en => 'Stearic acid (18:0)',
-    de => 'Stearinsäure (18:0)',
+	de => 'Stearinsäure (18:0)',
 	el => "Στεατικό/Στεαρικό οξύ (18:0)",
 	es => 'Ácido esteárico (18:0)',
 	fr => 'Acide stéarique (18:0)',
@@ -1477,7 +1477,7 @@ fat => {
 },
 'arachidic-acid' => {
 	en => 'Arachidic acid (20:0)',
-    de => 'Arachinsäure (20:0)',
+	de => 'Arachinsäure (20:0)',
 	el => 'Αραχιδικό οξύ (20:0)',
 	es => 'Ácido araquídico (20:0)',
 	fr => 'Acide arachidique / acide eicosanoïque (20:0)',
@@ -1492,7 +1492,7 @@ fat => {
 },
 'behenic-acid' => {
 	en => 'Behenic acid (22:0)',
-    de => 'Behensäure (22:0)',
+	de => 'Behensäure (22:0)',
 	el => 'Βεχενικό οξύ/εικοσαδυενοϊκό οξύ (22:0)',
 	es => 'Ácido behénico (22:0)',
 	fr => 'Acide béhénique (22:0)',
@@ -1508,7 +1508,7 @@ fat => {
 },
 'lignoceric-acid' => {
 	en => 'Lignoceric acid (24:0)',
-    de => 'Lignocerinsäure (24:0)',
+	de => 'Lignocerinsäure (24:0)',
 	el => 'Λιγνοκηρικό οξύ (24:0)',
 	es => 'Ácido lignocérico (24:0)',
 	fr => 'Acide lignocérique (24:0)',
@@ -1523,7 +1523,7 @@ fat => {
 },
 'cerotic-acid' => {
 	en => 'Cerotic acid (26:0)',
-    de => 'Cerotinsäure (26:0)',
+	de => 'Cerotinsäure (26:0)',
 	el => 'Κηροτικό οξύ (26:0)',
 	es => 'Ácido cerótico (26:0)',
 	fr => 'Acide cérotique (26:0)',
@@ -1538,7 +1538,7 @@ fat => {
 },
 'montanic-acid' => {
 	en => 'Montanic acid (28:0)',
-    de => 'Montansäure (28:0)',
+	de => 'Montansäure (28:0)',
 	el => 'Μοντανικό οξύ (28:0)',
 	es => 'Ácido montánico (28:0)',
 	fr => 'Acide montanique (28:0)',
@@ -1553,7 +1553,7 @@ fat => {
 },
 'melissic-acid' => {
 	en => 'Melissic acid (30:0)',
-    de => 'Melissinsäure (30:0)',
+	de => 'Melissinsäure (30:0)',
 	el => 'Μελισσικό οξύ (30:0)',
 	es => 'Ácido melísico (30:0)',
 	fr => 'Acide mélissique (30:0)',
@@ -1623,7 +1623,7 @@ fat => {
 },
 'oleic-acid' => {
 	en => 'Oleic acid (18:1 n-9)',
-    de => 'Ölsäure (18:1 n-9)',
+	de => 'Ölsäure (18:1 n-9)',
 	el => 'Ολεϊκό οξύ (18:1 n-9)',
 	es => 'Ácido oleico (18:1 n-9)',
 	fr => 'Acide oléique (18:1 n-9)',
@@ -1639,7 +1639,7 @@ fat => {
 },
 'elaidic-acid' => {
 	en => 'Elaidic acid (18:1 n-9)',
-    de => 'Elaidinsäure (18:1 n-9)',
+	de => 'Elaidinsäure (18:1 n-9)',
 	el => 'Ελαϊδικό οξύ (18:1 n-9)',
 	es => 'Ácido elaídico (18:1 n-9)',
 	fr => 'Acide élaïdique (18:1 n-9)',
@@ -1654,7 +1654,7 @@ fat => {
 },
 'gondoic-acid' => {
 	en => 'Gondoic acid (20:1 n-9)',
-    de => 'Gondosäure (20:1 n-9)',
+	de => 'Gondosäure (20:1 n-9)',
 	el => 'Γονδοϊκό οξύ (20:1 n-9)',
 	es => 'Ácido gondoico (20:1 n-9)',
 	fr => 'Acide gadoléique (20:1 n-9)',
@@ -1669,7 +1669,7 @@ fat => {
 },
 'mead-acid' => {
 	en => 'Mead acid (20:3 n-9)',
-    de => 'Mead'sche Säure (20:3 n-9)',
+	de => 'Mead'sche Säure (20:3 n-9)',
 	el => 'Οξύ Mead (20:3 n-9)',
 	es => 'Ácido Mead (20:3 n-9)',
 	fr => 'Acide de Mead (20:3 n-9)',
@@ -1684,7 +1684,7 @@ fat => {
 },
 'erucic-acid' => {
 	en => 'Erucic acid (22:1 n-9)',
-    de => 'Erucasäure (18:1 n-9)',
+	de => 'Erucasäure (18:1 n-9)',
 	el => 'Ερουκικό οξύ (22:1 n-9)',
 	es => 'Ácido erúcico (22:1 n-9)',
 	fr => 'Acide érucique (22:1 n-9)',
@@ -1699,7 +1699,7 @@ fat => {
 },
 'nervonic-acid' => {
 	en => 'Nervonic acid (24:1 n-9)',
-    de => 'Nervonsäure (24:1 n-9)',
+	de => 'Nervonsäure (24:1 n-9)',
 	el => 'Νερβονικό (24:1 n-9)',
 	es => 'Ácido nervónico (24:1 n-9)',
 	fr => 'Acide nervonique (24:1 n-9)',
@@ -1771,7 +1771,7 @@ fat => {
 },
 'alpha-linolenic-acid' => {
 	en => 'Alpha-linolenic acid / ALA (18:3 n-3)',
-    de => 'A-Linolensäure (18:3 n-3)',
+	de => 'A-Linolensäure (18:3 n-3)',
 	el => 'Α-λινολενικό οξύ/ ALA (18:3 n-3)',
 	es => 'Ácido alfa-linolénico / ALA (18:3 n-3)',
 	fr => 'Acide alpha-linolénique / ALA (18:3 n-3)',
@@ -1787,7 +1787,7 @@ fat => {
 },
 'eicosapentaenoic-acid' => {
 	en => 'Eicosapentaenoic acid / EPA (20:5 n-3)',
-    de => 'Eicosapentaensäure (20:5 n-3)',
+	de => 'Eicosapentaensäure (20:5 n-3)',
 	el => 'Εικοσιπεντανοϊκο οξύ / EPA (20:5 n-3)',
 	es => 'Ácido eicosapentaenoico / EPA (20:5 n-3)',
 	fr => 'Acide eicosapentaénoïque / EPA (20:5 n-3)',
@@ -1803,7 +1803,7 @@ fat => {
 },
 'docosahexaenoic-acid' => {
 	en => 'Docosahexaenoic acid / DHA (22:6 n-3)',
-    de => 'Docosahexaensäure (22:6 n-3)',
+	de => 'Docosahexaensäure (22:6 n-3)',
 	el => 'Δοκοσαεξανοϊκο οξύ / DHA (22:6 n-3)',
 	es => 'Ácido docosahexaenoico / DHA (22:6 n-3)',
 	fr => 'Acide docosahexaénoïque / DHA (22:6 n-3)',
@@ -1974,7 +1974,7 @@ fiber => {
 	zh_TW => "纖維",
 },
 "soluble-fiber" => {
-        de => 'lösliche Ballaststoffe',
+		de => 'lösliche Ballaststoffe',
 	en => "Soluble fiber",
 	fr => "Fibres solubles",
 	pt => "Fibra alimentar solúvel",
@@ -1985,7 +1985,7 @@ fiber => {
 	zh_TW => "可溶性纖維",
 },
 "insoluble-fiber" => {
-        de => 'unlösliche Ballaststoffe',
+		de => 'unlösliche Ballaststoffe',
 	en => "Insoluble fiber",
 	fr => "Fibres insolubles",
 	pt => "Fibra alimentar insolúvel",
