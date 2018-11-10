@@ -3273,7 +3273,7 @@ ph => {
 	fr => "Empreinte carbone / émissions de CO<sub>2</sub>",
 	he => "טביעת רגל פחמנית / פליטת פחמן דו־חמצני",
 	hu => "Ökológiai lábnyom / CO<sub>2</sub> kibocsájtás",
-	it=> "Emissioni di CO2 (impronta climatica)",
+	it => "Emissioni di CO<sub>2</sub> / impronta climatica",
 	nl => "Ecologische voetafdruk / CO<sub>2</sub>-uitstoot",
 	nl_be => "Ecologische voetafdruk / CO<sub>2</sub>-uitstoot",
 	pt => "Pegada de carbono / Emissões de CO<sub>2</sub>",
@@ -3288,6 +3288,7 @@ ph => {
 'glycemic-index' => {
 	en => "Glycemic Index",
 	de => "Glykämischer Index",
+	fr => "Index glycémique",
 	unit => "",
 },
 "water-hardness" => {
