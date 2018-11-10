@@ -815,7 +815,7 @@ alcohol	=> {
 	tr => "Alkol",
 	zh => "酒精度",
 	zh_CN => "酒精度",
-	zh-HK => "酒精",
+	zh_HK => "酒精",
 	zh_TW => "酒精",
 	unit => "% vol",
 },
