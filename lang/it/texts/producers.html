@@ -4,60 +4,60 @@
 	
 
 
-<h1>Guide for producers</h1>
+<h1>Guida per i produttori</h1>
 
-<p>This guide explains why and how producers can directly integrate photos and product data into the Open Food Facts database.</p>
+<p>Questa guida spiega perché e come i produttori possono integrare direttamente foto e dati di prodotti nel database di Open Food Facts.</p>
 
 <ul>
 <li><a href="#introduction">Introduzione</a></li>
-<li><a href="#pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Why add your product data to Open Food Facts</a></li>
+<li><a href="#pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Perché aggiungere i dati del tuo prodotto a Open Food Facts</a></li>
 <ul>
-<li><a href="#exemples_de_producteurs_qui_transmettent_les_photos_et_donnees_de_leurs_produits_a_open_food_facts">Examples of producers who submit photos and product data to Open Food Facts</a></li>
+<li><a href="#exemples_de_producteurs_qui_transmettent_les_photos_et_donnees_de_leurs_produits_a_open_food_facts">Esempi di produttori che inviano foto e dati sui prodotti a Open Food Facts</a></li>
 </ul>
-<li><a href="#comment_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">How to add data for your products in Open Food Facts</a></li>
+<li><a href="#comment_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Come aggiungere dati per i tuoi prodotti in Open Food Facts</a></li>
 <ul>
-<li><a href="#licence">Licence</a></li>
-<li><a href="#quelles_donnees">What data ?</a></li>
+<li><a href="#licence">Licenza</a></li>
+<li><a href="#quelles_donnees">Quali dati ?</a></li>
 <ul>
-<li><a href="#une_base_dans_toutes_les_langues">A database in all languages</a></li>
-<li><a href="#photos_et_donnees">Photos and Data</a></li>
+<li><a href="#une_base_dans_toutes_les_langues">Un database in tutte le lingue</a></li>
+<li><a href="#photos_et_donnees">Foto e Dati</a></li>
 </ul>
-<li><a href="#ajout_manuel">Manual addition</a></li>
-<li><a href="#ajout_automatise">Automated addition</a></li>
+<li><a href="#ajout_manuel">Aggiunta manuale</a></li>
+<li><a href="#ajout_automatise">Aggiunta automatizzata</a></li>
 <ul>
-<li><a href="#format_des_images">Picture format</a></li>
+<li><a href="#format_des_images">Formato Immagine</a></li>
 <ul>
-<li><a href="#format_des_fichiers_images">Format of image files</a></li>
-<li><a href="#nom_des_fichiers_images">Name of the image files</a></li>
+<li><a href="#format_des_fichiers_images">Formato di file immagine</a></li>
+<li><a href="#nom_des_fichiers_images">Nome dei file immagine</a></li>
 </ul>
-<li><a href="#format_des_donnees">Data format</a></li>
+<li><a href="#format_des_donnees">Formato dati</a></li>
 <ul>
-<li><a href="#champs_obligatoires">Required fields</a></li>
-<li><a href="#champs_optionnels">Optional fields</a></li>
+<li><a href="#champs_obligatoires">Campi richiesti</a></li>
+<li><a href="#champs_optionnels">Campi opzionali</a></li>
 </ul>
-<li><a href="#envoi_des_photos_et_des_donnees">Sending photos and data</a></li>
+<li><a href="#envoi_des_photos_et_des_donnees">Invio foto e dati</a></li>
 </ul>
 </ul>
 <li><a href="#questions_frequentes">Domande poste frequentemente</a></li>
 <ul>
-<li><a href="#est_ce_que_le_referencement_des_produits_est_gratuit">Is the listing of products free?</a></li>
-<li><a href="#les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">Will producer data overwrite data entered by contributors?</a></li>
-<li><a href="#est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">Is it possible to delete products that are no longer sold?</a></li>
-<li><a href="#est_ce_que_les_produits_pour_animaux_les_produits_non_alimentaires_les_cosmetiques_et_les_autres_produits_peuvent_etre_integres_a_open_food_facts">Can animal products, non-food products, cosmetics and other products be integrated into Open Food Facts?</a></li>
+<li><a href="#est_ce_que_le_referencement_des_produits_est_gratuit">L'elenco dei prodotti è gratuito?</a></li>
+<li><a href="#les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">I dati del produttore sovrascriveranno i dati inseriti dai contributori?</a></li>
+<li><a href="#est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">È possibile cancellare i prodotti che non sono più venduti?</a></li>
+<li><a href="#est_ce_que_les_produits_pour_animaux_les_produits_non_alimentaires_les_cosmetiques_et_les_autres_produits_peuvent_etre_integres_a_open_food_facts">I prodotti animali, i prodotti non alimentari, i cosmetici e altri prodotti possono essere integrati in Open Food Facts?</a></li>
 </ul>
 </ul>
 
 <h2 id="introduction">Introduzione</h2>
 
-<p>The photos and data on the food products referenced in the Open Food Facts database come from 2 sources:</p>
+<p>Le foto e i dati sui prodotti alimentari citati nel database di Open Food Facts provengono da 2 fonti:</p>
 <ul>
-<li>crowdsourcing through mobile apps and the Open Food Facts website: contributors scan barcodes, send product photos, ingredient lists and nutrition charts and then enter the data in a structured way.</li>
-  <li>the addition of data directly from the producers, either manually or automatically.</li>
+<li>crowdsourcing tramite app mobili e il sito Web di Open Food Facts: i contributori scansionano i codici a barre, inviano foto di prodotti, elenchi di ingredienti e grafici nutrizionali, quindi inseriscono i dati in modo strutturato.</li>
+  <li>l'aggiunta di dati direttamente dai produttori, sia manualmente che automaticamente.</li>
 </ul>
 
 
-<h2 id="pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Why add product data to Open Food Facts</h2>
-<p>There are many benefits to importing date directly from manufacturers:</p>
+<h2 id="pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Perché aggiungere i dati del prodotto a Open Food Facts</h2>
+<p>Ci sono alcuni benefici nell'importare dati direttamente dai produttori:</p>
 
 <ul>
 <li>The data is complete, up to date, and without risk of error.</li>
