@@ -111,58 +111,58 @@ Per rendere più facile e veloce l'importazione di dati, abbiamo definito un for
 <li>Tabella nutrizionale</li>
 </ul>
   
-<p>La vista frontale, gli ingredienti ed il grafico nutrizionale devoni essere forniti in almeno la lingua principale del prodotto. It is recommended that you also provide images for other languages ​​when they appear on the product.</p>
+<p>La vista frontale, gli ingredienti ed il grafico nutrizionale devoni essere forniti in almeno la lingua principale del prodotto. È raccomandato che tu fornisca anche immagini per altre lingue quando appaiono sul prodotto.</p>
 
-<p>For example, a product intended for the Belgian market may have photos showing the product written in French and written in Dutch.</p>
+<p>Ad esempio, un prodotto destinato al mercato belga può contenere foto che mostrano il prodotto scritto in francese e scritto in olandese.</p>
 
-  <p>Other images may also be included:</p>
+  <p>Altre immagini possono anche essere incluse:</p>
 <ul>
-<li>Verso and other views of the product (they allow in particular to automatically identify labels logos etc.)</li>
-<li>Flat view of the packaging</li>
+<li>Verso e altre viste del prodotto (consentono in particolare di identificare automaticamente i loghi delle etichette, etc.)</li>
+<li>Vista piana dell'imballaggio</li>
 </ul>
   
-<h5 id="format_des_fichiers_images">Format of image files</h5>
+<h5 id="format_des_fichiers_images">Formato di file immagine</h5>
 <ul>
-  <li>JPEG or PNG format</li>
-  <li>Size at least 2000 pixels wide or tall</li>
+  <li>Formato JPEG o PNG</li>
+  <li>Dimensioni di almeno 2000 pixel d'altezza o larghezza</li>
 </ul>
 
-<h5 id="nom_des_fichiers_images">Name of the image files</h5>
+<h5 id="nom_des_fichiers_images">Nome dei file immagine</h5>
 
 
-<pre>[barcode]_[type of image]_[language code].[jpg or png]</pre>
+<pre>[barcode]_[tipo di immagine]_[codice lingua].[jpg o png]</pre>
 
-  <p>For example :</p>
+  <p>Per esempio :</p>
 
-<p>3660140808750_front_en.jpg for the front image of the product whose barcode is 3660140808750</p>
+<p>3660140808750_front_en.jpg per l'immagine frontale del prodotto il cui codice a barre è 3660140808750</p>
 
-  <p>The types of images are:</p>
+  <p>I tipi di immagini sono:</p>
 
 <ul>
   <!-- Do not translate field names, just their description -->
-  <li>front: front image</li>
-  <li>ingredients: list of ingredients</li>
-  <li>nutrition: nutritional chart</li>
-  <li>back: version</li>
-  <li>any name you see fit (characters from a to e, no spaces) for other views</li>
+  <li>front: immagine frontale</li>
+  <li>ingredienti: elenco di ingredienti</li>
+  <li>nutrizione: grafico nutrizionale</li>
+  <li>back: versione</li>
+  <li>qualsiasi nome si ritenga opportuno (caratteri da a ad e, niente spasi) per alte viste</li>
 </ul>
   
 
-<h4 id="format_des_donnees">Data format</h4>
+<h4 id="format_des_donnees">Formato dati</h4>
 
-<p>The data must be provided in a table in CSV format, with tabulation as field separator character and UTF-8 character encoding.</p>
-<p>The first line contains the field names, and each of the products occupies one of the following lines. The order of the fields does not matter, and not all columns need to be present.</p>
-<p>Some fields are mandatory and others are optional. We encourage you to fill in as many fields as possible so that the data can be used by as many applications as possible. If in doubt, or if you have data for which there are not yet fields in the Open Food Facts database, you can contact us so that we can add fields and make the best possible match.</p>
+<p>I dati devono essere forniti in una tabella in formato CSV, con tabulazione come carattere separatore di campo e codifica caratteri UTF-8.</p>
+<p>La prima riga contiene i nomi dei campi e ognuno dei prodotti occupa una delle seguenti righe. L'ordine dei campi non ha importanza e non tutte le colonne devono essere presenti.</p>
+<p>Alcuni campi sono obbligatori e altri sono opzionali. Ti incoraggiamo a riempire più campi possibili così che il dato possa essere usato per più applicazioni possibili. Se in dubbio o se hai dwti per cui non ci sono ancora campi nel database di Open Food Facts, puoi contattarci così che possiamo aggiungere campi e fare la migliore corrispondenza possibile.</p>
 
-  <h5 id="champs_obligatoires">Required fields</h5>
+  <h5 id="champs_obligatoires">Campi richiesti</h5>
 
 <ul>  
   <!-- Do not translate field names, just their description -->
-  <li>code: product barcode as it appears on the packaging (EAN-13, EAN-8 or other)</li>
-  <li>lang: 2-letter code of the main language (most present on the packaging) of the product (example: fr for French)</li>
-  <li>product_name_ [2-letter code of the main language]: product name (in the field product_name_en for the name in French)</li>
-  <li>generic_name_ [2-letter code of the main language]: Generic product name </li>
-  <li>brands: brands (several possible values for brands and sub-brands, to be separated by commas)</li>
+  <li>codice: codice a barre del prodotto come appare sull'imballaggio (EAN-13, EAN-8 o altro)</li>
+  <li>lingua: codice di due lettere della lingua principale (in gran parte presente sull'imballaggio) del prodotto (esempio: it per Italia)</li>
+  <li>nome_prodotto_[codice di due lettere della lingua principale]: nome del prodotto (nel campo nome_prodotto_en per il nome in inglese)</li>
+  <li>nome_generico_[codice di due lettere della lingua principale]: Nome generico del prodotto </li>
+  <li>marchi: marchi (diversi valori possibili per marche e sotto marche, da separare con virgole)</li>
   <li>quantity: quantity, specify the unit, and possibly add in parentheses if the product contains several units (example: 120 g (4 x 30 g))</li>
   <li>categories: product category, in the main product language (example: chocolate cakes)</li>
   <li>countries: country where the product is sold, in the main language of the product (several possible values, to be separated by commas)</li>
