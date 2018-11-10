@@ -33,40 +33,36 @@ Potrebbero contenere elementi grafici soggetti a diritto di copia o altri diritt
 
 <h4>Esportazione Delta</h4>
 
-<p>Le esportazioni delta giornaliere sono fornite per i precedenti 14 giorni. The list of currently available delta files can be found at
- <a href="https://static.openfoodfacts.org/data/delta/index.txt">https://static.openfoodfacts.org/data/delta/index.txt</a>.
- Each line represents a file that is available at <code>https://static.openfoodfacts.org/data/delta/{filename}</code>.
- The filename contains UNIX timestamp of the first and the last change contained in the JSON file, so that the delta files can
- be imported (after extraction) with <code>mongoimport</code> in alphabetical order.</p>
-<p>Please note that due to the nature of <code>mongoexport</code>, the delta files cannot tell you about deleted products. To remove
- deleted products from your database, you will need to import the full MongoDB dump.</p>
+<p>Le esportazioni delta giornaliere sono fornite per i precedenti 14 giorni. L'elenco dei file delta attualmente disponibili può essere trovata a <a href="https://static.openfoodfacts.org/data/delta/index.txt">https://static.openfoodfacts.org/data/delta/index.txt</a>.
+ Ogni riga rappresenta un file che è disponibile a <code>https://static.openfoodfacts.org/data/delta/{filename}</code>.
+ Il nome del file contiene un timestamp UNIX della prima e dell'ultima modifica contenuta nel file JSON, così che i file delta possano essere importati (dopo l'estrazione) con <code>mongoimport</code> in ordine alfabetico.</p>
+<p>Si prega di notare che a causa della natura di <code>mongoexport</code>, i file delta non possono dirti di prodotti eliminati. Per rimuovere prodotti eliminati dal tuo database, dovrai importare l'intero dump di MongoDB.</p>
  
-<h3>CSV Data Export</h3>
+<h3>Esportazione dati CSV</h3>
 
-<p>Data for all products, or some of the products, can be downloaded in CSV format (readable with OpenOffice, Excel and many other software)
- through the <a href="https://world.openfoodfacts.org/cgi/search.pl">advanced search form</a>.</p>
+<p>Dati per tutti i prodotti o alcuni dei prodotti, possono essere scaricati in formato CSV (leggibile con OpenOffice, Excel ed alcuni altri software) tramite il <a href="https://world.openfoodfacts.org/cgi/search.pl">modulo di ricerca avanzata</a>.</p>
  
 <dl>
- <dt>Link</dt>
+ <dt>Collegamenti</dt>
  <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv</a></dd>
 </dl>
 
-<p>The file encoding is Unicode UTF-8. The character that separates fields is &lt;tab&gt; (tabulation).</p>
+<p>La codifica dei file è Unicode UTF-8. Il carattere che separa i campi è &lt;tab&gt; (tabulazione).</p>
 
 
 
-<h3>RDF Data Export</h3>
+<h3>Esportazione dati RDF</h3>
 
-<p>The database is also available in the RDF format. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">announcement in French</a>.</p>
+<p>Il database è anche disponibile nel formato RDF. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">annuncio in francese</a>.</p>
 
 <dl>
- <dt>Link</dt>
+ <dt>Collegamenti</dt>
  <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf</a></dd>
 </dl>
 
-<h2>Experimental JSON API</h2>
+<h2>API JSON Sperimentale</h2>
 
-<p>A JSON API is also available to read the data for a product. This API is in particular used in the Open Food Facts mobile app for iPhone and Android.</p>
+<p>Un API JSON è anche disponibile per leggere i dati per un prodotto. This API is in particular used in the Open Food Facts mobile app for iPhone and Android.</p>
 
 <p>This API is experimental and can change. Please tell us if you use it, so that we can tell you about potential changes.</p>
 
