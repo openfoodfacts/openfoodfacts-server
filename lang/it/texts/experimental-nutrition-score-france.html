@@ -24,23 +24,22 @@ il professor Serge Hercberg sostiene l'adozione di un sistema di voti dalla A al
 
 <h2>Il punteggio nutrizionale su Open Food Facts</h2>
 
-<p>The formula for calculating the nutritional score, the thresholds of the grades and the various tweaking proposals were transmitted by Professor Hercberg's team. This formula was the subject of studies and adaptations for the French market.</p>
+<p>La formula per calcolare il punteggio nutrizionale, le soglie dei voti e le varie proposte di tweaking sono state trasmesa dal team del Professor Hercberg. Questa formula è stata soggetto di studi ed adattamenti per il mercato francese.</p>
 
-<p>The version adopted officially and implementated on Open Food Facts is the one from the report 
-<a href="/files/hcspa20150625_infoqualnutprodalim.pdf">NOTICE of the High Council for Public Health relating to information on the nutritional quality of food products published on June 25, 2015</a>.</p>
+<p>La versione adottata ufficialmente ed implementata su Open Food Facts è quella del rapporto 
+<a href="/files/hcspa20150625_infoqualnutprodalim.pdf">AVVISO dell'Alto Consiglio per la Salute Pubblica in relazione alle informazioni sulla qualità nutrizionale dei prodotti alimentari pubblicata il 25 giugno 2015</a>.</p>
 
-<p>However, we calculated the nutritional score for products sold on French soil and referenced in the database Open Food Facts,
-and determined the corresponding A to E grades. This allows in particular to compare the nutritional score and / or notes of different products, and to study the distribution for each product category.</p>
+<p>Tuttavia, abbiamo calcolato il punteggio nutrizionale per prodotti venduti sul suolo francese e fatto riferimento al database di Open Food Facts e determinato i gradi dalla A alla E corrispondenti. Questo consente in particolare di comparare il punteggio nutrizionale e/o note di prodotti differenti e di studiare la distribuzione per ogni categoria di prodotti.</p>
 
-<h2>Formula to calculate the nutritional score</h2>
+<h2>Formula per calcolare il punteggio nutrizionale</h2>
 
-<p>Points are given to the products according to the amount of nutrients they contain per 100 g.</p>
+<p>I punti sono dati ai prodotti in base alla quantità di nutrienti che contengono per 100 g.</p>
 
-<p>A Points are given for the nutrients considered "bad" and C points are given for the "good" nutrients and the content in fruits, vegetables and nuts.</p>
+<p>I Punti A sono dati per nutrienti considerati "cattivi" ed i punti C sono dati per i nutrienti "buoni" ed il contenuto in frutta, verdura e noci.</p>
 
 <h3>Punti A</h3>
 
-<p>A points are the sum of points for energy, saturated fat, sugars and sodium.</p>
+<p>I punti A sono la somma dei punti per energia, grassi saturati, zuccheri e sodio.</p>
 
 <table class="points">
 <tbody>
@@ -133,7 +132,7 @@ and determined the corresponding A to E grades. This allows in particular to com
 
 <h3>Punti C</h3>
 
-<p>The C points are the sum of points for fruits, vegetables and nuts, for fiber and protein.</p>
+<p>I punti C sono la somma dei punti per frutta, verdura e noci, per fibre e proteine.</p>
 
 <table class="points">
 <tbody>
@@ -182,44 +181,44 @@ and determined the corresponding A to E grades. This allows in particular to com
 </tbody>
 </table>
 
-<p>Note: potatoes, sweet potatoes, taro, cassava and tapioca are not included in fruits, vegetables and nuts.</p>
+<p>Nota: patate, patate dolci, taro, manioca e tapioca non sono inclusi in frutta, verdura e noci.</p>
 
-<h3>Nutritional score calculation</h3>
+<h3>Calcolo punteggio nutrizionale</h3>
 
 <ul>
-<li>If A points &lt; 11 then score = A points - C points</li>
-<li>If A points ≥ 11
+<li>Se i punti A &lt; 11 allora il punteggio = Punti A - punti C</li>
+<li>Se i punti ≥ 11
 <ul>
-<li>If the points for fruit, vegetables and nuts = 5, then score = A points - C points</li>
-<li>If the points for fruit, vegetables and nuts &lt; 5, then score = A points - (fiber points + points for points fruits, vegetables and nuts)</li>
+<li>Se i punti per frutta, verdura e noci = 5, allora il punteggio = punti A - punti C</li>
+<li>Se i punti per frutta, verdura e noci &lt; 5, allora il punteggio = punti A - (punti fibre + punti per punti frutta, verdura e noci)</li>
 </ul>
 
 </li>
 </ul>
 
-<h3>Adaptations for the French market</h3>
+<h3>Adattamenti per il mercato francese</h3>
 
-<p>The formula of nutritional score indicated above corresponds to the formula of the 
-  nutritional score of the Food Standards Agency (FSA) in the UK.</p>
+<p>La formula del punteggio nutrizionale indicata sopra corrisponde alla formula del 
+  punteggio nutrizionale dell'Agenzia degli Standard Alimentari (FSA) nel Regno Unito.</p>
 
-<p>The team of Professor Hercberg offers adaptations for the French market that 
-  are implemented to calculate the score on Open Food Facts.</p>
+<p>Il team del Professor Hercberg offre adattamenti per il mercato francese che 
+  sono implementati per calcolare il punteggio su Open Food Facts.</p>
 
-<h4>Adaptation for cheese</h4>
+<h4>Adattamento per formaggio</h4>
 
-<p>For cheeses, points for the proteins are substracted from the score even if the A points are ≥ 11.</p>
+<p>Per i formaggi, i punti per le proteine sono sottratti dal punteggio anche se i punti A sono ≥ 11.</p>
 
-<h4>Adaptation for fat</h4>
+<h4>Adattamento per grassi</h4>
 
-<p>To help differentiate between fats (oils, margarines, crèmes fraîches), all of which have rates of
-  saturated fat higher than the maximum threshold of 10 g, 
-  another grid that takes into account the ratio of saturated fatty acids on the total fat is applied:</p>
+<p>Per aiutare a differenziare tra grassi (oli, margarine, crèmes fraîches), tutti con percentuali di
+  grassi saturati maggiori della soglia massima di 10 g, 
+  un'altra griglia che tiene conto del rapporto di acidi grassi saturi sul totale di grasso è applicata:</p>
 
 <table class="points">
 <tbody>
   <tr>
     <td>Punti</td>
-    <td>Ratio Saturated Fat / Total Fat</td>
+    <td>Rapporto Grassi Saturi / Grassi Totali</td>
   </tr>
 <tr>
   <td>0</td> 
