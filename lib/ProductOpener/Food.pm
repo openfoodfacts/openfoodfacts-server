@@ -3159,7 +3159,6 @@ cocoa => {
 	uk => "Холін",
 	zh => "胆碱",
 	zh_CN => "胆碱",
-	unit => "%"
 },
 phylloquinone => {
 	en => "Vitamin K1 (Phylloquinone)",
