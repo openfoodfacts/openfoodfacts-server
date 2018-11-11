@@ -4453,13 +4453,20 @@ sub normalize_packager_codes($) {
 		return "$countrycode $code EC";
 	};		
 
-	my $normalize_ce_code = sub ($$) {
+	my $normalize_lu_ce_code = sub ($$) {
 		my $countrycode = shift;
 		my $letters = shift;
+		$letters = uc($letters);
 		my $number = shift;
 		$countrycode = uc($countrycode);
+		return "$countrycode $letters$number EC";	
+	};
+	
+	my $normalize_rs_ce_code = sub ($$) {
+		my $countrycode = shift;
+		my $code = shift;
 		$code = uc($code);
-		return "$countrycode $letter$number EC";	
+		return "$countrycode $code EC";	
 	};		
 	
 	# CE codes -- FR 67.145.01 CE
@@ -4479,7 +4486,11 @@ sub normalize_packager_codes($) {
 	
 	$codes =~ s/(^|,|, )(lu)(\s|-|_|\.|\/)*(\w)( |-|\.)(\d+)(\.|_|\s|-)?(ce|eec|ec|eg|we)\b/$1 . $normalize_lu_ce_code->('lu',$4,$6)/ieg;	
 	
-	$codes =~ s/(^|,|, )(\w\w)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg|we)\b/$1 . $normalize_ce_code->($2,$4)/ieg;	
+	# RS 731 -> RS 731 EC
+	
+	$codes =~ s/(^|,|, )(rs)(\s|-|_|\.|\/)*(\w+)(\.|_|\s|-)?(ce|eec|ec|eg|we)?\b/$1 . $normalize_rs_ce_code->('rs',$4)/ieg;	
+	
+	$codes =~ s/(^|,|, )(\w\w)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?(ce|eec|ec|eg|we|ek)\b/$1 . $normalize_ce_code->($2,$4)/ieg;	
 	
 	return $codes;
 }
