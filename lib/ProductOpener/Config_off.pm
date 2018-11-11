@@ -153,10 +153,10 @@ systeme-u
 },
 
 {
-        name => "Yuka - verified",
+        name => "Yuka - checked",
         conditions => [
                 ["user_id", "kiliweb"],
-                ["in_states_tags", "verified"],
+                ["in_states_tags", "en:checked"],
         ],
         actions => [
                 ["ignore"],
