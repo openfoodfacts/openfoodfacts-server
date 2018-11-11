@@ -2803,8 +2803,9 @@ HTML
 
 		$layer .= <<JS
 runCallbackOnJson(function (map) {
-	L.featureGroup(markers).addTo(map)
-	fitBoundsToAllLayers(map)
+	L.featureGroup(markers).addTo(map);
+	fitBoundsToAllLayers(map);
+	map.setZoom(10);
 })
 JS
 ;
