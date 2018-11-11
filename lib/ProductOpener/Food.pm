@@ -3261,7 +3261,7 @@ ph => {
 	zh_HK => "pH",
 	zh_TW => "pH",
 
-	unit => "',
+	unit => "",
 },
 
 "carbon-footprint" => {
