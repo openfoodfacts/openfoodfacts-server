@@ -2803,8 +2803,9 @@ HTML
 
 		$layer .= <<JS
 runCallbackOnJson(function (map) {
-	L.featureGroup(markers).addTo(map)
-	fitBoundsToAllLayers(map)
+	L.featureGroup(markers).addTo(map);
+	fitBoundsToAllLayers(map);
+	map.setZoom(10);
 })
 JS
 ;
@@ -3323,7 +3324,7 @@ HTML
 			my $img_h;
 			
 			my $code = $product_ref->{code};
-			my $img = display_image_thumb($product_ref, 'front');
+			my $img = display_image_thumb($product_ref, 'front', 1);	# lazyload
 			
 
 
@@ -4027,7 +4028,7 @@ sub display_scatter_plot($$$) {
 				}
 				$data{product_name} = $product_ref->{product_name};
 				$data{url} = $url;
-				$data{img} = display_image_thumb($product_ref, 'front');
+				$data{img} = display_image_thumb($product_ref, 'front', 0);	# no lazyload
 				
 				defined $series{$seriesid} or $series{$seriesid} = '';
 				$series{$seriesid} .= JSON::PP->new->encode(\%data) . ',';
@@ -4882,7 +4883,8 @@ JS
 				$origins = $manufacturing_places . $origins;
 					
 				$data_start .= " product_name:'" . escape_single_quote($product_ref->{product_name}) . "', brands:'" . escape_single_quote($product_ref->{brands}) . "', url: '" . $url . "', img:'"
-					. escape_single_quote(display_image_thumb($product_ref, 'front')) . "', origins:'" . $origins . "'";	
+					. escape_single_quote(display_image_thumb($product_ref, 'front', 0)) . "', origins:'" . $origins . "'";	# no lazyload
+					
 				
 
 				
