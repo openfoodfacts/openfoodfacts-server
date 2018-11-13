@@ -1399,7 +1399,7 @@ INFO
 		$product_ref->{$tagtype . '_tags'} = [];		
 				
 		# skip palm oil classes if there is a palm oil free label
-		if (($class =~ /palm/) and ($product_ref->{labels_tags} ~~ 'en:palm-oil-free')) {
+		if (($class =~ /palm/) and ($product_ref->{labels_tags} == 'en:palm-oil-free')) {
 			
 		}
 		else {
