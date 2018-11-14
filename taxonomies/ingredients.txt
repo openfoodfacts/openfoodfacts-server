@@ -2480,30 +2480,39 @@ allergens:fr:_lait_ de bufflonne pasteurisé
 
 # Yogurt related stuff
 
+en:yogurt
+fr:yaourt
+carbon_footprint_fr_foodges_ingredient:fr Yaourt
+
+<en:yogurt
 fr:yogourt maigre
 
+<en:yogurt
 fr:yogourt au lait pasteurisé
 
+<en:yogurt
 fr:yogourt partiellement écrémé
 
+<en:yogurt
 en:whole milk yogurt
 fr:yogourt au lait entier
 
 fr:yaourt en poudre
 allergens:fr:_yaourt_ en poudre
 
+<en:yogurt
 fr:yaourt brassé sucré
 allergens:fr:_yaourt_ brassé sucré
 
+<en:yogurt
 fr:yaourt maigre
 allergens:fr:_yaourt_ maigre
 
+<en:yogurt
 fr:yaourt au lait entier
 allergens:fr:yaourt au _lait_ entier
 
 fr:ferments lactiques du yaourt
-
-fr:yaourt
 
 de:Sahnejoghurt
 
@@ -4635,7 +4644,9 @@ de:Ziegenfleisch
 <en:meat
 en:pork meat
 fr:viande de porc
+carbon_footprint_fr_foodges_ingredient:fr Viande de porc
 
+<en:pork meat
 en:pork
 fr:porc
 
@@ -4675,6 +4686,9 @@ fr:échine de porc
 <en:pork meat
 fr:jambon de porc frais
 
+<en:pork meat
+fr:jambon frais de porc
+
 fr:jambon cru
 
 fr:jambon cuit choix
@@ -4704,11 +4718,11 @@ fr:longe de porc
 <fr:viande de porc
 fr:viande séparée mécaniquement de porc
 
+<en:pork meat
 fr:jarret de porc
 
+<en:pork meat
 fr:cuisse de porc
-
-fr:jambon frais de porc
 
 fr:gorge de porc
 
@@ -4794,17 +4808,39 @@ fr:foie de canard
 nl:eendenlever
 de:Entenleber
 
-fr:viande de veau
+<en:meat
+fr:viande bovine
 
+<fr:viande bovine
+fr:viande de veau
+carbon_footprint_fr_foodges_ingredient:fr Viande de veau France
+
+<fr:viande de veau
 fr:veau
+
+<fr:viande bovine
+fr:viande bovine hachée
+
+<fr:viande bovine
+fr:viande bovine origine france
+
+<fr:viande bovine
+fr:viande bovine halal
+
+<fr:viande bovine
+fr:viande de boeuf
+carbon_footprint_fr_foodges_ingredient:fr Viande de bœuf moyen France
+
+<fr:viande de boeuf
+fr:bœuf
+
+<fr:viande de boeuf
+fr:viande hachée de boeuf
+
 
 fr:présure de veau
 
 fr:os de veau
-
-fr:viande de dinde
-
-fr:viande de poulet
 
 #Poulet
 
@@ -4862,6 +4898,19 @@ fr:filets de poulet
 fr:viande de bœuf
 
 fr:extrait de viande de bœuf
+
+# SAUSAGES
+<en:meat
+fr:saucisse de porc
+carbon_footprint_fr_foodges_ingredient:fr Saucisse de porc
+
+<fr:saucisse de porc
+fr:saucisses de toulouse grillées
+treatment:en: en:gril
+
+fr: saucisson de porc
+carbon_footprint_fr_foodges_ingredient:fr Saucisson de porc
+
 
 # STARCH is a polymeric carbohydrate consisting of a large number of glucose units joined by glycosidic bonds. 
 
@@ -9702,6 +9751,7 @@ zh:玉米
 wikipedia:en:https://en.wikipedia.org/wiki/Maize
 wikidata:en:Q11575
 openfoodfacts:https://world.openfoodfacts.org/ingredient/corn
+carbon_footprint_fr_foodges_ingredient:fr Maïs
 # 6846 products in 16 languages @201809-23
 
 
@@ -15044,6 +15094,7 @@ es:limón
 fr:citron, citrons
 nl:citroen
 wikidata:en:Q1093742
+carbon_footprint_fr_foodges_ingredient:fr Citron
 
 <en:lemon
 fr:citron confit
@@ -18430,6 +18481,7 @@ it:barbabietola
 nl:biet, bieten
 wikidata:en:Q165437
 wikipedia:en:https://en.wikipedia.org/wiki/Beetroot
+carbon_footprint_fr_foodges_ingredient:fr Betteraves
 # en:beetroot has 319 products in 5 languages @2018-10-22
 
 # Sometimes it is indicated as a colour.
@@ -18871,6 +18923,7 @@ te:గోబీ పుష్పం
 zh:花椰菜
 wikidata:en:Q23900272
 wikipedia:en:https://en.wikipedia.org/wiki/Cauliflower
+carbon_footprint_fr_foodges_ingredient:fr Chou-Fleur
 # en:cauliflower has 660 products in 5 languages @2018-10-17
 
 # CABBAGE or headed cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads. 
@@ -19826,6 +19879,7 @@ yi:פארע-ציבעלע
 zh:韭葱
 wikidata:en:Q1807269
 wikipedia:en:https://en.wikipedia.org/wiki/Leek
+carbon_footprint_fr_foodges_ingredient:fr Poireau
 # en:leek has 1922 products in 9 languages @2018-10-15
 
 # The SHALLOT is a type of onion, specifically a botanical variety of the species Allium cepa.
@@ -20124,7 +20178,9 @@ zh:馬鈴薯
 zu:Izambane
 wikidata:en:Q16587531
 wikipedia:en:https://en.wikipedia.org/wiki/Potato
+carbon_footprint_fr_foodges_ingredient:fr Pomme de terre
 # en:potato has 2269 products in 23 languages @2018-10-15
+
 
 <en:potato
 en:potato powder
@@ -24972,9 +25028,16 @@ fr:saumon cuit
 <en:salmon
 fr:saumon rose du pacifique
 
+fr:pavé de saumon d'élevage
+carbon_footprint_fr_foodges_ingredient:fr Pavé de Truite ou Saumon d'élevage
+
+fr:saumon fumé d'élevage
+carbon_footprint_fr_foodges_ingredient:fr Truite/Saumon fumé d'élevage
+
 <en:salmon
 en:smoked salmon
 fr:saumon fumé
+
 
 <en:salmon
 fr:salmo salar
@@ -25002,6 +25065,18 @@ fr:lieu
 <en:fish
 fr:truite
 
+fr:truite d'élevage entière
+carbon_footprint_fr_foodges_ingredient:fr Truite d'élevage, entière
+
+fr:pavé de truite d'élevage
+carbon_footprint_fr_foodges_ingredient:fr Pavé de Truite ou Saumon d'élevage
+
+<fr:truite
+fr:Truite fumée d'élevage
+carbon_footprint_fr_foodges_ingredient:fr Truite/Saumon fumé d'élevage
+
+fr:truite arc-en-ciel
+
 <en:fish
 en:tuna, katsuwonus pelamis
 fr:thon, katsuwonus pelamis
@@ -25028,8 +25103,6 @@ fr:thon listao
 fr:thon albacore
 
 fr:fumet de poisson
-
-fr:truite arc-en-ciel
 
 fr:poulpes
 
@@ -25214,8 +25287,6 @@ fr:acétates de sodium
 fr:spiruline
 
 fr:méthylcellulose
-
-fr:lard
 
 en:calcium lactate
 es:lactato de calcio
@@ -25555,6 +25626,10 @@ fr:bleu patenté v
 
 
 fr:concombre
+carbon_footprint_fr_foodges_ingredient:fr Concombre
+
+<fr:concombre
+fr:concombres au vinaigre
 
 en:cucumber juice
 es:zumo de pepino
@@ -25798,10 +25873,20 @@ fr:bimi
 nl:bimi
 de:Bimi
 
+<en:meat
+fr:lardons
+carbon_footprint_fr_foodges_ingredient:fr Lardons
 
+<fr:lardons
 fr:lardon fumé, lardons fumés
 
+<fr:lardon fumé
+fr:lardons cuits fumés
 
+fr:lard
+
+<fr:lard
+fr:lard fumé
 
 fr:roquette
 
@@ -25966,6 +26051,7 @@ fr:babeurre déshydraté
 
 fr:éthanol
 
+<fr:pain
 fr:pain spécial
 
 fr:morue
@@ -26286,7 +26372,7 @@ nl:Alaska koolvisfilet
 de:Alaska-Seelachsfilet
 allergens:fr:filet de _colin_ d'alaska
 
-fr:dinde
+
 
 en:avocado
 es:aguacate
@@ -26743,25 +26829,47 @@ de:Treibgas E942
 fr:viande de mouton
 
 <en:meat
+fr:lapin
+carbon_footprint_fr_foodges_ingredient:fr Lapin
+
+<fr:lapin
 fr:viande de lapin
-
-<en:meat
-fr:viande hachée de boeuf
-
-<en:meat
-fr:viande de dinde halal
 
 <en:meat
 fr:viande d'agneau
 
 <en:meat
-fr:viande bovine hachée
+fr:cotelettes d'agneau
+carbon_footprint_fr_foodges_ingredient:fr Côtelettes d'Agneau
 
 <en:meat
-fr:viande bovine origine france
+fr:viande de dinde
 
-<en:meat
+<fr:viande de dinde
+fr:viande de dinde halal
+
+<fr:viande de dinde
+fr:dinde
+
+<fr:viande de dinde
+fr:filet de dinde, filets de dinde
+
+<fr:viande de dinde
 fr:viande séparée mécaniquement de dinde
+
+<fr:viande de dinde
+fr: blanc de dinde
+carbon_footprint_fr_foodges_ingredient:fr Blanc de dinde
+
+<en:meat
+fr:cuisse de dinde
+carbon_footprint_fr_foodges_ingredient:fr Cuisse de dinde
+
+<fr:Cuisse de dinde
+fr:viande de cuisse de dinde
+
+<fr:viande de dinde
+fr:viande de dinde traitée en salaison
 
 <en:meat
 fr:viande de poulet traitée en salaison
@@ -26780,27 +26888,13 @@ en:cooked beaf meat
 fr:viande de bœuf cuite
 
 <en:meat
-fr:viande de cuisse de dinde
-
-<en:meat
 fr:viande de volaille traitée en salaison
-
-<en:meat
-fr:viande bovine halal
-
-<en:meat
-fr:viande de dinde traitée en salaison
 
 <en:meat
 fr:viande de filet de poulet
 
 <en:meat
 fr:viande de poitrine de poulet
-
-<en:meat
-fr:viande bovine
-
-fr:bœuf
 
 <en:meat
 fr:viande de poulet séparée mécaniquement
@@ -26950,6 +27044,7 @@ allergens:fr:caramel au _beurre_ salé
 en:onions
 fr:oignons
 de:Zwiebeln
+carbon_footprint_fr_foodges_ingredient:fr Oignons
 
 <en:onions
 fr:red onions
@@ -27074,7 +27169,7 @@ fr:mangue
 en:tea
 fr:thé
 
-
+<fr:pain
 fr:pain de mie
 
 
@@ -27161,11 +27256,12 @@ fr:chicorée soluble
 
 fr:extraits naturels
 
-fr:lardons cuits fumés
+
 
 fr:concentré de carthame
 
 fr:pain
+carbon_footprint_fr_foodges_ingredient:fr Pain
 
 fr:purée de goyave
 
@@ -27273,8 +27369,6 @@ fr:algue
 fr:pyrophosphate de fer
 
 fr:jus de potiron
-
-fr:filet de dinde
 
 fr:poisson en poudre
 allergens:fr:_poisson_ en poudre
@@ -27418,8 +27512,6 @@ fr:sauce béchamel
 fr:coeurs d'artichauts
 
 fr:l-carnitine
-
-fr:lard fumé
 
 fr:nappage
 
@@ -27859,8 +27951,9 @@ fr:gousse de vanille
 
 fr:fondant
 
-
+<en:meat
 fr:magret de canard
+carbon_footprint_fr_foodges_ingredient:fr Magret canard
 
 fr:ferments lactiques dont lactobacillus casei
 
@@ -27871,6 +27964,7 @@ fr:épaississant e415
 
 
 # Eggs
+
 
 en:egg protein
 fr:protéine d'oeuf
@@ -28025,7 +28119,7 @@ fr:bifidobactérium
 fr:agent d'enrobage cire de carnauba
 
 
-
+<pain
 fr:pain de mie au son de blé
 allergens:fr:pain de mie au son de _blé_
 
@@ -28084,7 +28178,7 @@ fr:vanille moulue
 fr:disulfites de sodium
 allergens:fr:_disulfites_ de sodium
 
-fr:lardons
+
 
 fr:mirabelles
 
@@ -28502,6 +28596,7 @@ es:huevo
 fr:œuf 
 nl:ei
 de:Eier
+carbon_footprint_fr_foodges_ingredient:fr Oeuf, moyenne nationale
 
 fr:œufs de poules élevées en plein air pasteurisés
 allergens:fr:_œufs_ de poules élevées en plein air pasteurisés
@@ -29098,9 +29193,6 @@ fr:mélasses
 
 
 
-fr:concombres au vinaigre
-
-
 fr:crevette décortiquée
 
 en:nougat
@@ -29108,7 +29200,7 @@ fr:nougat
 
 fr:nougatine
 
-
+<pain
 fr:pain de mie au blé malté
 allergens:fr:pain de mie au _blé_ malté
 
@@ -29145,11 +29237,6 @@ fr:sauce caramel
 fr:transglutaminase
 
 fr:jus d'aronia
-
-
-
-
-fr:filets de dinde
 
 fr:tahini
 
@@ -29193,7 +29280,7 @@ fr:argopecten purpuratus
 fr:caséinate
 allergens:fr:_caséinate_
 
-fr:lardon fumé
+
 
 
 
@@ -29350,9 +29437,6 @@ fr:boyau de boeuf
 fr:lactate de fer
 
 fr:jaunes d'oeufs salés
-
-fr:saucisses de toulouse grillées
-treatment:en: en:gril
 
 fr:dextrine de tapioca
 
