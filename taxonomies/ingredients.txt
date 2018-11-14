@@ -4382,6 +4382,7 @@ zh:食盐
 # yue:食鹽
 wikidata:en:Q11254
 wikipedia:en:https://en.wikipedia.org/wiki/Salt
+carbon_footprint_fr_foodges_ingredient:fr Sel
 
 <en:Salt
 en:finegrained salt
@@ -5601,6 +5602,7 @@ zh:橄欖油
 # yue: 橄欖油
 wikipedia:en:https://en.wikipedia.org/wiki/Olive_oil
 wikidata:en:Q93165
+carbon_footprint_fr_foodges_ingredient:fr Huile d'olive
 
 <en:olive oil
 en:virgin olive oil
@@ -7278,6 +7280,10 @@ de:Armagnac
 en:beer
 de:Bier
 fr:bière
+carbon_footprint_fr_foodges_ingredient:fr Bière
+
+<fr:bière
+fr:bière blonde
 
 # ABSINTHE is historically described as a distilled, highly alcoholic beverage
 
@@ -11604,6 +11610,9 @@ fr:eau de cuisson
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau%20de%20cuisson
 # 410 products in 2 languages @2018-09-29
 
+fr:Eau du robinet
+carbon_footprint_fr_foodges_ingredient:fr Eau du robinet
+
 # A TRIER
 
 en:citric acid
@@ -15386,6 +15395,9 @@ wikidata:en:Q219059
 
 # This seems a compound ingredient, i.e. concentrated orange juice + water, bt is never described as such.
 
+fr:Pur jus d'orange
+carbon_footprint_fr_foodges_ingredient:fr Pur jus d'orange
+
 <en:orange juice
 en:orange juice from concentrate 
 de:Orangensaft aus Konzentrat
@@ -18833,6 +18845,7 @@ zh:茄子
 # zh-tw:茄
 wikidata:en:Q7540
 wikipedia:en:https://en.wikipedia.org/wiki/Eggplant
+carbon_footprint_fr_foodges_ingredient:fr Aubergine
 # en:aubergine has 733 products in 9 languages @2018-10-17
 
 # This can be seen as compound ingredient, i.e.: melanzane grigliate (melanzane, olio di girasole)
@@ -20006,6 +20019,7 @@ zh:菠菜
 # zh-tw:菠菜
 wikidata:en:Q81464
 wikipedia:en:https://en.wikipedia.org/wiki/Spinach
+carbon_footprint_fr_foodges_ingredient:fr Epinard
 # fr:épinard 1204 in 9 languages products @2018-10-14
 
 <en:spinach
@@ -20747,13 +20761,11 @@ de:Tellerlinsen
 fr:lentille, lentilles
 
 fr:lentille verte, lentilles vertes
-
-
+carbon_footprint_fr_foodges_ingredient:fr Lentilles vertes
 
 fr:lentilles précuites
 
 fr:lentilles vertes précuites
-
 
 fr:lentilles rouges
 
@@ -22099,6 +22111,7 @@ it:spezie
 nl:kruiden
 sv:kryddor
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:aromate
+carbon_footprint_fr_foodges_ingredient:fr Épices
 # 903 products in 4 languages @2018-10-08
 
 
@@ -22752,6 +22765,7 @@ zh:芥末醬
 zu:umasitadi
 wikidata:en:Q131748
 wikipedia:en:https://en.wikipedia.org/wiki/Mustard_(condiment)
+carbon_footprint_fr_foodges_ingredient:fr Moutarde
 # en:mustard has 4679 products in 13 languages @2018-10-25
 
 # MUSTARD is a condiment made from the seeds of a mustard plant 
@@ -23073,6 +23087,7 @@ yi:צימערינג
 zh:桂皮
 # zh-tw:陰香
 wikidata:en:Q28165
+carbon_footprint_fr_foodges_ingredient:fr Cannelle
 # fr:cannelle has 1851 products in 14 languages @2018-10-24
 
 <en:Cinnamon
@@ -26041,6 +26056,7 @@ es:escarola
 fr:chicorée
 nl:andijvie
 de:Endivien
+carbon_footprint_fr_foodges_ingredient:fr Endive
 
 fr:pignons de pin
 
@@ -26293,6 +26309,7 @@ es:aguacate
 fr:avocat
 nl:avocado
 de:Avocado
+carbon_footprint_fr_foodges_ingredient:fr Avocat
 
 en:amaretto
 es:Amaretto
@@ -28259,8 +28276,6 @@ fr:malate de sodium
 
 fr:complexes cuivre
 
-fr:bière blonde
-
 en:precooked chicken
 es:carne de pollo precocida
 nl:voorgegaard kippenvlees
@@ -28883,6 +28898,7 @@ de:schwarzer Pilz
 fr:champignons, champignon
 
 fr:champignon de paris, champignons de paris
+carbon_footprint_fr_foodges_ingredient:fr Champignons de Paris
 
 fr:champignon noir réhydraté
 
