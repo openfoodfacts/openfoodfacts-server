@@ -1409,6 +1409,7 @@ zh:酶
 # zh-min-nan:Kàⁿ-sò͘
 # yue:酵素
 wikipedia:en:https://en.wikipedia.org/wiki/Enzyme
+nova:en: 3
 
 <en:enzyme
 en:coagulating enzyme
@@ -1419,6 +1420,54 @@ nl:stremmingsenzymen
 en:microbial coagulating enzyme
 fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne
 nl:microbiële stremmingsenzymen
+
+# We need to check which entries below are exact synonyms, and which ones are children of others
+
+en:culture
+nova:en: 3
+
+en:ferment
+fr:ferment
+nova:en: 3
+
+<en:ferment
+en:lactic ferment
+fr:ferment lactique
+es:cultivo lactico
+
+<en:lactic ferment
+en:lactic and aging ferments
+fr:ferment lactique et d'affinage, Ferments lactiques et d'affinage
+
+<en:lactic ferment
+en:yogurt lactic ferment
+fr:ferment lactique du yaourt, ferments lactiques du yaourt
+
+<en:coagulating enzyme
+en:rennet, animal rennet
+fr:présure, présure animale
+
+<en:rennet
+en:calf rennet
+fr:présure de veau
+
+<en:rennet
+en:microbial rennet
+fr:présure microbienne
+
+<en:culture
+en:cheese culture
+
+<en:culture
+en:microbial culture
+fr:culture bactérienne
+
+<en:culture
+fr:culture de bactéries lactiques
+
+<en:culture
+en:bifidus culture
+fr:culture de bifidus
 
 # LACTASE - is an enzyme produced by many organisms.
 
@@ -2501,7 +2550,6 @@ allergens:fr:_yaourt_ maigre
 fr:yaourt au lait entier
 allergens:fr:yaourt au _lait_ entier
 
-fr:ferments lactiques du yaourt
 
 fr:yaourt
 
@@ -4798,7 +4846,7 @@ fr:viande de veau
 
 fr:veau
 
-fr:présure de veau
+
 
 fr:os de veau
 
@@ -24691,10 +24739,6 @@ fr:ascorbate de sodium
 
 # Random
 
-fr:ferment
-
-fr:présure
-
 fr:carbonate acide de sodium
 
 en:mono- and diglycerides of fatty acids
@@ -25100,7 +25144,7 @@ fr:k
 
 fr:fibres alimentaires, fibre alimentaire
 
-fr:présure animale
+
 
 fr:carthame
 
@@ -27181,7 +27225,6 @@ fr:éclats de caramel
 fr:sauce de poisson
 
 
-fr:présure microbienne
 
 
 
@@ -28224,7 +28267,6 @@ fr:250
 fr:bouillon déshydraté
 
 
-fr:culture bactérienne
 
 fr:affermissants
 
@@ -28747,7 +28789,6 @@ fr:cholécalciférol
 
 fr:sauce worcestershire
 
-fr:culture de bactéries lactiques
 
 
 fr:produit champignon quorn
@@ -28888,7 +28929,6 @@ fr:champignon noir réhydraté
 
 fr:champignons noirs réhydratés
 
-fr:cultures
 
 fr:pois mange-tout
 
@@ -29221,7 +29261,6 @@ allergens:fr:_lactoprotéines_
 
 fr:pâtes fraîches
 
-fr:culture de bifidus
 
 fr:encornet
 allergens:fr:_encornet_
