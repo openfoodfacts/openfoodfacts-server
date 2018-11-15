@@ -2900,7 +2900,7 @@ allergens:fr:_lait_ de bufflonne pasteurisé
 
 en:yogurt
 fr:yaourt
-carbon_footprint_fr_foodges_ingredient:fr Yaourt
+carbon_footprint_fr_foodges_ingredient:fr: Yaourt
 
 <en:yogurt
 fr:yogourt maigre
@@ -4808,7 +4808,7 @@ zh:食盐
 # yue:食鹽
 wikidata:en:Q11254
 wikipedia:en:https://en.wikipedia.org/wiki/Salt
-carbon_footprint_fr_foodges_ingredient:fr Sel
+carbon_footprint_fr_foodges_ingredient:fr: Sel
 
 <en:Salt
 en:finegrained salt
@@ -5062,7 +5062,7 @@ de:Ziegenfleisch
 <en:meat
 en:pork meat
 fr:viande de porc
-carbon_footprint_fr_foodges_ingredient:fr Viande de porc
+carbon_footprint_fr_foodges_ingredient:fr: Viande de porc
 
 <en:pork meat
 en:pork
@@ -5231,7 +5231,7 @@ fr:viande bovine
 
 <fr:viande bovine
 fr:viande de veau
-carbon_footprint_fr_foodges_ingredient:fr Viande de veau France
+carbon_footprint_fr_foodges_ingredient:fr: Viande de veau France
 
 <fr:viande de veau
 fr:veau
@@ -5247,7 +5247,7 @@ fr:viande bovine halal
 
 <fr:viande bovine
 fr:viande de boeuf
-carbon_footprint_fr_foodges_ingredient:fr Viande de bœuf moyen France
+carbon_footprint_fr_foodges_ingredient:fr: Viande de bœuf moyen France
 
 <fr:viande de boeuf
 fr:bœuf
@@ -5270,11 +5270,11 @@ fr:poitrine de poulet
 
 <fr:viande de poulet
 fr:cuisse de poulet
-carbon_footprint_fr_foodges_ingredient:fr Cuisse de poulet
+carbon_footprint_fr_foodges_ingredient:fr: Cuisse de poulet
 
 <fr:viande de poulet
 fr:poulet rôti
-carbon_footprint_fr_foodges_ingredient:fr Poulet roti entier
+carbon_footprint_fr_foodges_ingredient:fr: Poulet roti entier
 
 fr:gras de poulet
 
@@ -5306,7 +5306,7 @@ fr:poulet rôti traité en salaison
 
 <fr:viande de poulet
 fr:blanc de poulet
-carbon_footprint_fr_foodges_ingredient:fr Blanc de poulet
+carbon_footprint_fr_foodges_ingredient:fr: Blanc de poulet
 
 fr:bouillon de poulet
 
@@ -5323,14 +5323,14 @@ fr:extrait de viande de bœuf
 # SAUSAGES
 <en:meat
 fr:saucisse de porc
-carbon_footprint_fr_foodges_ingredient:fr Saucisse de porc
+carbon_footprint_fr_foodges_ingredient:fr: Saucisse de porc
 
 <fr:saucisse de porc
 fr:saucisses de toulouse grillées
 treatment:en: en:gril
 
 fr: saucisson de porc
-carbon_footprint_fr_foodges_ingredient:fr Saucisson de porc
+carbon_footprint_fr_foodges_ingredient:fr: Saucisson de porc
 
 
 # STARCH is a polymeric carbohydrate consisting of a large number of glucose units joined by glycosidic bonds. 
@@ -6071,7 +6071,7 @@ zh:橄欖油
 # yue: 橄欖油
 wikipedia:en:https://en.wikipedia.org/wiki/Olive_oil
 wikidata:en:Q93165
-carbon_footprint_fr_foodges_ingredient:fr Huile d'olive
+carbon_footprint_fr_foodges_ingredient:fr: Huile d'olive
 
 <en:olive oil
 en:virgin olive oil
@@ -6134,7 +6134,7 @@ sk:repkový olej
 sv:rapsolja
 wikipedia:en:https://en.wikipedia.org/wiki/Colza_oil
 wikidata:en:Q697248
-carbon_footprint_fr_foodges_ingredient:fr Huile de colza
+carbon_footprint_fr_foodges_ingredient:fr: Huile de colza
 
 <en:colza oil
 fr:huile de colza non hydrogénée
@@ -6883,7 +6883,7 @@ es:vinagre de vino
 fr:vinaigre de vin
 it:aceto di vino
 nl:wijnazijn
-carbon_footprint_fr_foodges_ingredient:fr Vinaigre de vin
+carbon_footprint_fr_foodges_ingredient:fr: Vinaigre de vin
 
 <en:wine vinegar
 en:white wine vinegar
@@ -7751,7 +7751,7 @@ de:Armagnac
 en:beer
 de:Bier
 fr:bière
-carbon_footprint_fr_foodges_ingredient:fr Bière
+carbon_footprint_fr_foodges_ingredient:fr: Bière
 
 <fr:bière
 fr:bière blonde
@@ -9716,7 +9716,7 @@ zh:小麥麵粉
 # zh-min-nan:Mī-hún
 wikipedia:en:https://en.wikipedia.org/wiki/Wheat_flour
 wikidata:en:Q2249305
-carbon_footprint_fr_foodges_ingredient:fr Farine de blé
+carbon_footprint_fr_foodges_ingredient:fr: Farine de blé
 
 <en:wheat flour
 fr:farine de blé malté torréfié
@@ -10242,7 +10242,7 @@ zh:玉米
 wikipedia:en:https://en.wikipedia.org/wiki/Maize
 wikidata:en:Q11575
 openfoodfacts:https://world.openfoodfacts.org/ingredient/corn
-carbon_footprint_fr_foodges_ingredient:fr Maïs
+carbon_footprint_fr_foodges_ingredient:fr: Maïs
 # 6846 products in 16 languages @201809-23
 
 
@@ -10588,7 +10588,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Inverted_sugar_syrup
 <en:sugar
 en:cane sugar
 fr:sucre de canne
-carbon_footprint_fr_foodges_ingredient:fr Sucre de canne
+carbon_footprint_fr_foodges_ingredient:fr: Sucre de canne
 
 <en:cane sugar
 fr:sucre brut de canne
@@ -10642,7 +10642,7 @@ fr:sucre roux
 en:beet sugar
 de:Rübenzucker
 fr:sucre de betterave
-carbon_footprint_fr_foodges_ingredient:fr Sucre de betterave
+carbon_footprint_fr_foodges_ingredient:fr: Sucre de betterave
 
 <en:sugar
 en:liquid sugar
@@ -12148,7 +12148,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau%20de%20cuisson
 # 410 products in 2 languages @2018-09-29
 
 fr:Eau du robinet
-carbon_footprint_fr_foodges_ingredient:fr Eau du robinet
+carbon_footprint_fr_foodges_ingredient:fr: Eau du robinet
 
 # A TRIER
 
@@ -14344,7 +14344,7 @@ zh:香蕉
 wikipedia:en:https://en.wikipedia.org/wiki/Banana
 wikidata:en:Q503
 openfoodfacts:https://world.openfoodfacts.org/ingredient/banana
-carbon_footprint_fr_foodges_ingredient:fr Banane
+carbon_footprint_fr_foodges_ingredient:fr: Banane
 # 1538 products in 10 languages @2018-09-26
 
 <en:banana
@@ -14954,10 +14954,10 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/mango
 # 1597 products in 10 languages @2018-09-27
 
 fr:Mangue importée en avion
-carbon_footprint_fr_foodges_ingredient:fr Mangue importée en avion
+carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en avion
 
 fr:Mangue importée en bateau
-carbon_footprint_fr_foodges_ingredient:fr Mangue importée en bateau
+carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en bateau
 
 <en:mango
 <en:purée
@@ -15597,7 +15597,7 @@ es:limón
 fr:citron, citrons
 nl:citroen
 wikidata:en:Q1093742
-carbon_footprint_fr_foodges_ingredient:fr Citron
+carbon_footprint_fr_foodges_ingredient:fr: Citron
 
 <en:lemon
 fr:citron confit
@@ -15941,7 +15941,7 @@ wikidata:en:Q219059
 # This seems a compound ingredient, i.e. concentrated orange juice + water, bt is never described as such.
 
 fr:Pur jus d'orange
-carbon_footprint_fr_foodges_ingredient:fr Pur jus d'orange
+carbon_footprint_fr_foodges_ingredient:fr: Pur jus d'orange
 
 <en:orange juice
 en:orange juice from concentrate 
@@ -16088,7 +16088,7 @@ uk:мандарин
 wikidata:en:https://www.wikidata.org/wiki/Q190024
 wikipedia:en:https://en.wikipedia.org/wiki/Mandarin_orange
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:mandarine
-carbon_footprint_fr_foodges_ingredient:fr Mandarine
+carbon_footprint_fr_foodges_ingredient:fr: Mandarine
 # 239 products in 6 languages @2018-10-01
 
 <fr:mandarine
@@ -16811,7 +16811,7 @@ zh:樱
 wikipedia:en:https://en.wikipedia.org/wiki/Cherry
 wikidata:en:Q196
 openfoodfacts:https://world.openfoodfacts.org/ingredient/cherry
-carbon_footprint_fr_foodges_ingredient:fr Cerise
+carbon_footprint_fr_foodges_ingredient:fr: Cerise
 # 969 products in 7 languages @2018-09-29
 
 <en:cherry
@@ -16944,7 +16944,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/melon
 # 5 products @2018-09-29
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:melon
 # 94 products in 5 languages @2018-09-29
-carbon_footprint_fr_foodges_ingredient:fr Melon
+carbon_footprint_fr_foodges_ingredient:fr: Melon
 
 # MELONS CONFITS is a compound ingredient
 
@@ -18990,7 +18990,7 @@ it:barbabietola
 nl:biet, bieten
 wikidata:en:Q165437
 wikipedia:en:https://en.wikipedia.org/wiki/Beetroot
-carbon_footprint_fr_foodges_ingredient:fr Betteraves
+carbon_footprint_fr_foodges_ingredient:fr: Betteraves
 # en:beetroot has 319 products in 5 languages @2018-10-22
 
 # Sometimes it is indicated as a colour.
@@ -19394,7 +19394,7 @@ zh:茄子
 # zh-tw:茄
 wikidata:en:Q7540
 wikipedia:en:https://en.wikipedia.org/wiki/Eggplant
-carbon_footprint_fr_foodges_ingredient:fr Aubergine
+carbon_footprint_fr_foodges_ingredient:fr: Aubergine
 # en:aubergine has 733 products in 9 languages @2018-10-17
 
 # This can be seen as compound ingredient, i.e.: melanzane grigliate (melanzane, olio di girasole)
@@ -19433,7 +19433,7 @@ te:గోబీ పుష్పం
 zh:花椰菜
 wikidata:en:Q23900272
 wikipedia:en:https://en.wikipedia.org/wiki/Cauliflower
-carbon_footprint_fr_foodges_ingredient:fr Chou-Fleur
+carbon_footprint_fr_foodges_ingredient:fr: Chou-Fleur
 # en:cauliflower has 660 products in 5 languages @2018-10-17
 
 # CABBAGE or headed cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads. 
@@ -20389,7 +20389,7 @@ yi:פארע-ציבעלע
 zh:韭葱
 wikidata:en:Q1807269
 wikipedia:en:https://en.wikipedia.org/wiki/Leek
-carbon_footprint_fr_foodges_ingredient:fr Poireau
+carbon_footprint_fr_foodges_ingredient:fr: Poireau
 # en:leek has 1922 products in 9 languages @2018-10-15
 
 # The SHALLOT is a type of onion, specifically a botanical variety of the species Allium cepa.
@@ -20570,7 +20570,7 @@ zh:菠菜
 # zh-tw:菠菜
 wikidata:en:Q81464
 wikipedia:en:https://en.wikipedia.org/wiki/Spinach
-carbon_footprint_fr_foodges_ingredient:fr Epinard
+carbon_footprint_fr_foodges_ingredient:fr: Epinard
 # fr:épinard 1204 in 9 languages products @2018-10-14
 
 <en:spinach
@@ -20689,7 +20689,7 @@ zh:馬鈴薯
 zu:Izambane
 wikidata:en:Q16587531
 wikipedia:en:https://en.wikipedia.org/wiki/Potato
-carbon_footprint_fr_foodges_ingredient:fr Pomme de terre
+carbon_footprint_fr_foodges_ingredient:fr: Pomme de terre
 # en:potato has 2269 products in 23 languages @2018-10-15
 
 
@@ -21314,7 +21314,7 @@ de:Tellerlinsen
 fr:lentille, lentilles
 
 fr:lentille verte, lentilles vertes
-carbon_footprint_fr_foodges_ingredient:fr Lentilles vertes
+carbon_footprint_fr_foodges_ingredient:fr: Lentilles vertes
 
 fr:lentilles précuites
 
@@ -21917,7 +21917,7 @@ tt:бәдәм җимеше
 za:Makgai
 wikidata:en:Q184357
 openfoodfacts:https://world.openfoodfacts.org/ingredient/almonds
-carbon_footprint_fr_foodges_ingredient:fr Amandes
+carbon_footprint_fr_foodges_ingredient:fr: Amandes
 # 9611 products @2018-10-06
 
 <en:almond
@@ -22665,7 +22665,7 @@ it:spezie
 nl:kruiden
 sv:kryddor
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:aromate
-carbon_footprint_fr_foodges_ingredient:fr Épices
+carbon_footprint_fr_foodges_ingredient:fr: Épices
 # 903 products in 4 languages @2018-10-08
 
 
@@ -23319,7 +23319,7 @@ zh:芥末醬
 zu:umasitadi
 wikidata:en:Q131748
 wikipedia:en:https://en.wikipedia.org/wiki/Mustard_(condiment)
-carbon_footprint_fr_foodges_ingredient:fr Moutarde
+carbon_footprint_fr_foodges_ingredient:fr: Moutarde
 # en:mustard has 4679 products in 13 languages @2018-10-25
 
 # MUSTARD is a condiment made from the seeds of a mustard plant 
@@ -23641,7 +23641,7 @@ yi:צימערינג
 zh:桂皮
 # zh-tw:陰香
 wikidata:en:Q28165
-carbon_footprint_fr_foodges_ingredient:fr Cannelle
+carbon_footprint_fr_foodges_ingredient:fr: Cannelle
 # fr:cannelle has 1851 products in 14 languages @2018-10-24
 
 <en:Cinnamon
@@ -25375,7 +25375,7 @@ fr:petits pois, petit pois
 fr:bêta-carotène
 
 fr:margarine
-carbon_footprint_fr_foodges_ingredient:fr Margarine
+carbon_footprint_fr_foodges_ingredient:fr: Margarine
 
 fr:margarine végétale non hydrogénée
 
@@ -25410,7 +25410,7 @@ fr:café torréfié moulu
 
 <en:coffee
 fr:café moulu
-carbon_footprint_fr_foodges_ingredient:fr Café moulu
+carbon_footprint_fr_foodges_ingredient:fr: Café moulu
 
 <en:coffee
 fr:café moulu pur arabica
@@ -25537,10 +25537,10 @@ fr:saumon cuit
 fr:saumon rose du pacifique
 
 fr:pavé de saumon d'élevage
-carbon_footprint_fr_foodges_ingredient:fr Pavé de Truite ou Saumon d'élevage
+carbon_footprint_fr_foodges_ingredient:fr: Pavé de Truite ou Saumon d'élevage
 
 fr:saumon fumé d'élevage
-carbon_footprint_fr_foodges_ingredient:fr Truite/Saumon fumé d'élevage
+carbon_footprint_fr_foodges_ingredient:fr: Truite/Saumon fumé d'élevage
 
 <en:salmon
 en:smoked salmon
@@ -25574,14 +25574,14 @@ fr:lieu
 fr:truite
 
 fr:truite d'élevage entière
-carbon_footprint_fr_foodges_ingredient:fr Truite d'élevage, entière
+carbon_footprint_fr_foodges_ingredient:fr: Truite d'élevage, entière
 
 fr:pavé de truite d'élevage
-carbon_footprint_fr_foodges_ingredient:fr Pavé de Truite ou Saumon d'élevage
+carbon_footprint_fr_foodges_ingredient:fr: Pavé de Truite ou Saumon d'élevage
 
 <fr:truite
 fr:Truite fumée d'élevage
-carbon_footprint_fr_foodges_ingredient:fr Truite/Saumon fumé d'élevage
+carbon_footprint_fr_foodges_ingredient:fr: Truite/Saumon fumé d'élevage
 
 fr:truite arc-en-ciel
 
@@ -26131,7 +26131,7 @@ fr:bleu patenté v
 
 
 fr:concombre
-carbon_footprint_fr_foodges_ingredient:fr Concombre
+carbon_footprint_fr_foodges_ingredient:fr: Concombre
 
 <fr:concombre
 fr:concombres au vinaigre
@@ -26380,7 +26380,7 @@ de:Bimi
 
 <en:meat
 fr:lardons
-carbon_footprint_fr_foodges_ingredient:fr Lardons
+carbon_footprint_fr_foodges_ingredient:fr: Lardons
 
 <fr:lardons
 fr:lardon fumé, lardons fumés
@@ -26629,7 +26629,7 @@ es:escarola
 fr:chicorée
 nl:andijvie
 de:Endivien
-carbon_footprint_fr_foodges_ingredient:fr Endive
+carbon_footprint_fr_foodges_ingredient:fr: Endive
 
 fr:pignons de pin
 
@@ -26838,7 +26838,7 @@ fr:extraits de thé
 fr:pantothénate de calcium
 
 fr:ketchup
-carbon_footprint_fr_foodges_ingredient:fr Ketchup
+carbon_footprint_fr_foodges_ingredient:fr: Ketchup
 
 fr:minéraux du lait
 allergens:fr:minéraux du _lait_
@@ -26869,7 +26869,7 @@ es:aguacate
 fr:avocat
 nl:avocado
 de:Avocado
-carbon_footprint_fr_foodges_ingredient:fr Avocat
+carbon_footprint_fr_foodges_ingredient:fr: Avocat
 
 en:amaretto
 es:Amaretto
@@ -27297,7 +27297,7 @@ fr:viande de mouton
 
 <en:meat
 fr:lapin
-carbon_footprint_fr_foodges_ingredient:fr Lapin
+carbon_footprint_fr_foodges_ingredient:fr: Lapin
 
 <fr:lapin
 fr:viande de lapin
@@ -27307,7 +27307,7 @@ fr:viande d'agneau
 
 <en:meat
 fr:cotelettes d'agneau
-carbon_footprint_fr_foodges_ingredient:fr Côtelettes d'Agneau
+carbon_footprint_fr_foodges_ingredient:fr: Côtelettes d'Agneau
 
 <en:meat
 fr:viande de dinde
@@ -27326,11 +27326,11 @@ fr:viande séparée mécaniquement de dinde
 
 <fr:viande de dinde
 fr: blanc de dinde
-carbon_footprint_fr_foodges_ingredient:fr Blanc de dinde
+carbon_footprint_fr_foodges_ingredient:fr: Blanc de dinde
 
 <en:meat
 fr:cuisse de dinde
-carbon_footprint_fr_foodges_ingredient:fr Cuisse de dinde
+carbon_footprint_fr_foodges_ingredient:fr: Cuisse de dinde
 
 <fr:Cuisse de dinde
 fr:viande de cuisse de dinde
@@ -27511,7 +27511,7 @@ allergens:fr:caramel au _beurre_ salé
 en:onions
 fr:oignons
 de:Zwiebeln
-carbon_footprint_fr_foodges_ingredient:fr Oignons
+carbon_footprint_fr_foodges_ingredient:fr: Oignons
 
 <en:onions
 fr:red onions
@@ -27728,7 +27728,7 @@ fr:extraits naturels
 fr:concentré de carthame
 
 fr:pain
-carbon_footprint_fr_foodges_ingredient:fr Pain
+carbon_footprint_fr_foodges_ingredient:fr: Pain
 
 fr:purée de goyave
 
@@ -27990,7 +27990,7 @@ es:alcachofa
 fr:artichaut, artichauts
 nl:artisjok
 de:Artischocke
-carbon_footprint_fr_foodges_ingredient:fr Artichauts
+carbon_footprint_fr_foodges_ingredient:fr: Artichauts
 
 fr:coeurs d'artichauts
 
@@ -28456,7 +28456,7 @@ fr:fondant
 
 <en:meat
 fr:magret de canard
-carbon_footprint_fr_foodges_ingredient:fr Magret canard
+carbon_footprint_fr_foodges_ingredient:fr: Magret canard
 
 fr:ferments lactiques dont lactobacillus casei
 
@@ -29093,7 +29093,7 @@ es:huevo
 fr:œuf 
 nl:ei
 de:Eier
-carbon_footprint_fr_foodges_ingredient:fr Oeuf, moyenne nationale
+carbon_footprint_fr_foodges_ingredient:fr: Oeuf, moyenne nationale
 
 fr:œufs de poules élevées en plein air pasteurisés
 allergens:fr:_œufs_ de poules élevées en plein air pasteurisés
@@ -29466,7 +29466,7 @@ de:schwarzer Pilz
 fr:champignons, champignon
 
 fr:champignon de paris, champignons de paris
-carbon_footprint_fr_foodges_ingredient:fr Champignons de Paris
+carbon_footprint_fr_foodges_ingredient:fr: Champignons de Paris
 
 fr:champignon noir réhydraté
 
