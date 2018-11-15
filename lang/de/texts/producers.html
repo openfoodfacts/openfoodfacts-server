@@ -101,30 +101,30 @@ Wir haben kürzlich Felder zum CO₂-Fußabdruck und zur Verpackung von Produkte
 
 <h3 id="ajout_automatise">Automatisches Hinzufügen</h3>
 
-To make importing data easier and faster, we have defined a standard format for images and data:
+Um den Import der Daten zu vereinfachen und zu beschleunigen, haben wir ein Standardformat für Bilder und Daten festgelegt:
 <h4 id="format_des_images">Bildformat</h4>
 
-<p>At least 3 images are required:</p>
+<p>Es sind mindestens 3 Bilder erforderlich:</p>
 <ul>
-<li>Front view of product on white background (avoid three-quarter views that do not allow visual recognition of products without barcode scanning)</li>
+<li>Vorderansicht eines Produktes auf einem weissen Hintergrund (vermeide 3/4-Ansichten, die eine optische Wiedererkennung erschweren ohne den Barcode zu scannen)</li>
 <li>Liste der Inhaltsstoffe</li>
-<li>Nutritional table</li>
+<li>Nährstofftabelle</li>
 </ul>
   
 <p>The front view, ingredients and nutrition chart must be provided in at least the main language of the product. It is recommended that you also provide images for other languages ​​when they appear on the product.</p>
 
 <p>For example, a product intended for the Belgian market may have photos showing the product written in French and written in Dutch.</p>
 
-  <p>Other images may also be included:</p>
+  <p>Andere Bilder können auch enthalten sein:</p>
 <ul>
-<li>Verso and other views of the product (they allow in particular to automatically identify labels logos etc.)</li>
-<li>Flat view of the packaging</li>
+<li>Die Rückseite und andere Ansichten des Produkts (sie ermöglichen insbesondere die automatische Identifizierung von Logos etc.)</li>
+<li>Flache Sicht auf die Verpackung</li>
 </ul>
   
 <h5 id="format_des_fichiers_images">Format der Bilddateien</h5>
 <ul>
   <li>JPG- oder PNG-Format</li>
-  <li>Size at least 2000 pixels wide or tall</li>
+  <li>Größe mindestens 2000 Pixel breit oder hoch</li>
 </ul>
 
 <h5 id="nom_des_fichiers_images">Namesgebung der Bilddateien</h5>
@@ -134,23 +134,23 @@ To make importing data easier and faster, we have defined a standard format for 
 
   <p>Zum Beispiel:</p>
 
-<p>3660140808750_front_de.jpg für das Frontansicht des Produkts, dessen Barcode 366014080808750 lautet</p>
+<p>3660140808750_front_de.jpg für die Frontansicht des Produkts, dessen Barcode 366014080808750 lautet</p>
 
   <p>Folgende Arten von Bildern sind möglich:</p>
 
 <ul>
   <!-- Do not translate field names, just their description -->
   <li>Front: Frontansicht</li>
-  <li>ingredients: list of ingredients</li>
+  <li>Zutaten: Liste der Zutaten</li>
   <li>Nahrung: Nährwerttabelle</li>
-  <li>back: version</li>
+  <li>Rückseite: Produktversion</li>
   <li>any name you see fit (characters from a to e, no spaces) for other views</li>
 </ul>
   
 
 <h4 id="format_des_donnees">Datenformat</h4>
 
-<p>The data must be provided in a table in CSV format, with tabulation as field separator character and UTF-8 character encoding.</p>
+<p>Die Daten müssen in einer Tabelle im CSV-Format mit Tabulatoren als Feldtrennzeichen und in UTF-8-Zeichencodierung bereitgestellt werden.</p>
 <p>The first line contains the field names, and each of the products occupies one of the following lines. The order of the fields does not matter, and not all columns need to be present.</p>
 <p>Some fields are mandatory and others are optional. We encourage you to fill in as many fields as possible so that the data can be used by as many applications as possible. If in doubt, or if you have data for which there are not yet fields in the Open Food Facts database, you can contact us so that we can add fields and make the best possible match.</p>
 
@@ -172,7 +172,7 @@ To make importing data easier and faster, we have defined a standard format for 
 </ul>
 
 <p>Among the mandatory fields are the nutritional values that appear on the package, per 100g / 100ml of product as sold.</p>
-<p>All values must have no unit (the unit is kJ for energy and g for all other fields).</p>
+<p>Alle Werte ohne Einheit angeben (die Einheit ist kJ für Energie und g für alle anderen Felder).</p>
 
 <ul>
   <!-- Do not translate nutrient field names -->
@@ -318,12 +318,12 @@ To make importing data easier and faster, we have defined a standard format for 
 
 <h4 id="envoi_des_photos_et_des_donnees">Übermitteln von Fotos und Daten</h4>
 <p>If the number of products is relatively small (less than 1000 products) and the updates are infrequent (for example every 6 months), it is possible to send us the photos and the CSV file by any means (for example mail for CSV file and WeTransfer, Google Drive, DropBox etc. for photos).</p>
-<p>For a larger number of products or a more regular update, we can create an SFTP space where you can manually or automatically send data and photos. Contact us so that we can put this in place.</p>
+<p>Für eine größere Anzahl von Produkten oder regelmäßige Updates können wir Platz auf einem SFTP-Server bereitstellen, in dem Sie manuell oder automatisch Daten und Fotos hochladen können. Contact us so that we can put this in place.</p>
 
 <h2 id="questions_frequentes">Häufig gestellte Fragen</h2>
 
 <h3 id="est_ce_que_le_referencement_des_produits_est_gratuit">Ist das Auflisten der Produkte kostenlos?</h3>
-<p>The import of the data is completely free. We do not accept any retribution for the inclusion of data. We are very pleased that you have decided to contribute the data of your products to the food transparency, and we thank you for it.</p>
+<p>Der Import der Daten ist völlig kostenlos. We do not accept any retribution for the inclusion of data. We are very pleased that you have decided to contribute the data of your products to the food transparency, and we thank you for it.</p>
   
 <h3 id="les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">Überschreiben Daten von Herstellern die von Nutzern eingegebenen Daten?</h3>
 <p>Die Herstellerdaten werden automatisch von Open Food Facts mit Konsistenzprüfungsalgorithmen und dann von einigen Mitwirkenden überprüft. Wir haben volles Vertrauen in die Daten, die Sie uns übermitteln, aber wir wissen aus Erfahrung, dass Tippfehler möglich sind.</p>
@@ -333,7 +333,7 @@ To make importing data easier and faster, we have defined a standard format for 
 
 <h3 id="est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">Ist es möglich, Produkte zu löschen, die nicht mehr verkauft werden?</h3>
 
-<p>When a product disappears from the shelves, it is quickly consumed, and we find that it is quickly no longer scanned.</p>
+<p>Wenn ein Produkt aus dem Sortiment genommen wird, verschwindet es schnell aus den Regalen und wir sehen es daher schnell, dass es nicht mehr gescannt wird.</p>
 <p>We then archive the product so that it remains available as an archive for scientific purposes in the context of food cohorts that can last for decades. It is indeed essential to be able to obtain the compositions of the product at a precise date, even if it has changed or disappeared.</p>
 <p>If you have historical data on your old products or old versions of your products, we would also be very interested in this historical data, in order to be able to go back in time, to allow scientific analyzes on long time, and to make it possible to visualize the evolution some products.</p>
 <p>Producers can also send us the lists of barcodes removed from the sale so that we can label the products appropriately.</p>
