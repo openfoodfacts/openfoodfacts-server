@@ -4760,6 +4760,7 @@ zh:食盐
 # yue:食鹽
 wikidata:en:Q11254
 wikipedia:en:https://en.wikipedia.org/wiki/Salt
+carbon_footprint_fr_foodges_ingredient:fr Sel
 
 <en:Salt
 en:finegrained salt
@@ -6022,6 +6023,7 @@ zh:橄欖油
 # yue: 橄欖油
 wikipedia:en:https://en.wikipedia.org/wiki/Olive_oil
 wikidata:en:Q93165
+carbon_footprint_fr_foodges_ingredient:fr Huile d'olive
 
 <en:olive oil
 en:virgin olive oil
@@ -6084,6 +6086,7 @@ sk:repkový olej
 sv:rapsolja
 wikipedia:en:https://en.wikipedia.org/wiki/Colza_oil
 wikidata:en:Q697248
+carbon_footprint_fr_foodges_ingredient:fr Huile de colza
 
 <en:colza oil
 fr:huile de colza non hydrogénée
@@ -6832,6 +6835,7 @@ es:vinagre de vino
 fr:vinaigre de vin
 it:aceto di vino
 nl:wijnazijn
+carbon_footprint_fr_foodges_ingredient:fr Vinaigre de vin
 
 <en:wine vinegar
 en:white wine vinegar
@@ -7699,6 +7703,10 @@ de:Armagnac
 en:beer
 de:Bier
 fr:bière
+carbon_footprint_fr_foodges_ingredient:fr Bière
+
+<fr:bière
+fr:bière blonde
 
 # ABSINTHE is historically described as a distilled, highly alcoholic beverage
 
@@ -9660,6 +9668,7 @@ zh:小麥麵粉
 # zh-min-nan:Mī-hún
 wikipedia:en:https://en.wikipedia.org/wiki/Wheat_flour
 wikidata:en:Q2249305
+carbon_footprint_fr_foodges_ingredient:fr Farine de blé
 
 <en:wheat flour
 fr:farine de blé malté torréfié
@@ -10531,6 +10540,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Inverted_sugar_syrup
 <en:sugar
 en:cane sugar
 fr:sucre de canne
+carbon_footprint_fr_foodges_ingredient:fr Sucre de canne
 
 <en:cane sugar
 fr:sucre brut de canne
@@ -10584,6 +10594,7 @@ fr:sucre roux
 en:beet sugar
 de:Rübenzucker
 fr:sucre de betterave
+carbon_footprint_fr_foodges_ingredient:fr Sucre de betterave
 
 <en:sugar
 en:liquid sugar
@@ -12087,6 +12098,9 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau%20purifiée
 fr:eau de cuisson
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau%20de%20cuisson
 # 410 products in 2 languages @2018-09-29
+
+fr:Eau du robinet
+carbon_footprint_fr_foodges_ingredient:fr Eau du robinet
 
 # A TRIER
 
@@ -14282,6 +14296,7 @@ zh:香蕉
 wikipedia:en:https://en.wikipedia.org/wiki/Banana
 wikidata:en:Q503
 openfoodfacts:https://world.openfoodfacts.org/ingredient/banana
+carbon_footprint_fr_foodges_ingredient:fr Banane
 # 1538 products in 10 languages @2018-09-26
 
 <en:banana
@@ -14889,6 +14904,12 @@ wikidata:en:Q3919027
 wikipedia:en:https://en.wikipedia.org/wiki/Mango
 openfoodfacts:https://world.openfoodfacts.org/ingredient/mango
 # 1597 products in 10 languages @2018-09-27
+
+fr:Mangue importée en avion
+carbon_footprint_fr_foodges_ingredient:fr Mangue importée en avion
+
+fr:Mangue importée en bateau
+carbon_footprint_fr_foodges_ingredient:fr Mangue importée en bateau
 
 <en:mango
 <en:purée
@@ -15871,6 +15892,9 @@ wikidata:en:Q219059
 
 # This seems a compound ingredient, i.e. concentrated orange juice + water, bt is never described as such.
 
+fr:Pur jus d'orange
+carbon_footprint_fr_foodges_ingredient:fr Pur jus d'orange
+
 <en:orange juice
 en:orange juice from concentrate 
 de:Orangensaft aus Konzentrat
@@ -16016,6 +16040,7 @@ uk:мандарин
 wikidata:en:https://www.wikidata.org/wiki/Q190024
 wikipedia:en:https://en.wikipedia.org/wiki/Mandarin_orange
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:mandarine
+carbon_footprint_fr_foodges_ingredient:fr Mandarine
 # 239 products in 6 languages @2018-10-01
 
 <fr:mandarine
@@ -16738,6 +16763,7 @@ zh:樱
 wikipedia:en:https://en.wikipedia.org/wiki/Cherry
 wikidata:en:Q196
 openfoodfacts:https://world.openfoodfacts.org/ingredient/cherry
+carbon_footprint_fr_foodges_ingredient:fr Cerise
 # 969 products in 7 languages @2018-09-29
 
 <en:cherry
@@ -16870,6 +16896,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/melon
 # 5 products @2018-09-29
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:melon
 # 94 products in 5 languages @2018-09-29
+carbon_footprint_fr_foodges_ingredient:fr Melon
 
 # MELONS CONFITS is a compound ingredient
 
@@ -19319,6 +19346,7 @@ zh:茄子
 # zh-tw:茄
 wikidata:en:Q7540
 wikipedia:en:https://en.wikipedia.org/wiki/Eggplant
+carbon_footprint_fr_foodges_ingredient:fr Aubergine
 # en:aubergine has 733 products in 9 languages @2018-10-17
 
 # This can be seen as compound ingredient, i.e.: melanzane grigliate (melanzane, olio di girasole)
@@ -20494,6 +20522,7 @@ zh:菠菜
 # zh-tw:菠菜
 wikidata:en:Q81464
 wikipedia:en:https://en.wikipedia.org/wiki/Spinach
+carbon_footprint_fr_foodges_ingredient:fr Epinard
 # fr:épinard 1204 in 9 languages products @2018-10-14
 
 <en:spinach
@@ -21237,13 +21266,11 @@ de:Tellerlinsen
 fr:lentille, lentilles
 
 fr:lentille verte, lentilles vertes
-
-
+carbon_footprint_fr_foodges_ingredient:fr Lentilles vertes
 
 fr:lentilles précuites
 
 fr:lentilles vertes précuites
-
 
 fr:lentilles rouges
 
@@ -21842,6 +21869,7 @@ tt:бәдәм җимеше
 za:Makgai
 wikidata:en:Q184357
 openfoodfacts:https://world.openfoodfacts.org/ingredient/almonds
+carbon_footprint_fr_foodges_ingredient:fr Amandes
 # 9611 products @2018-10-06
 
 <en:almond
@@ -22589,6 +22617,7 @@ it:spezie
 nl:kruiden
 sv:kryddor
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:aromate
+carbon_footprint_fr_foodges_ingredient:fr Épices
 # 903 products in 4 languages @2018-10-08
 
 
@@ -23242,6 +23271,7 @@ zh:芥末醬
 zu:umasitadi
 wikidata:en:Q131748
 wikipedia:en:https://en.wikipedia.org/wiki/Mustard_(condiment)
+carbon_footprint_fr_foodges_ingredient:fr Moutarde
 # en:mustard has 4679 products in 13 languages @2018-10-25
 
 # MUSTARD is a condiment made from the seeds of a mustard plant 
@@ -23563,6 +23593,7 @@ yi:צימערינג
 zh:桂皮
 # zh-tw:陰香
 wikidata:en:Q28165
+carbon_footprint_fr_foodges_ingredient:fr Cannelle
 # fr:cannelle has 1851 products in 14 languages @2018-10-24
 
 <en:Cinnamon
@@ -25300,6 +25331,11 @@ fr:petits pois, petit pois
 fr:bêta-carotène
 
 fr:margarine
+carbon_footprint_fr_foodges_ingredient:fr Margarine
+
+fr:margarine végétale non hydrogénée
+
+fr:margarine végétale
 
 en:aspartam
 fr:aspartame
@@ -25327,6 +25363,10 @@ fr:café arabica
 
 <en:coffee
 fr:café torréfié moulu
+
+<en:coffee
+fr:café moulu
+carbon_footprint_fr_foodges_ingredient:fr Café moulu
 
 <en:coffee
 fr:café moulu pur arabica
@@ -25657,8 +25697,6 @@ fr:fumée
 fr:potiron
 
 fr:isomalt
-
-fr:margarine végétale
 
 
 en:sodium glutamate
@@ -26547,6 +26585,7 @@ es:escarola
 fr:chicorée
 nl:andijvie
 de:Endivien
+carbon_footprint_fr_foodges_ingredient:fr Endive
 
 fr:pignons de pin
 
@@ -26672,8 +26711,6 @@ fr:chorizo
 
 fr:crêpe
 
-fr:artichauts
-
 fr:hydroxyde de potassium
 
 
@@ -26752,16 +26789,12 @@ fr:carmin de cochenille
 fr:perméat de petit lait
 allergens:fr:perméat de petit _lait_
 
-
 fr:extraits de thé
-
 
 fr:pantothénate de calcium
 
-
-
-
-
+fr:ketchup
+carbon_footprint_fr_foodges_ingredient:fr Ketchup
 
 fr:minéraux du lait
 allergens:fr:minéraux du _lait_
@@ -26774,16 +26807,9 @@ fr:carboxyméthylcellulose
 
 fr:sélénate de sodium
 
-fr:ketchup
-
-
-
-
 fr:fibre
 
 fr:gousse de vanille, gousses de vanille
-
-
 
 en:Alaskan Pollock fillet
 es:abadejo de Alaska
@@ -26799,6 +26825,7 @@ es:aguacate
 fr:avocat
 nl:avocado
 de:Avocado
+carbon_footprint_fr_foodges_ingredient:fr Avocat
 
 en:amaretto
 es:Amaretto
@@ -26808,12 +26835,9 @@ de:Amaretto
 
 fr:tamarin
 
-
-
 fr:lactase
 
 fr:collagène
-
 
 fr:fibre de pois
 
@@ -26821,14 +26845,9 @@ fr:poudre de vanille
 
 fr:gras de bœuf
 
-
-
 fr:monoglutamate de sodium
 
 fr:bolets
-
-
-
 
 fr:condiments
 
@@ -27912,9 +27931,6 @@ fr:assaisonnement aromatisé
 
 fr:sauce béchamel
 
-
-fr:coeurs d'artichauts
-
 fr:l-carnitine
 
 fr:nappage
@@ -27926,6 +27942,14 @@ fr:extraits de houblon
 
 fr:oignon grillé
 
+en:artichoke
+es:alcachofa
+fr:artichaut, artichauts
+nl:artisjok
+de:Artischocke
+carbon_footprint_fr_foodges_ingredient:fr Artichauts
+
+fr:coeurs d'artichauts
 
 
 fr:calcium carbonate
@@ -28789,8 +28813,6 @@ fr:malate de sodium
 
 fr:complexes cuivre
 
-fr:bière blonde
-
 en:precooked chicken
 es:carne de pollo precocida
 nl:voorgegaard kippenvlees
@@ -29250,8 +29272,6 @@ fr:jaune d’œuf
 nl:eigeel
 de:Eigelb
 
-fr:margarine végétale non hydrogénée
-
 fr:tagliatelles cuites
 
 fr:limonade
@@ -29311,12 +29331,6 @@ fr:boyau collagénique
 fr:fleurs d'hibiscus
 
 fr:merlot
-
-en:artichoke
-es:alcachofa
-fr:artichaut
-nl:artisjok
-de:Artischocke
 
 fr:vermicelle de pois
 
@@ -29411,6 +29425,7 @@ de:schwarzer Pilz
 fr:champignons, champignon
 
 fr:champignon de paris, champignons de paris
+carbon_footprint_fr_foodges_ingredient:fr Champignons de Paris
 
 fr:champignon noir réhydraté
 
