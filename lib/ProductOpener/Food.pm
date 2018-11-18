@@ -4606,7 +4606,21 @@ sub compute_nova_group($) {
 		}
 	}		
 	
+	# Also loop through ingredients to see if the ingredients taxonomy has associated minimum NOVA grades
 	
+	if ((defined $product_ref->{ingredients_tags}) and (defined $properties{ingredients})) {
+	
+		foreach my $ingredient_tag (@{$product_ref->{ingredients_tags}}) {
+		
+			if ( (defined $properties{ingredients})
+				and (defined $properties{ingredients}{$ingredient_tag})
+				and (defined $properties{ingredients}{$ingredient_tag}{"nova:en"})
+				and ($properties{ingredients}{$ingredient_tag}{"nova:en"} > $product_ref->{nova_group}) ) {
+				$product_ref->{nova_group_debug} .= " -- ingredient: $ingredient_tag : " . $properties{ingredients}{$ingredient_tag}{"nova:en"} ;
+				$product_ref->{nova_group} = $properties{ingredients}{$ingredient_tag}{"nova:en"};
+			}
+		}
+	}
 
 
 # Group 1
