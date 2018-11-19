@@ -4632,8 +4632,88 @@ fr:vitamine pp
 es:vitamina pp
 
 <en:vitamins
-fr:vitamine b9
-es:vitamina b9
+
+# Folate, distinct forms of which are known as folic acid, folacin, and vitamin B9, is one of the B vitamins.
+
+<en:vitamins
+en:folic acid, vitamin B9, B9, vitamin M
+ar:حمض الفوليك
+# ast:Ácidu fólicu, B9
+be:Фоліевая кіслата, B9
+bg:Фолиева киселина, B9
+bn:ফলিক এসিড, B9
+bs:Folna kiselina, B9
+ca:àcid fòlic, B9
+cs:kyselina listová, vitamín B9, B9
+cy:Asid Ffolig, B9
+da:Folsyre, folinsyre, B9
+de:Folsäure, B9
+dv:ވިޓަމިން ބީ9
+el:Φυλλικό οξύ, Βιταμίνη Β9, B9
+# en-ca:Folic acid, B9
+# en-gb:Folic acid, B9
+eo:foliata acido, B9
+es:Ácido fólico, B9
+et:Foolhape, B9
+eu:Azido foliko, B9
+fa:اسید فولیک
+fi:foolihappo, B9
+fr:acide folique, B9
+# frr:Folsüren, B9
+ga:Aigéad fólach, B9
+gd:Searbhag dhuilleagach, B9
+gl:Ácido fólico, B9
+he:חומצה פולית
+hi:फोलिक एसिड, B9
+hr:Vitamin B9
+hr:Folsav, B9
+hy:Վիտամին B9
+id:Asam folat, B9
+is:Fólínsýra, B9
+it:acido folico, B9
+ja:葉酸, B9
+kk:Птероилглютамин, B9
+ko:엽산, B9
+ky:Фоли кычкылы, B9
+lb:Folsaier, B9
+# lmo:Acid foleg, B9
+lt:Folio rūgštis, B9
+lv:folijskābe, B9
+mk:Фолна киселина, B9
+ml:ഫോളിക് ആസിഡ്, B9
+ms:Asid folik, B9
+nb:Folsyre, B9
+nl:foliumzuur, vitamine B9, B9/M, B9
+nn:folsyre, vitamin B9, B9
+oc:Vitamina B9
+or:ଫୋଲିକ ଏସିଡ, B9
+pl:kwas foliowy, B9/M, Vitamin B9, B9
+pt:ácido fólico, B9/M, B9
+# pt-br:Ácido fólico, B9
+ro:acid folic, vitamina B9, B9
+ru:фолиевая кислота, Витамин B9, B9
+# scn:Àcitu fòlicu, B9
+# sco:folic acid, B9
+sh:Vitamin B9, B9
+sk:Kyselina listová, B9
+sl:Folna kislina, B9
+sq:Acidi folik, B9
+sr:фолна киселина, B9
+# sr-ec:фолна киселина, B9
+sv:folsyra, B9
+ta:இலைக்காடி, B9
+te:ఫోలిక్ ఆమ్లం, B9
+th:กรดโฟลิก, B9
+tr:Folik asit, B9
+uk:Фолієва кислота, B9
+ur:فولک تیزاب
+vi:axit folic, B9
+# yue:葉酸, B9
+zh:叶酸, B9
+wikipedia:en:https://en.wikipedia.org/wiki/Folate
+wikidata:en: Q127060
+# en:vitamin/folic-acid has 23535 products in 17 languages @2018-11-19
+# fr:acide-folique has 22121 products in 13 languages @2018-11-19
 
 <en:vitamins
 fr:vitamine h, h
@@ -12146,10 +12226,6 @@ es:ácido pantoténico
 fr:acide pantothénique
 nl:Pantotheenzuur
 de:Pantothensäure
-
-en:folic acid
-fr:acide folique
-es:acido folico
 
 fr:acide malique
 wikidata:en:Q190143
