@@ -89,7 +89,6 @@ use ProductOpener::Config2;
 agamitsudo
 aleene
 bcatelin
-beniben
 bojackhorseman
 hangy
 javichu

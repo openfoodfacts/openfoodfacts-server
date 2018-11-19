@@ -1511,7 +1511,7 @@ closedir(DH2);
 
 foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
 
-	print "loading taxonomy $taxonomyid\n";
+	#print STDERR "loading taxonomy $taxonomyid\n";
 	retrieve_tags_taxonomy($taxonomyid);
 	
 }
@@ -2845,7 +2845,7 @@ close ($IN);
 
 	foreach my $geofile (@geofiles) {
 	
-	print "Tags.pm - loading geofile $geofile\n";
+	#print STDERR "Tags.pm - loading geofile $geofile\n";
 		open (my $IN, "<:encoding(UTF-8)", "$data_root/emb_codes/$geofile");
 
 		my @th = split(/\t/, <$IN>);
