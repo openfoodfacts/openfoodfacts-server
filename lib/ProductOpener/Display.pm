@@ -1155,6 +1155,13 @@ sub display_list_of_tags($$) {
 	my $query_ref = shift;
 	my $groupby_tagtype = $request_ref->{groupby_tagtype};
 	
+	# Add a meta robot noindex for pages related to users
+	if ((defined $groupby_tagtype) and ($groupby_tagtype =~ /^(users|editors|informers|correctors|photographers|checkers)$/)) {
+	
+		$header .= '<meta name="robots" content="noindex">' . "\n";
+
+	}	
+	
 	if (defined $country) {
 		if ($country ne 'en:world') {
 			$query_ref->{countries_tags} = $country;
@@ -2082,6 +2089,14 @@ sub display_tag($) {
 
 	local $log->context->{tagtype2} = $tagtype2;
 	local $log->context->{tagid2} = $tagid2;
+	
+	# Add a meta robot noindex for pages related to users
+	if ( ((defined $tagtype) and ($tagtype =~ /^(users|editors|informers|correctors|photographers|checkers)$/)) 
+		or ((defined $tagtype2) and ($tagtype2 =~ /^(users|editors|informers|correctors|photographers|checkers)$/)) ) {
+	
+		$header .= '<meta name="robots" content="noindex">' . "\n";
+
+	}
 
 	if (defined $tagid) {
 		if (defined $taxonomy_fields{$tagtype}) {
