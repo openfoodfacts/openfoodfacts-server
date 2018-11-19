@@ -50,7 +50,7 @@ use vars @EXPORT_OK ; # no 'my' keyword for these
 $server_domain = "openfoodfacts.org";
 
 @ssl_subdomains = qw(
-ssl-api
+*
 );
 
 # server paths
