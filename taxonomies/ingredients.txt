@@ -2106,29 +2106,6 @@ pt:amido modificado de batata, E1404
 # fr:e1404 has 19 products in 4 languages @2018-10-15
 # en:modified-potato-starch has 1862 products in 7 languages @2018-10-15
 
-en:Vitamins, vitamin
-bg:Витамини
-cs:Vitaminy
-de:Vitamine
-el:Βιταμίνες
-es:Vitaminas
-et:Vitamiinid
-fi:Vitamiinit
-fr:Vitamines
-hu:Vitaminok
-it:Vitamine
-lt:Vitaminai
-lv:Vitamīni
-mt:Vitamini
-nl:Vitamine, Vitaminen
-pl:Witaminy
-pt:Vitaminas
-ro:Vitamine
-sk:Vitamíny
-sl:Vitamini
-sv:Vitaminer
-#wikidata:en:
-
 # MINERAL - is a naturally occurring chemical compound,[1] usually of crystalline form and not produced by life processes.
 
 en:Mineral, Minerals
@@ -5226,13 +5203,28 @@ fr:préparation fromagère
 
 # VITAMINS
 
-en:vitamins, vitamin
-fr:vitamines, vitamine
 
-<en:vitamins
-en:vitamin
-fr:vitamine
-nl:vitamine
+en:Vitamins, vitamin
+bg:Витамини
+cs:Vitaminy
+de:Vitamine
+el:Βιταμίνες
+es:Vitaminas
+et:Vitamiinid
+fi:Vitamiinit
+fr:Vitamines, vitamine
+hu:Vitaminok
+it:Vitamine
+lt:Vitaminai
+lv:Vitamīni
+mt:Vitamini
+nl:Vitamine, Vitaminen
+pl:Witaminy
+pt:Vitaminas
+ro:Vitamine
+sk:Vitamíny
+sl:Vitamini
+sv:Vitaminer
 
 <en:vitamins
 en:vitamins a, vitamin a
@@ -5240,21 +5232,94 @@ fr:vitamines a, vitamine a
 es:vitamina a
 
 <en:vitamins
+fr:provitamine a, pro-a, provitamine a
+
+<en:vitamins
+en:vitamin b1
+fr:vitamines b1
+es:vitamina b1
+
+<en:vitamins
 en:vitamin b2
 fr:vitamine b2
 es:vitamina b2
 
 <en:vitamins
-en:vitamin b12
-fr:vitamine b12
-es:vitamina b12
+en:vitamin b3
+fr:vitamine b3
+es:vitamina b3
 
-fr:b12
-
+# Pantothenic acid, also called vitamin B5 (a B vitamin), is a water-soluble vitamin. 
 <en:vitamins
-en:vitamin b1
-fr:vitamine b1
-es:vitamina b1
+en:Pantothenic acid, vitamin B5, B5
+ar:فيتامين بي5
+# azb:پانتوتنیک اسید
+bg:Пантотенова киселина, витамин B5, B5
+bs:Vitamin B5
+ca:àcid pantotènic
+cs:kyselina pantothenová, vitamín B5, B5
+cy:Asid pantothenig, Fitamin B5, B5
+de:Pantothensäure, Vitamin B5, B5
+dv:ވިޓަމިން ބީ5
+eo:Pantotena acido
+es:ácido pantoténico, Vitamina B5, B5
+et:Pantoteenhape, Vitamiin B5, B5
+eu:Azido pantoteniko, B5 bitamina
+fa:ویتامین ب۵
+fi:Pantoteenihappo, B5-vitamiini, B5
+fr:acide pantothénique, Vitamine B5, B5
+ga:Aigéad pantaitéineach
+gl:Ácido pantoténico, Vitamina B5
+he:ויטמין B5
+hi:विटामिन बी५
+hr:Pantotenska kiselina, Vitamin B5, B5
+hu:pantoténsav, B5
+hy:Պանտոտենաթթու
+id:Asam pantotenat, Vitamin B5
+it:acido pantotenico, Vitamina B5, B5
+ja:パントテン酸, ビタミンB5
+kk:Пантотен қышқылы
+ko:판토텐산
+ky:Пантотен кычкылы
+lb:Pantothensaier, Vitamin B5
+lt:Pantoteno rūgštis, B5
+lv:pantotēnskābe, B5 vitamīns, B5
+mk:Пантотенска киселина 
+ml:പാന്റോത്തിനിക് ആസിഡ്
+mn:Пантотений хүчил
+ms:Asid pantotenik
+nb:pantotensyre
+nl:pantoteenzuur, Pantotheenzuur, B5
+oc:Acid pantotenic, Vitamina B5
+pl:kwas pantotenomy, Witamina B5, B5
+pt:ácido pantoténico, Vitamina b5, B5
+ro:acid pantotenic, vitamina B5, B5
+ru:пантотеновая кислота, Витамин B5, B5
+# sco:pantothenic acid
+sh:Vitamin B5
+sk:Kyselina pantoténová, Vitamín B5, B5
+sl:Pantonenska kislina
+sr:Пантотенска киселина, витамин Б5
+# sr-ec:Пантотенска киселина, витамин Б5
+# sr-el:Vitamin B5
+sv:pantotensyra, Vitamin B5, B5
+ta:பான்டோதெனிக் அமிலம், உயிர்ச்சத்து பி5
+th:กรดแพนโทเทนิก, วิตามินบี5
+tr:Pantotenik asit, Vitamin B5
+uk:Пантотенова кислота, Вітамін В5
+ur:پینٹوتھینک تیزاب
+vi:Axit pantothenic
+zh:泛酸
+# zh-cn:泛酸
+# zh-hans:泛酸
+# zh-hant:泛酸
+# zh-hk:泛酸
+# zh-sg:泛酸
+# zh-tw:泛酸
+wikidata:en:Q179894
+wikipedia:en:https://en.wikipedia.org/wiki/Pantothenic_acid
+# vitamin/pantothenic-acid has 1373 products in 12 languages @2018-11-19
+# fr:acide-pantothénique has 900 products in 9 languages @2018-11-19
 
 <en:vitamins
 en:vitamin b6
@@ -5262,7 +5327,97 @@ fr:vitamine b6
 es:vitamina b6
 
 <en:vitamins
-fr:provitamine a
+en:vitamin b8
+fr:vitamine b8
+es:vitamina b8
+
+# Folate, distinct forms of which are known as folic acid, folacin, and vitamin B9, is one of the B vitamins.
+
+<en:vitamins
+en:folic acid, vitamin B9, B9, vitamin M
+ar:حمض الفوليك
+# ast:Ácidu fólicu, B9
+be:Фоліевая кіслата, B9
+bg:Фолиева киселина, B9
+bn:ফলিক এসিড, B9
+bs:Folna kiselina, B9
+ca:àcid fòlic, B9
+cs:kyselina listová, vitamín B9, B9
+cy:Asid Ffolig, B9
+da:Folsyre, folinsyre, B9
+de:Folsäure, B9
+dv:ވިޓަމިން ބީ9
+el:Φυλλικό οξύ, Βιταμίνη Β9, B9
+# en-ca:Folic acid, B9
+# en-gb:Folic acid, B9
+eo:foliata acido, B9
+es:Ácido fólico, B9
+et:Foolhape, B9
+eu:Azido foliko, B9
+fa:اسید فولیک
+fi:foolihappo, B9
+fr:acide folique, B9
+# frr:Folsüren, B9
+ga:Aigéad fólach, B9
+gd:Searbhag dhuilleagach, B9
+gl:Ácido fólico, B9
+he:חומצה פולית
+hi:फोलिक एसिड, B9
+hr:Vitamin B9
+hr:Folsav, B9
+hy:Վիտամին B9
+id:Asam folat, B9
+is:Fólínsýra, B9
+it:acido folico, B9
+ja:葉酸, B9
+kk:Птероилглютамин, B9
+ko:엽산, B9
+ky:Фоли кычкылы, B9
+lb:Folsaier, B9
+# lmo:Acid foleg, B9
+lt:Folio rūgštis, B9
+lv:folijskābe, B9
+mk:Фолна киселина, B9
+ml:ഫോളിക് ആസിഡ്, B9
+ms:Asid folik, B9
+nb:Folsyre, B9
+nl:foliumzuur, vitamine B9, B9/M, B9
+nn:folsyre, vitamin B9, B9
+oc:Vitamina B9
+or:ଫୋଲିକ ଏସିଡ, B9
+pl:kwas foliowy, B9/M, Vitamin B9, B9
+pt:ácido fólico, B9/M, B9
+# pt-br:Ácido fólico, B9
+ro:acid folic, vitamina B9, B9
+ru:фолиевая кислота, Витамин B9, B9
+# scn:Àcitu fòlicu, B9
+# sco:folic acid, B9
+sh:Vitamin B9, B9
+sk:Kyselina listová, B9
+sl:Folna kislina, B9
+sq:Acidi folik, B9
+sr:фолна киселина, B9
+# sr-ec:фолна киселина, B9
+sv:folsyra, B9
+ta:இலைக்காடி, B9
+te:ఫోలిక్ ఆమ్లం, B9
+th:กรดโฟลิก, B9
+tr:Folik asit, B9
+uk:Фолієва кислота, B9
+ur:فولک تیزاب
+vi:axit folic, B9
+# yue:葉酸, B9
+zh:叶酸, B9
+wikipedia:en:https://en.wikipedia.org/wiki/Folate
+wikidata:en: Q127060
+# en:vitamin/folic-acid has 23535 products in 17 languages @2018-11-19
+# fr:acide-folique has 22121 products in 13 languages @2018-11-19
+
+<en:vitamins
+en:vitamin b12
+fr:vitamine b12, b12
+es:vitamina b12
+
 
 # Vitamin C, also known as ascorbic acid and L-ascorbic acid, is a vitamin found in food and used as a dietary supplement.
 # The more use friendly synonym vitamin C over ascorbic acid is preferred
@@ -5363,130 +5518,9 @@ wikipedia:https://en.wikipedia.org/wiki/Vitamin_C
 # en:ascorbic-acid has 17518 products in 17 languages @2018-11-17
 
 <en:vitamins
-en:vitamin b1
-fr:vitamines b1
-es:vitamina b1
-
-<en:vitamins
-en:vitamin b5
-fr:vitamine b5
-es:vitamina b5
-
-<en:vitamins
-fr:vitamine pp
-es:vitamina pp
-
-# Folate, distinct forms of which are known as folic acid, folacin, and vitamin B9, is one of the B vitamins.
-
-<en:vitamins
-en:folic acid, vitamin B9, B9, vitamin M
-ar:حمض الفوليك
-# ast:Ácidu fólicu, B9
-be:Фоліевая кіслата, B9
-bg:Фолиева киселина, B9
-bn:ফলিক এসিড, B9
-bs:Folna kiselina, B9
-ca:àcid fòlic, B9
-cs:kyselina listová, vitamín B9, B9
-cy:Asid Ffolig, B9
-da:Folsyre, folinsyre, B9
-de:Folsäure, B9
-dv:ވިޓަމިން ބީ9
-el:Φυλλικό οξύ, Βιταμίνη Β9, B9
-# en-ca:Folic acid, B9
-# en-gb:Folic acid, B9
-eo:foliata acido, B9
-es:Ácido fólico, B9
-et:Foolhape, B9
-eu:Azido foliko, B9
-fa:اسید فولیک
-fi:foolihappo, B9
-fr:acide folique, B9
-# frr:Folsüren, B9
-ga:Aigéad fólach, B9
-gd:Searbhag dhuilleagach, B9
-gl:Ácido fólico, B9
-he:חומצה פולית
-hi:फोलिक एसिड, B9
-hr:Vitamin B9
-hr:Folsav, B9
-hy:Վիտամին B9
-id:Asam folat, B9
-is:Fólínsýra, B9
-it:acido folico, B9
-ja:葉酸, B9
-kk:Птероилглютамин, B9
-ko:엽산, B9
-ky:Фоли кычкылы, B9
-lb:Folsaier, B9
-# lmo:Acid foleg, B9
-lt:Folio rūgštis, B9
-lv:folijskābe, B9
-mk:Фолна киселина, B9
-ml:ഫോളിക് ആസിഡ്, B9
-ms:Asid folik, B9
-nb:Folsyre, B9
-nl:foliumzuur, vitamine B9, B9/M, B9
-nn:folsyre, vitamin B9, B9
-oc:Vitamina B9
-or:ଫୋଲିକ ଏସିଡ, B9
-pl:kwas foliowy, B9/M, Vitamin B9, B9
-pt:ácido fólico, B9/M, B9
-# pt-br:Ácido fólico, B9
-ro:acid folic, vitamina B9, B9
-ru:фолиевая кислота, Витамин B9, B9
-# scn:Àcitu fòlicu, B9
-# sco:folic acid, B9
-sh:Vitamin B9, B9
-sk:Kyselina listová, B9
-sl:Folna kislina, B9
-sq:Acidi folik, B9
-sr:фолна киселина, B9
-# sr-ec:фолна киселина, B9
-sv:folsyra, B9
-ta:இலைக்காடி, B9
-te:ఫోలిక్ ఆమ్లం, B9
-th:กรดโฟลิก, B9
-tr:Folik asit, B9
-uk:Фолієва кислота, B9
-ur:فولک تیزاب
-vi:axit folic, B9
-# yue:葉酸, B9
-zh:叶酸, B9
-wikipedia:en:https://en.wikipedia.org/wiki/Folate
-wikidata:en: Q127060
-# en:vitamin/folic-acid has 23535 products in 17 languages @2018-11-19
-# fr:acide-folique has 22121 products in 13 languages @2018-11-19
-
-<en:vitamins
-fr:vitamine h, h
-
-<en:vitamins
-en:vitamin e
-fr:vitamine e
-es:vitamina e
-
-<en:vitamins
 en:vitamin d
 fr:vitamine d
 es:vitamina d
-
-fr:pro-a, provitamine a
-
-<en:vitamins
-en:vitamin e
-fr:vitamines e
-es:vitamina e
-
-<en:vitamins
-en:vitamin b8
-fr:vitamine b8
-es:vitamina b8
-
-<en:vitamins
-en:vitamin b3
-fr:vitamine b3
-es:vitamina b3
 
 <en:vitamins
 en:vitamin d3
@@ -5494,9 +5528,22 @@ fr:vitamine d3
 es:vitamina d3
 
 <en:vitamins
+en:vitamin e
+fr:vitamine e, vitamines e
+es:vitamina e
+
+<en:vitamins
+fr:vitamine h, h
+
+<en:vitamins
 en:vitamin k
 fr:vitamine k
 es:vitamina k
+
+<en:vitamins
+fr:vitamine pp
+es:vitamina pp
+
 
 # SALT - is a mineral composed primarily of sodium chloride (NaCl), a chemical compound belonging to the larger class of salts
 
@@ -12979,12 +13026,6 @@ fr:corrécteur d'acidité, correcteur dacidité
 fr:acide
 
 fr:régulateur d'acidité
-
-en:Pantothenic acid
-es:ácido pantoténico
-fr:acide pantothénique
-nl:Pantotheenzuur
-de:Pantothensäure
 
 fr:correcteurs d'acidité
 
