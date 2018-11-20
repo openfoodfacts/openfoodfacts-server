@@ -40,6 +40,8 @@ BEGIN
 					
 					@nutrient_levels
 	
+					&normalize_nutriment_value_and_modifier
+	
 					&unit_to_g
 					&g_to_unit
 					
@@ -85,6 +87,44 @@ use Hash::Util;
 use CGI qw/:cgi :form escapeHTML/;
 
 use Log::Any qw($log);
+
+sub normalize_nutriment_value_and_modifier($$) {
+		
+	my $value_ref = shift;
+	my $modifier_ref = shift;
+	
+	if ($$value_ref =~ /nan/i) {
+		$$value_ref = '';
+	}		
+	
+	if ($$value_ref =~ /(\&lt;=|<=|\N{U+2264})( )?/) {
+		$$value_ref =~ s/(\&lt;=|<=|\N{U+2264})( )?//;
+		$modifier_ref = "\N{U+2264}";
+	}
+	if ($$value_ref =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less)( )?/) {
+		$$value_ref =~ s/(\&lt;|<|min|minimum|max|maxi|maximum|environ)( )?//;
+		$$modifier_ref = '<';
+	}
+	if ($$value_ref =~ /(\&gt;=|>=|\N{U+2265})/) {
+		$$value_ref =~ s/(\&gt;=|>=|\N{U+2265})( )?//;
+		$modifier_ref = "\N{U+2265}";
+	}
+	if ($$value_ref =~ /(\&gt;|>|min|mini|minimum|greater|more)/) {
+		$$value_ref =~ s/(\&gt;|>|min|mini|minimum|greater|more)( )?//;
+		$$modifier_ref = '>';
+	}
+	if ($$value_ref =~ /(env|environ|about|~|≈)/) {
+		$$value_ref =~ s/(env|environ|about|~|≈)( )?//;
+		$$modifier_ref = '~';
+	}			
+	if ($$value_ref =~ /trace|traces/) {
+		$$value_ref = 0;
+		$$modifier_ref = '~';
+	}
+	if ($$value_ref !~ /\./) {
+		$$value_ref =~ s/,/\./;
+	}
+}
 
 sub unit_to_g($$) {
 	my $value = shift;
@@ -4531,7 +4571,6 @@ if (-e "$data_root/packager-codes/geocode_addresses.sto") {
 	my $geocode_addresses_ref = retrieve("$data_root/packager-codes/geocode_addresses.sto");
 	%geocode_addresses = %{$geocode_addresses_ref};
 }
-
 
 
 sub compute_nova_group($) {

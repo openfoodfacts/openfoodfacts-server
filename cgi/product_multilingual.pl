@@ -58,47 +58,6 @@ if ($User_id eq 'unwanted-user-french') {
 }
 
 
-
-sub normalize_nutriment_value_and_modifier($$) {
-		
-	my $value_ref = shift;
-	my $modifier_ref = shift;
-	
-	if ($$value_ref =~ /nan/i) {
-		$$value_ref = '';
-	}		
-	
-	if ($$value_ref =~ /(\&lt;=|<=|\N{U+2264})( )?/) {
-		$$value_ref =~ s/(\&lt;=|<=|\N{U+2264})( )?//;
-		$modifier_ref = "\N{U+2264}";
-	}
-	if ($$value_ref =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less)( )?/) {
-		$$value_ref =~ s/(\&lt;|<|min|minimum|max|maxi|maximum|environ)( )?//;
-		$$modifier_ref = '<';
-	}
-	if ($$value_ref =~ /(\&gt;=|>=|\N{U+2265})/) {
-		$$value_ref =~ s/(\&gt;=|>=|\N{U+2265})( )?//;
-		$modifier_ref = "\N{U+2265}";
-	}
-	if ($$value_ref =~ /(\&gt;|>|min|mini|minimum|greater|more)/) {
-		$$value_ref =~ s/(\&gt;|>|min|mini|minimum|greater|more)( )?//;
-		$$modifier_ref = '>';
-	}
-	if ($$value_ref =~ /(env|environ|about|~|≈)/) {
-		$$value_ref =~ s/(env|environ|about|~|≈)( )?//;
-		$$modifier_ref = '~';
-	}			
-	if ($$value_ref =~ /trace|traces/) {
-		$$value_ref = 0;
-		$$modifier_ref = '~';
-	}
-	if ($$value_ref !~ /\./) {
-		$$value_ref =~ s/,/\./;
-	}
-}
-
-
-
 my $type = param('type') || 'search_or_add';
 my $action = param('action') || 'display';
 
