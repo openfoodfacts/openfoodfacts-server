@@ -1365,10 +1365,10 @@ sub build_tags_taxonomy($$) {
 		open (my $OUT_JSON, ">", "$www_root/data/taxonomies/$tagtype.json");
 		print $OUT_JSON encode_json(\%taxonomy_json);
 		close ($OUT_JSON);
-		
-		open (my $OUT_JSON, ">", "$www_root/data/taxonomies/$tagtype.full.json");
-		print $OUT_JSON encode_json(\%taxonomy_full_json);
-		close ($OUT_JSON);		
+
+		open (my $OUT_JSON_FULL, ">", "$www_root/data/taxonomies/$tagtype.full.json");
+		print $OUT_JSON_FULL encode_json(\%taxonomy_full_json);
+		close ($OUT_JSON_FULL);
 		# to serve pre-compressed files from Apache
 		# nginx : needs nginx_static module
 		# system("cp $www_root/data/taxonomies/$tagtype.json $www_root/data/taxonomies/$tagtype.json.json");
