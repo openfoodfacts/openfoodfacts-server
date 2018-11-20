@@ -2214,7 +2214,7 @@ sub display_tag($) {
 					href => sprintf($weblink_templates{$key}{href}, $properties{$tagtype}{$canon_tagid}{$key}),
 					hreflang => $weblink_templates{$key}{hreflang},
 				};
-				$weblink->{title} = sprintf($weblink_templates{$key}{title}, $properties{$tagtype}{$canon_tagid}{$key}) if defined $weblink_templates{$key}{title},
+				$weblink->{title} = sprintf($weblink_templates{$key}{title}, $properties{$tagtype}{$canon_tagid}{$key}) if defined $weblink_templates{$key}{title};
 				push @weblinks, $weblink;
 			}
 
