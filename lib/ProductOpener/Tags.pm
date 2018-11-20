@@ -142,6 +142,10 @@ nutrition_image => 1,
 product_name => 1,
 generic_name => 1,
 ingredients_text => 1,
+conservation_conditions => 1,
+other_information => 1,
+recycling_instructions_to_recycle => 1,
+recycling_instructions_to_discard => 1,
 );
 
 
@@ -2845,7 +2849,7 @@ close ($IN);
 
 	foreach my $geofile (@geofiles) {
 	
-	#print STDERR "Tags.pm - loading geofile $geofile\n";
+		#print STDERR "Tags.pm - loading geofile $geofile\n";
 		open (my $IN, "<:encoding(UTF-8)", "$data_root/emb_codes/$geofile");
 
 		my @th = split(/\t/, <$IN>);

@@ -6256,8 +6256,8 @@ HTML
 ;
 	}		
 	
-	
-	if (($lc eq 'fr') and (has_tag($product_ref, "labels","fr:produits-retires-du-marche-lors-du-scandale-lactalis-de-decembre-2017"))) {
+	# Commenting out out of date warnings below
+	if (0 and ($lc eq 'fr') and (has_tag($product_ref, "labels","fr:produits-retires-du-marche-lors-du-scandale-lactalis-de-decembre-2017"))) {
 		
 		$html .= <<HTML
 <div data-alert class="alert-box warn" id="warning_lactalis_201712" style="display: block; background:#ffaa33;color:black;">
@@ -6270,7 +6270,7 @@ HTML
 ;		
 		
 	}
-	elsif (($lc eq 'fr') and (has_tag($product_ref, "categories","en:baby-milks")) and (
+	elsif (0 and ($lc eq 'fr') and (has_tag($product_ref, "categories","en:baby-milks")) and (
 		
 		has_tag($product_ref, "brands", "amilk") or
 		has_tag($product_ref, "brands", "babycare") or
@@ -6789,6 +6789,28 @@ HTML
 HTML
 ;	
 	
+	}
+	
+	
+	# other fields
+	
+	my $html_fields = "";
+	foreach my $field (@Products::Display::display_other_fields) {
+		# print STDERR "display_product() - field: $field - value: $product_ref->{$field}\n";
+		$html_fields .= display_field($product_ref, $field);
+	}	
+
+	if ($html_fields ne "") {
+	
+		$html .= <<HTML
+<h2>$Lang{product_other_information}{$lc}</h2>
+<div class="row">
+<div class="small-12 columns">
+$html_fields
+</div>
+</div>
+HTML
+;	
 	}
 	
 	# photos and data sources
