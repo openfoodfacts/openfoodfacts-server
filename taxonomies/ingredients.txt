@@ -2028,6 +2028,7 @@ allergens:nl:_boter_
 <en:butter
 en:unsalted butter
 fr:beurre doux
+carbon_footprint_fr_foodges_ingredient:fr:Beurre doux
 nl:ongezouten boter
 allergens:fr:_beurre_ doux
 wikipedia:en:https://fr.wikipedia.org/wiki/Beurre_doux
@@ -2478,6 +2479,7 @@ en:semi-skimmed milk
 <en:milk
 <fr:lait demi-écrémé
 fr:lait demi-écrémé pasteurisé
+carbon_footprint_fr_foodges_ingredient:fr:Lait semi-écrémé, pasteurisé
 de:pasteurisierte magermilch
 nl:gepasteuriseerde volle melk
 allergens:fr:_lait_ écrémé pasteurisé
@@ -3127,6 +3129,7 @@ allergens:fr:_crème_ fraîche légère
 <en:cream
 en:Pasteurized cream
 fr:crème pasteurisée, crème fraîche pasteurisée
+carbon_footprint_fr_foodges_ingredient:fr:Crème, 40% MG, pasteurisée
 nl:gepasteuriseerde room
 allergens:fr:_crème_ pasteurisée
 
@@ -3398,6 +3401,7 @@ et:kitsejuust
 eu:Ahuntz gazta
 fi:kutunjuusto
 fr:fromage de chèvre
+carbon_footprint_fr_foodges_ingredient:fr:Fromage frais de chèvre
 # frr:geitetsiis
 # gsw:Ziegenkäse
 he:גבינת עזים
@@ -3451,6 +3455,7 @@ it:formaggio di pecore
 <en:cheese
 en:soft white cheese
 fr:fromage frais
+carbon_footprint_fr_foodges_ingredient:fr:Fromage frais 58% MG
 de:Frischkäse
 it:formaggio fresco
 # fr:fromage-frais has 474 products @2018-10-28
@@ -3710,6 +3715,7 @@ eu:Emmental
 fa:پنیر امنتال
 fi:Emmental
 fr:emmental
+carbon_footprint_fr_foodges_ingredient:fr:Fromage à pâte dure (type emmental)
 gl:Emmental
 # gsw:Ämmedaaler
 he:אמנטל
@@ -25303,7 +25309,7 @@ fr:citrate de sodium, citrates de sodium
 es:citrato de sodio
 
 fr:crustacé
-
+carbon_footprint_fr_foodges_ingredient:fr:Moules/autres crustacés
 
 
 en:calcium carbonate
@@ -25588,6 +25594,7 @@ fr:truite arc-en-ciel
 <en:fish
 en:tuna, katsuwonus pelamis
 fr:thon, katsuwonus pelamis
+carbon_footprint_fr_foodges_ingredient:fr:Thon en boîte
 
 <en:tuna
 fr:thon blanc germon
@@ -25628,11 +25635,22 @@ de:Alaska-Seelachs
 
 fr:crevette
 
+carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage entier
+
+carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage (filet)
+
 fr:filets de maquereaux
 
 <en:fish
 fr:hareng
 allergens:fr:_hareng_
+
+<en:fish
+fr:dorade
+carbon_footprint_fr_foodges_ingredient:fr:Bar ou dorade d'élevage (filet)
+
+
+
 
 
 # Random
@@ -29085,6 +29103,7 @@ allergens:fr:camembert au _lait_ pasteurisé
 
 fr:camembert
 allergens:fr:_camembert_
+carbon_footprint_fr_foodges_ingredient:fr:Fromage à pâte molle (type camembert)
 
 fr:agent crémeux
 
