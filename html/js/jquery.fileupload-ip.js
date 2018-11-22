@@ -20,7 +20,7 @@
             'jquery',
             './load-image.js',
             './canvas-to-blob.js',
-            './jquery.fileupload.js'
+            './jquery.fileupload.min.js'
         ], factory);
     } else {
         // Browser globals:
