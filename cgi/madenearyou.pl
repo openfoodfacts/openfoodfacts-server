@@ -77,7 +77,7 @@ sub display_madenearyou($) {
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
 <script type="text/javascript" src="/bower_components/foundation/js/vendor/jquery.cookie.js"></script>	
 
-<script src="/js/jquery.iframe-transport.js"></script>
+<script src="/js/jquery.iframe-transport.min.js"></script>
 <script src="/js/jquery.fileupload.min.js"></script>	
 <script src="/js/load-image.min.js"></script>
 <script src="/js/canvas-to-blob.min.js"></script>
