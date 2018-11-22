@@ -19,6 +19,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import './vendor/jquery-ui.js';
+import 'iolazyload';
 import 'manupjs';
 
 import '../../css/src/display.css';

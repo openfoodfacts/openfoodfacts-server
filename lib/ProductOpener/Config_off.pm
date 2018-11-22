@@ -89,7 +89,6 @@ use ProductOpener::Config2;
 agamitsudo
 aleene
 bcatelin
-beniben
 bojackhorseman
 hangy
 javichu
@@ -153,10 +152,10 @@ systeme-u
 },
 
 {
-        name => "Yuka - verified",
+        name => "Yuka - checked",
         conditions => [
                 ["user_id", "kiliweb"],
-                ["in_states_tags", "verified"],
+                ["in_states_tags", "en:checked"],
         ],
         actions => [
                 ["ignore"],
@@ -499,6 +498,16 @@ opff =>
 	mongodb => "opff",
 	domain => "openpetfoodfacts.org",
 }
+};
+
+
+# used to rename texts and to redirect to the new name
+$options{redirect_texts} = {
+
+	"en/nova-groups-for-food-processing" => "nova",
+	"fr/score-nutritionnel-france" => "nutriscore",
+	"fr/score-nutritionnel-experimental-france" => "nutriscore",
+	"fr/classification-nova-pour-la-transformation-des-aliments" => "nova",
 };
 
 

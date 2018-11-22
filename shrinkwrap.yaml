@@ -19,6 +19,7 @@ devDependencies:
   foundation-icon-fonts: 0.1.1
   foundation-sites: 5.5.3
   image-webpack-loader: 4.4.0
+  iolazyload: 1.2.0
   jquery: 3.3.1
   jquery-tags-input: 1.3.5
   jquery-ui: 1.12.1
@@ -4420,6 +4421,10 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-wPVv/y/QQ/Uiirj/vh3oP+1Ww+AWehmi1g5fFWGPF6IpCBCDVrhgHRMvrLfdYcwDh3QJbGXDW4JAuzxElLSqKA==
+  /iolazyload/1.2.0:
+    dev: true
+    resolution:
+      integrity: sha1-y13S1PWK8Hujh5RYzLGwcDI+Xi8=
   /ip-regex/1.0.3:
     dev: true
     engines:
@@ -8930,6 +8935,7 @@ specifiers:
   foundation-icon-fonts: ^0.1.1
   foundation-sites: 5.5.3
   image-webpack-loader: ^4.2.0
+  iolazyload: ^1.2.0
   jquery: ^3.3.1
   jquery-tags-input: ^1.3.5
   jquery-ui: ^1.12.1

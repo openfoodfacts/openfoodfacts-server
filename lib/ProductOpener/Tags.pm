@@ -1365,10 +1365,10 @@ sub build_tags_taxonomy($$) {
 		open (my $OUT_JSON, ">", "$www_root/data/taxonomies/$tagtype.json");
 		print $OUT_JSON encode_json(\%taxonomy_json);
 		close ($OUT_JSON);
-		
-		open (my $OUT_JSON, ">", "$www_root/data/taxonomies/$tagtype.full.json");
-		print $OUT_JSON encode_json(\%taxonomy_full_json);
-		close ($OUT_JSON);		
+
+		open (my $OUT_JSON_FULL, ">", "$www_root/data/taxonomies/$tagtype.full.json");
+		print $OUT_JSON_FULL encode_json(\%taxonomy_full_json);
+		close ($OUT_JSON_FULL);
 		# to serve pre-compressed files from Apache
 		# nginx : needs nginx_static module
 		# system("cp $www_root/data/taxonomies/$tagtype.json $www_root/data/taxonomies/$tagtype.json.json");
@@ -1511,7 +1511,7 @@ closedir(DH2);
 
 foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
 
-	print "loading taxonomy $taxonomyid\n";
+	#print STDERR "loading taxonomy $taxonomyid\n";
 	retrieve_tags_taxonomy($taxonomyid);
 	
 }
@@ -1892,7 +1892,7 @@ sub display_taxonomy_tag_link($$$) {
 
 	my $html;
 	if ((defined $tag_lc) and ($tag_lc ne $lc)) {
-		$html = "<a href=\"/$path/$tagurl\" class=\"$cssclass\" lang=\"$tag_lc\">$tag</a>";
+		$html = "<a href=\"/$path/$tagurl\" class=\"$cssclass\" lang=\"$tag_lc\">$tag_lc:$tag</a>";
 	}
 	else {
 		$html = "<a href=\"/$path/$tagurl\" class=\"$cssclass\">$tag</a>";
@@ -2595,9 +2595,12 @@ sub display_taxonomy_tag($$$)
 		}
 		else {
 			$display = $tag;
-			$display = ucfirst($display);			
+						
 			if ($target_lc ne $tag_lc) {
 				$display = "$tag_lc:$display";
+			}
+			else {
+				$display = ucfirst($display);
 			}
 			# print STDERR "display_taxonomy_tag - no translation available for $tagtype $tagid in target language $lc or tag language $tag_lc - result: $display\n";						
 		}
@@ -2842,7 +2845,7 @@ close ($IN);
 
 	foreach my $geofile (@geofiles) {
 	
-	print "Tags.pm - loading geofile $geofile\n";
+	#print STDERR "Tags.pm - loading geofile $geofile\n";
 		open (my $IN, "<:encoding(UTF-8)", "$data_root/emb_codes/$geofile");
 
 		my @th = split(/\t/, <$IN>);

@@ -1561,7 +1561,9 @@ HTML
 	
 		my $nutrition_data_per = "nutrition_data" . $product_type . "_per";
 	
-		if ($product_ref->{$nutrition_data_per} eq 'serving') {
+		if (($product_ref->{$nutrition_data_per} eq 'serving')
+			# display by serving by default for the prepared product
+			or (($product_type eq '_prepared') and (not defined $product_ref->{nutrition_data_prepared_per}))) {
 			$checked_per_serving = 'checked="checked"';
 			$checked_per_100g = '';
 			$nutrition_data_per_display_style{$nutrition_data . "_serving"} = '';

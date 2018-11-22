@@ -1,12 +1,22 @@
+# please keep an extra line between synonyms
+# also: don't add synonyms if they are already the name of an individual category, in that case add the synonym to the category
+
 synonyms:en:flavoured, flavored
+
 synonyms:en:pasteurised, pasteurized, pasterized
+
 synonyms:en:unpasteurised, unpasteurized, unpasterized
+
 synonyms:fr:premier cru, 1er cru
+
 synonyms:ru:икра овощная, овощная икра
+
 synonyms:ru:икра из кабачков, кабачковая икра, икра кабачковая
+
 synonyms:ru:икра из баклажанов, баклажанная икра, икра баклажанная
+
 synonyms:ru:макаронные изделия, изделия макаронные
-synonyms:fr:Cacahuètes, cacahouète
+
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,base
 stopwords:nl:bevat,en
 stopwords:nl_be:bevat,en
@@ -1848,6 +1858,7 @@ en:Juices and nectars
 de:Säfte und Nektare, Saft und Nektar
 es:Zumos y néctares
 fr:Jus et nectars
+it:Succo e nettare
 nl:Sappen en Nectars
 nl_be:Sappen en Nectars
 ru:Соки и нектары
@@ -1899,6 +1910,7 @@ en:Fruit juices
 es:Zumos de frutas, Zumo de frutas, Jugos de frutas
 fr:Jus de fruits, jus de fruit
 de:Fruchsäfte, Fruchtsaft
+it:Succo di frutta
 nl:Vruchtensappen, Fruitsappen
 nl_be:Vruchtensap, Fruitsappen
 pnns_group_2:en:Fruit juices
@@ -1911,6 +1923,7 @@ en:Apple juices
 de:Apfelsaft, Apfelsäfte
 es:Zumos de manzana
 fr:Jus de pomme, jus de pommes
+it:Succo di mela
 nl:Appelsappen,  Appelsap
 nl_be:Appelsap
 ru:Яблочные соки, Яблочный сок
@@ -1942,6 +1955,7 @@ en:Concentrated apple juices
 de:Apfelsäfte aus Konzentrat, Apfeldicksaft
 es:Zumos de manzana procedentes de concentrado
 fr:Jus de pomme à base de concentré, jus de pomme à base de jus concentré
+it:Succo di mela da concentrato
 nl:Geconcentreerd appelsap
 nl_be:Geconcentreerd appelsap
 
@@ -1965,6 +1979,7 @@ en:Apricot juices
 es:Zumos de albaricoque
 de:Aprikosensäfte, Aprikosensaft
 fr:Jus d'abricot
+it:Succo di albicocca
 nl:Abrikozensappen, Abrikozensap
 wikidata:en:Q3337673
 
@@ -1973,6 +1988,7 @@ wikidata:en:Q3337673
 en:Concentrated apricot juices
 es:Zumos de albaricoque procedente de concentrado
 fr:Jus d'abricot à base de concentré, jus d'abricot à base de jus concentré
+it:Succo di albicocca da concentrato
 nl:Abrikozensappen op basis van concentraat, Abrikozensap op basis van concentraat
 de:Aprikosensäfte aus Konzentrat
 
@@ -1981,12 +1997,15 @@ en:Blueberry juices
 es:Zumos de arándanos, Zumos de arándano
 de:Heidelbeersäfte, Blaubeersäfte
 fr:Jus de myrtilles
+it:Succo di mirtillo
 nl:Blauwe bessensappen, Blauwe bessensap
 
 <en:Blueberry juices
 <en:Concentrated fruit juices
 en:Concentrated blueberry juices
 es:Zumos de arándanos procedente de concentrado
+fr:Jus de myrtilles à base de concentré
+it:Succo di mirtillo da concentrato
 nl:Blauwe bessensappen op basis van concentraat, Blauwe bessensap op basis van concentraat
 de:Heidelbeersäfte aus Konzentrat, Blaubeersäfte aus Konzentrat
 
@@ -2010,6 +2029,7 @@ de:Fruchtsäfte aus Konzentrat
 en:Concentrated orange juices
 es:Zumos de naranja procedente de concentrado
 fr:Jus d'orange à base de concentré
+it:Succo di arancia da concentrato
 nl:Sinaasappelsappen uit concentraat, Sinaasappelsap uit concentraat
 de:Orangensäfte aus Konzentrat
 
@@ -2018,6 +2038,7 @@ en:Grape juices
 es:Zumos de uva, Zumos de uvas
 fr:Jus de raisin, jus de raisins
 de:Traubensäfte, Traubensaft
+it:Succo di uva
 nl:Druivensappen, Druivensap
 zh:葡萄汁
 wikidata:en:Q1209756
@@ -2027,6 +2048,7 @@ wikidata:en:Q1209756
 en:Concentrated grape juices
 es:Zumos de uva procedente de concentrado
 fr:Jus de raisin à base de concentré, Jus de raisins à base de concentré
+it:Succo di uva da concentrato
 nl:Druivensappen uit concentraat, Druivensap uit concentraat
 de:Traubensäfte aus Konzentrat, Traubensaft aus Konzentrat
 
@@ -2074,6 +2096,7 @@ en:Mango juices
 es:Zumos de mango
 de:Mangosäfte
 fr:Jus de mangue, Jus de mangues
+it:Succo di mango
 nl:Mangosappen, Mangosap
 zh:芒果汁
 
@@ -2082,6 +2105,7 @@ zh:芒果汁
 en:Concentrated mango juices
 es:Zumos de mango procedente de concentrado
 fr:Jus de mangue à base de concentré, Jus de mangues à base de concentré
+it:Succo di mango da concentrato
 nl:Mangosappen uit concentraat, Mangosap uit concentraat
 de:Mangosäfte aus Konzentrat
 
@@ -2120,6 +2144,7 @@ en:Orange juices
 es:Zumos de naranja, zumos de naranjas, zumo de naranja
 fr:Jus d'orange, jus d'oranges
 de:Orangensäfte, Orangensaft
+it:Succo di arancia
 nl:Sinaasappelsappen, Jus d'Oranges, Sinaasappelsap, Jus d'Orange, Sinasappelsap
 zh:橙子汁, 橙汁
 wikidata:en:Q1781317
@@ -2134,6 +2159,7 @@ en:Peach juices
 es:Zumos de melocotón
 de:Pfirsichsäfte, Pfirsichsaft
 fr:Jus de pêche, jus de pêches
+it:Succo di pesca
 nl:Perzikkensappen, Perzikkensap
 zh:桃子汁, 桃汁
 
@@ -2142,6 +2168,7 @@ zh:桃子汁, 桃汁
 en:Concentrated peach juices
 es:Zumos de melocotón procedente de concentrado
 fr:Jus de pêche à base de concentré, jus de pêches à base de concentré
+it:Succo di pesca da concentrato
 nl:Perzikkensappen uit concentraat, Perzikkensap uit concentraat
 de:Pfirsichsäfte aus Konzentrat
 
@@ -2150,6 +2177,7 @@ en:Pear juices
 es:Zumos de pera, Zumos de peras
 fr:Jus de poire, jus de poires
 nl:Perensappen, Perensap
+it:Succo di pera
 zh:梨汁
 de:Birnensäfte, Birnensaft
 wikidata:en:Q15951991
@@ -2159,6 +2187,7 @@ wikidata:en:Q15951991
 en:Concentrated pear juices
 es:Zumos de pera procedente de concentrado
 fr:Jus de poire à base de concentré, jus de poires à base de concentré
+it:Succo di pera da concentrato
 nl:Perensappen uit concentraat, Perensap uit concentraat
 de:Birnensäfte aus Konzentrat
 
@@ -2187,6 +2216,7 @@ en:Pineapple juices
 es:Zumos de piña
 de:Ananassäfte, Ananassaft
 fr:Jus d'ananas
+it:Succo di ananas
 nl:Ananassappen, Ananassap
 nl_be:Ananassappen
 zh:菠萝汁
@@ -2197,6 +2227,7 @@ wikidata:en:Q3190226
 en:Concentrated pineapple juices
 es:Zumos de piña procedente de concentrado
 fr:Jus d'ananas à base de concentré
+it:Succo di ananas da concentrato
 nl:Ananassappen uit concentraat, Ananassap uit concentraat
 de:Ananassäfte aus Konzentrat
 
@@ -2345,6 +2376,7 @@ en:Fruit nectars, Nectars
 de:Fruchtnektare, Frucht-Nektare
 es:Néctares de frutas, Néctares
 fr:Nectars de fruits, nectar de fruits, nectars, nectar
+it:Nettare di frutta
 nl:Vruchtennectars, Vruchtennectar
 ru:Плодовые нектары, Нектары плодовые
 pnns_group_2:en:Fruit nectars
@@ -2354,6 +2386,7 @@ en:Apple nectars
 de:Apfelnektare
 es:Néctares de manzana
 fr:Nectars de pomme, nectar de pommes, nectar de pomme, nectar pomme, nectars pomme
+it:Nettare di mela
 nl:Appelnectars, Appelnectar
 ru:Нектары яблочные, Яблочные нектары, Нектар яблочный, Яблочный нектар
 zh:苹果花蜜
@@ -2363,6 +2396,7 @@ en:Apricot nectars
 de:Aprikosennektare
 es:Néctares de albaricoque
 fr:Nectars d'abricot, nectar d'abricot, nectars d'abricots, nectar abricot
+it:Nettare di albicocca
 nl:Abrikozennectars, Abrikozennectar
 
 <en:Fruit nectars
@@ -2370,6 +2404,7 @@ en:Banana nectars
 de:Bananennektare
 es:Néctares de plátano
 fr:Nectars de banane, nectar de banane, nectar banane, nectars banane
+it:Nettare di banana
 nl:Bananennectars, Bananennectar
 zh:香蕉花蜜
 
@@ -2378,6 +2413,7 @@ en:Blueberry nectars
 de:Heidelbeernektare, Blaubeerennektare
 es:Néctares de arándanos
 fr:Nectars de myrtilles
+it:Nettare di mirtillo
 nl:Blauwe bessennectars, Blauwe bessennectar
 zh:蓝莓花蜜
 
@@ -2386,6 +2422,7 @@ en:Grape nectars
 de:Weintraubennektare, Traubennektare
 es:Néctares de uva
 fr:Nectars de raisin, nectar de raisin, nectar de raisins, nectars de raisins, nectar raisin
+it:Nettare di uva
 nl:Druivennectars, Druivennectar
 zh:葡萄花蜜
 
@@ -2394,6 +2431,7 @@ en:Grapefruit nectars
 de:Grapefruit-Nektare
 es:Néctares de pomelo
 fr:Nectars de pamplemousse
+it:Nettare di pompelmo
 nl:Grapefruitnectars, Grapefruitnectar
 
 <en:Fruit nectars
@@ -2401,6 +2439,7 @@ en:Guava nectars
 de:Guavennektare
 es:Néctares de guayaba
 fr:Nectars de goyave, nectar de goyave, nectar goyave
+it:Nettare di guaiava
 nl:Guavanectars, Guavanectar
 
 <en:Fruit nectars
@@ -2408,6 +2447,7 @@ en:Mango nectars
 de:Mangonektare
 es:Néctares de mango
 fr:Nectars de mangue, nectar de mangue, nectar mangue, nectars mangue
+it:Nettare di mango
 nl:Mangonectars, Mangonectar
 zh:芒果花蜜
 
@@ -2416,6 +2456,7 @@ en:Melon nectars
 de:Melonennektare
 es:Néctares de melón
 fr:Nectars de melon
+it:Nettare di melone
 nl:Meloennectars, Meloennectar, Meloenennectar
 zh:甜瓜花蜜
 
@@ -2432,6 +2473,7 @@ en:Orange nectars
 de:Orangennektare
 es:Néctares de naranja
 fr:Nectars d'orange
+it:Nettare di arancia
 nl:Sinaasappelnectars, Sinaasappelnectar
 zh:橙花蜜, 橙子花蜜
 
@@ -2447,6 +2489,7 @@ en:Peach nectars
 de:Pfirsichnektare
 es:Néctares de melocotón, Néctares de durazno
 fr:Nectars de pêche, nectar de pêche, nectar pêche
+it:Nettare di pesca
 nl:Perzikkennectars, Perzikkennectar
 zh:桃花蜜, 桃子花蜜
 
@@ -2455,6 +2498,7 @@ en:Pear nectars
 de:Birnennektare
 es:Néctares de pera
 fr:Nectars de poire
+it:Nettare di pera
 nl:Perennectars, Perennectar
 zh:梨花蜜, 梨子花蜜
 
@@ -2463,13 +2507,15 @@ en:Pineapple nectars
 de:Annanasnektare
 es:Néctares de piña
 fr:Nectars d'ananas
+it:Nettare di ananas
 nl:Ananasnectars, Ananasnectar
 
 <en:Fruit nectars
 en:Pomegranate nectars
 de:Granatapfelnektare
 es:Néctares de granada
-fr:Nectars de Grenade
+fr:Nectars de grenade
+it:Nettare di melagrana
 nl:Granaatappelnectars, Granaatappelnectar
 
 <en:Fruit nectars
@@ -2493,6 +2539,7 @@ en:Vegetable juices
 de:Gemüsesäfte
 es:Zumos de verduras y hortalizas
 fr:Jus de légumes
+it:Succo di verdura
 nl:Groentesappen, Groentesap, Groentensap
 zh:蔬菜汁
 wikidata:en:Q1501257
@@ -2502,6 +2549,7 @@ en:Carrot juices
 de:Karottensäfte
 es:Zumos de zanahoria
 fr:Jus de carotte, jus de carottes
+it:Succo di carota
 nl:Wortelsappen, Wortelsap
 zh:胡萝卜汁
 wikidata:en:Q1190074
@@ -2511,10 +2559,12 @@ en:Concentrated carrot juices
 de:Karottensäfte aus Kartottenkonzentrat
 es:Zumos de zanahoria procedente de concentrado
 fr:Jus de carotte à base de concentré, jus de carottes à base de concentré
+it:Succo di carota da concentrato
 nl:Wortelsappen uit concentraat, Wortelsap uit concentraat
 
 <en:Vegetable juices
 fr:Jus de betterave
+it:Succo di barbabietola
 nl:Rode bietensappen, Rode bietensap
 
 <en:Vegetable juices
@@ -3392,12 +3442,12 @@ nl:Duizendblad
 de:Schafgarbe
 wikidata:en:Q25408
 
-<en:Hot beverages
-en:Instant hot beverages
+<en:Beverages
+en:Instant beverages, Instant hot beverages
 de:Heißgetränke zum Aufgließen
-es:Bebidas para tomar calientes instantáneas
-fr:Boissons chaudes instantanées, boisson chaude instantanée
-nl:Warme oplosdranken, Warme oplosdrank
+es:Bebidas instantáneas, Bebidas para tomar calientes instantáneas
+fr:Boissons instantanées, Boissons chaudes instantanées, boisson chaude instantanée
+nl:Oplosdranken, Warme oplosdranken, Warme oplosdrank
 hu:Meleg instant italok, Forró instant italok
 
 en:Milk substitute, milk replacement
@@ -3490,7 +3540,7 @@ nl:Geroosterde koffiebonen
 zh:烘焙咖啡豆, 烘烤咖啡豆
 
 <en:Coffees
-<en:Instant hot beverages
+<en:Instant beverages
 en:Instant coffees, Soluble coffees, Coffee powders
 es:Cafés solubles
 fr:Cafés solubles, cafés en poudre, café en poudre, cafés instantanés, café soluble, café instantané, café soluble, cafés instantanés en poudre, café instantané en poudre
@@ -3524,7 +3574,7 @@ ru:Кофе растворимый сублимированный, Раство�
 de:Gefriergetrocknete Instant-Kaffees
 nl:Gevriesdroogde oploskoffies, Gevriesdroogde oploskoffie
 
-<en:Instant hot beverages
+<en:Instant beverages, instant hot beverages
 <en:Plant-based beverages
 en:Instant chicory
 fr:Chicorée soluble, chicorée en poudre
@@ -15848,13 +15898,6 @@ nl:Aardappelpureeën in gedroogde vorm, Aardappelpuree in gedroogde vorm, Aardap
 de:Kartoffelpulver
 wikidata:en:Q3411001
 
-<en:Pastry helpers
-fr:Préparations pour entremets
-fr:Préparations pour flans, Préparations pour flans pâtissiers
-fr:Préparations pour crèmes dessert
-fr:Préparations pour panna cotta
-fr:Préparations pour desserts lactés
-
 <en:Dried products to be rehydrated 
 <en:sauces
 en:dehydrated sauces
@@ -16720,13 +16763,23 @@ nl:Ontbijten, Ontbijt
 ru:На завтрак
 hu:Reggelik
 
-<en:Breakfasts
-<en:Chocolates
-en:Cocoa powder, Cocoa, Cacao
-fr:Chocolats en poudre, chocolat en poudre, cacao en poudre, cacaos en poudre
-es:Chocolate en polvo
+en:Cocoa and chocolate powders, chocolate and cocoa powders
+fr:Cacaos et chocolats en poudre, chocolats et cacaos en poudre
+es:Cacaos y chocolates en polvo, chocolates y cacaos en polvo
+
+<en:Cocoa and chocolate powders
+en:Cocoa powders, cocoa powder, Cocoa, Cacao, Cacao powders
+fr:Cacaos en poudre, cacao en poudre, cacao, poudres de cacao
+es:Cacaos en polvo, cacao en polvo, cacao
 de:Kakaopulver, Kakao
-nl:Cacaopoeders, Cacaopoeder
+nl:Cacaopoeders, Cacaopoeder, Cacao
+
+<en:Breakfasts
+<en:Instant beverages
+<en:en:Cocoa and chocolate powders
+en:Chocolate powders, Instant chocolate drinks, Instant hot chocolates
+fr:Chocolats en poudre, chocolat en poudre, poudres de chocolat, chocolats instantanés, boissons chocolatées à reconstituer, boissons cacaotées à reconstituer, boissons chocolatées en poudre, boissons cacaotées en poudre
+es:Chocolates en polvo
 
 <en:Biscuits and cakes
 en:Cakes
@@ -16736,12 +16789,37 @@ fr:Gâteaux, gâteau
 nl:Cakes, Cake
 wikidata:en:Q13276
 
+<en:Cooking helpers
+en:Dessert mixes, Dessert mix
+fr:Préparations pour desserts, préparation pour dessert
+
 <en:Cakes
 <en:Pastry helpers
-en:Preparations for cakes
-fr:Préparations pour gâteaux
+<en:Dessert mixes
+en:Cake mixes, Cake Mix, Preparations for cakes
+fr:Préparations pour gâteaux, préparation pour gâteau
 de:Backmischungen für Kuchen, Kuchenbackmischungen
 nl:Cake mix
+
+<en:Dessert mixes
+fr:Préparations pour entremets
+
+<en:Dessert mixes
+fr:Préparations pour flans, Préparations pour flans pâtissiers
+
+<en:Dessert mixes
+fr:Préparations pour crèmes dessert
+
+<en:Dessert mixes
+fr:Préparations pour panna cotta
+
+<en:Dessert mixes
+fr:Préparations pour desserts lactés
+
+<en:Dessert mixes
+en:Pancake mixes, pancake mix
+fr:Préparations pour crêpes
+
 
 <en:Cakes
 en:Baumkuchen
@@ -16933,9 +17011,14 @@ wikidata:en:Q30186
 fr:Moelleux au chocolat
 
 <en:Chocolate cakes
-fr:Brownies
-de:Brownies
-nl:Brownies
+fr: Blondies, Brownies au chocolat blanc, Blondie, Brownie au chocolat blanc
+wikidata:en:Q1709220
+
+<en:Chocolate cakes
+fr:Brownies, Brownie
+de:Brownies, Brownie
+nl:Brownies, Brownie
+wikidata:en:Q503129
 
 <en:Puddings
 en:Christmas Puddings
@@ -17015,6 +17098,7 @@ en:Confectioneries, confectionary, confectionery
 es:Dulces
 de:Konfekt, Konditorwaren
 fr:Confiseries, confiserie, confiserie
+it:Dolce
 nl:Confiserie, Suikerwerk
 ru:Кондитерские изделия
 hu:Sütemények, Cukrász áruk
@@ -17039,6 +17123,7 @@ en:Chocolates, chocolate products
 es:Chocolates
 fr:Chocolats, chocolat, produits chocolatés, produits au chocolat
 de:Schokoladen, Schokolade, Schokoladenprodukte
+it:Cioccolato
 nl:Chocoladeproducten
 pnns_group_2:en:Chocolate products
 ru:Шоколад, шоколадные продукты
@@ -17048,6 +17133,7 @@ hu:Csokoládék, csokoládé termékek
 <en:Chocolates
 en:Assorted chocolates
 fr:Assortiments de chocolats, assortiment de chocolat
+it:Assortimento di cioccolati
 nl:Chocolade-assortimenenten
 zh:什锦巧克力
 de:Verschiedene Pralinen, Pralinensortimente
@@ -17088,6 +17174,7 @@ hu:Csokoládék extra finom tejjel
 <en:Milk chocolates
 en:Milk chocolate with hazelnuts
 fr:Chocolats au lait aux noisettes
+it:Cioccolato al latte con nocciole
 de:Milchschokolade mit Haselnüssen
 hu:Tejcsokoládé mogyoróval
 
@@ -17095,14 +17182,16 @@ hu:Tejcsokoládé mogyoróval
 <en:Milk chocolates
 en:Milk chocolate with almonds
 fr:Chocolats au lait aux amandes
+it:Cioccolato al latte con mandorle
 de:Milchschokolade mit Mandeln
 hu:Tejes csokoládé mandulával
 
 <en:Chocolates
 en:Chocolates with almonds
 es:Chocolates con almendras
-fr:Chocolats avec amandes, chocolat avec amandes
+fr:Chocolats aux amandes, chocolats avec amandes, chocolat avec amandes
 de:Schokoladen mit Mandeln
+it:Cioccolato alle mandorle
 nl:Amandelchocoladen
 ru:Шоколад с миндалём
 hu:Mandulás csokoládék
@@ -17111,6 +17200,7 @@ hu:Mandulás csokoládék
 en:Chocolates with hazelnuts
 fr:Chocolats aux noisettes
 de:Schokolade mit Haselnüssen
+it:Cioccolato alle nocciole
 hu:Csokoládé mogyoróval
 
 <en:Chocolates
@@ -17118,7 +17208,7 @@ en:White chocolates, White chocolate
 es:Chocolates blancos
 fr:Chocolats blancs, chocolat blanc, chocolats blonds, chocolat blond
 de:Weiße Schokoladen
-it:Cioccolatini bianchi
+it:Cioccolatini bianchi, Cioccolato bianco
 nl:Witte chocoladen
 zh:白巧克力
 hu:Fehércsokoládék
@@ -17134,6 +17224,7 @@ hu:Csokoládék édesítőszerekkel
 <en:White chocolates
 fr:Chocolats blancs à la noix de coco
 de:Weiße Schokoladen mit Kokos, Weiße Schokoladen mit Kokosnuss
+it:Cioccolato bianco al cocco 
 hu:Fehér csokoládé kókusszal
 
 <en:Chocolates
@@ -17218,6 +17309,7 @@ en:Dark chocolates, dark chocolate
 es:Chocolates negros
 fr:Chocolats noirs, chocolat noir
 de:Bitterschokoladen, Herrenschokoladen, Edelbitterschokoladen, Zartbitterschokoladen, dunkle Schokoladen, schwarze Schokoladen
+it:Cioccolato fondente
 nl:Pure chocolades
 ru:Тёмный шоколад
 zh:黑巧克力
@@ -17244,6 +17336,7 @@ de:Dunkle Schokoladen mit Süßungsmitteln
 en:Dark chocolates with almonds
 es:Chocolates negros con almendras
 fr:Chocolats noirs aux amandes
+it:Cioccolato fondente alle mandorle
 ru:Тёмный шоколад с миндалём
 de:Dunkle Schokoladen mit Mandeln
 
@@ -17251,25 +17344,30 @@ de:Dunkle Schokoladen mit Mandeln
 <en:Dark chocolates
 en:Dark chocolates with hazelnuts
 fr:Chocolats noirs aux noisettes
+it:Cioccolato fondente alle nocciole
 de:Dunkle Schokoladen mit Haselnüssen
 
 <en:Dark chocolates
 fr:Chocolats noirs aux pistaches
 de:Dunkle Schokoladen mit Pistazien
+it:Cioccolato fondente al pistacchio
 
 <en:Dark chocolates
 en:Dark chocolates with orange
 fr:Chocolats noirs à l'orange
+it:Cioccolato fondente con arancia, cioccolato fondente all'arancio 
 de:Dunkle Schokoladen mit Orange
 
 <en:Dark chocolates
 en:Dark chocolates with cocoa nibs, dark chocolates with cocoa beans
 fr:Chocolats noirs aux fèves de cacao
+it:Cioccolato fondente con semi di cacao, cioccolato fondente con fave di cacao
 de:Dunkle Schokoladen mit Kakaobohnen
 
 <en:Dark chocolates
 fr:Chocolats noirs au gingembre
 de:Dunkle Schokoladen mit Ingwer
+it:Cioccolato fondente con zenzero, cioccolato fondente allo zenzero
 
 <en:Dark chocolates
 en:Extra fine black chocolates
@@ -17315,18 +17413,21 @@ de:Schokoladen mit Fleur de Sel
 en:Caramel chocolates
 fr:Chocolats au caramel
 de:Karamel-Schokoladen
+it:Cioccolato con caramello
 
 <en:Caramel chocolates
 <en:Dark chocolates
 en:Dark chocolate with caramel
 fr:Chocolats noirs au caramel
 de:Dunkle Schokoladen mit Karamel
+it:Cioccolato fondente con caramello
 
 <en:Caramel chocolates
 <en:Milk chocolates
 en:Milk chocolate with caramel
 fr:Chocolats au lait au caramel
 de:Milchschokolade mit Karamel
+it:Cioccolato al latte con caramello
 
 <en:Chocolates
 en:Swiss chocolates, Swiss chocolate
@@ -17403,6 +17504,7 @@ de:Schokoladenkonfekt
 en:Bonbons
 es:Bombones, Bombones de chocolate
 fr:Bonbons de chocolat
+it:Cioccolatino
 de:Schokoladenbonbons
 nl:Chocolades snoepjes
 wikidata:en:Q3272827
@@ -17410,11 +17512,13 @@ wikidata:en:Q3272827
 <en:Bonbons
 en:Assorted chocolate candies
 fr:Assortiments de bonbons de chocolat
+it:Assortimento di cioccolatini
 de:Pralinenmischung
 
 <en:Bonbons
 en:Chocolate truffles
 fr:Truffes en chocolat, truffe en chocolat, truffes de chocolat, truffe de chocolat, truffes chocolatées
+it:Tartufi al cioccolato, tartufo al cioccolato
 nl:Chocolade truffels
 de:Schokoladetrüffel
 wikidata:en:Q1063560
@@ -20182,6 +20286,7 @@ wikidata:en:Q3088297
 en:Buffalo's milk-cheese
 fr:Fromages au lait de bufflonne, Fromages de bufflonne
 de:Büffelkäse
+it:Formaggio di bufala
 nl:Buffelmelkkazen
 wikidata:en:Q1020491
 
@@ -20201,12 +20306,25 @@ de:Weißer Käse
 wikidata:en:Q15080546
 
 <fr:Fromages blancs
+fr:Fromages blancs natures
+
+<fr:Fromages blancs
 fr:Fromages blancs aux fruits
+
+<fr:Fromages blancs
+fr:Fromages blancs au lait de vache
+
+<fr:Fromages blancs
+fr:Fromages blancs au lait de brebis
+
+<fr:Fromages blancs
+fr:Fromages blancs au lait de chèvre
 
 <en:Cheeses
 en:Sheep Cheeses, Cheeses from sheep milk
 fr:Fromages de brebis, fromage de brebis, Fromages au lait de brebis
 de:Schafskäse, Schafmilchkäse, Käse aus Schafsmilch
+it:Formaggio di pecora
 nl:Schapenkazen
 ru:Сыр из овечьего молока
 wikidata:en:Q1411808
@@ -20214,7 +20332,8 @@ wikidata:en:Q1411808
 <en:Cheeses
 en:Goat cheeses
 es:Queso de cabra
-fr:Fromages de chèvre, fromage de chèvre, fromages au lait de chèvre 
+fr:Fromages de chèvre, fromage de chèvre, fromages au lait de chèvre
+it:Formaggio di capra
 nl:Geitenkazen
 de:Ziegenkäse
 ru:Сыр из козьего молока
@@ -21739,6 +21858,7 @@ en:Oat milks, Oat drinks
 es:Bebidas de avena, Leches de avena
 fr:Boissons à l'avoine, laits d'avoine, lait d’avoine
 de:Hafermilch, Hafermilche, Hafermilchen, Hafer-Drinks, Hafer-Drink, Haferdrink, Haferdrinks
+it:Bevanda di avena
 nl:Havermoutmelken
 zh:燕麦奶
 
@@ -21754,6 +21874,7 @@ en:Rice milks, Rice drinks
 es:Leches de arroz, Bebidas de arroz
 fr:Boissons au riz, Boissons végétales de riz, Laits de riz, lait de riz
 de:Reismilch, Reismilche, Reismilchen, Reis-Drinks, Reis-Drink, Reisdrink, Reisdrinks
+it:Bevanda di riso
 nl:Rijstdranken
 wikidata:en:Q715187
 
@@ -21808,6 +21929,7 @@ en:Spelt milks, Spelt drinks
 es:Leches de espelta, Bebidas de espelta
 fr:Boissons végétales d'épeautre, Laits d’épeautre, Laits d’Épeautre
 de:Dinkelmilch, Dinkelmilche, Dinkelmilchen, Dinkel-Drinks, Dinkel-Drink, Dinkeldrink, Dinkeldrinks
+it:Bevanda di farro
 nl:Speltdranken
 
 <en:Plant milks
@@ -21838,6 +21960,7 @@ en:Soy milks, Soya milks, Soya drinks, Soy drinks
 de:Sojamilch, Sojamilche, Sojamilchen, Soja-Drinks, Soja-Drink, Sojadrink, Sojadrinks
 es:Leches de soja, Bebidas de soja
 fr:Boissons végétales de soja, Laits de soja, Lait de soja
+it:Bevanda di soia
 nl:Sojadranken
 wikidata:en:Q192199
 
@@ -21856,7 +21979,7 @@ nl:Gezoete sojadranken
 <en:Soy milks
 en:Vanilla soy milks, Vanilla soy drinks
 es:Leches de soja con vainilla, Bebidas de soja con vainilla
-fr:Boissons végétales desoja à la vanille, Laits de soja à la vanille
+fr:Boissons végétales de soja à la vanille, Laits de soja à la vanille
 nl:Vanillesojadranken
 
 <en:Soy milks
@@ -21890,6 +22013,7 @@ en:Almond milks, Almond drinks
 es:Leches de almendras, Bebidas de almendras
 fr:Laits d'amande, lait d’amande, Boissons végétales d'amande
 de:Mandelmilch, Mandelmilche, Mandelmilchen, Mandel-Drinks, Mandel-Drink, Mandeldrink, Mandeldrinks
+it:Latte di mandorla
 nl:Amandeldranken
 wikidata:en:Q975953
 
@@ -22190,6 +22314,7 @@ en:Fruit yogurts, yogurts with fruits
 es:Yogures de frutas
 fr:Yaourts aux fruits
 de:Fruchtjoghurt, Fruchtjogurt, Fruchtjoghurts, Fruchtjogurts
+it:Yogurt alla frutta
 nl:Vruchtenyoghurts
 ru:Фруктовые йогурты, Фруктовый йогурт, Йогурт с фруктами, Йогурты с фруктами
 hu:Gyümölcsjoghurtok, Joghurt gyümölccsel
@@ -22213,6 +22338,7 @@ en:Lemon yogurts
 es:Yogures de limón
 fr:Yaourts au citron
 de:Zitronenjoghurt, Zitronenjogurt, Zitronenjoghurts, Zitronenjogurts
+it:Yogurt al limone
 nl:Citroenyoghurts
 hu:Citromos joghurtok
 
@@ -22221,59 +22347,62 @@ en:Strawberry yogurts
 es:Yogures de fresa
 fr:Yaourts à la fraise
 de:Erdbeerjoghurt, Erdbeerjogurt, Erdbeerjoghurts, Erdbeerjogurts
+it:Yogurt alla fragola
 nl:Aardbeienyoghurts
 hu:Epres joghurtok
 
 <en:Fruit yogurts
 en:Blueberry yogurts
 fr:Yaourts à la myrtille
+it:Yogurt al mirtillo
 hu:Áfonyás joghurtok
 
 <en:Fruit yogurts
 en:Mango yogurts
 fr:Yaourts à la mangue
+it:Yogurt al mango
 hu:Mangós joghurtok
 
 <en:Fruit yogurts
 en:Peach yogurts
 fr:Yaourts à la pêche
+it:Yogurt alla pesca
 hu:Barackos joghurtok
 
 <en:Fruit yogurts
 en:Pineapple yogurts
 fr:Yaourts à l'ananas
+it:Yogurt all'ananas
 hu:Ananászos joghurtok
 
 <en:Fruit yogurts
 en:Cherry yogurts
 fr:Yaourts à la cerise
+it:Yogurt alla ciliegia
 hu:Cseresznyés joghurtok
 
 <en:Fruit yogurts
 en:Raspberry yogurts
 fr:Yaourts à la framboise
+it:Yogurt al lampone
 hu:Málnás joghurtok
 
 <en:Fruit yogurts
 en:Apricot yogurts
 fr:Yaourts à l'abricot
+it:Yogurt all'albicocca
 hu:Sárgabarackos joghurtok
 
 <en:Fruit yogurts
 en:Banana yogurts
 fr:Yaourts à la banane
+it:Yogurt alla banana
 hu:Banános joghurtok
-
-<en:Fruit yogurts
-fr:Yaourt aux noisettes
 
 <en:Fruit yogurts
 en:Figs yogurts
 fr:Yaourts aux figues
-
-<en:Fruit yogurts
-en:Chestnut yogurts
-fr:Yaourts à la châtaigne, Yaourts aux marrons
+it:Yogurt al fico
 
 <en:Fruit yogurts
 fr:Yaourts au pamplemousse
@@ -22281,27 +22410,41 @@ fr:Yaourts au pamplemousse
 <en:Fruit yogurts
 en:Kiwi yogurts
 fr:Yaourts au kiwi
+it:Yogurt al kiwi
 hu:Kiwis  joghurtok
+
+<en:Fruit yogurts
+en:Coconut yogurts
+fr:Yaourts à la noix de coco
+it:Yogurt al cocco
+hu:Kókusztdiós joghurtok
+
+<en:Fruit yogurts
+fr:Yaourts aux noisettes, Yaourt aux noisettes
+it:Yogurt alla nocciola
+
+<en:Fruit yogurts
+en:Chestnut yogurts
+fr:Yaourts à la châtaigne, Yaourts aux marrons
+it:Yogurt alla castagna
 
 <en:Yogurts
 en:Chocolate yogurts
 fr:Yaourts au chocolat
+it:Yogurt al cioccolato
 hu:Csokoládés joghurtok
 
 <en:Yogurts
 en:Caramel yogurts
 fr:Yaourts au caramel
+it:Yogurt al caramello
 hu:Karamellás  joghurtok
 
 <en:Yogurts
 en:Honey yogurts
 fr:Yaourts au miel
+it:Yogurt al miele
 hu:Mézes joghurtok
-
-<en:Fruit yogurts
-en:Coconut yogurts
-fr:Yaourts à la noix de coco
-hu:Kókusztdiós joghurtok
 
 <en:Yogurts
 en:Greek yogurts
@@ -22325,31 +22468,27 @@ en:Mixed yogurts
 fr:Yaourts mixés
 de:gemischte Joghurt, gemischte Jogurt, gemischte Joghurts, gemischte Jogurts
 nl:Gemengde yoghurts
-hu:Vegyes  joghurtok
+hu:Vegyes joghurtok
 
 <en:Yogurts
 en:Cow milk yogurt, Cow's milk yogurts, Yoghurt from cow milk
 fr:Yaourts au lait de vache, Yaourts de vache
+it:Yogurt di mucca
 
 <en:Yogurts
 en:Sheep milk Yogurts, Sheep's milk yogurts, Yoghurt from sheep's milk, sheep's milk yogurt
 es:Yogures de leche de oveja
 fr:Yaourts au lait de brebis, Yaourt au lait de brebis, Yaourts de brebis, Yaourt de brebis
 de:Schafmilchjoghurt, Schafmilchjogurt, Schafmilchjoghurts, Schafmilchjogurts
+it:Yogurt di pecora
 nl:Schapenyoghurts
 ru:Йогурт из овечьего молока, Йогурты из овечьего молока
 
 <en:Yogurts
 en:Goat milk yogurts, Goat yogurts, goat's milk yogurts
 fr:Yaourts au lait de chèvre, Yaourts de chèvre
+it:Yogurt di capra
 
-<en:Yogurts
-en:Sheep's milk yogurts, Yoghurt from sheep's milk, sheep's milk yogurt
-es:Yogures de leche de oveja
-fr:Yaourts au lait de brebis, Yaourt au lait de brebis, Yaourts de brebis, Yaourt de brebis
-de:Schafmilchjoghurt, Schafmilchjogurt, Schafmilchjoghurts, Schafmilchjogurts
-nl:Schapenyoghurts
-ru:Йогурт из овечьего молока, Йогурты из овечьего молока
 
 <en:Non-dairy yogurts
 en:Soy milk yogurts, soy yogurts, soya yogurts, soygurts, yofu
@@ -22463,6 +22602,7 @@ en:Vanilla yogurt, vanilla yogurts
 de:Vanillejoghurts
 es:Yogures de vainilla
 fr:Yaourts vanille, Yaourts à la vanille
+it:Yogurt vaniglia
 nl:Vanilleyoghurts
 
 <en:Yogurts
@@ -22470,6 +22610,7 @@ en:Whole milk yogurts, yogurts with whole milks, whole yogurts
 de:Vollmilchjoghurts
 es:Yogures de leche entera
 fr:Yaourts entiers, Yaourts au lait entier, Yaourt au lait entier
+it:Yogurt intero
 nl:Volle yoghurts
 
 <en:Yogurts
@@ -23081,7 +23222,7 @@ nl:Gepelde macadamia's
 <en:Legumes
 en:Peanuts
 es:Cacahuetes, Cacahuates, Manís
-fr:Cacahuètes, Arachides
+fr:Cacahuètes, Cacahouètes, Arachides
 la:Arachis hypogaea
 de:Erdnüsse
 nl:Pinda's, Aardnoten
@@ -23393,6 +23534,7 @@ en:Honeys
 es:Mieles, Miel
 fr:Miels
 de:Honige, Honig
+it:Miele
 nl:Honingen
 ru:Мёд
 zh:蜂蜜
@@ -23553,18 +23695,22 @@ nl:Zachte honingen
 
 <en:Honeys
 fr:Miels d’acacia
+it:Miele di acacia
 nl:Acaciahoningen
 
 <en:Honeys
 fr:Miels d’agrumes
+it:Miele di agrumi
 nl:Citrusvruchtenhoningen
 
 <fr:Miels d’agrumes
 fr:Miels d’oranger, Miel d’oranger
+it:Miele di arancio
 nl:Sinaasappelbloesemhoningen
 
 <fr:Miels d’agrumes
 fr:Miels de citronnier
+it:Miele di limone
 nl:Citroenbloesemhoningen
 
 <fr:Miels d’agrumes
@@ -23573,6 +23719,7 @@ nl:Mandarijnbloesemhoningen
 
 <en:Honeys
 fr:Miels d'eucalyptus
+it:Miele di eucalipto
 nl:Eucalyptushoningen
 
 <en:Honeys
@@ -23593,26 +23740,30 @@ nl:Boomheidehoningen
 
 <fr:Miels de bruyère
 fr:Miels de bruyère callune, Miels de Callune, Miel de bruyère commune, Miel de Calluna vulgaris
+it:Miele di calluna
 nl:Stuikheidehoningen
 
 <en:Honeys
 en:Chestnut honey
 fr:Miels de châtaignier
+it:Miele di castagno
 nl:Kastanjebloesemhoningen
+
+<en:Honey
+en:Oak Honeys
+fr:Miels de chêne
+it:Miele di melata di quercia
+nl:Eikenhoningen
 
 <en:Honeys
 fr:Miels de colza
+it:Miele di colza
 nl:Koolzaadbloesemhoningen
 
 <en:Honeys
 en:Honey from coniferous trees
 fr:Miels de conifères
 nl:Conifeerhoningen
-
-<en:Honey from coniferous trees
-en:Oak Honeys
-fr:Miels de chêne
-nl:Eikenhoningen
 
 <en:Honey from coniferous trees
 fr:Miels de pin
@@ -23633,6 +23784,7 @@ nl:Boshoningen
 <en:Honeys
 en:Raspberry honeys
 fr:Miels de framboisier
+it:Miele di lampone
 nl:Frambozenbloesemhoningen
 
 <en:Raspberry honeys
@@ -23649,6 +23801,7 @@ nl:Jujubehoningen
 <en:Honeys
 en:Lavender Honey
 fr:Miels de lavande
+it:Miele di lavanda
 nl:Lavendelhoningen
 
 <en:Honeys
@@ -23675,6 +23828,7 @@ fr:Miels de metcalfa, Miels de metcalfa pruinosa, Miel de cicadelle blanche, Mie
 
 <en:Honeys
 fr:Miels de pissenlit
+it:Miele di tarassaco
 nl:Paardebloemhoningen
 
 <en:Honeys
@@ -23683,19 +23837,23 @@ nl:Vlinderbloemhoningen
 
 <en:Honeys
 fr:Miels de ronce
+it:Miele di rovo
 nl:Braamstruikhoningen
 
 <en:Honeys
 fr:Miels de sarrasin, miels de blé noir
+it:Miele di grano saraceno
 nl:Boekweithoningen
 
 <en:Honeys
 fr:Miels de tilleul
+it:Miele di tiglio
 nl:Lindebloesemhoningen
 
 <en:Honeys
 en:Sunflower honeys
 fr:Miels de tournesol
+it:Miele di girasole
 nl:Zonnebloemhoningen
 
 <en:Honeys
@@ -23720,10 +23878,12 @@ nl:Vloeibare honingen
 
 <fr:Miels
 fr:Miels de romarin
+it:Miele di rosmarino
 nl:Rozemarijnhoningen
 
 <fr:Miels
 fr:Miels de sapin
+it:Miele di melata di abete
 nl:Sparrenhoningen
 
 <fr:Miels de jujubier
@@ -23926,6 +24086,7 @@ hu:Növényi zsírok, növényi eredetű zsírok
 en:Cocoa butter
 es:Mantecas de cacao
 fr:Beurres de cacao
+it:Burro di cacao
 nl:Cacaoboters
 de:Kakaobutter
 wikidata:en:Q251106
@@ -23938,6 +24099,7 @@ en:Margarines
 es:Margarinas, Margarinas vegetales, Margarinas de origen vegetal
 fr:Margarines, Margarine végétale
 de:Margarinen, Margarine
+it:Margarina
 nl:Margarines
 wikidata:en:Q4287
 
@@ -23955,6 +24117,7 @@ de:Dreiviertelfettmargarinen
 en:Shea butter
 es:Mantecas de karité
 fr:Beurres de karité
+it:Burro di karité
 nl:Kariteboters
 de:Sheabutter
 wikidata:en:Q495857
@@ -23963,6 +24126,7 @@ wikidata:en:Q495857
 en:Vegetable oils, Plant-based oils
 es:Aceites vegetales, Aceites de origen vegetal
 fr:Huiles, huiles végétales
+it:Olio vegetale
 nl:Plantaardige oliën
 de:Pflanzenöle
 ru:Масло растительное, Растительное масло
@@ -23972,6 +24136,7 @@ wikidata:en:Q4739805
 en:Argan oils
 es:Aceites de argán
 fr:Huiles d'argan
+it:Olio di argan
 nl:Arganoliën
 wikidata:en:Q45418
 
@@ -23979,6 +24144,7 @@ wikidata:en:Q45418
 en:Borage seed oils, Borage oils
 es:Aceites de borraja
 fr:Huiles de graines de bourrache
+it:Olio di semi di borragine
 nl:Bernagie-oliën, Borage-oliën
 wikidata:en:Q4944279
 
@@ -24002,6 +24168,7 @@ wikidata:en:Q4740149
 en:Corn oils
 es:Aceites de maíz, Aceites de germen de maíz
 fr:Huiles de maïs, Huiles de germe de maïs
+it:Olio di mais, Olio di semi di mais
 nl:Maïs-oliën
 zh:玉米油
 wikidata:en:Q856775
@@ -24010,6 +24177,7 @@ wikidata:en:Q856775
 en:Linseed oils, Flaxseed oils, Flax oil
 es:Aceites de lino, Aceites de linaza
 fr:Huiles de lin
+it:Olio di lino
 nl:Lijnzaadoliën
 zh:亚麻籽油
 wikidata:en:Q818405
@@ -24018,6 +24186,7 @@ wikidata:en:Q818405
 en:Rice bran oils
 es:Aceites de arroz
 fr:Huiles de riz
+it:Olio di riso
 nl:Rijstoliën, Rijstvliesoliën
 zh:米糠油
 wikidata:en:Q175933
@@ -24026,6 +24195,7 @@ wikidata:en:Q175933
 en:Sesame oils
 es:Aceites de sésamo
 fr:Huiles de sésame
+it:Olio di sesamo, olio di semi di sesamo
 nl:Sesamoliën
 de:Sesamöle
 zh:芝麻油
@@ -24043,6 +24213,7 @@ wikidata:en:Q720761
 en:Cottonseed oils
 es:Aceites de semillas de algodón
 fr:Huiles de coton
+it:Olio di cotone, olio di semi di cotone
 nl:Katoenzaadoliën
 zh:棉籽油
 wikidata:en:Q811663
@@ -24099,6 +24270,7 @@ wikidata:en:Q3819066
 en:Hemp oils, Hempseed oils
 es:Aceites de cáñamo
 fr:Huiles de chanvre
+it:Olio di canapa, olio di semi di canapa
 nl:Hennepoliën
 wikidata:en:Q1575477
 
@@ -24115,6 +24287,7 @@ zh:豆类油
 en:Peanut oils
 es:Aceites de cacahuete
 fr:Huiles d'arachide
+it:Olio di arachide, Olio di semi di arachide
 nl:Pindaoliën, Aardnotenoliën, Arachidëneoliën
 zh:花生油
 wikidata:en:Q265878
@@ -24123,6 +24296,7 @@ wikidata:en:Q265878
 en:Soybean oils
 es:Aceites de soja
 fr:Huiles de soja
+it:Olio di soia, Olio di semi di soia
 nl:Sojaoliën
 zh:大豆油
 wikidata:en:Q926892
@@ -24155,6 +24329,7 @@ zh:坚果油
 en:Almond oils
 es:Aceites de almendras
 fr:Huiles d'amande
+it:Olio di mandorle
 nl:Amandeloliën
 de:Mandelöle
 zh:杏仁油
@@ -24164,6 +24339,7 @@ wikidata:en:Q1164590
 en:Hazelnut oils
 es:Aceites de avellanas
 fr:Huiles de noisette
+it:Olio di nocciole
 nl:Hazelnootoliën
 de:Haselnussöle
 zh:榛子油
@@ -24173,6 +24349,7 @@ wikidata:en:Q1112606
 en:Macadamia oils
 es:Aceites de macadamia, Aceites de nuez de macadamia
 fr:Huiles de noix de macadamia
+it:Olio di macadamia, olio della noce macadamia
 nl:Macadamiaoliën
 wikidata:en:Q2264972
 
@@ -24202,6 +24379,7 @@ en:Walnut oils
 de:Walnussöle
 es:Aceites de nueces
 fr:Huiles de noix, huile de noix
+it:Olio di noci
 nl:Walnootoliën
 zh:核桃油
 wikidata:en:Q1434098
@@ -24211,6 +24389,7 @@ wikidata:en:Q1434098
 en:Olive oils
 es:Aceites de oliva, Aceites de oliva y de orujo de oliva
 fr:Huiles d'olive
+it:Olio di oliva
 nl:Olijfoliën
 de:Olivenöle, Olivenöl
 zh:橄榄油
@@ -24220,6 +24399,7 @@ wikidata:en:Q93165
 en:Extra-virgin olive oils
 es:Aceites de oliva virgen extra
 fr:Huiles d'olive vierges extra
+it:Olio extra vergine di oliva
 nl:Extra vierge olijfoliën
 de:Native Olivenöle Extra, Natives Olivenöl Extra
 
@@ -24241,6 +24421,7 @@ de:Raffinierte Olivenöle, Raffiniertes Olivenöl
 en:Virgin olive oils
 es:Aceites de oliva virgen, Aceites de oliva vírgenes
 fr:Huiles d'olive vierges
+it:Olio vergine di oliva
 nl:Virgin olijfoliën
 de:Native Olivenöle, Natives Olivenöl
 
@@ -24317,6 +24498,7 @@ country:en:Greece
 en:Palm oils
 es:Aceites de palma
 fr:Huiles de palme, Huiles de palme alimentaire, Huiles de palm
+it:Olio di palma
 nl:Palmoliën
 zh:棕榈油
 wikidata:en:Q231458
@@ -24340,6 +24522,7 @@ wikidata:en:Q770335
 en:Rapeseed oils, Colza oils
 es:Aceites de colza
 fr:Huiles de colza, huile de colza
+it:Olio di colza
 nl:Koolzaadoliën
 nl_be:Koolzaadoliën
 wikidata:en:Q17908ë72
@@ -24354,6 +24537,7 @@ nl:Raapoliën
 en:Safflower oils
 es:Aceites de cártamo
 fr:Huiles de carthame
+it:Olio di cartamo
 nl:Saffloeroliën
 wikidata:en:Q16642513
 
@@ -24362,6 +24546,7 @@ wikidata:en:Q16642513
 en:Sunflower oils, Sunflower oil
 es:Aceites de girasol, Aceite de girasol
 fr:Huiles de tournesol
+it:Olio di girasole, Olio di semi di girasole
 nl:Zonnebloemoliën
 nl_be:Zonnebloemoliën
 de:Sonnenblumenöle
@@ -25535,6 +25720,7 @@ en:Ice creams and sorbets
 de:Speiseeis und Sorbets
 es:Helados y sorbetes
 fr:Glaces et sorbets, glace et sorbet, sorbets et glaces
+it:Gelato e Sorbetto
 nl:IJs en sorbets
 zh:冰淇淋和果汁冰糕
 hu:Jégkrém és parfé
@@ -25545,6 +25731,7 @@ en:Ice creams
 de:Speiseeis
 es:Helados
 fr:Glaces
+it:Gelato
 nl:IJs
 zh:冰淇淋
 hu:Jégkrémek
@@ -25691,6 +25878,7 @@ nl:Roomijswafels
 en:Sorbets
 es:Sorbetes
 fr:Sorbets
+it:Sorbetto
 nl:Sorbets
 wikidata:en:Q13302
 
@@ -25698,12 +25886,14 @@ wikidata:en:Q13302
 en:Orange sorbets
 es:Sorbetes de naranja
 fr:Sorbets à l’orange
+it:Sorbetto all'arancia
 nl:Sinaasappelsorbets
 
 <en:Sorbets
 en:Strawberry sorbets
 es:Sorbetes de fresa
 fr:Sorbets à la fraise
+it:Sorbetto alla fragola
 nl:Aardbeiensorbets
 
 <en:Sorbets
@@ -25711,6 +25901,7 @@ en:Raspberry sorbets
 de:Himbeer Sorbets
 es:Sorbetes de frambuesa
 fr:Sorbets à la framboise
+it:Sorbetto al lampone
 nl:Frambozensorbets
 
 <en:Sorbets
@@ -25718,6 +25909,7 @@ en:Mango sorbets
 de:Mango Sorbets
 es:Sorbetes de mango
 fr:Sorbets à la mangue
+it:Sorbetto al mango
 nl:Mangosorbets
 
 <en:Sorbets
@@ -25730,12 +25922,14 @@ nl:Pruimensorbets
 en:Pear sorbets
 es:Sorbetes de pera
 fr:Sorbets à la poire
+it:Sorbetto alle pere
 nl:Perensorbets
 
 <en:Sorbets
 en:Apple sorbets
 es:Sorbetes de manzana
 fr:Sorbets à la pomme
+it:Sorbetto alla mela
 nl:Appelsorbets
 
 <en:Sorbets
@@ -25743,12 +25937,14 @@ en:Lemon sorbets
 de:Zitronen Sorbets
 es:Sorbetes de limón
 fr:Sorbets au citron
+it:Sorbetto al limone
 nl:Citroensorbets
 
 <en:Sorbets
 en:Lime sorbets
 es:Sorbetes de lima
 fr:Sorbets au citron vert
+it:Sorbetto al lime
 nl:Limoensorbets
 
 <en:Sorbets
@@ -25756,22 +25952,27 @@ en:Passion fruit sorbets
 de:Passionsfrucht Sorbets
 es:Sorbetes de maracuyá, Sorbetes de fruta de la pasión
 fr:Sorbets au fruit de la passion, sorbets aux fruits de la passion, sorbets passion, sorbets maracuja
+it:Sorbetto al frutto della passione
 nl:Passievruchtsorbets
 
 <en:Sorbets
 fr:Sorbets à la pêche
+it:Sorbetto alla pesca
 
 <en:Sorbets
 fr:Sorbets à l'abricot
+it:Sorbetto all'albicocca
 
 <en:Sorbets
 fr:Sorbets à la noix de coco
+it:Sorbetto al cocco
 
 <en:Sorbets
 fr:Sorbets au cassis
 
 <en:Sorbets
 fr:Sorbets à la cerise
+it:Sorbetto alla ciliegia
 
 <en:Sorbets
 en:Multifruit sorbets
@@ -31064,21 +31265,21 @@ zh:鸡翅
 
 <en:Chickens
 en:Chicken ham
-fr:Blanc de poulet, Jambons de poulet, Jambon de poulet
+fr:Blancs de poulet, Blanc de poulet, Jambons de poulet, Jambon de poulet
 zh:鸡火腿
 
 <en:Chicken ham
-fr:Blanc de poulet doré au four
+fr:Blancs de poulet doré au four, Blanc de poulet doré au four
 
 <en:Chicken ham
 en:Smoked chicken breast
-fr:Blanc de poulet fumé
+fr:Blancs de poulet fumé, Blanc de poulet fumé
 
 <en:Chicken ham
-fr:Blanc de poulet rôti à la broche
+fr:Blancs de poulet rôti à la broche, Blanc de poulet rôti à la broche
 
 <en:Chicken ham
-fr:Blanc de poulet aux herbes, Blanc de poulet aux fines herbes
+fr:Blancs de poulet aux herbes, Blanc de poulet aux fines herbes
 
 <en:Chickens
 en:Chicken cutlets
@@ -32972,12 +33173,8 @@ fr:Macarons
 fr:Bûches pâtissières
 
 <en:Pastries
-<en:Pastry helpers
-fr:Préparations pour pâtisseries
-
-<en:Pastries
 en:Rum baba, baba au rhum
-fr:Baba au rhum
+fr:Babas au rhum, Baba au rhum
 wikidata:en:Q265457
 
 <en:Pastries
@@ -32990,11 +33187,11 @@ wikidata:en:Q177166
 <en:Pastries
 <en:Cakes
 en:Canelés, cannelés
-fr:Canelés, cannelés, canelés de Bordeaux, cannelés de Bordeaux
+fr:Canelés, cannelés, canelés de Bordeaux, cannelés de Bordeaux, Canelé, cannelé
 wikidata:en:Q2746070
 
 <en:Pastries, pastry
-fr:Choux à la crème pâtissière
+fr:Choux à la crème pâtissière, Chou à la crème pâtissière, Choux à la crème, Chou à la crème
 wikidata:en:Q2513811
 
 <en:Pastries, pastry
@@ -34688,6 +34885,7 @@ en:Chocolate spreads
 es:Cremas de chocolate, Cremas de cacao
 fr:Pâtes à tartiner au chocolat, pâtes à tartiner au cacao
 de:Nougatcremes, Nougatcreme, Nuß-Nougat-Cremes, Nuß-Nougat-Creme, Nussnougatcremes, Nussnougatcreme, Haselnuss-Cremes, Haselnuss-Creme, Haselnussbrotaufstriche, Haselnussbrotaufstrich, Haselnusscremes, Haselnusscreme, Nussnougat-Cremes, Nussnougat-Creme
+it:Crema con cacao
 nl:Chocopastas, Chocoladepastas
 wikidata:en:Q1754566
 
@@ -34702,6 +34900,7 @@ en:Hazelnut spreads
 de:Haselnusscremes
 es:Cremas a base de avellanas
 fr:Pâtes à tartiner aux noisettes, pâte à tartiner aux noisettes
+it:Crema con nocciole, crema alle nocciole
 nl:Hazelnootpastas
 
 <en:Chocolate spreads
@@ -34709,6 +34908,7 @@ nl:Hazelnootpastas
 en:Cocoa and hazelnuts spreads, Chocolate and hazelnuts spreads
 es:Cremas de cacao y avellanas
 fr:Pâtes à tartiner aux noisettes et au cacao, pâtes à tartiner aux noisettes et au chocolat, Pâtes à tartiner au cacao et aux noisettes, Pâtes à tartiner au chocolat et aux noisettes
+it:Crema con nocciole e cacao
 nl:Choco-hazelnootpastas
 
 <fr:Pâtes à tartiner
@@ -34733,7 +34933,7 @@ pms:Tapenades, tapenade
 eo:Tapenado
 pl:Tapenada
 he:ממרח זיתים
-fr:TTapenades, tapenade
+fr:Tapenades, tapenade
 ru:Тапенада
 es:Tapenade
 oc:Tapenada
@@ -34983,6 +35183,7 @@ en:Sugars
 de:Zucker
 es:Azúcar
 fr:Sucres, sucre
+it:Zucchero
 nl:Suiker
 nl_be:Suiker
 pt:Açucar
@@ -35031,6 +35232,7 @@ en:Cane sugar
 es:Azúcar de caña
 fr:Sucres de canne
 de:Rohrzucker
+it:Zucchero di canna
 nl:Rietsuikers
 wikidata:en:Q9362753
 
@@ -35038,6 +35240,7 @@ wikidata:en:Q9362753
 en:Inverted sugar syrups, inverted sugar, inverted liquid sugar
 es:Azúcar invertido
 fr:sucres invertis, sucres liquides invertis, sirops de sucre inverti
+it:Zucchero invertito
 wikidata:en:Q412082
 
 <en:Sugars
@@ -35045,6 +35248,7 @@ en:Powdered sugars, Confectioner's sugars, Icing sugars
 es:Azúcar glas, Azúcar en polvo, Azúcar glacé
 fr:Sucres glaces, Sucres impalpables, Sucres à glacer, Sucre glace
 de:Puderzucker, Staubzucker, Dekorierzucker
+it:Zucchero a velo
 nl:Poedersuikers
 wikidata:en:Q151070
 
@@ -35053,6 +35257,7 @@ en:Granulated sugars, White sugars, Refined sugars, White sugar, Refined sugar
 es:Azúcar blanco
 fr:Sucres blancs, saccharose, saccarose, sucres de table, sucroses, sucre blanc
 de:Kristallzucker, Weißzucker, weiße Zucker
+it:Zucchero bianco
 nl:Kristalsuikers
 wikidata:en:Q15631442
 
@@ -35065,6 +35270,7 @@ wikidata:en:Q849816
 
 <en:Sugars
 fr:sucres complets, sucre complet
+it:Zucchero integrale
 
 <en:Sugars
 fr:Sucres en poudre, Sucre en poudre
@@ -35268,8 +35474,7 @@ wikidata:en:Q6584340
 <en:Sweeteners
 en:Simple syrups
 es:Siropes simples, Jarabes simples
-fr:Sirops traditionnels
-nl:Traditionele siropen
+fr:Sirops simples
 
 <en:Simple syrups
 en:Agave syrups, Agave nectars
@@ -35369,22 +35574,22 @@ nl:Extra Lichte Esdoornstropen
 
 <en:Maple syrups
 en:Light maple syrups, A maple syrups
-fr:Sirops d'érable clair, Sirop d'érable A
+fr:Sirops d'érable clairs, Sirops d'érable clair, Sirop d'érable A
 nl:Lichte esdoornstropen
 
 <en:Maple syrups
 en:Medium maple syrups, B maple syrups
-fr:Sirops d'érable moyen, Sirop d'érable B
+fr:Sirops d'érable moyen, Sirops d'érable moyens, Sirop d'érable B
 nl:Medium esdoornstropen
 
 <en:Maple syrups
 en:Amber maple syrups, C maple syrups
-fr:Sirops d'érable ambré, Sirop d'érable C
+fr:Sirops d'érable ambrés, Sirops d'érable ambré, Sirop d'érable C
 nl:Amber esdoornstropen
 
 <en:Maple syrups
 en:Dark maple syrups, D maple syrups
-fr:Sirops d'érable foncé, Sirop d'érable D
+fr:Sirops d'érable foncés, Sirops d'érable foncé, Sirop d'érable D
 nl:Donkere esdoornstropen
 
 <en:Simple syrups
@@ -37818,11 +38023,6 @@ es:Salteados de vegetales congelados
 <es:Salteados de vegetales congelados
 es:Salteados de vegetales asados congelados
 
-<en:Frozen plant-based foods mixes
-en:Frozen stews
-fr:Ragoûts surgelés
-es:Menestras congeladas
-
 <en:Frozen vegetable mixes
 en:Frozen salads
 es:Ensaladillas congeladas
@@ -39427,5 +39627,4 @@ en:Halloween foods and drinks
 es:Bebidas y alimentos de Halloween
 fr:Aliments et boissons d'Halloween
 nl:Halloween-levensmiddelen, Halloween-levensmiddel
-
 
