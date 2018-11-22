@@ -81,7 +81,7 @@ sub display_madenearyou($) {
 <script src="/js/jquery.fileupload.min.js"></script>	
 <script src="/js/load-image.min.js"></script>
 <script src="/js/canvas-to-blob.min.js"></script>
-<script src="/js/jquery.fileupload-ip.js"></script>
+<script src="/js/jquery.fileupload-ip.min.js"></script>
 
 $header
 
