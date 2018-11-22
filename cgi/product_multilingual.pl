@@ -804,7 +804,7 @@ HTML
 <script type="text/javascript" src="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="/js/jquery.form.js"></script>
 <script type="text/javascript" src="/js/jquery.autoresize.js"></script>
-<script type="text/javascript" src="/js/jquery.rotate.js"></script>
+<script type="text/javascript" src="/js/jQueryRotateCompressed.2.1.js"></script>
 <script type="text/javascript" src="/js/jquery.iframe-transport.min.js"></script>
 <script type="text/javascript" src="/js/jquery.fileupload.min.js"></script>	
 <script type="text/javascript" src="/js/load-image.min.js"></script>
