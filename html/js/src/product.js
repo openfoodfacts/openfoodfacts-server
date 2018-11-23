@@ -165,36 +165,45 @@ function select_nutriment(event, ui) {
   }
 }
 
+export function autocomplete(callback) {
+  return import('jquery').then($ => {
+    import('devbridge-autocomplete').then(() => {
+      callback($);
+    }).catch(error => 'An error occurred while loading the devbridge-autocomplete component: ' + error);
+  }).catch(error => 'An error occurred while loading the jquery component: ' + error);
+}
+
 export function add_line() {
+  return autocomplete($ => {
+    $(this).unbind('change');
+    $(this).unbind('autocompletechange');
 
-  $(this).unbind('change');
-  $(this).unbind('autocompletechange');
+    var id = parseInt($('#new_max').val()) + 1;
+    $('#new_max').val(id);
 
-  var id = parseInt($('#new_max').val()) + 1;
-  $('#new_max').val(id);
+    var newline = $('#nutriment_new_0_tr').clone();
+    var newid = 'nutriment_new_' + id;
+    newline.attr('id', newid + '_tr');
+    newline.find('.nutriment_label').attr('id',newid + '_label').attr('name',newid + '_label');
+    newline.find('.nutriment_unit').attr('id',newid + '_unit').attr('name',newid + '_unit');
+    newline.find('.nutriment_unit_percent').attr('id',newid + '_unit_percent').attr('name',newid + '_unit_percent');
+    newline.find('#nutriment_new_0').attr('id',newid).attr('name',newid);
+    newline.find('#nutriment_new_0_prepared').attr('id',newid + '_prepared').attr('name',newid + '_prepared');
 
-  var newline = $('#nutriment_new_0_tr').clone();
-  var newid = 'nutriment_new_' + id;
-  newline.attr('id', newid + '_tr');
-  newline.find('.nutriment_label').attr('id',newid + '_label').attr('name',newid + '_label');
-  newline.find('.nutriment_unit').attr('id',newid + '_unit').attr('name',newid + '_unit');
-  newline.find('.nutriment_unit_percent').attr('id',newid + '_unit_percent').attr('name',newid + '_unit_percent');
-  newline.find('#nutriment_new_0').attr('id',newid).attr('name',newid);
-  newline.find('#nutriment_new_0_prepared').attr('id',newid + '_prepared').attr('name',newid + '_prepared');
+    $('#nutrition_data_table > tbody:last').append(newline);
+    newline.show();
 
-  $('#nutrition_data_table > tbody:last').append(newline);
-  newline.show();
+    newline.find('.nutriment_label').autocomplete({
+      source: otherNutriments,
+      select: select_nutriment,
+      //change: add_line
+    });
 
-  newline.find('.nutriment_label').autocomplete({
-    source: otherNutriments,
-    select: select_nutriment,
-    //change: add_line
+    // newline.find(".nutriment_label").bind("autocompletechange", add_line);
+    newline.find('.nutriment_label').change(add_line);
+
+    $(document).foundation('equalizer', 'reflow');
   });
-
-  // newline.find(".nutriment_label").bind("autocompletechange", add_line);
-  newline.find('.nutriment_label').change(add_line);
-
-  $(document).foundation('equalizer', 'reflow');
 }
 
 export function upload_image (imagefield) {

@@ -14,6 +14,7 @@ devDependencies:
   datatables.net-scroller: 1.5.1
   datatables.net-scroller-zf: 1.5.1
   datatables.net-zf: 1.10.19
+  devbridge-autocomplete: 1.4.9
   eslint: 5.8.0
   file-loader: 2.0.0
   foundation-icon-fonts: 0.1.1
@@ -675,6 +676,10 @@ packages:
     optional: true
     resolution:
       integrity: sha512-Xqg/lIZMrUd0VRmSRbCAewtwGZiAk3mEUDvV4op1tGl+LvyPcb/MIOSxTl9z+9+J+R4/vpjiCAT4xeKzH9ji1w==
+  /@types/jquery/2.0.51:
+    dev: true
+    resolution:
+      integrity: sha512-+vtCjz+pzr5KkaX/GMnVF0YtQqkm+oVcdBH0Q7zCxdwk42c71xJ9hT1b6Mbn4Kf7CAxSHvkWF1LRdpYwUM+pcg==
   /@webassemblyjs/ast/1.7.10:
     dependencies:
       '@webassemblyjs/helper-module-context': 1.7.10
@@ -2585,6 +2590,13 @@ packages:
     dev: true
     resolution:
       integrity: sha1-wHTS4qpqipoH29YfmhXCzYPsjsw=
+  /devbridge-autocomplete/1.4.9:
+    dependencies:
+      '@types/jquery': 2.0.51
+      jquery: 3.3.1
+    dev: true
+    resolution:
+      integrity: sha512-3/5kzICNRnTiOxgIg2qjTU5MmqzW1CuOueuPFOlD8OhAPdHox28codHwGgedlnGKHPj3puZA85kaNrF2xGN1WA==
   /diffie-hellman/5.0.3:
     dependencies:
       bn.js: 4.11.8
@@ -8930,6 +8942,7 @@ specifiers:
   datatables.net-scroller: ^1.5.1
   datatables.net-scroller-zf: ^1.4.4
   datatables.net-zf: ^1.10.16
+  devbridge-autocomplete: ^1.4.9
   eslint: ^5.8.0
   file-loader: ^2.0.0
   foundation-icon-fonts: ^0.1.1
