@@ -128,7 +128,25 @@ foreach my $file (@files) {
 
 }
 
+# Fix specific issues that are not likely to be present in other sources
+# -> otherwise fix them in Import::clean_fields_for_all_products
+
+foreach my $code (sort keys %products) {
+	
+	# Date '04.04.2017 instead of quantity
+	
+	if ((defined $products{$code}{quantity}) and ($products{$code}{quantity} =~ /^'?\d\d\.\d\d\.\d\d\d\d$/)) {
+		print STDERR "product code $code: deleting date in quantity $products{$code}{quantity}\n";
+		delete $products{$code}{quantity};
+	}
+
+}
+
+# Clean / normalize fields
+
 clean_fields_for_all_products();
 
 print_csv_file();
+
+print_stats();
 

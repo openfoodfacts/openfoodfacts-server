@@ -66,7 +66,7 @@ TXT
 
 
 my $csv_file;
-my $User_id;
+# $User_id is a global variable from Display.pm
 my %global_values = ();
 my $only_import_products_with_images = 0;
 my $images_dir;
@@ -157,6 +157,7 @@ my $differing = 0;
 my %differing_fields = ();
 my @edited = ();
 my %edited = ();
+my %nutrients_edited = ();
 
 
 # Read images if supplied
@@ -394,15 +395,15 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 	
 	# Create or update fields
 	
-	my @param_langs = ();
+	my %param_langs = ();
 	
 	foreach my $field (keys %$imported_product_ref) {
 		if (($field =~ /^(.*)_(\w\w)$/) and (defined $language_fields{$1})) {
-			push @param_langs, $2;
+			$param_langs{$2} = 1;
 		}
 	}
 	
-	my @param_sorted_langs = sort @param_langs;
+	my @param_sorted_langs = sort keys %param_langs;
 	
 	my @param_fields = ();
 	
@@ -419,14 +420,18 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			push @param_fields, $field;
 		}
 	}
+	
+	foreach my $field (@param_fields) {
+		print $field . "\n";
+	}
 
 		
 	foreach my $field (@param_fields) {
 	
-		if (defined $imported_product_ref->{$field}) {				
+		if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} ne "")) {				
 
 		
-			print "defined value for field $field : " . $imported_product_ref->{$field} . "\n";
+			print "defined and non empty value for field $field : " . $imported_product_ref->{$field} . "\n";
 		
 			# for tag fields, only add entries to it, do not remove other entries
 			
@@ -574,6 +579,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 					}
 					elsif (($field eq 'quantity') and ($product_ref->{$field} ne $new_field_value)) {
 						# normalize quantity
+						print "normalizing quantity for product code $code - field $field - existing value: $product_ref->{$field} - value: $new_field_value\n";
 						$product_ref->{$field} = $new_field_value;
 						push @modified_fields, $field;
 						$modified++;
@@ -640,7 +646,6 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		normalize_nutriment_value_and_modifier(\$value, \$modifier);
 		normalize_nutriment_value_and_modifier(\$valuep, \$modifierp);
 		
-		print "prepared nutrient info nid => $nid, value => $value, nidp => $nidp, valuep => $valuep \n" ;
 		
 		if (defined $value) {		
 		
@@ -651,14 +656,16 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 					delete $product_ref->{nutriments}{$nid . "_serving"};
 			}
 			else {
-			
+						
 				if ($nid eq 'salt') {
 					$seen_salt = 1;
 				}
 				
 				$value =~ s/(\d) (\d)/$1$2/g;
 				$value =~ s/,/./;
-				$value += 0;				
+				$value += 0;
+				
+				print "nutrient with defined and non empty value: nid: $nid - value: $value\n" ;
 			
 				if ((defined $modifier) and ($modifier ne '')) {
 					$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
@@ -698,7 +705,9 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			
 				$valuep =~ s/(\d) (\d)/$1$2/g;
 				$valuep =~ s/,/./;
-				$valuep += 0;				
+				$valuep += 0;
+				
+				print "nutrient with defined and non empty prepared value: nidp: $nidp - valuep: $valuep\n" ;
 			
 				if ((defined $modifierp) and ($modifierp ne '')) {
 					$product_ref->{nutriments}{$nidp . "_modifier"} = $modifierp;
@@ -746,18 +755,20 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		foreach my $field (sort keys %original_values) {
 			if ((defined $product_ref->{nutriments}{$field}) and (defined $original_values{$field})
 				and ($product_ref->{nutriments}{$field} ne $original_values{$field})) {
-				print "differing nutrient value for product code $code - nid $nid - old: $original_values{$field} - new: $product_ref->{nutriments}{$field} \n";
-				$modified++;				
+				print "differing nutrient value for product code $code - field: $field - old: $original_values{$field} - new: $product_ref->{nutriments}{$field} \n";
+				$modified++;
+				$nutrients_edited{$code}++;
 			}
 			elsif ((defined $product_ref->{nutriments}{$field}) and (not defined $original_values{$field})
 				and ($product_ref->{nutriments}{$field} ne $original_values{$field})) {
-				print "new nutrient value for product code $code - nid $nid - new: $product_ref->{nutriments}{$field} \n";
+				print "new nutrient value for product code $code - field: $field - new: $product_ref->{nutriments}{$field} \n";
 				$modified++;
+				$nutrients_edited{$code}++;
 			}
-			elsif ((not defined $product_ref->{nutriments}{$field}) and (defined $original_values{$field})
-				and ($product_ref->{nutriments}{$field} ne $original_values{$field})) {
-				print "deleted nutrient value for product code $code - nid $nid - old: $original_values{$field} \n";
+			elsif ((not defined $product_ref->{nutriments}{$field}) and (defined $original_values{$field})) {
+				print "deleted nutrient value for product code $code - field: $field - old: $original_values{$field} \n";
 				$modified++;
+				$nutrients_edited{$code}++;
 			}				
 		}
 		
@@ -879,8 +890,11 @@ print "$new new products\n";
 print "$existing existing products\n";
 print "$differing differing values\n\n";
 
-print ((scalar @edited) . " edited products\n");
-print ((scalar keys %edited) . " editions\n");
+print ((scalar keys %nutrients_edited) . " products with edited nutrients\n");
+print ((scalar keys %edited) . " products with edited fields or nutrients\n");
+
+print ((scalar @edited) . " products updated\n");
+
 
 foreach my $field (sort keys %differing_fields) {
 	print "field $field - $differing_fields{$field} differing values\n";
