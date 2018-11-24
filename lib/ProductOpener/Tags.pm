@@ -1711,7 +1711,7 @@ sub gen_tags_hierarchy_taxonomy($$$) {
 		}
 	}
 	
-	my @sorted_list = sort { ($level{$tagtype}{$b} <=> $level{$tagtype}{$a}) || ($a cmp $b) } keys %tags;
+	my @sorted_list = sort { (((defined $level{$tagtype}{$b}) ? $level{$tagtype}{$b} : 0) <=> ((defined $level{$tagtype}{$a}) ? $level{$tagtype}{$a} : 0)) || ($a cmp $b) } keys %tags;
 	return @sorted_list;
 }
 
