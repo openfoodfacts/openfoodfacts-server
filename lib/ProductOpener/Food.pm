@@ -3640,7 +3640,7 @@ sub fix_salt_equivalent($) {
 	foreach my $product_type ("", "_prepared") {
 		
 		# use the salt value by default
-		if ((defined $product_ref->{nutriments}{'salt'} . $product_type) and ($product_ref->{nutriments}{'salt' . $product_type} ne '')) {
+		if ((defined $product_ref->{nutriments}{'salt' . $product_type}) and ($product_ref->{nutriments}{'salt' . $product_type} ne '')) {
 			$product_ref->{nutriments}{'sodium' . $product_type} = $product_ref->{nutriments}{'salt' . $product_type} / 2.54;
 		}	
 		elsif ((defined $product_ref->{nutriments}{'sodium' . $product_type}) and ($product_ref->{nutriments}{'sodium' . $product_type} ne '')) {
