@@ -42,6 +42,7 @@ BEGIN
 		&load_csv_file
 		
 		&print_csv_file
+		&print_stats
 		
 		&clean_fields
 		&clean_fields_for_all_products
@@ -170,6 +171,36 @@ sub clean_fields($) {
 			}
 			$products{$code}{$field} =~ s/\.(\.+)$/\./;
 			$products{$code}{$field} =~ s/(\s|-|_|;|,)*$//;
+		
+		}
+	}
+	
+	# empty or uncomplete quantity, but net_weight etc. present
+	if ((not defined $products{$code}{quantity}) or ($products{$code}{quantity} eq "")
+		or (($lc eq "fr") and ($products{$code}{quantity} =~ /^\d+ tranche([[:alpha:]]*)$/)) # French : "6 tranches épaisses"
+		) {
+		
+		# See if we have other quantity related values: net_weight_value	net_weight_unit	drained_weight_value	drained_weight_unit	volume_value	volume_unit
+
+		my $extra_quantity;
+		
+		if ((defined $products{$code}{net_weight_value}) and ($products{$code}{net_weight_value} ne "")) {
+			$extra_quantity = $products{$code}{net_weight_value} . " " . $products{$code}{net_weight_unit};
+		}
+		elsif ((defined $products{$code}{drained_weight_value}) and ($products{$code}{drained_weight_value} ne "")) {
+			$extra_quantity = $products{$code}{drained_weight_value} . " " . $products{$code}{drained_weight_unit};
+		}
+		elsif ((defined $products{$code}{volume_value}) and ($products{$code}{volume_value} ne "")) {
+			$extra_quantity = $products{$code}{volume_value} . " " . $products{$code}{volume_unit};
+		}
+		
+		if (defined $extra_quantity) {
+			if ((defined $products{$code}{quantity}) and ($products{$code}{quantity} ne "")) {
+				$products{$code}{quantity} .= " ($extra_quantity)";
+			}
+			else {
+				$products{$code}{quantity} = $extra_quantity;
+			}
 		}
 	}
 }
@@ -338,6 +369,33 @@ sub print_csv_file() {
 	}
 
 }
+
+
+sub print_stats() {
+
+	my %existing_values = ();
+	my $i = 0;
+	
+	foreach my $code (sort keys %products) {
+		foreach my $field (@fields) {
+			if ((defined $products{$code}{$field}) and ($products{$code}{$field} ne "")) {
+				defined $existing_values{$field} or $existing_values{$field} = 0;
+				$existing_values{$field}++;
+			}
+		}
+		$i++;
+	}
+	
+	print STDERR "products:\t$i\n";
+	foreach my $field (@fields) {
+		if (defined $existing_values{$field}) {
+			print STDERR "$field:\t$existing_values{$field}\n";
+		}
+	}
+}
+
+
+
 
 
 1;
