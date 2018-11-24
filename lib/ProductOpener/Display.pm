@@ -2214,7 +2214,7 @@ sub display_tag($) {
 					href => sprintf($weblink_templates{$key}{href}, $properties{$tagtype}{$canon_tagid}{$key}),
 					hreflang => $weblink_templates{$key}{hreflang},
 				};
-				$weblink->{title} = sprintf($weblink_templates{$key}{title}, $properties{$tagtype}{$canon_tagid}{$key}) if defined $weblink_templates{$key}{title},
+				$weblink->{title} = sprintf($weblink_templates{$key}{title}, $properties{$tagtype}{$canon_tagid}{$key}) if defined $weblink_templates{$key}{title};
 				push @weblinks, $weblink;
 			}
 
@@ -5678,9 +5678,9 @@ HTML
 	if (! subdomain) {
 		subdomain = 'world';
 	}
-	window.location.href = "https://" + subdomain + ".${server_domain}";
+	window.location.href = document.location.protocol + '//' + subdomain + ".${server_domain}";
 }).on("select2:unselect", function(e) {
-	window.location.href = "https://world.${server_domain}";
+	window.location.href = document.location.protocol + "//world.${server_domain}";
 });
 <initjs>
 });
