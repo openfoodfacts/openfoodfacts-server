@@ -561,7 +561,7 @@ function update_display(imagefield, first_display) {
 					selected = ' ui-selected';
 					imgid = image.imgid;
 				}
-				html += '<li id="' + id + '_' + imgid + '" class="ui-state-default ui-selectee' + selected + '">';
+				html += '<li id="' + id + '_' + image.imgid + '" class="ui-state-default ui-selectee' + selected + '">';
 				html += '<img src="' + settings.img_path + image.thumb_url +'" title="'  + image.uploaded + ' - ' + image.uploader + '"/>';
 				
 				if ((stringStartsWith(id, 'manage')) && (admin)) {

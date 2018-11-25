@@ -5678,9 +5678,9 @@ HTML
 	if (! subdomain) {
 		subdomain = 'world';
 	}
-	window.location.href = "https://" + subdomain + ".${server_domain}";
+	window.location.href = document.location.protocol + '//' + subdomain + ".${server_domain}";
 }).on("select2:unselect", function(e) {
-	window.location.href = "https://world.${server_domain}";
+	window.location.href = document.location.protocol + "//world.${server_domain}";
 });
 <initjs>
 });

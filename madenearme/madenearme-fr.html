@@ -10,13 +10,13 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
-<script type="text/javascript" src="/js/jquery.cookie.min.js"></script>	
+<script type="text/javascript" src="/bower_components/foundation/js/vendor/jquery.cookie.js"></script>
 
-<script src="/js/jquery.iframe-transport.js"></script>
-<script src="/js/jquery.fileupload.js"></script>	
+<script src="/js/jquery.iframe-transport.min.js"></script>
+<script src="/js/jquery.fileupload.min.js"></script>
 <script src="/js/load-image.min.js"></script>
 <script src="/js/canvas-to-blob.min.js"></script>
-<script src="/js/jquery.fileupload-ip.js"></script>
+<script src="/js/jquery.fileupload-ip.min.js"></script>
 
 <link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
 <script src="/bower_components/leaflet/dist/leaflet.js"></script>
@@ -76,7 +76,7 @@ $(function() {
 </script>
 
 
-	
+
 </head>
 <body>
 
@@ -104,7 +104,7 @@ est également possible que l'emballeur importe des aliments préparés dans d'a
 <p>C'est très intéressant de voir que beaucoup de produits sont fabriqués ou conditionnés en France mais dont les ingrédients viennent parfois de l'autre bout de la planète !</p>
 
 <p>Si vous ne trouvez pas de produits vraiment locaux à côté de chez vous sur cette carte (les Noix de Saint-Jacques conditionnés à Fécamp qui viennent du Pérou ? Les fameux coeurs de palmiers et les crevettes géantes tigrées d'Ivry-sur-Seine ?),
-vous pouvez partir à leur recherche dans votre frigo, vos placards ou le magasin du coin et les ajouter sur le site d'<a href="https://fr.openfoodfacts.org">Open Food Facts</a> 
+vous pouvez partir à leur recherche dans votre frigo, vos placards ou le magasin du coin et les ajouter sur le site d'<a href="https://fr.openfoodfacts.org">Open Food Facts</a>
 ou avec l'app <a href="https://itunes.apple.com/fr/app/open-food-facts/id588797948">iPhone</a> ou <a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner">Android</a>. Merci d'avance !</p>
 
 <p>Les données qui permettent de générer la carte sont issues du projet collaboratif <a href="https://openstreetmap.fr/">OpenStreetMap</a> qui créé une carte libre du monde.</p>
@@ -116,7 +116,7 @@ ou de route. Vous nous rejoignez ?</p>
 
 <div id="contact">
 
-<p>Auteur : <a href="mailto:stephane\@openfoodfacts.org">Stéphane Gigandet</a> - 
+<p>Auteur : <a href="mailto:stephane\@openfoodfacts.org">Stéphane Gigandet</a> -
 <a href="https://fr.openfoodfacts.org/mentions-legales">Mentions légales</a></p>
 
 <p>Retrouvez-nous aussi sur :</p>
@@ -146,7 +146,7 @@ Pour trouver l'inspiration, découvrez chaque jour des dizaines de <a href="http
 
 
 <div id="sharebuttons">
-<div style="float:left;padding-right:15px;" class="sharebutton"><iframe allowtransparency="true" frameborder="0" scrolling="no" role="presentation" 
+<div style="float:left;padding-right:15px;" class="sharebutton"><iframe allowtransparency="true" frameborder="0" scrolling="no" role="presentation"
 src="https://platform.twitter.com/widgets/tweet_button.html?via=OpenFoodFactsFr&amp;count=vertical&amp;lang=fr"
 style="width:65px; height:63px;"></iframe></div>
 <div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="https://cestemballepresdechezvous.fr" layout="box_count"></fb:like></div>
@@ -162,7 +162,7 @@ style="width:65px; height:63px;"></iframe></div>
         FB.init({appId: '156259644527005', status: true, cookie: true,
                  xfbml: true});
      };
-	 
+
       (function() {
         var e = document.createElement('script');
         e.type = 'text/javascript';
@@ -171,9 +171,9 @@ style="width:65px; height:63px;"></iframe></div>
         e.async = true;
         document.getElementById('fb-root').appendChild(e);
       }());
-	  
 
-    </script>	
+
+    </script>
 
 <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
   {lang: 'fr'}
