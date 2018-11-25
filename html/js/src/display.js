@@ -38,9 +38,9 @@ function initCountrySelect(placeholder, serverdomain) {
         if (! subdomain) {
           subdomain = 'world';
         }
-        window.location.href = 'http://' + subdomain + '.' + serverdomain;
+        window.location.href = document.location.protocol + '//' + subdomain + '.' + serverdomain;
       }).on('select2:unselect', function() {
-        window.location.href = 'http://world.' + serverdomain;
+        window.location.href = document.location.protocol + '//world.' + serverdomain;
       });
     }).catch(error => 'An error occurred while loading the jquery-tags-input component: ' + error);
   }).catch(error => 'An error occurred while loading the jquery component: ' + error);
