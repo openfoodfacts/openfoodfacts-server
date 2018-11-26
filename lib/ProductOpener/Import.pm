@@ -153,10 +153,12 @@ sub clean_fields($) {
 			
 			if ($field =~ /^ingredients_text/) {
 			
+				# Traces de<b> fruits à coque </b>
+			
 				$products{$code}{$field} =~ s/(<b><u>|<u><b>)/<b>/g;
 				$products{$code}{$field} =~ s/(<\b><\u>|<\u><\b>)/<\b>/g;
-				$products{$code}{$field} =~ s/<b> / <b>/g;
-				$products{$code}{$field} =~ s/ <\/b>/<\/b> /g;
+				$products{$code}{$field} =~ s/<b>\s+/ <b>/g;
+				$products{$code}{$field} =~ s/\s+<\/b>/<\/b> /g;
 				$products{$code}{$field} =~ s/<b>|<\/b>/_/g;
 			
 				if ($field eq "ingredients_text_fr") {
@@ -168,7 +170,15 @@ sub clean_fields($) {
 					$products{$code}{$field} =~ s/\.([A-Z][a-z])/\. $1/g;
 				}
 			
-			}
+				#_oeuf 8_%
+				$products{$code}{$field} =~ s/_([^_,-;]+) (\d*\.?\d+\s?\%?)_/_$1_ $2/g;
+				
+				# _d'arachide_
+				if (($field =~ /_fr/) or (($lc eq 'fr') and ($field !~ /_\w\w$/))) {
+					$products{$code}{$field} =~ s/_(d|l)'([^_,-;]+)_/$1'_$2_/ig;
+				}
+			}			
+			
 			$products{$code}{$field} =~ s/\.(\.+)$/\./;
 			$products{$code}{$field} =~ s/(\s|-|_|;|,)*$//;
 		
