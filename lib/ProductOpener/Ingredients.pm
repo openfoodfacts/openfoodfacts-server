@@ -1560,7 +1560,10 @@ sub replace_allergen($$$$) {
 	
 	# to build the product allergens list, just use the ingredients in the main language
 	if ($language eq $product_ref->{lc}) {
-		$product_ref->{$field . "_from_ingredients"} .= $allergen . ', ';
+		# skip allergens like "moutarde et céleri" (will be caught later by replace_allergen_between_separators)
+		if (not (($language eq 'fr') and $allergen =~ / et /i)) {
+			$product_ref->{$field . "_from_ingredients"} .= $allergen . ', ';
+		}
 	}
 	
 	return '<span class="allergen">' . $allergen . '</span>';
@@ -1607,7 +1610,7 @@ sub replace_allergen_between_separators($$$$$$) {
 	my $field = "allergens";
 	
 	
-	# print STDERR "allergen: $allergen\n";
+	#print STDERR "allergen: $allergen\n";
 	
 	my $stopwords = "d'autres|autre|autres|ce|produit|est|fabriqué|élaboré|transformé|emballé|dans|un|atelier|une|usine|qui|utilise|aussi|également|céréale|céréales|farine|farines|extrait|extraits|graine|graines|traces|éventuelle|éventuelles|possible|possibles|peut|pourrait|contenir|contenant|contient|de|des|du|d'|l'|la|le|les|et|and|of";
 	
@@ -1619,7 +1622,7 @@ sub replace_allergen_between_separators($$$$$$) {
 	
 	if (($before . $before_allergen) =~ /\b(peut contenir|qui utilise aussi|traces|may contain)\b/i) {
 		$field = "traces";
-		# print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
+		#print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
 	}	
 	
 	# Farine de blé 97%
@@ -1628,11 +1631,11 @@ sub replace_allergen_between_separators($$$$$$) {
 		$end_separator = $1 . $' . $end_separator;
 	}
 	
-	# print STDERR "before_allergen: $before_allergen - allergen: $allergen\n";
+	#print STDERR "before_allergen: $before_allergen - allergen: $allergen\n";
 	
 	my $tagid = canonicalize_taxonomy_tag($language,"allergens", $allergen);
 	
-	# print STDERR "before_allergen: $before_allergen - allergen: $allergen - tagid: $tagid\n";
+	#print STDERR "before_allergen: $before_allergen - allergen: $allergen - tagid: $tagid\n";
 	
 	if (exists_taxonomy_tag("allergens", $tagid)) {
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
@@ -1669,6 +1672,8 @@ sub detect_allergens_from_text($) {
 		
 			my $text = $product_ref->{"ingredients_text_" . $language };
 			
+			next if not defined $text;
+			
 			# allergens between underscores
 			
 			# print STDERR "current text 1: $text\n";
@@ -1683,7 +1688,7 @@ sub detect_allergens_from_text($) {
 			
 			# allergens between separators
 			
-			# print STDERR "current text 2: $text\n";
+			#print STDERR "current text 2: $text\n";
 			# print STDERR "separators\n";
 			
 			# positive look ahead for the separators so that we can properly match the next word
