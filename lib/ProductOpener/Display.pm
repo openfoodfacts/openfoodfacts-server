@@ -438,7 +438,7 @@ sub analyze_request($)
 	
 	# first check parameters in the query string
 
-	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml') {
+	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache') {
 	
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
@@ -1249,9 +1249,18 @@ sub display_list_of_tags($$) {
 
 	$key = md5_hex($key);
 	
-	$log->debug("MongoDB hashed aggregate query key", { key => $key }) if $log->is_debug();
+	$log->debug("MongoDB hashed aggregate query key", { key => $key }) if $log->is_debug();	
 	
-	$results = $memd->get($key);	
+	# disable caching if ?nocache=1
+	if ((defined $request_ref->{nocache}) and ($request_ref->{nocache})) {
+	
+		$log->debug("MongoDB nocache parameter, skip caching", { key => $key }) if $log->is_debug();	
+	
+	}
+	else {
+		
+		$results = $memd->get($key);	
+	}
 	
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
 	
@@ -3158,9 +3167,18 @@ sub search_and_display_products($$$$$) {
 	
 	$log->debug("MongoDB hashed query key", { key => $key }) if $log->is_debug();
 	
-	$request_ref->{structured_response} = $memd->get($key);
+	# disable caching if ?nocache=1
+	if ((defined $request_ref->{nocache}) and ($request_ref->{nocache})) {
 	
-	$log->debug("Retrieving value for MongoDB query key", { key => $key }) if $log->is_debug();
+		$log->debug("MongoDB nocache parameter, skip caching", { key => $key }) if $log->is_debug();	
+	
+	}
+	else {
+		
+		$log->debug("Retrieving value for MongoDB query key", { key => $key }) if $log->is_debug();
+		$request_ref->{structured_response} = $memd->get($key);
+	}	
+	
 	
 	if (not defined $request_ref->{structured_response}) {
 	
@@ -6795,7 +6813,7 @@ HTML
 	# other fields
 	
 	my $html_fields = "";
-	foreach my $field (@Products::Display::display_other_fields) {
+	foreach my $field (@ProductOpener::Config::display_other_fields) {
 		# print STDERR "display_product() - field: $field - value: $product_ref->{$field}\n";
 		$html_fields .= display_field($product_ref, $field);
 	}	
