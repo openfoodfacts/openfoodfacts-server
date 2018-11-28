@@ -3862,19 +3862,23 @@ sub compute_nutrition_score($) {
 	
 	# changes to the fiber scale
 	my $fiber_points = 0;
-	if ($product_ref->{nutriments}{"fiber" . $prepared . "_100g"} > 4.7) {
+	
+	# Use 0 if fiber is not defined
+	my $fiber_value = (defined $product_ref->{nutriments}{"fiber" . $prepared . "_100g"}) ? $product_ref->{nutriments}{"fiber" . $prepared . "_100g"} : 0; 
+	
+	if ($fiber_value > 4.7) {
 		$fiber_points = 5;
 	}
-	elsif ($product_ref->{nutriments}{"fiber" . $prepared . "_100g"} > 3.7) {
+	elsif ($fiber_value > 3.7) {
 		$fiber_points = 4;
 	}
-	elsif ($product_ref->{nutriments}{"fiber" . $prepared . "_100g"} > 2.8) {
+	elsif ($fiber_value > 2.8) {
 		$fiber_points = 3;
 	}
-	elsif ($product_ref->{nutriments}{"fiber" . $prepared . "_100g"} > 1.9) {
+	elsif ($fiber_value > 1.9) {
 		$fiber_points = 2;
 	}
-	elsif ($product_ref->{nutriments}{"fiber" . $prepared . "_100g"} > 0.9) {
+	elsif ($fiber_value > 0.9) {
 		$fiber_points = 1;
 	}
 	
@@ -4148,7 +4152,9 @@ sub compute_serving_size_data($) {
 		}
 	}
 	
-	$product_ref->{serving_quantity} = normalize_serving_size($product_ref->{serving_size});
+	if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne "")) {
+		$product_ref->{serving_quantity} = normalize_serving_size($product_ref->{serving_size});
+	}
 	
 	#if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{'energy.unit'}) and ($product_ref->{nutriments}{'energy.unit'} eq 'kcal')) {
 	#	$product_ref->{nutriments}{energy} = sprintf("%.0f", $product_ref->{nutriments}{energy} * 4.18);
@@ -4181,7 +4187,7 @@ sub compute_serving_size_data($) {
 					and (($Nutriments{$nid}{unit} eq '') or ($Nutriments{$nid}{unit} eq '%')))) {
 					$product_ref->{nutriments}{$nid . $product_type . "_100g"} = $product_ref->{nutriments}{$nid . $product_type} + 0.0;
 				}
-				elsif ($product_ref->{serving_quantity} > 0) {
+				elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
 					
 					$product_ref->{nutriments}{$nid . $product_type . "_100g"} = sprintf("%.2e",$product_ref->{nutriments}{$nid . $product_type} * 100.0 / $product_ref->{serving_quantity}) + 0.0;
 				}
@@ -4208,7 +4214,7 @@ sub compute_serving_size_data($) {
 					and (($Nutriments{$nid}{unit} eq '') or ($Nutriments{$nid}{unit} eq '%')))) {
 					$product_ref->{nutriments}{$nid . $product_type . "_serving"} = $product_ref->{nutriments}{$nid . $product_type} + 0.0;
 				}			
-				elsif ($product_ref->{serving_quantity} > 0) {
+				elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
 				
 					$product_ref->{nutriments}{$nid . $product_type . "_serving"} = sprintf("%.2e",$product_ref->{nutriments}{$nid . $product_type} / 100.0 * $product_ref->{serving_quantity}) + 0.0;
 				}
@@ -4249,7 +4255,7 @@ sub compute_nutrient_levels($) {
 	$product_ref->{nutrient_levels_tags} = [];
 	$product_ref->{nutrient_levels} = {};
 	
-	return if ($product_ref->{categories} eq '');	# need categories hierarchy in order to identify drinks
+	return if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq ''));	# need categories hierarchy in order to identify drinks
 		
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, powder milk)
 	# unless we have nutrition data for the prepared product
