@@ -5107,16 +5107,25 @@ fr:jambon de porc frais
 <en:pork meat
 fr:jambon frais de porc
 
-fr:jambon cru
+<en:pork meat
+fr:viande de porc traitée en salaison
 
-fr:jambon cuit choix
-
-fr:jambon cuit
-
+en:ham
 fr:jambon
 
+<en:ham
+fr:jambon cru
+
+<en:ham
+fr:jambon cuit choix
+
+<en:ham
+fr:jambon cuit
+
+<en:ham
 fr:jambon cuit standard
 
+<en:ham
 fr:jambon cuit supérieur
 
 en:pork by-product
@@ -19969,6 +19978,7 @@ xh:umnqathe
 # yue:紅蘿蔔
 za:lauxbaeghoengz
 zh:胡萝卜
+carbon_footprint_fr_foodges_ingredient:fr:Carottes fraîches
 # zh-cn:胡萝卜
 # zh-hans:胡萝卜
 # zh-hant:胡蘿蔔
@@ -21587,6 +21597,7 @@ sv:valnöt
 ta:வாதுமைக் கொட்டை
 # yue:合桃仁
 zh:胡桃木
+carbon_footprint_fr_foodges_ingredient:fr:Noix entières
 wikidata:en:Q208021
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix
 # 894 products in 7 languages @2018-10-05
@@ -26000,6 +26011,7 @@ fr:riz cuit
 
 en:rice
 fr:riz
+carbon_footprint_fr_foodges_ingredient:fr:Riz jasmin (Thaïlande)
 
 fr:galette de riz
 
@@ -27372,8 +27384,6 @@ fr:viande et gras de mouton
 <en:meat
 fr:viande de cerf
 
-<en:meat
-fr:viande de porc traitée en salaison
 
 fr:jambon de porc
 
