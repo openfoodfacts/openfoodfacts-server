@@ -1577,7 +1577,7 @@ sub replace_allergen_in_caps($$$$) {
 	my $before = shift;
 	
 	my $field = "allergens";
-	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|may contain)\b/i) {
+	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|trace|may contain)\b/i) {
 		$field = "traces";
 	}
 	
@@ -1620,7 +1620,7 @@ sub replace_allergen_between_separators($$$$$$) {
 		$allergen =~ s/^(\s|\b($stopwords)\b)+//i;
 	}
 	
-	if (($before . $before_allergen) =~ /\b(peut contenir|qui utilise aussi|traces|may contain)\b/i) {
+	if (($before . $before_allergen) =~ /\b(peut contenir|qui utilise aussi|traces|trace|may contain)\b/i) {
 		$field = "traces";
 		#print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
 	}	

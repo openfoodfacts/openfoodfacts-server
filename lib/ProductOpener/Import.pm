@@ -182,15 +182,14 @@ sub clean_fields($) {
 				$products{$code}{$field} =~ s/<\/b>(| )<b>/$1/g;
 				
 				# extrait de malt d'<b>orge - </b>sel 
-				$products{$code}{$field} =~ s/ -( |)<\/b>/<\b> -$1/g;
+				$products{$code}{$field} =~ s/ -( |)<\/b>/<\/b> -$1/g;
 				
 				$products{$code}{$field} =~ s/<b>(.*?)<\/b>/split_allergens($1)/iesg;
 				$products{$code}{$field} =~ s/<b>|<\/b>//g;
 
 				
 				if ($field eq "ingredients_text_fr") {
-					$products{$code}{$field} =~ s/(Les )?informations en _gras_ sont destinées aux personnes intolérantes ou allergiques(\.)?//i;
-					$products{$code}{$field} =~ s/(Les )?informations (_?)en (_?)gras(_?) sont destinées aux personnes allergiques ou intolérantes(\.)?//i;
+					$products{$code}{$field} =~ s/(Les )?informations(_?) (_?)en(_?) (_?)gras(_?) (_?)sont (.*) ((personnes )?allergiques (ou|et) intolérant(e|)s|intolérant(e|)s (ou|et) allergiques)(\.)?//i;
 					
 					# Missing spaces
 					# Poire Williams - sucre de canne - sucre - gélifiant : pectines de fruits - acidifiant : acide citrique.Préparée avec 55 g de fruits pour 100 g de produit fini.Teneur totale en sucres 56 g pour 100 g de produit fini.Traces de _fruits à coque_ et de _lait_..
@@ -198,7 +197,7 @@ sub clean_fields($) {
 				}
 				
 				# persil- poivre blanc -ail
-				$products{$code}{$field} =~ s/(\w)- /$1 - /g;
+				$products{$code}{$field} =~ s/(\w|\*)- /$1 - /g;
 				$products{$code}{$field} =~ s/ -(\w)/ - $1/g;
 			
 				#_oeuf 8_%
@@ -216,7 +215,8 @@ sub clean_fields($) {
 			
 			$products{$code}{$field} =~ s/\.(\.+)$/\./;
 			$products{$code}{$field} =~ s/(\s|-|;|,)*$//;
-			$products{$code}{$field} =~ s/^(\s|-|;|,|_)+//;
+			$products{$code}{$field} =~ s/^(\s|-|;|,)+//;
+			$products{$code}{$field} =~ s/^(\s|-|;|,|_)+$//;
 		
 		}
 	}
