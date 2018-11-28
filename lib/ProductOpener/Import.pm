@@ -117,6 +117,19 @@ sub apply_global_params_to_all_products() {
 	}
 }
 
+sub split_allergens($) {
+	my $allergens = shift;
+	
+	# simple allergen (not an enumeration) -> return _$allergens_
+	if (($allergens !~ /,/)
+		and (not ($allergens =~ / et /i))) {
+		return "_" . $allergens . "_";
+	}
+	else {
+		return $allergens;
+	}
+}
+
 
 sub clean_fields($) {
 
@@ -125,6 +138,8 @@ sub clean_fields($) {
 	foreach my $field (@fields) {
 	
 		if (defined $products{$code}{$field}) {
+		
+			$products{$code}{$field} =~ s/(\&nbsp)|(\xA0)/ /g;
 			
 			# Remove extra line feeds
 			$products{$code}{$field} =~ s/\r\n/\n/g;
@@ -159,16 +174,32 @@ sub clean_fields($) {
 				$products{$code}{$field} =~ s/(<\b><\u>|<\u><\b>)/<\b>/g;
 				$products{$code}{$field} =~ s/<b>\s+/ <b>/g;
 				$products{$code}{$field} =~ s/\s+<\/b>/<\/b> /g;
-				$products{$code}{$field} =~ s/<b>|<\/b>/_/g;
-			
+
+				# empty tags
+				$products{$code}{$field} =~ s/<b>\s+<\/b>/ /g;
+				$products{$code}{$field} =~ s/<b><\/b>//g;
+				# _fromage_ _de chèvre_
+				$products{$code}{$field} =~ s/<\/b>(| )<b>/$1/g;
+				
+				# extrait de malt d'<b>orge - </b>sel 
+				$products{$code}{$field} =~ s/ -( |)<\/b>/<\b> -$1/g;
+				
+				$products{$code}{$field} =~ s/<b>(.*?)<\/b>/split_allergens($1)/iesg;
+				$products{$code}{$field} =~ s/<b>|<\/b>//g;
+
+				
 				if ($field eq "ingredients_text_fr") {
-					$products{$code}{$field} =~ s/Les informations en _gras_ sont destinées aux personnes intolérantes ou allergiques(\.)?//;
-					$products{$code}{$field} =~ s/Les informations en _gras_ sont destinées aux personnes allergiques ou intolérantes(\.)?//;
+					$products{$code}{$field} =~ s/(Les )?informations en _gras_ sont destinées aux personnes intolérantes ou allergiques(\.)?//i;
+					$products{$code}{$field} =~ s/(Les )?informations (_?)en (_?)gras(_?) sont destinées aux personnes allergiques ou intolérantes(\.)?//i;
 					
 					# Missing spaces
 					# Poire Williams - sucre de canne - sucre - gélifiant : pectines de fruits - acidifiant : acide citrique.Préparée avec 55 g de fruits pour 100 g de produit fini.Teneur totale en sucres 56 g pour 100 g de produit fini.Traces de _fruits à coque_ et de _lait_..
 					$products{$code}{$field} =~ s/\.([A-Z][a-z])/\. $1/g;
 				}
+				
+				# persil- poivre blanc -ail
+				$products{$code}{$field} =~ s/(\w)- /$1 - /g;
+				$products{$code}{$field} =~ s/ -(\w)/ - $1/g;
 			
 				#_oeuf 8_%
 				$products{$code}{$field} =~ s/_([^_,-;]+) (\d*\.?\d+\s?\%?)_/_$1_ $2/g;
@@ -179,8 +210,13 @@ sub clean_fields($) {
 				}
 			}			
 			
+			if ($field =~ /^nutrition_grade_/) {
+				$products{$code}{$field} = lc($products{$code}{$field});
+			}
+			
 			$products{$code}{$field} =~ s/\.(\.+)$/\./;
-			$products{$code}{$field} =~ s/(\s|-|_|;|,)*$//;
+			$products{$code}{$field} =~ s/(\s|-|;|,)*$//;
+			$products{$code}{$field} =~ s/^(\s|-|;|,|_)+//;
 		
 		}
 	}
@@ -291,7 +327,7 @@ sub load_csv_file($$$$) {
 							}
 					}
 					else {
-						assign_value($code, $target_field, $product_ref->{$source_field});					
+						assign_value($code, $target_field . "_value", $product_ref->{$source_field});					
 					}
 				}
 				else {
