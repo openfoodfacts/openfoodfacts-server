@@ -140,6 +140,7 @@ sub clean_fields($) {
 		if (defined $products{$code}{$field}) {
 		
 			$products{$code}{$field} =~ s/(\&nbsp)|(\xA0)/ /g;
+			$products{$code}{$field} =~ s/’/'/g;
 			
 			# Remove extra line feeds
 			$products{$code}{$field} =~ s/\r\n/\n/g;
@@ -189,7 +190,7 @@ sub clean_fields($) {
 
 				
 				if ($field eq "ingredients_text_fr") {
-					$products{$code}{$field} =~ s/(Les )?informations(_?) (_?)en(_?) (_?)gras(_?) (_?)sont (.*) ((personnes )?allergiques (ou|et) intolérant(e|)s|intolérant(e|)s (ou|et) allergiques)(\.)?//i;
+					$products{$code}{$field} =~ s/(Les |l')?(information|ingrédient|indication)(s?) (.*) (personnes )?((allergiques( (ou|et) intolérant(e|)s)?)|(intolérant(e|)s( (ou|et) allergiques))?)(\.)?//i;
 					
 					# Missing spaces
 					# Poire Williams - sucre de canne - sucre - gélifiant : pectines de fruits - acidifiant : acide citrique.Préparée avec 55 g de fruits pour 100 g de produit fini.Teneur totale en sucres 56 g pour 100 g de produit fini.Traces de _fruits à coque_ et de _lait_..
@@ -204,8 +205,9 @@ sub clean_fields($) {
 				$products{$code}{$field} =~ s/_([^_,-;]+) (\d*\.?\d+\s?\%?)_/_$1_ $2/g;
 				
 				# _d'arachide_
+				# morceaux _d’amandes_ grillées
 				if (($field =~ /_fr/) or (($lc eq 'fr') and ($field !~ /_\w\w$/))) {
-					$products{$code}{$field} =~ s/_(d|l)'([^_,-;]+)_/$1'_$2_/ig;
+					$products{$code}{$field} =~ s/_(d|l)('|’)([^_,-;]+)_/$1'_$2_/ig;
 				}
 			}			
 			
