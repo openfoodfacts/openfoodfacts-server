@@ -223,6 +223,8 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			
 	my $code = remove_tags_and_quote($imported_product_ref->{code});
 	
+	#next if ($code ne "3222470102900");
+	
 	print "product $i - code: $code\n";
 			
 	if ($code eq '') {
@@ -260,7 +262,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 	}
 	
 	
-	# next if ($code ne "3256220126366");
+	
 	
 	# next if ($i < 2665);
 	
@@ -470,7 +472,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 						$tagid = get_fileid($tag);
 					}
 					if (not exists $existing{$tagid}) {
-						print "- adding $tagid to $field: $product_ref->{$field}\n";
+						print "- adding $tagid to $field\n";
 						$product_ref->{$field} .= ", $tag";
 					}
 					else {
@@ -488,7 +490,13 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 					$product_ref->{emb_codes_orig} = $product_ref->{emb_codes};
 					$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});						
 				}
-				if ($current_field ne $product_ref->{$field}) {
+				if (not defined $current_field) { 
+					print "added value for product code: $code - field: $field = $product_ref->{$field}\n";
+					compute_field_tags($product_ref, $field);
+					push @modified_fields, $field;
+					$modified++;				
+				}
+				elsif ($current_field ne $product_ref->{$field}) {
 					print "changed value for product code: $code - field: $field = $product_ref->{$field} - old: $current_field\n";
 					compute_field_tags($product_ref, $field);
 					push @modified_fields, $field;
@@ -532,8 +540,10 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				$new_field_value =~ s/\s+$//g;
 				$new_field_value =~ s/^\s+//g;							
 
-				my $normalized_new_field_value = $new_field_value;
-
+				if ($field =~ /^ingredients_text_(\w\w)/) {
+					my $ingredients_lc = $1;
+					$new_field_value = clean_ingredients_text_for_lang($new_field_value, $ingredients_lc);
+				}
 				
 				# existing value?
 				if ((defined $product_ref->{$field}) and ($product_ref->{$field} !~ /^\s*$/)) {
@@ -558,17 +568,9 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 						#$current_value =~ s/(\d)( )?(kg)(\.)?/${1}000 g/i;
 					}
 					
-					if ($field =~ /ingredients/) {
 					
-						#$current_value = get_fileid(lc($current_value));
-						#$current_value =~ s/\W+//g;
-						#$normalized_new_field_value = get_fileid(lc($normalized_new_field_value));
-						#$normalized_new_field_value =~ s/\W+//g;
-						
-					}
-					
-					if (lc($current_value) ne lc($normalized_new_field_value)) {
-						print "differing value for product code $code - field $field - existing value: $product_ref->{$field} (normalized: $current_value) - new value: $new_field_value - https://world.openfoodfacts.org/product/$code \n";
+					if (lc($current_value) ne lc($new_field_value)) {
+						print "differing value for product code $code - field $field - existing value:\n$product_ref->{$field}\nnew value:\n$new_field_value - https://world.openfoodfacts.org/product/$code\n";
 						$differing++;
 						$differing_fields{$field}++;		
 
@@ -633,8 +635,6 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		my $valuep = remove_tags_and_quote($imported_product_ref->{$nid . "_prepared_value"});
 		my $unit = remove_tags_and_quote($imported_product_ref->{$nid . "_unit"});
 		
-		# do not delete values if the nutriment is not provided
-		next if ((not defined $value) and (not defined $valuep)) ;			
 		
 		if ($nid eq 'alcohol') {
 			$unit = '% vol';
@@ -647,125 +647,95 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		normalize_nutriment_value_and_modifier(\$valuep, \$modifierp);
 		
 		
-		if (defined $value) {		
-		
-			if (($nid eq '') or (not defined $value) or ($value eq '')) {
-					delete $product_ref->{nutriments}{$nid};
-					delete $product_ref->{nutriments}{$nid . "_modifier"};
-					delete $product_ref->{nutriments}{$nid . "_100g"};
-					delete $product_ref->{nutriments}{$nid . "_serving"};
-			}
-			else {
+		if ((defined $value) and ($value ne '')) {
 						
-				if ($nid eq 'salt') {
-					$seen_salt = 1;
-				}
-				
-				$value =~ s/(\d) (\d)/$1$2/g;
-				$value =~ s/,/./;
-				$value += 0;
-				
-				print "nutrient with defined and non empty value: nid: $nid - value: $value\n" ;
-			
-				if ((defined $modifier) and ($modifier ne '')) {
-					$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
-				}
-				else {
-					delete $product_ref->{nutriments}{$nid . "_modifier"};
-				}
-				$product_ref->{nutriments}{$nid . "_unit"} = $unit;		
-				$product_ref->{nutriments}{$nid . "_value"} = $value;
-				
-				if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
-					$value = $value * $Nutriments{$nid}{iu} ;
-					$unit = $Nutriments{$nid}{unit};
-				}
-				elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
-					$value = $value / 100 * $Nutriments{$nid}{dv} ;
-					$unit = $Nutriments{$nid}{unit};
-				}
-				if ($nid eq 'water-hardness') {
-					$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit);
-				}
-				else {
-					$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
-				}
+			if ($nid eq 'salt') {
+				$seen_salt = 1;
 			}
-		}
+			
+			$value =~ s/(\d) (\d)/$1$2/g;
+			$value =~ s/,/./;
+			$value += 0;
+			
+			print "nutrient with defined and non empty value: nid: $nid - value: $value\n" ;
 		
-		if (defined $valuep) {		
-		
-			if (($nid eq '') or (not defined $valuep) or ($valuep eq '')) {
-					delete $product_ref->{nutriments}{$nidp};
-					delete $product_ref->{nutriments}{$nidp . "_modifier"};
-					delete $product_ref->{nutriments}{$nidp . "_100g"};
-					delete $product_ref->{nutriments}{$nidp . "_serving"};
+			if ((defined $modifier) and ($modifier ne '')) {
+				$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
 			}
 			else {
-			
-				$valuep =~ s/(\d) (\d)/$1$2/g;
-				$valuep =~ s/,/./;
-				$valuep += 0;
-				
-				print "nutrient with defined and non empty prepared value: nidp: $nidp - valuep: $valuep\n" ;
-			
-				if ((defined $modifierp) and ($modifierp ne '')) {
-					$product_ref->{nutriments}{$nidp . "_modifier"} = $modifierp;
-				}
-				else {
-					delete $product_ref->{nutriments}{$nidp . "_modifier"};
-				}		
-				$product_ref->{nutriments}{$nidp . "_value"} = $valuep;
-				
-				if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
-					$valuep = $valuep * $Nutriments{$nid}{iu} ;
-					$unit = $Nutriments{$nid}{unit};
-				}
-				elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
-					$valuep = $valuep / 100 * $Nutriments{$nid}{dv} ;
-					$unit = $Nutriments{$nid}{unit};
-				}
-				if ($nid eq 'water-hardness') {
-					$product_ref->{nutriments}{$nidp} = unit_to_mmoll($valuep, $unit);
-				}
-				else {
-					$product_ref->{nutriments}{$nidp} = unit_to_g($valuep, $unit);
-				}
+				delete $product_ref->{nutriments}{$nid . "_modifier"};
 			}
-		}		
+			$product_ref->{nutriments}{$nid . "_unit"} = $unit;		
+			$product_ref->{nutriments}{$nid . "_value"} = $value;
+			
+			if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
+				$value = $value * $Nutriments{$nid}{iu} ;
+				$unit = $Nutriments{$nid}{unit};
+			}
+			elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
+				$value = $value / 100 * $Nutriments{$nid}{dv} ;
+				$unit = $Nutriments{$nid}{unit};
+			}
+			if ($nid eq 'water-hardness') {
+				$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit);
+			}
+			else {
+				$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
+			}
 		
-		if (($nid eq '') or (not defined $value) or ($value eq '')) {
-			delete $product_ref->{nutriments}{$nid . "_value"};	
-			delete $product_ref->{nutriments}{$nid . "_modifier"};	
 		}
 		
-		if (($nid eq '') or (not defined $valuep) or ($valuep eq '')) {
-			delete $product_ref->{nutriments}{$nidp . "_value"};	
-			delete $product_ref->{nutriments}{$nidp . "_modifier"};	
+		if ((defined $valuep) and ($valuep ne '')) {
+			
+			$valuep =~ s/(\d) (\d)/$1$2/g;
+			$valuep =~ s/,/./;
+			$valuep += 0;
+			
+			print "nutrient with defined and non empty prepared value: nidp: $nidp - valuep: $valuep\n" ;
+		
+			if ((defined $modifierp) and ($modifierp ne '')) {
+				$product_ref->{nutriments}{$nidp . "_modifier"} = $modifierp;
+			}
+			else {
+				delete $product_ref->{nutriments}{$nidp . "_modifier"};
+			}		
+			$product_ref->{nutriments}{$nidp . "_value"} = $valuep;
+			
+			if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
+				$valuep = $valuep * $Nutriments{$nid}{iu} ;
+				$unit = $Nutriments{$nid}{unit};
+			}
+			elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
+				$valuep = $valuep / 100 * $Nutriments{$nid}{dv} ;
+				$unit = $Nutriments{$nid}{unit};
+			}
+			if ($nid eq 'water-hardness') {
+				$product_ref->{nutriments}{$nidp} = unit_to_mmoll($valuep, $unit);
+			}
+			else {
+				$product_ref->{nutriments}{$nidp} = unit_to_g($valuep, $unit);
+			}
+		
 		}		
 		
-		if (($nid eq '') or
-			(((not defined $value) or ($value eq '')) and ((not defined $valuep) or ($valuep eq ''))))  {
-				delete $product_ref->{nutriments}{$nid . "_unit"};
-				delete $product_ref->{nutriments}{$nid . "_label"};				
-		}
 		
 		# See which fields have changed
 		
 		foreach my $field (sort keys %original_values) {
-			if ((defined $product_ref->{nutriments}{$field}) and (defined $original_values{$field})
+			if ((defined $product_ref->{nutriments}{$field}) and ($product_ref->{nutriments}{$field} ne "")
+				and (defined $original_values{$field}) and ($original_values{$field} ne "")
 				and ($product_ref->{nutriments}{$field} ne $original_values{$field})) {
 				print "differing nutrient value for product code $code - field: $field - old: $original_values{$field} - new: $product_ref->{nutriments}{$field} \n";
 				$modified++;
 				$nutrients_edited{$code}++;
 			}
-			elsif ((defined $product_ref->{nutriments}{$field}) and (not defined $original_values{$field})
-				and ($product_ref->{nutriments}{$field} ne $original_values{$field})) {
+			elsif ((defined $product_ref->{nutriments}{$field}) and ($product_ref->{nutriments}{$field} ne "")
+				and ((not defined $original_values{$field})	or ($original_values{$field} eq ''))) {
 				print "new nutrient value for product code $code - field: $field - new: $product_ref->{nutriments}{$field} \n";
 				$modified++;
 				$nutrients_edited{$code}++;
 			}
-			elsif ((not defined $product_ref->{nutriments}{$field}) and (defined $original_values{$field})) {
+			elsif ((not defined $product_ref->{nutriments}{$field}) and (defined $original_values{$field}) and ($original_values{$field} ne '')) {
 				print "deleted nutrient value for product code $code - field: $field - old: $original_values{$field} \n";
 				$modified++;
 				$nutrients_edited{$code}++;
@@ -795,12 +765,14 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 	}
 	
 	
-	if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')) {
+	if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')
+		and not has_tag($product_ref, "labels", "en:carbon-footprint")) {
 		push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
 		push @{$product_ref->{"labels_tags" }}, "en:carbon-footprint";
 	}	
 	
-	if ((defined $product_ref->{nutriments}{"glycemic-index"}) and ($product_ref->{nutriments}{"glycemic-index"} ne '')) {
+	if ((defined $product_ref->{nutriments}{"glycemic-index"}) and ($product_ref->{nutriments}{"glycemic-index"} ne '')
+		and not has_tag($product_ref, "labels", "en:glycemic-index")) {
 		push @{$product_ref->{"labels_hierarchy" }}, "en:glycemic-index";
 		push @{$product_ref->{"labels_tags" }}, "en:glycemic-index";
 	}
@@ -876,8 +848,8 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		$edited{$code}++;
 		
 		$j++;
-		#$j > 100 and last;
-		last;
+		$j > 10 and last;
+		#last;
 	}
 	
 	#last;
