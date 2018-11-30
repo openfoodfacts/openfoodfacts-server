@@ -139,6 +139,13 @@ foreach my $code (sort keys %products) {
 		print STDERR "product code $code: deleting date in quantity $products{$code}{quantity}\n";
 		delete $products{$code}{quantity};
 	}
+	
+	# Casino sub-brand : add Casino
+	
+	if (defined $products{$code}{brands}) {
+		$products{$code}{brands} =~ s/Casino Famili - Enfant/Casino Famili/;
+		$products{$code}{brands} =~ s/^Casino (\w.*)$/Casino $1, Casino/;
+	}	
 
 }
 
