@@ -27911,6 +27911,40 @@ wikidata:en:Q858049
 # ingredient/fr:café-soluble has 315 products in 8 languages @2018-11-30
 
 
+# A gherkin is a variety of cucumber
+
+en:gherkin
+bg:краставица, Корнишон
+cs:Okurek
+da:Agurk
+de:Gurken, Cornichons
+el:Αγγούρι, Gurke
+es:Pepino, pepinillos
+et:Kurgid
+fi:kurkku
+fr:cornichon, cornichons
+it:cetriolini
+lv:gurķis
+nl:augurken, augurk
+pt:pepino
+ro:Castravete
+ru:огурец
+sk:uhorka
+sl:Kumare
+sv:Gurka
+wikidata:en:Q23425
+wikidata:en:Q1365891
+# ingredient/gherkin has 1006 products in 8 languages @2018-12-01
+
+# fr:cornichons-au-vinaigre is a compound ingredient
+
+<en:gherkin
+fr:cornichons au vinaigre
+de:Essiggurken
+# fr:cornichons-au-vinaigre has 39 products in 2 languages @2018-12-01
+
+
+
 # Where to classify ?
 
 # en:filling is a compound ingredient (product part)
@@ -27956,11 +27990,6 @@ fr:anhydride sulfureux
 fr:propionate de calcium
 es:Propionato de calcio
 
-en:gherkin
-es:pepinillos
-fr:cornichon, cornichons
-nl:augurken
-de:Gurken
 
 
 fr:chlorure de potassium
@@ -32181,23 +32210,13 @@ fr:argopecten purpuratus
 fr:caséinate
 allergens:fr:_caséinate_
 
-
-
-
-
-
 fr:anhydride carbonique
 
 fr:chlorhydrate de pyridoxine
 
-
 fr:liant
 
 fr:crêpes
-
-fr:cornichons au vinaigre
-
-
 
 fr:agent d'enrobage carbonate de calcium
 
