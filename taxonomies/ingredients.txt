@@ -27319,6 +27319,105 @@ it:luppolo biologico, luppolo bio
 nl:biologische hop, bio hop
 sv:organisk humle
 
+
+
+# The olive, known by the botanical name Olea europaea, is a species of small tree in the family Oleaceae
+
+en:olives, olive
+# aeb-arab: كعبة زيتون
+ar: الزيتون
+# ast: Aceituna
+bo: རྒྱ་ཨར།
+ca: oliva
+cs: oliva
+de:Oliven, Olive
+# en-gb: olive
+eo: olivo
+es:aceituna
+et: Oliiv
+eu: Oliba
+# ext: Azituna
+fr:olives, olive
+gl: Oliva
+gn: Tarumaite'a
+he: זית
+hu: olajbogyó
+ia: Oliva
+it:olive, oliva
+ja: オリーブ
+# kab: Azemmur
+ln: Olive
+mk: маслинка
+mt: żebbuġa
+# nah: Chiyāhualōtl
+# nap: Auliva
+nl:olijven, olijf
+nn: oliven
+oc: Oliva
+pt:axeitonas, azeitona
+qu: Asitunas
+ru: маслины, оливка
+# rue: Олива
+# scn: Aliva
+sk: Oliva
+sv: Oliv
+th:นํ้า
+tt: зәйтүн
+# tt-cyrl: зәйтүн
+zh: 阿塞图纳
+# zh-hans: 阿塞图纳
+# zh-hant: 阿塞图纳
+# zh-hk: 阿塞圖納
+wikipedia:en:https://en.wikipedia.org/wiki/Olive
+# ingredient/olive has 2637 products in 9 languages @2018-12-01
+
+<en:olive
+en:black olive
+de:schwarze Oliven
+es:aceituna negra
+fr:olives noires, olive noire
+it: olive nere
+nl:zwarte olijven, zwarte olijf
+pt: azeitonas pretas
+wikidata:en: Q56475549
+# ingredient/black-olive has 872 products in 7 languages @2018-12-01
+
+<en:olive
+en:green olives
+de: Grüne Oliven
+es: olivas verdes
+fr:olive verte, olives vertes
+it: olive verdi
+nl:groene olijven
+wikidata:en: Q26879770
+# ingredient/fr:olive-verte has 577 products in 6 languages @2018-12-01
+
+<en:green olives
+fr:olives vertes dénoyautées
+de: Grüne Oliven eintsteint
+nl:ontpitte groene olijven
+# ingredient/fr:olives-vertes-dénoyautées has 129 products in 4 languages @2018-12-01
+
+<fr:olive verte
+<en:black olive
+en: green and black olives
+de: grüne und schwarze Oliven
+fr:olives vertes et noires
+# ingredient/fr:olives-vertes-et-noires has 22 products in 3 languages @2018-12-01
+
+<en:black olive
+fr:olives noires avec noyau
+# ingredient/fr:olives-noires-avec-noyau has 58 products in french @2018-12-01
+
+<en:black olive
+en:olive paté
+de: Olivenpastete
+fr: pâte d'olives
+
+
+
+
+
 en:lecithins
 fr:lécithine, lécithines
 de:Lecithine
@@ -29723,28 +29822,6 @@ fr:viande de porc traitée en salaison
 
 fr:jambon de porc
 
-# Olives
-
-en:olive
-fr:olive
-
-<en:olive
-en:black olive
-es:aceituna negra
-fr:olive noire, olives noires
-nl:zwarte olijf
-de:schwarze Oliven
-
-<en:olive
-fr:olive verte, olives verte
-
-<fr:olive verte
-fr:olives vertes dénoyautées
-
-fr:olives vertes et noires
-
-fr:olives noires avec noyau
-
 # GRAISSE VEGETALE
 
 <en:sunflower
@@ -30260,9 +30337,6 @@ fr:vanille bourbon naturelle en gousse
 
 
 fr:fibres de bambou
-
-fr:olive noire
-
 
 fr:coagulant enzymatique
 
