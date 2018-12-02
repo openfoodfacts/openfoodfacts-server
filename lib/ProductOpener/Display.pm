@@ -5684,8 +5684,6 @@ function doWebShare(e) {
 }
 
 function onLoad() {
-	new IOlazy();
-
     var buttons = document.getElementsByClassName('share_button');
 	var shareAvailable = window.isSecureContext && navigator.share !== undefined;
 

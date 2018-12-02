@@ -19,11 +19,15 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import './vendor/jquery-ui.js';
-import 'iolazyload';
+import { IOlazy } from 'iolazyload';
 import 'manupjs';
 
 import '../../css/src/display.css';
 import '../../../scss/app.scss';
+
+function initIOLazy() {
+  new IOlazy();
+}
 
 function initCountrySelect(placeholder, serverdomain) {
   return import('jquery').then($ => {
@@ -96,6 +100,7 @@ function initCategoryStats() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+  initIOLazy();
   initFoundation();
   initCountrySelect(document.getElementById('mainscript').dataset['selectcountry'], document.documentElement.dataset['serverdomain']);
   initCategoryStats();
