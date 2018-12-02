@@ -6,22 +6,6 @@ This directory contains some experimental files for running Product Opener on [D
 
 Product Opener has not been published to Docker Hub, because I assume that there would be very little advantage in that. However, the Dockerfiles in this directory can be used to build your own Docker images from source.
 
-### All in One Container
-
-Uses one container to host Apache and nginx, much like described in the [Wiki](https://en.wiki.openfoodfacts.org/Infrastructure).
-
-#### Building the Container
-
-```bash
-docker-compose -f docker-compose-aio.yml build
-```
-
-#### Deploy
-
-```bash
-docker-compose -f docker-compose-aio.yml up
-```
-
 ### Split Containers
 
 Uses separate containers for application layer (Apache) and the reverse proxy (nginx).
