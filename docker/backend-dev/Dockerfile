@@ -29,7 +29,7 @@ ADD https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-server/${BRANC
 RUN cpm install --cpanfile=/tmp/cpanfile-git
 
 # Install cpanfile from the workdir.
-COPY ./cpanfile /tmp/cpanfile
+COPY ./cpanfile /tmp/cpanfile-workdir
 
 # Add ProductOpener runtime dependencies from the local cpanfile
 RUN cpm install --cpanfile=/tmp/cpanfile-workdir

@@ -5,7 +5,8 @@ RUN set -x \
         # pnpm needs git for retrieving packages and python, make, and so on to build node-sass.
 		git \
         python2 \
-        build-base
+        build-base \
+        curl
 
 RUN curl -L https://unpkg.com/@pnpm/self-installer | node
 
