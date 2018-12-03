@@ -326,7 +326,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 	
 		my $images_ref = $images_ref->{$code};
 		
-		foreach my $imagefield (sort keys $images_ref->{$code}) {
+		foreach my $imagefield (sort keys %{$images_ref->{$code}}) {
 							
 			my $current_max_imgid = -1;
 			
