@@ -37,6 +37,11 @@ my @metadata_fields = qw<
     __MIME-Version
     __PO-Revision-Date
     __Project-Id-Version
+    __X-Crowdin-Project
+    __X-Crowdin-Language
+    __Plural-Forms
+    __X-Generator
+    __X-Crowdin-File
 >;
 
 
