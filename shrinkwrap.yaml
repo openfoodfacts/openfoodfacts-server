@@ -1,25 +1,16 @@
-devDependencies:
-  '@babel/core': 7.1.2
-  '@babel/plugin-syntax-dynamic-import': 7.0.0
-  '@babel/preset-env': 7.1.0
-  babel-eslint: 10.0.1
-  babel-loader: 8.0.4
+dependencies:
   blueimp-canvas-to-blob: 3.14.0
   blueimp-file-upload: 9.26.0
   blueimp-load-image: 2.19.0
   blueimp-tmpl: 3.11.0
-  css-loader: 1.0.1
   datatables.net: 1.10.19
   datatables.net-responsive-zf: 2.2.3
   datatables.net-scroller: 1.5.1
   datatables.net-scroller-zf: 1.5.1
   datatables.net-zf: 1.10.19
   devbridge-autocomplete: 1.4.9
-  eslint: 5.8.0
-  file-loader: 2.0.0
   foundation-icon-fonts: 0.1.1
   foundation-sites: 5.5.3
-  image-webpack-loader: 4.4.0
   iolazyload: 1.2.0
   jquery: 3.3.1
   jquery-tags-input: 1.3.5
@@ -28,14 +19,24 @@ devDependencies:
   leaflet: 1.3.4
   leaflet.markercluster: 1.4.1
   manupjs: 1.0.0
-  node-sass: 4.9.4
   osmtogeojson: 3.0.0-beta.3
   papaparse: 4.6.1
+  select2: 4.0.6-rc.1
+devDependencies:
+  '@babel/core': 7.1.2
+  '@babel/plugin-syntax-dynamic-import': 7.0.0
+  '@babel/preset-env': 7.1.0
+  babel-eslint: 10.0.1
+  babel-loader: 8.0.4
+  css-loader: 1.0.1
+  eslint: 5.8.0
+  file-loader: 2.0.0
+  image-webpack-loader: 4.4.0
+  node-sass: 4.9.4
   postcss: 7.0.5
   postcss-sass: 0.3.5
   postcss-syntax: 0.34.0
   sass-loader: 7.1.0
-  select2: 4.0.6-rc.1
   style-loader: 0.23.1
   stylelint: 9.7.1
   stylelint-config-recommended-scss: 3.2.0
@@ -672,12 +673,11 @@ packages:
     resolution:
       integrity: sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
   /@types/geojson/1.0.6:
-    dev: true
     optional: true
     resolution:
       integrity: sha512-Xqg/lIZMrUd0VRmSRbCAewtwGZiAk3mEUDvV4op1tGl+LvyPcb/MIOSxTl9z+9+J+R4/vpjiCAT4xeKzH9ji1w==
   /@types/jquery/2.0.51:
-    dev: true
+    dev: false
     resolution:
       integrity: sha512-+vtCjz+pzr5KkaX/GMnVF0YtQqkm+oVcdBH0Q7zCxdwk42c71xJ9hT1b6Mbn4Kf7CAxSHvkWF1LRdpYwUM+pcg==
   /@webassemblyjs/ast/1.7.10:
@@ -817,7 +817,7 @@ packages:
     dependencies:
       jsonparse: 0.0.5
       through: 2.2.7
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-78Ri1aW8lOwAf0siVxrNf28q4BM=
   /abbrev/1.1.1:
@@ -890,7 +890,7 @@ packages:
     resolution:
       integrity: sha512-4Wyjt8+t6YszqaXnLDfMmG/8AlO5Zbcsy3ATHncCzjW/NoPzAId8AK6749Ybjmdt+kUY1gP60fCu46oDxPv/mg==
   /almond/0.3.3:
-    dev: true
+    dev: false
     engines:
       node: '>=0.4.0'
     resolution:
@@ -1200,7 +1200,7 @@ packages:
     resolution:
       integrity: sha512-5T6P4xPgpp0YDFvSWwEZ4NoE3aM4QBQXDzmVbraCkFj8zHM+mba8SyqB5DbZWyR7mYHo6Y7BdQo3MoA4m0TeQg==
   /base64-js/0.0.2:
-    dev: true
+    dev: false
     engines:
       node: '>= 0.4'
     resolution:
@@ -1365,16 +1365,15 @@ packages:
     resolution:
       integrity: sha512-dhHTWMI7kMx5whMQntl7Vr9C6BvV10lFXDAasnqnrMYhXVCzzk6IO9Fo2L75jXHT07WrOngL1WDXOp+yYS91Yg==
   /blueimp-canvas-to-blob/3.14.0:
-    dev: true
+    dev: false
     resolution:
       integrity: sha512-i6I2CiX1VR8YwUNYBo+dM8tg89ns4TTHxSpWjaDeHKcYS3yFalpLCwDaY21/EsJMufLy2tnG4j0JN5L8OVNkKQ==
   /blueimp-canvas-to-blob/3.5.0:
-    dev: true
     optional: true
     resolution:
       integrity: sha1-VnmsMvaig1gh8MOtZhcZ/4WpI2s=
   /blueimp-file-upload/9.26.0:
-    dev: true
+    dev: false
     optionalDependencies:
       blueimp-canvas-to-blob: 3.5.0
       blueimp-load-image: 2.12.2
@@ -1382,21 +1381,19 @@ packages:
     resolution:
       integrity: sha512-SgengPRTGGZslQjgDQdps/pBWQ6AJxYbc1sU8223dDBCrccT7O+64qbqg3mbtwKIDybFeHTf4V7RobtaukAN7A==
   /blueimp-load-image/2.12.2:
-    dev: true
     optional: true
     resolution:
       integrity: sha1-ahdZiquFjU+/AVQ+BjEUG1EFfIc=
   /blueimp-load-image/2.19.0:
-    dev: true
+    dev: false
     resolution:
       integrity: sha512-lc5fORHdmkGTGFW8vsr1D7pNWJA+BT0eqlhx8RpEw35VULUvEZB6tJACJXEreqbWIFJc3/jlTsGvOpf9N62WLQ==
   /blueimp-tmpl/3.11.0:
-    dev: true
+    dev: false
     hasBin: true
     resolution:
       integrity: sha512-+nzph90GQ7YzYdOJNLm1hHJrzWnWbxUGJyJVrLBD+q7HF6PIIjJVNrJCgLkFmNcNvJRKICvWuItL8NpH9Z8J5A==
   /blueimp-tmpl/3.6.0:
-    dev: true
     hasBin: true
     optional: true
     resolution:
@@ -1413,7 +1410,7 @@ packages:
     dependencies:
       base64-js: 0.0.2
       to-utf8: 0.0.1
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-CC0dVfoB5g29wuvC26N/ZZVUzzo=
   /brace-expansion/1.1.11:
@@ -1983,7 +1980,7 @@ packages:
   /concat-stream/1.0.1:
     dependencies:
       bops: 0.0.6
-    dev: true
+    dev: false
     engines:
       '0': node >= 0.8.0
     resolution:
@@ -1991,7 +1988,7 @@ packages:
   /concat-stream/1.2.1:
     dependencies:
       bops: 0.0.6
-    dev: true
+    dev: false
     engines:
       '0': node >= 0.8.0
     resolution:
@@ -2062,7 +2059,6 @@ packages:
     resolution:
       integrity: sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
   /core-util-is/1.0.2:
-    dev: true
     resolution:
       integrity: sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
   /cosmiconfig/5.0.6:
@@ -2287,14 +2283,14 @@ packages:
       datatables.net-responsive: 2.2.3
       datatables.net-zf: 1.10.19
       jquery: 3.3.1
-    dev: true
+    dev: false
     resolution:
       integrity: sha512-BXUUhZ+1Irl8QZs8F626civlEKZjACuCXsK0wV6BX3nTvBJ5yb8jlGBn8MqRsREKhEZJykoMp/6hvaq51YePzw==
   /datatables.net-responsive/2.2.3:
     dependencies:
       datatables.net: 1.10.19
       jquery: 3.3.1
-    dev: true
+    dev: false
     resolution:
       integrity: sha512-8D6VtZcyuH3FG0Hn5A4LPZQEOX3+HrRFM7HjpmsQc/nQDBbdeBLkJX4Sh/o1nzFTSneuT1Wh/lYZHVPpjcN+Sw==
   /datatables.net-scroller-zf/1.5.1:
@@ -2302,27 +2298,27 @@ packages:
       datatables.net-scroller: 1.5.1
       datatables.net-zf: 1.10.19
       jquery: 3.3.1
-    dev: true
+    dev: false
     resolution:
       integrity: sha512-BW1D30Z0/GU/G6T6TIRDEoKTDsmZ42Xsp1nnb40aW6CQSAiUyZIbjrtj4Q5BnR6FUC0FrbApwC0SIY/eq3awRg==
   /datatables.net-scroller/1.5.1:
     dependencies:
       datatables.net: 1.10.19
       jquery: 3.3.1
-    dev: true
+    dev: false
     resolution:
       integrity: sha512-aMUarBCREmrSLE0n0NBmOMI55Re+EV4KMpR1rMc2l8jhoE+UQWF1Xe0AYuR4342ybesb1WW8U3RVlLdS6gQCmg==
   /datatables.net-zf/1.10.19:
     dependencies:
       datatables.net: 1.10.19
       jquery: 3.3.1
-    dev: true
+    dev: false
     resolution:
       integrity: sha512-mwYI8liKapeuVWrhhcrBC5KXxwHb8aDJ8ffRuM2jGntqjEqM2zseKi2ltA/9GfgbBVqTksmqKax3ZkVFZpTJcw==
   /datatables.net/1.10.19:
     dependencies:
       jquery: 3.3.1
-    dev: true
+    dev: false
     resolution:
       integrity: sha512-+ljXcI6Pj3PTGy5pesp3E5Dr3x3AV45EZe0o1r0gKENN2gafBKXodVnk2ypKwl2tTmivjxbkiqoWnipTefyBTA==
   /date-now/0.1.4:
@@ -2594,7 +2590,7 @@ packages:
     dependencies:
       '@types/jquery': 2.0.51
       jquery: 3.3.1
-    dev: true
+    dev: false
     resolution:
       integrity: sha512-3/5kzICNRnTiOxgIg2qjTU5MmqzW1CuOueuPFOlD8OhAPdHox28codHwGgedlnGKHPj3puZA85kaNrF2xGN1WA==
   /diffie-hellman/5.0.3:
@@ -2641,7 +2637,6 @@ packages:
     resolution:
       integrity: sha1-vSh3PiZCiBrsUVRJJCmcXNgiGFs=
   /domelementtype/1.2.1:
-    dev: true
     resolution:
       integrity: sha512-SQVCLFS2E7G5CRCMdn6K9bIhRj1bS6QBWZfF0TUPh4V/BbqrQ619IdSS3/izn0FZ+9l+uODzaZjb08fjOfablA==
   /domelementtype/1.3.0:
@@ -2651,7 +2646,7 @@ packages:
   /domhandler/2.2.1:
     dependencies:
       domelementtype: 1.2.1
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-Wd+dzSJ+gIs2Wuc+H2aErD2Ub8I=
   /domhandler/2.4.2:
@@ -2663,7 +2658,7 @@ packages:
   /domutils/1.3.0:
     dependencies:
       domelementtype: 1.2.1
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-mtTVm1r2ymhMYv5tdo7xcOcN8ZI=
   /domutils/1.7.0:
@@ -3515,11 +3510,11 @@ packages:
     resolution:
       integrity: sha512-1lLKB2Mu3aGP1Q/2eCOx0fNbRMe7XdwktwOruhfqqd0rIJWwN4Dh+E3hrPSlDCXnSR7UtZ1N38rVXm+6+MEhJQ==
   /foundation-icon-fonts/0.1.1:
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-CXvKPgF7gYRrVBRtN7wXYVzN0g4=
   /foundation-sites/5.5.3:
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-ZVbrKzHN47ImYwEWvSFdldBWwKc=
   /fragment-cache/0.2.1:
@@ -3610,14 +3605,14 @@ packages:
     dependencies:
       wgs84: 0.0.0
     deprecated: 'This module is now under the @mapbox namespace: install @mapbox/geojson-area instead'
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-1I2AcILPrfSnjfE0m+UPOL8YlK4=
   /geojson-numeric/0.2.0:
     dependencies:
       concat-stream: 1.0.1
       optimist: 0.3.7
-    dev: true
+    dev: false
     hasBin: true
     resolution:
       integrity: sha1-q5quLqlyekg3B5rP8qqDyHLXLUo=
@@ -3626,7 +3621,7 @@ packages:
       concat-stream: 1.2.1
       geojson-area: 0.1.0
       minimist: 0.0.5
-    dev: true
+    dev: false
     hasBin: true
     resolution:
       integrity: sha1-6lWOnkT/A7hlXQoIt1B43DOhXnk=
@@ -4166,7 +4161,7 @@ packages:
       domhandler: 2.2.1
       domutils: 1.3.0
       readable-stream: 1.1.14
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-b0L3ZX3RnBP31l3pEYQXOUoL5tA=
   /http-cache-semantics/3.8.1:
@@ -4207,7 +4202,6 @@ packages:
     resolution:
       integrity: sha1-g/Cg7DeL8yRheLbCrZE28TWxyWI=
   /ieee754/1.1.12:
-    dev: true
     resolution:
       integrity: sha512-GguP+DRY+pJ3soyIiGPTvdiVXjZ+DbXOxGpXn3eMvNW4x4irjqXm4wHKscC+TfxSJ0yw/S1F24tqdMNsMZTiLA==
   /iferr/0.1.5:
@@ -4375,7 +4369,6 @@ packages:
     resolution:
       integrity: sha1-sX0I0ya0Qj5Wjv9xn5GwscvfafE=
   /inherits/2.0.3:
-    dev: true
     resolution:
       integrity: sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4=
   /ini/1.3.5:
@@ -4434,7 +4427,7 @@ packages:
     resolution:
       integrity: sha512-wPVv/y/QQ/Uiirj/vh3oP+1Ww+AWehmi1g5fFWGPF6IpCBCDVrhgHRMvrLfdYcwDh3QJbGXDW4JAuzxElLSqKA==
   /iolazyload/1.2.0:
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-y13S1PWK8Hujh5RYzLGwcDI+Xi8=
   /ip-regex/1.0.3:
@@ -4893,7 +4886,6 @@ packages:
     resolution:
       integrity: sha1-R7Co/004p2QxzP2ZqOFaTIa6IyU=
   /isarray/0.0.1:
-    dev: true
     resolution:
       integrity: sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8=
   /isarray/1.0.0:
@@ -4932,19 +4924,19 @@ packages:
     resolution:
       integrity: sha512-1P/yWsxPlDtn7QeRD+ULKQPaIaN6yF368GZ2vDfv0AL0NwpStafjWCDDdn0k8wgFMWpVAqG7oJhxHnlud42i9w==
   /jquery-mousewheel/3.1.13:
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-BvAzXxbjU6aV5yBr9QUDy1I6buU=
   /jquery-tags-input/1.3.5:
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-HInLlcYZg60UOG0woAaSBHa5Ptc=
   /jquery-ui/1.12.1:
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-vLQEXI3QU5wTS8FIjN0+dop6nlE=
   /jquery/3.3.1:
-    dev: true
+    dev: false
     resolution:
       integrity: sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
   /js-base64/2.4.9:
@@ -4952,7 +4944,7 @@ packages:
     resolution:
       integrity: sha512-xcinL3AuDJk7VSzsHgb9DvvIXayBbadtMZ4HFPx8rUszbW1MuNMlwYVC4zzCZ6e1sqZpnNS5ZFYOhXqA39T7LQ==
   /js-cookie/2.2.0:
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-Gywnmm7s44ChIWi5JIUmWzWx7/s=
   /js-levenshtein/1.1.4:
@@ -5037,7 +5029,7 @@ packages:
     resolution:
       integrity: sha1-LHS27kHZPKUbe1qu6PUDYx0lKnM=
   /jsonparse/0.0.5:
-    dev: true
+    dev: false
     engines:
       '0': node >= 0.2.0
     resolution:
@@ -5122,13 +5114,13 @@ packages:
     resolution:
       integrity: sha512-avPEb8P8EGnwXKClwsNUgryVjllcRqtMYa49NTsbQagYuT1DcXnl1915oxWjoyGrXR6zH/Y0Zc96xWsPcoDKeA==
   /leaflet.markercluster/1.4.1:
-    dev: true
+    dev: false
     peerDependencies:
       leaflet: ~1.3.1
     resolution:
       integrity: sha512-ZSEpE/EFApR0bJ1w/dUGwTSUvWlpalKqIzkaYdYB7jaftQA/Y2Jav+eT4CMtEYFj+ZK4mswP13Q2acnPBnhGOw==
   /leaflet/1.3.4:
-    dev: true
+    dev: false
     resolution:
       integrity: sha512-FYL1LGFdj6v+2Ifpw+AcFIuIOqjNggfoLUwuwQv6+3sS21Za7Wvapq+LhbSE4NDXrEj6eYnW3y7LsaBICpyXtw==
   /leven/2.1.0:
@@ -5397,7 +5389,7 @@ packages:
     resolution:
       integrity: sha512-2w31R7SJtieJJnQtGc7RVL2StM2vGYVfqUOvUDxH6bC6aJTxPxTF0GnIgCyu7tjockiUWAYQRbxa7vKn34s5sQ==
   /manupjs/1.0.0:
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-g/OEK2EuEfqxNp8oS84aXaY5kPg=
   /map-age-cleaner/0.1.2:
@@ -5628,7 +5620,7 @@ packages:
     resolution:
       integrity: sha512-FyBrT/d0d4+uiZRbqznPXqw3IpZZG3gl3wKWiX784FycUKVwBt0uLBFkQrtE4tZOrgo78nZp2jnKz3L65T5LdQ==
   /minimist/0.0.5:
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-16oye87PUY+RBqxrjwA/o7zqhWY=
   /minimist/0.0.8:
@@ -6040,7 +6032,7 @@ packages:
   /optimist/0.3.7:
     dependencies:
       wordwrap: 0.0.3
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-yQlBrVnkJzMokjB00s8ufLxuwNk=
   /optionator/0.8.2:
@@ -6131,7 +6123,7 @@ packages:
     resolution:
       integrity: sha512-0CWcCECdMVc2Rw3U5w9ZjqX6ga6ubk1xDVKxtBQPK7wis/0F2r9T6k4ydGYhecl7YUBxBVxhL5oisPsNxAPe2g==
   /osm-polygon-features/0.9.2:
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-IK5BEwxIbkmjsqPCtYoUGcSYZ3g=
   /osmtogeojson/3.0.0-beta.3:
@@ -6145,7 +6137,7 @@ packages:
       osm-polygon-features: 0.9.2
       tiny-osmpbf: 0.1.0
       xmldom: 0.1.27
-    dev: true
+    dev: false
     engines:
       node: '>=0.5'
     hasBin: true
@@ -6284,7 +6276,7 @@ packages:
     resolution:
       integrity: sha512-lQe48YPsMJAig+yngZ87Lus+NF+3mtu7DVOBu6b/gHO1YpKwIj5AWjZ/TOS7i46HD/UixzWb1zeWDZfGZ3iYcg==
   /papaparse/4.6.1:
-    dev: true
+    dev: false
     resolution:
       integrity: sha512-X9Ws5tnEQKRCZRfoojX3KvRZbLY1BbL0wqSHF3CKGmxD8Zr4E0WaipUuFweffkCN8RSQzHKhb/F+ATYdNcz1rg==
   /parallel-transform/1.1.0:
@@ -6420,7 +6412,7 @@ packages:
     dependencies:
       ieee754: 1.1.12
       resolve-protobuf-schema: 2.1.0
-    dev: true
+    dev: false
     hasBin: true
     resolution:
       integrity: sha512-/hYJmIsTmh7fMkHAWWXJ5b8IKLWdjdlAFb3IHkRBn1XUhIYBChVGfVwmHEAV3UfXTxsP/AKfYTXTS/dCPxJd5w==
@@ -6758,7 +6750,7 @@ packages:
     resolution:
       integrity: sha1-IS1b/hMYMGpCD2QCuOJv85ZHqEk=
   /protocol-buffers-schema/3.3.2:
-    dev: true
+    dev: false
     resolution:
       integrity: sha512-Xdayp8sB/mU+sUV4G7ws8xtYMGdQnxbeIfLjyO9TZZRJdztBGhlmbI5x1qcY4TG5hBkIKGnc28i7nXxaugu88w==
   /prr/1.0.1:
@@ -6949,7 +6941,6 @@ packages:
       inherits: 2.0.3
       isarray: 0.0.1
       string_decoder: 0.10.31
-    dev: true
     resolution:
       integrity: sha1-fPTFTvZI44EwhMY23SB54WbAgdk=
   /readable-stream/2.3.6:
@@ -7253,7 +7244,7 @@ packages:
   /resolve-protobuf-schema/2.1.0:
     dependencies:
       protocol-buffers-schema: 3.3.2
-    dev: true
+    dev: false
     resolution:
       integrity: sha512-kI5ffTiZWmJaS/huM8wZfEMer1eRd7oJQhDuxeCLe3t7N7mX3z94CN0xPxBQxFYQTSNz9T0i+v6inKqSdK8xrQ==
   /resolve-url/0.2.1:
@@ -7403,7 +7394,7 @@ packages:
     dependencies:
       almond: 0.3.3
       jquery-mousewheel: 3.1.13
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-qmwwOKfw8ukf+t448KIcFeGBMnY=
   /semver-regex/1.0.0:
@@ -7786,7 +7777,6 @@ packages:
     resolution:
       integrity: sha512-nOqH59deCq9SRHlxq1Aw85Jnt4w6KvLKqWVik6oA9ZklXLNIOlqg4F2yrT1MVaTjAqvVwdfeZ7w7aCvJD7ugkw==
   /string_decoder/0.10.31:
-    dev: true
     resolution:
       integrity: sha1-YuIDvEF2bGwoyfyEMB2rHFMQ+pQ=
   /string_decoder/1.1.1:
@@ -8113,7 +8103,7 @@ packages:
     resolution:
       integrity: sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
   /through/2.2.7:
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-bo4hIAGR1OtqmfbwEN9Gqhxusr0=
   /through/2.3.8:
@@ -8168,14 +8158,14 @@ packages:
     resolution:
       integrity: sha512-YvC1SV1XdOUaL6gx5CoGroT3Gu49pK9+TZ38ErPldOWW4j49GI1HKs9DV+KGq/w6y+LZ72W1c8cKz2vzY+qpzg==
   /tiny-inflate/1.0.2:
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-k9nez/yIBb1X6uQxDwt0Xptvs6c=
   /tiny-osmpbf/0.1.0:
     dependencies:
       pbf: 3.1.0
       tiny-inflate: 1.0.2
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-ColXFxE+vmquNjxL5e76js2vuSc=
   /tmp/0.0.33:
@@ -8237,7 +8227,7 @@ packages:
     resolution:
       integrity: sha512-FWtleNAtZ/Ki2qtqej2CXTOayOH9bHDQF+Q48VpWyDXjbYxA4Yz8iDB31zXOBUlOHHKidDbqGVrTUvQMPmBGBw==
   /to-utf8/0.0.1:
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-0Xrqcv8vujm55DYBvns/9y4ImFI=
   /tough-cookie/2.4.3:
@@ -8770,7 +8760,7 @@ packages:
     resolution:
       integrity: sha512-iE5Cu4rGEDk7ONRjisTOjVHv3dDtcFfwitSxT7evtYj/rANJpt1OuC/Kozh1pBa99AUBr1L/LsaNB+D9Xz3CEg==
   /wgs84/0.0.0:
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-NP3FVZF7blfPKigu0ENxDASc3HY=
   /which-module/1.0.0:
@@ -8795,7 +8785,7 @@ packages:
     resolution:
       integrity: sha512-QGkOQc8XL6Bt5PwnsExKBPuMKBxnGxWWW3fU55Xt4feHozMUhdUMaBCk290qpm/wG5u/RSKzwdAC4i51YigihA==
   /wordwrap/0.0.3:
-    dev: true
+    dev: false
     engines:
       node: '>=0.4.0'
     resolution:
@@ -8842,7 +8832,7 @@ packages:
     resolution:
       integrity: sha1-R0tQhlrzpJqcRlfwWs0UVFj3fYI=
   /xmldom/0.1.27:
-    dev: true
+    dev: false
     engines:
       node: '>=0.1'
     resolution:
