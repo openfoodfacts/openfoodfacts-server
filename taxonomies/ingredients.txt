@@ -7443,6 +7443,9 @@ wikidata:en:Q282
 wikipedia:en:https://en.wikipedia.org/wiki/Wine
 # en:wine has 4233 products in 6 languages @2018-10-29
 
+fr:vin de France, vin français
+carbon_footprint_fr_foodges_ingredient:fr:Vin France
+
 
 # WHITE WINE is a wine whose colour can be straw-yellow, yellow-green, or yellow-gold.
 
@@ -7958,6 +7961,10 @@ fr:arôme naturel de paprika
 en:natural spice flavouring
 fr:arôme naturel d'épices
 
+fr:extraits d'épice
+
+fr:extraits naturels d'épices
+
 <en:natural flavouring
 en:natural flavor of turmeric
 fr:arôme naturel de curcuma
@@ -8043,9 +8050,25 @@ de:natürliches Bourbon Vanille-Aroma, naturliches Bourbon Vanille Aroma
 it:aroma naturale di vaniglia Bourbon
 sv:naturlig vaniljarom
 
+en:vanilla
+fr:vanille
+
+fr:extrait naturel de vanille
+
+fr:vanille bourbon
+
 fr:gousses de vanille bourbon
 
 # To make vanilla look like vanilla
+
+fr:gousse de vanille
+carbon_footprint_fr_foodges_ingredient:fr:Gousse de Vanille
+
+fr:gousse de vanille, gousses de vanille
+
+fr:gousses de vanille moulues
+
+fr:vanille bourbon naturelle en gousse
 
 fr:gousse de vanille épuisée
 
@@ -10695,6 +10718,9 @@ es:melaza
 fr:mélasse
 nl:melasse
 de:Melasse
+
+fr:pâte à tarte
+carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
 
 fr:sucre liquide inverti
 
@@ -14508,6 +14534,8 @@ zh:梨
 wikipedia:en:https://en.wikipedia.org/wiki/Pear
 wikidata:en:Q13099586
 openfoodfacts:https://world.openfoodfacts.org/ingredient/pear
+#carbon_footprint_fr_foodges_ingredient:fr:Poire (Belgique)
+#carbon_footprint_fr_foodges_ingredient:fr:Poire (Argentine)
 # 130 products in 5 languages @2018-09-28
 
 <en:pear
@@ -19247,7 +19275,10 @@ vi:Bông cải xanh
 zh:西蘭花
 wikidata:en:Q47722
 wikipedia:en:https://en.wikipedia.org/wiki/Broccoli
+# carbon_footprint_fr_foodges_ingredient:fr:Brocoli (France)
 # en:broccoli has 1167 products in 10 languages @2018-10-16
+
+
 
 <en:broccoli
 en:broccoli cress
@@ -19462,6 +19493,9 @@ tr:Lahana
 wikidata:en:Q14328596
 wikipedia:en:https://en.wikipedia.org/wiki/Cabbage
 # fr:chou has 374 products in 4 languages @2018-10-20
+
+fr:Chou pommé, Chou cabus
+carbon_footprint_fr_foodges_ingredient:fr:Chou pommé
 
 # Cabbage or headed cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads. 
 # There is an issue with the wikidata item, it mixes white cabbage and cabbage.
@@ -20837,6 +20871,7 @@ zh:菜椒
 # zh-tw:菜椒
 wikidata:en:Q1548030
 wikipedia:en:https://en.wikipedia.org/wiki/Bell_pepper
+carbon_footprint_fr_foodges_ingredient:fr:Poivron
 # fr:poivron has 1581 products in 11 languages @2018-10-15
 
 <en:bell pepper
@@ -21163,7 +21198,11 @@ za:namzgva
 zh:南瓜
 wikidata:en:Q165308
 wikipedia:en:https://en.wikipedia.org/wiki/Pumpkin
+carbon_footprint_fr_foodges_ingredient:fr:Citrouille - Courges -Potiron
 # fr:courge has 88 products in 4 languages @2018-10-26
+
+fr:potiron
+carbon_footprint_fr_foodges_ingredient:fr:Citrouille - Courges -Potiron
 
 # The zucchini (American English) or courgette (British English) is a summer squash.
 
@@ -21237,6 +21276,7 @@ vi:bí ngòi
 zh:西葫芦
 wikidata:en:Q7533
 wikipedia:en:https://en.wikipedia.org/wiki/Zucchini
+carbon_footprint_fr_foodges_ingredient:fr:Courgette
 # fr:courgette contains 2098 products in 9 languages @2018-10-26
 
 <fr:courgette
@@ -21306,8 +21346,6 @@ fr:haricot vert
 fr:haricots noirs
 
 fr:pousse de haricot mungo
-
-
 
 fr:petits pois extra fins
 
@@ -22706,6 +22744,8 @@ fr:épices et extraits d'épices
 
 <en:spice
 fr:épices et arômes, aromates et épices
+
+fr:sel épices
 
 en:herb
 fr:herbe, herbes, plantes aromatiques, plante aromatique, fines herbes, fine herbe, mélange de plantes aromatiques
@@ -25284,6 +25324,9 @@ fr:sulfite
 
 # RANDOM
 
+fr:Frites surgelées
+carbon_footprint_fr_foodges_ingredient:fr:Frites surgelées
+
 fr:caroténoïde
 
 fr:lactose et protéines de lait
@@ -25749,7 +25792,7 @@ fr:citrate de calcium
 
 fr:fumée
 
-fr:potiron
+
 
 fr:isomalt
 
@@ -25759,11 +25802,6 @@ fr:glutamate de sodium
 
 
 # Random
-
-
-
-en:green tea
-fr:thé vert
 
 fr:fibres, fibre
 
@@ -25779,8 +25817,6 @@ fr:panais
 
 fr:graisse de poulet
 
-fr:radis
-
 # This is NOT E301!!!
 fr:isoascorbate de sodium
 
@@ -25791,11 +25827,7 @@ fr:fibres végétales, fibre végétale
 
 
 
-en:black tea
-es:té negro
-fr:thé noir
-nl:zwarte thee
-de:Schwarztee
+
 
 fr:acétates de sodium
 
@@ -25867,6 +25899,11 @@ es:hierbalimón
 fr:citronnelle
 nl:citroengras
 de:Zitronengras
+
+fr:radis
+
+fr:Radis de saison
+carbon_footprint_fr_foodges_ingredient:fr:Radis de saison
 
 # Tomato derivatives
 
@@ -26145,6 +26182,9 @@ fr:bleu patenté v
 fr:concombre
 carbon_footprint_fr_foodges_ingredient:fr: Concombre
 
+fr:Concombre produit sous serre chauffée
+carbon_footprint_fr_foodges_ingredient:fr:Concombre serre chauffée
+
 <fr:concombre
 fr:concombres au vinaigre
 
@@ -26416,7 +26456,8 @@ fr:dioxyde de carbone
 
 fr:extrait de houblon
 
-
+fr:pain au chocolat
+carbon_footprint_fr_foodges_ingredient:fr:Viennoiseries pain au chocolat
 
 
 fr:cochenille
@@ -26473,12 +26514,6 @@ fr:mâche
 <en:Carbon Dioxide
 en:Carbon Dioxide Gas
 fr:gaz carbonique
-
-en:black tea extract
-es:extracto de té negro
-fr:extrait de thé noir
-nl:zwarte thee extract
-de:Schwarztee-Extrakt
 
 fr:mayonnaise allégée en matières grasses
 
@@ -26606,6 +26641,20 @@ nl:Saus
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce
 # 917 products in 6 languages @2018-09-26
 
+fr:sauce rémoulade
+
+fr:sauce caramel
+
+fr:sauce aigre-douce
+
+fr:sauce worcestershire
+
+fr:sauce nuoc mam
+
+fr:sauce bolognaise
+
+fr:sauce vinaigrette
+
 <en:sauce
 fr:sauce cuisinée
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce%20cuisinée
@@ -26628,6 +26677,9 @@ nl:broodvrucht
 de:Brotfrucht
 
 fr:glace
+
+fr:glace à la vanille
+carbon_footprint_fr_foodges_ingredient:fr:Glace à la vanille
 
 fr:malates de sodium
 
@@ -26685,8 +26737,6 @@ fr:herbes de provence
 
 fr:gadus morhua
 
-fr:extrait de thé
-
 fr:lin brun
 
 fr:hydroxypropylméthylcellulose
@@ -26705,10 +26755,6 @@ fr:mayonnaise
 fr:carbonates d'ammonium et de sodium
 
 fr:madère
-
-
-
-fr:extrait de thé vert
 
 fr:sardina pilchardus
 
@@ -26822,15 +26868,31 @@ fr:dorure
 
 fr:citrate de potassium, citrates de potassium
 
-fr:extrait naturel de vanille
 
+en:tea
+fr:thé
+carbon_footprint_fr_foodges_ingredient:fr:Thé
 
-fr:vanille bourbon
+en:black tea
+es:té negro
+fr:thé noir
+nl:zwarte thee
+de:Schwarztee
 
+en:green tea
+fr:thé vert
 
-en:vanilla
-fr:vanille
+en:black tea extract
+es:extracto de té negro
+fr:extrait de thé noir
+nl:zwarte thee extract
+de:Schwarztee-Extrakt
 
+fr:extrait de thé
+
+fr:extrait de thé vert
+
+fr:extraits de thé
 
 
 fr:foie maigre de canard
@@ -26844,8 +26906,6 @@ fr:carmin de cochenille
 
 fr:perméat de petit lait
 allergens:fr:perméat de petit _lait_
-
-fr:extraits de thé
 
 fr:pantothénate de calcium
 
@@ -26865,8 +26925,6 @@ fr:sélénate de sodium
 
 fr:fibre
 
-fr:gousse de vanille, gousses de vanille
-
 en:Alaskan Pollock fillet
 es:abadejo de Alaska
 fr:filet de colin d'Alaska
@@ -26881,7 +26939,7 @@ es:aguacate
 fr:avocat
 nl:avocado
 de:Avocado
-carbon_footprint_fr_foodges_ingredient:fr: Avocat
+carbon_footprint_fr_foodges_ingredient:fr:Avocat
 
 en:amaretto
 es:Amaretto
@@ -27643,9 +27701,6 @@ fr:d2
 en:mango
 fr:mangue
 
-en:tea
-fr:thé
-
 <fr:pain
 fr:pain de mie
 
@@ -27919,9 +27974,6 @@ fr:salsifis
 fr:charbon végétal médicinal
 
 fr:phosphatides d'ammonium
-
-fr:vanille bourbon naturelle en gousse
-
 
 fr:fibres de bambou
 
@@ -28459,9 +28511,6 @@ fr:jus de grenade
 
 fr:diphosphates de sodium
 
-
-fr:gousse de vanille
-
 fr:fondant
 
 <en:meat
@@ -28763,13 +28812,6 @@ allergens:fr:produit à base de _lactosérum_
 
 fr:fructooligosaccharides
 
-
-fr:gousses de vanille moulues
-
-
-
-
-
 fr:agent épaississant
 
 fr:agents épaississants
@@ -28875,33 +28917,20 @@ fr:poudre de fleurage
 
 fr:180c
 
-
-
-fr:biscuits
-
 fr:nucléotides
 
 fr:crème acidulée
 
-fr:extraits d'épice
-
-
-
-
 fr:extrait pur de vanille
-
-fr:extraits naturels d'épices
-
-
 
 fr:mirabelle
 
 fr:poudre au beurre
 allergens:fr:poudre au _beurre_
 
+fr:biscuits
 
-
-fr:sauce bolognaise
+fr:Biscuits au beurre
 
 
 fr:érythrosine
@@ -29072,8 +29101,6 @@ es:óxido de calcio
 fr:oxyde de calcium
 nl:calciumoxide
 de:Calciumoxid
-
-fr:sauce nuoc mam
 
 fr:gomme laque
 
@@ -29345,16 +29372,9 @@ fr:combava
 
 fr:cholécalciférol
 
-fr:sauce worcestershire
-
-
-
 fr:produit champignon quorn
 
 fr:pleurotus ostreatus
-
-
-fr:sauce vinaigrette
 
 fr:extrait concentré
 
@@ -29437,11 +29457,6 @@ fr:pousse de bambou
 fr:encornets
 allergens:fr:_encornets_
 
-
-fr:sel épices
-
-
-
 fr:pâte crue
 
 
@@ -29476,7 +29491,7 @@ de:schwarzer Pilz
 fr:champignons, champignon
 
 fr:champignon de paris, champignons de paris
-carbon_footprint_fr_foodges_ingredient:fr: Champignons de Paris
+carbon_footprint_fr_foodges_ingredient:fr:Champignons de Paris
 
 fr:champignon noir réhydraté
 
@@ -29700,8 +29715,6 @@ fr:nougatine
 fr:pain de mie au blé malté
 allergens:fr:pain de mie au _blé_ malté
 
-fr:sauce aigre-douce
-
 fr:monodiglycérides de colza
 
 
@@ -29728,8 +29741,6 @@ fr:steak haché
 
 fr:tuber aestivum
 
-fr:sauce caramel
-
 fr:transglutaminase
 
 fr:jus d'aronia
@@ -29751,8 +29762,6 @@ fr:extrait de tamarin
 fr:algue marine
 
 fr:fumarate ferreux
-
-fr:sauce rémoulade
 
 fr:gâteau
 
