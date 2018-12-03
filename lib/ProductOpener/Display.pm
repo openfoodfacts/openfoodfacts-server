@@ -5357,7 +5357,7 @@ $og_images
 $og_images2
 <meta property="og:description" content="$canon_description">
 $options{favicons}
-
+<link rel="search" href="@{[ format_subdomain($subdomain) ]}/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
 <style media="all">
 HTML
 ;
