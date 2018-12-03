@@ -301,6 +301,7 @@ my @related_applications = (
 my $manifest;
 $manifest->{icons} = \@icons;
 $manifest->{related_applications} = \@related_applications;
+$manifest->{prefer_related_applications} = 'true';
 $manifest->{theme_color} = '#ffffff';
 $manifest->{background_color} = '#ffffff';
 $options{manifest} = $manifest;
