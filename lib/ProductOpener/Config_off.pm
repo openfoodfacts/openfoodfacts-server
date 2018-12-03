@@ -73,6 +73,7 @@ BEGIN
 		@display_other_fields
 		@drilldown_fields
 		@taxonomy_fields
+		@export_fields
 		
 		%tesseract_ocr_available_languages
 		
@@ -441,6 +442,45 @@ states
 entry_dates
 last_edit_dates
 last_check_dates
+);
+
+
+@export_fields = qw(
+code
+creator
+created_t
+last_modified_t
+product_name
+generic_name
+quantity
+packaging
+brands 
+categories 
+origins
+manufacturing_places
+labels
+emb_codes
+cities
+purchase_places
+stores
+countries
+ingredients_text
+allergens
+traces
+serving_size
+serving_quantity
+no_nutriments
+additives_n
+additives
+ingredients_from_palm_oil_n
+ingredients_from_palm_oil
+ingredients_that_may_be_from_palm_oil_n
+ingredients_that_may_be_from_palm_oil
+nutrition_grade_fr
+nova_group
+pnns_groups_1
+pnns_groups_2
+states
 );
 
 

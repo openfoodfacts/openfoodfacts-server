@@ -3685,43 +3685,13 @@ sub search_and_export_products($$$$$) {
 		
 		my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergens => 1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1);
 
-		my @fields = qw (
-code
-creator
-created_t
-last_modified_t
-product_name
-generic_name
-quantity
-packaging
-brands 
-categories 
-labels
-origins
-manufacturing_places
-emb_codes
-cities
-purchase_places
-stores
-countries
-ingredients_text
-allergens
-traces
-serving_size
-no_nutriments
-additives_n
-additives
-ingredients_from_palm_oil_n
-ingredients_from_palm_oil
-ingredients_that_may_be_from_palm_oil_n
-ingredients_that_may_be_from_palm_oil
-pnns_groups_1
-pnns_groups_2
-);
 
-		foreach my $field (@fields) {
+		foreach my $field (@export_fields) {
 		
-			$csv .= $field . "\t";
+			# skip additives field and put only additives_tags
+			if ($field ne 'additives') {
+				$csv .= $field . "\t";
+			}
 
 		
 			if ($field eq 'code') {
@@ -3772,15 +3742,18 @@ pnns_groups_2
 			
 			# Normal fields
 			
-			foreach my $field (@fields) {
+			foreach my $field (@export_fields) {
 		
-				my $value = $product_ref->{$field};
-				if (defined $value) {
-					$value =~ s/(\r|\n|\t)/ /g;
-					$csv .= $value;
-				}
+				# skip additives field and put only additives_tags
+				if ($field ne 'additives') {
+					my $value = $product_ref->{$field};
+					if (defined $value) {
+						$value =~ s/(\r|\n|\t)/ /g;
+						$csv .= $value;
+					}
 
-				$csv .= "\t";
+					$csv .= "\t";
+				}
 
 				if ($field eq 'code') {
 				
