@@ -17083,9 +17083,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mango
 openfoodfacts:https://world.openfoodfacts.org/ingredient/mango
 # 1597 products in 10 languages @2018-09-27
 
+<en:mango
 fr:Mangue importée en avion
 carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en avion
 
+en:mango
 fr:Mangue importée en bateau
 carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en bateau
 
@@ -17093,7 +17095,7 @@ carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en bateau
 <en:purée
 en:mango puree
 de:Mangopüree, Mangomark
-fr:purée de mangue
+fr:purée de mangue, purée de mangues
 it:polpa di mango
 nl:mangopuree
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20mangue
@@ -17839,10 +17841,10 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20naturel%20
 
 <en:lemon juice
 en:lemon juice from concentrate
+de:Zitronensaft aus Zitronensaftkonzentrat
 es:zumo de limón a partir de concentrado
 fr:jus de citron à base de concentré, jus de citron reconstitué, jus de citron à partir de concentré, jus de citron à base de jus concentré
 nl:citroensap uit concentraat
-de:Zitronensaft aus Zitronensaftkonzentrat
 
 
 <en:lemon
@@ -18014,6 +18016,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Orange_(fruit)
 wikidata:en:Q13191
 openfoodfacts:https://world.openfoodfacts.org/ingredient/orange
 # 2121 products in 8 languages @2018-09-28
+
 
 # Orange juice is the liquid extract of the orange tree fruit, produced by squeezing oranges. 
 
@@ -24437,18 +24440,17 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:céleri%20en%20poudr
 # 41 products in 4 languages @2018-10-07
 
 <en:seed
+<en:coriander
 en:coriander seeds
 fr:graine de coriandre, graines de coriandre
 de:Koriandersamen
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine%20de%20coriandre
-# 188 products in 3 languages @22018-10-07
+# ingredient/fr:graine-de-coriandre has 188 products in 3 languages @22018-10-07
 
 <en:coriander seeds
 fr:coriandre en poudre, coriandre moulue
 nl:korianderpoeder
 sv:korianderpulver
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:coriandre%20en%20poudre
-# 54 products in 4 languages @2018-10-07
+# ingredient/fr:coriandre-en-poudre has 54 products in 4 languages @2018-10-07
 
 <en:seed
 en:fennel seed
@@ -25992,6 +25994,14 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sarriette
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sariette
 # 26 products in 2 languages @2018-10-10
 
+<en:herb
+<en:coriander
+en:coriander leaves, cilantro
+de:Korianderblätter
+fr:feuilles de coriandre, feuille de coriandre
+# ingredient/fr:feuilles-de-coriandre has 38 products in 4 languages @2018-12-05
+
+
 # Dill (Anethum graveolens) is an annual herb in the celery family Apiaceae. Dill is widely grown in Eurasia where its leaves and seeds are used as a herb or spice for flavouring food.
 # The wikidata page mixes the common name and latin name
 
@@ -26210,8 +26220,6 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20de%20romar
 fr:extrait naturel de romarin
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20naturel%20de%20romarin
 # 70 products in 1 language @2018-10-09
-
-
 
 
 # MENTHA (also known as mint) is a genus of plants in the family Lamiaceae (mint family).
@@ -27317,6 +27325,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:ciboulette%20déshyd
 
 
 
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                     P L A N T S     S E C T I O N
@@ -27325,6 +27334,133 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:ciboulette%20déshyd
 
 
 # The plants section contains things other than herbs or vegetables. Tea ingredients can be found here.
+
+
+# Coriander (Coriandrum sativum), also known as cilantro or Chinese parsley, is an annual herb in the family Apiaceae. 
+# coriander is used as an en:herb (leaves) or as an en:seed (en:spice). 
+# If it is not specified we do not know which one. 
+# However probably it is used as the spice, but the context should reveal that.
+
+en:coriander
+# aeb-arab:تابل
+af:Koljander
+am:ድምብላል
+ar:كزبرة
+az:Keşniş
+# azb:گشنیز
+be:Каляндра
+bg:кориандър
+# bho:Каляндра
+bn:ধনে
+bo:འུ་སུ།
+br:Koriandrez
+bs:Korijander
+ca:coriandre
+cs:koriandr
+# csb:kòlãder
+cy:Llysiau'r bara
+da:koriander
+de:Koriander
+dv:ކޮތަނބިރި
+el:Κόλιανδρος
+# en-ca:Coriander
+# en-gb:Coriander
+eo:koriandro
+es:cilantro
+et:koriander
+eu:Martorri
+fa:گشنیز
+fi:korianteri
+fr:coriandre, coriander
+ga:Lus an choire
+# gan:芫茜
+gd:Coireaman
+gl:Coandro
+gu:કોથમીર
+he:כוסברה
+hi:धनिया
+# hil:kulantro
+hr:Korijander
+hu:Koriander
+hy:գինձ
+id:Ketumbar
+io:Koriandro
+is:Kóríandrajurt
+it:Coriandolo
+ja:コリアンダー
+jv:Ketumbar
+ka:ქინძი
+kk:кориандр
+kn:ಕೊತ್ತುಂಬರಿ
+ko:고수
+ku:Gijnîj
+ky:Кориандр
+la:Coriandrum sativum
+lb:Koriander
+lt:Kalendra
+mai:धनियाँ
+mk:Коријандер
+ml:മല്ലി
+mr:कोथिंबीर
+ms:ketumbar
+my:နံနံပင်
+# nan:Iân-sui
+# nap:Pëtiáttëra
+nb:koriander
+ne:धनियाँ
+# new:मल्लि
+nl:koriander, Ketoembar
+nn:koriander
+oc:Coriandre
+or:ଧଣିଆ
+os:Чиндзи
+pa:ਧਨੀਆ
+# pam:Coriander
+pl:Kolender
+# pnb:دھنیا
+pt:Coentro
+# pt-br:Coentro 
+qu:Kulantru 
+ro:Coriandru
+# roa-tara:coriandole
+ru:кориандр
+sa:कुस्तुम्बरी
+# scn:Cugghiandru
+sd:ڌاڻا
+# sgs:Kalendros 
+sh:Korijandar 
+si:කොත්තමල්ලි 
+sk:Koriander
+sl:Koriander
+so:Kamsar
+sq:Korianderi
+sr:Коријандар
+su:Katuncar
+sv:koriander
+ta:கொத்தமல்லி
+te:ధనియాలు
+tg:Кашнич
+th:ผักชี
+tl:Unsoy
+tr:Kişniş
+tt:калияндыр
+uk:Коріандр
+vi:Rau mùi
+# vls:Koriander
+vo:koriand
+# xmf:ქინძი
+yi:פעלד־גליאנדער
+# yue:芫茜
+zh:芫荽
+# zh-hant:芫荽
+# zh-tw:芫荽
+wikipedia:en:https://en.wikipedia.org/wiki/Coriander
+# ingredient/fr:coriander has 2255 products in 13 languages @2018-12-05
+
+<en:coriander
+fr:arôme de coriandre
+es:aroma de cilantro
+# ingredient/fr:arôme de coriandre has 1 products in 2 languages @2018-12-05
 
 
 # Filipendula ulmaria, commonly known as meadowsweet or mead wort, is a perennial herb in the family Rosaceae that grows in damp meadows.
@@ -27680,8 +27816,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Caper
 
 fr:carbonate acide de sodium
 
-fr:diphosphate
-
 fr:glycérol
 
 
@@ -27776,8 +27910,6 @@ de:Natriumhydrogencarbonat
 fr:vanilline
 
 fr:mollusque
-
-fr:thiamine
 
 fr:carotène
 
@@ -28215,13 +28347,15 @@ de:Essiggurken
 
 # en:filling is a compound ingredient (product part)
 
-en: Filling
-de: Belag
+en:Filling
+de:Belag
 es:relleno
 fr:garniture
-nl: garnituur, vulling
-pt: recheio
+nl:garnituur, vulling
+pt:recheio
 # ingredient/fr:garniture has 1531 products in 9 languages @2018-12-01
+
+
 en:paste
 fr:pâte
 
@@ -30332,9 +30466,6 @@ fr:ciboule
 
 fr:améliorant de cuisson
 
-fr:coriander
-fr:coriandre
-
 fr:baies roses
 
 
@@ -30354,9 +30485,6 @@ en:liquid smoke
 fr:fumée liquide
 
 fr:d2
-
-en:mango
-fr:mangue
 
 <fr:pain
 fr:pain de mie
@@ -30459,8 +30587,6 @@ fr:purée de goyave
 
 fr:croûte
 
-fr:diphosphate de sodium
-
 fr:éclats de caramel
 
 fr:sauce de poisson
@@ -30509,10 +30635,6 @@ fr:vermicelles
 
 
 fr:esters citriques des mono- et diglycérides d'acides gras, esters citriques des monoglycérides et diglycérides d'acides gras
-
-fr:purée de mangues
-
-fr:diphosphates et triphosphates
 
 fr:préparation aromatique
 
@@ -31756,7 +31878,6 @@ de:Calciumoxid
 
 fr:gomme laque
 
-fr:feuilles de coriandre
 
 
 
@@ -32081,8 +32202,6 @@ fr:carbonates de calcium
 
 
 fr:trévise, salade trévise
-
-fr:feuille de coriandre
 
 fr:pois chiches réhydratés
 
