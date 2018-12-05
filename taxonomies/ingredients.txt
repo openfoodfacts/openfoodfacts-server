@@ -24419,6 +24419,14 @@ wikidata:en:Q40763
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines
 # 304 products in 7 languages @2018-10-06
 
+
+<en:seed
+en:aniseed
+fr:graine d'anis vert, anis vert
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine%20d'anis%20vert
+# 25 products in 1 language @2018-10-07
+
+
 <en:seed
 en:mustard seed
 de:Senfsaaten
@@ -24471,8 +24479,7 @@ nb:chia, Salvia hispanica
 nl:chia, Salvia hispanica
 pt:chia, Salvia hispanica
 wikidata:en:Q1071585
-openfoodfacts:https://world.openfoodfacts.org/ingredient/chia
-# 44 products @2018-10-07
+# ingredient/chia has 44 products @2018-10-07
 
 <en:seed
 <en:chia
@@ -24484,8 +24491,7 @@ it:semi di chia
 nb:Chiafrø
 nl:chiazaad
 pt:sementes de chia
-openfoodfacts:https://world.openfoodfacts.org/ingredient/chia-seed
-# 611 products in 6 languages @2018-10-07
+# ingredient/chia-seed has 611 products in 6 languages @2018-10-07
 
 # Cumin is a flowering plant in the family Apiaceae, native to a territory including Middle East and stretching east to India.[2] Its seeds – each one contained within a fruit, which is dried – are used in the cuisines of many cultures in both whole and ground form.
 # The plant is only used for the seeds, so cumin implies cumin seeds
@@ -24507,11 +24513,66 @@ it:cumino macinato
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cumin%20moulu
 # 52 products in 3 languages @2018-10-07
 
+
+# Pine nuts, also called piñón or pinoli, are the edible seeds of pines (family Pinaceae, genus Pinus).
+
 <en:seed
-en:aniseed
-fr:graine d'anis vert, anis vert
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine%20d'anis%20vert
-# 25 products in 1 language @2018-10-07
+en:pine nuts
+# aeb-arab: بندق
+ar: حبوب الصنوبر
+# ast: Piñón
+ba: кедр сәтләүеге
+ca: pinyó
+# ceb: Pinyon
+de:Pinienkerne
+el: Κουκουνάρι
+# en-ca: pine nut
+# en-gb: pine nut
+eo: Pinsemo
+es: Piñón
+et: seedermännipähkel
+eu: Pinazi
+fa: دانه کاج
+fi: sembramännyn siemen
+fr:pignon de pin, pignons de pin, pignons
+ga: Piñón
+he: צנובר
+hu: Fenyőmag
+id: Kacang pinus
+it:pinoli, pinolo
+ja: 松の実
+ko: 잣
+ku: Fistiqên çaman
+# ku-arab: فستقێن چامان
+# ku-latn: Fistiqên çaman
+la: Nucleus pineus
+nb: pinjekjerne
+nv: Neeshchʼííʼ
+nl:pijnboompitten, Pijnboompit
+nn: russenøtter
+oc: Pinhon
+pa: چناٹو
+pl: orzeszki piniowe
+pt: pinhão
+ru: кедровый орех
+sr: пињол
+# sr-ec: пињол
+sv:pinjenötter
+tl: Pinyon
+tr: Çam fıstığı
+uk: кедрові горішки
+# vec: Denti de vecia
+# yue: 松仁
+zh: 松子
+# zh-cn: 松子
+# zh-hans: 松子
+# zh-hant: 松子
+# zh-hk: 松子
+# zh-sg: 松子
+# zh-tw: 松子
+wikipedia:en:https://en.wikipedia.org/wiki/Pine_nut
+# ingredient/fr:pignons has 98 products in 4 languages @2018-12-05
+
 
 <en:pumpkin
 <en:seed
@@ -24524,19 +24585,6 @@ nl:pompoenpitten
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine%20de%20courge
 # 234 products in 5 languages @2018-10-07
 
-<en:sunflower
-<en:seed
-en:sunflower seed, sunflower seeds
-de:Sonnenblumenkerne
-es:semillas de girasol, pipas de girasol
-fi:auringonkukansiemenet
-fr:graines de tournesol
-it:semi di girasole
-nl:zonnebloempitten
-nn:solsikkefrø
-sv:solrosfrön
-openfoodfacts:https://world.openfoodfacts.org/ingredient/sunflower-seeds
-# 1881 products in 11 languages @2018-10-07
 
 # POPPY SEED is an oilseed obtained from the poppy (Papaver somniferum).
 # The plant is only used for the seeds, so cumin implies cumin seeds
@@ -24556,6 +24604,22 @@ wikipedia:en:https://en.wikipedia.org/wiki/Poppy_seed
 wikidata:en:Q2007388
 # 123 products in 6 languages @2018-10-08
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pavot
+
+
+<en:sunflower
+<en:seed
+en:sunflower seed, sunflower seeds
+de:Sonnenblumenkerne
+es:semillas de girasol, pipas de girasol
+fi:auringonkukansiemenet
+fr:graines de tournesol
+it:semi di girasole
+nl:zonnebloempitten
+nn:solsikkefrø
+sv:solrosfrön
+openfoodfacts:https://world.openfoodfacts.org/ingredient/sunflower-seeds
+# 1881 products in 11 languages @2018-10-07
+
 
 # It is possible to derive oil from flax seed, but that has not been used as ingredient
 
@@ -29538,8 +29602,6 @@ nl:andijvie
 de:Endivien
 carbon_footprint_fr_foodges_ingredient:fr: Endive
 
-fr:pignons de pin
-
 fr:gomme gellane
 
 fr:phosphate de sodium
@@ -30334,7 +30396,6 @@ allergens:fr:_lait_ demi-écrémé pasteurisé
 
 # A TRIER
 
-
 en:zinc
 fr:zinc
 
@@ -30354,8 +30415,6 @@ fr:talc
 fr:folacine
 
 fr:salade composée
-
-fr:pignons
 
 fr:lactose et minéraux du lait
 allergens:fr:_lactose_ et minéraux du _lait_
@@ -30796,9 +30855,6 @@ fr:lait écrémé et crème pasteurisés
 allergens:fr:_lait_ écrémé et crème pasteurisés
 
 fr:extrait de chicorée
-
-
-fr:pignon de pin
 
 fr:bouillon végétal
 
