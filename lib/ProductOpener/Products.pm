@@ -1056,6 +1056,8 @@ sub product_name_brand_quantity($) {
 		my $quantity = $ref->{quantity};
 		my $quantityid = '-' . get_fileid($quantity) . '-';	
 		if (($quantity ne '') and ($full_name_id !~ /$quantityid/i)) {
+			# Put non breaking spaces between numbers and units
+			$quantity =~ s/(\d) (\w)/$1\xA0$2/g;
 			$full_name .= lang("title_separator") . $quantity;
 		}
 	}		
