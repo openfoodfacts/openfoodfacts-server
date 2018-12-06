@@ -276,6 +276,8 @@ else {
 		my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}"));
 		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_unit"));
 		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_label"));
+
+		my $modifier = undef;
 		
 		normalize_nutriment_value_and_modifier(\$value, \$modifier);
 		
