@@ -41,6 +41,7 @@ BEGIN
 					@nutrient_levels
 	
 					&normalize_nutriment_value_and_modifier
+					&assign_nid_modifier_value_and_unit
 	
 					&unit_to_g
 					&g_to_unit
@@ -125,6 +126,45 @@ sub normalize_nutriment_value_and_modifier($$) {
 		$$value_ref =~ s/,/\./;
 	}
 }
+
+sub assign_nid_modifier_value_and_unit($$$$$) {
+
+	my $product_ref = shift;
+	my $nid = shift;
+	my $modifier = shift;
+	my $value = shift;
+	my $unit = shift;
+
+	$value =~ s/(\d) (\d)/$1$2/g;
+	$value =~ s/,/./;
+	$value += 0;
+	
+	if ((defined $modifier) and ($modifier ne '')) {
+		$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
+	}
+	else {
+		delete $product_ref->{nutriments}{$nid . "_modifier"};
+	}
+	$product_ref->{nutriments}{$nid . "_unit"} = $unit;		
+	$product_ref->{nutriments}{$nid . "_value"} = $value;
+	
+	if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
+		$value = $value * $Nutriments{$nid}{iu} ;
+		$unit = $Nutriments{$nid}{unit};
+	}
+	elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
+		$value = $value / 100 * $Nutriments{$nid}{dv} ;
+		$unit = $Nutriments{$nid}{unit};
+	}
+	if ($nid eq 'water-hardness') {
+		$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit);
+	}
+	else {
+		$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
+	}	
+	
+}
+
 
 sub unit_to_g($$) {
 	my $value = shift;

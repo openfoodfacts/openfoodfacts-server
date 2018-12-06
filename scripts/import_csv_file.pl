@@ -326,7 +326,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 	
 		my $images_ref = $images_ref->{$code};
 		
-		foreach my $imagefield (sort keys %{$images_ref->{$code}}) {
+		foreach my $imagefield (sort keys $images_ref->{$code}) {
 							
 			my $current_max_imgid = -1;
 			
@@ -525,16 +525,8 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 						$new_field_value =~ s/(\d)( )?(g|gramme|grammes|gr)(\.)?/$1 g/i;
 						$new_field_value =~ s/(\d)( )?(ml|millilitres)(\.)?/$1 ml/i;
-						#$new_field_value =~ s/(\d)( )?cl/${1}0 ml/i;
-						#$new_field_value =~ s/(\d)( )?dl/${1}00 ml/i;
 						$new_field_value =~ s/litre|litres|liter|liters/l/i;
-						#$new_field_value =~ s/(0)(,|\.)(\d)( )?(l)(\.)?/${3}00 ml/i;
-						#$new_field_value =~ s/(\d)(,|\.)(\d)( )?(l)(\.)?/${1}${3}00 ml/i;
-						#$new_field_value =~ s/(\d)( )?(l)(\.)?/${1}000 ml/i;
 						$new_field_value =~ s/kilogramme|kilogrammes|kgs/kg/i;
-						#$new_field_value =~ s/(0)(,|\.)(\d)( )?(kg)(\.)?/${3}00 g/i;
-						#$new_field_value =~ s/(\d)(,|\.)(\d)( )?(kg)(\.)?/${1}${3}00 g/i;
-						#$new_field_value =~ s/(\d)( )?(kg)(\.)?/${1}000 g/i;
 				}
 				
 				$new_field_value =~ s/\s+$//g;
@@ -556,16 +548,8 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 					
 						$current_value =~ s/(\d)( )?(g|gramme|grammes|gr)(\.)?/$1 g/i;
 						$current_value =~ s/(\d)( )?(ml|millilitres)(\.)?/$1 ml/i;
-						#$current_value =~ s/(\d)( )?cl/${1}0 ml/i;
-						#$current_value =~ s/(\d)( )?dl/${1}00 ml/i;
 						$current_value =~ s/litre|litres|liter|liters/l/i;
-						#$current_value =~ s/(0)(,|\.)(\d)( )?(l)(\.)?/${3}00 ml/i;
-						#$current_value =~ s/(\d)(,|\.)(\d)( )?(l)(\.)?/${1}${3}00 ml/i;
-						#$current_value =~ s/(\d)( )?(l)(\.)?/${1}000 ml/i;
 						$current_value =~ s/kilogramme|kilogrammes|kgs/kg/i;
-						#$current_value =~ s/(0)(,|\.)(\d)( )?(kg)(\.)?/${3}00 g/i;
-						#$current_value =~ s/(\d)(,|\.)(\d)( )?(kg)(\.)?/${1}${3}00 g/i;
-						#$current_value =~ s/(\d)( )?(kg)(\.)?/${1}000 g/i;
 					}
 					
 					
@@ -653,69 +637,16 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				$seen_salt = 1;
 			}
 			
-			$value =~ s/(\d) (\d)/$1$2/g;
-			$value =~ s/,/./;
-			$value += 0;
+			print "nutrient with defined and non empty value: nid: $nid - value: $value\n";
 			
-			print "nutrient with defined and non empty value: nid: $nid - value: $value\n" ;
-		
-			if ((defined $modifier) and ($modifier ne '')) {
-				$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
-			}
-			else {
-				delete $product_ref->{nutriments}{$nid . "_modifier"};
-			}
-			$product_ref->{nutriments}{$nid . "_unit"} = $unit;		
-			$product_ref->{nutriments}{$nid . "_value"} = $value;
-			
-			if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
-				$value = $value * $Nutriments{$nid}{iu} ;
-				$unit = $Nutriments{$nid}{unit};
-			}
-			elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
-				$value = $value / 100 * $Nutriments{$nid}{dv} ;
-				$unit = $Nutriments{$nid}{unit};
-			}
-			if ($nid eq 'water-hardness') {
-				$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit);
-			}
-			else {
-				$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
-			}
-		
+			assign_nid_modifier_value_and_unit($product_ref, $nid, $modifier, $value, $unit);
 		}
 		
 		if ((defined $valuep) and ($valuep ne '')) {
 			
-			$valuep =~ s/(\d) (\d)/$1$2/g;
-			$valuep =~ s/,/./;
-			$valuep += 0;
+			print "nutrient with defined and non empty prepared value: nidp: $nidp - valuep: $valuep\n";			
 			
-			print "nutrient with defined and non empty prepared value: nidp: $nidp - valuep: $valuep\n" ;
-		
-			if ((defined $modifierp) and ($modifierp ne '')) {
-				$product_ref->{nutriments}{$nidp . "_modifier"} = $modifierp;
-			}
-			else {
-				delete $product_ref->{nutriments}{$nidp . "_modifier"};
-			}		
-			$product_ref->{nutriments}{$nidp . "_value"} = $valuep;
-			
-			if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
-				$valuep = $valuep * $Nutriments{$nid}{iu} ;
-				$unit = $Nutriments{$nid}{unit};
-			}
-			elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
-				$valuep = $valuep / 100 * $Nutriments{$nid}{dv} ;
-				$unit = $Nutriments{$nid}{unit};
-			}
-			if ($nid eq 'water-hardness') {
-				$product_ref->{nutriments}{$nidp} = unit_to_mmoll($valuep, $unit);
-			}
-			else {
-				$product_ref->{nutriments}{$nidp} = unit_to_g($valuep, $unit);
-			}
-		
+			assign_nid_modifier_value_and_unit($product_ref, $nidp, $modifierp, $valuep, $unit);
 		}		
 		
 		

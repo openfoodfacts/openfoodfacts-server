@@ -496,30 +496,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 					delete $product_ref->{nutriments}{$nid . "_100g"};
 					delete $product_ref->{nutriments}{$nid . "_serving"};
 			}
-			else {
-				if ((defined $modifier) and ($modifier ne '')) {
-					$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
-				}
-				else {
-					delete $product_ref->{nutriments}{$nid . "_modifier"};
-				}
-				$product_ref->{nutriments}{$nid . "_unit"} = $unit;		
-				$product_ref->{nutriments}{$nid . "_value"} = $value;
-				
-				if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
-					$value = $value * $Nutriments{$nid}{iu} ;
-					$unit = $Nutriments{$nid}{unit};
-				}
-				elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
-					$value = $value / 100 * $Nutriments{$nid}{dv} ;
-					$unit = $Nutriments{$nid}{unit};
-				}
-				if ($nid eq 'water-hardness') {
-					$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit);
-				}
-				else {
-					$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
-				}
+			else {			
+				assign_nid_modifier_value_and_unit($product_ref, $nid, $modifier, $value, $unit);
 			}
 		}
 		
@@ -530,29 +508,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 					delete $product_ref->{nutriments}{$nidp . "_100g"};
 					delete $product_ref->{nutriments}{$nidp . "_serving"};
 			}
-			else {
-				if ((defined $modifierp) and ($modifierp ne '')) {
-					$product_ref->{nutriments}{$nidp . "_modifier"} = $modifierp;
-				}
-				else {
-					delete $product_ref->{nutriments}{$nidp . "_modifier"};
-				}		
-				$product_ref->{nutriments}{$nidp . "_value"} = $valuep;
-				
-				if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
-					$valuep = $valuep * $Nutriments{$nid}{iu} ;
-					$unit = $Nutriments{$nid}{unit};
-				}
-				elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
-					$valuep = $valuep / 100 * $Nutriments{$nid}{dv} ;
-					$unit = $Nutriments{$nid}{unit};
-				}
-				if ($nid eq 'water-hardness') {
-					$product_ref->{nutriments}{$nidp} = unit_to_mmoll($valuep, $unit);
-				}
-				else {
-					$product_ref->{nutriments}{$nidp} = unit_to_g($valuep, $unit);
-				}
+			else {		
+				assign_nid_modifier_value_and_unit($product_ref, $nidp, $modifierp, $valuep, $unit);
 			}
 		}		
 		
@@ -763,13 +720,13 @@ HTML
 <script type="text/javascript" src="/js/jquery.tagsinput.20160520/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="/js/jquery.form.js"></script>
 <script type="text/javascript" src="/js/jquery.autoresize.js"></script>
-<script type="text/javascript" src="/js/jQueryRotateCompressed.2.1.js"></script>
-<script type="text/javascript" src="/js/jquery.iframe-transport.min.js"></script>
-<script type="text/javascript" src="/js/jquery.fileupload.min.js"></script>	
+<script type="text/javascript" src="/js/jquery.rotate.js"></script>
+<script type="text/javascript" src="/js/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="/js/jquery.fileupload.js"></script>	
 <script type="text/javascript" src="/js/load-image.min.js"></script>
 <script type="text/javascript" src="/js/canvas-to-blob.min.js"></script>
-<script type="text/javascript" src="/js/jquery.fileupload-ip.min.js"></script>
-<script type="text/javascript" src="/bower_components/foundation/js/foundation/foundation.tab.js"></script>
+<script type="text/javascript" src="/js/jquery.fileupload-ip.js"></script>
+<script type="text/javascript" src="/foundation/js/foundation/foundation.tab.js"></script>
 <script type="text/javascript" src="/js/product-multilingual.js"></script>
 HTML
 ;
