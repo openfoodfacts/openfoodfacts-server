@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-11-12 15:21\n"
+"PO-Revision-Date: 2018-12-06 16:48\n"
 "Language-Team: Russian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
@@ -99,7 +99,7 @@ msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formula
 
 msgctxt "donate"
 msgid "Donate to Open Pet Food Facts"
-msgstr ""
+msgstr "Пожертвовать Open Pet Food Facts"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenPetFoodFacts"
@@ -113,7 +113,13 @@ msgid "<a href=\"https://world.openpetfoodfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openpetfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openpetfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
+msgstr "<a href=\"https://world.openpetfoodfacts.org/legal\">Юридическая информация</a> -\n"
+"<a href=\"https://world.openpetfoodfacts.org/terms-of-use\">Условия использования</a> -\n"
+"<a href=\"https://world.openpetfoodfacts.org/who-we-are\">Кто мы</a> -\n"
+"<a href=\"https://world.openpetfoodfacts.org/faq\">Часто задаваемые вопросы</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">Форум идей</a> -\n"
+"<a href=\"https://en.blog.openpetfoodfacts.org\">Блог</a> -\n"
+"<a href=\"https://world.openpetfoodfacts.org/press-and-blogs\">Пресса и блоги</a>\n"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
@@ -121,15 +127,15 @@ msgstr "EMB 53062"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on pet food products from around the world"
-msgstr ""
+msgstr "Совместная, открытая и свободная база данных об ингредиентах, пищевой ценности и прочей информации о кормах для домашних животных со всего мира"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "и <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">группа в Facebook для участников</a>"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr ""
+msgstr "Совместная, бесплатная и открытая база данных кормов для домашних животных со всего мира."
 
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
@@ -137,7 +143,7 @@ msgstr "https://en.wiki.openfoodfacts.org"
 
 msgctxt "og_image_url"
 msgid "https://world.openpetfoodfacts.org/images/misc/openpetfoodfacts-logo-en.png"
-msgstr ""
+msgstr "https://world.openpetfoodfacts.org/images/misc/openpetfoodfacts-logo-en.png"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-beauty-hunt\">Open Pet Food Hunt</a> on <<site_name>> from Saturday February 21st to Sunday March 1st! Contributors are awarded\n"
@@ -150,5 +156,5 @@ msgstr "→ В Chrome, Firefox и Safari можно выбрать нескол�
 
 msgctxt "search_description_opensearch"
 msgid "Open Pet Food Facts product search"
-msgstr ""
+msgstr "Поиск продуктов Open Pet Food Facts"
 
