@@ -8053,72 +8053,74 @@ HTML
 					if ($nid =~ /^energy/) {
 						$value_unit .= "<br>(" . g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, 'kcal') . ' kcal)';
 					}
-					elsif ($nid eq 'sodium') {
-						my $salt = $product_ref->{nutriments}{$nid . "_$col"} * 2.54;
-						if (exists $product_ref->{nutriments}{"salt" . "_$col"}) {
-							$salt = $product_ref->{nutriments}{"salt" . "_$col"};
-						}
-						$salt = $decf->format(g_to_unit($salt, $unit));
-						my $property = '';
-						if ($col eq '100g') {
-							$property = "property=\"food:saltEquivalentPer100g\" content=\"$salt\"";
-						}
-						$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $salt . " " . $unit . "</td>";
+				}
+				
+				if ($nid eq 'sodium') {
+					my $salt = $product_ref->{nutriments}{$nid . "_$col"} * 2.54;
+					if (exists $product_ref->{nutriments}{"salt" . "_$col"}) {
+						$salt = $product_ref->{nutriments}{"salt" . "_$col"};
 					}
-					elsif ($nid eq 'salt') {
-						my $sodium = $product_ref->{nutriments}{$nid . "_$col"} / 2.54;
-						if (exists $product_ref->{nutriments}{"sodium". "_$col"}) {
-							$sodium = $product_ref->{nutriments}{"sodium". "_$col"};
-						}
-						$sodium = $decf->format(g_to_unit($sodium, $unit));
-						my $property = '';
-						if ($col eq '100g') {
-							$property = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";
-						}
-						$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $sodium . " " . $unit . "</td>";
-					}				
-					elsif ($nid eq 'nutrition-score-fr') {
-						# We need to know the category in order to select the right thresholds for the nutrition grades
-						# as it depends on whether it is food or drink
-						
-						# if it is a category stats, the category id is the id field
-						if ((not defined $product_ref->{categories_tags})
-							and (defined $product_ref->{id}) 
-							and ($product_ref->{id} =~ /^en:/) 
-								) {
-							$product_ref->{categories} = $product_ref->{id};
-							compute_field_tags($product_ref, "categories");
-						}
-						
-						if (defined $product_ref->{categories_tags}) {
-						
-							if ($col eq "std") {
-								$values2 .= "<td class=\"nutriment_value${col_class}\"></td>";
-							}
-							else {
-								$values2 .= "<td class=\"nutriment_value${col_class}\">"
-								. uc (compute_nutrition_grade($product_ref, $product_ref->{nutriments}{$nid . "_$col"})) # ! prepared 
-								. "</td>";
-							}
-						}
-						else {
+					$salt = $decf->format(g_to_unit($salt, $unit));
+					my $property = '';
+					if ($col eq '100g') {
+						$property = "property=\"food:saltEquivalentPer100g\" content=\"$salt\"";
+					}
+					$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $salt . " " . $unit . "</td>";
+				}
+				elsif ($nid eq 'salt') {
+					my $sodium = $product_ref->{nutriments}{$nid . "_$col"} / 2.54;
+					if (exists $product_ref->{nutriments}{"sodium". "_$col"}) {
+						$sodium = $product_ref->{nutriments}{"sodium". "_$col"};
+					}
+					$sodium = $decf->format(g_to_unit($sodium, $unit));
+					my $property = '';
+					if ($col eq '100g') {
+						$property = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";
+					}
+					$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $sodium . " " . $unit . "</td>";
+				}				
+				elsif ($nid eq 'nutrition-score-fr') {
+					# We need to know the category in order to select the right thresholds for the nutrition grades
+					# as it depends on whether it is food or drink
+					
+					# if it is a category stats, the category id is the id field
+					if ((not defined $product_ref->{categories_tags})
+						and (defined $product_ref->{id}) 
+						and ($product_ref->{id} =~ /^en:/) 
+							) {
+						$product_ref->{categories} = $product_ref->{id};
+						compute_field_tags($product_ref, "categories");
+					}
+					
+					if (defined $product_ref->{categories_tags}) {
+					
+						if ($col eq "std") {
 							$values2 .= "<td class=\"nutriment_value${col_class}\"></td>";
 						}
-					}					
-					elsif ($col eq $product_ref->{nutrition_data_per}) {
-						# % DV ?
-						if ((defined $product_ref->{nutriments}{$nid . "_value"}) and (defined $product_ref->{nutriments}{$nid . "_unit"}) and ($product_ref->{nutriments}{$nid . "_unit"} eq '% DV')) {
-							$value_unit .= ' (' . $product_ref->{nutriments}{$nid . "_value"} . ' ' . $product_ref->{nutriments}{$nid . "_unit"} . ')';
+						else {
+							$values2 .= "<td class=\"nutriment_value${col_class}\">"
+							. uc (compute_nutrition_grade($product_ref, $product_ref->{nutriments}{$nid . "_$col"})) # ! prepared 
+							. "</td>";
 						}
-					}					
-					
-					if ($col eq '100g') {
-						my $property = $nid;
-						$property =~ s/-([a-z])/ucfirst($1)/eg;
-						$property .= "Per100g";
-						$rdfa = " property=\"food:$property\" content=\"" . $product_ref->{nutriments}{$nid . "_$col"} . "\"";
 					}
+					else {
+						$values2 .= "<td class=\"nutriment_value${col_class}\"></td>";
+					}
+				}					
+				elsif ($col eq $product_ref->{nutrition_data_per}) {
+					# % DV ?
+					if ((defined $product_ref->{nutriments}{$nid . "_value"}) and (defined $product_ref->{nutriments}{$nid . "_unit"}) and ($product_ref->{nutriments}{$nid . "_unit"} eq '% DV')) {
+						$value_unit .= ' (' . $product_ref->{nutriments}{$nid . "_value"} . ' ' . $product_ref->{nutriments}{$nid . "_unit"} . ')';
+					}
+				}					
+				
+				if ($col eq '100g') {
+					my $property = $nid;
+					$property =~ s/-([a-z])/ucfirst($1)/eg;
+					$property .= "Per100g";
+					$rdfa = " property=\"food:$property\" content=\"" . $product_ref->{nutriments}{$nid . "_$col"} . "\"";
 				}
+				
 				
 				$values .= "<td class=\"nutriment_value${col_class}\"$rdfa>$value_unit</td>";
 			}
