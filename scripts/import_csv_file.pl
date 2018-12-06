@@ -326,7 +326,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 	
 		my $images_ref = $images_ref->{$code};
 		
-		foreach my $imagefield (sort keys $images_ref->{$code}) {
+		foreach my $imagefield (sort keys %{$images_ref->{$code}}) {
 							
 			my $current_max_imgid = -1;
 			
@@ -514,6 +514,8 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				
 				$new_field_value =~ s/\s+$//;
 				$new_field_value =~ s/^\s+//;
+
+				next if $new_field_value eq "";
 				
 				if (($field eq 'quantity') or ($field eq 'serving_size')) {
 					
