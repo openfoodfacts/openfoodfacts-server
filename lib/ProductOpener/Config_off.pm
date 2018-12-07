@@ -195,6 +195,19 @@ systeme-u
                 slack_channel_edit-alert
         )],
 },
+{
+        name => "Yuka - Casino",
+        conditions => [
+                ["user_id", "kiliweb"],
+                ["in_editors_tags", "casino"],
+        ],
+        actions => [
+                ["ignore"],
+        ],
+        notifications => [ qw (
+                slack_channel_edit-alert
+        )],
+},
 
 
 
