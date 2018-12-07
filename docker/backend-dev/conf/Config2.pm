@@ -35,9 +35,9 @@ BEGIN
 		$www_root
 		$mongodb
 		$mongodb_host
+		$memd_servers
 		$facebook_app_id
 	    $facebook_app_secret
-		$csrf_secret
 		
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -56,9 +56,9 @@ $data_root = "/mnt/podata";
 $mongodb = "off";
 $mongodb_host = "mongodb://mongodb:27017";
 
+$memd_servers = [ "127.0.0.1:11211" ];
+
 $facebook_app_id = "";
 $facebook_app_secret = "";
-
-$csrf_secret = "EYvfj3GDJnc2UPVqTwTGPgWC";
 
 1;

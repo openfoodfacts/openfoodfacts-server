@@ -51,54 +51,11 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
-use WWW::CSRF qw(CSRF_OK);
-
 ProductOpener::Display::init();
 
 if ($User_id eq 'unwanted-user-french') { 
 	display_error("<b>Il y a des problèmes avec les modifications de produits que vous avez effectuées. Ce compte est temporairement bloqué, merci de nous contacter.</b>", 403);
 }
-
-
-
-sub normalize_nutriment_value_and_modifier($$) {
-		
-	my $value_ref = shift;
-	my $modifier_ref = shift;
-	
-	if ($$value_ref =~ /nan/i) {
-		$$value_ref = '';
-	}		
-	
-	if ($$value_ref =~ /(\&lt;=|<=|\N{U+2264})( )?/) {
-		$$value_ref =~ s/(\&lt;=|<=|\N{U+2264})( )?//;
-		$modifier_ref = "\N{U+2264}";
-	}
-	if ($$value_ref =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less)( )?/) {
-		$$value_ref =~ s/(\&lt;|<|min|minimum|max|maxi|maximum|environ)( )?//;
-		$$modifier_ref = '<';
-	}
-	if ($$value_ref =~ /(\&gt;=|>=|\N{U+2265})/) {
-		$$value_ref =~ s/(\&gt;=|>=|\N{U+2265})( )?//;
-		$modifier_ref = "\N{U+2265}";
-	}
-	if ($$value_ref =~ /(\&gt;|>|min|mini|minimum|greater|more)/) {
-		$$value_ref =~ s/(\&gt;|>|min|mini|minimum|greater|more)( )?//;
-		$$modifier_ref = '>';
-	}
-	if ($$value_ref =~ /(env|environ|about|~|≈)/) {
-		$$value_ref =~ s/(env|environ|about|~|≈)( )?//;
-		$$modifier_ref = '~';
-	}			
-	if ($$value_ref =~ /trace|traces/) {
-		$$value_ref = 0;
-		$$modifier_ref = '~';
-	}
-	if ($$value_ref !~ /\./) {
-		$$value_ref =~ s/,/\./;
-	}
-}
-
 
 
 my $type = param('type') || 'search_or_add';
@@ -217,7 +174,7 @@ else {
 		display_error($Lang{no_barcode}{$lang}, 403);
 	}
 	else {
-		$product_ref = retrieve_product($code);
+		$product_ref = retrieve_product_or_deleted_product($code, $admin);
 		if (not defined $product_ref) {
 			display_error(sprintf(lang("no_product_for_barcode"), $code), 404);
 		}
@@ -426,11 +383,12 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	}
 					
 	
+	compute_languages($product_ref); # need languages for allergens detection and cleaning ingredients
+	
 	# Ingredients classes
+	clean_ingredients_text($product_ref);
 	extract_ingredients_from_text($product_ref);
 	extract_ingredients_classes_from_text($product_ref);
-
-	compute_languages($product_ref); # need languages for allergens detection
 	detect_allergens_from_text($product_ref);
 	
 	# Nutrition data
@@ -538,30 +496,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 					delete $product_ref->{nutriments}{$nid . "_100g"};
 					delete $product_ref->{nutriments}{$nid . "_serving"};
 			}
-			else {
-				if ((defined $modifier) and ($modifier ne '')) {
-					$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
-				}
-				else {
-					delete $product_ref->{nutriments}{$nid . "_modifier"};
-				}
-				$product_ref->{nutriments}{$nid . "_unit"} = $unit;		
-				$product_ref->{nutriments}{$nid . "_value"} = $value;
-				
-				if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
-					$value = $value * $Nutriments{$nid}{iu} ;
-					$unit = $Nutriments{$nid}{unit};
-				}
-				elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
-					$value = $value / 100 * $Nutriments{$nid}{dv} ;
-					$unit = $Nutriments{$nid}{unit};
-				}
-				if ($nid eq 'water-hardness') {
-					$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit);
-				}
-				else {
-					$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
-				}
+			else {			
+				assign_nid_modifier_value_and_unit($product_ref, $nid, $modifier, $value, $unit);
 			}
 		}
 		
@@ -572,29 +508,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 					delete $product_ref->{nutriments}{$nidp . "_100g"};
 					delete $product_ref->{nutriments}{$nidp . "_serving"};
 			}
-			else {
-				if ((defined $modifierp) and ($modifierp ne '')) {
-					$product_ref->{nutriments}{$nidp . "_modifier"} = $modifierp;
-				}
-				else {
-					delete $product_ref->{nutriments}{$nidp . "_modifier"};
-				}		
-				$product_ref->{nutriments}{$nidp . "_value"} = $valuep;
-				
-				if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
-					$valuep = $valuep * $Nutriments{$nid}{iu} ;
-					$unit = $Nutriments{$nid}{unit};
-				}
-				elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
-					$valuep = $valuep / 100 * $Nutriments{$nid}{dv} ;
-					$unit = $Nutriments{$nid}{unit};
-				}
-				if ($nid eq 'water-hardness') {
-					$product_ref->{nutriments}{$nidp} = unit_to_mmoll($valuep, $unit);
-				}
-				else {
-					$product_ref->{nutriments}{$nidp} = unit_to_g($valuep, $unit);
-				}
+			else {		
+				assign_nid_modifier_value_and_unit($product_ref, $nidp, $modifierp, $valuep, $unit);
 			}
 		}		
 		
@@ -616,6 +531,34 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		
 	}
 	
+	
+	# product check
+	
+	if ($admin or $moderator) {
+	
+		my $checked = remove_tags_and_quote(decode utf8=>param("photos_and_data_checked"));	
+		if ((defined $checked) and ($checked eq 'on')) {
+			if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
+				my $rechecked = remove_tags_and_quote(decode utf8=>param("photos_and_data_rechecked"));	
+				if ((defined $rechecked) and ($rechecked eq 'on')) {
+					$product_ref->{last_checker} = $User_id;
+					$product_ref->{last_checked_t} = time();
+				}
+			}
+			else {
+				$product_ref->{checked} = 'on';
+				$product_ref->{last_checker} = $User_id;
+				$product_ref->{last_checked_t} = time();
+			}
+		}
+		else {
+			delete $product_ref->{checked};
+			delete $product_ref->{last_checker};			
+			delete $product_ref->{last_checked_t};
+		}
+	
+	}
+	
 	# Compute nutrition data per 100g and per serving
 	
 	$log->trace("compute_serving_size_date - start") if $log->is_trace();
@@ -625,6 +568,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	compute_serving_size_data($product_ref);
 	
 	compute_nutrition_score($product_ref);
+	
+	compute_nova_group($product_ref);
 	
 	compute_nutrient_levels($product_ref);
 	
@@ -652,7 +597,7 @@ sub display_field($$) {
 	my $field = shift;	# can be in %language_fields and suffixed by _[lc]
 	
 	my $fieldtype = $field;
-	my $display_lc = $lc;
+	my $display_lc = undef;
 	
 	if (($field =~ /^(.*?)_(..|new_lc)$/) and (defined $language_fields{$1})) {
 		$fieldtype = $1;
@@ -1379,7 +1324,6 @@ HTML
 				elsif ($field eq 'ingredients_text') {
 				
 					my $value = $product_ref->{"ingredients_text_" . ${display_lc}};
-					not defined $value and $value = "";
 					my $id = "ingredients_text_" . ${display_lc};
 				
 					$html_content_tab .= <<HTML
@@ -1536,8 +1480,8 @@ JS
 		$product_ref->{nutrition_data_prepared} = "";
 	}	
 	
-	my %column_display_style = ();
-	my %nutrition_data_per_display_style = ();
+	my %column_display_style = {};
+	my %nutrition_data_per_display_style = {};
 	
 	# keep existing field ids for the product as sold, and append _prepared_product for the product after it has been prepared
 	foreach my $product_type ("", "_prepared") {
@@ -1570,7 +1514,9 @@ HTML
 	
 		my $nutrition_data_per = "nutrition_data" . $product_type . "_per";
 	
-		if ($product_ref->{$nutrition_data_per} eq 'serving') {
+		if (($product_ref->{$nutrition_data_per} eq 'serving')
+			# display by serving by default for the prepared product
+			or (($product_type eq '_prepared') and (not defined $product_ref->{nutrition_data_prepared_per}))) {
 			$checked_per_serving = 'checked="checked"';
 			$checked_per_100g = '';
 			$nutrition_data_per_display_style{$nutrition_data . "_serving"} = '';
@@ -2044,6 +1990,44 @@ HTML
 ;	
 
 	$html .= "</div><!-- fieldset -->";
+
+
+	# Product check
+	
+	if ($admin or $moderator) {
+	
+		$html .= "
+<div class=\"fieldset\" id=\"check\"><legend>$Lang{photos_and_data_check}{$lang}</legend>
+<p>$Lang{photos_and_data_check_description}{$lang}</p>
+";
+
+		my $checked = '';
+		my $label = $Lang{i_checked_the_photos_and_data}{$lang};
+		my $recheck_html = "";
+		
+		if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
+			$checked = 'checked="checked"';
+			$label = $Lang{photos_and_data_checked}{$lang};
+			
+			$recheck_html .= <<HTML
+<input type="checkbox" id="photos_and_data_rechecked" name="photos_and_data_rechecked" />	
+<label for="photos_and_data_rechecked" class="checkbox_label">$Lang{i_checked_the_photos_and_data_again}{$lang}</label><br/>
+HTML
+;				
+		}
+
+		$html .= <<HTML
+<input type="checkbox" id="photos_and_data_checked" name="photos_and_data_checked" $checked />	
+<label for="photos_and_data_checked" class="checkbox_label">$label</label><br/>
+HTML
+;	
+	
+		$html .= $recheck_html;
+		
+		$html .= "</div><!-- fieldset -->";
+	
+	}
+	
 	
 	
 	$html .= ''
@@ -2095,7 +2079,6 @@ HTML
 <label for="comment" style="margin-left:10px">$Lang{delete_comment}{$lang}</label>
 <input type="text" id="comment" name="comment" value="" />
 HTML
-	. hidden(-name=>'csrf', -value=>generate_po_csrf_token($User_id), -override=>1)
 	. submit(-name=>'save', -label=>lang("delete_product_page"), -class=>"button small")
 	. end_form();
 
@@ -2107,14 +2090,11 @@ elsif ($action eq 'process') {
 	$product_ref->{interface_version_modified} = $interface_version;
 	
 	if ($type eq 'delete') {
-		my $csrf_token_status = check_po_csrf_token($User_id, param('csrf'));
-		if (not ($csrf_token_status eq CSRF_OK)) {
-			$log->warn("User tried product deletion with invalid CSRF", { user_id => $User_id, code => $code }) if $log->is_warn();
-			display_error(lang("error_invalid_csrf_token"), 403);
-		}
-
 		$product_ref->{deleted} = 'on';
 		$comment = lang("deleting_product") . separator_before_colon($lc) . ":";
+	}
+	elsif (($admin) and (exists $product_ref->{deleted})) {
+		delete $product_ref->{deleted};	
 	}
 	
 	my $time = time();

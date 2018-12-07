@@ -133,7 +133,7 @@ description=>"Les additifs peuvent être indiqué par leur nom, leur nom chimiqu
 conditions=>[[5,{additives_n=>{ '$gte' => 6 }}]]},
 
 {name=>'Releveur d\'empreintes', goal=>'Ajouter 3 produits avec mention de l\'empreinte carbone', thanks=>'Merci pour les empreintes !',
-description=>"Le suspect a les doigts près de charbon, à vous de mener l'enquête et de relever ses empreintes ! Des informateurs l\'auraient aperçus dernièrement dans des magasins bio et dans le rayon commerce équitable des grandes surfaces.",
+description=>"Le suspect a les doigts près de charbon, à vous de mener l'enquête et de relever ses empreintes ! Des informateurs l\'auraient aperçu dernièrement dans des magasins bio et dans le rayon commerce équitable des grandes surfaces.",
 image=>"mission-releveur-d-empreintes.png",
 conditions=>[[3,{"nutriments.carbon-footprint"=>{ '$gt' => 0 }}]]},
 

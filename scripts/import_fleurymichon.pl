@@ -27,6 +27,8 @@ use utf8;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 
+my $debug = 1;
+
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
@@ -386,6 +388,8 @@ BOO_BIO => "Bio",
 BOO_BIO_EUR=> "Agriculture Biologique",
 BOO_BLE_BLA_COE => "Bleu Blanc Coeur",
 BOO_BOE_FRA => "Boeuf Français",
+BOO_POR_FRA => "Porc Français",
+BOO_VEA_FRA => "Veau Français",
 BOO_HAL => "Halal",
 BOO_LBL_RGE => "Label Rouge",
 BOO_POR_FRA => "Porc Français",

@@ -32,6 +32,9 @@ BEGIN
 					&extract_ingredients_from_image
 					&extract_ingredients_from_text
 					
+					&clean_ingredients_text_for_lang
+					&clean_ingredients_text
+					
 					&extract_ingredients_classes_from_text
 					
 					&detect_allergens_from_text
@@ -252,6 +255,14 @@ sub extract_ingredients_from_image($$$) {
 	
 	}
 	
+	# remove nutrition facts etc.
+	if (($status == 0) and (defined $product_ref->{ingredients_text_from_image})) {
+	
+		$product_ref->{ingredients_text_from_image_orig} = $product_ref->{ingredients_text_from_image};
+		$product_ref->{ingredients_text_from_image} = clean_ingredients_text_for_lang($product_ref->{ingredients_text_from_image}, $lc);
+	
+	}
+	
 	
 	return $status;
 
@@ -262,6 +273,7 @@ sub extract_ingredients_from_text($) {
 
 	my $product_ref = shift;
 	my $path = product_path($product_ref->{code});
+	
 	my $text = $product_ref->{ingredients_text};
 	
 	$log->debug("extracting ingredients from text", { text => $text }) if $log->is_debug();
@@ -422,7 +434,7 @@ sub extract_ingredients_from_text($) {
 		$ingredient =~ s/\s*(\d+(\,\.\d+)?)\s*\%\s*$//;
 		
 		my %ingredient = (
-			id => get_fileid($ingredient),
+			id => canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient),
 			text => $ingredient
 		);
 		if (defined $percent) {
@@ -468,8 +480,11 @@ sub extract_ingredients_from_text($) {
 	}
 	
 	my $field = "ingredients";
+	
+	$product_ref->{ingredients_original_tags} = $product_ref->{ingredients_tags};
+	
 	if (defined $taxonomy_fields{$field}) {
-		$product_ref->{$field . "_hierarchy" } = [ gen_ingredients_tags_hierarchy_taxonomy($product_ref->{lc}, join(", ", @{$product_ref->{ingredients_tags}} )) ];
+		$product_ref->{$field . "_hierarchy" } = [ gen_ingredients_tags_hierarchy_taxonomy($product_ref->{lc}, join(", ", @{$product_ref->{ingredients_original_tags}} )) ];
 		$product_ref->{$field . "_tags" } = [];
 		my $unknown = 0;
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
@@ -485,7 +500,7 @@ sub extract_ingredients_from_text($) {
 	
 	if ($product_ref->{ingredients_text} ne "") {
 	
-		$product_ref->{ingredients_n} = scalar @{$product_ref->{ingredients_tags}};
+		$product_ref->{ingredients_n} = scalar @{$product_ref->{ingredients_original_tags}};
 	
 		my $d = int(($product_ref->{ingredients_n} - 1 ) / 10);
 		my $start = $d * 10 + 1;
@@ -540,11 +555,12 @@ sub normalize_fr_a_et_b_de_c($$$) {
 }
 
 
-sub normalize_fr_vitamin($) {
+sub normalize_vitamin($$) {
 
+	my $lc = shift;
 	my $a = shift;
 
-	$log->debug("normalize vitamin using French rules", { vitamin => $a }) if $log->is_debug();
+	$log->debug("normalize vitamin", { vitamin => $a }) if $log->is_debug();
 	
 	$a =~ s/\s+$//;
 	$a =~ s/^\s+//;
@@ -553,28 +569,181 @@ sub normalize_fr_vitamin($) {
 	
 	# does it look like a vitamin code?
 	if ($a =~ /^[a-z][a-z]?-? ?\d?\d?$/i) {
-		return "vitamine $a";
+		($lc eq 'es') and return "vitamina $a";
+		($lc eq 'fr') and return "vitamine $a";
+		return "vitamin $a";		
 	}
 	else {
 		return $a;
 	}
 }
 
-sub normalize_fr_vitamins_enumeration($) {
+sub normalize_vitamins_enumeration($$) {
 	
+	my $lc = shift;
 	my $vitamins_list = shift;
 	
-	my @vitamins = split(/\(|\)|\/| \/ | - |, |,| et /, $vitamins_list);
+	my @vitamins = split(/\(|\)|\/| \/ | - |, |,| et | and | y /, $vitamins_list);
 	
 	$log->debug("splitting vitamins", { input => $vitamins_list }) if $log->is_debug();	
 	
 	# first output "vitamines," so that the current additive class is set to "vitamins"
-	my $split_vitamins_list = "vitamines," . join(",", map { normalize_fr_vitamin($_)} @vitamins);
+	my $split_vitamins_list;
+	
+	if ($lc eq 'es') { $split_vitamins_list = "vitaminas" }
+	elsif ($lc eq 'fr') { $split_vitamins_list = "vitamines" }
+	else { $split_vitamins_list = "vitamine" }
+
+	$split_vitamins_list .= "," . join(",", map { normalize_vitamin($lc,$_)} @vitamins);
 
 	$log->debug("vitamins split", { input => $vitamins_list, output => $split_vitamins_list }) if $log->is_debug();
 
 	return $split_vitamins_list;
 }
+
+
+my %phrases_before_ingredients_list = (
+
+fr => [
+
+'ingr(e|é)dients(\s*)(-|:|\r|\n)',	# need a colon or a line feed
+
+],
+
+);
+
+
+my %phrases_before_ingredients_list_uppercase = (
+
+fr => [
+
+'INGR(E|É)DIENTS(\s|-|:|\r|\n)',	# need a colon or a line feed
+
+],
+
+);
+
+
+my %phrases_after_ingredients_list = (
+
+# TODO: Introduce a common list for kcal
+
+fr => [
+
+'(valeurs|informations|d(e|é)claration|analyse|rep(e|è)res) (nutritionnel)',
+'nutritionnelles moyennes', 	# in case of ocr issue on the first word "valeurs"
+'valeur(s?) (e|é)nerg(e|é)tique',
+'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
+'(a|à) consommer de préférence',
+'conseils de pr(e|é)paration',
+'(a|à) protéger de ', # humidité, chaleur, lumière etc.
+'conditionn(e|é) sous atmosph(e|è)re protectrice',
+'la pr(e|é)sence de vide',	# La présence de vide au fond du pot est due au procédé de fabrication.
+'(a|à) consommer (cuit|rapidement|dans|jusqu)',
+'(a|à) conserver (dans|de|a|à)',
+'apr(e|è)s ouverture',
+
+],
+
+en => [
+
+'nutritional values',
+'after opening',
+'nutrition values',
+'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
+
+],
+
+es => [
+'valores nutricionales'
+],
+
+de => [
+'Ernährungswerte',
+'Vorbereitung Tipps',
+],
+
+nl => [
+'voedingswaarden',
+'voorbereidingstips',
+],
+
+it => [
+'valori nutrizionali',
+'consigli per la preparazione',
+],
+
+
+);
+
+
+
+sub clean_ingredients_text_for_lang($$) {
+
+	my $text = shift;
+	my $language = shift;
+
+	if (defined $phrases_before_ingredients_list{$language}) {
+				
+		foreach my $regexp (@{$phrases_before_ingredients_list{$language}}) {
+			$text =~ s/^(.*)$regexp(\s*)//ies;
+		}			
+	}	
+	
+	if (defined $phrases_before_ingredients_list_uppercase{$language}) {
+				
+		foreach my $regexp (@{$phrases_before_ingredients_list_uppercase{$language}}) {
+			# INGREDIENTS followed by lowercase
+			$text =~ s/^(.*)$regexp(\s*)(?=(\w?)(\w?)[a-z])//es;
+		}			
+	}		
+	
+	
+	if (defined $phrases_after_ingredients_list{$language}) {
+				
+		foreach my $regexp (@{$phrases_after_ingredients_list{$language}}) {
+			$text =~ s/\s*$regexp(.*)$//ies;
+		}			
+	}
+	
+	return $text;
+}
+
+
+
+sub clean_ingredients_text($) {
+
+	my $product_ref = shift;
+
+	if (defined $product_ref->{languages_codes}) {
+	
+		foreach my $language (keys %{$product_ref->{languages_codes}}) {
+		
+			if (defined $product_ref->{"ingredients_text_" . $language }) {
+				
+				my $text = $product_ref->{"ingredients_text_" . $language };
+				
+				$text = clean_ingredients_text_for_lang($text, $language);
+								
+				if ($text ne $product_ref->{"ingredients_text_" . $language }) {
+				
+					my $time = time();
+					
+					# Keep a copy of the original ingredients list just in case
+					$product_ref->{"ingredients_text_" . $language . "_ocr_" . $time} = $product_ref->{"ingredients_text_" . $language };
+					$product_ref->{"ingredients_text_" . $language . "_ocr_" . $time . "_result"} = $text;
+					$product_ref->{"ingredients_text_" . $language } = $text;	
+				}
+				
+				if ($language eq $product_ref->{lc}) {
+					$product_ref->{"ingredients_text"} = $product_ref->{"ingredients_text_" . $language };
+				}					
+			}		
+		}	
+	}
+}
+	
+	
 
 
 sub extract_ingredients_classes_from_text($) {
@@ -626,13 +795,22 @@ sub extract_ingredients_classes_from_text($) {
 	$text =~ s/ - et / - /ig;
 	
 	# stabilisant e420 (sans : )
-	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement)(s)?(\s)?(:)?/$1$2 : /ig;
+	# FIXME : should use additives classes
+	$text =~ s/(conservateur|acidifiant|stabilisant|colorant|antioxydant|antioxygène|antioxygene|edulcorant|édulcorant|d'acidité|d'acidite|de goût|de gout|émulsifiant|emulsifiant|gélifiant|gelifiant|epaississant|épaississant|à lever|a lever|de texture|propulseur|emballage|affermissant|antiagglomérant|antiagglomerant|antimoussant|de charges|de fonte|d'enrobage|humectant|sequestrant|séquestrant|de traitement de la farine|de traitement)(s|)(\s)?(:)?/$1$2 : /ig;
 	# citric acid natural flavor (may be a typo)
 	$text =~ s/(natural flavor)(s)?(\s)?(:)?/: $1$2 : /ig;
 	
+	# dash with 1 missing space
+	$text =~ s/(\w)- /$1 - /ig;
+	$text =~ s/ -(\w)/ - $1/ig;
+	
 	# mono-glycéride -> monoglycérides
 	$text =~ s/(mono|di)-([a-z])/$1$2/ig;
+	$text =~ s/\bmono - /mono- /ig;
 	$text =~ s/\bmono /mono- /ig;
+	#  émulsifiant mono-et diglycérides d'acides gras
+	$text =~ s/(monoet )/mono- et /ig;
+	
 	# acide gras -> acides gras
 	$text =~ s/acide gras/acides gras/ig;
 	$text =~ s/glycéride /glycérides /ig;
@@ -641,6 +819,10 @@ sub extract_ingredients_classes_from_text($) {
 	# $text =~ s/(,|;|:|\)|\(|( - ))(.+?)( et )(.+?)(,|;|:|\)|\(|( - ))/$1$3_et_$5$6 , $1$3 et $5$6/ig;
 	
 	# print STDERR "additives: $text\n\n";
+	
+	#  remove % / percent
+	$text =~ s/(\d+((\,|\.)\d+)?)\s*\%$//g;
+	
 	
 	$product_ref->{ingredients_text_debug} = $text;	
 	
@@ -673,6 +855,8 @@ sub extract_ingredients_classes_from_text($) {
 "citrate",
 "iodure",
 "nitrate",
+"diphosphate",
+"diphosphate",
 "phosphate",
 "sélénite",
 "sulfate",
@@ -733,9 +917,48 @@ sub extract_ingredients_classes_from_text($) {
 		$text =~ s/($prefixregexp) (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9)/ieg;
 		$text =~ s/($prefixregexp) (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp), (de |d')?($suffixregexp) et (de |d')?($suffixregexp)/normalize_fr_a_de_enumeration($1, $3, $5, $7, $9, $11)/ieg;
 		
+		# Caramel ordinaire et curcumine
+		# $text =~ s/ et /, /ig;
+		# --> too dangerous, too many exceptions
+		
+		# Some additives have "et" in their name: need to recombine them
+		
+		# Sels de sodium et de potassium de complexes cupriques de chlorophyllines,
+		my $info = <<INFO
+		Complexe cuivrique des chlorophyllines avec sels de sodium et de potassium,
+		oxyde et hydroxyde de fer rouge,
+		oxyde et hydroxyde de fer jaune et rouge,
+		Tartrate double de sodium et de potassium,
+		Éthylènediaminetétraacétate de calcium et de disodium,
+		Phosphate d'aluminium et de sodium,
+		Diphosphate de potassium et de sodium,
+		Tripoliphosphates de sodium et de potassium,
+		Sels de sodium de potassium et de calcium d'acides gras,
+		Mono- et diglycérides d'acides gras,
+		Esters acétiques des mono- et diglycérides,
+		Esters glycéroliques de l'acide acétique et d'acides gras,
+		Esters glycéroliques de l'acide citrique et d'acides gras,
+		Esters monoacétyltartriques et diacétyltartriques,
+		Esters mixtes acétiques et tartriques des mono- et diglycérides d'acides gras,
+		Esters lactyles d'acides gras du glycérol et du propane-1,
+		Silicate double d'aluminium et de calcium,
+		Silicate d'aluminium et calcium,
+		Silicate d'aluminium et de calcium,
+		Silicate double de calcium et d'aluminium,
+		Glycine et son sel de sodium,
+		Cire d'abeille blanche et jaune,
+		Acide cyclamique et ses sels,
+		Saccharine et ses sels,
+		Acide glycyrrhizique et sels,
+		Sels et esters de choline,
+		Octénylesuccinate d'amidon et d'aluminium,		
+INFO
+;		
+		
+		
 		# Phosphate d'aluminium et de sodium --> E541. Should not be split.
 		
-		$text =~ s/(phosphate|phosphates) d'aluminium,?(phosphate|phosphates) de sodium/phosphate d'aluminium et de sodium/ig;
+		$text =~ s/(di|tri|tripoli)?(phosphate|phosphates) d'aluminium,?(di|tri|tripoli)?(phosphate|phosphates) de sodium/$1phosphate d'aluminium et de sodium/ig;
 		
 		# Sels de sodium et de potassium de complexes cupriques de chlorophyllines -> should not be split... 
 		$text =~ s/(sel|sels) de sodium,(sel|sels) de potassium/sels de sodium et de potassium/ig;
@@ -743,7 +966,9 @@ sub extract_ingredients_classes_from_text($) {
 		# vitamines A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E
 		# vitamines (A, B1, B2, B5, B6, B9, B12, C, D, H, PP et E)
 
-		
+	}
+
+	
 		my @vitaminssuffixes = (
 "a", "rétinol",
 "b", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b10", "b11", "b12",
@@ -764,8 +989,9 @@ sub extract_ingredients_classes_from_text($) {
 "p", "pp"
 
 );		
+
 		
-		my $vitaminsprefixregexp = "vitamine|vitamines";
+		my $vitaminsprefixregexp = "vitamine|vitamines|vitamin|vitamins|vitamina|vitaminas";
 		
 		my $vitaminssuffixregexp = "";
 		foreach my $suffix (@vitaminssuffixes) {
@@ -791,11 +1017,11 @@ sub extract_ingredients_classes_from_text($) {
 		}
 		$vitaminssuffixregexp =~ s/^\|//;		
 		
-		$log->debug("vitamins regexp", { regex => "s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et ))+/" }) if $log->is_debug();
+		$log->debug("vitamins regexp", { regex => "s/($vitaminsprefixregexp)(:|\(|\[| )?(($vitaminssuffixregexp)(\/| \/ | - |,|, | et | and | y ))+/" }) if $log->is_debug();
 	
-		$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )*((($vitaminssuffixregexp)( |\/| \/ | - |,|, | et ))+($vitaminssuffixregexp))\b/normalize_fr_vitamins_enumeration($3)/ieg;
+		$text =~ s/($vitaminsprefixregexp)(:|\(|\[| )+((($vitaminssuffixregexp)( |\/| \/ | - |,|, | et | and | y ))+($vitaminssuffixregexp))\b/normalize_vitamins_enumeration($lc,$3)/ieg;
 
-	}
+	
 	
 	my @ingredients = split($separators, $text);
 	
@@ -805,6 +1031,32 @@ sub extract_ingredients_classes_from_text($) {
 			
 		my $ingredientid = get_fileid($ingredient);
 		if ((defined $ingredientid) and ($ingredientid ne '')) {
+		
+			# split additives
+			# caramel ordinaire et curcumine
+			if (($lc eq 'fr') and ($ingredientid =~ /-et-/)) {
+			
+				my $ingredientid1 = $`;
+				my $ingredientid2 = $';
+				
+				# check if the whole ingredient is an additive
+				my $canon_ingredient_additive = canonicalize_taxonomy_tag($product_ref->{lc}, "additives", $ingredientid);
+					
+				if (not exists_taxonomy_tag("additives", $canon_ingredient_additive)) {
+				
+					# otherwise check the 2 sub ingredients
+					my $canon_ingredient_additive1 = canonicalize_taxonomy_tag($product_ref->{lc}, "additives", $ingredientid1);
+					my $canon_ingredient_additive2 = canonicalize_taxonomy_tag($product_ref->{lc}, "additives", $ingredientid2);
+					
+					if ( (exists_taxonomy_tag("additives", $canon_ingredient_additive1))
+						and (exists_taxonomy_tag("additives", $canon_ingredient_additive2)) ) {
+							push @ingredients_ids, $ingredientid1;
+							$ingredientid = $ingredientid2;
+					}				
+				}
+			
+			}
+		
 			push @ingredients_ids, $ingredientid;
 			$log->debug("ingredient 3", { ingredient => $ingredient }) if $log->is_debug();
 		}
@@ -865,6 +1117,8 @@ sub extract_ingredients_classes_from_text($) {
 				my $ingredient_id_copy = $ingredient_id; # can be modified later: soy-lecithin -> lecithin, but we don't change values of @ingredients_ids
 			
 				my $match = 0;
+				my $match_without_mandatory_class = 0;
+				
 				while (not $match) {
 				
 					# additive class?
@@ -945,6 +1199,20 @@ sub extract_ingredients_classes_from_text($) {
 								# success!
 								$match = 1;		
 								$product_ref->{$tagtype} .= " -- ok ";								
+							}
+							elsif ($ingredient_id_copy =~ /^e( |-)?\d/) {
+								# id the additive is mentioned with an E number, tag it even if we haven't detected a mandatory class
+								if (not exists $seen_tags{$tagtype . '_tags' . $canon_ingredient}) {
+									push @{$product_ref->{ $tagtype . '_tags'}}, $canon_ingredient;
+									$seen_tags{$tagtype . '_tags' . $canon_ingredient} = 1;
+								}
+								# success!
+								$match = 1;		
+								$product_ref->{$tagtype} .= " -- e-number ";								
+							
+							}
+							else {
+								$match_without_mandatory_class = 1;
 							}
 						}
 						else {
@@ -1037,10 +1305,48 @@ sub extract_ingredients_classes_from_text($) {
 							$match = 1;
 							$product_ref->{$tagtype} .= " -- ok ";	
 						}
+					}
+					
+					# spellcheck
+					my $spellcheck = 0;
+					if ((not $match) and ($tagtype eq 'additives')
+						and not $match_without_mandatory_class
+						# do not correct words that are existing ingredients in the taxonomy
+						and (not exists_taxonomy_tag("ingredients", canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient_id_copy) ) ) ) {
+						
+						my ($corrected_canon_tagid, $corrected_tagid, $corrected_tag) = spellcheck_taxonomy_tag($product_ref->{lc}, $tagtype, $ingredient_id_copy);
+						if ((defined $corrected_canon_tagid) 
+							and ($corrected_tag ne $ingredient_id_copy)
+							and (exists_taxonomy_tag($tagtype, $corrected_canon_tagid))
+							
+							# false positives
+							# proteinas -> proteinase
+							# vitamine z -> vitamine c
+							# coloré -> chlore
+							# chlorela -> chlore 
+							
+							and (not $corrected_tag =~ /^proteinase/)
+							and (not $corrected_tag =~ /^vitamin/)
+							and (not $corrected_tag =~ /^argent/)
+							and (not $corrected_tag =~ /^chlore/)
+							
+							) {
+							
+							$product_ref->{$tagtype} .= " -- spell correction (lc: " . $product_ref->{lc} . "): $ingredient_id_copy -> $corrected_tag";
+							print STDERR "spell correction (lc: " . $product_ref->{lc} . "): $ingredient_id_copy -> $corrected_tag - code: $product_ref->{code}\n";
+							
+							$ingredient_id_copy = $corrected_tag;
+							$spellcheck = 1;
+						}
+					}
+					
+					
+					if ((not $match)
+						and (not $spellcheck)) {
 						
 						# try to shorten the ingredient to make it less specific, to see if it matches then
 						
-						elsif (($lc eq 'en') and ($ingredient_id_copy =~ /^([^-]+)-/)) {
+						if (($lc eq 'en') and ($ingredient_id_copy =~ /^([^-]+)-/)) {
 							# soy lecithin -> lecithin
 							$ingredient_id_copy = $';
 						}
@@ -1048,12 +1354,13 @@ sub extract_ingredients_classes_from_text($) {
 							# lécithine de soja -> lécithine de -> lécithine
 							$ingredient_id_copy = $`;
 						}
-						
 						else {
 							# give up
-							$match = 1;
+							$match = 1;							
 						}
 					}
+					
+		
 					$product_ref->{$tagtype} .= " ] ";
 				}
 			}
@@ -1092,7 +1399,7 @@ sub extract_ingredients_classes_from_text($) {
 		$product_ref->{$tagtype . '_tags'} = [];		
 				
 		# skip palm oil classes if there is a palm oil free label
-		if (($class =~ /palm/) and ($product_ref->{labels_tags} ~~ 'en:palm-oil-free')) {
+		if (($class =~ /palm/) and has_tag($product_ref, "labels", 'en:palm-oil-free')) {
 			
 		}
 		else {
@@ -1253,7 +1560,10 @@ sub replace_allergen($$$$) {
 	
 	# to build the product allergens list, just use the ingredients in the main language
 	if ($language eq $product_ref->{lc}) {
-		$product_ref->{$field} .= $allergen . ', ';
+		# skip allergens like "moutarde et céleri" (will be caught later by replace_allergen_between_separators)
+		if (not (($language eq 'fr') and $allergen =~ / et /i)) {
+			$product_ref->{$field . "_from_ingredients"} .= $allergen . ', ';
+		}
 	}
 	
 	return '<span class="allergen">' . $allergen . '</span>';
@@ -1267,7 +1577,7 @@ sub replace_allergen_in_caps($$$$) {
 	my $before = shift;
 	
 	my $field = "allergens";
-	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|may contain)\b/i) {
+	if ($before =~ /\b(peut contenir|qui utilise aussi|traces|trace|may contain)\b/i) {
 		$field = "traces";
 	}
 	
@@ -1279,7 +1589,7 @@ sub replace_allergen_in_caps($$$$) {
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
 		# to build the product allergens list, just use the ingredients in the main language
 		if ($language eq $product_ref->{lc}) {
-			$product_ref->{$field} .= $allergen . ', ';
+			$product_ref->{$field . "_from_ingredients"} .= $allergen . ', ';
 		}
 		return '<span class="allergen">' . $allergen . '</span>';
 	}
@@ -1300,9 +1610,9 @@ sub replace_allergen_between_separators($$$$$$) {
 	my $field = "allergens";
 	
 	
-	print STDERR "allergen: $allergen\n";
+	#print STDERR "allergen: $allergen\n";
 	
-	my $stopwords = "ce|produit|est|fabriqué|élaboré|transformé|emballé|dans|un|atelier|une|usine|qui|utilise|aussi|également|céréale|céréales|farine|farines|extrait|extraits|graine|graines|traces|éventuelle|éventuelles|possible|possibles|peut|pourrait|contenir|contenant|contient|de|des|du|d'|l'|la|le|les|et|and|of";
+	my $stopwords = "d'autres|autre|autres|ce|produit|est|fabriqué|élaboré|transformé|emballé|dans|un|atelier|une|usine|qui|utilise|aussi|également|céréale|céréales|farine|farines|extrait|extraits|graine|graines|traces|éventuelle|éventuelles|possible|possibles|peut|pourrait|contenir|contenant|contient|de|des|du|d'|l'|la|le|les|et|and|of";
 	
 	my $before_allergen = "";
 	if ($allergen =~ /^((\s|\b($stopwords)\b)+)/i) {
@@ -1310,22 +1620,28 @@ sub replace_allergen_between_separators($$$$$$) {
 		$allergen =~ s/^(\s|\b($stopwords)\b)+//i;
 	}
 	
-	if (($before . $before_allergen) =~ /\b(peut contenir|qui utilise aussi|traces|may contain)\b/i) {
+	if (($before . $before_allergen) =~ /\b(peut contenir|qui utilise aussi|traces|trace|may contain)\b/i) {
 		$field = "traces";
-		print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
+		#print STDERR "traces (before_allergen: $before_allergen - before: $before)\n";
 	}	
 	
-	print STDERR "before_allergen: $before_allergen - allergen: $allergen\n";
+	# Farine de blé 97%
+	if ($allergen =~ /( \d)/) {
+		$allergen = $`;
+		$end_separator = $1 . $' . $end_separator;
+	}
+	
+	#print STDERR "before_allergen: $before_allergen - allergen: $allergen\n";
 	
 	my $tagid = canonicalize_taxonomy_tag($language,"allergens", $allergen);
 	
-	print STDERR "before_allergen: $before_allergen - allergen: $allergen - tagid: $tagid\n";
+	#print STDERR "before_allergen: $before_allergen - allergen: $allergen - tagid: $tagid\n";
 	
 	if (exists_taxonomy_tag("allergens", $tagid)) {
 		#$allergen = display_taxonomy_tag($product_ref->{lang},"allergens", $tagid);
 		# to build the product allergens list, just use the ingredients in the main language
 		if ($language eq $product_ref->{lc}) {
-			$product_ref->{$field} .= $allergen . ', ';
+			$product_ref->{$field . "_from_ingredients"} .= $allergen . ', ';
 		}
 		return $start_separator . $before_allergen . '<span class="allergen">' . $allergen . '</span>' . $end_separator;
 	}
@@ -1344,13 +1660,10 @@ sub detect_allergens_from_text($) {
 	# Keep allergens entered by users in the allergens and traces field
 	
 	foreach my $field ("allergens", "traces") {
-	
-		if ((not defined $product_ref->{$field}) or ($product_ref->{$field} eq "")) {
-			$product_ref->{$field} = "";
-		}
-		else {
-			$product_ref->{$field} .= ", ";
-		}
+		
+		# new fields for allergens detected from ingredient list
+		
+		$product_ref->{$field . "_from_ingredients"} = "";
 	}
 
 	if (defined $product_ref->{languages_codes}) {
@@ -1359,7 +1672,11 @@ sub detect_allergens_from_text($) {
 		
 			my $text = $product_ref->{"ingredients_text_" . $language };
 			
+			next if not defined $text;
+			
 			# allergens between underscores
+			
+			# print STDERR "current text 1: $text\n";
 	
 			$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
 	
@@ -1370,11 +1687,14 @@ sub detect_allergens_from_text($) {
 			}
 			
 			# allergens between separators
-			print STDERR "current text: $text\n";
-			print STDERR "separators\n";
+			
+			#print STDERR "current text 2: $text\n";
+			# print STDERR "separators\n";
+			
 			# positive look ahead for the separators so that we can properly match the next word
 			# match at least 3 characters so that we don't match the separator
-			$text =~ s/(^|-|_|\(|\[|\)|\]|,| (d'|de|du|des|l'|la|les|et|and) |;|\.|$)((\s*)\w.+?)(?=(\s*)(^|-|_|\(|\[|\)|\]|,| (et|and) |;|\.|$))/replace_allergen_between_separators($language,$product_ref,$1, $3, "",$`)/iesg; 
+			# Farine de blé 97% -> make numbers be separators
+			$text =~ s/(^| - |_|\(|\[|\)|\]|,| (d'|de|du|des|l'|la|les|et|and) |;|\.|$)((\s*)\w.+?)(?=(\s*)(^| - |_|\(|\[|\)|\]|,| (et|and) |;|\.|$))/replace_allergen_between_separators($language,$product_ref,$1, $3, "",$`)/iesg; 
 			
 			$product_ref->{"ingredients_text_with_allergens_" . $language} = $text;
 			
@@ -1386,12 +1706,25 @@ sub detect_allergens_from_text($) {
 	}
 
 	foreach my $field ("allergens", "traces") {
-		$product_ref->{$field} =~ s/, $//;
-		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($product_ref->{lang}, $field, $product_ref->{$field}) ];
+	
+		# concatenate allergens and traces fiels from ingredients and entered by users
+		
+		$product_ref->{$field . "_from_ingredients"} =~ s/, $//;
+		
+		my $allergens = $product_ref->{$field . "_from_ingredients"};		
+		
+		if ((defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
+			$allergens .= ", " . $product_ref->{$field};
+		}
+
+		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($product_ref->{lc}, $field, $allergens) ];
 		$product_ref->{$field . "_tags" } = [];
+		# print STDERR "result for $field : ";
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
 			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
+			# print STDERR " - $tag";
 		}
+		# print STDERR "\n";
 	}
 	
 }

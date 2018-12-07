@@ -18,6 +18,9 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+/*global L osmtogeojson*/
+/*exported addWikidataObjectToMap*/
+
 var markers = [];
 var map;
 function ensureMapIsDisplayed() {
@@ -72,7 +75,7 @@ function addWikidataObjectToMap(id){
 		getGeoJsonFromOsmRelation(relationId, function (geoJson) {
 			if (geoJson) {
 				runCallbackOnJson(function (map) {
-					var geoJsonLayer = L.geoJSON(geoJson).addTo(map);
+					L.geoJSON(geoJson).addTo(map);
 					fitBoundsToAllLayers(map);
 				});
 			}

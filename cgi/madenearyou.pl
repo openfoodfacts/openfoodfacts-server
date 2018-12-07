@@ -75,13 +75,13 @@ sub display_madenearyou($) {
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
-<script type="text/javascript" src="/js/jquery.cookie.min.js"></script>	
+<script type="text/javascript" src="/bower_components/foundation/js/vendor/jquery.cookie.js"></script>	
 
-<script src="/js/jquery.iframe-transport.js"></script>
-<script src="/js/jquery.fileupload.js"></script>	
+<script src="/js/jquery.iframe-transport.min.js"></script>
+<script src="/js/jquery.fileupload.min.js"></script>	
 <script src="/js/load-image.min.js"></script>
 <script src="/js/canvas-to-blob.min.js"></script>
-<script src="/js/jquery.fileupload-ip.js"></script>
+<script src="/js/jquery.fileupload-ip.min.js"></script>
 
 $header
 

@@ -1,0 +1,90 @@
+
+<h1>Data</h1>
+
+<p>Open Food Facts-databasen er tilgængelig under <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a>.<br/>
+Databasens individuelle indhold er tilgængeligt under <a href="https://opendatacommons.org/licenses/dbcl/1.0/">Database Content License</a>.<br/>
+Produktbilleder er tilgængelige under <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike-licensen</a>.
+De kan indeholde grafiske elementer underlagt ophavsret eller andre rettigheder, som i visse tilfælde må reproduceres (citatrettigheder eller fair brug).</p>
+
+<p>Læs venligst <a href="https://world.openfoodfacts.org/terms-of-use">Vilkår og betingelser for brug og genbrug</a> før genbrug af ​​dataene.</p> 
+
+
+<p>Vi er meget interesserede i at erfare, hvad Open Food Facts-dataene anvendes til. Det er ikke obligatorisk, men vi vil sætte stor pris på, at du oplyser os om dine genanvendelser, så vi kan dele dem
+med Open Food Facts-fællesskabet.</p>
+
+<h2>Open Food Facts-dataekport</h2>
+
+<p>Databaseudtræk og -eksport genereres hver nat.</p>
+
+<p>Oplysninger om de forskellige felter til MongoDB-udtræk og CSV-eksport er tilgængelig via <a href="https://static.openfoodfacts.org/data/data-fields.txt">https://world.openfoodfacts.org/data/data-fields.txt</a></p>
+
+
+<h3>MongoDB-udtræk</h3>
+
+<p>Data til alle produkter er tilgængelig i et MongoDB-databaseudtræk.</p>
+
+<dl>
+ <dt>Link</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz">https://static.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz</a></dd>
+ <dt>sha256sum</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/sha256sum">https://static.openfoodfacts.org/data/sha256sum</a></dd>
+ <dt>md5sum</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/md5sum">https://static.openfoodfacts.org/data/md5sum</a></dd>
+</dl>
+
+<h4>Deltaeksport</h4>
+
+<p>Daglig deltaeksporter er tilgængelige for de foregående 14 dage. Listen over de aktuelt tilgængelige deltafiler fremgår via
+ <a href="https://static.openfoodfacts.org/data/delta/index.txt">https://static.openfoodfacts.org/data/delta/index.txt</a>.
+ Hver linje repræsenterer en fil, der er tilgængelig via <code>https://static.openfoodfacts.org/data/delta/{filename}</code>.
+ Filnavnet indeholder UNIX-tidsstempler for den første og den sidste ændring i JSON-filen, så deltafilerne kan importeres (efter ekstraktion) med <code> mongoimport </code> i alfabetisk rækkefølge.</p>
+<p>Bemærk, at grundet funktionaliteten af ​​<code>mongoexport</code> kan deltafilerne ikke oplyse dig om slettede produkter. For at fjerne
+ slettede produkter fra din database skal du importere et komplet MongoDB-udtræk.</p>
+ 
+<h3>CSV-dataeksport</h3>
+
+<p>Data til alle produkter, eller til visse af produkterne, kan downloades i CSV-format (læsbare med OpenOffice, Excel og megen anden software) via <a href="https://world.openfoodfacts.org/cgi/search.pl">avanceret søgeformular</a>.</p>
+ 
+<dl>
+ <dt>Link</dt>
+ <dd><a href="https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv">https://static.openfoodfacts.org/data/da.openfoodfacts.org.products.csv</a></dd>
+</dl>
+
+<p>Filkodningen er Unicode UTF-8. Feltseparatortegnet er &lt;tab&gt;(tabulering).</p>
+
+
+
+<h3>RDF-dataeksport</h3>
+
+<p>Databasen er også tilgængelig i RDF-formatet. <a href="https://fr.blog.openfoodfacts.org/news/des-donnees-libres-et-liees-export-rdf-des-donnees">bekendtgørelser på fransk</a>.</p>
+
+<dl>
+ <dt>Link</dt>
+ <dd><a href="https://world.openfoodfacts.org/data/en.openfoodfacts.org.products.rdf">https://world.openfoodfacts.org/data/da.openfoodfacts.org.products.rdf</a></dd>
+</dl>
+
+<h2>Eksperimentel JSON-API</h2>
+
+<p>En JSON-API er også tilgængelig til læsning af produktdataene. Denne API benyttes især i Open Food Facts-app'en til Android og iPhone.</p>
+
+<p>Denne API er eksperimentel og kan ændre sig. Oplys os om du benytter den, så vi kan informere dig om evt. ændringer.</p>
+
+<p>URL til læsning af data for givent produkt: https://world.openfoodfacts.org/api/v0/product/<i>[barcode]</i>.json</p>
+
+<p>Eksempel: <a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></p>
+
+<h2>Android- og iPhone-app </h2>
+
+<p>Kildekoden til mobil-app'en Open Food Facts er tilgængelig via <a href="https://github.com/openfoodfacts/openfoodfacts-android/tree/master/phonegap/Open%20Food%20Facts">GitHub</a>.
+App'en tillader brugerne at skanne produktstregkoder for at se produktinformationener samt for at tage og indsende fotos og data til manglende produkter.</p>
+
+<p>App'en er udviklet i HTML og Javascript takket være Phonegap (Cordova), der muliggør brug af den samme kode til alle mobilplatforme.</p>
+
+<h2>Mailliste til data, API og eksport</h2>
+
+<p>Du kan også tilmelde dig mailinglisten for at drøfte API'en og eksport, fortælle os om dine genanvendelser og blive underrettet, når der foretages forbedringer eller ændringer af API'en. Send en tom e-mail til
+<a href="mailto:api-subscribe@openfoodfacts.org">api-subscribe@openfoodfacts.org</a> for ar abonnere.</p>
+
+<h2>Kontakt</h2>
+
+<p>For spørgsmål vedr. dataene kan du kontakte os via <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>

@@ -34,6 +34,7 @@ BEGIN
 		&product_exists
 		&init_product
 		&retrieve_product
+		&retrieve_product_or_deleted_product
 		&retrieve_product_rev
 		&store_product
 		&product_name_brand
@@ -198,6 +199,22 @@ sub retrieve_product($) {
 	
 	return $product_ref;
 }
+
+sub retrieve_product_or_deleted_product($$) {
+
+        my $code = shift;
+	my $deleted_ok = shift;
+        my $path = product_path($code);
+        my $product_ref = retrieve("$data_root/products/$path/product.sto");
+
+        if ((defined $product_ref) and ($product_ref->{deleted})
+		and (not $deleted_ok)) {
+                return;
+        }
+
+        return $product_ref;
+}
+
 
 sub retrieve_product_rev($$) {
 
@@ -429,7 +446,8 @@ sub compute_completeness_and_missing_tags($$$) {
 		push @states_tags, "en:photos-uploaded";
 	
 		if ((defined $current_ref->{selected_images}{"front_$lc"}) and (defined $current_ref->{selected_images}{"ingredients_$lc"})
-			and ((defined $current_ref->{selected_images}{"nutrition_$lc"}) or ($product_ref->{no_nutrition_data} eq 'on')) ) {
+			and ((defined $current_ref->{selected_images}{"nutrition_$lc"}) or
+				((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on'))) ) {
 			push @states_tags, "en:photos-validated";
 		}
 		else {
@@ -596,10 +614,22 @@ sub compute_product_history_and_completeness($$) {
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d-%02d", $year + 1900, $mon + 1);
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d", $year + 1900);
+	
+	if (defined $current_product_ref->{last_checked_t}) {
+		my $last_checked_t = $current_product_ref->{last_checked_t} + 0;
+		($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($last_checked_t + 0);
+		$current_product_ref->{last_check_dates_tags} = [];
+		push @{$current_product_ref->{last_check_dates_tags}}, sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
+		push @{$current_product_ref->{last_check_dates_tags}}, sprintf("%04d-%02d", $year + 1900, $mon + 1);
+		push @{$current_product_ref->{last_check_dates_tags}}, sprintf("%04d", $year + 1900);	
+	}
+	else {
+		delete $current_product_ref->{last_check_dates_tags};
+	}
 
 	# Read all previous versions to see which fields have been added or edited
 	
-	my @fields = qw(lang product_name generic_name quantity packaging brands categories origins manufacturing_places labels emb_codes expiration_date purchase_places stores countries ingredients_text traces no_nutrition_data serving_size nutrition_data_per );
+	my @fields = qw(lang product_name generic_name quantity packaging brands categories origins manufacturing_places labels emb_codes expiration_date purchase_places stores countries ingredients_text traces no_nutrition_data serving_size nutrition_data_per);
 	
 	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
 	my %last = %previous;
@@ -669,8 +699,10 @@ sub compute_product_history_and_completeness($$) {
 			
 			foreach my $field (@fields) {
 				$current{fields}{$field} = $product_ref->{$field};
-				$current{fields}{$field} =~ s/^\s+//;
-				$current{fields}{$field} =~ s/\s+$//;
+				if (defined $current{fields}{$field}) {
+					$current{fields}{$field} =~ s/^\s+//;
+					$current{fields}{$field} =~ s/\s+$//;
+				}
 			}
 			
 			# Language specific fields
@@ -679,6 +711,7 @@ sub compute_product_history_and_completeness($$) {
 				foreach my $language_code (@{$current{languages_codes}}) {
 					foreach my $field (keys %language_fields) {
 						next if $field =~ /_image$/;
+						next if not exists $product_ref->{$field . '_' . $language_code};
 						$current{fields}{$field . '_' . $language_code} = $product_ref->{$field . '_' . $language_code};
 						$current{fields}{$field . '_' . $language_code} =~ s/^\s+//;
 						$current{fields}{$field . '_' . $language_code} =~ s/\s+$//;						
@@ -697,6 +730,7 @@ sub compute_product_history_and_completeness($$) {
 			}
 		
 			$current{checked} = $product_ref->{checked};
+			$current{last_checked_t} = $product_ref->{last_checked_t};
 		}
 		
 		# Differences and attribution to users
@@ -711,11 +745,11 @@ sub compute_product_history_and_completeness($$) {
 		
 		$changed_by{$userid} = 1;			
 		
-		if (((defined $current{checked}) and ($current{checked} eq 'on')) and ((not defined $previous{checked}) or ($previous{checked} ne 'on'))) {
-			if ((defined $userid) and ($userid ne '')) {
-				if (not defined $checkers{$userid}) {
-					$checkers{$userid} = 1;
-					push @checkers, $userid;
+		if ((defined $current{last_checked_t}) and ((not defined $previous{last_checked_t}) or ($previous{last_checked_t} != $current{last_checked_t}))) {
+			if ((defined $product_ref->{last_checker}) and ($product_ref->{last_checker} ne '')) {
+				if (not defined $checkers{$product_ref->{last_checker}}) {
+					$checkers{$product_ref->{last_checker}} = 1;
+					push @checkers, $product_ref->{last_checker};
 				}
 			}
 		}
@@ -1024,6 +1058,8 @@ sub product_name_brand_quantity($) {
 		my $quantity = $ref->{quantity};
 		my $quantityid = '-' . get_fileid($quantity) . '-';	
 		if (($quantity ne '') and ($full_name_id !~ /$quantityid/i)) {
+			# Put non breaking spaces between numbers and units
+			$quantity =~ s/(\d) (\w)/$1\xA0$2/g;
 			$full_name .= lang("title_separator") . $quantity;
 		}
 	}		
@@ -1414,10 +1450,10 @@ sub process_product_edit_rules($) {
 							}							
 							
 							if (not $condition_ok) {
-								$log->debug("condition does not match") if $log->is-debug();
+								$log->debug("condition does not match") if $log->is_debug();
 							}
 							else {
-								$log->debug("condition matches") if $log->is-debug();
+								$log->debug("condition matches") if $log->is_debug();
 								$action_log = "product code $code - " . format_subdomain($subdomain) . product_url($product_ref) . " - edit rule $rule_ref->{name} - type: $type - condition: $condition - field: $field current(field): " . $current_value . " - param(field): " . $param_field . "\n";
 							}
 						}

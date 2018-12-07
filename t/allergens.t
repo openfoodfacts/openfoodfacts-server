@@ -126,7 +126,7 @@ is_deeply($product_ref->{traces_tags},  [
 );
 
 is($product_ref->{ingredients_text_with_allergens_fr},
-'Garniture 61% : sauce tomate 32% (purée de tomate, eau, farine de <span class="allergen">blé</span>, sel, amidon de maïs), mozzarella 26%, chiffonnade de jambon cuit standard 21% (jambon de porc, eau, sel, dextrose, sirop de glucose, stabilisant : E451, arômes naturels, gélifiant : E407, <span class="allergen">lactose</span>, bouillon de porc, antioxydant : E316, conservateur : E250, ferments), champignons de Paris 15% (champignons, extrait naturel de champignon concentré), olives noires avec noyau (stabilisant : E579), roquette 0,6%, basilic et origan. Pourcentages exprimés sur la garniture. Pâte 39% : farine de blé, eau, levure boulangère, sel, farine de blé malté.'
+'Garniture 61% : sauce tomate 32% (purée de tomate, eau, farine de <span class="allergen">blé</span>, sel, amidon de maïs), <span class="allergen">mozzarella</span> 26%, chiffonnade de jambon cuit standard 21% (jambon de porc, eau, sel, dextrose, sirop de glucose, stabilisant : E451, arômes naturels, gélifiant : E407, <span class="allergen">lactose</span>, bouillon de porc, antioxydant : E316, conservateur : E250, ferments), champignons de Paris 15% (champignons, extrait naturel de champignon concentré), olives noires avec noyau (stabilisant : E579), roquette 0,6%, basilic et origan. Pourcentages exprimés sur la garniture. Pâte 39% : farine de blé, eau, levure boulangère, sel, farine de blé malté.'
 );
 
 
@@ -153,6 +153,144 @@ is_deeply($product_ref->{traces_tags},  [
 'en:soybeans',
 ]
 );
+
+
+$product_ref = {
+	lc => "fr", lang => "fr",
+	ingredients_text_fr => "Noix de Saint-Jacques"
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+use Data::Dumper;
+#print STDERR Dumper($product_ref);
+print STDERR Dumper($product_ref->{allergens_tags});
+
+is_deeply($product_ref->{allergens_tags}, [
+'en:molluscs',
+] 
+);
+
+
+$product_ref = {
+        lc => "fr", lang => "fr",
+        ingredients_text_fr => "Noix de St-Jacques"
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+use Data::Dumper;
+#print STDERR Dumper($product_ref);
+print STDERR Dumper($product_ref->{allergens_tags});
+
+is_deeply($product_ref->{allergens_tags}, [
+'en:molluscs',
+]
+);
+
+
+$product_ref = {
+        lc => "fr", lang => "fr",
+        ingredients_text_fr => "Saint Jacques"
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+use Data::Dumper;
+#print STDERR Dumper($product_ref);
+print STDERR Dumper($product_ref->{allergens_tags});
+
+is_deeply($product_ref->{allergens_tags}, [
+'en:molluscs',
+]
+);
+
+
+$product_ref = {
+        lc => "fr", lang => "fr",
+        ingredients_text_fr => "St Jacques"
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+use Data::Dumper;
+#print STDERR Dumper($product_ref);
+print STDERR Dumper($product_ref->{allergens_tags});
+
+is_deeply($product_ref->{allergens_tags}, [
+'en:molluscs',
+]
+);
+
+
+$product_ref = {
+        lc => "fr", lang => "fr",
+        ingredients_text_fr => "Farine de blé 97%"
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+use Data::Dumper;
+#print STDERR Dumper($product_ref);
+print STDERR Dumper($product_ref->{allergens_tags});
+
+is_deeply($product_ref->{allergens_tags}, [
+'en:gluten',
+]
+);
+
+is($product_ref->{ingredients_text_with_allergens_fr},
+'Farine de <span class="allergen">blé</span> 97%'
+);
+
+$product_ref = {
+        lc => "fr", lang => "fr",
+        ingredients_text_fr => "Farine de blé 97%"
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+use Data::Dumper;
+#print STDERR Dumper($product_ref);
+print STDERR Dumper($product_ref->{allergens_tags});
+
+is_deeply($product_ref->{allergens_tags}, [
+'en:gluten',
+]
+);
+
+is($product_ref->{ingredients_text_with_allergens_fr},
+'Farine de <span class="allergen">blé</span> 97%'
+);
+
+
+$product_ref = {
+        lc => "fr", lang => "fr",
+        ingredients_text_fr => "Farine de blé 97%",
+	allergens => "Sulfites",	
+};
+
+compute_languages($product_ref);
+detect_allergens_from_text($product_ref);
+
+use Data::Dumper;
+#print STDERR Dumper($product_ref);
+print STDERR Dumper($product_ref->{allergens_tags});
+
+is_deeply($product_ref->{allergens_tags}, [
+'en:gluten',
+'en:sulphur-dioxide-and-sulphites',
+]
+);
+
+
+
 
 
 done_testing();
