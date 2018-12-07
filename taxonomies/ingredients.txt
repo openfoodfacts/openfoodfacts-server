@@ -24620,19 +24620,27 @@ sv:solrosfrön
 openfoodfacts:https://world.openfoodfacts.org/ingredient/sunflower-seeds
 # 1881 products in 11 languages @2018-10-07
 
+# The context should make clear what it is used for (seeds or oil from seeds)
+en:flax
+es:lino
+fr:lin
+it:lino
+# ingredient/fr:lin has 239 products in 6 languages @2018-12-06
 
-# It is possible to derive oil from flax seed, but that has not been used as ingredient
+
+# It is possible to derive oil from flax seed
 
 <en:seed
 en:flax seed, flax seeds
 bg:Ленено семе
 cs:Len setý
 de:Leinsamen
+es:lino
 et:Linaseemned
 fa:تخم کتان
-fr:graine de lin, graines de lin
+fr:graine de lin, graines de lin, lin
 hu:Lenmag
-it:semi di lino
+it:semi di lino, lino
 # nah:Lino xināchtli
 nl:lijnzaad
 nn:linfrø
@@ -24654,7 +24662,7 @@ en:brown flax seeds
 es:semillas de lino dorado
 de:brauner Leinsamen
 fi:ruskeat pellavansiemenet
-fr:graines de lin brun
+fr:graines de lin brun, lin brun
 it:semi di lino scuro
 nl:bruin lijnzaad
 nn:brune linfrø
@@ -29139,8 +29147,6 @@ fr:coagulant microbien
 
 fr:inositol
 
-fr:lin
-
 fr:patate douce, patates douces
 
 fr:praliné
@@ -29638,8 +29644,6 @@ fr:herbes de provence
 
 
 fr:gadus morhua
-
-fr:lin brun
 
 fr:hydroxypropylméthylcellulose
 
