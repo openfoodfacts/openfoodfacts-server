@@ -3163,42 +3163,44 @@ sub search_and_display_products($$$$$) {
 		
 		eval {
 			if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
-        my $aggregate_parameters = [
-          { "\$match" => $query_ref },
-          { "\$sample" => { "size" => $request_ref->{sample_size} } }
-        ];
-        $log->debug("Executing MongoDB query", { query => $aggregate_parameters }) if $log->is_debug();
-        $cursor = execute_query(sub {
-          return get_products_collection()->aggregate($aggregate_parameters, { allowDiskUse => 1 });
-        });        
+				my $aggregate_parameters = [
+				  { "\$match" => $query_ref },
+				  { "\$sample" => { "size" => $request_ref->{sample_size} } }
+				];
+				$log->debug("Executing MongoDB query", { query => $aggregate_parameters }) if $log->is_debug();
+				$cursor = execute_query(sub {
+				  return get_products_collection()->aggregate($aggregate_parameters, { allowDiskUse => 1 });
+				});        
 			}
 			else {
-        $log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
-        $cursor = execute_query(sub {
-          return get_products_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-        });        
+				$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
+				$cursor = execute_query(sub {
+				  return get_products_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+				});        
 				$count = $cursor->count() + 0;
 				$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 			}
 		};
 
-    if ($@) {
-      $log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
-    }
-    else
-    {
-      $log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
-    }
-
-		while (my $product_ref = $cursor->next) {
-			push @{$request_ref->{structured_response}{products}}, $product_ref;
+		if ($@) {
+			$log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
 		}
+		else
+		{
+			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
+		  
+			while (my $product_ref = $cursor->next) {
+				push @{$request_ref->{structured_response}{products}}, $product_ref;
+			}		  
+		  
+			$log->debug("Setting value for MongoDB query key", { key => $key }) if $log->is_debug();
+
+			$memd->set($key, $request_ref->{structured_response}, 3600) or $log->debug("Could not set value for MongoDB query key", { key => $key });		  
+		}
+
 	
 		$request_ref->{structured_response}{count} = $count + 0;
 		
-		$log->debug("Setting value for MongoDB query key", { key => $key }) if $log->is_debug();
-
-		$memd->set($key, $request_ref->{structured_response}, 3600) or $log->debug("Could not set value for MongoDB query key", { key => $key });
   }
   else {
     $log->debug("Found a value for MongoDB query key", { key => $key }) if $log->is_debug();
