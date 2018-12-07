@@ -71,4 +71,4 @@ Specific pages are defined in the relevant `Config.pm` `wiki_texts` variables.
 
 * Repo owner or admin
 * contact@openfoodfacts.org
-* <https://openfoodfacts.slack.com/>
+* Join our discussion room at <https://slack.openfoodfacts.org/>
