@@ -3192,14 +3192,12 @@ sub search_and_display_products($$$$$) {
 			while (my $product_ref = $cursor->next) {
 				push @{$request_ref->{structured_response}{products}}, $product_ref;
 			}		  
+			$request_ref->{structured_response}{count} = $count + 0;
 		  
 			$log->debug("Setting value for MongoDB query key", { key => $key }) if $log->is_debug();
 
 			$memd->set($key, $request_ref->{structured_response}, 3600) or $log->debug("Could not set value for MongoDB query key", { key => $key });		  
 		}
-
-	
-		$request_ref->{structured_response}{count} = $count + 0;
 		
   }
   else {
