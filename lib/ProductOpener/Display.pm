@@ -1248,31 +1248,31 @@ sub display_list_of_tags($$) {
 	
 		$log->debug("Did not find a value for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
     
-    eval {
-      $log->debug("Executing MongoDB aggregate query", { query => $aggregate_parameters }) if $log->is_debug();
-      $results = execute_query(sub {
-        return get_products_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 0 } );
-      });
-    };
-    if ($@) {
-      $log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
-      $count = -1;
-    }
-    else {
-      $log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
-    }
+		eval {
+		  $log->debug("Executing MongoDB aggregate query", { query => $aggregate_parameters }) if $log->is_debug();
+		  $results = execute_query(sub {
+			return get_products_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 0 } );
+		  });
+		};
+		if ($@) {
+		  $log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
+		  $count = -1;
+		}
+		else {
+		  $log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
+		}
 
-    $log->debug("MongoDB query done", { error => $@ }) if $log->is_debug();
+		$log->debug("MongoDB query done", { error => $@ }) if $log->is_debug();
 
-    if ($admin) {
-      $log->debug("aggregate query results", { results => $results }) if $log->is_debug();	
-    }	    
+		if ($admin) {
+		  $log->debug("aggregate query results", { results => $results }) if $log->is_debug();	
+		}
 			
 		$log->trace("aggregate query done") if $log->is_trace();
 		
 		if ($admin) {
 			$log->debug("aggregate query results", { results => $results }) if $log->is_debug();	
-		}	
+		}
 		
 		# the return value of aggregate has changed from version 0.702
 		# and v1.4.5 of the perl MongoDB module
@@ -1284,17 +1284,14 @@ sub display_list_of_tags($$) {
 
 				$memd->set($key, $results, 3600) or $log->debug("Could not set value for MongoDB query key", { key => $key });
 			}
-		
 		}
 		else {
-			$log->debug("No results for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
-		
+			$log->debug("No results for aggregate MongoDB query key", { key => $key }) if $log->is_debug();	
 		}
 	}
 	else {
 		$log->debug("Found a value for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
-	}		
-		
+	}
 	
 	my $html = '';
 	my $html_pages = '';	
