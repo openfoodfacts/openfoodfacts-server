@@ -6785,7 +6785,7 @@ HTML
 	
 	# other fields
 	
-	my $html_fields = "";
+	$html_fields = "";
 	foreach my $field (@ProductOpener::Config::display_other_fields) {
 		# print STDERR "display_product() - field: $field - value: $product_ref->{$field}\n";
 		$html_fields .= display_field($product_ref, $field);
