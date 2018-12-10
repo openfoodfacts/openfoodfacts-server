@@ -12964,8 +12964,6 @@ fr:mélasse
 nl:melasse
 de:Melasse
 
-fr:pâte à tarte
-carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
 
 fr:sucre liquide inverti
 
@@ -28790,8 +28788,72 @@ pt:recheio
 # ingredient/fr:garniture has 1531 products in 9 languages @2018-12-01
 
 
-en:paste
+# fr:pâte is a compound ingredient. It is either the pizza base or italian pasta (think spaghetti)
+
+en:dough
+de:Teig
+es:masa, masa madre
 fr:pâte
+it:pasta
+nl:deeg
+pt:massa
+ro:paste
+# ingredient/paste has 1809 products @2018-12-10
+
+<en:dough
+fr:pâte cuite, pâte cuites, pâtes cuites
+de:Teigwaren gekocht
+it:pasta già cotta
+# ingredient/fr:pâte-cuite has 150 products in 3 languages @2018-12-10
+
+<en:dough
+fr:pâtes fraîches cuites
+# ingredient/fr:pâtes-fraîches-cuites has 19 products in french @2018-12-10
+
+<en:dough
+en:precooked dough
+de:Teig vorgebacken
+es:pasta precocida
+fr:pâtes précuites, pâte précuite, fond de pâte précuit
+it:Pasta precotta
+# ingredient/fr:pâte-précuites has 88 products in 5 languages @2018-12-10
+# ingredient/fr:fond-de-pâte-précuit has 18 products @2018-12-10
+
+<en:dough
+en:shortcrust dough
+da:mørdej
+es:masa quebrada
+fr:pâte brisée
+nl:kruimeldeeg
+nn:mørdeig
+pt:massa quebrada
+sv:pajdeg
+
+<en:dough
+fr:pâte feuilletée
+de:Blätterteig
+it:pasta sfoglia
+nl:bladerdeeg
+# ingredient/fr:pâte-feuilletée has 208 products in 8 languages @2018-12-10
+
+# <en:dough
+# fr:pâte à tarte
+# ingredient/fr:pâte-à-tarte has no products @2018-12-10
+# carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
+
+<en:dough
+fr:pâtes fraîches
+# ingredient/fr:pâtes-fraîches has 49 products in french @2018-12-10
+
+<en:dough
+fr:pâtes alimentaires
+de:Teigwaren
+it:paste alimentari
+# ingredient/fr:pâtes-alimentaires has 75 products 2018-12-10
+
+<en:dough
+fr:pâte crue
+# ingredient/fr:pâte-crue has 22 products in french @2018-12-10
 
 en:calcium gluconate
 es:gluconato de calcio
@@ -29810,7 +29872,6 @@ fr:tonyu
 
 fr:extrait de réglisse
 
-fr:pâtes cuites
 
 fr:métabisulfite de sodium
 
@@ -30001,7 +30062,6 @@ fr:gadus morhua
 fr:hydroxypropylméthylcellulose
 
 
-fr:pâte feuilletée
 
 fr:citrate de magnésium
 
@@ -31050,7 +31110,6 @@ fr:fibre de bambou, fibres de bambou
 
 fr:vanille naturelle
 
-fr:pâtes précuites
 
 fr:carbonates d'ammonium
 
@@ -31922,7 +31981,6 @@ wikidta:en:Q418057
 fr:sucroesters d'acide gras
 
 
-fr:pâtes alimentaires
 
 en:champagne
 es:champán
@@ -32042,7 +32100,6 @@ fr:phosphates
 
 fr:morceaux de foie gras de canard du sud-ouest
 
-fr:fond de pâte précuit
 
 fr:ferment lactiques
 
@@ -32146,19 +32203,12 @@ allergens:fr:_œufs de lompe_
 
 fr:molybdate de sodium
 
-fr:pâte cuite
 
 fr:protéase
 
 fr:complexes cuivre-chlorophylles
 
 fr:vermicelles de pois réhydratés
-
-
-
-
-
-
 
 en:calcium hydroxide
 es:hidróxido de calcio
@@ -32525,7 +32575,6 @@ fr:pousse de bambou
 fr:encornets
 allergens:fr:_encornets_
 
-fr:pâte crue
 
 
 
@@ -32815,7 +32864,6 @@ fr:jus d'aronia
 
 fr:tahini
 
-fr:pâtes fraîches cuites
 
 fr:produit de lactosérum
 allergens:fr:produit de _lactosérum_
@@ -32869,7 +32917,6 @@ fr:carraghénane, carraghénanes, épaississant carraghénane
 fr:lactoprotéines
 allergens:fr:_lactoprotéines_
 
-fr:pâtes fraîches
 
 
 fr:encornet
