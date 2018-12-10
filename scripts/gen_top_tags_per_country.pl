@@ -971,7 +971,7 @@ $series
 </initjs>   
 
 <scripts>
-<script src="/js/highcharts.js"></script></scripts>
+<script src="/js/highcharts.4.0.4.js"></script></scripts>
 <header>
 $meta
 </header>

@@ -9,7 +9,7 @@
 <p>Ez az útmutató megmagyarázza, hogy a gyártók miért és hogyan tudják közvetlenül integrálni a fotókat és a termékadatokat az Open Food Facts adatbázisba.</p>
 
 <ul>
-<li><a href="#introduction">Introduction</a></li>
+<li><a href="#introduction">Bevezetés</a></li>
 <li><a href="#pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Miért adja hozzá a termékadatait az Open Food Facts-hez</a></li>
 <ul>
 <li><a href="#exemples_de_producteurs_qui_transmettent_les_photos_et_donnees_de_leurs_produits_a_open_food_facts">Példák azokról a gyártókról, akik fotókat és termékadatokat küldenek az Open Food Facts-nek</a></li>
@@ -47,7 +47,7 @@
 </ul>
 </ul>
 
-<h2 id="introduction">Introduction</h2>
+<h2 id="introduction">Bevezetés</h2>
 
 <p>Az Open Food Facts adatbázisban szereplő élelmiszerekről készült fotók és adatok két forrásból származnak:</p>
 <ul>
@@ -56,13 +56,13 @@
 </ul>
 
 
-<h2 id="pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Why add product data to Open Food Facts</h2>
+<h2 id="pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Miért adja hozzá a termékadatait az Open Food Facts-hez</h2>
 <p>There are many benefits to importing date directly from manufacturers:</p>
 
 <ul>
 <li>The data is complete, up to date, and without risk of error.</li>
-<li>The photos are of better quality than the photos taken by the contributors in very variable conditions.</li>
-<li>The data is then available in more than 100 applications.</li>
+<li>A fotók jobb minőségűek, mint a közreműködők nagyon változatos körülmények között készített képei.</li>
+<li>Az adatok több mint 100 alkalmazásban állnak rendelkezésre.</li>
 <li>You can easily obtain statistics about your products and export the data of your products supplemented by indicators calculated by Open Food Facts such as the Nutri-Score.</li>
 </ul>
   
@@ -71,7 +71,7 @@
 
 <p>A growing number of high level French producers are sending us the data of their products: Fleury Michon, Sodebo, System U, Carrefour, Casino, Franprix, Monoprix.</p>
 
-<h2 id="comment_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">How to add the data of your products in Open Food Facts</h2>
+<h2 id="comment_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Hogyan adhatod hozzá termékeid adatait az Open Food Facts-ban?</h2>
 
 <h3 id="licence">Licensz</h3>
   
@@ -104,11 +104,11 @@ We have recently added fields on the carbon footprint, and the packaging of prod
 To make importing data easier and faster, we have defined a standard format for images and data:
 <h4 id="format_des_images">Képformátum</h4>
 
-<p>At least 3 images are required:</p>
+<p>Legalább 3 képre van szükség:</p>
 <ul>
 <li>Front view of product on white background (avoid three-quarter views that do not allow visual recognition of products without barcode scanning)</li>
 <li>Összetevők listája</li>
-<li>Nutritional table</li>
+<li>Tápanyagtáblázat</li>
 </ul>
   
 <p>The front view, ingredients and nutrition chart must be provided in at least the main language of the product. It is recommended that you also provide images for other languages ​​when they appear on the product.</p>
@@ -123,8 +123,8 @@ To make importing data easier and faster, we have defined a standard format for 
   
 <h5 id="format_des_fichiers_images">Képfájlok formátuma</h5>
 <ul>
-  <li>JPEG or PNG format</li>
-  <li>Size at least 2000 pixels wide or tall</li>
+  <li>JPEG vagy PNG formátumban</li>
+  <li>Mérete legyen legalább 2000 képpont széles vagy magas</li>
 </ul>
 
 <h5 id="nom_des_fichiers_images">A képfájlok neve</h5>
@@ -132,18 +132,18 @@ To make importing data easier and faster, we have defined a standard format for 
 
 <pre>[barcode]_[type of image]_[language code].[jpg or png]</pre>
 
-  <p>For example :</p>
+  <p>Példa:</p>
 
 <p>3660140808750_front_en.jpg for the front image of the product whose barcode is 3660140808750</p>
 
-  <p>The types of images are:</p>
+  <p>A képek típusa:</p>
 
 <ul>
   <!-- Do not translate field names, just their description -->
-  <li>front: front image</li>
-  <li>ingredients: list of ingredients</li>
-  <li>nutrition: nutritional chart</li>
-  <li>back: version</li>
+  <li>front: kép előröl</li>
+  <li>ingredients: kép az összetevőkről</li>
+  <li>nutrition: táplálkozási táblázat</li>
+  <li>back: verzió</li>
   <li>any name you see fit (characters from a to e, no spaces) for other views</li>
 </ul>
   
@@ -152,7 +152,7 @@ To make importing data easier and faster, we have defined a standard format for 
 
 <p>The data must be provided in a table in CSV format, with tabulation as field separator character and UTF-8 character encoding.</p>
 <p>The first line contains the field names, and each of the products occupies one of the following lines. The order of the fields does not matter, and not all columns need to be present.</p>
-<p>Some fields are mandatory and others are optional. We encourage you to fill in as many fields as possible so that the data can be used by as many applications as possible. If in doubt, or if you have data for which there are not yet fields in the Open Food Facts database, you can contact us so that we can add fields and make the best possible match.</p>
+<p>Egyes mezők kötelezőek, mások nem. We encourage you to fill in as many fields as possible so that the data can be used by as many applications as possible. If in doubt, or if you have data for which there are not yet fields in the Open Food Facts database, you can contact us so that we can add fields and make the best possible match.</p>
 
   <h5 id="champs_obligatoires">Kötelező mezők</h5>
 
@@ -177,12 +177,12 @@ To make importing data easier and faster, we have defined a standard format for 
 <ul>
   <!-- Do not translate nutrient field names -->
   <li>energy_100g: energy, in kJ</li>
-  <li>fat_100g: fat</li>
-  <li>saturated-fat_100g: saturated fat</li>
-  <li>carbohydrates_100g: carbohydrates</li>
-  <li>sugars_100g: sugars</li>
-  <li>proteins_100g: proteins</li>
-  <li>salt_100g: salt</li>
+  <li>fat_100g: zsír</li>
+  <li>saturated-fat_100g:  telített zsír</li>
+  <li>carbohydrates_100g: szénhidrátok</li>
+  <li>sugars_100g: cukrok</li>
+  <li>proteins_100g:  fehérjék</li>
+  <li>salt_100g: só</li>
   <!-- Do not translate nutrient field names -->
 </ul>
 

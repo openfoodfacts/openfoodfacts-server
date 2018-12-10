@@ -438,7 +438,7 @@ sub analyze_request($)
 	
 	# first check parameters in the query string
 
-	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml') {
+	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache') {
 	
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
@@ -1249,9 +1249,18 @@ sub display_list_of_tags($$) {
 
 	$key = md5_hex($key);
 	
-	$log->debug("MongoDB hashed aggregate query key", { key => $key }) if $log->is_debug();
+	$log->debug("MongoDB hashed aggregate query key", { key => $key }) if $log->is_debug();	
 	
-	$results = $memd->get($key);	
+	# disable caching if ?nocache=1
+	if ((defined $request_ref->{nocache}) and ($request_ref->{nocache})) {
+	
+		$log->debug("MongoDB nocache parameter, skip caching", { key => $key }) if $log->is_debug();	
+	
+	}
+	else {
+		
+		$results = $memd->get($key);	
+	}
 	
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
 	
@@ -2214,7 +2223,7 @@ sub display_tag($) {
 					href => sprintf($weblink_templates{$key}{href}, $properties{$tagtype}{$canon_tagid}{$key}),
 					hreflang => $weblink_templates{$key}{hreflang},
 				};
-				$weblink->{title} = sprintf($weblink_templates{$key}{title}, $properties{$tagtype}{$canon_tagid}{$key}) if defined $weblink_templates{$key}{title},
+				$weblink->{title} = sprintf($weblink_templates{$key}{title}, $properties{$tagtype}{$canon_tagid}{$key}) if defined $weblink_templates{$key}{title};
 				push @weblinks, $weblink;
 			}
 
@@ -3158,9 +3167,18 @@ sub search_and_display_products($$$$$) {
 	
 	$log->debug("MongoDB hashed query key", { key => $key }) if $log->is_debug();
 	
-	$request_ref->{structured_response} = $memd->get($key);
+	# disable caching if ?nocache=1
+	if ((defined $request_ref->{nocache}) and ($request_ref->{nocache})) {
 	
-	$log->debug("Retrieving value for MongoDB query key", { key => $key }) if $log->is_debug();
+		$log->debug("MongoDB nocache parameter, skip caching", { key => $key }) if $log->is_debug();	
+	
+	}
+	else {
+		
+		$log->debug("Retrieving value for MongoDB query key", { key => $key }) if $log->is_debug();
+		$request_ref->{structured_response} = $memd->get($key);
+	}	
+	
 	
 	if (not defined $request_ref->{structured_response}) {
 	
@@ -3667,43 +3685,13 @@ sub search_and_export_products($$$$$) {
 		
 		my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergens => 1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1);
 
-		my @fields = qw (
-code
-creator
-created_t
-last_modified_t
-product_name
-generic_name
-quantity
-packaging
-brands 
-categories 
-labels
-origins
-manufacturing_places
-emb_codes
-cities
-purchase_places
-stores
-countries
-ingredients_text
-allergens
-traces
-serving_size
-no_nutriments
-additives_n
-additives
-ingredients_from_palm_oil_n
-ingredients_from_palm_oil
-ingredients_that_may_be_from_palm_oil_n
-ingredients_that_may_be_from_palm_oil
-pnns_groups_1
-pnns_groups_2
-);
 
-		foreach my $field (@fields) {
+		foreach my $field (@export_fields) {
 		
-			$csv .= $field . "\t";
+			# skip additives field and put only additives_tags
+			if ($field ne 'additives') {
+				$csv .= $field . "\t";
+			}
 
 		
 			if ($field eq 'code') {
@@ -3754,15 +3742,18 @@ pnns_groups_2
 			
 			# Normal fields
 			
-			foreach my $field (@fields) {
+			foreach my $field (@export_fields) {
 		
-				my $value = $product_ref->{$field};
-				if (defined $value) {
-					$value =~ s/(\r|\n|\t)/ /g;
-					$csv .= $value;
-				}
+				# skip additives field and put only additives_tags
+				if ($field ne 'additives') {
+					my $value = $product_ref->{$field};
+					if (defined $value) {
+						$value =~ s/(\r|\n|\t)/ /g;
+						$csv .= $value;
+					}
 
-				$csv .= "\t";
+					$csv .= "\t";
+				}
 
 				if ($field eq 'code') {
 				
@@ -5678,9 +5669,9 @@ HTML
 	if (! subdomain) {
 		subdomain = 'world';
 	}
-	window.location.href = "https://" + subdomain + ".${server_domain}";
+	window.location.href = document.location.protocol + '//' + subdomain + ".${server_domain}";
 }).on("select2:unselect", function(e) {
-	window.location.href = "https://world.${server_domain}";
+	window.location.href = document.location.protocol + "//world.${server_domain}";
 });
 <initjs>
 });
@@ -6256,8 +6247,8 @@ HTML
 ;
 	}		
 	
-	
-	if (($lc eq 'fr') and (has_tag($product_ref, "labels","fr:produits-retires-du-marche-lors-du-scandale-lactalis-de-decembre-2017"))) {
+	# Commenting out out of date warnings below
+	if (0 and ($lc eq 'fr') and (has_tag($product_ref, "labels","fr:produits-retires-du-marche-lors-du-scandale-lactalis-de-decembre-2017"))) {
 		
 		$html .= <<HTML
 <div data-alert class="alert-box warn" id="warning_lactalis_201712" style="display: block; background:#ffaa33;color:black;">
@@ -6270,7 +6261,7 @@ HTML
 ;		
 		
 	}
-	elsif (($lc eq 'fr') and (has_tag($product_ref, "categories","en:baby-milks")) and (
+	elsif (0 and ($lc eq 'fr') and (has_tag($product_ref, "categories","en:baby-milks")) and (
 		
 		has_tag($product_ref, "brands", "amilk") or
 		has_tag($product_ref, "brands", "babycare") or
@@ -6789,6 +6780,28 @@ HTML
 HTML
 ;	
 	
+	}
+	
+	
+	# other fields
+	
+	$html_fields = "";
+	foreach my $field (@ProductOpener::Config::display_other_fields) {
+		# print STDERR "display_product() - field: $field - value: $product_ref->{$field}\n";
+		$html_fields .= display_field($product_ref, $field);
+	}	
+
+	if ($html_fields ne "") {
+	
+		$html .= <<HTML
+<h2>$Lang{product_other_information}{$lc}</h2>
+<div class="row">
+<div class="small-12 columns">
+$html_fields
+</div>
+</div>
+HTML
+;	
 	}
 	
 	# photos and data sources
@@ -8040,72 +8053,74 @@ HTML
 					if ($nid =~ /^energy/) {
 						$value_unit .= "<br>(" . g_to_unit($product_ref->{nutriments}{$nid . "_$col"}, 'kcal') . ' kcal)';
 					}
-					elsif ($nid eq 'sodium') {
-						my $salt = $product_ref->{nutriments}{$nid . "_$col"} * 2.54;
-						if (exists $product_ref->{nutriments}{"salt" . "_$col"}) {
-							$salt = $product_ref->{nutriments}{"salt" . "_$col"};
-						}
-						$salt = $decf->format(g_to_unit($salt, $unit));
-						my $property = '';
-						if ($col eq '100g') {
-							$property = "property=\"food:saltEquivalentPer100g\" content=\"$salt\"";
-						}
-						$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $salt . " " . $unit . "</td>";
+				}
+				
+				if ($nid eq 'sodium') {
+					my $salt = $product_ref->{nutriments}{$nid . "_$col"} * 2.54;
+					if (exists $product_ref->{nutriments}{"salt" . "_$col"}) {
+						$salt = $product_ref->{nutriments}{"salt" . "_$col"};
 					}
-					elsif ($nid eq 'salt') {
-						my $sodium = $product_ref->{nutriments}{$nid . "_$col"} / 2.54;
-						if (exists $product_ref->{nutriments}{"sodium". "_$col"}) {
-							$sodium = $product_ref->{nutriments}{"sodium". "_$col"};
-						}
-						$sodium = $decf->format(g_to_unit($sodium, $unit));
-						my $property = '';
-						if ($col eq '100g') {
-							$property = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";
-						}
-						$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $sodium . " " . $unit . "</td>";
-					}				
-					elsif ($nid eq 'nutrition-score-fr') {
-						# We need to know the category in order to select the right thresholds for the nutrition grades
-						# as it depends on whether it is food or drink
-						
-						# if it is a category stats, the category id is the id field
-						if ((not defined $product_ref->{categories_tags})
-							and (defined $product_ref->{id}) 
-							and ($product_ref->{id} =~ /^en:/) 
-								) {
-							$product_ref->{categories} = $product_ref->{id};
-							compute_field_tags($product_ref, "categories");
-						}
-						
-						if (defined $product_ref->{categories_tags}) {
-						
-							if ($col eq "std") {
-								$values2 .= "<td class=\"nutriment_value${col_class}\"></td>";
-							}
-							else {
-								$values2 .= "<td class=\"nutriment_value${col_class}\">"
-								. uc (compute_nutrition_grade($product_ref, $product_ref->{nutriments}{$nid . "_$col"})) # ! prepared 
-								. "</td>";
-							}
-						}
-						else {
+					$salt = $decf->format(g_to_unit($salt, $unit));
+					my $property = '';
+					if ($col eq '100g') {
+						$property = "property=\"food:saltEquivalentPer100g\" content=\"$salt\"";
+					}
+					$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $salt . " " . $unit . "</td>";
+				}
+				elsif ($nid eq 'salt') {
+					my $sodium = $product_ref->{nutriments}{$nid . "_$col"} / 2.54;
+					if (exists $product_ref->{nutriments}{"sodium". "_$col"}) {
+						$sodium = $product_ref->{nutriments}{"sodium". "_$col"};
+					}
+					$sodium = $decf->format(g_to_unit($sodium, $unit));
+					my $property = '';
+					if ($col eq '100g') {
+						$property = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";
+					}
+					$values2 .= "<td class=\"nutriment_value${col_class}\" $property>" . $sodium . " " . $unit . "</td>";
+				}				
+				elsif ($nid eq 'nutrition-score-fr') {
+					# We need to know the category in order to select the right thresholds for the nutrition grades
+					# as it depends on whether it is food or drink
+					
+					# if it is a category stats, the category id is the id field
+					if ((not defined $product_ref->{categories_tags})
+						and (defined $product_ref->{id}) 
+						and ($product_ref->{id} =~ /^en:/) 
+							) {
+						$product_ref->{categories} = $product_ref->{id};
+						compute_field_tags($product_ref, "categories");
+					}
+					
+					if (defined $product_ref->{categories_tags}) {
+					
+						if ($col eq "std") {
 							$values2 .= "<td class=\"nutriment_value${col_class}\"></td>";
 						}
-					}					
-					elsif ($col eq $product_ref->{nutrition_data_per}) {
-						# % DV ?
-						if ((defined $product_ref->{nutriments}{$nid . "_value"}) and (defined $product_ref->{nutriments}{$nid . "_unit"}) and ($product_ref->{nutriments}{$nid . "_unit"} eq '% DV')) {
-							$value_unit .= ' (' . $product_ref->{nutriments}{$nid . "_value"} . ' ' . $product_ref->{nutriments}{$nid . "_unit"} . ')';
+						else {
+							$values2 .= "<td class=\"nutriment_value${col_class}\">"
+							. uc (compute_nutrition_grade($product_ref, $product_ref->{nutriments}{$nid . "_$col"})) # ! prepared 
+							. "</td>";
 						}
-					}					
-					
-					if ($col eq '100g') {
-						my $property = $nid;
-						$property =~ s/-([a-z])/ucfirst($1)/eg;
-						$property .= "Per100g";
-						$rdfa = " property=\"food:$property\" content=\"" . $product_ref->{nutriments}{$nid . "_$col"} . "\"";
 					}
+					else {
+						$values2 .= "<td class=\"nutriment_value${col_class}\"></td>";
+					}
+				}					
+				elsif ($col eq $product_ref->{nutrition_data_per}) {
+					# % DV ?
+					if ((defined $product_ref->{nutriments}{$nid . "_value"}) and (defined $product_ref->{nutriments}{$nid . "_unit"}) and ($product_ref->{nutriments}{$nid . "_unit"} eq '% DV')) {
+						$value_unit .= ' (' . $product_ref->{nutriments}{$nid . "_value"} . ' ' . $product_ref->{nutriments}{$nid . "_unit"} . ')';
+					}
+				}					
+				
+				if ($col eq '100g') {
+					my $property = $nid;
+					$property =~ s/-([a-z])/ucfirst($1)/eg;
+					$property .= "Per100g";
+					$rdfa = " property=\"food:$property\" content=\"" . $product_ref->{nutriments}{$nid . "_$col"} . "\"";
 				}
+				
 				
 				$values .= "<td class=\"nutriment_value${col_class}\"$rdfa>$value_unit</td>";
 			}
