@@ -405,6 +405,37 @@ sub detect_categories ($) {
 }
 
 
+sub check_nutrition_grades($) {
+
+
+	my $product_ref = shift;
+	
+	if ((defined $product_ref->{nutrition_grade_fr_producer}) and (defined $product_ref->{nutrition_grade_fr}) ) {
+	
+		if ($product_ref->{nutrition_grade_fr_producer} eq $product_ref->{nutrition_grade_fr}) {
+			push @{$product_ref->{quality_tags}}, "nutrition-grade-fr-producer-same-ok";
+		}
+		else {
+			push @{$product_ref->{quality_tags}}, "nutrition-grade-fr-producer-mismatch-nok";
+		}
+	}	
+	
+	if ((defined $product_ref->{nutriments})
+		and (defined $product_ref->{nutriments}{"nutrition-score-fr-producer"})
+		and (defined $product_ref->{nutriments}{"nutrition-score-fr"}) ) {
+	
+		if ($product_ref->{nutriments}{"nutrition-score-fr-producer"} eq $product_ref->{nutriments}{"nutrition-score-fr"}) {
+			push @{$product_ref->{quality_tags}}, "nutrition-score-fr-producer-same-ok";
+		}
+		else {
+			push @{$product_ref->{quality_tags}}, "nutrition-score-fr-producer-mismatch-nok";
+		}
+	}		
+	
+}
+
+
+
 sub check_nutrition_data($) {
 
 
@@ -470,13 +501,17 @@ sub check_nutrition_data($) {
 			push @{$product_ref->{quality_tags}}, "nutrition-all-values-zero";
 		}
 		
-		if ((defined $product_ref->{nutriments}{"carbohydrates_100g"}) and (($product_ref->{nutriments}{"sugars_100g"} + $product_ref->{nutriments}{"starch_100g"}) > ($product_ref->{nutriments}{"carbohydrates_100g"}) + 0.001)) {
+		if ((defined $product_ref->{nutriments}{"carbohydrates_100g"}) and 
+			((((defined $product_ref->{nutriments}{"sugars_100g"}) ? $product_ref->{nutriments}{"sugars_100g"} : 0)
+			+ ((defined $product_ref->{nutriments}{"starch_100g"}) ? $product_ref->{nutriments}{"starch_100g"} : 0)) 
+			> ($product_ref->{nutriments}{"carbohydrates_100g"}) + 0.001)) {
 		
 				push @{$product_ref->{quality_tags}}, "nutrition-sugars-plus-starch-greater-than-carbohydrates";					
 		
 		}
 		
-		if (($product_ref->{nutriments}{"saturated-fat_100g"} > ($product_ref->{nutriments}{"fat_100g"}) + 0.001)) {
+		if (((defined $product_ref->{nutriments}{"saturated-fat_100g"}) ? $product_ref->{nutriments}{"saturated-fat_100g"} : 0) 
+			> (((defined $product_ref->{nutriments}{"fat_100g"}) ? $product_ref->{nutriments}{"fat_100g"} : 0) + 0.001)) {
 		
 				push @{$product_ref->{quality_tags}}, "nutrition-saturated-fat-greater-than-fat";	
 		
@@ -491,6 +526,12 @@ sub check_ingredients($) {
 
 	my $product_ref = shift;
 
+	# spell corrected additivse
+	
+	if ($product_ref->{additives} =~ /spell correction/) {
+		push @{$product_ref->{quality_tags}}, "ingredients-spell-corrected-additives";
+	}
+	
 	
 	# Multiple languages in ingredient lists
 	
@@ -696,6 +737,7 @@ sub check_quality($) {
 	
 	check_ingredients($product_ref);
 	check_nutrition_data($product_ref);
+	check_nutrition_grades($product_ref);
 	check_quantity($product_ref);
 	check_bugs($product_ref);	
 	

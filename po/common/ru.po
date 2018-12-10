@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-11-12 15:21\n"
+"PO-Revision-Date: 2018-12-06 21:40\n"
 "Language-Team: Russian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -159,7 +159,7 @@ msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=ru"
 
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
@@ -318,33 +318,6 @@ msgstr "Коды"
 msgctxt "codes_s"
 msgid "Code"
 msgstr "Код"
-
-msgctxt "column_obsolete_do_not_translate_for_reference_only"
-msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.png\" width=\"178\" height=\"144\" alt=\"<<site_name>>\" /></a>\n\n"
-"<p><<site_name>> gathers information and data on food products from around the world.</p>\n\n"
-"<select_country>\n\n"
-"<p>\n"
-"→ <a href=\"/brands\">Brands</a><br />\n"
-"→ <a href=\"/categories\">Categories</a><br/>\n"
-"</p>\n\n"
-"<p>Food product information (photos, ingredients, nutrition facts etc.) is collected in a collaborative way\n"
-"and is made available to everyone and for all uses in a free and open database.</p>\n\n\n"
-"<p>Find us also on:</p>\n\n"
-"<p>\n"
-"→ <a href=\"https://en.wiki.openfoodfacts.org\">our wiki</a><br />\n"
-"→ <a href=\"https://twitter.com/openfoodfacts\">Twitter</a><br/>\n"
-"→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a><br />\n"
-"→ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
-"+ <a href=\"https://www.facebook.com/groups/openfoodfacts/\">contributors group</a><br />\n"
-"</p>\n\n"
-"<p>iPhone and iPad app on the App Store:</p>\n\n"
-"<a href=\"https://itunes.apple.com/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
-"<p>Android app on Google Play:</p>\n\n"
-"<a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner\"><img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" /></a><br/>\n"
-"<a href=\"https://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
-"<p>Windows Phone app:</p>\n\n"
-"<a href=\"https://microsoft.com/p/openfoodfacts/9nblggh0dkqr\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
-msgstr ""
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
@@ -685,7 +658,7 @@ msgstr "<a href=\"https://world.openfoodfacts.org/legal\">Юридическая
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "и <a href=\"https://www.facebook.com/groups/openfoodfacts/\">группа в Facebook для участников</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
@@ -989,7 +962,7 @@ msgstr "<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\"
 
 msgctxt "ios_app_link"
 msgid "https://itunes.apple.com/app/open-food-facts/id588797948"
-msgstr ""
+msgstr "https://itunes.apple.com/ru/app/open-food-facts/id588797948"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -2352,7 +2325,7 @@ msgstr "60 г, 12 унций, 20 сл"
 
 msgctxt "serving_size_note"
 msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
-msgstr ""
+msgstr "Если таблица пищевой ценности содержит значения для приготовленного продукта, укажите общий размер порций приготовленного продукта (включая воду или молоко)."
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2598,7 +2571,7 @@ msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Магазин W
 
 msgctxt "windows_phone_app_link"
 msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr ""
+msgstr "https://www.microsoft.com/ru-ru/p/openfoodfacts/9nblggh0dkqr"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2697,8 +2670,8 @@ msgid "This product page is not complete. You can help to complete it by editing
 msgstr "Эта страница продукта не завершена. Вы можете помочь заполнить её, отредактировав и добавив больше данных с фотографий, которые у нас есть, или сделав дополнительные фотографий с помощью приложения для <a href=\"https://android.openfoodfacts.org\">Android</a> или <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Спасибо!"
 
 msgctxt "title_separator"
-msgid " — "
-msgstr " — "
+msgid " - "
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -2710,7 +2683,7 @@ msgstr "Переводчики"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
-msgstr ""
+msgstr "Мы хотим сказать СПАСИБО прекрасным переводчикам, благодаря которым люди со всех стран могут пользоваться Open Food Facts, Open Beauty Facts и Open Pet Facts. <a href=\"https://translate.openfoodfacts.org/\"> Вы можете присоединиться к нам в этом глобальном усилии: для этого не требуется никаких технических навыков. </a>"
 
 msgctxt "translators_renewal_notice"
 msgid "Please note that this table is refreshed nightly and might be out of date."
@@ -2806,198 +2779,234 @@ msgstr "Группы NOVA"
 
 msgctxt "footer_partners"
 msgid "Partners"
-msgstr ""
+msgstr "Партнёры"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr ""
+msgstr "/partners"
 
 msgctxt "adults"
 msgid "Adults"
-msgstr ""
+msgstr "Взрослые"
 
 msgctxt "adults_age"
 msgid "18 to 64"
-msgstr ""
+msgstr "От 18 до 64"
 
 msgctxt "adults_description"
 msgid "From 18 years up to and including 64 years of age"
-msgstr ""
+msgstr "От 18 до 64 лет включительно"
 
 msgctxt "elderly"
 msgid "Elderly"
-msgstr ""
+msgstr "Пожилые"
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr ""
+msgstr "65+"
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
-msgstr ""
+msgstr "От 65 лет и старше"
 
 msgctxt "adolescents"
 msgid "Adolescents"
-msgstr ""
+msgstr "Подростки"
 
 msgctxt "adolescents_age"
 msgid "10 to 17"
-msgstr ""
+msgstr "От 10 до 17"
 
 msgctxt "adolescents_description"
 msgid "From 10 years up to and including 17 years of age"
-msgstr ""
+msgstr "От 10 до 17 лет включительно"
 
 msgctxt "children"
 msgid "Children"
-msgstr ""
+msgstr "Дети"
 
 msgctxt "children_age"
 msgid "3 to 9"
-msgstr ""
+msgstr "От 3 до 9"
 
 msgctxt "children_description"
 msgid "From 36 months up to and including 9 years of age"
-msgstr ""
+msgstr "От 36 месяцев до 9 лет включительно"
 
 msgctxt "toddlers"
 msgid "Toddlers"
-msgstr ""
+msgstr "Малыши"
 
 msgctxt "toddlers_age"
 msgid "1 to 2"
-msgstr ""
+msgstr "От 1 до 2"
 
 msgctxt "toddlers_description"
 msgid "From 12 months up to and including 35 months of age"
-msgstr ""
+msgstr "От 12 до 35 месяцев включительно"
 
 msgctxt "infants"
 msgid "Infants"
-msgstr ""
+msgstr "Младенцы"
 
 msgctxt "infants_age"
 msgid "< 1"
-msgstr ""
+msgstr "< 1"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
-msgstr ""
+msgstr "От 12 недель до 11 месяцев включительно"
 
 msgctxt "additives_efsa_evaluation"
 msgid "EFSA evaluation"
-msgstr ""
+msgstr "Оценка EFSA"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_title"
 msgid "Risk of overexposure"
-msgstr ""
+msgstr "Риск чрезмерного воздействия"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
-msgstr ""
+msgstr "Европейское агентство по безопасности продуктов питания (EFSA) определило, что некоторые группы населения имеют высокий риск чрезмерного потребления <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
-msgstr ""
+msgstr "Европейское агентство по безопасности продуктов питания (EFSA) определило, что некоторые группы населения имеют повышенный риск чрезмерного потребления <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
-msgstr ""
+msgstr "Чтобы оценить воздействие на пищевую добавку <tag>, вы можете просмотреть наш список продуктов, которые его содержат. Смотрите список <nb_products> продуктов с <tag> ниже."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
 msgid "%d products with %s"
-msgstr ""
+msgstr "%d продуктов с %s"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_no"
 msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
-msgstr ""
+msgstr "Европейское агентство по безопасности продуктов питания (EFSA) определило, что ни одна группа населения не имеет более 5% членов, потребляющих больше допустимой дневной нормы<tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
-msgstr ""
+msgstr "Высокий риск чрезмерного воздействия"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
-msgstr ""
+msgstr "Умеренный риск чрезмерного воздействия"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "Риск превышения допустимой дневной нормы (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "Риск превышения максимальной дозы без неблагоприятного эффекта (NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "Группы с более чем 50% членов, превышающие допустимую дневную норму (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
 msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "Группы с более чем 5% членов, превышающие допустимую дневную норму (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
 msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "Группы с более чем 50% членов, превышающих максимальную дозу без неблагоприятного эффекта (NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_noael"
 msgid "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "Группы с более чем 5% членов, превышающих максимальную дозу без неблагоприятного эффекта (NOAEL)"
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
-msgstr ""
+msgstr "Некоторые люди"
 
 msgctxt "exposure_description_95th"
 msgid "over 5%"
-msgstr ""
+msgstr "свыше 5%"
 
 msgctxt "exposure_title_mean"
 msgid "Most people"
-msgstr ""
+msgstr "Большинство людей"
 
 msgctxt "exposure_description_mean"
 msgid "over 50%"
-msgstr ""
+msgstr "свыше 50%"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
-msgstr ""
+msgstr "Википедия"
 
 msgctxt "additives_classes"
 msgid "Functions"
-msgstr ""
+msgstr "Функции"
 
 msgctxt "photos_and_data_check"
 msgid "Photos and data check"
-msgstr ""
+msgstr "Проверка фотографий и данных"
 
 msgctxt "photos_and_data_check_description"
 msgid "Product pages can be marked as checked by experienced contributors who verify that the most recent photos are selected and cropped, and that all the product data that can be inferred from the product photos has been filled and is correct."
-msgstr ""
+msgstr "Страницы продуктов погут быть помечены опытными участниками как проверенные, которые подтверждают, что выбраны последние фотографии и они верно обрезаны, и что все данные с фотографии упаковки введены верно."
 
 msgctxt "photos_and_data_checked"
 msgid "Photos and data checked"
-msgstr ""
+msgstr "Фотографии и данные проверены"
 
 msgctxt "i_checked_the_photos_and_data"
 msgid "I checked the photos and data."
-msgstr ""
+msgstr "Я проверил фотографии и данные."
 
 msgctxt "i_checked_the_photos_and_data_again"
 msgid "I checked the photos and data again."
-msgstr ""
+msgstr "Я снова проверил фотографии и данные."
 
 msgctxt "last_check_dates_p"
 msgid "Last check dates"
-msgstr ""
+msgstr "Последние даты проверок"
 
 msgctxt "last_check_dates_s"
 msgid "Last check date"
-msgstr ""
+msgstr "Последняя дата проверки"
 
 msgctxt "product_last_checked"
 msgid "Last check of product page on"
+msgstr ""
+
+msgctxt "product_other_information"
+msgid "Other information"
+msgstr "Доп. сведения"
+
+msgctxt "producer_version_id"
+msgid "Producer version identifier"
+msgstr "Идентификатор серии производства"
+
+msgctxt "net_weight"
+msgid "Net weight"
+msgstr "Вес нетто"
+
+msgctxt "drained_weight"
+msgid "Drained weight"
+msgstr ""
+
+msgctxt "volume"
+msgid "Volume"
+msgstr "Объём"
+
+msgctxt "other_information"
+msgid "Other information"
+msgstr "Доп. сведения"
+
+msgctxt "conservation_conditions"
+msgid "Conservation conditions"
+msgstr "Условия хранения"
+
+msgctxt "recycling_instructions_to_recycle"
+msgid "Recycling instructions - To recycle"
+msgstr "Инструкции по переработке"
+
+msgctxt "recycling_instructions_to_discard"
+msgid "Recycling instructions - To discard"
 msgstr ""
 

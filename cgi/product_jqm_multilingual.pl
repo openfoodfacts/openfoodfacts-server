@@ -276,44 +276,10 @@ else {
 		my $value = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}"));
 		my $unit = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_unit"));
 		my $label = remove_tags_and_quote(decode utf8=>param("nutriment_${enid}_label"));
-		
-		if ($value =~ /nan/i) {
-			$value = '';
-		}
-		
-		if ($nid eq 'alcohol') {
-			$unit = '% vol';
-		}
-		
+
 		my $modifier = undef;
 		
-		if ($value =~ /(\&lt;=|<=|\N{U+2264})( )?/) {
-			$value =~ s/(\&lt;=|<=|\N{U+2264})( )?//;
-			$modifier = "\N{U+2264}";
-		}
-		if ($value =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less)( )?/) {
-			$value =~ s/(\&lt;|<|min|minimum|max|maxi|maximum|environ)( )?//;
-			$modifier = '<';
-		}
-		if ($value =~ /(\&gt;=|>=|\N{U+2265})/) {
-			$value =~ s/(\&gt;=|>=|\N{U+2265})( )?//;
-			$modifier = "\N{U+2265}";
-		}
-		if ($value =~ /(\&gt;|>|min|mini|minimum|greater|more)/) {
-			$value =~ s/(\&gt;|>|min|mini|minimum|greater|more)( )?//;
-			$modifier = '>';
-		}
-		if ($value =~ /(env|environ|about|~|≈)/) {
-			$value =~ s/(env|environ|about|~|≈)( )?//;
-			$modifier = '~';
-		}			
-		if ($value =~ /trace|traces/) {
-			$value = 0;
-			$modifier = '~';
-		}
-		if ($value !~ /\./) {
-			$value =~ s/,/\./;
-		}
+		normalize_nutriment_value_and_modifier(\$value, \$modifier);
 		
 		# New label?
 		my $new_nid = undef;
@@ -345,28 +311,7 @@ else {
 				delete $product_ref->{nutriments}{$nid . "_serving"};
 		}
 		else {
-			if ((defined $modifier) and ($modifier ne '')) {
-				$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
-			}
-			else {
-				delete $product_ref->{nutriments}{$nid . "_modifier"};
-			}
-			$product_ref->{nutriments}{$nid . "_unit"} = $unit;		
-			$product_ref->{nutriments}{$nid . "_value"} = $value;
-			if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
-				$value = $value * $Nutriments{$nid}{iu} ;
-				$unit = $Nutriments{$nid}{unit};
-			}
-			elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
-				$value = $value / 100 * $Nutriments{$nid}{dv} ;
-				$unit = $Nutriments{$nid}{unit};
-			}
-			if ($nid eq 'water-hardness') {
-				$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit);
-			}
-			else {
-				$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
-			}
+			assign_nid_modifier_value_and_unit($product_ref, $nid, $modifier, $value, $unit);
 		}
 	}
 	
