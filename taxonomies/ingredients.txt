@@ -8,6 +8,7 @@ stopwords:en:contains, contain, with, in varying proportions
 stopwords:es:contiene
 stopwords:fi:sisältää
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient
+stopwords:hr:sastojci
 stopwords:hu:tartalmaz
 stopwords:it:contiene
 stopwords:nl:bevat, met, waarvan
@@ -19,7 +20,9 @@ stopwords:sv:innehåller, från, med
 # postfixes
 
 # en
-# *organically grown products
+# 
+# Contains genetically modified organisms
+# organically grown products
 # prefried in vegetable oil
 
 # de
@@ -37,6 +40,7 @@ stopwords:sv:innehåller, från, med
 
 # fr
 # Contient une source de phénylalamine.
+# Contient des organismes génétiquement modifiés
 # d'élevage au sol
 # Fabriqué dans un atelier qui utilise : céleri, moutarde et oeuf.
 # *produits issus de l'agriculture biologique.
@@ -58,7 +62,13 @@ stopwords:sv:innehåller, från, med
 # Product geproduceerd in een werkruimte waar ook het volgende wordt gebruikt : melk, selderij, sesam, weekdieren.
 
 # pt
+# Contem organismos geneticamente modificados
 # Pode conter vestigios de aipo. Percentagens expressas sobre o total da receita.
+# Pode conter vestígios de leite
+
+# ro
+# Produs maturat si afumat cu lemn de fag. 
+# Pentru 100g produs se prelucreaza 158 g carne de porc.
 
 en:ingredient
 da:indeholder
@@ -66,6 +76,8 @@ de:Zutaten
 fr:ingrédient
 it:ingredienti
 nl:ingrediënt, ingrediënten
+sk:obsahuje
+sl:vsebuje
 sv:innehåller
 
 # additive classes (from Global_additives_classes_taxonomy)
