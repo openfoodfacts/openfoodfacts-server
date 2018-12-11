@@ -68,9 +68,10 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::URL qw/:all/;
-use ProductOpener::Data qw/:all/;
+
 
 use CGI qw/:cgi :form escapeHTML/;
+use MongoDB;
 use Encode;
 use Log::Any qw($log);
 
@@ -251,7 +252,7 @@ sub store_product($$) {
 	
 	my $new_data_root = $data_root;
 	my $new_www_root = $www_root;
-	my $new_products_collection = get_products_collection();
+	my $new_products_collection = $products_collection;
 		
 	
 	# Changing the code?
@@ -266,7 +267,7 @@ sub store_product($$) {
 			my $new_server = $product_ref->{new_server};
 			$new_data_root = $options{other_servers}{$new_server}{data_root};
 			$new_www_root = $options{other_servers}{$new_server}{www_root};
-			$new_products_collection = get_collection($options{other_servers}{$new_server}{mongodb}, 'products');
+			$new_products_collection = $options{other_servers}{$new_server}{products_collection};
 			$product_ref->{server} = $product_ref->{new_server};
 			delete $product_ref->{new_server};
 		}
@@ -303,10 +304,7 @@ sub store_product($$) {
 
 			delete $product_ref->{old_code};
 			
-			execute_query(sub {
-				return $new_products_collection->delete_one({"_id" => $product_ref->{_id}});
-			});
-			
+			$products_collection->remove({"_id" => $product_ref->{_id}});
 			$product_ref->{_id} = $product_ref->{code};
 
 		}
@@ -397,10 +395,10 @@ sub store_product($$) {
 
 	
 	if ($product_ref->{deleted}) {
-		$new_products_collection->delete_one({"_id" => $product_ref->{_id}});
+		$new_products_collection->remove({"_id" => $product_ref->{_id}});
 	}
 	else {
-		$new_products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, { upsert => 1 });
+		$new_products_collection->save($product_ref);
 	}
 	
 	store("$new_data_root/products/$path/$rev.sto", $product_ref);
@@ -1571,7 +1569,7 @@ sub log_change {
 		rev => $change_ref->{rev},
 		diffs => $change_ref->{diffs}
 	};
-	get_recent_changes_collection()->insert_one($change_document);
+	$recent_changes_collection->insert_one($change_document);
 
 }
 
@@ -1619,4 +1617,3 @@ sub compute_changes_diff_text {
 }
 
 1;
-
