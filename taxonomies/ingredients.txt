@@ -15933,13 +15933,13 @@ sv:di- och trifosfater
 <en:Sequestrant
 <en:Stabilizer
 <en:Thickener
-en:Polyphosphate, Polyphosphate E452, E452, e 452, e-452
+en:Polyphosphates, Polyphosphate E452, E452, e 452, e-452
 ar:E452, e 452, e-452
 cs:E452, e 452, e-452
-de:Polyphosphate, E452, e 452, e-452
+de:Polyphosphates, E452, e 452, e-452
 es:polifosfatos, E452, e 452, e-452
 it:E452, e 452, e-452
-fr:polyphosphate, polyphosphates, E452, e 452, e-452
+fr:polyphosphates, polyphosphate, E452, e 452, e-452
 hu:E452, e 452, e-452
 mk:E452, e 452, e-452
 nl:Polyfosfaten, E452, e 452, e-452
@@ -17290,6 +17290,16 @@ it:polpa di mango
 nl:mangopuree
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20mangue
 # 393 products @2018-09-27
+
+# <en:mango
+fr:noyaux de mangue
+# ingredient/fr:noyaux-de-mangue has 30 products in french @2018-12-12
+
+<en:mango
+fr:pulpe de mangue
+de:Mangopulpe, Mangomark
+it:polpa di mango
+# ingredient/fr:pulpe-de-mangue has 49 products in 3 languages @2018-12-12
 
 # APPLE is a sweet, edible fruit produced by an apple tree (Malus pumila).
 # This can be a compound product, i.e. appels (gedroogde appels, voedingszuur (citroenzuur), conserveermiddel (_zwaveldioxide_))
@@ -29261,8 +29271,6 @@ fr:affermissant
 
 fr:extrait riche en tocophérol, extraits riches en tocophérol
 
-fr:polyphosphate
-
 fr:inuline
 
 fr:disulfite de sodium
@@ -29279,12 +29287,7 @@ fr:sardine
 
 fr:karité
 
-fr:triphosphate
-
 fr:lactate de potassium
-
-
-fr:biotine
 
 fr:bouillon de légume
 
@@ -31096,7 +31099,7 @@ fr:piment fort
 
 en:cayenne pepper                       
 es:pimienta de cayena
-fr:piment de Cayenne
+fr:piment de Cayenne, poivre de cayenne, cayenne
 nl:cayennepeper
 de:Cayennepfeffer
 scoville:en:30000-50000
@@ -31113,9 +31116,6 @@ fr:flageolets
 
 fr:carbonates de potassium
 
-fr:phosphate trisodique
-
-
 # RANDOM
 
 fr:fumée de bois de hêtre
@@ -31130,8 +31130,6 @@ fr:aronie, aronia
 
 fr:extraits naturels
 
-
-
 fr:concentré de carthame
 
 fr:pain
@@ -31139,18 +31137,11 @@ carbon_footprint_fr_foodges_ingredient:fr: Pain
 
 fr:purée de goyave
 
-
-
-
 fr:croûte
 
 fr:éclats de caramel
 
 fr:sauce de poisson
-
-
-
-
 
 fr:feuilles d'oranger
 
@@ -31158,14 +31149,10 @@ fr:carbonate acide de potassium
 
 fr:cresson
 
-
 fr:glucono-delta-lactone
 
 fr:esters lactiques des mono et diglycérides d'acides gras
 
-
-
-fr:pulpe de mangue
 
 fr:psyllium
 
@@ -31269,7 +31256,7 @@ fr:jaunes d'oeufs frais
 allergens:fr:jaunes d'_oeufs_ frais
 
 
-fr:poivre de cayenne
+
 fr:chlorophylles
 
 fr:scarole
@@ -31281,8 +31268,6 @@ fr:acétate de calcium
 fr:sodium bicarbonate
 
 fr:ferments de maturation
-
-fr:polyphosphates de sodium
 
 fr:fibre de bambou, fibres de bambou
 
@@ -32099,7 +32084,6 @@ fr:nuoc mâm
 
 fr:galacto-oligosaccharides
 
-fr:noyaux de mangue
 
 
 
@@ -32841,9 +32825,6 @@ fr:sol
 
 
 fr:conservateur de fruit
-
-
-fr:cayenne
 
 fr:jus d'agave concentré
 
