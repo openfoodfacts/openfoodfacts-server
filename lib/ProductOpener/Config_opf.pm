@@ -30,6 +30,7 @@ BEGIN
 	@EXPORT = qw();
 	@EXPORT_OK = qw(
 		%admins
+		%moderators
 		
 		$server_domain
 		@ssl_subdomains
@@ -41,8 +42,6 @@ BEGIN
 
 		$facebook_app_id
 		$facebook_app_secret
-
-		$csrf_secret
 
 		$google_cloud_vision_api_key
 		
@@ -91,11 +90,15 @@ use ProductOpener::Config2;
 
 %admins = map { $_ => 1 } qw(
 agamitsudo
+aleene
 bcatelin
+bojackhorseman
 hangy
 javichu
 kyzh
-scanparty-franprix-05-2016
+lafel
+lucaa
+moon-rabbit
 sebleouf
 segundo
 stephane
@@ -103,7 +106,11 @@ tacinte
 tacite
 teolemon
 twoflower
-scanparty-franprix-05-2016
+
+);
+
+%moderators = map { $_ => 1 } qw(
+
 );
 
 @edit_rules = ();
@@ -123,7 +130,6 @@ $data_root = $ProductOpener::Config2::data_root;
 $facebook_app_id = $ProductOpener::Config2::facebook_app_id;
 $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
-$csrf_secret = $ProductOpener::Config2::csrf_secret;
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 
 $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
@@ -132,7 +138,7 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 $reference_timezone = 'Europe/Paris';
 
 $contact_email = 'contact@openproductsfacts.org';
-$admin_email = 'biz@joueb.com';
+$admin_email = 'stephane@openfoodfacts.org';
 
 
 $thumb_size = 100;
@@ -184,13 +190,13 @@ HTML
 
 );
 
-@product_image_fields = qw(front ingredients);
+#@product_image_fields = qw(front ingredients);
 
-#fields that have a taxonomy
+# fields for which we will load taxonomies
 
 @taxonomy_fields = qw(states countries languages labels categories additives allergens traces nutrient_levels ingredients periods_after_opening);
 
-# fields in product edit form
+# fields in product edit form, above ingredients and nutrition facts
 
 #@product_fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link periods_after_opening expiration_date purchase_places stores countries  );
 @product_fields = qw(quantity packaging brands categories labels origins manufacturing_places emb_codes link periods_after_opening expiration_date purchase_places stores countries  );
