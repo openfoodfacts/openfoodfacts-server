@@ -30,6 +30,7 @@ BEGIN
 	@EXPORT = qw();
 	@EXPORT_OK = qw(
 		%admins
+		%moderators
 		
 		$server_domain
 		@ssl_subdomains
@@ -89,12 +90,15 @@ use ProductOpener::Config2;
 
 %admins = map { $_ => 1 } qw(
 agamitsudo
+aleene
 bcatelin
-beniben
+bojackhorseman
 hangy
 javichu
 kyzh
-scanparty-franprix-05-2016
+lafel
+lucaa
+moon-rabbit
 sebleouf
 segundo
 stephane
@@ -102,7 +106,11 @@ tacinte
 tacite
 teolemon
 twoflower
-scanparty-franprix-05-2016
+
+);
+
+%moderators = map { $_ => 1 } qw(
+
 );
 
 @edit_rules = ();
@@ -130,7 +138,7 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 $reference_timezone = 'Europe/Paris';
 
 $contact_email = 'contact@openbeautyfacts.org';
-$admin_email = 'biz@joueb.com';
+$admin_email = 'stephane@openfoodfacts.org';
 
 
 $thumb_size = 100;
@@ -182,7 +190,7 @@ HTML
 
 );
 
-@product_image_fields = qw(front ingredients);
+#@product_image_fields = qw(front ingredients);
 
 # fields for which we will load taxonomies
 

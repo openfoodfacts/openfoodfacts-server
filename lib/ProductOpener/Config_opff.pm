@@ -30,6 +30,7 @@ BEGIN
 	@EXPORT = qw();
 	@EXPORT_OK = qw(
 		%admins
+		%moderators
 		
 		$server_domain
 		@ssl_subdomains
@@ -41,6 +42,8 @@ BEGIN
 		
 		$facebook_app_id
 		$facebook_app_secret
+		
+		$google_cloud_vision_api_key
 		
 		$crowdin_project_identifier
 		$crowdin_project_key
@@ -86,11 +89,15 @@ use ProductOpener::Config2;
 
 %admins = map { $_ => 1 } qw(
 agamitsudo
+aleene
 bcatelin
+bojackhorseman
 hangy
 javichu
 kyzh
-scanparty-franprix-05-2016
+lafel
+lucaa
+moon-rabbit
 sebleouf
 segundo
 stephane
@@ -98,7 +105,11 @@ tacinte
 tacite
 teolemon
 twoflower
-scanparty-franprix-05-2016
+
+);
+
+%moderators = map { $_ => 1 } qw(
+
 );
 
 @edit_rules = ();
@@ -116,6 +127,8 @@ $data_root = $ProductOpener::Config2::data_root;
 
 $facebook_app_id = $ProductOpener::Config2::facebook_app_id;
 $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
+
+$google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 
 $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
 $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;

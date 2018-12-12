@@ -114,7 +114,7 @@ $('.new_lc').each(function() {
 $(document).foundation('tab', 'reflow');
 }
 
-function select_nutriment(ui) {
+function select_nutriment(event,ui) {
 
 
 	//alert(ui.item.id + ' = ' + ui.item.value);
