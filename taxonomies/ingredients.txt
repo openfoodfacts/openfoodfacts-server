@@ -28953,15 +28953,70 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tuber_aestivum
 
 
 
+# The term shrimp is used to refer to some decapod crustaceans, although the exact animals covered can vary. 
+
+en:shrimp
+# ace:Udeuëng
+ak:Monko
+bn:চিংড়ি
+ca:gamba
+# chr:ᎽᏈ
+# chy:Hetótóhne
+# ckb:مەیگوو
+cs:krevety
+da:Reje
+de:Crevetten, Garnele
+# de-ch:Garnele
+# en-ca:shrimp
+# en-gb:shrimp
+eo:salikoko
+es:gamba
+eu:Izkira
+fa:میگو
+fi:Katkaravut
+fo:Rækja
+fr:crevette, crevettes
+gl:Gamba
+he:שרימפ
+hu:garnéla
+id:Udang
+it:Gamberetti, gambero
+ja:エビ
+ko:새우
+la:Squilla
+# lzh:蝦
+mk:ракчиња
+nl:granaal, garnalen
+# nrm:Chèrvette
+oc:Cambaròta
+pt:camarão
+# pt-br:Camarão
+ro:crevete
+ru:креветки
+# scn:Gàmmaru
+sw:Uduvi
+th:กุ้งฝอย
+tr:Karides
+vi:Tôm
+wa:Gurnåte
+# yue:蝦
+za:Gungq
+zh:虾
+wikidata:en:Q1517781
+wikipedia:en:https://en.wikipedia.org/wiki/Shrimp
+# ingredient/fr:crevette has 829 products in 7 languages @2018-12-14
+
+
 # Whiteleg shrimp (Litopenaeus vannamei, formerly Penaeus vannamei), also known as Pacific white shrimp or king prawn, is a variety of prawn of the eastern Pacific Ocean commonly caught or farmed for food.
 
-en: Whiteleg shrimp, Penaeus vannamei
-de:Crevetten, Penaeus vannamei 
-fr:crevettes, penaeus vannamei
-it: gamberi, Penaeus vannamei
-pl: krewetka białonoga, penaeus vannamei
-pt: camarão-de-patas-brancas, penaeus vannamei
-wikidata:en: Q3002564
+<en:shrimp
+en:Whiteleg shrimp, Penaeus vannamei
+de:Penaeus vannamei 
+fr:Crevette à pattes blanches, penaeus vannamei
+it:Penaeus vannamei
+pl:krewetka białonoga, penaeus vannamei
+pt:camarão-de-patas-brancas, penaeus vannamei
+wikidata:en:Q3002564
 wikipedia:en:https://en.wikipedia.org/wiki/Whiteleg_shrimp
 # ingredient/fr:penaeus-vannamei has 90 products in 3 languages @2018-12-14
 
@@ -29772,8 +29827,6 @@ es:colín de Alaska
 fr:colin d’Alaska
 nl:Alaska koolvis
 de:Alaska-Seelachs
-
-fr:crevette
 
 carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage entier
 
@@ -32860,9 +32913,6 @@ allergens:fr:_noix de st jacques_
 
 fr:merlu blanc
 allergens:fr:_merlu_ blanc
-
-fr:crevettes décortiquées
-allergens:fr:_crevettes_ décortiquées
 
 fr:maquereau
 allergens:fr:_maquereau_
