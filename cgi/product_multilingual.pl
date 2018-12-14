@@ -334,7 +334,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				delete $product_ref->{$ingredients_text_with_allergens};
 			}
 
-			compute_field_tags($product_ref, $field);
+			compute_field_tags($product_ref, $lc, $field);
 			
 		}
 		else {
