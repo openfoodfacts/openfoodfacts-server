@@ -214,7 +214,7 @@ use Data::Dumper;
 print STDERR Dumper($product_ref);
 
 
-my $expected_product_ref = 
+my $expected_product_ref =
 {
           'ingredients_hierarchy' => [
                                        'en:palm-kernel-fat',
@@ -392,7 +392,7 @@ $expected_product_ref = {
                                            'en:soya-lecithin',
                                            'en:glucose-fructose-syrup',
                                            'en:sugar',
-                                           'de:orangenfruchtfleish',
+                                           'de:orangenfruchtfleisch',
                                            'en:concentrated-orange-juice',
                                            "fr:\x{e9}quivalent jus d'orange",
                                            'fr:citrate-de-calcium',
@@ -453,7 +453,7 @@ $expected_product_ref = {
                                        'en:fructose',
                                        'en:glucose',
                                        'en:sugar',
-                                       'de:orangenfruchtfleish',
+                                       'de:orangenfruchtfleisch',
                                        'en:orange',
                                        'en:citrus-fruit',
                                        'en:fruit',
@@ -531,7 +531,7 @@ $expected_product_ref = {
                                   'en:fructose',
                                   'en:glucose',
                                   'en:sugar',
-                                  'de:orangenfruchtfleish',
+                                  'de:orangenfruchtfleisch',
                                   'en:orange',
                                   'en:citrus-fruit',
                                   'en:fruit',
@@ -709,7 +709,7 @@ $expected_product_ref = {
                              {
                                'percent' => '4.5',
                                'text' => 'pulpe d\'orange',
-                               'id' => 'de:orangenfruchtfleish'
+                               'id' => 'de:orangenfruchtfleisch'
                              },
                              {
                                'percent' => '1.4',
