@@ -13,10 +13,6 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 
-binmode(STDIN, ":encoding(UTF-8)");
-binmode(STDOUT, ":encoding(UTF-8)");
-binmode(STDERR, ":encoding(UTF-8)");
-
 # dummy product for testing
 
 my $product_ref = {
@@ -27,8 +23,7 @@ my $product_ref = {
 compute_languages($product_ref);
 clean_ingredients_text($product_ref);
 
-use Data::Dumper;
-print STDERR Dumper($product_ref);
+diag explain $product_ref;
 
 is($product_ref->{ingredients_text_fr}, "lait 98 % ,sel,ferments lactiques,coagulant");
 
@@ -44,8 +39,7 @@ $product_ref = {
 compute_languages($product_ref);
 clean_ingredients_text($product_ref);
 
-use Data::Dumper;
-print STDERR Dumper($product_ref);
+diag explain $product_ref;
 
 is($product_ref->{ingredients_text_fr}, "");
 
@@ -59,8 +53,7 @@ $product_ref = {
 compute_languages($product_ref);
 clean_ingredients_text($product_ref);
 
-use Data::Dumper;
-print STDERR Dumper($product_ref);
+diag explain $product_ref;
 
 is($product_ref->{ingredients_text_fr}, "viande de porc (Origine UE), pistaches (fruits à coque) 5%, lactose (lait), sel, dextroses poivre, sucre, ail, ferments, conservateur : nitrate de potassium ; antioxydant : érythorbate de sodium. 134 g de viande utilisés pour 100 g de produit fini.");
 
@@ -73,8 +66,7 @@ $product_ref = {
 compute_languages($product_ref);
 clean_ingredients_text($product_ref);
 
-use Data::Dumper;
-print STDERR Dumper($product_ref);
+diag explain $product_ref;
 
 is($product_ref->{ingredients_text_fr}, "ln rédients : Sauce soja 38.3% fèves de soja dégraissées'&i se blé, fèves de sop 1.6%, alcoo ), sucre eau, (eall, riz, alcool, ma t de riz, sel, correcteur d'acidité : acide sel, aldbôt;qolorant : caramel ordinaire ; amidon modifié de diamidon acétylé, phosphate de diamidon hydroxypro)/é'");
 
@@ -87,8 +79,7 @@ $product_ref = {
 compute_languages($product_ref);
 clean_ingredients_text($product_ref);
 
-use Data::Dumper;
-print STDERR Dumper($product_ref);
+diag explain $product_ref;
 
 is($product_ref->{ingredients_text_fr}, "viande de porc 72 %. gras de porc, eau, farine (BLE), conservateur E325, épices et arornales, sel cle Guérarandes 1.1%. lactose (LAIT), acidifiant :E 262, conservateurs:E250 E316, arormes, arome naturel.");
 

@@ -21,9 +21,7 @@ my $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-print STDERR Dumper($product_ref->{traces_tags});
+diag explain $product_ref->{traces_tags};
 
 is_deeply($product_ref->{allergens_tags}, [
 'en:celery',
@@ -54,9 +52,6 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-
 is_deeply($product_ref->{allergens_tags}, [
 "en:gluten",
 "en:mustard",
@@ -80,9 +75,6 @@ $product_ref = {
 
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
-
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
 
 is_deeply($product_ref->{allergens_tags}, [
 "en:celery",
@@ -113,9 +105,6 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-
 is_deeply($product_ref->{allergens_tags}, [
 'en:gluten',
 'en:milk',
@@ -139,9 +128,6 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-
 is_deeply($product_ref->{allergens_tags}, [
 ]
 );
@@ -164,9 +150,7 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-print STDERR Dumper($product_ref->{allergens_tags});
+diag explain $product_ref->{allergens_tags};
 
 is_deeply($product_ref->{allergens_tags}, [
 'en:molluscs',
@@ -182,9 +166,7 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-print STDERR Dumper($product_ref->{allergens_tags});
+diag explain $product_ref->{allergens_tags};
 
 is_deeply($product_ref->{allergens_tags}, [
 'en:molluscs',
@@ -200,9 +182,7 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-print STDERR Dumper($product_ref->{allergens_tags});
+diag explain $product_ref->{allergens_tags};
 
 is_deeply($product_ref->{allergens_tags}, [
 'en:molluscs',
@@ -218,9 +198,7 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-print STDERR Dumper($product_ref->{allergens_tags});
+diag explain $product_ref->{allergens_tags};
 
 is_deeply($product_ref->{allergens_tags}, [
 'en:molluscs',
@@ -236,9 +214,7 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-print STDERR Dumper($product_ref->{allergens_tags});
+diag explain $product_ref->{allergens_tags};
 
 is_deeply($product_ref->{allergens_tags}, [
 'en:gluten',
@@ -257,9 +233,7 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-print STDERR Dumper($product_ref->{allergens_tags});
+diag explain $product_ref->{allergens_tags};
 
 is_deeply($product_ref->{allergens_tags}, [
 'en:gluten',
@@ -280,9 +254,7 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-print STDERR Dumper($product_ref->{allergens_tags});
+diag explain $product_ref->{allergens_tags};
 
 is_deeply($product_ref->{allergens_tags}, [
 'en:gluten',

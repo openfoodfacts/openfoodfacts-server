@@ -20,7 +20,7 @@ my $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 # vitamine C is not used as an additive (no fuction)
 
@@ -106,10 +106,6 @@ is_deeply($product_ref->{additives_original_tags}, [
                               ],
 );
 
-
-#use Data::Dumper;
-#print STDERR Dumper($product_ref);
-
 is(canonicalize_taxonomy_tag("fr", "additives", "erythorbate de sodium"), "en:e316");
 is(canonicalize_taxonomy_tag("fr", "additives", "acide citrique"), "en:e330");
 
@@ -123,9 +119,6 @@ $product_ref = {
 };
 
 extract_ingredients_classes_from_text($product_ref);
-
-#use Data::Dumper;
-#print STDERR Dumper($product_ref->{additives_original_tags});
 
 is_deeply($product_ref->{additives_original_tags}, [
                                 'en:e503',
@@ -143,10 +136,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-#use Data::Dumper;
-#print STDERR Dumper($product_ref->{additives_original_tags});
-
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
 				'en:e502',
@@ -161,9 +151,6 @@ $product_ref = {
 };
 
 extract_ingredients_classes_from_text($product_ref);
-
-#use Data::Dumper;
-#print STDERR Dumper($product_ref->{additives_original_tags});
 
 is_deeply($product_ref->{additives_original_tags}, [
                                 'en:e500',
@@ -180,9 +167,6 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref->{additives_original_tags});
-
 is_deeply($product_ref->{additives_original_tags}, [
                                 'en:e173',
                                 'en:e175',
@@ -196,9 +180,6 @@ $product_ref = {
 };
 
 extract_ingredients_classes_from_text($product_ref);
-
-use Data::Dumper;
-#print STDERR Dumper($product_ref->{additives_original_tags});
 
 is_deeply($product_ref->{additives_original_tags}, [
                                 'en:e965ii',
@@ -216,9 +197,6 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref->{additives_original_tags});
-
 0 and is_deeply($product_ref->{additives_original_tags}, [
                                 'en:e160a',
                                 'en:e160c',
@@ -233,9 +211,6 @@ $product_ref = {
 };
 
 extract_ingredients_classes_from_text($product_ref);
-
-use Data::Dumper;
-#print STDERR Dumper($product_ref->{additives_original_tags});
 
 0 and is_deeply($product_ref->{additives_original_tags}, [
                                 'en:e100',
@@ -254,9 +229,6 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref->{additives_original_tags});
-
 is_deeply($product_ref->{additives_original_tags}, [
                                 'en:e160a',
                               ],
@@ -270,9 +242,6 @@ $product_ref = {
 };
 
 extract_ingredients_classes_from_text($product_ref);
-
-use Data::Dumper;
-#print STDERR Dumper($product_ref->{additives_original_tags});
 
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e14xx',
@@ -303,8 +272,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-use Data::Dumper;
-print STDERR Dumper($product_ref->{additives_original_tags});
+diag explain $product_ref->{additives_original_tags};
 
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e967',
@@ -347,7 +315,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e300',
@@ -361,7 +329,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e300',
@@ -375,8 +343,6 @@ $product_ref = {
 };
 
 extract_ingredients_classes_from_text($product_ref);
-
-#print STDERR $product_ref->{additives} . "\n";
 
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e300',
@@ -392,7 +358,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{vitamins_tags}, [
         "en:vitamin-a",
@@ -408,7 +374,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{vitamins_tags}, [
         "en:vitamin-e",
@@ -424,7 +390,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{vitamins_tags}, [
         "en:folic-acid",
@@ -442,7 +408,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{vitamins_tags}, [
         "en:vitamin-d",
@@ -462,7 +428,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{vitamins_tags}, [
         "en:vitamin-c",
@@ -481,7 +447,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 
 is_deeply($product_ref->{additives_original_tags}, [
@@ -503,7 +469,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 
 is_deeply($product_ref->{additives_original_tags}, [
@@ -525,7 +491,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
                               ],
@@ -550,7 +516,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
                               ],
@@ -571,7 +537,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
                               ],
@@ -592,7 +558,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 
 is_deeply($product_ref->{additives_original_tags}, [
@@ -627,7 +593,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 
 is_deeply($product_ref->{additives_original_tags}, [
@@ -663,9 +629,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR Dumper($product_ref->{additives_original_tags});
+diag explain $product_ref->{additives_original_tags};
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e322i',
@@ -681,9 +647,9 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR Dumper($product_ref->{additives_original_tags});
+diag explain $product_ref->{additives_original_tags};
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e422',
@@ -732,7 +698,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
                               ],
@@ -751,7 +717,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
 	"en:e341"
@@ -771,7 +737,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
         "en:e1400",
@@ -818,7 +784,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
                               ],
@@ -844,7 +810,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
 	"en:e300",
@@ -876,7 +842,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
 	"en:e300",
@@ -897,7 +863,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
 	"en:e330",
@@ -914,7 +880,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
                               ],
@@ -950,7 +916,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
         "en:e1001",
@@ -967,7 +933,7 @@ Lait partiellement écrémé, eau, lactose, maltodextrines, huiles végétales (
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
         "en:e322i",
@@ -999,7 +965,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
         "en:e472c",
@@ -1056,7 +1022,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
                               ],
@@ -1077,7 +1043,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
                               ],
@@ -1092,7 +1058,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
                               ],
@@ -1111,7 +1077,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
 	"en:e330",
@@ -1130,7 +1096,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
 	"en:e422",
@@ -1152,7 +1118,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e500',
@@ -1186,8 +1152,6 @@ is_deeply($product_ref->{additives_original_tags}, [
 ],
 );
 
-#print STDERR Dumper($product_ref->{additives_original_tags});
-
 
 $product_ref = {
         lc => "fr",
@@ -1198,7 +1162,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
 	"en:e252",
@@ -1218,7 +1182,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
 	"en:e163",
@@ -1242,7 +1206,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e322',
@@ -1261,7 +1225,6 @@ is_deeply($product_ref->{additives_original_tags}, [
                               ],
 );
 
-#print STDERR Dumper($product_ref->{additives_original_tags});
 
 
 
@@ -1274,7 +1237,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e330',
@@ -1288,7 +1251,6 @@ is_deeply($product_ref->{additives_original_tags}, [
                               ],
 );
 
-#print STDERR Dumper($product_ref->{additives_original_tags});
 
 
 
@@ -1302,7 +1264,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e501',
@@ -1310,7 +1272,6 @@ is_deeply($product_ref->{additives_original_tags}, [
                               ],
 );
 
-#print STDERR Dumper($product_ref->{additives_original_tags});
 
 
 $product_ref = {
@@ -1322,7 +1283,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e330',
@@ -1330,7 +1291,6 @@ is_deeply($product_ref->{additives_original_tags}, [
                               ],
 );
 
-#print STDERR Dumper($product_ref->{additives_original_tags});
 
 
 
@@ -1344,7 +1304,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e414',
@@ -1357,7 +1317,6 @@ is_deeply($product_ref->{additives_original_tags}, [
                               ],
 );
 
-#print STDERR Dumper($product_ref->{additives_original_tags});
 
 
 $product_ref = {
@@ -1369,7 +1328,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
           'en:e171',
@@ -1377,8 +1336,6 @@ is_deeply($product_ref->{additives_original_tags}, [
 
                               ],
 );
-
-#print STDERR Dumper($product_ref->{additives_original_tags});
 
 
 
@@ -1391,7 +1348,7 @@ $product_ref = {
 
 extract_ingredients_classes_from_text($product_ref);
 
-print STDERR $product_ref->{additives} . "\n";
+diag explain $product_ref->{additives};
 
 is_deeply($product_ref->{additives_original_tags}, [
 
