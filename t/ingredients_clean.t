@@ -6,6 +6,7 @@ use warnings;
 use utf8;
 
 use Test::More;
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;

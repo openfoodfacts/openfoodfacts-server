@@ -5,6 +5,7 @@ use warnings;
 use utf8;
 
 use Test::More;
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -50,7 +51,7 @@ foreach my $link (@links) {
 	foreach my $lang (keys %{$Lang{$field}}) {
 		my $textid = $Lang{$field}{$lang};
 		$textid =~ s/.*\///;
-		
+
 		if ($textid ne $en_links{$link} ) {
 
 		#	print "$link - $lang - $textid\n";
@@ -59,7 +60,7 @@ foreach my $link (@links) {
 				"$field link - lang: $lang - textid: $textid -- file /lang/$lang/texts/$textid.html does not exist");
 		}
 
-		
+
 	}
 
 }
