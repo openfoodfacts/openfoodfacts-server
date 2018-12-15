@@ -423,8 +423,6 @@ $expected_product_ref = {
                                        'en:flavouring',
                                        'en:thickener',
                                        'en:xanthan-gum',
-                                       'en:stabiliser',
-                                       'en:thickener',
                                        'en:chocolate',
                                        'en:flavouring',
                                        'en:emulsifier',
@@ -439,7 +437,6 @@ $expected_product_ref = {
                                        'en:egg',
                                        'en:glucose-fructose-syrup',
                                        'en:fructose',
-                                       'en:syrup',
                                        'en:glucose',
                                        'en:colza-oil',
                                        'en:vegetable-oil',
@@ -454,7 +451,6 @@ $expected_product_ref = {
                                        'en:lecithins',
                                        'en:glucose-fructose-syrup',
                                        'en:fructose',
-                                       'en:syrup',
                                        'en:glucose',
                                        'en:sugar',
                                        'de:orangenfruchtfleish',
@@ -464,8 +460,8 @@ $expected_product_ref = {
                                        'en:concentrated-orange-juice',
                                        'en:orange-juice',
                                        'en:orange',
-                                       'en:fruit-juice',
                                        'en:citrus-fruit',
+                                       'en:fruit-juice',
                                        'en:fruit',
                                        "fr:\x{e9}quivalent jus d'orange",
                                        'fr:citrate-de-calcium',
@@ -487,7 +483,9 @@ $expected_product_ref = {
                                        "fr:karit\x{e9} et palme en proportions variables",
                                        'fr:carbonate-acide-d-ammonium',
                                        'en:disodium-diphosphate',
-                                       'en:sodium-hydrogen-carbonate'
+                                       'en:diphosphates',
+                                       'en:sodium-hydrogen-carbonate',
+                                  'en:sodium-bicarbonate'
                                      ],
           'ingredients_tags' => [
                                   'fr:marmelade-d-oranges',
@@ -503,8 +501,6 @@ $expected_product_ref = {
                                   'en:flavouring',
                                   'en:thickener',
                                   'en:xanthan-gum',
-                                  'en:stabiliser',
-                                  'en:thickener',
                                   'en:chocolate',
                                   'en:flavouring',
                                   'en:emulsifier',
@@ -519,7 +515,6 @@ $expected_product_ref = {
                                   'en:egg',
                                   'en:glucose-fructose-syrup',
                                   'en:fructose',
-                                  'en:syrup',
                                   'en:glucose',
                                   'en:colza-oil',
                                   'en:vegetable-oil',
@@ -534,7 +529,6 @@ $expected_product_ref = {
                                   'en:lecithins',
                                   'en:glucose-fructose-syrup',
                                   'en:fructose',
-                                  'en:syrup',
                                   'en:glucose',
                                   'en:sugar',
                                   'de:orangenfruchtfleish',
@@ -544,8 +538,8 @@ $expected_product_ref = {
                                   'en:concentrated-orange-juice',
                                   'en:orange-juice',
                                   'en:orange',
-                                  'en:fruit-juice',
                                   'en:citrus-fruit',
+                                  'en:fruit-juice',
                                   'en:fruit',
                                   'fr:equivalent-jus-d-orange',
                                   'fr:citrate-de-calcium',
@@ -567,7 +561,10 @@ $expected_product_ref = {
                                   'fr:karite-et-palme-en-proportions-variables',
                                   'fr:carbonate-acide-d-ammonium',
                                   'en:disodium-diphosphate',
-                                  'en:sodium-hydrogen-carbonate'
+                                  'en:diphosphates',
+                                  'en:sodium-hydrogen-carbonate',
+                                  'en:sodium-bicarbonate',
+		
                                 ],
           'ingredients_text' => "Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentr\x{e9} 1.4% (\x{e9}quivalent jus d'orange 7.8%), pulpe d'orange concentr\x{e9}e 0.6% (\x{e9}quivalent pulpe d'orange 2.6%), g\x{e9}lifiant (pectines), acidifiant (acide citrique), correcteurs d'acidit\x{e9} (citrate de calcium, citrate de sodium), ar\x{f4}me naturel d'orange, \x{e9}paississant (gomme xanthane)), chocolat 24.9% (sucre, p\x{e2}te de cacao, beurre de cacao, graisses v\x{e9}g\x{e9}tales (illipe, mangue, sal, karit\x{e9} et palme en proportions variables), ar\x{f4}me, \x{e9}mulsifiant (l\x{e9}cithine de soja), lactose et prot\x{e9}ines de lait), farine de bl\x{e9}, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre \x{e0} lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, \x{e9}mulsifiant (l\x{e9}cithine de soja).",
           'lc' => 'fr',
@@ -784,6 +781,8 @@ $expected_product_ref = {
 
 is_deeply($product_ref, $expected_product_ref);
 
+print STDERR Dumper($product_ref);
+#exit;
 
 # test synonyms for flavouring/flavour/flavor/flavoring
 my $product_ref = {
