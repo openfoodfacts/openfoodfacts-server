@@ -334,7 +334,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				delete $product_ref->{$ingredients_text_with_allergens};
 			}
 
-			compute_field_tags($product_ref, $field);
+			compute_field_tags($product_ref, $lc, $field);
 
 		}
 		else {
@@ -496,7 +496,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 					delete $product_ref->{nutriments}{$nid . "_100g"};
 					delete $product_ref->{nutriments}{$nid . "_serving"};
 			}
-			else {			
+			else {
 				assign_nid_modifier_value_and_unit($product_ref, $nid, $modifier, $value, $unit);
 			}
 		}
@@ -508,7 +508,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 					delete $product_ref->{nutriments}{$nidp . "_100g"};
 					delete $product_ref->{nutriments}{$nidp . "_serving"};
 			}
-			else {		
+			else {
 				assign_nid_modifier_value_and_unit($product_ref, $nidp, $modifierp, $valuep, $unit);
 			}
 		}

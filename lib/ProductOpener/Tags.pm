@@ -72,6 +72,7 @@ BEGIN
 					&export_tags_hierarchy
 					
 					&compute_field_tags
+					&add_tags_to_field
 
 					&get_city_code
 					%emb_codes_cities
@@ -2356,22 +2357,27 @@ sub canonicalize_taxonomy_tag($$$)
 		if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$tag_lc}) and (defined $synonyms{$tagtype}{$tag_lc}{$tagid4})) {
 			$tagid = $synonyms{$tagtype}{$tag_lc}{$tagid4};
 		}		
-		elsif ($tag_lc ne 'en') {
-			# try English
-			# try removing stopwords and plurals
-			my $tagid2 = remove_stopwords($tagtype,'en',$tagid);
-			$tagid2 = remove_plurals('en',$tagid2);
-			if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{'en'}) and (defined $synonyms{$tagtype}{'en'}{$tagid2})) {
-				$tagid = $synonyms{$tagtype}{'en'}{$tagid2};
-				$tag_lc = 'en';
-			}			
-			else {
-				# try Latin
-				if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{"la"}) and (defined $synonyms{$tagtype}{"la"}{$tagid})) {
-					$tagid = $synonyms{$tagtype}{"la"}{$tagid};
-					$tag_lc = 'la';
+		else {
+		
+			# try a few languages
+			my @test_languages = ("en", "fr", "de", "es", "pt", "it", "nl", "ru", "la");
+			# ingredients: the taxonomy is not complete, only try English and Latin (for OBF) to avoid false positives
+			if ($tagtype eq "ingredients") {
+				@test_languages = ("en", "la");
+			}
+			
+			foreach my $test_lc (@test_languages) {
+			
+				# try removing stopwords and plurals
+				my $tagid2 = remove_stopwords($tagtype, $test_lc, $tagid);
+				$tagid2 = remove_plurals($test_lc, $tagid2);
+				if ((defined $synonyms{$tagtype}) and (defined $synonyms{$tagtype}{$test_lc}) and (defined $synonyms{$tagtype}{$test_lc}{$tagid2})) {
+					$tagid = $synonyms{$tagtype}{$test_lc}{$tagid2};
+					$tag_lc = $test_lc;
+					last;
 				}
-			}		
+			
+			}
 		}
 	}
 	
@@ -2958,11 +2964,73 @@ foreach my $langid (readdir(DH2)) {
 	}
 }
 closedir(DH2);
-	
-	
-sub compute_field_tags($$) {
+
+
+
+
+sub add_tags_to_field($$$$) {
+
+	# add a comma separated list of values in the $lc language to a taxonomy field 
 
 	my $product_ref = shift;
+	my $tag_lc = shift;
+	my $field = shift;
+	my $additional_fields = shift;
+
+	my $current_field = $product_ref->{$field};
+
+	my %existing = ();
+	foreach my $tagid (@{$product_ref->{$field . "_tags"}}) {
+		$existing{$tagid} = 1;
+	}
+	
+	my @added_tags = ();
+	
+	foreach my $tag (split(/,/, $additional_fields)) {
+
+		$tag =~ s/^\s+//;
+		$tag =~ s/\s+$//;
+		
+		my $tagid;
+
+		if (defined $taxonomy_fields{$field}) {
+			$tagid = get_taxonomyid(canonicalize_taxonomy_tag($tag_lc, $field, $tag));
+		}
+		else {
+			$tagid = get_fileid($tag);
+		}
+		if (not exists $existing{$tagid}) {
+			print STDERR "product_jqm_multilingual.pl - adding $tagid to $field: $product_ref->{$field}\n";
+			push @added_tags, $tag;
+			$product_ref->{$field} .= ", $tag";
+		}
+		
+	}
+	
+	if (scalar @added_tags > 0) {
+		# we do not know the language of the current value of $product_ref->{$field}
+		# so regenerate it in the current language used by the interface / caller
+		my $value = display_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field . "_hierarchy"});
+		# Remove tags
+		$value =~ s/<(([^>]|\n)*)>//g;
+		
+		$product_ref->{$field} = $value . ", " . join(", ", @added_tags);
+	}
+	
+	if ($product_ref->{$field} =~ /^, /) {
+		$product_ref->{$field} = $';
+	}		
+
+}
+
+	
+	
+sub compute_field_tags($$$) {
+
+	# generate the tags hierarchy from the comma separated list of $field with default language $tag_lc
+
+	my $product_ref = shift;
+	my $tag_lc = shift;
 	my $field = shift;
 	
 	# tags fields without hierarchy or taxonomy
@@ -2989,7 +3057,8 @@ sub compute_field_tags($$) {
 	# generate the hierarchy of tags from the field values
 				
 	if (defined $taxonomy_fields{$field}) {
-		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
+		$product_ref->{$field . "_lc" } = $tag_lc;	# save the language for the field, useful for debugging
+		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field}) ];
 		$product_ref->{$field . "_tags" } = [];
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
 			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
@@ -3008,10 +3077,10 @@ sub compute_field_tags($$) {
 	# special handling for allergens and traces: 
 	# the allergens_tags and traces_tags fields will be overwritten by Ingredients::detect_allergens_from_text
 	# regenerate allergens and traces from the allergens_tags field so that it is prefixed with the values in the
-	# main language of the product (which may be different than the $lc language of the interface)
+	# main language of the product (which may be different than the $tag_lc language of the interface)
 	
 	if (($field eq 'allergens') or ($field eq 'traces')) {
-		$product_ref->{$field . "_from_user"} = "($lc)" . $product_ref->{$field};
+		$product_ref->{$field . "_from_user"} = "($tag_lc)" . $product_ref->{$field};
 		$product_ref->{$field} = join(',', @{$product_ref->{$field . "_hierarchy" }});
 	}
 	
@@ -3022,7 +3091,7 @@ sub compute_field_tags($$) {
 	# previous version
 	
 	if (exists $loaded_taxonomies{$field . "_prev"}) {
-		$product_ref->{$field . "_prev_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field . "_prev", $product_ref->{$field}) ];
+		$product_ref->{$field . "_prev_hierarchy" } = [ gen_tags_hierarchy_taxonomy($tag_lc, $field . "_prev", $product_ref->{$field}) ];
 		$product_ref->{$field . "_prev_tags" } = [];
 		foreach my $tag (@{$product_ref->{$field . "_prev_hierarchy" }}) {
 			push @{$product_ref->{$field . "_prev_tags" }}, get_taxonomyid($tag);
@@ -3052,7 +3121,7 @@ sub compute_field_tags($$) {
 	# next version
 	
 	if (exists $loaded_taxonomies{$field . "_next"}) {
-		$product_ref->{$field . "_next_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field . "_next", $product_ref->{$field}) ];
+		$product_ref->{$field . "_next_hierarchy" } = [ gen_tags_hierarchy_taxonomy($tag_lc, $field . "_next", $product_ref->{$field}) ];
 		$product_ref->{$field . "_next_tags" } = [];
 		foreach my $tag (@{$product_ref->{$field . "_next_hierarchy" }}) {
 			push @{$product_ref->{$field . "_next_tags" }}, get_taxonomyid($tag);

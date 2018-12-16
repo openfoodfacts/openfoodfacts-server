@@ -7936,7 +7936,7 @@ HTML
 						and ($product_ref->{id} =~ /^en:/)
 							) {
 						$product_ref->{categories} = $product_ref->{id};
-						compute_field_tags($product_ref, "categories");
+						compute_field_tags($product_ref, "en", "categories");
 					}
 
 					if (defined $product_ref->{categories_tags}) {
@@ -8018,7 +8018,7 @@ HTML
 						and ($product_ref->{id} =~ /^en:/) 
 							) {
 						$product_ref->{categories} = $product_ref->{id};
-						compute_field_tags($product_ref, "categories");
+						compute_field_tags($product_ref, "en", "categories");
 					}
 					
 					if (defined $product_ref->{categories_tags}) {

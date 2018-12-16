@@ -5,6 +5,7 @@ use warnings;
 
 use Test::More;
 use Test::Number::Delta relative => 1.001;
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Food qw/:all/;
 
@@ -19,7 +20,7 @@ is( mmoll_to_unit(1, "\N{U+00B0}fH"), 10.00 );
 is( mmoll_to_unit(1, "\N{U+00B0}e"), 7.02 );
 is( mmoll_to_unit(1, "\N{U+00B0}dH"), 5.6 );
 is( mmoll_to_unit(1, 'gpg'), 5.847 );
-	
+
 is( unit_to_mmoll(1, 'mol/l'), 1000 );
 is( unit_to_mmoll('1', 'mmol/l'), 1 );
 is( unit_to_mmoll(1, 'mmol/l'), 1 );

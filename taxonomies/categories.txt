@@ -429,7 +429,6 @@ nl:Suikervrije dranken, Ongesuikerde dranken
 ro:Băuturi fără zahăr, Băuturi fără zahăr adăugat, Bauturi fara zahar, Bauturi fara zahar adaugat
 hu:Cukormentes italok
 ru:Напитки без добавления сахара
-
 pnns_group_2:en:Non-sugared beverages
 
 <en:Beverages
@@ -443,10 +442,11 @@ nl_be:Alcoholische dranken
 ro:Băuturi alcoolice, Bauturi alcoolice
 rs:Alkoholna pića
 ru:Алкогольные напитки, Спиртные напитки
-pnns_group_2:en:Alcoholic beverages
 zh:酒, 酒水, 酒饮料
 hu:Alkoholos italok, Alkohol tartalmú italok
 wikidata:en:Q154
+pnns_group_2:en:Alcoholic beverages
+
 
 <en:Alcoholic beverages
 fr:Pastis
@@ -1913,10 +1913,10 @@ de:Fruchsäfte, Fruchtsaft
 it:Succo di frutta
 nl:Vruchtensappen, Fruitsappen
 nl_be:Vruchtensap, Fruitsappen
-pnns_group_2:en:Fruit juices
 ru:Фруктовые соки
 zh:水果汁, 果汁
 hu:Gyümölcslevek és nektárok
+pnns_group_2:en:Fruit juices
 
 <en:Fruit juices
 en:Apple juices
@@ -2021,6 +2021,7 @@ de:Heidelbeerdirektsäfte, Blaubeerdirektsäfte
 en:Concentrated fruit juices, Concentrate fruit juices
 es:Zumos procedentes de concentrado
 fr:Jus de fruits à base de concentré, jus de fruit à base de concentré, jus de fruits à base de concentrés
+it:Succo di frutta da concentrato
 nl:Vruchtensappen op basis van concentraat, Vruchtensap op basis van concentraat
 de:Fruchtsäfte aus Konzentrat
 
@@ -2122,7 +2123,7 @@ en:Concentrated multifruit juices
 es:Zumos multifruta procedente de concentrado
 fr:Jus multifruits à base de jus concentré, jus multifruits à base de concentrés
 nl:Multivruchtensappen uit concentraat, Multivruchtensap uit concentraat
-de:Multifruchtsäfteaus Konzentrat
+de:Multifruchtsäfte aus Konzentrat
 
 <en:Multifruit juices
 <en:Refrigerated squeezed juices
@@ -2653,14 +2654,15 @@ hu:Gyógynövényes teák
 wikidata:en:Q379932
 
 <en:Herbal teas
-en:Teas in tea bags
-de:Tee aus Teebeuteln
+en:Herbal teas in tea bags
+de:Kräutertee aus Teebeuteln
 es:Plantas para infusiones en bolsitas, Infusiones en bolsitas, Tisanas en bolsitas
 fr:Infusions en sachets, Infusion rooibos sachets, Infusion romarin sachets, Infusion sauge sachets, Infusion anis vert sachets
 nl:Kruidenthee in zakjes, Kruidenthee in buidels
 ru:Чай в пакетиках
 hu:Gyógynövényes teák tasakban
 zh:袋茶, 茶包, 袋泡茶
+pnns_group_2:en:Non-sugared beverages
 
 <en:Herbal teas
 en:Absinthium, Absinthe wormwood
@@ -3103,6 +3105,7 @@ nl:Theeën, Thee
 ru:Чай
 zh:茶
 wikidata:en:Q6097
+pnns_group_2:en:Non-sugared beverages
 
 <en:Teas
 en:Black teas, black tea
@@ -3598,6 +3601,7 @@ ru:Вода
 zh:水
 hu:Vízek
 wikidata:en:Q283
+pnns_group_2:en:Non-sugared beverages
 
 <en:Waters
 en:Drinking water
@@ -3613,8 +3617,7 @@ wikidata:en:Q7892
 en:Carbonated waters, Soda waters, Sparkling waters, Seltzer waters
 es:Aguas carbonatadas, Agua carbonatada
 fr:Eaux gazeuses, eau gazeuse, eaux pétillantes, eau pétillante
-de:Selterswasser, Selterswässer, Sodawasser, Sodawässer,
-Sprudel, Sprudelwasser, Sprudelwässer
+de:Selterswasser, Selterswässer, Sodawasser, Sodawässer,Sprudel, Sprudelwasser, Sprudelwässer
 nl:Koolzuurhoudende waters, Koolzuurhoudend water
 ru:Газированная вода
 hu:Szénsavas vízek
@@ -15923,6 +15926,7 @@ es:Siropes aromatizados, Jarabes aromatizados
 fr:Sirops aromatisés
 nl:Gearomatiseerde siropen, Gearomatiseerde Siroop
 wikidata:en:Q5458204
+pnns_group_2:en:Sweetened beverages
 
 <en:Flavoured syrups
 en:Sugar-free flavoured syrups, Flavoured syrups without sugar
@@ -16370,10 +16374,10 @@ fr:Pains, pain
 de:Brote, Brot
 it:Pani, Pane
 nl:Broden, Brood
-pnns_group_2:en:Bread
 ru:Хлеб
 zh:面包
 wikidata:en:Q7802
+pnns_group_2:en:Bread
 
 <en:Appetizers
 fr:Fougasses
@@ -16430,6 +16434,7 @@ wikidata:en:Q1820454
 en:Breadsticks, Grissini
 es:Colines
 fr:Gressins, gressin
+it:Grissini
 nl:Soepstengels, Soepstengel
 de:Brotstangen, Grissini
 wikidata:en:Q514467
@@ -16776,7 +16781,7 @@ nl:Cacaopoeders, Cacaopoeder, Cacao
 
 <en:Breakfasts
 <en:Instant beverages
-<en:en:Cocoa and chocolate powders
+<en:Cocoa and chocolate powders
 en:Chocolate powders, Instant chocolate drinks, Instant hot chocolates
 fr:Chocolats en poudre, chocolat en poudre, poudres de chocolat, chocolats instantanés, boissons chocolatées à reconstituer, boissons cacaotées à reconstituer, boissons chocolatées en poudre, boissons cacaotées en poudre
 es:Chocolates en polvo
@@ -16938,7 +16943,8 @@ en:Panettone
 de:Panettone
 es:Panettone
 it:Panettone, panaton, panatton
-fr:Panettone
+fr:Panettone, Panettones, Panetonnes, Panetonne
+it:Panetonne
 nl:Panettones, Panettone, panetonnes, panetonne
 wikidata:en:Q854342
 
@@ -17125,10 +17131,10 @@ fr:Chocolats, chocolat, produits chocolatés, produits au chocolat
 de:Schokoladen, Schokolade, Schokoladenprodukte
 it:Cioccolato
 nl:Chocoladeproducten
-pnns_group_2:en:Chocolate products
 ru:Шоколад, шоколадные продукты
 zh:巧克力
 hu:Csokoládék, csokoládé termékek
+pnns_group_2:en:Chocolate products
 
 <en:Chocolates
 en:Assorted chocolates
@@ -17155,6 +17161,7 @@ wikidata:en:Q2164820
 <en:Chocolates with sweeteners
 en:Milk chocolates with sweeteners
 fr:Chocolats au lait édulcorés, Chocolats au lait aux édulcorants
+it:Cioccolato al latte con edulcorante
 de:Milchschokolade mit Süßstoffen
 hu:Tejes csokoládék édesítőszerekkel
 
@@ -17208,7 +17215,7 @@ en:White chocolates, White chocolate
 es:Chocolates blancos
 fr:Chocolats blancs, chocolat blanc, chocolats blonds, chocolat blond
 de:Weiße Schokoladen
-it:Cioccolatini bianchi, Cioccolato bianco
+it:Cioccolati bianchi, Cioccolato bianco
 nl:Witte chocoladen
 zh:白巧克力
 hu:Fehércsokoládék
@@ -17217,7 +17224,9 @@ wikidata:en:Q742385
 <en:White chocolates
 <en:Chocolates with sweeteners
 en:White chocolates with sweeteners
+es:Chocolates blancos con edulcorantes
 fr:Chocolats blancs édulcorés, Chocolats blancs aux édulcorants
+it:Cioccolato bianco con edulcorante
 de:Weiße Schokoladen mit Süßungsmitteln
 hu:Csokoládék édesítőszerekkel
 
@@ -17252,7 +17261,9 @@ hu:Csokoládé nyulak, húsvéti nyulak
 
 <en:Chocolates
 en:Chocolates with sweeteners
+es:Chocolates con edulcorantes
 fr:Chocolats édulcorés, Chocolats aux édulcorants, chocolats diététiques
+it:Cioccolato con edulcorante
 de:Schokoladen mit Süßungsmitteln
 
 <en:Chocolates
@@ -17329,6 +17340,7 @@ de:Herbe Schokoladen
 en:Dark chocolates with sweeteners
 es:Chocolates negros con edulcorantes
 fr:Chocolats noirs aux édulcorants
+it:Cioccolato fondente con edulcorante
 de:Dunkle Schokoladen mit Süßungsmitteln
 
 <en:Chocolates with almonds
@@ -17343,23 +17355,27 @@ de:Dunkle Schokoladen mit Mandeln
 <en:Chocolates with hazelnuts
 <en:Dark chocolates
 en:Dark chocolates with hazelnuts
+es:Chocolates negro con avellanas
 fr:Chocolats noirs aux noisettes
 it:Cioccolato fondente alle nocciole
 de:Dunkle Schokoladen mit Haselnüssen
 
 <en:Dark chocolates
+es:Chocolates negro con pistachos
 fr:Chocolats noirs aux pistaches
 de:Dunkle Schokoladen mit Pistazien
 it:Cioccolato fondente al pistacchio
 
 <en:Dark chocolates
 en:Dark chocolates with orange
+es:Chocolates negro con naranja
 fr:Chocolats noirs à l'orange
 it:Cioccolato fondente con arancia, cioccolato fondente all'arancio 
 de:Dunkle Schokoladen mit Orange
 
 <en:Dark chocolates
 en:Dark chocolates with cocoa nibs, dark chocolates with cocoa beans
+es:Chocolates negro con pepitas de cacao
 fr:Chocolats noirs aux fèves de cacao
 it:Cioccolato fondente con semi di cacao, cioccolato fondente con fave di cacao
 de:Dunkle Schokoladen mit Kakaobohnen
@@ -17377,12 +17393,14 @@ de:Extrafeine dunkle Schokoladen
 
 <en:Chocolates
 en:Salted chocolates
+es:Chocolates con sal
 fr:Chocolats salés
 de:Gesalzene Schokolade
 
 <en:Dark chocolates
 <en:Salted chocolates
 en:Salted dark chocolates
+es:Chocolates negro con sal
 fr:Chocolats noirs salés
 de:Gesalzene dunkle Schokolade
 
@@ -17505,8 +17523,8 @@ en:Bonbons
 es:Bombones, Bombones de chocolate
 fr:Bonbons de chocolat
 it:Cioccolatino
-de:Schokoladenbonbons
-nl:Chocolades snoepjes
+de:Pralinen, schokoladenbonbons
+nl:Pralines, chocolades snoepjes
 wikidata:en:Q3272827
 
 <en:Bonbons
@@ -17663,9 +17681,10 @@ zh:棒棒糖
 wikidata:en:Q217446
 
 <en:Nut confectioneries
-de:Pralinen
+en:French pralines
+de:Französciche pralinen
 fr:Pralines
-nl:Pralines
+nl:Franse praliné
 wikidata:en:Q851428
 
 <en:Nut confectioneries
@@ -18354,6 +18373,7 @@ wikidata:en:Q12104
 en:Barley
 es:Cebada
 fr:Orge
+it:Orzo
 la:Hordeum vulgare
 nl:Gerst
 zh:大麦
@@ -18373,6 +18393,7 @@ wikidata:en:Q3057987
 en:Buckwheat
 es:Trigo sarraceno, Alforfón
 fr:Sarrasin, blés noirs fourragers, graines de sarrasin
+it:Grano saraceno
 la:Fagopyrum esculentum
 nl:Boekweit
 ru:Гречиха посевная, Гречиха съедобная, Греча
@@ -18384,6 +18405,7 @@ wikidata:en:Q132734
 en:Chia
 es:Chía
 fr:Chia, graines de chia
+it:Chia
 la:Salvia hispanica
 nl:Chia
 de:Chia
@@ -18412,6 +18434,7 @@ en:Corn, Maize
 de:Maise, Mais
 es:Maíz
 fr:Maïs
+it:Mais
 la:Zea mays subsp. mays
 nl:Mais, Maïs
 zh:玉米
@@ -18475,6 +18498,7 @@ wikidata:en:Q158994
 en:Flax seeds, Flax, Linseeds, Common flax
 es:Lino, Linaza, Semillas de lino
 fr:Lins, Lin cultivé, Graines de lin
+it:Lino
 la:Linum usitatissimum
 de:Leinsamen, Leinsaaten, Leinsaat
 nl:Lijnzaad, Zaad van vlas
@@ -18570,6 +18594,7 @@ es:Arroces, Arroz
 fr:Riz
 la:Oryza sativa
 de:Reise, Reis
+it:Riso
 nl:Rijst
 ru:Рис
 zh:米
@@ -18579,6 +18604,7 @@ wikidata:en:Q161426
 en:Brown rices
 es:Arroces integrales, Arroces cargo
 fr:Riz complet, riz cargo, riz brun, riz semi-complet
+it:Riso integrale
 nl:Volkoren rijst
 de:Brauner Reis
 wikidata:en:Q1066624
@@ -18711,6 +18737,7 @@ fr:Riz Balilla x Sollana
 en:Basmati rices
 es:Arroces Basmati
 fr:Riz Basmati, Basmati
+it:Riso Basmati
 nl:Basmatirijsten, Basmatirijst
 de:Basmati Reis
 wikidata:en:Q1649635
@@ -18720,6 +18747,7 @@ wikidata:en:Q1649635
 en:Brown Basmati rices
 es:Arroces Basmati integrales
 fr:Riz Basmati bruns
+it:Riso Basmati integrale
 nl:Zilvervlies basmatirijsten, Zilvervlies basmatirijst
 de:Brauner Basmati Reis
 
@@ -18964,7 +18992,7 @@ wikidata:en:Q167339
 <en:Wheats
 en:Khorasan wheats, Kamut
 es:Trigos de Jorasán, Kamut
-fr:Blés de Khorasan, Kamut
+fr:Blés khorasan, blés de khorasan, Kamut
 la:Triticum turanicum, Triticum turgidum subsp. turanicum
 nl:Khorasantarwe, Kamut
 de:Khorasan Weizen, Kamut
@@ -18982,7 +19010,7 @@ wikidata:en:Q158767
 <en:Cereal grains
 en:Wild rice
 es:Arroz salvaje, Arroz silvestre, Zizania
-fr:Zizanie
+fr:Riz sauvage, zizanie des marais, zizanie
 la:Zizania
 nl:Wilde rijsten, Wilde rijst
 de:Wildreis, Wilder Reis
@@ -19395,10 +19423,10 @@ lb:Kéis
 lmo:Furmai
 nl:Kazen, Kaas
 nl_be:Kazen
-pnns_group_2:en:Cheese
 ru:Сыры
 zh:奶酪, 乳酪, 芝士, 起司
 wikidata:en:Q10943
+pnns_group_2:en:Cheese
 
 <en:Cheeses
 fr:Fromages pour enfants
@@ -19706,6 +19734,15 @@ fr:Gruyères suisses, Gruyères suisses AOP, Gruyères AOP
 de:Greyerzer
 Country:en:Switzerland
 wikidata:en:Q2376488
+
+<en:Cheeses from Switzerland
+<en:Cow cheeses
+en:Appenzeller cheese
+fr:Appenzeller
+de:Appenzeller
+nl:Appenzeller
+Country:en:Switzerland
+wikidata:en:Q620951
 
 <en:Cheeses from Switzerland
 <en:Cow cheeses
@@ -20854,6 +20891,12 @@ country:en:Italy
 #wikidata:en:
 
 <en:Italian cheeses
+en:Ricotta
+fr:Ricotta
+it:Ricotta
+wikidata:en:Q216781
+
+<en:Ricotta
 it:Ricotta Romana
 country:en:Italy
 #wikidata:en:
@@ -21554,10 +21597,10 @@ krc:Сют
 ksh:Milesch
 nl:Melk
 nl_be:Melk
-pnns_group_2:en:Milk and yogurt
 ru:Молоко
 zh:奶
 wikidata:en:Q8495
+pnns_group_2:en:Milk and yogurt
 
 <en:Beverages
 <en:Dairies
@@ -21920,7 +21963,7 @@ nl:Tarwedranken
 <en:Wheat milks
 en:Khorasan wheat milks, Kamut milks, Khorasan wheat drinks, Kamut drinks
 es:Leches de trigo de Jorasán, Leches de Kamut, Bebidas de trigo de Jorasán, Bebidas de Kamut
-fr:Boissons végétales de blé de Khorasan, Boissons végétales de Kamut, Laits de blé de Khorasan, Laits de Kamut
+fr:Boissons végétales de blé khorasan, Boissons végétales de blé de Khorasan, Boissons végétales de Kamut, Laits de blé de Khorasan, Laits de Kamut
 de:Khorasan-Weizen-Milch, Khorasan-Weizen-Milche, Khorasan-Weizen-Milchen, Khorasan-Weizen-Drinks, Khorasan-Weizen-Drink, Kamutmilch, Kamutmilche, Kamutmilchen, Kamut-Drinks, Kamut-Drink, Kamutdrink, Kamutdrinks
 nl:Kamutdranken
 
@@ -22129,7 +22172,7 @@ nl:Tarwedranken in poedervorm
 <en:Powdered wheat milks
 en:Powdered Khorasan wheat milks, Powdered Kamut milks, Powdered Khorasan wheat drinks, Powdered Kamut drinks
 es:Leches de trigo de Jorasán en polvo, Leches de Kamut en polvo, Bebidas de trigo de Jorasán en polvo, Bebidas de Kamut en polvo
-fr:Laits de blé de Khorasan en poudre, Laits de Kamut en poudre
+fr:Laits de blé khorasan en poudre, Laits de blé de Khorasan en poudre, Laits de Kamut en poudre
 nl:Kamutdranken in poedervorm
 
 <en:Powdered wheat milks
@@ -22703,6 +22746,31 @@ fr:Chutneys de pomme
 <en:Fruit chutneys
 en:Fig chutneys
 fr:Chutneys de figues 
+
+
+<en:Fruits based foods
+en:Fruits coulis
+fr:Coulis de fruits
+hu:Gyümölcs öntet
+wikidata:en:Q1136961
+
+<en:Fruits coulis
+en:Strawberry coulis, Strawberry sauce
+fr:Coulis de fraise
+hu:Eper öntet
+
+<en:Fruits coulis
+en:Raspberry coulis, Raspberry sauce
+fr:Coulis de framboise
+hu:Málna öntet
+
+<en:Fruits coulis
+fr:Coulis de fruits rouges
+
+<en:Fruits coulis
+en:Apricot coulis, Apricot sauce
+fr:Coulis d'abricot
+hu:Sárgabarack öntet
 
 <en:Desserts
 <en:Fruits based foods
@@ -23448,6 +23516,7 @@ nl:Walnotenpasta's
 en:Chestnut spreads, Chestnut purees, Creme de marrons, Cremes de marrons, Chestnut jams
 es:Cremas de castañas, Mermeladas de castañas, Confituras de castañas, Cremas de marron glacé, Purés de castaña
 fr:Crèmes de marrons, Purées de marrons, Confitures de châtaignes, Confitures de marrons, Crémes de marrons glacés, Crème de chataignes, Crèmes de chataignes
+it:Creme di marroni, Crema di marroni
 nl:Kastanjepasta's
 de:Maronenkrem
 wikidata:en:Q1363560
@@ -23664,30 +23733,17 @@ fr:Miels des Pyrénées
 nl:Honingen uit de Pyreneeën
 
 <en:Honeys
-en:White honeys
-fr:Miels blancs
-nl:Witte honingen
-
-<fr:Miels blancs
 en:White honeys from Tigrai
-fr:miels blancs du Tigrai
+fr:Miels blancs du Tigrai
 nl:Witte honingen van de Tigrai
 
-<fr:Miels blancs
+<en:Honeys
 fr:Miels de Tamaris
 nl:Tamarishoningen
 
-<fr:Miels blancs
+<en:Honeys
 fr:Miels de trèfle
 nl:Klaverhoningen
-
-<en:Honeys
-fr:Miels bruns
-nl:Bruine honingen
-
-<en:Honeys
-fr:Miels clairs
-nl:Lichte honingen
 
 <en:Honeys
 fr:Miels crémeux
@@ -23799,10 +23855,15 @@ fr:Miels de jujubier
 nl:Jujubehoningen
 
 <en:Honeys
-en:Lavender Honey
+en:Lavender honey
 fr:Miels de lavande
 it:Miele di lavanda
 nl:Lavendelhoningen
+
+<en:Honeys
+en:Thyme honey
+fr:Miels de thym
+it:Miele di timo
 
 <en:Honeys
 en:lychee honey
@@ -23910,10 +23971,10 @@ fr:Œufs, Oeufs
 de:Eier, Ei, Hühnereier, Hühnerei
 it:Uova
 nl:Kippeneieren
-pnns_group_2:en:Eggs
 ru:Яйцо, Яйца
 zh:蛋
 wikidata:en:Q93189
+pnns_group_2:en:Eggs
 
 <en:Eggs
 en:Fresh eggs
@@ -24357,6 +24418,7 @@ wikidata:en:Q2264972
 en:Pecan oils
 es:Aceites de nuez pecana
 fr:Huiles de noix de pécan
+it:Olio di noci pecan
 nl:Pecanoliën
 wikidata:en:Q7158627
 
@@ -24371,6 +24433,7 @@ wikidata:en:Q184315
 en:Pistachio oils
 es:Aceites de pistacho
 fr:Huiles de pistache
+it:Olio di pistacchio
 nl:Pistacheoliën
 wikidata:en:Q3820506
 
@@ -24407,6 +24470,7 @@ de:Native Olivenöle Extra, Natives Olivenöl Extra
 en:Olive pomace oils
 es:Aceites de orujo de oliva
 fr:Huiles de grignons d'olive
+it:Olio di sansa di oliva
 nl:Vruchtenpulp-olijfoliën
 wikidata:en:Q7087235
 
@@ -24485,7 +24549,8 @@ country:en:Italy
 
 <en:Extra-virgin olive oils
 <en:Olive oils from Italy
-fr:Huile d'olive Riviera Ligure 
+fr:Huile d'olive Riviera Ligure
+it:Olio di oliva Riviera Ligure
 country:en:Italy
 instanceof:fr:AOP
 
@@ -24604,6 +24669,7 @@ en:Flours
 es:Harinas de origen vegetal, Harinas vegetales, Harinas
 fr:Farines, Farines végétales
 de:Mehle, Mehl
+it:Farine, Farina
 nl:Melen
 ru:Мука
 hu:Lisztek
@@ -24612,36 +24678,42 @@ hu:Lisztek
 en:Cereal brans
 es:Salvados de cereales
 fr:Sons de céréales
+it:Crusche di cereali, crusca di cereali
 nl:Graanvruchtenzemelen
 
 <en:Cereal brans
 en:Oat brans
 es:Salvados de avena
 fr:Sons d’avoine
+it:Crusche di avena 
 nl:Haverzemelen
 
 <en:Cereal brans
 en:Rice brans
 es:Salvados de arroz
 fr:Sons de riz
+it:Crusche di riso
 nl:Rijstzemelen
 
 <en:Cereal brans
 en:Rye brans
 es:Salvados de centeno
 fr:Sons de seigle
+it:Crusche di segale
 nl:Roggezemelen
 
 <en:Cereal brans
 en:Wheat brans, Wheat bran
 es:Salvados de trigo
 fr:Sons de blé, Son des blé, Son de blé
+it:Crusche di grano
 nl:Tarwezemelen
 
 <en:Wheat brans
 en:Khorasan wheat brans, Kamut brans
 es:Salvados de trigo de Jorasán, Salvados de Kamut
-fr:Sons de blé Khorasan, Sons de Kamut
+fr:Sons de blé khorasan, Sons de Kamut
+it:Crusche di grano khorasan
 nl:Kamutzemelen
 
 <en:Wheat brans
@@ -24649,6 +24721,7 @@ en:Spelt brans
 es:Salvados de espelta
 fr:Sons d'épeautre
 de:Dinkelkleien, Dinkelkleie
+it:Crusche di farro spelta
 nl:Speltzemelen
 
 <en:Breakfasts
@@ -24803,14 +24876,14 @@ nl:Speltvlokken
 <en:Wheat flakes
 en:Khorasan wheat flakes, Kamut flakes
 es:Copos de trigo de Jorasán, Copos de Kamut
-fr:Flocons de blé de Khorasan, Flocons de Kamut
+fr:Flocons de blé khorasan, Flocons de blé de khorasan, Flocons de Kamut
 de:Kamutflocken
 nl:Kamutvlokken
 
 <en:Cereal flakes
 en:Wild rice flakes
 es:Copos de arroz salvaje
-fr:Flocons de zizanie
+fr:Flocons de riz sauvage, flocons de zizanie
 nl:Wilde rijstvlokken
 
 <en:Puffed grains
@@ -24892,7 +24965,7 @@ nl:Gepofte tarwe
 <en:Puffed wheat
 en:Puffed Khorasan wheat, Puffed Kamut
 es:Trigo de Jorasán inflado, Trigo de Jorasán hinchado, Kamut inflado, Kamut hinchado
-fr:Blé de Khorasan soufflé
+fr:Blé de khorasan soufflé, blé de khorasan soufflé
 nl:Gepofte Khorosan
 
 <en:Puffed wheat
@@ -24907,6 +24980,7 @@ nl:Gepofte spelt
 en:Cereal flours
 es:Harinas de cereales
 fr:Farines de céréales
+it:Farine di cereali
 nl:Melen van graan
 hu: Gabona lisztek
 pnns_group_2:en:Cereals
@@ -24915,6 +24989,7 @@ pnns_group_2:en:Cereals
 en:Barley flours
 es:Harinas de cebada
 fr:Farines d’orge
+it:Farine di orzo
 nl:Gerstemeel
 hu:Árpa lisztek
 
@@ -24930,6 +25005,7 @@ hu:Árpamaláta lisztek
 en:Buckwheat flours
 es:Harinas de trigo sarraceno, Harinas de alforfón
 fr:Farines de sarrasin, Farines de blé noir
+it:Farine di grano saraceno
 nl:Boekweitmelen
 hu:Hajdina liszt
 
@@ -24952,6 +25028,7 @@ nl:Boekweitmelen T150
 en:Cornmeal, Corn flours, Maize flours
 es:Harinas de maíz
 fr:Farines de maïs, farine de maïs
+it:Farine di mais
 nl:Maïsmelen
 wikidata:en:Q837118
 
@@ -24966,6 +25043,7 @@ fr:Masa Harina
 en:Flax seed flours, Flax flours, Linseed flours, Common flax flours
 es:Harinas de lino, Harinas de linaza
 fr:Farines de lin
+it:Farine di lino
 nl:Lijnzaadmelen
 
 <en:Cereal flours
@@ -24996,6 +25074,7 @@ fr:Farines de méteil, Farines de blé et seigle, Mélanges de farines
 en:Millet flours
 es:Harinas de mijo
 fr:Farines de millet
+it:Farine di miglio
 nl:Gierstmelen
 
 <en:Cereal flours
@@ -25007,18 +25086,21 @@ fr:Farines de matza
 en:Oat flours
 es:Harinas de avena
 fr:Farines d'avoine, Farines d'avoines, Farine d'avoine Farines de avoines
+it:Farine di avena
 nl:Havermelen
 
 <en:Cereal flours
 en:Quinoa flours
 es:Harinas de quinoa
 fr:Farines de quinoa
+it:Farine di quinoa
 nl:Quinoamelen
 
 <en:Cereal flours
 en:Rice flours
 es:Harinas de arroz
 fr:Farines de riz, farine de riz
+it:Farine di riso
 nl:Rijstmelen
 wikidata:en:Q1269205
 
@@ -25026,6 +25108,7 @@ wikidata:en:Q1269205
 en:Rye flours
 es:Harinas de centeno
 fr:Farines de seigle
+it:Farine di segale
 de:Roggenmehle
 nl:Roggemelen
 
@@ -25075,6 +25158,7 @@ nl:Steengemalen melen
 en:Teff flours
 es:Harinas de teff, Harinas de tef
 fr:Farines de teff
+it:Farine di teff
 nl:Teffmelen
 
 <en:Cereal flours
@@ -25082,6 +25166,7 @@ en:Wheat flours
 de:Weizenmehle
 es:Harinas de trigo
 fr:Farines de blé
+it:Farine di grano
 nl:Tarwemelen
 pt:Farinhas de trigo
 ru:Мука пшеничная, Пшеничная мука
@@ -25125,6 +25210,7 @@ de:Weizenmehle Type 1600
 en:Common wheat flours, Bread wheat flours
 es:Harinas de trigo blando, Harinas de trigo común, Harinas de trigo harinero
 fr:Farines de froment, Farines de blé tendre
+it:Farine di grano tenero
 
 <en:Common wheat flours
 <en:Wheat flour T405
@@ -25166,6 +25252,7 @@ fr:Farines de blé variété Camp Rémy, Farines issu de la variété de blé Ca
 en:Durum wheat flours, Macaroni wheat flours
 es:Harinas de trigo duro
 fr:Farines de blé dur
+it:Farine di grano duro
 
 <en:Wheat flours
 de:Weizenbackschrot Type 1700
@@ -25173,7 +25260,7 @@ de:Weizenbackschrot Type 1700
 <en:Wheat flours
 en:Einkorn wheat flours
 es:Harinas de trigo escaña cultivada, Harinas de escaña
-fr:Farines de Petit Épeautre, Farines d'engrain
+fr:Farines de petit épeautre, Farines d'engrain
 nl:Eenkoornmelen
 
 <en:Einkorn wheat flours
@@ -25214,18 +25301,19 @@ es:Harinas de trigo escaña cultivada integrales
 fr:Farines de petit épeautre T150
 
 <en:Einkorn wheat flours
-fr:Farines de Petit Épeautre de Haute-Provence, Farine de Petit Épeautre de Haute-Provence
+fr:Farines de petit épeautre de Haute-Provence, Farine de Petit Épeautre de Haute-Provence
 
 <en:Wheat flours
 en:Emmer wheat flours
 es:Harinas de escandas, Harinas de povia
 fr:Farines d'amidonnier
+it:Farine di farro dicocco
 nl:Emmertarwemelen
 
 <en:Wheat flours
 en:Khorasan wheat flours, Kamut flours
 es:Harinas de trigo de Jorasán, Harinas de Kamut
-fr:Farines de blé Khorasan, Farines de kamut, Farines de Blé de Khorasan, Farines de Khorasan
+fr:Farines de blé khorasan, Farines de Kamut, Farines de Blé de Khorasan, Farines de Khorasan
 nl:Kamutmelen
 
 <en:Khorasan wheat flours
@@ -25235,20 +25323,20 @@ es:Harinas de trigo de Jorasán blancas, Harinas de Kamut blancas
 
 <en:Khorasan wheat flours
 <fr:Farines de blé type T70
-fr:Farines de blé Khorasan T70, Farines de kamut T70
+fr:Farines de blé khorasan T70, Farines de Kamut T70
 
 <en:Khorasan wheat flours
 <fr:Farines de blé type T110
-fr:Farines de blé Khorasan T110, Farines de kamut T110
+fr:Farines de blé khorasan T110, Farines de Kamut T110
 
 <en:Khorasan wheat flours
-fr:Farines de blé Khorasan T130, Farines de kamut T130
+fr:Farines de blé khorasan T130, Farines de Kamut T130
 
 <en:Khorasan wheat flours
 <en:Whole wheat flours
 en:Whole Khorasan wheat flours, Whole Kamut flours
 es:Harinas de trigo de Jorasán integrales, Harinas de Kamut integrales
-fr:Farines de blé Khorasan T150, Farines de kamut T150
+fr:Farines de blé khorasan T150, Farines de Kamut T150
 
 <en:Wheat flours
 en:Spelt flours
@@ -25391,6 +25479,15 @@ es:Sémolas y semolinas de trigo duro, Sémolas de trigo duro, Sémola de trigo 
 fr:Semoules de blé dur
 de:Hartweizengrieße, Hartweizengrieß
 nl:Harde tarwegriesmelen
+wikidata:en:Q381350
+
+<en:Wheat semolinas
+en:Soft wheat semolinas, Soft wheat farina
+es:Sémolas y semolinas de trigo blando, Sémolas de trigo blando, Sémola de trigo blando
+fr:Semoules de blé tendre
+de:Weichweizengrieße, Weichweizengrieß
+nl:Zachte tarwegriesmelen
+wikidata:en:Q3505415
 
 <en:Durum wheat semolinas
 en:Durum wheat semolinas for couscous
@@ -28511,7 +28608,7 @@ fr:Sauces à l'oseille, Sauce à l'oseille
 <en:Sauces
 fr:Sauces américaines
 
-<en:en:Sauces for fishes
+<en:Sauces for fishes
 fr:Sauces armoricaines, Sauce armoricaine, Sauces à l'armoricaine, Sauce à l'armoricaine
 
 <en:Sauces
@@ -30052,7 +30149,7 @@ fr:Coquilles Saint-Jacques, Coquilles St-Jacques
 
 <en:Salted pies
 en:Flammekueche
-fr:Flammekueches, fr:Flammekueche, tarte flambée,  tartes flambées, flamme-küche, flamms, Flammkuchen, Flamenkuches
+fr:Flammekueches, Flammekueche, tarte flambée,  tartes flambées, flamme-küche, flamms, Flammkuchen, Flamenkuches
 wikidata:en:Q316849
 
 <en:Meals
@@ -30292,7 +30389,6 @@ en:Pizzas pies and quiches, Pizza pies and quiches
 fr:Pizzas, tartes salées et quiches
 nl:Pizzas hartige taarten en quiches
 pnns_group_2:en:Pizza pies and quiche
-#wikidata:en:
 
 <en:Pizzas pies and quiches
 en:Pizzas
@@ -30303,11 +30399,11 @@ wikidata:en:Q177
 
 <en:Pizzas
 en:Regina pizza
-fr:Pizzas royale, Pizza royale Pizza reine, Pizza Regina
+fr:Pizzas royales, Pizza royale, Pizza reine, Pizza Regina
 
 <en:Pizzas
 en:Margherita Pizza
-fr:Pizzas margherita, pizza margherita,pizzas marguerite
+fr:Pizzas margherita, pizza margherita, pizzas marguerite
 #wikidata:en:
 
 <en:Pizzas
@@ -32180,9 +32276,14 @@ nl:Bergproducten
 en:Mountain cheeses
 fr:Fromages de montagne
 nl:Bergkazen
+de:Bergkäse
+wikidata:en:Q360910
 
 <en:Mountain cheeses
 fr:Tommes, tomes, Tomme, tome
+en:Tomme
+de:Tomme
+wikidata:en:Q2164539
 
 <fr:Tommes
 fr:Tomme d’Italie, Tommes d'Italie
@@ -34404,6 +34505,7 @@ en:Fruit preserves
 es:Preparaciones a base de frutas y verduras
 fr:Confitures et marmelades
 de:Konfitüren und Marmeladen
+it:Confetture e marmellate
 nl:Confituren en marmelades
 
 <en:Fruit preserves
@@ -34411,6 +34513,7 @@ en:Jams
 es:Mermeladas y confituras, Mermeladas, Confituras
 fr:Confitures
 de:Konfitüren, Konfitüre
+it:Confetture, Confettura
 nl:Jams, Confituren
 hu:Dzsemek, Lekvárok
 wikidata:en:Q8752059
@@ -34450,35 +34553,12 @@ en:Rosehip jam
 fr:Confitures d'églantines, Confiture d'églantines, confitures de gratte-cul, confitures de cynorhodons
 hu:Csipkebogyó lekvár
 
-<en:Fruits based foods
-en:Fruits coulis
-fr:Coulis de fruits
-hu:Gyümölcs öntet
-wikidata:en:Q1136961
-
-<en:Fruits coulis
-en:Strawberry coulis, Strawberry sauce
-fr:Coulis de fraise
-hu:Eper öntet
-
-<en:Fruits coulis
-en:Raspberry coulis, Raspberry sauce
-fr:Coulis de framboise
-hu:Málna öntet
-
-<en:Fruits coulis
-fr:Coulis de fruits rouges
-
-<en:Fruits coulis
-en:Apricot coulis, Apricot sauce
-fr:Coulis d'abricot
-hu:Sárgabarack öntet
-
 <en:Fruit jams
 en:Berry jams
 de:Marmeladen aus roten Früchten
 es:Mermeladas y confituras de frutas del bosque, Mermeladas de frutas del bosque, Confituras de frutas del bosque, Mermeladas y confituras de frutas rojas, Mermeladas de frutas rojas, Confituras de frutas rojas
-fr:Confitures de fruits rouges
+fr:Confitures de fruits rouges, confitures de fruits des bois
+it:Confetture di frutti di bosco
 nl:Jams van rode vruchten
 hu:Piros bogyós lekvárok
 
@@ -34486,6 +34566,7 @@ hu:Piros bogyós lekvárok
 en:Bilberries jams
 es:Mermeladas y confituras de arándanos, Mermeladas de arándanos, Mermeladas de arándano, Confituras de arándanos
 fr:Confitures de myrtilles
+it:Confetture di mirtilli
 nl:Bosbessenjams
 hu:Fekete áfonya lekvár
 
@@ -34494,12 +34575,14 @@ en:Blackcurrant jams
 de:Johannisbeerkonfitüren, Johannisbeermarmeladen
 es:Mermeladas y confituras de zarzaparrilla negra, Mermeladas de zarzaparrilla negra, Confituras de zarzaparrilla negra, Mermeladas y confituras de grosella negra, Mermeladas de grosella negra, Confituras de grosella negra
 fr:Confitures de cassis
+it:Confetture di ribes nero
 nl:Cassisjams
 hu:Fekete ribizli lekvár
 
 <en:Berry jams
 en:Blackberry jams
 fr:Confitures de mûres, Confitures de mûre, Confiture de mûres, Confiture de mûre
+it:Confetture di mora
 hu:Földi szeder lekvár, Szeder lekvár
 
 <en:Berry jams
@@ -34514,6 +34597,7 @@ hu:Vegyes piros bogyós lekvárok
 en:Redcurrants jams
 es:Mermeladas y confituras de grosellas, Mermeladas de grosellas, Confituras de grosellas
 fr:Confitures de groseilles
+it:Confetture di ribes
 nl:Aalbessenjams
 hu:Vörös ribizli lekvár
 
@@ -34522,6 +34606,7 @@ en:Raspberry jams
 de:Himbeermarmeladen
 es:Mermeladas y confituras de frambuesas, Mermeladas de frambuesas, Confituras de frambuesa
 fr:Confitures de framboises
+it:Confetture di lamponi
 nl:Frambozenjams
 hu:Málna lekvár
 
@@ -34530,6 +34615,7 @@ en:Strawberry jams
 de:Erdbeermarmeladen
 es:Mermeladas y confituras de fresa, Mermeladas de fresa, Confituras de fresa
 fr:Confitures de fraises
+it:Confetture di fragole
 nl:Aardbeienjams, Aardbeienjam
 hu:Eper lekvár
 
@@ -34537,6 +34623,7 @@ hu:Eper lekvár
 en:Citrus jams
 es:Mermeladas y confituras de cítricos
 fr:Confitures d’agrumes, Confiture d’agrumes
+it:Confetture di agrumi
 nl:Citrusmarmelades
 hu:Citrus lekvárok
 
@@ -34544,6 +34631,7 @@ hu:Citrus lekvárok
 en:Clementine jams
 es:Mermeladas y confituras de clementinas, Mermeladas de clementinas, Confituras de clementinas
 fr:Confitures de clémentine
+it:Confitture di clementina
 nl:Clementinemarmelades
 hu:Clementine lekvár
 
@@ -34551,6 +34639,7 @@ hu:Clementine lekvár
 en:Lemon jams
 es:Mermeladas y confituras de limón, Mermeladas de limón, Confituras de limón
 fr:Confitures de citron
+it:Confetture di limone
 nl:Citroenjams
 hu:Citrom lekvár
 
@@ -34558,14 +34647,17 @@ hu:Citrom lekvár
 en:Orange jams
 es:Mermeladas y confituras de naranja, Mermeladas y confituras de naranja amarga, Mermeladas de naranja, Mermeladas de naranja amarga, Confituras de naranja, Confituras de naranja amarga
 fr:Confitures d’orange
+it:Confitture di arancia, Confitture di arancia dolce
 nl:Sinaasappeljams
 hu:Narancs lekvár
 
 <en:Citrus jams
 fr:Confitures d'oranges amères, confitures d'orange amère, confitures de bigarades
+it:Confitture di arancia amara
 
 <en:Citrus jams
 fr:Confitures de mandarines, confitures de mandarine
+it:Confetture di mandarino
 
 <en:Fruit jams
 en:Tropical fruit jams
@@ -34578,6 +34670,7 @@ hu:trópis gyümölcs lekvár
 en:Banana jams
 es:Mermeladas y confituras de plátano, Mermeladas de plátano, Confituras de plátano, Mermeladas y confituras de banana, Mermeladas de banana, Confituras de banana
 fr:Confitures de bananes
+it:Confetture di banana
 nl:Bananenjams
 hu:Banán lekvár
 
@@ -34585,6 +34678,7 @@ hu:Banán lekvár
 en:Guava jams
 es:Mermeladas y confituras de guayaba, Mermeladas de guayaba, Confituras de guayaba
 fr:Confitures de goyaves
+it:Confetture di guaiava, confetture di guava
 nl:Guavejams
 hu:Guava dzsem, Guava lekvár
 
@@ -34592,18 +34686,21 @@ hu:Guava dzsem, Guava lekvár
 en:Lychee jams, Litchi jams
 es:Mermeladas y confituras de lichis, Mermeladas de lichis, Confituras de lichis
 fr:Confitures de litchis
+it:Confetture di litchi
 nl:Litchijams
 
 <en:Tropical fruit jams
 en:Papaya jams
 es:Mermeladas y confituras de papaya, Mermeladas de papaya, Confituras de papaya
 fr:Confitures de papayes
+it:Confetture di papaia
 nl:Papayajams
 
 <en:Tropical fruit jams
 en:Pineapple jams
 es:Mermeladas y confituras de piña, Mermeladas de piña, Confituras de piña
 fr:Confitures d'ananas
+it:Confetture di ananas
 nl:Ananasjams
 hu:Ananász lekvár, Ananász dzsem
 
@@ -34611,6 +34708,7 @@ hu:Ananász lekvár, Ananász dzsem
 en:Mango jams
 es:Mermeladas y confituras de mango, Mermeladas de mango, Confituras de mango
 fr:Confitures de mangues
+it:Confetture di mango
 nl:Mangojams
 hu:Mangó dzsem, Mangó lekvár
 
@@ -34618,6 +34716,7 @@ hu:Mangó dzsem, Mangó lekvár
 en:Apple jams
 es:Mermeladas y confituras de manzana, Mermeladas de manzana, Confituras de manzana
 fr:Confitures de pommes
+it:Confitture di mela
 nl:Appeljams
 hu:Alma lekvár
 
@@ -34625,6 +34724,7 @@ hu:Alma lekvár
 en:Apricot jams
 es:Mermeladas y confituras de albaricoque, Mermeladas de albaricoque, Confituras de albaricoque
 fr:Confitures d’abricot, confitures aux abricots, confitures à l'abricot
+it:Confetture di albicocca
 nl:Abrikozenjams
 hu:Sárgabarack
 
@@ -34633,6 +34733,7 @@ en:Cherry jams
 de:Kirschmarmeladen
 es:Mermeladas y confituras de cereza, Mermeladas de cereza, Confituras de cereza
 fr:Confitures de cerises
+it:Confetture di ciliegie
 nl:Kersenjams
 hu:Cseresznye lekvár
 
@@ -34640,6 +34741,7 @@ hu:Cseresznye lekvár
 en:Figs jams
 es:Mermeladas y confituras de higos, Mermeladas de higos, Confituras de higos
 fr:Confitures de figues
+it:Confetture di figa
 nl:Vijgenjams
 hu:Füge lekár, Füge dzsem
 
@@ -34647,6 +34749,7 @@ hu:Füge lekár, Füge dzsem
 en:Grape jams
 es:Mermeladas y confituras de uvas, Mermeladas de uvas, Confituras de uvas
 fr:Confitures de raisins
+it:Confetture di uva
 nl:Druivenjams
 hu:Szölő lekvár
 
@@ -34654,6 +34757,7 @@ hu:Szölő lekvár
 en:Melon jams
 es:Mermeladas y confituras de melón, Mermeladas de melón, Confituras de melón
 fr:Confitures de melon
+it:Confitture di melone
 nl:Meloenjams
 hu:Dinnye lekvár
 
@@ -34661,6 +34765,7 @@ hu:Dinnye lekvár
 en:Peach jams
 es:Mermeladas y confituras de melocotón, Mermeladas de melocotón, Confituras de melocotón
 fr:Confitures de pêches
+it:Confitture di pesca
 nl:Perzikkenjams
 hu:Őszibarack lekvár, Barack lekvár
 
@@ -34668,6 +34773,7 @@ hu:Őszibarack lekvár, Barack lekvár
 en:Pear jams
 es:Mermeladas y confituras de peras, Mermeladas de peras, Confituras de peras
 fr:Confitures de poires
+it:Confitture di pera
 nl:Perenjams
 hu:Körte lekvár
 
@@ -34679,6 +34785,7 @@ hu:Birs lekvár
 en:Plum jams
 es:Mermeladas y confituras de ciruela, Mermeladas de ciruela, Confituras de ciruela
 fr:Confitures de prunes
+it:Confetture di susina
 nl:Pruimenjams
 hu:Szilva lekvár
 
@@ -34871,6 +34978,7 @@ nl:Gistgebaseerde smeerpastas
 fr:Pâtes à tartiner, Pâte à tartiner
 de:Brotaufstrich
 es:Cremas para untar, Cremas untables
+it:Crema da spalmare, crema spalmabile
 nl:Smeerpastas
 wikidata:en:Q1472481
 
@@ -34922,6 +35030,7 @@ en:Salted spreads, salty spreads
 es:Untables salados
 fr:Produits à tartiner salés
 nl:Zoute smeerpastas
+pnns_group_2:en:Salty and fatty products
 
 <en:Spreads
 en:Onion chutneys
@@ -38746,10 +38855,6 @@ fr:Brioches au chocolat, Brioches aux pépites de chocolat, Brioche au chocolat,
 <en:Brioches
 fr:Brioches aux fruits, Brioche au fruit
 
-<fr:Brioches aux fruits
-fr:Panetonnes, Panetonne
-it:Panetonne
-
 <en:Brioches
 fr:Brioches pur beurre, Brioche pur beurre
 
@@ -38885,6 +38990,7 @@ en:Foies gras
 fr:Foies gras, Foie gras
 nl:Foie gras
 wikidata:en:Q34807
+pnns_group_2:en:Processed meat
 
 <en:Foies gras
 fr:Bloc de foie gras
@@ -38976,7 +39082,7 @@ nl:Vegetarische weense worstjes
 en:Non-dairy cheeses, Plant cheeses, Vegan cheeses
 de:Michfreie Käse, Pflanzliche Käse, Käseersatz, Vegane Käse
 es:Quesos vegetales
-fr:Fromages végétaux
+fr:Substituts du fromage, fromages végétaux
 nl:Vegetarische kazen
 
 <en:Cereals and their products
@@ -38984,6 +39090,7 @@ en:Puffed cereal cakes
 de:Gepuffte Getreidekuchen
 es:Tortitas de cereales
 fr:Galettes de céréales
+it:Gallette di cereali
 nl:Graanwafels
 hu:Puffasztott gabonakészítmények
 
@@ -38992,6 +39099,7 @@ en:Puffed corn cakes
 de:Gepuffte Maiskuchen
 es:Tortitas de maíz
 fr:Galettes de maïs
+it:Gallette di mais
 nl:Maiswafels
 hu:Puffasztott kukorica készítményak
 
@@ -39015,6 +39123,7 @@ en:Puffed rice cakes
 de:Gepuffte Reiskuchen
 es:Tortitas de arroz
 fr:Galettes de riz
+it:Gallette di riso
 nl:Rijstwafels
 hu: Puffasztott rizs
 
@@ -39023,6 +39132,7 @@ en:Puffed wholegrain rice cakes
 de:Gepuffte Vollkornreiskuchen
 es:Tortitas de arroz integral
 fr:Galettes de riz complet
+it:Gallette di riso integrale
 nl:Volkoren rijstwafels
 
 <en:Puffed rice cakes
@@ -39051,6 +39161,7 @@ en:Puffed oat cakes
 de:Gepuffte Haferkuchen
 es:Tortitas de avena
 fr:Galettes d'avoine
+it:Gallette di avena
 nl:Haverwafels
 
 <en:Puffed cereal cakes
@@ -39071,7 +39182,7 @@ nl:Speltwafels
 en:Puffed Khorasan wheat cakes, Puffed Kamut cakes
 de:Kamutwaffeln
 es:Tortitas de trigo de Jorasán, Tortitas de Kamut
-fr:Galettes de blé de Khorasan, Galettes de Kamut
+fr:Galettes de blé khorasan, Galettes de blé de Khorasan, Galettes de Kamut
 nl:Kamutwafels
 
 <en:Puffed cereal cakes
@@ -39199,10 +39310,10 @@ hu:Madáreledel
 wikidata:en:Q471236
 
 <en:Pet food
-en:Pie dough
-hu:Haleledel
+en:Fish food
 fr:Nourriture pour poissons
-de:Kuchenteige
+
+en:Pie dough
 fr:Pâtes à tarte, Pâte à tarte
 nl:Taartdegen
 nl_be:Taartdeeg
@@ -39627,4 +39738,53 @@ en:Halloween foods and drinks
 es:Bebidas y alimentos de Halloween
 fr:Aliments et boissons d'Halloween
 nl:Halloween-levensmiddelen, Halloween-levensmiddel
+
+<en:Meals
+en:Tajine
+fr:Tajine, tagine
+
+<en:Meals
+<en:Fish dishes
+<en:Pasta dishes
+en:Tuna lasagna
+fr:Lasagnes au thon
+
+<en:Meals
+en:Endives with ham
+fr:Endives au jambon
+
+<en:Puff pastry meals
+en:Puff pastries with ham and cheese, puff pastry with ham and cheese
+fr:Feuilletés jambon fromage
+
+<en:Puff pastry meals
+en:Vegetable puff pastries, Vegetable puff pastry
+fr:Feuilletés aux légumes
+
+<en:Puff pastry meals
+en:Friands
+fr:Friands
+
+<en:Puff pastry meals
+<en:Friands
+en:Sausage friands, Puff pastries with sausage, puff pastry with sausage
+fr:Friands à la saucisse
+
+<en:Meals
+en:Stuffed vine leaves
+fr:Feuilles de vigne farcies
+
+en:Brick sheets
+fr:Feuilles de brick
+
+<en:Meals
+en:Banh Bao
+
+<en:Salty snacks
+en:Salty Fritters
+
+<en:Sweet snacks
+en:Sweet Fritters
+
+
 
