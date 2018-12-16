@@ -3,6 +3,7 @@
 use Modern::Perl '2012';
 
 use Test::More;
+use Log::Any::Adapter 'TAP';
 
 eval { require Test::Perl::Critic };
 plan skip_all => 'T::P::Critic required for this test' if $@;

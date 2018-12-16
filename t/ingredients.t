@@ -6,14 +6,11 @@ use warnings;
 use utf8;
 
 use Test::More;
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
-
-binmode(STDIN, ":encoding(UTF-8)");
-binmode(STDOUT, ":encoding(UTF-8)");
-binmode(STDERR, ":encoding(UTF-8)");
 
 # dummy product for testing
 
@@ -24,8 +21,7 @@ my $product_ref = {
 
 extract_ingredients_from_text($product_ref);
 
-use Data::Dumper;
-print STDERR Dumper($product_ref);
+diag explain $product_ref;
 
 
 is($product_ref->{ingredients_n}, 17);
@@ -210,8 +206,7 @@ extract_ingredients_classes_from_text($product_ref);
 #"huile-de-palme"
 #],
 
-use Data::Dumper;
-print STDERR Dumper($product_ref);
+diag explain $product_ref;
 
 
 my $expected_product_ref =
@@ -355,9 +350,6 @@ delete $product_ref->{nucleotides_prev_tags};
 delete $product_ref->{amino_acids_prev_tags};
 delete $product_ref->{minerals_prev_tags};
 delete $product_ref->{minerals_prev};
-
-
-use Data::Dumper;
 
 $expected_product_ref = {
           'ingredients_n_tags' => [
@@ -564,7 +556,7 @@ $expected_product_ref = {
                                   'en:diphosphates',
                                   'en:sodium-hydrogen-carbonate',
                                   'en:sodium-bicarbonate',
-		
+
                                 ],
           'ingredients_text' => "Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentr\x{e9} 1.4% (\x{e9}quivalent jus d'orange 7.8%), pulpe d'orange concentr\x{e9}e 0.6% (\x{e9}quivalent pulpe d'orange 2.6%), g\x{e9}lifiant (pectines), acidifiant (acide citrique), correcteurs d'acidit\x{e9} (citrate de calcium, citrate de sodium), ar\x{f4}me naturel d'orange, \x{e9}paississant (gomme xanthane)), chocolat 24.9% (sucre, p\x{e2}te de cacao, beurre de cacao, graisses v\x{e9}g\x{e9}tales (illipe, mangue, sal, karit\x{e9} et palme en proportions variables), ar\x{f4}me, \x{e9}mulsifiant (l\x{e9}cithine de soja), lactose et prot\x{e9}ines de lait), farine de bl\x{e9}, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre \x{e0} lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, \x{e9}mulsifiant (l\x{e9}cithine de soja).",
           'lc' => 'fr',
@@ -779,10 +771,7 @@ $expected_product_ref = {
         };
 
 
-is_deeply($product_ref, $expected_product_ref);
-
-print STDERR Dumper($product_ref);
-#exit;
+is_deeply($product_ref, $expected_product_ref) || diag explain $product_ref;
 
 # test synonyms for flavouring/flavour/flavor/flavoring
 my $product_ref = {
@@ -804,8 +793,7 @@ delete $product_ref->{minerals_prev_tags};
 delete $product_ref->{minerals_prev};
 
 
-use Data::Dumper;
-print STDERR Dumper($product_ref);
+diag explain $product_ref;
 
 $expected_product_ref = {
 'ingredients_n_tags' => [
@@ -872,8 +860,7 @@ delete $product_ref->{minerals_prev_tags};
 delete $product_ref->{minerals_prev};
 
 
-use Data::Dumper;
-print STDERR Dumper($product_ref);
+diag explain $product_ref;
 
 $expected_product_ref = {
 
