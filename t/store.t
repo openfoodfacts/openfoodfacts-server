@@ -3,6 +3,7 @@
 use Modern::Perl '2012';
 
 use Test::More;
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Store qw/:all/;
 

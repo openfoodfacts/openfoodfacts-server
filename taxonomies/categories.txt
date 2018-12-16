@@ -2654,14 +2654,15 @@ hu:Gyógynövényes teák
 wikidata:en:Q379932
 
 <en:Herbal teas
-en:Teas in tea bags
-de:Tee aus Teebeuteln
+en:Herbal teas in tea bags
+de:Kräutertee aus Teebeuteln
 es:Plantas para infusiones en bolsitas, Infusiones en bolsitas, Tisanas en bolsitas
 fr:Infusions en sachets, Infusion rooibos sachets, Infusion romarin sachets, Infusion sauge sachets, Infusion anis vert sachets
 nl:Kruidenthee in zakjes, Kruidenthee in buidels
 ru:Чай в пакетиках
 hu:Gyógynövényes teák tasakban
 zh:袋茶, 茶包, 袋泡茶
+pnns_group_2:en:Non-sugared beverages
 
 <en:Herbal teas
 en:Absinthium, Absinthe wormwood
@@ -3104,6 +3105,7 @@ nl:Theeën, Thee
 ru:Чай
 zh:茶
 wikidata:en:Q6097
+pnns_group_2:en:Non-sugared beverages
 
 <en:Teas
 en:Black teas, black tea
@@ -3599,6 +3601,7 @@ ru:Вода
 zh:水
 hu:Vízek
 wikidata:en:Q283
+pnns_group_2:en:Non-sugared beverages
 
 <en:Waters
 en:Drinking water
@@ -15923,6 +15926,7 @@ es:Siropes aromatizados, Jarabes aromatizados
 fr:Sirops aromatisés
 nl:Gearomatiseerde siropen, Gearomatiseerde Siroop
 wikidata:en:Q5458204
+pnns_group_2:en:Sweetened beverages
 
 <en:Flavoured syrups
 en:Sugar-free flavoured syrups, Flavoured syrups without sugar
@@ -17157,6 +17161,7 @@ wikidata:en:Q2164820
 <en:Chocolates with sweeteners
 en:Milk chocolates with sweeteners
 fr:Chocolats au lait édulcorés, Chocolats au lait aux édulcorants
+it:Cioccolato al latte con edulcorante
 de:Milchschokolade mit Süßstoffen
 hu:Tejes csokoládék édesítőszerekkel
 
@@ -17210,7 +17215,7 @@ en:White chocolates, White chocolate
 es:Chocolates blancos
 fr:Chocolats blancs, chocolat blanc, chocolats blonds, chocolat blond
 de:Weiße Schokoladen
-it:Cioccolatini bianchi, Cioccolato bianco
+it:Cioccolati bianchi, Cioccolato bianco
 nl:Witte chocoladen
 zh:白巧克力
 hu:Fehércsokoládék
@@ -17221,6 +17226,7 @@ wikidata:en:Q742385
 en:White chocolates with sweeteners
 es:Chocolates blancos con edulcorantes
 fr:Chocolats blancs édulcorés, Chocolats blancs aux édulcorants
+it:Cioccolato bianco con edulcorante
 de:Weiße Schokoladen mit Süßungsmitteln
 hu:Csokoládék édesítőszerekkel
 
@@ -17257,6 +17263,7 @@ hu:Csokoládé nyulak, húsvéti nyulak
 en:Chocolates with sweeteners
 es:Chocolates con edulcorantes
 fr:Chocolats édulcorés, Chocolats aux édulcorants, chocolats diététiques
+it:Cioccolato con edulcorante
 de:Schokoladen mit Süßungsmitteln
 
 <en:Chocolates
@@ -17333,6 +17340,7 @@ de:Herbe Schokoladen
 en:Dark chocolates with sweeteners
 es:Chocolates negros con edulcorantes
 fr:Chocolats noirs aux édulcorants
+it:Cioccolato fondente con edulcorante
 de:Dunkle Schokoladen mit Süßungsmitteln
 
 <en:Chocolates with almonds
@@ -24410,6 +24418,7 @@ wikidata:en:Q2264972
 en:Pecan oils
 es:Aceites de nuez pecana
 fr:Huiles de noix de pécan
+it:Olio di noci pecan
 nl:Pecanoliën
 wikidata:en:Q7158627
 
@@ -24424,6 +24433,7 @@ wikidata:en:Q184315
 en:Pistachio oils
 es:Aceites de pistacho
 fr:Huiles de pistache
+it:Olio di pistacchio
 nl:Pistacheoliën
 wikidata:en:Q3820506
 
@@ -24460,6 +24470,7 @@ de:Native Olivenöle Extra, Natives Olivenöl Extra
 en:Olive pomace oils
 es:Aceites de orujo de oliva
 fr:Huiles de grignons d'olive
+it:Olio di sansa di oliva
 nl:Vruchtenpulp-olijfoliën
 wikidata:en:Q7087235
 
@@ -24538,7 +24549,8 @@ country:en:Italy
 
 <en:Extra-virgin olive oils
 <en:Olive oils from Italy
-fr:Huile d'olive Riviera Ligure 
+fr:Huile d'olive Riviera Ligure
+it:Olio di oliva Riviera Ligure
 country:en:Italy
 instanceof:fr:AOP
 
@@ -24666,36 +24678,42 @@ hu:Lisztek
 en:Cereal brans
 es:Salvados de cereales
 fr:Sons de céréales
+it:Crusche di cereali, crusca di cereali
 nl:Graanvruchtenzemelen
 
 <en:Cereal brans
 en:Oat brans
 es:Salvados de avena
 fr:Sons d’avoine
+it:Crusche di avena 
 nl:Haverzemelen
 
 <en:Cereal brans
 en:Rice brans
 es:Salvados de arroz
 fr:Sons de riz
+it:Crusche di riso
 nl:Rijstzemelen
 
 <en:Cereal brans
 en:Rye brans
 es:Salvados de centeno
 fr:Sons de seigle
+it:Crusche di segale
 nl:Roggezemelen
 
 <en:Cereal brans
 en:Wheat brans, Wheat bran
 es:Salvados de trigo
 fr:Sons de blé, Son des blé, Son de blé
+it:Crusche di grano
 nl:Tarwezemelen
 
 <en:Wheat brans
 en:Khorasan wheat brans, Kamut brans
 es:Salvados de trigo de Jorasán, Salvados de Kamut
 fr:Sons de blé khorasan, Sons de Kamut
+it:Crusche di grano khorasan
 nl:Kamutzemelen
 
 <en:Wheat brans
@@ -24703,6 +24721,7 @@ en:Spelt brans
 es:Salvados de espelta
 fr:Sons d'épeautre
 de:Dinkelkleien, Dinkelkleie
+it:Crusche di farro spelta
 nl:Speltzemelen
 
 <en:Breakfasts
@@ -25089,6 +25108,7 @@ wikidata:en:Q1269205
 en:Rye flours
 es:Harinas de centeno
 fr:Farines de seigle
+it:Farine di segale
 de:Roggenmehle
 nl:Roggemelen
 
@@ -25138,6 +25158,7 @@ nl:Steengemalen melen
 en:Teff flours
 es:Harinas de teff, Harinas de tef
 fr:Farines de teff
+it:Farine di teff
 nl:Teffmelen
 
 <en:Cereal flours
@@ -25145,6 +25166,7 @@ en:Wheat flours
 de:Weizenmehle
 es:Harinas de trigo
 fr:Farines de blé
+it:Farine di grano
 nl:Tarwemelen
 pt:Farinhas de trigo
 ru:Мука пшеничная, Пшеничная мука
@@ -25188,6 +25210,7 @@ de:Weizenmehle Type 1600
 en:Common wheat flours, Bread wheat flours
 es:Harinas de trigo blando, Harinas de trigo común, Harinas de trigo harinero
 fr:Farines de froment, Farines de blé tendre
+it:Farine di grano tenero
 
 <en:Common wheat flours
 <en:Wheat flour T405
@@ -25229,6 +25252,7 @@ fr:Farines de blé variété Camp Rémy, Farines issu de la variété de blé Ca
 en:Durum wheat flours, Macaroni wheat flours
 es:Harinas de trigo duro
 fr:Farines de blé dur
+it:Farine di grano duro
 
 <en:Wheat flours
 de:Weizenbackschrot Type 1700
@@ -25236,7 +25260,7 @@ de:Weizenbackschrot Type 1700
 <en:Wheat flours
 en:Einkorn wheat flours
 es:Harinas de trigo escaña cultivada, Harinas de escaña
-fr:Farines de Petit Épeautre, Farines d'engrain
+fr:Farines de petit épeautre, Farines d'engrain
 nl:Eenkoornmelen
 
 <en:Einkorn wheat flours
@@ -25277,12 +25301,13 @@ es:Harinas de trigo escaña cultivada integrales
 fr:Farines de petit épeautre T150
 
 <en:Einkorn wheat flours
-fr:Farines de Petit Épeautre de Haute-Provence, Farine de Petit Épeautre de Haute-Provence
+fr:Farines de petit épeautre de Haute-Provence, Farine de Petit Épeautre de Haute-Provence
 
 <en:Wheat flours
 en:Emmer wheat flours
 es:Harinas de escandas, Harinas de povia
 fr:Farines d'amidonnier
+it:Farine di farro dicocco
 nl:Emmertarwemelen
 
 <en:Wheat flours
@@ -35005,6 +35030,7 @@ en:Salted spreads, salty spreads
 es:Untables salados
 fr:Produits à tartiner salés
 nl:Zoute smeerpastas
+pnns_group_2:en:Salty and fatty products
 
 <en:Spreads
 en:Onion chutneys
@@ -38964,6 +38990,7 @@ en:Foies gras
 fr:Foies gras, Foie gras
 nl:Foie gras
 wikidata:en:Q34807
+pnns_group_2:en:Processed meat
 
 <en:Foies gras
 fr:Bloc de foie gras
@@ -39758,4 +39785,6 @@ en:Salty Fritters
 
 <en:Sweet snacks
 en:Sweet Fritters
+
+
 

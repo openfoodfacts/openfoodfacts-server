@@ -2361,6 +2361,10 @@ sub canonicalize_taxonomy_tag($$$)
 		
 			# try a few languages
 			my @test_languages = ("en", "fr", "de", "es", "pt", "it", "nl", "ru", "la");
+			# ingredients: the taxonomy is not complete, only try English and Latin (for OBF) to avoid false positives
+			if ($tagtype eq "ingredients") {
+				@test_languages = ("en", "la");
+			}
 			
 			foreach my $test_lc (@test_languages) {
 			
