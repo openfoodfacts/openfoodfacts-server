@@ -77,6 +77,12 @@ spec:
             - name: varlog
               mountPath: "/var/log"
           args: [/bin/sh, -c, 'tail -n+1 -f /var/log/log4perl.log']
+        - name: {{ include "productopener.backend.fullname" . }}-modperl
+          image: busybox
+          volumeMounts:
+            - name: data
+              mountPath: "/mnt/podata/"
+          args: [/bin/sh, -c, 'tail -n+1 -f /mnt/podata/logs/modperl_error_log']
       volumes:
         - name: {{ include "productopener.backend.fullname" . }}-config
           configMap:
