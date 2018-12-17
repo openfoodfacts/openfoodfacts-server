@@ -552,14 +552,12 @@ function update_display(imagefield, first_display) {
 			var id = $this.attr('id');			
 			
 			var html = '<ul class="ui-selectable single-selectable">';
-			var imgid = '';
 			
 			$.each(images, function(index, image) {
 				var selected = '';
 				imgids[image.imgid] = index;
 				if (($("input:hidden[name=\"" + id + ".imgid\"]").val()) == image.imgid) {
 					selected = ' ui-selected';
-					imgid = image.imgid;
 				}
 				html += '<li id="' + id + '_' + image.imgid + '" class="ui-state-default ui-selectee' + selected + '">';
 				html += '<img src="' + settings.img_path + image.thumb_url +'" title="'  + image.uploaded + ' - ' + image.uploader + '"/>';
