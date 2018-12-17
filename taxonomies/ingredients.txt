@@ -13340,12 +13340,6 @@ fr:sirop de sucre candi
 en:caramel syrup
 fr:sirop de caramel
 
-en:agave syrup
-es:jarabe de agave
-fr:sirop d’agave
-nl:agavesiroop
-de:Agavensirup
-
 fr:sirop de blé
 
 fr:sirop de sucre de canne
@@ -13472,6 +13466,45 @@ fr:dextrose de tapioca
 nl:tapiocadextrose
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:dextrose%20de%20tapioca
 # 26 products @2018-09-25
+
+
+# Agave nectar (more accurately, agave syrup) is a sweetener commercially produced from several species of agave, including Agave tequilana (blue agave) and Agave salmiana. 
+
+en:agave syrup
+ar: شراب أغاف
+cs:agávovy sirup
+da:agavesirup
+de:Agavensirup
+es:jarabe de agave
+fa: اگاو
+fi:agave siirappi
+fr:sirop d’agave
+hr:sirup od agave
+id: Agave nectar
+is:agave-síróp
+it:sciroppo d'agave
+ja: アガベシロップ
+nl:agavesiroop
+nn:agave sirup
+pl: Syrop z agawy
+pt:xarope de agave
+ro: nectar de agave
+ru:сироп из агавы
+sl:agavin sirup
+sv: Agavesirap
+th: อะกาเวเนกเตอร์
+zh: 龍舌蘭糖漿
+wikidata:en: Q392001
+wikipedia:en:https://en.wikipedia.org/wiki/Agave_nectar
+# ingredient/agave-syrup has 477 products in 16 languages @2018-12-17
+
+<en:agave syrup
+fr:jus d'agave concentré
+de:Agavendicksaft
+it:succo di agave concentrato
+# ingredient/fr:jus-d’agave-concentré has 16 products in 3 languages @2018-12-17
+
+
 
 # PROTEINES - are large biomolecules, or macromolecules, consisting of one or more long chains of amino acid residues
 
@@ -29108,8 +29141,6 @@ fr:extrait riche en tocophérol, extraits riches en tocophérol
 
 fr:polyphosphate
 
-fr:inuline
-
 fr:disulfite de sodium
 
 fr:pp
@@ -31292,9 +31323,6 @@ fr:concentré salin liquide
 
 fr:canelle
 
-
-fr:fibres d'agave
-
 fr:graisses
 
 fr:copeaux de chocolat noir
@@ -32689,31 +32717,21 @@ fr:feuilles de vigne
 
 fr:gélatine de volaille
 
-
-
 fr:poudre de lactosérum sucré
 de:Sussmolkenpulver
-
 
 fr:acide carbonique
 de:Kohlensaure
 
 fr:marc de champagne
 
-
 fr:algue marine lithothamnium calcareum
-
 
 fr:sol
 
-
-
 fr:conservateur de fruit
 
-
 fr:cayenne
-
-fr:jus d'agave concentré
 
 fr:plasma déshydraté
 
@@ -32725,7 +32743,6 @@ allergens:fr:_crème_ pasteurisé
 fr:seitan
 
 fr:acétate de potassium
-
 
 fr:galette de blé
 allergens:fr:galette de _blé_
