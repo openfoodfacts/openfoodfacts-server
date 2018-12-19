@@ -44,7 +44,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 use Geo::IP;
 my $gi = Geo::IP->new(GEOIP_MEMORY_CACHE);
