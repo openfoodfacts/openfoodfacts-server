@@ -42,21 +42,22 @@ use Log::Any qw($log);
 ProductOpener::Display::init();
 use ProductOpener::Lang qw/:all/;
 
+my $challenge;
 if ($ENV{'REQUEST_METHOD'} eq 'GET') {
 	# The challenge is used to fetch information about the login request from ORY Hydra.
-	my $get_challenge = url_param('login_challenge');
-	if ($get_challenge) {
-		$log->info('received login GET for challenge', { challenge => $get_challenge }) if $log->is_info();
-		my $get_login_response = get_login_request($get_challenge);
-		$log->debug('received login response for challenge from ORY Hydra', { challenge => $get_challenge, get_login_response => $get_login_response }) if $log->is_debug();
+	$challenge = url_param('login_challenge');
+	if ($challenge) {
+		$log->info('received login GET for challenge', { challenge => $challenge }) if $log->is_info();
+		my $get_login_response = get_login_request($challenge);
+		$log->debug('received login response for challenge from ORY Hydra', { challenge => $challenge, get_login_response => $get_login_response }) if $log->is_debug();
 		if ($get_login_response) {
 			#  If hydra was already able to authenticate the user, skip will be true and we do not need to re-authenticate the user.
 			if ($get_login_response->skip) {
-				$log->info('accepting login challenge, because ORY Hydra asks us to skip login', { challenge => $get_challenge }) if $log->is_info();
-				my $accept_login_response = accept_login_request($get_challenge, { subject => $get_login_response->subject });
-				$log->debug('received accept login response for challenge from ORY Hydra', { challenge => $get_challenge, accept_login_response => $accept_login_response }) if $log->is_debug();
+				$log->info('accepting login challenge, because ORY Hydra asks us to skip login', { challenge => $challenge }) if $log->is_info();
+				my $accept_login_response = accept_login_request($challenge, { subject => $get_login_response->subject });
+				$log->debug('received accept login response for challenge from ORY Hydra', { challenge => $challenge, accept_login_response => $accept_login_response }) if $log->is_debug();
 				if ($accept_login_response) {
-					$log->info('login accepted by ORY Hydra, redirecting the user to the specified URL', { challenge => $get_challenge, redirect_to => $accept_login_response->redirect_to }) if $log->is_info();
+					$log->info('login accepted by ORY Hydra, redirecting the user to the specified URL', { challenge => $challenge, redirect_to => $accept_login_response->redirect_to }) if $log->is_info();
 					my $r = shift;
 					$r->headers_out->set(Location => $accept_login_response->redirect_to);
 					$r->status(302);
@@ -66,11 +67,11 @@ if ($ENV{'REQUEST_METHOD'} eq 'GET') {
 		}
 	}
 
-	_display_form($get_challenge);
+	_display_form();
 }
 elsif ($ENV{'REQUEST_METHOD'} eq 'POST') {
-	my $post_challenge = param('login_challenge');
-	$log->info('received login POST for challenge', { challenge => $post_challenge }) if $log->is_info();
+	$challenge = param('login_challenge');
+	$log->info('received login POST for challenge', { challenge => $challenge }) if $log->is_info();
 	if (defined $User_id) { # Automagically set by ProductOpener::Users::init_user() through ProductOpener::Display::init()
 		my $remember_me;
 		if ((defined param('remember_me')) and (param('remember_me') eq 'on')) {
@@ -80,11 +81,11 @@ elsif ($ENV{'REQUEST_METHOD'} eq 'POST') {
 			$remember_me => $JSON::PP::false;
 		}
 
-		$log->info('accepting login challenge, because ORY Hydra we have a user ID', { challenge => $post_challenge, user_id => $User_id }) if $log->is_info();
-		my $accept_login_response = accept_login_request($post_challenge, { subject => $User_id, remember => $remember_me, remember_for => 3600 });
-		$log->debug('received accept login response for challenge from ORY Hydra', { challenge => $post_challenge, accept_login_response => $accept_login_response }) if $log->is_debug();
+		$log->info('accepting login challenge, because ORY Hydra we have a user ID', { challenge => $challenge, user_id => $User_id }) if $log->is_info();
+		my $accept_login_response = accept_login_request($challenge, { subject => $User_id, remember => $remember_me, remember_for => 3600 });
+		$log->debug('received accept login response for challenge from ORY Hydra', { challenge => $challenge, accept_login_response => $accept_login_response }) if $log->is_debug();
 		if ($accept_login_response) {
-			$log->info('login accepted by ORY Hydra, redirecting the user to the specified URL', { challenge => $post_challenge, redirect_to => $accept_login_response->redirect_to }) if $log->is_info();
+			$log->info('login accepted by ORY Hydra, redirecting the user to the specified URL', { challenge => $challenge, redirect_to => $accept_login_response->redirect_to }) if $log->is_info();
 			my $r = shift;
 			$r->headers_out->set(Location => $accept_login_response->redirect_to);
 			$r->status(302);
@@ -92,7 +93,7 @@ elsif ($ENV{'REQUEST_METHOD'} eq 'POST') {
 		}
 	}
 
-	_display_form($post_challenge);
+	_display_form();
 }
 else {
 	my $r = shift;
@@ -100,9 +101,7 @@ else {
 	return 405;
 }
 
-sub _display_form($) {
-	my $challenge = shift;
-
+sub _display_form() {
 	my $html = <<HTML
 	<p>$Lang{login_to_add_and_edit_products}{$lc}</p>
 
