@@ -76,6 +76,7 @@ data:
     		$mongodb_host
 
     		$memd_servers
+        $hydra_url
 
     		$google_analytics
 
@@ -194,6 +195,7 @@ data:
     $mongodb = $ProductOpener::Config2::mongodb;
     $mongodb_host = $ProductOpener::Config2::mongodb_host;
     $memd_servers = $ProductOpener::Config2::memd_servers;
+    $hydra_url = $ProductOpener::Config2::hydra_url;
 
     # server paths
     $www_root = $ProductOpener::Config2::www_root;
@@ -493,6 +495,7 @@ data:
     		$mongodb
         $mongodb_host
         $memd_servers
+        $hydra_url
     		$facebook_app_id
     	  $facebook_app_secret
         $csrf_secret

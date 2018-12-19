@@ -37,6 +37,7 @@ BEGIN
 		$mongodb
 		$mongodb_host
 		$memd_servers
+		$hydra_url
 		$facebook_app_id
 	    $facebook_app_secret
 		$crowdin_project_identifier
@@ -65,6 +66,8 @@ $mongodb = "off";
 $mongodb_host = "mongodb://localhost";
 
 $memd_servers = [ "127.0.0.1:11211" ];
+
+$hydra_url = "hydra.$server_domain";
 
 $facebook_app_id = "";
 $facebook_app_secret = "";
