@@ -1158,7 +1158,7 @@ sub display_list_of_tags($$) {
 	my $groupby_tagtype = $request_ref->{groupby_tagtype};
 
 	# Add a meta robot noindex for pages related to users
-	if ((defined $groupby_tagtype) and ($groupby_tagtype =~ /^(users|editors|informers|correctors|photographers|checkers)$/)) {
+	if ((defined $groupby_tagtype) and ($groupby_tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/)) {
 
 		$header .= '<meta name="robots" content="noindex">' . "\n";
 
@@ -2102,8 +2102,8 @@ sub display_tag($) {
 	local $log->context->{tagid2} = $tagid2;
 
 	# Add a meta robot noindex for pages related to users
-	if ( ((defined $tagtype) and ($tagtype =~ /^(users|editors|informers|correctors|photographers|checkers)$/))
-		or ((defined $tagtype2) and ($tagtype2 =~ /^(users|editors|informers|correctors|photographers|checkers)$/)) ) {
+	if ( ((defined $tagtype) and ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/))
+		or ((defined $tagtype2) and ($tagtype2 =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/)) ) {
 
 		$header .= '<meta name="robots" content="noindex">' . "\n";
 
@@ -2856,41 +2856,62 @@ HTML
 
 		$initjs .= $js;
 	}
+	
+	
 
-	if ($tagtype eq 'users') {
+	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/) {
+	
 		my $user_ref = retrieve("$data_root/users/$tagid.sto");
+	
+		if ($tagtype =~ /^(correctors|editors|informers|correctors|photographers|checkers)$/) {
+			$description .= "\n<ul><li><a href=\"" . canonicalize_tag_link("users", get_fileid($User_id)) . "\">" . sprintf(lang('user_s_page'), $user_ref->{name}) . "</a></li></ul>\n"
 
-		if ($admin) {
-			$description .= "<p>" . $user_ref->{email} . "</p>";
 		}
+		
+		if ($tagtype eq 'users') {
+			
 
-		if (defined $user_ref) {
-			if ((defined $user_ref->{name}) and ($user_ref->{name} ne '')) {
-				$title = $user_ref->{name} . " ($tagid)";
-				$products_title = $user_ref->{name};
+			if ($admin) {
+				$description .= "<p>" . $user_ref->{email} . "</p>";
 			}
 
-			$description .= "<p>" . lang("contributor_since") . " " . display_date_tag($user_ref->{registered_t}) . "</p>";
-
-			if ((defined $user_ref->{missions}) and ($request_ref->{page} <= 1 )) {
-				my $missions = '';
-				my $i = 0;
-
-				foreach my $missionid (sort { $user_ref->{missions}{$b} <=> $user_ref->{missions}{$a}} keys %{$user_ref->{missions}}) {
-					$missions .= "<li style=\"margin-bottom:10px;clear:left;\"><img src=\"/images/misc/gold-star-32.png\" alt=\"Star\" style=\"float:left;margin-top:-5px;margin-right:20px;\"> <div>"
-					. "<a href=\"" . canonicalize_tag_link("missions", $missionid) . "\" style=\"font-size:1.4em\">"
-					. $Missions{$missionid}{name} . "</a></div></li>\n";
-					$i++;
+			if (defined $user_ref) {
+				if ((defined $user_ref->{name}) and ($user_ref->{name} ne '')) {
+					$title = $user_ref->{name} . " ($tagid)";
+					$products_title = $user_ref->{name};
 				}
 
-				if ($i > 0) {
-					$missions = "<h2>" . lang("missions") . "</h2>\n<p>"
-					. $products_title . ' ' . sprintf(lang("completed_n_missions"), $i) . "</p>\n"
-					. '<ul id="missions" style="list-style-type:none">' . "\n" . $missions . "</ul>";
-					$missions =~ s/ 1 missions/ 1 mission/;
-				}
+				$description .= "<p>" . lang("contributor_since") . " " . display_date_tag($user_ref->{registered_t}) . "</p>";
+				
+				# Display links to products edited, photographed etc.
+				
+				$description .= "\n<ul>\n"
+				. "<li><a href=\"" . canonicalize_tag_link("editors", get_fileid($User_id)) . "\">" . sprintf(lang('editors_products'), $user_ref->{name}) . "</a></li>\n"
+				. "<li><a href=\"" . canonicalize_tag_link("photographers", get_fileid($User_id)) . "\">" . sprintf(lang('photographers_products'), $user_ref->{name}) . "</a></li>\n"
+				. "</ul>\n";
+				
 
-				$description .= $missions;
+				# 2018/12/19 - disable displaying missions (broken since 2013)
+				if (0 and (defined $user_ref->{missions}) and ($request_ref->{page} <= 1 )) {
+					my $missions = '';
+					my $i = 0;
+
+					foreach my $missionid (sort { $user_ref->{missions}{$b} <=> $user_ref->{missions}{$a}} keys %{$user_ref->{missions}}) {
+						$missions .= "<li style=\"margin-bottom:10px;clear:left;\"><img src=\"/images/misc/gold-star-32.png\" alt=\"Star\" style=\"float:left;margin-top:-5px;margin-right:20px;\"> <div>"
+						. "<a href=\"" . canonicalize_tag_link("missions", $missionid) . "\" style=\"font-size:1.4em\">"
+						. $Missions{$missionid}{name} . "</a></div></li>\n";
+						$i++;
+					}
+
+					if ($i > 0) {
+						$missions = "<h2>" . lang("missions") . "</h2>\n<p>"
+						. $products_title . ' ' . sprintf(lang("completed_n_missions"), $i) . "</p>\n"
+						. '<ul id="missions" style="list-style-type:none">' . "\n" . $missions . "</ul>";
+						$missions =~ s/ 1 missions/ 1 mission/;
+					}
+
+					$description .= $missions;
+				}
 			}
 		}
 	}
@@ -5074,7 +5095,7 @@ sub display_my_block($)
 	if (defined $User_id) {
 
 		my $links = '<ul class="side-nav" style="padding-top:0">';
-		$links .= "<li><a href=\"" . canonicalize_tag_link("users", get_fileid($User_id)) . "\">" . lang("products_you_edited") . "</a></li>";
+		$links .= "<li><a href=\"" . canonicalize_tag_link("editors", get_fileid($User_id)) . "\">" . lang("products_you_edited") . "</a></li>";
 		$links .= "<li><a href=\"" . canonicalize_tag_link("users", get_fileid($User_id)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed") . "\">" . lang("incomplete_products_you_added") . "</a></li>";
 		$links .= "</ul>";
 
