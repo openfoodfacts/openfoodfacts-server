@@ -37,6 +37,7 @@ install:
   - sed -i -e 's|\/home\/off|'$TRAVIS_BUILD_DIR'|g' $TRAVIS_BUILD_DIR/lib/ProductOpener/Config2.pm
 before_script:
   - perl -CS -I$TRAVIS_BUILD_DIR/lib $TRAVIS_BUILD_DIR/scripts/build_lang.pl
+  - node refresh_taxonomies.js
 script:
   - yarn test
 notifications:
