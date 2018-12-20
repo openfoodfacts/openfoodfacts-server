@@ -2863,22 +2863,22 @@ HTML
 	
 		my $user_ref = retrieve("$data_root/users/$tagid.sto");
 	
-		if ($tagtype =~ /^(correctors|editors|informers|correctors|photographers|checkers)$/) {
-			$description .= "\n<ul><li><a href=\"" . canonicalize_tag_link("users", get_fileid($User_id)) . "\">" . sprintf(lang('user_s_page'), $user_ref->{name}) . "</a></li></ul>\n"
-
-		}
+		if (defined $user_ref) {
 		
-		if ($tagtype eq 'users') {
-			
+			if ((defined $user_ref->{name}) and ($user_ref->{name} ne '')) {
+				$title = $user_ref->{name} . " ($tagid)";
+				$products_title = $user_ref->{name};
+			}		
+		
+			if ($tagtype =~ /^(correctors|editors|informers|correctors|photographers|checkers)$/) {
+				$description .= "\n<ul><li><a href=\"" . canonicalize_tag_link("users", get_fileid($User_id)) . "\">" . sprintf(lang('user_s_page'), $products_title) . "</a></li></ul>\n"
 
-			if ($admin) {
-				$description .= "<p>" . $user_ref->{email} . "</p>";
 			}
-
-			if (defined $user_ref) {
-				if ((defined $user_ref->{name}) and ($user_ref->{name} ne '')) {
-					$title = $user_ref->{name} . " ($tagid)";
-					$products_title = $user_ref->{name};
+			
+			else {
+				
+				if ($admin) {
+					$description .= "<p>" . $user_ref->{email} . "</p>";
 				}
 
 				$description .= "<p>" . lang("contributor_since") . " " . display_date_tag($user_ref->{registered_t}) . "</p>";
@@ -2886,8 +2886,8 @@ HTML
 				# Display links to products edited, photographed etc.
 				
 				$description .= "\n<ul>\n"
-				. "<li><a href=\"" . canonicalize_tag_link("editors", get_fileid($User_id)) . "\">" . sprintf(lang('editors_products'), $user_ref->{name}) . "</a></li>\n"
-				. "<li><a href=\"" . canonicalize_tag_link("photographers", get_fileid($User_id)) . "\">" . sprintf(lang('photographers_products'), $user_ref->{name}) . "</a></li>\n"
+				. "<li><a href=\"" . canonicalize_tag_link("editors", get_fileid($User_id)) . "\">" . sprintf(lang('editors_products'), $products_title) . "</a></li>\n"
+				. "<li><a href=\"" . canonicalize_tag_link("photographers", get_fileid($User_id)) . "\">" . sprintf(lang('photographers_products'), $products_title) . "</a></li>\n"
 				. "</ul>\n";
 				
 
@@ -2912,6 +2912,7 @@ HTML
 
 					$description .= $missions;
 				}
+				
 			}
 		}
 	}
