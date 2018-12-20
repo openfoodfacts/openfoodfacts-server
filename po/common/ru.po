@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-12-10 18:21\n"
+"PO-Revision-Date: 2018-12-20 20:52\n"
 "Language-Team: Russian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -3009,4 +3009,48 @@ msgstr "Инструкции по переработке"
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
 msgstr ""
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr "Продукты проверены %s"
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr "Продукты не проверены %s"
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr "Продукты исправлены %s"
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr "Продукты не исправлены %s"
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr "Продукты отредактированы %s"
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr "Продукты не отредактированы %s"
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr "Продукты заполнены %s"
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr "Продукты не заполнены %s"
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr "Продуктов сфотографированных %s"
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr "Продуктов не сфотографированно %s"
+
+msgctxt "user_s_page"
+msgid "%s's page"
+msgstr "Страница %s "
 
