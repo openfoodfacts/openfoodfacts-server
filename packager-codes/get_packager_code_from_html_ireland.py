@@ -1,4 +1,3 @@
-
 # file get_packager_code_from_html_ireland.py
 # coding: utf-8
 
