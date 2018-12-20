@@ -42,9 +42,9 @@ server {
 
 	# 13/09/2016: got error "nginx: [emerg] invalid parameter "http2" "
 	#listen 443 ssl http2 default_server;
-	listen 443 ssl;
+	listen 443 http2 ssl;
 	#listen [::]:443 ssl http2 default_server;
-	listen [::]:443 ssl;
+	listen [::]:443 http2 ssl;
 	#include snippets/ssl-ssl-api-test.openfoodfacts.org;
 	include snippets/ssl-params.conf;
 

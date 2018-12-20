@@ -521,9 +521,15 @@ HTML
 	</li>
 </ul>
 </form>
-<script type="text/javascript" src="/js/search.js"></script>
+
 HTML
 ;
+
+	$scripts .= <<HTML
+<script type="text/javascript" src="/js/search.js"></script>	
+HTML
+;
+
 	
 	${$request_ref->{content_ref}} .= $html;
 

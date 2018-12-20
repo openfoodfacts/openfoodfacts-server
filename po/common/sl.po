@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-17 13:00\n"
+"PO-Revision-Date: 2018-11-12 13:56\n"
 "Language-Team: Slovenian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -197,11 +197,11 @@ msgstr "Številka črtne kode:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr ""
+msgstr "Prav tako lahko pomagate pri financiranju projekta Open Food Facts"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Prispevajte za Open Food Facts\" /></a><p><<site_name>> izdeluje neprofitno združenje, neodvisno od industrije.. Narejeno je za vse, od vseh, pravtako je financirano od vseh. Našo delo lahko podprete s <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">finančnim prispevkom za Open Food Facts</a> kot tudi <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">z uporabo iskalnika Lilo</a>.<br/><b>Hvala!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Embrace the mission"
@@ -338,12 +338,12 @@ msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.p
 "+ <a href=\"https://www.facebook.com/groups/openfoodfacts/\">contributors group</a><br />\n"
 "</p>\n\n"
 "<p>iPhone and iPad app on the App Store:</p>\n\n"
-"<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
+"<a href=\"https://itunes.apple.com/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
 "<p>Android app on Google Play:</p>\n\n"
 "<a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner\"><img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" /></a><br/>\n"
 "<a href=\"https://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
 "<p>Windows Phone app:</p>\n\n"
-"<a href=\"https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
+"<a href=\"https://microsoft.com/p/openfoodfacts/9nblggh0dkqr\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
 msgstr ""
 
 msgctxt "completed_n_missions"
@@ -583,61 +583,57 @@ msgctxt "error_invalid_address"
 msgid "Invalid address."
 msgstr "Neveljaven naslov."
 
-msgctxt "error_invalid_csrf_token"
-msgid "Invalid CSRF token."
-msgstr "Neveljaven žeton CSRF."
-
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
 msgstr "Nepravilen e-naslov"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be a least 6 characters long."
-msgstr ""
+msgstr "Geslo mora vsebovati vsaj 6 znakov."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr ""
+msgstr "Neveljaven uporabnik."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr ""
+msgstr "Uporabniško ime mora vsebovati le nenaglasne črke, številke in pomišljaje."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
-msgstr ""
+msgstr "Izdelek že obstaja z novo kodo"
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
-msgstr ""
+msgstr "Vnesti morate ime ali vzdevek."
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
-msgstr ""
+msgstr "Dovoljenje zavrnjeno."
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr ""
+msgstr "Vnesti morate uporabniško ime"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
-msgstr ""
+msgstr "Ste že vpisani."
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
-msgstr ""
+msgstr "Povezava z geslom za ponastavitev je neveljavna ali je potekla."
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr ""
+msgstr "Račun z vnesenim elektronskim naslovom ne obstaja"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr ""
+msgstr "To uporabniško ime ne obstaja."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr ""
+msgstr "Uporabniško ime je že v uporabi, izberite si novo."
 
 msgctxt "example"
 msgid "Example:"
@@ -653,7 +649,7 @@ msgstr "Najboljše pred datumom"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr ""
+msgstr "Datum poteka je način spremljanja sprememb izdelkov skozi čas in določitev najnovejše različice."
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
@@ -661,7 +657,7 @@ msgstr ""
 
 msgctxt "facebook_locale"
 msgid "en_US"
-msgstr "en_US"
+msgstr ""
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
@@ -669,7 +665,7 @@ msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr ""
+msgstr "Če so podatki nepopolni ali napačni, jih lahko dokončate ali popravite z urejanjem te strani."
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
@@ -679,7 +675,13 @@ msgid "<a href=\"https://world.openfoodfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/legal\">Pravno</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/terms-of-use\">Pogoji uporabe</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/who-we-are\">Kdo smo</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/faq\">Pogosto zastavljena vprašanja</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">Forum za ideje</a> -\n"
+"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
+"<a href=\"https://world.openfoodfacts.org/press-and-blogs\">Tisk in blogi</a>\n"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
@@ -687,47 +689,52 @@ msgstr ""
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr ""
+msgstr "<<site_name>> blog"
 
+# Do not translate
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
 msgstr "https://en.blog.openfoodfacts.org"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
-msgstr ""
+msgstr "Kodeks ravnanja"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data"
 msgstr "Podatki"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
 msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr ""
+msgstr "Odkrijte projekt"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
 msgstr "Pogosto zastavljena vprašanja"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/pzv"
+msgstr "/faq"
 
 msgctxt "footer_translators"
 msgid "Translators"
 msgstr "Prevajalci"
 
+# Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr ""
+msgstr "/cgi/top_translators.pl"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
@@ -753,17 +760,19 @@ msgctxt "footer_legal"
 msgid "Legal"
 msgstr "Pravni podatki"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr ""
+msgstr "/legal"
 
 msgctxt "footer_press"
 msgid "Press"
 msgstr "Mediji"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr "/mediji"
+msgstr "/press"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -773,22 +782,25 @@ msgctxt "footer_terms"
 msgid "Terms of use"
 msgstr "Pogoji uporabe"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/terms-of-use"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
 msgstr "Kdo smo"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr "/kdo-smo"
+msgstr "/who-we-are"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
 msgstr ""
 
+# Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
 msgstr "https://en.wiki.openfoodfacts.org"
@@ -825,22 +837,9 @@ msgctxt "graphs_and_maps"
 msgid "Graphs and maps"
 msgstr "Grafi in zemljevidi"
 
-msgctxt "header"
-msgid "<meta property=\"fb:admins\" content=\"706410516\" />\n"
-"<meta property=\"og:site_name\" content=\"<<site_name>> - the free and open food products information database\"/>\n\n"
-"<script type=\"text/javascript\">\n"
-"  var uvOptions = {};\n"
-"  (function() {\n"
-"\tvar uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;\n"
-"\tuv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/jQrwafQ94nbEbRWsznm6Q.js';\n"
-"\tvar s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);\n"
-"  })();\n"
-"</script>\n\n\n"
-msgstr ""
-
 msgctxt "hello"
 msgid "Hello"
-msgstr ""
+msgstr "Pozdravljeni"
 
 msgctxt "high"
 msgid "high"
@@ -848,7 +847,7 @@ msgstr ""
 
 msgctxt "high_quantity"
 msgid "high quantity"
-msgstr ""
+msgstr "velika količina"
 
 msgctxt "history"
 msgid "Changes history"
@@ -1127,14 +1126,6 @@ msgctxt "lang_nl_be"
 msgid "Dutch"
 msgstr "Nizozemščina"
 
-msgctxt "lang_note"
-msgid "Language most present and most highlighted on the product"
-msgstr "Jezik, ki je najbolj prisoten in najbolj poudarjen na izdelku"
-
-msgctxt "lang_other"
-msgid "other language"
-msgstr "drugi jezik"
-
 msgctxt "lang_pl"
 msgid "Polish"
 msgstr "Poljščina"
@@ -1178,6 +1169,14 @@ msgstr "Vietnamščina"
 msgctxt "lang_zh"
 msgid "Chinese"
 msgstr "Kitajščina"
+
+msgctxt "lang_other"
+msgid "other language"
+msgstr "drugi jezik"
+
+msgctxt "lang_note"
+msgid "Language most present and most highlighted on the product"
+msgstr "Jezik, ki je najbolj prisoten in najbolj poudarjen na izdelku"
 
 msgctxt "language"
 msgid "en-US"
@@ -1269,7 +1268,7 @@ msgstr ""
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr ""
+msgstr "Uporabniško ime ali e-poštni naslov:"
 
 msgctxt "low"
 msgid "low"
@@ -1277,7 +1276,7 @@ msgstr ""
 
 msgctxt "low_quantity"
 msgid "low quantity"
-msgstr ""
+msgstr "majhna količina"
 
 msgctxt "manage_images"
 msgid "Manage images"
@@ -1331,6 +1330,7 @@ msgctxt "menu_add_a_product"
 msgid "Add a product"
 msgstr "Dodajte izdelek"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
 msgstr ""
@@ -1339,6 +1339,7 @@ msgctxt "menu_contribute"
 msgid "Contribute"
 msgstr ""
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
 msgstr ""
@@ -1347,9 +1348,10 @@ msgctxt "menu_discover"
 msgid "Discover"
 msgstr "Odkritje"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr "/odkritje"
+msgstr ""
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1369,7 +1371,7 @@ msgstr ""
 
 msgctxt "mission_goal"
 msgid "Goal:"
-msgstr ""
+msgstr "Cilj:"
 
 msgctxt "missions"
 msgid "Missions"
@@ -1383,18 +1385,13 @@ msgctxt "moderate_quantity"
 msgid "moderate quantity"
 msgstr ""
 
-# Please keep the same syntax and translate only the months
-msgctxt "months"
-msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr ""
-
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
 msgstr ""
 
 msgctxt "n_products"
 msgid "%d products"
-msgstr ""
+msgstr "%d izdelkov"
 
 msgctxt "name"
 msgid "Name"
@@ -1464,7 +1461,7 @@ msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
 msgstr "Vsebnost hranil za 100 g"
 
-# Ensure it is the same translation as in the translation in the tag file. If unsure, DO NOT TRANSLATE, otherwise it will break the site
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
 msgstr ""
@@ -1681,15 +1678,15 @@ msgstr ""
 
 msgctxt "page_x"
 msgid "Page %d"
-msgstr ""
+msgstr "Stran %d"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
-msgstr ""
+msgstr "Stran %d od %d."
 
 msgctxt "pages"
 msgid "Pages:"
-msgstr ""
+msgstr "Strani:"
 
 msgctxt "password"
 msgid "Password"
@@ -1697,11 +1694,11 @@ msgstr "Geslo"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
-msgstr ""
+msgstr "Potrdite geslo"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
-msgstr ""
+msgstr "Obdobje po odprtju"
 
 msgctxt "periods_after_opening_note"
 msgid "Found in an open container logo with a number of months: e.g. 12 M"
@@ -1717,19 +1714,19 @@ msgstr ""
 
 msgctxt "photographers_p"
 msgid "photographers"
-msgstr ""
+msgstr "fotografi"
 
 msgctxt "photographers_s"
 msgid "photographer"
-msgstr ""
+msgstr "fotograf"
 
 msgctxt "pnns_groups_1"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "Skupine PNNS 1"
 
 msgctxt "pnns_groups_1_p"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "Skupine PNNS 1"
 
 msgctxt "pnns_groups_1_s"
 msgid "PNNS group 1"
@@ -1857,7 +1854,7 @@ msgstr "Zavrti desno"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
-msgstr ""
+msgstr "Potrdite ali spremenite velikost slike"
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
@@ -2097,15 +2094,15 @@ msgstr ""
 
 msgctxt "search_download_button"
 msgid "Download"
-msgstr ""
+msgstr "Prenesi"
 
 msgctxt "search_download_choice"
 msgid "Download results"
-msgstr ""
+msgstr "Prenesi rezultate"
 
 msgctxt "search_download_results"
 msgid "Download results in CSV format (Excel, OpenOffice)"
-msgstr ""
+msgstr "Prenesi rezultate v formatu CSV (Excel, OpenOffice)"
 
 msgctxt "search_download_results_description"
 msgid "Character set: Unicode (UTF-8). Separator: tabulation (tab)."
@@ -2129,7 +2126,7 @@ msgstr ""
 
 msgctxt "search_graph"
 msgid "Graph"
-msgstr ""
+msgstr "Graf"
 
 msgctxt "search_graph_2_axis"
 msgid "Scatter plot"
@@ -2141,7 +2138,7 @@ msgstr ""
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
-msgstr ""
+msgstr "Rezultati na grafu"
 
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
@@ -2214,15 +2211,15 @@ msgstr "ali"
 
 msgctxt "search_page_size"
 msgid "Results per page"
-msgstr ""
+msgstr "Rezultatov na stran"
 
 msgctxt "search_products"
 msgid "Products search"
-msgstr ""
+msgstr "Iskanje izdelkov"
 
 msgctxt "search_results"
 msgid "Search results"
-msgstr ""
+msgstr "Rezultati iskanja"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
@@ -2328,8 +2325,17 @@ msgctxt "serving_size"
 msgid "Serving size"
 msgstr "Velikost obroka"
 
+msgctxt "serving_size_prepared"
+msgid ""
+msgstr ""
+""
+
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
+msgstr ""
+
+msgctxt "serving_size_note"
+msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
 msgstr ""
 
 msgctxt "session_title"
@@ -2366,19 +2372,19 @@ msgstr "Odpri dejstva o hrani"
 
 msgctxt "sort_by"
 msgid "Sort by"
-msgstr ""
+msgstr "Razvrsti po"
 
 msgctxt "sort_created_t"
 msgid "Add date"
-msgstr ""
+msgstr "Dodaj datum"
 
 msgctxt "sort_modified_t"
 msgid "Edit date"
-msgstr ""
+msgstr "Uredi datum"
 
 msgctxt "sort_popularity"
 msgid "Popularity"
-msgstr ""
+msgstr "Priljubljenost"
 
 msgctxt "sort_product_name"
 msgid "Product name"
@@ -2498,7 +2504,7 @@ msgstr ""
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
-msgstr ""
+msgstr "Uporabniško ime ali e-poštni naslov: "
 
 msgctxt "username"
 msgid "User name"
@@ -2534,7 +2540,7 @@ msgstr "sodelavci"
 
 msgctxt "users_products"
 msgid "Products added by %s"
-msgstr ""
+msgstr "Izdelek ki ga je dodal %s"
 
 msgctxt "users_s"
 msgid "contributor"
@@ -2568,10 +2574,6 @@ msgstr ""
 msgctxt "website"
 msgid "Site or blog address"
 msgstr ""
-
-msgctxt "weekdays"
-msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
-msgstr "['nedelja', 'ponedeljek', 'torek', 'sreda', 'četrtek', 'petek, 'sobota]"
 
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
@@ -2679,7 +2681,7 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " — "
-msgstr " — "
+msgstr ""
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -2779,19 +2781,20 @@ msgstr ""
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
-msgstr ""
+msgstr "NOVA skupina"
 
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
-msgstr ""
+msgstr "NOVA skupina"
 
 msgctxt "footer_partners"
 msgid "Partners"
 msgstr "Partnerji"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr "/partnerji"
+msgstr "/partners"
 
 msgctxt "adults"
 msgid "Adults"
@@ -2947,5 +2950,37 @@ msgstr ""
 
 msgctxt "additives_classes"
 msgid "Functions"
+msgstr ""
+
+msgctxt "photos_and_data_check"
+msgid "Photos and data check"
+msgstr ""
+
+msgctxt "photos_and_data_check_description"
+msgid "Product pages can be marked as checked by experienced contributors who verify that the most recent photos are selected and cropped, and that all the product data that can be inferred from the product photos has been filled and is correct."
+msgstr ""
+
+msgctxt "photos_and_data_checked"
+msgid "Photos and data checked"
+msgstr ""
+
+msgctxt "i_checked_the_photos_and_data"
+msgid "I checked the photos and data."
+msgstr ""
+
+msgctxt "i_checked_the_photos_and_data_again"
+msgid "I checked the photos and data again."
+msgstr ""
+
+msgctxt "last_check_dates_p"
+msgid "Last check dates"
+msgstr ""
+
+msgctxt "last_check_dates_s"
+msgid "Last check date"
+msgstr ""
+
+msgctxt "product_last_checked"
+msgid "Last check of product page on"
 msgstr ""
 

@@ -30,6 +30,7 @@ BEGIN
 	@EXPORT = qw();
 	@EXPORT_OK = qw(
 		%admins
+		%moderators
 		
 		$server_domain
 		@ssl_subdomains
@@ -40,9 +41,7 @@ BEGIN
 		$admin_email
 
 		$facebook_app_id
-                $facebook_app_secret
-
-                $csrf_secret
+		$facebook_app_secret
 
 		$google_cloud_vision_api_key
 		
@@ -68,11 +67,13 @@ BEGIN
 
 		%wiki_texts
 		
-		@taxonomy_fields	
-		@product_image_fields
 		@product_fields
+		@product_other_fields
 		@display_fields
+		@display_other_fields
 		@drilldown_fields
+		@taxonomy_fields
+		@export_fields
 		
 		%tesseract_ocr_available_languages		
 		
@@ -89,12 +90,15 @@ use ProductOpener::Config2;
 
 %admins = map { $_ => 1 } qw(
 agamitsudo
+aleene
 bcatelin
-beniben
+bojackhorseman
 hangy
 javichu
 kyzh
-scanparty-franprix-05-2016
+lafel
+lucaa
+moon-rabbit
 sebleouf
 segundo
 stephane
@@ -102,7 +106,11 @@ tacinte
 tacite
 teolemon
 twoflower
-scanparty-franprix-05-2016
+
+);
+
+%moderators = map { $_ => 1 } qw(
+
 );
 
 @edit_rules = ();
@@ -122,7 +130,6 @@ $data_root = $ProductOpener::Config2::data_root;
 $facebook_app_id = $ProductOpener::Config2::facebook_app_id;
 $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
-$csrf_secret = $ProductOpener::Config2::csrf_secret;
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 
 $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
@@ -131,7 +138,7 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 $reference_timezone = 'Europe/Paris';
 
 $contact_email = 'contact@openproductsfacts.org';
-$admin_email = 'biz@joueb.com';
+$admin_email = 'stephane@openfoodfacts.org';
 
 
 $thumb_size = 100;
@@ -183,22 +190,33 @@ HTML
 
 );
 
-@product_image_fields = qw(front ingredients);
+#@product_image_fields = qw(front ingredients);
 
-#fields that have a taxonomy
+# fields for which we will load taxonomies
 
 @taxonomy_fields = qw(states countries languages labels categories additives allergens traces nutrient_levels ingredients periods_after_opening);
 
-# fields in product edit form
+# fields in product edit form, above ingredients and nutrition facts
 
 #@product_fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link periods_after_opening expiration_date purchase_places stores countries  );
 @product_fields = qw(quantity packaging brands categories labels origins manufacturing_places emb_codes link periods_after_opening expiration_date purchase_places stores countries  );
+
+# fields currently not shown in the default edit form, can be used in imports or advanced edit forms
+
+@product_other_fields = qw(
+producer_version_id
+net_weight_value net_weight_unit drained_weight_value drained_weight_unit volume_value volume_unit
+other_information conservation_conditions recycling_instructions_to_recycle recycling_instructions_to_discard
+);
 
 # fields shown on product page
 # do not show purchase_places
 
 @display_fields = qw(generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link periods_after_opening stores countries);
 
+# fields displayed in a new section after the nutrition facts
+
+@display_other_fields = qw(other_information conservation_conditions recycling_instructions_to_recycle recycling_instructions_to_discard);
 
 # fields for drilldown facet navigation
 
@@ -224,6 +242,34 @@ entry_dates
 last_edit_dates
 );
 
+@export_fields = qw(
+code
+creator
+created_t
+last_modified_t
+product_name
+generic_name
+quantity
+packaging
+brands 
+categories 
+origins
+manufacturing_places
+labels
+emb_codes
+cities
+purchase_places
+stores
+countries
+ingredients_text
+allergens
+traces
+serving_size
+serving_quantity
+additives_n
+additives
+states
+);
 
 # for ingredients OCR, we use tesseract-ocr
 # on debian, dictionaries are in /usr/share/tesseract-ocr/tessdata

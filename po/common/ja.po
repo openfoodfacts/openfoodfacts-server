@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-10-15 16:49\n"
+"PO-Revision-Date: 2018-12-06 16:39\n"
 "Language-Team: Japanese\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -321,33 +321,6 @@ msgctxt "codes_s"
 msgid "Code"
 msgstr "コー​​ド"
 
-msgctxt "column_obsolete_do_not_translate_for_reference_only"
-msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.png\" width=\"178\" height=\"144\" alt=\"<<site_name>>\" /></a>\n\n"
-"<p><<site_name>> gathers information and data on food products from around the world.</p>\n\n"
-"<select_country>\n\n"
-"<p>\n"
-"→ <a href=\"/brands\">Brands</a><br />\n"
-"→ <a href=\"/categories\">Categories</a><br/>\n"
-"</p>\n\n"
-"<p>Food product information (photos, ingredients, nutrition facts etc.) is collected in a collaborative way\n"
-"and is made available to everyone and for all uses in a free and open database.</p>\n\n\n"
-"<p>Find us also on:</p>\n\n"
-"<p>\n"
-"→ <a href=\"https://en.wiki.openfoodfacts.org\">our wiki</a><br />\n"
-"→ <a href=\"https://twitter.com/openfoodfacts\">Twitter</a><br/>\n"
-"→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a><br />\n"
-"→ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
-"+ <a href=\"https://www.facebook.com/groups/openfoodfacts/\">contributors group</a><br />\n"
-"</p>\n\n"
-"<p>iPhone and iPad app on the App Store:</p>\n\n"
-"<a href=\"https://itunes.apple.com/en/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
-"<p>Android app on Google Play:</p>\n\n"
-"<a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner\"><img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" /></a><br/>\n"
-"<a href=\"https://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
-"<p>Windows Phone app:</p>\n\n"
-"<a href=\"https://www.windowsphone.com/en-us/store/app/openfoodfacts/5d7cf939-cfd9-4ac0-86d7-91b946f4df34\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
-msgstr ""
-
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
 msgstr "%d ミッション完了しました:"
@@ -585,10 +558,6 @@ msgctxt "error_invalid_address"
 msgid "Invalid address."
 msgstr "アドレスが正しくありません"
 
-msgctxt "error_invalid_csrf_token"
-msgid "Invalid CSRF token."
-msgstr "CSRF トークンが無効です。"
-
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
 msgstr "メールアドレスが正しくありません"
@@ -697,6 +666,7 @@ msgctxt "footer_blog"
 msgid "<<site_name>> blog"
 msgstr "<<site_name>> のブログ"
 
+# Do not translate
 msgctxt "footer_blog_link"
 msgid "https://en.blog.openfoodfacts.org"
 msgstr "https://en.blog.openfoodfacts.org"
@@ -705,6 +675,7 @@ msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
 msgstr "行動規範"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
 msgstr "/code-of-conduct"
@@ -713,6 +684,7 @@ msgctxt "footer_data"
 msgid "Data"
 msgstr "データ"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
 msgstr "/data"
@@ -725,6 +697,7 @@ msgctxt "footer_faq"
 msgid "Frequently asked questions"
 msgstr "よくある質問"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
 msgstr "/faq"
@@ -733,6 +706,7 @@ msgctxt "footer_translators"
 msgid "Translators"
 msgstr "翻訳者"
 
+# Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
 msgstr "/cgi/top_translators.pl"
@@ -761,6 +735,7 @@ msgctxt "footer_legal"
 msgid "Legal"
 msgstr "免責事項"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/legal"
@@ -769,6 +744,7 @@ msgctxt "footer_press"
 msgid "Press"
 msgstr "プレス"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
 msgstr "/press"
@@ -781,6 +757,7 @@ msgctxt "footer_terms"
 msgid "Terms of use"
 msgstr "利用規約"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
 msgstr "/terms-of-use"
@@ -789,6 +766,7 @@ msgctxt "footer_who_we_are"
 msgid "Who we are"
 msgstr "私たちについて"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
 msgstr "/who-we-are"
@@ -797,6 +775,7 @@ msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
 msgstr "<<site_name>> wiki (en)"
 
+# Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
 msgstr "https://en.wiki.openfoodfacts.org"
@@ -832,28 +811,6 @@ msgstr "グラフのタイトル"
 msgctxt "graphs_and_maps"
 msgid "Graphs and maps"
 msgstr "グラフと地図"
-
-msgctxt "header"
-msgid "<meta property=\"fb:admins\" content=\"706410516\" />\n"
-"<meta property=\"og:site_name\" content=\"<<site_name>> - the free and open food products information database\"/>\n\n"
-"<script type=\"text/javascript\">\n"
-"  var uvOptions = {};\n"
-"  (function() {\n"
-"\tvar uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;\n"
-"\tuv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/jQrwafQ94nbEbRWsznm6Q.js';\n"
-"\tvar s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);\n"
-"  })();\n"
-"</script>\n\n\n"
-msgstr "<meta property=\"fb:admins\" content=\"706410516\" />\n"
-"<meta property=\"og:site_name\" content=\"<<site_name>> - フリーでオープンな食品情報のデータベース\"/>\n\n"
-"<script type=\"text/javascript\">\n"
-"  var uvOptions = {};\n"
-"  (function() {\n"
-"\tvar uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;\n"
-"\tuv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/jQrwafQ94nbEbRWsznm6Q.js';\n"
-"\tvar s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);\n"
-"  })();\n"
-"</script>\n\n\n"
 
 msgctxt "hello"
 msgid "Hello"
@@ -1145,14 +1102,6 @@ msgctxt "lang_nl_be"
 msgid "Dutch"
 msgstr "オランダ語"
 
-msgctxt "lang_note"
-msgid "Language most present and most highlighted on the product"
-msgstr "製品の大部分を占め、最も強調表示された言語"
-
-msgctxt "lang_other"
-msgid "other language"
-msgstr "その他の言語"
-
 msgctxt "lang_pl"
 msgid "Polish"
 msgstr "ポーランド語"
@@ -1196,6 +1145,14 @@ msgstr "ベトナム語"
 msgctxt "lang_zh"
 msgid "Chinese"
 msgstr "中国語"
+
+msgctxt "lang_other"
+msgid "other language"
+msgstr "その他の言語"
+
+msgctxt "lang_note"
+msgid "Language most present and most highlighted on the product"
+msgstr "製品の大部分を占め、最も強調表示された言語"
 
 msgctxt "language"
 msgid "en-US"
@@ -1360,6 +1317,7 @@ msgctxt "menu_add_a_product"
 msgid "Add a product"
 msgstr "製品を追加"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
 msgstr "/add-a-product"
@@ -1368,6 +1326,7 @@ msgctxt "menu_contribute"
 msgid "Contribute"
 msgstr "貢献する"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
 msgstr "/contribute"
@@ -1376,6 +1335,7 @@ msgctxt "menu_discover"
 msgid "Discover"
 msgstr "見つける"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
 msgstr "/discover"
@@ -1411,11 +1371,6 @@ msgstr "中"
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
 msgstr "適度な量"
-
-# Please keep the same syntax and translate only the months
-msgctxt "months"
-msgid "['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']"
-msgstr "['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
@@ -1493,7 +1448,7 @@ msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
 msgstr "100グラムのための栄養レベル"
 
-# Ensure it is the same translation as in the translation in the tag file. If unsure, DO NOT TRANSLATE, otherwise it will break the site
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
 msgstr "/nutrient-levels"
@@ -2359,9 +2314,18 @@ msgctxt "serving_size"
 msgid "Serving size"
 msgstr "一人前の分量"
 
+msgctxt "serving_size_prepared"
+msgid ""
+msgstr ""
+""
+
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
 msgstr "60 g, 12 オンス, 20 cl, 2 液量オンス"
+
+msgctxt "serving_size_note"
+msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
+msgstr ""
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2601,10 +2565,6 @@ msgctxt "website"
 msgid "Site or blog address"
 msgstr "サイトやブログのアドレス"
 
-msgctxt "weekdays"
-msgid "['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']"
-msgstr "['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日']"
-
 msgctxt "windows_phone_app_badge"
 msgid "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" />"
 msgstr "<img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone ストア\" width=\"154\" height=\"40\" />"
@@ -2710,8 +2670,8 @@ msgid "This product page is not complete. You can help to complete it by editing
 msgstr "この商品ページは完成していません。既存の写真からデータを編集または追加したり、 <a href=\"https://android.openfoodfacts.org\">Android</a> または <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a> のアプリを使用して写真を撮影して、手伝ってください。ありがとうございます!"
 
 msgctxt "title_separator"
-msgid " — "
-msgstr " — "
+msgid " - "
+msgstr ""
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -2821,6 +2781,7 @@ msgctxt "footer_partners"
 msgid "Partners"
 msgstr "パートナー"
 
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
 msgstr "/partners"
@@ -2979,5 +2940,73 @@ msgstr ""
 
 msgctxt "additives_classes"
 msgid "Functions"
+msgstr ""
+
+msgctxt "photos_and_data_check"
+msgid "Photos and data check"
+msgstr ""
+
+msgctxt "photos_and_data_check_description"
+msgid "Product pages can be marked as checked by experienced contributors who verify that the most recent photos are selected and cropped, and that all the product data that can be inferred from the product photos has been filled and is correct."
+msgstr ""
+
+msgctxt "photos_and_data_checked"
+msgid "Photos and data checked"
+msgstr ""
+
+msgctxt "i_checked_the_photos_and_data"
+msgid "I checked the photos and data."
+msgstr ""
+
+msgctxt "i_checked_the_photos_and_data_again"
+msgid "I checked the photos and data again."
+msgstr ""
+
+msgctxt "last_check_dates_p"
+msgid "Last check dates"
+msgstr ""
+
+msgctxt "last_check_dates_s"
+msgid "Last check date"
+msgstr ""
+
+msgctxt "product_last_checked"
+msgid "Last check of product page on"
+msgstr ""
+
+msgctxt "product_other_information"
+msgid "Other information"
+msgstr ""
+
+msgctxt "producer_version_id"
+msgid "Producer version identifier"
+msgstr ""
+
+msgctxt "net_weight"
+msgid "Net weight"
+msgstr ""
+
+msgctxt "drained_weight"
+msgid "Drained weight"
+msgstr ""
+
+msgctxt "volume"
+msgid "Volume"
+msgstr ""
+
+msgctxt "other_information"
+msgid "Other information"
+msgstr ""
+
+msgctxt "conservation_conditions"
+msgid "Conservation conditions"
+msgstr ""
+
+msgctxt "recycling_instructions_to_recycle"
+msgid "Recycling instructions - To recycle"
+msgstr ""
+
+msgctxt "recycling_instructions_to_discard"
+msgid "Recycling instructions - To discard"
 msgstr ""
 

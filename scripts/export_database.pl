@@ -37,9 +37,7 @@ use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Data qw/:all/;
 
 # for RDF export: replace xml_escape() with xml_escape_NFC()
 use Unicode::Normalize;
@@ -64,52 +62,13 @@ sub xml_escape_NFC($) {
 
 my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergen=>1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1, countries => 1, states=>1);
 
-my @fields = qw (
-code
-creator
-created_t
-last_modified_t
-product_name
-generic_name
-quantity
-packaging
-brands 
-categories 
-origins
-manufacturing_places
-labels
-emb_codes
-cities
-purchase_places
-stores
-countries
-ingredients_text
-allergens
-traces
-serving_size
-serving_quantity
-no_nutriments
-additives_n
-additives
-ingredients_from_palm_oil_n
-ingredients_from_palm_oil
-ingredients_that_may_be_from_palm_oil_n
-ingredients_that_may_be_from_palm_oil
-nutrition_grade_uk
-nutrition_grade_fr
-pnns_groups_1
-pnns_groups_2
-states
-);
-
-
 
 my %langs = ();
 my $total = 0;
 
 my $fields_ref = {};
 	
-foreach my $field (@fields) {
+foreach my $field (@export_fields) {
 	$fields_ref->{$field} = 1;
 	if (defined $tags_fields{$field}) {
 		$fields_ref->{$field . "_tags"} = 1;
@@ -135,7 +94,7 @@ foreach my $l ("en", "fr") {
 	my $categories_nutriments_ref = retrieve("$data_root/index/categories_nutriments.$lc.sto");	
 
 	
-	my $cursor = $products_collection->query({'code' => { "\$ne" => "" }}, {'empty' => { "\$ne" => 1 }})->fields($fields_ref)->sort({code=>1});
+	my $cursor = get_products_collection()->query({'code' => { "\$ne" => "" }}, {'empty' => { "\$ne" => 1 }})->fields($fields_ref)->sort({code=>1});
 	my $count = $cursor->count();
 	
 	$langs{$l} = $count;
@@ -186,7 +145,7 @@ XML
 ;
 	
 	
-		foreach my $field (@fields) {
+		foreach my $field (@export_fields) {
 		
 			$csv .= $field . "\t";
 
@@ -250,7 +209,7 @@ XML
 		$code eq '' and next;
 		$code < 1 and next;
 		
-		foreach my $field (@fields) {
+		foreach my $field (@export_fields) {
 		
 			$product_ref->{$field} =~ s/(\r|\n|\t)+/ /g;
 		
@@ -359,7 +318,6 @@ XML
 		$product_ref->{main_category} = $main_cid;		
 		
 		ProductOpener::Display::add_images_urls_to_product($product_ref);
-
 		
 		$csv .= $product_ref->{image_url} . "\t" . $product_ref->{image_small_url} . "\t";
 		$csv .= $product_ref->{image_ingredients_url} . "\t" . $product_ref->{image_ingredients_small_url} . "\t";

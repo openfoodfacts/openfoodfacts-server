@@ -3,6 +3,7 @@
 use Modern::Perl '2012';
 
 use Test::More;
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
 
@@ -31,5 +32,17 @@ is( canonicalize_taxonomy_tag('en', 'categories', 'wikidata:en:Q470974'), 'fr:fi
 
 # verify known Wikidata URL is converted to the taxonomy tag
 is( canonicalize_taxonomy_tag('en', 'categories', 'https://www.wikidata.org/wiki/Q470974'), 'fr:fitou', 'Wikidata URL "https://www.wikidata.org/wiki/Q470974" should be canonicalized to "fr:fitou"' );
+
+is (display_taxonomy_tag("en", "categories", "en:beverages"), "Beverages");
+is (display_taxonomy_tag("fr", "categories", "en:beverages"), "Boissons");
+is (display_taxonomy_tag("en", "categories", "en:doesnotexist"), "Doesnotexist");
+is (display_taxonomy_tag("fr", "categories", "en:doesnotexist"), "en:doesnotexist");
+
+is (display_taxonomy_tag_link("fr", "categories", "en:doesnotexist"), '<a href="/categorie/en:doesnotexist" class="tag user_defined" lang="en">en:doesnotexist</a>');
+
+is (display_tags_hierarchy_taxonomy("fr", "categories", ["en:doesnotexist"]), '<a href="/categorie/en:doesnotexist" class="tag user_defined" lang="en">en:doesnotexist</a>');
+
+is (display_tags_hierarchy_taxonomy("en", "categories", ["en:doesnotexist"]), '<a href="/category/doesnotexist" class="tag user_defined">Doesnotexist</a>');
+
 
 done_testing();

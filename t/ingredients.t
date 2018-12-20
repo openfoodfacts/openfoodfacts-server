@@ -6,14 +6,11 @@ use warnings;
 use utf8;
 
 use Test::More;
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
-
-binmode(STDIN, ":encoding(UTF-8)");
-binmode(STDOUT, ":encoding(UTF-8)");
-binmode(STDERR, ":encoding(UTF-8)");
 
 # dummy product for testing
 
@@ -24,8 +21,7 @@ my $product_ref = {
 
 extract_ingredients_from_text($product_ref);
 
-use Data::Dumper;
-print STDERR Dumper($product_ref);
+diag explain $product_ref;
 
 
 is($product_ref->{ingredients_n}, 17);
@@ -210,11 +206,10 @@ extract_ingredients_classes_from_text($product_ref);
 #"huile-de-palme"
 #],
 
-use Data::Dumper;
-print STDERR Dumper($product_ref);
+diag explain $product_ref;
 
 
-my $expected_product_ref = 
+my $expected_product_ref =
 {
           'ingredients_hierarchy' => [
                                        'en:palm-kernel-fat',
@@ -356,9 +351,6 @@ delete $product_ref->{amino_acids_prev_tags};
 delete $product_ref->{minerals_prev_tags};
 delete $product_ref->{minerals_prev};
 
-
-use Data::Dumper;
-
 $expected_product_ref = {
           'ingredients_n_tags' => [
                                     '43',
@@ -392,11 +384,11 @@ $expected_product_ref = {
                                            'en:soya-lecithin',
                                            'en:glucose-fructose-syrup',
                                            'en:sugar',
-                                           'de:orangenfruchtfleish',
+                                           'de:orangenfruchtfleisch',
                                            'en:concentrated-orange-juice',
                                            "fr:\x{e9}quivalent jus d'orange",
                                            'fr:citrate-de-calcium',
-                                           'fr:citrate-de-sodium',
+                                           'en:sodium-citrate',
                                            'en:sugar',
                                            'en:cocoa-paste',
                                            'en:cocoa-butter',
@@ -406,8 +398,8 @@ $expected_product_ref = {
                                            'fr:sal',
                                            "fr:karit\x{e9} et palme en proportions variables",
                                            'fr:carbonate-acide-d-ammonium',
-                                           'fr:diphosphate-disodique',
-                                           'fr:carbonate-acide-de-sodium'
+                                           'en:disodium-diphosphate',
+                                           'en:sodium-hydrogen-carbonate'
                                          ],
           'ingredients_hierarchy' => [
                                        'fr:Marmelade d\'oranges',
@@ -423,8 +415,6 @@ $expected_product_ref = {
                                        'en:flavouring',
                                        'en:thickener',
                                        'en:xanthan-gum',
-                                       'en:stabiliser',
-                                       'en:thickener',
                                        'en:chocolate',
                                        'en:flavouring',
                                        'en:emulsifier',
@@ -439,7 +429,6 @@ $expected_product_ref = {
                                        'en:egg',
                                        'en:glucose-fructose-syrup',
                                        'en:fructose',
-                                       'en:syrup',
                                        'en:glucose',
                                        'en:colza-oil',
                                        'en:vegetable-oil',
@@ -454,10 +443,9 @@ $expected_product_ref = {
                                        'en:lecithins',
                                        'en:glucose-fructose-syrup',
                                        'en:fructose',
-                                       'en:syrup',
                                        'en:glucose',
                                        'en:sugar',
-                                       'de:orangenfruchtfleish',
+                                       'de:orangenfruchtfleisch',
                                        'en:orange',
                                        'en:citrus-fruit',
                                        'en:fruit',
@@ -469,7 +457,7 @@ $expected_product_ref = {
                                        'en:fruit',
                                        "fr:\x{e9}quivalent jus d'orange",
                                        'fr:citrate-de-calcium',
-                                       'fr:citrate-de-sodium',
+                                       'en:sodium-citrate',
                                        'en:sugar',
                                        'en:cocoa-paste',
                                        'en:cocoa-butter',
@@ -486,8 +474,10 @@ $expected_product_ref = {
                                        'fr:sal',
                                        "fr:karit\x{e9} et palme en proportions variables",
                                        'fr:carbonate-acide-d-ammonium',
-                                       'fr:diphosphate-disodique',
-                                       'fr:carbonate-acide-de-sodium'
+                                       'en:disodium-diphosphate',
+                                       'en:diphosphates',
+                                       'en:sodium-hydrogen-carbonate',
+                                  'en:sodium-bicarbonate'
                                      ],
           'ingredients_tags' => [
                                   'fr:marmelade-d-oranges',
@@ -503,8 +493,6 @@ $expected_product_ref = {
                                   'en:flavouring',
                                   'en:thickener',
                                   'en:xanthan-gum',
-                                  'en:stabiliser',
-                                  'en:thickener',
                                   'en:chocolate',
                                   'en:flavouring',
                                   'en:emulsifier',
@@ -519,7 +507,6 @@ $expected_product_ref = {
                                   'en:egg',
                                   'en:glucose-fructose-syrup',
                                   'en:fructose',
-                                  'en:syrup',
                                   'en:glucose',
                                   'en:colza-oil',
                                   'en:vegetable-oil',
@@ -534,10 +521,9 @@ $expected_product_ref = {
                                   'en:lecithins',
                                   'en:glucose-fructose-syrup',
                                   'en:fructose',
-                                  'en:syrup',
                                   'en:glucose',
                                   'en:sugar',
-                                  'de:orangenfruchtfleish',
+                                  'de:orangenfruchtfleisch',
                                   'en:orange',
                                   'en:citrus-fruit',
                                   'en:fruit',
@@ -549,7 +535,7 @@ $expected_product_ref = {
                                   'en:fruit',
                                   'fr:equivalent-jus-d-orange',
                                   'fr:citrate-de-calcium',
-                                  'fr:citrate-de-sodium',
+                                  'en:sodium-citrate',
                                   'en:sugar',
                                   'en:cocoa-paste',
                                   'en:cocoa-butter',
@@ -566,8 +552,11 @@ $expected_product_ref = {
                                   'fr:sal',
                                   'fr:karite-et-palme-en-proportions-variables',
                                   'fr:carbonate-acide-d-ammonium',
-                                  'fr:diphosphate-disodique',
-                                  'fr:carbonate-acide-de-sodium'
+                                  'en:disodium-diphosphate',
+                                  'en:diphosphates',
+                                  'en:sodium-hydrogen-carbonate',
+                                  'en:sodium-bicarbonate',
+
                                 ],
           'ingredients_text' => "Marmelade d'oranges 41% (sirop de glucose-fructose, sucre, pulpe d'orange 4.5%, jus d'orange concentr\x{e9} 1.4% (\x{e9}quivalent jus d'orange 7.8%), pulpe d'orange concentr\x{e9}e 0.6% (\x{e9}quivalent pulpe d'orange 2.6%), g\x{e9}lifiant (pectines), acidifiant (acide citrique), correcteurs d'acidit\x{e9} (citrate de calcium, citrate de sodium), ar\x{f4}me naturel d'orange, \x{e9}paississant (gomme xanthane)), chocolat 24.9% (sucre, p\x{e2}te de cacao, beurre de cacao, graisses v\x{e9}g\x{e9}tales (illipe, mangue, sal, karit\x{e9} et palme en proportions variables), ar\x{f4}me, \x{e9}mulsifiant (l\x{e9}cithine de soja), lactose et prot\x{e9}ines de lait), farine de bl\x{e9}, sucre, oeufs, sirop de glucose-fructose, huile de colza, poudre \x{e0} lever (carbonate acide d'ammonium, diphosphate disodique, carbonate acide de sodium), sel, \x{e9}mulsifiant (l\x{e9}cithine de soja).",
           'lc' => 'fr',
@@ -712,7 +701,7 @@ $expected_product_ref = {
                              {
                                'percent' => '4.5',
                                'text' => 'pulpe d\'orange',
-                               'id' => 'de:orangenfruchtfleish'
+                               'id' => 'de:orangenfruchtfleisch'
                              },
                              {
                                'percent' => '1.4',
@@ -730,7 +719,7 @@ $expected_product_ref = {
                              },
                              {
                                'text' => 'citrate de sodium',
-                               'id' => 'fr:citrate-de-sodium'
+                               'id' => 'en:sodium-citrate'
                              },
                              {
                                'text' => 'sucre',
@@ -770,11 +759,11 @@ $expected_product_ref = {
                              },
                              {
                                'text' => 'diphosphate disodique',
-                               'id' => 'fr:diphosphate-disodique'
+                               'id' => 'en:disodium-diphosphate'
                              },
                              {
                                'text' => 'carbonate acide de sodium',
-                               'id' => 'fr:carbonate-acide-de-sodium'
+                               'id' => 'en:sodium-hydrogen-carbonate'
                              }
                            ],
           'unknown_ingredients_n' => 6,
@@ -782,8 +771,7 @@ $expected_product_ref = {
         };
 
 
-is_deeply($product_ref, $expected_product_ref);
-
+is_deeply($product_ref, $expected_product_ref) || diag explain $product_ref;
 
 # test synonyms for flavouring/flavour/flavor/flavoring
 my $product_ref = {
@@ -805,8 +793,7 @@ delete $product_ref->{minerals_prev_tags};
 delete $product_ref->{minerals_prev};
 
 
-use Data::Dumper;
-print STDERR Dumper($product_ref);
+diag explain $product_ref;
 
 $expected_product_ref = {
 'ingredients_n_tags' => [
@@ -873,8 +860,7 @@ delete $product_ref->{minerals_prev_tags};
 delete $product_ref->{minerals_prev};
 
 
-use Data::Dumper;
-print STDERR Dumper($product_ref);
+diag explain $product_ref;
 
 $expected_product_ref = {
 

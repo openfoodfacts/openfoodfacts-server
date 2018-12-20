@@ -6,7 +6,7 @@
 
 <h1>Leitfaden für Produzenten</h1>
 
-<p>This guide explains why and how producers can directly integrate photos and product data into the Open Food Facts database.</p>
+<p>In diesem Leitfaden wird erläutert, warum und wie Hersteller Fotos und Produktangaben direkt in die Open Food Facts Datenbank integrieren können.</p>
 
 <ul>
 <li><a href="#introduction">Einleitung</a></li>
@@ -27,7 +27,7 @@
 <ul>
 <li><a href="#format_des_images">Bildformat</a></li>
 <ul>
-<li><a href="#format_des_fichiers_images">Format of image files</a></li>
+<li><a href="#format_des_fichiers_images">Format der Bilddateien</a></li>
 <li><a href="#nom_des_fichiers_images">Namesgebung der Bilddateien</a></li>
 </ul>
 <li><a href="#format_des_donnees">Datenformat</a></li>
@@ -40,52 +40,52 @@
 </ul>
 <li><a href="#questions_frequentes">Häufig gestellte Fragen</a></li>
 <ul>
-<li><a href="#est_ce_que_le_referencement_des_produits_est_gratuit">Is the listing of products free?</a></li>
-<li><a href="#les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">Will producer data overwrite data entered by contributors?</a></li>
-<li><a href="#est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">Is it possible to delete products that are no longer sold?</a></li>
-<li><a href="#est_ce_que_les_produits_pour_animaux_les_produits_non_alimentaires_les_cosmetiques_et_les_autres_produits_peuvent_etre_integres_a_open_food_facts">Can animal products, non-food products, cosmetics and other products be integrated into Open Food Facts?</a></li>
+<li><a href="#est_ce_que_le_referencement_des_produits_est_gratuit">Ist das Auflisten der Produkte kostenlos?</a></li>
+<li><a href="#les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">Überschreiben Daten von Herstellern die von Nutzern eingegebenen Daten?</a></li>
+<li><a href="#est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">Ist es möglich, Produkte zu löschen, die nicht mehr verkauft werden?</a></li>
+<li><a href="#est_ce_que_les_produits_pour_animaux_les_produits_non_alimentaires_les_cosmetiques_et_les_autres_produits_peuvent_etre_integres_a_open_food_facts">Können tierische Produkte, Non-Food-Produkte, Kosmetika und andere Produkte in die Open Food Facts Datenbank eingestellt werden?</a></li>
 </ul>
 </ul>
 
 <h2 id="introduction">Einleitung</h2>
 
-<p>The photos and data on the food products referenced in the Open Food Facts database come from 2 sources:</p>
+<p>Fotos und Daten zu Lebensmitteln, auf die in der Open Food Facts-Datenbank verwiesen wird, stammen aus zwei Quellen:</p>
 <ul>
-<li>crowdsourcing through mobile apps and the Open Food Facts website: contributors scan barcodes, send product photos, ingredient lists and nutrition charts and then enter the data in a structured way.</li>
-  <li>the addition of data directly from the producers, either manually or automatically.</li>
+<li>durch die Weisheit der Vielen über mobile Apps und die Open Food Facts-Website: Mitwirkende lesen Strichcodes ein, senden Produktfotos, Zutatenlisten und Nährwerttabellen und erfassen die Daten anschließend strukturiert.</li>
+  <li>das Hinzufügen von Daten direkt von den Herstellern, entweder manuell oder automatisch.</li>
 </ul>
 
 
 <h2 id="pourquoi_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Warum Produktdaten zu Open Food Facts hinzufügen</h2>
-<p>There are many benefits to importing date directly from manufacturers:</p>
+<p>Es gibt viele Vorteile beim Importieren von Daten direkt von Herstellern:</p>
 
 <ul>
-<li>The data is complete, up to date, and without risk of error.</li>
-<li>The photos are of better quality than the photos taken by the contributors in very variable conditions.</li>
-<li>The data is then available in more than 100 applications.</li>
-<li>You can easily obtain statistics about your products and export the data of your products supplemented by indicators calculated by Open Food Facts such as the Nutri-Score.</li>
+<li>Die Daten sind vollständig, aktuell und ohne Fehlerrisiko.</li>
+<li>Die Fotos sind von besserer Qualität als die Fotos, die von den Mitwirkenden unter sehr unterschiedlichen Bedingungen aufgenommen wurden.</li>
+<li>Die Daten sind dann in mehr als 100 Anwendungen verfügbar.</li>
+<li>Sie können ganz einfach Statistiken über Ihre Produkte erhalten und die Daten Ihrer Produkte exportieren, ergänzt durch Indikatoren, die von Open Food Facts wie dem Nutri-Score berechnet werden.</li>
 </ul>
   
   
 <h3 id="exemples_de_producteurs_qui_transmettent_les_photos_et_donnees_de_leurs_produits_a_open_food_facts">Beispiele für Produzenten, die Fotos und Produktdaten an Open Food Facts senden</h3>
 
-<p>A growing number of high level French producers are sending us the data of their products: Fleury Michon, Sodebo, System U, Carrefour, Casino, Franprix, Monoprix.</p>
+<p>Eine wachsende Zahl wichtiger französischer Hersteller sendet uns die Daten ihrer Produkte: Fleury Michon, Sodebo, System U, Carrefour, Casino, Franprix, Monoprix.</p>
 
 <h2 id="comment_ajouter_les_donnees_de_ses_produits_dans_open_food_facts">Wie Sie Daten für Ihre Produkte in Open Food Facts hinzufügen können</h2>
 
 <h3 id="licence">Lizenz</h3>
   
-<p>All data sent to Open Food Facts is published under the Open Database License (ODbL), and the photos under the Creative Commons License CC-BY-SA. These licenses allow the data to be freely reusable by all and for all purposes. For more information, see the <a href="https://fr.openfoodfacts.org/conditions-d-utilisation">Terms of Use, Contribution, and Reuse.</a></p>
+<p>Alle an Open Food Facts gesendeten Daten werden unter der Open Database License (ODbL) und die Fotos unter der Creative Commons License CC-BY-SA veröffentlicht. Diese Lizenzen ermöglichen die freie Wiederverwendbarkeit der Daten für jeden und für alle Zwecke. Weitere Informationen finden Sie unter <a href="https://fr.openfoodfacts.org/conditions-d-utilisation">Nutzungs-, Mitwirkungs- und Wiederverwendungsbedingungen</a>.</p>
   
 <h3 id="quelles_donnees">Welche Daten</h3>
 
-<p>All the data you have can be integrated into Open Food Facts: ingredients and nutritional information of course, but also labels, materials used for packaging, traceability of ingredients, instructions for preparation and recycling, ecological footprint etc.</p>
-<p>We regularly add new fields to the database based on the information on the packages or provided by the manufacturers.</p>
-We have recently added fields on the carbon footprint, and the packaging of products, which are already highlighted on Open Food Facts and in applications that help to change the behavior in terms of recycling.<p></p>
+<p>Alle verfügbaren Daten können in Open Food Facts integriert werden: Zutaten und Nährwertangaben natürlich, aber auch Etiketten, Verpackungsmaterialien, Rückverfolgbarkeit der Zutaten, Anweisungen zur Zubereitung und zur Müllverwertung, ökologischer Fußabdruck usw.</p>
+<p>Wir fügen regelmäßig neue Felder in die Datenbank ein, basierend auf den Informationen auf den Verpackungen oder von den Herstellern.</p>
+Wir haben kürzlich Felder zum CO₂-Fußabdruck und zur Verpackung von Produkten hinzugefügt, die bereits auf Open Food Facts und in Anwendungen hervorgehoben werden, die dazu beitragen, das Verhalten im Hinblick auf die Müllwiederverwertung/-vermeidung zu ändern.<p></p>
 
  <h4 id="une_base_dans_toutes_les_langues">Eine Datenbank in allen Sprachen</h4>
   
-<p>The Open Food Facts database, site and mobile applications are also fully multilingual and available in all countries. If you have photos and data in multiple languages, we can also integrate them into Open Food Facts.</p>
+<p>Die Open-Food-Facts-Datenbank, Website und mobile Anwendungen sind ebenfalls vollständig mehrsprachig und in allen Ländern verfügbar. Wenn Sie Fotos und Daten in mehreren Sprachen besitzen, können wir diese auch in Open Food Facts integrieren.</p>
 
 <h4 id="photos_et_donnees">Fotos und Daten</h4>
 
@@ -121,13 +121,14 @@ To make importing data easier and faster, we have defined a standard format for 
 <li>Flat view of the packaging</li>
 </ul>
   
-<h5 id="format_des_fichiers_images">Format of image files</h5>
+<h5 id="format_des_fichiers_images">Format der Bilddateien</h5>
 <ul>
   <li>JPG- oder PNG-Format</li>
   <li>Size at least 2000 pixels wide or tall</li>
 </ul>
 
 <h5 id="nom_des_fichiers_images">Namesgebung der Bilddateien</h5>
+
 
 <pre>[barcode]_[type of image]_[language code].[jpg or png]</pre>
 
@@ -138,6 +139,7 @@ To make importing data easier and faster, we have defined a standard format for 
   <p>Folgende Arten von Bildern sind möglich:</p>
 
 <ul>
+  <!-- Do not translate field names, just their description -->
   <li>Front: Frontansicht</li>
   <li>ingredients: list of ingredients</li>
   <li>Nahrung: Nährwerttabelle</li>
@@ -155,6 +157,7 @@ To make importing data easier and faster, we have defined a standard format for 
   <h5 id="champs_obligatoires">Pflichtangaben</h5>
 
 <ul>  
+  <!-- Do not translate field names, just their description -->
   <li>code: product barcode as it appears on the packaging (EAN-13, EAN-8 or other)</li>
   <li>lang: 2-letter code of the main language (most present on the packaging) of the product (example: fr for French)</li>
   <li>product_name_ [2-letter code of the main language]: product name (in the field product_name_en for the name in French)</li>
@@ -172,6 +175,7 @@ To make importing data easier and faster, we have defined a standard format for 
 <p>All values must have no unit (the unit is kJ for energy and g for all other fields).</p>
 
 <ul>
+  <!-- Do not translate nutrient field names -->
   <li>energy_100g: energy, in kJ</li>
   <li>fat_100g: fat</li>
   <li>saturated-fat_100g: saturated fat</li>
@@ -179,13 +183,16 @@ To make importing data easier and faster, we have defined a standard format for 
   <li>sugars_100g: sugars</li>
   <li>proteins_100g: proteins</li>
   <li>salt_100g: salt</li>
+  <!-- Do not translate nutrient field names -->
 </ul>
 
 <p>It is strongly recommended to also indicate the fibers and the % of fruits and vegetables so that this information can be taken into account in the calculation of Nutri-Score:</p>
 
   <ul>
+    <!-- Do not translate nutrient field names -->
   <li>fiber_100g: fibers</li>
   <li>fruits-vegetables-nuts_100g</li>
+    <!-- Do not translate nutrient field names -->
   </ul>
   
   <h5 id="champs_optionnels">Optionale Angaben</h5>
@@ -205,13 +212,15 @@ To make importing data easier and faster, we have defined a standard format for 
 <p>Es ist außerdem möglich, die Werte für weitere Nährstoffe anzugeben:</p>
 
 <ul>
+  <!-- Do not translate nutrient field names -->
+  
 <li>Energie-aus-Fett_100g</li>
 <li>Buttersäure_100g</li>
 <li>Capronsäure_100g</li>
 <li>Caprylsäure_100g</li>
 <li>Caprinsäure_100g</li>
-<li>lauric-acid_100g</li>
-<li>myristic-acid_100g</li>
+<li>Laurinsäure_100g</li>
+<li>Myristinsäure_100g</li>
 <li>palmitic-acid_100g</li>
 <li>stearic-acid_100g</li>
 <li>arachidic-acid_100g</li>
@@ -238,19 +247,19 @@ To make importing data easier and faster, we have defined a standard format for 
 <li>mead-acid_100g</li>
 <li>erucic-acid_100g</li>
 <li>nervonic-acid_100g</li>
-<li>trans-fat_100g</li>
-<li>cholesterol_100g</li>
+<li>Trans-Fette_100g</li>
+<li>Cholesterin_100g</li>
 
-<li>sucrose_100g</li>
-<li>glucose_100g</li>
-<li>fructose_100g</li>
-<li>lactose_100g</li>
+<li>Saccharose_100g</li>
+<li>Glukose_100g</li>
+<li>Fruktose_100g</li>
+<li>Laktose_100g</li>
 <li>maltose_100g</li>
 <li>maltodextrins_100g</li>
-<li>starch_100g</li>
+<li>Stärke_100g</li>
 <li>polyols_100g</li>
 
-<li>casein_100g</li>
+<li>Kasein_100g</li>
 <li>serum-proteins_100g</li>
 <li>nucleotides_100g</li>
 
@@ -259,11 +268,11 @@ To make importing data easier and faster, we have defined a standard format for 
 
 <li>vitamin-a_100g</li>
 <li>beta-carotene_100g</li>
-<li>vitamin-d_100g</li>
-<li>vitamin-e_100g</li>
+<li>Vitamin-D_100g</li>
+<li>Vitamin-E_100g</li>
 <li>vitamin-k_100g</li>
-<li>vitamin-c_100g</li>
-<li>vitamin-b1_100g</li>
+<li>Vitamin-C_100g</li>
+<li>Vitamin-B1_100g</li>
 <li>vitamin-b2_100g</li>
 <li>vitamin-pp_100g</li>
 <li>vitamin-b6_100g</li>
@@ -279,12 +288,12 @@ To make importing data easier and faster, we have defined a standard format for 
 <li>chloride_100g</li>
 <li>calcium_100g</li>
 <li>phosphorus_100g</li>
-<li>iron_100g</li>
-<li>magnesium_100g</li>
-<li>zinc_100g</li>
-<li>copper_100g</li>
+<li>Eisen_100g</li>
+<li>Magnesium_100g</li>
+<li>Zink_100g</li>
+<li>Kupfer_100g</li>
 <li>manganese_100g</li>
-<li>fluoride_100g</li>
+<li>Fluorid_100g</li>
 <li>selenium_100g</li>
 <li>chromium_100g</li>
 <li>molybdenum_100g</li>
@@ -304,7 +313,7 @@ To make importing data easier and faster, we have defined a standard format for 
 <li>beta-glucan_100g</li>
 <li>inositol_100g</li>
 <li>carnitine_100g</li>
-  
+  <!-- Do not translate nutrient field names -->
 </ul>
 
 <h4 id="envoi_des_photos_et_des_donnees">Übermitteln von Fotos und Daten</h4>
@@ -313,22 +322,22 @@ To make importing data easier and faster, we have defined a standard format for 
 
 <h2 id="questions_frequentes">Häufig gestellte Fragen</h2>
 
-<h3 id="est_ce_que_le_referencement_des_produits_est_gratuit">Is the listing of products free?</h3>
+<h3 id="est_ce_que_le_referencement_des_produits_est_gratuit">Ist das Auflisten der Produkte kostenlos?</h3>
 <p>The import of the data is completely free. We do not accept any retribution for the inclusion of data. We are very pleased that you have decided to contribute the data of your products to the food transparency, and we thank you for it.</p>
   
-<h3 id="les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">Will producer data overwrite data entered by contributors?</h3>
+<h3 id="les_donnees_des_producteurs_vont_elles_ecraser_les_donnees_saisies_par_les_contributeurs">Überschreiben Daten von Herstellern die von Nutzern eingegebenen Daten?</h3>
 <p>Die Herstellerdaten werden automatisch von Open Food Facts mit Konsistenzprüfungsalgorithmen und dann von einigen Mitwirkenden überprüft. Wir haben volles Vertrauen in die Daten, die Sie uns übermitteln, aber wir wissen aus Erfahrung, dass Tippfehler möglich sind.</p>
 <p>Sobald diese überprüft wurden, werden sie die von den Mitwirkenden eingegebenen Daten ersetzen und/oder ergänzen können.</p>
 
 <p>Im Falle eines regelmäßigen und automatisierten Imports ersetzen die Daten bei jedem Import die Aktualisierungen durch die Mitwirkenden, es sei denn, ein offensichtlicher Fehler (der Ihnen gemeldet wird) wird von einem Mitwirkenden bei einem Produkt gemeldet.</p>
 
-<h3 id="est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">Is it possible to delete products that are no longer sold?</h3>
+<h3 id="est_il_possible_de_supprimer_les_produits_qui_ne_sont_plus_vendus">Ist es möglich, Produkte zu löschen, die nicht mehr verkauft werden?</h3>
 
 <p>When a product disappears from the shelves, it is quickly consumed, and we find that it is quickly no longer scanned.</p>
 <p>We then archive the product so that it remains available as an archive for scientific purposes in the context of food cohorts that can last for decades. It is indeed essential to be able to obtain the compositions of the product at a precise date, even if it has changed or disappeared.</p>
 <p>If you have historical data on your old products or old versions of your products, we would also be very interested in this historical data, in order to be able to go back in time, to allow scientific analyzes on long time, and to make it possible to visualize the evolution some products.</p>
 <p>Producers can also send us the lists of barcodes removed from the sale so that we can label the products appropriately.</p>
   
-<h3 id="est_ce_que_les_produits_pour_animaux_les_produits_non_alimentaires_les_cosmetiques_et_les_autres_produits_peuvent_etre_integres_a_open_food_facts">Can animal products, non-food products, cosmetics and other products be integrated into Open Food Facts?</h3>
+<h3 id="est_ce_que_les_produits_pour_animaux_les_produits_non_alimentaires_les_cosmetiques_et_les_autres_produits_peuvent_etre_integres_a_open_food_facts">Können tierische Produkte, Non-Food-Produkte, Kosmetika und andere Produkte in die Open Food Facts Datenbank eingestellt werden?</h3>
 <p>We have created specific projects for cosmetics, for animal feed, as well as for other products (Open Beauty Facts, Open Pet Food Facts and Open Products Facts respectively). We are therefore happy to be able to import your products into the project that suits them.</p>
 </div>

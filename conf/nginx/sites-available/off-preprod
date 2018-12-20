@@ -40,8 +40,8 @@ server {
 	listen 80;
 	listen [::]:80;
 
-	listen 443 ssl;
-	listen [::]:443 ssl;
+	listen 443 http2 ssl;
+	listen [::]:443 http2 ssl;
 
 	server_name *.preprod.openfoodfacts.org preprod.openfoodfacts.eu *.preprod.openfoodfacts.eu;
 
