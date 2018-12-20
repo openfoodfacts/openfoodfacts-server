@@ -3807,8 +3807,45 @@ sub compute_nutrition_score($) {
 	my $saturated_fat_points = int(($product_ref->{nutriments}{"saturated-fat" . $prepared . "_100g"} - 0.00001) / 1);
 	$saturated_fat_points > 10 and $saturated_fat_points = 10;
 
-	my $sugars_points = int(($product_ref->{nutriments}{"sugars" . $prepared . "_100g"} - 0.00001) / 4.5);
-	$sugars_points > 10 and $sugars_points = 10;
+	#my $sugars_points = int(($product_ref->{nutriments}{"sugars" . $prepared . "_100g"} - 0.00001) / 4.5);
+	#$sugars_points > 10 and $sugars_points = 10;
+	
+	my $sugars_points = 0;
+	my $sugars_value = $product_ref->{nutriments}{"sugars" . $prepared . "_100g"} ;
+	if ($sugars_value > 45) {
+		$sugars_points = 10;
+	}
+	elsif ($sugars_value > 40) {
+		$sugars_points = 9;
+	}
+	elsif ($sugars_value > 36) {
+		$sugars_points = 8;
+	}
+	elsif ($sugars_value > 31) {
+		$sugars_points = 7;
+	}
+	elsif ($sugars_value > 27) {
+		$sugars_points = 6;
+	}
+	elsif ($sugars_value > 22.5) {
+		$sugars_points = 5;
+	}
+	elsif ($sugars_value > 18) {
+		$sugars_points = 4;
+	}
+	elsif ($sugars_value > 13.5) {
+		$sugars_points = 3;
+	}
+	elsif ($sugars_value > 9) {
+		$sugars_points = 2;
+	}
+	elsif ($sugars_value > 4.5) {
+		$sugars_points = 1;
+	}
+	else {
+		$sugars_points = 0;
+	}
+	
 
 	my $sodium_points = int(($product_ref->{nutriments}{"sodium" . $prepared . "_100g"} * 1000 - 0.00001) / 90);
 	$sodium_points > 10 and $sodium_points = 10;	

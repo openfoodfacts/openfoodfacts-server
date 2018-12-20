@@ -135,6 +135,8 @@ else {
 	$key = "key_" . time();
 }
 
+$query_ref->{code} = "7610145410164";
+
 print "Update key: $key\n\n";
 
 my $cursor = get_products_collection()->query($query_ref)->fields({ code => 1 });;
@@ -169,8 +171,16 @@ while (my $product_ref = $cursor->next) {
 				if ($field eq 'emb_codes') {
 					$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});						
 				}
+				
+				# we do not know the language of the current value of $product_ref->{$field}
+				# so regenerate it in the main language of the product
+				my $value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
+				# Remove tags
+				$value =~ s/<(([^>]|\n)*)>//g;
+				
+				$product_ref->{$field} = $value;
 
-				compute_field_tags($product_ref, $field);
+				compute_field_tags($product_ref, $lc, $field);
 			}
 			else {
 			}

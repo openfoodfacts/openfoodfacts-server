@@ -5,6 +5,7 @@ use warnings;
 use utf8;
 
 use Test::More;
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -20,9 +21,7 @@ my $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-print STDERR Dumper($product_ref->{traces_tags});
+diag explain $product_ref->{traces_tags};
 
 is_deeply($product_ref->{allergens_tags}, [
 'en:celery',
@@ -34,7 +33,7 @@ is_deeply($product_ref->{allergens_tags}, [
 'en:molluscs',
 'en:mustard',
 'en:nuts',
-] 
+]
 );
 
 is_deeply($product_ref->{traces_tags},  [
@@ -53,14 +52,11 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-
 is_deeply($product_ref->{allergens_tags}, [
 "en:gluten",
 "en:mustard",
 "en:sesame-seeds",
-] 
+]
 );
 
 is_deeply($product_ref->{traces_tags},  [
@@ -80,16 +76,13 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-
 is_deeply($product_ref->{allergens_tags}, [
 "en:celery",
 "en:gluten",
 "en:lupin",
 "en:mustard",
 "en:soybeans",
-] 
+]
 );
 
 is_deeply($product_ref->{traces_tags},  [
@@ -112,13 +105,10 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-
 is_deeply($product_ref->{allergens_tags}, [
 'en:gluten',
 'en:milk',
-] 
+]
 );
 
 is_deeply($product_ref->{traces_tags},  [
@@ -138,11 +128,8 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-
 is_deeply($product_ref->{allergens_tags}, [
-] 
+]
 );
 
 is_deeply($product_ref->{traces_tags},  [
@@ -163,13 +150,11 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-print STDERR Dumper($product_ref->{allergens_tags});
+diag explain $product_ref->{allergens_tags};
 
 is_deeply($product_ref->{allergens_tags}, [
 'en:molluscs',
-] 
+]
 );
 
 
@@ -181,9 +166,7 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-print STDERR Dumper($product_ref->{allergens_tags});
+diag explain $product_ref->{allergens_tags};
 
 is_deeply($product_ref->{allergens_tags}, [
 'en:molluscs',
@@ -199,9 +182,7 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-print STDERR Dumper($product_ref->{allergens_tags});
+diag explain $product_ref->{allergens_tags};
 
 is_deeply($product_ref->{allergens_tags}, [
 'en:molluscs',
@@ -217,9 +198,7 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-print STDERR Dumper($product_ref->{allergens_tags});
+diag explain $product_ref->{allergens_tags};
 
 is_deeply($product_ref->{allergens_tags}, [
 'en:molluscs',
@@ -235,9 +214,7 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-print STDERR Dumper($product_ref->{allergens_tags});
+diag explain $product_ref->{allergens_tags};
 
 is_deeply($product_ref->{allergens_tags}, [
 'en:gluten',
@@ -256,9 +233,7 @@ $product_ref = {
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-print STDERR Dumper($product_ref->{allergens_tags});
+diag explain $product_ref->{allergens_tags};
 
 is_deeply($product_ref->{allergens_tags}, [
 'en:gluten',
@@ -273,15 +248,13 @@ is($product_ref->{ingredients_text_with_allergens_fr},
 $product_ref = {
         lc => "fr", lang => "fr",
         ingredients_text_fr => "Farine de blé 97%",
-	allergens => "Sulfites",	
+	allergens => "Sulfites",
 };
 
 compute_languages($product_ref);
 detect_allergens_from_text($product_ref);
 
-use Data::Dumper;
-#print STDERR Dumper($product_ref);
-print STDERR Dumper($product_ref->{allergens_tags});
+diag explain $product_ref->{allergens_tags};
 
 is_deeply($product_ref->{allergens_tags}, [
 'en:gluten',

@@ -988,14 +988,20 @@ sub add_back_field_values_removed_by_user($$$$) {
 	foreach my $tagid (sort keys %removed_tags) {
 		if (not exists $current_tags_ref->{$tagid}) {
 			$log->info("adding back removed tag", { tagid => $tagid, field => $field, code => $code }) if $log->is_info();
-			$current_product_ref->{$field} .= ", $tagid";
+			
+			# we do not know the language of the current value of $product_ref->{$field}
+			# so regenerate it in the main language of the product
+			my $value = display_tags_hierarchy_taxonomy($lc, $field, $current_product_ref->{$field . "_hierarchy"});
+			# Remove tags
+			$value =~ s/<(([^>]|\n)*)>//g;
+							
+			$current_product_ref->{$field} .= $value . ", $tagid";
 			
 			if ($current_product_ref->{$field} =~ /^, /) {
 				$current_product_ref->{$field} = $';
 			}			
 			
-			$lc = $current_product_ref->{lc};
-			compute_field_tags($current_product_ref, $field);	
+			compute_field_tags($current_product_ref, $current_product_ref->{lc}, $field);	
 			
 			$added++;
 			$added_countries .= " $tagid";
@@ -1613,4 +1619,3 @@ sub compute_changes_diff_text {
 }
 
 1;
-

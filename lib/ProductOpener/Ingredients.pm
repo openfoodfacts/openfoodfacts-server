@@ -706,6 +706,16 @@ sub clean_ingredients_text_for_lang($$) {
 		}			
 	}
 	
+	# non language specific cleaning
+	# try to add missing spaces around dashes - separating ingredients
+	
+	# jus d'orange à base de concentré 14%- sucre
+	$text =~ s/(\%)- /$1 - /g;
+	
+	# persil- poivre blanc -ail
+	$text =~ s/(\w|\*)- /$1 - /g;
+	$text =~ s/ -(\w)/ - $1/g;	
+	
 	return $text;
 }
 

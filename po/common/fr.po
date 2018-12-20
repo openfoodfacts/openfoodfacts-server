@@ -87,7 +87,7 @@ msgstr "Bonjour <NAME>,\n"
 "Nous avons aussi lancé Open Beauty Facts afin de créer une base de données de cosmétiques: savons, dentifrice, maquillage, etc...\n"
 "https://fr.openbeautyfacts.org\n"
 "\n"
-"Open Food Facts est une association à but non lucratif composée de bénévoles. Vous pouvez nous soutenir financièrement en faisant un don via HelloAsso (déductible à 66% de vos impôts, un don de 10 euros vous reviendra à 3,40 euros) : https://www.helloasso.com/associations/open-food-facts/collectes/aidez-open-food-facts-a-ameliorer-l-alimentation-de-tous\n"
+"Open Food Facts est une association à but non lucratif composée de bénévoles. Vous pouvez nous soutenir financièrement en faisant un don via HelloAsso (pour les résidents en France : déductible à 66% de vos impôts, un don de 10 euros vous reviendra à 3,40 euros) : https://www.helloasso.com/associations/open-food-facts/collectes/aidez-open-food-facts-a-ameliorer-l-alimentation-de-tous\n"
 "et un utilisant le moteur de recherche Lilo et en nous faisant don de vos gouttes : https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\n"
 "\n"
 "Merci beaucoup !\n"
@@ -3072,4 +3072,48 @@ msgstr "Consignes de recyclage - A recycler"
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
 msgstr "Consignes de recyclage - A jeter"
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr "Produits vérifiés par %s"
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr "Produits qui n'ont pas été vérifiés par %s"
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr "Produits corrigés par %s"
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr "Produits qui n'ont pas été corrigés par %s"
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr "Produits modifiés par %s"
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr "Produits qui n'ont pas été modifiés par %s"
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr "Produits complétés par %s"
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr "Produits qui n'ont pas été complétés par %s"
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr "Produits photographiés par %s"
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr "Produits qui n'ont pas été photographiés par %s"
+
+msgctxt "user_s_page"
+msgid "%s's page"
+msgstr "Page de %s"
 
