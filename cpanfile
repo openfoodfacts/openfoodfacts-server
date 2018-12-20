@@ -25,7 +25,7 @@ requires 'Digest::MD5'; # libdigest-md5-perl
 requires 'Time::Local'; # libtime-local-perl
 
 # Probably not available as Debian packages
-requires 'MongoDB', '>= 1.4.5, < 2.0'; # libmongodb-perl has an older version
+requires 'MongoDB', '>= 1.8.1, < 2.0'; # libmongodb-perl has an older version
 requires 'URI::Escape::XS';
 requires 'Encode::Punycode';
 requires 'GraphViz2';
@@ -50,6 +50,10 @@ requires 'Email::Stuffer';
 requires 'Log::Any', '>= 1.705';
 requires 'Log::Log4perl', '>= 1.49';
 requires 'Log::Any::Adapter::Log4perl', '>= 0.09';
+
+# Retry
+requires 'Action::CircuitBreaker';
+requires 'Action::Retry';
 
 on 'test' => sub {
   requires 'Test::More', '>= 1.302049, < 2.0';

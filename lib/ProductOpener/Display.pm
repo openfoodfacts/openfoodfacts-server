@@ -70,12 +70,6 @@ BEGIN
 					$memd
 					$default_request_ref
 
-					$connection
-					$database
-					$products_collection
-					$emb_codes_collection
-					$recent_changes_collection
-
 					$scripts
 					$initjs
 					$styles
@@ -112,6 +106,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Missions qw/:all/;
 use ProductOpener::MissionsConfig qw/:all/;
 use ProductOpener::URL qw/:all/;
+use ProductOpener::Data qw/:all/;
 
 use Cache::Memcached::Fast;
 use Text::Unaccent;
@@ -165,21 +160,6 @@ $memd = new Cache::Memcached::Fast {
 	'servers' => $memd_servers,
 	'utf8' => 1,
 };
-
-$connection = MongoDB->connect($mongodb_host);
-$database = $connection->get_database($mongodb);
-$products_collection = $database->get_collection('products');
-$emb_codes_collection = $database->get_collection('emb_codes');
-$recent_changes_collection = $database->get_collection('recent_changes');
-
-if (defined $options{other_servers}) {
-
-	foreach my $server (keys %{$options{other_servers}}) {
-		$options{other_servers}{$server}{database} = $connection->get_database($options{other_servers}{$server}{mongodb});
-		$options{other_servers}{$server}{products_collection} = $options{other_servers}{$server}{database}->get_collection('products');
-	}
-}
-
 
 $default_request_ref = {
 page=>1,
@@ -1270,40 +1250,27 @@ sub display_list_of_tags($$) {
 
 		$log->debug("Did not find a value for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
 
-
 		eval {
 			$log->debug("Executing MongoDB aggregate query", { query => $aggregate_parameters }) if $log->is_debug();
-			$results = $products_collection->aggregate( $aggregate_parameters );
+			$results = execute_query(sub {
+				return get_products_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 0 } );
+			});
 		};
 		if ($@) {
-			$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
-			# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
-
-			# opening new connection
-			eval {
-				$connection = MongoDB->connect($mongodb_host);
-				$database = $connection->get_database($mongodb);
-				$products_collection = $database->get_collection('products');
-			};
-			if ($@) {
-				$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
-				$count = -1;
-			}
-			else {
-				$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
-				eval {
-					$log->debug("Executing MongoDB aggregate query", { query => $aggregate_parameters }) if $log->is_debug();
-					$results = $products_collection->aggregate( $aggregate_parameters);
-				};
-				$log->debug("MongoDB query done", { error => $@ }) if $log->is_debug();
-			}
+			$log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
+			$count = -1;
+		}
+		else {
+			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 		}
 
+		$log->debug("MongoDB query done", { error => $@ }) if $log->is_debug();
+		
 		$log->trace("aggregate query done") if $log->is_trace();
 
 		if ($admin) {
-			$log->debug("aggregate query results", { results => $results }) if $log->is_debug();
-		}
+			$log->debug("aggregate query results", { results => $results }) if $log->is_debug();	
+		}		
 
 		# the return value of aggregate has changed from version 0.702
 		# and v1.4.5 of the perl MongoDB module
@@ -3222,67 +3189,41 @@ sub search_and_display_products($$$$$) {
 					{ "\$sample" => { "size" => $request_ref->{sample_size} } }
 				];
 				$log->debug("Executing MongoDB query", { query => $aggregate_parameters }) if $log->is_debug();
-				$cursor = $products_collection->aggregate($aggregate_parameters);
+				$cursor = execute_query(sub {
+					return get_products_collection()->aggregate($aggregate_parameters, { allowDiskUse => 1 });
+				});
 			}
 			else {
-				$log->debug("Executing MongoDB query", { query => $mongodb_query_ref }) if $log->is_debug();
-				$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+				$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
+				$cursor = execute_query(sub {
+					return get_products_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+				});
 				$count = $cursor->count() + 0;
 				$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 			}
 		};
 		if ($@) {
-			$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
-			# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
-
-			# opening new connection
-			eval {
-				$connection = MongoDB->connect($mongodb_host);
-				$database = $connection->get_database($mongodb);
-				$products_collection = $database->get_collection('products');
-			};
-			if ($@) {
-				$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
-				$count = -1;
-			}
-			else {
-				$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
-				if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
-					my $aggregate_parameters = [
-						{ "\$match" => $query_ref },
-						{ "\$sample" => { "size" => $request_ref->{sample_size} } }
-					];
-					$log->debug("Executing MongoDB query", { query => $aggregate_parameters }) if $log->is_debug();
-					$cursor = $products_collection->aggregate($aggregate_parameters);
-				}
-				else {
-					$log->debug("Executing MongoDB query", { query => $query_ref, sort => $sort_ref, limit => $limit, skip => $skip }) if $log->is_debug();
-					$cursor = $products_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-					$count = $cursor->count() + 0;
-					$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
-
-				}
-				$log->debug("MongoDB query done", { error => $@ }) if $log->is_debug();
-			}
+			$log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
 		}
+		else
+		{
+			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
+		  
+			while (my $product_ref = $cursor->next) {
+				push @{$request_ref->{structured_response}{products}}, $product_ref;
+			}		  
+			$request_ref->{structured_response}{count} = $count + 0;
+		  
+			$log->debug("Setting value for MongoDB query key", { key => $key }) if $log->is_debug();
 
-		while (my $product_ref = $cursor->next) {
-			push @{$request_ref->{structured_response}{products}}, $product_ref;
+			$memd->set($key, $request_ref->{structured_response}, 3600) or $log->debug("Could not set value for MongoDB query key", { key => $key });		  
 		}
-
-		$request_ref->{structured_response}{count} = $count + 0;
-
-		$log->debug("Setting value for MongoDB query key", { key => $key }) if $log->is_debug();
-
-		$memd->set($key, $request_ref->{structured_response}, 3600) or $log->debug("Could not set value for MongoDB query key", { key => $key });
-
-	}
-	else {
-		$log->debug("Found a value for MongoDB query key", { key => $key }) if $log->is_debug();
-	}
-
-
-
+		
+  }
+  else {
+    $log->debug("Found a value for MongoDB query key", { key => $key }) if $log->is_debug();
+  }
+	
 	$count = $request_ref->{structured_response}{count};
 
 	if (defined $request_ref->{description}) {
@@ -3624,31 +3565,18 @@ sub search_and_export_products($$$$$) {
 	my $count;
 
 	eval {
-		$cursor = $products_collection->query($query_ref)->sort($sort_ref);
+		$cursor = execute_query(sub {
+			return get_products_collection()->query($query_ref)->sort($sort_ref);
+		});
 		$count = $cursor->count() + 0;
 	};
 	if ($@) {
-		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
-		# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
-
-		# opening new connection
-		eval {
-			$connection = MongoDB->connect($mongodb_host);
-			$database = $connection->get_database($mongodb);
-			$products_collection = $database->get_collection('products');
-		};
-		if ($@) {
-			$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
-			$count = -1;
-		}
-		else {
-			$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
-			$cursor = $products_collection->query($query_ref)->sort($sort_ref);
-			$count = $cursor->count() + 0;
-			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
-		}
+		$log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
 	}
-
+	else {
+		$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
+	}
+		
 	$request_ref->{count} = $count + 0;
 
 	my $html = '';
@@ -4639,41 +4567,28 @@ sub search_and_graph_products($$$) {
 
 	my $cursor;
 	my $count;
-
+	
 	$log->info("retrieving products from MongoDB to display them in a graph", { count => $count }) if $log->is_info();
 
 	if ($admin) {
 		$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
 	}
-
+	
 	eval {
-		$cursor = $products_collection->query($query_ref);
+		$cursor = execute_query(sub {
+			return get_products_collection()->query($query_ref);
+		});
 		$count = $cursor->count() + 0;
 	};
 	if ($@) {
-		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
-		# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
-
-		# opening new connection
-		eval {
-			$connection = MongoDB->connect($mongodb_host);
-			$database = $connection->get_database($mongodb);
-			$products_collection = $database->get_collection('products');
-		};
-		if ($@) {
-			$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
-			$count = -1;
-		}
-		else {
-			$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
-			$cursor = $products_collection->query($query_ref);
-			$count = $cursor->count() + 0;
-			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
-		}
+		$log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
 	}
-
+	else {
+		$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
+	}
+		
 	$log->info("retrieved products from MongoDB to display them in a graph", { count => $count }) if $log->is_info();
-
+		
 	$request_ref->{count} = $count + 0;
 
 	my $html = '';
@@ -4797,37 +4712,24 @@ sub search_and_map_products($$$) {
 
 	my $cursor;
 	my $count;
-
+	
 	$log->info("retrieving products from MongoDB to display them in a map", { count => $count }) if $log->is_info();
-
+	
 	eval {
-		$cursor = $products_collection->query($query_ref);
+		$cursor = execute_query(sub {
+			return get_products_collection()->query($query_ref);
+		});
 		$count = $cursor->count() + 0;
 	};
 	if ($@) {
-		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
-		# maybe $connection auto-reconnects but $database and $products_collection still reference the old connection?
-
-		# opening new connection
-		eval {
-			$connection = MongoDB->connect($mongodb_host);
-			$database = $connection->get_database($mongodb);
-			$products_collection = $database->get_collection('products');
-		};
-		if ($@) {
-			$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
-			$count = -1;
-		}
-		else {
-			$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
-			$cursor = $products_collection->query($query_ref);
-			$count = $cursor->count() + 0;
-			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
-		}
+		$log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
 	}
-
+	else {
+		$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
+	}
+		
 	$log->info("retrieved products from MongoDB to display them in a map", { count => $count }) if $log->is_info();
-
+		
 	$request_ref->{count} = $count + 0;
 
 	my $html = '';
@@ -8602,7 +8504,7 @@ sub display_recent_changes {
 	if ((defined $country) and ($country ne 'en:world')) {
 		$query_ref->{countries_tags} = $country;
 	}
-
+	
 	delete $query_ref->{lc};
 
 	if (defined $limit) {
@@ -8633,38 +8535,24 @@ sub display_recent_changes {
 		page_size => $limit,
 		skip => $skip,
 		changes => [],
-	};
+	};	
 
 	my $sort_ref = Tie::IxHash->new();
 	$sort_ref->Push('$natural' => -1);
 
 	$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
-	my $cursor = $recent_changes_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+	my $cursor = get_recent_changes_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 	my $count = $cursor->count() + 0;
 	$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 
 	if ($@) {
 		$log->warn("MongoDB error - retrying once", { error => $@ }) if $log->is_warn();
-
-		# opening new connection
-		eval {
-			$connection = MongoDB->connect($mongodb_host);
-			$database = $connection->get_database($mongodb);
-			$recent_changes_collection = $database->get_collection('recent_changes');
-		};
-		if ($@) {
-			$log->error("MongoDB error - reconnecting failed", { error => $@ }) if $log->is_error();
-			$count = -1;
-		}
-		else {
-			$log->info("MongoDB reconnect ok", { error => $@ }) if $log->is_info();
-			$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
-			$cursor = $recent_changes_collection->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-			$count = $cursor->count() + 0;
-			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
-		}
+		$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
+		$cursor = get_recent_changes_collection()->query($query_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+		$count = $cursor->count() + 0;
+		$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 	}
-
+	
 	my $html .= "<ul>\n";
 	while (my $change_ref = $cursor->next) {
 		# Conversion for JSON, because the $change_ref cannot be passed to encode_json.
@@ -8683,33 +8571,33 @@ sub display_recent_changes {
 
 		push @{$request_ref->{structured_response}{changes}}, $change_hash;
 
-		my $date = display_date_tag($change_ref->{t});
+		my $date = display_date_tag($change_ref->{t});	
 		my $user = "";
 		if (defined $change_ref->{userid}) {
 			$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
 		}
-
+		
 		my $comment = $change_ref->{comment};
 		$comment = lang($comment) if $comment eq 'product_created';
-
+		
 		$comment =~ s/^Modification :\s+//;
 		if ($comment eq 'Modification :') {
 			$comment = '';
 		}
 		$comment =~ s/\new image \d+( -)?//;
-
+		
 		if ($comment ne '') {
 			$comment = "- $comment";
 		}
-
+		
 		my $change_rev = $change_ref->{rev};
 
 		# Display diffs
 		# [Image upload - add: 1, 2 - delete 2], [Image selection - add: front], [Nutriments... ]
-
+		
 		my $diffs = compute_changes_diff_text($change_ref);
 		$change_hash->{diffs_text} = $diffs;
-
+		
 		my $product_url = product_url($change_ref->{code});
 		$html .= "<li><a href=\"" . $product_url . "\">" . $change_ref->{code} . "</a> $date - $user $diffs $comment - <a href=\"" . $product_url . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
 
