@@ -217,8 +217,8 @@ vi:Åland
 wo:Dunu Aland
 yo:Àwọn Erékùṣù Åland
 zh:奥兰群岛
-country_code_3:en: ALA
 country_code_2:en: AX
+country_code_3:en: ALA
 languages:en: sv
 
 en:Albania, Republic of Albania, AL, ALB
@@ -356,8 +356,8 @@ wo:Albaani
 yi:אלבאניע
 yo:Albáníà
 zh:阿尔巴尼亚
-country_code_3:en: ALB
 country_code_2:en: AL
+country_code_3:en: ALB
 languages:en: sq
 
 en:Alderney, Aurigny
@@ -540,8 +540,8 @@ yi:אלזשיר
 yo:Àlgéríà
 zh:阿尔及利亚
 zu:IAljiriya
-country_code_3:en: DZA
 country_code_2:en: DZ
+country_code_3:en: DZA
 languages:en: ar,fr
 
 en:American Samoa, AS, ASM
@@ -628,9 +628,9 @@ wo:Samoa gu Aamerig
 yi:אמעריקאנישער סאמאא
 yo:Sàmóà Amẹ́ríkà
 zh:美屬薩摩亞
-languages:en: en,sm
-country_code_3:en: ASM
 country_code_2:en: AS
+country_code_3:en: ASM
+languages:en: en,sm
 
 en:Andorra, Principality of Andorra, Principality of the Valleys of Andorra, AD, AND
 af:Andorra
@@ -767,8 +767,8 @@ wo:Andoor
 yi:אנדארע
 yo:Àndórà
 zh:安道尔, 安道尔公国
-country_code_3:en: AND
 country_code_2:en: AD
+country_code_3:en: AND
 languages:en: ca,es,fr,pt
 
 en:Angola, Republic of Angola, AO, AGO
@@ -948,7 +948,7 @@ ka:ანგილია
 kk:Ангилья, Аңгилия
 ko:앵귈라
 kw:Angwilla
-la:Anguilla
+la:Anguilla (insula)
 lb:Anguilla
 li:Anguilla
 lt:Angilija
@@ -986,9 +986,9 @@ vi:Anguilla
 wo:Angila, Anguilla
 yo:Àngúíllà
 zh:安圭拉, 英屬安圭拉, 安圭拉岛
-languages:en: en
 country_code_2:en: AI
 country_code_3:en: AIA
+languages:en: en
 
 en:Antarctic, AQ, ATA
 ar:أنتاركتيك
@@ -998,7 +998,7 @@ bg:Антарктика
 ca:Regió antàrtica
 cv:Антарктика
 de:Antarktis
-es:Antártica, antártico, continente austral, continente antártico
+es:Antártida, Antártica, antártico, continente austral, continente antártico
 et:Antarktika
 fa:سرزمین جنوبی
 fr:Région antarctique
@@ -1019,9 +1019,9 @@ tk:Antarktida
 uk:Антарктика
 vi:Vùng Nam Cực
 yo:Antárktìkì
-languages:en: 
-country_code_3:en: ATA
 country_code_2:en: AQ
+country_code_3:en: ATA
+languages:en: 
 
 en:Antarctica
 af:Antarktika
@@ -1049,7 +1049,7 @@ de:Antarktika
 dz:ཨེན་ཊཱག་ཊི་ཀ་
 el:Ανταρκτική
 eo:Antarkto
-es:Antártica, antártico, continente austral, continente antártico
+es:Antártida, Antártica, antártico, continente austral, continente antártico
 et:Antarktis
 eu:Antartika
 fa:جنوبگان
@@ -1261,8 +1261,8 @@ vo:Lantigeän e Barbudeän
 wo:Antigua ak Barbuda
 yo:Ántígúà àti Bàrbúdà
 zh:安提瓜和巴布达
-country_code_3:en: ATG
 country_code_2:en: AG
+country_code_3:en: ATG
 languages:en: en
 
 en:Argentina, Argentine Republic, AR, ARG
@@ -1399,8 +1399,8 @@ wo:Arsantin
 yi:ארגענטינע
 yo:Argẹntínà
 zh:阿根廷
-country_code_3:en: ARG
 country_code_2:en: AR
+country_code_3:en: ARG
 languages:en: es
 
 en:Armenia, Republic of Armenia, AM, ARM
@@ -1636,9 +1636,9 @@ vi:Aruba
 wo:Aruba
 yo:Àrúbà
 zh:阿魯巴, 阿鲁巴岛, 阿魯巴島, 阿盧巴, 阿鲁巴
-languages:en: nl,pap
 country_code_2:en: AW
 country_code_3:en: ABW
+languages:en: nl,pap
 
 en:Ascension Island
 af:Ascension, Ascencion, Ascensioneiland, Ascension-eiland
@@ -1992,9 +1992,9 @@ yi:עסטרייך
 yo:Austríà
 zh:奥地利, 奥地利共和国
 zu:I-Ostriya
-languages:en: de
 country_code_2:en: AT
 country_code_3:en: AUT
+languages:en: de
 
 en:Azerbaijan, Republic of Azerbaijan, AZ, AZE
 ab:Азербаиџьан
@@ -2262,8 +2262,8 @@ wo:Bahrayni
 yi:באכריין
 yo:Báháráìnì
 zh:巴林
-country_code_3:en: BHR
 country_code_2:en: BH
+country_code_3:en: BHR
 languages:en: ar
 
 en:Bangladesh, East Pakistan, People's Republic of Bangladesh, East Bengal, BD, BGD
@@ -2395,9 +2395,9 @@ wo:Banglaades
 yi:באנגלאדעש
 yo:Bangladẹ́shì
 zh:孟加拉国
-languages:en: bn
 country_code_2:en: BD
 country_code_3:en: BGD
+languages:en: bn
 
 en:Barbados, BB, BRB
 af:Barbados
@@ -2514,8 +2514,8 @@ wa:Barbåde
 wo:Barbados
 yo:Bárbádọ̀s
 zh:巴巴多斯
-country_code_3:en: BRB
 country_code_2:en: BB
+country_code_3:en: BRB
 languages:en: en
 
 en:Belarus, White Russia, White Ruthenia, Republic of Belarus, BY, BLR
@@ -2654,9 +2654,9 @@ yi:בעלארוס
 yo:Bẹ̀lárùs
 zh:白俄罗斯
 zu:IBelarusi
-languages:en: ru,be
 country_code_2:en: BY
 country_code_3:en: BLR
+languages:en: ru,be
 
 en:Belgium, Kingdom of Belgium, BE, BEL
 af:België
@@ -2790,9 +2790,9 @@ wo:Belsik
 yi:בעלגיע
 yo:Bẹ́ljíọ̀m
 zh:比利时, 比利时王国
-languages:en: nl,fr,de
-country_code_3:en: BEL
 country_code_2:en: BE
+country_code_3:en: BEL
+languages:en: nl,fr,de
 
 en:Belize, BZ, BLZ
 af:Belize
@@ -2916,9 +2916,9 @@ yi:בעליזע
 yo:Bẹ̀lísè
 zh:伯利兹
 zu:Belize
-languages:en: en
 country_code_2:en: BZ
 country_code_3:en: BLZ
+languages:en: en
 
 en:Benin, Republic of Benin, BJ, BEN
 af:Benin
@@ -3052,9 +3052,9 @@ yi:בענין
 yo:Benin
 zh:贝宁
 zu:IBenini
-languages:en: fr
 country_code_2:en: BJ
 country_code_3:en: BEN
+languages:en: fr
 
 en:Bermuda, Somers Isles, Bermuda Islands, Atlantic/Bermuda, ISO 3166-1:BM, Bermudian Islands, Bermoothes, Virgineola, The Somers Isles, Summers' Isles, Territory of Bermuda, Bermudas, Somers Islands, Colony of Bermuda, Devil's Isles, Summer's Isles, Isle of Devils, BM, BMU
 af:Bermuda, Bermuda-eilande
@@ -3145,8 +3145,8 @@ vi:Bermuda, Quần đảo Bermuda
 wo:Bermuda
 yo:Bẹ̀rmúdà, Bermuda
 zh:百慕大, 百慕達群島, Bermuda, 百慕達, 百慕大群岛, 百幕達
-country_code_3:en: BMU
 country_code_2:en: BM
+country_code_3:en: BMU
 languages:en: en
 
 en:Bhutan, Kingdom of Bhutan, BT, BTN
@@ -3275,9 +3275,9 @@ wo:Butaan
 yi:בהוטאן
 yo:Bhùtán
 zh:不丹, 不丹王国
-languages:en: dz
-country_code_3:en: BTN
 country_code_2:en: BT
+country_code_3:en: BTN
+languages:en: dz
 
 en:Bolivia, BO, BOL
 ab:Боливиа
@@ -3408,8 +3408,8 @@ wo:Boliibi
 yi:באליוויע
 yo:Bòlífíà
 zh:玻利維亞
-country_code_3:en: BOL
 country_code_2:en: BO
+country_code_3:en: BOL
 languages:en: es,gn,ay,qu
 
 en:Bonaire, Boneiru
@@ -3447,7 +3447,7 @@ la:Insula Boni Aëris, Bonus Aër
 lb:Bonaire
 li:Bonaire
 lt:Boneras, Bonairė, Bonaire
-lv:Sintēstatiusa un Saba, Karību Nīderlande
+lv:Bonaire, Sintēstatiusa un Saba, Karību Nīderlande
 mk:Бонер
 ms:Bonaire
 nb:Bonaire
@@ -3458,7 +3458,7 @@ pa:ਬੋਨੇਅਰ
 pl:Bonaire
 pt:Bonaire, Ilha de Bonaire
 ro:Bonaire, Insula Bonaire
-ru:Синт-Эстатиус и Саба, БЭС-острова, Нидерландские Карибские острова, Карибская Голландия, Острова Бонайре, Карибские Нидерланды, Острова БЭС, Острова БЕС, Карибские Нидерландские острова, Нидерланды Карибские, БЕС-острова, Саба и Синт-Эстатиус
+ru:Бонэйр, Бонере, Бонайре, Синт-Эстатиус и Саба, БЭС-острова, Нидерландские Карибские острова, Карибская Голландия, Острова Бонайре, Карибские Нидерланды, Острова БЭС, Острова БЕС, Карибские Нидерландские острова, Нидерланды Карибские, БЕС-острова, Саба и Синт-Эстатиус
 sk:Bonaire
 sr:Бонер
 su:Bonére
@@ -3467,7 +3467,7 @@ ta:பொனெய்ர்
 th:โบแนร์, Bonaire, เกาะโบแนร์
 tr:Bonaire
 uk:Бонайре, Бонер
-ur:بونایر, Bonaire, -بونیر
+ur:بونایر, Bonaire, (بونیر
 vi:Bonaire
 yo:Bonaire
 zh:波内赫, 博奈尔岛, 波奈, 波内赫岛, 波內赫
@@ -3602,9 +3602,9 @@ wo:Bosni
 yi:באסניע און הערצעגאווינע
 yo:Bósníà àti Hẹrjẹgòfínà
 zh:波斯尼亚和黑塞哥维那
-languages:en: hr,sr,bs
 country_code_2:en: BA
 country_code_3:en: BIH
+languages:en: hr,sr,bs
 
 en:Botswana, BW, BWA
 af:Botswana
@@ -3739,9 +3739,9 @@ yi:באצוואנע
 yo:Bòtswánà
 zh:波札那
 zu:IButswana
-languages:en: en,tn
 country_code_2:en: BW
 country_code_3:en: BWA
+languages:en: en,tn
 
 en:Bouvet Island, BV, BVT
 af:Bouvet-eiland
@@ -3803,8 +3803,8 @@ vi:Đảo Bouvet
 wo:Dunu Buwet
 yo:Erékùṣù Bouvet
 zh:布韦岛
-country_code_3:en: BVT
 country_code_2:en: BV
+country_code_3:en: BVT
 languages:en: 
 
 en:Brazil, Federative Republic of Brazil, Brasil, República Federativa do Brasil, BR, BRA
@@ -3949,9 +3949,9 @@ yo:Brasil
 za:Bahsih
 zh:巴西
 zu:IBrazili
-languages:en: pt
-country_code_3:en: BRA
 country_code_2:en: BR
+country_code_3:en: BRA
+languages:en: pt
 
 en:British Indian Ocean Territory, IO, IOT
 af:Britse Indiese Oseaangebied, Britse Indiese Oseaan Gebied
@@ -4014,9 +4014,9 @@ ur:برطانوی بحرہند کا خطہ, British Indian Ocean Territory, بر
 vi:Lãnh thổ Ấn Độ Dương thuộc Anh
 yo:Agbègbè Òkun Índíà Brítánì, British Indian Ocean Territory, The British Indian Ocean Territory
 zh:英屬印度洋領地, 英属印度洋领地, 英屬印度洋地區
-languages:en: 
-country_code_3:en: IOT
 country_code_2:en: IO
+country_code_3:en: IOT
+languages:en: 
 
 en:British Virgin Islands, Virgin Islands, BVI, VG, VGB
 af:Britse Maagde-eilande, VK Maagde-eilande, Britse Virgin-eilande, Britse Maagdeeilande, Brits-Maagde-eilande, British Virgin Islands
@@ -4060,7 +4060,7 @@ kw:Ynysow an Wyrghes Predennek
 la:Virginis Insulae Britannicae, Britannicae Virgineae Insulae, Britannicae Virginis Insulae
 lb:Britesch Joffereninselen, Britesch Jungferninselen
 li:Britse Maagde-Eilen
-lt:
+lt:Mergelių Salos, Britanijos Mergelių Salos, Britų Mergelių salos, Britanijos Virdžinijos salos, Britų Mergelės salos, Didžiosios Britanijos Mergelių salos
 lv:Britu Virdžīnas, Britu Virdžīnu salas, VGB, Britu Virdžīnijas salas, IVB
 mk:Британски Девствени Острови
 mr:ब्रिटिश व्हर्जिन द्वीपसमूह, ब्रिटीश व्हर्जिन द्विपे, ब्रिटीश व्हर्जिन द्वीपे, ब्रिटिश व्हर्जिन द्वीपसमुह, ब्रिटीश व्हर्जिन द्वीपसमूह
@@ -4091,11 +4091,11 @@ ug:ئەنگلىيىگە قاراشلىق ۋىرگىن تاقىم ئاراللى�
 uk:Британські Віргінські острови, Британські Вірджинські острови
 ur:برطانوی جزائر ورجن, The British Virgin Islands, British Virgin Islands
 vi:Quần đảo Virgin thuộc Anh, Virgin thuộc Anh, British Virgin Islands, Quần đảo Virgin Anh
-wo:
+wo:Duni Virgin, Virgin Islands
 yo:Àwọn Erékùṣù Wúndíá Brítánì, The British Virgin Islands, British Virgin Islands, Àwọn Erékùṣù Wúndíá ti Brítánì
 zh:英屬維爾京群島, 英屬維京群島, 英屬處女群島, 英属维尔京群岛, 托托拉岛, 英屬處女島
-country_code_3:en: VGB
 country_code_2:en: VG
+country_code_3:en: VGB
 languages:en: en
 
 en:Brunei, Nation of Brunei, the Abode of Peace, BN, BRN
@@ -4223,8 +4223,8 @@ vo:Brunän
 yi:ברוניי
 yo:Brunei
 zh:文莱
-country_code_3:en: BRN
 country_code_2:en: BN
+country_code_3:en: BRN
 languages:en: ms
 
 en:Bulgaria, Republic of Bulgaria, BG, BGR
@@ -4367,9 +4367,9 @@ yi:בולגאריע, בולגאַריע
 yo:Bùlgáríà, Republic of Bulgaria
 zh:保加利亚
 zu:IBulgariya
-languages:en: bg
 country_code_2:en: BG
 country_code_3:en: BGR
+languages:en: bg
 
 en:Burkina Faso, BF, BFA
 af:Burkina Faso
@@ -4498,9 +4498,9 @@ yi:בורקינע פאסא
 yo:Bùrkínà Fasò
 zh:布吉納法索
 zu:IBukhina Faso
-languages:en: fr
 country_code_2:en: BF
 country_code_3:en: BFA
+languages:en: fr
 
 en:Burundi, Republic of Burundi, BI, BDI
 af:Burundi
@@ -4631,9 +4631,9 @@ yi:בורונדי
 yo:Bùrúndì
 zh:蒲隆地
 zu:IBurundi
-languages:en: fr,rn
-country_code_3:en: BDI
 country_code_2:en: BI
+country_code_3:en: BDI
+languages:en: fr,rn
 
 en:Cambodia, Kingdom of Cambodia, KH, KHM
 af:Kambodja
@@ -4758,8 +4758,8 @@ wo:Kamboodi
 yi:קאמבאדיע
 yo:Kàmbódíà
 zh:柬埔寨
-country_code_3:en: KHM
 country_code_2:en: KH
+country_code_3:en: KHM
 languages:en: km
 
 en:Cameroon, CM, CMR
@@ -4891,9 +4891,9 @@ yi:קאמערון
 yo:Kamẹrúùn
 zh:喀麦隆
 zu:IKamerooni
-languages:en: fr,en
-country_code_3:en: CMR
 country_code_2:en: CM
+country_code_3:en: CMR
+languages:en: fr,en
 
 en:Canada, Dominion of Canada, British North America, CAN, CA
 ab:Канада
@@ -5047,9 +5047,9 @@ yi:קאנאדע
 yo:Kánádà
 zh:加拿大
 zu:IKhanada
-languages:en: en,fr
-country_code_3:en: CAN
 country_code_2:en: CA
+country_code_3:en: CAN
+languages:en: en,fr
 
 en:Cape Verde, Republic of Cape Verde, Cabo Verde, CV, CPV
 af:Kaap Verde
@@ -5175,9 +5175,9 @@ wo:Kap Weert
 yo:Kepu Ferde
 zh:佛得角
 zu:IKhepi Vedhi
-languages:en: pt
-country_code_3:en: CPV
 country_code_2:en: CV
+country_code_3:en: CPV
+languages:en: pt
 
 en:Caribbean Netherlands, BES islands, BQ, BES
 af:Karibies Nederland, BES-Eilande
@@ -5199,7 +5199,7 @@ ka:კარიბის ნიდერლანდები
 ko:네덜란드령 카리브 해 지역
 li:Caribisch Nederland
 lt:BES salos, Karibų Nyderlandai
-lv:Sintēstatiusa un Saba, Karību Nīderlande
+lv:Bonaire, Sintēstatiusa un Saba, Karību Nīderlande
 nb:Karibisk Nederland, BES-øyene, Saint Eustatius og Saba, Sint Eustatius og Saba, BES
 nl:Caribisch Nederland, Caraibisch Nederland, BES eilanden, Bijzondere gemeente
 nn:Karibisk Nederland, BES-øyane, Sint Eustatius og Saba
@@ -5207,7 +5207,7 @@ oc:Païses Basses Caribencs, Illas BES
 pa:ਕੈਰੀਬੀਆਈ ਨੀਦਰਲੈਂਡ
 pl:Niderlandy Karaibskie
 pt:Países Baixos Caribenhos
-ru:Синт-Эстатиус и Саба, БЭС-острова, Нидерландские Карибские острова, Карибская Голландия, Острова Бонайре, Карибские Нидерланды, Острова БЭС, Острова БЕС, Карибские Нидерландские острова, Нидерланды Карибские, БЕС-острова, Саба и Синт-Эстатиус
+ru:Бонэйр, Бонере, Бонайре, Синт-Эстатиус и Саба, БЭС-острова, Нидерландские Карибские острова, Карибская Голландия, Острова Бонайре, Карибские Нидерланды, Острова БЭС, Острова БЕС, Карибские Нидерландские острова, Нидерланды Карибские, БЕС-острова, Саба и Синт-Эстатиус
 sr:Карипска Холандија
 sv:Karibiska Nederländerna
 uk:Нідерландські Карибські острови, Острови BES
@@ -5297,9 +5297,9 @@ ur:جزائر کیمین
 vi:Quần đảo Cayman
 yo:Àwọn Erékùṣù Káímàn
 zh:開曼群島
-languages:en: 
 country_code_2:en: KY
 country_code_3:en: CYM
+languages:en: 
 
 en:Central African Republic, CF, CAF
 af:Sentraal-Afrikaanse Republiek
@@ -5553,9 +5553,9 @@ yi:טשאד
 yo:Tsad
 zh:乍得
 zu:ITshedi
-languages:en: ar,fr
 country_code_2:en: TD
 country_code_3:en: TCD
+languages:en: ar,fr
 
 en:Chile, CL, CHL
 ab:Чили
@@ -5707,8 +5707,8 @@ yo:Tsílè
 za:Chile
 zh:智利
 zu:Chili
-country_code_3:en: CHL
 country_code_2:en: CL
+country_code_3:en: CHL
 languages:en: es
 
 en:China, PRC, People's Republic of China, CN, CHN
@@ -5722,7 +5722,7 @@ az:Çin
 ba:Ҡытай
 be:Кітай
 bg:Китайска народна република
-bh:
+bh:चीन
 bi:China
 bm:China
 bn:গণচীন
@@ -5936,13 +5936,13 @@ country_code_2:en: CX
 country_code_3:en: CXR
 languages:en: 
 
-en:Cocos   Islands, Keeling Islands, Territory of the Cocos   Islands, CC, CCK
-af:Kokoseilande, Cocos   Eilande
+en:Cocos (Keeling) Islands, Cocos Islands, Keeling Islands, Territory of the Cocos (Keeling) Islands, CC, CCK
+af:Kokoseilande, Cocos (Keeling) Eilande
 ar:جزر كوكس, قائمة جزر جزر كوكس, جزر كيلينغ, جزر كوكوس
 az:Kokos adaları
 ba:Кокос утрауҙары
 be:Какосавыя астравы
-bg:Кокосови острови, Кокосови   о-ви
+bg:Кокосови острови, Кокосови (Кийлинг) о-ви
 br:Inizi Cocos
 bs:Kokosova ostrva
 ca:Illes Cocos, Illes de Cocos
@@ -5955,62 +5955,62 @@ el:Νησιά Κόκος, Κόκος, Κόκος Νήσοι, Νήσοι Κήλι
 eo:Kokosinsuloj, Kokosinsulo, Cocos Islands, Keeling islands
 es:islas Cocos, Isla de Cocos, Coco Islands, Islas Keeling, Keeling, Las Islas Cocos, Keeling Islands
 et:Kookossaared, Kookosesaared, Põhja Keeling, Keelingi saared, Lõuna-Keeling, Põhja-Kookosesaar, Kookossaarte ala, Lõuna-Kookossaared, North Keeling
-eu:Cocos   uharteak, Cocos Uhartea
-fa:جزایر کوکوس, جزاير كوكو, جزایر نارگیل, جزاير كوكوس, جزایر کیلینگ, جزاير كيلينگ, جزاير نارگيل, جزایر کوکو
+eu:Cocos (Keeling) uharteak, Cocos Uhartea
+fa:جزایر کوکوس, جزاير كوكو, جزایر نارگیل, جزاير كوكوس, جزاير (كيلينگ) كوكو, جزایر کیلینگ, جزاير كيلينگ, جزاير نارگيل, جزایر کوکو, جزایر (کیلینگ) کوکو
 fi:Kookossaaret, Keeling-saaret, CCK, Cocos-saaret, Keelingsaaret
 fr:Îles Cocos, Îles Keeling, Îles Cocos ou Keeling
 gl:Illas Cocos
-gu:કોકોસ   દ્વીપ
+gu:કોકોસ (કીલીંગ) દ્વીપ
 gv:Ellanyn Cocos
 he:איי קוקוס
-hi:कोकोस   द्वीपसमूह, कोकोज   द्वीप समूह
+hi:कोकोस (कीलिंग) द्वीपसमूह, कोकोस द्वीपसमूह, कोकोज (कीलिंग) द्वीप समूह
 hr:Kokosovi otoci
-hu:Kókusz  -szigetek, Keeling-szigetek
+hu:Kókusz (Keeling)-szigetek, Keeling-szigetek, Kókusz-szigetek
 hy:Կոկոսյան կղզիներ
-id:Kepulauan Cocos, The Cocos   Islands, Cocos Islands
+id:Kepulauan Cocos, The Cocos (Keeling) Islands, Cocos Islands, Cocos (Keeling) Islands
 is:Kókoseyjar
-it:Isole Cocos e Keeling, Isole Keeling, Isole Cocos, Keeling, Cocos e Keeling, Cocos, Cocos Keeling Islands, Cocos   Islands
-ja:ココス諸島, キーリング諸島, ココス島, ココス   諸島
+it:Isole Cocos e Keeling, Isole Keeling, Isole Cocos, Keeling, Cocos e Keeling, Cocos, Cocos Keeling Islands
+ja:ココス諸島, キーリング諸島, ココス島, ココス (キーリング) 諸島
 jv:Kapuloan Cocos
-ka:ქოქოსის კუნძულები, კილინგი
+ka:ქოქოსის კუნძულები, კილინგი, ქოქოსის (კილინგის) კუნძულები
 ko:코코스 제도
 kw:Ynysow Cocos
 la:Insulae Cocos seu Keeling
 lb:Kokosinselen
-lt:Kokosų   Salos, Kylingo salos
-lv:Kokosu   Salas, Kīlinga salas, Kokosa salas, CCK
+lt:Kokosų (Kilingo) Salos, Kylingo salos, Kokosų salos, Kokosų (Kylingo) salos, Kokosų (Keelingo) salos
+lv:Kokosu (Kīlinga) Salas, Kīlinga salas, Kokosa salas, Kokosu Salas, CCK
 mk:Кокосови Острови
 ml:കോകോസ്
-mn:Кокос   Арлууд, Кокос   Арал
+mn:Кокос (Кийлинг) Арлууд, Кокос (Кийлинг) Арал
 mr:कोकोस द्वीपसमूह, कोकोस द्वीपे
 ms:Kepulauan Cocos
 nb:Kokosøyene, Cocos Islands, Keelingøyene, CCK
 ne:कोकोस टापु
-nl:Cocoseilanden, Cocos   Eilanden, Keeling Eilanden, Keelingeilanden, Keeling islands, Kokoseilanden, Cocos Islands
-nn:Kokosøyane, Kokos-øyane, Keelingøyane, Kokosøyene, Kokos-øyene, Cocos Islands, Keeling Islands
+nl:Cocoseilanden, Cocos (Keeling) Eilanden, Keeling Eilanden, Cocos eilanden, Keelingeilanden, Keeling islands, Kokoseilanden, Cocos Islands
+nn:Kokosøyane, Kokos-øyane, Keelingøyane, Kokosøyene, Kokos-øyene, Cocos Islands, Keeling Islands, Cocos (Keeling) Islands
 pa:ਕੋਕੋਸ
 pl:Wyspy Kokosowe, Wyspy Keelinga
 pt:Ilhas Cocos, Território das Ilhas Cocos, Território das Ilhas Keeling, Ilhas Keeling
 ro:Insulele Cocos
-ru:Кокосовые острова, Кокосовы Острова
+ru:Кокосовые острова, Кокосовые (Килинг) острова, Кокосовы Острова
 rw:Ibirwa bya Koko
-sh:Kokosovi Otoci, Kokos   Ostrva, Keelingovi otoci, Kokosova ostrva, Kilingova ostrva
-sk:Kokosové ostrovy, Territory of Keeling Islands, Territory of Cocos   Islands, Cocos Islands, Keeling Islands
+sh:Kokosovi Otoci, Kokos (Kiling) Ostrva, Keelingovi otoci, Kokosovi (Keeling) Otoci, Kokosova ostrva, Kokosovi (Keelingovi) Otoci, Kilingova ostrva
+sk:Kokosové ostrovy, Territory of Keeling Islands, Territory of Cocos (Keeling) Islands, Territory of Cocos Islands, Cocos Islands, Keeling Islands
 sr:Кокосова острва, Острва Килинг, Cocos Islands
 su:Kapuloan Cocos, Kapuloan Kokos
 sv:Kokosöarna, Cocos Islands, Keeling Islands, Cocosöarna
 sw:Visiwa vya Cocos
-ta:கொக்கோசு   தீவுகள், கொகோசு   தீவுகள், கொக்கோஸ் தீவுகள், கொக்கோஸ், கோக்கோஸ்   தீவுகள், கீலிங் தீவுகள், கொகோசு
-th:หมู่เกาะโคโคส, Cocos Islands
+ta:கொக்கோசு (கீலிங்) தீவுகள், கொகோசு (கீலிங்) தீவுகள், கொக்கோசு தீவுகள், கொக்கோஸ் தீவுகள், கொக்கோஸ், கோக்கோஸ் (கீலிங்) தீவுகள், கீலிங் தீவுகள், கொக்கோஸ் (கீலிங்) தீவுகள், கொகோசு
+th:หมู่เกาะโคโคส, Cocos Islands, Cocos (Keeling) Islands
 tl:Kapuluang Cocos
-tr:Cocos Adaları, Kokos Adaları, Cocos   Islands
+tr:Cocos Adaları, Kokos Adaları, Cocos (Keeling) Adaları, Cocos (Keeling) Islands
 ug:كەئەلىڭ كوكوس تاقىم ئاراللىرى
-uk:Кокосові острови, Територія Кокосових   островів
-ur:جزائر کوکوس, The Cocos   Islands
-vi:Quần đảo Cocos, Quần đảo Keeling, Quần đảo Cocos  s
-wo:Dunu Kokos, Cocos   Islands
-yo:Àwọn Erékùṣù Kókósì, Àwọn Erékùsù Kókósì, The Cocos   Islands, Cocos Islands, Keeling Islands
-zh:科科斯（基林）群島, 科科斯（基林）群岛, 可可群岛, 可可斯群島, 科科斯群岛, 科科斯群島, 科科斯 群岛
+uk:Кокосові острови, Територія Кокосових (Кілінгових) островів, Кокосові (Кілінгові) острови
+ur:جزائر کوکوس, The Cocos (Keeling) Islands
+vi:Quần đảo Cocos, Quần đảo Keeling, Quần đảo Cocos (Keeling)s
+wo:Dunu Kokos, Cocos (Keeling) Islands
+yo:Àwọn Erékùṣù Kókósì, Àwọn Erékùsù Kókósì, The Cocos (Keeling) Islands, Cocos Islands, Keeling Islands, Cocos (Keeling) Islands
+zh:科科斯（基林）群島, 科科斯（基林）群岛, 可可群岛, 可可斯群島, 科科斯群岛, 科科斯群島, 科科斯(基林)群岛
 country_code_2:en: CC
 country_code_3:en: CCK
 languages:en: 
@@ -6142,9 +6142,9 @@ yi:קאלאמביע
 yo:Kòlómbìà
 zh:哥伦比亚
 zu:IKolombiya
-languages:en: es
-country_code_3:en: COL
 country_code_2:en: CO
+country_code_3:en: COL
+languages:en: es
 
 en:Comoros, KM, COM
 af:Comore-eilande
@@ -6348,9 +6348,9 @@ vi:Quần đảo Cook
 wo:Dunu Kook, Iil yu Cook
 yo:Àwọn Erékùṣù Cook, The Cook Islands, Cook Islands
 zh:库克群岛, 庫克群島, 科克群島, 科克群岛
-languages:en: 
 country_code_2:en: CK
 country_code_3:en: COK
+languages:en: 
 
 en:Costa Rica, Republic of Costa Rica, CR, CRI
 af:Costa Rica
@@ -6473,9 +6473,9 @@ yi:קאסטא ריקא
 yo:Kóstá Rikà
 zh:哥斯达黎加
 zu:Costa Rica
-languages:en: es
-country_code_3:en: CRI
 country_code_2:en: CR
+country_code_3:en: CRI
+languages:en: es
 
 en:Côte d'Ivoire, Ivory Coast, Republic of Côte d'Ivoire, CI, CIV
 af:Ivoorkus
@@ -6604,9 +6604,9 @@ yi:בארטן פון העלפאנדביין
 yo:Côte d'Ivoire
 zh:科特迪瓦
 zu:Ugu Emhlophe
-languages:en: fr
-country_code_3:en: CIV
 country_code_2:en: CI
+country_code_3:en: CIV
+languages:en: fr
 
 en:Croatia, Republic of Croatia, HR, HRV
 ab:Хорватиа
@@ -6872,9 +6872,9 @@ yi:קובא
 yo:Kúbà
 za:Gujbah
 zh:古巴
-languages:en: es
 country_code_2:en: CU
 country_code_3:en: CUB
+languages:en: es
 
 en:Curaçao, Island Territory of Curaçao, Curacau, Curaçoa, Curaςao, Kòrsou, Curocao, ISO 3166-1:CW, CUW, Curazao, Country of Curaçao, CW
 af:Curaçao
@@ -7073,9 +7073,9 @@ wo:Ciipër
 yi:קיפראס
 yo:Kíprù
 zh:賽普勒斯
-languages:en: el,tr
 country_code_2:en: CY
 country_code_3:en: CYP
+languages:en: el,tr
 
 en:Czech Republic, Czechia, CZ, CZE
 ab:Чехиа
@@ -7212,9 +7212,9 @@ yi:טשעכיי
 yo:Tsẹ́kì Olómìnira
 zh:捷克
 zu:ITsheki
-languages:en: cs
 country_code_2:en: CZ
 country_code_3:en: CZE
+languages:en: cs
 
 en:Democratic Republic of the Congo, DRC, DR Congo, Congo-Kinshasa, Zaire, Congo, Democratic Republic of Congo, CD, COD
 af:Demokratiese Republiek van die Kongo
@@ -7236,7 +7236,7 @@ cv:Конго Демократиллĕ Республики
 cy:Gweriniaeth Ddemocrataidd Congo
 da:Demokratiske Republik Congo
 de:Demokratische Republik Kongo, DR Kongo, Dem. Rep. Kongo, Kongo-Léopoldville, Kongo-Kinshasa, Kongo
-dv:
+dv:ކޮންގޯ
 el:Λαϊκή Δημοκρατία του Κονγκό
 eo:Demokratia Respubliko Kongo
 es:República Democrática del Congo
@@ -7256,7 +7256,7 @@ ha:Jamhuriyar dimokuradiyya Kwango
 he:הרפובליקה הדמוקרטית של קונגו
 hi:कांगो लोकतान्त्रिक गणराज्य
 hr:Demokratska Republika Kongo
-ht:
+ht:Kongo
 hu:Kongói Demokratikus Köztársaság
 hy:Կոնգոյի Դեմոկրատական Հանրապետություն
 ia:Republica Democratic del Congo
@@ -7309,7 +7309,7 @@ se:Kongo demokráhtalaš dásseváldi
 sg:Kùodùorùosêse tî Ngunuhalëzo tî Kongö
 sh:Demokratska Republika Kongo
 si:කොංගෝ ප්‍රජාතන්ත්‍රවාදී ජනරජය
-sk:
+sk:Kongo
 sl:Demokratična republika Kongo
 sn:Democratic Republic of the Congo
 so:Jamhuuriyada Dimuqaraadiga Kongo
@@ -7331,7 +7331,7 @@ uk:Демократична Республіка Конго
 ur:جمہوری جمہوریہ کانگو
 uz:Kongo Demokratik Respublikasi
 vi:Cộng hòa Dân chủ Congo
-vo:
+vo:Kongoän
 wa:Republike democratike do Congo
 wo:Kongóo-Kinshasa
 yi:דעמאקראטישע רעפובליק פון קאנגא
@@ -7339,9 +7339,9 @@ yo:Orílẹ̀-èdè Olómìnira Olóṣèlú ilẹ̀ Kóngò
 za:Ganggoj Minzcuj Gunghozgoz
 zh:刚果民主共和国
 zu:IRiphabliki Labantu weKongo
-languages:en: fr
-country_code_3:en: COD
 country_code_2:en: CD
+country_code_3:en: COD
+languages:en: fr
 
 en:Denmark, DK, Kingdom of Denmark, Danish Kingdom, Danmark, Kongeriget Danmark, DNK
 af:Denemarke
@@ -7481,9 +7481,9 @@ yi:דענמארק
 yo:Dẹ́nmárkì
 zh:丹麦, 丹麦王国
 zu:IDenimaki
-languages:en: da
-country_code_3:en: DNK
 country_code_2:en: DK
+country_code_3:en: DNK
+languages:en: da
 
 en:Djibouti, Republic of Djibouti, DJ, DJI
 af:Djiboeti
@@ -7720,9 +7720,9 @@ vo:Dominikeän
 wo:Dominika
 yo:Dòmíníkà
 zh:多米尼克
-languages:en: en
-country_code_3:en: DMA
 country_code_2:en: DM
+country_code_3:en: DMA
+languages:en: en
 
 en:Dominican Republic, DO, DOM
 af:Dominikaanse Republiek
@@ -7836,9 +7836,9 @@ wo:Réewum Dominik
 yi:דאמיניקאנישע רעפובליק
 yo:Orílẹ̀òmìnira Dómíníkì
 zh:多明尼加共和國
-languages:en: es
 country_code_2:en: DO
 country_code_3:en: DOM
+languages:en: es
 
 en:East Germany, GDR, German Democratic Republic, G.D.R.
 af:Duitse Demokratiese Republiek
@@ -8043,9 +8043,9 @@ wo:Ekwadoor
 yi:עקוואדאר
 yo:Ẹ̀kùàdọ̀r
 zh:厄瓜多尔
-languages:en: es
 country_code_2:en: EC
 country_code_3:en: ECU
+languages:en: es
 
 en:Egypt, Arab Republic of Egypt, مصر, EG, EGY
 ab:Мысры
@@ -8186,9 +8186,9 @@ yi:עגיפטן
 yo:Ẹ́gíptì
 zh:埃及, 阿拉伯埃及共和國
 zu:IGibhithe
-languages:en: ar
-country_code_3:en: EGY
 country_code_2:en: EG
+country_code_3:en: EGY
+languages:en: ar
 
 en:El Salvador, SV, SLV
 af:El Salvador
@@ -8307,9 +8307,9 @@ yi:על סאלוואדאר
 yo:El Salfador
 zh:萨尔瓦多
 zu:El Salvador
-languages:en: es
-country_code_3:en: SLV
 country_code_2:en: SV
+country_code_3:en: SLV
+languages:en: es
 
 en:Equatorial Guinea, Republic of Equatorial Guinea, GQ, GNQ
 af:Ekwatoriaal-Guinee
@@ -8428,9 +8428,9 @@ yi:עקוואטארישע גינע
 yo:Guinea Alágedeméjì
 zh:赤道几内亚
 zu:IGini Enkabazwe
-languages:en: es,fr,pt
-country_code_3:en: GNQ
 country_code_2:en: GQ
+country_code_3:en: GNQ
+languages:en: es,fr,pt
 
 en:Eritrea, State of Eritrea, ER, ERI
 af:Eritrea
@@ -8560,9 +8560,9 @@ yi:עריטרעא
 yo:Ẹritrẹ́à
 zh:厄立特里亚
 zu:I-Eritrea
-languages:en: ar,en,ti
 country_code_2:en: ER
 country_code_3:en: ERI
+languages:en: ar,en,ti
 
 en:Estonia, Republic of Estonia, Estland, Eesti, EE, EST
 af:Estland
@@ -8699,9 +8699,9 @@ yi:עסטלאנד
 yo:Estóníà
 zh:爱沙尼亚
 zu:I-Estoniya
-languages:en: et
 country_code_2:en: EE
 country_code_3:en: EST
+languages:en: et
 
 en:Ethiopia, ET, ETH
 af:Ethiopië
@@ -8841,9 +8841,9 @@ yi:עטיאפיע
 yo:Ethiópíà
 zh:埃塞俄比亚
 zu:I-Ithiopia
-languages:en: am
-country_code_3:en: ETH
 country_code_2:en: ET
+country_code_3:en: ETH
+languages:en: am
 
 en:European Union, EU, E.U.
 ab:Европатәи Аидгыла
@@ -9156,9 +9156,9 @@ vi:Quần đảo Faroe, Faroe
 wo:Duni Faarow, Iil yu Faarow
 yo:Àwọn Erékùṣù Fàróè, The Faroe Islands, Àwọn Erékùsù Fàróè, Faroe Islands
 zh:法罗群岛, 法罗群岛行政区划, 法羅群島, 法罗群岛历史, 法罗群岛政治, 法罗群岛教育
-languages:en: 
-country_code_3:en: FRO
 country_code_2:en: FO
+country_code_3:en: FRO
+languages:en: 
 
 en:Federated States of Micronesia, Micronesia, FSM, FM
 af:Mikronesië
@@ -9390,9 +9390,9 @@ yi:פידזשי
 yo:Fíjì
 zh:斐濟
 zu:IFiji
-languages:en: en,fj
-country_code_3:en: FJI
 country_code_2:en: FJ
+country_code_3:en: FJI
+languages:en: en,fj
 
 en:Finland, Republic of Finland, Finlande, Finlandia, Finnland, Finnia, Soome, Land of Thousand Lakes, FI, FIN
 ab:Суоми
@@ -9535,9 +9535,9 @@ yo:Fínlándì
 za:Finlan
 zh:芬兰, 芬兰共和国
 zu:IFinlandi
-languages:en: fi,sv
 country_code_2:en: FI
 country_code_3:en: FIN
+languages:en: fi,sv
 
 en:France, The Hexagon, French Republic, FR, FRA
 af:Frankryk
@@ -9685,9 +9685,9 @@ yo:Fránsì, France, Faranse, Fúrànsì
 za:Fazgoz
 zh:法国
 zu:IFulansi
-languages:en: fr
 country_code_2:en: FR
 country_code_3:en: FRA
+languages:en: fr
 
 en:French Guiana, GF, GUF
 af:Frans-Guyana
@@ -9781,9 +9781,9 @@ wo:Guyaana gu Faraas
 yi:פראנצויזישע גויאנע
 yo:Gùyánà Fránsì
 zh:法屬圭亞那
-languages:en: fr
-country_code_3:en: GUF
 country_code_2:en: GF
+country_code_3:en: GUF
+languages:en: fr
 
 en:French Polynesia, PF, PYF
 af:Frans-Polinesië, Frans-Polynesië, Polynésie française, Franse Polinesië, Franse Polynesia
@@ -9926,8 +9926,8 @@ ur:سرزمین جنوبی فرانسیسیہ و انٹارکٹیکا, سرزم�
 vi:Vùng đất phía Nam và châu Nam Cực thuộc Pháp, Vùng đất phía Nam và Nam cực thuộc Pháp
 yo:Àwọn Agbègbè Apágúúsù àti Antárktìkì Fránsì, French Southern and Antarctic Lands
 zh:法属南部领地, 法屬南部地區, 法屬南方和南極領地, 法屬南半球和南極地區, 法國南半球及南極屬地, 法屬南方及南極陸地, 法屬南部屬地, 法属南方和南极洲领地, 法属南半球和南极陆地, 法属南半球及南极洲领地
-country_code_3:en: ATF
 country_code_2:en: TF
+country_code_3:en: ATF
 languages:en: fr
 
 en:Gabon, Gabonese Republic, République Gabonaise, GA, GAB
@@ -10059,9 +10059,9 @@ yi:גאבאן
 yo:Gàbọ̀n
 zh:加蓬
 zu:IGaboni
-languages:en: fr
-country_code_3:en: GAB
 country_code_2:en: GA
+country_code_3:en: GAB
+languages:en: fr
 
 en:Galmudug
 af:Galmudug
@@ -10344,8 +10344,8 @@ wo:Jeoorji
 yi:גרוזיע
 yo:Georgia
 zh:格鲁吉亚
-country_code_3:en: GEO
 country_code_2:en: GE
+country_code_3:en: GEO
 languages:en: ka
 
 en:Germany, FRG, BRD, Bundesrepublik Deutschland, Federal Republic of Germany, DE, DEU
@@ -10502,9 +10502,9 @@ yo:Jẹ́mánì
 za:Dwzgoz
 zh:德国, 德意志, 德意志联邦, 德意志联邦共和国, 德意志聯邦, 德意志聯邦共和國, 德國
 zu:IJalimani
-languages:en: de
 country_code_2:en: DE
 country_code_3:en: DEU
+languages:en: de
 
 en:Ghana, Republic of Ghana, GH, GHA
 af:Ghana
@@ -10640,8 +10640,8 @@ yi:גהאנע
 yo:Ghánà
 zh:加纳
 zu:IGana
-country_code_3:en: GHA
 country_code_2:en: GH
+country_code_3:en: GHA
 languages:en: en
 
 en:Gibraltar, GI, GIB
@@ -10741,9 +10741,9 @@ wo:Jibraltaar
 yi:גיבראלטאר
 yo:Gibraltar
 zh:直布罗陀
-languages:en: en
 country_code_2:en: GI
 country_code_3:en: GIB
+languages:en: en
 
 en:Greece, Hellenic Republic, Hellas, GR, GRC
 ab:Барзентәыла
@@ -10884,11 +10884,11 @@ yi:גריכנלאנד
 yo:Gríìsì
 zh:希腊, 希腊共和国
 zu:IGreki
-languages:en: el
-country_code_3:en: GRC
 country_code_2:en: GR
+country_code_3:en: GRC
+languages:en: el
 
-en:Greenland, GL, GRL
+en:Greenland, Greenland (country), GL, GRL
 af:Groenland
 am:ግሪንላንድ
 an:Gronlandia
@@ -10998,9 +10998,9 @@ wo:Groenlaand
 yi:גרינלאנד
 yo:Grínlándì
 zh:格陵兰
-languages:en: kl
-country_code_3:en: GRL
 country_code_2:en: GL
+country_code_3:en: GRL
+languages:en: kl
 
 en:Grenada, GD, GRD
 af:Grenada
@@ -11113,9 +11113,9 @@ wo:Grenada
 yo:Grẹ̀nádà
 za:Gwzlinznazdaz
 zh:格林纳达
-languages:en: en
-country_code_3:en: GRD
 country_code_2:en: GD
+country_code_3:en: GRD
+languages:en: en
 
 en:Guadeloupe, GP, GLP
 af:Guadeloupe
@@ -11202,9 +11202,9 @@ vi:Guadeloupe
 wo:Guwaadalup
 yo:Guadeloupe
 zh:瓜德罗普
-languages:en: fr
 country_code_2:en: GP
 country_code_3:en: GLP
+languages:en: fr
 
 en:Guam, GU, GUM
 af:Guam
@@ -11294,9 +11294,9 @@ vi:Guam
 wo:Guam
 yo:Guam
 zh:關島
-languages:en: en,ch
-country_code_3:en: GUM
 country_code_2:en: GU
+country_code_3:en: GUM
+languages:en: en,ch
 
 en:Guatemala, GT, GTM
 af:Guatemala
@@ -11417,9 +11417,9 @@ yi:גוואטעמאלע
 yo:Guatẹmálà
 zh:危地马拉
 zu:Guatemala
-languages:en: es
 country_code_2:en: GT
 country_code_3:en: GTM
+languages:en: es
 
 en:Guernsey, Bailliage de Guernesey, Isle of Guernsey, Island of Guernsey, Guensey, Bailiwick of Guernsey, ISO 3166-1:GG, GG, GGY
 af:Guernsey
@@ -11503,9 +11503,9 @@ ur:گرنزی, Guernsey
 vi:Guernsey
 yo:Guernsey
 zh:根西岛, 耿西岛, 根息岛, 根西行政區, 格恩西岛, 根息島, 根息行政區, 根西行政区, 格恩西島
-languages:en: 
 country_code_2:en: GG
 country_code_3:en: GGY
+languages:en: 
 
 en:Guinea, Guinea-Conakry, Republic of Guinea, GN, GIN
 af:Guinee
@@ -11633,9 +11633,9 @@ yi:גינע
 yo:Guinea
 zh:几内亚
 zu:IGini
-languages:en: fr
-country_code_3:en: GIN
 country_code_2:en: GN
+country_code_3:en: GIN
+languages:en: fr
 
 en:Guinea-Bissau, Republic of Guinea-Bissau, GW, GNB
 af:Guinee-Bissau
@@ -11760,9 +11760,9 @@ yi:גינע-ביסאו
 yo:Guinea-Bissau
 zh:幾內亞比索
 zu:IGini Bisawu
-languages:en: pt
-country_code_3:en: GNB
 country_code_2:en: GW
+country_code_3:en: GNB
+languages:en: pt
 
 en:Guyana, Co-operative Republic of Guyana, GY, GUY
 af:Guyana
@@ -11881,9 +11881,9 @@ wo:Guyaana
 yi:גויאנע
 yo:Gùyánà
 zh:圭亚那
-languages:en: en
 country_code_2:en: GY
 country_code_3:en: GUY
+languages:en: en
 
 en:Haiti, Republic of Haiti, HT, HTI
 af:Haïti
@@ -12063,9 +12063,9 @@ vi:Đảo Heard và quần đảo McDonald
 wo:Heard Island and McDonald Islands
 yo:Erékùṣù Heard àti Àwọn Erékùṣù McDonald, Heard Island and McDonald Islands
 zh:赫德島和麥克唐納群島, 赫德島, 麥克唐納島, 赫德及麥當勞群島, 麥克唐納群島, 賀得及麥唐納群島
-languages:en: 
-country_code_3:en: HMD
 country_code_2:en: HM
+country_code_3:en: HMD
+languages:en: 
 
 en:Honduras, HN, HND
 af:Honduras
@@ -12189,9 +12189,9 @@ yi:האנדוראס
 yo:Họ̀ndúràs
 zh:洪都拉斯
 zu:Honduras
-languages:en: es
-country_code_3:en: HND
 country_code_2:en: HN
+country_code_3:en: HND
+languages:en: es
 
 en:Hong Kong, Hong Kong Special Administrative Region, HKSAR, HKG, HK, Hong Kong SAR, Xianggang, China Hong Kong
 af:Hongkong
@@ -12445,9 +12445,9 @@ wo:Ongiri
 yi:אונגארן
 yo:Húngárì
 zh:匈牙利, 匈牙利共和国
-languages:en: hu
-country_code_3:en: HUN
 country_code_2:en: HU
+country_code_3:en: HUN
+languages:en: hu
 
 en:Iceland, Republic of Iceland, IS, ISL
 af:Ysland
@@ -13158,9 +13158,9 @@ yi:איראק
 yo:Irak
 zh:伊拉克
 zu:I-Iraki
-languages:en: ar,ku
-country_code_3:en: IRQ
 country_code_2:en: IQ
+country_code_3:en: IRQ
+languages:en: ar,ku
 
 en:Iraqi Kurdistan
 ar:كردستان العراق, اقليم كردستان, إقليم كردستان, كردستان العراقية, اقليم كردستان العراق, اقليم كوردستان في العراق, إقليم كردستان العراق, اقليم كردستان في شمال العراق, قائمة جزر كردستان العراق, إقليم كردستان في شمال العراق
@@ -13215,7 +13215,7 @@ ba:Ирландия
 be:Ірландыя, Рэспубліка Ірландыя
 bg:Република Ирландия, Ейре
 bi:Ireland
-bn:প্রজাতন্ত্রী আয়ারল্যান্ড, Ireland/Éire, The Republic Of Ireland, Ireland, The Twenty-Six Counties, Rep of Ireland, Republic Of Ireland, Republic in ireland, Geography of the Republic of Ireland, Twenty Six Counties, Republic, Rep ireland, The 26 Counties, Eire Ireland, Rep of ire, 26 Counties, Republic Ireland, ISO 3166-1:IE
+bn:প্রজাতন্ত্রী আয়ারল্যান্ড, Ireland/Éire, The Republic Of Ireland, Ireland, The Twenty-Six Counties, Rep of Ireland, Republic Of Ireland, Republic in ireland, Geography of the Republic of Ireland, Twenty Six Counties, Republic, Rep ireland, The 26 Counties, Eire Ireland, Rep of ire, 26 Counties, Republic Ireland, Ireland(country), ISO 3166-1:IE
 bo:ཨར་ལེན་ཌ།, ཨའི་རི་ལེནཌི།, ཨར་ལེན་ཌ་
 br:Republik Iwerzhon, Republik Éire
 bs:Republika Irska
@@ -13332,9 +13332,9 @@ yo:Írẹ́lándì, Ireland, Irelandi, The Republic of Ireland, Republic of Irel
 za:Aiwjlanz Gunghozgoz
 zh:爱尔兰共和国, 爱尔兰
 zu:I-Ayilendi, Celts, I-Ayilandi
-languages:en: en,ga
-country_code_3:en: IRL
 country_code_2:en: IE
+country_code_3:en: IRL
+languages:en: en,ga
 
 en:Isle of Man, Ellan Vannin, Mann, the Isle of Man, IM, IMN
 af:Man
@@ -13713,9 +13713,9 @@ yi:איטאליע
 yo:Itálíà
 zh:意大利, 意大利共和国
 zu:ITaliya
-languages:en: it
 country_code_2:en: IT
 country_code_3:en: ITA
+languages:en: it
 
 en:Jamaica, JA, Commonwealth of Jamaica, Jamdung, JM, JAM
 af:Jamaika
@@ -13836,9 +13836,9 @@ wo:Jamayka
 yi:דזשאמייקע
 yo:Jamáíkà
 zh:牙买加
-languages:en: en
-country_code_3:en: JAM
 country_code_2:en: JM
+country_code_3:en: JAM
+languages:en: en
 
 en:Jan Mayen
 af:Jan Mayen
@@ -14052,9 +14052,9 @@ yo:Japan
 za:Nditbonj
 zh:日本, 日本国
 zu:IJapani
-languages:en: ja
 country_code_2:en: JP
 country_code_3:en: JPN
+languages:en: ja
 
 en:Jersey, Balliwick of Jersey, Ile de Jersey, Jerry, JE, JEY
 af:Jersey
@@ -14136,9 +14136,9 @@ ur:جرزی
 vi:Jersey
 yo:Jersey
 zh:澤西島
-languages:en: en,fr
 country_code_2:en: JE
 country_code_3:en: JEY
+languages:en: en,fr
 
 en:Jordan, Hashemite Kingdom of Jordan, JO, JOR
 af:Jordanië
@@ -14259,9 +14259,9 @@ wo:Jordaani
 yi:יארדאניע
 yo:Jọ́rdánì
 zh:约旦
-languages:en: ar
 country_code_2:en: JO
 country_code_3:en: JOR
+languages:en: ar
 
 en:Kazakhstan, Republic of Kazakhstan, KZ, KAZ
 ab:Ҟазаҟсҭан
@@ -14531,8 +14531,8 @@ yi:קעניע
 yo:Kẹ́nyà
 zh:肯尼亚
 zu:IKenya
-country_code_3:en: KEN
 country_code_2:en: KE
+country_code_3:en: KEN
 languages:en: en,sw
 
 en:Kiribati, KI, KIR
@@ -14642,9 +14642,13 @@ vo:Kiribatuäns
 wo:Kiribati
 yo:Kìrìbátì
 zh:基里巴斯
-languages:en: en
-country_code_3:en: KIR
 country_code_2:en: KI
+country_code_3:en: KIR
+languages:en: en
+
+en:Kosovo
+country_code_2:en: XK
+languages:en: sq,sr,bs,tr
 
 en:Kuwait, State of Kuwait, Dawlat al-Kuwait, دولة الكويت, الكويت, KW, KWT
 af:Koeweit
@@ -14765,9 +14769,9 @@ wo:Kowet
 yi:קואווייט
 yo:Kuwaiti
 zh:科威特
-languages:en: ar
-country_code_3:en: KWT
 country_code_2:en: KW
+country_code_3:en: KWT
+languages:en: ar
 
 en:Kyrgyzstan, Kyrgyz Republic, KG, KGZ
 ab:Ҟырҕызсҭан
@@ -14888,9 +14892,9 @@ wo:Kirgistaan
 yi:קירגיזסטאן
 yo:Kirgistani
 zh:吉尔吉斯斯坦, 吉尔吉斯共和国
-languages:en: ru,ky
-country_code_3:en: KGZ
 country_code_2:en: KG
+country_code_3:en: KGZ
+languages:en: ru,ky
 
 en:Laos, Lao People's Democratic Republic, LA, LAO
 af:Laos
@@ -15014,8 +15018,8 @@ yi:לאאס
 yo:Láọ̀s
 za:Lao
 zh:老挝
-country_code_3:en: LAO
 country_code_2:en: LA
+country_code_3:en: LAO
 languages:en: lo
 
 en:Latvia, Republic of Latvia, Latvian Republic, LV, LVA
@@ -15150,9 +15154,9 @@ yi:לעטלאנד
 yo:Látfíà
 zh:拉脫維亞
 zu:ILatviya
-languages:en: lv
-country_code_3:en: LVA
 country_code_2:en: LV
+country_code_3:en: LVA
+languages:en: lv
 
 en:Lebanon, Lebanese Republic, LB, LBN
 af:Libanon
@@ -15275,9 +15279,9 @@ wo:Libaa
 yi:לבנון
 yo:Lẹ́bánọ́nì
 zh:黎巴嫩
-languages:en: ar
 country_code_2:en: LB
 country_code_3:en: LBN
+languages:en: ar
 
 en:Lesotho, Kingdom of Lesotho, LS, LSO
 af:Lesotho
@@ -15401,9 +15405,9 @@ yi:לעסאטא, קעניגרייך פון לעסאטא
 yo:Lèsóthò
 zh:莱索托
 zu:OSotho
-languages:en: en,st
 country_code_2:en: LS
 country_code_3:en: LSO
+languages:en: en,st
 
 en:Liberia, LR, LBR
 af:Liberië
@@ -15527,9 +15531,9 @@ yi:ליבעריע
 yo:Làìbéríà
 zh:利比里亚
 zu:ILiberia
-languages:en: en
 country_code_2:en: LR
 country_code_3:en: LBR
+languages:en: en
 
 en:Libya, State of Libya, LY, LBY
 af:Libië
@@ -15662,8 +15666,8 @@ yi:ליביע
 yo:Líbyà
 zh:利比亚
 zu:ILibiya
-country_code_3:en: LBY
 country_code_2:en: LY
+country_code_3:en: LBY
 languages:en: ar
 
 en:Liechtenstein, LI, Principality of Liechtenstein, FL, LIE
@@ -15942,9 +15946,9 @@ yi:ליטע
 yo:Lituéníà
 zh:立陶宛, 立陶宛共和国
 zu:ILithuwaniya
-languages:en: lt
 country_code_2:en: LT
 country_code_3:en: LTU
+languages:en: lt
 
 en:Luxembourg, Luxemburg, Grand Duchy of Luxembourg, LU, LUX
 af:Luxemburg, Luxembourg, Groothertogdom Luxemburg
@@ -16010,7 +16014,7 @@ kv:Люксембург
 kw:Lushaborg, Luksembourg
 ky:Люксембург
 la:Luxemburgum, Luciliburgum, Luxemburgia
-lb:Lëtzebuerg , Groussherzogtum Lëtzebuerg
+lb:Lëtzebuerg (Land), Groussherzogtum Lëtzebuerg
 li:Luxemburg
 ln:Luksamburg
 lo:ປະເທດລູກຊຳບວກ
@@ -16074,9 +16078,9 @@ wo:Luksambuur, Luksembuur
 yi:לוקסעמבורג
 yo:Lúksẹ́mbọ̀rg, Luxembourg
 zh:卢森堡, 卢森堡大公国, 卢森堡公国
-languages:en: fr,de,lb,en
 country_code_2:en: LU
 country_code_3:en: LUX
+languages:en: fr,de,lb,en
 
 en:Macau, Macao, Macau Special Administrative Region, Macau Special Administrative Region of the People's Republic of China, Aomen, MO, MAC
 af:Macau
@@ -16313,9 +16317,9 @@ yi:מאדאגאסקאר
 yo:Madagáskàr
 zh:马达加斯加
 zu:IMadagasika
-languages:en: fr,mg
 country_code_2:en: MG
 country_code_3:en: MDG
+languages:en: fr,mg
 
 en:Malawi, Republic of Malawi, MW, MWI
 af:Malawi
@@ -16439,9 +16443,9 @@ yi:מאלאווי
 yo:Màláwì
 zh:马拉维
 zu:IMalawi
-languages:en: en,ny
-country_code_3:en: MWI
 country_code_2:en: MW
+country_code_3:en: MWI
+languages:en: en,ny
 
 en:Malaysia, MY, MYS
 af:Maleisië
@@ -16567,8 +16571,8 @@ yi:מאלייזיע
 yo:Malaysia
 za:Majlaizsihya
 zh:马来西亚
-country_code_3:en: MYS
 country_code_2:en: MY
+country_code_3:en: MYS
 languages:en: ms
 
 en:Maldives, MV, MDV
@@ -16686,8 +16690,8 @@ vo:Maldivuäns
 wo:Maldiif
 yo:Àwọn Maldive
 zh:马尔代夫
-country_code_3:en: MDV
 country_code_2:en: MV
+country_code_3:en: MDV
 languages:en: dv
 
 en:Mali, ML, MLI
@@ -16816,9 +16820,9 @@ yi:מאלי
 yo:Málì
 zh:马里共和国
 zu:IMali
-languages:en: fr
 country_code_2:en: ML
 country_code_3:en: MLI
+languages:en: fr
 
 en:Malta, Republic of Malta, MT, MLT
 af:Malta
@@ -16951,9 +16955,9 @@ yi:מאלטא
 yo:Máltà
 zh:马耳他
 zu:IMalta
-languages:en: en,mt
 country_code_2:en: MT
 country_code_3:en: MLT
+languages:en: en,mt
 
 en:Marshall Islands, Republic of the Marshall Islands, Aolepān Aorōkin M̧ajeļ, MH, MHL
 af:Marshalleilande
@@ -17059,9 +17063,9 @@ vo:Marjaluäns
 wo:Duni Marshall
 yo:Àwọn Erékùṣù Marshall
 zh:馬紹爾群島
-languages:en: en,mh
-country_code_3:en: MHL
 country_code_2:en: MH
+country_code_3:en: MHL
+languages:en: en,mh
 
 en:Martinique, MQ, MTQ
 af:Martinique
@@ -17147,9 +17151,9 @@ vi:Martinique
 wo:Martinik
 yo:Mártíníkì
 zh:馬提尼克
-languages:en: fr
-country_code_3:en: MTQ
 country_code_2:en: MQ
+country_code_3:en: MTQ
+languages:en: fr
 
 en:Mauritania, Islamic Republic of Mauritania, MR, MRT
 af:Mauritanië
@@ -17279,9 +17283,9 @@ yi:מאריטאניע
 yo:Mauritáníà
 zh:毛里塔尼亚
 zu:IMoritaniya
-languages:en: ar
 country_code_2:en: MR
 country_code_3:en: MRT
+languages:en: ar
 
 en:Mauritius, Republic of Mauritius, Maurice, Île Maurice, Moris, MU, MUS
 af:Mauritius
@@ -17488,9 +17492,9 @@ wo:Mayoot
 yo:Mayotte
 zh:马约特
 zu:IMayotte
-languages:en: fr
-country_code_3:en: MYT
 country_code_2:en: YT
+country_code_3:en: MYT
+languages:en: fr
 
 en:Mexico, United Mexican States, Mexican Republic, República Mexicana, Estados Unidos Mexicanos, MX, MEX
 af:Meksiko
@@ -17626,9 +17630,9 @@ yi:מעקסיקא
 yo:Mẹ́ksíkò
 zh:墨西哥, 墨西哥合眾國
 zu:IMekisiko
-languages:en: es
-country_code_3:en: MEX
 country_code_2:en: MX
+country_code_3:en: MEX
+languages:en: es
 
 en:Moldova, Republic of Moldova, MD, MDA
 ab:Молдова
@@ -17852,7 +17856,7 @@ pt:Mónaco
 qu:Munaku
 rm:Monaco
 ro:Monaco
-ru:Монако
+ru:Монако, Монако (страна)
 rw:Monako
 sa:मोनाको
 se:Monaco
@@ -17884,9 +17888,9 @@ wo:Monaako
 yi:מאנאקא
 yo:Mónakò
 zh:摩纳哥
-languages:en: fr
-country_code_3:en: MCO
 country_code_2:en: MC
+country_code_3:en: MCO
+languages:en: fr
 
 en:Mongolia, MN, MNG
 af:Mongolië
@@ -18018,9 +18022,9 @@ yi:מאנגאליי
 yo:Mòngólíà
 za:Mungzguj
 zh:蒙古国
-languages:en: mn
 country_code_2:en: MN
 country_code_3:en: MNG
+languages:en: mn
 
 en:Montenegro, ME, MNE
 af:Montenegro
@@ -18147,9 +18151,9 @@ wo:Montenegro
 yi:מאנטענעגרא
 yo:Montenẹ́grò, Montenegro
 zh:蒙特內哥羅, 門的內哥羅, 门的内哥罗, 黑山共和國, 蒙特內格羅, 黑山, 蒙特尼哥羅, 蒙特尼格羅, 黑山共和国, 蒙特內哥羅共和國, 蒙地內哥羅
-languages:en: sr
 country_code_2:en: ME
 country_code_3:en: MNE
+languages:en: sr
 
 en:Montserrat, MS, MSR
 af:Montserrat
@@ -18229,9 +18233,9 @@ vi:Montserrat
 wo:Montserrat
 yo:Montserrat
 zh:蒙塞拉特島
-languages:en: en
-country_code_3:en: MSR
 country_code_2:en: MS
+country_code_3:en: MSR
+languages:en: en
 
 en:Morocco, Marocco, Kingdom of Morocco, MA, MAR
 af:Marokko
@@ -18357,9 +18361,9 @@ yi:מאראקא
 yo:Mòrókò
 zh:摩洛哥
 zu:IMorokho
-languages:en: ar,fr,es
-country_code_3:en: MAR
 country_code_2:en: MA
+country_code_3:en: MAR
+languages:en: ar,fr,es
 
 en:Mozambique, Republic of Mozambique, MZ, MOZ
 af:Mosambiek
@@ -18485,9 +18489,9 @@ yi:מאזאמביק
 yo:Mòsámbìk
 zh:莫桑比克
 zu:IMozambiki
-languages:en: pt
 country_code_2:en: MZ
 country_code_3:en: MOZ
+languages:en: pt
 
 en:Myanmar, Burma, Republic of the Union of Myanmar, Union of Burma, MM, MMR
 af:Mianmar
@@ -18581,7 +18585,7 @@ ps:ميانمار
 pt:Myanmar
 qu:Myanmar
 ro:Birmania
-ru:Мьянма, Союз Мьянма, Бирманский Союз, Мьянмар, Бирма , Myanmar
+ru:Мьянма, Союз Мьянма, Бирманский Союз, Мьянмар, Бирма (государство), Бирма, Myanmar
 rw:Mayanimari
 sa:म्यन्मार
 sc:Birmania
@@ -18616,8 +18620,8 @@ yi:מיאנמאר
 yo:Myanmar
 za:Mienjdien
 zh:缅甸
-country_code_3:en: MMR
 country_code_2:en: MM
+country_code_3:en: MMR
 languages:en: my
 
 en:Nakhchivan Autonomous Republic
@@ -18800,9 +18804,9 @@ yi:נאמיביע
 yo:Nàmíbíà
 zh:纳米比亚
 zu:INamibhiya
-languages:en: en
-country_code_3:en: NAM
 country_code_2:en: NA
+country_code_3:en: NAM
+languages:en: en
 
 en:Nauru, Republic of Nauru, NR, NRU
 af:Nauru
@@ -18917,9 +18921,9 @@ vo:Naureän
 wo:Nauru
 yo:Nàúrù
 zh:諾魯
-languages:en: na
-country_code_3:en: NRU
 country_code_2:en: NR
+country_code_3:en: NRU
+languages:en: na
 
 en:Nepal, Federal Democratic Republic of Nepal, NP, NPL
 af:Nepal
@@ -19280,9 +19284,9 @@ vi:Nouvelle-Calédonie, Tân Calédonie, Tân Caledonia, Tân Calêđôni, New C
 wo:Kaledooni-Gu-Bees, Nuweel Kaledooni
 yo:Kalẹdóníà Tuntun, New Caledonia
 zh:新喀里多尼亞, 新喀爾多尼亞, 新克里多尼亞, 新喀里多尼亚群岛, 新喀里多尼亚, 新卡里多尼亞, 新喀里多尼亚岛, New Caledonia
-languages:en: fr
 country_code_2:en: NC
 country_code_3:en: NCL
+languages:en: fr
 
 en:New Zealand, NZ, NZL, Dominion of New Zealand
 af:Nieu-Seeland
@@ -19410,9 +19414,9 @@ yo:New Zealand
 za:Saen Saelanz
 zh:新西兰
 zu:INyuzilandi
-languages:en: en,mi
 country_code_2:en: NZ
 country_code_3:en: NZL
+languages:en: en,mi
 
 en:Nicaragua, NI, NIC
 af:Nicaragua
@@ -19531,9 +19535,9 @@ yi:ניקאראגוא
 yo:Nikarágúà
 zh:尼加拉瓜
 zu:Nicaragua
-languages:en: es
 country_code_2:en: NI
 country_code_3:en: NIC
+languages:en: es
 
 en:Niger, Republic of Niger, NE, NER
 af:Niger
@@ -19792,9 +19796,9 @@ yo:Nàìjíríà
 za:Nizywlihya
 zh:奈及利亞
 zu:INigeria
-languages:en: en
 country_code_2:en: NG
 country_code_3:en: NGA
+languages:en: en
 
 en:Niue, NU, NIU
 af:Niue
@@ -19877,8 +19881,8 @@ vi:Niue
 wo:Niwe, Niue
 yo:Niue
 zh:紐埃, 紐埃島, 纽埃岛, 紐威島, 纽鄂岛, 纽埃, Niue, 紐威, 尼烏埃, 纽威岛
-country_code_3:en: NIU
 country_code_2:en: NU
+country_code_3:en: NIU
 languages:en: 
 
 en:Norfolk Island, NF, NFK
@@ -19955,9 +19959,9 @@ vi:Đảo Norfolk
 wo:Dunu Norfolk, Norfolk Island
 yo:Erékùṣù Norfolk, Norfolk Island, Erékùsù Nọ́rúfọ́lkì
 zh:诺福克岛, 諾福克島
-languages:en: en
 country_code_2:en: NF
 country_code_3:en: NFK
+languages:en: en
 
 en:North Korea, Democratic People's Republic of Korea, DPRK, PRK, KP
 af:Noord-Korea
@@ -20080,9 +20084,9 @@ wo:Kore gu Bëj-gànnaar
 yi:צפון קארעע
 yo:Kòréà Àríwá
 zh:朝鲜民主主义人民共和国, 朝鲜, 北朝鲜, 北韩
-languages:en: ko
 country_code_2:en: KP
 country_code_3:en: PRK
+languages:en: ko
 
 en:Northern Mariana Islands, MP, MNP
 af:Noordelike Mariana-eilande
@@ -20161,12 +20165,12 @@ vi:Quần đảo Bắc Mariana
 wo:Northern Mariana Islands
 yo:Àwọn Erékùṣù Apáàríwá Mariana
 zh:北马里亚纳群岛
-country_code_3:en: MNP
 country_code_2:en: MP
+country_code_3:en: MNP
 languages:en: en,ch
 
 en:Northland State
-ba:Нортленд
+ba:Нортленд (Сомали)
 ca:Estat de Northland
 it:Northland
 ja:ノースランド国
@@ -20571,9 +20575,9 @@ yi:פאקיסטאן
 yo:Pakístàn
 zh:巴基斯坦
 zu:IPakistani
-languages:en: ur,en
 country_code_2:en: PK
 country_code_3:en: PAK
+languages:en: ur,en
 
 en:Palau, Republic of Palau, Belau, Pelew, PW, PLW
 af:Palau
@@ -20680,8 +20684,8 @@ vo:Palauvuäns
 wo:Palau
 yo:Páláù
 zh:帛琉
-country_code_3:en: PLW
 country_code_2:en: PW
+country_code_3:en: PLW
 languages:en: en
 
 en:Palestinian territories, Palestine, ps
@@ -20691,7 +20695,7 @@ ca:Territoris Palestins
 de:Palästinensische Autonomiegebiete
 es:Territorios Palestinos
 fa:سرزمین های فلسطین
-fr:Territoires palestiniens occupés
+fr:Territoires palestiniens
 he:יהודה והשומרון וחבל עזה
 hu:Palesztina
 is:Heimastjórnarsvæði Palestínumanna
@@ -20831,8 +20835,8 @@ yi:פאנאמא
 yo:Panamá
 zh:巴拿马
 zu:Panama
-country_code_3:en: PAN
 country_code_2:en: PA
+country_code_3:en: PAN
 languages:en: 
 
 en:Papua New Guinea, Independent State of Papua New Guinea, PG, PNG
@@ -20944,9 +20948,9 @@ vo:Papuveän Nula-Gineyän
 wo:Papuwaasi-Gine-Gu-Bees
 yo:Papua Guinea Titun
 zh:巴布亚新几内亚
-languages:en: en,ho
 country_code_2:en: PG
 country_code_3:en: PNG
+languages:en: en,ho
 
 en:Paraguay, Republic of Paraguay, PY, PRY
 af:Paraguay
@@ -21206,9 +21210,9 @@ yi:פערו
 yo:Perú
 zh:秘鲁
 zu:Peru
-languages:en: es
 country_code_2:en: PE
 country_code_3:en: PER
+languages:en: es
 
 en:Philippines, Republic of the Philippines, PH, PHL
 af:Filippyne
@@ -21706,9 +21710,9 @@ yi:פארטוגאל
 yo:Pọ́rtúgàl
 zh:葡萄牙, 葡萄牙共和国, 葡国
 zu:IPhothugali
-languages:en: pt
-country_code_3:en: PRT
 country_code_2:en: PT
+country_code_3:en: PRT
+languages:en: pt
 
 en:Puerto Rico, Commonwealth of Puerto Rico, PR, PRI
 af:Puerto Rico
@@ -21809,9 +21813,9 @@ wa:Porto Rico
 wo:Poortorikoo
 yo:Púẹ́rtò Ríkò
 zh:波多黎各
-languages:en: es,en
 country_code_2:en: PR
 country_code_3:en: PRI
+languages:en: es,en
 
 en:Qatar, QA, QAT
 af:Katar
@@ -22064,9 +22068,9 @@ wo:Réewum Maseduwaan
 yi:רעפובליק פון מאקעדאניע
 yo:Orílẹ̀-èdè Olómìnira ilẹ̀ Makẹdóníà
 zh:馬其頓共和國
-languages:en: mk
 country_code_2:en: MK
 country_code_3:en: MKD
+languages:en: mk
 
 en:Republic of the Congo, Congo-Brazzaville, CG, COG
 af:Republiek van die Kongo
@@ -22089,7 +22093,7 @@ cv:Конго Республики
 cy:Gweriniaeth y Congo
 da:Republikken Congo
 de:Republik Kongo, CGO, Französisch-Kongo, Kongo-Brazzaville, Departements der Republik Kongo
-dv:
+dv:ކޮންގޯ
 ee:Republic of the Congo
 el:Δημοκρατία του Κονγκό
 eo:Respubliko Kongo
@@ -22107,7 +22111,7 @@ gv:Pobblaght ny Congo
 he:הרפובליקה של קונגו
 hi:कांगो गणराज्य
 hr:Republika Kongo
-ht:
+ht:Kongo
 hu:Kongói Köztársaság
 hy:Կոնգոյի Հանրապետություն
 ia:Republica del Congo
@@ -22157,7 +22161,7 @@ se:Kongo dásseváldi
 sg:Ködörösêse tî Kongöo
 sh:Republika Kongo
 si:කොංගෝ ජනරජය
-sk:
+sk:Kongo
 sl:Republika Kongo
 sn:Republic of the Congo
 so:Jamhuuriyadda Kongo
@@ -22181,15 +22185,15 @@ uk:Республіка Конго
 ur:جمہوریہ کانگو
 uz:Kongo Respublikasi
 vi:Cộng hòa Congo
-vo:
+vo:Kongoän
 wo:Kongóo-Brasaawiil
 yi:רעפובליק פון קאנגא
 yo:Orílẹ̀-èdè Olómìnira ilẹ̀ Kóngò
 zh:刚果共和国
 zu:IKongo
-languages:en: fr
 country_code_2:en: CG
 country_code_3:en: COG
+languages:en: fr
 
 en:Republika Srpska
 ar:جمهورية صرب البوسنة
@@ -22471,9 +22475,9 @@ wo:Romaani
 yi:רומעניע
 yo:Románíà
 zh:羅馬尼亞
-languages:en: ro
 country_code_2:en: RO
 country_code_3:en: ROU
+languages:en: ro
 
 en:Russia, Russian Federation, Rossiyskaya Federatsiya, Россия, Rossijskaja Federatsija, Российская Федерация, 🇷🇺, RU, RUS
 ab:Урыстәыла
@@ -22592,7 +22596,7 @@ qu:Rusiya
 rm:Russia
 rn:Uburusiya
 ro:Rusia
-ru:Россия, РФ, Российская Федерация
+ru:Россия, РФ, Российская Федерация, Россия (страна)
 rw:Uburusiya
 sa:रशिया
 sc:Rùssia
@@ -22641,9 +22645,9 @@ yo:Rọ́síà
 za:Ezlozswh
 zh:俄罗斯
 zu:IRashiya
-languages:en: ru
-country_code_3:en: RUS
 country_code_2:en: RU
+country_code_3:en: RUS
+languages:en: ru
 
 en:Rwanda, Republic of Rwanda, RW, RWA
 af:Rwanda
@@ -22772,9 +22776,9 @@ yi:רוואנדע
 yo:Rùwándà
 zh:卢旺达
 zu:IRuwanda
-languages:en: en,fr,rw
-country_code_3:en: RWA
 country_code_2:en: RW
+country_code_3:en: RWA
+languages:en: en,fr,rw
 
 en:Saba
 af:Saba
@@ -22891,8 +22895,8 @@ ur:سینٹ بارتھیملے, Saint Barthélemy
 vi:Saint-Barthélemy
 yo:Saint Barthélemy
 zh:聖巴泰勒米島, 圣巴托罗缪岛, 聖巴托洛繆島, 圣巴泰勒米, 圣巴托洛缪岛, 聖巴瑟米
-country_code_3:en: BLM
 country_code_2:en: BL
+country_code_3:en: BLM
 languages:en: fr
 
 en:Saint Helena, Ascension and Tristan da Cunha, Saint Helena and Dependencies, SH, SHN
@@ -23049,9 +23053,9 @@ vo:Saluda-Kiteän e Neviseän
 wo:Saint Kitts and Nevis
 yo:Saint Kitts àti Nevis
 zh:聖克里斯多福與尼維斯
-languages:en: en
 country_code_2:en: KN
 country_code_3:en: KNA
+languages:en: en
 
 en:Saint Lucia, LC, LCA
 af:St. Lucia
@@ -23161,7 +23165,7 @@ country_code_2:en: LC
 country_code_3:en: LCA
 languages:en: en
 
-en:Saint Martin, Collectivity of Saint Martin, MF, MAF
+en:Saint Martin, Saint Martin (France), Collectivity of Saint Martin, MF, MAF
 af:Saint-Martin
 an:Saint-Martin
 ar:سانت مارتن الفرنسية, سان مارتن الفرنسية, سان مارتين, سان مارتن الفرنسيه
@@ -23171,17 +23175,17 @@ bg:Сен Мартен
 br:Saint-Martin
 bs:Saint Martin, Sveti Martin
 ca:Saint-Martin, Col·lectivitat de Saint-Martin
-cs:Sint Maarten
+cs:Svatý Martin, Saint-Martin, Sint Maarten
 da:Saint-Martin
 de:Saint-Martin
-el:
+el:Άγιος Μαρτίνος, Άγιος Μαρτίνος Γαλλίας
 eo:Saint-Martin
 es:San Martín, Collectivite de Saint-Martin, Colectividad de San Martín
 et:Saint-Martin, Saint-Martini territoriaalühendus
 eu:Saint Martin
 fa:سنت مارتین فرانسه, سنت مارتين فرانسه
 fi:Saint-Martin
-fr:St Maarten, Sint-Maarten, État de Sint Marteen, Land Sint Maarten, Country of Sint Maarten
+fr:Saint-Martin, Grand Case, TFFG, St Maarten, Sint-Maarten, État de Sint Marteen, Land Sint Maarten, Country of Sint Maarten
 he:סן מרטן
 hu:Saint-Martin
 hy:Սեն Մարտեն
@@ -23190,22 +23194,22 @@ it:Saint-Martin, Collettività di Saint-Martin
 ja:サン・マルタン
 ka:სენ-მარტენი
 ko:생마르탱, 생마르텡, 생 마르탱
-li:
+li:Sint Maarten
 lt:San Martenas
 lv:Senmartēna, MAF, SMT
-mk:
+mk:Свети Мартин
 mr:सेंट मार्टिन
 nb:Saint-Martin
-nl:Eilandgebied sint maarten
+nl:Sint-Maarten, Saint-Martin, Eilandgebied sint maarten
 nn:Saint-Martin
 oc:Collectivitat de Sant Martin, Sant Martin
 os:Сен-Мартен
 pl:Saint-Martin
-pt:Sint maarten, Saint Marteen, St. Maarten
+pt:São Martinho, Saint Martin, Coletividade de São Martinho, St. Martin, Sint maarten, Saint Marteen, St. Maarten
 ro:Saint Martin
 ru:Сен-Мартен
-sh:Saint Martin, Sveti Martin, Saint Martin -francuska teritorija
-sr:
+sh:Saint Martin, Sveti Martin, Saint Martin (francuska teritorija
+sr:Свети Мартин
 su:Saint-Martin, Koléktivitas Saint Martin
 tl:San Martin
 tr:Saint Martin
@@ -23214,8 +23218,8 @@ ur:سینٹ مارٹن, Saint Martin, The Collectivity of Saint Martin
 vi:Saint-Martin, Saint Martin thuộc Pháp
 yo:Ìkólẹ̀jọ Saint Martin, Saint Martin, Collectivity of Saint Martin
 zh:法屬聖馬丁, 法属圣马丁
-country_code_3:en: MAF
 country_code_2:en: MF
+country_code_3:en: MAF
 languages:en: fr
 
 en:Saint Pierre and Miquelon, PM, SPM
@@ -23297,9 +23301,9 @@ vi:Saint-Pierre và Miquelon
 wo:Saint Pierre ak Miquelon
 yo:Saint Pierre àti Mìkẹ́lọ̀n, Saint Pierre and Miquelon
 zh:圣皮埃尔和密克隆群岛, 聖皮埃蘭和密克隆群島, 聖皮里和米圭隆, 聖匹及密啟倫群島, 圣皮耶和密克罗, 圣皮埃尔和密克隆, 聖皮耶與密克隆群島, 聖皮埃爾島和密克隆島
-languages:en: fr
 country_code_2:en: PM
 country_code_3:en: SPM
+languages:en: fr
 
 en:Saint Vincent and the Grenadines, VC, VCT
 af:St. Vincent en die Grenadines
@@ -23400,9 +23404,9 @@ vo:Saluda-Vinsenteän e Grenadineäns
 wo:Saint Vincent and the Grenadines
 yo:Saint Vincent àti àwọn Grẹnadínì
 zh:圣文森特和格林纳丁斯
-languages:en: en
-country_code_3:en: VCT
 country_code_2:en: VC
+country_code_3:en: VCT
+languages:en: en
 
 en:Samoa, Western Samoa, Independent State of Samoa, WS, WSM
 af:Samoa
@@ -23758,9 +23762,9 @@ wo:Saw Tome ak Preesip
 yo:Sao Tome àti Principe
 zh:圣多美和普林西比
 zu:ISawu Tome noPhrinitshipeyi
-languages:en: pt
-country_code_3:en: STP
 country_code_2:en: ST
+country_code_3:en: STP
+languages:en: pt
 
 en:Saudi Arabia, The Kingdom of Saudi Arabia, SA, SAU
 af:Saoedi-Arabië
@@ -23889,9 +23893,9 @@ wo:Araabi Sawdit
 yi:סאודי אראביע
 yo:Sáúdí Arábíà
 zh:沙特阿拉伯
-languages:en: ar
 country_code_2:en: SA
 country_code_3:en: SAU
+languages:en: ar
 
 en:Senegal, Republic of Senegal, SN, SEN
 af:Senegal
@@ -24156,8 +24160,8 @@ yi:סערביע
 yo:Sérbíà
 zh:塞尔维亚
 zu:ISerbiya
-country_code_3:en: SRB
 country_code_2:en: RS
+country_code_3:en: SRB
 languages:en: sr
 
 en:Seychelles, Republic of Seychelles, SC, SYC
@@ -24537,9 +24541,9 @@ wo:Singapoor
 yi:סינגאפור
 yo:Singapore
 zh:新加坡, 星加坡
-languages:en: en,ta,zh,ms
-country_code_3:en: SGP
 country_code_2:en: SG
+country_code_3:en: SGP
+languages:en: en,ta,zh,ms
 
 en:Sint Eustatius, Statia, Statius, St. Eustatius
 af:Sint Eustatius
@@ -24592,7 +24596,7 @@ vi:Sint Eustatius, Saint Eustatius
 zh:圣尤斯特歇斯, 聖佑達修斯, 聖尤斯特歇斯島, 圣尤斯特歇斯岛
 languages:en: en,nl
 
-en:Sint Maarten, St. Maarten, SX, SXM
+en:Sint Maarten, St. Maarten, Saint Martin (Dutch part), SX, SXM
 af:Sint Maarten
 an:Sint Maarten
 ar:سينت مارتن
@@ -24601,17 +24605,17 @@ be:Сінт-Мартэн
 bg:Синт Мартен, Синт Маартен
 br:Sint Maarten
 ca:Sint Maarten
-cs:Sint Maarten
+cs:Svatý Martin, Saint-Martin, Sint Maarten
 da:Sint Maarten
 de:Sint Maarten, St. Maarten
-el:
+el:Άγιος Μαρτίνος, Άγιος Μαρτίνος Γαλλίας
 eo:Sint-Maarten
 es:Sint Maarten
 et:Sint Maarten
 eu:Sint Maarten, Saint Maarten
 fa:سینت مارتن, سنت مارتن, سينت مارتن, سنت مارتین هلند, سنت مارتين هلند
 fi:Sint Maarten
-fr:St Maarten, Sint-Maarten, État de Sint Marteen, Land Sint Maarten, Country of Sint Maarten
+fr:Saint-Martin, Grand Case, TFFG, St Maarten, Sint-Maarten, État de Sint Marteen, Land Sint Maarten, Country of Sint Maarten
 fy:Sint Marten, Sint Maarten
 he:סנט מארטן
 hu:Sint Maarten
@@ -24620,23 +24624,23 @@ it:Sint Maarten, St. Maarten
 ja:シント・マールテン, オランダ領シント・マールテン
 ka:სინტ-მარტენი, სინტ-მაარტენი
 ko:신트마르턴, 신트마르턴 섬, 신트마르텐, 신트마르텐 섬
-li:
+li:Sint Maarten
 lt:Sint Martenas, Sent Martinas
 lv:Sintmārtena
-mk:
+mk:Свети Мартин
 ml:സിന്റ് മാർട്ടൻ
 mr:सिंट मार्टेन
 ms:Sint Maarten
 nb:Sint Maarten, St. Maarten
-nl:Eilandgebied sint maarten
+nl:Sint-Maarten, Saint-Martin, Eilandgebied sint maarten
 nn:Sint Maarten
 oc:Sint Maarten
 pa:ਸਿੰਟ ਮਾਰਟਨ
 pl:Sint Maarten
-pt:Sint maarten, Saint Marteen, St. Maarten
+pt:São Martinho, Saint Martin, Coletividade de São Martinho, St. Martin, Sint maarten, Saint Marteen, St. Maarten
 ro:Sint Maarten
 ru:Синт-Мартен, Синт-Маартен
-sr:
+sr:Свети Мартин
 su:Sint Maarten
 sv:Sint Maarten
 tl:Sint Maarten
@@ -24644,8 +24648,8 @@ uk:Сінт-Мартен
 ur:سنٹ مارٹن, Sint Maarten
 vi:Sint Maarten, Lãnh thổ Đảo Sint Maarten, Lãnh thổ St. Maarten, Lãnh thổ Sint Maarten
 zh:荷屬聖馬丁, 荷属圣马丁, 荷屬馬丁尼
-country_code_3:en: SXM
 country_code_2:en: SX
+country_code_3:en: SXM
 languages:en: en,nl
 
 en:Slovakia, Slovak Republic, SK, SVK
@@ -24777,8 +24781,8 @@ yi:סלאוואקיי
 yo:Slofákíà
 zh:斯洛伐克
 zu:ISlovaki
-country_code_3:en: SVK
 country_code_2:en: SK
+country_code_3:en: SVK
 languages:en: sk
 
 en:Slovenia, Republic of Slovenia, Slovenija, Republika Slovenija, SI, SVN
@@ -25156,9 +25160,9 @@ yi:סאמאליע
 yo:Sòmálíà
 zh:索马里
 zu:ISomalia
-languages:en: so,ar
 country_code_2:en: SO
 country_code_3:en: SOM
+languages:en: so,ar
 
 en:South Africa, Republic of South Africa, RSA, ZA, ZAF
 af:Suid-Afrika
@@ -25299,9 +25303,9 @@ yi:דרום אפריקע
 yo:Gúúsù Áfríkà
 zh:南非
 zu:IRiphabliki yaseNingizimu Afrika
-languages:en: en,zu,xh,af,ve,ss,tn,ts,st,nr
-country_code_3:en: ZAF
 country_code_2:en: ZA
+country_code_3:en: ZAF
+languages:en: en,zu,xh,af,ve,ss,tn,ts,st,nr
 
 en:South Georgia and the South Sandwich Islands, South Georgia, South Sandwich Islands, GS, SGS
 af:Suid-Georgië en die Suidelike Sandwicheilande, Suid-Georgia en die Suidelik Sandwicheilande, Suid-Georgië en die Suide Sandwicheilande, Suid-Georgië en die Suid-Sandwich Eilande, South Georgia and the South Sandwich Islands, Suid-Georgië en de Suidelike Sandwicheilanden, Suid-Georgië en die Suid-Sandwicheilande
@@ -25515,9 +25519,9 @@ yi:דרום קארעע
 yo:Kòréà Gúúsù
 za:Hanzgoz
 zh:大韩民国
-languages:en: ko
 country_code_2:en: KR
 country_code_3:en: KOR
+languages:en: ko
 
 en:South Sudan, Republic of South Sudan, Southern Sudan, SS, SSD
 af:Suid-Soedan
@@ -25628,8 +25632,8 @@ yi:דרום סודאן
 yo:Gúúsù Sudan
 zh:南蘇丹
 zu:ISudan yaseNingizimu
-country_code_3:en: SSD
 country_code_2:en: SS
+country_code_3:en: SSD
 languages:en: en
 
 en:Soviet Union, USSR, U.S.S.R., Soviets, The Union of Soviet Socialist Republics, The Soviet Union, Union of soviet socialist republics, The Soviets
@@ -25890,9 +25894,9 @@ yo:Spéìn
 za:Sihbanhyaz
 zh:西班牙, 西班牙王国
 zu:ISpeyini
-languages:en: es,ca,eu,gl
-country_code_3:en: ESP
 country_code_2:en: ES
+country_code_3:en: ESP
+languages:en: es,ca,eu,gl
 
 en:Sri Lanka, Democratic Socialist Republic of Sri Lanka, LK, LKA
 af:Sri Lanka
@@ -26018,9 +26022,9 @@ wo:Siri Laanka
 yi:סרי לאנקא
 yo:Sri Lanka
 zh:斯里蘭卡
-languages:en: si,ta
 country_code_2:en: LK
 country_code_3:en: LKA
+languages:en: si,ta
 
 en:State of Palestine
 af:Staat van Palestina, Palestinië, Palestina, Palestynse Nasionale Owerheid, Palestynse Owerheid, Palestynse Owerhede
@@ -26049,7 +26053,7 @@ ko:팔레스타인
 ku:Dewleta Filistînê
 lt:Palestinos valstybė
 lv:Palestīnas Valsts
-ml:പലസ്തീൻ
+ml:പലസ്തീൻ (രാജ്യം)
 my:ပါလက်စတိုင်းနိုင်ငံ
 nb:Staten Palestina, Palestina
 nl:Palestina
@@ -26073,8 +26077,8 @@ vi:Nhà nước Palestine
 wa:Palestene
 yo:Orílẹ̀-èdè Palẹstínì, State of Palestine
 zh:巴勒斯坦国, 巴勒斯坦國, 巴勒斯坦
-country_code_3:en: PSE
 country_code_2:en: PS
+country_code_3:en: PSE
 languages:en: ar
 
 en:Sudan, suca, SD, SDN
@@ -26211,9 +26215,9 @@ wo:Sudaan
 yi:סודאן
 yo:Sudan
 zh:苏丹共和国
-languages:en: ar,en
 country_code_2:en: SD
 country_code_3:en: SDN
+languages:en: ar,en
 
 en:Suriname, Surinam, Republic of Suriname, Republic of Surinam, Dutch Guiana, SR, SUR
 af:Suriname
@@ -26362,9 +26366,9 @@ vi:Svalbard và Jan Mayen
 wo:Swalbard ak Jan Mayen, Svalbard and Jan Mayen
 yo:Svalbard àti Jan Mayen, Svalbard and Jan Mayen
 zh:斯瓦尔巴和扬马延
-languages:en: 
-country_code_3:en: SJM
 country_code_2:en: SJ
+country_code_3:en: SJM
+languages:en: 
 
 en:Swaziland, Kingdom of Swaziland, SZ, SWZ
 af:Swaziland
@@ -26633,9 +26637,9 @@ yi:שוועדן
 yo:Swídìn
 zh:瑞典, 瑞典王国
 zu:ISwidi
-languages:en: sv
 country_code_2:en: SE
 country_code_3:en: SWE
+languages:en: sv
 
 en:Switzerland, Swiss Confederation, CH, CHE
 af:Switserland
@@ -26768,9 +26772,9 @@ yi:שווייץ
 yo:Swítsàlandì
 za:Nyeiqswq
 zh:瑞士, 瑞士联邦
-languages:en: de,fr,it
-country_code_3:en: CHE
 country_code_2:en: CH
+country_code_3:en: CHE
+languages:en: de,fr,it
 
 en:Syria, Syrian Arab Republic, SY, SYR
 af:Sirië
@@ -26910,7 +26914,7 @@ ar:تايوان
 az:Çin Respublikası
 be:Тайвань
 bg:Република Китай
-bh:
+bh:चीन
 bn:প্রজাতন্ত্রী চীন
 bo:ཐའེ་ཝན།
 br:Republik Sina
@@ -26949,7 +26953,7 @@ ia:Republica de China
 id:Republik Cina
 io:Republiko di Chinia
 is:Lýðveldið Kína
-it:Taiwan, Repubblica di Cina , Formosa
+it:Taiwan, Repubblica di Cina (RDC), Formosa
 ja:中華民国
 jv:Républik Cina
 ka:ტაივანი
@@ -26977,7 +26981,7 @@ na:Republik Tsiene
 nb:Republikken Kina
 nl:Taiwan, Chinees Republikeinse, Rep china, Geschiedenis van Republiek China, Chinese Republiek
 nn:Republikken Kina
-oc:Republica de China
+oc:Republica de China (Taiwan)
 or:ତାଇୱାନ
 os:Китайы Республикæ
 pa:ਚੀਨ ਗਣਰਾਜ
@@ -27018,9 +27022,9 @@ yi:טייוואן
 yo:Orílẹ̀-èdè Olómìnira ilẹ̀ Ṣáínà
 za:Cunghvaz Minzgoz
 zh:中華民國
-languages:en: zh
 country_code_2:en: TW
 country_code_3:en: TWN
+languages:en: zh
 
 en:Tajikistan, Republic of Tajikistan, TJ, TJK
 af:Tadjikistan
@@ -27143,9 +27147,9 @@ wo:Tajikistaan
 yi:טאדזשיקיסטאן
 yo:Tajikistan
 zh:塔吉克斯坦
-languages:en: ru,tg
-country_code_3:en: TJK
 country_code_2:en: TJ
+country_code_3:en: TJK
+languages:en: ru,tg
 
 en:Tanzania, United Republic of Tanzania, TZ, TZA
 af:Tanzanië
@@ -27281,9 +27285,9 @@ yi:טאנזאניע
 yo:Tànsáníà
 zh:坦桑尼亚
 zu:ITanzania
-languages:en: en,sw
-country_code_3:en: TZA
 country_code_2:en: TZ
+country_code_3:en: TZA
+languages:en: en,sw
 
 en:Thailand, Kingdom of Thailand, TH, THA
 af:Thailand
@@ -27395,7 +27399,7 @@ sw:Uthai
 ta:தாய்லாந்து
 te:థాయిలాండ్
 tg:Таиланд
-th:ประเทศไทย , Thailand, ไทยแลนด์, ราชอาณาจักรไทย, Kingdom of Thailand
+th:ประเทศไทย (Thai), Thailand, ไทยแลนด์, ราชอาณาจักรไทย, Kingdom of Thailand
 tk:Taýland
 tl:Thailand
 tr:Tayland
@@ -27412,9 +27416,9 @@ yi:טיילאנד
 yo:Tháílàndì
 za:Daigoz
 zh:泰国
-languages:en: th
 country_code_2:en: TH
 country_code_3:en: THA
+languages:en: th
 
 en:The Bahamas, Bahamas, Commonwealth of the Bahamas, BS, BHS
 af:Bahamas
@@ -27651,8 +27655,8 @@ yi:מזרח טימאר
 yo:Ìlàòrùn Timor
 za:Doeng Divwnq
 zh:东帝汶
-country_code_3:en: TLS
 country_code_2:en: TL
+country_code_3:en: TLS
 languages:en: pt
 
 en:Togo, Togolese Republic, TG, TGO
@@ -27781,8 +27785,8 @@ yi:טאגא
 yo:Tógò
 zh:多哥
 zu:ITogo
-country_code_3:en: TGO
 country_code_2:en: TG
+country_code_3:en: TGO
 languages:en: fr
 
 en:Tokelau, TK, TKL
@@ -28079,9 +28083,9 @@ vo:Trinidadeän e Tobageäns
 wo:Tirinidaad ak Tobaago
 yo:Trínídád àti Tòbágò
 zh:千里達及托巴哥
-languages:en: en
 country_code_2:en: TT
 country_code_3:en: TTO
+languages:en: en
 
 en:Tunisia, Republic of Tunisia, TN, TUN
 af:Tunisië
@@ -28208,9 +28212,9 @@ yi:טוניסיע
 yo:Tùnísíà
 zh:突尼西亞
 zu:ITunisia
-languages:en: ar
 country_code_2:en: TN
 country_code_3:en: TUN
+languages:en: ar
 
 en:Turkey, Republic of Turkey, TR, TUR
 ab:Ҭырқәтәыла
@@ -28356,9 +28360,9 @@ yo:Túrkì
 za:Dujwjgiz
 zh:土耳其, 土耳其共和国
 zu:ITheki
-languages:en: tr
 country_code_2:en: TR
 country_code_3:en: TUR
+languages:en: tr
 
 en:Turkmenistan, TM, TKM
 af:Turkmenistan
@@ -28481,9 +28485,9 @@ wo:Turkumenistaan
 yi:טורקמעניסטאן
 yo:Turkmẹ́nìstán
 zh:土库曼斯坦
-languages:en: tk
 country_code_2:en: TM
 country_code_3:en: TKM
+languages:en: tk
 
 en:Turks and Caicos Islands, TC, TCA
 af:Turks- en Caicos-eilande
@@ -28565,9 +28569,9 @@ vi:Quần đảo Turks và Caicos
 wo:Turks and Caicos Islands
 yo:Àwọn Erékùṣù Turks àti Caicos
 zh:特克斯和凯科斯群岛
-languages:en: 
-country_code_3:en: TCA
 country_code_2:en: TC
+country_code_3:en: TCA
+languages:en: 
 
 en:Tuvalu, Ellice Islands, TV, TUV
 af:Tuvalu
@@ -28678,8 +28682,8 @@ vo:Tuvaluäns
 wo:Tuvalu
 yo:Tufalu
 zh:圖瓦盧
-country_code_3:en: TUV
 country_code_2:en: TV
+country_code_3:en: TUV
 languages:en: en
 
 en:Uganda, Republic of Uganda, UG, UGA
@@ -28808,9 +28812,9 @@ yi:אוגאנדע
 yo:Ùgándà
 zh:乌干达
 zu:IYuganda
-languages:en: en,sw
-country_code_3:en: UGA
 country_code_2:en: UG
+country_code_3:en: UGA
+languages:en: en,sw
 
 en:Ukraine, UA, UKR
 ab:Украина
@@ -29072,9 +29076,9 @@ wo:Imaaraat yu Araab yu Bennoo yi
 yi:פאראייניגטע אראבישע עמיראטן
 yo:Àwọn Ẹ́mírétì Árábù Aṣọ̀kan
 zh:阿拉伯联合酋长国
-languages:en: ar
-country_code_3:en: ARE
 country_code_2:en: AE
+country_code_3:en: ARE
+languages:en: ar
 
 en:United Kingdom, United Kingdom of Great Britain and Northern Ireland, UK, GB, GBR
 ab:Британиа Ду
@@ -29216,9 +29220,9 @@ yo:Ilẹ̀ọba Aṣọ̀kan
 za:Yinghgoz
 zh:英国, 联合王国, 大不列颠及北爱尔兰联合王国
 zu:Umbuso Ohlangeneyo
-languages:en: en
 country_code_2:en: UK
 country_code_3:en: GBR
+languages:en: en
 official_country_code_2:en: GB
 
 en:United States, United States of America, USA, America, the States, U.S., U.S.A., US, 🇺🇸
@@ -29380,9 +29384,9 @@ yo:Àwọn Ìpínlẹ̀ Aṣọ̀kan Amẹ́ríkà
 za:Meijgoz
 zh:美国, 美利坚合众国, 花旗国
 zu:IMelika
-languages:en: en
-country_code_3:en: USA
 country_code_2:en: US
+country_code_3:en: USA
+languages:en: en
 
 en:United States Minor Outlying Islands, UM, UMI
 af:Klein afgeleë eilande van die Verenigde State van Amerika
@@ -29428,8 +29432,8 @@ vi:Các tiểu đảo xa của Hoa Kỳ
 wo:United States Minor Outlying Islands
 yo:Àwọn Erékùṣù Kékèké Orílẹ̀-èdè Amẹ́ríkà
 zh:美国本土外小岛屿
-country_code_3:en: UMI
 country_code_2:en: UM
+country_code_3:en: UMI
 languages:en: 
 
 en:Uruguay, Oriental Republic of Uruguay, Eastern Republic of Uruguay, República Oriental del Uruguay, UY, URY
@@ -29555,9 +29559,9 @@ wo:Uruguwaay
 yi:אורוגוויי
 yo:Urugúáì
 zh:乌拉圭, 烏拉圭東岸共和國
-languages:en: es
-country_code_3:en: URY
 country_code_2:en: UY
+country_code_3:en: URY
+languages:en: es
 
 en:Uzbekistan, Republic of Uzbekistan, UZ, UZB
 af:Oesbekistan
@@ -29677,9 +29681,9 @@ wo:Usbekistaan
 yi:אוזבעקיסטאן
 yo:Ùsbẹ̀kìstán
 zh:乌兹别克斯坦
-languages:en: uz
 country_code_2:en: UZ
 country_code_3:en: UZB
+languages:en: uz
 
 en:Vanuatu, Republic of Vanuatu, VU, VUT
 ab:Вануату
@@ -29792,8 +29796,8 @@ vo:Vanuatuäns
 wo:Wanuatu
 yo:Fanuatu
 zh:瓦努阿图
-country_code_3:en: VUT
 country_code_2:en: VU
+country_code_3:en: VUT
 languages:en: fr,en,bi
 
 en:Vatican City, Vatican City State, Papal State, Holy See, VA, VAT
@@ -29927,9 +29931,9 @@ yi:וואטיקאן
 yo:Ìlú Fatikan, Ìlú Vatikan
 zh:梵蒂冈
 zu:Indolobha yaseVathikhani
-languages:en: it,la
 country_code_2:en: VA
 country_code_3:en: VAT
+languages:en: it,la
 
 en:Venezuela, República Bolivariana de Venezuela, VE, VEN
 af:Venezuela
@@ -30057,9 +30061,9 @@ yi:ווענעזועלע
 yo:Fenesuela
 zh:委內瑞拉
 zu:Venezuela
-languages:en: es
 country_code_2:en: VE
 country_code_3:en: VEN
+languages:en: es
 
 en:Vietnam, Viet Nam, Socialist Republic of Vietnam, VN, VNM
 af:Viëtnam
@@ -30207,9 +30211,9 @@ yo:Fiẹtnám
 za:Yiednamz
 zh:越南
 zu:IViyetnami
-languages:en: vi
 country_code_2:en: VN
 country_code_3:en: VNM
+languages:en: vi
 
 en:Virgin Islands of the United States, United States Virgin Islands, U.S. Virgin Islands, VI, VIR
 af:Amerikaanse Maagde-eilande
@@ -30254,7 +30258,7 @@ kw:Ynysow an Wyrghes a'n Statys Unys
 la:Virginis Insulae Americanae
 lb:Amerikanesch Joffereninselen
 li:Amerikaanse Maagde-Eilen
-lt:
+lt:Mergelių Salos, Britanijos Mergelių Salos, Britų Mergelių salos, Britanijos Virdžinijos salos, Britų Mergelės salos, Didžiosios Britanijos Mergelių salos
 lv:ASV Virdžīnas
 mk:Американски Девствени Острови
 ml:യുനൈറ്റഡ് സ്റ്റേറ്റ്സ് വിർജിൻ ദ്വീപുകൾ
@@ -30288,12 +30292,12 @@ ug:ئامېرىكىغا قاراشلىق ۋىرگىن تاقىم ئاراللى�
 uk:Американські Віргінські острови
 ur:امریکی جزائر ورجن
 vi:Quần đảo Virgin thuộc Mỹ
-wo:
+wo:Duni Virgin, Virgin Islands
 yo:Àwọn Erékùṣù Wúndíá ti Amẹ́ríkà
 zh:美屬維爾京群島
-languages:en: en
-country_code_3:en: VIR
 country_code_2:en: VI
+country_code_3:en: VIR
+languages:en: en
 
 en:Wallis and Futuna, WF, WLF
 af:Wallis en Futuna, Wallis-et-Futuna
@@ -30370,9 +30374,9 @@ vi:Wallis và Futuna, Quần đảo Wallis và Futuna
 wo:Wallis ak Futuna, Wallis and Futuna
 yo:Wallis àti Futuna, Wallis and Futuna, Wallis and Futuna Islands
 zh:瓦利斯和富圖納群島, 瓦利斯及富圖納群島, 瓦里斯和富圖納島, 瓦利斯和富图纳, 沃里斯與伏塔那島, 瓦利斯和富图纳行政区划, 瓦利斯群島和富圖納群島
-languages:en: 
 country_code_2:en: WF
 country_code_3:en: WLF
+languages:en: 
 
 en:Western Sahara, eh, West Sahara, Spanish Sahara, ESH
 af:Wes-Sahara
@@ -30469,9 +30473,9 @@ wa:Sara coûtchantrece
 wo:Sahara gu Sowwu
 yo:Apáìwọ̀orùn Sàhárà
 zh:西撒哈拉
-languages:en: 
 country_code_2:en: EH
 country_code_3:en: ESH
+languages:en: 
 
 en:world
 country_code_2:en: world
@@ -30617,7 +30621,7 @@ bs:Jugoslavija
 ca:Iugoslàvia
 cs:Jugoslávie, Bývalá Jugoslávie
 cy:Iwgoslafia, Jugoslavia, Yugoslavia, Gweriniaeth Ffederal Sosialaidd Iwgoslafia
-da:Jugoslavien, Den socialistiske føderale republik Jugoslavien, Kongeriget af Serber, Kroater og Slovener, FNRJ, Den Socialistiske Føderative Republik Jugoslavien, Den Føderative Folkerepublik Jugoslavien, SFRJ
+da:Jugoslavien, Den socialistiske føderale republik Jugoslavien, Kongeriget af Serber, Kroater og Slovener, FNRJ, Den Socialistiske Føderative Republik Jugoslavien, (fhv.) Jugoslavien, Den Føderative Folkerepublik Jugoslavien, SFRJ
 de:Jugoslawien, Jugoslavija, Yugoslavien, Југославија, SHS-Königreich, Südslawien, Jugoszlávia, Jugosllavia, Ex-Jugoslawien, Yugoslawien
 el:Γιουγκοσλαβία
 eo:Jugoslavio, Sociala Federacia Respubliko de Jugoslavio, Jugoslavujo
@@ -30671,7 +30675,7 @@ sh:Jugoslavija, Југославија
 sk:Juhoslávia, SFRJ
 sl:Jugoslavija, Federativna republika Jugoslavija, Yugoslavia, Slovenska nararodna podporna jednota
 sr:Југославија
-sv:Jugoslavien, Socialistiska Förbundsrepubliken Jugoslavien, Forna Jugoslavien, Serbernas, kroaternas och slovenernas kungadöme, Jugoslavisk
+sv:Jugoslavien, Socialistiska Förbundsrepubliken Jugoslavien, Forna Jugoslavien, Serbernas, kroaternas och slovenernas kungadöme, (f.d.) Jugoslavien, Jugoslavisk
 sw:Yugoslavia, Socialist Federal Republic of Yugoslavia
 ta:யுகோஸ்லாவியா, யூகொஸ்லாவியா, யூகோஸ்லாவியா, யூகோசிலாவியா, யுகோசிலாவியா
 tg:Югославия
@@ -30684,8 +30688,8 @@ ur:یوگوسلاویہ
 vi:Nam Tư, Liên bang Nam Tư, Yugoslavia
 yi:יוגאסלאוויע, יוגאָסלאַוויע, יאגאסלאוויע
 zh:南斯拉夫, 前南斯拉夫
-country_code_3:en: YUG
 country_code_2:en: YU
+country_code_3:en: YUG
 languages:en: 
 
 en:Zambia, Republic of Zambia, ZM, ZMB
@@ -30942,7 +30946,7 @@ yi:זימבאבווע, זימבאבװע, זימבאַבװע
 yo:Sìmbábúè, Republic of Zimbabwe, Simbabwe, Zimbabwe
 zh:辛巴威, 津巴布韦, 津巴布韋共和國, 南罗德西亚, 津巴布韋, 津巴布偉
 zu:IZimbabwe
-languages:en: en,sn,nd
-country_code_3:en: ZWE
 country_code_2:en: ZW
+country_code_3:en: ZWE
+languages:en: en,sn,nd
 

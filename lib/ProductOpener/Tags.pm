@@ -2361,6 +2361,10 @@ sub canonicalize_taxonomy_tag($$$)
 		
 			# try a few languages
 			my @test_languages = ("en", "fr", "de", "es", "pt", "it", "nl", "ru", "la");
+			# ingredients: the taxonomy is not complete, only try English and Latin (for OBF) to avoid false positives
+			if ($tagtype eq "ingredients") {
+				@test_languages = ("en", "la");
+			}
 			
 			foreach my $test_lc (@test_languages) {
 			
@@ -2646,11 +2650,11 @@ sub canonicalize_tag_link($$)
 	}
 	
 	# Redirect photographers, informers, correctors, checkers to users page
-	if (($tagtype eq 'photographers') or ($tagtype eq 'informers')
-		or ($tagtype eq 'correctors') or ($tagtype eq 'checkers')) {
-		
-		$tagtype = 'users';
-	}
+	#if (($tagtype eq 'photographers') or ($tagtype eq 'informers')
+	#	or ($tagtype eq 'correctors') or ($tagtype eq 'checkers')) {
+	#	
+	#	$tagtype = 'users';
+	#}
 		
 		
 	my $path = $tag_type_singular{$tagtype}{$lang};

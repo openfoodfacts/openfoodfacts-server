@@ -5,6 +5,7 @@ use warnings;
 use utf8;
 
 use Test::More;
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -37,10 +38,6 @@ test_links($slug_regex, @slug_links);
 #			<li><a href="$Lang{footer_terms_link}{$lc}">$Lang{footer_terms}{$lc}</a></li>
 #			<li><a href="$Lang{footer_data_link}{$lc}">$Lang{footer_data}{$lc}</a></li>
 
-binmode(STDOUT, "encoding(UTF-8)");
-binmode(STDERR, "encoding(UTF-8)");
-
-
 my @links = ("legal", "terms", "data");
 my %en_links = ("legal" => "legal", "terms" => "terms-of-use", "data" => "data");
 
@@ -50,16 +47,15 @@ foreach my $link (@links) {
 	foreach my $lang (keys %{$Lang{$field}}) {
 		my $textid = $Lang{$field}{$lang};
 		$textid =~ s/.*\///;
-		
-		if ($textid ne $en_links{$link} ) {
 
-		#	print "$link - $lang - $textid\n";
+		if ($textid ne $en_links{$link} ) {
 
 			ok ( -e "$data_root/lang/$lang/texts/$textid.html",
 				"$field link - lang: $lang - textid: $textid -- file /lang/$lang/texts/$textid.html does not exist");
+
 		}
 
-		
+
 	}
 
 }

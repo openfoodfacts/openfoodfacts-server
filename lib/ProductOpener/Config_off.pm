@@ -98,6 +98,7 @@ javichu
 kyzh
 lafel
 lucaa
+mbe
 moon-rabbit
 sebleouf
 segundo
@@ -647,16 +648,16 @@ $options{nova_groups_tags} = {
 "categories/en:terrines" => 3,
 "categories/en:pates" => 3,
 "categories/en:pastas" => 3,
-"categories/en:wines" => 3,
-"categories/en:beers" => 3,
 "categories/en:breakfast-cereals" => 3,
 "categories/en:tofu" => 3,
 "categories/en:alcoholic-beverages" => 3,
 "categories/en:meals" => 3,
+"categories/en:yogurts" => 3,
 
 
 # group 3 additives
 
+"additives/en:e202" => 3, # potassium nitrite
 "additives/en:e249" => 3, # potassium nitrite
 "additives/en:e250" => 3, # sodium nitrite
 "additives/en:e251" => 3, # potassium nitrate

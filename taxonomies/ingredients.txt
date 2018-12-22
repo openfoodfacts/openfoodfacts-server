@@ -692,7 +692,6 @@ ro: Agenți de spumare
 bg: Пенители
 wikidata:en:Q759922
 
-<en:thickener
 en:gelling agent, gelifier
 bg:Желиращ агент
 cs:Želírující látka
@@ -723,7 +722,6 @@ wikidata:en:Q27862636
 
 # PECTIN is a structural heteropolysaccharide contained in the primary cell walls of terrestrial plants.
 
-<en:gelling agent
 en:pectin, pectins, E440, e 440, E-440
 af:Pektien, E440, e 440, E-440
 ar:بكتين
@@ -1013,7 +1011,6 @@ wikidata:en:Q626292
 
 # Sorbic acid, or 2,4-hexadienoic acid, is a natural organic compound used as a food preservative. It has the chemical formula CH3(CH)4CO2H.
 
-<en:acid
 en:sorbic acid, E200, E 200, E-200
 ar:حمض السوربيك
 # azb:اسید سربیک
@@ -1070,7 +1067,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sorbic_acid
 
 # Acetic acid, systematically named ethanoic acid, is a colourless liquid organic compound with the chemical formula CH3COOH (also written as CH3CO2H or C2H4O2).
 
-<en:acid
 en:acetic acid, E260, E 260, E-260
 af:Asynsuur, E260, E 260, E-260
 ar:حمض الخليك
@@ -1278,7 +1274,6 @@ de:Säureregulator E262
 # its mirror image, is D-(−)-lactic acid or (R)-lactic acid
 # in food the L-variant is used
 
-<en:acid
 en:lactic acid, E270, E 270, E-270
 ar:حمض اللبنيك
 # ast:Ácidu láctico, E270, E 270, E-270
@@ -1646,7 +1641,6 @@ fr:e331iii
 
 # Citric acid is a weak organic acid that has the chemical formula C6H8O7.
 
-<en:acid
 en:citric acid, citric acid e330, e330, e 330, E-330
 af:Sitroensuur, e330, e 330, E-330
 ar:حمض الليمون
@@ -1748,7 +1742,6 @@ fr:correcteur d'acidité acide citrique, correcteur d'acidité e330
 
 # Tartaric acid is a white, crystalline organic acid that occurs naturally in many fruits, most notably in grapes, but also in bananas, tamarinds, and citrus
 
-<en:acid
 en:tartaric acid, E334, E 334, E-334
 ar:حمض الطرطريك
 # azb:اسید تارتاریک
@@ -2325,7 +2318,6 @@ wikidata:en:Q911138
 
 
 # <en:potato
-<en:thickener
 <en:modified starch
 <en:potato starch
 en:modified potato starch, E1404
@@ -7224,6 +7216,10 @@ de:Ziegenfleisch
 en:pork meat
 fr:viande de porc
 carbon_footprint_fr_foodges_ingredient:fr: Viande de porc
+# Facteur GES kg CO2 eq / kg d'ingrédient en sortie de magasin (poids net)
+carbon_footprint_fr_foodges_ingredient_for_net_weight:en 5.9
+# Facteur GES kg CO2 eq / kg d'ingrédient ingéré
+carbon_footprint_fr_foodges_ingredient_for_ingested_weight:en 7.4
 
 <en:pork meat
 en:pork
@@ -12553,7 +12549,6 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:maïs%20moulu
 
 # question
 
-<en:thickener
 en:carob
 cs:carubin
 fr:caroube
@@ -12561,7 +12556,6 @@ nl:johannesbrood
 
 # question
 
-<en:thickener
 <en:flour
 <en:carob
 en:carob flour
@@ -12575,7 +12569,6 @@ sv:fruktkärnmjöl
 
 # question
 
-<en:thickener
 <en:flour
 <en:guar gum
 en:guar flour
@@ -12586,7 +12579,6 @@ sv:guarkärnmjöl
 
 # This identical the the flour variant
 
-<en:thickener
 en:guar gum
 fr:gomme guar, gomme de guar, gomme guar, guar
 el:κομμι χαρουτιων
@@ -12596,19 +12588,15 @@ it:gomma di guar
 nl:guargom
 pt:goma de guar
 
-<en:thickener
 <en:guar flour
 <en:carob flour
 fr:farine de graines de caroube et farine de graines de guar
 
-<en:thickener
 <en:carob
 en:locust bean gum
 fr:gomme de caroube
 el:κόμμι γκουάρ
 
-<en:thickener
-<en:Stabiliser
 en:xanthan gum
 es:goma xantana
 de:Xanthan
@@ -12618,7 +12606,6 @@ nl:xanthaangom
 nn:xanthan gum
 pt:goma xanthano
 
-<en:thickener
 <en:guar gum
 <en:xanthan gum
 en:xanthan gum and guar gum
@@ -13055,7 +13042,6 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose
 
 # nova:en:glucose-syrup
 <en:glucose
-<en:syrup
 en:glucose syrup
 # ast:Almíbar
 bg:глюкозе сироп
@@ -13214,7 +13200,6 @@ fr:fructose de blé
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fructose%20de%20blé
 # 39 products in 4 languages @2018-09-24
 
-<en:syrup
 en:fructose syrup
 de:Fruktose Sirup
 fr:sirop de fructose
@@ -13239,7 +13224,6 @@ fr:glucose-fructose
 openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose-fructose
 # 19 products in 3 languages @2018-09-24
 
-<en:syrup
 <en:glucose
 <en:fructose
 en:glucose-fructose syrup, fructose-glutose syrup, glucose and fructose syrup
@@ -13304,7 +13288,6 @@ de:Invertzuckersirup
 <en:invert sugar syrup
 en:cane invert syrup, invert cane syrup
 
-<en:syrup
 en:corn syrup
 ar:شراب الذرة
 be:Кукурузны сіроп
@@ -15081,11 +15064,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Trisodium_phosphate
 
 # Potassium phosphate is a generic term for the salts of potassium and phosphate ions
 
-<en:emulsifier
-<en:humectant
-<en:sequestrant
-<en:stabilizer
-<en:thickener
 <en:potassium
 en:potassium phosphates, E340, E 340, E-340
 de:Kaliumphosphate, E340, E 340, E-340
@@ -15467,11 +15445,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_phosphate
 # In chemistry, a pyrophosphate is a phosphorus oxyanion.
 # On wikidata the ingredient is usually called pyrophosphate, contrary to what is found on packages
 
-<en:raising agent
-# <en:emulsifier
-<en:stabiliser
-# <en:humectant
-# <en:sequestrant
 en:diphosphates, e450 stabilizer, E450, e 450
 bg:Дифосфат, E450
 ca:Difosfat, E450, e 450
@@ -15680,11 +15653,6 @@ fr:diphosphate disodique et carbonate acide de sodium
 # fr:diphosphate-disodique-et-carbonate-acide-de-sodium has 72 products in 2 languages @2018-11-04
 
 
-<en:raising agent
-<en:emulsifier
-<en:stabiliser
-<en:humectant
-<en:sequestrant
 en:triphosphates, triphosphate, E451, e 451, e-451
 de:Triphosphate, E451, e 451, e-451
 fr:triphosphate, triphosphates, E451, e 451, e-451
@@ -15774,11 +15742,6 @@ fr:diphosphates et triphosphates, triphosphates et diphosphates, di- et triphosp
 nl:difosfaten en trifosfaten
 sv:di- och trifosfater
 
-<en:Emulsifier
-<en:Humectant
-<en:Sequestrant
-<en:Stabilizer
-<en:Thickener
 en:Polyphosphate, Polyphosphate E452, E452, e 452, e-452
 ar:E452, e 452, e-452
 cs:E452, e 452, e-452
@@ -15981,7 +15944,7 @@ wikipedia:Q190227
 # SODIUM BICARBONATE (IUPAC name:sodium hydrogen carbonate), commonly known as baking soda, is a chemical compound with the formula NaHCO3.
 # On ingredient lists the name with hydrogen in it, seems to be preferred (otherwise it resembles to much the cleaning salt?)
 
-<en:sodium bicarbonate, sodium hydrogen carbonate
+<en:sodium bicarbonate
 en:sodium hydrogen carbonate, E500ii
 af:Natriumbikarbonaat
 ar:بيكربونات الصوديوم
@@ -18124,7 +18087,7 @@ nl:bloedsinaasappelsap
 
 
 <en:orange
-de:Orangenfruchtfleish
+de:Orangenfruchtfleisch
 fr:pulpe d'orange
 it:polpe d'arancia
 hu:narancs püré
@@ -30933,8 +30896,6 @@ fr:scarole
 fr:chanterelles
 
 fr:acétate de calcium
-
-fr:sodium bicarbonate
 
 fr:ferments de maturation
 
