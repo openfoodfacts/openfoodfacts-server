@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-09-25 18:20\n"
+"PO-Revision-Date: 2018-12-22 21:13\n"
 "Language-Team: German\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -14,16 +14,6 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: de\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-
-#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
-msgctxt ":langtag"
-msgid ":langtag"
-msgstr "de"
-
-#. put here the language name ("French", "Japanese", etc)
-msgctxt ":langname"
-msgid ":langname"
-msgstr "Deutsch"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -486,7 +476,7 @@ msgstr "E-Mail-Adresse"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr "Produzenten-Codes"
+msgstr "Identitätskennzeichen"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
@@ -494,11 +484,11 @@ msgstr "Produkte vom Unternehmen mit Produzenten-Code %s verpackt"
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr ""
+msgstr "Zulassungsnummern"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr ""
+msgstr "Zulassungsnummern"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -677,7 +667,7 @@ msgstr "Verhaltensregeln"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr "/code-of-conduct"
+msgstr "/verhaltensregeln"
 
 msgctxt "footer_data"
 msgid "Data"
@@ -699,12 +689,13 @@ msgstr "Häufig gestellte Fragen"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr "/faq"
+msgstr "/haeufige-fragen"
 
 msgctxt "footer_translators"
 msgid "Translators"
 msgstr "Übersetzer"
 
+# Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
 msgstr "/cgi/top_translators.pl"
@@ -734,7 +725,7 @@ msgstr "Gesetzliche Hinweise"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr ""
+msgstr "/legal"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -756,7 +747,7 @@ msgstr "Nutzungsbedingungen"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/terms-of-use"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -765,12 +756,13 @@ msgstr "Wer wir sind"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr "/who-we-are"
+msgstr "/wer-wir-sind"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
 msgstr "<<site_name>> Wiki (de)"
 
+# Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openfoodfacts.org"
 msgstr "https://en.wiki.openfoodfacts.org"
@@ -1097,14 +1089,6 @@ msgctxt "lang_nl_be"
 msgid "Dutch"
 msgstr "Niederländisch"
 
-msgctxt "lang_note"
-msgid "Language most present and most highlighted on the product"
-msgstr "Sprache, die auf dem Produkt am präsentesten und am stärksten hervorgehoben ist."
-
-msgctxt "lang_other"
-msgid "other language"
-msgstr "Weitere Sprache"
-
 msgctxt "lang_pl"
 msgid "Polish"
 msgstr "Polnisch"
@@ -1148,6 +1132,14 @@ msgstr "Vietnamesisch"
 msgctxt "lang_zh"
 msgid "Chinese"
 msgstr "Chinesisch"
+
+msgctxt "lang_other"
+msgid "other language"
+msgstr "Weitere Sprache"
+
+msgctxt "lang_note"
+msgid "Language most present and most highlighted on the product"
+msgstr "Sprache, die auf dem Produkt am präsentesten und am stärksten hervorgehoben ist."
 
 msgctxt "language"
 msgid "en-US"
@@ -1325,7 +1317,7 @@ msgstr "Mitwirken"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr "/contribute"
+msgstr "/mitwirken"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1334,7 +1326,7 @@ msgstr "Entdecken"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr "/discover"
+msgstr "/entdecken"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1444,9 +1436,10 @@ msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
 msgstr "Nährstoffwerte für 100 g"
 
-# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphensmsgctxt "nutrient_levels_link"
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/naehrwertstufen"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -2309,9 +2302,18 @@ msgctxt "serving_size"
 msgid "Serving size"
 msgstr "Portionsgröße"
 
+msgctxt "serving_size_prepared"
+msgid ""
+msgstr ""
+""
+
 msgctxt "serving_size_example"
 msgid "60 g, 12 oz, 20cl, 2 fl oz"
 msgstr "60 g, 12 oz, 20 cl, 2 fl oz"
+
+msgctxt "serving_size_note"
+msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
+msgstr "Wenn die Nährwerttabelle Werte für das zubereitete Produkt enthält, geben Sie die Gesamtportion des zubereitete Produkts (einschließlich Wasser- oder Milchzusatz) an."
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2656,8 +2658,8 @@ msgid "This product page is not complete. You can help to complete it by editing
 msgstr "Diese Produktseite ist nicht vollständig. Sie können helfen, sie zu vervollständigen, indem Sie das Produkt bearbeiten und weitere Daten aus den vorhandenen Fotos hinzufügen oder indem Sie mehr Fotos aufnehmen mit der App für <a href=\"https://android.openfoodfacts.org\">Android</a> oder <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Vielen Dank!"
 
 msgctxt "title_separator"
-msgid " — "
-msgstr " — "
+msgid " - "
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -2668,8 +2670,8 @@ msgid "Our Translators"
 msgstr "Unsere Übersetzer"
 
 msgctxt "translators_lead"
-msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages!"
-msgstr "Wir möchten DANKE an die großartigen Übersetzer sagen, die es uns ermöglichen, „Open Food Facts”, „Open Beauty Facts” und „Open Pet Food Facts” in all diesen verschiedenen Sprachen zu anzubieten!"
+msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
+msgstr "Wir möchten uns bei den großartigen Übersetzern bedanken, die es uns ermöglichen, Ihnen „Open Food Facts”, „Open Beauty Facts” und „Open Pet Food Facts” in all diesen Sprachen anzubieten! <a href=\"https://translate.openfoodfacts.org/\">Sie können sich uns in diesem globalen Projekt anschließen: Es erfordert kein technisches Wissen.</a>"
 
 msgctxt "translators_renewal_notice"
 msgid "Please note that this table is refreshed nightly and might be out of date."
@@ -2995,4 +2997,92 @@ msgstr "Verwertungshinweise - Zur Wiederverwertung"
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
 msgstr "Verwertungshinweise - Zur Entsorgung"
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr "Von %s geprüfte Produkte"
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr "Nicht von %s geprüfte Produkte"
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr "Von %s korrigierte Produkte"
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr "Nicht von %s korrigierte Produkte"
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr "Von %s bearbeitete Produkte"
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr "Nicht von %s bearbeitete Produkte"
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr "Von %s vervollständigte Produkte"
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr "Nicht von %s vervollständigte Produkte"
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr "Von %s fotografierte Produkte"
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr "Nicht von %s fotografierte Produkte"
+
+msgctxt "user_s_page"
+msgid "%s's page"
+msgstr "%ss Seite"
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr "Von %s geprüfte Produkte"
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr "Nicht von %s geprüfte Produkte"
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr "Von %s korrigierte Produkte"
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr "Nicht von %s korrigierte Produkte"
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr "Von %s bearbeitete Produkte"
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr "Nicht von %s bearbeitete Produkte"
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr "Von %s vervollständigte Produkte"
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr "Nicht von %s vervollständigte Produkte"
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr "Von %s fotografierte Produkte"
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr "Nicht von %s fotografierte Produkte"
+
+msgctxt "user_s_page"
+msgid "%s's page"
+msgstr "%ss Seite"
 
