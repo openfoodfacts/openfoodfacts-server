@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-11-12 13:23\n"
+"PO-Revision-Date: 2018-12-22 21:07\n"
 "Language-Team: Dutch\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -14,16 +14,6 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: nl\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-
-#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
-msgctxt ":langtag"
-msgid ":langtag"
-msgstr "nl"
-
-#. put here the language name ("French", "Japanese", etc)
-msgctxt ":langname"
-msgid ":langname"
-msgstr "Dutch"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -677,7 +667,7 @@ msgstr "Gedragscode"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/gedragscode"
 
 msgctxt "footer_data"
 msgid "Data"
@@ -737,7 +727,7 @@ msgstr "Wettelijke vermeldingen"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr ""
+msgstr "/juridisch"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -746,7 +736,7 @@ msgstr "Pers"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr ""
+msgstr "/pers"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -759,7 +749,7 @@ msgstr "Gebruiksvoorwaarden"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/gebruiksvoorwaarden"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -768,7 +758,7 @@ msgstr "Wie zijn wij?"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "/wie-wij-zijn"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -1320,7 +1310,7 @@ msgstr "Product toevoegen"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr ""
+msgstr "/toevoegen-product"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -1329,7 +1319,7 @@ msgstr "Bijdragen"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/bijdragen"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1338,7 +1328,7 @@ msgstr "Ontdek"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/ontdek"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1451,7 +1441,7 @@ msgstr "Voedingswaarden per 100 g"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/voedingsstofgehalte"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -2667,8 +2657,8 @@ msgid "This product page is not complete. You can help to complete it by editing
 msgstr "Deze productpagina is niet compleet. Je kunt helpen door het product te bewerken en meer gegevens van bestaande foto's toe te voegen, of door meer foto's te maken met de app voor <a href=\"https://android.openfoodfacts.org\">Android</a> of <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Bedankt!"
 
 msgctxt "title_separator"
-msgid " — "
-msgstr " — "
+msgid " - "
+msgstr ""
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -3005,6 +2995,50 @@ msgstr ""
 
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
+msgstr ""
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr ""
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr ""
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr ""
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr ""
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr ""
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr ""
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr ""
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr ""
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr ""
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr ""
+
+msgctxt "user_s_page"
+msgid "%s's page"
 msgstr ""
 
 msgctxt "checkers_products"
