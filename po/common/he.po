@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-11-12 13:22\n"
+"PO-Revision-Date: 2018-12-22 21:16\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -14,16 +14,6 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: he\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-
-#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
-msgctxt ":langtag"
-msgid ":langtag"
-msgstr "he"
-
-#. put here the language name ("French", "Japanese", etc)
-msgctxt ":langname"
-msgid ":langname"
-msgstr "Hebrew"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -746,7 +736,7 @@ msgstr "מידע לעתונאים"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr ""
+msgstr "/מידע לעתונאים"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -1329,7 +1319,7 @@ msgstr "לתרום"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/לתרום"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1338,7 +1328,7 @@ msgstr "לגלות"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/לגלות"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -2670,8 +2660,8 @@ msgid "This product page is not complete. You can help to complete it by editing
 msgstr "עמוד המוצר לוקה בחסר. ניתן לסייע בהשלמתו על ידי עריכה והוספת עוד נתונים מהתמונות שיש לנו או על ידי צילום באמצעות היישומון עבור <a href=\"https://android.openfoodfacts.org\">Android</a> או <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. תודה רבה לך!"
 
 msgctxt "title_separator"
-msgid " — "
-msgstr " — "
+msgid " - "
+msgstr ""
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -3053,3 +3043,48 @@ msgstr ""
 msgctxt "user_s_page"
 msgid "%s's page"
 msgstr ""
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr ""
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr ""
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr ""
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr ""
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr ""
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr ""
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr ""
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr ""
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr ""
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr ""
+
+msgctxt "user_s_page"
+msgid "%s's page"
+msgstr ""
+
