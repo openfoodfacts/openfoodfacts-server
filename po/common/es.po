@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-11-12 15:12\n"
+"PO-Revision-Date: 2018-12-23 14:02\n"
 "Language-Team: Spanish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -14,16 +14,6 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: es-ES\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-
-#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
-msgctxt ":langtag"
-msgid ":langtag"
-msgstr "es"
-
-#. put here the language name ("French", "Japanese", etc)
-msgctxt ":langname"
-msgid ":langname"
-msgstr "Spanish"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -678,7 +668,7 @@ msgstr "Código de conducta"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/codigo-de-conducta"
 
 msgctxt "footer_data"
 msgid "Data"
@@ -700,7 +690,7 @@ msgstr "Preguntas frecuentes"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr ""
+msgstr "/preguntas-frecuentes"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -747,7 +737,7 @@ msgstr "Prensa"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr ""
+msgstr "/prensa"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -769,7 +759,7 @@ msgstr "Quienes somos"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "/quienes-somos"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -1451,7 +1441,7 @@ msgstr "Valores nutricionales por 100 g"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/valor-nutricional"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -2669,8 +2659,8 @@ msgid "This product page is not complete. You can help to complete it by editing
 msgstr "Esta página de producto no está completa. Puedes ayudar a completarla editando y agregando más datos de las fotos que tenemos, o tomando más fotos con la aplicación para <a href=\"https://android.openfoodfacts.org\">Android</a> o <a href=\"https://ios.openfoodfacts.org\">iPhone / iPad</a>. ¡Gracias!"
 
 msgctxt "title_separator"
-msgid " — "
-msgstr " — "
+msgid " - "
+msgstr ""
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -3052,3 +3042,48 @@ msgstr ""
 msgctxt "user_s_page"
 msgid "%s's page"
 msgstr ""
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr ""
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr ""
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr ""
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr ""
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr ""
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr ""
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr ""
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr ""
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr ""
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr ""
+
+msgctxt "user_s_page"
+msgid "%s's page"
+msgstr ""
+
