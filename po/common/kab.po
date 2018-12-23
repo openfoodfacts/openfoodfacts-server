@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: kab\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-11-12 13:40\n"
+"PO-Revision-Date: 2018-12-23 08:06\n"
 "Language-Team: Kabyle\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -14,16 +14,6 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: kab\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-
-#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
-msgctxt ":langtag"
-msgid ":langtag"
-msgstr "kab"
-
-#. put here the language name ("French", "Japanese", etc)
-msgctxt ":langname"
-msgid ":langname"
-msgstr "Kabyle"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -656,7 +646,7 @@ msgstr "Ttwaceyyɛen yifarisen"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "Ttwaceyyɛen yifarisen"
 
 msgctxt "footer_data"
 msgid "Data"
@@ -665,7 +655,7 @@ msgstr "Isefka"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr ""
+msgstr "/Isefka"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -714,7 +704,7 @@ msgstr "Usḍif"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr ""
+msgstr "/usḍif"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -723,7 +713,7 @@ msgstr "Taɣamsa"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr ""
+msgstr "/taɣamsa"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -736,7 +726,7 @@ msgstr "Tiwtilin n useqdec"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/tiwtilin n useqdec"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -745,7 +735,7 @@ msgstr "Anwa- ɣ"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "/anwa- ɣ"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -1284,7 +1274,7 @@ msgstr "Rnu afaris"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr ""
+msgstr "/ Rnu afaris"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -1293,7 +1283,7 @@ msgstr "Ttekki"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/Ttekki"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1302,7 +1292,7 @@ msgstr "Wali"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/Issin-d"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -2622,7 +2612,7 @@ msgid "This product page is not complete. You can help to complete it by editing
 msgstr ""
 
 msgctxt "title_separator"
-msgid " — "
+msgid " - "
 msgstr ""
 
 msgctxt "recent_changes"
@@ -3005,3 +2995,48 @@ msgstr ""
 msgctxt "user_s_page"
 msgid "%s's page"
 msgstr ""
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr ""
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr ""
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr ""
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr ""
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr ""
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr ""
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr ""
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr ""
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr ""
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr ""
+
+msgctxt "user_s_page"
+msgid "%s's page"
+msgstr ""
+
