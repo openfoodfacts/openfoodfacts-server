@@ -45,7 +45,7 @@ use ProductOpener::Lang qw/:all/;
 if (not defined $User_id) {
 	my $r = shift;
 	my $url = format_subdomain($subdomain) . '/cgi/session.pl';
-	$r->headers_out->set(Location => $accept_consent_response->redirect_to);
+	$r->headers_out->set(Location => $url);
 	$r->status(302);
 	return 302;
 }
@@ -76,7 +76,7 @@ elsif ($ENV{'REQUEST_METHOD'} eq 'GET') {
 				}
 			}
 			else {
-				_display_form($get_challenge, \$accept_consent_response->requested_scope, $accept_consent_response->user, $accept_consent_response->client);
+				_display_form($get_challenge, \$get_consent_response->requested_scope, $get_consent_response->user, $get_consent_response->client);
 			}
 		}
 	}
@@ -90,14 +90,14 @@ elsif ($ENV{'REQUEST_METHOD'} eq 'POST') {
 	if ((not (defined $user_action)) || ($user_action eq 'Deny access'))
 	{
 		# Looks like the consent request was denied by the user
-		$log->info('rejecting consent challenge on behalf of the user', { challenge => $get_challenge }) if $log->is_info();
-		my $reject_consent_response = reject_consent_request($challenge, {
+		$log->info('rejecting consent challenge on behalf of the user', { challenge => $post_challenge }) if $log->is_info();
+		my $reject_consent_response = reject_consent_request($post_challenge, {
 			error => 'access_denied',
 			error_description => 'The resource owner denied the request'
 		});
-		$log->debug('received reject consent response for challenge from ORY Hydra', { challenge => $get_challenge, reject_consent_response => $reject_consent_response }) if $log->is_debug();
+		$log->debug('received reject consent response for challenge from ORY Hydra', { challenge => $post_challenge, reject_consent_response => $reject_consent_response }) if $log->is_debug();
 		if ($reject_consent_response) {
-			$log->info('rejection accepted by ORY Hydra, redirecting the user to the specified URL', { challenge => $get_challenge, redirect_to => $reject_consent_response->redirect_to }) if $log->is_info();
+			$log->info('rejection accepted by ORY Hydra, redirecting the user to the specified URL', { challenge => $post_challenge, redirect_to => $reject_consent_response->redirect_to }) if $log->is_info();
 			my $r = shift;
 			$r->headers_out->set(Location => $reject_consent_response->redirect_to);
 			$r->status(302);
@@ -109,11 +109,11 @@ elsif ($ENV{'REQUEST_METHOD'} eq 'POST') {
 	}
 
 	# If we got to here, then the user was authenticated and selected 0..n scope(s).
-	$log->info('received consent GET for challenge', { challenge => $get_challenge }) if $log->is_info();
-		my $get_consent_response = get_consent_request($get_challenge);
-		$log->debug('received consent response for challenge from ORY Hydra', { challenge => $get_challenge, get_consent_response => $get_consent_response }) if $log->is_debug();
+	$log->info('received consent POST for challenge', { challenge => $post_challenge }) if $log->is_info();
+		my $get_consent_response = get_consent_request($post_challenge);
+		$log->debug('received consent response for challenge from ORY Hydra', { challenge => $post_challenge, get_consent_response => $get_consent_response }) if $log->is_debug();
 		if ($get_consent_response) {
-			$log->info('accepting consent challenge on behalf of the user', { challenge => $get_challenge, grant_scope => \@grant_scope }) if $log->is_info();
+			$log->info('accepting consent challenge on behalf of the user', { challenge => $post_challenge, grant_scope => \@grant_scope }) if $log->is_info();
 			my $remember_me;
 			if ((defined param('remember_me')) and (param('remember_me') eq 'on')) {
 				$remember_me => $JSON::PP::true;
@@ -122,22 +122,25 @@ elsif ($ENV{'REQUEST_METHOD'} eq 'POST') {
 				$remember_me => $JSON::PP::false;
 			}
 
-			my $accept_consent_response = accept_consent_request($challenge, {
+			my $accept_consent_response = accept_consent_request($post_challenge, {
 				grant_scope => \@grant_scope,
 				grant_access_token_audience => $get_consent_response->requested_access_token_audience,
 				remember => $remember_me,
 				remember_for => 3600
 			});
-			$log->debug('received accept consent response for challenge from ORY Hydra', { challenge => $get_challenge, accept_consent_response => $accept_consent_response }) if $log->is_debug();
+			$log->debug('received accept consent response for challenge from ORY Hydra', { challenge => $post_challenge, accept_consent_response => $accept_consent_response }) if $log->is_debug();
 			if ($accept_consent_response) {
-				$log->info('accepted consent accepted by ORY Hydra, redirecting the user to the specified URL', { challenge => $get_challenge, redirect_to => $accept_consent_response->redirect_to }) if $log->is_info();
+				$log->info('accepted consent accepted by ORY Hydra, redirecting the user to the specified URL', { challenge => $post_challenge, redirect_to => $accept_consent_response->redirect_to }) if $log->is_info();
 			}
 			else {
 				die 'Could not talk to Hydra';
 			}
-	}
 
-	_display_form($post_challenge, \$accept_consent_response->requested_scope, $accept_consent_response->user, $accept_consent_response->client);
+			_display_form($post_challenge, \$get_consent_response->requested_scope, $get_consent_response->user, $get_consent_response->client);
+		}
+		else {
+			die 'Could not talk to Hydra';
+		}
 }
 else {
 	my $r = shift;

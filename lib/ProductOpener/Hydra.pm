@@ -121,7 +121,7 @@ sub accept_login_request($$) {
 	return _put('login', 'accept', $challenge, $body);
 }
 
-sub accept_login_request($$) {
+sub reject_login_request($$) {
 	my $challenge = shift;
 	my $body = shift;
 	return _put('login', 'reject', $challenge, $body);
@@ -138,7 +138,7 @@ sub accept_consent_request($$) {
 	return _put('consent', 'accept', $challenge, $body);
 }
 
-sub accept_consent_request($$) {
+sub reject_consent_request($$) {
 	my $challenge = shift;
 	my $body = shift;
 	return _put('consent', 'reject', $challenge, $body);
