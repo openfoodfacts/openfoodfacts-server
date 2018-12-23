@@ -3,12 +3,17 @@
 /*global process require*/
 
 const util = require('util');
-const fs = require('fs');
-const stat = util.promisify(fs.stat);
-const { spawn } = require('child_process');
+const { spawn, execFile } = require('child_process');
+const execFilePromise = util.promisify(execFile);
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function gitMtime(path) {
+  const { stdout } = await execFilePromise('git', ['log', '-1', '--format="%at"', '--', path]);
+
+  return parseInt(stdout.trim().replace('"', '').trim(), 10);
 }
 
 async function main() {
@@ -34,22 +39,14 @@ async function main() {
   for (const file of files) {
     const txtPath = `taxonomies/${file}.txt`;
     const stoPath = `taxonomies/${file}.result.sto`;
-    const txtStat = await stat(txtPath);
-    let stoMtimeMs;
-    try {
-      const stoStat = await stat(stoPath);
-      stoMtimeMs = stoStat.mtimeMs;
-    }
-    catch (e) {
-      console.error(e);
-      stoMtimeMs = 0;
-    }
+    const txtMtimeMs = await gitMtime(txtPath);
+    const stoMtimeMs = await gitMtime(stoPath);
 
-    if (stoMtimeMs >= txtStat.mtimeMs) {
+    if (stoMtimeMs >= txtMtimeMs) {
       console.log(`${txtPath} is up-to-date`);
     }
     else {
-      console.log(`${txtPath} needs to be rebuilt; ${txtStat.mtimeMs} vs ${stoMtimeMs}`);
+      console.log(`${txtPath} needs to be rebuilt; ${txtMtimeMs} vs ${stoMtimeMs}`);
 
       try {
         // Launch the Perl script to rebuild the taxonomy and output STDOUT
