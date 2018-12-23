@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-12-06 17:14\n"
+"PO-Revision-Date: 2018-12-23 08:14\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -14,16 +14,6 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: pt-BR\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-
-#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
-msgctxt ":langtag"
-msgid ":langtag"
-msgstr ":idioma_do_rótulo"
-
-#. put here the language name ("French", "Japanese", etc)
-msgctxt ":langname"
-msgid ":langname"
-msgstr ":nome_do_idioma"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -2324,7 +2314,7 @@ msgstr "30 g, 2 bolachas 60 g, 5 cl, um copo 200 ml"
 
 msgctxt "serving_size_note"
 msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
-msgstr ""
+msgstr "Se a tabela de fatos nutricionais contiver valores para o produto preparado, indique o tamanho total da porção do produto preparado (incluindo água ou leite adicionados)."
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2670,7 +2660,7 @@ msgstr "Esta página de produto não está completa. Você pode ajudar a complet
 
 msgctxt "title_separator"
 msgid " - "
-msgstr ""
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -2682,7 +2672,7 @@ msgstr "Nossos tradutores"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
-msgstr ""
+msgstr "Gostaríamos de AGRADECER aos incríveis tradutores que tornaram possível apresentar os Open Food Facts, os Open Beauty Facts e o Open Pet Food Facts para sí em todos esses idiomas! <a href=\"https://translate.openfoodfacts.org/\">Você pode-se juntar a nós neste esforço global: não requer nenhum conhecimento técnico.</a>"
 
 msgctxt "translators_renewal_notice"
 msgid "Please note that this table is refreshed nightly and might be out of date."
@@ -2943,70 +2933,114 @@ msgstr "Funções"
 
 msgctxt "photos_and_data_check"
 msgid "Photos and data check"
-msgstr ""
+msgstr "Fotos e verificação de dados"
 
 msgctxt "photos_and_data_check_description"
 msgid "Product pages can be marked as checked by experienced contributors who verify that the most recent photos are selected and cropped, and that all the product data that can be inferred from the product photos has been filled and is correct."
-msgstr ""
+msgstr "As páginas do produto podem ser marcadas como verificadas por colaboradores experientes que verificam se as fotos mais recentes estão selecionadas e cortadas e se todos os dados do produto que podem ser inferidos das fotos do produto foram preenchidos e estão corretos."
 
 msgctxt "photos_and_data_checked"
 msgid "Photos and data checked"
-msgstr ""
+msgstr "Fotos e dados verificados"
 
 msgctxt "i_checked_the_photos_and_data"
 msgid "I checked the photos and data."
-msgstr ""
+msgstr "Eu verifiquei as fotos e os dados."
 
 msgctxt "i_checked_the_photos_and_data_again"
 msgid "I checked the photos and data again."
-msgstr ""
+msgstr "Eu verifiquei as fotos e os dados novamente."
 
 msgctxt "last_check_dates_p"
 msgid "Last check dates"
-msgstr ""
+msgstr "Última data de verificação"
 
 msgctxt "last_check_dates_s"
 msgid "Last check date"
-msgstr ""
+msgstr "Última data de verificação"
 
 msgctxt "product_last_checked"
 msgid "Last check of product page on"
-msgstr ""
+msgstr "Última verificação da página do produto em"
 
 msgctxt "product_other_information"
 msgid "Other information"
-msgstr ""
+msgstr "Outra informação"
 
 msgctxt "producer_version_id"
 msgid "Producer version identifier"
-msgstr ""
+msgstr "Identificador da versão do produtor"
 
 msgctxt "net_weight"
 msgid "Net weight"
-msgstr ""
+msgstr "Peso líquido"
 
 msgctxt "drained_weight"
 msgid "Drained weight"
-msgstr ""
+msgstr "Peso escorrido"
 
 msgctxt "volume"
 msgid "Volume"
-msgstr ""
+msgstr "Volume"
 
 msgctxt "other_information"
 msgid "Other information"
-msgstr ""
+msgstr "Outra informação"
 
 msgctxt "conservation_conditions"
 msgid "Conservation conditions"
-msgstr ""
+msgstr "Condições de conservação"
 
 msgctxt "recycling_instructions_to_recycle"
 msgid "Recycling instructions - To recycle"
-msgstr ""
+msgstr "Instruções de reciclagem - Para reciclar"
 
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
+msgstr "Instruções de reciclagem - Para descartar"
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr ""
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr ""
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr ""
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr ""
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr ""
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr ""
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr ""
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr ""
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr ""
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr ""
+
+msgctxt "user_s_page"
+msgid "%s's page"
 msgstr ""
 
 msgctxt "checkers_products"
