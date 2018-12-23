@@ -62,6 +62,9 @@ if ($ENV{'REQUEST_METHOD'} eq 'GET') {
 					$r->status(302);
 					return 302;
 				}
+				else {
+					die 'Could not talk to Hydra';
+				}
 			}
 		}
 	}
@@ -89,6 +92,9 @@ elsif ($ENV{'REQUEST_METHOD'} eq 'POST') {
 			$r->headers_out->set(Location => $accept_login_response->redirect_to);
 			$r->status(302);
 			return 302;
+		}
+		else {
+			die 'Could not talk to Hydra';
 		}
 	}
 
