@@ -405,7 +405,7 @@ sv:Paprikaextrakt, e160c
 
 # Not sure whether the natural adds anything special, paprika extract seems always to be natural
 
-<fr:paprika extract
+<en:paprika extract
 fr:extrait naturel de paprika
 # fr:extrait-naturel-de-paprika 28 products in 1 language @2018-10-15
 
@@ -1471,7 +1471,7 @@ wikipedia:https://en.wikipedia.org/wiki/Sodium_ascorbate
 
 
 <en:antioxidant
-en:Fatty acid esters, E304, E 304, E-304
+en:Fatty acid esters of ascorbic acid, E304, E 304, E-304
 de:E304, E 304, E-304
 es:E304, E 304, E-304
 fr:E304, E 304, E-304
@@ -2086,12 +2086,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mixed_ammonium_salts_of_phosphorylate
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 en:acid esters of mono- and diglycerides of fatty acids, E472, E 472, E-472
-fr:Esters d'acides gras alimentaires, E472, E 472, E-472
+fr:Esters d'acides gras alimentaires
 gl:Ésteres de ácidos graxos alimentarios
-nl:Esters van mono- en diglyceriden, E472, E 472, E-472
+nl:Esters van mono- en diglyceriden
 tr:yağ asitlerinin mono ve digiseridleri
 
-<en:acid esters of mono- and diglycerides of fatty acids, E472a, E 472a, E-472a
+<en:acid esters of mono- and diglycerides of fatty acids
 en:acetic acid esters of mono- and diglycerides of fatty acids, E472a, E 472a, E-472a
 bs:Acetatni esteri mono- i diglicerida masnih kiselina
 bg:Естери на оцетната киселина с моно- и диглицериди на мастни киселини, E472a, E 472a, E-472a
@@ -2223,7 +2223,7 @@ tr:tartarik asit esters of mono- ve diglycerides of fatty asits, E472d, E 472d, 
 uk:Естери моно- та дигліцеридів та винної і жирних кислот, E472d, E 472d, E-472d
 # additive/e472d-tartaric-acid-esters-of-mono-and-diglycerides-of-fatty-acids has 24 products in 2 languages @2018-11-14
 
-<en:acid esters of mono- and diglycerides of fatty acids, E472e, E 472e, E-472e
+<en:acid esters of mono- and diglycerides of fatty acids
 en:Mono- and diacetyl tartaric acid esters of mono- and diglycerides of fatty acids, E472e, E 472e, E-472e
 bg:Естери на моно- и диацетилвинената киселина с моно- и диглицериди на мастни киселини, E472e, E 472e, E-472e
 bs:Mono- i diacetil tartaratni esteri mono- i diglicerida masnih kiselina, E472e, E 472e, E-472e
@@ -3577,6 +3577,12 @@ en:pasteurized goat milk, pasteurised goat milk, pasteurised goatmilk
 es:leche de cabra pasteurizada
 fr:lait de chèvre pasteurisé, lait pasteurisé de chèvre
 it:latte di capra pastorizzato
+
+<en:milk
+en:sheep's milk
+de:Schafmilch
+fr:laitde brebis
+nl:schapenmelk
 
 # RAW SHEEPS MILK - milk produced by female sheep before any treatment
 
@@ -7589,6 +7595,8 @@ fr:présure de veau
 fr:os de veau
 
 #Poulet
+
+fr:viande de poulet
 
 <fr:viande de poulet
 fr:produit à base de viande de poulet
@@ -15361,7 +15369,7 @@ uk:Екстракт дріжджів
 zh:酵母抽提物
 wikipedia:en:https://en.wikipedia.org/wiki/Yeast_extract
 
-<en:extrait de levure
+<en:yeast extract
 en:yeast extract powder
 de:Hefeextraktpulver
 fr:extrait de levure en poudre
@@ -19568,7 +19576,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/passion%20fruit
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruit%20de%20la%20passion
 # 559 products in 5 languages @2018-09-29
 
-<fr:fruit de la passion
+<en:passion fruit
 <en:fruit juice
 en:passion fruit juice
 de:Passionsfruchtsaft
@@ -19579,7 +19587,7 @@ nl:passievruchtsap
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20fruit%20de%20la%20passion
 # 262 products in 6 languages @2018-09-29
 
-<fr:passion fruit juice
+<en:passion fruit juice
 en:reconstituted passion fruit juice
 de:Passionfruchtsaft aus Konzentrat
 fr:jus de fruit de la passion à base de concentré
@@ -20732,7 +20740,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Raisin
 # SULTANA is a "white" (pale green), oval seedless grape variety also called the sultanina
 # maybe it is necessary to split between dried and fresh
 
-<fr:grape
+<en:grape
 en:sultanas
 fr:raisins secs sultanines
 de:Sultaninen
@@ -21388,14 +21396,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Asparagus
 # en:asparagus has 301 products in 6 languages @2018-11-11
 
 <en:asparagus
-en: green asparagus
+en:green asparagus
 de:Grüne Spargeln
 fr:asperges vertes
 it:asparagi verdi
 nl:groene asperges
 # fr:asperges-vertes has 65 products in 6 languages @2018-11-11
 
-<fr: green asparagus
+<en:green asparagus
 es:Espárragos verdes sin pelar
 
 <en:asparagus
@@ -28476,7 +28484,7 @@ es:aroma de cilantro
 
 # Filipendula ulmaria, commonly known as meadowsweet or mead wort, is a perennial herb in the family Rosaceae that grows in damp meadows.
 
-<en:plant
+// <en:plant
 en:meadowsweet
 ar:إكليلية المروج
 az:Qarağacyarpaq quşqonmaz
@@ -28526,7 +28534,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Filipendula_ulmaria
 
 # Roselle (Hibiscus sabdariffa) is a species of Hibiscus used for the production of bast fibre and as an infusion, in which it may be known as carcade.
 
-<en:plant
+// <en:plant
 en:roselle flower
 ar:كركديه
 # arz:كركديه
@@ -30548,7 +30556,7 @@ fr:babeurre en poudre
 
 fr:mâche
 
-<en:Carbon Dioxide
+// <en:carbon dioxide
 en:Carbon Dioxide Gas
 fr:gaz carbonique
 
