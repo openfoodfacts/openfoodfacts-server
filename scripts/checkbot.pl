@@ -40,13 +40,15 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
+use ProductOpener::Data qw/:all/;
+use ProductOpener::Data qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 use LWP::UserAgent;
 my $ua = LWP::UserAgent->new;
@@ -78,7 +80,7 @@ sub send_msg($) {
 	
 }
 
-my $cursor = $products_collection->query({})->fields({ code => 1 });;
+my $cursor = get_products_collection()->query({})->fields({ code => 1 });;
 my $count = $cursor->count();
 	
 	print STDERR "$count products to update\n";

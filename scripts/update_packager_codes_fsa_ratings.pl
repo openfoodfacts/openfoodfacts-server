@@ -32,7 +32,7 @@ use ProductOpener::Tags qw/:all/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 use LWP::Simple;
 
 

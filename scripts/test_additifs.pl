@@ -44,7 +44,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 
 # Get a list of all products
@@ -53,7 +53,7 @@ my $class = 'additives';
 
 open (my $OUT, q{>}, "$www_root/images/$class.html");
 
-my $cursor = $products_collection->query({})->fields({ code => 1 })->sort({code =>1});
+my $cursor = get_products_collection()->query({})->fields({ code => 1 })->sort({code =>1});
 my $count = $cursor->count();
 
 		my %plus = ();
@@ -125,7 +125,7 @@ my $count = $cursor->count();
 
 		if (-e "$data_root/products/$path/product.sto") {
 			#store("$data_root/products/$path/product.sto", $product_ref);		
-			#$products_collection->save($product_ref);
+			#get_products_collection()->save($product_ref);
 		
 			# print $OUT "<a href=\"" . product_url($product_ref) . "\">$product_ref->{code} - $product_ref->{name}</a> : " . join (" ", sort @{$product_ref->{$class . '_tags'}}) . "<br />\n";
 			if ($change ne '') {

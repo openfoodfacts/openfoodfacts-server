@@ -44,13 +44,13 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 
 # Get a list of all products
 
 
-my $cursor = $products_collection->query({})->fields( {'code' => 1, '_id'=>1, 'lc'=>1});
+my $cursor = get_products_collection()->query({})->fields( {'code' => 1, '_id'=>1, 'lc'=>1});
 
 my $count = $cursor->count();
 
@@ -76,14 +76,14 @@ my $j = 0;
 		
 		print STDERR "code does not exist - updating product _id: $id - hcode $code\n";
 		
-		#$products_collection->remove({"code" => $code});
+		#get_products_collection()->delete_one({"code" => $code});
 		
 		# index_product($product_ref);
 
 		# Store
 
 		# store("$data_root/products/$path/product.sto", $product_ref);		
-		# $products_collection->save($product_ref);
+		# get_products_collection()->save($product_ref);
 		}
 	}
 

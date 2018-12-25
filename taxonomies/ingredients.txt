@@ -7216,6 +7216,10 @@ de:Ziegenfleisch
 en:pork meat
 fr:viande de porc
 carbon_footprint_fr_foodges_ingredient:fr: Viande de porc
+# Facteur GES kg CO2 eq / kg d'ingrédient en sortie de magasin (poids net)
+carbon_footprint_fr_foodges_ingredient_for_net_weight:en 5.9
+# Facteur GES kg CO2 eq / kg d'ingrédient ingéré
+carbon_footprint_fr_foodges_ingredient_for_ingested_weight:en 7.4
 
 <en:pork meat
 en:pork

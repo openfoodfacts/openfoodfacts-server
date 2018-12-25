@@ -39,14 +39,15 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::Data qw/:all/;
+
 use URI::Escape::XS qw/uri_escape uri_unescape/;
-  
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 # Generate a list of the top brands, categories, users, additives etc.
 
@@ -96,7 +97,7 @@ foreach my $l ('en') {
 	#$query_ref->{"nutriments.sugars_100g"}{ '$gte'}  = 0.01;
 	# -> does not seem to work for sugars, maybe some string values?!
 		
-	my $cursor = $products_collection->query($query_ref);
+	my $cursor = get_products_collection()->query($query_ref);
 	my $count = $cursor->count();
 	
 	$langs{$l} = $count;
