@@ -44,7 +44,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 use Geo::IP;
 my $gi = Geo::IP->new(GEOIP_MEMORY_CACHE);
@@ -244,7 +244,7 @@ foreach my $code (sort { $codes{$a}{n} <=> $codes{$b}{n}} keys %codes)
 		else {
 			print "updating scan count for $code\n";
 			store("$data_root/products/$path/product.sto", $product_ref);		
-			$products_collection->save($product_ref);
+			get_products_collection()->save($product_ref);
 		}
 		
 		#update the number of scans
@@ -254,7 +254,7 @@ foreach my $code (sort { $codes{$a}{n} <=> $codes{$b}{n}} keys %codes)
 		if ($code eq '!3033710076017') 
 		{
 		#store("$data_root/products/$path/product.sto", $product_ref);		
-		#$products_collection->save($product_ref);
+		#get_products_collection()->save($product_ref);
 		}
 		
 

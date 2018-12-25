@@ -58,47 +58,6 @@ if ($User_id eq 'unwanted-user-french') {
 }
 
 
-
-sub normalize_nutriment_value_and_modifier($$) {
-		
-	my $value_ref = shift;
-	my $modifier_ref = shift;
-	
-	if ($$value_ref =~ /nan/i) {
-		$$value_ref = '';
-	}		
-	
-	if ($$value_ref =~ /(\&lt;=|<=|\N{U+2264})( )?/) {
-		$$value_ref =~ s/(\&lt;=|<=|\N{U+2264})( )?//;
-		$modifier_ref = "\N{U+2264}";
-	}
-	if ($$value_ref =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less)( )?/) {
-		$$value_ref =~ s/(\&lt;|<|min|minimum|max|maxi|maximum|environ)( )?//;
-		$$modifier_ref = '<';
-	}
-	if ($$value_ref =~ /(\&gt;=|>=|\N{U+2265})/) {
-		$$value_ref =~ s/(\&gt;=|>=|\N{U+2265})( )?//;
-		$modifier_ref = "\N{U+2265}";
-	}
-	if ($$value_ref =~ /(\&gt;|>|min|mini|minimum|greater|more)/) {
-		$$value_ref =~ s/(\&gt;|>|min|mini|minimum|greater|more)( )?//;
-		$$modifier_ref = '>';
-	}
-	if ($$value_ref =~ /(env|environ|about|~|≈)/) {
-		$$value_ref =~ s/(env|environ|about|~|≈)( )?//;
-		$$modifier_ref = '~';
-	}			
-	if ($$value_ref =~ /trace|traces/) {
-		$$value_ref = 0;
-		$$modifier_ref = '~';
-	}
-	if ($$value_ref !~ /\./) {
-		$$value_ref =~ s/,/\./;
-	}
-}
-
-
-
 my $type = param('type') || 'search_or_add';
 my $action = param('action') || 'display';
 
@@ -375,7 +334,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				delete $product_ref->{$ingredients_text_with_allergens};
 			}
 
-			compute_field_tags($product_ref, $field);
+			compute_field_tags($product_ref, $lc, $field);
 			
 		}
 		else {
@@ -537,30 +496,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 					delete $product_ref->{nutriments}{$nid . "_100g"};
 					delete $product_ref->{nutriments}{$nid . "_serving"};
 			}
-			else {
-				if ((defined $modifier) and ($modifier ne '')) {
-					$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
-				}
-				else {
-					delete $product_ref->{nutriments}{$nid . "_modifier"};
-				}
-				$product_ref->{nutriments}{$nid . "_unit"} = $unit;		
-				$product_ref->{nutriments}{$nid . "_value"} = $value;
-				
-				if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
-					$value = $value * $Nutriments{$nid}{iu} ;
-					$unit = $Nutriments{$nid}{unit};
-				}
-				elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
-					$value = $value / 100 * $Nutriments{$nid}{dv} ;
-					$unit = $Nutriments{$nid}{unit};
-				}
-				if ($nid eq 'water-hardness') {
-					$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit);
-				}
-				else {
-					$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit);
-				}
+			else {			
+				assign_nid_modifier_value_and_unit($product_ref, $nid, $modifier, $value, $unit);
 			}
 		}
 		
@@ -571,29 +508,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 					delete $product_ref->{nutriments}{$nidp . "_100g"};
 					delete $product_ref->{nutriments}{$nidp . "_serving"};
 			}
-			else {
-				if ((defined $modifierp) and ($modifierp ne '')) {
-					$product_ref->{nutriments}{$nidp . "_modifier"} = $modifierp;
-				}
-				else {
-					delete $product_ref->{nutriments}{$nidp . "_modifier"};
-				}		
-				$product_ref->{nutriments}{$nidp . "_value"} = $valuep;
-				
-				if (((uc($unit) eq 'IU') or (uc($unit) eq 'UI')) and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{iu} > 0)) {
-					$valuep = $valuep * $Nutriments{$nid}{iu} ;
-					$unit = $Nutriments{$nid}{unit};
-				}
-				elsif  (($unit eq '% DV') and (exists $Nutriments{$nid}) and ($Nutriments{$nid}{dv} > 0)) {
-					$valuep = $valuep / 100 * $Nutriments{$nid}{dv} ;
-					$unit = $Nutriments{$nid}{unit};
-				}
-				if ($nid eq 'water-hardness') {
-					$product_ref->{nutriments}{$nidp} = unit_to_mmoll($valuep, $unit);
-				}
-				else {
-					$product_ref->{nutriments}{$nidp} = unit_to_g($valuep, $unit);
-				}
+			else {		
+				assign_nid_modifier_value_and_unit($product_ref, $nidp, $modifierp, $valuep, $unit);
 			}
 		}		
 		

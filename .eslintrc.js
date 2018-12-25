@@ -2,7 +2,8 @@ module.exports = {
     "env": {
         "browser": true,
         "es6": true,
-        "jquery": true
+        "jquery": true,
+        "amd": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
@@ -63,10 +64,6 @@ module.exports = {
         "key-spacing": "off",
         "keyword-spacing": "off",
         "line-comment-position": "off",
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
         "lines-around-comment": "error",
         "lines-around-directive": "error",
         "lines-between-class-members": "error",

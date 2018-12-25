@@ -47,8 +47,6 @@ use ProductOpener::MissionsConfig qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
 
-use MongoDB;
-use Tie::IxHash;
 use Log::Any qw($log);
 
 
@@ -217,7 +215,9 @@ sub compute_missions_for_user($) {
 				$log->debug("querying condition", { condition => $i }) if $log->is_debug();
 
 				
-				my $cursor = $products_collection->query($query_ref)->fields({});
+				my $cursor = execute_query(sub {
+					return get_products_collection()->query($query_ref)->fields({});
+				});				
 				my $count = $cursor->count();
 				
 				if ($count < $condition_ref->[0]) {

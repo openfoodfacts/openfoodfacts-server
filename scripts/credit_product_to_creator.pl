@@ -38,13 +38,14 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
+use ProductOpener::Data qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 my $code = $ARGV[0];
 my $creator = $ARGV[1];
@@ -61,7 +62,7 @@ my	$product_ref = retrieve_product($code);
 			$product_ref->{creator} = $creator;
 
 			store("$data_root/products/$path/product.sto", $product_ref);		
-			$products_collection->save($product_ref);
+			get_products_collection()->save($product_ref);
 		}
 	
 

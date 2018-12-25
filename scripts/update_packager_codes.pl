@@ -32,7 +32,7 @@ use ProductOpener::Tags qw/:all/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 use LWP::Simple;
 
 
@@ -146,6 +146,36 @@ if (opendir (DH, "$data_root/packager-codes")) {
 				elsif ($country eq 'it') {
                                         $code = $fields[$headers{approvalnumber}];
 					$code =~ s/^CE //;
+                                        $code = normalize_packager_codes("$code EC");
+                                }
+				elsif ($country eq 'be') {
+                                        $code = $fields[$headers{no_agrement}];
+                                        $code =~ s/^CE //;
+                                        $code = normalize_packager_codes("BE $code EC");
+                                }
+                                elsif ($country eq 'hu') {
+                                        $code = $fields[$headers{code}];
+                                        $code =~ s/^CE //;
+                                        $code = normalize_packager_codes("$code EC");
+                                }
+                                elsif ($country eq 'lu') {
+                                        $code = $fields[$headers{zulassungsnummer}];
+                                        $code =~ s/^CE //;
+                                        $code = normalize_packager_codes("LU $code EC");
+                                }
+				elsif ($country eq 'lt') {
+                                        $code = $fields[$headers{vet_approval_no}];
+                                        $code =~ s/^CE //;
+                                        $code = normalize_packager_codes("LT $code EC");
+                                }
+                                elsif ($country eq 'sv') {
+                                        $code = $fields[$headers{nr}];
+                                        $code =~ s/^CE //;
+                                        $code = normalize_packager_codes("SV $code EC");
+                                }
+                                elsif ($country eq 'rs') {
+                                        $code = $fields[$headers{approval_number}];
+                                        $code =~ s/^CE //;
                                         $code = normalize_packager_codes("$code EC");
                                 }
 				

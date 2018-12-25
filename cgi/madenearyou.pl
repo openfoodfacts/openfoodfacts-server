@@ -40,7 +40,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 use Log::Any qw($log);
 
 ProductOpener::Display::init();
@@ -75,13 +75,13 @@ sub display_madenearyou($) {
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
-<script type="text/javascript" src="/js/jquery.cookie.min.js"></script>	
+<script type="text/javascript" src="/bower_components/foundation/js/vendor/jquery.cookie.js"></script>	
 
-<script src="/js/jquery.iframe-transport.js"></script>
-<script src="/js/jquery.fileupload.js"></script>	
+<script src="/js/jquery.iframe-transport.min.js"></script>
+<script src="/js/jquery.fileupload.min.js"></script>	
 <script src="/js/load-image.min.js"></script>
 <script src="/js/canvas-to-blob.min.js"></script>
-<script src="/js/jquery.fileupload-ip.js"></script>
+<script src="/js/jquery.fileupload-ip.min.js"></script>
 
 $header
 
@@ -104,10 +104,10 @@ $initjs
 <meta property="fb:app_id" content="156259644527005" />
 <meta property="og:type" content="food"/>
 <meta property="og:title" content="C'est emballé près de chez vous"/>
-<meta property="og:url" content="http://cestemballepresdechezvous.fr"/>
+<meta property="og:url" content="https://cestemballepresdechezvous.fr"/>
 
-<meta property="og:image" content="http://cestemballepresdechezvous.fr/images/misc/cestemballepresdechezvous.png"/>
-<meta property="og:image" content="http://cestemballepresdechezvous.fr/images/misc/cestemballepresdechezvous-carte-logo.png"/>
+<meta property="og:image" content="https://cestemballepresdechezvous.fr/images/misc/cestemballepresdechezvous.png"/>
+<meta property="og:image" content="https://cestemballepresdechezvous.fr/images/misc/cestemballepresdechezvous-carte-logo.png"/>
 <meta property="og:description" content="Carte interactive des lieux de production des produits alimentaires"/>
 <meta name="description" content="Carte interactive des lieux de production des produits alimentaires" />
 
@@ -254,8 +254,8 @@ Pour trouver l'inspiration, découvrez chaque jour des dizaines de <a href="http
 <div style="float:left;padding-right:15px;" class="sharebutton"><iframe allowtransparency="true" frameborder="0" scrolling="no" role="presentation"
 src="https://platform.twitter.com/widgets/tweet_button.html?via=OpenFoodFacts&amp;count=vertical&amp;lang=$lc"
 style="width:65px; height:63px;"></iframe></div>
-<div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="http://cestemballepresdechezvous.fr" layout="box_count"></fb:like></div>
-<div style="float:left;padding-right:15px;padding-bottom:10px;" class="sharebutton"><g:plusone size="tall" count="true" href="http://cestemballepresdechezvous.fr"></g:plusone></div>
+<div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="https://cestemballepresdechezvous.fr" layout="box_count"></fb:like></div>
+<div style="float:left;padding-right:15px;padding-bottom:10px;" class="sharebutton"><g:plusone size="tall" count="true" href="https://cestemballepresdechezvous.fr"></g:plusone></div>
 </div>
 
 </div>

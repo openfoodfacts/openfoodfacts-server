@@ -44,13 +44,13 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 
 # Get a list of all products
 
 
-my $cursor = $products_collection->query({})->fields({ code => 1 });;
+my $cursor = get_products_collection()->query({})->fields({ code => 1 });;
 my $count = $cursor->count();
 	
 	print STDERR "$count products to update\n";
@@ -70,7 +70,7 @@ my $count = $cursor->count();
 			my $product_ref = retrieve("$data_root/products/$path/product.sto");
 			if (defined $product_ref) {
 				print STDERR "deleted : $product_ref->{deleted} - _id : $product_ref->{_id}\n";
-				$products_collection->remove({"code" => $code});
+				get_products_collection()->delete_one({"code" => $code});
 						my $err = $database->last_error();
 		use Data::Dumper;
 		print STDERR Dumper($err);
@@ -83,7 +83,7 @@ my $count = $cursor->count();
 		# Store
 
 		# store("$data_root/products/$path/product.sto", $product_ref);		
-		# $products_collection->save($product_ref);
+		# get_products_collection()->save($product_ref);
 	}
 
 exit(0);

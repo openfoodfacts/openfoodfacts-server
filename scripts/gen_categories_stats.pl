@@ -38,13 +38,13 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-
+use ProductOpener::Data qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 my $min_products = 10;
 
@@ -72,7 +72,7 @@ foreach my $l (values %lang_lc) {
 		
 		# Get all products
 		
-		my $cursor = $products_collection->query({lc=>$lc, categories_tags => $tagid})->fields({nutriments=>1});
+		my $cursor = get_products_collection()->query({lc=>$lc, categories_tags => $tagid})->fields({nutriments=>1});
 		my $count = $cursor->count();
 		
 		# Compute mean, standard deviation etc.

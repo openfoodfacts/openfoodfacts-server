@@ -1131,10 +1131,11 @@ sub _set_magickal_options($$) {
 
 }
 
-sub display_image_thumb($$) {
+sub display_image_thumb($$$) {
 
 	my $product_ref = shift;
 	my $id_lc = shift;	#  id_lc = [front|ingredients|nutrition]_[lc] 
+	my $lazyload = shift;
 	
 	my $imagetype = $id_lc;
 	my $display_lc = $lc;
@@ -1168,13 +1169,21 @@ sub display_image_thumb($$) {
 			my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $Lang{$imagetype . '_alt'}{$lang};
 
 				
-			$html .= <<HTML
+			if ($lazyload) {
+				$html .= <<HTML
 <img src="$static/images/misc/pacman.svg" data-src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" data-srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" class="lazyload" />
 <noscript>
 <img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" />
 </noscript>
 HTML
-;		
+;
+			}
+			else {
+				$html .= <<HTML
+<img src="$static/images/products/$path/$id.$rev.$thumb_size.jpg" width="$product_ref->{images}{$id}{sizes}{$thumb_size}{w}" height="$product_ref->{images}{$id}{sizes}{$thumb_size}{h}" srcset="$static/images/products/$path/$id.$rev.$small_size.jpg 2x" alt="$alt" />
+HTML
+;
+			}
 
 			last;
 		}

@@ -9,9 +9,9 @@ el:γλουτένη, σιτάρι, σίκαλη, κριθάρι, βρώμη, ν�
 es:gluten, trigo, centeno, cebada, avena, espelta, kamut, cereales con gluten, cereales, harina de trigo, trigo de Jorasán Kamut, harina de trigo integral
 et:gluteen, nisu, nisugluteen, rukis, oder, odra, kaer, speltanisu, kamut
 fi:gluteeniton, vehnä, ruis, ohra, kaura, speltti, kamut
-fr:gluten, blé, seigle, orge, avoine, épeautre, sarrasin, kamut, son de blé, blé complet, gluten de blé, fibre de blé, malt d'orge, malt, froment, farine de blé, farine de froment, céréales contenant du gluten
+fr:gluten, blé, seigle, orge, avoine, épeautre, sarrasin, kamut, son de blé, blé complet, gluten de blé, fibre de blé, malt d'orge, malt, froment, farine de blé, farine de froment, boulgour, petit épeautre, céréales contenant du gluten
 ga:glútan, cruithneacht, seagal, eorna, coirce, speilt, camut, céréeale, céréales
-hu:glutén, búza, rozs, árpa, zab, tönkölybúza, kamut, búzadara, búzaliszt, búzacsíra, búzafehérje, búzapehely, rozspehely, árpapehely, zabpehely, tönkölybúzapehely, árpamaláta, rozsliszt, zabliszt, tönkölybúzaliszt, lutént tartalmazó gabonafélék
+hu:glutén, búza, rozs, árpa, zab, tönkölybúza, kamut, búzadara, búzaliszt, búzacsíra, búzafehérje, búzapehely, rozspehely, árpapehely, zabpehely, tönkölybúzapehely, árpamaláta, rozsliszt, zabliszt, tönkölybúzaliszt, Glutent, lutént tartalmazó gabonafélék
 it:glutine, grano, segale, orzo, avena, farro, kamut, frumento, farina di frumento, farina di frumento integrale
 jp:グルテン,コムギ
 lt:avižos, avižų, glitimas,kamutas, kviečiai, kviečlų, kvietiniai, miežiai,  miežių, rugiai, spelta, manų
@@ -27,7 +27,14 @@ sk:glutén, lepok, obyčajná, raž, jačmeň, ovos, špalda, cirok
 sv:gluten, vete, råg, korn, havre, spelt, kamut, vetemjöl, fullkornsvetemjöl
 th:กลูเต็น,ข้าวสาลี,ข้าวไร,บาร์เลย์
 zh:麸质
-wikidata:Q4413030, Q2249305
+wikidata:en:Q4413030, Q2249305
+
+<en:gluten
+de:Gluten enthaltendes Getreide
+en:cereals containing gluten
+fr:Céréales contenant du gluten, céréale contenant du gluten
+hu:glutént tartalmazó gabonafélék
+es:cereales que contienen gluten
 
 en:crustaceans, crab, lobster, crayfish, prawn, shrimp
 ar:قشريات
@@ -36,7 +43,7 @@ cs:korýši
 da:krebsdyr
 de:Krebstiere
 el:καρκινοειδή
-es:crustáceos
+es:crustáceos, cangrejo, cangrejo de río, gamba, camarón, langosta, langostino
 et:koorikloomad
 fi:äyriäiset
 fr:crustacés, crustacé, crabe, crabes, homard, homards, langouste, langoustine, gambas, crevettes, crevette, écrevisses, écrevisse
@@ -88,14 +95,14 @@ sl:jajca, jajce
 sv:ägg
 th:ไข่
 zh:雞蛋
-wikidata:Q93189
+wikidata:en:Q93189
 
 en:fish, fishes, cod, mackerel, flounder, halibut, turbot, haddock, salmon, sole, trout, tuna, sardine, sardines
 ar:سمك
 bg:риба
 cs:ryby
 da:fisk
-de:Fische
+de:Fisch, Fische
 el:ψάρια
 es:pescado
 et:kala
@@ -111,7 +118,7 @@ mt:ħut
 nl:vis
 nl_be:vis
 pl:ryba
-pt:peixe
+pt:peixe, peixes
 ro:pește
 ru:рыба
 sk:ryby
@@ -119,7 +126,7 @@ sl:ribe
 sv:fisk
 th:ปลา
 zh:魚
-wikidata:Q600396
+wikidata:en:Q600396
 
 en:peanuts, peanut, arachis hypogaea
 ar:فول سوداني
@@ -128,7 +135,7 @@ cs:jádra podzemnice olejné, arašídy, arachis hypogaea
 da:jordnødder, jordnød, arachis hypogaea
 de:Erdnüsse, Erdnuss, arachis hypogaea, Erdnusskerne
 el:αραχίδες, αραχίδα, arachis hypogaea
-es:cacahuetes, cacahuete, arachis hypogaea, aceite de cacahuete
+es:cacahuetes, cacahuete, arachis hypogaea, aceite de cacahuete, cacahuates, cacahuate, aceite de cacahuate
 et:maapähklid, arachis hypogaea
 fi:maapähkinät, arachis hypogaea
 fr:arachides, arachide, cacahuètes, cacahuète, cacahouètes, cacahouète, arachis hypogaea
@@ -157,14 +164,14 @@ ar:فول الصويا
 bg:соя, соеви, соево
 cs:sójové boby, sójové
 da:soja
-de:Sojabohnen, Soja, Sojamilch, Sojalecithin, Sojalecithine, Soja-Lecithine, Sojaprotein, Sojabohnenöl, Sojaeiweiß, Sojaerzeugnis, Sojafett, Sojaflocken, Sojakerne, Sojakleie, Sojamehl, Sojaöl, Sojaprotein, Sojaproteinhydrolysat, Sojaproteinisolat, Sojasauce, Sojaschrot, Sojagrieß
+de:Soja, Sojabohnen, Sojamilch, Sojalecithin, Sojalecithine, Soja-Lecithine, Sojaprotein, Sojabohnenöl, Sojaeiweiß, Sojaerzeugnis, Sojafett, Sojaflocken, Sojakerne, Sojakleie, Sojamehl, Sojaöl, Sojaprotein, Sojaproteinhydrolysat, Sojaproteinisolat, Sojasauce, Sojaschrot, Sojagrieß
 el:σόγια
-es:soja, habas de soja, lecitina de soja
+es:soja, habas de soja, lecitina de soja, soya, habas de soya, lecitina de soya
 et:sojaoad
 fi:soijapavut, soija
 fr:soja, soya, soia, sojas, son de soja, lécithine de soja, tonyu, graines de soja, tofu
 ga:pónairí soighe, soighe
-hu:szójabab, szója, szójalecitin, szójalecitinek, szójatej, szójaliszt
+hu:szójabab, szója, szójalecitin, szójalecitinek, szójatej, szójaliszt, szójából, szóját
 it:soia
 jp:ダイズ,大豆,醤油
 lt:sojų pupelės, sojų
@@ -187,15 +194,15 @@ ar:حليبب, لاكتوز,
 bg:суроватка, млечна, мляко,  лактоза
 cs:mléko, laktózy
 da:mælk, laktose
-de:Milch, Bergkäse, Blauschimmelkäse, Butter, Buttermilch, Buttermilchpulver, Butterreinfett, Camembert, Cheddar, Edamer, Edamer-Käse, Emmentaler,  Frischkäse, Gorgonzola, Gouda, Hartkäse, Joghurt, Joghurtpulver, Käse, Käsepulver, Kondensmilch, Kuhmilch, Kuhvollmilch, Laktose, Rohmilch, Milchzucker, Milcheiweiß, Milchpulver, Milcherzeugnisse, Magermilchpulver, Magermilchjoghurt, Magermilchkonzentrat, Magermilchjoghurtpulver, Magermilch, Magerquark, Molkenpulver, Molkenerzeugnis, Molkeneiweißkäse, Milchschokolade,  Mozzarella, Pecorino, Quark, Ricotta, Speisequark, Sahne, Sahnepulver, Sahnejoghurt, Sauermilchquark, Sauerrahm, Rahm, Rahmjoghurt, Sauermilch, Sauerrahmpulver, Schlagsahne,  Süssmolkenpulver, Süßmolkenpulver, Vollmilch, Vollmilchschokolade, Vollmilchpulver 
+de:Milch, Bergkäse, Blauschimmelkäse, Butter, Buttermilch, Buttermilchpulver, Butterreinfett, Camembert, Cheddar, Edamer, Edamer-Käse, Emmentaler,  Frischkäse, Gorgonzola, Gouda, Hartkäse, Joghurt, Joghurtpulver, Käse, Käsepulver, Kondensmilch, Kuhmilch, Kuhvollmilch, Laktose, Rohmilch, Milchzucker, Milcheiweiß, Milchpulver, Milcherzeugnisse, Magermilchpulver, Magermilchjoghurt, Magermilchkonzentrat, Magermilchjoghurtpulver, Magermilch, Magerquark, Molkenpulver, Molkenerzeugnis, Molkeneiweißkäse, Milchschokolade,  Mozzarella, Pecorino, Quark, Ricotta, Speisequark, Sahne, Sahnepulver, Sahnejoghurt, Sauermilchquark, Sauerrahm, Rahm, Rahmjoghurt, Sauermilch, Sauerrahmpulver, Schlagsahne,  Süssmolkenpulver, Süßmolkenpulver, Vollmilch, Vollmilchschokolade, Vollmilchpulver
 ee:lõssi, piima, piimast
 el:γάλα, λακτόζης
 es:leche,  lactosa, lácteos, derivados lácteos, productos lácteos, leche y derivados, queso, proteína de leche, leche y sus derivados
 et:laktoos, piim, piimast
 fi:maito, laktoosi
-fr:lait, lactose, laitier, laitiere, laitiers, crème, beurre, bas-beurre, babeurre, beurre patissier, petit-lait, yaourt, fromage, méton, lait cru, Emmental, comte, bleu, edam, lactique, lactiques, ferments lactiques, cheddar, reblochon, parmesan, mimolette, crème de lait, fromage de vache, fromage de chèvre, gouda, lait écrémé, lait entier, lactoserum, lactosérum, mozzarella, protéines de lait, crème fraiche, ricotta, fromage blanc, mascarpone, caséinate, caséine, poudre de lait, Produits laitiers et dérivées, Produits laitiers et dérivés, Produits laitiers
+fr:lait, lactose, laitier, laitiere, laitiers, crème, beurre, bas-beurre, babeurre, beurre patissier, petit-lait, yaourt, fromage, méton, lait cru, Emmental, comte, bleu, edam, lactique, lactiques, ferments lactiques, cheddar, reblochon, parmesan, mimolette, crème de lait, fromage de vache, fromage de chèvre, gouda, lait écrémé, lait entier, lactoserum, lactosérum, mozzarella, protéines de lait, crème fraiche, ricotta, fromage blanc, mascarpone, caséinate, caséine, poudre de lait, Produits laitiers et dérivées, Produits laitiers et dérivés, Produits laitiers, Gorgonzola, Roquefort, Fromage fondu, Fromage frais, Feta, Raclette
 ga:bainne, lachtós
-hu:tej, laktóz, tejsavó, savó, tejtermék, tejtermékek, vaj, tejszín, joghurt, sajt, tejfehérje, tejpor
+hu:tej, laktóz, tejsavó, savó, tejtermék, tejtermékek, vaj, tejszín, joghurt, sajt, tejfehérje, tejpor, Tejsavópor, Tejzsír, Tejet
 it:latte, lattosio
 jp:牛乳,乳,クリーム,バター,ヨーグルト,チーズ
 lt:išrügų, pienas, laktozę, pieno
@@ -220,12 +227,12 @@ cs:skořápkové plody, mandle, lískové ořechy, vlašské ořechy, kešu oře
 da:nødder, mandler, hasselnødder, valnødder, cashewnødder, pekannødder,  paranødder, pistacienødder, queenslandnødder
 de:Schalenfrüchte, Mandel, Mandeln, Mandelkerne, Mandelstücke, Mandelstückchen, Haselnüsse, Haselnussmasse, Haselnusskerne, Haselnussmark, Haselnusspaste, Walnüsse, Walnusskerne, Walnussöl, Kaschunüsse, Pecannüsse,  Paranüsse, Paranusskerne, Pistazien, Macadamianüsse, Queenslandnüsse, Cashewkerne, Cashewnüsse
 el:καρποί με κέλυφος, αμύγδαλα, φουντούκια, καρύδια, καρύδια κάσιους, καρύδια πεκάν, καρύδια Βραζιλίας, φυστίκια, καρύδια μακαντάμια, καρύδια Κουίνσλαντ
-es:frutos de cáscara, frutos con cáscara, almendras, avellanas, nuez, nueces, anacardos, pacanas, nueces de Brasil, nuez de Brasil, nueces del Amazonas, coquitos, coquito, alfóncigos, nueces macadamia, nueces de macadamia, nueces de Australia, pistacho, pistachos, frutos secos, frutos secos de cáscara, otros frutos secos de cáscara, otros frutos de cáscara, otros frutos secos, frutos de cáscara y derivados, piñones, piñón, castañas, castaña
+es:frutos de cáscara, frutos con cáscara, almendras, avellanas, nuez, nueces, anacardos, pacanas, nueces de Brasil, nuez de Brasil, nueces del Amazonas, coquitos, coquito, alfóncigos, nueces macadamia, nueces de macadamia, nueces de Australia, pistacho, pistachos, frutos secos, frutos secos de cáscara, otros frutos secos de cáscara, otros frutos de cáscara, otros frutos secos, frutos de cáscara y derivados, piñones, piñón, castañas, castaña, nueces de árboles
 et:pähklid, mandlid, sarapuupähklid, kreeka pähklid, india pähklid, kašupähklid, pekanipähklid,  brasiilia pähklid, parapähklid, pistaatsiapähklid, makadaamiapähklid
 fi:pähkinät, mantelit, hasselpähkinät, saksanpähkinät, cashewpähkinät, pekaanipähkinät,  parapähkinät, pistaasipähkinät, Macadamia-pähkinät, Queensland-pähkinät
 fr:fruits à coque, amandes, noisettes, noix, noix de cajou, noix de pécan, noix du Brésil, pistaches, noix de Macadamia, noix du Queensland, fruits secs, autres fruits secs
 ga:cnónna,  almóinní, cnónna coill, gallchnónna, cnónna caisiú, cnónna peagáin, cnónna Brasaíleacha, cnónna pistéise, cnónna macadaíme, cnónna Thír na Banríona
-hu:diófélék, mandula, mogyoró, dió, kesudió, pekándió, brazil dió, pisztácia, makadámia, queenslandi dió
+hu:diófélék, mandula, mogyoró, dió, kesudió, pekándió, brazil dió, pisztácia, makadámia, queenslandi dió, Diofeleket
 it:frutta a guscio, mandorle, nocciole, noci, noci di acagiù, noci di pecan,  noci del Brasile, pistacchi, noci macadamia, noci del Queensland
 jp:種実類,アーモンド,ヘーゼルナッツ, クルミ, カシューナッツ,ペカン, ブラジルナッツ, ピスタチオ, マカダミアナッツ
 lt:riešutai, migdolai, lazdyno riešutai, graikiniai riešutai, anakardžiai, Anakardium occidentale, pekaninės karijos,  brazilinės bertoletijos, pistacijos, makadamijos, Kvinslendo riešutai
@@ -234,7 +241,7 @@ mt:ġewż, lewż, ġellewż, ġewż, anakardji, ġewż Amerikan,  ġewż tal-Bra
 nl:noten, amandelen, hazelnoten, walnoten, cashewnoten, pecannoten,  paranoten, pistachenoten, macadamianoten
 nl_be:noten, amandelen, hazelnoten, walnoten, cashewnoten, pecannoten,  paranoten, pistachenoten, macadamianoten
 pl:orzechy, migdały, orzechy laskowe, orzechy włoskie, orzechy nerkowca, orzeszki pekan,  orzechy brazylijskie, pistacje, orzechy pistacjowe, orzechy makadamia, orzechy Queensland
-pt:frutos de casca rija,  amêndoas, avelãs, nozes, castanhas de caju, nozes pécan, castanhas do Brasil, pistácios, nozes de macadâmia, nozes do Queensland
+pt:nozes, frutos de casca rija, amêndoas, avelãs, castanhas de caju, nozes pécan, castanhas do Brasil, pistácios, nozes de macadâmia, nozes do Queensland
 ro:fructe cu coajă lemnoasă, migdale, alune de pădure, nuci, nuci Caju, nuci Pecan,  nuci de Brazilia, fistic, nuci de macadamia, nuci de Queensland
 ru:орехи, миндаль, кешью, пекан, бразильский орех, макадамия, фисташки, орехи Куинсленд
 sk:orechy, mandle, lieskové oriešky, vlašské orechy, kešu oriešky, pekanové orechy,  brazílske orechy, pistáciové oriešky, makadamové orechy, queenslandské orechy
@@ -286,7 +293,7 @@ et:sinep
 fi:sinappi
 fr:moutarde, graines de moutarde
 ga:mustard, mustaird, brassica
-hu:mustár, káposztafélék
+hu:mustár, káposztafélék, Mustármag
 it:senape
 jp:マスタード,カラシナ,シロガラシ
 lt:garstyčios
@@ -310,9 +317,9 @@ ar:سمسم
 bg:сусамово семе
 cs:sezamová semena, sezamová
 da:sesamfrø, sesam
-de:Sesamsamen, Sesam, Sesambrötchen, Sesampaste, Sesamöl
+de:Sesam, Sesamsamen, Sesambrötchen, Sesampaste, Sesamöl
 el:σπόροι σησαμιού, σησαμο, σουσάμι
-es:granos de sésamo, sésamo, semillas de sésamo
+es:granos de sésamo, sésamo, semillas de sésamo, granos de ajonjolí, ajonjolí, semillas de ajonjolí
 et:seesamiseemned
 fi:seesaminsiemenet, seesami
 fr:graines de sésame, sésame
@@ -340,18 +347,19 @@ wikidata:en:Q20026786
 # assume the additives do not amount to the 10 PPM threshold. If they do, "contains sulphites" should also be on the label.
 # https://farrp.unl.edu/sulfites-usa
 # https://www.economie.gouv.fr/dgccrf/Publications/Vie-pratique/Fiches-pratiques/Allergene-alimentaire
+# 2018/11/30: added back bisulfite, metabisulfite, metabisulphite
 
 en:sulphur dioxide and sulphites, sulphur dioxide, sulphites, sulfites
 ar:ثاني أكسيد الكبريت والكبريتات, ثاني أكسيد الكبريت, الكبريتات
 bg:серен диоксид и сулфити, серен диоксид, сулфити
 cs:oxid siřičitý a siřičitany, oxid siřičitý, siřičitany
 da:svovldioxid og sulfitter, svovldioxid, sulfitter
-de:Schwefeldioxid und Sulphite, Schwefeldioxid, Sulphite
+de:Schwefeldioxid und Sulfite, Schwefeldioxid, Sulfite, Sulphite
 el:διοξείδιο του θείου και θειώδεις, διοξείδιο του θείου, θειώδεις
 es:dióxido de azufre y sulfitos, dióxido de azufre, sulfitos
 et:vääveldioksiid ja sulfitid, vääveldioksiid, sulfitid
 fi:rikkidioksidi ja sulfiitit, Rikkidioksidi, sulfiitit
-fr:anhydride sulfureux et sulfites, anhydride sulfureux, sulfites, sulfite, sulphites, sulphite
+fr:anhydride sulfureux et sulfites, anhydride sulfureux, sulfites, sulfite, sulphites, sulphite, bisulfite, metabisulfite, metabisulphite
 ga:dé-ocsaíd sulfair agus suilfítí, dé-ocsaíd sulfair, suilfítí
 hu:kén-dioxid és szulfitok, kén-dioxid, szulfitok, szulfit
 it:anidride solforosa e solfiti, anidride solforosa, solfiti
@@ -368,9 +376,8 @@ ru:диоксид и сульфит серы, серный диоксид, су�
 sk:oxid siričitý a siričitany, oxid siričitý, siričitany
 sl:žveplov dioksid in sulfiti, žveplov dioksid, sulfiti
 sv:svaveldioxid och sulfit, svaveldioxid, sulfit
-th: ซัลเฟอร์ไดออกไซด์และซัลไฟต์, ซัลเฟอร์ไดออกไซด์, ซัลไฟต์, 
+th: ซัลเฟอร์ไดออกไซด์และซัลไฟต์, ซัลเฟอร์ไดออกไซด์, ซัลไฟต์,
 zh:二氧化硫和亚硫酸盐, 二氧化硫，亚硫酸盐
-
 
 en:lupin
 ar:ترمس
@@ -393,7 +400,7 @@ mt:lupina
 nl:lupine
 nl_be:lupine
 pl:łubin
-pt:tremoço
+pt:tremoço, tremoços
 ro:lupin
 ru:люпин
 sk:vlčí bôb
@@ -410,10 +417,10 @@ cs:měkkýši
 da:bløddyr
 de:Weichtiere
 el:μαλάκια
-es:moluscos
+es:moluscos, molusco, ostras, almejas, escalópas, calamar, sepia, ostra, mejillón, mejillones, viera, vieras, caracol, caracoles
 et:molluskid
 fi:nilviäiset
-fr:mollusques, mollusque, poulpe, seiche, encornet, calamar, calmar, huitres, huitre, moules, moule, noix de saint-jacques, noix de st-jacques, saint-jacques, st-jacques, coquille saint jacques, coquilles saint jacques, coquille st jacques, coquilles st jacques, escargot, escargots, pétoncle
+fr:mollusques, mollusque, poulpe, seiche, encornet, calamar, calmar, huitres, huitre, moules, moule, saint-jacques, st-jacques, coquille saint jacques, coquille st jacques, noix de saint-jacques, noix de st-jacques, noix de coquilles saint-jacques, noix de coquilles st-jacques, escargot, escargots, pétoncle
 ga:moilisc, breallach, breallaigh
 hu:puhatestűek
 it:molluschi

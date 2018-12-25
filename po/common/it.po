@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-11-08 13:07\n"
+"PO-Revision-Date: 2018-11-12 13:42\n"
 "Language-Team: Italian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -346,7 +346,28 @@ msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.p
 "<a href=\"https://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
 "<p>Windows Phone app:</p>\n\n"
 "<a href=\"https://microsoft.com/p/openfoodfacts/9nblggh0dkqr\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
-msgstr ""
+msgstr "<img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.png\" width=\"178\" height=\"144\" alt=\"<<site_name>\" /</a>\n\n"
+"<p><<site_name>> raduna informazioni e dati sui prodotti alimentari da tutto il mondo.</p>\n\n"
+"<select_country>\n\n"
+"<p>\n"
+"→ <a href=\"/brands\">Marchi</a><br />\n"
+"→ <a href=\"/categories\">Categorie</a><br/>\n"
+"</p>\n\n"
+"<p>Informazioni prodotti alimentari (foto, ingredienti, valori nutrizionali etc.) sono raccolte in modo collaborativo e resi disponibili a tutti e per tutti gli usi in un database gratuito ed aperto.</p>\n\n\n"
+"<p>Trovaci anche su:</p>\n\n"
+"<p>\n"
+"→ <a href=\"https://en.wiki.openfoodfacts.org\">nostra wiki</a><br />\n"
+"→ <a href=\"https://twitter.com/openfoodfacts\">Twitter</a><br/>\n"
+"→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a><br />\n"
+"→ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
+"+ <a href=\"https://www.facebook.com/groups/openfoodfacts/\">gruppo contributori</a><br />\n"
+"</p>\n\n"
+"<p>App iPhone e iPad sull'App Store:</p>\n\n"
+"<img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" />\n\n"
+"<p>App Android su Google Play:</p>\n\n"
+"<a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner\"><img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" /></a><br/><a href=\"https://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
+"<p>App Windows Phone:</p>\n\n"
+"<a href=\"https://microsoft.com/p/openfoodfacts/9nblggh0dkqr\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
@@ -705,7 +726,7 @@ msgstr "Codice di condotta"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr "/codice-di-condotta"
+msgstr ""
 
 msgctxt "footer_data"
 msgid "Data"
@@ -774,7 +795,7 @@ msgstr "Stampa"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr "/stampa"
+msgstr ""
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -796,11 +817,11 @@ msgstr "Chi siamo"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr "/chi-siamo"
+msgstr ""
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
-msgstr ""
+msgstr "<<site_name>> wiki (en)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
@@ -838,29 +859,6 @@ msgstr "Titolo del grafico"
 msgctxt "graphs_and_maps"
 msgid "Graphs and maps"
 msgstr "Grafici e mappe"
-
-# Obsolete. Do not translate
-msgctxt "header"
-msgid "<meta property=\"fb:admins\" content=\"706410516\" />\n"
-"<meta property=\"og:site_name\" content=\"<<site_name>> - the free and open food products information database\"/>\n\n"
-"<script type=\"text/javascript\">\n"
-"  var uvOptions = {};\n"
-"  (function() {\n"
-"\tvar uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;\n"
-"\tuv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/jQrwafQ94nbEbRWsznm6Q.js';\n"
-"\tvar s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);\n"
-"  })();\n"
-"</script>\n\n\n"
-msgstr "<meta property=\"fb:admins\" content=\"706410516\" />\n"
-"<meta property=\"og:site_name\" content=\"<<site_name>> - il database di informazioni sui prodotti alimentari gratuiti e aperti \"/>\n\n"
-"<script type=\"text/javascript\">\n"
-"  var uvOptions = {};\n"
-"  (function() {\n"
-"\tvar uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;\n"
-"\tuv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/jQrwafQ94nbEbRWsznm6Q.js';\n"
-"\tvar s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);\n"
-"  })();\n"
-"</script>\n\n\n"
 
 msgctxt "hello"
 msgid "Hello"
@@ -1371,7 +1369,7 @@ msgstr "Aggiungi un prodotto"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr ""
+msgstr "/aggiungi-un-prodotto"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -1380,7 +1378,7 @@ msgstr "Contribuire"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr "/contribuire"
+msgstr ""
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1389,7 +1387,7 @@ msgstr "Scopri"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr "/scopri"
+msgstr ""
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -1502,7 +1500,7 @@ msgstr "I livelli di nutrienti per 100 g"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/livelli-di-nutrienti"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -1645,7 +1643,8 @@ msgstr "Attualità"
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr ""
+msgstr "È <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> su <<site_name>> da sabato 21 febbraio 2015 a domenica 1 marzo 2015! I contributori sono premiati con\n"
+"punti Esploratore per i prodotti che aggiungono e i punti Ambasciatore per i nuovi contributori che assumono. I punti vengono aggiornati ogni 30 minuti."
 
 msgctxt "or"
 msgid "or:"
@@ -2203,7 +2202,7 @@ msgstr "Nota: questo è un grafico generato dall'utente. Il titolo, i prodotti r
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
-msgstr ""
+msgstr "Ignora"
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
@@ -2376,7 +2375,7 @@ msgstr "60 g, 12 oz, 20cl, 2 fl oz"
 
 msgctxt "serving_size_note"
 msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
-msgstr ""
+msgstr "Se la tabella dei valori nutrizionali contiene valori per prodotti preparati, indica la dose totale del prodotto preparato (includendo acqua o latte aggiunti)."
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2734,7 +2733,7 @@ msgstr "I nostri traduttori"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
-msgstr ""
+msgstr "Vorremmo dire GRAZIE ai fantastici traduttori che rendono possibile presentare Open Food Facts, Open Beauty Facts ed Open Pet Food Facts a te in tutte queste differenti lingue! <a href=\"https://translate.openfoodfacts.org/\">Puoi unirti a noi in questo sforzo globale: non richiede conoscenze tecniche.</a>"
 
 msgctxt "translators_renewal_notice"
 msgid "Please note that this table is refreshed nightly and might be out of date."
@@ -2830,12 +2829,12 @@ msgstr "Gruppi NOVA"
 
 msgctxt "footer_partners"
 msgid "Partners"
-msgstr ""
+msgstr "Partner"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr ""
+msgstr "/partner"
 
 msgctxt "adults"
 msgid "Adults"
@@ -2947,27 +2946,27 @@ msgstr "Moderato rischio di sovraesposizione"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "Rischio di superare l'assunzione giornaliera accettabile (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "Rischio di superare la dose massima senza effetti avversi (Nessun livello di effetti avversi osservati - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "Gruppi con più del 50% dei membri eccedenti l'assungione giornaliera accettabile (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_adi"
 msgid "Groups with more than 5% of members exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "Gruppi con oltre il 5% di membri che superano l'assunzione giornaliera accettabile (DGA)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_noael"
 msgid "Groups with more than 50% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "Gruppi con più del 50% di membri che superano la dose massima senza effetti avversi (Nessun livello di effetto avverso osservato - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_95th_greater_than_noael"
 msgid "Groups with more than 5% of members exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "Gruppi con più del 5% di membri che superano la dose massima senza effetti avversi (Nessun livello di effetto avverso osservato - NOAEL)"
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
@@ -2995,33 +2994,112 @@ msgstr "Funzioni"
 
 msgctxt "photos_and_data_check"
 msgid "Photos and data check"
-msgstr ""
+msgstr "Foto e controllo dei dati"
 
 msgctxt "photos_and_data_check_description"
 msgid "Product pages can be marked as checked by experienced contributors who verify that the most recent photos are selected and cropped, and that all the product data that can be inferred from the product photos has been filled and is correct."
-msgstr ""
+msgstr "Le pagine dei prodotti possono essere contrassegnate quando controllate da contributori esperti che verificano che le foto più recenti siano selezionate e tagliate e che tutti i dati dei prodotti ricavabili dalle foto dei prodotti sono stati compilati e sono corretti."
 
 msgctxt "photos_and_data_checked"
 msgid "Photos and data checked"
-msgstr ""
+msgstr "Foto e dati controllati"
 
 msgctxt "i_checked_the_photos_and_data"
 msgid "I checked the photos and data."
-msgstr ""
+msgstr "Ho controllato le foto e i dati."
 
 msgctxt "i_checked_the_photos_and_data_again"
 msgid "I checked the photos and data again."
-msgstr ""
+msgstr "Ho controllato le foto e i dati di nuovo."
 
 msgctxt "last_check_dates_p"
 msgid "Last check dates"
-msgstr ""
+msgstr "Ultimo controllo dati"
 
 msgctxt "last_check_dates_s"
 msgid "Last check date"
-msgstr ""
+msgstr "Ultimo controllo dato"
 
 msgctxt "product_last_checked"
 msgid "Last check of product page on"
+msgstr "Ultimo controllo della pagina del prodotto il"
+
+msgctxt "product_other_information"
+msgid "Other information"
 msgstr ""
 
+msgctxt "producer_version_id"
+msgid "Producer version identifier"
+msgstr ""
+
+msgctxt "net_weight"
+msgid "Net weight"
+msgstr ""
+
+msgctxt "drained_weight"
+msgid "Drained weight"
+msgstr ""
+
+msgctxt "volume"
+msgid "Volume"
+msgstr ""
+
+msgctxt "other_information"
+msgid "Other information"
+msgstr ""
+
+msgctxt "conservation_conditions"
+msgid "Conservation conditions"
+msgstr ""
+
+msgctxt "recycling_instructions_to_recycle"
+msgid "Recycling instructions - To recycle"
+msgstr ""
+
+msgctxt "recycling_instructions_to_discard"
+msgid "Recycling instructions - To discard"
+msgstr ""
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr ""
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr ""
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr ""
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr ""
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr ""
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr ""
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr ""
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr ""
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr ""
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr ""
+
+msgctxt "user_s_page"
+msgid "%s's page"
+msgstr ""

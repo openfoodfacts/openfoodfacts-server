@@ -68,9 +68,12 @@ BEGIN
 		%wiki_texts
 
 		@product_fields
+		@product_other_fields
 		@display_fields
+		@display_other_fields
 		@drilldown_fields
 		@taxonomy_fields
+		@export_fields
 		
 		%tesseract_ocr_available_languages
 		
@@ -89,13 +92,13 @@ use ProductOpener::Config2;
 agamitsudo
 aleene
 bcatelin
-beniben
 bojackhorseman
 hangy
 javichu
 kyzh
 lafel
 lucaa
+mbe
 moon-rabbit
 sebleouf
 segundo
@@ -153,10 +156,10 @@ systeme-u
 },
 
 {
-        name => "Yuka - verified",
+        name => "Yuka - checked",
         conditions => [
                 ["user_id", "kiliweb"],
-                ["in_states_tags", "verified"],
+                ["in_states_tags", "en:checked"],
         ],
         actions => [
                 ["ignore"],
@@ -185,6 +188,19 @@ systeme-u
         conditions => [
                 ["user_id", "kiliweb"],
                 ["in_editors_tags", "fleury-michon"],
+        ],
+        actions => [
+                ["ignore"],
+        ],
+        notifications => [ qw (
+                slack_channel_edit-alert
+        )],
+},
+{
+        name => "Yuka - Casino",
+        conditions => [
+                ["user_id", "kiliweb"],
+                ["in_editors_tags", "casino"],
         ],
         actions => [
                 ["ignore"],
@@ -388,15 +404,28 @@ fr:levures
 @taxonomy_fields = qw(states countries languages labels categories additives additives_classes vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces nutrient_levels misc ingredients nova_groups);
 
 
-# fields in product edit form
+# fields in product edit form, above ingredients and nutrition facts
 
 @product_fields = qw(quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
+
+# fields currently not shown in the default edit form, can be used in imports or advanced edit forms
+
+@product_other_fields = qw(
+producer_version_id
+net_weight_value net_weight_unit drained_weight_value drained_weight_unit volume_value volume_unit
+other_information conservation_conditions recycling_instructions_to_recycle recycling_instructions_to_discard
+nutrition_grade_fr_producer
+);
 
 
 # fields shown on product page
 # do not show purchase_places
 
 @display_fields = qw(generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link stores countries);
+
+# fields displayed in a new section after the nutrition facts
+
+@display_other_fields = qw(other_information conservation_conditions recycling_instructions_to_recycle recycling_instructions_to_discard);
 
 
 # fields for drilldown facet navigation
@@ -427,6 +456,45 @@ states
 entry_dates
 last_edit_dates
 last_check_dates
+);
+
+
+@export_fields = qw(
+code
+creator
+created_t
+last_modified_t
+product_name
+generic_name
+quantity
+packaging
+brands 
+categories 
+origins
+manufacturing_places
+labels
+emb_codes
+cities
+purchase_places
+stores
+countries
+ingredients_text
+allergens
+traces
+serving_size
+serving_quantity
+no_nutriments
+additives_n
+additives
+ingredients_from_palm_oil_n
+ingredients_from_palm_oil
+ingredients_that_may_be_from_palm_oil_n
+ingredients_that_may_be_from_palm_oil
+nutrition_grade_fr
+nova_group
+pnns_groups_1
+pnns_groups_2
+states
 );
 
 
@@ -580,16 +648,16 @@ $options{nova_groups_tags} = {
 "categories/en:terrines" => 3,
 "categories/en:pates" => 3,
 "categories/en:pastas" => 3,
-"categories/en:wines" => 3,
-"categories/en:beers" => 3,
 "categories/en:breakfast-cereals" => 3,
 "categories/en:tofu" => 3,
 "categories/en:alcoholic-beverages" => 3,
 "categories/en:meals" => 3,
+"categories/en:yogurts" => 3,
 
 
 # group 3 additives
 
+"additives/en:e202" => 3, # potassium nitrite
 "additives/en:e249" => 3, # potassium nitrite
 "additives/en:e250" => 3, # sodium nitrite
 "additives/en:e251" => 3, # potassium nitrate
