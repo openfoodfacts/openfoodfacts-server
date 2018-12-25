@@ -8,6 +8,7 @@ stopwords:en:contains, contain, with, in varying proportions
 stopwords:es:contiene
 stopwords:fi:sisältää
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient
+stopwords:hr:sastojci
 stopwords:hu:tartalmaz
 stopwords:it:contiene
 stopwords:nl:bevat, met, waarvan
@@ -19,7 +20,9 @@ stopwords:sv:innehåller, från, med
 # postfixes
 
 # en
-# *organically grown products
+# 
+# Contains genetically modified organisms
+# organically grown products
 # prefried in vegetable oil
 
 # de
@@ -37,6 +40,7 @@ stopwords:sv:innehåller, från, med
 
 # fr
 # Contient une source de phénylalamine.
+# Contient des organismes génétiquement modifiés
 # d'élevage au sol
 # Fabriqué dans un atelier qui utilise : céleri, moutarde et oeuf.
 # *produits issus de l'agriculture biologique.
@@ -58,7 +62,13 @@ stopwords:sv:innehåller, från, med
 # Product geproduceerd in een werkruimte waar ook het volgende wordt gebruikt : melk, selderij, sesam, weekdieren.
 
 # pt
+# Contem organismos geneticamente modificados
 # Pode conter vestigios de aipo. Percentagens expressas sobre o total da receita.
+# Pode conter vestígios de leite
+
+# ro
+# Produs maturat si afumat cu lemn de fag. 
+# Pentru 100g produs se prelucreaza 158 g carne de porc.
 
 en:ingredient
 da:indeholder
@@ -66,6 +76,8 @@ de:Zutaten
 fr:ingrédient
 it:ingredienti
 nl:ingrediënt, ingrediënten
+sk:obsahuje
+sl:vsebuje
 sv:innehåller
 
 # additive classes (from Global_additives_classes_taxonomy)
@@ -2290,6 +2302,77 @@ tr:mixed asetik ve tartarik asit esters of mono- ve diglycerides of fatty asits,
 uk:Змішані естери гліцерину та винної, оцтової і жирних кислот, E472f, E 472f, E-472f
 wikidata:en:Q18967248
 # additive/e472f-mixed-acetic-and-tartaric-acid-esters-of-mono-and-diglycerides-of-fatty-acids has 7 products in 3 languages @2018-11-13
+
+
+# Calcium chloride is an inorganic compound, a salt with the chemical formula CaCl2. 
+
+en:calcium chloride, E509, E 509, E-509
+af:Kalsiumchloried, E509, E 509, E-509
+ar:كلوريد الكالسيوم
+# ast:Cloruru de calciu, E509, E 509, E-509
+# azb:کولورید کلسیوم
+bg:Калциев хлорид, E509, E 509, E-509
+bn:ক্যালসিয়াম ক্লোরাইড, E509, E 509, E-509
+ca:clorur de calci, E509, E 509, E-509
+cs:Chlorid vápenatý, E509, E 509, E-509
+cy:calsiwm clorid, E509, E 509, E-509
+da:Calciumchlorid, E509, E 509, E-509
+de:Calciumchlorid, E509, E 509, E-509
+el:Χλωριουχο ασβεστιο, E509, E 509, E-509
+# en-ca:calcium chloride , E509, E 509, E-509
+# en-gb:calcium chloride , E509, E 509, E-509
+eo:kalcia klorido , E509, E 509, E-509
+es:cloruro cálcico, Cloruro de calcio, E509, E 509, E-509
+et:Kaltsiumkloriid, E509, E 509, E-509
+fa:کلرید کلسیم 
+fi:Kalsiumkloridi, E509, E 509, E-509
+fr:chlorure de calcium, E509, E 509, E-509
+gl:Cloruro de calcio , E509, E 509, E-509
+hi:कैल्सियम क्लोराइड , E509, E 509, E-509
+hu:Kalcium-klorid, E509, E 509, E-509
+hy:Կալցիումի քլորիդ , E509, E 509, E-509
+id:Kalsium klorida , E509, E 509, E-509
+it:cloruro di calcio, E509, E 509, E-509
+ja:塩化カルシウム , E509, E 509, E-509
+ko:염화 칼슘 , E509, E 509, E-509
+ky:Кальций хлориди , E509, E 509, E-509
+lt:Kalcio chloridas, E509, E 509, E-509
+lv:Kalcija hlorīds, E509, E 509, E-509
+ms:Kalsium klorida , E509, E 509, E-509
+mt:Klorur tal-kalċju, E509, E 509, E-509
+# nan:Iâm-hoà khā-lú-siúm , E509, E 509, E-509
+nb:Kalsiumklorid , E509, E 509, E-509
+nl:calciumchloride, E509, E 509, E-509
+nn:kalsiumklorid, E509, E 509, E-509
+pl:Chlorek wapnia, E509, E 509, E-509
+pt:cloreto de calcio, E509, E 509, E-509
+ro:Clorură de calciu, E509, E 509, E-509
+ru:Хлорид кальция, E509, E 509, E-509
+sh:Kalcijum hlorid , E509, E 509, E-509
+sk:Chlorid vápenatý, E509, E 509, E-509
+sl:Kalcijev klorid, E509, E 509, E-509
+sr:калцијум хлорид , E509, E 509, E-509
+# sr-ec:калцијум хлорид , E509, E 509, E-509
+# sr-el:Kalcijum hlorid , E509, E 509, E-509
+sv:Kalciumklorid, E509, E 509, E-509
+ta:கல்சியம் குளோரைட்டு , E509, E 509, E-509
+te:కాల్సియం క్లోరైడ్ , E509, E 509, E-509
+tr:Kalsiyum klorür, E509, E 509, E-509
+uk:Кальцій хлористий, E509, E 509, E-509
+vi:canxi clorua, E509, E 509, E-509
+# war:Calcium chloride, E509, E 509, E-509
+# wuu:氯化钙, E509, E 509, E-509
+# yue:氯化钙, E509, E 509, E-509
+zh:氯化钙, E509, E 509, E-509
+# zh-cn:氯化钙, E509, E 509, E-509
+# zh-hans:氯化钙, E509, E 509, E-509
+# zh-hant:氯化钙, E509, E 509, E-509
+# zh-hk:氯化钙, E509, E 509, E-509
+# zh-sg:氯化钙, E509, E 509, E-509
+# zh-tw:氯化钙, E509, E 509, E-509
+wikidata:en:Q208451
+wikipedia:en:https://en.wikipedia.org/wiki/Calcium_chloride
+# ingredient/calcium-chloride has 5542 products in 8 languages @2018-12-10
 
 en:thickener
 ga: Tiúsóir
@@ -29670,44 +29753,44 @@ de:Kaffee
 # dty: कफी
 dv: ގަހުވަ
 dz: ཀཱ་ཕི།
-# egl: cafa
-el: Καφές
-eo: kafo
+# egl:cafa
+el:Καφές
+eo:kafo
 es:café
-et: kohv
-eu: kafe
-# ext: sidru
-fa: قهوه
-ff: kofi
-fi: kahvi
-fj: kofe
-fo: Kaffi
+et:kohv
+eu:kafe
+# ext:sidru
+fa:قهوه
+ff:kofi
+fi:kahvi
+fj:kofe
+fo:Kaffi
 fr:café
-# frr: Kofe
-# fur: Cafè
-fy: kofje
-ga: Caife
+# frr:Kofe
+# fur:Cafè
+fy:kofje
+ga:Caife
 # gan: 咖啡
-gd: Cofaidh
-gl: Café
-# got: 𐌺𐌰𐍈𐌰
-# gsw: Kaffi
-gu: કૉફી
-# hak: Kâ-pî
-he: קפה
-hi: कॉफ़ी
-# hif: Coffee
-# hil: kapé
-hr: Kava
-# hsb: kofej
-ht: Kafe
-hu: kávé
-hy: սուրճ
-hz: ozo-mbonde
-ia: Caffe
-id: kopi
-ik: kuukpiaq
-# ilo: kape
+gd:Cofaidh
+gl:Café
+# got:𐌺𐌰𐍈𐌰
+# gsw:Kaffi
+gu:કૉફી
+# hak:Kâ-pî
+he:קפה
+hi:कॉफ़ी
+# hif: offee
+# hil:kapé
+hr:Kava
+# hsb:kofej
+ht:Kafe
+hu:kávé
+hy:սուրճ
+hz:ozo-mbonde
+ia:Caffe
+id:kopi
+ik:kuukpiaq
+# ilo:kape
 # inh: кофи
 io: Kafeo
 is: Kaffi
@@ -30563,15 +30646,6 @@ pt:recheio
 
 en:paste
 fr:pâte
-
-
-
-en:calcium chloride
-es:cloruro cálcico, Cloruro de calcio
-fr:chlorure de calcium
-nl:calciumchloride
-de:Calciumchlorid
-#wikidata:en:
 
 en:calcium gluconate
 es:gluconato de calcio
@@ -32150,10 +32224,6 @@ fr:e503ii
 fr:e504
 
 fr:e508
-
-fr:e509
-
-fr:e509
 
 fr:e516
 
