@@ -1,0 +1,60 @@
+<h1>crwdns111902:0crwdne111902:0</h1>
+
+<p>crwdns111904:0crwdne111904:0</p>
+
+		<a href="crwdns111906:0crwdne111906:0"><img src="crwdns111908:0crwdne111908:0" alt="crwdns111910:0crwdne111910:0" width="135" height="40" /></a>
+
+		<a href="crwdns111912:0crwdne111912:0"><img src="crwdns111914:0crwdne111914:0" alt="crwdns111916:0crwdne111916:0" width="135" height="47" /></a>
+
+		<a href="crwdns111918:0crwdne111918:0"><img src="crwdns111920:0crwdne111920:0" alt="crwdns111922:0crwdne111922:0" width="154" height="40" /></a>
+
+		<a href="crwdns111924:0crwdne111924:0"><img src="crwdns111926:0crwdne111926:0" alt="crwdns111928:0crwdne111928:0" /></a>
+
+<br><br>
+
+<p>crwdns111930:0crwdne111930:0 crwdns111932:0crwdne111932:0</p>
+
+<!-- DO NOT translate after this line -->
+
+<scripts>
+<script>
+function getMobileOperatingSystem() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      // Windows Phone must come first because its UA also contains "Android"
+    if (/windows phone/i.test(userAgent)) {
+        return "Windows Phone";
+    }
+
+    if (/android/i.test(userAgent)) {
+        return "Android";
+    }
+
+    // iOS detection from: https://stackoverflow.com/a/9039885/177710
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return "iOS";
+    }
+
+    return "unknown";
+}</script>
+
+<!-- You can change the URLs to one that works in your language. If you are unsure, do not touch anything -->
+
+<script>
+function DetectAndServe(){
+
+if (getMobileOperatingSystem() == "Android") {
+    window.location.href = "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en";
+    }
+if (getMobileOperatingSystem() == "iOS") {
+    window.location.href = "https://itunes.apple.com/app/open-food-facts/id588797948";
+    }
+if (getMobileOperatingSystem() == "Windows Phone") {
+    }
+};
+DetectAndServe();
+</script>
+</scripts>
+
+<initjs>
+</initjs>

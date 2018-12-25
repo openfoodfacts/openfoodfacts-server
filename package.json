@@ -15,9 +15,9 @@
     "lint:js": "eslint html/js/product-multilingual.js html/js/search.js html/js/display-tag.js",
     "lint:css": "stylelint html/css/product-multilingual.css",
     "lint:scss": "stylelint scss/app.scss",
-    "perlc": "yarn run perlc:startup && yarn run perlc:product",
+    "perlc": "yarn run perlc:startup && yarn run perlc:cgi",
     "perlc:startup": "perl -c -CS -Ilib lib/startup_apache2.pl",
-    "perlc:product": "perl -c -CS -Ilib cgi/product_multilingual.pl",
+    "perlc:cgi": "node compile_cgi.js",
     "postinstall": "node -e \"try { require('fs').symlinkSync(require('path').resolve('node_modules/@bower_components'), 'html/bower_components', 'junction') } catch (e) { }\""
   },
   "repository": {

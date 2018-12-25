@@ -45,7 +45,7 @@ ProductOpener::Display::init();
 my $short_name = lang("site_name");
 my $long_name = $short_name;
 
-# http://stackoverflow.com/a/16533563/11963
+# https://stackoverflow.com/a/16533563/11963
 $short_name =~ s/\b([A-Z])[a-z]+(?=\s+[A-Z][a-z])|\G(?!^)\s+([A-Z])[a-z]+/$1$2/g;
 
 if ($cc eq 'world') {
