@@ -395,8 +395,9 @@ sub store_product($$) {
 	$product_ref->{sortkey} += 0;
 	
 
-	
-	if ($product_ref->{deleted}) {
+	# 2018-12-26: remove obsolete products from the database
+	# another option could be to keep them and make them searchable only in certain conditions
+	if (($product_ref->{deleted}) or ($product_ref->{obsolete})) {
 		$new_products_collection->delete_one({"_id" => $product_ref->{_id}});
 	}
 	else {

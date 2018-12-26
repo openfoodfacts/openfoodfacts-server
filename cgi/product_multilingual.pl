@@ -405,6 +405,11 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$product_ref->{nutrition_data_prepared} = remove_tags_and_quote(decode utf8=>param("nutrition_data_prepared"));	
 	
+	if (($admin) and (defined param('obsolete_since_date'))) {
+		$product_ref->{obsolete} = remove_tags_and_quote(decode utf8=>param("obsolete"));
+		$product_ref->{obsolete_since_date} = remove_tags_and_quote(decode utf8=>param("obsolete_since_date"));
+	}
+	
 		
 	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
 
@@ -799,10 +804,29 @@ CSS
 	if ($admin) {
 		$html .= <<HTML
 <label for="new_code" id="label_new_code">${label_new_code}</label>
-<input type="text" name="new_code" id="new_code" class="text" value="" />
+<input type="text" name="new_code" id="new_code" class="text" value="" /><br />
 HTML
 ;
 	}
+	
+	# obsolete products
+	if ($admin) {
+
+		my $checked = '';
+		if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete} eq 'on')) {
+			$checked = 'checked="checked"';
+		}	
+	
+		$html .= <<HTML
+<input type="checkbox" id="obsolete" name="obsolete" $checked />	
+<label for="obsolete" class="checkbox_label">$Lang{obsolete}{$lang}</label> 
+HTML
+;
+
+		$html .= display_field($product_ref, "obsolete_since_date");
+
+	}
+	
 
 	$html .= <<HTML
 <div data-alert class="alert-box info store-state" id="warning_3rd_party_content" style="display:none;">
@@ -2059,7 +2083,7 @@ HTML
 
 	$html .= display_product_history($code, $product_ref);
 }
-elsif (($action eq 'display') and ($type eq 'delete')) {
+elsif (($action eq 'display') and ($type eq 'delete') and ($admin)) {
 
 	$log->debug("display product", { code => $code }) if $log->is_debug();
 	
@@ -2089,7 +2113,7 @@ elsif ($action eq 'process') {
 	
 	$product_ref->{interface_version_modified} = $interface_version;
 	
-	if ($type eq 'delete') {
+	if (($admin) and ($type eq 'delete')) {
 		$product_ref->{deleted} = 'on';
 		$comment = lang("deleting_product") . separator_before_colon($lc) . ":";
 	}
