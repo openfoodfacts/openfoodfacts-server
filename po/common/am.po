@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: am\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-12-22 21:00\n"
+"PO-Revision-Date: 2018-12-26 12:23\n"
 "Language-Team: Amharic\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -3038,5 +3038,21 @@ msgstr ""
 
 msgctxt "user_s_page"
 msgid "%s's page"
+msgstr ""
+
+msgctxt "obsolete"
+msgid "The product is no longer sold."
+msgstr ""
+
+msgctxt "obsolete_since_date"
+msgid "Withdrawal date"
+msgstr ""
+
+msgctxt "obsolete_since_date_note"
+msgid "Format: YYYY or YYYY-MM"
+msgstr ""
+
+msgctxt "obsolete_warning"
+msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
 msgstr ""
 
