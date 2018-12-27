@@ -2830,10 +2830,32 @@ fr:Autres substances nutritives
 hu:Egyéb táplálkozási anyagok
 nl:Andere voedingsmiddelen
 
+# Ferment is an agent, such as an enzyme, bacterium, or fungus, that brings about fermentation.
+# Ferment is thus more generic than enzyme.
+
+en:ferment
+az:fermentlər
+ba:Ферменттар
+# bat-smg:ferments
+be:Ферменты
+# be-tarask:Фэрмэнты
+fr:ferment, ferments
+kk:Ферменттер
+ky:Фермент
+lt:fermentas
+lv:ferments
+tt:Фермент
+# tyv:Ферментилер
+uk:Ферменти
+uz:fermentlar
+# xal:Фермент
+nova:en: 3
+
 #
 # ENZYME - is a macromolecular biological catalysts. Enzymes accelerate chemical reactions.
 #
 
+<en:ferment
 en:enzyme
 af:ensiem
 # als:Enzym
@@ -2841,12 +2863,7 @@ an:enzima
 ar:ئەنزیم
 as:উৎসেচক
 # ast:enzima
-az:fermentlər
 # azb:آنزیم
-ba:Ферменттар
-# bat-smg:ferments
-be:Ферменты
-# be-tarask:Фэрмэнты
 bg:Ензим
 bn:উৎসেচক
 br:enzim
@@ -2884,18 +2901,14 @@ it:enzima
 ja:酵素
 jv:Ènzim
 ka:ფერმენტები
-kk:Ферменттер
 ko:효소
 # ksh:enzym
 ku:enzîm
-ky:Фермент
 la:enzymum
 # lez:Ферментар
 # lfn:enzimolojia
 li:enzym
 # lmo:enzima
-lt:fermentas
-lv:ferments
 mk:Ензим
 ml:രാസാഗ്നി
 mn:Фермент
@@ -2937,15 +2950,10 @@ te:ఎంజైము
 th:เอนไซม์
 tl:ensaym
 tr:enzim
-tt:Фермент
-# tyv:Ферментилер
-uk:Ферменти
 ur:خامرہ
-uz:fermentlar
 vi:enzym
 # war:ensaym
 # wuu:酶
-# xal:Фермент
 yi:ענזים
 zh:酶
 # zh-min-nan:Kàⁿ-sò͘
@@ -2963,19 +2971,18 @@ en:microbial coagulating enzyme
 fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne
 nl:microbiële stremmingsenzymen
 
-# We need to check which entries below are exact synonyms, and which ones are children of others
-
-en:culture
-nova:en: 3
-
-en:ferment
-fr:ferment
-nova:en: 3
-
 <en:ferment
-en:lactic ferment
-fr:ferment lactique
-es:cultivo lactico
+en:lactic ferments, lactic starters, lactic cultures
+de:Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur
+el:γαλακτικά ένζυμα 
+es:fermentos lácticos
+fr:ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques
+hu:tejsavbaktériumok
+it:fermenti lattici, coltura di batteri acidolattici
+nl:melkfermenten, melkkiemen
+pt:fermentos lácteos
+# fr:ferments-lactique has 6494 products in 12 languages @2018-11-02
+# fr:culture-de-bactéries-lactiques has 19 products @2018-11-02
 
 <en:lactic ferment
 en:lactic and aging ferments
@@ -2984,32 +2991,195 @@ fr:ferment lactique et d'affinage, Ferments lactiques et d'affinage
 <en:lactic ferment
 en:yogurt lactic ferment
 fr:ferment lactique du yaourt, ferments lactiques du yaourt
+# fr:ferments-lactiques-du-yaourt has 108 products in 2 languages @2018-11-02
+
+<fr:ferments d'affinage
+<en:lactic ferments
+fr:ferments lactiques et d'affinage
+es:fermentos lácticos y de maduración
+pt:fermentos lácticos e de maturação
+# fr:ferments-lactiques-et-d’affinage has 419 products in 10 languages @2018-11-02
+
+<en:lactic ferments
+fr:ferments lactiques sélectionnés
+nl:geselecteerde fermenten
+# fr:ferments-lactiques-sélectionnés has 124 products in 2 languages @2018-11-02
+
+
+# LACTOBACILLUS CASEI is a species of genus Lactobacillus found in the human urinary tract and mouth. 
+
+<en:lactic ferments
+en:lactobacillus casei
+la:Lactobacillus casei 
+zh:乾酪乳酸桿菌
+wikidata:Q139777
+wikipedia:https://en.wikipedia.org/wiki/Lactobacillus_casei
+# fr:lactobacillus-casei has 7 products in 1 language @2018-11-02
+
+<en:lactic ferments
+<en:lactobacillus casei
+fr:ferments lactiques dont lactobacillus casei
+# fr:ferments-lactiques-dont-lactobacillus-casei has 28 products in 1 language @2018-11-02
+
+<en:ferments
+fr:ferments de maturation
+# fr:ferments-de-maturation has 82 products in 1 language @2018-11-02
+
+<en:ferments
+fr:ferments d'affinage
+# fr:ferments-d’affinage has 32 products in 1 language @2018-11-02
+
+<en:ferments
+fr:ferments sélectionnés
+es:fermentos seleccionados
+nl:geselecteerde fermenten
+pt:fermentos selecionados
+# fr:ferments-sélectionnés has 92 products in 4 languages @2018-11-02
 
 <en:coagulating enzyme
-en:rennet, animal rennet
-fr:présure, présure animale
+en:rennet
+an:Cuallo
+ar:منفحة
+bs:Sirište
+ca:quall
+co:Pirrulu
+cs:Syřidlo
+da:osteløbe
+de:Lab
+el:πυτια
+es:cuajo
+et:Laap
+eu:Gatzagi
+fi:juoksete
+fr:présure
+ga:Binid
+gd:Binid
+gl:Callo
+# gsw:Lab
+gu:Reenet
+he:אנזים הגבנה
+hr:Sirište
+id:Rennet
+it:gaglio
+ja:レンネット
+ko:레닛
+la:Coagulum
+lt:Šliužo fermentas
+ms:Renet
+nb:løype
+nl:stremsel
+nn:løpe, løype
+pl:podpuszczka
+pt:coalho, quimosina
+ro:cheag
+ru:рассол
+# scn:Quagghiu
+sr:сириште
+sv:löpe
+tr:lab
+# vec:Conajo
+zh:凝乳酶
+# zh-cn:凝乳酶
+# zh-hans:凝乳酶
+# zh-hant:凝乳酶
+# zh-hk:凝乳酶
+# zh-sg:凝乳酶
+# zh-tw:凝乳酶
+wikidata:Q326900
+wikipedia:https://en.wikipedia.org/wiki/Rennet
+# fr:présure has 2726 products in 15 languages @2018-11-03
 
 <en:rennet
-en:calf rennet
+en:animal-based rennet
+el:πυτία ζώων
+es:cuajo animal
+fr:présure animale
+nl:dierlijk stremsel
+nn:animalsk løpe
+# fr:présure-animale has 509 products in 5 languages @2018-11-03
+
+<en:animal-based rennet
 fr:présure de veau
+es:cuajo bovino
+# fr:présure-de-veau has 34 products in 2 languages @2018-11-03
 
 <en:rennet
 en:microbial rennet
+de:mikrobielles Lab
 fr:présure microbienne
+it:caglio microbico
+nl:microbieel stremsel
+# fr:présure-microbienne has 100 products in 6 languages @2018-11-03
 
-<en:culture
-en:cheese culture
+# A microbiological culture, or microbial culture, is a method of multiplying microbial organisms by letting them reproduce in predetermined culture medium under controlled laboratory conditions. 
+# All cultures in food are microbial cultures
 
-<en:culture
-en:microbial culture
+<en:ferment
+en:microbial culture, culture
 fr:culture bactérienne
+https://en.wikipedia.org/wiki/Microbiological_culture
+# ingredient/culture has 683 products in 3 languages @2018-12-27
+nova:en: 3
 
-<en:culture
+<en:microbial culture
+en:cheese culture
+# ingredient/en:cheese%20culture has 4841 products in 2 languages @2018-12-27
+
+Lactic acid bacteria (LAB) are an order of gram-positive, low-GC, acid-tolerant, generally nonsporulating, nonrespiring, either rod-shaped (bacilli) or spherical (cocci) bacteria that share common metabolic and physiological characteristics. 
+
+# https://en.wikipedia.org/wiki/Lactic_acid_bacteria
+<en:microbial culture
+en:lactic acid bacteria
+de:Milchsäurebakterienkultur
 fr:culture de bactéries lactiques
+es:cultivos lácticos
+it: coltura di batteri acidolattici
+wikipedia:en:https://en.wikipedia.org/wiki/Lactic_acid_bacteria
+# ingredient/fr:culture-de-bactéries-lactiques has 19 products in 3 languages @2018-12-27
 
-<en:culture
-en:bifidus culture
-fr:culture de bifidus
+# Bifidobacterium is a genus of gram-positive, nonmotile, often branched anaerobic bacteria. 
+# Les bifidobactéries appartiennent à la famille des bactéries lactiques.
+
+<en:lactic acid bacteria
+en:bifidus, bifidus culture
+ca: Bifidus, Bifidobacteri
+es:bifidus
+et: Bifidobakter
+fa: بیفیدوباکتر
+fr:bifidus, culture de bifidus, bifidobactérium
+ja: ビフィズス菌
+ka: ბიფიდობაქტერიები
+kk: Бифидобактериялар
+# kk-arab: بىيفىيدوباكتەرىييالار
+# kk-cn: بىيفىيدوباكتەرىييالار
+# kk-cyrl: Бифидобактериялар
+# kk-kz: Бифидобактериялар
+# kk-latn: Bïfïdobakterïyalar
+# kk-tr: Bïfïdobakterïyalar
+la:Bifidobacterium, b. lactis, Bifidobacterium lactis
+nl:bifidus
+ru: Бифидобактерии
+tr: Bifido bakterisi
+uk: Біфідобактерії
+uz: Bifidobakteriyalar
+vi:Vi khuẩn bifidus
+zh: 雙歧桿菌屬
+# zh-cn:双歧杆菌
+wikidata:en: Q132656
+wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium
+# ingredient/fr:bifidus has 45 products in 4 languages @2018-12-27
+# the name used on the ingredients is primary, wikidata secondary, no entry if in latin
+
+# Danone decided to add a probiotic strain:Bifidus Actiregularis. Activia products thus contain Bifidobacterium animalis DN 173,010, a proprietary strain of Bifidobacterium, a probiotic which is marketed by Dannon under the trade names Bifidus Regularis, Bifidus Actiregularis, Bifidus Digestivum and Bifidobacterium Lactis.
+
+<en:bifidus
+en:bifidus actiregularis
+la:bifidus actiregularis
+
+<en:bifidus
+<en:lactic acid bacteria
+fr:ferments lactiques dont bifidobacterium
+
 
 # LACTASE - is an enzyme produced by many organisms.
 
@@ -31680,7 +31850,6 @@ fr:frisée
 
 fr:mélange de condiments
 
-fr:ferments lactiques dont bifidobacterium
 
 fr:potassium
 
@@ -31880,8 +32049,6 @@ fr:glace à la vanille
 carbon_footprint_fr_foodges_ingredient:fr:Glace à la vanille
 
 fr:malates de sodium
-
-fr:bifidus actiregularis
 
 fr:fibre de chicorée
 
@@ -33139,7 +33306,7 @@ fr:sulfate ferreux
 
 fr:anti-agglomérants
 
-fr:b. lactis, Bifidobacterium lactis
+
 
 # RANDOM
 
@@ -33619,9 +33786,6 @@ fr:guanylate de sodium
 en:copper
 fr:cuivre
 
-fr:bifidobactérium
-
-
 fr:agent d'enrobage cire de carnauba
 
 
@@ -33700,8 +33864,6 @@ fr:dextrine de maïs
 
 fr:peau de dinde
 
-
-fr:bifidus
 
 fr:oreilles de judas
 
