@@ -2403,6 +2403,7 @@ wikidata:en:Q911138
 # Lysozyme, also known as muramidase or N-acetylmuramide glycanhydrolase is an antimicrobial enzyme produced by animals that forms part of the innate immune system.
 
 # <en:conservator
+<en:enzyme
 en:lysozyme, E1105, E 1105, E-1105
 ar:ليزوزيم
 bg:Лизоцим
@@ -14694,6 +14695,11 @@ de:proteinhydrolysat
 
 <en:protein
 en:animal protein
+
+<en:animal protein
+en:blood proteins
+fr:protéines de sang
+# ingredient/blood-proteins has 80 products in french @2018-12-28
 
 <en:hydrolysed protein
 <en:animal protein
@@ -32885,9 +32891,6 @@ fr:homard
 allergens:fr:_homard_
 
 fr:antiagglomérants
-
-en:blood proteins
-fr:protéines de sang
 
 fr:poudre parfois un ingrédient
 
