@@ -18056,7 +18056,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/mango
 fr:Mangue importée en avion
 carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en avion
 
-en:mango
+<en:mango
 fr:Mangue importée en bateau
 carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en bateau
 
@@ -18069,6 +18069,43 @@ it:polpa di mango
 nl:mangopuree
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20mangue
 # 393 products @2018-09-27
+
+
+# Mirabelle plum, also known as mirabelle prune or cherry plum (Prunus domestica subsp. syriaca), is a cultivar group of plum trees of the genus Prunus. 
+
+<en:fruit
+en:mirabelle plum
+# atj:Micta miko cowemin
+cs:Slivoň mirabelka
+da:Mirabelblomme
+de:Mirabelle
+# dsb:Mirabela
+el:Πραουστιά
+eo:Mirabelo
+fa:آلو قطره‌طلا
+fr:mirabelle, mirabelles
+ga:Miribéal
+hi:मिराबॅल आलू बुख़ारा
+# hsb:Mirabela
+hu:Mórabóra
+io:Mirabelo
+ka:მირაბელი
+la:Prunus domestica var. syriaca
+lt:Geltonoji slyva
+nl:Mirabelle
+pl:Śliwa mirabelka
+ru:Мирабель
+sv:Mirabelle
+zh:黃香李
+# zh-cn:黃香李
+# zh-hans:黃香李
+# zh-hant:黃香李
+# zh-hk:黃香李
+# zh-sg:黃香李 # zh-tw:黃香李
+wikidata:en:Q149741
+wikipedia:en:https://en.wikipedia.org/wiki/Mirabelle_plum
+# ingredient/fr:mirabelles has 41 products in french @2018-12-28
+
 
 # APPLE is a sweet, edible fruit produced by an apple tree (Malus pumila).
 # This can be a compound product, i.e. appels (gedroogde appels, voedingszuur (citroenzuur), conserveermiddel (_zwaveldioxide_))
@@ -34067,10 +34104,6 @@ fr:vanille moulue
 fr:disulfites de sodium
 allergens:fr:_disulfites_ de sodium
 
-
-
-fr:mirabelles
-
 fr:conservateur de surface
 
 en:sodium pyrophosphate
@@ -34234,8 +34267,6 @@ fr:nucléotides
 fr:crème acidulée
 
 fr:extrait pur de vanille
-
-fr:mirabelle
 
 fr:poudre au beurre
 allergens:fr:poudre au _beurre_
