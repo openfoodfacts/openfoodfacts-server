@@ -30084,9 +30084,6 @@ wikidata:en:Q600396
 wikipedia:en:https://en.wikipedia.org/wiki/Fish
 # ingredient/fish has 7147 products in 12 languages @2018-12-21
 
-
-
-
 <en:fish
 fr:extrait de poisson
 de:Fischextrakt
@@ -30377,6 +30374,56 @@ de:Räucherlachs
 fr:saumon fumé
 it:salmone affumicato
 # ingredient/smoked-salmon has 292 products in 4 languages @2018-12-29
+
+
+
+
+# The Alaska pollock, derpcod, or walleye pollock (Gadus chalcogrammus) is a marine fish species of the cod family Gadidae. 
+
+<en:fish
+en:alaska pollock, pollock, Alaskan pollock
+az: Mintay
+bg: treska pestrá
+ca: peix carboner d'Alaska
+de:Alaska Seelachs, Alaska-Pollack, Alaska-Seelachs
+es: Abadejo de Alaska, colín de Alaska
+fa: زغال‌ماهی آلاسکا
+fi: Alaskanseiti
+fr:lieu, colin, Colin d'Alaska
+is: Alaskaufsi
+it:merluzzo dell'Alaska, pollack, Pollack d'Alaska
+ja: スケトウダラ
+ka: მინტაი
+kk: Минтай
+ko: 명태
+ky: Минтай
+la:Theragra chalcogramma
+ms: Pollock Alaska
+nb: Alaskatheragra
+nl: Alaskakoolvis, alaskapollak, Alaska koolvis
+pl: Mintaj
+pt: merluza-do-alasca
+ru: Минтай
+sv: Alaska pollock
+uk: Минтай далекосхідний
+vi: Cá minh thái Alaska
+# yue: 阿拉斯加鱈
+zh: 黄线狭鳕
+# zh-hans:黄线狭鳕
+# zh-hant:黃線狹鱈
+# zh-hk:黃線狹鱈
+wikidata:en: Q846231
+wikipedia:en:https://en.wikipedia.org/wiki/Alaska_pollock
+# ingredient/fr:lieu has 40 products @2018-12-29
+
+<en:alaska pollock
+en:Alaskan Pollock fillet
+de:Alaska-Seelachsfilet, Alaska Seelachs-Filet
+es:abadejo de Alaska
+fr:filet de colin d'Alaska, filets de colin d'alaska
+it: Fietti di Merluzzo dell'Alaska
+nl:Alaska koolvisfilet
+# ingredient/alaskan-pollock-fillet has 88 products @2018-12-29
 
 
 # Psyllium, or ispaghula, is the common name used for several members of the plant genus Plantago whose seeds are used commercially for the production of mucilage.
@@ -31871,9 +31918,6 @@ fr:b5
 # Fish
 
 <en:fish
-fr:lieu
-
-<en:fish
 fr:truite
 
 fr:truite d'élevage entière
@@ -31923,12 +31967,6 @@ fr:calamars
 fr:crabe
 
 fr:chair de crabe
-
-en:Alaskan pollock
-es:colín de Alaska
-fr:colin d’Alaska
-nl:Alaska koolvis
-de:Alaska-Seelachs
 
 fr:crevette
 
@@ -32889,15 +32927,6 @@ fr:sélénate de sodium
 
 fr:fibre
 
-en:Alaskan Pollock fillet
-es:abadejo de Alaska
-fr:filet de colin d'Alaska
-nl:Alaska koolvisfilet
-de:Alaska-Seelachsfilet
-allergens:fr:filet de _colin_ d'alaska
-
-
-
 en:avocado
 es:aguacate
 fr:avocat
@@ -33678,12 +33707,6 @@ fr:sulfate de magnésium
 
 fr:l-cystéine
 
-
-fr:filets de colin d'alaska
-allergens:fr:filets de _colin_ d'alaska
-
-
-
 fr:palme et colza
 
 fr:chlorure de choline
@@ -33818,8 +33841,6 @@ fr:églantier
 
 
 fr:bitartrate de potassium
-
-fr:colin
 
 en:riboflavin
 fr:riboflavine, riboflavines
