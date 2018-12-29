@@ -42,7 +42,7 @@ use Log::Any qw($log);
 ProductOpener::Display::init();
 use ProductOpener::Lang qw/:all/;
 
-sub _display_form($) {
+sub _display_form($$$$) {
 	my $challenge = shift;
 	my $requested_scope = shift;
 	my $user = shift;
