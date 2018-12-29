@@ -30107,6 +30107,62 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Fumet_de_poisson
 # ingredient/fr:fumet-de-poisson has 187 products in french @2018-12-29
 
 
+# Cod is the common name for the demersal fish genus Gadus, belonging to the family Gadidae.
+
+<en:fish
+en:cod, codfish
+af:Europese kabeljou
+ar:قد
+ca:bacallà
+cs:Treska
+da:Torsk
+de:Kabeljau
+ek:Μπακαλιάρος
+# en-ca:Cod
+# en-gb:Cod
+es:bacalao
+fa:کاد
+fr:cabillaud, morue
+id:Ikan kod
+it:merluzzo
+ja:コッド
+ka:ಕಾಡ್ ಮೀನು
+la:Gadus morhua
+lv:Menca
+nl:kabeljauw
+pl:Dorsz
+pt:Bacalhau
+ru:Треска
+# sco:Cod
+sk:Treska
+tr:Morina
+vi:Cá tuyết
+# wuu:鳕鱼
+# yue:鱈魚
+zh:鱈魚
+wikidata:en:Q13194939
+wikipedia:en:https://en.wikipedia.org/wiki/Cod
+# ingredient/cod has 401 products in 5 languages @2018-12-29
+
+<en:cod
+fr:filet de cabillaud, filets de cabillaud
+# ingredient/fr:filet-de-cabillaud has 32 products in french @2018-12-29
+
+<en:cod
+fr:foie de morue
+de:Dorschleber
+nl:schelvislever, kabeljauwlever
+# ingredient/fr:foie-de-morue has 23 products @2018-12-29
+
+# <en:cod
+fr:œufs de cabillaud
+# ingredient/fr:œufs-de-cabillaud has 69 products in french @2018-12-29
+
+<fr:œufs de cabillaud
+fr:œufs de cabillaud fumés et salés
+# ingredient/fr:œufs-de-cabillaud-fumés-et-salés has 30 products in french @2018-12-29
+
+
 ##### The various fish species have been entered on alphabetical latin name
 
 # Salmon is the common name for several species of ray-finned fish in the family Salmonidae. 
@@ -31814,24 +31870,6 @@ fr:b5
 
 # Fish
 
-
-<en:fish
-en:cod
-es:bacalao
-fr:cabillaud
-nl:kabeljauw
-de:Kabeljau
-
-<en:cod
-fr:filets de cabillaud
-
-<en:cod
-fr:filet de cabillaud
-
-fr:œufs de cabillaud fumés et salés
-
-fr:œufs de cabillaud
-
 <en:fish
 fr:lieu
 
@@ -32439,9 +32477,6 @@ fr:mélange de condiments
 
 fr:potassium
 
-
-fr:morue
-
 en:menthol
 es:mentol
 fr:menthol
@@ -32553,8 +32588,6 @@ fr:éthanol
 
 <fr:pain
 fr:pain spécial
-
-fr:morue
 
 fr:oncorhynchus mykiss
 
@@ -32673,9 +32706,6 @@ fr:graisse butyrique
 fr:badiane
 
 fr:herbes de provence
-
-
-fr:gadus morhua
 
 fr:hydroxypropylméthylcellulose
 
@@ -34684,9 +34714,6 @@ fr:protoxyde d'azote
 
 fr:filets de maquereaux cuits au court-bouillon
 allergens:fr:filets de _maquereaux_ cuits au court-bouillon
-
-fr:foie de morue
-allergens:fr:foie de _morue_
 
 fr:chlamys opercularis
 allergens:fr:_chlamys opercularis_
