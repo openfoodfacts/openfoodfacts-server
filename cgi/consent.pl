@@ -42,6 +42,84 @@ use Log::Any qw($log);
 ProductOpener::Display::init();
 use ProductOpener::Lang qw/:all/;
 
+sub _display_form($) {
+	my $challenge = shift;
+	my $requested_scope = shift;
+	my $user = shift;
+	my $client = shift;
+
+	my $html = <<HTML
+	<form method="post" action="/cgi/consent.pl">
+	<div class="row">
+HTML
+;
+
+	if ((defined $client->logo_uri) and ($client->logo_uri ne '')) {
+		$html .= '<div class="small-12 columns"><img src="' . escapeHTML($client->logo_uri) . '"></div>';
+	}
+
+	my $display_client = $client->client_name;
+	if ((not defined $display_client) or ($display_client eq '')) {
+		$display_client = $client->client_id;
+	}
+
+	my $greeting = sprintf('Hi %s application <strong>%s</strong> wants access resources on your behalf and to:', escapeHTML($User_id),  escapeHTML($display_client));
+	$html .= '<div class="small-12 columns"><p>' . $greeting . '</p></div>';
+
+	$html .= '<div class="small-12 columns">';
+	foreach my $scope (@{$requested_scope}) {
+		$html .= <<HTML
+		<label>
+			<input type="checkbox" id="$scope" name="grant_scope" value="$scope">
+			$scope
+		</label>
+		<br>
+HTML
+;
+	}
+
+	$html .=  '</div>';
+	$html .= '<div class="small-12 columns"><p>Do you want to be asked next time when this application wants to access your data? The application will not be able to ask for more permissions without your consent.</p><ul>';
+
+	if (defined $client->policy_url) {
+		$html .= <<HTML
+		<li>
+			<a href="$client->policy_url">Policy</a>
+		</li>
+HTML
+;
+	}
+
+	if (defined $client->tos_uri) {
+		$html .= <<HTML
+		<li>
+			<a href="$client->tos_uri">Terms of Service</a>
+		</li>
+HTML
+;
+	}
+
+	$html .= <<HTML
+	<div class="small-12 columns">
+		<label>
+			<input type="checkbox" name="remember_me" value="on">
+			$Lang{remember_me}{$lc}
+		</label>
+	</div>
+	</div>
+	<input type="submit" name="submit" value="$Lang{consent_allow_access}{$lc}" class="button small">
+	<input type="submit" name="submit" value="$Lang{consent_deny_access}{$lc}" class="button small">
+	<input type="hidden" name="challenge" value="$challenge">
+	</form>
+HTML
+;
+
+	display_new( {
+		title => lang('session_title'),
+		content_ref => \$html
+	});
+}
+
 if (not defined $User_id) {
 	my $r = shift;
 	my $url = format_subdomain($subdomain) . '/cgi/session.pl';
@@ -146,82 +224,4 @@ else {
 	my $r = shift;
 	$r->status(405);
 	return 405;
-}
-
-sub _display_form($) {
-	my $challenge = shift;
-	my $requested_scope = shift;
-	my $user = shift;
-	my $client = shift;
-
-	my $html = <<HTML
-	<form method="post" action="/cgi/consent.pl">
-	<div class="row">
-HTML
-;
-
-	if ((defined $client->logo_uri) and ($client->logo_uri ne '')) {
-		$html .= '<div class="small-12 columns"><img src="' . escapeHTML($client->logo_uri) . '"></div>';
-	}
-
-	my $display_client = $client->client_name;
-	if ((not defined $display_client) or ($display_client eq '')) {
-		$display_client = $client->client_id;
-	}
-
-	my $greeting = sprintf('Hi %s application <strong>%s</strong> wants access resources on your behalf and to:', escapeHTML($User_id),  escapeHTML($display_client));
-	$html .= '<div class="small-12 columns"><p>' . $greeting . '</p></div>';
-
-	$html .= '<div class="small-12 columns">';
-	foreach my $scope (@{$requested_scope}) {
-		$html .= <<HTML
-		<label>
-			<input type="checkbox" id="$scope" name="grant_scope" value="$scope">
-			$scope
-		</label>
-		<br>
-HTML
-;
-	}
-
-	$html .=  '</div>';
-	$html .= '<div class="small-12 columns"><p>Do you want to be asked next time when this application wants to access your data? The application will not be able to ask for more permissions without your consent.</p><ul>';
-
-	if (defined $client->policy_url) {
-		$html .= <<HTML
-		<li>
-			<a href="$client->policy_url">Policy</a>
-		</li>
-HTML
-;
-	}
-
-	if (defined $client->tos_uri) {
-		$html .= <<HTML
-		<li>
-			<a href="$client->tos_uri">Terms of Service</a>
-		</li>
-HTML
-;
-	}
-
-	$html .= <<HTML
-	<div class="small-12 columns">
-		<label>
-			<input type="checkbox" name="remember_me" value="on">
-			$Lang{remember_me}{$lc}
-		</label>
-	</div>
-	</div>
-	<input type="submit" name="submit" value="$Lang{consent_allow_access}{$lc}" class="button small">
-	<input type="submit" name="submit" value="$Lang{consent_deny_access}{$lc}" class="button small">
-	<input type="hidden" name="challenge" value="$challenge">
-	</form>
-HTML
-;
-
-	display_new( {
-		title => lang('session_title'),
-		content_ref => \$html
-	});
 }

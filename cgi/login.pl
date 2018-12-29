@@ -42,6 +42,44 @@ use Log::Any qw($log);
 ProductOpener::Display::init();
 use ProductOpener::Lang qw/:all/;
 
+sub _display_form($) {
+	my $challenge = shift;
+
+	my $html = <<HTML
+	<p>$Lang{login_to_add_and_edit_products}{$lc}</p>
+
+	<form method="post" action="/cgi/login.pl">
+	<div class="row">
+	<div class="small-12 columns">
+		<label>$Lang{login_username_email}{$lc}
+			<input type="text" name="user_id" autocomplete="username">
+		</label>
+	</div>
+	<div class="small-12 columns">
+		<label>$Lang{password}{$lc}
+			<input type="password" name="password" autocomplete="current-password">
+		</label>
+	</div>
+	<div class="small-12 columns">
+		<label>
+			<input type="checkbox" name="remember_me" value="on">
+			$Lang{remember_me}{$lc}
+		</label>
+	</div>
+	</div>
+	<input type="submit" name=".submit" value="$Lang{login_register_title}{$lc}" class="button small">
+	<input type="hidden" name="challenge" value="$challenge">
+	</form>
+
+HTML
+;
+
+	display_new( {
+		title => lang('session_title'),
+		content_ref => \$html
+	});
+}
+
 if ($ENV{'REQUEST_METHOD'} eq 'GET') {
 	# The challenge is used to fetch information about the login request from ORY Hydra.
 	my $get_challenge = url_param('login_challenge');
@@ -106,40 +144,3 @@ else {
 	return 405;
 }
 
-sub _display_form($) {
-	my $challenge = shift;
-
-	my $html = <<HTML
-	<p>$Lang{login_to_add_and_edit_products}{$lc}</p>
-
-	<form method="post" action="/cgi/login.pl">
-	<div class="row">
-	<div class="small-12 columns">
-		<label>$Lang{login_username_email}{$lc}
-			<input type="text" name="user_id" autocomplete="username">
-		</label>
-	</div>
-	<div class="small-12 columns">
-		<label>$Lang{password}{$lc}
-			<input type="password" name="password" autocomplete="current-password">
-		</label>
-	</div>
-	<div class="small-12 columns">
-		<label>
-			<input type="checkbox" name="remember_me" value="on">
-			$Lang{remember_me}{$lc}
-		</label>
-	</div>
-	</div>
-	<input type="submit" name=".submit" value="$Lang{login_register_title}{$lc}" class="button small">
-	<input type="hidden" name="challenge" value="$challenge">
-	</form>
-
-HTML
-;
-
-	display_new( {
-		title => lang('session_title'),
-		content_ref => \$html
-	});
-}
