@@ -30266,6 +30266,7 @@ la:Clupea harengus
 # structure:inner:role:synonym,  eg:Hareng (Clupea Harengus)
 
 
+
 # Salmon is the common name for several species of ray-finned fish in the family Salmonidae. 
 
 <en:fish
@@ -30480,6 +30481,114 @@ it:salmone affumicato
 # ingredient/smoked-salmon has 292 products in 4 languages @2018-12-29
 
 
+# The term hake /heɪk/ refers to fish in either of: Family Merlucciidae of northern and southern oceans or the Family Phycidae (sometimes subfamily Phycinae in family Gadidae) of the northern oceans.
+
+<en:fish
+en:hake
+bg:мерлуз
+ca:lluç
+de:Colin
+es:Merluza
+fr:merlu, merlu blanc, filets de merlu blanc
+ga:Colmóir
+hu:Hekk
+it:merluzzo
+nl:heek
+nn:lysing
+pl:hake
+ru:мерлуза
+sv:kummel
+tl:Merlusa
+wikidata:en:Q1289807
+wikipedia:en:https://en.wikipedia.org/wiki/Hake
+# ingredient/fr:merlu-blanc has 34 products in french @2018-12-30
+# structure:outer:role:synonym, eg Merlu blanc (Merluccius capensis, Merluccius gayi, Merlusccius productus)
+
+# Merluccius capensis (shallow-water Cape hake or South African hake) is a ray-finned fish in the genus Merluccius, found in the south-eastern Atlantic Ocean, along the coast of South Africa. 
+
+<en:hake
+en:South African hake
+bg:плитководни бели мерлузи
+ca:lluç de Sud-àfrica
+de:Seehecht
+es:merluza
+fa:قلاب‌دهان دماغه
+fr:Merlu du Cap, Filets de merlu blanc du Cap
+it:Fileto di Merluzzo Sudafricano
+nl:Zuid-Afrikaanse heek
+sv:Kapkummel
+zh:南非無鬚鱈
+wikidata:en:Q386641
+wikipedia:en:https://en.wikipedia.org/wiki/Merluccius_capensis
+# ingredient/fr:Merluccius-capensis has 8 products in french @2018-12-30
+# structure:outer:role:synonym, eg Filets de merlu blanc du Cap (Merluccius capensis).
+# structure:inner:role:synonym, eg Coeurs de filet de merlu blanc du Cap (Merluccius capensis/Merluccius paradoxus) 
+
+<en:South African hake
+en:Merluccius capensis
+la:Merluccius capensis
+# structure:inner:role:synonym, eg Filets de merlu blanc du Cap (Merluccius capensis).
+
+# Merluccius paradoxus, the deep-water Cape hake, is a merluccid hake of the genus Merluccius, found in the south-eastern Atlantic Ocean, along the coast of Southern Africa, south of Angola. 
+
+<en:hake
+en:deep-water Cape hake
+af:Diepwater stokvis
+bg:дълбоководни бели мерлузи
+sl:Globokomorski kapski oslič
+zh:深水無鬚鱈
+wikidata:en:Q2461954
+wikipedia:en:https://en.wikipedia.org/wiki/Merluccius_paradoxus
+
+<en:deep-water Cape hake
+en:Merluccius paradoxus
+la:Merluccius paradoxus
+# ingredient/fr:merluccius-paradoxus has 5 products @2018-12-30
+# structure:inner:role:synonym, eg Coeurs de filet de merlu blanc du Cap (Merluccius capensis/Merluccius paradoxus) 
+
+# Merluccius gayi is a merluccid hake of the genus Merluccius, with two subspecies, the South Pacific hake (M. g. gayi) and the Peruvian hake (M. g. peruanus), found in the south-western Pacific Ocean, along the coast of South America
+
+<en:hake
+en:South Pacific hake
+es:Merluza chilena
+ru:Чилийско-перуанская мерлуза
+sv:Chilensk kummel
+zh:秘魯無鬚鱈
+wikidata:en:Q2348852
+wikipedia:en:https://en.wikipedia.org/wiki/Merluccius_gayi
+
+<en:South Pacific hake
+en:Merluccius gayi, Merluccius gayi gayi , Merlucius gayigay
+la:Merluccius gayi, Merluccius gayi gayi , Merlucius gayigay
+# ingredient/fr:Merluccius-gayi has 2 products @2018-12-30
+# structure:inner:role:synonym, eg Merlu blanc (Merluccius capensis, Merluccius gayi, Merlusccius productus)
+
+# The North Pacific hake, Pacific hake, Pacific whiting, or jack salmon (Merluccius productus) is a ray-finned fish in the genus Merluccius, found in the northeast Pacific Ocean
+
+<en:hake
+en:north pacific hake
+bg:тихоокеански хек
+cs:štikozubec tichooceánský
+de:Pazifische Seehecht, Nordpazifischer Seehecht
+es:merluza del Pacífico norte
+fa:قلاب‌دهان آرام شمالی
+fr:merlu du Pacifique, Merlu du Pacifique nord
+is:Kyrrahafslýsingur
+it:nasello del Pacifico, merluzzo del Pacifico
+ja:シロガネダラ
+nl:Pacifische heek
+sv:Stillahavskummel
+uk:Хек тихоокеанський, орегонський
+zh:北太平洋梭鳕
+wikidata:en:Q919598
+wikipedia:en:https://en.wikipedia.org/wiki/North_Pacific_hake
+# structure:outer:role:synonym, eg nasello del Pacifico (Merluccius productus)
+
+<en:north pacific hake
+en:Merluccius productus
+la:Merluccius productus, Merlusccius productus
+# ingredient/fr:Merluccius-productus has 6 products @2018-12-30
+# structure:inner:role:synonym, eg nasello del Pacifico (Merluccius productus)
 
 
 # The Alaska pollock, derpcod, or walleye pollock (Gadus chalcogrammus) is a marine fish species of the cod family Gadidae. 
@@ -35171,8 +35280,6 @@ allergens:fr:_chlamys opercularis_
 fr:noix de st jacques
 allergens:fr:_noix de st jacques_
 
-fr:merlu blanc
-allergens:fr:_merlu_ blanc
 
 fr:crevettes décortiquées, crevette décortiquée
 allergens:fr:_crevettes_ décortiquées
