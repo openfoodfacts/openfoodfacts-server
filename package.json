@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "build": "gulp",
-    "test": "yarn run test:lang && yarn run prove && yarn run lint && yarn run perlc",
+    "test": "yarn run perlc && yarn run lint && yarn run test:lang && yarn run prove",
     "test:lang": "yarn run test:lang:common && yarn run test:lang:en",
     "test:lang:en": "perl scripts/check_po_file.pl po/tags/en.po",
     "test:lang:common": "perl scripts/check_po_file.pl po/common/en.po",

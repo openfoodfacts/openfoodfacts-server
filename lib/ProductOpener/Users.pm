@@ -67,8 +67,9 @@ use ProductOpener::Mail qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Cache qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Hydra qw/:all/;
 
-use CGI qw/:cgi :form escapeHTML/;
+use CGI qw/:cgi :form escapeHTML http/;
 use Encode;
 
 use Email::Valid;
@@ -375,6 +376,24 @@ sub init_user()
 	$Facebook_id = undef;
 	$User_id = undef;
 
+	# Try to get user from bearer token
+	my $token = http('Authorization');
+	if ((defined $token) and ($token =~ s/bearer//gi)) {
+		$token =~ s/\s//g;
+		my $introspect_result = introspect_oauth2_token($token);
+		if ((defined $introspect_result) and ($introspect_result->{active})
+		and (defined $introspect_result->{token_type}) and ($introspect_result->{token_type} eq 'access_token')) {
+			$user_id = $introspect_result->{username};
+			$log->info("OAuth2 token introspected to valid user id", { token => $token, userid => $user_id }) if $log->is_info();
+		}
+		else {
+			$user_id = undef;
+			$log->warn("OAuth2 token introspection resulted in no user id", { token => $token, introspect_result => $introspect_result }) if $log->is_warn();
+			# Trigger an error
+			return ($Lang{error_bad_login_password}{$lang}) ;
+		}
+	}
+	else {
 	# Remove persistent cookie if user is logging out
 	if ((defined param('length')) and (param('length') eq 'logout')) {
 		$log->debug("user logout") if $log->is_debug();
@@ -605,6 +624,7 @@ sub init_user()
 	else
 	{
 		$log->info("no user found") if $log->is_info();
+	}
 	}
 
 	$log->debug("before processing visitor cookie", { user_id => $user_id, cookie => $cookie }) if $log->is_debug();

@@ -76,7 +76,7 @@ data:
     		$mongodb_host
 
     		$memd_servers
-        $hydra_url
+        $hydra_admin_url
 
     		$google_analytics
 
@@ -195,7 +195,7 @@ data:
     $mongodb = $ProductOpener::Config2::mongodb;
     $mongodb_host = $ProductOpener::Config2::mongodb_host;
     $memd_servers = $ProductOpener::Config2::memd_servers;
-    $hydra_url = $ProductOpener::Config2::hydra_url;
+    $hydra_admin_url = $ProductOpener::Config2::hydra_admin_url;
 
     # server paths
     $www_root = $ProductOpener::Config2::www_root;
@@ -495,7 +495,7 @@ data:
     		$mongodb
         $mongodb_host
         $memd_servers
-        $hydra_url
+        $hydra_admin_url
     		$facebook_app_id
     	  $facebook_app_secret
         $csrf_secret
@@ -521,6 +521,8 @@ data:
     $mongodb_host = "mongodb://{{ .Release.Name }}-mongodb:27017";
 
     $memd_servers = [ "{{ .Release.Name }}-memcached:11211" ];
+
+    $hydra_admin_url = "https://{{ .Release.Name }}-hydra:4444";
 
     $facebook_app_id = "";
     $facebook_app_secret = "";

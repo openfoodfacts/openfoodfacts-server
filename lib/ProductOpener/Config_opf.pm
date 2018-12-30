@@ -55,7 +55,7 @@ BEGIN
 		$mongodb_host
 
 		$memd_servers
-		$hydra_url
+		$hydra_admin_url
 
 		$google_analytics
 
@@ -126,7 +126,7 @@ $server_domain = $ProductOpener::Config2::server_domain;
 $mongodb = $ProductOpener::Config2::mongodb;
 $mongodb_host = $ProductOpener::Config2::mongodb_host;
 $memd_servers = $ProductOpener::Config2::memd_servers;
-$hydra_url = $ProductOpener::Config2::hydra_url;
+$hydra_admin_url = $ProductOpener::Config2::hydra_admin_url;
 
 # server paths
 $www_root = $ProductOpener::Config2::www_root;

@@ -36,6 +36,8 @@ BEGIN
 					&get_consent_request
 					&accept_consent_request
 					&reject_consent_request
+
+					&introspect_oauth2_token
 					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -43,12 +45,7 @@ BEGIN
 use vars @EXPORT_OK ;
 use experimental 'smartmatch';
 
-use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Tags qw/:all/;
 use ProductOpener::URL qw/:all/;
 
 use LWP::UserAgent;
@@ -61,7 +58,7 @@ sub _get($$) {
 	my $flow = shift;
 	my $challenge = shift;
 
-	my $url = "$hydra_url/oauth2/auth/requests/$flow/$challenge";
+	my $url = format_subdomain('hydra') . "/oauth2/auth/requests/$flow/$challenge";
 
 	my $ua = LWP::UserAgent->new();
 
@@ -87,7 +84,7 @@ sub _put($$$$) {
 	my $challenge = shift;
 	my $body = shift;
 
-	my $url = "$hydra_url/oauth2/auth/requests/$flow/$challenge/$action";
+	my $url = format_subdomain('hydra') . "/oauth2/auth/requests/$flow/$challenge/$action";
 	my $json = encode_json($body);
 
 	my $ua = LWP::UserAgent->new();
@@ -142,6 +139,32 @@ sub reject_consent_request($$) {
 	my $challenge = shift;
 	my $body = shift;
 	return _put('consent', 'reject', $challenge, $body);
+}
+
+sub introspect_oauth2_token($) {
+	my $token = shift;
+
+	my $body = 'token=' . encodeURIComponent($token);
+	my $url = "$hydra_admin_url/oauth2/introspect";
+
+	my $ua = LWP::UserAgent->new();
+
+	my $request = HTTP::Request->new(POST => $url);
+	$request->header('Content-Type' => 'application/x-www-form-urlencoded');
+	$request->content($body);
+
+	my $response = $ua->request($request);
+
+	if ($response->is_success and (not ($response->status < 200 and $response->status > 302))) {
+		$log->info("POST request to ORY Hydra was successful") if $log->is_info();
+
+		my $json_response = $response->decoded_content;
+		return decode_json($json_response);
+	}
+	else {
+		$log->warn("POST request to ORY Hydra not successful", { code => $response->code, response => $response->message }) if $log->is_warn();
+		return;
+	}
 }
 
 1;
