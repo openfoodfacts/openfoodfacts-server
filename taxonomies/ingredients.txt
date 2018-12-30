@@ -30160,7 +30160,111 @@ fr:œufs de cabillaud fumés et salés
 # ingredient/fr:œufs-de-cabillaud-fumés-et-salés has 30 products in french @2018-12-29
 
 
-##### The various fish species have been entered on alphabetical latin name
+# Herring are forage fish, mostly belonging to the family Clupeidae.
+
+<en:fish
+en:herring
+ak:Adwene
+# ang:gryndel
+br:Harink
+ca:areng
+co:aringa
+cs:Sleď
+eo:Haringo
+es:Arenque
+fa:شاه‌ماهی
+fo:sild
+fr:hareng
+fy:hjerring
+gl:Arenque
+# gom:Dawak
+hr:Haringe
+hu:Hering
+id:ikan haring
+io:Haringo
+ja:ニシン
+ko:Dikwala
+# kk-arab:سالاكا
+# kk-cn:سالاكا
+# kk-cyrl:Салака
+# kk-kz:Салака
+# kk-latn:Salaka
+# kk-tr:Salaka
+kl:angmagssagssuaq
+ko:대서양청어
+ln:Lamɛ́lɛ
+lv:reņģe
+ms:Ikan hering
+# nap:Arenga
+nb:sild
+# nds:Heren
+nl:haring
+nn:sild
+# pcd:Héring
+pl:Śledź
+pt:Arenque
+ro:Hering
+ru:Салака
+# scn:Aregna
+# sco:herrin
+se:Sallit
+# sgs:Silkė
+sk:Sleď
+sl:sled
+sq:harrengë
+# srn:elen
+sv:Sill, Strömming
+th:ปลาเฮร์ริง
+uk:Салака
+yi:הערינג
+zh:鯡魚
+wikidata:en:Q3127419
+wikipedia:en:https://en.wikipedia.org/wiki/Herring
+# ingredient/fr:hareng has 72 products in french @2018-12-30
+# structure:outer:role:synonym,  eg:Hareng (Clupea Harengus)
+
+# Atlantic herring (Clupea harengus) is a herring in the family Clupeidae. 
+
+<en:herring
+en:Atlantic herring
+ar:رنكة أطلسية
+be:селядзец
+bg:атлантическа херинга
+bn:আটলান্টিক হেরিং
+cs:sleď obecný
+da:sild
+de:Atlantischer Hering
+el:ρέγγα
+# en-ca:Atlantic herring
+# en-gb:Atlantic herring
+et:räim
+eu:Sardinzar arrunt
+fa:شاه‌ماهی اطلسی
+fi:silli
+he:מליח אטלנטי
+hi:हेरिंग साटन
+hy:Ատլանտյան տառեխ
+id:Haring atlantik
+ja:タイセイヨウニシン
+lb:Atlanteschen Hierk
+lt:Strimelė
+lv:strimala
+or:ହେରିଂଗ ସାଟନ
+pa:ਅਟਲਾਂਟਿਕ ਹੇਰਿੰਗ
+pl:Sałaka
+pt:arenque-do-atlântico
+ru:атлантическая сельдь
+tr:Baltık ringası
+vi:Cá trích Đại Tây Dương
+zh:大西洋鯡
+wikidata:en:Q2396858
+wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_herring
+
+<en:Atlantic herring
+en:Clupea harengus
+la:Clupea harengus
+# structure:inner:role:synonym,  eg:Hareng (Clupea Harengus)
+
 
 # Salmon is the common name for several species of ray-finned fish in the family Salmonidae. 
 
@@ -32314,18 +32418,6 @@ carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage entier
 carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage (filet)
 
 fr:filets de maquereaux
-
-<en:fish
-fr:hareng
-allergens:fr:_hareng_
-
-<en:fish
-fr:dorade
-carbon_footprint_fr_foodges_ingredient:fr:Bar ou dorade d'élevage (filet)
-
-
-
-
 
 # Random
 
