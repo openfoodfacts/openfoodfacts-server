@@ -30591,6 +30591,92 @@ la:Merluccius productus, Merlusccius productus
 # structure:inner:role:synonym, eg nasello del Pacifico (Merluccius productus)
 
 
+# Mackerel is a common name applied to a number of different species of pelagic fish, mostly from the family Scombridae. 
+
+<en:fish
+en:mackarel
+ar: الإسقمري
+bg: скумрия
+br: Brezhell
+ca: Verat
+cy: Macrell
+da: Makrel
+de: Makrele
+el: Σκουμπρί
+es: Verdel
+et: Makrell
+eu: Berdel
+fi: Makrilli
+fr:maquereau, filets de maquereaux
+# frr: Makreel
+ga: Ronnach
+gd: Rionnach
+gl: Xarda
+hr: Skuša
+ht: Makro
+io: Makrelo
+is: Makríll
+it:sgombri, scombro
+ka: სკუმბრია
+kk: Скумбрия
+la: Scomber
+mk: Скуша
+mr: बांगडा
+nb: Makrell
+nl:makreel
+nn: Makrell
+oc: Vairat
+# olo: Makrelli
+pt: Cavala
+ro: Scrumbie
+ru: Скумбрия
+sk: Skuša
+sl: Skuša
+sr: Скуша
+# sr-ec: Скуша
+# sr-el: Skuša
+sv: Makrill
+tr: Uskumru
+# yue: 青花魚
+zh: 鯖魚
+wikipedia:en:https://en.wikipedia.org/wiki/Mackerel
+# structure:outer:role:synonym, eg sgombri (Scomber scombrus)
+
+<en:mackarel
+en:atlantic mackarel
+ar:اسقمري معروف
+cs: makrela obecná
+da: atlantisk makrel
+es: caballa
+fa: ماهی خال‌خالی اطلس
+ga: ronnach an Atlantaigh
+hu: Közönséges makréla
+ko: 대서양고등어
+lt: Atlantinė skumbrė
+lv: Atlantijas makrele
+nl: atlantische makreel
+pl: Makrela atlantycka
+ro: Scrumbia albastră, macroul de Atlantic
+ru: Атлантическая скумбрия
+sv: atlantisk makrill
+uk: Скумбрія атлантична
+vi: Cá thu Đại Tây Dương
+wikidata:en: Q30153
+
+<en:atlantic mackarel
+en:scomber scombrus
+la:scomber scombrus
+fr:maquereau scomber scombrus
+# ingredient/fr:scomber%20scombrus has 63 products in 3 languages @2018-12-30
+# structure:inner:role:synonym, eg sgombri (Scomber scombrus)
+
+# compound product eg Filets de maquereaux cuits au court-bouillon (filets de maquereaux 55%, sel, épices et aromates)
+
+fr:filets de maquereaux cuits au court-bouillon
+# ingredient/fr:filets-de-maquereaux-cuits-au-court-bouillon has 33 products in french @2018-12-30
+# structure:outer:role:compound, eg Filets de maquereaux cuits au court-bouillon (filets de maquereaux 55%, sel, épices et aromates)
+
+
 # The Alaska pollock, derpcod, or walleye pollock (Gadus chalcogrammus) is a marine fish species of the cod family Gadidae. 
 
 <en:fish
@@ -32526,8 +32612,6 @@ carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage entier
 
 carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage (filet)
 
-fr:filets de maquereaux
-
 # Random
 
 fr:agent d'enrobage, agents d'enrobage
@@ -34402,9 +34486,6 @@ fr:tréhalose
 
 fr:bœuf cuit
 
-fr:scomber scombrus, maquereau scomber scombrus
-
-
 fr:genièvre
 
 
@@ -35270,10 +35351,6 @@ fr:génoise
 
 fr:protoxyde d'azote
 
-
-fr:filets de maquereaux cuits au court-bouillon
-allergens:fr:filets de _maquereaux_ cuits au court-bouillon
-
 fr:chlamys opercularis
 allergens:fr:_chlamys opercularis_
 
@@ -35283,9 +35360,6 @@ allergens:fr:_noix de st jacques_
 
 fr:crevettes décortiquées, crevette décortiquée
 allergens:fr:_crevettes_ décortiquées
-
-fr:maquereau
-allergens:fr:_maquereau_
 
 fr:œufs de lompe
 allergens:fr:_œufs de lompe_
@@ -35836,9 +35910,6 @@ allergens:fr:_brochet_
 
 fr:calmar
 allergens:fr:_calmar_
-
-fr:maquereaux
-allergens:fr:_maquereaux_
 
 fr:poisson déshydraté
 allergens:fr:_poisson_ déshydraté
