@@ -30112,6 +30112,11 @@ wikidata:en:Q30748629
 wikipedia:fr:https://fr.wikipedia.org/wiki/Fumet_de_poisson
 # ingredient/fr:fumet-de-poisson has 187 products in french @2018-12-29
 
+<fr:fumet de poisson
+fr:fumet de poissons de la Méditerranée
+
+<fr:fumet de poisson
+fr:fumet de poisson aromatisé
 
 # Rockfish is a common term for several species of fish, referring to their tendency to hide among rocks.
 
@@ -30123,8 +30128,6 @@ wikidata:en:Q26261896
 wikipedia:en:https://en.wikipedia.org/wiki/Rockfish
 # ingredient/fr:poissons-de-roche has 5 products @2019-01-01
 # structure:inner:role:synonym:optional, eg poissons de roche (congre, rascasse, grondin) 
-
-
 
 
 #  Freshwater fish are those that spend some or all of their lives in fresh water, such as rivers and lakes, with a salinity of less than 0.05%. 
@@ -30199,6 +30202,8 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Liste_des_poissons_de_mer_utilisés_e
 fr:poissons et crustacés mis en œuvre
 # ingredient/fr:poissons-et-crustacés-mis-en-œuvre has 1 product in french @2019-01-01
 
+<en:fish
+fr:poissons entiers pêchés en Méditerranée
 
 # The blue whiting, Micromesistius poutassou, one of the two species in the genus Micromesistius in the cod family, is common in the northeast Atlantic Ocean from Morocco to Iceland and Spitsbergen
 
@@ -31717,6 +31722,35 @@ en:Xiphias gladius
 la:Xiphias gladius
 # ingredient/Xiphias%20gladius has 3 products in english @2018-12-30
 # structure:inner:role:synonym,  eg: swordfish (xiphias gladius)
+
+
+# The tub gurnard, Chelidonichthys lucerna (also C. lucernus, Trigla lucerna, T. corax) is a species of bottom-dwelling coastal fish with a spiny armored head and fingerlike pectoral fins used for crawling along the sea bottom. 
+
+<en:fish
+en:tub gurnard
+br:Talgorn
+ca:lluerna rossa
+cs:štítník červený
+de:Roter Knurrhahn
+eu:Perloi handi
+fi:Isokurnusimppu
+fr:rouget, rouget barbet
+gl:Escacho
+ja:タブ・ガーナード
+ky:Деңиз короозу
+nl:rode poon
+pl:Kurek czerwony
+ru:Жёлтая тригла
+sv:Fenknot
+uk:Морський півень жовтий
+zh:細鱗綠鰭魚
+wikipedia:en:https://en.wikipedia.org/wiki/Tub_gurnard
+# ingredient/fr:rouget has 7 products in french @2019-01-01
+# poissons entiers pêchés en Méditerranée (25%) (grondin, capelan, pageot, mulet, rascasse,vive, rouget)
+
+<en:tub gurnard
+en:Trigla lucerna
+la:Trigla lucerna, Chelidonichthys lucerna
 
 
 # Weevers (or weeverfish) are 9 extant species of fishes of family Trachinidae, order Trachiniformes, part of the Percomorpha clade.
@@ -33296,8 +33330,6 @@ fr:thon listao
 
 <en:tuna
 fr:thon albacore
-
-fr:fumet de poisson
 
 fr:poulpes
 
@@ -35192,9 +35224,6 @@ fr:genièvre
 
 
 fr:zygochlamys patagonica, Saint-Jacques Zygochlamys patagonica
-
-fr:fumet de poisson aromatisé
-allergens:fr:fumet de _poisson_ aromatisé
 
 
 fr:fond de veau
