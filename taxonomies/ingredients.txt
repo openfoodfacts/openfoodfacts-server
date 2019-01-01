@@ -29804,6 +29804,15 @@ wikipedia:en:https://en.wikipedia.org/wiki/Caper
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+# EN:FISH TAXONOMY APPROACH
+#
+# For the en:fish ingredients a special approach to the taxonomy has been chosen:
+# the latin fish species names are always the lowest child of a common fish name.
+# These latin names are noted as en:and la:lines.
+# The common fish names can not be trusted for correctly identifying the fish species.
+# The same generic name is often used to (incorrectly) designate multiple fish species.
+
+
 # Fish are gill-bearing aquatic craniate animals that lack limbs with digits.
 
 en:fish
@@ -30104,6 +30113,18 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Fumet_de_poisson
 # ingredient/fr:fumet-de-poisson has 187 products in french @2018-12-29
 
 
+# Rockfish is a common term for several species of fish, referring to their tendency to hide among rocks.
+
+<en:fish
+en:rockfish
+fr:poissons de roche
+ja:根魚
+wikidata:en:Q26261896
+wikipedia:en:https://en.wikipedia.org/wiki/Rockfish
+# ingredient/fr:poissons-de-roche has 5 products @2019-01-01
+# structure:inner:role:synonym:optional, eg poissons de roche (congre, rascasse, grondin) 
+
+
 # The blue whiting, Micromesistius poutassou, one of the two species in the genus Micromesistius in the cod family, is common in the northeast Atlantic Ocean from Morocco to Iceland and Spitsbergen
 
 <en:fish
@@ -30370,6 +30391,7 @@ fr:œufs de cabillaud fumés et salés
 # The European conger (Conger conger) is a species of conger of the family Congridae. It is the largest eel in the world and native to the northeast Atlantic, including the Mediterranean Sea.
 
 <en:fish
+<en:rockfish
 en:European conger
 ar:قنجر أوروبي
 # ast:Cóngaru
@@ -30471,6 +30493,50 @@ en:Pleuronectes platessa
 la:Pleuronectes platessa
 # ingredient/fr:Pleuronectes%20platessa has 6 products in 3 languages @2018-12-31
 # structure:inner:role:synonym, eg carrelet (Pleuronectes platessa)
+
+
+# The Triglidae, commonly known as sea robins or gurnard, are a family of bottom-feeding scorpaeniform fish. 
+
+<en:fish
+<en:rockfish
+en:Gurnard
+bg:морски лястовици
+br:Korn
+ca:Tríglid
+da:Knurhaner
+de:Knurrhähne
+eo Triglo
+es:Rubio
+eu:Perloi
+fa:خروسک‌ماهی
+fi:Kurnusimput
+fr:grondin
+he:טריגליים
+hr:Kokoti
+hu:morgóhalfélék
+it:Coccio
+ja:ホウボウ科
+ka:ზღვისმამლისებრნი
+ko:양성대과
+ky:Деңиз корооздору
+la:Triglidae
+nb:Knurrfisker
+nl:Ponen
+pl:Kurkowate
+ru:Тригловые
+sv:Knotfiskar
+tr:Kırlangıç
+uk:Триглові
+zh:角魚科
+# zh-cn:角鱼科
+# zh-hans:角鱼科
+# zh-hant:角魚科
+# zh-hk:角魚科
+# zh-sg:角鱼科
+# zh-tw:角魚科
+wikidata:en:Q250699
+wikipedia:en:https://en.wikipedia.org/wiki/Triglidae
+# ingredient/fr:grondin has 8 products in french @2019-01-01
 
 
 # Herring are forage fish, mostly belonging to the family Clupeidae.
@@ -31568,7 +31634,7 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Mulet_(poisson)
 
 # Le mot rascasse est un nom vernaculaire ambigu en français, pouvant désigner plusieurs espèces différentes de poissons réparties dans plusieurs genres, principalement de la famille des scorpaenidés.
 
-<en:fish
+<en:rockfish
 fr:rascasse
 wikipedia:fr:https://fr.wikipedia.org/wiki/Rascasse
 # ingredient/fr:rascasse has 4 products in french @2018-12-31
