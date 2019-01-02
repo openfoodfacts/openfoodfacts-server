@@ -30423,7 +30423,32 @@ de:Dorschleber
 nl:schelvislever, kabeljauwlever
 # ingredient/fr:foie-de-morue has 23 products @2018-12-29
 
+
+# The Atlantic cod (Gadus morhua) is a benthopelagic fish of the family Gadidae, widely consumed by humans. 
+
 <en:cod
+en:atlantic cod
+af:Atlantiese kabeljou
+az:Atlantik treskası
+be:Траска атлантычная
+bg:треска
+cs:treska obecná
+de:atlantischer Kabeljau
+el:Μπακαλιάρος του Ατλαντικού
+fr:morue de l'Atlantique
+hu:Atlanti tőkehal
+is:Atlantshafsþorskur
+lt:Atlantinė menkė
+nl:Atlantische kabeljauw
+pl:Dorsz atlantycki
+pt:bacalhau-do-atlântico
+# pt-br:Bacalhau-do-atlântico
+tr:Atlantik morinası
+uk:Тріска атлантична
+wikidata:en:Q199788
+wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_cod
+
+<en:atlantic cod
 en:Gadus morhua
 la:Gadus morhua
 
@@ -30960,7 +30985,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Trisopterus_luscus
 # structure:inner:role:synonym, eg tacaud (Trisopterus luscus)
 
 
-# The saithe  (Pollachius virens) is a species of marine fish in the Pollachius genus.
+# The saithe (Pollachius virens) is a species of marine fish in the Pollachius genus.
 
 <en:fish
 en:saithe, pollock
@@ -30981,7 +31006,7 @@ eu:Ikazkin
 fa:زغال‌ماهی شمالی
 fi:seiti
 fo:seiður
-fr:Lieu Noir
+fr:Lieu Noir, colin lieu
 hu:Fekete tőkehal
 is:ufsi
 ja:シロイトダラ
@@ -31002,6 +31027,7 @@ uk:Сайда
 zh:綠青鱈
 wikipedia:en:https://en.wikipedia.org/wiki/Pollachius_virens
 # ingredient/fr:Lieu-Noir has 17 products in french @2019-01-02
+# ingredient/fr:colin-lieu has 12 products @2019-01-02
 
 <en:saithe
 en:Pollachius virens
@@ -31220,7 +31246,6 @@ de:Räucherlachs
 fr:saumon fumé
 it:salmone affumicato
 # ingredient/smoked-salmon has 292 products in 4 languages @2018-12-29
-
 
 
 # A tuna (also called tunny) is a saltwater fish that belongs to the tribe Thunnini, a subgrouping of the Scombridae (mackerel) family.
@@ -32063,6 +32088,14 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Brochet
 # ingredient/fr:brochet has 27 products @2019-01-01
 
 
+<en:fish
+fr:lieu
+# ingredient/fr:lieu has 40 products @2018-01-02
+# colin (lieu) de l'Alaska (Theragra chalcogramma) 
+# Colin (lieu) (Pollachius virens)
+# lieu (lieu 25%, huile de colza, sel, échalotes, gélatine de poisson)
+# Crabe, lieu, crème liquide, échalotes,
+
 # Les mulets (également appelés mules, muges ou meuille1) sont des poissons de la famille des Mugilidae, mais aussi des familles Cyprinidae, Lebiasinidae ou Polynemidae.
 
 <en:fish
@@ -32079,6 +32112,7 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Mulet_(poisson)
 fr:rascasse
 wikipedia:fr:https://fr.wikipedia.org/wiki/Rascasse
 # ingredient/fr:rascasse has 4 products in french @2018-12-31
+
 
 
 # Psyllium, or ispaghula, is the common name used for several members of the plant genus Plantago whose seeds are used commercially for the production of mucilage.
@@ -33568,36 +33602,6 @@ fr:alginate de sodium
 
 fr:b5
 
-
-
-# Fish
-
-
-<en:fish
-en:tuna, katsuwonus pelamis
-fr:thon, katsuwonus pelamis
-carbon_footprint_fr_foodges_ingredient:fr:Thon en boîte
-
-<en:tuna
-fr:thon blanc germon
-
-<en:tuna
-fr:thon au naturel
-
-<en:tuna
-fr:filets de thon
-
-<en:tuna
-fr:thon précuit
-
-<en:tuna
-fr:thon blanc
-
-<en:tuna
-fr:thon listao
-
-<en:tuna
-fr:thon albacore
 
 fr:poulpes
 
