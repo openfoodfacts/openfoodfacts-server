@@ -30822,6 +30822,54 @@ wikipedia:en:https://en.wikipedia.org/wiki/Trisopterus_luscus
 # structure:inner:role:synonym, eg tacaud (Trisopterus luscus)
 
 
+# The saithe  (Pollachius virens) is a species of marine fish in the Pollachius genus.
+
+<en:fish
+en:saithe, pollock
+# ast:carboneru
+bg:сайда
+bn:পোলক
+br:Levneg du
+ca:peix carboner
+cs:treska tmavá
+cy:Chwitlyn Glas
+da:sej
+de:Köhler
+el:Πόλοκ
+# en-gb:Saithe
+es:carbonero
+et:süsikas
+eu:Ikazkin
+fa:زغال‌ماهی شمالی
+fi:seiti
+fo:seiður
+fr:Lieu Noir
+hu:Fekete tőkehal
+is:ufsi
+ja:シロイトダラ
+kk:Сайда
+ko:북대서양대구
+lt:Ledjūrio menkė
+nb:sei 
+nl:koolvis
+nn:sei
+pa:ਪੋਲਕ
+pl:Czarniak
+pt:escamudo
+ru:сайда
+se:Sáidi
+sq:pollock
+sv:gråsej
+uk:Сайда
+zh:綠青鱈
+wikipedia:en:https://en.wikipedia.org/wiki/Pollachius_virens
+# ingredient/fr:Lieu-Noir has 17 products in french @2019-01-02
+
+<en:saithe
+en:Pollachius virens
+la:Pollachius virens
+
+
 # Salmon is the common name for several species of ray-finned fish in the family Salmonidae. 
 
 <en:fish
@@ -31311,7 +31359,7 @@ fr:filets de maquereaux cuits au court-bouillon
 # The Alaska pollock, derpcod, or walleye pollock (Gadus chalcogrammus) is a marine fish species of the cod family Gadidae. 
 
 <en:fish
-en:alaska pollock, pollock, Alaskan pollock
+en:alaska pollock, Alaskan pollock
 az: Mintay
 bg: treska pestrá
 ca: peix carboner d'Alaska
@@ -31319,7 +31367,7 @@ de:Alaska Seelachs, Alaska-Pollack, Alaska-Seelachs
 es: Abadejo de Alaska, colín de Alaska
 fa: زغال‌ماهی آلاسکا
 fi: Alaskanseiti
-fr:lieu, colin, Colin d'Alaska
+fr:Colin d'Alaska
 is: Alaskaufsi
 it:merluzzo dell'Alaska, pollack, Pollack d'Alaska
 ja: スケトウダラ
@@ -31344,7 +31392,6 @@ zh: 黄线狭鳕
 # zh-hk:黃線狹鱈
 wikidata:en: Q846231
 wikipedia:en:https://en.wikipedia.org/wiki/Alaska_pollock
-# ingredient/fr:lieu has 40 products @2018-12-29
 
 <en:alaska pollock
 en:Alaskan Pollock fillet
