@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-12-26 13:09\n"
+"PO-Revision-Date: 2019-01-03 17:12\n"
 "Language-Team: Spanish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -2853,11 +2853,11 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_title"
 msgid "Risk of overexposure"
-msgstr ""
+msgstr "Riesgo de sobreexposición"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
-msgstr ""
+msgstr "La Autoridad Europea de Seguridad Alimentaria (EFSA) ha determinado que algunos grupos de población tienen un alto riesgo de consumir demasiado <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
@@ -2865,11 +2865,11 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
-msgstr ""
+msgstr "Para evaluar su exposición al aditivo alimentario <tag>, puede navegar por la lista de productos que lo contienen. Vea la lista de <nb_products> productos con <tag> a continuación."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_products_link"
 msgid "%d products with %s"
-msgstr ""
+msgstr "%d productos con %s"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_no"
 msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
@@ -2877,11 +2877,11 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
-msgstr ""
+msgstr "Riesgo alto de sobreexposición"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
-msgstr ""
+msgstr "Riesgo moderado de sobre exposición"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of exceeding the acceptable daily intake (ADI)"
@@ -2913,7 +2913,7 @@ msgstr ""
 
 msgctxt "exposure_description_95th"
 msgid "over 5%"
-msgstr ""
+msgstr "más del 5%"
 
 msgctxt "exposure_title_mean"
 msgid "Most people"
@@ -2921,7 +2921,7 @@ msgstr ""
 
 msgctxt "exposure_description_mean"
 msgid "over 50%"
-msgstr ""
+msgstr "más del 50%"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
@@ -3053,53 +3053,69 @@ msgstr ""
 
 msgctxt "correctors_products"
 msgid "Products corrected by %s"
-msgstr ""
+msgstr "Productos corregidos por %s"
 
 msgctxt "correctors_without_products"
 msgid "Products not corrected by %s"
-msgstr ""
+msgstr "Productos no corregidos por %s"
 
 msgctxt "editors_products"
 msgid "Products edited by %s"
-msgstr ""
+msgstr "Productos editados por %s"
 
 msgctxt "editors_without_products"
 msgid "Products not edited by %s"
-msgstr ""
+msgstr "Productos no editados por %s"
 
 msgctxt "informers_products"
 msgid "Products completed by %s"
-msgstr ""
+msgstr "Productos completados por %s"
 
 msgctxt "informers_without_products"
 msgid "Products not completed by %s"
-msgstr ""
+msgstr "Productos no completados por %s"
 
 msgctxt "photographers_products"
 msgid "Products photographed by %s"
-msgstr ""
+msgstr "Productos fotografiados por %s"
 
 msgctxt "photographers_without_products"
 msgid "Products not photographed by %s"
-msgstr ""
+msgstr "Productos no fotografiados por %s"
 
 msgctxt "user_s_page"
 msgid "%s's page"
-msgstr ""
+msgstr "Página de %s"
 
 msgctxt "obsolete"
 msgid "The product is no longer sold."
-msgstr ""
+msgstr "El producto ya no se vende."
 
 msgctxt "obsolete_since_date"
 msgid "Withdrawal date"
-msgstr ""
+msgstr "Fecha de retirada"
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY or YYYY-MM"
-msgstr ""
+msgstr "Formato: YYYY o YYYY-MM"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
+msgstr "Nota importante: este producto ya no se vende. Los datos se guardan solo como referencia. Este producto no aparece en búsquedas regulares y no se tiene en cuenta para las estadísticas."
+
+msgctxt "get_the_app"
+msgid "Get the app"
+msgstr ""
+
+msgctxt "get_the_app_android"
+msgid "Get the Android app"
+msgstr ""
+
+msgctxt "get_the_app_iphone"
+msgid "Get the iPhone app"
+msgstr ""
+
+msgctxt "get_the_app_ipad"
+msgid "Get the iPad app"
 msgstr ""
 
