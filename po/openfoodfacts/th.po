@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: th\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-12-23 14:07\n"
+"PO-Revision-Date: 2019-01-03 17:22\n"
 "Language-Team: Thai\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -27,4 +27,9 @@ msgstr ""
 msgctxt "tagline"
 msgid "Open Food Facts gathers information and data on food products from around the world."
 msgstr "Open Food Facts รวบรวมข้อมูลและข้อมูลเกี่ยวกับผลิตภัณฑ์อาหารจากทั่วโลก"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link"
+msgid "open-food-facts-mobile-app"
+msgstr ""
 
