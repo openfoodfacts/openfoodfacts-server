@@ -31,7 +31,7 @@ use ProductOpener::Display qw/:all/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 use LWP::Simple;
 use CGI qw/:cgi :form escapeHTML/;
 

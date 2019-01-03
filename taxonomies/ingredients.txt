@@ -8,6 +8,7 @@ stopwords:en:contains, contain, with, in varying proportions
 stopwords:es:contiene
 stopwords:fi:sisältää
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient
+stopwords:hr:sastojci
 stopwords:hu:tartalmaz
 stopwords:it:contiene
 stopwords:nl:bevat, met, waarvan
@@ -19,7 +20,9 @@ stopwords:sv:innehåller, från, med
 # postfixes
 
 # en
-# *organically grown products
+# 
+# Contains genetically modified organisms
+# organically grown products
 # prefried in vegetable oil
 
 # de
@@ -37,6 +40,7 @@ stopwords:sv:innehåller, från, med
 
 # fr
 # Contient une source de phénylalamine.
+# Contient des organismes génétiquement modifiés
 # d'élevage au sol
 # Fabriqué dans un atelier qui utilise : céleri, moutarde et oeuf.
 # *produits issus de l'agriculture biologique.
@@ -58,7 +62,13 @@ stopwords:sv:innehåller, från, med
 # Product geproduceerd in een werkruimte waar ook het volgende wordt gebruikt : melk, selderij, sesam, weekdieren.
 
 # pt
+# Contem organismos geneticamente modificados
 # Pode conter vestigios de aipo. Percentagens expressas sobre o total da receita.
+# Pode conter vestígios de leite
+
+# ro
+# Produs maturat si afumat cu lemn de fag. 
+# Pentru 100g produs se prelucreaza 158 g carne de porc.
 
 en:ingredient
 da:indeholder
@@ -66,6 +76,8 @@ de:Zutaten
 fr:ingrédient
 it:ingredienti
 nl:ingrediënt, ingrediënten
+sk:obsahuje
+sl:vsebuje
 sv:innehåller
 
 # additive classes (from Global_additives_classes_taxonomy)
@@ -405,7 +417,7 @@ sv:Paprikaextrakt, e160c
 
 # Not sure whether the natural adds anything special, paprika extract seems always to be natural
 
-<fr:paprika extract
+<en:paprika extract
 fr:extrait naturel de paprika
 # fr:extrait-naturel-de-paprika 28 products in 1 language @2018-10-15
 
@@ -1471,7 +1483,7 @@ wikipedia:https://en.wikipedia.org/wiki/Sodium_ascorbate
 
 
 <en:antioxidant
-en:Fatty acid esters, E304, E 304, E-304
+en:Fatty acid esters of ascorbic acid, E304, E 304, E-304
 de:E304, E 304, E-304
 es:E304, E 304, E-304
 fr:E304, E 304, E-304
@@ -2086,12 +2098,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mixed_ammonium_salts_of_phosphorylate
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 en:acid esters of mono- and diglycerides of fatty acids, E472, E 472, E-472
-fr:Esters d'acides gras alimentaires, E472, E 472, E-472
+fr:Esters d'acides gras alimentaires
 gl:Ésteres de ácidos graxos alimentarios
-nl:Esters van mono- en diglyceriden, E472, E 472, E-472
+nl:Esters van mono- en diglyceriden
 tr:yağ asitlerinin mono ve digiseridleri
 
-<en:acid esters of mono- and diglycerides of fatty acids, E472a, E 472a, E-472a
+<en:acid esters of mono- and diglycerides of fatty acids
 en:acetic acid esters of mono- and diglycerides of fatty acids, E472a, E 472a, E-472a
 bs:Acetatni esteri mono- i diglicerida masnih kiselina
 bg:Естери на оцетната киселина с моно- и диглицериди на мастни киселини, E472a, E 472a, E-472a
@@ -2223,7 +2235,7 @@ tr:tartarik asit esters of mono- ve diglycerides of fatty asits, E472d, E 472d, 
 uk:Естери моно- та дигліцеридів та винної і жирних кислот, E472d, E 472d, E-472d
 # additive/e472d-tartaric-acid-esters-of-mono-and-diglycerides-of-fatty-acids has 24 products in 2 languages @2018-11-14
 
-<en:acid esters of mono- and diglycerides of fatty acids, E472e, E 472e, E-472e
+<en:acid esters of mono- and diglycerides of fatty acids
 en:Mono- and diacetyl tartaric acid esters of mono- and diglycerides of fatty acids, E472e, E 472e, E-472e
 bg:Естери на моно- и диацетилвинената киселина с моно- и диглицериди на мастни киселини, E472e, E 472e, E-472e
 bs:Mono- i diacetil tartaratni esteri mono- i diglicerida masnih kiselina, E472e, E 472e, E-472e
@@ -2291,6 +2303,77 @@ uk:Змішані естери гліцерину та винної, оцтов�
 wikidata:en:Q18967248
 # additive/e472f-mixed-acetic-and-tartaric-acid-esters-of-mono-and-diglycerides-of-fatty-acids has 7 products in 3 languages @2018-11-13
 
+
+# Calcium chloride is an inorganic compound, a salt with the chemical formula CaCl2. 
+
+en:calcium chloride, E509, E 509, E-509
+af:Kalsiumchloried, E509, E 509, E-509
+ar:كلوريد الكالسيوم
+# ast:Cloruru de calciu, E509, E 509, E-509
+# azb:کولورید کلسیوم
+bg:Калциев хлорид, E509, E 509, E-509
+bn:ক্যালসিয়াম ক্লোরাইড, E509, E 509, E-509
+ca:clorur de calci, E509, E 509, E-509
+cs:Chlorid vápenatý, E509, E 509, E-509
+cy:calsiwm clorid, E509, E 509, E-509
+da:Calciumchlorid, E509, E 509, E-509
+de:Calciumchlorid, E509, E 509, E-509
+el:Χλωριουχο ασβεστιο, E509, E 509, E-509
+# en-ca:calcium chloride , E509, E 509, E-509
+# en-gb:calcium chloride , E509, E 509, E-509
+eo:kalcia klorido , E509, E 509, E-509
+es:cloruro cálcico, Cloruro de calcio, E509, E 509, E-509
+et:Kaltsiumkloriid, E509, E 509, E-509
+fa:کلرید کلسیم 
+fi:Kalsiumkloridi, E509, E 509, E-509
+fr:chlorure de calcium, E509, E 509, E-509
+gl:Cloruro de calcio , E509, E 509, E-509
+hi:कैल्सियम क्लोराइड , E509, E 509, E-509
+hu:Kalcium-klorid, E509, E 509, E-509
+hy:Կալցիումի քլորիդ , E509, E 509, E-509
+id:Kalsium klorida , E509, E 509, E-509
+it:cloruro di calcio, E509, E 509, E-509
+ja:塩化カルシウム , E509, E 509, E-509
+ko:염화 칼슘 , E509, E 509, E-509
+ky:Кальций хлориди , E509, E 509, E-509
+lt:Kalcio chloridas, E509, E 509, E-509
+lv:Kalcija hlorīds, E509, E 509, E-509
+ms:Kalsium klorida , E509, E 509, E-509
+mt:Klorur tal-kalċju, E509, E 509, E-509
+# nan:Iâm-hoà khā-lú-siúm , E509, E 509, E-509
+nb:Kalsiumklorid , E509, E 509, E-509
+nl:calciumchloride, E509, E 509, E-509
+nn:kalsiumklorid, E509, E 509, E-509
+pl:Chlorek wapnia, E509, E 509, E-509
+pt:cloreto de calcio, E509, E 509, E-509
+ro:Clorură de calciu, E509, E 509, E-509
+ru:Хлорид кальция, E509, E 509, E-509
+sh:Kalcijum hlorid , E509, E 509, E-509
+sk:Chlorid vápenatý, E509, E 509, E-509
+sl:Kalcijev klorid, E509, E 509, E-509
+sr:калцијум хлорид , E509, E 509, E-509
+# sr-ec:калцијум хлорид , E509, E 509, E-509
+# sr-el:Kalcijum hlorid , E509, E 509, E-509
+sv:Kalciumklorid, E509, E 509, E-509
+ta:கல்சியம் குளோரைட்டு , E509, E 509, E-509
+te:కాల్సియం క్లోరైడ్ , E509, E 509, E-509
+tr:Kalsiyum klorür, E509, E 509, E-509
+uk:Кальцій хлористий, E509, E 509, E-509
+vi:canxi clorua, E509, E 509, E-509
+# war:Calcium chloride, E509, E 509, E-509
+# wuu:氯化钙, E509, E 509, E-509
+# yue:氯化钙, E509, E 509, E-509
+zh:氯化钙, E509, E 509, E-509
+# zh-cn:氯化钙, E509, E 509, E-509
+# zh-hans:氯化钙, E509, E 509, E-509
+# zh-hant:氯化钙, E509, E 509, E-509
+# zh-hk:氯化钙, E509, E 509, E-509
+# zh-sg:氯化钙, E509, E 509, E-509
+# zh-tw:氯化钙, E509, E 509, E-509
+wikidata:en:Q208451
+wikipedia:en:https://en.wikipedia.org/wiki/Calcium_chloride
+# ingredient/calcium-chloride has 5542 products in 8 languages @2018-12-10
+
 en:thickener
 ga: Tiúsóir
 de: Verdickungsmittel
@@ -2317,6 +2400,86 @@ bg: Сгъстител
 wikidata:en:Q911138
 
 
+# Lysozyme, also known as muramidase or N-acetylmuramide glycanhydrolase is an antimicrobial enzyme produced by animals that forms part of the innate immune system.
+
+# <en:conservator
+en:lysozyme, E1105, E 1105, E-1105
+ar:ليزوزيم
+bg:Лизоцим
+ca:Lisozim
+cs:Лизоцим
+da:Lysozym
+de:Lysozym
+el:Λυσοζυμη
+es:Lisozima
+et:Lüsosüüm
+eu:Lisozima
+fa:لیزوزیم
+fi:lysotsyymi
+ga:Lísisím
+gl:Lisocima
+he:ליזוזים
+hr:Lizozim
+hu:Lizozim
+hy:Լիզոցիմ
+id:Lisozim
+it:lisozima
+ja:リゾチーム
+jv:Lisozim
+kk:Лизоцим
+# kk-arab:لىيزوتسىيم
+# kk-cn:لىيزوتسىيم
+# kk-cyrl:Лизоцим
+# kk-kz:Лизоцим
+# kk-latn:Lïzocïm
+# kk-tr:Lïzocïm
+lt:Lizocimas
+lv:Lizocīms
+mk:Лизозим
+ms:Lisozim
+mt:Lisożima
+nb:Lysozym
+nl:Lysozym
+oc:Lisozim
+pa:ਲਾਈਜ਼ੋਜਾਈਮ
+pl:Lizozym
+pt:Lisozima
+ro:Lizozim
+ru:Лизоцим
+# sco:lysozyme
+sh:Lizozim
+sk:Lyzozým
+sl:Lizocim
+sr:лизозим
+# sr-ec:лизозим
+# sr-el:lizozim
+sv:lysozym
+ta:லைசோசைம்
+tr:Lizozim
+uk:Лізоцим
+zh:溶菌酶
+# zh-cn:溶菌酶
+# zh-hans:溶菌酶
+# zh-hant:溶菌酶
+# zh-hk:溶菌酶
+# zh-sg:溶菌酶
+# zh-tw:溶菌酶
+wikidata:en:Q21114915
+wikipedia:en:https://en.wikipedia.org/wiki/Lysozyme
+
+# <en:egg white
+# <en:conservator
+<en:lysozyme
+en:lysozyme from eggs
+de:Lysozym aus Ei
+es:lisozima de huevo
+fr:lysozyme d'oeuf
+it:lisozima de uovo
+nl:lysozym uit ei
+sv:lysozym av ägg, av ägg
+# ingredient/fr:lysozyme-d’oeuf has 289 products in 10 languages @2018-12-18
+
+
 # <en:potato
 <en:modified starch
 <en:potato starch
@@ -2329,6 +2492,13 @@ pt:amido modificado de batata, E1404
 # fr:fécule-de-pomme-de-terre-modifiée has 40 products in 3 languages @2018-10-15
 # fr:e1404 has 19 products in 4 languages @2018-10-15
 # en:modified-potato-starch has 1862 products in 7 languages @2018-10-15
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                           M I N E R A L     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # MINERAL - is a naturally occurring chemical compound,[1] usually of crystalline form and not produced by life processes.
 
@@ -2361,7 +2531,7 @@ eu:Mineral
 fa:کانی
 fi:Mineraali, Kivennäiset
 # fiu-vro:Mineraal
-fr:Minéral, Minéraux, Substances d'apport minéral, Apport minéral
+fr:Minéral, Minéraux, Substances d'apport minéral, Apport minéral, mineraux
 # frr:Mineraal
 fy:Mineraal
 ga:Mianra
@@ -2452,6 +2622,161 @@ zh:礦物
 # yue:礦物
 #wikidata:en:
 wikipedia:en:https://en.wikipedia.org/wiki/Mineral
+
+
+# Selenium is a chemical element with symbol Se and atomic number 34. 
+
+<en:mineral
+en:Selenium, Sn
+af:selenium
+am:ሴሊኒየም
+an:Selenio
+ar:سيلينيوم
+# ast:Seleniu
+az:Selen
+be:Селен
+# be-tarask:Сэлен
+bg:Селен
+# bho:सेलेनियम
+bn:সেলেনিয়াম
+bo:སེ་ལེ་ནིམ།
+br:Seleniom
+bs:selen
+ca:seleni
+# cdo:Să̤
+# ceb:Selenio
+# ckb:سیلینیۆم
+co:Seleniu
+cs:selen
+cv:Селен
+cy:Seleniwm
+da:selen
+de:Selen
+# de-ch:Selen
+dv:ސެލެނިއަމް
+el:σελήνιο
+# en-ca:Selenium
+# en-gb:Selenium
+eo:seleno
+es:selenio
+et:Seleen
+eu:selenio
+# ext:Seleniu
+fa:سلنیم
+fi:seleeni
+fo:Selen
+fr:sélénium
+# frr:Selen
+# fur:Seleni
+ga:Seiléiniam
+# gan:硒
+gd:Selenium
+gl:selenio
+gu:સેલિનીયમ
+gv:Shellainium
+# hak:Sî
+he:סלניום
+hi:सेलेनियम
+# hif:Selenium
+hr:Selenij
+ht:Selenyòm
+hu:szelén
+hu:սելեն
+ia:Selenium
+id:Selenium
+io:Selenio
+is:selen
+it:selenio
+ja:セレン
+# jbo:lurcmu
+jv:Selenium
+ka:სელენიუმი
+# kbp:Sɛlɩnɩyɔm
+kk:Селен
+kn:ಸೆಲೆನಿಯಮ್
+ko:셀레늄
+kv:Селен
+ky:Селен
+la:selenium
+lb:Selen
+# lfn:selenio
+li:Seleen
+# lij:Selenio
+# lmo:Selenio
+lt:Selenas
+lv:selēns
+# lzh:硒
+mk:Селен
+ml:സെലീനിയം
+mn:Селени
+mr:सेलेनियम
+# mrj:Селен
+ms:Selenium
+mt:selenju
+my:ဆီလီနီယမ်
+# myv:Селен
+# nan:Selenium
+nb:selen
+# nds:Selen
+ne:सेलेनियम
+# new:सेलेनियम
+nl:seleen
+nn:selen
+oc:Selèni
+# olo:Selen
+or:ସେଲେନିଅମ
+pa:ਸਿਲੀਨੀਅਮ
+pi:सेलेनियम
+pl:selen
+# pms:Seleni
+# pnb:سلینیم
+ps:selenium
+pt:selénio
+# pt-br:selênio
+qu:Silinyu
+ro:seleniu
+ru:селен
+# rup:Seleniu
+sa:सेलेनियम
+# scn:sileniu
+# sco:selenium
+sh:Selen
+sk:Selén
+sl:Selen
+so:Seleniyaam
+sq:Seleni
+sr:селен
+# sr-ec:селен
+# stq:Selen
+su:Sélénium
+sv:selen
+sw:Seleni
+ta:செலீனியம்
+te:సెలీనియం
+tg:Селен
+th:ซีลีเนียม
+tl:selenyo
+tr:Selenyum
+tt:Селен
+ug:سېلېن
+uk:селен
+uz:Selen
+# vep:Selen
+vi:selen
+# war:Selenyo
+# wuu:硒
+# xal:Селен
+yi:סעלעניום
+yo:Selenium
+# yue:硒
+zh:硒
+# zh-cn:硒
+# zh-hans:硒
+# zh-hant:硒
+# zh-hk:硒
+# zh-tw:硒
+wikipedia:en:https://en.wikipedia.org/wiki/Selenium
+# ingredient/fr:sélénium has 74 products in 4 languages @2018-12-21
 
 en:Amino acids
 bg:Аминокиселини
@@ -3415,6 +3740,12 @@ en:pasteurized goat milk, pasteurised goat milk, pasteurised goatmilk
 es:leche de cabra pasteurizada
 fr:lait de chèvre pasteurisé, lait pasteurisé de chèvre
 it:latte di capra pastorizzato
+
+<en:milk
+en:sheep's milk
+de:Schafmilch
+fr:laitde brebis
+nl:schapenmelk
 
 # RAW SHEEPS MILK - milk produced by female sheep before any treatment
 
@@ -7380,12 +7711,6 @@ fr:cuisses de canard
 <fr:viande de canard
 fr:manchons de canard
 
-en:duck egg
-es:huevo de pato
-fr:œuf de canard
-nl:eendenei
-de:Enteneier
-
 en:duck liver
 es:hígado de pato
 fr:foie de canard
@@ -7427,6 +7752,8 @@ fr:présure de veau
 fr:os de veau
 
 #Poulet
+
+fr:viande de poulet
 
 <fr:viande de poulet
 fr:produit à base de viande de poulet
@@ -9349,6 +9676,44 @@ zh: 乙醇
 wikidata:en:Q153
 wikipedia:en:https://en.wikipedia.org/wiki/Ethanol
 # fr:alcool-éthylique has 237 products in 5 languages @2018-10-29
+
+
+# Amaretto (Italian for "a little bitter") is a sweet Italian liqueur that originated in Saronno, Italy.
+
+<en:alcohol
+en:amaretto
+be:Амарэта
+bg:Амарето
+ca:Amaretto
+cs:amaretto
+da:amaretto
+de:Amaretto, Amarettolikor
+es:Amaretto
+et:Amaretto
+fi:Amaretto
+fr:amaretto
+he:אמרטו
+it:amaretto 
+ja:アマレット
+kk:Амаретто
+ko:아마레토
+la:Amarettus
+lb:Amaretto
+lt:Amaretas
+nl:amaretto
+pl:Amaretto
+pt:amaretto
+ru:Амаретто
+sk:Amaretto
+sv:Amaretto
+tr:Amaretto
+uk:Амарето
+vi:Amaretto
+zh:意大利苦杏酒
+wikidata:en:Q455045
+wikipedia:en:https://en.wikipedia.org/wiki/Amaretto
+#ingredient/amaretto has 15 products in 4 languages @2018-12-21
+
 
 # PORT wine (also known as vinho do Porto, Porto, and usually simply port) is a Portuguese fortified wine produced with distilled grape spirits exclusively in the Douro Valley in the northern provinces of Portugal.
 
@@ -12195,10 +12560,13 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:farine%20de%20mais
 
 <en:flour
 en:rice flour
+da:rismel
 es:harina de arroz
-fr:farine de riz
-nl:rijstebloem
-de:Reismehl
+fi:riisijauho
+it:farina di riso
+nl:rijstbloem
+pt:farinha de arroz
+sv:rismjöl
 
 <en:rice flour
 en:dextrinated rice flour
@@ -12212,6 +12580,7 @@ fr:farine de riz blanc
 
 <en:rice flour
 fr:farine de riz complet
+
 
 # Question
 
@@ -12544,6 +12913,405 @@ nl:gemalen maïs
 pt:milho moído
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:maïs%20moulu
 # 28 products in 3 languages @2018-09-24
+
+
+# Rice is the seed of the grass species Oryza sativa (Asian rice) or Oryza glaberrima (African rice). 
+
+en:rice
+# aeb-arab: روز
+af: Rys
+am: ሩዝ
+an: Roz
+ar: أرز
+# arc: ܪܘܙܐ
+# arz: رز
+as: ধান
+# ast: arroz
+# atj: Miromin
+az: Düyü
+# azb: دویو
+ba: Дөгө
+# bar: Reis
+# bcl: Paroy
+be: Рыс
+# be-tarask: Рыс
+bg: ориз
+# bho: चाउर
+# bjn: Banih
+bm: malo
+bn: চাল
+bo: འབྲས།
+# bqi: برنج
+br: Riz
+bs: Riža
+# bxr: Тутарга
+ca: arròs
+# cdo: Dêu
+ce: Дуга
+ch: Ineksa
+# ckb: برنج
+co: risu
+# crh-latn: pirinç
+cs: rýže a obilniny
+cv: Рис 
+cy: reis
+da: ris
+de: Reis
+# de-ch: Reis
+# din: Lop
+# dty: धान
+dv: ހަނޑޫ
+el: Ρύζι
+# en-ca: Rice
+# en-gb: Rice
+eo: rizo
+es: arroz
+et: riis
+eu: Arroz
+fa: برنج
+fi: riisi
+fo: Rís
+fr:riz
+fy: rys
+ga: Rís
+# gag: pirinç
+# gan: 禾
+gl: Arroz
+# gsw: Riis
+ha: Shinkafa
+# hak: Vò-é
+he: אורז
+hi: चावल
+# hif: Bhaat
+hr: Riža
+# hsb: Rajs
+ht: Diri
+hu: Rizs
+hy: բրինձ
+id: beras
+ig: Oskàpà
+ii: ꍯ
+# ilo: bagas
+# inh: Дуга
+io: Rizo
+is: Hrísgrjón
+it: riso
+ja: 米
+# jam: Rais
+# jbo: rismi
+jv: Pantun
+ka: ბრინჯი
+# kbd: Прунж
+# kbp: Mɔʋ
+kk: Күріш
+km: ស្រូវ
+kn: ಅಕ್ಕಿ
+ko: 쌀
+# krc: принч
+ku: Riz
+kw: rys
+ky: шалы
+la: Oryza
+# lad: Arroz
+lb: Räis
+# lbe: Ппиринж
+# lez: Дуьгуь
+# lfn: Ris
+li: ries
+# lij: Riso
+# lmo: Ris
+ln: Lɔ́sɔ
+lo: ເຂົ້າຈ້າວ
+lt: Ryžis
+lv: rīsi
+# lzh: 稻
+# mai: धान
+mg: Vary
+mi: raihi
+mk: ориз
+ml: അരി
+mn: Тутарга
+mr: तांदूळ
+ms: Beras
+mt: ross
+my: စပါး
+# mzn: برنج
+# nah: Ācintli
+# nan: Tiū
+nb: ris
+# nds: Ries
+# nds-nl: Ries
+ne: धान
+# new: जाकि
+nl: rijst
+nn: ris
+nv: Alóós
+oc: Ris
+or: ଚାଉଳ
+os: Пырындз
+# ota: برنج
+pa: ਝੋਨਾ
+# pam: Pale
+# pap: aros
+pl: ryż
+# pnb: چاول
+pt: arroz
+# pt-br:arroz
+qu: Arrus
+rn: Umuceri
+ro: orez
+# roa-tara: rise
+ru: рис
+# rup: Urizu
+rw: Umuceli
+sa: तण्डुलाः
+# sah: Рис
+# sat: ᱫᱟᱠᱟ
+# sco: Rice
+sd: چانور
+se: riisa
+# sgs: Rīžā
+sh: Riža
+si: වී
+sk: Ryža
+sl: Riž
+sn: Mupunga
+so: Bariis
+sq: orizi
+sr: пиринач
+# sr-ec: пиринач
+# sr-el: pirinač
+# srn: aleysi
+st: raese
+su: Béas
+sv: ris
+sw: Mpunga
+ta: நெல்
+te: వరి
+# tet: hare
+tg: биринҷ
+th: ข้าว
+tk: bürünç
+tl: Palay
+tm: Pirinç
+tt: дөге
+# tt-cyrl: дөге
+uk: рис
+ur: چاول
+uz: Guruch
+# vec: Rixo
+vi: Gạo
+vo: risat
+# vro: Riis
+wa: Riz
+# war: Humay
+wo: ceeb
+# wuu: 稻
+# xmf: ორზა
+yi: רייז
+# yue: 稻米
+za: Haeuxbieg
+zh: 稻
+# zh-hant: 米
+zu: ilayisi
+wikidata:en:Q5090
+wikipedia:en:https://en.wikipedia.org/wiki/Rice
+carbon_footprint_fr_foodges_ingredient:fr:Riz jasmin (Thaïlande)
+
+<en:rice
+en:Italian rice
+de:italien. Reis
+es:arroz italiano
+fr:riz italien
+hu:olasz rizs
+it:riso italiano
+nl:italiaanse rijst
+pl:ryż włoski
+ro:orez italian
+# ingredient/italian-rice has 17 products in 12 languages @2018-12-19
+
+<en:rice
+en:puffed rice
+de:Reisflocken
+es:arroz inflados
+fr:flocons de riz
+it:fiocchi di riso
+nl:gepofte rijst, rijst pofte
+# ingredient/fr:flocons-de-riz has 47 products in 6 languages @2018-12-19
+
+<en:rice
+en:parboiled rice
+fr:riz parboiled
+de:Parboiled Reis
+it:riso parboiled
+# ingredient/fr:riz-parboiled has 3 products in 3 languages @2018-12-19
+
+<en:rice
+en:long grain rice
+fr:riz long grain, riz long blanc, riz long
+# ingredient/fr:riz-long-grain has 46 products in 4 languages @2018-12-19
+# ingredient/fr:riz-long-blanc has 9 products in french @2018-12-19
+# ingredient/fr:riz-long has 26 products in french @2018-12-19
+
+<en:long grain rice
+en:parboiled long grain rice
+de:Dampfgegarter Spitzen-Langkorn-Reis
+fr:riz long grain précuit à la vapeur
+# ingredient/parboiled-long-grain-rice has 26 products in 3 languages @2018-12-19
+
+<en:long grain rice
+fr:riz long étuvé, riz long grain étuvé
+# ingredient/fr:riz-long-étuvé has 40 products in french @2018-12-19
+
+<fr:riz long étuvé
+fr:riz long grain étuvé de qualité supérieure
+nl:Langkorrelige rijst van hoogwaardige kwaliteit
+# ingredient/fr:riz-long-grain-étuvé-de-qualité-supérieure has 39 products in 2 languages @2018-12-19
+
+<en:rice
+en:wild rice
+fr:riz sauvage
+de:Wildreis
+it:riso selvatico
+# ingredient/fr:riz-sauvage has 65 products in 7 languages @2018-12-19
+
+<en:rice
+fr:riz blanc
+nl:witte rijst
+# ingredient/fr:riz-blanc has 99 products in french @2018-12-19
+
+<en:rice
+en:red rice
+fr:riz rouge
+# ingredient/fr:riz-rouge has 45 products in french @2018-12-19
+
+<en:rice
+fr:riz gluant
+# ingredient/fr:riz-gluant has 120 products in french @2018-12-19
+
+<en:rice
+en:basmati rice
+de:Basmatireis
+es:arroz basmati
+fr:riz basmati
+it:riso Basmati
+nl:basmatirijst
+# ingredient/basmati-rice has 344 products in 6 languages @2018-12-19
+
+<en:basmati rice
+fr:riz basmati précuit
+# ingredient/fr:riz-basmati-précuit has 33 products in french @2018-12-19
+
+<en:basmati rice
+fr:riz basmati cuit
+de:Basmati-Reis gekocht
+it:riso Basmati cotto
+nl:gekookte basmatirijst
+# ingredient/fr:riz-basmati-cuit has 93 products @2018-12-19
+
+<en:rice
+en:full grain rice
+de:Vollkornreis
+fr:riz complet
+it:riso integrale
+# ingredient/fr:riz-complet has 253 products in 4 languages @2018-12-19
+
+<en:full grain rice
+fr:riz complet précuit
+# ingredient/fr:riz-complet-précuit has 26 products in french @2018-12-19
+
+
+<en:rice
+fr:riz moulu
+de:Reis gemahlen
+it:riso macinato
+nl:rijst gemalen
+# ingredient/fr:riz-moulu has 20 products in 4 languages @2018-12-19
+
+# This can be found under the flours
+#<en:rice
+#en:rice flour
+#da:rismel
+#es:harina de arroz
+#fi:riisijauho
+#it:farina di riso
+#nl:rijstbloem
+#pt:farinha de arroz
+#sv:rismjöl
+
+<en:rice
+fr:semoule de riz, son de riz
+de:Reisgriess
+it:semolino di riso
+pt:sêmola de arroz
+# ingredient/fr:semoule-de-riz has 287 products in 5 languages @2018-12-19
+# ingredient/fr:son-de-riz has 31 products @2018-12-19
+
+
+# fr:riz extrudé is a compound ingredient
+
+<en:rice
+fr:riz extrudé
+de:Reis extrudiert
+it:riso estruso
+sr:pirinač ekstrudat
+# sr-el:pirinač ekstrudat
+# ingredient/fr:riz-extrudé has 36 products in 4 languages @2018-12-19
+
+# en:crisped rice is a compound ingredient, i.e. (Rice, Sugar, Salt, Barley Malt Extract)
+
+<en:rice
+en:puffed rice, crisped rice
+da:puffat ris
+de:Puffreis, Reis-Crispies, Reis gepufft, Crisp-Rice
+es:arroz inflado
+fi:puffattu riisi
+fr:riz soufflé, riz croustillant
+it:riso soffiato
+nl:gepofte rijst
+pt:arroz tufado
+sv:puffat ris
+# ingredient/fr:riz-soufflé has 180 products in 10 languages @2018-12-19
+# ingredient/fr:riz-croustillant has 44 products in 2 languages @2018-12-19
+
+<en:rice
+fr:galette de riz
+de:Reiswaffeln
+it:gallette di riso
+nl:rijstwafel, rijstwafels
+# ingredient/fr:galette-de-riz has 132 products @2018-12-19
+
+# fr:extrait de riz is a compound ingredient, eg:(eau, riz, huile de tournesol)
+
+<en:rice
+en:rice extract
+es:extracto de arroz
+fr:extrait de riz, extraits de riz
+# ingredient/fr:extrait-de-riz has 36 products in 3 languages @2018-12-19
+
+<en:rice
+fr:riz précuit
+# ingredient/fr:riz-précuit has 143 products in 4 languages @2018-12-19
+
+
+# fr:riz cuisiné is a compound product, eg:(eau, riz, sel)
+
+<en:rice
+en:cooked rice
+fr:riz cuisiné, riz cuit
+de:Kochreis
+# ingredient/fr:riz-cuisiné has 47 products in french @2018-12-19
+
+<en:cooked rice
+en:cooked white rice
+fr:riz blanc cuit
+# ingredient/cooked-white-rice has 75 products in 2 languages @2018-12-19
+
+<en:rice
+fr:crème de riz
+nl:rijst crème
+# ingredient/fr:crème-de-riz has 148 products in 10 languages @2018-12-19
+
 
 # THICKENER
 
@@ -13344,12 +14112,6 @@ fr:sirop de sucre candi
 en:caramel syrup
 fr:sirop de caramel
 
-en:agave syrup
-es:jarabe de agave
-fr:sirop d’agave
-nl:agavesiroop
-de:Agavensirup
-
 fr:sirop de blé
 
 fr:sirop de sucre de canne
@@ -13476,6 +14238,45 @@ fr:dextrose de tapioca
 nl:tapiocadextrose
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:dextrose%20de%20tapioca
 # 26 products @2018-09-25
+
+
+# Agave nectar (more accurately, agave syrup) is a sweetener commercially produced from several species of agave, including Agave tequilana (blue agave) and Agave salmiana. 
+
+en:agave syrup
+ar: شراب أغاف
+cs:agávovy sirup
+da:agavesirup
+de:Agavensirup
+es:jarabe de agave
+fa: اگاو
+fi:agave siirappi
+fr:sirop d’agave
+hr:sirup od agave
+id: Agave nectar
+is:agave-síróp
+it:sciroppo d'agave
+ja: アガベシロップ
+nl:agavesiroop
+nn:agave sirup
+pl: Syrop z agawy
+pt:xarope de agave
+ro: nectar de agave
+ru:сироп из агавы
+sl:agavin sirup
+sv: Agavesirap
+th: อะกาเวเนกเตอร์
+zh: 龍舌蘭糖漿
+wikidata:en: Q392001
+wikipedia:en:https://en.wikipedia.org/wiki/Agave_nectar
+# ingredient/agave-syrup has 477 products in 16 languages @2018-12-17
+
+<en:agave syrup
+fr:jus d'agave concentré
+de:Agavendicksaft
+it:succo di agave concentrato
+# ingredient/fr:jus-d’agave-concentré has 16 products in 3 languages @2018-12-17
+
+
 
 # PROTEINES - are large biomolecules, or macromolecules, consisting of one or more long chains of amino acid residues
 
@@ -14758,7 +15559,7 @@ uk:Екстракт дріжджів
 zh:酵母抽提物
 wikipedia:en:https://en.wikipedia.org/wiki/Yeast_extract
 
-<en:extrait de levure
+<en:yeast extract
 en:yeast extract powder
 de:Hefeextraktpulver
 fr:extrait de levure en poudre
@@ -18965,7 +19766,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/passion%20fruit
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruit%20de%20la%20passion
 # 559 products in 5 languages @2018-09-29
 
-<fr:fruit de la passion
+<en:passion fruit
 <en:fruit juice
 en:passion fruit juice
 de:Passionsfruchtsaft
@@ -18976,7 +19777,7 @@ nl:passievruchtsap
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20fruit%20de%20la%20passion
 # 262 products in 6 languages @2018-09-29
 
-<fr:passion fruit juice
+<en:passion fruit juice
 en:reconstituted passion fruit juice
 de:Passionfruchtsaft aus Konzentrat
 fr:jus de fruit de la passion à base de concentré
@@ -20129,7 +20930,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Raisin
 # SULTANA is a "white" (pale green), oval seedless grape variety also called the sultanina
 # maybe it is necessary to split between dried and fresh
 
-<fr:grape
+<en:grape
 en:sultanas
 fr:raisins secs sultanines
 de:Sultaninen
@@ -20785,14 +21586,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Asparagus
 # en:asparagus has 301 products in 6 languages @2018-11-11
 
 <en:asparagus
-en: green asparagus
+en:green asparagus
 de:Grüne Spargeln
 fr:asperges vertes
 it:asparagi verdi
 nl:groene asperges
 # fr:asperges-vertes has 65 products in 6 languages @2018-11-11
 
-<fr: green asparagus
+<en:green asparagus
 es:Espárragos verdes sin pelar
 
 <en:asparagus
@@ -23017,6 +23818,136 @@ de:Blattspinat
 it:foglie di spinaci
 nl:bladspinazie
 # fr:épinards-en-branches in 3 languages 44 products @2018-10-14
+
+
+# The sweet potato (Ipomoea batatas) is a dicotyledonous plant that belongs to the bindweed or morning glory family, Convolvulaceae.
+
+en:sweet potato
+af:Patats
+ak:atomo
+am:ስኳር ድንች
+# ang:Swētu eorþperu
+ar:بطاطا حلوة
+# arz:بطاطا
+ay:Apichu
+az:Qramafonçiçək batat
+# azb:قرامافونچیچک باتات
+# bcl:Kamoteng kamang
+be:Батат
+bg:сладък картоф
+# bjn:Gumbili lancar
+bn:মিষ্টি আলু
+bo:ཞོག་མངར།
+br:patatez dous
+bs:Batat
+ca:moniato
+# cdo:Huăng-sṳ̀
+# ceb:Kamote
+cs:povijnice batátová
+da:sød kartoffel
+de:Süßkartoffel, Süsskartoffeln
+# de-ch:Süsskartoffel
+el:Γλυκοπατάτα
+eo:Batato
+es:patata dulce
+et:bataat
+eu:Batata
+fa:سیب‌زمینی شیرین
+fi:bataatti
+fj:Kumala
+fr:patate douce, patates douces
+ga:Práta Spáinneach
+# gan:薯
+gn:Jety
+gu:શક્કરીયાં
+# hak:Fân-sù
+he:בטטה
+hi:शकरकन्द
+hr:Batat
+# hsb:Słódke dulki
+ht:Patat
+hu:Édesburgonya
+hy:բաթաթ
+id:Ubi jalar
+# ilo:Kamote
+io:Patato
+is:Sætar kartöflur
+it:Patata dolce, patate dolci
+ja:サツマイモ
+jv:Ketéla rambat
+ka:ბატატი
+kk:Батат
+km:ដំឡូងជ្វា
+kn:ಸಿಹಿ ಗೆಣಸು
+ko:고구마
+ky:Батат
+la:Ipomoea batatas
+lg:Lumonde awusse
+ln:Libɛngɛ́
+lo:ມັນດ້າງ
+lt:Batatas
+lv:batāte
+# mai:सखरखण्ड
+mk:Сладок компир
+ml:മധുരക്കിഴങ്ങ്
+mr:रताळे
+ms:ubi keledek
+# nah:Camohtli
+# nan:Han-chî
+nb:søtpotet
+ne:सखरखण्ड
+nl:zoete aardappel
+nn:søtpotet
+or:କନ୍ଦମୂଳ
+pa:ਸ਼ਕਰਕੰਦ
+# pam:Kamuti
+pl:wilec ziemniaczany
+# pnb:شکرقندی
+pt:batata-doce
+qu:Kumar
+ro:Batat
+# roa-tara:patana doce
+ru:батат
+sa:मिष्टालुकम्
+# sco:Sweet potato
+sd:ناڙو
+sh:Batat
+si:බතල
+sk:Povojník batatový
+sl:Batata
+sn:Mbambaira
+so:Sonkor qadi
+sq:patatja e ëmbël
+sr:Батат
+su:Hui
+sv:sötpotatis
+sw:Kiazi kitamu
+ta:வற்றாளை
+# tcy:ಕೆರೆಂಗ್
+te:చిలగడదుంప
+tg:Батат
+th:มันเทศ
+tl:Kamote
+to:Kumala
+# tpi:Kaukau
+tr:Tatlı patates
+ug:تاتلىقياڭيۇ
+uk:Батат
+ur:شکر قندی
+uz:Batat
+vi:Khoai lang
+wo:pataas
+# xmf:ბატატი
+yi:זיס־קארטאפל
+# yue:番薯
+za:Maenz
+zh:番薯
+# zh-hant:番薯
+# zh-tw
+wikidata:en:Q37937
+wikipedia:en:https://en.wikipedia.org/wiki/Sweet_potato
+# ingredient/fr:patate-douce has 327 products in 6 languages @2018-12-22
+
 
 # The POTATO is a starchy, tuberous crop from the perennial nightshade Solanum tuberosum.
 
@@ -27743,7 +28674,7 @@ es:aroma de cilantro
 
 # Filipendula ulmaria, commonly known as meadowsweet or mead wort, is a perennial herb in the family Rosaceae that grows in damp meadows.
 
-<en:plant
+// <en:plant
 en:meadowsweet
 ar:إكليلية المروج
 az:Qarağacyarpaq quşqonmaz
@@ -27793,7 +28724,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Filipendula_ulmaria
 
 # Roselle (Hibiscus sabdariffa) is a species of Hibiscus used for the production of bast fibre and as an infusion, in which it may be known as carcade.
 
-<en:plant
+// <en:plant
 en:roselle flower
 ar:كركديه
 # arz:كركديه
@@ -28092,6 +29023,559 @@ wikipedia:en:https://en.wikipedia.org/wiki/Caper
 # ingredient/fr:câpre has 494 products in 6 languages @2018-12-4
 
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                                   F I S H     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# Fish are gill-bearing aquatic craniate animals that lack limbs with digits.
+
+en:fish
+ab:Аҧсыӡ
+# ace:Eungkôt
+af:Vis
+ak:nsuomu nam
+am:ዓሣ
+an:Peix, Pisces
+# ang:Fisc
+ar:السمك كغداء, سمك
+# arz:سمك
+as:মাছ
+# ast:Pexe
+# atj:kinocew
+av:ччугӏа
+ay:Challwa
+az:Balıqlar
+# azb:بالیقلار
+ba:Балыҡтар
+# bar:Fiisch
+# bcl:Sira
+be:рыбы
+# be-tarask:рыбы
+bg:риба
+bi:Fis
+# bjn:Iwak
+bm:djegè
+bn:মাছ
+bo:ཉ།
+br:Pesk
+bs:Ribe
+# bug:bale
+# bxr:Загаhан
+ca:peix
+# cdo:Ngṳ̀
+ce:чӏара
+# ceb:Isda
+# chr:ᎠᏣᏗ
+# chy:nomaˀne
+# ckb:ماسی
+co:pesciu
+cr:ᓇᒣᔅ
+# crh:Balıq
+# chr’latn:Balıq
+cs:ryba
+# csb:Rëbë
+cu:рꙑба
+cv:Пулă
+cy:pysgodyn
+da:fisk
+de:Fisch
+# de-ch:Fische
+# diq:Mase
+# dsb:Ryby
+dv:މަސް
+ee:akpa
+el:Ψάρι
+# en-ca:fish
+# en-gb:fish
+eo:fiŝo, fiŝaĵo
+es:pescado, pez
+et:Kalad, kala
+eu:arrain
+# ext:Peci
+fa:ماهی
+ff:liingu
+fi:kala
+fj:Ika
+fo:Fiskur
+fr:poisson
+# frr:Fasker
+# fur:pes
+fy:fisk
+ga:Iasc
+# gag:balık
+# gan:魚
+gd:Iasg
+gl:Peixes
+gn:Pira
+# gom:ಮಸ್ಳೀ
+# gor:Uponula
+# got:𐍆𐌹𐍃𐌺𐍃
+# grc:ἰχθύς
+# gsw:Fisch
+gu:માછલી
+gv:Eeast
+ha:kifi
+# hak:Ǹg-è
+# haw:iʻa
+he:דג
+hi:मछली
+# hif:Machhri
+# hil:abakan
+hr:Ribe
+# hsb:Ryby
+ht:Pwason
+hu:halak
+hy:Ձկնամիս, ձկներ
+ia:pisce
+id:Ikan
+ig:azụ
+ii:ꉛ
+ik:Iqaluk
+# ilo:ikan
+# inh:Чкъаьрий
+io:Fisho
+is:Fiskur
+it:pesce
+iu:ᐃᖃᓗᒃ
+ja:魚, 魚類
+# jam:Fish
+# jbo:finpe
+jv:Iwak
+ka:თევზები
+# kaa:Balıq
+# kbp:Kpakpayaɣ
+ki:thamaki
+kk:Балықтар
+kl:aalisagaq
+km:ត្រី
+kn:ಮೀನು
+ko:생선, 물고기
+# krc:балыкъ
+# ksh:Fesch
+ku:Masî
+kv:Чери
+kw:Pysk
+ky:балык
+la:Piscis
+# lad:Pishkados
+lb:Fësch
+# lbe:Чавахъ
+# lez:Гъед
+# lfn:Pex
+li:vèsse
+# liv:kalā
+# lmo:Pès
+ln:Mbísi
+lo:ປາ
+lt:Žuvis, Žuvys
+# ltg:zivs
+lv:zivis
+# lzh:魚
+# mdf:кал
+mg:Hazandrano
+mh:ek
+# mhr:Кол
+mi:ika
+# min:Ikan
+mk:риба, риби
+ml:മത്സ്യം
+mn:загас
+mr:मासा
+# mrj:Кол
+ms:Ikan
+mt:ħuta
+my:ငါး
+# myv:Калт
+na:Iy
+# nah:Michin
+# nan:Hî
+# nap:Pisce
+nb:fisk
+# nds:Fisch
+# nds-nl:Visk
+ne:माछा
+# new:न्या
+# niu:ika
+nl:vis
+nn:fisk
+# nov:fishe
+# nrm:Paîsson
+oc:Peis
+om:qurxummii
+or:ମାଛ
+os:кӕсаг
+# ota:بالق
+pa:ਮੱਛੀ
+# pam:Asan
+# pap:piská
+# pcd:Pichon
+# pfl:Fusch
+pl:ryba
+# pnb:مچھی
+ps:کب
+pt:peixe
+# pt-br:peixe
+qu:Challwa
+rm:pesch
+ro:pește
+# roa-tara:pesce
+ru:рыба, рыбы
+# rue:Рыбы
+# rup:pescu
+rw:fi
+sa:मत्स्याः
+# sah:Балык
+# sat:ᱦᱟᱹᱠᱩ
+sc:pische
+# scn:Pisci
+# sco:fish
+sd:मच्छी
+se:guolli
+sg:susu
+# sgs:Žovis
+sh:Riba
+si:මාළු
+sk:Ryby
+sl:Ribe
+sm:i‘a
+# sma:guelie
+sn:Hove
+so:Malaay
+sq:Peshku
+sr:риба, рибе
+# sr-ec:риба, рибе
+# sr-el:riba
+# srn:Fisi
+st:sehlapi
+# stq:Fisk
+su:Lauk
+sv:fisk
+sw:Samaki
+# szl:Ryby
+ta:மீன், மீன் ஒரு மனித உணவு
+# tcy:ಮೀನ್
+te:చేప
+# tet:ikan
+tg:Моҳӣ
+th:ปลา
+tk:balyk
+tl:Isda
+# tly:мој
+to:ika
+# tpi:pis
+tr:Balık
+tt:балык, балыклар
+# tt-cyrl:балык, балыклар
+# tt-latn:balıq, balıqlar
+ty:eiya
+# tyv:балык
+# tzm:ⴰⵙⵍⵎ
+# udm:Чорыг
+ug:بېلىق
+uk:Риба
+ur:مچھلی
+uz:Baliqlar
+# vec:Pesi
+# vep:Kalad
+vi:Cá
+# vls:Visschn
+vo:fit
+# vot:kala
+# vro:Kala
+wa:Pexhon
+# war:Isda
+wo:jën
+# wuu:鱼
+# xal:Заһсн
+xh:Intlanzi
+# xmf:ჩხომი
+yi:ים–פיש
+yo:eja
+# yue:魚, 食用魚
+za:Duzbya
+zh:鱼
+# zh-cn:鱼
+# zh-hans:鱼
+# zh-hant:魚
+# zh-hk:鱼
+# zh-mo:鱼
+# zh-sg:鱼
+# zh-tw:魚
+zu:inhlanzi
+wikidata:en:Q152
+wikidata:en:Q600396
+wikipedia:en:https://en.wikipedia.org/wiki/Fish
+# ingredient/fish has 7147 products in 12 languages @2018-12-21
+
+# Psyllium, or ispaghula, is the common name used for several members of the plant genus Plantago whose seeds are used commercially for the production of mucilage.
+
+# psyllium can be used for the fibres or as infusion
+
+<en:fiber
+en:Psyllium, plantago
+ar:بزر قطونة
+da:Psyllium
+de:Psyllium
+fa:بارهنگ کتانی
+fi:Psyllium
+fr:fibres de psyllium, psyllium
+he:פסיליום
+hi:isabgol
+it:psyllium
+# pam:Apang psyllium
+pl:Babka
+ro:Psyllium
+ru:Подорожник
+sd:اسپنگر
+sv:Loppfrö
+ta:Isabgol
+uk:Подорожник
+ur:اسپغول
+wikidata:en:Q15258700
+wikipedia:en:https://en.wikipedia.org/wiki/Psyllium
+# ingredient/fr:psyllium has 89 products in 4 languages @2018-12-17
+
+
+
+
+# Honey is a sweet, viscous food substance produced by bees and some related insects.
+
+# nova:en:honey
+en:honey
+ab:ацха
+af:Heuning
+ak:3wu)
+am:ማር
+an:Miel
+# ang:Huniȝ
+ar:عسل النحل
+# arc:ܕܒܫܐ
+# arz:عسل
+# ast:Miel
+ay:Misk'i
+az:Bal
+# azb:بال
+ba:Бал
+# bar:Heng
+be:мёд
+# be-tarask:мёд
+bg:Пчелен мед
+bn:মধু
+br:Mel
+bs:Med
+# bxr:Бал
+ca:mel
+cs:Moz
+# chy:Háhnomápano'êhasëö
+# ckb:ھەنگوین
+co:mele
+# crh-latn:bal
+cs:med
+cu:мєдъ
+cv:Пыл
+cy:Mêl
+da:honning
+de:Honig
+# de-ch:Honig
+# dsb:mjod
+dv:މާމުއި
+ee:Anyitsi
+el:μέλι
+# en-ca:Honey
+# en-gb:Honey
+eo:mielo
+es:miel
+et:mesi
+eu:Ezti
+fa:عسل
+fi:hunaja
+fo:hunangur
+fr:miel
+# frr:Hönang
+# fur:mîl
+fy:huning
+ga:Mil
+# gag:bal
+gd:Mil
+gl:Mel
+gn:Eirete
+# gom:म्होंव
+# got:𐌼𐌹𐌻𐌹𐌸
+# gsw:Honig
+gu:મધુ
+gv:mill
+# hak:Phûng-thòng
+# haw:meli
+he:דבש
+hi:मधु
+hr:Med
+ht:Siwo
+hu:méz
+hy:Մեղր
+ia:melle
+id:Madu
+# ilo:diro
+# jnh:Модз
+io:Mielo
+is:Hunang
+it:miele
+iu:missuuttagaq
+ja:蜂蜜
+jv:Madu
+ka:თაფლი
+kk:Ара балы
+km:ទឹកឃ្មុំ
+kn:ಜೇನು
+ko:벌꿀
+# krc:бал
+ku:Hingiv
+kw:mel
+ky:Бал
+la:Mel
+# lad:Myél
+lb:Hunneg
+# lez:Вирт
+# lfn:Miel
+li:honing
+# lij:Amê
+# lmo:Mel
+ln:Mafúta ma nzói
+lo:ມະທຸ
+lt:Medus
+# ltg:mads
+lv:medus
+# map-bms:Madu
+# mdf:Медь
+# mhr:Мӱй
+mk:Мед
+ml:തേൻ
+mn:Зөгийн бал
+mr:मध
+# mrj:Мӱ
+ms:madu
+mt:għasel
+my:ပျားရည်
+# myv:Поназ
+# nah:Neuctli
+# nan:Phang-bi̍t
+# nap:mmiele
+nb:honning
+# nds:Honnig
+# nds-nl:Hoening
+ne:मह
+# new:कस्ति
+nl:honing
+nn:honning
+# nrm:Mié
+nv:Tsísʼná bitłʼizh
+oc:Mèl
+# olo:Mezi
+om:Damma
+or:ମହୁ
+os:муд
+pa:ਸ਼ਹਿਦ
+pl:miód
+# pnb:شہد
+ps:گبين
+pt:mel
+# pt-br:mel
+qu:Lachiwa misk'i
+rm:mel
+ro:miere
+# roa-tara:miele
+ru:пчелиный мёд
+# rue:Мед
+# rup:Ñiari
+# ruq:m'ari
+rw:Ubuki
+sa:मधु
+# sah:Мүөт
+sc:Meli
+# scn:Meli
+# sco:Hinnie
+sd:ماکي
+se:miehta
+# sgs:Medos
+sh:Med
+# shi:tammnt
+si:මී පැණි
+sk:med
+sl:med
+sn:Huchi
+so:Malab
+sq:mjalti
+sr:мед
+# sr-ec:мед
+# sr-el:med
+# srn:oni
+# stq:Huunich
+su:Madu
+sv:honung
+sw:Asali
+ta:தேன்
+# tcy:ಚೀಯೊ/ತಿಗ
+te:తేనె
+# tet:bani-been
+tg:Асал
+th:น้ำผึ้ง
+tk:bal
+tl:Pulot-pukyutan
+# tly:عسل
+tr:Bal
+tt:Бал
+# tzm:ⵜⴰⵎⵎⵏⵜ
+ug:ھەسەل
+uk:мед
+ur:شہد
+uz:Asal
+# vec:miel
+# vep:Mezi
+vi:Mật ong
+# vls:Zêem
+vo:miel
+wa:Låme
+# war:Dugos
+wo:lem
+# wuu:蜂蜜
+yi:האניג
+# yue:蜜糖
+zh:蜂蜜
+# zh-cn:蜂蜜
+# zh-hans:蜂蜜
+# zh-hant:蜂蜜
+wikidata:en:Q10987
+wikipedia:en:https://en.wikipedia.org/wiki/Honey
+# ingredient/honey has 9679 products in 17 languages @2018-12-17
+
+<en:honey
+en:flower honey
+da:blomsterhonning
+de:Blütenhonig
+es:miel de flores
+fr:miel de fleurs
+nl:bloemenhoning
+# ingredient/flower%20honey has 165 products in 5 languages @2018-12-17
+
+<en:honey
+fr:miel d'acacia
+de:Akazienhonig
+it:miele d'acacia
+# ingredient/fr:miel-d’acacia has 84 products in 4 languages @2018-12-17
+
+<en:honey
+fr:Miel de châtaignier
+# ingredient/fr:Miel-de-châtaignier has 20 products in french @2018-12-17
+
+<en:honey
+fr:mélange de miels originaires et non originaires de l'ue
+de:Mischung von Honig aus EU-ländern und Nicht EU-ländern
+# ingredient/fr:mélange-de-miels-originaires-et-non-originaires-de-l’ue has 25 products in french @2018-12-17
+
+
+
+
 fr:carbonate acide de sodium
 
 fr:glycérol
@@ -28269,44 +29753,44 @@ de:Kaffee
 # dty: कफी
 dv: ގަހުވަ
 dz: ཀཱ་ཕི།
-# egl: cafa
-el: Καφές
-eo: kafo
+# egl:cafa
+el:Καφές
+eo:kafo
 es:café
-et: kohv
-eu: kafe
-# ext: sidru
-fa: قهوه
-ff: kofi
-fi: kahvi
-fj: kofe
-fo: Kaffi
+et:kohv
+eu:kafe
+# ext:sidru
+fa:قهوه
+ff:kofi
+fi:kahvi
+fj:kofe
+fo:Kaffi
 fr:café
-# frr: Kofe
-# fur: Cafè
-fy: kofje
-ga: Caife
+# frr:Kofe
+# fur:Cafè
+fy:kofje
+ga:Caife
 # gan: 咖啡
-gd: Cofaidh
-gl: Café
-# got: 𐌺𐌰𐍈𐌰
-# gsw: Kaffi
-gu: કૉફી
-# hak: Kâ-pî
-he: קפה
-hi: कॉफ़ी
-# hif: Coffee
-# hil: kapé
-hr: Kava
-# hsb: kofej
-ht: Kafe
-hu: kávé
-hy: սուրճ
-hz: ozo-mbonde
-ia: Caffe
-id: kopi
-ik: kuukpiaq
-# ilo: kape
+gd:Cofaidh
+gl:Café
+# got:𐌺𐌰𐍈𐌰
+# gsw:Kaffi
+gu:કૉફી
+# hak:Kâ-pî
+he:קפה
+hi:कॉफ़ी
+# hif: offee
+# hil:kapé
+hr:Kava
+# hsb:kofej
+ht:Kafe
+hu:kávé
+hy:սուրճ
+hz:ozo-mbonde
+ia:Caffe
+id:kopi
+ik:kuukpiaq
+# ilo:kape
 # inh: кофи
 io: Kafeo
 is: Kaffi
@@ -28621,6 +30105,532 @@ de:Essiggurken
 
 
 
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                                      E G G S     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# Some eggs are laid by female animals of many different species, including birds, reptiles, amphibians, mammals, and fish, and have been eaten by humans for thousands of years.
+
+en:egg
+# aeb-arab:عضمة
+af:eier
+ak:Kosua
+am:እንቁላል
+ar:بيض
+# ast:Güevu
+az:yumurta
+# azb:یومورتا
+ba:Йомортҡа
+be:яйка
+bg:Яйце
+bm:Syɛfan
+bn:ডিম
+br:Vi
+ca:ou
+# cdo:lâung
+# ckb:ھێلکە
+cs:vejce
+cy:ŵy
+da:æg
+de:Ei, Eier
+# diq:Hak
+ee:koklozi
+el:αυγό, αυγά
+# en-ca:egg
+# en-gb:egg
+eo:ovo
+es:huevo, huevos
+et:Muna
+eu:arrautza
+fa:تخم‌مرغ
+fi:kananmuna
+fr:œuf, oeuf, œufs, oeufs
+gl:ovo
+gv:Ooh
+# hak:Lón
+he:ביצה
+hi:अण्डा
+hr:jaja
+hu:tojás
+hy:Ձու
+id:telur
+io:ovo
+is:egg
+it:uova
+ja:卵
+ka:კვერცხი
+ko:알
+ky:Жумуртка
+li:Ei
+# lmo:oeuv
+lv:ola
+# mdf:Ал
+mk:јајце
+mr:अंडी
+# mrj:Мыны
+ms:telur
+# mzn:مرغانه
+# nah:tōtoltetl
+# nan:Nn̄g
+nb:egg
+# nds-nl:aai
+ne:फुल
+nl:ei, eieren
+nn:egg
+oc:uòu
+# olo:Jäiččy
+or:ଅଣ୍ଡା
+pa:ਆਂਡਾ
+# pds:Oi
+pl:jajo, jajko, jaja
+pt:ovo, ovos
+# pt-br:ovo
+ro:ou, ouă, oua
+ru:яйцо
+rw:Igi
+# scn:uòvu
+# sco:egg
+sh:Jaje
+si:බිත්තරය
+sk:vajce
+sl:jajca
+# sma:munnie
+so:Ukun
+sr:jaja
+sv:ägg
+ta:முட்டை ஓா் உணவு
+te:గుడ్డు
+th:ไข่
+tl:itlog
+tr:yumurta
+uk:яйце
+ur:انڈا
+vi:trứng
+wa:Oû
+# war:bunay
+# xmf:მარქვალი
+# yue:蛋
+zh:蛋
+# zh-cn:蛋
+# zh-hans:蛋
+# zh-hant:蛋
+# zh-hk:蛋
+# zh-sg:蛋
+# zh-tw:蛋
+zh:Amaqanda
+wikipedia:en:https://en.wikipedia.org/wiki/Egg_as_food
+# ingredient/egg has 15441 products in 24 languages @2018-12-19
+carbon_footprint_fr_foodges_ingredient:fr:Oeuf, moyenne nationale
+
+<en:egg
+it:uova fresche di categoria A
+
+<en:egg
+fr:œufs de poules
+# ingredient/fr:œufs-de-poules has 16 products in french @2018-12-18
+
+<en:egg
+fr:oeuf dur, oeufs durs
+de:gekochte Eier
+# ingredient/fr:oeuf-dur has 149 products @2018-12-18
+
+<en:egg
+fr:oeuf pasteurisé, œufs pasteurisés
+de:Eier pasteurisiert
+it:uova pastorizzate
+# ingredient/fr:oeuf-pasteurisé has 57 products in 4 languages @2018-12-18
+
+<en:egg
+fr:oeuf liquide pasteurisé
+nl:gepasteuriseerd vloeibaar ei
+# ingredient/fr:oeuf-liquide-pasteurisé has 50 products in 2 languages @2018-12-18
+
+<en:egg
+fr:oeufs de poules élevées en cage
+# ingredient/fr:oeufs-de-poules-élevées-en-cage has 53 products in french @2018-12-18
+
+<en:egg
+fr:œuf de poules élevées en plein air, œufs de poules élevées en plein air, oeufs d'élevage en plein air
+nl:ei van hennen met vrije uitloop
+# ingredient/fr:oeufs-de-poules-elevees-en-plein-air has 242 products in 5 languages @2018-12-18
+
+<fr:œuf de poules élevées en plein air
+fr:œufs de poules élevées en plein air pasteurisés
+nl:gepasteuriseerd ei van hennen met vrije uitloop
+# ingredient/fr:œufs-de-poules-élevées-en-plein-air-pasteurisés has 49 products in 3 languages @2018-12-18
+
+<en:egg
+en:barn eggs
+de:Eier aus Bodenhaltung
+fr:œufs d'élevage au sol, œufs de poules élevées au sol, oeufs de ponte au sol
+it:uova di allevamento al suolo
+nl:scharreleieren
+# ingredient/fr:œufs-d’élevage-au-sol has 168 products in 4 languages @2018-12-18
+# ingredient/fr:œufs-de-poules-élevées-au-sol has 111 products in 4 languages @2018-12-18
+
+<en:egg
+en:egg powder, powdered egg
+da:æggepulver
+de:Eipulver
+el:αλεύρι σίτου αυγό σκόνη
+es:huevo en polvo
+fi:kananmunajauhe
+fr:œuf en poudre, oeuf en poudre, œufs en poudre, poudre d'œuf, poudre d'oeuf
+it:uova in polvere
+lv:kiausšinių milteliai
+nl:eipoeder
+pt:ovo em pó
+sv:äggpulve
+# ingredient/powdered-egg has 623 products in 12 languages @2018-12-18
+
+<en:egg
+en:whole egg, whole eggs
+de:Vollei
+es:huevos enteros
+fr:œuf entier, œufs entiers
+it:uova intere
+nl:hele eieren, geheel eieren
+# ingredient/fr:œuf-entier has 2004 products in 7 languages @2018-12-18
+
+<en:whole egg
+fr:oeuf entier pasteurisé, oeufs entiers pasteurisés
+de:Vollei pasteurisiert
+it:uovo intero pastorizzato
+# ingredient/fr:oeuf-entier-pasteurisé has 51 products in 4 languages @2018-12-18
+
+<en:whole egg
+en:whole powdered egg
+de:Volleipulver
+fr:œuf entier en poudre, œufs entiers en poudre, poudre d'oeuf entier, poudre d'oeufs entiers
+it:uovo intero in polvere
+nl:heeleipoeder
+# ingredient/fr:œuf-entier-en-poudre has 592 products in 7 languages @2018-12-18
+
+<en:whole egg
+en:liquid whole egg
+de:Vollei flüssig
+fr:œuf entier liquide, oeufs entiers liquides
+it:uovo intero liquido
+# ingredient/llwiquid-whole-egg has 131 products in 4 languages @2018-12-18
+
+<en:whole egg
+en:whole fresh eggs
+es:huevos enteros frescos
+fr:œuf entier frais, œufs entiers frais, œufs frais entiers
+pt:ovos inteiros frescos
+# ingredient/fr:oeuf-entier-frais has 456 products in 6 languages @2018-12-18
+
+<en:whole fresh eggs
+fr:oeufs entiers extra-frais
+nl:extra-verse hele eieren
+# fr:oeufs-entiers-extra-frais has 73 products in french @2018-12-18
+
+<en:whole egg
+fr:Oeufs entiers pasteurisés
+de:pasteurisiertes Vollei
+
+<en:whole egg
+fr:oeuf entier d'élevage au sol
+de:Vollei aus Bodenhaltung
+it:uovo intero da allevamento al suolo
+# ingredient/fr:oeuf-entier-d’élevage-au-sol has 10 products in 4 languages @2018-1-18
+
+<en:whole egg
+en:whole liquid pasteurised egg
+fr:œuf entier liquide pasteurisé
+nl:gepasteuriseerd vloeibaar heel ei
+sv:helt pastöriserat ägg i flytande form
+# ingredient/fr:œuf-entier-liquide-pasteurisé has 143 products in 3 languages @2018-12-18
+
+<en:egg
+en:fresh egg, fresh eggs
+cs:čerstvá vejce
+de:frische Eier, Frischei
+es:huevos frescos
+fr:œuf frais, œufs frais
+it:uova fresche
+nl:verse eieren
+pl:jaja świeże
+pt:ovos frescos
+sk:čerstvá vajcia
+# ingredient/fr:œufs-frais has 2651 products in 12 languages @2018-12-17
+
+<en:fresh egg
+fr:œufs extra-frais
+nl:extra verse eieren
+# ingredient/fr:œufs-extra-frais has 89 products in 3 languages @2018-12-18
+
+<en:fresh egg
+en:pasteurized fresh egg
+fr:oeufs frais pasteurisés
+# ingredient/fr:oeufs%20frais%20pasteurisés has 60 products in 2 languages @2018-12-18
+
+<en:fresh egg
+fr:œufs frais de poules élevées en plein air
+# ingredient/fr:œufs-frais-de-poules-élevées-en-plein-air has 44 products in french @2018-12-18
+
+# Egg white is the clear liquid (also called the albumen or the glair/glaire) contained within an egg. 
+
+<en:egg
+en:egg white
+ar:بياض البيض
+# bar:Oagloa
+bg:яйчен белтък
+bn:সাদা ডিম
+ca:clara d'ou
+cs:bílek
+da:æggehvide
+de:Eiklar, Eiweiß
+el:ασπράδι αυγού
+# eml:biuda
+eo:ovoblanko
+es:clara de huevo
+eu:Zuringo
+fa:سفیده تخم‌مرغ
+fr:blanc d'œuf, blancs d'oeufs, blanc d'oeuf, blanc d'?uf, albumine d'oeuf, blancs d'oeuf
+gl:clara de ovo
+hi:חלבון הביצה
+id:putih telur
+io:Albumeno
+it:albume d'uovo
+ja:卵白
+kn:ಅಲ್ಬುಮೆನ್
+ko:흰자
+li:eiwit
+ms:putih telur
+nb:eggehvite
+nl:ei-eiwit
+pl:bialka jaj
+pt:clara do ovo, clara de ovos
+ru:белок
+sh:bjelance
+sl:jajčni beljak
+su:bodas endog
+sv:äggvita
+th:ไข่ขาว
+uk:Яєчний білок
+# yue:蛋白
+# zh-hans:蛋白
+# zh-hant:蛋白
+# zh-hk:蛋白
+wikidata:en:Q796758
+wikipedia:en:https://en.wikipedia.org/wiki/Egg_white
+# ingredient/fr:blanc-d-oeuf has 2748 products in 13 languages @2018-12-18
+
+<en:egg white
+en:powdered egg white, dehydrated egg white
+de:Eiweißpulver, Eiweisspulver, Eiklarpulver, Trockeneiweiß
+el:ασπράδι αυγού σε σκόν
+es:clara de huevo en polvo, clara de huevos en polvo
+fr:blanc d'œuf en poudre, blancs d'oeufs en poudre, poudre de blanc d’œuf, blanc d'oeuf déshydraté, blanc d'oeufs en poudre
+it:albume d'uovo in polvere, albume in polvere
+nl:eiwitpoeder, gedroogd ei-eiwit, eiwit in poeder
+sv:äggvita i pulver
+# ingredient/fr:blancs-d-oeufs-en-poudre has 1124 products in 8 languages @2018-12-17
+
+<en:powdered egg white
+de:Hühnerei-Trockeneiweiß, Hühnereiklarpulver
+nl:kippenei-eiwitpoeder
+
+<en:powdered egg white
+en:rehydrated egg white
+de:rehydratisiertes Eiklar
+fr:blanc d'œuf réhydraté, blanc d'_oeuf_ poudre réhydraté
+it:albume reidratato
+nl:gerehydrateerd eiwit
+# ingredient/rehydrated-egg-white has 150 products in 5 languages @2018-12-18
+
+<en:egg white
+fr:blancs d'oeufs pasteurisés
+# ingredient/fr:blancs-d’oeufs-pasteurisés has 54 products in french @2018-12-18
+
+<en:egg white
+fr:blanc d'œuf frais, blancs d'oeufs frais, blanc d'oeufs frais
+# ingredient/fr:blanc-d’œuf-frais has 81 products in french @2018-12-18
+
+# en:liquid egg white is a compound ingredient
+
+<en:egg white
+en:liquid egg white
+es:clara de huevo liquida
+fr:blanc d’œuf liquide
+# ingredient/fr:blanc-d’_œuf_-liquide has 47 products in 3 languages @2018-12-18
+
+<en:liquid egg white
+fr:blanc d'œuf liquide pasteurisé
+nl:gepasteuriseerd vloeibaar eiwit
+sv:pastöriserad äggvita i flytande form
+# ingredient/fr:blanc-d’œuf-liquide-pasteurisé has 80 products in 3 languages @2018-12-18
+
+<en:egg white
+en:egg protein
+fr:protéine d'oeuf
+it:proteina dell'uovo
+# ingredient/egg-protein has 47 products in 5 languages @2018-12-18
+
+<en:egg
+en:egg yolk, eggs yolk
+am:አስኳል
+# ang:ǽgergeolu
+ar:مح
+# ast:yema
+# bar:Dodda
+be:Жаўток
+bg:жълтък
+bn:কুসুম
+bs:Žumance
+ca:rovell d'ou
+cs:žloutek
+cy:melynwy
+da:æggeblomme
+de:Eigelb
+el:κρόκος αυγού
+eo:ovoflavo
+es:yema de huevo
+eu:Gorringo
+et:rebu
+fa:زرده تخم‌مرغ
+fi:kananmunan
+fr:jaune d’œuf, jaunes d'oeuf, jaune d'oeufs, jaune d'oeuf
+fy:aaidjerre
+ga:buíocán
+gd:buidheagan
+he:חלמון
+hi:अंडे की ज़र्दी
+hr:žumanjak
+hy:Ռեբու
+id:kuning telur
+io:Vitelo
+it:tuorlo d'uovo, tuorlo d'uova, tuorli
+ja:卵黄
+kn:ಮೊಟ್ಟೆಯ ಹಳದಿ ಲೋಳೆ
+ko:노른자
+la:Vitellus
+li:Eigael
+ms:Kuning telur
+nb:eggeplomme
+nl:eigeel
+nn:eggeplomme
+pl:źółtko z jaja kurzego
+pt:gema de ovo
+ru:желток
+sh:Žumanjak
+sk:žĺtok
+sr:жуманце
+# sr-ec:жуманце
+# sr-el:Žumance
+su:Endog kokonéngna
+sv:Äggula
+te:గుడ్డు యొక్క పచ్చసొన
+th:ไข่แดง
+tl:apyak
+uk:Жовток
+# vls:eierdorre
+# war:pula hin bunay
+# yue:蛋黃
+zh:蛋黃
+# zh-cn:蛋黃
+# zh-hans:蛋黃
+# zh-hant:蛋黃
+# zh-hk:蛋黃
+# zh-sg:蛋黃
+# zh-tw:蛋黃
+wikidata:en:Q1302994
+# ingredient/egg-yolk has 6004 products in 13 languages @2018-12-17
+
+<en:egg yolk
+en:free range egg yolk
+es:yema de huevo de gallinas camperas
+fr:jaune d'oeuf de poules élevées en plein air, jaunes d'oeufs de poules élevées en plein air
+pt:gema de ovo de galinhas criadas ao ar livre
+# ingredient/fr:jaune-d’oeuf-de-poules-élevées-en-plein-air has 61 products in 2 languages @2018-12-18
+
+<en:free range egg yolk
+en:pasteurised Free Range Egg Yolk
+fr:jaune d'œufs de poules élevées en plein air pasteurisés
+nl:gepasteuriseerd eigeel van eieren van hennen met vrije uitloop
+# ingredient/fr:jaune-d’œufs-de-poules-élevées-en-plein-air-pasteurisés has 27 products in 2 languages @2018-12-18
+
+<en:egg yolk
+fr:jaune d'oeufs frais
+it:turolo d'uova fresche
+# ingredient/fr:jaune-d-oeuf-frais has 176 products in 3 languages @2018-12-18
+
+<en:egg yolk
+en:egg yolk powder, eggs yolk powder, powdered egg yolk
+de:Eigelbpulver
+es:yema de huevo en polvo
+fr:jaune d'œuf en poudre, jaunes d'oeufs en poudre, poudre de jaunes d'oeufs, jaune d'oeufs en poudre, poudre de jaune d’œuf, poudre de jaune d’oeuf
+it:tuorli in polvere
+nl:eigeelpoeder
+pt:gemas de ovo em pó
+# ingredient/fr:poudre-de-jaunes-d’oeufs has 17 products in 3 languages @2018-12-17
+# ingredient/fr:jaunes-d’oeufs-en-poudre has 541 products in 7 languages @2018-12-17
+
+<en:egg yolk powder
+en:eggs yolk powder from free range hens
+
+<en:egg yolk
+fr:jaune d'oeuf pasteurisé
+de:Pasteurisierter Eigelb Eier
+it:tuorlo d'uovo pastorizzato
+# ingredient/fr:jaune-d’oeuf-pasteurisé has 81 products in 4 languages @2018-12-18
+
+<en:egg yolk
+en:liquid egg yolk
+es:yema de huevo liquida
+fr:jaune d'œuf liquide
+nl:vloeibaar eigeel
+# ingredient/fr:jaune-d’œuf-liquide has 42 products in 3 languages @2018-12-18
+
+<en:liquid egg yolk
+fr:jaune d'oeuf liquide pasteurisé
+nl:gepasteuriseerd vloeibaar eigeel
+# ingredient/fr:jaune-d’oeuf-liquide-pasteurisé has 74 products in 2 languages @2018-12-18
+
+<en:egg yolk
+fr:jaune d'oeuf frais, jaunes d'oeufs frais
+it:tuorlo d'uova fresche, turolo d'uova fresche
+# ingredient/fr:jaune-d’oeuf-frais has 176 products in 3 languages @2018-12-17
+
+
+# fr:jaunes d'oeufs salés is a compound ingredient
+
+<en:egg yolk
+fr:jaune d'œuf salé, jaunes d'oeufs salés
+de:Eigelb gesalzen
+nl:gezouten eigeel
+# ingredient/fr:jaune-d-oeuf-sale has 119 products in 3 languages @2018-12-17
+
+
+# The context should determine what part of the egg is meant.
+
+fr:issu de poules élevées au sol, sol
+de:aus Bodenhaltung
+it:d'allevamento al suolo
+nl:van scharrelkippen
+
+fr:d'élevage en plein air
+de:aus Freilandhaltung
+it:d'allevamento all'aperto
+
+<en:egg
+en:duck egg
+de:Enteneier
+es:huevo de pato
+fr:œuf de canard
+ko:오리알
+nl:eendenei
+ru:яйцо утки
+# yue:鴨蛋
+zh:鴨蛋
+wikidata:en:Q11173928
+# ingredient/duck-egg has 7 products @2018-12-17
+
+
 # Where to classify ?
 
 # en:filling is a compound ingredient (product part)
@@ -28636,15 +30646,6 @@ pt:recheio
 
 en:paste
 fr:pâte
-
-
-
-en:calcium chloride
-es:cloruro cálcico, Cloruro de calcio
-fr:chlorure de calcium
-nl:calciumchloride
-de:Calciumchlorid
-#wikidata:en:
 
 en:calcium gluconate
 es:gluconato de calcio
@@ -28676,10 +30677,6 @@ fr:chlorure de potassium
 
 fr:lutéine
 
-
-fr:minéraux
-
-
 fr:alginate de sodium
 
 fr:b5
@@ -28687,9 +30684,6 @@ fr:b5
 
 
 # Fish
-
-en:fish
-fr:poisson
 
 <en:fish
 fr:extrait de poisson
@@ -28845,8 +30839,6 @@ fr:affermissant
 fr:extrait riche en tocophérol, extraits riches en tocophérol
 
 fr:polyphosphate
-
-fr:inuline
 
 fr:disulfite de sodium
 
@@ -29172,99 +31164,6 @@ fr:tomates concassées
 
 fr:tomates pelées concassées
 
-# Rices
-
-fr:riz cuit
-
-en:rice
-fr:riz
-carbon_footprint_fr_foodges_ingredient:fr:Riz jasmin (Thaïlande)
-
-fr:galette de riz
-
-<en:rice
-en:basmati rice
-fr:riz basmati
-
-<en:basmati rice
-fr:riz basmati cuit
-
-<en:rice
-fr:riz long grain étuvé
-
-<en:rice
-fr:riz blanc
-
-<en:rice
-fr:riz précuit
-
-fr:crème de riz
-
-<en:rice
-fr:riz soufflé
-
-<en:rice
-fr:riz complet
-
-fr:semoule de riz
-
-en:cooked white rice
-fr:riz blanc cuit
-
-<en:rice
-fr:riz moulu
-
-<en:rice
-fr:riz long
-
-<en:rice
-en:Italian rice
-fr:riz italien
-
-fr:extraits de riz
-
-<en:rice
-fr:riz basmati précuit
-
-<en:rice
-fr:riz croustillant
-
-<en:rice
-fr:riz complet précuit
-
-fr:son de riz
-
-fr:riz cuisiné
-
-fr:extrait de riz
-
-<en:rice
-fr:riz long étuvé
-
-<en:rice
-fr:riz long grain précuit à la vapeur
-
-fr:flocons de riz
-
-<en:rice
-fr:riz extrudé
-
-<en:rice
-fr:riz gluant
-
-<en:rice
-fr:riz long grain
-
-<en:rice
-fr:riz rouge
-
-<en:rice
-fr:riz sauvage
-
-fr:riz long grain étuvé de qualité supérieure
-
-fr:Riz long blanc
-
 # Random
 
 
@@ -29350,10 +31249,7 @@ fr:hydroxyde de sodium
 
 fr:coagulant microbien
 
-
 fr:inositol
-
-fr:patate douce, patates douces
 
 fr:praliné
 
@@ -29601,8 +31497,6 @@ fr:mélange de condiments
 
 fr:ferments lactiques dont bifidobacterium
 
-fr:lysozyme
-
 fr:potassium
 
 
@@ -29630,7 +31524,7 @@ fr:babeurre en poudre
 
 fr:mâche
 
-<en:Carbon Dioxide
+// <en:carbon dioxide
 en:Carbon Dioxide Gas
 fr:gaz carbonique
 
@@ -30049,15 +31943,7 @@ nl:avocado
 de:Avocado
 carbon_footprint_fr_foodges_ingredient:fr:Avocat
 
-en:amaretto
-es:Amaretto
-fr:amaretto
-nl:amaretto
-de:Amaretto
-
 fr:tamarin
-
-fr:lactase
 
 fr:collagène
 
@@ -30338,10 +32224,6 @@ fr:e503ii
 fr:e504
 
 fr:e508
-
-fr:e509
-
-fr:e509
 
 fr:e516
 
@@ -30786,8 +32668,6 @@ fr:esters lactiques des mono et diglycérides d'acides gras
 
 fr:pulpe de mangue
 
-fr:psyllium
-
 fr:gorgonzola
 allergens:fr:_gorgonzola_
 
@@ -30859,36 +32739,8 @@ fr:jus de potiron
 fr:poisson en poudre
 allergens:fr:_poisson_ en poudre
 
-# Honeys
-
-# nova:en:honey
-en:honey
-es:miel
-fr:miel
-nl:honing
-de:Honig
-
-<en:honey
-en:flower honey
-es:miel de flores
-fr:miel de fleurs
-nl:bloemenhoning
-de:Blütenhonig
-
-<en:honey
-fr:miel d'acacia
-
-<en:honey
-fr:Miel de châtaignier
-
-<en:honey
-fr:mélange de miels originaires et non originaires de l'ue
-
-fr:jaunes d'oeufs frais
-allergens:fr:jaunes d'_oeufs_ frais
-
-
 fr:poivre de cayenne
+
 fr:chlorophylles
 
 fr:scarole
@@ -31054,9 +32906,6 @@ fr:fécules
 fr:concentré salin liquide
 
 fr:canelle
-
-
-fr:fibres d'agave
 
 fr:graisses
 
@@ -31417,8 +33266,6 @@ fr:tartrate monopotassique
 
 fr:bouillon de boeuf
 
-fr:patates douces
-
 fr:vergeoise
 
 fr:thunnus albacares
@@ -31465,31 +33312,6 @@ fr:ferments lactiques dont lactobacillus casei
 
 fr:épaississant e415
 
-
-
-
-
-# Eggs
-
-
-en:egg protein
-fr:protéine d'oeuf
-allergens:fr:protéine d'_oeuf_
-
-en:egg yolk
-fr:jaune d'oeuf
-allergens:fr:jaune d'_oeuf_
-
-en:powdered egg yolk
-es:yema de huevo en polvo
-fr:poudre de jaune d’œuf, poudre de jaune d’oeuf
-nl:eigeelpoeder
-de:Eigelbpulver
-allergens:fr:poudre de jaune d'_oeuf_
-
-en:eggs yolk
-fr:jaune d'oeufs
-allergens:fr:jaune d'_oeufs_
 
 fr:cellulose microcristalline
 
@@ -31696,8 +33518,6 @@ fr:base aromatisante barbecue
 fr:protéines de froment
 allergens:fr:protéines de _froment_
 
-fr:fibres de psyllium
-
 fr:dextrine de maïs
 
 fr:peau de dinde
@@ -31880,12 +33700,7 @@ fr:laitue de mer
 
 fr:fruits de mer
 
-fr:jaune d'oeuf frais
-allergens:fr:jaune d'_oeuf_ frais
-
 fr:gluconate de fer
-
-fr:sélénium
 
 fr:sucrose
 
@@ -32049,232 +33864,6 @@ allergens:fr:_camembert_
 carbon_footprint_fr_foodges_ingredient:fr:Fromage à pâte molle (type camembert)
 
 fr:agent crémeux
-
-en:egg
-es:huevo
-fr:œuf
-nl:ei
-de:Eier
-carbon_footprint_fr_foodges_ingredient:fr: Oeuf, moyenne nationale
-
-fr:œufs de poules élevées en plein air pasteurisés
-allergens:fr:_œufs_ de poules élevées en plein air pasteurisés
-
-fr:œufs frais de poules élevées en plein air
-allergens:fr:_œufs_ frais de poules élevées en plein air
-
-fr:jaune d'œuf liquide
-allergens:fr:jaune d’_œuf_ liquide
-
-fr:œufs pasteurisés
-allergens:fr:_oeufs_ pasteurisés
-
-fr:blanc d'oeufs frais
-allergens:fr:blanc d'_oeufs_ frais
-
-fr:blancs d'oeufs en poudre
-allergens:fr:blancs d'_oeufs_ en poudre
-
-fr:œufs frais entiers
-allergens:fr:_œufs_ frais entiers
-
-fr:jaune d'œuf salé
-allergens:fr:jaune d'_oeuf_ salé
-
-fr:blanc d'œuf liquide pasteurisé
-allergens:fr:blanc d'_œuf_ liquide pasteurisé
-
-fr:blanc d'oeufs en poudre
-allergens:fr:blanc d'_œufs_ en poudre
-
-fr:œuf, oeuf
-allergens:fr:_œufs_
-
-fr:blanc d’_œuf_ liquide
-
-fr:œufs de poules
-allergens:fr:_oeufs_ de poules
-
-fr:blancs d'oeuf
-allergens:fr:blancs d'_oeuf_
-
-fr:blancs d'oeufs frais
-allergens:fr:blancs d'_oeufs_ frais
-
-fr:jaunes d'oeufs de poules élevées en plein air
-allergens:fr:jaunes d'_oeufs_ de poules élevées en plein air
-
-fr:jaune d'oeufs en poudre, jaune d'oeuf en poudre
-allergens:fr:jaune d'_oeufs_ en poudre, jaune d'_oeuf_ en poudre
-
-fr:jaune d'oeuf pasteurisé
-allergens:fr:jaune d'_oeuf_ pasteurisé
-
-fr:blanc d'oeuf, blanc d'?uf
-
-fr:jaune d'oeuf liquide pasteurisé
-allergens:fr:jaune d'_oeuf_ liquide pasteurisé
-
-fr:albumine d'oeuf
-allergens:fr:albumine d'_oeuf_
-
-fr:poudre d'oeuf entier
-allergens:fr:poudre d'_oeuf_ entier
-
-fr:poudre d'oeufs entiers
-allergens:fr:poudre d'_oeufs_ entiers
-
-en:powdered egg
-es:huevo en polvo
-fr:poudre d'œuf, poudre d'oeuf, oeuf en poudre, œuf en poudre
-nl:eipoeder
-de:Eipulver
-allergens:fr:poudre d'_oeuf_
-
-fr:jaune d'œufs de poules élevées en plein air pasteurisés
-allergens:fr:jaune d'_œufs_ de poules élevées en plein air pasteurisés
-
-fr:blanc d'œuf frais
-allergens:fr:blanc d'_œuf_ frais
-
-fr:œuf entier frais
-allergens:fr:_œuf_ entier frais
-
-fr:oeuf entier d'élevage au sol
-
-fr:oeufs d'élevage en plein air
-
-fr:oeufs entiers pasteurisés
-allergens:fr:_oeufs_ entiers pasteurisés
-
-fr:oeuf dur
-allergens:fr:_œuf_ dur
-
-fr:oeufs frais pasteurisés
-allergens:fr:_œufs_ frais pasteurisés
-
-fr:oeufs durs
-allergens:fr:_œufs_ durs
-
-fr:oeufs de ponte au sol
-
-fr:oeufs entiers extra-frais
-allergens:fr:_œufs_ entiers extra-frais
-
-fr:oeuf pasteurisé
-allergens:fr:_œuf_ pasteurisé
-
-fr:oeuf liquide pasteurisé
-allergens:fr:_oeuf_ liquide pasteurisé
-
-fr:oeuf entier pasteurisé
-allergens:fr:_oeuf_ entier pasteurisé
-
-fr:oeufs de poules élevées en cage
-allergens:fr:_oeufs_ de poules élevées en cage
-
-fr:œufs de poules élevées au sol
-allergens:fr:_œufs_ de poules élevées au sol
-
-fr:jaune d'oeuf de poules élevées en plein air
-allergens:fr:jaune d'_œuf_ de poules élevées en plein air
-
-en:dehydrated egg white
-fr:blanc d'oeuf déshydraté
-allergens:fr:blanc d'_œuf_ déshydraté
-
-en:fresh egg
-fr:œuf frais
-allergens:fr:_œuf_ frais
-
-en:llwiquid whole egg
-fr:œuf entier liquide
-allergens:fr:_œuf_ entier liquide
-
-fr:jaune d'oeufs frais
-allergens:fr:jaune d'_œufs_ frais
-
-fr:œufs extra-frais
-allergens:fr:_œufs_ extra-frais
-
-fr:œuf entier liquide pasteurisé
-allergens:fr:_œuf_ entier liquide pasteurisé
-
-fr:jaunes d'oeufs en poudre
-allergens:fr:jaunes d'_œufs_ en poudre
-
-fr:œufs de poules élevées en plein air
-allergens:fr:_œufs_ de poules élevées en plein air
-
-fr:œuf de poules élevées en plein air, œufs de poules élevées en plein air
-allergens:fr:_œufs_ de poules élevées en plein air
-
-en:rehydrated egg white
-fr:blanc d'œuf réhydraté
-allergens:fr:blanc d'_œuf_ réhydraté
-
-fr:blanc d'_oeuf_ poudre réhydraté
-
-fr:blancs d'oeufs pasteurisés
-allergens:fr:blancs d'_oeufs_ pasteurisés
-
-fr:œufs d'élevage au sol
-
-en:whole powdered egg
-fr:œufs entiers en poudre
-allergens:fr:_œufs_ entiers en poudre
-
-fr:œuf entier en poudre
-allergens:fr:_œuf_ entier en poudre
-
-en:powdered egg white
-es:clara de huevo en polvo
-fr:poudre de blanc d’œuf
-nl:eiwitpoeder
-de:Eiweißpulver
-allergens:fr:poudre de blanc d'_œuf_
-
-fr:lysozyme d'oeuf
-allergens:fr:lysozyme d'_œuf_
-
-fr:œufs en poudre, oeuf en poudre
-allergens:fr:_œufs_ en poudre
-
-fr:jaune d'œuf en poudre
-allergens:fr:jaune d'_œuf_ en poudre
-
-fr:œufs entiers frais
-allergens:fr:_œufs_ entiers frais
-
-fr:jaunes d'oeuf
-allergens:fr:jaunes d'_œufs_
-
-fr:blancs d'oeufs
-allergens:fr:blancs d'_œufs_
-
-fr:œuf entier, oeufs entiers
-allergens:fr:_œuf_ entier
-
-fr:blanc d'œuf en poudre, blancs d'oeufs en poudre
-allergens:fr:blanc d'_œuf_ en poudre
-
-fr:œuf entier, œufs entiers
-allergens:fr:_œufs_ entiers
-
-fr:blanc d'œuf, blancs d'oeufs
-allergens:fr:blanc d'_œuf_
-
-fr:œufs frais
-allergens:fr:_œufs_ frais
-
-fr:jaune d'œuf, jaunes d'oeuf
-allergens:fr:jaune d'_œuf_
-
-en:egg yolk
-es:yema de huevo
-fr:jaune d’œuf
-nl:eigeel
-de:Eigelb
 
 fr:tagliatelles cuites
 
@@ -32454,31 +34043,21 @@ fr:feuilles de vigne
 
 fr:gélatine de volaille
 
-
-
 fr:poudre de lactosérum sucré
 de:Sussmolkenpulver
-
 
 fr:acide carbonique
 de:Kohlensaure
 
 fr:marc de champagne
 
-
 fr:algue marine lithothamnium calcareum
-
 
 fr:sol
 
-
-
 fr:conservateur de fruit
 
-
 fr:cayenne
-
-fr:jus d'agave concentré
 
 fr:plasma déshydraté
 
@@ -32490,7 +34069,6 @@ allergens:fr:_crème_ pasteurisé
 fr:seitan
 
 fr:acétate de potassium
-
 
 fr:galette de blé
 allergens:fr:galette de _blé_
@@ -32730,9 +34308,6 @@ fr:pâtes fraîches
 fr:encornet
 allergens:fr:_encornet_
 
-fr:poudre de jaunes d'oeufs
-allergens:fr:poudre de jaunes d'_oeufs_
-
 fr:fourrage lait
 allergens:fr:fourrage _lait_
 
@@ -32852,8 +34427,6 @@ fr:monosodium glutamate
 fr:boyau de boeuf
 
 fr:lactate de fer
-
-fr:jaunes d'oeufs salés
 
 fr:dextrine de tapioca
 

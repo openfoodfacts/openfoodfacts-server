@@ -2,6 +2,8 @@
 
 use Modern::Perl '2012';
 
+use utf8;
+
 use Test::More;
 use Log::Any::Adapter 'TAP';
 
@@ -43,6 +45,238 @@ is (display_taxonomy_tag_link("fr", "categories", "en:doesnotexist"), '<a href="
 is (display_tags_hierarchy_taxonomy("fr", "categories", ["en:doesnotexist"]), '<a href="/categorie/en:doesnotexist" class="tag user_defined" lang="en">en:doesnotexist</a>');
 
 is (display_tags_hierarchy_taxonomy("en", "categories", ["en:doesnotexist"]), '<a href="/category/doesnotexist" class="tag user_defined">Doesnotexist</a>');
+
+# test canonicalize_taxonomy_tags
+
+
+# test add_tags_to_field
+
+$product_ref = {
+        lc => "fr",
+};
+
+add_tags_to_field($product_ref, "fr", "categories", "pommes, bananes");
+
+is_deeply($product_ref,
+{
+   'categories' => 'pommes, bananes',
+   'lc' => 'fr'
+}
+) or diag explain $product_ref;
+
+compute_field_tags($product_ref, "fr", "categories");
+
+delete($product_ref->{categories_debug_tags});
+delete($product_ref->{categories_prev_hierarchy});
+delete($product_ref->{categories_prev_tags});
+delete($product_ref->{categories_next_hierarchy});
+delete($product_ref->{categories_next_tags});
+
+is_deeply($product_ref,
+ {
+   'categories' => 'pommes, bananes',
+   'categories_hierarchy' => [
+     'en:plant-based-foods-and-beverages',
+     'en:plant-based-foods',
+     'en:fruits-and-vegetables-based-foods',
+     'en:fruits-based-foods',
+     'en:fruits',
+     'en:tropical-fruits',
+     'en:bananas',
+     'en:apples'
+   ],
+   'categories_lc' => 'fr',
+   'categories_tags' => [
+     'en:plant-based-foods-and-beverages',
+     'en:plant-based-foods',
+     'en:fruits-and-vegetables-based-foods',
+     'en:fruits-based-foods',
+     'en:fruits',
+     'en:tropical-fruits',
+     'en:bananas',
+     'en:apples'
+   ],
+   'lc' => 'fr'
+ }
+
+) or diag explain $product_ref;
+
+add_tags_to_field($product_ref, "fr", "categories", "pommes, bananes");
+
+is($product_ref->{categories}, "pommes, bananes");
+
+add_tags_to_field($product_ref, "fr", "categories", "fraises");
+
+is($product_ref->{categories}, "Aliments et boissons à base de végétaux, Aliments d'origine végétale, Aliments à base de fruits et de légumes, Fruits et produits dérivés, Fruits, Fruits tropicaux, Bananes, Pommes, fraises");
+
+add_tags_to_field($product_ref, "fr", "categories", "en:raspberries, en:plum");
+
+compute_field_tags($product_ref, "en", "categories");
+
+is_deeply($product_ref->{categories_tags},
+ [
+   'en:plant-based-foods-and-beverages',
+   'en:plant-based-foods',
+   'en:fruits-and-vegetables-based-foods',
+   'en:fruits-based-foods',
+   'en:fruits',
+   'en:tropical-fruits',
+   'en:bananas',
+   'en:berries',
+   'en:apples',
+   'en:plums',
+   'en:raspberries'
+ ]
+
+) or diag explain $product_ref->{categories_tags};
+
+add_tags_to_field($product_ref, "es", "categories", "naranjas, limones");
+compute_field_tags($product_ref, "es", "categories");
+
+
+is_deeply($product_ref->{categories_tags},
+ [
+   'en:plant-based-foods-and-beverages',
+   'en:plant-based-foods',
+   'en:fruits-and-vegetables-based-foods',
+   'en:fruits-based-foods',
+   'en:fruits',
+   'en:tropical-fruits',
+   'en:bananas',
+   'en:berries',
+   'en:citrus',
+   'en:apples',
+   'en:lemons',
+   'en:oranges',
+   'en:plums',
+   'en:raspberries'
+ ]
+
+) or diag explain $product_ref->{categories_tags};
+
+is($product_ref->{categories}, "Alimentos y bebidas de origen vegetal, Alimentos de origen vegetal, Frutas y verduras y sus productos, Frutas y sus productos, Frutas, Frutas tropicales, Plátanos, Frutas del bosque, Manzanas, Ciruelas, Frambuesas, naranjas, limones");
+
+add_tags_to_field($product_ref, "it", "categories", "bogus, limone");
+compute_field_tags($product_ref, "it", "categories");
+
+is_deeply($product_ref->{categories_tags},
+ [
+   'en:plant-based-foods-and-beverages',
+   'en:plant-based-foods',
+   'en:fruits-and-vegetables-based-foods',
+   'en:fruits-based-foods',
+   'en:fruits',
+   'en:tropical-fruits',
+   'en:bananas',
+   'en:berries',
+   'en:citrus',
+   'en:apples',
+   'en:lemons',
+   'en:oranges',
+   'en:plums',
+   'en:raspberries',
+   'it:bogus',
+ ]
+
+) or diag explain $product_ref->{categories_tags};
+
+
+$product_ref = {
+        lc => "fr",
+};
+
+add_tags_to_field($product_ref, "fr", "countries", "france, en:spain, deutschland, fr:bolivie, italie, de:suisse, colombia, bidon");
+
+is_deeply($product_ref,
+{
+   'countries' => 'france, en:spain, deutschland, fr:bolivie, italie, de:suisse, colombia, bidon',
+   'lc' => 'fr'
+}) or diag explain($product_ref);
+
+
+compute_field_tags($product_ref, "fr", "countries");
+
+is_deeply($product_ref->{countries_tags},
+[
+   'en:bolivia',
+   'en:colombia',
+   'en:france',
+   'en:germany',
+   'en:italy',
+   'en:spain',
+   'en:switzerland',
+   'fr:bidon'
+]
+)  or diag explain $product_ref->{countries_tags};
+
+add_tags_to_field($product_ref, "es", "countries", "peru,bogus");
+compute_field_tags($product_ref, "es", "countries");
+
+is_deeply($product_ref->{countries_tags},
+[
+   'en:bolivia',
+   'en:colombia',
+   'en:france',
+   'en:germany',
+   'en:italy',
+   'en:peru',
+   'en:spain',
+   'en:switzerland',
+   'es:bogus',
+   'fr:bidon'
+]
+)  or diag explain $product_ref->{countries_tags};
+
+
+$product_ref = {
+        lc => "fr",
+};
+
+add_tags_to_field($product_ref, "fr", "brands", "Baba, Bobo");
+
+is_deeply($product_ref,
+{
+   'brands' => 'Baba, Bobo',
+   'lc' => 'fr'
+}) or diag explain($product_ref);
+
+
+compute_field_tags($product_ref, "fr", "brands");
+
+is_deeply($product_ref->{brands_tags},
+[
+   'baba',
+   'bobo',
+]
+)  or diag explain $product_ref->{brands_tags};
+
+add_tags_to_field($product_ref, "fr", "brands", "Bibi");
+
+delete $product_ref->{brands_debug_tags};
+
+is_deeply($product_ref,
+{
+   'brands' => 'Baba, Bobo, Bibi',
+   'brands_tags' => [
+     'baba',
+     'bobo'
+   ],
+
+   'lc' => 'fr'
+}) or diag explain($product_ref);
+
+
+compute_field_tags($product_ref, "fr", "brands");
+
+delete $product_ref->{brands_debug_tags};
+
+is_deeply($product_ref->{brands_tags},
+[
+   'baba',
+   'bobo',
+   'bibi',
+]
+)  or diag explain $product_ref->{brands_tags};
 
 
 done_testing();

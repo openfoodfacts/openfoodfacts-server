@@ -62,13 +62,14 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::SiteQuality qw/:all/;
+use ProductOpener::Data qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 use Getopt::Long;
 
@@ -135,7 +136,7 @@ else {
 	$key = "key_" . time();
 }
 
-$query_ref->{code} = "7610145410164";
+#$query_ref->{code} = "3033490859206";
 
 print "Update key: $key\n\n";
 
@@ -209,6 +210,7 @@ while (my $product_ref = $cursor->next) {
 
 		if ($compute_nutrition_score) {
 			compute_nutrition_score($product_ref);
+			compute_nutrient_levels($product_ref);
 		}
 		
 		if ($server_domain =~ /openfoodfacts/) {

@@ -5284,6 +5284,7 @@ $options{favicons}
 <link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/jquery-ui/themes/base/jquery-ui.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
 <link rel="search" href="@{[ format_subdomain($subdomain) ]}/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <style media="all">
 HTML
 ;
@@ -5424,8 +5425,20 @@ Pour améliorer l'alimentation de tous, c'est le moment de <a href="https://www.
 HTML
 ;
 
+		$top_banner = <<HTML
+<div class="row full-width" style="max-width: 100% !important;" >
+
+<div class="small-12 columns" style="background-color:#effbff; text-align:center;padding:1em;">
+Une bonne résolution pour 2019 : <a href="https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts">adoptez le moteur de recherche Lilo</a> pour soutenir Open Food Facts lors de chacune de vos recherches. Merci !
+<span style="color:red">❤</span>
+</div>
+</div>
+HTML
+;
+
+
 	}
-	if ($lc eq 'en') {
+	if ($lc eq 'en-deactivated') {
 
 		$top_banner = <<HTML
 <div class="row full-width" style="max-width: 100% !important;" >
@@ -5437,6 +5450,56 @@ To improve food for everyone, it's time to <a href="https://www.helloasso.com/as
 </div>
 HTML
 ;
+	}
+	
+	# Display a banner from users on Android or iOS
+	
+	my $user_agent = $ENV{HTTP_USER_AGENT};
+	
+	my $mobile;
+	my $system;
+	
+	# windows phone must be first as its user agent includes the string android
+	if ($user_agent =~ /windows phone/i) {
+	
+		$mobile = "windows";
+	}
+	elsif ($user_agent =~ /android/i) {
+	
+		$mobile = "android";
+		$system = "android";
+	}
+	elsif ($user_agent =~ /iphone/i) {
+	
+		$mobile = "iphone";
+		$system = "ios";
+	}
+	elsif ($user_agent =~ /ipad/i) {
+	
+		$mobile = "ipad";
+		$system = "ios";
+	}	
+	
+	if ((defined $mobile) and (defined $Lang{"get_the_app_$mobile"})) {
+	
+		my $link = lang($system . "_app_link");
+		my $link_text = lang("get_the_app_$mobile");
+		
+		if ($system eq 'android') {
+		
+			$link_text = '<i class="fab fa-android"></i> ' . $link_text;
+		}
+		elsif ($system eq 'ios') {
+		
+			$link_text = '<i class="fab fa-apple"></i> ' . $link_text;
+		}
+	
+		$top_banner = <<HTML
+
+<a href="$link" class="button expand">$link_text</a>
+
+HTML
+;	
 	}
 
 	$html .= <<HTML
@@ -5455,11 +5518,15 @@ HTML
 					</div>
 				</form>
 			</li>
-			<li class="show-for-large-up"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-plus"></i></a></li>
-			<li class="show-for-large-up"><a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}"><i class="fi-graph-bar"></i></a></li>
+			<li class="show-for-large-only"><a href="/cgi/search.pl" title="$Lang{advanced_search}{$lang}"><i class="fi-plus"></i></a></li>
+			<li class="show-for-xlarge-up"><a href="/cgi/search.pl"><i class="fi-plus"></i> $Lang{advanced_search}{$lang}</span></a></li>
+			<li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="$Lang{graphs_and_maps}{$lang}"><i class="fi-graph-bar"></i></a></li>
+			<li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1"><i class="fi-graph-bar"></i> $Lang{graphs_and_maps}{$lang}</span></a></li>
 			<li class="show-for-large-up divider"></li>
 			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
 			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
+			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success"><i class="fas fa-mobile-alt"></i></a></li>			
+			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success"><i class="fas fa-mobile-alt"></i> $Lang{get_the_app}{$lc}</a></li>
 		</ul>
 	</section>
 </nav>
@@ -6161,6 +6228,26 @@ HTML
 <div property=\"gr:hasEAN_UCC-13\" content=\"$code\" datatype=\"xsd:string\"></div>\n";
 	}
 
+	
+	# obsolete product
+	
+	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete} eq 'on')) {
+	
+		my $warning = $Lang{obsolete_warning}{$lc};
+		if ((defined $product_ref->{obsolete_since_date}) and ($product_ref->{obsolete_since_date} ne '')) {
+			$warning .= " (" . $Lang{obsolete_since_date}{$lc} . $Lang{sep}{$lc} . ": " . $product_ref->{obsolete_since_date} . ")";
+		}
+
+		$html .= <<HTML
+<div data-alert class="alert-box warn" id="obsolete" style="display: block; background:#ffaa33;color:black;">
+$warning
+</div>
+HTML
+;
+
+	
+	}
+	
 
 	if (not has_tag($product_ref, "states", "en:complete")) {
 
