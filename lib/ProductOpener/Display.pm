@@ -5525,8 +5525,8 @@ HTML
 			<li class="show-for-large-up divider"></li>
 			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
 			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
-			<li class="show-for-large"><a href="$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success"><i class="fas fa-mobile-alt"></i></a></li>			
-			<li class="show-for-xlarge-up"><a href="$Lang{get_the_app_link}{$lc}" class="button success"><i class="fas fa-mobile-alt"></i> $Lang{get_the_app}{$lc}</a></li>
+			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success"><i class="fas fa-mobile-alt"></i></a></li>			
+			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success"><i class="fas fa-mobile-alt"></i> $Lang{get_the_app}{$lc}</a></li>
 		</ul>
 	</section>
 </nav>
