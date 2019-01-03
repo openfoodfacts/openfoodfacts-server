@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-12-26 12:40\n"
+"PO-Revision-Date: 2019-01-03 16:33\n"
 "Language-Team: French\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -3094,17 +3094,33 @@ msgstr "Page de %s"
 
 msgctxt "obsolete"
 msgid "The product is no longer sold."
-msgstr ""
+msgstr "Le produit n'est plus en vente."
 
 msgctxt "obsolete_since_date"
 msgid "Withdrawal date"
-msgstr ""
+msgstr "Date de retrait"
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY or YYYY-MM"
-msgstr ""
+msgstr "Format : AAAA ou AAAA-MM"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
-msgstr ""
+msgstr "Important : ce produit n'est plus en vente. Les données sont conservées seulement pour référence. Ce produit n'apparait pas dans les résultats de recherche et n'est pas pris en compte pour les statistiques."
+
+msgctxt "get_the_app"
+msgid "Get the app"
+msgstr "Installez l'application mobile"
+
+msgctxt "get_the_app_android"
+msgid "Get the Android app"
+msgstr "Installez l'app Android"
+
+msgctxt "get_the_app_iphone"
+msgid "Get the iPhone app"
+msgstr "Installez l'app iPhone"
+
+msgctxt "get_the_app_ipad"
+msgid "Get the iPad app"
+msgstr "Installez l'app iPad"
 
