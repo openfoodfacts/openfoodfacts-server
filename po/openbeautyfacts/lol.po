@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-11-12 15:26\n"
+"PO-Revision-Date: 2019-01-03 17:25\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -13,16 +13,6 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: lol\n"
 "X-Crowdin-File: /master/po/openbeautyfacts/openbeautyfacts.pot\n"
-
-#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
-msgctxt ":langtag"
-msgid ":langtag"
-msgstr "crwdns103504:0crwdne103504:0"
-
-#. put here the language name ("French", "Japanese", etc)
-msgctxt ":langname"
-msgid ":langname"
-msgstr "crwdns103506:0crwdne103506:0"
 
 #. do not translate
 msgctxt "android_apk_app_link"
@@ -147,4 +137,9 @@ msgstr "crwdns103562:0crwdne103562:0"
 msgctxt "ingredients_text_example"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "crwdns103564:0crwdne103564:0"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link"
+msgid "open-beauty-facts-mobile-app"
+msgstr "crwdns111990:0crwdne111990:0"
 

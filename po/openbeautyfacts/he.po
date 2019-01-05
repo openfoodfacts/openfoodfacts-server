@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-11-12 13:22\n"
+"PO-Revision-Date: 2019-01-03 16:39\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
@@ -13,16 +13,6 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: he\n"
 "X-Crowdin-File: /master/po/openbeautyfacts/openbeautyfacts.pot\n"
-
-#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
-msgctxt ":langtag"
-msgid ":langtag"
-msgstr "he"
-
-#. put here the language name ("French", "Japanese", etc)
-msgctxt ":langname"
-msgid ":langname"
-msgstr "Hebrew"
 
 #. do not translate
 msgctxt "android_apk_app_link"
@@ -152,5 +142,10 @@ msgstr "חיפוש מוצרים ב־Open Beauty Facts"
 
 msgctxt "ingredients_text_example"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr ""
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link"
+msgid "open-beauty-facts-mobile-app"
 msgstr ""
 
