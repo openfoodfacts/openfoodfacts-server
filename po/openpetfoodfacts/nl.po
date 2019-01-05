@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_BE\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-11-12 13:23\n"
+"PO-Revision-Date: 2019-01-03 16:29\n"
 "Language-Team: Dutch, Belgium\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -13,14 +13,6 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: nl-BE\n"
 "X-Crowdin-File: /master/po/openpetfoodfacts/openpetfoodfacts.pot\n"
-
-msgctxt ":langtag"
-msgid ":langtag"
-msgstr "nl_be"
-
-msgctxt ":langname"
-msgid ":langname"
-msgstr "Belgian Dutch"
 
 #. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
 msgctxt "logo"
@@ -99,11 +91,11 @@ msgstr "<a href=\"https://www.helloasso.com/associations/open-food-facts/formula
 
 msgctxt "donate"
 msgid "Donate to Open Pet Food Facts"
-msgstr ""
+msgstr "Doneer naar de Open Dierenvoeding Feiten"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenPetFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenPetFoodFacts"
 
 msgctxt "footer"
 msgid "<a href=\"https://world.openpetfoodfacts.org/legal\">Legal</a> -\n"
@@ -150,5 +142,10 @@ msgstr "→ Met Chrome, Firefox en Safari kunt u verschillende foto's (product, 
 
 msgctxt "search_description_opensearch"
 msgid "Open Pet Food Facts product search"
+msgstr "Open Dierenvoeding Feiten product zoeken"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link"
+msgid "open-pet-food-facts-mobile-app"
 msgstr ""
 
