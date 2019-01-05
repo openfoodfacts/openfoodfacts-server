@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: kk\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-07-30 13:20\n"
+"PO-Revision-Date: 2019-01-03 16:48\n"
 "Language-Team: Kazakh\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -13,16 +13,6 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: kk\n"
 "X-Crowdin-File: /master/po/openfoodfacts/openfoodfacts.pot\n"
-
-#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
-msgctxt ":langtag"
-msgid ":langtag"
-msgstr "kk"
-
-#. put here the language name ("French", "Japanese", etc)
-msgctxt ":langname"
-msgid ":langname"
-msgstr "Kazakh"
 
 #. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
 msgctxt "logo"
@@ -36,5 +26,10 @@ msgstr ""
 
 msgctxt "tagline"
 msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr ""
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link"
+msgid "open-food-facts-mobile-app"
 msgstr ""
 
