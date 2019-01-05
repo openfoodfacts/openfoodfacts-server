@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-12-06 17:17\n"
+"PO-Revision-Date: 2019-01-03 17:25\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -14,16 +14,6 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: lol\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-
-#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
-msgctxt ":langtag"
-msgid ":langtag"
-msgstr "crwdns102100:0crwdne102100:0"
-
-#. put here the language name ("French", "Japanese", etc)
-msgctxt ":langname"
-msgid ":langname"
-msgstr "crwdns102102:0crwdne102102:0"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -2961,4 +2951,124 @@ msgstr "crwdns111876:0crwdne111876:0"
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
 msgstr "crwdns111878:0crwdne111878:0"
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr "crwdns111880:0%scrwdne111880:0"
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr "crwdns111882:0%scrwdne111882:0"
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr "crwdns111884:0%scrwdne111884:0"
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr "crwdns111886:0%scrwdne111886:0"
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr "crwdns111888:0%scrwdne111888:0"
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr "crwdns111890:0%scrwdne111890:0"
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr "crwdns111892:0%scrwdne111892:0"
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr "crwdns111894:0%scrwdne111894:0"
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr "crwdns111896:0%scrwdne111896:0"
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr "crwdns111898:0%scrwdne111898:0"
+
+msgctxt "user_s_page"
+msgid "%s's page"
+msgstr "crwdns111900:0%scrwdne111900:0"
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr "crwdns111944:0%scrwdne111944:0"
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr "crwdns111946:0%scrwdne111946:0"
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr "crwdns111948:0%scrwdne111948:0"
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr "crwdns111950:0%scrwdne111950:0"
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr "crwdns111952:0%scrwdne111952:0"
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr "crwdns111954:0%scrwdne111954:0"
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr "crwdns111956:0%scrwdne111956:0"
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr "crwdns111958:0%scrwdne111958:0"
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr "crwdns111960:0%scrwdne111960:0"
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr "crwdns111962:0%scrwdne111962:0"
+
+msgctxt "user_s_page"
+msgid "%s's page"
+msgstr "crwdns111964:0%scrwdne111964:0"
+
+msgctxt "obsolete"
+msgid "The product is no longer sold."
+msgstr "crwdns111968:0crwdne111968:0"
+
+msgctxt "obsolete_since_date"
+msgid "Withdrawal date"
+msgstr "crwdns111970:0crwdne111970:0"
+
+msgctxt "obsolete_since_date_note"
+msgid "Format: YYYY or YYYY-MM"
+msgstr "crwdns111972:0crwdne111972:0"
+
+msgctxt "obsolete_warning"
+msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
+msgstr "crwdns111974:0crwdne111974:0"
+
+msgctxt "get_the_app"
+msgid "Get the app"
+msgstr "crwdns111982:0crwdne111982:0"
+
+msgctxt "get_the_app_android"
+msgid "Get the Android app"
+msgstr "crwdns111984:0crwdne111984:0"
+
+msgctxt "get_the_app_iphone"
+msgid "Get the iPhone app"
+msgstr "crwdns111986:0crwdne111986:0"
+
+msgctxt "get_the_app_ipad"
+msgid "Get the iPad app"
+msgstr "crwdns111988:0crwdne111988:0"
 
