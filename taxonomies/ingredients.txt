@@ -32945,8 +32945,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Crustacean
 # ingredient/fr:crustacé has 2263 products @2019-01-06
 
 
-
-
 # The term shrimp is used to refer to some decapod crustaceans, although the exact animals covered can vary.
 
 <en:crustacean
@@ -33004,17 +33002,48 @@ wikipedia:en:https://en.wikipedia.org/wiki/Shrimp
 # ingredient/fr:crevette has 840 products in 7 languages @2019-01-06
 
 <en:shrimp
-en: shrimp paste
-de: Garnelenpaste
-fi: katkarapupasta
-fr: pâte de crevettes
+en:shrimp paste
+de:Garnelenpaste
+fi:katkarapupasta
+fr:pâte de crevettes
 nn:rekepasta
-sv: räkpasta
+sv:räkpasta
 # pâte de crevettes (crevettes, sel)
+
+<en:shrimp
+fr:crevettes décortiquées, crevette décortiquée
+# ingredient/fr:crevettes-décortiquées has 46 products in french @2019-01-06
+
+<en:shrimp
+fr:poudre de crevette
+# ingredient/fr:poudre-de-crevette has 40 products in french @2019-01-06
+
+<en:shrimp
+fr:crevettes roses
+# ingredient/fr:crevettes-roses has 13 products @2019-01-06
+
+
+# Penaeidae is a family of marine crustacean in the suborder Dendrobranchiata, which are often referred to as penaeid shrimp or penaeid prawns. 
+
+<en:shrimp
+<fr:crevettes roses
+en:penaeid shrimp
+ar:بنيدات
+bg:Бели скариди
+ca:Peneid
+fa:درازمنقارچگان
+gl:Peneidos
+ja:クルマエビ科
+ko:보리새우과
+la:Penaeidae, Penaeus spp
+mk:пенеиди
+vi:Họ Tôm he
+zh:對蝦科
+wikidata:en: Q683918
 
 # Whiteleg shrimp (Litopenaeus vannamei, formerly Penaeus vannamei), also known as Pacific white shrimp or king prawn, is a variety of prawn of the eastern Pacific Ocean commonly caught or farmed for food.
 
-<en:shrimp
+<en:penaeid shrimp
 en:whiteleg shrimp
 fr:Crevette à pattes blanches
 wikidata:en:Q3002564
