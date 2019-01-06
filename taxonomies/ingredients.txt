@@ -32927,7 +32927,7 @@ sh: Rakovi
 sk:kôrovce
 sl:raki
 sr: ракови
-sv:kräftdjur
+sv:skaldjur, kräftdjur
 sw: Gegereka
 ta: ஓடுடைய இனங்கள்
 th:ครัสเตเชียน
@@ -32943,6 +32943,86 @@ zh:甲壳亚门
 wikidata:en: Q25364
 wikipedia:en:https://en.wikipedia.org/wiki/Crustacean
 # ingredient/fr:crustacé has 2263 products @2019-01-06
+
+
+
+
+# The term shrimp is used to refer to some decapod crustaceans, although the exact animals covered can vary.
+
+<en:crustacean
+en:shrimp
+# ace:Udeuëng
+ak:Monko
+bn:চিংড়ি
+br:Chevrenn
+ca:gamba
+# chr:ᎽᏈ
+# chy:Hetótóhne
+# ckb:مەیگوو
+cs:krevety
+da:Reje, rejer
+de:Garnele, crevetten
+# de-ch:Garnele
+# en-ca:shrimp
+# en-gb:shrimp
+eo:salikoko
+es:gamba
+eu:Izkira
+fa:میگو
+fi:Katkaravut
+fo:Rækja
+fr:crevette
+gl:Gamba
+he:שרימפ
+hu:garnéla
+id:Udang
+it:gambero, gamberi
+ja:エビ
+ko:새우
+la:Squilla
+# lzh:蝦
+mk:ракчиња
+nl:garnaal, garnalen
+# nrm:Chèrvette
+oc:Cambaròta
+pt:camarão
+# pt-br:Camarão
+ro:crevete
+ru:креветки
+# scn:Gàmmaru
+sv:räkor
+sw:Uduvi
+th:กุ้งฝอย
+tr:Karides
+vi:Tôm
+wa:Gurnåte
+# yue:蝦
+za:Gungq
+zh:虾
+wikidata:en:Q1517781
+wikipedia:en:https://en.wikipedia.org/wiki/Shrimp
+# ingredient/fr:crevette has 840 products in 7 languages @2019-01-06
+
+<en:shrimp
+en: shrimp paste
+de: Garnelenpaste
+fi: katkarapupasta
+fr: pâte de crevettes
+nn:rekepasta
+sv: räkpasta
+# pâte de crevettes (crevettes, sel)
+
+# Whiteleg shrimp (Litopenaeus vannamei, formerly Penaeus vannamei), also known as Pacific white shrimp or king prawn, is a variety of prawn of the eastern Pacific Ocean commonly caught or farmed for food.
+
+<en:shrimp
+en:whiteleg shrimp
+fr:Crevette à pattes blanches
+wikidata:en:Q3002564
+wikipedia:en:https://en.wikipedia.org/wiki/Whiteleg_shrimp
+
+<en:whiteleg shrimp
+en:Penaeus vannamei, Penaeus vannamel
+la:Litopenaeus vannamei
 
 
 # Psyllium, or ispaghula, is the common name used for several members of the plant genus Plantago whose seeds are used commercially for the production of mucilage.
@@ -34436,8 +34516,6 @@ fr:calamars
 fr:crabe
 
 fr:chair de crabe
-
-fr:crevette
 
 carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage entier
 
@@ -37171,8 +37249,6 @@ fr:noix de st jacques
 allergens:fr:_noix de st jacques_
 
 
-fr:crevettes décortiquées, crevette décortiquée
-allergens:fr:_crevettes_ décortiquées
 
 fr:œufs de lompe
 allergens:fr:_œufs de lompe_
@@ -37745,11 +37821,6 @@ allergens:fr:chair de _brochet_
 fr:poudre de poisson
 allergens:fr:poudre de _poisson_
 
-fr:poudre de crevette
-allergens:fr:poudre de _crevette_
-
-fr:crevettes roses
-allergens:fr:_crevettes_ roses
 
 fr:salade mélangée
 
