@@ -30197,6 +30197,113 @@ fr:poissons et crustacés mis en œuvre
 <en:fish
 fr:poissons entiers pêchés en Méditerranée
 
+
+# An anchovy is a small, common forage fish of the family Engraulidae. 
+
+<en:fish
+en:anchovy, anchovies
+ar:بلمية
+az:Ançouslar
+bg:аншоа
+br:Genougamm
+ca:Engràulid
+# cdo:Dĭng-hiŏng-kó̤
+cs:sardel obecná
+da:ansjos, Ansjoser
+de:Sardellen, Serdellen, Anchovis
+es:Anchoa, anchoas
+fa:موتوماهیان
+fi:anjovis
+fr:anchois
+ga:Ainseabhaí
+gl:Engráulidos
+he:עפיאניים
+hu:Szardellafélék
+id:Teri
+io:Anchovo
+it:acciughe
+ja:アンチョビ
+jv:Iwak teri
+kk:Анчоус
+# kk-arab:انتشوۋس
+# kk-cn:انتشوۋس
+# kk-cyrl:Анчоус
+# kk-kz:Анчоус
+# kk-latn:Ançows
+# kk-tr:Ançows
+ko:멸치과
+kw:Lavyn
+ky:Анчоус сымалдуулар
+la:Engraulidae
+# lad:Anchúya
+# lij:Anciùa
+lt:Ančiuvinės
+mk:сардели
+ms:Ikan bilis
+nb:ansjos
+nl:ansjovis
+nn:ansjos
+pl:Sardelowate, anchois
+qu:Chuqi challwa
+ru:Анчоусовые
+su:Teri
+sv:ansjovis
+ta:நெத்திலி
+th:วงศ์ปลาแมว
+tl:Dilis
+uk:Анчоусові
+vi:Họ Cá trổng
+# yue:鯷魚
+zh:鳀科
+# zh-cn:鳀科
+# zh-hans:鳀科
+# zh-hant:鯷科
+# zh-hk:鯷科
+# zh-sg:鳀科
+# zh-tw:鯷科
+wikidata:en:Q192662
+wikipedia:en:https://en.wikipedia.org/wiki/Anchovy
+# ingredient/anchovy has 640 products in 10 languages @2019-01-06
+
+# Anchovy paste is a fish paste food product prepared using anchovies as a primary ingredient.
+
+<en:anchovy
+en:anchovy paste
+cs:sardelova pasta
+de:Serdellenkreme
+fr:pâte d'anchois
+it:pasta d'acciughe
+pl:pasta z anchois
+wikidata:en:Q3897482
+wikipedia:en:https://en.wikipedia.org/wiki/Anchovy_paste
+# ingredient/fr:pâte-d’anchois has 101 products @2019-01-06
+
+<en:anchovy
+en:anchovy extract
+de:Sardellenextrakt
+es:extracto de anchoas
+fr:extrait d'anchois
+it:estratto d'acciughe
+nl:ansjovisextract
+# ingredient/anchovy-extract has 158 products in 7 languages @2019-01-06
+
+<en:anchovy
+fr:filets d'anchois
+de:Sardellenfilets
+it:Filetti d'acciuga
+# ingredient/fr:filets%20d'anchois has 36 products in 4 languages @2019-01-06
+
+en:salted anchovy filets
+de:gesalzene Sardellenfilets
+fr:filets d'anchois salés
+it:filetti di acciughe salate
+# ingredient/fr:filets-d’anchois-salés has 41 products in 4 languages @2019-02-06
+
+<en:anchovy
+la:Stolephorus spp
+wikipedia:en:https://en.wikipedia.org/wiki/Stolephorus
+
+
 # The blue whiting, Micromesistius poutassou, one of the two species in the genus Micromesistius in the cod family, is common in the northeast Atlantic Ocean from Morocco to Iceland and Spitsbergen
 
 <en:fish
@@ -33131,6 +33238,17 @@ la:Solenocera spp
 wikidata:en: Q10673156
 # ingredient/fr:Solenocera-spp has 2 products @2019-01-06
 
+<en:shrimp
+la:Metapenaeus affinis, Metapaneus affinis
+wikipedia:nl:https://nl.wikipedia.org/wiki/Metapenaeus_affinis
+# ingredient/fr:Metapaneus-affinis has 1 product @2019-01-06
+
+<en:shrimp
+la:Solenocera Crassicornis
+wikipedia:nl:https://nl.wikipedia.org/wiki/Solenocera_crassicornis
+
+
+
 # Psyllium, or ispaghula, is the common name used for several members of the plant genus Plantago whose seeds are used commercially for the production of mucilage.
 
 # psyllium can be used for the fibres or as infusion
@@ -34657,12 +34775,6 @@ fr:iodure de potassium
 
 fr:poulet
 
-en:anchovy
-es:anchoas
-fr:anchois
-nl:ansjovis
-de:Sardellen
-
 fr:diphosphate et carbonate de calcium, diphosphates et carbonates de sodium
 
 fr:maltitol
@@ -35442,7 +35554,6 @@ fr:citrate tricalcique
 fr:penaeus vannamei
 allergens:fr:_penaeus vannamei_
 
-fr:pâte d'anchois
 
 fr:foie de volaille
 
@@ -36806,11 +36917,6 @@ fr:carbonate de fer
 
 fr:s. thermophilus, Streptococcus thermophilus
 
-en:anchovy extract
-es:extracto de anchoas
-fr:extrait d'anchois
-nl:ansjovisextract
-de:Sardellenextrakt
 
 fr:blette
 
@@ -36895,7 +37001,6 @@ fr:poisson blanc
 allergens:fr:_poisson_ blanc
 
 
-fr:filets d'anchois salés
 
 fr:omelette
 
@@ -37841,7 +37946,6 @@ fr:edta
 
 fr:mélange de salades
 
-fr:filets d'anchois
 
 fr:brioche
 
