@@ -1,5 +1,11 @@
+# "EditorConfig helps developers maintain consistent coding styles between different editors"
+# Many editors support EditorConfig, check: https://editorconfig.org
 root = true
 
+# Default for all files:
+# * UTF8 charset, unix-style newlines (lf), 2 spaces indentation
+# * ensure files ends with a newline when savings (insert_final_newline)
+# * remove any whitespace characters preceding newline characters (trim_trailing_whitespace)
 [*]
 charset = utf-8
 end_of_line = lf
@@ -8,6 +14,7 @@ indent_size = 2
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+# Perl files: tab identation (4 spaces)
 [*.{pm,pl,t}]
 indent_style = tab
 indent_size = 4
