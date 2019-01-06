@@ -121,7 +121,7 @@ da: Surhedsregulerende middel
 el: Ρυθμιστής οξύτητας
 es: Corrector de acidez
 fi: Happamuudensäätöaine
-fr: Correcteur d’acidité
+fr:correcteur d’acidité
 it: Correttori di acidità
 nl: Zuurteregelaar
 pt: Regulador de acidez
@@ -150,7 +150,7 @@ el:Αντισυσσωματωτικό
 es:Antiaglomerante
 et:Paakumisvastane aine
 fi:Paakkuuntumisenestoaine
-fr:Antiagglomérant
+fr:antiagglomérant
 ga:Oibreán frithstolptha
 hu:Csomósodást és lesülést gátló anyag
 it:Agenti antiagglomeranti
@@ -224,7 +224,7 @@ el:Διογκωτικό
 es:Incrementador de volumen
 et:Mahuaine
 fi:Täyteaine
-fr:Agent de charge
+fr:agent de charge
 ga:Toirteoir
 hu:Tömegnövelő szer
 it:Agenti di carica
@@ -694,7 +694,7 @@ da: Skumdannende middel
 el: Αφριστικοί παράγοντες
 es: Espumante
 fi: Vaahdotusaine
-fr:Agent moussant
+fr:agent moussant
 it: Agenti schiumogeni
 nl: Schuimmiddel, Schuimmiddelen
 pt: Agente espumante
@@ -811,7 +811,7 @@ wikipedia:https://en.wikipedia.org/wiki/Pectin
 <en:pectin
 en:non-amidated pectines, E440i, E 440i, E-440i
 de:E440i, E 440i, E-440i
-fr: Pectine amidée, E440i, E 440i, E-440i
+fr:Pectine non amidée, E440i, E 440i, E-440i
 it:E440i, E 440i, E-440i
 nl:E440i, E 440i, E-440i
 # fr:e440i has 18 products in 5 languages @2018-11-03
@@ -894,18 +894,19 @@ wikidata:en:Q911854
 
 
 # nova
-en: Preservative
+en:preservative
 ga: Leasaitheach
 de: Konservierungsstoff
-da: Modificeret stivelse
+da:Konserveringsmiddel
 el: Συντηρητικό
 es: Conservante, Conservador
 fi: Säilöntäaine
 fr: Conservateur
 it: Conservanti
+nb:Konserveringsmiddel
 nl: Conserveermiddel, Conserveermiddelen
 pt: Conservante
-sv: Modifierad stärkelse
+sv:Konserveringsmedel
 lv: Konservants
 cs: Konzervant
 et: Säilitusaine
@@ -950,7 +951,7 @@ en:Sequestrant
 bg:Комплексообразуватели
 cs:Sekvestrant
 de:Komplexbildner
-da:Hævemiddel
+# da:Hævemiddel
 el:Συμπλοκοποιητές
 es:Secuestrante
 et:Sekvestrant
@@ -974,7 +975,7 @@ wikidata:en:Q905648
 en: Stabiliser, Stabilizer
 ga: Cobhsaitheoir
 de: Stabilisator
-da: Kompleksdannere
+# da: Kompleksdannere
 el: Σταθεροποιητής
 es: Estabilizador
 fi: Stabilointiaine
@@ -1007,7 +1008,7 @@ en:colour-stabilizer
 en:Sweetener
 bg:Подсладител
 cs:Sladidlo
-da:Kompleksdannere
+da:Kunstigt sødemiddel
 de:Süßungsmittel
 el:Γλυκαντικό
 es:Edulcorante, Endulzante
@@ -3263,7 +3264,6 @@ uz:laktaza
 vi:lactase
 zh:乳糖酶
 # yue:乳糖水解酶
-
 wikidata:en:Q379764
 wikipedia:en:https://en.wikipedia.org/wiki/Lactase
 
@@ -4277,10 +4277,6 @@ allergens:fr:poudre de _lactose_
 fr:lait de montagne
 allergens:fr:_lait_ de montagne
 
-
-fr:lait de vache pasteurisé
-allergens:fr:_lait_ de vache pasteurisé
-
 fr:lait entier standardisé
 allergens:fr:_lait_ entier standardisé
 
@@ -4844,9 +4840,8 @@ it:formaggio di pecore
 <en:cheese
 en:soft white cheese
 fr:fromage frais
-carbon_footprint_fr_foodges_ingredient:fr:Fromage frais 58% MG
 de:Frischkäse
-it:formaggio fresco
+carbon_footprint_fr_foodges_ingredient:fr:Fromage frais 58% MG
 # fr:fromage-frais has 474 products @2018-10-28
 
 <fr:fromage frais
@@ -6009,7 +6004,10 @@ nl:Vacherin fribourgeois AOP
 wikidata:en:Q677647
 wikipedia:en:https://fr.wikipedia.org/wiki/Vacherin_fribourgeois
 # fr:Vacherin-fribourgeois-AOP has 2 products in 3 languages @2018-10-27
-queijo mozzarella
+
+<en:cheese
+en:mozzarella
+es:queijo mozzarella
 sv:mozzarella
 # fr:mozzarella has 1057 products in 15 languages @2018-10-28
 
@@ -7181,7 +7179,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Ergocalciferol
 # Cholecalciferol, also known as vitamin D3 and colecalciferol, is a type of vitamin D which is made by the skin, found in some foods, and taken as a dietary supplement.
 
 <en:vitamin D
-en:Cholecalciferol, vitamin D3
+en:Cholecalciferol, vitamin D3, D3
 af:Vitamien D3
 ar: كوليكالسيفيرول
 # ast:Vitamina D3
@@ -8689,7 +8687,6 @@ bg:Кокосово масло
 bn:নারিকেল তেল
 cs:Kokosový olej
 da:kokosolie
-de:Kokosfett
 es:aceite de coco
 et:Kookosõli
 eu:Koko olio
@@ -9488,12 +9485,10 @@ fr:huile essentielle d'orange
 it:olio essenziale di arancio
 nl:sinaasappelolie
 
+# see also en:peppermint oil
+
 <en:essential oil
-de:Pfefferminzöl
 fr:huile essentielle de menthe
-it:olio di menta
-nl:pepermuntolie
-sv:pebermynteolie
 
 <en:essential oil
 fr:huile essentielle de coriandre
@@ -11849,7 +11844,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:seigle%20broyé/
 <en:rye
 fr:flocons de seigle
 de:Roggenflocken
-it:fiocchi di frumento
+it:fiocchi di segale
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20seigle/
 # 87 entries @ 2018-09-22
 
@@ -12654,7 +12649,7 @@ en:barley flour
 de:Gerstenmehl
 es:harina de cebada
 fr:farine d'orge
-it:farina d'avena
+it:farina d'orzo
 nl:gerstemeel
 pt:farinha de cevada
 
@@ -15433,18 +15428,9 @@ carbon_footprint_fr_foodges_ingredient:fr: Eau du robinet
 
 fr:acide de sodium
 
-en:acidity corrector
-fr:correcteur d'acidité
-
-
-
-fr:corrécteur d'acidité, correcteur dacidité
-
 fr:acide
 
 fr:régulateur d'acidité
-
-fr:correcteurs d'acidité
 
 
 # SOYA is used as a generic word to indicate it is made from soybeans
@@ -15629,26 +15615,26 @@ fr:maltodextrine de maïs, malto-dextrine de maïs
 
 en:raising agent, Raising agent, leavening agent
 ar:عامل نفاشية
-bg: Набухвател
-cs: Kypřicí látka, Kypřidlo
+bg:Набухвател
+cs:Kypřicí látka, Kypřidlo
 cy:Lefain
-ga: Oibreán éiritheach
+ga:Oibreán éiritheach
 da:Hævemiddel
 de:Backpulver, Backtriebmittel, Triebmittel
-da: Drivgas
-el: Διογκωτικό αρτοποιίας
+da:Drivgas
+el:Διογκωτικό αρτοποιίας
 es:Gasificante, Agente leudante, agentes gasificantes
-et: Kergitusaine
+et:Kergitusaine
 fa:عامل ورآورنده
-fi: Nostatusaine
+fi:Nostatusaine
 fr:Agent levant, agent de levuration, agent levant, agents levants
 he:התפחה
 hu: Térfogatnövelő szer
 id:Bahan pengembang
-it: Agenti lievitanti
+it:Agenti lievitanti
 ja:膨張剤
 ko:팽창제
-lt: Tešlos kildymo medžiaga, Puriklis
+lt:Tešlos kildymo medžiaga, Puriklis
 lv: Irdinātājs
 ms:Agen penaik
 mt: Aġent li jgħolli l-ikel
@@ -15791,7 +15777,7 @@ ro:praf de copt
 en:natural yeast
 de:natürliche Hefe
 fr:levure naturelle
-it:lievito naturale
+it:naturale-fermento, lievito naturale
 
 # Baker's yeast is the common name for the strains of yeast commonly used as a leavening agent in baking bread and bakery products,
 
@@ -16043,7 +16029,7 @@ en:Monosodium phosphate, Monosodium monophosphate, Acid monosodium monophosphate
 ar:مونوسودیوم فوسفات
 # azb:مونوسودیوم فوسفات
 bg:Мононатриев фосфат, Мононатриев монофосфат, кисел мононатриев монофосфат, мононатриев ортофосфат, едноосновен натриев фосфат, E339i, E 339i, E-339i
-cs:Dihydrogenfosforečnan sodný, Fosforečnan monosodný, kyselý fosforečnan sodný, orthofosforečnan monosodný, E339i, E 339i, E-339i
+cs:Fosforečnan monosodný, kyselý fosforečnan sodný, orthofosforečnan monosodný, E339i, E 339i, E-339i
 da:Mononatriumphosphat, Mononatriummonophosphat, surt mononatriummonophosphat, mononatriumorthophosphat, monobasisk natriumphosphat, E339i, E 339i, E-339i
 de:Mononatriumphosphat, E339i, E 339i, E-339i
 el:Δισοξινο φωσφορικο νατριο, Δισόξινο ορθοφωσφορικό νάτριο, E339i, E 339i, E-339i
@@ -22819,7 +22805,6 @@ ga:Cál
 gv:Caayl jiarg
 he:כרוב על
 hi:एक प्रकार का गोभी
-hr:Kelj
 # hsb:Zeleny kał
 hu:Fodros kel
 is:Grænkál
@@ -25367,7 +25352,7 @@ el:Κάρυο
 # en-ca:nut
 # en-gb:nut
 eo:nukso
-es:nuez
+# es:nuez translation error
 et:pähkel
 eu:fruitu oskoldun
 fa:فندقی
@@ -25389,12 +25374,11 @@ hi:अखरोट
 hr:orah
 # hsb:worjechowy płód
 ht:Nwa
-hu:dió
 hy:ընկույզ
 ia:nuce
 id:kacang pohon
 is:hneta
-it:noce, noci
+it:noci
 ja:種実
 ka:კაკალი
 kk:Жаңғақтар
@@ -25420,7 +25404,7 @@ or:ବାଦାମ
 pa:ਗਿਰੀ
 pl:orzech
 # pnb:گری
-pt:noz
+# pt:noz
 # pt-br:noz
 ro:nuci
 # roa-tara:noce
@@ -26406,7 +26390,7 @@ en:flax seed, flax seeds
 bg:Ленено семе
 cs:Len setý
 de:Leinsamen
-es:lino
+es:semillas de lino
 et:Linaseemned
 fa:تخم کتان
 fr:graine de lin, graines de lin, lin
@@ -27412,7 +27396,7 @@ fr:moutarde de dijon
 de:Dijon-Senf
 it:senape di Digione
 nl:mosterd van Dijon
-# fr:moutarde-de-dijon has 1819 products in 4 languages 22018-10-25
+# fr:moutarde-de-dijon has 1819 products in 4 languages @2018-10-25
 
 <fr:moutarde de dijon
 fr:moutarde forte de dijon
@@ -29807,7 +29791,7 @@ en:capers
 cs:kapary
 de: Kapern
 eo: Kaporo
-fr:câpre
+fr:câpre, câpres
 io: Kapero
 it:capperi
 ku: Kewer
@@ -32485,7 +32469,7 @@ fr:moules glazurées
 
 <en:mussel
 fr:moules cuites
-# ingredient/fr:moules-cuites has 2 products 22019-02-05
+# ingredient/fr:moules-cuites has 2 products @2019-02-05
 
 # The Mediterranean mussel (Mytilus galloprovincialis) is a species of bivalve, a marine mollusc in the family Mytilidae. 
 
@@ -34667,9 +34651,6 @@ fr:pp
 
 fr:filet de poulet
 
-fr:carbonate de sodium
-de:Natriumcarbonate
-
 fr:sardine
 
 
@@ -34731,8 +34712,6 @@ fr:sulfate de zinc
 fr:glycosides de stéviol
 
 fr:gomme d'acacia
-
-fr:agent de charge
 
 fr:calcium
 
@@ -35091,8 +35070,6 @@ fr:enrobage
 
 fr:dioxyde de silicium
 
-fr:palmitate d'ascorbyle
-
 
 fr:sulfite acide de sodium
 
@@ -35148,8 +35125,6 @@ fr:pain azyme
 fr:sérum de lait
 
 fr:dioxyde de carbone
-
-fr:extrait de houblon
 
 fr:pain au chocolat
 carbon_footprint_fr_foodges_ingredient:fr:Viennoiseries pain au chocolat
@@ -35399,8 +35374,6 @@ fr:graisse butyrique
 
 fr:badiane
 
-fr:herbes de provence
-
 fr:hydroxypropylméthylcellulose
 
 
@@ -35613,10 +35586,6 @@ fr:baies de genièvre
 
 
 
-fr:esters lactiques des mono- et diglycérides d'acides gras
-
-
-
 fr:croûtons
 
 fr:crème entière
@@ -35731,8 +35700,6 @@ fr:e202
 fr:e202
 
 fr:e211
-
-fr:e220
 
 fr:e222
 
@@ -35927,10 +35894,7 @@ fr:sel d'aspartame-acésulfame, e962
 
 fr:b1
 
-
 fr:colorant naturel
-
-fr:antiagglomérant
 
 fr:additifs alimentaires
 
@@ -36330,9 +36294,6 @@ allergens:fr:_lupins_
 
 fr:vermicelles
 
-
-fr:esters citriques des mono- et diglycérides d'acides gras, esters citriques des monoglycérides et diglycérides d'acides gras
-
 fr:préparation aromatique
 
 fr:tartrate de potassium
@@ -36519,10 +36480,7 @@ fr:bœuf cuit
 
 fr:genièvre
 
-
-
 fr:zygochlamys patagonica, Saint-Jacques Zygochlamys patagonica
-
 
 fr:fond de veau
 
@@ -36542,16 +36500,11 @@ fr:humectant glycérol
 
 fr:gluconate de zinc
 
-
-
-
 fr:morceaux de chocolat noir
 
 fr:condiment balsamique blanc
 
 fr:oxyde de zinc
-
-fr:agent moussant
 
 fr:gélatine de poisson
 allergens:fr:gélatine de _poisson_
@@ -36672,8 +36625,7 @@ fr:conservateurs e202
 
 fr:conservateur e224
 
-en:e 220
-fr:e220
+en:e 220, e220, e-220
 
 fr:e281
 
@@ -36863,7 +36815,8 @@ fr:mono- et diglycérides d'acides gras d'origine végétale, mono et diglycéri
 nl:mono- en diglyceriden van plantaardige vetzuren
 pt:mono e diglicéridos de ácidos gordos de origem vegetal
 # fr:mono- et diglycérides d'acides gras d'origine végétale has 53 products @2018-11-12
-fr:pectine amidée, e440ii
+
+# fr:pectine amidée, e440ii
 
 fr:gélifiant e407
 
@@ -36897,8 +36850,6 @@ de:Sardellenextrakt
 fr:blette
 
 fr:carbonates de magnésium
-
-fr:câpre, câpres
 
 fr:gras de veau
 
@@ -37218,10 +37169,6 @@ fr:nori
 
 fr:orangeat
 
-fr:litopenaeus vannamei
-
-fr:pandalus borealis
-
 fr:cranberries séchées
 
 
@@ -37229,13 +37176,6 @@ fr:cranberries séchées
 fr:plantain
 
 fr:caramel de sulfite caustique
-
-
-
-
-
-
-
 
 fr:flageolets verts extra-fins
 
@@ -37250,8 +37190,6 @@ de:vorgegartes Hühnerfleisch
 
 
 fr:poudre de fleurage
-
-fr:nucléotides
 
 fr:crème acidulée
 
@@ -37333,13 +37271,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tetrasodium_pyrophosphate
 
 
 fr:sardines fraîches
-allergens:fr:_sardines_ fraîches
 
 fr:éclats de caramel au beurre salé
-
-
-
-
 
 fr:disphosphate disodique, Pyrophosphate acide de soude, pyrophosphate de sodium
 
@@ -37446,15 +37379,11 @@ allergens:fr:_bleu_
 
 fr:l-leucine
 
-fr:phosphate de magnésium
-
 
 
 fr:reines-claudes
 
 fr:combava
-
-fr:cholécalciférol
 
 fr:produit champignon quorn
 
@@ -37790,10 +37719,6 @@ fr:agents de coagulation
 
 fr:petits pois doux
 
-
-
-
-
 fr:sulfite de sodium
 allergens:fr:_sulfite_ de sodium
 
@@ -37853,8 +37778,6 @@ fr:caséinate
 allergens:fr:_caséinate_
 
 fr:anhydride carbonique
-
-fr:chlorhydrate de pyridoxine
 
 fr:liant
 
