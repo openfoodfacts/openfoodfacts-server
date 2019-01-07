@@ -10969,7 +10969,6 @@ fr:arôme caféine
 <en:flavouring
 fr:arôme crabe
 nl:krabaroma
-allergens:fr:arôme _crabe_
 
 <en:flavouring
 fr:arôme identique nature
@@ -32296,7 +32295,7 @@ fr:lieu
 # colin (lieu) de l'Alaska (Theragra chalcogramma) 
 # Colin (lieu) (Pollachius virens)
 # lieu (lieu 25%, huile de colza, sel, échalotes, gélatine de poisson)
-# Crabe, lieu, crème liquide, échalotes,
+# ... Crabe, lieu, crème liquide, échalotes,
 
 # Les mulets (également appelés mules, muges ou meuille1) sont des poissons de la famille des Mugilidae, mais aussi des familles Cyprinidae, Lebiasinidae ou Polynemidae.
 
@@ -33081,6 +33080,132 @@ zh:甲壳亚门
 wikidata:en: Q25364
 wikipedia:en:https://en.wikipedia.org/wiki/Crustacean
 # ingredient/fr:crustacé has 2263 products @2019-01-06
+
+
+# Crabs are decapod crustaceans of the infraorder Brachyura, which typically have a very short projecting "tail"
+
+<en:crustacean
+en:crab
+af:Krap
+ak:ɔkɔtɔ
+am:ሠርጣን
+# ang:Crabba
+ar:سرطان
+az:Yengəclər
+be:крабы
+# be-tarask:крабы
+bg:Криви раци
+bn:কাঁকড়া
+br:Krank
+ca:Cranc
+# cdo:Chiĕk
+cs:Krabi
+# csb:Krabë
+cy:Cranc
+da:Krabbe
+de:Krabbe, Krabben
+el:Κάβουρας
+# en-gb:Crab
+eo:Krabo
+es:Braquiuro
+et:Krabilised
+eu:Karramarro
+fa:خرچنگ
+fi:Taskuravut
+fo:Krabbadýr
+fr:crabe, crabes
+ga:Portán
+gd:Partan
+gl:Cangrexo
+gn:Guaiamu
+# gom:Kurli
+gu:કરચલો
+gv:કરચલો
+# hak:Mô-hái
+he:סרטנים קצרי בטן
+hi:केकड़ा
+ht:Krab
+hu:Rövidfarkú rákok
+hy:խաչափառներ
+ia:cancere
+id:Kepiting
+io:Krabo
+is:Krabbar
+it:Granchio
+ja:カニ
+jv:Kepithing
+ka:ცხრაფეხები
+kk:Таңқы шаян
+kn:ಏಡಿ
+ko:게
+ky:Крабдар
+la:Brachyura, Cancer
+lt:Krabas
+lv:Krabji
+# lzh:蟹
+mg:Foza
+mk:Краба
+ml:ഞണ്ട്
+mr:खेकडा
+ms:Ketam
+my:ကဏန်း
+# nah:Tecuicihtli
+# nan:Chîm-á
+nb:Krabber
+ne:गँगटो
+nl:krab, krabben
+nn:Krabbe
+# nso:Kgenkgerepe
+nv:Chʼosh bikágí ntłʼizí
+oc:Cranc
+pa:ਕੇਕੜਾ
+pl:kraby
+ps:چنگاښ
+pt:Caranguejo
+ro:Crab
+ru:крабы
+# sat:ᱠᱟᱴᱠᱚᱢ
+# scn:Granciu
+# sco:keavie
+sh:Kraba
+sk:Krab
+sl:Rakovice
+sn:Gakanje
+sr:краба
+# stq:Krabbe
+su:Keuyeup
+sv:Krabbor
+sw:Kaa
+ta:நண்டு
+# tcy:ಜೆಂಜಿ
+te:పీత
+tg:Крилово
+th:ปู
+tr:Yengeç
+uk:краби
+ur:کیکڑا
+# vec:Granso
+vi:Phân thứ bộ Cua
+# vls:Krabbe
+# war:Masag
+xh:Nonkala
+# yue:蟹
+za:Baeu
+# zea:Krabb'n
+zh:螃蟹
+zu:Inkalankala
+wikidata:en:Q40802
+wikipedia:en:https://en.wikipedia.org/wiki/Crab
+# ingredient/fr:crabe has 83 products in 4 languages @2019-01-07
+# ingredient/crab has 30 products in english @2019-01-07
+
+<en:crab
+fr:chair de crabe
+# ingredient/fr:chair-de-crabe has 48 products in french @2019-01-07
+
+<en:crab
+fr:extrait de crabe
+# ingredient/fr:extrait-de-crabe has 25 products in french @2019-01-07
 
 
 # The term shrimp is used to refer to some decapod crustaceans, although the exact animals covered can vary.
@@ -34777,10 +34902,6 @@ fr:b5
 fr:poulpes
 
 fr:calamars
-
-fr:crabe
-
-fr:chair de crabe
 
 carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage entier
 
