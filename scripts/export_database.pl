@@ -78,7 +78,7 @@ foreach my $field (@export_fields) {
 $fields_ref->{nutriments} = 1;
 $fields_ref->{ingredients} = 1;
 $fields_ref->{images} = 1;
-
+$fields_ref->{lc} = 1;
 
 	
 my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
