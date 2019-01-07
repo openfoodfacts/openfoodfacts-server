@@ -32789,7 +32789,7 @@ et:Kalmaarilised
 eu:Txipiroi
 fa:ماهی مرکب
 fi:Kalmarit
-fr:calmar, calmars, encornet, encornets
+fr:calamar, calamars, encornet, encornets, calmar, calmars
 ga:Scuid
 gl:Lura
 gn:Kalama
@@ -32988,20 +32988,20 @@ fr:palourdes précuites
 # Crustaceans form a large, diverse arthropod taxon which includes such familiar animals as crabs, lobsters, crayfish, shrimp, krill, woodlice, and barnacles.
 
 en:crustacean, crustaceans
-af: Skaaldier
+af:Skaaldier
 ar:قشريات
-az: Xərçəngkimilər
-ba: Ҡыҫала
-be: ракападобныя
+az:Xərçəngkimilər
+ba:Ҡыҫала
+be:ракападобныя
 bg:ракообразни
-br: Kresteneg
-bs: Rakovi
-ca: Crustaci
+br:Kresteneg
+bs:Rakovi
+ca:Crustaci
 cs:korýši
-cy: Cramennog
+cy:Cramennog
 da:krebsdyr
 de:Krebstiere
-# de-ch: Krebstiere
+# de-ch:Krebstiere
 el:καρκινοειδή
 # en-ca: Crustacean
 # en-gb: Crustacean
@@ -33043,14 +33043,14 @@ ml: ക്രസ്റ്റേഷ്യൻ
 ms: Krustasea
 mt:krustaċej
 my:ကနန်း၊ ရေသတ္တဝါ
-# nan: Kah-khak-lūi
-nb: krepsdyr
-# nds: Kreefte
-# nds-nl: Dwaarsloper
+# nan:Kah-khak-lūi
+nb:krepsdyr
+# nds:Kreefte
+# nds-nl:Dwaarsloper
 nl:schaaldieren
-nn: Krepsdyr 
+nn:Krepsdyr 
 nv:Chʼosh bikágí dantłʼizí
-oc: Crustacèu
+oc:Crustacèu
 pa: پوستى ژوي
 pl:skorupiaki
 pt:crustáceos
@@ -33208,10 +33208,145 @@ fr:extrait de crabe
 # ingredient/fr:extrait-de-crabe has 25 products in french @2019-01-07
 
 
+
+# Lobsters comprise a family (Nephropidae, sometimes also Homaridae) of large marine crustaceans.
+
+<en:crustacean
+en:lobster
+# ang:Loppestre
+ar:كركند
+# ats:Llagosta
+# bcl:Banagan
+be:Амары
+# be-tarask:Амары
+bg:омари
+bn:গলদা
+ca:Nefròpid
+cs:humrovití
+de:Hummer
+el:Αστακός
+eo:Omaro
+es:Langosta
+et:Homaar
+fa:شاه‌میگو
+fi:hummerit
+fo:Hummari
+fr:homard, homards
+ga:Gliomach
+gl:Nefrópidos
+# gom:Shivod Kurli
+# hak:Liùng-hâ
+he:לובסטר
+hi:झींगा मछली
+ht:Oma
+hy:Օմարներ
+id:Lobster
+io:Homardo
+is:Humrar
+it:Omaro
+ja:ロブスター
+jv:Lobster
+ka:ჰომარი
+kk:Омарлар
+ko:바닷가재
+ku:Kevjalk
+ky:Омарлар
+la:Homarus, Nephropidae
+lb:Homard
+lt:Omaras
+lv:omāri
+mk:јастози
+ml:കൊഞ്ച്
+ms:Udang karang
+my:ကျောက်ပုဇွန်
+nb:Hummere
+ne:झिङ्गे माछा
+nl:zeekreeften
+nn:Hummar
+nv:Chʼoshtsoh bíláshgaantsohí
+pa:كركند
+pl:homary
+pt:Lavagante
+ro:Homar
+ru:омары
+sh:Nefropidi
+sv:hummer
+ta:கல் இறால்
+te:ఎండ్రకాయ
+th:ล็อบสเตอร์
+tl:Ulang
+tr:Istakoz
+uk:Омар
+ur:کَر کند
+vi:Họ Tôm hùm càng
+# war:Tapusok
+# wuu:龙虾
+# yue:海螯蝦科
+zh:海螯蝦科
+wikipedia:en:https://en.wikipedia.org/wiki/Lobster
+# ingredient/en:lobster has 48 products in english @2019-01-07
+# ingredient/fr:homard has 79 products in 3 languages @2019-01-07
+
+
+# The American lobster (Homarus americanus) is a species of lobster found on the Atlantic coast of North America, chiefly from Labrador to New Jersey. 
+
+<en:lobster
+en:American lobster
+bn:আমেরিকান গলদা চিংড়ি
+ca:llamàntol americà
+cs:humr americký
+da:amerikansk hummer
+de:Amerikanischer Hummer
+el:αμερικανικός αστακός
+# en-ca:American lobster
+# en-gb:American lobster
+es:Langosta americana
+et:Ameerika homaar
+fa:شاه‌میگوی آمریکایی
+fi:amerikanhummeri
+fr:homard américain
+he:לובסטר אמריקני
+hi:अमेरिकी झींगा मछली
+id:Lobster amerika
+ka:ამერიკული ასთაკვი
+it:Astice americano
+lt:Amerikinis omaras
+mn:Amerikansk hummer
+nn:Amerikansk hummar
+or:ଆମେରିକୀୟ ଚିଙ୍ଗୁଡି
+pa:ਅਮਰੀਕੀ ਲਾਬਸਟਰ
+pl:Homar amerykański
+# pnb:امریکی لابسٹر
+ru:американский омар
+sh:Američki hlap
+sq:karavidhe amerikane
+sv:Amerikansk hummer
+ur:امریکی لابسٹر
+vi:Tôm hùm Mỹ
+zh:美洲螯龍蝦
+wikidata:en:Q37668
+wikipedia:https://en.wikipedia.org/wiki/American_lobster
+
+<en:American lobster
+en:Homarus americanus
+la:Homarus americanus
+
+<en:American lobster
+fr:pulpe de homard
+de:Hummerfleisch
+# ingredient/fr:pulpe-de-homard has 5 products in 3 languages @2019-01-07
+
+<en:American lobster
+fr:bouillon de homard
+de:Hummerbouillon
+# ingredient/fr:bouillon-de-homard has 2 products @2019-01-07
+# compound ingredient
+
+
 # The term shrimp is used to refer to some decapod crustaceans, although the exact animals covered can vary.
 
 <en:crustacean
-en:shrimp
+en:shrimp, prawn
 # ace:Udeuëng
 ak:Monko
 bn:চিংড়ি
@@ -34900,8 +35035,6 @@ fr:b5
 
 
 fr:poulpes
-
-fr:calamars
 
 carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage entier
 
@@ -37190,9 +37323,6 @@ fr:morceaux de foie gras de canard
 
 fr:mononitrate de thiamine
 
-fr:calamar
-allergens:fr:_calamar_
-
 fr:volaille
 
 fr:jus de cuisson
@@ -37673,11 +37803,6 @@ fr:tequila
 fr:dulse
 
 fr:co2
-
-
-
-fr:dosidicus gigas
-allergens:fr:_dosidicus gigas_
 
 fr:sauternes
 
