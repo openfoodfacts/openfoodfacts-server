@@ -31431,6 +31431,25 @@ la:Sardina pilchardus
 
 
 <en:fish
+en:thread-fin bream
+ar: عندق
+bg: Тънкопери каракуди
+de: Scheinschnapper
+fr:cohana
+he: נימי
+# pam: Bisugo
+# ingredient/fr:cohana has 5 products in french @2019-01-07
+
+# Nemipterus is a genus of fish in the family Nemipteridae found in the Indian and Pacific Ocean
+
+<en:thread-fin bream
+en:Nemipterus spp
+wikidata:en: Q1842575
+wikipedia:en:https://en.wikipedia.org/wiki/Nemipterus
+# ingredient/fr:Nemipterus-spp has 2 products in french @2019-01-07
+
+
+<en:fish
 en:tuna
 af:Tuna
 ar:تن
@@ -32656,6 +32675,19 @@ fr:poulpe cuit
 nl:gekookte inktvis
 # ingredient/fr:poulpe-cuit has 5 products in french @2019-01-03
 # Poulpe cuit (Octopus Vulgaris)
+
+
+<en:octopus
+zh:砂蛸
+# zh-tw:白線章魚
+
+<zh:砂蛸
+en:Octopus Aegina
+la:Octopus Aegina
+wikidata:en:Q2936535
+wikipedia:nl:https://nl.wikipedia.org/wiki/Octopus_aegina
+# ingredient/fr:Octopus-Aegina has 1 product in french @2019-01-07
+
 
 <en:octopus
 fr:poulpe en lamelles
