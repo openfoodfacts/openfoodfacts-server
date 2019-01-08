@@ -334,6 +334,7 @@ wikidata:en:Q202501
 <en:Bee products
 en:Pollens
 fr:Pollens
+es:Polen
 nl:Pollen
 nl_be:Pollen
 ro:Polen
@@ -401,10 +402,10 @@ de:Fermentierte Getränke
 hu:Fermentált italok, Erejesztett italok
 
 <en:Beverages
-en:Sugared beverages, Beverages with added sugar
+en:Sweetened beverages, Sugared beverages, Beverages with added sugar
 es:Bebidas azucaradas
 de:Gezuckerte Getränke, Zuckerhaltige Getränke
-fr:Boissons sucrées, Boissons avec du sucre ajouté
+fr:Boissons avec sucre ajouté, Boissons sucrées
 nl:Gesuikerde dranken
 ro:Băuturi dulci, Băuturi cu zahăr, Bauturi dulci, Bauturi cu zahar
 ru:Напитки с добавлением сахара
@@ -421,15 +422,15 @@ ro:Băuturi îndulcite artificial, Băuturi cu îndulcitori artificiali, Bauturi
 pnns_group_2:en:Artificially sweetened beverages
 
 <en:Beverages
-en:Non-sugared beverages, beverages without added sugar
+en:Unsweetened beverages, Non-sugared beverages, beverages without added sugar
 es:Bebidas no azucaradas
 de:Ungezuckerte Getränke, Ungesüßte Getränke
-fr:Boissons non sucrées, boissons sans sucre ajouté
+fr:Boissons sans sucre ajouté, Boissons non sucrées
 nl:Suikervrije dranken, Ongesuikerde dranken
 ro:Băuturi fără zahăr, Băuturi fără zahăr adăugat, Bauturi fara zahar, Bauturi fara zahar adaugat
 hu:Cukormentes italok
 ru:Напитки без добавления сахара
-pnns_group_2:en:Non-sugared beverages
+pnns_group_2:en:Unsweetened beverages
 
 <en:Beverages
 en:Alcoholic beverages, Alcoholic drinks, drinks with alcohol, alcohols
@@ -2652,6 +2653,8 @@ fr:Infusions, Tisane, Infusion
 nl:Kruidentheeën, Kruidenthee
 hu:Gyógynövényes teák
 wikidata:en:Q379932
+pnns_group_2:en:Teas and herbal teas and coffees
+
 
 <en:Herbal teas
 en:Herbal teas in tea bags
@@ -2662,7 +2665,7 @@ nl:Kruidenthee in zakjes, Kruidenthee in buidels
 ru:Чай в пакетиках
 hu:Gyógynövényes teák tasakban
 zh:袋茶, 茶包, 袋泡茶
-pnns_group_2:en:Non-sugared beverages
+pnns_group_2:en:Teas and herbal teas and coffees
 
 <en:Herbal teas
 en:Absinthium, Absinthe wormwood
@@ -3105,7 +3108,7 @@ nl:Theeën, Thee
 ru:Чай
 zh:茶
 wikidata:en:Q6097
-pnns_group_2:en:Non-sugared beverages
+pnns_group_2:en:Teas and herbal teas and coffees
 
 <en:Teas
 en:Black teas, black tea
@@ -3601,7 +3604,7 @@ ru:Вода
 zh:水
 hu:Vízek
 wikidata:en:Q283
-pnns_group_2:en:Non-sugared beverages
+pnns_group_2:en:Waters and flavored waters
 
 <en:Waters
 en:Drinking water
@@ -3704,8 +3707,8 @@ nl:Gearomatiseerde waters, Gearomatiseerd water, Waters met smaak, Water met sma
 de:Wasser mit Geschmack, Wässer mit Geschmack
 
 <en:Flavored waters
-en:non sugared flavored waters
-fr:eau aromatisée non sucrée
+en:Unsweetened flavored waters, non-sweetened flavored waters, non-sugared flavored waters
+fr:Eaux aromatisées sans sucre ajouté, eau aromatisée sans sucre ajouté, eaux aromatisées non sucrées, eau aromatisée non sucrée
 de:Zuckerfreies Wasser mit Geschmack
 nl:Suikervrije waters, Suikervrij water
 
@@ -16174,6 +16177,7 @@ en:Biscuits
 de:Kekse
 es:Galletas
 fr:Biscuits, biscuit, biscuits sucrés, biscuit sucré
+es:Galletas sin gluten
 nl:Koekjes, Koekje
 it:Biscotti
 hu:Kekszek, Keksz
@@ -19268,6 +19272,7 @@ wikidata:en:Q185217
 <en:Fermented foods
 en:Fermented milk products, Cultured dairy foods, Cultured dairy products, Cultured milk products
 fr:Produits laitiers fermentés
+es:Productos fermentados de la leche
 nl:Gefermenteerde zuivelproducten
 ru:Кисломолочные продукты
 de:Fermentierte Milch, Sauermilchprodukte
@@ -21208,6 +21213,7 @@ wikidata:en:Q585246
 <en:Dairies
 en:Creams
 fr:Crèmes, Crème
+es:Crema de leche
 nl:Romen
 de:Rahm, Sahne
 pnns_group_2:en:Milk and yogurt
@@ -21606,6 +21612,7 @@ pnns_group_2:en:Milk and yogurt
 <en:Dairies
 en:Dairy drinks, dairy beverages, milk-based drinks
 fr:Boissons lactées
+es:Bebida lácteas
 nl:Zuiveldranken, Zuiveldrank
 ru:молочные напитки
 zh:奶饮料, 乳饮料
@@ -21644,6 +21651,7 @@ fr:Jus de fruits au lait, jus de fruits lactés
 en:Semi-skimmed milks, 2% milk
 de:Teilentrahmte Milch, Teilentrahmte Milche, Teilentrahmte Milchen, Fettarme Milch, Fettarme Milche, Fettarme Milchen
 fr:Laits demi-écrémés, lait demi-écrémé
+es:Leche semidesnatada
 it:Latte parzialmente scremato
 nl:Halfvolle melk
 wikidata:en:Q10581201
@@ -21656,20 +21664,24 @@ nl:Biologische halfvolle melken
 <en:Milks
 en:Cow milks
 fr:Laits de vache
+es:Leche de vaca
 
 <en:Milks
 en:Goat milks, goat milk
 fr:Laits de chèvre, Lait de chèvre
+es:Leche de cabra
 it:Latte di capra
 
 <en:Milks
 en:Sheep milks, Sheep milk, Ewe milk, Ewes milk, Sheep's milks, Sheep's milk
 fr:Laits de brebis, Lait de brebis
+es:Leche de oveja
 
 <en:Milks
 en:Skimmed milks
 de:Entrahmte Milch, Entrahmte Milche, Entrahmte Milchen, Magermilch, Magermilche, Magermilchen
 fr:Laits écrémés, lait écrémé
+es:Leche desnatada
 it:Latte scremato
 nl:Magere melken
 wikidata:en:Q2352187
@@ -21680,6 +21692,7 @@ wikidata:en:Q2352187
 en:Milk powders
 de:Milchpulver, Trockenmilchpulver
 fr:Laits en poudre, farines de lait, laits déshydratés
+es:Leche en polvo
 nl:Melkpoeders
 wikidata:en:Q496696
 
@@ -21687,6 +21700,7 @@ wikidata:en:Q496696
 en:whole milks, whole milk
 de:Vollmilch, Vollmilche, Vollmilchen
 fr:Laits entiers, lait entier
+es:Leche entera
 it:Latte intero
 nl:Volle melken
 wikidata:en:Q3374445
@@ -21706,6 +21720,7 @@ nl:Ongehomogeniseerde melken
 en:Raw milks
 de:Rohmilch, Rohmilche, Rohmilchen
 fr:Laits cru, lait cru
+es:Leche cruda
 it:Latte crudo
 nl:Rauwe melken
 zh:生奶
@@ -21735,6 +21750,7 @@ nl:Langhoudbare melken
 en:UHT Milks
 de:H-Milch, H-Milche, H-Milchen, Haltbarmilch, Haltbarmilche, Haltbarmilchen, UHT-Milch, UHT-Milche, UHT-Milchen, Up-Milch, Up-Milche, Up-Milchen
 fr:Laits UHT, lait UHT
+es:Leche UHT
 it:Latte UHT
 nl:UHT-melken
 ru:Молоко ультрапастеризованное, ультрапастеризованное молоко
@@ -21834,7 +21850,7 @@ wikidata:en:Q18404541
 <en:Plant-based beverages
 <en:Milk substitute
 en:Plant milks, Vegetable milks, Vegetable drinks
-es:Leches vegetales, Bebidas vegetales
+es:Bebidas vegetales, Leches vegetales
 fr:Boissons végétales, Laits végétaux, lait végétal, laits végétaliens
 de:Pflanzenmilch, Pflanzenmilche, Pflanzenmilchen
 nl:Plantaardige melken
@@ -22365,6 +22381,7 @@ hu:Gyümölcsjoghurtok, Joghurt gyümölccsel
 <en:Fruit yogurts
 en:Fruit yogurts with fruit chunks
 fr:Yaourts aux fruits avec morceaux
+es:Yogures de fruta con trozos de fruta
 hu:Gyümölcs joghurtok gyümölcsdarabokkal
 
 <en:Fruit yogurts
@@ -22982,6 +22999,7 @@ pnns_group_2:en:Sweets
 en:Dairy desserts
 de:Milchnachspeisen, Nachspeisen auf Milchbasis
 fr:Desserts lactés, Desserts à base de lait, Desserts au lait
+es:Postres lácteos
 nl:Desserts op basis van melk, Nagerechten op basis van melk, Toetjes op basis van melk
 pnns_group_2:en:Dairy desserts
 
@@ -23046,6 +23064,7 @@ fr:Salades de fruits frais
 <en:Dairy desserts
 en:Flans
 fr:Flans gélifiés, Flans
+es:Flanes
 nl:Flans
 wikidata:en:Q16636380
 
@@ -31467,6 +31486,7 @@ fr:Coppa
 en:Hams
 fr:Jambons, Jambon
 de:Schinken
+it:Prosciutti, prosciutto
 nl:Hammen
 zh:火腿
 hu:Sonkák
@@ -31493,6 +31513,7 @@ hu:Fehér füstölt sonka
 <en:Hams
 en:White hams, white ham, cooked hams, cooked ham
 fr:Jambons blancs, Jambon blanc, jambon cuit, jambons cuits, Jambons de Paris, Jambon de Paris
+it:Prosciutti cotti
 hu:Fehér sonka
 wikidata:en:Q3820622
 
@@ -31507,6 +31528,7 @@ wikidata:en:Q3160842
 
 <en:Hams
 fr:Jambons crus, jambon cru
+it:Prosciutti crudi
 
 <fr:Jambons crus
 en:Dried hams
@@ -31527,6 +31549,7 @@ wikidata:en:Q1885761
 
 <en:Dried hams
 fr:Jambons de Parme, jambon de parme
+it:Prosciutto di Parma
 nl:Parmahammen
 wikidata:en:Q13360207
 
@@ -31566,7 +31589,7 @@ fr:Jambons Label Rouge
 
 <en:PGI Products
 <en:German sausages
-fr:saucisses de Nuremberg, Nürnberger Rostbratwürstchen, Nürnberger Bratwürste, petites saucisses de Nuremberg
+fr:Saucisses de Nuremberg, Nürnberger Rostbratwürstchen, Nürnberger Bratwürste, petites saucisses de Nuremberg
 de:Original Nürnberger Rostbratwürste, Original Nürnberger Rostbratwurst
 
 <en:PGI Products
@@ -32991,7 +33014,7 @@ es:Pastas de arroz
 nl:Rijstpastas
 
 <en:Pastas
-fr:Pâtes à base de Petit Épeautre, Pâtes Petit épeautre
+fr:Pâtes de petit épeautre, pâtes à base de petit épeautre, Pâtes Petit épeautre
 
 <en:Pastas
 en:Buckwheat pasta
@@ -33836,6 +33859,7 @@ nl:Langoustines
 en:Fishes, fish
 fr:Poissons, Poisson
 de:Fisch, Fische
+it:Pesci, pesce
 nl:Vis
 ru:Рыба
 hu:Hal, Halak
@@ -34016,6 +34040,7 @@ nl:Zalm
 <en:Salmons
 en:Salmons from farming
 fr:Saumons d'élevage
+it:Salmoni d'allevamenti
 
 <en:Salmons
 fr:Pavés de saumon
@@ -34043,6 +34068,7 @@ wikidata:en:Q208600
 en:Smoked fishes, smoked fish
 fr:Poissons fumés, poisson fumé
 de:Räucherfisch
+it:Pesci affumicati, pesce affumicato
 nl:Gerookte vis
 
 <en:Salmons
@@ -34050,11 +34076,13 @@ nl:Gerookte vis
 en:Smoked salmons
 fr:Saumons fumés, saumon fumé
 de:Räucherlachs, Geräucherter Lachs
+it:Salmoni affumicati, salmone affumicato
 nl:Gerookte zalm
 
 <en:Smoked salmons
 en:Smoked salmons from farming
 fr:Saumons fumés d'élevage, saumon fumé d'élevage, saumons d'élevage fumés, saumons d'élevages fumés
+it:Salmoni affumicati d'allevamenti
 nl:Gerookte kweekzalm
 
 <en:Smoked salmons
@@ -34063,6 +34091,7 @@ fr:Saumons fumés de dégustation
 <en:Smoked salmons
 en:Wild smoked salmons
 fr:Saumons fumés sauvages, saumon fumé sauvage, saumon fumé de pêche, saumons fumés de pêche, saumons sauvages fumés
+it:Salmoni affumicati selvaggi
 nl:Gerookte wilde zalm
 
 <en:Smoked fishes
@@ -34102,12 +34131,14 @@ nl:Gerookte spaanse makreel
 <en:Smoked fishes
 en:Smoked trouts
 fr:Truites fumées, truite fumée
+it:Trote affumicate
 nl:Gerookte forel
 
 <en:Fishes
 en:Trouts
 fr:Truites
 de:Forelle, Forellen
+it:Trote, trota
 es:Truchas
 nl:Forel
 
@@ -34115,6 +34146,7 @@ nl:Forel
 en:Tunas, Thunnus
 fr:Thons
 de:Thunfische, Thunfisch
+it:Tonni, tonno
 la:Thunnus
 nl:Tonijn
 wikidata:en:Q2346039
@@ -34127,6 +34159,7 @@ fr:Thons entiers
 en:Canned tunas
 fr:Thons en conserve, Conserve de thons
 de:Thunfischkonserve
+it:Tonni in scatola
 nl:Tonijn in blik
 ru:Консервы из тунца, Консервы тунцовые
 
@@ -34491,6 +34524,13 @@ de:Süße Brotaufstriche, Süßer Brotaufstrich
 ru:Сладкие намазки
 hu:Édes kenhető élelmiszer
 pnns_group_2:en:Sweets
+
+<en:Sweet spreads
+en:Lemon curds
+es:Crema de limón
+de:Zitronen-Aufstrich
+fr:Crèmes de citron
+nl:Lemon curds
 
 <en:Sweet spreads
 en:Milk jams, Milk jam, Dulce de leche
@@ -38990,7 +39030,7 @@ en:Foies gras
 fr:Foies gras, Foie gras
 nl:Foie gras
 wikidata:en:Q34807
-pnns_group_2:en:Processed meat
+pnns_group_2:en:Salty and fatty products
 
 <en:Foies gras
 fr:Bloc de foie gras
@@ -39785,6 +39825,3 @@ en:Salty Fritters
 
 <en:Sweet snacks
 en:Sweet Fritters
-
-
-

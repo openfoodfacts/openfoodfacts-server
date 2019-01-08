@@ -7,6 +7,7 @@ use Test::More;
 use Test::Number::Delta relative => 1.001;
 use Log::Any::Adapter 'TAP';
 
+use ProductOpener::Tags qw/:all/;
 use ProductOpener::Food qw/:all/;
 
 # Based on https://de.wikipedia.org/w/index.php?title=Wasserh%C3%A4rte&oldid=160348959#Einheiten_und_Umrechnung
@@ -33,5 +34,136 @@ delta_ok( unit_to_mmoll(1, "\N{U+00B0}dH"), 0.1783 );
 delta_ok( unit_to_mmoll(1, 'gpg'), 0.171 );
 
 is( mmoll_to_unit(unit_to_mmoll(1, 'ppm'), "\N{U+00B0}dH"), 0.056 );
+
+my $product_ref = {
+	lc => "en",
+	categories_tags => ["en:beverages"],
+	ingredients_tags => ["en:water", "en:fruit-juice"],
+};
+
+# without an ingredient list: should not add en:unsweetened-beverages
+
+special_process_product($product_ref);
+
+ok( (not has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'should not add en:unsweetened-beverages' ) || diag explain $product_ref;
+
+is( $product_ref->{pnns_groups_2}, undef) || diag explain $product_ref;
+
+$product_ref = {
+        lc => "en",
+        categories_tags => ["en:beverages"],
+        ingredients_tags => ["en:water", "en:fruit-juice"],
+	ingredients_text => "water, fruit juice",
+};
+
+# with an ingredient list: should add en:unsweetened-beverages
+
+special_process_product($product_ref);
+
+ok( (has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'should add en:unsweetened-beverages' ) || diag explain $product_ref;
+
+is( $product_ref->{pnns_groups_2}, "Unsweetened beverages") || diag explain $product_ref;
+
+
+$product_ref = {
+        lc => "en",
+        categories_tags => ["en:beverages"],
+        ingredients_tags => ["en:sugar"],
+};
+
+special_process_product($product_ref);
+
+
+ok( has_tag($product_ref, 'categories', 'en:sweetened-beverages'), 'should add en:sweetened-beverages' ) || diag explain $product_ref;
+
+is( $product_ref->{pnns_groups_2}, "Sweetened beverages") || diag explain $product_ref;
+
+$product_ref = {
+        lc => "en",
+        categories_tags => ["en:beverages"],
+        ingredients_tags => ["en:sugar"],
+	additives_tags => ["en:e950"],
+	with_sweeteners => 1,
+};
+
+special_process_product($product_ref);
+
+
+ok( has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'), 'should add en:artificially-sweetened-beverages' ) || diag explain $product_ref;
+
+is( $product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag explain $product_ref;
+
+
+$product_ref = {
+        lc => "en",
+        categories_tags => ["en:beverages", "en:waters", "en:flavored-waters"],
+        ingredients_tags => ["en:sugar"],
+        additives_tags => ["en:e950"],
+        with_sweeteners => 1,
+};
+
+special_process_product($product_ref);
+
+
+ok( has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'), 'should add en:artificially-sweetened-beverages' ) || diag explain $product_ref;
+ok( has_tag($product_ref, 'categories', 'en:sweetened-beverages'), 'should add en:sweetened-beverages' ) || diag explain $product_ref;
+
+is( $product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag explain $product_ref;
+
+$product_ref = {
+        lc => "en",
+        categories_tags => ["en:beverages", "en:waters", "en:flavored-waters"],
+};
+
+special_process_product($product_ref);
+
+
+is( $product_ref->{pnns_groups_2}, "Waters and flavored waters") || diag explain $product_ref;
+
+
+$product_ref = {
+        lc => "en",
+        categories_tags => ["en:beverages", "en:herbal-teas"],
+};
+
+special_process_product($product_ref);
+
+
+is( $product_ref->{pnns_groups_2}, "Teas and herbal teas and coffees") || diag explain $product_ref;
+
+
+$product_ref = {
+        lc => "en",
+        categories_tags => ["en:beverages", "en:herbal-teas"],
+        ingredients_tags => ["en:sugar"],
+        additives_tags => ["en:e950"],
+        with_sweeteners => 1,
+};
+
+special_process_product($product_ref);
+
+
+ok( has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'), 'should add en:artificially-sweetened-beverages' ) || diag explain $product_ref;
+ok( has_tag($product_ref, 'categories', 'en:sweetened-beverages'), 'should add en:sweetened-beverages' ) || diag explain $product_ref;
+
+is( $product_ref->{pnns_groups_2}, "Artificially sweetened beverages") || diag explain $product_ref;
+
+
+$product_ref = {
+        lc => "en",
+        categories_tags => ["en:beverages"],
+        ingredients_tags => ["en:water", "en:fruit-juice"],
+        ingredients_text => "water, fruit juice",
+	with_sweeteners => 1,
+};
+
+# with an ingredient list: should add en:unsweetened-beverages
+
+special_process_product($product_ref);
+
+ok( (not has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'should add en:unsweetened-beverages' ) || diag explain $product_ref;
+ok( (has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')), 'should add en:unsweetened-beverages' ) || diag explain $product_ref;
+
+
 
 done_testing();

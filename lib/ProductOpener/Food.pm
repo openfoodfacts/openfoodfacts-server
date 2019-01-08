@@ -3504,10 +3504,12 @@ my %pnns = (
 "Sandwich" => "Composite foods",
 
 "Artificially sweetened beverages" => "Beverages",
-"Non-sugared beverages" => "Beverages",
+"Unsweetened beverages" => "Beverages",
 "Sweetened beverages" => "Beverages",
 "Fruit juices" => "Beverages",
 "Fruit nectars" => "Beverages",
+"Waters and flavored waters" => "Beverages",
+"Teas and herbal teas and coffees" => "Beverages",
 
 );
 
@@ -3557,15 +3559,21 @@ sub special_process_product($) {
 			or has_tag($product_ref,"categories","en:fruit-juices")
 			or has_tag($product_ref,"categories","en:fruit-nectars") ) ) {
 		
-			if (has_tag($product_ref,"categories","en:sodas") and not has_tag($product_ref,"categories","en:diet-sodas")) {
-				$added_categories .= ", en:sugared-beverages";
+			if (has_tag($product_ref,"categories","en:sodas") and (not has_tag($product_ref,"categories","en:diet-sodas"))
+				and (not has_tag($product_ref,"categories","en:sweetened-beverages")) ) {
+				$added_categories .= ", en:sweetened-beverages";
 			}
-			elsif ($product_ref->{with_sweeteners} 
-				and not has_tag($product_ref,"categories","en:artificially-sweetened-drinks")) {
-				$added_categories .= ", en:artificially-sweetened-drinks";
+			if ($product_ref->{with_sweeteners} 
+				and not has_tag($product_ref,"categories","en:artificially-sweetened-beverages")) {
+				$added_categories .= ", en:artificially-sweetened-beverages";
 			}
 			# fix me: ingredients are now partly taxonomized
-			elsif (has_tag($product_ref, "ingredients", "sucre") or has_tag($product_ref, "ingredients", "sucre-de-canne")
+			
+			if (
+			
+				(not has_tag($product_ref,"categories","en:sweetened-beverages")) and
+			
+				(has_tag($product_ref, "ingredients", "sucre") or has_tag($product_ref, "ingredients", "sucre-de-canne")
 				or has_tag($product_ref, "ingredients", "sucre-de-canne-roux") or has_tag($product_ref, "ingredients", "sucre-caramelise")
 				or has_tag($product_ref, "ingredients", "sucre-de-canne-bio") or has_tag($product_ref, "ingredients", "sucres")
 				or has_tag($product_ref, "ingredients", "pur-sucre-de-canne") or has_tag($product_ref, "ingredients", "sirop-de-sucre-inverti")
@@ -3579,48 +3587,35 @@ sub special_process_product($) {
 				or has_tag($product_ref, "ingredients", "sugar") or has_tag($product_ref, "ingredients", "sugars")
 				
 				or has_tag($product_ref, "ingredients", "en:sugar")
+				or has_tag($product_ref, "ingredients", "en:glucose")
+				or has_tag($product_ref, "ingredients", "en:fructose")
+				)
 				) {
-				$added_categories .= ", en:sugared-beverages";
+				$added_categories .= ", en:sweetened-beverages";
 			}
 			else {
-				# at this time we can't rely on ingredients detection
-				# $added_categories .= ", en:non-sugared-beverages";
+				# 2019-01-08: adding back the line below which was previously commented
+				# add check that we do have an ingredient list
+				if (
+					(not has_tag($product_ref,"categories","en:sweetened-beverages")) and
+					(not has_tag($product_ref,"categories","en:artificially-sweetened-beverages")) and
+					(not $added_categories =~ /en:sweetened|en:artificially-sweetened/) and
+					
+					(($product_ref->{lc} eq 'en') or ($product_ref->{lc} eq 'fr'))
+					and ((defined $product_ref->{ingredients_text}) and (length($product_ref->{ingredients_text}) > 3))) {
+					$added_categories .= ", en:unsweetened-beverages";
+				}
 			}
 		}
 	
 	}
 	
 	if ($added_categories ne '') {
-		my $field = 'categories';
-		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field} . $added_categories) ];
-		$product_ref->{$field . "_tags" } = [];
-		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
-		}	
+	
+		add_tags_to_field($product_ref, $product_ref->{lc}, "categories", $added_categories);
+		compute_field_tags($product_ref, $product_ref->{lc}, "categories");
 	}
 	
-	my $cat = <<CAT
-<en:Beverages
-en:Sugared beverages, Beverages with added sugar
-fr:Boissons sucrées, Boissons avec du sucre ajouté
-pnns_group_2:en:Sweetened beverages
-
-<en:Beverages
-en:Artificially sweetened beverages
-fr:Boissons édulcorées, boissons aux édulcorants
-pnns_group_2:en:Artificially sweetened beverages
-
-<en:Beverages
-en:Non-sugared beverages, beverages without added sugar
-fr:Boissons non sucrées, boissons sans sucre ajouté
-pnns_group_2:en:Non-sugared beverages
-
-<en:Beverages
-en:Alcoholic drinks, drinks with alcohol, alcohols
-es:Bebidas alcohólicas
-fr:Boissons alcoolisées, boisson alcoolisée, alcool, alcools	
-CAT
-;
 	
 	# compute PNNS groups 2 and 1
 	
@@ -3631,6 +3626,15 @@ CAT
 	
 	foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
 		if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{"pnns_group_2:en"})) {
+		
+			# skip the category en:sweetened-beverages if we have the category en:artificially-sweetened-beverages
+			next if (($categoryid eq 'en:sweetened-beverages') and has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'));
+			
+			# skip waters and flavored waters if we have en:artificially-sweetened-beverages or en:sweetened-beverages
+			next if (($properties{categories}{$categoryid}{"pnns_group_2:en"} eq "Waters and flavored waters")
+				and ( has_tag($product_ref, 'categories', 'en:sweetened-beverages') 
+					or has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')));
+		
 			$product_ref->{pnns_groups_2} = $properties{categories}{$categoryid}{"pnns_group_2:en"};
 			$product_ref->{pnns_groups_2_tags} = [get_fileid($product_ref->{pnns_groups_2})];
 			last;
