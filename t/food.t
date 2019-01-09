@@ -123,7 +123,7 @@ is( $product_ref->{pnns_groups_2}, "Waters and flavored waters") || diag explain
 
 $product_ref = {
         lc => "en",
-        categories_tags => ["en:beverages", "en:herbal-teas"],
+        categories_tags => ["en:beverages", "en:iced-teas"],
 };
 
 special_process_product($product_ref);
@@ -134,7 +134,7 @@ is( $product_ref->{pnns_groups_2}, "Teas and herbal teas and coffees") || diag e
 
 $product_ref = {
         lc => "en",
-        categories_tags => ["en:beverages", "en:herbal-teas"],
+        categories_tags => ["en:beverages", "en:ice-teas"],
         ingredients_tags => ["en:sugar"],
         additives_tags => ["en:e950"],
         with_sweeteners => 1,
@@ -161,8 +161,37 @@ $product_ref = {
 
 special_process_product($product_ref);
 
-ok( (not has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'should add en:unsweetened-beverages' ) || diag explain $product_ref;
+ok( (not has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'should not add en:unsweetened-beverages' ) || diag explain $product_ref;
 ok( (has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')), 'should add en:unsweetened-beverages' ) || diag explain $product_ref;
+
+
+
+$product_ref = {
+        lc => "en",
+        categories_tags => ["en:beverages", "en:unsweetened-beverages"],
+        ingredients_tags => ["en:water", "en:sugar"],
+        ingredients_text => "water, fruit juice",
+};
+
+# with an ingredient list: should add en:unsweetened-beverages
+
+special_process_product($product_ref);
+
+ok( (not has_tag($product_ref, 'categories', 'en:unsweetened-beverages')), 'should remove en:unsweetened-beverages' ) || diag explain $product_ref;
+ok( (has_tag($product_ref, 'categories', 'en:sweetened-beverages')), 'should add en:sweetened-beverages' ) || diag explain $product_ref;
+
+is($product_ref->{nutrition_score_beverage}, 1);
+
+$product_ref = {
+        lc => "en",
+        categories_tags => ["en:beverages", "en:plant-milks"],
+        ingredients_tags => ["en:water", "en:sugar"],
+        ingredients_text => "water, fruit juice",
+};
+
+special_process_product($product_ref);
+
+is($product_ref->{nutrition_score_beverage}, 0);
 
 
 

@@ -342,6 +342,19 @@ $options{opensearch_image} = <<XML
 XML
 ;
 
+
+# Nutriscore: milk and drinkable yogurts are not considered beverages
+# list only categories that are under en:beverages
+$options{categories_not_considered_as_beverages_for_nutriscore} = [qw(
+en:plant-milks
+en:milks
+en:dairy-drinks
+en:meal-replacement
+en:dairy-drinks-substitutes
+en:chocolate-powders
+en:soups
+)];
+
 $options{categories_exempted_from_nutriscore} = [qw(
 en:baby-foods
 en:baby-milks
@@ -652,7 +665,8 @@ $options{nova_groups_tags} = {
 "categories/en:tofu" => 3,
 "categories/en:alcoholic-beverages" => 3,
 "categories/en:meals" => 3,
-"categories/en:yogurts" => 3,
+# yogurts can be group 1 according to NOVA paper
+#"categories/en:yogurts" => 3,
 
 
 # group 3 additives

@@ -2649,23 +2649,22 @@ wikidata:en:Q19359564
 en:Herbal teas, Herbal infusions, infusions
 de:Kräutertees
 es:Plantas para infusiones, Infusiones, Tisanas
-fr:Infusions, Tisane, Infusion
+fr:Infusions, Tisanes, Infusion
 nl:Kruidentheeën, Kruidenthee
 hu:Gyógynövényes teák
 wikidata:en:Q379932
-pnns_group_2:en:Teas and herbal teas and coffees
-
 
 <en:Herbal teas
-en:Herbal teas in tea bags
+en:Herbal teas in tea bags, Herbal teas in bags
 de:Kräutertee aus Teebeuteln
 es:Plantas para infusiones en bolsitas, Infusiones en bolsitas, Tisanas en bolsitas
-fr:Infusions en sachets, Infusion rooibos sachets, Infusion romarin sachets, Infusion sauge sachets, Infusion anis vert sachets
+fr:Infusions en sachets
 nl:Kruidenthee in zakjes, Kruidenthee in buidels
 ru:Чай в пакетиках
 hu:Gyógynövényes teák tasakban
 zh:袋茶, 茶包, 袋泡茶
-pnns_group_2:en:Teas and herbal teas and coffees
+# should not be in pnns_group_2:en:Teas and herbal teas and coffees
+pnns_group_2:en:unknown
 
 <en:Herbal teas
 en:Absinthium, Absinthe wormwood
@@ -3098,7 +3097,8 @@ fr:Stévia en pot
 nl:Steviaplant
 de:Steviapflanze
 
-<en:Herbal teas
+<en:Hot beverages
+<en:Plant-based beverages
 en:Teas
 es:Tés
 fr:Thés
@@ -3108,7 +3108,13 @@ nl:Theeën, Thee
 ru:Чай
 zh:茶
 wikidata:en:Q6097
-pnns_group_2:en:Teas and herbal teas and coffees
+
+
+<en:Teas
+en:Tea bags, Teas in bags
+fr:Thés en sachets
+# should not be in pnns_group_2:en:Teas and herbal teas and coffees
+pnns_group_2:en:unknown
 
 <en:Teas
 en:Black teas, black tea
@@ -16092,18 +16098,28 @@ nl:Viooltjessiropen, Viooltjessiroop
 de:Veilchensirups
 
 <en:Beverages
+<en:Teas
 en:Iced teas, Iced tea
 de:Eistees
 es:Tés helados, Tés fríos
 fr:Thés glacés, Ice-tea, thé glacé
 nl:Ice teas, Ice tea, Icetea
 wikidata:en:Q348958
+pnns_group_2:en:Teas and herbal teas and coffees
 
 <en:Beverages
-en:Tea-based beverages
-fr:Boissons au thé
+<en:Teas
+en:Tea-based beverages, Tea beverages
+fr:Boissons au thé, Thés infusés
 de:Teegetränke, Teebasierte Getränke
 nl:Dranken op basis van thee
+pnns_group_2:en:Teas and herbal teas and coffees
+
+<en:Beverages
+<en:Herbal teas
+en:Herbal tea beverages
+fr:Tisanes infusées, Boissons à la tisane
+pnns_group_2:en:Teas and herbal teas and coffees
 
 <en:Iced teas
 <en:Diet beverages
@@ -21616,6 +21632,7 @@ es:Bebida lácteas
 nl:Zuiveldranken, Zuiveldrank
 ru:молочные напитки
 zh:奶饮料, 乳饮料
+pnns_group_2:en:Milk and yogurt
 
 <en:Dairy drinks
 en:Flavoured milks, Flavored milks

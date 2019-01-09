@@ -13248,14 +13248,6 @@ de:Kalorienarme Getränke, Kalorienreduzierte Getränke, Diät Getränke
 fr:Boissons light
 nl:Light dranken
 
-< en:Diet beverages
-< en:Iced teas
-en:Light iced teas
-de:Kalorienarme Eistees, Eistee light, Diät Eistees
-es:Tés helados ligeros, Tés helados light
-fr:Ice-tea light, thés glacés lights, thé glacé light
-nl:Light ice teas, Light ice tea
-
 < en:Breakfasts
 < en:Cocoa and chocolate powders
 < en:Instant beverages
@@ -13514,44 +13506,6 @@ ru:Горячие напитки
 wikidata:en: Q19359564
 
 < en:Beverages
-en:Iced teas, Iced tea
-de:Eistees
-es:Tés helados, Tés fríos
-fr:Thés glacés, Ice-tea, thé glacé
-nl:Ice teas, Ice tea, Icetea
-wikidata:en: Q348958
-
-< en:Iced teas
-en:Iced teas with mango flavor
-de:Mangoeistees
-fr:Thés glacés saveur mangue
-nl:Mango Ice Teas, Mango Ice Tea
-
-< en:Iced teas
-en:Iced teas with mint flavor
-de:Minzeistees, Pfefferminzeistees
-fr:Thés glacés saveur menthe
-nl:Pepermunt Ice Teas, Pepermunt Ice Tea, Munt Ice Teas
-
-< en:Iced teas
-en:Iced teas with raspberry flavor
-de:Himbeereistees
-fr:Thés glacés saveur framboise
-nl:Frambozen Ice Teas, Frambozen Ice Tea
-
-< en:Iced teas
-en:Lemon flavored iced teas
-de:Zitroneneistees
-fr:Thés glacés saveur citron
-nl:Citroen Ice Teas, Citroen Ice Tea
-
-< en:Iced teas
-en:Peach flavored iced teas
-de:Pfirsicheistees
-fr:Thés glacés saveur pêche
-nl:Perzikken Ice Teas, Perzikken Ice Tea, Perzik Ice Tea, Perzik Ice Teas
-
-< en:Beverages
 en:Instant beverages, Instant hot beverages
 de:Heißgetränke zum Aufgließen
 es:Bebidas instantáneas, Bebidas para tomar calientes instantáneas
@@ -13779,12 +13733,6 @@ nl:Watermeloensiropen, Watermeloensiroop
 fr:Sirops de pamplemousse, Sirops de pamplemousses
 de:Grapefruitsirups
 nl:Grapefruitsiropen, Grapefruitsiroop
-
-< en:Beverages
-en:Tea-based beverages
-de:Teegetränke, Teebasierte Getränke
-fr:Boissons au thé
-nl:Dranken op basis van thee
 
 < en:Beverages
 en:Unsweetened beverages, Non-sugared beverages, beverages without added sugar
@@ -22297,15 +22245,22 @@ es:Bebidas a base de zumo de piña y soja, Bebidas de zumo de piña y soja
 fr:Boissons à base de jus d'ananas et de soja
 nl:Ananassojadranken, Ananassojadrank
 
+< en:Diet beverages
+< en:Iced teas
+en:Light iced teas
+de:Kalorienarme Eistees, Eistee light, Diät Eistees
+es:Tés helados ligeros, Tés helados light
+fr:Ice-tea light, thés glacés lights, thé glacé light
+nl:Light ice teas, Light ice tea
+
 < en:Hot beverages
 < en:Plant-based beverages
 en:Herbal teas, Herbal infusions, infusions
 de:Kräutertees
 es:Plantas para infusiones, Infusiones, Tisanas
-fr:Infusions, Tisane, Infusion
+fr:Infusions, Tisanes, Infusion
 hu:Gyógynövényes teák
 nl:Kruidentheeën, Kruidenthee
-pnns_group_2:en: Teas and herbal teas and coffees
 wikidata:en: Q379932
 
 < en:Herbal teas
@@ -22454,6 +22409,12 @@ la:Ginkgo biloba
 nl:Gingko
 wikidata:en: Q43284
 
+< en:Beverages
+< en:Herbal teas
+en:Herbal tea beverages
+fr:Tisanes infusées, Boissons à la tisane
+pnns_group_2:en: Teas and herbal teas and coffees
+
 < en:Herbal teas
 en:Herbal tea blends
 de:Kräuterteemischungen
@@ -22486,15 +22447,15 @@ fr:Thés minceur, Thé minceur
 nl:Afslank theeën, Afslank thee
 
 < en:Herbal teas
-en:Herbal teas in tea bags
+en:Herbal teas in tea bags, Herbal teas in bags
 de:Kräutertee aus Teebeuteln
 es:Plantas para infusiones en bolsitas, Infusiones en bolsitas, Tisanas en bolsitas
-fr:Infusions en sachets, Infusion rooibos sachets, Infusion romarin sachets, Infusion sauge sachets, Infusion anis vert sachets
+fr:Infusions en sachets
 hu:Gyógynövényes teák tasakban
 nl:Kruidenthee in zakjes, Kruidenthee in buidels
 ru:Чай в пакетиках
 zh:袋茶, 茶包, 袋泡茶
-pnns_group_2:en: Teas and herbal teas and coffees
+pnns_group_2:en: unknown
 
 < en:Herbal teas
 en:Hibiscus
@@ -22683,6 +22644,74 @@ nl:Sarsaparilla
 wikidata:en: Q161119
 
 < en:Herbal teas
+en:Thyme tea bags
+de:Thymian Teebeutel
+es:Tomillo en bolsitas para infusión
+fr:Infusions de thym
+nl:Thijm in theezakjes
+
+< en:Herbal teas
+en:Valerian
+de:Baldrian
+es:Valeriana
+fr:Valériane, Valériane officinale
+la:Valeriana officinalis
+nl:Echte valeriaan
+wikidata:en: Q157819
+
+< en:Herbal teas
+en:Verbena family, Vervain family
+de:Verbene, Eisenkraut
+es:Verbenáceas
+fr:Verbénacées
+la:Verbenaceae
+nl:IJzerhard familie
+wikidata:en: Q156960
+
+< en:Verbena family
+en:Vervains, Vervain
+es:Verbena, Vervena
+fr:Verveine, Verveines
+la:Verbena
+nl:Verbena
+zh:马鞭草属
+wikidata:en: Q165290
+
+< en:Vervains
+en:Brazilian verbena, Brazilian vervain
+es:Verbena brasileña
+la:Verbena brasiliensis
+nl:Braziliaanse verbena
+wikidata:en: Q3279023
+
+< en:Vervains
+en:Common vervain, Common verbena
+es:Verbena común
+fr:Verveine officinale, Verveine sauvage
+la:Verbena officinalis
+nl:IJzerhard
+wikidata:en: Q161417
+
+< en:Herbal teas
+en:White nettle, White dead-nettle
+de:Taubnessel
+es:Ortiga blanca
+fr:Ortie blanche, Lamier blanc
+la:Lamium album
+nl:Witte dovenetel
+wikidata:en: Q157626
+
+< en:Herbal teas
+en:Yarrow, Common yarrow
+de:Schafgarbe
+es:Milenrama
+fr:Achillée millefeuille
+la:Achillea millefolium
+nl:Duizendblad
+wikidata:en: Q25408
+
+< en:Hot beverages
+< en:Plant-based beverages
 en:Teas
 de:Tees, Tee
 es:Tés
@@ -22691,7 +22720,6 @@ la:Camellia sinensis
 nl:Theeën, Thee
 ru:Чай
 zh:茶
-pnns_group_2:en: Teas and herbal teas and coffees
 wikidata:en: Q6097
 
 < en:Teas
@@ -22848,6 +22876,46 @@ de:Hōjicha
 nl:Hojicha
 wikidata:en: Q1652744
 
+< en:Beverages
+< en:Teas
+en:Iced teas, Iced tea
+de:Eistees
+es:Tés helados, Tés fríos
+fr:Thés glacés, Ice-tea, thé glacé
+nl:Ice teas, Ice tea, Icetea
+pnns_group_2:en: Teas and herbal teas and coffees
+wikidata:en: Q348958
+
+< en:Iced teas
+en:Iced teas with mango flavor
+de:Mangoeistees
+fr:Thés glacés saveur mangue
+nl:Mango Ice Teas, Mango Ice Tea
+
+< en:Iced teas
+en:Iced teas with mint flavor
+de:Minzeistees, Pfefferminzeistees
+fr:Thés glacés saveur menthe
+nl:Pepermunt Ice Teas, Pepermunt Ice Tea, Munt Ice Teas
+
+< en:Iced teas
+en:Iced teas with raspberry flavor
+de:Himbeereistees
+fr:Thés glacés saveur framboise
+nl:Frambozen Ice Teas, Frambozen Ice Tea
+
+< en:Iced teas
+en:Lemon flavored iced teas
+de:Zitroneneistees
+fr:Thés glacés saveur citron
+nl:Citroen Ice Teas, Citroen Ice Tea
+
+< en:Iced teas
+en:Peach flavored iced teas
+de:Pfirsicheistees
+fr:Thés glacés saveur pêche
+nl:Perzikken Ice Teas, Perzikken Ice Tea, Perzik Ice Tea, Perzik Ice Teas
+
 < en:Teas
 en:Lemon teas
 de:Zitronentees
@@ -22878,6 +22946,19 @@ es:Tés oolong, Tés azules
 fr:Thés bleus, Thé bleu, Thés Oolong
 nl:Oolong theeën, Oolong, Oolong thee
 wikidata:en: Q231587
+
+< en:Teas
+en:Tea bags, Teas in bags
+fr:Thés en sachets
+pnns_group_2:en: unknown
+
+< en:Beverages
+< en:Teas
+en:Tea-based beverages, Tea beverages
+de:Teegetränke, Teebasierte Getränke
+fr:Boissons au thé, Thés infusés
+nl:Dranken op basis van thee
+pnns_group_2:en: Teas and herbal teas and coffees
 
 < en:Teas
 en:Vanilla teas
@@ -22928,73 +23009,6 @@ fr:Thés jaunes, Thé jaune
 nl:Gele theeën, Gele thee
 zh:黄茶
 wikidata:en: Q824529
-
-< en:Herbal teas
-en:Thyme tea bags
-de:Thymian Teebeutel
-es:Tomillo en bolsitas para infusión
-fr:Infusions de thym
-nl:Thijm in theezakjes
-
-< en:Herbal teas
-en:Valerian
-de:Baldrian
-es:Valeriana
-fr:Valériane, Valériane officinale
-la:Valeriana officinalis
-nl:Echte valeriaan
-wikidata:en: Q157819
-
-< en:Herbal teas
-en:Verbena family, Vervain family
-de:Verbene, Eisenkraut
-es:Verbenáceas
-fr:Verbénacées
-la:Verbenaceae
-nl:IJzerhard familie
-wikidata:en: Q156960
-
-< en:Verbena family
-en:Vervains, Vervain
-es:Verbena, Vervena
-fr:Verveine, Verveines
-la:Verbena
-nl:Verbena
-zh:马鞭草属
-wikidata:en: Q165290
-
-< en:Vervains
-en:Brazilian verbena, Brazilian vervain
-es:Verbena brasileña
-la:Verbena brasiliensis
-nl:Braziliaanse verbena
-wikidata:en: Q3279023
-
-< en:Vervains
-en:Common vervain, Common verbena
-es:Verbena común
-fr:Verveine officinale, Verveine sauvage
-la:Verbena officinalis
-nl:IJzerhard
-wikidata:en: Q161417
-
-< en:Herbal teas
-en:White nettle, White dead-nettle
-de:Taubnessel
-es:Ortiga blanca
-fr:Ortie blanche, Lamier blanc
-la:Lamium album
-nl:Witte dovenetel
-wikidata:en: Q157626
-
-< en:Herbal teas
-en:Yarrow, Common yarrow
-de:Schafgarbe
-es:Milenrama
-fr:Achillée millefeuille
-la:Achillea millefolium
-nl:Duizendblad
-wikidata:en: Q25408
 
 < en:Plant-based beverages
 en:Juices and nectars
@@ -23880,15 +23894,6 @@ fr:Fleurs de sureau noir
 hu:Bodza virág
 nl:Gewone vlierbloemen
 
-< en:Herbal teas
-< en:Olive tree products
-en:Olive leaves
-de:Olivenblätter
-es:Hojas de olivo
-fr:Feuilles d'olivier
-nl:Olijfboomblad
-wikidata:en: Q7087231
-
 < en:Potted plants
 < en:Stevia leaves
 en:Potted stevia
@@ -23918,6 +23923,15 @@ de:Gemahlene Steviablätter
 es:Estevia seca molida, Hojas de estevia seca molida
 fr:Stévia sèche moulu, Feuilles de stévia sèche moulue
 nl:Gedroogde steviabladeren, Gedroogde steviablad
+
+< en:Herbal teas
+< en:Olive tree products
+en:Olive leaves
+de:Olivenblätter
+es:Hojas de olivo
+fr:Feuilles d'olivier
+nl:Olijfboomblad
+wikidata:en: Q7087231
 
 < en:Nuts and their products
 < en:Plant milks
