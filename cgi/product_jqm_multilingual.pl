@@ -104,6 +104,10 @@ else {
 	#my @app_fields = qw(product_name brands quantity);
 	my @app_fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
 
+	# admin field to set a creator
+	if (($User_id eq 'stephane') or ($User_id eq 'teolemon')) {
+		push @app_fields, "creator";
+	}
 	
 	# generate a list of potential languages for language specific fields
 	my %param_langs = ();
