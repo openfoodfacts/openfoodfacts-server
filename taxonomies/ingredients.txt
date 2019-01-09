@@ -121,7 +121,7 @@ da: Surhedsregulerende middel
 el: Ρυθμιστής οξύτητας
 es: Corrector de acidez
 fi: Happamuudensäätöaine
-fr: Correcteur d’acidité
+fr:correcteur d’acidité
 it: Correttori di acidità
 nl: Zuurteregelaar
 pt: Regulador de acidez
@@ -150,7 +150,7 @@ el:Αντισυσσωματωτικό
 es:Antiaglomerante
 et:Paakumisvastane aine
 fi:Paakkuuntumisenestoaine
-fr:Antiagglomérant
+fr:antiagglomérant
 ga:Oibreán frithstolptha
 hu:Csomósodást és lesülést gátló anyag
 it:Agenti antiagglomeranti
@@ -224,7 +224,7 @@ el:Διογκωτικό
 es:Incrementador de volumen
 et:Mahuaine
 fi:Täyteaine
-fr:Agent de charge
+fr:agent de charge
 ga:Toirteoir
 hu:Tömegnövelő szer
 it:Agenti di carica
@@ -687,14 +687,14 @@ ro: Agent de tratare a făinii
 bg: Агент за обработка на брашното
 wikidata:en:Q469842
 
-en: Foaming agent
+en:Foaming agent
 ga: Oibreáin chúrtha
 de: Schaummittel
 da: Skumdannende middel
 el: Αφριστικοί παράγοντες
 es: Espumante
 fi: Vaahdotusaine
-fr: Agent moussant
+fr:agent moussant
 it: Agenti schiumogeni
 nl: Schuimmiddel, Schuimmiddelen
 pt: Agente espumante
@@ -811,7 +811,7 @@ wikipedia:https://en.wikipedia.org/wiki/Pectin
 <en:pectin
 en:non-amidated pectines, E440i, E 440i, E-440i
 de:E440i, E 440i, E-440i
-fr: Pectine amidée, E440i, E 440i, E-440i
+fr:Pectine non amidée, E440i, E 440i, E-440i
 it:E440i, E 440i, E-440i
 nl:E440i, E 440i, E-440i
 # fr:e440i has 18 products in 5 languages @2018-11-03
@@ -894,18 +894,19 @@ wikidata:en:Q911854
 
 
 # nova
-en: Preservative
+en:preservative
 ga: Leasaitheach
 de: Konservierungsstoff
-da: Modificeret stivelse
+da:Konserveringsmiddel
 el: Συντηρητικό
 es: Conservante, Conservador
 fi: Säilöntäaine
 fr: Conservateur
 it: Conservanti
+nb:Konserveringsmiddel
 nl: Conserveermiddel, Conserveermiddelen
 pt: Conservante
-sv: Modifierad stärkelse
+sv:Konserveringsmedel
 lv: Konservants
 cs: Konzervant
 et: Säilitusaine
@@ -950,7 +951,7 @@ en:Sequestrant
 bg:Комплексообразуватели
 cs:Sekvestrant
 de:Komplexbildner
-da:Hævemiddel
+# da:Hævemiddel
 el:Συμπλοκοποιητές
 es:Secuestrante
 et:Sekvestrant
@@ -974,7 +975,7 @@ wikidata:en:Q905648
 en: Stabiliser, Stabilizer
 ga: Cobhsaitheoir
 de: Stabilisator
-da: Kompleksdannere
+# da: Kompleksdannere
 el: Σταθεροποιητής
 es: Estabilizador
 fi: Stabilointiaine
@@ -1007,7 +1008,7 @@ en:colour-stabilizer
 en:Sweetener
 bg:Подсладител
 cs:Sladidlo
-da:Kompleksdannere
+da:Kunstigt sødemiddel
 de:Süßungsmittel
 el:Γλυκαντικό
 es:Edulcorante, Endulzante
@@ -2245,69 +2246,67 @@ uk:Естери моно- та дигліцеридів та винної і ж�
 
 <en:acid esters of mono- and diglycerides of fatty acids
 en:Mono- and diacetyl tartaric acid esters of mono- and diglycerides of fatty acids, E472e, E 472e, E-472e
-bg:Естери на моно- и диацетилвинената киселина с моно- и диглицериди на мастни киселини, E472e, E 472e, E-472e
-bs:Mono- i diacetil tartaratni esteri mono- i diglicerida masnih kiselina, E472e, E 472e, E-472e
-cs:Estery mono- a diglyceridů mastných kyselin s kyselinou mono- a diacetylvinnou, E472e, E 472e, E-472e
-da:Mono- og diacetylvinsyreestere af mono- og diglycerider af fedtsyrer, E472e, E 472e, E-472e
-de:Mono- und diacetylweinsäureester von mono- und diglyceriden von speisefettsäuren, E472e, E 472e, E-472e
-el:Εστερες του μονο- και διακετυλοτρυγικου οξεος με μονο- και διγλυκεριδια λιπαρων οξεων, E472e, E 472e, E-472e
-es:Ésteres monoacetiltartárico y diacetiltartárico de monoglicéridos y diglicéridos de ácidos grasos, E472e, E 472e, E-472e
-et:Rasvhapete mono- ja diglütseriidide estrid mono- ja diatsetüülviinhappega, E472e, E 472e, E-472e
-fi:Rasvahappojen mono- ja diglyseridien mono- ja diasetyyliviinihappoesterit, E472e, E 472e, E-472e
-fr:esters mono- et diacétyltartriques des mono- et diglycérides d'acides gras, esters monoacétyltartrique et diacétyltartrique des mono et diglycérides d'acides gras, esters monoacétyltartriques et diacétyltartriques des mono- et diglycérides d'acides gras, E472e, E 472e, E-472e
-gl:Éster monoacetiltártrico de mono- e diglicéridos de ácidos graxos, E472e, E 472e, E-472e
-hu:Zsírsavak mono- és digliceridjeinek mono- és diacetil-borkősav-észterei, E472e, E 472e, E-472e
-it:Esteri mono- e diacetiltartarici di mono- e digliceridi degli acidi grassi, E472e, E 472e, E-472e
-ja:グリセリンジアセチル酒石酸脂肪酸エステル, E472e, E 472e, E-472e
-lt:Riebalų rūgščių mono- ir digliceridų mono- ir diacetilvyno rūgšties esteriai, E472e, E 472e, E-472e
-lv:Taukskābju mono- un diglicerīdu mono- un diacetilvīnskābes esteri, E472e, E 472e, E-472e
-mt:Esteri tal-aċidu mono- u diaċetiltartariku tal-mono- u d-digliċeridi tal-aċidi grassi, E472e, E 472e, E-472e
-nl:Mono- en diglyceriden van vetzuren veresterd met mono- en diacetylwijnsteenzuur, E472e, E 472e, E-472e
-nn:Mono- og diacetylvinsyreester av mono- og diglyserider av næringsfettsyrer, E472e, E 472e, E-472e
-pl:Mono- i diglicerydy kwasów tłuszczowych estryfikowane kwasem mono- i diacetylowinowym, E472e, E 472e, E-472e
-pt:Ésteres mono e diacetiltartáricos de mono e diglicéridos de ácidos gordos, E472e, E 472e, E-472e
-ro:Esteri ai acizilor mono- și diacetiltartric cu mono- și digliceridele acizilor grași, E472e, E 472e, E-472e
-ru:E472e, E 472e, E-472e
-sk:Estery mono- a diglyceridov mastných kyselín s kyselinou mono- a diacetylvínnou, E472e, E 472e, E-472e
-sl:Tartratni estri mono- in digliceridov maščobnih kislin, E472e, E 472e, E-472e
-sr:Моно- и диацетил тартаратни естери моно- и диглицерида масних киселина, E472e, E 472e, E-472e
-sv:Mono- och diglyceriders mono- och diacetylvinsyraestrar, E472e, E 472e, E-472e
-tr:diasetiltartarik asit esters of mono- ve diglycerides of fatty asits, E472e, E 472e, E-472e
-uk:Естери гліцерину та діацетилвинної і жирних кислот, E472e, E 472e, E-472e
-zh:E472e, E 472e, E-472e
+bg:Естери на моно- и диацетилвинената киселина с моно- и диглицериди на мастни киселини
+bs:Mono- i diacetil tartaratni esteri mono- i diglicerida masnih kiselina
+cs:Estery mono- a diglyceridů mastných kyselin s kyselinou mono- a diacetylvinnou
+da:Mono- og diacetylvinsyreestere af mono- og diglycerider af fedtsyrer
+de:Mono- und diacetylweinsäureester von mono- und diglyceriden von speisefettsäuren
+el:Εστερες του μονο- και διακετυλοτρυγικου οξεος με μονο- και διγλυκεριδια λιπαρων οξεων
+es:Ésteres monoacetiltartárico y diacetiltartárico de monoglicéridos y diglicéridos de ácidos grasos
+et:Rasvhapete mono- ja diglütseriidide estrid mono- ja diatsetüülviinhappega
+fi:Rasvahappojen mono- ja diglyseridien mono- ja diasetyyliviinihappoesterit
+fr:esters mono- et diacétyltartriques des mono- et diglycérides d'acides gras, esters monoacétyltartrique et diacétyltartrique des mono et diglycérides d'acides gras, esters monoacétyltartriques et diacétyltartriques des mono- et diglycérides d'acides gras
+gl:Éster monoacetiltártrico de mono- e diglicéridos de ácidos graxos
+hu:Zsírsavak mono- és digliceridjeinek mono- és diacetil-borkősav-észterei
+it:Esteri mono- e diacetiltartarici di mono- e digliceridi degli acidi grassi
+ja:グリセリンジアセチル酒石酸脂肪酸エステル
+lt:Riebalų rūgščių mono- ir digliceridų mono- ir diacetilvyno rūgšties esteriai
+lv:Taukskābju mono- un diglicerīdu mono- un diacetilvīnskābes esteri
+mt:Esteri tal-aċidu mono- u diaċetiltartariku tal-mono- u d-digliċeridi tal-aċidi grassi
+nl:Mono- en diglyceriden van vetzuren veresterd met mono- en diacetylwijnsteenzuur
+nn:Mono- og diacetylvinsyreester av mono- og diglyserider av næringsfettsyrer
+pl:Mono- i diglicerydy kwasów tłuszczowych estryfikowane kwasem mono- i diacetylowinowym
+pt:Ésteres mono e diacetiltartáricos de mono e diglicéridos de ácidos gordos
+ro:Esteri ai acizilor mono- și diacetiltartric cu mono- și digliceridele acizilor grași
+sk:Estery mono- a diglyceridov mastných kyselín s kyselinou mono- a diacetylvínnou
+# sl:Tartratni estri mono- in digliceridov maščobnih kislin translation error
+sr:Моно- и диацетил тартаратни естери моно- и диглицерида масних киселина
+sv:Mono- och diglyceriders mono- och diacetylvinsyraestrar
+tr:diasetiltartarik asit esters of mono- ve diglycerides of fatty asits
+uk:Естери гліцерину та діацетилвинної і жирних кислот
 wikidata:en:Q409406
 # additive/e472e-mono-and-diacetyltartaric-acid-esters-of-mono-and-diglycerides-of-fatty-acids has 2464 products in 22 languages @2018-11-14
 
 <en:acid esters of mono- and diglycerides of fatty acids
 en:Mixed acetic and tartaric acid esters of mono- and diglycerides of fatty acids, E472f, E 472f, E-472f
-bg:Смесени естери на оцетната и винената киселина с моно- и диглицериди на мастни киселини, E472f, E 472f, E-472f
-bs:Miješani acetatni i tartaratni esteri mono- i diglicerida masnih kiselina, E472f, E 472f, E-472f
-cs:Směsné estery mono- a diglyceridů mastných kyselin s kyselinou octovou a vinnou, E472f, E 472f, E-472f
-da:Blandede eddikesyre- og vinsyreestere af mono- og diglycerider af fedtsyrer, E472f, E 472f, E-472f
-de:Gemischte essig- und weinsäureester von mono- und diglyceriden von speisefettsäuren, E472f, E 472f, E-472f
-el:Μεικτοι εστερες του οξικου και τρυγικου οξεος με μονο- και διγλυκεριδια λιπαρων οξεων, E472f, E 472f, E-472f
-es:Mixed acetic and tartaric acid esters of mono- and diglycerides of fatty acids, E472f, E 472f, E-472f
-et:Rasvhapete mono- ja diglütseriidide estrid äädik- ja viinhappe seguga, E472f, E 472f, E-472f
-fi:Rasvahappojen mono- ja diglyseridien etikka- ja viinihappoesterien seokset, E472f, E 472f, E-472f
-fr:Esters mixtes acétiques et tartriques des mono- et diglycérides d'acides gras, E472f, E 472f, E-472f
-gl:Ésteres mixtos acéticos e tártricos mono- e diglicéridos de ácidos graxos, E472f, E 472f, E-472f
-hu:Zsírsavak mono- és digliceridjeinek vegyes ecetsav- és borkősav-észterei, E472f, E 472f, E-472f
-it:Esteri misti acetico-tartarici di mono- e digliceridi degli acidi grassi, E472f, E 472f, E-472f
-ja:グリセリンジアセチル酒石酸脂肪酸エステル, E472f, E 472f, E-472f
-lt:Riebalų rūgščių mono- ir digliceridų acto ir vyno rūgščių mišinio esteriai, E472f, E 472f, E-472f
-lv:Taukskābju mono- un diglicerīdu jauktie etiķskābes un vīnskābes esteri, E472f, E 472f, E-472f
-mt:Esteri tal-aċidu aċetiku u l-aċidu tartariku mħallta tal-mono- u d-digliċeridi tal-aċidi, E472f, E 472f, E-472f
-nl:Mono- en diglyceriden van vetzuren veresterd met een mengsel van azijnzuur en wijnsteenzuur, E472f, E 472f, E-472f
-nn:Blandete vin- og eddiksyreester av mono- og diglyserider av næringsfettsyrer, E472f, E 472f, E-472f
-pl:Mono- i diglicerydy kwasów tłuszczowych estryfikowane mieszaniną kwasu octowego i winowego, E472f, E 472f, E-472f
-pt:Ésteres mistos acéticos e tartáricos de mono e diglicéridos de ácidos gordos, E472f, E 472f, E-472f
-ro:Amestec de esteri ai acidului acetic și ai acidului tartric cu mono- și digliceridele acizilor grași, E472f, E 472f, E-472f
-sk:Zmesné estery mono- a diglyceridov mastných kyselín s kyselinou octovou a vínnou, E472f, E 472f, E-472f
-sl:Mešanica acetatnih in tartratnih estrov mono- in digliceridov maščobnih kislin, E472f, E 472f, E-472f
-sr:Мијешани ацетатни и тартаратни естери моно- и диглицерида масних киселина, E472f, E 472f, E-472f
-sv:Blandade ättik- och vinsyraestrar av mono- och diglycerider, E472f, E 472f, E-472f
-tr:mixed asetik ve tartarik asit esters of mono- ve diglycerides of fatty asits, E472f, E 472f, E-472f
-uk:Змішані естери гліцерину та винної, оцтової і жирних кислот, E472f, E 472f, E-472f
+bg:Смесени естери на оцетната и винената киселина с моно- и диглицериди на мастни киселини
+bs:Miješani acetatni i tartaratni esteri mono- i diglicerida masnih kiselina
+cs:Směsné estery mono- a diglyceridů mastných kyselin s kyselinou octovou a vinnou
+da:Blandede eddikesyre- og vinsyreestere af mono- og diglycerider af fedtsyrer
+de:Gemischte essig- und weinsäureester von mono- und diglyceriden von speisefettsäuren
+el:Μεικτοι εστερες του οξικου και τρυγικου οξεος με μονο- και διγλυκεριδια λιπαρων οξεων
+es:Mixed acetic and tartaric acid esters of mono- and diglycerides of fatty acids
+et:Rasvhapete mono- ja diglütseriidide estrid äädik- ja viinhappe seguga
+fi:Rasvahappojen mono- ja diglyseridien etikka- ja viinihappoesterien seokset
+fr:Esters mixtes acétiques et tartriques des mono- et diglycérides d'acides gras
+gl:Ésteres mixtos acéticos e tártricos mono- e diglicéridos de ácidos graxos
+hu:Zsírsavak mono- és digliceridjeinek vegyes ecetsav- és borkősav-észterei
+it:Esteri misti acetico-tartarici di mono- e digliceridi degli acidi grassi
+# ja:グリセリンジアセチル酒石酸脂肪酸エステル translation issue double
+lt:Riebalų rūgščių mono- ir digliceridų acto ir vyno rūgščių mišinio esteriai
+lv:Taukskābju mono- un diglicerīdu jauktie etiķskābes un vīnskābes esteri
+mt:Esteri tal-aċidu aċetiku u l-aċidu tartariku mħallta tal-mono- u d-digliċeridi tal-aċidi
+nl:Mono- en diglyceriden van vetzuren veresterd met een mengsel van azijnzuur en wijnsteenzuur
+nn:Blandete vin- og eddiksyreester av mono- og diglyserider av næringsfettsyrer
+pl:Mono- i diglicerydy kwasów tłuszczowych estryfikowane mieszaniną kwasu octowego i winowego
+pt:Ésteres mistos acéticos e tartáricos de mono e diglicéridos de ácidos gordos
+ro:Amestec de esteri ai acidului acetic și ai acidului tartric cu mono- și digliceridele acizilor grași
+sk:Zmesné estery mono- a diglyceridov mastných kyselín s kyselinou octovou a vínnou
+sl:Mešanica acetatnih in tartratnih estrov mono- in digliceridov maščobnih kislin
+sr:Мијешани ацетатни и тартаратни естери моно- и диглицерида масних киселина
+sv:Blandade ättik- och vinsyraestrar av mono- och diglycerider
+tr:mixed asetik ve tartarik asit esters of mono- ve diglycerides of fatty asits
+uk:Змішані естери гліцерину та винної, оцтової і жирних кислот
 wikidata:en:Q18967248
 # additive/e472f-mixed-acetic-and-tartaric-acid-esters-of-mono-and-diglycerides-of-fatty-acids has 7 products in 3 languages @2018-11-13
 
@@ -3263,7 +3262,6 @@ uz:laktaza
 vi:lactase
 zh:乳糖酶
 # yue:乳糖水解酶
-
 wikidata:en:Q379764
 wikipedia:en:https://en.wikipedia.org/wiki/Lactase
 
@@ -4277,10 +4275,6 @@ allergens:fr:poudre de _lactose_
 fr:lait de montagne
 allergens:fr:_lait_ de montagne
 
-
-fr:lait de vache pasteurisé
-allergens:fr:_lait_ de vache pasteurisé
-
 fr:lait entier standardisé
 allergens:fr:_lait_ entier standardisé
 
@@ -4844,9 +4838,8 @@ it:formaggio di pecore
 <en:cheese
 en:soft white cheese
 fr:fromage frais
-carbon_footprint_fr_foodges_ingredient:fr:Fromage frais 58% MG
 de:Frischkäse
-it:formaggio fresco
+carbon_footprint_fr_foodges_ingredient:fr:Fromage frais 58% MG
 # fr:fromage-frais has 474 products @2018-10-28
 
 <fr:fromage frais
@@ -6009,7 +6002,10 @@ nl:Vacherin fribourgeois AOP
 wikidata:en:Q677647
 wikipedia:en:https://fr.wikipedia.org/wiki/Vacherin_fribourgeois
 # fr:Vacherin-fribourgeois-AOP has 2 products in 3 languages @2018-10-27
-queijo mozzarella
+
+<en:cheese
+en:mozzarella
+es:queijo mozzarella
 sv:mozzarella
 # fr:mozzarella has 1057 products in 15 languages @2018-10-28
 
@@ -7181,7 +7177,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Ergocalciferol
 # Cholecalciferol, also known as vitamin D3 and colecalciferol, is a type of vitamin D which is made by the skin, found in some foods, and taken as a dietary supplement.
 
 <en:vitamin D
-en:Cholecalciferol, vitamin D3
+en:Cholecalciferol, vitamin D3, D3
 af:Vitamien D3
 ar: كوليكالسيفيرول
 # ast:Vitamina D3
@@ -8013,9 +8009,6 @@ fr:bœuf
 <fr:viande de boeuf
 fr:viande hachée de boeuf
 
-
-fr:présure de veau
-
 fr:os de veau
 
 #Poulet
@@ -8625,7 +8618,7 @@ en:hydrogenated oil
 <en:hydrogenated oil
 en:hydrogenated palm oil
 de:teilweise gehärtetes Palmöl
-es:aceite de palma no hidrogenado
+es:aceite de palma hidrogenado
 fr:huile de palme hydrogénée
 nl:gehydrogeneerde palmolie
 
@@ -8689,7 +8682,6 @@ bg:Кокосово масло
 bn:নারিকেল তেল
 cs:Kokosový olej
 da:kokosolie
-de:Kokosfett
 es:aceite de coco
 et:Kookosõli
 eu:Koko olio
@@ -9473,14 +9465,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Essential_oil
 wikidata:en:Q170885
 
 <en:essential oil
-# derivedFrom:en:lemon
-en:Lemon Oil
-de:Zitronenöl
-fr:huile essentielle de citron
-it:olio essenziale di limone
-nl:citroenolie
-
-<en:essential oil
 en:orange essential oil
 de:Orangenöl
 es:aceite esencial de naranja
@@ -9488,12 +9472,10 @@ fr:huile essentielle d'orange
 it:olio essenziale di arancio
 nl:sinaasappelolie
 
+# see also en:peppermint oil
+
 <en:essential oil
-de:Pfefferminzöl
 fr:huile essentielle de menthe
-it:olio di menta
-nl:pepermuntolie
-sv:pebermynteolie
 
 <en:essential oil
 fr:huile essentielle de coriandre
@@ -10161,13 +10143,11 @@ ht:Diven
 hu:bor
 hy:գինի
 ia:vino
-id:Anggur
 io:vino
 is:vín
 it:vino
 ja:ワイン
 # jam:Wain
-jv:Anggur
 ka:ღვინო
 # kaa:Vino
 # kbd:Санэ
@@ -10231,7 +10211,6 @@ sk:víno
 sl:vino
 sq:vera
 sr:вино
-su:Anggur
 sv:vin
 sw:divai
 ta:வைன்
@@ -10990,7 +10969,6 @@ fr:arôme caféine
 <en:flavouring
 fr:arôme crabe
 nl:krabaroma
-allergens:fr:arôme _crabe_
 
 <en:flavouring
 fr:arôme identique nature
@@ -11852,7 +11830,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:seigle%20broyé/
 <en:rye
 fr:flocons de seigle
 de:Roggenflocken
-it:fiocchi di frumento
+it:fiocchi di segale
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20seigle/
 # 87 entries @ 2018-09-22
 
@@ -12308,7 +12286,7 @@ ca:Espelta
 cs:Pšenice špalda
 da:Spelt
 de:Dinkel
-el:σιτάρι, Όλυρα
+el:Όλυρα
 eo:Spelto
 et:Speltanisu
 eu:Espelta
@@ -12543,7 +12521,7 @@ hu:búzaliszt
 is:hveiti
 it:farina di frumento
 ja:小麦粉
-ko:밀가루
+# ko:밀가루 translation issue with en:wheat
 lt:kviešu milti
 lv:kvietiniai miltai
 mr:कणीक
@@ -12657,7 +12635,7 @@ en:barley flour
 de:Gerstenmehl
 es:harina de cebada
 fr:farine d'orge
-it:farina d'avena
+it:farina d'orzo
 nl:gerstemeel
 pt:farinha de cevada
 
@@ -14718,10 +14696,10 @@ zh:蛋白质
 # nova:en:hydrolysed-proteins
 <en:protein
 en:hydrolysed proteins, hydrolysed protein
+de:Proteinhydrolysat
 es:proteína hidrolizada
 fr:protéine hydrolysée
 nl:gehydroliseerd eiwit
-de:Proteinhydrolysat
 
 <en:protein
 en:vegetable protein
@@ -14784,10 +14762,10 @@ de:hydrolisiertes Weizenprotein
 
 <en:vegetable hydrolysed protein
 en:hydrolysed corn protein
+de:Maisproteinhydrolysat
 es:proteína de maíz hidrolizada
 fr:protéine de maïs hydrolysée
 nl:gehydroliseerd maïseiwit
-de:proteinhydrolysat
 
 <en:protein
 en:animal protein
@@ -15436,18 +15414,9 @@ carbon_footprint_fr_foodges_ingredient:fr: Eau du robinet
 
 fr:acide de sodium
 
-en:acidity corrector
-fr:correcteur d'acidité
-
-
-
-fr:corrécteur d'acidité, correcteur dacidité
-
 fr:acide
 
 fr:régulateur d'acidité
-
-fr:correcteurs d'acidité
 
 
 # SOYA is used as a generic word to indicate it is made from soybeans
@@ -15581,7 +15550,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pousses%20de%20soja
 <en:soya
 fr:jus de soja
 es:zumo de soja
-it:salsa di soia
+# it:salsa di soia translation error
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20soja
 # 253 products in 7 languages @2018-09-25
 
@@ -15632,26 +15601,26 @@ fr:maltodextrine de maïs, malto-dextrine de maïs
 
 en:raising agent, Raising agent, leavening agent
 ar:عامل نفاشية
-bg: Набухвател
-cs: Kypřicí látka, Kypřidlo
+bg:Набухвател
+cs:Kypřicí látka, Kypřidlo
 cy:Lefain
-ga: Oibreán éiritheach
+ga:Oibreán éiritheach
 da:Hævemiddel
 de:Backpulver, Backtriebmittel, Triebmittel
-da: Drivgas
-el: Διογκωτικό αρτοποιίας
+da:Drivgas
+el:Διογκωτικό αρτοποιίας
 es:Gasificante, Agente leudante, agentes gasificantes
-et: Kergitusaine
+et:Kergitusaine
 fa:عامل ورآورنده
-fi: Nostatusaine
+fi:Nostatusaine
 fr:Agent levant, agent de levuration, agent levant, agents levants
 he:התפחה
 hu: Térfogatnövelő szer
 id:Bahan pengembang
-it: Agenti lievitanti
+it:Agenti lievitanti
 ja:膨張剤
 ko:팽창제
-lt: Tešlos kildymo medžiaga, Puriklis
+lt:Tešlos kildymo medžiaga, Puriklis
 lv: Irdinātājs
 ms:Agen penaik
 mt: Aġent li jgħolli l-ikel
@@ -15794,7 +15763,7 @@ ro:praf de copt
 en:natural yeast
 de:natürliche Hefe
 fr:levure naturelle
-it:lievito naturale
+it:naturale-fermento, lievito naturale
 
 # Baker's yeast is the common name for the strains of yeast commonly used as a leavening agent in baking bread and bakery products,
 
@@ -16046,7 +16015,7 @@ en:Monosodium phosphate, Monosodium monophosphate, Acid monosodium monophosphate
 ar:مونوسودیوم فوسفات
 # azb:مونوسودیوم فوسفات
 bg:Мононатриев фосфат, Мононатриев монофосфат, кисел мононатриев монофосфат, мононатриев ортофосфат, едноосновен натриев фосфат, E339i, E 339i, E-339i
-cs:Dihydrogenfosforečnan sodný, Fosforečnan monosodný, kyselý fosforečnan sodný, orthofosforečnan monosodný, E339i, E 339i, E-339i
+cs:Fosforečnan monosodný, kyselý fosforečnan sodný, orthofosforečnan monosodný, E339i, E 339i, E-339i
 da:Mononatriumphosphat, Mononatriummonophosphat, surt mononatriummonophosphat, mononatriumorthophosphat, monobasisk natriumphosphat, E339i, E 339i, E-339i
 de:Mononatriumphosphat, E339i, E 339i, E-339i
 el:Δισοξινο φωσφορικο νατριο, Δισόξινο ορθοφωσφορικό νάτριο, E339i, E 339i, E-339i
@@ -18892,9 +18861,11 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:écorce%20de%20citro
 # Is this the oil from the rind?
 
 <en:lemon
-fr:essence de citron
+en:Lemon Oil
 de:Zitronenöl
-it:essenza di limone
+fr:essence de citron, huile essentielle de citron
+it:essenza di limone, olio essenziale di limone
+
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:essence%20de%20citron
 # 28 products @2018-10-01
 
@@ -19517,7 +19488,7 @@ te:కోరిందపండు
 th:แรสเบอร์รี
 tl:Prambuwesas
 ty:Rahipere
-ur:تُوت علیق
+# ur:تُوت علیق
 uz:Malina
 zh:樹莓
 # yue:勒士啤梨
@@ -19789,7 +19760,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20myrtil
 
 <en:fruit
 en:lingonberry
-es:arándano rojo
+es:Arándanos agrios
 et:pohl
 fi:Puolukka
 fr:myrtille rouge
@@ -21304,7 +21275,7 @@ oc:Pansarilha
 ru:Коринка
 sd:ڪاري ڊاک
 sv:Korinter
-tg:Мавиз
+# tg:Мавиз translation error?
 tr:Kuş üzümü
 wikipedia:en:https://en.wikipedia.org/wiki/Zante_currant
 wikidata:en:Q1382423
@@ -21350,10 +21321,11 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/grape-juice
 en:concentrated grape juice
 de:Traubensaftkonzentrat
 es:zumo de uva concentrado
-fr:jus de raisin concentré, jus de raisin à base de concentré
-it:succo d'uva, jugo de uva
+fr:jus de raisin concentré, jus de raisin à base de concentré, concentré de jus de raisin
+it:ssucco concentrato d'uva
 openfoodfacts:https://world.openfoodfacts.org/ingredient/concentrated-grape-juice
 # 139 products in 2 languages @2018-10-02
+# ingredient/fr:concentré-de-jus-de-raisin has 26 products in 3 languages @2018-10-02
 
 <en:grape juice
 en:white grape juice
@@ -21381,13 +21353,6 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20raisin%20
 <en:concentrated grape juice
 en:red grape from concentrate
 pt:sumo de uva tinta à base de concentrado
-
-<en:grape juice
-fr:concentré de jus de raisin
-de:Traubensaftkonzentrat
-it:succo concentrato d'uva
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentré%20de%20jus%20de%20raisin
-# 26 products in 3 languages @2018-10-02
 
 # Must is freshly crushed fruit juice (usually grape juice) that contains the skins, seeds, and stems of the fruit.
 
@@ -22092,7 +22057,7 @@ sr:бели лук
 # sr-ec:бели лук
 # sr-el:beli luk
 # srn:kunofroku
-su:Wortel
+# su:Wortel translation error
 sv:vitlök
 sw:Kitunguu saumu
 ta:பூண்டு
@@ -22822,7 +22787,6 @@ ga:Cál
 gv:Caayl jiarg
 he:כרוב על
 hi:एक प्रकार का गोभी
-hr:Kelj
 # hsb:Zeleny kał
 hu:Fodros kel
 is:Grænkál
@@ -23510,7 +23474,7 @@ ja:セロリアック
 la:Apium graveolens var. rapaceum
 ms:Akar saderi
 nl:knolselderij
-ru:сельдерей пахучий
+# ru:сельдерей пахучий translation error, see also en:celery
 sv:Rotselleri
 wikidata:en:Q575174
 wikipedia:en:https://en.wikipedia.org/wiki/Celeriac
@@ -25370,7 +25334,7 @@ el:Κάρυο
 # en-ca:nut
 # en-gb:nut
 eo:nukso
-es:nuez
+# es:nuez translation error
 et:pähkel
 eu:fruitu oskoldun
 fa:فندقی
@@ -25392,12 +25356,11 @@ hi:अखरोट
 hr:orah
 # hsb:worjechowy płód
 ht:Nwa
-hu:dió
 hy:ընկույզ
 ia:nuce
 id:kacang pohon
 is:hneta
-it:noce, noci
+it:noci
 ja:種実
 ka:კაკალი
 kk:Жаңғақтар
@@ -25423,7 +25386,7 @@ or:ବାଦାମ
 pa:ਗਿਰੀ
 pl:orzech
 # pnb:گری
-pt:noz
+# pt:noz
 # pt-br:noz
 ro:nuci
 # roa-tara:noce
@@ -25539,7 +25502,7 @@ en:walnut, walnuts
 af:Okkerneut
 ar:جوز
 # ast:Nuez
-bg:Орех
+# bg:Орех translation error
 bn:আখরোট
 # chr:ᏎᏗ
 co:Noce
@@ -25561,7 +25524,7 @@ gl:Noz
 # gom:Akrutt
 # gom-deva:अक्रोड
 # gom-latn:Akrutt
-hi:अखरोट
+# hi:अखरोट translation error with en:nut
 hu:dió
 id:Kacang kenari
 io:Nuco
@@ -26409,7 +26372,7 @@ en:flax seed, flax seeds
 bg:Ленено семе
 cs:Len setý
 de:Leinsamen
-es:lino
+es:semillas de lino
 et:Linaseemned
 fa:تخم کتان
 fr:graine de lin, graines de lin, lin
@@ -27415,7 +27378,7 @@ fr:moutarde de dijon
 de:Dijon-Senf
 it:senape di Digione
 nl:mosterd van Dijon
-# fr:moutarde-de-dijon has 1819 products in 4 languages 22018-10-25
+# fr:moutarde-de-dijon has 1819 products in 4 languages @2018-10-25
 
 <fr:moutarde de dijon
 fr:moutarde forte de dijon
@@ -29810,7 +29773,7 @@ en:capers
 cs:kapary
 de: Kapern
 eo: Kaporo
-fr:câpre
+fr:câpre, câpres
 io: Kapero
 it:capperi
 ku: Kewer
@@ -30226,11 +30189,119 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Liste_des_poissons_de_mer_utilisés_e
 # ingredient/fr:poisson-de-mer has 1 product @2019-01-01
 
 <en:fish
+<en:crustacean
 fr:poissons et crustacés mis en œuvre
 # ingredient/fr:poissons-et-crustacés-mis-en-œuvre has 1 product in french @2019-01-01
 
 <en:fish
 fr:poissons entiers pêchés en Méditerranée
+
+
+# An anchovy is a small, common forage fish of the family Engraulidae. 
+
+<en:fish
+en:anchovy, anchovies
+ar:بلمية
+az:Ançouslar
+bg:аншоа
+br:Genougamm
+ca:Engràulid
+# cdo:Dĭng-hiŏng-kó̤
+cs:sardel obecná
+da:ansjos, Ansjoser
+de:Sardellen, Serdellen, Anchovis
+es:Anchoa, anchoas
+fa:موتوماهیان
+fi:anjovis
+fr:anchois
+ga:Ainseabhaí
+gl:Engráulidos
+he:עפיאניים
+hu:Szardellafélék
+id:Teri
+io:Anchovo
+it:acciughe
+ja:アンチョビ
+jv:Iwak teri
+kk:Анчоус
+# kk-arab:انتشوۋس
+# kk-cn:انتشوۋس
+# kk-cyrl:Анчоус
+# kk-kz:Анчоус
+# kk-latn:Ançows
+# kk-tr:Ançows
+ko:멸치과
+kw:Lavyn
+ky:Анчоус сымалдуулар
+la:Engraulidae
+# lad:Anchúya
+# lij:Anciùa
+lt:Ančiuvinės
+mk:сардели
+ms:Ikan bilis
+nb:ansjos
+nl:ansjovis
+nn:ansjos
+pl:Sardelowate, anchois
+qu:Chuqi challwa
+ru:Анчоусовые
+su:Teri
+sv:ansjovis
+ta:நெத்திலி
+th:วงศ์ปลาแมว
+tl:Dilis
+uk:Анчоусові
+vi:Họ Cá trổng
+# yue:鯷魚
+zh:鳀科
+# zh-cn:鳀科
+# zh-hans:鳀科
+# zh-hant:鯷科
+# zh-hk:鯷科
+# zh-sg:鳀科
+# zh-tw:鯷科
+wikidata:en:Q192662
+wikipedia:en:https://en.wikipedia.org/wiki/Anchovy
+# ingredient/anchovy has 640 products in 10 languages @2019-01-06
+
+# Anchovy paste is a fish paste food product prepared using anchovies as a primary ingredient.
+
+<en:anchovy
+en:anchovy paste
+cs:sardelova pasta
+de:Serdellenkreme
+fr:pâte d'anchois
+it:pasta d'acciughe
+pl:pasta z anchois
+wikidata:en:Q3897482
+wikipedia:en:https://en.wikipedia.org/wiki/Anchovy_paste
+# ingredient/fr:pâte-d’anchois has 101 products @2019-01-06
+
+<en:anchovy
+en:anchovy extract
+de:Sardellenextrakt
+es:extracto de anchoas
+fr:extrait d'anchois
+it:estratto d'acciughe
+nl:ansjovisextract
+# ingredient/anchovy-extract has 158 products in 7 languages @2019-01-06
+
+<en:anchovy
+fr:filets d'anchois
+de:Sardellenfilets
+it:Filetti d'acciuga
+# ingredient/fr:filets%20d'anchois has 36 products in 4 languages @2019-01-06
+
+en:salted anchovy filets
+de:gesalzene Sardellenfilets
+fr:filets d'anchois salés
+it:filetti di acciughe salate
+# ingredient/fr:filets-d’anchois-salés has 41 products in 4 languages @2019-02-06
+
+<en:anchovy
+la:Stolephorus spp
+wikipedia:en:https://en.wikipedia.org/wiki/Stolephorus
+
 
 # The blue whiting, Micromesistius poutassou, one of the two species in the genus Micromesistius in the cod family, is common in the northeast Atlantic Ocean from Morocco to Iceland and Spitsbergen
 
@@ -31359,6 +31430,25 @@ la:Sardina pilchardus
 
 
 <en:fish
+en:thread-fin bream
+ar: عندق
+bg: Тънкопери каракуди
+de: Scheinschnapper
+fr:cohana
+he: נימי
+# pam: Bisugo
+# ingredient/fr:cohana has 5 products in french @2019-01-07
+
+# Nemipterus is a genus of fish in the family Nemipteridae found in the Indian and Pacific Ocean
+
+<en:thread-fin bream
+en:Nemipterus spp
+wikidata:en: Q1842575
+wikipedia:en:https://en.wikipedia.org/wiki/Nemipterus
+# ingredient/fr:Nemipterus-spp has 2 products in french @2019-01-07
+
+
+<en:fish
 en:tuna
 af:Tuna
 ar:تن
@@ -32205,7 +32295,7 @@ fr:lieu
 # colin (lieu) de l'Alaska (Theragra chalcogramma) 
 # Colin (lieu) (Pollachius virens)
 # lieu (lieu 25%, huile de colza, sel, échalotes, gélatine de poisson)
-# Crabe, lieu, crème liquide, échalotes,
+# ... Crabe, lieu, crème liquide, échalotes,
 
 # Les mulets (également appelés mules, muges ou meuille1) sont des poissons de la famille des Mugilidae, mais aussi des familles Cyprinidae, Lebiasinidae ou Polynemidae.
 
@@ -32339,6 +32429,114 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mollusca
 # ingredient/fr:mollusque has 1890 products in 6 languages @2018-01-03
 
 
+# Cuttlefish or cuttles are marine molluscs of the order Sepiida.
+# Le terme seiche est un nom vernaculaire générique pour un très grand nombre de mollusques céphalopodes classés dans le super-ordre des décapodes et regroupés dans le taxon des Sepioida, c'est-à-dire dans l'ordre des Sepiida et des Sepiolida. 
+
+<en:mollusc
+en:cuttlefish
+ar:حبار
+as:কাটলফিছ
+# ast:Xibia
+be:Каракаціцы
+bg:Сепии
+br:Morgad
+ca:Sèpia
+# cdo:Dĕ̤ng-kiĕ
+cs:sépie
+de:Sepien
+el:Σουπιά
+es:Sepia
+eu:Txibia
+fa:سپیداج
+fi:Seepiat
+fr:seiche, seiches
+ga:Cudal
+gl:Xiba
+he:דיונונים
+hi:समुद्रफेनी
+hr:Sipe
+hu:Tintahalak
+id:Sotong
+io:Sepio
+ja:コウイカ目
+jv:Sotong
+kk:Тарбақ аяқ
+# kk-arab:تارباق اياق
+# kk-cn:تارباق اياق
+# kk-cyrl:Тарбақ аяқ
+# kk-kz:Тарбақ аяқ
+# kk-latn:Tarbaq ayaq
+# kk-tr:Tarbaq ayaq
+ko:갑오징어목
+la:Sepiida
+lt:Sepijos
+# lzh:鰂
+ml:കണവ
+ms:Sotong Katak
+# nan:Hoe-ki
+# nds:Echte Dintenfische
+nl:zeekatten
+nv:Łóóʼ bigaan neeznání bitsʼinígíí
+pl:Mątwy
+pt:Choco
+ru:Каракатицы
+sk:Sépie
+sl:Sipe
+sr:Сипе
+# sr-ec:Сипе
+# sr-el:Sipe
+su:Balakutak
+sv:Sepialiknande bläckfiskar
+sw:Dome
+ta:கணவாய் மீன்
+th:หมึกกระดอง
+tr:Mürekkep balığı
+uk:Каракатиця
+vi:Bộ Mực nang
+# yue:墨魚
+zh:乌贼
+# zh-cn:乌贼
+# zh-hans:乌贼
+# zh-hant:烏賊
+# zh-hk:墨魚
+# zh-sg:乌贼
+# zh-tw:烏賊
+wikidata:en:Q184479
+wikipedia:en:https://en.wikipedia.org/wiki/Cuttlefish
+
+# Sepiella inermis, common name spineless cuttlefish, is an edible species of cuttlefish.
+
+<en:cuttlefish
+en:spineless cuttlefish
+ar:سپیداج سست‌کمر
+zh:曼氏无针乌贼
+
+<en:spineless cuttlefish
+en:Sepiella inermis
+la:Sepiella inermis
+wikipedia:en:https://en.wikipedia.org/wiki/Sepiella_inermis
+# ingredient/fr:Sepiella-inermis has 2 products in french @2019-01-05
+
+# The pharaoh cuttlefish (Sepia pharaonis) is a large cuttlefish species, growing to 42 cm in mantle length and 5 kg in weight
+
+<en:cuttlefish
+en:pharaoh cuttlefish
+ar:ماهی مرکب ببری
+th:หมึกกระดองลายเสือ
+vi:Mực nang vân hổ
+zh:虎斑乌贼
+# zh-hans:虎斑乌贼
+# zh-hant:虎斑烏賊
+# zh-hk:虎斑烏賊
+# zh-tw:虎斑烏賊
+wikidata:en:Q2701934
+wikipedia:en:https://en.wikipedia.org/wiki/Pharaoh_cuttlefish
+
+<en:pharaoh cuttlefish
+en:Sépia Pharaonis
+la:Sépia Pharaonis
+
+
 # Mussel is the common name used for members of several families of bivalve molluscs, from saltwater and freshwater habitats.
 
 <en:mollusc
@@ -32379,7 +32577,7 @@ fr:moules glazurées
 
 <en:mussel
 fr:moules cuites
-# ingredient/fr:moules-cuites has 2 products 22019-02-05
+# ingredient/fr:moules-cuites has 2 products @2019-02-05
 
 # The Mediterranean mussel (Mytilus galloprovincialis) is a species of bivalve, a marine mollusc in the family Mytilidae. 
 
@@ -32476,6 +32674,23 @@ fr:poulpe cuit
 nl:gekookte inktvis
 # ingredient/fr:poulpe-cuit has 5 products in french @2019-01-03
 # Poulpe cuit (Octopus Vulgaris)
+
+
+<en:octopus
+zh:砂蛸
+# zh-tw:白線章魚
+
+<zh:砂蛸
+en:Octopus Aegina
+la:Octopus Aegina
+wikidata:en:Q2936535
+wikipedia:nl:https://nl.wikipedia.org/wiki/Octopus_aegina
+# ingredient/fr:Octopus-Aegina has 1 product in french @2019-01-07
+
+
+<en:octopus
+fr:poulpe en lamelles
+# ingredient/fr:poulpe-en-lamelles has 1 product @2019-01-05
 
 <en:octopus
 en:common octopus
@@ -32574,7 +32789,7 @@ et:Kalmaarilised
 eu:Txipiroi
 fa:ماهی مرکب
 fi:Kalmarit
-fr:calmar, calmars
+fr:calamar, calamars, encornet, encornets, calmar, calmars
 ga:Scuid
 gl:Lura
 gn:Kalama
@@ -32648,6 +32863,24 @@ fr:blanc de calmars
 <en:squid
 fr:calmar géant
 # calmar (mollusques) géant
+
+
+# Illex argentinus, commonly known as the Argentine shortfin squid is a species of squid in the family Ommastrephidae from the south western Atlantic Ocean.
+
+<en:squid
+en:argentine shortfin squid
+bg:морски мекотели
+es:pota argentina, calamar illex
+ga:Scuid ghearreiteach na hAirgintíne
+fr:encornet rouge argentin
+wikidata:en:Q2262870
+
+<en:argentine shortfin squid
+en:Illex Argentinus
+la:Illex Argentinus
+wikipedia:en:https://en.wikipedia.org/wiki/Illex_argentinus
+# ingredient/fr:Illex%20Argentinus has 7 products @2019-01-07
+
 
 # The Humboldt squid (Dosidicus gigas), also known as jumbo squid, jumbo flying squid, pota, or diablo rojo (red devil), is a large, predatory squid living in the waters of the Humboldt Current in the eastern Pacific Ocean.
 
@@ -32726,6 +32959,604 @@ la:Doryteuthis gahi, Loligo Gahi
 wikidata:en:Q13596602
 wikipedia:en:https://en.wikipedia.org/wiki/Doryteuthis_gahi
 # ingredient/fr:Loligo-Gahi has 1 product @2019-01-04
+
+
+<en:mollusc
+en:undulate venus
+fr:palourdes
+it:vongola del Pacifico
+th:หอยลาย
+vi:Sò lụa
+zh:波纹巴非蛤, 波紋橫簾蛤
+# ingredient/fr:palourdes has 15 products in 2 languages @2019-01-06
+
+<en:undulate venus
+en:Paratapes undulatus
+la:Paratapes undulatus, Paphia undulata
+
+<en:undulate venus
+fr:palourdes précuites
+
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                           C R U S T A C E A N S     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# Crustaceans form a large, diverse arthropod taxon which includes such familiar animals as crabs, lobsters, crayfish, shrimp, krill, woodlice, and barnacles.
+
+en:crustacean, crustaceans
+af:Skaaldier
+ar:قشريات
+az:Xərçəngkimilər
+ba:Ҡыҫала
+be:ракападобныя
+bg:ракообразни
+br:Kresteneg
+bs:Rakovi
+ca:Crustaci
+cs:korýši
+cy:Cramennog
+da:krebsdyr
+de:Krebstiere
+# de-ch:Krebstiere
+el:καρκινοειδή
+# en-ca: Crustacean
+# en-gb: Crustacean
+eo: krustacoj
+es:crustáceos
+et: Vähilaadsed, koorikloomad
+eu: Krustazeo
+fa: سخت‌پوستان
+fi:äyriäiset
+fr:crustacés, crustacé
+# frr: Kraaben
+ga:crústach, crústaigh
+gl: Crustáceos
+he: סרטנאים
+hi: क्रस्टेशिया
+hr: Rakovi
+hu: Rákok, rákfélék
+hy: խեցգետնանմաններ
+id: Krustasea
+io: Krustaceo
+is: Krabbadýr
+it:crostacei
+jp:甲殻類
+ka: კიბოსნაირნი
+kk: Шаянтәрізділер
+ko: 갑각류
+ku: Kevjal
+kw: Krestennek
+ky: Рак сымалдар
+la: Crustacea
+lb: Kriibsen
+# lfn: Crustaseo
+li: Krabechtige
+lt:vėžiagyviai
+lv:vēžveidīgie
+mk: ракови
+ml: ക്രസ്റ്റേഷ്യൻ
+# mrj: Рӓк ганьывлӓ
+ms: Krustasea
+mt:krustaċej
+my:ကနန်း၊ ရေသတ္တဝါ
+# nan:Kah-khak-lūi
+nb:krepsdyr
+# nds:Kreefte
+# nds-nl:Dwaarsloper
+nl:schaaldieren
+nn:Krepsdyr 
+nv:Chʼosh bikágí dantłʼizí
+oc:Crustacèu
+pa: پوستى ژوي
+pl:skorupiaki
+pt:crustáceos
+# pt-br: Crustáceo
+qu: Qaraqruyuwa
+ro:crustacee
+ru:ракообразные
+# sco: crustacean
+sh: Rakovi
+# shn: ပူ
+sk:kôrovce
+sl:raki
+sr: ракови
+sv:skaldjur, kräftdjur
+sw: Gegereka
+ta: ஓடுடைய இனங்கள்
+th:ครัสเตเชียน
+tl: Krustasyano
+tr: Kabuklular
+uk: ракоподібні
+ur: قشریات
+uz: Qisqichbaqasimonlar
+vi: động vật giáp xác
+# vls: Kriftachtign
+# yue:甲殼動物
+zh:甲壳亚门
+wikidata:en: Q25364
+wikipedia:en:https://en.wikipedia.org/wiki/Crustacean
+# ingredient/fr:crustacé has 2263 products @2019-01-06
+
+
+# Crabs are decapod crustaceans of the infraorder Brachyura, which typically have a very short projecting "tail"
+
+<en:crustacean
+en:crab
+af:Krap
+ak:ɔkɔtɔ
+am:ሠርጣን
+# ang:Crabba
+ar:سرطان
+az:Yengəclər
+be:крабы
+# be-tarask:крабы
+bg:Криви раци
+bn:কাঁকড়া
+br:Krank
+ca:Cranc
+# cdo:Chiĕk
+cs:Krabi
+# csb:Krabë
+cy:Cranc
+da:Krabbe
+de:Krabbe, Krabben
+el:Κάβουρας
+# en-gb:Crab
+eo:Krabo
+es:Braquiuro
+et:Krabilised
+eu:Karramarro
+fa:خرچنگ
+fi:Taskuravut
+fo:Krabbadýr
+fr:crabe, crabes
+ga:Portán
+gd:Partan
+gl:Cangrexo
+gn:Guaiamu
+# gom:Kurli
+gu:કરચલો
+gv:કરચલો
+# hak:Mô-hái
+he:סרטנים קצרי בטן
+hi:केकड़ा
+ht:Krab
+hu:Rövidfarkú rákok
+hy:խաչափառներ
+ia:cancere
+id:Kepiting
+io:Krabo
+is:Krabbar
+it:Granchio
+ja:カニ
+jv:Kepithing
+ka:ცხრაფეხები
+kk:Таңқы шаян
+kn:ಏಡಿ
+ko:게
+ky:Крабдар
+la:Brachyura, Cancer
+lt:Krabas
+lv:Krabji
+# lzh:蟹
+mg:Foza
+mk:Краба
+ml:ഞണ്ട്
+mr:खेकडा
+ms:Ketam
+my:ကဏန်း
+# nah:Tecuicihtli
+# nan:Chîm-á
+nb:Krabber
+ne:गँगटो
+nl:krab, krabben
+nn:Krabbe
+# nso:Kgenkgerepe
+nv:Chʼosh bikágí ntłʼizí
+oc:Cranc
+pa:ਕੇਕੜਾ
+pl:kraby
+ps:چنگاښ
+pt:Caranguejo
+ro:Crab
+ru:крабы
+# sat:ᱠᱟᱴᱠᱚᱢ
+# scn:Granciu
+# sco:keavie
+sh:Kraba
+sk:Krab
+sl:Rakovice
+sn:Gakanje
+sr:краба
+# stq:Krabbe
+su:Keuyeup
+sv:Krabbor
+sw:Kaa
+ta:நண்டு
+# tcy:ಜೆಂಜಿ
+te:పీత
+tg:Крилово
+th:ปู
+tr:Yengeç
+uk:краби
+ur:کیکڑا
+# vec:Granso
+vi:Phân thứ bộ Cua
+# vls:Krabbe
+# war:Masag
+xh:Nonkala
+# yue:蟹
+za:Baeu
+# zea:Krabb'n
+zh:螃蟹
+zu:Inkalankala
+wikidata:en:Q40802
+wikipedia:en:https://en.wikipedia.org/wiki/Crab
+# ingredient/fr:crabe has 83 products in 4 languages @2019-01-07
+# ingredient/crab has 30 products in english @2019-01-07
+
+<en:crab
+fr:chair de crabe
+# ingredient/fr:chair-de-crabe has 48 products in french @2019-01-07
+
+<en:crab
+fr:extrait de crabe
+# ingredient/fr:extrait-de-crabe has 25 products in french @2019-01-07
+
+
+
+# Lobsters comprise a family (Nephropidae, sometimes also Homaridae) of large marine crustaceans.
+
+<en:crustacean
+en:lobster
+# ang:Loppestre
+ar:كركند
+# ats:Llagosta
+# bcl:Banagan
+be:Амары
+# be-tarask:Амары
+bg:омари
+bn:গলদা
+ca:Nefròpid
+cs:humrovití
+de:Hummer
+el:Αστακός
+eo:Omaro
+es:Langosta
+et:Homaar
+fa:شاه‌میگو
+fi:hummerit
+fo:Hummari
+fr:homard, homards
+ga:Gliomach
+gl:Nefrópidos
+# gom:Shivod Kurli
+# hak:Liùng-hâ
+he:לובסטר
+hi:झींगा मछली
+ht:Oma
+hy:Օմարներ
+id:Lobster
+io:Homardo
+is:Humrar
+it:Omaro
+ja:ロブスター
+jv:Lobster
+ka:ჰომარი
+kk:Омарлар
+ko:바닷가재
+ku:Kevjalk
+ky:Омарлар
+la:Homarus, Nephropidae
+lb:Homard
+lt:Omaras
+lv:omāri
+mk:јастози
+ml:കൊഞ്ച്
+ms:Udang karang
+my:ကျောက်ပုဇွန်
+nb:Hummere
+ne:झिङ्गे माछा
+nl:zeekreeften
+nn:Hummar
+nv:Chʼoshtsoh bíláshgaantsohí
+pa:كركند
+pl:homary
+pt:Lavagante
+ro:Homar
+ru:омары
+sh:Nefropidi
+sv:hummer
+ta:கல் இறால்
+te:ఎండ్రకాయ
+th:ล็อบสเตอร์
+tl:Ulang
+tr:Istakoz
+uk:Омар
+ur:کَر کند
+vi:Họ Tôm hùm càng
+# war:Tapusok
+# wuu:龙虾
+# yue:海螯蝦科
+zh:海螯蝦科
+wikipedia:en:https://en.wikipedia.org/wiki/Lobster
+# ingredient/en:lobster has 48 products in english @2019-01-07
+# ingredient/fr:homard has 79 products in 3 languages @2019-01-07
+
+
+# The American lobster (Homarus americanus) is a species of lobster found on the Atlantic coast of North America, chiefly from Labrador to New Jersey. 
+
+<en:lobster
+en:American lobster
+bn:আমেরিকান গলদা চিংড়ি
+ca:llamàntol americà
+cs:humr americký
+da:amerikansk hummer
+de:Amerikanischer Hummer
+el:αμερικανικός αστακός
+# en-ca:American lobster
+# en-gb:American lobster
+es:Langosta americana
+et:Ameerika homaar
+fa:شاه‌میگوی آمریکایی
+fi:amerikanhummeri
+fr:homard américain
+he:לובסטר אמריקני
+hi:अमेरिकी झींगा मछली
+id:Lobster amerika
+ka:ამერიკული ასთაკვი
+it:Astice americano
+lt:Amerikinis omaras
+mn:Amerikansk hummer
+nn:Amerikansk hummar
+or:ଆମେରିକୀୟ ଚିଙ୍ଗୁଡି
+pa:ਅਮਰੀਕੀ ਲਾਬਸਟਰ
+pl:Homar amerykański
+# pnb:امریکی لابسٹر
+ru:американский омар
+sh:Američki hlap
+sq:karavidhe amerikane
+sv:Amerikansk hummer
+ur:امریکی لابسٹر
+vi:Tôm hùm Mỹ
+zh:美洲螯龍蝦
+wikidata:en:Q37668
+wikipedia:https://en.wikipedia.org/wiki/American_lobster
+
+<en:American lobster
+en:Homarus americanus
+la:Homarus americanus
+
+<en:American lobster
+fr:pulpe de homard
+de:Hummerfleisch
+# ingredient/fr:pulpe-de-homard has 5 products in 3 languages @2019-01-07
+
+<en:American lobster
+fr:bouillon de homard
+de:Hummerbouillon
+# ingredient/fr:bouillon-de-homard has 2 products @2019-01-07
+# compound ingredient
+
+
+# The term shrimp is used to refer to some decapod crustaceans, although the exact animals covered can vary.
+
+<en:crustacean
+en:shrimp, prawn
+# ace:Udeuëng
+ak:Monko
+bn:চিংড়ি
+br:Chevrenn
+ca:gamba
+# chr:ᎽᏈ
+# chy:Hetótóhne
+# ckb:مەیگوو
+cs:krevety
+da:Reje, rejer
+de:Garnele, crevetten
+# de-ch:Garnele
+# en-ca:shrimp
+# en-gb:shrimp
+eo:salikoko
+es:gamba
+eu:Izkira
+fa:میگو
+fi:Katkaravut
+fo:Rækja
+fr:crevette
+gl:Gamba
+he:שרימפ
+hu:garnéla
+id:Udang
+it:gambero, gamberi
+ja:エビ
+ko:새우
+la:Squilla
+# lzh:蝦
+mk:ракчиња
+nl:garnaal, garnalen
+# nrm:Chèrvette
+oc:Cambaròta
+pt:camarão
+# pt-br:Camarão
+ro:crevete
+ru:креветки
+# scn:Gàmmaru
+sv:räkor
+sw:Uduvi
+th:กุ้งฝอย
+tr:Karides
+vi:Tôm
+wa:Gurnåte
+# yue:蝦
+za:Gungq
+zh:虾
+wikidata:en:Q1517781
+wikipedia:en:https://en.wikipedia.org/wiki/Shrimp
+# ingredient/fr:crevette has 840 products in 7 languages @2019-01-06
+
+<en:shrimp
+en:shrimp paste
+de:Garnelenpaste
+fi:katkarapupasta
+fr:pâte de crevettes
+nn:rekepasta
+sv:räkpasta
+# pâte de crevettes (crevettes, sel)
+
+<en:shrimp
+fr:crevettes décortiquées, crevette décortiquée
+# ingredient/fr:crevettes-décortiquées has 46 products in french @2019-01-06
+
+<en:shrimp
+fr:crevettes roses
+# ingredient/fr:crevettes-roses has 13 products @2019-01-06
+
+<en:shrimp
+fr:poudre de crevette
+# ingredient/fr:poudre-de-crevette has 40 products in french @2019-01-06
+
+<en:shrimp
+fr:queues de crevettes décortiquées
+# ingredient/fr:queues-de-crevettes-décortiquées has 5 products in french @2019-01-06
+
+
+
+# Penaeidae is a family of marine crustacean in the suborder Dendrobranchiata, which are often referred to as penaeid shrimp or penaeid prawns. 
+
+<en:shrimp
+<fr:crevettes roses
+en:penaeid shrimp
+ar:بنيدات
+bg:Бели скариди
+ca:Peneid
+fa:درازمنقارچگان
+gl:Peneidos
+ja:クルマエビ科
+ko:보리새우과
+la:Penaeidae, Penaeus spp
+mk:пенеиди
+vi:Họ Tôm he
+zh:對蝦科
+wikidata:en: Q683918
+
+# Whiteleg shrimp (Litopenaeus vannamei, formerly Penaeus vannamei), also known as Pacific white shrimp or king prawn, is a variety of prawn of the eastern Pacific Ocean commonly caught or farmed for food.
+
+<en:shrimp
+en:whiteleg shrimp
+fr:Crevette à pattes blanches
+wikidata:en:Q3002564
+wikipedia:en:https://en.wikipedia.org/wiki/Whiteleg_shrimp
+
+<en:whiteleg shrimp
+en:Penaeus vannamei, Penaeus vannamel
+la:Litopenaeus vannamei
+
+
+# Heterocarpus is a genus of deep-sea shrimp, mainly of tropical areas all over the world.
+
+<en:shrimp
+en:Heterocarpus
+la:Heterocarpus, Heterocarpus spp
+wikidata:en:Q3932367
+wikipedia:en:https://en.wikipedia.org/wiki/Heterocarpus
+# ingredient/fr:Heterocarpus-spp has 2 products in french @2019-01-06
+
+<en:shrimp
+en:grey shrimp
+ar:روبيان أوروبي
+bg:обикновена:ребна скарид:br:Chevr-traezh
+da:Hestereje
+de:Nordseegarnele
+eu:Izkira zuri
+fa:میگوی قهوه‌ای
+fi:Hietakatkarapu
+fr:crevettes grises
+# frr:Por
+ga:Ribe róibéis
+io:Kreveto
+it:Gamberetto grigio
+ja:ヨーロッパエビジャコ
+kk:Креветка
+nb:Sandreke
+# nds:Granaat
+nl:grijze garnalen, Noordzeegarnaal
+# pcd:Soetréle
+sl:Navadna peščena kozica
+sv:Sandräka
+uk:Шримс звичайний
+# vls:Nôordzêegeirnoar
+# ingredient/fr:crevettes-grises has 9 products in french @2019-01-06
+
+# Crangon crangon is a commercially important species of caridean shrimp fished mainly in the southern North Sea
+
+<en:grey shrimp
+en:Crangon crangon
+la:Crangon crangon
+wikipedia:en:https://en.wikipedia.org/wiki/Crangon_crangon
+# ingredient/fr:Crangon-crangon has 6 products @2019-01-06
+
+<en:shrimp
+en:northern prawn
+bg:северна скарида
+ca:gamba boreal
+cs:krevetka severní
+da:Dybvandsreje
+de:Kanada-Crevetten, Eismeergarnele
+fi:Pohjankatkarapu
+fr:crevettes nordique, Crevette nordique du Canada
+gl:Camarón ártico
+hu:Norvég garnéla
+is:Stóri kampalampi
+it:Gamberetti del Canada
+ja:ホッコクアカエビ
+lt:Paprastoji šiaurinė krevetė
+nb:dypvannsreke
+pl:krewetka północna
+sv:Nordhavsräka
+vi:Tôm hồng
+zh:北极虾
+wikidata:en:Q122181
+
+<en:northern prawn
+en:Pandalus borealis
+la:Pandalus borealis
+# ingredient/fr:Pandalus-borealis has 22 products @2019-01-06
+
+# Parapenaeopsis sculptilis, commonly known as the Rainbow Shrimp, is a marine crustacean that is widely reared for food
+
+<en:shrimp
+en:rainbow shrimp
+la:Parapenaeopsis sculptilis,  Parapenaeopsis, Parapenaeopsis spp
+wikidata:en: Q14025149
+wikipedia:en:https://en.wikipedia.org/wiki/Parapenaeopsis_sculptilis
+# ingredient/fr:Parapenaeopsis-spp has 1 product @2019-01-06
+
+<en:shrimp
+en:Parapenaeopsis stylifera
+la:Parapenaeopsis stylifera
+wikidata:en: Q6491649
+wikipedia:nl:https://nl.wikipedia.org/wiki/Parapenaeopsis_stylifera
+# ingredient/fr:Parapenaeopsis%20stylifera has 1 product @2019-01-06
+
+<en:shrimp
+la:Solenocera spp
+wikidata:en: Q10673156
+# ingredient/fr:Solenocera-spp has 2 products @2019-01-06
+
+<en:shrimp
+la:Metapenaeus affinis, Metapaneus affinis
+wikipedia:nl:https://nl.wikipedia.org/wiki/Metapenaeus_affinis
+# ingredient/fr:Metapaneus-affinis has 1 product @2019-01-06
+
+<en:shrimp
+la:Solenocera Crassicornis
+wikipedia:nl:https://nl.wikipedia.org/wiki/Solenocera_crassicornis
+
 
 
 # Psyllium, or ispaghula, is the common name used for several members of the plant genus Plantago whose seeds are used commercially for the production of mucilage.
@@ -32993,10 +33824,6 @@ de:Mischung von Honig aus EU-ländern und Nicht EU-ländern
 # ingredient/fr:mélange-de-miels-originaires-et-non-originaires-de-l’ue has 25 products in french @2018-12-17
 
 
-
-
-fr:carbonate acide de sodium
-
 fr:glycérol
 
 
@@ -33031,8 +33858,6 @@ en:sodium citrate
 fr:citrate de sodium, citrates de sodium
 es:citrato de sodio
 
-fr:crustacé
-carbon_footprint_fr_foodges_ingredient:fr:Moules/autres crustacés
 
 
 en:calcium carbonate
@@ -33080,11 +33905,6 @@ fr:carbonate acide d'ammonium
 
 en:iron
 fr:fer
-
-
-en:sodium bicarbonate
-fr:bicarbonate de sodium
-de:Natriumhydrogencarbonat
 
 
 
@@ -34216,14 +35036,6 @@ fr:b5
 
 fr:poulpes
 
-fr:calamars
-
-fr:crabe
-
-fr:chair de crabe
-
-fr:crevette
-
 carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage entier
 
 carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage (filet)
@@ -34236,23 +35048,16 @@ fr:affermissant
 
 fr:extrait riche en tocophérol, extraits riches en tocophérol
 
-fr:polyphosphate
-
 fr:disulfite de sodium
 
 fr:pp
 
 fr:filet de poulet
 
-fr:carbonate de sodium
-de:Natriumcarbonate
-
 fr:sardine
 
 
 fr:karité
-
-fr:triphosphate
 
 fr:lactate de potassium
 
@@ -34273,12 +35078,6 @@ fr:carthame
 fr:iodure de potassium
 
 fr:poulet
-
-en:anchovy
-es:anchoas
-fr:anchois
-nl:ansjovis
-de:Sardellen
 
 fr:diphosphate et carbonate de calcium, diphosphates et carbonates de sodium
 
@@ -34308,8 +35107,6 @@ fr:sulfate de zinc
 fr:glycosides de stéviol
 
 fr:gomme d'acacia
-
-fr:agent de charge
 
 fr:calcium
 
@@ -34668,8 +35465,6 @@ fr:enrobage
 
 fr:dioxyde de silicium
 
-fr:palmitate d'ascorbyle
-
 
 fr:sulfite acide de sodium
 
@@ -34725,8 +35520,6 @@ fr:pain azyme
 fr:sérum de lait
 
 fr:dioxyde de carbone
-
-fr:extrait de houblon
 
 fr:pain au chocolat
 carbon_footprint_fr_foodges_ingredient:fr:Viennoiseries pain au chocolat
@@ -34976,8 +35769,6 @@ fr:graisse butyrique
 
 fr:badiane
 
-fr:herbes de provence
-
 fr:hydroxypropylméthylcellulose
 
 
@@ -35067,7 +35858,6 @@ fr:citrate tricalcique
 fr:penaeus vannamei
 allergens:fr:_penaeus vannamei_
 
-fr:pâte d'anchois
 
 fr:foie de volaille
 
@@ -35190,10 +35980,6 @@ fr:baies de genièvre
 
 
 
-fr:esters lactiques des mono- et diglycérides d'acides gras
-
-
-
 fr:croûtons
 
 fr:crème entière
@@ -35308,8 +36094,6 @@ fr:e202
 fr:e202
 
 fr:e211
-
-fr:e220
 
 fr:e222
 
@@ -35504,10 +36288,7 @@ fr:sel d'aspartame-acésulfame, e962
 
 fr:b1
 
-
 fr:colorant naturel
-
-fr:antiagglomérant
 
 fr:additifs alimentaires
 
@@ -35830,8 +36611,6 @@ fr:flageolets
 
 fr:carbonates de potassium
 
-fr:phosphate trisodique
-
 
 # RANDOM
 
@@ -35907,9 +36686,6 @@ allergens:fr:_lupins_
 
 fr:vermicelles
 
-
-fr:esters citriques des mono- et diglycérides d'acides gras, esters citriques des monoglycérides et diglycérides d'acides gras
-
 fr:préparation aromatique
 
 fr:tartrate de potassium
@@ -35963,8 +36739,6 @@ fr:acétate de calcium
 
 fr:ferments de maturation
 
-fr:polyphosphates de sodium
-
 fr:fibre de bambou, fibres de bambou
 
 fr:vanille naturelle
@@ -35989,8 +36763,6 @@ fr:érythritol
 fr:salsifis
 
 fr:charbon végétal médicinal
-
-fr:phosphatides d'ammonium
 
 fr:fibres de bambou
 
@@ -36064,17 +36836,11 @@ carbon_footprint_fr_foodges_ingredient:fr: Artichauts
 
 fr:coeurs d'artichauts
 
-
 fr:calcium carbonate
 
 fr:églantier
 
-
 fr:bitartrate de potassium
-
-en:riboflavin
-fr:riboflavine, riboflavines
-es:Riboflavina
 
 en:egg pastas
 fr:pâtes aux oeufs
@@ -36096,10 +36862,7 @@ fr:bœuf cuit
 
 fr:genièvre
 
-
-
 fr:zygochlamys patagonica, Saint-Jacques Zygochlamys patagonica
-
 
 fr:fond de veau
 
@@ -36119,16 +36882,11 @@ fr:humectant glycérol
 
 fr:gluconate de zinc
 
-
-
-
 fr:morceaux de chocolat noir
 
 fr:condiment balsamique blanc
 
 fr:oxyde de zinc
-
-fr:agent moussant
 
 fr:gélatine de poisson
 allergens:fr:gélatine de _poisson_
@@ -36249,8 +37007,7 @@ fr:conservateurs e202
 
 fr:conservateur e224
 
-en:e 220
-fr:e220
+en:e 220, e220, e-220
 
 fr:e281
 
@@ -36393,9 +37150,7 @@ pt:emulsionante lecitinas
 # fr:émulsifiant-lécithines has 88 products in 6 languages @2018-11-10
 # fr:émulsifiants-lécithines has 21 products in 4 languages @2018-11-10
 
-fr:émulsifiant, émulsiﬁant
-
-<fr:émulsiﬁants
+<en:emulsifier
 fr:émulsifiant e472e
 
 
@@ -36440,7 +37195,8 @@ fr:mono- et diglycérides d'acides gras d'origine végétale, mono et diglycéri
 nl:mono- en diglyceriden van plantaardige vetzuren
 pt:mono e diglicéridos de ácidos gordos de origem vegetal
 # fr:mono- et diglycérides d'acides gras d'origine végétale has 53 products @2018-11-12
-fr:pectine amidée, e440ii
+
+# fr:pectine amidée, e440ii
 
 fr:gélifiant e407
 
@@ -36465,17 +37221,10 @@ fr:carbonate de fer
 
 fr:s. thermophilus, Streptococcus thermophilus
 
-en:anchovy extract
-es:extracto de anchoas
-fr:extrait d'anchois
-nl:ansjovisextract
-de:Sardellenextrakt
 
 fr:blette
 
 fr:carbonates de magnésium
-
-fr:câpre, câpres
 
 fr:gras de veau
 
@@ -36556,7 +37305,6 @@ fr:poisson blanc
 allergens:fr:_poisson_ blanc
 
 
-fr:filets d'anchois salés
 
 fr:omelette
 
@@ -36567,20 +37315,13 @@ fr:amylases
 
 fr:bolets jaunes
 
-fr:phosphate disodique
-
 fr:protéines végétales réhydratées
 
 fr:morceaux de chocolat
 
 fr:morceaux de foie gras de canard
 
-fr:phosphates de potassium
-
 fr:mononitrate de thiamine
-
-fr:calamar
-allergens:fr:_calamar_
 
 fr:volaille
 
@@ -36666,9 +37407,6 @@ fr:préparation aromatisante
 
 fr:disphosphates
 
-en:potassium phosphate
-fr:phosphate de potassium
-
 fr:sorbate de calcium
 
 fr:vanille moulue
@@ -36692,7 +37430,6 @@ fr:litchi
 fr:base aromatisante barbecue
 
 fr:protéines de froment
-allergens:fr:protéines de _froment_
 
 fr:dextrine de maïs
 
@@ -36701,11 +37438,7 @@ fr:peau de dinde
 
 fr:oreilles de judas
 
-fr:triphosphate pentasodique
-
-
 fr:katsuwonus
-
 
 fr:téguments
 
@@ -36713,20 +37446,13 @@ fr:oncorhynchus nerka
 
 fr:nuoc mâm
 
-
 fr:galacto-oligosaccharides
 
 fr:noyaux de mangue
 
-
-
 fr:fumet
 
-
-
 fr:isomaltulose
-
-fr:stéarate de magnésium
 
 fr:foie
 
@@ -36795,10 +37521,6 @@ fr:nori
 
 fr:orangeat
 
-fr:litopenaeus vannamei
-
-fr:pandalus borealis
-
 fr:cranberries séchées
 
 
@@ -36806,13 +37528,6 @@ fr:cranberries séchées
 fr:plantain
 
 fr:caramel de sulfite caustique
-
-
-
-
-
-
-
 
 fr:flageolets verts extra-fins
 
@@ -36827,8 +37542,6 @@ de:vorgegartes Hühnerfleisch
 
 
 fr:poudre de fleurage
-
-fr:nucléotides
 
 fr:crème acidulée
 
@@ -36910,13 +37623,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tetrasodium_pyrophosphate
 
 
 fr:sardines fraîches
-allergens:fr:_sardines_ fraîches
 
 fr:éclats de caramel au beurre salé
-
-
-
-
 
 fr:disphosphate disodique, Pyrophosphate acide de soude, pyrophosphate de sodium
 
@@ -36956,8 +37664,6 @@ fr:noix de st jacques
 allergens:fr:_noix de st jacques_
 
 
-fr:crevettes décortiquées, crevette décortiquée
-allergens:fr:_crevettes_ décortiquées
 
 fr:œufs de lompe
 allergens:fr:_œufs de lompe_
@@ -37025,15 +37731,11 @@ allergens:fr:_bleu_
 
 fr:l-leucine
 
-fr:phosphate de magnésium
-
 
 
 fr:reines-claudes
 
 fr:combava
-
-fr:cholécalciférol
 
 fr:produit champignon quorn
 
@@ -37101,11 +37803,6 @@ fr:tequila
 fr:dulse
 
 fr:co2
-
-
-
-fr:dosidicus gigas
-allergens:fr:_dosidicus gigas_
 
 fr:sauternes
 
@@ -37369,10 +38066,6 @@ fr:agents de coagulation
 
 fr:petits pois doux
 
-
-
-
-
 fr:sulfite de sodium
 allergens:fr:_sulfite_ de sodium
 
@@ -37432,8 +38125,6 @@ fr:caséinate
 allergens:fr:_caséinate_
 
 fr:anhydride carbonique
-
-fr:chlorhydrate de pyridoxine
 
 fr:liant
 
@@ -37530,11 +38221,6 @@ allergens:fr:chair de _brochet_
 fr:poudre de poisson
 allergens:fr:poudre de _poisson_
 
-fr:poudre de crevette
-allergens:fr:poudre de _crevette_
-
-fr:crevettes roses
-allergens:fr:_crevettes_ roses
 
 fr:salade mélangée
 
@@ -37556,7 +38242,6 @@ fr:edta
 
 fr:mélange de salades
 
-fr:filets d'anchois
 
 fr:brioche
 

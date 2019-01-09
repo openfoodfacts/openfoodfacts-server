@@ -1265,12 +1265,12 @@ sub display_list_of_tags($$) {
 		}
 
 		$log->debug("MongoDB query done", { error => $@ }) if $log->is_debug();
-		
+
 		$log->trace("aggregate query done") if $log->is_trace();
 
 		if ($admin) {
-			$log->debug("aggregate query results", { results => $results }) if $log->is_debug();	
-		}		
+			$log->debug("aggregate query results", { results => $results }) if $log->is_debug();
+		}
 
 		# the return value of aggregate has changed from version 0.702
 		# and v1.4.5 of the perl MongoDB module
@@ -1297,9 +1297,9 @@ sub display_list_of_tags($$) {
 	my $html = '';
 	my $html_pages = '';
 
-	my $countries_map_links = '';
-	my $countries_map_names = '';
-	my $countries_map_data = '';
+	my $countries_map_links = {};
+	my $countries_map_names = {};
+	my $countries_map_data = {};
 
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
 
@@ -1570,12 +1570,19 @@ sub display_list_of_tags($$) {
 					if ($region eq 'UK') {
 						$region = 'GB';
 					}
-					$countries_map_links .=  '"' . $region . '": "' . $product_link . "\",\n";
-					$countries_map_data .= '"' . $region . '": ' . $products . ",\n";
+
+					$countries_map_links->{$region} = $product_link;
+
+					if (not defined $countries_map_data->{$region}) {
+						$countries_map_data->{$region} = $products;
+					}
+					else {
+						$countries_map_data->{$region} = $countries_map_data->{$region} + $products;
+					}
 
 					my $name = $display;
 					$name =~ s/<(.*?)>//g;
-					$countries_map_names .= '"' . $region . '": "' . $name . "\",\n";
+					$countries_map_names->{$region} = $name;
 				}
 			}
 
@@ -1683,23 +1690,11 @@ HTML
 
 
 		# countries map?
-		if ($countries_map_data ne '') {
-
-			$countries_map_data =~ s/,\n?$//s;
-			$initjs .= <<JS
-var countries_map_data = {
-$countries_map_data
-};
-
-var countries_map_links = {
-$countries_map_links
-};
-
-var countries_map_names = {
-$countries_map_names
-};
-
-
+		if (keys %{$countries_map_data} > 0) {
+			$initjs .= 'var countries_map_data=' . encode_json($countries_map_data) . ';'
+				    .= 'var countries_map_links=' . encode_json($countries_map_links) . ';'
+					.= 'var countries_map_names=' . encode_json($countries_map_names) . ';'
+					.= <<JS
 \$('#world-map').vectorMap({
   map: 'world_mill_en',
   series: {
@@ -2823,40 +2818,40 @@ HTML
 
 		$initjs .= $js;
 	}
-	
-	
+
+
 
 	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/) {
-	
+
 		my $user_ref = retrieve("$data_root/users/$tagid.sto");
-	
+
 		if (defined $user_ref) {
-		
+
 			if ((defined $user_ref->{name}) and ($user_ref->{name} ne '')) {
 				$title = $user_ref->{name} . " ($tagid)";
 				$products_title = $user_ref->{name};
-			}		
-		
+			}
+
 			if ($tagtype =~ /^(correctors|editors|informers|correctors|photographers|checkers)$/) {
 				$description .= "\n<ul><li><a href=\"" . canonicalize_tag_link("users", get_fileid($User_id)) . "\">" . sprintf(lang('user_s_page'), $products_title) . "</a></li></ul>\n"
 
 			}
-			
+
 			else {
-				
+
 				if ($admin) {
 					$description .= "<p>" . $user_ref->{email} . "</p>";
 				}
 
 				$description .= "<p>" . lang("contributor_since") . " " . display_date_tag($user_ref->{registered_t}) . "</p>";
-				
+
 				# Display links to products edited, photographed etc.
-				
+
 				$description .= "\n<ul>\n"
 				. "<li><a href=\"" . canonicalize_tag_link("editors", get_fileid($User_id)) . "\">" . sprintf(lang('editors_products'), $products_title) . "</a></li>\n"
 				. "<li><a href=\"" . canonicalize_tag_link("photographers", get_fileid($User_id)) . "\">" . sprintf(lang('photographers_products'), $products_title) . "</a></li>\n"
 				. "</ul>\n";
-				
+
 
 				# 2018/12/19 - disable displaying missions (broken since 2013)
 				if (0 and (defined $user_ref->{missions}) and ($request_ref->{page} <= 1 )) {
@@ -2879,7 +2874,7 @@ HTML
 
 					$description .= $missions;
 				}
-				
+
 			}
 		}
 	}
@@ -3208,22 +3203,22 @@ sub search_and_display_products($$$$$) {
 		else
 		{
 			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
-		  
+
 			while (my $product_ref = $cursor->next) {
 				push @{$request_ref->{structured_response}{products}}, $product_ref;
-			}		  
+			}
 			$request_ref->{structured_response}{count} = $count + 0;
-		  
+
 			$log->debug("Setting value for MongoDB query key", { key => $key }) if $log->is_debug();
 
-			$memd->set($key, $request_ref->{structured_response}, 3600) or $log->debug("Could not set value for MongoDB query key", { key => $key });		  
+			$memd->set($key, $request_ref->{structured_response}, 3600) or $log->debug("Could not set value for MongoDB query key", { key => $key });
 		}
-		
+
   }
   else {
     $log->debug("Found a value for MongoDB query key", { key => $key }) if $log->is_debug();
   }
-	
+
 	$count = $request_ref->{structured_response}{count};
 
 	if (defined $request_ref->{description}) {
@@ -3576,7 +3571,7 @@ sub search_and_export_products($$$$$) {
 	else {
 		$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 	}
-		
+
 	$request_ref->{count} = $count + 0;
 
 	my $html = '';
@@ -4567,13 +4562,13 @@ sub search_and_graph_products($$$) {
 
 	my $cursor;
 	my $count;
-	
+
 	$log->info("retrieving products from MongoDB to display them in a graph", { count => $count }) if $log->is_info();
 
 	if ($admin) {
 		$log->debug("Executing MongoDB query", { query => $query_ref }) if $log->is_debug();
 	}
-	
+
 	eval {
 		$cursor = execute_query(sub {
 			return get_products_collection()->query($query_ref);
@@ -4586,9 +4581,9 @@ sub search_and_graph_products($$$) {
 	else {
 		$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 	}
-		
+
 	$log->info("retrieved products from MongoDB to display them in a graph", { count => $count }) if $log->is_info();
-		
+
 	$request_ref->{count} = $count + 0;
 
 	my $html = '';
@@ -4712,9 +4707,9 @@ sub search_and_map_products($$$) {
 
 	my $cursor;
 	my $count;
-	
+
 	$log->info("retrieving products from MongoDB to display them in a map", { count => $count }) if $log->is_info();
-	
+
 	eval {
 		$cursor = execute_query(sub {
 			return get_products_collection()->query($query_ref);
@@ -4727,9 +4722,9 @@ sub search_and_map_products($$$) {
 	else {
 		$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 	}
-		
+
 	$log->info("retrieved products from MongoDB to display them in a map", { count => $count }) if $log->is_info();
-		
+
 	$request_ref->{count} = $count + 0;
 
 	my $html = '';
@@ -6228,11 +6223,11 @@ HTML
 <div property=\"gr:hasEAN_UCC-13\" content=\"$code\" datatype=\"xsd:string\"></div>\n";
 	}
 
-	
+
 	# obsolete product
-	
+
 	if ((defined $product_ref->{obsolete}) and ($product_ref->{obsolete} eq 'on')) {
-	
+
 		my $warning = $Lang{obsolete_warning}{$lc};
 		if ((defined $product_ref->{obsolete_since_date}) and ($product_ref->{obsolete_since_date} ne '')) {
 			$warning .= " (" . $Lang{obsolete_since_date}{$lc} . $Lang{sep}{$lc} . ": " . $product_ref->{obsolete_since_date} . ")";
@@ -6245,9 +6240,9 @@ $warning
 HTML
 ;
 
-	
+
 	}
-	
+
 
 	if (not has_tag($product_ref, "states", "en:complete")) {
 
@@ -8591,7 +8586,7 @@ sub display_recent_changes {
 	if ((defined $country) and ($country ne 'en:world')) {
 		$query_ref->{countries_tags} = $country;
 	}
-	
+
 	delete $query_ref->{lc};
 
 	if (defined $limit) {
@@ -8622,7 +8617,7 @@ sub display_recent_changes {
 		page_size => $limit,
 		skip => $skip,
 		changes => [],
-	};	
+	};
 
 	my $sort_ref = Tie::IxHash->new();
 	$sort_ref->Push('$natural' => -1);
@@ -8639,7 +8634,7 @@ sub display_recent_changes {
 		$count = $cursor->count() + 0;
 		$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
 	}
-	
+
 	my $html .= "<ul>\n";
 	while (my $change_ref = $cursor->next) {
 		# Conversion for JSON, because the $change_ref cannot be passed to encode_json.
@@ -8658,33 +8653,33 @@ sub display_recent_changes {
 
 		push @{$request_ref->{structured_response}{changes}}, $change_hash;
 
-		my $date = display_date_tag($change_ref->{t});	
+		my $date = display_date_tag($change_ref->{t});
 		my $user = "";
 		if (defined $change_ref->{userid}) {
 			$user = "<a href=\"" . canonicalize_tag_link("users", get_fileid($change_ref->{userid})) . "\">" . $change_ref->{userid} . "</a>";
 		}
-		
+
 		my $comment = $change_ref->{comment};
 		$comment = lang($comment) if $comment eq 'product_created';
-		
+
 		$comment =~ s/^Modification :\s+//;
 		if ($comment eq 'Modification :') {
 			$comment = '';
 		}
 		$comment =~ s/\new image \d+( -)?//;
-		
+
 		if ($comment ne '') {
 			$comment = "- $comment";
 		}
-		
+
 		my $change_rev = $change_ref->{rev};
 
 		# Display diffs
 		# [Image upload - add: 1, 2 - delete 2], [Image selection - add: front], [Nutriments... ]
-		
+
 		my $diffs = compute_changes_diff_text($change_ref);
 		$change_hash->{diffs_text} = $diffs;
-		
+
 		my $product_url = product_url($change_ref->{code});
 		$html .= "<li><a href=\"" . $product_url . "\">" . $change_ref->{code} . "</a> $date - $user $diffs $comment - <a href=\"" . $product_url . "?rev=$change_rev\">" . lang("view") . "</a></li>\n";
 
