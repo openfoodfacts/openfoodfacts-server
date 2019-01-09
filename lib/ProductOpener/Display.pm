@@ -1571,7 +1571,14 @@ sub display_list_of_tags($$) {
 						$region = 'GB';
 					}
 
-					$countries_map_links->{$region} = $product_link;
+					# In case there are multiple country names and thus links that map to the region
+					# only keep the first one, which has the biggest count (and is likely to be the correct name)
+					if (not defined $countries_map_links->{$region}) {
+						$countries_map_links->{$region} = $product_link;
+						my $name = $display;
+						$name =~ s/<(.*?)>//g;
+						$countries_map_names->{$region} = $name;						
+					}
 
 					if (not defined $countries_map_data->{$region}) {
 						$countries_map_data->{$region} = $products;
@@ -1579,10 +1586,6 @@ sub display_list_of_tags($$) {
 					else {
 						$countries_map_data->{$region} = $countries_map_data->{$region} + $products;
 					}
-
-					my $name = $display;
-					$name =~ s/<(.*?)>//g;
-					$countries_map_names->{$region} = $name;
 				}
 			}
 
