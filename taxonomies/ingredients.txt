@@ -78,10 +78,12 @@ stopwords:zh:配料
 
 en:ingredient, ingredients, composition
 da:indeholder
-de:Zutaten
-fr:ingrédient
-it:ingredienti
-nl:ingrediënt, ingrediënten
+de:Zutaten, Zusammensetzung
+es:composición
+fr:ingrédient, ingrédients, composition
+hu:összetétel
+it:ingredienti, composizione
+nl:ingrediënt, ingrediënten, samenstelling
 sk:obsahuje
 sl:vsebuje
 sv:innehåller
@@ -89,80 +91,80 @@ zh:配料
 
 # additive classes (from Global_additives_classes_taxonomy)
 
-en: Acid, Acidifier
-ga: Aigéad
-da: Syre
-el: Μέσο οξίνισης
-es: Acidulante
-fi: Happo
-fr: Acidifiant
-it: Acidificanti
-nl: Voedingszuur
-pt: Acidificante
-sv: Syra
-lv: Skābe
-cs: Kyselina
-et: Hape
-hu: Étkezési sav
-pl: Kwas
-sl: Kislina
-lt: Rūgštis
-mt: Aċidu
-sk: Kyselina
-ro: Acidifiant
-bg: Киселина
+en:acid, Acidifier
+bg:Киселина
+cs:kyselina
+da:syre
 de:Säuerungsmittel
+el:Mέσο οξίνισης
+es:acidulante
+fi:happo
+fr:acidifiant
+ga:aigéad
+et:hape
+hu:Étkezési sav
+it:acidificanti
+lt:rūgštis
+lv:skābe
+mt:aċidu
+nl:voedingszuur
+pl:kwas
+pt:acidificante
+ro:acidifiant
+sl:kislina
+sk:kyselina
+sv:syra
 wikidata:en:Q337038
 
-en: Acidity regulator
-ga: Rialtán aigéadachta
-da: Surhedsregulerende middel
-el: Ρυθμιστής οξύτητας
-es: Corrector de acidez
-fi: Happamuudensäätöaine
-fr: Correcteur d’acidité
-it: Correttori di acidità
-nl: Zuurteregelaar
-pt: Regulador de acidez
-sv: Surhetsreglerande medel
-lv: Skābuma regulētājs
-cs: Regulátor kyselosti
-et: Happesuse regulaator
-hu: Savanyúságot szabályozó anyag
-pl: Regulator kwasowości
-sl: Sredstvo za uravnavanje kislosti
-lt: Rūgštingumą reguliuojanti medžiaga
-mt: Regolatur tal-Aċidità
-sk: Regulátor kyslosti
-ro: Corector de aciditate
-bg: Регулатор на киселинност
-de: Säureregulator
+en:acidity regulator
+ga:rialtán aigéadachta
+da:surhedsregulerende middel
+el:pυθμιστής οξύτητας
+es:corrector de acidez
+fi:happamuudensäätöaine
+fr:correcteur d’acidité
+it:correttori di acidità
+nl:zuurteregelaar
+pt:regulador de acidez
+sv:surhetsreglerande medel
+lv:skābuma regulētājs
+cs:regulátor kyselosti
+et:happesuse regulaator
+hu:savanyúságot szabályozó anyag
+pl:regulator kwasowości
+sl:sredstvo za uravnavanje kislosti
+lt:rūgštingumą reguliuojanti medžiaga
+mt:regolatur tal-Aċidità
+sk:regulátor kyslosti
+ro:corector de aciditate
+bg:pегулатор на киселинност
+de:Säureregulator
 wikidata:en:Q898753
 
 # nova:en:anti-caking-agent
-en:Anti-caking agent
-bg:Антислепващ агент
-cs:Protispékavá látka
-da:Antiklumpningsmiddel
-de:Rieselhilfe, Antiagglomerationsmittel
-el:Αντισυσσωματωτικό
-es:Antiaglomerante
-et:Paakumisvastane aine
-fi:Paakkuuntumisenestoaine
-fr:Antiagglomérant
-ga:Oibreán frithstolptha
-hu:Csomósodást és lesülést gátló anyag
-it:Agenti antiagglomeranti
-lt:Lipnumą reguliuojanti medžiaga
-lv:Pretsalipes viela
-mt:Aġent kontra t-tagħqid
-nl:Antiklontermiddel
-pl:Substancja przeciwzbrylająca
-pt:Antiaglomerante
-ro:Agent antiaglomerant
-sk:Protihrudkovacia látka
-sl:Sredstvo proti sprijemanju
-sv:Klumpförebyggande medel
+en:anti-caking agent
+bg:aнтислепващ агент
+cs:protispékavá látka
+da:antiklumpningsmiddel
+de:rieselhilfe, Antiagglomerationsmittel
+el:aντισυσσωματωτικό
+es:antiaglomerante
+et:paakumisvastane aine
+fi:paakkuuntumisenestoaine
+fr:antiagglomérant
+ga:oibreán frithstolptha
+hu:csomósodást és lesülést gátló anyag
+it:agenti antiagglomeranti
+lt:lipnumą reguliuojanti medžiaga
+lv:pretsalipes viela
+mt:aġent kontra t-tagħqid
+nl:antiklontermiddel
+pl:substancja przeciwzbrylająca
+pt:antiaglomerante
+ro:agent antiaglomerant
+sk:protihrudkovacia látka
+sl:sredstvo proti sprijemanju
+sv:klumpförebyggande medel
 wikidata:en:Q726460
 
 # nova:en:de-foaming-agent?
