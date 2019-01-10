@@ -18,6 +18,7 @@ stopwords:sk:obsahuje
 stopwords:sl:vsebuje
 stopwords:sv:innehåller, från, med
 stopwords:zh:配料
+
 # postfixes
 
 # en
@@ -75,7 +76,7 @@ stopwords:zh:配料
 # Produs maturat si afumat cu lemn de fag. 
 # Pentru 100g produs se prelucreaza 158 g carne de porc.
 
-en:ingredient
+en:ingredient, ingredients, composition
 da:indeholder
 de:Zutaten
 fr:ingrédient
