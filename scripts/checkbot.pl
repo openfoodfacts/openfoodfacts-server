@@ -5,7 +5,7 @@
 # Product Opener
 # Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
-# Address: 21 rue des Iles, 94100 Saint-Maur des FossÃ©s, France
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -24,6 +24,22 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use Modern::Perl '2012';
 use utf8;
+
+my $usage = <<TXT
+checkbot.pl is a script that controls product quality and sends alerts to
+a slack channel.
+
+Usage:
+
+checkbot.pl --max_sendings=2 --country=France --order=random --channel=\#bot-alerts
+Only --channel is mandatory.
+--max_sending: max number of alerts to be sent; default: 10
+--country: all countries if omited
+--order: last modified products if omited; "random" sends products in random order
+--channel: name of the slack channel: #fr, for example, or \@UserName to make tests
+
+TXT
+;
 
 use Encode;
 
@@ -49,6 +65,7 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+use Getopt::Long;
 
 use LWP::UserAgent;
 my $ua = LWP::UserAgent->new;
@@ -59,9 +76,23 @@ my $max_sendings = 10; # maximum number of alerts sent by the bot
 #   Doc: https://api.slack.com/incoming-webhooks
 #   OFF webhooks settings: https://openfoodfacts.slack.com/services/B033QD1T1
 my $server_endpoint = "https://hooks.slack.com/services/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";
+my $channel;
+my $country = '';
+my $product_order = '';
 
 
 # Beginning
+GetOptions (
+	'max_sendings:i' => \$max_sendings,
+	'country:s' => \$country,
+	'order:s' => \$product_order,
+	'channel=s' => \$channel 				# channel is mandatory
+	) or die ("Error in command line arguments:\n\n$usage");
+
+if (not defined $channel) {
+	die ("--channel parameter is mandatory.\n\n$usage");
+}
+
 my $sendings = 0; # Number of alerts sent by the bot
 
 sub send_msg($) {
@@ -79,7 +110,7 @@ sub send_msg($) {
 
 	# add POST data to HTTP request body
 	#   * tests can be made with "channel": "@YourAccount" instead of "#bots-alert"
-	my $post_data = '{"channel": "#bots-alerts", "username": "checkbot", "text": "' . $msg . '", "icon_emoji": ":hamster:" }';
+	my $post_data = '{"channel": "' . $channel . '", "username": "checkbot", "text": "' . $msg . '", "icon_emoji": ":hamster:"}';
 	$req->content_type("text/plain; charset='utf8'");
 	$req->content(Encode::encode_utf8($post_data));
 
@@ -95,11 +126,27 @@ sub send_msg($) {
 
 }
 
-# TODO: randomize the alerts, not to have always the same products
-my $cursor = get_products_collection()->query({})->fields({ code => 1 });;
-my $count = $cursor->count();
+my $query = {};
 
-	print STDERR "$count products to update\n";
+# If --country is specified, build the query with the country
+# TODO: hold the case where 'countries' => 'France,en:Belgium'
+if ($country ne "") {
+	$query = { 'countries' => $country };
+}
+
+# Select the products in reverse order
+my $cursor = get_products_collection()->query($query)->fields({ code => 1 })->sort({code =>-1});
+my $count = $cursor->count();
+print STDERR "$count products to update\n";
+
+# If --order parameter is random, select all the products again, but in a random order
+if ($product_order eq "random") {
+	my $aggregate_parameters = [
+		{ "\$match" => $query },
+		{ "\$sample" => { "size" => $count } }
+	];
+	$cursor = get_products_collection()->aggregate($aggregate_parameters);
+}
 
 	while (my $product_ref = $cursor->next) {
 
@@ -135,7 +182,6 @@ my $count = $cursor->count();
 						print "$code : " . $msg . "\n";
 
 						send_msg($msg);
-#exit;
 
 					}
 				}
