@@ -2836,7 +2836,7 @@ HTML
 			}
 
 			if ($tagtype =~ /^(correctors|editors|informers|correctors|photographers|checkers)$/) {
-				$description .= "\n<ul><li><a href=\"" . canonicalize_tag_link("users", get_fileid($User_id)) . "\">" . sprintf(lang('user_s_page'), $products_title) . "</a></li></ul>\n"
+				$description .= "\n<ul><li><a href=\"" . canonicalize_tag_link("users", get_fileid($tagid)) . "\">" . sprintf(lang('user_s_page'), $products_title) . "</a></li></ul>\n"
 
 			}
 
@@ -2851,8 +2851,8 @@ HTML
 				# Display links to products edited, photographed etc.
 
 				$description .= "\n<ul>\n"
-				. "<li><a href=\"" . canonicalize_tag_link("editors", get_fileid($User_id)) . "\">" . sprintf(lang('editors_products'), $products_title) . "</a></li>\n"
-				. "<li><a href=\"" . canonicalize_tag_link("photographers", get_fileid($User_id)) . "\">" . sprintf(lang('photographers_products'), $products_title) . "</a></li>\n"
+				. "<li><a href=\"" . canonicalize_tag_link("editors", get_fileid($tagid)) . "\">" . sprintf(lang('editors_products'), $products_title) . "</a></li>\n"
+				. "<li><a href=\"" . canonicalize_tag_link("photographers", get_fileid($tagid)) . "\">" . sprintf(lang('photographers_products'), $products_title) . "</a></li>\n"
 				. "</ul>\n";
 
 
