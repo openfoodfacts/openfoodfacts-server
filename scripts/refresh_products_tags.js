@@ -1,13 +1,11 @@
 /* 
   Name        : refresh_products_tags.js 
   Description : Refresh products_tags collection by copying *_tags fields from products collection 
-  Version     : 1.0
-  Usage       : mongo refresh_products_tags.js
+  Version     : 1.1
+  Usage       : mongo dbname refresh_products_tags.js
   Add in crontab for daily refresh : 
-	00 02 * * * /usr/bin/mongo /etc/mongo/refresh_products_tags.js  >> /var/log/mongodb/refresh_products_tags.log
+	00 02 * * * /usr/bin/mongo off /etc/mongo/refresh_products_tags.js  >> /var/log/mongodb/refresh_products_tags.log
 */
-
-db = db.getSiblingDB('off');
 
 print(Date() + ' : Refresh products_tags collection...');
 db.products.aggregate( [
@@ -46,10 +44,10 @@ print(Date() + ' : ' + db.products_tags.estimatedDocumentCount() + ' products re
 
 
 print(Date() + ' : Create indexes for products_tags collection (if not already existing)...');
-db.products_tags.createIndex({countries_tags: 1});
-db.products_tags.createIndex({brands_tags: 1});
-db.products_tags.createIndex({categories_tags: 1});
-db.products_tags.createIndex({labels_tags: 1});
-db.products_tags.createIndex({ingredients_tags: 1});
+db.products_tags.createIndex({countries_tags: 1}, { background: true });
+db.products_tags.createIndex({brands_tags: 1}, { background: true });
+db.products_tags.createIndex({categories_tags: 1}, { background: true });
+db.products_tags.createIndex({labels_tags: 1}, { background: true });
+db.products_tags.createIndex({ingredients_tags: 1}, { background: true });
 
 print(Date() + ' : Refresh done.');
