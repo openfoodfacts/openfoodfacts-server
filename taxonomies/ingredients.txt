@@ -3895,18 +3895,21 @@ en:butterfat, milkfat, pastry butter
 bs:mliječna mast
 cy:braster menyn
 da:mjölkfett
-de:Butterreinfett, Milchfett, wasserfreiesMilchfett
+de:Butterreinfett, Milchfett, wasserfreies Milchfett
 da:smørolie
+# en-gb: butterfat
+eo: laktograso
 es:grasa butírica
 fr:matière grasse lactique, matière grasse laitière anhydre, beurre laitier concentré
 id:lemak susu
-it:burro anidro, burro di pasticceria
+it:burro anidro, burro di pasticceria, burro concentrato
 ja:乳脂肪
 ko:유지방
 ms:lemak mentega, lemak susu
-nl:melkvet, boterconcentraat
+nl:melkvet, boterconcentraat, botervet
 no:melkefett
-pt:gordura de leite anhidra, manteiga concentrada
+pl:tłuszcz mlecny
+pt:gordura de leite anhidra, manteiga concentrada, gordura butrica
 ru:Молочный жир
 sl:mlečna maščoba
 sv:mølkfett
@@ -3914,8 +3917,9 @@ th:ไขมันเนย
 tl:taba ng gatas
 uk:Молочний жир
 zh:乳脂
-allergens:fr:matière grasse _laitière_ anhydre
-allergens:fr:_beurre_ pâtissier
+# zh-hans: 乳脂
+# zh-hant: 乳脂
+# zh-hk: 乳脂
 wikidata:en:Q909729
 wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
 
@@ -4834,6 +4838,102 @@ en:Cream from Normandy
 fr:Crème fraîche de normandie
 nl:Room uit Normandië
 allergens:fr:_crème_ fraîche de normandie
+
+
+
+# buttermilk was the liquid left behind after churning butter out of cultured cream.
+
+en:buttermilk
+af:Karringmelk
+am:አሬራ
+ar:حليب رائب
+# bar:Buddä milsch
+# be-tarask:Масьлянка
+bg:Мътеница
+br:laezh-ribod
+ca:sèrum de mantega
+# ckb:دۆ
+cs:Podmáslí
+cv:Уйран
+cy:Llaeth enwyn
+da:Kærnemælk
+de:Buttermilch
+# de-ch:Buttermilch
+# en-ca:Buttermilk
+# en-gb:Buttermilk
+eo:Buterlakto
+es:Suero de mantequilla
+et:Pett
+fa:آب‌دوغ
+fi:Piimä
+fr:babeurre
+fy:sûpe
+ga:Bláthach
+gd:Blàthach
+# gom:Tak
+gu:છાશ
+he:חובצה
+hi:छाछ
+hu:író
+id:Susu mentega
+io:Butro-lakto
+is:Áfir
+it:latticello
+ja:バターミルク
+kn:ಮಜ್ಜಿಗೆ
+ko:우락유
+li:Karnemèlk
+lt:Pasukos
+lv:paniņas
+mk:матеница
+ml:മോര്
+mo:Babeurre
+mr:ताक
+# mrj:Кӱтӹмӓк
+ms:Susu mentega
+nb:kjernemelk
+# nds-nl:Karnmelk
+ne:मोही
+nl:karnemelk
+om:Baaduu
+pl:Maślanka
+pt:leitelho
+# pt-br:leitelho
+ro:Babeurre
+ru:Пахта
+sa:तक्रम्
+sk:Cmar
+sl:Pinjenec
+sv:Kärnmjölk
+ta:மோர்
+te:మజ్జిగ
+uk:Сколотини
+# yue:牛油奶
+zh:酪漿
+# zh-cn:酪浆
+# zh-hans:酪浆
+# zh-hant:酪漿
+# zh-hk:酪漿
+# zh-sg:酪浆
+# zh-tw:酪漿
+wikidata:en:Q106612
+wikipedia:en:https://en.wikipedia.org/wiki/Buttermilk
+# ingredient/fr:babeurre has 166 products in 4 languages @2018-11-15
+
+<en:buttermilk
+en:buttermilk powder
+da:kæarnemælkpulver
+de:Buttermilchpulver
+el:αποβουτυρωμενο γάλα σεβσκόνη
+es:suero de mantequilla en polvo
+fr:babeurre en poudre, poudre de babeurre, babeurre déshydraté
+it:latticello in polvere
+nl:karnemelkpoeder
+nn:pulverisert kjernemelk
+pt:leitelho em pó
+sv:kärnemjölkspulver
+# ingredient/fr:babeurre-en-poudre has 116 products in 12 languages @2018-12-15
+
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
