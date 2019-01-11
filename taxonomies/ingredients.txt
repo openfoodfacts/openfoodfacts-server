@@ -35260,7 +35260,52 @@ de:Mischung von Honig aus EU-ländern und Nicht EU-ländern
 fr:glycérol
 
 
-fr:sulfite
+
+# Sulfites or sulphites are compounds that contain the sulfite ion SO2−3. 
+
+en:sulfite, Sulphites, sulphite
+af:Sulfiet
+bg:Сулфит
+ca:sulfit
+cs:siřičitan
+da:Sulfit
+de:Sulfite
+eo:Sulfito
+es:Sulfito
+et:sulfit
+fa:سولفیت
+fi:Sulfiitti
+fr:sulfite, sulfites
+it:solfito
+he:סולפיט
+hr:Sulfit
+hy:Սուլֆիտներ
+lt:Persulfatai
+nb:sulfitt
+nl:sulfiet, sulfieten
+oc:Sulfit
+pl:Siarczyny
+pt:sulfito
+ro:Sulfit
+ru:Сульфиты
+sh:Sulfit
+sr:Сулфит
+# sr-ec:Сулфит
+# sr-el:Sulfit
+sv:Sulfit
+tr:Sülfit
+uk:Сульфіти
+zh:亚硫酸盐
+# zh-cn:亚硫酸盐
+# zh-hans:亚硫酸盐
+# zh-hant:亞硫酸鹽
+# zh-hk:亞硫酸鹽
+# zh-sg:亚硫酸盐
+# zh-tw:亞硫酸鹽
+wikidata:en:Q413363
+wikipedia:en:https://en.wikipedia.org/wiki/Sulfite
+# ingredient/fr:sulfite has 3512 products in 10 languages @2018-12-11
+
 
 
 
@@ -36429,8 +36474,73 @@ pt:recheio
 # ingredient/fr:garniture has 1531 products in 9 languages @2018-12-01
 
 
-en:paste
+# fr:pâte is a compound ingredient. It is either the pizza base or italian pasta (think spaghetti)
+
+en:dough
+de:Teig
+es:masa, masa madre
 fr:pâte
+it:pasta
+nl:deeg
+pt:massa
+ro:paste
+# ingredient/paste has 1809 products @2018-12-10
+
+<en:dough
+fr:pâte cuite, pâte cuites, pâtes cuites
+de:Teigwaren gekocht
+it:pasta già cotta
+# ingredient/fr:pâte-cuite has 150 products in 3 languages @2018-12-10
+
+<en:dough
+fr:pâtes fraîches cuites
+# ingredient/fr:pâtes-fraîches-cuites has 19 products in french @2018-12-10
+
+<en:dough
+en:precooked dough
+de:Teig vorgebacken
+es:pasta precocida
+fr:pâtes précuites, pâte précuite, fond de pâte précuit
+it:Pasta precotta
+# ingredient/fr:pâte-précuites has 88 products in 5 languages @2018-12-10
+# ingredient/fr:fond-de-pâte-précuit has 18 products @2018-12-10
+
+<en:dough
+en:shortcrust dough
+da:mørdej
+es:masa quebrada
+fr:pâte brisée
+nl:kruimeldeeg
+nn:mørdeig
+pt:massa quebrada
+sv:pajdeg
+
+<en:dough
+fr:pâte feuilletée
+de:Blätterteig
+it:pasta sfoglia
+nl:bladerdeeg
+# ingredient/fr:pâte-feuilletée has 208 products in 8 languages @2018-12-10
+
+# <en:dough
+# fr:pâte à tarte
+# ingredient/fr:pâte-à-tarte has no products @2018-12-10
+# carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
+
+<en:dough
+fr:pâtes fraîches
+# ingredient/fr:pâtes-fraîches has 49 products in french @2018-12-10
+
+<en:dough
+fr:pâtes alimentaires
+de:Teigwaren
+it:paste alimentari
+# ingredient/fr:pâtes-alimentaires has 75 products 2018-12-10
+
+<en:dough
+fr:pâte crue
+# ingredient/fr:pâte-crue has 22 products in french @2018-12-10
+
 
 en:calcium gluconate
 es:gluconato de calcio
