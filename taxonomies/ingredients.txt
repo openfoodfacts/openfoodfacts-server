@@ -12,21 +12,24 @@ stopwords:hr:sastojci
 stopwords:hu:tartalmaz
 stopwords:it:contiene
 stopwords:nl:bevat, met, waarvan, bevatten
-stopwords:pt:do qual
+stopwords:pl:w tym
+stopwords:pt:do qual, dos quais
 stopwords:sk:obsahuje
 stopwords:sl:vsebuje
 stopwords:sv:innehåller, från, med
+stopwords:zh:配料
 
 # postfixes
 
 # en
-# 
 # Contains genetically modified organisms
 # organically grown products
 # prefried in vegetable oil
 
 # de
 # Hergestellt mit tierischem Lab und mikrobiellem Labaustauschstoff.
+# Kann Haselnüsse, Mandeln, Eier und Spuren anderer Schalenfrüchte (Nüsse) enthalten. 
+# Kakao: 34 % mindestens in der Schokolade
 # Kochsalzgehalt insgesamt: 0,7%.
 # Kochsalzanteil: 1.7% (ohne Jod und ohne Fluor)
 # natürliches Aroma enthält eine Phenylalaninquelle
@@ -57,6 +60,8 @@ stopwords:sv:innehåller, från, med
 # it
 # Contenuto complessivo di sale da cucina: 1,4%.
 # Contiene latte. Puo contenere trace di uova, glutine, sedano, senape.
+# Può contenere nocciole, mandorle, uova e tracce d'altra frutta con guscio (noci). 
+# Cacao: 34 % minimo nel cioccolato.
 
 # nl
 # Product geproduceerd in een werkruimte waar ook het volgende wordt gebruikt : melk, selderij, sesam, weekdieren.
@@ -76,8 +81,6 @@ de:Zutaten, Zusammensetzung
 es:composición
 fr:ingrédient, ingrédients, composition
 hu:összetétel
-fr:ingrédient, ingrédients, composition
-fr:ingrédient, ingrédients, composition
 it:ingredienti, composizione
 nl:ingrediënt, ingrediënten, samenstelling
 pl:skład
@@ -87,6 +90,7 @@ ru:coctaB
 sk:obsahuje
 sl:vsebuje
 sv:innehåller
+zh:配料
 
 # additive classes (from Global_additives_classes_taxonomy)
 
@@ -2096,6 +2100,48 @@ wikidata:en:Q695975
 wikipedia:en:https://en.wikipedia.org/wiki/Mixed_ammonium_salts_of_phosphorylated_glycerides
 # fr:phosphatides-d’ammonium has 56 products in 6 languages @2018-11-06
 # additive/e442-ammonium-phosphatides has 246 products @2018-11-06
+
+
+# Mono- and diglycerides of fatty acids (E471) refers to a food additive composed of diglycerides and monoglycerides which is used as an emulsifier.
+
+en:mono- and diglycerides of fatty acids, E471, E 471, E-471
+ar:أحادي وثنائي الجليسريدات للأحماض الدهنية
+bg:Моно- и диглицериди на мастни киселини
+cs:Mono- a diglyceridy mastných kyselin
+da:mono- og diglycerider af fedtsyrer
+de:Mono- und Diglyceride von Speisefettsäuren
+el:μόνο- και διγλυκερίδια λιπαρών οξέων
+es:monoglicéridos y diglicéridos de ácidos grasos
+et:Rasvhapete mono- ja diglütseriidid
+fi:rasvahappojen mono- ja diglyseridit
+fr:mono- et diglycérides d'acides gras, mono et diglycérides d'acide gras, diglycérides d'acide gras, diglycérides d'acides gras, émulsifiant e471
+hu:zsírsavak mono- és digliceridjei
+it:mono e digliceridi degli acidi grassi
+lt:Riebalų rūgščių mono- ir digliceridai
+lv:Taukskābju mono- un diglicerīdi
+mt:Mono- u digliċeridi tal-aċidi grassi
+nl:mono- en diglyceriden van vetzuren
+nn:mono- och diglycerider av fettsyror
+pl:mono i diglicerydy kwasów tłuszczowych
+pt:mono e diglicéridos de ácidos gordos
+ro:mono sindigliceride ale acizilor grași
+ru:Моно- и диглицериды жирных кислот
+sk:mono- a diglyceridy mastných kyselín
+sl:mono- in digliceridi maščobnih kislin
+sr:mono- i digleciridi masnih kiselina
+sv:mono- och diglycerider av fettsyror
+th:โมโน- และไดกลีเซอไรด์ของกรดไขมัน
+wikidata:en:Q416711
+wikipedia:en:https://en.wikipedia.org/wiki/Mono-_and_diglycerides_of_fatty_acids
+# mono—and-diglycerides-of-fatty-acids has 2139 products in 19 languages @2018-11-12
+# fr:diglycérides-d’acide-gras has 2301 products in 11 languages @2018-11-12
+
+<en:mono- and diglycerides of fatty acids
+en:mono and diglycerides of fatty acids of vegetable origin
+fr:mono- et diglycérides d'acides gras d'origine végétale, mono et diglycérides d'acides gras d'origine végétale
+nl:mono- en diglyceriden van plantaardige vetzuren
+pt:mono e diglicéridos de ácidos gordos de origem vegetal
+# fr:mono- et diglycérides d'acides gras d'origine végétale has 53 products @2018-11-12
 
 
 
