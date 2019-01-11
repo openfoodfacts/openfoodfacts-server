@@ -18804,6 +18804,17 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20mangue
 # 393 products @2018-09-27
 
 
+# <en:mango
+fr:noyaux de mangue
+# ingredient/fr:noyaux-de-mangue has 30 products in french @2018-12-12
+
+<en:mango
+fr:pulpe de mangue
+de:Mangopulpe, Mangomark
+it:polpa di mango
+# ingredient/fr:pulpe-de-mangue has 49 products in 3 languages @2018-12-12
+
+
 # Mirabelle plum, also known as mirabelle prune or cherry plum (Prunus domestica subsp. syriaca), is a cultivar group of plum trees of the genus Prunus. 
 
 <en:fruit
@@ -34881,7 +34892,10 @@ wikidata:en: Q683918
 
 <en:shrimp
 en:whiteleg shrimp
+de:Penaeus vannamei
 fr:Crevette à pattes blanches
+pl:krewetka białonoga
+pt:camarão-de-patas-brancas
 wikidata:en:Q3002564
 wikipedia:en:https://en.wikipedia.org/wiki/Whiteleg_shrimp
 
@@ -34986,10 +35000,38 @@ la:Metapenaeus affinis, Metapaneus affinis
 wikipedia:nl:https://nl.wikipedia.org/wiki/Metapenaeus_affinis
 # ingredient/fr:Metapaneus-affinis has 1 product @2019-01-06
 
+# Pandalus jordani is een garnalensoort uit de familie van de Pandalidae. 
+
+<en:shrimp
+en:Pandalus jordani
+ar: نوع من القشريات
+fr:Pandalus jordani
+is: Bleikrækja
+nl:Pandalus jordani
+wikidata:en: Q4470579
+wikipedia:en:https://nl.wikipedia.org/wiki/Pandalus_jordani
+# ingredient/fr:Pandalus-jordani has 3 products @2108-12-14
+
 <en:shrimp
 la:Solenocera Crassicornis
 wikipedia:nl:https://nl.wikipedia.org/wiki/Solenocera_crassicornis
 
+
+# Penaeidae is a family of marine crustacean in the suborder Dendrobranchiata, which are often referred to as penaeid shrimp or penaeid prawns. 
+
+<en:shrimp
+en:Penaeidae
+ar:بنيدات
+bg:Бели скариди
+fa:درازمنقارچگان
+fr:Penaeidae
+ja:クルマエビ科
+ko:보리새우과
+mk:пенеиди
+vi:Họ Tôm he
+zh:對蝦科
+wikipedia:en:https://en.wikipedia.org/wiki/Penaeidae
+# ingredient/fr:Penaeidae has 5 products @2018-12-14
 
 
 # Psyllium, or ispaghula, is the common name used for several members of the plant genus Plantago whose seeds are used commercially for the production of mucilage.
@@ -37511,13 +37553,10 @@ fr:gras de bœuf
 
 fr:monoglutamate de sodium
 
-fr:bolets
 
 fr:condiments
 
 fr:matière grasse de karité
-
-fr:aronia
 
 fr:baies de genièvre
 
@@ -38845,18 +38884,12 @@ fr:vermicelle
 fr:glycérol d'origine végétale
 
 fr:poisson blanc
-allergens:fr:_poisson_ blanc
-
-
 
 fr:omelette
 
 fr:esters d'acides gras de l'acide ascorbique
 
-
 fr:amylases
-
-fr:bolets jaunes
 
 fr:protéines végétales réhydratées
 
