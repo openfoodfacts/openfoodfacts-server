@@ -3550,7 +3550,7 @@ sub special_process_product($) {
 		}		
 	}
 	
-	if ($product_ref->{nutrition_score_beverage}) {
+	if (($product_ref->{nutrition_score_beverage}) and (not has_tag($product_ref,"categories","en:instant-beverages"))) {
 	
 		if (defined $product_ref->{nutriments}{"alcohol_100g"}) {
 			if ($product_ref->{nutriments}{"alcohol_100g"} < 1) {
@@ -3684,6 +3684,16 @@ sub special_process_product($) {
 	foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
 		if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{"pnns_group_2:en"})) {
 		
+			# skip the sweetened / unsweetened if it is alcoholic
+			next if (	(has_tag($product_ref, 'categories', 'en:alcoholic-beverages'))
+				and (
+					($categoryid eq 'en:sweetened-beverages') 
+					or ($categoryid eq 'en:artificially-sweetened-beverages') 
+					or ($categoryid eq 'en:unsweetened-beverages') 
+				)
+				);
+			
+			
 			# skip the category en:sweetened-beverages if we have the category en:artificially-sweetened-beverages
 			next if (($categoryid eq 'en:sweetened-beverages') and has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'));
 			
@@ -3809,7 +3819,7 @@ sub compute_nutrition_score($) {
 	# unless we have nutrition data for the prepared product
 	# same for en:chocolate-powders, en:dessert-mixes and en:flavoured-syrups
 	
-	foreach my $category_tag ("en:dried-products-to-be-rehydrated", "en:chocolate-powders", "en:dessert-mixes", "en:flavoured-syrups") {
+	foreach my $category_tag ("en:dried-products-to-be-rehydrated", "en:chocolate-powders", "en:dessert-mixes", "en:flavoured-syrups", "en:instant-beverages") {
 	
 		if (has_tag($product_ref, "categories", $category_tag)) {
 		
@@ -3827,16 +3837,29 @@ sub compute_nutrition_score($) {
 	}
 	
 	
-	# do not compute a score for coffee, tea etc.
+	# do not compute a score for coffee, tea etc. except ice teas etc.
 	
 	if (defined $options{categories_exempted_from_nutriscore}) {
 	
-		foreach my $category_id (@{$options{categories_exempted_from_nutriscore}}) {
+		my $not_exempted = 0;
+
+		foreach my $category_id (@{$options{categories_not_exempted_from_nutriscore}}) {
 		
 			if (has_tag($product_ref, "categories", $category_id)) {
-				$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
-				$product_ref->{nutrition_score_debug} = "no nutriscore for category $category_id";
-				return;
+				$not_exempted = 1;
+				last;
+			}
+		}	
+
+		if (not $not_exempted) {
+	
+			foreach my $category_id (@{$options{categories_exempted_from_nutriscore}}) {
+			
+				if (has_tag($product_ref, "categories", $category_id)) {
+					$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+					$product_ref->{nutrition_score_debug} = "no nutriscore for category $category_id";
+					return;
+				}
 			}
 		}
 	}	

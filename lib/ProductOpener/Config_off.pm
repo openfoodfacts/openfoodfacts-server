@@ -353,6 +353,9 @@ en:meal-replacement
 en:dairy-drinks-substitutes
 en:chocolate-powders
 en:soups
+en:coffees
+en:teas
+en:herbal-teas
 )];
 
 $options{categories_exempted_from_nutriscore} = [qw(
@@ -362,10 +365,18 @@ en:alcoholic-beverages
 en:waters
 en:coffees
 en:teas
+en:herbal-teas
 fr:levure
 fr:levures
 en:honeys
 en:vinegars
+)];
+
+# exceptions
+$options{categories_not_exempted_from_nutriscore} = [qw(
+en:tea-based-beverages
+en:iced-teas
+en:herbal-tea-beverages
 )];
 
 $options{categories_exempted_from_nutrient_levels} = [qw(
@@ -374,6 +385,7 @@ en:baby-milks
 en:alcoholic-beverages
 en:coffees
 en:teas
+en:yeasts
 fr:levure
 fr:levures
 )];

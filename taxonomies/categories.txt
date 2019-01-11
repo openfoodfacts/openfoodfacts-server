@@ -3562,6 +3562,7 @@ ru:Растворимый кофе, кофе растворимый
 zh:速溶咖啡, 即时咖啡
 hu:Instant kávék, Oldódó kávé, Kávéporok
 wikidata:en:Q858049
+pnns_group_2:en:unknown
 
 
 en:Powdered cappucino
@@ -3592,6 +3593,7 @@ en:Instant chicory
 fr:Chicorée soluble, chicorée en poudre
 nl:Oploscichorei
 ru:Цикорий растворимый, растворимый цикорий
+pnns_group_2:en:unknown
 
 <en:Coffees
 en:Torrefacto coffees
@@ -3599,6 +3601,7 @@ es:Cafés torrefactos
 fr:Cafés torréfiés, Café torréifié
 nl:Gebrande koffies, Gebrande koffie
 wikidata:en:Q1357168
+pnns_group_2:en:unknown
 
 <en:Beverages
 en:Waters
@@ -16098,7 +16101,7 @@ nl:Viooltjessiropen, Viooltjessiroop
 de:Veilchensirups
 
 <en:Beverages
-<en:Teas
+<en:Tea-based beverages
 en:Iced teas, Iced tea
 de:Eistees
 es:Tés helados, Tés fríos
@@ -16108,7 +16111,6 @@ wikidata:en:Q348958
 pnns_group_2:en:Teas and herbal teas and coffees
 
 <en:Beverages
-<en:Teas
 en:Tea-based beverages, Tea beverages
 fr:Boissons au thé, Thés infusés
 de:Teegetränke, Teebasierte Getränke
@@ -16116,7 +16118,6 @@ nl:Dranken op basis van thee
 pnns_group_2:en:Teas and herbal teas and coffees
 
 <en:Beverages
-<en:Herbal teas
 en:Herbal tea beverages
 fr:Tisanes infusées, Boissons à la tisane
 pnns_group_2:en:Teas and herbal teas and coffees
@@ -16260,7 +16261,7 @@ nl:Rozijnenkoekjes, Rozijnenkoekje, Rozijnekoekjes, Rozijnekoekje
 <en:Cookies
 en:Almond cookies
 de:Mandelkekse, Mandel-Cookie
-fr:Croquants aux amandes, Cookies aux amandes
+fr:Croquants aux amandes, Cookies aux amandes, Biscuits aux amandes
 nl:Amandelkoekjes, Amandelkoekje
 
 
@@ -25676,10 +25677,14 @@ wikidata:en:Q189567
 
 <en:Food additives
 en:baker's yeast 
-fr:Levure de boulanger
+fr:Levures de boulanger
 de:Backhefe
 zh:酵母
 wikidata:en:Q911712
+
+<en:Food additives
+en:Yeast
+fr:Levures de bière
 
 <en:Food additives
 en:Anticaking agents
@@ -33086,7 +33091,11 @@ eo:Ravioloj
 gl:Ravioli
 wikidata:en:Q20053
 
+<en:Pasta dishes
+fr:Ravioles
+
 <en:Stuffed Pastas
+<fr:Ravioles
 fr:Ravioles du Dauphiné
 wikidata:en:Q3420363
 
@@ -38247,6 +38256,7 @@ fr:Grains de maïs surgelés
 nl:Diepvriesmaiskorrels
 
 <en:Frozen corn
+<en:Corn on the cob
 en:Frozen corn on the cob
 de:Gefrorene Maise
 es:Maíz en mazorca congelado, Mazorcas de maíz congeladas
@@ -39839,6 +39849,226 @@ en:Banh Bao
 
 <en:Salty snacks
 en:Salty Fritters
+fr:Beignets salés
 
 <en:Sweet snacks
 en:Sweet Fritters
+fr:Beignets sucrés
+
+<en:Cereal grains
+en:Corn on the cob
+fr:Maïs en épi
+
+<en:Compotes
+en:Plum compotes
+fr:Compotes de prunes
+
+<en:Frozen vegetables
+en:Frozen salsify
+fr:Salsifis surgelés
+
+<en:Canned green beans
+en:Canned flat green beans
+fr:Haricots verts plats en conserve
+
+<en:Soups
+en:Watercress soups
+fr:Soupes de cresson
+
+<en:Chocolate bars
+en:Caramel chocolate bars
+fr:Barres chocolatées au caramel
+
+<en:Chocolate bars
+en:Chocolate nuts cookie bars
+fr:Barres chocolatées biscuitées aux noisettes
+
+<en:Chocolate bars
+en:Caramel chocolate cookie bars
+fr:Barres chocolatées biscuitées au caramel
+
+<en:Cooking helpers
+en:Toppings
+fr:Nappages
+
+<en:Salty snacks
+en:Vegetable cakes
+fr:Cakes aux légumes
+
+<en:Salted spreads
+en:Anchovy paste
+fr:Anchoïade
+
+<fr:Pâtes à tartiner
+en:Speculoos spreads
+fr:Pâtes à tartiner au spéculoos
+
+<en:Margarines
+en:Liquid margarines
+fr:Margarines liquides
+
+<en:Mackerels fillets
+en:Mackerel fillets in oil
+fr:Filets de maquereaux à l'huile
+
+<en:Cold starters
+<en:Prepared vegetables
+en:Prepared vegetables macedoines
+fr:Macédoines de légumes préparées
+
+<en:Mashed vegetables
+en:Mashed split peas
+fr:Purées de pois cassés
+
+<en:Risottos
+en:Vegetable risottos
+fr:Risottos aux légumes
+
+<en:Raviolis
+en:Chinese raviolis
+fr:Ravioli chinois
+
+<en:Tortellinis 
+en:Meat tortellinis
+fr:Tortellini à la viande
+
+<en: Tortellinis
+en:Vegetables tortellinis
+fr:Tortellini aux légumes
+
+<en:Meals
+en:Acras, Accras
+fr:Acras, Accras
+
+<en:Meals
+en:Cod acras, Cod accras
+fr:Acras de morue, Accras de morue
+
+<en:Meals
+en:Truffades
+fr:Truffades
+
+<en:Meals
+en:Aligots
+fr:Aligots
+
+<en:Breaded turkey 
+en:Turkey nuggets
+fr:Nuggets de dinde
+
+<fr:Charcuteries diverses
+fr:Pâtés de foie
+
+<fr:Saucisses sèches
+fr:Saucisses sèches de jambon
+
+<fr:Charcuteries cuites
+en:Poultry hams
+fr:Jambons de volaille
+
+<en:Frozen vegetables
+en:Frozen butter beans
+fr:Haricots beurre surgelés
+
+<en:Sandwiches
+en: Surprise breads
+fr:Pains surprise
+
+<en:Sandwiches
+en:Paninis, Panninis
+fr:Paninis
+
+<en:Sandwiches
+en:Raw vegetable sandwiches
+fr:Sandwichs aux crudités
+
+<en:Tea-based beverages 
+en:Kombuchas
+fr:Kombuchas, combuchas
+
+<en:Cheeses
+en:Double cream cheeses
+fr:Fromages double crème
+
+<en:Cheeses
+en:Abbaye cheeses
+fr:Fromages d’abbaye
+
+<en:Dairy desserts
+fr:Oeufs au lait
+
+<en:Yogurts
+en:Yogurts with cereals
+fr:Yaourts aux céréales
+
+<en:Muffins
+en:Fruit Muffins
+fr:Muffins aux fruits
+
+<en:Fruit muffins
+en:Banana Muffins
+fr:Muffins à la banane
+
+<en:Fruit muffins
+en:Blueberry Muffins
+fr:Muffins aux myrtilles
+
+<en:Chocolate candies
+en:Milk chocolate candies
+fr:Bonbons de chocolat au lait
+
+<en:Confectioneries
+fr:Bonbons dragéifiés
+
+<en:White chocolates
+en:White chocolates with hazelnuts
+fr:Chocolats blancs aux noisettes
+
+<en:Stuffed wafers
+en:Stuffed fruits wafers
+fr:Gaufrettes fourrées aux fruits
+
+<en:Viennoiseries
+en:Brioche breads
+fr:Pains briochés
+
+<fr:Fromages blancs
+fr:Fromages blancs aromatisés
+
+<en:Cakes
+en:Almond cakes
+fr:Gâteaux aux amandes
+
+<en:Sweet mousses
+en:Fruit mousses
+fr: Mousses aux fruits
+
+<en:Desserts
+en:Vacherins
+fr:Vacherins
+
+<en:Pastries
+en:Strudels
+fr:Strudels
+
+<en:Pastries
+<en:Desserts
+en:Charlottes
+fr:Charlottes
+
+<en:Charlottes
+en:Chocolate Charlottes
+fr:Charlottes au chocolat
+
+<en:Charlottes
+en:Fruit Charlottes
+fr:Charlottes aux fruits
+
+<en:Pastries
+<en:Desserts
+en:Crumbles
+fr:Crumbles
+
+<en:Terrine
+en:Fish terrine
+fr: Terrines de poisson
