@@ -34653,7 +34653,6 @@ fr:extrait de crabe
 # ingredient/fr:extrait-de-crabe has 25 products in french @2019-01-07
 
 
-
 # Lobsters comprise a family (Nephropidae, sometimes also Homaridae) of large marine crustaceans.
 
 <en:crustacean
@@ -34668,15 +34667,12 @@ bg:омари
 bn:গলদা
 ca:Nefròpid
 cs:humrovití
-de:Hummer
 el:Αστακός
 eo:Omaro
 es:Langosta
-et:Homaar
 fa:شاه‌میگو
 fi:hummerit
 fo:Hummari
-fr:homard, homards
 ga:Gliomach
 gl:Nefrópidos
 # gom:Shivod Kurli
@@ -34686,18 +34682,15 @@ hi:झींगा मछली
 ht:Oma
 hy:Օմարներ
 id:Lobster
-io:Homardo
 is:Humrar
 it:Omaro
-ja:ロブスター
 jv:Lobster
 ka:ჰომარი
 kk:Омарлар
 ko:바닷가재
 ku:Kevjalk
 ky:Омарлар
-la:Homarus, Nephropidae
-lb:Homard
+la:Nephropidae
 lt:Omaras
 lv:omāri
 mk:јастози
@@ -34730,7 +34723,68 @@ vi:Họ Tôm hùm càng
 zh:海螯蝦科
 wikipedia:en:https://en.wikipedia.org/wiki/Lobster
 # ingredient/en:lobster has 48 products in english @2019-01-07
+
+
+# Homarus is a genus of lobsters, which include the common and commercially significant species Homarus americanus (the American lobster) and Homarus gammarus (the European lobster).
+
+<en:lobster
+en:Homarus
+ar:همار
+da: hummer
+de:Hummer
+et:Homaar
+eu: Misera
+fr:homard
+# frr: Homer
+gd: Giomach
+gl: Lumbrigante
+hr: Hlap
+io:Homardo
+ja:ロブスター
+kk:Омар шаяны
+ku:Kevjalk
+la:Homarus
+lb:Homard
+oc:Ligombau
+# sco: Lapster
+sh:Hlapovi
+uk:Омар
+nv:Chʼoshtsoh bíláshgaantsohí daadánígíí
+wikidata:en:Q11827352
+wikipedia:en:https://en.wikipedia.org/wiki/Homarus
 # ingredient/fr:homard has 79 products in 3 languages @2019-01-07
+
+# Homarus gammarus, known as the European lobster or common lobster, is a species of clawed lobster from the eastern Atlantic Ocean, Mediterranean Sea and parts of the Black Sea. 
+
+<en:Homarus
+en:European lobster, common lobster
+bg: европейски омар
+cs: humr evropský
+de: Europäischer Hummer
+et: Euroopa homaar
+fi: Euroopanhummeri
+fr:homard européen
+ga: Gliomach Eorpach
+hu: Európai homár
+is: Evrópskur Humar
+it: gambero europeo
+lt: Europinis omaras
+nl: Europese kreeft
+nn: Europeisk hummar
+pl: homar europejski
+ro: Homar european
+ru: Европейский омар
+sh: Hlap
+sl: Evropski jastog
+sv: Europeisk hummer
+zh:歐洲螯龍蝦
+wikidata:en: Q27690
+
+<en:European lobster
+en:Homarus gammarus
+la:Homarus gammarus
+wikipedia:en:https://en.wikipedia.org/wiki/Homarus_gammarus
+# fr:Homarus%20gammarus has 4 products @2019-01-11
 
 
 # The American lobster (Homarus americanus) is a species of lobster found on the Atlantic coast of North America, chiefly from Labrador to New Jersey. 
