@@ -34658,7 +34658,7 @@ fr:extrait de crabe
 <en:crustacean
 en:lobster
 # ang:Loppestre
-ar:كركند
+ar:همار,كركند
 # ats:Llagosta
 # bcl:Banagan
 be:Амары
@@ -34667,30 +34667,40 @@ bg:омари
 bn:গলদা
 ca:Nefròpid
 cs:humrovití
+da:hummer
+de:Hummer
 el:Αστακός
 eo:Omaro
-es:Langosta
+et:Homaar
+eu:Misera
 fa:شاه‌میگو
 fi:hummerit
 fo:Hummari
+fr:homard, homards
+# frr:Homer
 ga:Gliomach
-gl:Nefrópidos
+gd:Giomach
+gl:Nefrópidos, Lumbrigante
 # gom:Shivod Kurli
 # hak:Liùng-hâ
 he:לובסטר
 hi:झींगा मछली
+hr:Hlap
 ht:Oma
 hy:Օմարներ
 id:Lobster
+io:Homardo
 is:Humrar
 it:Omaro
+ja:ロブスター
 jv:Lobster
 ka:ჰომარი
-kk:Омарлар
+kk:Омарлар, Омар шаяны
 ko:바닷가재
 ku:Kevjalk
 ky:Омарлар
-la:Nephropidae
+la:Nephropidae, Homarus
+lb:Homard
 lt:Omaras
 lv:omāri
 mk:јастози
@@ -34701,13 +34711,15 @@ nb:Hummere
 ne:झिङ्गे माछा
 nl:zeekreeften
 nn:Hummar
-nv:Chʼoshtsoh bíláshgaantsohí
+nv:Chʼoshtsoh bíláshgaantsohí, Chʼoshtsoh bíláshgaantsohí daadánígíí
+oc:Ligombau
 pa:كركند
 pl:homary
 pt:Lavagante
 ro:Homar
 ru:омары
-sh:Nefropidi
+# sco: Lapster
+sh:Nefropidi, Hlapovi
 sv:hummer
 ta:கல் இறால்
 te:ఎండ్రకాయ
@@ -34723,40 +34735,11 @@ vi:Họ Tôm hùm càng
 zh:海螯蝦科
 wikipedia:en:https://en.wikipedia.org/wiki/Lobster
 # ingredient/en:lobster has 48 products in english @2019-01-07
-
-
-# Homarus is a genus of lobsters, which include the common and commercially significant species Homarus americanus (the American lobster) and Homarus gammarus (the European lobster).
-
-<en:lobster
-en:Homarus
-ar:همار
-da: hummer
-de:Hummer
-et:Homaar
-eu: Misera
-fr:homard
-# frr: Homer
-gd: Giomach
-gl: Lumbrigante
-hr: Hlap
-io:Homardo
-ja:ロブスター
-kk:Омар шаяны
-ku:Kevjalk
-la:Homarus
-lb:Homard
-oc:Ligombau
-# sco: Lapster
-sh:Hlapovi
-uk:Омар
-nv:Chʼoshtsoh bíláshgaantsohí daadánígíí
-wikidata:en:Q11827352
-wikipedia:en:https://en.wikipedia.org/wiki/Homarus
 # ingredient/fr:homard has 79 products in 3 languages @2019-01-07
 
 # Homarus gammarus, known as the European lobster or common lobster, is a species of clawed lobster from the eastern Atlantic Ocean, Mediterranean Sea and parts of the Black Sea. 
 
-<en:Homarus
+<en:lobster
 en:European lobster, common lobster
 bg: европейски омар
 cs: humr evropský
