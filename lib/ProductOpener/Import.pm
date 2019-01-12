@@ -41,6 +41,8 @@ BEGIN
 		@fields_mapping
 		&load_csv_file
 		
+		&load_xml_file
+		
 		&print_csv_file
 		&print_stats
 		
@@ -143,6 +145,7 @@ sub clean_fields($) {
 			$products{$code}{$field} =~ s/’/'/g;
 			
 			# Remove extra line feeds
+			$products{$code}{$field} =~ s/<br( ?\/?)>/\n/ig;
 			$products{$code}{$field} =~ s/\r\n/\n/g;
 			$products{$code}{$field} =~ s/\n\./\n/g;			
 			$products{$code}{$field} =~ s/\n\n(\n+)/\n\n/g;
@@ -173,6 +176,10 @@ sub clean_fields($) {
 			
 				$products{$code}{$field} =~ s/(<b><u>|<u><b>)/<b>/g;
 				$products{$code}{$field} =~ s/(<\b><\u>|<\u><\b>)/<\b>/g;
+				$products{$code}{$field} =~ s/<u>/<b>/g;
+				$products{$code}{$field} =~ s/<\/u>/<\/b>/g;
+				$products{$code}{$field} =~ s/<em>/<b>/g;
+				$products{$code}{$field} =~ s/<\/em>/<\/b>/g;				
 				$products{$code}{$field} =~ s/<b>\s+/ <b>/g;
 				$products{$code}{$field} =~ s/\s+<\/b>/<\/b> /g;
 
@@ -219,8 +226,28 @@ sub clean_fields($) {
 			$products{$code}{$field} =~ s/(\s|-|;|,)*$//;
 			$products{$code}{$field} =~ s/^(\s|-|;|,)+//;
 			$products{$code}{$field} =~ s/^(\s|-|;|,|_)+$//;
+			
+			# remove N/A, NA etc.
+			$products{$code}{$field} =~ s/^(n(\?)a)|(not applicable)$//i;
 		
 		}
+	}
+	
+	# normalize weights
+	foreach my $field ("net_weight", "drained_weight", "total_weight", "volume") {
+	
+		# combine value and unit
+		if ((not defined $products{$code}{$field})
+			and (defined $products{$code}{$field . "_value"})
+			and ($products{$code}{$field . "_value"} ne "")
+			and (defined $products{$code}{$field . "_value"}) ) {
+			$products{$code}{$field} = $products{$code}{$field . "_value"} . " " . $products{$code}{$field . "_unit"};
+		}
+		else {
+			# 2295[GR]
+			$products{$code}{$field} =~ s/(\d)\s?\[(\w+)\]/$1 $2/;
+		}
+		
 	}
 	
 	# empty or uncomplete quantity, but net_weight etc. present
@@ -232,14 +259,11 @@ sub clean_fields($) {
 
 		my $extra_quantity;
 		
-		if ((defined $products{$code}{net_weight_value}) and ($products{$code}{net_weight_value} ne "")) {
-			$extra_quantity = $products{$code}{net_weight_value} . " " . $products{$code}{net_weight_unit};
-		}
-		elsif ((defined $products{$code}{drained_weight_value}) and ($products{$code}{drained_weight_value} ne "")) {
-			$extra_quantity = $products{$code}{drained_weight_value} . " " . $products{$code}{drained_weight_unit};
-		}
-		elsif ((defined $products{$code}{volume_value}) and ($products{$code}{volume_value} ne "")) {
-			$extra_quantity = $products{$code}{volume_value} . " " . $products{$code}{volume_unit};
+		foreach my $field ("net_weight", "drained_weight", "total_weight", "volume") {
+			if ((defined $products{$code}{$field}) and ($products{$code}{$field} ne "")) {
+				$extra_quantity = $products{$code}{$field};
+				last;
+			}		
 		}
 		
 		if (defined $extra_quantity) {
@@ -259,6 +283,96 @@ sub clean_fields_for_all_products() {
 	foreach my $code (sort keys %products) {
 		clean_fields($code);
 	}
+}
+
+
+sub load_xml_file($$$$) {
+
+	my $file = shift;
+	my $xml_rules_ref = shift;
+	my $xml_fields_mapping_ref = shift;
+	my $code = shift; # can be undef or passed if we already know it from the file name
+	
+	# try to guess the code from the file name
+	if ((not defined $code) and ($file =~ /\D(\d{13})\D/)) {
+		$code = $1;
+		print STDERR "inferring code $code from file name $file\n";
+	}
+	
+	print STDERR "parsing file $file\n";
+
+	my $parser = XML::Rules->new(rules => $xml_rules_ref);
+	
+	
+	my $xml_ref;
+
+	eval { $xml_ref = $parser->parse_file( $file);	};
+	
+	if ($@ ne "") {
+		return 1;
+	}
+
+	use Data::Dumper;
+	print STDERR Dumper($xml_ref);
+	
+	print STDERR "mapping fields for file $file\n";
+	
+#		my @xml_fields_mapping = (
+#
+#			# get the code first
+#			
+#			["fields.AL_CODE_EAN.FR", "code"],
+#			["ProductCode", "producer_version_id"],			
+#			["fields.AL_INGREDIENT.*", "ingredients_text_*"],
+
+	
+
+	foreach my $field_mapping_ref (@$xml_fields_mapping_ref) {
+		my $source = $field_mapping_ref->[0];
+		my $target = $field_mapping_ref->[1];
+		
+		print STDERR "source: $source - target: $target\n";
+		
+		my $current_tag = $xml_ref;
+		
+		foreach my $source_tag (split(/\./, $source)) {
+			print STDERR "source_tag: $source_tag\n";
+			if ($source_tag eq '*') {
+				foreach my $tag ( keys %{$current_tag}) {
+					my $tag_target = $target;
+					$tag_target =~ s/\*/$tag/;
+					$tag_target = lc($tag_target);
+					print STDERR "* tag key: $tag - target: $tag_target\n";
+					if ((defined $current_tag->{$tag}) and (not ref($current_tag->{$tag})) and ($current_tag->{$tag} ne '')) {
+						print STDERR "$tag value is a scalar: $current_tag->{$tag}, assign value to $tag_target\n";
+						if ($tag_target eq 'code') {
+							$code = $current_tag->{$tag};
+						}						
+						assign_value($code, $tag_target, $current_tag->{$tag});
+					}
+				}
+				last;
+			}
+			elsif (defined $current_tag->{$source_tag}) {
+				if (ref($current_tag->{$source_tag}) eq 'HASH') {
+					print STDERR "going down to hash $source_tag\n";
+					$current_tag = $current_tag->{$source_tag};
+				}
+				elsif ((defined $current_tag->{$source_tag}) and (not ref($current_tag->{$source_tag})) and ($current_tag->{$source_tag} ne '')) {
+					print STDERR "$source_tag is a scalar: $current_tag->{$source_tag}, assign value to $target\n";
+					if ($target eq 'code') {
+						$code = $current_tag->{$source_tag};
+					}
+					assign_value($code, $target, $current_tag->{$source_tag});
+				}
+			}
+			else {
+				last;
+			}		
+		}
+	}
+	
+	return 0;
 }
 
 
@@ -348,7 +462,32 @@ sub load_csv_file($$$$) {
 
 
 
+sub recursive_list($$) {
 
+	my $list_ref = shift;
+	my $arg = shift;	
+
+	if (-d $arg) {
+		
+		my $dir = $arg;
+		
+		print "Opening dir $dir\n";
+
+		if (opendir (DH, "$dir")) {
+			foreach my $file (sort { $a cmp $b } readdir(DH)) {
+
+				next if (($file eq '.') or ($file eq '..'));
+				
+				recursive_list($list_ref, $dir . "/" . $file);		
+			}
+		}
+
+		closedir (DH);	
+	}
+	else {
+		push @$list_ref, $arg;
+	}
+}
 
 sub get_list_of_files(@) {	
 
@@ -361,29 +500,7 @@ sub get_list_of_files(@) {
 
 		print STDERR "arg: $arg\n";
 		
-		if (-d "$arg") {
-			my $dir = $arg;
-			print "Opening dir $dir\n";
-
-			if (opendir (DH, "$dir")) {
-				foreach my $file (sort { $a cmp $b } readdir(DH)) {
-
-					next if (($file eq '.') or ($file eq '..'));
-					
-					#if ($file =~ /^(\d+)-(\d+)_(.*)\.jpg/) {
-					if ($file =~ /0(\d+)_(.*)\.png/) {
-						push @files, $file;
-					}
-				
-				}
-			}
-
-			closedir (DH);	
-		}
-		else {
-			push @files, $arg;
-		}
-		
+		recursive_list(\@files, $arg);
 	}
 
 	return @files;
