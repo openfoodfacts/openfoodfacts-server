@@ -34455,7 +34455,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Eledone_moschata
 # Scallop is a common name that is primarily applied to any one of numerous species of saltwater clams or marine bivalve mollusks in the taxonomic family Pectinidae, the scallops.
 
 <en:mollusc
-en:scallop
+en:scallop, scallops
 ar:بالیق قولاغی
 ca:Pectínid
 de:Kammmuscheln, Jakobsmuscheln, Pilgermuscheln
@@ -34754,20 +34754,66 @@ wikipedia:en:https://en.wikipedia.org/wiki/Doryteuthis_gahi
 # ingredient/fr:Loligo-Gahi has 1 product @2019-01-04
 
 
+
+# Clam is a common name for several kinds of bivalve molluscs.
+
 <en:mollusc
+en:clam, clams
+ar:محار ملزمي
+# ast:Amasuela
+ca:cloïssa
+# cdo:Gák-lì
+de:Venusmuscheln
+el:Αχιβάδα
+eo:pekteno
+es:Almeja
+eu:Txirla
+fa:صدف دوکفه‌ای
+fr:palourde, palourdes
+ga:Breallach
+gd:Bainteag
+gl:Ameixa
+# gom:Tisreo
+# hak:Lò-pê-é
+he:קלאם
+id:Kerang
+it:vongola, vongole
+ja:クラム
+jv:Kerang
+ko:조개
+ml:കക്ക
+my:ဂုံး
+# nan:Hún-giô
+nl:clam
+oc:Clausissa
+pt:Amêijoa
+su:Kerang
+vi:Nghêu
+# yue:蜆
+zh:蛤蜊
+# zh-hans:蛤蜊
+# zh-hant:蛤蜊
+# zh-hk:蛤蜊
+wikidata:en:Q1192868
+wikipedia:en:https://en.wikipedia.org/wiki/Clam
+# ingredient/clam has 8 products in english @2019-01-13
+# ingredient/fr:palourdes has 15 products in 2 languages @2019-01-06
+
+<en:clam
+en:clam meat
+
+<en:clam
 en:undulate venus
-fr:palourdes
 it:vongola del Pacifico
 th:หอยลาย
 vi:Sò lụa
 zh:波纹巴非蛤, 波紋橫簾蛤
-# ingredient/fr:palourdes has 15 products in 2 languages @2019-01-06
 
 <en:undulate venus
 en:Paratapes undulatus
 la:Paratapes undulatus, Paphia undulata
 
-<en:undulate venus
+<en:clam
 fr:palourdes précuites
 
 
