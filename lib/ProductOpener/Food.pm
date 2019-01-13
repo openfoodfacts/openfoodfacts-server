@@ -3647,8 +3647,16 @@ sub special_process_product($) {
 
 					(($product_ref->{lc} eq 'en') or ($product_ref->{lc} eq 'fr'))
 					and ((defined $product_ref->{ingredients_text}) and (length($product_ref->{ingredients_text}) > 3))) {
+					
 					if (not has_tag($product_ref,"categories","en:unsweetened-beverages")) {
 						add_tag($product_ref, "categories", "en:unsweetened-beverages");
+					}
+				}
+				else {
+					# remove unsweetened-beverages category that may have been added before
+					# we cannot trust it if we do not have a correct ingredients list
+					if (has_tag($product_ref,"categories","en:unsweetened-beverages")) {
+						remove_tag($product_ref, "categories", "en:unsweetened-beverages");
 					}
 				}
 			}
@@ -3809,10 +3817,16 @@ sub compute_nutrition_score($) {
 
 	# do not compute a score when we don't have a category
 	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
-			$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
-			$product_ref->{nutrition_score_debug} = "no score when the product does not have a category";
-			return;
+		$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+		$product_ref->{nutrition_score_debug} = "no score when the product does not have a category";
+		return;
 	}	
+	
+	if (not defined $product_ref->{nutrition_score_beverage}) {
+		$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+		$product_ref->{nutrition_score_debug} = "did not determine if it was a beverage";
+		return;	
+	}
 	
 	
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, powder milk)
@@ -3951,6 +3965,7 @@ sub compute_nutrition_score($) {
 	
 	my $fr_beverages_sugars_points = int(($product_ref->{nutriments}{"sugars" . $prepared . "_100g"} - 0.00001 + 1.5) / 1.5);
 	$fr_beverages_sugars_points > 10 and $fr_beverages_sugars_points = 10;	
+	
 	
 # L’attribution des points pour les sucres prend en compte la présence d’édulcorants, pour lesquels la grille maintient les scores sucres simples à 1 (au lieu de 0).		
 	
@@ -4150,7 +4165,8 @@ COMMENT
 	# FR
 	
 	my $fruits_points_fr = $fruits_points;
-	if (has_tag($product_ref, "categories", "en:beverages")) {
+	
+	if ($product_ref->{nutrition_score_beverage}) {
 		$fruits_points_fr = 2 * $fruits_points;
 	}
 	
@@ -4229,11 +4245,7 @@ sub compute_nutrition_grade($$) {
 	
 	my $grade = "";
 
-	if (has_tag($product_ref, "categories", "en:beverages")
-		and not (has_tag($product_ref, "categories", "en:plant-milks")
-		 or has_tag($product_ref, "categories", "en:milks")
-		 or has_tag($product_ref, "categories", "en:dairy-drinks")
-	)) {
+	if ($product_ref->{nutrition_score_beverage}) {
 		
 # Tableau 6 : Seuils du score FSA retenus pour les boissons
 # Classe du 5-C
