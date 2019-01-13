@@ -20,12 +20,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use strict;
 use utf8;
 
+
 binmode(STDOUT, ":encoding(UTF-8)");
+binmode(STDERR, ":encoding(UTF-8)");
 
 use ProductOpener::Import qw/:all/;
 
@@ -36,6 +36,8 @@ use Encode;
 use JSON::PP;
 use Time::Local;
 use XML::Rules;
+
+use Log::Any::Adapter ('Stderr');
 
 # default language (needed for cleaning fields)
 
@@ -91,7 +93,7 @@ my @files = get_list_of_files(@ARGV);
 
 foreach my $file (@files) {
 
-	load_csv_file($file, "UTF-8", "\t", 4);
+	load_csv_file($file, "UTF-8", "\t", 0);
 
 }
 
