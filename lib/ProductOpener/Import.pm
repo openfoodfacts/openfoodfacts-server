@@ -24,6 +24,9 @@ use utf8;
 use Modern::Perl '2012';
 use Exporter    qw< import >;
 
+use Log::Any qw($log);
+
+
 BEGIN
 {
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
@@ -228,7 +231,7 @@ sub clean_fields($) {
 			$products{$code}{$field} =~ s/^(\s|-|;|,|_)+$//;
 			
 			# remove N/A, NA etc.
-			$products{$code}{$field} =~ s/^(n(\?)a)|(not applicable)$//i;
+			$products{$code}{$field} =~ s/^(n(\/?)a)|(not applicable)$//i;
 		
 		}
 	}
@@ -296,13 +299,13 @@ sub load_xml_file($$$$) {
 	# try to guess the code from the file name
 	if ((not defined $code) and ($file =~ /\D(\d{13})\D/)) {
 		$code = $1;
-		print STDERR "inferring code $code from file name $file\n";
+		$log->info("inferring code from file name", { code => $code, file => $file }) if $log->is_info();
+
 	}
 	
-	print STDERR "parsing file $file\n";
+	$log->info("parsing xml file with XML::Rules", { file => $file, xml_rules => $xml_rules_ref }) if $log->is_info();
 
 	my $parser = XML::Rules->new(rules => $xml_rules_ref);
-	
 	
 	my $xml_ref;
 
@@ -311,11 +314,10 @@ sub load_xml_file($$$$) {
 	if ($@ ne "") {
 		return 1;
 	}
-
-	use Data::Dumper;
-	print STDERR Dumper($xml_ref);
 	
-	print STDERR "mapping fields for file $file\n";
+	$log->trace("XML::Rules output", { file => $file, xml_ref => $xml_ref }) if $log->is_trace();
+	
+	$log->info("Mapping XML fields", { file => $file }) if $log->is_info();
 	
 #		my @xml_fields_mapping = (
 #
@@ -325,13 +327,12 @@ sub load_xml_file($$$$) {
 #			["ProductCode", "producer_version_id"],			
 #			["fields.AL_INGREDIENT.*", "ingredients_text_*"],
 
-	
 
 	foreach my $field_mapping_ref (@$xml_fields_mapping_ref) {
 		my $source = $field_mapping_ref->[0];
 		my $target = $field_mapping_ref->[1];
 		
-		print STDERR "source: $source - target: $target\n";
+		$log->trace("source", { source=>$source, target=>$target }) if $log->is_trace();
 		
 		my $current_tag = $xml_ref;
 		
@@ -382,29 +383,33 @@ sub load_csv_file($$$$) {
 	my $encoding = shift;
 	my $separator = shift;
 	my $skip_lines = shift;
-	
+		
 	# e.g. load_csv_file($file, "UTF-8", "\t", 4);
 	
-	print STDERR "Loading CSV file $file\n";
+	$log->info("Loading CSV file", { file => $file }) if $log->is_info();
 	
 	my $csv = Text::CSV->new ( { binary => 1 , sep_char => $separator } )  # should set binary attribute.
                  or die "Cannot use CSV: ".Text::CSV->error_diag ();
 
 	open (my $io, "<:encoding($encoding)", $file) or die("Could not open $file: $!");
 	
-	for (my $i = 0; $i < $skip_lines; $i++) {
+	my $i = 0;	# line number	
+	
+	for ($i = 0; $i < $skip_lines; $i++) {
 		$csv->getline ($io);
 	}
 	
 
 	my $headers_ref = $csv->getline ($io);
+	$i++;
 	
-	#use Data::Dumper;
-	#print STDERR Dumper($headers_ref);
+	$log->info("CSV headers", { file => $file, headers_ref=>$headers_ref }) if $log->is_info();
 	
 	$csv->column_names($headers_ref);
 
 	while (my $product_ref = $csv->getline_hr ($io)) {
+	
+		$i++; # line number
 	
 		my $code = undef;	# code must be first
 
@@ -412,6 +417,8 @@ sub load_csv_file($$$$) {
 		
 			my $source_field = $field_mapping_ref->[0];
 			my $target_field = $field_mapping_ref->[1];
+			
+			$log->info("Field mapping", { source_field => $source_field, source_field_value => $product_ref->{$source_field}, target_field=>$target_field }) if $log->is_info();
 		
 			if (defined $product_ref->{$source_field}) {
 				# print STDERR "defined source field $source_field: " . $product_ref->{$source_field} . "\n";
@@ -452,15 +459,13 @@ sub load_csv_file($$$$) {
 
 			}
 			else {
-				print STDERR "undefined source field $source_field\n";	
+				$log->error("undefined source field", { line => $i, source_field=>$source_field, product_ref=>$product_ref }) if $log->is_error();
 				die;				
 			}
 		}
 	
 	}
 }
-
-
 
 sub recursive_list($$) {
 
@@ -471,7 +476,7 @@ sub recursive_list($$) {
 		
 		my $dir = $arg;
 		
-		print "Opening dir $dir\n";
+		print STDERR "Opening dir $dir\n";
 
 		if (opendir (DH, "$dir")) {
 			foreach my $file (sort { $a cmp $b } readdir(DH)) {
