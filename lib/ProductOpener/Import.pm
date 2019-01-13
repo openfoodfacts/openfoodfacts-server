@@ -244,9 +244,11 @@ sub clean_fields($) {
 			and (defined $products{$code}{$field . "_value"})
 			and ($products{$code}{$field . "_value"} ne "")
 			and (defined $products{$code}{$field . "_value"}) ) {
+			
 			$products{$code}{$field} = $products{$code}{$field . "_value"} . " " . $products{$code}{$field . "_unit"};
 		}
-		else {
+		
+		if (defined $products{$code}{$field}) {
 			# 2295[GR]
 			$products{$code}{$field} =~ s/(\d)\s?\[(\w+)\]/$1 $2/;
 		}
