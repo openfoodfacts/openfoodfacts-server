@@ -34496,23 +34496,30 @@ zh:扇贝
 wikidata:en:Q1311395
 wikipedia:en:https://en.wikipedia.org/wiki/Scallop
 
-# The queen scallop (Chlamys opercularis) is a medium-sized species of scallop, an edible marine bivalve mollusk in the family Pectinidae, the scallops. 
+
+# Argopecten irradians, formerly classified as Aequipecten irradians, common names Atlantic bay scallop or bay scallop, is an edible species of saltwater clam, a scallop,
 
 <en:scallop
-en:queen scallop
-ca:xelet
-de:Kleine Pilgermuschel
-fr:Pétoncle blanc, Vanneau
-gl:Volandeira
-it:Canestrello
-ja:クイーンホタテ
-la:Chlamys opercularis, Aequipecten opercularis
-nl:Wijde mantel
-sr:Ostrea elegans
-zh:女王扇貝
-wikidata:en:Q1746507
-wikipedia:en:https://en.wikipedia.org/wiki/Queen_scallop
-# ingredient/fr:Chlamys-opercularis has 81 products @2019-01-12
+en:Atlantic bay scallop, bay scallop
+fa: گوش‌ماهی خلیج
+is: Flóaskel
+zh:海湾扇贝
+
+en:Argopecten irradians
+la:Argopecten irradians
+wikipedia:https://en.wikipedia.org/wiki/Argopecten_irradians
+wikidata:en: Q3018372
+# ingredient/fr:Argopecten%20irradians has 10 products @2019-01-13
+
+
+<en:scallop
+en:Atlantic calico scallop
+la:Argopecten Gibbus
+sr:Ostrea gibba
+wikidata:en:Q3017111
+wikipedia:en:https://en.wikipedia.org/wiki/Argopecten_gibbus
+# ingredient/fr:Argopecten-Gibbus has 1 product @2019-01-12
+
 
 # Pecten maximus, common names the great scallop, king scallop, St James shell or escallop, is a northeast Atlantic species of scallop, an edible saltwater clam, a marine bivalve mollusc in the family Pectinidae. 
 
@@ -34549,6 +34556,10 @@ la:Pecten maximus
 # ingredient/fr:Pecten-maximus has 25 products @2019-01-12
 
 <en:scallop
+en:Patagonian scallop
+
+<en:Patagonian scallop
+en:Zygochlamys patagonica
 la:Zygochlamys patagonica
 # ingredient/fr:Zygochlamys-patagonica has 87 products @2019-01-12
 
@@ -34580,16 +34591,36 @@ wikidata:en:Q3412062
 wikipedia:https://en.wikipedia.org/wiki/Argopecten_purpuratus
 # ingredient/fr:Argopecten-purpuratus has 68 products @2019-01-12
 
+
+# The queen scallop (Chlamys opercularis) is a medium-sized species of scallop, an edible marine bivalve mollusk in the family Pectinidae, the scallops. 
+
+<en:scallop
+en:queen scallop
+ca:xelet
+de:Kleine Pilgermuschel
+fr:Pétoncle blanc, Vanneau
+gl:Volandeira
+it:Canestrello
+ja:クイーンホタテ
+la:Chlamys opercularis, Aequipecten opercularis
+nl:Wijde mantel
+sr:Ostrea elegans
+zh:女王扇貝
+wikidata:en:Q1746507
+wikipedia:en:https://en.wikipedia.org/wiki/Queen_scallop
+# ingredient/fr:Chlamys-opercularis has 81 products @2019-01-12
+
+
 # Argopecten gibbus (Atlantic calico scallop) is a species of medium-sized edible marine bivalve mollusk in the family Pectinidae, the scallops
 
 <en:scallop
-en:Atlantic calico scallop
-la:Argopecten Gibbus
-sr:Ostrea gibba
-wikidata:en:Q3017111
-wikipedia:en:https://en.wikipedia.org/wiki/Argopecten_gibbus
-# ingredient/fr:Argopecten-Gibbus has 1 product @2019-01-12
+en:speckled Scallop
 
+<en:speckled Scallop
+en:Argopecten irradians concentricus
+la:Argopecten irradians concentricus, Argopecten circularis
+wikidata:en: Q30749478
+# ingredient/fr:Argopecten-circularis has 10 products in french @2019-01-13
 
 
 # Ascidiacea (commonly known as the ascidians or sea squirts) is a paraphyletic class in the subphylum Tunicata of sac-like marine invertebrate filter feeders.
