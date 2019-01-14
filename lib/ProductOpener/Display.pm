@@ -2985,8 +2985,10 @@ HTML
 	# db.myCol.find({ mylist: { $ne: 'orange' } })
 
 
-	# unknown ?
-	if (($tagid eq get_fileid(lang("unknown"))) or ($tagid eq ($lc . ":" . get_fileid(lang("unknown"))))) {
+	# unknown / empty value
+	# warning: unknown is a value for pnns_groups_1 and 2
+	if ((($tagid eq get_fileid(lang("unknown"))) or ($tagid eq ($lc . ":" . get_fileid(lang("unknown")))))
+		and ($tagtype !~ /^pnns_groups_/)) {
 		#$query_ref = { ($tagtype . "_tags") => "[]"};
 		$query_ref = { "\$or" => [ { ($tagtype ) => undef}, { $tagtype => ""} ] };
 	}
@@ -3013,6 +3015,11 @@ HTML
 			push @$and, { $field => $value };
 			delete $query_ref->{$field};
 			$query_ref->{"\$and"} = $and;
+		}
+		# unknown / empty value
+		elsif ((($tagid2 eq get_fileid(lang("unknown"))) or ($tagid2 eq ($lc . ":" . get_fileid(lang("unknown")))))
+			and ($tagtype2 !~ /^pnns_groups_/)) {
+			$query_ref->{"\$or"} = [ { ($tagtype2 ) => undef}, { $tagtype2 => ""} ] ;
 		}
 		else {
 			$query_ref->{$field} = $value;
