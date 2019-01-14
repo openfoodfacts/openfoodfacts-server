@@ -32750,6 +32750,31 @@ zh:鮭魚
 wikipedia:en:https://en.wikipedia.org/wiki/Salmon_as_food
 # ingredient/salmon has 1659 products in 6 languages @2018-12-29
 
+<en:salmon
+fr:saumon cuit
+de:Lachs gekocht
+# ingredient/fr:saumon-cuit has 49 products in 2 languages @2018-12-29
+
+#<en:salmon
+#fr:pavé de saumon d'élevage
+#carbon_footprint_fr_foodges_ingredient:fr:Pavé de Truite ou Saumon d'élevage
+# no products
+
+#<en:salmon
+#fr:saumon fumé d'élevage
+#carbon_footprint_fr_foodges_ingredient:fr:Truite/Saumon fumé d'élevage
+# no products
+
+# en:smoked-salmon is a compound ingredient
+
+<en:salmon
+en:smoked salmon
+de:Räucherlachs
+fr:saumon fumé
+it:salmone affumicato
+# ingredient/smoked-salmon has 292 products in 4 languages @2018-12-29
+
+
 # The Atlantic salmon (Salmo salar) is a species of ray-finned fish in the family Salmonidae. 
 
 <en:salmon
@@ -32829,10 +32854,56 @@ wikidata:en:Q188879
 wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_salmon
 # ingredient/fr:saumon-atlantique has 687 products in 5 languages @2018-12-29
 
+
+# The chum salmon (Oncorhynchus keta) is a species of anadromous fish in the salmon family. 
+
 <en:salmon
-fr:saumon cuit
-de:Lachs gekocht
-# ingredient/fr:saumon-cuit has 49 products in 2 languages @2018-12-29
+en:Chum salmon
+be:Кета
+bg:куча сьомга
+ca:salmó keta
+de:Ketalachs
+eo:Ketao
+et:Keta
+fa:ساکه
+fi:Koiralohi
+he:אלתית צ'אם
+hu:Ketalazac
+hy:կետա
+ja:サケ
+ka:კეტა
+kk:Кете
+# kk-arab:كەتە
+# kk-cn:كەتە
+# kk-cyrl:Кете
+# kk-kz:Кете
+# kk-latn:Kete
+# kk-tr:Kete
+ko:연어
+mk:кучешки лосос
+nb:ketalaks
+nl:Chumzalm
+# pam:Chum salmon
+pl:Keta
+ru:Кета
+# sah:Кэтэ
+uk:Кета
+vi:Cá hồi Chum
+zh:鈎吻鮭
+# zh-hans:大麻哈鱼
+# zh-cn:大麻哈鱼
+# zh-hant:鈎吻鮭
+# zh-hk:大麻哈魚
+# zh-sg:大麻哈鱼
+# zh-tw:鈎吻鮭
+wikidata:en:Q475211
+wikipedia:en:https://en.wikipedia.org/wiki/Chum_salmon
+
+<en:Chum salmon
+en:Oncorhynchus kéta
+la:Oncorhynchus kéta
+# ingredient/fr:Oncorhynchus-kéta has 22 products @2019-01-14
+
 
 # Pink salmon or humpback salmon (Oncorhynchus gorbuscha) is a species of anadromous fish in the salmon family.
 
@@ -32858,7 +32929,6 @@ ja:カラフトマス
 ka:ღურკანა
 ko:곱사연어
 ky:Бүкүр сом
-
 nb:Pukkellaks
 nl:Roze zalm
 # pam:Pink salmon
@@ -32878,28 +32948,12 @@ wikidata:en:Q673380
 wikipedia:en:https://en.wikipedia.org/wiki/Pink_salmon
 # ingredient/fr:saumon-rose-du-pacifique has 46 products in french @2018-12-29
 
-<en:salomon
+<en:pink salomon
 en:Oncorhynchus gorbuscha
 la:Oncorhynchus gorbuscha
+# ingredient/oncorhynchus-gorbuscha has 27 products @2019-01-14
+# http://www.marinespecies.org/aphia.php?p=taxdetails&id=127182
 
-#<en:salmon
-#fr:pavé de saumon d'élevage
-#carbon_footprint_fr_foodges_ingredient:fr:Pavé de Truite ou Saumon d'élevage
-# no products
-
-#<en:salmon
-#fr:saumon fumé d'élevage
-#carbon_footprint_fr_foodges_ingredient:fr:Truite/Saumon fumé d'élevage
-# no products
-
-# en:smoked-salmon is a compound ingredient
-
-<en:salmon
-en:smoked salmon
-de:Räucherlachs
-fr:saumon fumé
-it:salmone affumicato
-# ingredient/smoked-salmon has 292 products in 4 languages @2018-12-29
 
 
 # A tuna (also called tunny) is a saltwater fish that belongs to the tribe Thunnini, a subgrouping of the Scombridae (mackerel) family.
