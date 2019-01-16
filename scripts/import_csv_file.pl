@@ -20,8 +20,6 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use strict;
 use utf8;
 
@@ -40,7 +38,6 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::SiteQuality qw/:all/;
 
-use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
@@ -75,8 +72,13 @@ my $source_id;
 my $source_name;
 my $source_url;
 my $testing = 0;
+my $import_lc;
+my $no_source = 0;
+my $skip_not_existing_products = 0;
+
 
 GetOptions (
+	"import_lc=s" => \$import_lc,
 	"csv_file=s" => \$csv_file,
 	"images_dir=s" => \$images_dir,
 	"user_id=s" => \$User_id,
@@ -86,6 +88,8 @@ GetOptions (
 	"source_url=s" => \$source_url,
 	"define=s%" => \%global_values,
 	"testing" => \$testing,
+	"no_source" => \$no_source,
+	"skip_not_existing_products" => \$skip_not_existing_products,
 	"only_import_products_with_images" => $only_import_products_with_images,
 		)
   or die("Error in command line arguments:\n$\nusage");
@@ -118,24 +122,22 @@ if (not defined $User_id) {
 	$missing_arg++;
 }
 
-if (not defined $User_id) {
-	print STDERR "missing --user_id parameter\n";
-	$missing_arg++;
-}
+if (not $no_source) {
 
-if (not defined $source_id) {
-	print STDERR "missing --source_id parameter\n";
-	$missing_arg++;
-}
+	if (not defined $source_id) {
+		print STDERR "missing --source_id parameter\n";
+		$missing_arg++;
+	}
 
-if (not defined $source_name) {
-	print STDERR "missing --source_name parameter\n";
-	$missing_arg++;
-}
+	if (not defined $source_name) {
+		print STDERR "missing --source_name parameter\n";
+		$missing_arg++;
+	}
 
-if (not defined $source_url) {
-	print STDERR "missing --source_url parameter\n";
-	$missing_arg++;
+	if (not defined $source_url) {
+		print STDERR "missing --source_url parameter\n";
+		$missing_arg++;
+	}
 }
 
 $missing_arg and exit();
@@ -169,21 +171,82 @@ if ((defined $images_dir) and ($images_dir ne '')) {
 	if (not -d $images_dir) {
 		die("images_dir $images_dir is not a directory\n");
 	}
+	
+	# images rules to assign front/ingredients/nutrition image ids
+	
+	my @images_rules = ();
+	
+	if (-e "$images_dir/images.rules") {
+	
+		print STDERR "found images rules: $images_dir/images.rules\n";
+	
+		open (my $in, "<$images_dir/images.rules") or die "Could not open $images_dir/images.rules : $!\n";
+		my $line_number = 0;
+		while (<$in>) {
+		
+			my $line = $_;
+			chomp($line);
+			
+			$line_number++;
+			
+			if ($line =~ /^#/) {
+				print STDERR "ignoring comment: $line\n";
+				next;
+			}			
+			elsif ($line =~ /^([^\t]+)\t([^\t]+)/) {
+				push @images_rules, [$1, $2];
+				print STDERR "adding rule - find: $1 - replace: $2\n";
+			}
+			else {
+				die("Unrecognized line number $i: $line_number\n");
+			}
+		}
+	}
+	else {
+		print STDERR "did not find images rules: $images_dir/images.rules does not exist\n";	
+	}
 
 	print "Opening images_dir $images_dir\n";
 
 	if (opendir (DH, "$images_dir")) {
 		foreach my $file (sort { $a cmp $b } readdir(DH)) {
 
-			if ($file =~ /(\d+)(_|-|\.)?(.*)?\.(jpg|jpeg|png)/i) {
+			# apply image rules to the file name to assign front/ingredients/nutrition
+			my $file2 = $file;
+			
+			foreach my $images_rule_ref (@images_rules) {
+				my $find = $images_rule_ref->[0];
+				my $replace = $images_rule_ref->[1];
+				#$file2 =~ s/$find/$replace/e;
+				# above line does not work
+				
+				my $str = $file2;
+				my $pat = $find;
+				my $repl = $replace;
+				
+				# make $repl safe to eval
+				$repl =~ tr/\0//d;
+				$repl =~ s/([^A-Za-z0-9\$])/\\$1/g;
+				$repl = '"' . $repl . '"';
+				$str =~ s/$pat/$repl/eeg;
+				
+				$file2 = $str;
+				
+				if ($file2 ne $file) {
+					print STDERR "applied rule find $find - replace $replace - file: $file - file2: $file2\n";
+				}
+			}
+		
+			if ($file2 =~ /(\d+)(_|-|\.)?([^\.-]*)?((-|\.)(.*))?\.(jpg|jpeg|png)/i) {
 			
 				my $code = $1;
 				my $imagefield = $3;	# front / ingredients / nutrition , optionnaly with _[language code] suffix
+				
 				if ((not defined $imagefield) or ($imagefield eq '')) {
 					$imagefield = "front";
 				}
 				
-				print "FOUND IMAGE FOR PRODUCT CODE $code - file $file - imagefield: $imagefield\n";
+				print "FOUND IMAGE FOR PRODUCT CODE $code - file $file - file2 $file2 - imagefield: $imagefield\n";
 				
 				# skip jpg and keep png for front product image
 
@@ -202,7 +265,6 @@ if ((defined $images_dir) and ($images_dir ne '')) {
 		die ("Could not open images_dir $images_dir : $!\n");
 	}
 }
-
 
 print "importing products\n";
 
@@ -248,14 +310,8 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		}
 	}
 	
-	if (not defined $imported_product_ref->{lc})  {
-		die ("missing language code lc in csv file and global field values for product code $code \n");
-	}
-	
-	$lc = $imported_product_ref->{lc};	
-	
-	if ($lc !~ /^\w\w$/) {
-		print "lc $lc for product code $code is not a 2 letter language code\n";
+	if ((defined $imported_product_ref->{lc}) and ($imported_product_ref->{lc} !~ /^\w\w$/)) {
+		print "lc " . $imported_product_ref->{lc} . " for product code $code is not a 2 letter language code\n";
 		use Data::Dumper;
 		print Dumper($imported_product_ref);
 		die;	
@@ -292,14 +348,25 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 	
 	my $product_ref = product_exists($code); # returns 0 if not
 	
+	
+	if ((not defined $imported_product_ref->{lc}) and (not defined $import_lc))  {
+		die ("missing language code lc in csv file, global field values, or import_lc for product code $code \n");
+	}	
+	
 	if (not $product_ref) {
 		print "- does not exist in OFF yet\n";
+		
+		if ($skip_not_existing_products) {
+			print STDERR "skip not existing products\n";
+			next;
+		}
+		
 		$new++;
 		if (1 and (not $product_ref)) {
 			print "product code $code does not exist yet, creating product\n";
 			$User_id = $User_id;
 			$product_ref = init_product($code);
-			$product_ref->{interface_version_created} = "import_csv_file.pl - version 2018/11/19";
+			$product_ref->{interface_version_created} = "import_csv_file.pl - version 2019/01/16";
 			$product_ref->{lc} = $global_values{lc};
 			delete $product_ref->{countries};
 			delete $product_ref->{countries_tags};
@@ -318,83 +385,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 
 
-	# Upload images
 
-	if (defined $images_ref->{$code}) {
-	
-		print "uploading images for product code $code\n";
-	
-		my $images_ref = $images_ref->{$code};
-		
-		foreach my $imagefield (sort keys %{$images_ref->{$code}}) {
-							
-			my $current_max_imgid = -1;
-			
-			if (defined $product_ref->{images}) {
-				foreach my $imgid (keys %{$product_ref->{images}}) {
-					if (($imgid =~ /^\d/) and ($imgid > $current_max_imgid)) {
-						$current_max_imgid = $imgid;
-					}
-				}
-			}
-		
-			my $imported_image_file = $images_ref->{$imagefield};
-			
-			# if the language is not specified, assign it to the language of the product
-			
-			my $imagefield_with_lc = $imagefield;
-			
-			if ($imagefield !~ /_\w\w/) {
-				$imagefield_with_lc .= "_" . $lc;
-			}
-					
-			# upload the image
-			my $file = $imported_image_file;
-
-			if (-e "$images_dir/$file") {
-				print "found image file $images_dir/$file\n";
-				
-				# upload a photo
-				my $imgid;
-				my $return_code = process_image_upload($code, "$images_dir/$file", $User_id, undef, $comment, \$imgid);
-				print "process_image_upload - file: $file - return code: $return_code - imgid: $imgid\n";	
-				
-				
-				if (($imgid > 0) and ($imgid > $current_max_imgid)) {
-
-					print "assigning image $imgid to ${imagefield_with_lc}\n";
-					eval { process_image_crop($code, $imagefield_with_lc, $imgid, 0, undef, undef, -1, -1, -1, -1); };
-					# $modified++;
-		
-				}
-				else {
-					print "returned imgid $imgid not greater than the previous max imgid: $current_max_imgid\n";
-					
-					# overwrite already selected images
-					if (($imgid > 0) 
-						and (exists $product_ref->{images})
-						and (exists $product_ref->{images}{$imagefield_with_lc})
-						and ($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)) {
-						print "re-assigning image $imgid to ${$imagefield_with_lc}\n";
-						eval { process_image_crop($code, $imagefield_with_lc, $imgid, 0, undef, undef, -1, -1, -1, -1); };
-						# $modified++;
-					}
-					
-				}
-			}
-			else {
-				print "did not find image file $images_dir/$file\n";
-			}
-		
-		}
-
-		# reload the product (changed by image upload)
-		$product_ref = retrieve_product($code);
-	}
-	
-
-	
-	
 	# Create or update fields
 	
 	my %param_langs = ();
@@ -483,7 +474,14 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				
 				if ($product_ref->{$field} =~ /^, /) {
 					$product_ref->{$field} = $';
-				}	
+				}
+				
+				my $tag_lc = $product_ref->{lc};
+				
+				# If an import_lc was passed as a parameter, assume the imported values are in the import_lc language
+				if (defined $import_lc) {
+					$tag_lc = $import_lc;
+				}
 				
 				if ($field eq 'emb_codes') {
 					# French emb codes
@@ -492,18 +490,18 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				}
 				if (not defined $current_field) { 
 					print "added value for product code: $code - field: $field = $product_ref->{$field}\n";
-					compute_field_tags($product_ref, $field);
+					compute_field_tags($product_ref, $tag_lc, $field);
 					push @modified_fields, $field;
 					$modified++;				
 				}
 				elsif ($current_field ne $product_ref->{$field}) {
 					print "changed value for product code: $code - field: $field = $product_ref->{$field} - old: $current_field\n";
-					compute_field_tags($product_ref, $field);
+					compute_field_tags($product_ref, $tag_lc, $field);
 					push @modified_fields, $field;
 					$modified++;
 				}
 				elsif ($field eq "brands") {	# we removed it earlier
-					compute_field_tags($product_ref, $field);
+					compute_field_tags($product_ref, $tag_lc, $field);
 				}
 				
 			
@@ -736,21 +734,23 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 	detect_allergens_from_text($product_ref);
 	
 
-	if (not defined $product_ref->{sources}) {
-		$product_ref->{sources} = [];
-	}
+	if (not $no_source) {
 	
-	push @{$product_ref->{sources}}, {
-		id => $source_id,
-		name => $source_name,
-		url => $source_url,
-		manufacturer => 1,
-		import_t => time(),
-		fields => \@modified_fields,
-		images => \@images_ids,	
-	};
-
+		if (not defined $product_ref->{sources}) {
+			$product_ref->{sources} = [];
+		}
 		
+		push @{$product_ref->{sources}}, {
+			id => $source_id,
+			name => $source_name,
+			url => $source_url,
+			manufacturer => 1,
+			import_t => time(),
+			fields => \@modified_fields,
+			images => \@images_ids,	
+		};
+
+	}
 	
 	if (not $testing) {
 	
@@ -775,16 +775,94 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		#exit;
 		
 		
-		store_product($product_ref, "Editing product (import_systemeu.pl bulk import) - " . $comment );
+		store_product($product_ref, "Editing product (import_csv_file.pl) - " . $comment );
 		
 		push @edited, $code;
 		$edited{$code}++;
 		
 		$j++;
-		$j > 10 and last;
-		#last;
+		
 	}
 	
+	
+	
+	# Upload images
+
+	if (defined $images_ref->{$code}) {
+	
+		print "uploading images for product code $code\n";
+	
+		my $images_ref = $images_ref->{$code};
+		
+		foreach my $imagefield (sort keys %{$images_ref->{$code}}) {
+							
+			my $current_max_imgid = -1;
+			
+			if (defined $product_ref->{images}) {
+				foreach my $imgid (keys %{$product_ref->{images}}) {
+					if (($imgid =~ /^\d/) and ($imgid > $current_max_imgid)) {
+						$current_max_imgid = $imgid;
+					}
+				}
+			}
+		
+			my $imported_image_file = $images_ref->{$imagefield};
+			
+			# if the language is not specified, assign it to the language of the product
+			
+			my $imagefield_with_lc = $imagefield;
+			
+			if ($imagefield !~ /_\w\w/) {
+				$imagefield_with_lc .= "_" . $product_ref->{lc};
+			}
+					
+			# upload the image
+			my $file = $imported_image_file;
+
+			if (-e "$images_dir/$file") {
+				print "found image file $images_dir/$file\n";
+				
+				# upload a photo
+				my $imgid;
+				my $return_code = process_image_upload($code, "$images_dir/$file", $User_id, undef, $comment, \$imgid);
+				print "process_image_upload - file: $file - return code: $return_code - imgid: $imgid\n";	
+				
+				
+				# select the photo
+				if ($imagefield_with_lc =~ /front|ingredients|nutrition/) {
+				
+					if (($imgid > 0) and ($imgid > $current_max_imgid)) {
+
+						print "assigning image $imgid to ${imagefield_with_lc}\n";
+						eval { process_image_crop($code, $imagefield_with_lc, $imgid, 0, undef, undef, -1, -1, -1, -1); };
+						# $modified++;
+			
+					}
+					else {
+						print "returned imgid $imgid not greater than the previous max imgid: $current_max_imgid\n";
+						
+						# overwrite already selected images
+						if (($imgid > 0) 
+							and (exists $product_ref->{images})
+							and (exists $product_ref->{images}{$imagefield_with_lc})
+							and ($product_ref->{images}{$imagefield_with_lc}{imgid} != $imgid)) {
+							print "re-assigning image $imgid to ${$imagefield_with_lc}\n";
+							eval { process_image_crop($code, $imagefield_with_lc, $imgid, 0, undef, undef, -1, -1, -1, -1); };
+							# $modified++;
+						}
+						
+					}
+				}
+			}
+			else {
+				print "did not find image file $images_dir/$file\n";
+			}
+		
+		}
+
+	}	
+	
+	$j > 10 and last;
 	#last;
 } 
 			
