@@ -68,7 +68,23 @@ foreach my $file (@files) {
 
 	my $code = undef;
 	
-	if ($file =~ /(\d+)_(\d+)_(\w+).xml/) {
+	# CSV file with categories, to be loaded after the XML files
+	
+	if ($file =~ /nomenclature(.*).csv/i) {
+	
+		my @csv_fields_mapping = (
+
+["[Produit] EAN", "code"],
+["[Produit] Nomenclature", "nomenclature_fr"],
+
+);
+	
+		load_csv_file({ file => $file, encoding => "UTF-8", separator => "\t", skip_non_existing_products => 1, csv_fields_mapping => \@csv_fields_mapping});
+	}
+	
+	# Product data XML files
+	
+	elsif ($file =~ /(\d+)_(\d+)_(\w+).xml/) {
 	
 		$code = $2;
 		print STDERR "File $file - Code: $code\n";
@@ -122,7 +138,17 @@ F=>undef,
 
 			# get the code first
 			
-			["fields.AL_CODE_EAN.*", "code"],
+			# don't trust the EAN from the XML file, use the one from the file name instead
+			# -> sometimes different
+			["fields.AL_CODE_EAN.*", "code_in_xml"],
+			
+			# we can have multiple files for the same code
+			# e.g. butter from Bretagne and from Normandie
+			# delete some fields from previously loaded versions
+			
+			["[delete_except]", "producer|emb_codes|origin|_value|_unit|brands|stores"],
+
+			
 			["ProductCode", "producer_product_id"],	
 			["fields.AL_DENOCOM.*", "product_name_*"],			
 			#["fields.AL_BENEF_CONS.*", "_*"],
@@ -166,7 +192,7 @@ F=>undef,
 			
 			["fields.AL_PREPA.*", "preparation_*"],			
 			["fields.AL_PRECAUTION.*", "warning_*"],
-			["fields.AL_IDEE_RECET.*", "recipe_*"],			
+			["fields.AL_IDEE_RECET.*", "recipe_idea_*"],						
 			
 			["fields.AL_TXT_LIB_REG.*", "other_information_*"],
 			["fields.AL_TXT_LIB_FACE.*", "other_information_*"],
@@ -386,6 +412,8 @@ foreach my $code (sort keys %products) {
 	
 	assign_main_language_of_product($product_ref, ['fr','es','it','nl','de','en','ro','pl'], "fr");
 	
+	clean_weights($product_ref); # needs the language code
+	
 	assign_countries_for_product($product_ref, 
 	{
 		fr => "en:france",
@@ -396,6 +424,30 @@ foreach my $code (sort keys %products) {
 		pl => "en:poland",
 	}
 	, "en:france");
+	
+	
+	# categories from the [Produit] Nomenclature field of the Nomenclature .csv file
+	
+	# Conserves de mais -> Mais en conserve
+	if (defined $product_ref->{nomenclature_fr}) {
+		$product_ref->{nomenclature_fr} =~ s/^conserve(s)?( de| d')?(.*)$/$3 en conserve/i;
+		$product_ref->{nomenclature_fr} =~ s/^autre(s) //i;
+	}
+	
+	match_taxonomy_tags($product_ref, "nomenclature_fr", "categories", 
+	{
+		# split => ',|\/|\r|\n|\+|:|;|\b(logo|picto)\b',
+		# stopwords =>
+	}
+	);
+	
+	# also try the product name
+	match_taxonomy_tags($product_ref, "product_name_fr", "categories", 
+	{
+		# split => ',|\/|\r|\n|\+|:|;|\b(logo|picto)\b',
+		# stopwords =>
+	}
+	);	
 	
 	# logo ab
 	# logo bio européen : nl-bio-01 agriculture pays bas      1	

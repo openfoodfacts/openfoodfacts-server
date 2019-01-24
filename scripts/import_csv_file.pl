@@ -272,6 +272,9 @@ open (my $io, '<:encoding(UTF-8)', $csv_file) or die("Could not open $csv_file: 
 
 $csv->column_names ($csv->getline ($io));
 
+my $skip_not_existing = 0;
+my $skip_no_images = 0;
+
 while (my $imported_product_ref = $csv->getline_hr ($io)) {
   	
 	$i++;
@@ -342,6 +345,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		if ((not defined $images_ref->{$code}) or (not defined $images_ref->{$code}{front})
 			or ((not defined $images_ref->{$code}{ingredients}))) {
 			print "MISSING IMAGES SOME - PRODUCT CODE $code\n";
+			$skip_no_images++;
 			next;
 		}
 	}
@@ -358,6 +362,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		
 		if ($skip_not_existing_products) {
 			print STDERR "skip not existing products\n";
+			$skip_not_existing++;
 			next;
 		}
 		
@@ -455,6 +460,10 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 					
 					$tag =~ s/^\s+//;
 					$tag =~ s/\s+$//;
+					
+					if ($field eq 'emb_codes') {
+						$tag = normalize_packager_codes($tag);
+					}
 
 					if (defined $taxonomy_fields{$field}) {
 						$tagid = get_taxonomyid(canonicalize_taxonomy_tag($imported_product_ref->{lc}, $field, $tag));
@@ -462,6 +471,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 					else {
 						$tagid = get_fileid($tag);
 					}
+					
 					if (not exists $existing{$tagid}) {
 						print "- adding $tagid to $field\n";
 						$product_ref->{$field} .= ", $tag";
@@ -790,11 +800,13 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 	if (defined $images_ref->{$code}) {
 	
-		print "uploading images for product code $code\n";
+		print STDERR "uploading images for product code $code\n";
 	
 		my $images_ref = $images_ref->{$code};
 		
-		foreach my $imagefield (sort keys %{$images_ref->{$code}}) {
+		foreach my $imagefield (sort keys %{$images_ref}) {
+		
+			print STDERR "imagefield: $imagefield\n";
 							
 			my $current_max_imgid = -1;
 			
@@ -860,9 +872,12 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		
 		}
 
-	}	
+	}
+	else {
+		print STDERR "no images for product code $code\n";
+	}
 	
-	$j > 10 and last;
+	#$j > 10 and last;
 	#last;
 } 
 			
@@ -870,6 +885,8 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 print "$i products\n";
 print "$new new products\n";
+print "$skip_not_existing skipped not existing products\n";
+print "$skip_no_images skipped no images products\n";
 print "$existing existing products\n";
 print "$differing differing values\n\n";
 
