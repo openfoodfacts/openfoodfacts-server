@@ -3501,7 +3501,7 @@ my %pnns = (
 
 "Pizza pies and quiche" => "Composite foods",
 "One-dish meals" => "Composite foods",
-"Sandwich" => "Composite foods",
+"Sandwiches" => "Composite foods",
 
 "Artificially sweetened beverages" => "Beverages",
 "Unsweetened beverages" => "Beverages",
@@ -3547,8 +3547,21 @@ sub special_process_product($) {
 					last;
 				}
 			}
-		}		
+		}
+		
+		# exceptions
+		if (defined $options{categories_considered_as_beverages_for_nutriscore}) {
+			foreach my $category_id (@{$options{categories_considered_as_beverages_for_nutriscore}}) {
+			
+				if (has_tag($product_ref, "categories", $category_id)) {
+					$product_ref->{nutrition_score_beverage} = 1;
+					last;
+				}
+			}
+		}
 	}
+	
+	
 	
 	if (($product_ref->{nutrition_score_beverage}) and (not has_tag($product_ref,"categories","en:instant-beverages"))) {
 	

@@ -358,6 +358,15 @@ en:teas
 en:herbal-teas
 )];
 
+# exceptions
+$options{categories_considered_as_beverages_for_nutriscore} = [qw(
+en:tea-based-beverages
+en:iced-teas
+en:herbal-tea-beverages
+en:coffee-beverages
+en:coffee-drinks
+)];
+
 $options{categories_exempted_from_nutriscore} = [qw(
 en:baby-foods
 en:baby-milks
@@ -377,6 +386,8 @@ $options{categories_not_exempted_from_nutriscore} = [qw(
 en:tea-based-beverages
 en:iced-teas
 en:herbal-tea-beverages
+en:coffee-beverages
+en:coffee-drinks
 )];
 
 $options{categories_exempted_from_nutrient_levels} = [qw(
@@ -426,31 +437,38 @@ fr:levures
 
 # fields for which we will load taxonomies
 
-@taxonomy_fields = qw(states countries languages labels categories additives additives_classes vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces nutrient_levels misc ingredients nova_groups);
+@taxonomy_fields = qw(states countries languages labels categories additives additives_classes
+ vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
+ nutrient_levels misc ingredients nova_groups);
 
 
 # fields in product edit form, above ingredients and nutrition facts
 
-@product_fields = qw(quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
+@product_fields = qw(quantity packaging brands categories labels origins manufacturing_places
+ emb_codes link expiration_date purchase_places stores countries  );
 
 # fields currently not shown in the default edit form, can be used in imports or advanced edit forms
 
 @product_other_fields = qw(
-producer_version_id
+producter_product_id producer_version_id
 net_weight_value net_weight_unit drained_weight_value drained_weight_unit volume_value volume_unit
-other_information conservation_conditions recycling_instructions_to_recycle recycling_instructions_to_discard
+other_information conservation_conditions recycling_instructions_to_recycle
+ recycling_instructions_to_discard
 nutrition_grade_fr_producer
+recipe_idea origin customer_service producer preparation warning 
 );
 
 
 # fields shown on product page
 # do not show purchase_places
 
-@display_fields = qw(generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link stores countries);
+@display_fields = qw(generic_name quantity packaging brands categories labels origin origins 
+producer manufacturing_places emb_codes link stores countries);
 
 # fields displayed in a new section after the nutrition facts
 
-@display_other_fields = qw(other_information conservation_conditions recycling_instructions_to_recycle recycling_instructions_to_discard);
+@display_other_fields = qw(other_information preparation recipe_idea warning conservation_conditions 
+recycling_instructions_to_recycle recycling_instructions_to_discard customer_service);
 
 
 # fields for drilldown facet navigation
