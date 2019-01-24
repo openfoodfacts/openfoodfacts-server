@@ -20,9 +20,9 @@ logs/modperl_error_log
 
 # Local databases
 data/mongodb
-Lang.openfoodfacts.*
+Lang.open*
 users_emails.sto
-html/data/top_translators.csv
+html/data/*
 
 # Libraries
 node_modules
