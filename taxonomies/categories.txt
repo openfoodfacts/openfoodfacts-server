@@ -362,13 +362,13 @@ de:Honigbasierte Zubereitung, Zubereitung auf Honigbasis
 
 <en:Honey-based preparations
 en:Blends of honey and propolis
-fr:Mélanges de miel et propolis
+fr:Préparations à base de miel et propolis, mélanges de miel et propolis
 nl:Mengsels van honing en propolis, Mengelingen van honing en propolis
 de:Honig und Propolis Mischungen
 
 <en:Honey-based preparations
 en:Honey and royal jelly mixtures
-fr:Mélanges de miel et gelée royale
+fr:Préparations à base de miel et gelée royale, mélanges de miel et gelée royale
 nl:Mengsels van honing en koninginnegelei, Mengelingen van koninginnegelei
 de:Honig und Gelée Royale Mischungen
 
@@ -587,6 +587,10 @@ fr:Bières d'abbayes, Bières d'abbaye
 nl:Abdijbieren
 de:Abteibier
 hu:Apátsági sör
+
+<en:Beers
+en:American beers, Beers from the USA
+fr:Bières américaines, Bières des Etats-Unis, Bières des USA
 
 <en:Beers
 en:French beers, Beers from France
@@ -854,6 +858,12 @@ fr:Bières brunes, bière brune
 nl:Stout
 zh:烈性黑啤酒
 wikidata:en:Q2905033
+
+<en:Beers
+en:Black beers
+fr:Bières noires
+de:Schwarzbier
+es:Cervezas negras
 
 <en:Beers
 en:Strong beers
@@ -1766,6 +1776,13 @@ ro:Băuturi carbogazoase cu fructe, Bauturi carbogazoase cu fructe, Băuturi car
 ru:Напитки на основе фруктов
 zh:水果汽水
 de:Fruchtlimonaden
+
+<en:Sodas
+<en:Colas
+<en:Fruit sodas
+de:Cola Mix, Cola-Mix, Cola-Mischgetränk, Spezi
+wikidata:en:Q1422578
+#Spezi is the name of a brand for mixtures of cola and orange lemonade
 
 <en:Fruit sodas
 en:Apple soft drinks, Apple sodas
@@ -3179,7 +3196,7 @@ wikidata:en:Q16241634
 en:Flavored teas
 de:Aromatisierte Tees
 es:Tés aromatizados
-fr:Thés aromatisés, Thé aromatisé
+fr:Thés aromatisés, Thé aromatisé, thés parfumés
 nl:Gearomatiseerde theeën, Gearomatiseerde thee
 
 <en:Teas
@@ -3562,7 +3579,6 @@ ru:Растворимый кофе, кофе растворимый
 zh:速溶咖啡, 即时咖啡
 hu:Instant kávék, Oldódó kávé, Kávéporok
 wikidata:en:Q858049
-pnns_group_2:en:unknown
 
 
 en:Powdered cappucino
@@ -3593,7 +3609,6 @@ en:Instant chicory
 fr:Chicorée soluble, chicorée en poudre
 nl:Oploscichorei
 ru:Цикорий растворимый, растворимый цикорий
-pnns_group_2:en:unknown
 
 <en:Coffees
 en:Torrefacto coffees
@@ -3601,12 +3616,11 @@ es:Cafés torrefactos
 fr:Cafés torréfiés, Café torréifié
 nl:Gebrande koffies, Gebrande koffie
 wikidata:en:Q1357168
-pnns_group_2:en:unknown
 
 <en:Beverages
-en:Waters
-es:Aguas
-fr:Eaux, eau
+en:Waters, bottled waters, bottled water
+es:Aguas, aguas embotelladas, agua embotellada
+fr:Eaux, eau, eaux en bouteilles, eau en bouteille
 de:Wasser, Wässer
 nl:Waters, Water
 ru:Вода
@@ -15907,6 +15921,7 @@ nl:Gedroogde drankpoeders
 
 <en:Dried products to be rehydrated
 <en:Cereals and potatoes
+<en:Mashed potatoes
 en:Instant mashed potatoes, dehydrated mashed potatoes
 fr:Purées en flocons, purées instantanées
 nl:Aardappelpureeën in gedroogde vorm, Aardappelpuree in gedroogde vorm, Aardappelpoeder
@@ -16101,8 +16116,8 @@ nl:Viooltjessiropen, Viooltjessiroop
 de:Veilchensirups
 
 <en:Beverages
-<en:Tea-based beverages
-en:Iced teas, Iced tea
+<en:Teas
+en:Iced teas, Ice teas
 de:Eistees
 es:Tés helados, Tés fríos
 fr:Thés glacés, Ice-tea, thé glacé
@@ -16111,13 +16126,15 @@ wikidata:en:Q348958
 pnns_group_2:en:Teas and herbal teas and coffees
 
 <en:Beverages
+<en:Teas
 en:Tea-based beverages, Tea beverages
-fr:Boissons au thé, Thés infusés
+fr:Boissons au thé, Thés infusés, boissons à base de thé
 de:Teegetränke, Teebasierte Getränke
 nl:Dranken op basis van thee
 pnns_group_2:en:Teas and herbal teas and coffees
 
 <en:Beverages
+<en:Herbal teas
 en:Herbal tea beverages
 fr:Tisanes infusées, Boissons à la tisane
 pnns_group_2:en:Teas and herbal teas and coffees
@@ -16167,19 +16184,21 @@ nl:Ice Tea Bereidingen, Ice Tea Bereiding
 de:Eistee Zubereitung, Eistee Präparate
 
 <en:Beverages
-en:Coffee drinks, Coffee drink
+en:Coffee drinks, Coffee drink, coffee beverages
+fr:Boissons au café, boissons à base de café
 de:Kaffeegetränke, Kaffeegetränk
 nl:Koffiedranken, Koffiedrank
 hu:Kávé italok
 
 <en:Coffee drinks
-en:Iced coffees
+en:Iced coffees, Ice coffees
 de:Eiskaffees, Eiskaffee
+fr:Cafés glacés
 nl:Ice coffees, Ice coffee, IJskoffie
 hu:Jegeskávé
 wikidata:en:Q968554
 
-<en:Sugary snacks
+
 en:Biscuits and cakes
 de:Kekse und Kuchen
 es:Galletas y pasteles
@@ -16189,6 +16208,7 @@ zh:饼干和蛋糕
 hu:Kekszek és sütemények
 pnns_group_2:en:Biscuits and cakes
 
+<en:Sugary snacks
 <en:Biscuits and cakes
 en:Biscuits
 de:Kekse
@@ -16977,6 +16997,8 @@ it:Puddings
 nl:Puddings, Pudding
 ru:Пудинги, Пудинг
 wikidata:en:Q9053
+pnns_group_2:en:Dairy desserts
+
 
 <en:Cakes
 en:Cheesecakes
@@ -17053,6 +17075,8 @@ de:Weihnachtspuddings
 fr:Puddings de Noël, Pudding de Noël
 nl:Kerstmispuddings
 wikidata:en:Q852576
+pnns_group_2:en:Biscuits and cakes
+
 
 <en:Puddings
 en:Rice puddings
@@ -17112,7 +17136,21 @@ fr:Quatre-quarts, quatre-quart
 de:Rührkuchen
 wikidata:en:Q29443
 
-en:Sugary snacks
+<en:Cakes
+en:Dorayaki
+fr:Dorayaki
+de:Dorayaki
+it:Dorayaki
+es:Dorayaki
+nl:Dorayaki
+wikidata:en:Q1051482
+
+en:Snacks
+es:Botanas, Snacks
+fr:Snacks
+
+<en:Snacks
+en:Sweet snacks, Sugary snacks
 de:Süßwaren, Süßigkeiten
 es:Snacks dulces
 fr:Snacks sucrés, sucreries
@@ -17547,6 +17585,10 @@ it:Cioccolatino
 de:Pralinen, schokoladenbonbons
 nl:Pralines, chocolades snoepjes
 wikidata:en:Q3272827
+
+<en:Bonbons
+en:Milk chocolate candies
+fr:Bonbons de chocolat au lait
 
 <en:Bonbons
 en:Assorted chocolate candies
@@ -19079,7 +19121,7 @@ de:Chips und Pommes Frites
 en:Crisps
 de:Chips
 fr:Chips, Chips de légumes
-es:Chips fritos
+es:Chips fritos, papas fritas
 nl:Chips
 zh:薯片
 hu:Csipszek
@@ -19089,6 +19131,15 @@ en:Tapas
 fr:Tapas
 nl:Tapas
 de:Tapas
+
+<en:Salty snacks
+en:Onigiri
+fr:Onigiri
+de:Onigiri
+es:Onigiri
+nl:Onigiri
+it:Onigiri
+wikidata:en:Q13393
 
 <en:Crisps
 en:Cassava crisps
@@ -20658,7 +20709,7 @@ nl:Zwitserse kazen
 
 <en:Cheeses
 en:Cheeses of the Netherlands, Dutch Cheese
-fr:Fromages des Pays-Bas, Fromages néerlandais
+fr:Fromages des Pays-Bas, Fromages néerlandais, Fromages hollandais
 de:Holländischer Käse, Käse aus Holland
 nl:Nederlandse kazen, Hollandse kazen
 nl_be:Nederlandse kaas, Hollandse kaas
@@ -21239,6 +21290,7 @@ wikidata:en:Q13228
 <en:Creams
 fr:Crèmes anglaises, crèmes anglaise, creme anglaise
 nl:Vanillesauzen
+de:Englische Creme
 wikidata:en:Q1342574
 
 <en:Creams
@@ -21250,6 +21302,7 @@ wikidata:en:Q625957
 
 <en:Whipped creams
 fr:Crèmes Chantilly, Crème Chantilly, Chantilly
+de:Crème Chantilly
 wikidata:en:Q6384329
 
 <en:Creams
@@ -21272,8 +21325,6 @@ pnns_group_2:en:Milk and yogurt
 <en:Sour creams
 de:Saure Sahne
 
-<en:Sour creams
-de:Schmand
 
 <en:Sour creams
 fr:Crèmes fraîches allégées en matière grasse, Crème fraîche allégée, Crèmes fraîches allégées, Crème fraîche allegée en matière grasse
@@ -21291,22 +21342,28 @@ fr:Crèmes fraîches liquides, Crème fraîche liquide, Crème liquide
 <en:Sour creams
 en:Smetana
 ru:Сметана
+de:Schmand
 wikidata:ru:Q326061
 
 <en:Smetana
 en:Smetana with 15.0 % to 34.0 % fat
 ru:Сметана от 15.0 % до 34.0 % жирности, Сметана с массовой долей жира от 15.0 % до 34.0 %
 fr:Smetana avec 15,0% à 34,0% de matières grasses
+de:Schmand mit 15.0 % bis 34 % Fettanteil
 
 <en:Smetana with 15.0 % to 34.0 % fat
 en:Smetana with 15.0 % to 19.0 % fat
 ru:Сметана от 15.0 % до 19.0 % жирности, Сметана с массовой долей жира от 15.0 % до 19.0 %
 fr:Smetana avec 15,0% à 19,0% de matières grasses
+de:Schmand mit 15.0 % bis 19 % Fettanteil
+
 
 <en:Smetana with 15.0 % to 19.0 % fat
 en:Smetana with 15 % fat
 ru:Сметана 15 %, Сметана 15%, Сметана 15 % жирности, Сметана с массовой долей жира 15 %
 fr:Smetana avec 15% de matières grasses
+de:Schmand mit 15.0 % Fettanteil
+
 
 <en:Creams
 en:Whipped creams
@@ -21318,6 +21375,7 @@ en:Plant-based creams, Plant creams, Dairy-free creams, Dairy-free cream substit
 es:Natas vegetales
 fr:Crèmes végétales
 nl:Plantaardige romen
+de:Pflanzliche Sahne, Pflanzenbasierte Sahne
 wikidata:en:Q4258412
 
 <en:Plant-based creams
@@ -21325,17 +21383,20 @@ en:Plant-based creams for cooking, Dairy-free creams for cooking
 es:Natas vegetales para cocinar
 fr:Crèmes végétales pour cuisiner
 nl:Plantaardige kookromen
+de:Pflanzliche Sahne zum Kochen, Pflanzenbasierte Sahne zum Kochen
 
 <en:Plant-based creams for cooking
 en:Almond-based creams for cooking
 es:Natas vegetales a base de almendra para cocinar
 fr:Crèmes végétales à base d'amande pour cuisiner
+de:Mandelbasierte Sahne zum Kochen
 
 <en:Plant-based creams for cooking
 en:Coconut-based creams for cooking
 es:Natas vegetales a base de coco para cocinar
 fr:Crèmes végétales à base de coco pour cuisiner
 nl:Kookkokosromen
+de:Kokosbasierte Sahne zum Kochen
 
 <en:Plant-based creams for cooking
 en:Millet-based creams for cooking
@@ -21401,10 +21462,14 @@ fr:Beurres légèrement aigres
 
 <en:Butters
 en:sweet cream butters, sweet cream butter
-fr:Beurres doux, beurre doux
 de:Süßrahmbutter
 nl:Ongezouten roomboters
 ru:Масло сладко-сливочное, Масло сладкосливочное, Масло сливочное сладко-сливочное, Сладко-сливочное масло, Сладкосливочное масло
+
+<en:Butters
+en:Unsalted butters
+fr:Beurres doux, beurre doux, beurres non salés, beurres sans sel
+
 
 <en:Butters
 en:Molded butters
@@ -22035,7 +22100,7 @@ nl:Bonendranken
 <en:Legume milks
 en:Soy milks, Soya milks, Soya drinks, Soy drinks
 de:Sojamilch, Sojamilche, Sojamilchen, Soja-Drinks, Soja-Drink, Sojadrink, Sojadrinks
-es:Leches de soja, Bebidas de soja
+es:Leches de soja, Bebidas de soja, bebida de soya
 fr:Boissons végétales de soja, Laits de soja, Lait de soja
 it:Bevanda di soia
 nl:Sojadranken
@@ -22700,6 +22765,7 @@ nl:Naturelyoghurts
 
 <en:Dairies
 en:Evaporated milks, evaporated milk
+es:Leches evaporadas, Leche evaporada, Leches condensadas, leche condensada
 fr:Laits concentrés, Lait concentré
 nl:Verdikte melken
 wikidata:en:Q13417087
@@ -23138,6 +23204,7 @@ fr:Boissons light
 nl:Light dranken
 de:Kalorienarme Getränke, Kalorienreduzierte Getränke, Diät Getränke
 
+<en:Snacks
 en:Salty snacks
 de:salzige Snacks
 es:Snacks salados
@@ -24006,6 +24073,7 @@ wikidata:en:Q659503
 en:Eggs
 fr:Œufs, Oeufs
 de:Eier, Ei, Hühnereier, Hühnerei
+es:Huevos
 it:Uova
 nl:Kippeneieren
 ru:Яйцо, Яйца
@@ -24015,6 +24083,7 @@ pnns_group_2:en:Eggs
 
 <en:Eggs
 en:Fresh eggs
+es:Huevos frescos
 fr:Œufs frais, Oeufs frais
 de:Frische Eier, frische Hühnereier
 nl:Verse eieren
@@ -24042,6 +24111,9 @@ fr:Œufs de poules élevées au sol, Oeufs de poules élevées au sol
 it:Uova da galline allevate a terra
 de:Eier aus Bodenhaltung
 nl:Scharrelkippen
+
+<en:Eggs
+de:Eier aus ökologischer Erzeugung
 
 <en:Eggs
 en:Cage eggs
@@ -24200,6 +24272,16 @@ de:Margarinen, Margarine
 it:Margarina
 nl:Margarines
 wikidata:en:Q4287
+
+<en:Margarines
+en:Unsalted margarines
+es:Margarinas sin sal
+fr:Margarines sans sel
+
+<en:Margarines
+en:Salted margarines
+es:Margarinas con sal
+fr:Margarines salées
 
 <en:Margarines
 en:Light margarines
@@ -24786,6 +24868,30 @@ fr:Céréales au miel
 en:Filled cereals
 fr:Céréales fourrées
 
+<en:Breakfast cereals
+en:Mueslis, Granola
+es:Mueslis
+fr:Mueslis, muesli
+fr:Mueslis floconneux
+fr:Mueslis croustillants, Granolas
+de:Müslis, Müsli
+nl:Mueslis
+
+<en:Mueslis
+en:Mueslis with chocolate
+es:Mueslis con chocolate
+fr:Mueslis au chocolat
+de:Müslis mit Schokolade, Schokomüslis
+
+<en:Mueslis
+en:Mueslis with fruits
+es:Mueslis con frutas
+fr:Mueslis aux fruits
+de:Müslis mit Früchten, Früchtemüslis
+
+<en:Mueslis
+fr:Mueslis aux noix
+
 <en:Flakes
 <en:Breakfast cereals
 en:Cereal flakes, Rolled cereals
@@ -24843,30 +24949,6 @@ en:Mixed cereal flakes
 es:Mezclas de copos de cereales
 fr:Mélanges de flocons de céréales
 nl:Gemengde granenvlokken
-
-<en:Mixed cereal flakes
-en:Mueslis, Granola
-es:Mueslis
-fr:Mueslis, muesli
-fr:Mueslis floconneux
-fr:Mueslis croustillants, Granolas
-de:Müslis, Müsli
-nl:Mueslis
-
-<en:Mueslis
-en:Mueslis with chocolate
-es:Mueslis con chocolate
-fr:Mueslis au chocolat
-de:Müslis mit Schokolade, Schokomüslis
-
-<en:Mueslis
-en:Mueslis with fruits
-es:Mueslis con frutas
-fr:Mueslis aux fruits
-de:Müslis mit Früchten, Früchtemüslis
-
-<en:Mueslis
-fr:Mueslis aux noix
 
 <en:Cereal flakes
 en:Quinoa flakes
@@ -25877,8 +25959,8 @@ wikidata:en:Q13233
 
 <en:Ice creams
 en:Ice cream bars, Ice creams on a stick
-es:Helados de palo, Polos de helado, Paletas de helado
-fr:Bâtonnets glacés, Bâtonnets, battonets, battonnets, eskimos
+es:Helados de palo, Polos de helado, Paletas de helado, Paletas heladas
+fr:Bâtonnets glacés, Bâtonnets, battonets, battonnets, eskimos, Glaces Batonnets
 nl:IJsjes, IJscos
 nl-BE:Friscos
 de:Eis am Stiel, Stieleise, Eisschnitten
@@ -26310,6 +26392,17 @@ ru:Яблоки
 wikidata:en:Q89
 
 <en:Apples
+en:Sweet apples
+fr:Pommes sucrées, pommes douces
+
+<en:Apples
+en:Acidic apples, Tart Apples, Sour Apples
+fr:Pommes acides
+
+
+
+<en:Apples
+<en:Sweet apples
 en:Fuji apples
 es:Manzanas Fuji
 fr:Pommes Fuji
@@ -26318,6 +26411,7 @@ nl:Fuji appels
 wikidata:en:Q504893
 
 <en:Apples
+<en:Sweet apples
 en:Gala apples
 es:Manzanas Gala, Manzanas Royal Gala
 fr:Pommes gala, Gala
@@ -26326,15 +26420,17 @@ nl:Gala appels
 wikidata:en:Q494259
 
 <en:Apples
-en:Golden Delicious apples
+<en:Sweet Apples
+en:Golden Delicious apples, Golden delicious, Golden Apples, Golden
 es:Manzanas Golden Delicious
-fr:Pommes Golden Delicious
+fr:Pommes Golden Delicious, Pommes Golden
 la:Malus domestica cult. Golden Delicious
 nl:Golden Delicious appels
 wikidata:en:Q201996
 
 <en:Apples
-en:Granny Smith apples
+<en:Acidic apples
+en:Granny Smith apples, Granny Smith
 es:Manzanas Granny Smith
 fr:Pommes Granny Smith
 la:Malus domestica x Malus sylvestris
@@ -26342,7 +26438,7 @@ nl:Granny Smith appels
 wikidata:en:Q506040
 
 <en:Apples
-en:Red Delicious apples
+en:Red Delicious apples, Red Delicious
 es:Manzanas Red Delicious
 fr:Pommes Red Delicious
 la:Malus domestica cult. Red Delicious
@@ -26355,6 +26451,13 @@ es:Manzanas reineta
 fr:Pommes reinette
 nl:Reinette appels
 wikidata:en:Q2299367
+
+<en:Apples
+<en:Russet apples
+<en:Acidic apples
+en:Canada Reinettes apples, Canada Apples, Canada Reinettes, Canadian Reinettes, Canadian Reinettes Apples, Canada Russet apples
+fr:Pommes Reinettes du Canada, Pommes Canada Grises, Pommes du Canada, Reinettes du Canada
+wikidata:en:Q1723442
 
 <en:Fruits
 en:Apricots
@@ -26972,7 +27075,7 @@ nl:Bevroren tropische vruchtenmelanges
 <en:Dried plant-based foods
 en:Dried fruits
 de:Dörrobst, Backobst, Trockenobst, Trockenfrüchte, getrocknete Früchte, gedörrte Früchte, gedörrtes Obst, getrocknetes Obst
-es:Frutas deshidratadas, Frutas desecadas, Frutas secas
+es:Frutas deshidratadas, Frutas desecadas, Frutas secas, Frutos secos
 fr:Fruits secs, fruits séchés, fruit sec, fruit séché
 nl:Gedroogd fruit
 pnns_group_2:en:Dried fruits
@@ -27033,7 +27136,7 @@ nl:Gedroogde bosbessen
 
 <en:Dried fruits
 en:Dried cranberries
-fr:Cannerberges séchées, Cranberries séchées
+fr:Canneberges séchées, Cranberries séchées
 
 <en:Dried fruits
 en:Dried coconut
@@ -27979,7 +28082,8 @@ de:Meersalze, Meersalz
 nl:Zeezouten
 
 <en:Salts
-fr:Sels naturels, Sels non raffinés
+en:Unrefined salts
+fr:Sels non raffinés, sels naturels
 de:Unraffinierte Salze, Naturbelassene Salze, Unraffiniertes Salz, Naturbelassenes Salz
 nl:Ongeraffineerde zouten
 hu:Tengeri sók
@@ -28513,6 +28617,7 @@ nl:Ras el hanoet
 
 <en:Spices
 en:Chili peppers, chilis, hot peppers
+es:Chiles
 fr:Piments, Piment
 nl:Chili pepers
 
@@ -29126,6 +29231,7 @@ en:Salad dressings, dressings, Salad sauce
 es:Salsas para ensaladas
 fr:Sauces salades, sauce salade, sauce pour salade
 de:Salatsoßen, Salatsoße, Salatsaucen, Salatsauce
+es:Aderezos
 nl:Slasauzen, sladressings
 
 <en:Salad dressings
@@ -29476,8 +29582,12 @@ fr:Taboulés frais, taboulé frais
 nl:Verse taboulehs
 
 <en:Meals
+en:Rice dishes
+fr:Plats préparés à base de riz
+
+<en:Meals
 en:Meals with fish
-fr:Plats à base de poisson, Plats préparés à base de poisson
+fr:Plats préparés au poisson, plats à base de poisson, Plats préparés à base de poisson
 nl:Vismaaltijden
 
 <en:Meals with fish
@@ -29506,7 +29616,7 @@ wikidata:en:Q612283
 <en:Meat-based products
 en:Meals with meat
 de:Fleischgerichte, Mahlzeiten mit Fleisch
-fr:Plats à base de viande, Plats préparés à base de viande
+fr:Plats préparés à la viande, plats à base de viande, Plats préparés à base de viande
 nl:Vleesmaaltijden
 zh:肉餐
 
@@ -29526,16 +29636,16 @@ de:Würstchen mit Linsen
 
 <en:Meals with meat
 en:Meals with horse meat
-fr:Plats à base de viande chevaline, plats à base de viande de cheval, plats à base de cheval
+fr:Plats préparés au cheval, plats à base de viande chevaline, plats à base de viande de cheval, plats à base de cheval
 
 <en:Meals with meat
 en:Meals with rabbit or hare
-fr:Plats à base de lapin ou lièvre, Plats à base de viande de lapin ou lièvre, plats à base de lapin ou de lièvre
+fr:Plats au lapin ou lièvre, plats à base de lapin ou lièvre, Plats à base de viande de lapin ou lièvre, plats à base de lapin ou de lièvre
 nl:Konijn- of Haasmaaltijden
 
 <en:Meals with rabbit or hare
 en:Rabbit dishes
-fr:Plats à base de lapin, Plats à base de viande de lapin, plats préparés à base de lapin
+fr:Plats au lapin, plats à base de lapin, Plats à base de viande de lapin, plats préparés à base de lapin
 nl:Konijnmaaltijden
 
 <fr:Civets
@@ -29553,7 +29663,7 @@ wikidata:en:Q3217745
 
 <en:Meals with rabbit or hare
 en:Hare dishes
-fr:Plats à base de lièvre, Plats à base de viande de lièvre, plats préparés à base de lièvre
+fr:Plats au lièvre, plats à base de lièvre, Plats à base de viande de lièvre, plats préparés à base de lièvre
 nl:Hazevleesmaaltijden
 
 <fr:Civets
@@ -29568,19 +29678,19 @@ wikidata:en:Q2990689
 <en:Meals with meat
 en:Beef dishes, Beef meals
 de:Rindfleischgerichte
-fr:Plats à base de viande bovine, plats préparés à base de viande bovine, plats à base de bœuf, plats préparés à base de bœuf
+fr:Plats au bœuf, plats à base de viande bovine, plats préparés à base de viande bovine, plats à base de bœuf, plats préparés à base de bœuf
 nl:Rundvleesmaaltijden
 
 <en:Meals with meat
 en:Sheep dishes, sheep meat dishes
-fr:Plats à base de mouton, plats à base de viande de mouton
+fr:Plats au mouton, plats à base de mouton, plats à base de viande de mouton
 
 <en:sheep dishes
 fr:Tripoux, Tripous
 
 <en:Beef dishes
 en:Veal meat dishes
-fr:Plats à base de viande de veau, plats à base de veau, plats préparés à base de veau
+fr:Plats au veau, plats à base de viande de veau, plats à base de veau, plats préparés à base de veau
 nl:Kalfsvleesmaaltijden
 
 <en:Veal meat dishes
@@ -29623,13 +29733,13 @@ fr:Brochettes de bœuf, brochette de bœuf
 
 <en:Meals with meat
 en:Sheepmeat meals
-fr:Plats à base de viande ovine
+fr:Plats au mouton, plats à base de viande ovine
 nl:Schapenvleesmaaltijden
 
 <en:Meals with meat
 en:Pork meals
 de:Schweinefleischgerichte
-fr:Plats à base de viande porcine, plats préparés à base de viande porcine, plats à base de porc
+fr:Plats au porc, plats à base de viande porcine, plats préparés à base de viande porcine, plats à base de porc
 nl:Varkensvleesmaaltijden
 zh:猪肉餐
 
@@ -29644,7 +29754,7 @@ fr:Porc au caramel
 
 <en:Meals with meat
 en:Poultry meals
-fr:Plats à base de volaille, plats préparés à base de volaille
+fr:Plats à la volaille, plats à base de volaille, plats préparés à base de volaille
 nl:Gevogelte maaltijden
 
 <en:Poultry meals
@@ -29673,7 +29783,7 @@ fr:Coq au vin jaune, Coq au vin jaune et aux morilles
 wikidata:en:Q2996891
 
 <en:Poultry meals
-fr:Plats à base d’oie, Plats à base d’oies, plats préparés à base d'oie
+fr:Plats à l'oie, plats à base d’oie, Plats à base d’oies, plats préparés à base d'oie
 nl:Ganzevleesmaaltijden
 
 <fr:Plats à base d’oies
@@ -29682,7 +29792,7 @@ fr:Confits d’oie, Confit d’oie
 
 <en:Poultry meals
 en:Duck dishes
-fr:Plats à base de canard, plats à base de canards, plats préparés à base de canard
+fr:Plats au canard, plats à base de canard, plats à base de canards, plats préparés à base de canard
 nl:Eendevleesmaaltijden
 zh:鸭子菜
 
@@ -29721,7 +29831,7 @@ fr:Blanquettes de canard, Blanquette de canard
 
 <en:Poultry meals
 en:Turkey dishes
-fr:Plats à base de dinde, plats préparés à base de dinde
+fr:Plats à la dinde, plats à base de dinde, plats préparés à base de dinde
 nl:Kalkoenenvleesmaaltijden
 
 <en:Turkey dishes
@@ -29734,7 +29844,7 @@ fr:Poule au pot
 <en:Poultry meals
 en:Meals with chicken
 de:Hühnerfleischgerichte
-fr:Plats à base de poulet, Plats à base de poulets, plats préparés à base de poulet
+fr:Plats au poulet, plats à base de poulet, Plats à base de poulets, plats préparés à base de poulet
 nl:Kippevleesmaaltijden
 
 <en:Meals with chicken
@@ -29746,7 +29856,7 @@ fr:Poulets basquaise, Poulet basquaise, Poulets basquaises
 
 <en:Meals with meat
 en:Goat dishes, Goat meals
-fr:Plats à base de viande caprine
+fr:Plats à la viande caprine, plats à base de viande caprine
 nl:Geitenvleesmaaltijden
 
 <en:Meals with meat
@@ -29778,6 +29888,7 @@ nl:Verse raviolis
 en:Salted pies
 fr:Tartes salées
 nl:Hartige taarten
+pnns_group_2:en:Pizza pies and quiches
 
 <en:Salted pies
 fr:Flamiches
@@ -29819,7 +29930,7 @@ zh:汤罐头
 <en:Dried products to be rehydrated
 en:Dehydrated soups, Dried soups, Instant soups
 de:Instantsuppen
-es:Sopas deshidratadas, Sopas de sobre deshidratadas
+es:Sopas deshidratadas, Sopas de sobre deshidratadas, Sopas instantáneas, Cremas instantáneas
 fr:Soupes déshydratées, soupes lyophilisées, soupe déshydratée, soupe lyophilisée, soupes concentrées, soupes instantanées, soupe concentrée, soupe instantanée
 nl:Instant soepen
 pt:Sopa Instantânea
@@ -30408,6 +30519,11 @@ nl:Bonen in tomatensaus
 wikidata:en:Q804297
 
 <en:Prepared vegetables
+en:Refried beans
+es:Frijoles refritos
+fr:Haricots refrits
+
+<en:Prepared vegetables
 fr:Ratatouilles, ratatouille
 ja:ラタトゥイユ
 nl:Ratatouilles
@@ -30427,7 +30543,7 @@ fr:Petits salés aux lentilles, petit salé aux lentilles
 
 <en:Meals
 en:Pizzas pies and quiches, Pizza pies and quiches
-fr:Pizzas, tartes salées et quiches
+fr:Pizzas tartes salées et quiches
 nl:Pizzas hartige taarten en quiches
 pnns_group_2:en:Pizza pies and quiche
 
@@ -30540,8 +30656,16 @@ en:Pots, Box
 fr:Box
 
 <en:Pasta dishes
-en:Instant Pasta
+en:Instant pasta
 fr:Pâtes instantanées, Box de pâtes
+
+<en:Instant pasta
+en:Instant udon
+fr:Udon instantanés
+
+<en:Instant pasta
+en:Instant soba
+en:Soba instantanés
 
 <en:Pasta in a box
 en:Ravioli in a box
@@ -30640,8 +30764,10 @@ fr:Quiches au poireau, quiche au poireau, tartes aux poireaux, tartes au poireau
 fr:Quiches aux épinards, Quiche à l'épinard, Tartes aux épinards
 
 <en:Meals
+<en:Salads
 en:Prepared salads
-fr:Salades composées, salade composée
+es:Ensaladas preparadas
+fr:Salades composées, salade composée, salades préparées
 nl:Opgemaakte salades
 
 <en:Prepared salads
@@ -30807,6 +30933,13 @@ ru:Мясо
 zh:肉类, 肉
 hu:Húsok
 pnns_group_2:en:Meat
+
+<en:Meats
+en:Dried meats
+fr:Viandes séchées
+
+<en:Dried meats
+en:Beef jerkies, beef jerky
 
 <en:Meats
 en:Snails
@@ -31091,6 +31224,7 @@ fr:Préparations de viande bovine hachée surgelées, Préparations hachées de 
 
 <en:Meats
 en:Fresh meats
+es:Carnes frías
 fr:Viandes fraîches
 nl:Verse vlezen
 zh:鲜肉
@@ -31486,6 +31620,7 @@ nl:Kalkoenfilets
 
 <en:Meats
 en:Prepared meats, processed meats
+es:Embutidos
 fr:Charcuteries
 hu:Feldolgozott húsok
 pnns_group_2:en:Processed meat
@@ -31780,6 +31915,7 @@ fr:Rillettes de la Sarthe
 
 <en:Prepared meats
 en:Sausages
+es:Salchichas
 fr:Saucisses, Saucisse
 de:Würste, Wurst
 nl:Worsten
@@ -32802,8 +32938,26 @@ fr:Penne rigate
 fr:Torti
 
 <en:Pastas
+en:Udon
+fr:Udon
+de:Udon
+nl:Udon
+it:Udon
+es:Udon
+wikidata:en:Q471861
+
+<en:Buckwheat pasta
+en:Soba
+fr:Soba
+de:Soba
+nl:Soba
+it:Soba
+es:Soba
+wikidata:en:Q753910
+
+<en:Pastas
 en:Egg pastas
-fr:Pâtes aux œufs
+fr:Pâtes aux œufs, Pâtes alimentaires aux œufs 
 nl:Eierpastas, eierpasta
 
 <en:Egg pastas
@@ -33061,7 +33215,7 @@ type:PGI
 <en:Pastas
 en:Dry pasta
 de:getrocknete Teigwaren
-fr:Pâtes sèches
+fr:Pâtes sèches, Pâtes alimentaires sèches
 nl:Gedroogde pastas
 
 <en:Stuffed Pastas
@@ -33397,17 +33551,22 @@ en:Pickles
 es:Encurtidos
 fr:Pickles
 nl:Tafelzuren
+pnns_group_2:en:Salty and fatty products
+
 
 en:Pies
 de:Kuchen
 fr:Tartes
 nl:Taarten
 wikidata:en:Q1142483
+pnns_group_2:en:Pizza pies and quiche
+
 
 <en:Pies
 en:Sweet pies, sweet pie
 fr:Tartes sucrées, tarte sucrée
 nl:Zoeten taarten
+pnns_group_2:en:Biscuits and cakes
 
 <en:Sweet pies
 fr:Tarte au vin, Tartes au vin, sèche au vin, wein-tarte
@@ -33595,7 +33754,7 @@ es:Sándwiches, Sándwich
 fr:Sandwichs, Sandwich, sandwiches
 nl:Sandwiches
 wikidata:en:Q28803
-pnns_group_2:en:Sandwich
+pnns_group_2:en:Sandwiches
 
 <en:Sandwiches
 en:Burritos
@@ -33885,6 +34044,7 @@ nl:Langoustines
 en:Fishes, fish
 fr:Poissons, Poisson
 de:Fisch, Fische
+es:Pescados, pescado
 it:Pesci, pesce
 nl:Vis
 ru:Рыба
@@ -34172,6 +34332,7 @@ nl:Forel
 en:Tunas, Thunnus
 fr:Thons
 de:Thunfische, Thunfisch
+es:Atunes, atun
 it:Tonni, tonno
 la:Thunnus
 nl:Tonijn
@@ -35108,7 +35269,7 @@ pms:Tapenades, tapenade
 eo:Tapenado
 pl:Tapenada
 he:ממרח זיתים
-fr:Tapenades, tapenade
+fr:Tapenades, tapenade, ttapenades
 ru:Тапенада
 es:Tapenade
 oc:Tapenada
@@ -35777,7 +35938,7 @@ wikidata:en:Q154389
 
 <en:Fruits and vegetables based foods
 en:Vegetables based foods, Vegetables
-es:Verduras y hortalizas y sus productos, Verduras y hortalizas y derivados, Hortalizas
+es:Verduras y hortalizas y sus productos, Verduras y hortalizas y derivados, Hortalizas, Vegetales, Verduras
 fr:Légumes et dérivés, Légumes
 de:Gemüsebasierte Lebensmittel, Gemüse
 nl:Groenten, Groente
@@ -36626,11 +36787,16 @@ fr:Mélanges de légumes pour soupes
 <en:Fresh vegetable mixes
 es:Mezclas de verduras y hortalizas para gazpacho
 
+
+en:Salads
+es:Ensaladas
+fr:Salades, Salade
+nl:Sla, Salades
+
+<en:Salads
 <en:Leaf vegetables
 en:Leaf salads
 es:Ensaladas vegetales
-fr:Salades, Salade
-nl:Sla, Salades
 
 <en:Leaf vegetables
 en:Corn salad, common cornsalad, lamb's lettuce, fetticus, feldsalat, nut lettuce, field salad, rapunzel, doucette, raiponce
@@ -37146,6 +37312,7 @@ ru:Соя, Семена сои
 wikidata:en:Q11006
 
 <en:Canned plant-based foods
+<en:Legumes
 en:Canned legumes
 es:Leguminosas en conserva, Legumbres en conserva
 fr:Légumineuses en conserve
@@ -37662,6 +37829,8 @@ fr:Olives
 nl:Olijven
 ru:Оливки, Маслины
 wikidata:en:Q1621080
+pnns_group_2:en:Salty and fatty products
+
 
 <en:Olives
 en:Black olives
@@ -39025,6 +39194,7 @@ pnns_group_1:en:Fish Meat Eggs
 en:Offals
 fr:Abats
 in:Ingewanden
+pnns_group_2:en:Offals
 
 <en:Offals
 en:Gizzards
@@ -39050,7 +39220,6 @@ nl:Kippenspiermaag
 en:Tripe dishes
 fr:Produits tripiers
 nl:Pensproducten
-pnns_group_2:en:Tripe dishes
 
 <en:Fish and meat and eggs
 en:Foies gras
@@ -39381,7 +39550,7 @@ en:Fish food
 fr:Nourriture pour poissons
 
 en:Pie dough
-fr:Pâtes à tarte, Pâte à tarte
+fr:Pâtes à tarte, Pâte à tarte, Pates à tarte fraiches
 nl:Taartdegen
 nl_be:Taartdeeg
 
@@ -39455,6 +39624,7 @@ wikidata:en:Q636056
 
 <fr:Purées
 <en:Cereals and potatoes
+en:Mashed potatoes
 fr:Purées de pommes de terre
 nl:Aardappelpureeën
 nl_be:Aardappelpuree
@@ -39562,45 +39732,54 @@ fr:Taboulés royaux, Taboulé royal
 
 #<en:Meat-based products
 # there are vegetarian terrines, commenting line above -- Stéphane 23/10/2018
-en:Terrine
+en:Terrines
 fr:Terrines
 de:Terrinen
 nl:Terrines, Vleespotten, Terrine, Vleespo
 nl_be:Vleespottten, Vleespot, Terrines, Terrine
 wikidata:en:Q11175039
 
-<en:Terrine
+<en:Terrines
 en:Terrines from Brittany
 fr:Terrines bretonnes, Terrine bretonne, Terrine de Bretagne
 nl:Bretonse terrines, Bretonse vleespotten, Bretonse terrine
 
-<en:Terrine
+<en:Terrines
+<en:Meat-based products
+en:Bison terrines
 fr:Terrines de bison
 nl:Bizonvleesterrines, Bizonvleespotten
 
-<en:Terrine
-en:Blood sausage terrine, Terrines de boudin, terrine de boudin
+<en:Terrines
+<en:Meat-based products
+en:Blood sausage terrines
 de:Blutwurst-Terrinen
 fr:Terrines de boudin, terrine de boudin
 nl:Bloedworstterinnes, Bloedworstterrine
 
-<en:Terrine
+<en:Terrines
+<en:Meat-based products
+en:Country terrines
 fr:Terrines de campagne
 nl:Landvleespotten
 
-<en:Terrine
+<en:Terrines
+<en:Meat-based products
 fr:Terrines de cerf
 nl:Hertevleesterrines, Hertevleespotten
 
-<en:Terrine
+<en:Terrines
+<en:Meat-based products
 fr:Terrines de chevreuil
 
-<en:Terrine
+<en:Terrines
+<en:Meat-based products
 en:Pheasant terrines
 fr:Terrines de faisan
 nl:Fazantterrines, fazantterrine, Fazantvleespotten
 
-<en:Terrine
+<en:Terrines
+<en:Meat-based products
 en:Liver terrines
 fr:Terrines de foie, terrine de foie
 nl:Leverterrines, Lverterrine, Levervleespotten
@@ -39609,40 +39788,48 @@ nl:Leverterrines, Lverterrine, Levervleespotten
 fr:Terrine de foie gras au sauternes
 wikidata:en:Q3518776
 
-<en:Terrine
+<en:Terrines
 <en:Meat-based products
 en:Rabbit terrines
 fr:Terrines de lapin
 nl:Konijnterrines, Konijnterrine, Konijnevleespotten
 
-<en:Terrine
-en:Chicken terrine
+<en:Terrines
+<en:Meat-based products
+en:Chicken terrines
 fr:Terrines de poulet
 nl:Kipterrines, Kipterrine, Kippevleespotten
 
-<en:Terrine
+<en:Terrines
 fr:Terrines de Saint-Jacques, Terrines de St-Jacques
 nl:St. Jacobsschelpterrines, St. Jacobsschelpterrine
 
-<en:Terrine
-en:Boar terrine
+<en:Terrines
+<en:Meat-based products
+en:Boar terrines
 fr:Terrines de sanglier
 nl:Everzijnterrines, Everzwijnterrine, Everzwijnvleespotten
 
-<en:Terrine
-en:Salmon terrine
+<en:Terrines
+<en:Fish terrines
+en:Salmon terrines
 fr:Terrines de saumon
 nl:Zalmterrines, Zalmterrine, Zalmvleespotten
 
-<en:Terrine
-en:Trout terrine
+<en:Terrines
+en:Fish terrines
+en:Trout terrines
 fr:Forelterinnes, Forelterrine, Terrines de truite
 
-<en:Terrine
+<en:Terrines
+<en:Meat-based products
+en:Poultry terrines
 fr:Terrines de volailles
 nl:Gevogelte terrines, Gevogelte terrine, Gevogelte vleespotten
 
 <fr:Terrines de volailles
+<en:Meat-based products
+en:Duck terrines
 fr:Terrines de canard, Terrines de canard au poivre vert
 nl:Eendterrines, Eendterrine, Eendevleespotten
 
@@ -40013,10 +40200,6 @@ fr:Muffins à la banane
 en:Blueberry Muffins
 fr:Muffins aux myrtilles
 
-<en:Chocolate candies
-en:Milk chocolate candies
-fr:Bonbons de chocolat au lait
-
 <en:Confectioneries
 fr:Bonbons dragéifiés
 
@@ -40069,6 +40252,22 @@ fr:Charlottes aux fruits
 en:Crumbles
 fr:Crumbles
 
-<en:Terrine
-en:Fish terrine
-fr: Terrines de poisson
+<en:Terrines
+en:Fish terrines
+fr:Terrines de poisson
+pnns_group_2:en:Fish and seafood
+
+<en:Cheeses
+en:Mexican cheeses, cheeses from Mexico
+fr:Fromages mexicains, Fromages du Mexique
+es:Quesos mexicanos, Quesos de México
+
+<en:Mexican cheeses
+en:Panela cheeses
+es:Quesos panelas
+fr:Fromages panelas
+
+<en:Salts
+en:Liquid salts
+es:Sales liquidas, sal liquida
+fr:Sels liquides
