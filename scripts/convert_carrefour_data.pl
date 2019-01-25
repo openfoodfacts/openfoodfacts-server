@@ -140,7 +140,7 @@ F=>undef,
 			
 			# don't trust the EAN from the XML file, use the one from the file name instead
 			# -> sometimes different
-			["fields.AL_CODE_EAN.*", "code_in_xml"],
+			#["fields.AL_CODE_EAN.*", "code"],
 			
 			# we can have multiple files for the same code
 			# e.g. butter from Bretagne and from Normandie
@@ -148,7 +148,8 @@ F=>undef,
 			
 			["[delete_except]", "producer|emb_codes|origin|_value|_unit|brands|stores"],
 
-			
+			["fields.AL_CODE_EAN.*", "code_in_xml"],
+		
 			["ProductCode", "producer_product_id"],	
 			["fields.AL_DENOCOM.*", "product_name_*"],			
 			#["fields.AL_BENEF_CONS.*", "_*"],
@@ -387,7 +388,9 @@ foreach my $code (sort keys %products) {
 		$products{$code}{total_weight} =~ s/(\[emetro\])|(\[zemetro\])/e/ig;
 		
 		# + e métrologique
-		$products{$code}{total_weight} =~ s/(\+ )?e( (métrologique|metrologique|metro|métro))?/e/ig;
+		# (métrologique)
+		$products{$code}{total_weight} =~ s/(\+ )?e( ?([\[\(])?(métrologique|metrologique|metro|métro)([\]\)])?)?/e/ig;
+		$products{$code}{total_weight} =~ s/(\+ )?( ?([\[\(])?(métrologique|metrologique|metro|métro)([\]\)])?)/e/ig;
 		
 		# poids net = poids égoutté = 450 g [zemetro]
 		# poids net : 240g (3x80ge)       2
@@ -395,6 +398,12 @@ foreach my $code (sort keys %products) {
 		# poids net : 320g [zemetro] poids net égoutté : 190g contenance : 370ml  2
 		# poids net total : 200g [zemetro] poids net égoutté : 140g contenance 212ml
 
+	}
+	
+	if ((defined $products{$code}{emb_codes}) and ($products{$code}{emb_codes} =~ /fabriqu|elabor|conditionn/i)) {
+		
+		$products{$code}{producer_fr} = $products{$code}{emb_codes};
+		delete $products{$code}{emb_codes};
 	}
 }
 
@@ -484,7 +493,7 @@ foreach my $code (sort keys %products) {
 	
 	match_taxonomy_tags($product_ref, "producer_fr", "emb_codes", 
 	{
-		split => ',|\/|\r|\n|\+|:|;|=|\(|\)|\b(et|par|pour|ou)\b',
+		split => ',|( \/ )|\r|\n|\+|:|;|=|\(|\)|\b(et|par|pour|ou)\b',
 		# stopwords =>
 	}
 	);

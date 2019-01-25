@@ -321,14 +321,17 @@ sub clean_weights($) {
 		
 		if (defined $product_ref->{$field}) {
 			# 2295[GR]
-			$product_ref->{$field} =~ s/(\d)\s?\[(\w+)\]/lc("$1 $2")/ieg;
+			# 200 (2x100)[GR]
+			# (2x230g[GR]
+			$product_ref->{$field} =~ s/g\[gr\]/g/ig;
+			$product_ref->{$field} =~ s/(\d|[\)])\s?\[(\w+)\]/lc("$1 $2")/ieg;
 			
 			# 420g -> 420 g
-			$product_ref->{$field} =~ s/(\d)( )?(g|gramme|grammes|gr)(\.)?/$1 g/i;
+			$product_ref->{$field} =~ s/(\d|[\)])( )?(g|gramme|grammes|gr)(\.)?/$1 g/i;
 			$product_ref->{$field} =~ s/(\d)( )?(ml|millilitres)(\.)?/$1 ml/i;
-			$product_ref->{$field} =~ s/litre|litres|liter|liters/l/i;
+			$product_ref->{$field} =~ s/(litre|litres|liter|liters|lt)\b/l/i;
 			$product_ref->{$field} =~ s/kilogramme|kilogrammes|kgs/kg/i;			
-			$product_ref->{$field} =~ s/(\d)(\s)*(kg|g|gr|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz))/lc("$1 $3")/ieg;
+			$product_ref->{$field} =~ s/(\d)(\s)*(kg|g|gr|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz))e?\b/lc("$1 $3")/ieg;
 			# 250 GR -> 250 g
 			$product_ref->{$field} =~ s/(\d) gr\b/$1 g/g;
 			
@@ -340,6 +343,8 @@ sub clean_weights($) {
 			# kge 
 			$product_ref->{$field} =~ s/(\d\s(\w+))e$/$1 e/;
 
+			# remove the e
+			$product_ref->{$field} =~ s/ e\b//g;
 		}
 		
 	}
@@ -358,6 +363,14 @@ fr => {
 net_weight => '(poids )?net( total)?',
 drained_weight => '(poids )?(net )?(égoutté|egoutte)',
 volume => '(volume|contenance)( net|nette)?( total)?',
+},
+
+# Peso neto: 480 g (6 x 80 g) Peso neto escurrido: 336 g (6x56 g)
+
+es => {
+net_weight => '(peso )?neto( total)?',
+drained_weight => '(peso )?(neto )?(escurrido)',
+#volume => '(volume|contenance)( net|nette)?( total)?',
 },
 	
 	);
@@ -391,7 +404,7 @@ volume => '(volume|contenance)( net|nette)?( total)?',
 	
 	
 	# empty or uncomplete quantity, but net_weight etc. present
-	if ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq "")
+	if ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq "") 
 		or (($lc eq "fr") and ($product_ref->{quantity} =~ /^\d+ tranche([[:alpha:]]*)$/)) # French : "6 tranches épaisses"
 		) {
 		
@@ -400,7 +413,8 @@ volume => '(volume|contenance)( net|nette)?( total)?',
 		my $extra_quantity;
 		
 		foreach my $field ("net_weight", "drained_weight", "total_weight", "volume") {
-			if ((defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
+			if ((defined $product_ref->{$field}) and ($product_ref->{$field} ne "")
+				and ($product_ref->{$field} =~ /^\d/) ) {	# make sure we have a number
 				$extra_quantity = $product_ref->{$field};
 				last;
 			}		
@@ -416,6 +430,7 @@ volume => '(volume|contenance)( net|nette)?( total)?',
 		}
 	}
 }
+
 
 
 sub clean_fields($) {
@@ -455,6 +470,18 @@ sub clean_fields($) {
 				$product_ref->{$field} =~ s/^\s*(aucun(e)|autre logo|non)?\s*$//i;
 			}
 			
+			# Lowercase fields in ALL CAPS
+			if ($field =~ /^(ingredients_text|product_name|generic_name)/) {
+				if (($product_ref->{$field} =~ /[A-Z]{4}/)
+					# and ($product_ref->{$field} !~ /[a-z]/)
+					) {
+					$product_ref->{$field} = ucfirst(lc($product_ref->{$field}));
+				}
+			}
+			
+			
+			# Ingredients
+			
 			if ($field =~ /^ingredients_text/) {
 			
 				# Traces de<b> fruits à coque </b>
@@ -474,6 +501,15 @@ sub clean_fields($) {
 				# _fromage_ _de chèvre_
 				$product_ref->{$field} =~ s/<\/b>(| )<b>/$1/g;
 				
+				# d_'œufs_
+				# _lait)_
+				$product_ref->{$field} =~ s/<b>(\w)/$1<b>/g;
+				$product_ref->{$field} =~ s/(\w)<\/b>/<b>$1/g;
+				
+
+				$log->debug("clean_fields - ingredients_text - 1", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
+				
 				# extrait de malt d'<b>orge - </b>sel 
 				$product_ref->{$field} =~ s/ -( |)<\/b>/<\/b> -$1/g;
 				
@@ -482,14 +518,20 @@ sub clean_fields($) {
 
 				
 				if ($field eq "ingredients_text_fr") {
+				
+					$log->debug("clean_fields - ingredients_text - 2", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 
 					# remove single sentence that say allergens are in bold (in Casino data)
-					$product_ref->{$field} =~ s/(Les |l')?(information|ingrédient|indication)(s?) ([^\.,]*) (personnes )?((allergiques( (ou|et) intolérant(e|)s)?)|(intolérant(e|)s( (ou|et) allergiques))?)(\.)?//i;
+					$product_ref->{$field} =~ s/(Les |l')?(information|ingrédient|indication)(s?) ([^\.,]*) (personnes )?((allergiques( (ou|et) intolérant(e|)s)?)|(intolérant(e|)s( (ou|et) allergiques)?))(\.)?//i;
 					$product_ref->{$field} = ucfirst($product_ref->{$field});
 					
+					$log->debug("clean_fields - ingredients_text - 3", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
 					# Missing spaces
 					# Poire Williams - sucre de canne - sucre - gélifiant : pectines de fruits - acidifiant : acide citrique.Préparée avec 55 g de fruits pour 100 g de produit fini.Teneur totale en sucres 56 g pour 100 g de produit fini.Traces de _fruits à coque_ et de _lait_..
 					$product_ref->{$field} =~ s/\.([A-Z][a-z])/\. $1/g;
+					
+					$log->debug("clean_fields - ingredients_text - 4", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 					
 				}
 				
@@ -583,7 +625,7 @@ sub load_xml_file($$$$) {
 #			["ProductCode", "producer_version_id"],			
 #			["fields.AL_INGREDIENT.*", "ingredients_text_*"],
 
-	my $code = undef;
+	# $code = undef;
 
 	foreach my $field_mapping_ref (@$xml_fields_mapping_ref) {
 		my $source = $field_mapping_ref->[0];
@@ -668,7 +710,7 @@ sub load_xml_file($$$$) {
 							$seen_energy_kj = 1;
 						}
 						
-						$value =~ s/,/\//;
+						$value =~ s/,/\./;
 						
 						if ($target =~ /^(.*)_([^_]+)$/) {
 								$target = $1;
