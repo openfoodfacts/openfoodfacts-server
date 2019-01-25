@@ -39204,7 +39204,31 @@ wikidata:en:Q11173928
 # ingredient/duck-egg has 7 products @2018-12-17
 
 
-# Where to classify ?
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                C O N T E X T   D E P E N D E N T     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# the actual meaning of this ingredient depends on what comes before or after
+# so we can offer just translations
+
+en:pulp
+de:Fruchtfleisch
+fr:pulpe
+nl:pulp
+# ingredient/fr:pulpe has 150 products in 4 languages @2019-01-25
+# Tomate (pulpe, concentré)
+# Jus de pamplemousse rose - pulpe
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                             C O M P O U N D       I N G R E D I E N T S     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
 
 # en:filling is a compound ingredient (product part)
 
@@ -39813,9 +39837,6 @@ fr:poudre de babeurre
 
 
 fr:os de poulet
-
-fr:pulpe
-
 
 en:xylitol
 fr:xylitol
