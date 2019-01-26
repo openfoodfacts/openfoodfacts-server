@@ -30,6 +30,7 @@ BEGIN
 	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
 					&execute_query
+					&get_collection
 					&get_products_collection
 					&get_emb_codes_collection
 					&get_recent_changes_collection
