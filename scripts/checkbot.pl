@@ -5,7 +5,7 @@
 # Product Opener
 # Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
-# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossï¿½s, France
 #
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -34,12 +34,13 @@ Usage:
 checkbot.pl --max_sendings=2 --country=France --order=random --channel=\#bot-alerts
 Only --channel is mandatory.
 --max_sending: max number of alerts to be sent; default: 10
---country: all countries if omited
+--country: a country name in english, eg. "belgium"; all countries if omited
 --order: last modified products if omited; "random" sends products in random order
 --channel: name of the slack channel: #fr, for example, or \@UserName to make tests
 
 TXT
 ;
+# use "--channel=STDIN" to print results on STDIN and not send any message to Slack
 
 use Encode;
 
@@ -104,6 +105,11 @@ sub send_msg($) {
 	$sendings++;
 	my $msg = shift;
 
+	# if "channel=STDIN" don't send any message on slack
+	if ($channel eq "STDIN") {
+		return;
+	}
+
 	# set custom HTTP request header fields
 	my $req = HTTP::Request->new(POST => $server_endpoint);
 	$req->header('content-type' => 'application/json');
@@ -129,9 +135,9 @@ sub send_msg($) {
 my $query = {};
 
 # If --country is specified, build the query with the country
-# TODO: hold the case where 'countries' => 'France,en:Belgium'
 if ($country ne "") {
-	$query = { 'countries' => $country };
+	$country =~ s/^(en:)?(.*)/en:$2/g; # "en:Country" or "Country" => "en:Country"
+	$query = { 'countries_tags' => $country };
 }
 
 # Select the products in reverse order
