@@ -94,13 +94,26 @@ $ingredients = "INGREDIENTS lait entier (55,4%), crème (lait), sucre (9,7%), my
 
 $ingredients = clean_ingredients_text_for_lang($ingredients, 'fr');
 
-is($ingredients, "lait entier (55,4%), crème (lait), sucre (9,7%), myrtille (8%), lait écrémé concentré, épaississants : amidon transformé, farine de graines de caroube, protéines de lait, extrait de carotte pourpre et d'hibiscus, correcteurs d'acidité : citrates de sodium, acide citrique, arôme naturel, ferments lactiques (lait). ");
+is($ingredients, "lait entier (55,4%), crème (lait), sucre (9,7%), myrtille (8%), lait écrémé concentré, épaississants : amidon transformé, farine de graines de caroube, protéines de lait, extrait de carotte pourpre et d'hibiscus, correcteurs d'acidité : citrates de sodium, acide citrique, arôme naturel, ferments lactiques (lait).");
 
 $ingredients = "Pomme*, fraise*. *: ingrédients issus de l'agriculture biologique";
 
 $ingredients = clean_ingredients_text_for_lang($ingredients, 'fr');
 
 is($ingredients, "Pomme*, fraise*. *: ingrédients issus de l'agriculture biologique");
+
+
+$ingredients = "Ingrédients :
+Pulpe de tomate 41% (tomate pelée 24.6%, jus de tomate 16.4%, acidifiant : acide citrique), purée de tomate 25%, eau, oignon,
+crème fraîche
+5%, lait de coco déshydraté 2,5% (contient des protéines de lait), curry 2%, sucre, amidon modifié de maïs, poivron vert, poivron rouge, sel, noix de coco râpée 1%, arôme naturel de curry 0,25%, acidifiant : acide lactique. Peut contenir des traces de céleri et de moutarde.
+";
+
+$ingredients = clean_ingredients_text_for_lang($ingredients, 'fr');
+
+is($ingredients, "Pulpe de tomate 41% (tomate pelée 24.6%, jus de tomate 16.4%, acidifiant : acide citrique), purée de tomate 25%, eau, oignon,
+crème fraîche
+5%, lait de coco déshydraté 2,5% (contient des protéines de lait), curry 2%, sucre, amidon modifié de maïs, poivron vert, poivron rouge, sel, noix de coco râpée 1%, arôme naturel de curry 0,25%, acidifiant : acide lactique. Peut contenir des traces de céleri et de moutarde.");
 
 
 done_testing();

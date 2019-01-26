@@ -41,7 +41,6 @@ BEGIN
 		
 		&get_list_of_files
 		
-		@fields_mapping
 		&load_csv_file
 		
 		&load_xml_file
@@ -54,6 +53,7 @@ BEGIN
 		&assign_main_language_of_product
 		
 		&clean_fields
+		&clean_weights
 		&clean_fields_for_all_products
 		
 		$lc
@@ -114,8 +114,15 @@ sub get_or_create_product_for_code($) {
 sub assign_value($$$) {
 
 	my $product_ref = shift;
-	my $field = shift;
+	my $target = shift;
 	my $value = shift;
+	
+	my $field = $target;
+	
+	# !categories : only add the value if it exists in the corresponding tags taxonomy
+	if ($target =~ /^!/) {
+		$field = $';
+	}
 	
 	if (not defined $product_ref) {
 		die("product_ref is undef");
@@ -130,9 +137,18 @@ sub assign_value($$$) {
 		and ($product_ref->{$field} ne $value)) {
 		
 		if (exists $tags_fields{$field}) {
-			$product_ref->{$field} .= ", " . $value;
+			if ($target =~ /^!/) {
+				my $canon_tagid = canonicalize_taxonomy_tag($product_ref->{lc}, $field, $value);
+				if (exists_taxonomy_tag($field, $canon_tagid)) {
+					$product_ref->{$field} .= ", " . $value;
+				}
+			}
+			else {
+				$product_ref->{$field} .= ", " . $value;
+			}
 		}
-		else {
+		# language field?
+		elsif (($field =~ /^(.+)_(\w\w)$/) and (defined $language_fields{$1})) {
 			$product_ref->{$field} .= "\n" . $value;
 		}
 	}
@@ -284,10 +300,11 @@ sub clean_weights($) {
 	
 	# normalize weights
 	
-	foreach my $field ("net_weight", "drained_weight", "total_weight", "volume") {
+	foreach my $field ("quantity", "net_weight", "drained_weight", "total_weight", "volume") {
 	
 		# normalize unit
 		if (defined $product_ref->{$field . "_unit"}) {
+			$product_ref->{$field . "_unit"} =~ s/gr/g/i;
 			if ($product_ref->{$field . "_unit"} !~ /^(kJ|L)$/) {
 				$product_ref->{$field . "_unit"} = lc($product_ref->{$field . "_unit"});
 			}
@@ -304,7 +321,30 @@ sub clean_weights($) {
 		
 		if (defined $product_ref->{$field}) {
 			# 2295[GR]
-			$product_ref->{$field} =~ s/(\d)\s?\[(\w+)\]/$1 $2/g;
+			# 200 (2x100)[GR]
+			# (2x230g[GR]
+			$product_ref->{$field} =~ s/g\[gr\]/g/ig;
+			$product_ref->{$field} =~ s/(\d|[\)])\s?\[(\w+)\]/lc("$1 $2")/ieg;
+			
+			# 420g -> 420 g
+			$product_ref->{$field} =~ s/(\d|[\)])( )?(g|gramme|grammes|gr)(\.)?/$1 g/i;
+			$product_ref->{$field} =~ s/(\d)( )?(ml|millilitres)(\.)?/$1 ml/i;
+			$product_ref->{$field} =~ s/(litre|litres|liter|liters|lt)\b/l/i;
+			$product_ref->{$field} =~ s/kilogramme|kilogrammes|kgs/kg/i;			
+			$product_ref->{$field} =~ s/(\d)(\s)*(kg|g|gr|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz))e?\b/lc("$1 $3")/ieg;
+			# 250 GR -> 250 g
+			$product_ref->{$field} =~ s/(\d) gr\b/$1 g/g;
+			
+			$product_ref->{$field} =~ s/\.0 / /;			
+						
+			# 6x90g
+			$product_ref->{$field} =~ s/(\d)(\s*)x(\s*)(\d)/$1 x $4/i;
+
+			# kge 
+			$product_ref->{$field} =~ s/(\d\s(\w+))e$/$1 e/;
+
+			# remove the e
+			$product_ref->{$field} =~ s/ e\b//g;
 		}
 		
 	}
@@ -322,22 +362,40 @@ sub clean_weights($) {
 fr => {
 net_weight => '(poids )?net( total)?',
 drained_weight => '(poids )?(net )?(égoutté|egoutte)',
-volume => '(volume|contenance)( net)?( total)?',
+volume => '(volume|contenance)( net|nette)?( total)?',
+},
+
+# Peso neto: 480 g (6 x 80 g) Peso neto escurrido: 336 g (6x56 g)
+
+es => {
+net_weight => '(peso )?neto( total)?',
+drained_weight => '(peso )?(neto )?(escurrido)',
+#volume => '(volume|contenance)( net|nette)?( total)?',
 },
 	
 	);
 	
 	if (defined $product_ref->{total_weight}) {
 	
+		$log->debug("clean_weights", { lc => $product_ref->{lc}, total_weight => $product_ref->{total_weight} }) if $log->is_debug();
+	
 		if ((defined $product_ref->{lc}) and (defined $regexps{$product_ref->{lc}})) {
 			foreach my $field ("net_weight", "drained_weight", "volume") {
 				if ((not defined $product_ref->{$field})
-					and (defined $regexps{$product_ref->{lc}}{$field})
-					and ($product_ref->{total_weight} =~ /$regexps{$product_ref->{lc}}{$field}/i) ) {
-					my $after = $';
-					# match number with unit
-					if ($after =~ /\s?:?\s?(\d[0-9\.\,]*\s*(\w+))/i) {
-						assign_value($product_ref, $field, $1);
+					and (defined $regexps{$product_ref->{lc}}{$field})) {
+					
+					my $regexp = $regexps{$product_ref->{lc}}{$field};
+					
+					if ($product_ref->{total_weight} =~ /$regexp/i ) {
+					
+						my $after = $';
+						# match number with unit
+						
+						$log->debug("clean_weights - matched", { field => $field, after => $after }) if $log->is_debug();
+
+						if ($after =~ /\s?:?\s?(\d[0-9\.\,]+\s*(\w+))/i) {
+							assign_value($product_ref, $field, $1);
+						}
 					}
 				}
 			}
@@ -346,7 +404,7 @@ volume => '(volume|contenance)( net)?( total)?',
 	
 	
 	# empty or uncomplete quantity, but net_weight etc. present
-	if ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq "")
+	if ((not defined $product_ref->{quantity}) or ($product_ref->{quantity} eq "") 
 		or (($lc eq "fr") and ($product_ref->{quantity} =~ /^\d+ tranche([[:alpha:]]*)$/)) # French : "6 tranches épaisses"
 		) {
 		
@@ -355,7 +413,8 @@ volume => '(volume|contenance)( net)?( total)?',
 		my $extra_quantity;
 		
 		foreach my $field ("net_weight", "drained_weight", "total_weight", "volume") {
-			if ((defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
+			if ((defined $product_ref->{$field}) and ($product_ref->{$field} ne "")
+				and ($product_ref->{$field} =~ /^\d/) ) {	# make sure we have a number
 				$extra_quantity = $product_ref->{$field};
 				last;
 			}		
@@ -371,6 +430,7 @@ volume => '(volume|contenance)( net)?( total)?',
 		}
 	}
 }
+
 
 
 sub clean_fields($) {
@@ -406,9 +466,21 @@ sub clean_fields($) {
 				$product_ref->{$field} =~ s/\s?(;|\/|\n)\s?/, /g;
 			}
 			
-			if (($field =~ /_fr/) or (($product_ref->{lc} eq 'fr') and ($field !~ /_\w\w$/))) {
-				$product_ref->{$field} =~ s/^\s*(aucun(e)|autre logo)?\s*$//i;
+			if (($field =~ /_fr/) or ((defined $product_ref->{lc}) and ($product_ref->{lc} eq 'fr') and ($field !~ /_\w\w$/))) {
+				$product_ref->{$field} =~ s/^\s*(aucun(e)|autre logo|non)?\s*$//i;
 			}
+			
+			# Lowercase fields in ALL CAPS
+			if ($field =~ /^(ingredients_text|product_name|generic_name)/) {
+				if (($product_ref->{$field} =~ /[A-Z]{4}/)
+					# and ($product_ref->{$field} !~ /[a-z]/)
+					) {
+					$product_ref->{$field} = ucfirst(lc($product_ref->{$field}));
+				}
+			}
+			
+			
+			# Ingredients
 			
 			if ($field =~ /^ingredients_text/) {
 			
@@ -429,6 +501,15 @@ sub clean_fields($) {
 				# _fromage_ _de chèvre_
 				$product_ref->{$field} =~ s/<\/b>(| )<b>/$1/g;
 				
+				# d_'œufs_
+				# _lait)_
+				$product_ref->{$field} =~ s/<b>(\w)/$1<b>/g;
+				$product_ref->{$field} =~ s/(\w)<\/b>/<b>$1/g;
+				
+
+				$log->debug("clean_fields - ingredients_text - 1", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
+				
 				# extrait de malt d'<b>orge - </b>sel 
 				$product_ref->{$field} =~ s/ -( |)<\/b>/<\/b> -$1/g;
 				
@@ -437,11 +518,21 @@ sub clean_fields($) {
 
 				
 				if ($field eq "ingredients_text_fr") {
-					$product_ref->{$field} =~ s/(Les |l')?(information|ingrédient|indication)(s?) (.*) (personnes )?((allergiques( (ou|et) intolérant(e|)s)?)|(intolérant(e|)s( (ou|et) allergiques))?)(\.)?//i;
+				
+					$log->debug("clean_fields - ingredients_text - 2", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
+					# remove single sentence that say allergens are in bold (in Casino data)
+					$product_ref->{$field} =~ s/(Les |l')?(information|ingrédient|indication)(s?) ([^\.,]*) (personnes )?((allergiques( (ou|et) intolérant(e|)s)?)|(intolérant(e|)s( (ou|et) allergiques)?))(\.)?//i;
+					$product_ref->{$field} = ucfirst($product_ref->{$field});
 					
+					$log->debug("clean_fields - ingredients_text - 3", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+
 					# Missing spaces
 					# Poire Williams - sucre de canne - sucre - gélifiant : pectines de fruits - acidifiant : acide citrique.Préparée avec 55 g de fruits pour 100 g de produit fini.Teneur totale en sucres 56 g pour 100 g de produit fini.Traces de _fruits à coque_ et de _lait_..
 					$product_ref->{$field} =~ s/\.([A-Z][a-z])/\. $1/g;
+					
+					$log->debug("clean_fields - ingredients_text - 4", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+					
 				}
 				
 				# persil- poivre blanc -ail
@@ -469,6 +560,8 @@ sub clean_fields($) {
 			
 			# remove N/A, NA etc.
 			$product_ref->{$field} =~ s/^((n(\/|\.)?a(\.)?)|(not applicable))$//i;
+			
+
 		
 		}
 	}
@@ -532,6 +625,7 @@ sub load_xml_file($$$$) {
 #			["ProductCode", "producer_version_id"],			
 #			["fields.AL_INGREDIENT.*", "ingredients_text_*"],
 
+	# $code = undef;
 
 	foreach my $field_mapping_ref (@$xml_fields_mapping_ref) {
 		my $source = $field_mapping_ref->[0];
@@ -544,9 +638,23 @@ sub load_xml_file($$$$) {
 		foreach my $source_tag (split(/\./, $source)) {
 			print STDERR "source_tag: $source_tag\n";
 			
+			# commands
+			
+			# 	["[delete_except]", "producer|emb_codes|origin"],
+
+			if ($source_tag eq '[delete_except]') {
+				my $regexp = $target;
+				foreach my $field ( sort keys %{$product_ref}) {
+					next if $field eq 'code';
+					next if $field =~ /$regexp/i;
+					$log->trace("deleting existing field", { field=>$field }) if $log->is_trace();
+					delete $product_ref->{$field};
+				}
+			}
+			
 			# multiple values in different languages
 			
-			if ($source_tag eq '*') {
+			elsif ($source_tag eq '*') {
 				foreach my $tag ( keys %{$current_tag}) {
 					my $tag_target = $target;
 					$tag_target =~ s/\*/$tag/;
@@ -580,11 +688,48 @@ sub load_xml_file($$$$) {
 					$current_tag = $current_tag->{$source_tag};
 				}
 				elsif ((defined $current_tag->{$source_tag}) and (not ref($current_tag->{$source_tag})) and ($current_tag->{$source_tag} ne '')) {
-					print STDERR "$source_tag is a scalar: $current_tag->{$source_tag}, assign value to $target\n";
+				
+					my $value = $current_tag->{$source_tag};
+				
+					print STDERR "$source_tag is a scalar: $value, assign value to $target\n";
 					if ($target eq 'code') {
-						$code = $current_tag->{$source_tag};
+						$code = $value;
 					}
-					assign_value($product_ref, $target, $current_tag->{$source_tag});
+					
+					my $seen_energy_kj = 0;
+					
+					if ($target =~ /^nutriments.(.*)/) {
+						$target = $1;
+						
+						# skip energy in kcal if we already have energy in kJ
+						if (($seen_energy_kj) and ($target =~ /kcal/i)) {
+							next;
+						}
+						
+						if ($target =~ /kj/i) {
+							$seen_energy_kj = 1;
+						}
+						
+						$value =~ s/,/\./;
+						
+						if ($target =~ /^(.*)_([^_]+)$/) {
+								$target = $1;
+								my $unit = $2;
+								assign_value($product_ref, $target . "_value", $value);
+								if ($value ne "") {
+									assign_value($product_ref, $target . "_unit", $unit);
+								}
+								else {
+									assign_value($product_ref, $target . "_unit", "");
+								}
+						}
+						else {
+							assign_value($product_ref, $target . "_value", $value);					
+						}
+					}
+					else {
+						assign_value($product_ref, $target, $value);
+					}
 				}
 			}
 			else {
@@ -597,12 +742,16 @@ sub load_xml_file($$$$) {
 }
 
 
-sub load_csv_file($$$$) {
+sub load_csv_file($) {
 
-	my $file = shift;
-	my $encoding = shift;
-	my $separator = shift;
-	my $skip_lines = shift;
+	my $options_ref = shift;
+	
+	my $file = $options_ref->{file};
+	my $encoding = $options_ref->{encoding};
+	my $separator = $options_ref->{separator};
+	my $skip_lines = $options_ref->{skip_lines};
+	my $skip_non_existing_products = $options_ref->{skip_non_existing_products};
+	my @csv_fields_mapping = @{$options_ref->{csv_fields_mapping}};
 		
 	# e.g. load_csv_file($file, "UTF-8", "\t", 4);
 	
@@ -637,25 +786,32 @@ sub load_csv_file($$$$) {
 		
 		my $seen_energy_kj = 0;
 
-		foreach my $field_mapping_ref (@fields_mapping) {
+		foreach my $field_mapping_ref (@csv_fields_mapping) {
 		
 			my $source_field = $field_mapping_ref->[0];
 			my $target_field = $field_mapping_ref->[1];
-			
+						
 			$log->info("Field mapping", { source_field => $source_field, source_field_value => $csv_product_ref->{$source_field}, target_field=>$target_field }) if $log->is_info();
 		
 			if (defined $csv_product_ref->{$source_field}) {
 				# print STDERR "defined source field $source_field: " . $csv_product_ref->{$source_field} . "\n";
 				
+				my $value = $csv_product_ref->{$source_field};
+				
 				if ($target_field eq 'code') {
-					$code = $csv_product_ref->{$source_field};
+					$code = $value;
 					print STDERR "reading product code $code\n";
-					$product_ref = get_or_create_product_for_code($code);
+					if ((defined $skip_non_existing_products) and ($skip_non_existing_products) and (not exists $products{$code})) {
+						last;
+					}
+					else {
+						$product_ref = get_or_create_product_for_code($code);
+					}
 				}
 				
 				# ["Energie kJ", "nutriments.energy_kJ"],
 				
-				if ($target_field =~ /^nutriments.(.*)/) {
+				elsif ($target_field =~ /^nutriments.(.*)/) {
 					$target_field = $1;
 					
 					# skip energy in kcal if we already have energy in kJ
@@ -670,8 +826,8 @@ sub load_csv_file($$$$) {
 					if ($target_field =~ /^(.*)_([^_]+)$/) {
 							$target_field = $1;
 							my $unit = $2;
-							assign_value($product_ref, $target_field . "_value", $csv_product_ref->{$source_field});
-							if ($csv_product_ref->{$source_field} ne "") {
+							assign_value($product_ref, $target_field . "_value", $value);
+							if ($value ne "") {
 								assign_value($product_ref, $target_field . "_unit", $unit);
 							}
 							else {
@@ -679,11 +835,11 @@ sub load_csv_file($$$$) {
 							}
 					}
 					else {
-						assign_value($product_ref, $target_field . "_value", $csv_product_ref->{$source_field});					
+						assign_value($product_ref, $target_field . "_value", $value);					
 					}
 				}
 				else {
-					assign_value($product_ref, $target_field, $csv_product_ref->{$source_field});									
+					assign_value($product_ref, $target_field, $value);									
 				}
 
 			}
@@ -734,7 +890,7 @@ sub get_list_of_files(@) {
 	my @files_and_dirs = @_;
 	my @files = ();
 
-	foreach my $arg (sort @files_and_dirs) {
+	foreach my $arg (@files_and_dirs) {
 
 		print STDERR "arg: $arg\n";
 		
