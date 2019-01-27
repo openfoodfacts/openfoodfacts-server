@@ -274,7 +274,7 @@ sub extract_ingredients_from_text($) {
 	my $product_ref = shift;
 	my $path = product_path($product_ref->{code});
 	
-	next if not defined $product_ref->{ingredients_text};
+	return if not defined $product_ref->{ingredients_text};
 	
 	my $text = $product_ref->{ingredients_text};
 	
