@@ -2539,7 +2539,41 @@ wikipedia:en:https://en.wikipedia.org/wiki/Calcium_gluconate
 # ingredient/calcium-gluconate has 44 products in 2 languages @2018-12-11
 
 
-# Monosodium glutamate (MSG, also known as sodium glutamate) is the sodium salt of glutamic acid, one of the most abundant naturally occurring non-essential amino acids.
+# FERROUS LACTATE, or iron(II) lactate, is a chemical compound consisting of one atom of iron (Fe2+) and two lactate anions. 
+
+en:Ferrous lactate, Iron(II) lactate, E585, E-585, E 585
+# azb:لاوکتات دمیر
+bg:Феро лактат, желязо(II) лактат
+cs:Mléčnan železnatý
+da:Ferrolactat, Jern(II)lactat
+de:Eisenlactat, Eisen(ii)-lactat
+el:Γαλακτικος σιδηρος, Γαλακτικός σίδηρος (II)
+es:Lactato ferroso, Lactato de hierro (II)
+et:Ferrolaktaat
+fa:لاکتات آهن(II)
+fi:Ferrolaktaatti, Rauta(II)laktaatti
+fr:lactate de fer, Lactate ferreux, Lactate de fer (II)
+hu:Vas-laktát, Vas(ii)-laktát
+it:lattato di ferro, Lattato ferroso
+ja:乳酸鉄(II)
+lt:Geležies laktatas, Geležies(II) laktatas
+lv:Dzelzs laktāts, Dzelzs (II) laktāts
+mt:Lattat ferruż, Lattat tal-ħadid(II)
+nl:IJzerlactaat, IJzer(ii)lactaat, IJzer(II)dilactaat
+pl:Mleczan żelazawy, Mleczan żelaza(II)
+pt:Lactato ferroso, Lactato de ferro (II)
+ro:Lactat feros, Lactat de fier (II)
+sk:Mliečnan železnatý
+sl:Železov laktat, železov (II) laktat
+sr:Gvožđe(II) laktat
+sv:Järnlaktat, Järn(II)laktat
+vi:Sắt(II) lactat
+wikidata:en:Q836793
+wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_lactate
+# fr:lactate-de-fer has 23 products in 3 languages @2019-01-27
+
+
+# MONOSODIUM GLUTAMATE (MSG, also known as sodium glutamate) is the sodium salt of glutamic acid, one of the most abundant naturally occurring non-essential amino acids.
 
 en:Monosodium glutamate, E621, E 621, E-621
 ar:غلوتامات أحادي الصوديوم
@@ -2621,7 +2655,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Monosodium_glutamate
 # ingredient/fr:monosodium%20glutamate has 62 products @2019-01-25
 
 
-# Disodium 5'-ribonucleotides, E number E635, is a flavor enhancer which is synergistic with glutamates in creating the taste of umami. 
+# DISODIUM 5'-RIBONUCLEOTIDES, E number E635, is a flavor enhancer which is synergistic with glutamates in creating the taste of umami. 
 
 en:Disodium 5'-ribonucleotide, disodium 5'-ribonucleotides, E635, E-635 E 635
 bg:Динатриев 5'-рибонуклеотид
@@ -32225,7 +32259,7 @@ nl:champignonextract
 # CANTHARELLUS CIBARIUS is a species of golden chanterelle mushroom in the genus Cantharellus. 
 
 <en:mushroom
-en:golden chanterelle, cantharellus cibarius
+en:golden chanterelle
 ar:فطر الشانتريل
 be:лісічка сапраўдная
 bg:пачи крак
@@ -32235,14 +32269,14 @@ cs:liška obecná
 # csb:Peperlëszka
 cy:Siantrel
 da:Almindelig Kantarel
-de:Pfifferlinge, cantharellus cibarius
+de:Pfifferlinge
 el:Κανθαρέλλα
 eo:Kantarelo
 es:Chantarela
 et:Harilik kukeseen
 eu:Zizahori
 fa:قارچ قیفی
-fr:girolles, cantharellus cibarius
+fr:girolles
 ga:Cantarnaid
 gl:Cantarela
 hr:Lisička
@@ -32250,11 +32284,10 @@ hu:Sárga rókagomba
 id:Jamur chanterelle
 io:Kantarelo
 is:Kantarella
-it:Gallinaccio, cantharellus cibarius
+it:Gallinaccio
 ja:アンズタケ
 ka:მიქლიო
 ko:꾀꼬리버섯
-la:Cantharellus cibarius
 lt:Valgomoji voveraitė
 lv:Parastā gailene
 mk:лисичарка
@@ -32262,7 +32295,7 @@ mk:лисичарка
 # myv:Ривезь панго
 # mzn:زردکیجا
 nb:Kantarell
-nl:cantharel, cantharellus cibarius
+nl:cantharel, c
 nn:Kantarell
 # olo:Keldusieni
 pl:Pieprznik jadalny
@@ -32290,6 +32323,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cantharellus_cibarius
 # ingredient/fr:cantharellus-cibarius has 26 products in 3 languages @2018-12-16
 # ingredient/fr:girolles has 90 products in 3 languages @2018-12-16
 
+<en:golden chanterelle
+en:cantharellus cibarius
+la:cantharellus cibarius
 
 # BOLETUS EDULIS (English:penny bun, cep, porcino or porcini) is a basidiomycete fungus, and the type species of the genus Boletus. 
 
@@ -42834,12 +42870,6 @@ fr:diphosphates disodique
 fr:guarana
 
 fr:boyau de boeuf
-
-fr:lactate de fer
-
-fr:dextrine de tapioca
-
-fr:cantharellus cibarius
 
 
 
