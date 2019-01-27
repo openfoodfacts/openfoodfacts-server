@@ -264,7 +264,10 @@ F=>undef,
 
 			# get the code first
 			
-			["fields.AL_CODE_EAN.*", "code"],
+			# don't trust the EAN from the XML file, use the one from the file name instead
+			# -> sometimes different
+			#["fields.AL_CODE_EAN.*", "code"],			
+
 			["ProductCode", "producer_product_id"],	
 
 			["nutrients.ENERKJ.[0].RoundValue", "nutriments.energy_kJ"],
@@ -419,6 +422,8 @@ foreach my $code (sort keys %products) {
 	
 	my $product_ref = $products{$code};
 	
+	print STDERR "emb_codes : " . $product_ref->{emb_codes} . "\n";
+	
 	assign_main_language_of_product($product_ref, ['fr','es','it','nl','de','en','ro','pl'], "fr");
 	
 	clean_weights($product_ref); # needs the language code
@@ -442,6 +447,18 @@ foreach my $code (sort keys %products) {
 		$product_ref->{nomenclature_fr} =~ s/^conserve(s)?( de| d')?(.*)$/$3 en conserve/i;
 		$product_ref->{nomenclature_fr} =~ s/^autre(s) //i;
 	}
+	
+	print STDERR "emb_codes : " . $product_ref->{emb_codes} . "\n";
+	
+	# Make sure we only have emb codes and not some other text
+	if (defined $product_ref->{emb_codes}) {
+		# too many letters -> word instead of code
+		if ($product_ref->{emb_codes} =~ /[a-zA-Z]{8}/)	{
+			delete $product_ref->{emb_codes};
+		}
+	}	
+	
+	print STDERR "emb_codes : " . $product_ref->{emb_codes} . "\n";
 	
 	match_taxonomy_tags($product_ref, "nomenclature_fr", "categories", 
 	{
@@ -498,6 +515,7 @@ foreach my $code (sort keys %products) {
 	}
 	);
 	
+	print STDERR "emb_codes : " . $product_ref->{emb_codes} . "\n";
 	
 #<TextFrameLinePF code_champs="AL_NUTRI_N_AR" F="10">
 #<Label>Déclaration nutritionnelle et Apports de référence</Label>

@@ -462,13 +462,11 @@ sub clean_fields($) {
 			
 			# tag fields: turn separators to commas
 			# Sans conservateur / Sans huile de palme
+			# ! packaging codes can have / :  ES 12.06648/C CE
 			if (exists $tags_fields{$field}) {
-				$product_ref->{$field} =~ s/\s?(;|\/|\n)\s?/, /g;
+				$product_ref->{$field} =~ s/\s?(;|( \/ )|\n)+\s?/, /g;
 			}
 			
-			if (($field =~ /_fr/) or ((defined $product_ref->{lc}) and ($product_ref->{lc} eq 'fr') and ($field !~ /_\w\w$/))) {
-				$product_ref->{$field} =~ s/^\s*(aucun(e)|autre logo|non)?\s*$//i;
-			}
 			
 			# Lowercase fields in ALL CAPS
 			if ($field =~ /^(ingredients_text|product_name|generic_name)/) {
@@ -553,15 +551,23 @@ sub clean_fields($) {
 				$product_ref->{$field} = lc($product_ref->{$field});
 			}
 			
+			# remove N/A, NA etc.
+			$product_ref->{$field} =~ s/(^|,)\s*((n(\/|\.)?a(\.)?)|(not applicable)|non)\s*(,|$)//ig;
+			
+			if (($field =~ /_fr/) or ((defined $product_ref->{lc}) and ($product_ref->{lc} eq 'fr') and ($field !~ /_\w\w$/))) {
+				$product_ref->{$field} =~ s/^\s*(aucun(e)|autre logo|non)?\s*$//ig;
+			}
+			
+			$product_ref->{$field} =~ s/,(\s*),/,/g;
 			$product_ref->{$field} =~ s/\.(\.+)$/\./;
 			$product_ref->{$field} =~ s/(\s|-|;|,)*$//;
 			$product_ref->{$field} =~ s/^(\s|-|;|,)+//;
-			$product_ref->{$field} =~ s/^(\s|-|;|,|_)+$//;
+			$product_ref->{$field} =~ s/^(\s|-|;|,|_)+$//;			
 			
-			# remove N/A, NA etc.
-			$product_ref->{$field} =~ s/^((n(\/|\.)?a(\.)?)|(not applicable))$//i;
-			
-
+			# remove empty values for tag fields
+			if (exists $tags_fields{$field}) {
+				$product_ref->{$field} =~ s/^(,|;|-|_|\/|\\|#|:|\s)+$//;
+			}
 		
 		}
 	}
@@ -668,6 +674,10 @@ sub load_xml_file($$$$) {
 							$product_ref = get_or_create_product_for_code($code);
 						}						
 						assign_value($product_ref, $tag_target, $current_tag->{$tag});
+						
+						if ($tag_target eq 'emb_codes') {
+							print STDERR "emb_codes : " . $product_ref->{$tag_target} . "\n";
+						}
 					}
 				}
 				last;
