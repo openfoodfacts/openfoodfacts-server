@@ -251,7 +251,9 @@ sub store_product($$) {
 	
 	my $new_data_root = $data_root;
 	my $new_www_root = $www_root;
-	my $new_products_collection = get_products_collection();
+	
+	my $products_collection = get_products_collection();
+	my $new_products_collection = $products_collection;
 		
 	
 	# Changing the code?
@@ -304,7 +306,7 @@ sub store_product($$) {
 			delete $product_ref->{old_code};
 			
 			execute_query(sub {
-				return $new_products_collection->delete_one({"_id" => $product_ref->{_id}});
+				return $products_collection->delete_one({"_id" => $product_ref->{_id}});
 			});
 			
 			$product_ref->{_id} = $product_ref->{code};
