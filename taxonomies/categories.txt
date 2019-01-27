@@ -30665,7 +30665,7 @@ fr:Udon instantanés
 
 <en:Instant pasta
 en:Instant soba
-en:Soba instantanés
+fr:Soba instantanés
 
 <en:Pasta in a box
 en:Ravioli in a box
@@ -31176,8 +31176,20 @@ en:Beef preparations
 fr:Préparations de viande bovine, préparation de viande de bœuf
 
 <en:Beef preparations
+<en:Dried meats
 en:Meat of the grisons
 fr:Viande des grisons
+es:Bindenfleisch
+de:Bündnerfleisch
+wikidata:en:Q390726
+
+<en:Beef preparations
+<en:Dried meats
+en:Bresaola
+es:Bresaola
+fr:Bresaola
+it:Bresaola
+wikidata:en:Q910095
 
 <en:Beef steaks
 <en:Ground steaks
@@ -32946,7 +32958,7 @@ it:Udon
 es:Udon
 wikidata:en:Q471861
 
-<en:Buckwheat pasta
+<en:Pastas
 en:Soba
 fr:Soba
 de:Soba
@@ -36663,6 +36675,7 @@ es:Rábanos, Rabanitos
 fr:Radis
 la:Raphanus sativus
 nl:Radijs
+wikidata:en:Q7224565
 
 <en:Radishes
 en:Red radishes
@@ -36671,10 +36684,16 @@ fr:Radis rouges, radis rouge
 la:Raphanus sativus var. sativus
 
 <en:Radishes
+fr:Radis noirs
+la:Raphanus sativus subsp. niger
+wikidata:en:Q159587
+
+<en:Radishes
 en:Daikon radishes, Daikon, White radishes
 es:Rábanos blancos, Rábanos japoneses, Daikon
 fr:Radis blancs, radis blanc
 la:Raphanus sativus var. longipinnatus
+wikidata:en:Q7224757
 
 <en:Leaf vegetables
 en:Red cabbage
@@ -39480,14 +39499,24 @@ fr:lots retirés de la vente en février 2013
 <fr:Plats susceptibles de contenir de la viande de cheval
 fr:Plats susceptibles de contenir de la viande de cheval - lots retirés de la vente en février 2013, Plats-susceptibles-de-contenir-de-la-viande-de-cheval-retires-en-fevrier-2013
 
-en:Pet food, pet products
+en:Pet food, pet products, animal food
 fr:Nourriture pour animaux, produits pour animaux
 nl:Dierenvoer
-de:Tiernahung, Futter
+de:Tiernahung, Tierfutter, Futter
 nl_be:Dierenvoer
 ru:Корма для домашних животных, Корм для домашних животных
 hu:Állateledel
 wikidata:en:Q6648982
+
+<en:Pet food
+en:Dry pet food, dry food
+fr:Nourriture sèche pour animaux, Croquettes pour animaux
+de:Trockenfutter, trockenes Futter
+
+<en:Pet food
+en:Wet pet food, wet food
+fr:Nourriture humide pour animaux, Pâtées pour animaux
+de:Nassfutter, nasses Futter
 
 <en:Pet food
 en:Cat food, cat products
@@ -39500,9 +39529,9 @@ hu:Macska eledel
 wikidata:en:Q1736906
 
 <en:Cat food
-<en:Dried products
+<en:Dry pet food
 en:Dry cat food
-de:Getrocknete Katzenfutter
+de:Katzentrockenfutter, trockenes Katzenfutter, Trockenfutter für Katzen, Katzentrockennahrung
 fr:Croquettes pour chat
 nl:Kattebrokken, Kattenbrokken
 nl_be:Kattebrokken, Kattenbrokken
@@ -39510,10 +39539,30 @@ hu:Száraz macska eledel
 ru:Сухой корм для кошек, Сухие корма для кошек
 
 <en:Cat food
+<en:Wet pet food
 en:Wet cat food, canned cat food
-de:Feuchtes Katzenfutter
+fr:pâtées pour chat, nourriture humide pour chat, boites pour chat, sachet fraicheur pour chat
+de:Katzennassnahrung, nasses Katzenfutter, Feuchtes Katzenfutter
 ru:Консервированный корм для кошек, Консервированный кошачий корм, Консервы для кошек, Консервированные корма для кошек, Консервированные кошачьи корма, Кошачьи консервы
 hu:Macskakonzerv, Kozerv macskaeledel, Nedves macsakaeledel
+
+<en:cat food
+en:cat biscuits, cat treats
+fr:biscuits pour chats, friandises pour chats
+de:Katzensnacks, Snacks für Katzen
+
+<en:cat food
+en:senior cat food
+fr:Nourriture pour chat agé
+ru:корм для пожилых кошек
+de:Senioren Katzenfutter, Katzenfutter für Senioren, Senior Katzenfutter
+wikidata:en:Q28455745
+
+<en:cat food
+en:castrated cat food
+fr:Nourriture pour chat castré
+ru:корм для кастрированных кошек
+de:Futter für kastrierte und sterilisierte Katzen, Futter für sterilisierte und kastrierte Katzen
 
 <en:Pet food
 en:Dog food
@@ -39526,14 +39575,20 @@ hu:Kutyaeledel
 wikidata:en:Q38420
 
 <en:Dog food
-<en:Dried products
+<en:Dry pet food
 en:Dry Dog Food
-de:Getrockgnete Hundefutter
+de:Hundetrockenfutter, trockenes Hundefutter
 fr:Croquettes pour chien
 nl:Hondenbrokken
 nl_be:Hondenbrokken
 ru:Сухой корм для собак, Сухие корма для собак
 hu:Száraz kutyaeledel
+
+<en:Dog food
+<en:Wet pet food
+en:Wet dog food, canned dog food
+fr:Pâtées pour chien, nourriture humide pour chien, boites pour chien
+de:Hundenassnahrung, nasses Hundefutter
 
 <en:Pet food
 en:Bird food
@@ -39548,6 +39603,35 @@ wikidata:en:Q471236
 <en:Pet food
 en:Fish food
 fr:Nourriture pour poissons
+de:Fischfutter
+
+<en:Pet food
+en:Rabbit food
+fr:Nourriture pour lapins
+de:Kaninchenfutter
+
+
+<en:Pet food
+en:Horse food
+fr:Nourriture pour chevaux
+de:Pferdefutter
+
+<en:Pet food
+en:rodent food
+fr:nourriture pour rongeurs
+ru:корм для грызунов
+de:Nagetierfutter
+
+<en:Pet food
+en:reptile food
+fr:nourriture pour reptiles
+ru:корм для пресмыкающихся, корм для рептилий
+de:Futter für Reptilien, Terrarientierfutter
+
+<en:Pet food
+en:miscellaneous pet food, miscellaneous animal food
+fr:nourriture pour animaux variés
+de:sonstiges Tierfutter
 
 en:Pie dough
 fr:Pâtes à tarte, Pâte à tarte, Pates à tarte fraiches
