@@ -63,7 +63,10 @@ import_csv_file.pl --csv_file path_to_csv_file --images_dir path_to_directory_co
 --test	: do not import product data or images, but compute statistics.
 --define	: allows to define field values that will be applied to all products.
 --code	: only import a product with a specific code
-
+--skip_not_existing_products
+--only_import_products_with_images
+--skip_products_without_info
+--skip_existing_values
 TXT
 ;
 
@@ -88,6 +91,7 @@ my $skip_not_existing_products = 0;
 my $pretend = 0;
 my $skip_if_not_code;
 my $skip_products_without_info = 0;
+my $skip_existing_values = 0;
 
 
 GetOptions (
@@ -109,6 +113,7 @@ GetOptions (
 	"only_import_products_with_images" => \$only_import_products_with_images,
 	"code=s" => \$skip_if_not_code,
 	"skip_products_without_info" => \$skip_products_without_info,
+	"skip_existing_values" => \$skip_existing_values,
 		)
   or die("Error in command line arguments:\n$\nusage");
   
@@ -323,6 +328,8 @@ $csv->column_names ($csv->getline ($io));
 my $skip_not_existing = 0;
 my $skip_no_images = 0;
 
+my $skip_until = 8018759001393;
+
 while (my $imported_product_ref = $csv->getline_hr ($io)) {
   	
 	$i++;
@@ -340,7 +347,14 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		next;
 	}
 	
-	#next if ($code ne "3222470102900");
+	
+	if (($skip_until > 0) and ($code eq $skip_until)) {
+		$skip_until = 0;
+		next;
+	}
+	
+	$skip_until and next;
+	
 	
 	print "product $i - code: $code\n";
 			
@@ -355,14 +369,14 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		print "code $code is not a number with 8 or more digits\n";
 		use Data::Dumper;
 		print Dumper($imported_product_ref);
-		die;	
+		next;	
 	}
 	
 	$stats{products_in_file}{$code} = 1;
 	
 	# apply global field values
 	foreach my $field (keys %global_values) {
-		if (not defined $imported_product_ref->{$field})  {
+		if ((not defined $imported_product_ref->{$field}) or ($imported_product_ref->{$field} eq ""))  {
 			$imported_product_ref->{$field} = $global_values{$field};
 		}
 	}
@@ -411,6 +425,11 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		die ("missing language code lc in csv file, global field values, or import_lc for product code $code \n");
 	}	
 	
+	my $product_comment = $comment;
+	if ((defined $imported_product_ref->{comment}) and ($imported_product_ref->{comment} ne "")) {
+		$product_comment .= " - " . $imported_product_ref->{comment};
+	}
+	
 	if (not $product_ref) {
 		print "- does not exist in OFF yet\n";
 		
@@ -428,13 +447,18 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			
 			$User_id = $User_id;
 			$product_ref = init_product($code);
-			$product_ref->{interface_version_created} = "import_csv_file.pl - version 2019/01/16";
-			$product_ref->{lc} = $global_values{lc};
+			$product_ref->{interface_version_created} = "import_csv_file.pl - version 2019/01/28";
+			if (defined $global_values{lc}) {
+				$product_ref->{lc} = $global_values{lc};
+			}
+			else {
+				delete $product_ref->{lc};
+			}
 			delete $product_ref->{countries};
 			delete $product_ref->{countries_tags};
 			delete $product_ref->{countries_hierarchy};					
 			if (not $test) {
-				store_product($product_ref, "Creating product - " . $comment );					
+				# store_product($product_ref, "Creating product - " . $product_comment );					
 			}
 		}				
 		
@@ -491,7 +515,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		
 			print "defined and non empty value for field $field : " . $imported_product_ref->{$field} . "\n";
 			
-			if ($field =~ /product_name/) {
+			if (($field =~ /product_name/) or ($field eq "brands")) {
 				$stats{products_with_info}{$code} = 1;
 			}
 		
@@ -503,10 +527,10 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				
 				# brands -> remove existing values;
 				# allergens -> remove existing values;
-				if (($field eq 'brands') or ($field eq 'allergens')) {
-					$product_ref->{$field} = "";
-					delete $product_ref->{$field . "_tags"};
-				}
+				#if (($field eq 'brands') or ($field eq 'allergens')) {
+				#	$product_ref->{$field} = "";
+				#	delete $product_ref->{$field . "_tags"};
+				#}
 
 				my %existing = ();
 					if (defined $product_ref->{$field . "_tags"}) {
@@ -617,6 +641,12 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				
 				# existing value?
 				if ((defined $product_ref->{$field}) and ($product_ref->{$field} !~ /^\s*$/)) {
+				
+					if ($skip_existing_values) {
+						print STDERR "skipping existing value for field $field : $product_ref->{$field}\n";
+						next;
+					}
+				
 					my $current_value = $product_ref->{$field};
 					$current_value =~ s/\s+$//g;
 					$current_value =~ s/^\s+//g;							
@@ -812,7 +842,9 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 	}	
 	
 	if ($code ne $product_ref->{code}) {
-		die("code $code is not the same as product_ref->{code} " . $product_ref->{code} . "\n");
+		print STDERR "code $code is not the same as product_ref->{code} " . $product_ref->{code} . "\n";
+		# die("code $code is not the same as product_ref->{code} " . $product_ref->{code} . "\n");
+		next;
 	}
 	
 	# Skip further processing if we have not modified any of the fields
@@ -884,10 +916,15 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 				$product_ref->{sources} = [];
 			}
 			
+			my $product_source_url = $source_url;
+			if ((defined $imported_product_ref->{source_url}) and ($imported_product_ref->{source_url} ne "")) {
+				$product_source_url = $imported_product_ref->{source_url};
+			}
+			
 			my $source_ref = {
 				id => $source_id,
 				name => $source_name,
-				url => $source_url,
+				url => $product_source_url,
 				manufacturer => $manufacturer,
 				import_t => time(),
 				fields => \@modified_fields,
@@ -927,7 +964,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			#exit;
 			
 			
-			store_product($product_ref, "Editing product (import_csv_file.pl) - " . $comment );
+			store_product($product_ref, "Editing product (import_csv_file.pl) - " . $product_comment );
 			
 			push @edited, $code;
 			$edited{$code}++;
@@ -940,6 +977,9 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		
 	
 	}
+	
+	
+	# Images need to be updated after the product is saved (and possibly created)
 	
 	
 	# Upload images
@@ -986,7 +1026,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 					
 					# upload a photo
 					my $imgid;
-					my $return_code = process_image_upload($code, "$images_dir/$file", $User_id, undef, $comment, \$imgid);
+					my $return_code = process_image_upload($code, "$images_dir/$file", $User_id, undef, $product_comment, \$imgid);
 					print "process_image_upload - file: $file - return code: $return_code - imgid: $imgid\n";	
 					
 					if (($imgid > 0) and ($imgid > $current_max_imgid)) {
@@ -1034,7 +1074,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 	
 	
 	if ($modified) {
-		# $j++ > 10 and last;
+	#	$j++ > 10 and last;
 	}
 } 
 			

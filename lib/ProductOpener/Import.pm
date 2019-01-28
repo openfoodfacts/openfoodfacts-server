@@ -192,9 +192,9 @@ sub assign_main_language_of_product($$$) {
 	if ((not defined $product_ref->{lc}) or (not defined $product_ref->{"product_name_" . $product_ref->{lc}})) {
 	
 		foreach my $possible_lc (@$lcs_ref) {
-			if (defined $product_ref->{"product_name_" . $possible_lc}) {
+			if ((defined $product_ref->{"product_name_" . $possible_lc}) and ($product_ref->{"product_name_" . $possible_lc} !~ /^\s*$/)) {
 				$log->info("assign_main_language_of_product: assigning value", { lc => $possible_lc}) if $log->is_info();				
-				$product_ref->{lc} = $possible_lc;
+				assign_value($product_ref, "lc", $possible_lc);
 				last;
 			}
 		}
@@ -202,7 +202,7 @@ sub assign_main_language_of_product($$$) {
 	
 	if (not defined $product_ref->{lc}) {
 		$log->info("assign_main_language_of_product: assigning default value", { lc => $default_lc}) if $log->is_info();					
-		$product_ref->{lc} = $default_lc;
+		assign_value($product_ref, "lc", $default_lc);
 	}
 }
 
@@ -300,7 +300,7 @@ sub clean_weights($) {
 	
 	# normalize weights
 	
-	foreach my $field ("quantity", "net_weight", "drained_weight", "total_weight", "volume") {
+	foreach my $field ("quantity", "serving_size", "net_weight", "drained_weight", "total_weight", "volume") {
 	
 		# normalize unit
 		if (defined $product_ref->{$field . "_unit"}) {
@@ -314,9 +314,9 @@ sub clean_weights($) {
 		if ((not defined $product_ref->{$field})
 			and (defined $product_ref->{$field . "_value"})
 			and ($product_ref->{$field . "_value"} ne "")
-			and (defined $product_ref->{$field . "_value"}) ) {
+			and (defined $product_ref->{$field . "_unit"}) ) {
 			
-			$product_ref->{$field} = $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"};
+			assign_value($product_ref, $field, $product_ref->{$field . "_value"} . " " . $product_ref->{$field . "_unit"});
 		}
 		
 		if (defined $product_ref->{$field}) {
@@ -505,7 +505,7 @@ sub clean_fields($) {
 				$product_ref->{$field} =~ s/(\w)<\/b>/<b>$1/g;
 				
 
-				$log->debug("clean_fields - ingredients_text - 1", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+				# $log->debug("clean_fields - ingredients_text - 1", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 
 				
 				# extrait de malt d'<b>orge - </b>sel 
@@ -517,19 +517,19 @@ sub clean_fields($) {
 				
 				if ($field eq "ingredients_text_fr") {
 				
-					$log->debug("clean_fields - ingredients_text - 2", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+					# $log->debug("clean_fields - ingredients_text - 2", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 
 					# remove single sentence that say allergens are in bold (in Casino data)
 					$product_ref->{$field} =~ s/(Les |l')?(information|ingrédient|indication)(s?) ([^\.,]*) (personnes )?((allergiques( (ou|et) intolérant(e|)s)?)|(intolérant(e|)s( (ou|et) allergiques)?))(\.)?//i;
 					$product_ref->{$field} = ucfirst($product_ref->{$field});
 					
-					$log->debug("clean_fields - ingredients_text - 3", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+					# $log->debug("clean_fields - ingredients_text - 3", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 
 					# Missing spaces
 					# Poire Williams - sucre de canne - sucre - gélifiant : pectines de fruits - acidifiant : acide citrique.Préparée avec 55 g de fruits pour 100 g de produit fini.Teneur totale en sucres 56 g pour 100 g de produit fini.Traces de _fruits à coque_ et de _lait_..
 					$product_ref->{$field} =~ s/\.([A-Z][a-z])/\. $1/g;
 					
-					$log->debug("clean_fields - ingredients_text - 4", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
+					# $log->debug("clean_fields - ingredients_text - 4", { field=>$field, value=>$product_ref->{$field} }) if $log->is_debug();
 					
 				}
 				
@@ -774,10 +774,11 @@ sub load_csv_file($) {
 	
 	my $i = 0;	# line number	
 	
-	for ($i = 0; $i < $skip_lines; $i++) {
-		$csv->getline ($io);
+	if (defined $skip_lines) {
+		for ($i = 0; $i < $skip_lines; $i++) {
+			$csv->getline ($io);
+		}
 	}
-	
 
 	my $headers_ref = $csv->getline ($io);
 	$i++;
@@ -811,7 +812,13 @@ sub load_csv_file($) {
 				if ($target_field eq 'code') {
 					$code = $value;
 					print STDERR "reading product code $code\n";
-					if ((defined $skip_non_existing_products) and ($skip_non_existing_products) and (not exists $products{$code})) {
+					
+					if ((defined $options_ref->{skip_invalid_codes}) and ($code !~ /^\d+$/)) {
+						print STDERR "skipping invalid code\n";					
+						last;
+					}
+					elsif ((defined $skip_non_existing_products) and ($skip_non_existing_products) and (not exists $products{$code})) {
+						print STDERR "skipping non existing product\n";
 						last;
 					}
 					else {
@@ -919,7 +926,7 @@ sub print_csv_file() {
 
 	print join("\t", @fields) . "\n";
 	
-	foreach my $code (sort keys %products) {
+	foreach my $code (sort {$products{$a} <=> $products{$b}} keys %products) {
 	
 		my @values = ();
 		my $product_ref = $products{$code};
