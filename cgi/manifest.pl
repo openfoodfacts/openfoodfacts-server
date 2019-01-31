@@ -65,6 +65,7 @@ $manifest{description} = lang('site_description');
 $manifest{start_url} = format_subdomain($subdomain);
 $manifest{scope} = '/';
 $manifest{display} = 'standalone';
+$manifest{prefer_related_applications} = 'true';
 
 my @keys = qw(theme_color icons related_applications background_color);
 foreach my $key (@keys) {

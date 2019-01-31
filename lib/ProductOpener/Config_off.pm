@@ -342,6 +342,31 @@ $options{opensearch_image} = <<XML
 XML
 ;
 
+
+# Nutriscore: milk and drinkable yogurts are not considered beverages
+# list only categories that are under en:beverages
+$options{categories_not_considered_as_beverages_for_nutriscore} = [qw(
+en:plant-milks
+en:milks
+en:dairy-drinks
+en:meal-replacement
+en:dairy-drinks-substitutes
+en:chocolate-powders
+en:soups
+en:coffees
+en:teas
+en:herbal-teas
+)];
+
+# exceptions
+$options{categories_considered_as_beverages_for_nutriscore} = [qw(
+en:tea-based-beverages
+en:iced-teas
+en:herbal-tea-beverages
+en:coffee-beverages
+en:coffee-drinks
+)];
+
 $options{categories_exempted_from_nutriscore} = [qw(
 en:baby-foods
 en:baby-milks
@@ -349,10 +374,20 @@ en:alcoholic-beverages
 en:waters
 en:coffees
 en:teas
+en:herbal-teas
 fr:levure
 fr:levures
 en:honeys
 en:vinegars
+)];
+
+# exceptions
+$options{categories_not_exempted_from_nutriscore} = [qw(
+en:tea-based-beverages
+en:iced-teas
+en:herbal-tea-beverages
+en:coffee-beverages
+en:coffee-drinks
 )];
 
 $options{categories_exempted_from_nutrient_levels} = [qw(
@@ -361,6 +396,7 @@ en:baby-milks
 en:alcoholic-beverages
 en:coffees
 en:teas
+en:yeasts
 fr:levure
 fr:levures
 )];
@@ -401,31 +437,38 @@ fr:levures
 
 # fields for which we will load taxonomies
 
-@taxonomy_fields = qw(states countries languages labels categories additives additives_classes vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces nutrient_levels misc ingredients nova_groups);
+@taxonomy_fields = qw(states countries languages labels categories additives additives_classes
+ vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
+ nutrient_levels misc ingredients nova_groups);
 
 
 # fields in product edit form, above ingredients and nutrition facts
 
-@product_fields = qw(quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
+@product_fields = qw(quantity packaging brands categories labels origins manufacturing_places
+ emb_codes link expiration_date purchase_places stores countries  );
 
 # fields currently not shown in the default edit form, can be used in imports or advanced edit forms
 
 @product_other_fields = qw(
-producer_version_id
+producter_product_id producer_version_id
 net_weight_value net_weight_unit drained_weight_value drained_weight_unit volume_value volume_unit
-other_information conservation_conditions recycling_instructions_to_recycle recycling_instructions_to_discard
+other_information conservation_conditions recycling_instructions_to_recycle
+ recycling_instructions_to_discard
 nutrition_grade_fr_producer
+recipe_idea origin customer_service producer preparation warning 
 );
 
 
 # fields shown on product page
 # do not show purchase_places
 
-@display_fields = qw(generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link stores countries);
+@display_fields = qw(generic_name quantity packaging brands categories labels origin origins 
+producer manufacturing_places emb_codes link stores countries);
 
 # fields displayed in a new section after the nutrition facts
 
-@display_other_fields = qw(other_information conservation_conditions recycling_instructions_to_recycle recycling_instructions_to_discard);
+@display_other_fields = qw(other_information preparation recipe_idea warning conservation_conditions 
+recycling_instructions_to_recycle recycling_instructions_to_discard customer_service);
 
 
 # fields for drilldown facet navigation
@@ -652,7 +695,8 @@ $options{nova_groups_tags} = {
 "categories/en:tofu" => 3,
 "categories/en:alcoholic-beverages" => 3,
 "categories/en:meals" => 3,
-"categories/en:yogurts" => 3,
+# yogurts can be group 1 according to NOVA paper
+#"categories/en:yogurts" => 3,
 
 
 # group 3 additives

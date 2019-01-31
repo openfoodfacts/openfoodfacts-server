@@ -274,6 +274,8 @@ sub extract_ingredients_from_text($) {
 	my $product_ref = shift;
 	my $path = product_path($product_ref->{code});
 	
+	return if not defined $product_ref->{ingredients_text};
+	
 	my $text = $product_ref->{ingredients_text};
 	
 	$log->debug("extracting ingredients from text", { text => $text }) if $log->is_debug();
@@ -606,7 +608,7 @@ my %phrases_before_ingredients_list = (
 
 fr => [
 
-'ingr(e|é)dients(\s*)(-|:|\r|\n)',	# need a colon or a line feed
+'ingr(e|é)dients(\s*)(-|:|\r|\n)+',	# need a colon or a line feed
 
 ],
 
@@ -617,7 +619,7 @@ my %phrases_before_ingredients_list_uppercase = (
 
 fr => [
 
-'INGR(E|É)DIENTS(\s|-|:|\r|\n)',	# need a colon or a line feed
+'INGR(E|É)DIENTS(\s*)(\s|-|:|\r|\n)+',	# need a colon or a line feed
 
 ],
 
@@ -682,6 +684,8 @@ sub clean_ingredients_text_for_lang($$) {
 
 	my $text = shift;
 	my $language = shift;
+	
+	$log->debug("clean_ingredients_text_for_lang - 1", { language=>$language, text=>$text }) if $log->is_debug();
 
 	if (defined $phrases_before_ingredients_list{$language}) {
 				
@@ -689,6 +693,8 @@ sub clean_ingredients_text_for_lang($$) {
 			$text =~ s/^(.*)$regexp(\s*)//ies;
 		}			
 	}	
+	
+	$log->debug("clean_ingredients_text_for_lang - 2", { language=>$language, text=>$text }) if $log->is_debug();	
 	
 	if (defined $phrases_before_ingredients_list_uppercase{$language}) {
 				
@@ -698,6 +704,7 @@ sub clean_ingredients_text_for_lang($$) {
 		}			
 	}		
 	
+	$log->debug("clean_ingredients_text_for_lang - 3", { language=>$language, text=>$text }) if $log->is_debug();
 	
 	if (defined $phrases_after_ingredients_list{$language}) {
 				
@@ -715,6 +722,11 @@ sub clean_ingredients_text_for_lang($$) {
 	# persil- poivre blanc -ail
 	$text =~ s/(\w|\*)- /$1 - /g;
 	$text =~ s/ -(\w)/ - $1/g;	
+	
+	$text =~ s/^\s*(:|-)\s*//;
+	$text =~ s/\s+$//;
+	
+	$log->debug("clean_ingredients_text_for_lang - 4", { language=>$language, text=>$text }) if $log->is_debug();	
 	
 	return $text;
 }
