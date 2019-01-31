@@ -40,7 +40,9 @@ db.products.aggregate( [
 {"$out": "products_tags"}
 ]);
 
-print(Date() + ' : ' + db.products_tags.estimatedDocumentCount() + ' products refreshed in products_tags collection.');
+// estimatedDocumentCount() is available from mongodb 4.0.3
+//print(Date() + ' : ' + db.products_tags.estimatedDocumentCount() + ' products refreshed in products_tags collection.');
+print(Date() + ' : ' + db.products_tags.count() + ' products refreshed in products_tags collection.');
 
 
 print(Date() + ' : Create indexes for products_tags collection (if not already existing)...');
