@@ -1253,7 +1253,7 @@ sub display_list_of_tags($$) {
 		eval {
 			$log->debug("Executing MongoDB aggregate query", { query => $aggregate_parameters }) if $log->is_debug();
 			$results = execute_query(sub {
-				return get_products_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 0 } );
+				return get_products_tags_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 0 } );
 			});
 		};
 		if ($@) {
@@ -3195,7 +3195,7 @@ sub search_and_display_products($$$$$) {
 				];
 				$log->debug("Executing MongoDB query", { query => $aggregate_parameters }) if $log->is_debug();
 				$cursor = execute_query(sub {
-					return get_products_collection()->aggregate($aggregate_parameters, { allowDiskUse => 1 });
+					return get_products_tags_collection()->aggregate($aggregate_parameters, { allowDiskUse => 1 });
 				});
 			}
 			else {
