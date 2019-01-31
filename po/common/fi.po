@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-01-03 16:38\n"
+"PO-Revision-Date: 2019-01-31 17:35\n"
 "Language-Team: Finnish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -63,27 +63,41 @@ msgid "Hello <NAME>,\n\n"
 "Stéphane and the Open Food Facts team\n"
 "https://openfoodfacts.org\n"
 "https://twitter.com/OpenFoodFacts\n"
-msgstr ""
+msgstr "Hei <NAME>,\n\n"
+"Kiitos paljon liittymisestäsi https://openfoodfacts.org hankkeeseen.\n"
+"Tässä on käyttäjätunnuksesi:\n\n"
+"Käyttäjätunnus: <USERID>\n\n"
+"Voit nyt kirjautua sivustolle lisätäksesi ja muokataksesi tuotteita.\n\n"
+"<<site_name>> on yhteistyöhanke, johon voit tuoda paljon enemmän kuin uusia tuotteita: energiaa, innostusta ja ideoita!\n"
+"Voit keskustella osallistujien kesken ja viedä projektia eteenpäin kätevällä viestintäjärjestelmällä Slack: https://slack.openfoodfacts.org\n\n"
+"Voit myös liittyä osallistujien Facebook-ryhmään:\n"
+"https://www.facebook.com/groups/OpenFoodFacts/\n\n"
+"Uutta: käynnistämme myös Open Beauty Facts -kosmetiikkatietokannan: saippuat, hammastahnat, meikit jne.\n"
+"https://openbeautyfacts.org\n\n"
+"Kiitos paljon!\n\n"
+"Stéphane ja Open Food Facts -tiimi\n"
+"https://openfoodfacts.org\n"
+"https://twitter.com/OpenFoodFacts\n"
 
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "Kiitos liittymisestäsi <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "Mahdollisesti haitallinen elintarvikelisäaine. Rajoita käyttöä."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "Haitallinen elintarvikelisäaine. Vältä."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "Euroopassa kielletty elintarvikelisäaine. Vältä kaikin keinoin."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "lisäaineet"
 
 msgctxt "additives_s"
 msgid "additive"
@@ -95,7 +109,7 @@ msgstr "Tarkennettu haku"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "Tarkennettu haku ja kaaviot"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
@@ -103,7 +117,7 @@ msgstr "Liaallinen juominen on haitallista terveydelle."
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "Kaikki tehtävät"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
@@ -111,27 +125,27 @@ msgstr "Allergioita tai intoleransseja aiheuttavat aineet ja tuotteet"
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr ""
+msgstr "allergeenit"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "allergeeni"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr ""
+msgstr "Tuotesivua on muokannut myös"
 
 msgctxt "android_apk_app_badge"
 msgid "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-apk.112x40.png\" alt=\"Android APK\" />"
 
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr ""
+msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -141,7 +155,8 @@ msgstr ""
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr ""
+msgstr "<p>Tämä tuote ei ole vielä <<site_name>> -tietokannassa. Voisitko ottaa kuvia tuotteesta, viivakoodista, ainesosaluettelosta ja ravitsemustiedoista lisätäksesi sen <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
+"<p>Kiitos jo etukäteen!</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -149,7 +164,7 @@ msgstr "Ota kuva"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr ""
+msgstr "Huomaa: lähettämäsi kuvat julkaistaan Creative Commons Attribution and ShareAlike -lisenssillä."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
@@ -173,7 +188,7 @@ msgstr "Viivakoodin numero:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr ""
+msgstr "Voit myös auttaa rahoittamaan Open Food Facts -hanketta"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -189,7 +204,7 @@ msgstr "Tuotemerkit"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
-msgstr ""
+msgstr "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
 
 msgctxt "brands_p"
 msgid "brands"
@@ -197,19 +212,19 @@ msgstr "tuotemerkit"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr ""
+msgstr "Tuotemerkin %s tuotteet"
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "tuotemerkki"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "lisää tuotemerkki"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr ""
+msgstr "Tuotteet, jotka eivät kuulu %s merkkiin"
 
 msgctxt "by"
 msgid "by"
@@ -221,11 +236,11 @@ msgstr "Luokat"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr ""
+msgstr "Sardiineja oliiviöljyssä, appelsiinimehu tiivisteestä"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
-msgstr ""
+msgstr "Ilmoita vain kaikkein tarkin luokka. Yläluokat lisätään automaattisesti."
 
 msgctxt "categories_p"
 msgid "categories"
@@ -233,7 +248,7 @@ msgstr "luokat"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
-msgstr ""
+msgstr "%s luokan tuotteet"
 
 msgctxt "categories_s"
 msgid "category"
@@ -257,19 +272,19 @@ msgstr "Ravinteet"
 
 msgctxt "change_selected_images"
 msgid "Selected images"
-msgstr ""
+msgstr "Valitut kuvat"
 
 msgctxt "change_uploaded_images"
 msgid "Uploaded images"
-msgstr ""
+msgstr "Lisäsi kuvia"
 
 msgctxt "checkers_p"
 msgid "checkers"
-msgstr ""
+msgstr "tarkistajat"
 
 msgctxt "checkers_s"
 msgid "checker"
-msgstr ""
+msgstr "tarkistaja"
 
 msgctxt "cities_p"
 msgid "packaging cities"
@@ -277,7 +292,7 @@ msgstr ""
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr ""
+msgstr "Tuotteet, jotka on pakattu kaupungissa %s"
 
 msgctxt "cities_s"
 msgid "packaging city"
@@ -285,15 +300,15 @@ msgstr ""
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr ""
+msgstr "Tuotteet, joita ei ole pakattu kaupungissa %s"
 
 msgctxt "codes_p"
 msgid "Codes"
-msgstr ""
+msgstr "Koodit"
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr ""
+msgstr "Koodi"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
@@ -309,7 +324,7 @@ msgstr ""
 
 msgctxt "copy_data"
 msgid "Copy data from current product to new product"
-msgstr ""
+msgstr "Kopioi tiedot nykyisestä tuotteesta uuteen tuotteeseen"
 
 msgctxt "correct_the_following_errors"
 msgid "Please correct the following errors:"
@@ -317,11 +332,11 @@ msgstr "Korjaa seuraavat virheet:"
 
 msgctxt "correctors_p"
 msgid "correctors"
-msgstr ""
+msgstr "korjaajat"
 
 msgctxt "correctors_s"
 msgid "corrector"
-msgstr ""
+msgstr "korjaaja"
 
 msgctxt "countries"
 msgid "Countries where sold"
@@ -329,11 +344,11 @@ msgstr "Maat myyntiehdot"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (non including stores specialising in foreign products)"
-msgstr ""
+msgstr "Maat, joissa tuote on laajalti saatavilla (ei sisällä ulkomaisiin tuotteisiin erikoistuneita myymälöitä)"
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr ""
+msgstr "maat"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
@@ -349,19 +364,19 @@ msgstr ""
 
 msgctxt "data_source"
 msgid "Data source"
-msgstr ""
+msgstr "Tietolähde"
 
 msgctxt "debug_p"
 msgid "debug"
-msgstr ""
+msgstr "vianetsintä"
 
 msgctxt "debug_s"
 msgid "debug"
-msgstr ""
+msgstr "vianetsintä"
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr ""
+msgstr "Poistamisen syy"
 
 msgctxt "delete_product"
 msgid "Delete a product"
@@ -377,7 +392,7 @@ msgstr "Poista kuvat"
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr ""
+msgstr "Poista käyttäjä"
 
 msgctxt "diff_add"
 msgid "Added:"
@@ -393,7 +408,7 @@ msgstr "Poistettu:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr ""
+msgstr "Lahjoita Open Food Factsille"
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
@@ -449,11 +464,11 @@ msgstr ""
 
 msgctxt "editors_p"
 msgid "editors"
-msgstr ""
+msgstr "muokkaajat"
 
 msgctxt "editors_s"
 msgid "editor"
-msgstr ""
+msgstr "muokkaaja"
 
 msgctxt "email"
 msgid "e-mail address"
@@ -461,7 +476,7 @@ msgstr "sähköpostiosoite"
 
 msgctxt "emb_code_p"
 msgid "EMB codes"
-msgstr ""
+msgstr "EMB-koodit"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with emb code %s"
@@ -469,16 +484,16 @@ msgstr ""
 
 msgctxt "emb_code_s"
 msgid "EMB code"
-msgstr ""
+msgstr "EMB-koodi"
 
 msgctxt "emb_codes"
 msgid "EMB code"
-msgstr ""
+msgstr "EMB-koodi"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr ""
+msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, code in an ellipse with the 2 country initials followed by a number and CE."
@@ -490,7 +505,7 @@ msgstr ""
 
 msgctxt "emb_codes_products"
 msgid "Products with the emb code %s"
-msgstr ""
+msgstr "Tuotteet, joissa on EMB-koodi %s"
 
 msgctxt "emb_codes_s"
 msgid "packager code"
@@ -672,18 +687,20 @@ msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
-msgstr ""
+msgstr "Kääntäjät"
 
 # Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr ""
+msgstr "/cgi/top_translators.pl"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
-msgstr ""
+msgstr "Seuraa meitä: <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a>, \n"
+"<a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -760,7 +777,7 @@ msgstr "Yleisnimi"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
-msgstr ""
+msgstr "Suklaapatukka maidolla ja hasselpähkinöillä"
 
 msgctxt "goodbye"
 msgid "See you soon!"
@@ -784,7 +801,7 @@ msgstr "Hei"
 
 msgctxt "high"
 msgid "high"
-msgstr ""
+msgstr "korkea"
 
 msgctxt "high_quantity"
 msgid "high quantity"
@@ -792,11 +809,11 @@ msgstr "suuri määrä"
 
 msgctxt "history"
 msgid "Changes history"
-msgstr ""
+msgstr "Muutoshistoria"
 
 msgctxt "image_front"
 msgid "Front picture"
-msgstr ""
+msgstr "Tuotekuva"
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
@@ -804,11 +821,11 @@ msgstr "Kuva ainesosaluettelon"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
-msgstr ""
+msgstr "Jos kuva on tarpeeksi laadukas, ainesosat voidaan lukea automaattisesti"
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
-msgstr ""
+msgstr "Kuva ravintosisällöstä"
 
 msgctxt "image_upload_error_image_already_exists"
 msgid "This picture has already been sent."
@@ -816,20 +833,21 @@ msgstr "Tämä kuva on jo lähetetty."
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
-msgstr ""
+msgstr "Kuva on liian pieni. Älä lähetä internetistä löydettyjä kuvia. Lähetä vain valokuvia, jotka olet ottanut itse."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
 "You can try with another image, or directly enter the barcode."
-msgstr ""
+msgstr "Kuvassa olevaa viivakoodia ei voitu lukea, tai kuvassa ei ollut viivakoodia.\n"
+"Voit kokeilla toista kuvaa tai syöttää suoraan viivakoodin."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
-msgstr ""
+msgstr "Kuvasta ei löytynyt viivakoodia."
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
-msgstr ""
+msgstr "Syötä viivakoodin merkit tai lähetä tuotekuva, jossa viivakoodi on näkyvissä."
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -869,19 +887,19 @@ msgstr ""
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr ""
+msgstr "palmuöljyperäiset ainesosat"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
-msgstr ""
+msgstr "palmuöljyperäinen ainesosa"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
-msgstr ""
+msgstr "Ainesosien lukumäärät"
 
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
-msgstr ""
+msgstr "Ainesosien lukumäärä"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -941,7 +959,7 @@ msgstr ""
 
 msgctxt "labels"
 msgid "Labels, certifications, awards"
-msgstr ""
+msgstr "Etiketit, sertifikaatit, palkinnot"
 
 msgctxt "labels_example"
 msgid "Organic"
@@ -1229,7 +1247,7 @@ msgstr ""
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
-msgstr ""
+msgstr "Valmistus- tai käsittelypaikat"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
@@ -2336,7 +2354,7 @@ msgstr ""
 
 msgctxt "stores"
 msgid "Stores"
-msgstr ""
+msgstr "Myymälät"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2388,7 +2406,7 @@ msgstr "Etsi:"
 
 msgctxt "traces"
 msgid "Traces"
-msgstr ""
+msgstr "Jäämät"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
