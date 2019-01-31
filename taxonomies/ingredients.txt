@@ -2,7 +2,7 @@
 # stopwords
 
 stopwords:da:indeholder
-stopwords:de:und, mit, von, aus, enthält
+stopwords:de:und, mit, von, aus, enthält, enthalten
 stopwords:el:περιέχει
 stopwords:en:contains, contain, with, in varying proportions
 stopwords:es:contiene
@@ -12,21 +12,24 @@ stopwords:hr:sastojci
 stopwords:hu:tartalmaz
 stopwords:it:contiene
 stopwords:nl:bevat, met, waarvan, bevatten
-stopwords:pt:do qual
+stopwords:pl:w tym
+stopwords:pt:do qual, dos quais
 stopwords:sk:obsahuje
 stopwords:sl:vsebuje
 stopwords:sv:innehåller, från, med
+stopwords:zh:配料
 
 # postfixes
 
 # en
-# 
 # Contains genetically modified organisms
 # organically grown products
 # prefried in vegetable oil
 
 # de
 # Hergestellt mit tierischem Lab und mikrobiellem Labaustauschstoff.
+# Kann Haselnüsse, Mandeln, Eier und Spuren anderer Schalenfrüchte (Nüsse) enthalten. 
+# Kakao: 34 % mindestens in der Schokolade
 # Kochsalzgehalt insgesamt: 0,7%.
 # Kochsalzanteil: 1.7% (ohne Jod und ohne Fluor)
 # natürliches Aroma enthält eine Phenylalaninquelle
@@ -57,6 +60,8 @@ stopwords:sv:innehåller, från, med
 # it
 # Contenuto complessivo di sale da cucina: 1,4%.
 # Contiene latte. Puo contenere trace di uova, glutine, sedano, senape.
+# Può contenere nocciole, mandorle, uova e tracce d'altra frutta con guscio (noci). 
+# Cacao: 34 % minimo nel cioccolato.
 
 # nl
 # Product geproduceerd in een werkruimte waar ook het volgende wordt gebruikt : melk, selderij, sesam, weekdieren.
@@ -76,8 +81,6 @@ de:Zutaten, Zusammensetzung
 es:composición
 fr:ingrédient, ingrédients, composition
 hu:összetétel
-fr:ingrédient, ingrédients, composition
-fr:ingrédient, ingrédients, composition
 it:ingredienti, composizione
 nl:ingrediënt, ingrediënten, samenstelling
 pl:skład
@@ -87,6 +90,7 @@ ru:coctaB
 sk:obsahuje
 sl:vsebuje
 sv:innehåller
+zh:配料
 
 # additive classes (from Global_additives_classes_taxonomy)
 
@@ -339,17 +343,17 @@ wikipedia:en:https://en.wikipedia.org/wiki/Curcumin
 
 <en:colour
 en:Cochineal, carminic acid, E120, E 120, E-120
-be:Кармін, E120, E 120, E-120
-bg:Кохинил, карминова киселина, Кармин, E120, E 120, E-120
-bs:Karmin, E120, E 120, E-120
-ca:Carmí, E120, E 120, E-120
-cs:Košenila, kyselina karmínová, E120, E 120, E-120
-da:karminer, Carminer, carminsyre, cochenille, E120, E 120, E-120
-de:Echtes Karmin, Karminsäure, E120, E 120, E-120
-# de-ch:Karmin, E120, E 120, E-120
-el:Κοχενιλη, καρμινικο οξυ, καρμινες, E120, E 120, E-120
-# en-ca:Carmine, E120, E 120, E-120
-# en-gb:Carmine, E120, E 120, E-120
+be:Кармін
+bg:Кохинил, карминова киселина, Кармин
+bs:Karmin
+ca:Carmí
+cs:Košenila, kyselina karmínová
+da:karminer, Carminer, carminsyre, cochenille
+de:Echtes Karmin, Karminsäure
+# de-ch:Karmin
+el:Κοχενιλη, καρμινικο οξυ, καρμινες
+# en-ca:Carmine
+# en-gb:Carmine
 eo:karmino, E120, E 120, E-120
 es:carmines, ácido cármico, Cochinilla, E120, E 120, E-120
 et:karmiinid, Košenill, karmiinhape, E120, E 120, E-120
@@ -669,7 +673,7 @@ da: Melbehandlingsmiddel
 el: Βελτιωτικό αλεύρων
 es: Agente de tratamiento de la harina
 fi: Jauhonparanne
-fr: agent de traitement de la farine, agents de traitement de la farine, agent de traitement de farine, agent de traitement de la farine e300, E300
+fr: agent de traitement de la farine, agents de traitement de la farine, agent de traitement de farine, agent de traitement de la farine e300
 it: Agenti di trattamento della farina
 nl: Meelverbeteraar, Meelverbeteraars
 pt: Agente de tratamento da farinha
@@ -1032,58 +1036,115 @@ wikidata:en:Q626292
 
 # Sorbic acid, or 2,4-hexadienoic acid, is a natural organic compound used as a food preservative. It has the chemical formula CH3(CH)4CO2H.
 
+<en:acid
 en:sorbic acid, E200, E 200, E-200
 ar:حمض السوربيك
 # azb:اسید سربیک
-bg:Сорбинова киселина, E200, E 200, E-200
-ca àcid sòrbic, E200, E 200, E-200
-cs:Kyselina sorbová, E200, E 200, E-200
-da:Sorbinsyre, E200, E 200, E-200
-de:Sorbinsäure, E200, E 200, E-200
-el:Σορβικο οξυ, E200, E 200, E-200
-eo:Sorbata acido, E200, E 200, E-200
-es:Ácido sórbico, E200, E 200, E-200
-et:Sorbiinhape, E200, E 200, E-200
+bg:Сорбинова киселина
+ca àcid sòrbic
+cs:Kyselina sorbová
+da:Sorbinsyre
+de:Sorbinsäure
+el:Σορβικο οξυ
+eo:Sorbata acido
+es:Ácido sórbico
+et:Sorbiinhape
 fa:اسید سربیک
-fi:Sorbiinihappo, E200, E 200, E-200
-fr:acide sorbique, E200, E 200, E-200
-ga:Aigéad sorbach, E200, E 200, E-200
+fi:Sorbiinihappo
+fr:acide sorbique
+ga:Aigéad sorbach
 he:חומצה סורבית
-hi:सोर्बिक अम्ल, E200, E 200, E-200
-hu:Szorbinsav, E200, E 200, E-200
-id:Asam sorbat, E200, E 200, E-200
-is:sorbic acid, E200, E 200, E-200
-it:acido sorbico, E200, E 200, E-200
-ja:ソルビン酸, E200, E 200, E-200
-ko:소르빈산, E200, E 200, E-200
-lt:Sorbo rūgštis, E200, E 200, E-200:
-mt:Aċidu sorbiku, E200, E 200, E-200
-nl:sorbinezuur, E200, E 200, E-200
-nn:sorbinsyre, E200, E 200, E-200
-pl:Kwas sorbowy, E200, E 200, E-200
-pt:ácidó sórbico, E200, E 200, E-200
-ro:Acid sorbic, E200, E 200, E-200
-sh:Sorbinska kiselina, E200, E 200, E-200
-# sr-ec:сорбинска киселина, E200, E 200, E-200
-# sr-el:Sorbinska kiselina, E200, E 200, E-200
-sk:Kyselina sorbová, E200, E 200, E-200
-sl:Sorbinska kislina, E200, E 200, E-200
-sr:sorbinska kiselina, E200, E 200, E-200
-sv:Sorbinsyra, E200, E 200, E-200
-th:กรดซอร์บิก, E200, E 200, E-200
-uk:Сорбінова кислота, E200, E 200, E-200
-vi:Axit sorbic, E200, E 200, E-200
-zh:山梨酸, E200, E 200, E-200
-# zh-cn:山梨酸, E200, E 200, E-200
-# zh-hans:山梨酸, E200, E 200, E-200
-# zh-hant:山梨酸, E200, E 200, E-200
-# zhhk:山梨酸, E200, E 200, E-200
-# zh-sg:山梨酸, E200, E 200, E-200
-# zh-tw:山梨酸, E200, E 200, E-200
+hi:सोर्बिक अम्ल
+hu:Szorbinsav
+id:Asam sorbat
+is:sorbic acid
+it:acido sorbico
+ja:ソルビン酸
+ko:소르빈산
+lt:Sorbo rūgštis
+mt:Aċidu sorbiku
+nl:sorbinezuur
+nn:sorbinsyre
+pl:Kwas sorbowy
+pt:ácidó sórbico
+ro:Acid sorbic
+sh:Sorbinska kiselina
+# sr-ec:сорбинска киселина
+# sr-el:Sorbinska kiselina
+sk:Kyselina sorbová
+sl:Sorbinska kislina
+sr:sorbinska kiselina
+sv:Sorbinsyra
+th:กรดซอร์บิก
+uk:Сорбінова кислота
+vi:Axit sorbic
+zh:山梨酸
+# zh-cn:山梨酸
+# zh-hans:山梨酸
+# zh-hant:山梨酸
+# zhhk:山梨酸
+# zh-sg:山梨酸
+# zh-tw:山梨酸
 wikidata:en:Q407131
 wikipedia:en:https://en.wikipedia.org/wiki/Sorbic_acid
 # fr:acide-sorbique has 498 products @2018-11-18
 # additive/e200-sorbic-acid has 3081 products in 21 languages @2018-11-18
+
+
+# Sodium benzoate is a substance which has the chemical formula NaC7H5O2. It is a widely used food preservative, with an E number of E211.
+
+# <en:preservative
+en:Sodium benzoate, E211, E 211, E-211
+ar:بنزوات الصوديوم
+# azb:سودیوم بنزوئیک اسید
+bg:Натриев бензоат
+bs:Natrijum benzoat
+ca:benzoat de sodi
+cs:Benzoát sodný
+de:Natriumbenzoat
+# de-ch:Natriumbenzoat
+de:Natriumbenzoat
+el:Βενζοϊκο νατριο
+# en-ca:Sodium benzoate
+# en-ca:Sodium benzoate
+eo:natria benzoato
+es:Benzoato de sodio, Benzoato sódico
+et:Naatriumbensoaat
+fa:سدیم بنزوئیک اسید
+fi:Natriumbentsoaatti
+fr:benzoate de sodium, conservateur e211
+he:סודיום בנזואט
+hu:Nátrium-benzoát
+id:Natrium benzoat
+it:Benzoato di sodio
+lt:Natrio benzoatas
+lv:Nātrija benzoāts
+mt:Benżoat tas-sodju
+nb:Natriumbenzoat
+nl:Natriumbenzoaat
+pl:Benzoesan sodu
+pt:Benzoato de sódio
+# pt-br:Benzoato de sódio
+ro:Benzoat de sodiu
+sh:Natrijum-benzoat
+sk:Benzoan sodný
+sl:Natrijev benzoat
+sr:натријум-бензоат
+# sr-ec:натријум-бензоат
+# sr-el:Natrijum-benzoat
+sv:Natriumbensoat
+tr:Sodyum Benzoat
+vi:natri benzoat
+zh:苯甲酸钠
+# zh-cn:苯甲酸钠
+# zh-hans:苯甲酸钠
+# zh-hant:苯甲酸钠
+# zh-hk:苯甲酸钠
+# zh-sg:苯甲酸钠
+# zh-tw:苯甲酸钠
+wikidata:en:Q423971
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_benzoate
+# ingredient/fr:benzoate-de-sodium has 688 products in 7 languages @2019-01-23
 
 
 # Acetic acid, systematically named ethanoic acid, is a colourless liquid organic compound with the chemical formula CH3COOH (also written as CH3CO2H or C2H4O2).
@@ -1177,12 +1238,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Acetic_acid
 # Note that E262 must be in plural
 
 en:sodium acetates, E262, E 262, E-262
-de:Natriumacetate, E262, E 262, E-262
-fr:acétates de sodium, E262, E 262, E-262
-it:acetati di sodio, E262, E 262, E-262
-nl:natriumacetaten, E262, E 262, E-262
-pl:Octany sodu, E262, E 262, E-262
-pt:acétates de sodium, E262, E 262, E-262
+de:Natriumacetate
+fr:acétates de sodium
+it:acetati di sodio
+nl:natriumacetaten
+pl:Octany sodu
+pt:acétates de sodium
 # additive/e262-sodium-acetates has 4654 products @2018-11-18
 
 # Sodium acetate, CH3COONa, also abbreviated NaOAc,[8] is the sodium salt of acetic acid.
@@ -1191,24 +1252,24 @@ pt:acétates de sodium, E262, E 262, E-262
 en:sodium acetate, E262i, E 262i, E-262i
 ar:أسيتات الصوديوم
 # azb:سودیوم استات
-bg:Натриев ацетат, E262i, E 262i, E-262i
-bs:Natrij-acetat, E262i, E 262i, E-262i
-ca:acetat de sodi, E262i, E 262i, E-262i
-cs:Octan sodný, E262i, E 262i, E-262i
-da:Natriumacetat, E262i, E 262i, E-262i
-de:Natriumacetat, E262i, E 262i, E-262i
-el:Οξικα αλατα του νατριου, E262i, E 262i, E-262i
-eo:natria acetato, E262i, E 262i, E-262i
-es:acetato de sodio, E262i, E 262i, E-262i
-et:Naatriumatsetaat, E262i, E 262i, E-262i
-eu:sodio azetato, E262i, E 262i, E-262i
+bg:Натриев ацетат
+bs:Natrij-acetat
+ca:acetat de sodi
+cs:Octan sodný
+da:Natriumacetat
+de:Natriumacetat
+el:Οξικα αλατα του νατριου
+eo:natria acetato
+es:acetato de sodio
+et:Naatriumatsetaat
+eu:sodio azetato
 fa:سدیم استات
-fi:Natriumasetaatti, E262i, E 262i, E-262i
-fr:acétate de sodium, E262i, E 262i, E-262i
+fi:Natriumasetaatti
+fr:acétate de sodium
 he:סודיום אצטט
-hr:Natrijev acetat, E262i, E 262i, E-262i
-hu:nátrium-acetát, E262i, E 262i, E-262i
-id:Natrium asetat, E262i, E 262i, E-262i
+hr:Natrijev acetat
+hu:nátrium-acetát
+id:Natrium asetat
 it:acetato di sodio, E262i, E 262i, E-262i
 ja:酢酸ナトリウム, E262i, E 262i, E-262i
 lt:Natrio acetatas, E262i, E 262i, E-262i
@@ -1297,85 +1358,85 @@ de:Säureregulator E262
 
 en:lactic acid, E270, E 270, E-270
 ar:حمض اللبنيك
-# ast:Ácidu láctico, E270, E 270, E-270
+# ast:Ácidu láctico
 # azb:اسید لاکتیک
-be:Малочная кіслата, E270, E 270, E-270
-# be-tarask:Малочная кісьля, E270, E 270, E-270
-bg:Млечна киселина, E270, E 270, E-270
-bs:Mliječna kiselina, E270, E 270, E-270
-ca:àcid làctic, E270, E 270, E-270
-cs:kyselina mléčná, E270, E 270, E-270
-cy:Asid lactig, E270, E 270, E-270
-da:mælksyre, E270, E 270, E-270
-de:Milchsäure, E270, E 270, E-270
-el:γαλακτικό οξύ, E270, E 270, E-270
-eo:Lakta acido, E270, E 270, E-270
-es:ácido láctico, E270, E 270, E-270
-et:Piimhape, E270, E 270, E-270
-eu:Azido laktiko, E270, E 270, E-270
+be:Малочная кіслата
+# be-tarask:Малочная кісьля
+bg:Млечна киселина
+bs:Mliječna kiselina
+ca:àcid làctic
+cs:kyselina mléčná
+cy:Asid lactig
+da:mælksyre
+de:Milchsäure
+el:γαλακτικό οξύ
+eo:Lakta acido
+es:ácido láctico
+et:Piimhape
+eu:Azido laktiko
 fa:اسید لاکتیک
-fi:maitohappo, E270, E 270, E-270
-fr:acide lactique, E270, E 270, E-270
-ga:Aigéad lachtach, E270, E 270, E-270
-gl:Ácido láctico, E270, E 270, E-270
+fi:maitohappo
+fr:acide lactique
+ga:Aigéad lachtach
+gl:Ácido láctico
 he:חומצה לקטית
-hi:लैक्टिक अम्ल, E270, E 270, E-270
-hr:mliječna kiselina, E270, E 270, E-270
-hu:Tejsav, E270, E 270, E-270
-hy:Կաթնաթթու, E270, E 270, E-270
-id:Asam laktat, E270, E 270, E-270
-is:Mjólkursýra, E270, E 270, E-270
-it:acido lattico, E270, E 270, E-270
-ja:乳酸, E270, E 270, E-270
-ka:რძემჟავა, E270, E 270, E-270
-kk:Сүт қышқылы, E270, E 270, E-270
+hi:लैक्टिक अम्ल
+hr:mliječna kiselina
+hu:Tejsav
+hy:Կաթնաթթու
+id:Asam laktat
+is:Mjólkursýra
+it:acido lattico
+ja:乳酸
+ka:რძემჟავა
+kk:Сүт қышқылы
 # kk-arab:ٴسۇت قىشقىلى
 # kk-cn:ٴسۇت قىشقىلى
-# kk-cyrl:Сүт қышқылы, E270, E 270, E-270
-# kk-kz:Сүт қышқылы, E270, E 270, E-270
-# kk-latn:Süt qışqılı, E270, E 270, E-270
-# kk-tr:Süt qışqılı, E270, E 270, E-270
-ko:젖산, E270, E 270, E-270
-lb:Mëllechsaier, E270, E 270, E-270
-lt:Pieno rūgštis, E270, E 270, E-270
-lv:pienskābe, E270, E 270, E-270
-mk:Млечна киселина, E270, E 270, E-270
-ms:Asid laktik, E270, E 270, E-270
-mt:Aċidu lattiku, E270, E 270, E-270
-nb:Melkesyre, E270, E 270, E-270
-nl:melkzuur, E270, E 270, E-270
-nn:melkesyre, E270, E 270, E-270
-oc:acid lactic, E270, E 270, E-270
-pl:kwas mlekowy, E270, E 270, E-270
-pt:ácido láctico, E270, E 270, E-270
-# pt-br:ácido lático, E270, E 270, E-270
-ro:Acid lactic, E270, E 270, E-270
-ru:Молочная кислота, E270, E 270, E-270
-# sco:lactic acid, E270, E 270, E-270
-sh:Mliječna kiselina, E270, E 270, E-270
-sk:kyselina mliecna, E270, E 270, E-270
-sl:Mlečna kislina, E270, E 270, E-270
-sq:Acidi Laktik, E270, E 270, E-270
-sr:млијечна киселина, E270, E 270, E-270
-# sr-ec:млијечна киселина, E270, E 270, E-270
-# sr-el:Mliječna kiselina, E270, E 270, E-270
-su:Asam laktat, E270, E 270, E-270
-sv:mjölksyra, E270, E 270, E-270
-ta:லாக்டிக் அமிலம், E270, E 270, E-270
-te:లాక్టికామ్లం, E270, E 270, E-270
-th:กรดแล็กติก, E270, E 270, E-270
-tr:Laktik asit, E270, E 270, E-270
-uk:Молочна кислота, E270, E 270, E-270
-uz:Sut kislota, E270, E 270, E-270
-vi:axit lactic, E270, E 270, E-270
-# war:Aksido Lactico, E270, E 270, E-270
-zh:乳酸, E270, E 270, E-270
-# zh-cn:乳酸, E270, E 270, E-270
-# zh-hans:乳酸, E270, E 270, E-270
-# zh-hant:乳酸, E270, E 270, E-270
-# zh-hk:乳酸, E270, E 270, E-270
-# zh-sg:乳酸, E270, E 270, E-270
-# zh-tw:乳酸, E270, E 270, E-270
+# kk-cyrl:Сүт қышқылы
+# kk-kz:Сүт қышқылы
+# kk-latn:Süt qışqılı
+# kk-tr:Süt qışqılı
+ko:젖산
+lb:Mëllechsaier
+lt:Pieno rūgštis
+lv:pienskābe
+mk:Млечна киселина
+ms:Asid laktik
+mt:Aċidu lattiku
+nb:Melkesyre
+nl:melkzuur
+nn:melkesyre
+oc:acid lactic
+pl:kwas mlekowy
+pt:ácido láctico
+# pt-br:ácido lático
+ro:Acid lactic
+ru:Молочная кислота
+# sco:lactic acid
+sh:Mliječna kiselina
+sk:kyselina mliecna
+sl:Mlečna kislina
+sq:Acidi Laktik
+sr:млијечна киселина
+# sr-ec:млијечна киселина
+# sr-el:Mliječna kiselina
+su:Asam laktat
+sv:mjölksyra
+ta:லாக்டிக் அமிலம்
+te:లాక్టికామ్లం
+th:กรดแล็กติก
+tr:Laktik asit
+uk:Молочна кислота
+uz:Sut kislota
+vi:axit lactic
+# war:Aksido Lactico
+zh:乳酸
+# zh-cn:乳酸
+# zh-hans:乳酸
+# zh-hant:乳酸
+# zh-hk:乳酸
+# zh-sg:乳酸
+# zh-tw:乳酸
 wikidata:en:Q56626856
 wikipedia:https://en.wikipedia.org/wiki/Lactic_acid
 # en:lactic-acid has 7496 products in 20 languages@2018-11-17
@@ -1820,7 +1881,7 @@ zh:酒石酸, E334, E 334, E-334
 # zh-hant:酒石酸, E334, E 334, E-334
 # zh-hk:酒石酸, E334, E 334, E-334
 # zh-sg:酒石酸, E334, E 334, E-334
-# zh-tw:酒石酸, E334, E 334, E-334
+# zh-tw:酒石酸
 wikipedia:en:https://en.wikipedia.org/wiki/Tartaric_acid
 # en:tartric acid has 360 products in 8 languages @2018-11-18
 # additive/e334-l-tartaric-acid has 1559 products in 21 languages @2018-11-18
@@ -2098,6 +2159,48 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mixed_ammonium_salts_of_phosphorylate
 # additive/e442-ammonium-phosphatides has 246 products @2018-11-06
 
 
+# Mono- and diglycerides of fatty acids (E471) refers to a food additive composed of diglycerides and monoglycerides which is used as an emulsifier.
+
+en:mono- and diglycerides of fatty acids, E471, E 471, E-471
+ar:أحادي وثنائي الجليسريدات للأحماض الدهنية
+bg:Моно- и диглицериди на мастни киселини
+cs:Mono- a diglyceridy mastných kyselin
+da:mono- og diglycerider af fedtsyrer
+de:Mono- und Diglyceride von Speisefettsäuren
+el:μόνο- και διγλυκερίδια λιπαρών οξέων
+es:monoglicéridos y diglicéridos de ácidos grasos
+et:Rasvhapete mono- ja diglütseriidid
+fi:rasvahappojen mono- ja diglyseridit
+fr:mono- et diglycérides d'acides gras, mono et diglycérides d'acide gras, diglycérides d'acide gras, diglycérides d'acides gras, émulsifiant e471
+hu:zsírsavak mono- és digliceridjei
+it:mono e digliceridi degli acidi grassi
+lt:Riebalų rūgščių mono- ir digliceridai
+lv:Taukskābju mono- un diglicerīdi
+mt:Mono- u digliċeridi tal-aċidi grassi
+nl:mono- en diglyceriden van vetzuren
+nn:mono- och diglycerider av fettsyror
+pl:mono i diglicerydy kwasów tłuszczowych
+pt:mono e diglicéridos de ácidos gordos
+ro:mono sindigliceride ale acizilor grași
+ru:Моно- и диглицериды жирных кислот
+sk:mono- a diglyceridy mastných kyselín
+sl:mono- in digliceridi maščobnih kislin
+sr:mono- i digleciridi masnih kiselina
+sv:mono- och diglycerider av fettsyror
+th:โมโน- และไดกลีเซอไรด์ของกรดไขมัน
+wikidata:en:Q416711
+wikipedia:en:https://en.wikipedia.org/wiki/Mono-_and_diglycerides_of_fatty_acids
+# mono—and-diglycerides-of-fatty-acids has 2139 products in 19 languages @2018-11-12
+# fr:diglycérides-d’acide-gras has 2301 products in 11 languages @2018-11-12
+
+<en:mono- and diglycerides of fatty acids
+en:mono and diglycerides of fatty acids of vegetable origin
+fr:mono- et diglycérides d'acides gras d'origine végétale, mono et diglycérides d'acides gras d'origine végétale
+nl:mono- en diglyceriden van plantaardige vetzuren
+pt:mono e diglicéridos de ácidos gordos de origem vegetal
+# fr:mono- et diglycérides d'acides gras d'origine végétale has 53 products @2018-11-12
+
+
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2311,78 +2414,282 @@ wikidata:en:Q18967248
 # additive/e472f-mixed-acetic-and-tartaric-acid-esters-of-mono-and-diglycerides-of-fatty-acids has 7 products in 3 languages @2018-11-13
 
 
+# Sorbitan monostearate is an ester of sorbitan (a sorbitol derivative) and stearic acid and is sometimes referred to as a synthetic wax.
+
+en:Sorbitan monostearate, E491, E-491, E 491
+bg:Сорбитан моностеарат
+cs:Sorbitanmonostearát
+da:Sorbitanmonostearat
+de:sorbitanmonostearaat
+el:Μονοστεατικη σορβιτανη
+es:Monoestearato de sorbitano
+et:Sorbitaanmonostearaat
+fi:Sorbitaanimonostearaatti
+fr:monostéarate de sorbitane
+hr:Sorbitanmonostearat
+hu:Szorbitan-monosztearát
+it:Monostearato di sorbitano
+lt:Sorbitano monostearatas
+lv:Sorbitāna monostearāts
+mt:Sorbitan monostearat
+nl:sorbitanmonostearaat
+pl:Monostearynian sorbitolu
+pt:Monoestearato de sorbitano
+ro:Monostearat de sorbitan
+sh:Sorbitan monostearat
+sk:Sorbitanmonostearát
+sl:Sorbitan monostearat
+sr:Sorbitan monostearat
+sv:Sorbitanmonostearat
+wikidata:en:Q907898
+wikipedia:en:https://en.wikipedia.org/wiki/Sorbitan_monostearate
+# ingredient/fr:monostéarate-de-sorbitane has 27 products in 4 languages @2019-01-29
+
+
 # Calcium chloride is an inorganic compound, a salt with the chemical formula CaCl2. 
 
 en:calcium chloride, E509, E 509, E-509
-af:Kalsiumchloried, E509, E 509, E-509
+af:Kalsiumchloried
 ar:كلوريد الكالسيوم
-# ast:Cloruru de calciu, E509, E 509, E-509
+# ast:Cloruru de calciu
 # azb:کولورید کلسیوم
-bg:Калциев хлорид, E509, E 509, E-509
-bn:ক্যালসিয়াম ক্লোরাইড, E509, E 509, E-509
-ca:clorur de calci, E509, E 509, E-509
-cs:Chlorid vápenatý, E509, E 509, E-509
-cy:calsiwm clorid, E509, E 509, E-509
-da:Calciumchlorid, E509, E 509, E-509
-de:Calciumchlorid, E509, E 509, E-509
-el:Χλωριουχο ασβεστιο, E509, E 509, E-509
-# en-ca:calcium chloride , E509, E 509, E-509
-# en-gb:calcium chloride , E509, E 509, E-509
-eo:kalcia klorido , E509, E 509, E-509
-es:cloruro cálcico, Cloruro de calcio, E509, E 509, E-509
-et:Kaltsiumkloriid, E509, E 509, E-509
+bg:Калциев хлорид
+bn:ক্যালসিয়াম ক্লোরাইড
+ca:clorur de calci
+cs:Chlorid vápenatý
+cy:calsiwm clorid
+da:Calciumchlorid
+de:Calciumchlorid
+el:Χλωριουχο ασβεστιο
+# en-ca:calcium chloride
+# en-gb:calcium chloride
+eo:kalcia klorido
+es:cloruro cálcico, Cloruro de calcio
+et:Kaltsiumkloriid
 fa:کلرید کلسیم 
-fi:Kalsiumkloridi, E509, E 509, E-509
-fr:chlorure de calcium, E509, E 509, E-509
-gl:Cloruro de calcio , E509, E 509, E-509
-hi:कैल्सियम क्लोराइड , E509, E 509, E-509
-hu:Kalcium-klorid, E509, E 509, E-509
-hy:Կալցիումի քլորիդ , E509, E 509, E-509
-id:Kalsium klorida , E509, E 509, E-509
-it:cloruro di calcio, E509, E 509, E-509
-ja:塩化カルシウム , E509, E 509, E-509
-ko:염화 칼슘 , E509, E 509, E-509
-ky:Кальций хлориди , E509, E 509, E-509
-lt:Kalcio chloridas, E509, E 509, E-509
-lv:Kalcija hlorīds, E509, E 509, E-509
-ms:Kalsium klorida , E509, E 509, E-509
-mt:Klorur tal-kalċju, E509, E 509, E-509
-# nan:Iâm-hoà khā-lú-siúm , E509, E 509, E-509
-nb:Kalsiumklorid , E509, E 509, E-509
-nl:calciumchloride, E509, E 509, E-509
-nn:kalsiumklorid, E509, E 509, E-509
-pl:Chlorek wapnia, E509, E 509, E-509
-pt:cloreto de calcio, E509, E 509, E-509
-ro:Clorură de calciu, E509, E 509, E-509
-ru:Хлорид кальция, E509, E 509, E-509
-sh:Kalcijum hlorid , E509, E 509, E-509
-sk:Chlorid vápenatý, E509, E 509, E-509
-sl:Kalcijev klorid, E509, E 509, E-509
-sr:калцијум хлорид , E509, E 509, E-509
-# sr-ec:калцијум хлорид , E509, E 509, E-509
-# sr-el:Kalcijum hlorid , E509, E 509, E-509
-sv:Kalciumklorid, E509, E 509, E-509
-ta:கல்சியம் குளோரைட்டு , E509, E 509, E-509
-te:కాల్సియం క్లోరైడ్ , E509, E 509, E-509
-tr:Kalsiyum klorür, E509, E 509, E-509
-uk:Кальцій хлористий, E509, E 509, E-509
-vi:canxi clorua, E509, E 509, E-509
-# war:Calcium chloride, E509, E 509, E-509
-# wuu:氯化钙, E509, E 509, E-509
-# yue:氯化钙, E509, E 509, E-509
-zh:氯化钙, E509, E 509, E-509
-# zh-cn:氯化钙, E509, E 509, E-509
-# zh-hans:氯化钙, E509, E 509, E-509
-# zh-hant:氯化钙, E509, E 509, E-509
-# zh-hk:氯化钙, E509, E 509, E-509
-# zh-sg:氯化钙, E509, E 509, E-509
-# zh-tw:氯化钙, E509, E 509, E-509
+fi:Kalsiumkloridi
+fr:chlorure de calcium
+gl:Cloruro de calcio
+hi:कैल्सियम क्लोराइड
+hu:Kalcium-klorid
+hy:Կալցիումի քլորիդ
+id:Kalsium klorida
+it:cloruro di calcio
+ja:塩化カルシウム
+ko:염화 칼슘
+ky:Кальций хлориди
+lt:Kalcio chloridas
+lv:Kalcija hlorīds
+ms:Kalsium klorida
+mt:Klorur tal-kalċju
+# nan:Iâm-hoà khā-lú-siúm
+nb:Kalsiumklorid
+nl:calciumchloride
+nn:kalsiumklorid
+pl:Chlorek wapnia
+pt:cloreto de calcio
+ro:Clorură de calciu
+ru:Хлорид кальция
+sh:Kalcijum hlorid
+sk:Chlorid vápenatý
+sl:Kalcijev klorid
+sr:калцијум хлорид
+# sr-ec:калцијум хлорид
+# sr-el:Kalcijum hlorid
+sv:Kalciumklorid
+ta:கல்சியம் குளோரைட்டு
+te:కాల్సియం క్లోరైడ్
+tr:Kalsiyum klorür
+uk:Кальцій хлористий
+vi:canxi clorua
+# war:Calcium chloride
+# wuu:氯化钙
+# yue:氯化钙
+zh:氯化钙
+# zh-cn:氯化钙
+# zh-hans:氯化钙
+# zh-hant:氯化钙
+# zh-hk:氯化钙
+# zh-sg:氯化钙
+# zh-tw:氯化钙
 wikidata:en:Q208451
 wikipedia:en:https://en.wikipedia.org/wiki/Calcium_chloride
 # ingredient/calcium-chloride has 5542 products in 8 languages @2018-12-10
 
 
-# Disodium 5'-ribonucleotides, E number E635, is a flavor enhancer which is synergistic with glutamates in creating the taste of umami. 
+# Calcium gluconate is a mineral supplement and medication.
+
+# <en:calcium
+# <en:acidity regulator
+<en:minerals
+en:calcium gluconate, E578, E 578, E-578
+af:Kalsiumglukonaat
+ar:غلوكونات الكالسيوم
+az:Kalsium qlükonat
+bg:Калциев глюконат
+ca:Gluconat de calci
+cs:Glukonát vápenatý, Glukonan vápenatý
+cy:calsiwm gluconad
+da:Calciumgluconat
+de:Calciumgluconat
+el:Γλυκονικό ασβέστιο
+eo:kalcia glukonato
+es:gluconato de calcio, gluconato cálcico
+et:Kaltsiumglükonaat
+fa:کلسیم گلوکونات
+fi:Kalsiumglukonaatti
+fr:gluconate de calcium, Gluconate calcique
+hu:Kalcium-glükonát
+it:Gluconato di calcio
+ja:グルコン酸カルシウム
+lt:Kalcio gliukonatas
+lv:Kalcija glikonāts
+mt:Glukonat tal-kalċju
+nl:calciumgluconaat
+nn:kalsiumglukonat
+or:କ୍ୟାଲସିଅମ ଗ୍ଲୁକୋନେଟ
+pl:Glukonian wapnia, calcio gluconato
+pt:gluconato de cálcio
+ro:Gluconat de calciu
+ru:Глюконат кальция
+sh:Kalcijum glukonat
+sk:Glukonan vápenatý
+sl:Kalcijev glukonat
+sr:Kalcijum glukonat
+# sr-el:Kalcijum glukonat
+sv:Kalciumglukonat
+ta:கால்சியம் குளுக்கோனேட்டு
+uk:Глюконат кальцію
+vi:canxi gluconat
+zh:葡萄糖酸钙
+ # zh-cn:葡萄糖酸钙
+# zh-hans:葡萄糖酸钙
+# zh-hant:葡萄糖酸鈣
+# zh-hk:葡萄糖酸鈣
+# zh-sg:葡萄糖酸钙
+# zh-tw:葡萄糖酸鈣
+wikidata:en:Q413739
+wikipedia:en:https://en.wikipedia.org/wiki/Calcium_gluconate
+# ingredient/calcium-gluconate has 44 products in 2 languages @2018-12-11
+
+
+# FERROUS LACTATE, or iron(II) lactate, is a chemical compound consisting of one atom of iron (Fe2+) and two lactate anions. 
+
+en:Ferrous lactate, Iron(II) lactate, E585, E-585, E 585
+# azb:لاوکتات دمیر
+bg:Феро лактат, желязо(II) лактат
+cs:Mléčnan železnatý
+da:Ferrolactat, Jern(II)lactat
+de:Eisenlactat, Eisen(ii)-lactat
+el:Γαλακτικος σιδηρος, Γαλακτικός σίδηρος (II)
+es:Lactato ferroso, Lactato de hierro (II)
+et:Ferrolaktaat
+fa:لاکتات آهن(II)
+fi:Ferrolaktaatti, Rauta(II)laktaatti
+fr:lactate de fer, Lactate ferreux, Lactate de fer (II)
+hu:Vas-laktát, Vas(ii)-laktát
+it:lattato di ferro, Lattato ferroso
+ja:乳酸鉄(II)
+lt:Geležies laktatas, Geležies(II) laktatas
+lv:Dzelzs laktāts, Dzelzs (II) laktāts
+mt:Lattat ferruż, Lattat tal-ħadid(II)
+nl:IJzerlactaat, IJzer(ii)lactaat, IJzer(II)dilactaat
+pl:Mleczan żelazawy, Mleczan żelaza(II)
+pt:Lactato ferroso, Lactato de ferro (II)
+ro:Lactat feros, Lactat de fier (II)
+sk:Mliečnan železnatý
+sl:Železov laktat, železov (II) laktat
+sr:Gvožđe(II) laktat
+sv:Järnlaktat, Järn(II)laktat
+vi:Sắt(II) lactat
+wikidata:en:Q836793
+wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_lactate
+# fr:lactate-de-fer has 23 products in 3 languages @2019-01-27
+
+
+# MONOSODIUM GLUTAMATE (MSG, also known as sodium glutamate) is the sodium salt of glutamic acid, one of the most abundant naturally occurring non-essential amino acids.
+
+en:Monosodium glutamate, E621, E 621, E-621
+ar:غلوتامات أحادي الصوديوم
+# azb:مونوسودیوم قلوتامات
+be:Глутамат натрыю
+# be-tarask:Глутамат натрыю
+bg:Мононатриев глутамат
+ca:glutamat monosòdic
+# cdo:Ê-só
+cs:glutaman sodný
+da:Mononatriumglutamat
+de:Mononatriumglutamat, Mononatrium glutamat
+# de-ch:Mononatriumglutamat
+el:Γλουταμινικό νάτριο, άλας γλουταμινικού μονονατρίου
+# en-ca:Monosodium glutamate
+# en-gb:Monosodium glutamate
+eo:ununatria L-glutamato
+es:Glutamato monosódico
+et:Naatriumvesinikglutamaat
+fa:مونوسدیم گلوتامات
+fi:Natriumglutamaatti
+fr:monosodium glutamate, monoglutamate de sodium
+ga:Glútamáit aonsóidiam
+he:מונוסודיום גלוטמט
+hi:मोनोसोडियम ग्लूटामेट
+hr:Mononatrijev glutaminat
+hr:mononatrijev glutaminat
+hu:Mononátrium-glutamát
+id:Mononatrium glutamat
+is:MSG
+it:Glutammato di monosodio
+ja:グルタミン酸ナトリウム
+ko:글루탐산 나트륨
+lt:Mononatrio glutamatas
+lv:mononātrija glutamāts, mononatrijev glutaminat
+ml:അജിനോമോട്ടോ
+mr:मोनोसोडियम ग्लुटामेट
+ms:Monosodium glutamat
+mt:Glutamat monosodiku
+my:အချိုမှုန့်
+nb:Natriumglutamat
+nl:Mononatriumglutamaat
+nn:natriumglutamat
+pl:glutaminian monosodowy
+pt:Glutamato monossódico
+ro:Glutamat monosodic
+#rs:mononatrijum glutamat
+ru:Глутамат натрия
+# sco:monosodium glutamate
+sh:Mononatrijum glutamat
+si:මොනොසෝඩියම් ග්ලූටමේට්
+sk:Glutaman sodný
+sl:Mononatrijev glutamat
+sr:Mononatrijum glutamat
+su:Monosodium glutamat
+sv:Mononatriumglutamat
+ta:மோனோ சோடியம் குளூட்டாமேட்
+te:మోనో సోడియం గ్లూటామేట్‌
+th:โมโนโซเดียมกลูตาเมต
+tl:Betsin
+tr:Monosodyum glutamat, mono sodyum glutamat
+uk:Глутамат натрію
+ur:چینی نمک
+vi:bột ngọt
+# war:Betsin
+# wuu:味之素
+# yue:味精
+zh:味精
+# zh-cn:味精
+# zh-hans:味精
+# zh-hant:味精
+# zh-hk:味精
+# zh-sg:味精
+# zh-tw:味精
+wikidata:en:Q179678
+wikipedia:en:https://en.wikipedia.org/wiki/Monosodium_glutamate
+# ingredient/fr:monoglutamate-de-sodium has 78 products in french @2019-01-25
+# additive/e621-monosodium-glutamate has 8428 products in 31 languages @2019-01-25
+# ingredient/fr:monosodium%20glutamate has 62 products @2019-01-25
+
+
+# DISODIUM 5'-RIBONUCLEOTIDES, E number E635, is a flavor enhancer which is synergistic with glutamates in creating the taste of umami. 
 
 en:Disodium 5'-ribonucleotide, disodium 5'-ribonucleotides, E635, E-635 E 635
 bg:Динатриев 5'-рибонуклеотид
@@ -2436,6 +2743,81 @@ sk: Zahusťovadlo
 ro: Agent de îngroșare
 bg: Сгъстител
 wikidata:en:Q911138
+
+
+
+# Sodium saccharin (benzoic sulfimide) is an artificial sweetener with effectively no food energy. 
+
+<en:sweetener
+en:Saccharin, E954, E-954, E 954
+ar:سكارين
+# azb:ساخارین
+be:Сахарын
+# be-tarask:Цукрын
+bg:Захарин
+ca:sacarina
+cs:Sacharin
+da:Sakkarin, Saccharin
+de:Saccharin
+el:Σακχαρινες
+eo:Sakarino
+es:Sacarina, sacarinas
+et:Sahhariin
+eu:Sakarina
+fa:ساخارین
+fi:Sakariini
+fr:Saccharine, saccharides
+ga:Siúicrín
+gl:Sacarina
+he:סכרין
+hi:सेकेरिन
+hr:Saharin
+hu:Szacharin
+hy:Սախարին
+id:Sakarin
+io:Sakarino
+it:Saccarina
+ja:サッカリン
+ko:사카린
+lt:Sacharinas
+lv:Saccharin
+mt:Saccharin
+nb:Sakkarin
+nl:Sacharine
+pl:Sacharyna, sacharyny
+pt:Sacarina
+ro:Zaharină
+ru:Сахарин
+sh:Saharin
+sk:sacharín
+sl:Saharin
+sr:сахарин
+# sr-ec:сахарин
+# sr-el:Saharin
+sv:Sackarinat, sackarinater
+ta:சாக்கரின்
+th:แซกคารีน
+tr:Sakarin
+uk:Сахарин
+vi:Saccharin
+# war:Sakarina
+zh:糖精
+# zh-cn:糖精
+# zh-hans:糖精
+# zh-hant:糖精
+# zh-hk:糖精
+# zh-sg:糖精
+# zt-tw:糖精
+wikidata:en:Q191381
+wikipedia:en:https://en.wikipedia.org/wiki/Saccharin
+# ingredient/fr:saccharinate-de-sodium has 30 products in french @2019-01-30
+
+<en:Saccharin
+fr:saccharinate de sodium
+de:Saccharin-Natrium
+es:sacarina sódica
+it:saccarina di sodio
+ru:Натрия сахаринат
 
 
 # Lysozyme, also known as muramidase or N-acetylmuramide glycanhydrolase is an antimicrobial enzyme produced by animals that forms part of the innate immune system.
@@ -2517,6 +2899,87 @@ it:lisozima de uovo
 nl:lysozym uit ei
 sv:lysozym av ägg, av ägg
 # ingredient/fr:lysozyme-d’oeuf has 289 products in 10 languages @2018-12-18
+
+
+# Dextrins are a group of low-molecular-weight carbohydrates produced by the hydrolysis of starch[1] or glycogen.
+
+en:dextrin, E1400, E-1400, E 1400
+ar:دكسترين
+# azb:دکسترین
+be:Дэкстрын
+# be-tarask:Дэкстрын
+bg:Декстрин
+bs:Dekstrin
+ca:Dextrina
+cs:Dextrin
+da:Dekstrin
+de:Dextrine
+el:Δεξτρίνες
+es:Dextrina
+eu:Destrina
+fa:دکسترین
+fi:Dekstriini
+fr:dextrine
+ga:Deistrin
+gl:Dextrina
+hr:Dekstrin
+hu:Dextrin
+id:Dekstrin
+io:Dextrino
+it:Destrina
+ja:デキストリン
+kk:Декстриндер
+# kk-arab:دەكسترىيندەر
+# kk-cn:دەكسترىيندەر
+# kk-cyrl:Декстриндер
+# kk-kz:Декстриндер
+# kk-latn:Dekstrïnder
+# kk-tr:Dekstrïnder
+jo:덱스트린
+ky:Декстриндер
+ml:ഡെക്സ്ട്രിൻ
+mn:Декстрин
+nb:Dekstrin
+nl:Dextrine
+pl:Dekstryna
+pt:Dextrina
+ro:Dextrină
+ru:декстрин
+sh:Dekstrin
+sr:Dekstrin
+# sr-el:Декстрин
+# sr-el:Dekstrin
+sv:Dextrin
+tr:Dekstrin
+uk:Декстрин
+uz:Dekstrinlar
+vi:Dextrin
+zh:糊精
+# zh-cn:糊精
+# zh-hans:糊精
+# zh-hant:糊精
+# zh-hk:糊精
+# zh-sg:糊精
+# zh-tw:糊精
+wikidata:en:Q191978
+wikipedia:en:https://en.wikipedia.org/wiki/Dextrin
+
+# <en:dextrin
+fr:dextrine de tapioca, dextrine de manioc
+de:Tapiokadextrine
+it:destrina di tapioca
+# ingredient/fr:dextrine-de-tapioca has 49 products in 4 languages @2019-01-26
+
+
+<en:dextrin
+fr:dextrine de blé
+# ingredient/fr:dextrine-de-blé has 63 products in french @2019-01-26
+
+<en:dextrin
+fr:dextrine de maïs
+de: Maisdextrin
+nl: maïsdextrine
+# ingredient/fr:dextrine-de-maïs has 39 products in 3 languages @2019-01-26
 
 
 # <en:potato
@@ -2661,6 +3124,213 @@ zh:礦物
 # yue:礦物
 #wikidata:en:
 wikipedia:en:https://en.wikipedia.org/wiki/Mineral
+
+
+# Iron is a chemical element with symbol Fe and atomic number 26.
+
+<en:mineral
+en:iron
+af:yster
+am:ብረት
+an:Fierro
+# ang:Īsen
+ar:حديد
+# arc:ܦܪܙܠܐ
+as:লো
+# ast:Fierro
+az:Dəmir
+# azb:دمیر
+ba:Тимер
+be:Жалеза
+# be-tarask:Жалеза
+bg:Желязо
+# bho:आइरन
+bi:Aean
+# bjn:Wasi
+bn:লোহা
+bo:ལྕགས།
+br:Houarn
+bs:željezo
+# bxr:Түмэр
+ca:ferro
+# cdo:Tiék
+ce:Железо
+# ceb:Yero
+# chr:ᏔᎷᎩᏍᎩ
+# ckb:ئاسن
+co:Ferru
+cs:železo
+cv:Тимĕр
+cy:Haearn
+da:jern
+de:Eisen
+# de-ch:Eisen
+# diq:Asın
+dv:ދަގަނޑު
+el:σίδηρος
+# en-ca:Iron
+# en-gb:Iron
+eo:fero
+es:hierro
+et:Raud
+eu:burdina
+# ext:Hierru
+fa:آهن
+fi:rauta
+fo:Jarn
+fr:fer, fer élémentaire
+# frr:Stälj
+# fur:Fier
+fy:Izer
+ga:Iarann
+# gan:鐵
+gd:Iarann
+gl:Ferro
+gn:Itakandua
+# gom:लोखण
+# gor:Wuwate
+# gsw:Iise
+gu:લોખંડ
+gv:Yiarn
+# hak:Thiet
+he:ברזל
+hi:लोहा
+# hif:Loha
+hr:Željezo
+# hsb:železo
+ht:Fè
+hu:vas
+hy:երկաթ
+ia:ferro
+id:Besi
+ie:Ferre
+io:fero
+is:járn
+it:ferro
+ja:鉄
+# jam:Ayan
+# jbo:tirse
+jv:Wesi
+ka:რკინა
+# kaa:Temir
+# kab:Uzzal
+# kbp:Ñɩɣtʊ ñɩɣɖɛ
+kg:Kibende
+ki:Iron
+kk:Темір
+kn:ಕಬ್ಬಿಣ
+ko:철
+# koi:Кӧрт
+# ksh:Eisen
+ku:Hesin
+kv:Кӧрт
+kw:Horn
+ky:Темир
+la:ferrum
+lb:Eisen
+# lbe:Мах
+# lez:Ракь
+# lfn:fero
+li:Iezer
+# lij:Færo
+# lmo:Fer
+ln:Ebendé
+lt:Geležis
+lv:dzelzs
+# lzh:鐵
+# mai:लोहा
+mg:Vy
+mi:rino
+mk:железо
+ml:ഇരുമ്പ്
+mn:Төмөр
+mr:लोखंड
+ms:Besi
+mt:ħadid
+my:သံ
+# myv:Кшни
+# nah:Tlīltic tepoztli
+# nan:Thih
+# nap:Fierro
+nb:jern
+# nds:Iesen
+# nds-nl:Iezer
+ne:फलाम
+# new:नँ
+nl:ijzer
+nn:jern
+# nrm:Fé
+nv:Béésh
+oc:Fèrre
+# olo:Raudu
+or:ଲୌହ
+os:Æфсæйнаг
+pa:ਲੋਹਾ
+# pap:Heru
+# pih:Aiyen
+pl:żelazo
+# pms:Fer
+# pnb:لوآ
+ps:اوسپنه
+pt:ferro
+# pt-br:ferro
+qu:Khillay
+ro:fier
+ru:железо
+# rue:Желїзо
+# rup:Heru
+sa:अयः
+# sah:Тимир
+# sat:ᱢᱮᱬᱦᱮᱫ
+sc:Ferru
+# scn:Ferru
+# sco:airn
+sd:لوهه
+# sgs:Gelžis
+sh:Željezo
+si:යකඩ
+sk:železo
+sl:železo
+so:Bir
+sq:Hekuri
+sr:гвожђе
+# sr-ec:гвожђе
+# stq:Iersen
+su:Beusi
+sv:järn
+sw:Chuma
+ta:இரும்பு
+# tcy:ಕರ್ಬೊದ ಅದುರು
+te:ఇనుము
+tg:Оҳан
+th:เหล็ก
+tl:Bakal
+tr:Demir
+tt:тимер
+# udm:Темир
+ug:تۆمۈر
+uk:залізо
+ur:لوہا
+uz:Temir
+# vec:Fero
+# vep:Raud
+vi:sắt
+# vls:Yzer
+vo:ferin
+# vro:Raud
+wa:Fier
+# war:Puthaw
+# wuu:铁
+# xal:Төмр
+yi:אייזן
+yo:Iron
+# yue:鐵
+za:Diet
+zh:铁
+# zh-hant:鐵
+wikidata:en:Q677
+wikipedia:en:https://en.wikipedia.org/wiki/Iron
+# ingredient/iron has 8545 products in 12 languages @2018-12-12
 
 
 # Selenium is a chemical element with symbol Se and atomic number 34. 
@@ -2816,6 +3486,171 @@ zh:硒
 # zh-tw:硒
 wikipedia:en:https://en.wikipedia.org/wiki/Selenium
 # ingredient/fr:sélénium has 74 products in 4 languages @2018-12-21
+
+
+# Zinc is a chemical element with symbol Zn and atomic number 30. 
+
+<en:mineral
+en:zinc
+af:sink
+am:ዚንክ
+an:Zinc
+ar:زنك
+as:জিংক
+# ast:Cinc
+az:Sink
+# azb:زنگ
+ba:Цинк
+be:Цынк
+# be-tarask:Цынк
+bg:Цинк
+# bho:जिंक
+bn:দস্তা
+bo:ཏི་ཚ།
+br:Zink
+bs:cink
+ca:zinc
+# cdo:Sĭng
+# ckb:زینک
+co:Zingu
+cs:Zinek
+cv:Цинк
+cy:Sinc
+da:Zink
+de:Zink
+dv:ޒިންކް
+el:Ψευδάργυρος
+en:Zinc
+eo:zinko
+es:Zinc
+et:Tsink
+eu:zink
+fa:روی
+fi:Sinkki
+fo:Sink
+fr:Zinc
+# frr:Sink
+# fur:Zinc
+fy:Sink
+ga:Sinc
+gd:Sinc
+gl:Cinc
+gu:જસત
+gv:Shinc
+# hak:Sîn
+he:אבץ
+hi:जस्ता
+# hif:Zinc
+hr:Cink
+# hsb:Cynk
+ht:Zenk
+hu:Cink
+hy:ցինկ
+ia:zinc
+id:seng
+io:zinko
+is:sink
+it:Zinco
+ja:亜鉛
+# jbo:zinki
+jv:Sèng
+ka:თუთია
+# kbp:Sɛŋkɩ
+ki:Zinc
+kk:Мырыш
+kn:ಸತುವು
+ko:아연
+ku:Çînko
+kv:Цинк
+ky:Цинк
+la:zincum
+lb:Zénk
+# lbe:Тутия
+# lfn:zinco
+li:Zink
+# lij:Zingo
+# lmo:Zinch
+lt:Cinkas
+lv:Cinks
+# lzh:鋅
+mi:konutea
+mk:цинк
+ml:നാകം
+mn:Цайр
+mr:जस्त
+# mrj:Цинк
+ms:Timah sari
+mt:Żingu
+# mwl:Zinco
+my:သွပ်
+# myv:Цинк
+# nan:A-iân
+nb:Sink
+# nds:Zink
+ne:जस्ता
+# new:जिङ्क
+nl:Zink
+nn:sink
+oc:Zinc
+# olo:Cinku
+or:ଦସ୍ତା
+pa:ਜਿਸਤ
+pi:जिंक
+pl:Cynk
+# pmo:Zinch
+# pnb:زنک
+pt:Zinco
+# pt-br:zinco
+qu:Tsinku
+ro:zinc
+ru:Цинк
+# rue:Цінк
+# rup:Zinc
+sa:दस्ता
+# scn:zincu
+# sco:zinc
+sd:جست
+sh:Cink
+sk:Zinok
+sl:Cink
+sn:Zeng'e
+so:Sinki
+sq:Zinku
+sr:цинк
+# stq:Zink
+su:Séng
+sv:Zink
+sw:Zinki
+ta:துத்தநாகம்
+te:తుత్తునాగము
+tg:Руҳ
+th:สังกะสี
+tl:Sink
+tr:Çinko
+tt:тутыя
+ug:سىنك
+uk:цинк
+ur:خارصین
+uz:Rux
+# vep:Cink
+vi:kẽm
+vro:Tsink
+# war:Singk
+# wuu:锌
+# xal:Цинкон
+# yi:צינק
+# yo:Zinc
+# yue:鋅
+zh:锌
+# zh-cn:锌
+# zh-hans:锌
+# zh-hant:鋅
+# zh-hk:鋅
+#zh-tw:鋅
+wikidata:en:https://en.wikipedia.org/wiki/Zinc
+wikipedia:en:https://en.wikipedia.org/wiki/Zinc
+# ingredient/zinc has 859 products in 6 languages @2019-01-25
+
 
 en:Amino acids
 bg:Аминокиселини
@@ -3588,18 +4423,21 @@ en:butterfat, milkfat, pastry butter
 bs:mliječna mast
 cy:braster menyn
 da:mjölkfett
-de:Butterreinfett, Milchfett, wasserfreiesMilchfett
+de:Butterreinfett, Milchfett, wasserfreies Milchfett
 da:smørolie
+# en-gb: butterfat
+eo: laktograso
 es:grasa butírica
 fr:matière grasse lactique, matière grasse laitière anhydre, beurre laitier concentré
 id:lemak susu
-it:burro anidro, burro di pasticceria
+it:burro anidro, burro di pasticceria, burro concentrato
 ja:乳脂肪
 ko:유지방
 ms:lemak mentega, lemak susu
-nl:melkvet, boterconcentraat
+nl:melkvet, boterconcentraat, botervet
 no:melkefett
-pt:gordura de leite anhidra, manteiga concentrada
+pl:tłuszcz mlecny
+pt:gordura de leite anhidra, manteiga concentrada, gordura butrica
 ru:Молочный жир
 sl:mlečna maščoba
 sv:mølkfett
@@ -3607,8 +4445,9 @@ th:ไขมันเนย
 tl:taba ng gatas
 uk:Молочний жир
 zh:乳脂
-allergens:fr:matière grasse _laitière_ anhydre
-allergens:fr:_beurre_ pâtissier
+# zh-hans: 乳脂
+# zh-hant: 乳脂
+# zh-hk: 乳脂
 wikidata:en:Q909729
 wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
 
@@ -4529,6 +5368,102 @@ nl:Room uit Normandië
 allergens:fr:_crème_ fraîche de normandie
 
 
+
+# buttermilk was the liquid left behind after churning butter out of cultured cream.
+
+en:buttermilk
+af:Karringmelk
+am:አሬራ
+ar:حليب رائب
+# bar:Buddä milsch
+# be-tarask:Масьлянка
+bg:Мътеница
+br:laezh-ribod
+ca:sèrum de mantega
+# ckb:دۆ
+cs:Podmáslí
+cv:Уйран
+cy:Llaeth enwyn
+da:Kærnemælk
+de:Buttermilch
+# de-ch:Buttermilch
+# en-ca:Buttermilk
+# en-gb:Buttermilk
+eo:Buterlakto
+es:Suero de mantequilla
+et:Pett
+fa:آب‌دوغ
+fi:Piimä
+fr:babeurre
+fy:sûpe
+ga:Bláthach
+gd:Blàthach
+# gom:Tak
+gu:છાશ
+he:חובצה
+hi:छाछ
+hu:író
+id:Susu mentega
+io:Butro-lakto
+is:Áfir
+it:latticello
+ja:バターミルク
+kn:ಮಜ್ಜಿಗೆ
+ko:우락유
+li:Karnemèlk
+lt:Pasukos
+lv:paniņas
+mk:матеница
+ml:മോര്
+mo:Babeurre
+mr:ताक
+# mrj:Кӱтӹмӓк
+ms:Susu mentega
+nb:kjernemelk
+# nds-nl:Karnmelk
+ne:मोही
+nl:karnemelk
+om:Baaduu
+pl:Maślanka
+pt:leitelho
+# pt-br:leitelho
+ro:Babeurre
+ru:Пахта
+sa:तक्रम्
+sk:Cmar
+sl:Pinjenec
+sv:Kärnmjölk
+ta:மோர்
+te:మజ్జిగ
+uk:Сколотини
+# yue:牛油奶
+zh:酪漿
+# zh-cn:酪浆
+# zh-hans:酪浆
+# zh-hant:酪漿
+# zh-hk:酪漿
+# zh-sg:酪浆
+# zh-tw:酪漿
+wikidata:en:Q106612
+wikipedia:en:https://en.wikipedia.org/wiki/Buttermilk
+# ingredient/fr:babeurre has 166 products in 4 languages @2018-11-15
+
+<en:buttermilk
+en:buttermilk powder
+da:kæarnemælkpulver
+de:Buttermilchpulver
+el:αποβουτυρωμενο γάλα σεβσκόνη
+es:suero de mantequilla en polvo
+fr:babeurre en poudre, poudre de babeurre, babeurre déshydraté
+it:latticello in polvere
+nl:karnemelkpoeder
+nn:pulverisert kjernemelk
+pt:leitelho em pó
+sv:kärnemjölkspulver
+# ingredient/fr:babeurre-en-poudre has 116 products in 12 languages @2018-12-15
+
+
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                         C H E E S E S     S E C T I O N
@@ -4837,8 +5772,9 @@ it:formaggio di pecore
 
 <en:cheese
 en:soft white cheese
-fr:fromage frais
 de:Frischkäse
+fr:fromage frais
+it:formaggio fresco
 carbon_footprint_fr_foodges_ingredient:fr:Fromage frais 58% MG
 # fr:fromage-frais has 474 products @2018-10-28
 
@@ -5244,6 +6180,73 @@ zh:菲達芝士
 wikidata:en:Q182760
 wikipedia:en:https://en.wikipedia.org/wiki/Feta
 # fr:feta has 49 products in 3 languages @2018-10-28
+
+
+
+
+# Gorgonzola is a veined Italian blue cheese, made from unskimmed cow's milk. 
+
+<en:cheese
+en:gorgonzola
+af:Gorgonzola
+ar:جبنة غورغونزولا
+be:Гаргандзола
+bg:Горгондзола
+bo:གོར་གོན་ཟོ་ལ།
+ca:gorgonzola
+cs:gorgonzola
+cv:Горгонзола
+da:Gorgonzola
+de:Gorgonzola
+el:Γκοργκοντζόλα
+# eml:Gurgunzöla
+# en-ca:Gorgonzola
+# en-gb:Gorgonzola
+eo:Gorgonzolo
+es:Gorgonzolo
+et:Gorgonzola juust
+eu:Gorgonzola
+fa:گورگونتزولا
+fr:gorgonzola
+gl:Gorgonzola
+he:גורגונזולה
+hr:Gorgonzola
+hu:Gorgonzola
+hy:Գորգոնձոլա
+id:Gorgonzola
+it:gorgonzola
+ja:ゴルゴンゾーラ
+ko:고르곤졸라
+la:Gorgonzola
+# lmo:Gorgonzoeula
+mk:Горгонѕола
+nb:gorgonzola
+nl:gorgonzola
+pl:gorgonzola
+pt:gorgonzola
+# pt-br:gorgonzola
+ro:Brânză Gorgonzola
+ru:Горгондзола
+# sco:gorgonzola
+sd:گارگونزولا
+sl:Gorgonzola
+sr:горгонзола
+# sr-ec:горгонзола
+# sr-el:Gorgonzola
+sv:Gorgonzola
+tr:Gorgonzola
+uk:Ґорґонцола
+# yue:哥根蘇拿芝士
+zh:古岡左拉芝士
+# zh-cn:古冈左拉干酪
+# zh-hans:古冈左拉芝士
+# zh-hant:古岡左拉芝士
+# zh-hk:古岡左拉芝士
+# zh-sg:古冈左拉干酪
+# zh-tw:古岡左拉起司
+wikidata:en:Q209044
+wikipedia:en:https://en.wikipedia.org/wiki/Gorgonzola
+# ingredient/fr:gorgonzola has 108 products in french @2018-12-13
 
 
 # GOUDA (Dutch: Goudse kaas, "cheese from Gouda") is a mild, yellow cheese made from cow's milk.
@@ -6003,12 +7006,6 @@ wikidata:en:Q677647
 wikipedia:en:https://fr.wikipedia.org/wiki/Vacherin_fribourgeois
 # fr:Vacherin-fribourgeois-AOP has 2 products in 3 languages @2018-10-27
 
-<en:cheese
-en:mozzarella
-es:queijo mozzarella
-sv:mozzarella
-# fr:mozzarella has 1057 products in 15 languages @2018-10-28
-
 # fr:base-aromatisante-fromage is a compound ingredient
 
 <en:cheese
@@ -6528,6 +7525,51 @@ wikipedia:en:https://en.wikipedia.org/wiki/Niacin
 # ingredient/vitamin-b3 has 744 products in 8 languages @2018-11-23
 
 
+# Nicotinamide (NAM), also known as niacinamide, is a form of vitamin B3 found in food and used as a dietary supplement and medication.
+
+
+<en:vitamin B3
+en:Nicotinamide, niacinamide
+ar:نيكوتيناميد
+ca:niacinamida
+cs:Nikotinamid
+cy:nicotinamid
+de:Nicotinamid
+el:νικοτιναμίδη
+eo:nikotinamido
+fr:nicotinamide
+hi:निकोटिनामाइड
+hu:Nikotinamid
+hy:Նիկոտինամիդ
+id:Nikotinamida
+it:Nicotinamide
+ja:ニコチンアミド
+ko:니코틴아마이드
+lv:nikotīnamīds
+nl:Nicotinamide
+or:ନିକୋଟିନାମାଇଡ଼
+pl:nikotynoamid
+pt:nicotinamida
+ru:Никотинамид
+sh:Nikotinamid
+sr:никотинамид
+# sr-ec:Никотинамид
+# sr-el:Nikotinamid
+tr:Nikotinamid
+uk:Нікотинамід
+vi:Nicotinamide
+zh:烟酰胺
+# zh-cn:烟酰胺
+# zh-hans:烟酰胺
+# zh-hant:煙醯胺
+# zh-hk:菸鹼醯胺
+# zh-sg:烟酰胺
+# zh-tw:菸鹼醯胺
+wikidata:en:Q192423
+wikipedia:en:https://en.wikipedia.org/wiki/Nicotinamide
+# ingredient/fr:nicotinamide has 172 products in 2 languages @2019-01-16
+
+
 # Pantothenic acid, also called vitamin B5 (a B vitamin), is a water-soluble vitamin.
 <en:vitamins
 en:Pantothenic acid, vitamin B5, B5
@@ -6692,7 +7734,7 @@ wikidata:en:Q26841284
 # Biotin is a water-soluble B vitamin, also called vitamin B7 and formerly known as vitamin H or coenzyme R.
 
 <en:vitamins
-en:biotin, Vitamin H, Vitamin B7
+en:biotin, Vitamin H, Vitamin B7, B7
 ar: بيوتين
 # azb: بیوتین
 be: біятын
@@ -6707,7 +7749,7 @@ el: βιοτίνη
 eo: biotino
 es: Biotina, Vitamina B7, Vitamina H
 et: Biotiin, B7-vitamiin, H-vitamiin
-eu: Biotina, B8 bitamina
+eu: Biotina, B7 bitamina
 fa: بیوتین
 fi: Biotiini, B7-vitamiini, H-vitamiini
 fr: vitamine B7, vitamine H
@@ -6765,7 +7807,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Biotin
 # Vitamin B8 is a former designation given to several distinct chemical compounds, which is not considered a true vitamin
 
 <en:vitamins
-en:vitamin b8
+en:vitamin b8, B8
 fr:vitamine b8
 es:vitamina b8
 # ingredient/vitamin-b8 has 35 products in 3 languages @2018-11-24
@@ -6776,78 +7818,78 @@ es:vitamina b8
 <en:vitamins
 en:folic acid, vitamin B9, B9, vitamin M
 ar:حمض الفوليك
-# ast:Ácidu fólicu, B9
-be:Фоліевая кіслата, B9
-bg:Фолиева киселина, B9
-bn:ফলিক এসিড, B9
-bs:Folna kiselina, B9
-ca:àcid fòlic, B9
-cs:kyselina listová, vitamín B9, B9
-cy:Asid Ffolig, B9
-da:Folsyre, folinsyre, B9
-de:Folsäure, B9
+# ast:Ácidu fólicu
+be:Фоліевая кіслата
+bg:Фолиева киселина
+bn:ফলিক এসিড
+bs:Folna kiselina
+ca:àcid fòlic
+cs:kyselina listová, vitamín B9
+cy:Asid Ffolig
+da:Folsyre, folinsyre
+de:Folsäure
 dv:ވިޓަމިން ބީ9
-el:Φυλλικό οξύ, Βιταμίνη Β9, B9
-# en-ca:Folic acid, B9
-# en-gb:Folic acid, B9
-eo:foliata acido, B9
-es:Ácido fólico, B9
-et:Foolhape, B9
-eu:Azido foliko, B9
+el:Φυλλικό οξύ, Βιταμίνη Β9
+# en-ca:Folic acid
+# en-gb:Folic acid
+eo:foliata acido
+es:Ácido fólico
+et:Foolhape
+eu:Azido foliko
 fa:اسید فولیک
-fi:foolihappo, B9
-fr:acide folique, B9
-# frr:Folsüren, B9
-ga:Aigéad fólach, B9
-gd:Searbhag dhuilleagach, B9
-gl:Ácido fólico, B9
+fi:foolihappo
+fr:acide folique
+# frr:Folsüren
+ga:Aigéad fólach
+gd:Searbhag dhuilleagach
+gl:Ácido fólico
 he:חומצה פולית
-hi:फोलिक एसिड, B9
+hi:फोलिक एसिड
 hr:Vitamin B9
-hr:Folsav, B9
+hr:Folsav
 hy:Վիտամին B9
-id:Asam folat, B9
-is:Fólínsýra, B9
-it:acido folico, B9
+id:Asam folat
+is:Fólínsýra
+it:acido folico
 ja:葉酸, B9
-kk:Птероилглютамин, B9
-ko:엽산, B9
-ky:Фоли кычкылы, B9
-lb:Folsaier, B9
-# lmo:Acid foleg, B9
-lt:Folio rūgštis, B9
-lv:folijskābe, B9
-mk:Фолна киселина, B9
-ml:ഫോളിക് ആസിഡ്, B9
-ms:Asid folik, B9
-nb:Folsyre, B9
-nl:foliumzuur, vitamine B9, B9/M, B9
-nn:folsyre, vitamin B9, B9
+kk:Птероилглютамин
+ko:엽산
+ky:Фоли кычкылы
+lb:Folsaier
+# lmo:Acid foleg
+lt:Folio rūgštis
+lv:folijskābe
+mk:Фолна киселина
+ml:ഫോളിക് ആസിഡ്
+ms:Asid folik
+nb:Folsyre
+nl:foliumzuur, vitamine B9, B9/M
+nn:folsyre, vitamin B9
 oc:Vitamina B9
-or:ଫୋଲିକ ଏସିଡ, B9
-pl:kwas foliowy, B9/M, Vitamin B9, B9
-pt:ácido fólico, B9/M, B9
-# pt-br:Ácido fólico, B9
-ro:acid folic, vitamina B9, B9
-ru:фолиевая кислота, Витамин B9, B9
-# scn:Àcitu fòlicu, B9
-# sco:folic acid, B9
-sh:Vitamin B9, B9
-sk:Kyselina listová, B9
-sl:Folna kislina, B9
-sq:Acidi folik, B9
-sr:фолна киселина, B9
-# sr-ec:фолна киселина, B9
-sv:folsyra, B9
-ta:இலைக்காடி, B9
-te:ఫోలిక్ ఆమ్లం, B9
-th:กรดโฟลิก, B9
-tr:Folik asit, B9
-uk:Фолієва кислота, B9
+or:ଫୋଲିକ ଏସିଡ
+pl:kwas foliowy, B9/M, Vitamin B9
+pt:ácido fólico, B9/M
+# pt-br:Ácido fólico
+ro:acid folic, vitamina B9
+ru:фолиевая кислота, Витамин B9
+# scn:Àcitu fòlicu
+# sco:folic acid
+sh:Vitamin B9
+sk:Kyselina listová
+sl:Folna kislina
+sq:Acidi folik
+sr:фолна киселина
+# sr-ec:фолна киселина
+sv:folsyra
+ta:இலைக்காடி
+te:ఫోలిక్ ఆమ్లం
+th:กรดโฟลิก
+tr:Folik asit
+uk:Фолієва кислота
 ur:فولک تیزاب
-vi:axit folic, B9
-# yue:葉酸, B9
-zh:叶酸, B9
+vi:axit folic
+# yue:葉酸
+zh:叶酸
 wikipedia:en:https://en.wikipedia.org/wiki/Folate
 wikidata:en: Q127060
 # en:vitamin/folic-acid has 23535 products in 17 languages @2018-11-19
@@ -6943,95 +7985,95 @@ nl:Vitamines B2 en B9
 
 <en:vitamins
 en:Vitamin C, ascorbic acid, E300, E 300, E-300
-af:Vitamien C, E300, E 300, E-300
+af:Vitamien C
 ar:فيتامين سي
-# ast:Vitamina C, E300, E 300, E-300
-az:C vitamini, E300, E 300, E-300
+# ast:Vitamina C
+az:C vitamini
 # azb:ویتامین ث
-bg:Витамин C, Аскорбинова киселина, E300, E 300, E-300
-bn:ভিটামিন সি, E300, E 300, E-300
-bs:Vitamin C, Askorbinska kiselina, E300, E 300, E-300
-ca:vitamina C, E300, E 300, E-300
-cs:vitamín C, Kyselina askorbová, E300, E 300, E-300
-cy:Fitamin C, E300, E 300, E-300
-da:C-vitamin, ascorbinsyre, E300, E 300, E-300
-de:Vitamin C, Ascorbinsäure, E300, E 300, E-300
-dv:ވިޓަމިން ސީ, E300, E 300, E-300
-el:Βιταμίνη C, Ασκορβικο οξυ, ασκορβικό, E300, E 300, E-300
-eo:Vitamino C, E300, E 300, E-300
-es:vitamina C, ácido ascórbico, E300, E 300, E-300
-et:C-vitamiin, Askorbiinhape, E300, E 300, E-300
-eu:C bitamina, E300, E 300, E-300
+bg:Витамин C, Аскорбинова киселина
+bn:ভিটামিন সি
+bs:Vitamin C, Askorbinska kiselina
+ca:vitamina C
+cs:vitamín C, Kyselina askorbová
+cy:Fitamin C
+da:C-vitamin, ascorbinsyre
+de:Vitamin C, Ascorbinsäure
+dv:ވިޓަމިން ސީ
+el:Βιταμίνη C, Ασκορβικο οξυ, ασκορβικό
+eo:Vitamino C
+es:vitamina C, ácido ascórbico
+et:C-vitamiin, Askorbiinhape
+eu:C bitamina
 fa:ویتامین ث
-fi:C-vitamiini, askorbiinihappo, E300, E 300, E-300
-fr:vitamine C, acide ascorbique, acide L-ascorbique, acide l-ascorbique, E300, E 300, E-300, antioxydant e300
-gl:Vitamina C, Ácido ascórbico, E300, E 300, E-300
+fi:C-vitamiini, askorbiinihappo
+fr:vitamine C, acide ascorbique, acide L-ascorbique, acide l-ascorbique, antioxydant e300
+gl:Vitamina C, Ácido ascórbico
 he:ויטמין C
-hi:विटामिन सी, E300, E 300, E-300
-hr:vitamin C, askorbinska kiselina, E300, E 300, E-300
-hu:C-vitamin, Aszkorbinsav, E300, E 300, E-300
-hy:Վիտամին C, E300, E 300, E-300
-id:Vitamin C, E300, E 300, E-300
-is:C-vítamín, E300, E 300, E-300
-it:vitamina C, acido ascorbico, E300, E 300, E-300
-ja:ビタミンC, E300, E 300, E-300
-jv:Vitamin C, E300, E 300, E-300
-ka:vitamine c, E300, E 300, E-300
-kn:C ಜೀವ ಸತ್ವ, E300, E 300, E-300
-ko:비타민 C, E300, E 300, E-300
-ky:Витамин С, E300, E 300, E-300
-lt:Vitaminas C, Askorbo rūgštis, E300, E 300, E-300
-lv:C vitamīns, Askorbīnskābe, E300, E 300, E-300
-mk:Витамин Ц, E300, E 300, E-300
-ml:ജീവകം സി, E300, E 300, E-300
-mr:क-जीवनसत्त्व, E300, E 300, E-300
-ms:Vitamin C, E300, E 300, E-300
-mt:Aċidu askorbiku, E300, E 300, E-300
-# nan:Bî-tá-mín C, E300, E 300, E-300
-nb:Vitamin C, E300, E 300, E-300
-ne:भिटामिन सी, E300, E 300, E-300
-nl:Vitamine C, ascorbinezuur, E300, E 300, E-300
-oc:Vitamina C, E300, E 300, E-300
-or:ଜୀବସାର ଗ, E300, E 300, E-300
-pa:ਵਿਟਾਮਿਨ ਸੀ, E300, E 300, E-300
-pl:witamina C, kwas askorbinowy, E300, E 300, E-300
-pt:vitamina C, ácido ascórbico, E300, E 300, E-300
-# pt-br:vitamina C, E300, E 300, E-300
-ro:Vitamina C, Acid ascorbic, E300, E 300, E-300
-ru:Аскорбиновая кислота, E300, E 300, E-300
-rw:Vitamini C, E300, E 300, E-300
-# scn:Vitamina C, Ascurbatu, E300, E 300, E-300
-# sco:Vitamin C, E300, E 300, E-300
-sh:Vitamin C, E300, E 300, E-300
-sk:Kyselina askorbová, E300, E 300, E-300
-sl:Vitamin C, Askorbinska kislina, E300, E 300, E-300
-sq:Vitamina C, E300, E 300, E-300
-sr:витамин Ц, E300, E 300, E-300
-# sr-ec:витамин Ц, E300, E 300, E-300
-# sr-el:vitamin C, E300, E 300, E-300
-su:Vitamin C, E300, E 300, E-300
-sv:Askorbinsyra, E300, E 300, E-300
-sw:Vitamini C, E300, E 300, E-300
-ta:உயிர்ச்சத்து சி, E300, E 300, E-300
-te:విటమిన్ సి, E300, E 300, E-300
-th:วิตามินซี, E300, E 300, E-300
+hi:विटामिन सी
+hr:vitamin C, askorbinska kiselina
+hu:C-vitamin, Aszkorbinsav
+hy:Վիտամին C
+id:Vitamin C
+is:C-vítamín
+it:vitamina C, acido ascorbico
+ja:ビタミンC
+jv:Vitamin C
+ka:vitamine c
+kn:C ಜೀವ ಸತ್ವ
+ko:비타민 C
+ky:Витамин С
+lt:Vitaminas C, Askorbo rūgštis
+lv:C vitamīns, Askorbīnskābe
+mk:Витамин Ц
+ml:ജീവകം സി
+mr:क-जीवनसत्त्व
+ms:Vitamin C
+mt:Aċidu askorbiku
+# nan:Bî-tá-mín C
+nb:Vitamin C
+ne:भिटामिन सी
+nl:Vitamine C, ascorbinezuur
+oc:Vitamina C
+or:ଜୀବସାର ଗ
+pa:ਵਿਟਾਮਿਨ ਸੀ
+pl:witamina C, kwas askorbinowy
+pt:vitamina C, ácido ascórbico
+# pt-br:vitamina C
+ro:Vitamina C, Acid ascorbic
+ru:Аскорбиновая кислота
+rw:Vitamini C
+# scn:Vitamina C, Ascurbatu
+# sco:Vitamin C
+sh:Vitamin C
+sk:Kyselina askorbová
+sl:Vitamin C, Askorbinska kislina
+sq:Vitamina C
+sr:витамин Ц
+# sr-ec:витамин Ц
+# sr-el:vitamin C
+su:Vitamin C
+sv:Askorbinsyra
+sw:Vitamini C
+ta:உயிர்ச்சத்து சி
+te:విటమిన్ సి
+th:วิตามินซี
 tl:Bitamina C
 tr:C vitamini, askorbik asit
-tv:ВИТАМИН С, E300, E 300, E-300
+tv:ВИТАМИН С
 ug:ۋىتامىن C
-uk:Вітамін C, E300, E 300, E-300
+uk:Вітамін C
 ur:حیاتین ج
-vi:Vitamin C, E300, E 300, E-300
-# wuu:维生素C, E300, E 300, E-300
+vi:Vitamin C
+# wuu:维生素C
 yi:וויטאמין C
-# yue:維他命C, E300, E 300, E-300
-zh:维生素C, E300, E 300, E-300
-# zh-cn:维生素C, E300, E 300, E-300
-# zh-hans:维生素C, E300, E 300, E-300
-# zh-hant:维生素C, E300, E 300, E-300
-# zh-hk:维生素C, E300, E 300, E-300
-# zh-sg:维生素C, E300, E 300, E-300
-# zh-tw:维生素C, E300, E 300, E-300
+# yue:維他命C
+zh:维生素C
+# zh-cn:维生素C
+# zh-hans:维生素C
+# zh-hant:维生素C
+# zh-hk:维生素C
+# zh-sg:维生素C
+# zh-tw:维生素C
 wikidata:en:Q199678
 wikipedia:https://en.wikipedia.org/wiki/Vitamin_C
 # en:ascorbic-acid has 17518 products in 17 languages @2018-11-17
@@ -7040,7 +8082,7 @@ wikipedia:https://en.wikipedia.org/wiki/Vitamin_C
 # Vitamin D is a group of fat-soluble secosteroids responsible for increasing intestinal absorption of calcium, magnesium, and phosphate, and multiple other biological effects.
 
 <en:vitamins
-en:vitamin D
+en:vitamin D, D
 af:Vitamien D
 ar:فيتامين دي
 # ast:Vitamina D
@@ -7133,7 +8175,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_D
 # Ergocalciferol, also known as vitamin D2 and calciferol, is a type of vitamin D found in food and used as a dietary supplement.
 
 <en:vitamin D
-en: Ergocalciferol, Vitamin D2
+en: Ergocalciferol, Vitamin D2, D2
 ar: إرغوكالسيفيرول
 ca: Ergocalciferol
 cs: ergokalciferol, Vitamín D2
@@ -8011,6 +9053,22 @@ fr:viande hachée de boeuf
 
 fr:os de veau
 
+
+en:casing
+de: Hülle
+fr:enveloppe
+it: involucro
+
+# <en:casing
+<fr:viande de boeuf
+en: beef casing
+de: Rinderdarm
+fr:boyau de boeuf, boyau de bœuf
+it: budello di manzo
+# ingredient/fr:boyau-de-boeuf has 24 products in 4 languages @2019-01-30
+# enveloppe: boyau de boeuf
+
+
 #Poulet
 
 fr:viande de poulet
@@ -8110,7 +9168,7 @@ et:Tärklis
 eu:Almidoi
 fa:نشاسته
 fi:Tärkkelys
-fr:amidon
+fr:amidon, fécules, fecule
 fy:Stiselmoal
 ga:Stáirse
 he:עמילן
@@ -8121,7 +9179,7 @@ hy:Օսլա
 id:Amilum
 io:Amilo
 is:Sterkja
-it:Amido
+it:Amido, fecola
 ja:デンプン
 ka:სახამებელი
 kk:Крахмал
@@ -8168,6 +9226,8 @@ zh:淀粉
 # yue:澱粉
 wikidata:en:Q41534
 wikipedia:en:https://en.wikipedia.org/wiki/Starch
+# ingredient/fr:fécules has 612 products in 5 languages @2019-01-25
+# fécules (dont blé)
 
 <en:starch
 en:modified starch, modified starches
@@ -9962,6 +11022,105 @@ wikipedia:en:https://en.wikipedia.org/wiki/Amaretto
 #ingredient/amaretto has 15 products in 4 languages @2018-12-21
 
 
+
+# Champagne is sparkling wine or, in the EU countries, legally only that sparkling wine which comes from the Champagne region of France.
+
+<en:alcohol
+en:champagne
+an:Champán
+ar:شامبانيا
+# arz:شامبانيا
+# ast:Xampán
+az:Şampan şərabı
+be:Шампанскае
+bg:Шампанско вино
+bo:ཤམ་ཕེན་ཆང་།
+ca:xampany
+cs:šampaňské víno
+cv:Шампанское
+cy:Siampaen
+da:Champagne
+de:Champagner
+# de-ch:Champagner 
+# diq:Şampanya
+# en-ca:Champagne
+# en-gb:Champagne
+el:Σαμπάνια
+eo:Ĉampano
+es:champán
+et:Šampanja
+eu:Xanpaina
+fa:شامپاین
+fi:Samppanja
+fo:Sjampanja
+fr:champagne
+ga:Seaimpéin
+gl:Champaña
+gu:શેમ્પેન
+he:שמפניה
+hr:šampanjac
+hy:շամպայն
+hu:pezsgő
+id:Sampanye
+io:Champanio
+is:Kampavín
+it:champagne
+ja:シャンパン
+jv:Sampanye
+ka:შამპანური
+ko:샴페인
+lb:Champagne
+lt:Šampanas
+lv:šampanietis
+mk:Шампањ
+ml:ഷാംപെയ്ൻ
+mn:Шампанск
+nb:champagne
+nl:champagne
+nn:Champagne
+pa:ਸ਼ੈਮਪੇਨ
+pl:Szampan
+pt:Champanhe
+# pt-br:champanhe
+ro:Șampanie
+ru:Шампанское
+# sah:Сампааннар
+sh:Šampanjac
+sk:Šampanské
+sq:Shampanja
+# sr:шампањац
+# sr-ec:шампањац
+sv:Champagne
+tr:Şampanya
+tt:Шампан
+uk:Шампанське
+# vep:Šampanj
+vi:Sâm panh
+# yi:שאמפאניע
+# yue:三邊酒
+zh:香槟酒
+# zh-cn:香槟酒
+# zh-hans:香槟酒
+# zh-hant:香檳酒
+# zh-hk:香檳酒
+# zh-sg:香槟酒
+# zh-tw:香檳酒
+wikidata:en:Q134862
+wikipedia:en:https://en.wikipedia.org/wiki/Champagne
+# ingredient/champagne has 74 products in 2 languages @2018-12-14
+
+
+# Pomace brandy is a liquor distilled from pomace that is left over from winemaking, after the grapes are pressed.
+
+en:Marc de Champagne
+de:Marc de Champagne, Marc de Champagner
+fr:marc de champagne
+it:Marc de Champagne
+wikipedia:en:https://en.wikipedia.org/wiki/Pomace_brandy
+# Is this relevant? wikidata:en: Q525397 
+# ingredient/fr:marc-de-champagne has 30 products in 4 languages @2018-12-14
+
+
 # A kirschwasser or kirsch is a clear, colorless fruit brandy traditionally made from double distillation of morello cherries, a dark-colored cultivar of the sour cherry. 
 
 <en:alcohol
@@ -10333,60 +11492,6 @@ fr:extrait de vin rouge
 de:Rotwein-Extrakt
 it:estratto di vino rosso
 # fr:extrait-de-vin-rouge has 15 products in 3 languages @2018-10-29
-
-
-# PINOT NOIR is a red wine grape variety of the species Vitis vinifera.
-
-<en:red wine
-en:pinot noir
-az:Pinot Noir
-bg:Пино ноар
-ca:pinot negre
-cs:Rulandské modré
-cv:Пинă Нуар
-da:Pinot noir
-de:Pinot noir
-es:Pinot noir
-et:Pinot noir
-fa:پینونوآر
-fi:Pinot Noir
-fr:pinot noir
-gl:Pinot Noir
-# gsw:Spätburgunder
-he:פינו נואר
-hr:Pinot crni
-hu:Pinot noir
-id:Pinot noir
-is:Pinot noir
-it:Pinot
-ja:ピノ・ノワール
-ko:피노 누아르
-lb:Pinot noir
-nb:Pinot noir
-nl:pinot noir
-# pcd:Noért pinot
-pl:Pinot noir
-# pms:Pinot noir
-pt:Pinot noir
-ro:Pinot noir
-ru:Пино-нуар
-sh:Pinot noir
-sl:Modri pinot
-sr:Пино ноар
-# sr-ec:Пино ноар
-# sr-el:Pino noar
-sv:Pinot noir
-uk:Піно Нуар
-zh:黑比诺
-# zh-cn:黑比诺
-# zh-hans:黑比诺
-# zh-hant:黑比诺
-# zh-hk:黑比诺
-# zh-sg:黑比诺
-# zh-tw:黑比诺
-wikidata:en:Q223701
-wikipedia:en:https://world.openfoodfacts.org/ingredient/fr:pinot%20noir
-# fr:pinot-noir has 20 products in 1 language @2018-10-29
 
 
 # MARSALA is a wine, dry or sweet, produced in the region surrounding the Italian city of Marsala in Sicily.
@@ -10850,6 +11955,50 @@ de:natürliches Bourbon Vanille-Aroma, naturliches Bourbon Vanille Aroma
 it:aroma naturale di vaniglia Bourbon
 sv:naturlig vaniljarom
 
+
+# Vanillin is a phenolic aldehyde, which is an organic compound with the molecular formula C8H8O3. 
+
+en:Vanillin
+ar:فانيلين
+# azb:وانیلین
+be:Ванілін
+bg:Ванилин
+ca:vanillina
+cs:Vanilin
+da:Vanillin
+de:Vanillin, Aroma Vanillin
+el:βανιλλίνη, βανιλίνη
+eo:Vanilino
+es:vainillina
+eu:Bainilina
+fa:وانیلین
+fi:Vanilliini
+fr:vanilline, arôme vanilline
+he:ונילין
+hu:vanillin
+hy:Վանիլին
+it:vanillina, aroma vanillina
+ja:バニリン
+kk:Ванилин
+ko:바닐린
+ky:Ванилин
+mk:Ванилин
+ms:Vanilin
+nb:vanillin
+nl:vanilline
+pt:vanillina
+sr:vanilin
+sv:Vanillin
+th:วานิลลิน
+tr:Vanilin
+uk:Ванілін
+uz:Vanilin
+zh:香草醛
+wikidata:en:Q33495
+wikipedia:en:https://en.wikipedia.org/wiki/Vanillin
+# ingredient/fr:vanilline has 831 products in 10 languages @2018-12-12
+
+
 en:vanilla
 fr:vanille
 
@@ -10870,17 +12019,13 @@ fr:gousses de vanille moulues
 
 fr:vanille bourbon naturelle en gousse
 
-fr:gousse de vanille épuisée
+fr:gousse de vanille épuisée, gousses de vanille épuisées
 
-fr:grains de vanille épuisés
+fr:grains de vanille épuisés, grains de vanille épuisée, graines de vanille épuisées
 
 fr:gousses de vanille épuisées broyées
 
-fr:gousses de vanille épuisées
 
-fr:grains de vanille épuisée
-
-fr:graines de vanille épuisées
 
 # Two parents due to and/or ingredient
 
@@ -14488,15 +15633,15 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/wheat-or-corn-dextrose
 
 <en:dextrose
 en:polydextrose, E1200
-fr:polydextrose, E1200
-de:Polydextrose, E1200
-es:Polidextrosa, E1200
-fi:Polydekstroosi, E1200
-gl:Polidextrosa, E1200
-it:polidestrosio, E1200
-ja:ポリデキストロース, E1200
-nl:Polydextrose, E1200
-pt:Polidextrose, E1200
+fr:polydextrose
+de:Polydextrose
+es:Polidextrosa
+fi:Polydekstroosi
+gl:Polidextrosa
+it:polidestrosio
+ja:ポリデキストロース
+nl:Polydextrose
+pt:Polidextrose
 wikipedia:en:https://en.wikipedia.org/wiki/Polydextrose
 wikidata:en:Q424616
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:polydextrose
@@ -16411,10 +17556,10 @@ wikipedia:https://en.wikipedia.org/wiki/Tricalcium_phosphate
 # Note that these ingredients are written in plural as it can be any of the three variants
 
 en:magnesium phosphates, E343, E 343, E-343
-de:Magnesiumphosphaten, E343, E 343, E-343
-it:fosfati di magnesio, E343, E 343, E-343
-fr:phosphates de magnésium, E343, E 343, E-343
-nl:Magnesiumorthofosfaten, E343, E 343, E-343
+de:Magnesiumphosphaten
+it:fosfati di magnesio
+fr:phosphates de magnésium
+nl:Magnesiumorthofosfaten
 wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_phosphate
 # additive/e343-magnesium-phosphates has 81 products @2018-11-07
 
@@ -16501,6 +17646,59 @@ ta:மக்னீசியம் பாசுபேட்டு
 wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_phosphate
 # fr:phosphate-de-magnésium has 26 products in 5 languages @2018-11-07
 # mineral/magnesium-phosphate has 78 products in 4 languages @2018-11-07
+
+
+# Calcium glycerylphosphate (or calcium glycerophosphate) is a mineral supplement
+
+# <en:calcium
+en:calcium glycerophosphate, E383, E 383, E-383
+ar:فوسفات غليسيريل الكالسيوم
+de:Calciumglycerophosphat
+es:glicerofosfato de calcio
+fr:glycérophosphate de calcium
+nl:calciumglycerofosfaat
+ru:Глицерофосфат кальция
+sh:Kalcijum glicerilfosfat
+sr:Kalcijum glicerilfosfat
+# sr-el:Kalcijum glicerilfosfat
+wikidata:en:Q4119838 
+wikipedia:en:https://en.wikipedia.org/wiki/Calcium_glycerylphosphate
+# ingredient/calcium-glycerophosphate has 1 product in french @2018-12-11
+
+
+# <en:antioxidant
+# <en:sequestrant
+en:Calcium disodium ethylenediaminetetraacetate, Calcium disodium EDTA, E385, E-385, E 385
+ar: ثنائي صوديوم كالسيوم الإيديتات
+bg:Калциев динатриев етилен диамин тетраацетат, Калциев динатриев ЕДТА
+cs:Dvojsodnovápenatá sůl kyseliny diamintetraoctové
+da:Calciumdinatriumethylendiamintetraacetat, Calciumdinatrium-EDTA
+de:Calcium-dinatrium-ethylendiamintetraacetat, Calcium-Dinatrium-EDTA
+el:Αιθυλενοδιαμινοτετραοξικο ασβεστιονατριο
+es:ácido etilendiaminotetraacético, EDTA
+et:Kaltsiumdinaatriumetüleendiamiintetraatsetaat, Kaltsiumdinaatrium-EDTA
+fi:Kalsiumdinatriumetyleenidiamiinitetra-asetaatti, Kalsiumdinatrium EDTA
+fr:calcium disodium, edta, calcium disodium edta, EDTA calcio-disodique
+hu:Kalcium-dinátrium-etilén-diamin-tetraacetát, kálcium-dinátrium-EDTA, kalcium-dinátrium EDTA
+id: Natrium kalsium edetat
+it:Etilendiamminotetraacetato di calcio disodico, Calcio disodico EDTA
+lt:Kalcio dinatrio etilendiaminotetraacetatas, Kalcio dinatrio EDTA
+lv:Kalcija dinātrija etilēndiamīna tetraacetāts, Kalcija dinātrija EDTA
+mt:Etilendiammintetraaċetat disodiku tal-kalċju, EDTA disodiku tal-kalċju
+nl:Calciumdinatrium-ethyleendiaminetetraäcetaat, calciumdinatrium-EDTA, calciumdinatrium EDTA
+or: ସୋଡ଼ିଅମ କ୍ୟାଲସିଅମ ଏଡେଟେଟ
+pl:Sól wapniowo-disodowa kwasu etylenodiaminotetraoctowego
+pt:etilenodiaminotetracetato de cálcio dissódico, EDTA, EDTA de cálcio dissódico
+ro:Etilendiaminotetraacetat de calciu disodic, EDTA de calciu disodic
+sk:Etyléndiamíntetraacetát vápenato-disodný, Kalcium-dinátrium-EDTA
+sl:Kalcijev dinatrijev etilendiamintetra acetat, kalcijev dinatrijev EDTA
+sv:Kalciumdinatriumetylendiamintetraacetat, Kalciumdinatrium-EDTA
+vi: Natri canxi edetate
+zh:鈉鈣乙二胺四乙酸
+wikidata:en: Q9189390
+# wikipedia:en:https://en.wikipedia.org/wiki/Ethylenediaminetetraacetic_acid
+# ingredient/fr:edta has 48 products in french @2019-01-30
+# additive/e385-calcium-disodium-ethylenediaminetetraacetate has 2844 products in 14 languages @2019-01-30
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -16928,76 +18126,75 @@ fr:Tripolyphosphate de sodium, E452vi, E 452vi, E-452vi
 
 # SODIUM CARBONATES is the generic term for a Na and CO3 combination.
 
-en:sodium carbonates, E500, e 500
-fr:E500, e 500
-it:carbonati di sodio, E500, e 500
-nl:natriumcarbonaten, E500, e 500
-nn:natriumkarbonater, E500, e 500
-sv:natriumkarbonater, E500, e 500
+en:sodium carbonates, E500, e 500, E-500
+it:carbonati di sodio
+nl:natriumcarbonaten
+nn:natriumkarbonater
+sv:natriumkarbonater
 
 # Sodium carbonate, Na2CO3, (also known as washing soda, soda ash and soda crystals, and in the monohydrate form as crystal carbonate) is the water-soluble sodium salt of carbonic acid.
 
 <en:sodium carbonates
 en:Sodium carbonate, E500i
 ar:كربونات الصوديوم
-# ast:Carbonatu de sodiu, E500i
+# ast:Carbonatu de sodiu
 # azb:سودیوم کربونات
 ba:Кальцирланған сода
 bg:Натриев карбонат
 bn:সোডিয়াম কার্বনেট
-bs:Natrij-karbonat, E500i
-ca:carbonat de sodi, E500i
-cs:Uhličitan sodný, E500i
-da:natriumkarbonater, Soda, E500i
-de:Natriumcarbonat, E500i
+bs:Natrij-karbonat
+ca:carbonat de sodi
+cs:Uhličitan sodný
+da:natriumkarbonater, Soda
+de:Natriumcarbonat
 el:Ανθρακικό νάτριο
-eo:natria karbonato, E500i
-es:Carbonato de sodio, E500i
-et:Naatriumkarbonaat, E500i
+eo:natria karbonato
+es:Carbonato de sodio
+et:Naatriumkarbonaat
 fa:سدیم کربنات
-fi:natriumkarbonaatit, Natriumkarbonaatti, Sooda, E500i
-fr:carbonate de sodium, E500i
-gv:Carboanaayt sodjum, E500i
-# hak:Thàn-sôn-na̍p, E500i
+fi:natriumkarbonaatit, Natriumkarbonaatti, Sooda
+fr:carbonate de sodium
+gv:Carboanaayt sodjum
+# hak:Thàn-sôn-na̍p
 he:נתרן פחמתי
 hi:क्षारातु प्रांगारीय
-hr:Natrijev karbonat, E500i
-hu:Nátrium-karbonát, E500i
-id:Natrium karbonat, E500i
-it:Carbonato di sodio, E500i
+hr:Natrijev karbonat
+hu:Nátrium-karbonát
+id:Natrium karbonat
+it:Carbonato di sodio
 ja:炭酸ナトリウム
 ko:탄산 나트륨
-lt:Natrio karbonatas, E500i
-lv:nātrija karbonāts, E500i
+lt:Natrio karbonatas
+lv:nātrija karbonāts
 mk:натриум карбонат
 ml:സോഡിയം കാർബണേറ്റ്
-# nan:Thoàⁿ-sng natrium, E500i
-nb:Natriumkarbonat, E500i
-nl:natriumcarbonaat, E500i
-nn:natriumkarbonat, E500i
-oc:Carbonat de sòdi, E500i
-pl:węglan sodu, E500i
-pt:carbonato de sódio, E500i
-ro:Carbonat de sodiu, E500i
+# nan:Thoàⁿ-sng natrium
+nb:Natriumkarbonat
+nl:natriumcarbonaat
+nn:natriumkarbonat
+oc:Carbonat de sòdi
+pl:węglan sodu
+pt:carbonato de sódio
+ro:Carbonat de sodiu
 ru:карбонат натрия
-# sco:sodium carbonate, E500i
-sh:Natrijum karbonat, E500i
-sk:Uhličitan sodný, E500i
-sl:Natrijev karbonat, E500i
-sq:Karbonati i natriumit, E500i
+# sco:sodium carbonate
+sh:Natrijum karbonat
+sk:Uhličitan sodný
+sl:Natrijev karbonat
+sq:Karbonati i natriumit
 sr:натријум карбонат
 # sr-ec:натријум карбонат
-# sr-el:Natrijum karbonat, E500i
-sv:Natriumkarbonat, E500i
+# sr-el:Natrijum karbonat
+sv:Natriumkarbonat
 ta:சோடியம் காபனேற்று
 te:సోడియమ్ కార్బొనేట్
 th:โซเดียมคาร์บอเนต
-tr:Sodyum karbonat, E500i
+tr:Sodyum karbonat
 uk:Карбонат натрію
 ur:صودا دردار
-uz:Natriy karbonat, E500i
-vi:Natri carbonat, E500i
-# war:Sodium carbonate, E500i
+uz:Natriy karbonat
+vi:Natri carbonat
+# war:Sodium carbonate
 # yue:鹼粉
 zh:碳酸钠
 # zh-cn:碳酸钠
@@ -17023,17 +18220,17 @@ bs:Natrij-hidrogenkarbonat
 ca:hidrogencarbonat de sodi
 cs:Hydrogenuhličitan sodný
 cy:sodiwm deucarbonad
-da:natriumvätekarbonat, Natron, E500ii
-de:Natriumhydrogencarbonat, E500ii
+da:natriumvätekarbonat, Natron
+de:Natriumhydrogencarbonat
 el:Όξινο ανθρακικό νάτριο
 # eml:Bicarbonê 'd sodi
 eo:natria bikarbonato
-es:carbonato ácido de sodio, bicarbonato de sodio, E500ii
+es:carbonato ácido de sodio, bicarbonato de sodio
 et:Naatriumvesinikkarbonaat
 eu:sodio hidrogenokarbonato
 fa:جوش شیرین
-fi:ammoniumvetykarbonaatti, Natriumbikarbonaatti, E500ii
-fr:carbonate acide de sodium, bicarbonate de sodium, E500ii
+fi:ammoniumvetykarbonaatti, Natriumbikarbonaatti
+fr:carbonate acide de sodium, bicarbonate de sodium
 # frr:Natriumhydrogencarbonat
 gl:Bicarbonato de sodio
 gu:ખાવાનો સોડા
@@ -17045,7 +18242,7 @@ hy:Սոդա
 ia:Bicarbonato de Sodium
 id:Natrium bikarbonat
 is:Matarsódi
-it:carbonato acido di sodio, bicarbonato di sodio, E500ii
+it:carbonato acido di sodio, bicarbonato di sodio
 ja:炭酸水素ナトリウム
 kk:Ас содасы
 kn:ಸೋಡಿಯಂ ಬೈ ಕಾರ್ಬೋನೇಟ್
@@ -17055,14 +18252,14 @@ lv:nātrija hidrogēnkarbonāts
 ml:സോഡിയം ബൈകാർബണേറ്റ്
 # nan:Thoàⁿ-sng chúi-sò͘ natrium
 nb:Thoàⁿ-sng chúi-sò͘ natrium
-nl:natriumwaterstofcarbonaat, E500ii
-nn:natriumvätekarbonat, natriumhydrogenkarbonat, E500ii
+nl:natriumwaterstofcarbonaat
+nn:natriumvätekarbonat, natriumhydrogenkarbonat
 oc:Idrogenocarbonat de sòdi
 or:ସୋଡ଼ିଅମ ବାଇକାର୍ବୋନେଟ
 pa:ਮਿੱਠਾ ਸੋਡਾ
 pl:wodorowęglan sodu
 # pnb:مٹھا سوڈا
-pt:bicarbonato de sódio, bicarbonato de sódio, E500ii
+pt:bicarbonato de sódio, bicarbonato de sódio
 ro:Bicarbonat de sodiu
 # sco:sodium bicarbonate
 sh:Natrijum hidrogenkarbonat
@@ -17073,8 +18270,8 @@ so:Saadiyom bicarbonate
 sq:Bikarbonati i natriumit
 sr:натријум хидрогенкарбонат
 # sr-ec:натријум хидрогенкарбонат
-# sr-el:natrijum-hidrogenkarbonat, E500ii
-sv:natrumvätekarbonat, E500ii
+# sr-el:natrijum-hidrogenkarbonat
+sv:natrumvätekarbonat
 sw:Magadi
 ta:சமையல் சோடா
 te:సోడియం బైకార్బొనేట్
@@ -17095,6 +18292,42 @@ wikidata:en:Q179731
 wikipedia:en:https://en.wikipedia.org/wiki/Sodium_bicarbonate
 # fr:carbonate-acide-de-sodium has 2313 products  in 13 languages @210-11-03
 # fr:500ii has 403 products @2018-11-03
+
+
+<en:sodium carbonates, E500iii, E 500iii, E 500 iii, E-500iii, E500(iii)
+en:sodium sesquicarbonate
+bg:Натриев сескикарбонат
+cs:Seskviuhličitan sodný
+da:Natriumsesquicarbonat
+de:Natriumsesquicarbonat
+el:Σεσκιανθρακικο νατριο
+eo:Natria seskvikarbonato
+es:Sesquicarbonato de sodio
+et:Naatriumseskvikarbonaat
+fi:Natriumseskvikarbonaatti
+fr:Sesquicarbonate de sodium
+hu:Nátrium-szeszkvikarbonát
+hy:Տրինատրիումի հիդրոկարբոնատ
+it:Sesquicarbonato di sodio
+ja:セスキ炭酸ナトリウム
+jv:sodium sesquicarbonate
+lt:Natrio seskvikarbonatas
+lv:Nātrija seskvikarbonāts
+mt:Seskwikarbonat tas-sodju
+nl:Natriumsesquicarbonaat
+pl:Półtorawęglan sodu
+pt:Sesquicarbonato de sódio
+ro:Sescvicarbonat de sodiu
+ru:Гидрокарбонат тринатрия
+sh:Natrijum seskvikarbonat
+sk:Seskviuhličitan sodný
+sl:Natrijev seskvikarbonat
+sr:Natrijum seskvikarbonat
+# sr-el:Natrijum seskvikarbonat
+sv:Natriumseskvikarbonat
+zh:鈉倍半
+wikidata:en:Q2234978
+# additive/e500iii-sodium-sesquicarbonate has 6 products in french @2018-12-10
 
 
 # PURÉE (or mash) is cooked food, usually vegetables, fruits or legumes, that has been ground, pressed, blended or sieved to the consistency of a creamy paste or liquid.
@@ -17789,7 +19022,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cranberries
 # 429 products in 8 languages @2018-09-26
 
 <en:cranberry
-fr:canneberges séchées
+fr:canneberges séchées, cranberries séchées
 de:Cranberries getrocknet
 it:cranberry secchi
 # ingredient/fr:canneberges-séchées has 57 products in 4 languages @2018-12-29
@@ -18136,6 +19369,17 @@ it:polpa di mango
 nl:mangopuree
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20mangue
 # 393 products @2018-09-27
+
+
+# <en:mango
+fr:noyaux de mangue
+# ingredient/fr:noyaux-de-mangue has 30 products in french @2018-12-12
+
+<en:mango
+fr:pulpe de mangue
+de:Mangopulpe, Mangomark
+it:polpa di mango
+# ingredient/fr:pulpe-de-mangue has 49 products in 3 languages @2018-12-12
 
 
 # Mirabelle plum, also known as mirabelle prune or cherry plum (Prunus domestica subsp. syriaca), is a cultivar group of plum trees of the genus Prunus. 
@@ -21422,6 +22666,786 @@ nl:gekookte druivenmost
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût%20de%20raisin%20cuit
 # 117 products in 4 languages @2018-10-02
 
+# Technically this is a grape, but not one you will find in the shop
+
+# <en:grape
+en:varietal
+ca:varietat vinífera
+cs:odrůdové víno
+da:Druesorter
+de:Rebsorte
+eo:Vitspeco
+es:variedad vinífera
+fr:cépage, cépages
+# gsw:Räbsorte
+hu:szőlőfajta
+it:vitigno
+ja:セパージュワイン
+mk:винска сорта
+nl:cépage
+pl:Wino odmianowe
+pt:varietal
+ru:сортовой виноград
+# scn:Vitignu
+sk:Odrodové víno
+sr:сорта вина
+sv:druvsort
+tr:Kupaj
+uk:Сортове вино
+zh:品種葡萄酒
+wikidata:en:Q958314
+wikipedia:en:https://en.wikipedia.org/wiki/List_of_grape_varieties
+# ingredient/fr:cépages has 52 products @2019-01-18
+
+
+<en:varietal
+en:cabernet
+fr:cabernet
+# ingredient/fr:cabernet has 5 products @2019-01-19
+
+# Cabernet Franc is one of the major black grape varieties worldwide.
+
+<en:cabernet
+en:Cabernet Franc
+bg:Каберне Фран
+ca:Cabernet franc
+cv:Каберне фран
+de:Cabernet franc
+es:Cabernet franc
+et:Cabernet franc
+fi:Cabernet franc
+he:קברנה פראן
+hr:Cabernet franc
+hu:Cabernet franc
+fr:Cabernet franc
+it:Cabernet Franc
+ja:カベルネ・フラン
+nb:Cabernet franc
+nl:Cabernet Franc
+oc:Cabernet franc
+# pcd:Franc cabernet
+pl:Cabernet franc
+pt:Cabernet franc
+ru:Каберне Фран
+sh:Cabernet franc
+sl:Cabernet franc
+sr:Каберне фран
+sv:Cabernet franc
+uk:Каберне Фран
+zh:品麗珠
+wikidata:en:Q63591
+wikipedia:en:https://en.wikipedia.org/wiki/Cabernet_Franc
+# ingredient/fr:Cabernet-franc has 19 products @2019-01-19
+
+
+# Cabernet Sauvignon is one of the world's most widely recognized red wine grape varieties. 
+
+<en:varietal
+en:Cabernet Sauvignon
+af:Cabernet Sauvignon
+az:Kabernet Sauviqnon
+bg:Каберне Совиньон
+ca:Cabernet Sauvignon
+cs:Cabernet Sauvignon
+cv:Каберне совиньон
+da:Cabernet sauvignon
+de:Cabernet sauvignon
+es:Cabernet sauvignon
+et:Cabernet sauvignon
+et:Cabernet sauvignon
+fi:Cabernet sauvignon
+fr:Cabernet Sauvignon
+gl:Cabernet sauvignon
+he:קברנה סוביניון
+hr:Cabernet Sauvignon
+hu:Cabernet Sauvignon
+id:Cabernet Sauvignon
+is:Cabernet Sauvignon
+it:Cabernet-sauvignon
+ja:カベルネ・ソーヴィニヨン
+ko:카베르네 소비뇽
+lo:ແວງກາແບກເນໂຊວີຍົງ
+ml:കാബെർനെ സോവിഞ്യോൺ
+nb:Cabernet sauvignon
+nl:Cabernet Sauvignon
+nn:Cabernet sauvignon
+pl:Cabernet sauvignon
+pt:Cabernet sauvignon
+ro:Cabernet sauvignon
+ru:Каберне Совиньон
+# scn:Cabernet sauvignon
+sh:Cabernet sauvignon
+sl:Cabernet sauvignon
+sq:Cabernet sauvignon
+sr:Каберне совињон
+# sr-ec:Каберне совињон
+# sr-el:Kaberne sovinjon
+sv:Cabernet sauvignon
+ta:கெபேர்னெட் சுவிக்னோன்
+th:พระธรรมโครินธ์ฉบับที่หนึ่ง
+uk:Каберне Совіньйон
+vi:Cabernet Sauvignon
+zh:赤霞珠
+# zh-cn:赤霞珠
+# zh-hans:赤霞珠
+# zh-hant:赤霞珠
+# zh-hk:赤霞珠
+# zh-sg:赤霞珠
+# zh-tw:赤霞珠
+wikidata:en:Q207310
+wikipedia:en:https://en.wikipedia.org/wiki/Cabernet_Sauvignon
+# ingredient/fr:Cabernet-Sauvignon has 26 products @2019-01-20
+
+
+# Carignan (also known as Mazuelo, Bovale Grande, Cariñena, Carinyena, Samsó, Carignane, and Carignano) is a red grape variety of Spanish origin that is more commonly found in French wine but is widely planted throughout the western Mediterranean and around the globe.
+
+<en:varietal
+en:Carignan
+bg:Каринян
+ca:carinyena
+# ceb:Karinyeno
+cv:Кариньян
+de:Carignan
+es:Cariñena
+fr:Carignan
+he:קריניאן
+hr:Carignan
+hu:Carignan
+ja:カリニエナ
+nb:Carignan
+nl:Carignan
+pl:Carignan
+pt:Carignan
+ru:Кариньян
+sv:Carignan
+uk:Кариньян
+zh:佳利酿
+wikidata:en:Q251054
+wikipedia:en:https://en.wikipedia.org/wiki/Carignan
+# ingredient/fr:Carignan has 15 products @2019-01-19
+
+
+# Chardonnay is a green-skinned grape variety used in the production of white wine. 
+
+<en:varietal
+en:Chardonnay
+az:Şardone
+bg:Шардоне
+ca:Chardonnay
+# ceb:Chardonnay
+cs:Chardonnay
+cv:Шардоне
+da:Chardonnay
+de:Chardonnay
+es:Chardonnay
+et:Chardonnay
+fa:شاردونی
+fi:Chardonnay
+fr:Chardonnay, Chardonnay blanc
+# gsw:Chardonnay
+he:שרדונה
+hr:Chardonnay
+hu:Chardonnay
+id:Chardonnay
+it:Chardonnay
+ja:シャルドネ
+ko:샤르도네
+lb:Chardonnay
+mk:Шардоне
+nb:Chardonnay
+nl:Chardonnay
+pl:Chardonnay
+pt:Chardonnay
+ru:Шардоне
+sl:Chardonnay
+sr:Шардоне
+# sr-ec:Шардоне
+# sr-el:Šardone
+sv:Chardonnay
+th:ชาร์ดอแน
+uk:Шардоне
+zh:莎当妮
+# zh-cn:莎当妮
+# zh-hans:莎当妮
+# zh-hant:莎當妮
+# zh-hk:莎當妮
+# zh-sg:莎当妮
+# zh-tw:莎當妮
+wikidata:en:Q213332
+wikipedia:en:https://en.wikipedia.org/wiki/Chardonnay
+# ingredient/fr:Chardonnay has 19 products @2019-01-19
+# ingredient/fr:Chardonnay-blanc has 1 product @2019-01-19
+
+
+# Chasselas or Chasselas blanc is a wine grape variety grown in Switzerland, France, Germany, Portugal, Hungary, Romania, New Zealand and Chile. 
+
+<en:varietal
+en:Chasselas
+be:Шасла Доре
+cs:Chrupka bílá
+cv:Шасла
+de:Gutedel
+es:Chasselas
+fi:Gutedel
+fr:Chasselas
+# gsw:Chasselas
+hu:Saszla
+it:Chasselas
+ja:シャセラ
+mo:Chasselas
+nl:Chasselas
+ro:Chasselas
+sv:Chasselas
+zh:莎斯拉
+wikidata:en:Q939724
+wikipedia:en:https://en.wikipedia.org/wiki/Chasselas
+# ingredient/fr:chasselas has 4 products @2019-01-18
+
+
+# Cinsaut or Cinsault is a red wine grape, whose heat tolerance and productivity make it important in Languedoc-Roussillon
+
+<en:varietal
+en:Cinsaut, Cinsault
+bg:Сензо
+ca:Samsó
+cv:Сенсо
+de:Cinsault
+es:Cinsault
+fr:Cinsault
+ht:Cinsault
+it:Ottavianello
+ja:サンソー
+nb:Cinsault
+nl:Cinsault
+pl:Cinsault
+pt:Cinsault
+ru:Сенсо
+sv:Cinsault
+wikidata:en:Q1092578
+wikipedia:en:https://en.wikipedia.org/wiki/Cinsaut
+# ingredient/fr:Cinsault has 12 products @2019-01-19
+
+
+# Gamay is a purple-colored grape variety used to make red wines, most notably grown in Beaujolais and in the Loire Valley around Tours.
+
+<en:varietal
+en:Gamay
+bg:Гаме ноар
+ca:gamay
+cv:Гамэ
+de:Gamay
+# en-ca:Gamay
+# en-gb:Gamay
+es:Gamay
+fi:Gamay
+fr:gamay, Gamay noir
+he:גמאי
+hr:Borgonja
+it:Gamay
+ja:ガメ
+lb:Gamay
+nb:Gamay
+nl:Gamay
+oc:Gamay
+# pcd:Gamay
+pl:Gamay
+pt:Gamay
+ro:Gamay
+ru:Гаме
+# scn:Gamay
+sv:Gamay
+zh:佳美
+wikidata:en:Q12982
+wikipedia:en:https://en.wikipedia.org/wiki/Gamay
+# ingredient/fr:gamay has 6 products @2019-01-21
+
+
+# Grenache or Garnacha is one of the most widely planted red wine grape varieties in the world.
+
+<en:varietal
+en:Grenache
+az:Qrenaş
+bg:Гренаш
+ca:garnatxa
+cs:Grenache
+cv:Гренаш
+da:Grenache
+de:Grenache
+es:Garnacha
+et:Grenache
+fi:Grenache
+fr:Grenache, Grenache Noir
+gl:Garnacha
+he:גרנאש
+hu:grenache
+ja:グルナッシュ
+it:Cannonau
+nb:Grenache
+nl:Grenache noir
+pl:Grenache
+pt:Grenache
+ru:Гренаш
+sc:Cannonau
+sv:Grenache noir
+uk:Гренаш
+zh:歌海娜
+# zh-cn:格納希
+# zh-hans:格纳希
+# zh-hant:格納希
+wikidata:en:Q390242
+wikipedia:en:https://en.wikipedia.org/wiki/Grenache
+# ingredient/fr:Grenache has 34 products in french @2019-01-18
+# ingredient/fr:Grenache-Noir has 6 products @2019-01-19
+
+
+# Grolleau or Grolleau noir is a red French wine grape variety that is grown primarily in the Loire Valley of France. 
+
+<en:varietal
+en:Grolleau
+de:Grolleau
+fr:Grolleau
+ja:グロロ
+nl:Grolleau
+zh:果若
+wikidata:en: Q268579
+wikipedia:en:https://en.wikipedia.org/wiki/Grolleau_(grape)
+# ingredient/fr:Grolleau has 1 product @2019-01-21
+
+
+# Gros Manseng (sometimes translated:Large Manseng, rarely "Big Manseng") is a white wine grape variety that is grown primarily in South West France, and is part of the Manseng family. 
+
+<en:varietal
+en:Gros Manseng
+de:Gros Manseng
+es:Gros Manseng
+fr:Gros Manseng
+ja:クロ・マンサン
+nl:Gros Manseng
+wikidata:en:Q462851
+wikipedia:en:https://en.wikipedia.org/wiki/Gros_Manseng
+# ingredient/fr:Gros-Manseng has 2 products @2019-01-20
+
+
+# Lambrusco Salamino ist eine Rotweinsorte, die eine von über 60 Varietäten aus der Familie der Lambrusco ist.
+
+<en:varietal
+en:Lambrusco Salamino
+de:Lambrusco Salamino
+fr:Lambrusco Salamino
+wikipedia:de:https://de.wikipedia.org/wiki/Lambrusco_Salamino
+wikidata:en:Q1801495
+# ingredient/fr:Lambrusco-Salamino has 1 product @2019-01-20
+
+
+# Malbec (pronounced [mal.bɛk]) is a purple grape variety used in making red wine. 
+
+<en:varietal
+en:Malbec
+bg:Малбек
+cs:Malbec
+cv:Мальбек
+de:Malbec
+es:Malbec
+et:Malbec
+fi:Malbec
+fr:Malbec, Côt
+he:מלבק
+hu:Malbec
+ja:マルベック
+nl:Malbec
+pl:Malbec
+pt:Malbec
+ro:Malbec
+ru:Мальбек
+sv:Malbec
+uk:Мальбек
+zh:馬爾貝克
+wikidata:en:Q1414045
+wikipedia:en:https://en.wikipedia.org/wiki/Malbec
+# ingredient/fr:Malbec has 3 products @2019-01-20
+
+
+# Merlot is a dark blue-colored wine grape variety, that is used as both a blending grape and for varietal wines.
+
+<en:varietal
+en:merlot
+bg:Мерло
+ca:merlot
+cs:merlot
+cv:Мерло
+da:merlot
+de:Merlot
+fa:مرلو
+fr:merlot
+gl:Merlot
+he:מרלו
+hr:Merlot
+hu:merlot
+id:Merlot
+is:Merlot
+it:merlot
+ja:メルロー
+ko:메를로
+la:merlot
+ml:മെർലോ
+mr:मर्लो
+nl:merlot
+pl:merlot
+pt:merlot
+ro:merlot
+ru:Мерло
+sl:Мерло
+sv:Мерло
+wikidata:en:Q213338
+wikipedia:en:https://en.wikipedia.org/wiki/Merlot
+# ingredient/fr:merlot has 26 products @2019-01-17
+
+
+# Mourvèdre (also known as Mataró or Monastrell) is a red wine grape variety that is grown in many regions around the world
+
+<en:varietal
+en:Mourvèdre
+bg:Мурведър
+ca:Monestrell
+da:Mourvèdre
+de:Mourvèdre
+es:Uva monastrell
+fr:Mourvèdre
+hu:mourvèdre
+ja:ムールヴェードル
+nl:Mourvèdre
+pl:Mourvèdre
+pt:Mourvèdre
+ru:Мурведр
+sv:Monastrell
+uk:Мурведр
+uz:Murvedr
+wikidata:en:Q161864
+wikipedia:en:https://en.wikipedia.org/wiki/Mourvèdre
+# ingredient/fr:Mourvèdre has 17 products @2019-01-19
+
+
+# Muscadelle is a white wine grape variety. 
+
+<en:varietal
+en:Muscadelle
+de:Muscadelle
+es:Muscadelle
+fr:Muscadelle
+it:Muscadelle
+ja:ミュスカデル
+nl:Muscadelle
+sv:Muscadelle
+wikidata:en:Q1934770
+wikipedia:en:https://en.wikipedia.org/wiki/Muscadelle
+# ingredient/fr:Muscadelle has 4 products @2018-01-20
+
+
+# Muscat of Alexandria is a white wine grape that is a member of the Muscat family of Vitis vinifera. 
+
+<en:varietal
+en:Muscat of Alexandria
+bg:Александрийски мускат
+cv:Мускат Александрийски
+de:Muscat d’Alexandrie
+es:Moscatel de Alejandría
+fr:Muscat d'Alexandrie
+he:מוסקט אלכסנדרוני
+it:Zibibbo
+ja:マスカット・オブ・アレキサンドリア
+nl:Muskaatdruif
+zh:亞歷山大麝香
+# zh-cn:亚历山大麝香葡萄
+# zh-hans:亚历山大麝香葡萄
+# zh-hant:亞歷山大麝香葡萄
+wikidata:en:Q1651827
+wikipedia:en:https://en.wikipedia.org/wiki/Muscat_of_Alexandria
+# ingredient/fr:Muscat%20d'Alexandrie has 2 products @2019-01-19
+
+
+<en:varietal
+fr:Muscat sec
+# ingredient/fr:Muscat-sec has 2 products @2019-01-20
+
+
+# Nielluccio is a red wine grape variety that is widely planted on Corsica.
+
+<en:varietal
+en:Nielluccio
+fr:Niellucciu
+ja:ニエルキオ
+wikidata:en:Q3341280
+wikipedia:en:https://en.wikipedia.org/wiki/Nielluccio
+# ingredient/fr:Niellucciu has 2 products @2019-01-20
+
+
+# Petit Manseng (sometimes translated:Small Manseng, rarely "Little Manseng") is a white wine grape variety that is grown primarily in South West France.
+
+<en:varietal
+en:Petit Manseng
+de:Petit Manseng
+es:Petit Manseng
+fr:Petit Manseng
+ja:プチ・マンサン
+nl:Petit-Manseng
+zh:小满胜
+wikidata:en:Q462509
+wikipedia:en:https://en.wikipedia.org/wiki/Petit_Manseng
+# ingredient/fr:Petit-Manseng has 1 product @2019-01-19
+
+
+# Petit Verdot is a variety of red wine grape, principally used in classic Bordeaux blends.
+
+<en:varietal
+en:Petit verdot
+bg:Пети Вердо
+ca:Petit verdot
+cv:Пти Вердо
+de:Petit verdot
+es:Petit verdot
+fr:Petit verdot
+he:פטי ורדו
+it:Petit verdot
+ja:プチ・ヴェルド
+nb:Petit verdot
+nl:Petit verdot
+pt:Petit verdot
+ru:Пти вердо
+sh:Petit verdot
+sv:Petit verdot
+zh:小維多
+wikipedia:en:https://en.wikipedia.org/wiki/Petit_Verdot
+# ingredient/fr:Petit-verdot has 2 products @2019-01-20
+
+
+# Pinot Meunier, pronounced [pi.no mø.nje], also known as Meunier or Schwarzriesling, is a variety of black wine grape most noted for being one of the three main varieties used in the production of Champagne
+
+<en:varietal
+en:Pinot Meunier
+bg:Пино Мьоние
+cs:Mlynářka
+cv:Пинă Менье
+de:Pinot Meunier
+es:Pinot Meunier
+fi:Pinot Meunier
+fr:Meunier, Pinot Meunier
+ja:ピノ・ムニエ
+nb:Pinot Meunier
+nl:Pinot Meunier
+pt:Pinot Meunier
+ro:Pinot Meunier
+ru:Пино менье
+sl:Postič
+sv:Pinot meunier
+wikipedia:en:https://en.wikipedia.org/wiki/Pinot_Meunier
+# ingredient/fr:Meunier has 3 products @2019-01-20
+
+
+# PINOT NOIR is a red wine grape variety of the species Vitis vinifera.
+
+<en:varietal
+en:pinot noir
+az:Pinot Noir
+bg:Пино ноар
+ca:pinot negre
+cs:Rulandské modré
+cv:Пинă Нуар
+da:Pinot noir
+de:Pinot noir
+es:Pinot noir
+et:Pinot noir
+fa:پینونوآر
+fi:Pinot Noir
+fr:pinot noir
+gl:Pinot Noir
+# gsw:Spätburgunder
+he:פינו נואר
+hr:Pinot crni
+hu:Pinot noir
+id:Pinot noir
+is:Pinot noir
+it:Pinot
+ja:ピノ・ノワール
+ko:피노 누아르
+lb:Pinot noir
+nb:Pinot noir
+nl:pinot noir
+# pcd:Noért pinot
+pl:Pinot noir
+# pms:Pinot noir
+pt:Pinot noir
+ro:Pinot noir
+ru:Пино-нуар
+sh:Pinot noir
+sl:Modri pinot
+sr:Пино ноар
+# sr-ec:Пино ноар
+# sr-el:Pino noar
+sv:Pinot noir
+uk:Піно Нуар
+zh:黑比诺
+# zh-cn:黑比诺
+# zh-hans:黑比诺
+# zh-hant:黑比诺
+# zh-hk:黑比诺
+# zh-sg:黑比诺
+# zh-tw:黑比诺
+wikidata:en:Q223701
+wikipedia:en:https://world.openfoodfacts.org/ingredient/fr:pinot%20noir
+# fr:pinot-noir has 20 products in 1 language @2018-10-29
+
+
+# Poulsard (also Ploussard) is a red French wine grape variety from the Jura wine region. 
+
+<en:varietal
+en:Poulsard
+cy:Poulsard
+de:Poulsard
+es:Poulsard
+fr:Poulsard
+nl:Poulsard Blanc
+wikidata:en:Q1409433
+wikipedia:en:https://en.wikipedia.org/wiki/Poulsard
+# ingredient/fr:Poulsard has no products @2019-01-20
+
+
+# Sciacarello (or sciaccarello) is a red Italian wine grape variety that is grown primarily in Corsica. 
+
+<en:varietal
+en: Sciacarello
+de: Sciacarello
+fr:Sciaccarellu, Sciacarello
+wikidata:en: Q1527364
+wikipedia:en:https://en.wikipedia.org/wiki/Sciacarello
+# ingredient/fr:Sciaccarellu has 1 product @2019-01-20
+
+
+# Sémillon is a golden-skinned grape used to make dry and sweet white wines, mostly in France and Australia. 
+
+<en:varietal
+en:Sémillon
+bg:Семийон
+ca:Sémillon
+cs:Sémillon
+cv:Семильон
+de:Sémillon
+es:Sémillon
+et:Sémillon
+fi:Sémillon
+fr:Sémillon
+it:Sémillon
+ja:セミヨン
+nl:Sémillon
+pt:Sémillon
+ru:Семильон
+sr:Семијон
+# sr-ec:Семијон
+# sr-el:Semijon
+sv:Sémillon
+uk:Семільйон
+zh:賽美蓉
+wikidata:en:Q391558
+wikipedia:en:https://en.wikipedia.org/wiki/Sémillon
+# ingredient/fr:Sémillon has 5 products @2019-01-20
+
+
+# Sylvaner or Silvaner is a variety of white wine grape grown primarily in Alsace and Germany, where its official name is Grüner Silvaner. 
+
+<en:varietal
+en:sylvaner
+bg:Силванер
+cs:Sylvánské zelené
+cv:Сильванер
+da:sylvaner
+de:sylvaner
+eo:sylvaner
+es:sylvaner
+et:sylvaner
+eu:sylvaner
+fi:sylvaner
+fr:sylvaner
+# gsw:sylvaner
+hr:Silvanac zeleni
+hy:սիլվաներ
+it:sylvaner
+ja:シルヴァーナー
+lb:sylvaner
+nl:sylvaner
+pl:sylvaner
+ru:Сильванер
+sl:Zeleni silvanec
+sv:sylvaner
+# zh-cn:西万尼
+# zh-hans:西万尼
+# zh-hant:西萬尼
+wikidata:en:Q1133517
+wikipedia:en:https://en.wikipedia.org/wiki/Silvaner
+# ingredient/fr:sylvaner has 1 product in french @2019-01-18
+
+
+# Syrah, also known as Shiraz, is a dark-skinned grape variety grown throughout the world and used primarily to produce red wine.
+
+<en:varietal
+en:syrah
+bg:Сира
+ca:sirà
+# ceb:syrah
+cs:syrah
+cv:Сира
+da:syrah
+de:Syrah
+es:syrah
+et:syrah
+fa:شیراز
+fi:syrah
+fr:Syrah
+gl:syrah
+hr:syrah
+hu:syrah
+hy:Սիրա
+is:syrah
+it:syrah
+ja:シラー
+ko:시라
+nb:syrah
+nl:syrah
+pl:syrah
+pt:syrah
+ro:Shiraz, syrah
+ru:Сира
+sr:Сира
+sv:Syrah
+tr:Şiraz üzümü
+uk:Сіра
+zh:西拉葡萄
+# zh-cn:西拉葡萄
+# zh-hans:西拉葡萄
+# zh-hant:西拉葡萄
+# zh-hk:西拉葡萄
+# zh-sg:西拉葡萄
+# zh-tw:西拉葡萄
+wikidata:en:Q332720
+wikipedia:en:https://en.wikipedia.org/wiki/Syrah
+# ingredient/fr:Syrah has 47 products @2019-01-18
+
+
+# Trousseau or Trousseau Noir, also known as Bastardo, is an old variety of red wine grape originating in eastern France.
+
+<en:varietal
+en:Bastardo
+de:Trousseau
+es:Bastardo
+fr:Trousseau
+ja:バスタルド
+nb:Bastardo
+nl:Bastardo
+ru:Бастардо
+sv:Bastardo
+wikidata:en:Q63319
+wikipedia:en:https://en.wikipedia.org/wiki/Trousseau_(grape)
+# ingredient/fr:Trousseau has no products @2019-01-20
+
+
 <en:fruit
 en:pomegranate
 am:ሩማን
@@ -21909,6 +23933,107 @@ fr:asperges blanches, asperge blanche
 nl:witte asperges
 # fr:asperges blanches has 46 products in 4 languages @2018-11-11
 
+<en:vegetable
+en:Belgian endive
+cs:čekanka
+da:Julesalat
+de:Chicorée
+es:escarola, endivia Belga
+fr:chicorée, endives
+hu:cikória
+it:Cicoria Belga
+nl:witlof
+wikidata:en: Q1474
+# ingredient/fr:endives has 38 products in 4 languages @2018-12-10
+carbon_footprint_fr_foodges_ingredient:fr:Endive
+
+
+# Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
+
+<en:vegetable
+en:endive
+ca:endívia
+cy:Endif
+de:Endivien, Endivie
+eo:Endivio
+eu:Osterzuri
+fa:اندیو
+fi:Endiivi
+fr:scarole, Chicorée endive
+ga:Searbhán muc
+gl:endivia
+he:עולש
+hr:Endivija
+hu:Endívia
+id:Endive
+io:Endivio
+it:Scarola, indivia
+ja:エンダイブ
+ko:꽃상추
+ku:Xêzimok
+la:Cichorium endivia
+nb:endivie
+# nds-nl:Andievie
+nv:Tʼąąʼdoolghasí
+# pcd:Indife
+pt:Endívia
+ro:Andivă
+ru:эндивий
+# scn:Nirvia	
+sr:Ендивија
+# sr-ec:Ендивија
+sv:Sydcikoria
+tr:Hindiba
+uk:цикорій салатний
+vi:Rau cúc đắng
+zh:苦苣
+wikidata:en: Q28604477
+
+<en:vegetable
+en:radicchio
+ar:الهندباء
+ca:Radicchio
+da:radicchio
+de:Chicorée rot, Radicchio
+# en-ca:Radicchio
+# en-gb:Radicchio
+eo:salatcikorio
+fr:chicorée rouge, Radicchio
+hu:Vörös cikória
+it:Radicchio
+ja:ラディッキオ
+ko:라디키오
+nl:Roodlof
+pt:Radicchio
+# pt-br:Radicchio
+ru:радиккьо
+sh:Radiccio di Treviso
+sv:Radicchiosallad
+# vec:Radicio
+wikidata:en:Q767765
+# ingredient/fr:chicorée%20rouge has 114 products in 4 languages @2018-12-10
+
+en:chicory fibre
+de:Zichorienfäser
+es:fibra de la raíz de achicoria
+fr:fibre de chicorée, fibres de chicorée
+nl:chicoreivezel
+# ingredient/fr:fibre-de-chicoree has 254 products in 5 languages @2018-12-10
+
+
+fr:chicorée soluble
+es:achicoria en polvo
+nl:oploscichorei, poeder met witlof
+pt:chicória solúvel
+# ingredient/fr:chicorée-soluble has 70 products in 4 languages @2018-12-10
+
+en:extract of chicory
+fr:extrait de chicorée, extraits de chicorée
+de:Zichorien-Extrakt
+es:extracto de achicoria
+it:estratto di cicoria, Estratti di cicoria
+# ingredient/fr:extrait-de-chicorée has 67 products in 5 languages @2018-12-10
+
 
 # GARLIC (Allium sativum) is a species in the onion genus.
 
@@ -22180,6 +24305,86 @@ de:Knoblauchextrakt
 <en:onion
 fr:oignon et ail en poudre
 
+
+# Horseradish (Armoracia rusticana, syn. Cochlearia armoracia) is a perennial plant of the family Brassicaceae
+
+en:horseradish
+af:Peperwortel
+ar:فجل الخيل الريفي
+az:Adi qıtıqotu
+# azb:عادی قیتیق اوْتو
+ba:Керән
+# bar:Kren
+be:Хрэн звычайны
+bg:хрян
+bn:সজিনা
+br:riforz
+bs:Hren
+ca:rave rusticà
+cs:křen selský
+cy:Rhuddygl poeth
+da:peberrod
+de:Meerrettich
+# de-at:Kren
+# dsb:kśěn
+el:Χραίνα
+eo:Kreno
+et:aed-mädarõigas
+eu:Errefau min
+fa:ترب کوهی
+fi:piparjuuri
+fr:raifort
+# frr:Pöberrut
+he:חזרת הגינה
+hi:हॉर्सरैडिश
+hr:Hren
+# hsb:Zahrodny chrěn
+hu:Torma
+hy:կծվիչ սովորական
+io:Armoracio
+is:Piparrót
+it:rafano, barbaforte
+ja:ホースラディッシュ
+ka:პირშუშხა
+kk:Ақжелкек
+ko:겨자무
+li:mieraedig
+lt:Valgomasis krienas
+lv:mārrutks
+mk:рен
+# mrj:Ӹрӓн
+# myv:Крён
+nb:pepperrot
+nl:Mierikswortel
+nn:peparrot
+or:ହର୍ସରାଡିଶ
+os:Туттургъан
+pa:ਹੋਰਸੇਰਾਡਿਸ਼
+pl:chrzan pospolity
+pt:Raiz-forte
+ro:Hrean
+# roa-tara:varvaforte
+ru:хрен обыкновенный
+# rup:Olmu
+# sgs:Krėins
+sh:Hren
+sk:Chren dedinský
+sl:Navadni hren
+sr:рен
+sv:pepparrot
+tr:Bayır turpu
+uk:Хрін звичайний
+# vec:Cren
+yi:כריין
+# yue:辣根
+zh:辣根
+wikidata:en:Q26545
+wikipedia:en:https://en.wikipedia.org/wiki/Horseradish
+# ingredient/fr:raifort has 103 products in 4 languages @2019-01-26
+
+<en:horseradish
+en:Armoracia rusticana
+la:Armoracia rusticana
 
 
 # BEETROOT is the taproot portion of the beet plant
@@ -23493,7 +25698,7 @@ ar:جمار
 de:Palmherzen
 eo:Palmomedolo
 fa:پنیر نخل
-fr:coeurs de palmier
+fr:coeur de palmier, coeurs de palmiers, coeurs de palmier
 gl:Palmito
 gv:Cabbash phalm
 he:לבבות דקל
@@ -25202,6 +27407,19 @@ nl:gegrilde courgette
 # en:grilled-courgette has 238 products in 5 languages @2018-10-26
 
 
+# Watercress or yellowcress is an aquatic plant species with the botanical name Nasturtium officinale. 
+
+en:watercress
+af:Bronkors
+an:Berro
+ar:جرجير الماء
+fr:cresson
+de:Kresse
+it:crescione
+nl:waterkers
+wikipedia:en:https://en.wikipedia.org/wiki/Watercress
+# ingredient/fr:cresson has 61 products in 5 languages @2018-12-14
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -26678,6 +28896,58 @@ it:pasta di sesamo
 sv:sesam-kräm
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte%20de%20sésame
 # 105 products in 4 languages @2018-10-05
+
+
+
+# Tahini is a condiment made from toasted ground hulled sesame.
+
+<en:sesame paste
+en:tahini
+ar:طحينة
+az:Tahini
+be:Тахіні
+bg:Тахан
+ca:tahina
+cs:tahina
+cy:Tahini
+da:tahini
+de:Tahina
+el:Ταχίνι
+eo:Sezama pasto
+es:Tahina
+et:tahhiini
+fa:ارده
+fi:tahini
+fr:tahini
+gl:Tahini
+he:טחינה
+hi:ताहिनी
+hu:Tahini
+hy:Թահին
+id:Tahini
+it:Tahina
+ja:芝麻醤
+ko:참깨 소스
+lv:tahini
+ms:Tahini
+nb:tahini
+nl:tahin
+nn:tahini
+pa:ਤਾਹੀਨੀ
+pl:Tahini
+pt:tahine
+ro:tahini
+ru:тахини
+sv:tahini
+th:ทาฮีนี
+tr:Tahin
+uk:Тахіні
+# wuu:芝麻酱
+# yue:麻醬
+zh:芝麻酱
+wikidata:en:Q383389
+wikipedia:en:https://en.wikipedia.org/wiki/Tahini
+# ingredient/fr:tahini has 36 products in 2 languages @2018-12-14
 
 
 
@@ -29178,6 +31448,27 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chamomile
 # ingredient/fr:camomille has 92 products in 4 languages @2018-12-28
 
 
+# Capparis spinosa, the caper bush is best known for the edible flower buds (capers), often used as a seasoning, and the fruit (caper berries)
+
+en:capers
+cs:kapary
+de: Kapern
+eo: Kaporo
+fr:câpre, câpres
+io: Kapero
+it:capperi
+ku: Kewer
+# ku-arab: کەوەر
+# ku-latn: Kewer
+nl: kappertjes
+pl: kapary
+pt: alcaparras
+# scn: Chiàppara
+sl: Kapra
+wikipedia:en:https://en.wikipedia.org/wiki/Caper
+# ingredient/fr:câpre has 494 products in 6 languages @2018-12-4
+
+
 # Coriander (Coriandrum sativum), also known as cilantro or Chinese parsley, is an annual herb in the family Apiaceae.
 # coriander is used as an en:herb (leaves) or as an en:seed (en:spice).
 # If it is not specified we do not know which one.
@@ -29305,8 +31596,241 @@ es:aroma de cilantro
 # ingredient/fr:arôme de coriandre has 1 products in 2 languages @2018-12-05
 
 
+# GUARANA is a climbing plant in the maple family, Sapindaceae, native to the Amazon basin and especially common in Brazil.
 
-# Liquorice or licorice is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted. 
+en:guarana
+ar:غوارانا
+az:Quarana
+# azb:قوارانا
+bg:гуарана
+bs:Guarana
+ca:guaranà
+cs:Guarana
+da:Guarana
+de:Guarana
+es:Guaraná
+et:Guaraana
+fa:گوارنا
+fr:guarana
+ga:Guaraná
+gl:Guaraná
+he:גוארנה
+hr:Guarana
+hu:Guarana
+id:Guarana
+is:Guarana
+it:guaranà
+ja:ガラナ
+ka:გუარანა
+ko:과라나
+la:Paullinia cupana
+lt:Guarana
+lv:Guarana
+mk:Гуарана
+ms:Guarana
+nb:Guarana
+nl:Guarana
+pl:Guarana
+ro:Guarana
+sh:Gvarana
+sl:Guarana
+sr:гварана
+# sr-ec:гварана
+# sr-el:gvarana
+sv:Guarana
+tr:Guarana
+uk:Гуарана
+zh:瓜拿納
+# zh-cn:瓜拿纳
+# zh-hans:瓜拿纳
+# zh-hant:瓜拿納
+# zh-hk:瓜拿納
+# zh-sg:瓜拿纳
+# zh-tw:瓜拿納
+wikidata:en:Q209089
+wikipedia:en:https://en.wikipedia.org/wiki/Guarana
+# ingredient/fr:guarana has 43 products in 4 languages @2019-01-27
+
+<en:guarana
+en: estratto di guarana
+fr:extrait de guarana
+de: Guarana-Extrakt
+it: estratto di guarana
+# ingredient/fr:extrait-de-guarana has 53 products in 4 languages @2019-01-27
+# guarana extract (maltodextrin, guarana extract)
+
+
+# Hops are the flowers (also called seed cones or strobiles) of the hop plant Humulus lupulus.
+
+en:hops, hop
+ar:جنجل
+bg:хмель, хмел
+be:хмель
+cs:chmel
+cy:Hopys
+da:humle
+de:Hopfen
+el:λυκίσκος
+# en-ca:Hops
+# en-gb:Hops
+eo:lupolo
+es:lúpolo, lupolo
+et:humal
+fi:humala
+fr:houblon
+ga:Leannlus
+hr:hmelj
+hu:komló, komlo
+id:hopio:Lupulo
+is:Humall
+it:luppolo
+lt:apynial
+lv:apiņi
+ms:Hop
+nl:hop
+nn:humle
+pl:chmiel
+pt:lúpolo
+ro:hamei
+ru:хмель
+# sco:Hops
+sk:chmel
+sl:hmelj
+sr:hmelj
+# sr-el:hmelj
+sv:humle
+uk:Хміль
+xh:Ii-hops
+wikidata:en:Q3214940
+wikipedia:en:https://en.wikipedia.org/wiki/Hops
+# ingredient/fr:houblon has 949 products in 26 languages @2018-12-01
+
+<en:hops
+en:hop extract
+bg:экстракт хмеля, хмелевой екстракт
+cs:chmelový ekstrakt
+da:humle-ekstrakt
+de:Hopfenextrakt
+es:extracto de lupolo
+fi:humalauute
+fr:extrait de houblon, extraits de houblon
+it:estratto di luppolo
+nl:hopextract
+pt:extracto de lupolo
+sk:chmelovy extract
+# ingredient/fr:extrait-de-houblon has 155 products in 15 languages @2018-12-01
+
+<en:hops
+en:organic hops
+de:biologische Hopfen, bio Hopfen
+es:lúpolo bio
+fi:humala bio
+fr:houblon bio
+it:luppolo biologico, luppolo bio
+nl:biologische hop, bio hop
+sv:organisk humle
+
+
+
+# Lavandula (common name lavender) is a genus of 47 known species of flowering plants in the mint family, Lamiaceae. 
+
+en:lavender
+ar:ضرم
+az:Lavanda
+# azb:لاوانتا
+be:Лаванда
+bg:Лавандула
+bn:ল্যাভেন্ডার
+bo:དྲི་ཞིམ་ཅན།
+br:Lavand
+bs:Lavanda
+cs:levandule
+# csb:Lewańda
+cy:Lafant
+da:Lavendel
+de:Lavendel
+# diq:Kırê luwer
+el:Λεβάντα
+eo:Lavendo
+es:Lavanda
+et:Lavendel
+eu:Labanda
+fa:لاواندولا
+fi:laventelit
+fr:lavande
+fy:Lavindel
+gl:Lavanda
+he:אזוביון
+hr:Lavande
+hu:levendula
+hy:Նարդոս
+id:Lavender
+# inh:Лоаман зиза
+io:Lavendo
+is:Lofnarblóm
+it:lavanda
+ja:ラベンダー
+jv:Lavender
+ka:ლავანდი
+kk:Лаванда
+# kk-arab:لاۆاندا
+# kk-cn:لاۆاندا
+# kk-cyrl:Лаванда
+# kk-kz:Лаванда
+# kk-latn:Lavanda
+# kk-tr:Lavanda
+ko:라벤더속
+la:Lavandula
+lb:Lavendel
+lt:Levanda
+lv:lavandas
+mk:Лаванда
+ml:ജടാമാഞ്ചി
+my:လဗင်ဒါပင်
+nb:Lavendelslekta
+nl:lavendel
+oc:Lavanda
+pl:Lawenda
+pt:Lavanda
+# pt-br:lavanda
+ro:Levantă
+ru:Лаванда
+# scn:Lavanna
+sd:لاوھينڊر
+sh:Lavande
+sk:levanduľa
+sl:Sivka
+sv:Lavendelsläktet
+th:ลาเวนเดอร์
+tr:Lavanta
+tt:Ләвән
+uk:Лаванда
+# yue:薰衣草
+zh:薰衣草
+# zh-cn:薰衣草
+# zh-hans:薰衣草
+# zh-hant:薰衣草
+# zh-hk:薰衣草
+# zh-sg:薰衣草
+# zh-tw:薰衣草
+wikidata:en:Q171892
+wikipedia:en:https://en.wikipedia.org/wiki/Lavandula
+# ingredient/lavender has 99 products in 4 languages @2019-01-21
+
+
+
+# TILIA is a genus of about 30 species of trees, or bushes, native throughout most of the temperate Northern Hemisphere.
+
+en:linden
+de Lindenblüten
+fr:tilleul
+it:Fiori di tiglio
+nl:Linde, lindebloesem
+wikipedia:en:https://en.wikipedia.org/wiki/Tilia
+# ingredient/fr:tilleul has 109 products in 4 languages @2019-01-23
+
+
+# LIQUORICE or licorice is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted. 
 
 en:liquorice, licorice
 # aeb-arab:عرب السوس
@@ -29477,9 +32001,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Filipendula_ulmaria
 
 # <en:rose
 en:rose petals
-de: rosenblatt
+de:rosenblatt
 fr:pétales de rose
-it: petalo di rosa
+it:petalo di rosa
 # ingredient/en:rose-petals has 72 products in 4 languages @2018-12-29
 
 
@@ -29527,6 +32051,133 @@ zh:玫瑰茄
 wikidata:en:Q319390
 wikipedia:en:https://en.wikipedia.org/wiki/Roselle_(plant)
 # fr:fleurs-de-carcadé has 12 products in 3 languages @2018-10-15
+
+
+# Saffron is a spice derived from the flower of Crocus sativus, commonly known as the "saffron crocus".
+
+en:saffron
+af:Saffraan
+an:Zafrán
+ar:زعفران
+# arz:زعفران
+az:زافران
+be:шафран
+bn:জাফরান
+br:Safron
+bs:Šafran
+ca:safrà
+cs:šafrán setý
+da:Safran
+de:Safran
+# diq:Esparıkê kutıkan
+dv:ކުކުން
+el:σαφράνι
+eo:safrano
+es:azafrán
+et:Safran
+eu:Azafrai
+fa:زعفران
+fi:Sahrami
+fr:safran
+ga:Cróch
+gl:Azafrán
+he:זעפרן
+hi:केसर
+hr:Šafran
+id:Kuma-kuma
+io:Safrano
+is:Saffran
+ja:サフラン
+it:Zafferano
+kn:ಕೇಸರಿ
+ko:사프란
+la:Safranum
+# lad:Alsafran
+lb:Safran
+lt:Safrāns
+lv:Safrāns
+ml:കുങ്കുമം
+mr:केशर
+ms:Safron
+my:ကုံကုမံ
+nb:safran
+ne:केशर
+nl:saffraan
+nn:safran
+oc:Safran
+pa:ਕੇਸਰ
+pl:Zastosowanie szafranu
+# pnb:کیسر
+ps:ګنګو
+pt:açafrão
+ro:șofran
+ru:шафран
+sa:केसरम्
+sc:Zafferano
+# sco:saffron
+sd:زعفران
+sh:Šafran
+si:කුංකුම
+sl:žafran
+sr:шафран
+sv:saffran
+ta:குங்குமப்பூ
+te:కుంకుమ పువ్వు
+th:หญ้าฝรั่น
+tr:Safran
+uk:Шафран посівний
+ur:زعفران
+vi:Saffron
+yi:זאפרען
+# yue:藏紅花
+zh:番紅花
+wikidata:en:Q25434
+wikipedia:en:https://en.wikipedia.org/wiki/Saffron
+# ingredient/fr:safran has 156 products in 4 languages @2019-01-23
+
+
+# Spirulina represents a biomass of cyanobacteria (blue-green algae) that can be consumed by humans and other animals. 
+
+en:spirulina
+ar:سبيرولنا
+bn:স্পিরুলিনা
+ca:Spirulina
+cs:spirulina
+da:spirulina
+de:Spirulina
+el:Σπιρουλίνα
+# en-ca:Spirulina
+# en-gb:Spirulina
+eo:Spirulino
+es:spirulina
+fi:spirulina
+fr:spirulina, spiruline
+he:ספירולינה
+it:spirulina
+ja:スピルリナ
+ko:스피룰리나
+mk:spirulina
+ml:സ്പൈറുലിന
+ms:Spirulina
+my:စပီရူလိုင်းနား
+# nah:Tecuitlatl
+nl:spirulina
+pl:spirulina
+pt:spirulina
+ro:Spirulia
+ru:Спирулина
+sl:spirulina
+sv:spirulina
+ta:நீலப்பச்சைப்பாசி
+te:స్పైరులీనా
+th:Spirulina
+tr:Spirulina
+vi:Tảo xoắn
+zh:螺旋藻
+wikidata:en:Q285335
+wikipedia:en:https://en.wikipedia.org/wiki/Spirulina_(dietary_supplement)
+# ingredient/fr:spirulina has 61 products in 4 languages @2019-01-23
+
 
 # Helianthus or SUNFLOWER (/ˌhiːliˈænθəs/)[2] is a genus of plants comprising about 70 species
 # en:sunflower is only found as a specication, i.e. oil (sunflower, ...)
@@ -29596,77 +32247,6 @@ zh:向日葵屬
 wikidata:en:Q26949
 wikipedia:en:https://en.wikipedia.org/wiki/Helianthus
 # en:sunflower has 16610 products @2018-10-15
-
-
-# Hops are the flowers (also called seed cones or strobiles) of the hop plant Humulus lupulus.
-
-en:hops, hop
-ar:جنجل
-bg:хмель, хмел
-be:хмель
-cs:chmel
-cy:Hopys
-da:humle
-de:Hopfen
-el:λυκίσκος
-# en-ca:Hops
-# en-gb:Hops
-eo:lupolo
-es:lúpolo, lupolo
-et:humal
-fi:humala
-fr:houblon
-ga:Leannlus
-hr:hmelj
-hu:komló, komlo
-id:hopio:Lupulo
-is:Humall
-it:luppolo
-lt:apynial
-lv:apiņi
-ms:Hop
-nl:hop
-nn:humle
-pl:chmiel
-pt:lúpolo
-ro:hamei
-ru:хмель
-# sco:Hops
-sk:chmel
-sl:hmelj
-sr:hmelj
-# sr-el:hmelj
-sv:humle
-uk:Хміль
-xh:Ii-hops
-wikidata:en:Q3214940
-wikipedia:en:https://en.wikipedia.org/wiki/Hops
-# ingredient/fr:houblon has 949 products in 26 languages @2018-12-01
-
-<en:hops
-en:hop extract
-bg:экстракт хмеля, хмелевой екстракт
-cs:chmelový ekstrakt
-da:humle-ekstrakt
-de:Hopfenextrakt
-es:extracto de lupolo
-fi:humalauute
-fr:extrait de houblon, extraits de houblon
-it:estratto di luppolo
-nl:hopextract
-pt:extracto de lupolo
-sk:chmelovy extract
-# ingredient/fr:extrait-de-houblon has 155 products in 15 languages @2018-12-01
-
-<en:hops
-en:organic hops
-de:biologische Hopfen, bio Hopfen
-es:lúpolo bio
-fi:humala bio
-fr:houblon bio
-it:luppolo biologico, luppolo bio
-nl:biologische hop, bio hop
-sv:organisk humle
 
 
 # The olive, known by the botanical name Olea europaea, is a species of small tree in the family Oleaceae
@@ -29763,25 +32343,1151 @@ de: Olivenpastete
 fr: pâte d'olives
 
 
-# Capparis spinosa, the caper bush is best known for the edible flower buds (capers), often used as a seasoning, and the fruit (caper berries)
+# Algae is an informal term for a large, diverse group of photosynthetic eukaryotic organisms that are not necessarily closely related, and is thus polyphyletic.
 
-en:capers
-cs:kapary
-de: Kapern
-eo: Kaporo
-fr:câpre, câpres
-io: Kapero
-it:capperi
-ku: Kewer
-# ku-arab: کەوەر
-# ku-latn: Kewer
-nl: kappertjes
-pl: kapary
-pt: alcaparras
-# scn: Chiàppara
-sl: Kapra
-wikipedia:en:https://en.wikipedia.org/wiki/Caper
-# ingredient/fr:câpre has 494 products in 6 languages @2018-12-4
+en:algae
+af:Alg
+an:Algas
+ar:طحالب
+as:শেলাই
+# ast:Alga
+az:Yosunlar
+# azb:یوسون
+be:водарасці
+# be-tarask:водарасьці
+bg:Водорасли
+bn:শৈবাল
+bs:Alge
+ca:Alga
+# ckb:Algae
+cs:řasy
+da:Alge
+de:Alge
+el:Φύκη
+eo:algo
+es:alga
+et:Vetikad
+eu:alga
+fa:جلبک
+fi:Levä
+fr:algue
+ga:Algaí
+gl:Alga
+# gsw:Alge
+gu:લીલ
+gv:Algey
+he:אצות
+hi:शैवाल
+hr:Alge
+ht:Alg
+hu:algák
+hy:ջրիմուռներ
+id:alga
+io:Algo
+is:Þörungar
+it:alga
+ja:藻類
+jv:Alga
+ka:წყალმცენარეები
+kk:Балдыр
+kn:ಆಲ್ಗೆ
+ko:조류
+ky:Балырлар
+la:Alga
+# lfn:Alge
+li:Alge
+lt:Dumbliai
+lv:Aļģes
+mk:Алги
+ml:ആൽഗ
+mr:शैवाल
+ms:Alga
+# myv:Ведьбарсей
+# nan:Chó-lūi
+nb:alge
+ne:लेऊ
+#  new:न्हा
+nl:algen, alge
+nn:algar
+oc:Alga
+pa:ਜਿਲਬ
+pl:glony
+# pnb:الجی
+ps:اوبړۍ
+pt:alga
+qu:Laqu
+ro:alge
+ru:водоросли
+# rup:Algâ
+# sah:Ньалбах
+# scn:Àlica
+# sco:algae
+sd:الجي
+sh:Alge
+sk:Riasa
+sl:Alge
+sr:Алге
+su:Alga
+sv:Alger
+sw:Algae
+ta:பாசி
+te:శైవలాలు
+th:สาหร่าย
+tr:su yosunları
+tt:суүсемнәр
+# tt-cyrl:суүсемнәр
+# tt-latn:süüsemnär
+ud:Вубуртчин
+uk:водорості
+ur:طحالب
+uz:Suvoʻtlar
+vi:Tảo
+wa:Ale
+# war:Alga
+# wuu:藻
+# yue:藻
+zh:藻類
+wikidata:en:Q37868
+wikipedia:en:https://en.wikipedia.org/wiki/Algae
+# ingredient/algae has 135 products in 4 languages @2019-01-27
+
+
+# Seaweed or macroalgae refers to several species of macroscopic, multicellular, marine algae.
+# not sure if this should kept separate from en:algae
+
+<en:algae
+en:seaweed
+af:Seewier
+ar:عشب بحري
+br:bezhin
+cs:mořské řasy
+cy:Gwymon
+da:tang
+de:Seetang
+# en-gb:seaweed
+eo:Makroalgoj
+es:Macroalga
+et:Adru
+eu:Itsas belar
+fa:جلبک دریایی
+fi:Merilevä
+fo:Tari
+fr:varech
+ga:Feamainn
+gd:Feamainn ghropach
+hi:समुद्री खरपतवार
+hr:Morska trava
+id:Fucales
+# ike-cans:ᕿᖅᑯᐊᖅ
+# ike-latn:qiqquaq
+io:Fuko
+is:Þang
+it:Fucales
+iu:ᕿᖅᑯᐊᖅ
+ja:海藻
+jv:Gulma segara
+kk:Теңіз балдырлары
+ko:바닷말
+lt:Jūržolės
+mk:морска трева
+ml:ഗായത്രിമന്ത്രം
+ms:Rumpai laut
+# nan:Hái-chháu
+nb:tang
+nl:zeewier
+nn:tang
+# nrm:Vrai
+pl:Wodorosty
+pt:macroalga
+ru:Морские водоросли
+# sco:Sea plants
+sq:Alga deti
+sv:Tång
+to:Limutahi
+uk:Морські водорості
+vi:Rong biển
+zh:海藻
+# zh-cn:海藻
+# zh-hans:海藻
+# zh-hant:海藻
+# zh-hk:海藻
+# zh-sg:海藻
+# zh-tw:海藻
+wikidata:en:Q237169 
+wikipedia:en:https://en.wikipedia.org/wiki/Seaweed
+
+<en:algae
+en:Lithotamnium calcareum
+fr:algue lithothamnium calcareum, algue marine lithothamnium calcareum, 
+la:Lithotamnium calcareum
+# ingredient/fr:Lithotamnium-calcareum has 2 products @2019-01-27
+
+
+# CHLORELLA is a genus of single-celled green algae belonging to the division Chlorophyta.
+
+<en:algae
+en:chlorella
+ar:كلوريلا
+be:Хларэла
+bn:Хлорела
+ca:Chlorella
+cs:Chlorella
+da:Chlorella
+de:Chlorella
+eo:Klorelo
+es:Chlorella
+et:Klorella
+eu:Chlorella
+fi:Klorella
+fr:chlorella, chlorelle
+ga:Clóireile
+gl:Chlorella
+he:כלורלה
+hr:Chlorella
+hy:քլորելա
+ia:Chlorella
+id:Chlorella
+it:Chlorella
+ja:クロレラ
+kk:Хлорелла
+ko:클로렐라
+ky:Хлорелла
+la:Chlorella
+nl:Chlorella
+pl:Chlorella
+pt:Chlorella
+# pt-br:Clorela
+ru:Хлорелла
+sh:Chlorella
+sk:Chlorela
+sl:Chlorella
+sw:Chlorella
+tr:Chlorella
+uk:Хлорела
+vi:Chlorella
+wikidata:en:Q133017
+wikipedia:en:https://en.wikipedia.org/wiki/Chlorella
+# fr:chlorella has 42 products in 3 languages @2018-10-28
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                     M U S H R O O M     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+# A MUSHROOM, or toadstool, is the fleshy, spore-bearing fruiting body of a fungus, typically produced above ground on soil or on its food source.
+# There is a wikipedia translation issue. Mushroom often refers to spores, so edible mushroom is better. However the edible part is not found on packages.
+
+en:mushroom
+an:Potrecón
+ar:عيش الغراب
+# ast:Seta
+# atj:pikokoto
+ba:Ашарға яраҡлы бәшмәктәр
+bg:гъба , Ядливи гъби
+bi:Sompiniong
+# bjn:Kulat
+bn:মাশরুম
+bs:Gljiva
+ca:bolet , bolet comestible
+# cdo:Gŭ
+# chr:ᏓᏬᎵ
+co:Funzu
+cs:jedlá houbacy:Madarchen
+de:Pilz, Pilze, Speisepilz
+da:Spiselige svampe, Svampe
+# de-ch:Speisepilz
+el:Μανιτάρι
+# en-ca:mushroom, Edible mushroom
+# en-gb:mushroom, Edible mushroom
+eo:manĝebla fungo
+es:seta
+et:Söögiseen
+eu:ziza, Ziza jangarri
+fa:قارچ خوراکی, قارچ چتری
+fi:sieni , Ruokasieni
+fr:champignon, champignons
+# frp:Champegnon
+fy:Poddestoel
+ga:Beacán
+gd:Balgan-buachair
+gl:Cogomelo
+# hak:Kû
+hi:खाद्य खुम्ब, कुकुरमुत्ता
+hr:Jestive gljive
+hu:ehető gomba
+hy:սունկ
+ia:champignon
+id:Jamur, Jamur pangan
+ik:Argaiġñaq
+io:Fungo
+is:Ætisveppir, Stórsveppir
+it:fungo, fungi
+ja:キノコ, 食用キノコ
+jv:Jamur, Jamur pangan
+kn:ಅಣಬೆ
+kk:Жейтін саңырауқұлақтар
+ko:버섯, 식용 버섯
+ku:Kuvark
+ky:Козу карын
+la:Fungus
+ln:Likombó
+lt:Valgomieji grybai, Vaisiakūnis
+lv:sēne , Ēdamās sēnes
+# lzh:蕈
+mk:печурка , јадлива печурка
+ml:കൂൺ
+mn:Мөөг
+mr:मशरूम
+ms:Cendawan
+# mwl:Roque
+# nan:Ko͘
+nb:matsopp
+# nds:Poggenstöhle
+ne:च्याउ
+nl:paddenstoel, paddestoel, paddestoelen, zwam
+nn:matsopp
+nv:Ábishjaaʼ
+or:ଛତୁ
+pa:ਖੁੰਭ
+# pam:Payungpayungan
+# pcd:Janpinhion
+pl:grzyby jadalne, owocnik
+# pnb:کھمبی
+pt:cogumelo , cogumelo comestível
+# pt-br:cogumelo , cogumelo comestível
+qu:K'allampa puquy
+ro:ciupercă , Ciuperci comestibile
+ru:гриб, съедобный гриб
+sa:छत्राकम्
+# scn:Funcia
+# sco:Puddock stuil
+sd:کُنڀِِي
+sh:Jestiva gljiva, Pečurka
+si:හතු
+sl:Goba
+so:Boqoshaa
+sq:Këpurdhat
+sr:Јестиве гљиве, печурка
+# sr-ec:Јестиве гљиве, печурка
+# sr-el:Jestive gljive
+su:Fungi
+sv:Matsvampar
+sw:Uyoga
+ta:காளான்
+te:పుట్ట గొడుగు , పుట్టగొడుగుల పెంపకం
+tg:Занбурӯғ
+th:เห็ด
+tl:Kabute
+to:Fakamaluʻatēvolo
+ug:مور
+uk:гриб, Їстівні гриби
+ur:کھمبی
+vi:Nấm ăn, Nấm lớn
+vo:Söögisiin
+wa:Magnåve tchampion, Tchampion-åbusson
+# war:Ulapíng
+# wuu:蘑菇
+yi:שוועמל
+# yue:菇
+zh:食用蕈, 蕈類
+wikidata:Q654236
+wikidata:Q83093
+wikipedia:https://en.wikipedia.org/wiki/Mushroom
+# en:mushroom has 1817 products in 16 languages @2018-11-02
+
+<en:mushroom
+en:mushroom extract
+de:Pilzextrakt
+es:extracto de champiñón
+fr:extrait de champignon, extrait de champignons
+it:estratti di funghi
+nl:champignonextract
+# en:mushroom-extract has 94 products in 4 languages @2018-11-02
+
+
+# CANTHARELLUS CIBARIUS is a species of golden chanterelle mushroom in the genus Cantharellus. 
+
+<en:mushroom
+en:golden chanterelle
+ar:فطر الشانتريل
+be:лісічка сапраўдная
+bg:пачи крак
+ca:rossinyol
+co:Ghjalletta
+cs:liška obecná
+# csb:Peperlëszka
+cy:Siantrel
+da:Almindelig Kantarel
+de:Pfifferlinge
+el:Κανθαρέλλα
+eo:Kantarelo
+es:Chantarela
+et:Harilik kukeseen
+eu:Zizahori
+fa:قارچ قیفی
+fr:girolles
+ga:Cantarnaid
+gl:Cantarela
+hr:Lisička
+hu:Sárga rókagomba
+id:Jamur chanterelle
+io:Kantarelo
+is:Kantarella
+it:Gallinaccio
+ja:アンズタケ
+ka:მიქლიო
+ko:꾀꼬리버섯
+lt:Valgomoji voveraitė
+lv:Parastā gailene
+mk:лисичарка
+# mrj:Питьӹрвонгы
+# myv:Ривезь панго
+# mzn:زردکیجا
+nb:Kantarell
+nl:cantharel, c
+nn:Kantarell
+# olo:Keldusieni
+pl:Pieprznik jadalny
+# pmo:Garìtola
+ro:Gălbior
+ru:лисичка обыкновенная
+se:Kantarella
+# sgs:Lapielaižė
+sk:Kuriatko jedlé
+sl:Navadna lisička
+sr:Lisičarka
+sv:Kantarell
+tr:Yumurta mantarı
+uk:лисичка справжня
+# vec:Finferlo
+vi:Nấm mồng gà
+vo:Kikkasiin
+# yue:雞油菇
+zh:鸡油菇
+# zh-cn:鸡油菌
+# zh-hant:雞油菌
+# zh-tw:雞油菌
+wikidata:en:Q188749
+wikipedia:en:https://en.wikipedia.org/wiki/Cantharellus_cibarius
+# ingredient/fr:cantharellus-cibarius has 26 products in 3 languages @2018-12-16
+# ingredient/fr:girolles has 90 products in 3 languages @2018-12-16
+
+<en:golden chanterelle
+en:cantharellus cibarius
+la:cantharellus cibarius
+
+# BOLETUS EDULIS (English:penny bun, cep, porcino or porcini) is a basidiomycete fungus, and the type species of the genus Boletus. 
+
+<en:mushroom
+en:cep, Boletus edulis
+ar:بوليط مأكول
+# ast:Boletus edulis
+ba:Аҡ бәшмәк
+# bar:Stoabuiz, Boletus edulis
+be:Баравік
+# be-tarask:Баравік
+bg:обикновена манатарка
+bn:বোলেটাস এডুলাস
+bs:Vrganj, Boletus edulis
+ca:cep, Boletus edulis
+# ceb:Boletus edulis
+cs:hřib smrkový, Boletus edulis
+# csb:Bòrzón, Boletus edulis
+cv:Шур кăмпа
+cy:Wicsen gron, Boletus edulis
+da:Karl Johan, Boletus edulis
+de:Steinpilze, Boletus edulis
+# de-ch:Gemeiner Steinpilz, Boletus edulis
+el:Βωλίτης ο εδώδιμος
+# en-ca:Boletus edulis
+# en-gb:Boletus edulis
+es:boletus, Boletus edulis
+et:Harilik kivipuravik, Boletus edulis
+eu:Onddozuri
+fa:قارچ تیره‌سر 
+fi:Herkkutatti, Boletus edulis
+fr:cèpe, cèpes, bolets, cèpe de Bordeaux, Boletus edulis
+ga:Ceap, Boletus edulis
+gl:Andoa, Boletus edulis
+he:פורצ'יני
+hr:Ljetni vrganj, Boletus edulis
+hu:Ízletes vargánya, Boletus edulis
+hy:Սպիտակ սունկ
+id:Boletus edulis
+io:Cepo, Boletus edulis
+is:Kóngssveppur, Boletus edulis
+it:Boletus edulis
+ja:ヤマドリタケ
+ka:დათვისსოკო
+kk:Ақ саңырауқұлақ
+ku:Fîqeroş, Boletus edulis
+la:Boletus edulis
+lt:Tikrinis baravykas, Boletus edulis
+lv:Egļu baravika, Boletus edulis
+mk:летен вргањ
+# mrj:Ош понгы
+ms:Boletus edulis
+# myv:Boletus edulis
+nb:Steinsopp, Boletus edulis
+nl:eekhoorntjesbrood, Boletus edulis
+nn:steinsopp, Boletus edulis
+oc:Boletus edulis, Boletus edulis
+olo:Valgei griba, Boletus edulis
+pl:Borowik szlachetny, Boletus edulis
+# pms:Boletus edulis
+pt:Boletus edulis
+ro:Hrib, Boletus edulis
+ru:Белый гриб
+# sah:Үрүҥ тэллэй
+# sgs:Baravīks, Boletus edulis
+sh:Vrganj, Boletus edulis
+sk:hríb smrekový, Boletus edulis
+sl:Jesenski goban, Boletus edulis
+sr:вргањ
+# sr-ec:вргањ
+# sr-el:vrganj, Boletus edulis
+sv:Stensopp, karljohan, Boletus edulis
+th:เห็ดพอร์ชินี
+tr:Çörek mantarı, Boletus edulis
+tt:Ак гөмбә
+uk:Білий гриб
+# vec:Brixa, Boletus edulis
+vi:Nấm thông, Boletus edulis
+wa:Magnåve bolet, Boletus edulis
+# war:Boletus edulis
+# yue:牛肝菌
+zh:美味牛肝菌
+# zh-cn:美味牛肝菌
+# zh-hans:美味牛肝菌
+# zh-hant:美味牛肝菌
+# zh-tw:美味牛肝菌
+wikipedia:Q19740
+wikipedia:https://en.wikipedia.org/wiki/Boletus_edulis
+# en:cep has 98 products in 5 languages @2018-11-02
+
+# AGARICUS BISPORUS is an edible basidiomycete mushroom native to grasslands in Europe and North America. 
+
+<en:mushroom
+en:champignon, button mushrooms, cultivated mushrooms, Agaricus bisporus
+af:Sampioen
+ar:غاريقون ثنائي البوغ
+# cbk:Ligbos
+bg:култивирана печурка
+ca:xampinyó
+cs:pečárka dvouvýtrusá
+cy:Madarch meithrin
+da:Havechampignon, Agaricus bisporus
+de:Champignons, Zucht-Champignon,Agaricus bisporus
+eo:Ĉampinjono
+es:Agaricus bisporus
+et:aedšampinjon
+fa:قارچ خوراکی تکمه‌ای
+fr:champignons de Paris, champignon de paris,Agaricus bisporus
+gl:Champiñón común
+he:פקועה דו-נבגית
+hi:श्वेत बटन खुम्ब
+hu:Kétspórás csiperke
+hy:Շամպինյոն
+ia:Champignon commun
+id:Jamur kancing
+io:Champiniono
+is:Matkempingur
+it:champignon, Agaricus bisporus
+ja:マッシュルーム
+ko:양송이
+la:Agaricus bisporus
+# lfn:Xampinion
+li:Champignon
+lt:Dvisporis pievagrybis
+lv:Dārza atmatene
+mn:Цагаан мөөг
+ms:Cendawan butang
+nb:Sjampinjong
+nl:Parijse champignons, Agaricus bisporus
+pl:pieczarki, Pieczarka dwuzarodnikowa, Agaricus bisporus
+pt:cogumelos-de-Paris, Champignon, Agaricus bisporus
+qu:Champiñun
+ru:Шампиньон двуспоровый
+sl:Dvotrosni kukmak
+sv:Portabello, Agaricus bisporus
+ta:அகாரிகஸ் பைஸ்போரஸ்
+uk:Печериця садова
+# yue:大啡菇
+zh:雙孢蘑菇
+wikidata:Q227690
+wikipedia:https://en.wikipedia.org/wiki/Agaricus_bisporus
+# fr:champignons de Paris has 857 products in 9 languages @2018-11-01
+carbon_footprint_fr_foodges_ingredient:fr:Champignons de Paris
+
+
+# LACTARIUS is a genus of mushroom-producing, ectomycorrhizal fungi, containing several edible species. 
+
+<en:mushroom
+en:milkcap
+be:Млечнік
+bg:Млечница
+ca:Lactari
+cs:ryzec
+da:Mælkehat
+de:Milchlinge
+et:Riisikas
+eu:Esneki
+fi:Rouskut
+fr:lactaire, lactaires
+hy:Կաթնասնկեր
+ja:チチタケ属
+ka:რძიანა სოკოები
+la:Lactarius
+lt:Piengrybis
+lv:Cūceņu ģints
+mk:млечка
+# myv:Пиче панго
+nb:Risker
+nl:melkzwam
+pl:mleczaj
+ru:Млечник
+sl:Mlečnica
+sv:Riskor
+tt:Гөреҗдә
+ud:Нингубиuk:Хрящ-молочник
+zh:乳菇屬
+# zh-cn:乳菇属
+# zh-hans:乳菇属
+# zh-hant:乳菇屬
+wikidata:en:Q748899
+wikipedia:https://en.wikipedia.org/wiki/Lactarius
+# ingredient/fr:lactaires has 53 products in french @2019-0121
+
+# LACTARIUS DELICIOSUS, commonly known as the saffron milk cap and red pine mushroom, is one of the best known members of the large milk-cap genus Lactarius in the order Russulales. 
+
+<en:milkcap
+en:saffron milk cap
+ar:فطر زعفراني حليبي الغطاء
+az:Narıncı südləyən
+be:Рыжык
+bg:обикновена млечница
+ca:pinetell
+co:Lattaghjolu
+cv:Хыр кăмпи
+cs:ryzec pravý
+cy:Cap llaeth saffrwm
+de:Edel-Reizker
+el:Κουμαρίτες
+es:Nícalo
+et:Porgandriisikas
+eu:Esnegorri
+fa:شیر-زعفران کلاه
+fi:Männynleppärousku
+fr:Lactaire délicieux
+gl:Níscaro
+hr:Rujnica
+hu:Ízletes rizike
+ka:მჭადა სოკო
+lt:Pušyninė rudmėsė
+lv:Priežu rudmiese
+mk:рујница
+nb:Furumatriske
+nl:Oranjegroene melkzwam
+nn:Furumatriske
+# olo:Leppysieni
+pl:Mleczaj rydz
+ro:Râșcov de brad
+ru:Рыжик настоящий
+# sah:Бэс кубачыына
+# sgs:Rodmēsė
+sh:Rujnica
+sk:Rýdzik pravý
+sl:Užitna sirovka
+sv:Tallblodriska
+tt:Җирән гөмбә
+uk:Рижик смачний
+zh:松乳菇
+# zh-tw:松乳菇
+wikidata:en:Q62138
+wikipedia:https://en.wikipedia.org/wiki/Lactarius_deliciosus
+
+<en:saffron milk cap
+en:lactarus deliciosus, lactarus déliciosus
+la:lactarius deliciosus
+# ingredient/fr:lactarus-déliciosus has 2 products in french @2019-01-22
+
+# LACTARIUS SANGUIFLUUS, commonly known as the bloody milk cap, is a species of fungus in the family Russulaceae.
+
+<en:milkcap
+en:bloody milk cap
+ca:rovelló
+cs:ryzec krvomléčný
+de:Weinroter Kiefern-Reizker
+et:Veririisikas
+fr:Lactaire sanguin
+gl:Níscaro de sangue
+pl:Mleczaj czerwieniejący
+ru:Рыжик красный
+sr:Врсовница
+sv:Vinriska
+
+<en:bloody milk cap
+en:Lactarius sanguifluus, lactarus sanguifluus
+la:Lactarius sanguifluus
+wikidata:en:Q961386
+wikipedia:en:https://en.wikipedia.org/wiki/Lactarius_sanguifluus
+
+
+# PHOLIOTA is a genus of small to medium-sized, fleshy mushrooms in the family Strophariaceae. 
+
+<en:mushroom
+en:pholiota
+be:Лускаўніца
+cs:šupinovka
+de:Schüpplinge
+fi:Helokat
+fr:pholiote, pholiotes
+hy:Բոցասնկեր
+ja:スギタケ属
+lt:Skujagalvė
+mk:лушпарка
+pl:Łuskwiak
+ru:Чешуйчатка
+sv:Tofsskivlingar
+zh:鱗傘屬
+# zh-cn:鳞伞属
+# zh-hans:鳞伞属
+wikipedia:en:https://en.wikipedia.org/wiki/Pholiota
+# ingredient/fr:pholiotes has 69 products in french @2019-01-22
+
+
+# Pholiota microspora, commonly known as Pholiota nameko or shortly nameko (ナメコ),[1] is a small, amber-brown mushroom with a slightly gelatinous coating
+
+<en:pholiota
+en:nameko
+ar:ناميكو
+cs:šupinovka nameko
+de:Japanisches Stockschwämmchen
+ja:ナメコ
+ko:나도팽나무버섯
+ru:Чешуйчатка съедобная
+sv:Namekotofsskivling
+zh:滑菇
+# zh-tw:光滑環銹傘
+
+<en:nameko
+en:Pholiota nameko
+la:Pholiota nameko, Pholiota microspora
+wikipedia:en:https://en.wikipedia.org/wiki/Pholiota_microspora
+# ingredient/fr:Pholiota-nameko has 5 products @2019-01-22
+
+
+# KUEHNEROMYCES MUTABILIS (synonym:Pholiota mutabilis), commonly known as the sheathed woodtuft, is an edible mushroom that grows in clumps on tree stumps or other dead wood. 
+
+<en:pholiota
+en:sheathed woodtuft
+bg:Кичуреста пънчушка
+cs:opeňka měnlivá
+cy:Siobyn coed bacsiog
+de:Gemeines Stockschwämmchen
+fi:Koivunkantosieni
+fr:Pholiote changeante
+hu:Ízletes tőkegomba
+is:Hverfisveppur
+ja:センボンイチメガサ
+ka:ზაფხულის მანჭკვალა
+lt:Paprastoji kelmiukė
+nl:Stobbezwammetje
+pl:łuskwiak zmienny
+ro:Gheba ciobanilor
+ru:Опёнок летний
+sv:Föränderlig tofsskivling
+zh:庫恩菇
+
+<en:sheathed woodtuft
+en:Pholiota mutabilis
+la:Pholiota mutabilis, Kuehneromyces mutabilis
+wikidata:en:Q732640
+wikipedia:en:https://en.wikipedia.org/wiki/Kuehneromyces_mutabilis
+
+
+# SUILLUS LUTEUS is a bolete fungus, and the type species of the genus Suillus. 
+
+<en:mushroom
+en:slippery jack, sticky bun, Suillus luteus
+bg:обикновена масловка
+ca:pinetell de calceta, Suillus luteus
+co:Pinaghjolu, Suillus luteus
+cs:klouzek obecný
+# csb:Gãsy pãpk
+cy:Boled llithrig, Suillus luteus
+de:Butterpilze, Butterpilze, Suillus luteus
+et:Võitatik, Suillus luteus
+fi:Voitatti, Suillus luteus
+fr:bolet jaune, bolets jaunes, Suillus luteus, Boletus luteus
+gl:Andoa anelada, Suillus luteus
+hu:Barna gyűrűstinóru, Suillus luteus
+is:Furusveppur, Suillus luteus
+ja:ヌメリイグチ
+la:Suillus luteus
+lt:Tikrasis kazlėkas, Suillus luteus
+lv:Parastā sviestbeka, Suillus luteus
+mn:Эгэл тосондой
+nb:Smørsopp, Suillus luteus
+nl:bruine boleten, Bruine ringboleet, Suillus luteus
+os:Цыргъкъопп зокъо
+pl:Maślak zwyczajny
+# pmo:Suillus luteus
+ro:Turta vacii, Suillus luteus
+ru:Маслёнок обыкновенный
+# sah:Бэс саһархайа
+# sgs:Slīduoks, Suillus luteus
+sv:Smörsopp, Suillus luteus
+uk:Маслюк звичайний
+# zh-cn:褐环乳牛肝菌
+# zh-hant:褐環乳牛肝菌
+# zh-tw:黃乳牛肝菌
+wikidata:Q816730
+wikipedia:https://en.wikipedia.org/wiki/Suillus_luteus
+# fr:bolets-jaunes has 72 products @2018-11-01
+
+
+# Volvariella volvacea (also known as paddy straw mushroom or straw mushroom) is a species of edible mushroom cultivated throughout East and Southeast Asia and used extensively in Asian cuisines.
+
+<en:mushroom
+en:straw mushroom
+ca:bolet de la palla
+cs:kukmák sklepní
+de:Dunkelstreifiger Scheidling
+fa:قارچ کاه
+fi:Viljelytuppisieni
+fr:Volvaire volvacée , Volvaire
+# hak:Chhó-kû
+hi:पुआल मशरूम
+id:Jamur merang
+ja:フクロタケ
+jv:Jamur merang
+nl:tropische beurszwam
+or:ପାଳ ଛତୁ
+pl:Pochwiak wielkopochwowy
+sv:Halmslidskivling
+th:เห็ดฟาง
+vi:Nấm rơm
+# yue:草菇
+zh:草菇
+# zh-tw:草菇
+
+<en:straw mushroom
+en:Volvariella Volvacea
+la:Volvariella Volvacea, Agaricus volvaceus, Volvaria volvacea
+wikidata:en:Q641656
+wikipedia:en:https://world.openfoodfacts.org/ingredient/fr:Volvaire has 2 products @2019-01-22
+
+
+# SUILLUS GRANULATUS is a pored mushroom of the genus Suillus in the family Suillaceae. 
+
+<en:mushroom
+en:weeping bolete, Suillus granulatus
+bg:зърнеста масловка
+ca:molleric granellut, Suillus granulatus
+cs:klouzek zrnitý, Suillus granulatus
+cy:Boled diferol, Suillus granulatus
+de:Körnchen-Röhrling, Suillus granulatus
+et:Lambatatik, Suillus granulatus
+fi:Jyvästatti, Suillus granulatus
+fr:Cèpe jaune des pins, Suillus granulatus
+he:אורנייה מצויה
+ja:チチアワタケ
+ka:დუმასოკო
+la:Suillus granulatus
+lt:Šilinis kazlėkas, Suillus granulatus
+lv:Graudainā sviestbeka, Suillus granulatus
+mk:волчјо лепче
+pl:Maślak ziarnisty, Suillus granulatus
+ro:Pitoașcă, Suillus granulatus
+ru:Маслёнок зернистый
+# sah:Бараах саһархайа
+sr:Боровњача
+sv:Grynsopp, Suillus granulatus
+uk:Маслюк зернистий
+# zh-tw:點柄乳牛肝菌
+wikidata:Q1142857
+# fr:Suillus granulatus has 4 products in 1 language @2018-11-01
+
+
+# The SHIITAKE (Lentinula edodes) is an edible mushroom native to East Asia, which is cultivated and consumed in many Asian countries.
+
+<en:mushroom
+en:shiitake
+de:shiitake, schwarzer Pilz
+es:setas negro
+fr:shiitake, champignon noir, champignons noirs, shiitakes
+nl:shiitake, zwarte paddestoel, Chinese champignons
+sv:svart champinjon
+# fr:champignon-noir has 111 products in 2 languages @2018-11-01
+
+<en:shiitake
+en:Lentinula edodes , Lentinus edodes
+la:Lentinula edodes
+# ingredient/fr:Lentinus-edodes has 21 products in french @2018-01-22
+
+<en:black mushroom
+fr:champignon noir réhydraté, champignons noirs réhydratés
+nl:gerehydrateerde Chinese champignons
+sv:rekonstituerad svart champinjon
+# fr:champignon-noir-réhydraté has 121 products in 3 languages @2018-11-01
+
+
+# PLEUROTUS OSTREATUS, the oyster mushroom, is a common edible mushroom. 
+
+<en:mushroom
+en:oyster mushroom, straw mushroom
+ba:Ҡарама бәшмәге
+be:Вешанка звычайная
+bg:кладница
+bo:ལེབ་ཤྭ།
+ca:auriana
+cs:hlíva ústřičná
+cy:Wystrysen y coed
+da:Almindelig Østershat
+de:Austern-Seitling, Austernpilz
+# de-ch:Austern-Seitling
+eo:Ostrofungo
+es:Champiñon ostra
+et:Austerservik
+eu:Belarri landu
+fa:قارچ چروک
+fi:Osterivinokas
+fr:pleurotes, pleurote en huitre, Pleurote en huître
+ga:Arc oisreach
+gl:Pleuroto
+hu:Késői laskagomba
+id:Jamur tiram
+it:ostrica funga
+ja:ヒラタケ
+jv:Jamur tiram
+ka:ხეთამხალი
+kk:Устрицалық вешенка
+# kk-arab:ۋسترىيتسالىق ۆەشەنكا
+# kk-cn:ۋسترىيتسالىق ۆەشەنكا
+# kk-cyrl:Устрицалық вешенка
+# kk-kz:Устрицалық вешенка
+# kk-latn:Wstrïcalıq veşenka
+# kk-tr:Wstrïcalıq veşenka
+ko:느타리
+lb:Austerechampignon
+lt:Gluosninė kreivabudė
+lv:austeru sānause
+# mdf:Устрицень вешенка
+mk:буковка
+ms:Cendawan tiram
+ne:कन्य च्याउ
+nl:oesterzwam, oesterzwammen
+pl:Boczniak ostrygowaty
+ps:صدفي پوڅکۍ
+pt:Shimeji-preto
+# pt-br:Shimeji-preto
+qu:Rinri q'utu qumutu
+ro:Păstrăv de fag
+ru:Вёшенка обыкновенная
+sh:Bukovačas
+sk:hliva ustricová
+sr:Буковача
+# sr-ec:Буковача
+# sr-el:Bukovača
+sv:Ostronmussling
+tr:Kavak mantarı
+uk:Плеврот черепичастий
+vi:Nấm sò
+# yue:蠔菇
+zh:平菇
+# zh-cn:平菇
+# zh-hans:平菇
+# zh-hant:平菇
+# zh-hk:平菇
+# zh-sg:平菇
+# zh-tw:糙皮側耳:
+wikidata:Q186451
+# fr:pleurotes has 119 products @2018-11-01
+
+<en:oyster mushroom
+en:Pleurotus ostreatus
+la:Pleurotus ostreatus
+wikipedia:https://en.wikipedia.org/wiki/Pleurotus_ostreatus
+
+
+# MARASMIUS OREADES, the Scotch bonnet, is also known as the fairy ring mushroom or fairy ring champignon.
+
+<en:Mushroom
+en:Scotch bonnet
+bg:обикновена челядинка
+ca:cama-sec
+cs:špička obecná
+cy:Madarch cylch
+de:Nelken-Schwindling
+et:Aasnööbik
+eu:Marasmio jangarri 
+fa:قارچ حلقه پریان
+fi:Nurminahikas
+fr:Mousseron, Marasme des Oréades
+gl:Sendeiriña
+hr:Vilin klinčac
+hu:Mezei szegfűgomba
+it:Gambesecche
+ja:シバフタケ
+ka:ჯიმლა
+la:Marasmius Oreades
+lt:Lauminis mažūnis
+mk:самовилско каранфилче
+nl:Weidekringzwam
+pl:Twardzioszek przydrożny
+ro:Burete de rouă
+sv:Nejlikbroskskivling
+uk:Опеньок луговий
+zh:硬柄小皮傘
+# zh-hans:硬柄小皮伞
+# zh-hant:硬柄小皮傘
+# zh-hk:硬柄小皮傘
+wikidata:en:Q752492
+wikipedia:en:https://en.wikipedia.org/wiki/Marasmius_oreades
+# ingredient/fr:Marasmius-Oreades has 1 product @2018-01-22
+
+<en:Scotch bonnet
+en:Marasmius oreades
+la:Marasmius oreades
+
+
+# AURICULARIA AURICULA-JUDAE, known as the Jew's ear, wood ear, jelly ear or by a number of other common names, is a species of edible Auriculariales fungus found worldwide.
+
+<en:mushroom
+en:wood ear, Jew's ear, black fungus, Auricularia auricula-judea, Auricularia Auricula Judea
+ar:أذن يهوذا
+# ast:Auricularia auricula-judae
+bg:юдино ухо
+ca:orella de Judes
+# cdo:Mŭk-ngī
+# ceb:Auricularia auricula-judae
+cs:ucho Jidášovo
+cy:Clustiau'r ysgaw
+da:Almindelig judasøre, Auricularia auricula-judea, Auricularia Auricula Judea
+de:Judasohrenpilze, Auricularia auricula-judea, Auricularia Auricula Judea
+eo:Judasorelo
+es:Auricularia auricula-judea, Auricularia Auricula Judea
+eu:Judasen belarri
+fa:قارچ گوش ژله‌ای
+fi:Juudaksenkorva, Auricularia auricula-judea, Auricularia Auricula Judea
+fr:Oreilles de Judas, Auricularia auricula-judea, Auricularia Auricula Judea
+# hak:Muk-mí
+he:אזנונית יהודה
+hr:Judino uho
+hu:Júdásfülegomba
+id:Jamur kuping merah
+it:orecchie di Giuda, Auricularia auricula-judea, Auricularia Auricula Judea
+ja:キクラゲ
+jv:Jamur kuping abang
+ko:목이
+la:Auricularia auricula-judae
+li:Judasoeër
+lt:Auricularia auricula-judae
+ml:ചെവിക്കൂൺ
+nl:judasoor, judasoren, Auricularia auricula-judea, Auricularia Auricula Judea
+pl:Uszak bzowy
+# pmo:Hirneola auricula-judae
+qu:Linli
+ro:Urechea lui Iuda
+ru:Аурикулярия уховидная, Auricularia auricula-judea, Auricularia Auricula Judea
+sh:Judino uho
+sr:Јудино уво
+# sr-ec:Јудино уво
+# sr-el:Judino uvo
+su:Lémbér beureum
+sv:Judasöra, Auricularia auricula-judea, Auricularia Auricula Judea
+th:เห็ดหูหนู
+uk:Аурикулярія вухоподібна
+vi:Nấm mèo
+wa:Oraye di Djuda
+# yue:雲耳
+zh:黑木耳
+# zh-cn:黑木耳
+# zh-hans:黑木耳
+# zh-hant:黑木耳
+# zh-hk:黑木耳
+# zh-sg:黑木耳
+# zh-tw:木耳
+wikidata:Q321342
+wikipedia:https://en.wikipedia.org/wiki/Auricularia_auricula-judae
+# fr:Oreilles de Judas has 24 products in 5 languages @2018-11-01
+
+
+# The summer truffle (Tuber aestivum) is a species of truffle, found in almost all European countries.
+
+<en:mushroom
+en:summer truffle
+az:Yay dombalanı
+be:Труфля летняя
+bg:Летен трюфел
+cs:lanýž letní
+cy:Cloren foch
+de:Sommer-trüffel
+et:Suvetrühvel
+eu:Udako boilur
+fr:truffle d’été, tuber aestivum
+hu:Nyári szarvasgomba
+it:Tartufo Scorzione
+lt:Vasarinis trumas
+nl:Zomertruffel
+pl:trufla letnia
+ru:Трюфель летний
+sv:Sommartryffel
+uk:Трюфель літній
+wikidata:en:Q74692
+wikipedia:en:https://en.wikipedia.org/wiki/Tuber_aestivum
+# ingredient/fr:tuber-aestivum has 35 products in 4 languages @2018-12-14
+
+<en:summer truffle
+en:Tuber aestivum
+la:Tuber aestivum
+
+
+# Penicilliumn ascomycetous fungi are of major importance in the natural environment as well as food and drug production.
+
+# <en:fungus
+en:Penicillium
+ar:بنيسيليوم
+be:Пеніцыл
+bg:Хлебен мухъл
+cs:štětičkovec
+es:Monda
+et:Hallitus
+fr:pénicillium, penicillium
+he:פניציליום
+hi:पेनिसिलियम
+hy:Վրձնասունկ
+ja:アオカビ
+ka:პენიცილიუმი
+kk:Пеницилл
+ko:푸른곰팡이
+ku:Xewr
+la:Penicillium
+lb:Pinselschimmel
+lt:Pelėjūnas
+la:Penicillium
+nb:penselmuggsopper
+nn:penselmuggsoppar
+pl:pędzlak
+# pnb:پینیسیلیم
+ru:Пеницилл
+sl:Čopičaste plesni
+zh:青黴菌
+# zh-hans:青霉菌
+# zh-hant:青黴菌
+# zh-hk:青黴菌
+wikidata:en:Q843136
+wikipedia:en:https://en.wikipedia.org/wiki/Penicillium
+# ingredient/fr:penicillium has 29 products in 3 languages @2019-01-30
+
+<en:penicillium
+en: pencillium roqueforti
+fr:penicillium roqueforti
+la: pencillium roqueforti
+# ingredient/fr:penicillium-roqueforti has 103 products @2019-01-30
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -30104,6 +33810,9 @@ fr:fumet de poissons de la Méditerranée
 <fr:fumet de poisson
 fr:fumet de poisson aromatisé
 
+<en:fish
+de:Fischmuskeleiweiß
+
 # Rockfish is a common term for several species of fish, referring to their tendency to hide among rocks.
 
 <en:fish
@@ -30191,6 +33900,56 @@ fr:poissons et crustacés mis en œuvre
 
 <en:fish
 fr:poissons entiers pêchés en Méditerranée
+
+
+# The Alaska pollock, derpcod, or walleye pollock (Gadus chalcogrammus) is a marine fish species of the cod family Gadidae. 
+
+<en:fish
+en:alaska pollock, Alaskan pollock
+az: Mintay
+bg: treska pestrá
+ca: peix carboner d'Alaska
+de:Alaska Seelachs, Alaska-Pollack, Alaska-Seelachs
+es: Abadejo de Alaska, colín de Alaska
+fa: زغال‌ماهی آلاسکا
+fi: Alaskanseiti
+fr:Colin d'Alaska
+is: Alaskaufsi
+it:merluzzo dell'Alaska, pollack, Pollack d'Alaska
+ja: スケトウダラ
+ka: მინტაი
+kk: Минтай
+ko: 명태
+ky: Минтай
+ms: Pollock Alaska
+nb: Alaskatheragra
+nl: Alaskakoolvis, alaskapollak, Alaska koolvis
+pl: Mintaj
+pt: merluza-do-alasca
+ru: Минтай
+sv: Alaska pollock
+uk: Минтай далекосхідний
+vi: Cá minh thái Alaska
+# yue: 阿拉斯加鱈
+zh: 黄线狭鳕
+# zh-hans:黄线狭鳕
+# zh-hant:黃線狹鱈
+# zh-hk:黃線狹鱈
+wikidata:en: Q846231
+wikipedia:en:https://en.wikipedia.org/wiki/Alaska_pollock
+
+<en:alaska pollock
+en:Alaskan Pollock fillet
+de:Alaska-Seelachsfilet, Alaska Seelachs-Filet
+es:abadejo de Alaska
+fr:filet de colin d'Alaska, filets de colin d'alaska
+it: Fietti di Merluzzo dell'Alaska
+nl:Alaska koolvisfilet
+# ingredient/alaskan-pollock-fillet has 88 products @2018-12-29
+
+<en:alaska pollock
+en:Theragra chalcogramma
+la:Theragra chalcogramma
 
 
 # An anchovy is a small, common forage fish of the family Engraulidae. 
@@ -30283,6 +34042,11 @@ nl:ansjovisextract
 # ingredient/anchovy-extract has 158 products in 7 languages @2019-01-06
 
 <en:anchovy
+fr:anchois salés
+# ingredient/fr:anchois-salés has 43 products in 4 languages @2019-01-12
+# Anchois salés (Anchois, sel)
+
+<en:anchovy
 fr:filets d'anchois
 de:Sardellenfilets
 it:Filetti d'acciuga
@@ -30294,9 +34058,129 @@ fr:filets d'anchois salés
 it:filetti di acciughe salate
 # ingredient/fr:filets-d’anchois-salés has 41 products in 4 languages @2019-02-06
 
+
+# The European anchovy (Engraulis encrasicolus) is a forage fish somewhat related to the herring. 
+
+<en:anchovy
+en:European anchovy
+be:Еўрапейскі анчоус
+br:Genougamm Europa
+# csb:Eùropejskô sardela
+de:Europäische Sardelle
+fr:anchois commun
+kw:Lavyn europek
+la:Engraulis encrasicolus, Engraulis encrasicholus
+lt:Europinis ančiuvis
+pl:Sardela europejska
+ru:Европейский анчоус
+uk:Анчоус європейський
+# wikidata:en:188387 translations can not be trusted
+wikipedia:en:https://en.wikipedia.org/wiki/European_anchovy
+# ingredient/fr:Engraulis-encrasicolus has 32 products @2019-01-12
+# ingredient/fr:Engraulis-encrasicholus has 1 product @2019-01-12
+
 <en:anchovy
 la:Stolephorus spp
 wikipedia:en:https://en.wikipedia.org/wiki/Stolephorus
+
+
+# The anglerfish is a fish of the teleost order Lophiiformes
+
+<en:fish
+en:Anglerfish, angler fish
+ar:عفريت البحر
+# ast:Pixín
+az:Dəniz şeytanı
+bg:морски дявол
+br:Boultouz
+ca:rap
+co:Rospu
+cs:ďas mořský
+cy:Cythraul y Môr
+da:Havtaske
+de:Seeteufel
+el:πεσκανδρίτσα
+eo:Lofio
+es:Rape común
+et:Euroopa merikurat
+eu:Zapo zuri
+fa:ماهی‌گیر
+fi:Merikrotti
+fo:Havtaska
+fr:Baudroie commune
+gl:Peixe sapo
+he:חכאי גמלוני
+hr:Grdobina mrkulja
+hu:Európai horgászhal
+is:Skötuselur
+it:Rana Pescatrice
+ja:ニシアンコウ
+ka:ზღვის ეშმაკი
+lij:Budego
+nb:breiflabb
+nl:Zeeduivel
+nn:Breiflabb
+# pcd:Crapoe
+pl:Żabnica
+pt:Peixe-pescador
+ro:Dracul de mare
+ru:Европейский удильщик
+sh:Grdobina mrkulja
+sl:Morska žaba
+sv:Marulk
+tr:Fener balığı
+uk:Морський чорт
+zh:釣鮟鱇
+# zh-cn:钓鮟鱇
+# zh-hans:钓𩽾𩾌
+# zh-hant:釣鮟鱇
+# zh-hk:釣鮟鱇
+# zh-sg:钓鮟鱇
+# zh-tw:釣鮟鱇
+wikipedia:en:https://en.wikipedia.org/wiki/Anglerfish
+# ingredient/en:angler-fish has 2 products @2019-01-12
+
+# latin name is kept separate as there are multiple species for an anglerfish
+
+<en:anglerfish
+en:Lophius piscatorius
+la:Lophius piscatorius
+
+
+# The Atlantic wolffish (Anarhichas lupus), also known as the seawolf, Atlantic catfish, ocean catfish, devil fish, wolf eel (the common name for its Pacific relative), woof or sea cat, is a marine fish of the wolffish family Anarhichadidae. 
+
+<en:fish
+en:Atlantic wolffish
+ar:عريك أطلسي
+bg:ивичеста зъбатка
+ca:peix llop
+cs:vlkouš obecný
+cy:Morflaidd
+da:Havkat
+de:Gestreifter Seewolf
+fa:گرگ‌ماهی اطلسی
+fi:Merikissa
+fo:Steinbítur
+fr:loup d'atlantique
+ga:Cat mara an Atlantaigh
+he:דג זאב אטלנטי
+is:Steinbítur
+lt:Paprastoji vilkžuvė
+mk:морски волк
+nb:Gråsteinbit
+nl:Zeewolf
+pl:Zębacz pasiasty
+ru:Полосатая зубатка
+se:Stáinnir
+sr:Морски вук
+sv:Havskatt
+wikidata:en:Q934761
+wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_wolffish
+# ingredient/fr:loup-d’atlantique has 1 product @2019-01-15
+
+<en:Atlantic wolffish
+en:Anarhichas lupus
+la:Anarhichas lupus
 
 
 # The blue whiting, Micromesistius poutassou, one of the two species in the genus Micromesistius in the cod family, is common in the northeast Atlantic Ocean from Morocco to Iceland and Spitsbergen
@@ -30587,7 +34471,46 @@ fr:œufs de cabillaud fumés et salés
 # ingredient/fr:œufs-de-cabillaud-fumés-et-salés has 30 products in french @2018-12-29
 
 
+# The corvina, also known as the corvina drum (Cilus gilberti), is a saltwater fish of the Sciaenidae family (commonly called croakers or drums).
+
+<en:fish
+en:corvina
+pl:Corvina
+zh:吉氏毛突石首魚
+# ingredient/corvina has 2 products @2019-01-13
+
+<en:corvina
+en:Cilus gilberti
+la:Cilus gilberti
+wikidata:en:Q2017562
+wikipedia:en:https://en.wikipedia.org/wiki/Cilus_gilberti
+
+
+# The deepwater redfish (Sebastes mentella), also known as the beaked redfish, ocean perch,[2] Atlantic redfish, Norway haddock, red perch, golden redfish, or hemdurgan
+
+<en:fish
+en:deepwater redfish
+de:Tiefenrotbarsch
+fa:صخره‌ماهی ژرف‌زی
+fo:Trantkongafiskur
+fr:dorade sébaste, Dorade-sébaste
+is:Djúpkarfi
+nb:Snabeluer
+nl:Diepzeeroodbaars
+sv:Djuphavskungsfisk
+zh:尖吻平鮋
+wikidata:en:Q1700062
+wikipedia:en:https://en.wikipedia.org/wiki/Deepwater_redfish
+# ingredient/fr:dorade-sébaste has 2 products @2019-01-15
+
+<en:deepwater redfish
+en:Sebastes mentella
+la:Sebastes mentella
+
+
 # The European conger (Conger conger) is a species of conger of the family Congridae. It is the largest eel in the world and native to the northeast Atlantic, including the Mediterranean Sea.
+
+# should there be a separate group for en:conger?
 
 <en:fish
 <en:rockfish
@@ -30736,6 +34659,67 @@ zh:角魚科
 wikidata:en:Q250699
 wikipedia:en:https://en.wikipedia.org/wiki/Triglidae
 # ingredient/fr:grondin has 8 products in french @2019-01-01
+
+
+# The haddock (Melanogrammus aeglefinus) is a saltwater fish from the family Gadidae, the true cods
+
+<en:fish
+en:haddock
+af:Skelvis
+ar:الحدوق
+az:Pikşa
+bg:пикша
+br:Azen
+ca:eglefí
+cs:treska skvrnitá
+cy:Hadog
+da:Kuller
+de:Schellfisch
+# en-gb:haddock
+eo:Eglefino
+es:Eglefino
+fa:روغن‌ماهی کوچک
+fi:Kolja
+fo:Hýsa
+fr:églefin
+ga:Cadóg
+gd:Adag
+gl:Fogoeiro
+hu:Foltos tőkehal
+hy:Պիշկա
+id:Haddock
+io:Eglefino
+is:Ýsa
+it:elgefino
+ja:コダラ
+ka:პიქშა
+lt:Juodadėmė menkė
+mk:пишмол
+nb:hyse
+nn:hyse
+# pcd:Éqhélfin
+pl:Plamiak
+pt:Eglefino
+ro:Eglefin
+ru:Пикша
+# sco:haddock
+sv:Kolja
+tr:Mezgit
+uk:Пікша
+zh:黑線鱈
+# zh-cn:黑线鳕
+# zh-hans:黑线鳕
+# zh-hant:黑線鱈
+# zh-hk:黑線鱈
+# zh-sg:黑线鳕
+# zh-tw:黑線鱈
+wikidata:en:Q202406
+wikipedia:en:https://en.wikipedia.org/wiki/Haddock
+
+<en:haddock
+en:Melanogrammus aeglefinus
+la:Melanogrammus aeglefinus
+# ingredient/fr:Melanogrammus-aeglefinus has 16 products @2019-01-14
 
 
 # The term hake /heɪk/ refers to fish in either of: Family Merlucciidae of northern and southern oceans or the Family Phycidae (sometimes subfamily Phycinae in family Gadidae) of the northern oceans.
@@ -31192,6 +35176,31 @@ zh:鮭魚
 wikipedia:en:https://en.wikipedia.org/wiki/Salmon_as_food
 # ingredient/salmon has 1659 products in 6 languages @2018-12-29
 
+<en:salmon
+fr:saumon cuit
+de:Lachs gekocht
+# ingredient/fr:saumon-cuit has 49 products in 2 languages @2018-12-29
+
+#<en:salmon
+#fr:pavé de saumon d'élevage
+#carbon_footprint_fr_foodges_ingredient:fr:Pavé de Truite ou Saumon d'élevage
+# no products
+
+#<en:salmon
+#fr:saumon fumé d'élevage
+#carbon_footprint_fr_foodges_ingredient:fr:Truite/Saumon fumé d'élevage
+# no products
+
+# en:smoked-salmon is a compound ingredient
+
+<en:salmon
+en:smoked salmon
+de:Räucherlachs
+fr:saumon fumé
+it:salmone affumicato
+# ingredient/smoked-salmon has 292 products in 4 languages @2018-12-29
+
+
 # The Atlantic salmon (Salmo salar) is a species of ray-finned fish in the family Salmonidae. 
 
 <en:salmon
@@ -31271,10 +35280,56 @@ wikidata:en:Q188879
 wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_salmon
 # ingredient/fr:saumon-atlantique has 687 products in 5 languages @2018-12-29
 
+
+# The chum salmon (Oncorhynchus keta) is a species of anadromous fish in the salmon family. 
+
 <en:salmon
-fr:saumon cuit
-de:Lachs gekocht
-# ingredient/fr:saumon-cuit has 49 products in 2 languages @2018-12-29
+en:Chum salmon
+be:Кета
+bg:куча сьомга
+ca:salmó keta
+de:Ketalachs
+eo:Ketao
+et:Keta
+fa:ساکه
+fi:Koiralohi
+he:אלתית צ'אם
+hu:Ketalazac
+hy:կետա
+ja:サケ
+ka:კეტა
+kk:Кете
+# kk-arab:كەتە
+# kk-cn:كەتە
+# kk-cyrl:Кете
+# kk-kz:Кете
+# kk-latn:Kete
+# kk-tr:Kete
+ko:연어
+mk:кучешки лосос
+nb:ketalaks
+nl:Chumzalm
+# pam:Chum salmon
+pl:Keta
+ru:Кета
+# sah:Кэтэ
+uk:Кета
+vi:Cá hồi Chum
+zh:鈎吻鮭
+# zh-hans:大麻哈鱼
+# zh-cn:大麻哈鱼
+# zh-hant:鈎吻鮭
+# zh-hk:大麻哈魚
+# zh-sg:大麻哈鱼
+# zh-tw:鈎吻鮭
+wikidata:en:Q475211
+wikipedia:en:https://en.wikipedia.org/wiki/Chum_salmon
+
+<en:Chum salmon
+en:Oncorhynchus kéta
+la:Oncorhynchus kéta
+# ingredient/fr:Oncorhynchus-kéta has 22 products @2019-01-14
+
 
 # Pink salmon or humpback salmon (Oncorhynchus gorbuscha) is a species of anadromous fish in the salmon family.
 
@@ -31300,7 +35355,6 @@ ja:カラフトマス
 ka:ღურკანა
 ko:곱사연어
 ky:Бүкүр сом
-
 nb:Pukkellaks
 nl:Roze zalm
 # pam:Pink salmon
@@ -31320,31 +35374,11 @@ wikidata:en:Q673380
 wikipedia:en:https://en.wikipedia.org/wiki/Pink_salmon
 # ingredient/fr:saumon-rose-du-pacifique has 46 products in french @2018-12-29
 
-<en:salomon
+<en:pink salomon
 en:Oncorhynchus gorbuscha
 la:Oncorhynchus gorbuscha
-
-#<en:salmon
-#fr:pavé de saumon d'élevage
-#carbon_footprint_fr_foodges_ingredient:fr:Pavé de Truite ou Saumon d'élevage
-# no products
-
-#<en:salmon
-#fr:saumon fumé d'élevage
-#carbon_footprint_fr_foodges_ingredient:fr:Truite/Saumon fumé d'élevage
-# no products
-
-# en:smoked-salmon is a compound ingredient
-
-<en:salmon
-en:smoked salmon
-de:Räucherlachs
-fr:saumon fumé
-it:salmone affumicato
-# ingredient/smoked-salmon has 292 products in 4 languages @2018-12-29
-
-
-# A tuna (also called tunny) is a saltwater fish that belongs to the tribe Thunnini, a subgrouping of the Scombridae (mackerel) family.
+# ingredient/oncorhynchus-gorbuscha has 27 products @2019-01-14
+# http://www.marinespecies.org/aphia.php?p=taxdetails&id=127182
 
 
 # The European pilchard (Sardina pilchardus) is a species of ray-finned fish in the monotypic genus Sardina. 
@@ -31425,6 +35459,103 @@ la:Sardina pilchardus
 # Sardines (Sardina pilchardus)
 
 
+# Scorpaenidae (also known as the scorpionfish) are a family of mostly marine fish that includes many of the world's most venomous species.
+
+<en:fish
+en:scorpion fish
+ar:عقارب البحر
+bg:риби скорпион
+ca:Escorpènid
+cs:ropušnicovití
+cy:Pysgodyn Safnlas
+da:Dragehovedfisk
+de:Skorpionfische
+dv:ފަންހާމަސް އާއިލާ
+fa:عقرب‌ماهیان
+fi:Skorpionisimput
+ga:Scairpiasc
+he:עקרבנוניים
+hr:Bodeljke
+hu:Skorpióhalfélék
+is:Karfaætt
+ja:フサカサゴ科
+ka:სკორპენისებრნი
+ko:양볼락과
+la:Scorpaenidae
+lt:Skorpeninės
+ml:തേൾ മത്സ്യം
+nb:Skorpionfisker
+pl:Skorpenowate
+# pnb:بچھو مچھی
+ru:скорпеновые
+sk:Ropušnicovité
+sv:Drakhuvudfiskar
+th:วงศ์ปลาแมงป่อง
+uk:скорпенові
+vi:Họ Cá mù làn
+zh:鮋科
+# zh-cn:鲉科
+# zh-hans:鲉科
+# zh-hant:鮋科
+# zh-hk:鮋科
+# zh-sg:鲉科
+# zh-tw:鮋科
+wikipedia:en:Q386535
+wikipedia:en:https://en.wikipedia.org/wiki/Scorpaenidae
+
+
+# Surimi  refers to a paste made from fish or other meat.
+
+<en:fish
+en:surimi
+ar:سوريمي
+ca: Surimi
+cs: Surimi
+da: Surimi
+de:surimi
+eo: Surimi
+es: Surimi
+et: Surimi
+eu: Surimi
+fa:سوریمی
+fi: Surimi
+fr:surimi
+gl: Surimi
+id: Surimi
+is: Surimi
+it: Surimi
+ja:魚肉練り製品
+jv: Surimi
+ko:고기풀
+ln: Surimi
+mk:сурими
+ms: Surimi
+nb: Surimi
+nl: Surimi
+pl: Surimi
+pt: Surimi
+ru:сурими
+# scn: Surimi
+sk: Surimi
+sv: Surimi
+tl: Surimi
+tr: Surimi
+uk:Сурім
+vi: Surimi і
+zh:魚漿
+# zh-hans:魚漿
+# zh-hant:魚漿
+# zh-hk:魚漿
+wikidata:en:Q815740
+wikipedia:en:https://en.wikipedia.org/wiki/Surimi
+# ingredient/fr:surimi has 145 products in 2 languages @2019-01-12
+# surimi (protéines de muscles de poisson, sucre)
+
+<ensurimi
+fr:surimi à base de protéines de muscles de poisson
+de:Surimi-Krebsfleischimitat aus Fischmuskeleiweiß geformt
+
+
 <en:fish
 en:thread-fin bream
 ar: عندق
@@ -31443,6 +35574,8 @@ wikidata:en: Q1842575
 wikipedia:en:https://en.wikipedia.org/wiki/Nemipterus
 # ingredient/fr:Nemipterus-spp has 2 products in french @2019-01-07
 
+
+# A tuna (also called tunny) is a saltwater fish that belongs to the tribe Thunnini, a subgrouping of the Scombridae (mackerel) family.
 
 <en:fish
 en:tuna
@@ -31574,7 +35707,7 @@ es:Bonito de altura, listado
 eu:Lanpo sabelmarradun
 fa:هوور مسقطی
 fi:Boniitti
-fr:thon listao
+fr:thon listao, bonite à ventre rayé
 ga:Boiníotó aigéanach
 gl:Atún listado
 he:אטונס שחור קווים
@@ -31663,7 +35796,7 @@ fr:thon au naturel
 # The blue grenadier, hoki, blue hake, New Zealand whiptail, whiptail or whiptail hake (Macruronus novaezelandiae) is a merluccid hake of the family Merlucciidae found around southern Australia and New Zealand,
 
 <en:fish
-en:blue greadier
+en:blue grenadier
 ca:lluç de cua afuada neozelandès
 cs:treskovník novozélandský
 de:Hoki
@@ -31693,7 +35826,7 @@ ru:Новозеландский макруронус
 
 <en:hake
 en:Patagonian grenadier
-bg: патагонски гренадир
+bg:патагонски гренадир
 es:merluza de cola
 fr:grenadier patagonien, merluche patagonienne, Hoku argentin
 it:nasello patagonico, merluzzo patagonico
@@ -31796,213 +35929,12 @@ fr:filets de maquereaux cuits au court-bouillon
 # structure:outer:role:compound, eg Filets de maquereaux cuits au court-bouillon (filets de maquereaux 55%, sel, épices et aromates)
 
 
-# The Alaska pollock, derpcod, or walleye pollock (Gadus chalcogrammus) is a marine fish species of the cod family Gadidae. 
+# Molva est un genre de poissons appelés lingues, élingues ou juliennes.
 
 <en:fish
-en:alaska pollock, Alaskan pollock
-az: Mintay
-bg: treska pestrá
-ca: peix carboner d'Alaska
-de:Alaska Seelachs, Alaska-Pollack, Alaska-Seelachs
-es: Abadejo de Alaska, colín de Alaska
-fa: زغال‌ماهی آلاسکا
-fi: Alaskanseiti
-fr:Colin d'Alaska
-is: Alaskaufsi
-it:merluzzo dell'Alaska, pollack, Pollack d'Alaska
-ja: スケトウダラ
-ka: მინტაი
-kk: Минтай
-ko: 명태
-ky: Минтай
-ms: Pollock Alaska
-nb: Alaskatheragra
-nl: Alaskakoolvis, alaskapollak, Alaska koolvis
-pl: Mintaj
-pt: merluza-do-alasca
-ru: Минтай
-sv: Alaska pollock
-uk: Минтай далекосхідний
-vi: Cá minh thái Alaska
-# yue: 阿拉斯加鱈
-zh: 黄线狭鳕
-# zh-hans:黄线狭鳕
-# zh-hant:黃線狹鱈
-# zh-hk:黃線狹鱈
-wikidata:en: Q846231
-wikipedia:en:https://en.wikipedia.org/wiki/Alaska_pollock
-
-<en:alaska pollock
-en:Alaskan Pollock fillet
-de:Alaska-Seelachsfilet, Alaska Seelachs-Filet
-es:abadejo de Alaska
-fr:filet de colin d'Alaska, filets de colin d'alaska
-it: Fietti di Merluzzo dell'Alaska
-nl:Alaska koolvisfilet
-# ingredient/alaskan-pollock-fillet has 88 products @2018-12-29
-
-<en:alaska pollock
-en:Theragra chalcogramma
-la:Theragra chalcogramma
-
-
-# Trout is the common name for a number of species of freshwater fish belonging to the genera Oncorhynchus, Salmo and Salvelinus, all of the subfamily Salmoninae of the family Salmonidae. 
-
-<en:fish
-en:trout
-# ang:Sceota
-ar:أسماك التروتة
-# ast:Trucha
-az:Alabalıq
-# be-tarask:Стронга
-bg:Пъстърва
-ca:truita
-# chr:ᏧᎾᎦ
-cs:pstruh
-cv:Ăркай
-cy:brithyll
-de:Forellen
-eo:Truto
-es:Trucha
-et:Forell
-eu:Amuarrain
-fa:قزل‌آلا
-fo:Síl
-fr:truite
-ga:Breac
-gd:Breac
-gl:Troita
-he:טרוטה
-hr:Pastrve
-ht:Twit
-hu:Pisztráng
-hy:Կարմրախայտ
-id:Trout
-io:Truto
-it:trota
-ja:マス
-ka:კალმახები
-kk:Бақтақ
-ko:송어류
-ku:Deqsor
-la:Tructa
-lt:Upėtakis
-lv:Forele
-ml:ട്രൗട്ട്
-my:ထရောက်ငါး
-ne:ट्राउट
-nl:forel
-pl:Pstrąg
-# pnb:ٹراؤٹ
-pt:truta
-ro:Păstrăv
-ru:Форель
-# rue:Пструг
-sk:Pstruh
-sq:Trofta
-sv:Öring
-tl:Trutsa
-tr:Alabalık
-uk:Пструг
-uz:Gulmoyi
-vi:Cá hương
-zh:鱒魚
-wikidata:en:Q2258881
-wikipedia:en:https://en.wikipedia.org/wiki/Trout
-# ingredient/fr:truite has 53 products in 3 languages @2018-12-30
-# structure:outer:role:synonym,  eg Truite (Oncorhynchus mykiss)
-
-
-# The rainbow trout (Oncorhynchus mykiss) is a trout and species of salmonid native to cold-water tributaries of the Pacific Ocean in Asia and North America.
-
-<en:trout
-en:rainbow trout
-af:Reënboogforel
-az:Al-əlvan qızılxallı
-be:Стронга радужная
-bg:дъгова пъстърва
-bn:রেইনবো ট্রাউট
-br:Dluzh kanevedenn
-bs:Kalifornijska pastrmka
-ca:truita arc de Sant Martí
-cs:pstruh duhový
-cy:Brithyll Seithliw
-da:Regnbueørred
-de:Regenbogenforelle
-eo:Ĉielarka truto
-es:Trucha arcoiris
-et:Vikerforell
-eu:Ortzadar-amuarrain
-fa:قزل‌آلای رنگین‌کمان
-fi:kirjolohi
-fr:truite arc-en-ciel
-gl:Troita arco da vella
-he:טרוטת עין-הקשת
-hr:Kalifornijska pastrva
-hu:Szivárványos pisztráng
-hy:ծիածանախայտ
-is:Regnbogasilungur
-it:rota iridea
-ja:ニジマス
-kk:Құбылмалы бахтах
-ko:무지개송어
-ky:Микижа
-lb:Reeboufrell
-lt:Vaivorykštinis upėtakis
-mk:Калифорниска пастрмка
-ml:റെയിൻബോ ട്രൗട്ട്
-nb:Regnbueørret
-nl:regenboogforel
-nn:Regnbogeaure
-pl:Pstrąg tęczowy
-# pnb:سترنگی ٹراؤٹ
-pt:Truta-arco-íris
-ro:Păstrăv curcubeu
-ru:Микижа
-# rue:Пструг дуговый
-sh:Kalifornijska pastrva
-sk:Pstruh dúhový
-sl:Šarenka
-sr:Калифорнијска пастрмка
-# sr-ec:Калифорнијска пастрмка
-# sr-el:Kalifornijska pastrmka
-sv:Regnbågsöring
-th:ปลาเรนโบว์เทราต์
-tl:Trutsang bahaghari
-tr:Gökkuşağı alabalığı
-uk:Пструг райдужний
-vi:Cá hồi vân
-zh:虹鱒
-# zh-cn:虹鳟
-# zh-hans:虹鳟
-# zh-hant:虹鱒
-# zh-hk:虹鱒
-# zh-sg:虹鳟
-# zh-tw:麥奇鉤吻鮭
-wikidata:en:Q187986
-wikipedia:en:https://en.wikipedia.org/wiki/Rainbow_trout
-# ingredient/fr:truite%20arc-en-ciel has 81 products in 3 languages @2018-12-30
-# structure:outer:role:synonym,  eg Truite arc-en-ciel (oncorhynchus mykiss)
-
-<en:rainbow trout
-en:Oncorhynchus mykiss
-la:Oncorhynchus mykiss
-# structure:inner:role:synonym,  eg:Truite (Oncorhynchus mykiss)
-
-# <fr:truite
-# fr:truite d'élevage entière
-# carbon_footprint_fr_foodges_ingredient:fr:Truite d'élevage, entière
-# no products @2018-12-30
-
-# <fr:truite
-# fr:pavé de truite d'élevage
-# carbon_footprint_fr_foodges_ingredient:fr:Pavé de Truite ou Saumon d'élevage
-# no products @2018-12-30
-
-# <fr:truite
-# fr:Truite fumée d'élevage
-# carbon_footprint_fr_foodges_ingredient:fr:Truite/Saumon fumé d'élevage
-# no products @2018-12-30
+fr:lingue
+la:Molva
+# ingredient/fr:lingue has 1 product @2019-01-16
 
 
 # The Sparidae are a family of fish in the order Perciformes, commonly called sea breams and porgies.
@@ -32214,6 +36146,165 @@ la:Xiphias gladius
 # structure:inner:role:synonym,  eg: swordfish (xiphias gladius)
 
 
+# Trout is the common name for a number of species of freshwater fish belonging to the genera Oncorhynchus, Salmo and Salvelinus, all of the subfamily Salmoninae of the family Salmonidae. 
+
+<en:fish
+en:trout
+# ang:Sceota
+ar:أسماك التروتة
+# ast:Trucha
+az:Alabalıq
+# be-tarask:Стронга
+bg:Пъстърва
+ca:truita
+# chr:ᏧᎾᎦ
+cs:pstruh
+cv:Ăркай
+cy:brithyll
+de:Forellen
+eo:Truto
+es:Trucha
+et:Forell
+eu:Amuarrain
+fa:قزل‌آلا
+fo:Síl
+fr:truite
+ga:Breac
+gd:Breac
+gl:Troita
+he:טרוטה
+hr:Pastrve
+ht:Twit
+hu:Pisztráng
+hy:Կարմրախայտ
+id:Trout
+io:Truto
+it:trota
+ja:マス
+ka:კალმახები
+kk:Бақтақ
+ko:송어류
+ku:Deqsor
+la:Tructa
+lt:Upėtakis
+lv:Forele
+ml:ട്രൗട്ട്
+my:ထရောက်ငါး
+ne:ट्राउट
+nl:forel
+pl:Pstrąg
+# pnb:ٹراؤٹ
+pt:truta
+ro:Păstrăv
+ru:Форель
+# rue:Пструг
+sk:Pstruh
+sq:Trofta
+sv:Öring
+tl:Trutsa
+tr:Alabalık
+uk:Пструг
+uz:Gulmoyi
+vi:Cá hương
+zh:鱒魚
+wikidata:en:Q2258881
+wikipedia:en:https://en.wikipedia.org/wiki/Trout
+# ingredient/fr:truite has 53 products in 3 languages @2018-12-30
+# structure:outer:role:synonym,  eg Truite (Oncorhynchus mykiss)
+
+
+# The rainbow trout (Oncorhynchus mykiss) is a trout and species of salmonid native to cold-water tributaries of the Pacific Ocean in Asia and North America.
+
+<en:trout
+en:rainbow trout
+af:Reënboogforel
+az:Al-əlvan qızılxallı
+be:Стронга радужная
+bg:дъгова пъстърва
+bn:রেইনবো ট্রাউট
+br:Dluzh kanevedenn
+bs:Kalifornijska pastrmka
+ca:truita arc de Sant Martí
+cs:pstruh duhový
+cy:Brithyll Seithliw
+da:Regnbueørred
+de:Regenbogenforelle
+eo:Ĉielarka truto
+es:Trucha arcoiris
+et:Vikerforell
+eu:Ortzadar-amuarrain
+fa:قزل‌آلای رنگین‌کمان
+fi:kirjolohi
+fr:truite arc-en-ciel
+gl:Troita arco da vella
+he:טרוטת עין-הקשת
+hr:Kalifornijska pastrva
+hu:Szivárványos pisztráng
+hy:ծիածանախայտ
+is:Regnbogasilungur
+it:rota iridea
+ja:ニジマス
+kk:Құбылмалы бахтах
+ko:무지개송어
+ky:Микижа
+lb:Reeboufrell
+lt:Vaivorykštinis upėtakis
+mk:Калифорниска пастрмка
+ml:റെയിൻബോ ട്രൗട്ട്
+nb:Regnbueørret
+nl:regenboogforel
+nn:Regnbogeaure
+pl:Pstrąg tęczowy
+# pnb:سترنگی ٹراؤٹ
+pt:Truta-arco-íris
+ro:Păstrăv curcubeu
+ru:Микижа
+# rue:Пструг дуговый
+sh:Kalifornijska pastrva
+sk:Pstruh dúhový
+sl:Šarenka
+sr:Калифорнијска пастрмка
+# sr-ec:Калифорнијска пастрмка
+# sr-el:Kalifornijska pastrmka
+sv:Regnbågsöring
+th:ปลาเรนโบว์เทราต์
+tl:Trutsang bahaghari
+tr:Gökkuşağı alabalığı
+uk:Пструг райдужний
+vi:Cá hồi vân
+zh:虹鱒
+# zh-cn:虹鳟
+# zh-hans:虹鳟
+# zh-hant:虹鱒
+# zh-hk:虹鱒
+# zh-sg:虹鳟
+# zh-tw:麥奇鉤吻鮭
+wikidata:en:Q187986
+wikipedia:en:https://en.wikipedia.org/wiki/Rainbow_trout
+# ingredient/fr:truite%20arc-en-ciel has 81 products in 3 languages @2018-12-30
+# structure:outer:role:synonym,  eg Truite arc-en-ciel (oncorhynchus mykiss)
+
+<en:rainbow trout
+en:Oncorhynchus mykiss
+la:Oncorhynchus mykiss
+# structure:inner:role:synonym,  eg:Truite (Oncorhynchus mykiss)
+
+# <fr:truite
+# fr:truite d'élevage entière
+# carbon_footprint_fr_foodges_ingredient:fr:Truite d'élevage, entière
+# no products @2018-12-30
+
+# <fr:truite
+# fr:pavé de truite d'élevage
+# carbon_footprint_fr_foodges_ingredient:fr:Pavé de Truite ou Saumon d'élevage
+# no products @2018-12-30
+
+# <fr:truite
+# fr:Truite fumée d'élevage
+# carbon_footprint_fr_foodges_ingredient:fr:Truite/Saumon fumé d'élevage
+# no products @2018-12-30
+
+
 # The tub gurnard, Chelidonichthys lucerna (also C. lucernus, Trigla lucerna, T. corax) is a species of bottom-dwelling coastal fish with a spiny armored head and fingerlike pectoral fins used for crawling along the sea bottom. 
 
 <en:fish
@@ -32276,6 +36367,68 @@ wikipedia:en:https://en.wikipedia.org/wiki/Weever
 # ingredient/fr:vive has 1 product in french @2019-01-01
 
 
+# Merlangius merlangus, commonly known as whiting or merling, is an important food fish in the eastern North Atlantic Ocean and the northern Mediterranean
+
+<en:fish
+en:whiting, merling
+bg:мерланг
+br:Merlank
+ca:merlà
+cs:treska bezvousá
+cy:Gwyniad Môr
+da:Hvilling
+de:Wittling
+eo:Merlango
+es:Merlán
+eu:Liba
+fa:سفیدگون
+fi:Valkoturska
+fo:Hvítingur
+fr:merlan
+ga:Faoitín
+gd:Cuiteag
+gl:Merlán
+ht:Melan
+hu:Vékonybajszú tőkehal
+io:Merlano
+is:Lýsa
+it:Merlango
+ja:ホワイティング
+ka:მერლანგი
+kk:Мерланг
+# kk-arab:مەرلانگ
+# kk-cn:مەرلانگ
+# kk-cyrl:Мерланг
+# kk-kz:Мерланг
+# kk-latn:Merlang
+# kk-tr:Merlang
+# nap:Babbiluscio
+nb:hvitting
+nl:wijting
+# pcd:Mérlin
+pl:Witlinek
+ru:Мерланг
+# sco:Merlangius
+sl:Mol
+sv:Vitling
+tr:Bakalyaro
+uk:Мерланг
+zh:牙鱈
+# zh-cn:牙鳕
+# zh-hans:牙鳕
+# zh-hant:牙鱈
+# zh-hk:牙鱈
+# zh-sg:牙鳕
+# zh-tw:牙鳕
+# ingredient/fr:merlan has 11 products @2019-01-15
+
+<en:whiting
+en:Merlangius merlangus
+la:Merlangius merlangus
+wikidata:en:Q273083
+wikipedia:en:https://en.wikipedia.org/wiki/Merlangius
+
+
 # Brochet est un nom vernaculaire ambigu désignant en français certains poissons prédateurs. 
 
 <en:fish
@@ -32312,6 +36465,54 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Rascasse
 
 
 
+# Shellfish is a food source and fisheries term for exoskeleton-bearing aquatic invertebrates used as food, including various species of molluscs, crustaceans, and echinoderms. 
+
+en:shellfish
+ar:بكلويز
+# ast:Mariscu
+bn:শেলফিশ
+ca:marisc
+cs:škeble
+cy:pysgodyn cragen
+da:skaldyr
+de:Schalentier, Meeresfrüchten
+eo:marisko
+es:molusco
+eu:itsaski
+fa:صدف‌ماهی
+fi:äyriäinen
+fr:fruits de mer
+ga:Sliogiasc
+gd:Maorach
+gl:marisco
+gv:Eeast shliggagh
+he:פירות ים
+it:frutti di mare
+ja:介類
+kn:ಚಿಪ್ಪು ಮೀನು
+mk:школка
+ms:Kerang-kerangan
+nb:skalldyr
+nl:schelpdier
+nn:skaldyr
+pa:ਸ਼ੈਲਫਿਸ਼
+pl:skorupiak
+pt:marisco
+ro:Fructe de mare
+ru:моллюск
+sq:butak
+sv:skaldjur
+# tcy:ಮರುವಾಯಿ
+th:หอย
+vi:ốc
+vo:koanaf
+# zh-hans:水生有壳动物
+wikidata:en:Q6501235
+wikipedia:en:https://en.wikipedia.org/wiki/Shellfish
+# ingredient/shellfish has 18 products @2019-01-12
+# ingredient/fr:fruits-de-mer has 38 products @2019-01-12
+
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                           M O L L U S C S     S E C T I O N
@@ -32320,6 +36521,7 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Rascasse
 
 # Mollusca is the second largest phylum of invertebrate animals. The members are known as molluscs or mollusks.
 
+<en:shellfish
 en:mollusc, molluscs, mollusks, mollusk
 af:Weekdiere
 am:ዛጎል ለበስ
@@ -32425,6 +36627,50 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mollusca
 # ingredient/fr:mollusque has 1890 products in 6 languages @2018-01-03
 
 
+# A cockle is an edible, marine bivalve mollusc. Although many small edible bivalves are loosely called cockles, true cockles are species in the family Cardiidae.
+
+<en:mollusc
+en:cockles
+be:Сэрцападобнікі
+bg:Сърцевидки
+ca:Escopinya
+cy:cocsen
+de:Herzmuscheln
+el:Κυδώνι
+es:Berberecho
+eu:Berberetxo
+fa:آکاگای
+fi:Sydänsimpukat
+fr:coque, coques
+gd:Slige-chabon
+gl:Cárdidos
+id:Kerang darah
+ja:ザルガイ科
+ko:꼬막
+la:Cardiidae
+lt:Širdutės
+lv:Sirsniņgliemeņu dzimta
+ms:Kerang
+nb:Hjerteskjell
+nn:Hjartemusling
+nv:Chʼosh bitsʼaʼí dijoolígíí
+# pcd:Hénon
+pl:Sercówka pospolita
+ru:сердцевидки
+sl:Rdečemesa barčica
+sv:Hjärtmusslor
+th:หอยแครง
+uk:Серцевидкові
+vi:Sò huyết
+zh:鸟蛤科
+# zh-hans:泥蚶
+# zh-hant:泥蚶
+# zh-hk:泥蚶
+wikidata:en:Q860002
+wikipedia:en:https://en.wikipedia.org/wiki/Cockle_(bivalve)
+# ingredient/cockles has 2 products @2019-01-12
+
+
 # Cuttlefish or cuttles are marine molluscs of the order Sepiida.
 # Le terme seiche est un nom vernaculaire générique pour un très grand nombre de mollusques céphalopodes classés dans le super-ordre des décapodes et regroupés dans le taxon des Sepioida, c'est-à-dire dans l'ordre des Sepiida et des Sepiolida. 
 
@@ -32441,7 +36687,7 @@ ca:Sèpia
 cs:sépie
 de:Sepien
 el:Σουπιά
-es:Sepia
+es:sepia
 eu:Txibia
 fa:سپیداج
 fi:Seepiat
@@ -32475,7 +36721,7 @@ nl:zeekatten
 nv:Łóóʼ bigaan neeznání bitsʼinígíí
 pl:Mątwy
 pt:Choco
-ru:Каракатицы
+ru:Каракатицы, каракатица
 sk:Sépie
 sl:Sipe
 sr:Сипе
@@ -32499,6 +36745,40 @@ zh:乌贼
 # zh-tw:烏賊
 wikidata:en:Q184479
 wikipedia:en:https://en.wikipedia.org/wiki/Cuttlefish
+
+
+# The common cuttlefish or European common cuttlefish (Sepia officinalis) is one of the largest and best-known cuttlefish species.
+
+<en:cuttlefish
+en:common cuttlefish
+bg:обикновена сепия
+ca:Sèpia comuna
+co:Seppia
+cs:sépie obecná
+da:Sepiablæksprutte
+de:Gewöhnlicher Tintenfisch
+et:Harilik seepia
+eu:Txibia arrunt
+fa:سپیداج معمولی
+fi:Seepia
+fr:Seiche commune
+gl:Sepideos
+he:דיונון הרוקחים
+hu:Közönséges tintahal
+ja:ヨーロッパコウイカ
+ko:갑오징어
+# nds-nl:Eenfachen Dintenfisch
+nl:gewone zeekat
+pl:Mątwa zwyczajna
+ru:Лекарственная каракатица
+# vls:Intespuger
+wikipedia:en:https://en.wikipedia.org/wiki/Common_cuttlefish
+
+<en:common cuttlefish
+en:Sepia officinalis
+la:Sepia officinalis
+# ingredient/fr:Sepia-officinalis has 4 products @2019-01-14
+
 
 # Sepiella inermis, common name spineless cuttlefish, is an edible species of cuttlefish.
 
@@ -32529,7 +36809,7 @@ wikidata:en:Q2701934
 wikipedia:en:https://en.wikipedia.org/wiki/Pharaoh_cuttlefish
 
 <en:pharaoh cuttlefish
-en:Sépia Pharaonis
+en:Sépia Pharaonis, Sepia pharaonica
 la:Sépia Pharaonis
 
 
@@ -32541,7 +36821,7 @@ af:Mossel
 cs:mušle
 de:Muscheln, Miesmuscheln
 eo: Mitulo
-es:Mejillones
+es:mejillón, Mejillones
 eu: Muskuilu
 fa:صدف سیاه
 fo: Kræklingur
@@ -32639,6 +36919,22 @@ wikidata:en: Q27855
 en:Mytilus edulis
 la:Mytilus edulis
 # ingredient/fr:Mytilus-edulis has 55 products @2019-01-05
+
+
+# The Chilean mussel or Chilean blue mussel (Mytilus platensis) is a species of blue mussel native to the coasts of Chile, Argentina
+
+<en:mussel
+en:Chilean mussel
+fr:moules chiliennes
+sl:Čilska klapavica
+uk:Мідія чилійська
+wikipedia:en:https://en.wikipedia.org/wiki/Chilean_mussel
+
+<en:Chilean mussel
+en:Mytilus chilensis
+la:Mytilus chilensis
+wikidata:en:Q384733
+# ingredient/fr:Mytilus-chilensis has 26 products in 3 languages @2019-01-14
 
 
 # The octopus is a soft-bodied, eight-limbed mollusc of the order Octopoda. 
@@ -32761,6 +37057,427 @@ wikipedia:en:https://en.wikipedia.org/wiki/Eledone_moschata
 # ingredient/fr:Eledone-moschata has 2 products @2019-01-04
 
 
+# Oyster is the common name for a number of different families of salt-water bivalve molluscs that live in marine or brackish habitats.
+
+<en:mollusc
+en:oyster, oysters
+af:Oester
+# ang:Ostre
+ar:محار
+az:Ustritsa
+be:Вустрыцы
+# be-tarask:Вустрыцы
+bn:ঝিনুক
+br:Istr
+ca:ostra
+# cdo:Diê
+da:Østers
+de:Austern
+# de-ch:Austern
+el:Στρείδι
+# en-ca:Oyster
+# en-gb:Oyster
+eo:ostro
+es:ostra, ostras
+eu:Ostra
+fa:صدف خوراکی
+fi:Osterit
+fr:huître, huitre, huitres
+ga:Oisre
+gd:Eisir
+gl:Ostra
+# gom:Kalvam
+he:אויסטר
+ht:Zwit
+id:Tiram
+io:Ostro
+is:Ostra
+ja:カキ
+ko:굴
+la:Ostrea
+mr:कालवे
+ms:Tiram
+my:ကမာ
+# nah:Atzcalli
+# nan:Ô-á
+nb:Østers
+# nds-nl:Ööstern
+nl:oester
+nn:Østers
+nv:Chʼosh yoołgai bitsʼaʼígíí
+oc:Ustra
+pt:ostra
+# pt-br:Ostra
+ro:Stridie
+ru:Устрица, устрицы
+# scn:Òstraca
+# sco:Eyster
+sh:Oštriga
+sk:ústrice
+sl:Ostriga
+ta:ஆளி
+th:หอยนางรม
+tl:Talaba
+tr:İstiridye
+tt:үстричә
+uk:Устриця
+vi:Hàu
+# yue:蠔
+zh:牡蠣
+# zh-cn:牡蛎
+# zh-hans:牡蛎
+# zh-hant:牡蠣
+# zh-hk:牡蠣
+# zh-sg:牡蛎
+# zh-tw:牡蠣
+wikipedia:en:https://en.wikipedia.org/wiki/Oyster
+# ingredient/fr:huitre has 11 products @2018-01-14
+
+<en:oyster
+fr:extrait d'huître
+
+
+# Scallop is a common name that is primarily applied to any one of numerous species of saltwater clams or marine bivalve mollusks in the taxonomic family Pectinidae, the scallops.
+
+<en:mollusc
+en:scallop, scallops
+ar:بالیق قولاغی
+ca:Pectínid
+de:Kammmuscheln, Jakobsmuscheln, Pilgermuscheln
+el:Χτένι
+es:viera, vieras
+fa:شانه‌گونان
+fi:Kampasimpukat
+gl:Pectínidos
+id:Simping
+ja:イタヤガイ科
+ky:Деңиз таракчалары
+la:Pectinidae
+lt:Šukutės
+ms:Kekapis
+nb:Kamskjell
+nv:Chʼosh bitsʼaʼ doolghasígíí
+pl:Przegrzebkowate
+ru:Морские гребешки, гребешок
+sr:Морски чешљеви
+# sr-ec:Морски чешљеви
+sv:Kammusslor
+uk:Гребінцеві
+zh:扇贝
+wikidata:en:Q1311395
+wikipedia:en:https://en.wikipedia.org/wiki/Scallop
+
+
+# Argopecten irradians, formerly classified as Aequipecten irradians, common names Atlantic bay scallop or bay scallop, is an edible species of saltwater clam, a scallop,
+
+<en:scallop
+en:Atlantic bay scallop, bay scallop
+fa: گوش‌ماهی خلیج
+is: Flóaskel
+zh:海湾扇贝
+
+en:Argopecten irradians
+la:Argopecten irradians
+wikipedia:https://en.wikipedia.org/wiki/Argopecten_irradians
+wikidata:en: Q3018372
+# ingredient/fr:Argopecten%20irradians has 10 products @2019-01-13
+
+
+<en:scallop
+en:Atlantic calico scallop
+la:Argopecten Gibbus
+sr:Ostrea gibba
+wikidata:en:Q3017111
+wikipedia:en:https://en.wikipedia.org/wiki/Argopecten_gibbus
+# ingredient/fr:Argopecten-Gibbus has 1 product @2019-01-12
+
+
+<en:scallop
+en:distant scallop
+
+<en:distant scallop
+en:Bractechlamys vexillum
+la:Bractechlamys vexillum
+wikipedia:nl:https://nl.wikipedia.org/wiki/Bractechlamys_vexillum
+wikidata:en: Q13444410
+# https://www.sealifebase.ca/summary/Bractechlamys-vexillum.html
+# http://www.marinespecies.org/aphia.php?p=taxdetails&id=394391
+
+
+# Pecten maximus, common names the great scallop, king scallop, St James shell or escallop, is a northeast Atlantic species of scallop, an edible saltwater clam, a marine bivalve mollusc in the family Pectinidae. 
+
+<en:scallop
+en:great scallop, king scallop, St James shell, escallop
+ar:أسقلوب
+br:Krogenn-Sant-Jakez
+ca:petxina de pelegrí de l'Atlàntic
+de:Große Pilgermuschel
+# de-ch:Jakobsmuschel
+# el:Χτένι
+es:Venera
+eu:Erromes-maskor handi
+fa:گوش‌ماهی شاه
+fr:noix de sepiaкальмар-Jacques, Saint-Jacques, noix de st-jacques, noix de coquilles saint-jacques, noix de coquilles st-jacques, coquille Saint-Jacques
+ga:Muirín
+gd:Slige-chreachainn
+gl:Vieira
+id:Simping
+io:Petonklo
+is:Risadiskur
+nl:grote mantel
+pl:Przegrzebek zwyczajny
+pt:Vieira
+# pt-br:Vieira
+sv:Pilgrimsmussla
+wikidata:en:Q1249634
+wikipedia:en:https://en.wikipedia.org/wiki/Pecten_maximus
+# ingredient/fr:noix-de-Saint-Jacques has 216 products @2019-01-12
+
+<en:great scallop
+en:Pecten maximus
+la:Pecten maximus
+# ingredient/fr:Pecten-maximus has 25 products @2019-01-12
+
+<en:scallop
+en:Patagonian scallop
+
+<en:Patagonian scallop
+en:Zygochlamys patagonica
+la:Zygochlamys patagonica, Chlamys zygopatagonica
+# ingredient/fr:Zygochlamys-patagonica has 87 products @2019-01-12
+
+
+<en:scallop
+en:noble scallop
+vi:Sò điệp
+ja:ヒオウギガイ
+zh:华贵栉孔扇贝
+# zh-hans:华贵栉孔扇贝
+# zh-hant:高貴海扇蛤
+# zh-hk:高貴海扇蛤
+# zh-tw:高貴海扇蛤
+
+<en:noble scallop
+en:Mimachlamys nobilis
+la:Chlamys nobilis, Mimachlamys nobilis
+wikidata:en:Q8010071
+# ingredient/fr:Chlamys-nobilis has 20 products in french @2019-01-13
+
+
+# Argopecten purpuratus, common names the "Peruvian scallop", is an edible species of saltwater clam, a scallop
+
+<en:scallop
+en:Peruvian scallop
+fr:Pétoncle chilien
+la:Argopecten purpuratus
+wikidata:en:Q3412062
+wikipedia:https://en.wikipedia.org/wiki/Argopecten_purpuratus
+# ingredient/fr:Argopecten-purpuratus has 68 products @2019-01-12
+
+
+# The queen scallop (Chlamys opercularis) is a medium-sized species of scallop, an edible marine bivalve mollusk in the family Pectinidae, the scallops. 
+
+<en:scallop
+en:queen scallop
+ca:xelet
+de:Kleine Pilgermuschel
+fr:Pétoncle blanc, Vanneau
+gl:Volandeira
+it:Canestrello
+ja:クイーンホタテ
+la:Chlamys opercularis, Aequipecten opercularis
+nl:Wijde mantel
+sr:Ostrea elegans
+zh:女王扇貝
+wikidata:en:Q1746507
+wikipedia:en:https://en.wikipedia.org/wiki/Queen_scallop
+# ingredient/fr:Chlamys-opercularis has 81 products @2019-01-12
+
+
+# Argopecten gibbus (Atlantic calico scallop) is a species of medium-sized edible marine bivalve mollusk in the family Pectinidae, the scallops
+
+<en:scallop
+en:speckled Scallop
+
+<en:speckled Scallop
+en:Argopecten irradians concentricus
+la:Argopecten irradians concentricus, Argopecten circularis
+wikidata:en: Q30749478
+# ingredient/fr:Argopecten-circularis has 10 products in french @2019-01-13
+
+
+<en:scallop
+en:white scallop
+
+<en:white scallop
+la:Chlamys albida, Chlamys albidus
+wikipedia:nl:https://nl.wikipedia.org/wiki/Chlamys_albida
+wikidata:en: Q3802698
+# https://www.sealifebase.ca/summary/Chlamys-albida.html
+# ingredient/fr:Chlamys-albidus has 12 products @2018-01-13
+
+
+# Ascidiacea (commonly known as the ascidians or sea squirts) is a paraphyletic class in the subphylum Tunicata of sac-like marine invertebrate filter feeders.
+
+#? not sure whether this should be counted as a mollusc
+<en:mollusc
+en:sea squirt
+ar:كيسيات
+az:Asisidlər
+# azb:آسیسیدلر
+be:Асцыдыі
+bg:Асцидии
+ca:Ascídia
+cs:Sumky
+da:Søpunge
+de:Seescheiden
+es:Ascidiáceos
+eu:Aszidia
+fa:کوزه‌داران
+fi:Meritupet
+fr:Ascidie
+gl:Ascidiáceos
+he:אסצידיות
+hu:Aszcídiák
+hy:Ասցիդիաներ
+ja:ホヤ綱
+ka:ასციდიები
+kk:Асцидиялар
+# kk-arab:استسىيدىييالار
+# kk-cn:استسىيدىييالار
+# kk-cyrl:Асцидиялар
+# kk-kz:Асцидиялар
+# kk-latn:Ascïdïyalar
+# kk-tr:Ascïdïyalar
+ko:해초강
+ky:Асцидиялар
+la:Ascidiacea
+mk:Асцидија
+lt:Ascidijos
+lv:Ascīdijas
+nl:Zakpijpen
+nn:sekkdyr
+nv:Níyizii dahinánígíí
+oc:Ascídies
+pl:Żachwy
+ru:асцидии
+sk:Ascídie
+# sr-ec:Асцидиацеа
+sv:Sjöpungar
+te:అసిడియేషియా
+tg:Ассидияҳо
+th:เพรียงหัวหอม
+uk:Асцидії
+zh:海鞘
+# zh-cn:海鞘
+# zh-hans:海鞘
+# zh-hant:海鞘
+# zh-hk:海鞘
+# zh-sg:海鞘
+# zh-tw:海鞘
+wikidata:en:Q190090
+# ingredient/sea-squirt has 4 products @2019-01-13
+
+
+# A snail is, in loose terms, a shelled gastropod. The name is most often applied to land snails, terrestrial pulmonate gastropod molluscs.
+
+<en:mollusc
+en:snail
+am:ቀንድ አውጣ
+an:Caragol
+ar:حلزون
+# ast:Cascoxu
+# atj:Pimerikockwatcic
+ay:Ch'uru
+az:İlbiz
+# azb:ایلبیز
+# bcl:Atol
+bg:охлюв
+bn:শামুক
+br:Melc'hwed-krogennek
+ca:Cargol de terra
+# cdo:Ngù-mō̤-ngù-giāng
+ce:АьттамаьгӀаг
+cv:Шуйсем
+cy:Malwen
+de:Schnecke
+el:Σαλιγκάρι
+# eml:Lumèga
+eo:Heliko
+es:caracol, caracoles
+eu:Barraskilo
+fa:حلزون
+fr:escargot, escargots
+# frp:Lemace
+ga:Seilide
+gd:seilcheag
+gl:Caracol
+gn:Jatyta
+# got:𐍃𐌽𐌰𐌲𐌹𐌻𐍃
+# hi:स्थलीय घोंघा
+ht:Kalmason
+ia:Coclea
+id:Siput
+io:Heliko
+it:chiocciola
+ja:カタツムリ
+kn:ಬಸವನ ಹುಳು
+ko:달팽이
+la:Cochlea
+# lmo:Lümaga
+ml:ഒച്ച്
+mr:गोगलगाय
+ms:Siput
+# mzn:لیسک
+lt:Sraigė
+lv:Gliemezis
+# nah:Tecciztli
+# nan:Lō͘-lê
+# nap:Babbaluscia
+ne:शंखेकीरा
+nl:slak, slakken
+oc:Cagaraula
+# olo:Edenöi
+os:Сæтæлæг
+# pdc:Schneck
+pl:Ślimak
+# pnb:کونگا
+pt:caracol
+qu:Ch'uru
+ro:Melc
+ru:улитка, улитки, ракушки
+# scn:Vavaluci
+# sco:snail
+# sgs:Srāgis
+sn:Hozhwa
+sr:Пужеви
+sv:snigel
+sw:Konokono
+ta:நத்தை
+te:నత్త
+th:หอยทาก
+tl:Kuhol
+tr:Salyangoz
+uk:Равлик
+ur:گھونگھا
+# vec:Sciùs
+vi:Ốc
+wa:Caracole
+# yue:蝸牛
+za:Saehaexma
+zh:蜗牛
+# zh-cn:蜗牛
+# zh-hans:蜗牛
+# zh-hant:蝸牛
+# zh-hk:蝸牛
+# zh-sg:蜗牛
+# zh-tw:蝸牛
+wikidata:en:Q308841
+wikipedia:en:https://en.wikipedia.org/wiki/Snail
+# ingredient/fr:escargot has 2 products @2019-01-16
+# ingredient/fr:escargots has 7 products in french @2019-01-16
+
+
 # Squid are cephalopods in the order Teuthida with elongated bodies, large eyes, eight arms and two tentacles.
 
 <en:mollusc
@@ -32818,7 +37535,7 @@ pl:kałamarnice
 pt:Lula
 qu:Samanna
 ro:Calmar
-ru:кальмары
+ru:кальмары, кальмар
 # sco:ink-fish
 sh:Lignje
 sk:Kalmary
@@ -32957,20 +37674,65 @@ wikipedia:en:https://en.wikipedia.org/wiki/Doryteuthis_gahi
 # ingredient/fr:Loligo-Gahi has 1 product @2019-01-04
 
 
+# Clam is a common name for several kinds of bivalve molluscs.
+
 <en:mollusc
+en:clam, clams
+ar:محار ملزمي
+# ast:Amasuela
+ca:cloïssa
+# cdo:Gák-lì
+de:Venusmuscheln
+el:Αχιβάδα
+eo:pekteno
+es:Almeja, almejas
+eu:Txirla
+fa:صدف دوکفه‌ای
+fr:palourde, palourdes
+ga:Breallach
+gd:Bainteag
+gl:Ameixa
+# gom:Tisreo
+# hak:Lò-pê-é
+he:קלאם
+id:Kerang
+it:vongola, vongole
+ja:クラム
+jv:Kerang
+ko:조개
+ml:കക്ക
+my:ဂုံး
+# nan:Hún-giô
+nl:clam
+oc:Clausissa
+pt:Amêijoa
+su:Kerang
+vi:Nghêu
+# yue:蜆
+zh:蛤蜊
+# zh-hans:蛤蜊
+# zh-hant:蛤蜊
+# zh-hk:蛤蜊
+wikidata:en:Q1192868
+wikipedia:en:https://en.wikipedia.org/wiki/Clam
+# ingredient/clam has 8 products in english @2019-01-13
+# ingredient/fr:palourdes has 15 products in 2 languages @2019-01-06
+
+<en:clam
+en:clam meat
+
+<en:clam
 en:undulate venus
-fr:palourdes
 it:vongola del Pacifico
 th:หอยลาย
 vi:Sò lụa
 zh:波纹巴非蛤, 波紋橫簾蛤
-# ingredient/fr:palourdes has 15 products in 2 languages @2019-01-06
 
 <en:undulate venus
 en:Paratapes undulatus
 la:Paratapes undulatus, Paphia undulata
 
-<en:undulate venus
+<en:clam
 fr:palourdes précuites
 
 
@@ -32983,6 +37745,7 @@ fr:palourdes précuites
 
 # Crustaceans form a large, diverse arthropod taxon which includes such familiar animals as crabs, lobsters, crayfish, shrimp, krill, woodlice, and barnacles.
 
+<en:shellfish
 en:crustacean, crustaceans
 af:Skaaldier
 ar:قشريات
@@ -33204,13 +37967,129 @@ fr:extrait de crabe
 # ingredient/fr:extrait-de-crabe has 25 products in french @2019-01-07
 
 
+# Cancer pagurus, commonly known as the edible crab or brown crab, is a species of crab found in the North Sea, North Atlantic Ocean,
+
+<en:crab
+en:edible crab, brown crab
+bg: ядивни раци
+cs: krab německý
+de: Taschenkrebs
+es: Buey de mar
+fi: Isotaskurapu
+fr:tourteau, Crabe dormeur
+hu: Nagy tarisznyarák
+nl: Noordzeekrab
+nn: taskekrabbe
+pt: Caranguejola
+ru: Большой сухопутный краб
+sk: Krab piesočný
+sv: Krabbtaska
+# ingredient/fr:tourteau has 13 products @2019-01-14
+
+<en:edible crab
+en:cancer pagurus
+la:cancer pagurus
+wikidata:en: Q752188
+wikipedia:en:https://en.wikipedia.org/wiki/Cancer_pagurus
+# ingredient/fr:cancer-pagurus has 12 products @2019-01-14
+
+
+# Crayfish, also known as crawfish, crawdads, crawlfish,[1] crawldads,[2] freshwater lobsters, mountain lobsters, mudbugs, or yabbies, are freshwater crustaceans resembling small lobsters
+
+<en:crustacean
+en:crayfish
+ar:جراد البحر
+ca:Cranc de riu
+cs:rak
+de:Krebs
+el:Καραβίδα
+eo:Kankro
+es:cangrejo de río
+fa:خارچنگ
+fi:Ravut
+fr:écrevisse, écrevisses
+ga:Gliomach fionnuisce
+gd:Giomach uisge
+gl:Cangrexo de río
+he:סרטני נהרות
+ht:Ekrevis
+hy:Գետային խեցգետիններ
+id:Lobster air tawar
+io:Kankro
+is:Vatnakrabbar
+it:gambero
+ja:ザリガニ
+kk:Өзен шаяны
+ko:가재
+la:Astacologia
+ms:Udang krai
+nb:ferskvannskreps
+nl:rivierkreeft
+nv:Tooh chʼoshtsoh bíláshgaantsohí
+oc:Escaravissa
+# pcd:Ékérciche
+pl:rak
+pt:lagostim
+qu:Apanqura
+ru:речные раки
+# scn:Gàmmaru
+# sgs:Viežīs
+sv:Kräftor
+th:เครย์ฟิช
+tr:Kerevit
+uk:річкові раки
+vi:Tôm hùm đất
+wa:Grevesse
+# yue:龍蝦仔
+zh:淡水龙虾
+# zh-hans:淡水龙虾
+# zh-hant:淡水龍蝦
+# zh-hk:淡水龍蝦
+wikidata:en:Q1211742
+wikipedia:en:https://en.wikipedia.org/wiki/Crayfish
+# ingredient/fr:écrevisse has 10 products @2019-01-12
+# ingredient/fr:écrevisses has 13 products 22019-01-12
+
+# Procambarus clarkii is a species of cambarid freshwater crayfish, native to northern Mexico, and southern and southeastern United States, but also introduced elsewhere
+
+<en:crayfish
+en:red swamp crayfish
+af:Rooimoeraskreef
+ar:إستاكوزا المستنقعات الحمراء
+ca:cranc de riu americà
+cs:rak červený
+de:Roter Amerikanischer Sumpfkrebs
+eo:Luiziana kankro
+es:Cangrejo de río americano
+eu:Ibai-karramarro gorri
+fr:Écrevisse de Louisiane
+gl:Cangrexo de río americano
+hu:Kaliforniai vörösrák
+it:Gambero killer
+ja:アメリカザリガニ
+ko:미국가재
+la:Procambarus clarkii
+# lzh:亞米利加蝲蛄
+nl:Rode rivierkreeft
+pt:Lagostim vermelho da Luisiana
+sk:Rak americký
+sv:Röd sumpkräfta
+th:กุ้งแดง
+zh:克氏原螯虾
+# zh-hans:克氏原螯虾
+# zh-hant:克氏原螯蝦
+# zh-hk:克氏原螯蝦
+# zh-tw:克氏原蝲蛄
+wikidata:en:Q1133124
+wikipedia:en:https://en.wikipedia.org/wiki/Procambarus_clarkii
+
 
 # Lobsters comprise a family (Nephropidae, sometimes also Homaridae) of large marine crustaceans.
 
 <en:crustacean
 en:lobster
 # ang:Loppestre
-ar:كركند
+ar:همار,كركند
 # ats:Llagosta
 # bcl:Banagan
 be:Амары
@@ -33219,21 +38098,26 @@ bg:омари
 bn:গলদা
 ca:Nefròpid
 cs:humrovití
+da:hummer
 de:Hummer
 el:Αστακός
 eo:Omaro
-es:Langosta
+es:langosta
 et:Homaar
+eu:Misera
 fa:شاه‌میگو
 fi:hummerit
 fo:Hummari
 fr:homard, homards
+# frr:Homer
 ga:Gliomach
-gl:Nefrópidos
+gd:Giomach
+gl:Nefrópidos, Lumbrigante
 # gom:Shivod Kurli
 # hak:Liùng-hâ
 he:לובסטר
 hi:झींगा मछली
+hr:Hlap
 ht:Oma
 hy:Օմարներ
 id:Lobster
@@ -33243,11 +38127,11 @@ it:Omaro
 ja:ロブスター
 jv:Lobster
 ka:ჰომარი
-kk:Омарлар
+kk:Омарлар, Омар шаяны
 ko:바닷가재
 ku:Kevjalk
 ky:Омарлар
-la:Homarus, Nephropidae
+la:Nephropidae, Homarus
 lb:Homard
 lt:Omaras
 lv:omāri
@@ -33259,13 +38143,15 @@ nb:Hummere
 ne:झिङ्गे माछा
 nl:zeekreeften
 nn:Hummar
-nv:Chʼoshtsoh bíláshgaantsohí
+nv:Chʼoshtsoh bíláshgaantsohí, Chʼoshtsoh bíláshgaantsohí daadánígíí
+oc:Ligombau
 pa:كركند
 pl:homary
 pt:Lavagante
 ro:Homar
 ru:омары
-sh:Nefropidi
+# sco: Lapster
+sh:Nefropidi, Hlapovi
 sv:hummer
 ta:கல் இறால்
 te:ఎండ్రకాయ
@@ -33282,6 +38168,38 @@ zh:海螯蝦科
 wikipedia:en:https://en.wikipedia.org/wiki/Lobster
 # ingredient/en:lobster has 48 products in english @2019-01-07
 # ingredient/fr:homard has 79 products in 3 languages @2019-01-07
+
+# Homarus gammarus, known as the European lobster or common lobster, is a species of clawed lobster from the eastern Atlantic Ocean, Mediterranean Sea and parts of the Black Sea. 
+
+<en:lobster
+en:European lobster, common lobster
+bg: европейски омар
+cs: humr evropský
+de: Europäischer Hummer
+et: Euroopa homaar
+fi: Euroopanhummeri
+fr:homard européen
+ga: Gliomach Eorpach
+hu: Európai homár
+is: Evrópskur Humar
+it: gambero europeo
+lt: Europinis omaras
+nl: Europese kreeft
+nn: Europeisk hummar
+pl: homar europejski
+ro: Homar european
+ru: Европейский омар
+sh: Hlap
+sl: Evropski jastog
+sv: Europeisk hummer
+zh:歐洲螯龍蝦
+wikidata:en: Q27690
+
+<en:European lobster
+en:Homarus gammarus
+la:Homarus gammarus
+wikipedia:en:https://en.wikipedia.org/wiki/Homarus_gammarus
+# fr:Homarus%20gammarus has 4 products @2019-01-11
 
 
 # The American lobster (Homarus americanus) is a species of lobster found on the Atlantic coast of North America, chiefly from Labrador to New Jersey. 
@@ -33339,6 +38257,121 @@ de:Hummerbouillon
 # compound ingredient
 
 
+# Spiny lobsters, also known as langustas, langouste, or rock lobsters, are a family (Palinuridae) of about 60 species of achelate crustaceans,
+
+<en:lobster
+en:spiny lobster, langustas, langouste, rock lobsters
+ar:كركند شائك
+az:Lanqustlar
+bg:Гърбати омари
+br:Grilh-mor
+ca:Palinurus
+cs:langustovití
+de:Langusten
+# de-ch:Gewöhnliche Languste
+eo:Palinuro
+eu:Otarrain
+fa:شاه‌میگوی تیغی
+fr:langouste rouge, langouste
+ga:Gliomach spíonach
+he:לובסטרים קוצניים
+hr:Jastog
+hu:Európai languszta
+io:Langusto
+it:aragosta mediterranea
+ja:イセエビ科
+ka:ლანგუსტისებრნი
+ko:닭새우과
+la:Palinuridae
+lb:Langusten
+mk:лангусти
+# nan:Liông-hê
+nl:langoesten, langoest
+nv:Táłtłʼááh chʼoshtsoh bideeneezí
+pa:کریفش
+pl:langusta
+pt:Lagosta
+# pt-br:Lagosta
+qu:Langusta
+ro:Langustă
+ru:настоящие лангусты
+sh:Jastog
+sr:Лангуст
+# sr-ec:Лангуст
+sv:Europeisk langust
+th:กุ้งมังกร
+vi:Tôm rồng
+# yue:龍蝦
+zh:棘刺龍蝦
+wikidata:en:Q916760
+# ingredient/fr:langouste has 5 products @2019-01-14
+
+<en:spiny lobster
+fr:têtes et pinces de langoustines
+# ingredient/fr:têtes-et-pinces-de-langoustines has 2 products @2019-01-12
+
+
+# Panulirus argus, the Caribbean spiny lobster,[2] is a species of spiny lobster that lives on reefs and in mangrove swamps in the western Atlantic Ocean.
+
+<en:lobster
+en:Caribean spiny lobster
+bg:карибски гръбначен омар
+de:Karibik-Languste
+fr:Langouste blanche
+zh:眼斑龍蝦
+
+<en:Caribbean spiny lobster
+en:Panulirus argus, Panulirue argus
+la:Panulirus argus, Panulirue argus
+wikipedia:en:https://en.wikipedia.org/wiki/Panulirus_argus
+
+
+<en:spiny lobster
+en:Norway lobster
+az: Norveç omarı
+be: Нарвежскі амар
+# be-tarask: Нарвэскі амар
+bg: норвежки омар
+br: Grilh-traezh
+ca: escamarlà
+da: Jomfruhummer
+de: Kaisergranat
+el: Σκάμπι
+es: Cigala
+eu: Zigala
+fa: شاه‌میگوی نروژی
+fi: Keisarihummeri
+fo: Jómfrúhummari
+fr: Langoustine commune, langoustines, langoustine
+gl: Cigala
+hr: Škamp
+is: Leturhumar
+it: Scampi, Scampo
+ja: ヨーロッパアカザエビ
+ko: 스캄피
+nb: Sjøkreps
+nl: Noorse kreeft
+nn: Sjøkreps
+pl: homarzec
+ro: Langustină
+ru: Норвежский омар
+sh: Škamp
+sv: Havskräfta
+zh:挪威海螯蝦
+# zh-hans:挪威海螯虾
+# zh-hant:挪威海螯蝦
+# zh-hk:挪威海螯蝦
+# ingredient/fr:langoustines has 68 products @2019-01-11
+
+# Nephrops norvegicus, known variously as the Norway lobster, Dublin Bay prawn, langoustine (compare langostino) or scampi, is a slim, orange-pink lobster which grows up to 25 cm (10 in) long,
+
+<en:norway lobster
+en:Nephrops norvegicus
+la:Nephrops norvegicus
+wikidata:en: Q551915
+# ingredient/fr:Nephrops-norvegicus has 5 products in french @2019-01-11
+
+
 # The term shrimp is used to refer to some decapod crustaceans, although the exact animals covered can vary.
 
 <en:crustacean
@@ -33358,7 +38391,7 @@ de:Garnele, crevetten
 # en-ca:shrimp
 # en-gb:shrimp
 eo:salikoko
-es:gamba
+es:gamba, langostino
 eu:Izkira
 fa:میگو
 fi:Katkaravut
@@ -33417,10 +38450,16 @@ fr:poudre de crevette
 # ingredient/fr:poudre-de-crevette has 40 products in french @2019-01-06
 
 <en:shrimp
+fr:queues de crevettes
+# ingredient/fr:queues%20de%20crevettes has 11 products in french @2019-01-13
+
+<fr:queues de crevettes
 fr:queues de crevettes décortiquées
 # ingredient/fr:queues-de-crevettes-décortiquées has 5 products in french @2019-01-06
 
-
+<en:shrimp
+fr:Crevettes entières crues
+# ingredient/fr:Crevettes-entières-crues has 5 products @2019-01-13
 
 # Penaeidae is a family of marine crustacean in the suborder Dendrobranchiata, which are often referred to as penaeid shrimp or penaeid prawns. 
 
@@ -33440,16 +38479,71 @@ vi:Họ Tôm he
 zh:對蝦科
 wikidata:en: Q683918
 
+
+<en:shrimp
+en:deep-sea shrimp, gamba prawns, gamba shrimps
+bg:Скарида Аристид
+ca:Aristeid
+de:Gambas, Riesengarnelen
+fr:gamba, gambas
+gl:Aristeidos
+la:Aristeidae
+wikidata:en:Q360351
+wikipedia:en:https://en.wikipedia.org/wiki/Aristeidae
+# ingredient/fr:gamba has 2 products @2019-01-13
+# ingredient/fr:gambas has 13 products @2019-01-13
+# gambas (gambas, sel)
+
+<en:deep-sea shrimp
+fr:Gambas cuites
+# Gambas cuites (gambas, sel, conservateur :sorbate de potassium, antioxydant :disulfite de sodium, acidifiants :acide citrique, carbonate acide de sodium)
+
+# Penaeus monodon, commonly known as the giant tiger prawn or Asian tiger shrimp (and also known by other common names), is a marine crustacean that is widely reared for food.
+
+<en:deep-sea shrimp
+en:giant tiger prawn, Asian tiger shrimp
+bg: гигантска тигрова скарида
+fa: میگوی ببری بزرگ
+fr: Crevette géante tigrée, crevettes tropicale, Crevettes géantes tigrées
+id: Udang windu
+ja: ウシエビ
+ko: 블랙타이거
+ms: Udang harimau
+# nah: Acachatl‎
+# pam: Paro sakdagul
+pl: krewetka tygrysia
+pt: Camarão-tigre-gigante
+th: กุ้งกุลาดำ
+tr: Jumbo karides
+vi: Tôm sú
+# yue:大虎蝦
+zh: 草蝦
+# zh-tw:斑節對蝦
+
+<en: giant tiger prawn
+en:Penaeus monodon
+la:Penaeus monodon
+wikipedia:en:https://en.wikipedia.org/wiki/Penaeus_monodon
+# ingredient/fr:Penaeus-monodon has 16 products @2019-01-13
+
+<en:deep-sea shrimp
+fr:crevettes tropicale décortiqué crue
+
+
 # Whiteleg shrimp (Litopenaeus vannamei, formerly Penaeus vannamei), also known as Pacific white shrimp or king prawn, is a variety of prawn of the eastern Pacific Ocean commonly caught or farmed for food.
 
 <en:shrimp
 en:whiteleg shrimp
+de:Penaeus vannamei
+es:camarón
 fr:Crevette à pattes blanches
+pl:krewetka białonoga
+pt:camarão-de-patas-brancas
 wikidata:en:Q3002564
 wikipedia:en:https://en.wikipedia.org/wiki/Whiteleg_shrimp
 
 <en:whiteleg shrimp
-en:Penaeus vannamei, Penaeus vannamel
+en:Penaeus vannamei, Penaeus vannamel, Litopenaus vanamei
 la:Litopenaeus vannamei
 
 
@@ -33549,10 +38643,38 @@ la:Metapenaeus affinis, Metapaneus affinis
 wikipedia:nl:https://nl.wikipedia.org/wiki/Metapenaeus_affinis
 # ingredient/fr:Metapaneus-affinis has 1 product @2019-01-06
 
+# Pandalus jordani is een garnalensoort uit de familie van de Pandalidae. 
+
+<en:shrimp
+en:Pandalus jordani
+ar: نوع من القشريات
+fr:Pandalus jordani
+is: Bleikrækja
+nl:Pandalus jordani
+wikidata:en: Q4470579
+wikipedia:en:https://nl.wikipedia.org/wiki/Pandalus_jordani
+# ingredient/fr:Pandalus-jordani has 3 products @2108-12-14
+
 <en:shrimp
 la:Solenocera Crassicornis
 wikipedia:nl:https://nl.wikipedia.org/wiki/Solenocera_crassicornis
 
+
+# Penaeidae is a family of marine crustacean in the suborder Dendrobranchiata, which are often referred to as penaeid shrimp or penaeid prawns. 
+
+<en:shrimp
+en:Penaeidae
+ar:بنيدات
+bg:Бели скариди
+fa:درازمنقارچگان
+fr:Penaeidae
+ja:クルマエビ科
+ko:보리새우과
+mk:пенеиди
+vi:Họ Tôm he
+zh:對蝦科
+wikipedia:en:https://en.wikipedia.org/wiki/Penaeidae
+# ingredient/fr:Penaeidae has 5 products @2018-12-14
 
 
 # Psyllium, or ispaghula, is the common name used for several members of the plant genus Plantago whose seeds are used commercially for the production of mucilage.
@@ -33823,7 +38945,52 @@ de:Mischung von Honig aus EU-ländern und Nicht EU-ländern
 fr:glycérol
 
 
-fr:sulfite
+
+# Sulfites or sulphites are compounds that contain the sulfite ion SO2−3. 
+
+en:sulfite, Sulphites, sulphite
+af:Sulfiet
+bg:Сулфит
+ca:sulfit
+cs:siřičitan
+da:Sulfit
+de:Sulfite
+eo:Sulfito
+es:Sulfito
+et:sulfit
+fa:سولفیت
+fi:Sulfiitti
+fr:sulfite, sulfites
+it:solfito
+he:סולפיט
+hr:Sulfit
+hy:Սուլֆիտներ
+lt:Persulfatai
+nb:sulfitt
+nl:sulfiet, sulfieten
+oc:Sulfit
+pl:Siarczyny
+pt:sulfito
+ro:Sulfit
+ru:Сульфиты
+sh:Sulfit
+sr:Сулфит
+# sr-ec:Сулфит
+# sr-el:Sulfit
+sv:Sulfit
+tr:Sülfit
+uk:Сульфіти
+zh:亚硫酸盐
+# zh-cn:亚硫酸盐
+# zh-hans:亚硫酸盐
+# zh-hant:亞硫酸鹽
+# zh-hk:亞硫酸鹽
+# zh-sg:亚硫酸盐
+# zh-tw:亞硫酸鹽
+wikidata:en:Q413363
+wikipedia:en:https://en.wikipedia.org/wiki/Sulfite
+# ingredient/fr:sulfite has 3512 products in 10 languages @2018-12-11
+
 
 
 
@@ -33874,10 +39041,6 @@ fr:extrait de vanille
 fr:extrait de vanille bourbon, extrait de vanille de Bourbon
 de:Bourbon-Vanille-Extrakt
 it:estratto di vaniglia Bourbon
-
-
-fr:glutamate monosodique
-wikidata:en:Q179678
 
 fr:nitrate de potassium
 
@@ -34979,7 +40142,31 @@ wikidata:en:Q11173928
 # ingredient/duck-egg has 7 products @2018-12-17
 
 
-# Where to classify ?
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                C O N T E X T   D E P E N D E N T     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# the actual meaning of this ingredient depends on what comes before or after
+# so we can offer just translations
+
+en:pulp
+de:Fruchtfleisch
+fr:pulpe
+nl:pulp
+# ingredient/fr:pulpe has 150 products in 4 languages @2019-01-25
+# Tomate (pulpe, concentré)
+# Jus de pamplemousse rose - pulpe
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                             C O M P O U N D       I N G R E D I E N T S     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
 
 # en:filling is a compound ingredient (product part)
 
@@ -34991,23 +40178,82 @@ nl:garnituur, vulling
 pt:recheio
 # ingredient/fr:garniture has 1531 products in 9 languages @2018-12-01
 
+fr:brioche
+# ingredient/fr:brioche has 35 products @2019-01-28
 
-en:paste
+# fr:pâte is a compound ingredient. It is either the pizza base or italian pasta (think spaghetti)
+
+en:dough
+de:Teig
+es:masa, masa madre
 fr:pâte
+it:pasta
+nl:deeg
+pt:massa
+ro:paste
+# ingredient/paste has 1809 products @2018-12-10
 
-en:calcium gluconate
-es:gluconato de calcio
-fr:gluconate de calcium
-nl:calciumgluconaat
-de:Calciumgluconat
-#wikidata:en:
+<en:dough
+fr:pâte cuite, pâte cuites, pâtes cuites
+de:Teigwaren gekocht
+it:pasta già cotta
+# ingredient/fr:pâte-cuite has 150 products in 3 languages @2018-12-10
 
-en:calcium glycerophosphate
-es:glicerofosfato de calcio
-fr:glycérophosphate de calcium
-nl:calciumglycerofosfaat
-de:Calciumglycerophosphat
-#wikidata:en:
+<en:dough
+fr:pâtes fraîches cuites
+# ingredient/fr:pâtes-fraîches-cuites has 19 products in french @2018-12-10
+
+<en:dough
+en:precooked dough
+de:Teig vorgebacken
+es:pasta precocida
+fr:pâtes précuites, pâte précuite, fond de pâte précuit
+it:Pasta precotta
+# ingredient/fr:pâte-précuites has 88 products in 5 languages @2018-12-10
+# ingredient/fr:fond-de-pâte-précuit has 18 products @2018-12-10
+
+<en:dough
+en:shortcrust dough
+da:mørdej
+es:masa quebrada
+fr:pâte brisée
+nl:kruimeldeeg
+nn:mørdeig
+pt:massa quebrada
+sv:pajdeg
+
+<en:dough
+fr:pâte feuilletée
+de:Blätterteig
+it:pasta sfoglia
+nl:bladerdeeg
+# ingredient/fr:pâte-feuilletée has 208 products in 8 languages @2018-12-10
+
+# <en:dough
+# fr:pâte à tarte
+# ingredient/fr:pâte-à-tarte has no products @2018-12-10
+# carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
+
+<en:dough
+fr:pâtes fraîches
+# ingredient/fr:pâtes-fraîches has 49 products in french @2018-12-10
+
+<en:dough
+fr:pâtes alimentaires
+de:Teigwaren
+it:paste alimentari
+# ingredient/fr:pâtes-alimentaires has 75 products 2018-12-10
+
+<en:dough
+fr:pâte crue
+# ingredient/fr:pâte-crue has 22 products in french @2018-12-10
+
+
+fr:mélange de salades
+de: Mischsalat
+it: Insalata mista
+# ingredient/fr:mélange-de-salades has 50 products in 4 languages @2019-01-28
+# Mélange de salade  (scarole, frisée, chicorée rouge, roquette)
 
 
 fr:graisse de canard
@@ -35030,7 +40276,6 @@ fr:alginate de sodium
 fr:b5
 
 
-fr:poulpes
 
 carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage entier
 
@@ -35095,9 +40340,6 @@ fr:gomme base
 
 fr:dextrine
 
-fr:benzoate de sodium
-es:Benzoato de sodio
-
 fr:sulfate de zinc
 
 fr:glycosides de stéviol
@@ -35117,11 +40359,6 @@ fr:fumée
 
 
 fr:isomalt
-
-
-en:sodium glutamate
-fr:glutamate de sodium
-
 
 # Random
 
@@ -35527,9 +40764,6 @@ fr:poudre de babeurre
 
 fr:os de poulet
 
-fr:pulpe
-
-
 en:xylitol
 fr:xylitol
 
@@ -35642,8 +40876,6 @@ fr:ortie
 
 fr:malate acide de sodium, e350ii
 
-
-
 fr:polyricinoléate de polyglycérol
 
 fr:babeurre déshydraté
@@ -35653,7 +40885,6 @@ fr:éthanol
 <fr:pain
 fr:pain spécial
 
-
 fr:foie gras de canard du sud-ouest
 
 fr:saumure
@@ -35662,14 +40893,7 @@ fr:filets de sardines
 
 fr:fructo-oligosaccharides
 
-fr:penicillium roqueforti
-
-fr:tilleul
-
 fr:protéines de lait et lactose
-
-fr:safran
-
 
 fr:conservateur du fruit
 
@@ -35729,13 +40953,6 @@ fr:malates de sodium
 
 fr:fibre de chicorée
 
-
-en:endive
-es:escarola
-fr:chicorée
-nl:andijvie
-de:Endivien
-carbon_footprint_fr_foodges_ingredient:fr: Endive
 
 fr:gomme gellane
 
@@ -35824,10 +41041,7 @@ fr:ferments sélectionnés
 
 fr:oxyde de magnésium
 
-fr:champignon noir
 
-
-fr:raifort
 
 fr:citrate monosodique
 
@@ -35962,15 +41176,10 @@ fr:poudre de vanille
 
 fr:gras de bœuf
 
-fr:monoglutamate de sodium
-
-fr:bolets
 
 fr:condiments
 
 fr:matière grasse de karité
-
-fr:aronia
 
 fr:baies de genièvre
 
@@ -36089,8 +41298,6 @@ fr:e202
 
 fr:e202
 
-fr:e211
-
 fr:e222
 
 fr:e223
@@ -36140,8 +41347,6 @@ fr:e332
 fr:e333
 
 fr:e336
-
-fr:e385
 
 fr:e392
 
@@ -36240,12 +41445,6 @@ fr:e575
 
 fr:e579
 
-fr:e621
-
-fr:e621
-
-fr:e621
-
 fr:e627
 
 fr:e631
@@ -36265,8 +41464,6 @@ fr:e950
 fr:e951
 
 fr:e952
-
-fr:e954
 
 fr:e955
 
@@ -36486,12 +41683,6 @@ allergens:fr:_lait_ demi-écrémé pasteurisé
 
 # A TRIER
 
-en:zinc
-fr:zinc
-
-
-
-
 fr:iceberg
 
 fr:k1
@@ -36614,11 +41805,7 @@ fr:fumée de bois de hêtre
 
 fr:maltose
 
-fr:pleurotes
-
 fr:caséinate de sodium
-
-fr:aronie, aronia
 
 fr:chicorée soluble
 
@@ -36686,8 +41873,6 @@ fr:préparation aromatique
 
 fr:tartrate de potassium
 
-fr:mytilus edulis
-
 fr:diglycérides d'acides gras
 
 fr:galette
@@ -36698,8 +41883,6 @@ fr:sauce poisson
 fr:tamari
 
 fr:pois chiches secs trempés
-
-fr:agaricus bisporus
 
 fr:esters monoacétyltartrique et diacétyltartrique des mono et diglycérides d'acides gras, esters monoacétyltartriques et diacétyltartriques des mono- et diglycérides d'acides gras
 
@@ -36713,8 +41896,6 @@ fr:palme et colza
 
 fr:chlorure de choline
 
-en:algae
-fr:algue
 
 fr:pyrophosphate de fer
 
@@ -36846,8 +42027,6 @@ fr:vanille en poudre
 
 fr:fibre d'acacia, fibres d'acacia
 
-fr:lithothamnium calcareum, algue lithothamnium calcareum
-
 fr:pois cassés
 
 fr:pyrophosphate ferrique
@@ -36864,15 +42043,11 @@ fr:fond de veau
 
 fr:caroténoïdes mélangés
 
-fr:fécules
-
 fr:concentré salin liquide
 
 fr:graisses
 
 fr:copeaux de chocolat noir
-
-fr:extrait de guarana
 
 fr:humectant glycérol
 
@@ -36891,8 +42066,6 @@ allergens:fr:gélatine de _poisson_
 
 fr:marc de bourgogne
 
-fr:cépages
-
 fr:peau de volaille
 
 
@@ -36902,7 +42075,6 @@ fr:jus cuisiné
 
 
 fr:demi-crème
-allergens:fr:_demi-crème_
 
 fr:sulfate ferreux
 
@@ -36916,26 +42088,11 @@ fr:fèves
 
 fr:crudités
 
-fr:grenache
-
-
-en:lavender
-fr:lavande
-
-fr:clupea harengus
-
-fr:endives
-
 # Random
 
 fr:saccharomyces cerevisiae
 
 fr:gras de bovin
-
-fr:coeurs de palmiers
-
-fr:pholiotes
-
 
 fr:crème pâtissière
 
@@ -36995,7 +42152,7 @@ fr:colorant e150c
 
 fr:colorant caramel
 
-fr:calcium disodium edta, EDTA calcio-disodique, e385
+
 
 fr:metabisulfite de sodium e223
 
@@ -37265,9 +42422,6 @@ fr:citrique
 
 fr:gluconate de cuivre
 
-fr:nicotinamide
-
-
 fr:brisures de crêpe dentelle
 
 fr:l-tryptophane
@@ -37284,8 +42438,6 @@ fr:gomme cellulosique
 
 fr:iodure de sodium
 
-fr:saccharine
-
 en:wasabi
 es:wasabi
 fr:wasabi
@@ -37298,18 +42450,12 @@ fr:vermicelle
 fr:glycérol d'origine végétale
 
 fr:poisson blanc
-allergens:fr:_poisson_ blanc
-
-
 
 fr:omelette
 
 fr:esters d'acides gras de l'acide ascorbique
 
-
 fr:amylases
-
-fr:bolets jaunes
 
 fr:protéines végétales réhydratées
 
@@ -37330,8 +42476,6 @@ treatment:en: en:gril
 
 
 fr:mono et diglycérides d'acides gras d'origine végétale
-
-fr:conservateur e211
 
 fr:vermicelle de pois réhydraté
 
@@ -37387,9 +42531,6 @@ fr:cyclamate
 fr:fibres d'acacia
 
 fr:vinaigrette
-
-
-fr:pelamis, Katsuwonus pelamis
 
 
 
@@ -37516,10 +42657,6 @@ fr:affermissants
 fr:nori
 
 fr:orangeat
-
-fr:cranberries séchées
-
-
 
 fr:plantain
 
@@ -37735,8 +42872,6 @@ fr:combava
 
 fr:produit champignon quorn
 
-fr:pleurotus ostreatus
-
 fr:extrait concentré
 
 
@@ -37761,8 +42896,6 @@ fr:marsala
 fr:boyau collagénique
 
 fr:fleurs d'hibiscus
-
-fr:merlot
 
 fr:vermicelle de pois
 
@@ -37823,34 +42956,6 @@ fr:matière grasse butyrique
 
 fr:néohespéridine dc, e959
 
-en:mushroom
-es:champiñón
-fr:champignon
-nl:champignon
-de:Champignons
-
-<en:mushroom
-en:mushroom extract
-es:extracto de champiñón
-fr:extrait de champignon
-nl:champignonextract
-de:Champignonextrakt
-
-en:black mushroom
-es:setas negro
-fr:champignons noirs
-nl:zwarte paddestoel
-de:schwarzer Pilz
-
-fr:champignons, champignon
-
-fr:champignon de paris, champignons de paris
-carbon_footprint_fr_foodges_ingredient:fr:Champignons de Paris
-
-fr:champignon noir réhydraté
-
-fr:champignons noirs réhydratés
-
 
 fr:pois mange-tout
 
@@ -37892,8 +42997,6 @@ fr:acide carbonique
 de:Kohlensaure
 
 fr:marc de champagne
-
-fr:algue marine lithothamnium calcareum
 
 fr:sol
 
@@ -38027,9 +43130,6 @@ fr:glucuronolactone
 
 fr:fumarate de fer
 
-
-fr:lactaires
-
 fr:petit beurre
 allergens:fr:petit _beurre_
 
@@ -38078,8 +43178,6 @@ fr:tuber aestivum
 
 fr:transglutaminase
 
-fr:jus d'aronia
-
 fr:tahini
 
 fr:pâtes fraîches cuites
@@ -38100,22 +43198,13 @@ fr:fumarate ferreux
 
 fr:gâteau
 
-
-fr:algue lithothamnium calcareum
-
 fr:oléisol®
 
 fr:mono et di glycérides d'acides gras
 
 fr:pois croquants
 
-fr:spirulina
-
 fr:ferments d'affinage
-
-
-fr:argopecten purpuratus
-
 
 fr:caséinate
 allergens:fr:_caséinate_
@@ -38199,8 +43288,6 @@ allergens:fr:_calmar_
 fr:poisson déshydraté
 allergens:fr:_poisson_ déshydraté
 
-fr:langoustines
-allergens:fr:_langoustines_
 
 fr:filets de harengs
 allergens:fr:filets de _harengs_
@@ -38227,81 +43314,11 @@ fr:conservateur sorbate de potassium
 
 fr:amylase
 
-fr:penicillium
-
-fr:saccharinate de sodium
-
-fr:monostéarate de sorbitane
-
-fr:edta
-
-
-fr:mélange de salades
-
-
-fr:brioche
-
-fr:diphosphates disodique
-
-fr:guarana
-
-fr:monosodium glutamate
-
-fr:boyau de boeuf
-
-fr:lactate de fer
-
-fr:dextrine de tapioca
-
-fr:cantharellus cibarius
 
 
 
-# CHLORELLA is a genus of single-celled green algae belonging to the division Chlorophyta.
 
-<en:algae
-en:chlorella
-ar:كلوريلا
-be:Хларэла
-bn:Хлорела
-ca:Chlorella
-cs:Chlorella
-da:Chlorella
-de:Chlorella
-eo:Klorelo
-es:Chlorella
-et:Klorella
-eu:Chlorella
-fi:Klorella
-fr:chlorella, chlorelle
-ga:Clóireile
-gl:Chlorella
-he:כלורלה
-hr:Chlorella
-hy:քլորելա
-ia:Chlorella
-id:Chlorella
-it:Chlorella
-ja:クロレラ
-kk:Хлорелла
-ko:클로렐라
-ky:Хлорелла
-la:Chlorella
-nl:Chlorella
-pl:Chlorella
-pt:Chlorella
-# pt-br:Clorela
-ru:Хлорелла
-sh:Chlorella
-sk:Chlorela
-sl:Chlorella
-sw:Chlorella
-tr:Chlorella
-uk:Хлорела
-vi:Chlorella
-wikidata:en:Q133017
-wikipedia:en:https://en.wikipedia.org/wiki/Chlorella
-# fr:chlorella has 42 products in 3 languages @2018-10-28
+
 
 
 
