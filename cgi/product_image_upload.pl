@@ -96,7 +96,7 @@ if ($imagefield) {
 		exit(0);		
 	}
 	
-	if ($delete ne 'on') {
+	if ((not defined $delete) or ($delete ne 'on')) {
 	
 		my $product_ref = product_exists($code); # returns 0 if not
 		
@@ -110,6 +110,9 @@ if ($imagefield) {
 		else {
 			$log->info("product code already exists", { code => $code });
 		}
+		
+		# Some apps may be passing a full locale like imagefield=front_pt-BR
+		$imagefield =~ s/^(front|ingredients|nutrition)_(\w\w)-.*/$1_$2/;
 		
 		# For apps that do not specify the language associated with the image, try to assign one
 		if ($imagefield =~ /^(front|ingredients|nutrition)$/) {
