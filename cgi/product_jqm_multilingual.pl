@@ -117,6 +117,14 @@ else {
 				$param_langs{$2} = 1;
 			}
 		}
+		# some apps may send pt-BR
+		elsif ($param =~ /^(.*)_(\w\w)-(\w\w)$/) {
+			if (defined $language_fields{$1}) {
+				$param_langs{$2} = 1;
+				# set the product_name_pt value to the value of product_name_pt-BR
+				param($1 . "_" . $2, param($1 . "_" . $2 . "-" . $3));
+			}
+		}		
 	}
 	my @param_langs = keys %param_langs;
 	
