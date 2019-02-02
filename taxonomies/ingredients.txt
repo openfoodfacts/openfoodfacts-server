@@ -18785,7 +18785,21 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits%20séchés
 # 33 products @2018-10-02
 
 # Juice is a drink made from the extraction or pressing of the natural liquid contained in fruit and vegetables.
-# Note that this not the way juice (jus) is used on ingredients
+
+en:juice
+de:Saft
+fr:jus
+it:succo
+ingredient/fr:jus has 156 products in 4 languages @2019-02-02
+
+<en:juice
+en:concentrated juice
+de:konzentrierter Saft
+fr:jus concentré
+it:succo concentrato
+# ingredient/fr:jus-concentré has 184 products in 5 languages @2019-02-02
+# concentrated juice:lemon and orange
+
 
 <en:fruit
 en:fruit juice
@@ -41365,11 +41379,6 @@ fr:canard
 
 fr:rooibos
 
-
-fr:jus
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus
-# 189 products @2018-10-04
-
 fr:diglycérides d'acide gras
 
 fr:acésulfame k, acésulfame de potassium
@@ -43426,7 +43435,7 @@ en:niacinamide
 fr:niacinamide
 
 
-fr:jus concentré
+
 
 fr:mélasses
 
