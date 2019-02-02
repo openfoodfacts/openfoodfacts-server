@@ -2820,6 +2820,70 @@ it:saccarina di sodio
 ru:Натрия сахаринат
 
 
+# alpha-amylase, (α-amylase) is a protein enzyme EC 3.2.1.1 that hydrolyses alpha bonds of large, alpha-linked polysaccharides, such as starch and glycogen, yielding glucose and maltose.
+
+<en:amylase
+en:alpha-amylase, E1100, E-1100, E 1100
+fr:alpha-amylase, alpha amylase
+nl:alfa-amylase
+wikipedia:en:https://en.wikipedia.org/wiki/Alpha-amylase
+# additive/e1100-alpha-amylase has 518 products @2019-02-01
+
+
+# A protease (also called a peptidase or proteinase) is an enzyme that helps proteolysis:protein catabolism by hydrolysis of peptide bonds.
+
+<en:enzyme
+en:Protease, E1101, E-1101, E 1101
+ar:ببتيداز
+bs:Proteaza
+ca:peptidasa
+cs:Proteáza
+da:protease
+de:Protease, Proteasen
+el:Πεπτιδάση
+eo:peptidazo
+es:Proteasa
+et:Proteaasid
+fa:پروتئاز
+fi:Proteaasi
+fr:protéase, protéases
+gl:Protease
+he:פרוטאז
+hu:Proteáz
+hy:Պրոտեոլիտ ֆերմենտներ
+id:Protease
+it:Proteasi
+ja:プロテアーゼ
+ko:단백질 가수 분해 효소
+ms:Protease
+nb:protease
+nl:protease
+pl:Proteaza
+pt:Protease
+ru:Протеаза
+# sco:protease
+sh:Proteaza
+sk:Proteáza
+sr:Proteaza
+# sr-ec:Протеаза
+# sr-el:Proteaza
+sv:Proteas
+tr:Proteaz
+uk:Протеаза
+vi:Protease
+# wuu:蛋白酶
+zh:蛋白酶
+# zh-cn:蛋白酶
+# zh-hans:蛋白酶
+# zh-hant:蛋白酶
+# zh-hk:蛋白酶
+# zh-sg:蛋白酶
+# zh-tw:蛋白酶
+# wikidata:en:Q212410 the preferred name on products is protease. Not possible to copy 1:1
+wikipedia:en:https://en.wikipedia.org/wiki/Protease
+# ingredient/fr:protéase has 111 products in 5 languages @2019-02-01
+
+
 # Lysozyme, also known as muramidase or N-acetylmuramide glycanhydrolase is an antimicrobial enzyme produced by animals that forms part of the innate immune system.
 
 # <en:conservator
@@ -4057,6 +4121,7 @@ fr:ferments lactiques dont bifidobacterium
 
 
 # Amylase are enzymes that catalyse the hydrolysis of starch into sugars. 
+# when indicated, it is probably alpha-amylase is meant
 
 <en:enzyme
 en:amylase
@@ -4090,6 +4155,8 @@ wikidata:en:Q17153
 wikipedia:en:https://en.wikipedia.org/wiki/Amylase
 # ingredient/fr:amylase has 96 products in french @2019-01-30
 # enzymes (amylase, cellulase) 
+
+# alpha-amlyse is listed as E1100
 
 # Cellulase is any of several enzymes produced chiefly by fungi, bacteria, and protozoans that catalyze cellulolysis, the decomposition of cellulose and of some related polysaccharides.
 
@@ -4131,6 +4198,10 @@ zh:纤维素酶
 wikidata:en:Q410324
 wikipedia:en:https://en.wikipedia.org/wiki/Cellulase
 # ingredient/fr:cellulase has 66 products in 2 languages @2019–02-01
+
+<en:cellulase
+fr:hémicellulase
+# ingredient/fr:hémicellulase has 27 products in french @2019-02-01
 
 
 # LACTASE - is an enzyme produced by many organisms.
@@ -4177,6 +4248,147 @@ zh:乳糖酶
 # yue:乳糖水解酶
 wikidata:en:Q379764
 wikipedia:en:https://en.wikipedia.org/wiki/Lactase
+
+β-galactosidase, also called lactase, beta-gal or β-gal, is a glycoside hydrolase enzyme that catalyzes the hydrolysis of β-galactosides into monosaccharides through the breaking of a glycosidic bond.
+
+<en:lactase
+en:beta-galactosidase
+ca:Beta-galatosidasa
+de:Βeta-Galactosidase
+es:Beta galactosidasa
+et:Β-galaktosidaas
+fr:Bêta-galactosidase, Bêta-D-galactosidase
+id:Β-galaktosidase
+it:Beta-galattosidasi
+ja:Β-ガラクトシダーゼ
+nn:β-galaktosidase
+sh:Beta-galaktozidaza
+sr:Beta-galaktozidaza
+uk:Бета-галактозидаза
+zh:Β-半乳糖苷酶
+wiki-data:en:Q286379
+wikipedia:en:https://en.wikipedia.org/wiki/Beta-galactosidase
+
+
+<en:enzyme
+en:lipase
+ar:ليباز
+bs:Lipaza
+ca:lipasa
+cs:lipáza
+da:Lipase
+de:Lipase
+el:λιπάση
+eo:lipazo
+es:lipasa
+eu:Lipasa
+fa:لیپاز
+fi:Lipaasi
+fr:lipase
+ga:Liopáis
+gl:Lipase
+he:ליפאז
+hi:लाइपेज
+id:Lipase
+it:Lipasi
+ja:リパーゼ
+kk:Липазалар
+# kk-arab:لىيپازالار
+# kk-cn:لىيپازالار
+# kk-cyrl:Липазалар
+# kk-kz:Липазалар
+# kk-latn:Lïpazalar
+# kk-tr:Lïpazalar
+ko:라이페이스
+ky:Липазалар
+lv:lipāze
+ms:Lipase
+nb:lipase
+nl:lipase
+nn:lipase
+pa:ਲਾਈਪੇਸ
+pl:Lipazy
+pt:lipase
+ru:Липаза
+sh:Lipaza
+sl:Lipaza
+sr:липаза
+# sr-ec:липаза
+# sr-el:Lipaza
+sv:Lipas
+ta:கொழுமியச்சிதைப்பி
+tr:Lipaz
+uk:Ліпаза
+uz:Lipaza
+vi:Lipase
+zh:脂酶
+# zh-cn:脂酶
+# zh-hans:脂酶
+# zh-hant:脂酶
+# zh-hk:脂酶
+# zh-sg:脂酶
+# zh-tw:脂酶
+wikidata:en:Q380967
+# ingredient/fr:lipase has 81 products in 2 languages @2019-02-01
+
+
+# protease is listed as E1101
+
+
+# In commercial food processing, transglutaminase is used to bond proteins together. 
+# It is produced by Streptoverticillium mobaraense fermentation in commercial quantities or extracted from animal blood
+
+<en:enzyme
+en:transglutaminase
+ar:ترانسغلوتاميناز
+ca:transglutaminasa
+de:Transglutaminase
+es:Transglutaminasa
+fa:ترانس گلوتامیناز
+fi:Glutamyylitransferaasi
+fr:transglutaminase
+he:טרנסגלוטמינאז
+id:Transglutaminase
+it:Transglutaminasi
+ja:トランスグルタミナーゼ
+nb:transglutaminase
+nl:transglutaminase
+nn:transglutaminase
+pt:transglutaminase
+ru:Трансглютаминаза
+sh:Transglutaminaza
+sr:трансглутаминаза
+# sr-ec:трансглутаминаза
+# sr-el:transglutaminaza
+wikidata:en:Q423646
+wikipedia:en:https://en.wikipedia.org/wiki/Transglutaminase
+# ingredient/fr:transglutaminase 27 products in 4 languages @2019-02-01
+
+
+# Xylanase is any of a class of enzymes that degrade the linear polysaccharide xylan into xylose,[1] thus breaking down hemicellulose, one of the major components of plant cell walls.
+
+<en:enzyme
+en:xylanase
+bs:Ksilanaza
+ca:xilanasa
+de:Xylanasen
+es:xilanasa
+fi:Ksylanaasi
+fr:xylanase, xylananse
+id:Xylanase
+it:Xilanasi
+ja:キシラナーゼ
+nl:xylanase
+nn:xylanase
+pt:xilanase
+sh:Ksilanaza
+sr:Ksilanaza
+sv:Xylanas
+zh:木聚糖酶
+wikidata:en:Q419510
+wikipedia:en:https://en.wikipedia.org/wiki/Xylanase
+# ingredient/fr:xylanase has 46 products in 2 languages @2019-02-01
+
 
 #
 # BUTTER - a dairy product containing at least 80% butterfat.
