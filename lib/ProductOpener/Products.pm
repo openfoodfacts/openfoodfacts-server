@@ -1179,7 +1179,10 @@ sub compute_codes($) {
 	}
 	
 	while ($code =~ /^\d/) {
-		push @codes, $code;
+		# only keep codes with 3 xx at the end
+		if ($code =~ /xxx$/) {
+			push @codes, $code;
+		}
 		$code =~ s/\d(x*)$/x$1/;
 	}
 	
