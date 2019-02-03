@@ -5764,7 +5764,7 @@ window.addEventListener('load', onLoad);
 {
 	"\@context": "https://schema.org/",
 	"\@type": "Organization",
-	"url": "@{[ $format_subdomain ]}",
+	"url": "$format_subdomain",
 	"logo": "/images/misc/$Lang{logo}{$lang}",
 	"name": "$Lang{site_name}{$lc}",
 	"sameAs" : [ "$facebook_page", "https://twitter.com/$twitter_account"]
