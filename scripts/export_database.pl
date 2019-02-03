@@ -81,9 +81,10 @@ $fields_ref->{ingredients} = 1;
 $fields_ref->{images} = 1;
 $fields_ref->{lc} = 1;
 
-
+# Current date, used for RDF dcterms:modified
 my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
 my $date = sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
+
 
 # now that we have 200 languages, we can't run the export for every language.
 # foreach my $l (values %lang_lc) {
@@ -102,14 +103,16 @@ foreach my $l ("en", "fr") {
 	$total += $count;
 
 	print STDERR "lc: $lc - $count products\n";
+	print STDERR "Write file: $www_root/data/$lang.$server_domain.products.csv\n";
+	print STDERR "Write file: $www_root/data/$lang.$server_domain.products.rdf\n";
 
 	open (my $OUT, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.csv");
 	open (my $RDF, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.rdf");
 
+
 	# Headers
 
-	my $csv = '';
-
+	# RDF header
 	print $RDF <<XML
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 		xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -145,26 +148,32 @@ The database is available under Open Database Licence 1.0 (ODbL) https://opendat
 XML
 ;
 
+	# CSV header
+	my $csv = '';
 
 	foreach my $field (@export_fields) {
 
 		$csv .= $field . "\t";
 
-
+		# Add "url" field right after "code" field
 		if ($field eq 'code') {
-
 			$csv .= "url\t";
-
 		}
 
+		# Add "created_datetime" and "last_modified_datetime" fields right after
+		# "created_t" and "last_modified_t"
 		if ($field =~ /_t$/) {
 			$csv .= $` . "_datetime\t";
 		}
 
+		# If the field is a tag field, add a normalized version of this field ending
+		# with _tag
 		if (defined $tags_fields{$field}) {
 			$csv .= $field . '_tags' . "\t";
 		}
 
+		# If the field is a taxonomy, add a localized version of this field ending
+		# with the country code; example: allergens   allergens_fr
 		if (defined $taxonomy_fields{$field}) {
 			$csv .= $field . "_$lc" . "\t";
 		}
@@ -197,6 +206,9 @@ XML
 	$csv =~ s/\t$/\n/;
 	print $OUT $csv;
 
+
+
+
 	# Products
 
 	my %ingredients = ();
@@ -212,18 +224,29 @@ XML
 
 		foreach my $field (@export_fields) {
 
-			$product_ref->{$field} =~ s/(\r|\n|\t)+/ /g;
+			my $field_value = ($product_ref->{$field} // "");
 
-			$csv .= $product_ref->{$field} . "\t";
+			# Replace tab (\t), carriage return (\n) or line feed (\n) by a space char
+			# TODO? also replace old non visible ASCII chars such as NULL (000), SOH (001),
+			#       STX (002), ETX (003), ETX (004), BEL (007), etc., which break the CSV file.
+			#       [\x{000D}\x{001D}] or [\000-\007\013-\037]
+			#       See https://en.wikipedia.org/wiki/ASCII
+			#       $field_value =~ s/[\000-\007\013-\037]+//g;
+			$field_value =~ s/(\r|\n|\t)+/ /g;
 
+			# Add field value to CSV file
+			$csv .= $field_value . "\t";
 
+			# If current field is "code", add the product url after it; example:
+			# 9542013592	http://world-fr.openfoodfacts.org/produit/0009542013592/gourmet-truffles-lindt
 			if ($field eq 'code') {
-
-
 				$csv .=  $url . "\t";
-
 			}
 
+			# If the field name ending with _t (ie a date in epoch format), add
+			# a field in ISO 8601 date format; example:
+			# created_t		created_datetime
+			# 1489061370	2017-03-09T12:09:30Z
 			if ($field =~ /_t$/) {
 				if ($product_ref->{$field} > 0) {
 					my $dt = DateTime->from_epoch( epoch => $product_ref->{$field} );
@@ -343,6 +366,9 @@ XML
 
 		$csv =~ s/\t$/\n/;
 
+
+
+
 		my $name = xml_escape_NFC($product_ref->{product_name});
 		my $ingredients_text = xml_escape_NFC($product_ref->{ingredients_text});
 
@@ -358,7 +384,12 @@ XML
 
 			foreach my $i (@{$product_ref->{ingredients}}) {
 
-				$rdf .= "\t<food:containsIngredient>\n\t\t<food:Ingredient>\n\t\t\t<food:food rdf:resource=\"http://fr.$server_domain/ingredient/" . $i->{id} . "\" />\n";
+				# TODO: "The EN and FR versions include URL with whitespaces."
+				#       See https://github.com/openfoodfacts/openfoodfacts-server/issues/811
+				#       => encode $i->{id}
+				$rdf .= "\t<food:containsIngredient>\n" .
+						"\t\t<food:Ingredient>\n" .
+						"\t\t\t<food:food rdf:resource=\"http://fr.$server_domain/ingredient/" . $i->{id} . "\" />\n";
 				not defined $ingredients{$i->{id}} and $ingredients{$i->{id}} = {};
 				$ingredients{$i->{id}}{ucfirst($i->{text})}++;
 				if (defined $i->{rank}) {
@@ -443,12 +474,12 @@ XML
 }
 
 
-my $html = "<p>$total products:</p>";
+my $html = "<p>$total products:</p>\n";
 foreach my $l (sort { $langs{$b} <=> $langs{$a}} keys %langs) {
 
 	if ($langs{$l} > 0) {
 		$lang = $l;
-		$html .= "<p><a href=\"http://$lang.$server_domain/\">" . $Langs{$l} . "</a> - $langs{$l} " . lang("products") . "</p>";
+		$html .= "<p><a href=\"http://$lang.$server_domain/\">" . $Langs{$l} . "</a> - $langs{$l} " . lang("products") . "</p>\n";
 	}
 
 }
