@@ -4473,7 +4473,7 @@ JS
                 text: '$graph_ref->{graph_title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$sep: @{[ $format_subdomain ]}'
+                text: '$Lang{data_source}{$lc}$sep: $format_subdomain'
             },
             xAxis: {
                 title: {
