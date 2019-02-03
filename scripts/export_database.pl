@@ -54,9 +54,10 @@ use DateTime qw/:all/;
 
 
 sub xml_escape_NFC($) {
-
         my $s = shift;
-        return xml_escape(NFC($s));
+		if (defined $s) {
+			return xml_escape(NFC($s)); # NFC is provided by Unicode::Normalize
+		}
 }
 
 
@@ -319,9 +320,9 @@ XML
 
 		ProductOpener::Display::add_images_urls_to_product($product_ref);
 
-		$csv .= $product_ref->{image_url} . "\t" . $product_ref->{image_small_url} . "\t";
-		$csv .= $product_ref->{image_ingredients_url} . "\t" . $product_ref->{image_ingredients_small_url} . "\t";
-		$csv .= $product_ref->{image_nutrition_url} . "\t" . $product_ref->{image_nutrition_small_url} . "\t";
+		$csv .= ($product_ref->{image_url} // "") . "\t" . ($product_ref->{image_small_url} // "") . "\t";
+		$csv .= ($product_ref->{image_ingredients_url} // "") . "\t" . ($product_ref->{image_ingredients_small_url} // "") . "\t";
+		$csv .= ($product_ref->{image_nutrition_url} // "") . "\t" . ($product_ref->{image_nutrition_small_url} // "") . "\t";
 
 
 		foreach my $nid (@{$nutriments_tables{"europe"}}) {
