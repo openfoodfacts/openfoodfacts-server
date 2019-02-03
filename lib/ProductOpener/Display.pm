@@ -5754,7 +5754,7 @@ window.addEventListener('load', onLoad);
 	"\@context" : "https://schema.org",
 	"\@type" : "WebSite",
 	"name" : "$Lang{site_name}{$lc}",
-	"url" : "@{[ $format_subdomain ]}",
+	"url" : "$format_subdomain",
 	"potentialAction": {
 		"\@type": "SearchAction",
 		"target": "@{[ $format_subdomain ]}/cgi/search.pl?search_terms=?{search_term_string}",
