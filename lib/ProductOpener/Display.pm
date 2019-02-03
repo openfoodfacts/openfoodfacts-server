@@ -1731,7 +1731,7 @@ HTML
   },
   onRegionClick: function(e, code, region){
 	if (countries_map_links[code]) {
-		window.location.href = "@{[ $format_subdomain ]}" + countries_map_links[code];
+		window.location.href = "$format_subdomain" + countries_map_links[code];
 	}
   },
 });
