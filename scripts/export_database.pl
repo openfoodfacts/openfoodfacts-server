@@ -20,6 +20,15 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+
+# This script exports database in CSV and RDF/XML formats. It's a command line
+# without any argument. Usage:
+# ./export_database.pl
+
+# TODO: factorize code with search_and_export_products() function
+# from ./lib/ProductOpener/Display.pm
+
+
 use CGI::Carp qw(fatalsToBrowser);
 
 use Modern::Perl '2012';
