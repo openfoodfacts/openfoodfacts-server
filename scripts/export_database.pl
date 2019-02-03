@@ -41,7 +41,7 @@ use ProductOpener::Data qw/:all/;
 
 # for RDF export: replace xml_escape() with xml_escape_NFC()
 use Unicode::Normalize;
-
+use URI::Escape::XS;
 
 
 
@@ -384,12 +384,11 @@ XML
 
 			foreach my $i (@{$product_ref->{ingredients}}) {
 
-				# TODO: "The EN and FR versions include URL with whitespaces."
-				#       See https://github.com/openfoodfacts/openfoodfacts-server/issues/811
-				#       => encode $i->{id}
+				# Encode URI
+				my $ing_encoded = URI::Escape::XS::encodeURIComponent($i->{id});
 				$rdf .= "\t<food:containsIngredient>\n" .
 						"\t\t<food:Ingredient>\n" .
-						"\t\t\t<food:food rdf:resource=\"http://fr.$server_domain/ingredient/" . $i->{id} . "\" />\n";
+						"\t\t\t<food:food rdf:resource=\"http://fr.$server_domain/ingredient/" . $ing_encoded . "\" />\n";
 				not defined $ingredients{$i->{id}} and $ingredients{$i->{id}} = {};
 				$ingredients{$i->{id}}{ucfirst($i->{text})}++;
 				if (defined $i->{rank}) {
@@ -455,6 +454,9 @@ XML
 			$sameas = "\n\t<owl:sameAs rdf:resource=\"$links{$i}\"/>";
 		}
 
+		# Encode URI
+		$i = URI::Escape::XS::encodeURIComponent($i);
+
 		print $RDF <<XML
 <rdf:Description rdf:about="http://$lc.$server_domain/ingredient/$i" rdf:type="http://data.lirmm.fr/ontologies/food#Food">
 	<food:name>$name</food:name>$sameas
@@ -464,10 +466,7 @@ XML
 ;
 	}
 
-	print $RDF <<XML
-</rdf:RDF>
-XML
-;
+	print $RDF "</rdf:RDF>\n";
 
 	close $RDF;
 
