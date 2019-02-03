@@ -145,53 +145,53 @@ XML
 ;
 
 
-		foreach my $field (@export_fields) {
+	foreach my $field (@export_fields) {
 
-			$csv .= $field . "\t";
+		$csv .= $field . "\t";
 
 
-			if ($field eq 'code') {
+		if ($field eq 'code') {
 
-				$csv .= "url\t";
-
-			}
-
-			if ($field =~ /_t$/) {
-				$csv .= $` . "_datetime\t";
-			}
-
-			if (defined $tags_fields{$field}) {
-				$csv .= $field . '_tags' . "\t";
-			}
-
-			if (defined $taxonomy_fields{$field}) {
-				$csv .= $field . "_$lc" . "\t";
-			}
-
-			if ($field eq 'emb_codes') {
-				$csv .= "first_packaging_code_geo\t";
-			}
+			$csv .= "url\t";
 
 		}
 
-		$csv .= "main_category\tmain_category_$lc\t";
-
-		$csv .= "image_url\timage_small_url\t";
-		$csv .= "image_ingredients_url\timage_ingredients_small_url\t";
-		$csv .= "image_nutrition_url\timage_nutrition_small_url\t";
-
-
-
-		foreach my $nid (@{$nutriments_tables{"europe"}}) {
-
-			$nid =~ /^#/ and next;
-
-			$nid =~ s/!//g;
-			$nid =~ s/^-//g;
-			$nid =~ s/-$//g;
-
-			$csv .= "${nid}_100g" . "\t";
+		if ($field =~ /_t$/) {
+			$csv .= $` . "_datetime\t";
 		}
+
+		if (defined $tags_fields{$field}) {
+			$csv .= $field . '_tags' . "\t";
+		}
+
+		if (defined $taxonomy_fields{$field}) {
+			$csv .= $field . "_$lc" . "\t";
+		}
+
+		if ($field eq 'emb_codes') {
+			$csv .= "first_packaging_code_geo\t";
+		}
+
+	}
+
+	$csv .= "main_category\tmain_category_$lc\t";
+
+	$csv .= "image_url\timage_small_url\t";
+	$csv .= "image_ingredients_url\timage_ingredients_small_url\t";
+	$csv .= "image_nutrition_url\timage_nutrition_small_url\t";
+
+
+
+	foreach my $nid (@{$nutriments_tables{"europe"}}) {
+
+		$nid =~ /^#/ and next;
+
+		$nid =~ s/!//g;
+		$nid =~ s/^-//g;
+		$nid =~ s/-$//g;
+
+		$csv .= "${nid}_100g" . "\t";
+	}
 
 	$csv =~ s/\t$/\n/;
 	print $OUT $csv;
