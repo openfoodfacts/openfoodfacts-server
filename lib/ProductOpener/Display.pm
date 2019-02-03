@@ -5305,7 +5305,7 @@ $options{favicons}
 <link rel="stylesheet" href="/css/dist/app.css?v=$file_timestamps{"css/dist/app.css"}">
 <link rel="stylesheet" href="@{[ format_subdomain('static') ]}/bower_components/jquery-ui/themes/base/jquery-ui.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" integrity="sha384-HIipfSYbpCkh5/1V87AWAeR5SUrNiewznrUrtNz1ux4uneLhsAKzv/0FnMbj3m6g" crossorigin="anonymous">
-<link rel="search" href="@{[ $format_subdomain ]}/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
+<link rel="search" href="$format_subdomain/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="$Lang{site_name}{$lang}">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <style media="all">
 HTML
