@@ -5757,7 +5757,7 @@ window.addEventListener('load', onLoad);
 	"url" : "$format_subdomain",
 	"potentialAction": {
 		"\@type": "SearchAction",
-		"target": "@{[ $format_subdomain ]}/cgi/search.pl?search_terms=?{search_term_string}",
+		"target": "$format_subdomain/cgi/search.pl?search_terms=?{search_term_string}",
 		"query-input": "required name=search_term_string"
 	}
 }
