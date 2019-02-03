@@ -5183,39 +5183,40 @@ fr:lait entier pasteurisé de vache
 es:Leche entera pasteurizada de vaca
 
 <en:milk
-fr:_lait_ et _crème_ pasteurisé
+<en:cream
+en: pasteurized milk and cream
+de: pasteurisiert Milch und Rahm
+es: Leche y nata pasteurizadas
+fr:lait et crème pasteurisé
+it: latte e panna pastorizzati
+nl: Gepasteuriseerde melk en room
+pt: Leite e natas pateurizados
+ingredient/fr:lait-et-crème-pasteurisé has 177 products in 7 languages @2019-02-03
 
 <en:milk powder
 fr:lait en poudre partiellement écrémé
 nl:halfvolle poedermelk
-allergens:fr:_lait_ en poudre partiellement écrémé
 
 <en:milk powder
 fr:lait en poudre enrichi en matière grasse
-allergens:fr:_lait_ en poudre enrichi en matière grasse
 
 <en:milk powder
 fr:lait maigre en poudre
 
 <en:milk powder
 fr:lait écrémé à base de poudre de lait
-allergens:fr:_lait_ écrémé à base de poudre de _lait_
 
 fr:sérum de lait
-allergens:fr:sérum de _lait_
 
 <en:milk
 fr:lait concentré écrémé
-allergens:fr:_lait_ concentré écrémé
 
 <en:milk
 fr:lait demi-écrémé stérilisé uht
-allergens:fr:_lait_ demi-écrémé stérilisé uht
 
 
 <en:milk
 fr:lait frais entier
-allergens:fr:_lait_ frais entier
 
 <en:milk
 fr:lait fermenté
@@ -5231,8 +5232,6 @@ fr:produits laitiers en poudre
 fr:poudre de lait écrémé
 allergens:fr:poudre de _lait_ écrémé
 
-fr:crème de lait pasteurisé
-allergens:fr:crème de _lait_ pasteurisé
 
 fr:lait de vache thermisé
 allergens:fr:_lait_ de vache thermisé
@@ -5687,37 +5686,170 @@ vi:Kem, Kem
 zh:鮮奶油
 # yue:忌廉
 wikipedia:en:https://en.wikipedia.org/wiki/Cream
-allergens:fr:_crème_ fraîche liquide
-allergens:fr:crème de _lait_
 
 <en:cream
-en:Light Cream
-fr:Crème fraîche légère
-nl:Lichte room
-allergens:fr:_crème_ fraîche légère
+en:pasteurized cream
+de:pasteurisierte Sahne
+fr:crème pasteurisé
+# ingredient/fr:crème-pasteurisé has 86 products in 4 languages @2019-02-03
 
-<en:cream
-en:Pasteurized cream
-fr:crème pasteurisée, crème fraîche pasteurisée
-carbon_footprint_fr_foodges_ingredient:fr:Crème, 40% MG, pasteurisée
-nl:gepasteuriseerde room
-allergens:fr:_crème_ pasteurisée
+<en:Pasteurized cream
+fr:crème de lait pasteurisé
 
 <en:cream
 en:Powdered cream, Cream powder
-fr:Crème en poudre, crème en poudre
+fr:Crème en poudre, crème en poudre, poudre de crème
 nl:Poederroom, poederroom
-allergens:fr:_crème_ en poudre
 
 <en:cream
 en:Cream from Normandy
 fr:Crème fraîche de normandie
 nl:Room uit Normandië
-allergens:fr:_crème_ fraîche de normandie
 
+<en:cream
+fr:crème stérilisée
 
+<en:cream
+fr:crème uht
+# ingredient/fr:crème-uht has 100 products @2019-02-03
 
-# buttermilk was the liquid left behind after churning butter out of cultured cream.
+<en:cream
+en:light cream
+de:leichte Sahne
+fr:crème légère, Crème fraîche légère
+it:crema leggera
+nl:Lichte room
+# ingredient/fr:crème%20légère has 399 products in 8 languages @2019-02-03
+
+# Recipes calling for 'single cream' are referring to pure or thickened cream with about 35% fat.
+# Note that the translations are often wrong, as this does not exists in all countries
+
+<en:cream
+en:single cream
+de:Halbrahm, Haldsahne
+fr:crème liquide, demi-crème
+nl:vloeibare room
+sv:flytande grädde
+# ingredient/fr:crème-liquide has 676 products in 7 languages @2019-02-03
+# ingredient/fr:demi-crème has 31 products in 4 languages @2019-02-03
+
+<en:cream
+en:whole cream
+de:Vollrahm, ganze Sahne
+fr:crème entière
+it:panna intera
+nl:volle room
+# ingredient/fr:crème-entière has 71 products in 4 languages @2019-02-03
+
+<en:cream
+fr:crème pâtissière
+# ingredient/fr:crème-pâtissière has 105 products in french  @2019-02-03
+
+<en:skimmed milk
+<en:pasteurized cream
+en: Skim milk and pasteurized cream
+de: Magermilch und pasteurisiertes Sahne
+fr:lait écrémé et crème pasteurisés
+# ingredient/fr:lait-écrémé-et-crème-pasteurisés has 64 products in 4 languages @2019-02-03
+
+<en:Cream
+en:Sour cream
+ar:كريمة حامضة
+# bxr:Зөөхэй, ᠵᠦᠭᠡᠭᠡᠢ
+ca:Crema agra, crema àcida
+de:saure Sahne, Sauerrahm
+eo:Acidkremo
+es:Crema agria, nata agria
+fa:خامه ترش
+fi:Hapankerma
+fr:Crème aigre, crème sure, crème acidulée
+he:שמנת חמוצה
+hu:Tejföl
+id:Krim asam
+is:Sýrður rjómi
+it:Panna acida
+ko:사워크림
+ms:Krim masam
+nl:Zure room
+pt:Creme azedo
+sk:Kyslá smotana
+vi:Kem chua
+zh:酸忌廉
+# yue:酸忌廉
+wikipedia:en:https://en.wikipedia.org/wiki/Sour_cream
+# ingredient/fr:crème-acidulée has 27 products @2019-02-03
+
+<en:Cream
+en:Smetana
+az:Xama
+# bat-smg:Smetuona
+be:Смятана
+bs:Pavlaka
+ca:Smetana
+cs:Zakysaná smetana
+cv:Хăйма
+da:Smetana
+de:Schmand, Schmant, Schmetten
+es:Smetana
+et:Hapukoor
+eu:Smetana
+fi:Smetana
+fr:Smetana
+gl:Smetana
+hy:Թթվասեր
+it:Smetana
+ja:スメタナ
+ka:არაჟანი
+kk:Қаймақ
+ko:스메타나
+lt:Grietinė
+lv:Skābais krējums
+mk:Павлака
+ms:Smetana
+nl:Smetana
+no:Smetana
+# olo:Kannates
+pl:Śmietana
+ru:Сметана
+sl:Kisla smetana
+sr:Павлака
+sv:Smetana
+# szl:Zana
+uk:Сметана
+uz:Smetana
+# vep:Kandatez
+vi:Smetana
+zh:斯美塔那酸奶油
+wikipedia:en:https://en.wikipedia.org/wiki/Smetana_(dairy_product)
+
+<en:Cream
+en:Crème fraîche
+af:Crème fraîche
+cs:Crème fraîche
+da:Cremefraiche
+de:Crème fraîche
+es:Crème fraîche
+eu:Esne-gain gordina, esne-gain freskoa
+fr:crème fraîche épaisse, crème fraîche fermentée
+he:קרם פרש
+hy:Կրեմ-ֆրեշ
+is:Crème fraîche
+it:Crème fraîche
+ja:クレームフレーシュ
+ko:크렘 프레슈
+ms:Crème fraîche
+nl:Crème fraîche
+no:Crème fraîche
+pl:Crème fraîche, świeża śmietana
+pt:Crème fraîche
+ru:Крем-фреш
+uk:Крем-фреш
+vi:Kem fraîche
+sv:Crème fraîche
+zh:法式酸奶油
+wikipedia:en:https://en.wikipedia.org/wiki/Crème_fraîche
+
+# BUTTERMILK was the liquid left behind after churning butter out of cultured cream.
 
 en:buttermilk
 af:Karringmelk
@@ -40695,7 +40827,7 @@ fr:ferments lactiques et d'affinage
 
 fr:farce
 
-fr:crème liquide
+
 
 
 fr:gomme base
@@ -40916,8 +41048,6 @@ fr:cire d'abeille
 fr:cire d'abeille blanche et jaune
 
 
-fr:crème légère
-
 fr:citrates de calcium
 
 
@@ -40980,9 +41110,6 @@ fr:germe de blé, germes de blé
 fr:gélatine bovine
 
 fr:cystéine
-
-
-fr:crème de lait pasteurisée
 
 fr:sodium
 
@@ -41541,7 +41668,6 @@ fr:baies de genièvre
 
 fr:croûtons
 
-fr:crème entière
 
 fr:extrait de stevia rebaudiana
 
@@ -42205,8 +42331,6 @@ fr:pulpe de mangue
 fr:gorgonzola
 allergens:fr:_gorgonzola_
 
-fr:crème uht
-allergens:fr:_crème_ uht
 
 fr:gaufrette
 
@@ -42333,8 +42457,6 @@ de:Calciumcitrat aus Orthophosphorsäure
 
 fr:esters polyglycériques d'acides gras
 
-fr:lait écrémé et crème pasteurisés
-allergens:fr:_lait_ écrémé et crème pasteurisés
 
 fr:extrait de chicorée
 
@@ -42428,7 +42550,6 @@ fr:géliﬁant
 fr:jus cuisiné
 
 
-fr:demi-crème
 
 fr:sulfate ferreux
 
@@ -42448,7 +42569,6 @@ fr:saccharomyces cerevisiae
 
 fr:gras de bovin
 
-fr:crème pâtissière
 
 fr:monostéarate de glycérol
 
@@ -43029,7 +43149,6 @@ de:vorgegartes Hühnerfleisch
 
 fr:poudre de fleurage
 
-fr:crème acidulée
 
 fr:extrait pur de vanille
 
@@ -43187,9 +43306,6 @@ fr:gomme laque
 
 
 
-
-fr:poudre de crème
-allergens:fr:poudre de _crème_
 
 
 fr:fève
@@ -43361,9 +43477,6 @@ fr:plasma déshydraté
 
 fr:son
 
-fr:crème pasteurisé
-allergens:fr:_crème_ pasteurisé
-
 fr:seitan
 
 fr:acétate de potassium
@@ -43378,103 +43491,6 @@ fr:graisses végétales non hydrogénées
 
 fr:shiitakes
 
-
-<en:Cream
-en:Sour cream
-ar:كريمة حامضة
-# bxr:Зөөхэй, ᠵᠦᠭᠡᠭᠡᠢ
-ca:Crema agra, crema àcida
-de:saure Sahne, Sauerrahm
-eo:Acidkremo
-es:Crema agria, nata agria
-fa:خامه ترش
-fi:Hapankerma
-fr:Crème aigre, crème sure, crème acidulée
-he:שמנת חמוצה
-hu:Tejföl
-id:Krim asam
-is:Sýrður rjómi
-it:Panna acida
-ko:사워크림
-ms:Krim masam
-nl:Zure room
-pt:Creme azedo
-sk:Kyslá smotana
-vi:Kem chua
-zh:酸忌廉
-# yue:酸忌廉
-wikipedia:en:https://en.wikipedia.org/wiki/Sour_cream
-allergens:fr:_crème_ fraîche
-
-<en:Cream
-en:Smetana
-az:Xama
-# bat-smg:Smetuona
-be:Смятана
-bs:Pavlaka
-ca:Smetana
-cs:Zakysaná smetana
-cv:Хăйма
-da:Smetana
-de:Schmand, Schmant, Schmetten
-es:Smetana
-et:Hapukoor
-eu:Smetana
-fi:Smetana
-fr:Smetana
-gl:Smetana
-hy:Թթվասեր
-it:Smetana
-ja:スメタナ
-ka:არაჟანი
-kk:Қаймақ
-ko:스메타나
-lt:Grietinė
-lv:Skābais krējums
-mk:Павлака
-ms:Smetana
-nl:Smetana
-no:Smetana
-# olo:Kannates
-pl:Śmietana
-ru:Сметана
-sl:Kisla smetana
-sr:Павлака
-sv:Smetana
-# szl:Zana
-uk:Сметана
-uz:Smetana
-# vep:Kandatez
-vi:Smetana
-zh:斯美塔那酸奶油
-wikipedia:en:https://en.wikipedia.org/wiki/Smetana_(dairy_product)
-
-<en:Cream
-en:Crème fraîche
-af:Crème fraîche
-cs:Crème fraîche
-da:Cremefraiche
-de:Crème fraîche
-es:Crème fraîche
-eu:Esne-gain gordina, esne-gain freskoa
-fr:crème fraîche épaisse, crème fraîche fermentée
-he:קרם פרש
-hy:Կրեմ-ֆրեշ
-is:Crème fraîche
-it:Crème fraîche
-ja:クレームフレーシュ
-ko:크렘 프레슈
-ms:Crème fraîche
-nl:Crème fraîche
-no:Crème fraîche
-pl:Crème fraîche, świeża śmietana
-pt:Crème fraîche
-ru:Крем-фреш
-uk:Крем-фреш
-vi:Kem fraîche
-sv:Crème fraîche
-zh:法式酸奶油
-wikipedia:en:https://en.wikipedia.org/wiki/Crème_fraîche
 
 fr:tartrazine
 es:Tartrazina
@@ -43660,7 +43676,6 @@ allergens:fr:poudre de _poisson_
 
 fr:salade mélangée
 
-fr:crème stérilisée
 
 
 
