@@ -1499,7 +1499,7 @@ sub display_list_of_tags($$) {
 			my $display = '';
 			my @sameAs = ();
 			if ($tagtype eq 'nutrition_grades') {
-				if ($tagid =~ /^a|b|c|d|e$/) {
+				if ($tagid =~ /^[abcde]$/) {
 					my $grade = $tagid;
 					$display = "<img src=\"/images/misc/nutriscore-$grade.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} " . uc($grade) . "\" style=\"margin-bottom:1rem;max-width:100%\">" ;
 				}
@@ -1577,7 +1577,7 @@ sub display_list_of_tags($$) {
 						$countries_map_links->{$region} = $product_link;
 						my $name = $display;
 						$name =~ s/<(.*?)>//g;
-						$countries_map_names->{$region} = $name;						
+						$countries_map_names->{$region} = $name;
 					}
 
 					if (not defined $countries_map_data->{$region}) {
@@ -5456,55 +5456,55 @@ To improve food for everyone, it's time to <a href="https://www.helloasso.com/as
 HTML
 ;
 	}
-	
+
 	# Display a banner from users on Android or iOS
-	
+
 	my $user_agent = $ENV{HTTP_USER_AGENT};
-	
+
 	my $mobile;
 	my $system;
-	
+
 	# windows phone must be first as its user agent includes the string android
 	if ($user_agent =~ /windows phone/i) {
-	
+
 		$mobile = "windows";
 	}
 	elsif ($user_agent =~ /android/i) {
-	
+
 		$mobile = "android";
 		$system = "android";
 	}
 	elsif ($user_agent =~ /iphone/i) {
-	
+
 		$mobile = "iphone";
 		$system = "ios";
 	}
 	elsif ($user_agent =~ /ipad/i) {
-	
+
 		$mobile = "ipad";
 		$system = "ios";
-	}	
-	
+	}
+
 	if ((defined $mobile) and (defined $Lang{"get_the_app_$mobile"})) {
-	
+
 		my $link = lang($system . "_app_link");
 		my $link_text = lang("get_the_app_$mobile");
-		
+
 		if ($system eq 'android') {
-		
+
 			$link_text = '<i class="fab fa-android"></i> ' . $link_text;
 		}
 		elsif ($system eq 'ios') {
-		
+
 			$link_text = '<i class="fab fa-apple"></i> ' . $link_text;
 		}
-	
+
 		$top_banner = <<HTML
 
 <a href="$link" class="button expand">$link_text</a>
 
 HTML
-;	
+;
 	}
 
 	$html .= <<HTML
@@ -5530,7 +5530,7 @@ HTML
 			<li class="show-for-large-up divider"></li>
 			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
 			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
-			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success"><i class="fas fa-mobile-alt"></i></a></li>			
+			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success"><i class="fas fa-mobile-alt"></i></a></li>
 			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success"><i class="fas fa-mobile-alt"></i> $Lang{get_the_app}{$lc}</a></li>
 		</ul>
 	</section>
