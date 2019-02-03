@@ -12,6 +12,8 @@ echo "DB $DB"
 
 cd $DIR
 
+mongoexport --collection products --host $HOST --db $DB | gzip > data/$PREFIX-products.jsonl.gz
+
 mongodump --collection products --host $HOST --db $DB
 tar cvfz data/$PREFIX-mongodbdump.tar.gz dump
 pushd data/ > /dev/null

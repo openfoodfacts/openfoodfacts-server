@@ -5,25 +5,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sr\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-12-07 10:35\n"
-"Language-Team: Montenegrin (Cyrillic)\n"
+"PO-Revision-Date: 2019-01-03 17:14\n"
+"Language-Team: Serbian (Cyrillic)\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
 "X-Generator: crowdin.com\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Crowdin-Project: openfoodfacts\n"
-"X-Crowdin-Language: sr-Cyrl-ME\n"
+"X-Crowdin-Language: sr\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-
-#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
-msgctxt ":langtag"
-msgid ":langtag"
-msgstr ""
-
-#. put here the language name ("French", "Japanese", etc)
-msgctxt ":langname"
-msgid ":langname"
-msgstr ""
 
 msgctxt "1_product"
 msgid "1 product"
@@ -31,27 +21,27 @@ msgstr ""
 
 msgctxt "_and_"
 msgid " and "
-msgstr ""
+msgstr " и "
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "О мени"
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "Додај"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "Додај језик"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Додај производ"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr ""
+msgstr "Региструјте се"
 
 msgctxt "add_user_confirm"
 msgid "<p>Thanks for joining. You can now sign-in on the site to add and edit products.</p>"
@@ -93,15 +83,15 @@ msgstr ""
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "адитиви"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "адитив"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr ""
+msgstr "Напредна претрага"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
@@ -109,7 +99,7 @@ msgstr ""
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "Прекомерна конзумација алкохола је штетна по здравље."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -121,11 +111,11 @@ msgstr ""
 
 msgctxt "allergens_p"
 msgid "allergens"
-msgstr ""
+msgstr "алергени"
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "алерген"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
@@ -179,7 +169,7 @@ msgstr ""
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr ""
+msgstr "Бар-код број"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
@@ -195,7 +185,7 @@ msgstr ""
 
 msgctxt "brands"
 msgid "Brands"
-msgstr ""
+msgstr "Брендови"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
@@ -211,11 +201,11 @@ msgstr ""
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "бренд"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
-msgstr ""
+msgstr "Додај бренд"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
@@ -223,15 +213,15 @@ msgstr ""
 
 msgctxt "by"
 msgid "by"
-msgstr ""
+msgstr "од"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr ""
+msgstr "Категорије"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr ""
+msgstr "Сардине у маслиновом уљу, сок од наранџе од концентрата"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
@@ -239,7 +229,7 @@ msgstr ""
 
 msgctxt "categories_p"
 msgid "categories"
-msgstr ""
+msgstr "категорије"
 
 msgctxt "categories_products"
 msgid "Products from the %s category"
@@ -247,11 +237,11 @@ msgstr ""
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "категорија"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
-msgstr ""
+msgstr "додај категорију"
 
 msgctxt "categories_without_products"
 msgid "Products not from the %s category"
@@ -259,7 +249,7 @@ msgstr ""
 
 msgctxt "change_fields"
 msgid "Data"
-msgstr ""
+msgstr "Подаци"
 
 msgctxt "change_nutriments"
 msgid "Nutriments"
@@ -299,11 +289,11 @@ msgstr ""
 
 msgctxt "codes_p"
 msgid "Codes"
-msgstr ""
+msgstr "Кодови"
 
 msgctxt "codes_s"
 msgid "Code"
-msgstr ""
+msgstr "Кȏд"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
@@ -311,7 +301,7 @@ msgstr ""
 
 msgctxt "connected_with_facebook"
 msgid "You are connected with your Facebook account."
-msgstr ""
+msgstr "Повезани сте са вашим Facebook налогом"
 
 msgctxt "contributor_since"
 msgid "Contributor since"
@@ -343,7 +333,7 @@ msgstr ""
 
 msgctxt "countries_p"
 msgid "countries"
-msgstr ""
+msgstr "државе"
 
 msgctxt "countries_products"
 msgid "Products sold in %s"
@@ -351,7 +341,7 @@ msgstr ""
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "држава"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -359,47 +349,47 @@ msgstr ""
 
 msgctxt "data_source"
 msgid "Data source"
-msgstr ""
+msgstr "Извор података"
 
 msgctxt "debug_p"
 msgid "debug"
-msgstr ""
+msgstr "исправљање"
 
 msgctxt "debug_s"
 msgid "debug"
-msgstr ""
+msgstr "исправљање"
 
 msgctxt "delete_comment"
 msgid "Reason for removal"
-msgstr ""
+msgstr "Разлог за уклањање"
 
 msgctxt "delete_product"
 msgid "Delete a product"
-msgstr ""
+msgstr "Избриши производ"
 
 msgctxt "delete_product_page"
 msgid "Delete the page"
-msgstr ""
+msgstr "Избриши ову страницу"
 
 msgctxt "delete_the_images"
 msgid "Delete the images"
-msgstr ""
+msgstr "Избриши ове слике"
 
 msgctxt "delete_user"
 msgid "Delete an user"
-msgstr ""
+msgstr "Избриши корисника"
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr ""
+msgstr "Додато:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr ""
+msgstr "Измењено:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr ""
+msgstr "Избрисано:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
@@ -419,7 +409,7 @@ msgstr ""
 
 msgctxt "edit"
 msgid "edit"
-msgstr ""
+msgstr "измени"
 
 msgctxt "edit_comment"
 msgid "Changes summary"
@@ -427,19 +417,19 @@ msgstr ""
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr ""
+msgstr "Измени производ"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
-msgstr ""
+msgstr "Измени страницу"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
-msgstr ""
+msgstr "Измени твој профил"
 
 msgctxt "edit_profile_confirm"
 msgid "Changes to your public profile have been saved."
-msgstr ""
+msgstr "Измене на вашем профилу су сачуване."
 
 msgctxt "edit_profile_msg"
 msgid "Information below is visible in your public profile."
@@ -540,7 +530,7 @@ msgstr ""
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr ""
+msgstr "Неисправна адреса."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
@@ -568,7 +558,7 @@ msgstr ""
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
-msgstr ""
+msgstr "Немате овлашћења."
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
@@ -596,11 +586,11 @@ msgstr ""
 
 msgctxt "example"
 msgid "Example:"
-msgstr ""
+msgstr "Пример:"
 
 msgctxt "examples"
 msgid "Examples:"
-msgstr ""
+msgstr "Примери:"
 
 msgctxt "expiration_date"
 msgid "Best before date"
@@ -660,7 +650,7 @@ msgstr ""
 
 msgctxt "footer_data"
 msgid "Data"
-msgstr ""
+msgstr "Подаци"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -701,7 +691,7 @@ msgstr ""
 
 msgctxt "footer_join_the_community"
 msgid "Join the community"
-msgstr ""
+msgstr "Приступите заједници"
 
 msgctxt "footer_join_us_on"
 msgid "Join us on %s:"
@@ -709,7 +699,7 @@ msgstr ""
 
 msgctxt "footer_legal"
 msgid "Legal"
-msgstr ""
+msgstr "Правно"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
@@ -758,11 +748,11 @@ msgstr ""
 
 msgctxt "for"
 msgid "for"
-msgstr ""
+msgstr "за"
 
 msgctxt "front_alt"
 msgid "Product"
-msgstr ""
+msgstr "Производ"
 
 msgctxt "generic_name"
 msgid "Common name"
@@ -790,11 +780,11 @@ msgstr ""
 
 msgctxt "hello"
 msgid "Hello"
-msgstr ""
+msgstr "Здраво"
 
 msgctxt "high"
 msgid "high"
-msgstr ""
+msgstr "високо"
 
 msgctxt "high_quantity"
 msgid "high quantity"
@@ -987,7 +977,7 @@ msgstr ""
 
 msgctxt "lang_ar"
 msgid "Arabic"
-msgstr ""
+msgstr "arapski"
 
 msgctxt "lang_bg"
 msgid "Bulgarian"
@@ -995,27 +985,27 @@ msgstr ""
 
 msgctxt "lang_cs"
 msgid "Czech"
-msgstr ""
+msgstr "češki"
 
 msgctxt "lang_da"
 msgid "Danish"
-msgstr ""
+msgstr "danski"
 
 msgctxt "lang_de"
 msgid "German"
-msgstr ""
+msgstr "nemački"
 
 msgctxt "lang_el"
 msgid "Greek"
-msgstr ""
+msgstr "grčki"
 
 msgctxt "lang_en"
 msgid "English"
-msgstr ""
+msgstr "engleski"
 
 msgctxt "lang_es"
 msgid "Spanish"
-msgstr ""
+msgstr "španski"
 
 msgctxt "lang_et"
 msgid "Estonian"
@@ -1023,11 +1013,11 @@ msgstr ""
 
 msgctxt "lang_fi"
 msgid "Finnish"
-msgstr ""
+msgstr "finski"
 
 msgctxt "lang_fr"
 msgid "French"
-msgstr ""
+msgstr "francuski"
 
 msgctxt "lang_ga"
 msgid "Irish"
@@ -1035,7 +1025,7 @@ msgstr ""
 
 msgctxt "lang_he"
 msgid "Hebrew"
-msgstr ""
+msgstr "hebrejski"
 
 msgctxt "lang_hu"
 msgid "Hungarian"
@@ -1047,15 +1037,15 @@ msgstr ""
 
 msgctxt "lang_it"
 msgid "Italian"
-msgstr ""
+msgstr "italijanski"
 
 msgctxt "lang_ja"
 msgid "Japanese"
-msgstr ""
+msgstr "japanski"
 
 msgctxt "lang_ko"
 msgid "Korean"
-msgstr ""
+msgstr "korejski"
 
 msgctxt "lang_lt"
 msgid "Lithuanian"
@@ -1063,7 +1053,7 @@ msgstr ""
 
 msgctxt "lang_lv"
 msgid "Latvian"
-msgstr ""
+msgstr "letonski"
 
 msgctxt "lang_mt"
 msgid "Maltese"
@@ -1071,11 +1061,11 @@ msgstr ""
 
 msgctxt "lang_nl"
 msgid "Dutch"
-msgstr ""
+msgstr "holandski"
 
 msgctxt "lang_nl_be"
 msgid "Dutch"
-msgstr ""
+msgstr "holandski"
 
 msgctxt "lang_pl"
 msgid "Polish"
@@ -1083,7 +1073,7 @@ msgstr ""
 
 msgctxt "lang_pt"
 msgid "Portuguese"
-msgstr ""
+msgstr "portugalski"
 
 msgctxt "lang_pt_pt"
 msgid "Portugal Portuguese"
@@ -1091,11 +1081,11 @@ msgstr ""
 
 msgctxt "lang_ro"
 msgid "Romanian"
-msgstr ""
+msgstr "rumunski"
 
 msgctxt "lang_ru"
 msgid "Russian"
-msgstr ""
+msgstr "ruski"
 
 msgctxt "lang_sk"
 msgid "Slovak"
@@ -1107,7 +1097,7 @@ msgstr ""
 
 msgctxt "lang_sv"
 msgid "Swedish"
-msgstr ""
+msgstr "švedski"
 
 msgctxt "lang_th"
 msgid "Thai"
@@ -1119,7 +1109,7 @@ msgstr ""
 
 msgctxt "lang_zh"
 msgid "Chinese"
-msgstr ""
+msgstr "kineski"
 
 msgctxt "lang_other"
 msgid "other language"
@@ -1206,7 +1196,7 @@ msgstr ""
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "Prijavite se"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
@@ -1279,7 +1269,7 @@ msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Додај производ"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
@@ -1297,7 +1287,7 @@ msgstr ""
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr ""
+msgstr "Otkrij"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
@@ -1346,7 +1336,7 @@ msgstr ""
 
 msgctxt "name"
 msgid "Name"
-msgstr ""
+msgstr "Naziv"
 
 msgctxt "names"
 msgid "Names"
@@ -1640,7 +1630,7 @@ msgstr ""
 
 msgctxt "password"
 msgid "Password"
-msgstr ""
+msgstr "Lozinka"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
@@ -1996,7 +1986,7 @@ msgstr ""
 
 msgctxt "save"
 msgid "Save"
-msgstr ""
+msgstr "Sačuvaj"
 
 msgctxt "saved"
 msgid "Saved."
@@ -2008,15 +1998,15 @@ msgstr ""
 
 msgctxt "search"
 msgid "Search"
-msgstr ""
+msgstr "Pretraživanje"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
-msgstr ""
+msgstr "Traži proizvod"
 
 msgctxt "search_button"
 msgid "Search"
-msgstr ""
+msgstr "Pretraživanje"
 
 msgctxt "search_contains"
 msgid "contains"
@@ -2249,7 +2239,7 @@ msgstr ""
 
 msgctxt "select_lang"
 msgid "Language"
-msgstr ""
+msgstr "Jezik"
 
 msgctxt "send_image"
 msgid "Send a picture..."
@@ -2282,11 +2272,11 @@ msgstr ""
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr ""
+msgstr "Prijavite se"
 
 msgctxt "share"
 msgid "Share"
-msgstr ""
+msgstr "Podeli"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
@@ -2643,7 +2633,7 @@ msgstr ""
 
 msgctxt "translators_column_name"
 msgid "Name"
-msgstr ""
+msgstr "Naziv"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
@@ -2960,5 +2950,125 @@ msgstr ""
 
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
+msgstr ""
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr ""
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr ""
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr ""
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr ""
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr ""
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr ""
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr ""
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr ""
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr ""
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr ""
+
+msgctxt "user_s_page"
+msgid "%s's page"
+msgstr ""
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr ""
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr ""
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr ""
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr ""
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr ""
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr ""
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr ""
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr ""
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr ""
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr ""
+
+msgctxt "user_s_page"
+msgid "%s's page"
+msgstr ""
+
+msgctxt "obsolete"
+msgid "The product is no longer sold."
+msgstr ""
+
+msgctxt "obsolete_since_date"
+msgid "Withdrawal date"
+msgstr ""
+
+msgctxt "obsolete_since_date_note"
+msgid "Format: YYYY or YYYY-MM"
+msgstr ""
+
+msgctxt "obsolete_warning"
+msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
+msgstr ""
+
+msgctxt "get_the_app"
+msgid "Get the app"
+msgstr ""
+
+msgctxt "get_the_app_android"
+msgid "Get the Android app"
+msgstr ""
+
+msgctxt "get_the_app_iphone"
+msgid "Get the iPhone app"
+msgstr ""
+
+msgctxt "get_the_app_ipad"
+msgid "Get the iPad app"
 msgstr ""
 

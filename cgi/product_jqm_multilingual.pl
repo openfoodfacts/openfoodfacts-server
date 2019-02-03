@@ -104,6 +104,10 @@ else {
 	#my @app_fields = qw(product_name brands quantity);
 	my @app_fields = qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
 
+	# admin field to set a creator
+	if (($User_id eq 'stephane') or ($User_id eq 'teolemon')) {
+		push @app_fields, "creator";
+	}
 	
 	# generate a list of potential languages for language specific fields
 	my %param_langs = ();
@@ -113,6 +117,14 @@ else {
 				$param_langs{$2} = 1;
 			}
 		}
+		# some apps may send pt-BR
+		elsif ($param =~ /^(.*)_(\w\w)-(\w\w)$/) {
+			if (defined $language_fields{$1}) {
+				$param_langs{$2} = 1;
+				# set the product_name_pt value to the value of product_name_pt-BR
+				param($1 . "_" . $2, param($1 . "_" . $2 . "-" . $3));
+			}
+		}		
 	}
 	my @param_langs = keys %param_langs;
 	
@@ -133,49 +145,10 @@ else {
 		
 			my $additional_fields = remove_tags_and_quote(decode utf8=>param("add_$field"));
 			
+			add_tags_to_field($product_ref, $lc, $field, $additional_fields);
+			
 			print STDERR "product_jqm_multilingual.pl - lc: $lc - adding value to field $field - additional: $additional_fields - existing: $product_ref->{$field}\n";			
-			
-			my $current_field = $product_ref->{$field};
-
-			my %existing = ();
-			foreach my $tagid (@{$product_ref->{$field . "_tags"}}) {
-				$existing{$tagid} = 1;
-			}
-			
-			my @added_tags = ();
-			
-			foreach my $tag (split(/,/, $additional_fields)) {
-
-				my $tagid;
-
-				if (defined $taxonomy_fields{$field}) {
-					$tagid = get_taxonomyid(canonicalize_taxonomy_tag($lc, $field, $tag));
-				}
-				else {
-					$tagid = get_fileid($tag);
-				}
-				if (not exists $existing{$tagid}) {
-					print STDERR "product_jqm_multilingual.pl - adding $tagid to $field: $product_ref->{$field}\n";
-					push @added_tags, $tag;
-					$product_ref->{$field} .= ", $tag";
-				}
 				
-			}
-			
-			if (scalar @added_tags > 0) {
-				# we do not know the language of the current value of $product_ref->{$field}
-				# so regenerate it in the current language used by the interface / caller
-				my $value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
-				# Remove tags
-				$value =~ s/<(([^>]|\n)*)>//g;
-				
-				$product_ref->{$field} = $value . ", " . join(", ", @added_tags);
-			}
-			
-			if ($product_ref->{$field} =~ /^, /) {
-				$product_ref->{$field} = $';
-			}			
-			
 			compute_field_tags($product_ref, $lc, $field);			
 			
 		}

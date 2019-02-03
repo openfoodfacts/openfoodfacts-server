@@ -38,13 +38,13 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-
+use ProductOpener::Data qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 
 # Get a list of all products
@@ -57,7 +57,7 @@ foreach my $l (values %lang_lc) {
 	$lang = $l;
 
 
-my $cursor = $products_collection->query({ lc => $lc })->fields({ id=>1, code => 1, empty => 1 });;
+my $cursor = get_products_collection()->query({ lc => $lc })->fields({ id=>1, code => 1, empty => 1 });;
 my $count = $cursor->count();
 my $removed = 0;
 my $notfound = 0;
@@ -105,10 +105,10 @@ my $notfound = 0;
 				my $path = product_path($code);
 				if (1) {
 					if ($product_ref->{deleted}) {
-						$products_collection->remove({"_id" => $product_ref->{_id}});
+						get_products_collection()->delete_one({"_id" => $product_ref->{_id}});
 					}
 					else {
-						$products_collection->save($product_ref);
+						get_products_collection()->save($product_ref);
 					}
 					store("$data_root/products/$path/product.sto", $product_ref);
 				}

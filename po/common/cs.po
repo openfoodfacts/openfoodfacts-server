@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-12-06 16:26\n"
+"PO-Revision-Date: 2019-01-04 17:41\n"
 "Language-Team: Czech\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -14,16 +14,6 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: cs\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-
-#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
-msgctxt ":langtag"
-msgid ":langtag"
-msgstr "cs"
-
-#. put here the language name ("French", "Japanese", etc)
-msgctxt ":langname"
-msgid ":langname"
-msgstr "Czech"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -403,19 +393,19 @@ msgstr ""
 
 msgctxt "diff_add"
 msgid "Added:"
-msgstr ""
+msgstr "Přidáno:"
 
 msgctxt "diff_change"
 msgid "Changed:"
-msgstr ""
+msgstr "Změněno:"
 
 msgctxt "diff_delete"
 msgid "Deleted:"
-msgstr ""
+msgstr "Smazáno:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr ""
+msgstr "Přispět Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en"
@@ -423,7 +413,7 @@ msgstr ""
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
-msgstr ""
+msgstr "Enviromentální stopa"
 
 msgctxt "ecological_data_table_note"
 msgid "If the carbon footprint is specified on the label (rarely at this time), indicate it for the same quantity than the nutritional composition."
@@ -624,7 +614,7 @@ msgstr "Datum spotřeby je údaj, pomocí něhož můžeme sledovat změny produ
 
 msgctxt "explore_products_by"
 msgid "Drilldown into products by..."
-msgstr "Rozpis do výrobků..."
+msgstr "Procházet výrobky..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
@@ -736,12 +726,12 @@ msgstr "/legal"
 
 msgctxt "footer_press"
 msgid "Press"
-msgstr "Lis"
+msgstr "Média"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr "/press"
+msgstr ""
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -804,7 +794,7 @@ msgstr ""
 
 msgctxt "graphs_and_maps"
 msgid "Graphs and maps"
-msgstr ""
+msgstr "Grafy a mapy"
 
 msgctxt "hello"
 msgid "Hello"
@@ -861,7 +851,7 @@ msgstr ""
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
-msgstr ""
+msgstr "Produkty, které jste přidali, a je třeba je dokončit"
 
 msgctxt "informers_p"
 msgid "informers"
@@ -921,7 +911,7 @@ msgstr ""
 
 msgctxt "ingredients_s"
 msgid "ingredient"
-msgstr ""
+msgstr "složka"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
@@ -973,7 +963,7 @@ msgstr "Etikety, certifikáty, ocenění"
 
 msgctxt "labels_example"
 msgid "Organic"
-msgstr ""
+msgstr "Bio"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
@@ -981,19 +971,19 @@ msgstr ""
 
 msgctxt "labels_p"
 msgid "labels"
-msgstr ""
+msgstr "štítky"
 
 msgctxt "labels_products"
 msgid "Products that have the label %s"
-msgstr ""
+msgstr "Produkty, které mají štítek %s"
 
 msgctxt "labels_s"
 msgid "label"
-msgstr ""
+msgstr "štítek"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
-msgstr ""
+msgstr "přidat štítek"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
@@ -1149,7 +1139,7 @@ msgstr "Jazyk nejvíce přítomný a nejvíce zvýrazněný na produktu"
 
 msgctxt "language"
 msgid "en-US"
-msgstr ""
+msgstr "cs-CZ"
 
 msgctxt "languages_p"
 msgid "languages"
@@ -1224,11 +1214,11 @@ msgstr ""
 
 msgctxt "login_register_title"
 msgid "Sign-in"
-msgstr "Podepiš"
+msgstr "Přihlásit se"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
-msgstr "Sign-in přidat nebo upravit výrobky."
+msgstr "Přihlásit se a přidat nebo upravit výrobky."
 
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
@@ -1340,7 +1330,7 @@ msgstr ""
 
 msgctxt "mission_goal"
 msgid "Goal:"
-msgstr ""
+msgstr "Cíl:"
 
 msgctxt "missions"
 msgid "Missions"
@@ -1477,7 +1467,7 @@ msgstr "% se liší"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
-msgstr ""
+msgstr "hodnota na 100 g / 100 ml"
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
@@ -1505,7 +1495,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
-msgstr ""
+msgstr "Medián"
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
@@ -1517,15 +1507,15 @@ msgstr ""
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
-msgstr ""
+msgstr "Maximum"
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
-msgstr ""
+msgstr "Průměr"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
-msgstr ""
+msgstr "Minimum"
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
@@ -1906,7 +1896,7 @@ msgstr ""
 
 msgctxt "products_you_edited"
 msgid "Products you added or edited"
-msgstr ""
+msgstr "Produkty, které jste přidali nebo upravili"
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
@@ -1926,7 +1916,7 @@ msgstr ""
 
 msgctxt "purchase_places_s"
 msgid "purchase place"
-msgstr ""
+msgstr "místo nákupu"
 
 msgctxt "purchase_places_tagsinput"
 msgid "add a place"
@@ -1954,7 +1944,7 @@ msgstr ""
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr ""
+msgstr "Obnovit heslo"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -1978,7 +1968,7 @@ msgstr ""
 
 msgctxt "reset_password_reset_msg"
 msgid "Enter a new password."
-msgstr ""
+msgstr "Zadejte nové heslo."
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
@@ -1994,7 +1984,7 @@ msgstr ""
 
 msgctxt "risk_level_0"
 msgid "To be completed"
-msgstr ""
+msgstr "Má být dokončeno"
 
 msgctxt "risk_level_1"
 msgid "Low risks"
@@ -2038,7 +2028,7 @@ msgstr "Vyhledat"
 
 msgctxt "search_contains"
 msgid "contains"
-msgstr ""
+msgstr "obsahuje"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
@@ -2050,7 +2040,7 @@ msgstr ""
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
-msgstr ""
+msgstr "neobsahuje"
 
 msgctxt "search_download_button"
 msgid "Download"
@@ -2139,7 +2129,7 @@ msgstr "Výsledky v seznamu výrobků,"
 
 msgctxt "search_map"
 msgid "Map"
-msgstr ""
+msgstr "Mapa"
 
 msgctxt "search_map_choice"
 msgid "Results on a map"
@@ -2167,7 +2157,7 @@ msgstr "Živin"
 
 msgctxt "search_or"
 msgid "or"
-msgstr ""
+msgstr "nebo"
 
 msgctxt "search_page_size"
 msgid "Results per page"
@@ -2195,7 +2185,7 @@ msgstr "Férový Obchod"
 
 msgctxt "search_series_fairtrade_label"
 msgid "fair-trade"
-msgstr ""
+msgstr "fair-trade"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
@@ -2203,15 +2193,15 @@ msgstr ""
 
 msgctxt "search_series_organic"
 msgid "Organic"
-msgstr ""
+msgstr "Bio"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
-msgstr ""
+msgstr "bio"
 
 msgctxt "search_series_with_sweeteners"
 msgid "With sweeteners"
-msgstr ""
+msgstr "Se sladidly"
 
 msgctxt "search_tag"
 msgid "choose a criterion..."
@@ -2219,7 +2209,7 @@ msgstr ""
 
 msgctxt "search_tags"
 msgid "Criteria"
-msgstr ""
+msgstr "Kritéria"
 
 msgctxt "search_terms"
 msgid "Search terms"
@@ -2247,15 +2237,15 @@ msgstr "Vyhledávací nástroje"
 
 msgctxt "search_value"
 msgid "value"
-msgstr ""
+msgstr "hodnota"
 
 msgctxt "search_with"
 msgid "With"
-msgstr ""
+msgstr "Obsahuje"
 
 msgctxt "search_without"
 msgid "Without"
-msgstr ""
+msgstr "Neobsahuje"
 
 msgctxt "see_product_page"
 msgid "See the product page"
@@ -2300,7 +2290,7 @@ msgstr ""
 
 msgctxt "session_title"
 msgid "Sign-in"
-msgstr "Podepiš"
+msgstr "Přihlásit se"
 
 msgctxt "share"
 msgid "Share"
@@ -2332,11 +2322,11 @@ msgstr "Open Food Facts"
 
 msgctxt "sort_by"
 msgid "Sort by"
-msgstr ""
+msgstr "Seřadit podle"
 
 msgctxt "sort_created_t"
 msgid "Add date"
-msgstr ""
+msgstr "Přidat datum"
 
 msgctxt "sort_modified_t"
 msgid "Edit date"
@@ -2384,7 +2374,7 @@ msgstr "prodejna"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
-msgstr ""
+msgstr "přidat obchod"
 
 msgctxt "stores_without_products"
 msgid "Products not bought at %s"
@@ -2432,7 +2422,7 @@ msgstr "stopy"
 
 msgctxt "traces_s"
 msgid "trace"
-msgstr ""
+msgstr "stopy"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
@@ -2545,7 +2535,7 @@ msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
-msgstr ""
+msgstr "Jste přihlášeni jako %s."
 
 msgctxt "product_js_unselect_image"
 msgid "Unselect image"
@@ -2729,7 +2719,7 @@ msgstr ""
 
 msgctxt "unit"
 msgid "Unit"
-msgstr ""
+msgstr "Jednotka"
 
 msgctxt "nutrition_data_exists"
 msgid "Nutrition facts are specified for the product as sold."
@@ -2749,7 +2739,7 @@ msgstr ""
 
 msgctxt "footer_partners"
 msgid "Partners"
-msgstr ""
+msgstr "Partneři"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
@@ -2758,35 +2748,35 @@ msgstr ""
 
 msgctxt "adults"
 msgid "Adults"
-msgstr ""
+msgstr "Dospělý"
 
 msgctxt "adults_age"
 msgid "18 to 64"
-msgstr ""
+msgstr "18 až 64"
 
 msgctxt "adults_description"
 msgid "From 18 years up to and including 64 years of age"
-msgstr ""
+msgstr "Od 18 let do a včetně 64 let"
 
 msgctxt "elderly"
 msgid "Elderly"
-msgstr ""
+msgstr "Starší"
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr ""
+msgstr "65+"
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
-msgstr ""
+msgstr "Od 65 let a starší"
 
 msgctxt "adolescents"
 msgid "Adolescents"
-msgstr ""
+msgstr "Dospívající"
 
 msgctxt "adolescents_age"
 msgid "10 to 17"
-msgstr ""
+msgstr "10 až 17"
 
 msgctxt "adolescents_description"
 msgid "From 10 years up to and including 17 years of age"
@@ -2794,11 +2784,11 @@ msgstr ""
 
 msgctxt "children"
 msgid "Children"
-msgstr ""
+msgstr "Děti"
 
 msgctxt "children_age"
 msgid "3 to 9"
-msgstr ""
+msgstr "3 až 9"
 
 msgctxt "children_description"
 msgid "From 36 months up to and including 9 years of age"
@@ -2806,11 +2796,11 @@ msgstr ""
 
 msgctxt "toddlers"
 msgid "Toddlers"
-msgstr ""
+msgstr "Batolata"
 
 msgctxt "toddlers_age"
 msgid "1 to 2"
-msgstr ""
+msgstr "1 až 2"
 
 msgctxt "toddlers_description"
 msgid "From 12 months up to and including 35 months of age"
@@ -2818,11 +2808,11 @@ msgstr ""
 
 msgctxt "infants"
 msgid "Infants"
-msgstr ""
+msgstr "Nemluvňata"
 
 msgctxt "infants_age"
 msgid "< 1"
-msgstr ""
+msgstr "<1"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
@@ -2858,7 +2848,7 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
-msgstr ""
+msgstr "Vysoké riziko nadměrné expozice"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
@@ -2890,23 +2880,23 @@ msgstr ""
 
 msgctxt "exposure_title_95th"
 msgid "Some people"
-msgstr ""
+msgstr "Někteří lidé"
 
 msgctxt "exposure_description_95th"
 msgid "over 5%"
-msgstr ""
+msgstr "nad 5 %"
 
 msgctxt "exposure_title_mean"
 msgid "Most people"
-msgstr ""
+msgstr "Většina lidí"
 
 msgctxt "exposure_description_mean"
 msgid "over 50%"
-msgstr ""
+msgstr "nad 50 %"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
-msgstr ""
+msgstr "Wikipedie"
 
 msgctxt "additives_classes"
 msgid "Functions"
@@ -2978,5 +2968,125 @@ msgstr ""
 
 msgctxt "recycling_instructions_to_discard"
 msgid "Recycling instructions - To discard"
+msgstr ""
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr ""
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr ""
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr ""
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr ""
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr ""
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr ""
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr ""
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr ""
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr ""
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr ""
+
+msgctxt "user_s_page"
+msgid "%s's page"
+msgstr ""
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr ""
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr ""
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr ""
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr ""
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr ""
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr ""
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr ""
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr ""
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr ""
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr ""
+
+msgctxt "user_s_page"
+msgid "%s's page"
+msgstr ""
+
+msgctxt "obsolete"
+msgid "The product is no longer sold."
+msgstr ""
+
+msgctxt "obsolete_since_date"
+msgid "Withdrawal date"
+msgstr ""
+
+msgctxt "obsolete_since_date_note"
+msgid "Format: YYYY or YYYY-MM"
+msgstr ""
+
+msgctxt "obsolete_warning"
+msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
+msgstr ""
+
+msgctxt "get_the_app"
+msgid "Get the app"
+msgstr "Stáhněte si aplikaci"
+
+msgctxt "get_the_app_android"
+msgid "Get the Android app"
+msgstr "Získej aplikaci pro Android"
+
+msgctxt "get_the_app_iphone"
+msgid "Get the iPhone app"
+msgstr ""
+
+msgctxt "get_the_app_ipad"
+msgid "Get the iPad app"
 msgstr ""
 

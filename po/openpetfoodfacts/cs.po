@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-11-12 13:25\n"
+"PO-Revision-Date: 2019-01-03 16:32\n"
 "Language-Team: Czech\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 3;\n"
@@ -13,14 +13,6 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: cs\n"
 "X-Crowdin-File: /master/po/openpetfoodfacts/openpetfoodfacts.pot\n"
-
-msgctxt ":langtag"
-msgid ":langtag"
-msgstr "cs"
-
-msgctxt ":langname"
-msgid ":langname"
-msgstr "Czech"
 
 #. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
 msgctxt "logo"
@@ -150,5 +142,10 @@ msgstr ""
 
 msgctxt "search_description_opensearch"
 msgid "Open Pet Food Facts product search"
+msgstr ""
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link"
+msgid "open-pet-food-facts-mobile-app"
 msgstr ""
 

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-11-12 13:23\n"
+"PO-Revision-Date: 2019-01-04 19:31\n"
 "Language-Team: Dutch\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -13,16 +13,6 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: nl\n"
 "X-Crowdin-File: /master/po/openbeautyfacts/openbeautyfacts.pot\n"
-
-#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
-msgctxt ":langtag"
-msgid ":langtag"
-msgstr "nl"
-
-#. put here the language name ("French", "Japanese", etc)
-msgctxt ":langname"
-msgid ":langname"
-msgstr "Dutch"
 
 #. do not translate
 msgctxt "android_apk_app_link"
@@ -89,7 +79,13 @@ msgid "<a href=\"https://world.openbeautyfacts.org/legal\">Legal</a> -\n"
 "<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
 "<a href=\"https://en.blog.openbeautyfacts.org\">Blog</a> -\n"
 "<a href=\"https://world.openbeautyfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
+msgstr "</a><a href=\"https://world.openbeautyfacts.org/legal\">Legaal</a> -\n"
+"<a href=\"https://world.openbeautyfacts.org/terms-of-use\">Servicevoorwaarden</a> -\n"
+"<a href=\"https://world.openbeautyfacts.org/who-we-are\">Wij we zijn</a> -\n"
+"<a href=\"https://world.openbeautyfacts.org/faq\">Vaak Gevraagde Vragen</a> -\n"
+"<a href=\"https://openfoodfacts.uservoice.com/\">Ideeën Forum</a> -\n"
+"<a href=\"https://en.blog.openbeautyfacts.org\">Blog</a> -\n"
+"<a href=\"https://world.openbeautyfacts.org/press-and-blogs\">Press En Bloggen</a> \n"
 
 msgctxt "brands_example"
 msgid "Nivea, Nivea Men"
@@ -125,11 +121,11 @@ msgstr "Anti-roos shampoo"
 
 msgctxt "product_name_example"
 msgid "Anti-Perspirant Stress Protect"
-msgstr ""
+msgstr "Anti-transpirant Stress Protect"
 
 msgctxt "og_image_url"
 msgid "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-beauty-hunt\">Open Beauty Hunt</a> on <<site_name>> from Saturday February 21st to Sunday March 1st! Contributors are awarded\n"
@@ -146,5 +142,10 @@ msgstr ""
 
 msgctxt "ingredients_text_example"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr ""
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link"
+msgid "open-beauty-facts-mobile-app"
 msgstr ""
 

@@ -1,0 +1,60 @@
+<h1>Installer l'application mobile Open Food Facts</h1>
+
+<p>Pour analyser des produits alimentaires, obtenir leur Nutri-Score, leur groupe NOVA pour savoir s'il s'agit d'un aliment ultra-transformé et pour décrypter les additifs alimentaires, installez l'application gratuite Open Food Facts !</p>
+
+		<a href="https://itunes.apple.com/app/open-food-facts/id588797948"><img src="https://static.openfoodfacts.org/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png" alt="Disponible sur l'App Store" width="135" height="40" /></a>
+
+		<a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=fr"><img src="https://static.openfoodfacts.org/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponible sur Google Play" width="135" height="47" /></a>
+
+		<a href="https://www.microsoft.com/fr-fr/p/openfoodfacts/9nblggh0dkqr"><img src="https://static.openfoodfacts.org/images/misc/154x40_WP_Store_blk.png" alt="Disponible sur le Windows Phone Store" width="154" height="40" /></a>
+
+		<a href="https://world.openfoodfacts.org/files/off.apk"><img src="https://static.openfoodfacts.org/images/misc/android-apk.112x40.png" alt="Android APK" /></a>
+
+<br><br>
+
+<p>Vous pouvez également ajouter de nouveaux produits à Open Food Facts et construire un bien commun pour améliorer l'alimentation et la santé de tous. Merci !</p>
+
+<!-- DO NOT translate after this line -->
+
+<scripts>
+<script>
+function getMobileOperatingSystem() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      // Windows Phone must come first because its UA also contains "Android"
+    if (/windows phone/i.test(userAgent)) {
+        return "Windows Phone";
+    }
+
+    if (/android/i.test(userAgent)) {
+        return "Android";
+    }
+
+    // iOS detection from: https://stackoverflow.com/a/9039885/177710
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return "iOS";
+    }
+
+    return "unknown";
+}</script>
+
+<!-- You can change the URLs to one that works in your language. If you are unsure, do not touch anything -->
+
+<script>
+function DetectAndServe(){
+
+if (getMobileOperatingSystem() == "Android") {
+    window.location.href = "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en";
+    }
+if (getMobileOperatingSystem() == "iOS") {
+    window.location.href = "https://itunes.apple.com/app/open-food-facts/id588797948";
+    }
+if (getMobileOperatingSystem() == "Windows Phone") {
+    }
+};
+DetectAndServe();
+</script>
+</scripts>
+
+<initjs>
+</initjs>

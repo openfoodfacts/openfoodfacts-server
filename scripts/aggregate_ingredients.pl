@@ -46,13 +46,14 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::SiteQuality qw/:all/;
+use ProductOpener::Data qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 #use Getopt::Long;
 #
@@ -76,7 +77,7 @@ use JSON;
  
 my $query_ref = {};
 
-my $cursor = $products_collection->query($query_ref)->fields({ code => 1 });;
+my $cursor = get_products_collection()->query($query_ref)->fields({ code => 1 });;
 my $count = $cursor->count();
 
 my $n = 0;

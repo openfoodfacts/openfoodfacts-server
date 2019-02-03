@@ -3501,13 +3501,17 @@ my %pnns = (
 
 "Pizza pies and quiche" => "Composite foods",
 "One-dish meals" => "Composite foods",
-"Sandwich" => "Composite foods",
+"Sandwiches" => "Composite foods",
 
 "Artificially sweetened beverages" => "Beverages",
-"Non-sugared beverages" => "Beverages",
+"Unsweetened beverages" => "Beverages",
 "Sweetened beverages" => "Beverages",
 "Fruit juices" => "Beverages",
 "Fruit nectars" => "Beverages",
+"Waters and flavored waters" => "Beverages",
+"Teas and herbal teas and coffees" => "Beverages",
+
+"unknown" => "unknown",
 
 );
 
@@ -3522,9 +3526,44 @@ sub special_process_product($) {
 	
 	return if not defined $product_ref->{categories_tags};
 	
-	my $added_categories = '';
+	# For Open Food Facts, add special categories for beverages that are computed from 
+	# nutrition facts (alcoholic or not) or the ingredients (sweetened, artificially sweetened or unsweetened)
+	# those tags are only added to categories_tags (searchable in Mongo) 
+	# and not to the categories_hierarchy (displayed on the web site and in the product edit form)
+	# Those extra categories are also used to determined the French PNNS food groups
+	
+	$product_ref->{nutrition_score_beverage} = 0;
 	
 	if (has_tag($product_ref,"categories","en:beverages")) {
+	
+		$product_ref->{nutrition_score_beverage} = 1;
+		
+		if (defined $options{categories_not_considered_as_beverages_for_nutriscore}) {
+		
+			foreach my $category_id (@{$options{categories_not_considered_as_beverages_for_nutriscore}}) {
+			
+				if (has_tag($product_ref, "categories", $category_id)) {
+					$product_ref->{nutrition_score_beverage} = 0;
+					last;
+				}
+			}
+		}
+		
+		# exceptions
+		if (defined $options{categories_considered_as_beverages_for_nutriscore}) {
+			foreach my $category_id (@{$options{categories_considered_as_beverages_for_nutriscore}}) {
+			
+				if (has_tag($product_ref, "categories", $category_id)) {
+					$product_ref->{nutrition_score_beverage} = 1;
+					last;
+				}
+			}
+		}
+	}
+	
+	
+	
+	if (($product_ref->{nutrition_score_beverage}) and (not has_tag($product_ref,"categories","en:instant-beverages"))) {
 	
 		if (defined $product_ref->{nutriments}{"alcohol_100g"}) {
 			if ($product_ref->{nutriments}{"alcohol_100g"} < 1) {
@@ -3557,15 +3596,28 @@ sub special_process_product($) {
 			or has_tag($product_ref,"categories","en:fruit-juices")
 			or has_tag($product_ref,"categories","en:fruit-nectars") ) ) {
 		
-			if (has_tag($product_ref,"categories","en:sodas") and not has_tag($product_ref,"categories","en:diet-sodas")) {
-				$added_categories .= ", en:sugared-beverages";
+			if (has_tag($product_ref,"categories","en:sodas") and (not has_tag($product_ref,"categories","en:diet-sodas"))) {
+				if (not has_tag($product_ref,"categories","en:sweetened-beverages"))  {
+					add_tag($product_ref, "categories", "en:sweetened-beverages");
+				}
+				if (has_tag($product_ref,"categories","en:unsweetened-beverages")) {
+					remove_tag($product_ref, "categories", "en:unsweetened-beverages");
+				}
 			}
-			elsif ($product_ref->{with_sweeteners} 
-				and not has_tag($product_ref,"categories","en:artificially-sweetened-drinks")) {
-				$added_categories .= ", en:artificially-sweetened-drinks";
+			
+			if ($product_ref->{with_sweeteners}) {
+				if (not has_tag($product_ref,"categories","en:artificially-sweetened-beverages")) {
+					add_tag($product_ref, "categories", "en:artificially-sweetened-beverages");
+				}
+				if (has_tag($product_ref,"categories","en:unsweetened-beverages")) {
+					remove_tag($product_ref, "categories", "en:unsweetened-beverages");
+				}
 			}
 			# fix me: ingredients are now partly taxonomized
-			elsif (has_tag($product_ref, "ingredients", "sucre") or has_tag($product_ref, "ingredients", "sucre-de-canne")
+			
+			if (
+			
+				(has_tag($product_ref, "ingredients", "sucre") or has_tag($product_ref, "ingredients", "sucre-de-canne")
 				or has_tag($product_ref, "ingredients", "sucre-de-canne-roux") or has_tag($product_ref, "ingredients", "sucre-caramelise")
 				or has_tag($product_ref, "ingredients", "sucre-de-canne-bio") or has_tag($product_ref, "ingredients", "sucres")
 				or has_tag($product_ref, "ingredients", "pur-sucre-de-canne") or has_tag($product_ref, "ingredients", "sirop-de-sucre-inverti")
@@ -3579,48 +3631,69 @@ sub special_process_product($) {
 				or has_tag($product_ref, "ingredients", "sugar") or has_tag($product_ref, "ingredients", "sugars")
 				
 				or has_tag($product_ref, "ingredients", "en:sugar")
+				or has_tag($product_ref, "ingredients", "en:glucose")
+				or has_tag($product_ref, "ingredients", "en:fructose")
+				)
 				) {
-				$added_categories .= ", en:sugared-beverages";
+				
+				if (not has_tag($product_ref,"categories","en:sweetened-beverages")) {
+					add_tag($product_ref, "categories", "en:sweetened-beverages");
+				}
+				if (has_tag($product_ref,"categories","en:unsweetened-beverages")) {
+					remove_tag($product_ref, "categories", "en:unsweetened-beverages");
+				}
 			}
 			else {
-				# at this time we can't rely on ingredients detection
-				# $added_categories .= ", en:non-sugared-beverages";
+				# 2019-01-08: adding back the line below which was previously commented
+				# add check that we do have an ingredient list
+				if (
+					(not has_tag($product_ref,"categories","en:sweetened-beverages")) and
+					(not has_tag($product_ref,"categories","en:artificially-sweetened-beverages")) and
+					
+					(not has_tag($product_ref,"quality","en:ingredients-100-percent-unknown")) and
+					(not has_tag($product_ref,"quality","en:ingredients-90-percent-unknown")) and
+					(not has_tag($product_ref,"quality","en:ingredients-80-percent-unknown")) and
+					(not has_tag($product_ref,"quality","en:ingredients-70-percent-unknown")) and
+					(not has_tag($product_ref,"quality","en:ingredients-60-percent-unknown")) and
+					(not has_tag($product_ref,"quality","en:ingredients-50-percent-unknown")) and
+					
+
+					(($product_ref->{lc} eq 'en') or ($product_ref->{lc} eq 'fr'))
+					and ((defined $product_ref->{ingredients_text}) and (length($product_ref->{ingredients_text}) > 3))) {
+					
+					if (not has_tag($product_ref,"categories","en:unsweetened-beverages")) {
+						add_tag($product_ref, "categories", "en:unsweetened-beverages");
+					}
+				}
+				else {
+					# remove unsweetened-beverages category that may have been added before
+					# we cannot trust it if we do not have a correct ingredients list
+					if (has_tag($product_ref,"categories","en:unsweetened-beverages")) {
+						remove_tag($product_ref, "categories", "en:unsweetened-beverages");
+					}
+				}
 			}
 		}
-	
 	}
-	
-	if ($added_categories ne '') {
-		my $field = 'categories';
-		$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field} . $added_categories) ];
-		$product_ref->{$field . "_tags" } = [];
-		foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-			push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
+	else {
+		# remove sub-categories for beverages that are not considered beverages for PNNS / Nutriscore
+		if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
+			remove_tag($product_ref, "categories", "en:alcoholic-beverages");
+		}
+		if (has_tag($product_ref, "categories", "en:non-alcoholic-beverages")) {
+			remove_tag($product_ref, "categories", "en:non-alcoholic-beverages");
+		}
+		if (has_tag($product_ref,"categories","en:sweetened-beverages")) {
+			remove_tag($product_ref, "categories", "en:sweetened-beverages");
+		}
+		if (has_tag($product_ref,"categories","en:artificially-sweetened-beverages")) {
+			remove_tag($product_ref, "categories", "en:artificially-sweetened-beverages");
+		}
+		if (has_tag($product_ref,"categories","en:unsweetened-beverages")) {
+			remove_tag($product_ref, "categories", "en:unsweetened-beverages");
 		}	
 	}
 	
-	my $cat = <<CAT
-<en:Beverages
-en:Sugared beverages, Beverages with added sugar
-fr:Boissons sucrées, Boissons avec du sucre ajouté
-pnns_group_2:en:Sweetened beverages
-
-<en:Beverages
-en:Artificially sweetened beverages
-fr:Boissons édulcorées, boissons aux édulcorants
-pnns_group_2:en:Artificially sweetened beverages
-
-<en:Beverages
-en:Non-sugared beverages, beverages without added sugar
-fr:Boissons non sucrées, boissons sans sucre ajouté
-pnns_group_2:en:Non-sugared beverages
-
-<en:Beverages
-en:Alcoholic drinks, drinks with alcohol, alcohols
-es:Bebidas alcohólicas
-fr:Boissons alcoolisées, boisson alcoolisée, alcool, alcools	
-CAT
-;
 	
 	# compute PNNS groups 2 and 1
 	
@@ -3631,9 +3704,35 @@ CAT
 	
 	foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
 		if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{"pnns_group_2:en"})) {
+		
+			# skip the sweetened / unsweetened if it is alcoholic
+			next if (	(has_tag($product_ref, 'categories', 'en:alcoholic-beverages'))
+				and (
+					($categoryid eq 'en:sweetened-beverages') 
+					or ($categoryid eq 'en:artificially-sweetened-beverages') 
+					or ($categoryid eq 'en:unsweetened-beverages') 
+				)
+				);
+			
+			
+			# skip the category en:sweetened-beverages if we have the category en:artificially-sweetened-beverages
+			next if (($categoryid eq 'en:sweetened-beverages') and has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'));
+			
+			# skip waters and flavored waters if we have en:artificially-sweetened-beverages or en:sweetened-beverages
+			next if (
+				(($properties{categories}{$categoryid}{"pnns_group_2:en"} eq "Waters and flavored waters")
+				or ($properties{categories}{$categoryid}{"pnns_group_2:en"} eq "Teas and herbal teas and coffees"))
+			
+				and ( has_tag($product_ref, 'categories', 'en:sweetened-beverages') 
+					or has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')));
+		
 			$product_ref->{pnns_groups_2} = $properties{categories}{$categoryid}{"pnns_group_2:en"};
 			$product_ref->{pnns_groups_2_tags} = [get_fileid($product_ref->{pnns_groups_2})];
-			last;
+			
+			# Let waters and teas take precedence over unsweetened-beverages
+			if ($properties{categories}{$categoryid}{"pnns_group_2:en"} ne "Unsweetened beverages") {
+				last;
+			}
 		}
 	}
 	
@@ -3731,17 +3830,23 @@ sub compute_nutrition_score($) {
 
 	# do not compute a score when we don't have a category
 	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
-			$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
-			$product_ref->{nutrition_score_debug} = "no score when the product does not have a category";
-			return;
+		$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+		$product_ref->{nutrition_score_debug} = "no score when the product does not have a category";
+		return;
 	}	
+	
+	if (not defined $product_ref->{nutrition_score_beverage}) {
+		$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+		$product_ref->{nutrition_score_debug} = "did not determine if it was a beverage";
+		return;	
+	}
 	
 	
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, powder milk)
 	# unless we have nutrition data for the prepared product
 	# same for en:chocolate-powders, en:dessert-mixes and en:flavoured-syrups
 	
-	foreach my $category_tag ("en:dried-products-to-be-rehydrated", "en:chocolate-powders", "en:dessert-mixes", "en:flavoured-syrups") {
+	foreach my $category_tag ("en:dried-products-to-be-rehydrated", "en:chocolate-powders", "en:dessert-mixes", "en:flavoured-syrups", "en:instant-beverages") {
 	
 		if (has_tag($product_ref, "categories", $category_tag)) {
 		
@@ -3759,16 +3864,29 @@ sub compute_nutrition_score($) {
 	}
 	
 	
-	# do not compute a score for coffee, tea etc.
+	# do not compute a score for coffee, tea etc. except ice teas etc.
 	
 	if (defined $options{categories_exempted_from_nutriscore}) {
 	
-		foreach my $category_id (@{$options{categories_exempted_from_nutriscore}}) {
+		my $not_exempted = 0;
+
+		foreach my $category_id (@{$options{categories_not_exempted_from_nutriscore}}) {
 		
 			if (has_tag($product_ref, "categories", $category_id)) {
-				$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
-				$product_ref->{nutrition_score_debug} = "no nutriscore for category $category_id";
-				return;
+				$not_exempted = 1;
+				last;
+			}
+		}	
+
+		if (not $not_exempted) {
+	
+			foreach my $category_id (@{$options{categories_exempted_from_nutriscore}}) {
+			
+				if (has_tag($product_ref, "categories", $category_id)) {
+					$product_ref->{"nutrition_grades_tags"} = [ "not-applicable" ];
+					$product_ref->{nutrition_score_debug} = "no nutriscore for category $category_id";
+					return;
+				}
 			}
 		}
 	}	
@@ -3860,6 +3978,7 @@ sub compute_nutrition_score($) {
 	
 	my $fr_beverages_sugars_points = int(($product_ref->{nutriments}{"sugars" . $prepared . "_100g"} - 0.00001 + 1.5) / 1.5);
 	$fr_beverages_sugars_points > 10 and $fr_beverages_sugars_points = 10;	
+	
 	
 # L’attribution des points pour les sucres prend en compte la présence d’édulcorants, pour lesquels la grille maintient les scores sucres simples à 1 (au lieu de 0).		
 	
@@ -4031,16 +4150,9 @@ COMMENT
 	}
 
 	# Nutriscore: milk and drinkable yogurts are not considered beverages
+	# $product_ref->{nutrition_score_beverage} is set by special_process_product()
 	
-	if (has_tag($product_ref, "categories", "en:beverages")
-		and not (has_tag($product_ref, "categories", "en:plant-milks")
-			 or has_tag($product_ref, "categories", "en:milks")
-			 or has_tag($product_ref, "categories", "en:dairy-drinks")
-			 or has_tag($product_ref, "categories", "en:meal-replacement")
-			 or has_tag($product_ref, "categories", "en:dairy-drinks-substitutes")
-			 or has_tag($product_ref, "categories", "en:chocolate-powders")
-			 or has_tag($product_ref, "categories", "en:soups")
-			)) {
+	if ($product_ref->{nutrition_score_beverage}) {
 		$product_ref->{nutrition_score_debug} .= " -- in beverages category - a_points_fr_beverage: $fr_beverages_energy_points (energy) + $saturated_fat_points (sat_fat) + $fr_beverages_sugars_points (sugars) + $sodium_points (sodium) = $a_points_fr_beverages - ";
 		
 		$a_points_fr = $a_points_fr_beverages;
@@ -4066,7 +4178,8 @@ COMMENT
 	# FR
 	
 	my $fruits_points_fr = $fruits_points;
-	if (has_tag($product_ref, "categories", "en:beverages")) {
+	
+	if ($product_ref->{nutrition_score_beverage}) {
 		$fruits_points_fr = 2 * $fruits_points;
 	}
 	
@@ -4145,11 +4258,7 @@ sub compute_nutrition_grade($$) {
 	
 	my $grade = "";
 
-	if (has_tag($product_ref, "categories", "en:beverages")
-		and not (has_tag($product_ref, "categories", "en:plant-milks")
-		 or has_tag($product_ref, "categories", "en:milks")
-		 or has_tag($product_ref, "categories", "en:dairy-drinks")
-	)) {
+	if ($product_ref->{nutrition_score_beverage}) {
 		
 # Tableau 6 : Seuils du score FSA retenus pour les boissons
 # Classe du 5-C
@@ -4670,6 +4779,19 @@ sub compute_nova_group($) {
 			$product_ref->{nova_group_debug} = "no nova group when the product does not have ingredients";
 			return;
 	}		
+	
+	# do not compute a score if we have too many unknown ingredients
+	if ( not (
+					(not has_tag($product_ref,"quality","en:ingredients-100-percent-unknown")) and
+					(not has_tag($product_ref,"quality","en:ingredients-90-percent-unknown")) and
+					(not has_tag($product_ref,"quality","en:ingredients-80-percent-unknown")) and
+					(not has_tag($product_ref,"quality","en:ingredients-70-percent-unknown")) and
+					(not has_tag($product_ref,"quality","en:ingredients-60-percent-unknown")) and
+					(not has_tag($product_ref,"quality","en:ingredients-50-percent-unknown")) ) ) {
+			$product_ref->{nova_group_tags} = [ "not-applicable" ];
+			$product_ref->{nova_group_debug} = "no nova group if too many ingredients are unknown";
+			return;					
+	}
 	
 	# do not compute a score when we don't have a category
 	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {

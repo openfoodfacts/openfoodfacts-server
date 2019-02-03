@@ -37,6 +37,7 @@ use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Data qw/:all/;
 
 # for RDF export: replace xml_escape() with xml_escape_NFC()
 use Unicode::Normalize;
@@ -48,7 +49,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 use DateTime qw/:all/;
 
 
@@ -77,7 +78,7 @@ foreach my $field (@export_fields) {
 $fields_ref->{nutriments} = 1;
 $fields_ref->{ingredients} = 1;
 $fields_ref->{images} = 1;
-
+$fields_ref->{lc} = 1;
 
 	
 my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
@@ -93,7 +94,7 @@ foreach my $l ("en", "fr") {
 	my $categories_nutriments_ref = retrieve("$data_root/index/categories_nutriments.$lc.sto");	
 
 	
-	my $cursor = $products_collection->query({'code' => { "\$ne" => "" }}, {'empty' => { "\$ne" => 1 }})->fields($fields_ref)->sort({code=>1});
+	my $cursor = get_products_collection()->query({'code' => { "\$ne" => "" }}, {'empty' => { "\$ne" => 1 }})->fields($fields_ref)->sort({code=>1});
 	my $count = $cursor->count();
 	
 	$langs{$l} = $count;

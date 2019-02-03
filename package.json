@@ -16,9 +16,10 @@
     "lint:js": "eslint html/js/src/",
     "lint:css": "stylelint html/css/src/",
     "lint:scss": "stylelint scss/app.scss",
-    "perlc": "pnpm run perlc:startup && pnpm run perlc:product",
+    "perlc": "pnpm run perlc:startup && pnpm run perlc:cgi",
     "perlc:startup": "perl -c -CS -Ilib lib/startup_apache2.pl",
-    "perlc:product": "perl -c -CS -Ilib cgi/product_multilingual.pl"
+    "perlc:cgi": "node compile_cgi.js",
+    "postinstall": "node -e \"try { require('fs').symlinkSync(require('path').resolve('node_modules/@bower_components'), 'html/bower_components', 'junction') } catch (e) { }\""
   },
   "repository": {
     "type": "git",

@@ -563,3 +563,45 @@ files:
         zh-TW: zh_TW
         sr-CS: sr_CS
         sr: sr
+  - source: /lang/en/obf/texts/mobile-app-open-beauty-facts.html
+    translation: /lang/%two_letters_code%/obf/texts/mobile-app-open-beauty-facts.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr
+  - source: /lang/en/texts/traffic-lights.html
+    translation: /lang/%two_letters_code%/texts/traffic-lights.html
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr
+  - source: /html/files/tagline.txt
+    translation: /html/files/tagline/tagline-%two_letters_code%.txt
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr

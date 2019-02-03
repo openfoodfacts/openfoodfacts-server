@@ -6,8 +6,8 @@
 		xmlns:void="http://rdfs.org/ns/void#"
 		xmlns:foaf="http://xmlns.com/foaf/0.1/">
 
-<void:Dataset rdf:about="http://fr.openfoodfacts.org">
-	<void:dataDump rdf:resource="http://fr.openfoodfacts.org/data/fr.openfoodfacts.org.products.rdf"/>
+<void:Dataset rdf:about="https://fr.openfoodfacts.org">
+	<void:dataDump rdf:resource="https://fr.openfoodfacts.org/data/fr.openfoodfacts.org.products.rdf"/>
 	<void:vocabulary rdf:resource="http://data.lirmm.fr/ontologies/food"/>
 	<dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-05-21</dcterms:created>
 	<dcterms:creator>Open Food Facts</dcterms:creator>
@@ -19,10 +19,10 @@
 	<dcterms:subject rdf:resource="http://dbpedia.org/resource/Nutrition"/>
 	<dcterms:subject rdf:resource="http://dbpedia.org/resource/Nutrition_facts_label"/>
 	<dcterms:title>Open Food Facts</dcterms:title>
-	<foaf:homepage rdf:resource="http://fr.openfoodfacts.org"/>
+	<foaf:homepage rdf:resource="https://fr.openfoodfacts.org"/>
 </void:Dataset>		 
 
-<rdf:Description rdf:about="http://fr.openfoodfacts.org/produit/3056440031699/pepito-chocolat-noir-lu"
+<rdf:Description rdf:about="https://fr.openfoodfacts.org/produit/3056440031699/pepito-chocolat-noir-lu"
   rdf:type="http://data.lirmm.fr/ontologies/food#FoodProduct">
   <food:code>3056440031699</food:code>
   <food:name>Pépito Chocolat Noir</food:name>
@@ -30,7 +30,7 @@
   <food:containsIngredient>
     <food:Ingredient>
 	  <food:rank>1</food:rank>
-	  <food:food rdf:resource="http://fr.openfoodfacts.org/ingredient/farine-de-ble" />
+	  <food:food rdf:resource="https://fr.openfoodfacts.org/ingredient/farine-de-ble" />
 	</food:Ingredient>
   </food:containsIngredient>
   <food:containsIngredient>
@@ -58,7 +58,7 @@
   </food:containsIngredient>    
 </rdf:Description>
 
-<rdf:Description rdf:about="http://fr.openfoodfacts.org/produit/3061990139740/bn-gout-chocolat"
+<rdf:Description rdf:about="https://fr.openfoodfacts.org/produit/3061990139740/bn-gout-chocolat"
   rdf:type="http://data.lirmm.fr/ontologies/food#FoodProduct">
   <food:code>3061990139740</food:code>
   <food:name>BN Goût Chocolat</food:name>
@@ -66,7 +66,7 @@
   <food:containsIngredient>
     <food:Ingredient>
 	  <food:rank>1</food:rank>
-	  <food:food rdf:resource="http://fr.openfoodfacts.org/ingredient/farine-de-ble" />
+	  <food:food rdf:resource="https://fr.openfoodfacts.org/ingredient/farine-de-ble" />
 	  <food:percent>31</food:percent>
 	</food:Ingredient>
   </food:containsIngredient>
@@ -79,7 +79,7 @@
 </rdf:Description>
 
 
-<rdf:Description rdf:about="http://fr.openfoodfacts.org/ingredient/farine-de-ble"
+<rdf:Description rdf:about="https://fr.openfoodfacts.org/ingredient/farine-de-ble"
   rdf:type="http://data.lirmm.fr/ontologies/food#Food">
   <food:name>Farine de blé</food:name>
 </rdf:Description>

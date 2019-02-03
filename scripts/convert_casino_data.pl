@@ -33,7 +33,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 use Time::Local;
 use XML::Rules;
 
@@ -41,14 +41,14 @@ use XML::Rules;
 
 $lc = "fr";
 
-my %global_params = (
+%global_params = (
 	lc => 'fr',
 	countries => "France",
 	brands => "Casino",
 	stores => "Casino",
 );
 
-@fields_mapping = (
+my @csv_fields_mapping = (
 
 ["EAN", "code"],
 ["ID", "producer_version_id"],
@@ -124,7 +124,7 @@ my @files = get_list_of_files(@ARGV);
 
 foreach my $file (@files) {
 
-	load_csv_file($file, "UTF-8", "\t", 4);
+	load_csv_file({ file => $file, encoding => "UTF-8", separator => "\t", skip_lines => 4, csv_fields_mapping => \@csv_fields_mapping});
 
 }
 

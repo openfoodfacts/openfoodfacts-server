@@ -45,7 +45,7 @@ ProductOpener::Display::init();
 my $short_name = lang("site_name");
 my $long_name = $short_name;
 
-# http://stackoverflow.com/a/16533563/11963
+# https://stackoverflow.com/a/16533563/11963
 $short_name =~ s/\b([A-Z])[a-z]+(?=\s+[A-Z][a-z])|\G(?!^)\s+([A-Z])[a-z]+/$1$2/g;
 
 if ($cc eq 'world') {
@@ -65,6 +65,7 @@ $manifest{description} = lang('site_description');
 $manifest{start_url} = format_subdomain($subdomain);
 $manifest{scope} = '/';
 $manifest{display} = 'standalone';
+$manifest{prefer_related_applications} = 'true';
 
 my @keys = qw(theme_color icons related_applications background_color);
 foreach my $key (@keys) {

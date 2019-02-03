@@ -68,10 +68,9 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::URL qw/:all/;
-
+use ProductOpener::Data qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
-use MongoDB;
 use Encode;
 use Log::Any qw($log);
 
@@ -252,6 +251,8 @@ sub store_product($$) {
 	
 	my $new_data_root = $data_root;
 	my $new_www_root = $www_root;
+	
+	my $products_collection = get_products_collection();
 	my $new_products_collection = $products_collection;
 		
 	
@@ -267,7 +268,7 @@ sub store_product($$) {
 			my $new_server = $product_ref->{new_server};
 			$new_data_root = $options{other_servers}{$new_server}{data_root};
 			$new_www_root = $options{other_servers}{$new_server}{www_root};
-			$new_products_collection = $options{other_servers}{$new_server}{products_collection};
+			$new_products_collection = get_collection($options{other_servers}{$new_server}{mongodb}, 'products');
 			$product_ref->{server} = $product_ref->{new_server};
 			delete $product_ref->{new_server};
 		}
@@ -304,7 +305,10 @@ sub store_product($$) {
 
 			delete $product_ref->{old_code};
 			
-			$products_collection->remove({"_id" => $product_ref->{_id}});
+			execute_query(sub {
+				return $products_collection->delete_one({"_id" => $product_ref->{_id}});
+			});
+			
 			$product_ref->{_id} = $product_ref->{code};
 
 		}
@@ -393,12 +397,13 @@ sub store_product($$) {
 	$product_ref->{sortkey} += 0;
 	
 
-	
-	if ($product_ref->{deleted}) {
-		$new_products_collection->remove({"_id" => $product_ref->{_id}});
+	# 2018-12-26: remove obsolete products from the database
+	# another option could be to keep them and make them searchable only in certain conditions
+	if (($product_ref->{deleted}) or ($product_ref->{obsolete})) {
+		$new_products_collection->delete_one({"_id" => $product_ref->{_id}});
 	}
 	else {
-		$new_products_collection->save($product_ref);
+		$new_products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, { upsert => 1 });
 	}
 	
 	store("$new_data_root/products/$path/$rev.sto", $product_ref);
@@ -1569,7 +1574,7 @@ sub log_change {
 		rev => $change_ref->{rev},
 		diffs => $change_ref->{diffs}
 	};
-	$recent_changes_collection->insert_one($change_document);
+	get_recent_changes_collection()->insert_one($change_document);
 
 }
 

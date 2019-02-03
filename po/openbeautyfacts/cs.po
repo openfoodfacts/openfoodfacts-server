@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-11-12 13:25\n"
+"PO-Revision-Date: 2019-01-03 16:32\n"
 "Language-Team: Czech\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 3;\n"
@@ -13,16 +13,6 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: cs\n"
 "X-Crowdin-File: /master/po/openbeautyfacts/openbeautyfacts.pot\n"
-
-#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
-msgctxt ":langtag"
-msgid ":langtag"
-msgstr "cs"
-
-#. put here the language name ("French", "Japanese", etc)
-msgctxt ":langname"
-msgid ":langname"
-msgstr "Czech"
 
 #. do not translate
 msgctxt "android_apk_app_link"
@@ -58,7 +48,7 @@ msgstr ""
 
 msgctxt "tagline"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
-msgstr ""
+msgstr "Open Beauty Facts shromažďuje informace a údaje o kosmetice z celého světa."
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
@@ -113,7 +103,7 @@ msgstr ""
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
-msgstr ""
+msgstr "Společná, bezplatná a otevřená databáze kosmetických výrobků z celého světa."
 
 msgctxt "footer_wiki_link"
 msgid "https://en.wiki.openbeautyfacts.org"
@@ -146,5 +136,10 @@ msgstr ""
 
 msgctxt "ingredients_text_example"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr ""
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link"
+msgid "open-beauty-facts-mobile-app"
 msgstr ""
 

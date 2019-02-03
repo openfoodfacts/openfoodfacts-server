@@ -62,13 +62,14 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::SiteQuality qw/:all/;
+use ProductOpener::Data qw/:all/;
 
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 use Getopt::Long;
 
@@ -135,11 +136,12 @@ else {
 	$key = "key_" . time();
 }
 
-$query_ref->{code} = "7610145410164";
+#$query_ref->{code} = "3033490859206";
+$query_ref->{categories_tags} = "en:beverages";
 
 print "Update key: $key\n\n";
 
-my $cursor = $products_collection->query($query_ref)->fields({ code => 1 });;
+my $cursor = get_products_collection()->query($query_ref)->fields({ code => 1 });;
 $cursor->immortal(1);
 my $count = $cursor->count();
 
@@ -185,7 +187,7 @@ while (my $product_ref = $cursor->next) {
 			else {
 			}
 		}
-		
+
 		if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')) {
 			push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
 			push @{$product_ref->{"labels_tags" }}, "en:carbon-footprint";
@@ -200,6 +202,10 @@ while (my $product_ref = $cursor->next) {
 			compute_languages($product_ref); # need languages for allergens detection
 			detect_allergens_from_text($product_ref);		
 		}
+
+		if ($server_domain =~ /openfoodfacts/) {
+                        ProductOpener::Food::special_process_product($product_ref);
+                }
 		
 		if ($compute_nova) {
 		
@@ -209,11 +215,8 @@ while (my $product_ref = $cursor->next) {
 
 		if ($compute_nutrition_score) {
 			compute_nutrition_score($product_ref);
+			compute_nutrient_levels($product_ref);
 		}
-		
-		if ($server_domain =~ /openfoodfacts/) {
-			ProductOpener::Food::special_process_product($product_ref);
-		}		
 		
 		if ($check_quality) {
 			ProductOpener::SiteQuality::check_quality($product_ref);
@@ -227,7 +230,7 @@ while (my $product_ref = $cursor->next) {
 			# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077
 			# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
 			$product_ref->{code} = $product_ref->{code} . '';
-			$products_collection->save($product_ref);		
+			get_products_collection()->save($product_ref);		
 		}
 		
 		

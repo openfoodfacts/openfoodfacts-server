@@ -39,13 +39,13 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
-
+use ProductOpener::Data qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 # Generate a list of the top brands, categories, users, additives etc.
 
@@ -114,7 +114,7 @@ foreach my $l (values %lang_lc) {
 	$fields_ref->{complete} = 1;
 	$fields_ref->{completed_t} = 1;
 		
-	my $cursor = $products_collection->query({lc=>$lc})->fields($fields_ref);
+	my $cursor = get_products_collection()->query({lc=>$lc})->fields($fields_ref);
 	my $count = $cursor->count();
 	
 	$langs{$l} = $count;

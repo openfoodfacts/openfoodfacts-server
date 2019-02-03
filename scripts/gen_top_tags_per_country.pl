@@ -39,13 +39,13 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
-
+use ProductOpener::Data qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 # Generate a list of the top brands, categories, users, additives etc.
 
@@ -147,7 +147,7 @@ $fields_ref->{nutriments} = 1;
 $fields_ref->{nutrition_grade_fr} = 1;
 
 # Sort by created_t so that we can see which product was the nth in each country -> necessary to compute points for Open Food Hunt
-my $cursor = $products_collection->query({'empty' => { "\$ne" => 1 }})->sort({created_t => 1})->fields($fields_ref);
+my $cursor = get_products_collection()->query({'empty' => { "\$ne" => 1 }})->sort({created_t => 1})->fields($fields_ref);
 $total = $cursor->count();
 
 	

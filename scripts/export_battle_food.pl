@@ -39,13 +39,13 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
-
+use ProductOpener::Data qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON;
+use JSON::PP;
 
 my @fields = qw(product_name generic_name quantity packaging brands categories origins labels emb_codes );
 my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, emb_codes=>1, cities=>1, traces => 1);
@@ -91,7 +91,7 @@ foreach my $l (values %lang_lc) {
 	$lc = $l;
 	$lang = $l;
 	
-	my $cursor = $products_collection->query({lc=>$lc})->fields($fields_ref)->sort({code=>1});
+	my $cursor = get_products_collection()->query({lc=>$lc})->fields($fields_ref)->sort({code=>1});
 	my $count = $cursor->count();
 	
 	$langs{$l} = $count;
