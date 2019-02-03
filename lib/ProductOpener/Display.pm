@@ -1638,7 +1638,7 @@ sub display_list_of_tags($$) {
                 text: '$request_ref->{title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$sep: @{[ $format_subdomain ]}'
+                text: '$Lang{data_source}{$lc}$sep: $format_subdomain'
             },
             xAxis: {
                 title: {
