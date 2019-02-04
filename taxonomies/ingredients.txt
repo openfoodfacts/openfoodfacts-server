@@ -28290,6 +28290,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Watercress
 
 # Haricots
 
+en:legume
+fr:légumineuse
+
 fr:haricot vert, haricots verts
 
 en:brown beans
@@ -28338,6 +28341,11 @@ fr:haricots noirs
 
 fr:pousse de haricot mungo
 
+<en:legume
+en:garden peas
+fr:pois doux
+
+<en:garden peas
 fr:petits pois extra fins
 
 fr:lentilles sèches trempées
@@ -33641,82 +33649,70 @@ la:cantharellus cibarius
 # BOLETUS EDULIS (English:penny bun, cep, porcino or porcini) is a basidiomycete fungus, and the type species of the genus Boletus. 
 
 <en:mushroom
-en:cep, Boletus edulis
+en:cep
 ar:بوليط مأكول
-# ast:Boletus edulis
 ba:Аҡ бәшмәк
-# bar:Stoabuiz, Boletus edulis
+# bar:Stoabuiz
 be:Баравік
 # be-tarask:Баравік
 bg:обикновена манатарка
 bn:বোলেটাস এডুলাস
-bs:Vrganj, Boletus edulis
-ca:cep, Boletus edulis
-# ceb:Boletus edulis
-cs:hřib smrkový, Boletus edulis
-# csb:Bòrzón, Boletus edulis
+bs:Vrganj
+ca:cep
+cs:hřib smrkový
+# csb:Bòrzón
 cv:Шур кăмпа
-cy:Wicsen gron, Boletus edulis
-da:Karl Johan, Boletus edulis
-de:Steinpilze, Boletus edulis
-# de-ch:Gemeiner Steinpilz, Boletus edulis
+cy:Wicsen gron
+da:Karl Johan
+de:Steinpilze
+# de-ch:Gemeiner Steinpilz
 el:Βωλίτης ο εδώδιμος
-# en-ca:Boletus edulis
-# en-gb:Boletus edulis
-es:boletus, Boletus edulis
-et:Harilik kivipuravik, Boletus edulis
+es:boletus
+et:Harilik kivipuravik
 eu:Onddozuri
 fa:قارچ تیره‌سر 
-fi:Herkkutatti, Boletus edulis
-fr:cèpe, cèpes, bolets, cèpe de Bordeaux, Boletus edulis
-ga:Ceap, Boletus edulis
-gl:Andoa, Boletus edulis
+fi:Herkkutatti
+fr:cèpe, cèpes, bolets, cèpe de Bordeaux
+ga:Ceap
+gl:Andoa
 he:פורצ'יני
-hr:Ljetni vrganj, Boletus edulis
-hu:Ízletes vargánya, Boletus edulis
+hr:Ljetni vrganj
+hu:Ízletes vargánya
 hy:Սպիտակ սունկ
-id:Boletus edulis
-io:Cepo, Boletus edulis
-is:Kóngssveppur, Boletus edulis
-it:Boletus edulis
+io:Cepo
+is:Kóngssveppur
 ja:ヤマドリタケ
 ka:დათვისსოკო
 kk:Ақ саңырауқұлақ
-ku:Fîqeroş, Boletus edulis
-la:Boletus edulis
-lt:Tikrinis baravykas, Boletus edulis
-lv:Egļu baravika, Boletus edulis
+ku:Fîqeroş
+lt:Tikrinis baravykas
+lv:Egļu baravika
 mk:летен вргањ
 # mrj:Ош понгы
-ms:Boletus edulis
-# myv:Boletus edulis
-nb:Steinsopp, Boletus edulis
-nl:eekhoorntjesbrood, Boletus edulis
-nn:steinsopp, Boletus edulis
-oc:Boletus edulis, Boletus edulis
-olo:Valgei griba, Boletus edulis
-pl:Borowik szlachetny, Boletus edulis
-# pms:Boletus edulis
-pt:Boletus edulis
-ro:Hrib, Boletus edulis
+nb:Steinsopp
+nl:eekhoorntjesbrood
+nn:steinsopp
+oc:Boletus edulis
+olo:Valgei griba
+pl:Borowik szlachetny
+ro:Hrib
 ru:Белый гриб
 # sah:Үрүҥ тэллэй
-# sgs:Baravīks, Boletus edulis
-sh:Vrganj, Boletus edulis
-sk:hríb smrekový, Boletus edulis
-sl:Jesenski goban, Boletus edulis
+# sgs:Baravīks
+sh:Vrganj
+sk:hríb smrekový
+sl:Jesenski goban
 sr:вргањ
 # sr-ec:вргањ
-# sr-el:vrganj, Boletus edulis
-sv:Stensopp, karljohan, Boletus edulis
+# sr-el:vrganj
+sv:Stensopp, karljohan
 th:เห็ดพอร์ชินี
-tr:Çörek mantarı, Boletus edulis
+tr:Çörek mantarı
 tt:Ак гөмбә
 uk:Білий гриб
-# vec:Brixa, Boletus edulis
-vi:Nấm thông, Boletus edulis
-wa:Magnåve bolet, Boletus edulis
-# war:Boletus edulis
+# vec:Brixa
+vi:Nấm thông
+wa:Magnåve bolet
 # yue:牛肝菌
 zh:美味牛肝菌
 # zh-cn:美味牛肝菌
@@ -33726,6 +33722,10 @@ zh:美味牛肝菌
 wikipedia:Q19740
 wikipedia:https://en.wikipedia.org/wiki/Boletus_edulis
 # en:cep has 98 products in 5 languages @2018-11-02
+
+<en:cep
+en:Boletus edulis
+la:Boletus edulis
 
 # AGARICUS BISPORUS is an edible basidiomycete mushroom native to grasslands in Europe and North America. 
 
@@ -33780,6 +33780,30 @@ wikidata:Q227690
 wikipedia:https://en.wikipedia.org/wiki/Agaricus_bisporus
 # fr:champignons de Paris has 857 products in 9 languages @2018-11-01
 carbon_footprint_fr_foodges_ingredient:fr:Champignons de Paris
+
+
+<en:mushroom
+en:kikurage mushroom
+bo:མོག་དཀར།                                                  
+cs:rosolovka řasotvará
+de:Silberohr
+fr:Trémelle fucus
+id:Jamur kuping putih
+ja:シロキクラゲ
+jv:Jamur kuping putih
+su:Lémbér bodas
+uk:Сніжний гриб
+vi:Mộc nhĩ trắng
+# yue:雪耳
+za:Raetngaenz
+zh:銀耳
+# zh-tw:銀耳
+wikidat:en:Q1309195
+wikipedia:en:https://en.wikipedia.org/wiki/Tremella_fuciformis
+
+<en:kikurage mushroom
+en:Tremella fuciformis
+la:Tremella fuciformis
 
 
 # LACTARIUS is a genus of mushroom-producing, ectomycorrhizal fungi, containing several edible species. 
@@ -43988,9 +44012,6 @@ allergens:fr:fourrage _lait_
 
 fr:chlorophyllines
 
-
-
-fr:pois doux
 
 
 
