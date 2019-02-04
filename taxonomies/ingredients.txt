@@ -41139,10 +41139,22 @@ nl:pulp
 en:Filling
 de:Belag
 es:relleno
-fr:garniture
+fr:garniture, fourrage
 nl:garnituur, vulling
 pt:recheio
 # ingredient/fr:garniture has 1531 products in 9 languages @2018-12-01
+
+
+# compound ingredient
+
+<en:Filling
+en:milk filling
+es:relleno de leche
+fr:fourrage lait, fourrage au lait
+it:farcitura al latte
+pt:recheio de leite
+# ingredient/fr:fourrage-lait has 42 products in 5 languages @2019-02-03
+# fourrage au _lait_ 16% (sucre, huile, ….)
 
 fr:brioche
 # ingredient/fr:brioche has 35 products @2019-01-28
@@ -44054,9 +44066,6 @@ fr:pâtes fraîches
 
 fr:encornet
 allergens:fr:_encornet_
-
-fr:fourrage lait
-allergens:fr:fourrage _lait_
 
 
 
