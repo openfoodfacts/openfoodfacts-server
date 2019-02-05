@@ -232,8 +232,16 @@ HTML
 }
 
 
+	
+	
 my @fields = @ProductOpener::Config::product_fields;
 
+if (($User_id eq 'teolemon') or ($User_id eq 'stephane')) {
+	push @fields, "environment_impact_level";
+	if ($action eq 'process') {
+		push @fields, "environment_infocard";
+	}
+}
 
 if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
@@ -320,7 +328,12 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	foreach my $field (@param_fields) {
 	
 		if (defined param($field)) {
-			$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
+			if ($field =~ /infocard/) {
+				$product_ref->{$field} = decode utf8=>param($field);
+			}
+			else {
+				$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));			
+			}
 			if ($field eq 'emb_codes') {
 				# French emb codes
 				$product_ref->{emb_codes_orig} = $product_ref->{emb_codes};
@@ -653,9 +666,22 @@ HTML
 
 	my $html = <<HTML
 <label for="$field">$Lang{$fieldtype}{$lang}</label>
+HTML
+;
+
+	if ($field =~ /infocard/) {
+		$html .= <<HTML
+<textarea name="$field" id="$field" lang="${display_lc}">$value</textarea>
+HTML
+;	
+	}
+	else {
+		$html .= <<HTML
 <input type="text" name="$field" id="$field" class="text${tagsinput}" value="$value" lang="${display_lc}" />		
 HTML
 ;
+	}
+	
 	if (defined $Lang{$fieldtype . "_note"}{$lang}) {
 		$html .= <<HTML
 <p class="note">&rarr; $Lang{$fieldtype . "_note"}{$lang}</p>			
@@ -1428,8 +1454,14 @@ HTML
 
 	$html .= "<div class=\"fieldset\"><legend>$Lang{ingredients}{$lang}</legend>\n";
 
+	my @ingredients_fields = ("ingredients_image", "ingredients_text");
 	
-	$html .= display_tabs($product_ref, $select_add_language, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, ["ingredients_image", "ingredients_text"]);
+	if (($User_id eq 'teolemon') or ($User_id eq 'stephane')) {
+		push @ingredients_fields, "environment_infocard";
+		# push @ingredients_fields, "environment_impact_level";
+	}
+	
+	$html .= display_tabs($product_ref, $select_add_language, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, \@ingredients_fields);
 
 
 	# $initjs .= "\$('textarea#ingredients_text').autoResize();";
