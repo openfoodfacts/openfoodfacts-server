@@ -18,7 +18,7 @@
     "perlc": "yarn run perlc:startup && yarn run perlc:cgi",
     "perlc:startup": "perl -c -CS -Ilib lib/startup_apache2.pl",
     "perlc:cgi": "node compile_cgi.js",
-    "postinstall": "node -e \"try { require('fs').symlinkSync(require('path').resolve('node_modules/@bower_components'), 'html/bower_components', 'junction') } catch (e) { }\""
+    "postinstall": "node -e \"try { require('fs').symlinkSync(require('path').resolve('node_modules/@bower_components'), 'html/bower_components', 'junction') } catch (e) { }\" && opencollective-postinstall"
   },
   "repository": {
     "type": "git",
@@ -56,9 +56,11 @@
     "iolazyload": "cdowdy/io-lazyload#^1.2.0",
     "leaflet": "Leaflet/Leaflet#>=1.0.0",
     "leaflet.markercluster": "Leaflet/Leaflet.markercluster#>=1.0.0",
+    "opencollective-postinstall": "^2.0.1",
     "osmtogeojson": "tyrasd/osmtogeojson#^2.2.12",
     "papaparse": "mholt/papaparse#^4.3.6",
-    "yarn": "^1.2.1"
+    "yarn": "^1.2.1",
+    "opencollective": "^1.0.3"
   },
   "devDependencies": {
     "eslint": "^5.6.1",
@@ -68,5 +70,9 @@
   },
   "engines": {
     "yarn": ">= 1.0.0"
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/openfoodfacts-server"
   }
 }
