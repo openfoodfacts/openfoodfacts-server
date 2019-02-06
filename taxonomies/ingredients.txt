@@ -1782,44 +1782,46 @@ wikipedia:en:https://en.wikipedia.org/wiki/Malic_acid
 
 # Sodium ascorbate is one of a number of mineral salts of ascorbic acid (vitamin C).
 
-<en:antioxidant
+# <en:antioxidant
 en:sodium ascorbate, E301, E 301, E-301
 # azb:اسکوربات سودیوم
-bg:Натриев аскорбат, Натриев L-аскорбат, E301, E 301, E-301
-cs:Askorban sodný, L-askorban sodný, E301, E 301, E-301
-da:Natriumascorbat, Natrium-L-ascorbat, E301, E 301, E-301
-de:Natriumascorbat, E301, E 301, E-301
-el:Ασκορβικο νατριο, L-Ασκορβικό νάτριο, E301, E 301, E-301
-eo:Natria askorbato, E301, E 301, E-301
-es:ascorbato de sodio, E301, E 301, E-301
-et:Naatriumaskorbaat, E301, E 301, E-301
+bg:Натриев аскорбат, Натриев L-аскорбат
+cs:Askorban sodný, L-askorban sodný
+da:Natriumascorbat, Natrium-L-ascorbat
+de:Natriumascorbat
+el:Ασκορβικο νατριο, L-Ασκορβικό νάτριο
+eo:Natria askorbato
+es:ascorbato de sodio
+et:Naatriumaskorbaat
 fa:اسکوربات سدیم
-fi:Natriumaskorbaatti, E301, E 301, E-301
-fr:ascorbate de sodium, E301, E 301, E-301, antioxydant e301
-hu:nátrium-aszkorbát, E301, E 301, E-301
-hy:Նատրիումի ասկորբատ, E301, E 301, E-301
-it:ascorbato di sodio, E301, E 301, E-301
-lt:Natrio askorbatas, Natrio L-askorbatas, Mononatrio askorbatas, E301, E 301, E-301
-lv:Nātrija askorbāts, Nātrija L-askorbāts, E301, E 301, E-301
-mt:Askorbat tas-sodju, L-askorbat tas-sodju, E301, E 301, E-301
-nl:natriumascorbaat, E301, E 301, E-301
-pl:Askorbinian sodu, L-askorbinian sodu, E301, E 301, E-301
-pt:ascorbato de sódio, E301, E 301, E-301
-ro:ascorbat de sodiu, E301, E 301, E-301
-rs:natrijum askorbat, E301, E 301, E-301
-ru:Аскорбат натрия, E301, E 301, E-301
-sh:Natrijum askorbat, E301, E 301, E-301
-sk:Askorban sodný, L-askorbát sodný, E301, E 301, E-301
-sl:natrijev askorbat, E301, E 301, E-301
-sr:Natrijum askorbat, E301, E 301, E-301
-sv:natriumaskorbat, E301, E 301, E-301
-uk:Аскорбат натрію, E301, E 301, E-301
+fi:Natriumaskorbaatti
+fr:ascorbate de sodium
+hu:nátrium-aszkorbát
+hy:Նատրիումի ասկորբատ
+it:ascorbato di sodio
+lt:Natrio askorbatas, Natrio L-askorbatas, Mononatrio askorbatas
+lv:Nātrija askorbāts, Nātrija L-askorbāts
+mt:Askorbat tas-sodju, L-askorbat tas-sodju
+nl:natriumascorbaat
+pl:Askorbinian sodu, L-askorbinian sodu
+pt:ascorbato de sódio
+ro:ascorbat de sodiu
+rs:natrijum askorbat
+ru:Аскорбат натрия
+sh:Natrijum askorbat
+sk:Askorban sodný, L-askorbát sodný
+sl:natrijev askorbat
+sr:Natrijum askorbat
+sv:natriumaskorbat
+uk:Аскорбат натрію
 wikidata: Q424551
 wikipedia:https://en.wikipedia.org/wiki/Sodium_ascorbate
 # additive/e301-sodium-ascorbate has 5340 products in 17 languages @2018-11-10
 # en:sodium-ascorbate has 4161 products in 7 languages @2018-11-10
 
-
+<en:sodium ascorbate
+en:antioxidant sodium ascorbate
+fr:antioxydant e301
 
 <en:antioxidant
 en:Fatty acid esters of ascorbic acid, E304, E 304, E-304
@@ -2340,7 +2342,7 @@ el:μόνο- και διγλυκερίδια λιπαρών οξέων
 es:monoglicéridos y diglicéridos de ácidos grasos
 et:Rasvhapete mono- ja diglütseriidid
 fi:rasvahappojen mono- ja diglyseridit
-fr:mono- et diglycérides d'acides gras, mono et diglycérides d'acide gras, diglycérides d'acide gras, diglycérides d'acides gras, émulsifiant e471
+fr:mono- et diglycérides d'acides gras, mono et diglycérides d'acide gras, diglycérides d'acide gras, diglycérides d'acides gras, mono et di glycérides d'acides gras
 hu:zsírsavak mono- és digliceridjei
 it:mono e digliceridi degli acidi grassi
 lt:Riebalų rūgščių mono- ir digliceridai
@@ -2361,6 +2363,10 @@ wikidata:en:Q416711
 wikipedia:en:https://en.wikipedia.org/wiki/Mono-_and_diglycerides_of_fatty_acids
 # mono—and-diglycerides-of-fatty-acids has 2139 products in 19 languages @2018-11-12
 # fr:diglycérides-d’acide-gras has 2301 products in 11 languages @2018-11-12
+
+<en:en:mono- and diglycerides of fatty acids
+en:emulsifier, mono- and diglycerides of fatty acids
+fr:émulsifiant e471
 
 <en:mono- and diglycerides of fatty acids
 en:mono and diglycerides of fatty acids of vegetable origin
@@ -44189,9 +44195,6 @@ fr:fumarate ferreux
 fr:gâteau
 
 fr:oléisol®
-
-fr:mono et di glycérides d'acides gras
-
 
 
 
