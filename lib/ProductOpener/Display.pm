@@ -3588,7 +3588,10 @@ sub search_and_export_products($$$$$) {
 
 	eval {
 		$cursor = execute_query(sub {
-			return get_products_collection()->query($query_ref)->sort($sort_ref);
+			# disabling sort for CSV export, as we get memory errors
+			# MongoDB::DatabaseError: Runner error: Overflow sort stage buffered data usage of 33572508 bytes exceeds internal limit of 33554432 bytes
+			# return get_products_collection()->query($query_ref)->sort($sort_ref);
+			return get_products_collection()->query($query_ref);
 		});
 		$count = $cursor->count() + 0;
 	};
@@ -3618,14 +3621,25 @@ sub search_and_export_products($$$$$) {
 
 	if ($count <= 0) {
 		# $request_ref->{content_html} = $html;
-		return $html;
+		$request_ref->{title} = lang("search_results");
+		display_new($request_ref);
+		return;
 	}
 
 
-	my $csv = '';
+	
 
 	if ($count > 0) {
-
+	
+		# Send the CSV file line by line
+		
+		use Apache2::RequestRec ();
+		my $r = Apache2::RequestUtil->request();
+		$r->headers_out->set("Content-type" => "text/csv; charset=UTF-8");
+		$r->headers_out->set("Content-disposition" => "attachment;filename=openfoodfacts_search.csv");
+		binmode(STDOUT, ":encoding(UTF-8)");
+		print "Content-Type: text/csv; charset=UTF-8\r\n\r\n";	
+	
 		my $categories_nutriments_ref = retrieve("$data_root/index/categories_nutriments_per_country.$cc.sto");
 
 		# First pass needed if we flatten results
@@ -3659,7 +3673,8 @@ sub search_and_export_products($$$$$) {
 
 		my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergens => 1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1);
 
-
+		my $csv = "";
+		
 		foreach my $field (@export_fields) {
 
 			# skip additives field and put only additives_tags
@@ -3711,9 +3726,14 @@ sub search_and_export_products($$$$$) {
 
 		$csv =~ s/\t$/\n/;
 
-
+		print $csv;
+		
+		
+		
 		while (my $product_ref = $cursor->next) {
 
+			$csv = "";
+		
 			# Normal fields
 
 			foreach my $field (@export_fields) {
@@ -3756,7 +3776,9 @@ sub search_and_export_products($$$$$) {
 			and  (defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
 
 				$main_cid = $product_ref->{categories_tags}[0];
-
+				if (not defined $main_cid) {
+					$main_cid = "";
+				}
 
 
 				foreach my $cid (@{$product_ref->{categories_tags}}) {
@@ -3840,11 +3862,13 @@ sub search_and_export_products($$$$$) {
 			}
 
 			$csv =~ s/\t$/\n/;
+			
+			print $csv;
 
 		}
 	}
 
-	return $csv;
+	return;
 }
 
 
