@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-01-19 14:43\n"
+"PO-Revision-Date: 2019-02-06 14:35\n"
 "Language-Team: Hungarian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -2921,7 +2921,7 @@ msgstr ""
 
 msgctxt "photos_and_data_check"
 msgid "Photos and data check"
-msgstr ""
+msgstr "Képek és adatok ellenőrzése"
 
 msgctxt "photos_and_data_check_description"
 msgid "Product pages can be marked as checked by experienced contributors who verify that the most recent photos are selected and cropped, and that all the product data that can be inferred from the product photos has been filled and is correct."
@@ -2929,7 +2929,7 @@ msgstr ""
 
 msgctxt "photos_and_data_checked"
 msgid "Photos and data checked"
-msgstr ""
+msgstr "Képek és adatok ellenőrzve"
 
 msgctxt "i_checked_the_photos_and_data"
 msgid "I checked the photos and data."
@@ -2941,11 +2941,11 @@ msgstr ""
 
 msgctxt "last_check_dates_p"
 msgid "Last check dates"
-msgstr ""
+msgstr "Utolsó ellenőrzések dátumai"
 
 msgctxt "last_check_dates_s"
 msgid "Last check date"
-msgstr ""
+msgstr "Utolsó ellenőrzés dátuma"
 
 msgctxt "product_last_checked"
 msgid "Last check of product page on"
@@ -2953,15 +2953,19 @@ msgstr ""
 
 msgctxt "product_other_information"
 msgid "Other information"
-msgstr ""
+msgstr "Egyéb információk"
 
 msgctxt "producer_version_id"
 msgid "Producer version identifier"
 msgstr ""
 
+msgctxt "producer_product_id"
+msgid "Producer product identifier"
+msgstr ""
+
 msgctxt "net_weight"
 msgid "Net weight"
-msgstr ""
+msgstr "Nettó tömeg"
 
 msgctxt "drained_weight"
 msgid "Drained weight"
@@ -2973,10 +2977,34 @@ msgstr ""
 
 msgctxt "other_information"
 msgid "Other information"
-msgstr ""
+msgstr "Egyéb információk"
 
 msgctxt "conservation_conditions"
 msgid "Conservation conditions"
+msgstr ""
+
+msgctxt "warning"
+msgid "Warning"
+msgstr "Figyelmeztetés"
+
+msgctxt "preparation"
+msgid "Preparation"
+msgstr ""
+
+msgctxt "recipe_idea"
+msgid "Recipe idea"
+msgstr ""
+
+msgctxt "origin"
+msgid "Origin"
+msgstr ""
+
+msgctxt "customer_service"
+msgid "Customer service"
+msgstr ""
+
+msgctxt "producer"
+msgid "Producer"
 msgstr ""
 
 msgctxt "recycling_instructions_to_recycle"
@@ -3005,11 +3033,11 @@ msgstr ""
 
 msgctxt "editors_products"
 msgid "Products edited by %s"
-msgstr ""
+msgstr "A termékeket szerkesztette: %s"
 
 msgctxt "editors_without_products"
 msgid "Products not edited by %s"
-msgstr ""
+msgstr "A termékeket nem szerkesztette: %s"
 
 msgctxt "informers_products"
 msgid "Products completed by %s"
@@ -3021,11 +3049,11 @@ msgstr ""
 
 msgctxt "photographers_products"
 msgid "Products photographed by %s"
-msgstr ""
+msgstr "%s által fényképezett termékek"
 
 msgctxt "photographers_without_products"
 msgid "Products not photographed by %s"
-msgstr ""
+msgstr "A termékeket nem fotózta: %s"
 
 msgctxt "user_s_page"
 msgid "%s's page"
@@ -3033,11 +3061,11 @@ msgstr ""
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
-msgstr ""
+msgstr "A termékeket ellenőrizte: %s"
 
 msgctxt "checkers_without_products"
 msgid "Products not checked by %s"
-msgstr ""
+msgstr "A termékeket nem ellenőrizte: %s"
 
 msgctxt "correctors_products"
 msgid "Products corrected by %s"
@@ -3049,11 +3077,11 @@ msgstr ""
 
 msgctxt "editors_products"
 msgid "Products edited by %s"
-msgstr ""
+msgstr "A termékeket szerkesztette: %s"
 
 msgctxt "editors_without_products"
 msgid "Products not edited by %s"
-msgstr ""
+msgstr "A termékeket nem szerkesztette: %s"
 
 msgctxt "informers_products"
 msgid "Products completed by %s"
@@ -3065,11 +3093,11 @@ msgstr ""
 
 msgctxt "photographers_products"
 msgid "Products photographed by %s"
-msgstr ""
+msgstr "%s által fényképezett termékek"
 
 msgctxt "photographers_without_products"
 msgid "Products not photographed by %s"
-msgstr ""
+msgstr "A termékeket nem fotózta: %s"
 
 msgctxt "user_s_page"
 msgid "%s's page"
@@ -3077,11 +3105,11 @@ msgstr ""
 
 msgctxt "obsolete"
 msgid "The product is no longer sold."
-msgstr ""
+msgstr "A termék már nem kapható."
 
 msgctxt "obsolete_since_date"
 msgid "Withdrawal date"
-msgstr ""
+msgstr "Visszavonás dátuma"
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY or YYYY-MM"
@@ -3097,13 +3125,29 @@ msgstr ""
 
 msgctxt "get_the_app_android"
 msgid "Get the Android app"
-msgstr ""
+msgstr "Szerezd meg az Android alkalmazást"
 
 msgctxt "get_the_app_iphone"
 msgid "Get the iPhone app"
-msgstr ""
+msgstr "Szerezd meg az iPhone alkalmazást"
 
 msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
+msgstr "Szerezd meg az iPad alkalmazást"
+
+msgctxt "environment_infocard"
+msgid "Environment infocard"
+msgstr ""
+
+msgctxt "environment_infocard_note"
+msgid "HTML code for the environment infocard in the mobile application"
+msgstr ""
+
+msgctxt "environment_impact_level"
+msgid "Environment impact level"
+msgstr ""
+
+msgctxt "environment_impact_level_example"
+msgid "en:low, en:medium or en:high"
 msgstr ""
 
