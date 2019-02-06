@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-02-03 10:34\n"
+"PO-Revision-Date: 2019-02-06 14:27\n"
 "Language-Team: Finnish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -2942,6 +2942,10 @@ msgctxt "producer_version_id"
 msgid "Producer version identifier"
 msgstr ""
 
+msgctxt "producer_product_id"
+msgid "Producer product identifier"
+msgstr ""
+
 msgctxt "net_weight"
 msgid "Net weight"
 msgstr ""
@@ -2961,6 +2965,30 @@ msgstr ""
 msgctxt "conservation_conditions"
 msgid "Conservation conditions"
 msgstr ""
+
+msgctxt "warning"
+msgid "Warning"
+msgstr "Varoitus"
+
+msgctxt "preparation"
+msgid "Preparation"
+msgstr "Valmistelu"
+
+msgctxt "recipe_idea"
+msgid "Recipe idea"
+msgstr "Resepti-idea"
+
+msgctxt "origin"
+msgid "Origin"
+msgstr "Alkuperä"
+
+msgctxt "customer_service"
+msgid "Customer service"
+msgstr "Asiakaspalvelu"
+
+msgctxt "producer"
+msgid "Producer"
+msgstr "Tuottaja"
 
 msgctxt "recycling_instructions_to_recycle"
 msgid "Recycling instructions - To recycle"
@@ -3088,5 +3116,21 @@ msgstr ""
 
 msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
+msgstr ""
+
+msgctxt "environment_infocard"
+msgid "Environment infocard"
+msgstr ""
+
+msgctxt "environment_infocard_note"
+msgid "HTML code for the environment infocard in the mobile application"
+msgstr ""
+
+msgctxt "environment_impact_level"
+msgid "Environment impact level"
+msgstr ""
+
+msgctxt "environment_impact_level_example"
+msgid "en:low, en:medium or en:high"
 msgstr ""
 
