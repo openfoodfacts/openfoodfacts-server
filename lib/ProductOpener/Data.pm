@@ -32,6 +32,7 @@ BEGIN
 					&execute_query
 					&get_collection
 					&get_products_collection
+					&get_products_tags_collection
 					&get_emb_codes_collection
 					&get_recent_changes_collection
 
@@ -67,6 +68,10 @@ sub execute_query {
 
 sub get_products_collection {
 	return get_collection($mongodb, 'products');
+}
+
+sub get_products_tags_collection {
+	return get_collection($mongodb, 'products_tags');
 }
 
 sub get_emb_codes_collection {
