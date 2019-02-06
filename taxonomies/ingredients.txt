@@ -10117,16 +10117,6 @@ fr:amidons modifiés de maïs et de pomme de terre
 fr:amidons de blé et de pomme de terre
 allergens:fr:amidons de _blé_ et de pomme de terre
 
-# Cooking oil is plant, animal, or synthetic fat used in frying, baking, and other types of cooking
-
-en:oil, cooking oil
-fr:huiles
-nl:olie, oliën
-ru:масло, масла
-
-#  nova:en:fats
-
-en:fat
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -10135,6 +10125,15 @@ en:fat
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
+# Cooking oil is plant, animal, or synthetic fat used in frying, baking, and other types of cooking
+
+en:oil, cooking oil
+fr:huiles
+nl:olie, oliën
+ru:масло, масла
+
+#  nova:en:fats
+en:fat
 
 # Vegetable oils, or vegetable fats, are fats extracted from seeds, or less often, from other parts of fruits.
 # In some languages one distinghuishes between edible and non-edible oils
@@ -11125,6 +11124,10 @@ fr:huile de tournesol vierge
 
 <en:sunflower oil
 fr:huile de tournesol oléique désodorisée
+
+<en:sunflower oil
+fr:oléisol®
+# ingredient/fr:oléisol® has 21 products in french @2019-02-06
 
 # In current edible oil refining, deodorization is also the process in which free (nonesterifed) fatty acids (in the case of physical refining) and volatile contaminants are stripped and unwanted color pigments are degraded (heat bleaching).
 
@@ -44194,7 +44197,6 @@ fr:fumarate ferreux
 
 fr:gâteau
 
-fr:oléisol®
 
 
 
