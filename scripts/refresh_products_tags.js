@@ -11,6 +11,7 @@ print(Date() + ' : Refresh products_tags collection...');
 db.products.aggregate( [
 {"$project" : 
 	{
+	creator:1,
 	countries_tags:1,
 	brands_tags:1, 
 	categories_tags:1, 
@@ -35,7 +36,24 @@ db.products.aggregate( [
 	states_tags:1,
 	entry_dates_tags:1,
 	last_edit_dates_tags:1,
-	codes_tags:1
+	codes_tags:1,
+	nutrient_levels_tags:1,
+	stores_tags:1,
+	informers_tags:1,
+	photographers_tags:1,
+	checkers_tags:1,
+	correctors_tags:1,
+	ingredients_from_palm_oil_tags:1,
+	ingredients_that_may_be_from_palm_oil_tags:1,
+	purchase_places_tags:1,
+	ingredients_n_tags:1,
+	pnns_groups_1_tags:1,
+	pnns_groups_2_tags:1,
+	misc_tags:1,
+	quality_tags:1,
+	unknown_nutrients_tags:1,
+	last_image_dates_tags:1,
+	cities_tags:1
 	}},
 {"$out": "products_tags"}
 ]);

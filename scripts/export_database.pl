@@ -1,22 +1,22 @@
 #!/usr/bin/perl -w
 
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
 # Copyright (C) 2011-2018 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
@@ -67,7 +67,7 @@ my %langs = ();
 my $total = 0;
 
 my $fields_ref = {};
-	
+
 foreach my $field (@export_fields) {
 	$fields_ref->{$field} = 1;
 	if (defined $tags_fields{$field}) {
@@ -80,35 +80,35 @@ $fields_ref->{ingredients} = 1;
 $fields_ref->{images} = 1;
 $fields_ref->{lc} = 1;
 
-	
-my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
-my $date = sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);	
 
-# now that we have 200 languages, we can't run the export for every language. 
+my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
+my $date = sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
+
+# now that we have 200 languages, we can't run the export for every language.
 # foreach my $l (values %lang_lc) {
 foreach my $l ("en", "fr") {
 
 	$lc = $l;
 	$lang = $l;
-	
-	my $categories_nutriments_ref = retrieve("$data_root/index/categories_nutriments.$lc.sto");	
 
-	
+	my $categories_nutriments_ref = retrieve("$data_root/index/categories_nutriments.$lc.sto");
+
+
 	my $cursor = get_products_collection()->query({'code' => { "\$ne" => "" }}, {'empty' => { "\$ne" => 1 }})->fields($fields_ref)->sort({code=>1});
 	my $count = $cursor->count();
-	
+
 	$langs{$l} = $count;
 	$total += $count;
-		
+
 	print STDERR "lc: $lc - $count products\n";
-	
+
 	open (my $OUT, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.csv");
 	open (my $RDF, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.rdf");
 
 	# Headers
-	
+
 	my $csv = '';
-	
+
 	print $RDF <<XML
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 		xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -134,7 +134,7 @@ foreach my $l ("en", "fr") {
 	<dcterms:subject rdf:resource="http://dbpedia.org/resource/Food_energy"/>
 	<dcterms:title>Open Food Facts ($lc)</dcterms:title>
 	<foaf:homepage rdf:resource="http://$lc.$server_domain"/>
-</void:Dataset>	
+</void:Dataset>
 
 <!--
 This is a RDF export of the http://$lc.$server_domain food products database.
@@ -143,86 +143,86 @@ The database is available under Open Database Licence 1.0 (ODbL) https://opendat
 
 XML
 ;
-	
-	
+
+
 		foreach my $field (@export_fields) {
-		
+
 			$csv .= $field . "\t";
 
-		
+
 			if ($field eq 'code') {
-			
+
 				$csv .= "url\t";
-			
+
 			}
-			
+
 			if ($field =~ /_t$/) {
 				$csv .= $` . "_datetime\t";
 			}
-		
+
 			if (defined $tags_fields{$field}) {
 				$csv .= $field . '_tags' . "\t";
 			}
-			
+
 			if (defined $taxonomy_fields{$field}) {
 				$csv .= $field . "_$lc" . "\t";
 			}
-			
+
 			if ($field eq 'emb_codes') {
 				$csv .= "first_packaging_code_geo\t";
 			}
-		
+
 		}
-		
+
 		$csv .= "main_category\tmain_category_$lc\t";
-		
+
 		$csv .= "image_url\timage_small_url\t";
 		$csv .= "image_ingredients_url\timage_ingredients_small_url\t";
 		$csv .= "image_nutrition_url\timage_nutrition_small_url\t";
-		
-		
-		
+
+
+
 		foreach my $nid (@{$nutriments_tables{"europe"}}) {
-		
+
 			$nid =~ /^#/ and next;
-		
+
 			$nid =~ s/!//g;
 			$nid =~ s/^-//g;
 			$nid =~ s/-$//g;
-					
+
 			$csv .= "${nid}_100g" . "\t";
-		}	
-	
+		}
+
 	$csv =~ s/\t$/\n/;
 	print $OUT $csv;
-	
+
 	# Products
-	
+
 	my %ingredients = ();
-		
+
 	while (my $product_ref = $cursor->next) {
-		
+
 		my $csv = '';
 		my $url = "http://world-$lc.$server_domain" . product_url($product_ref);
 		my $code = $product_ref->{code};
-		
+
 		$code eq '' and next;
 		$code < 1 and next;
-		
+
 		foreach my $field (@export_fields) {
-		
+
 			$product_ref->{$field} =~ s/(\r|\n|\t)+/ /g;
-		
+
 			$csv .= $product_ref->{$field} . "\t";
 
-		
+
 			if ($field eq 'code') {
-			
-				
+
+
 				$csv .=  $url . "\t";
-			
+
 			}
-			
+
 			if ($field =~ /_t$/) {
 				if ($product_ref->{$field} > 0) {
 					my $dt = DateTime->from_epoch( epoch => $product_ref->{$field} );
@@ -232,9 +232,9 @@ XML
 					$csv .= "\t";
 				}
 			}
-		
+
 			if (defined $tags_fields{$field}) {
-				if (defined $product_ref->{$field . '_tags'}) {				
+				if (defined $product_ref->{$field . '_tags'}) {
 					$csv .= join(',', @{$product_ref->{$field . '_tags'}}) . "\t";
 				}
 				else {
@@ -242,14 +242,14 @@ XML
 				}
 			}
 			if (defined $taxonomy_fields{$field}) {
-				if (defined $product_ref->{$field . '_tags'}) {				
+				if (defined $product_ref->{$field . '_tags'}) {
 					$csv .= join(',', map {display_taxonomy_tag($lc, $field, $_)}  @{$product_ref->{$field . '_tags'}}) . "\t";
 				}
 				else {
 					$csv .= "\t";
-				}			
+				}
 			}
-			
+
 			if ($field eq 'emb_codes') {
 				# take the first emb code
 				my $geo = '';
@@ -262,26 +262,26 @@ XML
 				}
 				$csv .= $geo . "\t";
 			}
-			
-		
+
+
 		}
-		
-		
+
+
 
 		# Try to get the "main" category: smallest category with at least 10 products with nutrition data
-		
+
 		my @comparisons = ();
 		my %comparisons = ();
-		
+
 		my $main_cid = '';
 		my $main_cid_lc = '';
-		
+
 		if ((defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
-		
+
 			$main_cid = $product_ref->{categories_tags}[0];
-			
-			
-		
+
+
+
 			foreach my $cid (@{$product_ref->{categories_tags}}) {
 				if ((defined $categories_nutriments_ref->{$cid}) and (defined $categories_nutriments_ref->{$cid}{stats})) {
 					push @comparisons, {
@@ -294,69 +294,69 @@ XML
 					};
 				}
 			}
-			
+
 			# print STDERR "main_cid_orig: $main_cid comparisons: $#comparisons\n";
-			
-			
+
+
 			if ($#comparisons > -1) {
 				@comparisons = sort { $a->{count} <=> $b->{count}} @comparisons;
 				$comparisons[0]{show} = 1;
 				$main_cid = $comparisons[0]{id};
 				# print STDERR "main_cid: $main_cid\n";
 			}
-			
-		}		
-		
+
+		}
+
 		if ($main_cid ne '') {
 			$main_cid = canonicalize_tag2("categories",$main_cid);
 			$main_cid_lc = display_taxonomy_tag($lc, 'categories', $main_cid);
 		}
-		
+
 		$csv .= $main_cid . "\t";
 		$csv .= $main_cid_lc . "\t";
-		
-		$product_ref->{main_category} = $main_cid;		
-		
+
+		$product_ref->{main_category} = $main_cid;
+
 		ProductOpener::Display::add_images_urls_to_product($product_ref);
-		
+
 		$csv .= $product_ref->{image_url} . "\t" . $product_ref->{image_small_url} . "\t";
 		$csv .= $product_ref->{image_ingredients_url} . "\t" . $product_ref->{image_ingredients_small_url} . "\t";
 		$csv .= $product_ref->{image_nutrition_url} . "\t" . $product_ref->{image_nutrition_small_url} . "\t";
 
-		
+
 		foreach my $nid (@{$nutriments_tables{"europe"}}) {
-		
+
 			$nid =~/^#/ and next;
-		
+
 			$nid =~ s/!//g;
 			$nid =~ s/^-//g;
 			$nid =~ s/-$//g;
-			
-			if (defined $product_ref->{nutriments}{$nid . "_100g"}) {		
+
+			if (defined $product_ref->{nutriments}{$nid . "_100g"}) {
 			$csv .= $product_ref->{nutriments}{$nid . "_100g"} . "\t";
 			}
 			else {
 				$csv .= "\t";
 			}
 		}
-		
+
 		$csv =~ s/\t$/\n/;
-		
+
 		my $name = xml_escape_NFC($product_ref->{product_name});
 		my $ingredients_text = xml_escape_NFC($product_ref->{ingredients_text});
-		
+
 		my $rdf = <<XML
 <rdf:Description rdf:about="$url" rdf:type="http://data.lirmm.fr/ontologies/food#FoodProduct">
 	<food:code>$code</food:code>
 	<food:name>$name</food:name>
-	<food:IngredientListAsText>${ingredients_text}</food:IngredientListAsText>	
+	<food:IngredientListAsText>${ingredients_text}</food:IngredientListAsText>
 XML
 ;
 
 		if (defined $product_ref->{ingredients}) {
 
 			foreach my $i (@{$product_ref->{ingredients}}) {
-		
+
 				$rdf .= "\t<food:containsIngredient>\n\t\t<food:Ingredient>\n\t\t\t<food:food rdf:resource=\"http://fr.$server_domain/ingredient/" . $i->{id} . "\" />\n";
 				not defined $ingredients{$i->{id}} and $ingredients{$i->{id}} = {};
 				$ingredients{$i->{id}}{ucfirst($i->{text})}++;
@@ -365,40 +365,40 @@ XML
 				}
 				if (defined $i->{percent}) {
 					$rdf .= "\t\t\t<food:percent>" . $i->{percent} . "</food:percent>\n";
-				}			
+				}
 				$rdf .= "\t\t</food:Ingredient>\n";
 				$rdf .= "\t</food:containsIngredient>\n";
-		
-			}	
+
+			}
 		}
-		
+
 		foreach my $nid (keys %Nutriments) {
-		
+
 			if ((defined $product_ref->{nutriments}{$nid . '_100g'}) and ($product_ref->{nutriments}{$nid . '_100g'} ne '')) {
 				my $property = $nid;
 				next if ($nid =~ /^#/); #   #vitamins and #minerals sometimes filled
 				$property =~ s/-([a-z])/ucfirst($1)/eg;
 				$property .= "Per100g";
-				
+
 				$rdf .= "\t<food:$property>" . $product_ref->{nutriments}{$nid . '_100g'} . "</food:$property>\n";
 			}
-		
+
 		}
-		
+
 		$rdf .= "</rdf:Description>\n\n";
-				 
+
 		print $OUT $csv;
 		print $RDF $rdf;
 
 	}
-	
+
 	close $OUT;
-	
+
 	my %links = ();
 	if (-e "$data_root/rdf/${lc}_links")  {
-	
-		# <http://fr.$server_domain/ingredient/xylitol>  <http://www.w3.org/2002/07/owl#sameAs>  <http://fr.dbpedia.org/resource/Xylitol> 
-	
+
+		# <http://fr.$server_domain/ingredient/xylitol>  <http://www.w3.org/2002/07/owl#sameAs>  <http://fr.dbpedia.org/resource/Xylitol>
+
 		open my $IN, q{<}, "$data_root/rdf/${lc}_links";
 		while(<$IN>) {
 			my $l = $_;
@@ -409,36 +409,36 @@ XML
 			}
 		}
 	}
-	
+
 	foreach my $i (sort keys %ingredients) {
-	
+
 		my @names = sort ( { $ingredients{$i}{$b} <=> $ingredients{$i}{$a} } keys %{$ingredients{$i}});
-		my $name = xml_escape_NFC($names[0]);	
-		
+		my $name = xml_escape_NFC($names[0]);
+
 		# sameAs
 		# <owl:sameAs rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#xlogP"/>
-		
+
 		my $sameas = '';
 		if (defined $links{$i}) {
 			$sameas = "\n\t<owl:sameAs rdf:resource=\"$links{$i}\"/>";
 		}
-		
+
 		print $RDF <<XML
 <rdf:Description rdf:about="http://$lc.$server_domain/ingredient/$i" rdf:type="http://data.lirmm.fr/ontologies/food#Food">
 	<food:name>$name</food:name>$sameas
 </rdf:Description>
 
 XML
-;	
+;
 	}
-	
+
 	print $RDF <<XML
 </rdf:RDF>
 XML
 ;
-	
+
 	close $RDF;
-	
+
 }
 
 
@@ -456,4 +456,3 @@ print $OUT $html;
 close $OUT;
 
 exit(0);
-

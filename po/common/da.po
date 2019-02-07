@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2018-11-12 13:23\n"
+"PO-Revision-Date: 2019-02-01 13:01\n"
 "Language-Team: Danish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -14,16 +14,6 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: da\n"
 "X-Crowdin-File: /master/po/common/common.pot\n"
-
-#. put here the language tag ("fr" for French, "ja" for Japanese, etc)
-msgctxt ":langtag"
-msgid ":langtag"
-msgstr "da"
-
-#. put here the language name ("French", "Japanese", etc)
-msgctxt ":langname"
-msgid ":langname"
-msgstr "Danish"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -155,7 +145,7 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 msgctxt "android_app_badge"
 msgid "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" />"
-msgstr "<img src=\"/images/misc/android-app-på-google-play-en_app_rgb_wo_135x47.png \" alt=\"Tilgængelig på Google Play \" width=\"135 \" height=\"47 \" />"
+msgstr "<img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Tilgængelig på Google Play\" width=\"135\" height=\"47\" />"
 
 # Change hl=en to your language, and make sure the url works
 msgctxt "android_app_link"
@@ -318,56 +308,6 @@ msgstr "Koder"
 msgctxt "codes_s"
 msgid "Code"
 msgstr "Kode"
-
-msgctxt "column_obsolete_do_not_translate_for_reference_only"
-msgid "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.png\" width=\"178\" height=\"144\" alt=\"<<site_name>>\" /></a>\n\n"
-"<p><<site_name>> gathers information and data on food products from around the world.</p>\n\n"
-"<select_country>\n\n"
-"<p>\n"
-"→ <a href=\"/brands\">Brands</a><br />\n"
-"→ <a href=\"/categories\">Categories</a><br/>\n"
-"</p>\n\n"
-"<p>Food product information (photos, ingredients, nutrition facts etc.) is collected in a collaborative way\n"
-"and is made available to everyone and for all uses in a free and open database.</p>\n\n\n"
-"<p>Find us also on:</p>\n\n"
-"<p>\n"
-"→ <a href=\"https://en.wiki.openfoodfacts.org\">our wiki</a><br />\n"
-"→ <a href=\"https://twitter.com/openfoodfacts\">Twitter</a><br/>\n"
-"→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a><br />\n"
-"→ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
-"+ <a href=\"https://www.facebook.com/groups/openfoodfacts/\">contributors group</a><br />\n"
-"</p>\n\n"
-"<p>iPhone and iPad app on the App Store:</p>\n\n"
-"<a href=\"https://itunes.apple.com/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
-"<p>Android app on Google Play:</p>\n\n"
-"<a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner\"><img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" /></a><br/>\n"
-"<a href=\"https://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
-"<p>Windows Phone app:</p>\n\n"
-"<a href=\"https://microsoft.com/p/openfoodfacts/9nblggh0dkqr\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
-msgstr "<a href=\"/\"><img id=\"logo\" src=\"/images/misc/openfoodfacts-logo-en.png\" width=\"178\" height=\"144\" alt=\"<<site_name>>\" /></a>\n\n"
-"<p><<site_name>> indsamler information og data på fødevareprodukter fra hele verden.</p>\n\n"
-"<select_country>\n\n"
-"<p>\n"
-"→ <a href=\"/brands\">Brands</a><br />\n"
-"→ <a href=\"/categories\">Categories</a><br/>\n"
-"</p>\n\n"
-"<p>Fødevareproduktinformation (fotos, ingredientser, ernæringsfakta mv.) indsamles på en kollaborativ måde\n"
-"og gøres tilgængelig for alle og til alle formål i en gratis og åben database.</p>\n\n\n"
-"<p>Find os også på:</p>\n\n"
-"<p>\n"
-"→ <a href=\"https://en.wiki.openfoodfacts.org\">our wiki</a><br />\n"
-"→ <a href=\"https://twitter.com/openfoodfacts\">Twitter</a><br/>\n"
-"→ <a href=\"https://plus.google.com/u/0/110748322211084668559/\">Google+</a><br />\n"
-"→ <a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a><br />\n"
-"+ <a href=\"https://www.facebook.com/groups/openfoodfacts/\">contributors group</a><br />\n"
-"</p>\n\n"
-"<p>iPhone- og iPad-app i App Butik:</p>\n\n"
-"<a href=\"https://itunes.apple.com/app/open-food-facts/id588797948\"><img src=\"/images/misc/Available_on_the_App_Store_Badge_EN_135x40.png\" alt=\"Available on the App Store\" width=\"135\" height=\"40\" /></a><br/>\n\n"
-"<p>Android-app i Google Play Butik:</p>\n\n"
-"<a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner\"><img src=\"/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png\" alt=\"Available on Google Play\" width=\"135\" height=\"47\" /></a><br/>\n"
-"<a href=\"https://world.openfoodfacts.org/files/off.apk\">apk</a>\n\n"
-"<p>Windows Phone app:</p>\n\n"
-"<a href=\"https://microsoft.com/p/openfoodfacts/9nblggh0dkqr\"><img src=\"/images/misc/154x40_WP_Store_blk.png\" alt=\"Windows Phone Store\" width=\"154\" height=\"40\" /></a><br/>\n\n\n"
 
 msgctxt "completed_n_missions"
 msgid "completed %d missions:"
@@ -795,7 +735,7 @@ msgstr "Presse"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr ""
+msgstr "/presse"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -1369,7 +1309,7 @@ msgstr "Tilføj produkt"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr "/tilføj-et-produkt"
+msgstr ""
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -1500,7 +1440,7 @@ msgstr "Næringsstoffer per 100 g"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr "/næringsstof-niveauer"
+msgstr ""
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -2374,7 +2314,7 @@ msgstr "60 g, 12 oz, 20 cl, 2 fl oz"
 
 msgctxt "serving_size_note"
 msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
-msgstr ""
+msgstr "Hvis næringsfaktatabellen indeholder værdier for det tilberedte produkt, angiv da den samlede portionsstørrelse af det tilberedte produkt (inkl. tilsat vand eller mælk)."
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2719,8 +2659,8 @@ msgid "This product page is not complete. You can help to complete it by editing
 msgstr "Denne produktside er ikke komplet. Du kan hjælpe med at færdiggøre det ved at redigere den og tilføje flere data fra de fotos, vi har, eller ved at tage flere fotos vha. app'en til <a href=\"https://android.openfoodfacts.org\">Android</a> eller <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Tak skal du have!"
 
 msgctxt "title_separator"
-msgid " — "
-msgstr " — "
+msgid " - "
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -3022,4 +2962,160 @@ msgstr "Seneste kontroldato"
 msgctxt "product_last_checked"
 msgid "Last check of product page on"
 msgstr "Seneste kontrol af produktside d."
+
+msgctxt "product_other_information"
+msgid "Other information"
+msgstr "Anden information"
+
+msgctxt "producer_version_id"
+msgid "Producer version identifier"
+msgstr "Producentversionsidentifikator"
+
+msgctxt "net_weight"
+msgid "Net weight"
+msgstr "Nettovægt"
+
+msgctxt "drained_weight"
+msgid "Drained weight"
+msgstr "Drænet vægt"
+
+msgctxt "volume"
+msgid "Volume"
+msgstr "Mængde"
+
+msgctxt "other_information"
+msgid "Other information"
+msgstr "Anden information"
+
+msgctxt "conservation_conditions"
+msgid "Conservation conditions"
+msgstr "Konserveringsforhold"
+
+msgctxt "recycling_instructions_to_recycle"
+msgid "Recycling instructions - To recycle"
+msgstr "Genbrugsanvisninger - Til genbrug"
+
+msgctxt "recycling_instructions_to_discard"
+msgid "Recycling instructions - To discard"
+msgstr "Genbrugsanvisninger - Til kassation"
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr "Produkter tjekket af %s"
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr "Produkter ikke tjekket af %s"
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr "Produkter korrigeret af %s"
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr "Produkter ikke korrigeret af %s"
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr "Produkter redigeret af %s"
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr "Produkter ikke redigeret af %s"
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr "Produkter færdiggjort af %s"
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr "Produkter ikke færdiggjort af %s"
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr "Produkter fotograferet af %s"
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr "Produkter ikke fotograferet af %s"
+
+msgctxt "user_s_page"
+msgid "%s's page"
+msgstr "%s side"
+
+msgctxt "checkers_products"
+msgid "Products checked by %s"
+msgstr "Produkter tjekket af %s"
+
+msgctxt "checkers_without_products"
+msgid "Products not checked by %s"
+msgstr "Produkter ikke tjekket af %s"
+
+msgctxt "correctors_products"
+msgid "Products corrected by %s"
+msgstr "Produkter korrigeret af %s"
+
+msgctxt "correctors_without_products"
+msgid "Products not corrected by %s"
+msgstr "Produkter ikke korrigeret af %s"
+
+msgctxt "editors_products"
+msgid "Products edited by %s"
+msgstr "Produkter redigeret af %s"
+
+msgctxt "editors_without_products"
+msgid "Products not edited by %s"
+msgstr "Produkter ikke redigeret af %s"
+
+msgctxt "informers_products"
+msgid "Products completed by %s"
+msgstr "Produkter færdiggjort af %s"
+
+msgctxt "informers_without_products"
+msgid "Products not completed by %s"
+msgstr "Produkter ikke færdiggjort af %s"
+
+msgctxt "photographers_products"
+msgid "Products photographed by %s"
+msgstr "Produkter fotograferet af %s"
+
+msgctxt "photographers_without_products"
+msgid "Products not photographed by %s"
+msgstr "Produkter ikke fotograferet af %s"
+
+msgctxt "user_s_page"
+msgid "%s's page"
+msgstr "%s side"
+
+msgctxt "obsolete"
+msgid "The product is no longer sold."
+msgstr "Produktet sælges ikke længere."
+
+msgctxt "obsolete_since_date"
+msgid "Withdrawal date"
+msgstr "Tilbagetrækningsdato"
+
+msgctxt "obsolete_since_date_note"
+msgid "Format: YYYY or YYYY-MM"
+msgstr "Format: ÅÅÅÅ eller ÅÅÅÅ-MM"
+
+msgctxt "obsolete_warning"
+msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
+msgstr "Vigtig notat: Dette produkt sælges ikke længere. Dataene opbevares kun som reference. Dette produkt vises ikke i almindelige søgninger og vægter ikke i statistikker."
+
+msgctxt "get_the_app"
+msgid "Get the app"
+msgstr "Hent appen"
+
+msgctxt "get_the_app_android"
+msgid "Get the Android app"
+msgstr "Hent Android appen"
+
+msgctxt "get_the_app_iphone"
+msgid "Get the iPhone app"
+msgstr "Hent iPhone-appen"
+
+msgctxt "get_the_app_ipad"
+msgid "Get the iPad app"
+msgstr "Hent iPad-appen"
 

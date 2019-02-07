@@ -9582,22 +9582,28 @@ fr:pièces de tête de porc
 fr:morceaux de tête de porc
 
 <en:pork meat
+fr:jambon de porc
+
+<fr:jambon de porc
 fr:jambon de porc issu d'animaux nourris sans ogm
+
+<fr:jambon de porc
+fr:jambon de porc frais
 
 <en:pork meat
 fr:langue de porc
 
-<en:pork meat
+<fr:jambon de porc
 fr:jambon de porc français
+
+<en:pork meat
+fr:noix de jambon de porc
 
 <en:pork meat
 fr:carré de porc
 
 <en:pork meat
 fr:viande porc
-
-<en:pork meat
-fr:noix de jambon de porc
 
 <en:pork meat
 fr:poitrine de porc fumée
@@ -9609,13 +9615,13 @@ fr:filet mignon de porc
 fr:échine de porc
 
 <en:pork meat
-fr:jambon de porc frais
-
-<en:pork meat
 fr:jambon frais de porc
 
 <en:pork meat
 fr:viande de porc traitée en salaison
+
+<fr:viande de porc traitée en salaison
+fr:viande de porc traitée en salaison et précuite
 
 en:ham
 fr:jambon
@@ -9647,6 +9653,18 @@ fr:sang frais de porc
 <en:pork by-product
 fr:protéines de sang de porc
 
+<en:pork by-product
+fr:sang de porc
+
+<en:pork by-product
+fr:gélatine porcine
+
+<en:pork by-product
+fr:gélatine de porc
+
+<en:pork by-product
+fr:plasma de porc
+
 fr:longe de porc
 
 <fr:viande de porc
@@ -9658,26 +9676,27 @@ fr:jarret de porc
 <en:pork meat
 fr:cuisse de porc
 
+<en:pork meat
 fr:gorge de porc
 
 fr:maigre et gras de porc
 
+<en:pork meat
 fr:couenne de porc, couennes de porc
 
 fr:bouillon de porc
 
 fr:os et viande de porc
 
-fr:plasma de porc
-
+<en:pork by-product
 fr:os de porc
 
+<en:pork meat
 fr:couenne de porc
 
 fr:foie de porc
 
-fr:gélatine de porc
-
+<en:pork by-product
 fr:gras de porc
 
 <fr:viande de porc
@@ -9686,12 +9705,7 @@ fr:poitrine de porc
 <fr:viande de porc
 fr:viande et gras de porc
 
-<fr:sous-produit du porc
-fr:sang de porc
-
-<fr:sous-produit du porc
-fr:gélatine porcine
-
+<en:pork by-product
 fr:boyau de porc
 
 <fr:boyau de porc
@@ -9699,6 +9713,7 @@ fr:boyau naturel de porc
 
 fr:bouillon de porc déshydraté
 
+<en:pork by-product
 fr:couenne et gras de porc
 
 <fr:viande de porc
@@ -9722,13 +9737,21 @@ fr:viande de poule
 
 fr:viande de volaille
 
+en:duck meat
 fr:viande de canard
 
-<fr:viande de canard
+<en:duck meat
+fr:canard
+
+<en:duck meat
 fr:cuisses de canard
 
-<fr:viande de canard
+<en:duck meat
 fr:manchons de canard
+
+<en:duck meat
+fr:magret de canard
+carbon_footprint_fr_foodges_ingredient:fr: Magret canard
 
 en:duck liver
 es:hígado de pato
@@ -9736,45 +9759,63 @@ fr:foie de canard
 nl:eendenlever
 de:Entenleber
 
-<en:meat
+fr:foie maigre de canard
+
+fr:foie gras de canard
+
+<fr:foie gras de canard
+fr:foie gras de canard du sud-ouest
+
+fr:morceaux de foie gras de canard
+
+<fr:morceaux de foie gras de canard
+fr:morceaux de foie gras de canard du sud-ouest
+
+fr:graisse de canard
+
+<en:beef meat
 fr:viande bovine
 
 <fr:viande bovine
+en:veal meat
 fr:viande de veau
 carbon_footprint_fr_foodges_ingredient:fr: Viande de veau France
 
-<fr:viande de veau
+<en:veal meat
 fr:veau
 
-<fr:viande bovine
+<en:beef meat
 fr:viande bovine hachée
 
-<fr:viande bovine
+<en:beef meat
 fr:viande bovine origine france
 
-<fr:viande bovine
+<en:beef meat
 fr:viande bovine halal
 
-<fr:viande bovine
-+fr:viande de bœuf, viande de boeuf
+<en:beef meat
+fr:viande de bœuf, viande de boeuf
 carbon_footprint_fr_foodges_ingredient:fr: Viande de bœuf moyen France
 
-<fr:viande de bœuf
+<en:beef meat
 fr:bœuf, boeuf
 
-<fr:viande de bœuf
+<en:beef meat
 fr:viande hachée de bœuf, viande hachée de boeuf
 
 fr:os de veau
 
+fr:gras de veau
+
+fr:fond de veau
 
 en:casing
-de: Hülle
+de:Hülle
 fr:enveloppe
-it: involucro
+it:involucro
 
 # <en:casing
-<fr:viande de boeuf
+<en:beef meat
 en: beef casing
 de: Rinderdarm
 fr:boyau de bœuf, boyau de boeuf
@@ -9782,22 +9823,54 @@ it: budello di manzo
 # ingredient/fr:boyau-de-boeuf has 24 products in 4 languages @2019-01-30
 # enveloppe: boyau de boeuf
 
+fr:cœur de bœuf
+
+fr:bœuf cuit
+
+<en:beef meat
+en:cooked beaf meat
+fr:viande de bœuf cuite
+
+fr:gras de bœuf
+
+fr:graisse de bœuf
+
+fr:jus concentré d'os et de viande de bœuf
+
+fr:bouillon de boeuf
+
+fr:extrait de boeuf
+
+fr:sous-produit du boeuf
+
+<fr:sous-produit du boeuf
+fr:gélatine bovine
+
+<fr:sous-produit du boeuf
+fr:gélatine de bœuf
+
+<fr:sous-produit du boeuf
+fr:gélatine de boeuf
+
+fr:jus de cuisson de viande de boeuf
+
 
 #Poulet
 
+en:chicken meat
 fr:viande de poulet
 
-<fr:viande de poulet
+<en:chicken meat
 fr:produit à base de viande de poulet
 
-<fr:viande de poulet
+<en:chicken meat
 fr:poitrine de poulet
 
-<fr:viande de poulet
+<en:chicken meat
 fr:cuisse de poulet
 carbon_footprint_fr_foodges_ingredient:fr: Cuisse de poulet
 
-<fr:viande de poulet
+<en:chicken meat
 fr:poulet rôti
 carbon_footprint_fr_foodges_ingredient:fr: Poulet roti entier
 
@@ -9805,31 +9878,37 @@ fr:gras de poulet
 
 fr:fond de poulet
 
-<fr:viande de poulet
+<en:chicken meat
 fr:aiguillette de poulet
 
-<fr:viande de poulet
+<en:chicken meat
 fr:filet de poulet halal
 
-<fr:viande de poulet
+<en:chicken meat
 fr:os et viande de poulet
 
-<fr:viande de poulet
+<en:chicken meat
 fr:aiguillettes de poulet
 
-<fr:viande de poulet
+<en:chicken meat
 fr:manchons de poulet
 
-<fr:viande de poulet
+<en:chicken meat
 fr:haut de cuisse de poulet
 
-<fr:viande de poulet
+<en:chicken meat
 fr:poulet traité en salaison
 
 <fr:poulet traité en salaison
 fr:poulet rôti traité en salaison
 
-<fr:viande de poulet
+<fr:poulet traité en salaison
+fr:viande de poulet traitée en salaison
+
+<fr:viande de poulet traitée en salaison
+fr:viande de poulet traitée en salaison et précuite
+
+<en:chicken meat
 fr:blanc de poulet
 carbon_footprint_fr_foodges_ingredient:fr: Blanc de poulet
 
@@ -9837,13 +9916,23 @@ fr:bouillon de poulet
 
 fr:extrait de poulet
 
-<fr:viande de poulet
+<en:chicken meat
 fr:filets de poulet
 
+<en:chicken meat
+fr:viande de filet de poulet
+
+<en:chicken meat
+fr:viande de poitrine de poulet
+
+<en:chicken meat
+fr:viande de poulet séparée mécaniquement
+
 <en:meat
+en:beef meat
 fr:viande de bœuf, viande de boeuf
 
-fr:extrait de viande de bœuf
+fr:extrait de viande de bœuf, extrait de viande de boeuf
 
 # SAUSAGES
 <en:meat
@@ -25061,6 +25150,8 @@ fr:purée d'ail
 nl:knoflookpuree
 # en:garlic-puree has 775 products in 5 languages @2018-10-23
 
+fr:pulpe d'ail
+
 <en:garlic
 en:garlic paste
 fr:pâte d'ail
@@ -35719,11 +35810,12 @@ wikidata:en:Q783575
 
 
 # <en:cod
-fr:œufs de cabillaud fumés et salés, oeufs de cabillaud fumés et salés
+
+fr:œufs de cabillaud, oeufs de cabillaud
 # ingredient/fr:œufs-de-cabillaud has 69 products in french @2018-12-29
 
 <fr:œufs de cabillaud
-fr:œufs de cabillaud fumés et salés
+fr:œufs de cabillaud fumés et salés, oeufs de cabillaud fumés et salés
 # ingredient/fr:œufs-de-cabillaud-fumés-et-salés has 30 products in french @2018-12-29
 
 
@@ -41109,7 +41201,7 @@ nl:extra-verse hele eieren
 # fr:oeufs-entiers-extra-frais has 73 products in french @2018-12-18
 
 <en:whole egg
-fr:Oeufs entiers pasteurisés
+fr:Oeufs entiers pasteurisés, Oeufs entiers pasteurisés
 de:pasteurisiertes Vollei
 
 <en:whole egg
@@ -41562,6 +41654,7 @@ it:Crepe
 
 fr:graisse de canard
 
+
 fr:anhydride sulfureux
 
 fr:propionate de calcium
@@ -41627,8 +41720,6 @@ fr:poulet
 fr:diphosphate et carbonate de calcium, diphosphates et carbonates de sodium
 
 fr:maltitol
-
-fr:foie gras de canard
 
 fr:ferments lactiques et d'affinage
 
@@ -41915,9 +42006,6 @@ es:Fosfato de sodio
 fr:germe de blé, germes de blé
 
 
-
-fr:gélatine bovine
-
 fr:cystéine
 
 fr:sodium
@@ -41985,8 +42073,6 @@ wikidata:en:Q409393
 
 <fr:manganèse
 fr:gluconate de manganèse
-
-fr:gélatine de bœuf, gélatine de boeuf
 
 fr:enrobage
 
@@ -42117,7 +42203,6 @@ de:Gurkenbaumfrucht
 
 fr:gélatine de bœuf, gélatine de boeuf
 
-
 fr:bleu brillant fcf
 
 fr:peau de poulet
@@ -42150,8 +42235,6 @@ fr:diphosphate ferrique
 fr:natamycine, e235
 #wikidata:en:
 
-
-
 fr:métabisulfite de potassium
 
 fr:graisse de bœuf, graisse de boeuf
@@ -42182,8 +42265,6 @@ fr:éthanol
 
 <fr:pain
 fr:pain spécial
-
-fr:foie gras de canard du sud-ouest
 
 fr:saumure
 
@@ -42333,6 +42414,8 @@ fr:chorizo
 
 fr:hydroxyde de potassium
 
+fr:pousses de bambou
+
 fr:extrait de bœuf, extrait de boeuf
 
 fr:fer élémentaire
@@ -42344,8 +42427,6 @@ allergens:fr:_penaeus vannamei_
 
 
 fr:foie de volaille
-
-fr:canard
 
 fr:rooibos
 
@@ -42401,9 +42482,6 @@ fr:extrait de thé vert
 
 fr:extraits de thé
 
-
-fr:foie maigre de canard
-
 fr:dioxyde de soufre
 allergens:fr:_dioxyde de soufre_
 
@@ -42443,7 +42521,6 @@ fr:fibre de pois
 fr:poudre de vanille
 
 fr:gras de bœuf, gras de boeuf
-
 
 fr:condiments
 
@@ -42793,6 +42870,7 @@ fr:lapin
 carbon_footprint_fr_foodges_ingredient:fr: Lapin
 
 <fr:lapin
+en:rabbit meat
 fr:viande de lapin
 
 <en:meat
@@ -42831,10 +42909,7 @@ fr:viande de cuisse de dinde
 <fr:viande de dinde
 fr:viande de dinde traitée en salaison
 
-<en:meat
-fr:viande de poulet traitée en salaison
-
-<en:meat
+<en:chicken meat
 fr:viande de poulet précuite
 
 <en:meat
@@ -42844,29 +42919,19 @@ fr:viande de cuisse de poulet
 fr:viande de chèvre
 
 <en:meat
-en:cooked beaf meat
+<en:beef meat
+en:cooked beef meat
 fr:viande de bœuf cuite, viande de boeuf cuite
 
 <en:meat
+<fr:viande de volaille
 fr:viande de volaille traitée en salaison
-
-<en:meat
-fr:viande de filet de poulet
-
-<en:meat
-fr:viande de poitrine de poulet
-
-<en:meat
-fr:viande de poulet séparée mécaniquement
 
 <en:meat
 fr:viande et gras de mouton
 
 <en:meat
 fr:viande de cerf
-
-
-fr:jambon de porc
 
 # GRAISSE VEGETALE
 
@@ -43291,8 +43356,6 @@ fr:genièvre
 
 fr:zygochlamys patagonica, Saint-Jacques Zygochlamys patagonica
 
-fr:fond de veau
-
 fr:caroténoïdes mélangés
 
 fr:concentré salin liquide
@@ -43624,8 +43687,6 @@ fr:blette
 
 fr:carbonates de magnésium
 
-fr:gras de veau
-
 fr:pyrophosphate de soude
 
 fr:iode
@@ -43641,10 +43702,6 @@ fr:jus de grenade
 fr:diphosphates de sodium
 
 fr:fondant
-
-<en:meat
-fr:magret de canard
-carbon_footprint_fr_foodges_ingredient:fr: Magret canard
 
 fr:ferments lactiques dont lactobacillus casei
 
@@ -43704,8 +43761,6 @@ fr:esters d'acides gras de l'acide ascorbique
 fr:protéines végétales réhydratées
 
 fr:morceaux de chocolat
-
-fr:morceaux de foie gras de canard
 
 fr:mononitrate de thiamine
 
@@ -43962,16 +44017,9 @@ fr:sucrose
 
 fr:phosphates
 
-
-fr:morceaux de foie gras de canard du sud-ouest
-
 fr:fond de pâte précuit
 
 fr:ferment lactiques
-
-
-
-
 
 fr:jus de cuisson de viande de bœuf, jus de cuisson de viande de boeuf
 
@@ -44192,8 +44240,6 @@ allergens:fr:_lait_ demi-écrémé stérilisé u.h.t
 
 fr:cœur de bœuf, coeur de boeuf
 
-
-
 fr:jus concentré d'os et de viande de bœuf, jus concentré d'os et de viande de boeuf
 
 fr:conservateur nitrite de sodium
@@ -44206,7 +44252,9 @@ fr:lactosérum partiellement déminéralisé
 
 fr:lait stérilisé uht demi-écrémé
 
+fr:cœur de bœuf, coeur de boeuf
 
+fr:jus concentré d'os et de viande de bœuf, jus concentré d'os et de viande de boeuf
 
 
 fr:boyau de mouton
@@ -44263,14 +44311,9 @@ allergens:fr:petit _beurre_
 en:niacinamide
 fr:niacinamide
 
-
-
+fr:jus concentré
 
 fr:mélasses
-
-
-
-
 
 en:nougat
 fr:nougat
@@ -44283,8 +44326,6 @@ allergens:fr:pain de mie au _blé_ malté
 
 fr:monodiglycérides de colza
 
-
-
 fr:agents de coagulation
 
 fr:petits pois doux
@@ -44292,12 +44333,8 @@ fr:petits pois doux
 fr:sulfite de sodium
 allergens:fr:_sulfite_ de sodium
 
-
 fr:dérivés de lait
 allergens:fr:dérivés de _lait_
-
-
-
 
 fr:steak haché
 
