@@ -6863,6 +6863,11 @@ $html_fields
 HTML
 ;
 	}
+	
+	if (($User_id eq 'teolemon') or ($User_id eq 'stephane')) {
+	
+		$html .= display_field($product_ref, 'environment_infocard');
+	}
 
 	# photos and data sources
 
@@ -7918,6 +7923,7 @@ HTML
 
 		if  (($nutriment !~ /-$/)
 			or ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
+			or ((defined $product_ref->{nutriments}{$nid . "_100g"}) and ($product_ref->{nutriments}{$nid . "_100g"} ne ''))
 			or ((defined $product_ref->{nutriments}{$nid . "_prepared"}) and ($product_ref->{nutriments}{$nid . "_prepared"} ne ''))
 			or ($nid eq 'new_0') or ($nid eq 'new_1')) {
 			$shown = 1;
@@ -8239,7 +8245,7 @@ HTML
 
 		if (not $shown) {
 		}
-		elsif ($nid eq 'carbon-footprint') {
+		elsif (($nid eq 'carbon-footprint') or ($nid eq 'carbon-footprint-from-meat-or-fish')) {
 
 			$html2 .= <<HTML
 <tr id="ecological_footprint"><td style="padding-top:10px;font-weight:bold;">$Lang{ecological_data_table}{$lang}</td>$empty_cols</tr>

@@ -403,6 +403,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	extract_ingredients_from_text($product_ref);
 	extract_ingredients_classes_from_text($product_ref);
 	detect_allergens_from_text($product_ref);
+	compute_carbon_footprint_from_ingredients($product_ref);
 	
 	# Nutrition data
 	
@@ -592,6 +593,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	compute_nutrient_levels($product_ref);
 	
 	compute_unknown_nutrients($product_ref);
+	
+	compute_carbon_footprint_infocard($product_ref);	
 	
 	ProductOpener::SiteQuality::check_quality($product_ref);
 	
