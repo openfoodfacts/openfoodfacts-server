@@ -4435,7 +4435,7 @@ sub compute_serving_size_data($) {
 			
 			if (defined $product_ref->{product_quantity}) {
 				$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"}
-				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} / 100.0 * $product_ref->{quantity}) + 0.0;
+				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} / 100.0 * $product_ref->{product_quantity}) + 0.0;
 			}
 		}
 	

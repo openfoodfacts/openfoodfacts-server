@@ -508,8 +508,6 @@ sub extract_ingredients_from_text($) {
 		
 		my $ingredient = $before;
 		chomp($ingredient);
-		$ingredient =~ s/\s+$//;
-		$ingredient =~ s/^\s+//;
 		
 		# remove percent
 		
@@ -519,6 +517,28 @@ sub extract_ingredients_from_text($) {
 		
 		$ingredient =~ s/\s*(\d+(\,\.\d+)?)\s*\%\s*$//;
 		
+		my $origin;
+		my $label;
+		
+		# try to remove the origin and store it as property
+		if ($ingredient =~ /\b(origin|origine)\b/i) {
+			$ingredient = $`;
+			$origin = $';
+			$origin =~ s/^\s+//;
+			$origin =~ s/\s+$//;			
+		}
+		
+		if ($ingredient =~ /\b(bio|organic|halal)\b/i) {
+			$label = $1;
+			$label =~ s/^\s+//;
+			$label =~ s/\s+$//;
+			$ingredient =~ s/\b(bio|organic|halal)\b//i;
+			$ingredient =~ s/\s+/ /g;
+		}		
+		
+		$ingredient =~ s/^\s+//;
+		$ingredient =~ s/\s+$//;
+		
 		my %ingredient = (
 			id => canonicalize_taxonomy_tag($product_ref->{lc}, "ingredients", $ingredient),
 			text => $ingredient
@@ -526,8 +546,12 @@ sub extract_ingredients_from_text($) {
 		if (defined $percent) {
 			$ingredient{percent} = $percent;
 		}
-		
-
+		if (defined $origin) {
+			$ingredient{origin} = $origin;
+		}		
+		if (defined $label) {
+			$ingredient{label} = $label;
+		}	
 		
 		if ($ingredient ne '') {
 		
