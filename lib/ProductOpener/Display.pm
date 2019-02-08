@@ -6867,6 +6867,9 @@ HTML
 	if (($User_id eq 'teolemon') or ($User_id eq 'stephane')) {
 	
 		$html .= display_field($product_ref, 'environment_infocard');
+		if (defined $product_ref->{"carbon_footprint_from_meat_or_fish_debug"}) {
+			$html .= "<p>debug: " . $product_ref->{"carbon_footprint_from_meat_or_fish_debug"} . "</p>";
+		}
 	}
 
 	# photos and data sources

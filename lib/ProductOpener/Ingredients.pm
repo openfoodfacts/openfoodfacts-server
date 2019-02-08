@@ -144,6 +144,8 @@ sub compute_carbon_footprint_from_ingredients($) {
 		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"};
 		delete $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"};
 	}
+	
+	delete $product_ref->{"carbon_footprint_from_meat_or_fish_debug"};
 
 	# compute the carbon footprint from meat or fish ingredients, when the percentage is known
 	
@@ -203,6 +205,13 @@ en:salmon
 					if (is_a('ingredients', $ingredient_ref->{id}, $parent)) {
 						$carbon_footprint += $ingredient_ref->{percent} * $carbon{$parent};
 						$log->debug("found a parent with carbon footprint", { parent =>  $parent }) if $log->is_debug();
+						
+						if (not defined $product_ref->{"carbon_footprint_from_meat_or_fish_debug"}) {
+							$product_ref->{"carbon_footprint_from_meat_or_fish_debug"} = "";
+						}
+						$product_ref->{"carbon_footprint_from_meat_or_fish_debug"} .= $ingredient_ref->{id} . " => " . $parent
+						. " " . $ingredient_ref->{percent} . "% = " . $ingredient_ref->{percent} * $carbon{$parent} . " g - ";
+						
 						last;
 					}
 				}
@@ -211,7 +220,9 @@ en:salmon
 		
 		if ($carbon_footprint > 0) {
 			$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} = $carbon_footprint;
-		}		
+			$product_ref->{"carbon_footprint_from_meat_or_fish_debug"} =~ s/ - $//;
+		}
+
 	}
 
 }
