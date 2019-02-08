@@ -147,6 +147,12 @@ else {
 			
 			add_tags_to_field($product_ref, $lc, $field, $additional_fields);
 			
+			if ($field eq 'emb_codes') {
+				# French emb codes
+				$product_ref->{emb_codes_orig} = $product_ref->{emb_codes};
+				$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});						
+			}			
+			
 			print STDERR "product_jqm_multilingual.pl - lc: $lc - adding value to field $field - additional: $additional_fields - existing: $product_ref->{$field}\n";			
 				
 			compute_field_tags($product_ref, $lc, $field);			
