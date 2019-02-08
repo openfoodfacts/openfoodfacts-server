@@ -23,6 +23,7 @@ stopwords:zh:配料
 
 # en
 # Contains genetically modified organisms
+# dairy derivatives
 # organically grown products
 # prefried in vegetable oil
 
@@ -36,6 +37,7 @@ stopwords:zh:配料
 # Unter Schutzatmosphäre verpackt.
 
 # es
+# derivados lácteos
 # Puede contener trazas de apio. Porcentajes expresados sobre el total de la receta.
 
 # fi
@@ -44,6 +46,7 @@ stopwords:zh:配料
 # fr
 # Contient une source de phénylalamine.
 # Contient des organismes génétiquement modifiés
+# dérivés de lait
 # d'élevage au sol
 # Fabriqué dans un atelier qui utilise : céleri, moutarde et oeuf.
 # *produits issus de l'agriculture biologique.
@@ -60,6 +63,7 @@ stopwords:zh:配料
 # it
 # Contenuto complessivo di sale da cucina: 1,4%.
 # Contiene latte. Puo contenere trace di uova, glutine, sedano, senape.
+# derivatti del latte
 # Può contenere nocciole, mandorle, uova e tracce d'altra frutta con guscio (noci). 
 # Cacao: 34 % minimo nel cioccolato.
 
@@ -44395,8 +44399,6 @@ fr:petits pois doux
 fr:sulfite de sodium
 allergens:fr:_sulfite_ de sodium
 
-fr:dérivés de lait
-allergens:fr:dérivés de _lait_
 
 
 
