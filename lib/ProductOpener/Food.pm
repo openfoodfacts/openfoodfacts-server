@@ -4492,6 +4492,14 @@ sub compute_carbon_footprint_infocard($) {
 			$product_ref->{"environment_infocard_" . $lang} = $html;
 		}
 		
+		# copy the main language
+		if (defined $product_ref->{"environment_infocard_" . $product_ref->{lc}}) {
+			$product_ref->{environment_infocard} = $product_ref->{"environment_infocard_" . $product_ref->{lc}};
+		}
+		else {
+			$product_ref->{environment_infocard} = $product_ref->{environment_infocard_en};
+		}
+		
 		defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
 		push @{$product_ref->{misc_tags}}, "en:environment-infocard"
 	}
