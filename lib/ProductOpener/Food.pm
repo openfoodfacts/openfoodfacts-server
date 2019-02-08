@@ -4484,6 +4484,8 @@ sub compute_carbon_footprint_infocard($) {
 	
 			$html .= "</ul>";
 			
+			$html .= "<br><br>";
+			
 			$html .= "<h3>" . $Lang{methodology}{$lang} . "</h3>"
 			. "<p>" . $Lang{carbon_footprint_note_foodges_ademe}{$lang} . "</p>"
 			. "<p>" . $Lang{carbon_footprint_note_sustainable_annual_emissions}{$lang} . "</p>"
