@@ -5532,24 +5532,20 @@ en:sweetened condensed milk
 fr:lait concentré sucré
 de:gezuckerte Kondensmilch
 nl:gecondenseerde gesuikerde melk, gecondenseerde volle melk met suiker
-allergens:fr:_lait_ concentré sucré
 
 <en:condensed milk
 en:concentrated skim milk, concentrated skimmed milk
 fr:lait écrémé concentré
 de:kondensierte Magermilch, konzentrierte Magermilch, Kondensmagermilch
 it:latte scremato concentrato, latte magro concentrato
-allergens:fr:_lait_ écrémé concentré
 
 fr:lactose et protéine de lait
-allergens:fr:_lactose_ et protéine de _lait_
 
 # nova:en:milk-powder
 en:milk powder, powdered milk
 fr:lait en poudre, poudre de lait
 nl:melkpoeder
 es:Leche en polvo
-allergens:fr:_lait_ en poudre
 nova:en:4
 
 <en:milk powder
@@ -5560,7 +5556,6 @@ de:Magermilchpulver
 nl:magere melkpoeder
 es:leche desnatada en polvo
 it:latte scremato in polvere
-allergens:fr:_lait_ en poudre écrémé
 
 <en:milk powder
 en:whole milk powder, dried whole milk, powdered whole milk, whole powdered milk
@@ -5680,14 +5675,12 @@ uz:Laktoza
 vi:Lactose
 zh:乳糖
 # yue:乳醣
-allergens:fr:_lactose_
 wikipedia:en:https://en.wikipedia.org/wiki/Lactose
 
 <en:Lactose
 en:Lactose powder, powdered lactose
 fr:poudre de lactose
 nl:Lactosepoeder
-allergens:fr:poudre de _lactose_
 
 
 # Unsorted milk stuff
@@ -5841,6 +5834,14 @@ en:Concentrated whey
 fr:lactosérum concentré
 nl:Geconcentreerde wei
 allergens:fr:_lactosérum_ concentré
+
+<en:whey
+en:whey product
+de:Molkenerzeugnis
+fr:produit de lactosérum, produit de petit-lait
+it:derivati del siero di latte
+# ingredient/fr:produit-de-lactosérum has 22 products in 4 languages @2019-02-07
+
 
 # CREAM is a dairy product composed of the higher-butterfat layer skimmed from the top of milk before homogenization.
 
@@ -44403,8 +44404,6 @@ fr:tahini
 
 fr:pâtes fraîches cuites
 
-fr:produit de lactosérum
-allergens:fr:produit de _lactosérum_
 
 
 
