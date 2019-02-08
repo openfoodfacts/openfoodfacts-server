@@ -90,7 +90,7 @@ $fields_ref->{ingredients} = 1;
 $fields_ref->{images} = 1;
 $fields_ref->{lc} = 1;
 
-# Current date, used for RDF dcterms:modified
+# Current date, used for RDF dcterms:modified: 2019-02-07
 my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
 my $date = sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
 
@@ -117,6 +117,7 @@ foreach my $l ("en", "fr") {
 
 	open (my $OUT, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.csv");
 	open (my $RDF, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.rdf");
+	open (my $BAD, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.bad-chars.log");
 
 
 	# Headers
@@ -235,13 +236,20 @@ XML
 
 			my $field_value = ($product_ref->{$field} // "");
 
-			# Replace tab (\t), carriage return (\n) or line feed (\n) by a space char
-			# TODO? also replace old non visible ASCII chars such as NULL (000), SOH (001),
-			#       STX (002), ETX (003), ETX (004), BEL (007), etc., which break the CSV file.
-			#       [\x{000D}\x{001D}] or [\000-\007\013-\037]
-			#       See https://en.wikipedia.org/wiki/ASCII
-			#       $field_value =~ s/[\000-\007\013-\037]+//g;
-			$field_value =~ s/(\r|\n|\t)+/ /g;
+			# Replace non visible ASCII chars such as NULL (000), SOH (001),
+			# STX (002), ETX (003), ETX (004), BEL (007),
+			# BS (010 or \b), HT (011 or \t), LF (012 or \n), VT (013),
+			# FF (014 or \f), CR (015 or \r), etc., which break the CSV file.
+			# [\000-\037]
+			# See https://en.wikipedia.org/wiki/ASCII
+			# TODO? make a function (in ProductOpener::Data?) and use it to
+			#       control all data input and data output
+			# TODO? Send an email if bad-chars?
+			if ($field_value =~ /[\000-\037]/) {
+				print $BAD "$code -> field $field -> $field_value\n\n";
+				# TODO? replace de bad char by a space or by nothing?
+				$field_value =~ s/[\000-\037]+/ /g;
+			};
 
 			# Add field value to CSV file
 			$csv .= $field_value . "\t";
@@ -433,6 +441,7 @@ XML
 	}
 
 	close $OUT;
+	close $BAD;
 
 	my %links = ();
 	if (-e "$data_root/rdf/${lc}_links")  {
