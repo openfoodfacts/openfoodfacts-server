@@ -4524,9 +4524,6 @@ sub compute_carbon_footprint_infocard($) {
 		else {
 			$product_ref->{environment_infocard} = $product_ref->{environment_infocard_en};
 		}
-		
-		defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
-		push @{$product_ref->{misc_tags}}, "en:environment-infocard"
 	}
 }
 

@@ -187,8 +187,9 @@ en:salmon
 "en:trout" => 6.5,	
 );
 	
+	# Limit to France, as the carbon values from ADEME are intended for France
 	
-	if (defined $product_ref->{ingredients}) {
+	if ((has_tag($product_ref, "countries", "en:france")) and (defined $product_ref->{ingredients})) {
 	
 		my $carbon_footprint = 0;
 		
@@ -221,6 +222,11 @@ en:salmon
 		if ($carbon_footprint > 0) {
 			$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} = $carbon_footprint;
 			$product_ref->{"carbon_footprint_from_meat_or_fish_debug"} =~ s/ - $//;
+			defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
+			add_tag($product_ref, "misc", "en:environment-infocard");
+		}
+		else {
+			remove_tag($product_ref, "misc", "en:environment-infocard");
 		}
 
 	}

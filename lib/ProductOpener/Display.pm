@@ -6864,8 +6864,8 @@ HTML
 ;
 	}
 	
-	if (($User_id eq 'teolemon') or ($User_id eq 'stephane')) {
-	
+	if ($admin) {
+		compute_carbon_footprint_infocard($product_ref);	
 		$html .= display_field($product_ref, 'environment_infocard');
 		if (defined $product_ref->{"carbon_footprint_from_meat_or_fish_debug"}) {
 			$html .= "<p>debug: " . $product_ref->{"carbon_footprint_from_meat_or_fish_debug"} . "</p>";
@@ -8358,6 +8358,9 @@ HTML
 		if (defined $request_ref->{fields}) {
 			my $compact_product_ref = {};
 			foreach my $field (split(/,/, $request_ref->{fields})) {
+				if ($field =~ /^environment_infocard/) {
+					compute_carbon_footprint_infocard($product_ref);
+				}			
 				if (defined $product_ref->{$field}) {
 					$compact_product_ref->{$field} = $product_ref->{$field};
 				}

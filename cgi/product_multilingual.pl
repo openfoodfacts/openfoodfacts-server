@@ -236,11 +236,8 @@ HTML
 	
 my @fields = @ProductOpener::Config::product_fields;
 
-if (($User_id eq 'teolemon') or ($User_id eq 'stephane')) {
+if ($admin) {
 	push @fields, "environment_impact_level";
-	if ($action eq 'process') {
-		push @fields, "environment_infocard";
-	}
 }
 
 if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
@@ -328,12 +325,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	foreach my $field (@param_fields) {
 	
 		if (defined param($field)) {
-			if ($field =~ /infocard/) {
-				$product_ref->{$field} = decode utf8=>param($field);
-			}
-			else {
-				$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));			
-			}
+			$product_ref->{$field} = remove_tags_and_quote(decode utf8=>param($field));
 			if ($field eq 'emb_codes') {
 				# French emb codes
 				$product_ref->{emb_codes_orig} = $product_ref->{emb_codes};
@@ -593,9 +585,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	compute_nutrient_levels($product_ref);
 	
 	compute_unknown_nutrients($product_ref);
-	
-	compute_carbon_footprint_infocard($product_ref);	
-	
+		
 	ProductOpener::SiteQuality::check_quality($product_ref);
 	
 	$log->trace("end compute_serving_size_date - end") if $log->is_trace();
@@ -672,7 +662,7 @@ HTML
 HTML
 ;
 
-	if ($field =~ /infocard/) {
+	if ($field =~ /infocard/) {	# currently not used
 		$html .= <<HTML
 <textarea name="$field" id="$field" lang="${display_lc}">$value</textarea>
 HTML
@@ -1458,11 +1448,6 @@ HTML
 	$html .= "<div class=\"fieldset\"><legend>$Lang{ingredients}{$lang}</legend>\n";
 
 	my @ingredients_fields = ("ingredients_image", "ingredients_text");
-	
-	if (($User_id eq 'teolemon') or ($User_id eq 'stephane')) {
-		push @ingredients_fields, "environment_infocard";
-		# push @ingredients_fields, "environment_impact_level";
-	}
 	
 	$html .= display_tabs($product_ref, $select_add_language, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, \@ingredients_fields);
 
