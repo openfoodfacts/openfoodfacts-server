@@ -130,7 +130,9 @@ binmode STDERR, ":encoding(UTF-8)";
 
 
 
-%tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes => 1, allergens => 1, traces => 1, purchase_places => 1, stores => 1, countries => 1, states=>1, codes=>1, debug => 1);
+%tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes => 1,
+ allergens => 1, traces => 1, purchase_places => 1, stores => 1, countries => 1, states=>1, codes=>1, debug => 1,
+ environment_impact_level=>1);
 %hierarchy_fields = ();
 
 %taxonomy_fields = (); # populated by retrieve_tags_taxonomy
@@ -149,6 +151,16 @@ conservation_conditions => 1,
 other_information => 1,
 recycling_instructions_to_recycle => 1,
 recycling_instructions_to_discard => 1,
+producer => 1,
+origins => 1,
+preparation => 1,
+warning => 1,
+recipe_idea => 1,
+customer_service => 1,
+product_infocard => 1,
+ingredients_infocard => 1,
+nutrition_infocard => 1,
+environment_infocard => 1,
 );
 
 
@@ -2209,20 +2221,12 @@ sub canonicalize_tag2($$)
 	
 		$tag = uc($tag);
 		
-		if (1) {
-			$tag = normalize_packager_codes($tag);
-			if ($lc =~ /fr|es|it|pt/) {
-				$tag =~ s/EC$/CE/;
-			}
-			elsif ($lc =~ /de|nl/) {
-				$tag =~ s/EC$/EG/;
-			}
+		$tag = normalize_packager_codes($tag);
+		if ($lc =~ /fr|es|it|pt/) {
+			$tag =~ s/EC$/CE/;
 		}
-		else {
-			# old, FR only
-		$tag =~ s/([A-Z])-/$1 /g;
-		$tag =~ s/-([A-Z])/ $1/g;
-		$tag =~ s/(\d)-(\d)/$1.$2/g;
+		elsif ($lc =~ /de|nl/) {
+			$tag =~ s/EC$/EG/;
 		}
 	}
 	
@@ -3159,6 +3163,10 @@ sub compute_field_tags($$$) {
 	else {
 		delete $product_ref->{$field . "_next_hierarchy" };
 		delete $product_ref->{$field . "_next_tags" };
+	}
+	
+	if (not defined $product_ref->{$field . "_debug_tags"}[0]) {
+		delete $product_ref->{$field . "_debug_tags"};
 	}
 	
 }

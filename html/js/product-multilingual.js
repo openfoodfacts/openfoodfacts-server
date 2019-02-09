@@ -396,8 +396,8 @@ function update_display(imagefield, first_display) {
 	var html = Lang.current_image + '<br/><img src="' + img_path + display_url + '" />';
 	html += '<div class="button_div" id="unselectbuttondiv_' + imagefield + '"><button id="unselectbutton_' + imagefield + '" class="small button" type="button">' + Lang.unselect_image + '</button></div>';
 	if (stringStartsWith(imagefield, 'ingredients')) {
-		html += '<div id="ocrbutton_loading_' + imagefield + '"></div><div class="button_div" id="ocrbuttondiv_' + imagefield + '"><button id="ocrbutton_' + imagefield + '" class="small button" type="button">' + Lang.extract_ingredients + '</button>'
-		+ ' <button id="ocrbuttongooglecloudvision_' + imagefield + '" class="small button" type="button">' + 'Cloud Vision' + '</button></div>';
+		html += '<div id="ocrbutton_loading_' + imagefield + '"></div><div class="button_div" id="ocrbuttondiv_' + imagefield + '"><!--<button id="ocrbutton_' + imagefield + '" class="small button" type="button">' + Lang.extract_ingredients + '</button>-->'
+		+ ' <button id="ocrbuttongooglecloudvision_' + imagefield + '" class="small button" type="button">' + Lang.extract_ingredients + '</button></div>';
 	}
 	
 	if (stringStartsWith(imagefield, 'nutrition')) {
