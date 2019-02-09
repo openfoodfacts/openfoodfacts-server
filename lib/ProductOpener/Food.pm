@@ -391,6 +391,7 @@ sub mmoll_to_unit {
 		'taurine-',
 		'ph-',
 		'fruits-vegetables-nuts-',
+		'fruits-vegetables-nuts-dried',
 		'fruits-vegetables-nuts-estimate-',
 		'collagen-meat-protein-ratio-',
 		'cocoa-',
@@ -502,6 +503,7 @@ sub mmoll_to_unit {
 		'taurine-',
 		'ph-',
 		'fruits-vegetables-nuts-',
+		'fruits-vegetables-nuts-dried',
 		'fruits-vegetables-nuts-estimate-',
 		'collagen-meat-protein-ratio-',
 		'cocoa-',
@@ -612,6 +614,7 @@ sub mmoll_to_unit {
 		'taurine-',
 		'ph-',
 		'fruits-vegetables-nuts-',
+		'fruits-vegetables-nuts-dried',
 		'fruits-vegetables-nuts-estimate-',
 		'collagen-meat-protein-ratio-',
 		'cocoa-',
@@ -724,6 +727,7 @@ sub mmoll_to_unit {
 		'taurine-',
 		'ph-',
 		'fruits-vegetables-nuts-',
+		'fruits-vegetables-nuts-dried',
 		'fruits-vegetables-nuts-estimate-',
 		'collagen-meat-protein-ratio-',
 		'cocoa-',
@@ -831,6 +835,7 @@ sub mmoll_to_unit {
 		'taurine-',
 		'ph-',
 		'fruits-vegetables-nuts-',
+		'fruits-vegetables-nuts-dried',
 		'fruits-vegetables-nuts-estimate-',
 		'collagen-meat-protein-ratio-',
 		'cocoa-',
@@ -3133,15 +3138,21 @@ ph => {
 	unit => "mmol/l",
 },
 "fruits-vegetables-nuts" => {
-	en => "Fruits, vegetables and nuts (minimum)",
-	fr => "Fruits, légumes et noix (minimum)",
-	es => "Frutas, verduras y nueces (mínimo)",
-	el => "Φρούτα, λαχανικά, καρποί (ελάχιστο)",
-	nl => "Fruit, groenten en noten (minimum)",
-	nl_be => "Fruit, groenten en noten (minimum)",
-	de => "Obst, Gemüse und Nüsse (Minimum)",
+	en => "Fruits, vegetables and nuts",
+	fr => "Fruits, légumes et noix",
+	es => "Frutas, verduras y nueces",
+	el => "Φρούτα, λαχανικά, καρποί",
+	nl => "Fruit, groenten en noten",
+	nl_be => "Fruit, groenten en noten",
+	de => "Obst, Gemüse und Nüsse",
 	unit => "%",
 },
+"fruits-vegetables-nuts-dried" => {
+	en => "Fruits, vegetables and nuts - dried",
+	fr => "Fruits, légumes et noix - séchés",
+	unit => "%",
+},
+
 "fruits-vegetables-nuts-estimate" => {
 	en => "Fruits, vegetables and nuts (estimate from ingredients list)",
 	fr => "Fruits, légumes et noix (estimation avec la liste des ingrédients)",
@@ -4013,7 +4024,19 @@ sub compute_nutrition_score($) {
 	# points for fruits, vegetables and nuts
 		
 	my $fruits = undef;
-	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
+	
+	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"}) {
+		$fruits = 2 * $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"};
+		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-dried";
+		
+		if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
+			$fruits += $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
+			push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
+		}
+		
+		$fruits = $fruits * 100 / (100 + $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"});
+	}	
+	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
 		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
 		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
 	}
