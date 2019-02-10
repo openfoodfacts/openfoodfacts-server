@@ -41894,7 +41894,15 @@ fr:crepe, crêpe, crêpes, crepes
 it:Crepe
 # ingredient/fr:crepe has 142 products in 4 languages @2019-02-05
 
-# <en:wheat-as-main-ingredient
+# mainIngredient:en:wheat
+en:wheat cakes
+de:Weizenfladen
+fr:galette de blé
+it:torte di grano
+# ingredient/fr:galette-de-blé has 60 products in 4 languages @2019-02-09
+# Weizenfladen [ Weizenmehl, Wasser, Kokosnussöl, Kochsalz ]
+
+# mainIngredient:en:wheat
 fr:petit beurre
 # ingredient/fr:petit-beurre has 20 products in french @2018-02-08
 
@@ -41958,7 +41966,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Muesli
 
 # Nougat is a family of confections made with sugar or honey, roasted nuts (almonds, walnuts, pistachios, hazelnuts, and macadamia nuts are common), whipped egg whites, and sometimes chopped candied fruit. 
 
-<en:sugar-as-main-ingredient
+# mainIngredient:en:sugar
 en:nougat
 af:Nougat
 ar:نوغة
@@ -44669,8 +44677,6 @@ fr:seitan
 
 fr:acétate de potassium
 
-fr:galette de blé
-allergens:fr:galette de _blé_
 
 
 
