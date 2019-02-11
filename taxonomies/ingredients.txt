@@ -925,20 +925,20 @@ wikidata:en:Q911854
 
 # nova
 en:preservative
-ga: Leasaitheach
-de: Konservierungsstoff
+cs: Konzervant
 da:Konserveringsmiddel
+de: Konservierungsstoff
 el: Συντηρητικό
 es: Conservante, Conservador
 fi: Säilöntäaine
 fr: Conservateur
+ga: Leasaitheach
 it: Conservanti
+lv: Konservants
 nb:Konserveringsmiddel
 nl: Conserveermiddel, Conserveermiddelen
 pt: Conservante
 sv:Konserveringsmedel
-lv: Konservants
-cs: Konzervant
 et: Säilitusaine
 hu: Tartósítószer
 pl: Substancja konserwująca
@@ -950,6 +950,12 @@ ro: Conservant
 bg: Консервант
 wikidata:en:Q274579
 
+<en:preservative
+en:fruit preservative
+fr:conservateur de fruit
+# ingredient/fr:conservateur-de-fruit has 43 products in french@2019-02-10
+
+# <en:function
 en: Propellent gas
 ga: Gás tiomána
 da: Konserveringsmiddel
@@ -44810,7 +44816,6 @@ fr:marc de champagne
 
 fr:sol
 
-fr:conservateur de fruit
 
 
 
