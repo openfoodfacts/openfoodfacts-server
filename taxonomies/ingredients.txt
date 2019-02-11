@@ -2365,6 +2365,124 @@ en:e407 stabilizer
 fr:stabilisant e407
 
 
+# GELATIN or GELATINE is a translucent, colorless, brittle (when dry), flavorless food ingredient that is derived from collagen obtained from various animal body parts. 
+
+# The E-numbers for gelatin are removed by the EU. It should now be noted as an ingredient.
+
+en:gelatin, gelatine, E428, E-428, E 428
+ar:جيلاتين
+# ast:Xelatina
+az:Jelatin
+be:Жэлацін
+bg:Желатин
+bn:জেলাটিন
+br:gelatin
+bs:Želatin
+ca:gelatina
+cs:želatina
+cv:Желатин
+cy:Gelatin
+de:Gelatine, Speisegelatine
+el:ζελατίνη
+eo:gelateno
+es:gelatina
+et:želatiin
+eu:Gelatina
+fa:ژلاتین
+fi:liivate, Gelatiini
+fr:gélatine
+fy:sjelatine
+ga:Geilitín
+gl:Xelatina
+he:ג'לטין
+hi:जिलेटिन
+hr:Želatina
+hu:Zselatin
+id:Gelatin
+io:Gelatino
+it:gelatina
+ja:ゼラチン
+jv:Gelatin
+ka:ჟელატინი
+kk:Желатин
+# kk-arab:جەلاتىين
+# kk-cn:جەلاتىين
+# kk-cyrl:Желатин
+# kk-kz:Желатин
+# kk-latn:Jelatïn
+# kk-tr:Jelatïn
+ko:젤라틴
+ky:Желатина
+la:Gelatinum
+li:sjilletien
+lt:Želatina
+mk:Желатин
+ms:Gelatin
+my:ဂျယ်လတင်း
+nb:gelatin
+ne:geltain
+nl:gelatine
+nn:gelatin
+oc:Gelatina
+pa:ਸਰੇਸ਼
+pl:Żelatyna
+ps:ژلاتین
+pt:gelatina
+ro:Gelatină
+ru:желатин
+# sco:gelatin
+sk:Želatína
+sl:Želatina
+sq:xhelatinë
+sr:Желатин
+sv:gelatin
+th:เจลาติน
+tr:Jelatin
+uk:Желатин
+vi:Gelatin
+# yue:魚膠
+zh:明膠
+# zh-cn:明胶
+# zh-hans:明胶
+# zh-hant:明膠
+# zh-hk:明膠
+# zh-sg:明胶
+# zh-tw:明膠
+wikipedia:https://en.wikipedia.org/wiki/Gelatin
+# ingredient/fr:gélatine has 1575 products in 12 languages @2019-02-10
+
+<en:gelatin
+en:beef gelatin
+de:Rindergelatine
+fr:gélatine de bœuf, gélatine de boeuf, gélatine bovine
+it:gelatina di manzo
+# ingredient/fr:gélatine-de-bœuf has 216 products in 4 languages @2019-02-10
+
+<en:gelatin
+en:fish gelatine
+de:Fisch-Gelatine
+fr:gélatine de poisson
+it:gelatina di pesce
+# ingredient/fr:gélatine-de-poisson has 71 products in 4 languages @2019-02-10
+
+<en:gelatin
+fr:gélatine non porcine
+# ingredient/fr:gélatine-non-porcine has 1 product in french @2019-02-10
+
+<en:gelatin
+fr:gélatine de volaille
+# ingredient/fr:gélatine-de-volaille has 17 products in french @2019-02-10
+
+<en:gelatin
+en:pork gelatin
+de:Schweinegelatine
+es:gelatina de cerdo
+fr:gélatine de porc, gélatine porcine
+it:gelatina di maiale
+nl:varkensgelatine
+pl:zelatyna wieprzowa
+# ingredient/fr:gélatine-de-porc has 891 products in 8 languages @2019-02-10
+
 
 # PECTIN is a structural heteropolysaccharide contained in the primary cell walls of terrestrial plants.
 
@@ -9833,11 +9951,6 @@ fr:protéines de sang de porc
 <en:pork by-product
 fr:sang de porc
 
-<en:pork by-product
-fr:gélatine porcine
-
-<en:pork by-product
-fr:gélatine de porc
 
 <en:pork by-product
 fr:plasma de porc
@@ -10020,14 +10133,6 @@ fr:extrait de boeuf
 
 fr:sous-produit du boeuf
 
-<fr:sous-produit du boeuf
-fr:gélatine bovine
-
-<fr:sous-produit du boeuf
-fr:gélatine de bœuf
-
-<fr:sous-produit du boeuf
-fr:gélatine de boeuf
 
 fr:jus de cuisson de viande de boeuf
 
@@ -40756,7 +40861,6 @@ fr:humectant
 # Should not be in the ingredients
 # fr:energie
 
-fr:gélatine
 
 en:sodium citrate
 fr:citrate de sodium, citrates de sodium
@@ -42756,7 +42860,6 @@ fr:bilimbi
 nl:blimbing
 de:Gurkenbaumfrucht
 
-fr:gélatine de bœuf, gélatine de boeuf
 
 fr:bleu brillant fcf
 
@@ -43914,11 +44017,6 @@ fr:condiment balsamique blanc
 
 fr:oxyde de zinc
 
-fr:gélatine de poisson
-allergens:fr:gélatine de _poisson_
-
-
-
 fr:marc de bourgogne
 
 fr:peau de volaille
@@ -44485,7 +44583,6 @@ fr:batavia
 
 fr:pois chiches cuits
 
-fr:gélatine non porcine
 
 fr:bouillon déshydraté
 
@@ -44803,7 +44900,6 @@ fr:chlorure d'ammonium
 
 fr:feuilles de vigne
 
-fr:gélatine de volaille
 
 
 
