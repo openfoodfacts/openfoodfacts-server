@@ -2653,7 +2653,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mono-_and_diglycerides_of_fatty_acids
 # fr:diglycérides-d’acide-gras has 2301 products in 11 languages @2018-11-12
 
 <en:en:mono- and diglycerides of fatty acids
-en:emulsifier, mono- and diglycerides of fatty acids
+en:emulsifier mono- and diglycerides of fatty acids
 fr:émulsifiant e471
 
 <en:mono- and diglycerides of fatty acids
@@ -5898,7 +5898,7 @@ allergens:fr:_lait_ entier reconstitué
 # LACTOSE is a disaccharide. It is a sugar composed of galactose and glucose.
 
 # nova:en:lactose
-<en:Disaccharide
+# <en:Disaccharide
 en:Lactose
 ar:لاكتوز
 # ast:Lactosa
@@ -7086,14 +7086,14 @@ es:emmenthal fundido
 fr:emmental fondu
 # fr:emmental-fondu has 92 products in 3 languages @2018-10-27
 
-<fr:fromage
-en:grated cheese emmental
+<en:cheese
+en:grated emmental cheese
 es:queso emmental rallado
 fr:emmental râpé
 nl:geraspte emmentaler
 # fr:emmental-râpé has 340 products in 4 languages @2018-10-27
 
-<en:emmental râpé
+<fr:emmental râpé
 <fr:emmental français
 fr:emmental français râpé
 # fr:emmental-français-râpé has 43 products in 1 language @2018-10-27
@@ -8296,6 +8296,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Retinyl_palmitate
 # For example, "provitamin A" is a name for β-carotene,
 # Whether beta-carotene is used as colour or vitamin depends on additional information on the ingredient list.
 # It can be preceded by the wording colorant or provitamin A. Or it occurs in a (non-obvious) listing of other vitamins.
+
+<en:vitamin A
+en:beta-carotene
+fr:beta-carotène
 
 <en:vitamin A
 <en:beta-Carotene
@@ -18517,7 +18521,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Trisodium_phosphate
 
 # Potassium phosphate is a generic term for the salts of potassium and phosphate ions
 
-<en:potassium
 en:potassium phosphates, E340, E 340, E-340
 de:Kaliumphosphate, E340, E 340, E-340
 es:Fosfatos de potasio, Fosfato de potasio, Fosfato potásico, E340, E 340, E-340
@@ -19534,7 +19537,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium_bicarbonate
 # fr:500ii has 403 products @2018-11-03
 
 
-<en:sodium carbonates, E500iii, E 500iii, E 500 iii, E-500iii, E500(iii)
+<en:sodium carbonates
 en:sodium sesquicarbonate
 bg:Натриев сескикарбонат
 cs:Seskviuhličitan sodný
@@ -21924,7 +21927,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20cassis
 # RASPBERRY is the edible fruit of a multitude of plant species in the genus Rubus of the rose family
 
 <en:fruit
-<en:fruit rouge
+<fr:fruit rouge
 <fr:fruits des bois
 en:raspberry
 af:Framboos
@@ -22594,7 +22597,7 @@ es:zumo de maracuyá a partir de concentrado
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20fruit%20de%20la%20passion%20à%20base%20de%20concentré
 # 82 products in 4 languages @2018-09-29
 
-<fr:passion fruit
+<en:passion fruit
 <en:purée
 fr:purée de fruit de la passion
 nl:passievruchtenpuree
@@ -26172,6 +26175,9 @@ wikidata:en:Q2157176
 wikipedia:en:https://en.wikipedia.org/wiki/Bamboo_shoot
 # ingredient/fr:pousse-de-bambou has 43 products in 4 languages @2019-02-03
 # ingredient/fr:pousses-de-bambou/ has 95 products in 10 languages @2019-02-03
+
+en:fibre, fiber
+fr:fibre
 
 # <en:bamboo
 <en:fibre
@@ -35055,6 +35061,9 @@ sv:svart champinjon
 en:Lentinula edodes , Lentinus edodes
 la:Lentinula edodes
 # ingredient/fr:Lentinus-edodes has 21 products in french @2018-01-22
+
+en:black mushroom
+fr:champignon noir
 
 <en:black mushroom
 fr:champignon noir réhydraté, champignons noirs réhydratés
