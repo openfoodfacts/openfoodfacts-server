@@ -5819,7 +5819,7 @@ fr:sérum de lait
 fr:lait concentré écrémé
 
 <en:milk
-fr:lait demi-écrémé stérilisé uht
+fr:lait demi-écrémé stérilisé uht, lait stérilisé uht demi-écrémé
 
 
 <en:milk
@@ -6182,7 +6182,15 @@ fr:lactosérum en poudre, petit-lait en poudre
 nl:weipoeder
 
 <en:whey powder
-fr:petit-lait doux en poudre
+en:partially demineralized powdered whey
+de:Molkenpulver teilentmineralisiert
+it:siero di latte polvere parzialmente demineralizzato
+
+<en:whey powder
+en:Powdered sweet whey
+de:Sussmolkenpulver
+fr:lactosérum doux en poudre, poudre de lactosérum sucré, petit-lait doux en poudre
+nl:Zoete weipoeder
 
 <en:whey powder
 en:filtered whey powder
@@ -6192,23 +6200,20 @@ es:suero de leche en polvo
 nl:weifiltraatpoeder
 it:filtrato di siero di latte in polvere
 
-<en:whey
-en:Powdered sweet whey
-de:Sussmolkenpulver
-fr:lactosérum doux en poudre, poudre de lactosérum sucré
-nl:Zoete weipoeder
 
-<en:whey powder
+<en:whey
 en:Demineralised whey
 fr:lactosérum déminéralisé
 nl:Gedemineraliseerde wei
-allergens:fr:_lactosérum_ déminéralisé
+
+<en:Demineralised whey
+fr:lactosérum partiellement déminéralisé, petit lait partiellement déminéralisé
+# ingredient/fr:lactosérum-partiellement-déminéralisé has 20 products in 4 languages @2019-02-12
 
 <en:whey
 en:Concentrated whey
 fr:lactosérum concentré
 nl:Geconcentreerde wei
-allergens:fr:_lactosérum_ concentré
 
 <en:whey
 en:whey product
@@ -45006,9 +45011,6 @@ fr:éclats de gaufrettes
 
 fr:massepain
 
-fr:lactosérum partiellement déminéralisé
-
-fr:lait stérilisé uht demi-écrémé
 
 
 
