@@ -4488,6 +4488,7 @@ sub compute_carbon_footprint_infocard($) {
 			
 			$html .= "</li>\n";
 			
+			# COP 21 sustainable amount of CO2 per person per year: 2 tons
 			my %sustainable = (annual => 2000 * 1000);
 			$sustainable{daily} = $sustainable{annual} / 365;
 			$sustainable{weekly} = $sustainable{daily} * 7;
