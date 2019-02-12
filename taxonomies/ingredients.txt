@@ -23,6 +23,7 @@ stopwords:zh:配料
 
 # en
 # Contains genetically modified organisms
+# dairy derivatives
 # organically grown products
 # prefried in vegetable oil
 
@@ -36,6 +37,7 @@ stopwords:zh:配料
 # Unter Schutzatmosphäre verpackt.
 
 # es
+# derivados lácteos
 # Puede contener trazas de apio. Porcentajes expresados sobre el total de la receta.
 
 # fi
@@ -44,6 +46,7 @@ stopwords:zh:配料
 # fr
 # Contient une source de phénylalamine.
 # Contient des organismes génétiquement modifiés
+# dérivés de lait
 # d'élevage au sol
 # Fabriqué dans un atelier qui utilise : céleri, moutarde et oeuf.
 # *produits issus de l'agriculture biologique.
@@ -60,6 +63,7 @@ stopwords:zh:配料
 # it
 # Contenuto complessivo di sale da cucina: 1,4%.
 # Contiene latte. Puo contenere trace di uova, glutine, sedano, senape.
+# derivatti del latte
 # Può contenere nocciole, mandorle, uova e tracce d'altra frutta con guscio (noci). 
 # Cacao: 34 % minimo nel cioccolato.
 
@@ -118,6 +122,14 @@ ro: Acidifiant
 bg: Киселина
 de:Säuerungsmittel
 wikidata:en:Q337038
+
+
+# <en:function
+en:coagulum, coagulating agent
+en:agente coagulante, agentes coagulantes
+fr:agent de coagulation, coagulant
+it:coagulo
+# ingredient/fr:agents-de-coagulation has 37 products in 5 languages @2019-02-08
 
 en: Acidity regulator
 ga: Rialtán aigéadachta
@@ -337,6 +349,59 @@ zh:姜黄素
 wikidata:en:Q312266
 wikipedia:en:https://en.wikipedia.org/wiki/Curcumin
 # fr:curcumin 80 products in 2 languages @2018-10-11
+
+
+# Tartrazine is a synthetic lemon yellow azo dye primarily used as a food coloring.
+
+en:tartrazine, E102, E-102, E 102
+# azb:تارترازین
+bg:Тартразин
+ca:Tartracina
+cs:Tartrazin
+da:Tartrazin
+de:Tartrazin
+el:Ταρτραζινη
+es:Tartrazina, amarillo ocaso FCF
+et:Tartrasiin
+fa:تارترازین
+fi:Tartrazine
+fr:tartrazine
+ga:Tartraiséin
+gl:Tartrazina
+he:טרטרזין
+hr:Tartrazin
+hu:Tartrazin
+id:Tartrazina
+it:Tartrazina
+ja:タートラジン
+ko:타트라진
+lt:Tartrazinas
+lv:Tartrazīns
+mt:Tartrażina
+nb:Tartrazin
+nl:Tartrazine
+pl:Tartrazyna
+pt:Tartarazina
+ro:Tartrazină
+ru:Тартразин
+sh:Tartrazin
+si:ටාට්‍රසින්
+sk:Tartrazín
+sl:Tartrazin
+sr:Tartrazin
+sv:Tartrazin
+tr:Tartrazin
+uk:Тартразин
+zh:柠檬黄
+# zh-cn:柠檬黄
+# zh-hans:柠檬黄
+# zh-hant:檸檬黃
+# zh-hk:檸檬黃
+# zh-sg:柠檬黄
+# zh-tw:檸檬黃
+wikidata:en:Q407158
+wikipedia:en:https://en.wikipedia.org/wiki/Tartrazine
+# ingredient/fr:tartrazine has 196 products in 3 languages @2019-02-09
 
 
 # Carmine, also called cochineal, cochineal extract, crimson lake or carmine lake, natural red 4, C.I. 75470, or E120, is a pigment of a bright-red color obtained from the aluminium salt of carminic acid
@@ -811,113 +876,6 @@ it:legante
 # legante (gomma di guar, xantano)
 
 
-# PECTIN is a structural heteropolysaccharide contained in the primary cell walls of terrestrial plants.
-
-en:pectin, pectins, E440, e 440, E-440
-af:Pektien, E440, e 440, E-440
-ar:بكتين
-az:Pektin maddələri, E440, e 440, E-440
-be:пекцінавыя рэчывы, E440, e 440, E-440
-# be-tarask:пэктынавыя рэчывы, E440, e 440, E-440
-bg:Пектин, E440, e 440, E-440
-bs:Pektin, E440, e 440, E-440
-ca:Pectina, E440, e 440, E-440
-cs:pektin, E440, e 440, E-440
-cy:Pectin, E440, e 440, E-440
-da:pektin, E440, e 440, E-440
-de:Pektin, E440, e 440, E-440
-el:Πηκτίνη, E440, e 440, E-440
-eo:Pektino, E440, e 440, E-440
-es:Pectina, pectinas, E440, e 440, E-440
-et:Pektiin, E440, e 440, E-440
-eu:Pektina, E440, e 440, E-440
-fa:پکتین
-fi:Pektiini	, E440, e 440, E-440
-fr:pectine, E440, e 440, E-440
-ga:Peictin, E440, e 440, E-440
-gl:Pectina, E440, e 440, E-440
-he:פקטין
-hu:Pektin, E440, e 440, E-440
-hy:Պեկտինյան նյութեր, E440, e 440, E-440
-id:Pektin, E440, e 440, E-440
-io:Pektino, E440, e 440, E-440
-it:pectina, E440, e 440, E-440
-ja:ペクチン, E440, e 440, E-440
-kk:Пектин, E440, e 440, E-440
-ko:펙틴, E440, e 440, E-440
-ky:Пектиндер
-lt:Pektinas, E440, e 440, E-440
-lv:pektīnvielas, E440, e 440, E-440
-nb:pektin, E440, e 440, E-440
-nl:pectine, pectines, E440, e 440, E-440
-nn:pektin, E440, e 440, E-440
-pl:Pektyny, E440, e 440, E-440
-pt:pectina, pectinas, E440, e 440, E-440
-ro:Pectină, pectina, E440, e 440, E-440
-ru: Пектин, E440, e 440, E-440
-# sco:pectin, E440, e 440, E-440
-sh:Pektin, E440, e 440, E-440
-sk:Pektín, E440, e 440, E-440
-sl:Pektin, E440, e 440, E-440
-sr:пектин, E440, e 440, E-440
-# sr-ec:пектин, E440, e 440, E-440
-# sr-el:Pektin, E440, e 440, E-440
-sv:Pektin, E440, e 440, E-440
-ta:பெக்டின், E440, e 440, E-440
-th:เพกทิน, E440, e 440, E-440
-tr:Pektin, E440, e 440, E-440
-uk:Pektin, E440, e 440, E-440
-vi:Pectin, E440, e 440, E-440
-zh:果胶, E440, e 440, E-440
-# zh-cn:果胶, E440, e 440, E-440
-# zh-hans:果胶, E440, e 440, E-440
-# zh-hant:果膠, E440, e 440, E-440
-# zh-hk:果膠, E440, e 440, E-440
-# zh-sg:果胶, E440, e 440, E-440
-# zh-tw:果膠, E440, e 440, E-440
-wikidata:en:Q188154
-wikipedia:https://en.wikipedia.org/wiki/Pectin
-# en:pectin has 9364 products in 20 languages @2018-11-03
-
-<en:pectin
-en:non-amidated pectines, E440i, E 440i, E-440i
-de:E440i, E 440i, E-440i
-fr:Pectine non amidée, E440i, E 440i, E-440i
-it:E440i, E 440i, E-440i
-nl:E440i, E 440i, E-440i
-# fr:e440i has 18 products in 5 languages @2018-11-03
-
-<en:pectin
-fr:pectine de fruit, pectines de fruits
-de:Fruchtpektin
-nl:vruchtenpectine
-# fr:pectine-de-fruit has 1579 products in 6 languages @2018-11-03
-
-<en:pectin
-en:Amidated pectin, e440ii, E 440ii, E-440ii, E440 ii
-bg:Амидиран пектин, e440ii, E 440ii, E-440ii, E440 ii
-cs:Amidovaný pektin, e440ii, E 440ii, E-440ii, E440 ii
-da:Amideret pectin, e440ii, E 440ii, E-440ii, E440 ii
-de:Amidiertes pektin, e440ii, E 440ii, E-440ii, E440 ii
-el:Αμιδιωμενες πηκτινικες υλες, e440ii, E 440ii, E-440ii, E440 ii
-es:Pectina amidada, e440ii, E 440ii, E-440ii, E440 ii
-et:Amiiditud pektiin, e440ii, E 440ii, E-440ii, E440 ii
-fi:Amidoitu pektiini, e440ii, E 440ii, E-440ii, E440 ii
-fr:pectine amidée, e440ii, E 440ii, E-440ii, E440 ii
-hu:Amidált pektin, e440ii, E 440ii, E-440ii, E440 ii
-it:Pectina amidata, e440ii, E 440ii, E-440ii, E440 ii
-lt:Amidintas pektinas, e440ii, E 440ii, E-440ii, E440 ii
-lv:Amidēts pektīns, e440ii, E 440ii, E-440ii, E440 ii
-mt:Pektina amidata, e440ii, E 440ii, E-440ii, E440 ii
-nl:Geamideerde pectine, e440ii, E 440ii, E-440ii, E440 ii
-pl:Pektyna amidowana, e440ii, E 440ii, E-440ii, E440 ii
-pt:Pectina amidada, e440ii, E 440ii, E-440ii, E440 ii
-ro:Pectină amidată, e440ii, E 440ii, E-440ii, E440 ii
-sk:Amidovaný pektín, e440ii, E 440ii, E-440ii, E440 ii
-sl:Amidirani pektin, e440ii, E 440ii, E-440ii, E440 ii
-sv:Amiderat pektin, e440ii, E 440ii, E-440ii, E440 ii
-wikidata:en:Q42807519
-# fr:pectine-amidée has 74 products in 1 language @2018-11-03
 # nova:en:glazing-agent
 en:glazing agent
 bg:Глазиращ агент
@@ -966,20 +924,20 @@ wikidata:en:Q911854
 
 # nova
 en:preservative
-ga: Leasaitheach
-de: Konservierungsstoff
+cs: Konzervant
 da:Konserveringsmiddel
+de: Konservierungsstoff
 el: Συντηρητικό
 es: Conservante, Conservador
 fi: Säilöntäaine
 fr: Conservateur
+ga: Leasaitheach
 it: Conservanti
+lv: Konservants
 nb:Konserveringsmiddel
 nl: Conserveermiddel, Conserveermiddelen
 pt: Conservante
 sv:Konserveringsmedel
-lv: Konservants
-cs: Konzervant
 et: Säilitusaine
 hu: Tartósítószer
 pl: Substancja konserwująca
@@ -991,6 +949,12 @@ ro: Conservant
 bg: Консервант
 wikidata:en:Q274579
 
+<en:preservative
+en:fruit preservative
+fr:conservateur de fruit
+# ingredient/fr:conservateur-de-fruit has 43 products in french@2019-02-10
+
+# <en:function
 en: Propellent gas
 ga: Gás tiomána
 da: Konserveringsmiddel
@@ -1272,93 +1236,193 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium_benzoate
 # ingredient/fr:benzoate-de-sodium has 688 products in 7 languages @2019-01-23
 
 
+# Sodium sulfite (sodium sulphite) is a soluble sodium salt of sulfurous acid (sulfite) with the chemical formula Na2SO3.
+
+# <en:flour treatment agent
+en: sodium sulphite, E221, E-221, E 221
+ar: كبريتيت الصوديوم
+# azb: سودیوم سولفیت
+bg: Натриев сулфит
+ca: sulfit de sodi
+cs: Siřičitan sodný
+da:natriumsulfit
+de: Natriumsulfit
+el: Θειωδες νατριο
+eo: Natria sulfito
+es:sulfito sódico
+et: Naatriumsulfit
+fa: سدیم سولفیت
+fi:natriumsulfitti
+fr:sulfite de sodium
+hu: Nátrium-szulfit
+hy: Նատրիումի սուլֆիտ
+it:solfito di sodio
+ja: 亜硫酸ナトリウム
+ky: Натрий сульфити
+lt: Nátrium-szulfit
+lv: Nātrija sulfīts
+mt: Sulfit tas-sodju
+nl:natriumsulfiet
+pl: Siarczyn sodu
+pt:sulfito de sódio
+ro: Sulfit de sodiu
+ru: сульфит натрия
+sh: Natrijum sulfit
+sk: Siričitan sodný
+sl: Natrijev sulfit
+sr: Natrijum sulfit
+sv:natriumsulfit
+th:โซเดียมซัลไฟต์
+uk: Сульфіт натрію
+vi: Natri sunfit
+zh:亚硫酸钠
+# zh-cn:亚硫酸钠
+# zh-hans:亚硫酸钠
+# zh-hant:亞硫酸鈉
+# zh-hk:亞硫酸鈉
+# zh-sg:亚硫酸钠
+# zh-tw:亞硫酸鈉
+wikidata:en: Q407806
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_sulfite
+# ingredient/fr:sulfite-de-sodium has 39 products in 10 languages @2109-02-07
+# additive/e221-sodium-sulphite has 272 products in 10 languages @2019-02-07
+
+
 # Acetic acid, systematically named ethanoic acid, is a colourless liquid organic compound with the chemical formula CH3COOH (also written as CH3CO2H or C2H4O2).
 
 en:acetic acid, E260, E 260, E-260
-af:Asynsuur, E260, E 260, E-260
+af:Asynsuur
 ar:حمض الخليك
-# ast:Ácidu acético, E260, E 260, E-260
-az:Sirkə turşusu, E260, E 260, E-260
+# ast:Ácidu acético
+az:Sirkə turşusu
 # azb:استیک اسید
-be:воцатная кіслата, E260, E 260, E-260
-bg:Оцетна киселина, E260, E 260, E-260
-bn:অ্যাসিটিক এসিড, E260, E 260, E-260
-bs:Acetatna kiselina, E260, E 260, E-260
-ca:àcid acètic, E260, E 260, E-260
-cs:Kyselina octová, E260, E 260, E-260
-# csb:Òctowi kwas, E260, E 260, E-260
-cy:Asid asetig, E260, E 260, E-260
-da:Eddikesyre, E260, E 260, E-260
-de:Essigsäure, E260, E 260, E-260
-el:Οξικο οξυ, E260, E 260, E-260
-eo:aceta acido, E260, E 260, E-260
-es:acido acético, E260, E 260, E-260
-et:Äädikhape, E260, E 260, E-260
-eu:azido azetiko, E260, E 260, E-260
+be:воцатная кіслата
+bg:Оцетна киселина
+bn:অ্যাসিটিক এসিড
+bs:Acetatna kiselina
+ca:àcid acètic
+cs:Kyselina octová
+# csb:Òctowi kwas
+cy:Asid asetig
+da:Eddikesyre
+de:Essigsäure
+el:Οξικο οξυ
+eo:aceta acido
+es:acido acético
+et:Äädikhape
+eu:azido azetiko
 fa:استیک اسید
-fi:etikkahappo, E260, E 260, E-260
-fr:acide acétique, E260, E 260, E-260
-# frr:Eetjsüren, E260, E 260, E-260
-ga:Aigéad aicéiteach, E260, E 260, E-260
-gl:Ácido acético, E260, E 260, E-260
+fi:etikkahappo
+fr:acide acétique
+# frr:Eetjsüren
+ga:Aigéad aicéiteach
+gl:Ácido acético
 he:חומצה אצטית
-hi:एसिटिक अम्ल, E260, E 260, E-260
-hr:Octena kiselina, E260, E 260, E-260
-hu:Ecetsav, E260, E 260, E-260
-hy:Քացախաթթու, E260, E 260, E-260
-ia:Acido acetic, E260, E 260, E-260
-id:Asam asetat, E260, E 260, E-260
-io:Acetat-acido, E260, E 260, E-260
-is:Ediksýra, E260, E 260, E-260
-it:acido acetico, E260, E 260, E-260
-ja:酢酸, E260, E 260, E-260
-jv:Asam asetat, E260, E 260, E-260
-kk:Сірке қышқылы, E260, E 260, E-260
-kn:ಅಸಿಟಿಕ್ ಆಮ್ಲ, E260, E 260, E-260
-ko:아세트산, E260, E 260, E-260
-la:Acidum aceticum, E260, E 260, E-260
-li:Aekzoer, E260, E 260, E-260
-lt:Acto rūgštis, E260, E 260, E-260
-lv:Etiķskābe, E260, E 260, E-260
-# lzh:乙酸, E260, E 260, E-260
-mk:Оцетна киселина, E260, E 260, E-260
-ml:അസറ്റിക് അമ്ലം, E260, E 260, E-260
-ms:Asid asetik, E260, E 260, E-260
-mt:Aċidu aċetiku, E260, E 260, E-260
-# nan:Chhò͘-sng, E260, E 260, E-260
-nb:eddiksyre, E260, E 260, E-260
-nl:azijnzuur, E260, E 260, E-260
-pa:ਐਸੀਟਿਕ ਤੇਜ਼ਾਬ, E260, E 260, E-260
-pl:Kwas octowy, E260, E 260, E-260
-pt:Ácido acético, E260, E 260, E-260
-qu:Mama aqha p'uchqu, E260, E 260, E-260
-ro:acid acetic, E260, E 260, E-260
-# sco:acetic acid, E260, E 260, E-260
-sh:Sirćetna kiselina, E260, E 260, E-260
-si:ඇසිටික් අම්ලය, E260, E 260, E-260
-sk:Kyselina octová, E260, E 260, E-260
-sl:Ocetna kislina, E260, E 260, E-260
-sr:сирћетна киселина, E260, E 260, E-260
-# sr-ec:сирћетна киселина, E260, E 260, E-260
-su:Asam asétat, E260, E 260, E-260
-sv:ättiksyra, E260, E 260, E-260
-ta:அசிட்டிக் காடி, E260, E 260, E-260
-te:ఎసిటిక్ ఆమ్లం, E260, E 260, E-260
-th:กรดน้ำส้ม, E260, E 260, E-260
-tl:Asidong asetiko, E260, E 260, E-260
-tr:Asetik asit, E260, E 260, E-260
-uk:оцтова кислота, E260, E 260, E-260
+hi:एसिटिक अम्ल
+hr:Octena kiselina
+hu:Ecetsav
+hy:Քացախաթթու
+ia:Acido acetic
+id:Asam asetat
+io:Acetat-acido
+is:Ediksýra
+it:acido acetico
+ja:酢酸
+jv:Asam asetat
+kk:Сірке қышқылы
+kn:ಅಸಿಟಿಕ್ ಆಮ್ಲ
+ko:아세트산
+la:Acidum aceticum
+li:Aekzoer
+lt:Acto rūgštis
+lv:Etiķskābe
+# lzh:乙酸
+mk:Оцетна киселина
+ml:അസറ്റിക് അമ്ലം
+ms:Asid asetik
+mt:Aċidu aċetiku
+# nan:Chhò͘-sng
+nb:eddiksyre
+nl:azijnzuur
+pa:ਐਸੀਟਿਕ ਤੇਜ਼ਾਬ
+pl:Kwas octowy
+pt:Ácido acético
+qu:Mama aqha p'uchqu
+ro:acid acetic
+# sco:acetic acid
+sh:Sirćetna kiselina
+si:ඇසිටික් අම්ලය
+sk:Kyselina octová
+sl:Ocetna kislina
+sr:сирћетна киселина
+# sr-ec:сирћетна киселина
+su:Asam asétat
+sv:ättiksyra
+ta:அசிட்டிக் காடி
+te:ఎసిటిక్ ఆమ్లం
+th:กรดน้ำส้ม
+tl:Asidong asetiko
+tr:Asetik asit
+uk:оцтова кислота
 ur:ایسیٹک ایسڈ
-vi:axit axetic, E260, E 260, E-260
-# war:Aksido Asetico, E260, E 260, E-260
-# wuu:乙酸, E260, E 260, E-260
-# yue:醋酸, E260, E 260, E-260
-zh:乙酸, E260, E 260, E-260
+vi:axit axetic
+# war:Aksido Asetico
+# wuu:乙酸
+# yue:醋酸
+zh:乙酸
 wikidata:en:Q47512
 wikipedia:en:https://en.wikipedia.org/wiki/Acetic_acid
 # en:acetic-acid has 1571 products in 8 languages @2018-11-18
 # additive/e260-acetic-acid has 2143 products in 14 languages @2018-11-18
 
+
+en:potassium acetate, E261, E-261, E 261
+ar:أسيتات البوتاسيوم
+# azb:پوتاسیوم استات
+bg:Калиев ацетат
+bs:Kalijev acetat
+ca:acetat de potassi
+cs:Octan draselný
+da:Kaliumacetat
+de:Kaliumacetat
+el:Οξικο καλιο
+eo:kalia acetato
+es:acetato de potasio
+et:Kaaliumatsetaat
+fa:پتاسیم استات
+fi:Kaliumasetaatti
+fr:acétate de potassium
+hu:Kálium-acetát
+id:Kalium asetat
+it:Acetato di potassio
+ja:酢酸カリウム
+lt:Kalio acetatas
+lv:Kālija acetāts
+mt:Aċetat tal-potassju
+nl:Kaliumacetaat
+pl:Octan potasu
+pt:Acetato de potássio
+ro:acetat de potasiu
+ru:ацетат калия
+sh:Kalijum acetat
+sk:Octan draselný
+sl:Kalijev acetat
+sr:Kalijum acetat
+sv:Kaliumacetat
+ta:பொட்டாசியம் அசிட்டேட்டு
+tr:Potasyum asetat
+uk:Ацетат калію
+vi:Kali axetat
+zh:乙酸钾
+# zh-cn:乙酸钾
+# zh-hans:乙酸钾
+# zh-hant:乙酸鉀
+# zh-hk:乙酸鉀
+# zh-sg:乙酸钾
+# zh-tw:乙酸鉀
+wikidata:en:Q409199
+# ingredient/fr:acétate-de-potassium has 31 products in 3 languages @2019-02-09
+# additive/e261-potassium-acetate has 235 products @2019-02-09
 
 # Note that E262 must be in plural
 
@@ -2300,6 +2364,230 @@ en:e407 stabilizer
 fr:stabilisant e407
 
 
+# GELATIN or GELATINE is a translucent, colorless, brittle (when dry), flavorless food ingredient that is derived from collagen obtained from various animal body parts. 
+
+# The E-numbers for gelatin are removed by the EU. It should now be noted as an ingredient.
+
+en:gelatin, gelatine, E428, E-428, E 428
+ar:جيلاتين
+# ast:Xelatina
+az:Jelatin
+be:Жэлацін
+bg:Желатин
+bn:জেলাটিন
+br:gelatin
+bs:Želatin
+ca:gelatina
+cs:želatina
+cv:Желатин
+cy:Gelatin
+de:Gelatine, Speisegelatine
+el:ζελατίνη
+eo:gelateno
+es:gelatina
+et:želatiin
+eu:Gelatina
+fa:ژلاتین
+fi:liivate, Gelatiini
+fr:gélatine
+fy:sjelatine
+ga:Geilitín
+gl:Xelatina
+he:ג'לטין
+hi:जिलेटिन
+hr:Želatina
+hu:Zselatin
+id:Gelatin
+io:Gelatino
+it:gelatina
+ja:ゼラチン
+jv:Gelatin
+ka:ჟელატინი
+kk:Желатин
+# kk-arab:جەلاتىين
+# kk-cn:جەلاتىين
+# kk-cyrl:Желатин
+# kk-kz:Желатин
+# kk-latn:Jelatïn
+# kk-tr:Jelatïn
+ko:젤라틴
+ky:Желатина
+la:Gelatinum
+li:sjilletien
+lt:Želatina
+mk:Желатин
+ms:Gelatin
+my:ဂျယ်လတင်း
+nb:gelatin
+ne:geltain
+nl:gelatine
+nn:gelatin
+oc:Gelatina
+pa:ਸਰੇਸ਼
+pl:Żelatyna
+ps:ژلاتین
+pt:gelatina
+ro:Gelatină
+ru:желатин
+# sco:gelatin
+sk:Želatína
+sl:Želatina
+sq:xhelatinë
+sr:Желатин
+sv:gelatin
+th:เจลาติน
+tr:Jelatin
+uk:Желатин
+vi:Gelatin
+# yue:魚膠
+zh:明膠
+# zh-cn:明胶
+# zh-hans:明胶
+# zh-hant:明膠
+# zh-hk:明膠
+# zh-sg:明胶
+# zh-tw:明膠
+wikipedia:https://en.wikipedia.org/wiki/Gelatin
+# ingredient/fr:gélatine has 1575 products in 12 languages @2019-02-10
+
+<en:gelatin
+en:beef gelatin
+de:Rindergelatine
+fr:gélatine de bœuf, gélatine de boeuf, gélatine bovine
+it:gelatina di manzo
+# ingredient/fr:gélatine-de-bœuf has 216 products in 4 languages @2019-02-10
+
+<en:gelatin
+en:fish gelatine
+de:Fisch-Gelatine
+fr:gélatine de poisson
+it:gelatina di pesce
+# ingredient/fr:gélatine-de-poisson has 71 products in 4 languages @2019-02-10
+
+<en:gelatin
+fr:gélatine non porcine
+# ingredient/fr:gélatine-non-porcine has 1 product in french @2019-02-10
+
+<en:gelatin
+fr:gélatine de volaille
+# ingredient/fr:gélatine-de-volaille has 17 products in french @2019-02-10
+
+<en:gelatin
+en:pork gelatin
+de:Schweinegelatine
+es:gelatina de cerdo
+fr:gélatine de porc, gélatine porcine
+it:gelatina di maiale
+nl:varkensgelatine
+pl:zelatyna wieprzowa
+# ingredient/fr:gélatine-de-porc has 891 products in 8 languages @2019-02-10
+
+
+# PECTIN is a structural heteropolysaccharide contained in the primary cell walls of terrestrial plants.
+
+en:pectin, pectins, E440, e 440, E-440
+af:Pektien, E440, e 440, E-440
+ar:بكتين
+az:Pektin maddələri, E440, e 440, E-440
+be:пекцінавыя рэчывы, E440, e 440, E-440
+# be-tarask:пэктынавыя рэчывы, E440, e 440, E-440
+bg:Пектин, E440, e 440, E-440
+bs:Pektin, E440, e 440, E-440
+ca:Pectina, E440, e 440, E-440
+cs:pektin, E440, e 440, E-440
+cy:Pectin, E440, e 440, E-440
+da:pektin, E440, e 440, E-440
+de:Pektin, E440, e 440, E-440
+el:Πηκτίνη, E440, e 440, E-440
+eo:Pektino, E440, e 440, E-440
+es:Pectina, pectinas, E440, e 440, E-440
+et:Pektiin, E440, e 440, E-440
+eu:Pektina, E440, e 440, E-440
+fa:پکتین
+fi:Pektiini	, E440, e 440, E-440
+fr:pectine, E440, e 440, E-440
+ga:Peictin, E440, e 440, E-440
+gl:Pectina, E440, e 440, E-440
+he:פקטין
+hu:Pektin, E440, e 440, E-440
+hy:Պեկտինյան նյութեր, E440, e 440, E-440
+id:Pektin, E440, e 440, E-440
+io:Pektino, E440, e 440, E-440
+it:pectina, E440, e 440, E-440
+ja:ペクチン, E440, e 440, E-440
+kk:Пектин, E440, e 440, E-440
+ko:펙틴, E440, e 440, E-440
+ky:Пектиндер
+lt:Pektinas, E440, e 440, E-440
+lv:pektīnvielas, E440, e 440, E-440
+nb:pektin, E440, e 440, E-440
+nl:pectine, pectines, E440, e 440, E-440
+nn:pektin, E440, e 440, E-440
+pl:Pektyny, E440, e 440, E-440
+pt:pectina, pectinas, E440, e 440, E-440
+ro:Pectină, pectina, E440, e 440, E-440
+ru: Пектин, E440, e 440, E-440
+# sco:pectin, E440, e 440, E-440
+sh:Pektin, E440, e 440, E-440
+sk:Pektín, E440, e 440, E-440
+sl:Pektin, E440, e 440, E-440
+sr:пектин, E440, e 440, E-440
+# sr-ec:пектин, E440, e 440, E-440
+# sr-el:Pektin, E440, e 440, E-440
+sv:Pektin, E440, e 440, E-440
+ta:பெக்டின், E440, e 440, E-440
+th:เพกทิน, E440, e 440, E-440
+tr:Pektin, E440, e 440, E-440
+uk:Pektin, E440, e 440, E-440
+vi:Pectin, E440, e 440, E-440
+zh:果胶, E440, e 440, E-440
+# zh-cn:果胶, E440, e 440, E-440
+# zh-hans:果胶, E440, e 440, E-440
+# zh-hant:果膠, E440, e 440, E-440
+# zh-hk:果膠, E440, e 440, E-440
+# zh-sg:果胶, E440, e 440, E-440
+# zh-tw:果膠, E440, e 440, E-440
+wikidata:en:Q188154
+wikipedia:https://en.wikipedia.org/wiki/Pectin
+# en:pectin has 9364 products in 20 languages @2018-11-03
+
+<en:pectin
+en:non-amidated pectines, E440i, E 440i, E-440i
+fr:Pectine non amidée
+# fr:e440i has 18 products in 5 languages @2018-11-03
+
+<en:pectin
+fr:pectine de fruit, pectines de fruits
+de:Fruchtpektin
+nl:vruchtenpectine
+# fr:pectine-de-fruit has 1579 products in 6 languages @2018-11-03
+
+<en:pectin
+en:Amidated pectin, e440ii, E 440ii, E-440ii, E440 ii
+bg:Амидиран пектин
+cs:Amidovaný pektin
+da:Amideret pectin
+de:Amidiertes pektin
+el:Αμιδιωμενες πηκτινικες υλες
+es:Pectina amidada
+et:Amiiditud pektiin
+fi:Amidoitu pektiini
+fr:pectine amidée
+hu:Amidált pektin
+it:Pectina amidata
+lt:Amidintas pektinas
+lv:Amidēts pektīns
+mt:Pektina amidata
+nl:Geamideerde pectine
+pl:Pektyna amidowana
+pt:Pectina amidada
+ro:Pectină amidată
+sk:Amidovaný pektín
+sl:Amidirani pektin
+sv:Amiderat pektin
+wikidata:en:Q42807519
+# fr:pectine-amidée has 74 products in 1 language @2018-11-03
+
 # The mix of ammonium salts of phosphorylated glycerides can be either made synthetically or from mixture of glycerol and partially hardened plant (most often used:rapeseed oil) oils
 
 en:ammonium phosphatide, ammonium phosphatides, E442, E 442, E-442
@@ -2365,7 +2653,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mono-_and_diglycerides_of_fatty_acids
 # fr:diglycérides-d’acide-gras has 2301 products in 11 languages @2018-11-12
 
 <en:en:mono- and diglycerides of fatty acids
-en:emulsifier, mono- and diglycerides of fatty acids
+en:emulsifier mono- and diglycerides of fatty acids
 fr:émulsifiant e471
 
 <en:mono- and diglycerides of fatty acids
@@ -3667,16 +3955,18 @@ wikipedia:en:https://en.wikipedia.org/wiki/Iron
 # Iron(II) fumarate, also known as ferrous fumarate, is the iron(II) salt of fumaric acid, occurring as a reddish-orange powder, used to supplement iron intake.
 
 <en:iron
-en:Iron fumarate
+en:iron(II) fumarate, iron fumarate, ferrous fumarate
 ar:فومارات الحديد الثنائي
-de:Eisenfumarat
+# azb:دمیر (II) فومارات
+de:Eisen-(II)-fumarat, Eisenfumarat
 es:fumarato ferroso
 fa:آهن(II) فیومارات
-fr:fumarate ferreux
-it:fumarato ferroso
-pl:fumaran żelaza
-sh:Gvožđe fumarat
-sr:Gvožđe fumarat
+fr:fumarate de fer (II), fumarate ferreux, fumarate de fer
+it:fumarato ferroso (II), fumarato ferroso
+pl:fumaran żelaza(II)
+sh:Gvožđe(II) fumarat
+sr:Gvožđe(II) fumarat
+# sr-el:Gvožđe(II) fumarat
 zh:延胡索酸亚铁
 # zh-cn:延胡索酸亚铁
 # zh-hans:延胡索酸亚铁
@@ -4193,12 +4483,12 @@ nova:en: 3
 
 <en:enzyme
 en:coagulating enzyme
-fr:enzyme coagulante, enzymes coagulantes
+fr:enzyme coagulante, enzymes coagulantes, coagulant enzymatique
 nl:stremmingsenzymen
 
 <en:coagulating enzyme
 en:microbial coagulating enzyme
-fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne
+fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne, coagulant microbien
 nl:microbiële stremmingsenzymen
 
 <en:ferment
@@ -5532,24 +5822,20 @@ en:sweetened condensed milk
 fr:lait concentré sucré
 de:gezuckerte Kondensmilch
 nl:gecondenseerde gesuikerde melk, gecondenseerde volle melk met suiker
-allergens:fr:_lait_ concentré sucré
 
 <en:condensed milk
 en:concentrated skim milk, concentrated skimmed milk
 fr:lait écrémé concentré
 de:kondensierte Magermilch, konzentrierte Magermilch, Kondensmagermilch
 it:latte scremato concentrato, latte magro concentrato
-allergens:fr:_lait_ écrémé concentré
 
 fr:lactose et protéine de lait
-allergens:fr:_lactose_ et protéine de _lait_
 
 # nova:en:milk-powder
 en:milk powder, powdered milk
 fr:lait en poudre, poudre de lait
 nl:melkpoeder
 es:Leche en polvo
-allergens:fr:_lait_ en poudre
 nova:en:4
 
 <en:milk powder
@@ -5560,7 +5846,6 @@ de:Magermilchpulver
 nl:magere melkpoeder
 es:leche desnatada en polvo
 it:latte scremato in polvere
-allergens:fr:_lait_ en poudre écrémé
 
 <en:milk powder
 en:whole milk powder, dried whole milk, powdered whole milk, whole powdered milk
@@ -5611,6 +5896,9 @@ allergens:fr:_lait_ entier reconstitué
 
 
 # LACTOSE is a disaccharide. It is a sugar composed of galactose and glucose.
+
+en:Disaccharide
+fr:Disaccharide, diholoside
 
 # nova:en:lactose
 <en:Disaccharide
@@ -5680,14 +5968,12 @@ uz:Laktoza
 vi:Lactose
 zh:乳糖
 # yue:乳醣
-allergens:fr:_lactose_
 wikipedia:en:https://en.wikipedia.org/wiki/Lactose
 
 <en:Lactose
 en:Lactose powder, powdered lactose
 fr:poudre de lactose
 nl:Lactosepoeder
-allergens:fr:poudre de _lactose_
 
 
 # Unsorted milk stuff
@@ -5811,8 +6097,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Whey
 en:whey powder, powdered whey
 fr:lactosérum en poudre, petit-lait en poudre
 nl:weipoeder
-allergens:fr:_lactosérum_ en poudre
 
+<en:whey powder
 fr:petit-lait doux en poudre
 
 <en:whey powder
@@ -5822,13 +6108,12 @@ de:molkenerzeugnis
 es:suero de leche en polvo
 nl:weifiltraatpoeder
 it:filtrato di siero di latte in polvere
-allergens:fr:_petit-lait_ filtré en poudre
 
 <en:whey
 en:Powdered sweet whey
-fr:lactosérum doux en poudre
+de:Sussmolkenpulver
+fr:lactosérum doux en poudre, poudre de lactosérum sucré
 nl:Zoete weipoeder
-allergens:fr:_lactosérum_ doux en poudre
 
 <en:whey powder
 en:Demineralised whey
@@ -5841,6 +6126,14 @@ en:Concentrated whey
 fr:lactosérum concentré
 nl:Geconcentreerde wei
 allergens:fr:_lactosérum_ concentré
+
+<en:whey
+en:whey product
+de:Molkenerzeugnis
+fr:produit de lactosérum, produit de petit-lait
+it:derivati del siero di latte
+# ingredient/fr:produit-de-lactosérum has 22 products in 4 languages @2019-02-07
+
 
 # CREAM is a dairy product composed of the higher-butterfat layer skimmed from the top of milk before homogenization.
 
@@ -6796,14 +7089,14 @@ es:emmenthal fundido
 fr:emmental fondu
 # fr:emmental-fondu has 92 products in 3 languages @2018-10-27
 
-<fr:fromage
-en:grated cheese emmental
+<en:cheese
+en:grated emmental cheese
 es:queso emmental rallado
 fr:emmental râpé
 nl:geraspte emmentaler
 # fr:emmental-râpé has 340 products in 4 languages @2018-10-27
 
-<en:emmental râpé
+<fr:emmental râpé
 <fr:emmental français
 fr:emmental français râpé
 # fr:emmental-français-râpé has 43 products in 1 language @2018-10-27
@@ -8008,6 +8301,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Retinyl_palmitate
 # It can be preceded by the wording colorant or provitamin A. Or it occurs in a (non-obvious) listing of other vitamins.
 
 <en:vitamin A
+en:beta-carotene
+fr:beta-carotène
+
+<en:vitamin A
 <en:beta-Carotene
 en:provitamin A
 de:Provitamin A
@@ -8251,7 +8548,7 @@ cy:nicotinamid
 de:Nicotinamid
 el:νικοτιναμίδη
 eo:nikotinamido
-fr:nicotinamide
+fr:nicotinamide, niacinamide
 hi:निकोटिनामाइड
 hu:Nikotinamid
 hy:Նիկոտինամիդ
@@ -9557,6 +9854,10 @@ fr:conservateur e 250
 en:meat
 fr:viande
 
+<en:meat
+fr:steak haché
+# ingredient/fr:steak-haché has 18 products in french @2019-02-07
+
 en:goat
 es:carne de cabra
 nl:geitenvlees
@@ -9656,11 +9957,6 @@ fr:protéines de sang de porc
 <en:pork by-product
 fr:sang de porc
 
-<en:pork by-product
-fr:gélatine porcine
-
-<en:pork by-product
-fr:gélatine de porc
 
 <en:pork by-product
 fr:plasma de porc
@@ -9843,14 +10139,6 @@ fr:extrait de boeuf
 
 fr:sous-produit du boeuf
 
-<fr:sous-produit du boeuf
-fr:gélatine bovine
-
-<fr:sous-produit du boeuf
-fr:gélatine de bœuf
-
-<fr:sous-produit du boeuf
-fr:gélatine de boeuf
 
 fr:jus de cuisson de viande de boeuf
 
@@ -9945,6 +10233,9 @@ treatment:en: en:gril
 
 fr: saucisson de porc
 carbon_footprint_fr_foodges_ingredient:fr: Saucisson de porc
+
+fr:plasma déshydraté
+# ingredient/fr:plasma-déshydraté has 46 products in french @2019-02-10
 
 
 # STARCH is a polymeric carbohydrate consisting of a large number of glucose units joined by glycosidic bonds.
@@ -10347,7 +10638,7 @@ nl:volledig gehydrogeneerde plantaardig vet
 
 <en:vegetable fat
 en:non-hydrogenated vegetable fats, non-hydrogenated vegetable fat
-fr:matières grasses végétales non hydrogénées, matière grasse végétale non hydrogénée
+fr:matières grasses végétales non hydrogénées, matière grasse végétale non hydrogénée, graisses végétales non hydrogénées
 
 <en:vegetable oil
 en:non-hydrogenated vegetable oils, non hydrogenated vegetable oil
@@ -10758,6 +11049,13 @@ fr:huile de colza raffinée
 
 <en:colza oil
 fr:huile de colza vierge
+
+# <en:emulsifier
+<en:colza oil
+fr:monodiglycérides de colza
+de: Mono- und Diglyceride von Raps
+# ingredient/fr:monodiglycérides-de-colza has 16 products in 2 languages @2019-02-18
+
 
 # WALNUT OIL is oil extracted from walnuts, Juglans regia
 
@@ -12963,6 +13261,20 @@ fr:arôme naturel de noix de coco
 it:aroma naturale di cocco
 nl:natuurlijk kokosnoot-aroma
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                           C E R E A L     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# Not specified from which cereal
+
+en:bran
+de:Kleie
+es:salvado
+fr:son
+# ingredient/fr:son has 38 products in 2 languages @2019-02-10
+
 en:cereal
 de:Getreide
 es:cereales
@@ -13261,6 +13573,49 @@ https://world.openfoodfacts.org/ingredient/fr:fins%20finots%20de%20blé%20dur/
 # 17 products in 3 languages @20180922
 
 
+# Wheat gluten is a food made from gluten, the main protein of wheat. 
+
+<en:wheat
+en:seitan
+an:Seitán
+ca:seitan
+cs:Seitan
+da:Seitan
+de:Seitan
+eo:Sejtano
+es:Seitán
+eu:Seitan
+fi:Seitan
+fr:seitan
+gl:Seitán
+he:סייטן
+hr:Sejtan
+it:Seitan
+ja:麩
+ko:밀고기
+lt:Kvietinė mėsa
+nl:Seitan
+pl:seitan
+pt:seitan
+ru:Сейтан
+sk:Seitan
+sr:пшенични скроб
+# sr-ec:пшенични скроб
+# sr-el:pšeničни скроб
+sv:Seitan
+tr:Buğday gluteni
+vi:Mì căn
+# yue:麵筋
+zh:面筋
+# zh-hans:面筋
+# zh-hant:麵筋
+# zh-hk:麵筋
+wikidata:en:Q943935
+wikipedia:en:https://en.wikipedia.org/wiki/Wheat_gluten_(food)
+# ingredient/fr:seitan has 43 products @2019-02-09
+# seitan* (eau, protéine de blé) 
+
+
 # Semolina is the coarse, purified wheat middlings of durum wheat mainly used in making pasta and couscous.
 # Be careful that in some languages semolina is also used for coarse grinded rice, maize, etc. Wikipedia is not very consistent.
 
@@ -13426,7 +13781,6 @@ fr:son de blé, son de froment
 it:crusca di frumento
 nl:tarwezemelen
 pt:farelo de trigo
-allergens:fr:son de _blé_
 
 
 # Bread crumbs or breadcrumbs (regional variants:breading, crispies) are sliced residue of dry bread, used for breading or crumbing foods.
@@ -15855,11 +16209,86 @@ fr:sucre du lait
 <en:sugar
 fr:sucre semoule
 
+
+# Molasses (American English) or black treacle (British English) is a viscous product resulting from refining sugarcane or sugar beets into sugar. 
+
+<en:sugar
 en:molasses
-es:melaza
-fr:mélasse
-nl:melasse
+af:Melasse
+sn:Melaza
+ar:دبس السكر
+as:গুড়
+# ast:Melaza
+# atj:Naminas
+bg:Меласа
+bs:Melasa
+ca:Melassa
+cs:Melasa
+cy:Triagl
+da:melass
 de:Melasse
+# de-ch:Melasse
+el:μελάσα
+# en-ca:Molasses
+# en-gb:black treacle
+eo:melaso
+es:melaza
+eu:Melaza
+fa:ملاس
+fi:Melassi
+fr:mélasse, mélasses
+ga:Molás
+gn:Eíra
+he:דבשה
+hi:शीरा
+hr:Melasa
+hu:Melasz
+id:Molase
+ik:Milaasiq
+io:Melaso
+it:melassa
+ja:糖蜜
+jv:Tètès
+kn:ಕಾಕಂಬಿ
+ko:당밀
+ky:Меласса
+lb:Mëlass
+lt:Melasa
+mk:меласа
+mr:काकवी
+nb:melasse
+# new:चाकु
+nl:melasse
+nn:melass
+pl:Melasa
+pt:melaço
+# pt-br:Melaço
+qu:Chankaka
+ru:меласса
+# rue:Меласа
+# sco:molasses
+sh:Melasa
+sk:Melasa
+sr:Меласа
+# sr-ec:Меласа
+sv:melass
+th:กากน้ำตาล
+tl:Pulot
+tr:Melas
+tt:меласса
+uk:меляса
+ur:راب
+vi:Rỉ đường
+zh:糖蜜
+# zh-cn:糖蜜
+# zh-hans:糖蜜
+# zh-hant:糖蜜
+# zh-hk:糖蜜
+# zh-sg:糖蜜
+# zh-tw:糖蜜
+wikidata:en:Q154389
+wikipedia:en:https://en.wikipedia.org/wiki/Molasses
+# ingredient/molasses has 4917 products in 10 languages @2019-02-08
 
 fr:pâte à tarte
 carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
@@ -18095,7 +18524,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Trisodium_phosphate
 
 # Potassium phosphate is a generic term for the salts of potassium and phosphate ions
 
-<en:potassium
 en:potassium phosphates, E340, E 340, E-340
 de:Kaliumphosphate, E340, E 340, E-340
 es:Fosfatos de potasio, Fosfato de potasio, Fosfato potásico, E340, E 340, E-340
@@ -19112,7 +19540,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sodium_bicarbonate
 # fr:500ii has 403 products @2018-11-03
 
 
-<en:sodium carbonates, E500iii, E 500iii, E 500 iii, E-500iii, E500(iii)
+<en:sodium carbonates
 en:sodium sesquicarbonate
 bg:Натриев сескикарбонат
 cs:Seskviuhličitan sodný
@@ -21502,7 +21930,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20cassis
 # RASPBERRY is the edible fruit of a multitude of plant species in the genus Rubus of the rose family
 
 <en:fruit
-<en:fruit rouge
+<fr:fruit rouge
 <fr:fruits des bois
 en:raspberry
 af:Framboos
@@ -22172,7 +22600,7 @@ es:zumo de maracuyá a partir de concentrado
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20fruit%20de%20la%20passion%20à%20base%20de%20concentré
 # 82 products in 4 languages @2018-09-29
 
-<fr:passion fruit
+<en:passion fruit
 <en:purée
 fr:purée de fruit de la passion
 nl:passievruchtenpuree
@@ -25751,6 +26179,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bamboo_shoot
 # ingredient/fr:pousse-de-bambou has 43 products in 4 languages @2019-02-03
 # ingredient/fr:pousses-de-bambou/ has 95 products in 10 languages @2019-02-03
 
+en:fibre, fiber
+fr:fibre
+
 # <en:bamboo
 <en:fibre
 en:bamboo fibre
@@ -28781,6 +29212,11 @@ fr:pousse de haricot mungo
 en:garden peas
 fr:pois doux
 
+<en:garden peas
+fr:petits pois doux
+nl:nl: zoete doperwten
+# ingredient/fr:petits-pois-doux has 38 products in 3 languages @2019-02-07
+
 # The snow pea (Pisum sativum var. saccharatum) is a variety of pea eaten whole in its pod while still unripe.
 
 <en:legume
@@ -30335,6 +30771,57 @@ fr:extraits de plantes
 fr:plantes aromatiques déshydratées
 
 fr:plantes aromatiques
+
+
+# The CAYENNE PEPPER is a type of Capsicum annuum. It is usually a moderately hot chili pepper used to flavor dishes.
+
+en:cayenne pepper
+afBrandrissie
+arفليفلة حريفة
+capebre de Caiena
+daCayennepeber
+de:Cayennepfeffer
+elΚαγιέν
+# en-caCayenne pepper
+# en-gbCayenne pepper
+eoKajena pipro
+es:pimienta de cayena, pimienta roja
+euKaiena
+fiCayennepippuri
+fr:piment de Cayenne, cayenne
+glPementa de Caiena
+heפלפל קאיין
+hrKajenski papar
+huCayenne-i bors
+idCabai cayenne
+itpepe di cayenna, peperoncino di Cayenna
+ja:カイエンペッパー
+ko:카옌고추
+laCapsicum annuum ‘Cayenne’
+lbCayennepeffer
+msLada cayenne
+nbcayennepepper
+nl:cayennepeper
+nnKajennepepar
+plPieprz cayenne
+ptpimenta-caiena
+ruперец кайенский
+svcayennepeppar
+th:พริกชี้ฟ้า
+tlKayena
+# yue:牛角椒
+zh:牛角椒
+wikidata:enQ6598
+wikipedia:en:https://en.wikipedia.org/wiki/Cayenne_pepper
+scoville:en:30000-50000
+# ingredient/cayenne-pepper has 1181 products in 7 languages @2019-02-10
+
+<en:cayenne pepper
+en:dried cayenne pepper
+de:getrockneter Cayennepfeffer
+es:pimienta de cayena seca
+fr:piment de Cayenne séché
+nl:cayennepeper gedroogd
 
 # The wikidata item specifies the dish and not the spice mix
 
@@ -33669,6 +34156,14 @@ de: Olivenpastete
 fr: pâte d'olives
 
 
+en:vine leaves
+de:Weinblätter
+es:hojas de parra
+fr:feuilles de vigne
+it:foglie di vite
+# ingredient/fr:feuilles-de-vigne has 27 products in 5 languages @2019-02-10
+
+
 # Algae is an informal term for a large, diverse group of photosynthetic eukaryotic organisms that are not necessarily closely related, and is thus polyphyletic.
 
 en:algae
@@ -34569,6 +35064,9 @@ sv:svart champinjon
 en:Lentinula edodes , Lentinus edodes
 la:Lentinula edodes
 # ingredient/fr:Lentinus-edodes has 21 products in french @2018-01-22
+
+en:black mushroom
+fr:champignon noir
 
 <en:black mushroom
 fr:champignon noir réhydraté, champignons noirs réhydratés
@@ -40382,7 +40880,6 @@ fr:humectant
 # Should not be in the ingredients
 # fr:energie
 
-fr:gélatine
 
 en:sodium citrate
 fr:citrate de sodium, citrates de sodium
@@ -40452,7 +40949,6 @@ fr:aspartame
 en:carbuba wax
 fr:cire de carnauba
 
-fr:coagulant
 
 fr:bouillon
 
@@ -40978,6 +41474,37 @@ it:estratto di radice di liquirizia
 nl:zoethoutwortelextract
 
 
+# Glucuronolactone is a naturally occurring substance that is an important structural component of nearly all connective tissues.
+
+en:glucuronolactone
+# azb:قلوکورونولاکتون
+cs:Glukuronolakton
+de:Glucuronolacton
+es:glucuronolactona
+fa:گلوکورونولاکتون
+fr:glucuronolactone
+it:glucuronolattone
+ja:グルクロノラクトン
+nb:Glukoronolakton
+nl:Glucuronolacton
+pl:Glukuronolakton
+pt:Glucoronolactona
+ro:Glucoronolactona
+sh:Glukuronolakton
+sr:Glukuronolakton
+sv:Glukuronolakton
+zh:葡萄糖醛酸內酯
+# zh-cn:葡萄糖醛酸内酯
+# zh-hans:葡萄糖醛酸内酯
+# zh-hant:葡萄糖醛酸內酯
+# zh-hk:葡萄糖醛酸內酯
+# zh-sg:葡萄糖醛酸内酯
+# zh-tw:葡萄糖醛酸內酯
+wikidata:en:Q411638
+wikipedia:en:https://en.wikipedia.org/wiki/Glucuronolactone
+# ingredient/fr:glucuronolactone has 31 products in 5 languages @2019-02-09
+
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                                      E G G S     S E C T I O N
@@ -41137,7 +41664,7 @@ nl:gepasteuriseerd ei van hennen met vrije uitloop
 <en:egg
 en:barn eggs
 de:Eier aus Bodenhaltung
-fr:œufs d'élevage au sol, œufs de poules élevées au sol, œufs de ponte au sol, oeufs d'élevage au sol, oeufs de poules élevées au sol, oeufs de ponte au sol
+fr:œufs d'élevage au sol, œufs de poules élevées au sol, œufs de ponte au sol, oeufs d'élevage au sol, oeufs de poules élevées au sol, oeufs de ponte au sol, sol
 it:uova di allevamento al suolo
 nl:scharreleieren
 # ingredient/fr:œufs-d’élevage-au-sol has 168 products in 4 languages @2018-12-18
@@ -41638,7 +42165,8 @@ it: Insalata mista
 # Mélange de salade  (scarole, frisée, chicorée rouge, roquette)
 
 
-# compound product
+fr:pain de mie au blé malté
+# ingredient/fr:pain-de-mie-au-blé-malté has 22 products in french @2019-02-09
 
 fr:gâteau
 # ingredient/fr:gâteau has 59 products in french @2019-02-06
@@ -41650,6 +42178,155 @@ de:Crêpe
 fr:crepe, crêpe, crêpes, crepes
 it:Crepe
 # ingredient/fr:crepe has 142 products in 4 languages @2019-02-05
+
+# mainIngredient:en:wheat
+en:wheat cakes
+de:Weizenfladen
+fr:galette de blé
+it:torte di grano
+# ingredient/fr:galette-de-blé has 60 products in 4 languages @2019-02-09
+# Weizenfladen [ Weizenmehl, Wasser, Kokosnussöl, Kochsalz ]
+
+# mainIngredient:en:wheat
+fr:petit beurre
+# ingredient/fr:petit-beurre has 20 products in french @2018-02-08
+
+# Muesli is a breakfast dish based on raw rolled oats and other ingredients like grains, fresh or dried fruits, seeds and nuts, that may be mixed with milk, soy milk, almond milk, other plant milks, yogurt, or fruit juice. 
+
+# en:müesli is a compound ingredient
+
+en:müesli
+af:Muesli
+be:Мюслі
+# be-tarask:Мюсьлі
+bg:Мюсли
+ca:Musli 
+# ceb:Müesli
+cs:müsli
+da:Müsli
+de:Müesli
+# de-ch:Müesli
+# en-ca:Muesli
+# en-gb:Muesli
+eo:Muslio
+es:Muesli
+et:Müsli
+eu:Muesli
+fi:Mysli
+fr:muesli, müesli
+gl:Muesli
+# gsw:Birchermüesli
+he:מוזלי
+hi:safad musali
+hr:Žitne pahuljice s voćem
+hu:Müzli
+it:Muesli
+ja:ミューズリー
+ko:뮈슬리
+# lmo:Müesli
+lo:ມິວສະລີ
+lt:Miuslis
+ms:Muesli
+# nan:Müsli
+nb:Müsli
+nl:muesli
+oc:Muesli
+pl:Musli
+pt:muesli
+# pt-br:muesli
+ro:Müsli
+ru:Мюсли
+sk:müsli
+sr:Musli
+sv:Müsli
+th:มูสลี
+tl:Müesli
+tr:Müsli
+uk:Мюслі
+zh:木斯里
+wikidata:en:Q52406
+wikipedia:en:https://en.wikipedia.org/wiki/Muesli
+# ingredient/fr:muesli has 46 products in 4 languages @2019-02-07
+
+
+# Nougat is a family of confections made with sugar or honey, roasted nuts (almonds, walnuts, pistachios, hazelnuts, and macadamia nuts are common), whipped egg whites, and sometimes chopped candied fruit. 
+
+# mainIngredient:en:sugar
+en:nougat
+af:Nougat
+ar:نوغة
+az:Nuqa
+ca:nogat
+cs:nugát
+cy:Nyget
+da:nougat
+de:Nougat
+el:Μαντολάτο
+eo:Nugato
+es:nougat
+et:Nugat
+eu:Nogat
+fa:نوقا
+fi:Nougat
+fr:nougat
+ga:Eithneagán
+gl:nougat
+he:נוגט
+hu:nugát
+hy:Նուգա
+id:Nougat
+io:Nugato
+it:torrone, mandorlato
+ja:ヌガー
+ko:누가
+la:Nucatum
+lb:Nougat
+lt:nuga
+lv:nuga
+ml:നൂഗാ
+# nan:Nougat
+nb:nougat
+nl:noga
+oc:v
+pl:nugat
+pt:nougat
+ru:нуга
+# sco:nougat
+sr:Нугат
+# sr-ec:Нугат
+# sr-el:Nugat
+sk:Nugát
+sl:nugat
+sv:nougat
+tr:Nuga
+uk:Нуга
+# vec:Mandołato
+# vep:Nug
+vi:Kẹo Hạnh Phúc
+# yue:鳥結糖
+zh:牛轧糖
+# zh-cn:牛轧糖
+# zh-hans:牛轧糖
+# zh-hant:牛軋糖
+# zh-hk:鳥結糖
+# zh-sg:牛轧糖
+# zh-tw:牛軋糖
+wikidata:en:Q208729
+wikipedia:en:https://en.wikipedia.org/wiki/Nougat
+# ingredient/nougat has 52 products in 5 languages @2019-02-08
+# nougat (cane sugar , hazelnuts 33%, cocoa mass, cocoa butter)
+
+
+# Brittle is a type of confection consisting of flat broken pieces of hard sugar candy embedded with nuts such as pecans, almonds, or peanuts.
+
+<en:sugar-as-main-ingredient
+en:crocant
+de:Krokant
+fr:nougatine
+it:croccante
+wikipedia:en:https://en.wikipedia.org/wiki/Brittle_(food)
+# ingredient/fr:nougatine has 60 products in 4 languages @2019-02-09
+# nougatine (noisettes, sucre)
 
 
 fr:graisse de canard
@@ -41932,8 +42609,6 @@ fr:extraits végétaux
 
 fr:hydroxyde de sodium
 
-fr:coagulant microbien
-
 fr:inositol
 
 fr:praliné
@@ -42201,7 +42876,6 @@ fr:bilimbi
 nl:blimbing
 de:Gurkenbaumfrucht
 
-fr:gélatine de bœuf, gélatine de boeuf
 
 fr:bleu brillant fcf
 
@@ -42577,8 +43251,6 @@ fr:e-252
 fr:e101
 
 fr:e101
-
-fr:e102
 
 fr:e104
 
@@ -43105,19 +43777,6 @@ fr:piment doux
 <fr:piment
 fr:piment fort
 
-en:cayenne pepper
-es:pimienta de cayena
-fr:piment de Cayenne
-nl:cayennepeper
-de:Cayennepfeffer
-scoville:en:30000-50000
-
-<en:cayenne pepper
-en:dried cayenne pepper
-es:pimienta de cayena seca
-fr:piment de Cayenne séché
-nl:cayennepeper gedroogd
-de:getrockneter Cayennepfeffer
 
 
 fr:flageolets
@@ -43264,8 +43923,6 @@ fr:salsifis
 
 fr:charbon végétal médicinal
 
-fr:coagulant enzymatique
-
 fr:oseille
 
 fr:lait frais
@@ -43373,11 +44030,6 @@ fr:morceaux de chocolat noir
 fr:condiment balsamique blanc
 
 fr:oxyde de zinc
-
-fr:gélatine de poisson
-allergens:fr:gélatine de _poisson_
-
-
 
 fr:marc de bourgogne
 
@@ -43945,7 +44597,6 @@ fr:batavia
 
 fr:pois chiches cuits
 
-fr:gélatine non porcine
 
 fr:bouillon déshydraté
 
@@ -44260,97 +44911,6 @@ fr:jus concentré d'os et de viande de bœuf, jus concentré d'os et de viande d
 fr:boyau de mouton
 
 fr:chlorure d'ammonium
-
-fr:feuilles de vigne
-
-fr:gélatine de volaille
-
-fr:poudre de lactosérum sucré
-de:Sussmolkenpulver
-
-fr:acide carbonique
-de:Kohlensaure
-
-fr:marc de champagne
-
-fr:sol
-
-fr:conservateur de fruit
-
-fr:cayenne
-
-fr:plasma déshydraté
-
-fr:son
-
-fr:seitan
-
-fr:acétate de potassium
-
-fr:galette de blé
-allergens:fr:galette de _blé_
-
-
-
-
-fr:graisses végétales non hydrogénées
-
-fr:shiitakes
-
-
-fr:tartrazine
-es:Tartrazina
-
-fr:glucuronolactone
-
-fr:fumarate de fer
-
-fr:petit beurre
-allergens:fr:petit _beurre_
-
-en:niacinamide
-fr:niacinamide
-
-fr:jus concentré
-
-fr:mélasses
-
-en:nougat
-fr:nougat
-
-fr:nougatine
-
-<pain
-fr:pain de mie au blé malté
-allergens:fr:pain de mie au _blé_ malté
-
-fr:monodiglycérides de colza
-
-fr:agents de coagulation
-
-fr:petits pois doux
-
-fr:sulfite de sodium
-allergens:fr:_sulfite_ de sodium
-
-fr:dérivés de lait
-allergens:fr:dérivés de _lait_
-
-fr:steak haché
-
-fr:tuber aestivum
-
-fr:transglutaminase
-
-fr:tahini
-
-fr:pâtes fraîches cuites
-
-fr:produit de lactosérum
-allergens:fr:produit de _lactosérum_
-
-
-fr:muesli
 
 
 
