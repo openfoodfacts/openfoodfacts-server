@@ -328,7 +328,8 @@ $csv->column_names ($csv->getline ($io));
 my $skip_not_existing = 0;
 my $skip_no_images = 0;
 
-my $skip_until = 8018759001393;
+#my $skip_until = 8018759001393;
+my $skip_until;
 
 while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
@@ -527,10 +528,10 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 				# brands -> remove existing values;
 				# allergens -> remove existing values;
-				#if (($field eq 'brands') or ($field eq 'allergens')) {
-				#	$product_ref->{$field} = "";
-				#	delete $product_ref->{$field . "_tags"};
-				#}
+				if (($field eq 'brands') and ($product_ref->{$field} =~ /coq/i) ) {
+					$product_ref->{$field} = "";
+					delete $product_ref->{$field . "_tags"};
+				}
 
 				my %existing = ();
 					if (defined $product_ref->{$field . "_tags"}) {
@@ -855,7 +856,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		$stats{products_data_not_updated}{$code} = 1;
 
 	}
-	elsif ((defined $skip_products_without_info) and ($stats{products_without_info}{$code})) {
+	elsif (($skip_products_without_info) and ($stats{products_without_info}{$code})) {
 		print "skipping product code $code - product without info and --skip_products_without_info \n";
 	}
 	else {
@@ -1074,7 +1075,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 
 	if ($modified) {
-	#	$j++ > 10 and last;
+		$j++ > 10 and last;
 	}
 }
 

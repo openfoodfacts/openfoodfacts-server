@@ -6863,6 +6863,14 @@ $html_fields
 HTML
 ;
 	}
+	
+	if ($admin) {
+		compute_carbon_footprint_infocard($product_ref);	
+		$html .= display_field($product_ref, 'environment_infocard');
+		if (defined $product_ref->{"carbon_footprint_from_meat_or_fish_debug"}) {
+			$html .= "<p>debug: " . $product_ref->{"carbon_footprint_from_meat_or_fish_debug"} . "</p>";
+		}
+	}
 
 	# photos and data sources
 
@@ -7918,6 +7926,7 @@ HTML
 
 		if  (($nutriment !~ /-$/)
 			or ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
+			or ((defined $product_ref->{nutriments}{$nid . "_100g"}) and ($product_ref->{nutriments}{$nid . "_100g"} ne ''))
 			or ((defined $product_ref->{nutriments}{$nid . "_prepared"}) and ($product_ref->{nutriments}{$nid . "_prepared"} ne ''))
 			or ($nid eq 'new_0') or ($nid eq 'new_1')) {
 			$shown = 1;
@@ -8239,7 +8248,7 @@ HTML
 
 		if (not $shown) {
 		}
-		elsif ($nid eq 'carbon-footprint') {
+		elsif (($nid eq 'carbon-footprint') or ($nid eq 'carbon-footprint-from-meat-or-fish')) {
 
 			$html2 .= <<HTML
 <tr id="ecological_footprint"><td style="padding-top:10px;font-weight:bold;">$Lang{ecological_data_table}{$lang}</td>$empty_cols</tr>
@@ -8349,6 +8358,9 @@ HTML
 		if (defined $request_ref->{fields}) {
 			my $compact_product_ref = {};
 			foreach my $field (split(/,/, $request_ref->{fields})) {
+				if ($field =~ /^environment_infocard/) {
+					compute_carbon_footprint_infocard($product_ref);
+				}			
 				if (defined $product_ref->{$field}) {
 					$compact_product_ref->{$field} = $product_ref->{$field};
 				}

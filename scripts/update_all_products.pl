@@ -129,7 +129,7 @@ if ($unknown_fields > 0) {
 }
 
 if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $compute_nova) 
-	and (not $compute_codes) and (not $check_quality) and (scalar @fields_to_update == 0)) {
+	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0)) {
 	die("Missing fields to update:\n$usage");
 }  
 
@@ -232,7 +232,9 @@ while (my $product_ref = $cursor->next) {
 		if ($compute_carbon) {
 			compute_carbon_footprint_from_ingredients($product_ref);
 			compute_serving_size_data($product_ref);
-			compute_carbon_footprint_infocard($product_ref);			
+			delete $product_ref->{environment_infocard};
+			delete $product_ref->{environment_infocard_en};
+			delete $product_ref->{environment_infocard_fr};		
 		}
 		
 		if ($check_quality) {
