@@ -114,7 +114,10 @@ LanguagePF => sub { '%languages' => [$_[1]->{language_name} => $_[1]->{Content}]
 #"u" => sub { $_[0] => "<u>" . $_[1]->{_content} . "</u>"},
 #"em" => sub { $_[0] => "<em>" . $_[1]->{_content} . "</em>"},
 
-"b" => "==bcontent",
+#"b" => "pass",
+#"strong" => "pass",
+"b" => sub { return '<b>' . $_[1]->{_content} . '</b>' },
+"strong" => sub { return '<strong>' . $_[1]->{_content} . '</strong>' },
 "u" => sub { return '<u>' . $_[1]->{_content} . '</u>' },
 "em" => "pass",
 

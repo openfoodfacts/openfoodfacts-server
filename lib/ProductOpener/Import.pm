@@ -483,6 +483,9 @@ sub clean_fields($) {
 			if ($field =~ /^ingredients_text/) {
 			
 				# Traces de<b> fruits à coque </b>
+
+				$product_ref->{$field} =~ s/<strong>/<b>/g;
+				$product_ref->{$field} =~ s/<\/strong>/<\/b>/g;
 			
 				$product_ref->{$field} =~ s/(<b><u>|<u><b>)/<b>/g;
 				$product_ref->{$field} =~ s/(<\b><\u>|<\u><\b>)/<\b>/g;
@@ -501,7 +504,7 @@ sub clean_fields($) {
 				
 				# d_'œufs_
 				# _lait)_
-				$product_ref->{$field} =~ s/<b>(\w)/$1<b>/g;
+				$product_ref->{$field} =~ s/<b>'(\w)/$1'<b>/g;
 				$product_ref->{$field} =~ s/(\w)<\/b>/<b>$1/g;
 				
 
