@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-02-03 10:59\n"
+"PO-Revision-Date: 2019-02-15 11:47\n"
 "Language-Team: Spanish\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -668,7 +668,7 @@ msgstr "Código de conducta"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/codigo-de-conducta"
 
 msgctxt "footer_data"
 msgid "Data"
@@ -690,7 +690,7 @@ msgstr "Preguntas frecuentes"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "/faq"
-msgstr ""
+msgstr "/preguntas-frecuentes"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -737,7 +737,7 @@ msgstr "Prensa"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr ""
+msgstr "/prensa"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -1310,7 +1310,7 @@ msgstr "Añadir un producto"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr ""
+msgstr "/agregar-producto"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -1441,7 +1441,7 @@ msgstr "Valores nutricionales por 100 g"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/valor-nutricional"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -2971,6 +2971,10 @@ msgctxt "producer_version_id"
 msgid "Producer version identifier"
 msgstr ""
 
+msgctxt "producer_product_id"
+msgid "Producer product identifier"
+msgstr ""
+
 msgctxt "net_weight"
 msgid "Net weight"
 msgstr ""
@@ -2991,6 +2995,30 @@ msgctxt "conservation_conditions"
 msgid "Conservation conditions"
 msgstr ""
 
+msgctxt "warning"
+msgid "Warning"
+msgstr "Aviso"
+
+msgctxt "preparation"
+msgid "Preparation"
+msgstr ""
+
+msgctxt "recipe_idea"
+msgid "Recipe idea"
+msgstr ""
+
+msgctxt "origin"
+msgid "Origin"
+msgstr ""
+
+msgctxt "customer_service"
+msgid "Customer service"
+msgstr ""
+
+msgctxt "producer"
+msgid "Producer"
+msgstr ""
+
 msgctxt "recycling_instructions_to_recycle"
 msgid "Recycling instructions - To recycle"
 msgstr ""
@@ -3009,39 +3037,39 @@ msgstr ""
 
 msgctxt "correctors_products"
 msgid "Products corrected by %s"
-msgstr ""
+msgstr "Productos corregidos por %s"
 
 msgctxt "correctors_without_products"
 msgid "Products not corrected by %s"
-msgstr ""
+msgstr "Productos no corregidos por %s"
 
 msgctxt "editors_products"
 msgid "Products edited by %s"
-msgstr ""
+msgstr "Productos editados por %s"
 
 msgctxt "editors_without_products"
 msgid "Products not edited by %s"
-msgstr ""
+msgstr "Productos no editados por %s"
 
 msgctxt "informers_products"
 msgid "Products completed by %s"
-msgstr ""
+msgstr "Productos completados por %s"
 
 msgctxt "informers_without_products"
 msgid "Products not completed by %s"
-msgstr ""
+msgstr "Productos no completados por %s"
 
 msgctxt "photographers_products"
 msgid "Products photographed by %s"
-msgstr ""
+msgstr "Productos fotografiados por %s"
 
 msgctxt "photographers_without_products"
 msgid "Products not photographed by %s"
-msgstr ""
+msgstr "Productos no fotografiados por %s"
 
 msgctxt "user_s_page"
 msgid "%s's page"
-msgstr ""
+msgstr "Página de %s"
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
@@ -3118,4 +3146,20 @@ msgstr "Obtenga la aplicación para iPhone"
 msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
 msgstr "Obtenga la aplicación para iPad"
+
+msgctxt "environment_infocard"
+msgid "Environment infocard"
+msgstr ""
+
+msgctxt "environment_infocard_note"
+msgid "HTML code for the environment infocard in the mobile application"
+msgstr ""
+
+msgctxt "environment_impact_level"
+msgid "Environment impact level"
+msgstr ""
+
+msgctxt "environment_impact_level_example"
+msgid "en:low, en:medium or en:high"
+msgstr ""
 
