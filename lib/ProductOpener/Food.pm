@@ -2422,6 +2422,10 @@ salt => {
 	ro => "Vitamina B6",
 	bg => "Витамин B6",
 	zh => "维生素B6",
+
+	unit => "mg",
+	dv => 2.0,
+	dv_2016 => 1.7,	
 },
 'vitamin-b9' => {
 	fr => "Vitamine B9 (Acide folique)",
