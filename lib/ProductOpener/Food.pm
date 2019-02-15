@@ -61,6 +61,7 @@ BEGIN
 					&compute_unknown_nutrients
 					&compute_nutrient_levels
 					&compute_units_of_alcohol
+					&compute_carbon_footprint_infocard
 					
 					&compare_nutriments
 					
@@ -390,11 +391,13 @@ sub mmoll_to_unit {
 		'taurine-',
 		'ph-',
 		'fruits-vegetables-nuts-',
+		'fruits-vegetables-nuts-dried',
 		'fruits-vegetables-nuts-estimate-',
 		'collagen-meat-protein-ratio-',
 		'cocoa-',
 		'chlorophyl-',
 		'carbon-footprint',
+		'carbon-footprint-from-meat-or-fish-',
 		'nutrition-score-fr-',
 		'nutrition-score-uk-',
 		'glycemic-index-',
@@ -500,11 +503,13 @@ sub mmoll_to_unit {
 		'taurine-',
 		'ph-',
 		'fruits-vegetables-nuts-',
+		'fruits-vegetables-nuts-dried',
 		'fruits-vegetables-nuts-estimate-',
 		'collagen-meat-protein-ratio-',
 		'cocoa-',
 		'chlorophyl-',
 		'carbon-footprint',
+		'carbon-footprint-from-meat-or-fish-',		
 		'nutrition-score-fr-',
 		'nutrition-score-uk-',
 		'glycemic-index-',
@@ -609,11 +614,13 @@ sub mmoll_to_unit {
 		'taurine-',
 		'ph-',
 		'fruits-vegetables-nuts-',
+		'fruits-vegetables-nuts-dried',
 		'fruits-vegetables-nuts-estimate-',
 		'collagen-meat-protein-ratio-',
 		'cocoa-',
 		'chlorophyl-',
 		'carbon-footprint',
+		'carbon-footprint-from-meat-or-fish-',		
 		'nutrition-score-fr-',
 		'nutrition-score-uk-',
 		'glycemic-index-',
@@ -720,11 +727,13 @@ sub mmoll_to_unit {
 		'taurine-',
 		'ph-',
 		'fruits-vegetables-nuts-',
+		'fruits-vegetables-nuts-dried',
 		'fruits-vegetables-nuts-estimate-',
 		'collagen-meat-protein-ratio-',
 		'cocoa-',
 		'chlorophyl-',
 		'carbon-footprint',
+		'carbon-footprint-from-meat-or-fish-',		
 		'nutrition-score-fr-',
 		'nutrition-score-uk-',
 		'glycemic-index-',
@@ -826,11 +835,13 @@ sub mmoll_to_unit {
 		'taurine-',
 		'ph-',
 		'fruits-vegetables-nuts-',
+		'fruits-vegetables-nuts-dried',
 		'fruits-vegetables-nuts-estimate-',
 		'collagen-meat-protein-ratio-',
 		'cocoa-',
 		'chlorophyl-',
 		'carbon-footprint',
+		'carbon-footprint-from-meat-or-fish-',		
 		'nutrition-score-fr-',
 		'nutrition-score-uk-',
 		'glycemic-index-',
@@ -3107,6 +3118,13 @@ ph => {
 	nl_be => "Ecologische voetafdruk / CO2-uitstoot",
 	unit => "g",
 },
+"carbon-footprint-from-meat-or-fish" => {
+	fr => "Empreinte carbone de la viande ou du poisson",
+	en => "Carbon footprint from meat or fish",
+	unit => "g",
+},
+
+
 'glycemic-index' => {
 	en => "Glycemic Index",
 	de => "Glykämischer Index",
@@ -3120,15 +3138,21 @@ ph => {
 	unit => "mmol/l",
 },
 "fruits-vegetables-nuts" => {
-	en => "Fruits, vegetables and nuts (minimum)",
-	fr => "Fruits, légumes et noix (minimum)",
-	es => "Frutas, verduras y nueces (mínimo)",
-	el => "Φρούτα, λαχανικά, καρποί (ελάχιστο)",
-	nl => "Fruit, groenten en noten (minimum)",
-	nl_be => "Fruit, groenten en noten (minimum)",
-	de => "Obst, Gemüse und Nüsse (Minimum)",
+	en => "Fruits, vegetables and nuts",
+	fr => "Fruits, légumes et noix",
+	es => "Frutas, verduras y nueces",
+	el => "Φρούτα, λαχανικά, καρποί",
+	nl => "Fruit, groenten en noten",
+	nl_be => "Fruit, groenten en noten",
+	de => "Obst, Gemüse und Nüsse",
 	unit => "%",
 },
+"fruits-vegetables-nuts-dried" => {
+	en => "Fruits, vegetables and nuts - dried",
+	fr => "Fruits, légumes et noix - séchés",
+	unit => "%",
+},
+
 "fruits-vegetables-nuts-estimate" => {
 	en => "Fruits, vegetables and nuts (estimate from ingredients list)",
 	fr => "Fruits, légumes et noix (estimation avec la liste des ingrédients)",
@@ -3823,7 +3847,7 @@ sub compute_nutrition_score($) {
 	delete $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts};
 
 	defined $product_ref->{misc_tags} or $product_ref->{misc_tags} = [];
-	
+
 	$product_ref->{misc_tags} = ["en:nutriscore-not-computed"];
 	
 	my $prepared = '';
@@ -4000,7 +4024,19 @@ sub compute_nutrition_score($) {
 	# points for fruits, vegetables and nuts
 		
 	my $fruits = undef;
-	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
+	
+	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"}) {
+		$fruits = 2 * $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"};
+		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-dried";
+		
+		if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
+			$fruits += $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
+			push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
+		}
+		
+		$fruits = $fruits * 100 / (100 + $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"});
+	}	
+	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
 		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
 		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
 	}
@@ -4411,9 +4447,85 @@ sub compute_serving_size_data($) {
 			}	
 		
 		}
+		
+		# Carbon footprint
+		if (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"}) {
+		
+			if (defined $product_ref->{serving_quantity}) {
+				$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"}
+				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} / 100.0 * $product_ref->{serving_quantity}) + 0.0;
+			}
+			
+			if (defined $product_ref->{product_quantity}) {
+				$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"}
+				= sprintf("%.2e",$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} / 100.0 * $product_ref->{product_quantity}) + 0.0;
+			}
+		}
 	
 	}
 
+}
+
+
+sub compute_carbon_footprint_infocard($) {
+
+	my $product_ref = shift;
+	
+	if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"})) {
+
+		foreach my $lang ("en", "fr") {
+			my $html = "<h2>" . $Lang{carbon_impact_from_meat_or_fish}{$lang} . "</h2>";
+			
+			$html .= "<ul>\n";
+			
+			$html .= "<li><b>" . (sprintf("%.2e", $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"} / 1000) + 0.0)
+				. " kg</b> " . $Lang{of_carbon_impact_from_meat_or_fish_for_whole_product}{$lang};
+				
+			if (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"}) {
+				$html .= " (<b>" .( sprintf("%.2e", $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"} / 1000) + 0.0)
+				. " kg</b> " . $Lang{for_one_serving}{$lang} . ")";
+			}
+			
+			$html .= "</li>\n";
+			
+			# COP 21 sustainable amount of CO2 per person per year: 2 tons
+			my %sustainable = (annual => 2000 * 1000);
+			$sustainable{daily} = $sustainable{annual} / 365;
+			$sustainable{weekly} = $sustainable{daily} * 7;
+			
+			foreach my $period ("daily", "weekly") {
+			
+				$html .= "<li><b>" . (sprintf("%.2e", $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"} / $sustainable{$period} * 100) + 0.0)
+					. "%</b> " . $Lang{"of_sustainable_" . $period . "_emissions_of_1_person"}{$lang};
+					
+				if (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"}) {
+					$html .= " (<b>" .( sprintf("%.2e", $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"} / $sustainable{$period} * 100) + 0.0)
+					. "%</b> " . $Lang{for_one_serving}{$lang} . ")";
+				}
+				
+				$html .= "</li>\n";				
+			}
+	
+			$html .= "</ul>";
+			
+			$html .= "<br><br>";
+			
+			$html .= "<h3>" . $Lang{methodology}{$lang} . "</h3>"
+			. "<p>" . $Lang{carbon_footprint_note_foodges_ademe}{$lang} . "</p>"
+			. "<p>" . $Lang{carbon_footprint_note_sustainable_annual_emissions}{$lang} . "</p>"
+			. "<p>" . $Lang{carbon_footprint_note_uncertainty}{$lang} . "</p>";
+			
+			$product_ref->{"environment_infocard_" . $lang} = $html;
+		}
+		
+		# copy the main language
+		if (defined $product_ref->{"environment_infocard_" . $product_ref->{lc}}) {
+			$product_ref->{environment_infocard} = $product_ref->{"environment_infocard_" . $product_ref->{lc}};
+		}
+		else {
+			$product_ref->{environment_infocard} = $product_ref->{environment_infocard_en};
+		}
+	}
 }
 
 

@@ -761,6 +761,7 @@ sub load_csv_file($) {
 	my $separator = $options_ref->{separator};
 	my $skip_lines = $options_ref->{skip_lines};
 	my $skip_non_existing_products = $options_ref->{skip_non_existing_products};
+	my $skip_empty_codes = $options_ref->{skip_empty_codes};
 	my @csv_fields_mapping = @{$options_ref->{csv_fields_mapping}};
 		
 	# e.g. load_csv_file($file, "UTF-8", "\t", 4);
@@ -819,6 +820,10 @@ sub load_csv_file($) {
 					}
 					elsif ((defined $skip_non_existing_products) and ($skip_non_existing_products) and (not exists $products{$code})) {
 						print STDERR "skipping non existing product\n";
+						last;
+					}
+					elsif ((defined $skip_empty_codes) and ((not defined $code) or ($code eq ""))) {
+						print STDERR "skipping empty code\n";					
 						last;
 					}
 					else {

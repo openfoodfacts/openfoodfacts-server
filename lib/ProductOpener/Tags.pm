@@ -36,6 +36,7 @@ BEGIN
 					&has_tag
 					&add_tag
 					&remove_tag
+					&is_a
 	
 					%canon_tags
 					%tags_images
@@ -213,6 +214,37 @@ sub has_tag($$$) {
 		}
 	}
 	return $return;
+}
+
+# Determine if a tag is a child of another tag (ot the same tag)
+# assume tags are already canonicalized
+sub is_a($$$) {
+	
+	my $tagtype = shift;
+	my $child = shift;
+	my $parent = shift;
+	
+	#$log->debug("is_a", { tagtype => $tagtype, child => $child, parent => $parent }) if $log->is_debug();
+
+	my $found = 0;
+	
+	if ($child eq $parent) {
+		$found = 1;
+	}
+	elsif ((defined $all_parents{$tagtype})	and (defined $all_parents{$tagtype}{$child})) {
+		
+		#$log->debug("is_a - parents found") if $log->is_debug();
+	
+		foreach my $tagid (@{$all_parents{$tagtype}{$child}}) {
+			#$log->debug("is_a - comparing parents", {tagid => $tagid}) if $log->is_debug();
+			if ($tagid eq $parent) {
+				$found = 1;
+				last;
+			}
+		}
+	}
+
+	return $found;
 }
 
 
