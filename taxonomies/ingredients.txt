@@ -20268,8 +20268,8 @@ nl:vruchtsap van concentraat, vruchtensap uit concentraat
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20fruits%20à%20base%20de%20concentré
 # 650 products in 7 languages @2018-10-04
 
-# Is an AGGREGATE ingredient
 
+# <en:compound
 <en:fruit
 <en:purée
 fr:purée de fruits, purées de fruits
@@ -20286,7 +20286,7 @@ fr:jus et purées de fruits
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20et%20purées%20de%20fruits
 # 56 products in 1 language @2018-10-04
 
-# Is and AGGEGATE, i.e. ingredient: jus et purées de fruits à base de concentré : pomme, mangue, orange, ananas et fruits de la passion.
+# Is and Compound, i.e. ingredient: jus et purées de fruits à base de concentré : pomme, mangue, orange, ananas et fruits de la passion.
 
 <fr:jus et purées de fruits
 fr:jus et purées de fruits à base de concentrés
@@ -20328,6 +20328,176 @@ de:Früchtekonzentrate
 it:concentrati di frutta
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentrés%20de%20fruits
 # 42 products in 3 languages @2018-10-04
+
+
+# APRICOT is a fruit, or the tree that bears the fruit, of several species in the genus Prunus (stone fruits).
+
+<en:fruit
+en:apricot
+ab:аҷарам
+# aeb-arab:كعبة مشماش
+# aeb-latn:mech'mèch'
+af:appelkoos
+an:alberje
+ar:مشمش
+# arz:مشمشة
+# ast:albaricoque
+az:ərik
+be:абрыкос
+bg:кайсия
+bn:খুবানি
+br:abriko
+bs:kajsija
+ca:albercoc
+ce:Туьрк
+# chr:ᏓᎶᏂᎨ ᎠᏓᏛᏍᎩ
+# chy:Ová'kemene
+co:Baracuccu
+# crh-latn:qaysı
+cs:meruňka
+cy:bricyllen
+da:abrikos
+de:Aprikose, Aprikosen
+# dsb:Aprikoza
+el:Βερίκοκο
+eo:Abrikoto
+es:albaricoque, albaricoques
+et:aprikoos
+eu:abrikot
+fa:زردآلو
+fi:aprikoosi
+fo:aprikosa
+fr:abricot
+fy:abrikoas
+ga:aibreog
+# gag:zerdeli
+gd:apragod
+gl:Albaricoque
+gv:apricoc
+he:מִשְׁמֵשׁ
+hi:खुबानी
+hr:marelica
+# hsb:Aprikoza
+ht:zabriko
+hu:sárgabarack
+hy:ծիրան
+id:aprikot
+io:Abrikoto
+is:apríkósa
+it:albicocca
+ja:杏子
+ka:გარგარი
+kk:өрік
+kn:ಜರ್ದಾಳು
+ko:살구
+# krc:шаптал
+ku:qeysî
+kw:brykethen
+ky:өрүк
+la:Armeniacum
+lo:ໝາກຄາຍ
+lt:abrikosas
+lv:aprikoze
+mg:aprikaoty
+mk:кајсија
+mn:чангаанз
+mr:जर्दाळू
+ms:aprikot
+mt:berquqa
+# nan:Hēng
+# nap:Aprecocca
+nb:aprikos
+nl:abrikoos
+nn:aprikos
+# nov:abrikote
+# nso:apolêkôsê
+nv:dzidzétsoh díkʼǫ́ǫzhii
+oc:Albricòt
+or:ଆପ୍ରୀକଟ
+os:абрикос
+pa:ਖ਼ੁਰਮਾਨੀ
+# pap:aprikòt
+# pdc:Abrigos
+pl:Morela
+# pnb:خرمانی
+ps:خوبانۍ
+pt:damasco
+rm:apricosa
+ro:caisă
+ru:абрикос
+# scn:barcocu
+# sco:apricot
+sd:زردالو
+# sdc:barracoc
+se:aprikosa
+sh:кајсија
+sk:marhuľa
+sl:marelica
+so:safiican
+sq:kajsi
+sr:кајсија
+st:apolokose
+sv:aprikos
+sw:Aprikoti
+ta:சர்க்கரை பாதாமி
+tg:зардолу
+th:แอพริคอต
+tk:erik
+tr:kayısı
+tt:өрек
+uk:абрикос
+ur:خوبانی
+# vec:armełin
+vi:mơ tây
+vo:brikod
+# vro:Aprikuus
+wa:åbricot
+# war:Prunus armeniaca
+yi:אַפּריקאָס
+# yue:杏桃
+zh:杏
+# zh-cn:杏
+wikipedia:en:https://en.wikipedia.org/wiki/Apricot
+wikidata:en:Q3733836
+openfoodfacts:https://world.openfoodfacts.org/ingredient/apricot
+# 1729 products @2018-09-29
+
+<en:apricot
+<en:purée
+en:apricot purée
+fr:purée d'abricots, purée d'abricot, pulpe d'abricot
+de:Aprikosenpüree
+it:purea di albicocca
+nl:abrikozenpuree
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20d'abricots
+# 265 products in 5 languages @2018-09-29
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe%20d'abricot
+# 40 products in 1 language @2018-09-29
+
+<en:apricot
+en:dried apricots
+de:getrocknete Aprikosen
+es:albaricoques deshidratados
+fr:abricots secs, abricots séchés
+it:albicocche secche
+nl:gedroogde abrikozen
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:abricots%20secs
+# 138 products in 5 languages @2018-09-29
+
+<en:apricot
+en:apricot kernels
+es:huesos de albaricoque
+fr:noyaux d'abricots, noyau d'abricot
+nl:abrikozenpitten
+de:Aprikosenkerne
+openfoodfacts:https://world.openfoodfacts.org/ingredient/apricot-kernels
+# 97 products @2018-09-29
+
+# This is a compound ingredient
+
+<en:apricot
+es:mermelada de albaricoque
+
 
 # BANANA is an edible fruit – botanically a berry – produced by several kinds of large herbaceous flowering plants in the genus Musa
 
@@ -20504,7 +20674,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/banana-puree
 # 612 products in 6 languages @2018-09-26
 
 
-# The durian is the fruit of several tree species belonging to the genus Durio.
+# The DURIAN is the fruit of several tree species belonging to the genus Durio.
 # wikipedia and wikidata mix species, tree and fruit.
 
 <en:fruit
@@ -20527,7 +20697,271 @@ wikipedia:en:https://en.wikipedia.org/wiki/Durian
 openfoodfacts:https://world.openfoodfacts.org/ingredient/durian
 # 3 products in 1 language @2018-09-27
 
-# The pear is any of several tree and shrub species of genus Pyrus, in the family Rosaceae. Note this refers to the tree and not the fruit
+
+# CRANBERRIES are a group of evergreen dwarf shrubs or trailing vines in the subgenus Oxycoccus of the genus Vaccinium.
+# It is possible that a subgroup needs to be created for the different species. The european and american varieties are mixed here.
+# In Britain, cranberry may refer to the native species Vaccinium oxycoccos, while in North America, cranberry may refer to Vaccinium macrocarpon.
+
+<en:fruit
+en:cranberry
+ar:عنبية حادة الخباء
+#s ast:Arándanu coloráu
+# atj:Mickekominan
+az:Mərcanı
+ba:Мүк еләге
+# bat-smg:Spangoulė
+be:Журавіны
+ca:Nabiu de grua
+cs:Klikva
+# csb:Kwasnica
+cy:Llugaeron
+de:Moosbeeren, Cranberry, Cranberrys
+# dsb:Žorawina
+eo:Oksikoko
+es:arándano rojo
+et:Jõhvikas, Harilik jõhvikas
+fa:کرنبری
+fo:Tranuber
+fr:airelles, cranberries, cranberry, cranberrys, Canneberge
+ga:Mónóg
+gl:Arandeira vermella
+gv:Smeyr churree
+he:חמוצית
+hr:Brusnica
+# hsb:Tymjenka
+hy:Լոռամրգի
+id:Kranberi
+ja:クランベリー
+it:cranberries
+kk:Мүкжидек
+kv:Турипув
+lt:Spanguolė
+mk:Брусница
+mn:Цангис
+mr:क्रॅनबेरी
+nl:veenbessen, cranberry
+nn:Tranebær
+no:Tranebær
+# olo:Garbalo
+os:Сырхнæмыг
+# pam:Cranberry
+pl:żurawina
+pt:arandos, oxicocos
+ru:Клюква
+# scn:Milucuccu
+sh:Brusnica
+sr:Брусница
+sv:Tranbär
+th:แครนเบอร์รี
+tl:Kranberya
+# udm:Нюрмульы
+uk:Журавлина
+# vep:Garbol
+vi:Mạn việt quất
+wa:Bicoine
+zh:小紅莓
+# yue:金啤梨
+wikipedia:en:https://en.wikipedia.org/wiki/Cranberry
+wikidata:en:Q13181
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cranberries
+# 429 products in 8 languages @2018-09-26
+
+<en:cranberry
+fr:canneberges séchées, cranberries séchées
+de:Cranberries getrocknet
+it:cranberry secchi
+# ingredient/fr:canneberges-séchées has 57 products in 4 languages @2018-12-29
+
+<en:cranberry
+<en:fruit juice
+fr:jus de cranberry à base de concentré
+de:Cranberrysaft (Moosbeerensaft) aus Cranberrysaftkonzentrat
+it:succo di mirtillo rosso da concentrato
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20cranberry%20à%20base%20de%20concentré
+# 32 products in 3 languages @2018-10-02
+
+
+# MANGO are juicy stone fruit (drupe) from numerous species of tropical trees belonging to the flowering plant genus Mangifera, cultivated mostly for their edible fruit.
+
+<en:fruit
+en:mango
+# ace:Mamplam
+af:Veselperske
+ar:منجا
+as:আম
+# atj:Wamincic ka mirokisitc
+ay:Catuña
+az:Manqo
+# bcl:Mangga
+bh:आम
+# bik:Mangga
+bm:Mangoro
+bn:আম
+br:Mangez
+cs:Mango
+da:Mango
+de:Mango
+# dty:आँम
+dv:އަނބު
+dz:ཨམ་ཅུ་ཀུ་ལི
+ee:Maŋgo
+el:Μάνγκο
+es:mango
+et:Mango
+eu:Mango
+fa:انبه
+fi:Mango
+# fiu-vro:Mango
+fr:mangue, mangues
+ga:Mangó
+gl:Manga
+# gom:Ambo
+# hak:Fân-son
+hi:आम
+hr:Mango
+ht:Mango
+hu:Mangó
+id:Mangga
+# ilo:Mangga
+io:Mango
+is:Mangó
+it:mango
+# jam:Manggo
+ka:მანგო
+kg:Manga
+ko:망고
+# koi:Манго
+kv:Манго
+lb:Mango
+# lbe:Манго
+lv:Mango
+# mai:आम
+mg:Manga
+# mrj:Манго
+ms:Mangga
+my:သရက်သီး
+nl:mango
+# nso:Menkô
+nv:Naakaii bichʼil łitsxooí
+oc:Manga
+os:Манго
+pa:ਅੰਬ
+# pam:Mangga
+# pap:Mango
+pl:Mango
+# pnb:امب
+pt:manga
+ru:Манго
+rw:Umwembe
+# scn:Mangu
+# sco:Mango
+sd:انب
+sk:Mango
+sl:mango
+so:Cambe
+sr:mango
+sv:mango
+sw:Embe
+ta:மா
+tg:Анба
+tr:Mango
+ty:Vī
+# udm:Манго
+ug:مانگو
+uk:Манго
+ur:آم
+uz:अं
+vi:Xoài
+# war:Mangga
+za:Makmanghgoj
+zh:芒果
+# yue:芒果
+wikidata:en:Q3919027
+wikipedia:en:https://en.wikipedia.org/wiki/Mango
+openfoodfacts:https://world.openfoodfacts.org/ingredient/mango
+# 1597 products in 10 languages @2018-09-27
+
+<en:mango
+fr:Mangue importée en avion
+carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en avion
+
+<en:mango
+fr:Mangue importée en bateau
+carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en bateau
+
+<en:mango
+<en:purée
+en:mango puree
+de:Mangopüree, Mangomark
+fr:purée de mangue, purée de mangues
+it:polpa di mango
+nl:mangopuree
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20mangue
+# 393 products @2018-09-27
+
+
+# <en:mango
+fr:noyaux de mangue
+# ingredient/fr:noyaux-de-mangue has 30 products in french @2018-12-12
+
+<en:mango
+fr:pulpe de mangue
+de:Mangopulpe, Mangomark
+it:polpa di mango
+# ingredient/fr:pulpe-de-mangue has 49 products in 3 languages @2018-12-12
+
+
+# The PEACH (Prunus persica) is a deciduous tree native to the region of Northwest China
+# The wikipedia entry mixes the name of the tree and the name of the fruit
+
+<en:fruit
+en:peach
+an:presiquera
+ar:دراق
+be:Персік
+bg:Праскова
+br:Pechez
+bs:Breskva
+ca:préssec
+cs:broskev
+de:Pfirsich
+el:Ροδάκινο
+eo:persiko
+fr:pêche
+gl:Pexego
+hi:आड़ू
+io:Persiko
+it:pesca, pesche
+ja:桃
+kk:Шабдалы
+lb:Piisch
+# nah:Durazno
+nl:perziken
+oc:Persec
+pl:Brzoskwinia
+pt:pêssegos
+ru:персик
+# scn:pèrsica
+sk:Broskyňa
+# szl:Fyrzicha
+# zh-min-nan:Thô-á
+wikipedia:en:https://en.wikipedia.org/wiki/Peach
+wikidata:en:Q13411121
+openfoodfacts:https://world.openfoodfacts.org/ingredient/peach
+# 1065 products in 7 languages @2018-09-26
+carbon_footprint_fr_foodges_ingredient:fr:Pêche
+
+<en:peach
+<en:purée
+en:peach puree
+de:Pfirsichpurée
+fr:purée de pêches, purée de pêche
+it:purea di pesche
+openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20pêches
+# 147 products in 4 languages @2018-09-26
+
+
+# The PEAR is any of several tree and shrub species of genus Pyrus, in the family Rosaceae. Note this refers to the tree and not the fruit
 
 <en:fruit
 en:pear, pears
@@ -20703,433 +21137,29 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20poire%20�
 # 23 products in 4 languages @2018-09-28
 
 
-# Cranberries are a group of evergreen dwarf shrubs or trailing vines in the subgenus Oxycoccus of the genus Vaccinium.
-# It is possible that a subgroup needs to be created for the different species. The european and american varieties are mixed here.
-# In Britain, cranberry may refer to the native species Vaccinium oxycoccos, while in North America, cranberry may refer to Vaccinium macrocarpon.
+# The QUINCE (Cydonia oblonga) is the sole member of the genus Cydonia in the family Rosaceae (which also contains apples and pears, among other fruits). 
 
 <en:fruit
-en:cranberry
-ar:عنبية حادة الخباء
-#s ast:Arándanu coloráu
-# atj:Mickekominan
-az:Mərcanı
-ba:Мүк еләге
-# bat-smg:Spangoulė
-be:Журавіны
-ca:Nabiu de grua
-cs:Klikva
-# csb:Kwasnica
-cy:Llugaeron
-de:Moosbeeren, Cranberry, Cranberrys
-# dsb:Žorawina
-eo:Oksikoko
-es:arándano rojo
-et:Jõhvikas, Harilik jõhvikas
-fa:کرنبری
-fo:Tranuber
-fr:airelles, cranberries, cranberry, cranberrys, Canneberge
-ga:Mónóg
-gl:Arandeira vermella
-gv:Smeyr churree
-he:חמוצית
-hr:Brusnica
-# hsb:Tymjenka
-hy:Լոռամրգի
-id:Kranberi
-ja:クランベリー
-it:cranberries
-kk:Мүкжидек
-kv:Турипув
-lt:Spanguolė
-mk:Брусница
-mn:Цангис
-mr:क्रॅनबेरी
-nl:veenbessen, cranberry
-nn:Tranebær
-no:Tranebær
-# olo:Garbalo
-os:Сырхнæмыг
-# pam:Cranberry
-pl:żurawina
-pt:arandos, oxicocos
-ru:Клюква
-# scn:Milucuccu
-sh:Brusnica
-sr:Брусница
-sv:Tranbär
-th:แครนเบอร์รี
-tl:Kranberya
-# udm:Нюрмульы
-uk:Журавлина
-# vep:Garbol
-vi:Mạn việt quất
-wa:Bicoine
-zh:小紅莓
-# yue:金啤梨
-wikipedia:en:https://en.wikipedia.org/wiki/Cranberry
-wikidata:en:Q13181
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cranberries
-# 429 products in 8 languages @2018-09-26
-
-<en:cranberry
-fr:canneberges séchées, cranberries séchées
-de:Cranberries getrocknet
-it:cranberry secchi
-# ingredient/fr:canneberges-séchées has 57 products in 4 languages @2018-12-29
-
-<en:cranberry
-<en:fruit juice
-fr:jus de cranberry à base de concentré
-de:Cranberrysaft (Moosbeerensaft) aus Cranberrysaftkonzentrat
-it:succo di mirtillo rosso da concentrato
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20cranberry%20à%20base%20de%20concentré
-# 32 products in 3 languages @2018-10-02
-
-# The peach (Prunus persica) is a deciduous tree native to the region of Northwest China
-# The wikipedia entry mixes the name of the tree and the name of the fruit
-
-<en:fruit
-en:peach
-an:presiquera
-ar:دراق
-be:Персік
-bg:Праскова
-br:Pechez
-bs:Breskva
-ca:préssec
-cs:broskev
-de:Pfirsich
-el:Ροδάκινο
-eo:persiko
-fr:pêche
-gl:Pexego
-hi:आड़ू
-io:Persiko
-it:pesca, pesche
-ja:桃
-kk:Шабдалы
-lb:Piisch
-# nah:Durazno
-nl:perziken
-oc:Persec
-pl:Brzoskwinia
-pt:pêssegos
-ru:персик
-# scn:pèrsica
-sk:Broskyňa
-# szl:Fyrzicha
-# zh-min-nan:Thô-á
-wikipedia:en:https://en.wikipedia.org/wiki/Peach
-wikidata:en:Q13411121
-openfoodfacts:https://world.openfoodfacts.org/ingredient/peach
-# 1065 products in 7 languages @2018-09-26
-carbon_footprint_fr_foodges_ingredient:fr:Pêche
-
-<en:peach
-<en:purée
-en:peach puree
-de:Pfirsichpurée
-fr:purée de pêches, purée de pêche
-it:purea di pesche
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20pêches
-# 147 products in 4 languages @2018-09-26
-
-# APRICOT is a fruit, or the tree that bears the fruit, of several species in the genus Prunus (stone fruits).
-
-<en:fruit
-en:apricot
-ab:аҷарам
-# aeb-arab:كعبة مشماش
-# aeb-latn:mech'mèch'
-af:appelkoos
-an:alberje
-ar:مشمش
-# arz:مشمشة
-# ast:albaricoque
-az:ərik
-be:абрыкос
-bg:кайсия
-bn:খুবানি
-br:abriko
-bs:kajsija
-ca:albercoc
-ce:Туьрк
-# chr:ᏓᎶᏂᎨ ᎠᏓᏛᏍᎩ
-# chy:Ová'kemene
-co:Baracuccu
-# crh-latn:qaysı
-cs:meruňka
-cy:bricyllen
-da:abrikos
-de:Aprikose, Aprikosen
-# dsb:Aprikoza
-el:Βερίκοκο
-eo:Abrikoto
-es:albaricoque, albaricoques
-et:aprikoos
-eu:abrikot
-fa:زردآلو
-fi:aprikoosi
-fo:aprikosa
-fr:abricot
-fy:abrikoas
-ga:aibreog
-# gag:zerdeli
-gd:apragod
-gl:Albaricoque
-gv:apricoc
-he:מִשְׁמֵשׁ
-hi:खुबानी
-hr:marelica
-# hsb:Aprikoza
-ht:zabriko
-hu:sárgabarack
-hy:ծիրան
-id:aprikot
-io:Abrikoto
-is:apríkósa
-it:albicocca
-ja:杏子
-ka:გარგარი
-kk:өрік
-kn:ಜರ್ದಾಳು
-ko:살구
-# krc:шаптал
-ku:qeysî
-kw:brykethen
-ky:өрүк
-la:Armeniacum
-lo:ໝາກຄາຍ
-lt:abrikosas
-lv:aprikoze
-mg:aprikaoty
-mk:кајсија
-mn:чангаанз
-mr:जर्दाळू
-ms:aprikot
-mt:berquqa
-# nan:Hēng
-# nap:Aprecocca
-nb:aprikos
-nl:abrikoos
-nn:aprikos
-# nov:abrikote
-# nso:apolêkôsê
-nv:dzidzétsoh díkʼǫ́ǫzhii
-oc:Albricòt
-or:ଆପ୍ରୀକଟ
-os:абрикос
-pa:ਖ਼ੁਰਮਾਨੀ
-# pap:aprikòt
-# pdc:Abrigos
-pl:Morela
-# pnb:خرمانی
-ps:خوبانۍ
-pt:damasco
-rm:apricosa
-ro:caisă
-ru:абрикос
-# scn:barcocu
-# sco:apricot
-sd:زردالو
-# sdc:barracoc
-se:aprikosa
-sh:кајсија
-sk:marhuľa
-sl:marelica
-so:safiican
-sq:kajsi
-sr:кајсија
-st:apolokose
-sv:aprikos
-sw:Aprikoti
-ta:சர்க்கரை பாதாமி
-tg:зардолу
-th:แอพริคอต
-tk:erik
-tr:kayısı
-tt:өрек
-uk:абрикос
-ur:خوبانی
-# vec:armełin
-vi:mơ tây
-vo:brikod
-# vro:Aprikuus
-wa:åbricot
-# war:Prunus armeniaca
-yi:אַפּריקאָס
-# yue:杏桃
-zh:杏
-# zh-cn:杏
-wikipedia:en:https://en.wikipedia.org/wiki/Apricot
-wikidata:en:Q3733836
-openfoodfacts:https://world.openfoodfacts.org/ingredient/apricot
-# 1729 products @2018-09-29
-
-<en:apricot
-<en:purée
-en:apricot purée
-fr:purée d'abricots, purée d'abricot, pulpe d'abricot
-de:Aprikosenpüree
-it:purea di albicocca
-nl:abrikozenpuree
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20d'abricots
-# 265 products in 5 languages @2018-09-29
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe%20d'abricot
-# 40 products in 1 language @2018-09-29
-
-<en:apricot
-en:dried apricots
-de:getrocknete Aprikosen
-es:albaricoques deshidratados
-fr:abricots secs, abricots séchés
-it:albicocche secche
-nl:gedroogde abrikozen
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:abricots%20secs
-# 138 products in 5 languages @2018-09-29
-
-<en:apricot
-en:apricot kernels
-es:huesos de albaricoque
-fr:noyaux d'abricots, noyau d'abricot
-nl:abrikozenpitten
-de:Aprikosenkerne
-openfoodfacts:https://world.openfoodfacts.org/ingredient/apricot-kernels
-# 97 products @2018-09-29
-
-# This is a compound ingredient
-
-<en:apricot
-es:mermelada de albaricoque
-
-# Mangoes are juicy stone fruit (drupe) from numerous species of tropical trees belonging to the flowering plant genus Mangifera, cultivated mostly for their edible fruit.
-
-<en:fruit
-en:mango
-# ace:Mamplam
-af:Veselperske
-ar:منجا
-as:আম
-# atj:Wamincic ka mirokisitc
-ay:Catuña
-az:Manqo
-# bcl:Mangga
-bh:आम
-# bik:Mangga
-bm:Mangoro
-bn:আম
-br:Mangez
-cs:Mango
-da:Mango
-de:Mango
-# dty:आँम
-dv:އަނބު
-dz:ཨམ་ཅུ་ཀུ་ལི
-ee:Maŋgo
-el:Μάνγκο
-es:mango
-et:Mango
-eu:Mango
-fa:انبه
-fi:Mango
-# fiu-vro:Mango
-fr:mangue, mangues
-ga:Mangó
-gl:Manga
-# gom:Ambo
-# hak:Fân-son
-hi:आम
-hr:Mango
-ht:Mango
-hu:Mangó
-id:Mangga
-# ilo:Mangga
-io:Mango
-is:Mangó
-it:mango
-# jam:Manggo
-ka:მანგო
-kg:Manga
-ko:망고
-# koi:Манго
-kv:Манго
-lb:Mango
-# lbe:Манго
-lv:Mango
-# mai:आम
-mg:Manga
-# mrj:Манго
-ms:Mangga
-my:သရက်သီး
-nl:mango
-# nso:Menkô
-nv:Naakaii bichʼil łitsxooí
-oc:Manga
-os:Манго
-pa:ਅੰਬ
-# pam:Mangga
-# pap:Mango
-pl:Mango
-# pnb:امب
-pt:manga
-ru:Манго
-rw:Umwembe
-# scn:Mangu
-# sco:Mango
-sd:انب
-sk:Mango
-sl:mango
-so:Cambe
-sr:mango
-sv:mango
-sw:Embe
-ta:மா
-tg:Анба
-tr:Mango
-ty:Vī
-# udm:Манго
-ug:مانگو
-uk:Манго
-ur:آم
-uz:अं
-vi:Xoài
-# war:Mangga
-za:Makmanghgoj
-zh:芒果
-# yue:芒果
-wikidata:en:Q3919027
-wikipedia:en:https://en.wikipedia.org/wiki/Mango
-openfoodfacts:https://world.openfoodfacts.org/ingredient/mango
-# 1597 products in 10 languages @2018-09-27
-
-<en:mango
-fr:Mangue importée en avion
-carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en avion
-
-<en:mango
-fr:Mangue importée en bateau
-carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en bateau
-
-<en:mango
-<en:purée
-en:mango puree
-de:Mangopüree, Mangomark
-fr:purée de mangue, purée de mangues
-it:polpa di mango
-nl:mangopuree
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20mangue
-# 393 products @2018-09-27
-
-
-# <en:mango
-fr:noyaux de mangue
-# ingredient/fr:noyaux-de-mangue has 30 products in french @2018-12-12
-
-<en:mango
-fr:pulpe de mangue
-de:Mangopulpe, Mangomark
-it:polpa di mango
-# ingredient/fr:pulpe-de-mangue has 49 products in 3 languages @2018-12-12
+en:quince, quinces
+# ang:codæppel
+ar:سفرجل
+bg:dioulia
+ca:Codony
+da:Kvæde
+de:Quitten
+el:Κυδώνι
+et:Aiva
+fr:coing, coings
+it:Mele cotogne
+nl:Kweepeer
+# pcd:Counhiasse
+pl:pigwa
+sc:Mela pirongia
+# scn:Cutugnu
+vo:Aiva
+wikidata:en:Q2751465
+wikipedia:en:https://en.wikipedia.org/wiki/Quince
+# ingredient/fr:coings has 76 products @2019-02-16
 
 
 # The greengages are a group of cultivars of the common European plum. 
@@ -45628,7 +45658,6 @@ fr:tagliatelles cuites
 
 fr:limonade
 
-fr:coings
 
 
 
