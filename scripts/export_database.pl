@@ -70,6 +70,30 @@ sub xml_escape_NFC($) {
 }
 
 
+# function sanitize_field_content("content", $LOG_FILE, $log_msg)
+#
+#   Replace non visible ASCII chars which can break the CSV file.
+#   Including NULL (000), SOH (001), STX (002), ETX (003), ETX (004), ENQ (005),
+#   ACK (006), BEL (007), BS (010 or \b), HT (011 or \t), LF (012 or \n),
+#   VT (013), FF (014 or \f), CR (015 or \r), etc.
+#   See https://en.wikipedia.org/wiki/ASCII
+#
+#   TODO? put it in ProductOpener::Data & use it to control data input and output
+#         Q: Do we have to *always* delete \n?
+#   TODO? Send an email if bad-chars?
+sub sanitize_field_content {
+	my $content = (shift(@_) // "");
+	my $LOG = shift(@_);
+	my $log_msg = (shift(@_) // "");
+	if ($content =~ /[\000-\037]/) {
+		print $LOG "$log_msg $content\n\n---\n" if (defined $LOG);
+		# TODO? replace the bad char by a space or by nothing?
+		$content =~ s/[\000-\037]+/ /g;
+	};
+	return $content;
+}
+
+
 my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergen=>1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1, countries => 1, states=>1);
 
 
@@ -222,6 +246,7 @@ XML
 	# Products
 
 	my %ingredients = ();
+	my $ct = 0;
 
 	while (my $product_ref = $cursor->next) {
 
@@ -232,24 +257,13 @@ XML
 		$code eq '' and next;
 		$code < 1 and next;
 
+		$ct++;
+		print "$ct \n" if ($ct % 1000 == 0); # print number of products each 1000
+
 		foreach my $field (@export_fields) {
 
 			my $field_value = ($product_ref->{$field} // "");
-
-			# Replace non visible ASCII chars such as NULL (000), SOH (001),
-			# STX (002), ETX (003), ETX (004), BEL (007),
-			# BS (010 or \b), HT (011 or \t), LF (012 or \n), VT (013),
-			# FF (014 or \f), CR (015 or \r), etc., which break the CSV file.
-			# [\000-\037]
-			# See https://en.wikipedia.org/wiki/ASCII
-			# TODO? make a function (in ProductOpener::Data?) and use it to
-			#       control all data input and data output
-			# TODO? Send an email if bad-chars?
-			if ($field_value =~ /[\000-\037]/) {
-				print $BAD "$code -> field $field -> $field_value\n\n";
-				# TODO? replace de bad char by a space or by nothing?
-				$field_value =~ s/[\000-\037]+/ /g;
-			};
+			$field_value = sanitize_field_content($field_value, $BAD, "$code barcode -> field $field:");
 
 			# Add field value to CSV file
 			$csv .= $field_value . "\t";
@@ -301,6 +315,9 @@ XML
 						$geo = $emb_codes_geo{$city_code}[0] . ',' . $emb_codes_geo{$city_code}[1];
 					}
 				}
+				# sanitize_field_value($field_value, $log_file, $log_msg);
+				$geo = sanitize_field_content($geo, $BAD, "$code barcode -> field $field:");
+
 				$csv .= $geo . "\t";
 			}
 
