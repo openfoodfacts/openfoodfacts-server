@@ -8239,16 +8239,20 @@ wikidata:en:Q677647
 wikipedia:en:https://fr.wikipedia.org/wiki/Vacherin_fribourgeois
 # fr:Vacherin-fribourgeois-AOP has 2 products in 3 languages @2018-10-27
 
-# fr:base-aromatisante-fromage is a compound ingredient
 
+# <en:compound
+<en:cheese
+fr:bleu
+# ingredient/fr:bleu has 47 products in french @2019-02-16
+# bleu (lait de vache entier pasteurisé, présure végétale, ferments lactiques, sel) 
+
+# <en:compound
 <en:cheese
 fr:base aromatisante fromage
 nl:kaassmaak
 # fr:base-aromatisante-fromage has 28 products @2018-10-27
 
-
-# fr:préparation-fromagère is a compound ingredient
-
+# <en:compound
 <en:cheese
 fr:préparation fromagère
 # fr:préparation-fromagère has 40 products in 1 language @2018-10-28
@@ -45626,8 +45630,6 @@ fr:limonade
 
 fr:coings
 
-fr:bleu
-allergens:fr:_bleu_
 
 
 
