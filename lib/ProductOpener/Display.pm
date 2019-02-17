@@ -6050,7 +6050,7 @@ sub display_field($$) {
 	}
 
 
-	if ($value ne '') {
+	if ((defined $value) and ($value ne '')) {
 		if (($field eq 'link') and ($value =~ /^http/)) {
 			my $link = $value;
 			$link =~ s/"|<|>|'//g;
@@ -8037,7 +8037,7 @@ HTML
 				my $percent = $comparison_ref->{nutriments}{"${nid}_100g_%"};
 				if ((defined $percent) and ($percent ne '')) {
 					$percent = $perf->format($percent / 100.0);
-					if ($percent > 0) {
+					if ($percent !~ /^-/) {
 						$percent = "+" . $percent;
 					}
 					$value_unit = '<span class="compare_percent">' . $percent . '</span><span class="compare_value" style="display:none">' . $value_unit . '</span>';
@@ -8183,7 +8183,7 @@ HTML
 					}
 				}
 
-				if ($col eq '100g') {
+				if (($col eq '100g') and (defined $product_ref->{nutriments}{$nid . "_$col"})) {
 					my $property = $nid;
 					$property =~ s/-([a-z])/ucfirst($1)/eg;
 					$property .= "Per100g";

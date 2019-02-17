@@ -608,7 +608,7 @@ sub display_field($$) {
 	my $field = shift;	# can be in %language_fields and suffixed by _[lc]
 	
 	my $fieldtype = $field;
-	my $display_lc = undef;
+	my $display_lc = $lc;
 	
 	if (($field =~ /^(.*?)_(..|new_lc)$/) and (defined $language_fields{$1})) {
 		$fieldtype = $1;
@@ -1367,6 +1367,7 @@ HTML
 				elsif ($field eq 'ingredients_text') {
 				
 					my $value = $product_ref->{"ingredients_text_" . ${display_lc}};
+					not defined $value and $value = "";
 					my $id = "ingredients_text_" . ${display_lc};
 				
 					$html_content_tab .= <<HTML
@@ -1524,8 +1525,8 @@ JS
 		$product_ref->{nutrition_data_prepared} = "";
 	}	
 	
-	my %column_display_style = {};
-	my %nutrition_data_per_display_style = {};
+	my %column_display_style = ();
+	my %nutrition_data_per_display_style = ();
 	
 	# keep existing field ids for the product as sold, and append _prepared_product for the product after it has been prepared
 	foreach my $product_type ("", "_prepared") {
