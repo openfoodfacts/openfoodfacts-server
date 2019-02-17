@@ -63,10 +63,11 @@ use DateTime qw/:all/;
 
 
 sub xml_escape_NFC($) {
-        my $s = shift;
-		if (defined $s) {
-			return xml_escape(NFC($s)); # NFC is provided by Unicode::Normalize
-		}
+	my $s = shift;
+	if (defined $s) {
+		$s = sanitize_field_content($s);
+		return xml_escape(NFC($s)); # NFC is provided by Unicode::Normalize
+	}
 }
 
 
@@ -252,7 +253,7 @@ XML
 
 		my $csv = '';
 		my $url = "http://world-$lc.$server_domain" . product_url($product_ref);
-		my $code = $product_ref->{code};
+		my $code = ($product_ref->{code} // '');
 
 		$code eq '' and next;
 		$code < 1 and next;
@@ -315,7 +316,7 @@ XML
 						$geo = $emb_codes_geo{$city_code}[0] . ',' . $emb_codes_geo{$city_code}[1];
 					}
 				}
-				# sanitize_field_value($field_value, $log_file, $log_msg);
+				# sanitize_field_content($field_value, $log_file, $log_msg);
 				$geo = sanitize_field_content($geo, $BAD, "$code barcode -> field $field:");
 
 				$csv .= $geo . "\t";
