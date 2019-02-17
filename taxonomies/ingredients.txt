@@ -96,8 +96,18 @@ sl:vsebuje
 sv:innehåller
 zh:配料
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                           F U N C T I O N     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# functions describe the role certain ingredients play in a product, for instance to thicken, colour etc.
+# functions are just descriptors, they are not ingredients themselves
+# usually a function is followed by one or more ingredients (usually an E-number additive)
 # additive classes (from Global_additives_classes_taxonomy)
 
+# <en:function
 en: Acid, Acidifier
 ga: Aigéad
 da: Syre
