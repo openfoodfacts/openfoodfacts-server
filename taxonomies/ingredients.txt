@@ -1,17 +1,18 @@
 
 # stopwords
 
-stopwords:da:indeholder
+stopwords:da:indeholder, inneholder, av
 stopwords:de:und, mit, von, aus, enthält, enthalten
 stopwords:el:περιέχει
-stopwords:en:contains, contain, with, in varying proportions
+stopwords:en:contains, contain, from, with
 stopwords:es:contiene
 stopwords:fi:sisältää
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient
 stopwords:hr:sastojci
 stopwords:hu:tartalmaz
 stopwords:it:contiene
-stopwords:nl:bevat, met, waarvan, bevatten
+stopwords:nl:bevat, met, waarvan, bevatten, van
+stopwords:nn:av, inneholder
 stopwords:pl:w tym
 stopwords:pt:do qual, dos quais
 stopwords:sk:obsahuje
@@ -24,11 +25,16 @@ stopwords:zh:配料
 # en
 # Contains genetically modified organisms
 # dairy derivatives
+# in varying proportions
 # organically grown products
 # prefried in vegetable oil
 
+# da
+# i varierende mænggdeforhold
+
 # de
 # Hergestellt mit tierischem Lab und mikrobiellem Labaustauschstoff.
+# in veränderlichen Anteilen
 # Kann Haselnüsse, Mandeln, Eier und Spuren anderer Schalenfrüchte (Nüsse) enthalten. 
 # Kakao: 34 % mindestens in der Schokolade
 # Kochsalzgehalt insgesamt: 0,7%.
@@ -48,6 +54,7 @@ stopwords:zh:配料
 # Contient des organismes génétiquement modifiés
 # dérivés de lait
 # d'élevage au sol
+# en proportion variable
 # Fabriqué dans un atelier qui utilise : céleri, moutarde et oeuf.
 # *produits issus de l'agriculture biologique.
 # Peut contenir des traces de céleri. Pizza préparée à partir de 338 g de pâte et 162 g de garniture.
@@ -68,6 +75,7 @@ stopwords:zh:配料
 # Cacao: 34 % minimo nel cioccolato.
 
 # nl
+# in wisselende hoeveelheden
 # Product geproduceerd in een werkruimte waar ook het volgende wordt gebruikt : melk, selderij, sesam, weekdieren.
 
 # pt
@@ -78,6 +86,9 @@ stopwords:zh:配料
 # ro
 # Produs maturat si afumat cu lemn de fag. 
 # Pentru 100g produs se prelucreaza 158 g carne de porc.
+
+# sv
+# i varierende proportion
 
 en:ingredient, ingredients, composition
 da:indeholder
@@ -5832,7 +5843,7 @@ ga:Bainne
 gd:Bainne
 gl:Leite
 gn:Kamby
-# got:𐌼𐌹𐌻𐌿𐌺𐍃
+# got:̼̹̻̺̿̓
 gu:દૂધ
 gv:Bainney
 # hak:Ngiù-nen
@@ -13178,7 +13189,7 @@ ga:Fíon
 # gan:葡萄酒
 gd:Fìon
 gl:Viño
-# got:𐍅𐌴𐌹𐌽
+# got:̴̹̽ͅ
 # gsw:Wy
 gv:Feeyn
 he:יין
@@ -21668,7 +21679,7 @@ ga:Úll
 gd:ubhal
 gl:Mazá
 gn:Guavirana'a
-# got:𐌰𐍀𐌻𐌿𐍃
+# got:̰̻̀̿̓
 # gsw:Öpfel
 gu:સફરજન
 gv:Ooyl
@@ -26865,7 +26876,7 @@ gl:Berenxena
 # gom:Vaingim
 # gom-deva:वायंगें
 # gom-latn:Vaingim
-# got:𐌰𐌳𐌳𐌾𐌰𐌺𐍂𐌰𐌽
+# got:̰̳̳̰̺̰̾͂̽
 gu:રીંગણ
 gv:Lus ny h-oohyn
 # hak:Khiô
@@ -36691,7 +36702,7 @@ gl:Peixes
 gn:Pira
 # gom:ಮಸ್ಳೀ
 # gor:Uponula
-# got:𐍆𐌹𐍃𐌺𐍃
+# got:̹̺͆̓̓
 # grc:ἰχθύς
 # gsw:Fisch
 gu:માછલી
@@ -37241,7 +37252,7 @@ tr:Fener balığı
 uk:Морський чорт
 zh:釣鮟鱇
 # zh-cn:钓鮟鱇
-# zh-hans:钓𩽾𩾌
+# zh-hans:钓齾龌
 # zh-hant:釣鮟鱇
 # zh-hk:釣鮟鱇
 # zh-sg:钓鮟鱇
@@ -39112,7 +39123,7 @@ tl: Bakoko
 uk: Спарові
 vi: Họ Cá tráp
 # war: Sparidae
-# yue: 𩶘魚
+# yue: 鶘魚
 zh: 鯛科
 # zh-cn:鲷科
 # zh-hans:鲷科
@@ -40542,7 +40553,7 @@ ga:Seilide
 gd:seilcheag
 gl:Caracol
 gn:Jatyta
-# got:𐍃𐌽𐌰𐌲𐌹𐌻𐍃
+# got:̰̲̹̻̓̽̓
 # hi:स्थलीय घोंघा
 ht:Kalmason
 ia:Coclea
@@ -41899,7 +41910,7 @@ gd:Mil
 gl:Mel
 gn:Eirete
 # gom:म्होंव
-# got:𐌼𐌹𐌻𐌹𐌸
+# got:̸̼̹̻̹
 # gsw:Honig
 gu:મધુ
 gv:mill
@@ -42290,7 +42301,7 @@ ga:Caife
 # gan: 咖啡
 gd:Cofaidh
 gl:Café
-# got:𐌺𐌰𐍈𐌰
+# got:̺̰͈̰
 # gsw:Kaffi
 gu:કૉફી
 # hak:Kâ-pî
