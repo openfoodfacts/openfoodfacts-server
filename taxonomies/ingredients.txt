@@ -2071,7 +2071,7 @@ ta:E306, E 306, E-306
 te:E306, E 306, E-306
 th:E306, E 306, E-306
 tr:E306, E 306, E-306
-tv:E306, E 306, E-306
+# tyv:E306, E 306, E-306
 ug:E306, E 306, E-306
 uk:E306, E 306, E-306
 vi:E306, E 306, E-306
@@ -2403,8 +2403,8 @@ zh:卡拉胶
 # zh-hk:卡拉膠
 # zh-sg:卡拉胶
 # zh-tw:卡拉膠
-wikidata:Q421991
-wikipedia:https://en.wikipedia.org/wiki/Carrageenan
+wikidata:en:Q421991
+wikipedia:en:https://en.wikipedia.org/wiki/Carrageenan
 # fr:carraghénane has 4521 products in 9 languages @2108-11-03
 
 <en:carrageenan
@@ -2502,7 +2502,7 @@ zh:明膠
 # zh-hk:明膠
 # zh-sg:明胶
 # zh-tw:明膠
-wikipedia:https://en.wikipedia.org/wiki/Gelatin
+wikipedia:en:https://en.wikipedia.org/wiki/Gelatin
 # ingredient/fr:gélatine has 1575 products in 12 languages @2019-02-10
 
 <en:gelatin
@@ -2603,7 +2603,7 @@ zh:果胶, E440, e 440, E-440
 # zh-sg:果胶, E440, e 440, E-440
 # zh-tw:果膠, E440, e 440, E-440
 wikidata:en:Q188154
-wikipedia:https://en.wikipedia.org/wiki/Pectin
+wikipedia:en:https://en.wikipedia.org/wiki/Pectin
 # en:pectin has 9364 products in 20 languages @2018-11-03
 
 <en:pectin
@@ -3819,7 +3819,7 @@ kk:Декстриндер
 # kk-kz:Декстриндер
 # kk-latn:Dekstrïnder
 # kk-tr:Dekstrïnder
-jo:덱스트린
+ko:덱스트린
 ky:Декстриндер
 ml:ഡെക്സ്ട്രിൻ
 mn:Декстрин
@@ -3894,12 +3894,12 @@ af:Mineraal
 an:Mineral
 ar:معدن
 as:খনিজ পদাৰ্থ
-ast:Mineral
+# ast:Mineral
 az:Mineral
 ba:Минерал, Минера́л
 be:Мінерал
 bg:Минерал, Минерали
-bh:खनिज
+# bho:खनिज
 bn:খনিজ
 bs:Mineral
 ca:Mineral
@@ -3964,7 +3964,7 @@ ne:खनिज
 # new:खनिज
 nl:Mineraal, Mineralen
 nn:Mineral
-no:Mineral
+nb:Mineral
 oc:Minerau
 pa:ਖਣਿਜ
 pl:Minerał, Składniki mineralne
@@ -4105,7 +4105,7 @@ fr:agent d'enrobage carbonate de calcium
 # Calcium hydroxide (traditionally called slaked lime) is an inorganic compound with the chemical formula Ca(OH)2.
 
 # <en:stabiliser/Festigungsmittel
-<en:mineral
+<en:calcium
 en:calcium hydroxide, E526, E-526, E 526
 ar:هيدروكسيد الكالسيوم
 az:Kalsium hidroksid
@@ -4187,6 +4187,182 @@ zh:氢氧化钙
 wikidata:en:Q182849
 wikipedia:en:https://en.wikipedia.org/wiki/Calcium_hydroxide
 # ingredient/calcium-hydroxide has 152 products in 7 languages @2019-02-18
+
+
+# Molybdenum is a chemical element with symbol Mo and atomic number 42.  Molybdenum is an essential trace dietary element.
+
+<en:mineral
+en:molybdenum
+af:molibdeen
+am:ሞሊብዴነም
+an:Molibdén
+ar:موليبدنوم
+# ast:Molibdenu
+az:Molibden
+be:Малібдэн
+# be-tarask:Малібдэн
+bg:Молибден
+# bho:मोलिब्डेनम
+bn:মলিবডিনাম
+bo:མོ་ལིབ་ཌེ་ནིམ།
+br:Molibden
+bs:molibden
+ca:molibdè
+# cdo:Mŭk
+# ceb:Molibdeno
+# ckb:مۆلیبدێنۆم
+co:Molibdenu
+cs:molybden
+cv:Молибден
+cy:Molybdenwm
+da:molybdæn
+de:Molybdän
+# de-ch:Molybdän
+dv:މޮލިބްޑިނަމް
+el:μολυβδαίνιο
+# en-ca:Molybdenum
+# en-gb:molybdenum
+eo:molibdeno
+es:molibdeno
+et:Molübdeen
+eu:molibdeno
+fa:مولیبدن
+fi:molybdeeni
+fr:molybdène
+# frr:Molybdeen
+# fur:Molibden
+ga:Molaibdéineam
+gd:Moilibdeanum
+gl:Molibdeno
+gu:મોલિબ્ડેનમ
+gv:Molybdenum
+# hak:Muk
+he:מוליבדן
+hi:मोलिब्डेनम
+# hif:Molybdenum
+hr:Molibden
+hu:molibdén
+hy:մոլիբդեն
+ia:molybdeno
+id:Molibdenum
+io:molibdo
+is:mólýbden
+it:molibdeno
+ja:モリブデン
+# jbo:mlibdena
+jv:Molibden
+ka:მოლიბდენი
+# kbp:Mɔlɩbɩdɛnɩ
+kk:Молибден
+kn:ಮಾಲಿಬ್ಡಿನಮ್
+ko:몰리브데넘
+ku:Molîbden
+kv:Молибден
+ky:Молибден
+la:molybdenum
+lb:Molybdän
+# lfn:molibdeno
+li:Molybdeen
+# lij:Molibden
+# lmo:Molibdeno
+# lzh:鉬
+lt:Molibdenas
+lv:molibdēns
+mk:Молибден
+ml:മൊളിബ്ഡിനം
+mn:Молибден
+mr:मॉलिब्डेनम
+# mrj:Молибден
+ms:Molibdenum
+mt:molibdenu
+# myv:Molibdenum
+# nan:Molybdenum
+nb:molybden
+ne:मोलिब्डेनम
+# new:मोलिब्डेनम
+nl:molybdeen
+nn:molybden
+oc:Molibdèn
+# olo:Molibden
+or:ମଲିବ୍‌ଡ଼େନମ
+pa:ਮੋਲਿਬਡੇਨਮ
+pi:मोलिब्डेनम
+pl:molibden
+# pms:Molibden
+# pnb:مولیبیڈینم
+pt:molibdénio
+# pt-br:molibdênio
+qu:Molibdenu
+ro:molibden
+ru:молибден
+# rup:Molibdenu
+sa:मोलिब्डेनम
+# scn:mulibdenu
+# sco:molybdenum
+sh:Molibden
+sk:Molybdén
+sl:Molibden
+so:Molybdenum
+sq:Molibdeni
+sr:молибден
+# stq:Molybdän
+su:Molibdénum
+sv:molybden
+sw:Molibdeni
+ta:மாலிப்டினம்
+tg:Молибден
+th:โมลิบดีนัม
+tl:Molibdeno
+tr:Molibden
+tt:Молибден
+ug:مولبېدىن
+uk:молібден
+ur:مولیبڈینم
+uz:Molibden
+# vep:Molibden
+vi:molypden
+# war:Molibdeno
+# xal:Молибдениүм
+yo:Molybdenum
+# yue:鉬
+zh:钼
+wikidata:en:Q1053
+wikipedia:en:https://en.wikipedia.org/wiki/Molybdenum
+
+
+# Sodium molybdate, Na2MoO4, is useful as a source of molybdenum.
+
+<en:molybdenum
+en:sodium molybdate
+ar:موليبدات الصوديوم
+# azb:سودیوم مولیبدات
+cs:Molybdenan sodný
+de:Natriummolybdat
+eo:Natria molibdenato
+es:Molibdato de sodio
+fa:سدیم مولیبدات
+fi:Natriummolybdaatti
+fr:molybdate de sodium
+it:molibdeno di sodio
+ja:モリブデン酸ナトリウム
+nl:Natriummolybdaat
+pl:Molibdenian sodu
+pt:molibdato de sódio
+ru:молибдат натрия
+sh:Natrijum molibdat
+sr:Natrijum molibdat
+ta:சோடியம் மாலிப்டேட்டு
+vi:Natri molipđat
+zh:钼酸钠
+# zh-cn:钼酸钠
+# zh-hans:钼酸钠
+# zh-hant:鉬酸鈉
+# zh-sg:钼酸钠
+# zh-tw:鉬酸鈉
+wikidata:en:Q414518 
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_molybdate
+# ingredient/fr:molybdate-de-sodium has 83 products in 4 languages @2019-02-18
+# mineral/sodium-molybdate has 114 products @2019-02-18
 
 
 # Iron is a chemical element with symbol Fe and atomic number 26.
@@ -4724,7 +4900,7 @@ ur:خارصین
 uz:Rux
 # vep:Cink
 vi:kẽm
-vro:Tsink
+# vro:Tsink
 # war:Singk
 # wuu:锌
 # xal:Цинкон
@@ -4858,7 +5034,7 @@ hu:enzim
 hy:Ֆերմենտ
 ia:enzyma
 id:enzim
-ilo:ensima
+# ilo:ensima
 io:enzimo
 is:ensím
 it:enzima
@@ -4882,7 +5058,7 @@ my:အင်န်ဇိုင်း
 # new:इन्जाइम
 nl:enzym
 nn:enzym
-no:enzym
+nb:enzym
 # nov:ensime
 oc:enzim
 pa:ਐੱਨਜ਼ਾਈਮ
@@ -4982,7 +5158,7 @@ fr:Lactobacillus bulgaricus, l. bulgaricus, L bulgaricus
 it:Lactobacillus bulgaricus
 nl:Lactobacillus bulgaricus
 wikidata:en:Q47455075
-wikipediaen:https://en.wikipedia.org/wiki/Lactobacillus_delbrueckii_subsp._bulgaricus
+wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_delbrueckii_subsp._bulgaricus
 # ingredient/fr:l.-bulgaricus has 7 products @2019-02-15
 
 
@@ -4992,8 +5168,8 @@ wikipediaen:https://en.wikipedia.org/wiki/Lactobacillus_delbrueckii_subsp._bulga
 en:lactobacillus casei
 la:Lactobacillus casei 
 zh:乾酪乳酸桿菌
-wikidata:Q139777
-wikipedia:https://en.wikipedia.org/wiki/Lactobacillus_casei
+wikidata:en:Q139777
+wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_casei
 # fr:lactobacillus-casei has 7 products in 1 language @2018-11-02
 
 <en:lactic ferments
@@ -5065,8 +5241,8 @@ zh:凝乳酶
 # zh-hk:凝乳酶
 # zh-sg:凝乳酶
 # zh-tw:凝乳酶
-wikidata:Q326900
-wikipedia:https://en.wikipedia.org/wiki/Rennet
+wikidata:en:Q326900
+wikipedia:en:https://en.wikipedia.org/wiki/Rennet
 # fr:présure has 2726 products in 15 languages @2018-11-03
 
 <en:rennet
@@ -5097,7 +5273,7 @@ nl:microbieel stremsel
 <en:ferment
 en:microbial culture, culture
 fr:culture bactérienne
-https://en.wikipedia.org/wiki/Microbiological_culture
+wikipedia:en:https://en.wikipedia.org/wiki/Microbiological_culture
 # ingredient/culture has 683 products in 3 languages @2018-12-27
 nova:en:3
 
@@ -5105,7 +5281,7 @@ nova:en:3
 en:cheese culture
 # ingredient/en:cheese%20culture has 4841 products in 2 languages @2018-12-27
 
-Lactic acid bacteria (LAB) are an order of gram-positive, low-GC, acid-tolerant, generally nonsporulating, nonrespiring, either rod-shaped (bacilli) or spherical (cocci) bacteria that share common metabolic and physiological characteristics. 
+# Lactic acid bacteria (LAB) are an order of gram-positive, low-GC, acid-tolerant, generally nonsporulating, nonrespiring, either rod-shaped (bacilli) or spherical (cocci) bacteria that share common metabolic and physiological characteristics. 
 
 # https://en.wikipedia.org/wiki/Lactic_acid_bacteria
 <en:microbial culture
@@ -5308,7 +5484,7 @@ sh:Beta-galaktozidaza
 sr:Beta-galaktozidaza
 uk:Бета-галактозидаза
 zh:Β-半乳糖苷酶
-wiki-data:en:Q286379
+wikidata:en:Q286379
 wikipedia:en:https://en.wikipedia.org/wiki/Beta-galactosidase
 
 
@@ -5443,7 +5619,7 @@ en:butter
 am:ቅቤ
 an:manteca
 ar:زبدة
-arc:ܚܐܘܬܐ
+# arc:ܚܐܘܬܐ
 # ast:mantega
 # atj:manawan, wemotaci
 az:kərə yağı
@@ -5517,7 +5693,7 @@ my:ထောပတ်
 ne:नौनी
 nl:Boter, boter
 nn:smør
-no:smør
+nb:smør
 # nrm:buure
 oc:burre
 # olo:argivoi
@@ -5568,8 +5744,6 @@ yi:פוטער
 zh:黄油
 # zh-min-nan:bá-tah
 # yue:牛油
-allergens:fr:_beurre_
-allergens:nl:_boter_
 
 # BEURRE DOUX - en:Butter avec une salinité moins de 0,5 %
 
@@ -5578,7 +5752,6 @@ en:unsalted butter
 fr:beurre doux
 carbon_footprint_fr_foodges_ingredient:fr:Beurre doux
 nl:ongezouten boter
-allergens:fr:_beurre_ doux
 wikipedia:en:https://fr.wikipedia.org/wiki/Beurre_doux
 
 # BEURRE DEMI-SEL - en:Butter avec une salinité moyenne de 0,5 % à 3 %
@@ -5586,7 +5759,6 @@ wikipedia:en:https://fr.wikipedia.org/wiki/Beurre_doux
 <en:butter
 fr:beurre demi-sel
 nl:halfgezouten boter
-allergens:fr:_beurre_ demi-sel
 wikipedia:en:https://fr.wikipedia.org/wiki/Beurre_demi-sel
 
 # BEURRE SALÉ - en:Butter avec un taux de sel supérieur à 3%
@@ -5597,7 +5769,6 @@ fr:beurre salé
 de:gesalzene Butter, gesalzenes Butter
 nl:gezouten boter
 ja:塩バター
-allergens:fr:_beurre_ salé
 wikipedia:en:https://fr.wikipedia.org/wiki/Beurre_salé
 
 # CHURNED BUTTER - A butter churn is a device used to convert cream into butter. Is this traditional butter?
@@ -5715,14 +5886,14 @@ ka:ერბო
 kn:ತುಪ್ಪ
 ko:기
 lt:ghi
-mai:घी
+# mai:घी
 ml:നെയ്യ്
 mr:तूप
 ms:minyak sapi
 ne:घिउ
 nl:ghee, ghi
 nn:ghi, ghee
-no:ghi, ghee
+nb:ghi, ghee
 pa:ਘਿਉ
 pl:ghi, ghee
 # pnb:گھیؤ
@@ -5741,13 +5912,14 @@ ur:گھی
 zh:酥油
 wikidata:en:https://www.wikidata.org/wiki/Q323225
 
+
 # CONCENTRATED BUTTER - is an industrially-made “clarified butter.”
 
 <en:butterfat
 en:concentrated butter
 fr:beurre concentré
 nl:geconcentreerde boter
-allergens:fr:_beurre_ concentré
+
 
 # BUTTERFAT - the fatty portion of milk.
 
@@ -5767,7 +5939,7 @@ ja:乳脂肪
 ko:유지방
 ms:lemak mentega, lemak susu
 nl:melkvet, boterconcentraat, botervet
-no:melkefett
+nb:melkefett
 pl:tłuszcz mlecny
 pt:gordura de leite anhidra, manteiga concentrada, gordura butrica
 ru:Молочный жир
@@ -5805,7 +5977,7 @@ ba:Һөт
 # bat-smg:Pėins
 be:Малако
 bg:Мляко
-bH:दूध
+# bho:दूध
 # bjn:Banyu susu
 bm:Nɔnɔ
 bn:দুধ
@@ -5902,7 +6074,7 @@ ne:दूध
 # new:दुरु
 nl:melk
 nn:Mjølk
-no:Melk
+nb:Melk
 # nrm:Lait
 nv:Abeʼ
 oc:Lach, lach, lait, lèit
@@ -5962,7 +6134,6 @@ zh:乳
 # zh-min-nan:Leng
 # yue:奶
 zu:Ubisi
-allergens:fr:_lait_
 wikipedia:en:https://en.wikipedia.org/wiki/Milk
 
 # Skim milk (American English), is made when all the cream is removed from whole milk. It tends to contain around 0% fat.
@@ -5989,7 +6160,7 @@ ja:脱脂粉乳
 lt:Nugriebtas pienas
 ms:Susu skim
 nl:Taptemelk, ondermelk, afgeroomde melk, magere melk
-no:Skummet melk
+nb:Skummet melk
 pa:ਸਪਰੇਟਾ
 pt:Leite desnatado
 ru:Обезжиренное молоко
@@ -5997,7 +6168,6 @@ sv:Skummjölk
 uk:Знежирене молоко
 vi:Sữa gầy
 # yue:脫脂奶
-allergens:fr:_lait_ écrémé
 wikidata:en:Q2352187
 wikipedia:en:https://en.wikipedia.org/wiki/Skimmed_milk
 
@@ -6010,14 +6180,13 @@ nl:melk met 1% vetgehalte
 # LAIT DEMI-ECREME has a butterfat percentage of 1.5-1.8% fat by regulation
 
 <en:milk
+en:milk with 1.5-1.8% fat
 fr:lait demi-écrémé, lait partiellement écrémé
 de:teilentrahmte milch
-en:milk with 1.5-1.8% fat
 it:latte parzialmente scremato
 nl:halfvolle melk, gedeeltelijk afgeroomde melk
-no:Ekstra lett melk
+nb:Ekstra lett melk
 sv:Lättmjölk
-allergens:fr:_lait_ partiellement écrémé
 wikidata:en:Q10572454
 wikipedia:en:https://fr.wikipedia.org/wiki/Lait_demi-écrémé
 
@@ -6028,13 +6197,11 @@ en:semi-skimmed milk
 
 # PASTEURIZED SEMI-SKIMMED MILK has a butterfat percentage of 1.5-1.8% AND is pasteurised
 
-<en:milk
-<fr:lait demi-écrémé
+<en:milk with 1.5-1.8% fat
 fr:lait demi-écrémé pasteurisé
 carbon_footprint_fr_foodges_ingredient:fr:Lait semi-écrémé, pasteurisé
 de:pasteurisierte magermilch
 nl:gepasteuriseerde volle melk
-allergens:fr:_lait_ écrémé pasteurisé
 
 # In the United States, milk is marketed primarily by fat content and available in these varieties:2% Reduced-fat milk
 
@@ -6190,7 +6357,7 @@ fr:lait et crème pasteurisé
 it:latte e panna pastorizzati
 nl:Gepasteuriseerde melk en room
 pt:Leite e natas pateurizados
-ingredient/fr:lait-et-crème-pasteurisé has 177 products in 7 languages @2019-02-03
+# ingredient/fr:lait-et-crème-pasteurisé has 177 products in 7 languages @2019-02-03
 
 <en:milk powder
 fr:lait en poudre partiellement écrémé
@@ -6229,39 +6396,29 @@ fr:produits laitiers
 fr:produits laitiers en poudre
 
 fr:poudre de lait écrémé
-allergens:fr:poudre de _lait_ écrémé
 
 
 fr:lait de vache thermisé
-allergens:fr:_lait_ de vache thermisé
 
 
 fr:lait frais pasteurisé
-allergens:fr:_lait_ frais pasteurisé
 
 fr:lait thermisé
-allergens:fr:_lait_ thermisé
 
 fr:lait frais demi-écrémé pasteurisé
-allergens:fr:_lait_ frais demi-écrémé pasteurisé
 
 fr:Lait frais demi-écrémé microfiltré issu de l'agriculture biologique
 
 fr:lait de vache cru
-allergens:fr:_lait_ de vache cru
 
 fr:lait écrémé en poudre réhydraté
-allergens:fr:_lait_ écrémé en poudre réhydraté
 
 
 fr:lait entier concentré sucré
-allergens:fr:_lait_ entier concentré sucré
 
 fr:lait écrémé caillé
-allergens:fr:_lait_ écrémé caillé
 
 fr:lait entier concentré
-allergens:fr:_lait_ entier concentré
 
 fr:lait maigre
 
@@ -6278,19 +6435,16 @@ fr:lait concentré
 id:susu evaporasi
 pt:leite evaporado
 zh:淡奶
-allergens:fr:_lait_ concentré
 
 <en:condensed milk
 <en:powdered milk
 fr:lait écrémé concentré ou en poudre
 nl:gecondenseerde magere poedermelk
-allergens:fr:_lait_ écrémé concentré ou en poudre
 
 <en:condensed milk
 <en:skimmed milk
 fr:lait concentré sucré écrémé
 nl:gesuikerde gecondenseerde magere melk
-allergens:fr:_lait_ concentré sucré écrémé
 
 <en:condensed milk
 en:sweetened condensed milk
@@ -6337,18 +6491,14 @@ pt:leite entero em pó, leite em pó gordo
 el:γάλα σε σκόνη
 sk:sušené plnotučné mlieko
 sv:helmjölkspulver
-allergens:fr:_lait_ entier en poudre
-allergens:fr:poudre de _lait_ entier
 
 <en:milk
 fr:lait pasteurisé
 nl:gepasteuriseerde melk
-allergens:fr:_lait_ pasteurisé
 
 <en:milk
 fr:lait écrémé reconstitué
 nl:gereconstitueerde melk
-allergens:fr:_lait_ écrémé reconstitué
 
 <en:milk
 en:reconstituted skimmed milk
@@ -6356,14 +6506,11 @@ fr:lait écrémé réhydraté
 hu:visszaállított sovány tej
 it:latte scremato reidratato
 nl:gerehydrateerde magere melk
-allergens:fr:_lait_ écrémé réhydraté
 
 fr:matière grasse de lait anhydre
-allergens:fr:matière grasse de _lait_ anhydre
 
 <en:milk
 fr:lait écrémé en poudre reconstitué
-allergens:fr:_lait_ écrémé en poudre reconstitué
 
 <en:milk
 fr:lait entier reconstitué
@@ -8301,13 +8448,13 @@ wikidata:en:Q677640
 wikipedia:en:https://en.wikipedia.org/wiki/Pecorino
 # fr:pecorino has 45 products in 3 languages @2018-10-27
 
-<fr:pecorino
+<en:pecorino
 en:pecorino romano, romano
 fr:pecorino romano, romano
 # en:romano has 65 products in 1 language @2018-10-28
 # fr:pecorino-romano has 30 products in 1 language @2018-10-27
 
-<fr:pecorino romano
+<en:pecorino romano
 fr:fromage pecorino romano aop
 # fr:pecorino-romano-aop has 10 product in 1 language @2018-10-27
 
@@ -8698,7 +8845,7 @@ tk:Witamin
 tl:Bitamina
 tr:Vitamin
 tt:Витамин
-tv:Витаминнер
+# tyv:Витаминнер
 uk:Вітаміни
 ur:حیاتین
 uz:Vitaminlar
@@ -8795,7 +8942,7 @@ te:విటమిన్ ఎ
 th:วิตามินเอ
 tr:A vitamini
 tt:А витамины
-tv:А витамины
+# tyv:А витамины
 ug:ۋىتامىن A
 uk:Вітамін A
 ur:ریئٹنول
@@ -8940,7 +9087,7 @@ ta:தயமின்
 tg:Тиамин
 th:ไทอามีน, วิตามินบี1
 tr:Tiyamin, B1 vitamini
-tv:Витамин B1
+# tyv:Витамин B1
 uk:Тіамін, Вітамін B1
 vi:Thiamin
 wa:Tiyamene
@@ -8981,7 +9128,7 @@ fa:ویتامین ب۲
 fi:Riboflaviini
 fo:Riboflavin, Vitamin B2
 fr:riboflavine, vitamine b2
-a:Ribeaflaivin
+ga:Ribeaflaivin
 gl:Riboflavina, Vitamina B2
 he:ויטמין B2
 hi:रिबोफ्लेविन, विटामिन बी२
@@ -9025,7 +9172,7 @@ sv:Riboflavin, Vitamin B2
 ta:ரிபோஃபிளாவின்
 th:ไรโบเฟลวิน
 tr:Riboflavin, B2 vitamini
-tv:Витамин В2
+# tyv:Витамин В2
 uk:Рибофлавін, Вітамін B2
 uz:Riboflavin
 vi:Riboflavin
@@ -9266,7 +9413,7 @@ sr:vitamin B6
 sv:vitamin B6
 ta:உயிர்ச்சத்து பி6
 th:วิตามินบี6
-tv:Витамин Б6
+# tyv:Витамин Б6
 uk:Вітамін B6
 uz:Piridoksin
 vi:Vitamin B6
@@ -9620,7 +9767,7 @@ te:విటమిన్ సి
 th:วิตามินซี
 tl:Bitamina C
 tr:C vitamini, askorbik asit
-tv:ВИТАМИН С
+# tyv:ВИТАМИН С
 ug:ۋىتامىن C
 uk:Вітамін C
 ur:حیاتین ج
@@ -9715,7 +9862,7 @@ tg:Витамини D
 th:วิตามินดี
 tr:D vitamini
 tt:D витамины
-tv:Витамини Д
+# tyv:Витамини Д
 ug:ۋىتامىن D
 uk:Вітамін D
 vi:vitamin D
@@ -9835,7 +9982,7 @@ sv:vitamin D3
 tg:Витамини D3
 tr:Kolekalsiferol, Vitamin D3
 tt:D3 витамины
-tv:Витамини Д3
+# tyv:Витамини Д3
 ug:ۋىتامىن D3
 uk:Холекальциферол, Вітамін D3
 vi:cholecalciferol, vitamin D3
@@ -9932,7 +10079,7 @@ ta:உயிர்ச்சத்து ஈ
 te:vitamin e
 th:วิตามินอี
 tr:Tokoferol, E vitamini
-tv:витамин Е
+# tyv:витамин Е
 ug:ۋىتامىنE
 uk:Вітамін E
 vi:Vitamin E
@@ -10018,7 +10165,7 @@ sv:K-vitamin
 ta:உயிர்ச்சத்து கே
 th:วิตามินเค
 tr:K vitamini
-tv:Витамин К
+# tyv:Витамин К
 uk:Вітамін K
 vi:Vitamin K
 zh:维生素K
@@ -37388,7 +37535,7 @@ sr:Манић
 sv:Lake
 tr:Tatlı su gelinciği
 tt:Шамбы
-tv:Мезил
+# tyv:Мезил
 ud:Нальым
 uk:минь річковий
 # vep:Madeh
@@ -42442,7 +42589,7 @@ tl:Kape
 # tpi:Kopi
 tr:kahve
 tt:Каһвә
-tv:кофе
+# tyv:кофе
 ud:кофе
 ug:قەھۋە
 uk:кава
