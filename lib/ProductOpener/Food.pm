@@ -3543,6 +3543,7 @@ my %pnns = (
 "Fruit nectars" => "Beverages",
 "Waters and flavored waters" => "Beverages",
 "Teas and herbal teas and coffees" => "Beverages",
+"Plant-based milk substitutes" => "Beverages",
 
 "unknown" => "unknown",
 
