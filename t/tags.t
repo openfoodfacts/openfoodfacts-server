@@ -282,5 +282,35 @@ is_deeply($product_ref->{brands_tags},
 ]
 )  or diag explain $product_ref->{brands_tags};
 
+my @tags = ();
+
+@tags = gen_tags_hierarchy_taxonomy("en", "ingredients", "en:concentrated-orange-juice, en:sugar, en:salt, en:orange");
+
+is_deeply (\@tags, [
+   'en:fruit',
+   'en:citrus-fruit',
+   'en:fruit-juice',
+   'en:orange',
+   'en:salt',
+   'en:sugar',
+   'en:orange-juice',
+   'en:concentrated-orange-juice'
+ ]
+ ) or diag explain(\@tags);;
+
+@tags = gen_ingredients_tags_hierarchy_taxonomy("en", "en:concentrated-orange-juice, en:sugar, en:salt, en:orange");
+
+is_deeply (\@tags, [
+   'en:concentrated-orange-juice',
+   'en:fruit',
+   'en:citrus-fruit',
+   'en:fruit-juice',
+   'en:orange',
+   'en:orange-juice',
+   'en:sugar',
+   'en:salt',
+ ]
+ ) or diag explain(\@tags);;
+
 
 done_testing();

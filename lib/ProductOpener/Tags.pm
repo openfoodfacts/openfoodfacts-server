@@ -1280,7 +1280,8 @@ sub build_tags_taxonomy($$) {
 			}
 			if (defined $all_parents{$tagtype}{$tagid}) {
 				# sort parents according to level
-				@{$all_parents{$tagtype}{$tagid}} = sort ( {$level{$tagtype}{$a} <=> $level{$tagtype}{$b} } @{$all_parents{$tagtype}{$tagid}} );
+				@{$all_parents{$tagtype}{$tagid}} = sort ( { (((defined $level{$tagtype}{$b}) ? $level{$tagtype}{$b} : 0) <=> ((defined $level{$tagtype}{$a}) ? $level{$tagtype}{$a} : 0)) || ($a cmp $b) } 
+					@{$all_parents{$tagtype}{$tagid}} );
 				$key .= '> ' . join((' > ', reverse @{$all_parents{$tagtype}{$tagid}})) . ' ';
 			}
 			$key .= '> ' . $tagid;
@@ -1768,6 +1769,8 @@ sub gen_ingredients_tags_hierarchy_taxonomy($$) {
 
 	# for ingredients, we should keep the order
 	# question: what do do with parents?
+	# put the parents after the ingredient
+	# do not put parents that have already been added after another ingredient
 
 	my $tag_lc = shift;
 	my $tagtype = "ingredients";
@@ -1779,6 +1782,7 @@ sub gen_ingredients_tags_hierarchy_taxonomy($$) {
 	}
 	
 	my @tags = ();
+	my %seen = ();
 	
 	foreach my $tag2 (split(/(\s*),(\s*)/, $tags_list)) {
 		my $tag = $tag2;
@@ -1795,7 +1799,11 @@ sub gen_ingredients_tags_hierarchy_taxonomy($$) {
 			#print STDERR "taxonomy - empty tag: $tag - l: $l - tagid: $tagid - tag_lc: >$tags_list< \n";
 			next;
 		}
-		push @tags, $tag;
+		
+		if (not exists $seen{$tag}) {
+			push @tags, $tag;
+			$seen{$tag} = 1;
+		}
 		
 		if (defined $all_parents{$tagtype}{$tagid}) {
 			foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
@@ -1803,7 +1811,10 @@ sub gen_ingredients_tags_hierarchy_taxonomy($$) {
 					$log->info("empty parent id for taxonmy", { parentid => $parentid, tagid => $tagid, tag_lc => $tags_list }) if $log->is_info();
 					next;
 				}			
-				push @tags, $parentid;
+				if (not exists $seen{$parentid}) {
+					push @tags, $parentid;
+					$seen{$parentid} = 1;
+				}				
 			}
 		}
 	}
