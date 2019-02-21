@@ -152,6 +152,7 @@ fr:agent de coagulation, coagulant
 it:coagulo
 # ingredient/fr:agents-de-coagulation has 37 products in 5 languages @2019-02-08
 
+# <en:function
 en:Acidity regulator
 ga:Rialtán aigéadachta
 da:Surhedsregulerende middel
@@ -178,6 +179,7 @@ de:Säureregulator
 wikidata:en:Q898753
 
 # nova:en:anti-caking-agent
+# <en:function
 en:Anti-caking agent
 bg:Антислепващ агент
 cs:Protispékavá látka
@@ -204,6 +206,7 @@ sv:Klumpförebyggande medel
 wikidata:en:Q726460
 
 # nova:en:de-foaming-agent?
+# <en:function
 en:de-foaming agent, Anti-foaming agent
 bg:Антипенител
 cs:Odpěňovač
@@ -229,6 +232,7 @@ sl:Sredstvo proti penjenju
 sv:Skumdämpningsmedel
 wikidata:en:Q904035
 
+# <en:function
 en:antioxidant, antioxygen
 bg:Антиоксидант
 de:Antioxidant, Antioxidationsmittel
@@ -252,6 +256,7 @@ wikidata:en:Q133948
 
 
 # nova:en:bulking-agent
+# <en:function
 en:Bulking agent
 bg:Пълнител
 cs:Plnidlo
@@ -278,12 +283,15 @@ sv:Fyllnadsmedel
 #wikidata:en:
 
 # nova:en:anti-bulking-agent
+# <en:function
 en:anti-bulking agent
 
 # nova:en:carbonating-agent
+# <en:function
 en:carbonating agent
 
 # nova:en:colour
+# <en:function
 en:colour, color, colouring, coloring, colours, colors
 bg:Оцветител
 cs:Barvivo
@@ -310,7 +318,7 @@ sv:Färgämne
 wikidata:en:Q753009
 
 
-
+# <en:function
 en:thickener
 ga:Tiúsóir
 de:Verdickungsmittel
@@ -336,6 +344,12 @@ ro:Agent de îngroșare
 bg:Сгъстител
 wikidata:en:Q911138
 
+# <en:function
+fr:substitut du sel
+de:Speisesalzersatz
+# ingredient/fr:substitut-du-sel has 23 products in 3 languages @2019-02-21
+# substitut du sel (chlorure de potassium)
+
 
 # <en:function
 # <en:compound
@@ -343,7 +357,7 @@ fr:agent crémeux
 # ingredient/fr:agent-cremeux has 16 products in french @2018-02-17
 # ingredient/fr:agent%20cremeux
 
-<en:colour
+# <en:colour
 en:curcumin, E100, E-100, E 100
 ar:كركومين
 # azb:کورکومین
@@ -819,7 +833,8 @@ sv:Konsistensmedel
 wikidata:en:Q1408496
 
 # nova:en:flavour-enhancer
-en:flavour enhancer
+# <en:function
+en:flavour enhancer, flavor enhancers
 bg:Овкусител
 cs:Látka zvýrazňující chuť a vůni
 da:Smagsforstærker
@@ -828,7 +843,7 @@ el:Ενισχυτικό γεύσης
 es:Potenciador del sabor
 et:Lõhna- ja maitsetugevdaja
 fi:Arominvahvenne
-fr:exhausteur de goût, exhausteurs de goût, Exaltateur d'arôme
+fr:exhausteur de goût, exhausteurs de goût, Exaltateur d'arôme, exhausteurs de saveur
 ga:Méadaitheoir blais
 hu:Ízfokozó
 it:Esaltatori di sapidità
@@ -6270,10 +6285,10 @@ en:semi-skimmed milk
 # PASTEURIZED SEMI-SKIMMED MILK has a butterfat percentage of 1.5-1.8% AND is pasteurised
 
 <en:milk with 1.5-1.8% fat
-fr:lait demi-écrémé pasteurisé
-carbon_footprint_fr_foodges_ingredient:fr:Lait semi-écrémé, pasteurisé
+fr:lait demi-écrémé pasteurisé, lait partiellement écrémé pasteurisé
 de:pasteurisierte magermilch
 nl:gepasteuriseerde volle melk
+carbon_footprint_fr_foodges_ingredient:fr:Lait semi-écrémé, pasteurisé
 
 # In the United States, milk is marketed primarily by fat content and available in these varieties:2% Reduced-fat milk
 
@@ -46418,18 +46433,6 @@ fr:enrobant
 
 fr:fibre alimentaire
 
-
-fr:substitut du sel
-
-fr:exhausteurs de saveur
-
-
-fr:lait partiellement écrémé pasteurisé
-allergens:fr:_lait_ partiellement écrémé pasteurisé
-
-
-
-fr:génoise
 
 
 
