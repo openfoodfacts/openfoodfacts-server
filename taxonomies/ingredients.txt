@@ -14693,13 +14693,78 @@ wikidata:en:Q381350
 
 <en:semolina
 fr:semoule de blé tendre
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20blé%20tendre/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20blé%20tendre/
 # 20 products in 1 language @20180922
+
+
+# Couscous  is a Maghrebi dish of small steamed balls of crushed durum wheat semolina
+
+en:Couscous, cous cous
+# aeb-arab:كسكسي
+# aeb-latn:kosksi
+ar:كسكس
+be:Кус-кус
+bg:Кускус
+bm:Basi
+bn:কুসকুস
+br:Kouskous
+ca:cuscús
+# ceb:Kuskus
+cs:kuskus
+da:Couscous
+de:Couscous, Cous Cous
+el:Κουσκούς
+eo:Kuskuso
+es:cuscús
+et:Kuskuss
+eu:Kus-kus
+fa:کوسکوس
+fi:Kuskus
+fr:couscous, cous cous
+gl:Cuscús
+he:קוסקוס
+hr:Kus-kus
+hu:Kuszkusz
+hy:Կուսկուս
+id:Couscous
+io:Kuskuso
+it:cuscus, cous cous
+ja:クスクス
+# kab:seksou
+ko:쿠스쿠스
+lb:Couscous
+lt:Kuskusas
+ms:Kuskus
+nb:couscous
+nl:couscous
+oc:couscous
+pl:Kuskus
+pt:cuscuz
+ro:Cuș cuș
+ru:Кускус
+# scn:Cuscusu
+# sco:couscous
+sl:Kuskus
+sv:Couscous
+ta:cous cous
+tl:Kuskus
+tr:Kuskus
+tt:күскүс
+uk:Кус-кус
+wa:Couscousse
+zh:古斯米
+wikidata:en:Q76605
+wikipedia:en:https://en.wikipedia.org/wiki/Couscous
+# ingredient/fr:couscous has 57 products @2019-02-21
+# cous cous (semola di grano duro)
+# Couscous * (durum wheat semolina)
+
 
 # Question
 
 <en:semolina
 <en:durum wheat
+# <en:Couscous
 en:durum wheat semolina
 de:Hartweizengriess, Hartweizengries
 el:σιμιγδάλισκληρού σιταριού
@@ -14719,7 +14784,7 @@ zh:硬质粗粒小麦粉
 
 <en:durum wheat semolina
 fr:semoule semi-complète de blé dur
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20semi-complète%20de%20blé%20dur/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20semi-complète%20de%20blé%20dur/
 # 18 products in 1 language @2018-09-22
 
 <en:durum wheat semolina
@@ -14742,12 +14807,12 @@ hu:teljes kiőrlésű búzaliszt
 nl:volkoren griesmeel van harde tarwe
 sr:integralna krupica durum pšenice
 sl:polnozrnati pšenični zdrob durum
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20blé%20dur%20complète/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20blé%20dur%20complète/
 # 33+49 products in 11 languages @20180922
 
 <en:durum wheat semolina
 fr:semoule de blé dur précuite
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20blé%20dur%20précuite/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule%20de%20blé%20dur%20précuite/
 # 75 products in 1 language @20180922
 
 # BULGUR is a cereal food made from the parboiled groats of several different wheat species, most often from durum wheat.
@@ -14803,12 +14868,11 @@ fr:flocons de blé, flocon de blé
 it:fiocchi di frumento
 nl:tarwevlokken
 pl:płatki pszenne
-allergens:fr:flocons de _blé_
 
 <en:wheat flakes
 de:Weizenvollkornflocken
 fr:flocons de blé complet
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20blé%20complet/languages
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20blé%20complet/languages
 
 <en:wheat
 # <en:fiber
@@ -14819,8 +14883,6 @@ fr:fibre de blé, fibres de blé
 it:fibre di frumento
 nl:tarwevezel
 pt:fibras de trigo
-allergens:fr:fibres de _blé_
-allergens:fr:fibre de _blé_
 
 <en:wheat
 en:wheat bran
@@ -15032,7 +15094,6 @@ za:Mienhhaeux
 zh:大麦
 # zh-min-nan:Tōa-be̍h
 # yue:大麥
-allergens:fr:_orge_
 wikidata:en:796
 wikipedia:en:https://en.wikipedia.org/wiki/Barley
 
@@ -15043,7 +15104,6 @@ fr:orge complète
 nl:volkorengerst
 pl:jeçzmien z pełnego przemiału
 pt:cevada integral
-allergens:fr:_orge_ complète
 
 <en:barley
 de:Gerstenflocken
@@ -15171,21 +15231,21 @@ zh:裸麥
 # yue:黑麥
 wikipedia:en:https://en.wikipedia.org/wiki/Rye
 wikidata:en:Q12099
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:seigle/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:seigle/
 # 560 entries @ 2018-09-22
 
 <en:rye
 de:Roggenschrot
 fr:seigle broyé
 it:faricello di segale
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:seigle%20broyé/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:seigle%20broyé/
 # 16 entries @ 2018-09-22
 
 <en:rye
 fr:flocons de seigle
 de:Roggenflocken
 it:fiocchi di segale
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20seigle/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20seigle/
 # 87 entries @ 2018-09-22
 
 # Question
@@ -15193,14 +15253,14 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20seigl
 <fr:flocons de seigle
 <en:malt
 fr:flocons de seigle malté
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20seigle%20malté/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons%20de%20seigle%20malté/
 # 71 entries @ 2018-09-22
 
 <en:rye
 de:Vollkornhafer
 fr:seigle complet
 nl:volkorenrogge
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:seigle%20complet/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:seigle%20complet/
 # 37 entries @ 2018-09-22
 
 # Malt is germinated cereal grains that have been dried in a process known as "malting".
@@ -20154,34 +20214,34 @@ sv:Trinatriumdifosfat, Trinatriumpyrofosfat, trinatriumvätedifosfat, e450ii
 en:Tetrasodium diphosphate, Tetrasodium pyrophosphate, sodium pyrophosphate, e450iii
 ar:بيروفوسفات صوديوم
 # azb:تتراسدیوم پیروفوسفات
-bg:Тетранатриев дифосфат, Тетранатриев пирофосфат, тетранатриев дифосфат, e450iii
-cs:Difosforečnan sodný, Pyrofosforečnan tetrasodný, e450iii
-da:Tetranatriumdiphosphat, Tetranatriumpyrophosphat, tetranatriumdiphosphat, e450iii
-de:Tetranatriumdiphosphat, Tetranatriumpyrophosphat, Tetranatriumdiphosphat, e450iii
-el:Πυροφωσφορικο νατριο, Πυροφωσφορικό άλας νατρίου, διφωσφορικό νάτριο, e450iii
-eo:Natria pirofosfato, e450iii
-es:Difosfato tetrasódico, Pirofosfato tetrasódico, difosfato de tetrasodio, e450iii
-et:Tetranaatriumdifosfaat, e450iii
+bg:Тетранатриев дифосфат, Тетранатриев пирофосфат, тетранатриев дифосфат
+cs:Difosforečnan sodný, Pyrofosforečnan tetrasodný
+da:Tetranatriumdiphosphat, Tetranatriumpyrophosphat, tetranatriumdiphosphat
+de:Tetranatriumdiphosphat, Tetranatriumpyrophosphat, Tetranatriumdiphosphat
+el:Πυροφωσφορικο νατριο, Πυροφωσφορικό άλας νατρίου, διφωσφορικό νάτριο
+eo:Natria pirofosfato
+es:Difosfato tetrasódico, Pirofosfato tetrasódico, difosfato de tetrasodio
+et:Tetranaatriumdifosfaat
 fa:تتراسدیوم پیروفسفات
-fi:Tetranatriumdifosfaatti, Natriumpyrofosfaatti, e450iii
-fr:diphosphate tétrasodique, Pyrophosphate de sodium, pyrophosphate de soude, pyrophosphate acide de sodium, e450iii
-hu:Tetranátrium-difoszfát, Tetranátrium-pirofoszfát, Tetranátrium-difoszfát, e450iii
-it:Difosfato tetrasodico, Pirofosfato tetrasodico, disfosfato tetrasodico, Pirofosfato di sodio, e450iii
-lt:Tetranatrio difosfatas, Tetranatrio pirofosfatas, tetranatrio difosfatas, e450iii
-lv:Tetranātrija difosfāts, Tetranātrija pirofosfāts, Tetranātrija difosfāts, e450iii
-mt:Difosfat tetrasodiku, Pirofosfat tetrasodiku, Disfosfat tetrasodiku, e450iii
-nl:Tetranatriumdifosfaat, Tetranatriumpyrofosfaat, e450iii
-pl:Difosforan tetrasodowy, Pirofosforan czterosodowy, difosforan czterosodowy, e450iii
-pt:Difosfato tetrassódico, Pirofosfato tetrassódico, difosfato de tetrassódio, e450iii
-ro:Difosfat tetrasodic, Pirofosfat tetrasodic, Difosfat tetrasodic, e450iii
-ru:Пирофосфат натрия , e450iii
-sh:etranatrijum pirofosfat, e450iii
-sk:Difosforečnan tetrasodný, Pyrofosforečnan tetrasodný, difosforečnan tetrasodný, e450iii
-sl:Tetranatrijev difosfat, tetranatrijev pirofosfat, tetranatrijev difosfat, e450iii
-sr:Tetranatrijum pirofosfat , e450iii
-sv:Tetranatriumdifosfat, Tetranatriumpyrofosfat, e450iii
-vi:Natri pyrophotphat, e450iii
-zh:焦磷酸钠, e450iii
+fi:Tetranatriumdifosfaatti, Natriumpyrofosfaatti
+fr:diphosphate tétrasodique, Pyrophosphate de sodium, pyrophosphate de soude, pyrophosphate acide de sodium
+hu:Tetranátrium-difoszfát, Tetranátrium-pirofoszfát, Tetranátrium-difoszfát
+it:Difosfato tetrasodico, Pirofosfato tetrasodico, disfosfato tetrasodico, Pirofosfato di sodio
+lt:Tetranatrio difosfatas, Tetranatrio pirofosfatas, tetranatrio difosfatas
+lv:Tetranātrija difosfāts, Tetranātrija pirofosfāts, Tetranātrija difosfāts
+mt:Difosfat tetrasodiku, Pirofosfat tetrasodiku, Disfosfat tetrasodiku
+nl:Tetranatriumdifosfaat, Tetranatriumpyrofosfaat
+pl:Difosforan tetrasodowy, Pirofosforan czterosodowy, difosforan czterosodowy
+pt:Difosfato tetrassódico, Pirofosfato tetrassódico, difosfato de tetrassódio
+ro:Difosfat tetrasodic, Pirofosfat tetrasodic, Difosfat tetrasodic
+ru:Пирофосфат натрия 
+sh:etranatrijum pirofosfat
+sk:Difosforečnan tetrasodný, Pyrofosforečnan tetrasodný, difosforečnan tetrasodný
+sl:Tetranatrijev difosfat, tetranatrijev pirofosfat, tetranatrijev difosfat
+sr:Tetranatrijum pirofosfat 
+sv:Tetranatriumdifosfat, Tetranatriumpyrofosfat
+vi:Natri pyrophotphat
+zh:焦磷酸钠
 wikipedia:en:https://en.wikipedia.org/wiki/Tetrasodium_pyrophosphate
 # fr:diphosphate-tétrasodique has 331 products in 2 languages @2018-11-04
 # fr:e450iii has 52 products in 3 languages @2018-11-04
@@ -38815,6 +38875,11 @@ en:Sardina pilchardus
 la:Sardina pilchardus
 # Sardines (Sardina pilchardus)
 
+
+<en:sardine
+fr:sardines fraîches
+# ingredient/fr:sardines-fraîches has 30 products in french @2019-02-21
+
 <en:sardine
 fr:sardines sélectionnées
 # ingredient/fr:sardines-sélectionnées has 16 products @2019-02-03
@@ -43832,6 +43897,15 @@ wikidata:en:Q52406
 wikipedia:en:https://en.wikipedia.org/wiki/Muesli
 # ingredient/fr:muesli has 46 products in 4 languages @2019-02-07
 
+
+
+# <en:compound
+# mainIngredient:en:sugar
+fr:éclats de caramel au beurre salé
+# ingredient/fr:éclats-de-caramel-au-beurre-salé has 53 products in 2 languages @2019-02-21
+# éclats de caramel au beurre salé (sucre, sirop de glucose, crème fraîche de Normandie, beurre salé , lait écrémé en poudre, fleur de sel de Guérande, caramel (sirop de glucose-fructose, eau))
+
+
 # mainIngredient:en:sugar
 fr:éclats de gaufrettes, éclats de gaufrette
 de:Hüppenflocken
@@ -46407,28 +46481,13 @@ fr:bigarreaux confits
 
 fr:dicarbonate de dimethyle
 
-fr:couscous
-
-# CALCIUM PHOSPHATE is a family of materials and minerals containing calcium ions (Ca2+) together with inorganic phosphate anions.
-
-en:calcium phosphate
-wikipedia:en:https://en.wikipedia.org/wiki/Calcium_phosphate
-wikidata:en:Q426664
-
-<en:calcium phosphate
-fr:orthophosphate de calcium, E339
 
 
-# TETRASODIUM PYROPHOSPHATE, also called sodium pyrophosphate, tetrasodium phosphate or TSPP, is a colorless transparent crystalline chemical compound with the formula Na4P2O7.
-
-en:Tetrasodium pyrophosphate
-fr:diphosphate tétrasodique, Pyrophosphate de sodium
-wikipedia:en:https://en.wikipedia.org/wiki/Tetrasodium_pyrophosphate
 
 
-fr:sardines fraîches
 
-fr:éclats de caramel au beurre salé
+
+
 
 
 
