@@ -369,7 +369,7 @@ CSS
 CSS
 ;
 	}
-
+	
 	# call format_subdomain($subdomain) only once
 	$formatted_subdomain = format_subdomain($subdomain);
 }
@@ -1238,7 +1238,9 @@ sub display_list_of_tags($$) {
 	$log->debug("MongoDB hashed aggregate query key", { key => $key }) if $log->is_debug();
 
 	# disable caching if ?nocache=1
-	if ((defined $request_ref->{nocache}) and ($request_ref->{nocache})) {
+	# or if the user is logged in and nocache is different from 0
+	if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
+		or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))   ) {
 
 		$log->debug("MongoDB nocache parameter, skip caching", { key => $key }) if $log->is_debug();
 
@@ -1254,12 +1256,28 @@ sub display_list_of_tags($$) {
 
 		$log->debug("Did not find a value for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
 
-		eval {
-			$log->debug("Executing MongoDB aggregate query", { query => $aggregate_parameters }) if $log->is_debug();
-			$results = execute_query(sub {
-				return get_products_tags_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 1 } );
-			});
-		};
+		# do not used the smaller cached products_ tags collection if ?nocache=1
+		# or if the user is logged in and nocache is different from 0
+		if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
+			or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))   ) {
+			
+			eval {
+				$log->debug("Executing MongoDB aggregate query on products collection", { query => $aggregate_parameters }) if $log->is_debug();
+				$results = execute_query(sub {
+					return get_products_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 1 } );
+				});
+			};			
+			
+		}
+		else {
+		
+			eval {
+				$log->debug("Executing MongoDB aggregate query on products_tags collection", { query => $aggregate_parameters }) if $log->is_debug();
+				$results = execute_query(sub {
+					return get_products_tags_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 1 } );
+				});
+			};
+		}
 		if ($@) {
 			$log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
 			$count = -1;
@@ -1405,19 +1423,19 @@ sub display_list_of_tags($$) {
 		}
 
 		my %products = ();	# number of products by tag, used for histogram of nutrition grades colors
-
+		
 		$log->debug("going through all tags", {}) if $log->is_debug();
-
+		
 		my $i = 0;
 
 		foreach my $tagcount_ref (@tags) {
-
+	
 			$i++;
-
+			
 			if (($i % 10000 == 0) and ($log->is_debug())) {
 				$log->debug("going through all tags", {i => $i});
 			}
-
+		
 			my $tagid = $tagcount_ref->{_id};
 			my $count = $tagcount_ref->{count};
 
@@ -1609,7 +1627,7 @@ sub display_list_of_tags($$) {
 		$html .= "</tbody></table></div>";
 
 		$log->debug("going through all tags - done", {}) if $log->is_debug();
-
+		
 
 		# nutrition grades colors histogram
 
@@ -1803,7 +1821,7 @@ HEADER
 
 	# datatables clears both
 	$request_ref->{full_width} = 1;
-
+	
 	$log->debug("end", {}) if $log->is_debug();
 
 
@@ -3183,7 +3201,9 @@ sub search_and_display_products($$$$$) {
 	$log->debug("MongoDB hashed query key", { key => $key }) if $log->is_debug();
 
 	# disable caching if ?nocache=1
-	if ((defined $request_ref->{nocache}) and ($request_ref->{nocache})) {
+	# or if the user is logged in and nocache is different from 0
+	if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
+		or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))   ) {
 
 		$log->debug("MongoDB nocache parameter, skip caching", { key => $key }) if $log->is_debug();
 
@@ -3627,19 +3647,19 @@ sub search_and_export_products($$$$$) {
 	}
 
 
-
+	
 
 	if ($count > 0) {
-
+	
 		# Send the CSV file line by line
-
+		
 		use Apache2::RequestRec ();
 		my $r = Apache2::RequestUtil->request();
 		$r->headers_out->set("Content-type" => "text/csv; charset=UTF-8");
 		$r->headers_out->set("Content-disposition" => "attachment;filename=openfoodfacts_search.csv");
 		binmode(STDOUT, ":encoding(UTF-8)");
-		print "Content-Type: text/csv; charset=UTF-8\r\n\r\n";
-
+		print "Content-Type: text/csv; charset=UTF-8\r\n\r\n";	
+	
 		my $categories_nutriments_ref = retrieve("$data_root/index/categories_nutriments_per_country.$cc.sto");
 
 		# First pass needed if we flatten results
@@ -3674,7 +3694,7 @@ sub search_and_export_products($$$$$) {
 		my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergens => 1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1);
 
 		my $csv = "";
-
+		
 		foreach my $field (@export_fields) {
 
 			# skip additives field and put only additives_tags
@@ -3727,13 +3747,13 @@ sub search_and_export_products($$$$$) {
 		$csv =~ s/\t$/\n/;
 
 		print $csv;
-
-
-
+		
+		
+		
 		while (my $product_ref = $cursor->next) {
 
 			$csv = "";
-
+		
 			# Normal fields
 
 			foreach my $field (@export_fields) {
@@ -3862,7 +3882,7 @@ sub search_and_export_products($$$$$) {
 			}
 
 			$csv =~ s/\t$/\n/;
-
+			
 			print $csv;
 
 		}
