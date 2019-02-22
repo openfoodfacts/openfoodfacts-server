@@ -3311,6 +3311,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Calcium_gluconate
 # ingredient/calcium-gluconate has 44 products in 2 languages @2018-12-11
 
 
+# en:iron gluconate, ferrous gluconate, E579, E-579, E 579
+#	is listed under <en:mineral
+
 # FERROUS LACTATE, or iron(II) lactate, is a chemical compound consisting of one atom of iron (Fe2+) and two lactate anions. 
 
 en:Ferrous lactate, Iron(II) lactate, E585, E-585, E 585
@@ -3995,11 +3998,11 @@ nl:maïsdextrine
 <en:modified starch
 <en:potato starch
 en:modified potato starch, E1404
-de:modifizierte Kartoffelstärke, E1404
-fr:amidon modifié de pomme de terre, amidon modifié de pommes de terre, amidon de pomme de terre modifié, amidon transformé de pommes de terre, amidon de pommes de terre modifié, amidon transformé de pomme de terre, fécule de pomme de terre modifiée, fécule modifiée de pommes de terre, E1404
-it:amido di patate modificiate, amido modificato di patata, E1404
+de:modifizierte Kartoffelstärke
+fr:amidon modifié de pomme de terre, amidon modifié de pommes de terre, amidon de pomme de terre modifié, amidon transformé de pommes de terre, amidon de pommes de terre modifié, amidon transformé de pomme de terre, fécule de pomme de terre modifiée, fécule modifiée de pommes de terre
+it:amido di patate modificiate, amido modificato di patata
 nl:gemodificeerd aardappelzetmeel
-pt:amido modificado de batata, E1404
+pt:amido modificado de batata
 # fr:fécule-de-pomme-de-terre-modifiée has 40 products in 3 languages @2018-10-15
 # fr:e1404 has 19 products in 4 languages @2018-10-15
 # en:modified-potato-starch has 1862 products in 7 languages @2018-10-15
@@ -4312,6 +4315,46 @@ zh:氢氧化钙
 wikidata:en:Q182849
 wikipedia:en:https://en.wikipedia.org/wiki/Calcium_hydroxide
 # ingredient/calcium-hydroxide has 152 products in 7 languages @2019-02-18
+
+
+# Iron(II) gluconate, or ferrous gluconate,[1] is a black compound often used as an iron supplement. It is the iron(II) salt of gluconic acid.
+
+<en:iron
+en:iron gluconate, ferrous gluconate, E579, E-579, E 579
+ar:غلوكونات الحديد الثنائي
+# azb:قلوکونات دمیر
+bg:Феро глюконат
+cs:Glukonan železnatý
+da:Ferrogluconat
+de:Eisengluconat
+el:Γλυκονικος σιδηρος
+es:Gluconato ferroso
+et:Ferroglükonaat
+fa:گلوکونات آهن
+fi:Ferroglukonaatti
+fr:gluconate de fer, gluconate ferreux
+hu:Vas-glukonát
+it:gluconato di ferro, Gluconato ferroso
+lt:Geležies gliukonatas
+lz:Dzelzs glikonāts
+mt:Glukonat ferruż
+nl:Ijzergluconaat
+pl:Glukonian żelazawy
+pt:Gluconato ferroso
+ro:Gluconat feros
+ru:глюконат железа
+sh:Gvožđe glukonat
+sk:Glukonan železnatý
+sl:Železov glukonat
+sr:Gvožđe glukonat
+sv:Järnglukonat
+tr:ferrous gluconate
+wikidata:en: Q421291
+wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_gluconate
+# ingredient/fr:gluconate-de-fer has 37 products in 6 languages @2019-02-22
+
+<en:iron gluconate
+en:ferrous gluconate to stabilize color
 
 
 # Molybdenum is a chemical element with symbol Mo and atomic number 42.  Molybdenum is an essential trace dietary element.
@@ -6639,7 +6682,6 @@ fr:lait écrémé en poudre reconstitué
 
 <en:milk
 fr:lait entier reconstitué
-allergens:fr:_lait_ entier reconstitué
 
 
 # LACTOSE is a disaccharide. It is a sugar composed of galactose and glucose.
@@ -18736,7 +18778,7 @@ ce:Хи
 ch:Hånom
 # chr:ᎠᎹ
 # chy:Mahpe
-ckb:ئاو
+# ckb:ئاو
 co:Acqua
 cr:ᓃᐲᔾ
 cs:Voda
@@ -45505,8 +45547,6 @@ fr:e535
 fr:e551
 
 fr:e575
-
-fr:e579
 
 fr:e627
 
