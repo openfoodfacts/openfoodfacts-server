@@ -10,6 +10,7 @@ const config = {
     madenearyou: './html/js/src/madenearyou.js',
     images: './html/js/src/images.js',
     product: './html/js/src/product.js',
+    users: './html/js/src/users.js',
   },
   output: {
     filename: '[name].js',
