@@ -117,6 +117,8 @@ twoflower
 $options{users_who_can_upload_small_images} = {
 map { $_ => 1 } qw(
 systeme-u
+stephane
+teolemon
 )
 };
 
@@ -209,7 +211,32 @@ systeme-u
                 slack_channel_edit-alert
         )],
 },
-
+{
+        name => "Yuka - Carrefour",
+        conditions => [
+                ["user_id", "kiliweb"],
+                ["in_editors_tags", "carrefour"],
+        ],
+        actions => [
+                ["ignore"],
+        ],
+        notifications => [ qw (
+                slack_channel_edit-alert
+        )],
+},
+{
+        name => "Yuka - LDC",
+        conditions => [
+                ["user_id", "kiliweb"],
+                ["in_editors_tags", "ldc"],
+        ],
+        actions => [
+                ["ignore"],
+        ],
+        notifications => [ qw (
+                slack_channel_edit-alert
+        )],
+},
 
 
 {

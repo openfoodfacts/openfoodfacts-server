@@ -36,9 +36,13 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 
 --process-ingredients	compute allergens, additives detection
 
+--clean-ingredients	remove nutrition facts, conservation conditions etc.
+
 --compute-nutrition-score	nutriscore
 
 --check-quality	run quality checks
+
+--compute-codes 
 
 --index		specifies that the keywords used by the free text search function (name, brand etc.) need to be reindexed. -- TBD
 
@@ -79,17 +83,23 @@ my $key;
 my $index = '';
 my $pretend = '';
 my $process_ingredients = '';
+my $clean_ingredients = '';
 my $compute_nutrition_score = '';
 my $compute_nova = '';
 my $check_quality = '';
+my $compute_codes = '';
+my $compute_carbon = '';
 
 GetOptions ("key=s"   => \$key,      # string
 			"fields=s" => \@fields_to_update,
 			"index" => \$index,
 			"pretend" => \$pretend,
+			"clean-ingredients" => \$clean_ingredients,
 			"process-ingredients" => \$process_ingredients,
 			"compute-nutrition-score" => \$compute_nutrition_score,
 			"compute-nova" => \$compute_nova,
+			"compute-codes" => \$compute_codes,
+			"compute-carbon" => \$compute_carbon,
 			"check-quality" => \$check_quality,
 			)
   or die("Error in command line arguments:\n$\nusage");
@@ -122,8 +132,10 @@ if ($unknown_fields > 0) {
 	die("Unknown fields, check for typos.");
 }
 
-if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $compute_nova) and (not $check_quality) and (scalar @fields_to_update == 0)) {
-	die("Missing fields to update:\n$\nusage");
+if ((not $process_ingredients) and (not $compute_nutrition_score) and (not $compute_nova) 
+	and (not $clean_ingredients)
+	and (not $compute_codes) and (not $compute_carbon) and (not $check_quality) and (scalar @fields_to_update == 0)) {
+	die("Missing fields to update:\n$usage");
 }  
 
 # Get a list of all products not yet updated
@@ -137,7 +149,8 @@ else {
 }
 
 #$query_ref->{code} = "3033490859206";
-$query_ref->{categories_tags} = "en:beverages";
+#$query_ref->{categories_tags} = "en:plant-milks";
+$query_ref->{quality_tags} = "ingredients-fr-includes-fr-nutrition-facts";
 
 print "Update key: $key\n\n";
 
@@ -188,11 +201,20 @@ while (my $product_ref = $cursor->next) {
 			}
 		}
 
+                if ($server_domain =~ /openfoodfacts/) {
+                        ProductOpener::Food::special_process_product($product_ref);
+                }
+		
 		if ((defined $product_ref->{nutriments}{"carbon-footprint"}) and ($product_ref->{nutriments}{"carbon-footprint"} ne '')) {
 			push @{$product_ref->{"labels_hierarchy" }}, "en:carbon-footprint";
 			push @{$product_ref->{"labels_tags" }}, "en:carbon-footprint";
 		}
+	
 		
+                if ($clean_ingredients) {
+			clean_ingredients_text($product_ref);
+		}
+	
 		
 		if ($process_ingredients) {
 			# Ingredients classes
@@ -202,10 +224,6 @@ while (my $product_ref = $cursor->next) {
 			compute_languages($product_ref); # need languages for allergens detection
 			detect_allergens_from_text($product_ref);		
 		}
-
-		if ($server_domain =~ /openfoodfacts/) {
-                        ProductOpener::Food::special_process_product($product_ref);
-                }
 		
 		if ($compute_nova) {
 		
@@ -216,6 +234,18 @@ while (my $product_ref = $cursor->next) {
 		if ($compute_nutrition_score) {
 			compute_nutrition_score($product_ref);
 			compute_nutrient_levels($product_ref);
+		}
+		
+		if ($compute_codes) {
+			compute_codes($product_ref);
+		}
+		
+		if ($compute_carbon) {
+			compute_carbon_footprint_from_ingredients($product_ref);
+			compute_serving_size_data($product_ref);
+			delete $product_ref->{environment_infocard};
+			delete $product_ref->{environment_infocard_en};
+			delete $product_ref->{environment_infocard_fr};		
 		}
 		
 		if ($check_quality) {

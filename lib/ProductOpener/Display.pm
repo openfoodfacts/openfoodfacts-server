@@ -78,6 +78,7 @@ BEGIN
 
 					$original_subdomain
 					$subdomain
+					$formatted_subdomain
 					$test
 					$lc
 					$cc
@@ -370,6 +371,9 @@ CSS
 CSS
 ;
 	}
+
+	# call format_subdomain($subdomain) only once
+	$formatted_subdomain = format_subdomain($subdomain);
 }
 
 # component was specified as en:product, fr:produit etc.
@@ -499,7 +503,7 @@ sub analyze_request($)
 	}
 	# Renamed text?
 	elsif ((defined $options{redirect_texts}) and (defined $options{redirect_texts}{$lang . "/" . $components[0]})) {
-		$request_ref->{redirect} = format_subdomain($subdomain) . "/" . $options{redirect_texts}{$lang . "/" . $components[0]};
+		$request_ref->{redirect} = $formatted_subdomain . "/" . $options{redirect_texts}{$lang . "/" . $components[0]};
 		$log->info("renamed text, redirecting", { textid => $components[0], redirect => $request_ref->{redirect} }) if $log->is_info();
 		return 301;
 	}
@@ -512,7 +516,7 @@ sub analyze_request($)
 	elsif (_component_is_singular_tag_in_specific_lc($components[0], 'products')) {
 		# check the product code looks like a number
 		if ($components[1] =~ /^\d/) {
-			$request_ref->{redirect} = format_subdomain($subdomain) . '/' . $tag_type_singular{products}{$lc} . '/' . $components[1];;
+			$request_ref->{redirect} = $formatted_subdomain . '/' . $tag_type_singular{products}{$lc} . '/' . $components[1];;
 		}
 		else {
 			display_error(lang("error_invalid_address"), 404);
@@ -1236,7 +1240,9 @@ sub display_list_of_tags($$) {
 	$log->debug("MongoDB hashed aggregate query key", { key => $key }) if $log->is_debug();
 
 	# disable caching if ?nocache=1
-	if ((defined $request_ref->{nocache}) and ($request_ref->{nocache})) {
+	# or if the user is logged in and nocache is different from 0
+	if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
+		or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))   ) {
 
 		$log->debug("MongoDB nocache parameter, skip caching", { key => $key }) if $log->is_debug();
 
@@ -1252,12 +1258,28 @@ sub display_list_of_tags($$) {
 
 		$log->debug("Did not find a value for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
 
-		eval {
-			$log->debug("Executing MongoDB aggregate query", { query => $aggregate_parameters }) if $log->is_debug();
-			$results = execute_query(sub {
-				return get_products_tags_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 0 } );
-			});
-		};
+		# do not used the smaller cached products_ tags collection if ?nocache=1
+		# or if the user is logged in and nocache is different from 0
+		if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
+			or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))   ) {
+
+			eval {
+				$log->debug("Executing MongoDB aggregate query on products collection", { query => $aggregate_parameters }) if $log->is_debug();
+				$results = execute_query(sub {
+					return get_products_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 1 } );
+				});
+			};
+
+		}
+		else {
+
+			eval {
+				$log->debug("Executing MongoDB aggregate query on products_tags collection", { query => $aggregate_parameters }) if $log->is_debug();
+				$results = execute_query(sub {
+					return get_products_tags_collection()->aggregate( $aggregate_parameters, { allowDiskUse => 1 } );
+				});
+			};
+		}
 		if ($@) {
 			$log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
 			$count = -1;
@@ -1404,7 +1426,17 @@ sub display_list_of_tags($$) {
 
 		my %products = ();	# number of products by tag, used for histogram of nutrition grades colors
 
+		$log->debug("going through all tags", {}) if $log->is_debug();
+
+		my $i = 0;
+
 		foreach my $tagcount_ref (@tags) {
+
+			$i++;
+
+			if (($i % 10000 == 0) and ($log->is_debug())) {
+				$log->debug("going through all tags", {i => $i});
+			}
 
 			my $tagid = $tagcount_ref->{_id};
 			my $count = $tagcount_ref->{count};
@@ -1501,7 +1533,7 @@ sub display_list_of_tags($$) {
 			my $display = '';
 			my @sameAs = ();
 			if ($tagtype eq 'nutrition_grades') {
-				if ($tagid =~ /^a|b|c|d|e$/) {
+				if ($tagid =~ /^[abcde]$/) {
 					my $grade = $tagid;
 					$display = "<img src=\"/images/misc/nutriscore-$grade.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} " . uc($grade) . "\" style=\"margin-bottom:1rem;max-width:100%\">" ;
 				}
@@ -1539,7 +1571,7 @@ sub display_list_of_tags($$) {
 			my $tagentry = {
 				id => $tagid,
 				name => $display,
-				url => format_subdomain($subdomain) . $product_link,
+				url => $formatted_subdomain . $product_link,
 				products => $products + 0, # + 0 to make the value numeric
 			};
 
@@ -1579,7 +1611,7 @@ sub display_list_of_tags($$) {
 						$countries_map_links->{$region} = $product_link;
 						my $name = $display;
 						$name =~ s/<(.*?)>//g;
-						$countries_map_names->{$region} = $name;						
+						$countries_map_names->{$region} = $name;
 					}
 
 					if (not defined $countries_map_data->{$region}) {
@@ -1595,6 +1627,8 @@ sub display_list_of_tags($$) {
 		}
 
 		$html .= "</tbody></table></div>";
+
+		$log->debug("going through all tags - done", {}) if $log->is_debug();
 
 
 		# nutrition grades colors histogram
@@ -1626,7 +1660,7 @@ sub display_list_of_tags($$) {
                 text: '$request_ref->{title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$sep: @{[ format_subdomain($subdomain) ]}'
+                text: '$Lang{data_source}{$lc}$sep: $formatted_subdomain'
             },
             xAxis: {
                 title: {
@@ -1719,7 +1753,7 @@ HTML
   },
   onRegionClick: function(e, code, region){
 	if (countries_map_links[code]) {
-		window.location.href = "@{[ format_subdomain($subdomain) ]}" + countries_map_links[code];
+		window.location.href = "$formatted_subdomain" + countries_map_links[code];
 	}
   },
 });
@@ -1789,6 +1823,9 @@ HEADER
 
 	# datatables clears both
 	$request_ref->{full_width} = 1;
+
+	$log->debug("end", {}) if $log->is_debug();
+
 
 	return $html;
 }
@@ -3163,7 +3200,9 @@ sub search_and_display_products($$$$$) {
 	$log->debug("MongoDB hashed query key", { key => $key }) if $log->is_debug();
 
 	# disable caching if ?nocache=1
-	if ((defined $request_ref->{nocache}) and ($request_ref->{nocache})) {
+	# or if the user is logged in and nocache is different from 0
+	if ( ((defined $request_ref->{nocache}) and ($request_ref->{nocache}))
+		or ((defined $User_id) and not ((defined $request_ref->{nocache}) and ($request_ref->{nocache} == 0)))   ) {
 
 		$log->debug("MongoDB nocache parameter, skip caching", { key => $key }) if $log->is_debug();
 
@@ -3336,7 +3375,7 @@ HTML
 			$product_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
 
 			my $url = product_url($product_ref);
-			$product_ref->{url} = format_subdomain($subdomain) . $url;
+			$product_ref->{url} = $formatted_subdomain . $url;
 
 			add_images_urls_to_product($product_ref);
 
@@ -3477,9 +3516,8 @@ HTML
 		if (defined $request_ref->{jqm}) {
 			if (defined $next_page_url) {
 				my $loadmore = lang("loadmore");
-				my $loadmore_domain = format_subdomain($subdomain);
 				$html .= <<HTML
-<li id="loadmore" style="text-align:center"><a href="${loadmore_domain}/${next_page_url}&jqm_loadmore=1" id="loadmorelink">$loadmore</a></li>
+<li id="loadmore" style="text-align:center"><a href="${formatted_subdomain}/${next_page_url}&jqm_loadmore=1" id="loadmorelink">$loadmore</a></li>
 HTML
 ;
 			}
@@ -3503,8 +3541,7 @@ HTML
 
 	if ($subdomain ne $original_subdomain) {
 		$log->debug("subdomain not equal to original_subdomain, converting relative paths to absolute paths", { subdomain => $subdomain, original_subdomain => $original_subdomain }) if $log->is_debug();
-		my $formated_subdomain = format_subdomain($subdomain);
-		$html =~ s/(href|src)=("\/)/$1="$formated_subdomain\//g;
+		$html =~ s/(href|src)=("\/)/$1="$formatted_subdomain\//g;
 	}
 
 	return $html;
@@ -3570,7 +3607,10 @@ sub search_and_export_products($$$$$) {
 
 	eval {
 		$cursor = execute_query(sub {
-			return get_products_collection()->query($query_ref)->sort($sort_ref);
+			# disabling sort for CSV export, as we get memory errors
+			# MongoDB::DatabaseError: Runner error: Overflow sort stage buffered data usage of 33572508 bytes exceeds internal limit of 33554432 bytes
+			# return get_products_collection()->query($query_ref)->sort($sort_ref);
+			return get_products_collection()->query($query_ref);
 		});
 		$count = $cursor->count() + 0;
 	};
@@ -3600,13 +3640,24 @@ sub search_and_export_products($$$$$) {
 
 	if ($count <= 0) {
 		# $request_ref->{content_html} = $html;
-		return $html;
+		$request_ref->{title} = lang("search_results");
+		display_new($request_ref);
+		return;
 	}
 
 
-	my $csv = '';
+
 
 	if ($count > 0) {
+
+		# Send the CSV file line by line
+
+		use Apache2::RequestRec ();
+		my $r = Apache2::RequestUtil->request();
+		$r->headers_out->set("Content-type" => "text/csv; charset=UTF-8");
+		$r->headers_out->set("Content-disposition" => "attachment;filename=openfoodfacts_search.csv");
+		binmode(STDOUT, ":encoding(UTF-8)");
+		print "Content-Type: text/csv; charset=UTF-8\r\n\r\n";
 
 		my $categories_nutriments_ref = retrieve("$data_root/index/categories_nutriments_per_country.$cc.sto");
 
@@ -3641,6 +3692,7 @@ sub search_and_export_products($$$$$) {
 
 		my %tags_fields = (packaging => 1, brands => 1, categories => 1, labels => 1, origins => 1, manufacturing_places => 1, emb_codes=>1, cities=>1, allergens => 1, traces => 1, additives => 1, ingredients_from_palm_oil => 1, ingredients_that_may_be_from_palm_oil => 1);
 
+		my $csv = "";
 
 		foreach my $field (@export_fields) {
 
@@ -3693,8 +3745,13 @@ sub search_and_export_products($$$$$) {
 
 		$csv =~ s/\t$/\n/;
 
+		print $csv;
+
+
 
 		while (my $product_ref = $cursor->next) {
+
+			$csv = "";
 
 			# Normal fields
 
@@ -3738,7 +3795,9 @@ sub search_and_export_products($$$$$) {
 			and  (defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
 
 				$main_cid = $product_ref->{categories_tags}[0];
-
+				if (not defined $main_cid) {
+					$main_cid = "";
+				}
 
 
 				foreach my $cid (@{$product_ref->{categories_tags}}) {
@@ -3823,10 +3882,12 @@ sub search_and_export_products($$$$$) {
 
 			$csv =~ s/\t$/\n/;
 
+			print $csv;
+
 		}
 	}
 
-	return $csv;
+	return;
 }
 
 
@@ -3927,7 +3988,7 @@ sub display_scatter_plot($$$) {
 				and (((($graph_ref->{axis_y} eq 'additives_n') or ($graph_ref->{axis_y} eq 'ingredients_n')) and (defined $product_ref->{$graph_ref->{axis_y}})) or
 					(defined $product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"}) and ($product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"} ne ''))) {
 
-				my $url = format_subdomain($subdomain) . product_url($product_ref->{code});
+				my $url = $formatted_subdomain . product_url($product_ref->{code});
 
 				# Identify the series id
 				my $seriesid = 0;
@@ -4104,7 +4165,7 @@ JS
                 text: '$graph_ref->{graph_title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$sep: @{[ format_subdomain($subdomain) ]}'
+                text: '$Lang{data_source}{$lc}$sep: $formatted_subdomain'
             },
             xAxis: {
 				$x_allowDecimals
@@ -4455,7 +4516,7 @@ JS
                 text: '$graph_ref->{graph_title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$sep: @{[ format_subdomain($subdomain) ]}'
+                text: '$Lang{data_source}{$lc}$sep: $formatted_subdomain'
             },
             xAxis: {
                 title: {
@@ -5210,7 +5271,7 @@ sub display_new($) {
 		$canon_description = lang("site_description");
 	}
 	my $canon_image_url = "";
-	my $canon_url = format_subdomain($subdomain);
+	my $canon_url = $formatted_subdomain;
 
 	if (defined $request_ref->{canon_url}) {
 		if ($request_ref->{canon_url} =~ /^http:/) {
@@ -5447,55 +5508,55 @@ To improve food for everyone, it's time to <a href="https://www.helloasso.com/as
 HTML
 ;
 	}
-	
+
 	# Display a banner from users on Android or iOS
-	
+
 	my $user_agent = $ENV{HTTP_USER_AGENT};
-	
+
 	my $mobile;
 	my $system;
-	
+
 	# windows phone must be first as its user agent includes the string android
 	if ($user_agent =~ /windows phone/i) {
-	
+
 		$mobile = "windows";
 	}
 	elsif ($user_agent =~ /android/i) {
-	
+
 		$mobile = "android";
 		$system = "android";
 	}
 	elsif ($user_agent =~ /iphone/i) {
-	
+
 		$mobile = "iphone";
 		$system = "ios";
 	}
 	elsif ($user_agent =~ /ipad/i) {
-	
+
 		$mobile = "ipad";
 		$system = "ios";
-	}	
-	
+	}
+
 	if ((defined $mobile) and (defined $Lang{"get_the_app_$mobile"})) {
-	
+
 		my $link = lang($system . "_app_link");
 		my $link_text = lang("get_the_app_$mobile");
-		
+
 		if ($system eq 'android') {
-		
+
 			$link_text = '<i class="fab fa-android"></i> ' . $link_text;
 		}
 		elsif ($system eq 'ios') {
-		
+
 			$link_text = '<i class="fab fa-apple"></i> ' . $link_text;
 		}
-	
+
 		$top_banner = <<HTML
 
 <a href="$link" class="button expand">$link_text</a>
 
 HTML
-;	
+;
 	}
 
 	$html .= <<HTML
@@ -5521,7 +5582,7 @@ HTML
 			<li class="show-for-large-up divider"></li>
 			<li><a href="$Lang{menu_discover_link}{$lang}">$Lang{menu_discover}{$lang}</a></li>
 			<li><a href="$Lang{menu_contribute_link}{$lang}">$Lang{menu_contribute}{$lang}</a></li>
-			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success"><i class="fas fa-mobile-alt"></i></a></li>			
+			<li class="show-for-large"><a href="/$Lang{get_the_app_link}{$lc}" title="$Lang{get_the_app}{$lc}" class="button success"><i class="fas fa-mobile-alt"></i></a></li>
 			<li class="show-for-xlarge-up"><a href="/$Lang{get_the_app_link}{$lc}" class="button success"><i class="fas fa-mobile-alt"></i> $Lang{get_the_app}{$lc}</a></li>
 		</ul>
 	</section>
@@ -5697,17 +5758,17 @@ window.addEventListener('load', onLoad);
 	"\@context" : "https://schema.org",
 	"\@type" : "WebSite",
 	"name" : "$Lang{site_name}{$lc}",
-	"url" : "@{[ format_subdomain($subdomain) ]}",
+	"url" : "$formatted_subdomain",
 	"potentialAction": {
 		"\@type": "SearchAction",
-		"target": "@{[ format_subdomain($subdomain) ]}/cgi/search.pl?search_terms=?{search_term_string}",
+		"target": "$formatted_subdomain/cgi/search.pl?search_terms=?{search_term_string}",
 		"query-input": "required name=search_term_string"
 	}
 }
 {
 	"\@context": "https://schema.org/",
 	"\@type": "Organization",
-	"url": "@{[ format_subdomain($subdomain) ]}",
+	"url": "$formatted_subdomain",
 	"logo": "/images/misc/$Lang{logo}{$lang}",
 	"name": "$Lang{site_name}{$lc}",
 	"sameAs" : [ "$facebook_page", "https://twitter.com/$twitter_account"]
@@ -5954,6 +6015,7 @@ sub display_field($$) {
 	if (defined $language_fields{$field}) {
 		if ((defined $product_ref->{$field . "_" . $lc}) and ($product_ref->{$field . "_" . $lc} ne '')) {
 			$value = $product_ref->{$field . "_" . $lc};
+			$value =~ s/\n/<br>/g;
 		}
 	}
 
@@ -5968,7 +6030,7 @@ sub display_field($$) {
 	}
 
 
-	if ($value ne '') {
+	if ((defined $value) and ($value ne '')) {
 		if (($field eq 'link') and ($value =~ /^http/)) {
 			my $link = $value;
 			$link =~ s/"|<|>|'//g;
@@ -6780,6 +6842,14 @@ $html_fields
 </div>
 HTML
 ;
+	}
+
+	if ($admin) {
+		compute_carbon_footprint_infocard($product_ref);
+		$html .= display_field($product_ref, 'environment_infocard');
+		if (defined $product_ref->{"carbon_footprint_from_meat_or_fish_debug"}) {
+			$html .= "<p>debug: " . $product_ref->{"carbon_footprint_from_meat_or_fish_debug"} . "</p>";
+		}
 	}
 
 	# photos and data sources
@@ -7804,6 +7874,7 @@ HTML
 
 		if  (($nutriment !~ /-$/)
 			or ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
+			or ((defined $product_ref->{nutriments}{$nid . "_100g"}) and ($product_ref->{nutriments}{$nid . "_100g"} ne ''))
 			or ((defined $product_ref->{nutriments}{$nid . "_prepared"}) and ($product_ref->{nutriments}{$nid . "_prepared"} ne ''))
 			or ($nid eq 'new_0') or ($nid eq 'new_1')) {
 			$shown = 1;
@@ -7914,7 +7985,7 @@ HTML
 				my $percent = $comparison_ref->{nutriments}{"${nid}_100g_%"};
 				if ((defined $percent) and ($percent ne '')) {
 					$percent = $perf->format($percent / 100.0);
-					if ($percent > 0) {
+					if ($percent !~ /^-/) {
 						$percent = "+" . $percent;
 					}
 					$value_unit = '<span class="compare_percent">' . $percent . '</span><span class="compare_value" style="display:none">' . $value_unit . '</span>';
@@ -8060,7 +8131,7 @@ HTML
 					}
 				}
 
-				if ($col eq '100g') {
+				if (($col eq '100g') and (defined $product_ref->{nutriments}{$nid . "_$col"})) {
 					my $property = $nid;
 					$property =~ s/-([a-z])/ucfirst($1)/eg;
 					$property .= "Per100g";
@@ -8125,7 +8196,7 @@ HTML
 
 		if (not $shown) {
 		}
-		elsif ($nid eq 'carbon-footprint') {
+		elsif (($nid eq 'carbon-footprint') or ($nid eq 'carbon-footprint-from-meat-or-fish')) {
 
 			$html2 .= <<HTML
 <tr id="ecological_footprint"><td style="padding-top:10px;font-weight:bold;">$Lang{ecological_data_table}{$lang}</td>$empty_cols</tr>
@@ -8235,6 +8306,9 @@ HTML
 		if (defined $request_ref->{fields}) {
 			my $compact_product_ref = {};
 			foreach my $field (split(/,/, $request_ref->{fields})) {
+				if ($field =~ /^environment_infocard/) {
+					compute_carbon_footprint_infocard($product_ref);
+				}
 				if (defined $product_ref->{$field}) {
 					$compact_product_ref->{$field} = $product_ref->{$field};
 				}
@@ -8337,7 +8411,7 @@ sub add_images_urls_to_product($) {
 		my @display_ids = ($imagetype . "_" . $display_lc);
 
 		# next try the main language of the product
-		if ($product_ref->{lc} ne $display_lc) {
+		if (defined ($product_ref->{lc}) && $product_ref->{lc} ne $display_lc) {
 			push @display_ids, $imagetype . "_" . $product_ref->{lc};
 		}
 
@@ -8461,8 +8535,7 @@ sub display_structured_response_opensearch_rss {
 
 	$long_name = $xs->escape_value(encode_utf8($long_name));
 	$short_name = $xs->escape_value(encode_utf8($short_name));
-	my $dom = format_subdomain($subdomain);
-	my $query_link = $xs->escape_value(encode_utf8($dom . $request_ref->{current_link_query} . "&rss=1"));
+	my $query_link = $xs->escape_value(encode_utf8($formatted_subdomain . $request_ref->{current_link_query} . "&rss=1"));
 	my $description = $xs->escape_value(encode_utf8(lang("search_description_opensearch")));
 
 	my $search_terms = $xs->escape_value(encode_utf8(decode utf8=>param('search_terms')));
@@ -8483,7 +8556,7 @@ sub display_structured_response_opensearch_rss {
      <opensearch:totalResults>$count</opensearch:totalResults>
      <opensearch:startIndex>$skip</opensearch:startIndex>
      <opensearch:itemsPerPage>${page_size}</opensearch:itemsPerPage>
-     <atom:link rel="search" type="application/opensearchdescription+xml" href="$dom/cgi/opensearch.pl"/>
+     <atom:link rel="search" type="application/opensearchdescription+xml" href="$formatted_subdomain/cgi/opensearch.pl"/>
      <opensearch:Query role="request" searchTerms="${search_terms}" startPage="$page" />
 XML
 ;
@@ -8494,7 +8567,7 @@ XML
 			$item_title = $product_ref->{code} unless $item_title;
 			my $item_description = $xs->escape_value(encode_utf8(sprintf(lang("product_description"), $item_title)));
 			$item_title = $xs->escape_value(encode_utf8($item_title));
-			my $item_link = $xs->escape_value(encode_utf8($dom . product_url($product_ref)));
+			my $item_link = $xs->escape_value(encode_utf8($formatted_subdomain . product_url($product_ref)));
 
 			$xml .= <<XML
      <item>

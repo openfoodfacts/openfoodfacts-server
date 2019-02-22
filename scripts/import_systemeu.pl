@@ -68,10 +68,10 @@ $editor_user_id = $editor_user_id;
 
 not defined $photo_user_id and die;
 
-my $csv_file = "/data/off/systemeu/SUYQD_AKENEO_PU_09b.csv";
-my $categories_csv_file = "/data/off/systemeu/systeme-u-rubriques.csv";
-my $imagedir = "/data/off/systemeu/all_product_images";
-my $products_without_ingredients_lists = "/data/off/systemeu/systeme-u-products-without-ingredients-lists.txt";
+my $csv_file = "/srv/off/imports/systemeu/data/SUYQD_AKENEO_PU_201902.csv";
+my $categories_csv_file = "/srv/off/imports/systemeu/systeme-u-rubriques.csv";
+my $imagedir = "/srv/off/imports/systemeu/images";
+my $products_without_ingredients_lists = "/srv/off/imports/systemeu/systeme-u-products-without-ingredients-lists.txt";
 
 #my $csv_file = "/home/systemeu/SUYQD_AKENEO_PU_08.csv";
 #my $categories_csv_file = "/home/systemeu/systeme-u-rubriques.csv";
@@ -123,6 +123,11 @@ print "Opening image dir $imagedir\n";
 if (opendir (DH, "$imagedir")) {
 	foreach my $file (sort { $a cmp $b } readdir(DH)) {
 
+		# systeme-u archives includes files starting with ._
+		# that contain metadata, skip them
+
+		next if ($file =~ /^._/);
+
 		if ($file =~ /(\d+)(.*)\.(jpg|jpeg|png)/i) {
 		
 			my $code = $1;
@@ -134,6 +139,9 @@ if (opendir (DH, "$imagedir")) {
 			print "FOUND IMAGE FOR PRODUCT CODE $code - file $file - imagefield: $imagefield\n";
 			
 			# skip jpg and keep png for front product image
+			# png with transparent background support is broken
+			# on the imagemagick in production, used mogrify
+			# to convert all of them to jpg (which seems to work)
 
 			defined $images_ref->{$code} or $images_ref->{$code} = {};
 			
@@ -500,7 +508,6 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 					
 						# upload the image
 						my $file = $imported_image_file;
-						$file =~ s/(.*)cloudfront.net\///;
 						if (-e "$imagedir/$file") {
 							print "found image file $imagedir/$file\n";
 							
@@ -1023,16 +1030,16 @@ ble => "bouteille",
 
 						# special handling for allergens and traces
 						if (($field eq 'allergens') or ($field eq 'traces')) {
-							compute_field_tags($product_ref, $field);
+							compute_field_tags($product_ref, "fr", $field);
 						}
 						if ($current_field ne $product_ref->{$field}) {
 							print "changed value for product code: $code - field: $field = $product_ref->{$field} - old: $current_field\n";
-							compute_field_tags($product_ref, $field);
+							compute_field_tags($product_ref, "fr", $field);
 							push @modified_fields, $field;
 							$modified++;
 						}
 						elsif ($field eq "brands") {	# we removed it earlier
-							compute_field_tags($product_ref, $field);
+							compute_field_tags($product_ref, "fr", $field);
 						}
 						
 						if (($field eq 'categories') and ($product_ref->{$field} eq "")) {
@@ -1651,7 +1658,7 @@ TXT
 				$edited{$code}++;
 				
 				$j++;
-				#$j > 100 and last;
+				#$j > 10 and last;
 				#last;
 			}
 			

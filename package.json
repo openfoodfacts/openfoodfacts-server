@@ -19,7 +19,7 @@
     "perlc": "pnpm run perlc:startup && pnpm run perlc:cgi",
     "perlc:startup": "perl -c -CS -Ilib lib/startup_apache2.pl",
     "perlc:cgi": "node compile_cgi.js",
-    "postinstall": "node -e \"try { require('fs').symlinkSync(require('path').resolve('node_modules/@bower_components'), 'html/bower_components', 'junction') } catch (e) { }\""
+    "postinstall": "node -e \"try { require('fs').symlinkSync(require('path').resolve('node_modules/@bower_components'), 'html/bower_components', 'junction') } catch (e) { }\" && opencollective-postinstall"
   },
   "repository": {
     "type": "git",
@@ -82,5 +82,9 @@
     "stylelint-scss": "^3.1.0",
     "webpack": "^4.23.1",
     "webpack-cli": "^3.1.2"
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/openfoodfacts-server"
   }
 }
