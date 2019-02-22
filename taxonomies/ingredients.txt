@@ -10994,7 +10994,7 @@ fr:extrait de boeuf
 fr:sous-produit du boeuf
 
 
-fr:jus de cuisson de viande de boeuf
+fr:jus de cuisson de viande de bœuf, jus de cuisson de viande de boeuf
 
 fr:jus concentré d'os et de viande de bœuf, jus concentré d'os et de viande de boeuf
 # ingredient/fr:jus-concentré-d’os-et-de-viande-de-bœuf has 14 products in 2 languages @2019-02-12
@@ -17410,6 +17410,93 @@ fr:sucre du lait
 fr:sucre semoule
 
 
+# Sucrose is common table sugar. It is a disaccharide, a molecule composed of two monosaccharides:glucose and fructose. 
+
+<en:sugar
+en:sucrose
+ar:سكروز
+# arz:سوكروز
+# ast:Sacarosa
+# azb:ساکاروز
+be:Цукроза
+# be-tarask:Цукроза
+bg:Захароза
+bs:Saharoza
+ca:sacarosa
+cs:sacharóza
+cy:Swcros
+da:Sukrose
+de:Saccharose
+el:σακχαρόζη
+# en-ca:Sucrose
+# en-gb:Sucrose
+eo:sakarozo
+es:sacarosa
+et:Sahharoos
+eu:Sakarosa
+fa:ساکارز
+fi:Sakkaroosi
+fr:Sacharose, sucrose
+# frr:Soker
+fy:Sacharoaze
+ga:Siúcrós
+gl:Sacarosa
+he:סוכרוז
+hi:इक्षुशर्करा
+hr:Saharoza
+hu:szacharóz
+hy:Սախարոզ
+id:Sukrosa
+# inh:Шекар
+is:Súkrósi
+it:saccarosio
+ja:スクロース
+jv:Sukrosa
+ka:საქაროზა
+kk:Сахароза
+kn:ಸುಕ್ರೋಸ್
+ko:수크로스
+ky:Сахароза
+la:Saccharosum
+lb:Saccharos
+lt:Sacharozė
+lv:Saharoze
+mk:сахароза
+ml:സുക്രോസ്
+ms:Sukrosa
+# nan:Chià-thn̂g
+nl:Sacharose, sucrose
+nn:sukrose
+oc:Sacaròsa
+pl:sacharoza
+pt:sacarose
+# pt-br:Sacarose
+ro:Zaharoză
+ru:сахароза
+# sco:sucrose
+sh:Saharoza
+si:සුක්රෝස්
+sk:Sacharóza
+sl:Saharoza
+sq:Sakaroza
+sr:сахароза
+su:Sukrosa
+sv:Sackaros
+ta:சுக்கிரோசு
+te:సుక్రోజ్
+th:ซูโครส
+tr:Sakkaroz
+uk:Цукроза
+ur:شکر
+uz:Saharoza
+vi:Sucroza
+# yue:蔗醣
+zh:蔗糖
+wikidata:en:Q4027534
+wikipedia:en:https://en.wikipedia.org/wiki/Sucrose
+# ingredient/fr:sucrose has 73 products @2019-02-22
+
+
 # Molasses (American English) or black treacle (British English) is a viscous product resulting from refining sugarcane or sugar beets into sugar. 
 
 <en:sugar
@@ -17705,28 +17792,28 @@ fr:sirop de glucose déshydraté, sirop de glucose en poudre
 it:sciroppo di glucosio disidratato, sciroppo di glucosio in polvere
 nl:gedroogde glucosestroop
 sv:torkad glukossirap
-openfoodfacts:https://world.openfoodfacts.org/ingredient/powdered-glucose-syrup
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/powdered-glucose-syrup
 # 60 products in 4 languages @2018-09-24
-openfoodfacts:https://world.openfoodfacts.org/ingredient/dehydrated-glucose-syrup
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/dehydrated-glucose-syrup
 # 350 products in 8 languages
 
 <en:powdered glucose syrup
 fr:sirop de glucose de blé en poudre
 nl:tarweglucosestrooppoeder
 sv:glukossirap från vetemjöl
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop%20de%20glucose%20de%20blé%20en%20poudre
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop%20de%20glucose%20de%20blé%20en%20poudre
 # 49 products in 3 languages @2018-09-24
 
 <en:corn syrup
 <en:glucose
 fr:sirop de glucose de maïs
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop%20de%20glucose%20de%20maïs
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop%20de%20glucose%20de%20maïs
 # 148 products in 1 language @2018-09-24
 
 <en:wheat
 <en:glucose
 fr:glucose de blé
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:glucose%20de%20blé
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:glucose%20de%20blé
 # 30 products in 1 language @2018-09-24
 
 <en:glucose syrup
@@ -17738,7 +17825,7 @@ it:sciroppo di glucosio di frumento
 nl:tarweglucosestroop
 pl:syrop glukozowy z pszenicy
 pt:xarope de glucose de trigo
-openfoodfacts:https://world.openfoodfacts.org/ingredient/wheat-glucose-syrup
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/wheat-glucose-syrup
 # 661 products in 7 languages @2018-09-24
 
 # FRUCTOSE, or fruit sugar, is a simple ketonic monosaccharide found in many plants, where it is often bonded to glucose to form the disaccharide sucrose.
@@ -19506,7 +19593,7 @@ eu:azido fosforiko, E338, E 338, E-338
 fa:فسفریک اسید
 fi:Fosforihappo, Ortofosforihappo, Divetyfosfaatti, Vetyfosfaatti, E338, E 338, E-338
 fr:acide phosphorique, acide orthophosphorique, acidifiant phosphorique, E338, E 338, E-338
-frr:Phosphorsüren, E338, E 338, E-338
+# frr:Phosphorsüren, E338, E 338, E-338
 ga:Aigéad fosfarach, E338, E 338, E-338
 gd:Ácido fosfórico, E338, E 338, E-338
 he:חומצה זרחתית
@@ -19569,26 +19656,29 @@ wikipedia:en:https://en.wikipedia.org/wiki/Phosphoric_acid
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+# Unspecified phosphate variety
+
+en:phosphate
+fr:phosphates, phosphate
+# ingredient/fr:phosphates has 57 products @2019-02-22
+# Séquestrant : phosphate
+# stabilisants : phosphates
+# sodium (mono, hexameta, and/or tripoly) phosphate
 
 # SODIUM PHOSPHATES is a generic term for a variety of salts of sodium (Na+) and phosphate (PO43−).
 # Note that the names here must be plural. The singlars are found under E339iii
 
 en:sodium phosphates, E339, E 339, E-339
 ar:فوسفات الصوديوم
-ca:E339, E 339, E-339
-de:Natriumphosphate, E339, E 339, E-339
-es:Fosfatos de sodio, Fosfatos sodicos, Ortofosfatos de sodio, E339, E 339, E-339
+de:Natriumphosphate
+es:Fosfatos de sodio, Fosfatos sodicos, Ortofosfatos de sodio
 fa:سدیم فسفات
-fr:phosphates de sodium, Orthophosphates de sodium, E339, E 339, E-339
-it:fosfati di sodio, E339, E 339, E-339
-ja:リン酸塩, E339, E 339, E-339
-nl:natriumfosfaten, Natriumorthofosfaten, E339, E 339, E-339
-nn:E339, E 339, E-339
+fr:phosphates de sodium, Orthophosphates de sodium
+it:fosfati di sodio
+ja:リン酸塩
+nl:natriumfosfaten, Natriumorthofosfaten
 pt:fosfatos de sódio
-ru:Натрия фосфаты, E339, E 339, E-339
-sh:E339, E 339, E-339
-sr:E339, E 339, E-339
-sv:E339, E 339, E-339
+ru:Натрия фосфаты
 wikipedia:en:https://en.wikipedia.org/wiki/Sodium_phosphates
 # fr:phosphate-de-sodium has 337 products @2018-11-05
 
@@ -19807,35 +19897,35 @@ wikidata:en:Q403721
 <en:potassium phosphates
 en:tripotassium phosphate, E340iii, E 340iii, E340 iii, E-340iii
 # azb:تریپوتاسیوم فوسفات
-bg:Трикалиев фосфат, Триосновен калиев фосфат, E340iii, E 340iii, E340 iii, E-340iii
-cs:Fosforečnan draselný, Fosforečnan tridraselný, E340iii, E 340iii, E340 iii, E-340iii
-da:Trikaliumphosphat, Tribasisk kaliumphosphat, E340iii, E 340iii, E340 iii, E-340iii
-de:Trikaliumphosphat, dreibasiges Kaliumphosphat, E340iii, E 340iii, E340 iii, E-340iii
-el:Φωσφορικο καλιο, Ουδέτερο φωσφορικό κάλιο, E340iii, E 340iii, E340 iii, E-340iii
-eo:Kalia fosfato tribaza, E340iii, E 340iii, E340 iii, E-340iii
-es:fosfato tripotasico, E340iii, E 340iii, E340 iii, E-340iii
-et:Kaaliumfosfaat, Trikaaliumfosfaat, E340iii, E 340iii, E340 iii, E-340iii
+bg:Трикалиев фосфат, Триосновен калиев фосфат
+cs:Fosforečnan draselný, Fosforečnan tridraselný
+da:Trikaliumphosphat, Tribasisk kaliumphosphat
+de:Trikaliumphosphat, dreibasiges Kaliumphosphat
+el:Φωσφορικο καλιο, Ουδέτερο φωσφορικό κάλιο
+eo:Kalia fosfato tribaza
+es:fosfato tripotasico
+et:Kaaliumfosfaat, Trikaaliumfosfaat
 fa:تری‌پتاسیم فسفات
-fi:Trikaliumfosfaatti, Kolmenarvoinen kaliumfosfaatti, E340iii, E 340iii, E340 iii, E-340iii
-fr:Phosphate tripotassique, E340iii, E 340iii, E340 iii, E-340iii
-hu:Trikálium-foszfát, Hárombázisú kálium-foszfát, E340iii, E 340iii, E340 iii, E-340iii
-it:Fosfato tripotassico, Fosfato tribasico di potassio, E340iii, E 340iii, E340 iii, E-340iii
-ja:リン酸三カリウム, E340iii, E 340iii, E340 iii, E-340iii
-lt:Trikalio fosfatas, Tribazis kalio fosfatas, E340iii, E 340iii, E340 iii, E-340iii
-lv:Trikālija fosfāts, Tribāziskais kālija fosfāts, E340iii, E 340iii, E340 iii, E-340iii
-mt:Fosfat tat-tripotassju, Fosfat tal-potassju tribażiku, E340iii, E 340iii, E340 iii, E-340iii
-nl:Trikaliumfosfaat, Driebasisch kaliumfosfaat, E340iii, E 340iii, E340 iii, E-340iii
-pl:Fosforan tripotasowy, Fosforan potasu, trizasadowy, E340iii, E 340iii, E340 iii, E-340iii
-pt:Fosfato tripotássico, Fosfato tribásico de potássio, E340iii, E 340iii, E340 iii, E-340iii
-ro:Fosfat tripotasic, Fosfat de potasiu tribazic, E340iii, E 340iii, E340 iii, E-340iii
-ru:Ортофосфат калия, E340iii, E 340iii, E340 iii, E-340iii
-sh:Trikalijum fosfat, E340iii, E 340iii, E340 iii, E-340iii
-sk:Fosforečnan tridraselný, Trojsýtny fosforečnan draselný, E340iii, E 340iii, E340 iii, E-340iii
-sl:Trikalijev fosfat, tribazični kalijev fosfat, E340iii, E 340iii, E340 iii, E-340iii
-sr:Trikalijum fosfat, E340iii, E 340iii, E340 iii, E-340iii
-sv:Trikaliumfosfat, E340iii, E 340iii, E340 iii, E-340iii
-ta:டிரைபொட்டாசியம் பாசுபேட்டு, E340iii, E 340iii, E340 iii, E-340iii
-zh:磷酸鉀, E340iii, E 340iii, E340 iii, E-340iii
+fi:Trikaliumfosfaatti, Kolmenarvoinen kaliumfosfaatti
+fr:Phosphate tripotassique
+hu:Trikálium-foszfát, Hárombázisú kálium-foszfát
+it:Fosfato tripotassico, Fosfato tribasico di potassio
+ja:リン酸三カリウム
+lt:Trikalio fosfatas, Tribazis kalio fosfatas
+lv:Trikālija fosfāts, Tribāziskais kālija fosfāts
+mt:Fosfat tat-tripotassju, Fosfat tal-potassju tribażiku
+nl:Trikaliumfosfaat, Driebasisch kaliumfosfaat
+pl:Fosforan tripotasowy, Fosforan potasu, trizasadowy
+pt:Fosfato tripotássico, Fosfato tribásico de potássio
+ro:Fosfat tripotasic, Fosfat de potasiu tribazic
+ru:Ортофосфат калия
+sh:Trikalijum fosfat
+sk:Fosforečnan tridraselný, Trojsýtny fosforečnan draselný
+sl:Trikalijev fosfat, tribazični kalijev fosfat
+sr:Trikalijum fosfat
+sv:Trikaliumfosfat
+ta:டிரைபொட்டாசியம் பாசுபேட்டு
+zh:磷酸鉀
 wikidata:en:Q423852
 wikipedia:en:https://en.wikipedia.org/wiki/Tripotassium_phosphate
 # additive/e340iii-tripotassium-phosphate has 157 products in 4 languages @2018-11-07
@@ -19849,7 +19939,7 @@ es:Fosfatos de calcio
 fr:phosphates de calcium, orthophosphates de calcium
 it:fosfati di calcio
 nl:Calciumorthofosfaten
-wikipedia:https://en.wikipedia.org/wiki/Calcium_phosphate
+wikipedia:en:https://en.wikipedia.org/wiki/Calcium_phosphate
 wikidata:en:Q426664
 
 # singular forms seem to imply the tricalcium phosphate
@@ -19988,7 +20078,7 @@ sv:tricalciumfosfat
 uk:Ортофосфат кальцію
 vi:Tricanxi photphat
 zh:磷酸钙
-wikipedia:https://en.wikipedia.org/wiki/Tricalcium_phosphate
+wikipedia:en:https://en.wikipedia.org/wiki/Tricalcium_phosphate
 # fr:phosphate-tricalcique has 231 products in 11 languages @2018-11-09
 # e341iii-tricalcium-phosphate has 124 products @2018-11-09
 
@@ -20008,30 +20098,30 @@ wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_phosphate
 
 <en:magnesium phosphates
 en:monomagnesium phosphate, E343i, E 343i, E-343i, E343 i
-bg:Мономагнезиев фосфат, Магнезиев дихидрогенфосфат, магнезиев фосфат едноосновен, E343i, E 343i, E-343i, E343 i
-cs:Dihydrogenfosforečnan hořečnatý, Kyselý fosforečnan hořečnatý, E343i, E 343i, E-343i, E343 i
-da:Monomagnesiumphosphat, Magnesiumdihydrogenphosphat, monobasisk magnesiumphosphat, E343i, E 343i, E-343i, E343 i
-de:Monomagnesiumphosphat, Magnesiumdihydrogenphosphat, einbasiges Magnesiumphosphat, E343i, E 343i, E-343i, E343 i
-el:Δισοξινο φωσφορικο μαγνησιο, Φωσφορικό μαγνήσιο μονοβασικό, E343i, E 343i, E-343i, E343 i
-es:Fosfato de monomagnesio, Dihidrogenofosfato de magnesio, fosfato monobásico de magnesio, E343i, E 343i, E-343i, E343 i
-et:Magneesiumdivesinikfosfaat, E343i, E 343i, E-343i, E343 i
-fi:Monomagnesiumfosfaatti, Magnesiumdivetyfosfaatti, Magnesiumfosfaatti monoemäksinen, E343i, E 343i, E-343i, E343 i
-fr:Phosphate monomagnésique, E343i, E 343i, E-343i, E343 i
-hu:Monomagnézium-foszfát, Magnézium-dihidrogén-foszfát, Magnézium-foszfát egybázisú, E343i, E 343i, E-343i, E343 i
-it:Diidrogeno fosfato di magnesio, fosfato di magnesio monobasico, E343i, E 343i, E-343i, E343 i
-lt:Monomagnio fosfatas, Magnio divandenilio fosfatas, magnio fosfatas vienbazis, E343i, E 343i, E-343i, E343 i
-lv:Monomagnija fosfāts, Magnija dihidrogēnfosfāts, Vienbāziskais magnija fosfāts, E343i, E 343i, E-343i, E343 i
-mt:Fosfat monomanjeżiku, E343i, E 343i, E-343i, E343 i
-nl:Monomagnesiumfosfaat, Magnesiumdiwaterstoffosfaat, monobasisch magnesiumfosfaat, E343i, E 343i, E-343i, E343 i
-pl:Fosforan monomagnezu, Diwodorofosforan magnezu, fosforan magnezu monozasadowy, E343i, E 343i, E-343i, E343 i
-pt:Fosfato de monomagnésio, E343i, E 343i, E-343i, E343 i
-ro:Fosfat monomagnezic, Fosfat diacid de magneziu, Fosfat de magneziu monobazic, E343i, E 343i, E-343i, E343 i
-ru:Дигидроортофосфат магния , E343i, E 343i, E-343i, E343 i
-sk:Fosforečnan horečnatý, E343i, E 343i, E-343i, E343 i
-sl:Monomagnezijev fosfat, magnezijev dihidrogenfosfat, magnezijev fosfat monobazični, E343i, E 343i, E-343i, E343 i
-sv:Monomagnesiumfosfat, Magnesiumdivätefosfat, E343i, E 343i, E-343i, E343 i
-ta:ஒருமக்னீசியம் பாசுபேட்டு, E343i, E 343i, E-343i, E343 i
-zh:磷酸二氢镁, E343i, E 343i, E-343i, E343 i
+bg:Мономагнезиев фосфат, Магнезиев дихидрогенфосфат, магнезиев фосфат едноосновен
+cs:Dihydrogenfosforečnan hořečnatý, Kyselý fosforečnan hořečnatý
+da:Monomagnesiumphosphat, Magnesiumdihydrogenphosphat, monobasisk magnesiumphosphat
+de:Monomagnesiumphosphat, Magnesiumdihydrogenphosphat, einbasiges Magnesiumphosphat
+el:Δισοξινο φωσφορικο μαγνησιο, Φωσφορικό μαγνήσιο μονοβασικό
+es:Fosfato de monomagnesio, Dihidrogenofosfato de magnesio, fosfato monobásico de magnesio
+et:Magneesiumdivesinikfosfaat
+fi:Monomagnesiumfosfaatti, Magnesiumdivetyfosfaatti, Magnesiumfosfaatti monoemäksinen
+fr:Phosphate monomagnésique
+hu:Monomagnézium-foszfát, Magnézium-dihidrogén-foszfát, Magnézium-foszfát egybázisú
+it:Diidrogeno fosfato di magnesio, fosfato di magnesio monobasico
+lt:Monomagnio fosfatas, Magnio divandenilio fosfatas, magnio fosfatas vienbazis
+lv:Monomagnija fosfāts, Magnija dihidrogēnfosfāts, Vienbāziskais magnija fosfāts
+mt:Fosfat monomanjeżiku
+nl:Monomagnesiumfosfaat, Magnesiumdiwaterstoffosfaat, monobasisch magnesiumfosfaat
+pl:Fosforan monomagnezu, Diwodorofosforan magnezu, fosforan magnezu monozasadowy
+pt:Fosfato de monomagnésio
+ro:Fosfat monomagnezic, Fosfat diacid de magneziu, Fosfat de magneziu monobazic
+ru:Дигидроортофосфат магния 
+sk:Fosforečnan horečnatý
+sl:Monomagnezijev fosfat, magnezijev dihidrogenfosfat, magnezijev fosfat monobazični
+sv:Monomagnesiumfosfat, Magnesiumdivätefosfat
+ta:ஒருமக்னீசியம் பாசுபேட்டு
+zh:磷酸二氢镁
 wikidata:en:Q4161317
 wikipedia:en:https://en.wikipedia.org/wiki/Monomagnesium_phosphate
 # additive/e343i-monomagnesium-phosphate has 1 product in english @2018-11-7
@@ -46599,30 +46689,6 @@ fr:laitue de mer
 fr:fruits de mer
 
 fr:gluconate de fer
-
-fr:sucrose
-
-
-
-
-fr:phosphates
-
-fr:fond de pâte précuit
-
-fr:ferment lactiques
-
-fr:jus de cuisson de viande de bœuf, jus de cuisson de viande de boeuf
-
-
-
-
-
-
-
-
-
-
-
 
 
 
