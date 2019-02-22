@@ -4,14 +4,14 @@
 stopwords:da:indeholder, inneholder, av
 stopwords:de:und, mit, von, aus, enthält, enthalten
 stopwords:el:περιέχει
-stopwords:en:contains, contain, from, with
+stopwords:en:contains, contain, from, with, produced with
 stopwords:es:contiene
 stopwords:fi:sisältää
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec
 stopwords:hr:sastojci
 stopwords:hu:tartalmaz
 stopwords:it:contiene
-stopwords:nl:bevat, met, waarvan, bevatten, van
+stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met
 stopwords:nn:av, inneholder
 stopwords:pl:w tym
 stopwords:pt:do qual, dos quais
@@ -29147,6 +29147,21 @@ sv:rödlök
 # ingredient/fr:oignon%20rouge has 93 products in 6 languages @2018-12-06
 
 <en:onion
+en:Roscoff onions
+fr:oignon de Roscoff
+nl:Roscoffui
+
+<en:Roscoff onions
+en:Roscoff onion powder
+fr:oignon de Roscoff en poudre
+nl:Roscoff ui in poedervorm
+
+<en:Roscoff onions
+en:Roscoff PDO onions
+fr:oignon de Roscoff AOP
+nl:Roscoffui met BOB-keurmerk
+
+<en:onion
 en:fresh onions
 de:frische Zwiebeln
 fr:oignons frais
@@ -44733,8 +44748,6 @@ fr:fond de volaille
 
 fr:tartrates de potassium
 
-fr:gluconate ferreux
-
 
 fr:matière grasse laitière
 
@@ -46688,7 +46701,6 @@ fr:laitue de mer
 
 fr:fruits de mer
 
-fr:gluconate de fer
 
 
 
