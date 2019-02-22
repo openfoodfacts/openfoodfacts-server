@@ -1280,8 +1280,8 @@ sub build_tags_taxonomy($$) {
 			}
 			if (defined $all_parents{$tagtype}{$tagid}) {
 				# sort parents according to level
-				@{$all_parents{$tagtype}{$tagid}} = sort ( { (((defined $level{$tagtype}{$b}) ? $level{$tagtype}{$b} : 0) <=> ((defined $level{$tagtype}{$a}) ? $level{$tagtype}{$a} : 0)) || ($a cmp $b) } 
-					@{$all_parents{$tagtype}{$tagid}} );
+				@{$all_parents{$tagtype}{$tagid}} = sort  { (((defined $level{$tagtype}{$b}) ? $level{$tagtype}{$b} : 0) <=> ((defined $level{$tagtype}{$a}) ? $level{$tagtype}{$a} : 0)) || ($a cmp $b) }  
+					@{$all_parents{$tagtype}{$tagid}} ;
 				$key .= '> ' . join((' > ', reverse @{$all_parents{$tagtype}{$tagid}})) . ' ';
 			}
 			$key .= '> ' . $tagid;
