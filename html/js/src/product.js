@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2018 Association Open Food Facts
+// Copyright (C) 2011-2019 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -22,6 +22,7 @@ import { $, jQuery } from 'jquery';
 import * as Cookies from 'js-cookie';
 import './vendor/file-upload.js';
 import 'foundation-sites/js/foundation/foundation.tab.js';
+import Cropper from 'cropperjs';
 import '../../css/src/product.css';
 
 /*global Lang admin otherNutriments*/
@@ -242,10 +243,8 @@ export function upload_image (imagefield) {
 
 function init_image_area_select(imagefield) {
 
-  $('img#crop_' + imagefield ).cropper({ 'strict' : false, 'guides' : false, 'autoCrop' : false, 'zoomable' : false, 'mouseWheelZoom' : false, 'touchDragZoom' : false, 'toggleDragModeOnDblclick' : false, built: function () {
-    $('img#crop_' + imagefield ).cropper('setDragMode', 'crop');
-  }});
-
+  const image = document.getElementById('img#crop_' + imagefield);
+  image.cropper = new Cropper(image, { 'strict' : false, 'guides' : false, 'autoCrop' : false, 'zoomable' : false, 'mouseWheelZoom' : false, 'touchDragZoom' : false, 'toggleDragModeOnDblclick' : false, dragMode: 'crop' });
 }
 
 export function update_image(imagefield) {
@@ -263,10 +262,10 @@ function rotate_image(event) {
   angles[imagefield] += angle;
   angles[imagefield] = (360 + angles[imagefield]) % 360;
 
-  $('img#crop_' + imagefield ).cropper('rotate',angle);
+  const cropper = document.getElementById('img#crop_' + imagefield).cropper;
+  cropper.rotate(angle);
 
-  //var selection = $('img#crop_' + imagefield ).cropper('getData');
-  var selection = $('img#crop_' + imagefield ).cropper('getCropBoxData');
+  const selection = cropper.getCropBoxData();
 
   selection.x = selection.left;
   selection.y = selection.top;
@@ -279,7 +278,7 @@ function rotate_image(event) {
     var x2 = selection.x + selection.width;
     var y2 = selection.y + selection.height;
 
-    var container = $('img#crop_' + imagefield ).cropper('getContainerData');
+    const container = cropper.getContainerData();
     var w = container.width;
     var h = container.height;
     console.log('selection - image - w:' + w + ' - h:' + h);
@@ -301,7 +300,7 @@ function rotate_image(event) {
     selection.left = selection.x;
     selection.top = selection.y;
 
-    $('img#crop_' + imagefield ).cropper('setCropBoxData', selection);
+    cropper.setCropBoxData(selection);
 
     console.log('selection - new - x:' + selection.x + ' - y:' + selection.y + ' - width:' + selection.width + ' - height:' + selection.height);
   }
@@ -350,7 +349,8 @@ function change_image(imagefield, imgid) {
     event.preventDefault();
     var imgid = imagefield_imgid[imagefield];
 
-    var selection = $('img#crop_' + imagefield ).cropper('getData');
+    const cropper = document.getElementById('img#crop_' + imagefield).cropper;
+    var selection = cropper.getData();
 
     if (! selection) {
       selection = {'x1':-1,'y1':-1,'x2':-1,'y2':-1};

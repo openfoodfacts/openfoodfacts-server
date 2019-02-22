@@ -3,6 +3,7 @@ dependencies:
   blueimp-file-upload: 9.26.0
   blueimp-load-image: 2.19.0
   blueimp-tmpl: 3.11.0
+  cropperjs: 1.4.3
   datatables.net: 1.10.19
   datatables.net-responsive-zf: 2.2.3
   datatables.net-scroller: 1.5.1
@@ -2142,6 +2143,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-MJG9liiZ+ogc4TzUwuvbER1JRdgvUFSB5+VR/g5h82fGaIRWMWddtKBHi7/sVhfjQZ6SehlyhvQYrcYkaUIpLg==
+  /cropperjs/1.4.3:
+    dev: false
+    resolution:
+      integrity: sha512-fsUjHuS9mvKVh2aXVRgNcUDlFplW+v4eEB6sOHVI9kMV4G3GViSD4p1qvNLg1ko4ZhOnF0L8/9uXcY4s2bFQPg==
   /cross-spawn-async/2.2.5:
     dependencies:
       lru-cache: 4.1.3
@@ -9040,6 +9045,7 @@ specifiers:
   blueimp-file-upload: ^9.21.0
   blueimp-load-image: ^2.19.0
   blueimp-tmpl: ^3.11.0
+  cropperjs: ^1.4.3
   css-loader: ^1.0.1
   datatables.net: ^1.10.16
   datatables.net-responsive-zf: ^2.2.1
