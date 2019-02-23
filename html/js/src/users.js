@@ -21,20 +21,20 @@
 function update_userid(e) {
 
   var userid = this.value.toLowerCase();
-  userid = userid.replace(new RegExp(" ", 'g'), "-");
-  userid = userid.replace(new RegExp("[àáâãäå]", 'g'), "a");
-  userid = userid.replace(new RegExp("æ", 'g'), "ae");
-  userid = userid.replace(new RegExp("ç", 'g'), "c");
-  userid = userid.replace(new RegExp("[èéêë]", 'g'), "e");
-  userid = userid.replace(new RegExp("[ìíîï]", 'g'), "i");
-  userid = userid.replace(new RegExp("ñ", 'g'), "n");
-  userid = userid.replace(new RegExp("[òóôõö]", 'g'), "o");
-  userid = userid.replace(new RegExp("œ", 'g'), "oe");
-  userid = userid.replace(new RegExp("[ùúûü]", 'g'), "u");
-  userid = userid.replace(new RegExp("[ýÿ]", 'g'), "y");
-  userid = userid.replace(new RegExp("[^a-zA-Z0-9-]", 'g'), "-");
-  userid = userid.replace(new RegExp("-+", 'g'), "-");
-  userid = userid.replace(new RegExp("^-"), "");
+  userid = userid.replace(new RegExp(' ', 'g'), '-');
+  userid = userid.replace(new RegExp('[àáâãäå]', 'g'), 'a');
+  userid = userid.replace(new RegExp('æ', 'g'), 'ae');
+  userid = userid.replace(new RegExp('ç', 'g'), 'c');
+  userid = userid.replace(new RegExp('[èéêë]', 'g'), 'e');
+  userid = userid.replace(new RegExp('[ìíîï]', 'g'), 'i');
+  userid = userid.replace(new RegExp('ñ', 'g'), 'n');
+  userid = userid.replace(new RegExp('[òóôõö]', 'g'), 'o');
+  userid = userid.replace(new RegExp('œ', 'g'), 'oe');
+  userid = userid.replace(new RegExp('[ùúûü]', 'g'), 'u');
+  userid = userid.replace(new RegExp('[ýÿ]', 'g'), 'y');
+  userid = userid.replace(new RegExp('[^a-zA-Z0-9-]', 'g'), '-');
+  userid = userid.replace(new RegExp('-+', 'g'), '-');
+  userid = userid.replace(new RegExp('^-'), '');
   e.target.value = userid;
 
 }
