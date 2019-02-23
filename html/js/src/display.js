@@ -29,120 +29,112 @@ function initIOLazy() {
   new IOlazy();
 }
 
-function initCountrySelect(placeholder, serverdomain) {
-  return import('jquery').then($ => {
-    import('select2').then(() => {
-      var options = {
-        placeholder: placeholder,
-        allowClear: true
-      };
+async function initCountrySelect(placeholder, serverdomain) {
+  const $ = await import('jquery');
+  await import('select2');
+  var options = {
+    placeholder: placeholder,
+    allowClear: true
+  };
 
-      $('#select_country').select2(options).on('select2:select', function(e) {
-        var subdomain =  e.params.data.id;
-        if (! subdomain) {
-          subdomain = 'world';
-        }
-        window.location.href = document.location.protocol + '//' + subdomain + '.' + serverdomain;
-      }).on('select2:unselect', function() {
-        window.location.href = document.location.protocol + '//world.' + serverdomain;
-      });
-    }).catch(error => 'An error occurred while loading the jquery-tags-input component: ' + error);
-  }).catch(error => 'An error occurred while loading the jquery component: ' + error);
-}
-
-function initFoundation() {
-  return import('jquery').then($ => {
-    import('foundation-sites').then(() => {
-      $(document).foundation({
-        equalizer : {
-          // Specify if Equalizer should make elements equal height once they become stacked.
-          equalize_on_stack: true
-        },
-        accordion: {
-          callback : function () {
-            $(document).foundation('equalizer', 'reflow');
-          }
-        }
-      });
-    });
+  $('#select_country').select2(options).on('select2:select', function(e) {
+    var subdomain =  e.params.data.id;
+    if (! subdomain) {
+      subdomain = 'world';
+    }
+    window.location.href = document.location.protocol + '//' + subdomain + '.' + serverdomain;
+  }).on('select2:unselect', function() {
+    window.location.href = document.location.protocol + '//world.' + serverdomain;
   });
 }
 
-function initCategoryStats() {
-  return import('jquery').then($ => {
-    return import('js-cookie').then(Cookies => {
-      if (Cookies.get('show_stats') == '1') {
-        $('#show_stats').prop('checked',true);
+async function initFoundation() {
+  const $ = await import('jquery');
+  await import('foundation-sites');
+  $(document).foundation({
+    equalizer : {
+      // Specify if Equalizer should make elements equal height once they become stacked.
+      equalize_on_stack: true
+    },
+    accordion: {
+      callback : function () {
+        $(document).foundation('equalizer', 'reflow');
       }
-      else {
-        $('#show_stats').prop('checked',false);
-      }
+    }
+  });
+}
 
-      if ($('#show_stats').prop('checked')) {
-        $('.stats').show();
-      }
-      else {
-        $('.stats').hide();
-      }
+async function initCategoryStats() {
+  const $ = await import('jquery');
+  const Cookies = await import('js-cookie');
+  if (Cookies.get('show_stats') == '1') {
+    $('#show_stats').prop('checked',true);
+  }
+  else {
+    $('#show_stats').prop('checked',false);
+  }
 
-      $('#show_stats').change(function () {
-        if ($('#show_stats').prop('checked')) {
-          Cookies.set('show_stats', '1', { expires: 365 });
-          $('.stats').show();
+  if ($('#show_stats').prop('checked')) {
+    $('.stats').show();
+  }
+  else {
+    $('.stats').hide();
+  }
+
+  $('#show_stats').change(function () {
+    if ($('#show_stats').prop('checked')) {
+      Cookies.set('show_stats', '1', { expires: 365 });
+      $('.stats').show();
+    }
+    else {
+      Cookies.set('show_stats', null);
+      $('.stats').hide();
+    }
+  });
+}
+
+async function initUnselectButton() {
+  const $ = await import('jquery');
+  $('.unselectbutton').click(function (event) {
+    event.stopPropagation();
+    event.preventDefault();
+    $('div.unselectbuttondiv' + event.target.dataset.idlc).html('<img src="/images/misc/loading2.gif"> Unselecting image');
+    $.post('/cgi/product_image_unselect.pl',
+      { code: event.target.dataset.code, id: event.target.dataset.idlc }, function (data) {
+        if (data.status_code === 0) {
+          $('div.unselectbuttondiv' + event.target.dataset.idlc).html('Unselected image');
+          $('div[id="image_box_' + event.target.dataset.id + '"]').html('');
         }
         else {
-          Cookies.set('show_stats', null);
-          $('.stats').hide();
+          $('div.unselectbuttondiv' + event.target.dataset.idlc).html('Could not unselect image');
         }
-      });
-    });
+        $(document).foundation('equalizer', 'reflow');
+      }, 'json');
+
+    $(document).foundation('equalizer', 'reflow');
   });
 }
 
-function initUnselectButton() {
-  return import('jquery').then($ => {
-    $('.unselectbutton').click(function (event) {
-      event.stopPropagation();
-      event.preventDefault();
-      $('div.unselectbuttondiv' + event.target.dataset.idlc).html('<img src="/images/misc/loading2.gif"> Unselecting image');
-      $.post('/cgi/product_image_unselect.pl',
-        { code: event.target.dataset.code, id: event.target.dataset.idlc }, function (data) {
-          if (data.status_code === 0) {
-            $('div.unselectbuttondiv' + event.target.dataset.idlc).html('Unselected image');
-            $('div[id="image_box_' + event.target.dataset.id + '"]').html('');
-          }
-          else {
-            $('div.unselectbuttondiv' + event.target.dataset.idlc).html('Could not unselect image');
-          }
-          $(document).foundation('equalizer', 'reflow');
-        }, 'json');
-
-      $(document).foundation('equalizer', 'reflow');
-    });
+async function initNutritionCompareToggle() {
+  const $ = await import('jquery');
+  $('input:radio[name=nutrition_data_compare_type]').change(function () {
+    if ($('input:radio[name=nutrition_data_compare_type]:checked').val() == 'compare_value') {
+      $('.compare_percent').hide();
+      $('.compare_value').show();
+    }
+    else {
+      $('.compare_value').hide();
+      $('.compare_percent').show();
+    }
   });
-}
 
-function initNutritionCompareToggle() {
-  return import('jquery').then($ => {
-    $('input:radio[name=nutrition_data_compare_type]').change(function () {
-      if ($('input:radio[name=nutrition_data_compare_type]:checked').val() == 'compare_value') {
-        $('.compare_percent').hide();
-        $('.compare_value').show();
-      }
-      else {
-        $('.compare_value').hide();
-        $('.compare_percent').show();
-      }
-    });
-
-    $('.show_comparison').change(function () {
-      if ($(this).prop('checked')) {
-        $('.' + $(this).attr('id')).show();
-      }
-      else {
-        $('.' + $(this).attr('id')).hide();
-      }
-    });
+  $('.show_comparison').change(function () {
+    if ($(this).prop('checked')) {
+      $('.' + $(this).attr('id')).show();
+    }
+    else {
+      $('.' + $(this).attr('id')).hide();
+    }
   });
 }
 

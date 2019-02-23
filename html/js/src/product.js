@@ -166,12 +166,9 @@ function select_nutriment(event, ui) {
   }
 }
 
-export function autocomplete(callback) {
-  return import('jquery').then($ => {
-    import('devbridge-autocomplete').then(() => {
-      callback($);
-    }).catch(error => 'An error occurred while loading the devbridge-autocomplete component: ' + error);
-  }).catch(error => 'An error occurred while loading the jquery component: ' + error);
+export async function autocomplete(callback) {
+  await import('devbridge-autocomplete');
+  callback($);
 }
 
 export function add_line() {
@@ -737,22 +734,19 @@ function toggle_manage_images_buttons() {
 
 })( jQuery );
 
-export function makeTagsInput(field, defaultText, autocompleteUrl) {
-  return import('jquery').then($ => {
-    import('jquery-tags-input/src/jquery.tagsinput.js').then(() => {
-      var options = {
-        height: '3rem',
-        width: '100%',
-        interactive: true,
-        minInputWidth: 130,
-        delimiter: [','],
-        defaultText: defaultText,
-        autocomplete_url: autocompleteUrl
-      };
+export async function makeTagsInput(field, defaultText, autocompleteUrl) {
+  await import('jquery-tags-input/src/jquery.tagsinput.js');
+  var options = {
+    height: '3rem',
+    width: '100%',
+    interactive: true,
+    minInputWidth: 130,
+    delimiter: [','],
+    defaultText: defaultText,
+    autocomplete_url: autocompleteUrl
+  };
 
-      return $('#' + field).tagsInput(options);
-    }).catch(error => 'An error occurred while loading the jquery-tags-input component: ' + error);
-  }).catch(error => 'An error occurred while loading the jquery component: ' + error);
+  return $('#' + field).tagsInput(options);
 }
 
 $(function() {

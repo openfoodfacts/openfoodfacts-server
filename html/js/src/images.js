@@ -20,57 +20,56 @@
 
 import './vendor/file-upload.js';
 
-function initImageSearchFormUpload() {
-  return import('jquery').then($ => {
-    $('input.imgupload_search').each(function () {
-      const id = $(this).data('id');
+async function initImageSearchFormUpload() {
+  const $ = await import('jquery');
+  $('input.imgupload_search').each(function () {
+    const id = $(this).data('id');
 
-      $('#imgupload_search_' + id).fileupload({
-        dataType: 'json',
-        url: '/cgi/product.pl',
-        formData: [{ name: 'jqueryfileupload', value: 1 }],
-        resizeMaxWidth: 2000,
-        resizeMaxHeight: 2000,
-        done: function (e, data) {
-          if (data.result.location) {
-            $(location).attr('href', data.result.location);
-          }
-          if (data.result.error) {
-            $('#imgsearcherror_' + id).html(data.result.error);
-            $('#imgsearcherror_' + id).show();
-          }
-        },
-        fail: function () {
-          $('#imgsearcherror_' + id).show();
-        },
-        always: function () {
-          $('#progressbar_' + id).hide();
-          $('#imgsearchbutton_' + id).show();
-          $('#imgsearchmsg_' + id).hide();
-        },
-        start: function () {
-          $('#imgsearchbutton_' + id).hide();
-          $('#imgsearcherror_' + id).hide();
-          $('#imgsearchmsg_' + id).show();
-          $('#progressbar_' + id).show();
-          $('#progressmeter_' + id).css('width', '0%');
-        },
-        sent: function (e, data) {
-          if (data.dataType &&
-            data.dataType.substr(0, 6) === 'iframe') {
-            // Iframe Transport does not support progress events.
-            // In lack of an indeterminate progress bar, we set
-            // the progress to 100%, showing the full animated bar:
-            $('#progressmeter_' + id).css('width', '100%');
-          }
-        },
-        progress: function (e, data) {
-          $('#progressmeter_' + id).css('width', parseInt(data.loaded / data.total * 100, 10) + '%');
-          $('#imgsearchdebug_' + id).html(data.loaded + ' / ' + data.total);
+    $('#imgupload_search_' + id).fileupload({
+      dataType: 'json',
+      url: '/cgi/product.pl',
+      formData: [{ name: 'jqueryfileupload', value: 1 }],
+      resizeMaxWidth: 2000,
+      resizeMaxHeight: 2000,
+      done: function (e, data) {
+        if (data.result.location) {
+          $(location).attr('href', data.result.location);
         }
-      });
+        if (data.result.error) {
+          $('#imgsearcherror_' + id).html(data.result.error);
+          $('#imgsearcherror_' + id).show();
+        }
+      },
+      fail: function () {
+        $('#imgsearcherror_' + id).show();
+      },
+      always: function () {
+        $('#progressbar_' + id).hide();
+        $('#imgsearchbutton_' + id).show();
+        $('#imgsearchmsg_' + id).hide();
+      },
+      start: function () {
+        $('#imgsearchbutton_' + id).hide();
+        $('#imgsearcherror_' + id).hide();
+        $('#imgsearchmsg_' + id).show();
+        $('#progressbar_' + id).show();
+        $('#progressmeter_' + id).css('width', '0%');
+      },
+      sent: function (e, data) {
+        if (data.dataType &&
+          data.dataType.substr(0, 6) === 'iframe') {
+          // Iframe Transport does not support progress events.
+          // In lack of an indeterminate progress bar, we set
+          // the progress to 100%, showing the full animated bar:
+          $('#progressmeter_' + id).css('width', '100%');
+        }
+      },
+      progress: function (e, data) {
+        $('#progressmeter_' + id).css('width', parseInt(data.loaded / data.total * 100, 10) + '%');
+        $('#imgsearchdebug_' + id).html(data.loaded + ' / ' + data.total);
+      }
     });
-  }).catch(error => 'An error occurred while loading the jquery component: ' + error);
+  });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
