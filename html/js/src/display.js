@@ -93,7 +93,7 @@ async function initCategoryStats() {
   });
 }
 
-async function initUnselectButton() {
+async function initProductPageUtilityButtons() {
   const $ = await import('jquery');
   $('.unselectbutton').click(function (event) {
     event.stopPropagation();
@@ -113,10 +113,7 @@ async function initUnselectButton() {
 
     $(document).foundation('equalizer', 'reflow');
   });
-}
 
-async function initNutritionCompareToggle() {
-  const $ = await import('jquery');
   $('input:radio[name=nutrition_data_compare_type]').change(function () {
     if ($('input:radio[name=nutrition_data_compare_type]:checked').val() == 'compare_value') {
       $('.compare_percent').hide();
@@ -136,6 +133,65 @@ async function initNutritionCompareToggle() {
       $('.' + $(this).attr('id')).hide();
     }
   });
+
+  $('#editingredients').click({}, function (event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    var divHtml = $('#ingredients_list').html();
+    var allergens = /(<span class="allergen">|<\/span>)/g;
+    divHtml = divHtml.replace(allergens, '_');
+
+    var editableText = $('<textarea id="ingredients_list" style="height:8rem"/>');
+    editableText.val(divHtml);
+    $('#ingredients_list').replaceWith(editableText);
+    editableText.focus();
+
+    $('#editingredientsbuttondiv').hide();
+    $('#saveingredientsbuttondiv').show();
+
+    $(document).foundation('equalizer', 'reflow');
+  });
+
+  $('#saveingredients').click({}, function (event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    $('div[id="saveingredientsbuttondiv"]').hide();
+    $('div[id="saveingredientsbuttondiv_status"]').html('<img src="/images/misc/loading2.gif"> Saving ingredients_texts_' + event.target.dataset.ilc);
+    $('div[id="saveingredientsbuttondiv_status"]').show();
+
+    const eventData = { code: event.target.dataset.code, comment: 'Updated ingredients_texts_' + event.target.dataset.ilc };
+    eventData['ingredients_text_' + event.target.dataset.ilc] = $('#ingredients_list').val();
+    $.post('/cgi/product_jqm_multilingual.pl', eventData, function () {
+
+      $('div[id="saveingredientsbuttondiv_status"]').html('Saved ingredients_texts_' + event.target.dataset.ilc);
+      $('div[id="saveingredientsbuttondiv"]').show();
+
+      $(document).foundation('equalizer', 'reflow');
+    }, 'json');
+
+    $(document).foundation('equalizer', 'reflow');
+  });
+
+  $('#wipeingredients').click({}, function (event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    $('div[id="wipeingredientsbuttondiv"]').html('<img src="/images/misc/loading2.gif"> Erasing ingredients_texts_' + event.target.dataset.ilc);
+
+    const eventData = { code: event.target.dataset.code, ingredients_text_$ilc: '', comment: 'Erased ingredients_texts_' + event.target.dataset.ilc + ': too much bad data' };
+    eventData['ingredients_text_' + event.target.dataset.ilc] = '';
+    $.post('/cgi/product_jqm_multilingual.pl', eventData, function () {
+
+      $('div[id="wipeingredientsbuttondiv"]').html('Erased ingredients_texts_' + event.target.dataset.ilc);
+      $('div[id="ingredients_list"]').html('');
+
+      $(document).foundation('equalizer', 'reflow');
+    }, 'json');
+
+    $(document).foundation('equalizer', 'reflow');
+  });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -143,6 +199,5 @@ document.addEventListener('DOMContentLoaded', function() {
   initFoundation();
   initCountrySelect(document.getElementById('mainscript').dataset['selectcountry'], document.documentElement.dataset['serverdomain']);
   initCategoryStats();
-  initUnselectButton();
-  initNutritionCompareToggle();
+  initProductPageUtilityButtons();
 });
