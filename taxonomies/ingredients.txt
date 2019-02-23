@@ -6304,6 +6304,15 @@ zh:乳
 zu:Ubisi
 wikipedia:en:https://en.wikipedia.org/wiki/Milk
 
+
+<en:milk
+en:organic milk
+de:Bio-milch
+fr:lait bio
+it:Latte biologico
+# ingredient/fr:lait-bio has 24 products @2019-02-22
+
+
 # Skim milk (American English), is made when all the cream is removed from whole milk. It tends to contain around 0% fat.
 
 <en:milk
@@ -6517,6 +6526,11 @@ fr:lait entier pasteurisé de vache
 es:Leche entera pasteurizada de vaca
 
 <en:milk
+en:modified milk ingredients
+fr:substances laitières modifiées
+# ingredient/fr:substances-laitières-modifiées has 86 products @2019-02-22
+
+<en:milk
 <en:cream
 en:pasteurized milk and cream
 de:pasteurisiert Milch und Rahm
@@ -6555,7 +6569,6 @@ fr:lait frais entier
 <en:milk
 fr:lait fermenté
 nl:gefermenteerde melk
-allergens:fr:_lait_ fermenté
 
 <en:milk
 fr:produits laitiers
@@ -6622,7 +6635,7 @@ nl:gecondenseerde gesuikerde melk, gecondenseerde volle melk met suiker
 
 <en:condensed milk
 en:concentrated skim milk, concentrated skimmed milk
-fr:lait écrémé concentré
+fr:lait écrémé concentré, concentré de lait écrémé
 de:kondensierte Magermilch, konzentrierte Magermilch, Kondensmagermilch
 it:latte scremato concentrato, latte magro concentrato
 
@@ -18505,6 +18518,10 @@ fr:protéine de lait, protéines de lait, protéines du lait, protéines du lait
 nl:melkeiwit
 nova:en:4
 # ingredient/fr:lactoprotéines has 40 products in french @2019-02-03
+
+<en:milk proteins
+fr:protéines solubles de lait
+# ingredient/fr:protéines-solubles-de-lait has 33 products in french @2019-02-22
 
 <en:hydrolysed protein
 <en:milk proteins
@@ -47017,16 +47034,9 @@ fr:émulsifiant lécithine de tournesol
 
 fr:tournesol oléique
 
-fr:lait bio
-allergens:fr:_lait_ bio
 
-fr:protéines solubles de lait
-allergens:fr:protéines solubles de _lait_
 
-fr:concentré de lait écrémé
-allergens:fr:concentré de _lait_ écrémé
 
-fr:substances laitières modifiées
 
 
 
