@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2018 Association Open Food Facts
+// Copyright (C) 2011-2019 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -99,9 +99,33 @@ function initCategoryStats() {
   });
 }
 
+function initUnselectButton() {
+  return import('jquery').then($ => {
+    $('.unselectbutton').click(function (event) {
+      event.stopPropagation();
+      event.preventDefault();
+      $('div.unselectbuttondiv' + event.target.dataset.idlc).html('<img src="/images/misc/loading2.gif"> Unselecting image');
+      $.post('/cgi/product_image_unselect.pl',
+        { code: event.target.dataset.code, id: event.target.dataset.idlc }, function (data) {
+          if (data.status_code === 0) {
+            $('div.unselectbuttondiv' + event.target.dataset.idlc).html('Unselected image');
+            $('div[id="image_box_' + event.target.dataset.id + '"]').html('');
+          }
+          else {
+            $('div.unselectbuttondiv' + event.target.dataset.idlc).html('Could not unselect image');
+          }
+          $(document).foundation('equalizer', 'reflow');
+        }, 'json');
+
+      $(document).foundation('equalizer', 'reflow');
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   initIOLazy();
   initFoundation();
   initCountrySelect(document.getElementById('mainscript').dataset['selectcountry'], document.documentElement.dataset['serverdomain']);
   initCategoryStats();
+  initUnselectButton();
 });

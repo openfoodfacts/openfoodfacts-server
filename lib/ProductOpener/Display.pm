@@ -1,7 +1,7 @@
 ﻿# This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -5929,7 +5929,7 @@ HTML
 
 
 			my $html = <<HTML
-<div class="button_div unselectbuttondiv_$idlc"><button class="unselectbutton_$idlc" class="small button" type="button">Unselect image</button></div>
+<div class="button_div unselectbuttondiv_$idlc"><button class="unselectbutton" data-id="$id" data-idlc="$idlc" data-code="$code" class="small button" type="button">Unselect image</button></div>
 HTML
 ;
 
@@ -5956,32 +5956,6 @@ HTML
 			}
 
 			$img .= $html;
-
-			$initjs .= <<JS
-	\$(".unselectbutton_$idlc").click({imagefield:"$idlc"},function(event) {
-		event.stopPropagation();
-		event.preventDefault();
-		// alert(event.data.imagefield);
-		\$('div.unselectbuttondiv_$idlc').html('<img src="/images/misc/loading2.gif"> Unselecting image');
-		\$.post('/cgi/product_image_unselect.pl',
-				{code: "$code", id: "$idlc" }, function(data) {
-
-			if (data.status_code === 0) {
-				\$('div.unselectbuttondiv_$idlc').html("Unselected image");
-				\$('div[id="image_box_$id"]').html("");
-			}
-			else {
-				\$('div.unselectbuttondiv_$idlc').html("Could not unselect image");
-			}
-			\$(document).foundation('equalizer', 'reflow');
-		}, 'json');
-
-		\$(document).foundation('equalizer', 'reflow');
-
-	});
-JS
-;
-
 		}
 
 
