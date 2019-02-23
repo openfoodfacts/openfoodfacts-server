@@ -21115,14 +21115,14 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purées%20de%20fruit
 <en:fruit juice
 <fr:purée de fruits
 fr:jus et purées de fruits
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20et%20purées%20de%20fruits
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20et%20purées%20de%20fruits
 # 56 products in 1 language @2018-10-04
 
 # Is and Compound, i.e. ingredient:jus et purées de fruits à base de concentré :pomme, mangue, orange, ananas et fruits de la passion.
 
 <fr:jus et purées de fruits
 fr:jus et purées de fruits à base de concentrés
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20et%20purées%20de%20fruits%20à%20base%20de%20concentrés
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20et%20purées%20de%20fruits%20à%20base%20de%20concentrés
 # 49 products in 1 language @2018-10-04
 
 # Is an AGGREGATE ingredient, i.e.:extrait de fruit (caroube);
@@ -21131,14 +21131,14 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20et%20purées%2
 en:fruit extract
 fr:extrait de fruit
 nl:vruchtenextract
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20de%20fruit
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait%20de%20fruit
 # 54 products in 4 languages @2018-10-04
 
 <en:fruit
 fr:pulpe de fruits, pulpes de fruits
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe%20de%20fruits
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe%20de%20fruits
 # 41 in 1 language products @2018-10-04
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpes%20de%20fruits
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpes%20de%20fruits
 # 63 products in 1 language @2018-10-04
 
 # Is an AGGREGATE ingredient, i.e.:fruit and plant concentrates:safflower, apple, spirulina, radish, lemon, sweet potato, carrot, blackcurrant, hibiscus;
@@ -21149,7 +21149,7 @@ de:Frucht- und Pflanzenkonzentrate
 fr:concentré de fruits et de plantes, concentrés de fruits et de plantes
 it:concentrati di frutta e plante
 nl:vruchten- en plantenconcentraten
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentré%20de%20fruits%20et%20de%20plantes
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentré%20de%20fruits%20et%20de%20plantes
 # 282 products in 5 languages @2018-10-04
 
 # Is an AGGREGATE ingredient, i.e.:concentrés de fruits (framboise, orange, citron)
@@ -21158,7 +21158,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentré%20de%20fr
 fr:concentrés de fruits
 de:Früchtekonzentrate
 it:concentrati di frutta
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentrés%20de%20fruits
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:concentrés%20de%20fruits
 # 42 products in 3 languages @2018-10-04
 
 
@@ -35741,48 +35741,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Saffron
 # ingredient/fr:safran has 156 products in 4 languages @2019-01-23
 
 
-# Spirulina represents a biomass of cyanobacteria (blue-green algae) that can be consumed by humans and other animals. 
-
-en:spirulina
-ar:سبيرولنا
-bn:স্পিরুলিনা
-ca:Spirulina
-cs:spirulina
-da:spirulina
-de:Spirulina
-el:Σπιρουλίνα
-# en-ca:Spirulina
-# en-gb:Spirulina
-eo:Spirulino
-es:spirulina
-fi:spirulina
-fr:spirulina, spiruline
-he:ספירולינה
-it:spirulina
-ja:スピルリナ
-ko:스피룰리나
-mk:spirulina
-ml:സ്പൈറുലിന
-ms:Spirulina
-my:စပီရူလိုင်းနား
-# nah:Tecuitlatl
-nl:spirulina
-pl:spirulina
-pt:spirulina
-ro:Spirulia
-ru:Спирулина
-sl:spirulina
-sv:spirulina
-ta:நீலப்பச்சைப்பாசி
-te:స్పైరులీనా
-th:Spirulina
-tr:Spirulina
-vi:Tảo xoắn
-zh:螺旋藻
-wikidata:en:Q285335
-wikipedia:en:https://en.wikipedia.org/wiki/Spirulina_(dietary_supplement)
-# ingredient/fr:spirulina has 61 products in 4 languages @2019-01-23
-
 
 # Helianthus or SUNFLOWER (/ˌhiːliˈænθəs/)[2] is a genus of plants comprising about 70 species
 # en:sunflower is only found as a specication, i.e. oil (sunflower, ...)
@@ -36065,7 +36023,97 @@ wikipedia:en:https://en.wikipedia.org/wiki/Algae
 # ingredient/algae has 135 products in 4 languages @2019-01-27
 
 
-# Seaweed or macroalgae refers to several species of macroscopic, multicellular, marine algae.
+# CHLORELLA is a genus of single-celled green algae belonging to the division Chlorophyta.
+
+<en:algae
+en:chlorella
+ar:كلوريلا
+be:Хларэла
+bn:Хлорела
+ca:Chlorella
+cs:Chlorella
+da:Chlorella
+de:Chlorella
+eo:Klorelo
+es:Chlorella
+et:Klorella
+eu:Chlorella
+fi:Klorella
+fr:chlorella, chlorelle
+ga:Clóireile
+gl:Chlorella
+he:כלורלה
+hr:Chlorella
+hy:քլորելա
+ia:Chlorella
+id:Chlorella
+it:Chlorella
+ja:クロレラ
+kk:Хлорелла
+ko:클로렐라
+ky:Хлорелла
+la:Chlorella
+nl:Chlorella
+pl:Chlorella
+pt:Chlorella
+# pt-br:Clorela
+ru:Хлорелла
+sh:Chlorella
+sk:Chlorela
+sl:Chlorella
+sw:Chlorella
+tr:Chlorella
+uk:Хлорела
+vi:Chlorella
+wikidata:en:Q133017
+wikipedia:en:https://en.wikipedia.org/wiki/Chlorella
+# fr:chlorella has 42 products in 3 languages @2018-10-28
+
+
+# Spirulina represents a biomass of cyanobacteria (blue-green algae) that can be consumed by humans and other animals. 
+
+en:spirulina
+ar:سبيرولنا
+bn:স্পিরুলিনা
+ca:Spirulina
+cs:spirulina
+da:spirulina
+de:Spirulina
+el:Σπιρουλίνα
+# en-ca:Spirulina
+# en-gb:Spirulina
+eo:Spirulino
+es:spirulina
+fi:spirulina
+fr:spirulina, spiruline
+he:ספירולינה
+it:spirulina
+ja:スピルリナ
+ko:스피룰리나
+mk:spirulina
+ml:സ്പൈറുലിന
+ms:Spirulina
+my:စပီရူလိုင်းနား
+# nah:Tecuitlatl
+nl:spirulina
+pl:spirulina
+pt:spirulina
+ro:Spirulia
+ru:Спирулина
+sl:spirulina
+sv:spirulina
+ta:நீலப்பச்சைப்பாசி
+te:స్పైరులీనా
+th:Spirulina
+tr:Spirulina
+vi:Tảo xoắn
+zh:螺旋藻
+wikidata:en:Q285335
+wikipedia:en:https://en.wikipedia.org/wiki/Spirulina_(dietary_supplement)
+# ingredient/fr:spirulina has 61 products in 4 languages @2019-01-23
+
+
+# SEAWEED or macroalgae refers to several species of macroscopic, multicellular, marine algae.
 # not sure if this should kept separate from en:algae
 
 <en:algae
@@ -36129,6 +36177,44 @@ zh:海藻
 wikidata:en:Q237169 
 wikipedia:en:https://en.wikipedia.org/wiki/Seaweed
 
+
+<en:algae
+en:algae concentrate
+de:Algenkonzentrat
+es:concentrado de algas
+fr:concentré d'algues
+nl:algenconcentraat
+# ingredient/algae-concentrate has 10 products @2019-02-22
+# färbendes Lebensmittel:Saflorkonzentrat, Algenkonzentrat
+
+<en:seaweed
+en:dehydrated seaweed
+de:Seetang getrocknet
+fr:algues déshydratées
+it:alghe disidratate
+# ingredient/fr:algues-déshydratées has 15 products @2019-02-22
+
+<en:dehydrated seaweed
+fr:algues réhydratées
+# ingredient/fr:algues-réhydratées has 3 products 22019-02-22
+
+<en:seaweed
+fr:algue laminaire en poudre
+
+<en:seaweed
+fr:Algues bretonnes
+# ingredient/fr:Algues-bretonnes has 2 products @2019-02-22
+
+<en:seaweed
+fr:algues de Bretagne nord
+# ingredient/fr:algues-de-Bretagne-nord has 1 product @2019-02-22
+
+
+<en:seaweed
+fr:paillettes d'algues
+# ingredient/fr:paillettes%20d'algues has 1 product 22019-02-22
+
+
 <en:algae
 en:Lithotamnium calcareum
 fr:algue lithothamnium calcareum, algue marine lithothamnium calcareum, 
@@ -36162,51 +36248,256 @@ en:Palmaria palmata
 la:Palmaria palmata
 
 
-# CHLORELLA is a genus of single-celled green algae belonging to the division Chlorophyta.
+# Eucheuma, commonly known as gusô, is a seaweed algae that may be brown, red, or green in color. 
 
-<en:algae
-en:chlorella
-ar:كلوريلا
-be:Хларэла
-bn:Хлорела
-ca:Chlorella
-cs:Chlorella
-da:Chlorella
-de:Chlorella
-eo:Klorelo
-es:Chlorella
-et:Klorella
-eu:Chlorella
-fi:Klorella
-fr:chlorella, chlorelle
-ga:Clóireile
-gl:Chlorella
-he:כלורלה
-hr:Chlorella
-hy:քլորելա
-ia:Chlorella
-id:Chlorella
-it:Chlorella
-ja:クロレラ
-kk:Хлорелла
-ko:클로렐라
-ky:Хлорелла
-la:Chlorella
-nl:Chlorella
-pl:Chlorella
-pt:Chlorella
-# pt-br:Clorela
-ru:Хлорелла
-sh:Chlorella
-sk:Chlorela
-sl:Chlorella
-sw:Chlorella
-tr:Chlorella
-uk:Хлорела
-vi:Chlorella
-wikidata:en:Q133017
-wikipedia:en:https://en.wikipedia.org/wiki/Chlorella
-# fr:chlorella has 42 products in 3 languages @2018-10-28
+<en:seaweed
+en:processed euchema algae
+de:verarbeitete euchema algae
+fr:algues euchema transformées
+it:alghe euchema lavorate
+nl:Verwerkt Eucheuma-wier
+wikipedia:en:https://en.wikipedia.org/wiki/Eucheuma
+# ingredient/fr:algues-euchema-transformées has 147 products in 4 languages @2019-02-22
+
+
+# Fucus is a genus of brown algae found in the intertidal zones of rocky seashores almost throughout the world.
+
+<en:seaweed
+en:Fucus
+ar:فوقس
+# azb:فوکوس
+be:Фукус
+da:Blæretang-slægten
+io:Fuko
+ja:ヒバマタ属
+ko:푸쿠스
+la:Fucus
+pl:morszczyn
+ru:Фукус
+# sco:Tang
+sq:Fukusi
+uk:Фукус
+wikidata:en:Q180597
+wikipedia:en:https://en.wikipedia.org/wiki/Fucus
+# ingredient/fr:fucus has 27 products in french @2019-02-22
+
+
+# KOMBU (from Japanese: 昆布, translit. konbu) is edible kelp from mostly the family Laminariaceae and is widely eaten in East Asia. There are about eighteen edible species in Laminariaceae and most of them, but not all, are called kombu.
+
+<en:seaweed
+en:kombu
+az:Yapon laminariyası
+# azb:اؤزل:پالایهٔ خرابکاری
+br:Kombu
+ca:Kombu
+de:Kombu
+# de-ch:Kombu
+# en-ca:Kombu
+# en-gb:Kombu
+es:Kombu
+fa:کونبو
+fr:kombu, Konbu
+hy:կոմբու
+id:Kombu
+is:Kombu
+it:kombu
+ja:コンブ
+ms:Kombu
+nl:Kombu
+pl:Kombu
+pt:kombu
+# pt-br:Kombu
+ru:комбу
+sk:Konbu
+th:คมบุ
+tr:Kombu
+wikidata:en:Q11261547
+wikipedia:en:https://en.wikipedia.org/wiki/Kombu
+# ingredient/fr:kombu has 20 products in french @2019-02-22
+
+# Saccharina japonica is a marine species of the Phaeophyceae (brown algae) plant , a type of kelp or seaweed, that is extensively cultivated on ropes between the seas of Japan and Korea.[
+
+<en:kombu
+en: Saccharina japonica
+la: Saccharina japonica, Laminaria Japonica
+wikipedia:en:https://en.wikipedia.org/wiki/Saccharina_japonica
+
+
+# Nori (海苔) is the Japanese name for edible seaweed (a "sea vegetable") species of the red algae genus Pyropia, including P. yezoensis and P. tenera.
+
+<en:seaweed
+en:nori
+ar:نوري
+az:Nori
+bn:নরি
+ca:Nori
+# cdo:Ciē-chái
+cs:nori
+da:nori
+de:Nori
+el:νόρι
+eo:norio
+es:nori
+et:nori
+eu:Nori
+fa:نوری
+fi:nori
+fr:Nori
+gd:Nori
+gl:Nori
+he:נורי
+hu:nori
+id:Nori
+it:Nori
+ja:海苔
+jv:Nori
+ka:ნორი
+ky:Нори
+mk:нори
+ms:Nori
+# nan:Nó͘-lih
+nb:nori
+ne:नोरी
+nl:nori
+nn:nori
+pa:ਨੋਰੀ
+pl:nori
+# pnb:نوری
+pt:nori
+ru:нори
+sh:Nori
+sq:nori
+sr:Нори
+sv:nori
+tr:Nori
+uk:Норі
+ur:نوری
+vi:Nori
+# wuu:紫菜
+# yue:紫菜
+zh:海苔
+# zh-hant:海苔
+wikidata:en:Q201565
+wikipedia:en:https://en.wikipedia.org/wiki/Nori
+# ingredient/fr:nori has 51 products in 4 languages @2019-02-22
+
+<en:seaweed
+en:Porphyra umbilicalis
+la:Porphyra umbilicalis, porphyra umbilical
+# ingredient/fr:porphyra-umbilical has 1 product @2019-02-22
+
+
+# The sea lettuces comprise the genus Ulva, a group of edible green algae that is widely distributed along the coasts of the world's oceans.
+
+<en:seaweed
+en:sea lettuce, green laver
+ar:أولفا خسية
+az:Ulva yosunu
+ca:enciam de mar
+cs:porost locikový
+da:Havsalat
+de:Meersalat
+es:lechuga de mar
+eu:Itsas uraza
+fr:laitue de mer, laitue de mers
+ga:Glasán
+gd:Glasag
+gl:Leituga de mar
+hr:Morska salata
+hu:էնտերոմորֆա
+hu:tengeri saláta
+is:Maríusvunta
+it:lattuga di mare
+ja:アオサ
+ka:ულვა
+ko:갈파래속
+la:Ulva sp.
+mk:морска марула
+nl:zeesla
+pl:Ulwa sałatowa
+pt:Alface-do-mar
+ru:Ульва
+sv:Havssallat
+uk:Морський салат
+zh:石莼
+# zh-hans:石莼
+# zh-hant:石蓴
+# zh-hk:石蓴
+# zh-tw:石蓴
+wikipedia:en:https://en.wikipedia.org/wiki/Sea_lettuce
+# ingredient/fr:laitue-de-mer has 73 products in 4 languages @2019-02-22
+# algues:laitue de mer
+
+
+# Himanthalia elongata is a brown alga (class Phaeophyta or Phaeophyceae) in the order Fucales, also known by the common names thongweed, sea thong and sea spaghetti. 
+
+<en:seaweed
+en:thongweed, sea spaghetti
+ca:espagueti de mar
+de:Riementang
+fr:spaghetti de mer, Hymanthalia, haricot de mer, haricots de mer
+ga:Reamóra
+gd:Iomlach
+gl:Cinta
+nl:riemwier
+wikidata:en:Q1636443
+# ingredient/fr:spaghetti-de-mer has 7 products in french @2019-02-22
+# ingredient/fr:haricot-de-mer has 9 products in french @2019-02-22
+
+<en:thongweed
+en:Himanthalia elongata
+la:Himanthalia elongata, Himanthalia elongato
+wikipedia:en:https://en.wikipedia.org/wiki/Himanthalia_elongata
+
+
+# Wakame (ワカメ), Undaria pinnatifida, is a species of edible seaweed, a type of marine algae, and a sea vegetable. 
+
+<en:seaweed
+en:wakame
+ar:واكامي
+de:wakame
+eo:Vakameo
+fa:واکامه
+fr:wakamé
+he:ואקאמה
+it:Wakame
+ja:ワカメ
+ko:미역
+ru:вакамэ
+th:วะกะเมะ
+vi:Tảo bẹ Undaria
+# yue:裙帶菜
+zh:海帶芽
+wikidata:en:Q864682
+wikipedia:en:https://en.wikipedia.org/wiki/Wakame
+# ingredient/fr:wakamé has 57 products in 4 languages @2019-02-22
+
+
+<en:wakame
+en:undaria pinnatifida
+la:undaria pinnatifida
+
+
+# Ascophyllum nodosum is a large, common cold water seaweed or brown alga (Phaeophyceae) in the family Fucaceae, being the only species in the genus Ascophyllum.
+
+<en:seaweed
+en:Ascophyllum
+la:Ascophyllum
+wikipedia:en:https://en.wikipedia.org/wiki/Ascophyllum
+# ingredient/fr:Ascophyllum has 9 products in french @2019-02-22
+
+
+# Laminaria is a genus of 31 species of brown algae commonly called "kelp". 
+
+<en:seaweed
+en:Laminaria
+la:Laminaria
+wikipedia:en:https://en.wikipedia.org/wiki/Laminaria
+# ingredient/fr:Laminaria has 13 products in french @2019-02-22
+
+
+<en:seaweed
+la:Porphyra yezoensis
 
 
 # Aspergillus oryzae, known in English as koji, is a filamentous fungus (a mold) used in Chinese and other East Asian cuisines to ferment soybeans for making soy sauce and fermented bean paste
@@ -46737,9 +47028,7 @@ allergens:fr:concentré de _lait_ écrémé
 
 fr:substances laitières modifiées
 
-fr:laitue de mer
 
-fr:fruits de mer
 
 
 
