@@ -7730,39 +7730,6 @@ HTML
 ;
 
 		$html .= "<p class=\"note\">&rarr; " . lang("nutrition_data_comparison_with_categories_note") . "</p>";
-
-		# \$( ".show_comparison" ).button();
-
-
-		$initjs .= <<JS
-
-\$('input:radio[name=nutrition_data_compare_type]').change(function () {
-
-	if (\$('input:radio[name=nutrition_data_compare_type]:checked').val() == 'compare_value') {
-		\$(".compare_percent").hide();
-		\$(".compare_value").show();
-	}
-	else {
-		\$(".compare_value").hide();
-		\$(".compare_percent").show();
-	}
-
-}
-);
-
-\$(".show_comparison").change(function () {
-	if (\$(this).prop('checked')) {
-		\$("." + \$(this).attr("id")).show();
-	}
-	else {
-		\$("." + \$(this).attr("id")).hide();
-	}
-}
-);
-
-JS
-;
-
 	}
 
 	# Stats for categories

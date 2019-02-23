@@ -122,10 +122,35 @@ function initUnselectButton() {
   });
 }
 
+function initNutritionCompareToggle() {
+  return import('jquery').then($ => {
+    $('input:radio[name=nutrition_data_compare_type]').change(function () {
+      if ($('input:radio[name=nutrition_data_compare_type]:checked').val() == 'compare_value') {
+        $('.compare_percent').hide();
+        $('.compare_value').show();
+      }
+      else {
+        $('.compare_value').hide();
+        $('.compare_percent').show();
+      }
+    });
+
+    $('.show_comparison').change(function () {
+      if ($(this).prop('checked')) {
+        $('.' + $(this).attr('id')).show();
+      }
+      else {
+        $('.' + $(this).attr('id')).hide();
+      }
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   initIOLazy();
   initFoundation();
   initCountrySelect(document.getElementById('mainscript').dataset['selectcountry'], document.documentElement.dataset['serverdomain']);
   initCategoryStats();
   initUnselectButton();
+  initNutritionCompareToggle();
 });
