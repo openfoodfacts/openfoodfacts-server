@@ -530,6 +530,52 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carmine
 # additive/e120-cochineal has 3909 products in 18 languages @2018-11-17
 
 
+
+# Erythrosine, also known as Red No. 3, is an organoiodine compound, specifically a derivative of fluorone. It is cherry or melon-pink synthetic, primarily used for food coloring.
+
+# <en:coloring
+en:erythrosine, E127, E-127, E 127
+# azb:اریتروسین
+bg:Еритрозин
+cs:Erythrosin
+da:Erythrosin
+de:Erythrosin
+el:Ερυθροσινη
+es:Eritrosina
+et:Erütrosiin
+fa:اریتروسین
+fi:Erytrosiini
+fr:érythrosine
+hu:Eritrozin
+it:Eritrosina
+ja:エリスロシン
+lt:Eritrozinas
+lv:Eritrozīns
+mk:Еритрозин
+mt:Eritrosina
+nl:erythrosine
+pl:Erytrozyna
+pt:Eritrosina
+ro:Eritrozină
+ru:эритрозин
+sh:Eritrozin
+sk:Erytrozín
+sl:Eritrozin
+sr:Eritrozin
+sv:Erytrosin
+uk:Еритрозин
+zh:赤藓红
+# zh-cn:赤藓红
+# zh-hans:赤藓红
+# zh-hant:赤蘚紅
+# zh-hk:赤蘚紅
+# zh-sg:赤藓红
+# zh-tw:赤蘚紅
+wikipedia:en:https://en.wikipedia.org/wiki/Erythrosine
+# ingredient/fr:érythrosine has 47 products in 3 languages @2019-02-22
+# additive/e127-erythrosine has 592 products in 8 languages @2019-02-22
+
+
 en:Copper complexes of chlorophylls and chlorophyllins, E141, E-141, E 141
 es:Complejos cúpricos de clorofilas y clorofilinas
 fr:complexes cuivre-chlorophylles et cuivre-chlorophyllines
@@ -671,7 +717,7 @@ pt:Betanina, E162
 sh:Betanin, E162
 sr:Betanin, E162
 sv:Betanin, E162
-wikipedia:Q420138
+wikidata:en:Q420138
 
 <en:betanin
 en:beetroot red
@@ -12365,7 +12411,7 @@ lt:Saulėgrąžų aliejus
 mk:Сончогледово масло
 mr:Minyak bunga matahari
 nl:zonnebloemolie
-no:solsikkeolje
+nn:solsikkeolje
 pl:Olej słonecznikowy
 pt:óleo de girassol
 ro:ulei de floarea soarelui, Ulei de floarea-soarelui
@@ -12415,6 +12461,11 @@ en:refined sunflower oil
 fr:huile de tournesol raffinée
 de:Raffiniertes Sonnenblumenöl
 it:oleo di girasole raffinato
+
+<en:sunflower oil
+fr:tournesol oléique
+# ingredient/fr:tournesol-oléique has 55 products in french @2019-02-22
+# huiles végétales (tournesol oléique, colza, tournesol)
 
 # has a higher oleic oil fraction
 
@@ -46630,6 +46681,11 @@ sv:solroslecitin
 wikidata:en:Q57271747
 # fr:lécithine-de-tournesol has 5218 products in 20 languages @2018-11-10
 
+# <en:emulsifier
+<en:sunflower lecithin
+fr:émulsifiant lécithine de tournesol
+# ingredient/fr:émulsifiant-lécithine-de-tournesol has 100 products in 6 languages @2019-02-22
+
 <en:soya lecithin
 <en:sunflower lecithin
 en:soya and sunflower lecithin
@@ -47025,19 +47081,6 @@ allergens:fr:poudre au _beurre_
 fr:biscuits
 
 fr:Biscuits au beurre
-
-
-fr:érythrosine
-
-
-fr:émulsifiant lécithine de tournesol
-
-fr:tournesol oléique
-
-
-
-
-
 
 
 
