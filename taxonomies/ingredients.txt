@@ -6040,6 +6040,13 @@ nl:gereconstitueerde boter
 en:sweet cream butter
 wikidata:en:Q26882140
 
+# <en:compound
+<en:butter
+fr:poudre au beurre, poudre de beurre
+# ingredient/fr:poudre-au-beurre has 62 products in 3 languages @2019-02-23
+# poudre au beurre (BEURRE, maltodextrines, protéines de LAIT, émulsifiant : E471)
+
+
 # CLARIFIED BUTTER - milk fat rendered from butter to separate the milk solids and water from the butterfat
 
 <en:butterfat
@@ -44441,9 +44448,26 @@ wikipedia:en:https://en.wikipedia.org/wiki/Ravioli
 
 
 # <en:compound
+en:biscuits
+de:Kekse
+es:galleta
+fr:biscuit, biscuits
+it:biscotto, Biscotti
+nl:biscuit
+pt:biscoito
+ro:biscuiti
+# ingredient/fr:biscuit has 391 products in 8 languages @2019-02-23
+# Biscuit (egg, wheat flour, sugar, emulsifier:mono - and diglycerides of fatty acids, leavening agents:diphosphates and sodium carbonate)
+
+<en:biscuits
+fr:Biscuits au beurre
+# ingredient/fr:Biscuits-au%-beurre has 3 products in french @2019-02-23
+
+
+# <en:compound
 en:coating
-de: Panur
-es: envolviendo
+de:Panur
+es:envolviendo
 fr:enrobant
 # ingredient/fr:enrobant has 79 products in 4 languages @2019-02-21
 # coating (water, wheat flour, modified corn starch, gluten of wheat, corn flour, corn starch, salt, potato starch)
@@ -44961,7 +44985,6 @@ es:hoja de dragón
 fr:feuille d’estragon
 nl:dragonblad
 
-fr:biscuit
 
 
 fr:tofu
@@ -47075,12 +47098,7 @@ fr:poudre de fleurage
 
 fr:extrait pur de vanille
 
-fr:poudre au beurre
-allergens:fr:poudre au _beurre_
 
-fr:biscuits
-
-fr:Biscuits au beurre
 
 
 
