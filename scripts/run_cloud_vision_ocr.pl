@@ -65,8 +65,8 @@ my $json_file = $destination;
 $json_file =~ s/\.([^\.]+)$//;
 $json_file .= ".json";
 
-open (LOG, ">> $data_root/logs/run_cloud_vision_ocr.log");
-print LOG "file: $file destination: $destination code: $code image_url: $image_url json_file: $json_file\n";
+open (my $LOG, ">>", "$data_root/logs/run_cloud_vision_ocr.log");
+print $LOG "file: $file destination: $destination code: $code image_url: $image_url json_file: $json_file\n";
 
 
 my $url = "https://alpha-vision.googleapis.com/v1/images:annotate?key=" . $ProductOpener::Config::google_cloud_vision_api_key;
@@ -76,11 +76,11 @@ my $ua = LWP::UserAgent->new();
 
 
 
-open (IMAGE, $file) || die "Could not read $file: $!\n";
-binmode(IMAGE);
+open (my $IMAGE, "<", $file) || die "Could not read $file: $!\n";
+binmode($IMAGE);
 local $/;
-my $image = <IMAGE>;
-close IMAGE;
+my $image = <$IMAGE>;
+close $IMAGE;
 
 my $api_request_ref = 		 
 	{
@@ -117,7 +117,7 @@ if ($res->is_success) {
 	print $OUT $json_response;
 	close $OUT;			
 	
-	print LOG "--> success\n";
+	print $LOG "--> success\n";
 	
 	# Call robotoff to process the image and/or json from Cloud Vision
 	
@@ -131,7 +131,7 @@ if ($res->is_success) {
 }
 else {
 	#$log->warn("google cloud vision request not successful", { code => $res->code, response => $res->message }) if $log->is_warn();
-	print LOG "--> error: $res->code $res->message\n";	
+	print $LOG "--> error: $res->code $res->message\n";	
 }
 
-close LOG;
+close $LOG;
