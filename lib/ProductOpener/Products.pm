@@ -90,6 +90,20 @@ sub normalize_code($) {
 		if ((length($code) eq 12) and ($ean_check->is_valid('0' . $code))) {
 			$code = '0' . $code;
 		}
+		
+		# Remove leading 0 for codes with 14 digits
+		if ((length($code) eq 14) and ($code =~ /^0/)) {
+			$code = $';
+		}
+		
+		# Remove 5 or 6 leading 0s for EAN8
+		# 00000080050100 (from Ferrero)
+		if ((length($code) eq 14) and ($code =~ /^000000/)) {
+			$code = $';
+		}
+		if ((length($code) eq 13) and ($code =~ /^00000/)) {
+			$code = $';
+		}		
 	}
 	return $code;
 }
