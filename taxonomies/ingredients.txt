@@ -14188,7 +14188,6 @@ nl:natuurlijk cacao-aroma
 
 <en:natural flavouring
 fr:arôme naturel de moutarde
-allergens:fr:arôme naturel de _moutarde_
 
 <en:natural flavouring
 fr:arôme naturel de romarin
@@ -14222,6 +14221,9 @@ fr:arôme naturel de carotte
 en:natural onion flavouring
 fr:arôme naturel d'oignon
 
+# Note that all the vanilla flavourings are kept separate from en:vanilla (under plants)
+# As there is no guarantee that a vanilla flavor does implicate the vanilla plant.
+
 <en:flavouring
 en:vanilla flavouring
 es:aroma de vainilla
@@ -14238,7 +14240,7 @@ da:naturlig vanillearoma
 de:natürliches Vanillearoma
 fr:arôme naturel de vanille, arôme naturel vanille, arômes naturels de vanille
 nl:natuurlijk vanillearoma
-no:naturlig vanilijarom
+nb:naturlig vanilijarom
 pl:naturalny aromat wanilii
 sv:naturlig vanilijarom
 
@@ -14258,6 +14260,9 @@ de:natürliches Bourbon Vanille-Aroma, naturliches Bourbon Vanille Aroma
 it:aroma naturale di vaniglia Bourbon
 sv:naturlig vaniljarom
 
+<en:natural vanilla flavouring
+fr:arôme naturel de vanille de madagascar
+pt:aroma natural de baunilha de Madagascar
 
 # Vanillin is a phenolic aldehyde, which is an organic compound with the molecular formula C8H8O3. 
 
@@ -14302,31 +14307,16 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vanillin
 # ingredient/fr:vanilline has 831 products in 10 languages @2018-12-12
 
 
-en:vanilla
-fr:vanille
 
-fr:extrait naturel de vanille
 
-fr:vanille bourbon
 
-fr:gousses de vanille bourbon
 
-# To make vanilla look like vanilla
 
-fr:gousse de vanille
-carbon_footprint_fr_foodges_ingredient:fr:Gousse de Vanille
 
-fr:gousse de vanille, gousses de vanille
 
-fr:gousses de vanille moulues
 
-fr:vanille bourbon naturelle en gousse
 
-fr:gousse de vanille épuisée, gousses de vanille épuisées
 
-fr:grains de vanille épuisés, grains de vanille épuisée, graines de vanille épuisées
-
-fr:gousses de vanille épuisées broyées
 
 
 
@@ -14340,9 +14330,6 @@ es:aroma natural de vainilla con otros aromas naturales
 fr:arôme naturel de vanille avec d'autres arômes naturels, arôme naturel de vanille avec autres arômes naturels
 nl:natuurlijk vanillearoma met andere natuurlijke aroma's, natuurlijk vanille aroma en andere natuurlijke aroma's
 
-<en:natural vanilla flavouring
-fr:arôme naturel de vanille de madagascar
-pt:aroma natural de baunilha de Madagascar
 
 # Two parents due to and/or ingredient
 
@@ -35072,14 +35059,14 @@ zh:蝦夷蔥
 # zh-tw:細香蔥
 wikidata:en:Q51148
 wikipedia:en:https://en.wikipedia.org/wiki/Chives
-openfoodfacts:https://world.openfoodfacts.org/ingredient/chives/languages
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/chives/languages
 # 1774 products in 11 languages @2018-10-08
 
 <en:chives
 fr:ciboulette déshydratée
 de:Schnittlauch getrocknet
 it:erba cipollina essiccata
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:ciboulette%20déshydratée
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:ciboulette%20déshydratée
 # 69 products in 3 languages @2018-10-08
 
 
@@ -35211,7 +35198,7 @@ ky:Кориандр
 la:Coriandrum sativum
 lb:Koriander
 lt:Kalendra
-mai:धनियाँ
+# mai:धनियाँ
 mk:Коријандер
 ml:മല്ലി
 mr:कोथिंबीर
@@ -35502,7 +35489,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lavandula
 # TILIA is a genus of about 30 species of trees, or bushes, native throughout most of the temperate Northern Hemisphere.
 
 en:linden
-de Lindenblüten
+de:Lindenblüten
 fr:tilleul
 it:Fiori di tiglio
 nl:Linde, lindebloesem
@@ -35849,14 +35836,14 @@ fr:tournesol
 # gom:सूर्यफूल
 he:חמנית
 hr:suncokret
-hsb:słónčnica
+# hsb:słónčnica
 hy:արևածաղիկ
 # inh:Гидуарг
 is:Sólblóm
 ja:ヒマワリ属
 ka:მზესუმზირა
 kk:күнбағыс
-n:ಸೂರ್ಯಕಾಂತಿ
+kn:ಸೂರ್ಯಕಾಂತಿ
 ky:Күн карама
 la:Helianthus
 lt:saulėgrąža
@@ -35979,6 +35966,224 @@ fr:olives noires avec noyau
 en:olive paté
 de:Olivenpastete
 fr:pâte d'olives
+
+
+# Vanilla is a flavoring derived from orchids of the genus Vanilla, primarily from the Mexican species, flat-leaved vanilla (V. planifolia).
+
+en:vanilla
+af:Vanielje
+ar:فانيليا
+# arz:فانيليا
+az:Vanil
+bo:དྲི་ཞིམ་ལྡན་པའི་རྩྭ།
+ca:vainilla
+# ceb:Baynilya
+# chr:ᏩᏁᎳ
+cs:vanilka
+da:Vanilje
+de:Vanille
+el:Βανίλια
+# en-ca:Vanilla
+# en-gb:Vanilla
+eo:vanilo
+es:vainilla
+eu:Banilla
+fa:وانیل
+fi:Vanilja
+fr:vanille
+ga:Fanaile
+gl:vainilla
+gn:Tyru'i
+he:וניל
+hi:वैनिला
+hr:Vanilija
+# hsb:wanilija
+ht:Vaniy
+id:Vanili
+io:Vanilo
+it:vaniglia
+ja:Panili
+kk:Ваниль
+kn:ವನಿಲಾ
+ko:바닐라
+la:Vanilla
+lt:Vanilė
+mg:Vanila
+mk:Ванила
+ms:Vanila
+my:ဗနီလာပင်
+nb:vanilje
+nl:vanille
+nn:vanilje
+# pnb:ونیلا
+pt:baunilha
+# pt-br:baunilha
+ru:Ваниль
+# sco:vanilla
+sh:Vanilija
+sk:Vanilka pravá
+sl:Vanilja
+sr:ванила
+sv:vanilj
+ta:வெனிலா
+th:วานิลลา
+to:Vanila
+# tyv:Ваниль
+uk:Ваніль
+ur:ونیلا
+uz:Vanil
+vi:va ni
+# yue:雲呢拿
+zh:香草
+wikidata:en:Q13241
+wikipedia:en:https://en.wikipedia.org/wiki/Vanilla
+# ingredient/vanilla has 4542 products in 14 languages @2019-02-24
+
+<en:vanilla
+fr:vanille naturelle
+# ingredient/fr:vanille-naturelle has 113 products in 3 languages @2019-02-24
+
+
+<en:vanilla
+en:Bourbon vanilla
+de:Bourbon Vanille, Bourbon-Vanille
+fr:vanille bourbon
+it:vaniglia Bourbon
+# ingredient/fr:vanille-bourbon has 150 products in 4 languages @2019-02-24
+
+<en:vanilla
+en:vanilla powder
+de:Vanille-Pulver
+es:vainilla en polvo
+fr:vanille en poudre, poudre de vanille, vanille moulue
+it:vaniglia in polvere
+nl:vanille poeder
+nl:vanille em pó
+ro:vanilie
+sv:vaniljpulver
+# ingredient/fr:vanille-en-poudre has 110 products in 10 languages @2019-02-24
+
+<en:Bourbon vanilla
+<en:vanilla powder
+de:Bourbon Vanille gemahlen
+
+<en:vanilla
+en:vanilla extract
+de:Vanilleextrakt
+es:extracto de vainilla
+fi:vaniljauute
+fr:extrait de vanille
+it:estratto di vaniglia
+nl:vanille-extract
+pt:extrato de baunilha
+ro:extract de vanilie
+sv:vaniljextrakt
+# ingredient/vanilla-extract has 4017 products in 13 languages @2019-02-24
+
+<en:vanilla extract
+en:pure vanilla extract
+fr:extrait pur de vanille
+it:estratto puro di vaniglia
+# ingredient/fr:extrait-pur-de-vanille has 65 products in 5 languages @2019-02-24
+
+<en:vanilla extract
+en:natural vanilla extract
+da:naturlig vanilleekstrakt
+de:natürlicher Vanilleextrakt
+el:φυσικό εκχύλισμα βανίλιας
+fi:luontainen vaniljauute
+fr:extrait naturel de vanille
+it:estratto naturale di vaniglia
+nl:natuurlijk vanille-extract
+pt:extracto natural de baunilha
+ro:extract natural de vanilie
+sr:prirodni ekstrakt vanile
+sv:naturlig vaniljextrakt
+# ingredient/fr:extrait-naturel-de-vanille has 559 products in 13 languages @2019-02-24
+
+<en:vanilla extract
+<en:Bourbon vanilla
+en:Bourbon Vanille Extrakt
+cs:extrakt z burbonské vanilky
+da:bourbon vaniljeekstrakt
+de:Bourbon Vanille Extrakt, Vanille-Extrakt Bourbon, Bourbon-Vanille-Extrakt
+es:extracto de vainilla de Bourbon
+fi:bourbon vaniljauute
+fr:extrait de vanille bourbon, extrait de vanille de Bourbon
+it:estratto di vaniglia Bourbon
+nl:Bourbon vanille-extract
+ro:extract de vanilie Bourbon
+sv:bourbon vaniljextrakt
+# ingredient/fr:extrait-de-vanille-bourbon has 236 products in 14 languages @2019-02-24
+
+# To make vanilla look like vanilla
+
+<en:vanilla
+en:vanilla pod, vanilla pods
+de:Vanilleschoten
+es:vainas de vainilla
+fr:gousse de vanille, gousses de vanille
+it:baccelli di vaniglia
+nl:vanillestokje, vanillestokjes
+pt:vagem de baunilha
+sv:vaniljstång
+# ingredient/fr:gousse-de-vanille has 207 products in 5 languages @2019-02-24
+carbon_footprint_fr_foodges_ingredient:fr:Gousse de Vanille
+
+<en:vanilla pod
+en:ground vanilla beans, vanilla bean pieces
+de:Vanilleschoten gemahlen, Vannileschoten gemahlen, vermahlene Vanilleschoten
+fi:vaniljatangon palat
+fr:gousses de vanille moulues
+it:semi di vaniglia macinat
+sv:vaniljstångbitar
+# ingredient/fr:gousses-de-vanille-moulues has 45 products in 4 languages @2019-02-24
+
+<en:vanilla pod
+fr:gousse de vanille épuisée, gousses de vanille épuisées
+de:extrahierte Vanilleschote
+nl:uitgeputte vanillestokjes, geëxtraheerde vanillestokjes, leeg vanillestokje
+# ingredient/fr:gousse-de-vanille-épuisée has 55 products in 3 languages @2019-02-24
+
+<fr:gousse de vanille épuisée
+fr:gousses de vanille épuisées broyées
+de:gemahlene extrahierte Vanilleschoten
+it:baccelli di vaniglia curati macinati
+nl:gemalen geëxtraheerde vanillestokjes
+# ingredient/fr:gousses-de-vanille-épuisées-broyées has 167 products in 9 languages @2019-02-24
+
+<en:vanilla pod
+<en:Bourbon vanilla
+en:Bourbon vanilla beans, vanilla bean Bourbon, bourbon vanilla bean
+de:Bourbon-Vanilleschote
+fr:gousses de vanille bourbon, fève de vanille bourbon
+it:baccello di vaniglia Bourbon, bourbon vanilla bean
+# ingredient/fr:gousses-de-vanille-bourbon has 50 products in 4 languages @2019-02-24
+
+<en:Bourbon vanilla beans
+fr:vanille bourbon naturelle en gousse
+# ingredient/fr:vanille-bourbon-naturelle-en-gousse has 27 products in french @2019-02-24
+
+<en:Bourbon vanilla beans
+de:Bourbon-Vanilleschote gemahlen
+# ingredient/de:Bourbon-Vanilleschote-gemahlen has 7 products in 4 languages @2019-02-24
+
+<en:vanilla
+en:vanilla seeds
+de:Vanilleschoten
+fr:graines de vanille
+it:semi di vaniglia
+# ingredient/fr:graines-de-vanille has 42 products in 4 languages @2019-02-24
+
+<en:vanilla seeds
+en:vanilla beans exhausted
+de:Vanillesamen extrahiert
+fr:grains de vanille épuisés, grains de vanille épuisée, graines de vanille épuisées
+it:semi di vaniglia estratti
+# ingredient/fr:grains-de-vanille-épuisés has 31 products in 5 languages @2019-02-24
+
+<en:vanilla beans exhausted
+fr:gousses de vanille épuisées broyées
 
 
 en:vine leaves
@@ -43123,12 +43328,6 @@ fr:sucralose
 
 fr:glucide
 
-en:vanilla extract
-fr:extrait de vanille
-
-fr:extrait de vanille bourbon, extrait de vanille de Bourbon
-de:Bourbon-Vanille-Extrakt
-it:estratto di vaniglia Bourbon
 
 fr:nitrate de potassium
 
@@ -45671,7 +45870,6 @@ fr:collagène
 
 fr:fibre de pois
 
-fr:poudre de vanille
 
 fr:gras de bœuf, gras de boeuf
 
@@ -46376,7 +46574,6 @@ fr:acétate de calcium
 fr:ferments de maturation
 
 
-fr:vanille naturelle
 
 fr:pâtes précuites
 
@@ -46468,7 +46665,6 @@ en:egg pastas
 fr:pâtes aux œufs, pâtes aux oeufs
 
 
-fr:vanille en poudre
 
 fr:fibre d'acacia, fibres d'acacia
 
@@ -46914,7 +47110,6 @@ fr:fond de volaille aromatisé
 
 
 
-fr:graines de vanille
 
 fr:inosinate de sodium
 
@@ -46967,7 +47162,6 @@ fr:disphosphates
 
 fr:sorbate de calcium
 
-fr:vanille moulue
 
 fr:disulfites de sodium
 allergens:fr:_disulfites_ de sodium
@@ -47096,7 +47290,6 @@ de:vorgegartes Hühnerfleisch
 fr:poudre de fleurage
 
 
-fr:extrait pur de vanille
 
 
 
