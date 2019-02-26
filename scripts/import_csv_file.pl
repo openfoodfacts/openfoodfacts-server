@@ -510,11 +510,20 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 
 	foreach my $field (@param_fields) {
+	
+		# fields suffixed with _if_not_existing are loaded only if the product does not have an existing value
+		
+		if (not ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} !~ /^\s*$/))
+			and ((defined $imported_product_ref->{$field . "_if_not_existing"}) and ($imported_product_ref->{$field . "_if_not_existing"} !~ /^\s*$/))
+			print STDERR "no existing value for $field, using value from ${field}_if_not_existing: " . $imported_product_ref->{$field . "_if_not_existing"} . "\n";
+			$imported_product_ref->{$field} = $imported_product_ref->{$field . "_if_not_existing"}
+		) {
+		
 
 		if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} !~ /^\s*$/)) {
 
 
-			print "defined and non empty value for field $field : " . $imported_product_ref->{$field} . "\n";
+			print STDERR "defined and non empty value for field $field : " . $imported_product_ref->{$field} . "\n";
 
 			if (($field =~ /product_name/) or ($field eq "brands")) {
 				$stats{products_with_info}{$code} = 1;
