@@ -19263,7 +19263,7 @@ tt:Соя
 uk:Соя
 uz:Soya
 # war:Soya
-openfoodfacts:https://world.openfoodfacts.org/ingredient/soy
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/soy
 # 39698 products in 23 languages @2018-09-25
 
 # SOYBEAN (Glycine max), or soya bean is a species of legume native to East Asia,
@@ -19291,9 +19291,9 @@ it:semi di soia
 ku:fasulyeya soyayê
 lt:Gauruotoji soja
 ms:Kacang soya
+nb:Soyabønne
 nl:Sojaboon, sojabonen
 nn:Soyabønne
-no:Soyabønne
 pl:Soja warzywna
 pt:grão de soja, grãos de soja
 # sco:Soya bean
@@ -20977,7 +20977,7 @@ fr:purée
 nl:puree
 wikidata:en:Q636056
 wikipedia:en:https://en.wikipedia.org/wiki/Purée
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée
 # 151 products @2018-10-05
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -25491,7 +25491,7 @@ zh:葡萄漿
 # zh-tw:水果酒
 wikipedia:en:https://en.wikipedia.org/wiki/Must
 wikidata:en:Q278818
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût%20de%20raisin
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût%20de%20raisin
 # 273 products in 4 languages @2018-10-02
 
 <en:must
@@ -25500,13 +25500,13 @@ fr:moût de raisin concentré
 de:Traubenmostkonzentrat, konzentrierter Traubenmost
 it:mosto d'uva concentrato
 nl:geconcentreerde druivenmost
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût%20de%20raisin%20concentré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût%20de%20raisin%20concentré
 # 183 products in 5 languages @2018-10-02
 
 <en:concentrated grape must
 <fr:moût de raisin cuit
 fr:moût de raisin concentré et cuit
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût%20de%20raisin%20concentré%20et%20cuit
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût%20de%20raisin%20concentré%20et%20cuit
 # 36 products in 1 language @2018-10-02
 
 <en:must
@@ -25514,7 +25514,7 @@ fr:moût de raisin cuit
 de:gekochter Traubenmost
 it:mosto cotto
 nl:gekookte druivenmost
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût%20de%20raisin%20cuit
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût%20de%20raisin%20cuit
 # 117 products in 4 languages @2018-10-02
 
 
@@ -30780,6 +30780,26 @@ es:habichuela parda
 fr:haricots bruns
 nl:bruine bonen
 de:braune Bohnen
+
+
+<en:legume
+en:flageolets
+es:habichuelas
+fr:flageolets
+# ingredient/fr:flageolets has 74 products in 2 languages @2019-02-25
+
+<en:flageolets
+en:green flageolets
+de:Grüne Bohnenkerne
+fr:flageolets verts
+it:fagioli nani
+nl:groene flageolets
+# ingredient/fr:flageolets-verts has 139 products in 6 languages @2019-02-25
+
+<en:green flageolets
+fr:flageolets verts extra-fins
+nl:extra fijne groene flageolets
+# ingredient/fr:flageolets-verts-extra-fins has 30 products in 2 languages @2019-02-25
 
 fr:haricot rouge, haricots rouges
 
@@ -45537,7 +45557,6 @@ fr:surimi
 
 fr:gras
 
-fr:flageolets verts
 
 fr:babeurre en poudre
 
@@ -46462,7 +46481,6 @@ fr:piment fort
 
 
 
-fr:flageolets
 
 fr:carbonates de potassium
 
@@ -47282,7 +47300,6 @@ fr:plantain
 
 fr:caramel de sulfite caustique
 
-fr:flageolets verts extra-fins
 
 
 
