@@ -355,7 +355,11 @@ de:Speisesalzersatz
 # <en:compound
 fr:agent crémeux
 # ingredient/fr:agent-cremeux has 16 products in french @2018-02-17
-# ingredient/fr:agent%20cremeux
+
+# <en:function
+fr:poudre de fleurage
+# ingredient/fr:poudre-de-fleurage has 80 products in french @2019-02-25
+# poudre de fleurage : carbonate de calcium, talc
 
 # <en:colour
 en:curcumin, E100, E-100, E 100
@@ -578,8 +582,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Erythrosine
 
 en:Copper complexes of chlorophylls and chlorophyllins, E141, E-141, E 141
 es:Complejos cúpricos de clorofilas y clorofilinas
-fr:complexes cuivre-chlorophylles et cuivre-chlorophyllines
+fr:complexes cuivre-chlorophylles et cuivre-chlorophyllines, complexes cuivre
 hu:Klorofillok és klorofillinek rézkomplexei
+# ingredient/fr:complexes-cuivre has 86 products in 4 languages @2019-02-25
 
 <en:Copper complexes of chlorophylls, E141i, E-141i, E 141i, E 141 i
 bg:Медни комплекси на хлорофили
@@ -2113,74 +2118,28 @@ en:E305
 
 # For the Vitamin application of tocopherol, see the vitamins section<en:antioxidant
 en:Tocopherol-rich extract, tocopherol rich extracts, E306, E 306, E-306
-af:E306, E 306, E-306
-# ast:E306, E 306, E-306
-bg:Токоферол-обогатен екстракт, E306, E 306, E-306
-ca:E306, E 306, E-306
-cs:Extrakt s vysokým obsahem tokoferolů, E306, E 306, E-306
-da:Tocopherolrig ekstrakt, tocopherolrig ekstrakter, E306, E 306, E-306
-de:Stark tocopherolhaltige extrakte, E306, E 306, E-306
-el:Εκχυλισμα πλουσιο σε τοκοφερολες, E306, E 306, E-306
-eo:E306, E 306, E-306
-es:Extracto rico en tocoferoles, Extracto rico en tocoferol, E306, E 306, E-306
-et:Tokoferoolikontsentraat, E306, E 306, E-306
-eu:E306, E 306, E-306
-fi:Tokoferoliuute, E306, E 306, E-306
-fr:Extrait riche en tocophérols, Extraits riches en tocophérols, E306, E 306, E-306
-gl:E306, E 306, E-306
-hi:E306, E 306, E-306
-hr:E306, E 306, E-306
-hu:Tokoferolban gazdag kivonat, E306, E 306, E-306, antioxidáns E306
-hy:E306, E 306, E-306
-id:E306, E 306, E-306
-it:Estratto ricco in tocoferolo, E306, E 306, E-306
-ja:E306, E 306, E-306
-jv:E306, E 306, E-306
-ka:E306, E 306, E-306
-kk:E306, E 306, E-306
-ko:E306, E 306, E-306
-ky:E306, E 306, E-306
-lt:Tokoferolių koncentruotas ekstraktas, E306, E 306, E-306
-lv:Tokoferola ekstrakts, E306, E 306, E-306
-mk:E306, E 306, E-306
-ml:E306, E 306, E-306
-mr:E306, E 306, E-306
-mt:Esratt rikk fit-tokoferol, E306, E 306, E-306
-nb:E306, E 306, E-306
-ne:E306, E 306, E-306
-nl:Tocoferolrijk extract, extract rijk aan tocoferolen, E306, E 306, E-306, antioxidant E306
-nn:E306, E 306, E-306
-oc:E306, E 306, E-306
-pa:E306, E 306, E-306
-pl:Mieszanina tokoferoli, ekstrakt bogaty w tokoferole, E306, E 306, E-306
-pt:Extracto rico em tocoferóis, extractos ricos em tocoferois, E306, E 306, E-306
-# pt-br:E306, E 306, E-306
-ro:Extract bogat în tocoferol, E306, E 306, E-306
-ru:E306, E 306, E-306, антиокислитель E306, антиокислитель E 306
-# sco:E306, E 306, E-306
-sh:E306, E 306, E-306
-si:E306, E 306, E-306
-sk:Extrakt s vysokým obsahom tokoferolu, E306, E 306, E-306
-sl:Izvleček bogat s tokoferolom, E306, E 306, E-306
-sr:E306, E 306, E-306
-# sr-ec:E306, E 306, E-306
-# sr-el:E306, E 306, E-306
-sv:Tokoferolrika extrakt, tokoferolextrakt, E306, E 306, E-306,
-ta:E306, E 306, E-306
-te:E306, E 306, E-306
-th:E306, E 306, E-306
-tr:E306, E 306, E-306
-# tyv:E306, E 306, E-306
-ug:E306, E 306, E-306
-uk:E306, E 306, E-306
-vi:E306, E 306, E-306
-zh:E306, E 306, E-306
-# zh-cn:E306, E 306, E-306
-# zh-hans:E306, E 306, E-306
-# zh-hant:E306, E 306, E-306
-# zh-hk:E306, E 306, E-306
-# zh-sg:E306, E 306, E-306
-# zh-tw:E306, E 306, E-306
+bg:Токоферол-обогатен екстракт
+cs:Extrakt s vysokým obsahem tokoferolů
+da:Tocopherolrig ekstrakt, tocopherolrig ekstrakter
+de:Stark tocopherolhaltige extrakte
+el:Εκχυλισμα πλουσιο σε τοκοφερολες
+es:Extracto rico en tocoferoles, Extracto rico en tocoferol
+et:Tokoferoolikontsentraat
+fi:Tokoferoliuute
+fr:Extrait riche en tocophérols, Extraits riches en tocophérols
+hu:Tokoferolban gazdag kivonat, antioxidáns E306
+it:Estratto ricco in tocoferolo
+lt:Tokoferolių koncentruotas ekstraktas
+lv:Tokoferola ekstrakts
+mt:Esratt rikk fit-tokoferol
+nl:Tocoferolrijk extract, extract rijk aan tocoferolen, antioxidant E306
+pl:Mieszanina tokoferoli, ekstrakt bogaty w tokoferole
+pt:Extracto rico em tocoferóis, extractos ricos em tocoferois
+ro:Extract bogat în tocoferol
+ru:антиокислитель E306, антиокислитель E 306
+sk:Extrakt s vysokým obsahom tokoferolu
+sl:Izvleček bogat s tokoferolom
+sv:Tokoferolrika extrakt, tokoferolextrakt,
 wikidata:en:Q141180
 wikipedia:en:https://en.wikipedia.org/wiki/Vitamin_E
 # additive/e306-tocopherol-rich-extract has 1268 products in 16 languages @2018-11-25
@@ -2205,91 +2164,91 @@ fr:e331iii
 # Citric acid is a weak organic acid that has the chemical formula C6H8O7.
 
 en:citric acid, citric acid e330, e330, e 330, E-330
-af:Sitroensuur, e330, e 330, E-330
+af:Sitroensuur
 ar:حمض الليمون
-# ast:Ácidu cítricu, e330, e 330, E-330
-az:Limon turşusu, e330, e 330, E-330
+# ast:Ácidu cítricu
+az:Limon turşusu
 # azb:سیتریک اسید
-be:Лімонная кіслата, e330, e 330, E-330
-# be-tarask:Лімонная кісьля, e330, e 330, E-330
-bn:সাইট্রিক অ্যাসিড, e330, e 330, E-330
-bg:Лимонена киселина, Лимонова киселина, e330, e 330, E-330
-ca:àcid cítric, e330, e 330, E-330
-cs:kyselina citronová, e330, e 330, E-330
-cy:Asid sitrig, e330, e 330, E-330
-da:citronsyre, e330, e 330, E-330
-de:Citronensäure, e330, e 330, E-330
-el:κιτρικό οξύ, e330, e 330, E-330
-eo:Citra acido, e330, e 330, E-330
-es:ácido citrico, e330, e 330, E-330
-et:Sidrunhape, e330, e 330, E-330
-eu:azido zitriko, e330, e 330, E-330
+be:Лімонная кіслата
+# be-tarask:Лімонная кісьля
+bn:সাইট্রিক অ্যাসিড
+bg:Лимонена киселина, Лимонова киселина
+ca:àcid cítric
+cs:kyselina citronová
+cy:Asid sitrig
+da:citronsyre
+de:Citronensäure
+el:κιτρικό οξύ
+eo:Citra acido
+es:ácido citrico
+et:Sidrunhape
+eu:azido zitriko
 fa:سیتریک اسید
-fi:sitruunahappo, e330, e 330, E-330
-fr:acide citrique, acide citrique e330, e330, e 330, E-330
-ga:Aigéad citreach, e330, e 330, E-330
-gl:Ácido cítrico, e330, e 330, E-330
+fi:sitruunahappo
+fr:acide citrique, acide citrique e330
+ga:Aigéad citreach
+gl:Ácido cítrico
 he:חומצה ציטרית
-hi:सिट्रिक अम्ल, e330, e 330, E-330
-hr:Limunska kiselina, e330, e 330, E-330
-hu:citromsav, e330, e 330, E-330
-hy:Կիտրոնաթթու, e330, e 330, E-330
-id:Asam sitrat, e330, e 330, E-330
-is:Sítrónusýra, e330, e 330, E-330
-it:acido citrico, e330, e 330, E-330
-ja:クエン酸, e330, e 330, E-330
-ka:ლიმონმჟავა, e330, e 330, E-330
-kk:Лимон қышқылы, e330, e 330, E-330
+hi:सिट्रिक अम्ल
+hr:Limunska kiselina
+hu:citromsav
+hy:Կիտրոնաթթու
+id:Asam sitrat
+is:Sítrónusýra
+it:acido citrico
+ja:クエン酸
+ka:ლიმონმჟავა
+kk:Лимон қышқылы
 # kk-arab:لىيمون قىشقىلى
 # kk-cn:لىيمون قىشقىلى
-# kk-cyrl:Лимон қышқылы, e330, e 330, E-330
-# kk-kz:Лимон қышқылы, e330, e 330, E-330
-# kk-latn:Lïmon qışqılı, e330, e 330, E-330
-# kk-tr:Lïmon qışqılı, e330, e 330, E-330
-ko:시트르산, e330, e 330, E-330
-ky:Лимон кислотасы, e330, e 330, E-330
-lb:Zitrounesaier, e330, e 330, E-330
-lt:Citrinų rūgštis, e330, e 330, E-330
-lv:Citronskābe, e330, e 330, E-330
-mk:лимонска киселина, e330, e 330, E-330
-ml:സിട്രിക് ആസിഡ്, e330, e 330, E-330
-ms:Asid sitrik, e330, e 330, E-330
-mt:Aċidu ċitriku, e330, e 330, E-330
-# nan:Lê-bóng-sng, e330, e 330, E-330
-nb:Sitronsyre, e330, e 330, E-330
-nl:citroenzuur, e330, e 330, E-330
-nn:sitronsyre, e330, e 330, E-330
-pa:ਸਿਟਰਿਕ ਤੇਜ਼ਾਬ, e330, e 330, E-330
-pl:kwas cytrynowy, e330, e 330, E-330
+# kk-cyrl:Лимон қышқылы
+# kk-kz:Лимон қышқылы
+# kk-latn:Lïmon qışqılı
+# kk-tr:Lïmon qışqılı
+ko:시트르산
+ky:Лимон кислотасы
+lb:Zitrounesaier
+lt:Citrinų rūgštis
+lv:Citronskābe
+mk:лимонска киселина
+ml:സിട്രിക് ആസിഡ്
+ms:Asid sitrik
+mt:Aċidu ċitriku
+# nan:Lê-bóng-sng
+nb:Sitronsyre
+nl:citroenzuur
+nn:sitronsyre
+pa:ਸਿਟਰਿਕ ਤੇਜ਼ਾਬ
+pl:kwas cytrynowy
 # pnb:سٹرک تیزاب
-pt:ácido cítrico, e330, e 330, E-330
-ro:acid citric, e330, e 330, E-330
-ru:лимонная кислота, e330, e 330, E-330
-# sco:citric acid, e330, e 330, E-330
-sh:Limunska kiselina, e330, e 330, E-330
-sk:kyselna citrónová, e330, e 330, E-330
-sl:citronska kislina, e330, e 330, E-330
-sr:limunska kiselina, limunska kiselina E330, e330, e 330, E-330
-# sr-ec:лимунска киселина, e330, e 330, E-330
-# sr-el:Limunska kiselina, e330, e 330, E-330
-sv:citronsyra, e330, e 330, E-330
-ta:சிட்ரிக் அமிலம், e330, e 330, E-330
-te:సిట్రిక్ ఆమ్లం, e330, e 330, E-330
-tr:sitrik asit, e330, e 330, E-330
-uk:лимонная кислота, e330, e 330, E-330
+pt:ácido cítrico
+ro:acid citric
+ru:лимонная кислота
+# sco:citric acid
+sh:Limunska kiselina
+sk:kyselna citrónová
+sl:citronska kislina
+sr:limunska kiselina, limunska kiselina E330
+# sr-ec:лимунска киселина
+# sr-el:Limunska kiselina
+sv:citronsyra
+ta:சிட்ரிக் அமிலம்
+te:సిట్రిక్ ఆమ్లం
+tr:sitrik asit
+uk:лимонная кислота
 ur:سٹرک تیزاب
-vi:Axít citric, e330, e 330, E-330
-wa:Seur di citron, e330, e 330, E-330
-# war:Aksido Citrico, e330, e 330, E-330
-# wuu:柠檬酸, e330, e 330, E-330
-# yue:檸檬酸, e330, e 330, E-330
-zh:檸檬酸, e330, e 330, E-330
-# zh-cn:柠檬酸, e330, e 330, E-330
-# zh-hans:柠檬酸, e330, e 330, E-330
-# zh-hant:檸檬酸, e330, e 330, E-330
-# zh-hk:檸檬酸, e330, e 330, E-330
-# zh-sg:柠檬酸, e330, e 330, E-330
-# zh-tw:檸檬酸, e330, e 330, E-330
+vi:Axít citric
+wa:Seur di citron
+# war:Aksido Citrico
+# wuu:柠檬酸
+# yue:檸檬酸
+zh:檸檬酸
+# zh-cn:柠檬酸
+# zh-hans:柠檬酸
+# zh-hant:檸檬酸
+# zh-hk:檸檬酸
+# zh-sg:柠檬酸
+# zh-tw:檸檬酸
 wikidata:en:Q159683
 wikipedia:en:https://en.wikipedia.org/wiki/Citric_acid
 # additive/e330-citric-acid has 63123 products in 39 languages @2018-11-17
@@ -2308,64 +2267,102 @@ fr:correcteur d'acidité acide citrique, correcteur d'acidité e330
 en:tartaric acid, E334, E 334, E-334
 ar:حمض الطرطريك
 # azb:اسید تارتاریک
-bg:винена куселина, E334, E 334, E-334
-bn:টারটারিক অ্যাসিড, E334, E 334, E-334
-bs:Vinska kiselina, E334, E 334, E-334
-ca:àcid tàrtric, E334, E 334, E-334
-cs:Kyselina vinná, E334, E 334, E-334
-cy:Asid tartarig, E334, E 334, E-334
-da:tartaric acid, E334, E 334, E-334
-de:Weinsäure, E334, E 334, E-334
-el:τρυγικο οξυ, E334, E 334, E-334
-eo:Tartrata acido, E334, E 334, E-334
-es:Acido tartrico, E334, E 334, E-334
-et:viinhape, E334, E 334, E-334
-eu:Azido tartariko, E334, E 334, E-334
+bg:винена куселина
+bn:টারটারিক অ্যাসিড
+bs:Vinska kiselina
+ca:àcid tàrtric
+cs:Kyselina vinná
+cy:Asid tartarig
+da:tartaric acid
+de:Weinsäure
+el:τρυγικο οξυ
+eo:Tartrata acido
+es:Acido tartrico
+et:viinhape
+eu:Azido tartariko
 fa:اسید تارتاریک
-fi:viinihappo, E334, E 334, E-334
-fr:acide tartrique, E334, E 334, E-334
-ga:Aigéad tartarach, E334, E 334, E-334
-gl:Ácido tartárico, E334, E 334, E-334
+fi:viinihappo
+fr:acide tartrique
+ga:Aigéad tartarach
+gl:Ácido tartárico
 he:חומצה טרטרית
-hi:टार्टरिक अम्ल, E334, E 334, E-334
-hr:Vinska kiselina, E334, E 334, E-334
-hu:borkősav, E334, E 334, E-334
-hy:Գինեթթու, E334, E 334, E-334
-id:Asam tartarat, E334, E 334, E-334
-it:acido tartarico, E334, E 334, E-334
-ja:酒石酸, E334, E 334, E-334
-ko:타타르산, E334, E 334, E-334
-lt:vyno rūgštis, E334, E 334, E-334
-lv:vīnskābe, E334, E 334, E-334
-mk:Винска киселина, E334, E 334, E-334
-ml:ടാർട്ടാറിക് അമ്ലം, E334, E 334, E-334
-mt:aċidu tartariku, E334, E 334, E-334
-my:တာတာရစ် အက်ဆစ်, E334, E 334, E-334
-nl:wijnsteenzuur, E334, E 334, E-334
-pl:kwas winowy, E334, E 334, E-334
-pt:ácido tartárico, E334, E 334, E-334
-ro:acid tartric, E334, E 334, E-334
-sh:Vinska kiselina, E334, E 334, E-334
-sk:kyselina vínna, E334, E 334, E-334
-sl:vinska kislina, E334, E 334, E-334
-sr:винска киселина, E334, E 334, E-334
-# sr-ec:винска киселина, E334, E 334, E-334
-# sr-el:Vinska kiselina, E334, E 334, E-334
-sv:Vinsyra, E334, E 334, E-334
-te:టార్టారిక్ ఆమ్లం, E334, E 334, E-334
-tr:Tartarik asit, E334, E 334, E-334
-uk:Винна кислота, E334, E 334, E-334
-uz:Vino kislota, E334, E 334, E-334
-zh:酒石酸, E334, E 334, E-334
-# zh-cn:酒石酸, E334, E 334, E-334
-# zh-hans:酒石酸, E334, E 334, E-334
-# zh-hant:酒石酸, E334, E 334, E-334
-# zh-hk:酒石酸, E334, E 334, E-334
-# zh-sg:酒石酸, E334, E 334, E-334
+hi:टार्टरिक अम्ल
+hr:Vinska kiselina
+hu:borkősav
+hy:Գինեթթու
+id:Asam tartarat
+it:acido tartarico
+ja:酒石酸
+ko:타타르산
+lt:vyno rūgštis
+lv:vīnskābe
+mk:Винска киселина
+ml:ടാർട്ടാറിക് അമ്ലം
+mt:aċidu tartariku
+my:တာတာရစ် အက်ဆစ်
+nl:wijnsteenzuur
+pl:kwas winowy
+pt:ácido tartárico
+ro:acid tartric
+sh:Vinska kiselina
+sk:kyselina vínna
+sl:vinska kislina
+sr:винска киселина
+# sr-ec:винска киселина
+# sr-el:Vinska kiselina
+sv:Vinsyra
+te:టార్టారిక్ ఆమ్లం
+tr:Tartarik asit
+uk:Винна кислота
+uz:Vino kislota
+zh:酒石酸
+# zh-cn:酒石酸
+# zh-hans:酒石酸
+# zh-hant:酒石酸
+# zh-hk:酒石酸
+# zh-sg:酒石酸
 # zh-tw:酒石酸
 wikipedia:en:https://en.wikipedia.org/wiki/Tartaric_acid
 # en:tartric acid has 360 products in 8 languages @2018-11-18
 # additive/e334-l-tartaric-acid has 1559 products in 21 languages @2018-11-18
+
+
+# Sodium malate is a compound with formula Na2(C2H4O(COO)2). It is the sodium salt of malic acid. 
+
+en:sodium malate, E350i, E-350i, E 350i
+ar:مالات صوديوم
+# azb:سودیوم مالات
+bg:Натриев малат
+cs:Jablečnan disodný
+da:Natriummalat
+de:Natriummalate
+el:Μηλικο νατριο
+eo:Natria malikato
+es:Malato sódico
+et:Naatriummalaat
+fa:سدیم مالات
+fi:Natriummalaatti
+fr:malate de sodium
+hu:Nátrium-malát
+it:Malato di sodio
+lt:Natrio malatas
+lv:Nātrija malāts
+mt:Malat tas-sodju
+nl:Natriummalaat
+pl:Jabłczan sodu
+pt:Malato de sódio
+ro:Malat de sodiu
+sh:Natrijum malat
+sk:Jablčnan sodný
+sl:Natrijev malat
+sr:Natrijum malat
+sv:Natriummalat
+ta:சோடியம் மேலேட்டு
+wikidata:en:Q836788
+wikipedia:en:https://en.wikipedia.org/wiki/Sodium_malate
+# ingredient/fr:malate-de-sodium has 18 products @2019-02-25
+# additive/e350i-sodium-malate has 38 products in 3 languages @2019-02-25
+# correcteur d'acidité :malate de sodium
 
 
 # Agar or agar-agar is a jelly-like substance, obtained from red algae.
@@ -11109,6 +11106,7 @@ fr:jus concentré d'os et de viande de bœuf, jus concentré d'os et de viande d
 
 #Poulet
 
+
 en:chicken meat
 fr:viande de poulet
 
@@ -11125,6 +11123,15 @@ carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
 <en:chicken meat
 fr:poulet rôti
 carbon_footprint_fr_foodges_ingredient:fr:Poulet roti entier
+
+
+
+# <en:chicken meat
+# en:precooked chicken
+# de:vorgegartes Hühnerfleisch
+# es:carne de pollo precocida
+# nl:voorgegaard kippenvlees
+# ingredient/precooked-chicken has NO products @2019-02-25
 
 fr:gras de poulet
 
@@ -47277,17 +47284,9 @@ fr:caramel de sulfite caustique
 
 fr:flageolets verts extra-fins
 
-fr:malate de sodium
-
-fr:complexes cuivre
-
-en:precooked chicken
-es:carne de pollo precocida
-nl:voorgegaard kippenvlees
-de:vorgegartes Hühnerfleisch
 
 
-fr:poudre de fleurage
+
 
 
 
