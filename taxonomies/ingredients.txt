@@ -858,7 +858,7 @@ zh:硬脂酸镁
 wikipedia:en:https://en.wikipedia.org/wiki/Magnesium_stearate
 
 # nova:en:firming-agent
-en:Firming agent
+en:Firming agent, firming
 bg:Втвърдител
 cs:Zpevňující látka
 da:Konsistensmiddel
@@ -867,7 +867,7 @@ el:Σκληρυντικό
 es:Endurecedor
 et:Tardaine
 fi:Kiinteyttämisaine
-fr:exhaant
+fr:affermissant, affermissants
 ga:Oibreán teannta
 hu:Szilárdítóanyag
 it:Agenti di resistenza
@@ -10730,7 +10730,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Iodised_salt
 <en:salt
 en:Sodium nitrite, nitrite salt, nitrite curing salt, nitrite pickling salt, E250
 ar:نتريت الصوديوم
-azb:سودیوم نیتریت
+# azb:سودیوم نیتریت
 bs:Natrij-nitrit
 ca:Nitrit de sodi
 cs:Dusitan sodný
@@ -10752,7 +10752,7 @@ id:Natrium nitrit
 it:Nitrito di sodio
 lt:Natrio nitritas
 nl:Natriumnitriet
-no:Natriumnitritt
+nb:Natriumnitritt
 pl:Azotyn sodu
 pt:Nitrito de sódio
 ro:Azotit de sodiu
@@ -10912,6 +10912,7 @@ fr:maigre et gras de porc
 <en:pork meat
 fr:couenne de porc, couennes de porc
 
+# <en:broth
 fr:bouillon de porc
 
 fr:os et viande de porc
@@ -10934,7 +10935,7 @@ fr:poitrine de porc
 fr:viande et gras de porc
 
 
-
+# <en:broth
 fr:bouillon de porc déshydraté
 
 <en:pork by-product
@@ -11091,7 +11092,7 @@ fr:gras de bœuf
 
 fr:graisse de bœuf
 
-
+# <en:broth
 fr:bouillon de boeuf
 
 fr:extrait de boeuf
@@ -11171,7 +11172,6 @@ fr:viande de poulet traitée en salaison et précuite
 fr:blanc de poulet
 carbon_footprint_fr_foodges_ingredient:fr:Blanc de poulet
 
-fr:bouillon de poulet
 
 fr:extrait de poulet
 
@@ -23230,7 +23230,7 @@ fr:extrait de zeste d'orange
 en:candied orange peel, candied orange zest
 de:kandierte Orangenschalen, Orangeat, Orangenschalen confiert
 es:corteza de naranja confitada
-fr:écorces d'orange confites, écorces d'oranges confites
+fr:écorces d'orange confites, écorces d'oranges confites, orangeat
 it:scorze d'arancia candite, cubetti di scorza di limone
 nl:gekonfijte sinaasappelschillen
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:écorces%20d'orange%20confites/
@@ -42644,7 +42644,7 @@ ur:امریکی لابسٹر
 vi:Tôm hùm Mỹ
 zh:美洲螯龍蝦
 wikidata:en:Q37668
-wikipedia:https://en.wikipedia.org/wiki/American_lobster
+wikipedia:en:https://en.wikipedia.org/wiki/American_lobster
 
 <en:American lobster
 en:Homarus americanus
@@ -42655,6 +42655,7 @@ fr:pulpe de homard
 de:Hummerfleisch
 # ingredient/fr:pulpe-de-homard has 5 products in 3 languages @2019-01-07
 
+# <en:broth
 <en:American lobster
 fr:bouillon de homard
 de:Hummerbouillon
@@ -43483,8 +43484,6 @@ fr:aspartame
 en:carbuba wax
 fr:cire de carnauba
 
-
-fr:bouillon
 
 
 
@@ -45022,7 +45021,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nougat
 
 # Brittle is a type of confection consisting of flat broken pieces of hard sugar candy embedded with nuts such as pecans, almonds, or peanuts.
 
-<en:sugar-as-main-ingredient
+# <en:mainIngredient:en:sugar
 en:crocant
 de:Krokant
 fr:nougatine
@@ -45040,6 +45039,93 @@ it:glassa
 # ingredient/fr:glaçage has 86 products in 4 languages @2019-02-15
 # glassa (massa di cacao magro, zucchero, grasso vegetale)
 
+
+
+# BROTH is a savory liquid made of water in which bones, meat, fish, or vegetables have been simmered.
+
+# <en:compound
+# <en:mainIngredient:en:water
+en:broth, broths, stock, bouillon
+af:bouillon
+ar:زومات
+az:Bulyon
+ba:һурпа
+be:Булён
+bg:Бульон
+bn:সুরুয়া
+ca:brou
+cs:vývar
+da:fond
+de:Brühe
+# de-ch:Brühe
+el:ζωμός
+# eml:Brôd
+# en-ca:Broth
+# en-gb:Broth
+eo:buljono
+es:caldo
+et:puljong
+eu:Salda
+fa:گوشتابه
+fi:liemi
+fr:bouillon
+ga:anraith
+gd:brot
+gl:Caldo
+he:ציר
+hi:यखनी
+hu:Húsleves
+hy:արգանակ
+ia:Bouillon
+id:Kaldu
+io:Buliono
+is:seyði
+it:brodo
+ja:ブイヨン
+ko:브로스
+lb:Britt
+li:Boeljóng
+# lmo:Broeud
+lt:Sultinys
+mk:бујо́н
+ms:kaldu
+mt:brodu
+# nan:Chheng-thng
+nb:buljong
+nl:bouillon
+nn:buljong
+pa:ਸ਼ੋਰਬਾ
+pl:Wywar
+pt:caldo
+# pt-br:Caldo
+ro:supă
+ru:бульон
+# scn:Vrodu
+sq:supë
+sv:buljong
+tl:Tsaa ng karneng baka
+tr:Etsuyu
+uk:Бульйон
+uz:sho'rva
+# vec:Brodo
+vi:canh
+yi:יויך
+# yue:上湯
+zh:清汤
+# zh-cn:清汤
+# zh-hans:清汤
+# zh-hant:清湯
+# zh-hk:清湯
+# zh-sg:清汤
+# zh-tw:清湯
+wikidata:en:https://en.wikipedia.org/wiki/Broth   
+wikipedia:en:https://en.wikipedia.org/wiki/Broth
+# ingredient/fr:bouillon has 1214 products in 6 languages @2019-02-25
+# brodo (acqua, osso di pollo, sale, spezie, carota, sedano (0,01%), cipolla, porro, scalogno, aglio, piante aromatiche),
+
+<en:broth
+fr:bouillon déshydraté
+# ingredient/fr:bouillon-déshydraté has 57 products in french @2019-02-25
 
 
 # <en:compound
@@ -45148,7 +45234,6 @@ carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage (filet)
 
 fr:agent d'enrobage, agents d'enrobage
 
-fr:affermissant
 
 fr:extrait riche en tocophérol, extraits riches en tocophérol
 
@@ -45157,6 +45242,9 @@ fr:disulfite de sodium
 fr:pp
 
 fr:filet de poulet
+
+# <en:broth
+fr:bouillon de poulet
 
 fr:sardine
 
@@ -45168,6 +45256,7 @@ fr:lactate de potassium
 
 fr:biotine
 
+# <en:broth
 fr:bouillon de légume
 
 fr:k
@@ -45459,7 +45548,7 @@ fr:matière grasse de lait
 
 fr:graisse de poule
 
-
+# <en:broth
 fr:bouillon de volaille
 
 fr:phosphate de sodium, phosphates de sodium
@@ -46731,6 +46820,7 @@ fr:esters polyglycériques d'acides gras
 
 fr:extrait de chicorée
 
+# <en:broth
 fr:bouillon végétal
 
 fr:pyrophosphate acide de sodium, pyrophosphate de sodium
@@ -47094,6 +47184,7 @@ fr:merguez
 
 fr:tartrate monopotassique
 
+# <en:broth
 fr:bouillon de bœuf, bouillon de boeuf
 
 fr:vergeoise
@@ -47361,28 +47452,6 @@ de:Champagner
 fr:arabica
 
 fr:batavia
-
-
-
-fr:bouillon déshydraté
-
-
-
-fr:affermissants
-
-fr:nori
-
-fr:orangeat
-
-
-
-
-
-
-
-
-
-
 
 
 
