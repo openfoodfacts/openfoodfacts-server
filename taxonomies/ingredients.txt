@@ -19554,6 +19554,7 @@ it:salsa di soia
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce%20au%20soja
 # 449 products in 5 languages @2018-09-25
 
+
 <fr:sauce au soja
 en:soy sauce powder
 de:Soja Sosse Pulver
@@ -30743,7 +30744,7 @@ en:water chestnut, water chestnuts
 ar:إيليوكاريس حلو
 as:শিঙৰি
 bg:китайски воден кестен
-cdo:莓薺
+# cdo:莓薺
 cs:Bahnička jedlá
 da:Vandkastanje
 de:Wasserkastanien
@@ -39998,6 +39999,48 @@ la:Oncorhynchus gorbuscha
 # http://www.marinespecies.org/aphia.php?p=taxdetails&id=127182
 
 
+# Sockeye salmon (Oncorhynchus nerka), also called red salmon, kokanee salmon, or blueback salmon, is an anadromous species of salmon found in the Northern Pacific Ocean and rivers discharging into it. 
+
+<en:salmon
+en:Sockeye salmon
+bg:червена сьомга
+ca:salmó vermell
+cs:losos nerka
+de:Roter Lachs, Rotlachs
+eo:Nerko
+es:Salmon rojo
+et:Nerka
+fi:Punalohi
+fr:saumon rouge
+he:אלתית אדומה
+hu:Vörös lazac
+is:Rauðlax
+it:salmone rosso
+ja:ベニザケ
+ka:ნერკა
+ko:홍연어
+mk:црвен лосос
+nb:Rødlaks
+nl:Rode zalm
+# pam:Sockeye salmon
+pl:Nerka
+# pnb:لال سالمن
+ru:Нерка
+sv:Indianlax
+th:ปลาแซลมอนซ็อกอาย
+uk:Нерка
+vi:Cá hồi đỏ
+zh:紅鮭
+# zh-hant:紅鮭
+wikidata:en:Q44064
+wikipedia:en:https://en.wikipedia.org/wiki/Sockeye_salmon
+
+<en:Sockeye salmon
+en:oncorhynchus nerka
+la:oncorhynchus nerka
+# ingredient/fr:oncorhynchus-nerka has 54 products in 4 languages @2019-03-01
+
+
 # The European pilchard (Sardina pilchardus) is a species of ray-finned fish in the monotypic genus Sardina. 
 
 <en:fish
@@ -46085,7 +46128,7 @@ fr:sauce
 de:Sauce
 it:salsa
 nl:Saus
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce
 # 917 products in 6 languages @2018-09-26
 
 # <en:compound
@@ -46136,6 +46179,17 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mirin
 # ingredient/fr:mirin has 74 products in 5 languages @2019-03-01
 # mirin (eau, glucose de maïs, sirop de tapioca, riz, alcool de sucre de canne)
 
+
+# <en:fish sauce ???
+<en:sauce
+en:nuoc mam
+de:Nuoc Mam
+fr:nuoc mâm
+it:nuoc mam
+nl:nuoc mam
+sv:nuoc mam
+# ingredient/fr:nuoc-mâm has 140 products in 6 languages @2019-03-01
+# nuoc mâm (sauce poisson) (poisson, sel, eau)
 
 fr:sauce rémoulade
 
@@ -47682,9 +47736,7 @@ fr:katsuwonus
 
 fr:téguments
 
-fr:oncorhynchus nerka
 
-fr:nuoc mâm
 
 
 
