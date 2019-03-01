@@ -326,7 +326,7 @@ da:Sødestof
 el:Πυκνωτικό μέσο
 es:Espesante
 fi:Sakeuttamisaine
-fr:épaississant, Épaississant
+fr:épaississant, Épaississant, agent épaississant, agents épaississants
 it:Addensanti
 nl:Verdikkingsmiddel, Verdikkingsmiddelen
 pt:Espessante
@@ -18141,19 +18141,19 @@ zh:果糖
 # yue:菓醣
 wikipedia:en:https://en.wikipedia.org/wiki/Fructose
 wikidata:en:Q122043
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fructose
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fructose
 # 3267 products in 11 languages @2018-09-24
 
 <en:fructose
 <en:wheat
 fr:fructose de blé
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fructose%20de%20blé
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fructose%20de%20blé
 # 39 products in 4 languages @2018-09-24
 
 en:fructose syrup
 de:Fruktose Sirup
 fr:sirop de fructose
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fructose-syrup
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fructose-syrup
 # 11561 products in 5 languages @2018-09-24
 
 <en:fructose syrup
@@ -18164,14 +18164,14 @@ it:Fruttosio in polvere
 en:oligofructose syrup
 fr:sirop d'oligofructose
 it:sciroppo di oligofruttosio
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop%20d'oligofructose
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop%20d'oligofructose
 # 29 products in 3 languages @2018-09-24
 
 <en:glucose
 <en:fructose
 en:glucose-fructose
 fr:glucose-fructose
-openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose-fructose
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose-fructose
 # 19 products in 3 languages @2018-09-24
 
 <en:glucose
@@ -18458,6 +18458,35 @@ de:Agavendicksaft
 it:succo di agave concentrato
 # ingredient/fr:jus-d’agave-concentré has 16 products in 3 languages @2018-12-17
 
+
+
+# Fructooligosaccharides (FOS) also sometimes called oligofructose or oligofructan, are oligosaccharide fructans, used as an alternative sweetener. 
+
+<en:sweetener
+en:Fructooligosaccharide
+ar:قليل السكاريد الفركتوزي
+ca:Fructooligosacàrid
+de:Oligofructose
+et:Fruktooligosahhariidide puhastamine
+eu:Fruktooligosakarido
+fr:fructooligosaccharides, Fructo-oligosaccharide
+it:Frutto-oligosaccaridi
+ja:フラクトオリゴ糖
+pt:Frutooligossacarídeo
+sh:Fruktooligosaharid
+sr:Fruktooligosaharid
+# sr-el:Фруктоолигосахарид
+# sr-ec:Fruktooligosaharid
+zh:果寡糖
+# zh-cn:果寡糖
+# zh-hans:果寡糖
+# zh-hant:果寡糖
+# zh-hk:果寡糖
+# zh-sg:果寡糖
+# zh-tw:果寡糖
+wikidata:en:Q418945
+wikipedia:en:https://en.wikipedia.org/wiki/Fructooligosaccharide
+# ingredient/fr:fructooligosaccharides has 44 products in french @2019-03-01
 
 
 # PROTEINES - are large biomolecules, or macromolecules, consisting of one or more long chains of amino acid residues
@@ -43549,7 +43578,7 @@ fr:caroténoïde
 
 fr:lactose et protéines de lait
 
-en:sweetener, sweeteners
+en:sweetener, sweeteners, sugar substitute
 fr:édulcorant, édulcorants
 
 fr:érythorbate de sodium
@@ -47599,11 +47628,6 @@ fr:foie
 fr:produit à base de lactosérum
 allergens:fr:produit à base de _lactosérum_
 
-fr:fructooligosaccharides
-
-fr:agent épaississant
-
-fr:agents épaississants
 
 
 
