@@ -12663,9 +12663,15 @@ nl:ontgeurde zonnebloemolie
 fr:huiles végétales de tournesol et de colza, huiles de tournesol et de colza
 
 <en:vegetable oil
-# derivedFrom:en:lemon
+# <en:lemon
 en:lemon oil
 fr:huile de citron
+
+# <en:mango
+<en:vegetable oil
+fr:noyaux de mangue
+# ingredient/fr:noyaux-de-mangue has 31 products in french @2019-03-01
+# matières grasses végétales (palme, karité, sal, noyaux de mangue, illipé, kokum gurgi dans des proportions variables)
 
 # ESSENTIAL OIL is a concentrated hydrophobic liquid containing volatile aroma compounds from plants.
 
@@ -21865,7 +21871,7 @@ zh:小紅莓
 # yue:金啤梨
 wikipedia:en:https://en.wikipedia.org/wiki/Cranberry
 wikidata:en:Q13181
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cranberries
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cranberries
 # 429 products in 8 languages @2018-09-26
 
 <en:cranberry
@@ -21879,7 +21885,7 @@ it:cranberry secchi
 fr:jus de cranberry à base de concentré
 de:Cranberrysaft (Moosbeerensaft) aus Cranberrysaftkonzentrat
 it:succo di mirtillo rosso da concentrato
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20cranberry%20à%20base%20de%20concentré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20cranberry%20à%20base%20de%20concentré
 # 32 products in 3 languages @2018-10-02
 
 
@@ -21980,7 +21986,7 @@ zh:芒果
 # yue:芒果
 wikidata:en:Q3919027
 wikipedia:en:https://en.wikipedia.org/wiki/Mango
-openfoodfacts:https://world.openfoodfacts.org/ingredient/mango
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/mango
 # 1597 products in 10 languages @2018-09-27
 
 <en:mango
@@ -21998,13 +22004,10 @@ de:Mangopüree, Mangomark
 fr:purée de mangue, purée de mangues
 it:polpa di mango
 nl:mangopuree
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20mangue
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20mangue
 # 393 products @2018-09-27
 
 
-# <en:mango
-fr:noyaux de mangue
-# ingredient/fr:noyaux-de-mangue has 30 products in french @2018-12-12
 
 <en:mango
 fr:pulpe de mangue
@@ -22659,6 +22662,7 @@ it:fiocchi di mela
 # 46 products in 4 languages @2018-10-04
 
 <en:apple
+# <en:fibre
 en:apple fiber
 de:Apfelfaser
 fr:fibre de pomme, fibres de pomme
@@ -23002,14 +23006,14 @@ carbon_footprint_fr_foodges_ingredient:fr:Citron
 
 <en:lemon
 fr:citron confit
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron%20confit
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron%20confit
 # 70 products in 1 language @2018-10-01
 
 <en:lemon
 en:lemon pulpe
 de:Zitronenpulpe
 fr:pulpe de citron, pulpes de citron
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe%20de%20citron
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pulpe%20de%20citron
 # 95 products in 3 languages @2018-10-01
 
 <en:lemon
@@ -23021,16 +23025,17 @@ fr:purée de citron
 it:purea di limone
 nl:puree van citroen
 pt:puré de limão
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20citron
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20citron
 # 104 products @2018-10-01
 
 <en:lemon puree
 fr:purée de citron sucrée
 nl:gesuikerde citroenpuree
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20citron%20sucrée
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20citron%20sucrée
 # 41 products @2018-10-01
 
 <en:lemon
+# <en:fibre
 en:lemon fibre
 es:fibras de limón
 fr:fibre de citron, fibres de citron
@@ -24978,15 +24983,16 @@ zh:鳳梨
 # zh-tw:鳳梨
 wikipedia:en:https://en.wikipedia.org/wiki/Pineapple
 wikidata:en:Q10817602
-openfoodfacts:https://world.openfoodfacts.org/ingredient/pineapple
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/pineapple
 # 2512 products in 11 languages @2018-09-30
 
 <en:pineapple
 fr:segments d'ananas
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:segments%20d'ananas
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:segments%20d'ananas
 # 36 products in 1 language @2018-09-30
 
 <en:pineapple
+# <en:fibre
 en:pineapple fibre, pineapple fibres
 fr:fibres d'ananas
 de:Ananasfasern
@@ -24994,14 +25000,14 @@ es:fibras de piña
 hu:ananászrost
 it:fibre d'ananas, fibre di ananas
 nl:ananasvezels
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fibres%20d'ananas
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fibres%20d'ananas
 # 120 products in 6 languages @2018-09-30
 
 <en:pineapple
 <en:purée
 fr:purée d'ananas
 de:Ananaspüree
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20d'ananas
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20d'ananas
 # 33 products in 2 languages @2018-09-30
 
 <en:pineapple
@@ -25010,7 +25016,7 @@ en:pineapple juice
 de:Ananassaft
 fr:jus d'ananas
 it:succo di ananas
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20d'ananas
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20d'ananas
 # 287 products in 6 languages @2018-09-30
 
 <en:pineapple juice
@@ -27999,6 +28005,31 @@ it:fibra di germoglio di bambù
 nl:vezels van bamboescheuten
 # ingredient/fr:fibres-de-pousses-de-bambou has 77 products in 5 languages @2019-02-03
 
+
+# Galacto-oligosaccharides (GOS), also known as oligogalactosyllactose, oligogalactose, oligolactose or transgalactooligosaccharides (TOS), belong to the group of prebiotics. 
+
+# <en:fibre
+en:galacto-oligosaccharides
+de:Galacto-oligosaccharides
+fr:galacto-oligosaccharides
+hu:galakto oligoszaharid
+it:Galatto-oligosaccaridi
+ja:ガラクトオリゴ糖
+nl:Galacto-oligosacharide
+pt:Galactooligossacarídeo
+sh:Galaktooligosaharid
+sr:Galaktooligosaharid
+zh:低聚半乳糖
+wikidata:en:Q2315231
+wikipedia:en:https://en.wikipedia.org/wiki/Galactooligosaccharide
+# ingredient/fr:galacto-oligosaccharides has 39 products in 4 languages @2019-03-01
+# dietary fiber (galacto-oligosaccharides, fructo-oligosaccharides)
+
+<en:galacto-oligosaccharides
+en:lactose-containing Galacto-oligosaccharides
+fr:Galacto-oligosaccharides - issus du lactose
+de:Galactooligosaccharide aus Lactose
+it:Galatto-oligosaccaridi di lattosio
 
 # BEETROOT is the taproot portion of the beet plant
 
@@ -38371,9 +38402,11 @@ de:Fischfleisch
 # Un fumet de poisson est un fond préparé à partir de poisson. 
 
 <en:fish
-fr:fumet de poisson
+# <en:broth
+fr:fumet de poisson, fumet
 wikidata:en:Q30748629
 wikipedia:fr:https://fr.wikipedia.org/wiki/Fumet_de_poisson
+# ingredient/fr:fumet has 45 products in french @2019-03-01
 # ingredient/fr:fumet-de-poisson has 187 products in french @2018-12-29
 
 <fr:fumet de poisson
@@ -47652,20 +47685,6 @@ fr:téguments
 fr:oncorhynchus nerka
 
 fr:nuoc mâm
-
-fr:galacto-oligosaccharides
-
-fr:noyaux de mangue
-
-
-
-
-
-
-
-
-
-
 
 
 
