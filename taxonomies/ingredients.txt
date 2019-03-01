@@ -894,7 +894,7 @@ el:Ενισχυτικό γεύσης
 es:Potenciador del sabor
 et:Lõhna- ja maitsetugevdaja
 fi:Arominvahvenne
-fr:exhausteur de goût, exhausteurs de goût, Exaltateur d'arôme, exhausteurs de saveur
+fr:exhausteur de goût, exhausteurs de goût, Exaltateur d'arôme, exhausteurs de saveur, exhausteur de saveur
 ga:Méadaitheoir blais
 hu:Ízfokozó
 it:Esaltatori di sapidità
@@ -909,6 +909,7 @@ sk:Stimulátor/zvýrazňovač chuti
 sl:Ojačevalec arome
 sv:Smakförstärkare
 wikidata:en:Q898745
+# ingredient/fr:exhausteur-de-saveur has 32 products in 4 languages @2019-03-01
 
 en:Flour treatment agent
 ga:Oibreán plúrchóireála
@@ -11065,7 +11066,6 @@ fr:morceaux de foie gras de canard
 <fr:morceaux de foie gras de canard
 fr:morceaux de foie gras de canard du sud-ouest
 
-fr:graisse de canard
 
 <en:beef meat
 fr:viande bovine
@@ -11727,9 +11727,9 @@ lt:Alyvpalmių aliejus
 mk:Палмино масло
 ml:പാമോയിൽ
 ms:Minyak kelapa sawit
+nb:Palmeolje
 nl:palmolie
 nn:Palmeolje
-no:Palmeolje
 oc:Òli de palma
 pl:Olej palmowy
 pt:óleo de palma, óleo de palmeira
@@ -11842,7 +11842,7 @@ sv:Palmkärnolja
 te:పామ్‌కెర్నల్‌ నూనె
 uk:Пальмоядрова олія
 wikidata:en:Q1960534
-wikipedia:https://en.wikipedia.org/wiki/Palm_kernel_oil
+wikipedia:en:https://en.wikipedia.org/wiki/Palm_kernel_oil
 
 <en:palm kernel oil
 en:palm kernel fat
@@ -11895,9 +11895,9 @@ ml:വെളിച്ചെണ്ണ
 mr:खोबरेल तेल
 ms:Minyak kelapa
 my:အုန်းဆီ
+nb:Kokosolje
 nl:kokosolie
 nn:Kokosfeitt
-no:Kokosolje
 os:Кокосы зети
 pl:Olej kokosowy
 pt:óleo de coco
@@ -11930,7 +11930,7 @@ en:coconut fat
 fr:matière grasse de noix de coco, graisse de noix de coco, graisse de coco
 de:Kokosfett
 it:grasso di cocco
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:matière%20grasse%20de%20noix%20de%20coco
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:matière%20grasse%20de%20noix%20de%20coco
 # 36 products in 4 languages @2018-10-03
 
 # Olive oil is a liquid fat obtained from olives (the fruit of Olea europaea; family Oleaceae).
@@ -11983,10 +11983,10 @@ mr:ऑलिव्ह तेल
 ms:Minyak zaitun
 my:သံလွင်ဆီ
 # nap:Uoglio 'e auliva
+nb:Olivenolje
 # nds:Olivenööl
 nl:olijfolie
 nn:Olivenolje
-no:Olivenolje
 oc:Òli d'oliva
 # olo:Oliivuvoi
 pl:Olej oliwkowy
@@ -12112,15 +12112,14 @@ it:olio di noci, olio di noci comuni
 ja:綿実油
 ko:호두기름
 lt:Graikinių riešutų aliejus
+nb:Valnøttolje
 nl:walnootolie
-no:Valnøttolje
 pl:Olej z orzecha włoskiego
 ru:Ореховое масло
 sr:Орахово уље
 sv:Valnötsolja, Bomullsfröolja
 th:น้ำมันวอลนัต
 zh:核桃油
-allergens:fr:huile de _noix_
 wikipedia:en:https://en.wikipedia.org/wiki/Walnut_oil
 wikidata:en:Q1434098
 
@@ -12173,7 +12172,7 @@ ja:コーン油
 kk:Жүгері майы
 ko:옥수수기름
 lt:Kukurūzų aliejus
-no:Maisolje
+nb:Maisolje
 pt:Óleo de milho
 ru:Кукурузное масло
 uk:Кукурудзяна олія
@@ -12208,9 +12207,9 @@ ko:땅콩기름
 lt:Žemės riešutų aliejus
 mr:शेंगदाणा तेल
 ms:Minyak kacang
+nb:Peanøttolje
 nl:Pindaolie
 nn:Jordnøttolje
-no:Peanøttolje
 pl:Olej arachidowy
 pt:Óleo de amendoim
 sv:Jordnötsolja
@@ -12222,7 +12221,7 @@ zh:花生油
 # yue:花生油
 wikidata:en:Q265878
 wikipedia:en:https://en.wikipedia.org/wiki/Peanut_oil
-openfoodfacts:https://world.openfoodfacts.org/ingredient/peanut-oil/
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/peanut-oil/
 
 # SESAME OIL is an edible vegetable oil derived from sesame seeds.
 
@@ -12256,9 +12255,9 @@ ko:참기름
 lt:Sezamų aliejus
 ml:നല്ലെണ്ണ
 ms:Minyak bijan
+nb:Sesamolje
 nl:Sesamolie
 nn:Sesamolje
-no:Sesamolje
 os:Кунжуты зети
 pl:Olej sezamowy
 ro:Ulei de susan
@@ -12273,7 +12272,6 @@ uk:Кунжутна олія
 vi:Dầu mè
 zh:芝麻油
 # yue:麻油
-allergens:fr:huile de _sésame_
 wikipedia:en:https://en.wikipedia.org/wiki/Sesame_oil
 wikidata:en:Q212317
 
@@ -12302,8 +12300,8 @@ ja:大豆油
 ko:콩기름
 lt:Sojų aliejus
 ms:Minyak kacang soya
+nb:soyaolje
 nl:sojaolie
-no:soyaolje
 pl:olej sojowy
 pt:óleo de soja
 ru:Соевое масло
@@ -12312,7 +12310,6 @@ uk:Соєва олія
 zh:大豆油
 # zh-min-nan:Toā-tāu-iû
 # yue:豆油
-allergens:fr:huile de _soja_
 wikipedia:en:https://en.wikipedia.org/wiki/Soybean_oil
 wikidata:en:Q926892
 
@@ -12335,8 +12332,8 @@ it:Olio di vinaccioli
 ja:グレープシードオイル
 ko:포도씨유
 lt:Vynuogių sėklų aliejus
+nb:Druekjerneolje
 nl:druivenpitolie, druivepitolie
-no:Druekjerneolje
 pl:olej z pestek winogron
 pt:Óleo de uva
 ru:Масло виноградных косточек
@@ -12412,7 +12409,6 @@ el:λάδι φουντουκιού
 fr:huile de noisette
 it:Olio di nocciole
 nl:hazelnotenolie, hazelnootolie
-allergens:fr:huile de _noisette_
 wikidata:en:Q1112606
 
 # LINSEED OIL, also known as flaxseed oil or flax oil, is a colourless to yellowish oil obtained from the dried, ripened seeds of the flax plant (Linum usitatissimum).
@@ -12440,9 +12436,9 @@ kn:ಅಗಸೆ ಎಣ್ಣೆ
 ko:아마인유
 lt:Sėmenų aliejus
 # nap:Uoglio 'e lino
+nb:linolje
 nl:lijnzaadolie
 nn:Linolje
-no:linolje
 oc:Òli de lin
 pl:olej lniany
 pt:óleo de linhaça
@@ -12721,8 +12717,8 @@ lt:zivju eļļa
 mk:Рибино масло
 ml:മീനെണ്ണ
 ms:my:ငါးကြီးဆီ
+nb:Fiskeolje
 nl:Visolie
-no:Fiskeolje
 pl:Tran
 sq:Vaji i peshkut
 sv:Fiskolja
@@ -12730,8 +12726,50 @@ tr:Balık yağı
 uk:Риб'ячий жир
 vi:Dầu cá
 zh:魚油
-allergens:fr:huile de _poisson_
 wikidata:en:Q1786125
+
+
+
+<en:fat
+en:poultry fat
+de:Geflügelfett
+fr:graisse de volaille
+# ingredient/fr:graisse-de-volaille has 76 products in 5 languages @2019-03-01
+
+<en:poultry fat
+en:duck fat
+de:Entenfett
+es:grasa de pato
+fr:graisse de canard
+it:grasso d'anatra
+nl:eendenvet
+pt:gordura de pato
+# ingredient/fr:graisse-de-canard has 902 products in 7 languages @2019-03-01
+
+# Chicken fat has been split in two. The translations are not always correct.
+
+<en:poultry fat
+en:chicken fat
+de:Hühnerfett
+fr:graisse de poule
+it:grasso di pollo
+nl:kippenvet
+# ingredient/fr:graisse-de-poule has 208 products in 5 languages @2019-03-01
+# kippenvet (kippenvet, antioxidant:rozemarijnextract)
+
+<en:chicken fat
+de:Pouletfett
+fr:graisse de poulet
+sv:kycklingfett
+# ingredient/fr:graisse-de-poulet has 369 products in 6 languages @2019-03-01
+
+<en:poultry fat
+en: goose fat
+de: Gänsefett
+fr:graisse d'oie
+it: grasso d'oca
+# ingredient/fr:graisse-d’oie has 99 products in 4 languages @2019-03-01
+
 
 # VINAIGRE is a liquid consisting of about 5–20% acetic acid (CH3COOH)[citation needed], water (H2O), and trace chemicals that may include flavorings.
 
@@ -44841,6 +44879,22 @@ fr:Biscuits au beurre
 # ingredient/fr:Biscuits-au%-beurre has 3 products in french @2019-02-23
 
 
+# The difference between speculoos and speculaas is not always clear and often one finds a wrong translation
+# speculoos is made with caramel and speculaas with spices
+
+# mainIngredient:en:wheat
+# <en:compound
+en: speculoos
+fr:spéculoos
+# ingredient/fr:spéculoos has 67 products in 3 languages @2019-03-01
+# speculoos (corn flour, corn starch, rapeseed oil, water, cane sugar, sugar, candy sugar syrup, cinnamon, salt , baking powder, emulsifier: rapeseed lecithin)
+# spéculoos 12% (farine de blé complet, sucre de canne brut, beurre, lait entier en poudre, sirop de sucre caramélisé, épices, poudre à lever: carbonate acide d'ammonium, sel marin)
+
+# mainIngredient:en:wheat
+# <en:compound
+de:Spekulatius
+nl:speculaas
+
 # <en:compound
 en:coating
 de:Panur
@@ -45278,8 +45332,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lemonade
 # ingredient/fr:limonade has 37 products in 5 languages @2019-02-16
 # Limonade  (eau gazéifiée, sucre, acidifiant :acide citrique ; anitioxydant :acide ascorbique ; arôme),
 
-fr:graisse de canard
-
 
 fr:anhydride sulfureux
 
@@ -45391,7 +45443,7 @@ fr:anti-agglomérant
 
 fr:lactate de sodium
 
-fr:graisse de poulet
+
 
 # This is NOT E301!!!
 fr:isoascorbate de sodium
@@ -45620,7 +45672,7 @@ fr:concentré
 
 fr:matière grasse de lait
 
-fr:graisse de poule
+
 
 # <en:broth
 fr:bouillon de volaille
@@ -46604,13 +46656,10 @@ es:leche desnatada condensada
 fr:lait écrémé condensé
 nl:gecondenseerde magere melk
 de:Kondensmagermilch
-allergens:fr:_lait_ écrémé condensé
 
 fr:lait écrémé condensé sucré
-allergens:fr:_lait_ écrémé condensé sucré
 
 fr:lait condensé sucré
-allergens:fr:_lait_ condensé sucré
 
 en:condensed semi-skimmed milk
 es:leche semidesnatada condensada
@@ -46619,7 +46668,6 @@ nl:gecondenseerde halfvolle melk
 de:teilentrahmte Kondensmilch
 
 fr:lait demi-écrémé pasteurisé
-allergens:fr:_lait_ demi-écrémé pasteurisé
 
 
 # A TRIER
@@ -46639,15 +46687,12 @@ fr:folacine
 fr:salade composée
 
 fr:lactose et minéraux du lait
-allergens:fr:_lactose_ et minéraux du _lait_
 
 
 fr:caramel au beurre salé
-allergens:fr:caramel au _beurre_ salé
 
 
 fr:dextrine de blé
-allergens:fr:dextrine de _blé_
 
 fr:ciboule
 
@@ -46657,10 +46702,9 @@ fr:améliorant de cuisson
 fr:baies roses
 
 
-fr:graisse d'oie
+
 
 fr:homard
-allergens:fr:_homard_
 
 fr:antiagglomérants
 
@@ -47489,13 +47533,10 @@ fr:mirin
 
 fr:gras de mouton
 
-fr:graisse de volaille
 
 
-fr:spéculoos
 
 
-fr:exhausteur de saveur
 
 
 
