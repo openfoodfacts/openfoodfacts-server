@@ -18731,7 +18731,7 @@ fr:protéines de soja i.p
 
 <en:vegetable protein
 en:wheat protein
-fr:protéine de blé, protéines de blé
+fr:protéine de blé, protéines de blé, protéines de froment
 nl:graneneiwit
 
 <en:vegetable hydrolysed protein
@@ -23579,7 +23579,7 @@ pt:groselha negra
 wikipedia:en:https://en.wikipedia.org/wiki/Blackcurrant
 wikidata:en:Q146604
 # wikidata refers to the shrub
-openfoodfacts:https://world.openfoodfacts.org/ingredient/blackcurrant
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/blackcurrant
 # 1056 products in 9 languages @2018-10-01
 
 <en:blackcurrant
@@ -24387,7 +24387,7 @@ es:zumo de maracuyá
 it:succo di frutto della passione
 fr:jus de fruit de la passion, jus de fruits de la passion
 nl:passievruchtsap
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20fruit%20de%20la%20passion
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20fruit%20de%20la%20passion
 # 262 products in 6 languages @2018-09-29
 
 <en:passion fruit juice
@@ -24395,15 +24395,121 @@ en:reconstituted passion fruit juice
 de:Passionfruchtsaft aus Konzentrat
 fr:jus de fruit de la passion à base de concentré
 es:zumo de maracuyá a partir de concentrado
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20fruit%20de%20la%20passion%20à%20base%20de%20concentré
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20fruit%20de%20la%20passion%20à%20base%20de%20concentré
 # 82 products in 4 languages @2018-09-29
 
 <en:passion fruit
 <en:purée
 fr:purée de fruit de la passion
 nl:passievruchtenpuree
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20fruit%20de%20la%20passion
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée%20de%20fruit%20de%20la%20passion
 # 66 products in 2 languages @2018-09-29
+
+
+# LYCHEE is the sole member of the genus Litchi in the soapberry family, Sapindaceae.
+
+<en:fruit
+en:lychee, Litchi, Litchis
+af:Lietsjie
+ar:ليتشي
+as:লিচু
+az:Liçi
+# bcl:Litsiyas
+be:Лічы
+# be-tarask:Лічы
+bg:личи
+bi:Leji
+bn:লিচু
+bo:འབྲུག་ཚགས།
+br:litchi
+bs:Liči
+ca:litxi
+# cdo:Liĕk-chiĕ
+cs:liči
+da:litchi
+de:Litschi
+el:λιτσί
+# en-ca:Lychee
+# en-gb:Lychee
+eo:Liĉio
+es:Lichis
+et:litši
+fa:سرخالو
+fi:litsi
+fr:litchi
+ga:Litsí
+gu:લીચી
+# hak:Lai-kî
+he:ליצ'י
+hi:लीची
+hu:Licsi
+hy:լիչի
+id:Lici
+it:Litchi
+ja:レイシ
+ka:ლიჩი
+km:គូលែន
+kn:ಲಿಚ್ಚಿ
+ko:리치
+# koi:Личи
+kv:Личи
+la:Litchi chinensis
+# lbe:Личи
+lt:ličis
+lv:līčija
+# mai:लीच्ची
+mk:личи
+ml:ലിച്ചി
+mn:нефелеум
+# mrj:Личи
+ms:laici
+my:နှင်းသီး
+# nan:Nāi-chi
+nb:litchi
+ne:लिची
+# new:चिकंसि
+nl:lychee, Lychees
+# nso:Litchi
+or:ଲିଚୁ
+pa:ਲੀਚੀ
+pl:Liczi
+# pnb:لیچی
+pt:Litchi
+ro:Lici
+# roa-tara:lici
+ru:личи
+# sat:ᱞᱤᱪᱩ
+# sco:lychee
+sd:لچي
+sh:Liči
+sk:Dvojslivka
+sl:Liči
+sr:личи
+sv:litchi
+ta:விளச்சிப்பழம்
+te:లీచీ
+th:ลิ้นจี่
+tl:Alpay
+tr:Liçi
+ud:Личи
+uk:Ліджи
+ur:لیچی
+vi:Vải
+# vls:Litchi
+vo:licidafluk
+# yue:荔枝
+za:Laehcei
+zh:荔枝
+# zh-hans:荔枝
+# zh-hant:荔枝
+# zh-tw:荔枝
+# wikidata:en:Q13182 refers to the plant
+wikipedia:en:https://en.wikipedia.org/wiki/Lychee
+# ingredient/fr:litchi has 65 products in 6 languages @2019-03-01
+
+<en:lychee
+es:Lichis deshuesados
+
 
 # MELON is any of various plants of the family Cucurbitaceae with sweet edible, fleshy fruit.
 
@@ -45517,6 +45623,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lemonade
 # Limonade  (eau gazéifiée, sucre, acidifiant :acide citrique ; anitioxydant :acide ascorbique ; arôme),
 
 
+# <en:compound
+fr:base aromatisante barbecue
+# ingredient/fr:base-aromatisante-barbecue has 28 products in 2 languages @2019-03-01
+
+
 fr:anhydride sulfureux
 
 fr:propionate de calcium
@@ -46820,6 +46931,12 @@ fr:viande de cuisse de dinde
 <fr:viande de dinde
 fr:viande de dinde traitée en salaison
 
+
+<fr:dinde
+fr:peau de dinde
+# ingredient/fr:peau-de-dinde has 76 products in french @2019-03-01
+
+
 <en:chicken meat
 fr:viande de poulet précuite
 
@@ -47733,15 +47850,9 @@ fr:potimarron
 
 fr:séré maigre
 
-fr:litchi
 
-fr:base aromatisante barbecue
 
-fr:protéines de froment
 
-fr:dextrine de maïs
-
-fr:peau de dinde
 
 
 
