@@ -54,7 +54,7 @@ sub display_api_v2 {
 	my $r = shift;
 
 	my $code = normalize_code($request_ref->{code});
-	if ((defined $code) and (len($code) > 0)){
+	if ((defined $code) and (length($code) > 0)){
 		return hal_product_by_code($code, $request_ref, $r);
 	}
 	else {

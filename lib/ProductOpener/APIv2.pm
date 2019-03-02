@@ -40,6 +40,7 @@ use ProductOpener::APIv2::Products;
 use ProductOpener::Store qw/:all/;
 
 use Apache2::RequestRec;
+use CGI qw/:cgi/;
 use HAL::Tiny;
 use HTTP::Accept;
 use JSON::PP;
