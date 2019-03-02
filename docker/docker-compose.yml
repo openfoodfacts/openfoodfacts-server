@@ -8,6 +8,12 @@ services:
       - 27017:27017
     networks:
       - webnet
+  memcached:
+    image:  memcached:latest
+    ports:
+      - 11211:11211
+    networks:
+      - webnet
   backend:
     build:
       context: ../
@@ -15,6 +21,7 @@ services:
       target: runnable
     depends_on:
       - mongodb
+      - memcached
     volumes:
       - podata:/mnt/podata
       - type: tmpfs
