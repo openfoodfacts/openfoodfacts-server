@@ -36,6 +36,7 @@ BEGIN
 
 use vars @EXPORT_OK ;
 
+use ProductOpener::APIv2::URL qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -100,9 +101,9 @@ sub hal_product {
 	return HAL::Tiny->new(
 		state => $product_ref,
 		links => +{
-			self => '/api/v' . $request_ref->{fields} . '/products/' . $product_ref->{code},
+			self => resource_url($request_ref, 'products') . '/' . $product_ref->{code},
 			find => {
-				href => '/api/v' . $request_ref->{fields} . '/products/{?code}',
+				href => resource_url($request_ref, 'products') . '/{?code}',
 				templated => JSON::PP::true,
 			},
 		}
@@ -126,10 +127,10 @@ sub hal_products {
 			count => $request_ref->{structured_response}{count},
 		},
 		links => +{
-			self => '/api/v' . $request_ref->{fields} . '/products?page=' . $request_ref->{structured_response}{page},
-			next => '/api/v' . $request_ref->{fields} . '/products?page=' . $request_ref->{structured_response}{page} + 1,
+			self => resource_url($request_ref, 'products') . '?page=' . $request_ref->{structured_response}{page},
+			next => resource_url($request_ref, 'products') . '?page=' . $request_ref->{structured_response}{page} + 1,
 			find => {
-				href => '/api/v' . $request_ref->{fields} . '/products/{?code}',
+				href => resource_url($request_ref, 'products') . '/{?code}',
 				templated => JSON::true,
 			},
 		},
