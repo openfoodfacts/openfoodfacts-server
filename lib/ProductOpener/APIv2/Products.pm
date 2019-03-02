@@ -37,9 +37,11 @@ BEGIN
 use vars @EXPORT_OK ;
 
 use ProductOpener::APIv2::URL qw/:all/;
+use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Store qw/:all/;
+use ProductOpener::Tags qw/:all/;
 
 use Apache2::RequestRec;
 use HAL::Tiny;
@@ -81,22 +83,42 @@ sub hal_product {
 		return;
 	}
 
-	add_images_urls_to_product($product_ref);
+	my $state_ref = {
+		id => $product_ref->{code}
+	};
 
 	# If the request specified a value for the fields parameter, return only the fields listed
+	my @filter = ();
 	if (defined $request_ref->{fields}) {
-		my $compact_product_ref = {};
-		foreach my $field (split(/,/, $request_ref->{fields})) {
-			if (defined $product_ref->{$field}) {
-				$compact_product_ref->{$field} = $product_ref->{$field};
+		@filter = split(/,/, $request_ref->{fields});
+	}
+
+	my $filter_count = scalar @filter;
+
+	foreach my $field_name (@export_fields) {
+		next if (($filter_count > 0) and not ((grep $_ eq $field_name, @filter)));
+
+		my @field_values = ();
+		foreach my $olc (sort keys %{$product_ref->{languages_codes}}) {
+			my $key = $field_name . $olc;
+			$key = $key unless defined $product_ref->{$key};
+			next unless defined $product_ref->{$key};
+
+			my $field = { lang => $olc, name => $product_ref->{$key} };
+			if (defined $tags_fields{$key}) {
+				$field->{href} = resource_url($request_ref, 'tags') . '/' . $key;
 			}
+
+			push @field_values, $field;
 		}
 
-		$product_ref = $compact_product_ref;
+		if ((scalar @field_values) > 1) {
+			$state_ref->{$field_name} = @field_values;
+		}
 	}
 
 	return HAL::Tiny->new(
-		state => $product_ref,
+		state => $state_ref,
 		links => +{
 			self => resource_url($request_ref, 'products') . '/' . $product_ref->{code},
 			find => {
