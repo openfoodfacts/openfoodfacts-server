@@ -87,9 +87,6 @@ sub hal_product {
 	if (defined $request_ref->{fields}) {
 		my $compact_product_ref = {};
 		foreach my $field (split(/,/, $request_ref->{fields})) {
-			if ($field =~ /^environment_infocard/) {
-				compute_carbon_footprint_infocard($product_ref);
-			}
 			if (defined $product_ref->{$field}) {
 				$compact_product_ref->{$field} = $product_ref->{$field};
 			}
