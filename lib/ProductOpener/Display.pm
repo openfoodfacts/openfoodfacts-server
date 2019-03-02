@@ -497,7 +497,7 @@ sub analyze_request($)
 		if ($request_ref->{api} =~ /v(.*)/) {
 			$request_ref->{api_version} = $1;
 		}
-		$request_ref->{api_method} = $components[2];
+		$request_ref->{api_resource} = $components[2];
 		$request_ref->{code} = $components[3];
 
 		 # if return format is not xml or jqm or jsonp, default to json
@@ -505,7 +505,7 @@ sub analyze_request($)
 			$request_ref->{json} = 1;
 		 }
 
-		$log->debug("request looks like an API request", { api => $request_ref->{api}, api_version => $request_ref->{api_version}, api_method => $request_ref->{api_method}, code => $request_ref->{code}, jqm => $request_ref->{jqm}, json => $request_ref->{json}, xml => $request_ref->{xml} } ) if $log->is_debug();
+		$log->debug("request looks like an API request", { api => $request_ref->{api}, api_version => $request_ref->{api_version}, api_resource => $request_ref->{api_resource}, code => $request_ref->{code}, jqm => $request_ref->{jqm}, json => $request_ref->{json}, xml => $request_ref->{xml} } ) if $log->is_debug();
 	}
 
 	# or a list
