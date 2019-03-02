@@ -100,7 +100,7 @@ sub hal_product {
 		links => +{
 			self => resource_url($request_ref, 'products') . '/' . $product_ref->{code},
 			find => {
-				href => resource_url($request_ref, 'products') . '/{?code}',
+				href => resource_url($request_ref, 'products') . '{/code}',
 				templated => JSON::PP::true,
 			},
 		}
@@ -127,7 +127,7 @@ sub hal_products {
 			self => resource_url($request_ref, 'products') . '?page=' . $request_ref->{structured_response}{page},
 			next => resource_url($request_ref, 'products') . '?page=' . $request_ref->{structured_response}{page} + 1,
 			find => {
-				href => resource_url($request_ref, 'products') . '/{?code}',
+				href => resource_url($request_ref, 'products') . '{/code}',
 				templated => JSON::true,
 			},
 		},
