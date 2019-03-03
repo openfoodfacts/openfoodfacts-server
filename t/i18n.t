@@ -12,7 +12,7 @@ use ProductOpener::Config qw/:all/;
 
 # Ensure that <<site_name>> is not translated - https://github.com/openfoodfacts/openfoodfacts-server/issues/1648
 my $site_name_regex = qr/<<site_name>>/;
-foreach my $dir ('common', 'openbeautyfacts', 'openfoodfacts', 'openpetfoodfacts', 'openproductfacts', 'tags') {
+foreach my $dir ('common', 'openbeautyfacts', 'openfoodfacts', 'openpetfoodfacts', 'openproductsfacts', 'tags') {
 	my $path = "$data_root/po/$dir/";
 	my %lang = %{ ProductOpener::I18N::read_po_files($path) };
 	foreach my $key (keys %lang) {
