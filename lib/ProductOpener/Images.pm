@@ -189,6 +189,8 @@ sub scan_code($) {
 	# create a reader
 	my $scanner = Barcode::ZBar::ImageScanner->new();
 
+	print STDERR "scan_code file: $file\n";
+
 	# configure the reader
 	$scanner->parse_config("enable");
 
@@ -219,6 +221,8 @@ sub scan_code($) {
 				$code = $symbol->get_data();
 				my $type = $symbol->get_type();
 				$log->debug("barcode found", { code => $code, type => $type }) if $log->is_debug();
+					print STDERR "scan_code code found: $code\n";
+
 				if (($code !~ /^[0-9]+$/) or ($type eq 'QR-Code')) {
 					$code = undef;
 					next;
@@ -236,6 +240,7 @@ sub scan_code($) {
 
 		}
 	}
+	print STDERR "scan_code return code: $code\n";
 
 	return $code;
 }
@@ -556,32 +561,37 @@ sub process_image_upload($$$$$$) {
 
 			if (not "$x") {
 
+				# Update the product image data
+				my $product_ref = retrieve_product($code);
+				defined $product_ref->{images} or $product_ref->{images} = {};
+				$product_ref->{images}{$imgid} = {
+					uploader => $userid,
+					uploaded_t => $time,
+					sizes => {
+						full => {w => $new_product_ref->{"images.$imgid.w"}, h => $new_product_ref->{"images.$imgid.h"}},
+					},
+				};
 
-			# Update the product image data
-			my $product_ref = retrieve_product($code);
-			defined $product_ref->{images} or $product_ref->{images} = {};
-			$product_ref->{images}{$imgid} = {
-				uploader => $userid,
-				uploaded_t => $time,
-				sizes => {
-					full => {w => $new_product_ref->{"images.$imgid.w"}, h => $new_product_ref->{"images.$imgid.h"}},
-				},
-			};
+				foreach my $max ($thumb_size, $crop_size) {
 
-			foreach my $max ($thumb_size, $crop_size) {
+					$product_ref->{images}{$imgid}{sizes}{$max} =
+						{w => $new_product_ref->{"images.$imgid.$max.w"}, h => $new_product_ref->{"images.$imgid.$max.h"}};
 
-				$product_ref->{images}{$imgid}{sizes}{$max} =
-					{w => $new_product_ref->{"images.$imgid.$max.w"}, h => $new_product_ref->{"images.$imgid.$max.h"}};
+				}
+				if ($imgid > $product_ref->{max_imgid}) {
+					$product_ref->{max_imgid} = $imgid;
+				}
+				my $store_comment = "new image $imgid";
+				if ((defined $comment) and ($comment ne '')) {
+					$store_comment .= ' - ' . $comment;
+				}
+				store_product($product_ref, $store_comment);
 
-			}
-			if ($imgid > $product_ref->{max_imgid}) {
-				$product_ref->{max_imgid} = $imgid;
-			}
-			my $store_comment = "new image $imgid";
-			if ((defined $comment) and ($comment ne '')) {
-				$store_comment .= ' - ' . $comment;
-			}
-			store_product($product_ref, $store_comment);
+				# Create a link to the image in /new_images so that it can be batch processed by OCR
+				# and computer vision algorithms
+
+				(-e "$data_root/new_images") or mkdir("$data_root/new_images", 0755);
+				symlink("$www_root/images/products/$path/$imgid.jpg", "$data_root/new_images/" . time() . "." . $code . "." . $imagefield . "." . $imgid . ".jpg");
 
 			}
 			else {

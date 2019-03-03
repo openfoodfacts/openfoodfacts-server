@@ -6248,6 +6248,16 @@ HTML
 
 	}
 
+	# GS1-Prefixes for restricted circulation numbers within a company - warn for possible conflicts
+	if ($code =~ /^(?:(?:0{7}[0-9]{5,6})|(?:04[0-9]{10,11})|(?:[02][0-9]{2}[0-9]{5}))$/) {
+		$html .= <<HTML
+<div data-alert class="alert-box info" id="warning_gs1_company_prefix" style="display: block;">
+$Lang{warning_gs1_company_prefix}{$lc}
+<a href="#" class="close">&times;</a>
+</span></div>
+HTML
+;
+	}
 
 	if (not has_tag($product_ref, "states", "en:complete")) {
 
