@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-package ProductOpener::Ingredients;
+package ProductOpener::Hydra;
 
 use utf8;
 use Modern::Perl '2012';
@@ -53,20 +53,21 @@ use Encode;
 use Clone qw(clone);
 use JSON::PP;
 use Log::Any qw($log);
+use URI::Escape::XS;
 
 sub _get($$) {
 	my $flow = shift;
 	my $challenge = shift;
 
-	my $url = format_subdomain('hydra') . "/oauth2/auth/requests/$flow/$challenge";
+	my $url = "$hydra_issuer_url/oauth2/auth/requests/$flow/$challenge";
 
-	my $ua = LWP::UserAgent->new();
+	my $ua = LWP::UserAgent->new(ssl_opts => { verify_hostname => 0 });
 
 	my $request = HTTP::Request->new(GET => $url);
 
 	my $response = $ua->request($request);
 
-	if ($response->is_success and (not ($response->status < 200 and $response->status > 302))) {
+	if ($response->is_success and (not ($response->code < 200 and $response->code > 302))) {
 		$log->info("GET request to ORY Hydra was successful") if $log->is_info();
 
 		my $json_response = $response->decoded_content;
@@ -84,10 +85,10 @@ sub _put($$$$) {
 	my $challenge = shift;
 	my $body = shift;
 
-	my $url = format_subdomain('hydra') . "/oauth2/auth/requests/$flow/$challenge/$action";
+	my $url = "$hydra_issuer_url/oauth2/auth/requests/$flow/$challenge/$action";
 	my $json = encode_json($body);
 
-	my $ua = LWP::UserAgent->new();
+	my $ua = LWP::UserAgent->new(ssl_opts => { verify_hostname => 0 });
 
 	my $request = HTTP::Request->new(PUT => $url);
 	$request->header('Content-Type' => 'application/json');
@@ -95,7 +96,7 @@ sub _put($$$$) {
 
 	my $response = $ua->request($request);
 
-	if ($response->is_success and (not ($response->status < 200 and $response->status > 302))) {
+	if ($response->is_success and (not ($response->code < 200 and $response->code > 302))) {
 		$log->info("PUT request to ORY Hydra was successful") if $log->is_info();
 
 		my $json_response = $response->decoded_content;
@@ -147,7 +148,7 @@ sub introspect_oauth2_token($) {
 	my $body = 'token=' . encodeURIComponent($token);
 	my $url = "$hydra_admin_url/oauth2/introspect";
 
-	my $ua = LWP::UserAgent->new();
+	my $ua = LWP::UserAgent->new(ssl_opts => { verify_hostname => 0 });
 
 	my $request = HTTP::Request->new(POST => $url);
 	$request->header('Content-Type' => 'application/x-www-form-urlencoded');
@@ -155,7 +156,7 @@ sub introspect_oauth2_token($) {
 
 	my $response = $ua->request($request);
 
-	if ($response->is_success and (not ($response->status < 200 and $response->status > 302))) {
+	if ($response->is_success and (not ($response->code < 200 and $response->code > 302))) {
 		$log->info("POST request to ORY Hydra was successful") if $log->is_info();
 
 		my $json_response = $response->decoded_content;

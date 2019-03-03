@@ -37,6 +37,7 @@ BEGIN
 		$mongodb
 		$mongodb_host
 		$memd_servers
+		$hydra_issuer_url
 		$hydra_admin_url
 		$facebook_app_id
 	    $facebook_app_secret
@@ -67,7 +68,8 @@ $mongodb_host = "mongodb://localhost";
 
 $memd_servers = [ "127.0.0.1:11211" ];
 
-$hydra_admin_url = "https://hydra:4455";
+$hydra_issuer_url = "http://hydra:4444";
+$hydra_admin_url = "http://hydra:4445";
 
 $facebook_app_id = "";
 $facebook_app_secret = "";

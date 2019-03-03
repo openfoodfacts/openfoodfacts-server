@@ -72,6 +72,7 @@ use ProductOpener::Hydra qw/:all/;
 use CGI qw/:cgi :form escapeHTML http/;
 use Encode;
 
+use Apache2::RequestRec;
 use Email::Valid;
 use Crypt::PasswdMD5 qw(unix_md5_crypt);
 use Math::Random::Secure qw(irand);
@@ -377,7 +378,8 @@ sub init_user()
 	$User_id = undef;
 
 	# Try to get user from bearer token
-	my $token = http('Authorization');
+	my $r = Apache2::RequestUtil->request();
+	my $token = $r->headers_in->{'Authorization'};
 	if ((defined $token) and ($token =~ s/bearer//gi)) {
 		$token =~ s/\s//g;
 		my $introspect_result = introspect_oauth2_token($token);

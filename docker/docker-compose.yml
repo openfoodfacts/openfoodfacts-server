@@ -14,11 +14,31 @@ services:
       - 11211:11211
     networks:
       - webnet
+  hydra:
+    image: oryd/hydra:v1.0.0-rc.6_oryOS.10-alpine
+    ports:
+      - 4444:4444
+      - 4445:4445
+      - 5555:5555
+    networks:
+      - webnet
+    command:
+      serve all --dangerous-force-http
+    environment:
+      - DATABASE_URL=memory
+      - OAUTH2_ISSUER_URL=https://hydra.productopener.localhost/
+      - OAUTH2_CONSENT_URL=http://world.productopener.localhost/cgi/consent.pl
+      - OAUTH2_LOGIN_URL=http://world.productopener.localhost/cgi/login.pl
+      - SYSTEM_SECRET=youReallyNeedToChangeThis
+      - OAUTH2_SHARE_ERROR_DEBUG=1
+      - OIDC_SUBJECT_TYPES_SUPPORTED=public,pairwise
+      - OIDC_SUBJECT_TYPE_PAIRWISE_SALT=youReallyNeedToChangeThis
   backend:
     image: openfoodfacts/productopener-backend:latest
     depends_on:
       - mongodb
       - memcached
+      - hydra
     volumes:
       - podata:/mnt/podata
       - type: tmpfs
