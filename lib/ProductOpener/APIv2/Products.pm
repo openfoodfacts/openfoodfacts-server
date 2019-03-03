@@ -39,6 +39,7 @@ use vars @EXPORT_OK ;
 use ProductOpener::APIv2::URL qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Lang qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -54,7 +55,10 @@ sub display_api_v2 {
 	my $r = shift;
 
 	my $code = normalize_code($request_ref->{code});
-	if ((defined $code) and (length($code) > 0)){
+	if ((defined $request_ref->{code})
+		and (length($request_ref->{code}) > 0)
+		and (defined $code)
+		and (length($code) > 0)){
 		return hal_product_by_code($code, $request_ref, $r);
 	}
 	else {
@@ -84,8 +88,10 @@ sub hal_product {
 	}
 
 	my $state_ref = {
-		id => $product_ref->{code}
+		code => $product_ref->{code}
 	};
+
+	my $embedded_ref = { };
 
 	# If the request specified a value for the fields parameter, return only the fields listed
 	my @filter = ();
@@ -95,37 +101,82 @@ sub hal_product {
 
 	my $filter_count = scalar @filter;
 
-	foreach my $field_name (@export_fields) {
-		next if (($filter_count > 0) and not ((grep $_ eq $field_name, @filter)));
+	foreach my $field (@export_fields) {
+		next if (($filter_count > 0) and not ((grep $_ eq $field, @filter)));
 
 		my @field_values = ();
-		foreach my $olc (sort keys %{$product_ref->{languages_codes}}) {
-			my $key = $field_name . $olc;
-			$key = $key unless defined $product_ref->{$key};
-			next unless defined $product_ref->{$key};
-
-			my $field = { lang => $olc, name => $product_ref->{$key} };
-			if (defined $tags_fields{$key}) {
-				$field->{href} = resource_url($request_ref, 'tags') . '/' . $key;
+		my $field_hierarchy = $field . '_hierarchy';
+		my $field_tags = $field . '_tags';
+		if (defined $product_ref->{$field_hierarchy}) {
+			foreach my $tagid (@{$product_ref->{$field_hierarchy}}) {
+				$embedded_ref->{$field} = () unless defined $embedded_ref->{$field};
+				my $title = lang($tagid . "_" . $field);
+				($title eq "") and $title = lang($field);
+				push @{$embedded_ref->{$field}}, HAL::Tiny->new(
+					state => {
+						name => $title,
+						id => $tagid,
+						type => $field,
+					},
+					links => +{
+						self => resource_url($request_ref, 'tags') . '/?type=' . $field . '&id=' . $tagid,
+						find => {
+							href => resource_url($request_ref, 'tags') . '{?type}{&id}',
+							templated => JSON::PP::true,
+						},
+					},
+				);
 			}
+		}
+		elsif (defined $product_ref->{$field_tags}) {
+			foreach my $tagid (@{$product_ref->{$field_tags}}) {
+				$embedded_ref->{$field} = () unless defined $embedded_ref->{$field};
+				my $title = lang($tagid . "_" . $field);
+				($title eq "") and $title = lang($field);
+				push @{$embedded_ref->{$field}}, HAL::Tiny->new(
+					state => {
+						name => $title,
+						id => $tagid,
+						type => $field,
+					},
+					links => +{
+						self => resource_url($request_ref, 'tags') . '/?type=' . $field . '&id=' . $tagid,
+						find => {
+							href => resource_url($request_ref, 'tags') . '{?type}{&id}',
+							templated => JSON::PP::true,
+						},
+					},
+				);
+			}
+		}
+		elsif (($field eq 'serving_size') or ($field eq 'serving_quantity') or ($field eq 'code') or ($field eq 'quantity') or ($field =~ /_t$/)) {
+			$state_ref->{$field} = $product_ref->{$field};
+		}
+		else {
+			foreach my $olc (sort keys %{$product_ref->{languages_codes}}) {
+				my $key = $field . '_' . $olc;
+				$key = $field unless defined $product_ref->{$key};
+				next unless defined $product_ref->{$key};
 
-			push @field_values, $field;
+				push @field_values, { lang => $olc, name => $product_ref->{$key} };
+			}
 		}
 
-		if ((scalar @field_values) > 1) {
-			$state_ref->{$field_name} = @field_values;
+		if ((scalar @field_values) > 0) {
+			$state_ref->{$field} = \@field_values;
 		}
 	}
 
 	return HAL::Tiny->new(
 		state => $state_ref,
+		embedded => $embedded_ref,
 		links => +{
 			self => resource_url($request_ref, 'products') . '/' . $product_ref->{code},
 			find => {
 				href => resource_url($request_ref, 'products') . '{/code}',
 				templated => JSON::PP::true,
 			},
-		}
+		},
 	);
 }
 
