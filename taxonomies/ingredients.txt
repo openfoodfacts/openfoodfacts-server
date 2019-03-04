@@ -13099,7 +13099,7 @@ nl:witte wijnazijn
 
 <en:vinegar
 en:alcohol vinegar
-dk:lagereddike
+da:lagereddike
 es:vinagre de alcohol
 fi:väkiviinaetikka
 fr:vinaigre d’alcool
@@ -13158,7 +13158,7 @@ it:aceto balsamico
 ja:バルサミコ酢
 ko:발사믹 식초
 lt:Balzaminis actas
-no:balsamico
+nb:balsamico
 nl:balsamico
 pl:Ocet balsamiczny
 pt:Vinagre balsâmico
@@ -14337,6 +14337,15 @@ es:aromas
 fr:arôme, arômes
 nl:aroma's
 de:Aroma, Aromen
+
+<en:flavouring
+en:flavouring preparation, spice preparation
+de:Gewürzzubereitung, Aromaextrakte
+fr:préparation aromatisante
+it:preparazione di spezie
+pt:preparacao aromatizante
+# ingredient/fr:préparation-aromatisante has  50 products in 5 languages @2019-03-04
+# Aromaextrakte (Pfefferminzextrakt)
 
 <en:flavouring
 en:natural flavouring, natural flavour, natural flavor, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
@@ -20769,7 +20778,7 @@ wikidata:en:Q9189390
 # In chemistry, a pyrophosphate is a phosphorus oxyanion.
 # On wikidata the ingredient is usually called pyrophosphate, contrary to what is found on packages
 
-en:diphosphates, e450 stabilizer, E450, E-450, e 450
+en:diphosphates, E450, E-450, e 450
 bg:Дифосфат
 ca:Difosfat
 cs:difosforečnany
@@ -20777,7 +20786,7 @@ de:Diphosphate
 es:difosfatos
 fa:پیروفسفات
 fi:Pyrofosfaatti
-fr:diphosphate, diphosphates, stabilisant e450
+fr:diphosphate, diphosphates
 hu:Difoszfátok
 it:difosfati
 ja:ピロリン酸塩
@@ -20794,6 +20803,10 @@ zh:焦磷酸盐
 wikidata:en:Q55506489
 wikipedia:en:https://en.wikipedia.org/wiki/Pyrophosphate
 # fr:diphosphate has 4974 products in 29 languages @2018-11-04
+
+<en:diphosphates
+en:e450 stabilizer
+fr:stabilisant e450
 
 <en:diphosphates
 <en:sodium carbonates
@@ -28148,7 +28161,6 @@ fr:aubergines frites
 
 # The bamboos are evergreen perennial flowering plants in the subfamily Bambusoideae of the grass family Poaceae. 
 
-# <en:fibre
 <en:vegetable
 en:bamboo
 # ang:Ȝærsbēam
@@ -28319,6 +28331,15 @@ fr:fibres de pousses de bambou
 it:fibra di germoglio di bambù
 nl:vezels van bamboescheuten
 # ingredient/fr:fibres-de-pousses-de-bambou has 77 products in 5 languages @2019-02-03
+
+<en:fibre
+en:acacia fibre
+de:Akazienfasern
+fr:fibre d'acacia, fibres d'acacia
+it:fibre di acacia
+nl:acaciavezels
+pt:fibras de acácia
+# ingredient/fr:fibre-d’acacia has 131 products 22019-03-03
 
 
 # Galacto-oligosaccharides (GOS), also known as oligogalactosyllactose, oligogalactose, oligolactose or transgalactooligosaccharides (TOS), belong to the group of prebiotics. 
@@ -31038,6 +31059,7 @@ fr:purée et pulpe de tomates
 
 # en:tomato-sauce is a compound ingredient
 
+<en:sauce
 en:tomato sauce
 fr:sauce tomate, préparation à base de tomates, préparation aux tomates
 es:salsa de tomate
@@ -46535,6 +46557,15 @@ sv:nuoc mam
 # ingredient/fr:nuoc-mâm has 140 products in 6 languages @2019-03-01
 # nuoc mâm (sauce poisson) (poisson, sel, eau)
 
+# <en:compound
+<en:sauce
+en:salad dressing
+de:Salatsauce
+fr:vinaigrette
+# ingredient/fr:vinaigrette has 78 products in 4 languages @2019-03-04
+# vinaigrette (maltodextrine de maïs, vinaigre de vin, sucre, sel, oignon 0,2%, mélange d'épices, arômes naturels, arôme, épaississants:gomme de xanthane et pectine)
+
+
 fr:sauce rémoulade
 
 fr:sauce caramel
@@ -46551,7 +46582,7 @@ fr:sauce vinaigrette
 
 <en:sauce
 fr:sauce cuisinée
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce%20cuisinée
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce%20cuisinée
 # 135 products in 1 language @2018-09-26
 
 fr:carotènes
@@ -47551,7 +47582,6 @@ fr:pâtes aux œufs, pâtes aux oeufs
 
 
 
-fr:fibre d'acacia, fibres d'acacia
 
 fr:pois cassés
 
@@ -48025,21 +48055,10 @@ fr:cyclamate
 
 
 
-fr:fibres d'acacia
-
-fr:vinaigrette
-
-
-
-fr:préparation aromatisante
 
 
 
 
-# Random
-
-
-fr:disphosphates
 
 
 
