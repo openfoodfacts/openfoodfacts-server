@@ -8390,14 +8390,17 @@ HTML
 			foreach my $field (split(/,/, $request_ref->{fields})) {
 				if ($field =~ /^environment_infocard/) {
 					compute_carbon_footprint_infocard($product_ref);
-				}			
+				}
+				# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html 
+				if ($field eq "nutrition_table_html") {
+					$compact_product_ref->{$field} = display_nutrition_table($product_ref, undef);
+				}
 				if (defined $product_ref->{$field}) {
 					$compact_product_ref->{$field} = $product_ref->{$field};
 				}
 			}
 			$response{product} = $compact_product_ref;
 		}
-
 
 		if ($request_ref->{jqm}) {
 			# return a jquerymobile page for the product
