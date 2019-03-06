@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -42,6 +42,8 @@ BEGIN
 
 					&normalize_nutriment_value_and_modifier
 					&assign_nid_modifier_value_and_unit
+
+					&get_nutrient_label
 
 					&unit_to_g
 					&g_to_unit
@@ -167,6 +169,23 @@ sub assign_nid_modifier_value_and_unit($$$$$) {
 
 }
 
+sub get_nutrient_label {
+	my $nid = (shift(@_) // undef);
+	my $flang = (shift(@_) // $lang);
+
+	if (not defined $nid) {
+		return;
+	}
+	if (defined $Nutriments{$nid}{$lang}) {
+		return $Nutriments{$nid}{$lang};
+	}
+	elsif (defined $Nutriments{$nid}{$flang}) {
+		return $Nutriments{$nid}{$flang};
+	}
+	else {
+		return;
+	}
+}
 
 sub unit_to_g($$) {
 	my $value = shift;
