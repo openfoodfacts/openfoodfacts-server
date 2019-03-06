@@ -8397,7 +8397,7 @@ HTML
 		if (defined $request_ref->{fields}) {
 			my $compact_product_ref = {};
 			foreach my $field (split(/,/, $request_ref->{fields})) {
-				if (($field =~ /^environment_infocard/) or ($field =~ /^environment_impact_level_tags/)) {
+				if (($field =~ /^environment_infocard/) or ($field =~ /^environment_impact_level/)) {
 					compute_carbon_footprint_infocard($product_ref);
 				}
 				# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html 
