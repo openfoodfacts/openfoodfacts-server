@@ -8396,9 +8396,13 @@ HTML
 		# If the request specified a value for the fields parameter, return only the fields listed
 		if (defined $request_ref->{fields}) {
 			my $compact_product_ref = {};
+			my $carbon_footprint_computed = 0;
 			foreach my $field (split(/,/, $request_ref->{fields})) {
-				if (($field =~ /^environment_infocard/) or ($field =~ /^environment_impact_level/)) {
+				# On demand carbon footprint tags
+				if ((not $carbon_footprint_computed)
+					and ($field =~ /^environment_infocard/) or ($field =~ /^environment_impact_level/)) {
 					compute_carbon_footprint_infocard($product_ref);
+					$carbon_footprint_computed = 1;
 				}
 				# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html 
 				if ($field eq "nutrition_table_html") {
