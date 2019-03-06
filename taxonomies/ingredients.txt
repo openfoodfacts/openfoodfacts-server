@@ -362,8 +362,21 @@ fr:poudre de fleurage
 # poudre de fleurage : carbonate de calcium, talc
 
 
+# <en:function
 fr:conservateur de surface
 # ingredient/fr:conservateur-de-surface has 43 products in french @2019-03-02
+
+
+# <en:function
+fr:améliorant, améliorants
+de: Backmittel
+it: miglioranti
+nl:verbeteraar
+# ingredient/fr:améliorant has 95 products in 5 languages @2019-03-06
+# améliorants (émulsifiant: E 472e, correcteurs d'acidité: E 516 et acide ascorbique, farine de soja, farine de blé)
+
+<fr:améliorant
+it: miglioranti per panificazione
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -4625,6 +4638,64 @@ zh:氢氧化钙
 wikidata:en:Q182849
 wikipedia:en:https://en.wikipedia.org/wiki/Calcium_hydroxide
 # ingredient/calcium-hydroxide has 152 products in 7 languages @2019-02-18
+
+
+
+# Iron(II) sulfate (British English:iron(II) sulphate) or ferrous sulfate denotes a range of salts with the formula FeSO4·xH2O.
+
+<en:iron
+en:ferrous sulphate, Iron(II) sulfate
+af:Ystersulfaat
+ar:كبريتات الحديد الثنائي
+# azb:دمیر(II) سولفات
+bg:железен сулфат
+ca:sulfat de ferro (II)
+cs:síran železnatý
+da:Jern(II)sulfat
+de:Eisensulfat, Eisen(II)-sulfat
+es:sulfato ferroso, sulfato de hierro
+et:Raud(II)sulfaat
+fa:فروس سولفات
+fi:Rautavihtrilli
+fr:sulfates de fer, sulfate de fer(II)
+hr:Željezov(II) sulfat
+hu:Vas(II)-szulfát
+id:Besi(II) sulfat
+it:solfato di ferro, solfato ferroso
+ja:硫酸鉄(II)
+ko:황산 철(II)
+nb:Jern(II)sulfat
+nl:sulfaten van ijzer, IJzer(II)sulfaat
+nn:Jernsulfat
+pl:Siarczan żelaza(II)
+pt:sulfato de ferro
+qu:Kachina
+ro:Sulfat de fier
+ru:сульфат железа(II)
+sh:Željezov(II) sulfat
+sk:Síran železnatý
+sl:Železov(II) sulfat
+sr:гвожђе(II) сулфат
+# sr-ec:гвожђе(II) сулфат
+# sr-el:Gvožđe(II) sulfat
+sv:Järn(II)sulfat
+ta:அன்னபேதி
+te:అన్నభేది
+th:ไอร์ออนซัลเฟต
+uk:Сульфат заліза(II)
+vi:Sắt(II) sulfat
+# yue:青礬
+zh:硫酸亚铁
+# zh-cn:硫酸亚铁
+# zh-hans:硫酸亚铁
+# zh-hant:硫酸亞鐵
+# zh-hk:硫酸亞鐵
+# zh-sg:硫酸亚铁
+# zh-tw:硫酸亞鐵
+# wikidata:en:Q214863 uses a more formal definition
+wikipedia:en:https://en.wikipedia.org/wiki/Iron(II)_sulfate
+# ingredient/fr:sulfates-de-fer has 69 products in 3 languages @2019-03-06
+# mineral/ferrous-sulphate has 3832 products in 7 languages @2019-03-06
 
 
 # Iron(II) gluconate, or ferrous gluconate,[1] is a black compound often used as an iron supplement. It is the iron(II) salt of gluconic acid.
@@ -48207,9 +48278,6 @@ allergens:fr:pain de mie au son de _blé_
 fr:acidulant
 
 
-fr:sulfates de fer
-
-fr:améliorant
 
 
 
