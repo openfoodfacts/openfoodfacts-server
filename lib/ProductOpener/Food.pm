@@ -4485,17 +4485,19 @@ sub compute_carbon_footprint_infocard($) {
 	# -> currently only for prepared meals
 	if (has_tag($product_ref, "categories", "en:meals")) {
 	
-		$product_ref->{environment_impact_level_tags} = "en:low";
+		$product_ref->{environment_impact_level} = "en:low";
 		
 		if (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"}) {
 			
 			if ($product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"} < 250) {
-				$product_ref->{environment_impact_level_tags} = "en:medium";
+				$product_ref->{environment_impact_level} = "en:medium";
 			}
 			else {
-				$product_ref->{environment_impact_level_tags} = "en:high";
+				$product_ref->{environment_impact_level} = "en:high";
 			}
 		}
+		
+		$product_ref->{environment_impact_level_tags} = [$product_ref->{environment_impact_level}];
 	}
 	
 	# compute the carbon footprint infocard when we have a carbon footprint from meat or fish
