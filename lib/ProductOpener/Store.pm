@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -68,7 +68,7 @@ sub unac_string_perl($) {
 }
 
 # Tags in European characters (iso-8859-1 / Latin-1 / Windows-1252) are canonicalized:
-# 1. deaccent: é -> è, + German umlauts: ä -> ae
+# 1. deaccent: é -> è, + German umlauts: ä -> ae if $unaccent is 1.
 # 2. lowercase
 # 3. turn ascii characters that are not letters / numbers to -
 # 4. keep other UTF-8 characters (e.g. Chinese, Japanese, Korean, Arabic, Hebrew etc.) untouched
@@ -77,6 +77,7 @@ sub unac_string_perl($) {
 sub get_fileid($) {
 
 	my $file = shift;
+	my $unaccent = shift;
 
 	if (not defined $file) {
 		return "";
@@ -91,20 +92,16 @@ sub get_fileid($) {
 		$file =~ tr/./-/;
 	}
 
-	#$file = decode("UTF-16", unac_string('UTF-16',encode("UTF-16", $file)));
+	$file =~ s/\N{U+1E9E}/\N{U+00DF}/g; # Actual lower-case for capital ß
+	$file = lc($file);
 
-	# Remove one call to a subfunction and just inline the subfunction content
-	# $file = unac_string_perl($file);
+	if ((defined $unaccent) and ($unaccent eq 1)) {
+		$file =~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿ/aaaaaaceeeeiiiinooooouuuuyy/;
 
-	$file =~ tr/àáâãäåçèéêëìíîïñòóôõöùúûüýÿ/aaaaaaceeeeiiiinooooouuuuyy/;
-
-	$file =~ s/œ|Œ/oe/g;
-	$file =~ s/æ|Æ/ae/g;
-	$file =~ s/ß/ss/g;
-
-	# turn characters that are not letters and numbers to -
-	# except extended UTF-8 characters
-	# $file =~ s/[^a-z0-9-]/-/g;
+		$file =~ s/œ|Œ/oe/g;
+		$file =~ s/æ|Æ/ae/g;
+		$file =~ s/ß/ss/g;
+	}
 
 	# turn special chars to -
 	$file =~ s/[\000-\037]/-/g;
@@ -145,7 +142,7 @@ sub get_ascii_fileid($) {
 
 	my $file = shift;
 
-	$file = get_fileid($file);
+	$file = get_fileid($file, 1);
 
 	if ($file =~ /[^a-zA-Z0-9-]/) {
 		$file = "xn--" .  encode('Punycode',$file);
