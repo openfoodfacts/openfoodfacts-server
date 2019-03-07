@@ -1384,8 +1384,8 @@ sub display_list_of_tags($$) {
 
 		$request_ref->{title} = sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang});
 
-		if (-e "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html") {
-			open (my $IN, q{<}, "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html");
+		if (-e "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}, 1) . ".list.html") {
+			open (my $IN, q{<}, "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}, 1) . ".list.html");
 			$html .= join("\n", (<$IN>));
 			close $IN;
 		}
@@ -1655,8 +1655,8 @@ sub display_list_of_tags($$) {
 				$tagentry->{sameAs} = \@sameAs;
 			}
 
-			if (defined $tags_images{$lc}{$tagtype}{get_fileid($icid)}) {
-				my $img = $tags_images{$lc}{$tagtype}{get_fileid($icid)};
+			if (defined $tags_images{$lc}{$tagtype}{get_fileid($icid, 1)}) {
+				my $img = $tags_images{$lc}{$tagtype}{get_fileid($icid, 1)};
 				$tagentry->{image} = format_subdomain('static') . "/images/lang/$lc/$tagtype/$img";
 			}
 
@@ -3298,7 +3298,7 @@ HTML
 			}
 
 			if ($tagtype =~ /^(correctors|editors|informers|correctors|photographers|checkers)$/) {
-				$description .= "\n<ul><li><a href=\"" . canonicalize_tag_link("users", get_fileid($tagid)) . "\">" . sprintf(lang('user_s_page'), $products_title) . "</a></li></ul>\n"
+				$description .= "\n<ul><li><a href=\"" . canonicalize_tag_link("users", get_fileid($tagid, 1)) . "\">" . sprintf(lang('user_s_page'), $products_title) . "</a></li></ul>\n"
 
 			}
 
@@ -3313,8 +3313,8 @@ HTML
 				# Display links to products edited, photographed etc.
 
 				$description .= "\n<ul>\n"
-				. "<li><a href=\"" . canonicalize_tag_link("editors", get_fileid($tagid)) . "\">" . sprintf(lang('editors_products'), $products_title) . "</a></li>\n"
-				. "<li><a href=\"" . canonicalize_tag_link("photographers", get_fileid($tagid)) . "\">" . sprintf(lang('photographers_products'), $products_title) . "</a></li>\n"
+				. "<li><a href=\"" . canonicalize_tag_link("editors", get_fileid($tagid, 1)) . "\">" . sprintf(lang('editors_products'), $products_title) . "</a></li>\n"
+				. "<li><a href=\"" . canonicalize_tag_link("photographers", get_fileid($tagid, 1)) . "\">" . sprintf(lang('photographers_products'), $products_title) . "</a></li>\n"
 				. "</ul>\n";
 
 
@@ -5536,8 +5536,8 @@ sub display_my_block($)
 	if (defined $User_id) {
 
 		my $links = '<ul class="side-nav" style="padding-top:0">';
-		$links .= "<li><a href=\"" . canonicalize_tag_link("editors", get_fileid($User_id)) . "\">" . lang("products_you_edited") . "</a></li>";
-		$links .= "<li><a href=\"" . canonicalize_tag_link("users", get_fileid($User_id)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed") . "\">" . lang("incomplete_products_you_added") . "</a></li>";
+		$links .= "<li><a href=\"" . canonicalize_tag_link("editors", get_fileid($User_id, 1)) . "\">" . lang("products_you_edited") . "</a></li>";
+		$links .= "<li><a href=\"" . canonicalize_tag_link("users", get_fileid($User_id, 1)) . canonicalize_taxonomy_tag_link($lc,"states", "en:to-be-completed") . "\">" . lang("incomplete_products_you_added") . "</a></li>";
 		$links .= "</ul>";
 
 		my $content = '';
@@ -7219,8 +7219,8 @@ JS
 
 			$html_ingredients_classes .= "<div class=\"column_class\"><b>" . ucfirst( lang($class . "_p") . separator_before_colon($lc)) . ":</b><br>";
 
-			if (defined $tags_images{$lc}{$tagtype}{get_fileid($tagtype)}) {
-				my $img = $tags_images{$lc}{$tagtype}{get_fileid($tagtype)};
+			if (defined $tags_images{$lc}{$tagtype}{get_fileid($tagtype, 1)}) {
+				my $img = $tags_images{$lc}{$tagtype}{get_fileid($tagtype, 1)};
 				my $size = '';
 				if ($img =~ /\.(\d+)x(\d+)/) {
 					$size = " width=\"$1\" height=\"$2\"";
@@ -7517,12 +7517,12 @@ HTML
 	my $other_editors = "";
 
 	foreach my $editor (sort @other_editors) {
-		$other_editors .= display_tag_link("editors", $editor) . ", ";
+		$other_editors .= "<a href=\"" . canonicalize_tag_link("editors", get_fileid($editor, 1)) . "\">" . $editor . "</a>, ";
 	}
 	$other_editors =~ s/, $//;
 
-	my $creator = display_tag_link("editors", $product_ref->{creator});
-	my $last_editor = display_tag_link("editors", $product_ref->{last_editor});
+	my $creator = "<a href=\"" . canonicalize_tag_link("editors", get_fileid($product_ref->{creator}, 1)) . "\">" . $product_ref->{creator} . "</a>";
+	my $last_editor = "<a href=\"" . canonicalize_tag_link("editors", get_fileid($product_ref->{last_editor}, 1)) . "\">" . $product_ref->{last_editor} . "</a>";
 
 	if ($other_editors ne "") {
 		$other_editors = "<br>\n$Lang{also_edited_by}{$lang} ${other_editors}.";
@@ -7531,7 +7531,7 @@ HTML
 	my $checked = "";
 	if ((defined $product_ref->{checked}) and ($product_ref->{checked} eq 'on')) {
 		my $last_checked_date = display_date_tag($product_ref->{last_checked_t});
-		my $last_checker = display_tag_link("editors", $product_ref->{last_checker});
+		my $last_checker = "<a href=\"" . canonicalize_tag_link("editors", get_fileid($product_ref->{last_checker}, 1)) . "\">" . $product_ref->{last_checker} . "</a>";
 		$checked = "<br/>\n$Lang{product_last_checked}{$lang} $last_checked_date $Lang{by}{$lang} $last_checker.";
 	}
 
@@ -9150,7 +9150,10 @@ sub display_product_history($$) {
 
 			my $date = display_date_tag($change_ref->{t});
 			my $userid = get_change_userid_or_uuid($change_ref);
-			my $user = display_tag_link("editors", $userid);
+			my $user = "";
+			if (defined $change_ref->{userid}) {
+				$user = "<a href=\"" . canonicalize_tag_link("editors", get_fileid($change_ref->{userid}, 1)) . "\">" . $change_ref->{userid} . "</a>";
+			}
 
 			my $comment = $change_ref->{comment};
 			$comment = lang($comment) if $comment eq 'product_created';

@@ -3024,15 +3024,15 @@ GEXF
 ;
 
 	 # print STDERR "saving $www_root/data/$lc." . get_fileid(lang($tagtype . "_p")) . ".gexf" . "\n";
-	 open (my $OUT, ">:encoding(UTF-8)", "$www_root/data/$lc." . get_fileid(lang($tagtype . "_p")) . ".gexf") or die("write error: $!\n");
+	 open (my $OUT, ">:encoding(UTF-8)", "$www_root/data/$lc." . get_fileid(lang($tagtype . "_p"), 1) . ".gexf") or die("write error: $!\n");
 	 print $OUT $gexf;
 	 close $OUT;
 
 	 eval {
-	 $graph-> run (format => 'svg', output_file => "$www_root/data/$lc." . get_fileid(lang($tagtype . "_p")) . ".svg");
+	 $graph-> run (format => 'svg', output_file => "$www_root/data/$lc." . get_fileid(lang($tagtype . "_p"), 1) . ".svg");
 	 };
 	 eval {
-	 $graph-> run (format => 'png', output_file => "$www_root/data/$lc." . get_fileid(lang($tagtype . "_p")) . ".png");
+	 $graph-> run (format => 'png', output_file => "$www_root/data/$lc." . get_fileid(lang($tagtype . "_p"), 1) . ".png");
 	 };
 
 }
@@ -3090,7 +3090,7 @@ close ($IN);
 		$emb_codes_cities{'FREMB' . $dep . $com } = $td[$th{NCCENR}] . " ($departements{$dep}, France)";
 		#print STDERR 'FR' . $dep . $com. ' =  ' . $td[$th{NCCENR}] . " ($departements{$dep}, France)\n";
 
-		$cities{get_fileid($td[$th{NCCENR}] . " ($departements{$dep}, France)")} = $td[$th{NCCENR}] . " ($departements{$dep}, France)";
+		$cities{get_fileid($td[$th{NCCENR}] . " ($departements{$dep}, France)", 1)} = $td[$th{NCCENR}] . " ($departements{$dep}, France)";
 	}
 	close($IN);
 

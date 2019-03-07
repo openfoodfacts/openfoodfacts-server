@@ -74,7 +74,7 @@ sub unac_string_perl($) {
 # 4. keep other UTF-8 characters (e.g. Chinese, Japanese, Korean, Arabic, Hebrew etc.) untouched
 # 5. remove leading and trailing -, turn multiple - to -
 
-sub get_fileid($) {
+sub get_fileid {
 
 	my $file = shift;
 	my $unaccent = shift;

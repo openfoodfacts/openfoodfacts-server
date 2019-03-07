@@ -379,7 +379,7 @@ sub process_search_image_form($) {
 			$log->debug("processing image search form", { imgid => $imgid, file => $file }) if $log->is_debug();
 
 			my $extension = lc($1) ;
-			my $filename = get_fileid(remote_addr(). '_' . $`);
+			my $filename = get_fileid(remote_addr(). '_' . $`, 1);
 
 			open (my $out, ">", "$data_root/tmp/$filename.$extension") ;
 			while (my $chunk = <$file>) {
@@ -466,7 +466,7 @@ sub process_image_upload($$$$$$) {
 				$extension = lc($1) ;
 			}
 			$extension eq 'jpeg' and $extension = 'jpg';
-			my $filename = get_fileid(remote_addr(). '_' . $`);
+			my $filename = get_fileid(remote_addr(). '_' . $`, 1);
 
 			my $current_product_ref = retrieve_product($code);
 			$imgid = $current_product_ref->{max_imgid} + 1;
