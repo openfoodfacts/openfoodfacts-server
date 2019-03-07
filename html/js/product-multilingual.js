@@ -507,7 +507,7 @@ function update_display(imagefield, first_display) {
 		// Create some defaults, extending them with any options that were provided
 		settings = $.extend( settings, options);
 		img_path = settings.img_path;
-		code = $("input:hidden[name=\"code\"]").val();
+		code = $("input:hidden[name=\"code\"]", $(this).closest("form")).val();
 
       return this.each(function(){
 
