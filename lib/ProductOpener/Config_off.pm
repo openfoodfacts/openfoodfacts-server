@@ -406,8 +406,8 @@ fr:levure
 fr:levures
 en:honeys
 en:vinegars
-en:pet food
-en:non food products
+en:pet-food
+en:non-food-products
 
 )];
 
