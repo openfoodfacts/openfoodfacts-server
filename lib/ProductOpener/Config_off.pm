@@ -399,8 +399,8 @@ en:coffee-drinks
 $options{categories_exempted_from_nutriscore} = [qw(
 en:baby-foods
 en:baby-milks
+en:meal-replacements
 en:alcoholic-beverages
-en:waters
 en:coffees
 en:teas
 en:herbal-teas
