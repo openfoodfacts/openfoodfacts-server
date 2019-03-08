@@ -3924,28 +3924,35 @@ sub compute_nutrition_score($) {
 			}
 		}
 	}
+	
+	# Spring waters have grade A automatically, and have a different nutrition table without sugars etc.
+	# do not display warnings about missing fiber and fruits
+	
+	if (not (has_tag($product_ref, "categories", "en:spring-waters"))) {
 
-	# compute the score only if all values are known
-	# for fiber, compute score without fiber points if the value is not known
-	# foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "fiber", "proteins") {
-	foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "proteins") {
-		if (not defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}) {
-			$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
-			push @{$product_ref->{misc_tags}}, "en:nutrition-not-enough-data-to-compute-nutrition-score";
-			if (not defined $product_ref->{nutriments}{"saturated-fat"  . $prepared . "_100g"}) {
-				push @{$product_ref->{misc_tags}}, "en:nutrition-no-saturated-fat";
+		# compute the score only if all values are known
+		# for fiber, compute score without fiber points if the value is not known
+		# foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "fiber", "proteins") {
+				
+		foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "proteins") {
+			if (not defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}) {
+				$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
+				push @{$product_ref->{misc_tags}}, "en:nutrition-not-enough-data-to-compute-nutrition-score";
+				if (not defined $product_ref->{nutriments}{"saturated-fat"  . $prepared . "_100g"}) {
+					push @{$product_ref->{misc_tags}}, "en:nutrition-no-saturated-fat";
+				}
+				$product_ref->{nutrition_score_debug} .= "missing " . $nid . $prepared;
+				return;
 			}
-			$product_ref->{nutrition_score_debug} .= "missing " . $nid . $prepared;
-			return;
 		}
-	}
 
-	# some categories of products do not have fibers > 0.7g (e.g. sodas)
-	# for others, display a warning when the value is missing
-	if ((not defined $product_ref->{nutriments}{"fiber" . $prepared . "_100g"})
-		and not (has_tag($product_ref, "categories", "en:sodas"))) {
-		$product_ref->{nutrition_score_warning_no_fiber} = 1;
-		push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber";
+		# some categories of products do not have fibers > 0.7g (e.g. sodas)
+		# for others, display a warning when the value is missing
+		if ((not defined $product_ref->{nutriments}{"fiber" . $prepared . "_100g"})
+			and not (has_tag($product_ref, "categories", "en:sodas"))) {
+			$product_ref->{nutrition_score_warning_no_fiber} = 1;
+			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber";
+		}
 	}
 
 	if ($prepared ne '') {
@@ -4315,7 +4322,7 @@ sub compute_nutrition_grade($$) {
 # D/Rose 6 – 9
 # E/Rouge 10 – Max
 
-		if (has_tag($product_ref, "categories", "en:mineral-waters")) {
+		if (has_tag($product_ref, "categories", "en:spring-waters")) {
 			$grade = 'a';
 		}
 		elsif ($fr_score <= 1) {
