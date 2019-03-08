@@ -38,7 +38,7 @@ BEGIN
 		$memd_servers
 		$facebook_app_id
 	    $facebook_app_secret
-		
+
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -56,7 +56,7 @@ $data_root = "/mnt/podata";
 $mongodb = "off";
 $mongodb_host = "mongodb://mongodb:27017";
 
-$memd_servers = [ "127.0.0.1:11211" ];
+$memd_servers = [ "memcached:11211" ];
 
 $facebook_app_id = "";
 $facebook_app_secret = "";

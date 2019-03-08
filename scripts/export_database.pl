@@ -20,6 +20,15 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+
+# This script exports database in CSV and RDF/XML formats. It's a command line
+# without any argument. Usage:
+# ./export_database.pl
+
+# TODO: factorize code with search_and_export_products() function
+# from ./lib/ProductOpener/Display.pm
+
+
 use CGI::Carp qw(fatalsToBrowser);
 
 use Modern::Perl '2012';
@@ -41,7 +50,7 @@ use ProductOpener::Data qw/:all/;
 
 # for RDF export: replace xml_escape() with xml_escape_NFC()
 use Unicode::Normalize;
-
+use URI::Escape::XS;
 
 
 
@@ -54,9 +63,35 @@ use DateTime qw/:all/;
 
 
 sub xml_escape_NFC($) {
+	my $s = shift;
+	if (defined $s) {
+		$s = sanitize_field_content($s);
+		return xml_escape(NFC($s)); # NFC is provided by Unicode::Normalize
+	}
+}
 
-        my $s = shift;
-        return xml_escape(NFC($s));
+
+# function sanitize_field_content("content", $LOG_FILE, $log_msg)
+#
+#   Replace non visible ASCII chars which can break the CSV file.
+#   Including NULL (000), SOH (001), STX (002), ETX (003), ETX (004), ENQ (005),
+#   ACK (006), BEL (007), BS (010 or \b), HT (011 or \t), LF (012 or \n),
+#   VT (013), FF (014 or \f), CR (015 or \r), etc.
+#   See https://en.wikipedia.org/wiki/ASCII
+#
+#   TODO? put it in ProductOpener::Data & use it to control data input and output
+#         Q: Do we have to *always* delete \n?
+#   TODO? Send an email if bad-chars?
+sub sanitize_field_content {
+	my $content = (shift(@_) // "");
+	my $LOG = shift(@_);
+	my $log_msg = (shift(@_) // "");
+	if ($content =~ /[\000-\037]/) {
+		print $LOG "$log_msg $content\n\n---\n" if (defined $LOG);
+		# TODO? replace the bad char by a space or by nothing?
+		$content =~ s/[\000-\037]+/ /g;
+	};
+	return $content;
 }
 
 
@@ -80,9 +115,10 @@ $fields_ref->{ingredients} = 1;
 $fields_ref->{images} = 1;
 $fields_ref->{lc} = 1;
 
-
+# Current date, used for RDF dcterms:modified: 2019-02-07
 my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
 my $date = sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
+
 
 # now that we have 200 languages, we can't run the export for every language.
 # foreach my $l (values %lang_lc) {
@@ -101,14 +137,17 @@ foreach my $l ("en", "fr") {
 	$total += $count;
 
 	print STDERR "lc: $lc - $count products\n";
+	print STDERR "Write file: $www_root/data/$lang.$server_domain.products.csv\n";
+	print STDERR "Write file: $www_root/data/$lang.$server_domain.products.rdf\n";
 
 	open (my $OUT, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.csv");
 	open (my $RDF, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.rdf");
+	open (my $BAD, ">:encoding(UTF-8)", "$www_root/data/$lang.$server_domain.products.bad-chars.log");
+
 
 	# Headers
 
-	my $csv = '';
-
+	# RDF header
 	print $RDF <<XML
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 		xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -144,85 +183,102 @@ The database is available under Open Database Licence 1.0 (ODbL) https://opendat
 XML
 ;
 
+	# CSV header
+	my $csv = '';
 
-		foreach my $field (@export_fields) {
+	foreach my $field (@export_fields) {
 
-			$csv .= $field . "\t";
+		$csv .= $field . "\t";
 
-
-			if ($field eq 'code') {
-
-				$csv .= "url\t";
-
-			}
-
-			if ($field =~ /_t$/) {
-				$csv .= $` . "_datetime\t";
-			}
-
-			if (defined $tags_fields{$field}) {
-				$csv .= $field . '_tags' . "\t";
-			}
-
-			if (defined $taxonomy_fields{$field}) {
-				$csv .= $field . "_$lc" . "\t";
-			}
-
-			if ($field eq 'emb_codes') {
-				$csv .= "first_packaging_code_geo\t";
-			}
-
+		# Add "url" field right after "code" field
+		if ($field eq 'code') {
+			$csv .= "url\t";
 		}
 
-		$csv .= "main_category\tmain_category_$lc\t";
-
-		$csv .= "image_url\timage_small_url\t";
-		$csv .= "image_ingredients_url\timage_ingredients_small_url\t";
-		$csv .= "image_nutrition_url\timage_nutrition_small_url\t";
-
-
-
-		foreach my $nid (@{$nutriments_tables{"europe"}}) {
-
-			$nid =~ /^#/ and next;
-
-			$nid =~ s/!//g;
-			$nid =~ s/^-//g;
-			$nid =~ s/-$//g;
-
-			$csv .= "${nid}_100g" . "\t";
+		# Add "created_datetime" and "last_modified_datetime" fields right after
+		# "created_t" and "last_modified_t"
+		if ($field =~ /_t$/) {
+			$csv .= $` . "_datetime\t";
 		}
+
+		# If the field is a tag field, add a normalized version of this field ending
+		# with _tag
+		if (defined $tags_fields{$field}) {
+			$csv .= $field . '_tags' . "\t";
+		}
+
+		# If the field is a taxonomy, add a localized version of this field ending
+		# with the country code; example: allergens   allergens_fr
+		if (defined $taxonomy_fields{$field}) {
+			$csv .= $field . "_$lc" . "\t";
+		}
+
+		if ($field eq 'emb_codes') {
+			$csv .= "first_packaging_code_geo\t";
+		}
+
+	}
+
+	$csv .= "main_category\tmain_category_$lc\t";
+
+	$csv .= "image_url\timage_small_url\t";
+	$csv .= "image_ingredients_url\timage_ingredients_small_url\t";
+	$csv .= "image_nutrition_url\timage_nutrition_small_url\t";
+
+
+
+	foreach my $nid (@{$nutriments_tables{"europe"}}) {
+
+		$nid =~ /^#/ and next;
+
+		$nid =~ s/!//g;
+		$nid =~ s/^-//g;
+		$nid =~ s/-$//g;
+
+		$csv .= "${nid}_100g" . "\t";
+	}
 
 	$csv =~ s/\t$/\n/;
 	print $OUT $csv;
 
+
+
+
 	# Products
 
 	my %ingredients = ();
+	my $ct = 0;
 
 	while (my $product_ref = $cursor->next) {
 
 		my $csv = '';
 		my $url = "http://world-$lc.$server_domain" . product_url($product_ref);
-		my $code = $product_ref->{code};
+		my $code = ($product_ref->{code} // '');
 
 		$code eq '' and next;
 		$code < 1 and next;
 
+		$ct++;
+		print "$ct \n" if ($ct % 1000 == 0); # print number of products each 1000
+
 		foreach my $field (@export_fields) {
 
-			$product_ref->{$field} =~ s/(\r|\n|\t)+/ /g;
+			my $field_value = ($product_ref->{$field} // "");
+			$field_value = sanitize_field_content($field_value, $BAD, "$code barcode -> field $field:");
 
-			$csv .= $product_ref->{$field} . "\t";
+			# Add field value to CSV file
+			$csv .= $field_value . "\t";
 
-
+			# If current field is "code", add the product url after it; example:
+			# 9542013592	http://world-fr.openfoodfacts.org/produit/0009542013592/gourmet-truffles-lindt
 			if ($field eq 'code') {
-
-
 				$csv .=  $url . "\t";
-
 			}
 
+			# If the field name ending with _t (ie a date in epoch format), add
+			# a field in ISO 8601 date format; example:
+			# created_t		created_datetime
+			# 1489061370	2017-03-09T12:09:30Z
 			if ($field =~ /_t$/) {
 				if ($product_ref->{$field} > 0) {
 					my $dt = DateTime->from_epoch( epoch => $product_ref->{$field} );
@@ -260,6 +316,9 @@ XML
 						$geo = $emb_codes_geo{$city_code}[0] . ',' . $emb_codes_geo{$city_code}[1];
 					}
 				}
+				# sanitize_field_content($field_value, $log_file, $log_msg);
+				$geo = sanitize_field_content($geo, $BAD, "$code barcode -> field $field:");
+
 				$csv .= $geo . "\t";
 			}
 
@@ -319,9 +378,9 @@ XML
 
 		ProductOpener::Display::add_images_urls_to_product($product_ref);
 
-		$csv .= $product_ref->{image_url} . "\t" . $product_ref->{image_small_url} . "\t";
-		$csv .= $product_ref->{image_ingredients_url} . "\t" . $product_ref->{image_ingredients_small_url} . "\t";
-		$csv .= $product_ref->{image_nutrition_url} . "\t" . $product_ref->{image_nutrition_small_url} . "\t";
+		$csv .= ($product_ref->{image_url} // "") . "\t" . ($product_ref->{image_small_url} // "") . "\t";
+		$csv .= ($product_ref->{image_ingredients_url} // "") . "\t" . ($product_ref->{image_ingredients_small_url} // "") . "\t";
+		$csv .= ($product_ref->{image_nutrition_url} // "") . "\t" . ($product_ref->{image_nutrition_small_url} // "") . "\t";
 
 
 		foreach my $nid (@{$nutriments_tables{"europe"}}) {
@@ -342,6 +401,9 @@ XML
 
 		$csv =~ s/\t$/\n/;
 
+
+
+
 		my $name = xml_escape_NFC($product_ref->{product_name});
 		my $ingredients_text = xml_escape_NFC($product_ref->{ingredients_text});
 
@@ -357,7 +419,11 @@ XML
 
 			foreach my $i (@{$product_ref->{ingredients}}) {
 
-				$rdf .= "\t<food:containsIngredient>\n\t\t<food:Ingredient>\n\t\t\t<food:food rdf:resource=\"http://fr.$server_domain/ingredient/" . $i->{id} . "\" />\n";
+				# Encode URI
+				my $ing_encoded = URI::Escape::XS::encodeURIComponent($i->{id});
+				$rdf .= "\t<food:containsIngredient>\n" .
+						"\t\t<food:Ingredient>\n" .
+						"\t\t\t<food:food rdf:resource=\"http://fr.$server_domain/ingredient/" . $ing_encoded . "\" />\n";
 				not defined $ingredients{$i->{id}} and $ingredients{$i->{id}} = {};
 				$ingredients{$i->{id}}{ucfirst($i->{text})}++;
 				if (defined $i->{rank}) {
@@ -393,6 +459,7 @@ XML
 	}
 
 	close $OUT;
+	close $BAD;
 
 	my %links = ();
 	if (-e "$data_root/rdf/${lc}_links")  {
@@ -423,6 +490,9 @@ XML
 			$sameas = "\n\t<owl:sameAs rdf:resource=\"$links{$i}\"/>";
 		}
 
+		# Encode URI
+		$i = URI::Escape::XS::encodeURIComponent($i);
+
 		print $RDF <<XML
 <rdf:Description rdf:about="http://$lc.$server_domain/ingredient/$i" rdf:type="http://data.lirmm.fr/ontologies/food#Food">
 	<food:name>$name</food:name>$sameas
@@ -432,22 +502,19 @@ XML
 ;
 	}
 
-	print $RDF <<XML
-</rdf:RDF>
-XML
-;
+	print $RDF "</rdf:RDF>\n";
 
 	close $RDF;
 
 }
 
 
-my $html = "<p>$total products:</p>";
+my $html = "<p>$total products:</p>\n";
 foreach my $l (sort { $langs{$b} <=> $langs{$a}} keys %langs) {
 
 	if ($langs{$l} > 0) {
 		$lang = $l;
-		$html .= "<p><a href=\"http://$lang.$server_domain/\">" . $Langs{$l} . "</a> - $langs{$l} " . lang("products") . "</p>";
+		$html .= "<p><a href=\"http://$lang.$server_domain/\">" . $Langs{$l} . "</a> - $langs{$l} " . lang("products") . "</p>\n";
 	}
 
 }

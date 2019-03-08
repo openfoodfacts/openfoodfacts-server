@@ -154,7 +154,7 @@ msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p> Bu ürün henüz << site_name >> veritabanında değil. <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"> << site_name >> </ a adresine ürün, barkod, içerik listesi ve beslenme bilgileri ile ilgili bazı resimler götürebilir misiniz? >? </ p>\n"
+msgstr "<p> Bu ürün henüz <<site_name>> veritabanında değil. <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"> <<site_name>> </ a adresine ürün, barkod, içerik listesi ve beslenme bilgileri ile ilgili bazı resimler götürebilir misiniz? >? </ p>\n"
 "<p> Teşekkür ederiz! </ p>\n"
 
 msgctxt "app_take_a_picture"
@@ -761,7 +761,7 @@ msgstr ""
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
-msgstr "<< site_name >> wiki (en)"
+msgstr "<<site_name>> wiki (en)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
@@ -1239,7 +1239,7 @@ msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
 msgstr "<p>Ürün eklemek veya düzenlemek için lütfen giriş yapın.</p>\n\n"
-"<p>Henüz hesabınız yok ise, <site_name><a href=\"/cgi/user.pl\"> 30 saniye içerisinde kayıt olabilirsiniz</a></p>\n"
+"<p>Henüz hesabınız yok ise, <<site_name>><a href=\"/cgi/user.pl\"> 30 saniye içerisinde kayıt olabilirsiniz</a></p>\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
@@ -1572,7 +1572,7 @@ msgstr "https://world.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.pn
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://en.blog.openfoodfacts.org\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p> << site_name >> hakkında daha fazla bilgi edinmek için <a href=\"https://en.blog.openfoodfacts.org\"> blogumuzu </a> ziyaret edin! </ p>\n"
+msgstr "<p> <<site_name>> hakkında daha fazla bilgi edinmek için <a href=\"https://en.blog.openfoodfacts.org\"> blogumuzu </a> ziyaret edin! </ p>\n"
 "<p> Son haberler: </ p>\n"
 
 msgctxt "on_the_blog_title"
@@ -1582,7 +1582,7 @@ msgstr "Haberler"
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr "21 Şubat 2015 Cumartesi'den Pazar 1 Mart 2015 e kadar, << site_name> üzerinde <a href=\"/open-food-hunt-2015\"> Açık Yemek Avı </a>! Katkıda bulunanlara ödül verildi\n"
+msgstr "21 Şubat 2015 Cumartesi'den Pazar 1 Mart 2015 e kadar, <<site_name>> üzerinde <a href=\"/open-food-hunt-2015\"> Açık Yemek Avı </a>! Katkıda bulunanlara ödül verildi\n"
 "Explorer, ekledikleri ürünler için puan verir ve Büyükelçi, işe aldıkları yeni katılımcılar için puan verir. Puanlar her 30 dakikada bir güncellenir."
 
 msgctxt "or"
@@ -1899,7 +1899,7 @@ msgstr "ürünler"
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
-msgstr "<< site_name >> üzerindeki ürün sayısının güncellenmesi"
+msgstr "<<site_name>> üzerindeki ürün sayısının güncellenmesi"
 
 msgctxt "products_stats_completed_t"
 msgid "Products with complete information"
@@ -1987,7 +1987,7 @@ msgstr "Merhaba <NAME>,\n\n"
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
-msgstr "<< site_name >> Üzerinde şifrenizi sıfırlayın"
+msgstr "<<site_name>> Üzerinde şifrenizi sıfırlayın"
 
 msgctxt "reset_password_reset"
 msgid "Your password has been changed. You can now log-in with this password."
@@ -2111,7 +2111,7 @@ msgstr "Dağılım grafiği"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr "<p> → << site_name >> grafikleri hakkında daha fazla bilgi edinin: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\"> 3 tıklamayla grafikler </ a> (blog). </ p>"
+msgstr "<p> → <<site_name>> grafikleri hakkında daha fazla bilgi edinin: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\"> 3 tıklamayla grafikler </ a> (blog). </ p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
