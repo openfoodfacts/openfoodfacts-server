@@ -3641,6 +3641,17 @@ sub search_and_export_products($$$$$) {
 	elsif ($count == 0) {
 		$html .= "<p>" . lang("no_products") . "</p>";
 	}
+	
+	# On demand exports can be very big, limit the number of products
+	my $export_limit = 100000;
+	
+	if (defined $options{export_limit}) {
+		$export_limit = $options{export_limit};
+	}
+	
+	if ($count > $export_limit) {
+		$html .= "<p>" . sprintf(lang("error_too_many_products_to_export"), $count, $export_limit) . "</p>";
+	}
 
 	if (defined $request_ref->{current_link_query}) {
 		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
@@ -3648,9 +3659,10 @@ sub search_and_export_products($$$$$) {
 		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
 	}
 
-	if ($count <= 0) {
+	if (($count <= 0) or ($count > $export_limit)) {
 		# $request_ref->{content_html} = $html;
 		$request_ref->{title} = lang("search_results");
+		$request_ref->{content_ref} = \$html;
 		display_new($request_ref);
 		return;
 	}

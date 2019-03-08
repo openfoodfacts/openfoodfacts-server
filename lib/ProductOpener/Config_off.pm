@@ -114,6 +114,8 @@ twoflower
 
 );
 
+$options{export_limit} = 10000;
+
 $options{users_who_can_upload_small_images} = {
 map { $_ => 1 } qw(
 systeme-u
