@@ -46,6 +46,7 @@ requires 'Data::Dumper::AutoEncode';
 requires 'XML::Rules';
 requires 'Email::Stuffer';
 requires 'Text::CSV', '>= 1.99, < 2.0';
+requires 'Digest::SHA3', '>= 1.04';
 
 # Logging
 requires 'Log::Any', '>= 1.705';

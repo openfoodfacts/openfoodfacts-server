@@ -455,6 +455,9 @@ sub process_image_upload($$$$$$) {
 		$log->trace("validating file type") if $log->is_trace();
 		my $validate = Image::Magick->new();
 		my ($width, $height, $size, $format) = $validate->Ping($file);
+		local $log->context->{width} = $width;
+		local $log->context->{height} = $height;
+		local $log->context->{size} = $size;
 		local $log->context->{format} = $format;
 		if (not (defined $format)) {
 			$log->info("file type invalid") if $log->is_info();
@@ -462,6 +465,13 @@ sub process_image_upload($$$$$$) {
 		}
 		else {
 			$log->debug("file type validated") if $log->is_debug();
+
+			# Check the image is big enough so that we do not get thumbnails from other sites
+			if (  (($width < 640) and ($height < 160))
+				and ((not defined $options{users_who_can_upload_small_images})
+					or (not defined $options{users_who_can_upload_small_images}{$userid}))){
+				return -4;
+			}
 
 			my $extension = 'jpg';
 			if ($file =~ /\.(gif|jpeg|jpg|png)$/i) {
@@ -571,15 +581,6 @@ sub process_image_upload($$$$$$) {
 			}
 
 			("$x") and $log->error("cannot read image", { path => "$www_root/images/products/$path/$imgid.$extension", error => $x });
-
-			# Check the image is big enough so that we do not get thumbnails from other sites
-			if (  (($source->Get('width') < 640) and ($source->Get('height') < 160))
-				and ((not defined $options{users_who_can_upload_small_images})
-					or (not defined $options{users_who_can_upload_small_images}{$userid}))){
-				unlink "$www_root/images/products/$path/$imgid.$extension";
-				rmdir ("$www_root/images/products/$path/$imgid.lock");
-				return -4;
-			}
 
 			$new_product_ref->{"images.$imgid.w"} = $source->Get('width');
 			$new_product_ref->{"images.$imgid.h"} = $source->Get('height');
