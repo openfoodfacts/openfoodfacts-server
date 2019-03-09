@@ -450,13 +450,16 @@ sub process_image_upload($$$$$$) {
 	if ($file) {
 		$log->debug("processing uploaded file") if $log->is_debug();
 
-		if ($file !~ /\.(gif|jpeg|jpg|png)$/i) {
-			# We have a "blob" without file name and extension?
-			# try to assume it is jpeg (and let ImageMagick read it anyway if it's something else)
-			# $file .= ".jpg";
+		# Validate file type using PerlMagick: https://stackoverflow.com/a/11083323/11963
+		$log->trace("validating file type") if $log->is_trace();
+		my $validate = Image::Magick->new();
+		my ($width, $height, $size, $format) = $validate->Ping($file);
+		local $log->context->{format} = $format;
+		if (not (defined $format)) {
+			$log->info("file type invalid") if $log->is_info();
+			$img_id = -5;
 		}
-
-		if (1 or ($file =~ /\.(gif|jpeg|jpg|png)$/i)) {
+		else {
 			$log->debug("file type validated") if $log->is_debug();
 
 			my $extension = 'jpg';
