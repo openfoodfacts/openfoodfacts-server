@@ -59,7 +59,7 @@ sub _get($$) {
 	my $flow = shift;
 	my $challenge = shift;
 
-	my $url = "$hydra_issuer_url/oauth2/auth/requests/$flow/$challenge";
+	my $url = "$hydra_admin_url/oauth2/auth/requests/$flow/$challenge";
 
 	my $ua = LWP::UserAgent->new(ssl_opts => { verify_hostname => 0 });
 
@@ -85,7 +85,7 @@ sub _put($$$$) {
 	my $challenge = shift;
 	my $body = shift;
 
-	my $url = "$hydra_issuer_url/oauth2/auth/requests/$flow/$challenge/$action";
+	my $url = "$hydra_admin_url/oauth2/auth/requests/$flow/$challenge/$action";
 	my $json = encode_json($body);
 
 	my $ua = LWP::UserAgent->new(ssl_opts => { verify_hostname => 0 });

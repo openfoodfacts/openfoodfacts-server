@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -68,7 +68,7 @@ sub _display_form($) {
 	</div>
 	</div>
 	<input type="submit" name=".submit" value="$Lang{login_register_title}{$lc}" class="button small">
-	<input type="hidden" name="challenge" value="$challenge">
+	<input type="hidden" name="login_challenge" value="$challenge">
 	</form>
 
 HTML
@@ -89,14 +89,14 @@ if ($ENV{'REQUEST_METHOD'} eq 'GET') {
 		$log->debug('received login response for challenge from ORY Hydra', { challenge => $get_challenge, get_login_response => $get_login_response }) if $log->is_debug();
 		if ($get_login_response) {
 			#  If hydra was already able to authenticate the user, skip will be true and we do not need to re-authenticate the user.
-			if ($get_login_response->skip) {
+			if ($get_login_response->{skip}) {
 				$log->info('accepting login challenge, because ORY Hydra asks us to skip login', { challenge => $get_challenge }) if $log->is_info();
-				my $accept_login_response = accept_login_request($get_challenge, { subject => $get_login_response->subject });
+				my $accept_login_response = accept_login_request($get_challenge, { subject => $get_login_response->{subject} });
 				$log->debug('received accept login response for challenge from ORY Hydra', { challenge => $get_challenge, accept_login_response => $accept_login_response }) if $log->is_debug();
 				if ($accept_login_response) {
-					$log->info('login accepted by ORY Hydra, redirecting the user to the specified URL', { challenge => $get_challenge, redirect_to => $accept_login_response->redirect_to }) if $log->is_info();
+					$log->info('login accepted by ORY Hydra, redirecting the user to the specified URL', { challenge => $get_challenge, redirect_to => $accept_login_response->{redirect_to} }) if $log->is_info();
 					my $r = shift;
-					$r->headers_out->set(Location => $accept_login_response->redirect_to);
+					$r->headers_out->set(Location => $accept_login_response->{redirect_to});
 					$r->status(302);
 					return 302;
 				}
@@ -125,9 +125,9 @@ elsif ($ENV{'REQUEST_METHOD'} eq 'POST') {
 		my $accept_login_response = accept_login_request($post_challenge, { subject => $User_id, remember => $remember_me, remember_for => 3600 });
 		$log->debug('received accept login response for challenge from ORY Hydra', { challenge => $post_challenge, accept_login_response => $accept_login_response }) if $log->is_debug();
 		if ($accept_login_response) {
-			$log->info('login accepted by ORY Hydra, redirecting the user to the specified URL', { challenge => $post_challenge, redirect_to => $accept_login_response->redirect_to }) if $log->is_info();
+			$log->info('login accepted by ORY Hydra, redirecting the user to the specified URL', { challenge => $post_challenge, redirect_to => $accept_login_response->{redirect_to} }) if $log->is_info();
 			my $r = shift;
-			$r->headers_out->set(Location => $accept_login_response->redirect_to);
+			$r->headers_out->set(Location => $accept_login_response->{redirect_to});
 			$r->status(302);
 			return 302;
 		}

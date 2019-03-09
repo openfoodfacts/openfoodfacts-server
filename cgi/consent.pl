@@ -55,46 +55,51 @@ sub _display_form($$$$) {
 HTML
 ;
 
-	if ((defined $client->logo_uri) and ($client->logo_uri ne '')) {
-		$html .= '<div class="small-12 columns"><img src="' . escapeHTML($client->logo_uri) . '"></div>';
+	if ((defined $client->{logo_uri}) and ($client->{logo_uri} ne '')) {
+		$html .= '<div class="small-12 columns"><img src="' . escapeHTML($client->{logo_uri}) . '"></div>';
 	}
 
-	my $display_client = $client->client_name;
+	my $display_client = $client->{client_name};
 	if ((not defined $display_client) or ($display_client eq '')) {
-		$display_client = $client->client_id;
+		$display_client = $client->{client_id};
 	}
 
 	my $greeting = sprintf('Hi %s application <strong>%s</strong> wants access resources on your behalf and to:', escapeHTML($User_id),  escapeHTML($display_client));
 	$html .= '<div class="small-12 columns"><p>' . $greeting . '</p></div>';
 
-	$html .= '<div class="small-12 columns">';
-	foreach my $scope (@{$requested_scope}) {
-		$html .= <<HTML
-		<label>
-			<input type="checkbox" id="$scope" name="grant_scope" value="$scope">
-			$scope
-		</label>
-		<br>
+	eval {
+		if (defined $requested_scope) {
+			$html .= '<div class="small-12 columns">';
+			foreach my $scope (@{$requested_scope}) {
+				$html .= <<HTML
+				<label>
+					<input type="checkbox" id="$scope" name="grant_scope" value="$scope">
+					$scope
+				</label>
+				<br>
 HTML
 ;
-	}
+			}
+		}
+		1;
+	};
 
 	$html .=  '</div>';
 	$html .= '<div class="small-12 columns"><p>Do you want to be asked next time when this application wants to access your data? The application will not be able to ask for more permissions without your consent.</p><ul>';
 
-	if (defined $client->policy_url) {
+	if (defined $client->{policy_url}) {
 		$html .= <<HTML
 		<li>
-			<a href="$client->policy_url">Policy</a>
+			<a href="$client->{policy_url}">Policy</a>
 		</li>
 HTML
 ;
 	}
 
-	if (defined $client->tos_uri) {
+	if (defined $client->{tos_uri}) {
 		$html .= <<HTML
 		<li>
-			<a href="$client->tos_uri">Terms of Service</a>
+			<a href="$client->{tos_uri}">Terms of Service</a>
 		</li>
 HTML
 ;
@@ -110,7 +115,7 @@ HTML
 	</div>
 	<input type="submit" name="submit" value="$Lang{consent_allow_access}{$lc}" class="button small">
 	<input type="submit" name="submit" value="$Lang{consent_deny_access}{$lc}" class="button small">
-	<input type="hidden" name="challenge" value="$challenge">
+	<input type="hidden" name="consent_challenge" value="$challenge">
 	</form>
 HTML
 ;
@@ -137,25 +142,25 @@ elsif ($ENV{'REQUEST_METHOD'} eq 'GET') {
 		$log->debug('received consent response for challenge from ORY Hydra', { challenge => $get_challenge, get_consent_response => $get_consent_response }) if $log->is_debug();
 		if ($get_consent_response) {
 			#  If a user has granted this application the requested scope, hydra will tell us to not show the UI.
-			if ($get_consent_response->skip) {
+			if ($get_consent_response->{skip}) {
 				# We can grant all scopes that have been requested - hydra already checked for us that no additional scopes are requested accidentally.
 				$log->info('accepting consent challenge, because ORY Hydra asks us to skip consent', { challenge => $get_challenge }) if $log->is_info();
 				my $accept_consent_response = accept_consent_request($get_challenge,
 					{
-						grant_scope => $get_consent_response->requested_scope,
- 						grant_access_token_audience => $get_consent_response->requested_access_token_audience
+						grant_scope => $get_consent_response->{requested_scope},
+ 						grant_access_token_audience => $get_consent_response->{requested_access_token_audience}
 					});
 				$log->debug('received accept consent response for challenge from ORY Hydra', { challenge => $get_challenge, accept_consent_response => $accept_consent_response }) if $log->is_debug();
 				if ($accept_consent_response) {
-					$log->info('consent accepted by ORY Hydra, redirecting the user to the specified URL', { challenge => $get_challenge, redirect_to => $accept_consent_response->redirect_to }) if $log->is_info();
+					$log->info('consent accepted by ORY Hydra, redirecting the user to the specified URL', { challenge => $get_challenge, redirect_to => $accept_consent_response->{redirect_to} }) if $log->is_info();
 					my $r = shift;
-					$r->headers_out->set(Location => $accept_consent_response->redirect_to);
+					$r->headers_out->set(Location => $accept_consent_response->{redirect_to});
 					$r->status(302);
 					return 302;
 				}
 			}
 			else {
-				_display_form($get_challenge, \$get_consent_response->requested_scope, $get_consent_response->user, $get_consent_response->client);
+				_display_form($get_challenge, \$get_consent_response->{requested_scope}, $get_consent_response->{user}, $get_consent_response->{client});
 			}
 		}
 	}
@@ -176,9 +181,9 @@ elsif ($ENV{'REQUEST_METHOD'} eq 'POST') {
 		});
 		$log->debug('received reject consent response for challenge from ORY Hydra', { challenge => $post_challenge, reject_consent_response => $reject_consent_response }) if $log->is_debug();
 		if ($reject_consent_response) {
-			$log->info('rejection accepted by ORY Hydra, redirecting the user to the specified URL', { challenge => $post_challenge, redirect_to => $reject_consent_response->redirect_to }) if $log->is_info();
+			$log->info('rejection accepted by ORY Hydra, redirecting the user to the specified URL', { challenge => $post_challenge, redirect_to => $reject_consent_response->{redirect_to} }) if $log->is_info();
 			my $r = shift;
-			$r->headers_out->set(Location => $reject_consent_response->redirect_to);
+			$r->headers_out->set(Location => $reject_consent_response->{redirect_to});
 			$r->status(302);
 			return 302;
 		}
@@ -203,19 +208,23 @@ elsif ($ENV{'REQUEST_METHOD'} eq 'POST') {
 
 			my $accept_consent_response = accept_consent_request($post_challenge, {
 				grant_scope => \@grant_scope,
-				grant_access_token_audience => $get_consent_response->requested_access_token_audience,
+				grant_access_token_audience => $get_consent_response->{requested_access_token_audience},
 				remember => $remember_me,
 				remember_for => 3600
 			});
 			$log->debug('received accept consent response for challenge from ORY Hydra', { challenge => $post_challenge, accept_consent_response => $accept_consent_response }) if $log->is_debug();
 			if ($accept_consent_response) {
-				$log->info('accepted consent accepted by ORY Hydra, redirecting the user to the specified URL', { challenge => $post_challenge, redirect_to => $accept_consent_response->redirect_to }) if $log->is_info();
+				$log->info('accepted consent accepted by ORY Hydra, redirecting the user to the specified URL', { challenge => $post_challenge, redirect_to => $accept_consent_response->{redirect_to} }) if $log->is_info();
+				my $r = shift;
+				$r->headers_out->set(Location => $accept_consent_response->{redirect_to});
+				$r->status(302);
+				return 302;
 			}
 			else {
 				die 'Could not talk to Hydra';
 			}
 
-			_display_form($post_challenge, \$get_consent_response->requested_scope, $get_consent_response->user, $get_consent_response->client);
+			_display_form($post_challenge, \$get_consent_response->{requested_scope}, $get_consent_response->{user}, $get_consent_response->{client});
 		}
 		else {
 			die 'Could not talk to Hydra';

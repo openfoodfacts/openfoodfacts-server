@@ -26,7 +26,7 @@ services:
       serve all --dangerous-force-http
     environment:
       - DATABASE_URL=memory
-      - OAUTH2_ISSUER_URL=https://hydra.productopener.localhost/
+      - OAUTH2_ISSUER_URL=http://hydra.productopener.localhost/
       - OAUTH2_CONSENT_URL=http://world.productopener.localhost/cgi/consent.pl
       - OAUTH2_LOGIN_URL=http://world.productopener.localhost/cgi/login.pl
       - SYSTEM_SECRET=youReallyNeedToChangeThis
