@@ -291,6 +291,7 @@ if ((defined $images_dir) and ($images_dir ne '')) {
 			if ($file2 =~ /(\d+)(_|-|\.)?([^\.-]*)?((-|\.)(.*))?\.(jpg|jpeg|png)/i) {
 
 				my $code = $1;
+				$code = normalize_code($code);
 				my $imagefield = $3;	# front / ingredients / nutrition , optionnaly with _[language code] suffix
 
 				if ((not defined $imagefield) or ($imagefield eq '')) {
@@ -329,7 +330,9 @@ my $skip_not_existing = 0;
 my $skip_no_images = 0;
 
 #my $skip_until = 8018759001393;
-my $skip_until;
+#my $skip_until = 0;
+
+my $skip_until = 0;
 
 while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
@@ -343,6 +346,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 	my @images_ids;
 
 	my $code = remove_tags_and_quote($imported_product_ref->{code});
+	$code = normalize_code($code);
 
 	if ((defined $skip_if_not_code) and ($code ne $skip_if_not_code)) {
 		next;
@@ -514,10 +518,10 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		# fields suffixed with _if_not_existing are loaded only if the product does not have an existing value
 		
 		if (not ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} !~ /^\s*$/))
-			and ((defined $imported_product_ref->{$field . "_if_not_existing"}) and ($imported_product_ref->{$field . "_if_not_existing"} !~ /^\s*$/))
+			and ((defined $imported_product_ref->{$field . "_if_not_existing"}) and ($imported_product_ref->{$field . "_if_not_existing"} !~ /^\s*$/))) {
 			print STDERR "no existing value for $field, using value from ${field}_if_not_existing: " . $imported_product_ref->{$field . "_if_not_existing"} . "\n";
-			$imported_product_ref->{$field} = $imported_product_ref->{$field . "_if_not_existing"}
-		) {
+			$imported_product_ref->{$field} = $imported_product_ref->{$field . "_if_not_existing"};
+		}
 		
 
 		if ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} !~ /^\s*$/)) {
@@ -1084,7 +1088,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 
 
 	if ($modified) {
-		$j++ > 10 and last;
+		# $j++ > 10 and last;
 	}
 }
 
