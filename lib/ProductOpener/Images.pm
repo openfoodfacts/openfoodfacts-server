@@ -65,6 +65,7 @@ use ProductOpener::Products qw/:all/;
 use CGI qw/:cgi :form escapeHTML/;
 
 use File::Path qw(make_path);
+use Digest::SHA3;
 use Image::Magick;
 use Graphics::Color::RGB;
 use Graphics::Color::HSL;
@@ -416,6 +417,7 @@ sub process_image_upload($$$$$$) {
 	not defined $imgid_ref and $imgid_ref = \$bogus_imgid;
 
 	my $path = product_path($code);
+	my $image_base_path = "$www_root/images/products/$path";
 	my $imgid = -1;
 
 	my $new_product_ref = {};
@@ -461,7 +463,7 @@ sub process_image_upload($$$$$$) {
 		local $log->context->{format} = $format;
 		if (not (defined $format)) {
 			$log->info("file type invalid") if $log->is_info();
-			$img_id = -5;
+			$imgid = -5;
 		}
 		else {
 			$log->debug("file type validated") if $log->is_debug();
@@ -481,26 +483,50 @@ sub process_image_upload($$$$$$) {
 			my $filename = get_fileid(remote_addr(). '_' . $`);
 
 			my $current_product_ref = retrieve_product($code);
-			$imgid = $current_product_ref->{max_imgid} + 1;
 
 			# if for some reason the images directories were not created
 			# at product creation (it can happen if the images directory's
 			# permission / ownership are incorrect at some point),
 			# create the the directories for the product
-			make_path("$www_root/images/products/$path/", { chmod => 0755 });
+			make_path("$image_base_path/", { chmod => 0755 });
 
-			my $lock_path = "$www_root/images/products/$path/$imgid.lock";
-			while (-e $lock_path) {
-				$imgid++;
-				$lock_path = "$www_root/images/products/$path/$imgid.lock";
+			$imgid = Digest::SHA3->new(224)->addfile($file, 'b')->b64digest;
+			local $log->context->{imgid} = $imgid;
+			my $img_path = "$image_base_path/$imgid.$extension";
+			# Check that we don't already have the image with the same name
+			if (-e $img_path) {
+				return -3;
 			}
 
-			local $log->context->{imgid} = $imgid;
+			# Check that there's no other file with the same hash
+			$log->debug("comparing existing images with hash of new image", { path => $img_path }) if $log->is_debug();
+			my @files = glob("$image_base_path/*.*");
+			foreach my $existing_image_path (@files) {
+				next if not -f $existing_image_path;
+
+				my $existing_image_hash = Digest::SHA3->new(224)->addfile($existing_image_path, 'b')->b64digest;
+				$log->debug("comparing image", { existing_image_path => $existing_image_path, existing_image_hash => $existing_image_hash }) if $log->is_debug();
+				if ($existing_image_hash eq $imgid) {
+					$log->debug("image with same hash detected", { existing_image_path => $existing_image_path, existing_image_hash => $existing_image_hash }) if $log->is_debug();
+					# check the image was stored inside the
+					# product, it is sometimes missing
+					# (e.g. during crashes)
+					my $product_ref = retrieve_product($code);
+					if ((defined $product_ref) and (defined $product_ref->{images}) and (exists $product_ref->{images}{$imgid})) {
+						$$imgid_ref = $imgid;
+						return -3;
+					}
+					else {
+						$log->warn("image missing in product.sto");
+					}
+				}
+			}
+
 			$log->debug("new imgid determined") if $log->is_debug();
 
+			my $lock_path = "$image_base_path/$imgid.lock";
 			mkdir ($lock_path, 0755) or $log->warn("could not create lock file for the image", { path => $lock_path, error => $! });
 
-			my $img_path = "$www_root/images/products/$path/$imgid.$extension";
 			open (my $out, ">", $img_path) or $log->warn("could not open image path for saving", { path => $img_path, error => $! });
 			while (my $chunk = <$file>) {
 				print $out $chunk;
@@ -549,38 +575,9 @@ sub process_image_upload($$$$$$) {
 			}
 
 			$source->Set('quality',95);
-			$x = $source->Write("jpeg:$www_root/images/products/$path/$imgid.jpg");
+			$x = $source->Write("jpeg:$image_base_path/$imgid.jpg");
 
-			# Check that we don't already have the image
-
-			my $size = -s $img_path;
-			local $log->context->{img_size} = $size;
-
-			$log->debug("comparing existing images with size of new image", { path => $img_path, size => $size }) if $log->is_debug();
-			for (my $i = 0; $i < $imgid; $i++) {
-				my $existing_image_path = "$www_root/images/products/$path/$i.$extension";
-				my $existing_image_size = -s $existing_image_path;
-				$log->debug("comparing image", { existing_image_index => $i, existing_image_path => $existing_image_path, existing_image_size => $existing_image_size }) if $log->is_debug();
-				if ((defined $existing_image_size) and ($existing_image_size == $size)) {
-					$log->debug("image with same size detected", { existing_image_index => $i, existing_image_path => $existing_image_path, existing_image_size => $existing_image_size }) if $log->is_debug();
-					# check the image was stored inside the
-					# product, it is sometimes missing
-					# (e.g. during crashes)
-					my $product_ref = retrieve_product($code);
-					if ((defined $product_ref) and (defined $product_ref->{images}) and (exists $product_ref->{images}{$i})) {
-						$log->debug("unlinking image", { imgid => $imgid, file => "$www_root/images/products/$path/$imgid.$extension" }) if $log->is_debug();
-						unlink "$www_root/images/products/$path/$imgid.$extension";
-						rmdir ("$www_root/images/products/$path/$imgid.lock");
-						$$imgid_ref = $i;
-						return -3;
-					}
-					else {
-						print STDERR "missing image $i in product.sto, keeping image $imgid\n";
-					}
-				}
-			}
-
-			("$x") and $log->error("cannot read image", { path => "$www_root/images/products/$path/$imgid.$extension", error => $x });
+			("$x") and $log->error("cannot read image", { path => "$image_base_path/$imgid.$extension", error => $x });
 
 			$new_product_ref->{"images.$imgid.w"} = $source->Get('width');
 			$new_product_ref->{"images.$imgid.h"} = $source->Get('height');
@@ -607,12 +604,12 @@ sub process_image_upload($$$$$$) {
 					gravity=>"center");
 				_set_magickal_options($img, $w);
 
-				my $x = $img->Write("jpeg:$www_root/images/products/$path/$imgid.$max.jpg");
+				my $x = $img->Write("jpeg:$image_base_path/$imgid.$max.jpg");
 				if ("$x") {
-					$log->warn("could not write jpeg", { path => "jpeg:$www_root/images/products/$path/$imgid.$max.jpg", error => $x }) if $log->is_warn();
+					$log->warn("could not write jpeg", { path => "jpeg:$image_base_path/$imgid.$max.jpg", error => $x }) if $log->is_warn();
 				}
 				else {
-					$log->info("jpeg written", { path => "jpeg:$www_root/images/products/$path/$imgid.$max.jpg" }) if $log->is_info();
+					$log->info("jpeg written", { path => "jpeg:$image_base_path/$imgid.$max.jpg" }) if $log->is_info();
 				}
 
 				$new_product_ref->{"images.$imgid.$max"} = "$imgid.$max";
@@ -653,7 +650,7 @@ sub process_image_upload($$$$$$) {
 				# and computer vision algorithms
 
 				(-e "$data_root/new_images") or mkdir("$data_root/new_images", 0755);
-				symlink("$www_root/images/products/$path/$imgid.jpg", "$data_root/new_images/" . time() . "." . $code . "." . $imagefield . "." . $imgid . ".jpg");
+				symlink("$image_base_path/$imgid.jpg", "$data_root/new_images/" . time() . "." . $code . "." . $imagefield . "." . $imgid . ".jpg");
 
 			}
 			else {
@@ -661,7 +658,7 @@ sub process_image_upload($$$$$$) {
 				$imgid = -5;
 			}
 
-			rmdir ("$www_root/images/products/$path/$imgid.lock");
+			rmdir ("$image_base_path/$imgid.lock");
 		}
 
 		# make sure to close the file so that it does not stay in /tmp forever
