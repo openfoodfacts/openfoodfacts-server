@@ -10,3 +10,6 @@ cd /srv/off/html/data
 gzip < en.openfoodfacts.org.products.rdf > en.openfoodfacts.org.products.rdf.gz
 gzip < fr.openfoodfacts.org.products.rdf > fr.openfoodfacts.org.products.rdf.gz
 
+gzip < en.openfoodfacts.org.products.csv > en.openfoodfacts.org.products.csv.gz
+gzip < fr.openfoodfacts.org.products.csv > fr.openfoodfacts.org.products.csv.gz
+
