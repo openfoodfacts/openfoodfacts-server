@@ -105,6 +105,8 @@ HTML
 ;
 	}
 
+	my $allow = lang('consent_allow_access');
+	my $deny = lang('consent_deny_access');
 	$html .= <<HTML
 	<div class="small-12 columns">
 		<label>
@@ -113,8 +115,8 @@ HTML
 		</label>
 	</div>
 	</div>
-	<input type="submit" name="submit" value="$Lang{consent_allow_access}{$lc}" class="button small">
-	<input type="submit" name="submit" value="$Lang{consent_deny_access}{$lc}" class="button small">
+	<input type="submit" name="submit" value="$allow" class="button small">
+	<input type="submit" name="submit" value="$deny" class="button small">
 	<input type="hidden" name="consent_challenge" value="$challenge">
 	</form>
 HTML
@@ -171,7 +173,7 @@ elsif ($ENV{'REQUEST_METHOD'} eq 'POST') {
 	my @grant_scope = param('grant_scope');
 	$log->info('received consent POST for challenge', { challenge => $post_challenge, user_action => $user_action, grant_scope => \@grant_scope }) if $log->is_info();
 	# Let's see if the user decided to accept or reject the consent request..
-	if ((not (defined $user_action)) || ($user_action eq 'Deny access'))
+	if ((not (defined $user_action)) || (not ($user_action eq lang('consent_allow_access'))))
 	{
 		# Looks like the consent request was denied by the user
 		$log->info('rejecting consent challenge on behalf of the user', { challenge => $post_challenge }) if $log->is_info();
