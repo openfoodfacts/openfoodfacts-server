@@ -33839,12 +33839,12 @@ it:semi di sesamo, grani di sesamo
 nl:sesamzaad, sesam zaden
 pt:sementes de sésam
 sv:sesamtrön
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-sesame
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-sesame
 # 1632 products in 11 languages @2018-10-05
 
 <en:sesame
 fr:sésame complet
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sésame%20complet
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sésame%20complet
 # 35 products in 4 languages @2018-10-05
 
 <en:sesame
@@ -33854,7 +33854,7 @@ de:Sesampaste
 fr:pâte de sésame
 it:pasta di sesamo
 sv:sesam-kräm
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte%20de%20sésame
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte%20de%20sésame
 # 105 products in 4 languages @2018-10-05
 
 
@@ -33917,6 +33917,71 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tahini
 #                                     S P I C E S     S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+
+# A condiment or table sauce is a spice, sauce, or preparation (such as onions) that is added to food to impart a specific flavor, to enhance the flavor
+
+en:condiment
+ar:توابل
+am:ܐܨܪܐ
+# ast:Condimentu
+az:Çeşni
+be:смакавыя дабаўкі
+ca:condiment
+cs:ochucovadlo
+cy:Cyfwyd
+de:Würzmittel
+el:Καρύκευμα
+eo:kondimento
+es:condimento, condimentos
+eu:ongailu
+fa:چاشنی
+fi:maustekastike
+fr:condiment, condiments
+ga:Blastán
+gl:condimento
+he:רוטב לתיבול
+hy:համեմունք
+id:Bahan penyedap
+io:Kondimento
+it:condimento
+ja:調味料
+kk:Дәмқосар
+ko:조미료
+# lzh:作料
+ms:Bumbu
+nn:smakstilsetjing
+oc:condiment
+pl:przyprawa
+pt:condimento
+ro:Mirodenie
+ru:приправы
+# scn:conza
+sv:smaktillsats
+tr:Çeşni
+uk:Смакові добавки
+vi:Phụ gia
+# wuu:调味料
+# yue:調味料
+zh:食品添加剂
+wikidata:en:Q2596997
+wikipedia:en:https://en.wikipedia.org/wiki/Condiment
+# ingredient/fr:condiment has 360 products in 6 languages @2019-03-09
+
+<en:condiment
+en:powdered condiment
+de:Streuwürze
+fr:condiment en poudre, condiments en poudre
+it:condimento in polvere
+# ingredient/fr:condiment-en-poudre has 274 products in 4 languages @2019-03–09
+
+<en:condiment
+en: mixed condiments, seasoning mix
+de: Würzmischung
+fr:mélange de condiments
+it: condimenti misti
+# ingredient/fr:mélange-de-condiments has 161 products @2019-03-09
 
 
 en:spice, spices
@@ -47172,7 +47237,6 @@ fr:glycérine
 es:Glicerina
 
 
-fr:condiment
 
 en:lemongrass
 es:hierbalimón
@@ -47191,8 +47255,6 @@ carbon_footprint_fr_foodges_ingredient:fr:Radis de saison
 fr:sélénite de sodium
 
 fr:stéaroyl-2-lactylate de sodium
-
-fr:condiment en poudre
 
 fr:gomme de cellulose
 
@@ -47461,7 +47523,6 @@ fr:xylitol
 
 fr:frisée
 
-fr:mélange de condiments
 
 
 fr:potassium
@@ -47897,7 +47958,6 @@ fr:fibre de pois
 
 fr:gras de bœuf, gras de boeuf
 
-fr:condiments
 
 fr:matière grasse de karité
 
@@ -49078,7 +49138,7 @@ fr:fibres alimentaires végétales
 
 fr:syrah
 
-fr:condiments en poudre
+
 
 
 
