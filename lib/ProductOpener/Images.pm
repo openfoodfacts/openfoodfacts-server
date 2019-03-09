@@ -64,6 +64,7 @@ use ProductOpener::Products qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 
+use File::Path qw(make_path);
 use Image::Magick;
 use Graphics::Color::RGB;
 use Graphics::Color::HSL;
@@ -472,17 +473,11 @@ sub process_image_upload($$$$$$) {
 			my $current_product_ref = retrieve_product($code);
 			$imgid = $current_product_ref->{max_imgid} + 1;
 
-			# if for some reason the images directories were not created at product creation (it can happen if the images directory's permission / ownership are incorrect at some point)
-			# create them
-
-			# Create the directories for the product
-			foreach my $current_dir  ($www_root . "/images/products") {
-				(-e "$current_dir") or mkdir($current_dir, 0755);
-				foreach my $component (split("/", $path)) {
-					$current_dir .= "/$component";
-					(-e "$current_dir") or mkdir($current_dir, 0755);
-				}
-			}
+			# if for some reason the images directories were not created
+			# at product creation (it can happen if the images directory's
+			# permission / ownership are incorrect at some point),
+			# create the the directories for the product
+			make_path("$www_root/images/products/$path/", { chmod => 0755 });
 
 			my $lock_path = "$www_root/images/products/$path/$imgid.lock";
 			while (-e $lock_path) {
