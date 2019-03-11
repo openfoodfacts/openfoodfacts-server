@@ -16807,6 +16807,7 @@ pl:płatki owsiane z pełnego przemiału
 pt:flocos de aveia integral
 
 <en:oat
+# <en:fibre
 en:oat fibre
 de:Haferfasern
 el:εδώδιμες ινες βρώμης
@@ -23612,7 +23613,7 @@ it:fiocchi di mela
 # 46 products in 4 languages @2018-10-04
 
 <en:apple
-# <en:fibre
+# <en:fiber
 en:apple fiber
 de:Apfelfaser
 fr:fibre de pomme, fibres de pomme
@@ -23696,7 +23697,7 @@ fr:jus d'orange et autres agrumes à base de concentrés
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20d'orange%20et%20autres%20agrumes%20à%20base%20de%20concentrés
 # 46 products in 1 language @2018-09-30
 
-<en:fibre
+<en:fiber
 <en:citrus fruit
 fr:fibre d'agrume
 
@@ -23985,7 +23986,7 @@ nl:gesuikerde citroenpuree
 # 41 products @2018-10-01
 
 <en:lemon
-# <en:fibre
+# <en:fiber
 en:lemon fibre
 es:fibras de limón
 fr:fibre de citron, fibres de citron
@@ -26048,7 +26049,7 @@ fr:segments d'ananas
 # 36 products in 1 language @2018-09-30
 
 <en:pineapple
-# <en:fibre
+# <en:fiber
 en:pineapple fibre, pineapple fibres
 fr:fibres d'ananas
 de:Ananasfasern
@@ -26056,8 +26057,7 @@ es:fibras de piña
 hu:ananászrost
 it:fibre d'ananas, fibre di ananas
 nl:ananasvezels
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fibres%20d'ananas
-# 120 products in 6 languages @2018-09-30
+# ingredient/fr:fibres-d'ananas has 120 products in 6 languages @2018-09-30
 
 <en:pineapple
 <en:purée
@@ -28012,6 +28012,7 @@ fr:légume déshydraté, légumes déshydratés, légumes séchés
 fr:légumes verts
 
 <en:vegetable
+# <en:fiber
 fr:fibres de légume
 
 <en:vegetable
@@ -28229,7 +28230,7 @@ wikidata:en:Q767765
 # ingredient/fr:trévise has 16 products in 4 languages @2019-02-15
 
 
-# <en:fibre
+# <en:fiber
 en:chicory fibre
 de:Zichorienfäser
 es:fibra de la raíz de achicoria
@@ -29039,9 +29040,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bamboo_shoot
 # ingredient/fr:pousse-de-bambou has 43 products in 4 languages @2019-02-03
 # ingredient/fr:pousses-de-bambou/ has 95 products in 10 languages @2019-02-03
 
-#<en:form
-en:fibre, fiber
-fr:fibre, fibre alimentaire
 
 # <en:bamboo
 <en:fibre
@@ -29132,6 +29130,7 @@ fr:jus de betterave concentré, jus concentré de betterave
 # fr:jus-de-betterave-concentré has 71 products in 4 languages @2018-10-22
 
 <en:beetroot
+# <en:fibre
 fr:fibres de betterave
 #  fr:fibres-de-betterave has 43 products in 1 language @2018-10-22
 
@@ -29892,6 +29891,7 @@ nl:wortelextract
 # fr:extrait-de-carotte has 176 products in 6 languages @0218-10-20
 
 <en:carrot
+# <en:fibre
 fr:fibre de carotte, fibres de carotte
 de:Karottenfasern
 # fr:fibre-de-carotte has 174 products in 2 languages @2018-10-20
@@ -31254,6 +31254,7 @@ fr:flocons de pomme de terre réhydratés
 # fr:flocons-de-pomme-de-terre-réhydratés has 71 products in 1 language @2018-10-15
 
 <en:potato
+# <en:fibre
 en:potato fibre
 de:Kartoffelfasern, Kartoffelballaststoffe
 es:fibra de patata
@@ -46111,6 +46112,105 @@ wikidata:en:Q11173928
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
+#                                          F O R M     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# Form describes the appearance/shape/etc of an ingredient, without referring to the origin of the ingredient itself
+
+# Fiber or fibre is a natural or synthetic substance that is significantly longer than it is wide.
+
+#<en:form
+en:fiber, fibre
+af:Vesel
+ar:ألياف النسيج
+ba:Сүстәр
+be:валакно
+bg:влакно
+# bho:फाइबर
+bn:fiber
+bs:Vlakno
+ca:Fibra
+cs:vlákno
+cv:Чĕлкĕм
+da:Fiber
+de:Faser
+el:ίνα
+# en-ca:fibre
+# en-gb:fibre
+eo:fibro
+es:fibra
+et:Kiud
+eu:zuntz
+fa:الیاف
+fi:kuitu
+fr:fibre, fibre alimentaire, fibres alimentaires
+ga:Snáithín
+he:סיב
+hr:Vlakno
+hu:szálasanyag
+hy:մանրաթելեր
+id:Serat
+io:Fibro
+is:Trefjar
+it:fibra
+ja:繊維
+kk:Волокнит
+kn:ನಾರು
+ko:섬유
+lt:Skaidula
+# ltg:Škīzna
+mk:влакно
+ml:നാര്
+ms:Serat
+# myv:Сэльге
+# nan:Chhian-ûi
+nb:fiber
+ne:रेसा
+nl:vezel
+nn:fiber
+oc:fibra
+pl:włókno
+pt:fibra
+# pt-br:fibra
+qu:Q'aytucha
+ro:Fibră
+ru:волокна
+# sco:feebre
+sd:ريشو
+sh:Vlakno
+sk:vlákno
+sq:Fibrat
+sr:влакно
+# sr-ec:влакно
+# sr-el:vlakno
+sv:fiber
+ta:இழை
+te:fiber
+tr:Lif
+tt:сүс
+# tt-cyrl:сүс
+uk:волокно
+# war:Paybiru
+# wuu:纤维
+zh:纤维
+# zh-cn:纤维
+# zh-hans:纤维 # zh-hant:纤维
+wikidata:en:Q161
+wikipedia:en:https://en.wikipedia.org/wiki/Fiber
+# fibre has 270 products in 8 languages @2019-03-10
+
+<en:fiber
+en:vegetable fiber, vegetable fibers
+de:pflanzliche Fasern
+fr:fibres végétales, fibre végétale, fibres alimentaires végétales
+it:fibre vegetali
+nl:plantaardige vezel
+# ingredient/fr:fibres-végétales has 536 products in 7 languages @2019-03-11
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
 #                                C O N T E X T   D E P E N D E N T     S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -47111,7 +47211,6 @@ fr:bouillon de légume
 fr:k
 
 
-fr:fibres alimentaires, fibre alimentaire
 
 
 
@@ -47159,7 +47258,6 @@ fr:isomalt
 
 # Random
 
-fr:fibres, fibre
 
 fr:anti-agglomérant
 
@@ -47172,7 +47270,6 @@ fr:isoascorbate de sodium
 
 fr:citrate trisodique
 
-fr:fibres végétales, fibre végétale
 
 
 
@@ -49132,11 +49229,7 @@ fr:jus de cuisson
 fr:mono et diglycérides d'acides gras d'origine végétale
 
 
-fr:fibres alimentaires végétales
 
-
-
-fr:syrah
 
 
 
