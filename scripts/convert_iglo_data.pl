@@ -116,7 +116,7 @@ foreach my $code (sort keys %products) {
 		if ($product_ref->{"fruits-vegetables-nuts_value"} =~ /40(\s?)-(\s?)60/) {
 			$product_ref->{"fruits-vegetables-nuts_value"} = 50;
 		}
-		if ($product_ref->{"fruits-vegetables-nuts_value"} =~ /<60(\s?)-(\s?)80/) {
+		if ($product_ref->{"fruits-vegetables-nuts_value"} =~ /60(\s?)-(\s?)80/) {
 			$product_ref->{"fruits-vegetables-nuts_value"} = 70;
 		}
 		if ($product_ref->{"fruits-vegetables-nuts_value"} =~ />(\s?)80/) {
