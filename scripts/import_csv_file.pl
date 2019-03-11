@@ -186,9 +186,11 @@ my %stats = (
 'products_with_images' => {},
 'products_with_data' => {},
 'products_with_info' => {},
+'products_with_ingredients' => {},
 'products_with_nutrition' => {},
 'products_without_images' => {},
 'products_without_data' => {},
+'products_without_info' => {},
 'products_without_info' => {},
 'products_without_nutrition' => {},
 'products_updated' => {},
@@ -532,6 +534,10 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 			if (($field =~ /product_name/) or ($field eq "brands")) {
 				$stats{products_with_info}{$code} = 1;
 			}
+			
+			if ($field =~ /^ingredients/) {
+				$stats{products_with_ingredients}{$code} = 1;
+			}			
 
 			# for tag fields, only add entries to it, do not remove other entries
 
@@ -577,6 +583,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 					if (not exists $existing{$tagid}) {
 						print "- adding $tagid to $field\n";
 						$product_ref->{$field} .= ", $tag";
+						$existing{$tagid} = 1;
 					}
 					else {
 						#print "- $tagid already in $field\n";
@@ -835,6 +842,9 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 	if (not defined $stats{products_with_info}{$code}) {
 		$stats{products_without_info}{$code} = 1;
 	}
+	if (not defined $stats{products_with_ingredients}{$code}) {
+		$stats{products_without_ingredients}{$code} = 1;
+	}	
 	if (not defined $stats{products_with_nutrition}{$code}) {
 		$stats{products_without_nutrition}{$code} = 1;
 	}

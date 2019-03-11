@@ -79,7 +79,7 @@ my @csv_fields_mapping = (
 ["fibers", "nutriments.fibers_g"],
 ["proteins", "nutriments.proteins_g"],
 ["salt", "nutriments.salt_g"],
-["fruits vegetables nuts", "nutriments.fruits-vegetables-nuts_100g"],
+["fruits vegetables nuts", "nutriments.fruits-vegetables-nuts_value"],
 ["labels", "labels"],
 ["nutri_score", "nutrition_grade_fr_producer"],
 ["Link", "link"],
@@ -106,9 +106,22 @@ foreach my $code (sort keys %products) {
 	my $product_ref = $products{$code};
 	
 	
-	if (defined $product_ref->{"fruits-vegetables-nuts_100g"}) {
+	if (defined $product_ref->{"fruits-vegetables-nuts_value"}) {
 	
 		# values:  < 40 , 40 - 60, 60 - 80, > 80
+		
+		if ($product_ref->{"fruits-vegetables-nuts_value"} =~ /<(\s?)40/) {
+			$product_ref->{"fruits-vegetables-nuts_value"} = 20;
+		}
+		if ($product_ref->{"fruits-vegetables-nuts_value"} =~ /40(\s?)-(\s?)60/) {
+			$product_ref->{"fruits-vegetables-nuts_value"} = 50;
+		}
+		if ($product_ref->{"fruits-vegetables-nuts_value"} =~ /<60(\s?)-(\s?)80/) {
+			$product_ref->{"fruits-vegetables-nuts_value"} = 70;
+		}
+		if ($product_ref->{"fruits-vegetables-nuts_value"} =~ />(\s?)80/) {
+			$product_ref->{"fruits-vegetables-nuts_value"} = 90;
+		}
 	}
 	
 }

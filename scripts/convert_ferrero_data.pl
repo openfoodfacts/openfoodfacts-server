@@ -71,6 +71,8 @@ my @csv_fields_mapping_ingredients = (
 my @csv_fields_mapping_nutrition = (
 
 ["GTIN", "code"],
+["Libellé court", "product_name_fr_if_not_existing"],
+["Marque", "brands"],
 ["Quantité", "nutriments.energy_kJ", ["Nutriment", "Energie"], ["Taille de la portion", "100.0000"], ["Unité", "Kilojoules (kj)"] ],
 ["Quantité", "nutriments.fat_g", ["Nutriment", "Matières grasses"], ["Taille de la portion", "100.0000"] ],
 ["Quantité", "nutriments.saturated-fat_g", ["Nutriment", "Acides gras saturés"], ["Taille de la portion", "100.0000"] ],
