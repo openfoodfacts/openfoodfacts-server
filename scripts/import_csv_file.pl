@@ -517,7 +517,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 	
 		# fields suffixed with _if_not_existing are loaded only if the product does not have an existing value
 		
-		if (not ((defined $imported_product_ref->{$field}) and ($imported_product_ref->{$field} !~ /^\s*$/))
+		if (not ((defined $product_ref->{$field}) and ($product_ref->{$field} !~ /^\s*$/))
 			and ((defined $imported_product_ref->{$field . "_if_not_existing"}) and ($imported_product_ref->{$field . "_if_not_existing"} !~ /^\s*$/))) {
 			print STDERR "no existing value for $field, using value from ${field}_if_not_existing: " . $imported_product_ref->{$field . "_if_not_existing"} . "\n";
 			$imported_product_ref->{$field} = $imported_product_ref->{$field . "_if_not_existing"};

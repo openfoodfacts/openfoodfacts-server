@@ -132,10 +132,11 @@ foreach my $code (sort keys %products) {
 	}
 	
 	if (defined $product_ref->{product_name_fr_if_not_existing}) {
-		$product_ref->{product_name_fr_if_not_existing} =~ s/K( |\.)*(SURPRISE|BUENO|COUNTRY)/KINDER $2/g;
+		$product_ref->{product_name_fr_if_not_existing} =~ s/K( |\.)*(SURPRISE|BUENO|COUNTRY|PINGUI)/KINDER $2/ig;
 		$product_ref->{product_name_fr_if_not_existing} =~ s/\bDEL /DELACRE/g;
 		$product_ref->{product_name_fr_if_not_existing} =~ s/SAV. JAMB. FUME/saveur jambon fumé/g;
 		$product_ref->{product_name_fr_if_not_existing} =~ s/^F( |\.)+/FERRERO /g;
+		$product_ref->{product_name_fr_if_not_existing} =~ s/^K( |\.)+/KINDER /g;
 		
 		# Uppercase the first letter of every word
 		$product_ref->{product_name_fr_if_not_existing} =~ s/([\w']+)/\u\L$1/g
