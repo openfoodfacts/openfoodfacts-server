@@ -816,6 +816,17 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		}
 
 	}
+	
+	# Set nutrition_data_per to 100g if it was not provided and we have nutrition data in the csv file
+	if (defined $stats{products_with_nutrition}{$code}) {
+		if (not defined $imported_product_ref->{nutrition_data_per}) {
+			if ((not defined $product_ref->{nutrition_data_per}) or ($product_ref->{nutrition_data_per} ne "100g")) {
+				$product_ref->{nutrition_data_per} = "100g";
+				$stats{products_nutrition_data_per_updated}{$code} = 1;
+				$modified++;
+			}
+		}
+	}
 
 
 	if ((defined $stats{products_info_added}{$code}) or (defined $stats{products_info_changed}{$code})) {
@@ -832,7 +843,7 @@ while (my $imported_product_ref = $csv->getline_hr ($io)) {
 		$stats{products_nutrition_not_updated}{$code} = 1;
 	}
 
-	if ((defined $stats{products_info_updated}{$code}) or (defined $stats{products_nutrition_updated}{$code})) {
+	if ((defined $stats{products_info_updated}{$code}) or (defined $stats{products_nutrition_updated}{$code}) or (defined $stats{products_nutrition_data_per_updated}{$code})) {
 		$stats{products_data_updated}{$code} = 1;
 	}
 	else {
