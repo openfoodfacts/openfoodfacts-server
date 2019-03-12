@@ -291,6 +291,11 @@ if ((defined $images_dir) and ($images_dir ne '')) {
 			}
 
 			if ($file2 =~ /(\d+)(_|-|\.)?([^\.-]*)?((-|\.)(.*))?\.(jpg|jpeg|png)/i) {
+			
+				if ((-s "$images_dir/$file") < 10000) {
+					print "Size of $images_dir/$file is < 10000 : " . (-s "$images_dir/$file") . " , skipping\n";
+					next;
+				}
 
 				my $code = $1;
 				$code = normalize_code($code);
