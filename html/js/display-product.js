@@ -30,13 +30,13 @@ class RobotoffAsker extends HTMLElement {
         #question { font-size: larger; }
         #value { font-weight: bold; font-size: xx-large; }
       </style>
-      <div data-alert class="alert-box secondary radius" tabindex="0" aria-live="assertive" role="alertdialog">
+      <div data-alert class="alert-box info radius" tabindex="0" aria-live="assertive" role="alertdialog">
           <div class="row">
             <div class="small-12 columns"><p id="question">Question</p></div>
             <div class="small-12 columns"><p id="value">Value</p></div>
-            <div class="small-4 columns"><a href="#" id="yes" class="button annotate" data-annotation="1">Yes</a></div>
-            <div class="small-4 columns"><a href="#" id="no" class="button annotate" data-annotation="0">No</a></div>
-            <div class="small-4 columns"><a href="#" id="skip" class="button annotate" data-annotation="-1">Skip</a></div>
+            <div class="small-4 columns"><a href="#" id="no" class="button alert annotate" data-annotation="0">No</a></div>
+            <div class="small-4 columns"><a href="#" id="skip" class="button secondary annotate" data-annotation="-1">Not sure</a></div>
+            <div class="small-4 columns"><a href="#" id="yes" class="button success annotate" data-annotation="1">Yes</a></div>
           </div>
           <button id="close" tabindex="0" class="close" aria-label="Close Alert">&times;</button>
       </div>
