@@ -2941,6 +2941,95 @@ en:e407 stabilizer
 fr:stabilisant e407
 
 
+
+# Glycerol (also called glycerine or glycerin) is a simple polyol compound.
+
+en:glycerol, E422, E-422, E 422
+ar:غليسرول
+as:গ্লিচাৰল
+az:Qliserin
+# azb:قلیسیرین
+be:Гліцэрын
+bg:Глицерол
+bn:গ্লিসারল
+bs:Glicerol
+ca:glicerol
+cs:Glycerol
+da:Glycerol, Glycerin
+de:Glycerin
+el:Γλυκερολη, Γλυκερίνη
+# en-ca:glycerol
+# en-gb:glycerol
+eo:glicerolo
+es:Glicerol
+et:Glütserool, glicerol
+eu:glizerina
+fa:گلیسیرین
+fi:Glyseroli
+fr:Glycérol
+# frr:Glycerin
+ga:Gliocról
+gl:Glicerol
+gv:glisreen
+he:גליצרול
+hi:ग्लीसरीन
+hr:Glicerol
+hu:Glycerol
+hy:Գլիցերին
+id:Gliserol
+io:Glicerolo
+is:Glýseról
+it:Glicerolo
+ja:グリセリン
+kk:Глицерин
+ko:글리세롤
+ky:Глицерин
+lb:Glycerol
+lt:glicerolis
+lv:glicerīns
+# lzh:甘油
+mk:глицерол
+ml:ഗ്ലിസറിൻ
+ms:Gliserol
+mt:Gliċerol
+my:ဂလစ်ဆရင်း
+nb:glyserol
+ne:ग्लिसेरोल
+nl:Glycerol
+nn:glyserol
+oc:Gliceròl
+pl:glicerol
+pt:Glicerol
+ro:Glicerol
+ru:глицерин
+# sco:Glycerol
+sh:Glicerol
+sk:Glycerol
+sl:Glicerol
+sr:глицерол
+su:Gliserol
+sv:Glycerol
+ta:கிளிசரால்
+tr:Gliserin
+tt:гөлсирин
+uk:Гліцерин
+vi:glyxêrin
+# wuu:甘油
+# yue:甘油
+zh:甘油
+# zh-cn:甘油
+# zh-hk:甘油
+# zh-sg:甘油
+# zh-tw:甘油
+wikidata:en:Q132501
+wikipedia:en:https://en.wikipedia.org/wiki/Glycerol
+# additive/e422-glycerol has 7288 products in 19 languages @2109-03-11
+
+<en:glycerol
+fr:glycérol d'origine végétale
+# ingredient/fr:glycérol-d’origine-végétale has 27 products in french @2019-03-11
+
+
 # GELATIN or GELATINE is a translucent, colorless, brittle (when dry), flavorless food ingredient that is derived from collagen obtained from various animal body parts. 
 
 # The E-numbers for gelatin are removed by the EU. It should now be noted as an ingredient.
@@ -3035,6 +3124,7 @@ it:gelatina di manzo
 # ingredient/fr:gélatine-de-bœuf has 216 products in 4 languages @2019-02-10
 
 <en:gelatin
+# <en:fish
 en:fish gelatine
 de:Fisch-Gelatine
 fr:gélatine de poisson
@@ -42433,7 +42523,10 @@ fr:rascasse
 wikipedia:fr:https://fr.wikipedia.org/wiki/Rascasse
 # ingredient/fr:rascasse has 4 products in french @2018-12-31
 
-
+<en:fish
+fr:poisson blanc, poissons blancs
+# ingredient/fr:poisson-blanc has 59 products @2019-03-11
+# Theragra chalcogramma ou Merluccius productus ou Merluccius gayi ou Merluccius hubbsi
 # Les Œufs de Cyclopterus lumpus (lump, lompe), poisson de l'Atlantique Nord, sont des œufs de poisson présentés comme succédané du caviar d'esturgeon.
 
 
@@ -47282,6 +47375,13 @@ fr:base aromatisante barbecue
 # ingredient/fr:base-aromatisante-barbecue has 28 products in 2 languages @2019-03-01
 
 
+# <en:compound
+# mainIngredient:en:egg
+fr:omelette
+# ingredient/fr:omelette has 51 products in french @2019-03-11
+# omelette (oeufs, lait écrémé, emmental 1.6%, amidon de riz, sel ; acidifiant : acide citrique)
+
+
 fr:anhydride sulfureux
 
 fr:propionate de calcium
@@ -48344,13 +48444,7 @@ fr:e418
 
 fr:e420
 
-fr:e420
-
 fr:e420ii
-
-fr:e422
-
-fr:e422
 
 fr:e433
 
@@ -49328,11 +49422,7 @@ de:Wasabi
 
 fr:vermicelle
 
-fr:glycérol d'origine végétale
 
-fr:poisson blanc
-
-fr:omelette
 
 
 
