@@ -76,7 +76,7 @@ my @csv_fields_mapping = (
 ["saturated fat", "nutriments.saturated-fat_g"],
 ["carbohydrates", "nutriments.carbohydrates_g"],
 ["sugars", "nutriments.sugars_g"],
-["fibers", "nutriments.fibers_g"],
+["fibers", "nutriments.fiber_g"],
 ["proteins", "nutriments.proteins_g"],
 ["salt", "nutriments.salt_g"],
 ["fruits vegetables nuts", "nutriments.fruits-vegetables-nuts_value"],
