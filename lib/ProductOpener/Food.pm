@@ -3924,16 +3924,16 @@ sub compute_nutrition_score($) {
 			}
 		}
 	}
-	
+
 	# Spring waters have grade A automatically, and have a different nutrition table without sugars etc.
 	# do not display warnings about missing fiber and fruits
-	
+
 	if (not (has_tag($product_ref, "categories", "en:spring-waters"))) {
 
 		# compute the score only if all values are known
 		# for fiber, compute score without fiber points if the value is not known
 		# foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "fiber", "proteins") {
-				
+
 		foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "proteins") {
 			if (not defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}) {
 				$product_ref->{"nutrition_grades_tags"} = [ "unknown" ];
@@ -4487,15 +4487,15 @@ sub compute_serving_size_data($) {
 sub compute_carbon_footprint_infocard($) {
 
 	my $product_ref = shift;
-	
+
 	# compute the environment impact level
 	# -> currently only for prepared meals
 	if (has_tag($product_ref, "categories", "en:meals")) {
-	
+
 		$product_ref->{environment_impact_level} = "en:low";
-		
+
 		if (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"}) {
-			
+
 			if ($product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"} < 250) {
 				$product_ref->{environment_impact_level} = "en:medium";
 			}
@@ -4503,10 +4503,10 @@ sub compute_carbon_footprint_infocard($) {
 				$product_ref->{environment_impact_level} = "en:high";
 			}
 		}
-		
+
 		$product_ref->{environment_impact_level_tags} = [$product_ref->{environment_impact_level}];
 	}
-	
+
 	# compute the carbon footprint infocard when we have a carbon footprint from meat or fish
 
 	if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"})) {
@@ -4853,7 +4853,7 @@ sub normalize_packager_codes($) {
 
 
 	$codes =~ s/(^|,|, )n(o|°|º)?(\s|-|_|\.)?rgseaa(\s|-|_|\.|:|;)*(\d\d)(\s|-|_|\.)?(\d+)(\s|-|_|\.|\/|\\)?(\w+)\b/$1 . $normalize_es_ce_code->('es',$5,$7,$9)/ieg;
-	$codes =~ s/(^|,|, )(es)(\s|-|_|\.)?(\d\d)(\s|-|_|\.|:|;)*(\d+)(\s|-|_|\.|\/|\\)?(\w+)(\.|_|\s|-)?(ce|eec|ec|eg)?\b/$1 . $normalize_es_ce_code->('es',$4,$6,$8)/ieg;
+	$codes =~ s/(^|,|, )(es)(\s|-|_|\.)?(\d\d)(\s|-|_|\.|:|;)*(\d+)(\s|-|_|\.|\/|\\)?(\w+)(\.|_|\s|-)?(ce|eec|ec|eg)?(?=,|$)/$1 . $normalize_es_ce_code->('es',$4,$6,$8)/ieg;
 
 	# LU L-2 --> LU L2
 
