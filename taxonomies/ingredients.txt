@@ -46457,6 +46457,7 @@ it:estratto concentrato
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+# Compound ingredients are ingredients that have sub-ingredients. Usually a compound ingredient is followed by a list of other ingredients.
 
 # en:filling is a compound ingredient (product part)
 
@@ -46543,6 +46544,12 @@ nl:bladerdeeg
 # ingredient/fr:pâte-à-tarte has no products @2018-12-10
 # carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
 
+
+
+# <en:compound
+fr:vermicelle
+# ingredient/fr:vermicelle has 41 products in 2 languages @2019-03-12
+# vermicelli (mungbonenzetmeel, maïszetmeel)
 
 
 # Bread is a staple food prepared from a dough of flour and water, usually by baking.
@@ -49420,7 +49427,6 @@ nl:wasabi
 de:Wasabi
 #Q12378304
 
-fr:vermicelle
 
 
 
