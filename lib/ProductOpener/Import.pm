@@ -823,6 +823,7 @@ sub load_csv_file($) {
 	my $encoding = $options_ref->{encoding};
 	my $separator = $options_ref->{separator};
 	my $skip_lines = $options_ref->{skip_lines};
+	my $skip_lines_after_header = $options_ref->{skip_lines_after_header};
 	my $skip_non_existing_products = $options_ref->{skip_non_existing_products};
 	my $skip_empty_codes = $options_ref->{skip_empty_codes};
 	my @csv_fields_mapping = @{$options_ref->{csv_fields_mapping}};
@@ -846,6 +847,13 @@ sub load_csv_file($) {
 
 	my $headers_ref = $csv->getline ($io);
 	$i++;
+	
+	if (defined $skip_lines_after_header) {
+		for (my $j = 0; $j < $skip_lines_after_header; $j++) {
+			$csv->getline ($io);
+			$i++;
+		}
+	}	
 	
 	$log->info("CSV headers", { file => $file, headers_ref=>$headers_ref }) if $log->is_info();
 	
@@ -928,8 +936,15 @@ sub load_csv_file($) {
 						
 						$file =~ s/[^A-Za-z0-9-_\.]/_/g;
 						
-						print STDERR "downloading image: wget $csv_product_ref->{$source_field} -O $dir/$file\n";
-						system("wget $csv_product_ref->{$source_field} -O $dir/$file");
+						# do not download again images that we already have
+						# but try again if the size is 0
+						
+						if ((! -e "$dir/$file") or ((-s "$dir/$file") < 10000)) {
+						
+							print STDERR "downloading image: wget $csv_product_ref->{$source_field} -O $dir/$file\n";
+							system("wget $csv_product_ref->{$source_field} -O $dir/$file");
+							sleep 2;	# there seems to be some limit as we received 403 Forbidden responses
+						}
 					}
 					
 					# ["Energie kJ", "nutriments.energy_kJ"],
