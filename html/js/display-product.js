@@ -139,11 +139,17 @@ class RobotoffAsker extends HTMLElement {
 
     const buttons = content.querySelectorAll('a.annotate');
     for (let i = 0; i < buttons.length; ++i) {
-      buttons[i].addEventListener('click', async (e) => {
+      const button = buttons[i];
+      button.addEventListener('click', async (e) => {
         await this.annotate(parseInt(e.currentTarget.getAttribute('data-annotation')));
         await this.nextQuestion();
         e.preventDefault();
       });
+
+      const caption = this.getAttribute('caption-' + button.id);
+      if (caption) {
+        button.textContent = caption;
+      }
     }
 
     shadowRoot.appendChild(content);
