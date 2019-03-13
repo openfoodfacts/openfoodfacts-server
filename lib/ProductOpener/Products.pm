@@ -178,6 +178,11 @@ sub init_product($) {
 	if ($creator eq 'kiliweb') {
 		$country = "france";
 	}
+	
+	# ugly fix: elcoco -> Spain
+	if ($creator eq 'elcoco') {
+		$country = "spain";
+	}	
 
 	if (defined $country) {
 		if ($country !~ /a1|a2|o1/i) {
