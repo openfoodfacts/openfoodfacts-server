@@ -25,7 +25,6 @@ class RobotoffAsker extends HTMLElement {
   static get template() {
     const tmpl = document.createElement('template');
     tmpl.innerHTML = `
-      <link rel="stylesheet" href="/css/dist/app.css">
       <style>
         #question { font-size: larger; }
         #value { font-weight: bold; font-size: xx-large; }
@@ -40,22 +39,6 @@ class RobotoffAsker extends HTMLElement {
           </div>
           <button id="close" tabindex="0" class="close" aria-label="Close Alert">&times;</button>
       </div>
-      <script src="/bower_components/foundation/js/vendor/modernizr.js"></script>
-      <script src="/bower_components/foundation/js/vendor/jquery.js"></script>
-      <script src="/bower_components/foundation/js/foundation.min.js"></script>
-      <script src="/bower_components/foundation/js/vendor/jquery.cookie.js"></script>
-      <script>
-      $(document).foundation({
-        equalizer : {
-          equalize_on_stack: true
-        },
-        accordion: {
-          callback : function (accordion) {
-            $(document).foundation('equalizer', 'reflow');
-          }
-        }
-      });
-      </script>
     `;
 
     return tmpl;
@@ -136,14 +119,25 @@ class RobotoffAsker extends HTMLElement {
     super();
 
     const shadowRoot = this.attachShadow({mode: 'open'});
-    shadowRoot.appendChild(RobotoffAsker.template.content.cloneNode(true));
+    const content = RobotoffAsker.template.content.cloneNode(true);
 
-    this.nextQuestion();
-    shadowRoot.querySelector('#close').addEventListener('click', () => {
+    const styles = document.querySelectorAll('link[rel="stylesheet"]');
+    for (let i = 0; i < styles.length; ++i) {
+      const style = styles[i];
+      content.appendChild(style.cloneNode(true));
+    }
+
+    const scripts = document.querySelectorAll('script');
+    for (let i = 0; i < scripts.length; ++i) {
+      const script = scripts[i];
+      content.appendChild(script.cloneNode(true));
+    }
+
+    content.querySelector('#close').addEventListener('click', () => {
       this.style.display = 'none';
     });
 
-    const buttons = shadowRoot.querySelectorAll('a.annotate');
+    const buttons = content.querySelectorAll('a.annotate');
     for (let i = 0; i < buttons.length; ++i) {
       buttons[i].addEventListener('click', async (e) => {
         await this.annotate(parseInt(e.currentTarget.getAttribute('data-annotation')));
@@ -151,8 +145,10 @@ class RobotoffAsker extends HTMLElement {
         e.preventDefault();
       });
     }
-  }
 
+    shadowRoot.appendChild(content);
+    this.nextQuestion();
+  }
 }
 
 window.customElements.define('robotoff-asker', RobotoffAsker);
