@@ -41,6 +41,7 @@ BEGIN
 	    $facebook_app_secret
 		$crowdin_project_identifier
 		$crowdin_project_key
+		$robotoff_url
 
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -70,5 +71,9 @@ $facebook_app_secret = "";
 
 $crowdin_project_identifier = '';
 $crowdin_project_key = '';
+
+# Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
+# enable an in-site robotoff-asker in the product page
+$robotoff_url = '';
 
 1;

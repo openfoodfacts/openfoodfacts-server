@@ -6298,7 +6298,10 @@ HTML
 #   based on <span itemprop="reviewCount">11</span> customer reviews
 #  </div>
 
-	$html .= "<robotoff-asker url='https://robotoff.openfoodfacts.org' code='$code' lang='$lc' style='display: none;' caption-yes='" . lang("button_caption_yes") . "' caption-no='" . lang("button_caption_no") . "' caption-skip='" . lang("button_caption_skip") . "'></robotoff-asker>\n";
+	if ((defined $robotoff_url) and (length($robotoff_url) > 0)) {
+		$html .= "<robotoff-asker url='$robotoff_url' code='$code' lang='$lc' style='display: none;' caption-yes='" . lang("button_caption_yes") . "' caption-no='" . lang("button_caption_no") . "' caption-skip='" . lang("button_caption_skip") . "'></robotoff-asker>\n";
+	}
+
 	$html .= '<div itemscope itemtype="https://schema.org/Product">' . "\n";
 
 	$html .= "<h1 property=\"food:name\" itemprop=\"name\">$title</h1>";

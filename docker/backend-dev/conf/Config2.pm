@@ -39,6 +39,7 @@ BEGIN
 		$memd_servers
 		$facebook_app_id
 	    $facebook_app_secret
+		$robotoff_url
 
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -63,5 +64,9 @@ $memd_servers = [ "memcached:11211" ];
 
 $facebook_app_id = "";
 $facebook_app_secret = "";
+
+# Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
+# enable an in-site robotoff-asker in the product page
+$robotoff_url = '';
 
 1;
