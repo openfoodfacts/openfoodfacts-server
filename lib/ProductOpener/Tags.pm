@@ -60,6 +60,7 @@ BEGIN
 					&exists_taxonomy_tag
 					&display_taxonomy_tag
 					&display_taxonomy_tag_link
+					&get_taxonomy_tag_and_link_for_lang
 					
 					&spellcheck_taxonomy_tag
 					
@@ -1837,13 +1838,12 @@ sub get_city_code($) {
 	return $city_code;
 }
 
+# This function is not efficient (calls too many other functions) and should be removed
 sub get_tag_css_class($$$) {
 	my $target_lc = shift; $target_lc =~ s/_.*//;
 	my $tagtype = shift;
 	my $tag = shift;
 	$tag = display_taxonomy_tag($target_lc,$tagtype, $tag);
-	my $tagid = get_taxonomyid($tag);
-	my $tagurl = get_taxonomyurl($tagid);
 
 	my $canon_tagid = canonicalize_taxonomy_tag($target_lc, $tagtype, $tag);
 
@@ -1852,15 +1852,15 @@ sub get_tag_css_class($$$) {
 		return "";
 	}
 	
-	my $cssclass = "tag ";
+	my $css_class = "tag ";
 	if (not exists_taxonomy_tag($tagtype, $canon_tagid)) {
-		$cssclass .= "user_defined";
+		$css_class .= "user_defined";
 	}
 	else {
-		$cssclass .= "well_known";
+		$css_class .= "well_known";
 	}
 
-	return $cssclass;
+	return $css_class;
 }
 
 sub display_tag_link($$) {
@@ -1933,6 +1933,9 @@ sub canonicalize_taxonomy_2tag_link($$$$$) {
 }
 
 
+# The display_taxonomy_tag_link function makes many calls to other functions, in particular it calls twice display_taxonomy_tag_link
+# Will be replaced by display_taxonomy_tag_link_new function
+
 sub display_taxonomy_tag_link($$$) {
 
 	my $target_lc = shift; $target_lc =~ s/_.*//;
@@ -1950,14 +1953,14 @@ sub display_taxonomy_tag_link($$$) {
 	
 	my $path = $tag_type_singular{$tagtype}{$target_lc};
 	
-	my $cssclass = get_tag_css_class($target_lc, $tagtype, $tag);
+	my $css_class = get_tag_css_class($target_lc, $tagtype, $tag);
 
 	my $html;
 	if ((defined $tag_lc) and ($tag_lc ne $lc)) {
-		$html = "<a href=\"/$path/$tagurl\" class=\"$cssclass\" lang=\"$tag_lc\">$tag_lc:$tag</a>";
+		$html = "<a href=\"/$path/$tagurl\" class=\"$css_class\" lang=\"$tag_lc\">$tag_lc:$tag</a>";
 	}
 	else {
-		$html = "<a href=\"/$path/$tagurl\" class=\"$cssclass\">$tag</a>";
+		$html = "<a href=\"/$path/$tagurl\" class=\"$css_class\">$tag</a>";
 	}
 	
 	if ($tagtype eq 'emb_codes') {
@@ -1971,6 +1974,124 @@ sub display_taxonomy_tag_link($$$) {
 	
 	return $html;
 }
+
+
+# get_taxonomy_tag_and_link_for_lang computes the display text and link
+# in a target language for a canonical tagid
+# It returns a hash ref with:
+# - display : text of the link in the target language, or English
+# - display_lc : language code of the language returned in display
+# - known : 0 or 1, indicates if the input tagid exists in the taxonomy
+# - tagurl : escaped link to the tag, without the tag type path component
+
+sub get_taxonomy_tag_and_link_for_lang($$$) {
+
+	my $target_lc = shift;
+	my $tagtype = shift;
+	my $tagid = shift;
+		
+	my $tag_lc;
+	my $tag_url;
+		
+	if ($tagid =~ /^(\w\w):/) {
+		$tag_lc = $1;
+	}
+	
+	my $display = '';
+	my $display_lc;
+	my $exists_in_taxonomy = 0;
+	
+	if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$target_lc})) {
+		# we have a translation for the target language
+		# print STDERR "display_taxonomy_tag - translation for the target language - translations_to{$tagtype}{$tagid}{$target_lc} : $translations_to{$tagtype}{$tagid}{$target_lc}\n";
+		$display = $translations_to{$tagtype}{$tagid}{$target_lc};
+		$display_lc = $target_lc;
+		$exists_in_taxonomy = 1;
+	}	
+	else {
+		# use tag language
+		if ((defined $translations_to{$tagtype}) and (defined $translations_to{$tagtype}{$tagid}) and (defined $translations_to{$tagtype}{$tagid}{$tag_lc})) {
+			# we have a translation for the tag language
+			# print STDERR "display_taxonomy_tag - translation for the tag language - translations_to{$tagtype}{$tagid}{$tag_lc} : $translations_to{$tagtype}{$tagid}{$tag_lc}\n";			
+			if ($tag_lc eq 'en') {
+				# for English, use English tag without prefix as it will be recognized
+				$display = $translations_to{$tagtype}{$tagid}{$tag_lc};
+				$display_lc = 'en';
+			}
+			else {
+				$display = "$tag_lc:" . $translations_to{$tagtype}{$tagid}{$tag_lc};
+				$display_lc = $tag_lc;
+			}
+			$exists_in_taxonomy = 1;
+		}
+		else {
+			$display = $tagid;
+			$display_lc = $tag_lc;
+						
+			if ($target_lc eq $tag_lc) {
+				$display =~ s/^(\w\w)://;
+			}
+			# print STDERR "display_taxonomy_tag - no translation available for $tagtype $tagid in target language $lc or tag language $tag_lc - result: $display\n";						
+		}
+	}
+	
+	# for additives, add the first synonym
+	if ($tagtype =~ /^additives/) {
+		$tagid =~ s/.*://;
+		if ((defined $synonyms_for{$tagtype}{$target_lc}) and (defined $synonyms_for{$tagtype}{$target_lc}{$tagid})
+			and (defined $synonyms_for{$tagtype}{$target_lc}{$tagid}[1])) {
+				$display .= " - " . ucfirst($synonyms_for{$tagtype}{$target_lc}{$tagid}[1]);
+		}
+	}
+	
+	my $display_lc_prefix = "";
+	my $display_tag = $display;
+	
+	if ($display =~ /^(\w\w:)/) {
+		$display_lc_prefix = $1;
+		$display_tag = $';
+	}
+	
+	my $tagurlid = get_fileid($display_tag);
+	if ($tagurlid =~ /[^a-zA-Z0-9-]/) {
+		$tagurlid = URI::Escape::XS::encodeURIComponent($display_tag);
+	}
+	
+	my $tagurl = $display_lc_prefix . $tagurlid;
+	
+	my $css_class = "";
+	my $html_lang = "";
+	
+	# Don't treat users as tags.
+	if (not (($tagtype eq 'photographers') or ($tagtype eq 'editors') or ($tagtype eq 'informers') or ($tagtype eq 'correctors') or ($tagtype eq 'checkers'))) {
+		$css_class = "tag ";
+		
+		if ($exists_in_taxonomy) {
+			$css_class .= "known ";
+		}
+		else {
+			$css_class .= "user_defined ";
+		}
+		
+		if ($display_lc ne $lc) {
+			$html_lang = ' lang="' . $display_lc . '"';
+		}
+		
+	}
+
+	my $tag_ref = {
+		tagid => $tagid,
+		display => $display,
+		display_lc => $display_lc,
+		tagurl => $tagurl,
+		known => $exists_in_taxonomy,
+		css_class => $css_class,
+		html_lang => $html_lang,
+	};	
+	
+	return $tag_ref;
+}	
+
 
 
 sub display_tags_list_orig($$) {

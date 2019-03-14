@@ -1436,6 +1436,8 @@ sub display_list_of_tags($$) {
 		$log->debug("going through all tags", {}) if $log->is_debug();
 		
 		my $i = 0;
+		
+		my $path = $tag_type_singular{$tagtype}{$lc};
 
 		foreach my $tagcount_ref (@tags) {
 	
@@ -1494,17 +1496,25 @@ sub display_list_of_tags($$) {
 					$td_nutriments .= "<td style=\"text-align:center\">*</td>";
 				}
 			}
-
+			
+			my $info = '';
+			my $css_class = '';
+			
+			# For taxonomy tags
+			my $tag_ref; 
 
 			if (defined $taxonomy_fields{$tagtype}) {
-				$link = canonicalize_taxonomy_tag_link($lc, $tagtype, $tagid);
+				$tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
+				$link = "/$path/" . $tag_ref->{tagurl};
+				$css_class = $tag_ref->{css_class};
 			}
 			else {
 				$link = canonicalize_tag_link($tagtype, $tagid);
+				
+				if (not (($tagtype eq 'photographers') or ($tagtype eq 'editors') or ($tagtype eq 'informers') or ($tagtype eq 'correctors') or ($tagtype eq 'checkers'))) {
+					$css_class = "tag";	# not sure if it's needed
+				}
 			}
-
-			my $info = '';
-			my $cssclass = get_tag_css_class($lc, $tagtype, $tagid);
 
 			my $extra_td = '';
 
@@ -1517,7 +1527,7 @@ sub display_list_of_tags($$) {
 				$risk_level = $tags_levels{$lc}{$tagtype}{$icid} || $tags_levels{'fr'}{$tagtype}{$icid};
 
 				if ($risk_level) {
-					# $cssclass .= ' additives_' . $ingredients_classes{$tagtype}{$icid}{level} . ';
+					# $css_class .= ' additives_' . $ingredients_classes{$tagtype}{$icid}{level} . ';
 					# $info .= ' title="' . $ingredients_classes{$tagtype}{$icid}{warning} . '" ';
 					my $risk_level_label = lang("risk_level_" . $risk_level);
 					$risk_level_label =~ s/ /\&nbsp;/g;
@@ -1530,7 +1540,7 @@ sub display_list_of_tags($$) {
 			}
 
 			if ($risk_level) {
-				$cssclass .= ' level_' . $risk_level;
+				$css_class .= ' level_' . $risk_level;
 			}
 
 			my $product_link = $main_link . $link;
@@ -1558,7 +1568,7 @@ sub display_list_of_tags($$) {
 				}
 			}
 			elsif (defined $taxonomy_fields{$tagtype}) {
-				$display = display_taxonomy_tag($lc, $tagtype, $tagid);
+				$display = $tag_ref->{display};
 				if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$tagid})) {
 					foreach my $key (keys %weblink_templates) {
 						next if not defined $properties{$tagtype}{$tagid}{$key};
@@ -1570,8 +1580,8 @@ sub display_list_of_tags($$) {
 				$display = canonicalize_tag2($tagtype, $tagid);
 			}
 
-			$cssclass =~ s/^\s+|\s+$//g;
-			$info .= ' class="' . $cssclass . '"';
+			$css_class =~ s/^\s+|\s+$//g;
+			$info .= ' class="' . $css_class . '"';
 			$html .= "<a href=\"$product_link\"$info$nofollow>" . $display . "</a>";
 			$html .= "</td>\n<td style=\"text-align:right\">$products</td>" . $td_nutriments . $extra_td . "</tr>\n";
 
@@ -1629,8 +1639,6 @@ sub display_list_of_tags($$) {
 					}
 				}
 			}
-
-
 		}
 
 		$html .= "</tbody></table></div>";
