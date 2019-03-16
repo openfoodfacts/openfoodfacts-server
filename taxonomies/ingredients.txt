@@ -937,7 +937,18 @@ en:E160
 fr:e160
 
 <en:E160
+en:160a
 fr:e160a, e 160a,colorant e160a
+
+
+<en:E160a
+en:mixed carotenes
+fr:carotènes mélangés
+de:gemischte Carotine
+it:caroteni misti
+nl:diverse carotenen
+# ingredient/fr:carotènes-mélangés has 24 products in 5 languages @2019-03-16
+# colorant: carotènes mélangés
 
 <en:E160
 fr:e160aii
@@ -6206,7 +6217,14 @@ wikipedia:en:https://en.wikipedia.org/wiki/Zinc
 # ingredient/zinc has 859 products in 6 languages @2019-01-25
 
 
-en:Amino acids
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+#                                           A M I N O   A C I D     S E C T I O N
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+en:amino acid
 bg:Аминокиселини
 cs:Aminokyseliny
 de:Aminosäuren
@@ -6228,6 +6246,87 @@ sk:Aminokyseliny
 sl:Aminokisline
 sv:Aminosyror
 #wikidata:en:
+
+
+# L-tryptophan—pyruvate aminotransferase is an enzyme with systematic name L-tryptophan:pyruvate aminotransferase.
+
+<en:amino acid
+en:L-tryptophan
+af:Triptofaan
+ar:تريبتوفان
+# azb:تریپتوفان
+be:Трыптафан
+# be-tarask:Трыптафан
+bg:Триптофан
+bn:ট্রিপ্টোফ্যান
+ca:triptòfan
+cs:L-tryptofan, tryptofan
+da:Tryptofan
+de:L-Tryptophan, Tryptophan
+# de-ch:Tryptophan
+el:Τρυπτοφάνη
+# en-ca:Tryptophan # en-gb:Tryptophan
+eo:triptofano
+es:L-Triptófano, Triptófano
+et:Trüptofaan
+eu:Triptofano
+fa:تریپتوفان
+fi:Tryptofaani
+fr:l-tryptophane, tryptophane
+gl:Triptófano
+he:טריפטופן
+hr:Triptofan
+hu:Triptofán
+hy:Տրիպտոֆան
+id:Triptofan
+it:L-triptofano, triptofano
+ja:トリプトファン
+jv:Triptofan
+ko:트립토판
+ku:Trîptofan
+# ku-arab:تریپتۆفان
+# ku-latn:Trîptofan
+lb:Tryptophan
+lt:Triptofanas
+lv:triptofāns
+mk:Триптофан
+ms:Triptofan
+# nan:Tryptophan
+nb:Tryptofan
+nl:L-Tryptofaan, tryptofaan
+nn:L-tryptofan
+oc:Triptofan
+pl:L-tryptofan
+pt:Triptófano
+# pt-br:Triptófano
+ro:Triptofan
+ru:триптофан
+# sco:tryptophan
+sh:Triptofan
+sk:Tryptofán
+sl:Triptofan
+sr:триптофан
+# sr-ec:триптофан
+# sr-el:Triptofan
+sv:Tryptofan
+ta:டிரிப்டோபான்
+th:ทริปโตเฟน
+tr:Triptofan
+uk:Триптофан
+vi:Tryptophan
+# yue:色氨酸
+zh:色氨酸
+# zh-cn:色氨酸
+# zh-hans:色氨酸
+# zh-hant:色氨酸
+# zh-hk:色胺酸
+# zh-sg:色氨酸
+# zh-tw:色胺酸
+wikidata:en:Q181003
+wikipedia:en:https://en.wikipedia.org/wiki/L-tryptophan—pyruvate_aminotransferase
+# amino-acid/l-tryptophan has 79 products @2019-03-16
+# ingredient/fr:l-tryptophane has 61 products in 4 languages @2019-03-16
+
 
 en:Nucleotides
 bg:Нуклеотиди
@@ -49647,9 +49746,7 @@ fr:gluconate de cuivre
 
 fr:brisures de crêpe dentelle
 
-fr:l-tryptophane
 
-fr:carotènes mélangés
 
 
 
