@@ -14,6 +14,7 @@ dependencies:
   foundation-sites: 5.5.3
   iolazyload: 1.2.0
   jquery: 3.3.1
+  jquery-form: 4.2.2
   jquery-tags-input: 1.3.5
   jquery-ui: 1.12.1
   js-cookie: 2.2.0
@@ -4352,6 +4353,12 @@ packages:
       node: '>= 4'
     resolution:
       integrity: sha512-1P/yWsxPlDtn7QeRD+ULKQPaIaN6yF368GZ2vDfv0AL0NwpStafjWCDDdn0k8wgFMWpVAqG7oJhxHnlud42i9w==
+  /jquery-form/4.2.2:
+    dependencies:
+      jquery: 3.3.1
+    dev: false
+    resolution:
+      integrity: sha512-HJTef7DRBSg8ge/RNUw8rUTTtB3l8ozO0OhD16AzDl+eIXp4skgCqRTd9fYPsOzL+pN6+1B9wvbTLGjgikz8Tg==
   /jquery-mousewheel/3.1.13:
     dev: false
     resolution:
@@ -7998,6 +8005,7 @@ specifiers:
   image-webpack-loader: ^4.6.0
   iolazyload: ^1.2.0
   jquery: ^3.3.1
+  jquery-form: ^4.2.2
   jquery-tags-input: ^1.3.5
   jquery-ui: ^1.12.1
   js-cookie: ^2.2.0

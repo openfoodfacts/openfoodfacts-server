@@ -721,11 +721,7 @@ JS
 JS
 ;
 
-	$scripts .= <<HTML
-<script type="text/javascript" src="/js/jquery.form.js"></script>
-@{[ get_static_asset_script_tag('dist/product.js') ]}
-HTML
-;
+	$scripts .= get_static_asset_script_tag('dist/product.js');
 
 	if ($#errors >= 0) {
 		$html .= "<p>Merci de corriger les erreurs suivantes :</p>";
@@ -1892,7 +1888,7 @@ HTML
 
 	$initjs .= <<HTML
 
-autocomplete($ => {
+autocomplete(\$ => {
 	\$( ".nutriment_label" ).autocomplete({
 		source: otherNutriments,
 		select: select_nutriment,

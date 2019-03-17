@@ -20,6 +20,7 @@
 
 import { $, jQuery } from 'jquery';
 import * as Cookies from 'js-cookie';
+import 'jquery-form';
 import './vendor/file-upload.js';
 import 'foundation-sites/js/foundation/foundation.tab.js';
 import Cropper from 'cropperjs';
