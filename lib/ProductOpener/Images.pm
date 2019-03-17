@@ -288,10 +288,7 @@ sub display_search_image_form($) {
 HTML
 ;
 
-	$scripts .= <<JS
-<script src="/js/dist/images.js"></script>
-JS
-;
+	$scripts .= get_static_asset_script_tag('dist/images.js');
 
 	return $html;
 }

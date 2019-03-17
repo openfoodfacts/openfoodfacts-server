@@ -82,7 +82,8 @@ $initjs
 });
 </script>
 
-<script src="/js/dist/madenearyou.js"></script>
+@{[ get_static_asset_script_tag('dist/madenearyou.js') ]}
+@{[ get_static_asset_link_tag('dist/madenearyou.css') ]}
 
 <meta property="fb:admins" content="706410516" />
 <meta property="og:site_name" content="C'est emballé près de chez vous"/>

@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 
 const config = {
   entry: {
@@ -14,19 +15,25 @@ const config = {
   },
   output: {
     filename: '[name].js',
-    path: __dirname + '/html/js/dist',
-    publicPath: '/js/dist/'
+    path: __dirname + '/html/dist',
+    publicPath: '/dist/'
   },
   devtool: 'source-map',
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: [{
+          loader: ExtractCssChunks.loader
+        },
+        'css-loader']
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: [{
+          loader: ExtractCssChunks.loader
+        },
+        'css-loader', 'sass-loader']
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
@@ -60,7 +67,12 @@ const config = {
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery'
-    })
+    }),
+    new ExtractCssChunks({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+      orderWarning: true, // Disable to remove warnings about conflicting order between imports
+    }),
   ],
   resolve: {
     extensions: ['.js'],

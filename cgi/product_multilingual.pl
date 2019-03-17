@@ -725,10 +725,9 @@ JS
 <script type="text/javascript" src="/js/jquery.form.js"></script>
 <script type="text/javascript" src="/js/jquery.autoresize.js"></script>
 <script type="text/javascript" src="/js/jquery.rotate.js"></script>
-<script type="text/javascript" src="/js/dist/product.js"></script>
+@{[ get_static_asset_script_tag('dist/product.js') ]}
 HTML
 ;
-
 
 	if ($#errors >= 0) {
 		$html .= "<p>Merci de corriger les erreurs suivantes :</p>";
