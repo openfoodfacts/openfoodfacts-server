@@ -723,7 +723,6 @@ JS
 
 	$scripts .= <<HTML
 <script type="text/javascript" src="/js/jquery.form.js"></script>
-<script type="text/javascript" src="/js/jquery.autoresize.js"></script>
 <script type="text/javascript" src="/js/jquery.rotate.js"></script>
 @{[ get_static_asset_script_tag('dist/product.js') ]}
 HTML
@@ -1404,11 +1403,6 @@ HTML
 	my @ingredients_fields = ("ingredients_image", "ingredients_text");
 
 	$html .= display_tabs($product_ref, $select_add_language, "ingredients_image", $product_ref->{sorted_langs}, \%Langs, \@ingredients_fields);
-
-
-	# $initjs .= "\$('textarea#ingredients_text').autoResize();";
-	# ! with autoResize, extracting ingredients from image need to update the value of the real textarea
-	# maybe calling $('textarea.growfield').data('AutoResizer').check();
 
 	$html .= display_field($product_ref, "allergens");
 
