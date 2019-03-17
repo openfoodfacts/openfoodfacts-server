@@ -62,7 +62,7 @@ my @csv_fields_mapping_ingredients = (
 ["Nombre de portions exact", "number_of_servings"],
 ["Nombre de portions approximatif", "number_of_servings_estimate"],
 ["Les allergènes", "allergens"],
-["Ingrédients","ingredients_txt_fr"],
+["Ingrédients","ingredients_text_fr"],
 ["Conditions particulières de conservation", "conservation_fr"],
 ["Format du Produit", "packaging"],
 
@@ -71,9 +71,17 @@ my @csv_fields_mapping_ingredients = (
 my @csv_fields_mapping_nutrition = (
 
 ["GTIN", "code"],
+["Libellé court", "product_name_fr_if_not_existing"],
+["Marque", "brands"],
 ["Quantité", "nutriments.energy_kJ", ["Nutriment", "Energie"], ["Taille de la portion", "100.0000"], ["Unité", "Kilojoules (kj)"] ],
 ["Quantité", "nutriments.fat_g", ["Nutriment", "Matières grasses"], ["Taille de la portion", "100.0000"] ],
 ["Quantité", "nutriments.saturated-fat_g", ["Nutriment", "Acides gras saturés"], ["Taille de la portion", "100.0000"] ],
+["Quantité", "nutriments.carbohydrates_g", ["Nutriment", "Glucides"], ["Taille de la portion", "100.0000"] ],
+["Quantité", "nutriments.sugars_g", ["Nutriment", "Sucres"], ["Taille de la portion", "100.0000"] ],
+["Quantité", "nutriments.proteins_g", ["Nutriment", "Proteines"], ["Taille de la portion", "100.0000"] ],
+["Quantité", "nutriments.salt_g", ["Nutriment", "Sel"], ["Taille de la portion", "100.0000"] ],
+["Quantité", "nutriments.polyols_g", ["Nutriment", "Polyols"], ["Taille de la portion", "100.0000"] ],
+
 
 );
 
@@ -123,6 +131,37 @@ foreach my $code (sort keys %products) {
 	if ((defined $product_ref->{product_name_fr_if_not_existing}) and ($product_ref->{product_name_fr_if_not_existing} =~ /\bT(\d+)\b/)) {
 		$product_ref->{number_of_servings} = $1;
 		$product_ref->{product_name_fr_if_not_existing} =~ s/\bT(\d+)\b//g;
+	}
+	
+	if (defined $product_ref->{product_name_fr_if_not_existing}) {
+		$product_ref->{product_name_fr_if_not_existing} =~ s/K( |\.)*(SURPRISE|BUENO|COUNTRY|PINGUI)/KINDER $2/ig;
+		$product_ref->{product_name_fr_if_not_existing} =~ s/\bDEL /DELACRE/g;
+		$product_ref->{product_name_fr_if_not_existing} =~ s/SAV. JAMB. FUME/saveur jambon fumé/g;
+		$product_ref->{product_name_fr_if_not_existing} =~ s/^F( |\.)+/FERRERO /g;
+		$product_ref->{product_name_fr_if_not_existing} =~ s/^K( |\.)+/KINDER /g;
+		
+		# Uppercase the first letter of every word
+		$product_ref->{product_name_fr_if_not_existing} =~ s/([\w']+)/\u\L$1/g
+	}
+	
+	# change case of brands, remove "MIXTE"
+	if (defined $product_ref->{brands}) {
+	
+		# MON CHERI / F ROCHER / RAFFAELLO
+	
+		$product_ref->{brands} =~ s/\//,/g;
+		$product_ref->{brands} =~ s/\bF( |\.)+/FERRERO/g;
+		remove_value($product_ref, "brands", "MIXTE");
+		
+		# Uppercase the first letter of every word
+		$product_ref->{brands} =~ s/([\w']+)/\u\L$1/g
+	}
+	
+	if (defined $product_ref->{ingredients_text_fr}) {
+		# TIC TAC MENTHE : Sucre, maltodextrine, fructose, épaississant: gomme arabique; amidon de riz, arômes, huile essentielle de menthe, agent d'enrobage: cire de carnauba. TIC TAC MENTHE EXTRA FRAICHE : sucre, maltodextrine, arômes, fructose, épaississant: gomme arabique; amidon de riz, huile essentielle de menthe, agent d'enrobage: cire de carnauba.  TIC TAC PECHE CITRON : sucre, maltodextrine, acidifiants (acide tartrique, acide citrique),  épaississant : gomme arabique, amidon de riz, arômes, jus de citron en poudre, colorants (E 162, E 160a), agent d'enrobage : cire de carnauba. TIC TAC CERISE COLA :sucre, acidifiants (acide tartrique, acide malique, acide citrique), maltodextrine, épaississant : gomme arabique ; amidon de riz, arômes, colorants (E 120, E 160a), agent d'enrobage : cire de carnauba.
+		
+		# remove everything before the first : if it doesn't look like an ingredient
+		$product_ref->{ingredients_text_fr} =~ s/^([^,-;:]|\/)*:\s*//i;
 	}
 
 	assign_quantity_from_field($product_ref, "product_name_fr_if_not_existing");

@@ -261,7 +261,7 @@ sub display_search_image_form($) {
 <div id="imgsearchdiv_$id">
 
 <a href="#" class="button small expand" id="imgsearchbutton_$id"><i class="fi-camera"></i> $product_image_with_barcode
-<input type="file" accept="image/*" capture="camera" class="img_input imgupload_search" name="imgupload_search" data-id="$id" id="imgupload_search_$id" style="position: absolute;
+<input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search_$id" style="position: absolute;
     right:0;
     bottom:0;
     top:0;

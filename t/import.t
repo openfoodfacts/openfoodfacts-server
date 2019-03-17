@@ -25,4 +25,16 @@ diag explain $product_ref;
 
 is($product_ref->{net_weight}, "480 g");
 
+assign_value($product_ref, "energy_value", "2428.000");
+
+is($product_ref->{energy_value}, "2428");
+
+assign_value($product_ref, "fat_value", "2428.0300");
+
+is($product_ref->{fat_value}, "2428.03");
+
+assign_value($product_ref, "sugars_value", "10.6000");
+
+is($product_ref->{sugars_value}, "10.6");
+
 done_testing();

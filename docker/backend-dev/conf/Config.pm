@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -31,35 +31,36 @@ BEGIN
 	@EXPORT_OK = qw(
 		%admins
 		%moderators
-		
+
 		$server_domain
 		@ssl_subdomains
 		$data_root
 		$www_root
+		$geolite2_path
 		$reference_timezone
 		$contact_email
 		$admin_email
-		
+
 		$facebook_app_id
 		$facebook_app_secret
-		
+
 		$mongodb
 		$mongodb_host
 
 		$memd_servers
-	
+
 		$google_analytics
-		
+
 		$thumb_size
 		$crop_size
 		$small_size
 		$display_size
 		$zoom_size
-		
+
 		$page_size
-		
+
 		%options
-		
+
 		%wiki_texts
 
 		@product_fields
@@ -69,13 +70,13 @@ BEGIN
 		@drilldown_fields
 		@taxonomy_fields
 		@export_fields
-		
+
 		%tesseract_ocr_available_languages
-		
+
 		%weblink_templates
-		
+
 		@edit_rules
-		
+
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -166,6 +167,8 @@ $memd_servers = $ProductOpener::Config2::memd_servers;
 # server paths
 $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
+
+$geolite2_path = $ProductOpener::Config2::geolite2_path;
 
 $facebook_app_id = $ProductOpener::Config2::facebook_app_id;
 $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
@@ -319,8 +322,8 @@ product_name
 generic_name
 quantity
 packaging
-brands 
-categories 
+brands
+categories
 origins
 manufacturing_places
 labels

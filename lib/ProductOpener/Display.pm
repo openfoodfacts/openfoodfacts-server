@@ -81,6 +81,7 @@ BEGIN
 					$formatted_subdomain
 					$test
 					$lc
+					@lcs
 					$cc
 					$country
 
@@ -195,6 +196,7 @@ sub init()
 
 	$cc = 'world';
 	$lc = 'en';
+	@lcs = ();
 	$country = 'en:world';
 
 	if (not defined $r) {
@@ -317,11 +319,18 @@ sub init()
 		$cc_lc_overrides = 1;
 		$log->debug("cc override from request parameter", { cc => $cc }) if $log->is_debug();
 	}
-	if ((defined param('lc')) and (defined $language_codes{param('lc')})) {
-		$lc = param('lc');
-		$lang = $lc;
-		$cc_lc_overrides = 1;
-		$log->debug("lc override from request parameter", { lc => $lc }) if $log->is_debug();
+	if (defined param('lc')) {
+		# allow multiple languages in an ordered list
+		@lcs = split(/,/, param('lc'));
+		if (defined $language_codes{$lcs[0]}) {
+			$lc = $lcs[0];
+			$lang = $lc;
+			$cc_lc_overrides = 1;
+			$log->debug("lc override from request parameter", { lc => $lc , lcs => \@lcs}) if $log->is_debug();
+		}
+		else {
+			@lcs = ();
+		}
 	}
 	# change the subdomain if we have overrides so that links to product pages are properly constructed
 	if ($cc_lc_overrides) {
@@ -3632,15 +3641,27 @@ sub search_and_export_products($$$$$) {
 		$html .= "<p>" . lang("no_products") . "</p>";
 	}
 
+	# On demand exports can be very big, limit the number of products
+	my $export_limit = 100000;
+
+	if (defined $options{export_limit}) {
+		$export_limit = $options{export_limit};
+	}
+
+	if ($count > $export_limit) {
+		$html .= "<p>" . sprintf(lang("error_too_many_products_to_export"), $count, $export_limit) . "</p>";
+	}
+
 	if (defined $request_ref->{current_link_query}) {
 		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
 		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
 		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
 	}
 
-	if ($count <= 0) {
+	if (($count <= 0) or ($count > $export_limit)) {
 		# $request_ref->{content_html} = $html;
 		$request_ref->{title} = lang("search_results");
+		$request_ref->{content_ref} = \$html;
 		display_new($request_ref);
 		return;
 	}
@@ -7350,25 +7371,29 @@ sub display_nutrient_levels($) {
 		my $uc_grade = uc($grade);
 
 		my $warning = '';
-		if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
-			$warning .= "<p>" . lang("nutrition_grade_fr_fiber_warning") . "</p>";
-		}
-		if ((defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
-				and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
-			$warning .= "<p>" . lang("nutrition_grade_fr_no_fruits_vegetables_nuts_warning") . "</p>";
-		}
-		if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate})
-				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} == 1)) {
-			$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
-								$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"}) . "</p>";
-		}
-		if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category})
-				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} ne '')) {
-			$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"),
-								display_taxonomy_tag($lc,'categories',$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}),
-								$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}) . "</p>";
-		}
 
+		# Do not display a warning for water
+		if (not (has_tag($product_ref, "categories", "en:spring-waters"))) {
+
+			if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
+				$warning .= "<p>" . lang("nutrition_grade_fr_fiber_warning") . "</p>";
+			}
+			if ((defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
+					and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
+				$warning .= "<p>" . lang("nutrition_grade_fr_no_fruits_vegetables_nuts_warning") . "</p>";
+			}
+			if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate})
+					and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} == 1)) {
+				$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
+									$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"}) . "</p>";
+			}
+			if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category})
+					and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} ne '')) {
+				$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"),
+									display_taxonomy_tag($lc,'categories',$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}),
+									$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}) . "</p>";
+			}
+		}
 
 		$html_nutrition_grade .= <<HTML
 <h4>$Lang{nutrition_grade_fr_title}{$lc}
@@ -8182,17 +8207,34 @@ HTML
 		# If the request specified a value for the fields parameter, return only the fields listed
 		if (defined $request_ref->{fields}) {
 			my $compact_product_ref = {};
+			my $carbon_footprint_computed = 0;
 			foreach my $field (split(/,/, $request_ref->{fields})) {
-				if ($field =~ /^environment_infocard/) {
+				# On demand carbon footprint tags
+				if ((not $carbon_footprint_computed)
+					and ($field =~ /^environment_infocard/) or ($field =~ /^environment_impact_level/)) {
 					compute_carbon_footprint_infocard($product_ref);
+					$carbon_footprint_computed = 1;
 				}
-				if (defined $product_ref->{$field}) {
+				# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html
+				if ($field eq "nutrition_table_html") {
+					$compact_product_ref->{$field} = display_nutrition_table($product_ref, undef);
+				}
+				# fields in %language_fields can have different values by language
+				if (defined $language_fields{$field}) {
+					foreach my $preferred_lc (@lcs) {
+						if ((defined $product_ref->{$field . "_" . $preferred_lc}) and ($product_ref->{$field . "_" . $preferred_lc} ne '')) {
+							$compact_product_ref->{$field} = $product_ref->{$field . "_" . $preferred_lc};
+							last;
+						}
+					}
+				}
+
+				if ((not defined $compact_product_ref->{$field}) and (defined $product_ref->{$field})) {
 					$compact_product_ref->{$field} = $product_ref->{$field};
 				}
 			}
 			$response{product} = $compact_product_ref;
 		}
-
 
 		if ($request_ref->{jqm}) {
 			# return a jquerymobile page for the product

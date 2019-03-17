@@ -522,7 +522,7 @@ function toggle_manage_images_buttons() {
       // Create some defaults, extending them with any options that were provided
       settings = $.extend( settings, options);
       img_path = settings.img_path;
-      code = $('input:hidden[name="code"]').val();
+      code = $('input:hidden[name="code"]', $(this).closest('form')).val();
 
       return this.each(function(){
 
@@ -590,7 +590,7 @@ function toggle_manage_images_buttons() {
 
           html += '<div style="clear:both" class="command upload_image_div">';
           html += '<a href="#" class="button small expand" id="imgsearchbutton_' + id + '"><i class="fi-camera"></i> ' + Lang.upload_image
-+ '<input type="file" accept="image/*" capture="camera" class="img_input" name="imgupload_' + id + '" id="imgupload_' + id
++ '<input type="file" accept="image/*" class="img_input" name="imgupload_' + id + '" id="imgupload_' + id
 + '" data-url="/cgi/product_image_upload.pl" multiple '
 + 'style="position: absolute;right:0;bottom:0;top:0;cursor:pointer;opacity:0;font-size:40px;"/>'
 + '</a>'

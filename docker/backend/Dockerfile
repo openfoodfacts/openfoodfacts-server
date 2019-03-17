@@ -33,13 +33,16 @@ RUN set -x \
 	&& apk --update --no-cache add \
 		imagemagick6 \
 		graphviz \
-		tesseract-ocr geoip \
+		tesseract-ocr \
 		# As of Alpine 3.7, zbar is only available in testing.
 		imagemagick@edge \
-		zbar@testing \
-	&& /etc/periodic/monthly/geoip \
-	&& ln -s /usr/share/GeoIP /usr/local/share/GeoIP
+		zbar@testing
 
+ADD https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz /tmp/GeoLite2-Country.tar.gz
+RUN set -x \
+  && tar xfz /tmp/GeoLite2-Country.tar.gz -C /usr/local/share \
+  && rm /tmp/GeoLite2-Country.tar.gz \
+  && mv /usr/local/share/GeoLite2-Country_* /usr/local/share/GeoLite2-Country
 
 # Prepare Apache to include our custom config
 RUN set -x \

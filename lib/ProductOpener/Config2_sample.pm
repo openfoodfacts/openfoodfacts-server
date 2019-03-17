@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -33,6 +33,7 @@ BEGIN
 		@ssl_subdomains
 		$data_root
 		$www_root
+		$geolite2_path
 		$mongodb
 		$mongodb_host
 		$memd_servers
@@ -40,7 +41,7 @@ BEGIN
 	    $facebook_app_secret
 		$crowdin_project_identifier
 		$crowdin_project_key
-		
+
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -56,6 +57,8 @@ $server_domain = "openfoodfacts.org";
 # server paths
 $www_root = "/home/off/html";
 $data_root = "/home/off";
+
+$geolite2_path = '/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb';
 
 $mongodb = "off";
 $mongodb_host = "mongodb://localhost";

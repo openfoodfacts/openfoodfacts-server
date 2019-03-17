@@ -225,4 +225,31 @@ special_process_product($product_ref);
 
 is($product_ref->{nutrition_score_beverage}, 0);
 
+# normalize_fr_ce_code
+is (normalize_packager_codes("france 69.238.010 ec"), "FR 69.238.010 EC", "FR: normalized code correctly");
+is (normalize_packager_codes(normalize_packager_codes("france 69.238.010 ec")), "FR 69.238.010 EC", "FR: normalizing code twice does not change it any more than normalizing once");
+
+# normalize_uk_ce_code
+is (normalize_packager_codes("uk dz7131 eg"), "UK DZ7131 EC", "UK: normalized code correctly");
+is (normalize_packager_codes(normalize_packager_codes("uk dz7131 eg")), "UK DZ7131 EC", "UK: normalizing code twice does not change it any more than normalizing once");
+
+# normalize_es_ce_code
+is (normalize_packager_codes("NO-RGSEAA-21-21552-SE"), "ES 21.21552/SE EC", "ES: normalized NO-code correctly");
+is (normalize_packager_codes("ES 26.06854/T EC"), "ES 26.06854/T EC", "ES I: normalized code correctly");
+is (normalize_packager_codes("ES 26.06854/T C EC"), "ES 26.06854/T C EC", "ES II: normalized code correctly");
+is (normalize_packager_codes(normalize_packager_codes("ES 26.06854/T EC")), "ES 26.06854/T EC", "ES I: normalizing code twice does not change it any more than normalizing once");
+is (normalize_packager_codes(normalize_packager_codes("ES 26.06854/T C EC")), "ES 26.06854/T C EC", "ES II: normalizing code twice does not change it any more than normalizing once");
+
+# normalize_lu_ce_code - currently does not work as commented
+# is (normalize_packager_codes("LU L-2"), "LU L2", "LU: normalized code correctly");
+# is (normalize_packager_codes(normalize_packager_codes("LU L-2")), "LU L2", "LU: normalizing code twice does not change it any more than normalizing once");
+
+# normalize_rs_ce_code
+is (normalize_packager_codes("RS 731"), "RS 731 EC", "RS: normalized code correctly");
+is (normalize_packager_codes(normalize_packager_codes("RS 731")), "RS 731 EC", "RS: normalizing code twice does not change it any more than normalizing once");
+
+# normalize_ce_code
+is (normalize_packager_codes("de by-718 ec"), "DE BY-718 EC", "DE: normalized code correctly");
+is (normalize_packager_codes(normalize_packager_codes("de by-718 ec")), "DE BY-718 EC", "DE: normalizing code twice does not change it any more than normalizing once");
+
 done_testing();
