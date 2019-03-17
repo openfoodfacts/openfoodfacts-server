@@ -723,7 +723,6 @@ JS
 
 	$scripts .= <<HTML
 <script type="text/javascript" src="/js/jquery.form.js"></script>
-<script type="text/javascript" src="/js/jquery.rotate.js"></script>
 @{[ get_static_asset_script_tag('dist/product.js') ]}
 HTML
 ;
