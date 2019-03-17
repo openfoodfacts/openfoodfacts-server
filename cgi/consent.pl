@@ -67,27 +67,24 @@ HTML
 	my $greeting = sprintf('Hi %s application <strong>%s</strong> wants access resources on your behalf and to:', escapeHTML($User_id),  escapeHTML($display_client));
 	$html .= '<div class="small-12 columns"><p>' . $greeting . '</p></div>';
 
-	eval {
-		if (defined $requested_scope) {
-			$html .= '<div class="small-12 columns">';
-			foreach my $scope (@{$requested_scope}) {
-				$html .= <<HTML
-				<label>
-					<input type="checkbox" id="$scope" name="grant_scope" value="$scope">
-					$scope
-				</label>
-				<br>
+	if (defined $requested_scope) {
+		$html .= '<div class="small-12 columns">';
+		foreach my $scope (@{$requested_scope}) {
+			$html .= <<HTML
+			<label>
+				<input type="checkbox" id="$scope" checked name="grant_scope" value="$scope">
+				$scope
+			</label>
+			<br>
 HTML
 ;
-			}
 		}
-		1;
-	};
+	}
 
 	$html .=  '</div>';
 	$html .= '<div class="small-12 columns"><p>Do you want to be asked next time when this application wants to access your data? The application will not be able to ask for more permissions without your consent.</p><ul>';
 
-	if (defined $client->{policy_url}) {
+	if ((defined $client->{policy_url}) and (length($client->{policy_url}) > 0)) {
 		$html .= <<HTML
 		<li>
 			<a href="$client->{policy_url}">Policy</a>
@@ -96,7 +93,7 @@ HTML
 ;
 	}
 
-	if (defined $client->{tos_uri}) {
+	if ((defined $client->{tos_uri}) and (length($client->{tos_uri}) > 0)) {
 		$html .= <<HTML
 		<li>
 			<a href="$client->{tos_uri}">Terms of Service</a>
@@ -162,7 +159,7 @@ elsif ($ENV{'REQUEST_METHOD'} eq 'GET') {
 				}
 			}
 			else {
-				_display_form($get_challenge, \$get_consent_response->{requested_scope}, $get_consent_response->{user}, $get_consent_response->{client});
+				_display_form($get_challenge, $get_consent_response->{requested_scope}, $get_consent_response->{user}, $get_consent_response->{client});
 			}
 		}
 	}
@@ -226,7 +223,7 @@ elsif ($ENV{'REQUEST_METHOD'} eq 'POST') {
 				die 'Could not talk to Hydra';
 			}
 
-			_display_form($post_challenge, \$get_consent_response->{requested_scope}, $get_consent_response->{user}, $get_consent_response->{client});
+			_display_form($post_challenge, $get_consent_response->{requested_scope}, $get_consent_response->{user}, $get_consent_response->{client});
 		}
 		else {
 			die 'Could not talk to Hydra';
