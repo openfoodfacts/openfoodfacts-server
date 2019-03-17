@@ -125,8 +125,9 @@ elsif ($ENV{'REQUEST_METHOD'} eq 'POST') {
 		my $accept_login_response = accept_login_request($post_challenge, { subject => $User_id, remember => $remember_me, remember_for => 3600 });
 		$log->debug('received accept login response for challenge from ORY Hydra', { challenge => $post_challenge, accept_login_response => $accept_login_response }) if $log->is_debug();
 		if ($accept_login_response) {
-			$log->info('login accepted by ORY Hydra, redirecting the user to the specified URL', { challenge => $post_challenge, redirect_to => $accept_login_response->{redirect_to} }) if $log->is_info();
+			$log->info('login accepted by ORY Hydra, redirecting the user to the specified URL:', { challenge => $post_challenge, redirect_to => $accept_login_response->{redirect_to} }) if $log->is_info();
 			my $r = shift;
+			$r->err_headers_out->add('Set-Cookie' => $cookie);
 			$r->headers_out->set(Location => $accept_login_response->{redirect_to});
 			$r->status(302);
 			return 302;
