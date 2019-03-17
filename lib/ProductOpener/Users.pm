@@ -385,7 +385,7 @@ sub init_user()
 		my $introspect_result = introspect_oauth2_token($token);
 		if ((defined $introspect_result) and ($introspect_result->{active})
 		and (defined $introspect_result->{token_type}) and ($introspect_result->{token_type} eq 'access_token')) {
-			$user_id = $introspect_result->{username};
+			$user_id = $introspect_result->{sub};
 			$log->info("OAuth2 token introspected to valid user id", { token => $token, userid => $user_id }) if $log->is_info();
 		}
 		else {
