@@ -26,19 +26,22 @@ class RobotoffAsker extends HTMLElement {
     const tmpl = document.createElement('template');
     tmpl.innerHTML = `
       <style>
-        #question { font-size: larger; }
-        #value { font-weight: bold; font-size: xx-large; }
+        :host { background-color: #274477; color: white; position: fixed; bottom: 0; width: 100%; border-top: 1px solid #eee; z-index: 100; padding-top: 10px; }
+        #value { font-weight: bold; }
+        #close { width: 10px; height: 10px; position: absolute; top: 0; left: 0; margin: 2px 0 0 2px; color: #888888 }
       </style>
-      <div data-alert class="alert-box info radius" tabindex="0" aria-live="assertive" role="alertdialog">
-          <div class="row">
-            <div class="small-12 columns"><p id="question">Question</p></div>
-            <div class="small-12 columns"><p id="value">Value</p></div>
-            <div class="small-4 columns"><a href="#" id="no" class="button alert annotate" data-annotation="0">No</a></div>
-            <div class="small-4 columns"><a href="#" id="skip" class="button secondary annotate" data-annotation="-1">Not sure</a></div>
-            <div class="small-4 columns"><a href="#" id="yes" class="button success annotate" data-annotation="1">Yes</a></div>
-          </div>
-          <button id="close" tabindex="0" class="close" aria-label="Close Alert">&times;</button>
+      <div class="row">
+        <div class="medium-12 large-8 columns">
+          <span id="question">Question</span>
+          <span id="value">Value</span>
+        </div>
+        <ul class="medium-12 large-4 columns button-group">
+          <li><a href="#" id="no" class="button alert annotate" data-annotation="0">No</a></li>
+          <li><a href="#" id="skip" class="button secondary annotate" data-annotation="-1">Not sure</a></li>
+          <li><a href="#" id="yes" class="button success annotate" data-annotation="1">Yes</a></li>
+        </ul>
       </div>
+      <a href="#" id="close">&times;</button>
     `;
 
     return tmpl;
