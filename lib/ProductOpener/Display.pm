@@ -7506,7 +7506,8 @@ sub display_nutrient_levels($) {
 	my $html_nutrition_grade = '';
 	my $html_nutrient_levels = '';
 
-	if ((exists $product_ref->{"nutrition_grade_fr"})) {
+	if ((exists $product_ref->{"nutrition_grade_fr"})
+		and ($product_ref->{"nutrition_grade_fr"} =~ /^[abcde]$/)) {
 		my $grade = $product_ref->{"nutrition_grade_fr"};
 		my $uc_grade = uc($grade);
 
