@@ -176,7 +176,12 @@ sub init_product($) {
 
 	# ugly fix: products added by yuka should have country france, regardless of the server ip
 	if ($creator eq 'kiliweb') {
-		$country = "france";
+		if (defined param('cc')) {
+			$country = param('cc');
+		}
+		else {
+			$country = "france";
+		}
 	}
 	
 	# ugly fix: elcoco -> Spain
