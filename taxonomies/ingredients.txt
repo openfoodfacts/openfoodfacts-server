@@ -1143,7 +1143,7 @@ wikipedia:en:https://nl.wikipedia.org/wiki/Smeltzout
 
 # Magnesium stearate is the chemical compound with the formula Mg(C18H35O2)2
 
-<en:Emulsifying salt
+# <en:Emulsifying salt
 en:Magnesium stearate, E470b
 ar:ستيرات المغنسيوم
 cs:Stearan hořečnatý
@@ -3295,6 +3295,39 @@ wikidata:en:Q695975
 wikipedia:en:https://en.wikipedia.org/wiki/Mixed_ammonium_salts_of_phosphorylated_glycerides
 # fr:phosphatides-d’ammonium has 56 products in 6 languages @2018-11-06
 # additive/e442-ammonium-phosphatides has 246 products @2018-11-06
+
+
+en:460
+
+# Microcrystalline cellulose (MCC) is a term for refined wood pulp and is used as a texturizer, an anti-caking agent, a fat substitute, an emulsifier, an extender, and a bulking agent in food production.
+
+<en:460
+en:Microcrystalline cellulose, E460i, E-460i, E 460i, E460(i)
+bg:Микрокристална целулоза
+cs:Mikrokrystalická celulosa
+da:Mikrokrystallinsk cellulose
+de:Mikrokristalline Cellulose
+el:Μικροκρυσταλλικη κυτταρινη
+es:celulosa microcristalina
+et:Mikrokristalne tselluloos
+fi:Mikrokiteinen selluloosa
+fr:cellulose microcristalline
+hu:Mikrokristályos cellulóz
+it:cellulosa microcristallina
+lt:Mikrokristalinė celiuliozė
+lv:Mikrokristāliskā celuloze
+mt:Ċelluloża mikrokristallina
+nl:microkristalline cellulose
+pl:Celuloza mikrokrystaliczna
+pt:celulose microcristalina
+ro:Celuloză microcristalină
+sk:Mikrokryštalická celulóza
+sl:Mikrokristalna celuloza
+sv:Mikrokristallin cellulosa
+wikidata:en: Q417374
+wikipedia:en:https://en.wikipedia.org/wiki/Microcrystalline_cellulose
+# ingredient/fr:cellulose-microcristalline has 72 products in 5 languages @2019-03-19 # additive/e460i-microcrystalline-cellulose has 342 products in 7 languages @2019-03-19
+# stabilizzante:cellulosa microcristallina
 
 
 # Carboxymethyl cellulose (CMC) or cellulose gum or tylose powder  is a cellulose derivative with carboxymethyl groups (-CH2-COOH) bound to some of the hydroxyl groups of the glucopyranose monomers that make up the cellulose backbone.
@@ -8370,7 +8403,6 @@ nl:Zoete weipoeder
 <en:whey powder
 en:filtered whey powder
 fr:petit-lait filtré en poudre, lactosérum filtré en poudre
-de:molkenerzeugnis
 es:suero de leche en polvo
 nl:weifiltraatpoeder
 it:filtrato di siero di latte in polvere
@@ -8391,11 +8423,12 @@ fr:lactosérum concentré
 nl:Geconcentreerde wei
 
 <en:whey
-en:whey product
-de:Molkenerzeugnis
-fr:produit de lactosérum, produit de petit-lait, produit à base de lactosérum
-it:derivati del siero di latte
+en:whey product, whey based formula
+de:Molkenerzeugnis, formel auf molkebasis
+fr:produit de lactosérum, produit de petit-lait, produit à base de lactosérum, préparation à base de lactosérum
+it:derivati del siero di latte, la preparazione del siero di latte
 # ingredient/fr:produit-de-lactosérum has 22 products in 4 languages @2019-02-07
+# ingredient/fr:préparation-à-base-de-lactosérum has 34 products @2019-03-18
 
 
 # CREAM is a dairy product composed of the higher-butterfat layer skimmed from the top of milk before homogenization.
@@ -34764,7 +34797,7 @@ zh:咖喱
 # zh-sg:咖喱
 # zh-tw:咖喱
 wikidata:en:Q164606
-openfoodfacts:https://world.openfoodfacts.org/ingredient/curry
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/curry
 # 622 products in 8 languages @2018-10-11
 
 # CURRY POWDER is a spice mix originating from the Indian subcontinent.
@@ -49096,7 +49129,6 @@ fr:e444
 fr:e445
 
 
-fr:e460
 
 fr:e461
 
@@ -50018,9 +50050,7 @@ fr:ferments lactiques dont lactobacillus casei
 fr:épaississant e415
 
 
-fr:cellulose microcristalline
 
-fr:préparation à base de lactosérum
 
 
 
