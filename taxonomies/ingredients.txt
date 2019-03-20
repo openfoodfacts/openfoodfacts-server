@@ -7,11 +7,11 @@ stopwords:el:περιέχει
 stopwords:en:contains, contain, from, with, produced with
 stopwords:es:contiene
 stopwords:fi:sisältää
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,base,ou,en,proportion,variable, contient, élaboré avec, papier traité
 stopwords:hr:sastojci
 stopwords:hu:tartalmaz
 stopwords:it:contiene
-stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met
+stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papier
 stopwords:nn:av, inneholder
 stopwords:pl:w tym
 stopwords:pt:do qual, dos quais
@@ -1641,6 +1641,7 @@ vi:Canxi sorbat
 wikidata:en:Q425183
 wikipedia:en:https://en.wikipedia.org/wiki/Calcium_sorbate
 # ingredient/fr:sorbate-de-calcium has 38 products in french @2019-03-03
+# conservateur : sorbate de calcium (papier traité)
 
 
 # Sodium benzoate is a substance which has the chemical formula NaC7H5O2. It is a widely used food preservative, with an E number of E211.
@@ -5223,6 +5224,161 @@ wikidata:en:Q182849
 wikipedia:en:https://en.wikipedia.org/wiki/Calcium_hydroxide
 # ingredient/calcium-hydroxide has 152 products in 7 languages @2019-02-18
 
+
+# Iodine is a chemical element with symbol I and atomic number 53. 
+
+en:iodine
+af:jodium
+am:አዮዲን
+an:Yodo
+ar:يود
+# ast:Yodu
+az:Yod
+# azb:یود
+ba:Иод
+be:Ёд
+# be-tarask:Ёд
+bg:Йод
+# bho:आयोडिन
+bi:Aiodin
+bn:আয়োডিন
+bo:ལྦ་ཚྭ།
+br:Iod
+bs:jod
+ca:iode
+# cdo:Diēng
+# ceb:Yodo
+# ckb:یۆد
+co:Iodiu
+cs:Jod
+cv:Иод
+cy:Ïodin
+da:jod
+de:Jod
+# diq:İyod
+dv:އަޔޮޑިން
+el:Ιώδιο
+# en-ca:Iodine
+# en-gb:Iodine
+eo:jodo
+es:Yodo
+et:Jood
+eu:iodo
+fa:ید
+fi:Jodi
+fo:Jod
+fr:Iode
+# frr:Jood
+# fur:Jodi
+ga:Iaidín
+# gan:碘
+gd:Aidhodain
+gl:Iodo
+gu:આયોડિન
+gv:Eeadeen
+# hak:Tièn
+he:יוד
+hi:आयोडिन
+# hif:Iodine
+hr:Jod
+ht:Yòd
+hu:Jód
+hy:յոդ
+ia:iodo
+id:Iodin
+io:iodo
+is:joð
+it:Iodio
+ja:ヨウ素
+# jbo:zirkliru
+jv:Yodium
+ka:იოდი
+# kbp:Ɩyɔdɩ
+kk:Йод
+kn:ಅಯೊಡಿನ್
+ko:아이오딘
+kv:Йод
+ky:Иод
+la:Iodum
+lb:Iod
+# lfn:iodo
+li:Jodium
+# lij:Iodio
+# lmo:Iodio
+lt:Jodas
+lv:Jods
+# lzh:碘
+mk:јод
+ml:അയോഡിൻ
+mn:Иод
+mr:आयोडिन
+# mrj:Иод
+ms:Iodin
+mt:Jodju
+my:အိုင်အိုဒင်း
+# myv:Иод
+# nan:Ak-sò͘ 
+nb:jod
+# nds:Jod
+ne:आयोडिन
+# new:आयोडिन
+nl:jodium
+nn:jod
+oc:Iòde
+# olo:Joudu
+or:ଆୟୋଡ଼ିନ
+os:Йод
+pa:ਆਇਓਡੀਨ
+pi:आयोडिन
+pl:Jod
+# pmo:Jòdio
+# pnb:آئیوڈین
+pt:Iodo
+# pt-br:iodo
+qu:Yudu
+ro:Iod
+ru:иод
+# rup:Iodu
+sa:अयोडिन्
+# scn:jodiu
+# sco:iodine
+sh:Jod
+sk:Jód
+sl:Jod
+so:Aaydhiin
+sq:Jodi
+sr:јод
+# stq:Iod
+su:Yodium
+sv:Jod
+sw:Iodini
+ta:அயோடின்
+te:అయోడిన్
+tg:Йод
+th:ไอโอดีน
+tl:Yodo
+tr:İyot
+tt:иод
+# tt-cyrl:иод
+# tyv:Йод
+uk:Йод
+ur:آیوڈین
+uz:Yod
+# vep:Jod
+vi:iốt
+# war:Yodo
+# wuu:碘
+# xal:Йод
+yi:יאד
+yo:Iodine
+# yue:碘
+zh:碘
+# zh-cn:碘
+# zh-hk:碘
+wikidata:en:Q1103
+wikipedia:en:https://en.wikipedia.org/wiki/Iodine
+# ingredient/fr:iode has 92 products in 4 languages @2019-03-20
+# sel de cuisine [iodé, fluoré]
 
 
 # Iron(II) sulfate (British English:iron(II) sulphate) or ferrous sulfate denotes a range of salts with the formula FeSO4·xH2O.
@@ -22228,7 +22384,7 @@ es:difosfato disódico
 et:Dinaatriumdifosfaat, Dinaatriumdivesinikdifosfaat
 fa:دی‌سدیم پیروفسفات
 fi:Dinatriumdifosfaatti, Dinatriumdivetydifosfaatti, Dinatriumdivetypyrofosfaatti, Hapan natriumpyrofosfaatti
-fr:diphosphate disodique, diphosphates de sodium, diphosphate de sodium, Pyrophosphate acide de soude, pyrophosphate de sodium
+fr:diphosphate disodique, diphosphates de sodium, diphosphate de sodium, Pyrophosphate acide de soude, pyrophosphate de sodium, diphosphates de sodium
 hu:Dinátrium-difoszfát
 it:difosfato disodico
 ja:二リン酸二水素二ナトリウム
@@ -28370,17 +28526,17 @@ ug:ئانار
 uk:Гранатове дерево
 ur:انار
 uz:Ahop
-vro:Granaatupin
+# vro:Granaatupin
 za:Maksigloux
 wikidata:en:Q13222088
 wikipedia:en:https://fr.wikipedia.org/wiki/Grenade_(fruit)
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:grenade
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:grenade
 # 53 products in 3 languages @2018-10-03
 
 <en:pomegranate
 fr:graines de grenade
 de:Granatapfelkerne
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines%20de%20grenade
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines%20de%20grenade
 # 4 products in 3 languages @2018-10-03
 
 <en:pomegranate
@@ -28388,7 +28544,7 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines%20de%20grena
 fr:jus de grenade
 de:Granatapfelsaft
 it:succo di melagrana
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20grenade
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus%20de%20grenade
 # 61 products in 3 languages @2018-10-03
 
 # Aronia is a genus of deciduous shrubs, the chokeberries, in the family Rosaceae native to eastern North America
@@ -50103,41 +50259,6 @@ fr:blette
 fr:carbonates de magnésium
 
 fr:pyrophosphate de soude
-
-fr:iode
-
-
-fr:papier traité
-
-
-fr:jus de grenade
-
-
-
-fr:diphosphates de sodium
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
