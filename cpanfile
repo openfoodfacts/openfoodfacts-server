@@ -30,7 +30,7 @@ requires 'URI::Escape::XS';
 requires 'Encode::Punycode';
 requires 'GraphViz2';
 requires 'Algorithm::CheckDigits';
-requires 'Geo::IP';
+requires 'GeoIP2', '>= 2.006001, < 3.0';
 requires 'Image::OCR::Tesseract';
 requires 'DateTime', '>= 1.50';
 requires 'DateTime::Locale', '>= 1.22';

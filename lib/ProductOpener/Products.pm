@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -90,12 +90,12 @@ sub normalize_code($) {
 		if ((length($code) eq 12) and ($ean_check->is_valid('0' . $code))) {
 			$code = '0' . $code;
 		}
-		
+
 		# Remove leading 0 for codes with 14 digits
 		if ((length($code) eq 14) and ($code =~ /^0/)) {
 			$code = $';
 		}
-		
+
 		# Remove 5 or 6 leading 0s for EAN8
 		# 00000080050100 (from Ferrero)
 		if ((length($code) eq 14) and ($code =~ /^000000/)) {
@@ -103,7 +103,7 @@ sub normalize_code($) {
 		}
 		if ((length($code) eq 13) and ($code =~ /^00000/)) {
 			$code = $';
-		}		
+		}
 	}
 	return $code;
 }
@@ -170,16 +170,24 @@ sub init_product($) {
 		$product_ref->{lc} = $lc;
 		$product_ref->{lang} = $lc;
 	}
-	use Geo::IP;
-	my $gi = Geo::IP->new(GEOIP_MEMORY_CACHE);
-	# look up IP address '24.24.24.24'
-	# returns undef if country is unallocated, or not defined in our database
-	my $country = $gi->country_code_by_addr(remote_addr());
+
+	use ProductOpener::GeoIP;
+	my $country = ProductOpener::GeoIP::get_country_for_ip(remote_addr());
 
 	# ugly fix: products added by yuka should have country france, regardless of the server ip
 	if ($creator eq 'kiliweb') {
-		$country = "france";
+		if (defined param('cc')) {
+			$country = param('cc');
+		}
+		else {
+			$country = "france";
+		}
 	}
+	
+	# ugly fix: elcoco -> Spain
+	if ($creator eq 'elcoco') {
+		$country = "spain";
+	}	
 
 	if (defined $country) {
 		if ($country !~ /a1|a2|o1/i) {

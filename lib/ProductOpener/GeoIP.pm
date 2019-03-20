@@ -1,4 +1,4 @@
-# This file is part of Product Opener.
+﻿# This file is part of Product Opener.
 #
 # Product Opener
 # Copyright (C) 2011-2019 Association Open Food Facts
@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-package ProductOpener::Config2;
+package ProductOpener::GeoIP;
 
 use utf8;
 use Modern::Perl '2012';
@@ -27,48 +27,41 @@ use Exporter    qw< import >;
 BEGIN
 {
 	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();
+	@EXPORT = qw();            # symbols to export by default
 	@EXPORT_OK = qw(
-		$server_domain
-		@ssl_subdomains
-		$data_root
-		$www_root
-		$geolite2_path
-		$mongodb
-		$mongodb_host
-		$memd_servers
-		$facebook_app_id
-	    $facebook_app_secret
-		$crowdin_project_identifier
-		$crowdin_project_key
+					&get_country_for_ip
 
-	);
+					);	# symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
-use vars @EXPORT_OK ; # no 'my' keyword for these
 
-# server constants
-$server_domain = "openfoodfacts.org";
+use vars @EXPORT_OK ;
 
-@ssl_subdomains = qw(
-*
-);
+use experimental 'smartmatch';
 
-# server paths
-$www_root = "/home/off/html";
-$data_root = "/home/off";
+use ProductOpener::Config qw/:all/;
 
-$geolite2_path = '/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb';
+use GeoIP2::Database::Reader;
+use Log::Any qw($log);
 
-$mongodb = "off";
-$mongodb_host = "mongodb://localhost";
+my $gi = GeoIP2::Database::Reader->new(file => $geolite2_path);
 
-$memd_servers = [ "127.0.0.1:11211" ];
+sub get_country_for_ip {
+	my $ip = shift;
 
-$facebook_app_id = "";
-$facebook_app_secret = "";
+	my $country;
+	eval {
+		my $country_mod = $gi->country(ip => $ip);
+		my $country_rec = $country_mod->country();
+		$country = $country_rec->name();
+	};
 
-$crowdin_project_identifier = '';
-$crowdin_project_key = '';
+	if ($@) {
+		$log->warn("GeoIP error", { error => $@ }) if $log->is_warn();
+		$country = undef;
+	}
+
+	return $country;
+}
 
 1;

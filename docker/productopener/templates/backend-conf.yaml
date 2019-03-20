@@ -60,6 +60,7 @@ data:
     		@ssl_subdomains
     		$data_root
     		$www_root
+        $geolite2_path
     		$reference_timezone
     		$contact_email
     		$admin_email
@@ -195,6 +196,8 @@ data:
     # server paths
     $www_root = $ProductOpener::Config2::www_root;
     $data_root = $ProductOpener::Config2::data_root;
+
+    $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
     $facebook_app_id = $ProductOpener::Config2::facebook_app_id;
     $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
@@ -431,6 +434,7 @@ data:
     		@ssl_subdomains
     		$data_root
     		$www_root
+        $geolite2_path
     		$mongodb
         $mongodb_host
         $memd_servers
@@ -451,6 +455,8 @@ data:
     # server paths
     $www_root = "/opt/product-opener/html";
     $data_root = "/mnt/podata";
+
+    $geolite2_path = '/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb';
 
     $mongodb = "off";
     $mongodb_host = "mongodb://{{ .Release.Name }}-mongodb:27017";

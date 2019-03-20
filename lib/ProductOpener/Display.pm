@@ -3641,6 +3641,17 @@ sub search_and_export_products($$$$$) {
 	elsif ($count == 0) {
 		$html .= "<p>" . lang("no_products") . "</p>";
 	}
+	
+	# On demand exports can be very big, limit the number of products
+	my $export_limit = 100000;
+	
+	if (defined $options{export_limit}) {
+		$export_limit = $options{export_limit};
+	}
+	
+	if ($count > $export_limit) {
+		$html .= "<p>" . sprintf(lang("error_too_many_products_to_export"), $count, $export_limit) . "</p>";
+	}
 
 	if (defined $request_ref->{current_link_query}) {
 		$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
@@ -3648,9 +3659,10 @@ sub search_and_export_products($$$$$) {
 		$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
 	}
 
-	if ($count <= 0) {
+	if (($count <= 0) or ($count > $export_limit)) {
 		# $request_ref->{content_html} = $html;
 		$request_ref->{title} = lang("search_results");
+		$request_ref->{content_ref} = \$html;
 		display_new($request_ref);
 		return;
 	}
@@ -7494,30 +7506,35 @@ sub display_nutrient_levels($) {
 	my $html_nutrition_grade = '';
 	my $html_nutrient_levels = '';
 
-	if ((exists $product_ref->{"nutrition_grade_fr"})) {
+	if ((exists $product_ref->{"nutrition_grade_fr"})
+		and ($product_ref->{"nutrition_grade_fr"} =~ /^[abcde]$/)) {
 		my $grade = $product_ref->{"nutrition_grade_fr"};
 		my $uc_grade = uc($grade);
 
 		my $warning = '';
-		if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
-			$warning .= "<p>" . lang("nutrition_grade_fr_fiber_warning") . "</p>";
+		
+		# Do not display a warning for water
+		if (not (has_tag($product_ref, "categories", "en:spring-waters"))) {
+		
+			if ((defined $product_ref->{nutrition_score_warning_no_fiber}) and ($product_ref->{nutrition_score_warning_no_fiber} == 1)) {
+				$warning .= "<p>" . lang("nutrition_grade_fr_fiber_warning") . "</p>";
+			}
+			if ((defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
+					and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
+				$warning .= "<p>" . lang("nutrition_grade_fr_no_fruits_vegetables_nuts_warning") . "</p>";
+			}
+			if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate})
+					and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} == 1)) {
+				$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
+									$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"}) . "</p>";
+			}
+			if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category})
+					and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} ne '')) {
+				$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"),
+									display_taxonomy_tag($lc,'categories',$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}),
+									$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}) . "</p>";
+			}
 		}
-		if ((defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts})
-				and ($product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} == 1)) {
-			$warning .= "<p>" . lang("nutrition_grade_fr_no_fruits_vegetables_nuts_warning") . "</p>";
-		}
-		if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate})
-				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} == 1)) {
-			$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
-								$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"}) . "</p>";
-		}
-		if ((defined $product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category})
-				and ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} ne '')) {
-			$warning .= "<p>" . sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"),
-								display_taxonomy_tag($lc,'categories',$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}),
-								$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}) . "</p>";
-		}
-
 
 		$html_nutrition_grade .= <<HTML
 <h4>$Lang{nutrition_grade_fr_title}{$lc}

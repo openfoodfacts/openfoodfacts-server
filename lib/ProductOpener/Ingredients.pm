@@ -333,6 +333,9 @@ sub extract_ingredients_from_image($$$) {
 			
 			$log->info("saving google cloud vision json response to file", { path => $json_file }) if $log->is_info();
 			
+			# UTF-8 issue , see https://stackoverflow.com/questions/4572007/perl-lwpuseragent-mishandling-utf-8-response
+			$json_response = decode("utf8", $json_response);
+			
 			open (my $OUT, ">:encoding(UTF-8)", $json_file);
 			print $OUT $json_response;
 			close $OUT;			

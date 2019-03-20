@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2019 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -31,40 +31,41 @@ BEGIN
 	@EXPORT_OK = qw(
 		%admins
 		%moderators
-		
+
 		$server_domain
 		@ssl_subdomains
 		$data_root
 		$www_root
+		$geolite2_path
 		$reference_timezone
 		$contact_email
 		$admin_email
-		
+
 		$facebook_app_id
 		$facebook_app_secret
-		
+
 		$google_cloud_vision_api_key
-		
+
 		$crowdin_project_identifier
 		$crowdin_project_key
-		
+
 		$mongodb
 		$mongodb_host
 
 		$memd_servers
-	
+
 		$google_analytics
-		
+
 		$thumb_size
 		$crop_size
 		$small_size
 		$display_size
 		$zoom_size
-		
+
 		$page_size
-		
+
 		%options
-		
+
 		%wiki_texts
 
 		@product_fields
@@ -74,13 +75,13 @@ BEGIN
 		@drilldown_fields
 		@taxonomy_fields
 		@export_fields
-		
+
 		%tesseract_ocr_available_languages
-		
+
 		%weblink_templates
-		
+
 		@edit_rules
-		
+
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -113,6 +114,8 @@ twoflower
 %moderators = map { $_ => 1 } qw(
 
 );
+
+$options{export_limit} = 10000;
 
 $options{users_who_can_upload_small_images} = {
 map { $_ => 1 } qw(
@@ -280,6 +283,8 @@ $memd_servers = $ProductOpener::Config2::memd_servers;
 $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
 
+$geolite2_path = $ProductOpener::Config2::geolite2_path;
+
 $facebook_app_id = $ProductOpener::Config2::facebook_app_id;
 $facebook_app_secret = $ProductOpener::Config2::facebook_app_secret;
 
@@ -360,7 +365,8 @@ $options{favicons} = <<HTML
 <meta name="msapplication-TileImage" content="/images/favicon/mstile-144x144.png">
 <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
 <meta name="_globalsign-domain-verification" content="2ku73dDL0bAPTj_s1aylm6vxvrBZFK59SfbH_RdUya" />
-<meta name="flattr:id" content="dw637l"> 
+<meta name="apple-itunes-app" content="app-id=588797948">
+<meta name="flattr:id" content="dw637l">
 HTML
 ;
 
@@ -397,8 +403,8 @@ en:coffee-drinks
 $options{categories_exempted_from_nutriscore} = [qw(
 en:baby-foods
 en:baby-milks
+en:meal-replacements
 en:alcoholic-beverages
-en:waters
 en:coffees
 en:teas
 en:herbal-teas
@@ -406,6 +412,9 @@ fr:levure
 fr:levures
 en:honeys
 en:vinegars
+en:pet-food
+en:non-food-products
+
 )];
 
 # exceptions
@@ -482,19 +491,19 @@ net_weight_value net_weight_unit drained_weight_value drained_weight_unit volume
 other_information conservation_conditions recycling_instructions_to_recycle
  recycling_instructions_to_discard
 nutrition_grade_fr_producer
-recipe_idea origin customer_service producer preparation warning 
+recipe_idea origin customer_service producer preparation warning
 );
 
 
 # fields shown on product page
 # do not show purchase_places
 
-@display_fields = qw(generic_name quantity packaging brands categories labels origin origins 
+@display_fields = qw(generic_name quantity packaging brands categories labels origin origins
 producer manufacturing_places emb_codes link stores countries);
 
 # fields displayed in a new section after the nutrition facts
 
-@display_other_fields = qw(other_information preparation recipe_idea warning conservation_conditions 
+@display_other_fields = qw(other_information preparation recipe_idea warning conservation_conditions
 recycling_instructions_to_recycle recycling_instructions_to_discard customer_service);
 
 
@@ -538,8 +547,8 @@ product_name
 generic_name
 quantity
 packaging
-brands 
-categories 
+brands
+categories
 origins
 manufacturing_places
 labels
@@ -656,7 +665,7 @@ $options{display_tag_additives} = [
 	'wikipedia',
 	'title:efsa_evaluation_overexposure_risk_title',
 	'efsa_evaluation',
-	'efsa_evaluation_overexposure_risk',	
+	'efsa_evaluation_overexposure_risk',
 	'efsa_evaluation_exposure_table',
 #	'@efsa_evaluation_exposure_mean_greater_than_noael',
 #	'@efsa_evaluation_exposure_95th_greater_than_noael',
@@ -777,7 +786,7 @@ $options{nova_groups_tags} = {
 # other ingredients that we can consider as ultra-processed
 
 "ingredients/en:dextrose" => 4,
-# This can be deleted, it is a synonym of en:glucose in the ingredients taxo aleene@2018-10-09 
+# This can be deleted, it is a synonym of en:glucose in the ingredients taxo aleene@2018-10-09
 "ingredients/en:milk-powder" => 4,
 # This can be deleted, was already entered above aleene@2018-10-09
 "ingredients/en:milk-proteins" => 4,
@@ -842,7 +851,7 @@ $options{nova_groups_tags} = {
 "additives/en:e151" => 4, #Brilliant black bn" => 4, #black pn" => 4, #E 151" => 4, #C.I. 28440" => 4, #Brilliant Black PN" => 4, #Food Black 1" => 4, #Naphthol Black" => 4, #C.I. Food Brown 1" => 4, #Brilliant Black A
 "additives/en:e152" => 4, #Black 7984" => 4, #Food Black 2" => 4, #carbon black
 "additives/en:e153" => 4, #Vegetable carbon
-"additives/en:e154" => 4, #Brown FK" => 4, #Kipper Brown 
+"additives/en:e154" => 4, #Brown FK" => 4, #Kipper Brown
 "additives/en:e155" => 4, #Brown ht" => 4, #Chocolate brown HT
 "additives/en:e15x" => 4, #E15x food additive
 "additives/en:e160" => 4, #carotene

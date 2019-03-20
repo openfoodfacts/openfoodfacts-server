@@ -88,6 +88,7 @@ my $api_request_ref =
 			[ 
 				{
 					features => [{ type => 'TEXT_DETECTION'}, { type => 'LOGO_DETECTION'},
+					{ type => 'LABEL_DETECTION'},
 					{ type => 'SAFE_SEARCH_DETECTION'}, { type => 'FACE_DETECTION'}]
 #					, image => { source => { imageUri => $image_url}}
 					, image => { content => encode_base64($image)}
@@ -109,9 +110,12 @@ if ($res->is_success) {
 
 	#$log->info("request to google cloud vision was successful") if $log->is_info();
 
-	my $json_response = $res->decoded_content;
+	my $json_response = $res->decoded_content(charset => 'UTF-8');
 	
 	# my $cloudvision_ref = decode_json($json_response);
+
+	# UTF-8 issue , see https://stackoverflow.com/questions/4572007/perl-lwpuseragent-mishandling-utf-8-response
+	$json_response = decode("utf8", $json_response);
 	
 	open (my $OUT, ">:encoding(UTF-8)", $json_file) or die("Cannot write $json_file: $!\n");
 	print $OUT $json_response;

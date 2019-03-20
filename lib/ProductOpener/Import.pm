@@ -38,6 +38,7 @@ BEGIN
 		%products
 	
 		&assign_value
+		&remove_value
 		
 		&get_list_of_files
 		
@@ -73,6 +74,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
+use ProductOpener::Ingredients qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -136,11 +138,11 @@ sub assign_value($$$) {
 		push @fields, $field;
 	}
 	
-	if (($field =~ /_value$/) and (defined $product_ref->{$field})) {
+	if (($field =~ /_value$/) and (defined $value)) {
 		# nutrients: remove useless 0
 		# 2482.0000   39.8000
-		$product_ref->{$field} =~ s/(\.|\,)0+$//;
-		$product_ref->{$field} =~ s/(\.|\,)(.*\d)0+$/$1$2/;		
+		$value =~ s/(\.|\,)(0+)$//;
+		$value =~ s/(\.|\,)(\d*[1-9])0+$/$1$2/;		
 	}
 	
 	if ((defined $product_ref->{$field}) and ($product_ref->{$field} ne "") and ($mode eq "append")
@@ -148,6 +150,7 @@ sub assign_value($$$) {
 		
 		if (exists $tags_fields{$field}) {
 			if ($target =~ /^!/) {
+				# only add the field if it exists in the taxonomy
 				my $canon_tagid = canonicalize_taxonomy_tag($product_ref->{lc}, $field, $value);
 				if (exists_taxonomy_tag($field, $canon_tagid)) {
 					$product_ref->{$field} .= ", " . $value;
@@ -164,6 +167,20 @@ sub assign_value($$$) {
 	}
 	else {
 		$product_ref->{$field} = $value;
+	}
+}
+
+
+sub remove_value($$$) {
+
+	my $product_ref = shift;
+	my $target = shift;
+	my $value = shift;
+	
+	my $field = $target;
+	
+	if (defined $product_ref->{$field}) {
+		$field =~ s/(, )?$value//ig;
 	}
 }
 
@@ -584,6 +601,11 @@ sub clean_fields($) {
 				if (($field =~ /_fr/) or (($lc eq 'fr') and ($field !~ /_\w\w$/))) {
 					$product_ref->{$field} =~ s/_(d|l)('|’)([^_,-;]+)_/$1'_$2_/ig;
 				}
+			}
+			
+			if ($field =~ /^ingredients_text_(\w\w)/) {
+				my $ingredients_lc = $1;
+				$product_ref->{$field} = clean_ingredients_text_for_lang($product_ref->{$field}, $ingredients_lc);
 			}			
 			
 			if ($field =~ /^nutrition_grade_/) {
@@ -801,6 +823,7 @@ sub load_csv_file($) {
 	my $encoding = $options_ref->{encoding};
 	my $separator = $options_ref->{separator};
 	my $skip_lines = $options_ref->{skip_lines};
+	my $skip_lines_after_header = $options_ref->{skip_lines_after_header};
 	my $skip_non_existing_products = $options_ref->{skip_non_existing_products};
 	my $skip_empty_codes = $options_ref->{skip_empty_codes};
 	my @csv_fields_mapping = @{$options_ref->{csv_fields_mapping}};
@@ -824,6 +847,13 @@ sub load_csv_file($) {
 
 	my $headers_ref = $csv->getline ($io);
 	$i++;
+	
+	if (defined $skip_lines_after_header) {
+		for (my $j = 0; $j < $skip_lines_after_header; $j++) {
+			$csv->getline ($io);
+			$i++;
+		}
+	}	
 	
 	$log->info("CSV headers", { file => $file, headers_ref=>$headers_ref }) if $log->is_info();
 	
@@ -904,10 +934,17 @@ sub load_csv_file($) {
 						my $file =  $csv_product_ref->{$source_field};
 						$file =~ s/.*\///;
 						
-						$file =~ s/[^A-Za-z0-9-_]/_/g;
+						$file =~ s/[^A-Za-z0-9-_\.]/_/g;
 						
-						print STDERR "downloading image: wget $csv_product_ref->{$source_field} -O $dir/$file\n";
-						system("wget $csv_product_ref->{$source_field} -O $dir/$file");
+						# do not download again images that we already have
+						# but try again if the size is 0
+						
+						if ((! -e "$dir/$file") or ((-s "$dir/$file") < 10000)) {
+						
+							print STDERR "downloading image: wget $csv_product_ref->{$source_field} -O $dir/$file\n";
+							system("wget $csv_product_ref->{$source_field} -O $dir/$file");
+							sleep 2;	# there seems to be some limit as we received 403 Forbidden responses
+						}
 					}
 					
 					# ["Energie kJ", "nutriments.energy_kJ"],

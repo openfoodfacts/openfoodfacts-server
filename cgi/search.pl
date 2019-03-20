@@ -745,6 +745,14 @@ elsif ($action eq 'process') {
 	
 	
 	my $share = lang('share');
+	
+	
+	open (my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log_debug");
+	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8=>param('search_terms') . " - map: " . param("generate_map")
+	. " - graph: " . param("graph") . " - download: " . param("download") 
+		. "\tpage: $page\tcount:" . $request_ref->{count} . "\n";
+	close ($OUT);
+	
 
 	# Graph, map, export or search
 
@@ -818,7 +826,7 @@ HTML
 	
 		# Normal search results
 		
-		$log->debug("displaying results", { current_linkg => $request_ref->{current_link}, current_link_query => $request_ref->{current_link_query} }) if $log->is_debug();
+		$log->debug("displaying results", { current_link => $request_ref->{current_link}, current_link_query => $request_ref->{current_link_query} }) if $log->is_debug();
 		
 		${$request_ref->{content_ref}} .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, $limit, $page);
 
