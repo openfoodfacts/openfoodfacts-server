@@ -3576,8 +3576,19 @@ foreach my $group (keys %pnns) {
 sub special_process_product($) {
 
 	my $product_ref = shift;
-
-	return if not defined $product_ref->{categories_tags};
+	
+	delete $product_ref->{pnns_groups_1};
+	delete $product_ref->{pnns_groups_1_tags};
+	delete $product_ref->{pnns_groups_2};
+	delete $product_ref->{pnns_groups_2_tags};	
+	
+	if (not defined $product_ref->{categories}) {
+		$product_ref->{pnns_groups_2} = "unknown";
+		$product_ref->{pnns_groups_2_tags} = ["unknown", "missing-category"];
+		$product_ref->{pnns_groups_1} = "unknown";
+		$product_ref->{pnns_groups_1_tags} = ["unknown", "missing-category"];
+		return;
+	}	
 
 	# For Open Food Facts, add special categories for beverages that are computed from
 	# nutrition facts (alcoholic or not) or the ingredients (sweetened, artificially sweetened or unsweetened)
@@ -3750,11 +3761,6 @@ sub special_process_product($) {
 
 	# compute PNNS groups 2 and 1
 
-	delete $product_ref->{pnns_groups_1};
-	delete $product_ref->{pnns_groups_1_tags};
-	delete $product_ref->{pnns_groups_2};
-	delete $product_ref->{pnns_groups_2_tags};
-
 	foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
 		if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{"pnns_group_2:en"})) {
 
@@ -3799,14 +3805,13 @@ sub special_process_product($) {
 		}
 	}
 	else {
-		if (defined $product_ref->{categories}) {
-			$product_ref->{pnns_groups_2} = "unknown";
-			$product_ref->{pnns_groups_2_tags} = ["unknown"];
-			$product_ref->{pnns_groups_1} = "unknown";
-			$product_ref->{pnns_groups_1_tags} = ["unknown"];
-		}
+		# We have a category for the product, but no PNNS groups are associated with this category or a parent category
+	
+		$product_ref->{pnns_groups_2} = "unknown";
+		$product_ref->{pnns_groups_2_tags} = ["unknown", "missing-association"];
+		$product_ref->{pnns_groups_1} = "unknown";
+		$product_ref->{pnns_groups_1_tags} = ["unknown", "missing-association"];
 	}
-
 }
 
 
