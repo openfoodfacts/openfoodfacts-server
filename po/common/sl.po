@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-02-15 11:38\n"
+"PO-Revision-Date: 2019-03-20 10:15\n"
 "Language-Team: Slovenian\n"
 "Last-Translator: pierreslamich <pierre.slamich@gmail.com>\n"
 "POT-Creation-Date: \n"
@@ -928,7 +928,7 @@ msgstr "Sestavine so navedene po pomembnosti (količina)."
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, cocoa 4,8%, ascorbic acid"
-msgstr ""
+msgstr "Žita 85,5% (_pšenična_moka, polnozrnata-_pšenična_ moka 11%), sladni ekstrakt, kakav 4,8%, askorbinska kislina"
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
@@ -1174,7 +1174,7 @@ msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr ""
+msgstr "Z dodajanjem informacij, podatkov in / ali slik se strinjate, da svoj prispevek nepreklicno oddate pod licenco <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\"> licenciranja vsebine baze podatkov 1.0 </a> za informacije in podatke ter pod <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\"> licenco Creative Commons za priznanje avtorstva - ShareAlike 3.0 </a> za slike. Sprejemate, da vas bodo uporabniki ponovno pripisali povezavi do izdelka, kateremu prispevate."
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
@@ -1361,7 +1361,7 @@ msgstr "v zmerni količini"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
-msgstr ""
+msgstr "Premaknite slike v drug izdelek"
 
 msgctxt "n_products"
 msgid "%d products"
@@ -1547,7 +1547,8 @@ msgstr "Dejstva o hranilni vrednosti"
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr ""
+msgstr "Tabela privzeto navaja hranila, ki so pogosto določena. Polje pustite prazno, če ni navedeno na etiketi.<br/>Dodate lahko več hranil (vitaminov, mineralov, holesterola itd.)\n"
+"tako, da v zadnjo vrstico tabele vnesete prve črke njihovega imena."
 
 msgctxt "nutrition_data_table_sub"
 msgid "-"
@@ -1720,23 +1721,23 @@ msgstr "PNNS skupina 2"
 
 msgctxt "points_all_countries"
 msgid "There are %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "Z nami so, raziskovalci: %d in veleposlaniki: %d."
 
 msgctxt "points_all_users"
 msgid "There are Explorers for %d countries and Ambassadors for %d countries."
-msgstr ""
+msgstr "Z nami so raziskovalci iz %d držav in veleposlaniki iz %d držav."
 
 msgctxt "points_country"
 msgid "%s has %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "%s ima raziskovalcov: %d in veleposlanikov: %d."
 
 msgctxt "points_ranking"
 msgid "Ranking"
-msgstr ""
+msgstr "Uvrstitev"
 
 msgctxt "points_ranking_users_and_countries"
 msgid "Ranking of contributors and countries"
-msgstr ""
+msgstr "Razvrstitev sodelujočih in držav"
 
 msgctxt "points_user"
 msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
@@ -1744,7 +1745,7 @@ msgstr ""
 
 msgctxt "previous"
 msgid "Previous"
-msgstr ""
+msgstr "Prejšnji"
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
@@ -1920,7 +1921,7 @@ msgstr "Mesto, država in država, kjer ste jih kupili"
 
 msgctxt "purchase_places_note"
 msgid "Indicate where you bought or saw the product (at least the country)"
-msgstr ""
+msgstr "Navedite, kje ste izdelek kupili ali videli (vsaj država)"
 
 msgctxt "purchase_places_p"
 msgid "purchase places"
@@ -1996,11 +1997,11 @@ msgstr "Vnesi novo geslo."
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
-msgstr ""
+msgstr "Na e-poštni naslov, povezan z vašim računom, je bilo poslano e-poštno sporočilo s povezavo za ponastavitev gesla."
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
-msgstr ""
+msgstr "Če ste pozabili geslo, izpolnite svoje uporabniško ime ali e-poštni naslov, da dobite navodila za ponastavitev gesla."
 
 msgctxt "risk_level"
 msgid "Risk"
@@ -2056,7 +2057,7 @@ msgstr "vsebuje"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
-msgstr ""
+msgstr "Izberite izdelke s posebnimi blagovnimi znamkami, kategorijami, oznakami, poreklom sestavin, proizvodnimi mesti itd."
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
@@ -2088,7 +2089,7 @@ msgstr "Spremeni iskalne kriterije"
 
 msgctxt "search_flatten_tags"
 msgid "(Optional) - Create a column for every:"
-msgstr ""
+msgstr "(Izbirno) - ustvarite stolpec za vsako:"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
@@ -2104,11 +2105,11 @@ msgstr "Graf"
 
 msgctxt "search_graph_2_axis"
 msgid "Scatter plot"
-msgstr ""
+msgstr "Graf raztrosa"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p>→ izveste več o <<site_name>> grafih: <a href=\"https://fr.blog.openfoodfacts.org/news/des-graphiques-en-3-clics\">Grafi v 3 klikah</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
@@ -2121,19 +2122,19 @@ msgstr ""
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Stalna povezava do tega grafa, deljena po e-pošti in na socialnih omrežjih"
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
-msgstr ""
+msgstr "Graf bo prikazal samo izdelke, za katere so znane prikazane vrednosti."
 
 msgctxt "search_graph_title"
 msgid "Display results on a graph"
-msgstr ""
+msgstr "Prikaži rezultate na grafu"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr ""
+msgstr "Opomba: gre za uporabniško generiran graf. Naslov, predstavljeni izdelki in os vizualizacije je izbral avtor grafa."
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
@@ -2145,7 +2146,7 @@ msgstr "Sestavine"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Stalna povezava do teh rezultatov, deljena po e-pošti in na socialnih omrežjih"
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
@@ -2161,19 +2162,19 @@ msgstr "Rezultati na zemljevidu"
 
 msgctxt "search_map_link"
 msgid "Permanent link to this map, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Stalna povezava do tega zemljevida, deljena po e-pošti in na socialnih omrežjih"
 
 msgctxt "search_map_note"
 msgid "The map will show only products for which the production place is known."
-msgstr ""
+msgstr "Na zemljevidu bodo prikazani samo izdelki, za katere je znana lokacija proizvodnje."
 
 msgctxt "search_map_title"
 msgid "Display results on a map"
-msgstr ""
+msgstr "Prikaži rezultate na zemljevidu"
 
 msgctxt "search_nutriment"
 msgid "choose a nutriment..."
-msgstr ""
+msgstr "izberite hranilo..."
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
@@ -2197,7 +2198,7 @@ msgstr "Rezultati iskanja"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
-msgstr ""
+msgstr "Uporabi drugo barvo za naslednje izdelke:"
 
 msgctxt "search_series_default"
 msgid "Other products"
@@ -2209,7 +2210,7 @@ msgstr "Pravična trgovina"
 
 msgctxt "search_series_fairtrade_label"
 msgid "fair-trade"
-msgstr ""
+msgstr "pravična trgovina"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
@@ -2225,11 +2226,11 @@ msgstr "organsko"
 
 msgctxt "search_series_with_sweeteners"
 msgid "With sweeteners"
-msgstr ""
+msgstr "S sladili"
 
 msgctxt "search_tag"
 msgid "choose a criterion..."
-msgstr ""
+msgstr "izberite kriterj..."
 
 msgctxt "search_tags"
 msgid "Criteria"
@@ -2241,15 +2242,15 @@ msgstr "Iskalni izrazi"
 
 msgctxt "search_terms_note"
 msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
-msgstr ""
+msgstr "Iskanje besed, ki so prisotne v imenu izdelka, generičnem imenu, blagovnih znamkah, kategorijah, izvoru in oznakah"
 
 msgctxt "search_title"
 msgid "Search a product, brand, ingredient, nutriment etc."
-msgstr ""
+msgstr "Poiščite izdelek, blagovno znamko, sestavino, hranilo itd."
 
 msgctxt "search_title_graph"
 msgid "Results graph"
-msgstr ""
+msgstr "Grafikon rezultatov"
 
 msgctxt "search_title_map"
 msgid "Results map"
@@ -2257,7 +2258,7 @@ msgstr ""
 
 msgctxt "search_tools"
 msgid "Search tools"
-msgstr ""
+msgstr "Orodja za iskanje"
 
 msgctxt "search_value"
 msgid "value"
@@ -2273,7 +2274,7 @@ msgstr "Brez"
 
 msgctxt "see_product_page"
 msgid "See the product page"
-msgstr ""
+msgstr "Oglejte si stran izdelka"
 
 msgctxt "select_country"
 msgid "Country"
@@ -2326,11 +2327,11 @@ msgstr ""
 
 msgctxt "show_category_stats_details"
 msgid "standard deviation, minimum, maximum, 10th and 90th percentiles"
-msgstr ""
+msgstr "standardni odklon, minimalni, maksimalni, deseti in 90. percentili"
 
 msgctxt "signin_before_submit"
 msgid "If you already have an account on <SITE>, please sign-in before filling this form."
-msgstr ""
+msgstr "Če že imate račun na <SITE>, se prijavite, preden izpolnite ta obrazec."
 
 msgctxt "signout"
 msgid "Sign-out"
@@ -2338,7 +2339,7 @@ msgstr "Odjava"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
+msgstr "Skupna, brezplačna in odprta baza podatkov o sestavinah, prehranskih dejstvih in informacijah o živilskih proizvodih z vsega sveta"
 
 msgctxt "site_name"
 msgid "Open Food Facts"
@@ -2462,11 +2463,11 @@ msgstr "Neznano"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
-msgstr ""
+msgstr "neznana hranila"
 
 msgctxt "unknown_nutrients_s"
 msgid "unknown nutrient"
-msgstr ""
+msgstr "neznano hranilo"
 
 msgctxt "unsubscribe"
 msgid "Unsubscribe"
@@ -2474,7 +2475,7 @@ msgstr "Odjavi se"
 
 msgctxt "unsubscribe_info"
 msgid "You can unsubscribe from the lists at any time."
-msgstr ""
+msgstr "Iz seznamov se lahko kadar koli odjavite."
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
@@ -2490,23 +2491,23 @@ msgstr ""
 
 msgctxt "username_or_email"
 msgid "Username or email address"
-msgstr ""
+msgstr "Uporabniško ime ali e-poštni naslov"
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
-msgstr ""
+msgstr "Izdelki, ki jih je dodal uporabnik %s"
 
 msgctxt "users_add_without_products"
 msgid "Products that were not added by the user %s"
-msgstr ""
+msgstr "Izdelki, ki jih uporabnik %s ni dodal"
 
 msgctxt "users_edit_products"
 msgid "Products that were edited by the user %s"
-msgstr ""
+msgstr "Izdelki, ki jih je uporabnik %s uredil"
 
 msgctxt "users_edit_without_products"
 msgid "Products that were not edited by the user %s"
-msgstr ""
+msgstr "Izdelki, ki jih je uporabnik %s ni urejal"
 
 msgctxt "users_p"
 msgid "contributors"
@@ -2522,7 +2523,7 @@ msgstr "sodelavec"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
-msgstr ""
+msgstr "Izdelki, ki niso dodani od %s"
 
 msgctxt "view"
 msgid "view"
@@ -2530,20 +2531,21 @@ msgstr "pogled"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
-msgstr ""
+msgstr "Oglejte si seznam ujemajočih izdelkov iz celega sveta"
 
 msgctxt "view_products_from_the_entire_world"
 msgid "View matching products from the entire world"
-msgstr ""
+msgstr "Oglejte si ujemajoče izdelke iz celotnega sveta"
 
 msgctxt "view_results_from_the_entire_world"
 msgid "View results from the entire world"
-msgstr ""
+msgstr "Oglejte si rezultate iz celega sveta"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"\">Why it matters</a>"
-msgstr ""
+msgstr "Informacije in podatki morajo izhajati iz embalaže izdelka in nalepke (in ne iz drugih mest ali strani proizvajalca), slike pa morate sami posneti.<br/>\n"
+"→ <a href=\"\">Zakaj je pomembno</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -2671,7 +2673,7 @@ msgstr ""
 
 msgctxt "translators_renewal_notice"
 msgid "Please note that this table is refreshed nightly and might be out of date."
-msgstr ""
+msgstr "Upoštevajte, da je ta tabela osvežena vsako noč in je morda zastarela."
 
 msgctxt "translators_column_name"
 msgid "Name"
@@ -2739,7 +2741,7 @@ msgstr "Kot je prodano"
 
 msgctxt "prepared_product"
 msgid "Prepared"
-msgstr ""
+msgstr "Pripravljeno"
 
 msgctxt "unit"
 msgid "Unit"
@@ -2747,11 +2749,11 @@ msgstr "Enota"
 
 msgctxt "nutrition_data_exists"
 msgid "Nutrition facts are specified for the product as sold."
-msgstr ""
+msgstr "Prehranska dejstva so navedena za izdelek, kakršen je v prodaji."
 
 msgctxt "nutrition_data_prepared_exists"
 msgid "Nutrition facts are specified for the prepared product."
-msgstr ""
+msgstr "Prehranska dejstva so navedena za pripravljen izdelek."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
