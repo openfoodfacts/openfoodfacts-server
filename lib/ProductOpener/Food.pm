@@ -3582,7 +3582,7 @@ sub special_process_product($) {
 	delete $product_ref->{pnns_groups_2};
 	delete $product_ref->{pnns_groups_2_tags};	
 	
-	if (not defined $product_ref->{categories}) {
+	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq "")) {
 		$product_ref->{pnns_groups_2} = "unknown";
 		$product_ref->{pnns_groups_2_tags} = ["unknown", "missing-category"];
 		$product_ref->{pnns_groups_1} = "unknown";
