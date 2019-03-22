@@ -19316,7 +19316,7 @@ ne:चिनी
 # new:चिनी
 nl:suiker, Tafelsuiker
 nn:Sukker
-no:Sukker
+nb:Sukker
 # nrm:Chucre
 nv:Áshįįh łikan
 oc:Sucre
@@ -19369,6 +19369,48 @@ zh:食糖
 # yue:糖
 wikidata:en:Q11002
 wikipedia:en:https://en.wikipedia.org/wiki/Sugar
+
+
+#    BROWN SUGAR   is a sucrose sugar product with a distinctive brown color due to the presence of molasses. 
+
+<en:sugar
+en:brown sugar
+ar:سكر بني
+az:Qəhvəyi şəkər
+ca:sucre morè
+da:farin
+de:Brauner Zucker, Farinzucker
+# en-ca:Brown sugar
+# en-gb:Brown sugar
+eo:Bruna sukero
+es:azúcar morena
+eu:azukre beltz
+fa:شکر سرخ
+fr:vergeoise, cassonade
+gl:azucre moreno
+he:סוכר חום
+hr:Smeđi šećer
+hu:barna cukor
+hy:շագանակագույն շաքար
+id:Gula cokelat
+is:Púðursykur
+it:zucchero bruno
+ja:粗糖
+ko:흑설탕
+ml:ബ്രൗൺ ഷുഗർ
+ms:Gula perang
+nl:basterdsuiker
+pt:açúcar mascavo
+sv:farinsocker
+te:షాడబ చక్కెర
+th:น้ำตาลแดง
+uk:Коричневий цукор
+# yue:黃糖
+zh:紅糖
+wikidata:en:Q11190742
+wikipedia:en:https://en.wikipedia.org/wiki/Brown_sugar
+# ingredient/fr:vergeoise has 61 products in 4 languages @2019-03-22
+
 
 # nova:en:invert-sugar
 <en:sugar
@@ -21152,7 +21194,7 @@ ml:സോഡാജലം
 mr:सोडा
 ms:Air berkarbonat, Air bergas, air seltzer, seltzer, air soda
 nl:Sodawater, gazeuse, bruiswater, spuitwater
-no:Kullsyreholdig vann
+nb:Kullsyreholdig vann
 pl:Woda gazowana
 pt:Água gaseificada
 ro:Sifon, Apa carbonatată, apa gazoasă, sifonul
@@ -21182,9 +21224,9 @@ nl:Bruisend mineraalwater
 <en:water
 en:filtered water
 fr:eau filtrée, eau purifiée
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau%20filtrée
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau%20filtrée
 # 134 products in 2 languages @2018-09-29
-openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau%20purifiée
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:eau%20purifiée
 # 43 products in 1 language @2018-09-29
 
 <en:water
@@ -22896,7 +22938,8 @@ zh:碳酸钠
 # zh-hk:碳酸钠
 # zh-sg:碳酸钠
 # zh-tw:碳酸钠
-wikipedia:Q190227
+wikipedia:en:Q190227
+
 
 # SODIUM BICARBONATE (IUPAC name:sodium hydrogen carbonate), commonly known as baking soda, is a chemical compound with the formula NaHCO3.
 # On ingredient lists the name with hydrogen in it, seems to be preferred (otherwise it resembles to much the cleaning salt?)
@@ -48749,8 +48792,6 @@ fr:matière grasse laitière
 
 fr:concentré des minéraux du lait
 
-fr:cassonade
-
 fr:d3
 
 fr:mannitol
@@ -50369,11 +50410,8 @@ fr:tartrate monopotassique
 # <en:broth
 fr:bouillon de bœuf, bouillon de boeuf
 
-fr:vergeoise
 
-fr:thunnus albacares
 
-fr:carbonate de fer
 
 
 
