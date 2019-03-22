@@ -3786,7 +3786,7 @@ sub special_process_product($) {
 					or has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')));
 
 			$product_ref->{pnns_groups_2} = $properties{categories}{$categoryid}{"pnns_group_2:en"};
-			$product_ref->{pnns_groups_2_tags} = [get_fileid($product_ref->{pnns_groups_2})];
+			$product_ref->{pnns_groups_2_tags} = [get_fileid($product_ref->{pnns_groups_2}), "known"];
 
 			# Let waters and teas take precedence over unsweetened-beverages
 			if ($properties{categories}{$categoryid}{"pnns_group_2:en"} ne "Unsweetened beverages") {
@@ -3798,7 +3798,7 @@ sub special_process_product($) {
 	if (defined $product_ref->{pnns_groups_2}) {
 		if (defined $pnns{$product_ref->{pnns_groups_2}}) {
 			$product_ref->{pnns_groups_1} = $pnns{$product_ref->{pnns_groups_2}};
-			$product_ref->{pnns_groups_1_tags} = [get_fileid($product_ref->{pnns_groups_1})];
+			$product_ref->{pnns_groups_1_tags} = [get_fileid($product_ref->{pnns_groups_1}), "known"];
 		}
 		else {
 			$log->warn("no pnns group 1 for pnns group 2", { pnns_group_2 => $product_ref->{pnns_groups_2} }) if $log->is_warn();
