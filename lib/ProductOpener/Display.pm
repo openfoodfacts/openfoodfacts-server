@@ -433,7 +433,7 @@ sub analyze_request($)
 
 	# first check parameters in the query string
 
-	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache') {
+	foreach my $parameter ('fields', 'rev', 'json', 'jsonp', 'jqm','xml', 'nocache', 'translate') {
 
 		if ($request_ref->{query_string} =~ /(\&|\?)$parameter=([^\&]+)/) {
 			$request_ref->{query_string} =~ s/(\&|\?)$parameter=([^\&]+)//;
@@ -1142,12 +1142,12 @@ sub display_mission($)
 
 
 
-
-sub display_list_of_tags($$) {
+sub query_list_of_tags($$) {
 
 
 	my $request_ref = shift;
 	my $query_ref = shift;
+
 	my $groupby_tagtype = $request_ref->{groupby_tagtype};
 
 	# Add a meta robot noindex for pages related to users
@@ -1176,7 +1176,6 @@ sub display_list_of_tags($$) {
 		$log->debug("MongoDB query built", { query => $query_ref }) if $log->is_debug();
 	}
 
-	my $worlddom = format_subdomain('world');
 	my $staticdom = format_subdomain('static');
 
 
@@ -1210,7 +1209,6 @@ sub display_list_of_tags($$) {
 	# groupby_tagtype
 
 	my $results;
-	my $count;
 
 	my $aggregate_parameters = [
 			{ "\$match" => $query_ref },
@@ -1289,10 +1287,9 @@ sub display_list_of_tags($$) {
 		}
 		if ($@) {
 			$log->warn("MongoDB error", { error => $@ }) if $log->is_warn();
-			$count = -1;
 		}
 		else {
-			$log->info("MongoDB query ok", { error => $@, result_count => $count }) if $log->is_info();
+			$log->info("MongoDB query ok", { error => $@ }) if $log->is_info();
 		}
 
 		$log->debug("MongoDB query done", { error => $@ }) if $log->is_debug();
@@ -1324,6 +1321,18 @@ sub display_list_of_tags($$) {
 		$log->debug("Found a value for aggregate MongoDB query key", { key => $key }) if $log->is_debug();
 	}
 
+	return $results;
+}
+
+
+
+sub display_list_of_tags($$) {
+
+
+	my $request_ref = shift;
+	my $query_ref = shift;
+
+	my $results = query_list_of_tags($request_ref, $query_ref);
 
 	my $html = '';
 	my $html_pages = '';
@@ -1344,6 +1353,7 @@ sub display_list_of_tags($$) {
 		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
 
 			if ($country ne 'en:world') {
+				my $worlddom = format_subdomain('world');
 				$html .= "<p>&rarr; <a href=\"${worlddom}" . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
 			}
 
@@ -1362,7 +1372,7 @@ sub display_list_of_tags($$) {
 		}
 
 		my @tags = @{$results};
-		my $tagtype = $groupby_tagtype;
+		my $tagtype = $request_ref->{groupby_tagtype};
 
 		$request_ref->{structured_response}{count} = ($#tags + 1);
 
@@ -1598,7 +1608,7 @@ sub display_list_of_tags($$) {
 
 			if (defined $tags_images{$lc}{$tagtype}{get_fileid($icid)}) {
 				my $img = $tags_images{$lc}{$tagtype}{get_fileid($icid)};
-				$tagentry->{image} = "$staticdom/images/lang/$lc/$tagtype/$img";
+				$tagentry->{image} = format_subdomain('static') . "/images/lang/$lc/$tagtype/$img";
 			}
 
 			push @{$request_ref->{structured_response}{tags}}, $tagentry;
@@ -1648,7 +1658,7 @@ sub display_list_of_tags($$) {
 
 		# nutrition grades colors histogram
 
-		if ($groupby_tagtype eq 'nutrition_grades') {
+		if ($request_ref->{groupby_tagtype} eq 'nutrition_grades') {
 
 		my $categories = "'A','B','C','D','E','" . lang("unknown") . "'";
 		my $series_data = '';
@@ -1844,6 +1854,227 @@ HEADER
 
 	return $html;
 }
+
+
+
+
+
+
+sub display_list_of_tags_translate($$) {
+
+
+	my $request_ref = shift;
+	my $query_ref = shift;
+
+	my $results = query_list_of_tags($request_ref, $query_ref);
+
+	my $html = '';
+	my $html_pages = '';
+
+	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
+
+		$log->debug("results for aggregate MongoDB query key", { "results" => $results}) if $log->is_debug();
+		$html .= "<p>" . lang("no_products") . "</p>";
+		$request_ref->{structured_response}{count} = 0;
+
+	}
+	else {
+
+		if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm})) {
+
+			if ($country ne 'en:world') {
+				my $worlddom = format_subdomain('world');
+				$html .= "<p>&rarr; <a href=\"${worlddom}" . $request_ref->{current_link_query} . "&action=display\">" . lang('view_results_from_the_entire_world') . "</a></p>";
+			}
+
+			$request_ref->{current_link_query_display} = $request_ref->{current_link_query};
+			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_link") . "</a><br>";
+			$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
+			$html .= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">" . lang("search_edit") . "</a><br>";
+
+
+
+			if ((defined $request_ref->{current_link_query}) and (not defined $request_ref->{jqm}))  {
+				$request_ref->{current_link_query_download} = $request_ref->{current_link_query};
+				$request_ref->{current_link_query_download} .= "&download=on";
+				$html .= "&rarr; <a href=\"$request_ref->{current_link_query_download}\">" . lang("search_download_results") . "</a><br>";
+			}
+		}
+
+		my @tags = @{$results};
+		my $tagtype = $request_ref->{groupby_tagtype};
+
+		$request_ref->{structured_response}{count} = ($#tags + 1);
+
+		$request_ref->{title} = sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang});
+
+		if (-e "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html") {
+			open (my $IN, q{<}, "$data_root/lang/$lc/texts/" . get_fileid($Lang{$tagtype . "_p"}{$lang}) . ".list.html");
+			$html .= join("\n", (<$IN>));
+			close $IN;
+		}
+
+		$html .= "<p>" . ($#tags + 1) . " ". $Lang{$tagtype . "_p"}{$lang} . ":</p>";
+
+
+		$html .= "<div style=\"max-width:600px;\"><table id=\"tagstable\">\n<thead><tr><th>" . ucfirst($Lang{$tagtype . "_s"}{$lang})
+		. "</th><th>" . $Lang{save}{$lang} . "</th><th>" . ucfirst($Lang{"products"}{$lang}) . "</th>" . "</tr></thead>\n<tbody>\n";
+
+#var availableTags = [
+#      "ActionScript",
+#      "Scala",
+#      "Scheme"
+#    ];
+
+		my $main_link = '';
+		my $nofollow = '';
+		if (defined $request_ref->{tagid}) {
+			local $log->context->{tagtype} = $request_ref->{tagtype};
+			local $log->context->{tagid} = $request_ref->{tagid};
+
+			$log->trace("determining main_link for the tag") if $log->is_trace();
+			if (defined $taxonomy_fields{$request_ref->{tagtype}}) {
+				$main_link = canonicalize_taxonomy_tag_link($lc,$request_ref->{tagtype},$request_ref->{tagid}) ;
+				$log->debug("main_link determined from the taxonomy tag", { main_link => $main_link }) if $log->is_debug();
+			}
+			else {
+				$main_link = canonicalize_tag_link($request_ref->{tagtype}, $request_ref->{tagid});
+				$log->debug("main_link determined from the canonical tag", { main_link => $main_link }) if $log->is_debug();
+			}
+			$nofollow = ' rel="nofollow"';
+		}
+
+		my %products = ();	# number of products by tag, used for histogram of nutrition grades colors
+		
+		$log->debug("going through all tags", {}) if $log->is_debug();
+		
+		my $i = 0;	# Number of tags
+		my $j = 0;	# Number of tags without translation
+		
+		my $path = $tag_type_singular{$tagtype}{$lc};
+
+		foreach my $tagcount_ref (@tags) {
+	
+			$i++;
+			
+			if (($i % 10000 == 0) and ($log->is_debug())) {
+				$log->debug("going through all tags", {i => $i});
+			}
+		
+			my $tagid = $tagcount_ref->{_id};
+			my $count = $tagcount_ref->{count};
+
+			$products{$tagid} = $count;
+
+			my $link;
+			my $products = $count;
+			if ($products == 0) {
+				$products = "";
+			}
+
+			
+			my $info = '';
+			my $css_class = '';
+			
+
+			my $tag_ref = get_taxonomy_tag_and_link_for_lang($lc, $tagtype, $tagid);
+			
+			# Keep only known tags that do not have a translation in the current lc
+			if (($tag_ref->{display_lc} eq $lc) or ($tag_ref->{display_lc} ne "en") or (not $tag_ref->{known})) {
+				next;
+			}
+			
+			$j++;
+			
+			$link = "/$path/" . $tag_ref->{tagurl};
+
+			my $display = $tag_ref->{display};
+			my $display_lc = $tag_ref->{display_lc};
+			
+			my $synonyms = "";
+			my $lc_tagid = get_fileid($display);
+			
+			if ((defined $synonyms_for{$tagtype}{$display_lc}) and (defined $synonyms_for{$tagtype}{$display_lc}{$lc_tagid})) {
+				$synonyms = join(", ", @{$synonyms_for{$tagtype}{$display_lc}{$lc_tagid}});
+			}
+
+			$html .= <<HTML
+<tr><td>			
+<a href="$link"$nofollow>$display</a> $synonyms<br />
+<input type="hidden" id="from_$j" name="from_$j" value="$tagid" />
+<input id="to_$j" name="to_$j" value="" />
+</td>
+<td>
+<button id="save_$j" class="tiny button save" type="button">$Lang{save}{$lang}</button>
+</td>
+<td style="text-align:right">$products</td></tr>
+HTML
+;
+
+
+		}
+
+		$html .= "</tbody></table></div>";
+		
+		$html .= <<HTML
+<input type="hidden" id="tagtype" name="tagtype" value="$tagtype" />		
+HTML
+;
+
+		$log->debug("going through all tags - done", {}) if $log->is_debug();
+		
+		my $tagtype_p = $Lang{$tagtype . "_p"}{$lang};
+
+		$initjs .= <<JS
+oTable = \$('#tagstable').DataTable({
+	language: {
+		search: "$Lang{tagstable_search}{$lang}",
+		info: "_TOTAL_ $tagtype_p",
+		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
+	},
+	paging: false,
+	order: [[ 1, "desc" ]],
+	columns: [
+		null,
+		{ "searchable": false } 
+	]
+});
+
+\${.save}.click({},function(event) {
+				event.stopPropagation();
+				event.preventDefault();
+				
+				alert(this);
+
+			});		
+JS
+;
+
+	$scripts .= <<SCRIPTS
+<script src="@{[ format_subdomain('static') ]}/js/datatables.min.js"></script>
+SCRIPTS
+;
+
+	$header .= <<HEADER
+<link rel="stylesheet" href="@{[ format_subdomain('static') ]}/js/datatables.min.css">
+HEADER
+;
+
+
+	}
+
+	# datatables clears both
+	$request_ref->{full_width} = 1;
+	
+	$log->debug("end", {}) if $log->is_debug();
+
+
+	return $html;
+}
+
+
+
+
 
 
 
@@ -3084,7 +3315,12 @@ HTML
 
 
 	if (defined $request_ref->{groupby_tagtype}) {
-		${$request_ref->{content_ref}} .= $html . display_list_of_tags($request_ref, $query_ref);
+		if (defined $request_ref->{translate}) {
+			${$request_ref->{content_ref}} .= $html . display_list_of_tags_translate($request_ref, $query_ref);
+		}
+		else {
+			${$request_ref->{content_ref}} .= $html . display_list_of_tags($request_ref, $query_ref);
+		}
 		if ($products_title ne '') {
 			$request_ref->{title} .= " " . lang("for") . " " . lcfirst($products_title);
 		}

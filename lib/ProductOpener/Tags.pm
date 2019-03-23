@@ -99,6 +99,7 @@ BEGIN
 					
 					%loaded_taxonomies
 					
+					%synonyms_for
 					%just_synonyms
 					%translations_from
 					%translations_to
@@ -177,7 +178,7 @@ my %stopwords = ();
 %just_synonyms = ();
 my %just_tags = ();	# does not include synonyms that are only synonyms
 my %synonyms = ();
-my %synonyms_for = ();
+%synonyms_for = ();
 my %synonyms_for_extended = ();
 %translations_from = ();
 %translations_to = ();
